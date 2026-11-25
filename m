@@ -1,137 +1,186 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.144
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795578440;
-	b=kTckWkFFdBPm+OY36wpqEsdccI/aLs1+b/gLYVQr3S4hwh480aKGrqnaUwtYagn6plys
-	 k12iawAyG93aVrfQtYbaAWC8gXioerA0oU0Iwz6BuTlCSWv9JAtMxPhJfN6JDvu8IAuwC
-	 gGre4MV0F0nKVaEbhhxMIG/mSKCsWs0ZFf4TIBhIpqsAu2DeOamC2MMQ/ZZr23Ttz4V6W
-	 xPZKfLzDgitbgK5rkyPl9aY8n8682poCdDQGl8RZCDxwgqzeEfbpYm80a05MsjLusjd+S
-	 xnKmLSGhU93u8EoKUBlWEW5HsZO+fV0pRzal523NKhXAMY4psx+3P6hNniLYgNobstA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795578440;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:Reply-To:MIME-Version:Content-Transfer-Encoding;
-	bh=dCHNhqHkrzrz2mDQOu+WPZ6RNgUvqMqCKviUggAFHfg=;
-	b=dLLlXdyv5PF0do/p+UIYL9zwXpjj5YBFXhuhhDue83UcNSazHZVFsjnBW5qJO27qBMXb
-	 lfGEfRFw4UXOMbBM5ZlIzeWJVSJisfrjyPlPyM8kuc4y5XfZKGVCJxxOjnHMSfIuZJKdt
-	 eNbpZWW5qvGE2BVJPuw8Ki6Te3xAcSHYfgweaqQLtX14WYNZpgn1RmRN4edwiZuc66vFE
-	 Baj83xE4ng5RhkdjusAju6da9c7GGxqAZBUvqxkEANPfnw8M6HQoqWdF1+4rqGZ5NbhPo
-	 xdu/vIUpxkdWl+WXpFajjSKG1tFIGKIh43Hqprdmfe5TEQtfpKt+9mAnpe18WspGMkw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ownmail.net;
-	spf=pass smtp.mailfrom=ownmail.net;
-	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=va1d3aw8;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=FW5JIddi;
-	arc=none smtp.remote-ip=103.168.172.144
-Received: from fout-a1-smtp.messagingengine.com (fout-a1-smtp.messagingengine.com [103.168.172.144])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.21
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795578587;
+	b=Yl5dm1XO7u/R9m/OI0K85s5Xx0z4v1UmtNqoTM5Ijzha/ap23yrntmKbE+QqzNbscgvP
+	 0Wa7yV5FalndDnVUWgv4ikHVGowcNdD7NLFz882QsI+uvTVqQniVr6gR/wW1o0LZT67p8
+	 1jwrvuCkeR15Yy9VFhgrmzU1zulNEP5bM9vc/Sq6jMEpohdyG/Cn79v3J4eC31advBXoh
+	 Y5FJqGK1+Pl3K6M1Fr7dq6G3PITOTKM1LfZaQfQU3zQkhHBdcoka8aEqHS9l0YrBIeM/R
+	 DBzk8w/XuVN79YMR4Lf2L2xSJ+OmlO75ncn8n+v8vKO9p/xgtcaNkeV4VoJFGCOGotg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795578587;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:
+	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=vlGk9xmRxgJ1kYSZoqdOKrtZBamUlPgCxDlm6fsI4Fo=;
+	b=C0qk0uDdXcGw5uXC8UlP255FgIvwkcdbhNOsbdPM2+ncQt4+s1aUkIxMcXjYqLbD1ORk
+	 rSFkuQXaviflnt3m9k/JzCLByOm8tnD9UZpiBmYYjys7ctr55Ts8cHNB4JbPd4WjPRQjs
+	 BTDL0tNJ+4ZKyWvrpe/jGH7S6xXADiuBci9ncBi1XYbrNluywrUxXGh9HHniN5DX20GR9
+	 Dkgy9HMOC6zXDWcG93m3Jnv0179ytzl+POR7/JY+/tB1/VqH0zHv7ixHmsB2jYoXBzpuH
+	 f+dHgdWx+LzDun1JFVwcGf0KMjM5QhSL/ApKEpygx140ixcppawTbpcJDuBsjjcK+ig==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="WkUKXZE/";
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=GU+YdLuz;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.21
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F6C2606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:47:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F6C2606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E923606A31E;
+	Wed, 25 Nov 2026 03:49:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E923606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=va1d3aw8;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=FW5JIddi
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.phl.internal (Postfix) with ESMTP id 9684DEC0A08
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:47:19 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Tue, 24 Nov 2026 22:47:19 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:reply-to:subject:subject:to:to; s=fm3; t=1795578439;
-	 x=1795664839; bh=dCHNhqHkrzrz2mDQOu+WPZ6RNgUvqMqCKviUggAFHfg=; b=
-	va1d3aw84KksXRSBIx4FJ2okx4+klG2QAdorkc5ywg1CK+o7Qu71/nyD343nA0Jc
-	dhr/Gc90CmS3WDRIJN/+eJ2HjH8lpBtDy3BslQii0YxQQvx24BuOQY8eF/EK6DGc
-	jDE1+VL+Qy169Ckh4wlxJ5XHGxY7aT1G7QqgHS9uQGNYEpiVlmszXuS3LgTAKY8T
-	WNqTn/xVoLZhoIR2yL3uiJZA0zptePeCkXFR/Ty+Hwu0aClyvqGsJVXBhtUjBGGU
-	WZ0peyBkgLxzMqtS0Mrypt8cS6/53Toj4vzEwYNgWV8vkPkm6r2NCq04xQ5NpQA1
-	N6Y4LJ+8u2tyKeEito65IA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1795578439; x=1795664839; bh=d
-	CHNhqHkrzrz2mDQOu+WPZ6RNgUvqMqCKviUggAFHfg=; b=FW5JIddiieTGO+cqe
-	hcQkgxBGwppM9POYHLDt6pG/23xq02TJyjltZpK+6g/2X9uWjYRCsbp4f3iqIVku
-	XV9SpPLQl2GWRApWr1/DWppdhsWVm9uNnYTqA9on3sZnvfQ/W+jXsr+InIWbefUS
-	8o3tnuU01nkB024NTzpwJODIdMGT9lMLwokFmu/XQiPTWRVeIuPiu6ehsTCEiwGW
-	mNBXyw7aWiriP/TDPPS2DLtLz7SqTEWd2DkbOS17DrL2rv0F5iFLDf2hHnKL+udl
-	FYipxENZCJAAjWmfndXsTtnziTard3IO/fuQCw/g6hI2OYH0vAZQCF0c7a3tVCzw
-	JYGOA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ownmail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795578439; d=ownmail.net;
-	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:sZevAUga6jgLxq6yRm1o+/YaFIx7D72junNZeZ11+7oMDLO
-	iU/92yN49VXAhPXtcqgib6jJHzy/kyvQnefhymY30tcVdZ7Q7H8UkNvjInWyZkZB
-	uVtRF1RbuC71c6J3x9Z/iAai/9sfj03lbnsjp5eZpbVWsRq+z3TOehS9JsD++hos
-	H3hHrZTUruT/mMG618an+ZRQbHygacdhQ9AyrAog1+t55pFccYMQjjsNFjKhJJa5
-	S21N3CR14R80/Lc0ybSODLHcHO1Kvdd+fe0+A2eJdU0eCauGUHcWAsbRZUzz08xr
-	Lqd/+ZvwP65IYoOc2LpHw32MGMgWDCXy00LhxRA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,reply-to,subject,
-	to;
-Message-Instance: m=1; h=sha256:w7IvvJbIcnCTYqHB4sNx8kYi67Yq0w+ucVxZGu+sY4Y=:gMYcM06M86YJ9UdGbkaR2cCHQB6Y0einrDMBHpb3ffE=;
-X-ME-Sender: <xms:R1oGa2GWIhPFFgR0emympFg5thHmpkZ04X7oHV2p0PHgddxncdllHw>
-    <xme:R1oGa-SKJA3XOQaXzRv4vqCxAgtgUW7YanUpSleGoHkRAJgEuLAQ8toJiwSWeGvvo
-    -QzyT8S_bGR3cxKikVjUjrW9pwNgmp3PMP7JmLK5w_T70BV0AU>
-X-ME-Received: <xmr:R1oGa1NNd-EoKNVfdkDi4ggicxB4RUQLj4nz0vzEr7yKghWoRMPaj8ciZKkaGVnWJn-l3nMDpP29AbK5pwrUpM8Um2v8n-Q>
-X-ME-Proxy-Cause: dmFkZTFR427OSMpMhBUq2c/PRD6RmqRpXHsHavEQEoZib45veoj0ON4Fee0fFpAMf6IRZD
-    7ioshD0AaEWr7quPZ3VJk4MkgPxfK4VajmEfAasmF1N4QuQ1Nx4fAT27aU1zZmPYaReDqx
-    rfP5UHReFgze/pUM1YUaeJAgJLGWSi2iJU/qcqRk+B4M1TsPMqQDofdX/Jn7SjcVJvCtNm
-    zdB65WAuETFQQDYBDZIOHXvboBphMIm2vyy1TKs+e7zZqPSqTzzCVyEWo2arAfhj68hGFx
-    kBzHUYnaQIV/eTYhsd/MgvSt0+AvaXUSwYNCdWWq7bBlwHpxfTlmsOfayzrTTRF9w5P7E+
-    NhwDTVyxSr56UGePiE1r6hEUm4rr62pt0ea1crZBNCZZ3iI5npQNpdqKexwLE2ey5zPQVT
-    kDhkVCmNPqxKgalPyvC2iQjnNVaXgdGBhj7v8CWR4NKmycHqHQEput8fYFsOTUivOijkd/
-    C7WmEDTTEDydJUKJW7nxu2LiMovm6yLdR5YhhMqM/S4XNtznI8gHyXT2wyiXDgmPbfr/hb
-    I2RDigEYftuQLDbApMxygEBRb/yjHao/gw/eOEnlNiIU9+mBBu2A7WIxyoMNXYtPZkjjt1
-    QxiRJEhoblSgSdCJokLOY/H9/3MPCto/MK3arCn6QkBj6Fyz8ygF2suOcrVg
-X-ME-Proxy: <xmx:R1oGa3O2fpbpCsTARlOuVg0NnavpbZEL2-aFG55og_QXkWbY8JEoYg>
-    <xmx:R1oGa3H1QfK6v0Dbn27qqEhWQ1CmUScikM3Zr2XG4Q8cHIH-55BV1Q>
-    <xmx:R1oGa5Pelic14_ayqIwY0DjQCUd_Ggg1CXUR28uIxq4C1P7Lnek_Mg>
-    <xmx:R1oGaxsfBUQHWNeYcwSDv3DRdYfBrAsciAzU4jESmw7oXOgY-Cs_8w>
-    <xmx:R1oGa7wqWlJ5rmNRv9gfnvyM_oJXD96fN3FJTTsN-1oGR9hSUDlVUkDS>
-Feedback-ID: i9d664b8f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 22:47:14 -0500 (EST)
-From: NeilBrown <neilb@ownmail.net>
-To: Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>
-Cc: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>,
-	Jan Harkes <jaharkes@cs.cmu.edu>,
-	coda@cs.cmu.edu,
-	Jan Kara <jack@suse.cz>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Jeff Layton <jlayton@kernel.org>,
-	Amir Goldstein <amir73il@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	codalist@coda.cs.cmu.edu,
-	linux-fsdevel@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	linux-afs@lists.infradead.org
-Subject: [PATCH v3 11/11] afs: lookup_atsys to drop and reclaim lock.
-Date: Wed, 25 Nov 2026 14:16:49 +1100
-Message-ID: <20261125034543.4084039-12-neilb@ownmail.net>
-X-Mailer: git-send-email 2.50.0.107.gf914562f5916.dirty
-In-Reply-To: <20261125034543.4084039-1-neilb@ownmail.net>
-References: <20261125034543.4084039-1-neilb@ownmail.net>
-Reply-To: NeilBrown <neil@brown.name>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WkUKXZE/;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=GU+YdLuz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795578587; x=1827114587;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=cfHQwE6SmMbqrmalTpnUdzfPN8dRgxNrLCNS1MYvkg8=;
+  b=WkUKXZE/TdpA3cAwRC54aT1vr0BQ2+FPblfeZCQM/mTQiQjb3qPsGQE6
+   zv4XHJzrr4q/VaW3AQpNKsgKixQDTAMRyEbdDWaVHCmSlZrVfkDaaBGV0
+   qas1iHtZNRcET0UBTLbXFQDqqfwxNB9Z3FflsEhRsvZYfZKBh0FzteDXg
+   a1xsVQUJ4VhdhcVv9eQvKrG1s9fSbTZ0JeMQKfhHM9ntvQGEO3mZB4La8
+   HhmTtSlXxnesUxvUglSKLcWuSNrHhM4Vk7OhJMdOXIjQceHweZFEFYWX0
+   R51o+1hN/fBulBepAJpIyYQD6299NumGceDgZXv3Yd5TAdPYjUWNccpdt
+   w==;
+X-CSE-ConnectionGUID: LKewsjOmTuK+8/c+nO7uSA==
+X-CSE-MsgGUID: BwSCz4RJSkWeGlUBl2tWDA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4522545"
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="4522545"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 19:49:46 -0800
+X-CSE-ConnectionGUID: LOtErMmlSgahTsX3oDTD7w==
+X-CSE-MsgGUID: S76u6SUQQJGi6w7ftpgmNA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="12181587"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 19:49:46 -0800
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 19:49:45 -0800
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 19:49:45 -0800
+Received: from CH1PR05CU001.outbound.protection.outlook.com (52.101.193.52) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 19:49:44 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=i/0xO8JcQ3ldlOErGg+ImK1Ik11FYyTwkG8NrIFBKvCyi1tQDmMqJDRlgBz/9XVEYAPYQFwvJMZZAlUkfLV7F1JBN9tuXmHqPIJMDKpv0lyar595Bm1zADRcSnphmNkV0m5xabZWzx2AqKhEM8t7hm/7E5CwOoKj7UD62ur5cYG1pxH0ZBDZiAN4SjFlEG5vVpb0ZNZcCfsa7xNcfXH82s2L8AP7u+P4ycdeo//kx6z+F/cU++IBwTpBIkLFNLzDKMAuooJoW9v9etpRgY3MfBfggX3mFWw/P0V0r1JZjkunm11z9ko2tpw8Ds6q0i/1PxNHbHOPBIlXKP26kxn/Ag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vlGk9xmRxgJ1kYSZoqdOKrtZBamUlPgCxDlm6fsI4Fo=;
+ b=XSU2TmmEdUBxjHdRUBCp+185nSG8TuXOsoBYZrtCSyzFsirX1OD1QqR4PZt6n8FGQfNP6rSM4PeeEtrZU24QgXTJl21hJHx8cHBhKfBEcrhuZHbiDgijSsKkyyI7R5gvyRFrjCZmOH5KbN6EXTOp9OD3RF/4TmAEoE78h3AmOZ5ZFL/0VYroF8bvNiLR4wp3amq9ne8ZhtSE4hgO6PamYjPyWONsyIw/Jv5alfvb8ppCI5l3S7ndkC9aaoiql53hZT4nCZG9jtS0RDhE2MKH7hFa4w0gDFupDbFLo+nJbKNCioTCw4wrxHiuRBJfvVOcaeKKXFYSvDUsBG79d394zQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vlGk9xmRxgJ1kYSZoqdOKrtZBamUlPgCxDlm6fsI4Fo=;
+ b=GU+YdLuzJN9QWX9rVzl8yczLk32dpmjxIg7taJMrUaXN7jmgPozGVac9uvAIHkh1u0kbaTy7piMl/Ainh7jk17afbHxlTVYw1IPT6hD9ZJL6NUhwUwODxMDtLBGLFBz8xjNCFaeGc7cL6/S46rHCSlntvGkAvZLXoqJPFxw0FmA=
+Received: from CO1PR11MB4835.namprd11.prod.outlook.com (2603:10b6:303:9e::22)
+ by SA3PR11MB566415.namprd11.prod.outlook.com (2603:10b6:806:589::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Wed, 25 Nov
+ 2026 03:49:43 +0000
+Received: from CO1PR11MB4835.namprd11.prod.outlook.com
+ ([fe80::d051:d948:c209:9225]) by CO1PR11MB4835.namprd11.prod.outlook.com
+ ([fe80::d051:d948:c209:9225%6]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 03:49:42 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Lu Baolu <baolu.lu@linux.intel.com>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "x86@kernel.org" <x86@kernel.org>,
+	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: Jason Gunthorpe <jgg@ziepe.ca>, Kiryl Shutsemau <kas@kernel.org>,
+	"Edgecombe, Rick P" <rick.p.edgecombe@intel.com>, "yilun.xu@linux.intel.com"
+	<yilun.xu@linux.intel.com>, "Li, Xiaoyao" <xiaoyao.li@intel.com>, "Gao, Chao"
+	<chao.gao@intel.com>, Binbin Wu <binbin.wu@linux.intel.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v3 5/9] iommu/vt-d: Block GCMD and ECMD while acquired by
+ the TDX module
+Thread-Topic: [PATCH v3 5/9] iommu/vt-d: Block GCMD and ECMD while acquired by
+ the TDX module
+Thread-Index: AQHdcmB728lL8xYlGkiyC7/RvXQScLc+Nr1w
+Date: Wed, 25 Nov 2026 03:49:42 +0000
+Message-ID: <CO1PR11MB4835F23CDAD5127487B5978B8C432@CO1PR11MB4835.namprd11.prod.outlook.com>
+References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
+ <20261112043054.2664857-6-baolu.lu@linux.intel.com>
+In-Reply-To: <20261112043054.2664857-6-baolu.lu@linux.intel.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CO1PR11MB4835:EE_|SA3PR11MB566415:EE_
+x-ms-office365-filtering-correlation-id: 8a9c0d26-c3bc-4889-69e2-08df4aa723b5
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|261009223027099003|38070700021|10067099003|56012099006|11063799006|4143699003|261022105027099003|5023799004|261026121527099003|261026140227099003|261028144727099003|261022075727099003|261102123227099003|261021121427099003|261021123027099003|18002099003|22082099003|3023799007;
+x-microsoft-antispam-message-info: CpC+0dblPFlzd59zmpOhezYwa0vG9xdHd2pJd20uYtmjb2c40YaVWeA37KwUabaqVDOyAnSF03GTRPoJsgJCUIrVG3ju9c8g6REU8gy7bilxNdy9UnhbKji3TFM1MfeMoa9adTEYVrHSa2khqbUjEwrpr8YvcsbutOMFhxQi+gXOqhsRY64Jk41zhAbQU1R4h+vXHAOe0EvrhUcRmlAs38K2S4RfaogshLQuc8chvgZJbC6vEEQw7GsM7onC9EAxyCOt7gGpm+857RhBkRu3Hxl9G6lShW9W7Q6B3Q2Ks9xqhZwrE5qHXFTC9/JJj02dNc9EMBmovk9FE0rAMKRuY4tWmJ6iTOea09zrAD1Kx6xubA1Dz252OTOcL7sYLW5icC6W9ll9sXRzi5/WcW0WRBzTLi0bnOxSxNTM0J9SzIjXVjSlemTBcq0sCw72R22e1UWF6d9vo1t4KW994HaOKo1PvbAh8nC6vGalccyV2BVY3MpKDEGpF3GnYziatzQ3blMiDWORhdNLXjOXiMS6c00z2wty02ghsmD6gq0he0yKWIoTkNzqRarOlM9tLm3pgbs7CDXDRtaGBhcq2CHN8lrMtTX6qVYDdkq4ZGnL6Qk5cIRveGJ9JC0Rr/eoc0PPjrRQc9c9ZbCGI97s+7/ef8b7+N5X6UU+cezowCgIhSC/iYldbuwTQxnMVoMvuHF1jeijGr8gOEK9r9YWvla/EaT4ulXE2ACZcmWsuq0S4ik=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4835.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(261009223027099003)(38070700021)(10067099003)(56012099006)(11063799006)(4143699003)(261022105027099003)(5023799004)(261026121527099003)(261026140227099003)(261028144727099003)(261022075727099003)(261102123227099003)(261021121427099003)(261021123027099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?6Kk7SjsAy9ium3r6nymMrPnJmeFfnHrhr9rX3pS6wuXijlHAvZGflOX2iRUj?=
+ =?us-ascii?Q?8yeJYMHmLaH5xf11yhSTOnbOTLOEAutdPA7lC1hb5ogU/DsysSlOPcgHGyMW?=
+ =?us-ascii?Q?YpOz4juF4MJ0TdxZVvqyteF6dTZnEba2zjdna9ZNZsOKJ1i7F4r99itGrR6A?=
+ =?us-ascii?Q?7oE6Cqts+/QNjnAMU3tglb27etpt3J5RhU0+x0fK85FfL4vbHrfCHVTS0ry/?=
+ =?us-ascii?Q?ZostOAx4duSJiNKosNERVSqFlOpOlUr9foMiRqu8lrsHk/fzWCh5M/N/Zq7X?=
+ =?us-ascii?Q?Ih/r/71xxFxfqkpoH40/WfO8BFPto+RLjvabqio9Q+sIK5CUUNQ9PX11owok?=
+ =?us-ascii?Q?u99NpOx4Idme16Fshl8/agsbhTIHFj2SSxqt1u+lOo99hs4eOVBYUuHgN7uB?=
+ =?us-ascii?Q?yV/slc8X1NLc0TxBR5jjt30pBbM+GU2YGHb1NSI5UUhZ76oiHg0I43f80JKZ?=
+ =?us-ascii?Q?2hrriZVXAj+85vqMf7hUq4/RPdctkz85iuplxUfi6AWhi762A18+VA+pEZ+F?=
+ =?us-ascii?Q?P+chHDD8EEiPCMMWCWJXxpmbozh1pO2KfYnMJXhAKbJiwGTjG1QQyc9qrsmv?=
+ =?us-ascii?Q?PEMiqPWB2sUrLcfzmfx6XR7oLkUGuJWJu7PF9KCgJbEjFvaSmtLEmrvcNwPm?=
+ =?us-ascii?Q?/HgWeX2aN7fquyQ5SFRKEeiCwiidP/LKGOUAd6vZCGdNYVvTuL4zD77wgVBF?=
+ =?us-ascii?Q?9wHB6HYrHYbOa7DU8ZSWQPL3/2MhOibWEnSAVpCAw9eatWFEfpykROpCqX1H?=
+ =?us-ascii?Q?3kPFl3Nz4yIU2Z9Ug3aRRlfEn3P0VrJONg0noH5Q6P4IfPQYPz90K0AIMvfO?=
+ =?us-ascii?Q?+fjprFfJwhiRBcOIZfUSMZrIxQLxIbtj1nEVRCvxmUbIqdxEYleVmtW2AvIW?=
+ =?us-ascii?Q?aXf3spWu4NGHhanqQuofK6DwyuNXO02+sOHwNad6YMcZBRE5RyfWcoH8slix?=
+ =?us-ascii?Q?hi7dlWokM+Byi9pU2NGtOEZpW5tEiRqd6lNA8ygzKC9mkkRtSJiNOx1IxFmb?=
+ =?us-ascii?Q?u+crzFgI/xyLgXB8JJaOg6dStJk6YDtz27lgdaDDC6Amgnl8/nrPm7Je9BTg?=
+ =?us-ascii?Q?NvZpn0PRT/4RZmqb2txTxkddso2s7dfsYVaiiDErLTKG1Y085WwtY4tmjv25?=
+ =?us-ascii?Q?HiD4cEwGPM34zLD+RG8nKTMdcbQMADDReI9Z7WYrZ0fnfs2FiaBp2mvrFIwi?=
+ =?us-ascii?Q?VMolRagYig/Sv031ceIk5OFEYECnglnXV1Dvmg1reW3O4Es/LoY4UJM/idHn?=
+ =?us-ascii?Q?MRyX5CIQbzE64VtgrfOl4MOvsPV69RJ3p3seGVJ7dcFvG3yfa5aRVAtO/ZdH?=
+ =?us-ascii?Q?+QY738spDgoOGtulClodbdPa+fDioOCA9+n547qPPHAtXQLb4MbhdV6jF6f+?=
+ =?us-ascii?Q?QzDGyt6IcsyGiI7F5V3VXAgRwcrQ2TSiiQ8hvXh0Aoj9NfMNBeP5BV9xmPzl?=
+ =?us-ascii?Q?IcEVKRSoV2jm2LVqCoSqdmnq19dIkcBnF5AO2/7JwyfmxUI8TD5zKoqadTDP?=
+ =?us-ascii?Q?vYYKgP7L9i9DfLJ1YaiKu9A1Fj7lwZrY76U9bpx3m/5Y9J5OIbR39aQLh1Nk?=
+ =?us-ascii?Q?scNIGtgRXQ5ZB+pmuPmZqp0jwgpvLIs3jWoCfkmyS4YYYnsHCEdAHORSjfFX?=
+ =?us-ascii?Q?ll5t9uinoWvP55oB0UjyBX7b2fV2SrB3KNF6Eqd059QZnZnh/D9jC+lxUysa?=
+ =?us-ascii?Q?wlVjyNjmkfj+c9SrHF8KjW29gePbyKOfudqJ2/5chbuDghEb?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -141,65 +190,155 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Exchange-RoutingPolicyChecked: jZaLBH7KZZKHLPTJQ0b8qu5LbvYT5d2BIY5MAM61Q43lzzqr7w1Aiyz/+r7zWvH+h9ADhJia4oZy1ggUBAb8Pmehq+VjUnI7p+kJ61SWA2C2T6lI3e+nUJCENJu8Pyc9C4i55p5NJWahDXwmrJoVOtYSpCaWX1z1+2xB5Ecl+pBH1H4WrrRGeyvAaI9UVLb/aqxhnkuhK9GD6JZ0ipVM7dOFPCAZ9jJTzCFBja06bkU6J/RXFI7rqCT8f3YU6/ZA8cgdClRiLwXAYfq+LRmAUkqKbqfWLFEaVrsrGkD4YEx129aLjFyrRHoGSC2A04dSbDXYirsk1uerr2rdlHr46g==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4835.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8a9c0d26-c3bc-4889-69e2-08df4aa723b5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2026 03:49:42.8751
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 6z3UVacUq3lDff8m/Y6/x5KrX4iSqlVdZVIeukpGw8hCzE4tZxOviNLl7g7j/mfTuEVVHB8QxRM/55ApefU2gw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR11MB566415
+X-OriginatorOrg: intel.com
 
-From: NeilBrown <neil@brown.name>
+> From: Lu Baolu <baolu.lu@linux.intel.com>
+> Sent: Thursday, November 12, 2026 12:31 PM
+>=20
+> Once tdx-host acquires an IOMMU for TDH.IOMMU.SETUP, the TDX module
+> owns its Secure TDX Mode state. The VT-d driver must not change the
+> global state of the IOMMU behind the TDX module's back, nor issue
 
-If afs is asked to lookup a name ending with @sys, it needs to look up
-a different name for which it might need to allocate a dentry with
-d_alloc_parallel().
-This is done while the parent lock is held which will be a problem in
-a future patch where the ordering of the parent lock and
-d_alloc_parallel() locking is reversed.
+just part of the global state, right?
 
-There is no actual need to hold the lock during this nested lookup, so
-with this patch we drop the lock and reclaim it, and use
-lookup_noperm_unlocked().
+> enhanced commands, until the IOMMU is released after TDH.IOMMU.CLEAR.
+>=20
+> Use the tdxc_acquired flag of struct intel_iommu, which is protected
+> by register_lock, to block both. dmar_tdxc_acquire() now fails with
 
-Signed-off-by: NeilBrown <neil@brown.name>
----
- fs/afs/dir.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+'both' means what?
 
-diff --git a/fs/afs/dir.c b/fs/afs/dir.c
-index bc90b30d8b57..7ed5ff63c90e 100644
---- a/fs/afs/dir.c
-+++ b/fs/afs/dir.c
-@@ -938,6 +938,12 @@ static struct dentry *afs_lookup_atsys(struct inode *dir, struct dentry *dentry)
- 	refcount_inc(&subs->usage);
- 	read_unlock(&net->sysnames_lock);
- 
-+	/*
-+	 * We need the directory to be unlocked so we can perform other lookups.
-+	 * We don't really need the lock any more. The in-lookup status of
-+	 * dentry gives us sufficient exclusion.
-+	 */
-+	inode_unlock_shared(dir);
- 	for (i = 0; i < subs->nr; i++) {
- 		name = subs->subs[i];
- 		len = dentry->d_name.len - 4 + strlen(name);
-@@ -947,7 +953,7 @@ static struct dentry *afs_lookup_atsys(struct inode *dir, struct dentry *dentry)
- 		}
- 
- 		strcpy(p, name);
--		ret = lookup_noperm(&QSTR(buf), dentry->d_parent);
-+		ret = lookup_noperm_unlocked(&QSTR(buf), dentry->d_parent);
- 		if (IS_ERR(ret) || d_is_positive(ret))
- 			goto out_s;
- 		dput(ret);
-@@ -958,6 +964,12 @@ static struct dentry *afs_lookup_atsys(struct inode *dir, struct dentry *dentry)
- 	 */
- 	ret = NULL;
- out_s:
-+	/*
-+	 * Cannot take parent lock while we hold an in-lookup dentry so
-+	 * must make sure that lookup is done.
-+	 */
-+	d_lookup_done(dentry);
-+	inode_lock_shared(dir);
- 	afs_put_sysnames(subs);
- 	kfree(buf);
- out_p:
--- 
-2.50.0.107.gf914562f5916.dirty
+> -EBUSY if an enhanced command is still in progress when it sets the
+> flag. All GCMD writers hold register_lock and wait for completion before
+> dropping it, so setting the flag under the same lock guarantees no GCMD
+> operation is in flight once acquire() returns. While the flag is set,
+> ecmd_submit_sync() fails with -EBUSY rather than waiting, as it may be
+> called from atomic context.
 
+this needs a re-write for why GCMD/ECMD are blocked differently.
+
+>=20
+> Write buffer flushing is the only GCMD write reachable on the runtime
+> map path. Rather than adding a check there, refuse to acquire IOMMUs
+> that require it (rwbf_quirk or CAP.RWBF). Move rwbf_quirk and
+> rwbf_required() to iommu.h so dmar.c can use them.
+
+good to mention that this quirk is on early old platforms.
+
+>=20
+> The remaining GCMD writers (root table, translation enable/disable,
+> queued invalidation and interrupt remapping) are only used at init,
+> hotplug and suspend/resume. Acquired units are never hot-removed,
+> hibernation is unavailable with TDX, and the following patch refuses
+> system suspend while an IOMMU is acquired. Guard them with
+> WARN_ON_ONCE() ahead of their companion register writes (RTADDR,
+> IQT/IQA, IRTA).
+>=20
+> intel_iommu_shutdown() is the exception. It is only called from
+> native_machine_shutdown() via machine_shutdown(). On restart, halt,
+> power-off and kexec, syscore_shutdown() runs first and tdx_shutdown()
+> issues TDH.SYS.DISABLE, which takes every IOMMU out of Secure TDX Mode.
+> The crash kexec path doesn't call it. Clear tdxc_acquired there so
+> translation is still turned off.
+>=20
+> Signed-off-by: Lu Baolu <baolu.lu@linux.intel.com>
+> ---
+>  drivers/iommu/intel/iommu.h         |  8 ++++-
+>  drivers/iommu/intel/dmar.c          | 50 ++++++++++++++++++++++++-----
+>  drivers/iommu/intel/iommu.c         | 33 +++++++++++++++++--
+>  drivers/iommu/intel/irq_remapping.c | 10 ++++++
+>  4 files changed, 89 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/drivers/iommu/intel/iommu.h b/drivers/iommu/intel/iommu.h
+> index 18fef91753a0..26135248675d 100644
+> --- a/drivers/iommu/intel/iommu.h
+> +++ b/drivers/iommu/intel/iommu.h
+> @@ -690,7 +690,10 @@ struct intel_iommu {
+>  	u64		ecmdcap[DMA_MAX_NUM_ECMDCAP];
+>  	u32		gcmd; /* Holds TE, EAFL. Don't need SRTP, SFL, WBF
+> */
+>  	raw_spinlock_t	register_lock; /* protect register handling */
+> -	/* Acquired for the TDX module. Protected by register_lock. */
+> +	/*
+> +	 * GCMD and ECMD writes are rejected while the TDX module owns
+> this
+> +	 * IOMMU. Protected by register_lock.
+> +	 */
+>  	bool		tdxc_acquired;
+
+No need to update this comment. It's still for acquiring the tdx mode.
+
+explanation of restrictions in the tdx mode belongs to other places.
+=20
+> -static void dmar_tdxc_set_acquired(struct intel_iommu *iommu, bool
+> acquired)
+> +static int dmar_tdxc_block_regs(struct intel_iommu *iommu)
+
+You could keep the original name with comment internally to explain
+the need of blocking certain registers.
+
+>  {
+> -	guard(raw_spinlock_irqsave)(&iommu->register_lock);
+> -	iommu->tdxc_acquired =3D acquired;
+> +	unsigned long flags;
+> +	int ret =3D 0;
+> +
+> +	raw_spin_lock_irqsave(&iommu->register_lock, flags);
+> +	if (cap_ecmds(iommu->cap) &&
+> +	    (readq(iommu->reg + DMAR_ECRSP_REG) &
+> DMA_ECMD_ECRSP_IP))
+> +		ret =3D -EBUSY;
+
+here a comment is appreciated, for both why a check on ecmd is required
+but not for gcmd.
+
+> @@ -2669,11 +2695,19 @@ int dmar_tdxc_acquire(struct pci_dev *pdev,
+>  	if (!(iommu->gcmd & DMA_GCMD_TE) || !iommu->qi
+> || !sm_supported(iommu))
+>  		return -EINVAL;
+>=20
+> +	/* Write buffer flushing needs GCMD, which is blocked once acquired.
+> */
+> +	if (rwbf_required(iommu))
+> +		return -EOPNOTSUPP;
+> +
+
+let's be clear here that WBF is incompatible with tdx mode. It's an old
+quirk hence simply rejecting it if required.
+
+> @@ -4336,6 +4353,16 @@ int ecmd_submit_sync(struct intel_iommu
+> *iommu, u8 ecmd, u64 oa, u64 ob)
+>=20
+>  	raw_spin_lock_irqsave(&iommu->register_lock, flags);
+>=20
+> +	/*
+> +	 * The TDX module owns this IOMMU. This may be called from
+
+the TDX module doesn't own the entire IOMMU
+
+> atomic
+> +	 * context (e.g. perf pmu::start/stop), so don't sleep; just reject
+> +	 * the request.
+> +	 */
+> +	if (iommu->tdxc_acquired) {
+> +		ret =3D -EBUSY;
+> +		goto err;
+> +	}
+> +
+
+iommu_pmu_stop() doesn't check the return value of this. It's a void
+function. So returning error here still breaks the perf feature.
+
+we may need a way to disable iommu perf completely in the acquire
+function.
