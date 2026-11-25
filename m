@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.35
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621046;
-	b=c/bwVYhXcpCOHNUssRNGCKdPV7jjPYnscMS4nxFoQKCnnoOLaCnZoT+tVcsdJeB1JnNo
-	 3ITx4lKyH8si7zV7tJUBxtLdNlmsyU7SLYAgR5b3PZMGytgonnbXCqKu+xcO3cogPJQdo
-	 Z++vwo4op8pQHKcF3FWW8aESSdFqv+LRTuO2WxtArfuulnxqemQG6CDE9q9QQoGD/7JjL
-	 ScwFqvOu62hoeYJeuWAVwdAN2VSg+ywjQjxI95+WhHvtNbMtVMvvpxGvlCVSZL2yGupyt
-	 aMITUqNXYpnnBdSMkstUDu8lzlUW6TRu0RRWiff4tvknCWEM/b1CsQHXYDdOJRL+Leg==
+	t=1795621092;
+	b=tRdhXQDBSwIdYwAcDjtwFT9R/biLTGtDXuzhNvhm5AKNzFOnG7dIIclIzGpWetbR87N+
+	 anMmf4XUwnmjj3d+cg3SGQXKywpJ1Wnbt5Mn1oNSXzSnBgFJbSbtdrc+yFoPVnCXLGhVP
+	 /s0kgYeU5N+v/pOaJR+FUzAHqOCN4KyUZ/pOqn5juwgDihUJ4pcwXwZZ081HGilhyZQs6
+	 ytJ8cPp/KxjXJRQ6BYIVuLTvlF4wogReK0UrtQdmDeJnz7Lijuz0xEqwpLOQwNVnTZrgf
+	 zYPYdywLuzBR3RECyYgCw5rLQUnaDI5/ponHd4xTHfGWlLSnDrn5F9+1W5examtDGfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621046;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
-	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
-	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
-	bh=x0BYKr6FWth/y99PUFdyAmMeU/6yLLum2DcjrcnjK2c=;
-	b=ulMYF/13weT72Tsuc+bMJu7DJCsyx7Ag777JU98z5Yr6beJ8ftWbmLFW7oBSeHwXICOU
-	 ht0hjK8Hj07/JGViqvPQOKHvyrdLet2PeMldjDqE+tSylurZtEZ5kdjz4FON2k8Rcl4nT
-	 As/QDz9ap6sHZmdo+Qo2l9lr0LivOZPDq6Esriwp4YLW12wWF1NEiN6rIzPtt3jVCIg89
-	 XbA4VqopyLDKhecM/d/V30aTaICHUF+loSBoJFkXzQeBoNWrVFxAb51Cy3KoBx9Yj46tM
-	 ijnlhtZAKX1SZOOTnvrkJxsHKI5jZ8wBowv3p7ysl5lF3c6fLbk+ae2055z1l8Q7Esg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621092;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=T9D7+0eUyPyg+/u+PxIw0oKeKezZl0J6GicSItm2bIU=;
+	b=ZNffra9Tq51o+RjXyefE0FT/Kqhn7H5KjifT93IAtOFUEMXZ/WGBx9gzvsgrSBYDK5hK
+	 ijWmfXmuPLSxeAJXHNvttmxh9EbZLMU6j445j6fSmgrUW6E/NlDPNu6aQG1duEz8dQTxD
+	 4nT9bRegBnXC0yKDxDfeB6wk2OIaeT1V+0DZo84msRn0dPLt1VtN1pV+Se2u5mzfur9VL
+	 KBoh6SdBhHvIHaIJpQTDjyfvhHyM8R2VcUClH8Io+jzO/ai5TA5PImijhiVQah0YZ5zYy
+	 zTA5DppcKYbU2EPR9EHEVrttLpRlEntuDaWdzEbEuDWXG35r7axELWaseHkqCZbhozQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=HphL34JE;
-	arc=none smtp.remote-ip=44.202.169.35
-Received: from omta036.useast.a.cloudfilter.net (omta036.useast.a.cloudfilter.net [44.202.169.35])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZNWvxTr;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DAB2606A683
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:37:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DAB2606A683
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4083D606A323;
+	Wed, 25 Nov 2026 15:38:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=HphL34JE
-Received: from eig-obgw-5003b.ext.cloudfilter.net ([10.0.29.155])
-	by cmsmtp with ESMTPS
-	id WDixx5hqX4vCDWF3fxVgkC; Wed, 25 Nov 2026 15:37:19 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id WF3cxZJHPSgq1WF3cxLF7H; Wed, 25 Nov 2026 15:37:16 +0000
-X-Authority-Analysis: v=2.4 cv=c8KrQQ9l c=1 sm=1 tr=0 ts=6b0700af
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
- a=iox4zFpeAAAA:8 a=_jlGtV7tAAAA:8 a=o15gWAMvB_Vrntha6m8A:9 a=QEXdDO2ut3YA:10
- a=WzC6qhA0u3u7Ye7llzcV:22 a=nlm17XC03S6CtCLSeiRr:22 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=x0BYKr6FWth/y99PUFdyAmMeU/6yLLum2DcjrcnjK2c=; b=HphL34JEEFdY
-	E5QTI03rhNLpEpA7MORJT0V5PXUqe6qvaRR/lh2V8nOJRfSthfDTERq1Mcr9mIvie8UqLHHgHj9eE
-	BvsxzY5jDKhWSYbl4hIeZNSBZg7g5fbp87QQKPfWx88k3onT1FY4Ff75SlSzDxvsPkn+2u6/6tury
-	ztlJfFvAYmT3B7AhbuFHsypGfONoe8kYTuIQ55ssEVqBPlINUboYOVhBHnSfgLXfUxb7D74UQvrKa
-	Re98s8MBoIjQBGKvoN7+qAYv22dGLHV0PKnTIbbOe2BAQko56Reh5hFYLup8VY8iMnjXuUrXHm7+X
-	IpjASoSrOAJS8F01dkjLjg==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:56872)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xWF3b-00000003fMX-3iMS;
-	Wed, 25 Nov 2026 21:07:15 +0530
-Message-ID: <84699bfe-574b-4745-927d-8f2b9b5a715c@roeck-us.net>
-Date: Wed, 25 Nov 2026 07:37:14 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZNWvxTr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4639A1F000C0;
+	Wed, 25 Nov 2026 15:38:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795621092;
+	bh=T9D7+0eUyPyg+/u+PxIw0oKeKezZl0J6GicSItm2bIU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=kZNWvxTrMHeEUAmsEbChCTRuxNHS6dMSWhWtgh1JCcKM/8OuUa5n7WkRztYNA+W2n
+	 QXc4KwCrK06eeQmY8O+J9lc4yzoiHVPEqMGlkfJvN98ljh+S9bkySxxUyIkoJlsCVN
+	 mv9gIcNfUSTarpeJ6tdgKK3MhjCl1MjSrC/FIOQuhGyD7Zj0a72WDEjW0yfgP9ie/g
+	 UOVMTGNTWg/PixekD0Kc8fs7qTuTRg4nHK5IGM1nddf3o3xcXIewN0tqjTV8FxMMmD
+	 NRLsUbYf5vmA0mZRpL5cCLhSKZFrgFz8zp+VgaBAEat56G76V/ygnQPYz6iU8VH3OE
+	 6R5w+9dkk/0yA==
+From: SJ Park <sj@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: SJ Park <sj@kernel.org>,
+	stable@vger.kernel.org,
+	patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	torvalds@linux-foundation.org,
+	akpm@linux-foundation.org,
+	linux@roeck-us.net,
+	shuah@kernel.org,
+	patches@kernelci.org,
+	lkft-triage@lists.linaro.org,
+	pavel@nabladev.com,
+	jonathanh@nvidia.com,
+	f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com,
+	rwarsow@gmx.de,
+	conor@kernel.org,
+	hargar@microsoft.com,
+	broonie@kernel.org,
+	achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 6.12 000/816] 6.12.120-rc1 review
+Date: Wed, 25 Nov 2026 07:38:03 -0800
+Message-ID: <20261125153804.90824-1-sj@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261125143849.205329330@linuxfoundation.org>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,111 +76,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drivers/hwmon: Remove wrong comment
-To: Juergen Gross <jgross@suse.com>, linux-kernel@vger.kernel.org,
- linux-hwmon@vger.kernel.org, x86@kernel.org
-Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H. Peter Anvin" <hpa@zytor.com>,
- Asaf Nuri Bertizlioglu <asafbertizlioglu@gmail.com>
-References: <20261125121643.25427-1-jgross@suse.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- xsFNBE6H1WcBEACu6jIcw5kZ5dGeJ7E7B2uweQR/4FGxH10/H1O1+ApmcQ9i87XdZQiB9cpN
- RYHA7RCEK2dh6dDccykQk3bC90xXMPg+O3R+C/SkwcnUak1UZaeK/SwQbq/t0tkMzYDRxfJ7
- nyFiKxUehbNF3r9qlJgPqONwX5vJy4/GvDHdddSCxV41P/ejsZ8PykxyJs98UWhF54tGRWFl
- 7i1xvaDB9lN5WTLRKSO7wICuLiSz5WZHXMkyF4d+/O5ll7yz/o/JxK5vO/sduYDIlFTvBZDh
- gzaEtNf5tQjsjG4io8E0Yq0ViobLkS2RTNZT8ICq/Jmvl0SpbHRvYwa2DhNsK0YjHFQBB0FX
- IdhdUEzNefcNcYvqigJpdICoP2e4yJSyflHFO4dr0OrdnGLe1Zi/8Xo/2+M1dSSEt196rXaC
- kwu2KgIgmkRBb3cp2vIBBIIowU8W3qC1+w+RdMUrZxKGWJ3juwcgveJlzMpMZNyM1jobSXZ0
- VHGMNJ3MwXlrEFPXaYJgibcg6brM6wGfX/LBvc/haWw4yO24lT5eitm4UBdIy9pKkKmHHh7s
- jfZJkB5fWKVdoCv/omy6UyH6ykLOPFugl+hVL2Prf8xrXuZe1CMS7ID9Lc8FaL1ROIN/W8Vk
- BIsJMaWOhks//7d92Uf3EArDlDShwR2+D+AMon8NULuLBHiEUQARAQABzTJHdWVudGVyIFJv
- ZWNrIChMaW51eCBhY2NvdW50KSA8bGludXhAcm9lY2stdXMubmV0PsLBgQQTAQIAKwIbAwYL
- CQgHAwIGFQgCCQoLBBYCAwECHgECF4ACGQEFAmgrMyQFCSbODQkACgkQyx8mb86fmYGcWRAA
- oRwrk7V8fULqnGGpBIjp7pvR187Yzx+lhMGUHuM5H56TFEqeVwCMLWB2x1YRolYbY4MEFlQg
- VUFcfeW0OknSr1s6wtrtQm0gdkolM8OcCL9ptTHOg1mmXa4YpW8QJiL0AVtbpE9BroeWGl9v
- 2TGILPm9mVp+GmMQgkNeCS7Jonq5f5pDUGumAMguWzMFEg+Imt9wr2YA7aGen7KPSqJeQPpj
- onPKhu7O/KJKkuC50ylxizHzmGx+IUSmOZxN950pZUFvVZH9CwhAAl+NYUtcF5ry/uSYG2U7
- DCvpzqOryJRemKN63qt1bjF6cltsXwxjKOw6CvdjJYA3n6xCWLuJ6yk6CAy1Ukh545NhgBAs
- rGGVkl6TUBi0ixL3EF3RWLa9IMDcHN32r7OBhw6vbul8HqyTFZWY2ksTvlTl+qG3zV6AJuzT
- WdXmbcKN+TdhO5XlxVlbZoCm7ViBj1+PvIFQZCnLAhqSd/DJlhaq8fFXx1dCUPgQDcD+wo65
- qulV/NijfU8bzFfEPgYP/3LP+BSAyFs33y/mdP8kbMxSCjnLEhimQMrSSo/To1Gxp5C97fw5
- 3m1CaMILGKCmfI1B8iA8zd8ib7t1Rg0qCwcAnvsM36SkrID32GfFbv873bNskJCHAISK3Xkz
- qo7IYZmjk/IJGbsiGzxUhvicwkgKE9r7a1rOwU0ETofVZwEQALlLbQeBDTDbwQYrj0gbx3bq
- 7kpKABxN2MqeuqGr02DpS9883d/t7ontxasXoEz2GTioevvRmllJlPQERVxM8gQoNg22twF7
- pB/zsrIjxkE9heE4wYfN1AyzT+AxgYN6f8hVQ7Nrc9XgZZe+8IkuW/Nf64KzNJXnSH4u6nJM
- J2+Dt274YoFcXR1nG76Q259mKwzbCukKbd6piL+VsT/qBrLhZe9Ivbjq5WMdkQKnP7gYKCAi
- pNVJC4enWfivZsYupMd9qn7Uv/oCZDYoBTdMSBUblaLMwlcjnPpOYK5rfHvC4opxl+P/Vzyz
- 6WC2TLkPtKvYvXmdsI6rnEI4Uucg0Au/Ulg7aqqKhzGPIbVaL+U0Wk82nz6hz+WP2ggTrY1w
- ZlPlRt8WM9w6WfLf2j+PuGklj37m+KvaOEfLsF1v464dSpy1tQVHhhp8LFTxh/6RWkRIR2uF
- I4v3Xu/k5D0LhaZHpQ4C+xKsQxpTGuYh2tnRaRL14YMW1dlI3HfeB2gj7Yc8XdHh9vkpPyuT
- nY/ZsFbnvBtiw7GchKKri2gDhRb2QNNDyBnQn5mRFw7CyuFclAksOdV/sdpQnYlYcRQWOUGY
- HhQ5eqTRZjm9z+qQe/T0HQpmiPTqQcIaG/edgKVTUjITfA7AJMKLQHgp04Vylb+G6jocnQQX
- JqvvP09whbqrABEBAAHCwWUEGAECAA8CGwwFAmgrMyQFCSbODQkACgkQyx8mb86fmYHlgg/9
- H5JeDmB4jsreE9Bn621wZk7NMzxy9STxiVKSh8Mq4pb+IDu1RU2iLyetCY1TiJlcxnE362kj
- njrfAdqyPteHM+LU59NtEbGwrfcXdQoh4XdMuPA5ADetPLma3YiRa3VsVkLwpnR7ilgwQw6u
- dycEaOxQ7LUXCs0JaGVVP25Z2hMkHBwx6BlW6EZLNgzGI2rswSZ7SKcsBd1IRHVf0miwIFYy
- j/UEfAFNW+tbtKPNn3xZTLs3quQN7GdYLh+J0XxITpBZaFOpwEKV+VS36pSLnNl0T5wm0E/y
- scPJ0OVY7ly5Vm1nnoH4licaU5Y1nSkFR/j2douI5P7Cj687WuNMC6CcFd6j72kRfxklOqXw
- zvy+2NEcXyziiLXp84130yxAKXfluax9sZhhrhKT6VrD45S6N3HxJpXQ/RY/EX35neH2/F7B
- RgSloce2+zWfpELyS1qRkCUTt1tlGV2p+y2BPfXzrHn2vxvbhEn1QpQ6t+85FKN8YEhJEygJ
- F0WaMvQMNrk9UAUziVcUkLU52NS9SXqpVg8vgrO0JKx97IXFPcNh0DWsSj/0Y8HO/RDkGXYn
- FDMj7fZSPKyPQPmEHg+W/KzxSSfdgWIHF2QaQ0b2q1wOSec4Rti52ohmNSY+KNIW/zODhugJ
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20261125121643.25427-1-jgross@suse.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xWF3b-00000003fMX-3iMS
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:56872
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 9
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfP93s5XQg4WNQU/m49QiQuEek3zCjF37RMcOTT/YXsuN2iYUDE/g1PBB64Ja8M2Rfm3dkzYumg2HSRGY205+eHgzMjwCdcx95s0457E4CDqEphev3Q6w
- 4+112pu9YjCbyPxMG/b9gOhWfF+7t0gU3HwrJWDNgMTp1Ih9UU2TweVndqSSHjk3lfHbrgtSVXvUy08q/FTCAt71h/4pja2Dix1UkLa/7VnN/jg6B6L2F7kX
+Content-Transfer-Encoding: 8bit
 
-On 11/25/26 04:16, Juergen Gross wrote:
-> In drivers/hwmon/coretemp.c drop mentioning rdmsr/wrmsr in a comment,
-> as it was incorrect in this regard.
-> 
-> Suggested-by: Asaf Nuri Bertizlioglu <asafbertizlioglu@gmail.com>
-> Signed-off-by: Juergen Gross <jgross@suse.com>
+On Wed, 25 Nov 2026 15:25:48 +0100 Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
 
-Acked-by: Guenter Roeck <linux@roeck-us.net>
+> This is the start of the stable review cycle for the 6.12.120 release.
+> There are 816 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 
-> ---
-> To be applied on top of current core/msr branch of the tip tree.
-> ---
->   drivers/hwmon/coretemp.c | 3 +--
->   1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/drivers/hwmon/coretemp.c b/drivers/hwmon/coretemp.c
-> index 96d57fe12de6..ad5e8f40ad0c 100644
-> --- a/drivers/hwmon/coretemp.c
-> +++ b/drivers/hwmon/coretemp.c
-> @@ -66,8 +66,7 @@ enum coretemp_attr_index {
->    *		IA32_TEMPERATURE_TARGET MSR.
->    * @last_updated: The time when the current temperature value was updated
->    *		earlier (in jiffies).
-> - * @cpu_core_id: The CPU Core from which temperature values should be read
-> - *		This value is passed as "id" field to rdmsr/wrmsr functions.
-> + * @cpu_core_id: The CPU Core from which temperature values should be read.
->    * @status_reg: One of IA32_THERM_STATUS or IA32_PACKAGE_THERM_STATUS,
->    *		from where the temperature values should be read.
->    * @attr_size:  Number of sysfs attributes in this temperature data group.
+This rc kernel passes DAMON functionality test [1] on my test machine.
 
+Tested-by: SJ Park <sj@kernel.org>
+
+[1] https://github.com/damonitor/damon-tests/tree/next/corr
+
+
+Thanks,
+SJ
+
+[...]
