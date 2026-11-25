@@ -1,72 +1,72 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645186;
-	b=39HE2oNsoOhaOI/AFZuIC01FLtqmWpYSyVNbSM54YCBCbuifDTtC2V7YNkmnrSD2aMf5
-	 xVz2/1QoMUxShYyViE78KV65IExYnydCdh/6uGRNPRXQluWF03kjvrFbgiIaHXbzGC0fx
-	 STBdIV851LzBFgtI+XdyXHbdc4YPBsloBhgWp7prDK77hDS6/ITz1Ini1p+wtY4RPbrfH
-	 FQe2Xe7540NXFT5CMKOG8e8j1ZyvuiVZwdxADcM/vRQwU5VBx09FIeGdhbprdpU4/NWyS
-	 kSefGmPXHaykOz8HuzyVvWr1GhwRhwfEG5+kXzo9AmTpMVIDMjiFnJygPIBa8usDjRw==
+	t=1795645230;
+	b=cB4kFbkzXIODFL8RV8ZBztkrVMmZh51X2iixOAfCGbq5V0nouRwmKOnUP0/D5dTvQUQD
+	 ChJ1Rrw+iYs67i37AhTFPJlioRSCwJgWZNzoiHYg6p1i5DFwbwkMAGvIJz6kIJDYEIfH2
+	 WFVT6jFehk8Hn5oFd0u+7TVQ1Ek4ZhExa1XufzKNkqaUzvqitxEYKe9d5lYo14K56nkIn
+	 GWl5S+43jwiRoyvtDya6z4WwwaKy4ZgVoWQEKy5pgRLwP/oMtFKkhYvmv2AfUmG2tFdFa
+	 pXJdEJiWKLuntA98vkyGrCs7AJwY8GdiuQ3w9SZv2c3O3mynZHBKZfVzr3z7AoE9gbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645186;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645230;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=8qhBQZeyr54Cjg+V6vaROasttcE0+Xu/EBT3l5pruz8=;
-	b=3CikW06udabydhQ0XV2kWE4Td9FwsJjnYT4tl5YUlfIig2SjSdKbjD0QsUDLbtRxe0LH
-	 ijcvOJO4LMf9KXyA3YPe0OnJbkGPHDU+AFflrshODgrvAUykHi8FZOhr3FmLA1vnDaxbM
-	 a9DRRCti9GJBeAJrpvBQo9KjZebr+DZFuVZfMLRdFFOTLanIra/j0DlDRKrEMKd+eZSvV
-	 8HjozoQXqY1dwutjyWXRSt3YZdIVs9w9TOq4CrYDku8qqJvA/B/uhHD5+4fWxJbTog9Qq
-	 AfgeZwCiH5mfGjhsXAVyLcH9rISzcy7dvlmGS8PNMmJocZMp6nZI5pHqpBZNp1HvEWw==
+	bh=K4o0fdb77C2dnHpzdq2HhvHCDm+wfEBJJb+Gee5/SLc=;
+	b=ndNTH/Quo6o7HYj8+XIOcr1EVOjqF+gCzGjSotcV56OXDuVMJBEPD6CWy6f1hD9uTZo+
+	 aObi1mCoc0ItvLQXm/s86uKVzQTo3pgh1JQ5xLuNo+GqyAw6IwUwqIa/YAb2ylhOoPLli
+	 Rp64DPmCFeMMWv3mBA45kdYhEB9G8o9k8zsuQnp+rcH6+or/U7PAKK5gysLTVtxYuzkm3
+	 +LYx1U/hS3hI2DjEyH9eJ6mL0Nd/uNYo9Iw8UC6Q3uJbwBdXOjPGVaCxQRMJL0i8n6fLx
+	 VAfzHIvkhCECgyptWNji1zWCs8WT0d/ftxC5JKlNYP2hn8TxAcyvBBW/lTyiff/1EUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aXmyti0o;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=mmBDrb9G;
 	arc=none smtp.remote-ip=74.125.82.197
 Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4802606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:19:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4802606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 400FE606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:20:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 400FE606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aXmyti0o
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-30bcb065bfdso6648702eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:19:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=mmBDrb9G
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-3846d5f54c1so7332924eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:20:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795645185; x=1796249985; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795645229; x=1796250029; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8qhBQZeyr54Cjg+V6vaROasttcE0+Xu/EBT3l5pruz8=;
-        b=aXmyti0oUhoeiQiWqCYLjKDi5NUwqcrxTSJE2pwBcKbticJsKT1Z2AZ9zVQ7kAj3co
-         AOseJ670N2yeIgUMaXKkDKxAtI8HeRbSGVLSpi7J5c3zn8xEsxYWXE39kHBkIM49I4FO
-         NJj3JyyCKHCGdz4yaklt80wonMjYZajZnDhQ4WTFh8HsgXk1nM9sotWxky8iWZ/HVNW/
-         GLy9sXOQd5eLeDGE+BMznmwr1AH3xn5XyUPcoqHpqm6tHDdH3WlXmI5WzLpM/Umn6mFY
-         X7hU4q1mjb9nCdFaa2w6EHQwnjGj4JCHVRedRPlnNrhW7kfRoBu9pyjRJH3q1L6y/tFE
-         tNzQ==
+        bh=K4o0fdb77C2dnHpzdq2HhvHCDm+wfEBJJb+Gee5/SLc=;
+        b=mmBDrb9G6Om8y09GECATQFGMZMfVNLOF677I1LHzy3toWm38jnlSK11n63pIOKwSj7
+         oGtEH/xNoTRVPWS2MMwvUKXvjJ+0TBq/eRvWYbowa1X+UyQL+NCcRdb4rbuGz0v2ju7r
+         FWlANaUZpXLgdSTjq2J/bqtgBsnZu8HerwPr/9dFqjJ2JgXie1Qba0I+5mRASqruEvYL
+         0JfTSS5Wrt2dprFVLBg/Goe7aozroWCLqyXehEUs+KVpmXRmYI+c3onPOqTxrXppzyes
+         6L/DYEtfGov0eWcvUYHhjiivJCSZOB6xV93vp+Odv/FWX58w3SMM03PL2xsVmDk2kjBG
+         4lhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645185; x=1796249985;
+        d=1e100.net; s=20260707; t=1795645229; x=1796250029;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8qhBQZeyr54Cjg+V6vaROasttcE0+Xu/EBT3l5pruz8=;
-        b=P8w3QvV/dAPb2R2REnMsTE0pKokFwG5EQjhuu30QprmKYZ9gvz9ClSZV+oD6XO40LH
-         66WKLjCrqoNVSV6RFk8riWO6Q1y30RYY8ofhWoPS+OPaFz6ClWyLPoU5wDjbvz0enfbW
-         NvRBsGxmsGidpGpOOAxZ1JDs7+mbHbHechvd2Xc+pKuGIkltKeXTVtiqNaMHbmBxVERl
-         d+nFkBczDW6TA+TlAPwuDXBs1/PccLi6Ws0JWr7zBV3lWFn1rIuQ7MnKsNYK46r5hKB7
-         lOB+PfOopkkGjKlBHoy6NKWPSb/X7J9V2bzfnZaB0qk/jRwSz7rAYkf2TfL1uSHpyggy
-         RZWg==
-X-Forwarded-Encrypted: i=1; AL+hErFO4LM3Ht4XfvnnPVIzUKnQIC99IreN+FeybZfthZPekFmRAi6jTJxnbsl2V9Woou+eEE5Af9sHd1k21F4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+u3rN+7mNMhvw4zzN1HzIj3t4TjxaajeI6JoetTsdmzJBkQ1tI
-	9/K/LU3CyyT5oKx5AnPNA84vis6ewuzQR1zS+i+WImwaztwY85XcT2Sltm0NFPsTU7j47AjxnxN
-	BVg==
-X-Received: from dycnr11-n1.prod.google.com ([2002:a05:7300:e9cb:10b0:383:7f56:69a1])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:8956:20b0:36f:551:2bd5
- with SMTP id 5a478bee46e88-38570846826mr18757502eec.32.1795645184533; Wed, 25
- Nov 2026 14:19:44 -0800 (PST)
-Date: Wed, 25 Nov 2026 22:19:21 +0000
+        bh=K4o0fdb77C2dnHpzdq2HhvHCDm+wfEBJJb+Gee5/SLc=;
+        b=OeJdg3ZFAF+WeoGsWzK0fJU4LT0u37xisQWv8dQfWW6xDHnUFJCCF5PMeD9jypOMsk
+         ++d0b85USy0gOhHW/+ATRK1lDiTZ6FP6w4dUXxom6zxyNbNxzEJT0ENaZ1M6O7fMXuMD
+         Q2ctwhDz+tWj9CDPVUSlN9AzMa+hKCDtoJKM5sUMw99NoBMAxLCCcSzgDUe7F+mXsJuL
+         rbW7jW07qvX1RNyrke7KqjnsB7wQMVeBiWvpOMinl0DRONYc3YDvIrIvt6LhlnS3KCf0
+         gzOhDIMAG0C10K40GxBfdEqOTLO90g6pzA4OcgY993xVtcmenDyTQP9/QFQex314arDQ
+         gcGw==
+X-Forwarded-Encrypted: i=1; AL+hErE2+WY52eQmuP5SOw4LlElI8zHgm7PFn4OKLqxnRwxTKNPjmWW90aCu7XvxivIHMJghU70z6IfQKfo7+OI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9t1USciXlcqEawoCNDy8whJudyOO6CB1OnV/8GQCLRgR8v2+ku
+	UWdB8FZ8zJ92AK3W777ksDkihSG/t0WT5FccEcc8JF3pkU1m1S20Q6Yj9UYO9uDQwjO8pcTrRM0
+	3qA==
+X-Received: from dlbts11-n2.prod.google.com ([2002:a05:7022:b04b:20b0:1b5:2d3d:de79])
+ (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:4193:10b0:144:eaa7:2763
+ with SMTP id a92af1059eb24-1b55689a0fcmr20424343c88.16.1795645229068; Wed, 25
+ Nov 2026 14:20:29 -0800 (PST)
+Date: Wed, 25 Nov 2026 22:19:45 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,24 +77,40 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125221921.1425747-1-elkin@google.com>
-Subject: [PATCH] scsi: fcoe: Fix use-after-free after pskb_may_pull() in fcoe_rcv()
+Message-ID: <20261125221945.1426279-1-elkin@google.com>
+Subject: [PATCH] scsi: esas2r: Enforce minimum header length bound in esas2r_write_fw()
 From: Elkin Cruz <elkin@google.com>
-To: Hannes Reinecke <hare@suse.de>, 
+To: Bradley Grove <linuxdrivers@attotech.com>, 
 	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
 	"Martin K. Petersen" <mkp@kernel.org>
-Cc: linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, irogers@google.com, Elkin Cruz <elkin@google.com>, 
-	stable@vger.kernel.org
+Cc: linux-scsi@vger.kernel.org, Christian Brauner <brauner@kernel.org>, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, irogers@google.com, 
+	Elkin Cruz <elkin@google.com>, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-In fcoe_rcv(), eh = eth_hdr(skb) is cached before pskb_may_pull(). If
-pskb_may_pull() reallocates skb->head, eh is left pointing to freed
-memory when validating eh->h_dest against the FC frame header.
+esas2r_write_fw() is reachable via EXPRESS_IOCTL_RW_FIRMWARE on
+/proc/scsi/esas2r/ATTONode (created with mode 0444 and no capability
+check).
 
-Re-evaluate eh = eth_hdr(skb) after pskb_may_pull() succeeds.
+In esas2r_write_fw(), the driver validates that the input buffer count is
+at least min_size and caps header->length at 1 MiB, but does not ensure
+that header->length is at least sizeof(struct esas2r_flash_img) on
+FI_ACT_DOWN and FI_ACT_UP transfers, nor does it bound the header cache
+memcpy() to min_size for FI_VERSION_0 headers.
 
-Fixes: 0ee31cb5df4b ("[SCSI] fcoe: Fix broken NPIV with correction to MAC validation")
+If a caller supplies a non-zero header->length smaller than
+sizeof(struct esas2r_flash_img) for FI_ACT_DOWN or FI_ACT_UP,
+allocate_fw_buffers() allocates a DMA buffer smaller than
+a->firmware.header, causing subsequent memcpy() and do_fm_api() calls in
+esas2r_write_fw() and esas2r_read_fw() to read and write past the end of
+a->firmware.data. Meanwhile, FI_ACT_UPSZ queries upload sizes directly on
+a->firmware.header without allocating a->firmware.data, so header->length
+may legitimately be zero for FI_ACT_UPSZ.
+
+Require header->length >= sizeof(*header) for non-FI_ACT_UPSZ commands
+and zero-pad a->firmware.header when copying min_size bytes from buf.
+
+Fixes: 26780d9e12ed ("[SCSI] esas2r: ATTO Technology ExpressSAS 6G SAS/SATA RAID Adapter Driver")
 Cc: stable@vger.kernel.org
 Signed-off-by: Elkin Cruz <elkin@google.com>
 ---
@@ -107,21 +123,45 @@ then checked against linux-next (not runtime-tested on hardware).
 Thanks,
 Elkin
 
- drivers/scsi/fcoe/fcoe.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/scsi/esas2r/esas2r_ioctl.c | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/scsi/fcoe/fcoe.c b/drivers/scsi/fcoe/fcoe.c
-index a2cf65fac297..23d6b9893793 100644
---- a/drivers/scsi/fcoe/fcoe.c
-+++ b/drivers/scsi/fcoe/fcoe.c
-@@ -1365,6 +1365,8 @@ static int fcoe_rcv(struct sk_buff *skb, struct net_device *netdev,
- 		     !pskb_may_pull(skb, FCOE_HEADER_LEN)))
- 		goto err;
+diff --git a/drivers/scsi/esas2r/esas2r_ioctl.c b/drivers/scsi/esas2r/esas2r_ioctl.c
+index 901c5d40cda8..4a4489a2485b 100644
+--- a/drivers/scsi/esas2r/esas2r_ioctl.c
++++ b/drivers/scsi/esas2r/esas2r_ioctl.c
+@@ -1708,7 +1708,9 @@ int esas2r_write_fw(struct esas2r_adapter *a, const char *buf, long off,
+ 		/* Make sure the size is reasonable. */
+ 		length = header->length;
  
-+	eh = eth_hdr(skb);
-+
- 	skb_set_transport_header(skb, sizeof(struct fcoe_hdr));
- 	fh = (struct fc_frame_header *) skb_transport_header(skb);
+-		if (length > 1024 * 1024) {
++		if (length > 1024 * 1024 ||
++		    (header->action != FI_ACT_UPSZ &&
++		     length < sizeof(*header))) {
+ 			esas2r_debug(
+ 				"esas2r_write_fw: hosed, length %d  fi_version %d",
+ 				length, header->fi_version);
+@@ -1729,15 +1731,15 @@ int esas2r_write_fw(struct esas2r_adapter *a, const char *buf, long off,
+ 			 * Store the command, so there is context on subsequent
+ 			 * calls.
+ 			 */
+-			memcpy(&a->firmware.header,
+-			       buf,
+-			       sizeof(*header));
++			memset(&a->firmware.header, 0,
++			       sizeof(a->firmware.header));
++			memcpy(&a->firmware.header, buf, min_size);
+ 		} else if (header->action == FI_ACT_UP
+ 			   ||  header->action == FI_ACT_UPSZ) {
+ 			/* Save the command, result will be picked up on read */
+-			memcpy(&a->firmware.header,
+-			       buf,
+-			       sizeof(*header));
++			memset(&a->firmware.header, 0,
++			       sizeof(a->firmware.header));
++			memcpy(&a->firmware.header, buf, min_size);
+ 
+ 			a->firmware.state = FW_COMMAND_ST;
  
 -- 
 2.56.1.839.g22a8290db9-goog
