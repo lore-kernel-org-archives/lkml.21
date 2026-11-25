@@ -1,55 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795632247;
-	b=5FG6LizDZ9tcpiNWmfviBSjx4xT8uiUcJOvhal91pGEcvSlIsguHFrUXWqL4SYDKoQ6r
-	 RiU7tUbbuHNbedxk2wRel1/yiqEX+7+8d9NmUMxpATYSZgEmlI/mWFFXcBh92IWYnoVUY
-	 qIIWLuiM5eDiflW2oEQqRe0b5YNjfclKFUD9Nhr5x4qZbhhLd1kp3OcN1xzis6W/1phE1
-	 G0T/6iHz9C58UieKFDVp8hBF6/fjtEq4AaKPb0zdetU/PbpOFTHViMHZs8dv3hTggS6gx
-	 sz3bFpYpN5vw6EzWjSN97rbLAjdXQzr5HHHkmASokcIE2ZSmiq0t4SPPuHR4shO6TAA==
+	t=1795632291;
+	b=v6sHWXzqnvrsS9HzIRJ56eKg1QFJRIpjuBCcseLvKTBKaRE41Mou+EnKPA9CLrIfxcxp
+	 E3pEJhah276OpWrFT2IJ1+4DTRnu7SWhOeVW3Iet/WiFWIQA4FwNzlTiLJQK6oBQYh7Ry
+	 OGYt7grpNsDjM909Bfe6X5Guc7DzbZQrZomHLETShgPHjr21cUI/xC3bz5ruHPJGsNym8
+	 BL/MkKGnZ7jTiBryqee+uFq/UmX/ZR9/elD5mUgC3JbgdypLhPZLeqCvSqTjK9HTlb7gp
+	 cjsrwWgUWIttEAXzUN3S04cQK8+X/stgXVXcyFV3zRalAhW2OXfjfJeqzWdvjvQ4ZuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795632247;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=z88aGwPIsjieg97Hit4hBKSS+J9QlhpwflV2QuOiGvU=;
-	b=DYjRkS2yaThDvG2WYLRnWYgooMXL0GHWBYmjd1XBVdxHaQG6Se7I66Vxbohe2uoJRL08
-	 4d7S52qgDbJxof4x4Kz0IAdZxolox6Qm4RxqrLZrd9TU2ujha0REr/eH6GiwnCVXwIZbQ
-	 KPpheYjOg0ngz2NvuDuKKFE72HXvtk+bNTrq8f/dInUgabY+fda8/f4M9ASj3VehCpCmb
-	 VG6UVFPVFYlXDA+ylXBHvRBaDRPu0b43rDAsK27gVqdrdj0faiB3D87K/7aAVS8ZDEnUi
-	 bQ1KX8lnnZLt0WdrsahXtDpRe9BHV3jc1WmObUh9dGT/rIXKYkz/84X302w1Dj7tPtw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795632291;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer;
+	bh=6F84u6ZBVj7ALWr80TaqS6VtUD2KAvnZJ83oz57lmZc=;
+	b=xqWTlnqKk3Aoh674pWFwExlqX1skXEzMfjBemA7OgpmxQTb0hatHoQgBk9fAunVMKU6G
+	 AQROCxPvcJNQJF2+F8czhsb4HZ+w6eOGbmNB7PbM7JScALVOJSzLbRbcZWDBits05sWTH
+	 FVPihYaCU5eoN3mjd+zdU5UTtNdNDvYfMPIH9jPJiFbJDX6sPufMkJao2MofNA+GR4/0H
+	 TfZuQhRUfySKo84K6KO1nqjpGd3wcDntIY5jZxy5ompqfmvJ6sjTHVTxHrQkyJRrSYY41
+	 7CddjAFwGnjQgOeD4RGigwpmJT+XRyj9w9T3Tc5SAzDYm7UI2VA8Cey0h8HvI1ahLEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="VYUKE/H+";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=pOXUaG3v;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7900606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:44:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46956606A31E;
+	Wed, 25 Nov 2026 18:44:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46956606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VYUKE/H+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AAE51F000D1
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:44:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795632247;
-	bh=z88aGwPIsjieg97Hit4hBKSS+J9QlhpwflV2QuOiGvU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=VYUKE/H+ze7+LIVZKsJMtgxO2LwFwTbJszutLPd0SoGvQ/DhZ5UOlg2cuGtj51Y25
-	 BhuEYDutYwdyeOd6GsKCux3CgbhRktYCdDY6j4rFNfujjeGyZ7VoK4wtpigL36EEzZ
-	 7W1Cq+Rj3ps2bTdL+om6F5P/xtuS9Aorivy1hTdi0s/kIj5ouNU6m3IFlgKWnncAjI
-	 ms/ig8kiiX2umSYM785x70QATxuwCJpUEn7K0QWwXPowa9iosE/g3Z2TcozlHeK62T
-	 DKwlI97bulmh+gz249hoQnmV5jgNc/TYvGABZuCf6t8yiLzKO6Gi7weiNhQgFrKav5
-	 O/Da7IH6yc4Lw==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3acd239776cso52803631fa.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:44:07 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEgwS0NA/ebE0+p23R23al7P5xBjgPMa24ks+40cRrE7YCrpH08XCUDjV+jkYEEUBuK4hRKWXVVB5cfNqk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ycnizZwCvQy8KOIJ4UrUgqInUA6jyeBurw0BsjoFc1O0e7q0X
-	E7Z++3KBVHCX1caerV1UOzgBQ+LBfWXvZLgn1yxKkwJefVmm30dMJp1x9HvF5bQwbR7mgvzvOY7
-	Od7uX3TzMggXMHMupw1FRZ+RR6nMNSWY=
-X-Received: by 2002:a05:6512:a345:b0:5c3:235b:52db with SMTP id
- 2adb3069b0e04-5c3235b541fmr887496e87.39.1795632246205; Wed, 25 Nov 2026
- 10:44:06 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=pOXUaG3v
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795632288;
+	bh=yxfmqiNlPULeAg2Eo0frbq3KoaSsflm2PJoZO/n5BNA=;
+	h=From:Subject:Date:To:Cc:From;
+	b=pOXUaG3v2Oir5YLQg3e8qaSg8cOpi+BVPlyEixuHDKm8Vb4bBZHFhxz6+NcyBpsME
+	 kEOZ+8VbX4Shx21q3CEOf4Ez8aOlri87czxNs7uZQr3FxmZwQ+QZayqsfe0+F25yOQ
+	 tV8wnYHb1V/c6k+LcFA4J5HYiFem/0Wj1L5Ez4U2kUGrg5CnlVlcVaFwIwBPPfWNM3
+	 pKovJSbPyTo1zlp5Gcqzq/CIPzsOZS9Y8wS5zWm/NMIV0GvvUiV07jrVZMZabqVqK8
+	 gGi4cEa2LEWewI81tXM0uDQFhasyPLu7ypiWnapyZtv9/43K9Y26MdEUfwkfnSaqoD
+	 gmIumRH1lBt2w==
+Received: from [192.168.0.15] (unknown [100.64.0.170])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 674EF17E0EBF;
+	Wed, 25 Nov 2026 19:44:46 +0100 (CET)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+Subject: [PATCH v3 0/9] v4l2: Add tracing for stateless codecs
+Date: Wed, 25 Nov 2026 13:33:22 -0500
+Message-Id: <20261125-v4l2-add-ftrace-v3-0-1d1db48372ed@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,39 +63,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261111-superm1-pinctrl-power-improvement-v2-1-3b294116c835@amd.com>
-In-Reply-To: <20261111-superm1-pinctrl-power-improvement-v2-1-3b294116c835@amd.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 25 Nov 2026 19:43:53 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmuAzLD7grswJgTQurJ9BYJqEL3pYzSPXa+qemBgWHhsg@mail.gmail.com>
-X-Gm-Features: Aa3M54pfJxk2k-lMiewwxJZsIRlDHOcyZCzrE27YbgJRp0NkyRZyxALSJufZgOw
-Message-ID: <CAD++jLmuAzLD7grswJgTQurJ9BYJqEL3pYzSPXa+qemBgWHhsg@mail.gmail.com>
-Subject: Re: [PATCH v2] pinctrl: amd: Steer GPIO interrupt to low
- power/efficiency cores
-To: Mario Limonciello <mario.limonciello@amd.com>
-Cc: Basavaraj Natikar <Basavaraj.Natikar@amd.com>, Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WNQQ6CMBBFr2Jm7ZhStagr72FYDNOp1CA1LTYaw
+ t0FdOfyJe+/P0CS6CXBaTVAlOyTD90E2/UKuKHuKujtxKCVNsqoA+Zdq5GsRddHYkESNlI6o8g
+ wTKtHFOdfS/FSfTk965twP2dmo/GpD/G9XGY9e796of7qWaPCY7k3Yl2piYszh7alOkTacLhDN
+ Y7jB48EffjEAAAA
+X-Change-ID: 20260608-v4l2-add-ftrace-aec6e7f60a6c
+To: Daniel Almeida <daniel.almeida@collabora.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+ linux-trace-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
+ Detlev Casanova <detlev.casanova@collabora.com>
+X-Mailer: b4 0.15.2
 
-On Thu, Nov 12, 2026 at 3:43=E2=80=AFAM Mario Limonciello
-<mario.limonciello@amd.com> wrote:
+Hi !
 
-> On hybrid x86 systems the GPIO controller interrupt can be a frequent
-> wake and handler source.  Servicing it on a performance core can wake tha=
-t
-> core unnecessarily.
->
-> Prefer routing it to low power cores, then to efficiency (dense) cores,
-> using the CPU type from the x86 topology information.  If the system has
-> neither core type (non-hybrid), leave the affinity untouched.
->
-> The placement is applied with irq_set_affinity(), so userspace is still
-> free to override it.
->
-> Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
+This patchset aims to improve codec event tracing in v4l2.
 
-Patch applied!
+The traces added in visl by Daniel Almeida are moved to the global trace
+events.
+They are adapted to trace each each field separately and not just the
+whole struct so that userspace can filter on different fields and
+libraries like libtracefs and libtraceevent can be used to list the
+fields instead of parsing the trace printk's.
 
-Yours,
-Linus Walleij
+The trace event templates are also reworked to avoid long lines, but
+quoted string splits are kept as they don't cut words.
+
+To each trace event are also added a tgid and fd fields, helping
+userspace track different decoding sessions (contexts) based on the given
+file descriptor used by the given process id.
+
+Also for better tracking, stream on and stream off events are added as
+well as HW run and HW done events to track decoder core usage.
+
+The main focus is to be able to generate perfetto traces to show VPU usage,
+a perfetto producer using this can be found at [1] (it will be renamed to
+match the more generic approach than hantro).
+Other controls can be traced later as well, this patch set only focuses on
+mem2mem type drivers.
+
+[1]:
+https://gitlab.collabora.com/detlev/hantro-perf/-/tree/hantro-improved-info
+
+Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+---
+Changes in v3:
+- Rebased on master
+- Fixed sps_st field size in traces
+- Fixed checkpatch issues (except parenthesis alignment in trace headers)
+- Link to v2: https://patch.msgid.link/20260610-v4l2-add-ftrace-v2-0-9756edf72ac1@collabora.com
+
+Changes in v2:
+- Don't modify the printk format
+- Trace all fields of the structs instead of the whole struct as a buffer
+- Remove fdinfo patches (they will come in another patch set)
+- Fix long lines
+- Rename v4l2_requests.h trace header to v4l2_controls.h
+- Add basic documentation
+
+To: Daniel Almeida <daniel.almeida@collabora.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Steven Rostedt <rostedt@goodmis.org>
+To: Masami Hiramatsu <mhiramat@kernel.org>
+To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: kernel@collabora.com
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-media@vger.kernel.org
+Cc: linux-trace-kernel@vger.kernel.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+
+---
+Detlev Casanova (9):
+      media: Move visl traces to v4l2-core
+      media: Map each struct field to its own trace field
+      media: Add tgid and fd fields in v4l2_fh struct
+      media: Add tgid and fd to the v4l2-requests trace fields
+      media: Add missing types to v4l2_ctrl_ptr
+      media: Trace the stateless controls when set in v4l2-ctrls-core.c
+      media: Add stream on/off traces and run them in the ioctl
+      media: Add HW run/done trace events
+      media: hantro: Add v4l2_hw run/done traces
+
+ drivers/media/platform/verisilicon/hantro.h        |    1 +
+ drivers/media/platform/verisilicon/hantro_drv.c    |   14 +-
+ .../platform/verisilicon/rockchip_vpu981_regs.h    |    1 +
+ .../media/platform/verisilicon/rockchip_vpu_hw.c   |    4 +
+ drivers/media/test-drivers/visl/Makefile           |    2 +-
+ drivers/media/test-drivers/visl/visl-dec.c         |   76 -
+ drivers/media/test-drivers/visl/visl-trace-av1.h   |  314 ---
+ drivers/media/test-drivers/visl/visl-trace-fwht.h  |   66 -
+ drivers/media/test-drivers/visl/visl-trace-h264.h  |  349 ---
+ drivers/media/test-drivers/visl/visl-trace-hevc.h  |  464 ----
+ drivers/media/test-drivers/visl/visl-trace-mpeg2.h |   99 -
+ .../media/test-drivers/visl/visl-trace-points.c    |   11 -
+ drivers/media/test-drivers/visl/visl-trace-vp8.h   |  156 --
+ drivers/media/test-drivers/visl/visl-trace-vp9.h   |  292 ---
+ drivers/media/v4l2-core/v4l2-ctrls-api.c           |   10 +
+ drivers/media/v4l2-core/v4l2-ctrls-core.c          |  113 +
+ drivers/media/v4l2-core/v4l2-fh.c                  |    1 +
+ drivers/media/v4l2-core/v4l2-ioctl.c               |   37 +-
+ drivers/media/v4l2-core/v4l2-trace.c               |   48 +
+ include/media/v4l2-ctrls.h                         |   19 +
+ include/media/v4l2-fh.h                            |    4 +
+ include/trace/events/v4l2.h                        |   71 +
+ include/trace/events/v4l2_controls.h               | 2705 ++++++++++++++++++++
+ 23 files changed, 3026 insertions(+), 1831 deletions(-)
+---
+base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+change-id: 20260608-v4l2-add-ftrace-aec6e7f60a6c
+
+Best regards,
+--  
+Detlev Casanova <detlev.casanova@collabora.com>
+
