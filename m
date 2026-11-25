@@ -1,110 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625478;
-	b=10PR+0XKt5OtAoCeMlIB2AmcfxHnlz5aIRqkJGus2tkMOrUtFUGCjN/Hlb4qXaPS7Pa0
-	 BIKiuDxT5Jrbw2AD3LPul2oMtKfMWY1J9H4wr80g+KhosQcHJEy2gxZSBpwJATe2eGBLs
-	 MKtB2ej07YM/q0TPHXc22XH4KGLhakwJICM4JHPoiOSLQ2S7/Ll/6DJX+LcHvbMW28XL2
-	 HDxmbQ1vXDJjZQwZN6lW7tHGJ/TP1JcIGnyXnyQzrUKGupJl+7EotZqw2jxFsH89cDCUO
-	 TKa2DYWj6yoJ4cHIFOWTIi10Ys/h26Uxh5gH0BECTlNhlK2Vy+oYGXr0aEGRZR2aqxA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625478;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
-	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=FxhZu4tjMNL8HO5R7YNd87cuSZ/6nrHHIXT9pj3D72k=;
-	b=KyStYB5qBJb8buPU2NkhLKraECj4z6CipO0fBPchGNRKev3HlrdfX1tO/sccY/YKSz3j
-	 soyy9EUxAemZzugtD+3WYubXYbKw8joqEn6lXrPhsO+pkab4WJHlv00MwsUDwHZlIObn1
-	 5TSWI9evqqHGgm3nwUg2D9jEvwM4e5t7Wvu0SPYJI1ejkY6yTCyl+ZZs5RIHf0yY+5Dgz
-	 WLq/HeLR1+kvHptPOyS1s2JURwYDTcMJsYsruoL/7c8PH+uk+ePcjndVR/PRvCAKR9bYC
-	 vOdO65xoMkJcfEntPbIVR1GrLOMJBgIlpOllPnerK5TdqL+YTsTxaNa8hRfUsGjpZwg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=aci266Nc;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ihPHR2jD;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.41
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795625490;
+	b=ltclcGj+uXLtTspUTyKLUiXrPtsr3OadOiOKjvngqV3K2DDS1FydvfxyL8zdX7aFp059
+	 zmlugsRi0bTjvfmVsE6QOr9d/GUPiDNda6O4KHHgFbOc30aP/617yEXDMPoHLF1J7JC9m
+	 7ou2w97ExrBKrrV2QO8/VrNhbGUpMdS3tjJKU13+sRpq3epIMGWwfWhmOvNWqYJbXw4IG
+	 f9oASfoDLIXGyzJXrIMPNbLzcOiQ+G5QuHZvQjyJl8HYp1JKBZs28dZzD8x87ia2eO8xw
+	 /xHkgqz0503mx2xxvLdq4A3AMvha6xM14NQe2Poq3pGOJvRBdErEcMeJW364b2nn38A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625490;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=RXQk5HMe2BJYtF6nqI/dEd/GRzh+7/vUyfQ0kGs8Dkc=;
+	b=vGzM4VvF4lxm+KQsUce/ZIXcXrP7eZSqsSnk0pRrviGoq+tlFMafGciGlC/Kfj/pBx+g
+	 Yh2EAoDggTEpXBWJHcQY6cfCe5ywkALlTkcMTMLmS8AJddbe2KszTzISfZq3HBaaJKj3d
+	 q1XjqDwuJU2zCMCxSnBmCCK9r51cPxnHB6FJPOHHWhC1mwy1rYgBuA7Xfxbjfld96mYqx
+	 dOBj0PHBaKWWNdUngZx3ModA+hYq3fgylzt/HbCiH/sRQ0hk4zASkszk3+OrWyUjBXu0f
+	 AXuSXqRSTT3u1eRTdpXfyekkpmD78yS3N8hqqxml5BqoZsEF5+19lW9Raq+r3UMs0aA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MoPoxyMU;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.41
+Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com [209.85.208.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5155C606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:51:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5155C606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9532B606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:51:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9532B606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=aci266Nc;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ihPHR2jD
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APGQ7443998662
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:51:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	FxhZu4tjMNL8HO5R7YNd87cuSZ/6nrHHIXT9pj3D72k=; b=aci266NcO9IYDL0H
-	BQNF4F3NGya0s2kqOxtiwfJ5VCyiqQqNSlmBGyKdaKNfwjm4DTxBn7zpw9vnxO94
-	Hneekdz2dm50SHEC63I11aGC86CLZgKcbTVbobCW7AyB4bm9XDyru47RctUMI5so
-	+hRq2XNzMVKxEGTKJsiTgoyBNCSia/oOeRz2cj6GDFjhJ/W5JXSPhCV+j3J8qMbu
-	YFdYqhiFkHxy/y23AC7jObddBO5MHdP0xWfuH4hFn4VwYvE+SJYmucEDNDj5Cjw3
-	l68UIJ71xaMA2ZvAItl5Oxb62WeFTq5l0dCDvFoPX4m/WMhUyr9nohK5GEshIJR+
-	vhjgrA==
-Received: from mail-vk1-f198.google.com (mail-vk1-f198.google.com [209.85.221.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j62aegb5f-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:51:17 +0000 (GMT)
-Received: by mail-vk1-f198.google.com with SMTP id 71dfb90a1353d-5eaad8219b0so2001545e0c.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:51:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MoPoxyMU
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-6b587538a37so9046112a12.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:51:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795625488; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rsS+96Qiv4EsJTvuFQbmkz0Q7jQLI9ElHnQpmu+WKYKMeAd6iR0z+CQe+bcIMA+MDU
+         Z9jjyWUwEoKFTCWO70MEyoen/pPGhPPUgoaRvbvDmti3DReKHVYl5fSuJaaziY16IDKu
+         1VVFFJfmYuTeQZ6EnJXsOX2aOBMSHPLm99A2A0QEh9v87HjqzWLfvC8pz+N5ympUkPiE
+         IajtA7GovQ8nWSXDvtHbWr2cWzBd2rUMEdVPi3siCdURlB5l6pihY8i4CjSWwmK9DlDw
+         wnfyo+5nV1DdD9CR+Ci3CQRPxWSBQpGBr+EqbrZ+yya8PhmPqKCxT8s2ORYTZy+QR4KQ
+         kf5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=RXQk5HMe2BJYtF6nqI/dEd/GRzh+7/vUyfQ0kGs8Dkc=;
+        fh=V9LxgGR+/BQgqAn7/bzrTLTbuPGF1vQK7OCgTGa/EfE=;
+        b=hr2tgNKWzU/ChwOIwew+1NQYnpU2SuJA/m+wNfxotIRs7vnfMIYIkFMmKaoKOIWMHW
+         ZEQuqDvXB+uuQBg3Hw6vKO5PlFzTpU9BU7ehGRhoHbspNvNfv+NhdIm/42z3xGuCvnsA
+         aCKE1wJ4KvtnMm9n/T3vzulZb9RWXU6GHRAoPLydJz10vXX59oYM0pI0RvjqbPJN/tdG
+         92OJPhbls3ABJ6atU1aPZVWI+A7Ypdr1fHfB5zteiCnJ6nN7rSGTd4qPKQaPDcJLUO4w
+         /eO2bqx80BTrAMBOiGM++1pg7pOkAmlq+5yPeBMPylKyaIQXG3J0lBUOGxvE8p1GhaaI
+         MEsw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795625476; x=1796230276; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FxhZu4tjMNL8HO5R7YNd87cuSZ/6nrHHIXT9pj3D72k=;
-        b=ihPHR2jDRZ4jpMdcD/anMXwBkMZyW6/1dF1MsNe0lnxSYzfoiuRvPKa3vN0pXZXfH0
-         1ju6+h7dmy+504/f3h2sPd3W/NxXzq1O/UpwLgHPGDCbhYpmYJqwicHNDDTEHeduHzL+
-         Oyi5I8fZwJAP+/S8PXy3+wo5bxcy2f1clSpR2RsKbz0Ca8RYWYUWlvAfGvUOCV4PpUpw
-         7eWlel9Q46v61v4tDR3kPjHUSFPDy7MZRZXq96QD4rCOWUv+mIHLhpyG7Uw7LZWz8Ay4
-         MOqO9KY1g2rLicdUBtNmB88tHBIAbPUg8Pbm2vrtv73Xgpd/uBZh1p/LzcthlKxtj4QM
-         qbuA==
+        d=gmail.com; s=20260707; t=1795625488; x=1796230288; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=RXQk5HMe2BJYtF6nqI/dEd/GRzh+7/vUyfQ0kGs8Dkc=;
+        b=MoPoxyMUvDW1SLt017Zbm2ElRZzGiEKE9LRDq//X7B5j3TZZdR2cJjL2ZBOsvKEAZ6
+         5IMuomAixYVKXTxTSbsvvUkuYlCm6JWLTwiWhbHnmzbjD0SYKpVTGs0a8R/hyeXlTCat
+         v++nacOw8wh8nQnKme7ZkOgcPVHS9U8PIZNzXPa5F/Gs2HzHICpegLzAaPhJMFiGMKnd
+         zJSCrK/jjB3QqXfi00Do0OBXJ9cHaspoS4hsJqMX0lgRiT/EeRtS0YXVLWqei5vHAUbO
+         Qr2NYy6jU0QsyDak7b6GcknaTsPdnQLdlnS7CLbP5ta2fpt8cldZxvRM2QK24ULz/9X2
+         +t2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795625476; x=1796230276;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FxhZu4tjMNL8HO5R7YNd87cuSZ/6nrHHIXT9pj3D72k=;
-        b=T9OIGa6cAhqq4g5w8IsBi7mAuUPumVNb6LUiPrN0ygaLJCPEKP0TkSRXjCUz6emNhz
-         TTfLxroxbNuMKs+bqdAS5rsoJ3nhtYs9PJMERlUc2xVnpwxQE48zE53Zzq04XnnIHHBZ
-         lnGoWqq7c9HimFHV7ItR7n83BS1uVsVncBQpFD0RAdb13oaT3azQe8qqzjI+bpTf+nsp
-         A0ipMS9hgrmpsyCCd+dz/wAVeahA0kEUM4loJ5Q9oE62/oKyoYat52HfYTLJSXqphsuP
-         TTRIlk5elx8ieE3Amdh50YaW1p3euoylyZgJCXmDP9q/nOwKI5v8syjsN2KWQHUX4em7
-         xaHA==
-X-Gm-Message-State: APuU4Z+sKSJuk7WTyqfnbz8vujoMO0lbI55GsvsEBXPK5LHJeDR7GHTu
-	XIBl9VMyL6MdfWwvMaNTXXnbFeplNbESSOdxlqM8/KwTGUUZJIDdM2bC5iWLX8xfjOc6P+oLUFF
-	DGdSJ836ls9UHB2Sq1FLj2XSNt05vuMFPucOjSoSOKDsQ1w7JHAG7uEEAMhwaj3J3uC0=
-X-Gm-Gg: AZFdTZdk/TeB8FCgZS+Tr+EMiDJGXLMC5u5EWomKZtgoC9fqF+Y7Nb2grdUVEjX/n3s
-	gsc0Q8okJHEZPkDMopOJskmSY/2YVOHnUYbwMOzZl3ZTpcoQWFkq6pW+9tbPTHBf2xPcP9Oy4Wc
-	5gkf/kWs2Wy0OlsUyGQAjjUBlReAv7QNV5bEZDJEQ4hbNhvXPj2ZeTS2RacsY+rOJFTVem6nfUb
-	6mLNKRVHKaKe59ITULcNfgo4e46Qdqc+Bycv9hn+RHgISLU8xdXGsY5isDeGFvEmls7S1ExAiMo
-	cwqwrGG+zXoUBjM6PR5uFgbJZPwQNCpItn2JuTRkQ+o4RG80XtMKM+jc67hh7H+/exINoWmOPzB
-	RM/gBf6NtghjacFPFJg22/qfMp3kSOqryEC9bG0cKmxM/EIlxnxA4agq52V6tiwM7UJhgnY+GeH
-	Flp7HnYDozFc6ezEqaeAQMXbH9SSyxqL5BWRk=
-X-Received: by 2002:a05:6122:6286:b0:5e9:5e79:ab3 with SMTP id 71dfb90a1353d-5ee8af6ff11mr10400381e0c.21.1795625476360;
-        Wed, 25 Nov 2026 08:51:16 -0800 (PST)
-X-Received: by 2002:a05:6122:6286:b0:5e9:5e79:ab3 with SMTP id 71dfb90a1353d-5ee8af6ff11mr10400349e0c.21.1795625475813;
-        Wed, 25 Nov 2026 08:51:15 -0800 (PST)
-Received: from ?IPV6:2a05:6e02:1041:c10:ae4e:e70c:bc04:68c3? ([2a05:6e02:1041:c10:ae4e:e70c:bc04:68c3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853ca452sm517242145e9.15.2026.11.25.08.51.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 08:51:15 -0800 (PST)
-Message-ID: <1732de8a-6a55-492c-8b26-dd81f3f4dbe5@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 17:51:14 +0100
+        d=1e100.net; s=20260707; t=1795625488; x=1796230288;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RXQk5HMe2BJYtF6nqI/dEd/GRzh+7/vUyfQ0kGs8Dkc=;
+        b=c3hGVlxq4Q7MABWkuoGZ92mTyNWWYPkTaoarPEKhuwIcEAKG39A7DOuSvrlVB4p0hn
+         OB6nGC+rhEVJ4QUekFYcskzrMv/Yhkh+c7K3MXYa6+jn35XrbYnFYhZgQ4pUlJqcPg9J
+         /5jGJrR/nzVN23Dnct+wiwmwcxtcqjgq3yLkT07kXvm+VdD65QHOE7tEmHLckj4TyAsT
+         0D9xroZSe9+Bq5iYQleBpCr+oGrEwBsuNUUi2XS3ql/RGS8/w7CaWVH3PlWvpY54pa3y
+         BPYjX+sRNuSqdPFBSQJfG5Kim2xdzuQYb2IIReaGlndFteD37AaHCnYeYjBmNoY8b7DG
+         Zc5g==
+X-Forwarded-Encrypted: i=1; AL+hErHCHhm4yDNlA0DUCEe3ZR7+ePjQu9YyZo1wJM5uA0xP8mjC5k9jVQotSm9L3gB7gnvxk/mPP+CSxfM0Szk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+FcvwGO5xxcyu3Bd78FLs3+feQNFoj66Xa0qRmwH33Kzglksc4
+	G7TizylLTvbJqs8ckG9mq8a2cVPERmXu68x9nuX/5Kh7rqXZgtBmksRS0y6XPWaOGlBlBwA5cMm
+	WPFn753NdExaQcvYMaGhQtHgf0ZqzSaI=
+X-Gm-Gg: AZFdTZf0IZPlXsV/ME0AMhW423Kxtu7cB9ErcTgt/k8v+EHzKDbKXdCj3eEMXlWxrm8
+	tZvJ4BaIgXsBjF1J3YIy3V+mhE9Ysr90MnSZWVLpUa1u813GlWnFCRSjoUlPztCBjhcrLrOknMV
+	Wc1utgfKNeOxa3PzwDGslMuSh49gO1zWxEnkcijmcdRUjrE3kln+HAjZIkoCMpc6auNjNVicFnz
+	MFMy4Dqu2XaiVa1/+ct/fn8hWOFJcNDGnWpvmq2eusavJBXivnhYme1DImGjTsHE9qsjNpoiV8A
+	2rbbrHMskjgFyEqrM9rOQOR088kgZf0rUie+PpJffgKrps3byWTsA3DxPv3UwiMzFtp/dDZPvD1
+	OU/A4I/APOZ/EzJrIv18x6B2lwCTrNwI4PufISn9lkuC/HOxh5zluZ6/GpLCUk2W3uDj6XQ==
+X-Received: by 2002:a05:6402:84e:b0:6b8:ac39:bb7b with SMTP id
+ 4fb4d7f45d1cf-6ba37f07a02mr12784419a12.45.1795625487513; Wed, 25 Nov 2026
+ 08:51:27 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,58 +104,252 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND] clocksource/timer-riscv: use
- riscv_has_extension_likely
-To: Jisheng Zhang <jszhang@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Thomas Gleixner
- <tglx@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20261107134952.17873-1-jszhang@kernel.org>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-In-Reply-To: <20261107134952.17873-1-jszhang@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA2NyBTYWx0ZWRfXxkcBeJmoPWq9
- SDa8loi1vZJlG8Q0W+8o5TKlJVabykgqeaVibKdvrf0ISYFDgTJ05fFs9BnWVJUQQ6dqFJhfxZF
- n5qudUZkm33UYBi7vgpdveBXzS/4vAdxuG9r1w0b9EodTwd6MWmt17sHuNH1auV6LKsd59W1KKJ
- VmQ68/NbBDI3/h2F3S85JPN62yljizt89oqNXBHKdRQ77Bmr/s8s47K8Ddua1g0gKp5wr5B7i9Q
- K4ejKND8Vw3Mlfh0HDg8VX5mho4YKBZCiVNTp8R1leLgfb46gbRoeg/H/ExQFJoFQRx3SKGyK1Q
- cms7XIhYzCYnkJK5L5sMGzNkBx17rnazVmbpMDeLsXwkYirTwnP3Qy2sdFSFgMs0Znxf8RBVDrE
- SrkTXEjYbI3IPWQwl3g3+U7rffx75ylnQsR2mNGcn0T/cJ5AeTX52OKEID1s/X+2+wXTzHmPava
- cHLC5zaIIowgt/iTAnA==
-X-Proofpoint-GUID: mX2kjS2mZNhYrspKuueXg6uygxvGPljk
-X-Proofpoint-ORIG-GUID: mX2kjS2mZNhYrspKuueXg6uygxvGPljk
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA2NyBTYWx0ZWRfX5DpfkqrCivcP
- 2/Wq1ZRrtjTLUWzREa5u95PE4vfVe3BbRUQcCiDllSmoFbF2FThQcyjx6erTW8ZdjU9950akqwP
- vrgULALtvQmHIw/S5mrBH00VcdVFVW8=
-X-Authority-Analysis: v=2.4 cv=PqoG/AM3 c=1 sm=1 tr=0 ts=6b071205 cx=c_pps
- a=1Os3MKEOqt8YzSjcPV0cFA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8
- a=inWZCpT9pWDABBVAoXcA:9 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
- a=hhpmQAJR8DioWGSBphRh:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_04,2026-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 adultscore=0 malwarescore=0 lowpriorityscore=0 suspectscore=0
- clxscore=1015 priorityscore=1501 impostorscore=0 bulkscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250067
+References: <20261122000856.536902-1-koray.fra@gmail.com> <20261122000856.536902-3-koray.fra@gmail.com>
+ <CAOQ4uxhegn1z=41_MHL1Zu2hXuPtzNhC=x4gd371oaeJE4-weQ@mail.gmail.com>
+ <DN2N6A68PBO1.2QT8ZOARF4I6L@gmail.com> <CAOQ4uxhDQqEQ3T9NveBFpUmSU032BxrNV5D+_zHj8u9LOQY+qg@mail.gmail.com>
+ <DN4DRUYPHYMP.20U4DYV5VBN7P@gmail.com>
+In-Reply-To: <DN4DRUYPHYMP.20U4DYV5VBN7P@gmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Wed, 25 Nov 2026 17:51:16 +0100
+X-Gm-Features: Aa3M54qBSzc52sWJyl_AAZDXWvCmiaZo0RX22LaXSRo3u2ihdyPPNj6mbzgC3-4
+Message-ID: <CAOQ4uxg0g+XkPb3-kQS5ez1-rp7Q=BkYDHW0CGOFhpbcf70yMg@mail.gmail.com>
+Subject: Re: [PATCH 2/3] vfs: add xflags mask to fileattr API
+To: koraynilay <koray.fra@gmail.com>
+Cc: Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
+	Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, Jan Kara <jack@suse.cz>, 
+	"Darrick J . Wong" <djwong@kernel.org>, Andrey Albershteyn <aalbersh@kernel.org>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+	Lauri Gates <lauri.gates@gmail.com>, Christoph Hellwig <hch@infradead.org>, Dave Chinner <dgc@kernel.org>, 
+	linux-btrfs@vger.kernel.org, linux-xfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	ntfs@lists.linux.dev, linux-nfs@vger.kernel.org, linux-api@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/7/26 14:49, Jisheng Zhang wrote:
-> Instead of static branch, use riscv_has_extension_likely() to check
-> whether SSTC is supported or not. For one thing, this is straight
-> forward, no need to add and enable/disable a static branch during
-> probe; For another, riscv_has_extension_likely() is based on
-> alternative mechanism, it avoid some downsides of static branch, for
-> example static branch's metadata in the __jump_table section, which is
-> not discarded after ISA extensions are finalized, wastes some space.
-> 
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Still waiting for maintainers' blessing ...
+On Wed, Nov 25, 2026 at 4:01=E2=80=AFPM koraynilay <koray.fra@gmail.com> wr=
+ote:
+>
+> On Mon Nov 23, 2026 at 4:29 PM CET, Amir Goldstein wrote:
+> > On Mon, Nov 23, 2026 at 2:58=E2=80=AFPM koraynilay <koray.fra@gmail.com=
+> wrote:
+> >>
+> >> On Mon Nov 23, 2026 at 2:24 PM CET, Amir Goldstein wrote:
+> >> > On Sun, Nov 22, 2026 at 1:09=E2=80=AFAM koraynilay <koray.fra@gmail.=
+com> wrote:
+> >> >>
+> >> >> Add fa_xflags_rw_mask and fa_xflags_ro_mask to struct file_attr and
+> >> >> equivalent masks to struct file_kattr.
+> >> >>
+> >> >> Also add has_masks selector to struct file_kattr so we can know whe=
+n a
+> >> >> user of this API (userspace or filesystem) supports them.
+> >> >>
+> >> >> This lets filesystems advertise their support for specific xflags, =
+like
+> >> >> statx.stx_attributes_mask does, and userspace can specify only whic=
+h
+> >> >> xflags it wants to change without needing a RMW cycle:
+> >> >> - on GET: each filesystem that wants to support this new API fills =
+the
+> >> >>   masks according to its supported and read-only xflags, then:
+> >> >>   * for boolean xflags: it fills fsx_xflags with the current on-dis=
+k value
+> >> >>   * for value xflags: it sets the xflag bit to 1 in fsx_xflags and =
+the
+> >> >>     xflag value in the struct field;
+> >> >> - on SET: userspace fills the rw_mask with the bits of the xflags i=
+t
+> >> >>   wants to change, then:
+> >> >>   * for boolean xflags: it provides the xflag value as a bit in fa_=
+xflags
+> >> >>   * for value xflags: it sets the xflag bit to 1 in fa_xflags and t=
+hen
+> >> >>     provides the value in the struct field; if the xflag bit is set=
+ to 0
+> >> >>     instead, this informs the kernel to unset/clear that value.
+> >> >>
+> >> >> Since fa_xflags_rw_mask means "I want to change the xflags specifie=
+d in
+> >> >> here", if userspace specifies fa_xflags_rw_mask =3D 0, only check f=
+or
+> >> >> permissions and fileattr support without checking any xflags.
+> >> >>
+> >> >> Behaviour of older programs that already use file_[gs]etattr() is
+> >> >> preserved by checking against FILE_ATTR_SIZE_VER*.
+> >> >>
+> >> >> Also add the missing FS_XFLAG_PROJID xflag, to allow userspace to s=
+et
+> >> >> the projid using file_[gs]etattr() by leveraging the new masks.
+> >> >>
+> >> >> Finally, in order to prevent the legacy FS_IOC_FSSETXATTR from acce=
+pting
+> >> >> FS_XFLAG_PROJID, add a FS_FILE_ATTR_XFLAGS_MASK to support new xfla=
+gs
+> >> >> and use it to validate/clamp both the _xflags fields and the masks.
+> >> >>
+> >> >> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.11
+> >> >> Signed-off-by: koraynilay <koray.fra@gmail.com>
+> >> >> ---
+> > ...
+> >> >>         err =3D fileattr_set_prepare(inode, &old_ma, fa);
+> >> >> @@ -424,6 +504,14 @@ SYSCALL_DEFINE5(file_getattr, int, dfd, const =
+char __user *, filename,
+> >> >>                 return error;
+> >> >>
+> >> >>         fileattr_to_file_attr(&fa, &fattr);
+> >> >> +       /*
+> >> >> +        * Remove xflags added in or after VER1 so userspace progra=
+ms compiled
+> >> >> +        * against VER0 don't try to write xflags they don't know a=
+bout (since
+> >> >> +        * they do RMW).
+> >> >> +        */
+> >> >> +       if (usize < FILE_ATTR_SIZE_VER1)
+> >> >> +               fattr.fa_xflags &=3D FS_XFLAGS_MASK;
+> >> >> +
+> >> >
+> >> > This looks odd.
+> >> > old struct size with new flags should be -EINVAL not silently drop t=
+hem
+> >>
+> >> Right, and the GET path should strip any new flags, so old programs
+> >> doing RMW will never see them, correct?
+> >>
+> >
+> > Yes, I think so.
+> >
+> >> >
+> >> >>         error =3D copy_struct_to_user(ufattr, usize, &fattr,
+> >> >>                                     sizeof(struct file_attr), NULL)=
+;
+> >> >>
+> >> >> @@ -460,10 +548,6 @@ SYSCALL_DEFINE5(file_setattr, int, dfd, const =
+char __user *, filename,
+> >> >>         if (error)
+> >> >>                 return error;
+> >> >>
+> >> >> -       error =3D file_attr_to_fileattr(&fattr, &fa);
+> >> >> -       if (error)
+> >> >> -               return error;
+> >> >> -
+> >> >>         CLASS(filename_maybe_null, name)(filename, at_flags);
+> >> >>         if (!name && dfd >=3D 0) {
+> >> >>                 CLASS(fd, f)(dfd);
+> >> >> @@ -479,6 +563,30 @@ SYSCALL_DEFINE5(file_setattr, int, dfd, const =
+char __user *, filename,
+> >> >>                         return error;
+> >> >>         }
+> >> >>
+> >> >> +       /*
+> >> >> +        * Userspace said "I don't want to change any flag", so be =
+it I guess.
+> >> >> +        * Still check for fileattr support and permissions, also i=
+n case this
+> >> >> +        * is just a probe.
+> >> >> +        */
+> >> >> +       if (usize >=3D FILE_ATTR_SIZE_VER1 && fattr.fa_xflags_rw_ma=
+sk =3D=3D 0) {
+> >> >> +               struct inode *inode =3D d_inode(filepath.dentry);
+> >> >
+> >> >
+> >> > No No this is not what this userspace said!
+> >> >
+> >> > This user space is the same old chattr programs recompiled with a ne=
+w
+> >> > fs.h header file
+> >> > installed.
+> >>
+> >> Oh, right, I did not think about this case, I hope it doesn't break to=
+o
+> >> much of the new code I changed already for v2 :(
+> >>
+> >> > When userspace does not set anything is masks it means "old API"
+> >>
+> >> And so a modern program using masks that passes rw_mask as 0 should be
+> >> also interpreted as "old API", even if it kinda goes against the
+> >> definition of rw_mask right?
+> >
+> > Yes, but it is not a problem to describe this backward compat exception=
+:
+> > When (rw_mask | ro_mask) =3D=3D 0, it means "no mask" "set everything"
+> > but then vfs will not accept new xflags that were not supported in v0
+> > syscall.
+>
+> Uhm, since we have no way to know on the GET path if the caller is mask
+> aware or not, on mask aware filesystems and legacy programs recompiled
+> against VER1, file_getattr() will return rw_mask !=3D 0, when the program
+> does RMW, so calling file_setattr() with the old struct which has
+> rw_mask !=3D 0, vfs will think that the caller is mask aware.
+>
+
+True. This is a requirement from the design of v1
+that RMW works correctly when the program does not change the masks.
+
+> This causes problems when that legacy program changes the projid, since
+> vfs will see rw_mask =3D PROJID but fsx_xflags will not have PROJID, vfs
+> will clear it even tho the program wanted to set it to some value.
+>
+
+Yes, this is a specific issue with PROJID itself, not with the
+entire masks API.
+
+
+> Unless I'm missing something, there is no way for us to know if a caller
+> of file_getattr() is a new mask aware program or just a recompiled legacy
+> program.
+
+Right.
+
+>
+> My robot proposed 2 fixes: either don't introduce FS_XFLAG_PROJID
+> (which, eh, not the best imo)
+
+Me neither. It's inconsistent IMO.
+
+But it is inconsistent in that we want to have a way for chattr -p to say w=
+ith
+the new API "set only projid", so we must have the flag, but we
+mostly need it for the mask, we don't really care about its value in
+fsx_flags.
+
+> or add a new flag to be used in at_flags,
+> like AT_FILEATTR_MASKS, which would resolve all our legacy vs non-legacy
+> problems, but it would be in *at*_flags, so doesn't really make sense
+> semantically (but it would work well since file_getattr already rejects
+> unknown at_flags, so it wouldn't cause problems for old programs).
+
+I think this is an overkill as well.
+
+We discussed this before.
+
+Attributes that have X_value like fsx_projid have few types:
+1. 0 means disabled (all existing values incl. projid)
+2. 0 is a valid value but cannot be unset (btime)
+3. 0 is a valid value and NULL/unset is also a valid value
+
+Only for type 3 does can the interpretation of
+(!XFLAG_X && !fsx_X) be considered as an "unset"
+and anyway, this will require support in individual fs.
+
+fileattr_set_prepare() already treats the existing values as:
+fsx_X =3D=3D 0 =3D> clear XFLAG_X
+
+And xfs returns EINVAL for !!(fsx_X) !=3D !!(XFLAGX)
+
+A simple solution is to fix the flag according to val in fileattr_set_prepa=
+re()
+if rw_mask contains this flag:
+
+if (fa->fsx_xflags_rw_mask & FS_XFLAG_PROJID) {
+    /* Possibly legacy chattr -p compiled with new headers unaware of PROJI=
+D */
+    if (fa->fsx_projid =3D=3D 0)
+          fa->fsx_xflags &=3D ~FS_XFLAG_PROJID;
+    else
+          fa->fsx_xflags |=3D FS_XFLAG_PROJID;
+}
+
+Does that leave any problematic corner case?
+
+Thanks,
+Amir.
