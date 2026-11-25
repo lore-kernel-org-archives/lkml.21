@@ -1,100 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.37
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795591583;
-	b=yXcHoNIZSA/Qt6X/MJO3LrZMhyCDj8WmUZpeddxODEDpOHtg763rntohzGhX0BQa/S4U
-	 DZGfSb3Ona0CoyAOWoh/cPgSmL9aIMhCmJ9Mu9mJudvxV7FVU4NnQ/of7wEFdw4h9dCTu
-	 A2aqVfOl+8jLHcNjIxjBDkc5IZC4HD4sFvqkHA7BoL5FBb+RA1moNhxGSdJaDxZ+ovJbL
-	 tSUlhjS9OBYH4dBW+vVnSsSXkOTsBvWn6I5Mrc76b0ypTQt05f3XV/rhQvdwYkGR3xdqc
-	 hdtRUQaH0W5wh6+4Yi2OhloUdgNslnIWCcSjSsi0tCm7D60DWen7Lcu/J+IphpxuQeA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795591583;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-AtpMessageProperties:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=3wJMCCTSJrYwQ9biP4gZD2sN/P0osrstDSJEYWxorz4=;
-	b=PkmXenrmH2aOVJi3ar2dI7LM/GpY5wiNIYqCCp4pPnrvGHyS+TSVlDXfQirEhzJmLfAc
-	 cOHRMNb/kZRLK69UpOrn8jHz5LH8xbxN3yNE6XQDajG6iTj5ggwmuBdmCDZBNbkODFzI3
-	 A4ONv/79BfRejt8yzWxb2ncB9mAzSXr1TxYrsEF7OLWxyYjf9pk2vunm6uaTBGbdRxkc6
-	 mTdH4MVtHTeq0PNIGQFkiWdU4S6dT4AMJ3XqRxvpUqyf0AxKpGSk3vlps1gE3zvj3yROk
-	 RnBz9Getrn7D2xSkkk+8g0aB2xf3xb6DpBpH3sHPPOVJU49fh6tDZrMMYFCDgjvyOYg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=altera.com;
-	spf=pass smtp.mailfrom=altera.com;
-	dkim=pass header.d=altera.com header.i=@altera.com header.a=rsa-sha256 header.s=selector2 header.b=CmA3ZvKa;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.37
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011037.outbound.protection.outlook.com [52.101.57.37])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795591600;
+	b=2JtmV8Yk6pFdMpyIHNONpVI/B/i8qhxFW/5jhojKWT5iSqDbjogyavJYtwGr+8Tu52UE
+	 gxapfds3hw7Rs6BCQdIC1FVu1tn0hFZAT5vCfP41AVqayWq0HDBmhU1m1wzYNTCDhbD6G
+	 YYd1m9ubQLwOohNSTymr/92hJP89npCfLy3AOw6Gq5pQCxVKiaPvpG/1o44v6KiFdDPbo
+	 Xuqo824z7n4Wj+IyHC62JXAFTcYWeXiUL1CIbzCHiSq0x3/xWOutAJoav+0oXvwWNSFGs
+	 aNAwSK7KWAToqgHdPXO/klCJYUNywUcJWcDhcgv0Tt8UDjCDzPpAKRuPMJZfsQGWKpA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795591600;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Spamd-Result:X-Rspamd-Server:
+	 X-Rspamd-Action:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
+	 X-Rspamd-Queue-Id;
+	bh=2a4mMSXkJJkI0aTn841fl09wJNNE88BpvXRrzYz8z1I=;
+	b=fmADCWH9VCB31jGXjKU5Q9MlnV7qde6oWcpj6GuSkCr+bpjnQEL6ONVSxlDs79rgDPxT
+	 LiZXmU3+MseqsRbgPRY8MMQ0iqQjTJUIJqLCrlEpM0wq+2umz82wVxgYVNkqeGozgCRRO
+	 iNMlMM13bG63KegSPsuZFn32EoFJ6FwrpTDROSQWYcc1iMJVKcxkXSCHUhqZNTOG//AYb
+	 6rsvsjVCQcrPn4u9GuEXZKUmuoNAhXad030J/bNRLg7+cJnAxHsYJltmXsNrWpn0srIIK
+	 5V4HT0YFNsUPTiq1wHyHCZOeTz/4/EHiMttMlaO4sWn08vj0Q0MTW4LrDAj5mMzryiA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b="Op/kwJNF";
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=di0fenA1;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=aYEvI6Jg;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=IiHmeZcr;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4619B606A31E;
-	Wed, 25 Nov 2026 07:26:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4619B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=altera.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=altera.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FE31606A321;
+	Wed, 25 Nov 2026 07:26:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FE31606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=altera.com header.i=@altera.com header.a=rsa-sha256 header.s=selector2 header.b=CmA3ZvKa
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bYF2PjSPEIo3jSqEjBih4XVPLq6ZVLZyWblxSdVJeY/w/+JpWFTPCyGYiXkkB5CS685oEFm0hedqxYK5H/Xv86nYIG4CvOnlVUFpFpevIAq0NjV6yt03plo3gn7YVlaPd05VeCPM4t1MleYTo8ticc34jD6+OWl3Q3ZFF9ymMdk0L1AQIxGAPuqkmGyAYADMNbTb0ebeX09J0OXmDDI4NXw19dHY4lKkufgJRESYI3kkI7pU86iK13QpAQQdARwO/bLfdG0JXM5bmjnZEi98wy+U38mouyDAwvxNUCh6SDjU/fUqZm6m8QsAl4AVdWjN3XxV/qZDil+Tp+NRwirQsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3wJMCCTSJrYwQ9biP4gZD2sN/P0osrstDSJEYWxorz4=;
- b=y0qdIMUgbK+Ool86fm2eTCqkIiZwERA4fzgmyiycPVBqyLme3l32eEWxsBf7UH+cWxgTywj9YM1yQNBDPQsBLA0i4x1mPhtrTUpRzpgr9DiG/IJOk1qbYUE0Grz3L3d70n7ljvuJe+1fIU/5znV35moworPfzy8VhxJsxsPYIHWVHCC9DXMW27UjyxNu9B/S4Xgwsi7krJfQ/lQz6WcBnp1k9nZvQmbx/WGC4UhY7rQkxgdubMANprf6ZERgqBAlbyVe9pROdLXdi2y8Y/ZvgWhs6q7iWBmPRKWJKMYcGAeAhV/NWD4gTW3FjYJ6Qx79Xt35DHBXn4EM31UJ1aq0Fg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3wJMCCTSJrYwQ9biP4gZD2sN/P0osrstDSJEYWxorz4=;
- b=CmA3ZvKamVCZIOG95qiUhbOOgmntjJEYxcVMh7Cg8MZWIU5phXlbkSIYTPVp8vHdmWptwjBSBV28kf7yXhOGwIJ4tZUKhysQq1otqpOckM8EbmmF1X7EycUy+Yq2Y12FEik+yqV4RTZarIOgmE15+HfTS2WZJcI/4AHBM1in7bGAUUVi5Jrj5Tzp0N4+cWfFQ4oMwEHaLlAL0664KLW3N4pqbxxXtr+DyN/Ufxf4gCCmGadRA+88p/KGaDjY/zEVW5mgIAAy912cRj4ZAzPKbn28bAdE4Mul7hgDRugHTja8QzbCaFFfvoT13q2kLS1++6XuA231EOSbvdBgEDMyZA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from SJ0PR03MB5950.namprd03.prod.outlook.com (2603:10b6:a03:2d3::20)
- by SA2PR03MB5819.namprd03.prod.outlook.com (2603:10b6:806:113::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Wed, 25 Nov
- 2026 07:26:18 +0000
-Received: from SJ0PR03MB5950.namprd03.prod.outlook.com
- ([fe80::53a0:bf93:6b6b:de01]) by SJ0PR03MB5950.namprd03.prod.outlook.com
- ([fe80::53a0:bf93:6b6b:de01%3]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 07:26:18 +0000
-Message-ID: <8bf3eddc-305b-4538-a49a-60e2da2f9b8e@altera.com>
-Date: Wed, 25 Nov 2026 15:26:12 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] dt-bindings: mmc: cdns,sd6hc: add SD6HC DDR50
- read-path tuning
-To: "Kathpalia, Tanmay" <tanmay.kathpalia@altera.com>,
- Adrian Hunter <adrian.hunter@intel.com>, linux-mmc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- Ulf Hansson <ulfh@kernel.org>
-References: <20261119-sd_cadence_ddr50_v3-v4-0-95a94a0aaaf3@altera.com>
- <20261119-sd_cadence_ddr50_v3-v4-2-95a94a0aaaf3@altera.com>
- <5de1ad0d-ef89-49e4-9195-195be48d57bf@altera.com>
-Content-Language: en-US
-From: "NG, TZE YEE" <tze.yee.ng@altera.com>
-In-Reply-To: <5de1ad0d-ef89-49e4-9195-195be48d57bf@altera.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI3PR01CA0012.apcprd01.prod.exchangelabs.com
- (2603:1096:4:296::11) To SJ0PR03MB5950.namprd03.prod.outlook.com
- (2603:10b6:a03:2d3::20)
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Op/kwJNF;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=di0fenA1;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=aYEvI6Jg;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=IiHmeZcr
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 4C54122379;
+	Wed, 25 Nov 2026 07:26:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795591597; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2a4mMSXkJJkI0aTn841fl09wJNNE88BpvXRrzYz8z1I=;
+	b=Op/kwJNFunoVi9G8rlqVzu42zt9Ng7Scs+HizcyoAHVPbvI/Hm4xRu8+cqrG5Ipqc8OT7J
+	5cWHaRtEKus/fMjA2EIqcdXXCD4FtLdftoMlC4y/nFb67PhhoaMVYE2xdIfGmMTnCsoj1q
+	Y9hXFzpfzBAkBMoSW+sEa7r9a4U7X2s=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795591597;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2a4mMSXkJJkI0aTn841fl09wJNNE88BpvXRrzYz8z1I=;
+	b=di0fenA1SHktL2KU6C0A6Ki1KI4P7K2Ysk8qOgfLkty3nn4PXmalR/Ev1A6EieOL+f8Ikq
+	tYBIvc9wCREuUiCA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=aYEvI6Jg;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=IiHmeZcr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795591596; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2a4mMSXkJJkI0aTn841fl09wJNNE88BpvXRrzYz8z1I=;
+	b=aYEvI6JgVQc9/ILsDv4vhtP3usQepu3XRGYHsMqNm2mjHIUOiO1hKyx8chVhg91j/WpgqK
+	M9bqlDnMoIyAtaEcZ520LL82+jdy4UlNv+ljK3H4dQYWkClJq9wrVDfQXYMGeXYDReNZ5F
+	XEpmQsc0nHEgNPyCtD2EnjDF3kaxh60=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795591596;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2a4mMSXkJJkI0aTn841fl09wJNNE88BpvXRrzYz8z1I=;
+	b=IiHmeZcr0RS+M0NoIiuB6VN6ytN6UMFeHVQ+C+vMfjIRc9Hb5RM6o+uiziltnkDBZFqHwS
+	+F9xZk6XCwXuvOCQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CCCDD1339F;
+	Wed, 25 Nov 2026 07:26:35 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id ++x/KKuNBmsGKgAAD6G6ig
+	(envelope-from <hare@suse.de>); Wed, 25 Nov 2026 07:26:35 +0000
+Message-ID: <561e1abd-2430-4808-af99-cbdd3fd86d31@suse.de>
+Date: Wed, 25 Nov 2026 08:26:35 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,144 +108,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR03MB5950:EE_|SA2PR03MB5819:EE_
-X-MS-Office365-Filtering-Correlation-Id: 65cfdc8d-05fa-44fc-5ab8-08df4ac56556
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|921020|4143699003|10067099003|261026140227099003|261026121527099003|56012099006|11063799006|261028144727099003|261022105027099003|261022113327099003|261022075727099003|261021123027099003|55112099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	vL1ayOmnyegEGYuEhcUeqaGdYFauh1w25nRXHi/6xnNsloI2pF7QG1fT2meJncRXhYxybcdpxCeR0WtJGGkC9rXWtxtAenxti9PqvIi1ACeZMk7koR3pcQT6n4eZaWl0PrLD3p1KUeJxEHmhwVS5OtLsucQV18HXvBKve+XiurSGMsZD3tTpCN2VLMzsoP3t73nmOBnE1JRx8oxBbOZ3vEWCJ0o1E0pbNWpKql/r0LZw3mQPlzkt6RY/2rF4svXx/8GYSLHFqM72bBPDGP4tbDeQmORvIFtvp8cZnnvLB5roLNHQqvWJ06TwblPbTaCCPc4kuMMrKTL/XTWkFH8MgJeiJAAXu5+uzu39wFm7bBfv5GCXNSvso+6pLUOcI07F9sfQs1FiQ8l2uK+S6bj+65FuPjrrd6oPBsSAEVXu2hNRRTmtggxer7t0mf/9P5CtQX+pXWE9giVFguyQyphsgiKli22bNiNdgOfSWkxdLSRM4281/IczpQol2MZ0WLKIXEevN69nj/eK98XE4dO/SzAe7PVMIdtLlBC7KZ4JwHBoe1IodCMqn6YSqZHVwMTiKhb31BfTqKOJbgJD2mZUddltGBe1ZDb7nX6TUGit7wARWNlp9HLTGxaWMTmPm6R2ugdOEwRbiHiN8rENxI8fPyPP7/BqNN9JQvyn7ZYTwr5q1wGT1+HpExUCveF+fTr6Gdgde5H9cqa7xUY1Ze+ddw==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB5950.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(921020)(4143699003)(10067099003)(261026140227099003)(261026121527099003)(56012099006)(11063799006)(261028144727099003)(261022105027099003)(261022113327099003)(261022075727099003)(261021123027099003)(55112099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?aE04RXlsaUFtcUNpa2VpL1AzVzBXRzQzL1BiK2dZWVR0WmxXZXl0UDVFbkI3?=
- =?utf-8?B?Qy9XWVRyWjBUUkFZRVViaUozSmhqY1JPSDlsMVZZRXdveFprS3N6L2gwRGd5?=
- =?utf-8?B?V1g0OWM1QjdzeGZ5dllud3Y2RmlBaGFKS01zN3JMT3U2QnhQOExJbzJxS2k4?=
- =?utf-8?B?RlpaWUNYRStvZFd4ZnhyRkNPQnh1S08zaXVKcGNVRUpNL21mb0lTUmcvaWlK?=
- =?utf-8?B?TEZXSitWaXpUREJTWjd6YnFNRmwzc0V0bjJ4bUwvZTVHMXhSbGE5YlhJUDl0?=
- =?utf-8?B?NXFYT1FlNnZzV1RaanFETlJiOENEMGdXV0ttUm4ybndDanF2U0ttWnhVMnB5?=
- =?utf-8?B?NC9rckJuQng4QVJWZXErZ2M3L2xVM2RRZnN5M01wbFZLRWc0LzVZVE9XTWVD?=
- =?utf-8?B?blhsb3FNb2FKTUt3MVg2Q0FPc2tsYWpuUUExYlAxbzYzVDloeFJoN1loZzR6?=
- =?utf-8?B?ZitjMFd3d1dQaCsyNVpHS3l3Z2g5dTFmMlE1d3dVZVZOL0dsRkpheUVJMUs0?=
- =?utf-8?B?Y3BhY1ZFc0U2ZFpDOWZUdFVXejUrVm9qc0dXOWhvU0h1SDB2eFNzaTZyUWRF?=
- =?utf-8?B?b1FsSTNOaERjK2pCdVdJNjgxY2tTRFdrK004VWwvcm9ZWWlJSEtoNVBaQ25N?=
- =?utf-8?B?eXdaNG5pK3hyTmd2YllBSFJRWmw5MlpzbHkvaWNBZ2tIQXRjN0E2eG1wR3g5?=
- =?utf-8?B?MStGUUV1RzhVVVR2a21pa3JxblJxa0NNKzRHYS8zcjIwUVQ2bDBLNWY0U1FC?=
- =?utf-8?B?dHV1OWdwc2dFMnM4bS9XK0twZG9NSkNQOUZlZ3RiTXJpWTdDUGdlTytqazFW?=
- =?utf-8?B?UjZKQkxJNWlta09OMERsSVhCUC9GVVJSWWNCbWNTNUtNZUtnbyt2NjdlR2dk?=
- =?utf-8?B?NjJOaVJ0K1Q3Zjg1d1FpMkp5VXlnSWVqejRKR1pPT2Z2K2xkUUt5c3ppZFhr?=
- =?utf-8?B?VStJYUgwVU5ZQk50ZDBIZ3AzYWljS3lnL0cvNU5aSVpYSnRGaUd6VkR5cUk3?=
- =?utf-8?B?bEMwMlJxOEZHdVF4ODJ2T01tdVFZMGJVMVNQYTkvV00xaUxmVDZpNUoxZ2NI?=
- =?utf-8?B?WGdZY1c3VFlkN2xFek9aKzBmTWFOSWk2WVlSLzdGMmVZZVAweXMwcElsV3Zp?=
- =?utf-8?B?Y0VETTBzMGdIYUZ6UGpwUVByTGI1c1hzOUNNV1hhMjZocWFFUldvT25uZFgy?=
- =?utf-8?B?cjE4K0k2L0o3alZLUFhmVmkvaFFHR1hTTHFVQyt1dml0WGUvUmhvNElqd2Vh?=
- =?utf-8?B?dFA2Mktud2dja2xHY0NkVXlQQkg5OHI4U0M2NHNWTUw1cjBuNUlmWHB2dmFy?=
- =?utf-8?B?SXA0OHpmd1JsdmpYcjlYZC9tYWpwTzdsUEFDRnhUZTRiTE5tYkRXQkovNGFN?=
- =?utf-8?B?RmV2L1A5WHlHWnJkdHBWMXhWMUxjSERXS3BzT3hrZE02bzI2dWpIR0xIZis5?=
- =?utf-8?B?dmRjMHF0UjJxaVF1bWRQb2V5UGN2bTZZbkE1L1VLMThKZVlZdzZQSThVaEMv?=
- =?utf-8?B?ZEFqTjhnL3FDcWFicWpPZ1prdFovNkhQUWRsT3d6SWRJbFVDdDNBUGI4MFNT?=
- =?utf-8?B?dUljb3BmS2Q3MzNKaGFkVFNUMFdmWmJoVGhtTWNTUUV2R1VIc1U5cnJaMmRj?=
- =?utf-8?B?S1ZqZ1g1L3grLzkyWTFzdlovcG9VN0RYT0xya3QyaWdvTWF1MG4wUXhLcFFD?=
- =?utf-8?B?OFBqbzdsYkU5N0MvSTEyVmdqUzN0OERidStYQ3I0MTN4Z2xpNHlXQlBuMlJy?=
- =?utf-8?B?dW5ueE1sSk9idW5OWWJyR0FjQUZzaU04ZEkwK083cVBWTkwzQ0k2K3RMQ3Nn?=
- =?utf-8?B?b2N4eGFpYzArNmw2VUdDSDdFVVRPYktOWTJkQnlEblBiY291YWZ4RWg0NFk2?=
- =?utf-8?B?Z2NnSU50MnA3VTBXRnNQRUM5WTRQejRueXpyQnZEdUVjSkt1SUVpY0N0dVZo?=
- =?utf-8?B?cFdGc3l0OUxJT3NBZ3VFRms0dG9BYnNpbnhDKzJ6NGtHS1hUSnl2emVJcWNn?=
- =?utf-8?B?cURMdzM4cGhyZTNUNll1cERwMXI1ejd2eUZoV1RPSUx4azl0VUlmcys3Q0VZ?=
- =?utf-8?B?ODVaaUZiUDdhWUMrb2RucWtkd1JTNVZ0WWlpSlUwZndpWnE0aGVheWtlQ01D?=
- =?utf-8?B?cGI0OXpoYk1ta09ZTnpYaUNkMnMyOTVnWlZDRElQNzUxR3kwR2JKYUFNblpw?=
- =?utf-8?B?akMyWVR6Y2ZjWFZpcFV6M0kwdFNHVGp6bEN0bDdrMlRCbmF4STVmYmZydEFa?=
- =?utf-8?B?MGVwTGFEZDhEbS8xaHFaOEJIMGx4M3Zydm56TnVLa1dNalJXZ1ZzaVZYaXNN?=
- =?utf-8?B?Wmd1Zy9yRVNIT2VOWGRjMnoxZFZJa3k0eW5YamNVRzd4ekc3Q2lodz09?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 65cfdc8d-05fa-44fc-5ab8-08df4ac56556
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB5950.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 07:26:18.2777
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: m7qZtInTWk4uQeRpmWEoYgvFbVqwEPHDp5mqoEgy5YHcBEV9xxhfSDakCa/6QsY7DWpLRyGXCFHXDZzzaVKJeQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR03MB5819
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 0/9] nvme-auth: switch to use the kernel keyring
+To: Martin Belanger <martin.nvme.dev@gmail.com>,
+ Eric Biggers <ebiggers@kernel.org>
+Cc: Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+ Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>,
+ linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
+ keyrings@vger.kernel.org
+References: <20261123-dhchap-keyring-v4-v6-0-5082a49715ab@kernel.org>
+ <20261123212105.GA18468@google.com>
+ <692e91cc-e2ea-47cc-926f-6639952fb195@suse.de>
+ <20261124201152.GA2227373@google.com>
+ <851e3fa5-ad88-4470-877f-e977bb1a6ad9@gmail.com>
+ <20261124213222.GD2227373@google.com>
+ <c2163003-948c-49fa-815e-b1f91814a80a@gmail.com>
+Content-Language: en-US
+From: Hannes Reinecke <hare@suse.de>
+In-Reply-To: <c2163003-948c-49fa-815e-b1f91814a80a@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-12.00 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	XM_UA_NO_VERSION(0.01)[];
+	MX_GOOD(-0.01)[];
+	FREEMAIL_TO(0.00)[gmail.com,kernel.org];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	ARC_NA(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCPT_COUNT_SEVEN(0.00)[11];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:dkim]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -12.00
+X-Spam-Level: 
+X-Rspamd-Queue-Id: 4C54122379
 
+Hey all,
 
-
-On 23/11/2026 3:05 am, Kathpalia, Tanmay wrote:
+On 11/24/26 11:13 PM, Martin Belanger wrote:
 > 
-> On 19-11-2026 15:15, tze.yee.ng@altera.com wrote:
->> From: Tze Yee Ng <tze.yee.ng@altera.com>
->>
->> DDR50 has no CMD19 tuning, so the SD6HC read path must be centred by
->> static, board/SoC-characterised PHY settings. Add two optional SD6HC
->> properties for the extended-read DDR modes (SD DDR50 and eMMC DDR52):
->>
 > 
-> I went through the Cadence SD/eMMC DLL PHY IP user guide (IP6185,
-> rev 1.03) to understand how the delay applies to each of the read
-> strobes, so that is why this comes up on v4.
+> On 11/24/26 16:32, Eric Biggers wrote:
+>> Even if you actually need runtime key rotation without touching
+>> configfs/sysfs (why, when nvme-keysd could just write those files
+>> itself?), this series doesn't actually implement that.
 > 
-> The guide marks phony DQS "not used for SD/eMMC" (Fig 2.1), lists
-> use_lpbk_dqs and use_ext_lpbk_dqs as "Mandatory setting for SD/eMMC",
-> and says external loopback needs no 1/4 cycle delay on the slave DLL.
+> Correct, v6 does not implement it. That is what I am asking for.
 > 
-> Either strobe can capture a DDR read if its edge lands inside the
-> card's valid data window, but the delay has to be chosen for that
-> strobe. The delay is what moves the edge into the window, and the two
-> strobes should not take the same value.
+> Writing sysfs from nvme-keysd would give two mechanisms for the same
+> key: the keyring for the connect, and sysfs for every change after
+> that. One mechanism is enough.
 > 
-> External loopback goes out through the pads and the board and comes
-> back, so most of the round-trip delay is already in the strobe. It
-> should need little or no extra delay.
+> It would also make nvme-keysd controller-aware. Today nvme-keysd adds
+> a key to the keyring and does not know which controllers use it. This
+> is by design. To write sysfs, it would have to track every controller
+> and know which key each one uses, also for controllers created later.
 > 
-> Phony DQS is generated inside the PHY, so none of that round trip is
-> in it. It likely needs a larger delay to meet data that did travel
-> through the pads, the board and the card.
+> A lookup by description at each authentication avoids this. It is
+> also how NVMe/TCP TLS PSKs already work.
 > 
-> Questions:
-> 1. Do DDR50 and DDR52 work with the defaults (loopback DQS, read
->     delay 0)? If not, what fails?
-> 2. Did you sweep the read DQS delay with loopback selected?
+> With a lookup at each authentication, the sysfs and configfs
+> attributes no longer need to carry secrets. For a key from the
+> keyring, they can hold the key description: a read returns it, and a
+> write sets the description used at the next authentication. The
+> secret then stays in the keyring, and changing it needs no write to
+> sysfs. Raw secrets given on connect keep the current behavior.
+> 
+Ah. So essentially you are saying I should drop the patch 'nvme:
+parse dhchap keys during option parsing' and keep the
+secret/key description in struct nvmf_ctrl_options?
 
-Hi Tanmay,
+Sure one could do that; but again the main push behind this
+patchset was to precisely _not_ to have to store them in
+any structure, but rather work with the keystore and only
+access the key data once they are actually needed.
 
-Your model of the two strobes is right and matches what we measured: the
-delay has to be chosen per strobe, and the two strobes don't share a
-value. Loopback carries most of the round-trip, so its eye sits high in
-the delay range; the fabricated phony strobe carries none of it and
-centres much lower. So I'm not disputing the guide, which loopback stays 
-the driver default, and cdns,ddr-no-lpbk-dqs is only a per-board opt-out 
-for boards where loopback isn't usable. To your two questions:
+And the other problem with your approach is that DH-CHAP
+key don't actually have 'names'; they are just binary blobs.
+If we want to refer to them by name we first would need to
+agree on what the name actually _is_.
 
-1) Defaults (loopback, read delay 0): no, DDR50/DDR52 don't work on the
-    Agilex5 SoCDK. Uncentred, the strobe times out on reads, and the
-    write CRC-status token (sampled on the same read strobe) mis-samples
-    too. Centring via cdns,ddr-read-dqs-delay is mandatory regardless of
-    source.
+What we could do is to store the key serial in struct
+nvmf_ctrl_options; that would allow keysd to provision
+the keys and rotate them via 'keyctl update' (or whatever
+it's doing internally). And would get away from the
+business of having to come up with a name for the key.
 
-2) Yes, I swept read_dqs_delay with loopback selected before choosing
-    phony:
+Cheers,
 
-    - Soldered-down (013b/b0): loopback passes only in a narrow window at
-      the top of the delay line (~[208,255], ceiling-clipped) and hangs
-      below it. Phony passes across a wide mid-range window (~[64,128])
-      and fails gracefully. Loopback works but has no margin, so phony
-      was chosen for robustness.
-
-    - Modular SoM (longer SD flight time): with loopback, reads time out
-      across the whole sweep - the strobe never gates, so more delay
-      can't fix it. Only phony, with its assertion timing re-centred for
-      the SoM flight time, passes cleanly and survives a cold power
-      cycle.
-
-So loopback isn't broken in general and I'm keeping it as the default;
-the DT properties exist because these boards' IO either gives loopback
-no margin (soldered) or can't gate it at all (modular), so they select
-the phony read path and centre it with read_dqs_delay.
-
-Thanks,
-Tze Yee
+Hannes
+-- 
+Dr. Hannes Reinecke                  Kernel Storage Architect
+hare@suse.de                                +49 911 74053 688
+SUSE Software Solutions GmbH, Frankenstr. 146, 90461 Nürnberg
+HRB 36809 (AG Nürnberg), GF: I. Totev, A. McDonald, W. Knoblich
