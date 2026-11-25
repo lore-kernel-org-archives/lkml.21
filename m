@@ -1,108 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606745;
-	b=5mUrINZaxboGvg2Mp8kHK+YzcBVKPVfrXcrN3ltdkdsaHPPyGVhWBfrYguD6UnJPWJre
-	 mEvAkjhDvEvXt+OqCwqjEhnlfrl/vrUE5gBzZJNECD3rkhqzdUff1VlDmGp9w7r1HthXr
-	 cC2Rg6MPNZg9KPcBA0V9CC/nvXtn7iaO7V73NUFw+hXAUTB6EQvtq6a4PIXbdKv+j8eSy
-	 hANqhVzzDTySJeJ5DoGTJmwGw9Bq+OZ1QT97KONquaJ6ERWmFT6YmUzGrNds1+qImeHyE
-	 wQnT4RdQ01iX+zKA8p3/7YciSGV5Oy2njJyY+0g6Y8LNXe5I9t8oJ5lIR0mFR7PxzKA==
+	t=1795606802;
+	b=DAVntfEbBuSBX49+kg29+iWcmNDJFQb0RS6RO/Tzi3oME4rM51zNURKyOMymU5ojYFe3
+	 thY/LBkWcxFiOcUm0s0Jlg81EUs9G/coNSkXvxfkCV2Ef9Fzd9bqz2LItKJISfWY/AlNG
+	 LTSXB2/lcLdDq6fkdj5GaNr4jgV0a5qdX1YyOGFbxRFZ/sV2MwC7numOS2cle7S/f7x5L
+	 H8JpCNB9wSPNIASak4iXBszNnWxeBwhbFjxfPiwHPcqQ/7CQymr0B8iTC5TZf/VEuleej
+	 Y6yuNo4r4mdCmj1f0blDEFlWGTgt7KZoY4aX7lxe9SPscyxgt6G+GIl1pyrjaTk68NQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606745;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=MVWBICeTjf8qK83d1J+ekt2+KhQ2TiQiLz4B4oi35/4=;
-	b=MMClkKgEabikPW+ueHwEIUjl1+THuXX7Pb+ZUKUe6eek+aAXOE6MPGIhUv6WZn4yBuhz
-	 KxzYYnUF+vb/6nUEF+5JGJoYbPwjnBDNtfimjGdqqbJ8NO8UbD0fXRiYQQz57DMzvcy72
-	 L2tumnJsKOSNqEcdKAqMH2D6Wx7Dq8RwEX0FuBM10iLMKBUU/d6IiDOGO1FRklDrBxt16
-	 OGglsV9EiqM8N11WSCrzKEDUDS3GDIMXIZJQY7UvCe+qZ8fn/4jNr6CNr4jUmR/v9jTop
-	 Feqzr3N5OOflMpUfkeBDRdJGBtwM+nkv77r/+HxVvAYgu+r+FQpSsQ/NBQm+dPdXl9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606802;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=RuxpbZ0LJq2aGgYutmGiyBC8T4jNjUNwueH9TU0HUDg=;
+	b=W5zp+wZB5Vw6np/vPNyKp/uA3N+8kZKgLLRKTtVAtlRsAG8upvVLcmuXSe4NRFE7O+BI
+	 0bs3owshtL5pHXS99+HvrPLExoeISPSQsrjCOd6G6Z+KA/vNPgMrsuV9DiOloedoD2Ucg
+	 dMcjYWPfIdOWKiu5MR7eYbZ9vZb4Xfu6ycYWEPfoMp2Ri7uSRzJ80YryTj1IbEFdbe4wB
+	 vB0lLQgnnyeOnzNZtSaGI+p5kQMP9S5jAlYKnQ9dTZQ9H7Ld8E93AvXKLc3U/+YAWRZLW
+	 PTnXi47Xgriy0PKmYspwqjaFkH8GO3QOl6NxaRijR3V2ADeiynsxOIjnMn5HputImDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=fOV73sjb;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=rDEe25b9;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ZL6sTSrR;
+	arc=none smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8081F606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:39:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8081F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E4D7606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:40:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E4D7606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=fOV73sjb;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=rDEe25b9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795606743;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MVWBICeTjf8qK83d1J+ekt2+KhQ2TiQiLz4B4oi35/4=;
-	b=fOV73sjbuarzCZOdYz0xuUx+25nR0y8eU5WwFxze2ZPH8THiy1cjhPabl1XZsNxEoRvyvB
-	H10MrnDt7yQjqto6fq/4JhuEdVrzbLBFl6X18JaFbUK3KthsS6jXejJ0E6if5kZbYYcm2E
-	cdNIUWyvDs+tHTRo5nZVnRdpdZFxlbo=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-650-hkpKryOOPb243fbXk8M2-w-1; Wed, 25 Nov 2026 11:39:01 +0000
-X-MC-Unique: hkpKryOOPb243fbXk8M2-w-1
-X-Mimecast-MFC-AGG-ID: hkpKryOOPb243fbXk8M2-w_1795606740
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-48e0af48c18so3436269f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:39:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ZL6sTSrR
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-4ac08f4a0b2so3990307f8f.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:40:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795606740; x=1796211540; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MVWBICeTjf8qK83d1J+ekt2+KhQ2TiQiLz4B4oi35/4=;
-        b=rDEe25b9Tb6MiYVtOtS70qf9qM222Mm7/NgjCdRbtEuo+gLxFFNKWc8vOFfcwCe0Qe
-         eEodUbK2T/gyueczGpyvuup/3kHGUHey16w02055R+wspZIJ5AV8IgT1W9nkvdT5s/aa
-         i4f7SZUmXBLeaDsrhXqkEWC9gIpIc/RJUGbKcZlhrDjAsR7H6vfv+XiOo4mjJ8ZvqdxG
-         bmcfP1rsm90rvAkjyCyuYkk8P64TTTG6gv271Bxb8Rby6X3zseASncUAcWyVkp7ZSkuQ
-         t/ufDZxf0LpYzKF/sb7XfgIaLRm6Utx2OBj0oaMNAeZ65stXVJD0aZEXfSR2Q4/FMzbr
-         MSYQ==
+        d=suse.com; s=google; t=1795606801; x=1796211601; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=RuxpbZ0LJq2aGgYutmGiyBC8T4jNjUNwueH9TU0HUDg=;
+        b=ZL6sTSrRr8LfUld7bxlNuGPDcR/LgsmPgZb5Y234g6GwKsMoXzJOTTqyzSmJLzoo27
+         TZXJQJsFTFmrZ6ZLnjE+ysQ/9lJeQBcFxzhvmZeJAubKff4wEx2ChABgMkaqnN7/gRln
+         v5U2uEIkv2RR9i/kKO825DiI2ck8AQS8xz2J4NpMJUgwAYEaiWcTAGASMlIRcojM+WdM
+         dRW8Wr3a/BMhSIyL4vq8TZ+ozu+QeICiMUUdg85uPzl3xyquonBdbr4WD9Sa/pMk13Z2
+         3SJywscPfdhEpfT8HJGnx0HTOu6MqdezMyvEqnDQD5QRVeXUL4tpV8XCIiNSvaOf7l9T
+         0NlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795606740; x=1796211540;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MVWBICeTjf8qK83d1J+ekt2+KhQ2TiQiLz4B4oi35/4=;
-        b=t57B1bCYRnpHnpStsT0+wOxAXCB+We4Rr/777VS5MF5FYGewN1YgwHfyeM60HlOlcL
-         L2mqQI7kGE4XCxWqyajWENBHdsiJ8agO0Bt9tWjS4h9QYK2WdzE4lNoYBjfl00K+scmu
-         65py7CruKusgidQIWKGpLjtQ0m6rL2m/HjR/N3rWtyX7su5xNmCV6de2a7VERhMZ3EIu
-         +x+xTRnCphP5qcNlDoct/9h5rCNK5ZzxW2vgBuTds/K5r2hJTuDYhtz4i0OEbK5lmAMw
-         GOTd3pScq5Vvx/rseWlGjmZ4feduDh55Ftj1xLT1gl0SftQRhD3/Ox5uLiDbXYc5UNYz
-         U/vA==
-X-Forwarded-Encrypted: i=1; AL+hErGasSdWt9AhUyabKxUYt+QECO5zQsu8sx3XzIbGrOIm18hyKJgcgrxjABn/ZhEe8XO/hrF+5NagVNCgaiY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8v+mod4jD3YKbg0i9YhZHoB+72ksV375pinyZOEAJxV1VS60Um
-	opxQ9n/06c/RSn40vHmOtBXcRm9qPG+ybvHrTPQWbKhnRqoecxY4rAoMb11M/TtvCCE30aOcbw2
-	cmlG+VruHwdsNX44FIVnvAV+r1UvfsuOhpCLv5vD3t+ho8BZ00hkbCnbIhIEd5Z98JA==
-X-Gm-Gg: AZFdTZc4njXk742UAyf3dZ1OIB8VvHc3W5ROqdnnXbOvUHd1D76eM1dDr4knNSp+1lc
-	jutw27BUulGyWAp+1wvbBN4haKWTwRdoot6Afcb7qCu7LZXtNG92AoqTwU/gA2Gp2elBF9LfrWm
-	SHJVD35N+v5TFIUoQa4qZ1YZkEwv6NUf9FnMVcZa0wlzGm9IYS4LdaCGpNIEWAHdws7LNHdtb7Q
-	9qZWJI/3RnMEgC+afZVKs1C3g4XHxwEwmwVg0lom7mAdB8Yr4STGI6H2aXGMl6iLgPwv8Bt4YFJ
-	ZOy9hpP3Adz8ZfKu++d/CD3xa5GrOMGVLw8jVb/zl5Yqo+R68/9F9btKN0V1ahACrP1Hi+59uZu
-	tKt0L+KnvKRHksaGGqVZIxHfHk5EEE7pTmG/JjN8Sz1HhOEVC5/n2F4PJJsa4yl1LMOG93NRIDq
-	yX6hEihtZMhTaOs8lobR+fz9HgoxTxIX3n4foNfsNrFlh4
-X-Received: by 2002:a05:6000:4025:b0:4aa:bcd2:c3ff with SMTP id ffacd0b85a97d-4abb71cbb6cmr29939000f8f.31.1795606739863;
-        Wed, 25 Nov 2026 03:38:59 -0800 (PST)
-X-Received: by 2002:a05:6000:4025:b0:4aa:bcd2:c3ff with SMTP id ffacd0b85a97d-4abb71cbb6cmr29938951f8f.31.1795606739409;
-        Wed, 25 Nov 2026 03:38:59 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf680fsm38650991f8f.14.2026.11.25.03.38.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 03:38:58 -0800 (PST)
-Message-ID: <fdc005b9-e48a-4550-b66b-0f58db82babe@redhat.com>
-Date: Wed, 25 Nov 2026 12:38:57 +0100
+        d=1e100.net; s=20260707; t=1795606801; x=1796211601;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RuxpbZ0LJq2aGgYutmGiyBC8T4jNjUNwueH9TU0HUDg=;
+        b=LQwtqYrsv6pLjk+iaqSSRq8zeDwECCO8kIy8oda0PQgG7hQtMceAZ1HnprMGfMPv3H
+         C7O5EARbJlSluNzZgD6COoCp29+syi+nj8IAPwOY2HC6ZdrJVayM0rva313155d7r4G4
+         ILYfYiWmLAjGzg+1PqYLRYgPoQUoiE4Py+tKepnVUDQ62bDLkZgUwhONg2XPmMd0S67G
+         e8Io/epJ+b9PtQOpRWhyQBR2YcFmnbKZCfK8KiKHLcItLJ9f26sM9dFZVlxw+c6xg2pa
+         atPP6tmVh8vHtHsKuy4szpsv/BLxVB49o0YvJjLGGQlNebA9p7cepguIuRHYLOrECGm6
+         28vw==
+X-Forwarded-Encrypted: i=1; AL+hErFYnG2kg70ukzfE3VVM7w2RaLJQECVde3NwMLehJ8qZgsn2uevgd/+QFVhpuY0aMTax40DRvPbMot9mLOQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+UBQUGKXRC/t+Eq3gyTxaXi2mGOLlo++1/7aeRdPg++Qj2aRuW
+	89Uilz5rqlFE9vU3DGZk0G5cGOSXCR2IdRFsyeJU8oART8sdO/paE7xNjrtOdqL01AU=
+X-Gm-Gg: AZFdTZe7p+ET4FGHh6WoGEnpqRETR1VHVdrufyToBlpFh0CCMXXGvpJOc/G+tXPQ8SA
+	wtsw4XYHJdWeqa/OrCvf9V/Hh8DV9MyT4ojkwC0eqfpMr2khhN/bfRE+sZxqsEktOSVwYwDlSSl
+	xyV+5ZjnlJ3nmN2Wwlf26bbE0RRiH05nHJyfCK13b3yk3cFdUQqhMVBnvUhelOXSCDFs3Ch6dA7
+	SyazqyzLUGFxn1JinAzVbvSNaVTNfHTWWAen5RuEi+elPZ1aIxsnyJo5xi4ojFiJ6YiVpjMxOsa
+	lgNuQ6XQ1qFePmj7PqFUkKHiLLPRHyDxiOiEKiNhzad+hrwyPBBIPHwREjrhBKGDkx4cKo9QGnS
+	RJIJrSZDqYENVwvb4dLYgp+45Pei/RZVnGWHhJG3kEW0T+8/PztRglqta3Thyl+V0fda5Np4euU
+	7NuvnDQlfbznchWEsTq3vwh/ZNr4KkKFCf+hfTskJxNAG9d5a584qBJWTIcmdow9zp0/WP5H4AH
+	RsZiUVQNo13bNksphMu+kRSFUVlX18dNJTC1QoO0JOKdIMe4UCqQx49CcB86eS0T14Ewhs+EjC1
+	oJ0BjtnihycwW1S2aqu59K4JWt5F
+X-Received: by 2002:a05:6000:24c3:b0:4a4:368:409d with SMTP id ffacd0b85a97d-4abaa9769d3mr37443004f8f.3.1795606800712;
+        Wed, 25 Nov 2026 03:40:00 -0800 (PST)
+Received: from localhost ([195.94.148.180])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b5f6sm31635115f8f.34.2026.11.25.03.40.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 03:40:00 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Wed, 25 Nov 2026 12:43:59 +0100
+To: Joshua Covington <joshuacov@gmail.com>
+Cc: Thomas Gleixner <tglx@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Radu Rendec <radu@rendec.net>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] irqchip/irq-bcm2712-mip: Drop MSI_CHIP_FLAG_SET_ACK
+Message-ID: <awbJ_8i4TUV7KZjv@apocalypse>
+References: <20261121163809.86620-1-joshuacov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,78 +104,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3] ptp: vmclock: keep the device state until the last
- file is closed
-To: David Woodhouse <dwmw2@infradead.org>, Chad Aldreda <ca@modelmiser.com>,
- Richard Cochran <richardcochran@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>,
- Shuangpeng Bai <shuangpeng.kernel@gmail.com>, netdev@vger.kernel.org,
- stable@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261119061517.1142436-2-ca@modelmiser.com>
- <1f77fa9014f8dfafb2be9cf15a66c5541880656a.camel@infradead.org>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <1f77fa9014f8dfafb2be9cf15a66c5541880656a.camel@infradead.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121163809.86620-1-joshuacov@gmail.com>
 
-On 11/24/26 20:44, David Woodhouse wrote:
-> On Thu, 2026-11-19 at 06:15 +0000, Chad Aldreda wrote:
->> vmclock_probe() allocates struct vmclock_state with devm_kzalloc_obj()
->> and maps the shared page with devm_memremap(), so both are released
->> when the driver is unbound, but an open /dev/vmclockN keeps using them
->> through its file state. After an unbind, read() runs on the freed
->> struct and reads through the released mapping, and a poll() in
->> progress sleeps on a wait queue in the freed struct. KASAN reports a
->> slab-use-after-free in vmclock_miscdev_read(). In testing, the same
->> read() faulted on the unmapped page once the device had been bound
->> again.
->>
->> Allocate the state with kzalloc_obj() and map the page with memremap(),
->> and release both on the last reference: open() takes a reference and
->> release() drops it, and a devm action drops the device's own reference
->> after vmclock_remove() has called misc_deregister(). misc_open() calls
->> open() with misc_mtx held, and misc_deregister() takes misc_mtx, so
->> open() always runs while the device's reference is held.
->>
->> vmclock_remove() now marks the device as removed and wakes every waiter
->> on the wait queue. A read() or mmap() on a file that is still open fails
->> with -ENODEV once it sees the mark. On a device that supports
->> notifications, poll() returns EPOLLHUP | EPOLLERR, including a poll()
->> that was already waiting; it tests the mark after poll_wait(), so it
->> cannot miss the wake-up. The wake-up uses wake_up_interruptible_all(),
->> because no later notification will reach a waiter that the remove-time
->> wake-up skips, such as a second epoll instance that registered the file
->> with EPOLLEXCLUSIVE. Without notifications poll() already returns
->> POLLHUP.
->>
->> Separately from the report below, the bug was also found by a
->> Coccinelle script that reports device nodes in devm-allocated memory,
->> posted at
->> https://lore.kernel.org/r/20261106193517.3267013-2-ca@modelmiser.com,
->> and reproduced in QEMU 10.2.4 with -device vmclock. There is no access
->> to EC2 hardware with this device, so the fix has only been tested in
->> QEMU. QEMU's device has no notifications, so the poll() path was tested
->> with a local change that lets poll() wait without them.
->>
->> Fixes: 205032724226 ("ptp: Add support for the AMZNC10C 'vmclock' device")
->> Reported-by: Shuangpeng Bai <shuangpeng.kernel@gmail.com>
->> Closes: https://lore.kernel.org/all/178144969601.60470.14493569608271069160@gmail.com/
->> Cc: stable@vger.kernel.org # 7.0+
->> Signed-off-by: Chad Aldreda <ca@modelmiser.com>
+Hi Joshua,
+
+On 16:38 Sat 21 Nov     , Joshua Covington wrote:
+> Commit f35508b93a2f ("irqchip/irq-bcm2712-mip: Set EOI/ACK flags in
+> msi_parent_ops") made the PCI MSI device chips ack through
+> irq_chip_ack_parent(). Neither the MIP middle chip nor the GIC below it
+> implements irq_ack, so any ack is a NULL pointer call.
 > 
-> Reviewed-by: David Woodhouse <dwmw@amazon.co.uk>
+> The MIP vectors are handled by handle_fasteoi_irq(), which never acks,
+> so this only shows when mask_ack_irq() runs, e.g. when a chained
+> handler is removed. The RP1 driver does that on every teardown since
+> commit 82aa033fef52 ("misc: rp1: clear chained IRQ handlers on
+> teardown"), and the kernel panics:
 > 
-> We did have a plan to pull the PHC-only drivers out into drivers/phc
-> and leave only the *real* PTP in drivers/ptp. I kind of stalled on that
-> because I wasn't sure I had consensus especially from Richard and the
-> net maintainers. Shall I revive that and repost it?
+>   pc : 0x0
+>   lr : irq_chip_ack_parent+0x1c/0x28
+>   Call trace:
+>    __irq_do_set_handler+0x248/0x24c
+>    irq_set_chained_handler_and_data+0x6c/0x94
+>    rp1_unregister_interrupts+0x3c/0xa8
+> 
+> The MIP hierarchy has no use for an ack, like the drivers fixed by
+> commit fb0ea6e4878a ("irqchip: Drop MSI_CHIP_FLAG_SET_ACK from
+> unsuspecting MSI drivers").
+> 
+> Fixes: f35508b93a2f ("irqchip/irq-bcm2712-mip: Set EOI/ACK flags in msi_parent_ops")
+> Signed-off-by: Joshua Covington <joshuacov@gmail.com>
+> ---
+> The panic was reported on BCM2712 with 6.18.61 and later when the
+> rp1_pci probe fails (https://github.com/openwrt/openwrt/pull/26530#issuecomment-6975561491).
+> Tested on a Raspberry Pi CM5 with 6.18.64 and the Raspberry Pi
+> downstream patches: with this patch, unbinding and binding rp1_pci
+> again completes without a panic. Applies unchanged to v7.4-rc3 and
+> builds there without warnings (W=1, GCC 13 and clang 18).
+> 
+>  drivers/irqchip/irq-bcm2712-mip.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-bcm2712-mip.c b/drivers/irqchip/irq-bcm2712-mip.c
+> index 06a6ab627..12d9e3846 100644
+> --- a/drivers/irqchip/irq-bcm2712-mip.c
+> +++ b/drivers/irqchip/irq-bcm2712-mip.c
+> @@ -163,7 +163,7 @@ static const struct irq_domain_ops mip_middle_domain_ops = {
+>  static const struct msi_parent_ops mip_msi_parent_ops = {
+>  	.supported_flags	= MIP_MSI_FLAGS_SUPPORTED,
+>  	.required_flags		= MIP_MSI_FLAGS_REQUIRED,
+> -	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+> +	.chip_flags		= MSI_CHIP_FLAG_SET_EOI,
+>  	.bus_select_token       = DOMAIN_BUS_GENERIC_MSI,
+>  	.bus_select_mask	= MATCH_PCI_MSI,
+>  	.prefix			= "MIP-MSI-",
 
-I'm sorry but that conversation is way of my context window. Do you have a
-pointer to the prior discussion? why such separation would be useful?
+Reviewed-by: Andrea della Porta <andrea.porta@suse.com>
 
-/P
-
+> -- 
+> 2.43.0
+> 
