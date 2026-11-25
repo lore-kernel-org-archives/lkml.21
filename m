@@ -1,117 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.14
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795593306;
-	b=a6vuCFSozYFnZZWP1V7OHvS0swqSjrCEb2sI+LH64s3jt2o/2/D1jQWmhRVzq83qfi96
-	 yM2Umv+PmQYCbc3RZvzCHIM2yYr27ZeYZjeRp7775DIEq6cs0hLRSezYQJfp0AN1LM/10
-	 EJxQlsPJa1EsbtYWDj6YDwSsPmS6qlv4Vnw/TYAlzzaXYevSmSZ7GFrOgKUELEfamgFAr
-	 7jm4ImNbz1Zvrbl2WnSQJS0f0FBF/onguKSyDG8AcXovEGpxVU+ElB+MUcZk92EqYt2gy
-	 X0MtBDzePte/+BpAygZ4qyno8FIFGSIpcvn33NDOJOf+0Eki+aljIHwLQGA0kCu8ZGA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593306;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=TvvckOLgY1Z/vXlf8qyI9aKDSqiUNJo2wde+Fh8RCh4=;
-	b=pSdccPABgUuBWpfVL1BpJhbl6/RdnjGTLeWDpiszQMt8R8lt/R0Z51SWAiPVArvYybm4
-	 kfO2ppjh9NiVFv7sBEEmfsHXA2l7tmQyj3ePXLhviR386ogECYuTXxSIAFZVZ/rTGpePc
-	 RjGZR8+ghyRBENzm8wbtkY987izT8bidXhbRM4cvUaWmdyDj2v28WraVMFnOZ5SXo7vCS
-	 NLlp2M0nt/eIuvguAiNmvZRC23O1hVnH0F+zx9P+7CVIxwd/pWSv6sDVYgHIWFbi/GNGk
-	 poZdQNxTmdSvKo5uzZPFks4D2dokmeyne/xODoJ8XcodL51NwVzzCMvcxGSmXVENbQA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nxp.com;
-	spf=pass smtp.mailfrom=nxp.com;
-	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=iUWyOkS1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.14
-Received: from AM0PR02CU008.outbound.protection.outlook.com (mail-westeuropeazon11013014.outbound.protection.outlook.com [52.101.72.14])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.136.65.228
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795593343;
+	b=M79WnIfvq0mnWMz169Sj4ym7SQXXix8hRavzC/9IvNIx6GNWb6uZheLS7zHDMZG4nDue
+	 axrFmGYkuA+ywoLBamo1OQ304abL4G1RrSBza4OspQ6W3smvIhfOeVWxTV+3xfLyYAzT9
+	 4SaFBRAmIkANK05b/FfeAHz6nqY6EMY1uNeo0MUr77wNhlgOw4HuhBPGxarU0QzWUDiXQ
+	 miFgVkVs1WKRpWP9EPWGYpswzQiN9tsEYqjd5KL0tTN3yy91k0d78OuruxTUlWbDUqc83
+	 fs6z97QmoE0m+NoadJ/nmRyhhunayj5iGkjNy78JpG8qFVsZLo81RmEucWdHXM/ex4g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593343;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Transfer-Encoding:
+	 X-Flowmailer-Platform:Feedback-ID;
+	bh=3TTqrvGLbHBqP1YUi+0AwZv0HDH1EAefXi4rL26IN/M=;
+	b=kW9EmGALPCy5nK+Th/pAg3RTzgrz3ExnXTo9P3QhM+xjNY68v4UOrK75m04MAN/mrQ2g
+	 0BoE3vMNpavhCP+aRtpj/yzPuKPxvpn5RCqfdvG1u7HWw3oDziaeDtljlU10ZAAZObMq/
+	 tiSrskbEGV8x5jtgUgaqTbRRBw4IIxFlqptOz1cvG3IKpnJ8mZwnJr7+vela68sllP0bz
+	 CNdmFuNFTAn4cXeZYFbJ/gxmSlVAC2W876WYlbl2hLstMGlZTb5oFqY4BGXcDI5RTLfNt
+	 hGteFZrpPms7H7kTrQyHB1rSdMhpkoR0ba+FDY00GtqbpNG9S4aTFUEAVDo0KFbKdSg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=siemens.com;
+	spf=pass smtp.mailfrom=rts-flowmailer.siemens.com;
+	dkim=pass header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=CaU98iu4;
+	arc=none smtp.remote-ip=185.136.65.228
+Received: from mta-65-228.siemens.flowmailer.net (mta-65-228.siemens.flowmailer.net [185.136.65.228])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED9C2606A31E;
-	Wed, 25 Nov 2026 07:55:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED9C2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06281606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:55:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06281606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=siemens.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rts-flowmailer.siemens.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=iUWyOkS1
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ti7JDn/ucERQArWH1WLIOQ/kqx2344CT2bWzTKJhmf/E8ak34ZLUNdwSTNlVobgL5JiydRbjW26p0VINtEFIAZLAE4BKp/14bOLhX777K8uijMrxLsnUkNeteg+H2He4pvetvM7/+sdJnagqXhEi0qPsOwEWIp64x1F9Ote1xtBM8ZH+xE2iDajCaGip20cnezhyIKhFT1qszzXgKxtgW8U/Wx+c2xcJCk8NYw35r/wN9pKK8tzk5Sh/gDpTAgod1mZ0jNMXRr6s83FFsOAl0CyxQtl6Eyg++kL9wBjPnC41Pey/m7WQpSTS7q3uKUGmRBL8Bde6AmurPfCr9NXaOw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TvvckOLgY1Z/vXlf8qyI9aKDSqiUNJo2wde+Fh8RCh4=;
- b=uYo/CVlSCWzECfK+GBwVaoXaAKKW9GRYPx9OlnSdp7B/icdD6VrySIYQD4FkGPrmVJVTOOVvHMqtEXVttTv2XdbhEvT4uHoZY5xHS7bVAxlcfK9b2aCmU12d25jDCLBj+XIEi1n26TK9wv2WCRARnA8D7fYtq+Bdat7WCff0xgJZ4v9l1TD869lU8ZRlCxGc+7yhBFq3G1Ma2KbLt4NKNFAV1dnaSOfzCSQAg+SS5bvCxMwVi9JdUmlgdLI+/nxtkF30Kpx20xNMMUFPFN3jglRad49WUoe17LVzZ1C25IASJeF0OEQ6nSU0zfRKYEy9R5b/44EDoy+X923ujPUcxw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TvvckOLgY1Z/vXlf8qyI9aKDSqiUNJo2wde+Fh8RCh4=;
- b=iUWyOkS1ElQZpVvbTP9Fbrv7awgLMcRLHA333/z1ZPlSS4AguV0UvSJ2VCUeTNio1G1fUw8Qw2YvqKVbXZd8Lkx4viicN7D2TH9++wVLCbewHWLk2wXlvUCetZgZEeROnpG2gKQpLau5F3BF9iENQOvB0gDHWIG11T2TVQr1vAZSj34edGx4AgbEzmjdqZXIJq3O2QLPi4108VxgH/KHfxFZQMb4ajADr3Ogrg0kFvcd4WoG2O6dwqcRsAKmqBbWHd7xSPIkmHtIt5m221rWzw1xd0wmNpY3MjsrPXcKuORgb18QMtc6wGgvMakyl1cqWuVPFRvMdP4m14D7vXPSCA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM6PR04MB4472.eurprd04.prod.outlook.com (2603:10a6:20b:23::20)
- by BR0PR04MB503013.eurprd04.prod.outlook.com (2603:10a6:2c8:4c::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Wed, 25 Nov
- 2026 07:55:01 +0000
-Received: from AM6PR04MB4472.eurprd04.prod.outlook.com
- ([fe80::aed9:e8b9:c352:9ba0]) by AM6PR04MB4472.eurprd04.prod.outlook.com
- ([fe80::aed9:e8b9:c352:9ba0%6]) with mapi id 15.21.0639.010; Wed, 25 Nov 2026
- 07:55:01 +0000
-From: Stefan Ghetu <stefan.ghetu@nxp.com>
-To: dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org,
+	dkim=pass (2048-bit key, unprotected) header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=CaU98iu4
+Received: by mta-65-228.siemens.flowmailer.net with ESMTPSA id 2026112507553323d2d5f4e60002079f
+        for <linux-kernel@vger.kernel.org>;
+        Wed, 25 Nov 2026 08:55:33 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
+ d=siemens.com; i=alexander.sverdlin@siemens.com;
+ h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc;
+ bh=3TTqrvGLbHBqP1YUi+0AwZv0HDH1EAefXi4rL26IN/M=;
+ b=CaU98iu43HqPZNX0crdrW46aUtVYj1nHLjiZybZl/O0QcL6ZB6Myf+wOvKDNEnnuYkPaUS
+ UC/jU6rNuIj5oTX1JIGyHV9Zdy6qqtN0G/rcAAoLRhEoHk9EzHHVxEb1/aXaAPOL0DTFHvY3
+ 4yBLH1jG8KSuUajSVkJL/OQ6LInFTvU2z7LR6428FFaEJDrUDe+mLaMDyfd+iYTqpoHcBEKJ
+ qucrpJd0MhS0oQwpcHDRDHCGIYI4sB0mC53dIBIxU5PQeIyqG2UWM5n33EeaRsuFW9nwW1yY
+ tEfa90ek8tVmM+4imomLlBFZRmF5U11ggevnBBb4GXtrGEpAFmXtZUAQ==;
+From: "A. Sverdlin" <alexander.sverdlin@siemens.com>
+To: dmaengine@vger.kernel.org
+Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	devicetree@vger.kernel.org,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	=?UTF-8?q?Guido=20G=C3=BCnther?= <agx@sigxcpu.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Philippe Cornu <philippe.cornu@foss.st.com>,
-	Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
-	Robert Chiras <robert.chiras@nxp.com>,
-	Robert Foss <rfoss@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Sam Ravnborg <sam@ravnborg.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Yannick Fertre <yannick.fertre@foss.st.com>,
-	Stefan Ghetu <stefan.ghetu@nxp.com>
-Subject: [PATCH 0/2] drm: Fix rm68200 panel shutdown on nwl-dsi
-Date: Wed, 25 Nov 2026 09:54:53 +0200
-Message-ID: <20261125075455.772826-1-stefan.ghetu@nxp.com>
-X-Mailer: git-send-email 2.53.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: FR2P281CA0024.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:14::11) To AM6PR04MB4472.eurprd04.prod.outlook.com
- (2603:10a6:20b:23::20)
+	stable@vger.kernel.org,
+	Alessandro Zini <alessandro.zini@siemens.com>
+Subject: [PATCH] dmaengine: fsl-edma: don't call pm_runtime_allow() from terminate_all()
+Date: Wed, 25 Nov 2026 08:55:17 +0100
+Message-ID: <20261125075525.2640884-1-alexander.sverdlin@siemens.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -121,102 +65,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM6PR04MB4472:EE_|BR0PR04MB503013:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6e178e09-477f-4efe-49db-08df4ac9689e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|376014|7416014|19092799006|23010399003|261009223027099003|261009221227099003|18002099003|3023799007|261026121527099003|56012099006|261021123027099003|261021121427099003|261102123227099003|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info:
-	rBxujmkK/3aUlM+NrF6vHVcMBtv+4JRk+c4uvKxFovVW55BWoSQUCnFSgq6gPcn7a3FxvNINF5o5EhUQx1RXVlNE8XDfSZpZ24Za1ydmco8gG6MtkehT/WaeSX2XlgMyetyJjJlv1vSEozsw8P+AS7uug3lhgqnuB39LBip78Lv9Pr7nlPpsIqRqcKuvdf+qtp0DmGiwwS2BSvykuU3H6Xy6dH/69eMtDXcQWeoKvyea5AXoKmfFdMN42lHaLkS48QnFKDPJDDE/Jc/O+RBecHE4XLD9tqK+2Uqb8P1+v9kHJ3B7HCsG72M9QcuFMy5f0e7DMxTjUlp67wATjjfFxs2i2qiqE2UMHmiRCS9DyPlu3e0wWB8KBtzstu89h6lq8iBklvCmQbAyGkJZu6nK9Eh6fDvtm7EFi9i2eZ/Qh/kiRe/nwZGB0IvNTSuyqyK9am7RkCvTGGntQahKlVIfOXagq88NdOEZFVszManm0fsBnQTxboxHl7k/jKYnIXgie/kysNAP6Ce8lYNxkP/Hzmgki6tHnuz21RWpsDdYr/8ciqiiJ1MnK1CP2h0WvYxKyUTgO6T2xjnVnqtPdjVihiruK3gCugl50sqVNpRq1nBPDqLqr8J+k9fO/rL2BHAjnosDnPZhKLK970NAgphnXJimaxs9aAVoc7da2ir2t60=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR04MB4472.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(19092799006)(23010399003)(261009223027099003)(261009221227099003)(18002099003)(3023799007)(261026121527099003)(56012099006)(261021123027099003)(261021121427099003)(261102123227099003)(10067099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?w0KIYCjIaTuLQiWRxKdoXU/c8g6N0Zxbg7bPCc1a6EPLEC1BeskfvsNFrwPV?=
- =?us-ascii?Q?ARum+sv3YHWS6Io9RjHvbXEH1QN7fRMtBz44N6ShgA1SsGDOqSVqMsPulGKs?=
- =?us-ascii?Q?kC8QFV3ktXt/z/6Si8cr5Y/0pP2qe0gNujJU56qkzuVeLpykCeXyXkn90jFh?=
- =?us-ascii?Q?gzx90ryT2nPkEpty0riYpFX1xEjV/cbAd6umfwHfPJ+d2SaRwFqOzQfQ3aja?=
- =?us-ascii?Q?T+lLKzgC5wYQ3mYCin3Zaza13OuAs5x5QjbXeqnWRVu4Ujv9RgmBhqFTOKOy?=
- =?us-ascii?Q?vMDwim7tmyjN8n3soeW2uF088o8Ddn8wFyIzQOIvIMN4RJl4C1sA6bUIobkZ?=
- =?us-ascii?Q?XDHsG8PceZ+2//7cU/pNSf43kST8/YlLTA0j5K6kVveF+az4JkECOGF0nskr?=
- =?us-ascii?Q?Gcn9Zd2Fk2N5nYzAn1dToLrRrQ/9jpfADp2znbcAbby5u/jy5d+hjpwole5+?=
- =?us-ascii?Q?WzeC3ZdjfjBzopH6GryuHtdY3eSS2/7b1M3pi3jFwbmB/AHPjMP+4YfqRmY9?=
- =?us-ascii?Q?DHwBLYtEcaYjTkcYR4Geo5DpCi0ztj9XPq0XBWynYkMoVpfT/1rrEdIh9z/u?=
- =?us-ascii?Q?JaTpxsV+MgVjZM53HPFlg7bIq9r7BzVVYKs/Al2E1VxGgGISbEACbfRHp7ag?=
- =?us-ascii?Q?lfb1DWC8wyhZVRGvZs/A1OIebGnR3ZlzGTPn+musrFnF3nAeI3xb7FFeY+nc?=
- =?us-ascii?Q?iH8kFlh8sGa5fgwBthmPjAglo9MKy3BO/6dB/K2rXctqpiqRq972Ck3T99rn?=
- =?us-ascii?Q?8GkMIwad0aWUsUJfaag7wqJ2Pds42LfZpVOFOMi3nxYWaA3t3JDo26adUk7X?=
- =?us-ascii?Q?Gh0/51LDxG6gZNSd9ViTj8JQ/EuA2HbF9JY/cxS6hGKPq0F75mWegoRVlA+C?=
- =?us-ascii?Q?IHyShPrst4fnGRxhAeB6GzGmolJT/MkXbgPBbIiNDP56B9HsABMKhVqpQVtp?=
- =?us-ascii?Q?rtgHk4lB4Qs50MUl75/5z+gI6SII0OPO8Jv5W47jSVaSvbdRqDO3ILIcANwD?=
- =?us-ascii?Q?DC73DuXNzqNYbko8hDAb9GVxu67h3xDNFiTKiJ3H6msPwkAwIfUN3lqjYqcJ?=
- =?us-ascii?Q?6accj+JqwpKB5StV7O8QS0J3Kr5ENVt4dI5IblAH1F1FbxFPKGqKJfAKIeh2?=
- =?us-ascii?Q?lubouu1vaj0AsxpoLULraxyr0WYTLNTODV2IPIv4ndZBbjOBPN1BbJUEAmA6?=
- =?us-ascii?Q?1rYb2LcpwWghjYR0G0C//31gOsit57HbTl8cww9A/UneL1w3aNcdqeYjIdBj?=
- =?us-ascii?Q?E0x6XBzP7duQ8HUv6wFnZTuHZkdO3MPl8oPJD46Ebbq/5n1xI0kBCZW+MGOt?=
- =?us-ascii?Q?I18YIR2c0C31fSX3hB2LiKPI5AjzXpVjYVkqjNZqbY38n9Q9I4IHPi4Xp2OJ?=
- =?us-ascii?Q?Rebmb7xEKyXM1BpgpPC+g7au77f6TgQfQtN8ygoomqSsvogBA0SvtwqP6dst?=
- =?us-ascii?Q?XqrmsKqAghvwaA1ipfrBgGzHIG1qRf/vyi/kPelxbNmgckobm+koLgz2O36T?=
- =?us-ascii?Q?9jRSfJqJpn+8CY+ougu/WARR2y3cANYCsTa3x7Itw2e6TgDUKPQdvu5bLpG4?=
- =?us-ascii?Q?tkPQGleWSxna3kBA4qmVSigVCBDGsnao2MLpgIkiNRpU1+gtUQgIocNNczBT?=
- =?us-ascii?Q?GKKLMIbr0fHN4+YLuBnUZVzMLYRKaI1cPdZ7VIxVGvjdPkGhfdjwhxZTI20w?=
- =?us-ascii?Q?BndIk4sPB9Zn3KsRzH4+xhpQtJcN4iuJLfTDUet4hgo6SCbXB8pn/KBNK3Ma?=
- =?us-ascii?Q?deR+M5RJ9w=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6e178e09-477f-4efe-49db-08df4ac9689e
-X-MS-Exchange-CrossTenant-AuthSource: AM6PR04MB4472.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 07:55:01.5072
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TjA9N6vziE/p8u1t7oDtq0FVVpNLMhK6u7aV39Cek5x9pxVenhGVOyJfRakGDxnJros8UK1wvrlH6ttSI8TI4A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB503013
+Content-Transfer-Encoding: 8bit
+X-Flowmailer-Platform: Siemens
+Feedback-ID: 519:519-456497:519-21489:flowmailer
 
-The Raydium RM68200 panel sends MIPI_DCS_SET_DISPLAY_OFF and
-MIPI_DCS_ENTER_SLEEP_MODE from its unprepare() callback. On i.MX8MQ
-with the nwl-dsi host, those commands never reach the panel, because
-nwl-dsi has already shut down the DSI controller and PHY by then.
+From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
 
-Two changes are needed, one on each side of the link:
+fsl_edma_terminate_all() may be called from atomic context via
+dmaengine_terminate_async(), which the dmaengine API explicitly allows
+(Documentation/driver-api/dmaengine/client.rst). pm_runtime_allow() must
+not be called from there, because it uses unconditional
+spin_{un,}lock_irq() and therefore re-enables interrupts.
 
-Patch 1 moves the nwl-dsi shutdown from ->atomic_disable() to
-->atomic_post_disable(). On its own this does not change the outcome,
-since the default bridge ordering still runs the host's post_disable
-before the panel's.
+Calling dmaengine_terminate_async() from a UART interrupt handler on an
+i.MX8QXP triggers:
 
-Patch 2 sets prepare_prev_first on the RM68200 panel, so that the
-panel is unprepared before the DSI host bridge's post_disable. On its
-own this does not help on nwl-dsi either, since the link is torn down
-earlier, in ->atomic_disable().
+  DEBUG_LOCKS_WARN_ON(lockdep_hardirq_context())
+  WARNING: CPU: 0 PID: 0 at kernel/locking/lockdep.c:4404 lockdep_hardirqs_on_prepare+0x1a8/0x210
+  Call trace:
+   lockdep_hardirqs_on_prepare+0x1a8/0x210 (P)
+   trace_hardirqs_on+0x58/0xf8
+   _raw_spin_unlock_irq+0x38/0x80
+   pm_runtime_allow+0x34/0x140
+   fsl_edma_terminate_all+0x1d0/0x1e0
+   ...
 
-With both applied, the panel sends its shutdown commands while the
-link is still up. Neither patch is expected to regress anything on
-its own, and they touch separate drivers, so they can be applied
-independently.
+followed by the IRQ core warning that the handler enabled interrupts
+(kernel/irq/handle.c). Both warnings are one-shot, so this is only
+visible once per boot.
 
-Patch 2 also changes the prepare/unprepare ordering on the only
-upstream user of this panel, stm32mp157c-ev1 with the STM32 DSI host.
-That host enables the link in ->atomic_pre_enable() and disables it in
-->atomic_post_disable(), so the new ordering should be correct there
-as well, but I have not been able to test it on that board.
+In-tree, fsl_lpuart's lpuart_flush_buffer() calls
+dmaengine_terminate_async() with the port lock held and interrupts
+disabled, so the port interrupt can then deadlock on that lock.
 
-Liu Ying (1):
-  drm/bridge: nwl-dsi: Move DSI host disablement to
-    ->atomic_post_disable()
+The call has no counterpart: pm_runtime_forbid() is never called in
+fsl-edma, so runtime_auto is always already true and pm_runtime_allow()
+does nothing except the illegal unlock. Just remove it.
 
-Stefan Ghetu (1):
-  drm/panel: raydium-rm68200: Set prepare_prev_first
+Fixes: 72f5801a4e2b ("dmaengine: fsl-edma: integrate v3 support")
+Cc: stable@vger.kernel.org
+Co-developed-by: Alessandro Zini <alessandro.zini@siemens.com>
+Signed-off-by: Alessandro Zini <alessandro.zini@siemens.com>
+Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+---
+ drivers/dma/fsl-edma-common.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
- drivers/gpu/drm/bridge/nwl-dsi.c              | 6 +++---
- drivers/gpu/drm/panel/panel-raydium-rm68200.c | 2 ++
- 2 files changed, 5 insertions(+), 3 deletions(-)
+diff --git a/drivers/dma/fsl-edma-common.c b/drivers/dma/fsl-edma-common.c
+index 513b0f4e5be21..1f1f5fb353cc8 100644
+--- a/drivers/dma/fsl-edma-common.c
++++ b/drivers/dma/fsl-edma-common.c
+@@ -10,7 +10,6 @@
+ #include <linux/module.h>
+ #include <linux/slab.h>
+ #include <linux/dma-mapping.h>
+-#include <linux/pm_runtime.h>
+ #include <linux/pm_domain.h>
+ 
+ #include "fsl-edma-common.h"
+@@ -274,9 +273,6 @@ int fsl_edma_terminate_all(struct dma_chan *chan)
+ 	spin_unlock_irqrestore(&fsl_chan->vchan.lock, flags);
+ 	vchan_dma_desc_free_list(&fsl_chan->vchan, &head);
+ 
+-	if (fsl_edma_drvflags(fsl_chan) & FSL_EDMA_DRV_HAS_PD)
+-		pm_runtime_allow(fsl_chan->pd_dev);
+-
+ 	return 0;
+ }
+ 
 
-
-base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
+base-commit: 2e02fb103be058cf8b2fb24112a74a2715e090f0
 -- 
-2.53.0
+2.56.1
 
