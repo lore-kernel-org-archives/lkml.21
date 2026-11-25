@@ -1,58 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592945;
-	b=hCQMNDg+b2VjGvVGoqeHNt4JMkGp1yYRheZV4neLjC8jLWdM3kMJoXn2LrL63maxPe4V
-	 ONpIP/yKnPs5vFC+ap7Kt3u8WkHTTn6RWQx8ztShOHfRkQ17w7xxONjg8nZV72kawod/0
-	 07/kfHb0q4H9MYlEeY9fxAPlRzdKqoyDqP5wklgZAR7Lua7TyKI1EXNU2yAUdlPPGzHpu
-	 RmyNO9N4IKEAxhl4qCeigg73MDm8B5QXUIjS+YJnQnOiIEHhzxI9K/RAz6+kq/hC3NdCZ
-	 pjlys3QMJ0/vUxynPc21CCYsn35a1Hm0iEhg+/3dm1NzlAxnsZvKspMImvI8noVEYIQ==
+	t=1795592970;
+	b=JuyJTPjpEI37Rlun72/IHp0bkHRx1UXavUWSI1x4rRh9u8gnU5dFOWYBz9CUZRrWIc3v
+	 oC2gldtRBV/4yqthEca2cmeNZzTxdpmsFpZy3r7NwejVGD3pI1iy5zwit8LFdV1t92vMi
+	 KCQfUNJ/W+mCGeYieFc2D7UAzFP1oBmJKm3t5rG+1qPNpKc7O2RB1R7jbasNIvbQbMCld
+	 nTgqLPUKIRTtNGLrsRb8+JDBMmzFEYrIcxAb6TQsiGLAQiVP+SMZ36H8eyaAxMWUF2egg
+	 bvwYlM7GkO4Y8gfa83/VV7L0KXbdbBtMEDDCvi3trcQq32DECIViLeWvQRAiIR71pig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592945;
-	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
-	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=NHziLxnIYyaGgH9iRMQeAbyOtg13/DENqLY2yDhYbX8=;
-	b=kxeVZmq5YIpjYiyJnt3G5n4A2FaOEU3bFMMqnCoSyCafbmJjZf7VI1BSJ5xc2HXP400P
-	 K1ODkIz/3JyaVs1aaf6qbUU78WOmyDihVrBhNQzoPTtUSe6+FY1LBsfvcKmdomzV7L3GX
-	 4EhXr6StMFHjppGBuNLV40l2bgAdfdEPPe3exfcv86Tf0rNiD0xQOVT6jjE0DGRYwl+bM
-	 vXYtAmLyYrLp/LBUmgvHNwESIRjUxiq8XGvcXblHZfmnhZCw4Lyq5FyRkOjb8QE+P5oGT
-	 awitj0T1UYsUjLr7qBw41PEUZmLSFmDp0LLL3gNr+rdUDq81EqvaZ3CxCJ+q6NBwdvQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592970;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
+	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
+	 X-CMS-RootMailID:References;
+	bh=moULo+zYqg9swYV2aKHcAmhUVeIT6ck6nZOqYtJcyA0=;
+	b=p2U2lH+Cuk5C/kZwOG+rMoMP9q6hhXtMYVJQN7n8Cjrg9FGt/DGVH44WbqA1XgvqeeBN
+	 rTmmMofqrjS1tS1JPQ5KBi5fbP0Q8kPkQaJjWko3SixgyGRzv6UtmyZaIZsQzxFc2Ahiw
+	 BNtxRnOElKrUa4IY/7KM0QrAbmbLQgqjFidKqF6OlHnFIl0q2dvEb/4paTeShAoNsopIs
+	 2ZjiRQL++tCQFJkZA9r685ArtKsV7zP8/bCLwtyXguV5Z4asPuYqnDXdX6iyyI6wVCp7T
+	 oOGrEx/qTqsxwMfAF3fZp6bxF1KZTTG/IasMDt5HSpxx6Pb2dbJhb0DxxUjFNRBkCrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b="HzE8z/K7";
+	arc=none smtp.remote-ip=210.118.77.12
+Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D543A606A32D;
-	Wed, 25 Nov 2026 07:49:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D543A606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: abb7b9c6e8a411f19a56ed5b684f684d-20261125
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:b541b372-0249-414a-b05f-4931f132ded4,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:90e84ad07b0fbd8a599329838e687d2c,BulkI
-	D:nil,BulkQuantity:0,SF:80|81|82|83|102|865|898,TC:nil,Content:0|15|52|99,
-	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: abb7b9c6e8a411f19a56ed5b684f684d-20261125
-X-User: fuqingshuang@kylinos.cn
-Received: from [10.42.20.11] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <fuqingshuang@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 410151515; Wed, 25 Nov 2026 15:48:57 +0800
-Message-ID: <fac38220-6a40-49e1-bd37-732519e74a88@kylinos.cn>
-Date: Wed, 25 Nov 2026 15:48:55 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D61E3606A336
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:49:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D61E3606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=HzE8z/K7
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261125074926euoutp02690b3ca2f9785aec3123de797d2fee53~rOko3cYXK1127211272euoutp02F
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:49:26 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261125074926euoutp02690b3ca2f9785aec3123de797d2fee53~rOko3cYXK1127211272euoutp02F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795592966;
+	bh=moULo+zYqg9swYV2aKHcAmhUVeIT6ck6nZOqYtJcyA0=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=HzE8z/K7YIo7l12YV/WBlCx/dzvLRQck2HKCLMwZ3251NSKWzDT3hQGVaEf1Ty211
+	 30Tx1DzsTky7ZE/NQtIt+isMxW3Mtq4GSt62e00wU2iVvnuCABhCH+70pVHMoP5Xkf
+	 nJv5VJZGMGRVqpZaF9xbfes/3qQpbNCB3qgqREG4=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261125074926eucas1p18d5e57c2c8f3be85a85a007270c860be~rOkok6o3m0116101161eucas1p1f;
+	Wed, 25 Nov 2026 07:49:26 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261125074926eusmtip28e4bfe207a1ea602f1386a1e9d05e2fd~rOkoEOvjx1909919099eusmtip2-;
+	Wed, 25 Nov 2026 07:49:25 +0000 (GMT)
+Message-ID: <bfe80e4a-572b-4362-834d-8c4a26c6d03a@samsung.com>
+Date: Wed, 25 Nov 2026 08:49:25 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,74 +64,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] selftests/proc: skip fd-003-kthread if run as non-root
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>,
- Shuah Khan <shuah@kernel.org>, Alexey Dobriyan <adobriyan@gmail.com>,
- linux-fsdevel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261120062933.3169112-1-fuqingshuang@kylinos.cn>
- <20261124223355.15a364523377daf5cf2734cb@linux-foundation.org>
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH] dma: swiotlb: Use system_percpu_wq for dynamic pool
+ freeing
+To: Kohei Enju <enju.kohei@fujitsu.com>, Robin Murphy
+	<robin.murphy@arm.com>, "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Petr Tesarik <ptesarik@suse.com>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Language: en-US
-From: Qingshuang Fu <fuqingshuang@kylinos.cn>
-In-Reply-To: <20261124223355.15a364523377daf5cf2734cb@linux-foundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20261125-swiotlb-replace-system_wq-v1-1-83807c6afb75@fujitsu.com>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20261125074926eucas1p18d5e57c2c8f3be85a85a007270c860be
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261125003956eucas1p215758cc5f1caa01a5389246c60b1d79a
+X-EPHeader: CA
+X-CMS-RootMailID: 20261125003956eucas1p215758cc5f1caa01a5389246c60b1d79a
+References: <CGME20261125003956eucas1p215758cc5f1caa01a5389246c60b1d79a@eucas1p2.samsung.com>
+	<20261125-swiotlb-replace-system_wq-v1-1-83807c6afb75@fujitsu.com>
 
-在 2026/11/25 14:33, Andrew Morton 写道:
-> Fair enough.
-> 
->> --- a/tools/testing/selftests/proc/fd-003-kthread.c
->> +++ b/tools/testing/selftests/proc/fd-003-kthread.c
->> @@ -36,6 +36,7 @@
->>    *
->>    * Return /proc/$PID/fd descriptor if process is kernel thread.
->>    * Return -1 if a process is userspace process.
->> + * Return -EACCES if run as non-root.
->>    */
->>   static int kernel_thread_fd(unsigned int pid)
->>   {
->> @@ -88,6 +89,8 @@ static int kernel_thread_fd(unsigned int pid)
->>   	fd = -1;
->>   	if (flags & PF_KHTREAD) {
->>   		fd = openat(dir_fd, "fd", O_RDONLY|O_DIRECTORY);
->> +		if (fd == -1 && errno == EACCES)
->> +			fd = -EACCES;
->>   	}
->>   	close(dir_fd);
->>   	return fd;
->> @@ -168,6 +171,8 @@ int main(void)
->>   		pid++;
->>   	}
->>   	/* EACCES if run as non-root. */
->> +	if (fd == -EACCES)
->> +		return 4;
->>   	if (pid >= 1024)
->>   		return 1;
-> 
-> Why "4"?
+On 25.11.2026 01:39, Kohei Enju wrote:
+> system_wq is deprecated, and queueing dynamic SWIOTLB pool teardown work
+> on it causes the following warning:
+>
+>   workqueue: work func swiotlb_dyn_free_work enqueued on deprecated workqueue. Use system_{percpu|dfl}_wq instead.
+>
+> Use system_percpu_wq instead, which preserves the per-CPU workqueue
+> behavior of system_wq.
+>
+> Fixes: e13d4d9a4915 ("dma: swiotlb: free dynamic pools from process context")
+> Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
 
-4 is KSFT_SKIP.  The convention in selftests/proc is a bare "return 4"
-on skip paths -- 9 tests do it, e.g.:
+Applied to dma-mapping-for-next, thanks!
 
-	proc-loadavg-001.c:32
-	proc-net-dev-lseek.c:35
-	proc-self-syscall.c:40
-	proc-self-wchan.c:30
-	setns-dcache.c:56
-	setns-sysvipc.c:55
-
-Notably proc-pid-vm.c includes kselftest.h and still returns a bare
-4 at the end of main().  So the bare 4 just follows the directory's
-existing style.
-
-> 
-> (and why didn't they call it EACCESS.  Also s/creat/create/)
-
-Ha.  Renaming it now would break 50 years of userspace, but I agree
-the historical spelling is unfortunate.
-
+Best regards
 -- 
-Qingshuang Fu
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
