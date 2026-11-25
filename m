@@ -1,54 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629339;
-	b=HgtjshT+OKmfOX8Bld7iEWhtZg3+22myiAEs/U2ykJsPLWtXS/WKyM+C5KJ4Fa5DcfJM
-	 3ZhBk2AV7MAsQTkWRjIJ8tTBpiWkQSbjeg1R3birSiT5B4/fpddqg4emv+s5aunHneT3Z
-	 Og9moKjQkn5WwZmjDs78DXyALc/Oqb7t4lXmCSw0PJoxmx1pk2tj45Rq2/TieKgeHtc64
-	 9lAVMmitJ6m2PsaOmsvb3JyhzkZket1PIEto6Y1Lj5bw782WeXOT4WOW9wTq2Z74LOeoE
-	 3eoaqEEchgMZ3jDvVLHMu/Jt596jcxnnDIsYJzJLvfdqavbcisgnpxqpNcWhrmS1QkQ==
+	t=1795629350;
+	b=dWmE9fw8ELMcg9eqLmiXSD4nvwIsbOCKJdQwGZ69i66thwtVEv7Pn5pDCnm4GZTxWEjL
+	 b+bxodwmmekx/wOYIhjAcQZf1jJDK9OXphtMEbYDEZ7MA4vIivlmleUsjjt3gU2bVz2uD
+	 BbBa166oIlbuVJ69zuZAT0A2vUH5bZHS/aHNRj4tj4rz+Yszno+8frTWEfeTf2uDvHgWz
+	 y+aqfIP2ImsRxGdXq2E4IDRTimgru7FQqdC4XFI5uQ6FGHvyakxKOcKJLN0sxz3a7hQyc
+	 ENhylkYrXAI0H3jEDj9DC4kMvZaobLNvS5dHiXudGW1Hx3Z0jeWZCr85TNKbMf/Jm2w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629339;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=fFXM4VsY0RTQVbWn8ye8maJPr7lIP431CErzs/ruNGg=;
-	b=s0e60d4iVjCuPDWnuMoPtGYYvC1uuHjrSOcCYB2WE8Fh6qxaTXJNL0HR4B6x4gOs5oty
-	 XJjl3JpCxHLSbJswiBJOOgwCLNSQe1chGJ6Oqa4OVy/9Dycl/BAhWdDHzvJ63rr/1WXCw
-	 IKwKhE/Tzw5D6Er+UQrbyVE8uH8JMOG0KwsLr+2lejmJycUxdlB0ZObnT8gzZ5RvtACin
-	 /GpI8yTVU7UwVLWyzCRsofJdqUIWq/SPsrE+9LOvgrfQ7kt3LezR/6i2cocgAohAF/QLd
-	 0MzZv1dWEHGOcv9lmr9pcRZ/th5XeMadJty6kCZkt3uQPODbIGlAlnIGnlxThdYX4jg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629350;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=ZhgvvGhr19GJBCcJ3nyYAHYL8qsS8Qu8flUoaHfsv+4=;
+	b=NMcuyBdQ3SGpgTdCE2vcF69rA5BmoXXtR3KbS2ZuLtBS1We58XoYmU+yZCOvNfdSpxm8
+	 h7XrSTf/y3qMRvTUf9Tc0jr7cKhaSZj29C0pa2BvfAPYQ+RMC0zaFfPtWPB/uWBzIU7Dk
+	 HMwDZ0607v/Xycv8Z7F+llxLnTguYAC3lgtvPSJyIlD0Eq69BACctY2Y0srMYndQby+Hl
+	 yI9GI/5h2qWRwmgzke5KlyEH3pao34BXTnx7Mo+Z1Gx2qzHO+a8HxjsdG1GQdlwUGG+l6
+	 qF1n0y8C9sANlSh8k2RjVitdkashL4EMHVUQWv17s2HGbVKQSLnjgYKXzGqSLhT9yXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ty4nHO3Y;
-	arc=none smtp.remote-ip=95.215.58.18
-Received: from mta1.migadu.com (out-18.mta1.migadu.com [95.215.58.18])
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=nM473gLh;
+	arc=none smtp.remote-ip=209.85.160.169
+Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com [209.85.160.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBC18606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:55:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBC18606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1FB0606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:55:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1FB0606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ty4nHO3Y
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=NN4WGVbOnaTjrSCMn4KsfQluXPMA9ZIKbvqBw1KnXg0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795629335; v=1; x=1796234135;
- b=ty4nHO3YTMkCilwppIsWWTiBpDP/NWZdwrJq6CSGCK3KX66vVYz3q+IlV5X0foqKtuF4upRx
- iXnvVBz9wy4kZJ0UivlMoHnOw2GCSov7iwzhlKPANH0XLIy4OvCMmsnmQmCb+vH/UT5jKgWHHv4
- y8kQtKqybL2hu0B1mIfN53zY=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 8be7eac4ebc51b04;
-	Wed, 25 Nov 2026 17:55:31 +0000
-X-Mizu-Trace-ID: 8be7eac4ebc51b04
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <06a69a4f-59bb-49b8-9ed0-f4cfe0ecad37@linux.dev>
-Date: Wed, 25 Nov 2026 17:55:29 +0000
+	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=nM473gLh
+Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-5430f70c827so72195841cf.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:55:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1795629349; x=1796234149; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZhgvvGhr19GJBCcJ3nyYAHYL8qsS8Qu8flUoaHfsv+4=;
+        b=nM473gLhDt8L/AJd71rb7S0acFRmXcxuz14+e2lo8uQc+NdtG5xkQav60aRPMBb/MN
+         gpXZdrYOiuIgSZDDd7rHOb4JNczuwWoUuTAycUVrhtyac1v4YoF6ULTz7x0hodXNenpT
+         1iEgT+UaS2OxnKWIjAOcUo9wguQQi0DtexdJUIvU2cYDKsbfXNJiPJ2UJHHjg0AFUdl/
+         lwtDRt9A6dtMUgTXS3ktbG1CYUYJ5ip+LCct/huS0rreCifzPVHnU/ZPNPA8hYkYzsOc
+         5snmpulZ1L88WXu/rnUo3WoM6eTvor835r8zO+jxN5Nzh88vlPSiDzZVpYfH8veC4k2V
+         R2Hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795629349; x=1796234149;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZhgvvGhr19GJBCcJ3nyYAHYL8qsS8Qu8flUoaHfsv+4=;
+        b=TB47hxs/7wOXAkuXaiOuZbc25kFOnDA+vfwPzdIAItF7O3XZmjL0a5OYQOQMXa2OfO
+         M4CSFtmAB8wk5adNZz3MGRSBiHhkMxXdq3vFClcwCpsnY+IQ6Nm4Ouy6uBkktFvv7duK
+         uPPv+987ETWn0A/u3PTPiN+SfQ11cUIHP12nMLS/cfwPo9DtV8Q7v3sryLYYoghST90D
+         auW243GkkfpJ1nJfKsZIivl3Y0jC0CQMfUfzqOlq3C0FEe4yElRvAi9sbaA1SDhQx88o
+         FhGScxA2k3m0EpBVHREnYNZ3y8qMMPpzgqkiK9w0mStgtxXbaHtdIMZGZNTViAT2zdrf
+         w57Q==
+X-Forwarded-Encrypted: i=1; AL+hErGq0CK09yCL2MLWjrRclsg+7P76Q2+QNAV4eZzk/Ck2xp3z81oKuGTS8zxMMqPw371Y9XONU3atQyPoM8U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+fZnjZnDT0vOYuwm32mduKD2YHiFGU8pb/7su10ynbYFVproPH
+	068WoRcSLEdXfNfSA4kEhiG/LSF5iPK4pTpT2hqTEM1nB3APGIvhz00L4jZvYG53G4U=
+X-Gm-Gg: AZFdTZdNikjgPRdVNHcy1lpRHFACo91oITd6fcvtiTs0B9jFqOlwwWUOkwsPxrv11sF
+	3kGGXGEyRWM7uKlI5FZbB2eYngrwWKlrDvVa0Ztwy5ph5xcVI7v2keojwyQoHVAjIsWmlDhpcA9
+	3cEtTZsbWS1M8B3By2CQtmBOTekAq75reYOfXC7GIBojDzKTmHYogKg7QMds3yqrKFmkujD2BgT
+	OJpjYVf4VX89kEHCtYP5n1npfGywJNpWdj7Q5h7DFDRDO6Pw68lIGSGv7Ya2SsbunoRxCFJv8Fx
+	H+vqtT7DRYkgCIBMJXbANDrC1v4OANq0TnsLs/+Rn3e44tR2qITDBtkc/zI1a/0HJZTr/NaHpZD
+	4ccVrw1iJrzXPeYuOWEJxygAG6wx9wTMYiqtk7bsEzzj+xm4pLBJm1avUendbvFwhkyvD+GXyih
+	rpkG9oGNpHJypWj0l/Hs3oeIyEvOtr9cgL5zzcKiG3Fpl5MQT/wwAmSz1+rrBDEzBSCW7RpYxNn
+	wq/wLxDjvSV89G4vYdzWg4PZlMEkR50/tnK4ur65j4Pqf/m2Mm3wblSuaGLjiH489O16hQ0n3rm
+	GxIyww==
+X-Received: by 2002:ac8:5706:0:b0:536:3760:e6cb with SMTP id d75a77b69052e-55d769e9387mr335085841cf.14.1795629348805;
+        Wed, 25 Nov 2026 09:55:48 -0800 (PST)
+Received: from ziepe.ca ([142.177.118.84])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55dbb8546ecsm18274511cf.4.2026.11.25.09.55.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 09:55:47 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xWHDf-0000000298s-0hJB;
+	Wed, 25 Nov 2026 13:55:47 -0400
+Date: Wed, 25 Nov 2026 13:55:47 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Sibi Sankar <sibi.sankar@oss.qualcomm.com>, will@kernel.org,
+	robin.murphy@arm.com, honghuan@amd.com,
+	Leon Romanovsky <leonro@nvidia.com>, joro@8bytes.org,
+	prakash.gupta@oss.qualcomm.com, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] Revert "iommu/dma: simplify dma_iova_destroy() and drop
+ the free_iova helper"
+Message-ID: <20261125175547.GM246011@ziepe.ca>
+References: <CGME20261125135138eucas1p141ba6b5e09623562e2033e290fba811c@eucas1p1.samsung.com>
+ <20261125135120.1126571-1-sibi.sankar@oss.qualcomm.com>
+ <a3722347-4b88-41ad-926b-455530020c6b@samsung.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,132 +107,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
-To: Leonardo Bras <leo.bras@arm.com>, Lorenzo Stoakes <ljs@kernel.org>
-Cc: maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev,
- joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
- yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
- mark.rutland@arm.com, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- riel@surriel.com, shakeel.butt@linux.dev, kernel-team@meta.com,
- rkeilty@meta.com, atish.patra@linux.dev, dgreid@meta.com
-References: <20261124152842.2634495-1-usama.arif@linux.dev>
- <awcXhk885lqDRAHy@LeoBrasDK>
-Content-Language: en-US
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <awcXhk885lqDRAHy@LeoBrasDK>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a3722347-4b88-41ad-926b-455530020c6b@samsung.com>
 
-
-
-On 25/11/2026 09:14, Leonardo Bras wrote:
-> On Tue, Nov 24, 2026 at 07:28:42AM -0800, Usama Arif wrote:
->> When a stage-2 fault may need new page tables, KVM first tops up the
->> vCPU's page cache: if it holds fewer pages than the fault might need, it
->> is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
->> 40. Unused pages stay in the cache until the vCPU is destroyed.
->>
->> With 64 KiB pages, that is 2.5 MiB per vCPU, and most of it is never
->> used. Stage-2 has at most three levels and the root is preallocated, so
->> a fault needs at most two new table pages (kvm_mmu_cache_min_pages()).
->> As every last-level table covers 512 MiB, an 8 GiB guest needs just 17
->> table pages to map all of its memory, while its four vCPU caches get
->> filled with 160.
->>
->> On a production host with 64 KiB pages running 101 VMs with four vCPUs
->> each, the caches were still 86% full. The memory used:
->>
->>                         before      after
->>   per-vCPU capacity     2.5 MB     512 KB
->>   all 404 vCPUs         869 MB     <= 202 MB
->>
->> Let's lower the capacity to 8 with 64 KiB pages, In the production
->> usecase above, it frees at least 667 MB. That still covers the two-page
->> minimum and leaves room for several table allocations per refill. 4 KB
->> and 16 KB pages keep 40.
->>
->> The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
->> but it is topped up before every page it maps, so 8 is sufficient there
->> as well. The pKVM hypervisor memcache and the eager split cache don't
->> use this capacity.
->>
->> Signed-off-by: Usama Arif <usama.arif@linux.dev>
->> ---
->>  arch/arm64/include/asm/kvm_types.h | 5 +++++
->>  1 file changed, 5 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
->> index 9a126b9e2d7c99..28568da9ea4a7b 100644
->> --- a/arch/arm64/include/asm/kvm_types.h
->> +++ b/arch/arm64/include/asm/kvm_types.h
->> @@ -2,7 +2,12 @@
->>  #ifndef _ASM_ARM64_KVM_TYPES_H
->>  #define _ASM_ARM64_KVM_TYPES_H
->>  
->> +/* Must cover kvm_mmu_cache_min_pages(), at most 2 with 64 KiB pages. */
->> +#ifdef CONFIG_ARM64_64K_PAGES
->> +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 8
->> +#else
->>  #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
->> +#endif
->>  
->>  #endif /* _ASM_ARM64_KVM_TYPES_H */
->>  
->> -- 
->> 2.53.1-Meta
->>
+On Wed, Nov 25, 2026 at 06:21:06PM +0100, Marek Szyprowski wrote:
+> On 25.11.2026 14:51, Sibi Sankar wrote:
+> > This reverts commit 1acce29926d93f3eba427696fe3da6451504dae2.
+> >
+> > Before this commit, dma_iova_destroy() unmapped through
+> > __iommu_dma_iova_unlink(..., free_iova=true), which set
+> > iotlb_gather.queued from cookie->fq_domain, skipped iommu_iotlb_sync()
+> > and freed the IOVA with the queued gather, exactly like
+> > __iommu_dma_unmap(). After it, dma_iova_destroy() calls
+> > dma_iova_unlink() and then dma_iova_free():
+> >
+> >   - dma_iova_unlink() never marks its gather as queued and always calls
+> >     iommu_iotlb_sync() after iommu_unmap_fast().
+> >   - dma_iova_free() passes a NULL gather to iommu_dma_free_iova(), so
+> >     the IOVA goes straight back to the allocator through
+> >     free_iova_fast() and never through queue_iova().
+> >
+> > DMA-FQ domains therefore get strict invalidation on this path. That
+> > includes the block layer's blk_rq_dma_map() path, which NVMe uses for
+> > all data transfers, so iommu.strict=0 has no effect on NVMe I/O.
+> >
+> > hw/sw details: Qualcomm Glymur CRD: SMMUv3 with no RANGE_INV,
+> > 	       4K pages; NVMe SSD on PCIe Gen5 x4
+> >
+> > Fio sequential read/write numbers:
+> >   Domain                          seq write    seq read
+> >   DMA (strict)                    2694 MiB/s   2693 MiB/s
+> >   DMA-FQ (lazy), flush queue      2707 MiB/s   2803 MiB/s
+> >     bypassed (this regression)
+> >   DMA-FQ (lazy), flush queue      10.6 GiB/s   11.9 GiB/s
+> >     used by dma_iova_destroy()
+> >
+> > Fixes: 1acce29926d9 ("iommu/dma: simplify dma_iova_destroy() and drop the free_iova helper")
+> > Cc: stable@vger.kernel.org # v7.3+
+> > Signed-off-by: Sibi Sankar <sibi.sankar@oss.qualcomm.com>
 > 
-> Hi Usama,
 > 
-
-Hello Leonardo,
-
-> Have you tried to reproduce this issue in v7.4-rc1 or newer?
-
-Yes. The patch is against kvmarm/next (v7.4-rc3), which includes
-Lorenzo's pre-fault series, and I A/B tested it there.
-
-On unpatched v7.4-rc3 with 64 KiB pages, a VM whose 16 vCPUs each fault
-in one page needs a single stage-2 table page, yet the vCPU caches hold
-640 pages (40 MiB). With the patch they hold 127 pages.
-
+> The performance data clearly shows that the flush queue was there for
+> the reason. Together with this revert it would probably make sense to
+> apply the v1 of the reverted patch:
 > 
-> IIUC Lorenzo Stoakes introduced a change that would cause the memcache to 
-> skip topup if the cache contains a minimum of ~4 pages, so it can possibly 
-> improve that issue.
-
-I don't think that part is new. __kvm_mmu_topup_memory_cache() has
-returned early when mc->nobjs >= min since commit 6926f95accee ("KVM:
-Move x86's MMU memory cache helpers to common KVM code"). Lorenzo's
-commit d27acc152c62 ("KVM: arm64: Size the stage-2 memcache from the
-fault MMU") takes min from s2fd->mmu instead of vcpu->arch.hw_mmu. For a
-guest abort that is the same MMU, so nothing changes here.
-
-With 64 KiB pages, min is kvm_mmu_cache_min_pages(), which is at most 2.
-
+> https://lore.kernel.org/all/20260701092033.422867-1-honghuan@amd.com/
 > 
-> Although I can see that when it's below that minimum it fills the whole 
-> capacity (40) of the cache.
-> 
+> Leon, do You see any other option?
 
-Right, and that is the problem. Skipping the top-up avoids refilling
-the cache, but nothing ever drains it. A vCPU's first fault fills its
-cache to 40. Each last-level table covers 512 MiB, so a guest needs very
-few table pages, and most vCPUs never drop below min. The remaining
-pages stay allocated until the vCPU is destroyed, which is why the
-production caches were still 86% full.
+Oh, there are a couple of issues here too, and reverting isn't fixing
+the main problem with this..
 
-The patch keeps the early return and only lowers how far a refill goes.
+The issue is the assumption we can separate the sync from the free:
 
-Thanks,
-Usama
+       if (!iotlb_gather.queued)
+               iommu_iotlb_sync(domain, &iotlb_gather);
+       if (free_iova)
+                iommu_dma_free_iova(domain, addr, size, &iotlb_gather);
 
-> In any case, Lorenzo, could you advise?
-> 
-> CC:Lorenzo Stoakes (ARM) (ljs@kernel.org) 
-> 
-> Thanks,
-> Leo
+We cannot. The gather must always be retired, either be calling
+iommu_iotlb_sync() or by calling iommu_dma_free_iova(). It can never
+just be left dangling.
 
+Further you can't call iommu_dma_free_iova() with a NULL gather once
+unlink has been called. That risks things out of order where the
+rbtree can show the freed iova before the associated queued flush has
+happened. That is a correctness issue.
+
+I suppose the resolution here is to feed the gather up the call chain
+and allow it to be retired correctly instead of trying to short
+circuit it inside the API.
+
+Jason
