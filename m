@@ -1,80 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.185.32
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795565649;
-	b=r9Lgl+Sf4MN0AjROzCxdypfSV+i61JPfStr44ACoibdWGMuV/13x3aHxL4g4gM1NFAgI
-	 RqkpLKJBd3WJBOUaiFxI5OaFbCdutov0ImsCcU3+pPvMjxBR7M0vmFDXAp3T/Hkuu0P6Q
-	 bPqvnqoZQ6rRxfdq8qC6y1oAUSMYceZFk7W3N6y/7ifqALd80QrpbH4LTB8E1ctvhEY0S
-	 ODLpFhL3Nsk051is5XtDfR8lxccpI6fXBHE14PRyBQU28jgNi6O2SxURGBWadVrQkUhsu
-	 3hUnVbIFwJEhPSnm2Z3daYJv/RsNvpXmqsjZqNqPFtIvy02Y6uSwqz7Qkm8y84ZLmkA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795565649;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Mailer;
-	bh=z/1suhOq9GQu5EKQjlWUv6teWXzfqpn6Op2B/RdOMUE=;
-	b=vSxPM1oK5lK1n/v5Y19IoHCRLDPxXFr8nnb0jZihQXJcCq35zDAVWoNYdhWUh9HVnRKM
-	 zW3s8ubXYd/msXHPEfcpeRjLP05ehZSU5L2v/0M13UMBGaRwa+N9e5EadxsMatY6btZUx
-	 Rn3wLY0ryTht8x9C6IXSdzHwtHE9PoWxHmwn0SW6cLNTfx0U7B+2h3M2dKWY/o2IrnYxq
-	 hH0ZdFBDucGhLbl/XO6M3idbIMUQ04oIotlCf3tm+L37Ndd5qych/+fJeBqwlbXj4G3ed
-	 1BrnPvOcxosb9UzlBukm7Jmic1gqZWL30lamtw4MLx3PTyKgPG8kJBJUEzGmqoCOtSA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=d+phNBI5;
-	arc=none smtp.remote-ip=66.163.185.32
-Received: from sonic313-9.consmr.mail.ne1.yahoo.com (sonic313-9.consmr.mail.ne1.yahoo.com [66.163.185.32])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.3
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795565667;
+	b=xc3GX0NPag+mLqWDLs6yJSkeAxB5njZlKWwZWv0sS88wTAPctGHCzg5nr+8eXpPyP5j9
+	 aMeDGYMRNx9GDOWI+R5yZ48p34jMXk7M/5HqCzJeWRAUkPYaMP2qfPYvFC8Qqgbsjy6yK
+	 OZskcY145ehWQHHKuPBQ8/tKPZdq2YdWiBmgChdguIGZTsqCAZQsOvlTgCT3wYatPfUWD
+	 FTOGeFBl57Vr3ClDsqiLi67dWJ8LH+tgV1YRvgd1o8hLrPgsX+7hEdC8cjUKX23Kq2tiP
+	 Yl5+9CSE+pXpkMn5PPP2/gpO1hZa1UKqpInq56uZ72Y0lkTFT00RcmcYQ1VF9noXD2w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795565667;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=mEiGV0BVULzbwzyV8lMhWxm8vyyKK7LiQ/cqHfgbHBA=;
+	b=g2MawhkTZoud8PpblGWD1WAysV8HeFudZi/4pK1fN+Zy+0p9OhSDyAQnITWRVC+WpZlB
+	 OCAmR8vUya4bIZJ2pFw5Ka7rVdF5s06yc5A23N/z1fr9TVV407pE9y+MtfVIL/GPFO4Ch
+	 H7VSoI/olP1oObaCjqurEzotALLO14ZVNk9NrmNMAC2tZ0YbQc2ZViKIP1Cidt5bxiYKi
+	 GWffdW2ZeF0NCYaqIcvslSs8maWwc8OanM/8Gwu5Uyu+dBfiF0PUmEupub1Z3Zv9a6hK7
+	 zzkMdK4WEfKyEv5g38zuzGEdUQuYtwp16M4aM6jstlVL1OlTKn4484dzeFwe5yc7FIA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=kdKZGUiB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.3
+Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010003.outbound.protection.outlook.com [52.101.84.3])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75611606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:14:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75611606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22A1E606A321;
+	Wed, 25 Nov 2026 00:14:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22A1E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=d+phNBI5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795565647; bh=z/1suhOq9GQu5EKQjlWUv6teWXzfqpn6Op2B/RdOMUE=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=d+phNBI5stZgeq0YrtA2zD7ul+ViTc7xQqCENw9lfMpMYPDWYEy6LARCwdRQXSiHPyC3SvoQreC55wXQGtbXsyglZJX9AmZf2IaKpqBDInJXdEU6Q03c0y+g+T5/sP3j7l2ajcEq02Z7cAUCZ6fLAFpkxo7zMV/51UoYeTvY1c4NN6eqBzgM81KEYy61b8plRAh43qOnvNEZol9mTBAhMP9fpcu7OTOFqnJm0k82a5golJ1R50Ii8Un5u64UTeC3LlxkMaj7ji3nyO5gHNXX7qTUrzWox5qK3oTUe9veWY5Z5voCYtKFYqPK1+d6Xe3TsUZCODSMPwq27ejzfp66SA==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795565647; bh=bVNYRmN873FdmU+3HJT8gKNvZb8pYmnBXeKKUPo2N2D=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=eB5vlGucXSdk+pZe+VgNej5v7hYI+roNpMRKfjUymyDJ+3sf/z4PP5IthqbDf3WBIfrw69R2kRtxWDfsgrai78w68Vkor9qsB2H4yfcLD+cIvHnLI5f4OHHZiwMA6lpM5n8r6XR9T4ExMKV1HsVMRlVqb2DApfPap6uD2ofmBh9UfGpfGALESnvr/fs7jlyM/k/mc7uKapoZGLv8mgEqdGm+1FBlhanqHmAN3wTbSr6EdlLaf0lNncDh/mmO08hBvz3qJHCokLB+jpRtP/Z1ZgWwfAQ5e4w61bjSXXOJ3c3zIVqJ2cradYaItpj/FgZZez2W+9w1LHsyDzFSwTzDHA==
-X-YMail-OSG: uLfaSnEVM1n_nNUJTUWkBDZXyzNokX9y3U32p0oZ4CyUlyx.Xcp1oHiEjzs8pFD
- tJH1qVKfMdWfpb6qqaYxlrXeUwd9HGLtwzyWzjXbxPiJXORhH6w3Vuk3DcgTJJXjcuNaeaYZPZ.H
- W9PtKeywkNB28UJJcLZFqXhbFjfUujNMmOrxexCjSEnLbZt9CeUL_LA0ejN8DaDyx4qA6368V4m7
- hm8RHRwK6fMHzYXBl1lvwWEAEkJT7ByD0rzmIbOQJ08bucTnZrzSr.UzLKZX0X_bhZO.rOlqN2lt
- L28SQDuvHz6b3o_tLJYeOUhoXe.pGivE4tkb2yiKJHuKP8EUKJw0wXnA2U378NVTfYYvuJXgndr4
- gEbO5cUB97r9rFw_7Fr_lPKkEp1ea3OtBfHNC4OcugzS1NI1ID28Meh9zUikvZU5GakibvntbAqF
- kog7xD3uDvMPs.DQSQQYV5g.xfFJK_AyEJjKBuGwSLvc5xjgdL4N1NPYshvGcSFj.JBj9lJ2vfu7
- UZez5owmnDJVxqNHZinzzsJHcXZ4gLpWVc2omFjJlQjj7XbRj8z2vGWBYA7wRK5EZl6JxKWyQXek
- VXDXhZz5g8QEPE3FQKadW3oLn5lKEYcKk9j5B252CUST1bIUyWEd48r6f8.wENu1xtpuutW4oX3G
- f8uHe97T1w3ME4JPQ64tnNmJs72i1LJgPvVF6vg9yQvP3lq1m4vB_BzDVZrI89jWz3m0x_FNRyDf
- 3nguB0VPTyogJSbbvvJrhU6w0bJwY9A_yfJaf9NPqItBnjYzMp7uCJ0fsX6Vmb05lWkIrE.NDKG0
- ss9GwOIrotE7vo_zIwtHr0Bl17xy68nYP5joRgX5p9uGa3lI_QhzR1odyuRIdSDxcBzgbS.bEDsq
- W4xi6cSCtmAd35J0iaGl79izx7LdL.QbXNnHYtCnHY723TUgD3P0wLxH54B6bkfQRQA2IKmmoDqS
- KYrMSCUqa_CAgxR4z0v1xNX7ATq_RYLxXU66vkbl06T6o.5ES.d6CFMH2MWJb7hIt6HEOwTcY0Hb
- uPMzuv6Eedeq.bO299kPx6azV9FqghDiPz5z_PfwHkM_jJfGSjaBhKoLX_jVFpFOewpsAFMY89hW
- 2mzqQ8f1OtU4HkoA48FR.veKvWXb__Nk7CVNYjX2TEhdOuH1ouxz1w0n_t.xuvSOn_pdAfNhjlcN
- ex3Lp8j8LWPCiz.7zUuGaFhAEqrjGVw9M0vhMN5n.asxurB3da..LYon4vLM1rLDMKJrX7PgXvqE
- I1T.RrJxwKI1rw0DwbiEHyHAAARxLhsZJeCyh3Jcpgb3ibKn0P9N2gzDtHTvZSxSDbUzZa5t5rKT
- .g3sBt7wCq_oFQN_elDsnpHhQjaJOaZG5ZvGeLLVxj.uChZ3Nwoy_jWkBNDsCjs8atJi64suwuEw
- oMhaj6RsoFBMJINAZnj3QrdlLUp0MkR32wshmVduyOZIF.2PShv.Va3LF1U.xSA_ejb4hijjP4Sp
- _rYIl2gcFvrUKIqTdN2zw6SFv8ugE78KDltTw.Q9XwxQDiA84NghDmulxa1umiCyuDvDu8wYDbRa
- QzQsVaAMkXU8.5itgcUl6wpylw1RL7zngjLx7yhUnAJpTywh0DKIoaSCdKl7XyxwmejO9FXjfCaD
- VS0NU3LOZ3b8KzncjLazHiqheC9fF4Q3yLrmkuMB9LEskkAHiftvMp8j_ZFHIeiwFPWC5fzK4Cch
- WFRjLLARFnTu.cPhwZyz8hUXvmJG0f.VUVnyyr5wD8oUb7c0Dck2sp5LKINtyVurnt7KzXqyC38z
- g4hBlXsNGb2RIa9eVo9J1M1e5fsyGBJewJxPW9lZUsAAhGG9QpFlRd7VJ4aGu_SBlXxE1BXojd_B
- eIRSqRa2Qj5CuKhp8GkSxNE.XvChdoaGGEqwB_r4RaOx0caKl2J.4Rdi9EieyFvw7EoZi5z6sNlt
- DKLdDMkc1kMgoVJuIRPE94ymYKbVUus0QiNyKbwy_XfZgFWT5k199.X3S2okLRzy65_iK76fYn2A
- agE1uEZNP7u.7EE4pM6AadDvsLhhsC1oFpVq_cHNhegWCIz5e8uLHKcfVuTuo6NLNMc74fF.jfAN
- 1cV_itKzZZQc9jRlyl0tqyOdJA5UkLVzfboi_347107hvU90BTigVzNB5tvqZlzBXcmM8MiXdmHu
- IPHJJ0iJZvI.ZcjCKejnUXa15yUf1v_BB0_Na4xexoXPVZtd4ijoqlkVQN7LidMPHCpekJOTiHls
- EZQnuVyNu40M1t6Z5D1I5Fi8bRyXCIqTFuF95lQ0hvFH8aarHaCSwFRlV0qGPhAiQ7qH1c7YXkX9
- 1uQu_wzsd632Eg6hn4RjT61AUxpApriMmK33WDhQn4lqg7VDNayE-
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 1cb86507-cd33-47ba-8931-63237501190f
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic313.consmr.mail.ne1.yahoo.com with HTTP; Wed, 25 Nov 2026 00:14:07 +0000
-Received: by hermes--production-ir2-7c4859dc89-jpc6b (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 0338d3f1489788879650fca98a888d59;
-          Wed, 25 Nov 2026 00:14:04 +0000 (UTC)
-Message-ID: <abe7ed42-694c-435b-b573-b0341aa10971@yahoo.com>
-Date: Wed, 25 Nov 2026 01:14:01 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=kdKZGUiB
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=L/PEN9t/TjklWpoy/aqtHhaWXRSKFwVYcdGQm1rXCsB+Dg/8afOTJMAVpZALZJkCO2M5JoXmuSb8UfoPdj2E8F8Vu/7ddBKiOkvCAFDysmrvvrDvM642ebSom0ULdEGRNROljZTbc8xMzkvUr7EKua03j2WR7cEYLna7jfQg2uDm/FoS1mvNiD4KW+oGS82FghX1H5yXZPp11a8trZgLCigvfwmtec1RS7lI0ifNyOUTR60CJQofb7/j1a8ZpEC835Va0G/3EfNzIq5SQ7nb2jUgav25MAxk5KpmKYxuwt67/K53BWKIYjp02YhoTLU+TrDW06zsdtrdUtscfYNmMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mEiGV0BVULzbwzyV8lMhWxm8vyyKK7LiQ/cqHfgbHBA=;
+ b=D/UmTBTsnzCWFs2gVMG66Q58uzNfn3CpEUHb9P1WkBl48WFQhBcllelEEBBedIdOkyK7+e0Oa7qEYw+tk2FnSw9QUutRZXmQYELFJMIx79vzXhGW1P9yqmjuZesmgLgGdUBSS01qWXINPQXVlkR9iUB5gpQxDTlSnpA15V/aXwev1o4+B8ndnRVD06RCbV4E4jR7DRfaUJP8+k9evmaGwxre463ICqa6qzs9Is0y84MtMrDgw5FABnsX4pPUnybxVLlAUrzOoOK4bnW8nTDF4fMADRfbFd8Acxpoj1C1XLBSGaqKISHx5Fea34hH/vpxAMxO5qdvKvL+b8mdM1ga/g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mEiGV0BVULzbwzyV8lMhWxm8vyyKK7LiQ/cqHfgbHBA=;
+ b=kdKZGUiBiaqCAVCpc91fFMtm+9AvYLex3UkVzEfkaXvLlA3SsVOZ7EICg5H/0c844rpinjFta0Tq/KDXMYWtN/S3WLbREJEa7UaLhwUB6xMK5kTNvHQOvbwLGrq5GTUwkHJTgqNCcXOODaHT37UTLKM+ZrsC4KdBfUTsYi3d4TOokmyIcQZZoF+e6H9NCz0nhWfn/gzgbD5ORAIwE/ikov9qEwAyoNLlkM9+EOGRft0yDTdWwxDGXf5nRrjj5gVnmqjmigQ1+pNEo6zmfzXVbj6v45AmXSaD0YNpsR74AYAXNO0B3rSVXTeFgZvH5657uLI0PkzHLnzONxueZOxxDg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by PA4PR04MB9415.eurprd04.prod.outlook.com (2603:10a6:102:2aa::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 00:14:24 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%5]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
+ 00:14:23 +0000
+Date: Wed, 25 Nov 2026 08:19:27 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 01/10] clk: imx: imx8qxp-lpcg: Prevent stack overflow
+ when parsing clocks
+Message-ID: <awYpjwvlR+VvYnyf@shlinux89>
+References: <20261123164834.3330320-1-lee@kernel.org>
+ <20261123164834.3330320-2-lee@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123164834.3330320-2-lee@kernel.org>
+X-ClientProxiedBy: SI2PR01CA0026.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::16) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,198 +107,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v14 15/15] net: dsa: realtek: rtl8365mb: add support
- for RTL8367S-VB
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
- o.rempel@pengutronix.de
-References: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
-Content-Language: pl
-In-Reply-To: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|PA4PR04MB9415:EE_
+X-MS-Office365-Filtering-Correlation-Id: a460094f-5087-487d-e1bb-08df4a890ef8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|19092799006|10067099003|4143699003|56012099006|5023799004|11063799006|261022105027099003|261022075727099003|261021121427099003|261026140227099003|261028144727099003|261102123227099003|261009223027099003|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	QFKnUduvJyHZKuVcSmgd+82KryJ3pPUWLCy95bNaU3UpBPYvxAn9e8oJoRr/18BwqJVu6Ukxb8LJbxlXpXIYUWFaa7ivocewKaCjoILTziA2sqCHDL/wXJqjUn6CDJ2hqT1PWHzGuLwBxZPZGaTWyaaJ9lyxGzNQMTybB7tI2E7Ms7z6R+qfES+f8IsWyGV76WURX2RYoxtM4Xo4TXGly6WOjS9VB5WFbFg/XHvtYeOULZ8EjC/9xzglf5uf+mhFcRIoOqoKAjOzNerCTArgbOFCyC61f4zr0K7Se3sL2DsoMVcgRgaX419UjKuSDiiuv6J0UVQ6fxW7Ifa/n/sqAV3UtfKYtO8KO7wGbNG0+yLYKV2kotmBH6yfD3sVNLoP2F4oa/25gfvdrvlrmxoTafA9BVgLzLxacFetbRez0AFrFnV0quEPOg4mOIuvRoaGAjnk86jiu60z6zvJ8m5riCsM836Qu6eQ7fGviymS8/C9SxVIZ2ubw6V76YVLenG1MjYxJ54pq8NCPImnnGhxwqMhXNxbepvLKR8vZD4HhAeFOv/KJLLL1/wySRoXOyEl0f5P2cB3ozp5+dV/LqRBTMnYBXb7oojtkZ//bri9FCQ=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(19092799006)(10067099003)(4143699003)(56012099006)(5023799004)(11063799006)(261022105027099003)(261022075727099003)(261021121427099003)(261026140227099003)(261028144727099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?C0c/9i+1csAQRbT9eexqG9GOOLgXSEx6x78otrgVwewIlie7ddU4/sOU9JbI?=
+ =?us-ascii?Q?kvA3qpkyN4000FIcBWt0SJRz0srtPyOPAGJl+bcPvsh4pfO18cUdzYoStsfo?=
+ =?us-ascii?Q?DTNEYm5npBz9RUQl8c6K+Hfsewvfs6iV66z0m/7/BCyr01uRniAYO0ye0w9V?=
+ =?us-ascii?Q?7ovPn9gnzV5NMkTGe6Ua/zN0uAnpvXiWAEzE+YHHK6efsh4SCycVuxKS6Xyz?=
+ =?us-ascii?Q?KfBhK2Y8ZkXJ7EL61u2HxGQ3u+hl8+dylUfNQMl52bk/0ifDv9VGviCX8+tj?=
+ =?us-ascii?Q?JsJ4fVtWtOP8tgYfdvd0vXDSXO+lRm841YzwNCU0kSXH2Jpk3FeC/GnoPX+a?=
+ =?us-ascii?Q?PURvtdbAXsun/Lb92RE7WXFgk/ncjC1xldn1IQXTX4rqOQKbc9C6QN6zuHOi?=
+ =?us-ascii?Q?+e7aM55q4T9kUMkSXVGACGOCI3XCN/oZ8xQ/YWVvmLQafJm5+OVN9n25/Pcf?=
+ =?us-ascii?Q?uEDkCWyIvndohUnGk3bwxC8sNXNPFsWGs2bvuL2K2X4dTE40k1vhE/Au1Bi+?=
+ =?us-ascii?Q?EsVCKt78cHjRh7Tohfuv0s6UzTjEX7f0HoV8lsdNIdAGRO9YXIOHPoyAjRhs?=
+ =?us-ascii?Q?b/JNeJxGbCGdPbGea2LcRNU3iSm3vP9hr5yuOkpsbnzoaFRJl9lfI9OvXwRZ?=
+ =?us-ascii?Q?76N6UIelEMbPNAj4FGf7n0NXQfZUAf1TZ+M85nzIHFRPhHEXsGQhfiiqL0YX?=
+ =?us-ascii?Q?ObY0JuDieJUrbfNZ2n2JCcl2OOkW4ByRk3dkyojnzk2mdGAo/BwD79PfFga8?=
+ =?us-ascii?Q?qEFsU1KFqZ+jmzoM1m/H+DNn6+JkSRhhcx8d/thiKhdo7V8OKwhCRWV+2zaa?=
+ =?us-ascii?Q?99m7frHfiErXC4fn1cz9vau4j9wXr5dhD3rO7+HXLN8yamZFFqhK86GOJANf?=
+ =?us-ascii?Q?UfYUsVtLyRB0pOiSdE8eDiB0mXD7GLPXltvwJ9FwT52XzwjcJAClL9YsGqTO?=
+ =?us-ascii?Q?y4dBTKLNAjhrN5RZe20hYYCdj2E5DDz2P0W/BWFSJZMRw0P+0HVcOHsF/qQL?=
+ =?us-ascii?Q?6wCddcK8DGMCmQiD64kopG9xtbT2bh+Ac79pJy306s7f8oCBXkrW0qYJu/El?=
+ =?us-ascii?Q?2opcN42W5dbUuKd70ab2UdqNxwDy1N2S/KEJdATvDHrYlsdcPKnDAkUCJeeY?=
+ =?us-ascii?Q?whAMEQVOTGqn0UrBKJY8eFGM6f6IgCdoshz9r3QoB1iICVCxPC3tIJ8/o3fX?=
+ =?us-ascii?Q?7FuU4w1uN9TfaO0Tq6wcv82Kz/J8H5PBzA/cSTTx/A/DvqUq/Gk3BA1s+qcj?=
+ =?us-ascii?Q?HjpYJ4uGDWqPHNxhDGWdzcPb0X0m/KpXOhEoak4vZWy6lMVmmQ/fNm3wjyuN?=
+ =?us-ascii?Q?WEtv47uqx0as7OGA0Wy5I5mxr4ULFNaD1AVE8BX0N17YKdIkYLoXcfRalPCz?=
+ =?us-ascii?Q?NUeqwRT2MS2tltoXfBQKSWhljlR/Dwy6l++GUF4qaKgSmD0qoSurDAKMWbxg?=
+ =?us-ascii?Q?EYNwBRumwohan1hhu5odUDIbfdGgTAXAvuY33nCqa/vZ/UYzcqHSgu87Xg65?=
+ =?us-ascii?Q?3FRgrdC6hHfhPtGnIOad41SYxPfhIJXxixPOGdhaMH+ogXFZurnKJimfLuMn?=
+ =?us-ascii?Q?PQypqqqZ/PyaOMIl+tjz/YSe8qw2Kowsc8liRm6SIt5gH5NlrObchHxmnYiV?=
+ =?us-ascii?Q?bpDiqMUTeDYR6fo7FNeFA4EO1EAZJ9YwiA4zMwbQ1Z9u4qVsKvbO3T26ePAo?=
+ =?us-ascii?Q?STF5senhmphoOG00uCclgdgMZKnb4Ofu1ex9Zb7l+Cgktbl6z3i1zNSka8gw?=
+ =?us-ascii?Q?CbA9jpKtZ4sRT6Idgh402ebW+gJlRUUgtlXge1L3CGIZXy/NcgrQ?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a460094f-5087-487d-e1bb-08df4a890ef8
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 00:14:23.5846
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: I9aydOBnKrvAdvbnsToZQzRWwVgNsyG6VTJOcDF/ugZleBZU6xSk6TQdwoXMYrzcTsrJF0yvHdTCAsPMKFrVWNQhcjPZ6I3G0xHmrqoznFp3U4CSBcUyK5nUlXkLaGMo
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9415
 
-Add the RTL8367S-VB (chip ID 0x6642, version 0x0010) to the chip table.
-It is the first chip of family D, whose handling was added in the
-preceding patches, so this is the patch that makes it reachable.
+On Mon, Nov 23, 2026 at 04:47:34PM +0000, Lee Jones wrote:
+>imx_lpcg_parse_clks_from_dt() allocates output_names, parent_names, and
+>bit_offset on the stack with IMX_LPCG_MAX_CLKS (8) entries each to match
+>the hardware limit of eight clock outputs per LPCG block.  However, it
+>only checks whether of_property_count_u32_elems() returns a negative
+>error code and enforces no upper bound on count.
+>
+>If a Device Tree node specifies more than IMX_LPCG_MAX_CLKS entries in
+>clock-indices, subsequent calls to of_property_read_u32_array(),
+>of_clk_parent_fill(), and of_property_read_string_array() write past the
+>end of these stack buffers.  Reject counts exceeding IMX_LPCG_MAX_CLKS.
+>
+>Fixes: d5f1e6a2bb61 ("clk: imx: imx8qxp-lpcg: add parsing clocks from device tree")
+>Closes: https://sashiko.dev/#/bug/linux-22dfac78-f44b-42f8-985a-995308723fc4
+>Cc: stable@vger.kernel.org
+>Signed-off-by: Lee Jones <lee@kernel.org>
 
-The SGMII/HSGMII SerDes of this chip sits on port 6 and the
-MII/TMII/RMII/RGMII interface on port 7, as on family C, but the external
-interface indices are one lower (EXT0 and EXT1 instead of EXT1 and EXT2).
-The chip reuses the existing initialization jam table, taken as is from
-the RTL8367C code, followed by the common jam table. Neither has been
-compared with the vendor RTL8367D initialization. Some common entries
-write registers that family D programs later (EXT_TXC_DLY at 0x13F9, the
-LUT configuration at 0x0A30, the interface select register at 0x1305);
-the bits that the jam leaves set there are not documented for family D.
-They were used on the tested hardware (see below), which uses SGMII and
-HSGMII on port 6 and not RGMII or MII on port 7.
+There was already a fix from Abel.
 
-The chip has 8 ports (0-4, 6 and 7), which is described by port_mask in
-its chip info, as for the other chips. rtl8365mb_family_d selects the
-family D implementations added in the preceding patches: the force-mode
-configuration, the VLAN 4k accessors, the PVID handling, the L2 entry
-(de)serializers and the QoS priority numbering.
+https://lore.kernel.org/linux-clk/20261102-imx8qxp-lpcg-duplicate-clock-indices-v1-2-1c3fc3fe727c@oss.qualcomm.com/
 
-The L2 learning limit is the same as on family C (2112 entries), as
-given by the Realtek rtl8367 common API (rtl8367_common V1.4.2), so
-RTL8365MB_LEARN_LIMIT_MAX needs no per-family handling; only its
-comment is updated.
+Regards,
+Peng
 
-Tested on a TP-Link Archer AX55 v1 (RTL8367S-VB, CPU port over HSGMII
-(2500base-x) to an IPQ5018) with bridge VLAN filtering and per-port
-PVIDs, and on a TP-Link EX511 v2 (RTL8367S-VB, CPU port over 1G SGMII
-to an IPQ5018). RGMII mode has not been tested. See the cover letter for
-details.
-
-Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
-Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
----
- drivers/net/dsa/realtek/Kconfig          |  3 +-
- drivers/net/dsa/realtek/rtl8365mb.h      |  4 --
- drivers/net/dsa/realtek/rtl8365mb_main.c | 58 +++++++++++++++++++++---
- 3 files changed, 54 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/net/dsa/realtek/Kconfig b/drivers/net/dsa/realtek/Kconfig
-index f1530ba..e366632 100644
---- a/drivers/net/dsa/realtek/Kconfig
-+++ b/drivers/net/dsa/realtek/Kconfig
-@@ -35,7 +35,8 @@ config NET_DSA_REALTEK_RTL8365MB
- 	depends on NET_DSA_REALTEK_SMI || NET_DSA_REALTEK_MDIO
- 	select NET_DSA_TAG_RTL8_4
- 	help
--	  Select to enable support for Realtek RTL8365MB-VC and RTL8367S.
-+	  Select to enable support for Realtek RTL8365MB-VC, RTL8367S and
-+	  RTL8367S-VB.
- 
- config NET_DSA_REALTEK_RTL8366RB
- 	tristate "Realtek RTL8366RB switch driver"
-diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
-index d34c9b6..282a225 100644
---- a/drivers/net/dsa/realtek/rtl8365mb.h
-+++ b/drivers/net/dsa/realtek/rtl8365mb.h
-@@ -47,10 +47,6 @@ struct rtl8365mb_family_info {
- const struct rtl8365mb_family_info *
- rtl8365mb_get_family_info(struct realtek_priv *priv);
- 
--int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
--				     bool link, int speed, int duplex,
--				     bool tx_pause, bool rx_pause);
--
- static inline bool rtl8365mb_is_d(struct realtek_priv *priv)
- {
- 	return rtl8365mb_get_family_info(priv)->family == RTL8365MB_FAMILY_D;
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-index 639e6b6..eef591e 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_main.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
-@@ -89,6 +89,14 @@
-  * things will work out-of-the-box for other chips, and a careful review of the
-  * vendor driver may be needed to expand support. The RTL8365MB-VC seems to be
-  * one of the simpler chips.
-+ *
-+ * The RTL8367S-VB (chip ID 0x6642) is not part of the family listed above. It
-+ * belongs to a newer generation, which this driver calls family D. Its
-+ * registers differ in the VLAN table, the external interface speed and RGMII
-+ * configuration, the SerDes, the L2 lookup table (FDB/MDB entry layout, no
-+ * EFID, LUT configuration registers) and the table access control register,
-+ * so the code paths specific to it are selected with rtl8365mb_is_d() or
-+ * through struct rtl8365mb_family_info.
-  */
- 
- #include <linux/bitfield.h>
-@@ -119,9 +127,9 @@
- #define RTL8365MB_NUM_PHYREGS		32
- #define RTL8365MB_PHYREGMAX		(RTL8365MB_NUM_PHYREGS - 1)
- #define RTL8365MB_MAX_NUM_PORTS		11
--/* Valid for the whole family except RTL8370B, which has 4160 entries.
-- * RTL8370B is mentioned in vendor code but it might not even belong
-- * to the same RTL8367C family.
-+/* Valid for the whole RTL8367C family (and for family D, RTL8367S-VB)
-+ * except RTL8370B, which has 4160 entries. RTL8370B is mentioned in
-+ * vendor code but it might not even belong to the same RTL8367C family.
-  */
- #define RTL8365MB_LEARN_LIMIT_MAX	2112
- #define RTL8365MB_MAX_NUM_EXTINTS	3
-@@ -814,6 +822,10 @@ static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
- 					    bool link, int speed, int duplex,
- 					    bool tx_pause, bool rx_pause);
- 
-+static int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
-+					    bool link, int speed, int duplex,
-+					    bool tx_pause, bool rx_pause);
-+
- static const struct rtl8365mb_family_info rtl8365mb_family_c = {
- 	.family = RTL8365MB_FAMILY_C,
- 	.jam_table = rtl8365mb_init_jam_8365mb_vc,
-@@ -835,6 +847,27 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
- 	.qos_set_untag_pcp = rtl8365mb_c_qos_set_untag_pcp,
- };
- 
-+static const struct rtl8365mb_family_info rtl8365mb_family_d = {
-+	.family = RTL8365MB_FAMILY_D,
-+	.jam_table = rtl8365mb_init_jam_8365mb_vc,
-+	.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
-+	.ext_config_forcemode = rtl8365mb_d_ext_config_forcemode,
-+	.vlan_4k_read = rtl8365mb_d_vlan_4k_read,
-+	.vlan_4k_write = rtl8365mb_d_vlan_4k_write,
-+	.vlan_port_get_pvid = rtl8365mb_d_vlan_port_get_pvid,
-+	.vlan_port_reset_pvid = rtl8365mb_d_vlan_port_reset_pvid,
-+	.vlan_pvid_port_set = rtl8365mb_d_vlan_pvid_port_set,
-+	.vlan_pvid_port_clear = rtl8365mb_d_vlan_pvid_port_clear,
-+	.l2_entry_size = RTL8365MB_D_L2_ENTRY_SIZE,
-+	.l2_data_to_uc = rtl8365mb_d_l2_data_to_uc,
-+	.l2_uc_to_data = rtl8365mb_d_l2_uc_to_data,
-+	.l2_data_to_mc = rtl8365mb_d_l2_data_to_mc,
-+	.l2_mc_to_data = rtl8365mb_d_l2_mc_to_data,
-+	.qos_iprio_to_hw = rtl8365mb_d_qos_iprio_to_hw,
-+	.qos_hw_to_iprio = rtl8365mb_d_qos_hw_to_iprio,
-+	.qos_set_untag_pcp = rtl8365mb_d_qos_set_untag_pcp,
-+};
-+
- /**
-  * struct rtl8365mb_chip_info - static chip-specific info
-  * @name: human-readable chip name
-@@ -925,6 +958,19 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
- 		},
- 		.num_tx_queues = 8,
- 	},
-+	{
-+		.name = "RTL8367S-VB",
-+		.chip_id = 0x6642,
-+		.chip_ver = 0x0010,
-+		.family_info = &rtl8365mb_family_d,
-+		.port_mask = PORT_MASK(GENMASK(4, 0) | BIT(6) | BIT(7)),
-+		.extints = {
-+			{ 6, 0, PHY_INTF(SGMII) | PHY_INTF(HSGMII) },
-+			{ 7, 1, PHY_INTF(MII) | PHY_INTF(TMII) |
-+				PHY_INTF(RMII) | PHY_INTF(RGMII) },
-+		},
-+		.num_tx_queues = 8,
-+	},
- };
- 
- enum rtl8365mb_stp_state {
-@@ -1977,9 +2023,9 @@ static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
- 	return 0;
- }
- 
--int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
--				     bool link, int speed, int duplex,
--				     bool tx_pause, bool rx_pause)
-+static int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
-+					    bool link, int speed, int duplex,
-+					    bool tx_pause, bool rx_pause)
- {
- 	u32 r_tx_pause;
- 	u32 r_rx_pause;
--- 
-2.53.0
-
+>---
+> drivers/clk/imx/clk-imx8qxp-lpcg.c | 4 ++++
+> 1 file changed, 4 insertions(+)
+>
+>diff --git a/drivers/clk/imx/clk-imx8qxp-lpcg.c b/drivers/clk/imx/clk-imx8qxp-lpcg.c
+>index 9ad016106b1e..5eb4bdbaf7d8 100644
+>--- a/drivers/clk/imx/clk-imx8qxp-lpcg.c
+>+++ b/drivers/clk/imx/clk-imx8qxp-lpcg.c
+>@@ -199,6 +199,10 @@ static int imx_lpcg_parse_clks_from_dt(struct platform_device *pdev,
+> 		dev_err(&pdev->dev, "failed to count clocks\n");
+> 		return -EINVAL;
+> 	}
+>+	if (count > IMX_LPCG_MAX_CLKS) {
+>+		dev_err(&pdev->dev, "too many clocks: %d\n", count);
+>+		return -EINVAL;
+>+	}
+> 
+> 	/*
+> 	 * A trick here is that we set the num of clks to the MAX instead
+>-- 
+>2.56.1.750.gf70dc682cf-goog
+>
+>
