@@ -1,99 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.44
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795610814;
-	b=HdU6+3tEU/22w5EEANgNmk29/mMZBN/XWPLwaTzwo1mxt8K36e41+izplUSDLMo2Yuf/
-	 BAmOTSVtZQ46lOHPxd+prX80F2rIbMA/1X7nRcaGHR7rXlbtOCeOA0ezS5tJIDTz2aK81
-	 63bSiUfANUOCXGXokfvUqg7VNbqQDEJUPLf4yLiG3Xvpj/sesjZhE5c7bJzmjMTDztS/A
-	 WyUJ6mKiNna50ECNuURTAEjEBFyBLxKThXX0eKcLcUDLNsXpuMiwBKtO7LcZl4osweNAa
-	 Us+gDjdEQDFvYlhXkfQDLbbRK84P6pLaDDcvvlkA88js75OCNU+qmKMJ+JEGp+1dnnQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795610814;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=IuRRg7o5Crk5KRLDhtoQ7ekunhWpm8sN3gL4hQuQRLw=;
-	b=bmz7oZhM2zuZEDUxsESbkBuOxy4DRaU5D0ro3jLenuIbqZqmOfYNYr6UnuJrtsA47vX5
-	 0n43CE+nKAr6yYCG8AtfqOX5rZKECNuBF/hif27xQcJ4H0eHywD5sxsVwQo4X8XiQVgSI
-	 P9CGjYf3EOrABahxctiYRn4qSG1fPbnx+9H8f6d//DjYAy83KfJh3551h7Pf6cWAC+/98
-	 yaTJkLUk6tZPdTRGkVY0qj6UJNKMEPDU7t1gLvklr4mCZFwW/svbX8Pa8/mT7ZG4osoBl
-	 WO62yVNXEeFqe4v/9YKAGFv/rZ6qj9dee8V9DmWMb3FYaUQCakgIfmSZZQGX/n7GOGw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zUD45U1Y;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.44
-Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.152
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795610819;
+	b=0kImpMyGoFAhIGt6gfBPdt7XjOmzcnil7/VwCvclykMs2p1d4pbcaXv2G506Ky17OxCT
+	 Po/S/YwXlYmWWrXWDoHZF1bSHALXv2QWMyqLP1RsnuZV2Xyozrrqd9AQVyod5LfB5+GQ7
+	 4TPkHHLaR9qmwiXO+iuc3Qcphrv2GUV7PAlpUL5J50M2jhcyagkFrjQhevogWToOE3aFi
+	 TEO66f06UgexLgYH3UmObbpHwdvOBcmsnraJMV4J9OctJK16qyNrSgVC/uXzDZwfBJxrz
+	 Yt2eAj/HjMx4anZ2SFaeZiAzKK68Jg3BQrNdXyNyXmBDt/BL9IuYePAv3xKNukbP3iA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795610819;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:
+	 Reply-To:To:Cc:Date:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:User-Agent:MIME-Version:X-MBO-RS-ID:
+	 X-MBO-RS-META;
+	bh=T3MOwzx9XuXBLF1Dj/6JoALu/Hn/CMkytQ7thbURciM=;
+	b=ES8IO5oGYGQK4qiwWOn0moB86bNwJif75RLpT1Oy/OzzV4h+EuuAKZvFtzrNJqsOwfzJ
+	 D+XbtXueR3lMhvRR1dtU0AQNfCITqxS3ze28XPZpCCNmifsereRGtiyzE6+eh0clq7dwj
+	 lsOxWoPZ6JZe4YKUbLsnkE1WKQ1kzg6DwMVa2nkFUiyZio2cgqj1TRwdZa8I46nXTiuXm
+	 LYXQkgtYpV5SAv269HBJaf/r3Dg/iyTSlD7DnUe6Jt4Qzqbz0AY9ktoxFekVLpFhLZUDv
+	 92EJUImOL7DTnTrtEhob9koWi78FjWxw9qwRPcGNG1bneWk9TPtCPw1neOQhaJFgqug==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=mailbox.org;
+	spf=pass smtp.mailfrom=mailbox.org;
+	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=nnB1IeP5;
+	arc=none smtp.remote-ip=80.241.56.152
+Received: from mout-p-102.mailbox.org (mout-p-102.mailbox.org [80.241.56.152])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41121606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:46:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41121606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0694606A31E;
+	Wed, 25 Nov 2026 12:46:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0694606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zUD45U1Y
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c4d5b2db4bbso1097001066b.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:46:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795610812; cv=none;
-        d=google.com; s=arc-20260327;
-        b=EdulFqGURJ2FoaKxbVhnx2DpIKMwJeii3Lbq5QNuvFDbG1cynqu0qack0GvvDfuFB1
-         KqnasrhJRPo+YFBC7zqHsCTwIUIUQ+k/7qSejqeg4gib4/Nv0FQ2tTqU2XRDuyAj7xGs
-         K5PyfBJ44/0KYzgb0ugO3hG09wtI8413Yoh2mcpgVNed+Sj/qofCMjp2fm5y0fg7v+Je
-         sdmzT0Pdo7sGxqMxhsF9CTe81myD5M65qcFq7hjktVqt9/Bu8VGtTVIn6AxknBG3dC5+
-         CIyJ1s1bihLKYe+r4J2WZfjXYREb+B+5Zka/QJvx/yrP/fqSiurDsmNJYehSE4SO3IVf
-         tjCA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=IuRRg7o5Crk5KRLDhtoQ7ekunhWpm8sN3gL4hQuQRLw=;
-        fh=98jJs/r4PEcbW+Ou7ofXmGOAO3nt9vi1rTdC0RELjCc=;
-        b=bFqCY0xGjYWqCsDTehJOOPTPPnu2vRbjXtz2qeEoKLFcj84ugVpsMObT0aEzlRG/NK
-         Os+xzpaiOf0ELFa5Mmv/9SmLskXOshoJr6ZFt0A1ovThANR+W4C9xXVDmzxocw2y4uCU
-         CVuei2OAiwpycad8YIFotw7kmDTWJxzFxs82LlFY9G7ARIVmJKHXkv0SH52bqRoyC0VD
-         ggWOIwctBBJ91zCG71cVq1F2N49AP9buMtvLowduWyC8HgfcIINnV9ct4FNurZHGwnQZ
-         nNejVOeHCCvs3SL//xjaTx6/BE/SPnz9rowsSAd1VXZLY0ni8dYO3cjjMXnJjjJkWO1q
-         vQrg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795610812; x=1796215612; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IuRRg7o5Crk5KRLDhtoQ7ekunhWpm8sN3gL4hQuQRLw=;
-        b=zUD45U1Y0niUTNGvEmVhYstgEHH7eppOuqSCadY4ScIqgRYoS1yZkrGqctAGH1G8o4
-         AXsNgp6BaR6xQv/OUt6BDUe2a/VdVjgd6EaFPfM5kOd6mLsrunx9JCcqMbFz2/YF6PuE
-         VXaKlhP0eMEA4HfwuVypbNbjEptavv8E9rypjSeB/6dJukgVd41t5Sz/goPlBxWE9fI+
-         FR4dJmajJnImrWtNdlMVx+5rXHmshZu2tRwKhtLbyYQMQHI5bDDJTxyI/P1cRavYOLPj
-         FKfgedcFIAu69Fl8oNWRx98e3akLQG+xVrgptuVkCqf0ViChAvOmDt7aTfc3dqoq4rwc
-         6CPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795610812; x=1796215612;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=IuRRg7o5Crk5KRLDhtoQ7ekunhWpm8sN3gL4hQuQRLw=;
-        b=rNVohItubDF01inuZ4cVfY/uBTRJC7+Z+qRMEcx6U3tmsFn+/wVajKZNG1V4RJBROV
-         isQ+bmYdpXUCVe9BN2ch17yoX5sAsSrN8Uc51qaFhonBw+OADiUxRmHNtCl4m5NdVy0T
-         jIOv4QoIseHqw9No3EBRi1w8rMHGBLS6EfzIJ0AlCu5/pof3fb/bly6ImYf3jtDDG3RL
-         7GMOpHlw/bL2Oi85eqdlzOZRmDQNQcU9ps6WGihduYMdPavyAgZrJedU+78CWrR5I1XT
-         xAe7bUN5lc2XKQCZ6OpWo64cuAr7nt0FEvL9JW5uShPTtBShNU/uyMLSgfYemYA9BnHB
-         uX3Q==
-X-Forwarded-Encrypted: i=1; AL+hErHeuOygCWxZd7LBhQrI7pnMVPtQdVxdXsTdtYfWbqwJ9YVwBQNGKrFQRb07pDex9163yiv1PQFK5X/oEmQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8WbUFB6SiP1vh414wdi3HZSxNYXy6ZLIdjtNvfWhm65puQ13Tz
-	b53a7TrvSX85mXCqDOY4xj63q/OqSojWkGxNv+lB+opyHnHLIcyVswm+0byw80gPMr3krU0f+bU
-	4lOKlupsPjVchTOqxwQUo4cGkQMntXYA=
-X-Gm-Gg: AZFdTZfXH1PKfAEexdQxaMp8wV6CEAxrWkzvnt3mwRyBtdzBMxHDkSXd3PegZW2H0q9
-	5xqTXdbqlKDks6pX2naFG/O4ovtLpGaW6FvaK3A/pfHWB35DGy7FB/Xs61wj9ghN8L93838YuY3
-	oNAxLf3BXE5cM6PxIejd8Fbq9RD60udwVWpDRchWEQeac9qMln/Lgw8O7+oxWKuWZGc5KzaqGGT
-	iVzka5zpg/LcOLV1+HW0Z+MRBhu5X6N7HJ/RBMicwnErVaMMnHtXxpcLpvqHQv0OLb050emVZYr
-	I4COXPDzsERuLjXJI20tVWx2PDvSL6YVZ2FwihPyYzci8gQKab2+Q6WhsvNkOFmv8L0AmQ0Typl
-	9MgWDnkVjdpzI1eEipQJRk4t5eG6cP6wpywq9SOwjcmr1nrN+IaKoOLFCInVNmpx/a2A=
-X-Received: by 2002:a17:907:82a4:b0:c51:37e6:e036 with SMTP id
- a640c23a62f3a-c513a86d2d9mr981007666b.16.1795610812360; Wed, 25 Nov 2026
- 04:46:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=nnB1IeP5
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4jZKF606zHzKmSh;
+	Wed, 25 Nov 2026 13:46:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1795610810; h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=T3MOwzx9XuXBLF1Dj/6JoALu/Hn/CMkytQ7thbURciM=;
+	b=nnB1IeP5yjj9ODqIsOpsLIKLZGhjixC8mZZ8P6Pbd4JOz7OCHCf8y8Cxx5uqGFs3mTej4g
+	lnCPNfU0kgGQsm4vt2wZKbCI2gQ8oomYEn9KDtInhmY+LMuWVmv64regr2GUW2OdViCx0+
+	dlM+SmMzKiMR0AYBXicyIDWEE/BtVnDiKWdX3JxwEWDxiWxwKebFZlbrdbz+ipMw5oGenK
+	i6B/BLiUbNqBkCUYMZEV7ghI+uLMHv9v8IiR4zPRTBrt5aiypfIGh2fW/OBesI39Ksbgpd
+	3gkCb8qtiQaBbJ9NkCCuSdjAPToBXdDizAkT0aYucntdq/f51divrZwalsinfg==
+Message-ID: <a6110f748b76b8773e0b5c9cb449a3bed0b19f36.camel@mailbox.org>
+Subject: Re: [PATCH v6 00/12] rust: xarray: add entry API with preloading
+From: Philipp Stanner <phasta@mailbox.org>
+Reply-To: phasta@kernel.org
+To: Andreas Hindborg <a.hindborg@kernel.org>, Tamir Duberstein	
+ <tamird@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng	
+ <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, =?ISO-8859-1?Q?Bj=F6rn?=
+ Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
+ Alice Ryhl	 <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+ Danilo Krummrich	 <dakr@kernel.org>, Daniel Almeida
+ <daniel.almeida@collabora.com>, Alexandre Courbot <acourbot@nvidia.com>,
+ Onur =?ISO-8859-1?Q?=D6zkan?= <work@onurozkan.dev>, Matthew Wilcox	
+ <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, Lorenzo
+ Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil
+ Babka	 <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, Hao Li
+ <hao.li@linux.dev>,  Christoph Lameter	 <cl@gentwo.org>, David Rientjes
+ <rientjes@google.com>, Roman Gushchin	 <roman.gushchin@linux.dev>
+Cc: rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, Daniel Gomez	
+ <da.gomez@samsung.com>, "Mukesh Kumar Chaurasiya (IBM)"
+ <mkchauras@gmail.com>,  Sashiko <sashiko-bot@kernel.org>
+Date: Wed, 25 Nov 2026 13:46:44 +0100
+In-Reply-To: <20261120-xarray-entry-send-v6-0-1f69d7385f70@kernel.org>
+References: <20261120-xarray-entry-send-v6-0-1f69d7385f70@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,64 +88,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260514174008.4515-1-ms.bulatov7@gmail.com>
-In-Reply-To: <20260514174008.4515-1-ms.bulatov7@gmail.com>
-From: =?UTF-8?B?0JzQsNGA0Log0JHRg9C70LDRgtC+0LI=?= <ms.bulatov7@gmail.com>
-Date: Wed, 25 Nov 2026 15:46:40 +0300
-X-Gm-Features: Aa3M54raFHFC1wO72gQwKLcaw9Cis1_IurPLDhyy4bIilG0T4ZS0DTaSVjpcl5w
-Message-ID: <CAEyM3Y1QBGHedKixcW7o+9F=p7wQfDow6p2vzaK3fS4ZWP5Fxg@mail.gmail.com>
-Subject: Re: [PATCH] drm/nouveau: handle nouveau_hw_get_clock() return value
-To: Lyude Paul <lyude@redhat.com>
-Cc: Danilo Krummrich <dakr@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Ben Skeggs <bskeggs@redhat.com>, 
-	Dave Airlie <airlied@redhat.com>, dri-devel@lists.freedesktop.org, 
-	nouveau@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MBO-RS-ID: 4eed8370bf969ed1124
+X-MBO-RS-META: ssgee3yfec9ykzuo1a3ycdtcq3w1izm3
 
-Hi,
-Gentle ping on this patch. Please let me know if any changes or further
-information are needed.
-Thanks,
-Mark.
+On Fri, 2026-11-20 at 14:10 +0100, Andreas Hindborg wrote:
+> =C2=A0- Patches 8-9 add support for sheaf-based object caches.
+>=20
+> =C2=A0- Patch 10 enables sheaf support for the xarray kmem_cache.
+>=20
+> =C2=A0- Patch 11 adds preloading to the new entry API.
+
+Sorry for my ignorance, I was out of the loop here. What's actually the
+purpose of this series? What's your user, and what is it going to do?
 
 
-On Thu, 14 May 2026 at 20:41, Bulatov Mark <ms.bulatov7@gmail.com> wrote:
->
-> From: Mark Bulatov <ms.bulatov7@gmail.com>
->
-> In the nv04_update_arb() function, MClk and NVClk are passed to
-> nv04_calc_arb() or nv10_calc_arb(), where they are used as divisors.
-> MClk and NVClk are calculated using nouveau_hw_get_clock(), which, via
-> nouveau_hw_pllvals_to_clk(), can return 0, resulting in division by 0.
->
-> The result of nouveau_hw_get_pllvals() in the nouveau_hw_get_clock()
-> function can also return -ENOENT, which is not checked anywhere.
->
-> Fix all this by adding a check.
->
-> Found by Linux Verification Center (linuxtesting.org) with SVACE.
->
-> Fixes: 6ee738610f41 ("drm/nouveau: Add DRM driver for NVIDIA GPUs")
-> Signed-off-by: Mark Bulatov <ms.bulatov7@gmail.com>
-> ---
->  drivers/gpu/drm/nouveau/dispnv04/arb.c | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/drivers/gpu/drm/nouveau/dispnv04/arb.c b/drivers/gpu/drm/nouveau/dispnv04/arb.c
-> index 1d3542d6006b..2f59b8739fc1 100644
-> --- a/drivers/gpu/drm/nouveau/dispnv04/arb.c
-> +++ b/drivers/gpu/drm/nouveau/dispnv04/arb.c
-> @@ -202,6 +202,9 @@ nv04_update_arb(struct drm_device *dev, int VClk, int bpp,
->         uint32_t cfg1 = nvif_rd32(device, NV04_PFB_CFG1);
->         struct pci_dev *pdev = to_pci_dev(dev->dev);
->
-> +       if (MClk <= 0 || NVClk <= 0)
-> +               return;
-> +
->         sim_data.pclk_khz = VClk;
->         sim_data.mclk_khz = MClk;
->         sim_data.nvclk_khz = NVClk;
-> --
-> 2.39.5
->
+P.
