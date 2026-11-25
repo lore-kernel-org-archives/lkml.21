@@ -1,84 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=34.2.64.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588127;
-	b=IpCIIlfm1LTcxaKy93JMI/slWI1Wxl9dN/clLbRw+0kFKF2c/7nOW6bwhxm7sb9r8VCq
-	 1Ex8+Ya1yYUxKgvSyMe6qabgZyTPg9Tge+BxvNHRGg95gf8iEnb1dxLINOG+z+TOjZPqN
-	 kb3hLjv0WMO2elxRhW4ew+NGCQBaAMzg64QqZCT/47h4vNhwBBGMj0i5aWhiZ2dc8IrlC
-	 MBawTz+XaD/sMTICVXVH4S5A/TCYdyKjH/z7QeVbncK5lu+kl4L0yeOoZcykDPH6H4KQG
-	 sgnzHDYnKkUtWwzBUnRpUNmsNDLkSNj8avHJS8nC6Vb9YjKEw0hwPAKeHHXODM1yoIA==
+	t=1795588174;
+	b=YGQCMc6fXJHXIHtpoSCma+OtNixCZcOK+l7ZvzI9N0xhYa2+tlkkg0gtBquSCOulvQWA
+	 x1Sx7fIiyHYiZpzQhyZsoCKz1TNrsrlsxJdNdRfECBmNJFYNI/LrE95SUJ4kZX1akSm8J
+	 t2qNNHLa54plUgN0ccMjcfmkQXt9gVVGL7lsEONZnuRxBQqRX8aZptTl6qyL1FqZCZCTh
+	 IpAMz5QE0HfbqUC0A11jGGTeeTSn/fwR681w2f2iy2r3E4oA2foMXvkSUPInU8kdQnX5D
+	 q+aOkSTBZDNRNguCmqrH/WqN3RnXKY4aTZxZ78c3vqK3xnERBHG7/pl1OlcMb4I5mNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588127;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:To:Cc:Subject:Date:Message-ID:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version:From:References:
-	 X-Mailer;
-	bh=E0eWOcYTqBWLqFRgRTdzxD7jH9P+/JMBYE77aiXNxpI=;
-	b=zqFKZDzIq+ai/oQxGtSDLm3juEOoRUlu/pkM0JubKS98tGTE7z203Kfsyx3GCXIqee7X
-	 /+l13yBm3us4zUgtm1OJ9IGb+S3jD4ehxM/RRMwP1ecxv0N2tEjMSNCVPZZDikionivVd
-	 oYHdpOjdQF6vlmQYCRRvtz/uCZnnubVJjm6fxFw6OR0Lpxxa5oTbUclpDnXxQEEAlJSbZ
-	 HKUuiTNhpx5v0ZpTSMTPEu3eV8hUQ3vEt7rNy1AXRm9qnoXXphHIe6xoF/TQdhb4SE43u
-	 CJ+2puBwQYwuRl6gtOvjcmkss0bD+VE1KypV1UzFv5LpZxkkjHZIfwyCZtfPeUFwspw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588174;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=fUGmkZ5pnD7Ji+vwezUPcu5hIMdhnLtQNfaT/AXBEjw=;
+	b=iNBVPxaAn+dkh/ty3b6WakhDl7nBNGR8kyaeUqRCh4S7g897XgwSB4hdiGJ49mkASDtT
+	 YYFjXMWDSOH2rlabqBm4XK5vb9KOgmEGiJjTCSrQxqZzXMrjZ2p/t+VnPWTaglclNzaFr
+	 GS4efodULP67Np9vo6Ls8fPTagMA8gsX98++ROS1yWrAC3EWCC2Tq33s+sNClH7hpqx5p
+	 H/cc/poPrbbwM5AXwnDXwKYEEzVzCFodwmb2yPPOf51sVcyOkgp3uPVWjxcHSCx5KB3P0
+	 JxkydI8Q7YOTbgiHCWDar6DcJY2aTFFi20xBcn2uRZh7XZp20riqQ3+WI00+aC7ednQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=k2vn8qI+;
-	arc=none smtp.remote-ip=34.2.64.18
-Received: from sonic.asd.mail.yahoo.com (sonic-usea1-0019.asd.mail.yahoo.com [34.2.64.18])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QWCJMN0G;
+	arc=none smtp.remote-ip=198.175.65.9
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E71C606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:28:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E71C606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31E6C606A31E;
+	Wed, 25 Nov 2026 06:29:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31E6C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=k2vn8qI+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795588125; bh=E0eWOcYTqBWLqFRgRTdzxD7jH9P+/JMBYE77aiXNxpI=; h=To:Cc:Subject:Date:Content-Type:From:References:From:Subject:Reply-To:Content-Type; b=k2vn8qI+JSj+aMfN3pexqIquNsBWeT9a7sdzWAwPcM5pOoiCrvYVn7JajFavSVG1LfjvcNY+r93WzeTQpk7CY/aHnnX9AE5IiNKEK5Wabjlh9p8EV0vPZNDUJMeT0ehgpLEMF6Y+TN5SZKGYW8K9OvfonhHFgQMIq9DrTkwXwGWnvvawzpaNPDJuJm2QYQUoSpdxf7g0T0llY7MM3UmqtTRSSAoTHyU1G3xK80Fe1QAUklyW9y2FyL1NbpB3M7pQqP24sFarOjVWW4s/1Vq5sApnS3aF1C1KvKADNBeahyRKK1yVjbhv6aKNSH5jlHKTGQzlSyynj4FJlKA3vMiKKA==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795588125; bh=WhW9bEyPRtp5yCFOJSF+dbcfrxEuhJxNlvsZof/BVv7=; h=X-Sonic-MF:To:Subject:Date:From:From:Subject; b=nhhkE1Ztk/8IABdJxNWFeUz0ruiFWxxQqAzVtuiIXSBmX4GUOyiPYdEx2KV6n9GiDeScZTBfMt/ksmsJomzO6tnaSQPOAY0VAYE+GJAMZphHzSayMitlbxZMZ5Ge4UxCvDPBhOvgN3uXhHiPxvavxdLSxLWXqfxkFQhQDJ2d/jh3bMFi4Ey4BdF8cNAgbPhbnciWNgV9RAGWPPo9wFB1knxP8LE+iKSB92Lxejn6yk8IJioEw14Og6w+Lpy57/AU+fMqs4hh4/a7bhiNtTuvjckD/a8UsQ9i4sF824RGYiQNHS2wibZv96tLtSypfRvkSzkweNlfYu82gtGki4V5RA==
-X-YMail-OSG: mP95MyIVM1n9xjGwOcqI319ou3oxU0ojvlwKK8XWKrmu3QrHGWOfE_qIr7P44bO
- JTLQVG2VlmdErcSduY2T29X_Io240sYf.KdXP7_1wnV2iCgTcCaZPgwMF7qA11JIHrvcEn9.fNZ4
- ge0HK6_dhodpa8lgnXyKby8StAvlplS3CeSevi5u6A3hh4q4N8T9VxrwL3gGBgZgYcOEeCGZ7KYm
- d_d78ZicxJMjqV38LEwoxy_W3YhgDme_ky19llCHE6pOHAh7NlMysLa4xc7cjvWgI1UBgjPn5B7J
- FA2OaZkxSt1qTSdm.7HPgbxk4lyuDEstptVGZUakBI7aOyUJTtb7hhz7QfhiuLYIHvvZx3NsPd9U
- S1ZiXnzdB_kycWJSP4p6BCb0.2Fp_30uF7tUv0pPjZ7NGgB0k.FfH8lMNWmKhaTRvUAmtEEt.Vb6
- DDwTbUZH511b5TwgEtrM8xwohKACSgxt81EWfBkgOO4T8lS5AIc.2kymnVbTtCjrTGOxsKXCnkJ4
- Jxm8h_MVrjgNF9gHwgntNhFgjW2GYfZdMzqUKVGMVV0JqeYMCk.znR7fWxW1IIZguaQdEm2BMqKO
- mOsfDGGE5jHTCk8WauZXYwYPeCMmw18gu06ygK_BfW5_4MhcI7OJnaFq1mseX0eDm3a0RRb.e7P2
- 73rMDT6Bkhs9S8N1bSCt011f4vmNoQk0PKxxtfwP8iU9nJDSWvlPm.ALcOg6hwf_GBnvzLdi1lL5
- 86cPZB2TnOcI13xWya12xrVfMtBCCgp0UJ3RfEc.jaRHEqtanlbahrX3bmlpUKmIUig6aTQheSl4
- SB5PncLDK0wi8Cvd9BdVTf6MBYvDrmeV77zxaKLt3h16H4qVpcM9FV51GHriVWQWlAJR9_.0fEcx
- nNV73LaLST_SO39zuErKGwI1H6QFVSBjQxwtg6TRoA80WY3NfrQb4AXQSTV9TszVHPGfKpYmj9MI
- I49mNVJdiCNJEzRKX713flPqu05M0AIPgE_dx8TKcpdfpmD7xh.UfzNr61PPQW12T_4PTB2dfPN8
- dcl2x8Qo2TKWLyEwpGBnVJ2hqBFEK87uJNEfTPo2ppRSMCSzGpmqIYFbKTmtng7xttMm1NIAZKgv
- RbLgWtcl5ab3ZM8wsI32enC269bOeEAY9itRVUpjX7JVw8iugGqtN3UYgPStqVdJGdoYc_CFZi48
- bydFK6CgIhKd_TwiO_mK7D0Efx9mgjYE6VOvPdBTRygL4vwn7Y9keF4g9nwHAB0PYemJWVxOz7PS
- tpnZkw1ZX3z7veniGuBOY19Lk_07glvxFJJnrldk7KymWe8MEFhmy6ad6aAH1hWG16FY3_xYR0Pa
- MoGIqwLmtrmyX89ECY2gtd3zOoxcoQ1UhUyXevj5_nuL4ZXjwAqXkZjsZEt9ExUZT53LQsLsw5iF
- mT47jSnUM9wR1oV7ABjHSN.K_fYc6tE99GQ0RQaLzQ_LiVPz5Gm_wM_AWSXRz9pCHCXP1cirbhT0
- EryUBCyT0CWoK5MTiHkyd8oX9x22x0EssBYjYBSEbzg1ZGlWs1CWMZaM5beOfHrJFxKvLTt_jh.H
- OYHfozjMLpbC3f3prH59gGf9yKcmj5E.DRxC.nLFj.1_lTN8qEilyIkBsR6zm_zLaf5ConhMP.HE
- rks4cfn2nD58uD33nQlkwIbCo9ZoiKDyRRUQt2_qvf0cCloX4MClOVSmkP1NID_jQ9rDXNsKn1Jt
- QzqYUOfcyhGlp9EYUDdi8aqon7e0ROMsgTj0ROFuYUWUIXyam9jYib._POrYjLRNM0TmuugpdLmG
- BXrIbAfsJy7FNn_tYQEDgwIKkzY8JuEPOxvN_25DApgCGNqm.mN4LhgGjwNoG3YB0.fFEeYqPnK9
- 8l0.riPZf4rxfs0KF5FVNsSMtZ2gDDxOWtFcSN53GzGbl5Y16VIe4gInxaThnKhMgWZYH0zQXylf
- e7l3M0vlt5dp4VVh2V43VG0NCkPrVASe.WjbSG50hMyfeIG0YRIO_ZiVwZDaiGKI05Os_j5sdw8r
- CYeeVEKpYghnIG7n7BvW8hSfgZh8jFhYKhrwe7jCH.Umq
-X-Sonic-MF: <capitain_jack@yahoo.com>
-X-Sonic-ID: 14d8404e-e460-48f7-9bae-303ebc9a4152
-Received: from sonic.gate.mail.ne1.yahoo.com by mail-asdoutdeli-p-cin-usea1-prod-sonicconsumer-svc-103 with HTTP; Wed, 25 Nov 2026 06:28:45 +0000
-Received: from dip115.lsn.bf1.yahoo.com ([67.195.177.124])
-          by hello (SMTP) with SMTP ID affdc4b9c5d43a215838c465b26809fe;
-          Wed, 25 Nov 2026 06:28:39 +0000 (UTC)
-To: Sasha Levin <sashal@kernel.org>, Theodore Ts'o <tytso@mit.edu>
-Cc: workflows@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>
-Subject: [PATCH] agents: add a skill to determine the target tree of a change
-Date: Wed, 25 Nov 2026 06:27:39 -0000
-Message-ID: <179558805924.3383392.1456615917266025706@yahoo.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QWCJMN0G
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795588173; x=1827124173;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zbfSXjIyKSD5Zk3TOvJSq6/F/aAsespPwza+20D7QQc=;
+  b=QWCJMN0GGnZNj0/toHQaOglw3+Fh46UhlhLoJncF7dpgPXkBRtFbSXO2
+   XlTlg+nEJViRgdIWuR+MELw/Bs6754WvuOA2Wju/rwutbKkwurBKrQ8kf
+   c46Yn+vHZ4API8g30cENTJRUVkpB1bSQ3tjF1Mw47OCg15H0o6oKbbQRK
+   TDRIBm8GuxWNHyEKV7YNr2ap0EH2rPZlu3ZboZ9i/FQRFTTcMWbErpraJ
+   SghGefEnykmpFUsmDTRAqvSaACtucxTAdENwtaRpGRH+zmkeK5ymiv7Lq
+   9Y572YUESA32z/+kZ2z405ipMdilNavArW+QwZvOR7FWw2cxd4mBCP3K3
+   w==;
+X-CSE-ConnectionGUID: sl+g9t7LT3SVWctPqLdB3Q==
+X-CSE-MsgGUID: B7GLqjYgRqeBO/GJZUr0/Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4327641"
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="4327641"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 22:29:32 -0800
+X-CSE-ConnectionGUID: U2iK7523Q6OhqPtrIr3ZOw==
+X-CSE-MsgGUID: oWoe1juLSb2zHvTRnd4GDw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="11764984"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 24 Nov 2026 22:29:28 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xW6VS-00000001Qyu-0xCE;
+	Wed, 25 Nov 2026 06:29:26 +0000
+Date: Wed, 25 Nov 2026 14:28:49 +0800
+From: kernel test robot <lkp@intel.com>
+To: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Robert Ijtsma <robertijtsma@gmail.com>
+Subject: Re: [PATCH 2/2] iio: light: add ams OSRAM TCS3430 XYZ and ambient
+ light sensor driver
+Message-ID: <20261125142230.FjfgcgpD-lkp@intel.com>
+References: <20261124-iio-tcs3430-v1-2-0f2a38a6a4c1@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,173 +91,185 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Daniel Ramos <capitain_jack@yahoo.com>
-References: <179558805924.3383392.1456615917266025706.ref@yahoo.com>
-X-Mailer: WebService/1.1.27100 mail.core.serving.mcws.prd.acl:role.token.mcws.jsmtp.yahoo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124-iio-tcs3430-v1-2-0f2a38a6a4c1@gmail.com>
 
-From: Daniel Campos Ramos <Capitain_Jack@yahoo.com>
+Hi Robert,
 
-Whether a change goes into the current release during its -rc weeks or
-waits for the next merge window is decided by hand, and being a fix is
-often taken as enough. Linus asked that new development and test cases
-be kept on a separate branch so that they can be merged during the merge
-window, and noted that fixes for subtle bugs that went unnoticed for a
-long time can themselves be buggy.
+kernel test robot noticed the following build errors:
 
-Add a skill that sends the agent to the parts of 2.Process.rst,
-howto.rst and handling-regressions.rst that describe the cycle, and to
-the maintainer profiles of the changed files, and adds the checks agents
-tend to get wrong: reading where the cycle stands, using the kernel's
-meaning of a regression, keeping fixes for old bugs, new tests, cleanups
-and new development for the next merge window, splitting mixed changes,
-and counting every added line when judging a change sent during the -rc
-weeks. The skill proposes a target; the maintainer decides.
+[auto build test ERROR on 4843f6873f7c4835e62f2c73ba0fd538e57a2f22]
 
-Most of the skill points at existing documents. Keeping new tests on a
-separate branch for the merge window, and counting lines that are not
-built by default, come from Linus's mail and are not in Documentation/
-yet.
+url:    https://github.com/intel-lab-lkp/linux/commits/Robert-Ijtsma-via-B4-Relay/dt-bindings-iio-light-add-ams-OSRAM-TCS3430/20261124-234657
+base:   4843f6873f7c4835e62f2c73ba0fd538e57a2f22
+patch link:    https://lore.kernel.org/r/20261124-iio-tcs3430-v1-2-0f2a38a6a4c1%40gmail.com
+patch subject: [PATCH 2/2] iio: light: add ams OSRAM TCS3430 XYZ and ambient light sensor driver
+config: sparc64-allmodconfig (https://download.01.org/0day-ci/archive/20261125/20261125142230.FjfgcgpD-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261125/20261125142230.FjfgcgpD-lkp@intel.com/reproduce)
 
-Point the bug-fix procedure in coding-assistants.rst at the skill.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261125142230.FjfgcgpD-lkp@intel.com/
 
-Link: https://lore.kernel.org/r/CAHk-=whyUfwzMDMTpih8Xs1MxmhwTCDAc_YwUSZG79vXFMLU=Q@mail.gmail.com
-Link: https://lore.kernel.org/r/CAHk-=whOCnAwXz-FMRdQEDJQ+9b2YXh9M=GHgRay0o4cxSmPVg@mail.gmail.com
-Signed-off-by: Daniel Campos Ramos <Capitain_Jack@yahoo.com>
----
-This applies on top of v5 of the agents series [1].
+All errors (new ones prefixed by >>):
 
-None of the skills there says where a change goes in the cycle: the current
-release during its -rc weeks, or the next merge window.
-This one sends the agent to the documents that already say it (2.Process.rst,
-howto.rst, handling-regressions.rst, the maintainer profiles) and adds what
-agents get wrong. It proposes a target and the maintainer decides.
+>> drivers/iio/light/tcs3430.c:175:2: error: cannot jump from switch statement to this case label
+     175 |         default:
+         |         ^
+   drivers/iio/light/tcs3430.c:166:3: note: jump bypasses initialization of variable with __attribute__((cleanup))
+     166 |                 guard(mutex)(&data->lock);
+         |                 ^
+   include/linux/cleanup.h:416:2: note: expanded from macro 'guard'
+     416 |         CLASS(_name, __UNIQUE_ID(guard))
+         |         ^
+   include/linux/cleanup.h:299:3: note: expanded from macro 'CLASS'
+     299 |                 class_##_name##_constructor
+         |                 ^
+   <scratch space>:22:1: note: expanded from here
+      22 | class_mutex_constructor
+         | ^
+   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
+      16 | #define __PASTE(a, b) ___PASTE(a, b)
+         |                       ^
+   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
+      15 | #define ___PASTE(a, b) a##b
+         |                        ^
+   <scratch space>:28:1: note: expanded from here
+      28 | __UNIQUE_ID_unlock_541
+         | ^
+   drivers/iio/light/tcs3430.c:166:3: note: jump bypasses initialization of variable with __attribute__((cleanup))
+   include/linux/cleanup.h:416:15: note: expanded from macro 'guard'
+     416 |         CLASS(_name, __UNIQUE_ID(guard))
+         |                      ^
+   include/linux/compiler.h:165:2: note: expanded from macro '__UNIQUE_ID'
+     165 |         __PASTE(__UNIQUE_ID_,                                   \
+         |         ^
+   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
+      16 | #define __PASTE(a, b) ___PASTE(a, b)
+         |                       ^
+   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
+      15 | #define ___PASTE(a, b) a##b
+         |                        ^
+   <scratch space>:16:1: note: expanded from here
+      16 | __UNIQUE_ID_guard_540
+         | ^
+   drivers/iio/light/tcs3430.c:142:3: note: jump bypasses initialization of variable with __attribute__((cleanup))
+     142 |                 guard(mutex)(&data->lock);
+         |                 ^
+   include/linux/cleanup.h:416:2: note: expanded from macro 'guard'
+     416 |         CLASS(_name, __UNIQUE_ID(guard))
+         |         ^
+   include/linux/cleanup.h:299:3: note: expanded from macro 'CLASS'
+     299 |                 class_##_name##_constructor
+         |                 ^
+   <scratch space>:17:1: note: expanded from here
+      17 | class_mutex_constructor
+         | ^
+   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
+      16 | #define __PASTE(a, b) ___PASTE(a, b)
+         |                       ^
+   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
+      15 | #define ___PASTE(a, b) a##b
+         |                        ^
+   <scratch space>:23:1: note: expanded from here
+      23 | __UNIQUE_ID_unlock_537
+         | ^
+   drivers/iio/light/tcs3430.c:142:3: note: jump bypasses initialization of variable with __attribute__((cleanup))
+   include/linux/cleanup.h:416:15: note: expanded from macro 'guard'
+     416 |         CLASS(_name, __UNIQUE_ID(guard))
+         |                      ^
+   include/linux/compiler.h:165:2: note: expanded from macro '__UNIQUE_ID'
+     165 |         __PASTE(__UNIQUE_ID_,                                   \
+         |         ^
+   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
+      16 | #define __PASTE(a, b) ___PASTE(a, b)
+         |                       ^
+   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
+      15 | #define ___PASTE(a, b) a##b
+         |                        ^
+   <scratch space>:11:1: note: expanded from here
+      11 | __UNIQUE_ID_guard_536
+         | ^
+   drivers/iio/light/tcs3430.c:170:2: error: cannot jump from switch statement to this case label
+     170 |         case IIO_CHAN_INFO_INT_TIME:
+         |         ^
+   drivers/iio/light/tcs3430.c:166:3: note: jump bypasses initialization of variable with __attribute__((cleanup))
+     166 |                 guard(mutex)(&data->lock);
+         |                 ^
+   include/linux/cleanup.h:416:2: note: expanded from macro 'guard'
+     416 |         CLASS(_name, __UNIQUE_ID(guard))
+         |         ^
+   include/linux/cleanup.h:299:3: note: expanded from macro 'CLASS'
+     299 |                 class_##_name##_constructor
+         |                 ^
+   <scratch space>:22:1: note: expanded from here
+      22 | class_mutex_constructor
+         | ^
+   note: (skipping 3 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   include/linux/compiler_types.h:16:23: note: expanded from macro '__PASTE'
+      16 | #define __PASTE(a, b) ___PASTE(a, b)
+         |                       ^
+   include/linux/compiler_types.h:15:24: note: expanded from macro '___PASTE'
+      15 | #define ___PASTE(a, b) a##b
+         |                        ^
 
-Two of its rules are not in Documentation/ yet and come from Linus's mail [2]:
-new tests and new development stay on a separate branch for the merge window,
-and every added line counts when a change is sent during the -rc weeks, built
-by default or not.
-If you prefer those two in 2.Process.rst first, I can send that patch.
 
-Sasha, would you take it into your respin, or should it wait until the series
-lands?
+vim +175 drivers/iio/light/tcs3430.c
 
-How it was made: I use Claude Code (Claude Opus). It read the v1 to v5 threads,
-Linus's two mails and the documents named in the skill, and wrote the skill and
-the commit message. Each sentence was then checked against its source by a
-script. checkpatch gives the same single MAINTAINERS warning as the other
-skill patches. The skill has not been tried with an agent yet.
+   132	
+   133	static int tcs3430_read_raw(struct iio_dev *indio_dev,
+   134				    const struct iio_chan_spec *chan,
+   135				    int *val, int *val2, long mask)
+   136	{
+   137		struct tcs3430_data *data = iio_priv(indio_dev);
+   138		int ret;
+   139	
+   140		switch (mask) {
+   141		case IIO_CHAN_INFO_RAW:
+   142			guard(mutex)(&data->lock);
+   143			ret = i2c_smbus_read_word_data(data->client, chan->address);
+   144			if (ret < 0)
+   145				return ret;
+   146			*val = ret;
+   147			return IIO_VAL_INT;
+   148	
+   149		case IIO_CHAN_INFO_SCALE: {
+   150			u32 itime_us = TCS3430_DEFAULT_ATIME_CYCLES * TCS3430_ATIME_STEP_US;
+   151			u64 scale_nano;
+   152			u32 rem;
+   153			int gain;
+   154	
+   155			scoped_guard(mutex, &data->lock)
+   156				gain = tcs3430_gains[data->gain_idx];
+   157	
+   158			scale_nano = div_u64(TCS3430_LUX_FACTOR * NSEC_PER_SEC * USEC_PER_MSEC,
+   159					     (u32)gain * itime_us);
+   160			*val = div_u64_rem(scale_nano, NSEC_PER_SEC, &rem);
+   161			*val2 = rem;
+   162			return IIO_VAL_INT_PLUS_NANO;
+   163		}
+   164	
+   165		case IIO_CHAN_INFO_HARDWAREGAIN:
+   166			guard(mutex)(&data->lock);
+   167			*val = tcs3430_gains[data->gain_idx];
+   168			return IIO_VAL_INT;
+   169	
+   170		case IIO_CHAN_INFO_INT_TIME:
+   171			*val = 0;
+   172			*val2 = TCS3430_DEFAULT_ATIME_CYCLES * TCS3430_ATIME_STEP_US;
+   173			return IIO_VAL_INT_PLUS_MICRO;
+   174	
+ > 175		default:
+   176			return -EINVAL;
+   177		}
+   178	}
+   179	
 
-[1] https://lore.kernel.org/r/20261111225940.1573565-1-tytso@mit.edu
-[2] https://lore.kernel.org/r/CAHk-=whyUfwzMDMTpih8Xs1MxmhwTCDAc_YwUSZG79vXFMLU=Q@mail.gmail.com
-
- Documentation/process/coding-assistants.rst |  5 +-
- agents/skills/target-tree/SKILL.md          | 66 +++++++++++++++++++++
- 2 files changed, 70 insertions(+), 1 deletion(-)
- create mode 100644 agents/skills/target-tree/SKILL.md
-
-diff --git a/Documentation/process/coding-assistants.rst b/Documentation/process/coding-assistants.rst
-index bb927fea5..a3da7453c 100644
---- a/Documentation/process/coding-assistants.rst
-+++ b/Documentation/process/coding-assistants.rst
-@@ -46,6 +46,8 @@ The following skills are available:
-   message or cover letter, and writes the text of a pull request.
- * agents/skills/writing-kunit-tests/SKILL.md designs, writes, verifies, or
-   reviews KUnit unit tests.
-+* agents/skills/target-tree/SKILL.md proposes the tree and release a change is
-+  for: the current release during its -rc weeks, or the next merge window.
- 
- Licensing and Legal Requirements
- ================================
-@@ -97,7 +99,8 @@ these steps:
-    find-fixes skill, and a stable tag if the stable-tag skill calls for one. Do
-    not add a Signed-off-by tag.
- 7. Identify the maintainers and lists using scripts/get_maintainer.pl.
--   Documentation/process/security-bugs.rst shows how to do that.
-+   Documentation/process/security-bugs.rst shows how to do that. Determine the
-+   tree and release the fix is for with the target-tree skill.
- 8. Indicate what could not be done. If the fix could not be built or tested, or
-    if no reproducer could be produced, say so explicitly: maintainers currently
-    waste too much time analyzing unverified reports and untested fixes.
-diff --git a/agents/skills/target-tree/SKILL.md b/agents/skills/target-tree/SKILL.md
-new file mode 100644
-index 000000000..fee4be202
---- /dev/null
-+++ b/agents/skills/target-tree/SKILL.md
-@@ -0,0 +1,66 @@
-+---
-+# SPDX-License-Identifier: GPL-2.0-only
-+name: target-tree
-+description: >-
-+  Decide which tree, branch and release a Linux kernel change is for: the
-+  current release during its -rc weeks, or the next merge window. Use when
-+  preparing a fix, a test, a cleanup or new development for submission,
-+  when preparing a pull request, or when checking where a change should go.
-+---
-+
-+# Determine the target of a change
-+
-+Read "The big picture" and "Next trees" in
-+Documentation/process/2.Process.rst, "Mainline tree" in
-+Documentation/process/howto.rst, and "Expectations and best practices for
-+fixing regressions" in Documentation/process/handling-regressions.rst.
-+Follow the maintainer profiles, the `P:` entries in MAINTAINERS, for the
-+changed files; their trees, branches and cycle dates take precedence.
-+Follow the rules for skills in Documentation/process/coding-assistants.rst.
-+
-+- Find where the cycle stands from the newest tag in Linus Torvalds' tree,
-+  as "Development cycle" in Documentation/process/maintainer-netdev.rst
-+  describes: after a release tag the merge window is most likely open,
-+  after an -rc tag the release is being stabilized. Name the tag in the
-+  result.
-+- Being a fix is not enough to go into the current release. During the -rc
-+  weeks it is meant for fixes of regressions, above all those introduced
-+  in the current cycle, and of bugs that are urgent or critical. A bug
-+  that has always existed is not a regression; its fix goes in only if it
-+  is important. Everything else is for the next merge window.
-+- Use the kernel's meaning of a regression, from
-+  Documentation/admin-guide/reporting-regressions.rst: an application or
-+  use case that ran fine with one kernel works worse or not at all with a
-+  newer one.
-+- A fix for a subtle bug that went unnoticed for a long time fixes
-+  something rare, and can itself be buggy. Unless the bug is important,
-+  propose the fix for the next merge window. It still reaches the stable
-+  trees once it is in mainline, with the tag the stable-tag skill returns.
-+- Do not hold a regression fix back for the next merge window unless the
-+  fix is extraordinarily risky or the culprit was mainlined more than a
-+  year ago. Report whether reverting the culprit would be the quicker and
-+  less dangerous fix.
-+- New development, new tests, cleanups and refactoring are for the next
-+  merge window. Keep them on a branch of their own, and do not fold them
-+  into a fix or a pull request for the current release. Split a change
-+  that mixes them with such a fix, as "Separate your changes" in
-+  Documentation/process/submitting-patches.rst asks.
-+- Count every line a change adds when judging the risk of sending it
-+  during the -rc weeks, including tests that are not built by default and
-+  fixes for other bugs.
-+- A pull request sent after the merge window, or with fixes that look
-+  risky, explains its timing, as Documentation/maintainer/pull-requests.rst
-+  asks. Whether a risky fix goes in days before a release is Linus
-+  Torvalds' call, as handling-regressions.rst describes.
-+- A change for the next merge window should be in the subsystem's tree,
-+  and through it in linux-next, some time before the merge window opens.
-+  Check the key cycle dates in the maintainer profile; after them, propose
-+  the merge window after the next one.
-+- Base the change on the tree and branch the maintainer profile names for
-+  its target, and mark the target where the profile asks for it, as
-+  `[PATCH net]` and `[PATCH net-next]` do in maintainer-netdev.rst.
-+
-+Return the tree, branch and release, the tag that showed where the cycle
-+stands, and the reasons with the documents they come from. The maintainer
-+decides where a change goes. If the target cannot be determined, return no
-+target and say what is missing.
-
-base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
-prerequisite-patch-id: 774c0910c3ff50a2e5ef950cb1059edf20e61e30
-prerequisite-patch-id: 4df6324f28893898e730b3c0ec7c4b6139731191
-prerequisite-patch-id: 73cecd1860937722f43ce4dcd0b0515e4052a3df
-prerequisite-patch-id: 7eddf81879b882b0877f3ad6da6c54755c4d4209
-prerequisite-patch-id: 51559949fc320fa3be648e50755afb3dcbd8df91
-prerequisite-patch-id: b9b23ba3acde59f30659dc2b07c9ab079ea8d72c
 -- 
-2.53.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
