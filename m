@@ -1,95 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795630283;
-	b=kMTaqP2zRqfcHx1++ciINUFCufbb85gVLfnMdZiFwcdqfwS9VB3tsY1mvs4n1pzOhTTa
-	 HKFJwv1EU9SSyWgV1uLa7FLuBChuX9Pb5J1Wu5rarO4t3yvp9LRlhpci08zKVb3lE12ZO
-	 dvxE0H7fmqbHG45FYyjRtVYgDE/ZyD87F4i/AaaxopJE0xdPalwt0Z012FB0znHOQmGIX
-	 D2076r/MXFBu8VN7m4FM+ujYpPix4kzROeba6K5wih3XAdm4QPB3fowsUNfnKh/0RNOFi
-	 3ey/RMPoTM/k+BplZA8N5bd8DgabWFnAX0oO70QzEJuf7OCP7oHN9mUB9fskh73s9CA==
+	t=1795630355;
+	b=FAUcidp8K5mrUn+wMfnASyvEBI3+WLYT3ZHy3COVSPPatqu1TDUauHMVFhf4CCWqrerx
+	 2c1IHkeNwhKmZRIfuFxKJOsmfq2drq4ewjDhuOpUIcstI0+XKSyjzz912xWrv1WxGhc7W
+	 j1M7lVl/rQN1dE/jqKesWPfIAgdCpV6KlNEQGEWX1kUgT36fEtWhoGOH4MCXdgu1UuPqX
+	 p94kvwxWlpm7UU5FMtB6ctykrMARWwGyW7Kqi/xyTwMPoAErx9+3p12600QP2kYMGNavE
+	 6xrgOK9owNXTfFukE+FhrzwvtFvIEk5EY6X4aGceORGYELMiWEdFylhJdRbrDxkRnjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630283;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=clm7bwFO88Id836QUNrg2tu/p/zHm8L/3QNnlwp6L6o=;
-	b=GaKPfwc3Ay1vPTXiwnQtR+Q4otIt3c6EMnprUH+JX2rY3SEx4DOTe0MUQLo2eu+feVv/
-	 xYknB51rXLB1KOSM1LXbbLrkBmD9tVZHheKdaHtYuXmaMRHZA49kJRGNlAjnk3t4SJGlG
-	 Gd+9eY0pEvTrMgHhDAc3PLfI0WUiVERSbU1CE6NeLonY3FF9g8faTtSHsFSldrE0SoBmP
-	 dk6aXDq+mkHANr0LWGLBInz8HWAT1WLGRssMNRFB9jHDwk+CCrREgtW90dVh9qHJDiSkN
-	 nE5hoRgst8D/Rg4qe6u7rSOh8C4fqieaZ2nXEdVFlw+M6zMlFlg2Yj7mPmC+aWFc+cg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630355;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=ffC/msDkl79K0imvuc2FZy0S9PJsijs8dfXh50KIkmo=;
+	b=ch2D4jt3d+5mBtkFRdT5nINr+nFLPk227SadBFydpBT5eEALKhKnKvffZ3BeE/UypUtY
+	 S6DOnxyssX2F0wkDPwEgMnWDfnMiDaCGDoMXKXxz34LRaYUtxsjFs8zwznCA5wcuq/6JB
+	 VhGIRD4JpmtGtBkCZPkFaXWj4tK1JsOgnAN+7BKzuVcjIpk6OmL8hkEpGSP+9t/sLYTx6
+	 g02z3myS2ot5zyzR2yzC97G74kHuNSbrwSYz9mA0C22eL2lJcTs3xRbrJQ5gHhNY60Ei1
+	 q4XncJBUQfIt2bDv5X4qbaYdXnM99iRhvPOUmKqgAkCLbcW0LRRi5qzHRM1YV3nTaYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n4hOoaxc;
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmx.de;
+	spf=pass smtp.mailfrom=gmx.de;
+	dkim=pass header.d=gmx.de header.i=rwarsow@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=I2bVFzQN;
+	arc=none smtp.remote-ip=212.227.15.18
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3271606A691
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:11:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3271606A691
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E03D1606A332
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:12:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E03D1606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n4hOoaxc
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-38699cf08dfso7306306eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:11:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795630281; x=1796235081; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=clm7bwFO88Id836QUNrg2tu/p/zHm8L/3QNnlwp6L6o=;
-        b=n4hOoaxcxW1l1mGaEW5zL+ZF0JLabEWqwn/4f4IArB1SEQwE4rhel+b0mID7pfFGIg
-         p+eD4O21MA8JE+HcVAWjFCbEh6lyUIfF53nW/fVVS606Hu4H5Sts3JS1yNOVs9kcDuzM
-         JzMeaOOb9O0VlegsDQT91P/VmmXPzc02n9Sv4U2vhZXB6Nd72fkV4/ShmqaDxklNoCKO
-         CElXIbHPJz8Bqu+bQ309uJv83wV5AZBk9gLIv52/JErHhuIsFXlI3WaDNrSlbRUCYZ9X
-         nusfI92IHoKmHEAGFb7c94YMgPYahj7qyYtA3dlSEZyThpEI/zp1r0TD7O/tdQHo4693
-         sx+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795630281; x=1796235081;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=clm7bwFO88Id836QUNrg2tu/p/zHm8L/3QNnlwp6L6o=;
-        b=0toKYgEAGRzZ8zYGIy2/Um0Z71SZLBwc8AAww3m1bJuTNqp+egMHPnBKYwOFGWdOK3
-         ROsnt72F+u+8is4JuJ6NnaKOCi5HTPEEXHYIh1xCqe1oQgcthWvdESGWXefVHXuYLkPQ
-         qg29o69PqZf01JRvTvRvX3qkbwBnJ2zk3/dcZBOzZyEQUy2ui8PXkO0CXiQwT9x9LJhg
-         1wFYBoAZz611sBIPGBsWogr+0KMYCFr0WCoUx4O2sXEYjala7Kwu7ANX08n7CKvkJsmY
-         kIMQyzK6TBm1J0Xk/fk38mTrVoOZ8eZiUtcCzjzcYDAfsN64Y2Z0IZ0JRB4ICC+4mcQF
-         zp1Q==
-X-Forwarded-Encrypted: i=1; AL+hErEj+Ul1hLJOv3I1wSXvr4s8tuh6K0NDxk+nWlQ8A7AajDRmizTQg+nWNaNl0j5EQ1AeZTya8ryzOQBu7QM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+FLPXOQF6K50BydUNH0kDHa1eGLxyLEak2HMZJAFuQGWtLc+H+
-	LWIj8ZdYIw5LiqmWP6J1GG0bfNM3UPvud5NTbO7/kRlPgAZ/QNCYKzgs
-X-Gm-Gg: AZFdTZfYL7IOC3nSzzVReBSypxp99Is0KiebfpdWigOYOrITfk42/nNWWCtaDZq31Zz
-	MCI1H1doCw7mZSurviyAgg0BU2dyAJHetEsijAYIlk22DZA2h/nS52m4XL7Cl5/tPxwfXXeOo4c
-	zUy1gUOyp7aZ/Qc0IaEtKri5Zxs0HzaYkLFX35pj60G87++yfJewc59gCMLr98xLI6Nj8FEwkg/
-	9y3cJ+nd6fnfKxOfOYIxGgHsq9bHw1CHXe0RKIhBrLtkhfDxE0utaaS3szZ8HbFHc0GDXsci8E2
-	eTFo+fpPV+4tmxaGgZi4EIgrIBsTBzrngufXzhOCOV8lpkcKnsD1yo14V3ENIrgnBdprQsZYYXr
-	HOWKHcNjJCDhaOllR7ZwX/IjBNiLxxLImZo2WJtX9g8zhtgpLIlGFZ+ycuESzRh1BhwFtwKg0VT
-	ND4AnebuQA5XmYRSfSaQ1k0ExulAvnZJb4Z3hqINRuf/fQMK8sJNGiUPMpJb2KAB/2adOlRvyuQ
-	m7ZZefcavrkPavJBNVxkL1eRJlMi0EDsoK2M/9lXxNDuxV0YA3HPOg5aIutoEtN1b9mke5gKam+
-	qIsf4tWJR9eyPRKp8oi6e41qrj+UF/RlITvRvg==
-X-Received: by 2002:a05:7301:714:b0:36a:7b3c:4e0a with SMTP id 5a478bee46e88-3856fd5e4a4mr19351158eec.24.1795630280795;
-        Wed, 25 Nov 2026 10:11:20 -0800 (PST)
-Received: from DESKTOP-NM9EKIA ([2001:e60:8549:f8b6:d936:b4fc:15f9:5ee6])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7fc3sm49229984eec.8.2026.11.25.10.11.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 10:11:20 -0800 (PST)
-From: Joonhoe Kim <26rote@gmail.com>
-To: Thinh.Nguyen@synopsys.com,
-	gregkh@linuxfoundation.org
-Cc: aiyengar1990@gmail.com,
-	mathias.nyman@intel.com,
-	xu.yang_2@oss.nxp.com,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v3] usb: dwc3: tell xHCI that it lost its state when the core is powered off
-Date: Thu, 26 Nov 2026 03:11:16 +0900
-Message-ID: <20261125181116.121-1-26rote@gmail.com>
-X-Mailer: git-send-email 2.55.0.windows.5
+	dkim=pass (2048-bit key) header.d=gmx.de header.i=rwarsow@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=I2bVFzQN
+DKIM2-Signature:  i=1; m=1; t=1795630352;
+ mf=PHJ3YXJzb3dAZ214LmRlPg==;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=gmx.de;
+ s=s31663417:rsa-sha256:h5ONHH8cjwWe+w9NG1iafUjDITh3
+   s5cPym9wXLxvD9+I+MUMVwU7nxi5GBxeXkJYIOwPe21YPt1kyb5s1PAV3LfyAsA34fYDX0RBAjp
+   m5fFLH4ocKggjBxp5x1tlAwhhkhnh12MbWl/pdm7y4lNsk19EXsNkGmUJ3gVDmiEtFfgkh8+vmG
+   0OZnF89ZyxccX6maV2RP8x/QyJoyTvOl8PQ094+kIPhztcTHluWMYiFZsLn7UTMX6vHSV+GikHR
+   JUomK4Aug0OsjChd2y/RZTWgJBNX2LVWB8hRw76NHLk5nWrW+HEjgSfA/W8PJs78jfU6c+A3ZEA
+   PfAIk4aim56yqg==;
+Message-Instance:  m=1;
+ h=sha256:
+   +DCwjWrYo3omIui1IBXvXJmJKZLgJjdZQ0cOZhtZUnU=:
+   AMRqUy4G14QnvnxLw7iqPpvMO9aQClfTVNXovI9ETeY=,
+  sha512:
+   veGL+fJP0FEumNIwMsimtDggsEHOQHFzXDDiIO8WX674apH0AKDN+bu8xonGNI/FcdsxnCr/sQaLn4Wao9H19A==:
+   Wc0EctHmYZq2dyfawmHcZr3nIqjbGjCW7GZjMoL04A4Gs6lJ19a6Ocu50pAKQbMfG7H2xgDaHWjnPxR1rvAN5g==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1795630325; x=1796235125; i=rwarsow@gmx.de;
+	bh=ffC/msDkl79K0imvuc2FZy0S9PJsijs8dfXh50KIkmo=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=I2bVFzQNIwdHB1birMPZ3fvhUzpDetc2hfQV97s521RwJ5j3qHP7D6zVsLvqeQF4
+	 /4WX/aU/h+7LoPl6BXwvLBlXXUFnUjVcrYb8EKgRRIoPclbsXJ53fzJElc8NFAYAk
+	 AW9+NU4XAQXpEgocUkjD3vvP8ocYYdUuMN+0jmTynjuMdCXvxjbmxGlXEBzUcF6xp
+	 932TgcQ40qX3vFuBWbfxK+vqtZP49pf2//QhITNAPZfpT8Rtt6XMIhQlSqmo8dbFl
+	 hw3wej4vcFapPA/AmxFHWlMx4+kFBLLPzlaC6hlejInAcLh9nkbUdkvN8S5DDqlHA
+	 9gyEvjPnXotqsPztBg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MbzyP-1y5tk21A1n-00oe5X; Wed, 25
+ Nov 2026 19:12:05 +0100
+Message-ID: <1ba253a4-fdef-4169-9e9b-cdb6652e47c6@gmx.de>
+Date: Wed, 25 Nov 2026 19:12:02 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,168 +81,166 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7.3 0000/1005] 7.3.7-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, conor@kernel.org,
+ hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+ sr@sladewatkins.com
+References: <20261125143821.729802100@linuxfoundation.org>
+From: Ronald Warsow <rwarsow@gmx.de>
+Content-Language: de-DE, en-US
+In-Reply-To: <20261125143821.729802100@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:GUKjJWxMhUEIBddBicRc1UAD2SfgNSwi3OM7/F9H+sJEgEWXc+k
+ hrZLX3xgy87Czz5ptpF4Knqk57jbSZboXUCFUnRGj1zVSoV/MpVbweRKjlIMKMCalMiUlpu
+ klW9HVCQlOzRCsBAwnM2390szFhCpTwqxFwWx4irM/UseqKgHA+hRBdaLNGajSiPQeKFfnA
+ 5pS84mYtKqv9Ac20bduLQ==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:7qoLUd0ra6s=;DzWVfldZp+/t1jbhnaIv0CtNZ7n
+ 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
 
-dwc3_suspend_common() powers the core off for system suspend
-(dwc3_core_exit()) in OTG mode (DWC3_GCTL_PRTCAP_OTG), and in host mode
-when the controller may not wake the system or needs a full re-init. The
-xHCI registers and the state saved with the Controller Save State
-command are gone then, but nothing tells xhci-plat: xhci_resume() takes
-the "state intact" path, writes the saved registers back and asks the
-controller to restore its state (CRS).
+Hallo
 
-xhci-plat has a flag for exactly this, power_lost (commit 668cc6bc1178
-("usb: host: xhci-plat: allow upper layers to signal power loss"), used
-by cdns3), but dwc3 never sets it.
+RC doesn't compile here and currently couldn't figure what's up.
 
-On a Lenovo Y700 Gen 5 (TB323FU, SM8850; DWC3 + eUSB2 PHY) with a USB
-2.0 hub, a USB 3 flash drive and a Billboard device attached, and USB
-wakeup disabled, s2idle then broke the host controller on resume: either
-the controller wrote to an address that was not mapped
+Question as an git greenhorn:
+Is it able to bisect a kernel which initial doesn't compile ?
+if YES: what is the bisect start then ?
 
-  arm-smmu 15000000.iommu: Unhandled context fault: fsr=0x402,
-    iova=0xd85e7c300, fsynr=0x3d0011, cbfrsynra=0x40, cb=13
-  xhci-hcd xhci-hcd.2.auto: WARNING: Host System Error
-  usb 1-1: hub failed to enable device, error -108
+Error:
 
-or its command ring would not stop
+In file included from kernel/sched/build_policy.c:71:
+kernel/sched/ext/ext.c: In function =E2=80=98__scx_disable_and_exit_task=
+=E2=80=99:
+kernel/sched/ext/ext.c:4223:17: error: implicit declaration of function=20
+=E2=80=98scx_reset_task_fields=E2=80=99; did you mean =E2=80=98scx_set_tas=
+k_sched=E2=80=99?=20
+[-Wimplicit-function-declaration]
+  4223 |                 scx_reset_task_fields(task_rq(p), p);
+       |                 ^~~~~~~~~~~~~~~~~~~~~
+       |                 scx_set_task_sched
+kernel/sched/ext/ext.c: In function =E2=80=98scx_bpf_dsq_reenq_task=E2=80=
+=99:
+kernel/sched/ext/ext.c:10432:20: error: implicit declaration of function=
+=20
+=E2=80=98kf_switch_rq_lock=E2=80=99; did you mean =E2=80=98switch_rq_lock=
+=E2=80=99?=20
+[-Wimplicit-function-declaration]
+10432 |         entry_rq =3D kf_switch_rq_lock(src_rq, &flags);
+       |                    ^~~~~~~~~~~~~~~~~
+       |                    switch_rq_lock
+kernel/sched/ext/ext.c:10432:18: error: assignment to =E2=80=98struct rq *=
+=E2=80=99 from=20
+=E2=80=98int=E2=80=99 makes pointer from integer without a cast [-Wint-con=
+version]
+10432 |         entry_rq =3D kf_switch_rq_lock(src_rq, &flags);
+       |                  ^
+kernel/sched/ext/ext.c:10450:9: error: implicit declaration of function=20
+=E2=80=98kf_restore_rq_lock=E2=80=99 [-Wimplicit-function-declaration]
+10450 |         kf_restore_rq_lock(src_rq, entry_rq, flags);
+       |         ^~~~~~~~~~~~~~~~~~
+make[4]: *** [scripts/Makefile.build:290: kernel/sched/build_policy.o]=20
+Error 1
 
-  xhci-hcd xhci-hcd.2.auto: Abort failed to stop command ring: -110
-  xhci-hcd xhci-hcd.2.auto: xHCI host controller not responding, assume dead
-  xhci-hcd xhci-hcd.2.auto: HC died; cleaning up
-  usb 1-1: PM: **** DPM device timeout ****
-  Kernel panic - not syncing: usb 1-1: unrecoverable failure
 
-With wakeup enabled (the core stays powered) the same setup survived
-every cycle.
-
-Record that the core was powered off and pass this to xhci-plat as
-power_lost from a resume_quirk, so that xhci_resume() resets the
-controller and the devices are re-enumerated. Unlike a static
-XHCI_RESET_ON_RESUME this only applies to the resumes that follow a
-power-off; resumes with the core kept powered (host mode with wakeup
-enabled) and runtime resume keep the restore path. Clear the flag once
-xhci-plat has read it, so that a later system suspend that fails before
-the dwc3 core is suspended does not reset the controller.
-
-Fixes: c4a5153e87fd ("usb: dwc3: core: Power-off core/PHYs on system_suspend in host mode")
-Fixes: f09cc79b4b33 ("usb: dwc3: add dual role support using OTG block")
-Cc: stable@vger.kernel.org # 6.15.x
-Tested-by: Arun Iyengar <aiyengar1990@gmail.com>
-Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Signed-off-by: Joonhoe Kim <26rote@gmail.com>
----
-v3:
-- Add Cc: stable (Thinh), for 6.15 and later: xhci-plat got power_lost
-  in 6.15 (commit 668cc6bc1178)
-- Add Tested-by from Arun and Acked-by from Thinh
-- No code changes; still based on next-20261111, applies to usb-next
-
-v2:
-- Also set the flag when the core is powered off in OTG mode with the
-  host role active (Sashiko [1])
-- Clear the flag once xhci-plat has read it (Sashiko [1]), instead of in
-  the host branch that keeps the core powered
-- Drop the comment above the resume quirk
-- Add a Fixes tag for the OTG branch
-- Rebased on next-20261111
-
-Testing, 30 s RTC s2idle with wakeup disabled on the setup above:
-without this change 1/1 cycles lost the controller; with this version
-3/3 cycles reset the controller and re-enumerated all devices.
-OTG mode (DWC3_GCTL_PRTCAP_OTG) is not tested; this board switches
-roles through usb-role-switch and never uses it.
-
-host.c now includes xhci.h for hcd_to_xhci_priv().
-
-v1: https://lore.kernel.org/all/20260929130252.869-1-26rote@gmail.com/
-RESEND: https://lore.kernel.org/all/20261112114053.412-1-26rote@gmail.com/
-v2: https://lore.kernel.org/all/20261112141512.1840-1-26rote@gmail.com/
-[1] https://lore.kernel.org/all/sashiko-outbox-211064@kernel.org/
-
- drivers/usb/dwc3/core.c |  3 +++
- drivers/usb/dwc3/core.h |  3 +++
- drivers/usb/dwc3/host.c | 15 ++++++++++++---
- 3 files changed, 18 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index 372737f47..1ddd860e1 100644
---- a/drivers/usb/dwc3/core.c
-+++ b/drivers/usb/dwc3/core.c
-@@ -2572,6 +2572,7 @@ static int dwc3_suspend_common(struct dwc3 *dwc, pm_message_t msg)
- 		if (!PMSG_IS_AUTO(msg) &&
- 		    (!device_may_wakeup(dwc->dev) || dwc->needs_full_reinit)) {
- 			dwc3_core_exit(dwc);
-+			dwc->xhci_power_lost = 1;
- 			break;
- 		}
- 
-@@ -2608,6 +2609,8 @@ static int dwc3_suspend_common(struct dwc3 *dwc, pm_message_t msg)
- 
- 		dwc3_otg_exit(dwc);
- 		dwc3_core_exit(dwc);
-+		if (dwc->current_otg_role == DWC3_OTG_ROLE_HOST)
-+			dwc->xhci_power_lost = 1;
- 		break;
- 	default:
- 		/* do nothing */
-diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
-index 267c922ca..4bc94bb07 100644
---- a/drivers/usb/dwc3/core.h
-+++ b/drivers/usb/dwc3/core.h
-@@ -1185,6 +1185,8 @@ struct dwc3_glue_ops {
-  * @suspended: set to track suspend event due to U3/L2.
-  * @susphy_state: state of DWC3_GUSB2PHYCFG_SUSPHY + DWC3_GUSB3PIPECTL_SUSPHY
-  *		  before PM suspend.
-+ * @xhci_power_lost: the core was powered off for system suspend; xHCI
-+ *		     must not try to restore its state on resume
-  * @imod_interval: set the interrupt moderation interval in 250ns
-  *			increments or 0 to disable.
-  * @max_cfg_eps: current max number of IN eps used across all USB configs.
-@@ -1440,6 +1442,7 @@ struct dwc3 {
- 	unsigned		wakeup_configured:1;
- 	unsigned		suspended:1;
- 	unsigned		susphy_state:1;
-+	unsigned		xhci_power_lost:1;
- 
- 	u16			imod_interval;
- 
-diff --git a/drivers/usb/dwc3/host.c b/drivers/usb/dwc3/host.c
-index c5674161b..0cb6e64d1 100644
---- a/drivers/usb/dwc3/host.c
-+++ b/drivers/usb/dwc3/host.c
-@@ -14,9 +14,7 @@
- #include <linux/usb/hcd.h>
- #include <linux/bitfield.h>
- 
--#include "../host/xhci-port.h"
--#include "../host/xhci-ext-caps.h"
--#include "../host/xhci-caps.h"
-+#include "../host/xhci.h"
- #include "../host/xhci-plat.h"
- #include "core.h"
- 
-@@ -78,7 +76,18 @@ static void dwc3_xhci_plat_start(struct usb_hcd *hcd)
- 	dwc3_enable_susphy(dwc, true);
- }
- 
-+static int dwc3_xhci_resume_quirk(struct usb_hcd *hcd)
-+{
-+	struct dwc3 *dwc = dev_get_drvdata(hcd->self.controller->parent);
-+
-+	hcd_to_xhci_priv(hcd)->power_lost = dwc->xhci_power_lost;
-+	dwc->xhci_power_lost = 0;
-+
-+	return 0;
-+}
-+
- static const struct xhci_plat_priv dwc3_xhci_plat_quirk = {
-+	.resume_quirk = dwc3_xhci_resume_quirk,
- 	.plat_start = dwc3_xhci_plat_start,
- };
- 
-
-base-commit: aaa2f954c21b205a0bcd0961e5b2be4e82e58455
--- 
-2.53.0
-
+Tested-by: Ronald Warsow <rwarsow@gmx.de>
