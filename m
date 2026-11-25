@@ -1,92 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795635577;
-	b=o4v1NWqU08niEE2AuE3Rg0Ozr8EoV8EqFQbLMqxvjU5LtkWho/DfVNm1guH8rjed4btf
-	 lKLLnmYOEtsd6AZ2qfbpTbAwaNowkHOI6RxCaWonnac64eywQApXCTWTF/q1jkdlvE6jr
-	 nDXsPZ/38x12jnhhsRJY+nhxA4RosqbQ/X5l4I3tkxx5aoK86tlSjgfgfThHaxCyxcedl
-	 UMCDW3bTeMiz366pFH8A0WoTDueteKEQJxKcFVtPTH0tB8JQX7Dg5klOLzRQUsBhyIBRi
-	 xXKC26+m7raihYMHShl5K2NAwnS3mhr7o3wJMfmOXpfqIaCLLAOYv5vPVA2bPos94OA==
+	t=1795635789;
+	b=nu3LWheMd/PSSb1wOKC2MG0PCJi8ZRbFAGLQvNH02xGp2wD1Mb7wXoNyTH8xEzYVtOi+
+	 84ZQGIckw0hW40uzd98xW1WT2JLCfx0gR+O4/7s6s6nURM8eNWv7dM09HP/k25ImaaOQ7
+	 1c/9EgLo+m1vK8J7JFbwR5YiN+flThUmYpFYMVdKeNtzLOHd/0w8XENDusZ0SQ3M+YMFy
+	 4ZjMTfGOnWIq/r8lq1UGId5J04/s3FTTHY3yJmlmZJLFsuO6HYEGg9KU7vjFngmKmZMMC
+	 gzY6/DIJjIQyQXJqe7pl/xbZ+faBZeDsjoqZOmGNOppwDwITtzoKSKedyBtZNW1iEJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795635577;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-TM-AS-GCONF:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=3p6asDUa5lPHlXaVDZueUpMoU5hpnKaj2Ds/wZ3B/fI=;
-	b=o014fvvn8dJaXg0RzVXFlJkfbCsR2wp/Wp00oQCEvgGJePHcKBXp6jZFm6bcjZ/z34oY
-	 laMEDxzv1UlTEYmnBxyxtODfrY99EH1igJHncj1CsFOlnL1n6fJuomiomUEBis5q6p56R
-	 n+ebk6vHROlzyPuPYFdG9itdszotzAFhtih1NJuBDV/aLVovQKIrt4rIX6+SbGAnEDeTN
-	 tixjZsDvqvFxi8NS5VkleZ3i19clquDtYhKL+zAQ08cx/LkIn7YdTIhrpKbj/uO5dHnm8
-	 Tl5AzSEUKus5lsQ9FC3OUIf0vtnBw7m7owd4WM8KJBY+r1mAZS5qPPCOZa6UL43MQKw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795635789;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=MLc4/6k9Z6sxMwo5Ugfr+gMYCrDQyFv5j935bfc4lHg=;
+	b=0+j9OmUKBgDnpXmxqqXR7VXlVd57wa/S3/JDFylYumfqlkk0nP9+/CU3FKJCelvhpegm
+	 qQG+bcoaqaGvIeJdMRPqkKAfHyctjGxvZcq2q1Nzo2McCK3ZlYjtegKF1oxqqpXLLt/dD
+	 vbhOUQHcuNrQ3/qX6yO8tQCrL506hb1VjIxxx5bfFq+dBWt05DswG9TD7xj6ckXYwvpJR
+	 B8XoKXirqzwuLYdRihrebYDwjMdfdFoV8LK0q5rC/sxaDPRzYD5oyGGzamaDtFjJmJdNg
+	 0E4P0tN0zOkNLxc1Tz7nJivYnOYfSJwCJjVvxSCbKQHtpgakxwDn/8yx01WfXRErXxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=sRZ4rUJB;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IlB4xbnc;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C54B9606A332
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:39:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C54B9606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6667606A321;
+	Wed, 25 Nov 2026 19:43:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=sRZ4rUJB
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APJYjC32378103;
-	Wed, 25 Nov 2026 19:39:29 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=3p6asD
-	Ua5lPHlXaVDZueUpMoU5hpnKaj2Ds/wZ3B/fI=; b=sRZ4rUJBJveucf6syXZOyj
-	n7SGZzi8zarUClGETNGt9/Fy101Rzpz8PtcqSm5xf3sSIft9An5olyA9LEsJg3R3
-	W2tYjvEzeTxPWgntFDwYt7QZ42DukYpvOCa7+NgpycdXnCz6Jp1SADEUa/6ifUaj
-	SFz3pQVe5NnFaRESE5AA0FhqstjPEyNLnR8vxr/16OC2P8OMJqmHciTRm7FX1bmN
-	V2VOdrd5s4pODTxLefOw+tOtON2ck6NYExg3g06FoPe+Pb8C8ZfeSb4v0SOcfwmE
-	QpltuKuwcTZYrKmHkOryMrtuTze0Nch+YNBbqNgs/OiSGeBsc1N3SStIClWjfOAg
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34faeb3d-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 25 Nov 2026 19:39:29 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6APJJKTt505588;
-	Wed, 25 Nov 2026 19:39:28 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j5uxx24fx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Nov 2026 19:39:28 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6APJdOV640174044
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 25 Nov 2026 19:39:24 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 23D072004E;
-	Wed, 25 Nov 2026 19:39:24 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A17F62005A;
-	Wed, 25 Nov 2026 19:39:20 +0000 (GMT)
-Received: from shivang.upadyay (unknown [9.67.112.155])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed, 25 Nov 2026 19:39:20 +0000 (GMT)
-Date: Thu, 26 Nov 2026 01:09:16 +0530
-From: Shivang Upadhyay <shivangu@linux.ibm.com>
-To: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Ritesh Harjani <riteshh@linux.ibm.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>, nandinih@linux.ibm.com,
-        LKML <linux-kernel@vger.kernel.org>,
-        linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
-Subject: Re: [BUG] selftests/powerpc/eeh: eeh-basic breaks the device hosting
- rootfs, ext4 goes read-only and the test harness crashes
-Message-ID: <awc5ZMnS97T51Rpg@shivang.upadyay>
-References: <9113e399-ddd0-405e-9abb-69a9785c726c@linux.ibm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IlB4xbnc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07B731F000C0;
+	Wed, 25 Nov 2026 19:43:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795635789;
+	bh=MLc4/6k9Z6sxMwo5Ugfr+gMYCrDQyFv5j935bfc4lHg=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=IlB4xbncT7TdKfveO1rm1FT2gCv4IrTSQ05brtd2009HIOI86yf1t3YO9xQcOpuqm
+	 plQ3clS+mv14LdeWvVQeB80S43PeuiptlMEkhkm7cvp4Zc0wqB9563ctgrQ+Fi2TMq
+	 sLGpJdYdnBreL+XLlfv1CXxOCcvZ1CNSI24CocAOUeNwUwRrfpnACcwrDRfjpuPgpH
+	 s7/V3e5TEknLqvfFLiOoFQ+VvEaIl4LLR0jAZ92VEtv7Zo2MQs03phRdNTCbhi+zQl
+	 WQGXej1P1//AE8xrQwLbF466qrnPQPcZCp8bOtqmfAvdFovymXQuqLh8M2zCmK3wX9
+	 N6hMNK3MH/JTw==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: magnus.karlsson@intel.com, maciej.fijalkowski@intel.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ ilias.apalodimas@linaro.org, alexanderduyck@fb.com, saeedm@nvidia.com,
+ tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ michael.chan@broadcom.com, pavan.chebbi@broadcom.com, corbet@lwn.net,
+ shuah@kernel.org, bpf@vger.kernel.org, netdev@vger.kernel.org,
+ stuclar@meta.com, sdf@fomichev.me, horms@kernel.org, martin.lau@linux.dev,
+ almasrymina@google.com, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ rdunlap@infradead.org, kernel-team@meta.com,
+ dimitri.daskalakis1@gmail.com, bobbyeshleman@meta.com,
+ mohsin.bashr@gmail.com, kees@kernel.org, leitao@debian.org,
+ maxime.chevallier@bootlin.com, cuitao@kylinos.cn,
+ vadim.fedorenko@linux.dev, mike.marciniszyn@gmail.com, kuniyu@google.com,
+ jiayuan.chen@linux.dev, mkarsten@uwaterloo.ca, razor@blackwall.org,
+ dw@davidwei.uk, asml.silence@gmail.com, linux-rdma@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 03/15] net: Add memory providers that only feed
+ XDP
+In-Reply-To: <179561568417.3135.7506567631056689365@kernel.org>
+References: <20261124125654.183091-3-bjorn@kernel.org>
+ <179561568417.3135.7506567631056689365@kernel.org>
+Date: Wed, 25 Nov 2026 20:43:05 +0100
+Message-ID: <87h5h4ofxy.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,158 +78,115 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <9113e399-ddd0-405e-9abb-69a9785c726c@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA3OCBTYWx0ZWRfX+9714bEld4+1
- DppQ1XwqdwOT54t3z+zaQzmOKcda8LToadqDMeZERFSBH2h5oMJFijJrMT9tJEI4CLfU87gAYCb
- lkbkCbnvm/OSXIEjsqUXlbn9gf0juQosSOThPmIA2oyca1nvBzhdnTivBVf0660ZJwyDrY/wLLs
- pobBE13T7uzl6+3YkaHGQX2okB4iOU6JDfKhIa5FwRMllEbx4psfSU3XfBL4im1sTtdWO6lpgQF
- TqnCSwRGRe4vMqv8VJX/F/SXQJNL6NYu01/Jtp0eqxBHLhkl6oQYWCGABrmaixDfyMGWLgcHdlc
- mLiEF27QqOlho9VrnVgQvPsP1GFiiYvdnZcE30dkH7wXKhqSKeAGKxP+Ooymcuubqrar5wMMcP2
- GbSjGVn+Hj/In8Y3Rb86mTWW4t1Lqulr5jeFlKZW3ugNHEm9e5nYack5LBT7AAdD9AtZeTV38+l
- rSavVEkVyAZvOh+4nbQ==
-X-Proofpoint-ORIG-GUID: Al7m6LqMcJUW5GR01b2KMsWjQYgX0GyG
-X-Authority-Analysis: v=2.4 cv=U6QHnuru c=1 sm=1 tr=0 ts=6b073971 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=6EctlgBVgvUV7dFz:21 a=8nJEP1OIZ-IA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22
- a=YAcHw8vTPqq7ut5H_1wA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
-X-Proofpoint-GUID: Al7m6LqMcJUW5GR01b2KMsWjQYgX0GyG
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA3OCBTYWx0ZWRfX6c/FG7tr40j6
- Sxs2kFpJXHSTRALOJDgmXPLcwK2/hO/4S4Qsp1x9t8zZ9edSgw7FozQSskDvtD7CdWSjXwENNbM
- YrRKffGW95j7zZxXTTh+eO9WJ4wdwag=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_05,2026-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 spamscore=0 impostorscore=0
- clxscore=1011 bulkscore=0 suspectscore=0 adultscore=0 phishscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611250078
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, Nov 12, 2026 at 11:36:36AM +0530, Venkat Rao Bagalkote wrote:
-> Hello!!!
-> 
-> IBM CI has hit a failure that takes down the test harness, While running the
-> powerpc EEH selftest on a bare-metal POWER system.
-> 
-> The selftest injects an error into the PCI device that hosts the root
-> filesystem. The filesystem goes read-only and the run dies.
-> 
-> [ 1112.079091] EEH: Frozen PHB#3-PE#1fd detected
-> [ 1112.079905] aacraid 0003:01:00.0: aacraid: PCI error detected 2
-> [ 1112.140830] I/O error, dev sdb, sector 3906906472 op 0x1:(WRITE) ...
-> [ 1112.140957] Aborting journal on device sdb2-8.
-> [ 1112.140977] EXT4-fs error (device sdb2) in ext4_dirty_inode:7656: IO
-> failure
-> [ 1112.176664] EXT4-fs error (device sdb2): ext4_journal_check_start:98: ...
-> Detected aborted journal
-> [ 1187.736385] aacraid 0003:01:00.0: aacraid: PCI error - slot reset
-> [ 1217.244306] EXT4-fs (sdb2): Remounting filesystem read-only
-> [ 1220.583495] aacraid 0003:01:00.0: aacraid: PCI error - resume
-> 
-> We need to make appropriate changes to selftest, so that it skips the
-> adapter, if rootfs is hosted on it.
-> 
-> 
-> SetUp:
-> 
-> System: IBM 9006-22C (POWER9), PowerNV, bare metal
-> Firmware: skiboot-v6.8-45-g8246de863
-> Kernel: 7.4.0-rc2+, upstream master at 067c5c24cef2 ("Merge tag
-> 'page_alloc-for-7.4-rc2'", 2026-11-10)
-> 
-> 
-> Issue1: Selftest should skip the adapter that host the rootfs
-> 
-> eeh_can_break() already skips ahci, for similar reason, but has no check for
-> a device that backs /. A friendly LLM has suggested
-> 
-> below change, which I tested and it works.
-> 
-> 0003:01:00.0, Skipped: hosts the root filesystem
-> 
-> Other adapters are tested as before and the run completes
-> 
-> diff --git a/tools/testing/selftests/powerpc/eeh/eeh-functions.sh
-> b/tools/testing/selftests/powerpc/eeh/eeh-functions.sh
-> index 70daa3925dcb..f9db1f9be05a 100644
-> --- a/tools/testing/selftests/powerpc/eeh/eeh-functions.sh
-> +++ b/tools/testing/selftests/powerpc/eeh/eeh-functions.sh
-> @@ -62,6 +62,42 @@ eeh_test_prep() {
->      echo 5000 > /sys/kernel/debug/powerpc/eeh_max_freezes
->  }
-> 
-> +# Print the resolved sysfs path of a block device followed by the paths of
-> +# every device stacked underneath it (dm, md, etc).
-> +eeh_blk_sysfs_paths() {
-> +    local sys="$1"
-> +    local s
-> +
-> +    realpath "$sys"
-> +    for s in "$sys"/slaves/* ; do
-> +        if [ -e "$s" ] ; then
-> +            eeh_blk_sysfs_paths "$s"
-> +        fi
-> +    done
-> +}
-> +
-> +# Succeeds if the root filesystem lives on a disk behind any function of
-> the
-> +# slot containing the given PCI device.
-> +eeh_hosts_rootfs() {
-> +    local slot="${1%.*}"
-> +    local majmin src sys
-> +
-> +    # Use the last "/" entry so an initramfs rootfs entry is ignored.
-> +    majmin="$(awk '$5 == "/" { mm = $3 } END { print mm }'
-> /proc/self/mountinfo)"
-> +    src="$(awk '$5 == "/" { for (i = 6; i < NF; i++) if ($i == "-") s = $(i
-> + 2) } END { print s }' /proc/self/mountinfo)"
-> +
-> +    if [ -e "/sys/dev/block/$majmin" ] ; then
-> +        sys="/sys/dev/block/$majmin"
-> +    elif [ -b "$src" ] ; then
-> +        # e.g. btrfs reports an anonymous major:minor
-> +        sys="/sys/class/block/$(basename "$(realpath "$src")")"
-> +    else
-> +        return 1
-> +    fi
-> +
-> +    eeh_blk_sysfs_paths "$sys" 2>/dev/null | grep -q "/${slot}\.[0-7]/"
-> +}
-> +
->  eeh_can_break() {
->      # skip bridges since we can't recover them (yet...)
->      if [ -e "/sys/bus/pci/devices/$dev/pci_bus" ] ; then
-> @@ -78,6 +114,14 @@ eeh_can_break() {
->          return 1;
->      fi
-> 
-> +    # Breaking the device that hosts the root filesystem makes I/O fail
-> +    # during recovery, which can abort the journal and leave / read-only
-> +    # (and kill the test harness). Leave it alone.
-> +    if eeh_hosts_rootfs "$1" ; then
-> +        log "$1, Skipped: hosts the root filesystem"
-Well as per my understanding, Testing the device where rootfs is hosted on
-seems like a valid usecase for selftest. Maybe we should keep that ability.
-Atleast keep it as opt-in.
+netdev-bot+sashiko@kernel.org writes:
 
-The above freeze happened because write failed. Can we perhaps create our
-own freeze window so that none of
-filesystem write fail.
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+>
+> - [Medium] This patch adds MP_XDP_ONLY providers, which by design sit
+>   next to native XDP and AF_XDP.
+>
+> --
+>
+> net: Add memory providers that only feed XDP
+>
+> This patch lets a memory provider mark itself XDP-only with MP_XDP_ONLY.
+> Such a provider needs no header split and does not block native XDP. A pa=
+ge
+> pool takes it only when the driver sets PP_FLAG_ALLOW_XDP_ONLY_NETMEM. The
+> XDP install, XDP propagate and ethtool rings checks move from
+> dev_get_min_mp_channel_count() to the new dev_mp_blocks_xdp().
+>
+>> diff --git a/net/core/dev.c b/net/core/dev.c
+>> index 4ca8a9f5a7a5c..8a1d5a284e53c 100644
+>> --- a/net/core/dev.c
+>> +++ b/net/core/dev.c
+>
+> [ ... ]
+>
+>> @@ -11146,6 +11146,23 @@ int dev_change_xdp_fd(struct net_device *dev, s=
+truct netlink_ext_ack *extack,
+>>  	return err;
+>>  }
+>>=20=20
+>> +/* Native XDP runs next to XDP-only providers only, see %MP_XDP_ONLY */
+>> +bool dev_mp_blocks_xdp(const struct net_device *dev)
+>> +{
+>> +	const struct memory_provider_ops *ops;
+>> +	unsigned int i;
+>> +
+>> +	netdev_assert_locked_ops_compat(dev);
+>> +
+>> +	for (i =3D 0; i < dev->real_num_rx_queues; i++) {
+>> +		ops =3D dev->_rx[i].mp_params.mp_ops;
+>> +		if (ops && !(ops->flags & MP_XDP_ONLY))
+>> +			return true;
+>> +	}
+>> +
+>> +	return false;
+>> +}
+>> +
+>
+> [Severity: Medium]
+> Should the AF_XDP zero-copy setup paths use this helper too?
+>
+> Two callers still use dev_get_min_mp_channel_count(). It counts every
+> provider by mp_priv, including XDP-only ones:
+>
+> net/xdp/xsk_buff_pool.c:xp_assign_dev() {
+>     ...
+> 	if (dev_get_min_mp_channel_count(netdev)) {
+> 		err =3D -EBUSY;
+> 		goto err_unreg_pool;
+> 	}
+>     ...
+> err_unreg_pool:
+> 	if (!force_zc)
+> 		err =3D 0; /* fallback to copy mode */
+>     ...
+> }
+>
+> drivers/net/netkit.c:netkit_xsk() {
+>     ...
+> 	if (!create || !dev_get_min_mp_channel_count(phys))
+> 		ret =3D phys->netdev_ops->ndo_bpf(phys, &xdp_lower);
+>     ...
+> }
+>
+> Later in the series, xsk_sink_bind() installs an MP_XDP_ONLY provider
+> (xsk_sink_ops) on q0. After that, a classic AF_XDP socket that binds q1 on
+> the same device would see this:
+>
+>   bind with XDP_ZEROCOPY fails with -EBUSY
+>   bind without a mode flag falls back to copy mode and does not report it
+>   XSK pool creation through a netkit leased queue returns -EBUSY
+>
+> The result also seems to depend on bind order. Suppose the classic
+> zero-copy socket binds q1 first. The sink can then still be installed on
+> q0, because __netif_mp_open_rxq() only checks the pool of its own queue:
+>
+> net/core/netdev_rx_queue.c:__netif_mp_open_rxq() {
+>     ...
+> 	if (rxq->pool && !xdp_only) {
+>     ...
+> }
+>
+> So the same end state (sink on q0, zero copy on q1) is accepted in one
+> order and refused in the other. Is that intended?
 
-I am suggesting to test the following (suggested by Friendly LLM :),
-
-sync
-fsfreeze -f /      # flush dirty data and the journal, then block new writes
-# ... inject the error, wait for EEH recovery ...
-fsfreeze -u /      # thaw
-
-Thanks
-~Shivang
+No, that's not intended. The device-wide check in
+xp_assign_dev()/netkit_xsk() predates this work, and a sink on another
+queue does not stop native XDP. I'll switch both to dev_mp_blocks_xdp()
+in the next version, so the bind order no longer mattters.
 
