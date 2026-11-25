@@ -1,61 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795581358;
-	b=bdJYotvpBB5lyDfD1B7DD8jEUoBtXqsQRqYnFU+yxE2Enka+U82rhNjfzQTv4zBu9hqu
-	 kKw3dewqb+zbwPB9U3aL6fI7DLJNJWz90KVMxlMDJS9BJ9XOWLoVwAmWmop61ah/8/DR4
-	 /K8jaOMEbtFfap8GGUbDFSw9zq8fENxgJxNeDAOhBgLZXRagKP+bFqjOZzEidgHF2kBy1
-	 KwuEgJpYDUhR8amNIU9RBOCCkhhpbhT4D2XZ9spa52pAwhTr9R4u64pc13nVuvi3gfPLm
-	 QqZGiqmAqcqyg6LuUYXBEfZU01XiykeWF9YXFWk3Zzf/rzTGxcSxi1ALuTzzlSAhtiQ==
+	t=1795581437;
+	b=m3YpCSt5BnpS1ekYHo1BortjPKyWZnphuVn0GLDUlST7Um2jm8UCmlBlMuTcaRzrsr6m
+	 tvLz62WTSRIiryi7LaiFpr8qsRt9eiJuQTA+DG3RP+Aupg8fkEAm9c7vclXCvujuzVBJU
+	 K2Ex5Esqa9VYnh5r7fGVnyHGF+f0kEyrqV+74anv+cs3fG2SQqJCYgtsEv6kk8fxLbhN9
+	 b2Otki1mv86zVjt3bXNaebFGBFfgBjOnOAD9UPPdOBHvTkbpQmGfY7mJ9UX9D8a4Tb+p+
+	 baJ6KWQ+v7iiaBfgpAEhavv//z6p7PacipUddBV7MH/Cftn5TGpoVuWTZR0FJU98JDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795581358;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=jES9287MH9jWQ+5Q+HNtKHVTJlglstu0zwzo0JLxghQ=;
-	b=Zu8cgIE9laDWe1981qLxYcLuCSOuwPQo7LwmzQQRZZW1i7G1np8IB5RsMyBrsSJtf0Xu
-	 gTnIilwqE+UsmFUJ8anHhEhcsPuiWYhoxuOGAKzUU1Ri1ABUme1CxWJWghbGhK9Lc5lYm
-	 pC9D7GKv1mf9XyrAEWGapo7UN+UpGKkAl/MpDu8t6vD94sFwA4k78q4I8XshcLGoCA8mp
-	 sFPLLty27sX418oP8wpgCkvgqhjDZuiaKtI+A34PuPF991SfLLvVDNYJlIauALtbuLM6i
-	 zbG8rPP1Rh8/94DurAt0QozJHTeBbemclb9jQXB8D5AeDFrOel/4aDZ5ejwuAYEKQUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795581437;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=6DVyoXA6Tib/v85orEHsRlE+EW8lKD49gIz3qCv+SNo=;
+	b=bZWd3qChF9RJbWA9qsvHIdE4kd4Tv74zZX3B+6ONVF/5e8lJkNSWp6GwK3rfZk0xmWB/
+	 MYvBtSTGEZ1qsCt9VUFRhb+qWLIbccCKudHwgOkGR4Ko8vkf1h9GAUoVIoKd6PvE3LYY4
+	 8t9nXEYI6GjYCUgSCsPEQoAlhoi1Qpmlg+8VuqvqtOZJpeP6d9UCjk8fH0xnqHHrmRzQF
+	 aW30i9NZB3hrJi7o7ri1K6YZF98noS+87tTyorTgYqjs+uch5I4quwruOH3+B8g8fEhZi
+	 eoAmmXMADLfWq5DvCT31+yTl/cWX0U72oYax92RD1bAEIomkBOOUaJ/EP3GdIenjNdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=WvdJsXl6;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0EB02606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:35:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0EB02606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O7g2XuqK;
+	arc=none smtp.remote-ip=209.85.210.180
+Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CC21606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:37:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CC21606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=WvdJsXl6
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 51F1E339;
-	Tue, 24 Nov 2026 20:35:53 -0800 (PST)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7362C3F86C;
-	Tue, 24 Nov 2026 20:35:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795581356; bh=WlnWqEgxHO9OwEFiPYTA4lAxgT8kQaGYI8IyY6i07ig=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WvdJsXl66Zo/MMmirsJhxVtTutvItNPxsf2hjTwX8JArGnZY1sqlJnFnZxUoci7C6
-	 M4J5pEg+e+fg3cxlVQ3dFhXFyitJv7vnskpqvh3rclkYNRgMFSfnrx9Z/Cdr/JMwKE
-	 7dLyjzgFZBoJAJm8ecQJ8l4oHqEQa4b/CunjKtGE=
-Date: Wed, 25 Nov 2026 10:05:52 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, 
-	will@kernel.org, Ryan Roberts <ryan.roberts@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Lorenzo Stoakes <ljs@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [PATCH V3 00/14] arm64/mm: Enable 128 bit page table entries
-Message-ID: <a54bdqfzj4eyoaaiekxxeqi27rc6pu6z2uufv3lblbyujclz36@egotqjcxv653>
-References: <20261117070613.1183243-1-anshuman.khandual@arm.com>
- <20261120190525.GC1133597@ziepe.ca>
- <aqcypbxidjbmjhuiujg2krseuy7v4lofrlq3upl4s7yjiq6bh2@3s4jqisdrkgd>
- <20261124135424.GL9566@ziepe.ca>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O7g2XuqK
+Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8a594d313a3so3515587b3a.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:37:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795581436; x=1796186236; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6DVyoXA6Tib/v85orEHsRlE+EW8lKD49gIz3qCv+SNo=;
+        b=O7g2XuqKb2NjjCG1AMyPqByNWECHGvWcXhDJERGGEvrmT1/RRzEtQgnPAKFz45YRhJ
+         2lelDmQ23v7UWIvleB3HGbODKMrlT3bcb/GXEbv1FZ9RKK1ICVnsmfeB2CgM5jur6MpP
+         rveumlVJXt1+bDAL7Qz8SLOcPxyaN7z1xX4yueSw4CBl90E/xmKoDXRb2nk7iRys8UEj
+         sn1HfTDFzE/YVmJ6NTkZL2MNY00vGrxjMayo6AsWH8HeUOaZ0o5nMIDq5l+PixQDcTwV
+         0K9CjysIWIvpBbdH1SG5N4bbAJ1GeRNAG0bY0qyhYBNqMyNO3ftl2goVjdkgePltt4aJ
+         itTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795581436; x=1796186236;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6DVyoXA6Tib/v85orEHsRlE+EW8lKD49gIz3qCv+SNo=;
+        b=Ej9UeQGTvSN1sdLaH6EHQ8Hn3Qm9YPkLNJs3OlRXOY7QFJT3vvywJRe6cZU9hHqk4T
+         Hti1wP9RMYNuIy2U+SsL2ZeMSBmkpOyCKtrgsa7Vdk/sWmV7ILWrngWdB3KgFFov8xoP
+         YiC43JjQ4GpkT7H7MTmFstrx/lchEeJZNdLSFacMy2Ej5IS9p635FHpO/RuGB6oEeggt
+         MkCWeiuIjPEJsn+SanrLEhbNUltIRv8lpSu4ihu2rMZ2Up55jSq9oKa0rsyyDUvithzr
+         SeZ6ra11VGen6NP46SvTq3S69blOwBr7ZXRXuHi2pgA0AFFQCKKLyo4lpGIteCGjzsnu
+         2Miw==
+X-Forwarded-Encrypted: i=1; AL+hErGsx/A3dvD9Lk52wnuKKtQrjYQjoT97bwKNWBfNnajT4fow9DXX46rzSO1tku9C+6+W5nq+PVstdBeQ6GY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/sWYwYyBMGtChWW2odWJk1Bf81XorLA860/sOY/EguoadEYSMu
+	ROwcBZxC0YyI5hsfaVSx/MGPD2wgVKiEO9hNjPtTTHw5Y+PBrf4Nvfh/
+X-Gm-Gg: AZFdTZe+KLwbZD3m6tReo/FJLncQLpCNUQC9LrVVPsdGS59lsg2zwnUbBEGYtJ3pSQ6
+	D7ilcUFE4szMnD80tqFcihDkIv9V9N530sFwsJu5hLzCbPg+ZUQssk9XT/YUWNEq25A3aKkwjvh
+	e/DsacxcUi2iJ6PYXVvpARAVnYby0MZSDN2k9/l3juWYBeZX/K89QuMDCCPj+M602URO/joEY5+
+	3EVc7/CyJz972WxKI2IBnbjeh2fgfxGWhavHWnQUi9mOORiPezzxhCjLNQzpmmUgf9OTm+NsntU
+	2oKxlJpVQBsiAst8QDYcMRawUlEhmlBxcgC5V0Ko9ihYt7oeWFwUj4pBjsdzg/Nq+3TpI8x+v9B
+	YjGFxPmvN6C9DCVTysBQyWEHpGXneltVLMps8pGJ/GQ4BVPgtqYixnmgFKRjMfbftn/bgJWQIpT
+	JqGmXvmEOSP4SVOztTm/4+p2EkC01cTP8MokoWlChK7lZ9/dmhPbAsiaPgkLfHhMb1giIdsbSuv
+	YihaKKewHvt2S40kIM8arUUG598N/c2awN6/SnH7BZEpbDaUXNOK62RqP9DmBKPz7yj1WqICsV4
+	UM8C6J+2hEl5veQ3NJzhA8/ujKFn
+X-Received: by 2002:a05:6a00:3998:b0:8a0:5da1:2264 with SMTP id d2e1a72fcca58-8c87d2289f9mr13508087b3a.47.1795581436417;
+        Tue, 24 Nov 2026 20:37:16 -0800 (PST)
+Received: from localhost ([2001:19f0:8000:4ce8:5400:7ff:fe0e:e6b2])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f83dsm8178515b3a.39.2026.11.24.20.37.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 20:37:16 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Niklas Cassel <cassel@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Aksh Garg <a-garg7@ti.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Rhys Tumelty <rhys@tumelty.co.uk>,
+	Manikandan K Pillai <mpillai@cadence.com>,
+	"vladimir.oltean@nxp.com" <vladimir.oltean@nxp.com>,
+	Qiang Yu <qiang.yu@oss.qualcomm.com>,
+	Hans Zhang <18255117159@163.com>,
+	Yao Zi <me@ziyao.cc>
+Cc: linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH v5 0/8] phy: core: Add phy bulk helpers support
+Date: Wed, 25 Nov 2026 12:36:31 +0800
+Message-ID: <20261125043639.249525-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,51 +125,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124135424.GL9566@ziepe.ca>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 09:54:24AM -0400, Jason Gunthorpe wrote:
-> On Tue, Nov 24, 2026 at 09:29:27AM +0530, Anshuman Khandual wrote:
-> > On Fri, Nov 20, 2026 at 03:05:25PM -0400, Jason Gunthorpe wrote:
-> > > On Tue, Nov 17, 2026 at 12:35:59PM +0530, Anshuman Khandual wrote:
-> > > > FEAT_D128 is a new arm architecture feature adding support for VMSAv9-128
-> > > > translation system. FEAT_D128 is an optional feature from ARMV9.3 onwards.
-> > > > arm64 platforms with FEAT_D128 enabled will now have two different memory
-> > > > translation systems i.e VMSAv8-64 and VMSAv9-128.
-> > > 
-> > > Please don't forget to update arm_smmu_sva_supported()
-> > 
-> > Sure, thanks for the pointer.
-> > 
-> > Fow now will disable SVA with CONFIG_ARM_D128 enabled but later it can
-> > be enabled back with SMMU_IDR5.D128 feature. I will probably fold back
-> > the following change in the series.
-> > 
-> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> > @@ -205,6 +205,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
-> >         unsigned long asid_bits;
-> >         u32 feat_mask = ARM_SMMU_FEAT_COHERENCY;
-> > 
-> > +       if (IS_ENABLED(CONFIG_ARM64_D128))
-> > +               return false;
-> 
-> That seems wrong if the arch code is enabling this based on a CPU IDR.
+As discussed in [1], some drivers may do not care the difference between
+phys. Instead, they only need to treat them as a group and operate them
+together. This means a bulk operation is needed.
 
-D128 translation gets enabled when CONFIG_ARM64_D128 is enabled and also
-HW has FEAT_D128 as detected via ID_AA64MMFR3_EL1.D128.
+Add some bulk helper functions for phy core by referencing the design of
+clock/reset subsystem. This can relieve the driver owners' life who needs
+to handle many phys, as well as each phy error reporting.
 
-Besides if CONFIG_ARM64_D128 is enabled on any HW which does not support
-FEAT_D128 the kernel would not even boot as there is no dynamic fallback
-to D64 translation in such cases.
+The example consumer driver is at [2], with the following function used:
+- phy_bulk_init
+- phy_bulk_exit
+- phy_bulk_power_on
+- phy_bulk_power_off
+- devm_of_phy_bulk_get_all
+The devm_phy_bulk_get_all() is also added as a simple wrapper of
+devm_of_phy_bulk_get_all().
 
-Hence a running kernel with CONFIG_ARM64_D128 enabled is running in D128
-translation mode for sure.
+This patch set also includes another two porting for cadence PCIe driver,
+and the the IMX SATA driver, as I have the document of these two device
+so I can verify the PHY timing requirement.
 
-> 
-> I would expect distro kernels to enable this kconfig unconditionally,
-> so this will break SVA for everyone.
+Note:
+1. The patch still uses -EOPNOTSUPP for dummy blob. Instead, I send
+   a new patch [3] for fixing the left function.
+2. libahci_platform.c is not ported, as its getter require additional
+   check on the DT so it can no be handled by a simple bulk get.
 
-ARM64_D128 actually depends on EXPERT and hence it would not be enabled
-unconditionally in distros ?
+[1] https://lore.kernel.org/linux-pci/ak9KzNFF26B0Kttz@ashevche-desk.local/
+[2] https://lore.kernel.org/linux-pci/20261125041523.242588-1-inochiama@gmail.com/
+[3] https://lore.kernel.org/linux-phy/20260929084739.467082-1-inochiama@gmail.com/
+
+Changed from v4:
+- https://lore.kernel.org/linux-phy/20260923023304.78428-1-inochiama@gmail.com/
+1. rebased to v7.4-rc1
+2. Apply Andy's tag to patch 1, 2.
+patch 3:
+1. Add this patch as Andy's request for simpler bulk api handling.
+patch 4:
+1. Add reversed recovery operation in phy bulk operator APIs like the
+   reset subsystem.
+2. Use int instead unsigned int to simplifiy the error check.
+3. Fix wrong error handling in phy_bulk_get()
+4. Fix document of the existed bulk API.
+patch 5:
+1. Remove unnecessary num_phys and device node check in the bulk getter
+   API. Now it expects user will give a valid input.
+2. Add devm_phy_bulk_get() and related helper function
+3. Add devm_phy_bulk_put_all() for future porting
+4. Make all dummy handler follows the same semantics in other subsystem.
+patch 6:
+1. Add missing doc of the all function
+patch 7,8:
+1. Add these two patches as an example for phy bulk API.
+
+Changed from v3:
+- https://lore.kernel.org/linux-phy/20260923023304.78428-1-inochiama@gmail.com/
+patch 5:
+1. Fix spell error in the document.
+
+Changed from v2:
+- https://lore.kernel.org/linux-phy/20260904083709.425893-1-inochiama@gmail.com/
+patch 1:
+1. Add Andy's tag
+2. Update comment for phy_add_device_link
+patch 2:
+1. Add Andy's tag
+2. Update comment for changed function
+patch 3:
+1. Remove all unused function and make the dependency as static things.
+2. Update comments for struct phy_bulk_data and left functions
+patch 4:
+1. Remove all unused function and make the dependency as static things.
+patch 5:
+1. Add phy document for these newly added apis.
+
+Changed from v1:
+- https://lore.kernel.org/linux-phy/20260831025319.94886-1-inochiama@gmail.com/
+patch 1:
+1. Update document.
+patch 2:
+1. Fix document format.
+2. Fix several document description.
+patch 3:
+1. Split into two patches: one for non devm helpers, one for devm helpers.
+2. All the bulk helper now use unsigned int for counts.
+3. Fix multiple the while loop statement.
+4. Rename of_phy_get_parent_count() to of_phy_get_count().
+5. Fix some 80 line function problems.
+6. Use PTR_ERR_OR_ZERO() to simplify the error handle.
+7. Fix zero value in the document
+8. Use two separate release function for devm helpers.
+
+Inochi Amaoto (8):
+  phy: core: Add common helper to add phy phandle device link
+  phy: core: Add common helper for get phy phandle by index
+  phy: core: Make phy_put() ignore NULL and error pointers
+  phy: core: Add phy bulk data helper functions
+  phy: core: Add managed phy bulk data helper functions
+  doc: phy: Document some bulk helper functions
+  PCI: cadence: Use phy bulk data api to simplifiy the logic
+  ata: ahci_imx: Use bulk PHY APIs for calibration PHYs
+
+ Documentation/driver-api/phy/phy.rst          |  40 ++
+ drivers/ata/ahci_imx.c                        |  57 +-
+ drivers/pci/controller/cadence/pcie-cadence.c |  62 +-
+ drivers/pci/controller/cadence/pcie-cadence.h |   2 +-
+ drivers/phy/phy-core.c                        | 546 ++++++++++++++++--
+ include/linux/phy/phy.h                       |  69 +++
+ 6 files changed, 648 insertions(+), 128 deletions(-)
+
+--
+2.56.1
+
