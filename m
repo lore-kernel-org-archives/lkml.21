@@ -1,62 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795610215;
-	b=P6d/DgLaml6sRcvYLd+WrFFl2A4bNvjBgmBRPfggiOJx8X8S5/SzIjm9scm4RvSnKG+/
-	 VxovMPxkwKjRJOcmPd6FCELaimYx2xokqpDlzWREApJruYdj8Mo62+D0jw5C6KkFAUyrw
-	 Q8bQVqjnLpKYuaIJiU/5k+4hFh4K7nF2wHQBkcBdCaxKAMAT8qhnKKyedFIw/wU/S2Jo6
-	 N2wCQ8S12IMfXsuEchu/6+OAruvr0YCVMTsEtVoReM1+aZeqD9Gqp2ZK6IQlYJgQFwoo/
-	 YNPjzQ4e44NMEmMiotDepeb16RT2YeJ8JZwEe2HPGtE6ktqtVcG0dEIu9kt4r9Eiyhw==
+	t=1795610230;
+	b=N5u1s5eP6lclngY+Nzu9d/RF0x8S1bslBxLGFAuGV2IGutXrR2fEswL98XaUDdHJiyZW
+	 iZ/CVDO0gXp003RF9b6pD6fc1164vlQooPKxknHJTEAlUiLqKS4oapJQQPx51sPsQ1AZ/
+	 5O6849j+KvCs0VdaSLfrqNNF/JVjxDu5KXjMvoRoBIJyHksjTz+pjlAZJ0glDtV6hWriW
+	 jXGWm6PTZ7MCq1CW4cViuFvnCmSfJvlSqBhf16gwVKciPSCyXU2tO0XdQWvaztQ4ObUS6
+	 do3qKoC0hYPtn4WH7/VfXw7ciZpvdN9y98hkq1slRToYmp1IgMcGXRJPN3+OZl0qgtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795610215;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=+5FMk/SdVDW2nWnHSrzI8xlrVGDF8ncp2jQw4zwEyc4=;
-	b=kVLcgslfg7QC/eYolrBgzStiTVXLXGdNRD0V6HZFKWeeCwM5NO1oMVicuAh9yP2Qkz+S
-	 TDyf73ZmdDpeScM2m9jKFTq1WBJ40k/aau5g+ss0/LqiOwJsQL4/VZ0BWfM1UTtbEZQRx
-	 NXJ+EFlAqbiVRgcChqXEpC4i31OH1HBLA7bdJJKaZ3ufBtLltU9eygAqfH49wAJqgneyj
-	 reWfpICyjHnmZwhhZ7+rGdakMUzNn/+xzFMRpz5a+1YmjKwyMz0nTt3yQAIYkUVDWe2iK
-	 Wj3tEA+93dY67wjs2Z72rf3CHGdTM06MpLNZhtOSpiVcPcCqb0vRfAOR47Ec35TPMMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795610230;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:In-Reply-To:References:Organization:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
+	 X-Spam-Checker-Version;
+	bh=4pIL38w9A3gdcQQ2Fq7C7ElgTfT9wt+HeDTbfSsUEYo=;
+	b=zAVRiwVP/KudgR9131opACBb5ouX9JCYNTxToSuRA//HgK0Aphn63yvTgF1lXmVzOpVK
+	 cvPrDEioU5JJ7Y9vGDoBSZxc51JcnYDfYKOojtyy771aAu0FNgiqCmeqKlfR/HPOz4vVh
+	 LT14dI+d7+T9WHcs9Qe41GKfOyXRm4OlWRsm+2hNUlklk3P/Qg74AP3hsGfiBCarQtVwK
+	 quCifewrRYvjkiAUKnmt41KCxbKp14kzaWTFW92OBot+b7bsOTE2m74rx9o2hv87gP3Bn
+	 UlPxJuotpdmsGPR7puFWTeQshPS7DjIMEa6scB/mqiWszUB2mZ03qwqcvTLcr93Ozcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="i6Da6/9Q";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CAE3606A326;
-	Wed, 25 Nov 2026 12:36:54 +0000 (UTC)
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=YhPks0LG;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3DDAF606A323;
+	Wed, 25 Nov 2026 12:37:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DDAF606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i6Da6/9Q
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B99B41F000C6;
-	Wed, 25 Nov 2026 12:36:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795610214;
-	bh=+5FMk/SdVDW2nWnHSrzI8xlrVGDF8ncp2jQw4zwEyc4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=i6Da6/9QG7+xJWge26mZa/kI07vKMbeFJy2lpzK9lsHG7NgXwVVYT6bDTM0Y7X6jM
-	 /ElsQU1AntNDnyvsWBvehY6flvGiVIlzrdFXTQ1iin6ZACrjCQLIXRef2I64SUSx8h
-	 OCRL+0UeK2Zl4Ck/L9NiDwXwbAu1EixBUZgdtAIuULrwGNPlclljAO/vIo3gdWwHLf
-	 sIn03irdGIjzeiTK5l5vHdiNPPhOIzuoCIbiW9WYYC9Jy09oe9IbVFvmY8vncS8KlZ
-	 ViQAykr5gO4VN1dKPrEUGo3dkg0+9c5Pvak0nCevMCinxzGun14x1KHNfUwpJLEmC9
-	 sMcuy56rE//zw==
-Date: Wed, 25 Nov 2026 12:36:49 +0000
-From: Simon Horman <horms@kernel.org>
-To: Felipe Pereira Stival <v0idpwn@gmail.com>
-Cc: John Fastabend <john.fastabend@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Shuah Khan <shuah@kernel.org>,
-	netdev@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net 2/2] selftests: tls: add a poll test for a queued
- KeyUpdate
-Message-ID: <20261125123649.GW31322@horms.kernel.org>
-References: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-0-8e25101e7be6@gmail.com>
- <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-2-8e25101e7be6@gmail.com>
+	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=YhPks0LG
+Received: from localhost (unknown [4.194.122.136])
+	by linux.microsoft.com (Postfix) with ESMTPSA id A1DFE20B7170;
+	Wed, 25 Nov 2026 04:36:57 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A1DFE20B7170
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795610223;
+	bh=4pIL38w9A3gdcQQ2Fq7C7ElgTfT9wt+HeDTbfSsUEYo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=YhPks0LGvq+pZuuxixVJ62GTFNm7lH4LNPCUg/O19AD7n10pw6CzkthtwSdb1a9IN
+	 MO7bqLug6Aa7/bJtsftjlYvQhHBUEnUHUxkbdxM9XiLxpSkTcg+jxlmMsBBkOdHJ1d
+	 X53KcCxTFu/7Gg5YXoieTtAXgOzpA73teX4x8Fsc=
+Date: Wed, 25 Nov 2026 04:36:59 -0800
+From: Jacob Pan <jacob.pan@linux.microsoft.com>
+To: Yu Zhang <zhangyu1@linux.microsoft.com>
+Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin
+ Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@nvidia.com>, Easwar
+ Hariharan <easwar.hariharan@linux.microsoft.com>, Tianyu Lan
+ <Tianyu.Lan@microsoft.com>, Mukesh R <mrathor@linux.microsoft.com>, Thara
+ Gopinath <tgopinath@linux.microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Dexuan Cui <decui@microsoft.com>,
+ Michael Kelley <mhklinux@outlook.com>, iommu@lists.linux.dev,
+ linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
+ jacob.pan@linux.microsoft.com
+Subject: Re: [PATCH] MAINTAINERS: Add dedicated entry for Hyper-V IOMMU
+Message-ID: <20261125043659.000027d2@linux.microsoft.com>
+In-Reply-To: <20261125074331.25190-1-zhangyu1@linux.microsoft.com>
+References: <20261125074331.25190-1-zhangyu1@linux.microsoft.com>
+Organization: LSG
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,17 +69,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-2-8e25101e7be6@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 05:35:49PM -0300, Felipe Pereira Stival wrote:
-> Check that poll() reports a read event when a recv() for data has
-> decrypted and queued a KeyUpdate. Once the KeyUpdate has been read,
-> check that poll() doesn't report a record sent with the new key.
+Hi Yu,
+
+On Wed, 25 Nov 2026 15:43:30 +0800
+Yu Zhang <zhangyu1@linux.microsoft.com> wrote:
+
+> Changes under drivers/iommu/hyperv/ are merged through the IOMMU
+> subsystem tree, while MAINTAINERS currently lists the directory under
+> "Hyper-V/Azure CORE AND DRIVERS" pointing to the Hyper-V tree.
 > 
-> Assisted-by: Claude:claude-fable-5-2
-> Signed-off-by: Felipe Pereira Stival <v0idpwn@gmail.com>
+> Move drivers/iommu/hyperv/ into a dedicated "HYPER-V IOMMU DRIVER"
+> entry pointing to the IOMMU tree, with Yu Zhang as maintainer and
+> Jacob Pan, Easwar Hariharan, and Tianyu Lan as reviewers. Keep
+> linux-hyperv@vger.kernel.org on the mailing list entries so the
+> Hyper-V community stays copied on patches.
+> 
+> Suggested-by: Jacob Pan <jacob.pan@linux.microsoft.com>
+> Signed-off-by: Yu Zhang <zhangyu1@linux.microsoft.com>
+> ---
+> Easwar, Tianyu: please let me know if you have any other thoughts or
+> suggestions.
+> 
+> Wei, Haiyang, Dexuan: feel free to chime in if you have any feedback
+> on moving drivers/iommu/hyperv/ out of the Hyper-V core section.
+> 
+>  MAINTAINERS | 12 +++++++++++-
+>  1 file changed, 11 insertions(+), 1 deletion(-)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 44540a1eb2b8..dcdc73e9ce6d 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -12448,6 +12448,17 @@ L:	linux-media@vger.kernel.org
+>  S:	Maintained
+>  F:	drivers/media/i2c/hi847.c
+>  
+> +HYPER-V IOMMU DRIVER
+> +M:	Yu Zhang <zhangyu1@linux.microsoft.com>
+> +R:	Jacob Pan <jacob.pan@linux.microsoft.com>
+> +R:	Easwar Hariharan <easwar.hariharan@linux.microsoft.com>
+> +R:	Tianyu Lan <Tianyu.Lan@microsoft.com>
+> +L:	iommu@lists.linux.dev
+> +L:	linux-hyperv@vger.kernel.org
+> +S:	Supported
+> +T:	git
+> git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
+> +F:	drivers/iommu/hyperv/ +
+>  Hyper-V/Azure CORE AND DRIVERS
+>  M:	Haiyang Zhang <haiyangz@microsoft.com>
+>  M:	Wei Liu <wei.liu@kernel.org>
+> @@ -12470,7 +12481,6 @@ F:	drivers/clocksource/hyperv_timer.c
+>  F:	drivers/hid/hid-hyperv.c
+>  F:	drivers/hv/
+>  F:	drivers/input/serio/hyperv-keyboard.c
+> -F:	drivers/iommu/hyperv/
+>  F:	drivers/net/ethernet/microsoft/
+>  F:	drivers/net/hyperv/
+>  F:	drivers/pci/controller/pci-hyperv-intf.c
 
-Reviewed-by: Simon Horman <horms@kernel.org>
-
+Acked-by: Jacob Pan <jacob.pan@linux.microsoft.com>
