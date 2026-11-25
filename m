@@ -1,54 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795600351;
-	b=uNcE+O89XRWoT9vKGrMjlTJ8pUtgNPlmzQzYir+dl3UhdWb5cvdzSblKdJsBocIzrX4Q
-	 nJrMpgyyAAhXkSH4QDE6tQ7gALIKKp2sSantTA8cmTv8Cs6r/pALt96ezofkV8pb9JjZS
-	 f+YWwa+deAEkq7CUyUGHjRujRg0mZhPsQHD8Bv08N+rYqYbriAehfGTJqBQcnvzQKusl+
-	 QXIMAQ00t1zScyZzQkiJbxQp+bR+Jictz1B4gsOVCmq26l3fv+MHfgVWmUoLkZSgEFSa7
-	 cWINu3ESyl86Zs8SdzF5uvFS1ntBsOy9pI0qznWdwpjXRXpj4uNGAIikrsgNua0XEnA==
+	t=1795600399;
+	b=a5tHSdGLQxZJvPx/WylXtJgHH9C4n1E4nLHq2Z8MuFK/uF9vUXn665l3lPOqISaV57fr
+	 cd6I3b0sssnVCBm0dx0ihnZ0Tg4ic18nBMY8w7dvu1++hRuFWXQbrnnNOWO8IOVhNYCpx
+	 Z7TyHG0sc8nNoA6NnJ72AnbCtHVxTuJ5L6HRRnmZJAJiwDXAt00M6EpovnOFxqHablor4
+	 0T1NkZy12D8VwaeXz3u3i+2rMmxjYJV0MjVZ+U7RhRiOO73dcxE6OBiaa5T4D5Yilv7pw
+	 WRt+QJBsdDp6PK5t99hnfwWxZPpj83steV9k8lZB0daoO0cqx69AHvA45b0r/6SdMuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795600351;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=rDYrI57ud55NSWOFxTgViyOGUhOW41DRxkpMLR6U21w=;
-	b=DzbDTXqQZ3L3YuX6ikeHw71JV0mYLTZXjMfuMl+ilCzuCNpuukT4waRnyKZE1WBG1t0e
-	 Ob9DCzUjn9Uk7Xw9Be587GlL/XwMRrUhMgwrD8k0XxhsQ24Za07E4rqlOlu6cpfAPw9/i
-	 rnqwv9NnSRfmf+0Jxu+UsfPQPbjwkj64/nKwgm1boi20CbeB9uIiO5PKxGMC5RjPq/jst
-	 hfSqTZ24H2MT11+u0rJpNUP3SUqRlP/NbVPgJ2wmB47SAnLOmZjFsR65vvulsDUoTblIV
-	 6z98bZstUER6fQ9Mj1yr2K9ys0G+l/f95jeXC9NAj6ReOZQOK63+dZsbHaETUrz/Bww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795600399;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=B9V0PzERPQ/DZr9vQmTdOy6qbAlEsvFj55AbXqdY/4M=;
+	b=q+W2dGeUYFAskSZMa4/1epp5dk/Ci9Kbva001CzB3e1+A+APSSsTbr5ykupbm94cGEzs
+	 uYxXTOQMyrRtszHa57XvQJsuTi+IpYhM3n15Uco57SsuTW5Lmod5m6qwb1t2rZZ1b4q85
+	 gh2r88Z85R/gGvMOC2GhQSx1NHW2MwCkOfvKYFD9S7LPbo2eHlrYQ7KBvJo9jTxN2QMca
+	 aQAx1C5GnkMcdLbkDMlgHZ2eOCy3UpioKPXlJ7ZMEyxS90oIaJawkBnzqQyR0mBEuj4Ev
+	 eU1+3ervlU4ES9tdYKOYmsdhmqPqsAFcKmm/24mr7yEexNw95xdbInFTH2ZgygIBysA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.160.71
-Received: from mail-oa1-f71.google.com (mail-oa1-f71.google.com [209.85.160.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=c90SPQ0D;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=R7EbDZjP;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02909606A32E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:52:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02909606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oa1-f71.google.com with SMTP id 586e51a60fabf-46f178d813bso2441134fac.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:52:30 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E345606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:53:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E345606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=c90SPQ0D;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=R7EbDZjP
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9mGSL3126484
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:53:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	B9V0PzERPQ/DZr9vQmTdOy6qbAlEsvFj55AbXqdY/4M=; b=c90SPQ0DmhnIfA3r
+	fBrKNi5CwIVs9Q8Y8e8HNHuZfGGLUTD2ALfns6N3iIW/vOOtX7VuYnZj5H11z8CC
+	zw6ViY0s1Px6n7wqZlubqL/Wa2dOIJhkuhnIyl7ZLROz+HFrWuJfYuH2oekxqtRj
+	5ioWP54l+lu+gYEHXfKxwZy0SeDJnMPLAZa0I3GbdpXiseygAHC5tej/p5sLK6/E
+	fS4s0bp7PoCZgum5wnkiAzhWNFtktcXCHYSYQrhgsQ3lz00vazOJPXSEu0MbdTIz
+	yYBAEo5sJswRwCP/AUxrb+tlJS/RMRLWRDCrJ8BplFv50zlyUIwZFaeFKDypjQb2
+	+sT2Iw==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5eydbhq7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:53:18 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-949d87937d8so29083985a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:53:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795600398; x=1796205198; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=B9V0PzERPQ/DZr9vQmTdOy6qbAlEsvFj55AbXqdY/4M=;
+        b=R7EbDZjPGaEBase9KgRYE0IHmnWVQOwuCZ/YImwh36sGP4vesRKRgQCV9jtegfXoXn
+         tdWHE9TPqkQK79g8jh+Ci9nxN4Yf36BtVPT4YtpkZHuaRzyPWhDLEyV5o+B4UdUxTW6a
+         5uP6Ji5oEepSlVy7aZipzvFEWl5wagXuBI//5PK9zCgpk6tPtSe9dVzWSeH+s+3g//fv
+         9Pr4oU6uLkAeGW5F2IlXJbrCl3RVyEgsY6tadBwv7lx2GBOgbOUgbW6AWzFSsqsEgDzY
+         T5Vr9bBtWlApPl5F70Ttjnso1NmgXXe+6Lu3QmSUte2EVWLn/Fg5XujPp6ILAQGbDBey
+         6zZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795600350; x=1796205150;
-        h=content-type:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=rDYrI57ud55NSWOFxTgViyOGUhOW41DRxkpMLR6U21w=;
-        b=F3LM+iXcFjKKmAx77fZO8HWg8zFCDHdcckq9P/rWM7qCdktrMpltWPvnsgbhOBUFrD
-         ZU9A1ZXm9RNp5JeqplS27tQNfUH/dT1wtSSWu9jQm2HAlnq9CZlSjL7Y4woFsNCSJI2x
-         FxTvcVmOxKzC0kiUK9HxWGMGEI82Typng74xigckIIfWHJ7S9qoaxn7kbglIP1Sgasm7
-         0Ag863ZoN0p6Sn+PjnevF6tDxBGTBkIlzjR9lyxIurT30TA+Csuaey8VkRedXz7SkqXR
-         EbtctxLn5yCPM/jZsNxMrBcG9FXMXqiElJy2cZJquHhXVYBXAq7uQhXXW7sGXV+xS5zp
-         rbVw==
-X-Forwarded-Encrypted: i=1; AL+hErEM7A0vBk5atGUBpk42x5n6PwAt5eu15igIcX6ClPCxDx4XJJEy0LnzOOfLy9/a+tE9sSqLkMBqJumFI3A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8SNMb3mdPa10HJ4ilccSO22KX51NWuz2IbbduxyWYqPqxfyXQ7
-	8DigHwNkUr0CWS4oRu2RTESgHxd+ZQf15CwvNzlhuaFSmehthgxxCjTweZsIyTUQV6HOUB5OMWO
-	16V3EnEA+plk7G2pMnrAjnvXt5rKDykrHqfHbRXFOVkI/lvY5bUT8AWu8bvo=
+        d=1e100.net; s=20260707; t=1795600398; x=1796205198;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=B9V0PzERPQ/DZr9vQmTdOy6qbAlEsvFj55AbXqdY/4M=;
+        b=1Q8sLT4Z35Gx5oztplrJ1kiwmt0moXkYfFUBDyFCug2Jq8Y1iQb/r7m4S0vMnmSGqm
+         n+w2KT5N0osnxA6ViyuYU+gDy5VJ1eV6iW4LGDpHyUly666sx9L/jrzBN88EScFhiBFt
+         HZ2PUMs1AMN0FmOeEwjtXVRraVobsDaMSNZPDSxo/+gbmINmPeoCb+dhZ1fsxNDwqpPm
+         ULPDitE5OSiq5wrX2yxTsh1jJGrd5geRqHg5nMlYAEQ0k7Ystjwjtm/I66VAtw4Qu5mb
+         cwgb0aeoV3Cc+VRrGqSHJvsD/Y3J9Mpp9fdksOjRIXAe7IrRfJqSlI/xnHcZnuRr6bXm
+         QVmg==
+X-Forwarded-Encrypted: i=1; AL+hErGYzus1BA5r/Xh+yokH0b83kPJqDsEkiWJr4jUr9QY5q7OkNzT+3ZkI5afCqMGAGtXrtQkiU1qWKT20huo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+RsdK96vjSn0PCHbbawQsDhQ4iO5jaz0thb7dDmfSqQW61cQDa
+	lKlJ4oQoy7a/6XmAqMpfqCzQAq/3xIb8SqOHa58VJsF7xUu+RT2HNNWJniuzM8ytCQ+8xx/CwyB
+	A/Kl1eu1OKo/B27VWK+efHIjr7fRlNLM48PTFEWSWeJCagaOKj7cwj1Ic0ldEeVWyB6Y=
+X-Gm-Gg: AZFdTZeu58Pk+GzBKTPl2DuLM48QtIq3Sv6E8nDJ8V8Mig/2UvVyuCDNUs9q3/rg5hI
+	+XgQhZbkiw6zlb1zQKKKrTtWEh+r+k3DDOsLiHokmEHzku5HDzFbMgsJdsW1zWOoacapbzaD4us
+	iF1fZ4aQS5NbsGai1jxAuWKMX4WOQ9Rm4EGcU9SfDlFEbEQAd/2eI+tSKYWbaip+2sVEnNGie8D
+	aw3PzEEwDZ2C6NeRyEkmqH6uEpOP44qfaC4eSgbWFF4SR+/+nyaRHRyWIkPu3UzpaNOGX6+di6/
+	IqjOuo9n0qCW1bNB1q5d8q0KK9wkGVy2kgF6IEapF/aI7TuuLR9pJ2tT94N8Tp8EiX5n8l/mRdw
+	cm+GEXzZ9N4GQTFEy+XmAXS/uC4I/qQr3yFa4zPnIMU1UbWXZ4nSXQfEzLTWeOkd6jYOD+nY=
+X-Received: by 2002:a05:620a:6f8a:20b0:945:ede4:d247 with SMTP id af79cd13be357-949ba82824dmr2847962985a.1.1795600397639;
+        Wed, 25 Nov 2026 01:53:17 -0800 (PST)
+X-Received: by 2002:a05:620a:6f8a:20b0:945:ede4:d247 with SMTP id af79cd13be357-949ba82824dmr2847960185a.1.1795600397077;
+        Wed, 25 Nov 2026 01:53:17 -0800 (PST)
+Received: from [192.168.226.72] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae68802sm622707866b.28.2026.11.25.01.53.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 01:53:16 -0800 (PST)
+Message-ID: <30485a94-cc85-4c64-8593-a2218a3aa59d@oss.qualcomm.com>
+Date: Wed, 25 Nov 2026 10:53:13 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,103 +115,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:16a1:b0:572:d0fb:ae64 with SMTP id
- 5614622812f47-57a0bb6f16fmr17558738b6e.54.1795600349928; Wed, 25 Nov 2026
- 01:52:29 -0800 (PST)
-Date: Wed, 25 Nov 2026 01:52:29 -0800
-In-Reply-To: <6b048c5c.a481e175.27cf24.0021.GAE@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b06afdd.9416b02e.106116.000e.GAE@google.com>
-Subject: Re: [syzbot] [iomap?] WARNING in iomap_release_folio
-From: syzbot <syzbot+daa4cd155cd8696efe4f@syzkaller.appspotmail.com>
-To: almaz.alexandrovich@paragon-software.com, brauner@kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-xfs@vger.kernel.org, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: qcom: shikra: Mark cti_riscv device as failed
+To: Jie Gan <jie.gan@oss.qualcomm.com>,
+        Bjorn Andersson
+ <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20261116-disable_riscv_cti_for_shikra-v1-1-d7cc81f901e0@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20261116-disable_riscv_cti_for_shikra-v1-1-d7cc81f901e0@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzOCBTYWx0ZWRfX2r5i2CEZCCox
+ XswPjrWeYZFX87qlPmRJV8jYvM8J/Sfh5KwQrugPBEdamb9UuN27EWfADgLyCLbixwFgvCxd1L6
+ RbLCkGKp2W7T6xp8z3PstBaTKxPeWkE=
+X-Proofpoint-ORIG-GUID: xEnFsjm8rzf5bHPsYbZED1PphKo7Qc7e
+X-Proofpoint-GUID: xEnFsjm8rzf5bHPsYbZED1PphKo7Qc7e
+X-Authority-Analysis: v=2.4 cv=GIGdgeNK c=1 sm=1 tr=0 ts=6b06b00e cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=K9kiO-SBJ6ozCPIvxsMA:9 a=QEXdDO2ut3YA:10
+ a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzOCBTYWx0ZWRfX0PRp4eNkvi8T
+ 3OtU597d7j2gQAfQz2JkTM46w0MlKYbB0YfVlQsLkEPerhTFiUf1fZsP0WIsuQxj9WUqBNkJVKI
+ DqaEcHCaDvea9ZIzi5CWS1dLjQkAp3AE7KFmThTPL1hfS6Wx77+yHI8bPqKF8Nv0QhXSjz4zn/V
+ u4fH9VktjbV/4DhSXDXtYnN27plu/cnsZxY3iIPbypqo1OmdKtTVGRFd84QQxJcVCG3HXK9l/Wu
+ NLonGUvOaxhQR6eb9em8tquDBzu4TSnAVAbsHFxsO/dsKbEf2L9+f3h+nDAFI1E2Yq3TVOJH/OT
+ cQx6O7OJ9qLiNjNn7eX5sn64p0f/H2yDFwmjiayfxw9QUN20hycxTnn6ayLw2hOKdwqqP0dNwZV
+ e6QVZ22E5Nnemt76AphSCq+zjYvtY4Di4pYZSVpPkSjt6p6fA2ux2PNMLcPLXoQ+staeIKSZkbi
+ eVj8fgYOeniP627U3hQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 adultscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015
+ spamscore=0 priorityscore=1501 bulkscore=0 malwarescore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250038
 
-syzbot has found a reproducer for the following issue on:
+On 11/16/26 12:03 PM, Jie Gan wrote:
+> The cti_riscv device is suspected to have a clock vote issue on the
+> KVM enabled path, which causes the device to crash during bootup. Mark
+> the node with status = "fail" for now to avoid the crash.
+> 
+> Fixes: eed738c6dd0c ("arm64: dts: qcom: shikra: Add coresight nodes")
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
 
-HEAD commit:    4dce97c6c265 Merge tag 'ext4_for_linus-7.4-rc5' of git://g..
-git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-console output: https://syzkaller.appspot.com/x/log.txt?x=13bc88e9580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=fbd0fc734eea62ed
-dashboard link: https://syzkaller.appspot.com/bug?extid=daa4cd155cd8696efe4f
-compiler:       Debian clang version 22.1.8 (1~deb13u5), Debian LLD 22.1.8
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=112662bd580000
+That would mean Gunyah is enabling some clock that the TZ itself isn't,
+which would be solveable through a clock driver patch. Do we have more
+details here?
 
-The issue was bisected by AI to:
+Konrad
 
-commit 099ef9ab9203dff327f2d61e44773f9acbc01f13
-Author: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
-Date:   Fri Dec 26 13:45:19 2025 +0000
-
-    fs/ntfs3: implement iomap-based file operations
-
-AI reasoning:   https://syzkaller.appspot.com/ai_job?id=e3505470-e7cd-4afa-9bd4-3a5bf01c3027
-
-AI-generated root cause summary:
-`ntfs3` registers iomap folio lifecycle callbacks (`iomap_dirty_folio` and
-`iomap_release_folio`) on `ntfs_aops` and `ntfs_aops_cmpr`, which attach a
-per-block `struct iomap_folio_state` (`ifs`) to folios whenever
-`i_blocks_per_folio(inode, folio) > 1` (such as when NTFS cluster size is
-smaller than `PAGE_SIZE`). However, `ntfs_read_folio()` in `fs/ntfs3/inode.c`
-directly calls `folio_mark_uptodate(folio)` instead of
-`iomap_folio_mark_uptodate(folio)` when `ni->i_valid <= vbo` (and the same
-pattern appears in `ni_read_folio_cmpr`, `ntfs_compress_write`, and
-`attr_make_nonresident`). If an earlier incomplete or aborted iomap
-write/zero-range operation left `ifs` attached to an `!uptodate` folio,
-`folio_mark_uptodate()` sets `PG_uptodate` without updating the `ifs->state`
-uptodate bitmap. When kswapd later reclaims the clean folio via
-`iomap_release_folio()` -> `ifs_free()`, `ifs_is_fully_uptodate(folio, ifs) !=
-folio_test_uptodate(folio)` triggers the `WARN_ON_ONCE`.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=daa4cd155cd8696efe4f
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+daa4cd155cd8696efe4f@syzkaller.appspotmail.com
-
-The cause commit was identified by AI and may be wrong.
-If you agree with it, please also add:
-Fixes: 099ef9ab9203 ("fs/ntfs3: implement iomap-based file operations")
-
-------------[ cut here ]------------
-ifs_is_fully_uptodate(folio, ifs) != folio_test_uptodate(folio)
-WARNING: fs/iomap/buffered-io.c:295 at ifs_free+0x22d/0x2c0 fs/iomap/buffered-io.c:294, CPU#0: syz-executor112/5663
-Modules linked in:
-CPU: 0 UID: 0 PID: 5663 Comm: syz-executor112 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-RIP: 0010:ifs_free+0x22d/0x2c0 fs/iomap/buffered-io.c:294
-Code: 41 5f 5d e9 55 0a bb ff e8 30 8e 4d ff 90 0f 0b 90 e9 0a ff ff ff e8 22 8e 4d ff 90 0f 0b 90 e9 3a ff ff ff e8 14 8e 4d ff 90 <0f> 0b 90 eb c7 44 89 f9 80 e1 07 80 c1 03 38 c1 0f 8c 3d fe ff ff
-RSP: 0018:ffffc90003b2f938 EFLAGS: 00010293
-RAX: ffffffff827bc41c RBX: ffff8880147a7f80 RCX: ffff888036eea580
-RDX: 0000000000000000 RSI: 0000000000000008 RDI: 0000000000000000
-RBP: 00000000827c4201 R08: ffffea00013c5487 R09: 1ffffd4000278a90
-R10: dffffc0000000000 R11: fffff94000278a91 R12: dffffc0000000000
-R13: 1ffffd4000278a95 R14: 0000000000000008 R15: 0000000000000000
-FS:  000055555a32a400(0000) GS:ffff88808a9e9000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007f3c023b7000 CR3: 0000000013fb5000 CR4: 0000000000352ef0
-Call Trace:
- <TASK>
- iomap_release_folio+0x254/0x450 fs/iomap/buffered-io.c:826
- mapping_evict_folio+0x348/0x470 mm/truncate.c:374
- mapping_try_invalidate+0x260/0x4b0 mm/truncate.c:605
- generic_fadvise+0x610/0x750 mm/fadvise.c:157
- vfs_fadvise mm/fadvise.c:184 [inline]
- ksys_fadvise64_64 mm/fadvise.c:197 [inline]
- __do_sys_fadvise64 mm/fadvise.c:209 [inline]
- __se_sys_fadvise64 mm/fadvise.c:207 [inline]
- __x64_sys_fadvise64+0x145/0x190 mm/fadvise.c:207
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7f3c023eea2a
-Code: 10 00 00 00 48 63 4c 24 30 48 89 44 24 08 48 8d 44 24 20 48 89 44 24 10 eb a2 e8 f1 18 00 00 90 41 89 ca b8 dd 00 00 00 0f 05 <89> c2 f7 da 3d 00 f0 ff ff b8 00 00 00 00 0f 47 c2 c3 0f 1f 40 00
-RSP: 002b:00007ffd9854b3c8 EFLAGS: 00000246 ORIG_RAX: 00000000000000dd
-RAX: ffffffffffffffda RBX: 0000000000000003 RCX: 00007f3c023eea2a
-RDX: 0000000000001000 RSI: 0000000000000000 RDI: 0000000000000003
-RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000004 R11: 0000000000000246 R12: 00007ffd9854c520
-R13: 0000000000000000 R14: 0000000000000001 R15: 00007ffd9854b410
- </TASK>
+>  arch/arm64/boot/dts/qcom/shikra.dtsi | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/shikra.dtsi b/arch/arm64/boot/dts/qcom/shikra.dtsi
+> index 0a95ad5a5582..5f5a786fbd2c 100644
+> --- a/arch/arm64/boot/dts/qcom/shikra.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/shikra.dtsi
+> @@ -3996,6 +3996,7 @@ cti@982b000 {
+>  			clocks = <&rpmcc RPM_SMD_QDSS_CLK>;
+>  			clock-names = "apb_pclk";
+>  			label = "cti_riscv";
+> +			status = "fail";
+>  		};
+>  
+>  		tpdm@9860000 {
+> 
+> ---
+> base-commit: 84abb955b1015477aa11a96e2f3ac1b938b77f48
+> change-id: 20261116-disable_riscv_cti_for_shikra-574ac8895dea
+> 
+> Best regards,
