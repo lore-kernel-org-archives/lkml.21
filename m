@@ -1,58 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.143.211.150
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596107;
-	b=SGY7wpz1HGE9xwq/6HNcgk/sqA737vNbP5l4BPdYGbf0qjIbLoWZgS23iMGwglGoQYVe
-	 dOW4fbdKrg8a6X7dk6dJyEQ7a2VvsjkCoAENYSdaA2J9z90i3Fs0AxKI1+YakpIBe20o6
-	 5FCNhEbTpbhlYe/mCSqYtIRibzLEFNTmwr8S+pD9A7bI08vKmHV1AZ3IJsoOQ9j45lVI4
-	 WqXhFqWhnfy06+kLkatwJR/vCmQxMJQj9XSRZd/dbjDm+a0ShKqpE7z8IIjqj3F71lJIl
-	 zYhrGt0AZLrBA74l00fDz+9x18GbHXM5ybr/PTP2z1BfbgNbGxvNlqZW2oOO4GJvxLw==
+	t=1795596135;
+	b=VOvJPI/7XcQO/WHfhZhEzMM9QhoDX/arVUYcZRp9TVaIYQEq6AXlPpS88Afa+swPC3I9
+	 voTj5X8OrAp45tUADJde7nUzJfQgGaJ0rAycmyeOFEUhd/X2OPVa3FEIfFlX/MorWKO7I
+	 IqoeRJF0vDTwM01qzEdcDm0g9Ly0t5Y/pbXDnzEUSomZDBt+iZoSNGb+Upy7LTvqgnfCr
+	 ZZDeFKyBRWhEUVPg8xsxCX1Hs06UX8frcaw6iFSqkvrvszRLxtfOOgXNES3hRx/FN7tje
+	 Bo75BYEsX4VyGkrQOnsC+yLr9njyrRHJAwEzRwveviSTmdlvWAvcwuCR5HUoJFXYCUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596107;
-	h=DMARC-Filter:From:DKIM-Signature:To:Cc:Subject:Date:Message-ID:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=HRW9Qk9qeAqYq2NS8NaScJ7tOzreTijlDxilGYfObys=;
-	b=vlxHEXB5tXYfHHagvPUd9lPyx7IKUKVwwu0u4awbL+6Z5l+Fy92/kPJqpjMJE7vUSP78
-	 wMbGfzNmHm+3q/zxzOkKbA4MXNxyHR3PfI/UvMru+fjlUCSR+is4oaEdHwtwI2w6jTUrU
-	 2jN1lmigzCoAAK1MOl+nJY4dUJlm69YQVHbjgUu0ySeX6MNMSL8eDM8Y42zh6acW7EEns
-	 VNL6MCJ6TDDrFx6jA7Qt7MbHJZ2KOjS0VLmWnWzDymIRPj3QbD/lV9vYRaPPZq3S47dzv
-	 xOwScb1jT9lVOtxIb4iAFaSCoe4MjIeOwuMvC29fAQ3rgsRZI1hKtQ9wL4qdk+HCAaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596135;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:From:To:Cc:Subject:In-Reply-To:References:Date:
+	 Message-ID:MIME-Version:Content-Type;
+	bh=bfedwSxwQLGGz+Z2vyd2vC4NVHhMFBOOXh9XyPwMEUc=;
+	b=DFhEjJRtmY9DB4i04DqKhQPFC/3ztdR0gGjpents3F8tz/jpv6QT8dMQcZ96HubnjKmb
+	 DppqNh8Cy9wVCRnwfyBRcFzg+4ObPOrCKJfhvnVTd2eVO4PPtxHtxKOOTQyISB1+d8Q98
+	 3RukrXF/ULfp9qT4zC0e7ed1g/3014XqrRVMUT2AL202o8sum2pN18Y4Wdd/RGAc0WNMt
+	 fPgj+iUPIZfnPVb1SJ181txDUJw/dXVB37x4A3Yf+g0V8AmxWdlTpXKVf0yV5NGrDedoO
+	 nntJdCNRvBholjRWLr9ib5HCwNxJ/gdpyMxhNlJUvZXVVuot39gGzFkOiMLOAaXokbA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=swemel.ru;
-	spf=pass smtp.mailfrom=swemel.ru;
-	dkim=pass header.d=swemel.ru header.i=@swemel.ru header.a=rsa-sha256 header.s=mail header.b=IPMPygw2;
-	arc=none smtp.remote-ip=95.143.211.150
-Received: from mx.swemel.ru (mx.swemel.ru [95.143.211.150])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Px26KOns;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=CTaHRziO;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5D3A606A321;
-	Wed, 25 Nov 2026 08:41:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5D3A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=swemel.ru
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=swemel.ru
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67AC5606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:42:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67AC5606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=swemel.ru header.i=@swemel.ru header.a=rsa-sha256 header.s=mail header.b=IPMPygw2
-From: Denis Arefev <arefev@swemel.ru>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=swemel.ru; s=mail;
-	t=1795596102;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Px26KOns;
+	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=CTaHRziO
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795596133;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=HRW9Qk9qeAqYq2NS8NaScJ7tOzreTijlDxilGYfObys=;
-	b=IPMPygw204mopTIfa7oyuBfgNsnKSSGoOYdkR18n0pIBeor2ZugxtqSGZQGNtMQ/XZstYg
-	6Q1emS53AYOfm47gXb0w8ZVX1Y+EH//Dwj04IDiqZp5YTNnZY8SU9BzG2NqZ6dr+yhApjX
-	zzOQ4DITCQf9M/kpw9ww6kASUiMLR7g=
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	iommu@lists.linux-foundation.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	Joerg Roedel <jroedel@suse.de>
-Subject: [PATCH 5.10] iommu/amd: Check return value of mmu_notifier_register()
-Date: Wed, 25 Nov 2026 11:41:40 +0300
-Message-ID: <20261125084142.30679-1-arefev@swemel.ru>
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bfedwSxwQLGGz+Z2vyd2vC4NVHhMFBOOXh9XyPwMEUc=;
+	b=Px26KOnsf8VzWaT5M4+AXcSNp0xsxvL1F6fNbr7DrhkBSuZfc89DxLbq56hteEnSnsCC1P
+	XC0DDlgCO9PWNvFGT8J1/10w32LNQmUSnDexmrqotpmPjGLs2yIpE9PleFJrHiOlcSpJF6
+	hVsBNoRC49PsF4OsiUpxpOfl7krYqVU=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-575-RzSHO9_WPMG70O9-iJsfYQ-1; Wed, 25 Nov 2026 08:42:11 +0000
+X-MC-Unique: RzSHO9_WPMG70O9-iJsfYQ-1
+X-Mimecast-MFC-AGG-ID: RzSHO9_WPMG70O9-iJsfYQ_1795596130
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4bb8ae35aeaso45981275e9.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:42:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795596130; x=1796200930; darn=vger.kernel.org;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bfedwSxwQLGGz+Z2vyd2vC4NVHhMFBOOXh9XyPwMEUc=;
+        b=CTaHRziOWhRLfDiA8sCcG27lxyX/1F5a4BlJiDD4p+Dl3MZv4mIP2LFQIu9P+CC/Q0
+         7GeWfauPuuGzzBVopwUkXMjSdY0IeQb6VqWY1ZKXhwZQTxtvcneY3ow1rnl2sLbQSe6+
+         q2sC4CvyAyDXmFRUdQA44PynRRUPZ+VnLXSPdGCabB+g/AbHVMcNXZAtypRJ9OEPz3jc
+         fRIxNfxVZ7Lqsd+SUDSsbqsYM5tbCg6me929qizqtdiA/G0xcdNj1/6+oh0VdN1GqYSn
+         3IdJ780DHdDGICVzxUquB8k+nL3wERpQMTCD2mK6DmirW9i5ILUZDA40nIT3g1djYNZN
+         oxlg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795596130; x=1796200930;
+        h=content-type:mime-version:message-id:date:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=bfedwSxwQLGGz+Z2vyd2vC4NVHhMFBOOXh9XyPwMEUc=;
+        b=V0S2jSAqsRS6BBDG4Pz38oXhoRY1Jp3CjRVBphv93EYS9NLl7bD2XHmiP/4+kb+fIM
+         /WC52fSUESw0srPkrul7ovmyPkmFAxX/v7L1mTYstpIMoGOFJpm7hEBSdDtTJWKE+Puw
+         QitBBLV7XOGSCiEixj6ln4TqVsajdW7AgRWqpTzkqA4xD28fnl5/MBXfm0klRSp5BFBE
+         qsEMNYWej2+cyysXTzMoWiXX031YRdPQmLbRFVuckSdWzuTqEl1B2zO/TJ1AznbZIslu
+         xmRVkZUhBtNoz2C9/e/JpNQ3qVOuZG0+WXQpiHok2iVb28RqySC5W9SJnXG5bGjGAUFA
+         rb/g==
+X-Forwarded-Encrypted: i=1; AL+hErHQS9ea2e1BJH72PMoldj3/DKP+EmE3i8IuiDSTLEBseSJY2s91t47rnKq05Rdxoh7q3LxOFOT+SwMWhKg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9TTBcjGaTrogzfdJCh6/HDprtafmqw6tN84pJOa71pILANS8OE
+	wiqu/ZB4cKkHvtuLOZbpAovE6rpzqZHR2m0Of3j6Tj5wIxKObPGX3bDe0gUpRfN/sz6swFydhCd
+	Z+9HcRkXgNrNGBaPq1MN08qCEDp1Lcn4+u4q5vWQIHPGqG425UtSAEGTJLDcMiW1rOQ==
+X-Gm-Gg: AZFdTZce0JTP25cc69DNeKgRbYgiFu+hWHd7yWvd6FiJMC2centd7hlY/j7KNnFJh3T
+	xjRf7RjBUSyxx9WLRYs7XMCQwnHO0skxziZmCOqWjZkJErAJ3Zh3J3m5nSVBzNdynWnHeyKSA4i
+	aCwh/UULkDP7SyJaROwkRZfrntJqg/p/oHqn0LeX+dP98ofnEWbqRGSP6q49GA9QRF51l1yYsXI
+	fGcbxIqsolXUrgJiXIPCpkTdTRUiky1V2bDYDby7Zp/+5sDk891eFLmLqb2aM9c2Aga+CGELe+a
+	W3noze+HSninSAttqjnVpNcx6nvgx/dTex6yJ6lrMjjPaZ8Cu0j2c0KWSKMS/NzP1RmytuuDcDz
+	NGbl1P6ULCYS1Byo7ozihZPBBblMBvxTgZ7vjGHPWOi5ONHP64FitFSPIE1nvjh9TKD6geCE08Q
+	foJnuq0+UH4yL7rjbVou4JqubwD9ADBGwOlkIiong=
+X-Received: by 2002:a05:600c:4584:b0:4b8:4af2:88b3 with SMTP id 5b1f17b1804b1-4bb88817aa2mr346072985e9.22.1795596130193;
+        Wed, 25 Nov 2026 00:42:10 -0800 (PST)
+X-Received: by 2002:a05:600c:4584:b0:4b8:4af2:88b3 with SMTP id 5b1f17b1804b1-4bb88817aa2mr346072345e9.22.1795596129635;
+        Wed, 25 Nov 2026 00:42:09 -0800 (PST)
+Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d55sm32983935f8f.5.2026.11.25.00.42.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 00:42:09 -0800 (PST)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: Yige Jiang <yigejiang86@gmail.com>, Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Yige Jiang <yigejiang86@gmail.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] firmware: sysfb: Clear the device pointer on
+ registration failure
+In-Reply-To: <confirmed-20261105-25-a16124b5ff57@gmail.com>
+References: <confirmed-20261105-25-a16124b5ff57@gmail.com>
+Date: Wed, 25 Nov 2026 09:42:07 +0100
+Message-ID: <xlv1mrqxl2u8.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,45 +116,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 
-From: Denis Arefev <arefev@swemel.ru>
+Yige Jiang <yigejiang86@gmail.com> writes:
 
-commit b09b56734fae28be9332021ae3e84c9b05020fda upstream.
+Hello,
 
-Added a return value check for the function
-mmu_notifier_register().
+> sysfb_init() stores the legacy framebuffer device in the file-scope pd
+> pointer before adding its data and registering it. If either operation
+> fails, the error path drops the allocation reference but leaves pd set.
+> A later sysfb_disable() then passes this stale pointer to
+> platform_device_unregister().
+>
+> Clear pd after releasing the failed device, while disable_lock is still
+> held. This makes sysfb_unregister() skip it just as it skips an absent
+> or already unregistered framebuffer.
+>
+> Fixes: bde376e9de3c ("firmware: sysfb: Add sysfb_disable() helper function")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+> ---
 
-Return value of a function 'mmu_notifier_register'
-called at iommu_v2.c:642 is not checked,
- but it is usually checked for this function
+Thanks for the fix.
 
-Found by Linux Verification Center (linuxtesting.org) with SVACE.
+Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
 
-Signed-off-by: Denis Arefev <arefev@swemel.ru>
-Link: https://lore.kernel.org/r/20221118104252.122809-1-arefev@swemel.ru
-[joro: Fix commit message ]
-Signed-off-by: Joerg Roedel <jroedel@suse.de>
-Signed-off-by: Denis Arefev <arefev@swemel.ru>
----
- drivers/iommu/amd/iommu_v2.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/iommu/amd/iommu_v2.c b/drivers/iommu/amd/iommu_v2.c
-index 16776e3c6eab..8704c2c89556 100644
---- a/drivers/iommu/amd/iommu_v2.c
-+++ b/drivers/iommu/amd/iommu_v2.c
-@@ -640,7 +640,9 @@ int amd_iommu_bind_pasid(struct pci_dev *pdev, u32 pasid,
- 	if (pasid_state->mm == NULL)
- 		goto out_free;
- 
--	mmu_notifier_register(&pasid_state->mn, mm);
-+	ret = mmu_notifier_register(&pasid_state->mn, mm);
-+	if (ret)
-+		goto out_free;
- 
- 	ret = set_pasid_state(dev_state, pasid_state, pasid);
- 	if (ret)
 -- 
-2.43.0
+Best regards,
+
+Javier Martinez Canillas
+Core Platforms
+Red Hat
 
