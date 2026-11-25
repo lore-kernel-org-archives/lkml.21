@@ -1,59 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590979;
-	b=ht2UapiQza0mM6r6LDGBZ7q5a93Ui9hFDs0GHWiXDoFpGE5E4FJ2sBOc+Fkir6g4gG8q
-	 UQUrpIs6Fd8d/gdWPR/s2/KcYyDEZXSfCf5UmiBLqBm0srv2JlL+fibYT8RNSRl2P8KmR
-	 rw8m6UH/ZYafs5RkhpQIxAuAhwItkYvFI+UcuoDUTbep80kB/auMz3f56uiX5UpgCCNrI
-	 AGBlpp1+ezEREfmZWZQbvEu8ole8WonASUKWz69EHTHtRP1CGdbjsueXrk7MuPYeeD8Ow
-	 IJfswU8Goj6bYGaTZRR+79NxuLp/a4yOVYzPH39kII+I7ooJpRFyVr6vHhl0/JQt+uQ==
+	t=1795591047;
+	b=WeQkK9QLIC2PdOCXvja7rL8Q0E08u1Wd3VAfeRgzHgsqUdNIaLZRrQ6uokC08Ja/WaEK
+	 7VfiWBtdejOn+2DB1uww8hltt6u/jfH4h0ShkX+M3WVIm2vaOe1Szn3aTa2uLeLNpQxxG
+	 te+Cfv4Gl1ejQagaaJ+GzwhUwQjjul2etpFUaVzZt0wNkc5HeruM8xkl+e68ADitaVgOO
+	 BWrGsf1ZJQttTh7H4aZYEmztjkILimL0l1As92laruRuSd1tbIKFsY4Y3YfEpkDjzCeCr
+	 /5wdDv/XxVycCnwEuXyKCgxdsQYSkGFfhPMBvWd5Gg7k+nA/VIki0PWwWDUGmExiSnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590979;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=PBcxJs4YJ9Kl1J7kvgU+nHQpIaFyg5LVBkk9xBDYPhg=;
-	b=Erl2yfQhOhyjKnPz/BrhBIO2Kgld2KfGjM+xrm26KL4ALlKjK7GQBan4fr0EdEvQxRs7
-	 K+xCStKTVbBqeh7U+7JntSn5hAPJYFzugOmhkk0DDVTwnVPSm62GEHAUXBB2jCUPDcYKx
-	 d1gC9xoTcKKaMJNq1D9Zh0FUy0M4QRT3vf9H9LLAN0z+yCGtGCmunLw2L4BvUwsZZaYRp
-	 WlRkcXZB76VB6GIn9LrYetY0Hu0+NqiB+uyI2Gd0UXSrk+Niwor2mnEt9ZYwI6p8Hbs6w
-	 NXAdmsCLdO54PSNwt1b5NAhMHo9RbKlatOLpw6+RvloTtcrOk5mjWwkaKLu/svmKGCQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795591047;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=KhJUkQPZyN9y1v9H8Yod+/wivWEUr38YDDHMmnx/a9Q=;
+	b=jOhlOQbUopXLhbPksieVU7o+jqovhqRtHF0BD9roKxfs78/qugQuHrko3ogL5QEVwuvi
+	 rmkR0Jc1XlrmHlc1cl1JjQ9SzVCYUDKcocJnAbNxoFKzfH3l/5kmGz26BbU8+eJX89Yg4
+	 RbRsRqk8c6yQe+19gLY6vI+M+27ZMMe+pJslA9PtIXoH1h86NHJ4F4H1dqkhL+LRGhErz
+	 mJ0FgheTslbekkpbWs+32NDy7IgS4pv/gomtgh5yV6WiJ+KA/c+/LOo/lJE1AIX+xlGs9
+	 S74VUdT/MG1kh3z4xeyMym4TyTcgHditbnFpG7boZX0jlSXVO9zF6dWkHDcRHTvLTMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mxz3oYUY;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 942B3606A6A7;
-	Wed, 25 Nov 2026 07:16:19 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mxz3oYUY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC9AC1F000C4;
-	Wed, 25 Nov 2026 07:16:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795590979;
-	bh=PBcxJs4YJ9Kl1J7kvgU+nHQpIaFyg5LVBkk9xBDYPhg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Mxz3oYUYhhDxwTdP2KvTBZLCtg3uZ6xpdGtkvxlOf/AXQrdbcOuuqiIjKAxpm6vI/
-	 hlw/YcisvZ/io+dy/e9J/yCPVia6QIXujsOCFxoGwuneHxEUR2lL4PgaxvzXQnT/9r
-	 xlNkPzyNy3CFnKkxmeDY2Z2Eg4h3GyC1gixZxasgBJRSjSVx4HdUVYUVRRnNNaw+0e
-	 ZpisdRuHM3mWSH9r7nNhdrY61zjSRhPKumYTMSFZLI2xoJU4/GloBApVd6f7pdyA4N
-	 DmJR4gcqq0ho4N567vu2IwQ1c4MoR5x5V6k31uAjjOlZbjaHhGlzAb/I1P0oQETrQr
-	 j0jJLx9IUcIMg==
-Subject: Re: [PATCH net v4] net/ncsi: fix use-after-free of ncsi_channel in
- ncsi_remove_channel()
-From: netdev-bot+sashiko@kernel.org
-To: 18983559317@163.com
-Cc: sam@mendozajonas.com, fercerpav@gmail.com, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Date: Wed, 25 Nov 2026 07:16:18 +0000
-Message-ID: <179559097851.3135.4122236304109940542@kernel.org>
-In-Reply-To: <20261121065625.27934-1-18983559317@163.com>
-References: <20261121065625.27934-1-18983559317@163.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6BCC2606A6A2;
+	Wed, 25 Nov 2026 07:17:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BCC2606A6A2
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=KhJUkQPZyN
+	9y1v9H8Yod+/wivWEUr38YDDHMmnx/a9Q=; b=GjyI2GxJDUn0INHpCDiXfMdtu4
+	AuPrR/zRrWiuA9dUyMbDeKbTRVh+qQjDVmMslc3pj+FEyHqaCvO1XUCIU2i0l0Zq
+	CjBNqu5iYRCpemrTIYAc0BzJJSL10GGGGY9PNXATU1/s3ETZEY1y29yzJTBSy0KH
+	JLF+q2FB0lOXznAoA=
+Received: from user-virtual-machine.localdomain (unknown [113.200.174.108])
+	by hzbj-edu-front-4.icoremail.net (Coremail) with UTF8SMTPA id BrQMCkAGLQNiiwZriuEyAg--.64993S2;
+	Wed, 25 Nov 2026 15:16:51 +0800 (CST)
+From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+To: Andrew Lunn <andrew@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: [PATCH] net: usb: mcs7830: skip zero-length register dump reads
+Date: Wed, 25 Nov 2026 15:16:49 +0800
+Message-Id: <20261125071649.7052-1-25031212351@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,253 +62,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BrQMCkAGLQNiiwZriuEyAg--.64993S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7KF4rCr4UCryUuw1xCFykXwb_yoW8Ar4Dpa
+	y5C3yjkFWjqF4DC393A3yjqa45CanxArW7C340vwnxuFn8X3W7Cry8C3Wjgr1Yyry0yry0
+	yFn0yr4j9F45CaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUB0b7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r
+	18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vI
+	r41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64
+	vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8G
+	jcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2I
+	x0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK
+	8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I
+	0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU2fMaUUUUU
+X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUHD2sFqFk9XAADsx
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+mcs7830_get_regs() passes the user-supplied regs->len straight to
+mcs7830_get_reg(), which submits a vendor control-IN request for that
+many bytes.  ETHTOOL_GREGS accepts a zero length, and ethtool_get_regs()
+still invokes the driver's get_regs() callback in that case, so a
+zero-byte dump request reaches the driver.
 
-Critical: 0 · High: 1 (2) · Medium: 0 · Low: 0
+A zero-length USB transfer has no data stage and the USB core treats it
+as an OUT transfer, so submitting it on usb_rcvctrlpipe() triggers
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+  usb 1-1: BOGUS control dir, pipe 80000380 doesn't match bRequestType c0
+  WARNING: drivers/usb/core/urb.c:411 at usb_submit_urb
 
-- [High] The fix is incomplete.
+and taints the kernel, which becomes a denial of service when
+panic_on_warn is set.
 
-Pre-existing issues:
-- [High] This bug predates the patch.
-- [High] This bug predates the patch.
+There is nothing to read when regs->len is zero, so return early before
+issuing the transfer.
 
---
+Fixes: 2a36d7083438 ("USB: driver for mcs7830 (aka DeLOCK) USB ethernet adapter")
+Cc: stable@vger.kernel.org
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+---
+ drivers/net/usb/mcs7830.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-net/ncsi: fix use-after-free of ncsi_channel in ncsi_remove_channel()
-
-The patch moves the free of ncsi_channel and its filter arrays into an
-RCU callback. It also wraps the device lookup and the list walks of all
-NCSI genl handlers in rcu_read_lock() sections. Separately, it drops the
-leaked get_net() references and pins the net_device for the SEND_CMD
-error notification.
-
-> diff --git a/net/ncsi/ncsi-manage.c b/net/ncsi/ncsi-manage.c
-> index 1d63958c4429b..79b2a56c5a935 100644
-> --- a/net/ncsi/ncsi-manage.c
-> +++ b/net/ncsi/ncsi-manage.c
-> @@ -242,17 +242,21 @@ struct ncsi_channel *ncsi_add_channel(struct ncsi_package *np, unsigned char id)
-
-[ ... ]
-
->  static void ncsi_remove_channel(struct ncsi_channel *nc)
->  {
->  	struct ncsi_package *np = nc->package;
->  	unsigned long flags;
->  
->  	spin_lock_irqsave(&nc->lock, flags);
-> -
-> -	/* Release filters */
-> -	kfree(nc->mac_filter.addrs);
-> -	kfree(nc->vlan_filter.vids);
-> -
->  	nc->state = NCSI_CHANNEL_INACTIVE;
->  	spin_unlock_irqrestore(&nc->lock, flags);
->  	ncsi_stop_channel_monitor(nc);
-> @@ -263,7 +267,11 @@ static void ncsi_remove_channel(struct ncsi_channel *nc)
->  	np->channel_num--;
->  	spin_unlock_irqrestore(&np->lock, flags);
->  
-> -	kfree(nc);
-> +	/* Netlink walkers may still hold the channel or its filter
-> +	 * arrays; the arrays are only reachable through @nc and share
-> +	 * its grace period.
-> +	 */
-> +	call_rcu(&nc->rcu, ncsi_channel_release);
->  }
-
-[Severity: High]
-
-Only the channel free is deferred here. The package and the
-ncsi_dev_priv on the same teardown path look like they are still freed
-right after list_del_rcu(), with no grace period:
-
-net/ncsi/ncsi-manage.c:ncsi_remove_package() {
-    ...
-	spin_lock_irqsave(&ndp->lock, flags);
-	list_del_rcu(&np->node);
-	ndp->package_num--;
-	spin_unlock_irqrestore(&ndp->lock, flags);
-
-	kfree(np);
-}
-
-net/ncsi/ncsi-manage.c:ncsi_unregister_dev() {
-    ...
-	dev_remove_pack(&ndp->ptype);
-
-	list_for_each_entry_safe(np, tmp, &ndp->packages, node)
-		ncsi_remove_package(np);
-
-	spin_lock_irqsave(&ncsi_dev_lock, flags);
-	list_del_rcu(&ndp->node);
-	spin_unlock_irqrestore(&ncsi_dev_lock, flags);
-
-	disable_work_sync(&ndp->work);
-
-	kfree(ndp);
-}
-
-The synchronize_net() in dev_remove_pack() runs before any package or
-the ndp is unlinked. disable_work_sync() does not wait for RCU readers.
-
-The new rcu_read_lock() sections still walk and dereference these
-objects:
-
-  - ncsi_pkg_info_nl() and ncsi_pkg_info_all_nl() call
-    ncsi_write_package_info(). It reads ndp->package_num and
-    ndp->package_whitelist, and walks NCSI_FOR_EACH_PACKAGE() through
-    np->id, np->node.next and np->channels.
-
-  - ncsi_write_channel_info() reads nc->package->preferred_channel. The
-    channel now survives the grace period, but its parent package does
-    not.
-
-  - ncsi_set_channel_mask_nl() and ncsi_set_interface_nl() take
-    package->lock and write package fields.
-
-  - ncsi_set_package_mask_nl() and ncsi_clear_interface_nl() take
-    ndp->lock.
-
-  - ncsi_send_cmd_nl()->ncsi_xmit_cmd()->ncsi_alloc_request() takes
-    ndp->lock and writes ndp->requests[].
-
-ndp_from_ifindex() returns ndp without taking any reference on it.
-ftgmac100_remove() also calls ncsi_unregister_dev() before
-unregister_netdev():
-
-	if (priv->ndev)
-		ncsi_unregister_dev(priv->ndev);
-	unregister_netdev(netdev);
-
-So dev_get_by_index() keeps succeeding, and ncsi_find_dev() keeps
-returning ndp for the whole teardown.
-
-NCSI_CMD_PKG_INFO has no GENL_ADMIN_PERM. Can the unprivileged
-PKG_INFO vs rmmod race from the commit message still hit a
-slab-use-after-free, only now on the ncsi_package or ncsi_dev_priv
-object instead of the kmalloc-1k channel?
-
-If so, these two claims would not hold for np and ndp:
-
-  - the comment added in ncsi_pkg_info_nl(): "the walker is protected
-    by that grace period"
-  - the commit message: "All seven genl handlers now resolve the device
-    and walk the lists inside an RCU read-side critical section, so the
-    grace period of that callback protects them"
-
-Should np also be freed through kfree_rcu() or call_rcu()? And should a
-grace period (synchronize_rcu() or kfree_rcu()) come before
-kfree(ndp)?
-
-[Severity: High]
-
-This isn't a bug introduced by this patch, but ncsi_unregister_dev()
-removes all packages and channels before it calls
-disable_work_sync(&ndp->work). That means ncsi_dev_work can still run
-during this teardown.
-
-Can that leave an armed monitor timer inside a channel that
-ncsi_channel_release() then frees? Here is the sequence:
-
-rmmod
-ncsi_unregister_dev()
-  ncsi_remove_package()
-    ncsi_remove_channel()
-      ncsi_stop_channel_monitor(nc)
-      ...
-      call_rcu(&nc->rcu, ncsi_channel_release)
-
-ncsi_dev_work, running at the same time with nc == ndp->active_channel
-ncsi_configure_channel()
-  ncsi_start_channel_monitor(nc)
-    mod_timer(&nc->monitor.timer, jiffies + HZ)
-
-Nothing cancels the timer again before nc is freed. So
-ncsi_channel_monitor() could run on freed memory.
-
-The work also uses ndp->active_package and ndp->active_channel outside
-any RCU read-side section. Neither ncsi_remove_channel() nor
-ncsi_remove_package() clears them, and neither clears hot_channel or
-package->preferred_channel.
-
-Could the work then dereference a package that ncsi_remove_package()
-already kfree'd, or a channel whose RCU callback has already run?
-
-The work can be pending or running when ncsi_unregister_dev() starts.
-It can also be queued during teardown through
-ncsi_request_timeout()->ncsi_free_request()->schedule_work(). And
-ftgmac100 calls ncsi_unregister_dev() while the netdev is still up.
-
-Would calling disable_work_sync() before tearing down the packages and
-channels close this window?
-
-> diff --git a/net/ncsi/ncsi-netlink.c b/net/ncsi/ncsi-netlink.c
-> index 8cc538358f6a3..3310a9ca2de9b 100644
-> --- a/net/ncsi/ncsi-netlink.c
-> +++ b/net/ncsi/ncsi-netlink.c
-
-[ ... ]
-
-> @@ -462,23 +501,31 @@ static int ncsi_send_cmd_nl(struct sk_buff *msg, struct genl_info *info)
->  	nca.info = info;
->  	nca.payload = ntohs(hdr->length);
->  	if (nca.payload > len - sizeof(*hdr)) {
-> +		rcu_read_unlock();
->  		ret = -EINVAL;
->  		goto out_netlink;
->  	}
->  	nca.data = data + sizeof(*hdr);
->  
-> +	/* ncsi_xmit_cmd() is safe to run under the RCU read-side
-> +	 * critical section: it only uses GFP_ATOMIC command skbs,
-> +	 * spinlocks and dev_queue_xmit().
-> +	 */
->  	ret = ncsi_xmit_cmd(&nca);
-> +	rcu_read_unlock();
-
-[Severity: High]
-
-This isn't a bug introduced by this patch, but is the request timer
-that ncsi_xmit_cmd() arms ever cancelled when the device is
-unregistered?
-
-net/ncsi/ncsi-cmd.c:ncsi_xmit_cmd() {
-    ...
-	nr->enabled = true;
-	mod_timer(&nr->timer, jiffies + 1 * HZ);
-    ...
-}
-
-The only timer_delete_sync() for request timers is in
-ncsi_free_request(). That runs only when a response arrives or the
-timer fires.
-
-ncsi_unregister_dev() calls dev_remove_pack() first, so no more
-responses get processed. It then frees the packages, calls
-disable_work_sync() and does kfree(ndp). ndp embeds requests[256] and
-their timer_list objects.
-
-If a request is still in flight at that point, could
-ncsi_request_timeout() fire up to a second later on freed memory? It
-would read nr->ndp and take ndp->lock. For event-driven requests,
-ncsi_free_request() would also call schedule_work(&ndp->work). The
-pending timer_list would stay linked into the timer wheel from inside
-the freed object.
-
-This seems likely during probe, where commands to absent packages
-always wait out the one second timeout, so the insmod/rmmod cycling in
-the commit message would hit it. An outstanding monitor request, or a
-NCSI_CMD_SEND_CMD request sent from this path, can trigger it too.
-
-[ ... ]
-
+diff --git a/drivers/net/usb/mcs7830.c b/drivers/net/usb/mcs7830.c
+index d6698f30218d..f5606f2cea05 100644
+--- a/drivers/net/usb/mcs7830.c
++++ b/drivers/net/usb/mcs7830.c
+@@ -437,6 +437,8 @@ static void mcs7830_get_regs(struct net_device *net, struct ethtool_regs *regs,
+ 	struct usbnet *dev = netdev_priv(net);
+ 
+ 	regs->version = mcs7830_get_rev(dev);
++	if (!regs->len)
++		return;
+ 	mcs7830_get_reg(dev, 0, regs->len, data);
+ }
+ 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121065625.27934-1-18983559317%40163.com
+2.34.1
+
