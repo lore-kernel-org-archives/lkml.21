@@ -1,75 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645474;
-	b=yjfeJZzavUvy/9tqL++iqbsW0H/4EErJcWkLCGW3rRlxKepSZW5k2z451+UeJl+i4FII
-	 mkVruplyb1xmKJSvEE277gq2w0BRvLVuvwpBrd+BzmJcYvs6kh4+cyKngBDpkBMlmM9TX
-	 x8roncaJ2nAIBc+9fTYfidG/0J7f8vlbrrH6rNYqt1ut8VeOqVrGKLawIiqG3jSL4vJAV
-	 Q1Rn5xEx2l/Gv6aeSmCjpNGw4Pnul+0Ocky1zrEfPbw2ZGINmhxIk3iYbrNOfOBLMDrbs
-	 K0qy0fII6Mm9kA+Edz9bzuUY++3G4eujjVBzT/vZ1eXGBW/1Ygk51N+VPlSJjgYEB2A==
+	t=1795645477;
+	b=2AcquzHYfoqLXvbWXeJ6mGA0a+2ia/d3oiFA8lCMuNIgooXgyrCdLLoMpUtP1uXEtW8s
+	 mQLZgszI/6szEhb5Jk9zmNqoVVMrPvqDFwhlAeqHM2/LgMmTG0H3B3VEZOTmKBBxos0uJ
+	 YkfOKXJUubbIfLD8G0SRwTxM3GdpQ8TJ2Iew6BeeVUOoMQGpsWH4Oyl76YCBha5LrGHbm
+	 x1ancsTN/+ZN+6S8+OC5CS6V7xKkuv+qtYqGw6lBAvR12WyNSIuIFl+XmqHRwakTO00F8
+	 JSzWvcnyGxnLBpYB/NyL20T8J+pPxlMOPuzok1DnadhJQCVx2qL5nR7FoNznufG371A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645474;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=VpmCZyaDhiCrjNxeAIXeOLBMLi9KQfBBj22GsCf5Hkc=;
-	b=BbTGOUQdnhhDstKYMSHojUUqbR48WDN45a/F6NkRBxUF/y9goK8cOWv9H9W8xk0IeF9P
-	 IyiAPbBJ9ZZrz+0lS1Kz8iirNjD0pV1gB0HcOE6QsVSIDhdgi+n5DQ27qmv5slkbYQJ/X
-	 7utjVitbseJlKK+zFIuD8S4q30+BUheKQQaHwEB+Brxsfnh3jdnlOcop1TD+zgt5V8Brh
-	 IC+NadKWKXe8VPvrNVqHQLFmHrdFAvRZGjbRmErs0kLkWgRxnKxZpl2AduGFyu3daVKli
-	 qo1mnrnTjlj3K+6ZHjjA+iSLvRQs0A0WPaw9PWM5t73h7/Fe2k4zjS9Ie0Ns9diTuuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645477;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=5szWeZKE1z/drzfw/aP5VoEESRjMYcr18SKdRyw9M98=;
+	b=oMvlECCfw8zy0PXfm3A5SdtSJ/PIn7AvSdxMlcdoKehZp1GuPc21G6zhcligG2vPKE0w
+	 t8/kEdp1d+6WwVDKUXOTDLBY+1RwGDKdI3+W7pSTINM4fe4NaSB9wHhA0foR+fNK9N3sC
+	 u33iVDTRS7NHtF5/RkTxkr/2efwT6Zd8cFz25VPl+MrwvqVIpac68HNYBKZ14O0P2ja1c
+	 oE/BROSIFv6ZKv9oiKrJPn6S3Xm13WJPm/9f0aSQGcWHZp6+TsY8MkXopqKj6Gq5KfwGv
+	 GJusmMzKBErvsFDWAQbUUDKJfgJ21fNsRsWyFDX7Dxmg/YWcLM4Wtu8dCrUpQa2oRhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZN1noaVk;
-	arc=none smtp.remote-ip=74.125.82.199
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q9F8DvFi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F0A1606A6A4
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:24:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F0A1606A6A4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08AAD606A68C;
+	Wed, 25 Nov 2026 22:24:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZN1noaVk
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3854627c1c8so8714635eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:24:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795645474; x=1796250274; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VpmCZyaDhiCrjNxeAIXeOLBMLi9KQfBBj22GsCf5Hkc=;
-        b=ZN1noaVkanf3lqdBjL559LUAedBuO+p61a+giyaSpcenPUV3MKmGEH87i4HmmPY2S9
-         RcjLMQWEmvbPauXZAde3ks3g0/yeRA+JlBJmwkMZVXwAqdESiKnfiQcAwejghVyxJO0v
-         zSWy1Z/8e0Gaj8UuwmPNcgvT+FhuCB5gw4x3ECd4TBYlNaa/XohbXBmLd4PYJtIyGJE5
-         WWoMnT2mkxaWjR9M+/RrE+1Uz9/7ZsRcwt2aAepGyQ+jS5heJmxGfVrlKO00eOfjqkkp
-         8SV5TeYA7LZEFaLCzVBnGBcbtMO60p5+2bqR29DUIww/TXWpREOpswlbuPPczGfXxC1M
-         eejA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645474; x=1796250274;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VpmCZyaDhiCrjNxeAIXeOLBMLi9KQfBBj22GsCf5Hkc=;
-        b=JEURK9SSm0RdVnKvaCToQ5Qp9dp48uMjm9Xrbj8MKs+piuyaXPW3C6MtmuaSaibNZa
-         DceuN1qP8gKEL8SeCRZRTvwDz4jbHfDVHVBGnMOkG3WkZPLDDvavSCfv/AZdOU/G4GHO
-         +AjFiqmLUEv39BJwPyPUpLZCIuMhXzjVYU+qRuiKPrwXoFM3nOxKVoEVBnDzYEyirsEC
-         AqP1yDwzIEsYqMzMmgmrLv7mOfnkjiJkv+Uz/rn1B5L8aSTXCLsmbUSgGTFu0i0rkUEZ
-         44EVSaAs2GU1jRRUSswMK1ynjxiM4cXh8jSf/SEsAEhJ1/p6u9m2RIAb+beMzB8TN1+F
-         i/gA==
-X-Forwarded-Encrypted: i=1; AL+hErGJDJfbnqOIf9aEDtWfKpQArlvZzs+1gQbSfXw5XTBXoPLlh+tAm4jmE3x8VfAcuIQTlgarMTOhHO+uXpU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+5uWtdBs/gpttdwIO502fjwTeDYj3CWwiwbfrb769ZVxFrXtL+
-	2VN7SV5edF4JKHlrhdJ3QomWWRZo3q0UHoLsdfC8trxRpvivCLSDgG20mCAmLYHv4SZwpLe+IaI
-	B0Q==
-X-Received: from dyw15.prod.google.com ([2002:a05:7300:880f:b0:351:4a2a:1ece])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:2108:b0:386:b99:8ff9
- with SMTP id 5a478bee46e88-3860b999354mr17111901eec.40.1795645473196; Wed, 25
- Nov 2026 14:24:33 -0800 (PST)
-Date: Wed, 25 Nov 2026 22:22:59 +0000
-In-Reply-To: <20261125222300.1438398-1-elkin@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q9F8DvFi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 122E91F01562;
+	Wed, 25 Nov 2026 22:24:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795645476;
+	bh=5szWeZKE1z/drzfw/aP5VoEESRjMYcr18SKdRyw9M98=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Q9F8DvFimQFL1WF6IJF0YDLDecDLFzcYbuIb5ecSsKK/Utp2YXi7paw7mpV2u+Jad
+	 xvMXDHBOPLsVek4mAjiZdmGdwuhYYTDwpBbgsw25H1PqE0jhCwPugcw3sRTl6EXp25
+	 SF8Op5dp8p73CDt9i9qnrdWMCX/10PrrGQZC236ju17PCN9a9SIdLfNmstJj+mTFPq
+	 hRuobLtUzHz0R7ttgrGDGdHWCo9hm7TU6AVgqg5jAAg18lEdwC1VYFXagsbolUX7+v
+	 5bCCPJkq0lyz9y/l194cRTXBSdZVfLFgc3FZ7eRe6it73vWDdEOEofrSGqTSl+x0Ys
+	 rnIsvPYgkdRdQ==
+From: Frederic Weisbecker <frederic@kernel.org>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Frederic Weisbecker <frederic@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Phil Auld <pauld@redhat.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	linux-mips@vger.kernel.org,
+	Michael Kelley <mhklinux@outlook.com>
+Subject: [PATCH 32/47] clocksource/drivers/mips-gic-timer: Move CPUHP_AP_MIPS_GIC_TIMER_STARTING post stop_machine()
+Date: Wed, 25 Nov 2026 23:22:15 +0100
+Message-ID: <20261125222230.22508-33-frederic@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261125222230.22508-1-frederic@kernel.org>
+References: <20261125222230.22508-1-frederic@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,247 +66,52 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261125222300.1438398-1-elkin@google.com>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125222300.1438398-5-elkin@google.com>
-Subject: [PATCH net 4/4] nfc: st95hf: fix probe init order and remove teardown UAF
-From: Elkin Cruz <elkin@google.com>
-To: David Heidelberg <david@ixit.cz>, Nathan Chancellor <nathan@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, oe-linux-nfc@lists.linux.dev, llvm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, irogers@google.com, 
-	Elkin Cruz <elkin@google.com>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-In st95hf_probe(), exchange_lock, rm_lock, and ddev/nfcdev are
-initialized only after devm_request_threaded_irq(), leaving the IRQ
-thread exposed to uninitialized synchronization primitives and a NULL
-ddev if an interrupt arrives during probe. On teardown, st95hf_remove()
-frees ddev while the threaded IRQ is still registered, and the end:
-path in st95hf_irq_thread_handler() still calls complete_cb() after
-nfcdev_free is set.
+Between CPUHP_TEARDOWN_CPU and CPUHP_AP_OFFLINE, stop_machine executes
+all the teardown callbacks while temporarily stopping/pausing all CPUs
+in the system. This doesn't mix well with running RT or isolated tasks.
 
-Initialize locks and allocate ddev before requesting the IRQ, skip
-complete_cb() when nfcdev_free is set, and synchronize/free the IRQ via
-devm_free_irq() before calling nfc_digital_free_device() in both
-st95hf_probe() error paths and st95hf_remove().
+In order to transition smoothly from global stop_machine to finer
+grained synchronization between teardown callbacks and the other CPUs,
+a new stop machine post function has been introduced to be executed
+after the main one with IRQs still disabled while other CPUs can exit
+stop_machine().
 
-This issue was found while trying out new Clang static analysis checks for
-kernel bug classes. The finding was triaged and fixed, and this commit
-description was drafted with the help of AI, then verified by code
-inspection and compile-tested against linux-next (not reproduced and not
-runtime-tested on hardware).
+The teardown callback here simply performs IRQ disablement, which can
+run concurrently with other CPUs.
 
-Fixes: cab47333f0f7 ("NFC: Add STMicroelectronics ST95HF driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Elkin Cruz <elkin@google.com>
+Move it to post stop_machine() accordingly.
+
+Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+Tested-by: Michael Kelley <mhklinux@outlook.com>
 ---
- drivers/nfc/st95hf/core.c | 118 +++++++++++++++++++-------------------
- 1 file changed, 60 insertions(+), 58 deletions(-)
+ kernel/cpu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/nfc/st95hf/core.c b/drivers/nfc/st95hf/core.c
-index ead0c342996c..f6384d9c4da8 100644
---- a/drivers/nfc/st95hf/core.c
-+++ b/drivers/nfc/st95hf/core.c
-@@ -869,9 +869,12 @@ static irqreturn_t st95hf_irq_thread_handler(int irq, void  *st95hfcontext)
- 	kfree_skb(skb_resp);
- 	wtx = false;
- 	cb_arg->rats = false;
--	skb_resp = ERR_PTR(result);
--	/* call of callback with error */
--	cb_arg->complete_cb(stcontext->ddev, cb_arg->cb_usrarg, skb_resp);
-+	if (!stcontext->nfcdev_free) {
-+		skb_resp = ERR_PTR(result);
-+		/* call of callback with error */
-+		cb_arg->complete_cb(stcontext->ddev, cb_arg->cb_usrarg,
-+				    skb_resp);
-+	}
- 	/* up the semaphore before returning */
- 	up(&stcontext->exchange_lock);
- 	mutex_unlock(&stcontext->rm_lock);
-@@ -1076,10 +1079,9 @@ MODULE_DEVICE_TABLE(of, st95hf_spi_of_match);
- static int st95hf_probe(struct spi_device *nfc_spi_dev)
+diff --git a/kernel/cpu.c b/kernel/cpu.c
+index 9a3936cd6d79..4451c5997cc6 100644
+--- a/kernel/cpu.c
++++ b/kernel/cpu.c
+@@ -1275,7 +1275,7 @@ void clear_tasks_mm_cpumask(int cpu)
+ static int take_cpu_down(void *_param)
  {
- 	struct device *dev = &nfc_spi_dev->dev;
--	int ret;
--
--	struct st95hf_context *st95context;
- 	struct st95hf_spi_context *spicontext;
-+	struct st95hf_context *st95context;
-+	int ret;
+ 	struct cpuhp_cpu_state *st = this_cpu_ptr(&cpuhp_state);
+-	enum cpuhp_state target = max((int)st->target, CPUHP_AP_LOONGARCH_ARCH_TIMER_STARTING);
++	enum cpuhp_state target = max((int)st->target, CPUHP_AP_MIPS_GIC_TIMER_STARTING);
+ 	int err, cpu = smp_processor_id();
  
- 	nfc_info(&nfc_spi_dev->dev, "ST95HF driver probe called.\n");
+ 	/* Ensure this CPU doesn't handle any more interrupts. */
+@@ -1303,7 +1303,7 @@ static int take_cpu_down_post(void *_param)
+ 	enum cpuhp_state target = max((int)st->target, CPUHP_AP_OFFLINE);
+ 	int cpu = smp_processor_id();
  
-@@ -1094,6 +1096,17 @@ static int st95hf_probe(struct spi_device *nfc_spi_dev)
- 	st95context->fwi =
- 		cmd_array[CMD_ISO14443A_PROTOCOL_SELECT].cmd_params[2];
- 
-+	init_completion(&spicontext->done);
-+	mutex_init(&spicontext->spi_lock);
-+	sema_init(&st95context->exchange_lock, 1);
-+	mutex_init(&st95context->rm_lock);
-+
-+	/*
-+	 * Store spicontext in spi device object for using it in
-+	 * remove function
-+	 */
-+	dev_set_drvdata(&nfc_spi_dev->dev, spicontext);
-+
- 	if (device_property_present(&nfc_spi_dev->dev, "st95hfvin")) {
- 		st95context->st95hf_supply =
- 			devm_regulator_get(&nfc_spi_dev->dev,
-@@ -1110,15 +1123,6 @@ static int st95hf_probe(struct spi_device *nfc_spi_dev)
- 		}
- 	}
- 
--	init_completion(&spicontext->done);
--	mutex_init(&spicontext->spi_lock);
--
--	/*
--	 * Store spicontext in spi device object for using it in
--	 * remove function
--	 */
--	dev_set_drvdata(&nfc_spi_dev->dev, spicontext);
--
- 	st95context->enable_gpiod = devm_gpiod_get(dev, "enable", GPIOD_OUT_HIGH);
- 	if (IS_ERR(st95context->enable_gpiod)) {
- 		ret = PTR_ERR(st95context->enable_gpiod);
-@@ -1130,22 +1134,37 @@ static int st95hf_probe(struct spi_device *nfc_spi_dev)
- 	if (ret)
- 		goto err_disable_regulator;
- 
--	if (nfc_spi_dev->irq > 0) {
--		if (devm_request_threaded_irq(&nfc_spi_dev->dev,
--					      nfc_spi_dev->irq,
--					      st95hf_irq_handler,
--					      st95hf_irq_thread_handler,
--					      IRQF_TRIGGER_FALLING,
--					      "st95hf",
--					      (void *)st95context) < 0) {
--			dev_err(&nfc_spi_dev->dev, "err: irq request for st95hf is failed\n");
--			ret =  -EINVAL;
--			goto err_disable_regulator;
--		}
--	} else {
-+	/* create NFC dev object before requesting IRQ */
-+	st95context->ddev = nfc_digital_allocate_device(&st95hf_nfc_digital_ops,
-+							ST95HF_SUPPORTED_PROT,
-+							ST95HF_CAPABILITIES,
-+							ST95HF_HEADROOM_LEN,
-+							ST95HF_TAILROOM_LEN);
-+	if (!st95context->ddev) {
-+		ret = -ENOMEM;
-+		goto err_disable_regulator;
-+	}
-+
-+	st95context->nfcdev = st95context->ddev->nfc_dev;
-+	nfc_digital_set_parent_dev(st95context->ddev, &nfc_spi_dev->dev);
-+	nfc_digital_set_drvdata(st95context->ddev, st95context);
-+
-+	if (nfc_spi_dev->irq <= 0) {
- 		dev_err(&nfc_spi_dev->dev, "not a valid IRQ associated with ST95HF\n");
- 		ret = -EINVAL;
--		goto err_disable_regulator;
-+		goto err_free_digital_device;
-+	}
-+
-+	ret = devm_request_threaded_irq(&nfc_spi_dev->dev,
-+					nfc_spi_dev->irq,
-+					st95hf_irq_handler,
-+					st95hf_irq_thread_handler,
-+					IRQF_TRIGGER_FALLING,
-+					"st95hf",
-+					(void *)st95context);
-+	if (ret < 0) {
-+		dev_err(&nfc_spi_dev->dev, "err: irq request for st95hf is failed\n");
-+		goto err_free_digital_device;
- 	}
- 
+-	WARN_ON(st->state != CPUHP_AP_LOONGARCH_ARCH_TIMER_STARTING);
++	WARN_ON(st->state != CPUHP_AP_MIPS_GIC_TIMER_STARTING);
  	/*
-@@ -1157,44 +1176,26 @@ static int st95hf_probe(struct spi_device *nfc_spi_dev)
- 	ret = st95hf_send_spi_reset_sequence(st95context);
- 	if (ret) {
- 		dev_err(&nfc_spi_dev->dev, "err: spi_reset_sequence failed\n");
--		goto err_disable_regulator;
-+		goto err_free_irq;
- 	}
- 
- 	/* call PowerOnReset sequence of ST95hf to activate it */
- 	ret = st95hf_por_sequence(st95context);
- 	if (ret) {
- 		dev_err(&nfc_spi_dev->dev, "err: por seq failed for st95hf\n");
--		goto err_disable_regulator;
--	}
--
--	/* create NFC dev object and register with NFC Subsystem */
--	st95context->ddev = nfc_digital_allocate_device(&st95hf_nfc_digital_ops,
--							ST95HF_SUPPORTED_PROT,
--							ST95HF_CAPABILITIES,
--							ST95HF_HEADROOM_LEN,
--							ST95HF_TAILROOM_LEN);
--	if (!st95context->ddev) {
--		ret = -ENOMEM;
--		goto err_disable_regulator;
-+		goto err_free_irq;
- 	}
- 
--	st95context->nfcdev = st95context->ddev->nfc_dev;
--	nfc_digital_set_parent_dev(st95context->ddev, &nfc_spi_dev->dev);
--
--	ret =  nfc_digital_register_device(st95context->ddev);
-+	ret = nfc_digital_register_device(st95context->ddev);
- 	if (ret) {
- 		dev_err(&st95context->nfcdev->dev, "st95hf registration failed\n");
--		goto err_free_digital_device;
-+		goto err_free_irq;
- 	}
- 
--	/* store st95context in nfc device object */
--	nfc_digital_set_drvdata(st95context->ddev, st95context);
--
--	sema_init(&st95context->exchange_lock, 1);
--	mutex_init(&st95context->rm_lock);
--
--	return ret;
-+	return 0;
- 
-+err_free_irq:
-+	devm_free_irq(&nfc_spi_dev->dev, nfc_spi_dev->irq, st95context);
- err_free_digital_device:
- 	nfc_digital_free_device(st95context->ddev);
- err_disable_regulator:
-@@ -1206,18 +1207,16 @@ static int st95hf_probe(struct spi_device *nfc_spi_dev)
- 
- static void st95hf_remove(struct spi_device *nfc_spi_dev)
- {
--	int result = 0;
--	unsigned char reset_cmd = ST95HF_COMMAND_RESET;
- 	struct st95hf_spi_context *spictx = dev_get_drvdata(&nfc_spi_dev->dev);
--
- 	struct st95hf_context *stcontext = container_of(spictx,
- 							struct st95hf_context,
- 							spicontext);
-+	unsigned char reset_cmd = ST95HF_COMMAND_RESET;
-+	int result = 0;
- 
- 	mutex_lock(&stcontext->rm_lock);
- 
- 	nfc_digital_unregister_device(stcontext->ddev);
--	nfc_digital_free_device(stcontext->ddev);
- 	stcontext->nfcdev_free = true;
- 
- 	mutex_unlock(&stcontext->rm_lock);
-@@ -1227,6 +1226,9 @@ static void st95hf_remove(struct spi_device *nfc_spi_dev)
- 	if (result == -EINTR)
- 		dev_err(&spictx->spidev->dev, "sleep for semaphore interrupted by signal\n");
- 
-+	devm_free_irq(&nfc_spi_dev->dev, nfc_spi_dev->irq, stcontext);
-+	nfc_digital_free_device(stcontext->ddev);
-+
- 	/* next reset the ST95HF controller */
- 	result = st95hf_spi_send(&stcontext->spicontext,
- 				 &reset_cmd,
+ 	 * Invoke the former CPU_DYING callbacks. DYING must not fail!
+ 	 */
 -- 
-2.56.1.839.g22a8290db9-goog
+2.56.1
 
