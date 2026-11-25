@@ -1,67 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617112;
-	b=HTQ7qK1kw5W1jI2j36f7jy83uoM+B7g0IkSD+FDQUfFvbVXGt9nPB4ygvGc2Pae70F9+
-	 5S4pJbNsuPxR0boe/O6D7kU4NoLEyjnTGmYg9j+3FOVmQkQ3TpcAjMggXrnG0OcDp7JGQ
-	 wDtxVKalhPn9+JRXFM18ZAgt/646d/Xz1Xklx4vx4S+jyx8AHJueHz6FF7j4bz1Uvq1HM
-	 i6/xZ8VfYptD2NPYXRV+ZsMEKdDrdzk+b3Da8QdkuhT1+jszL7SreLp3NcqkXHTyoYMF3
-	 hDBhoyV+bf0qyEoPODgDhC2sxpYwaoJ+0Ckrhs3APiW6KxFZNW+bnIBelP4vv9jyg2w==
+	t=1795617119;
+	b=C68myeOBnZemgax3Loy+qB7hwDi/fJfHUjoqE5D4e2vqrTyUDFvlGPC/mit3cu6SUaF6
+	 b1rw1u5wo6t3phPw0kQFH6Jfv2T1hcwQaIHVKT4YiXXozQZu74b7CBKWdePXFLuZ/AOsB
+	 zlHAYlVx2+FTUcL5G7ak7YszCTzTw50RSeSMYRgq5832O6z3iCFdq6vYJV8MjJ1xEydEF
+	 xXoseeaiadKBa/jRdavnqFlsc1XY7CrSQ8iVJcoYykYINKhFLHgvOnLzbQKz9FBKuVeGc
+	 OQAfM1dnCJ0IJqgR1up3uqp8klwmjxydgJoZttpr3GLcE09slGRh8J0UrzItok+sGQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617112;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
-	bh=9VPn3qSbr6UuDL7PEPnTHgNf7btvQAHemjoVf9yo53s=;
-	b=Zal7YQRlZ9wnpgN03Kfh4H6UVwFTYmthOm+zkIa1RUYm4UHtM8QoxrLbTt3/sGlzDAqe
-	 Ua/s6MDCq+jRnDjCvFMFT/HRhF42H/b+Psuj/Y7+b6ULfRFKS0fg56N+i6R/b66bPaZcb
-	 lZsTYxsfnw7GHvNovb62G+1a8veZGNaFrf1nOYzXkhfib/jdT0p6YG6hq5lhEFVwoef3B
-	 Z4dYTbd6lszbuOiH6SVvpbvs3CbNSZP7atz09psa1MR4buMZ+4xGCj8GKBpmyATLNXtJl
-	 PkNE1wrt/+ocJyYFFu+L36ee7Pz4TCDIUNSEZpU3fQQTc4oSuOjWpcq6FTpUDOTb4XQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617119;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=zKfRowNSGjVA87CJ4mW494zsgUl/v5ojHBz8f5BNf/0=;
+	b=k+9MY8RZZSmdTLy7WLevmn0W7zkyzWvmJPPIw9EwCaMI1DF1U0ynqisBn+dTLUR7OKo5
+	 nEyl88TKvAHJTJtqQjf1sp13Z5faOBvSuMAqcK7ekXuP3/vpFGGgacx5zSQNX4lvKDGW8
+	 RWUKpMU3YrYjFzeCIg73K2qF0/cWPVEKSDR/jnqeZIBQPUgeCMer8Ob5pNDxAdh7u5yA/
+	 5wyTpcV1GGO5FCkRYK4IGWXB0TQA/UGFSOXDdRM608YTdBwQIn8bamZEcm+6H0oKtsew9
+	 6EWfR6xywDx9d8O3XEon2nPf0ohwXWQSsnMc7YUTp6snZzJRo9Tc1HJByfrdEVWhPLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=BIckDBID;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=AdI7v2p2;
+	arc=none smtp.remote-ip=209.85.208.180
+Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com [209.85.208.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 207EF606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:31:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 207EF606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9631B606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:31:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9631B606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=BIckDBID
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795617111;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9VPn3qSbr6UuDL7PEPnTHgNf7btvQAHemjoVf9yo53s=;
-	b=BIckDBID/Np87DmUbt+5BIUQDtWfC6xl6RFAt173/BINKGdJr66Za23ofWhA6VKEUQ9A0R
-	aeDJPUDfSDrQrtqnb+NAlIdE1/pVUU6aitNzqMiDWVKCX5pLhrrHYMteBaiebrog4wEZ8z
-	881eiG6QsaG+qaXo6kkHuT6M6y0fGcY=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-324-jywuPODkNlmXYQVCdRy39A-1; Wed,
- 25 Nov 2026 14:31:43 +0000
-X-MC-Unique: jywuPODkNlmXYQVCdRy39A-1
-X-Mimecast-MFC-AGG-ID: jywuPODkNlmXYQVCdRy39A_1795617098
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E60451955F02;
-	Wed, 25 Nov 2026 14:31:37 +0000 (UTC)
-Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1024D1956045;
-	Wed, 25 Nov 2026 14:31:31 +0000 (UTC)
-Message-ID: <8dc4f480-a875-4118-b5ee-2c4716ee53bc@redhat.com>
-Date: Wed, 25 Nov 2026 15:31:30 +0100
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=AdI7v2p2
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3adfb0c9e3cso4821841fa.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:31:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795617117; x=1796221917; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=zKfRowNSGjVA87CJ4mW494zsgUl/v5ojHBz8f5BNf/0=;
+        b=AdI7v2p2DEnGcimvFHEZ5FVOQzGh9kkiGvTi8IyruIj4NZ9mtrDkotiCBgY8hdHcFJ
+         J5vpTFTxElIV3Bfd2gJcR1dSzv9XNkGP/Y0is5nM+gHP5MukTCaUJCZEQ8hSJseL55RE
+         9pbRCy1oNY2TNyYScIOM1eRVC1Hri+fvfQDSLHPgqTwElpBzAVbJA8jxApn2x2T8VfsP
+         IGHTrD/GtpvO070Qkv/SUBdfTuZ0JEoOhcQ3FIPntQb1Op/aFvCZBb4v2QSDSv+JGXbj
+         R/+TsbRhLAZNI5ttbtA0lnVW62/WUQaEZ8x3ikZL6ByIq294H0YzOwl+eW6ZmxOTGZbq
+         aPXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795617117; x=1796221917;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zKfRowNSGjVA87CJ4mW494zsgUl/v5ojHBz8f5BNf/0=;
+        b=fkm7Yolk+HC4xmuWO29/IB2FnljoBfsr/6stGfmT1TuBlRuWbgS96RoHysyg+gec+B
+         Y5ahWIjQ9GoR3eEtQBcQ7Xl7d4cVhBJBHBD6PKHScNulUd23CvOtAvpPbNJvO/A4vu9f
+         7I7zPKGdw83Cx7Dw0weUlSxXN+YQgFw0vUvNU+iWV9j4xqf8WLR2t0SYAJG4DF6oypRV
+         gxuFGmO/SkXRf1mO97llyo4uV8QqgnAWHNFvTcSW1SufrqNZrrPKxp/oqNqsC3Apx4qY
+         DqoY/cSVThvS356KzhBhFrkX8lBglI1mGwN42ej/5fyvYLX1UnjPV6v+66zEqfxfkVbS
+         pKIw==
+X-Forwarded-Encrypted: i=1; AL+hErGOQyO6HCI2YhuujwxU239PN/BwJ759Yf1hRTxFoSGcILNULkxVYrQq7qxfN3Tn/UnXiFLrKUX5WXDtEtc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9eULljfGIvdrglL9013GH9KCYdxsw8iAgLF6I/XWEEgqJ4DqhC
+	QVIaCf5SxVN3s084L3tobeHWBojkxDalpnm3pElmrTmvaYc932tUf5PdaS8GeAmiNCk=
+X-Gm-Gg: AZFdTZfCgYGOChQM3xTMkOAWtOBntzu4Vyjrdp0KClmExbZaZMtwPH4DnXxG/fqd72c
+	nu7oOoYkE0MnvwzvL/Qqh+JOVtRcLKWwgZL5Y7yGnWI5l6S87v5gVGWK2eHEavrjUgRa7RYA947
+	8zM1z5cg7vwSyd+6Hia4UUuThGMZ1Z5XXed+npmfwcpHa4TO8nKrnREC6hl+hCLE4vAMM+eBw6Y
+	SyBZGFCbNbDf6XcR2kkxI2t/MG/Qp0TeuIy/cf1RmUyXWqcNDCk1DL/vQQFcY5Yck/LhoEScLn0
+	Q0llf/P+RgPoQhWclmv8TnSIEse8Dr0Kr6hn4Ga/CXuNTBW5TL7CJe0IiHta5CiKdI1Xb619scS
+	2dP6bnwj0XXaV9DgkihRDVrbtYV2ZSAU/pZog5a9ejFJ7rZprIC/IpPI3WXtU0CfVzW0UoXDyYT
+	y92JXG0PvHLsYdILV6+xoiIYAGAEw3DbgNzqAJCFSSgKq/7Ag7L9YCIqaTAqPWglGyYWBAKs47P
+	EDPp7I/mv9pAEjXA+xcFJL5mla2xTeeycky2s+RD7E2lVE0P833C2nVtYuHfzf2hGbZ3OaEp7HR
+	bfO8rqCCjEo11YkfOcAli8barUNHdJLm+CvFCHgw2gWgpijZvn8pUP0Q7TpTKvT33jkpey/abMX
+	+UOOzICc=
+X-Received: by 2002:a2e:a28e:0:b0:3ac:dec0:158e with SMTP id 38308e7fff4ca-3ae7f9f3418mr40722721fa.2.1795617116747;
+        Wed, 25 Nov 2026 06:31:56 -0800 (PST)
+Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae8053568esm50069981fa.25.2026.11.25.06.31.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 06:31:56 -0800 (PST)
+Message-ID: <bac87368-6a84-4c75-ad25-b2fdea432b72@linaro.org>
+Date: Wed, 25 Nov 2026 16:31:55 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,164 +92,367 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-To: Jiri Pirko <jiri@resnulli.us>, Vadim Fedorenko <vadim.fedorenko@linux.dev>
-Cc: Jakub Kicinski <kuba@kernel.org>,
- Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
- netdev@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, Grzegorz Nitka <grzegorz.nitka@intel.com>,
- Karol Kolacinski <karol.kolacinski@intel.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
- Petr Oros <poros@redhat.com>
-References: <20261111164021.273409-1-ivecera@redhat.com>
- <20261116181612.107a4b57@kernel.org>
- <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
- <20261118174424.32e9f130@kernel.org>
- <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
- <20261119133851.3f25074c@kernel.org>
- <bdfa88fe-13bb-4050-b750-962586b1d846@redhat.com>
- <ff8b63b7-b943-444a-bd37-b6fb493b5d9f@linux.dev>
- <awMP9Gj3Xhia0ZeI@FV6GYCPJ69>
-Content-Language: en-US
-From: Ivan Vecera <ivecera@redhat.com>
-In-Reply-To: <awMP9Gj3Xhia0ZeI@FV6GYCPJ69>
+Subject: Re: [PATCH v4 2/3] dt-bindings: media: qcom,glymur-camss: Add Glymur
+ CAMSS
+To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
+ Bryan O'Donoghue <bod@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, Suresh Vankadara <svankada@qti.qualcomm.com>,
+ Vikram Sharma <vikram.sharma@oss.qualcomm.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260925-glymur_camss-v4-0-d7c2983d6d7b@oss.qualcomm.com>
+ <20260925-glymur_camss-v4-2-d7c2983d6d7b@oss.qualcomm.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <20260925-glymur_camss-v4-2-d7c2983d6d7b@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Content-Transfer-Encoding: 7bit
 
-On 11/22/26 16:54, Jiri Pirko wrote:
-> Fri, Nov 20, 2026 at 09:00:27PM +0100, vadim.fedorenko@linux.dev wrote:
->> On 20/11/2026 07:39, Ivan Vecera wrote:
->>> On 11/19/26 22:38, Jakub Kicinski wrote:
->>>> Well, I'm not convinced. The relations between objects in DPLL are
->>>> already quite hard to follow, and objects from one driver routinely
->>>> "plug" into objects from another. The explanation of the locking
->>>> rules in patch 9 does not look clean or clear. The driver facing
->>>> API needs to be much more "dummy-proof".
->>>
->>> Fair enough. The complicated part of the rules comes exactly from
->>> that: a pin registered by another driver, like the zl3073x pins that
->>> ice registers with its TXC DPLL or uses as parents of its RCLK pins.
->>> A message about such a pin runs callbacks of both drivers. I have
->>> prototypes of the first four ways below to lock this, each with KUnit
->>> tests, and would like your opinion before going further.
->>>
->>> In all of them a domain is the set of objects created with the same
->>> module and clock_id, dpll_lock becomes an rwsem for the topology and
->>> lifetime, and a mutex per domain serializes the callbacks.
->>>
->>> A) Pin's domain (this series)
->>>
->>>      Callbacks of a pin run under the domain of the pin, whichever
->>>      driver registered them.
->>>
->>>      Pros:
->>>      * one domain lock at a time, so no lock order
->>>      * a request or a message about a pin is atomic
->>>      Cons:
->>>      * the callbacks of a foreign pin are serialized with the driver
->>>        that created the pin, not with the other callbacks of the driver
->>>        that registered it, so that driver has to protect the shared
->>>        state itself, and lockdep cannot check it
->>>      * restrictions for measured_freq_get, reference sync pairs and the
->>>        private data of a parent pin, which patch 9 has to explain
->>>
->>> B) Registrant's domain, deferred notifications
->>>
->>>      Each callback runs under the domain of the driver that registered
->>>      it. A message about a pin takes the domain locks one after another,
->>>      and notifications from callbacks are queued and sent once the
->>>      domain lock is dropped.
->>>
->>>      Pros:
->>>      * callbacks registered by one driver instance are always
->>>        serialized with each other
->>>      * one domain lock at a time, so no lock order
->>>      Cons:
->>>      * a request or a message about a pin registered across domains is
->>>        not atomic
->>>      * the most complex core: a notification queue per domain, a lock
->>>        per object to keep its messages in order, and pin setters split
->>>        into validation and apply parts
->>>
->>> C) Registrant's domain nested under the pin's domain
->>>
->>>      Pros:
->>>      * callbacks registered by one driver instance are serialized with
->>>        each other and with the driver that created the pin
->>>      * a request or a message about a pin is atomic
->>>      Cons:
->>>      * the lock order comes from the topology, so a pin of A registered
->>>        with a DPLL of B together with a pin of B registered with a DPLL
->>>        of A deadlocks, and lockdep sees it only with a lockdep class per
->>>        domain
->>>      * a stuck foreign registrant stops the domain of the pin
->>>
->>> D) Merged domains (your suggestion)
->>>
->>>      Registering a pin with a DPLL or a parent pin of another domain
->>>      merges both domains. They are not split again.
->>>
->>>      Pros:
->>>      * the rules for drivers stay as they are with the global lock
->>>        today, and lockdep checks them; the only new one is that state
->>>        shared between chips not connected by a pin needs a driver lock
->>>      * a request or a message is atomic
->>>      Cons:
->>>      * only hardware not connected by pins runs in parallel; on the
->>>        GNR-D system the zl3073x and all ice PFs end up in one domain
->>>      * a callback that waits for the hardware, like the planned resync
->>>        for up to 1 s, or for firmware still stalls all DPLL devices in
->>>        the merged domain
->>>
->>> E) Global dpll_lock, slow callbacks asynchronous
->>>
->>>      Pros:
->>>      * no change in the core
->>>      Cons:
->>>      * the resync problems from my previous mail, and a callback that
->>>        waits for firmware still stalls all DPLL devices in the system
->>>
->>> I wrote before that stretching the domains would not improve
->>> anything on that system. That holds for the ToD stall I measured,
->>> but the zl3073x does not need to hold its channel lock across the
->>> edge waits. Without that, the remaining waits are the planned resync
->>> and output state callbacks, and with D they stall only the devices
->>> wired to that chip, which depend on it anyway.
->>>
->>> So I lean towards D, as it gives drivers nothing new to get right.
->>> Would that address your concern, or do you see a better way?
->>>
->>> It would be good to hear from the other DPLL maintainers as well.
->>> Jiri, Vadim, Arkadiusz, what do you think?
->>
->> I totally agree with Jakub. Current implementation of DPLL subsystem is
->> over complicated, and all these complications came just to completely
->> model what was designed for Intel NICs, basically ice driver. But now we
->> are again back to the discussion how to complicate things further just
->> to fit what was implemented in the new generation of the same hardware.
->>
->> Maybe it's time to step back and think if we really need all this, or
->> find simpler way to express/model things?
+On 9/25/26 08:48, Nihal Kumar Gupta wrote:
+> Glymur uses only the new PHY API via standalone phy@ child nodes,
+> so per-CSIPHY clocks, interrupts and supplies are absent here.
 > 
-> Agreed.
+> X1E80100 has four CSIPHY instances while Glymur has three
+> (CSIPHY0, CSIPHY1, CSIPHY4).
+> 
+> Co-developed-by: Vikram Sharma <vikram.sharma@oss.qualcomm.com>
+> Signed-off-by: Vikram Sharma <vikram.sharma@oss.qualcomm.com>
+> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+> ---
+>   .../bindings/media/qcom,glymur-camss.yaml          | 300 +++++++++++++++++++++
+>   1 file changed, 300 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/qcom,glymur-camss.yaml b/Documentation/devicetree/bindings/media/qcom,glymur-camss.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..a0b77edc212319fad69113f3d55ca24f184d4b23
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/qcom,glymur-camss.yaml
+> @@ -0,0 +1,300 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/qcom,glymur-camss.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Qualcomm Glymur Camera Subsystem (CAMSS)
+> +
+> +maintainers:
+> +  - Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+> +
+> +description:
+> +  The CAMSS IP is a CSI decoder and ISP present on Qualcomm platforms.
+> +
+> +properties:
+> +  compatible:
+> +    const: qcom,glymur-camss
+> +
+> +  reg:
+> +    maxItems: 13
+> +
+> +  reg-names:
+> +    items:
+> +      - const: csid_wrapper
+> +      - const: csid0
+> +      - const: csid1
+> +      - const: csid2
+> +      - const: csid_lite0
+> +      - const: csid_lite1
+> +      - const: csitpg0
+> +      - const: csitpg1
+> +      - const: csitpg2
 
-I fully agree with you guys... I also don't like the way how the ice implemented
-pin sharing and thinking more about Vadim's "Maybe it's time to step back...".
-I have started an effort how to model this differently without any inter-driver
-DPLL object sharing.
+I believe CAMSS on SM8350 and before has TPG as a CSID IP function, but
+since then TPGs are seperate I/O blocks. It might be more appropriate
+to give "tpgX" names (like it's done for sa8775p and qcs8300), and I do
+understand that "csitpgX" were selected just to get a compatibility with
+the reused X1E TPG names, which might be not a good enough reason...
 
-I will send a RFC patch-set that should address hopefully all painful points.
+> +      - const: vfe0
+> +      - const: vfe1
+> +      - const: vfe_lite0
+> +      - const: vfe_lite1
+> +
+> +  clocks:
+> +    maxItems: 20
+> +
+> +  clock-names:
+> +    items:
+> +      - const: camnoc_nrt_axi
+> +      - const: camnoc_rt_axi
+> +      - const: core_ahb
+> +      - const: cpas_ahb
+> +      - const: cpas_fast_ahb
+> +      - const: cpas_vfe0
+> +      - const: cpas_vfe1
+> +      - const: cpas_vfe_lite
+> +      - const: csid
+> +      - const: csid_csiphy_rx
+> +      - const: gcc_axi_hf
+> +      - const: gcc_axi_sf
+> +      - const: vfe0
+> +      - const: vfe0_fast_ahb
+> +      - const: vfe1
+> +      - const: vfe1_fast_ahb
+> +      - const: vfe_lite
+> +      - const: vfe_lite_ahb
+> +      - const: vfe_lite_cphy_rx
+> +      - const: vfe_lite_csid
+> +
+> +  interrupts:
+> +    maxItems: 9
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: csid0
+> +      - const: csid1
+> +      - const: csid2
+> +      - const: csid_lite0
+> +      - const: csid_lite1
+> +      - const: vfe0
+> +      - const: vfe1
+> +      - const: vfe_lite0
+> +      - const: vfe_lite1
+> +
+> +  interconnects:
+> +    maxItems: 4
+> +
+> +  interconnect-names:
+> +    items:
+> +      - const: ahb
+> +      - const: hf_mnoc
+> +      - const: sf_mnoc
+> +      - const: sf_icp_mnoc
+> +
+> +  iommus:
+> +    items:
+> +      - description: S1 HLOS IFE and IFE_LITE non-protected
+> +
+> +  power-domains:
+> +    items:
+> +      - description: IFE0 GDSC - Image Front End, Global Distributed Switch Controller.
+> +      - description: IFE1 GDSC - Image Front End, Global Distributed Switch Controller.
+> +      - description: Titan Top GDSC - Titan ISP Block, Global Distributed Switch Controller.
+> +
+> +  power-domain-names:
+> +    items:
+> +      - const: ife0
+> +      - const: ife1
+> +      - const: top
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    description:
+> +      CSI input ports.
+> +
+> +    patternProperties:
+> +      "^port@[0-3]$":
 
-Thanks,
-Ivan
+Reading the commit message, I develop a feeling that it might make sense
+to change the regexp to [014] or something like that.
 
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +
+> +        description:
+> +          Input port for receiving CSI data.
+> +
+> +        properties:
+> +          endpoint:
+> +            $ref: video-interfaces.yaml#
+> +            unevaluatedProperties: false
+> +
+> +            properties:
+> +              data-lanes:
+> +                minItems: 1
+> +                maxItems: 4
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - clocks
+> +  - clock-names
+> +  - interrupts
+> +  - interrupt-names
+> +  - interconnects
+> +  - interconnect-names
+> +  - iommus
+> +  - power-domains
+> +  - power-domain-names
+> +  - ports
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/qcom,glymur-gcc.h>
+> +    #include <dt-bindings/clock/qcom,glymur-camcc.h>
+> +    #include <dt-bindings/interconnect/qcom,glymur-rpmh.h>
+> +    #include <dt-bindings/interconnect/qcom,icc.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/power/qcom-rpmpd.h>
+> +
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        camss: isp@acb6000 {
+> +            compatible = "qcom,glymur-camss";
+> +
+> +            reg = <0x0 0x0acb6000 0x0 0x1000>,
+> +                  <0x0 0x0acb7000 0x0 0x2000>,
+> +                  <0x0 0x0acb9000 0x0 0x2000>,
+> +                  <0x0 0x0acbb000 0x0 0x2000>,
+> +                  <0x0 0x0acc6000 0x0 0x1000>,
+> +                  <0x0 0x0acca000 0x0 0x1000>,
+> +                  <0x0 0x0acf6000 0x0 0x1000>,
+> +                  <0x0 0x0acf7000 0x0 0x1000>,
+> +                  <0x0 0x0acf8000 0x0 0x1000>,
+> +                  <0x0 0x0ac62000 0x0 0xf000>,
+> +                  <0x0 0x0ac71000 0x0 0xf000>,
+> +                  <0x0 0x0acc7000 0x0 0x2000>,
+> +                  <0x0 0x0accb000 0x0 0x2000>;
+> +            reg-names = "csid_wrapper",
+> +                        "csid0",
+> +                        "csid1",
+> +                        "csid2",
+> +                        "csid_lite0",
+> +                        "csid_lite1",
+> +                        "csitpg0",
+> +                        "csitpg1",
+> +                        "csitpg2",
+> +                        "vfe0",
+> +                        "vfe1",
+> +                        "vfe_lite0",
+> +                        "vfe_lite1";
+> +
+> +            clocks = <&camcc CAM_CC_CAMNOC_AXI_NRT_CLK>,
+> +                     <&camcc CAM_CC_CAMNOC_AXI_RT_CLK>,
+> +                     <&camcc CAM_CC_CORE_AHB_CLK>,
+> +                     <&camcc CAM_CC_CPAS_AHB_CLK>,
+> +                     <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
+> +                     <&camcc CAM_CC_CPAS_IFE_0_CLK>,
+> +                     <&camcc CAM_CC_CPAS_IFE_1_CLK>,
+> +                     <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
+> +                     <&camcc CAM_CC_CSID_CLK>,
+> +                     <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
+> +                     <&gcc GCC_CAMERA_HF_AXI_CLK>,
+> +                     <&gcc GCC_CAMERA_SF_AXI_CLK>,
+> +                     <&camcc CAM_CC_IFE_0_CLK>,
+> +                     <&camcc CAM_CC_IFE_0_FAST_AHB_CLK>,
+> +                     <&camcc CAM_CC_IFE_1_CLK>,
+> +                     <&camcc CAM_CC_IFE_1_FAST_AHB_CLK>,
+> +                     <&camcc CAM_CC_IFE_LITE_CLK>,
+> +                     <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
+> +                     <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
+> +                     <&camcc CAM_CC_IFE_LITE_CSID_CLK>;
+> +            clock-names = "camnoc_nrt_axi",
+> +                          "camnoc_rt_axi",
+> +                          "core_ahb",
+> +                          "cpas_ahb",
+> +                          "cpas_fast_ahb",
+> +                          "cpas_vfe0",
+> +                          "cpas_vfe1",
+> +                          "cpas_vfe_lite",
+> +                          "csid",
+> +                          "csid_csiphy_rx",
+> +                          "gcc_axi_hf",
+> +                          "gcc_axi_sf",
+> +                          "vfe0",
+> +                          "vfe0_fast_ahb",
+> +                          "vfe1",
+> +                          "vfe1_fast_ahb",
+> +                          "vfe_lite",
+> +                          "vfe_lite_ahb",
+> +                          "vfe_lite_cphy_rx",
+> +                          "vfe_lite_csid";
+> +
+> +            interrupts = <GIC_SPI 601 IRQ_TYPE_EDGE_RISING>,
+> +                         <GIC_SPI 603 IRQ_TYPE_EDGE_RISING>,
+> +                         <GIC_SPI 431 IRQ_TYPE_EDGE_RISING>,
+> +                         <GIC_SPI 457 IRQ_TYPE_EDGE_RISING>,
+> +                         <GIC_SPI 436 IRQ_TYPE_EDGE_RISING>,
+> +                         <GIC_SPI 270 IRQ_TYPE_EDGE_RISING>,
+> +                         <GIC_SPI 271 IRQ_TYPE_EDGE_RISING>,
+> +                         <GIC_SPI 458 IRQ_TYPE_EDGE_RISING>,
+> +                         <GIC_SPI 860 IRQ_TYPE_EDGE_RISING>;
+> +            interrupt-names = "csid0",
+> +                              "csid1",
+> +                              "csid2",
+> +                              "csid_lite0",
+> +                              "csid_lite1",
+> +                              "vfe0",
+> +                              "vfe1",
+> +                              "vfe_lite0",
+> +                              "vfe_lite1";
+> +
+> +            interconnects = <&hsc_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
+> +                             &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
+> +                            <&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
+> +                             &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
+> +                            <&mmss_noc MASTER_CAMNOC_SF QCOM_ICC_TAG_ALWAYS
+> +                             &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>,
+> +                            <&mmss_noc MASTER_CAMNOC_ICP QCOM_ICC_TAG_ALWAYS
+> +                             &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
+> +            interconnect-names = "ahb",
+> +                                 "hf_mnoc",
+> +                                 "sf_mnoc",
+> +                                 "sf_icp_mnoc";
+> +
+> +            iommus = <&apps_smmu 0x800 0x20>;
+> +
+> +            power-domains = <&camcc CAM_CC_IFE_0_GDSC>,
+> +                            <&camcc CAM_CC_IFE_1_GDSC>,
+> +                            <&camcc CAM_CC_TITAN_TOP_GDSC>;
+> +            power-domain-names = "ife0",
+> +                                 "ife1",
+> +                                 "top";
+> +
+> +            ports {
+> +                #address-cells = <1>;
+> +                #size-cells = <0>;
+> +
+> +                port@0 {
+> +                    reg = <0>;
+> +                    camss_csiphy0_ep: endpoint {
+> +                        data-lanes = <1 2 3 4>;
+> +                        remote-endpoint = <&csiphy0_out>;
+> +                    };
+> +                };
+> +
+> +                port@1 {
+> +                    reg = <1>;
+> +                    camss_csiphy1_ep: endpoint {
+> +                        data-lanes = <1 2 3 4>;
+> +                        remote-endpoint = <&csiphy1_out>;
+> +                    };
+> +                };
+> +
+> +                port@3 {
+> +                    reg = <3>;
+> +                    camss_csiphy4_ep: endpoint {
+
+Here is a mismatch between port number and link name, please
+double check, if it is intended.
+
+> +                        data-lanes = <1 2 3 4>;
+> +                        remote-endpoint = <&csiphy4_out>;
+> +                    };
+> +                };
+> +            };
+> +        };
+> +    };
+> 
+
+-- 
+Best wishes,
+Vladimir
