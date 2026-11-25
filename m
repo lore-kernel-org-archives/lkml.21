@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.128
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795637772;
-	b=uesyBPWgyUlmR+gt9wM98MA+HP7AFKBxMgzYe94FE+frH1g+rxuXlGtZEvaUJHRRPX/C
-	 BbkmiOSBY0xZ3dbYeogIj9Dn0uDMEaDsxw/BaQADJu/gK7frNPzyjnmFxyIml+D8ZuUXs
-	 63Aj20fPTdbv/SmCnX581hym1n167JD027GYfhtYmBPkXXvmVUUbqTM/3bwKWTH1zXjeX
-	 TuAhVfZOSpke4nctHt0RIom6pqZI3OQtg6Y/91N3QK6I9jc8FjvlYmJGunQGsvizNhbTo
-	 wn6Q0mD4BkcAZmB4wbu4qTszKsaYaLPTX+Y7I+GrdfDZNUgKkIrVc2FBzj5caVs2Z6Q==
+	t=1795637780;
+	b=bkvDlukpLlLIieO+q95Fa4Yb6/jVat9VdCC0faLv2k3/Xa4xNI/zoZgrY0grqW+/Snzn
+	 vJ1jUVODqP3Qo153x6NkWEgSNnCWppmhSEspgEBtgYmXn84AIsAfDANWaX1eHjDN/1BNc
+	 Laz3MyY7rcGY/ahxCYMzPBJa5+JACjvIdEVfNIPIJKq0SobzwujNp+LjrupBXbF11YAYg
+	 2Y9vBYyVCm3ljl+KAZYAKkCBIYVYi0zqEWaSo08v2H8bQpkAiM8gxymvt5+QE8JR31sA7
+	 p60WB4fhU19ZFrNrh7ESQNl8GqrkYodHO/mSl1bXvTS2jJljpgD7o6qYfJ1NuVIc0MQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795637772;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795637780;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=lzATm5KxG7klJGkhTgSK4y3eqCxmt5E80rP46uMzJOk=;
-	b=NCjPZGnui5z4q0eURHSKMzLsJzCGCUEG0/D8v7NqAEhPnItphSgJ4lZDnK3qet1jqE6C
-	 /FPpUiOXWCAWthiObvQzmbJDqa/Wv0PzGRBwIPHbOcECB6MBEw5Z1qUOIjh5Idz3TPJv+
-	 y6J2LJHBocGN4NImKeVdlgreNoIMZv5wTEr+CXC6t+syATov8AwQtQCN3TDsYdF7kTdhf
-	 v9MhoSnA4/eDQIX/aeC41FWgl+vltotLpi0vUMwbuuGT69+m0IRtz3LfFa095htjwflpO
-	 RT1WxSB1LmYrXKQ6JR/aeAYsI7q6P5sLY7w8ZHNnasoU3b8nKTq3eEtaMaefuZtxpwA==
+	bh=GyPhjArj1GTlQH9QXFfb0KZ+rjDTIHoFzQ0QuyYeR+o=;
+	b=cu3FW2rFNAeUvjpbnOiWUGZsmSGCrXi6aZplW9y2iNq+/8mzGMC5PtVAuER+/ToYWv7M
+	 FsjFFklyulRsT+PjFoy2vGZkRyzxhLtIQrjEH61FxZ9AXQxToxuLhq9g5RsYOVZ53+Ob9
+	 H3XlzNwcC4nuTI/oHqnNFpQWyH8qzcsGKdWbi82nFGJsC3U1lrY2nmdIiGCr7u/Ahl51W
+	 Mhgh4yW0mineWyp8PS/A/5rz9Jvdu65s6aP555hQsjeCzT1Ey5GI62cQhf85q72MbygBX
+	 tnttXMP4A1nY2pNyZ7I3BMe2w6w2EJ/mfB5BF/CuiyyT4rgzv5/PjYzkPDZJbNwzpPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ISY+uzkl;
-	arc=none smtp.remote-ip=74.125.231.130
-Received: from mail-oo2-f2.google.com (mail-oo2-f2.google.com [74.125.231.130])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rmad3ysY;
+	arc=none smtp.remote-ip=74.125.231.128
+Received: from mail-oo2-f0.google.com (mail-oo2-f0.google.com [74.125.231.128])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 102EE606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:16:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 102EE606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F106C606A690
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:16:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F106C606A690
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ISY+uzkl
-Received: by mail-oo2-f2.google.com with SMTP id 46e09a7af769-862a50e0f92so951161a34.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:16:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rmad3ysY
+Received: by mail-oo2-f0.google.com with SMTP id 006d021491bc7-71af372c22cso1468064eaf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:16:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795637771; x=1796242571; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795637779; x=1796242579; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=lzATm5KxG7klJGkhTgSK4y3eqCxmt5E80rP46uMzJOk=;
-        b=ISY+uzklAMfjOqGgpWjhfagNXULR7sMIAUZHKPUm8+pLuMLDvS31J9czCTwFlSuXe/
-         ABvGwbEbbO4+IzIJndDA7epZGH7dp5XYZco1YXTdXUZMNzN1DZ12gqvrmogezI5b7qLH
-         baRUrjcCc+NdSomjAvUfwUJnfQWuXpUNK6b3c9CP/V9dEgxyiOnBqGahztqcy37ifJuC
-         Mj9PS+lu3HQFKtDmXjOXVqt7gwF6mkzCjX07Uu1MtxRogIRW7+9lNzdAODyjvwyidhnP
-         VAhusc2zKG9OGs1QL+JhOjFdBeEPyRXBCo5ks4kK4B1AdD4pBnazKmltp8oballaNIpO
-         g6BA==
+        bh=GyPhjArj1GTlQH9QXFfb0KZ+rjDTIHoFzQ0QuyYeR+o=;
+        b=rmad3ysYlD5E8k3XGr7qiiv+0FP1Uvn1yYVvd1LZEtVkfpe32/Xvo7hBN24ypO6fVo
+         ikWlxRWNnICMSP4cbBlGHav6O0R9t7dwoxJ/6b6CMwgOajHPlvqG1Hv5VQj4+KdG2DMa
+         q22Wa24FJPc19bDY2jDydM6h+lyq/v8rbmUd5aoKSsBkaItEckqKAKD7PWNK2XrPL3GU
+         V3MNmHQ2icfxk+BSw9RQ/oX0Z92Cpu/x7bJajTWndHFP4FG+PonuoMu7jCyS6Cb12N8C
+         CxSJ0l88ot/NpUZJyzXCkPw7iqSViifj8YxShvobQEsujsmYc9c+jE4FyrSxXaDN4eMA
+         ImXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795637771; x=1796242571;
+        d=1e100.net; s=20260707; t=1795637779; x=1796242579;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=lzATm5KxG7klJGkhTgSK4y3eqCxmt5E80rP46uMzJOk=;
-        b=hjF97xCZVsFlvdmMp9I17WX9l5EPJ/XgeKU02qsuokk/VjGE/LZz/xkGmFIvkpjVkL
-         E0qbyN4u2Aiy/GzTF03u1Dhf0kmKML0CgXgUNJHoj/eTgD0Kxu1emn/UkR7+UHdzqcnf
-         jozc340myiuRkltalMybgoxJ7HaS8AIN28bcMeUgYnwgSgHPM3uh1ip/7A4262pn3XaH
-         2gs4cWYmLi6SCeLwpioBAdtKskYI+WKL8d5F4DIc/C8zZ1ny+dOirfLnIa9AlQMawcEE
-         N8ddC7JMK0Ox4Pq46TflZryGyk7S3dx6a8I7z6OeyChYgqrE7hPCfHCTr9dHio8DKbeB
-         CHXw==
-X-Forwarded-Encrypted: i=1; AL+hErGc0IvtJ5CiiqEyn628F7qBidQH1ZSX9hWgzNTidwW9VWbXXHsaUagYz8IllBeEUcuzbymATJuL0YVq3Ps=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8nKu6BfSJbR/ghQfmhaYBITReNwsXSc+BV0+CSt/lXVNF/MI8m
-	WFDMQAGmYZa0q+jntUxBbhBQ1Mqx1LouofaTJz4iSU1FLNpUURcICC2o
-X-Gm-Gg: AZFdTZcteE8RJcfKN5SsgcktC3Tu/enwVe1GA8o0daQQooGYzEDm1UjLxw7ci68J66n
-	cLomiTcOGUzv8RbiGfMVjhbPEY72Wtv/vAO96qQwaM+x2TeIDRU46y1Sgfm7w7WdSG0HiPoZDuR
-	mbLO6MCyIuzTRX/EjMMjr3sd41lbHe4h8QIatuiqQATHFNAbHxE9WZmCmaiUgI7giFXeaIYAdZM
-	oQrvi+xnLmu9yYW0UCN1flpz3vlmxCof9DHX2uVYyrjrPlT1QNuYqiF4aM7CUMZPabOBIG1tcJt
-	PrCWk8Lz3JCLdE6Klt6LjgXMhGRD++my/hfWTB7ZEBSmBAg25LT/C8aXq2nIXVVrUCJy8JTJpHZ
-	ZL7+fWVxkVzXvl2GOVt0XeMsPsf5nY4mdTqHs2z4DRTTWN47u3UyvjGjK3hl2+x2axBUH0CpmN4
-	+fcEv51+p8BOpcn6QCpzMKOXYshpjAPpZUmMu8pnUTWMMUkKm4p0VrgnKfgPGPVybYOyIGTaZna
-	UBZz/Nx9uKvTxulDx/p3P4HNM3PR0QBqoJT/W6edhXT7fd5alIg7u19X1puI9zotMhE3oIWsCep
-	M7Op7uYaij2Kb/vgtxQscUvbFChgq7LZedI=
-X-Received: by 2002:a05:6820:1ca9:b0:71a:e74b:f982 with SMTP id 006d021491bc7-71b3942e146mr15402388eaf.16.1795637770901;
-        Wed, 25 Nov 2026 12:16:10 -0800 (PST)
+        bh=GyPhjArj1GTlQH9QXFfb0KZ+rjDTIHoFzQ0QuyYeR+o=;
+        b=b7mP6pVTbBcetXk3CtKxSAqpQwoYPKa7TiWNB9Hz8z0x6+lKLgmxaMg8Q9JGnwbW/Q
+         kGE4txbXP+vNzW6JZ2YvbrKITt8OPepHNO4di8qhv59yOSWqO+o7QNyB0Du5Z8vh3tgk
+         VUdHq4TVrK137rTlOsr8hq/GMJqVwG8KXfuBHohVGx3pYi5JwajavQSyPDVEY46XWnMw
+         BF9db3go4+9np4z7AyaL8SjJJsGT7lBWYxXvKJ9dS8HSeeJUyUeo5jo0iyvEgETP/7qR
+         DAzW2z2w8Sf2HHkkIIK0CdVXNIX5UBnsF0XZYaI5VKqUGrOGhH0ug+Ek053WuCijk2o1
+         OUgA==
+X-Forwarded-Encrypted: i=1; AL+hErFZceY47jW5BXXuslWObPSGXVd8ImBkLn1hVLLPXjuuIrYpWAb2n/Nu/WyqCMUwpself4uQLd7AkSYKflE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9DTfPY1o6+GU7D5WZocBPZoG4pTbhJKatfw68MY3NdOl89e+nj
+	5V77Or4S74z1U8W58trqaYyxf/FFW/LR4wyuek8pL1VpgTbTAXxOIUVO
+X-Gm-Gg: AZFdTZcQYgfgzTDAD5mpqrFfUjjoS2qHXZSeeTqeqHmKdSluV529Syn257xqUUx2xJT
+	rWRAknawE6nCMhDUjeTWXK1HGuN+2v1Sn8pc3ag8ERMJVWnaejreBTnnkKG7TxJ5JvTl+ynviC/
+	LwZhVrCqnaTqzbczMEHB8fobPuuh9bNDPmULoXvTB3X4um6nh+G9/5jQ8B7hJ5LBF24zmx0NQUF
+	OsTiPpat9B2TC2Q13bdwoB/50zQUo3mL4d7vkpq6K7hxlZkPpoV6R9BhNDcFHfrK6ueZNkd8sX2
+	gw9BiTBfFSP/MKO2hZ/9aFNzzyKYbsLh0XmU/IhRbZp8dJOJVLVRfftJCTC04H0MqG+qCMFicPg
+	X5ZdWYO9a3iCCyCecgYacibWXN7Hq+cAmHHqDls5tBxEzqOqzbYhmdAqsJqSkfeYMoPUo0lQxhF
+	jpn1bp8U/0VQ/U629bsDtswVE+yqryEN9WgXq8tnpn/X83ScWl7gR4WA9wMogRtSEIry0JYJYRk
+	FIK6B9bNjASUIsPtHre3vbA6qt0Z38sXXHLTCdplXdBJHyDHq51xGs0dhplt/2ORjf17BqvYWC/
+	TF1ThxTJEvO+xcvQfk/9mCPOCHqAiOOyBIQ=
+X-Received: by 2002:a05:6820:f028:b0:71b:85a5:c19e with SMTP id 006d021491bc7-71b85a5cb82mr1092887eaf.38.1795637778946;
+        Wed, 25 Nov 2026 12:16:18 -0800 (PST)
 Received: from [192.168.0.98] ([50.26.120.197])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380b6f82sm11341859eaf.10.2026.11.25.12.16.08
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380b6f82sm11341859eaf.10.2026.11.25.12.16.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 12:16:10 -0800 (PST)
+        Wed, 25 Nov 2026 12:16:17 -0800 (PST)
 From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Wed, 25 Nov 2026 14:16:04 -0600
-Subject: [PATCH v2 1/9] media: mediatek: vcodec: Decode H.264 access units
- on MT8173
+Date: Wed, 25 Nov 2026 14:16:08 -0600
+Subject: [PATCH v2 5/9] media: mtk-mdp: Do not refuse a crop for the other
+ side's size
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,7 +95,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v2-1-fdc047cf75a5@gmail.com>
+Message-Id: <20261125-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v2-5-fdc047cf75a5@gmail.com>
 References: <20261125-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v2-0-fdc047cf75a5@gmail.com>
 In-Reply-To: <20261125-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v2-0-fdc047cf75a5@gmail.com>
 To: Tiffany Lin <tiffany.lin@mediatek.com>, 
@@ -115,282 +115,214 @@ Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, 
  Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
- Ryan Brue <ryanbrue.dev@gmail.com>
+ Ryan Brue <ryanbrue.dev@gmail.com>, stable@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795637766; l=9530;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795637766; l=6625;
  i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=7QvG3ljH1BXUy2+Y0H6CX0kYFqFmT88JMdlRXuaspec=;
- b=CWSXFgbEKn6SsNPovjvm1nFtPC2tbJhVLSnVV/+UBdMPbF7JH++8g6z6ea3KSAu7CJmFHHxDc
- cbolmubHudBAaI45Nf389EdNSgowyOX0rGweJbb4/UOR3vFAXFslbyp
+ bh=XOuHOSCr36tTQQTtaJ/3AJtVCp6ht5DQgA+DZFALOF4=;
+ b=oaY2l5fays5eGSgaftJoWFoJ4IlX4oBaWoCZfHIUCCGgMM7EJzAGJOd6x8CAiH2/wyYOR+0aW
+ LXre/yGAFy6BcP+ZV8WACa1tQ3KIGheFu71qB+Cz89/035gbPYmetph
 X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
  pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 
-The stateful decoder interface hands the driver one H.264 access unit
-per buffer (pixfmt-compressed.rst, V4L2_PIX_FMT_H264), but the MT8173
-VPU firmware takes one NAL unit per call, and the driver passes it the
-whole buffer with the type of the first unit only. An access unit that
-starts with a delimiter, its parameter sets or an SEI therefore loses
-its PPS, and every slice after it fails with a bitstream error. Pictures
-of more than one slice never decoded at all: given one slice, the
-hardware never raises its interrupt.
+Setting the source crop checks the scaling ratio against the destination
+as it stands: the 32x32 default that open() sets, or whatever a client
+set while probing. GStreamer sets the source format and crop first, and
+a 1280x720 crop was refused with -EINVAL against that 32x32 destination.
+The same holds for the compose rectangle and the source, and for the
+rotation control.
 
-Walk the units of the buffer: the parameter sets one by one, then the
-slices of the picture together in one call, through to the end of the
-buffer. Skip the units the firmware does not decode (SEI, delimiters,
-filler); handed the frame buffer with an SEI, it loses the picture
-decoded into it later, so the frame buffer goes with the slices only,
-and a frame buffer that no slice used goes back to the free list.
+Check the ratio once both queues are streaming, when both sizes are
+settled: at VIDIOC_STREAMON, and for a crop, compose or rotation change
+made while streaming. VIDIOC_STREAMON is the first point where both
+sizes are known: before it a client may still set either side in any
+order, and checking there leaves the queues untouched on refusal. Log a
+refusal at debug level, since any client can trigger it.
 
-The decoder starts reading at the bitstream address rounded down to 16
-bytes, and decodes from the first start code it finds there, so a unit
-with another start code within those bytes in front of it, such as a
-slice after a six-byte delimiter, is decoded as the wrong unit. Copy
-such slices, and the parameter sets, which the firmware parses the same
-way, to buffers of their own. The slice buffer grows to the largest
-picture seen. A picture behind a delimiter, or behind parameter sets
-short enough to share its 16 bytes, thus costs one copy of its slices.
-
-Without a frame buffer only the header is being parsed, so stop at the
-first slice, and stop when the firmware reports a resolution change,
-since the core decodes the same buffer again after reconfiguring.
-Buffers holding a single NAL unit decode the same as before.
-
+Fixes: 0d1e342a17f5 ("media: mtk-mdp: Remove states for format checks")
+Cc: stable@vger.kernel.org
 Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 ---
- .../mediatek/vcodec/decoder/vdec/vdec_h264_if.c    | 168 ++++++++++++++++++++-
- 1 file changed, 161 insertions(+), 7 deletions(-)
+ drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c | 121 +++++++++++++---------
+ 1 file changed, 73 insertions(+), 48 deletions(-)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_if.c
-index a95327388f57..d2d7103c09c0 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_if.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_if.c
-@@ -5,6 +5,7 @@
-  */
- 
- #include <linux/module.h>
-+#include <linux/sizes.h>
- #include <linux/slab.h>
- 
- #include "../vdec_drv_if.h"
-@@ -15,8 +16,11 @@
- 
- #define NAL_NON_IDR_SLICE			0x01
- #define NAL_IDR_SLICE				0x05
-+#define NAL_H264_SPS				0x07
- #define NAL_H264_PPS				0x08
- #define NAL_TYPE(value)				((value) & 0x1F)
-+/* the decoder reads the bitstream from an address rounded down to this */
-+#define H264_BS_READ_ALIGN			16
- 
- #define BUF_PREDICTION_SZ			(32 * 1024)
- 
-@@ -118,6 +122,9 @@ struct vdec_h264_vsi {
-  * @num_nalu : how many nalus be decoded
-  * @ctx      : point to mtk_vcodec_dec_ctx
-  * @pred_buf : HW working prediction buffer
-+ * @param_buf : copy of a parameter set for the firmware
-+ * @slice_buf : copy of the slices when another start code precedes theirs
-+ *              within the decoder's read alignment
-  * @mv_buf   : HW working motion vector buffer
-  * @vpu      : VPU instance
-  * @vsi      : VPU shared information
-@@ -126,6 +133,8 @@ struct vdec_h264_inst {
- 	unsigned int num_nalu;
- 	struct mtk_vcodec_dec_ctx *ctx;
- 	struct mtk_vcodec_mem pred_buf;
-+	struct mtk_vcodec_mem param_buf;
-+	struct mtk_vcodec_mem slice_buf;
- 	struct mtk_vcodec_mem mv_buf[H264_MAX_FB_NUM];
- 	struct vdec_vpu_inst vpu;
- 	struct vdec_h264_vsi *vsi;
-@@ -309,6 +318,10 @@ static void vdec_h264_deinit(void *h_vdec)
- 
- 	vpu_dec_deinit(&inst->vpu);
- 	free_prediction_buf(inst);
-+	if (inst->param_buf.va)
-+		mtk_vcodec_mem_free(inst->ctx, &inst->param_buf);
-+	if (inst->slice_buf.va)
-+		mtk_vcodec_mem_free(inst->ctx, &inst->slice_buf);
- 	free_mv_buf(inst);
- 
- 	kfree(inst);
-@@ -326,10 +339,10 @@ static int find_start_code(unsigned char *data, unsigned int data_sz)
- 	return -1;
+diff --git a/drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c b/drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c
+index 34d02de4453d..a40bcf61b7ca 100644
+--- a/drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c
++++ b/drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c
+@@ -727,10 +727,40 @@ static int mtk_mdp_m2m_reqbufs(struct file *file, void *fh,
+ 	return v4l2_m2m_reqbufs(file, ctx->m2m_ctx, reqbufs);
  }
  
--static int vdec_h264_decode(void *h_vdec, struct mtk_vcodec_mem *bs,
--			    struct vdec_fb *fb, bool *res_chg)
-+static int vdec_h264_decode_nal(struct vdec_h264_inst *inst,
-+				struct mtk_vcodec_mem *bs,
-+				struct vdec_fb *fb, bool *res_chg)
++static int mtk_mdp_check_scaler_ratio(struct mtk_mdp_variant *var, int src_w,
++				      int src_h, int dst_w, int dst_h, int rot)
++{
++	int tmp_w, tmp_h;
++
++	if (rot == 90 || rot == 270) {
++		tmp_w = dst_h;
++		tmp_h = dst_w;
++	} else {
++		tmp_w = dst_w;
++		tmp_h = dst_h;
++	}
++
++	if ((src_w / tmp_w) > var->h_scale_down_max ||
++	    (src_h / tmp_h) > var->v_scale_down_max ||
++	    (tmp_w / src_w) > var->h_scale_up_max ||
++	    (tmp_h / src_h) > var->v_scale_up_max)
++		return -EINVAL;
++
++	return 0;
++}
++
++/* Both sizes are settled once both queues are streaming */
++static bool mtk_mdp_ctx_streaming(struct mtk_mdp_ctx *ctx)
++{
++	return vb2_is_streaming(v4l2_m2m_get_src_vq(ctx->m2m_ctx)) &&
++	       vb2_is_streaming(v4l2_m2m_get_dst_vq(ctx->m2m_ctx));
++}
++
+ static int mtk_mdp_m2m_streamon(struct file *file, void *fh,
+ 				enum v4l2_buf_type type)
  {
--	struct vdec_h264_inst *inst = (struct vdec_h264_inst *)h_vdec;
- 	struct vdec_vpu_inst *vpu = &inst->vpu;
- 	int nal_start_idx = 0;
- 	int err = 0;
-@@ -345,10 +358,6 @@ static int vdec_h264_decode(void *h_vdec, struct mtk_vcodec_mem *bs,
- 	mtk_vdec_debug(inst->ctx, "+ [%d] FB y_dma=%llx c_dma=%llx va=%p",
- 		       ++inst->num_nalu, y_fb_dma, c_fb_dma, fb);
+ 	struct mtk_mdp_ctx *ctx = file_to_ctx(file);
++	struct vb2_queue *other;
+ 	int ret;
  
--	/* bs NULL means flush decoder */
--	if (bs == NULL)
--		return vpu_dec_reset(vpu);
--
- 	buf = (unsigned char *)bs->va;
- 	buf_sz = bs->size;
- 	nal_start_idx = find_start_code(buf, buf_sz);
-@@ -422,6 +431,151 @@ static int vdec_h264_decode(void *h_vdec, struct mtk_vcodec_mem *bs,
- 	return err;
+ 	if (!mtk_mdp_ctx_state_is_set(ctx, MTK_MDP_VPU_INIT)) {
+@@ -744,6 +774,21 @@ static int mtk_mdp_m2m_streamon(struct file *file, void *fh,
+ 		mtk_mdp_ctx_state_lock_set(ctx, MTK_MDP_VPU_INIT);
+ 	}
+ 
++	/* the queue that starts second checks the ratio */
++	other = v4l2_m2m_get_vq(ctx->m2m_ctx, V4L2_TYPE_IS_OUTPUT(type) ?
++				V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE :
++				V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
++	if (vb2_is_streaming(other) &&
++	    mtk_mdp_check_scaler_ratio(ctx->mdp_dev->variant,
++				       ctx->s_frame.crop.width,
++				       ctx->s_frame.crop.height,
++				       ctx->d_frame.crop.width,
++				       ctx->d_frame.crop.height,
++				       ctx->ctrls.rotate->val)) {
++		dev_dbg(&ctx->mdp_dev->pdev->dev, "Out of scaler range\n");
++		return -EINVAL;
++	}
++
+ 	return v4l2_m2m_streamon(file, ctx->m2m_ctx, type);
  }
  
-+/* Offset of the next start code (00 00 01) at or after @from, or @size */
-+static size_t next_start_code(const unsigned char *buf, size_t from,
-+			      size_t size)
-+{
-+	size_t i;
+@@ -810,35 +855,12 @@ static int mtk_mdp_m2m_g_selection(struct file *file, void *fh,
+ 	return -EINVAL;
+ }
+ 
+-static int mtk_mdp_check_scaler_ratio(struct mtk_mdp_variant *var, int src_w,
+-				      int src_h, int dst_w, int dst_h, int rot)
+-{
+-	int tmp_w, tmp_h;
+-
+-	if (rot == 90 || rot == 270) {
+-		tmp_w = dst_h;
+-		tmp_h = dst_w;
+-	} else {
+-		tmp_w = dst_w;
+-		tmp_h = dst_h;
+-	}
+-
+-	if ((src_w / tmp_w) > var->h_scale_down_max ||
+-	    (src_h / tmp_h) > var->v_scale_down_max ||
+-	    (tmp_w / src_w) > var->h_scale_up_max ||
+-	    (tmp_h / src_h) > var->v_scale_up_max)
+-		return -EINVAL;
+-
+-	return 0;
+-}
+-
+ static int mtk_mdp_m2m_s_selection(struct file *file, void *fh,
+ 				   struct v4l2_selection *s)
+ {
+ 	struct mtk_mdp_ctx *ctx = file_to_ctx(file);
+ 	struct mtk_mdp_frame *frame;
+ 	struct v4l2_rect new_r;
+-	struct mtk_mdp_variant *variant = ctx->mdp_dev->variant;
+ 	int ret;
+ 	bool valid = false;
+ 
+@@ -865,22 +887,27 @@ static int mtk_mdp_m2m_s_selection(struct file *file, void *fh,
+ 	else
+ 		frame = &ctx->d_frame;
+ 
+-	/* Check to see if scaling ratio is within supported range */
+-	if (V4L2_TYPE_IS_OUTPUT(s->type))
+-		ret = mtk_mdp_check_scaler_ratio(variant, new_r.width,
+-			new_r.height, ctx->d_frame.crop.width,
+-			ctx->d_frame.crop.height,
+-			ctx->ctrls.rotate->val);
+-	else
+-		ret = mtk_mdp_check_scaler_ratio(variant,
+-			ctx->s_frame.crop.width,
+-			ctx->s_frame.crop.height, new_r.width,
+-			new_r.height, ctx->ctrls.rotate->val);
+-
+-	if (ret) {
+-		dev_info(&ctx->mdp_dev->pdev->dev,
+-			"Out of scaler range");
+-		return -EINVAL;
++	/*
++	 * Until both queues are streaming the other side's size may still
++	 * change, and VIDIOC_STREAMON checks the scaling ratio.
++	 */
++	if (mtk_mdp_ctx_streaming(ctx)) {
++		struct v4l2_rect *src = &ctx->s_frame.crop;
++		struct v4l2_rect *dst = &ctx->d_frame.crop;
 +
-+	for (i = from; i + 3 <= size; i++)
-+		if (buf[i] == 0 && buf[i + 1] == 0 && buf[i + 2] == 1)
-+			return i;
-+
-+	return size;
-+}
-+
-+/*
-+ * The decoder starts reading at the bitstream address rounded down to 16
-+ * bytes and decodes from the first start code it finds there. A unit
-+ * whose start code has another one in front of it within that window
-+ * has to be copied to a buffer of its own; so do the parameter sets,
-+ * which the firmware parses the same way.
-+ */
-+static bool vdec_h264_needs_copy(const struct mtk_vcodec_mem *bs, size_t start)
-+{
-+	size_t back = (bs->dma_addr + start) & (H264_BS_READ_ALIGN - 1);
-+	size_t from = start > back ? start - back : 0;
-+
-+	return next_start_code(bs->va, from, start + 2) < start;
-+}
-+
-+static int vdec_h264_copy_nal(struct vdec_h264_inst *inst,
-+			      struct mtk_vcodec_mem *dst,
-+			      struct mtk_vcodec_mem *nal)
-+{
-+	if (dst->size < nal->size + H264_BS_READ_ALIGN) {
-+		if (dst->va)
-+			mtk_vcodec_mem_free(inst->ctx, dst);
-+		/* room past the end, as a bitstream buffer has */
-+		dst->size = round_up(nal->size + H264_BS_READ_ALIGN, SZ_4K);
-+		if (mtk_vcodec_mem_alloc(inst->ctx, dst)) {
-+			dst->size = 0;
-+			return -ENOMEM;
-+		}
-+	}
-+
-+	memcpy(dst->va, nal->va, nal->size);
-+	nal->va = dst->va;
-+	nal->dma_addr = dst->dma_addr;
-+	return 0;
-+}
-+
-+/*
-+ * The firmware takes one NAL unit per call, while the stateful decoder
-+ * interface hands the driver one access unit per buffer. Feed the units
-+ * of the buffer to the firmware one by one: the parameter sets, then the
-+ * slices of the picture together. Units it does not decode (SEI,
-+ * delimiters, filler) are skipped: handed the frame buffer with an SEI,
-+ * it loses the picture decoded into it later. The frame buffer goes with
-+ * the slices only; a frame buffer that no slice used goes back to the
-+ * free list.
-+ * Without a frame buffer only the parameter sets are of interest, so
-+ * stop at the first slice.
-+ */
-+static int vdec_h264_decode(void *h_vdec, struct mtk_vcodec_mem *bs,
-+			    struct vdec_fb *fb, bool *res_chg)
-+{
-+	struct vdec_h264_inst *inst = (struct vdec_h264_inst *)h_vdec;
-+	const unsigned char *buf;
-+	size_t start, end;
-+	int err;
-+
-+	/* bs NULL means flush decoder */
-+	if (!bs)
-+		return vpu_dec_reset(&inst->vpu);
-+
-+	*res_chg = false;
-+	buf = bs->va;
-+	start = next_start_code(buf, 0, bs->size);
-+	if (start == bs->size)
-+		return vdec_h264_decode_nal(inst, bs, fb, res_chg);
-+
-+	while (start < bs->size) {
-+		struct mtk_vcodec_mem nal = *bs;
-+		unsigned int nal_type;
-+		bool is_slice;
-+
-+		nal_type = start + 3 < bs->size ? NAL_TYPE(buf[start + 3]) : 0;
-+		is_slice = nal_type == NAL_NON_IDR_SLICE ||
-+			   nal_type == NAL_IDR_SLICE;
-+		if (!fb && is_slice)
-+			break;
-+
-+		if (is_slice) {
-+			/*
-+			 * The slices of a picture go in one call: the hardware
-+			 * reads on through them, and interrupts once, at the
-+			 * picture's end.
-+			 */
-+			end = bs->size;
-+		} else {
-+			end = next_start_code(buf, start + 3, bs->size);
-+			/* A zero byte before a start code belongs to it */
-+			if (end < bs->size && buf[end - 1] == 0)
-+				end--;
-+		}
-+
-+		if (!is_slice && nal_type != NAL_H264_SPS &&
-+		    nal_type != NAL_H264_PPS) {
-+			start = next_start_code(buf, end, bs->size);
-+			continue;
-+		}
-+
-+		nal.va = bs->va + start;
-+		nal.dma_addr = bs->dma_addr + start;
-+		nal.size = end - start;
-+
-+		if (!is_slice)
-+			err = vdec_h264_copy_nal(inst, &inst->param_buf, &nal);
-+		else if (vdec_h264_needs_copy(bs, start))
-+			err = vdec_h264_copy_nal(inst, &inst->slice_buf, &nal);
++		if (V4L2_TYPE_IS_OUTPUT(s->type))
++			src = &new_r;
 +		else
-+			err = 0;
-+		if (err) {
-+			put_fb_to_free(inst, fb);
-+			return err;
++			dst = &new_r;
++
++		if (mtk_mdp_check_scaler_ratio(ctx->mdp_dev->variant,
++					       src->width, src->height,
++					       dst->width, dst->height,
++					       ctx->ctrls.rotate->val)) {
++			dev_dbg(&ctx->mdp_dev->pdev->dev,
++				"Out of scaler range\n");
++			return -EINVAL;
 +		}
-+
-+		err = vdec_h264_decode_nal(inst, &nal, is_slice ? fb : NULL,
-+					   res_chg);
-+		/* The slices run to the end of the buffer and keep the frame */
-+		if (is_slice)
-+			return err;
-+		if (err) {
-+			put_fb_to_free(inst, fb);
-+			return err;
-+		}
-+		if (*res_chg)
-+			break;
-+
-+		start = next_start_code(buf, end, bs->size);
-+	}
-+
-+	put_fb_to_free(inst, fb);
-+
-+	return 0;
-+}
-+
- static void vdec_h264_get_fb(struct vdec_h264_inst *inst,
- 			     struct h264_ring_fb_list *list,
- 			     bool disp_list, struct vdec_fb **out_fb)
+ 	}
+ 
+ 	s->r = new_r;
+@@ -953,7 +980,6 @@ static int mtk_mdp_s_ctrl(struct v4l2_ctrl *ctrl)
+ 	struct mtk_mdp_ctx *ctx = ctrl_to_ctx(ctrl);
+ 	struct mtk_mdp_dev *mdp = ctx->mdp_dev;
+ 	struct mtk_mdp_variant *variant = mdp->variant;
+-	int ret = 0;
+ 
+ 	if (ctrl->flags & V4L2_CTRL_FLAG_INACTIVE)
+ 		return 0;
+@@ -966,14 +992,13 @@ static int mtk_mdp_s_ctrl(struct v4l2_ctrl *ctrl)
+ 		ctx->vflip = ctrl->val;
+ 		break;
+ 	case V4L2_CID_ROTATE:
+-		ret = mtk_mdp_check_scaler_ratio(variant,
+-				ctx->s_frame.crop.width,
+-				ctx->s_frame.crop.height,
+-				ctx->d_frame.crop.width,
+-				ctx->d_frame.crop.height,
+-				ctx->ctrls.rotate->val);
+-
+-		if (ret)
++		if (mtk_mdp_ctx_streaming(ctx) &&
++		    mtk_mdp_check_scaler_ratio(variant,
++					       ctx->s_frame.crop.width,
++					       ctx->s_frame.crop.height,
++					       ctx->d_frame.crop.width,
++					       ctx->d_frame.crop.height,
++					       ctx->ctrls.rotate->val))
+ 			return -EINVAL;
+ 
+ 		ctx->rotation = ctrl->val;
 
 -- 
 2.56.1
