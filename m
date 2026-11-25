@@ -1,93 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795569257;
-	b=CkDz5Sil08CxvV4J96YVNOTHYvgC6LZm51xqNMfC3E0wY4FjNVY0gcFT8pPFna9YrBlG
-	 re9VX60mgukjRrAMKUsHA4jDv186k2+3Ws0RFVZqdNaphoaGTbkl5xHsdemt1vPj6f3JT
-	 GJag2CLXDSx/gPCOTB70fUkfngaW5laOA/hV+sAtrRdZtkHPubS0SLlMtBnJpLFWEERmZ
-	 gVs3gdw9USeFz+eG3aYShig7cTQW2hgOWHys9ePmHqUN81J7j5WFHCEjauqt7MYroyEU2
-	 HPYDMlJwFDcpRWTfdxiXF/qbXYiL8f6802eSJctvFFhKzvWVfsHQwZ0VPyeeZXyzNog==
+	t=1795569609;
+	b=IF/5wi7q8Mlm3vMVT9HRgycqX8nfY6DJaWg2Gsv/x32RbJwjOEYtrt/Rd53zDa/KHEqT
+	 rWH3CKnXkjl5OoAwh6FGhbT5G3AGcQNULYgoSV0PJ1+vD2Mn/3VL6b3/YUdI4LFtUr2QT
+	 O2biQVcUXDMi2UYnTi+dkzJlJdjG8rwGrXrE8osUVKe6s22712DBj39tVS0IqpSlMvUug
+	 eHVvb5GcvYNbewumSnbTTfi+lx6/ul7IS1xzzsKeKx2MMUU/D9shiiUiD6md8wx9vnISG
+	 3pBIfy5fxVNhDJSU76wS3NoZViochjA/u7kgVQvGdf5zvF3sUR6MbbVjKUYqL4PB9sg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795569257;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=LHJCgD46BHZFlg4y5YlSWkbsWdLocvFadLaw/xj7LI4=;
-	b=DB9FvBnNzV1Ph5FLqh6n87cEOyql8hDPSsNlD02Dtw6JYynRVRpCDO5Lnw8uTt8w+W6b
-	 h6jYJVXap079GnZumUDYnt0L/DPL4Orsch4VRSXaBQ7aYBgoYnEgrZfHFt7FAFPlpPD1c
-	 fzIPZl34hifj7bOSznoIDePJO5QLDnaTNnB71wOO6ua7NPBysUzE0kqbRK3kEGFc08ZNN
-	 uBE9EW1vopojK6JdWj/KkMswKwJ2yFgaFzJ7RzEbfwTF4Fd1tfGj+CztUZSMCxz3MZe0/
-	 mFOWP+wq5sCPMPol8ePdvoQXn0Ab6hu4uXA++0XS0WmGvdBF6aJXENYxPSra3bp1s4g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795569609;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=ebJI9YJIGxltNFXRiSVqbB6kDZnBZS9T25Ay02Q44n8=;
+	b=il1T5IQWBEpmfSd2I2t7Lk4ceRi+wwdOSKQel/n75Y97CR0MzTBq2JuDXf6dXa/W85UF
+	 yZBu2ht1Wu3fId8gblhI1P0+wWcUcAKpXJEITNVracve5yRfRAKPiVANVBsK3Cc73fD1+
+	 64U7AYxoutdhk0j4JIO75EWuahUVR2ebWbSH5vH/iZEDliqRthy7PdqSRIaXUE0qOM/Fx
+	 aViDAoBunbfkDZdbeM/tnoYcuuCGqKIT5orDOHTuRFmJwARFKVbbcyklEPpUuJQL0zV2l
+	 7RzNkMf5ZYTWvmFFeGQAFFYaSJXqBvW0xCOYxDmAI3OFa6dFguP7zlQRDvowEWac5Gw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="d53/3epU";
-	arc=none smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5Cc6oBz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A468E606A31E;
-	Wed, 25 Nov 2026 01:14:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A468E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10E62606A31E;
+	Wed, 25 Nov 2026 01:20:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=d53/3epU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795569256; x=1827105256;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=RVmXkbcmTdebG9jhnv0WvsAA9iprgh7mGs8s+3jbhGE=;
-  b=d53/3epUKkKU3pioyqR4EFGmAFM/7EGa9k37aFudHu3SIjtQi/JseU0U
-   6RWGSndylYAOdm04XxeeFNMX+gH09JaksMZ7GyUDt5oInWxVyFa2kld/Y
-   hSExVIn9fQB1pn48QQJCY2WrACZmm+1yd/gTYIvzhbpobcBHpbSFWyRlW
-   8VUCOoP5TKuP4rSlM/5owQVUkhN4/FrOldwDhoGLdtjldqp8MLjCI573w
-   ZMdsriltDAf0W3llIgHEjSGKkRI4otab7bk4bzj85X1n+UJabqgWfIcs+
-   3mzb3l3RjxP6817orG4uPoPpLhn4PSCXR0wI7aF68Tnd+Fb89Ddw3s6Sd
-   g==;
-X-CSE-ConnectionGUID: 6Dhtfkb0RleXWErNQizxUA==
-X-CSE-MsgGUID: fRmKtfwPQ/OhV3bPajszFA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4407644"
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="4407644"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 17:14:15 -0800
-X-CSE-ConnectionGUID: jG7m6XPJRU2lvktZFwp+qw==
-X-CSE-MsgGUID: n10h878PTsu3/lG5PSLd1w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
-   d="scan'208";a="13400136"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa012.fm.intel.com with ESMTP; 24 Nov 2026 17:14:11 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xW1aI-00000001QbG-3geK;
-	Wed, 25 Nov 2026 01:14:06 +0000
-Date: Wed, 25 Nov 2026 09:13:43 +0800
-From: kernel test robot <lkp@intel.com>
-To: Joseph Telaak via B4 Relay <devnull+joseph.telaak.dev@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Paul Burton <paulburton@kernel.org>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Chuanhong Guo <gch981213@gmail.com>, Yao Zi <me@ziyao.cc>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	linux-mips@vger.kernel.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Joseph Telaak <joseph@telaak.dev>
-Subject: Re: [PATCH v5 6/6] reset: Add Siflower SF19A2890 peripheral reset
- driver
-Message-ID: <20261125084324.IBaFeULM-lkp@intel.com>
-References: <20261123-sf19a2890-sysm-v5-6-4ba44a0db17d@telaak.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5Cc6oBz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 461291F000C6;
+	Wed, 25 Nov 2026 01:20:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795569608;
+	bh=ebJI9YJIGxltNFXRiSVqbB6kDZnBZS9T25Ay02Q44n8=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=m5Cc6oBz3FMiCtRe22fHZ4nImWc5kICZL9ZDU9bnUzryAM/R82L0hZ3/xKqz0UCXo
+	 32uIlwakRmgPoBNvsGO9JgA8J2prmOi3IZFGtdnuj8me0nsP9tciSGo1KXm+7Z3tyz
+	 Vo26ZU8YnSYsYZuTFzesH5Jqi5K1TVCyxVgO4d7Tx+MVRNBwlvUARB8CzQDskpU8KJ
+	 JBtmMkaFBaHBokuzMVsYU0mT3r3bRMRpgkHXzf5iFUIaHZEk+JUNz8Vp8R/5YSO5FZ
+	 EBp8KgBlnNJwT0Vfuli3jm28GunBsiyN8SuG4QwealmGCLu7Ashn7Wf8gb5newLcq2
+	 FoDCYbnP/EN3Q==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A4EB3808209;
+	Wed, 25 Nov 2026 01:20:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,57 +53,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123-sf19a2890-sysm-v5-6-4ba44a0db17d@telaak.dev>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v7 0/6] net: dsa: b53: Preliminary fixes
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179556960702.150816.16216671017919717979.git-patchwork-notify@kernel.org>
+Date: Wed, 25 Nov 2026 01:20:07 +0000
+References: <20261119190348.2317702-1-florian.fainelli@broadcom.com>
+In-Reply-To: <20261119190348.2317702-1-florian.fainelli@broadcom.com>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: netdev@vger.kernel.org, jonas.gorski@gmail.com, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, vivien.didelot@gmail.com, linux-kernel@vger.kernel.org
 
-Hi Joseph,
+Hello:
 
-kernel test robot noticed the following build warnings:
+This series was applied to netdev/net.git (main)
+by Willem de Bruijn <willemb@google.com>:
 
-[auto build test WARNING on fc1f8f0ceb3b949b58c2f7819976644f5cf84249]
+On Thu, 19 Nov 2026 11:03:42 -0800 you wrote:
+> This patch series contains fixes to issues reported by Sashiko on the
+> b53 PCS bug fixes being submitted, and then some more that came from
+> code review and testing.
+> 
+> Except for issue #2, all of the other issues did trigger in testing and
+> needed to be corrected.
+> 
+> [...]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Joseph-Telaak-via-B4-Relay/MIPS-Add-support-for-Siflower-MIPS-SoCs/20261123-234121
-base:   fc1f8f0ceb3b949b58c2f7819976644f5cf84249
-patch link:    https://lore.kernel.org/r/20261123-sf19a2890-sysm-v5-6-4ba44a0db17d%40telaak.dev
-patch subject: [PATCH v5 6/6] reset: Add Siflower SF19A2890 peripheral reset driver
-config: hexagon-randconfig-1001-20261125 (https://download.01.org/0day-ci/archive/20261125/20261125084324.IBaFeULM-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 2012344e5da8e03ea4b8283ecd6fad6e13f09d64)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261125/20261125084324.IBaFeULM-lkp@intel.com/reproduce)
+Here is the summary with links:
+  - [net,v7,1/6] net: dsa: b53: initialize the jumbo frame size register offset
+    https://git.kernel.org/netdev/net/c/5d30a02245c3
+  - [net,v7,2/6] net: dsa: b53: fix the SRAB grant timeout check
+    https://git.kernel.org/netdev/net/c/bd7fc60896b3
+  - [net,v7,3/6] net: dsa: b53: clear stale state when creating an ARL entry
+    https://git.kernel.org/netdev/net/c/c6f0992ff6c2
+  - [net,v7,4/6] net: dsa: b53: use the correct override register 2 Gbps bit
+    https://git.kernel.org/netdev/net/c/fd2752aac6c2
+  - [net,v7,5/6] net: dsa: b53: fix mirror port encoding on BCM5325 and BCM5365
+    https://git.kernel.org/netdev/net/c/000d46885594
+  - [net,v7,6/6] net: dsa: b53: fix mirror destination and source state tracking
+    https://git.kernel.org/netdev/net/c/320bc9b8e2bc
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261125084324.IBaFeULM-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/reset/reset-sf19a2890-periphcrm.c:130:34: warning: unused variable 'sf19a2890_periphrst_ids' [-Wunused-const-variable]
-     130 | static const struct of_device_id sf19a2890_periphrst_ids[] = {
-         |                                  ^~~~~~~~~~~~~~~~~~~~~~~
-   1 warning generated.
-
-
-vim +/sf19a2890_periphrst_ids +130 drivers/reset/reset-sf19a2890-periphcrm.c
-
-   129	
- > 130	static const struct of_device_id sf19a2890_periphrst_ids[] = {
-   131		{ .compatible = "siflower,sf19a2890-gmac-crm", .data = &sf19a2890_gmac_rst },
-   132		{ .compatible = "siflower,sf19a2890-gpio-crm", .data = &sf19a2890_single_rst },
-   133		{ .compatible = "siflower,sf19a2890-i2c-crm", .data = &sf19a2890_single_rst },
-   134		{ .compatible = "siflower,sf19a2890-pwm-crm", .data = &sf19a2890_single_rst },
-   135		{ .compatible = "siflower,sf19a2890-rf-crm", .data = &sf19a2890_wlan_rst },
-   136		{ .compatible = "siflower,sf19a2890-spi-crm", .data = &sf19a2890_spi_rst },
-   137		{ .compatible = "siflower,sf19a2890-timer-crm", .data = &sf19a2890_single_rst },
-   138		{ .compatible = "siflower,sf19a2890-uart-crm", .data = &sf19a2890_uart_rst },
-   139		{ .compatible = "siflower,sf19a2890-usb-crm", .data = &sf19a2890_usb_rst },
-   140		{ .compatible = "siflower,sf19a2890-wdt-crm", .data = &sf19a2890_single_rst },
-   141		{ .compatible = "siflower,sf19a2890-wlan24-crm", .data = &sf19a2890_wlan_rst },
-   142		{ .compatible = "siflower,sf19a2890-wlan5-crm", .data = &sf19a2890_wlan_rst },
-   143		{ /* sentinel */ }
-   144	};
-   145	
-
+You are awesome, thank you!
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
