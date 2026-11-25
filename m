@@ -1,100 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795607454;
-	b=iDroD1x+4f1wrzwWrJaU0TgeWAddBVWvCE+wQOJv8a5xLirpAQ4v8sFgz3SxjREgIddo
-	 ND5Gn+0T9GgKj97jQWgKk/A3GRT8RYlET6UpcfbkmyHXRbsYigH1XQpZ9TlOUxQzeGGyI
-	 /oQvpYeL5pbBVx2WjHpwBYOtaVMyA3jk5Wlt9CKi4IFskAdr+su29MZBZSaxik++lMaS0
-	 2OA2zlqjrDX9Chdnlfuv/trMTigD/jcAEE5fil4BVLXOWsK5BWZfXvbDqvTLHBUpZccut
-	 XIChCdS2cwNabwC682/WJqh4ZAx7YjW3Tytw/NRZjK0wS/tzd7+Auz+cPrnBHj4TFhg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795607454;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.70
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795607458;
+	b=elpwFZpWIbusdUIq7khfD7vMv+hwJmRM33OwxMhlMwqWioaJofIflHQZSEDiKhZXqT/U
+	 Kh1+vzdAcT7rD3G3hLps6Ebs5tsrVq0y02SvKoSY0cY/HctenneNa85rsN7N7jfuoAjmS
+	 XHwGoUSIs6Zq+0RfmecL/mTAe3ruCQo8Yc3QFEr820VW7gA9/+fQtiMPdXHm1KakWxi/q
+	 Wb0jt6B2m9kCcI9FPQCJMdANHZWEga4XYkvSlCvpaCWcmXAlOBZs6VJ4X3uxcQrZgjJOE
+	 TBuAfLaBxTTP99HHw0g4kkM8YGrXrbV27ygBbq+Y7bIYmX3oGExnZCe8t5Zi2IT3VeQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795607458;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=AK/FrytH2tf+B+57Lq9wnH5wu00oxO/OQC1ZXkryskE=;
-	b=p6m9NVnmXMpguZcSO/Lx0vXJgUJhAsar3oYu/FVqw80p9WOyGDcYfuXjp9wlk3I9m9xa
-	 n1lH/dbeVmcPypfvz/zlCkVC1hIm3eYN1Oz7yRHYZhMVKU7361lvxvCKbxHmqFFzDclBt
-	 inGgaooELoXKvUpq9yRzS2sBLvzvaYQo5i+Zt208K0jA66LWyG8tu+D33FekqqvSfx2F5
-	 I803OLryswflAa4yNRkgJ1rVFL/9BU7KAO5b9Mvy/43xy8oIQUhrikXruv2BJRi9v4hUt
-	 y2jioQuewttAl04VhyHqMdkTspzuhB64cpD7Phji+0wje9vJosNrINzzINacmE11uvw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cCKrplZv;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
-Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=XxpHxjNY3UsTDcTzG60Yu5gGt0anPZ0u89T3qoWHlA4=;
+	b=ivak9Lk0FRrInQn8RParfrgK6ldH36bBzUWw80ntOCi7b+N377B/fRR7K5a0NkzrHhIr
+	 re11QzGQmn8Zjzv+p2vRyMJRjtoAml3LxVWqx6ZK572UZhfUXzhtUt5zi7fkQ93zwCZWP
+	 s9tEuhxLzBgv2zkaY2mxBWQ/f2Sz4oPXdqyf7Jtd5D22A1OVB9fULgldWknhTeV9Yktnf
+	 XDvPnCa+DZ6LrBd3hJ2N5D5jAi68ufhp7GUEpbmA7PbSPxCoSoabYe0betLioKUdr9r73
+	 JF/gqiHkXMY3dZZQwfcte8F7tDtBTk9W8tbCVzCHFl6pyENbMpbDgmHYkQ5eZwXZV4A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--jpiecuch.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TS2CKJVy;
+	arc=none smtp.remote-ip=209.85.128.70
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B38F606A33E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:50:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B38F606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D41D6606A334
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:50:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D41D6606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--jpiecuch.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cCKrplZv
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c516a192844so514697966b.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:50:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795607452; cv=none;
-        d=google.com; s=arc-20260327;
-        b=oPGu6dQ1KUBPh5rQbB80dc93iH8mR9jgkvrOwNKpKWQQIzY+kRN70Dma+sXvUhWqI8
-         zC9qYHydJI5+n1M8oBC30YQk75q8NeFjk4v0Me2PaSVE0hnuoP/kA00kIHcjy1Se/AED
-         Mp+2wKhHCrvicZKvNtGAzn8QugQnt7BLD8zOMw6cEdDc0/RZn7/FRlqTwKxsu7s2khA5
-         IQ5A2m6XBapADblxgqcE8uweUaZ7aTzWO9MTe3TNFwui39YHWzH+GLtx0YAjmFLcUEUT
-         xoeTt81eoSiihn9wCdw46rWO4DuE+rx3VxFS/nSLQKqX2nNdtGNVAam9QYHGsHLntmAQ
-         ij6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=AK/FrytH2tf+B+57Lq9wnH5wu00oxO/OQC1ZXkryskE=;
-        fh=uE3wx9bE1nVchJHOh5aezt09VmNanik/Ge3lXiI2Guo=;
-        b=WmBGaEgW2VqwgzX0dUOG2CYjfjtW1m5Q7GgZVtL3EMZj5mNcR7Qrvbjn+iVa0PyNWu
-         T5E69d1TrFXtpRHFMosF8XwzOps1QYmPRe+q0TZlBXHKtWVf/8Edy9o3EroetPUI/QRC
-         skLklryB2pHphMO01rDjexPICvXWqF1JsoPylibUU47oEnaKySKciKAfyZsh7B2S9L1O
-         soWejNIL+CHjT/G4jDf+VaKqVXaqshXiwxSocIY9T+FCdJ/LCCjXn0BG8w/LkRblgINW
-         NQMDz19M0S3CTcPWTEOzEGyxb6l5ZSd9mWQ5WjhylvdtbyfLM8e+xpEaXOwKe5eaeP/5
-         7qsw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TS2CKJVy
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4ba078abd78so37187025e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:50:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795607452; x=1796212252; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=AK/FrytH2tf+B+57Lq9wnH5wu00oxO/OQC1ZXkryskE=;
-        b=cCKrplZvKmTmChiU/HWkkzSUlDXxoFNlvdQW5t4JT7LvZaH0zotWEszT5kKBJmcN0m
-         vPomZV2tFWvlHcSrTbIAZuo5IG+DDIIhkqdzaluUlsEaQbjEEHWkEha+8MbbvKJfHpNJ
-         bXl3xKAlMN3VvWpQbWEtysh7LbJqy03KCAvbBb4/lPCY56uKVSlnQ/rDAF0EPCdFR7da
-         whyxBm9WY9e0pNEXmVJmY3HAxKfEu64s8CS2jmMBv4BH0cWdBkWz2XGF5xzGEM5kJXEv
-         Equ5HQ0aYS3C+qnGSq1ascS5uzpxPVUWCGsWcVKOYAfoIori+vEAGi22Mpu0Ajet8D72
-         wlgw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795607452; x=1796212252;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795607456; x=1796212256; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=AK/FrytH2tf+B+57Lq9wnH5wu00oxO/OQC1ZXkryskE=;
-        b=SP5st4RfApfAR9iUlk60keKYUrlgA3FO+EZzTqRtVIyWiDld3+QzX58AI/jHw7bpgo
-         6zRWQ9dulvdNMPIC9A9J9NAuuiJNuS2XymY7g3SgO0K4e7/yqK7RvH1fZCFi4NfZ0VRH
-         HF/JqIsufxZllqpaERdCuz/XpMqOrYNQ0GrIhXqEuK8kRFxgA2BsF52nVkVOodxO4uTc
-         boNsvJz8Ri0+DwlLBNUXijwYKA4r32AUpU57XUErAxvcuEAsi1MpdH7ugQteG2EuqzEJ
-         LMh0Dd/LAvMBDm/Ov7I/kqbyJV+SIjhQu6rsq9hRO6PwLHUiCAgSnKrwtFJXr0l9/vqH
-         KTTQ==
-X-Forwarded-Encrypted: i=1; AL+hErGY2qHLV/A442aEgroI/gzs/e5J+dZIMOnPv4QJStvfOeafAmo0TP+1sSedxeJLtvLW6yBPKwB1QCmCqIE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/8GUjG8dXCnMuQ421rZjj0JOEtKxxeLPpz+LFDXcNOjHlCA430
-	fYuSuSjK4wp5+8cXZKXCGNUEuoCrTOYu/Tr3KYfrp6aLw1882j/7d08cjb6HZuM9Afv9CwCrVHR
-	kmjvecHayIq5EtsDBD0bqLR5cqbZY+Ig=
-X-Gm-Gg: AZFdTZdHNPm7mIV0L9xHukYpvfEn40g4O1PB6/HD5CG8UbqK3p1Ynp99quhptV4PYk+
-	tuv+gHDFjYcJ4+3SeKwbylv4zb1Euw/zzj08Ts8wvuY4dkElLPPCWeXuZqz1DWomNmw+WKonKsG
-	5OZ1ajqCm5htcFQThpcDQYz58/kXgqQE/CbQtWpQBeeuOfF2AIr0iljl9BCPTAGmqwp4Zk3ZKRs
-	UboJY0HQ1lLcGhSfKyomH0v4n3g5APsKrCK3FaJoWkORluQUc3wDnXEabqMod+oDdAUcx5k9Juk
-	phckL8yrgoAKd1pM0r1++Bh1FPo3oceSFUAPnrZ8X4x5LxqHHh2zwBNz4prvIXqQScFiLw7plP7
-	bzZm+PVxx9bebLsRZoEl2X3bGBxOMhYVwuZgvlLg=
-X-Received: by 2002:a17:907:ba01:b0:c50:521f:13de with SMTP id
- a640c23a62f3a-c513a897601mr1361763166b.35.1795607451572; Wed, 25 Nov 2026
- 03:50:51 -0800 (PST)
+        bh=XxpHxjNY3UsTDcTzG60Yu5gGt0anPZ0u89T3qoWHlA4=;
+        b=TS2CKJVyHZjN3a2LLkbriXllBbUn/IhFtK5At+wHf8/a4TNmUMbn1RE+kcn9xpSnge
+         4hJW+z0Nvf7iTd4yHSGAx1JhzN7QBbTYBRJWRq7E2dOviUmud5uQNubZzTlivRBiGOcA
+         78GztIyedsgLKM8HwOItfpa3fdKXKJn0b8SgJkxm3ec2GqzJCZjndK5OTa7pPhYAemqb
+         oAPrrVHMNZJOn0Y3u8vA9XePeDCtN2g9gXbKtcFflNQ0NMB1U3HbyDjOQnsUvelXJEUx
+         JZrL1dkhlbQowNRUNDUwjQfBqqrP8XdseL5q/2cjrBgjCQL1YsQIe6GLLEOCBwp7NiFV
+         rnGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795607456; x=1796212256;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XxpHxjNY3UsTDcTzG60Yu5gGt0anPZ0u89T3qoWHlA4=;
+        b=jD/IwMgMn2dYzQ/qA6qEHSDeLAODN+5N/viU6+RhSrZ9HgBmof8Q84tg0iMN62X7wI
+         Fxk6BGYczWNNjI52u25w93z8fR+0gpOdQJpML+IBUn8UYWyA702iHvbUSJXSDeT666kF
+         0wbmCKhSQlI/LL/41+KsqWx8w+8kx+pbcU6x6ZYdSL4dYyT08GZ7eaygx4TXPTulEVB/
+         XuYN9cG0di0fiKRhL63ihViKM899W504hFmPjph4rGMwqEIVkwpA6Ar+xZGoxrRAAGg1
+         ZmDNr2JBmKdYwy9q+5MlkgppbSgaji3z/DNHZm1qXzOy/CXjHFDE5Zh7hgABSmzxb86r
+         RABw==
+X-Forwarded-Encrypted: i=1; AL+hErFkn7XfDnN/39L0PxjxgkpJe4w1nLXsUYUwBuU3h/Xq6yRBpwZ0C3i1YDr6EKiXJ05/tVcLxQnnPGbLJ9o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8WQ4LTfKAqS+ul9wOWvha8IPV/jlTW2M8kD4+E17tfOGl5KdSB
+	AvFmCjTYHVV62c+jqvslSqEX3u3l6iRdICNdll01L6J/DYwFc8vBXjZDguo7ntGixV/6GNKtIXs
+	PE7U2vdgoh+pW7Q==
+X-Received: from wmbiv17.prod.google.com ([2002:a05:600c:5491:b0:4b6:5d12:e070])
+ (user=jpiecuch job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:46cc:b0:4bb:69b3:2b42 with SMTP id 5b1f17b1804b1-4bb888277b3mr377419855e9.16.1795607455071;
+ Wed, 25 Nov 2026 03:50:55 -0800 (PST)
+Date: Wed, 25 Nov 2026 11:50:52 +0000
+In-Reply-To: <20261125114932.3198836-1-jpiecuch@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,60 +78,205 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261124094914.2993988-1-a.shimko.dev@gmail.com>
- <20261124094914.2993988-4-a.shimko.dev@gmail.com> <977f8fec-4cae-4003-b878-a7eb5aeee48c@lunn.ch>
-In-Reply-To: <977f8fec-4cae-4003-b878-a7eb5aeee48c@lunn.ch>
-From: Artem Shimko <a.shimko.dev@gmail.com>
-Date: Wed, 25 Nov 2026 14:50:39 +0300
-X-Gm-Features: Aa3M54oKEgG2JL9N45FOQuqjvfRbhcjaW8XTghdzQJCbxKeIwx-6DyB-aMwShTI
-Message-ID: <CAOPX746TNm7m6d6G-WyUzDptEVRJR0AuUzKa_Hg=P7s8CchhHw@mail.gmail.com>
-Subject: Re: [PATCH net-next v5 3/3] net: phy: dap8211r: add PHY LED control support
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net, 
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, maxime.chevallier@bootlin.com, 
-	pavel@ucw.cz, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-leds@vger.kernel.org, netdev@vger.kernel.org
+Mime-Version: 1.0
+References: <20261125114932.3198836-1-jpiecuch@google.com>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261125114932.3198836-2-jpiecuch@google.com>
+Subject: [RFC PATCH 1/2] sched_ext: Reenqueue IMMED tasks when a higher class
+ wins the pick
+From: Kuba Piecuch <jpiecuch@google.com>
+To: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
+	Changwoo Min <changwoo@igalia.com>
+Cc: Kuba Piecuch <jpiecuch@google.com>, Peter Zijlstra <peterz@infradead.org>, sched-ext@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Hi Andrew,
+SCX_ENQ_IMMED relies on rq->next_class to tell whether a higher class task
+is about to take the CPU. rq_is_open() refuses IMMED insertions while
+next_class is above ext and wakeup_preempt_scx() reenqueues IMMED tasks
+when a higher class task raises next_class. However, a higher class task
+can take the CPU without going through wakeup_preempt(), leaving IMMED
+tasks on the local DSQ until it gives the CPU up:
 
-On Wed, Nov 25, 2026 at 12:47=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote=
-:
->
-> On Tue, Nov 24, 2026 at 12:49:12PM +0300, Artem Shimko wrote:
-> > Add support for hardware-controlled LEDs and brightness on the DAP8211R
-> > PHY. The chip exposes three LEDs that can be programmed to react to lin=
-k,
-> > speed, duplex, and TX/RX activity or be driven via the force mode.
-> >
-> > Add the dap8211r_write_ext() helper to access extended registers via th=
-e
-> > PHY indirect access registers, and implement callbacks for:
-> > led_brightness_set(), led_hw_is_supported(), led_hw_control_set(),
-> > led_hw_control_get().
-> >
-> > Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
->
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->
+- sched_setscheduler() or a PI boost promoting a queued task to RT or DL.
+  sched_change_end() doesn't call wakeup_preempt() for tasks which aren't
+  running, switched_to_rt() only calls resched_curr() and switched_to_dl()
+  calls wakeup_preempt_dl() directly.
 
-Thank you for the review!
+- DL replenishment, CFS bandwidth unthrottling (in partial mode) and RT
+  group unthrottling make tasks runnable without wakeup_preempt().
 
-Sashiko AI flagged a Medium issue in dap8211r_led_hw_control_get():
-the function returns 0 even when LED_x_CON holds a state that cannot
-be expressed as rules (TX/RX without ACT_BLINK, or ACT_BLINK without
-TX/RX). I'd like to send a v6 that adds:
+- When the ext dl_server picks an SCX task, next_class becomes ext even
+  though RT tasks are queued. Once the server runs out of budget, RT takes
+  over without a wakeup.
 
-if (!!(led_mode & DAP8211R_LED_ACT_BLINK) !=3D
-   !!(led_mode & (DAP8211R_LED_RX | DAP8211R_LED_TX)))
-return -EOPNOTSUPP;
+- With core scheduling, a forced idle pick resets next_class to idle while
+  tasks remain on the local DSQ. An RT task waking up on the CPU then goes
+  through wakeup_preempt_idle() instead of wakeup_preempt_scx().
 
-May i keep your Reviewed-by tag on
-v6, given that this is a small, targeted fix?
+With proxy execution enabled, scx_proxy_reenqueue_retry() already catches
+these. __schedule() sets rq->next_class from the picked task right before
+calling it, so it reenqueues IMMED tasks whenever a higher class wins the
+pick, whether or not that task went through wakeup_preempt(). Without proxy
+execution (CONFIG_SCHED_PROXY_EXEC=n or sched_proxy_exec=0), nothing does.
 
---
-Best regards,
-artem
+Rather than chasing every path which can make a higher class task
+runnable, check once the pick is final, whether or not proxy execution is
+enabled. Add scx_settle_pick(), called by __schedule() after proxy
+resolution, on the path which every pick reaches. If rq->next_class is
+above SCX and the local DSQ has IMMED tasks, schedule a reenqueue. It runs
+right after the context switch. rq_is_open() is false by then, so the
+IMMED tasks go back to the BPF scheduler. With proxy execution,
+rq->next_class is the class of the donor, so a higher class donor running
+an SCX lock owner counts too. Core-sched siblings apply a pick made by
+another CPU in their own __schedule(), so they're covered as well.
+
+This makes the IMMED check in scx_proxy_reenqueue_retry() redundant, so
+remove it. The reenqueue from wakeup_preempt_scx() stays, as it kicks in
+earlier for the common case. When no BPF scheduler is loaded, the new hook
+is a static branch.
+
+Fixes: 98d709cba319 ("sched_ext: Implement SCX_ENQ_IMMED")
+Cc: stable@vger.kernel.org # v7.1+
+Signed-off-by: Kuba Piecuch <jpiecuch@google.com>
+---
+ kernel/sched/core.c    |  1 +
+ kernel/sched/ext/ext.c | 53 +++++++++++++++++++++++++++++++++++-------
+ kernel/sched/ext/ext.h | 13 +++++++++++
+ 3 files changed, 58 insertions(+), 9 deletions(-)
+
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index f7a452123ef5..7eb99b833a4a 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -7340,6 +7340,7 @@ static void __sched notrace __schedule(int sched_mode)
+ 	clear_tsk_need_resched(prev);
+ 	clear_preempt_need_resched();
+ keep_resched:
++	scx_settle_pick(rq);
+ 	rq->last_seen_need_resched_ns = 0;
+ 
+ 	is_switch = prev != next;
+diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
+index efa1d01d03af..cea7bd9acc8b 100644
+--- a/kernel/sched/ext/ext.c
++++ b/kernel/sched/ext/ext.c
+@@ -1264,14 +1264,6 @@ void scx_proxy_reenqueue_retry(struct rq *rq, struct task_struct *next)
+ 		scx_proxy_update_tick(rq, next);
+ #endif
+ 
+-	/*
+-	 * A higher priority class may wake up while @rq is transiently idle
+-	 * for proxy resolution. wakeup_preempt_scx() isn't invoked in that
+-	 * case, so reenqueue IMMED donors parked on the local DSQ here.
+-	 */
+-	if (rq->scx.nr_immed && sched_class_above(rq->next_class, &ext_sched_class))
+-		scx_schedule_reenq_local(rq, 0);
+-
+ 	if (rq->scx.flags & SCX_RQ_PROXY_RETRY) {
+ 		rq->scx.flags &= ~SCX_RQ_PROXY_RETRY;
+ 		schedule_deferred_locked(rq);
+@@ -2713,18 +2705,61 @@ static void wakeup_preempt_scx(struct rq *rq, struct task_struct *p, int wake_fl
+ 
+ 	/*
+ 	 * Getting preempted by a higher-priority class. Reenqueue IMMED tasks.
+-	 * This captures all preemption cases including:
++	 * This captures the preemption cases which go through wakeup_preempt()
++	 * including:
+ 	 *
+ 	 * - A SCX task is currently running.
+ 	 *
+ 	 * - @rq is waking from idle due to a SCX task waking to it.
+ 	 *
+ 	 * - A higher-priority wakes up while SCX dispatch is in progress.
++	 *
++	 * The rest is caught by scx_settle_pick() once the higher-priority task
++	 * gets picked.
+ 	 */
+ 	if (rq->scx.nr_immed)
+ 		scx_schedule_reenq_local(rq, 0);
+ }
+ 
++/**
++ * __scx_settle_pick - Reenqueue IMMED tasks left behind by a pick
++ * @rq: rq of the current CPU, locked
++ *
++ * Called by __schedule() once the pick, including proxy resolution, is final.
++ * If rq->next_class is above SCX, IMMED tasks on @rq's local DSQ can't run.
++ * With proxy execution, rq->next_class is the class of the donor. A higher
++ * class can take the CPU without going through wakeup_preempt_scx(), as
++ * rq->next_class doesn't always reflect the highest class with runnable tasks:
++ *
++ * - A queued task getting promoted to RT or DL by sched_setscheduler() or a PI
++ *   boost only triggers resched_curr() or a class-local preemption check.
++ *
++ * - DL replenishment and CFS or RT bandwidth unthrottling make tasks runnable
++ *   without going through wakeup_preempt().
++ *
++ * - When the ext dl_server picks an SCX task, rq->next_class is set to ext even
++ *   if RT tasks are queued. RT takes over once the server runs out of budget.
++ *
++ * - With core scheduling, a forced idle pick resets rq->next_class to idle
++ *   while tasks are still on the local DSQ. A later wakeup goes through
++ *   wakeup_preempt_idle().
++ *
++ * - While @rq is transiently idle for proxy resolution, a higher class task
++ *   waking up also goes through wakeup_preempt_idle().
++ *
++ * Catch all of these here. The reenqueue is deferred and runs right after the
++ * context switch. rq->next_class is still above SCX by then, so rq_is_open() is
++ * false and the IMMED tasks on the local DSQ go back to the BPF scheduler.
++ */
++void __scx_settle_pick(struct rq *rq)
++{
++	lockdep_assert_rq_held(rq);
++
++	if (rq->scx.nr_immed &&
++	    sched_class_above(rq->next_class, &ext_sched_class))
++		scx_schedule_reenq_local(rq, 0);
++}
++
+ void scx_move_local_task_to_local_dsq(struct scx_sched *sch, struct task_struct *p,
+ 				      u64 enq_flags, struct rq *dst_rq)
+ {
+diff --git a/kernel/sched/ext/ext.h b/kernel/sched/ext/ext.h
+index d32bc01071b0..c66c4c97a2e0 100644
+--- a/kernel/sched/ext/ext.h
++++ b/kernel/sched/ext/ext.h
+@@ -26,6 +26,7 @@ void scx_proxy_donor_start(struct rq *rq);
+ void scx_proxy_reenqueue_retry(struct rq *rq, struct task_struct *next);
+ void init_sched_ext_class(void);
+ void __scx_update_idle(struct rq *rq, bool idle, bool do_notify);
++void __scx_settle_pick(struct rq *rq);
+ 
+ static inline bool scx_allow_proxy_exec(const struct task_struct *p)
+ {
+@@ -41,6 +42,17 @@ static inline void scx_update_idle(struct rq *rq, bool idle, bool do_notify)
+ 		__scx_update_idle(rq, idle, do_notify);
+ }
+ 
++/*
++ * Called by __schedule() once the pick, including proxy resolution, is final.
++ * A pick which lands in a class above SCX can leave %SCX_ENQ_IMMED tasks behind
++ * on the local DSQ. See __scx_settle_pick().
++ */
++static inline void scx_settle_pick(struct rq *rq)
++{
++	if (scx_enabled())
++		__scx_settle_pick(rq);
++}
++
+ static inline u32 scx_cpuperf_target(s32 cpu)
+ {
+ 	if (scx_enabled())
+@@ -80,6 +92,7 @@ static inline void scx_proxy_reenqueue_retry(struct rq *rq,
+ 					     struct task_struct *next) {}
+ static inline void init_sched_ext_class(void) {}
+ static inline void scx_update_idle(struct rq *rq, bool idle, bool do_notify) {}
++static inline void scx_settle_pick(struct rq *rq) {}
+ 
+ #endif	/* CONFIG_SCHED_CLASS_EXT */
+ 
+-- 
+2.56.1.839.g22a8290db9-goog
+
