@@ -1,99 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.41
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795647527;
-	b=vW2rQY18XSzAUS7tVSs6jsLnYH9VECC4fAs3GbqWB5dsyY2vvkhrGfeY/XVnrpN1YrJS
-	 B0LJaKD8pSR3P5ZdnfjsDdRYHakqC0E0coxrkj53gwzoyHitzIfjf90KJ8VTjxrXKBkv+
-	 ETqGX9x/SKjk8Yhb37idw4Y3JHZvGpfjK6FbeRIN2KSWpXk0I1PfS8rZXsszLMdB7OHyK
-	 HKMCPpgx6oqVW6PlA6074slfrAGZIpWhCFpleJGHAYt5A5WGN6sEHYgj71/N3cQjvnYRZ
-	 LxUr2ojbDc+4zN9LvgrCuW/BhwxcGfeTnk25W3RRPOafcSSUsE4EOBiDY5o4JjuntMg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795647527;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=bifZaCO4TaTv8tA7DvDvwVwTAzZVHPafBMZMdjCezBc=;
-	b=DD9Az30w4gHv4/gqKJWrN1+FvwFwKVeDBYRk2mmjjzIUbCnb+FvHraKeQLPOwg60Zkoz
-	 RIs1BH4RQXc0ReLAmXKZ5Q3jzynljyY+uSsRZZE5SDMJo5QXNgNey6rBM+6PgOtb6hqBl
-	 O2qHVALKcLgtpVA+B0xpFKP9Qw+Rm6VXau7uYyJfcAsA5maqigGX7LqLGHySljdX/YSuB
-	 sQsIhjFmSN9b7fW3LQgWZUGD6I/uTiOaWv46DeLi0/o2VSi7tdreVh7ELWQwadIvcLRB/
-	 J+Si7qrGoDWJ4FK/jBFSKepmBDwnmSKHU+6FwGCnMxx+xV7Q87IbRXM/mESgrApXgtQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=k4eu7cVD;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.41
-Received: from mail-ua1-f41.google.com (mail-ua1-f41.google.com [209.85.222.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.12.53.23
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795647641;
+	b=TaoehORYnmUW39IhiGLnNOZRWttU9MCfoOkLZ6YXQW7KFlcDku2uYgg+CQp/5si7oZCp
+	 gxZoF15F9z7b2IKS6vNs6+16DvD3NPTS++elu9c1mkyJUaCJhHQ4R5nLc4CkBTz9iYlok
+	 9TV2wnuJQQlHFQLdkhwo+mR7wPsJhYw7N/nWRcbHyyNrVgMJXRAUXp915UrUqVdB365QV
+	 p5QaLuuIyivlyK8xGrelUQlUaBDKkqGkK5ZXBuHhvgLGPvBfVPHM8+nWW3cs2idChKICw
+	 kA5xMzTBTEhX4jJKF/u8BduhGs+X7R39Zresx3Ta+5h27SRaEqFtlE3Hkj20akN1+9A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795647641;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=TsY4BV/+ObWxXathrekPiFRx0vLYjHLDJuIBQPvLmmY=;
+	b=RBHfvo1XMubw5X0hdMBL10gZz1hsLD3iNNBnsoZRL4uZnUEwcsvOjxiYB7nSAc5g4wPt
+	 Cmili/Wz9/iLOFyl5lrE1X3X13GfKgHlZvVCjfq9pYMvxtbC6bd7omD9D9LG5TuTvMsPZ
+	 JFdbqFE3KzJ4Nx6pTe08zB0YdCeOa5LHvcNzVU+oikaZRB6AT0PugpWykh3Rd43nDVLEy
+	 fGWtCivU7dohW3i0w5lSPsPp705ORpE9dnV0tIrxjZmxHUUl3iNb1Uhztc6Y0QFWkQGpn
+	 Qq6R6jgY+ysUQ/sKCEUDW0TdXzcBz34ygQWFVXWYOPVPL0rseYCnHK2OEpTLyKn0kPQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amazon.com;
+	spf=pass smtp.mailfrom=amazon.com;
+	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=lsegGIeU;
+	arc=none smtp.remote-ip=52.12.53.23
+Received: from pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com [52.12.53.23])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49C23606A33D
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:58:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49C23606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 288F1606A336;
+	Wed, 25 Nov 2026 23:00:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 288F1606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=k4eu7cVD
-Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-99e0082c434so1659039241.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:58:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795647526; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nbDgTVLOHE1ks+8A5CINg7sQ3GxAm9L1IDgmZRLDzdSiE1WrUPwYedcAznLNy+TB1H
-         BUqm+Axu7ljVEt2kv1M0o2CsICLJ1D7PaerYwnrwfahbNAiBYN5Y7IbcnkpWXjnFqBpk
-         Ais+n1akuy8lqLiW/gQVugXv43WzvFDTxJcqSeqJZBdTRsk/xw0eT3MHNdzNUAb2edw2
-         PDfRitd4Ij3nyIDxh1m1mii+M1gOTDpDQrKYezV1IfcxLFqx86IWjTqTE/VF1LDufUHt
-         YQ7U9gb5KBzy6d/GbeqDw2/RN9NMXruKWGO6tbh/BJVrjUNuDz5RizaeaRCKFQgtnxQe
-         Bnnw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=bifZaCO4TaTv8tA7DvDvwVwTAzZVHPafBMZMdjCezBc=;
-        fh=3PcT6c0oZ0UeKs9oFVCWF1xg+DrjTUEbnmxuO8f5eIU=;
-        b=ECZ6P1kNxNPHHm3a9/tYTKx67A/FX+NqMTjX2elFnvJpR+etCRE9lYYmKOF5Z5CLzQ
-         mTMI9vj/bmoaZpcclpXes3W55wqKQcZxkr7ES+gSPFR7YaLyM8NjBVdqYLbIohdijsUI
-         wbRVSyX5DgLhYJeEwMJSFe4wMWyq8sjvyZEd64NkWpqkogfEeQbZXvV4sN7/IQIk3Pkn
-         531eBdbDMbAmFcLpXuRBXyldhKzs9o3lMO/d9AJsUC645S624u51cPQ1/++AxiGAL01p
-         gXUf2G1tld8ys2w2Oj6VSuyz3hT0Wsr+N8UWGHeRAGkTwV6+qriBZ9BAtgn16yrX9es7
-         Us3w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=lsegGIeU
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795647526; x=1796252326; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bifZaCO4TaTv8tA7DvDvwVwTAzZVHPafBMZMdjCezBc=;
-        b=k4eu7cVDKPuTDA5873q5wq2f0EvT7ngxFl0uH3lBtrrRUvLbnueSHzMjPYkUH4T8U5
-         XD/T6b94JD/2sTUSXsJRqREI5Mj4dNhQrxuw/AZTv4f1vQx99uCF2CrvdHFUARqWWb3O
-         mZIDbStDBCi2l9ZvoUaWCVQylgiisSr8xsWocpGSND9+Dr4ddIR8aKKfR9yjH5Ub3148
-         7dxUI/taty5stf0aS+x1j0IM1heL0WrdYEv+EThg7uE77JuwRDCooJNbZrLtCAut9ON4
-         SNcbzsy+OfvwmEaIsDZm5A8Eu+PdySwbqLSlynFFmkLTmFgpUjXDGvbWHzzafHd9IwkC
-         +//w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795647526; x=1796252326;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=bifZaCO4TaTv8tA7DvDvwVwTAzZVHPafBMZMdjCezBc=;
-        b=G2Ih3XSM1aNllAn+p74omrvks6MUF6IEpMUJNuArsdncDdUbQj8sGW6QHrwfDUJ+r7
-         biWBbyKsSUV+AXJexj2HOpTWD1BBPSjwf2huZ66YscLwEq13JlyfmOoVoyNcCdCBgTvt
-         kKGq6ieY2hAYCw1D+eUdsYiYnpo0LIK708yo/PqiF486AW1anIvCIx6wvxoy4PjjN+bY
-         dEeUFlW5S9Ju/UwIwvkITso8A7Z/sObIAM9icLor0L6hvAk5y0+rwJ14PijqFyDwOwtc
-         mGcvvHa3NM6+lSl6wXhuV8MFqEtmUygG2XtgTu5mHhD7Efx8yOOyrJW5FFqWjFXsHtwl
-         iUwA==
-X-Forwarded-Encrypted: i=1; AL+hErFgt9kS8nyXZoZ3te8Dpyw7WlYe9ddBbPOeJS43X6rnRcYI3BymH3W9WBvbjFppgv3NbdcMNn9FyyXqL1k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/8Kts0fizlNkOMmD5xB5oHt/0e8NA8ySBtjoJmZkBENUUR07n1
-	A4OCheEjKqCn4NcwtqzqGLYsFVRUo65aas0vhE7b4167XrEHfqLofxIM8uIT+lYiw4Njkq8oeiV
-	j+R04UbpmPf5bIAdk0QS6Pu+a1E8+5nSk/nPKKmU9
-X-Gm-Gg: AZFdTZfH8+bl43OUNs7KjEIozWzJrAYRjs8v+L/JTVONUSA11OIpvR27vye2pDdojXc
-	AzqYvhKyQwn3HwdspsQ+9BjY0ccG7/O7veJ5nILhVIMPI1qFRocvY6jItE2WVVLoIgb/cz8HGLL
-	A1EKsIimyF2mvGgwyJwzx8+g7PMZVnZFyvuSr0U0XZibfaCWaP/rOfwCSLdXiDFDB/wts0k77fL
-	vNZxPpXMIjdM2k/ofO9cGsH3zGRbKAkcnPZYh9Xm7rX5H5PCigvENbs3beQSyJLORS6/T/+0GGs
-	Ea2dTiOGN/uVTWWWHrSxLU9/OJAu+bsh4wwbgHdvykuWOv7vXmVe0EbitIgokRmd4rgwwQQacRO
-	576UGY/37L0PXmt0dipvmtaGudxNyUdjEKhSnY+ER6nf/Ira9IUQrxAK82F5ETvUdG3I=
-X-Received: by 2002:a05:6102:c4b:b0:7cc:174b:f7bc with SMTP id
- ada2fe7eead31-7d7397267a8mr10844584137.15.1795647525632; Wed, 25 Nov 2026
- 14:58:45 -0800 (PST)
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1795647641; x=1827183641;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=TsY4BV/+ObWxXathrekPiFRx0vLYjHLDJuIBQPvLmmY=;
+  b=lsegGIeUDvUvnoyh1KLIY3AIF/Y0+OL3KonpEG2TuvlGrdd/swuravx+
+   tffr5qnioEwpUZaxdzT5ZOlAIv/NzJLdf9NlAOC1Lmj9MXFBJZ3En4Nue
+   LiU4hlhvMW3AHIAU5t1QTFsPY67BsQSk9K0iCNs04r2Mw1Pw8/Qg68XwG
+   LYSvAbghZdQC9P2xfbss+/ZQTb6PuLPCT4hPH+WYPb/H52AZZKxIxh126
+   nwS1E29svSv0GLCbKnV88qTmjGsAwLIOliTOzw0+1TfTXDlCGHX9BTOBU
+   woDKq40O4HG9vPJ1UYbO0eew2us/zksMIV8PgHpWXSy5ulJc0mWXhI/BV
+   Q==;
+X-CSE-ConnectionGUID: GfgC2pvdTDC0N2f0C9zPuw==
+X-CSE-MsgGUID: H1Q4FsJDRceDLibr+jRLtQ==
+X-IronPort-AV: E=Sophos;i="6.27,233,1787011200"; 
+   d="scan'208";a="34980411"
+Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
+  by internal-pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 23:00:38 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.53:30233]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.58.48:2525] with esmtp (Farcaster)
+ id 1f3f3ea1-ce68-4516-84dc-fc3b677d619c; Wed, 25 Nov 2026 23:00:38 +0000 (UTC)
+X-Farcaster-Flow-ID: 1f3f3ea1-ce68-4516-84dc-fc3b677d619c
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Wed, 25 Nov 2026 23:00:38 +0000
+Received: from dev-dsk-surenkj-2b-416930d2.us-west-2.amazon.com (10.169.26.94)
+ by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Wed, 25 Nov 2026 23:00:37 +0000
+From: Surendran Kanagaraj <surenkj@amazon.com>
+To: <jarkko@kernel.org>
+CC: <corbet@lwn.net>, <graf@amazon.de>, <gunnarku@amazon.com>, <jgg@ziepe.ca>,
+	<joshlev@amazon.com>, <leitao@debian.org>, <linux-doc@vger.kernel.org>,
+	<linux-integrity@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<nh-open-source@amazon.com>, <noodles@earth.li>, <peterhuewe@gmx.de>,
+	<rdunlap@infradead.org>, <skhan@linuxfoundation.org>
+Subject: Re: [RFC PATCH v4 1/8] tpm: Add a single table for all TPM wait limits
+Date: Wed, 25 Nov 2026 23:00:34 +0000
+Message-ID: <20261125230034.24726-1-surenkj@amazon.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261118073852.81107-2-surenkj@amazon.com>
+References: <20261118073852.81107-2-surenkj@amazon.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,28 +87,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125222713.1450385-1-elkin@google.com> <16ad231f-0cba-40a0-992a-a0d430da5a91@kernel.org>
-In-Reply-To: <16ad231f-0cba-40a0-992a-a0d430da5a91@kernel.org>
-From: Elkin Cruz <elkin@google.com>
-Date: Wed, 25 Nov 2026 14:58:34 -0800
-X-Gm-Features: Aa3M54rX82vBgzUZ__ab0jzhalBL3zfUm3mwj2OyMozxs06Jy0Mm2mHqwLtG9LM
-Message-ID: <CAC_6YktiaVRXr3jbfx1ybhhxzHbO4NyMnseg9CLL5CNJgYbCvw@mail.gmail.com>
-Subject: Re: [PATCH] mm/migrate_device: use locked folio in migrate_device_{range,pfns}()
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>, 
-	Matthew Brost <matthew.brost@intel.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, 
-	Byungchul Park <byungchul@sk.com>, Gregory Price <gourry@gourry.net>, 
-	Ying Huang <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org, 
-	Lorenzo Stoakes <ljs@kernel.org>, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	irogers@google.com, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: EX19D031UWC003.ant.amazon.com (10.13.139.252) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 
-> Before you send any more: if you cannot reproduce it in the tree, don't report it.
+Hi Jarkko,
 
-As with the previous report, this one is just a hardening patch on a
-theoretical case.
+On Wed, Nov 18, 2026 at 07:38:45AM +0000, Surendran Kanagaraj wrote:
+> +static const u32 tpm2_defaults[TPM_NR_LIMITS] = {
+> +	[TPM_LIMIT_A]		= TPM2_TIMEOUT_A * USEC_PER_MSEC,
+> +	[TPM_LIMIT_B]		= TPM2_TIMEOUT_B * USEC_PER_MSEC,
+> +	[TPM_LIMIT_C]		= TPM2_TIMEOUT_C * USEC_PER_MSEC,
+> +	[TPM_LIMIT_D]		= TPM2_TIMEOUT_D * USEC_PER_MSEC,
+> +
+> +	[TPM_LIMIT_SHORT]	= 750 * USEC_PER_MSEC,
+> +	[TPM_LIMIT_MEDIUM]	= 2000 * USEC_PER_MSEC,
+> +	[TPM_LIMIT_LONG]	= 3000 * USEC_PER_MSEC,
+> +	[TPM_LIMIT_LONG_LONG]	= TPM2_DURATION_LONG_LONG * USEC_PER_MSEC,
+> +	[TPM_LIMIT_DEFAULT]	= TPM2_DURATION_DEFAULT * USEC_PER_MSEC,
+> +};
 
-Please ignore this patch.
+The TPM2_SelfTest duration bump [1] made me realize that mapping the
+TPM 2.0 durations into these TPM 1.x style classes may not hold up long
+term. A spec update to a single command turns into a change that
+affects all commands under the class. I think it is better to keep the
+existing maps as they are and let the driver modify the map if needed.
+This is also what you suggested in commit 207696b17f38 ("tpm: use a
+map for tpm2_calc_ordinal_duration()"): keep a per-chip copy of the
+map and let the leaf driver patch it.
 
-Thanks again for the feedback!!
-Elkin
+At a high level, the series would become:
+
+1) Set default interface timeouts and duration at chip allocation.
+2) Keep the chip durations in a union of TPM1.x and TPM2.0 durations.
+
+     union tpm_durations {
+             unsigned long tpm1[TPM1_NUM_DURATIONS];
+             struct tpm2_ordinal_duration tpm2[TPM2_NUM_DURATIONS];
+     };
+
+   struct tpm_chip holds the union tpm_durations in place of
+   chip->duration[]
+3) update_durations() now gets the union which TPM1.x and TPM2
+   drivers can adjust.
+4) Show the durations sysfs file for TPM 2.0 chips.
+
+With this, I would drop the limits table, poll APIs and tpm.limits=
+parameter for now and keep the series focused on duration handling.
+
+Does this sound reasonable to you?
+
+[1] https://lore.kernel.org/linux-integrity/20261125182251.19360-1-surenkj@amazon.com/
+
+Thanks,
+Surendran
