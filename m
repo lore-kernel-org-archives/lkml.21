@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795581889;
-	b=RySKVIBRt4pZSXLyEmqsgzguamLmOqhLxJJ833CHKMFx7hpZw5BaWLMav5G4gb2QO1iS
-	 cgZMLB5entaWRd174jxI1SAgy2EjN76JeIuMZPhu2/pMtFE1vZNmSrCBP9skoPuBtsjsh
-	 8gNA4z16k98EJyEs/KQBCdDOQSFnPqAwu66xezReikE7qb+yZx1cc0bxwleIK0c0nMx2M
-	 ltjFMO3e/90BtHvnGGFrf96m4uzlIavM+jwrJEOOX/Zrg9ZaWx+2fIM2ncsvrZSGmo+TM
-	 O44s0khT7VOMN4tNuW8kawJiZxeuugF6Y6mhQcwq4FQKpINw1Kq/I0z+z52FM1c4img==
+	t=1795581886;
+	b=IzP3ru0OBGq/Rp5sK0GtPwXLAnH6s9yDMWdssq7JMIbm9RiGBOCGS3MYivY/S1Nk/dwH
+	 sckRqiHpK8QI0sBOsyX8NUznpx8eI0avZB+ibx5FZNcs6KOjxWp6sDoRmG1+F4jQ37o2H
+	 YmVuLrEbfzf4qDcdGDPeUVPZYktcMOe9B84mh3uEVGuYXvNh4TRZMBmzFp0CEvkmaqz2J
+	 JXDVGF7fXR+EXd6bL3o7udgDnI/mhvuBs6iIVJ4Q09ukAEXRtZD2zOhAuwyBBfdGtnPUQ
+	 YpjsxxyRjJDEklYGQ8GHNqjyjSjZW59XiEGg3E0RS/NxfvR9Y+nI6h/9Vy1zlJws4Gw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795581889;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795581886;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=f4nKhL6BCHc76e1QSsjNaolj45jPoNKK6t/qBjGnops=;
-	b=fpuv6NnedOiiSpo4jartLMqaIq5i/yBbwJprff7pvtZILoLsEjYPhWjpPbW8mg6M9HEF
-	 mO+PbLK2ADb+XA3QtF+M7CoPGjWZ5HfdOrLtOgFckopkqKFMZY5PM9p/FEf3ZIpjjxflH
-	 CcU02wIBp44tH0BX/iT0ufKXlRG4horrznIobv7uDPrTHZsL3Aklp7KSCDjhpWrlFLQrD
-	 AS1xcnLgWUTND4RBV6ki3gYf+/kzvM0YJDNhS4hqqnyNilRIdL1ep1fVhaq9APG5/nsDi
-	 rUAssQJrMgaQT7NPFcoygwgE3Qbjhxpt36hJyZ/q+xcpjr8X9Eu8jae4uMNN3GFhCvg==
+	bh=zPdoHSJZrfNjUsSTg3j0Mv6qk8YgKRtS0WU3iD70Png=;
+	b=afXDP1CTfDxbrPQQU3Szn762Bmw6SmGgwPcLc3QgKho9Ym8YY1OMAyOyyZcg441K1k1k
+	 ELhvB3rvJyxL/n4xxml3OnjoY9k9wNX8xumbpv4+zzmsaH/K49edo7KfoVg1YMukcbtJm
+	 g371EFtovLBNvbJbyw8iXaK0qRlB4RGsMYy4C8E4JBJ0kf3PiyMqK+KL6ByI6/sg3rttX
+	 6o/VIxhaB3xQOQLwbFsglr9L8Bpb3yDqhYOEPq5qn/iGTFDZYHmIRaIAxfQ/M3d6tAsyc
+	 R/1MJ2+ulkjIMiPjAJlu4Dbc0nRn8l0f51fUXYsfLnWZN6wBJmS/9URivr3JBZddHIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UZtjE7sk;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PQbYPGw1;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB71A606A326;
-	Wed, 25 Nov 2026 04:44:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD82F606A31E;
+	Wed, 25 Nov 2026 04:44:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UZtjE7sk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3BA81F000C6;
-	Wed, 25 Nov 2026 04:44:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PQbYPGw1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CFA61F000C6;
+	Wed, 25 Nov 2026 04:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795581889;
-	bh=f4nKhL6BCHc76e1QSsjNaolj45jPoNKK6t/qBjGnops=;
+	s=k20260515; t=1795581886;
+	bh=zPdoHSJZrfNjUsSTg3j0Mv6qk8YgKRtS0WU3iD70Png=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=UZtjE7skXqqrd1RhY8r7ERvpYZnJvl8wCgZiqlFa2s4jWULNFdhDV/Mhip1p5i97/
-	 +GlIclikTjRkjFgfV1+vsx4+UlxGSZnwCve4q2U9joVDl7VAh5JorI+9PhTUCb5lw3
-	 X12RqQUl2Ki/yZdBYrRaoEq5cOPiiMjxFxXtJ/etS/AxfrhYa4rP/wGgdwkhBOKPon
-	 KI3LHGQ0JopXVX2iR+qCM9dw+rBHJjBLT3k7QDHNv9Ukf0ZFNVwoToTdv/AKCCa2kU
-	 83ygPs34OkdUPu1YbQUpWSBqIqZ2PeWD4zm8WbB2sA97Zsa+veXVvlNqKHsojlD9/o
-	 YMGbIi2Sz4B6A==
-Subject:
- Re: [PATCH net v5 8/8] ptp: ocp: correct the ART 10 MHz input frequency
+	b=PQbYPGw1oJvZxsTd9Oc3UIo0REDCbPuA7ihBSRsMnUdRc4sWEAh3IxdoeMfJQi3Mv
+	 Y0hQWbdaTsjHuwy/gS1u6pSEa1UrPPVHx7ndk9iKVuse4Jvkq8VWOYWHaZ/P6HVa/S
+	 YOR4R7em3UoF1gTQK2XURYJB+FKQNgW7DTml8OpkRsupfo72Ne1/HTwO0BvMpFOfrm
+	 Z8o1fqIcWQGYN25J/D0QUfg9ZSqb8cWPIFo1dozEy1hAxN7jn7Liuu7SdZNSf5sSgv
+	 cCSUxVJrQ2wZccb551pN9F3gMxQsRSo+O0dSYQZfekeNRHm8XQQCPaY2piDMEMZKp5
+	 U5aqkhcv6CQUQ==
+Subject: Re: [PATCH net v5 2/8] net: dsa: sja1105: leave the pin function
+ unchanged on EXTTS disable
 From: netdev-bot+sashiko@kernel.org
 To: ahmadexp@gmail.com
 Cc: netdev@vger.kernel.org, andrew@lunn.ch, arkadiusz.kubalewski@intel.com,
@@ -50,11 +50,11 @@ Cc: netdev@vger.kernel.org, andrew@lunn.ch, arkadiusz.kubalewski@intel.com,
  linux-kernel@vger.kernel.org, olteanv@gmail.com, pabeni@redhat.com,
  richardcochran@gmail.com, rmk+kernel@armlinux.org.uk,
  vadim.fedorenko@linux.dev
-Date: Wed, 25 Nov 2026 04:44:48 +0000
-Message-ID: <179558188819.3135.13063151808595339248@kernel.org>
-In-Reply-To: <20261123-timecard-common-v5-d669cfa034-8-ahmadexp@gmail.com>
-References: <20261123-timecard-common-v5-d669cfa034-8-ahmadexp@gmail.com>
-X-sashiko-severity: Medium
+Date: Wed, 25 Nov 2026 04:44:44 +0000
+Message-ID: <179558188491.3135.14757848220793182596@kernel.org>
+In-Reply-To: <20261123-timecard-common-v5-d669cfa034-2-ahmadexp@gmail.com>
+References: <20261123-timecard-common-v5-d669cfa034-2-ahmadexp@gmail.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -70,7 +70,7 @@ MIME-Version: 1.0
 Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,87 +78,108 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The patch fixes only the 10 MHz case.
+- [High] This patch fixes only one direction of the shared PTP_CLK pin
+  problem.
 
 --
 
-ptp: ocp: correct the ART 10 MHz input frequency
+net: dsa: sja1105: leave the pin function unchanged on EXTTS disable
 
-This commit changes the frequency of the ART input selector named 10Mhz
-from 1000000 Hz to 10000000 Hz. That makes it match the 10 MHz value that
-ART pins advertise and the matching ART output entry, so DPLL frequency
-set requests for 10 MHz no longer fail with -EINVAL.
+This patch makes sja1105_extts_enable() switch the shared PTP_CLK pin to
+the EXTTS function only when timestamp capture is being enabled. Disabling
+EXTTS previously turned an output pin back into an input and stopped the
+periodic output.
 
-Link: https://lore.kernel.org/r/179538006772.3135.15875996486888374193@kernel.org
-Link: https://lore.kernel.org/r/179538007070.3135.8275620503580456948@kernel.org
+Link: https://lore.kernel.org/r/179548551283.3135.17206659598806657887@kernel.org
 
-> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-> index 821ecd1a13c8e..93923d5a29922 100644
-> --- a/drivers/ptp/ptp_ocp.c
-> +++ b/drivers/ptp/ptp_ocp.c
-> @@ -1385,7 +1385,7 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
->  
->  static const struct ocp_selector ptp_ocp_art_sma_in[] = {
->  	{ .name = "PPS1",	.value = 0x0001,  .frequency = 1 },
-> -	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 1000000 },
-> +	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 10000000 },
->  	{ }
->  };
+> diff --git a/drivers/net/dsa/sja1105/sja1105_ptp.c b/drivers/net/dsa/sja1105/sja1105_ptp.c
+> index 350f958dcb2af..da35805152e05 100644
+> --- a/drivers/net/dsa/sja1105/sja1105_ptp.c
+> +++ b/drivers/net/dsa/sja1105/sja1105_ptp.c
+> @@ -816,9 +816,11 @@ static int sja1105_extts_enable(struct sja1105_private *priv,
+>  	    (extts->flags & PTP_EXTTS_EDGES) != PTP_EXTTS_EDGES)
+>  		return -EOPNOTSUPP;
+>
+> -	rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
+> -	if (rc)
+> -		return rc;
+> +	if (on) {
+> +		rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
+> +		if (rc)
+> +			return rc;
+> +	}
 
-[Severity: Medium]
-The table change looks correct. Is the failure described in the commit
-message still reachable on ART pins for two other advertised frequencies?
+[Severity: High]
+Should sja1105_per_out_enable() in the same file get the same guard? It
+still switches the pin before it looks at on:
 
-ptp_ocp_art_sma_init() registers every ART SMA pin with the shared
-generic list:
-
-drivers/ptp/ptp_ocp.c:ptp_ocp_art_sma_init() {
+drivers/net/dsa/sja1105/sja1105_ptp.c:sja1105_per_out_enable() {
     ...
-	.freq_supported_num = ARRAY_SIZE(ptp_ocp_sma_freq),
-	.freq_supported = ptp_ocp_sma_freq,
+	mutex_lock(&ptp_data->lock);
+
+	rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_PEROUT);
+	if (rc)
+		goto out;
+
+	if (on) {
     ...
 }
 
-That list also advertises IRIG-B (10000 Hz) and DCF77 (77500 Hz):
+On SJA1105P/Q/R/S and SJA1110, avb->cas_master is 0 when PTP_CLK is an
+input. This is the boot default, and it is also the state after an EXTTS
+enable:
 
-static struct dpll_pin_frequency ptp_ocp_sma_freq[] = {
-	DPLL_PIN_FREQUENCY_1PPS,
-	DPLL_PIN_FREQUENCY_10MHZ,
-	DPLL_PIN_FREQUENCY_IRIG_B,
-	DPLL_PIN_FREQUENCY_DCF77,
-};
+drivers/net/dsa/sja1105/sja1105_main.c:sja1105_init_avb_params() {
+    ...
+	/* On P/Q/R/S, configure the direction of the PTP_CLK pin as input by
+	 * default. This is because there might be boards with a hardware
+	 * layout where enabling the pin as output might cause an electrical
+	 * clash. ...
+	 */
+	avb->cas_master = false;
+    ...
+}
 
-Neither ptp_ocp_art_sma_in[] nor ptp_ocp_art_sma_out[] has an entry for
-10000 or 77500 Hz:
+In that state, sja1105_change_ptp_clk_pin_func() computes
+old_func = PTP_PF_EXTTS. It then sets avb->cas_master = 1 and writes
+BLK_IDX_AVB_PARAMS. As a result, a PEROUT disable turns the pin into an
+output, and the disable branch only issues stopptpcp after that.
 
-static const struct ocp_selector ptp_ocp_art_sma_out[] = {
-	{ .name = "PHC",	.value = 0x0002,  .frequency = 1 },
-	{ .name = "GNSS",	.value = 0x0004,  .frequency = 1 },
-	{ .name = "10Mhz",	.value = 0x0010,  .frequency = 10000000 },
-	{ }
-};
+Userspace can trigger this through two paths:
 
-dpll_pin_freq_set() in drivers/dpll/dpll_netlink.c validates a request
-only against the advertised list through dpll_pin_is_freq_supported().
-That means DPLL_CMD_PIN_SET with DPLL_A_PIN_FREQUENCY set to 10000 or
-77500 on a non-fixed_fcn ART pin passes the core check.
+  ptp_ioctl(PTP_PEROUT_REQUEST) with a zero period
+    -> ptp_perout_request()
+      -> ops->enable(ops, &req, 0)
+        -> sja1105_per_out_enable(on = false)
+          -> sja1105_change_ptp_clk_pin_func(priv, PTP_PF_PEROUT)
 
-The request then reaches ptp_ocp_dpll_frequency_set(), where it finds no
-match and returns -EINVAL:
+  ptp_ioctl(PTP_PIN_SETFUNC) moving pin 0 away from PTP_PF_PEROUT
+    -> ptp_set_pinfunc()
+      -> ptp_disable_pinfunc(info, PTP_PF_PEROUT, chan)
+        -> enable(PEROUT, 0)
 
-	tbl = bp->sma_op->tbl[sma->mode];
-	for (i = 0; tbl[i].name; i++)
-		if (tbl[i].frequency == frequency)
-			return ptp_ocp_sma_store_val(bp, tbl[i].value,
-						     sma->mode, sma_nr + 1);
-	return -EINVAL;
+Neither path checks whether PEROUT was ever started. That means this can
+happen even on a freshly booted switch.
 
-Pin-get also keeps reporting IRIG-B and DCF77 for every ART pin, even
-though the ART hardware has no selector for them.
+Could the switch then drive a line that an external source, such as a PPS
+input, is also driving? Avoiding that is the reason for the boot default
+above.
 
-Would it make sense to give ART pins their own freq_supported list that
-contains only DPLL_PIN_FREQUENCY_1PPS and DPLL_PIN_FREQUENCY_10MHZ, either
-in this patch or in a follow-up?
+If EXTTS was active, capture also stops in hardware. However,
+priv->ptp_data.extts_enabled stays true and extts_timer keeps polling. A
+retained PTP_PF_EXTTS pin assignment would no longer match the hardware.
+
+The commit message says "EXTTS and PEROUT share PTP_CLK". The same
+mechanism is still reachable through this mirror call site. No later patch
+in the series changes sja1105_per_out_enable().
+
+Would it make sense to call
+sja1105_change_ptp_clk_pin_func(priv, PTP_PF_PEROUT) there only when on is
+true, as part of this patch?
+
+>
+>  	priv->ptp_data.extts_enabled = on;
+>
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123-timecard-common-v5-d669cfa034-0-ahmadexp%40gmail.com
