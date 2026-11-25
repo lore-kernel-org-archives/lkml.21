@@ -1,92 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.42.244.120
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.25
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795600604;
-	b=AyVDzcFaDEbPohtIppnjEXRKOOEE6L1COHGLoJZAbQf3j858Dax/o02nClj/IkJ+bsI6
-	 78DQGWOih5fShb/t1suC3h/iq45+mbucQqhQfpbmec0Eh4JelBw4t6NA3mK21L+0tPKW4
-	 JarMpwGh7/cmqStH97KMIJ6gszFLQPVf6se56UFbpix1ymf0caeqxGyg6RWxTUiaQKJp1
-	 ZN4zOuJhjm96viBpLTyPYlw8gkUshHfKtaRp0Ga7lvl1ogyFxw/OvuzpPcuNNlRpqLF8x
-	 uSZ2xRamxFPRGO+OM9tlTpL+tXiynXzjilZkxfXhCEenAuMJ/paTFPT7DVQsKaOAIcQ==
+	t=1795600617;
+	b=bA69aUNEyrWMk+6VvUqHN+EFe4Ae1PPTRnYw+jnRD8bllz+G6M0A2rKWsx72usyRiwa0
+	 +sbNyOfzVyRzZQzd6j3VnHgQ2DWo71HPofGzrbxLQIAiJSLLrtA0D9vVrZvaoytR86kJ8
+	 BSujueBhOu+6v6AUIh4Nv6D8FQ3p8FkMFq1BhDcf3JK9Q4poV5Yo+VJOlVjMIQ+b8V+kH
+	 jxTOs1ifgjiD/lrw/QZDOVg6O5Tu/+6kaPEEgPEFD1aYCEbp1Y5F4mkLfFvgssIvxtkZO
+	 7ZIA1KF4kDl2p5ZfOM1fKqjgBowCiIu56Hm8qbdkGcHesMcopHQLu4VlQZeVIjInBAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795600604;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization:x-ms-reactions:
-	 X-purgate-ID:X-purgate-type:X-purgate-size:X-Notice:X-purgate:
-	 X-purgate:X-pfmilter;
-	bh=o9V35QWmnxkcGDaXqhjxiPIy0R24gUWruywCyvkZf9g=;
-	b=m50LyulA/iCwMBAodkD9bXvCZ/Iiwn9pOyk+sv040VDQ2yBIXJHZ0CZqULi1jOD9hmHv
-	 NzVh4nuaS8ijzzd3FKmHF2Be8UpGL5fqMyj6ALkSMM2KXX6MmJK6ETIriF+O+EnVeuqCQ
-	 QbZo0WQzPpXXc094oe2C/wOvMsmVPUb6lWYEpS0Hj9eyYrV/s8/g6Qx/3uSR2T9RFdsQB
-	 goSbqmUBl9u78kRordGfuc3NekPppNAqEUgfZav+IBrmvt24wVlf/4QDyE/Nzt3q0O6CJ
-	 h+HP+vj+C6wCYGs366xJjsnWFYrwFObk5I/JDDzL1JcxK/iLKjaujfSI6NYpLt0K2Pg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795600617;
+	h=DMARC-Filter:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
+	 MIME-Version:X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:
+	 X-CM-SenderInfo;
+	bh=nPEw7aOERYlIdruT9TqrFmk/oH6cGVDE62g1FJtuBus=;
+	b=vtuqCRHrTM9xAk3/dDQDc3x1zJMqmFZiGCS9iP6Yw390iPHnTSA1+UG2sUSniVu+aGcQ
+	 EXmuN4xsXy9VnmOUQfC9bVTJVrISa2OEWDSPI1M1RRdHUaHMZku211+dvw+thlSoS7uxS
+	 9+w2DsEgEDI7CHZOZcsuJvKjVv70uuMkH0Ad10zITukLSGiJsVvOy3x/gK+BrA+7K1azd
+	 gx3mTx9/E+2PYxu7X9P+6dUoV/8Wn18UyaF8ta6vERbZHb+gvR2U/OEnFoP/BTrNGYhFd
+	 jmGRJwLmlx5n22Tur60ZHOd+0NpRQSmHp3cWsg01wPfNd3QhKMOCMAld0KxjhcHgIkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fritz.com;
-	spf=pass smtp.mailfrom=fritz.com;
-	dkim=pass header.d=fritz.com header.i=@fritz.com header.a=rsa-sha256 header.s=mail header.b=OvOVK9ai;
-	arc=none smtp.remote-ip=212.42.244.120
-Received: from mail.avm.de (mail.avm.de [212.42.244.120])
+	dmarc=none header.from=iscas.ac.cn;
+	spf=pass smtp.mailfrom=iscas.ac.cn;
+	arc=none smtp.remote-ip=159.226.251.25
+Received: from cstnet.cn (smtp25.cstnet.cn [159.226.251.25])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10EBF606A329;
-	Wed, 25 Nov 2026 09:56:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10EBF606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fritz.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fritz.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fritz.com header.i=@fritz.com header.a=rsa-sha256 header.s=mail header.b=OvOVK9ai
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fritz.com; s=mail;
-	t=1795600592; bh=pZNseUamYF/NcBCWp2XFZ917wokQkwCmyXEupzEFfo0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OvOVK9aiHm8AT8ElIOf0mHmcxUZqwvb9/Usx9TkHvu+FLOLBysBfDif3qHokFDPEe
-	 nlzMytPtB80W+7JR1u9lNTK7rMmuJQhpwqyTN6A7oifJLbZbukMFQuMWk/alMlt7Vz
-	 709n2l4yfmtdMnlpyL7Sz1aW77eKlBu86HvbUzwnDQs5u30YYG/+tvXeEs95Gk8Mk2
-	 Vm9cM/0CQj/vpLQiMGoal3nPkHzq25SNIMrakcmlahLSPSgMUAH7pa87hTS7S6j619
-	 S5FDwDQnzFvw0BuXbAIJFVQnuzcNaxH+3WwOWAwuMk038+czYJ0r/x5Bpu8bwCAXQe
-	 cYRcdz8PZrcSg==
-Received: from [212.42.244.78] (helo=mail.avm.de)
-	by mail.avm.de with ESMTP (eXpurgate 4.57.1)
-	(envelope-from <n.schier@fritz.com>)
-	id 6b06b0d0-045b-7f0000032729-7f000001912c-1
-	for <multiple-recipients>; Wed, 25 Nov 2026 10:56:32 +0100
-Received: from mail-auth.fritz.com (unknown [212.42.244.78])
-	by mail.avm.de (Postfix) with ESMTPS;
-	Wed, 25 Nov 2026 10:56:32 +0100 (CET)
-Date: Wed, 25 Nov 2026 10:56:32 +0100
-From: Nicolas Schier <n.schier@fritz.com>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Daniel Gomez <da.gomez@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Aaron Tomlin <atomlin@atomlin.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>,
-	Kees Cook <kees@kernel.org>, linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org, linux-modules@vger.kernel.org,
-	rust-for-linux@vger.kernel.org
-Subject: Re: [PATCH v6 5/7] kbuild: batch module finalisation
-Message-ID: <20261125-bald-mushroom-of-development-7b2288@l-nschier-z2>
-References: <20261124-build-speedup-v6-0-141a4f861c67@kernel.org>
- <20261124-build-speedup-v6-5-141a4f861c67@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA610606A31E;
+	Wed, 25 Nov 2026 09:56:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA610606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.207])
+	by APP-05 (Coremail) with SMTP id zQCowAAHoLXNsAZr2kjpAQ--.1098S2;
+	Wed, 25 Nov 2026 17:56:30 +0800 (CST)
+Message-ID: <0caf6ab1187bc701815f4777e8f15697b61c9089.camel@iscas.ac.cn>
+Subject: Re: [PATCH v4 2/2] phy: add a driver for T-Head TH1520 USB PHY
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Drew Fustini <fustini@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>,  Manivannan Sadhasivam	 <mani@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Philipp Zabel	 <p.zabel@pengutronix.de>, Wei
+ Fu <wefu@redhat.com>, Drew Fustini	 <dfustini@tenstorrent.com>,
+ linux-phy@lists.infradead.org, 	devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	linux-riscv@lists.infradead.org, Han Gao
+ <rabenda.cn@gmail.com>
+Date: Wed, 25 Nov 2026 17:56:29 +0800
+In-Reply-To: <awXrnQVKZBXKsV2c@thelio>
+References: <20261103081444.1983071-1-zhengxingda@iscas.ac.cn>
+	 <20261103081444.1983071-3-zhengxingda@iscas.ac.cn>
+	 <awXrnQVKZBXKsV2c@thelio>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,125 +63,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261124-build-speedup-v6-5-141a4f861c67@kernel.org>
-Organization: FRITZ! Technology GmbH
-x-ms-reactions: disallow
-X-purgate-ID: 149429::1795600592-22FEB977-6F71B524/0/0
-X-purgate-type: clean
-X-purgate-size: 4480
-X-Notice: Whitelisted
-X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
-X-purgate: clean
-X-pfmilter: host: postfix-mx-01  mail-id: D1F4DA0233  external: no
+X-CM-TRANSID:zQCowAAHoLXNsAZr2kjpAQ--.1098S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxWr4DWr1DAFWxuFyDtF1kKrg_yoW5Gw45pa
+	97GF45CF4ktF9Fga1fGF1UuFyFyw4IqFy5Wry3J34fZFyakryrXa9IqFW5ZFWqqr4rW34I
+	q3WYqFy3CF1YyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
+	xwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
+	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
+	1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
+	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
+	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
+	DU0xZFpf9x07betCcUUUUU=
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 
-On Tue, Nov 24, 2026 at 12:20:15PM +0000, Lorenzo Stoakes (ARM) wrote:
-> With the .mod.S change in place, module finalisation on allmodconfig builds
-> consists of a large number of very short-lived jobs.
-> 
-> For allmodconfig x86-64 this can be on the order of ~22,000 jobs of a few
-> milliseconds in duration each.
-> 
-> Each job entails processing ~22k .cmd files, so the combination of heavy
-> overhead and small individual job results in a lot of unnecessary and
-> repeated work even with all cores being utilised.
-> 
-> The solution is to batch by a number of jobs. Determining which value makes
-> sense was done empirically.
-> 
-> On a 128-thread threadripper box doing an allmodconfig build, best of
-> 2, *.ko, *.mod.o deleted each time:
-> 
->     modules per chunk    instances    wall
->     -----------------    ---------    ------
->                     1        11171    10.22s
->                     2         5586     6.72s
->                     4         2793     4.97s
->                     8         1397     4.26s
->                    16          699     4.05s
->                    32          350     4.05s
->                    64          175     4.07s
->                   128           88     4.05s
->                   256           44     4.03s
->                   512           22     4.18s
-> 
-> Wall time flattens for 16-256 module batches.
-> 
-> A slower/lower core machine will do better with fewer modules-per-batch, a
-> faster/higher core machine will do better with more modules-per-batch.
-> 
-> Therefore, take the midpoint which works in the most margin in either
-> direction - 128 modules per batch.
-> 
-> This naturally scales with module count too as the optimum gains are
-> obtained with higher module count, so fewer batches in this case costs less
-> overhead.
-> 
-> Each instance holds only its own modules' variables and the top-level one
-> reads no per-module .cmd files at all, the same rules serve both levels,
-> and an instance is told its chunk with modfinal-first=<index>.
-> 
-> Only the top-level instance builds .module-common.o, to the chunks it is a
-> plain prerequisite, so no two instances ever write it.
-> 
-> "make modules" with every *.mod.o and *.ko deleted goes from 28.9s to 15.9s
-> with clang 22. No-op "make modules" goes from 5.6s to 4.8s, as checking the
-> 22,000 targets is spread over the chunks too.
-> 
-> Whole build, 128-thread Threadripper 9980X, best of N runs:
-> 
->                                          before   after     delta
->                                          -------------------------------
->   x86 allmodconfig, no-op make, gcc         2.3s     1.4s    -0.85s (-38%)
->   x86 allmodconfig, no-op make, clang       2.8s     1.8s    -0.94s (-34%)
->   x86 allmodconfig, clean, gcc            306.6s   294.1s     -12.6s (-4%)
->   x86 allmodconfig, clean, clang          290.2s   283.9s     -6.4s (-2%)
-> 
-> Reviewed-by: Kees Cook <kees@kernel.org>
-> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> ---
->  scripts/Makefile.modfinal | 30 +++++++++++++++++++++++++++++-
->  1 file changed, 29 insertions(+), 1 deletion(-)
-> 
-> diff --git a/scripts/Makefile.modfinal b/scripts/Makefile.modfinal
-> index 75e9effdf02c..4d5e6e1a0ff9 100644
-> --- a/scripts/Makefile.modfinal
-> +++ b/scripts/Makefile.modfinal
-> @@ -13,9 +13,30 @@ include $(srctree)/scripts/Makefile.lib
->  # find all modules listed in modules.order
->  modules := $(call read-file, modules.order)
->  
-> +modfinal-chunk-size := 128
-> +
-> +ifdef modfinal-first
-> +
-> +# this instance handles the chunk of modules.order starting at $(modfinal-first)
-> +modules := $(wordlist $(modfinal-first), $(words $(modules)), $(modules))
-> +modules := $(wordlist 1, $(modfinal-chunk-size), $(modules))
-> +
->  __modfinal: $(modules:%.o=%.ko)
->  	@:
->  
-> +else
-> +
-> +modfinal-chunks := $(addprefix chunk-, $(shell seq 1 $(modfinal-chunk-size) $(words $(modules))))
-> +
-> +PHONY += $(modfinal-chunks)
-> +$(modfinal-chunks): .module-common.o
-> +	$(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modfinal modfinal-first=$(@:chunk-%=%)
+=E5=9C=A8 2026-11-24=E4=BA=8C=E7=9A=84 11:55 -0800=EF=BC=8CDrew Fustini=E5=
+=86=99=E9=81=93=EF=BC=9A
+> On Tue, Nov 03, 2026 at 04:14:44PM +0800, Icenowy Zheng wrote:
+> > The USB PHY on T-Head TH1520 SoC is a Synopsys USB 3.0 FemtoPHY, with
+> > some PHY parameters exported as another system controller along with it=
+.
+> >=20
+> > A few PHY parameters have unusable defaults. Add a driver that programs
+> > them before releasing the PHY from reset in addition to
+> > clock/reset/regulator management.
+> >=20
+> > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> > ---
+> > Changes in v4:
+> > - Make exit callback always success to prevent PHY state machine desync
+> >   with clk/rst state as suggested by Sashiko.
+> > - Re-wrap some comments targetting full 80 columns.
+> > - Use dev_err_probe for PHY creation error handling, to prevent spammin=
+g
+> >   the kernel log with -EPROBE_DEFER.
+> > Changes in v3:
+> > - Use fsleep() to replace udelay(), and add proper inclusion of
+> >   linux/delay.h for this function. (fsleep() suggested by Drew and
+> >   inclusion suggested by Sashiko)
+> > - Adapt Drew's suggestion on the wording of the commit message's 2nd
+> >   paragraph.
+> > Changes in v2:
+> > - Removed unreferenced register names.
+> > - Changed the behavior to leaving bus clock on instead of binding it to
+> >   the regmap.
+> > - Removed early return for reset deassert failure in phy exit callback.
+> > - Tweaked the Kconfig item (removed default value and added "select
+> >   REGMAP_MMIO).
+> >=20
+> >  drivers/phy/Kconfig                |   1 +
+> >  drivers/phy/Makefile               |   1 +
+> >  drivers/phy/thead/Kconfig          |  12 ++
+> >  drivers/phy/thead/Makefile         |   2 +
+> >  drivers/phy/thead/phy-th1520-usb.c | 179 +++++++++++++++++++++++++++++
+> >  5 files changed, 195 insertions(+)
+> >  create mode 100644 drivers/phy/thead/Kconfig
+> >  create mode 100644 drivers/phy/thead/Makefile
+> >  create mode 100644 drivers/phy/thead/phy-th1520-usb.c
+>=20
+> Sorry for the delay in review. I think binding and driver dir should be
+> added under thead soc support in MAINTAINERS, right?
 
-Thanks!
+Ah, yes.
 
-Reviewed-by: Nicolas Schier <n.schier@fritz.com>
+>=20
+> > +struct th1520_usb_phy {
+> > +	struct platform_device *pdev;
+>=20
+> It seems that pdev is only assigned in th1520_usb_phy_probe() and never
+> read. I think it can be dropped.
+>=20
+> With those addressed:
+>=20
+> Reviewed-by: Drew Fustini <fustini@kernel.org>
 
+Thanks for the review.
 
-(bike-shedding) For readability, I'd favourised the use of pattern 
-matching stem:
+>=20
+> BTW, I see that I never applied the MISC clock patches (1 to 3) from the
+> v1 series [1] like I said I would. Do you still want me to apply them?
+> If so, I will fix up the platform data check for usb_suspend_div_clk in
+> patch 2 when applying.
 
-$(modfinal-chunks): chunk-%: .module-common.o
-	$(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modfinal modfinal-first=$*
+Please apply them.
 
--- 
-Nicolas
+Thanks,
+Icenowy
+
+>=20
+> Thanks,
+> Drew
+>=20
+> [1] https://lore.kernel.org/r/20260507081710.4090814-1-zhengxingda@iscas.=
+ac.cn/
+
