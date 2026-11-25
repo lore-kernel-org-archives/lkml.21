@@ -1,100 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.157
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795639027;
-	b=AB8oFsDZ6HQAcKIxS4r4ssnt9BPYWVU25Jama2UlZ1F0Y9WKxAoNnhK2YVppVCZjgBnR
-	 lElK6UbXbKVmaFyXW5PgPxdWZ3vfMUJOQOkvrM6K70I46tUYeeo7PnxYUu98lV6Qk/KU+
-	 nMtAf1uMs0WzNxZ6VJzcq7A/3vTlGyH0gq4hLvvyOAN4PKIIkTMJVn47H5OrCOY9exm9U
-	 TJcnUyeIEm5XoySOA+i4wAd3t51tvXuW4j8WylsTXId3A6WtAUEFnTYN6LV9QLn9J5Ud2
-	 WPwqzjkR0D4YulfKg4u0mn6Hgwx7j7xjIClc01v0rJ+FXHxKZJh0Vc7MqPkmTnE7LJQ==
+	t=1795639036;
+	b=dilnMGcsmPudUCjYxdtYYj3pIskW4kk07UQiM/pCN4ZL8a5IdlaJlpRWt67tZL+whyah
+	 OV/LSZ/AXI5YXtrbMgJTSSprMwQlc/2s5aoRITzj9vpzNkCnG/RYiipUF6Vy+LQ7vjZBl
+	 Z6hsBNsQZ7p3pTpjgh9sp02MH3DBvjAo3A7/TWb9NLs7igjP/nB7PL1Sx9Di9o0nHtBM4
+	 jsFxRfdxP7xJpmB1diwop5lqpRr44fvlQFE29tcAkBtvr12zZCzi34oUGIzYp0VR38sVk
+	 UersXwqqJi+2pVDtjUJk2WW0e0wtCN0XP7v0GXWyq0AFjd6+8deBUQMzlARO+HGqWlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795639027;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:X-ME-Sender:
-	 X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:Date:
-	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
-	 Content-Type;
-	bh=eqJ6XZKGRtlH/8E+zhGGZaWzpzwDBPjUVdzg/9BKOAk=;
-	b=RQEQI82RX7tL/2EMz2JXpHffgEo79jH8Hn54pqtco3lOYlcg2obVmpz8hY0EYQbROh/N
-	 wzoCSDhrrttly1TbIXjJw6g2Ifo+ywF3e+HQV7RZnR1+f3gLADl2sgKvfrEaoz7KD7tvE
-	 nO1jK0AZcePBgU412ASN1BfO3IQtDfsnuQa0KkiJHHC0anATd0OrQsEpVawA1sEoz00rA
-	 qOQmcq4cYSP2ZyxkmKcxZVkUfOWOQqNhZstFxi+GCd6zMPtAz7iyOP2pfoLb4xiM/JxII
-	 OS22ZNyAczss7bishtWTP+7G7/cte/6oXcVu9LAr3XDhiLITbir7gxRzqfrcrKTGneg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795639036;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=uM94QE0TYPNheB2ffRJOQ/kVY8aqAYYyvQIO+dm/dJ0=;
+	b=Lu/gmWxe+oiiAJRoc1FlxAZfL6dNKzfItfpXjRBWCzY5Qj+5AY6lv4m0M7jFxxRaG4ek
+	 Fs8Iiii4I/cz9zgQiw60dRySIlcwpIbxEdLPJgUpO5X95Z20q8WeJaBFyHsXBoEY3IDNo
+	 GHEEYeyi/LV1CH1HWsB50G/XD1R0dNE+QH1Vk4KRmHQzSZCJyehVvFlCOgXbxySf0vaJa
+	 QHnhFZart5p6V8blUhdNhlchQ/L7VnZKQAJvSbyF0C7wgN1OgVupuJZBkggjTNYHhkH4r
+	 cIp93W8TUi786G1w2tZMgH/Zz66h4QdXLpL5kltTljCEBKtosLOciAa5sHt6pqy6paw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
-	spf=none smtp.mailfrom=linux-m68k.org;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=lydh+8Xk;
-	arc=none smtp.remote-ip=103.168.172.157
-Received: from fhigh-a6-smtp.messagingengine.com (fhigh-a6-smtp.messagingengine.com [103.168.172.157])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vya3+18A;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C0BF606A31E;
-	Wed, 25 Nov 2026 20:37:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C0BF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux-m68k.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36B0E606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:37:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36B0E606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=lydh+8Xk
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 54F6D140033D;
-	Wed, 25 Nov 2026 15:37:06 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-04.internal (MEProxy); Wed, 25 Nov 2026 15:37:06 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795639026; x=1795725426; bh=eqJ6XZKGRtlH/8E+zhGGZaWzpzwDBPjUVdz
-	g/9BKOAk=; b=lydh+8Xk0MGqTZ/BJX2Z6Cs2IK3aS3rdIFEUFPRJMmrRD/wuVhB
-	s1KqtK8dLnflf9nqM6ZBTh+WM6U8miNmsWsHdbIVJGYyPfgjMeR2PhBF3Rps2Rwd
-	9H/S7qEUh8Tz8dhUiazLyBVSgp4hdz2/+GOsmstYU8or/sfa5ioig5CM2TTT9pBa
-	AKIDPbuxMdh7dG1KITpwJD1nIRqkP4cgeNBTshaP53BuTK4Mtoop29y5voVhobXI
-	B3cpsRuYvx8ToPmrPI1uyVWBICwdL9AzLPJaEL8UsrK5QyRaRw2xgFSv1EVuh8u6
-	UkXx0NKb30Teyw5jbuL7DOnsGwkKuVl+UVw==
-X-ME-Sender: <xms:8UYHa6ig08f3GNJljEQUfAewZu9BfIB5djjvBF8dajcYwXS24ZFAvw>
-    <xme:8UYHa3uj_A-_mDvRpKSf-zu_WwedIfdRHaaI4pGLP3NWKL5y2owXRbNA9SwN2vKIJ
-    VHDXi-B6VMHBMsG6caUgTOf_ES-MB_PDt7HEnVAz7uaX9o1VfhaRkQV>
-X-ME-Received: <xmr:8UYHa18AxKLUpT58y5x4kIieiGlnMc9HT0GmcnacqzrzkvLuquVzBxMD5q5v>
-X-ME-Proxy-Cause: dmFkZTE6oC/3NKlSbtcdhhLp6bo7OIaW4366gDdTfMdjm9SykY++SSM/TEWaGAAvy35KMC
-    lxAWG9OufPRkcrncDlANxGdF47KxYiNt3+LcLZ1AdVjC7RH+J95hEfatvaWouFhxcisjyC
-    41l0S8n7L0LE7Wph1l0Q2S3YU4YHhBRpfYkAz6YOfFXts3zpBRv1j87Y73AlUgrJdxB26H
-    7RI605+wYb+fDH6JG29F/k5f6AdtzP66K/QeDXBNSLfIOUC+0Tk7vLbPW3bzgEGJEstx4h
-    qG2GkcZkx5+A4ACW8HzP8mU6tIhphjcuf8nTOb0kys6y4vZ0pLugHkrmP1GQKn8pNdm9aI
-    GtVyIsu2iZELtCL46Sdmcb8gIj7WfwQJwtRw1hHyEikVO7Q88g8SwxeFzz39iQ8tnc98mL
-    N8tlqzt5jyd47t7BKz1eyO/olFKTePXfIYHn6rARmmgmPsyxwukb5axoR3xXWOyTH06SuM
-    GW4cmZEHBG5CGQ/DKhq0bLzc7I/L25fe71YwM6IZPZuMXHMYBBl0edjyKNIT98eZyCbefB
-    A0AC9BZMC1OBbN5+2hlPII1Niq0o0C4B8LQZtw3lDnLgUazcpau3eQIq1wqhw+VEdEbnK2
-    B2dghq2G8sDogFfQzJqfaledsnqYKoFuBTNWS3iraTzpwvkmUy1YBSoSPIgw
-X-ME-Proxy: <xmx:8UYHa9Z1I71tZcRG2S1kg-B83JJ4FUuIzud4DGneq4j8Y7nBCSKMOw>
-    <xmx:8UYHa7q9tmD5nRcKujQB23nR2oFYITBHF3j-3Q6d4_wp9pY0jNe4XQ>
-    <xmx:8UYHa60rPMDgYTXlyTFPhLIwnI8z0Z94CAJ4QMfUcH1mh960w9otUg>
-    <xmx:8UYHa7mOwlEa6ebVONYY1-LvPOVpDExs_TTkVz51OrlKAzQuz6R4aA>
-    <xmx:8kYHa82sHtck2rdJsn-QlEH_StK340qt5XURJmTLYZkG7kiNfi_TMUKR>
-Feedback-ID: i58a146ae:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 25 Nov 2026 15:37:03 -0500 (EST)
-Date: Thu, 26 Nov 2026 07:36:56 +1100 (AEDT)
-From: Finn Thain <fthain@linux-m68k.org>
-To: Arnd Bergmann <arnd@arndb.de>
-cc: Andrew Morton <akpm@linux-foundation.org>, 
-    Bart Van Assche <bvanassche@acm.org>, 
-    Geert Uytterhoeven <geert@linux-m68k.org>, 
-    kernel test robot <lkp@intel.com>, oe-kbuild-all@lists.linux.dev, 
-    linux-kernel@vger.kernel.org, 
-    Linux Memory Management List <linux-mm@kvack.org>, 
-    "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>, 
-    "Martin K. Petersen" <mkp@kernel.org>, scsi <linux-scsi@vger.kernel.org>, 
-    Nilesh Javali <njavali@marvell.com>, 
-    GR-QLogic-Storage-Upstream@marvell.com
-Subject: Re: include/linux/compiler_types.h:631:45: error: call to
- '__compiletime_assert_433' declared with attribute error: BUILD_BUG_ON
- failed: offsetof(struct qla_tgt_sess_op, atio) + sizeof(u->atio) !=
- sizeof(*u)
-In-Reply-To: <cb52daef-8182-1821-60bf-ccb6475b613c@linux-m68k.org>
-Message-ID: <8109e47f-b7d7-80a6-6a0c-73613683b495@linux-m68k.org>
-References: <20261121034304.2dPxVKzk-lkp@intel.com> <0b947a72-7a68-9bde-8b0b-adb539f09a8c@linux-m68k.org> <CAMuHMdUxYwD2t8zrqs4QBCtATOtf9xE83Djo0g7qbNFGSCWAQA@mail.gmail.com> <669b9ce8-bb33-f7ee-1087-88c1e9d3b610@linux-m68k.org> <8a0f78e3-5483-42a2-ae27-473bbb6de915@acm.org>
- <85e103fe-acca-0880-1be3-cb1e7f79f9a4@linux-m68k.org> <f0ec2845-245d-43ac-9c96-242e0d1d11ea@app.fastmail.com> <9120b892-6a31-d161-381b-809191017bdc@linux-m68k.org> <9ada54e5-d80a-4d3c-a491-87e7a99f2ac8@app.fastmail.com>
- <cb52daef-8182-1821-60bf-ccb6475b613c@linux-m68k.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vya3+18A
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bb6057b333so29898415e9.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:37:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795639033; x=1796243833; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uM94QE0TYPNheB2ffRJOQ/kVY8aqAYYyvQIO+dm/dJ0=;
+        b=Vya3+18Aqgr6G+X7cLOi23Eeff1ZPhQw9F9AlBmLx8ByXjYvJpXHeR2/U/SxGDS7w0
+         W0L4vloGyAQ6RifY6OJA5E0KXH/42fR2yB1idRN2Qwptb+qYPpcFVkbbDd3JOyvaxyox
+         3FxJvyCGVp2dbxVdGc82w9xMCxZxSzL0BNSL/WX7yotN0LPoLDiOb7xxZYxEYi4wQiZb
+         Ol7DDP4b6LfY7D0AsxDRNWAqLZFAhxMUcEBIAFiueSSO54mVInISUIwjunJkVpnQX8l2
+         X+95gulqzvOKDl+mTAW1feMP6q0tkPLg11HTBMdcQbaSfQgDMNf4C/Mi568tVDToUQ8K
+         rWKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795639033; x=1796243833;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uM94QE0TYPNheB2ffRJOQ/kVY8aqAYYyvQIO+dm/dJ0=;
+        b=FqMmhWd7qqz5GqW/zVohQr3Qu2xixyorwBCEwT3KP/2rfJbG8H6Rn32CIi46iuNB5A
+         ubmuOhPXImX4frqUW+Vol9vS+a/zusF3XesusmERfwApAdUQ/lb1ZWoEMk+eBIv2JRAT
+         UcvQ1s26oaggxOrGRB2Mxq5A8CZIYP8CWNq6Dh+KD5wtcE8vVTRQhdrX4cSVad0IqZLN
+         YxoZKcAmsbOZmiGnuZsMpCu00rkiXKpScAmdJpNOonjuJZL2/ZhGMBLa98begwtZhJdk
+         VcQFndCec09zvV+E4Hh+vPmVaWiDiTvtEaxg1K6AI1YLMyhUYn7ofN3bWd9JSdbJLKRc
+         BUZw==
+X-Forwarded-Encrypted: i=1; AL+hErH16q4qnWzRD1hUXiNU8JHAi/vqhcLpIi6WYsTbj8LtO79LJcZJuM0B9oegn4+pCjWbqriSU1tHrZtP86M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+oQccKiUeiyZtA0HYxBI6/yazrcOikTVYBWZlDInC+1+obfpDQ
+	joSkIEPGqcxEknt9M3T+TwFmbvO9EIZTWYkla22TJ7ULSxImXbklVTVgWjmiUDQ8
+X-Gm-Gg: AZFdTZfQNJ1m6vxx7tdN5jqE37tyMv+pZ03n+JbYPc8D9i/g04AYRrX+7t+LqwDcPFq
+	vDDI0AxIjnXAqiETTm84CfEBvJJmS14T3SUBNULB6DfSIXLn4kRWH0Xcj5Xs/Zabkg85SN0QQE0
+	YZo5Wwj32naYrHZcuziLUw+8/J42dCdM8la5MfMWmx/ZFl5a2gY6EtfvfhHGC/vClOBn2n8JCqy
+	fUy/MspusOcUbbrgWHAhuwPwUqyHKM40/C8rA9QtEVRO9H8kAdNbp9b+++3D9wz7UZd1rZ+9BhG
+	bwjP6Kf+rUaEzHsRuPkn6+bZrBHwQ56MjF1ZXKjZprmw6b3P2hxeMROJSqsqbQ/TLM8sshHded1
+	hsQLrGOOy0EnFN4PClgxbcOAwr1+u2iB9AKMg1kV6JkVd3kV8WaHYKV7X4I1AIstegAKzylFq8C
+	23MGpqijaJOKyyyCmHm95d8xANoEY9NjURLwVppKBjHE68TYwLPNhmNYzSxATEEpnrFmtk9Kk5w
+	ApQSRBlvB8wSpOamYp4NiYpyWBXkfAigieYR2Opwx9ERsUt5R1/XzBgMC9UHVkVfH42C9jl07eC
+	MUwlXR44lXHJDGqYjL9OfrGrZA2/CW7gkHiFJA==
+X-Received: by 2002:a05:600d:18:b0:4bb:9001:1aa with SMTP id 5b1f17b1804b1-4bb900102b8mr266635275e9.10.1795639033378;
+        Wed, 25 Nov 2026 12:37:13 -0800 (PST)
+Received: from [192.168.1.50] ([188.27.124.101])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b09bsm1006004155e9.4.2026.11.25.12.37.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 12:37:13 -0800 (PST)
+Message-ID: <2db4b526-1809-4ef7-8fe9-87b6cfcea6c9@gmail.com>
+Date: Wed, 25 Nov 2026 22:37:10 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,44 +92,146 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v3 0/4] wifi: rtl8xxxu: implement AP mode for 8188EU
+To: Mehmet Fide <mehmet.fide@gmail.com>, =?UTF-8?Q?Georg_M=C3=BCller?=
+ <georgmueller@gmx.net>
+Cc: Jes Sorensen <Jes.Sorensen@gmail.com>, Ping-Ke Shih <pkshih@realtek.com>,
+ linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+ mehmet.fide@screeningeagle.com
+References: <20261125160616.1201001-1-mehmet.fide@gmail.com>
+Content-Language: en-US
+From: Bitterblue Smith <rtl8821cerfe2@gmail.com>
+In-Reply-To: <20261125160616.1201001-1-mehmet.fide@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
+On 25/11/2026 18:06, Mehmet Fide wrote:
+> Hi Georg, Bitterblue,
+> 
+> I tested v3 on rtw-next (18d0bedbb5f0, context fixes in patches 2 and 4
+> only) with an Edimax EW-7811Un V2 (RTL8188EUS rev D) as AP and a
+> separate sniffer. I found three problems in the AP part, plus an older
+> one that explains the duplicate pings.
+> 
+> 1. Beacons. After hostapd starts, the 8188e sends one beacon and then
+> none. Probe responses go out, so clients still find the AP by active
+> scanning, but association takes about 6 s and a passive scan sees
+> nothing. BCN_VALID is set and the beacon function is enabled; the
+> hardware clears the beacon queue after the first beacon. In AP mode the
+> vendor driver (hw_var_set_opmode()) sets BIT(3) | BIT(4) in
+> REG_MBID_NUM, commented "If set 0, hw will clr bcnq when tx becon
+> ok/fail". With that there is a beacon at every TBTT and association
+> takes 0.5 s.
+> 
+> 2. TBTT hold time. rtl8xxxu_start_tx_beacon() writes 0x80 to
+> REG_TBTT_PROHIBIT + 1 and clears bit 0 of + 2; the vendor
+> ResumeTxBeacon() writes 0xff and sets bit 0. On channel 6 with several
+> neighbour APs, 7 runs of about 120 TBTTs each: 2-5 % of the beacons
+> missing (one run 42 %) with the rtl8xxxu value; with the vendor value
+> 0 % in 5 runs and 1-3 % in 2.
+> 
+> 3. macid in the TX descriptor, which Bitterblue pointed out:
+> rtl8xxxu_fill_txdesc_v3() still does not set it; the vendor driver puts
+> mac_id & 0x3f into txdw1. The same function also indexes
+> priv->ra_info[macid] now, but for group addressed frames with a key,
+> rtl8xxxu_tx() replaces macid with the security CAM index, which can go
+> past the 16 entries of ra_info.
 
-On Wed, 25 Nov 2026, I wrote:
+RTL8188E_MAX_MAC_ID_NUM should be 64 (hal_spec->macid_num = 64 in
+hal/rtl8188e/rtl8188e_hal_init.c).
 
 > 
-> Perhaps there is a way to alter the struct layouts in a portable way (so 
-> as to avoid the build failure) but it's simply not worth it.
+> This is what I use on top of v3 for 1-3:
 > 
-
-To be fair, your rework suggestion might have similarly negligible risk to 
-my "remove" patch, if you could obtain your desired struct layout without 
-altering object code...
-
-> There is no actual bug here, that affects actual users, to justify the 
-> churn, or the complexity, or the regression testing effort, or the 
-> fruitless discussion to-date.
+> diff --git a/drivers/net/wireless/realtek/rtl8xxxu/core.c b/drivers/net/wireless/realtek/rtl8xxxu/core.c
+> index 49c167fd6ee4..9a297b077443 100644
+> --- a/drivers/net/wireless/realtek/rtl8xxxu/core.c
+> +++ b/drivers/net/wireless/realtek/rtl8xxxu/core.c
+> @@ -1154,6 +1154,14 @@ static void rtl8xxxu_start_tx_beacon(struct rtl8xxxu_priv *priv)
+>  	val8 |= EN_BCNQ_DL >> 16;
+>  	rtl8xxxu_write8(priv, REG_FWHW_TXQ_CTRL + 2, val8);
+>  
+> +	if (priv->rtl_chip == RTL8188E) {
+> +		rtl8xxxu_write8(priv, REG_TBTT_PROHIBIT + 1, 0xff);
+> +		val8 = rtl8xxxu_read8(priv, REG_TBTT_PROHIBIT + 2);
+> +		val8 |= BIT(0);
+> +		rtl8xxxu_write8(priv, REG_TBTT_PROHIBIT + 2, val8);
+> +		return;
+> +	}
+> +
+>  	rtl8xxxu_write8(priv, REG_TBTT_PROHIBIT + 1, 0x80);
+>  	val8 = rtl8xxxu_read8(priv, REG_TBTT_PROHIBIT + 2);
+>  	val8 &= 0xF0;
+> @@ -5572,7 +5580,7 @@ rtl8xxxu_fill_txdesc_v3(struct ieee80211_hw *hw, struct ieee80211_hdr *hdr,
+>  {
+>  	struct rtl8xxxu_priv *priv = hw->priv;
+>  	struct device *dev = &priv->udev->dev;
+> -	struct rtl8xxxu_ra_info *ra = &priv->ra_info[macid];
+> +	struct rtl8xxxu_ra_info *ra;
+>  	u8 *qc = ieee80211_get_qos_ctl(hdr);
+>  	u8 tid = qc[0] & IEEE80211_QOS_CTL_TID_MASK;
+>  	u32 rate = 0;
+> @@ -5580,6 +5588,10 @@ rtl8xxxu_fill_txdesc_v3(struct ieee80211_hw *hw, struct ieee80211_hdr *hdr,
+>  
+>  	seq_number = IEEE80211_SEQ_TO_SN(le16_to_cpu(hdr->seq_ctrl));
+>  
+> +	/* macid is the security CAM index for group addressed frames */
+> +	ra = &priv->ra_info[macid < RTL8188E_MAX_MAC_ID_NUM ? macid : 0];
+> +	tx_desc->txdw1 |= cpu_to_le32(macid & 0x3f);
+> +
+>  	if (ieee80211_is_data(hdr->frame_control)) {
+>  		rate = ra->decision_rate;
+>  		tx_desc->txdw5 = cpu_to_le32(rate);
+> @@ -7002,6 +7014,13 @@ static int rtl8xxxu_add_interface(struct ieee80211_hw *hw,
+>  		rtl8xxxu_write16(priv, REG_TSFTR_SYN_OFFSET, 0x7fff); /* ~32ms */
+>  		rtl8xxxu_write8(priv, REG_DUAL_TSF_RST, DUAL_TSF_RESET_TSF0);
+>  
+> +		/* The 8188e clears the beacon queue after each beacon unless told not to */
+> +		if (priv->rtl_chip == RTL8188E) {
+> +			val8 = rtl8xxxu_read8(priv, REG_MBID_NUM);
+> +			val8 |= BIT(3) | BIT(4);
+> +			rtl8xxxu_write8(priv, REG_MBID_NUM, val8);
+> +		}
+> +
+>  		/* enable BCN0 function */
+>  		rtl8xxxu_write8(priv, REG_BEACON_CTRL,
+>  				BEACON_DISABLE_TSF_UPDATE |
 > 
-> If there was a maintainer who cared about this issue, perhaps that would 
-> put a different light on it. Maybe.
+> With these, beacon loss is 0.5-3.4 % at the sniffer and association
+> takes 0.5 s.
 > 
-> As I pointed out in March, there is already a comment in the driver to 
-> make the bogus BUILD_BUG_ON() effectively redundant. So, at some point 
-> in the future, when I can get interested again, I will re-send the same 
-> untested yet risk-free patch that I sent back in March, to remove it.
+> 4. Duplicate pings. I can reproduce them with two clients, on one of
+> the two and in both directions, and not with one client. The captures
+> show the client sending the same MSDU again with a new sequence number
+> after its retry limit, because many of its frames are not acked: 62-73 %
+> of the frames sent to the 8188e carry the retry bit.
 > 
+> This is not AP specific. With the 8188e as a station of an rtw88 AP,
+> same dongle, place and traffic, 63 % of the frames to the 8188e are
+> retries with rtl8xxxu and 0 % with Realtek's v5.3.9 driver
+> (aircrack-ng/rtl8188eus with kernel API fixes only, on a non-RT kernel;
+> it crashes on PREEMPT_RT). I dumped the registers of both
+> drivers while associated and wrote the vendor values into rtl8xxxu one
+> group at a time. The difference is REG_OFDM0_XA_AGC_CORE1:
+> rtl8xxxu_start() sets the IGI to 0x1e (see c8bc37602779 ("wifi:
+> rtl8xxxu: Simplify setting the initial gain")) and nothing changes it
+> later, while the vendor driver had 0x40 in that test. With IGI 0x40 alone the
+> retries drop to 1 %.
+> 
+> A fixed value does not solve it, though. In AP mode with the two
+> clients at -44 and -52 dBm, IGI 0x40 removes the duplicates but loses
+> 35-65 % of the pings. The 8188e seems to need the vendor's dynamic
+> initial gain (IGI from the lowest station RSSI and the false alarm
+> count). Bitterblue, is there a reason rtl8xxxu has no DIG, or would a
+> simple one for the 8188e be acceptable?
 
-One reason I'm against reworking this assertion is that it never did what 
-it claimed to do, so it's probably worthless.
+I think the reason is just that nobody implemented it yet.
 
-Also, the kind of bug that could be caught this way could be detected 
-using automated testing, so it's probably redundant.
+> 
+> Georg, do you plan a v4? I can send 1-3 as patches on top of your
+> series, or include them in a v4 with your patches if you prefer.
+> 
+> Best regards,
+> Mehmet
 
-Finally, wouldn't it be better to feed the hardware design to an LLM and 
-validate the actual constraint that way? Guessing at all of the ways in 
-which actual constraints might be violated (i.e. new struct member in the 
-wrong place) seems likely to miss what matters and check what doesn't.
-
-Since the vendor probably won't allow us to see the hardware design, why 
-not use the (existing) natural language commentary in the same way, 
-instead of translating the comments into assertions or tests?
