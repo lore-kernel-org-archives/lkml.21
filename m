@@ -1,54 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.143
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795598297;
-	b=Ks26Pjv3l2Voc4+8CXQX/5qg2nBeGyWbpIp+mG0sY9ox1LC+SjmPCdjR3jcD/U+czAgX
-	 R4NgA4XXi7qS56uBWP6QKc4kLb1IpPk65WaIExkbD8EcADO9A7wCEdLotgnFwKdHqOzpP
-	 j8VNfoIMSB+OgGeaqasA3O/VH2F4+m5e0jjMpDOiGT7c8xVZ7fn/vUfsHFjx9wcrs+xP4
-	 hB1h3QYAT3Wci/FlEnGS6RAcXs58nHi93OnohSqEtmCSvZcJlyAoZvk7cuQCcWn/fHcZp
-	 0B/ub2D7xjl7ZJqvX2XeWNB57p1SgC5IbdQaNAPiK61HrGWWxrTWIdcFdIRSmMi3Q4Q==
+	t=1795598298;
+	b=2L7c0fWLSNtladlNHz/2/O6abuXiLtwGo8ph3OWu+0bz3+Mi2yCXU/x9TIUKZZLG304x
+	 rNsxBfLYoA9lXNBAGXNAz40gFvllYUFjD5jD0rHcOPN+RazrGpbrar8SAqFDckWMojGjk
+	 yAQbKCQ77WRUfAWPiZnTiKwdfM0jC/FldPlrLSrE5qTyifHC02vrMaTLcZ8AyuW9N0Uf4
+	 bXXVH5KZa/qYGMaj+3Wxw7ZcOa04dn5L580desKpPZAm/O61K2FK9QYcqaIyW+fpz2MWE
+	 AVYFyXUoQ7rCrgcqLwHsY5ct6nO84uUkFBP0zM+y9FO2BK+dwrgUPxeJaw9Ez7MeniA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598297;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=k1W9OmdCC0DgTyjGeBPm2sl1bkiKos1oNbZwzoUDpAM=;
-	b=audlTHp2aN1zFO+iyo05U4CILTyDNd/emtYrJJ6GEKH2UcbG7bbQgbkGhaXpGpm2KofI
-	 aRzh9ZAMGEnFLnhRTZ3h/JXKBMua7AjTc/9Iq6HodIWbSspcAdjTbZIqf7RbhppqF5k0I
-	 NnvDMZy9kVfKw5uA/HF6aYafmRLvds3GYS7U6DTQdElxt0BivT5hhOQcsyj7ltfv7bjeG
-	 vauo8XMb/shhe8sZTi4bfbAQZCkJdaJY1lxE4rQVx1zuu2PwRJH3sRd8QrqE1AggkoXm9
-	 ge6sPAM+NscUw0FUuGgPzxUlk4LIBNfOdPXfV7Y7kKmZi2CwIeYeALqY4br3eH5uq4g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598298;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 From:Subject:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=y+2r4fG+UznQIXXE3C+R4pQGdQ5wZVXkmN5K7GeDHs4=;
+	b=rCe+UFm2VhPCauiyGL6wGx3SikK+JE0g3vRmqXqQoMNChMsv3s3+ZNp96teLUr3mjSmy
+	 vstHL7CUo9jsnG8+LUzTI0foFVAe88l38OPqousYLf0T6A5/224brHvgTTWafnqgrCoJI
+	 ks1x3ocEVCe/gGdOHCS8b+P+UjxvEr8ThwVLV8jz/ieDicrfw8LwgBAfWXfl+tXYpMeJO
+	 JpI3+RpYWP7qjHlFSYZMe77lGttnE44wJZoJmE4e4vZGpja70ukkyGUPaskaRutsu/YFS
+	 eHILABEwZ6+JSUBtfOFyEYGqFqfofjA50G+B+EGLxkl2aEp1ElfvaIdJE0lylhYTUEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8EC0C606A33E;
-	Wed, 25 Nov 2026 09:18:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EC0C606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=k1W9OmdCC0
-	DgTyjGeBPm2sl1bkiKos1oNbZwzoUDpAM=; b=lQJKG9fjOCloiBxDBBSZlBSr6U
-	+yL0HiNGXnI5ihSaDxrVNIUQaBes/T/CoshTcgK7SS4iNIM8PlgS6PCelxQzt/Oo
-	0djgrFg8zLDknPEmGG/ufVQI8f4WC+sAZq2IMJb3H5PtQGJ8ibdPb2VIYDfyKBqd
-	HFiXeiW0RZ5sYE+aQ=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.108])
-	by hzbj-edu-front-2.icoremail.net (Coremail) with UTF8SMTPA id BLQMCkC2_gO0pwZrgwE0Ag--.13180S4;
-	Wed, 25 Nov 2026 17:18:05 +0800 (CST)
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-To: Hans Verkuil <hverkuil@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: [PATCH v3 2/2] media: go7007: return pending buffers on stop_streaming()
-Date: Wed, 25 Nov 2026 17:17:39 +0800
-Message-Id: <20261125091739.5866-3-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=j00Rsx2O;
+	arc=none smtp.remote-ip=95.215.58.143
+Received: from mta1.migadu.com (out-143.mta1.migadu.com [95.215.58.143])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13EE6606A33C
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:18:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13EE6606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=j00Rsx2O
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=BMfH48xOt2irIlEx2o6dYqxmMgmYPvLKMXb/KO3WSmE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795598295; v=1; x=1796203095;
+ b=j00Rsx2OaBeT3y4UDlDtjo4HxsX6uIoNNwmgKZhoYfKOymOtqBCmuls20kOKbTvtvYd/mq0y
+ 8wTL6iMs604p1047UcBFNKpslOS4rcgFwOKGoSzMaxrMMdE3T2xgCiqxqnlawQlieshLqInAb/x
+ 7Pst8LlLSDNPOg+eVA09tGFE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id 38a7a00aad77a690;
+	Wed, 25 Nov 2026 09:18:13 +0000
+X-Mizu-Trace-ID: 38a7a00aad77a690
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <a337f9fc-b6ef-48c4-ad98-52972b10b4c9@linux.dev>
+Date: Wed, 25 Nov 2026 09:18:12 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,75 +58,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BLQMCkC2_gO0pwZrgwE0Ag--.13180S4
-X-Coremail-Antispam: 1UD129KBjvJXoW7KF48ZrW5Zr47Ww4DAF1UKFg_yoW8tF1rpF
-	WFvFyakrW5tF4UCa1UGw12ga45C3Z7Z3y7CayFkw4rZF15JFWUua409ayjgr4Utw4xZ3WI
-	yryDAFW7Ca15Cr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUmqb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26ryj6rWUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
-	8067AKxVWUXwA2048vs2IY020Ec7CjxVAFwI0_Gr0_Xr1l8cAvFVAK0II2c7xJM28CjxkF
-	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcV
-	CY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv
-	6xkF7I0E14v26r4UJVWxJr1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcV
-	AaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0E
-	x4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x
-	0262kKe7AKxVWUAVWUtwCY02Avz4vE14v_GFWl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC
-	6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWw
-	C2zVAF1VAY17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_
-	JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJV
-	WUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIY
-	CTnIWIevJa73UjIFyTuYvjxUIBHqUUUUU
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUID2sFqFm40gAAs2
+User-Agent: Mozilla Thunderbird
+From: John Garry <john.garry@linux.dev>
+Subject: Re: [RFC PATCH] xfs: add a per-filesystem switch to force atomic CoW
+To: Dave Chinner <dgc@kernel.org>
+Cc: Wayne Gao <Wayne.Gao1@solidigm.com>, "cem@kernel.org" <cem@kernel.org>,
+ "linux-xfs@vger.kernel.org" <linux-xfs@vger.kernel.org>,
+ "linux-api@vger.kernel.org" <linux-api@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <LV0PR10MB997684D5CA8A6AC037F6D1CD8AB9472@LV0PR10MB997684.namprd10.prod.outlook.com>
+ <awSd1JEB0F4WeKt0@dread> <2a615ca6-3777-4b71-bea6-4072d4fbd950@linux.dev>
+ <awXuAESDkLr1nd3n@dread>
+Content-Language: en-US
+In-Reply-To: <awXuAESDkLr1nd3n@dread>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-The vb2 framework hands buffers to the driver through buf_queue() and
-expects stop_streaming() to give the buffers that are still owned by the
-driver back with VB2_BUF_STATE_DONE or VB2_BUF_STATE_ERROR.
+On 11/24/26 20:05, Dave Chinner wrote:
+>>> Ok, so you want it for your test/dev environment, not production?
+>>>
+>>> I thought we could already change the block device characteristics (i.e. support hw
+>>> atomic wirite or not) at the block device level?
+>> The block layer just accepts whatever atomic properties is reported by the
+>> block driver and there is no method in the block layer to change these
+>> limits or turn them off.
+> Isn't that a bit of an oversight? Lots of the hardware related IO
+> capabilities are configurable in the bdev queue (e.g. max io sizes,
+> max discard/unmap sizes, max queue depth, etc).
 
-go7007_stop_streaming() instead just re-initializes go->vidq_active,
-dropping any pending buffers without returning them to vb2.  That leaves
-owned_by_drv_count elevated and makes __vb2_queue_cancel() report a
-driver bug when the queue is cancelled.
+Generally anything which affects atomic limits is fixed. As you 
+mentioned, there is max io sizes, which can be configured from sysfs - 
+however, for HW atomics we ignore max_sectors and just pay attention to 
+max_hw_sectors.
 
-Return every pending buffer with VB2_BUF_STATE_ERROR and clear
-go->active_buf, which may still point into the list.
+For any normal IO, the block layer can slice and dice the IO any way it 
+wants. HW atomics are not like this, and the IO must be submitted as a 
+single bio/request. For any dynamically changing HW atomic limits, we 
+would always have the TOCTOU challenge, i.e. bdev limits can change 
+between checking atomic limits and submitting an atomic IO.
 
-Fixes: 7955f03d18d1 ("[media] go7007: move out of staging into drivers/media/usb.")
-Cc: stable@vger.kernel.org
-Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
----
- drivers/media/usb/go7007/go7007-v4l2.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+> 
+> Sure, they are initially populated by the hardware values, but the
+> user can then override them (e.g. via udev rules) and that means we
+> don't have need to add 'override the <bdev queue property>'
+> management interfaces to every filesystem that supports those
+> specific bdev hardware offloads.
+> 
+>> Then for the only block drivers which today support atomic - NVMe and SCSI -
+>> similarly these we just use the atomic limits reported in the disk.
+> That seems to be inconsistent with how we manage other hardware
+> offload size limits on block devices. These are -not- filesystem
+> properties, and we should not be trying to manage them at the
+> filesystem level.
 
-diff --git a/drivers/media/usb/go7007/go7007-v4l2.c b/drivers/media/usb/go7007/go7007-v4l2.c
-index 0b32cb58142b..6ab067d56b7c 100644
---- a/drivers/media/usb/go7007/go7007-v4l2.c
-+++ b/drivers/media/usb/go7007/go7007-v4l2.c
-@@ -440,6 +440,7 @@ static int go7007_start_streaming(struct vb2_queue *q, unsigned int count)
- static void go7007_stop_streaming(struct vb2_queue *q)
- {
- 	struct go7007 *go = vb2_get_drv_priv(q);
-+	struct go7007_buffer *vb, *tmp;
- 	unsigned long flags;
- 
- 	go7007_stream_stop(go);
-@@ -449,7 +450,11 @@ static void go7007_stop_streaming(struct vb2_queue *q)
- 	call_all(&go->v4l2_dev, video, s_stream, 0);
- 
- 	spin_lock_irqsave(&go->spinlock, flags);
--	INIT_LIST_HEAD(&go->vidq_active);
-+	list_for_each_entry_safe(vb, tmp, &go->vidq_active, list) {
-+		list_del(&vb->list);
-+		vb2_buffer_done(&vb->vb.vb2_buf, VB2_BUF_STATE_ERROR);
-+	}
-+	go->active_buf = NULL;
- 	spin_unlock_irqrestore(&go->spinlock, flags);
- 	v4l2_ctrl_grab(go->mpeg_video_gop_size, false);
- 	v4l2_ctrl_grab(go->mpeg_video_gop_closure, false);
--- 
-2.34.1
+As mentioned, HW atomic IO is special in this regard. Now for XFS we do 
+read the limits once at mount time. We could read the limits dynamically 
+instead, but it still has the TOCTOU problem, above.
+
+Thanks,
+John
+
 
