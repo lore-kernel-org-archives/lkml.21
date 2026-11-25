@@ -1,105 +1,107 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795631025;
-	b=qwdTkRp3NkK1cEu5kJuvCfdj+IMe1dY6sxfbzC9tn0ckUBjCJrAkFSBg2f9TslFkl6br
-	 hl55QELULsU7OJOOyPPwm3kgehHZxJ7hTsk23frVQNLoe6e3Q0IVs3bdZfTumZoKsy1s2
-	 ATb2lUyOcBCfzbr9sBEsUz+F9pNi0foqdEpq1XS+GTRNFnnPZXh9mEVmIj1DGgHqMJG/P
-	 bzAOYwzKzXQdovVYVOwaFUb1TjmKTXGjDO1qCXAWfmYIgRktsZ6VIA+eCcAwLJsVEC/0i
-	 5f7MijawFO2feq0DBq1lv0cLgYroNhtuqlrtbJwt9R7Q90u97LDqXqFGJ36GwDA1y7A==
+	t=1795631031;
+	b=QlyLXr1/YyT0dDP39pML3UjAS9fZgj909cesSUwy0AxVfdHrgZDmHJWJ4BfH39ZJzMUM
+	 GYEqxPolhF/MDOHw7FqDxLHrHisKJUbP1COZiscPSdQGhwWMdnA1mS8H1iWEC2/kXVjU/
+	 lTQZ8Od38Qz/Fx2wwwPs9Ibe7J4tCUZ5G32lEvIrRwdW60YNkGPPMjZ45lGS1E6wTqS84
+	 b79wwwDXkBD2VdQPJBngq8yv6twjMdDu/aNS4XyzgOvTvNNd2YZS06GATh5tS/G2QA1MH
+	 kStPthviHUSMeIdnIU5BfrYIXh9+fRSXNxGJq8DIU8np6R8nsXndTk4lhoVv59ShL8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795631025;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795631031;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
 	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=IC4djXm6L2p/iwP9n7CVqinEoxYFhJbTA5LwbAw9uO0=;
-	b=toDwODTPOCJ+8XbpPizCRjgsLchagL1gqktfT8ud8OzI+DF51RcfPKNtBsMqeoxLHk8h
-	 4pAFOHdC+ar7pycVtIhGYEPsoCWoMRnkl0+HFXzMmjxGqvanF1IhFy2JU4YJcq4WsCueC
-	 IFTdGx+RhiwEYptV7lhLY4m8P81BrBhY/DmgmanSkies/ELhDeBo+gn5gQJO8QeFM9Sxh
-	 +nBlgeucasP2f8Bf+BmJJuTfVzPv1OXS6NNUffHpoiyye5q8T7u/7Pnd8B/60hWphtAWh
-	 7G2afirBJsBUL4IG9L2gzIKh7MJXbOgXsIdtFlGXPdEU4WEtp14+dWB03zQLND+v9ZQ==
+	bh=+t6otjXm2jgBilPYkJGf4Pp3998PQr1KHs2mOHvsSdw=;
+	b=hju05Xo1XcVNYqfVOKcKRXtHsLYsef9GuyLPcE4zgMiYkUB8jKLaD01tPhuuqu/rumdx
+	 Ic9iQR1oKuCHaxcG4ZpgozOTEnEzuuGpSzwcOrqN7nxQPxM9M1xj00ZrCdsXgPrIvdUHq
+	 HL6B1YkBirsafAixSYHeqccuY/N0qzovKXg8rCULooBfNTlc7reU+ySWe6epF5IuLkjFT
+	 GIc9Faeeuc73p2plZ4GY6tPcr0JRjHH7a+jTo0SQquj8uiEs1VkNj+ZdBwaw8lEoa5HQx
+	 wI5y8nrEQqUyTLMY/AvzQJah9mang+vobZEatnn5XZN8bHZQttioUNf6hVSoMUSz8VQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=g+HunghM;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jqGy1TUz;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="Yc/cWp9y";
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KbtEQVsC;
 	arc=none smtp.remote-ip=205.220.180.131
 Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CEFE606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:23:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CEFE606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A70AD606A682
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:23:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A70AD606A682
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=g+HunghM;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jqGy1TUz
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APGQe2Y818698
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:23:43 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Yc/cWp9y;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KbtEQVsC
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APGQKf33008189
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:23:49 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=IC4djXm6L2p/iwP9n7CVqinEoxYFhJbTA5L
-	wbAw9uO0=; b=g+HunghMs3bxPzio1WjQTZriwJ2nUm0DWSCRZd3oaRY7s6HRIb3
-	a+dtw+nBHiZNeYSLsuQmwfW1ga23GC5cV6+zwe1w8EQntXvjAun/m3igEufMVFiF
-	qxQ4Y6gUsynfa4caDLRnSftnUMI91cxm66E0KMFgHA9cbv7oIGyppatZ8tO79VI9
-	9qBmau4hM2TDv9lcC46/PUoppSec3es313lgOkUjk4es5wX7n0tL8taiXUA3QAbE
-	FFdc1+fMUOrsGDbY9F3cw43k1TbAJMreRhggIf7gmgRx9OusfKP6yWPpNcIyvFUF
-	3wgErypcJqyl9turRXIzWARIG/98vcFiyKA==
-Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com [209.85.128.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5vuht9dv-1
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=+t6otjXm2jg
+	BilPYkJGf4Pp3998PQr1KHs2mOHvsSdw=; b=Yc/cWp9yh3ZHaI4cYbqr2P+P2Sz
+	um8BqqVvdMPzKD7M6LT7LYS6lDu2pOclb8VRDrrr9e2rHh7QzrgDmgPyzvJObxYS
+	vy68cGc00RmhRzrhXnotIAQgdyFHV0+TfdSoO/HqqacW1sUkpJlzwuf2miSdsSWc
+	ZhvYawHRRFhpO1HhbZqRxUR/FRWloZUlxl2N0GlTL7K++1CjreSQeibebP0P4/Op
+	ZJYXuA1dcHgLHPaaY7u5urhRAoDx0yorKecUnZa8pzCDr+EbyLGVDL99ujdLrs3u
+	0wYGt1UCImlbDg9CZttgiZOENAgVAsxH/co8TPl1fxCwPLeTlYrBSEgpQ2A==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5vukt8q3-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:23:43 +0000 (GMT)
-Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-8b4bfc0b441so79055137b3.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:23:43 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:23:49 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93f2005ce21so965806785a.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:23:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795631023; x=1796235823; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IC4djXm6L2p/iwP9n7CVqinEoxYFhJbTA5LwbAw9uO0=;
-        b=jqGy1TUzbUR4VajLwvZEkLaF7rCqIi7iGVX7kxuq1jyFnx43sBtff02FKQWlqedNoo
-         umgIEo6Lv8pAwjbMcIEwf2/gScaTpnEhn+KtQyNm4904WJF53X6GmuKNbJ3dpYdSunuI
-         IN4BA6Ou0ROSqPKQOcG7A+umTy+oDHAEdGQ8U5eMh0IcvaFgsh0/Y8ZRpTopMljbaFVj
-         3D8725P6i8A+Dy0nVGBzm383rMjDG305ciztQmLcI+NWyMdzOK8rOlYFX47i6NH/4gfl
-         aDAR8mmFfOEaPjMkMMY2ROwCfMkdJ9H14Nz3yP0cFB30PSZwjVRywadpg4jJ65k/6m2P
-         zo6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795631023; x=1796235823;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=oss.qualcomm.com; s=google; t=1795631029; x=1796235829; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=IC4djXm6L2p/iwP9n7CVqinEoxYFhJbTA5LwbAw9uO0=;
-        b=j0bwvoKjjKcsgj295z0IsdKOmiKFDCPZXmylw8Bw0X45zNWMwkZnzYtiFAmxRf+DyH
-         OZtYz054dQe4IAa2cWjVWcf0FRciTJfvZmZvoy8jrwjMcKPT2+JR7UtvEuVZzL/upUEO
-         +9/WIC6yGi8DlH597SSxw49jbbKMo+w/NQ50eFcNpiOqt8GZQPVPZZw/JvmFyDk9WUm2
-         DVfqBS4jQokddkZ1C2Ui3yztULYcdB/PjFL5CMuEozzGbOB87IFn0kfgTQbil1zPKFlU
-         eo9TLmCvwV0+JeO/+/gjBrx4IzNOEJSqiJld1yg17+FbFiqcrrDDBo0GElnMqUO+cIlm
-         CmvQ==
-X-Forwarded-Encrypted: i=1; AL+hErEvkuqdPtiedKY5dCEvM9QsMqmNRsiMf1Yuac/535hpj3Z3NhqutQyy+e2p31eQ9j5RJlIZI2fRUvq0igk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8zcqLRH6PIW3H+MfeTD/rlu3ZLC7u9r629ivY++EmXpKOjP+lH
-	Oh7ihjk7zrM18K0+v2iWieo7NEs4HtMxLD3yA7eIfPjb/1JFaf1jZPZUMYXGscsIvz1B7knVFDj
-	22vCoMpO85HlM+C0LS5feBoLelROdbx7NcMeKliZWIV8XABTzS5zopwix/T8qu1Wjnno=
-X-Gm-Gg: AZFdTZepAztOOeV4tu26w12j5Nw4V29po157JpG2EJvJC+9nWWISLGN+UZ5QMvjDcXs
-	pAFZUJ3Bh5Am2p1HzRn7e2avqrCefn1e3aTehAmUbQE9VSqfTZ72kABNedqesmD7gu8O1GJI1AP
-	QrNiAQecfRGUd6GibVRFas96qae3pdd7aEaY6AA78qWFNIIkhZ4Zh/leQUWNTtz0kP121/0C4om
-	iQKYllTrfQdX82KP7CAJK0wBfplw3FK2/ut3LRTbZZCiqWDtpSmyiBz8f1mP32CreHmAgsbieWi
-	EIbMCeXokJhsz2Xw1hcM2VzMjQ5/BtnmOJXCdY/1WniVaPtW5iMsFMzm2mXr0BckcH9AibuJmVD
-	nbKK9K0UNhe2DCIAGdN+NFDpRPjg3Ae5NHGEuLodObkhtDwqJOqqPaya1IEnKhk1hw72EnxbSQv
-	v8Toux
-X-Received: by 2002:a05:690c:c86:b0:8b3:4deb:7ce1 with SMTP id 00721157ae682-8b5204403c4mr101680767b3.14.1795631022324;
-        Wed, 25 Nov 2026 10:23:42 -0800 (PST)
-X-Received: by 2002:a05:690c:c86:b0:8b3:4deb:7ce1 with SMTP id 00721157ae682-8b5204403c4mr101680607b3.14.1795631021566;
-        Wed, 25 Nov 2026 10:23:41 -0800 (PST)
+        bh=+t6otjXm2jgBilPYkJGf4Pp3998PQr1KHs2mOHvsSdw=;
+        b=KbtEQVsCpOkwHy+k3le0RQu7ysakprQMe1VTO/5X8fSt/wnyK71RdaHquSQw36yXUR
+         3AuAMZ93R6aplisVhOJARnBwCqi71X+32u0VJ68vzg0Vaqr69eQ9o6DPvsxjOuEW9gai
+         Vmb80cRb+woAaX4MOzZTHrbG7OWn2kWulDss1BsB/p2zrqbeGdIykeL7HRemr0JTWfp6
+         n72ZXdX5WVI51V5hs+PAInmr9vZVSVuLkaAz2moWdtoJgQGxqBOz9fjEOzN4jFQm0c62
+         3Opn47x+DbfPLG49vkLewYBLiilNAaq+WNxOvUSSSnQM0Hg2ZItffYb2a/lyBnOA1O6X
+         b7pQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795631029; x=1796235829;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+t6otjXm2jgBilPYkJGf4Pp3998PQr1KHs2mOHvsSdw=;
+        b=KjGP34TKCmc95sn7ZhA0ChjpNGqRrLDSDvMQxhPkUi/KgIApefXgxmZbLaKfW77W92
+         8lYxzKMqzwPSnJ5rAYs/pl79w+xOtSGk1YJlLhCxESvJTnMg61L7L01TaTfl2lh/xFMZ
+         xySngwvYPX6V4y2Bisj7qZGLvTYbkFkttbAXqKCBgSd01t9jsw+n+7ixSoCUrkwpgJkR
+         CVqbH7l0mn428UP2CDWsIcgZ/HHgHsn1K/9x3WkQItt12lNuzk5G4l9TwFGaKN3rVYuA
+         Ie4E+S+rGB9qh8LJybjupacphvdM7HhQ/uadJZimWUdFQM0zwTs/R4k6i9NhD5MGY0AZ
+         2PIA==
+X-Forwarded-Encrypted: i=1; AL+hErFsaCCYu0ET8H5Ae9XcRYmEbO9wYiyyXyIUEx3yyzmscgfoPotFy6+tv+4MiUojZYgVZ9HkofEKZZGz7b4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+WmdSX7qr9IdUzpZPWca1vz14IjEHEX+0y4U2xct3EXF1Pp/6i
+	1ILCPmVGMZx3kJ4W+JGHH9FE+qm485kv4D4LKPlObl3MGXGqvFml5tC1Ow3tU405aLvwJiLlRad
+	09pFz0SjdfG72WI5smnGTYk7nv6jvm1uz8kuu2Fw8E+MX9n/3PzIDSPRco0A6S9CcED2rjglWHz
+	s7yw==
+X-Gm-Gg: AZFdTZe/C3IjCqYH3WJ8+vU2uIjiDSoUwZk4AwlPl6IGHjF/t7cwfxSkAGePFStiaE7
+	Wh5ziJ/TVq2qJNJJmFIf0heGJnXKNby8QxIuTSCTt7cCTjjmwYjleu5yC5zAYT0Qsrcx+F5md4G
+	6f3JizYFNR6aUqinq2NxMYAjMLcFO6ElBZswdtRw2BROAE+AmLri3qrJOHyE99am2p83ijW3XDg
+	3KO95U1glZZQfnk2gK6MU8nmZcvpPP6ryF40Q90VYvxTs7xnffiejZLgPOUPpoT9Kn+Va/MEXdO
+	aG+wn5JOknSdUjW+WAMmjCQOhG4SVokYXchWIo8fHnQk/Yx/i5lCEX0JbLOyb8/T8kXFV7qVCrx
+	Zt+IO0PXUzkeaHOWP0tsgcJcmD6q5vDEbOftIT4/NotRcCJ/cShU6gM9vTkcJluuHTJPezoFcvy
+	hPSPA1
+X-Received: by 2002:a05:620a:600d:b0:93f:2635:b6f1 with SMTP id af79cd13be357-949ba7e3ac6mr2855409185a.8.1795631028881;
+        Wed, 25 Nov 2026 10:23:48 -0800 (PST)
+X-Received: by 2002:a05:620a:600d:b0:93f:2635:b6f1 with SMTP id af79cd13be357-949ba7e3ac6mr2855404585a.8.1795631028320;
+        Wed, 25 Nov 2026 10:23:48 -0800 (PST)
 Received: from lin-0843.qualcomm.com ([212.136.9.4])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb42absm37185609f8f.1.2026.11.25.10.23.39
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb42absm37185609f8f.1.2026.11.25.10.23.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 10:23:40 -0800 (PST)
+        Wed, 25 Nov 2026 10:23:47 -0800 (PST)
 From: Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
 To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
         Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -110,10 +112,12 @@ Cc: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
         Atanas Filipov <atanas.filipov@oss.qualcomm.com>,
         Jigarkumar Zala <jigarkumar.zala@oss.qualcomm.com>,
         Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
-Subject: [PATCH RESEND v2 00/12] media: qcom: camss: add V4L2 subdev streams API support
-Date: Wed, 25 Nov 2026 20:23:14 +0200
-Message-Id: <20261125182326.2767771-1-gjorgji.rosikopulos@oss.qualcomm.com>
+Subject: [PATCH RESEND v2 04/12] media: qcom: camss: Add streams API support for CSIPHY
+Date: Wed, 25 Nov 2026 20:23:18 +0200
+Message-Id: <20261125182326.2767771-5-gjorgji.rosikopulos@oss.qualcomm.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261125182326.2767771-1-gjorgji.rosikopulos@oss.qualcomm.com>
+References: <20261125182326.2767771-1-gjorgji.rosikopulos@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,205 +128,388 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=FPmOVOos c=1 sm=1 tr=0 ts=6b0727af cx=c_pps
- a=72HoHk1woDtn7btP4rdmlg==:117 a=dNlqnMcrdpbb+gQrTujlOQ==:17
+X-Authority-Analysis: v=2.4 cv=KfVHIgYD c=1 sm=1 tr=0 ts=6b0727b5 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=dNlqnMcrdpbb+gQrTujlOQ==:17
  a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=VwQbUJbxAAAA:8
- a=E6DQNbHbvE415lZ9EzgA:9 a=kA6IBgd4cpdPkAWqgNAz:22
-X-Proofpoint-GUID: QqfQuKhXTxjZok239E-rofCkdFmatIpo
-X-Proofpoint-ORIG-GUID: QqfQuKhXTxjZok239E-rofCkdFmatIpo
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA3MyBTYWx0ZWRfX9kFPpHh0iZCD
- UF41KL2sLWHxd3mJYVCjOm97LaNk5rWWwwb6ak8WuRIwf0M0qb2Q4vCQ6KO2zxdteAb2kRyYPdW
- k3rHPBZpBElUhdhN/+W3zWZw3kdtqrA=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA3MyBTYWx0ZWRfX/pcswxcgvvqO
- Pk3sNMGJt8BDYtUPb9d/RFFImyM/Lj9PW8P21l48nCCZ63OdMiLX8EQJhXyXiyVK5yepNeXmCl7
- RfyJoaGPveuzxMaWEHlkMUe77WetXrnvsOk1EFeZi186N3EyDBXHCsYfrzN6IQWWIYoG01R/feN
- qStdLxhBYpyxfkzaasj6bznGZIdaajv3QbR0qm2AZ1xvxZuisdk7sCLBuZPSX3OtWKnrRrrCOxX
- S1IolW4ZB1rmxWi76j5DcRQB7cZx+AI6aLYQrn8ARjXqbDMxleGIu/kjCUTBUBmdzGD/syftE8R
- NKS6mmf8AxtL8r+ciK0FieDdeBXB94xhxkgP3jDM1sjymZgiA7Z2cpklHNvfQUnoZJ8ZD3QUSId
- 1h10aA8fERJcl403p+Sm1OhWH5+EFRNPMzx58VAZHYFOmEqjeiJTzLLuTsZdIS3MhV9j/L7SJFN
- LnZc2E37yYLVkKm1ygw==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=ZovgdgjKAAAA:8
+ a=EUspDBNiAAAA:8 a=Z-lWuImNtW0lsCYLBDgA:9 a=NFOGd7dJGGMPyQGDc5-O:22
+ a=VOxKbm1zgHvARWIDjr3b:22
+X-Proofpoint-ORIG-GUID: AwhH0R0Uv-X7yZYpBpIGGIutYRiRcU1p
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA3MyBTYWx0ZWRfX+x5YXac/q1CN
+ oVf83SL0AQ8JsoadYOjK0zKbYQWfN7zB5vgHzpcETYfVaS7/Us+hD/k31gDfWGSRo1nt/tVPv1k
+ K1XPovBc+xCKOkQQJ63xTu2q/l+8cPM=
+X-Proofpoint-GUID: AwhH0R0Uv-X7yZYpBpIGGIutYRiRcU1p
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA3MyBTYWx0ZWRfX0yQr6VSGJPKD
+ RZ55CeJjhRyziujlIsPiTAolIjSDgiPz9DZ4eV+LU2xMDTlFgKfI9I/yTOAjuLV0riU5eDo3XZU
+ CBlzt5/1lrdvP2xuQrQSiZUWr79PHttgRWv4P/djeKQ/W+RRykpLKkE28hXtqy0BzTcTKOpr4vR
+ bDt5ABrfOIIH22fvMfz0hDgDrzIRDeivIUF96aWW712wS0XM9RRdOjqpbG53wXscUFQ6Biv3cA1
+ mKEpI6ZhycSG9aQZxMC6anAwQmKMnr3RYow5dl2RPwafcGOdxPoeAjwY4v3jzeLAV68mRM/PJIf
+ 3hxZF2Ktyp+JflopoJRnExfFzQ3FPzePTYvlWBT1jHIOV91VXxE9AgLdk7LbhqDBURMvI8C4Dd+
+ ndIUUOKfE65ATFk5BoOcKZBkfATrDmYuuU/gkuIYvNPhlFMtI+Qh3FchaQnt4m31m+6W1NCZP5a
+ HvSDLmXDYI99MQt4iHA==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-25_04,2026-11-25_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 bulkscore=0 malwarescore=0 suspectscore=0 impostorscore=0
- priorityscore=1501 adultscore=0 phishscore=0 clxscore=1015 spamscore=0
+ adultscore=0 suspectscore=0 priorityscore=1501 clxscore=1015 bulkscore=0
+ impostorscore=0 lowpriorityscore=0 malwarescore=0 phishscore=0 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250073
 
-This series adds V4L2 subdev streams API support to the CAMSS driver.
+Implement the V4L2 subdev streams API (enable_streams/disable_streams,
+set_routing) on CSIPHY, selected per SoC via the new streams_enable
+field on struct camss_resources.
 
-Each subdevice gains streams-aware enable_streams/disable_streams pad
-ops alongside the existing legacy (non-streams) subdev ops, guarded by
-a new per-instance streams_enable resource flag.
+The shared D-PHY lanes are enabled once, on the transition to an
+active state, and torn down once no sink stream is referenced by any
+source pad any more. CSIPHY has no per-VC demux, so every route must
+pass a sink stream straight through as the same source stream; a
+multi-VC sensor is supported by userspace adding further routes via
+.set_routing.
 
-Patch 1 is a standalone bug fix on CSID gen3, found during RB8 multi-VC
-testing: CSID reset used to program CSID_BUF_DONE_IRQ_MASK with one
-write per enabled VC instead of accumulating the bits into a single
-write.
+CSIPHY can be wired through either the legacy s_power/s_stream path
+or the generic PHY framework (camss->legacy_phy); the streams-API
+pad ops are shared between both, with enable/disable dispatching to
+the matching backend.
 
-Patch 2 factors a pad-to-port helper out of csid_get_sof_seq(), used by
-later patches.
-
-Patches 3-9 add the CSIPHY/CSID/TPG/VFE/camss-video mechanism:
- - CSIPHY: passthrough routing and shared D-PHY lane enable/disable
-   gated on stream-count transitions, dispatching between the generic
-   PHY framework and the legacy PHY backend.
- - CSID: configure_stream() is reworked to take a port_mask and a
-   per-port {vc, dt} config array shared by all six CSID backends
-   (gen2, gen3, 340, 4-1, 4-7, 680), then the CSID subdev itself gains
-   per-source-pad routing (a single sink stream propagated to every
-   source pad by default, remappable for multi-VC sensors) and VC/DT
-   discovery via get_frame_desc.
- - TPG: the single fmt field becomes a per-stream array, so the
-   generator can drive several concurrent virtual channels, with one
-   get_frame_desc entry per active route.
- - VFE: streams-aware pad ops. VFE lines are inherently single-consumer
-   (vfe_link_setup() enforces one link per pad), so no refcounting is
-   needed there.
- - camss-video: the video device pipeline walk now checks, via
-   v4l2_subdev_has_op(), whether the directly-connected subdev supports
-   enable_streams/disable_streams; if so it issues a single top-level
-   call instead of manually walking the pipeline one subdev at a time
-   with .s_stream(). Falls back to the existing legacy path unchanged
-   when the remote subdev doesn't support the streams API, so no other
-   platform is affected.
-
-Patches 10-12 set streams_enable per SoC: SM8250, SA8775P, and SC7280
-(dispatched through the legacy PHY backend on SC7280, since it has no
-camss child node named "phy", so camss_detect_legacy_phy() puts it in
-legacy PHY mode). Every other platform keeps using the legacy
-non-streams subdev ops, so these are a no-op everywhere else.
-
-A practical benefit of the CSID routing change (patch 6) is routing
-flexibility for multi-VC sensors: the CSID's routing table maps sink
-streams to source pads/streams via userspace-configurable
-v4l2_subdev_route entries instead of a fixed pad<->VC assignment, so a
-sensor emitting multiple virtual channels can have each VC directed to
-a different RDI output (and thus a different VFE line/video node)
-with a set_routing call, rather than being constrained to whatever
-fixed mapping the driver hardcodes.
-
-When a sink stream is shared by multiple source pads/streams, CSID
-only enables the corresponding upstream CSIPHY stream on the first
-source stream that needs it, and only disables it once the last
-remaining source stream using it is disabled. Enabling or disabling
-additional consumers of an already-active shared stream is a no-op
-upstream, so no consumer can double-enable or prematurely disable a
-stream still in use by another. This also avoids ever hitting v4l2
-core's own -EALREADY re-enable gate.
-
-Verified on RB8/SA8775P hardware, driving the CSID test-pattern
-generator directly (no sensor), for 1, 2 and 3 concurrent virtual
-channels through CSID to separate VFE RDI lines. Entity/video node
-names below are resolved via `media-ctl -d /dev/media0 -e <entity>`.
-
-NOTE: the V4L2 subdev streams API is disabled by default with the
-static bool v4l2_subdev_enable_streams_api in
-drivers/media/v4l2-core/v4l2-subdev.c. it must be set to true to
-use the stream API and reproduce the testing below:
-
-1 VC:
-  media-ctl -d /dev/media0 --reset
-  media-ctl -d /dev/media0 -l '"msm_tpg0":0->"msm_csid0":0[1]'
-  media-ctl -d /dev/media0 -R '"msm_csid0"[0/0->1/0[1]]'
-  media-ctl -d /dev/media0 -V '"msm_tpg0":0/0[fmt:SBGGR8/1920x1080]'
-  media-ctl -d /dev/media0 -V '"msm_csid0":0/0[fmt:SBGGR8/1920x1080]'
-  media-ctl -d /dev/media0 -V '"msm_csid0":1/0[fmt:SBGGR8/1920x1080]'
-  media-ctl -d /dev/media0 -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-  media-ctl -d /dev/media0 -V '"msm_vfe0_rdi0":0[fmt:SBGGR8/1920x1080]'
-  v4l2-ctl -d <tpg-subdev> --set-ctrl=test_pattern=9
-  v4l2-ctl -d <rdi0-video> --set-fmt-video=width=1920,height=1080,\
-    pixelformat=BA81 --stream-mmap=5 --stream-count=20 \
-    --stream-to=vc0.raw
-
-2 VCs (vc1 added in parallel):
-  media-ctl -d /dev/media0 --reset
-  media-ctl -d /dev/media0 -l '"msm_tpg0":0->"msm_csid0":0[1]'
-  media-ctl -d /dev/media0 -R '"msm_csid0"[0/0->1/0[1],0/1->2/0[1]]'
-  media-ctl -d /dev/media0 -V '"msm_tpg0":0/0[fmt:SBGGR8/1920x1080]'
-  media-ctl -d /dev/media0 -V '"msm_tpg0":0/1[fmt:SBGGR8/1920x1080]'
-  media-ctl -d /dev/media0 -V '"msm_csid0":0/0[fmt:SBGGR8/1920x1080]'
-  media-ctl -d /dev/media0 -V '"msm_csid0":0/1[fmt:SBGGR8/1920x1080]'
-  media-ctl -d /dev/media0 -V '"msm_csid0":1/0[fmt:SBGGR8/1920x1080]'
-  media-ctl -d /dev/media0 -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-  media-ctl -d /dev/media0 -V '"msm_vfe0_rdi0":0[fmt:SBGGR8/1920x1080]'
-  media-ctl -d /dev/media0 -V '"msm_csid0":2/0[fmt:SBGGR8/1920x1080]'
-  media-ctl -d /dev/media0 -l '"msm_csid0":2->"msm_vfe0_rdi1":0[1]'
-  media-ctl -d /dev/media0 -V '"msm_vfe0_rdi1":0[fmt:SBGGR8/1920x1080]'
-  v4l2-ctl -d <tpg-subdev> --set-ctrl=test_pattern=9
-  v4l2-ctl -d <rdi0-video> --set-fmt-video=width=1920,height=1080,\
-    pixelformat=BA81 --stream-mmap=5 --stream-count=20 \
-    --stream-to=vc0.raw &
-  v4l2-ctl -d <rdi1-video> --set-fmt-video=width=1920,height=1080,\
-    pixelformat=BA81 --stream-mmap=5 --stream-count=20 \
-    --stream-to=vc1.raw &
-  wait
-
-3 VCs: same as the 2 VC case, plus a third route
-'0/2->3/0[1]' from "msm_csid0":3 to "msm_vfe0_rdi2", and a third,
-concurrently-started v4l2-ctl capture on that line's video node
-(vc2.raw).
-
-All three cases captured the expected, exact frame byte count on
-every VC with no dmesg Oops/BUG/WARNING/overflow output. Additional
-early-stop and staggered-start variants of the 3 VC case (one VC
-starting/stopping while the others keep streaming) were also run and
-passed.
-
-These changes apply on top of v7.4-rc1.
-
-Changes since v1:
-- Incorporate Loic comment for csid and extend configure_stream
-  instead of adding new enable/disable stream api.
-- Incorporate Bryan comment for moving stream_enable in per SoC
-  resources.
-- Add Hitesh changes for SC7280
-- Drop the fix for csid to each vfe link. It is part of another
-  series:
-  Link: https://lore.kernel.org/all/20261122-camss-routing-fixes-v1-0-0deeeaca2622@kernel.org/
-- Incorporate Bryan comment and remove csid lite check for port
-  mapping and add route to each port. Although not functional for
-  full VFE/IFEs, this is more likely to be fixed in the near future.
-
-Depends-on:https://lore.kernel.org/all/20261107-v4l2-frame-sync-v3-0-e5bf7073a35d@kernel.org/
-
-Gjorgji Rosikopulos (11):
-  media: qcom: camss: csid_gen3: Fix multi-VC buf-done IRQ mask
-  media: qcom: camss: Add csid pad to port helper
-  media: qcom: camss: Add streams enable field to camss resources
-  media: qcom: camss: Add streams API support for CSIPHY
-  media: qcom: camss: Add per-port config to CSID configure_stream
-  media: qcom: camss: Add streams API support in CSID subdevice
-  media: qcom: camss: Add streams API support in tpg subdev
-  media: qcom: camss: Add streams API support for VFE
-  media: qcom: camss: Add streams API support in camss-video
-  media: qcom: camss: Enable streams API on SM8250
-  media: qcom: camss: Enable streams API on SA8775P
-
-Hitesh Patel (1):
-  media: qcom: camss: Enable streams API on SC7280
-
- .../platform/qcom/camss/camss-csid-340.c      |   5 +-
- .../platform/qcom/camss/camss-csid-4-1.c      |   3 +-
- .../platform/qcom/camss/camss-csid-4-7.c      |   3 +-
- .../platform/qcom/camss/camss-csid-680.c      |   7 +-
- .../platform/qcom/camss/camss-csid-gen2.c     |  54 +-
- .../platform/qcom/camss/camss-csid-gen3.c     |  51 +-
- .../media/platform/qcom/camss/camss-csid.c    | 521 +++++++++++++++++-
- .../media/platform/qcom/camss/camss-csid.h    |  22 +-
- .../media/platform/qcom/camss/camss-csiphy.c  | 249 ++++++++-
+Co-developed-by: Hitesh Patel <hitesh@ebytelogic.com>
+Signed-off-by: Hitesh Patel <hitesh@ebytelogic.com>
+Signed-off-by: Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
+---
+ .../media/platform/qcom/camss/camss-csiphy.c  | 249 +++++++++++++++++-
  .../media/platform/qcom/camss/camss-csiphy.h  |   1 +
- .../platform/qcom/camss/camss-tpg-gen1.c      |  63 ++-
- drivers/media/platform/qcom/camss/camss-tpg.c | 179 +++++-
- drivers/media/platform/qcom/camss/camss-tpg.h |   6 +-
- drivers/media/platform/qcom/camss/camss-vfe.c | 119 +++-
- .../media/platform/qcom/camss/camss-video.c   | 119 +++-
- drivers/media/platform/qcom/camss/camss.c     |   3 +
- drivers/media/platform/qcom/camss/camss.h     |   1 +
- 17 files changed, 1273 insertions(+), 133 deletions(-)
+ 2 files changed, 244 insertions(+), 6 deletions(-)
 
+diff --git a/drivers/media/platform/qcom/camss/camss-csiphy.c b/drivers/media/platform/qcom/camss/camss-csiphy.c
+index f99eea2ef228..41df8f1dad83 100644
+--- a/drivers/media/platform/qcom/camss/camss-csiphy.c
++++ b/drivers/media/platform/qcom/camss/camss-csiphy.c
+@@ -421,6 +421,129 @@ static int csiphy_set_stream(struct v4l2_subdev *sd, int enable)
+ 	return ret;
+ }
+ 
++/*
++ * csiphy_streams_set_stream - Enable/disable streaming on CSIPHY module
++ * @sd: CSIPHY V4L2 subdevice
++ * @enable: Requested streaming state
++ *
++ * Dispatches to the legacy or generic PHY depending on how this
++ * CSIPHY instance is wired, mirroring msm_csiphy_register_entity().
++ *
++ * Return 0 on success or a negative error code otherwise
++ */
++static int csiphy_streams_set_stream(struct v4l2_subdev *sd, int enable)
++{
++	struct csiphy_device *csiphy = v4l2_get_subdevdata(sd);
++
++	if (csiphy->camss->legacy_phy)
++		return csiphy_set_stream_legacy(sd, enable);
++
++	return csiphy_set_stream(sd, enable);
++}
++
++/*
++ * csiphy_pad_enable_streams - Enable one or more streams on the source pad
++ * @sd: CSIPHY V4L2 subdevice
++ * @state: V4L2 subdevice state
++ * @pad: Pad number
++ * @streams_mask: Bitmask of streams to enable
++ *
++ * The shared PHY lanes are enabled once, on the transition to an active
++ * state. The sink stream(s) are propagated upstream to the sensor only for
++ * streams which are inactive, so a stream that's already running is never
++ * redundantly re-propagated.
++ *
++ * CSIPHY is only ever linked to a single entity on its source pad, and that
++ * entity is responsible for only enabling a stream on this pad while it
++ * itself still needs it, so no cross-consumer refcounting is needed here.
++ *
++ * Return 0 on success or a negative error code otherwise
++ */
++static int csiphy_pad_enable_streams(struct v4l2_subdev *sd,
++				     struct v4l2_subdev_state *state,
++				     u32 pad, u64 streams_mask)
++{
++	struct csiphy_device *csiphy = v4l2_get_subdevdata(sd);
++	struct media_pad *remote_pad =
++		media_pad_remote_pad_first(&csiphy->pads[MSM_CSIPHY_PAD_SINK]);
++	u64 sink_streams, propagate_mask;
++	int ret;
++
++	if (!csiphy->enabled_streams) {
++		ret = csiphy_streams_set_stream(sd, 1);
++		if (ret)
++			return ret;
++	}
++
++	sink_streams = v4l2_subdev_state_xlate_streams(state, pad, MSM_CSIPHY_PAD_SINK,
++						       &streams_mask);
++
++	propagate_mask = sink_streams & ~csiphy->enabled_streams;
++	if (propagate_mask) {
++		struct v4l2_subdev *remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
++
++		ret = v4l2_subdev_enable_streams(remote_sd, remote_pad->index, propagate_mask);
++		if (ret) {
++			if (!csiphy->enabled_streams)
++				csiphy_streams_set_stream(sd, 0);
++
++			return ret;
++		}
++	}
++	csiphy->enabled_streams |= sink_streams;
++
++	return 0;
++}
++
++/*
++ * csiphy_pad_disable_streams - Disable one or more streams on the source pad
++ * @sd: CSIPHY V4L2 subdevice
++ * @state: V4L2 subdevice state
++ * @pad: Pad number
++ * @streams_mask: Bitmask of streams to disable
++ *
++ * The shared PHY lanes, and the propagation to the sensor, are only torn
++ * down once no sink stream is referenced by any source pad any more.
++ *
++ * CSIPHY is only ever linked to a single entity on its source pad, and that
++ * entity is responsible for only disabling a stream on this pad once it no
++ * longer needs it, so no cross-consumer refcounting is needed here.
++ * If error occurs propagate the error but continue to disable the streams
++ * on best effort.
++ *
++ * Return 0 on success or a negative error code otherwise
++ */
++static int csiphy_pad_disable_streams(struct v4l2_subdev *sd,
++				      struct v4l2_subdev_state *state,
++				      u32 pad, u64 streams_mask)
++{
++	struct csiphy_device *csiphy = v4l2_get_subdevdata(sd);
++	struct media_pad *remote_pad =
++		media_pad_remote_pad_first(&csiphy->pads[MSM_CSIPHY_PAD_SINK]);
++	u64 sink_streams;
++	int ret = 0;
++
++	sink_streams = v4l2_subdev_state_xlate_streams(state, pad, MSM_CSIPHY_PAD_SINK,
++						       &streams_mask);
++
++	csiphy->enabled_streams &= ~sink_streams;
++
++	if (!csiphy->enabled_streams)
++		ret = csiphy_streams_set_stream(sd, 0);
++
++	if (sink_streams) {
++		struct v4l2_subdev *remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
++		int remote_ret;
++
++		remote_ret = v4l2_subdev_disable_streams(remote_sd, remote_pad->index,
++							 sink_streams);
++		if (!ret)
++			ret = remote_ret;
++	}
++
++	return ret;
++}
++
+ /*
+  * __csiphy_get_format - Get pointer to format structure
+  * @csiphy: CSIPHY device
+@@ -881,6 +1004,71 @@ static int csiphy_link_setup(struct media_entity *entity,
+ 	return 0;
+ }
+ 
++static int csiphy_init_state(struct v4l2_subdev *sd,
++			     struct v4l2_subdev_state *state)
++{
++	struct v4l2_subdev_route routes[] = {
++		{
++			.sink_pad = MSM_CSIPHY_PAD_SINK,
++			.sink_stream = 0,
++			.source_pad = MSM_CSIPHY_PAD_SRC,
++			.source_stream = 0,
++			.flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE,
++		},
++	};
++	struct v4l2_subdev_krouting routing = {
++		.num_routes = ARRAY_SIZE(routes),
++		.routes = routes,
++	};
++
++	/*
++	 * CSIPHY has no per-VC demux, so every sink stream (VC) a
++	 * multi-stream sensor may drive must pass straight through as the
++	 * same source stream, or downstream link validation (e.g. against
++	 * CSID's multi-pad sink) will flag it as dangling. A multi-VC sensor
++	 * is supported by userspace adding further routes via .set_routing;
++	 * this default covers the common single-VC case.
++	 */
++	return v4l2_subdev_set_routing(sd, state, &routing);
++}
++
++/*
++ * csiphy_set_routing - Set routing for the CSIPHY subdev
++ * @sd: CSIPHY V4L2 subdevice
++ * @state: V4L2 subdevice state
++ * @which: Type of format state (V4L2_SUBDEV_FORMAT_ACTIVE or TRY)
++ * @routing: Routing table to set
++ *
++ * CSIPHY has no per-VC demux, so every route must pass a sink stream
++ * straight through as the same source stream.
++ *
++ * Return 0 on success or a negative error code otherwise
++ */
++static int csiphy_set_routing(struct v4l2_subdev *sd,
++			      struct v4l2_subdev_state *state,
++			      enum v4l2_subdev_format_whence which,
++			      struct v4l2_subdev_krouting *routing)
++{
++	struct csiphy_device *csiphy = v4l2_get_subdevdata(sd);
++	unsigned int i;
++	int ret;
++
++	if (which == V4L2_SUBDEV_FORMAT_ACTIVE && csiphy->enabled_streams)
++		return -EBUSY;
++
++	for (i = 0; i < routing->num_routes; i++)
++		if (routing->routes[i].sink_stream != routing->routes[i].source_stream)
++			return -EINVAL;
++
++	ret = v4l2_subdev_routing_validate(sd, routing,
++					   V4L2_SUBDEV_ROUTING_NO_STREAM_MIX |
++					   V4L2_SUBDEV_ROUTING_NO_N_TO_1);
++	if (ret)
++		return ret;
++
++	return v4l2_subdev_set_routing(sd, state, routing);
++}
++
+ static const struct v4l2_subdev_core_ops csiphy_core_ops_legacy = {
+ 	.s_power = csiphy_set_power_legacy,
+ };
+@@ -911,10 +1099,40 @@ static const struct v4l2_subdev_ops csiphy_v4l2_ops = {
+ 	.pad = &csiphy_pad_ops,
+ };
+ 
++static const struct v4l2_subdev_pad_ops csiphy_streams_pad_ops = {
++	.enum_mbus_code = csiphy_enum_mbus_code,
++	.enum_frame_size = csiphy_enum_frame_size,
++	.get_fmt = csiphy_get_format,
++	.set_fmt = csiphy_set_format,
++	.get_frame_desc = v4l2_subdev_get_frame_desc_passthrough,
++	.set_routing = csiphy_set_routing,
++	.enable_streams = csiphy_pad_enable_streams,
++	.disable_streams = csiphy_pad_disable_streams,
++};
++
++static const struct v4l2_subdev_video_ops csiphy_streams_video_ops = {
++	.s_stream = v4l2_subdev_s_stream_helper,
++};
++
++static const struct v4l2_subdev_ops csiphy_streams_v4l2_ops_legacy = {
++	.core = &csiphy_core_ops_legacy,
++	.pad = &csiphy_streams_pad_ops,
++	.video = &csiphy_streams_video_ops,
++};
++
++static const struct v4l2_subdev_ops csiphy_streams_v4l2_ops = {
++	.pad = &csiphy_streams_pad_ops,
++	.video = &csiphy_streams_video_ops,
++};
++
+ static const struct v4l2_subdev_internal_ops csiphy_v4l2_internal_ops = {
+ 	.open = csiphy_init_formats,
+ };
+ 
++static const struct v4l2_subdev_internal_ops csiphy_streams_internal_ops = {
++	.init_state = csiphy_init_state,
++};
++
+ static const struct media_entity_operations csiphy_media_ops = {
+ 	.link_setup = csiphy_link_setup,
+ 	.link_validate = v4l2_subdev_link_validate,
+@@ -934,15 +1152,21 @@ int msm_csiphy_register_entity(struct csiphy_device *csiphy,
+ 	struct media_pad *pads = csiphy->pads;
+ 	struct camss *camss = csiphy->camss;
+ 	struct device *dev = camss->dev;
++	bool streams_api = camss->res->streams_enable;
+ 	int ret;
+ 
+-	if (camss->legacy_phy)
+-		v4l2_subdev_init(sd, &csiphy_v4l2_ops_legacy);
++	if (streams_api)
++		v4l2_subdev_init(sd, camss->legacy_phy ? &csiphy_streams_v4l2_ops_legacy
++							: &csiphy_streams_v4l2_ops);
+ 	else
+-		v4l2_subdev_init(sd, &csiphy_v4l2_ops);
++		v4l2_subdev_init(sd, camss->legacy_phy ? &csiphy_v4l2_ops_legacy
++							: &csiphy_v4l2_ops);
+ 
+-	sd->internal_ops = &csiphy_v4l2_internal_ops;
++	sd->internal_ops = streams_api ? &csiphy_streams_internal_ops
++					: &csiphy_v4l2_internal_ops;
+ 	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE;
++	if (streams_api)
++		sd->flags |= V4L2_SUBDEV_FL_STREAMS;
+ 	snprintf(sd->name, ARRAY_SIZE(sd->name), "%s%d",
+ 		 MSM_CSIPHY_NAME, csiphy->id);
+ 	sd->grp_id = CSIPHY_GRP_ID;
+@@ -965,10 +1189,18 @@ int msm_csiphy_register_entity(struct csiphy_device *csiphy,
+ 		return ret;
+ 	}
+ 
++	if (streams_api) {
++		ret = v4l2_subdev_init_finalize(sd);
++		if (ret) {
++			dev_err(dev, "Failed to finalize subdev: %d\n", ret);
++			goto media_entity_err;
++		}
++	}
++
+ 	ret = v4l2_device_register_subdev(v4l2_dev, sd);
+ 	if (ret < 0) {
+ 		dev_err(dev, "Failed to register subdev: %d\n", ret);
+-		goto media_entity_err;
++		goto subdev_cleanup_err;
+ 	}
+ 
+ 	if (!IS_ERR(csiphy->phy)) {
+@@ -976,12 +1208,15 @@ int msm_csiphy_register_entity(struct csiphy_device *csiphy,
+ 		if (ret) {
+ 			dev_err(dev, "%s init fail %d\n", csiphy->name, ret);
+ 			v4l2_device_unregister_subdev(sd);
+-			goto media_entity_err;
++			goto subdev_cleanup_err;
+ 		}
+ 	}
+ 
+ 	return 0;
+ 
++subdev_cleanup_err:
++	if (streams_api)
++		v4l2_subdev_cleanup(sd);
+ media_entity_err:
+ 	media_entity_cleanup(&sd->entity);
+ 	return ret;
+@@ -996,5 +1231,7 @@ void msm_csiphy_unregister_entity(struct csiphy_device *csiphy)
+ 	if (!IS_ERR(csiphy->phy))
+ 		phy_exit(csiphy->phy);
+ 	v4l2_device_unregister_subdev(&csiphy->subdev);
++	if (csiphy->camss->res->streams_enable)
++		v4l2_subdev_cleanup(&csiphy->subdev);
+ 	media_entity_cleanup(&csiphy->subdev.entity);
+ }
+diff --git a/drivers/media/platform/qcom/camss/camss-csiphy.h b/drivers/media/platform/qcom/camss/camss-csiphy.h
+index 8c3319f2ca1c..cd15369d132e 100644
+--- a/drivers/media/platform/qcom/camss/camss-csiphy.h
++++ b/drivers/media/platform/qcom/camss/camss-csiphy.h
+@@ -118,6 +118,7 @@ struct csiphy_device {
+ 	struct v4l2_mbus_framefmt fmt[MSM_CSIPHY_PADS_NUM];
+ 	const struct csiphy_subdev_resources *res;
+ 	struct csiphy_device_regs *regs;
++	u64 enabled_streams;
+ };
+ 
+ struct camss_subdev_resources;
 -- 
 2.34.1
 
