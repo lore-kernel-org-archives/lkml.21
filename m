@@ -1,61 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616547;
-	b=5emMctMUTesHsFG4PEky0W3MpookOSzc/vBjc5mA8NIjnv2cLL3pKREdWVhka8EupFX7
-	 pe1rrRxuoBntiQ0nV1yRzycnLo4WHL9tjqaQ2PLL5hiTKc+nwQ+hn3jQBIBWeoFXxpXAC
-	 kgEjeoy677a97Rp7Y8Af3CdwE9ExOFOUlzaTUe2vQSxL1sfLRUk6EHE7oSU1L1zYD3Xnh
-	 yyjuJfj96Tl6trA0SVkOWs1H0Yy8NeqR4F99q8qu7AyTmVDLXs+dFZIj+fft1+Yy1m+Sj
-	 feKvYRnX9ugL9IjhsOfa81Qkpz6mt+EWHMAF0Z9XYaP/wwuphscmgdlFv/FdDq+4xRw==
+	t=1795616584;
+	b=BBeDeJ8NUrIN/cj0wvjHa2aVxmYwqs7NVVOcG8vreWkOa4apfzRhCgES9ogM7HFB2qxO
+	 Lm5/txXJv9kbN9q7p3bBX8biKyyAED/QAc4F10ptigzWT2LvPoxbjGTIYFJ7cpvqrtp9X
+	 Y6dbddqeHsSZ2s88Betee9ahbbpiV0LByP5qiQRLChSbtINiLgHi+Z7+kprYQ7sm5szoA
+	 3TsDEFXBLnBXImxrbagkC/x8VER7BTz5uSsNcnfu4bBCsZD4Mr/MUF5dV0PhQSebsHe+h
+	 GQIzuEYrE00hk66rFOPIk2WWwOa4TQB6+Au851tAQRGZIyNrw/s1zBAqiWzI/NJkpWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616547;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=8pAN+cMNDAKpI0U2TXKKPxCHGtnx0QjdYb7WetjOVfA=;
-	b=HQuMl5AKiX6N0IMflrOQZPH2BHGDQX46tVkn2olAm2A1mbHaYn1MieLBig3QNISJ84f2
-	 3z9dpZ8bkvKG25TY2RlQEQQLAUy26B7iHOZSP3Szf3+SXCy6Y/AeNkfFQAnI1YbCCG2MX
-	 W4QUFBRUjTwy4fxj2i6KCYXAt4mSOJCDVxsrEPIRBCJSAAnCdJ80a91XD2bkOwdEnT4hl
-	 DdCLuXjVfdlWr8etF6Mt5Pq6kzSYUaMj65S+V7A4W/7H1p0yNefGk6z1o1arXbgIZYHU1
-	 TqawM11hvtv7Yh2tEcSWJZCkdeeQw3pGNZtaoR2D1jcKIrEZYie/Zq4/3C7nKDduCRQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795616584;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Xe2pt9boqTUR8UZdvw4mJFYWCAPeJ6m0605Dc7jLB2g=;
+	b=M0DK0LbF3hCHJEOMpkc4JQmnOJeADXrGucjrp71YrHm/F6f2YXMx10V41jaABG55kyCZ
+	 HjDWjCXRRyNGt+wsZQEtJDX2qlu1NfMJLeswWM52M6aaB/m2dmbpwizHraEgQdWRvxkpJ
+	 jAUyTVL4/39EcSmtVweebOm70VVHmBwozqyUB4vEoXpwSgSPDw8eHwENGenEtp0suzB8P
+	 YMqDhh/ndS51O/u7wrKrh/bWNPAN8v2yv+GkiRjuvyU9lf7RgIZQyGFyVr7NDC5GdQR/h
+	 c69dTuDwK7AMJqlyhdzT58QcLORX8jkyRLgRmrUbx0EZYZo9Y49RzZYH6TUWIOjiW0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QQNt7T0i;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 33F42606A321;
-	Wed, 25 Nov 2026 14:22:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33F42606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cplLkniH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33645606A31E;
+	Wed, 25 Nov 2026 14:23:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QQNt7T0i
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6AF482F;
-	Wed, 25 Nov 2026 06:22:23 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BFBB03F763;
-	Wed, 25 Nov 2026 06:22:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795616546; bh=JMMVosT4VTiw7rOBFumnNRwKpJxvpO3L1Ux34kDKMME=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QQNt7T0iVQmM94OhDwbo2jUVxlWiS0B4lQHGscliOaWAXcteupZw1IqicwsEEAxPv
-	 Az1K1rtUc5oVZuCBWnXAtCgLeG1Xmy9zNmEFL9WTaZkqF0l66mkQezTkvCyZ1a1wGO
-	 5E/Dul/2PTdpPER5DMjUevgq8g4Af4GBsV3ogi2g=
-Date: Wed, 25 Nov 2026 14:22:21 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Huang, Ying" <ying.huang@linux.alibaba.com>
-Cc: Yadong Qi <yadong.qi@linux.alibaba.com>, will@kernel.org,
-	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, ryan.roberts@arm.com, robh@kernel.org,
-	gregkh@linuxfoundation.org, ptg-linux-kernel@linux.alibaba.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: fixmap: fix missing break-before-make in
- __set_fixmap()
-Message-ID: <awbvHVSX7sB8jzYA@arm.com>
-References: <20261123093505.974-1-yadong.qi@linux.alibaba.com>
- <awW3Dw743-rw_-cf@arm.com>
- <87mrqxto23.fsf@DESKTOP-5N7EMDA>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cplLkniH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A35871F000C0;
+	Wed, 25 Nov 2026 14:23:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795616583;
+	bh=Xe2pt9boqTUR8UZdvw4mJFYWCAPeJ6m0605Dc7jLB2g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=cplLkniHCpZxJXnvEAgB1HM5BlMm2BQg9E00lhEPqzWbim3Zj3BAPzg4UNFXfik16
+	 Q/8H/MZZu9028P5oUfuENggY6mFtebYNN1Mx0RJiACA34tJvDqaNjjnLFQ4Qu5pkZM
+	 NpTr2zP5FX1TChapPFyLxq2K06KxcE9zk6ScMbxJ9KD4CFQE0k2GJdh34oA+BY8D3Y
+	 MTShpZ71DGGW6/URMBnT1wiwxdjUn2q0zv2DyCTwFGcA2CnIZRYuE4zBUZmG7YpX8X
+	 fPKICUUdgUxCkN/SirhwiJGvQNtBCerKFZW/ZYsn4Y27UbDlNqKrPff9fbKARrdsWT
+	 Fp1uIJsMQldyA==
+Message-ID: <6d517c95-82e1-4713-bc1f-9922a975e26d@kernel.org>
+Date: Wed, 25 Nov 2026 15:22:59 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,54 +51,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87mrqxto23.fsf@DESKTOP-5N7EMDA>
+Subject: Re: [PATCH v2 1/1] iio: core: Split debugfs routines
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+ =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, linux-kernel@vger.kernel.org,
+ linux-iio@vger.kernel.org
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, Andy Shevchenko <andy@kernel.org>,
+ Rupesh Majhi <zoone.rupert@gmail.com>
+References: <20261125140251.384361-1-andriy.shevchenko@linux.intel.com>
+Content-Language: en-US
+From: Joshua Crofts <crofts@kernel.org>
+In-Reply-To: <20261125140251.384361-1-andriy.shevchenko@linux.intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 02:36:36PM +0800, Huang, Ying wrote:
-> Catalin Marinas <catalin.marinas@arm.com> writes:
+On 25-Nov-26 14:59, Andy Shevchenko wrote:
+> Split debugfs routines into a separate file for easier maintenance.
+> No functional changes intended.
 > 
-> > On Mon, Nov 23, 2026 at 05:35:05PM +0800, Yadong Qi wrote:
-> >> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-> >> index f66a0016dd02..5593d7e0d523 100644
-> >> --- a/arch/arm64/mm/fixmap.c
-> >> +++ b/arch/arm64/mm/fixmap.c
-> >> @@ -126,12 +126,19 @@ void __set_fixmap(enum fixed_addresses idx,
-> >>  
-> >>  	ptep = fixmap_pte(addr);
-> >>  
-> >> -	if (pgprot_val(flags)) {
-> >> -		__set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
-> >> -	} else {
-> >> +	/*
-> >> +	 * Break-before-make: when the slot still holds a valid mapping
-> >> +	 * (e.g. earlycon re-mapping FIX_EARLYCON_MEM_BASE), invalidate the
-> >> +	 * old entry and flush the TLB entries caching it before a new
-> >> +	 * mapping is installed, so old and new translations never coexist.
-> >> +	 */
-> >> +	if (pte_valid(__ptep_get(ptep))) {
-> >>  		__pte_clear(&init_mm, addr, ptep);
-> >> -		flush_tlb_kernel_range(addr, addr+PAGE_SIZE);
-> >> +		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-> >>  	}
-> >> +
-> >> +	if (pgprot_val(flags))
-> >> +		__set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
-> >>  }
-> >
-> > I guess that's easier than getting the driver or earlycon code to do
-> > clear_fixmap().
+> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> Reviewed-by: Nuno Sá <nuno.sa@analog.com>
+> ---
 > 
-> Yes.  And because set_fixmap() flushes the tlb on x86, IMHO, it's a
-> little hard to justify the driver modification.
+> v2: fixed compilation errors (LKP, Joshua)
 > 
-> However, set_fixmap() only flushes the tlb on the local CPU instead of
-> broadcasting the flush, because fixmap is either per-CPU or used during
-> early boot.  In theory, we could follow that approach and perform a
-> local flush instead though the benefit may be marginal.
+> Cc: Rupesh Majhi <zoone.rupert@gmail.com>
+> Rupesh, feel free to include this patch into your series as the first one.
+> 
+> Fun fact: This patch was written with zero AI assistance.
+> 
+>  drivers/iio/Makefile               |   1 +
+>  drivers/iio/iio_core.h             |  14 +++
+>  drivers/iio/industrialio-core.c    | 152 +-------------------------
+>  drivers/iio/industrialio-debugfs.c | 165 +++++++++++++++++++++++++++++
+>  4 files changed, 182 insertions(+), 150 deletions(-)
+>  create mode 100644 drivers/iio/industrialio-debugfs.c
+> 
+> diff --git a/drivers/iio/Makefile b/drivers/iio/Makefile
+> index 8a897b6729d2..5fd81b20da22 100644
+> --- a/drivers/iio/Makefile
+> +++ b/drivers/iio/Makefile
+> @@ -8,6 +8,7 @@ industrialio-y := industrialio-core.o industrialio-event.o inkern.o
+>  industrialio-$(CONFIG_IIO_BUFFER) += industrialio-buffer.o
+>  industrialio-$(CONFIG_IIO_TRIGGER) += industrialio-trigger.o
+>  industrialio-$(CONFIG_ACPI) += industrialio-acpi.o
+> +industrialio-$(CONFIG_DEBUG_FS) += industrialio-debugfs.o
+>  
+>  obj-$(CONFIG_IIO_CONFIGFS) += industrialio-configfs.o
+>  obj-$(CONFIG_IIO_GTS_HELPER) += industrialio-gts-helper.o
+> diff --git a/drivers/iio/iio_core.h b/drivers/iio/iio_core.h
+> index 59fa1bd9924b..985ac82a37f9 100644
+> --- a/drivers/iio/iio_core.h
+> +++ b/drivers/iio/iio_core.h
+> @@ -16,6 +16,20 @@ struct iio_buffer;
+>  struct iio_chan_spec;
+>  struct iio_dev;
+>  
+> +#if defined(CONFIG_DEBUG_FS)
+> +void iio_debugfs_create(void);
+> +void iio_debugfs_remove(void);
+> +
+> +void iio_device_unregister_debugfs(struct iio_dev *indio_dev);
+> +void iio_device_register_debugfs(struct iio_dev *indio_dev);
+> +#else
+> +static inline void iio_debugfs_create(void) {}
+> +static inline void iio_debugfs_remove(void) {}
+> +
+> +static void iio_device_register_debugfs(struct iio_dev *indio_dev) {}
+> +static void iio_device_unregister_debugfs(struct iio_dev *indio_dev) {}
+I checked Sashiko and it points out that building with debugfs disabled
+causes compiler warnings:
 
-Local TLBI won't work on arm64 since the page tables are shared (any CPU
-can speculatively load the TLB) and only FIX_VNCR has per-CPU entries.
+In file included from drivers/iio/industrialio-event.c:22:
+drivers/iio/iio_core.h:30:13: warning: ‘iio_device_unregister_debugfs’ defined but not used [-Wunused-function]
+   30 | static void iio_device_unregister_debugfs(struct iio_dev *indio_dev) {}
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+drivers/iio/iio_core.h:29:13: warning: ‘iio_device_register_debugfs’ defined but not used [-Wunused-function]
+   29 | static void iio_device_register_debugfs(struct iio_dev *indio_dev) {}
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+  CC      io_uring/fs.o
+  CC      io_uring/splice.o
+  CC      io_uring/sync.o
+  CC      kernel/nsproxy.o
+In file included from drivers/iio/inkern.c:18:
+drivers/iio/iio_core.h:30:13: warning: ‘iio_device_unregister_debugfs’ defined but not used [-Wunused-function]
+   30 | static void iio_device_unregister_debugfs(struct iio_dev *indio_dev) {}
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+drivers/iio/iio_core.h:29:13: warning: ‘iio_device_register_debugfs’ defined but not used [-Wunused-function]
+   29 | static void iio_device_register_debugfs(struct iio_dev *indio_dev) {}
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Better to mark the functions static inline.
+
+After adding inline,
+
+Reviewed-by: Joshua Crofts <crofts@kernel.org>
 
 -- 
-Catalin
+Kind regards,
+Joshua Crofts
