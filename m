@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617429;
-	b=J0eF+olCWjMpatRQo5g0mvgoW6QSMUWaUbxGt93buk9MHI5L2vDgVFCY3W96XXQQu3x/
-	 t75o4wdmngrTSUgYjtOOTfjekpqS3KnBuHxMA40EShTbXpALPP3Bw9ZDx3NvJTCjXaIUN
-	 zu5uJtn4odFi9XgpCbALg7rcfMBVaZbWRDi2UWy9Eo/UHDu/vp2yGYKCnvSE/1JKm7je5
-	 vHEZiBuwLfPQSTudeP6W8GNT3ulO9GXNFkkrZBpIM8lwWkd/CO+5T7nU72NW8vYQYCXkQ
-	 rpHXraKZOG+RVRrmyv6e1fHm8OF7gCNcyWYjEh9pjkVs+2N+lK8Y2tb1x316oK99qnA==
+	t=1795617425;
+	b=Fcpt9boVLO8rsDymNpD2rc6cJ2XofMKAR+w/WoqW3qj0eyO854XqVhe09ts0qUFD8xnZ
+	 kg+btLdldQgGlIm/BXUxhNBtwRdMZuOTB+tWm+7e0B/lc6SRV2XhT8c3SEJFeap50/r59
+	 brW20to7aT4iAkQlc4MZ71yxG6E3YUxa17v0TiHujxK4hDcW06bg90b1z/9hrNkHtSg9y
+	 TZHmhZm5whfMsTp8fKflc89gPYQB0nAAufL5bxQAPb4uumoicsMZHHTUwI0w5NXq/rv0E
+	 d1HwGmXuDeqYPudEkauip3aAwu07GbGJ6tB/39zcr/UgD2HiWuco1FjiIX3PdObUqQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617429;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617425;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=XKlofb4mp2YjJH48h+x2W8bCswXbdvaAGXnOq1DoHEg=;
-	b=o/E1bDSSPxhWWr6IDS1rW/AJGZ1qh4yzqjstsndXkdlzdXU8Etplui/f1GiiSGDkEz26
-	 xOnmo1XLpBslPbwQQXUZCdDW5Ej2iEnJdAP3fClzTXgocnbGl0KB2wJctyrhr4YAvoEUC
-	 opNqES/Oa7kQnaWFU6EBOL4MpqLODverRJTwWtpI2vo4dJ5jN2dO02HAGKFciuNHVzRUz
-	 aWtq6oQf6w+AUl3QUQA5CtxSFFCS0UDZR3Dql+ENfQuhA0fS3vTQsrSqq8VtQU4Wgr6Wb
-	 8A1M9psEl3OhPGY6kA0Ocx/ukHZjsiGMLDi+1bC9ESM8U9+ay6OaOpZ0QdF5iBrki7w==
+	bh=JDQYLhkx3ifF2oHJyX37emTxsECIsqLUKP5qTVuaAoA=;
+	b=oDPFT2PEgcaggsq8N4rCFLNQZwPrDp9/vEQMDiM8vbfpW9fTJsYWzDpJcEq9dPW2Cb1z
+	 5J38QUcGNyXG7Kim5ZxA8yPy+6A6ggh5yodU3MjAlsyIcv4cYCPvoQ8DiI1SuKxTt/yo1
+	 okgboNum4KqmS643oswxEq+9mh1Mnr3FCsPTqnJPkJFEkcz3Z33UkcwftAJc+bjtuhmn4
+	 l2MWZcREf5WWGJF/QBMDlxpmZxSPDRRbQlByuVpk6eyQJZ8Ncp8ZqpKPKu+T+DW7lzXGp
+	 32SFlJI4okPa87Uex8rVgJoDmrJ0b+kPRGqj7sAfLwwybYjW3//kOuBYuJc8zuN7DBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eC5wP0aZ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MxgWGokV;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A4F6606A333;
-	Wed, 25 Nov 2026 14:37:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B59AD606A31E;
+	Wed, 25 Nov 2026 14:37:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eC5wP0aZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA4A01F000ED;
-	Wed, 25 Nov 2026 14:37:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MxgWGokV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35EA61F000C6;
+	Wed, 25 Nov 2026 14:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795617428;
-	bh=XKlofb4mp2YjJH48h+x2W8bCswXbdvaAGXnOq1DoHEg=;
+	s=k20260515; t=1795617425;
+	bh=JDQYLhkx3ifF2oHJyX37emTxsECIsqLUKP5qTVuaAoA=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=eC5wP0aZ58R25sb7QsgyhBiRygWlYXuvOorQ3N99XVPqbooL6DBSXQKQyFt731i0I
-	 II/gl/U7Mz9wGzLuS8R1HE0EqgGgTaXCVXYllNdBtqNIq/cBuQcdVolYt5m/qDwPct
-	 uuZ7Ya91eJtKunr/FJ1lR+KQ2MBFcI4b0TpcuIQBauI0cgQDsjnB+4mMdBRz1J0aJQ
-	 S1dc5U8mpAYAC7CVg3JXSIrsb+HWNigEaTYaRMTLqsSAKUKEmjDgyMOWlITFlkEK6Z
-	 AazmlUZorEIGa+rGbQQkn5JqQheGIRWZf5LPujkSmEAeoy7pQfGQ8+R2hIdfjRi/x2
-	 tih8Hwuk5grEQ==
-Subject:
- Re: [PATCH net-next v2 6/7] net: lan743x: reset the device on TX timeout
+	b=MxgWGokVAFEdZlkpkG272J3qLR1uNets5ZP/PN0nFuxRe0H//fgevUghY+Wkhaxum
+	 TXwSsMtMYjLduhjba9k5zDy53cm8sznd+J0Xh20doxNm/WuFDlh4+PdfkofLayOg5E
+	 FEV36x1+bYOJ9KeLXvo68qBTS7bSxrMa6o+mCwtLicSS3BFDFN6dh5d+53ZCgXi24a
+	 gTfc00bmD+0f1t8T3yrrnxwtbpC/WvVMz/mzso7PZn8ZQadPaBbjJYWCm/JNZb6NAX
+	 McuIxmtNu3RSS1s03gO9xXelwuI4bJ6TzU5LwPjrWNCVqhvttOQfsIxoPtZ8BKOcvv
+	 ltghvLdwsvuzw==
+Subject: Re: [PATCH net-next v2 3/7] net: lan743x: start phylink last and stop
+ it first
 From: netdev-bot+sashiko@kernel.org
 To: cbabroski@nvidia.com
 Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
@@ -51,11 +51,11 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux@armlinux.org.uk, Raju.Lakkaraju@microchip.com,
  maxime.chevallier@bootlin.com, yuiko.oshino@microchip.com, nb@tipi-net.de,
  woojung.huh@microchip.com
-Date: Wed, 25 Nov 2026 14:37:07 +0000
-Message-ID: <179561742750.3135.10907427867283855252@kernel.org>
-In-Reply-To: <a6d08d5760ecabea5c77d6001a8281c820873512.1795027003.git.cbabroski@nvidia.com>
-References: <a6d08d5760ecabea5c77d6001a8281c820873512.1795027003.git.cbabroski@nvidia.com>
-X-sashiko-severity: Low
+Date: Wed, 25 Nov 2026 14:37:03 +0000
+Message-ID: <179561742372.3135.13284250569382417809@kernel.org>
+In-Reply-To: <df1845de5cbdd4c556a39a48faa23848e02d4944.1795027003.git.cbabroski@nvidia.com>
+References: <df1845de5cbdd4c556a39a48faa23848e02d4944.1795027003.git.cbabroski@nvidia.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -68,139 +68,163 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
-- [Low] A single TX timeout can trigger two back-to-back device resets,
-  because lan743x_reset_work() does not wait for a dev_watchdog() call…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] In lan743x_netdev_close()
+  (drivers/net/ethernet/microchip/lan743x_main.c:3378), the patch now…
+- [Medium] lan743x_netdev_open() now calls lan743x_phylink_connect()
+  (drivers/net/ethernet/microchip/lan743x_main.c:3430) after all RX and…
 
 --
 
-net: lan743x: reset the device on TX timeout
+net: lan743x: start phylink last and stop it first
 
-This adds an ndo_tx_timeout handler to the lan743x driver. The handler
-schedules a work item that, under rtnl, detaches the netdev, closes it,
-soft-resets the DMA controller, reopens it and reattaches it. The patch
-also makes lan743x_dmac_init() return an error when the DMAC soft reset
-times out.
+This patch moves lan743x_phylink_connect() to the end of
+lan743x_netdev_open() and lan743x_phylink_disconnect() to the start of
+lan743x_netdev_close(). The goal is that mac_link_up() can no longer wake
+the TX queues while the rings are missing. The phylink disconnect is also
+dropped from the open error path, because phylink is now connected only
+after everything else has succeeded.
 
 > diff --git a/drivers/net/ethernet/microchip/lan743x_main.c b/drivers/net/ethernet/microchip/lan743x_main.c
-> index 228b6ab539a17..3f129a22921e1 100644
+> index 57d52930f89be..8eb0645493e63 100644
 > --- a/drivers/net/ethernet/microchip/lan743x_main.c
 > +++ b/drivers/net/ethernet/microchip/lan743x_main.c
-
-[ ... ]
-
-> @@ -3381,6 +3385,12 @@ static int lan743x_netdev_close(struct net_device *netdev)
+> @@ -3375,6 +3375,8 @@ static int lan743x_netdev_close(struct net_device *netdev)
 >  	struct lan743x_adapter *adapter = netdev_priv(netdev);
 >  	int index;
 >  
-> +	/* lan743x_reset_work() takes rtnl, so it cannot be waited for here.
-> +	 * A running one returns if the device is still down when it gets
-> +	 * rtnl, otherwise it resets the reopened device once more.
-> +	 */
-> +	cancel_work(&adapter->reset_work);
+> +	lan743x_phylink_disconnect(adapter);
 > +
->  	lan743x_phylink_disconnect(adapter);
->  
 >  	synchronize_net();
-
-[ ... ]
-
-> @@ -3485,6 +3495,57 @@ static int lan743x_netdev_stop(struct net_device *netdev)
->  	return lan743x_netdev_close(netdev);
->  }
+>  	netif_tx_disable(netdev);
 >  
-> +static void lan743x_reset_work(struct work_struct *work)
-> +{
-> +	struct lan743x_adapter *adapter =
-> +		container_of(work, struct lan743x_adapter, reset_work);
-> +	struct net_device *netdev = adapter->netdev;
-> +	int ret;
-> +
-> +	rtnl_lock();
-> +
-> +	if (!netif_running(netdev) || !netif_device_present(netdev))
-> +		goto unlock;
-> +
-> +	netdev_warn(netdev, "resetting after TX timeout\n");
-> +
-> +	netif_device_detach(netdev);
-> +	lan743x_netdev_close(netdev);
 
-[Severity: Low]
-Can one TX timeout cause two resets in a row here?
+[Severity: Medium]
+Does the whole of lan743x_phylink_disconnect() need to move ahead of the
+ring teardown, or only phylink_stop()?
 
-netif_device_detach() only clears __LINK_STATE_PRESENT. It does not take
-dev->tx_global_lock. dev_watchdog() holds that lock while it checks
-presence, scans the queues, prints a message and calls ndo_tx_timeout():
+lan743x_phylink_disconnect() does both:
 
-net/sched/sch_generic.c:dev_watchdog() {
-	spin_lock(&dev->tx_global_lock);
-	if (!qdisc_tx_is_noop(dev)) {
-		if (netif_device_present(dev) &&
-		    netif_running(dev) &&
-		    netif_carrier_ok(dev)) {
-		...
-				netdev_crit(dev, "NETDEV WATCHDOG: CPU: %d: transmit queue %u timed out %u ms\n",
-				...
-				netif_freeze_queues(dev);
-				dev->netdev_ops->ndo_tx_timeout(dev, i);
-	...
-}
+    phylink_stop(adapter->phylink);
+    phylink_disconnect_phy(adapter->phylink);
 
-This interleaving looks possible:
+phylink_disconnect_phy() ends up in phy_detach_internal(), which calls
+phy_suspend(phydev) and later phy_device_reset(phydev, 1).
 
-CPU0 (dev_watchdog)                 CPU1 (lan743x_reset_work)
-spin_lock(tx_global_lock)
-netif_device_present() is true
-                                    netif_device_detach()
-                                    lan743x_netdev_close()
-                                      cancel_work()  /* work is running,
-                                                        not pending */
-netdev_crit(...)
-lan743x_netdev_tx_timeout()
-  schedule_work()  /* requeues */
-spin_unlock(tx_global_lock)
-                                      netif_tx_disable()  /* waits on
-                                                  tx_global_lock */
+As a result, the PHY is now powered down before lan743x_tx_close() and
+lan743x_rx_close() run their DMAC_CMD_STOP_T_ / DMAC_CMD_STOP_R_ and
+FCT_TX_CTL / FCT_RX_CTL disable handshakes. If a reset GPIO exists, the PHY
+is also held in reset at that point. This happens on ndo_stop, on the
+suspend path through lan743x_pcidev_shutdown(), and on the TX timeout reset
+later in the series.
 
-The netif_tx_disable() call in lan743x_netdev_close() is the first point
-that serializes against dev_watchdog() through tx_global_lock. It runs
-after cancel_work(), so nothing cancels the requeued work.
+Suppose the FCT or DMA teardown depends on a PHY-sourced clock, such as
+RGMII RXC, MII TX_CLK/RX_CLK, or a PHY-supplied RMII REF_CLK. Could the RX
+FIFO then still be half-disabled when the ring is freed? The result of
+this poll in lan743x_rx_close() is ignored:
 
-When the first reset calls netif_device_attach(), the requeued work sees
-netif_running() and netif_device_present() both true. It then runs the
-full detach/close/dmac_init/open/attach sequence a second time. That
-means a second link flap and a second PTP clock unregister and register,
-which can give the clock a new /dev/ptpN again.
+    lan743x_csr_write(adapter, FCT_RX_CTL,
+                      FCT_RX_CTL_DIS_(rx->channel_number));
+    lan743x_csr_wait_for_bit(adapter, FCT_RX_CTL,
+                             FCT_RX_CTL_EN_(rx->channel_number),
+                             0, 1000, 20000, 100);
 
-The ndo_stop path does not have this window. There,
-__dev_close_many()->dev_deactivate_many()->netdev_watchdog_down() stops
-the watchdog before ndo_stop runs cancel_work(). The commit message only
-accepts an extra reset for the ndo_stop/reopen race.
+lan743x_tx_close() could also take the "failed to stop, resetting it"
+path, and lan743x_tx_fifo_disable() could time out.
 
-Would moving cancel_work() after netif_tx_disable() in
-lan743x_netdev_close() close this window?
+I couldn't confirm from the driver code or a datasheet that the FCT and
+DMA teardown needs the PHY clock. Also, lan743x_mac_close() already ran
+after the PHY detach before this patch.
 
-> +
-> +	ret = lan743x_dmac_init(adapter);
-> +	if (ret) {
+Keeping mac_link_up() from waking the queues seems to need only
+phylink_stop() first. Could phylink_disconnect_phy() stay after the ring
+and FIFO teardown? __stmmac_release() uses that order: it calls
+phylink_stop(), stops DMA and frees the descriptors, and only then calls
+phylink_disconnect_phy().
+
+The ordering here is still the same at the end of the series.
 
 [ ... ]
 
-> +static void lan743x_netdev_tx_timeout(struct net_device *netdev,
-> +				      unsigned int txqueue)
-> +{
-> +	struct lan743x_adapter *adapter = netdev_priv(netdev);
+> @@ -3409,10 +3409,6 @@ static int lan743x_netdev_open(struct net_device *netdev)
+>  	if (ret)
+>  		goto close_intr;
+>  
+> -	ret = lan743x_phylink_connect(adapter);
+> -	if (ret)
+> -		goto close_mac;
+> -
+>  	ret = lan743x_ptp_open(adapter);
+>  	if (ret)
+>  		goto close_mac;
+> @@ -3431,6 +3427,10 @@ static int lan743x_netdev_open(struct net_device *netdev)
+>  			goto close_tx;
+>  	}
+>  
+> +	ret = lan743x_phylink_connect(adapter);
+> +	if (ret)
+> +		goto close_tx;
 > +
-> +	schedule_work(&adapter->reset_work);
-> +}
 
-[ ... ]
+[Severity: Medium]
+On a reopen, the PHY is still suspended from phy_detach_internal() in the
+previous close. It is only resumed through phy_attach_direct() and
+phy_resume() inside lan743x_phylink_connect(). Before this patch, the PHY
+was attached and resumed right after lan743x_mac_open(), before any FIFO
+or DMA reset.
+
+With connect moved here, the FCT resets and the DMA channel resets
+(lan743x_dmac_tx_reset() and lan743x_dmac_rx_reset()) in
+lan743x_rx_open() and lan743x_tx_open() now run while the PHY is powered
+down.
+
+If the FCT resets need the PHY-sourced MAC clock, can this make the open
+fail? lan743x_tx_fifo_enable() returns an error on timeout:
+
+    lan743x_csr_write(adapter, FCT_TX_CTL,
+                      FCT_TX_CTL_RESET_(tx->channel_number));
+    ret = lan743x_csr_wait_for_bit(adapter, FCT_TX_CTL,
+                                   FCT_TX_CTL_RESET_(tx->channel_number),
+                                   0, 1000, 20000, 100);
+    if (ret) {
+        netdev_err(adapter->netdev,
+                   "TX channel %d FIFO reset timed out\n",
+                   tx->channel_number);
+        return ret;
+    }
+
+If that times out, the interface would not come back up after its first
+ifdown or suspend. The FCT_RX_CTL_RESET_ wait in lan743x_rx_open() ignores
+its result. In that case FCT_FLOW would be programmed and the RX FIFO
+enabled even though the reset never finished.
+
+A second effect is that phylink_start() now calls mac_config() after the
+FIFOs and DMA are already running. For SGMII, 1000BASE-X and 2500BASE-X,
+lan743x_phylink_mac_config() calls lan743x_serdes_clock_and_aneg_update(),
+which switches the SerDes MPLL, and then lan743x_pcs_power_reset(). Is it
+safe to do that on every open while DMA is active? phylink_resolve() can
+already call mac_config() at runtime when the PHY changes interface, so
+this part is less certain.
+
+As on the close side, I couldn't confirm the clock dependency from the
+driver code. The DMAC global reset in lan743x_dmac_init() also already
+runs on resume with the PHY detached.
+
+Would splitting the helper avoid this? The PHY could be attached early as
+before, with only phylink_start() called last. mac_link_up() would still
+not run before the rings exist.
+
+This ordering is also unchanged at the end of the series.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795027003.git.cbabroski%40nvidia.com
