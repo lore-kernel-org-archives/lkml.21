@@ -1,85 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.54.195.159
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795613738;
-	b=L72DogMCmjfLD5FyUvQ8M8HJ6XE80nX7ZxGoLm3U3E0q/lfzfi5nhYTct0cHC0aYQkvJ
-	 tT8CDeSKwPQrP11GUbvbfom4O5EdKKeYIxxcJkMQemSqTlRx8WePrQY952su14HRctZ39
-	 f4hmTzeLMn9X2sczX05mrQ73WsndnhVPrjjLaRpGAfnvrlEFcQiUc50fIyteBeHnUmVRp
-	 KrTbidUfLGjFY+oHhHTysZGBfBCdX0OW33XHfOaV3we53MFp+c0+1a5m5V2s5wd89GScQ
-	 mX4s1x9Nulvr+v/OV2aDCnjgiiHY3175gjWGAf+1L7pSGLQJTEDK5aVmZl1S5OOPbfw==
+	t=1795613741;
+	b=3J1GTH9PS6XN2UTkvQrsYGfFTLa6tSJ6I9TquUjMmbIJa1tFdqfsQggMLjerYU2LVZDX
+	 0rIXFcmTR68ISlsZKUfQEBt4eRmtSQ+vQhUFWaazO1NnLtW0LtrUpA3RtFZFudAmBhSBR
+	 8Ym2+9ey1oyFAqE1vyNYfz2miZ6RydIQ6ouUy6Zd7WotnbpzluQKsJLWbhzBWkNNsAg88
+	 MCLW0IpkHgVJyg7Aov6uW0Hng6v0a7dwOvezYKKy3solD6+VBe/49eM62npmLP6oOBHSz
+	 9bE1lBxaElMc6kUVv5Ze0knJt33nlbG9Ah62e88bL1nmoghbDWosbJ1A1s3OJaEmanA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795613738;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=b11yeBb8NsdwSRdCS1bEtxOsQoS49Dp8WAO/enSMFOI=;
-	b=lCCayqAFpbPe6kc7NxfqSsZ49DTmlUmZQHaahN8cERVxkMR2xa95z5WVHiBzKpvqFXqO
-	 +CSp3o2SIGA/2FKGGYoHvHX4uUU4kZBFP4akR+LW+5n3L2n/iFPHZFRu0XikBUF3WVsmp
-	 9zlh/dzFdmPkbtB4T3cDkRZfdR3JRDutJMFKax3JtbjqxDptnunxyUWYGf/cyyI/9AOpP
-	 lVv1MT1JUjDvUxPA+OI+16zw7mesftBto/OdzyODBk5L0ZHt1NsSwtLbKkEWd7Rxo4NRd
-	 u8ZFwgwwk90STcg89GMRVzc74XGHqGnW563mrMdumvrovUmY1SJLmIKtPk4nu4MC3UA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795613741;
+	h=DMARC-Filter:Received:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=9/78rtRRURK01QblaWP/fDifFu/hWWUOstlANF5c7ZE=;
+	b=2+xApNqO+UJ8oJkparFT8i3ClxgjLURQiJ6t7U31OQqW+ygp5PIUHGyHG/P7VVaXMc81
+	 haV68LK0uFs5eCvSqlvSygl1rZ0kcZ5NK0Yy4oIZtq8VpUXdEns0H6Y6agueomiUmgecZ
+	 ZCSIDic5b39edJAh4/SSlScS5iWWrATC/Q/lI6eA+KniJ22H3pMPbnrN/RsePyxlA/tsr
+	 lB2cgWbuGyjKo0mLXn9jyi7ktv/K/lHd1Wg9eqgcmKPcLJba2XuuwyMZq6JpWlZ220EDu
+	 hqByUt37JoE9xwuKQeBbAhw8275pdJpvGiXOt+w95WgcmTSFvlta5qLzcSW09VBxyag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=ApCYebdO;
-	arc=none smtp.remote-ip=209.85.167.45
-Received: from mail-lf1-f45.google.com (mail-lf1-f45.google.com [209.85.167.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=fintech.ru;
+	spf=pass smtp.mailfrom=fintech.ru;
+	arc=none smtp.remote-ip=195.54.195.159
+Received: from exchange.fintech.ru (exchange.fintech.ru [195.54.195.159])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 171F0606A696
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:35:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 171F0606A696
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=ApCYebdO
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5bfbc67991cso3914869e87.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:35:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795613736; x=1796218536; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=b11yeBb8NsdwSRdCS1bEtxOsQoS49Dp8WAO/enSMFOI=;
-        b=ApCYebdOtS1Y5UDBm0SEKX1EGlk5nzWMdbuBJ+LtuWy8mEXW4L5c9OlaCIx9HF3HKz
-         Qu/vlaPip7Wm/HCXWNJV/tiZRaMIj7MZr+wyUug5syKufQ3bKyDlNsC8Dm/xDQKs6YMn
-         DxVb0Z8rJobRGoNig7l1k80LKQm8S5fRLJM8c=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795613736; x=1796218536;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=b11yeBb8NsdwSRdCS1bEtxOsQoS49Dp8WAO/enSMFOI=;
-        b=GQqSErI0jimdN+v3hSQ3u+Kvnt9NyvFvtYB4JJZ+MVz+msxQtUeTkLReL22RCvyOtl
-         eBut1/p+HFYkYtVcaeOWWW8v/l0SKHGg4L6QuyIu0e1TJngEX0iZsYC4TTtruPGXxY3B
-         EAEUIHeFjEKTXfXfK2CW76L5/Yg8wbZBAwSeCtrinrqgPpFWdIp9OOGsfth1UzMDs2iW
-         Y4LwjPo8FGBDYDmc/AIKJLuCrZZqoGMdCsmBmXIUIpYofscDR9SjsijCidmaWep9rdt3
-         23N0tu6pTzW0c9rfrXgLn3HAFAmITz5R8Xu7tnZlrJwu5kIbc+RlSjANZfekvYzz5PQe
-         ldKw==
-X-Forwarded-Encrypted: i=1; AL+hErGYtzfGwacWnjqzDL9KgOVuLykXCUIvz8hQhQ/cDOaGpe90UKNpzcLxpBOtbKU9KTx6zGD7T8+zKovDTWA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89dBAxf6R4jfYfnFb5EdCHsNj5Wsvr1HU1wr3MVfN8lsMo0lwq
-	PXp8pa4HK2reTT/Fv8fDFFBwoRLXUpNIjG7r0MnvNKed/c0FUeEbuU3l7Imx3IXahg==
-X-Gm-Gg: AZFdTZfUMeLqlZ2DPCqS9fe72mpXWKK2Jz9Kw17l9NZz3S+y0MrjJCxcc4BSXOMiVhz
-	KPc2XRc/h6o7c0Lu6RamzHojTQgAJuJBhi+TZp9YtTVZL7Vhf3lPlzYk86LZDJeUXbZptGy1Zue
-	gd9f2z2J2iuRaBx9qNz8m9JhvAO0WYLmOEySpr7AE8erZlWuq8nvA85DNoKnAahCHMrpBY9s+fD
-	yDPUGBh5cSzM/RVkvRRFJW7/mQ8eEJTOr6SwvjaYp5Pq9HupYtVbuw0aUBqFDe1E/FIhDpe4kIW
-	xTAK03LHGbQJ3EBjdC9dDhTsKF3Mv4mLCjCKmuKJCd1OozTe7ffzYpXm037+hGm0BpMwtnPNUuq
-	bclLMtjytWj77m5FakQvF+1HpCZR4Z5OLIxMxWHcmwfn03m+Q8cCiRInXXCTDn80+gZ70WMBhYt
-	UnW2s8RM14zz/VAqs+XSWaP63Y5m5fEz4BCgq2N0/ZdQ4ORmej3XRlCQe/hr/vMJVfV2olAcZ2x
-	AzycQiUUfL7lZFqehPjBrcUa5OPtMOBXShQmzq2FfKHoKj/zxYllTDzU7MDdAa5XMJ3jVjKM7jd
-	YVJO3IOpBVaW4TR0L07RD8MLSgfHBQhZSNTcHpWvY8cfproVFWMfUvZcd8cRGZq449e+WbDRXl3
-	g+Gcz8EFjDg==
-X-Received: by 2002:a05:6512:1315:b0:5c1:4c0a:49e8 with SMTP id 2adb3069b0e04-5c1bc80b081mr5630295e87.45.1795613736259;
-        Wed, 25 Nov 2026 05:35:36 -0800 (PST)
-Received: from ribalda.c.googlers.com (214.118.88.34.bc.googleusercontent.com. [34.88.118.214])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bcff7d6bsm4505000e87.18.2026.11.25.05.35.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 05:35:35 -0800 (PST)
-From: Ricardo Ribalda <ribalda@chromium.org>
-Date: Wed, 25 Nov 2026 13:35:33 +0000
-Subject: [PATCH] media: uvcvideo: Return -EINVAL for ctrl_get errors on
- disabled controls
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D34E606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:35:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D34E606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=fintech.ru
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fintech.ru
+Received: from Ex16-02.fintech.ru (10.0.10.19) by exchange.fintech.ru
+ (195.54.195.169) with Microsoft SMTP Server (TLS) id 14.3.498.0; Wed, 25 Nov
+ 2026 16:35:38 +0300
+Received: from Ex16-01.fintech.ru (10.0.10.18) by Ex16-02.fintech.ru
+ (10.0.10.19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2242.4; Wed, 25 Nov
+ 2026 16:35:38 +0300
+Received: from Ex16-01.fintech.ru ([fe80::2534:7600:5275:d3f9]) by
+ Ex16-01.fintech.ru ([fe80::2534:7600:5275:d3f9%7]) with mapi id
+ 15.01.2242.004; Wed, 25 Nov 2026 16:35:38 +0300
+From: =?utf-8?B?0JbQsNC90LTQsNGA0L7QstC40Ycg0J3QuNC60LjRgtCwINCY0LPQvtGA0LU=?=
+ =?utf-8?B?0LLQuNGH?= <n.zhandarovich@fintech.ru>
+To: Damon Ding <damon.ding@rock-chips.com>, Andrzej Hajda
+	<andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, Robert
+ Foss <rfoss@kernel.org>
+CC: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+	<luca.ceresoli@bootlin.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Dmitry Baryshkov
+	<dmitry.baryshkov@oss.qualcomm.com>, Sandy Huang <hjc@rock-chips.com>,
+	=?utf-8?B?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, Andy Yan
+	<andyshrk@163.com>, Alexandre Marquet <tb@a-marquet.fr>, Marek Szyprowski
+	<m.szyprowski@samsung.com>, "linux-rockchip@lists.infradead.org"
+	<linux-rockchip@lists.infradead.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "lvc-project@linuxtesting.org"
+	<lvc-project@linuxtesting.org>
+Subject: RE: [PATCH 2/3] drm/rockchip: analogix_dp: Disable pclk if setting
+ eDP mode fails
+Thread-Topic: [PATCH 2/3] drm/rockchip: analogix_dp: Disable pclk if setting
+ eDP mode fails
+Thread-Index: AQHdfNI4tpDqD8mls0G0iPaPmNDMp7c+lzeAgAAyieA=
+Date: Wed, 25 Nov 2026 13:35:38 +0000
+Message-ID: <81d9540f6b80438ba9b890023a984c90@fintech.ru>
+References: <20261125114319.1089186-1-n.zhandarovich@fintech.ru>
+ <20261125114319.1089186-3-n.zhandarovich@fintech.ru>
+ <cb5cc4d5-150a-4215-a894-3b9c66db06fd@rock-chips.com>
+In-Reply-To: <cb5cc4d5-150a-4215-a894-3b9c66db06fd@rock-chips.com>
+Accept-Language: en-US, ru-RU
+Content-Language: ru-RU
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,78 +86,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-uvc-invalid-einval-v1-1-57e34bd8ce06@chromium.org>
-X-B4-Tracking: v=1; b=H4sIACTkBmsC/x2MQQqAIBAAvxJ7bkENJfpKdLBcayEslCSQ/p54m
- znMFEgUmRJMXYFImRNfoYrsO9gOG3ZCdtVBCWWkVBqfvCGHbE92SA3QiGEdvVid1QZqeEfy/Lb
- pvHzfD8hqXKxkAAAA
-X-Change-ID: 20261125-uvc-invalid-einval-603b8f0bda56
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Hans de Goede <hansg@kernel.org>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Nezul Tairus <radwolf.83@gmail.com>, Ricardo Ribalda <ribalda@chromium.org>
-X-Mailer: b4 0.14.3
 
-Some non-compliant cameras fail boundary queries (e.g. GET_MIN), so
-uvcvideo marks those controls as disabled during enumeration. Due to
-legacy uAPI constraints, GET_CUR requests are still sent to the hardware
-for disabled controls.
-
-However, userspace (e.g. PipeWire) expects -EINVAL for disabled controls
-and treats -EIO as a fatal error, which can cause it to disable the
-camera completely.
-
-Match the V4L2 control framework behaviour in uvc_ctrl_get() for
-VIDIOC_G_EXT_CTRLS returning -EINVAL directly for boundary queries
-(V4L2_CTRL_WHICH_{DEF,MIN,MAX}_VAL) on disabled controls, and converting
--EIO from GET_CUR into -EINVAL. If GET_CUR succeeds, the value is still
-returned to the user.
-
-Reported-by: Nezul Tairus <radwolf.83@gmail.com>
-Closes: https://lore.kernel.org/linux-media/CAFDWN6LPcz6CBOZzBVN-VbCce3g2wOrPZ8V45_=8xv16VCqzsg@mail.gmail.com/T/#u
-Fixes: 649c033711d7 ("media: uvcvideo: Set V4L2_CTRL_FLAG_DISABLED during queryctrl errors")
-Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
----
- drivers/media/usb/uvc/uvc_ctrl.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/media/usb/uvc/uvc_ctrl.c b/drivers/media/usb/uvc/uvc_ctrl.c
-index d2f722bc3459..9390cb642d30 100644
---- a/drivers/media/usb/uvc/uvc_ctrl.c
-+++ b/drivers/media/usb/uvc/uvc_ctrl.c
-@@ -2645,6 +2645,7 @@ int uvc_ctrl_get(struct uvc_video_chain *chain, u32 which,
- {
- 	struct uvc_control *ctrl;
- 	struct uvc_control_mapping *mapping;
-+	int ret;
- 
- 	if (__uvc_query_v4l2_class(chain, xctrl->id, 0) >= 0)
- 		return -EACCES;
-@@ -2653,7 +2654,14 @@ int uvc_ctrl_get(struct uvc_video_chain *chain, u32 which,
- 	if (!ctrl)
- 		return -EINVAL;
- 
--	return uvc_mapping_get_xctrl(chain, ctrl, mapping, which, xctrl);
-+	if (mapping->disabled && which != V4L2_CTRL_WHICH_CUR_VAL)
-+		return -EINVAL;
-+
-+	ret = uvc_mapping_get_xctrl(chain, ctrl, mapping, which, xctrl);
-+	if (ret == -EIO && mapping->disabled)
-+		return -EINVAL;
-+
-+	return ret;
- }
- 
- static int uvc_ctrl_clamp(struct uvc_video_chain *chain,
-
----
-base-commit: b7ac871daee981f1963f632586ff9b9d898ce5dd
-change-id: 20261125-uvc-invalid-einval-603b8f0bda56
-
-Best regards,
--- 
-Ricardo Ribalda <ribalda@chromium.org>
-
+SGVsbG8sDQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogRGFtb24gRGlu
+ZyA8ZGFtb24uZGluZ0Byb2NrLWNoaXBzLmNvbT4NCj4gU2VudDogV2VkbmVzZGF5LCBOb3ZlbWJl
+ciAyNSwgMjAyNiA0OjM0IFBNDQo+IFRvOiDQltCw0L3QtNCw0YDQvtCy0LjRhyDQndC40LrQuNGC
+0LAg0JjQs9C+0YDQtdCy0LjRhyA8bi56aGFuZGFyb3ZpY2hAZmludGVjaC5ydT47IEFuZHJ6ZWoN
+Cj4gSGFqZGEgPGFuZHJ6ZWouaGFqZGFAaW50ZWwuY29tPjsgTmVpbCBBcm1zdHJvbmcNCj4gPG5l
+aWwuYXJtc3Ryb25nQGxpbmFyby5vcmc+OyBSb2JlcnQgRm9zcyA8cmZvc3NAa2VybmVsLm9yZz4N
+Cj4gQ2M6IExhdXJlbnQgUGluY2hhcnQgPExhdXJlbnQucGluY2hhcnRAaWRlYXNvbmJvYXJkLmNv
+bT47IEpvbmFzIEthcmxtYW4NCj4gPGpvbmFzQGt3aWJvby5zZT47IEplcm5laiBTa3JhYmVjIDxq
+ZXJuZWouc2tyYWJlY0BnbWFpbC5jb20+OyBMdWNhDQo+IENlcmVzb2xpIDxsdWNhLmNlcmVzb2xp
+QGJvb3RsaW4uY29tPjsgTWFhcnRlbiBMYW5raG9yc3QNCj4gPG1hYXJ0ZW4ubGFua2hvcnN0QGxp
+bnV4LmludGVsLmNvbT47IE1heGltZSBSaXBhcmQNCj4gPG1yaXBhcmRAa2VybmVsLm9yZz47IFRo
+b21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPjsNCj4gRGF2aWQgQWlybGllIDxh
+aXJsaWVkQGdtYWlsLmNvbT47IFNpbW9uYSBWZXR0ZXIgPHNpbW9uYUBmZndsbC5jaD47IERtaXRy
+eQ0KPiBCYXJ5c2hrb3YgPGRtaXRyeS5iYXJ5c2hrb3ZAb3NzLnF1YWxjb21tLmNvbT47IFNhbmR5
+IEh1YW5nDQo+IDxoamNAcm9jay1jaGlwcy5jb20+OyBIZWlrbyBTdMO8Ym5lciA8aGVpa29Ac250
+ZWNoLmRlPjsgQW5keSBZYW4NCj4gPGFuZHlzaHJrQDE2My5jb20+OyBBbGV4YW5kcmUgTWFycXVl
+dCA8dGJAYS1tYXJxdWV0LmZyPjsgTWFyZWsNCj4gU3p5cHJvd3NraSA8bS5zenlwcm93c2tpQHNh
+bXN1bmcuY29tPjsgbGludXgtDQo+IHJvY2tjaGlwQGxpc3RzLmluZnJhZGVhZC5vcmc7IGxpbnV4
+LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZzsgZHJpLQ0KPiBkZXZlbEBsaXN0cy5mcmVl
+ZGVza3RvcC5vcmc7IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc7IGx2Yy0NCj4gcHJvamVj
+dEBsaW51eHRlc3Rpbmcub3JnDQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggMi8zXSBkcm0vcm9ja2No
+aXA6IGFuYWxvZ2l4X2RwOiBEaXNhYmxlIHBjbGsgaWYgc2V0dGluZw0KPiBlRFAgbW9kZSBmYWls
+cw0KPiANCj4gSGkgTmlraXRhLA0KPiANCj4gT24gMTEvMjUvMjAyNiA3OjQzIFBNLCBOaWtpdGEg
+WmhhbmRhcm92aWNoIHdyb3RlOg0KPiA+IFRoZSBlRFAtbW9kZSByZWdpc3RlciB3cml0ZSB2aWEg
+cm9ja2NoaXBfZ3JmX2ZpZWxkX3dyaXRlKCkgY2FsbCBjYW4NCj4gPiBmYWlsIGFmdGVyIHBjbGsg
+aGFzIGJlZW4gZW5hYmxlZC4gVG8gcHJldmVudCB0aGlzLCBkaXNhYmxlIHBjbGsgYmVmb3JlDQo+
+ID4gcmV0dXJuaW5nIHRoYXQgZXJyb3Igc28gdGhlIHBsYXRmb3JtIHBvd2VyX29uIGNhbGxiYWNr
+LCBpbiB0dXJuLA0KPiA+IHJlbGVhc2VzIHRoZSBjbG9jayByZWZlcmVuY2UgaXQgYWNxdWlyZWQg
+b24gZmFpbHVyZS4NCj4gPg0KPiA+IEZpeGVzOiA3MjlmOGVlZmRjYWQgKCJkcm0vcm9ja2NoaXA6
+IGFuYWxvZ2l4X2RwOiBBZGQgc3VwcG9ydCBmb3INCj4gUkszNTg4IikNCj4gPiBTaWduZWQtb2Zm
+LWJ5OiBOaWtpdGEgWmhhbmRhcm92aWNoIDxuLnpoYW5kYXJvdmljaEBmaW50ZWNoLnJ1Pg0KPiA+
+IC0tLQ0KPiA+ICAgZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL2FuYWxvZ2l4X2RwLXJvY2tjaGlw
+LmMgfCA0ICsrKy0NCj4gPiAgIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKyksIDEgZGVs
+ZXRpb24oLSkNCj4gPg0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAv
+YW5hbG9naXhfZHAtcm9ja2NoaXAuYw0KPiBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9hbmFs
+b2dpeF9kcC1yb2NrY2hpcC5jDQo+ID4gaW5kZXggM2E4MDYwMGVlY2UxLi5hOTA1NjMwM2E5ODcg
+MTAwNjQ0DQo+ID4gLS0tIGEvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL2FuYWxvZ2l4X2RwLXJv
+Y2tjaGlwLmMNCj4gPiArKysgYi9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvYW5hbG9naXhfZHAt
+cm9ja2NoaXAuYw0KPiA+IEBAIC0xNDUsOCArMTQ1LDEwIEBAIHN0YXRpYyBpbnQgcm9ja2NoaXBf
+ZHBfcG93ZXJvbihzdHJ1Y3QNCj4gYW5hbG9naXhfZHBfcGxhdF9kYXRhICpwbGF0X2RhdGEpDQo+
+ID4gICAJfQ0KPiA+DQo+ID4gICAJcmV0ID0gcm9ja2NoaXBfZ3JmX2ZpZWxkX3dyaXRlKGRwLT5n
+cmYsICZkcC0+ZGF0YS0+ZWRwX21vZGUsIDEpOw0KPiA+IC0JaWYgKHJldCAhPSAwKQ0KPiA+ICsJ
+aWYgKHJldCAhPSAwKSB7DQo+ID4gICAJCURSTV9ERVZfRVJST1IoZHAtPmRldiwgImZhaWxlZCB0
+byBzZXQgZWRwIG1vZGUgJWRcbiIsDQo+IHJldCk7DQo+ID4gKwkJY2xrX2Rpc2FibGVfdW5wcmVw
+YXJlKGRwLT5wY2xrKTsNCj4gPiArCX0NCj4gPg0KPiA+ICAgCXJldHVybiByZXQ7DQo+ID4gICB9
+DQo+IA0KPiBGb3IgdGhlIGVhcmxpZXIgcm9ja2NoaXBfZHBfcHJlX2luaXQoKSwgSSB0aGluayBh
+IGdvdG8tYmFzZWQgZXJyb3IgcGF0aA0KPiBtaWdodCBiZSBjbGVhbmVyLg0KPiANCj4gQmVzdCBy
+ZWdhcmRzLA0KPiBEYW1vbg0KDQpUaGFuayB5b3UgZm9yIHlvdXIgcmVjb21tZW5kYXRpb24sIEkn
+bGwgaW5jbHVkZSB0aGlzIGNoYW5nZSBpbiB0aGUgdjIgc2VyaWVzLg0KDQpCZXN0IHJlZ2FyZHMs
+DQpOaWtpdGENCg0K
