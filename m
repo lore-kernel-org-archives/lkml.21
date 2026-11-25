@@ -1,120 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596474;
-	b=3O7hxHH3sc3F6g3kx5bI9OjU4dLpsk4upeTeEbfqS0aTRTQII81Te8qKRFwDZ/hKhqQe
-	 QIA3BCp8N+CPTnFkXddym49ZQ3aa5tI8zzBOTWGL0e3sD4HHrC9TrzYPbRIruEvsYxxBc
-	 pbgBpDliFapRpSMm6Bh2Z2vwwOO+XiZCMP5EYcBjHlD1rdX4S/boq1PbQjB+hp2jVWDZu
-	 CkptBj8zE4/0OdIfd3q+thljiwQh7NmsQvelcE2K9ODNUZuwLdh/RnU+zzvVGitliow6d
-	 5oDJqjSExjQ7eNnQD85adUR4F53ITLcHfdSJlIA4BSMa43W5nh2Du2spclPFpoBz3WA==
+	t=1795596476;
+	b=XfwziGqeNvmQsEONlFQrB6ksDnlTvl2cXDfOYMxQT1yc20kRHepG4ofudU0rmOejj453
+	 3XEaRb6DTOjXS80ohmvqMHfyBUmPjm/nx56Vt0MurYo65l12VftFZLXMxAWtlgyosG+3i
+	 dvOYQT6aPIFSyx2LXMyyp6juUvu5v8pKas5RA092TsMNKI1m/BOujOx3iTdbU0wnie50d
+	 mhiZAlWDKyPaMvttmlM+c5p/D6z5kjOl3NcIzatLBWHsGKjKp8KkkyAaIh6aiFm2p4c7z
+	 8y2j9kbGErElK7oG4cmz+qyApsDUvvO0UNtSlXASdKbu4JBbdEqvnpoVetg9kdgWevQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596474;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
-	bh=WLw5iSLUAmy5ESjmbTA6ThiW5AF9rDmQb0R0/WJ6aCs=;
-	b=Y0dShPuusIhpNOUnvKwFuE2p/wQhTwKADJexhb0SMhhjumWtxTmTaqpKLQeF/31+VPfl
-	 M809BhDlMZJ6Rxx8iHi9Rm8YuZiUB8aNLvm1hepp/5ctr7D06QlEEmYDPQOzAbtyFjjFK
-	 KRnCIHWLNv0oerpEJgMm2UjBHPmz9izfTT3QAPu1hKHmt+U3TE+7qKk4Nyui8QC6EcEo/
-	 Do8OrsGKR3BG5uxZdXC2mJnDhay41r5C0h1V55F5kpExlKosnstmSnkCkQ219suzQ8TXY
-	 FWcuZLURZ217Jkht/nrvMoqjMaNJekUJGdTYY6DUIP+6YBp+qyOxi+egYQG7DZF1Mfw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596476;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=BoIN1YPmv8DT6xKw8t/C48kGStRshqPRywrtEu/9tJw=;
+	b=lO9FIW73umIsdBMNyGx27HRK1MUMHvkia3bWcfFZH1387+47/vo1g0gbot8eV1O2oZlo
+	 UOC/0tyUqxvXLBuJYAngJUiK1C6VOqKWHiOtkNqMSODpPixPYxFO6dd9f4O+We0C19h3J
+	 pVEJllqP5oW7pl/RRo/ujksrp6+wB3+2zOLQ9sAJdFFJjRpyylxwBp29SHSih+bxthXbt
+	 imOs59OqM1ZZJTnC9vxsGtB5LevVGxelZvbXpJoAIomsWhwPpludgAVrTCHAzzRvcKAta
+	 Ah4M8fa4jB8UnFOgjuuUQF+RqO8YWI+hALUeskf1p/vzS5Sjco10w2BJDqInUN0+X2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=xWfccdjs;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=OO3e4siu;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="G5/pHpGg";
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=uThUAfA+;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a1Yq5IUJ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4354606A327;
-	Wed, 25 Nov 2026 08:47:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4354606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id A6C5C606A32C;
+	Wed, 25 Nov 2026 08:47:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=xWfccdjs;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=OO3e4siu;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=G5/pHpGg;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=uThUAfA+
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id BA8D221F6C;
-	Wed, 25 Nov 2026 08:47:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795596465; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WLw5iSLUAmy5ESjmbTA6ThiW5AF9rDmQb0R0/WJ6aCs=;
-	b=xWfccdjs+1brj5kF+U2+aXs2cxkUEyD9UIBRARlzVvl9saKhVrlGVeG2182x+XRHh74x4L
-	30ISI2+aHO20dRWdE5nYT7+NRhq0mYp8xn9klblBfquFqjIwNfnnZuxyxjGaW4tqecXeGt
-	WzDf6SwJBfcMUEHQhMU7A+wf52Seuso=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795596465;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WLw5iSLUAmy5ESjmbTA6ThiW5AF9rDmQb0R0/WJ6aCs=;
-	b=OO3e4siu057blVR7oduuGttVRQ6uVbk+AYp0GveOXc/5mOKgZ2gVhEscpe/X8sc4cmWVPx
-	11du91yR2QjGURAQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795596463; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WLw5iSLUAmy5ESjmbTA6ThiW5AF9rDmQb0R0/WJ6aCs=;
-	b=G5/pHpGgJ+KX/BAPyqrfkORLpvZZ2w2sPOsdSr9Aa6d/S0BTaAsj041hgU6q8Xx7Es/HO4
-	vCWtNLkkgWw69gT3KFSZkNdF4TImelbmEdC00v6oGMOc5Mhe2eGGphFvBf5ZxMVhq2WwUS
-	/kZAgJWDINutbQZW2YZaZV5zvw8ht9A=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795596463;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WLw5iSLUAmy5ESjmbTA6ThiW5AF9rDmQb0R0/WJ6aCs=;
-	b=uThUAfA+mQDqsC3uBXC/kZ6qobt/aiXkG2wPdqYaV56ahkHKu4SUllbMGqyh6QdYUxnTHe
-	76GoEn2qMIcPHnCA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 90A7F134CA;
-	Wed, 25 Nov 2026 08:47:43 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 0yVvG6+gBmvGfQAAD6G6ig
-	(envelope-from <jack@suse.cz>); Wed, 25 Nov 2026 08:47:43 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 2440E27BBD; Wed, 25 Nov 2026 09:47:39 +0100 (CET)
-Date: Wed, 25 Nov 2026 09:47:39 +0100
-From: Jan Kara <jack@suse.cz>
-To: Pedro Falcato <pfalcato@suse.de>
-Cc: David Hildenbrand <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Lorenzo Stoakes <ljs@kernel.org>, 
-	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
-	Johannes Weiner <hannes@cmpxchg.org>, linux-ext4@vger.kernel.org, linux-nfs@vger.kernel.org, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
-	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
-	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, 
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
-	Michal Hocko <mhocko@kernel.org>, linux-fsdevel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH RFC 5/5] mm/filemap: refuse releasing maybe_dma_pinned
- folios
-Message-ID: <fsmnfotflgrddrlak24cve7vkcjkellsgb3xbei5ysxvmqnul6@byvxblm4dtqm>
-References: <20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de>
- <20261119-gup-dirty-what-v1-5-236d69f25c24@suse.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a1Yq5IUJ
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 67F7A1F000C0;
+	Wed, 25 Nov 2026 08:47:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795596476;
+	bh=BoIN1YPmv8DT6xKw8t/C48kGStRshqPRywrtEu/9tJw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=a1Yq5IUJe5h2DOmnzMol/EHpXS/c7m73PJJ7A4ixGizh9qQlaXNc9cIv2gbKKJNEZ
+	 YWXS2zZ+hvbEGuM+ujAJVM9e2EfrXsNjKgEAhthifSb+5jfiCzYvaWimZUYgYXlmL7
+	 orQXbm2rbIKfkGx+lYz2NogM6WgJePltruEYNnUh152gmv3aCHd0gMxzyDRFJRtbaz
+	 Y/Yt0o7y9OsMxmexCv+ti/tzVEJXqVrbn6J1BJxrcX6PKs+uMYpUaUb4IpKN8rJgU5
+	 LZgqScUkOVOiKbNnDAnh4+u4Gcu6R/wWbWoZjzhFnOOg0qU+Df74tA7a8RRaWiyDqg
+	 +qs9uDIGkNaww==
+Date: Wed, 25 Nov 2026 09:47:52 +0100
+From: Bartosz Golaszewski <brgl@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Abel Vesa <abelvesa@kernel.org>, Shawn Guo <shengchao.guo@oss.qualcomm.com>, 
+	linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v3 0/3] phy: qcom: Describe the AHB2PHY bridge clock on
+ Nord
+Message-ID: <3e7tzpibli7hi3rb6fhrcfczndwwpjg7hlto5tajxwneap6bar@pj4dgukcl3gm>
+References: <20261117-qcom-nord-ahb2phy-clk-v3-0-ce5ee1073208@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,83 +65,42 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261119-gup-dirty-what-v1-5-236d69f25c24@suse.de>
-X-Spam-Flag: NO
-X-Spam-Level: 
-X-Spamd-Result: default: False [-12.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MISSING_XM_UA(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[37];
-	ARC_NA(0.00)[];
-	RCVD_COUNT_THREE(0.00)[3];
-	R_RATELIMIT(0.00)[to_ip_from(RLc5chj8mdhigtayhgqted7wkp)];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	RCVD_TLS_LAST(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.com:email,imap1.dmz-prg2.suse.org:helo,suse.cz:email]
-X-Spam-Score: -12.80
+In-Reply-To: <20261117-qcom-nord-ahb2phy-clk-v3-0-ce5ee1073208@oss.qualcomm.com>
 
-On Thu 19-11-26 20:10:48, Pedro Falcato wrote:
-> Some callers, like folio_unmap_invalidate(), call filemap_release_folio()
-> without any care for folio refcounts. This is on purpose. As
-> folio_unmap_invalidate() states, invalidate_inode_pages2() needs stronger
-> guarantees, and "can't afford to leave folios behind because
-> shrink_folio_list() has a temp ref on them". Ok.
+On Tue, Nov 17, 2026 at 10:06:27AM +0100, Bartosz Golaszewski wrote:
+> On Nord, the register space of all the USB PHYs (the two USB3-DP QMP
+> PHYs and the three eUSB2 PHYs) sits behind the AHB2PHY_0 bridge, which
+> is gated by NE_GCC_AHB2PHY_CLK. None of the PHYs currently describe or
+> enable that clock, so clk_disable_unused() gates it before the PHYs are
+> initialized. The PHY init sequences then never reach the hardware and
+> the controllers fail to come up:
 > 
-> Use folio_maybe_dma_pinned() universally, in filemap_release_folio(). This
-> has a much lower false positive rate, and should be ok enough for most
-> serious cases.
+>   dwc3-qcom a600000.usb: DWC3 controller soft reset failed.
+>   dwc3-qcom a600000.usb: error -ETIMEDOUT: failed to initialize core
+>   xhci-hcd xhci-hcd.2.auto: can't setup: -110
 > 
-> While here, properly assert that no folio passed to release_folio is
-> mapped.
+> As a result, USB on Nord only works when booting with clk_ignore_unused.
 > 
-> Cc: stable@vger.kernel.org
-> Fixes: d824ec2a1546 ("mm: do not reclaim private data from pinned page")
-> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
-
-Looks good to me. Feel free to add:
-
-Reviewed-by: Jan Kara <jack@suse.cz>
-
-and we'll see whether there's some path which actually required private
-data on pinned page to be freed in some cornercase :)
-
-								Honza
-
+> An earlier attempt marked the clock always-on in the NE GCC driver. This
+> series instead makes the PHYs consumers of the bridge clock, so it is
+> only kept enabled while a PHY is in use:
+> 
+>  - Patch 1 adds a fifth "cfg_ahb" clock to the Nord QMP USB3-DP PHY
+>    binding. No driver change is required.
+>  - Patches 2 and 3 add a "bus" clock to the Nord eUSB2 PHY binding, and
+>    Nord-specific match data in the snps-eusb2 driver that enables it
+>    alongside the "ref" clock.
+> 
+> This should go into v7.4.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 > ---
->  mm/filemap.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/mm/filemap.c b/mm/filemap.c
-> index f9e34144c53c..4fa75663b7f3 100644
-> --- a/mm/filemap.c
-> +++ b/mm/filemap.c
-> @@ -4571,8 +4571,11 @@ bool filemap_release_folio(struct folio *folio, gfp_t gfp)
->  	struct address_space * const mapping = folio->mapping;
->  
->  	BUG_ON(!folio_test_locked(folio));
-> +	VM_WARN_ON_FOLIO(folio_mapped(folio), folio);
->  	if (!folio_needs_release(folio))
->  		return true;
-> +	if (folio_maybe_dma_pinned(folio))
-> +		return false;
->  	if (folio_test_writeback(folio))
->  		return false;
->  
-> 
-> -- 
-> 2.56.1
-> 
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+
+Vinod,
+
+This series is reviewed and the only sashiko comment is a suggestion.
+This is the final dependency for supporting USB on Qualcomm Nord. Could
+you please consider queueing it?
+
+Thanks in advance,
+Bartosz
