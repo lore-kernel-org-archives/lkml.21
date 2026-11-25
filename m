@@ -1,96 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795598745;
-	b=MfzUfNpOQoHini18bA0fpz91wnIo+X/xHMTGKRggKK5qb1VHmOA5eYosw6p2h5qydEuZ
-	 kOw7dieX5O0ofgk6brxI4pdU8UTQI4X/ZrLTTUJ1DdF6oZEFcqJDN6Tcrf3KLWN1UqAbk
-	 xOY2Ga9GueaLlGhd+8RJReNopF1m9CjvWRQIOU56sGp4kSEWxJOhd0iG/Ft/VI9Kfoyy9
-	 cEJRtno4KAxTHmAMuGXa+MIpLJfx0igQ7X7fm+FMveuIRFlbkLikRDTr0GGR6DQC7CbCp
-	 lBuZHWYTOTZYLzfZCRsF5rQ5tf9EiEirWcATl+PV9XvBBLqqAPb16HwlMmU9WlkmfSw==
+	t=1795598746;
+	b=RBh63TouH9tki+JPyOeRt7n8difQFseMlhWD1zM8Q8eLtQHwdUC+ZlwLFO79b5RaONCV
+	 s1eE1MlpzsPdilBXgVo+GB6+lH5aaceGe4l7B3uu/4vNX0vDg8t8H/EocQXGNSC1UxkKS
+	 TZ39KRg7LgAkx3fOY4tlMscMIP6iSfVLDI7xEKFazBHfYBSeteD1p7Xdybrugl+qArVvy
+	 7yKyDQX8Dfy0BatidCxO8tTIMajHOqG3s94qQD4EW8vSmlw6vMaIRRRzLqsT6xTO0/E6X
+	 G7clZIxARwqoVJpa7tDjXXHR/B6kQ9SbICKec0zUFRkXWgkEac33+W7NDKYPUUNqg5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598745;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=GnB+aZxKe6ZtO8gfhG6inB6mdXvFtFPkZxKmjJASbvg=;
-	b=PK/FwKEWEkdOfUVcRtshSTxHztH2EJnjLtGkGls6mTd1f2dCOz0T4EWMtY35W0Uh3IRe
-	 YgjaKdt1iAz+GVBgZFu1RLfXYcR68MXdvVijdDWtXsVYjBjuMVqlwFZdJwDTX3+eNno+o
-	 F3LSrrHvh1ycLLYniwTMLKI2M4nZ+OrCL9TE0DSoT57H3XvDq03XOPgqM8/1avINdnMCz
-	 GE2lmPMPsK3bWGc74ra8Igx+GSsOYTvCxEjK8HgKuo1biQXcdxx2gTrukVz9ZdzN2ikwx
-	 CY4re8aJbgZOXM7pur8v9DI66Cx/zV5erFUMEGZZXWrQ7rfBentN7BK6MQmsjsBa0yA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598746;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject;
+	bh=MgHfNa0RyzkMwQoxVsQL4VGt74zMcO2F1DDPV6xuHjI=;
+	b=ZUcwasrTMqdYgl3OumxWxkfbE7J7QWyt2ebPRIxlydeRLJ+tAXDI9+1XHB0PQrzuJsY5
+	 ZmzgNWEEZVpPCcJmj83vWbtUTq+nyWX0nhkH3DXhoT5uQpkc1Pn2lptANbjZJXgiL2Mn/
+	 mXxXsLlNQd6IAHViCj6EPFxOcdEeCvqV3CCXgBVhMh/ozB80LvkcPgT/k+nCwhl+0Dp/i
+	 m1Q6kQmp1XatY3t+yR/q6PKQsKuN3NNzE0xfhwJ+6Sxi1hQS3OBokg8YR4VN3btHns95A
+	 QSdKCqWxPrTOm+dWIAVZRiAG7f+ym0WbK0liqMiX67lK32TKaJxbbgR7rQ1FKsRVCkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uOmzaNSL;
-	arc=none smtp.remote-ip=209.85.214.182
-Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NJCjHSfz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B4B8606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:25:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B4B8606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A662E606A680
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:25:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uOmzaNSL
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f052ae3c86so29894075ad.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:25:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795598742; x=1796203542; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=GnB+aZxKe6ZtO8gfhG6inB6mdXvFtFPkZxKmjJASbvg=;
-        b=uOmzaNSLKm4UoCIsOhTI1WTck0A1Qp9NpWDRDxCMo6mn7oQJNdh71lm6mtkYhVdDO/
-         Tqx7Y+QqFxcydT0vWDmTJX4X+64sz5A021bMbb4xLTyENr68YHHBM1MxausvweDDYnKh
-         L65DxTKha36XxQBpYwDoNaiV7cKzhoUuPIYJIIm5jx/NY16J5tFJd3Gq1Q7Sz6XImN3o
-         Ed/6eCXinAZa5SnQkHQyFmbi388/ANikjHZI45z38Lvk1Ab0Q8xAG8f2l291e16+ik1J
-         NFtjMk4XbaJKDm5KZKP8Jpx7kKd/4HgXXVZgSxOyfobQw0mZGRFV0+efXmydwCGbCQRA
-         KfuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795598742; x=1796203542;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GnB+aZxKe6ZtO8gfhG6inB6mdXvFtFPkZxKmjJASbvg=;
-        b=pkV//ytmJRxbWkhelzAa50bmEBKlN3KavjPdeMu3M1LjbtvfNcgfbZ2mZortqxhp5r
-         4nthWqyeCrN13jysq7zgegdIiq3/xPRhhk3AgmWPk2zHjNiv93wrKKc8LP2SVpUtyg1w
-         51aCaq+2+QhKvSVlJ+RhktIPazHTwoZ2td+SoKs2fK+PuMr7sPWjmO+Tc36VjpKG3SJW
-         N5Bbh1VXA/hIkOI+6njlV0/G0lulrL68e6kP1Z8jgC6UGPIfW5kIjlAGwIQo0NxlhhcW
-         INb2N11MasWtCIvhaNVk02zme+dL2/4y8iAyMGJgkmcI5QUejiTUn8czywG1swuHsa/M
-         1JgA==
-X-Forwarded-Encrypted: i=1; AL+hErGymTr85EV8cgDyusSOaGR8TUhlhUXmFHeUlczz74536qqHa2aNvdx6YySwhgTlV8uJoUljNwhxpoQuqPs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+D2Uds89+TWbRD1h6JVTFsmVs+DGUWLGFkSXYTbeqRwoxydwTr
-	/ymQCYmN3z1buczykw8ZbSdOgAQMpZFm1T59AtVo5IL5DABHLov2UMLE
-X-Gm-Gg: AZFdTZdJ7NIow+6bDXSWn+crNUOc9ET5vTEILrQ015wVcmhOQLdyhjDQ7FdU/AgbjuS
-	AvkoI/6m7SOnIlEqR6A8cLuEIE7sVE8Nn0X/KyzJpayO8gkjaALwqcx3gz9zeyEPltJWKNRJVRj
-	cbjqJ0D8oru+qqug/U7nqpJIJtnQHr06rw15Uu2XzIhHXkoblTtZPhb6Gy5eO5o702r1mhp1OmC
-	uk8imqoKMG46cuPvteQLvG7MyHdQYdsjy58sH8FHfPeF2nHtCd2PKIjd+5k43YgtL8FtTcovXcP
-	ZPa8VX1Nkt61ZW2uBoN1dD3Kt4x9OQ43+hfNvHKD3cf/l341y7mXTznywFHWpzSZGk2dNDYi6FS
-	Pz1BdAxXpBp8Pte7uXZSRKpMRpA2vSK6OToWCd/hi3B+NpJ23ESFr+3jqTGk+a/jub8znPovGrL
-	nh3OfZuZW3NB02l4WVpj27/wSu8u4aTK/dliixgwFXIKNDJPT+s/RGgD9ycvbEaSDyzWVRXEBhz
-	uosu29i5rbGv8K0+PPboVS/t3D1Iltyx2/xfPYOEKCjN3/fvHUcUy1GM1SpH8UusDRwwdyHv2d4
-	cUj6USkF7xgDTvolAJa75l8gMQb8plaiSg==
-X-Received: by 2002:a17:902:e847:b0:2ed:3db6:2eb0 with SMTP id d9443c01a7336-2f03f1d63c6mr171538965ad.48.1795598742548;
-        Wed, 25 Nov 2026 01:25:42 -0800 (PST)
-Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f142b8bsm80883155ad.70.2026.11.25.01.25.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 01:25:42 -0800 (PST)
-From: Ping Li <leeonion.muyu@gmail.com>
-To: miquel.raynal@bootlin.com,
-	richard@nod.at,
-	vigneshr@ti.com
-Cc: linux-mtd@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ping Li <leeonion.muyu@gmail.com>
-Subject: [PATCH v3 0/3] mtd: rawnand: protect DMA engines from vmalloc'd buffers
-Date: Wed, 25 Nov 2026 17:25:35 +0800
-Message-Id: <20261125092538.1938516-1-leeonion.muyu@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261123070440.3060882-1-leeonion.muyu@gmail.com>
-References: <20261123070440.3060882-1-leeonion.muyu@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NJCjHSfz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EAD11F000C0;
+	Wed, 25 Nov 2026 09:25:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795598745;
+	bh=MgHfNa0RyzkMwQoxVsQL4VGt74zMcO2F1DDPV6xuHjI=;
+	h=Date:From:To:Cc:Subject;
+	b=NJCjHSfz9mueeikkZtulmSh0V1N4i2/tY/zOj4ej4SpZs4OT6p65B2qsRv+Kbr9OF
+	 DYGGNsIoKLh01K+mmBxvLJqcQuY6JVU0NmFwgpi0NQWSXzNu16/vDH3a410XmmPPvM
+	 /k/LTKfxG9/GigSLWFiYKaHgBowRi5UyrO6BXHVJXbQm/em7wU9cQpI22l0aKS7rXB
+	 2WrirzH19giXBsr5fQFFAGU27gecWMwk9ZuKVujs8lq/NzLNmh+3q+gMH59V7dYddX
+	 gek0azRXRWKwrbyAT7Xa2fZRnpORgm2QHEQd2U+a108w2LReiaE2fXy+FMoEGbS3Io
+	 l2pZaQML/mOSA==
+Date: Tue, 24 Nov 2026 23:25:44 -1000
+Message-ID: <a2e42572c7ad9f7b1fb7c0aec0e60152@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Lai Jiangshan <jiangshanlai@gmail.com>, linux-kernel@vger.kernel.org
+Subject: [GIT PULL] workqueue: Fixes for v7.4-rc4
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,59 +52,41 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-While discussing a proposal to also allocate the mtdchar read/write
-bounce buffers with kvmalloc() [1], an audit showed that raw NAND
-controllers may DMA the buffers handed by the NAND core without
-declaring NAND_USES_DMA, so nand_base never bounces non-linear-map
-buffers for them (see the use_bounce_buf logic in
-nand_do_read_ops()/nand_do_write_ops()).
+Hello,
 
-Non-linear-map buffers are not hypothetical: mtdblock's write cache
-is vmalloc'ed and UBIFS passes vmalloc'ed LPT buffers to
-mtd_write().
+The following changes since commit d89e1d186ec9271bf78e62771779e9fc03bf0fc3:
 
-intel and r852 have no protection at all; declaring NAND_USES_DMA
-lets nand_base bounce through chip->data_buf as the other
-DMA-capable controllers (arasan, denali, meson, mtk, nuvoton...)
-already do.  r852 keeps its existing local bounce, which is still
-needed for the hardware's 512-byte alignment requirement.
+  Merge tag 'fscrypt-for-linus' of git://git.kernel.org/pub/scm/fs/fscrypt/linux (2026-10-29 14:00:23 -1000)
 
-While at it, a leak in intel's ebu_dma_start() (mapping never
-unmapped on success, wrong device used on the error path) found
-during the audit is fixed as well.
+are available in the Git repository at:
 
-Changes in v3 (following Miquel's review [2]):
-- r852: use the core bounce through NAND_USES_DMA instead of
-  extending the local condition; the local alignment check stays,
-  as the core condition (chip->buf_align, default 1) does not
-  cover the 512-byte hardware requirement.
-- Add Cc: stable to the three patches.
+  https://git.kernel.org/pub/scm/linux/kernel/git/tj/wq.git tags/wq-for-7.4-rc4-fixes
 
-Changes in v2 (following the AI review of v1):
-- Drop the fsmc patch: nothing has set host->mode since
-  a1b1e1d5bdfe ("mtd: nand: fsmc: finally remove
-  fsmc_nand_platform_data"), so the DMA paths are dead code and
-  fsmc_exec_op() always takes the PIO branch.
-- Fix the Fixes: tags.
-- Add a fix for the ebu_dma_start() unmap problems.
+for you to fetch changes up to edf1066ba69c89c42c3007e4230c7b9cb13405a8:
 
-[1] https://lore.kernel.org/linux-mtd/20261119090055.1255028-1-ping.li@horizon.auto/
-[2] https://lore.kernel.org/all/875wxl1ea6.fsf@bootlin.com/
+  workqueue: Skip redundant unbound updates during CPU bringup (2026-11-24 11:53:40 -1000)
 
-Ping Li (3):
-  mtd: rawnand: intel: declare NAND_USES_DMA
-  mtd: rawnand: intel: unmap the DMA buffer in ebu_dma_start()
-  mtd: rawnand: r852: declare NAND_USES_DMA
+----------------------------------------------------------------
+workqueue: Fixes for v7.4-rc4
 
- drivers/mtd/nand/raw/intel-nand-controller.c |  8 +++++---
- drivers/mtd/nand/raw/r852.c                  | 10 ++++++++++
- 2 files changed, 15 insertions(+), 3 deletions(-)
+- Draining a workqueue could return while a work item queued by another work
+  item was still pending, making workqueue destruction warn and leak the
+  workqueue. This is a simpler redo of the fix in the v7.4-rc2 pull request,
+  which was not pulled.
 
+- CPU bringup during boot repeated unbound workqueue setup that can't change
+  that early, at a cost quadratic in the CPU count.
 
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+----------------------------------------------------------------
+Saurabh Sengar (1):
+      workqueue: Skip redundant unbound updates during CPU bringup
+
+Tejun Heo (1):
+      workqueue: Fix drain_workqueue() missing work items chained across pwqs
+
+ kernel/workqueue.c | 60 ++++++++++++++++++++++++++++++++++++++++++++----------
+ 1 file changed, 49 insertions(+), 11 deletions(-)
+
 -- 
-2.34.1
-
+tejun
