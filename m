@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.201
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795648940;
-	b=vPBgCPrGpuov+z8WspPX4aHpDPKi6Nr27vqxs4FvjCE6mA4IZkIOr4Jt1I6sk285Q1ff
-	 AfI/5xDYjcT1JKCEXTsqRBDTspjSJfvNvN+nsAGQkuXseVOFLmPeg1Jy5Bg/QRsgITE8W
-	 eMkr2jr2YCaaUAI5I5+myokpe3KWqlGgzMELj7gW6EJNN/g3JKF1BV+Dd4Ymbj+ZggYaZ
-	 zZydB9dRYM6Dm392nxu2KovNRnME4RswVrzJYNLYsS+atJthbWAtdwgCH2rRudqj3HP0Y
-	 u1lBpy7aJ2gdHqhRG6t0+3Gf78JGvqgbUEoDz8wtnh3FGDs2q+ZDct3JyvT+xECAV4g==
+	t=1795649021;
+	b=nuaPm9CRhib5J8XmgZstci8up6u4iZn6wDVEKLdiFY6Oq/15rjojgBd735ylJBOtTIBG
+	 KdphQgrKoaCeBkiY84WPRAmE6YcyHwFWNZ9q2PU8FlEXzAGgW0zi92kRa1GgMydx+09G8
+	 l/Hs5bnpNGO1+AZwOCua2ATXHuZ1t+LltHw7hBDJ69rloVp7Yjk+tO3v9S22MbSzD1b6a
+	 vfpM1LX3cFZFR4M59BphYLH04b18SDaR41rbVUC1ZycLQe11nBrwnDJlTu8pFyd71Tfc7
+	 sRDBqx1TXt7om1PDaC80vGSm3lPHIntKcLT4h4pUMm2gpzIbQsPh0yGzghOm76V9X/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795648940;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795649021;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=XYTc/DcHZroRC4kTjFqOBmNj9WcBY99HUsdGTOAweDw=;
-	b=ax8VGKVF2nFrA9xHriPK6GD0PQQW5yJdw5h83bJm4snDyPqqhtgy7plVi714TDsJOatt
-	 1+sJyV5nKs+Lx9jnV9a4hX4N16wEgVs7yqSti8GdGvd1I0PWi4Mr4YyM2QKM2LnF0L1vG
-	 Ttja6yuf05+qpy5XXjB8raU68Ga7G3U6nDWTgIx5S/7SSrIi4EW1MpPUz9Cf3dMKuxzAk
-	 B/OwLVovPPEdPUldNM04X68qOgR0sUr2SuKaLhwLwppawEV/K38YDDSTH3LNF8FHTPrcj
-	 77tf/iAnRi9zcI0fDF00zErE+CZnkxJ4hJDkoTTYw0NT18k9AtcfH8RadN34V4l1FRw==
+	bh=RwepV34j5nNPfrfrTOoxO68UcVdQ4nwsTdHGe5ShZEI=;
+	b=oqsnq8E0kR5aBNhNGIQ0Iy59W7YIY7nPcP9JXK9Mm8FLqxOfoqg0YSt6F9ca8Kcrbw0F
+	 HxbL/Ck8fjuVk3MnYmi9/wdCRSYvZeJ+t4lNb4/cel56AcZ8E4mnOyTlRA7OA2phFufjP
+	 hKJFJo/Hw6dNOeZPq1dEgSZu9ZQUtEtCE3UsQViMgre0kJnoXN5G30GSrqYKkOebDeXTx
+	 4wZPW5hfMaa/pPTw/BbWgMGvwk+XWT9NLH5dyofBOvh3wrVka7DBzn781elzmfFbu7W1p
+	 Vdub19j18MnL2XLsFQpDfmAEmV4zGKTLEoluORqdv9JKTi0vad8HYpMJfS7T80v195A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pBguUIoS;
-	arc=none smtp.remote-ip=74.125.231.131
-Received: from mail-oo2-f3.google.com (mail-oo2-f3.google.com [74.125.231.131])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k4TtAVd0;
+	arc=none smtp.remote-ip=74.125.231.201
+Received: from mail-oi2-f9.google.com (mail-oi2-f9.google.com [74.125.231.201])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A3DB606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:22:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A3DB606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFE92606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:23:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFE92606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pBguUIoS
-Received: by mail-oo2-f3.google.com with SMTP id 46e09a7af769-8459f7bc7c0so2353145a34.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:22:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k4TtAVd0
+Received: by mail-oi2-f9.google.com with SMTP id 5614622812f47-57cc80785e0so1403906b6e.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:23:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795648934; x=1796253734; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795649020; x=1796253820; darn=vger.kernel.org;
         h=cc:to:message-id:content-transfer-encoding:content-type
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=XYTc/DcHZroRC4kTjFqOBmNj9WcBY99HUsdGTOAweDw=;
-        b=pBguUIoSOmYtV5+isK87dUacUghDlZPy5IPukpqbfIKOf/NWEaWJnuFiTBmkW+fQSN
-         VWGuxMkX2tYCUr1PvpHa0SWIMe3/k73/MTZ4BzCZphHIOdEM6qXCjsjFEs9t+5JvmP3M
-         9V/gF4VJQdwbpSX0+45omWyAlf1f0ZwvAg2ACDBNJbYbbg/c1+n/1KDpP70ePnnaKf6Y
-         5gAIr7Nq/1s5g51cikwcZdhwdcaQK1PJ+0UkMt0deF0rfO+TPbr6ocKmCLaubpvJSDWe
-         Gpv7awlkfMmfY9Y2/Bo2h5N93jJnswxIn9Vb2NR9FZYXgK+6t2qY6fkzakPffFGYMloV
-         E0NA==
+        bh=RwepV34j5nNPfrfrTOoxO68UcVdQ4nwsTdHGe5ShZEI=;
+        b=k4TtAVd0Q5yeT53kuCv2tVlWnh7TyZgeD7vMYoZbEGHgEFe5HK2S7Hl9ez0W15w8ep
+         eCOF/X4FRwK3lEeGPWNf6OE1jFA9Z6tpfG71FHX+++Ckk5ihwMtGuf4z3h4LzDxRgUdB
+         Mh5RbVda0NnYuq188GEAtRtOREIEcUBZ9Z/jvLFE7ame7Lno4ARV2MjM69lUj69NM5Br
+         oxsNe3eYjdFmGEF5uupC+JtWg11BOfqYLk2zqHhobq34DvNUyoyD8oK+/IZjF+ycHGXu
+         qDDo4A+xa2JiEqKsMPambU8FHltgC557iziezI0LIsaviEqu7TG1JuxigEx5GSx2HkVH
+         qriw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795648934; x=1796253734;
+        d=1e100.net; s=20260707; t=1795649020; x=1796253820;
         h=cc:to:message-id:content-transfer-encoding:content-type
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=XYTc/DcHZroRC4kTjFqOBmNj9WcBY99HUsdGTOAweDw=;
-        b=HZ3lbls/1zoElhlJp5bcZG/ldzSs32AWcQmhl9MgXrD5UbFYQFam9GIDkYUl8OXiJD
-         UG34lESL8DKNa3J/VLZDqduUX+xrruTh4roByhjO10k4LvDIxz00Pwg54QB24DlKZDSw
-         OgKbrAeUobUR4PMFOVV8cfk+HwjQmxEyZ5HqisFbT55tmGqrvR64m5og8EYIozgpaSgh
-         RTsslD2DTUIieRwzhk584pOiCp+ikDbOBM0jjPzVWoNsl8X23jVOPX1wefqNCEuOxvVz
-         xHsN5PQf6L9/pW5GKqGhR53mEnPTqG8XVsgRNWkBU2cxsV1hhg2LIDVnEQ4O/RR4+tMp
-         S9mQ==
-X-Forwarded-Encrypted: i=1; AL+hErHx1GsUHlNfNaTFd/W5btiTAgsJwUrcvlBAZbqH8KtjB9qs49JGDEt28tbcK2eE7V00nJb+ZXAXMudIuwY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+x4DKETr5K2htrAGSaOAm9yYH8iXRazLxCq8drXhD+4SMOBN61
-	hZenB5HavBlUtmwGVfu1lDS2KbRjRhBswOjgQBPjPogFyMrYHyyIXtRa
-X-Gm-Gg: AZFdTZcw1qcz2mHjuosiUN62kR2iRdx4uhSGEY09KAFn7OeAeZXGcGmLC8fQ2Gd/SPW
-	YH7cXYwT5W2RufQz/+IipX2kYghfqig8Tj1EUGsQlpMc/aLiRBw3KTokAha3plGJjHKdtkgrAIY
-	PFNm/iamf69rkUu74W60wZKVDyAryISCFNPLdioJnOegzmNfWbRFGFeQV3CaMsywhiTKlA6oYbk
-	ggFd3Ok3JOueVP4sWDRwEwEkPt0/6dYcwCMZnjPZqGciJ9/axBlmpyhzCKYBbwCfMbCOFY1IkB5
-	d9LwaFGWLfjoG2UYriMC2GPjEAEt6b05+O4aYKmIXWw1hI7eCFE16HQw97qSZLES55KwcNmhKPT
-	zMiiTS1w0TXEBu0xMgXvzMjAoTNmxGL8PpMVV43BaGwZyeEDIlo+Ikt5WJNcI1uabnzzFZcXtu3
-	2fYOijHLC1yTpQ0wvFxWXsQKfQ8rlsKL+MgXkt1fdRN6wIYaGJfOdPbROzijgYnoae8v7EFX5y2
-	vnw3gNVlKAHyYH3cpF8BMsfbJ038ejHX/pG2EEBA5kbN0gt9+aSqdoC0taZIgZZ0ileWnF7ci0q
-	NnipQvP19Zpji//sv8/J2LWQ1+KJobwL2hY=
-X-Received: by 2002:a05:6830:4490:b0:862:88c6:1843 with SMTP id 46e09a7af769-8631598542amr20958825a34.19.1795648934144;
-        Wed, 25 Nov 2026 15:22:14 -0800 (PST)
+        bh=RwepV34j5nNPfrfrTOoxO68UcVdQ4nwsTdHGe5ShZEI=;
+        b=hT7kJHtnSHPbVBpgVx1tRGUuKBw1y09EsilUMVSe5FKk4jwbB6Zh5zVCOg8OKoPktJ
+         8W2Af1ZE15TKy0UNkpw99dNdc7gNqV2Qfdh+AHYvSU7Mgw2j4wmd32pYGWavioB1hDji
+         iqMDQEKMjnnnrJ1Iz4W5aV3yGhJgIjPGTiRBqnlghEjWevdkJDeReuyPe+fqCEGKu5nP
+         3JO+CBSfLrWt22YDVEFEo9slOlZPrrLlsf/u/1zIP34k4/Ecnr47PSqggar35iVjKPWO
+         0zOYjv0n3ZsacbossdoD2w5Hwx5mA8VEpxoLs807No1YCTYuF49iwVL+dXGLAxz6x8mI
+         gBsg==
+X-Forwarded-Encrypted: i=1; AL+hErFdNGR3E2faGSD34P5z/RixXjqFgNBScVbuGoM6TCL25lymZjJ9K/Bl7IUicAiOW7jpOsj8yFreLtJ1gcM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+0+NbzqIV/h7LLtVUH8vBzb4jXL9TSnZHlfKOinHeYM219vJ9u
+	PIOuGmFGoG4au/GVEfx7o+Cbixu1xpWLCxrP4XVKSTd3JN1qVuYlnxo2
+X-Gm-Gg: AZFdTZcJoLoBc+kD5whcZe6uuhSMAWWcbq53TsELM+ZZuaHoYzMaZia1808bk5OUGwW
+	P3QOEQcrSGVyEhK2GgKFCXKHN7E+IVhVBBUISMGFn4gI7h8QIFBxpqDIZnipXVq0FCgtj7uKyQa
+	Ggn3FKlOALJpSr9aOV1q7YEKvbKSNSLMThnVN3ZF4IVtEbMlEdTjoCB7PvI92YJ8fgpWWsyuTu0
+	X5o7190948vqw0H9Pcmh8VM6RO6BycpvzjvZY9c8/nd7AfzNHa81wBbQhwWmqcdnRo8KBGbiLFD
+	rToVM9wKSiY+ApKJNLANQxeObuJcYXzCYLgIK/ZAVuXAhWsbfeiJVR8Xz4zaoyIOMKua7H86Y8z
+	wR2WLfRGf24mzh2/XnFbLtjtP6PXebVcG+yZ96Dn5882cnKuMCW+lab2APOv9+Ljiws7X+6m8D9
+	VZ8n/fKSgc+UrT8hD+Tyso06X0yOsovwkDbreqP97cqY3J0Cm+CQFCK3q86zcS8eqQpbe0WMJOS
+	/PvAF0v/aV3hydJXYiw4Hn8nng3+OZBsHA9NarIq376l2K03peJXQGGHt99tv5CS6jKRR9zQIgW
+	Wqze2KLL2aDGMrOx5uXkoPDUqk68pTYP8ic=
+X-Received: by 2002:a05:6808:c2bd:b0:571:a186:d6a8 with SMTP id 5614622812f47-57a0a20acc0mr18248900b6e.17.1795649019601;
+        Wed, 25 Nov 2026 15:23:39 -0800 (PST)
 Received: from [192.168.0.98] ([50.26.120.197])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8631692d9f7sm14895213a34.24.2026.11.25.15.22.11
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a35c5ac5dsm15369084b6e.15.2026.11.25.15.23.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 15:22:12 -0800 (PST)
+        Wed, 25 Nov 2026 15:23:38 -0800 (PST)
 From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Wed, 25 Nov 2026 17:22:11 -0600
-Subject: [PATCH RESEND] clocksource/drivers/timer-mediatek: Enable the GPT
- irq before registering
+Date: Wed, 25 Nov 2026 17:23:22 -0600
+Subject: [PATCH RESEND] power: supply: core: give each supply's epc_sem its
+ own lockdep class
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,98 +94,122 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-timer-mediatek-gpt-irq-order-v1-1-7e24640e82d4@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/43NsQ6CMBCA4VdpbuYMrQQKk4OsDjoahoYeeNFSb
- BuiIby7CU/g/Cf/t0KkwBShESsEWjiyn6ARMhPQP8w0ErKFRoDKVSllfsTEjgI6smwSPXGcE3J
- 4ow+WAhpdabK6rAddQCZgDjTwZ9/f4dre2ssZukzAg2Py4buri9zrf8AiUWJppbVDXVVKFafRG
- X4deu+g27btB+wAC3rQAAAA
-X-Change-ID: 20261103-timer-mediatek-gpt-irq-order-a878ed869f84
-To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Thomas Gleixner <tglx@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, 
- Chen-Yu Tsai <wenst@chromium.org>, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+Message-Id: <20261125-power-supply-epc-lockdep-key-v1-1-c8a41b8a4470@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/33NvQ6CMBRA4Vdp7sw1vRAwMDnI6qCjYajlAg0/b
+ VpFCeHdTXB3Psn5VgjsDQcoxAqeZxOMnaAQFAnQnZpaRlNDISCWcUYkE3T2zR7Dy7lhQXYaB6v
+ 7mh32vGCsGpkqylOtNUQCnOfGfPb9Ha7lrbycoYoEdCY8rV92daa9/gCS/4GZkDDJH7VUcXJUm
+ T61ozLDQdsRqm3bvkglgnzQAAAA
+X-Change-ID: 20261103-power-supply-epc-lockdep-key-2af05a195ccc
+To: Sebastian Reichel <sre@kernel.org>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Hang Nan <2122295973@qq.com>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Ryan Brue <ryanbrue.dev@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795648931; l=3241;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795649016; l=4188;
  i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=Z6bwbYGmDlV4q9VQg3ShvOBo1zqZq9E6xE6bSf63Eo8=;
- b=ze5Kfc37HiJ33uhw5RVqcNwV0MgJgYbChCd5ePQU/CqzWvUHCPjZZNCW+BG7LC0ljYNZu0xr3
- nezA6dNSplsCElHWsNlsqiUEtzGQAQD9zIp8FrdgrcMs3stihwbx7bd
+ bh=aHS9VlhwbSd4ISaj/nw4cXUIJavrqEgLKdMBe+KGpqo=;
+ b=FPlfiH8acOc2+ZC4ConFbGPH/aAReeCpfEAjvRtDpj6DPYrQcOW0W3sBWd1/pZUKK69/r6NZ9
+ hVTL0a/0vM/AgTCmKrhODIS5imfYu5uImchQTzMtfiT6hPvC/hzWNYw
 X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
  pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 
-Since the driver probes as a platform device, the GPT clock event is
-registered late in boot, when PSCI CPU idle may already have put CPUs
-into a state that stops their local timer. Those CPUs wait in the
-oneshot broadcast mask on the hrtimer broadcast, and
-tick_install_broadcast_device() arms the new broadcast device to expire
-at once so that it wakes them.
+Since commit 9f7f7a859451 ("power_supply: serialize property access with
+unregister"), power_supply_get_property() takes the target supply's
+epc_sem for read. Every supply's epc_sem is initialised at the same site,
+so they all share one lockdep class.
 
-mtk_gpt_init() sets the timer's bit in GPT_IRQ_EN only after
-clockevents_config_and_register(). The forced event fires while the bit
-is clear, nothing is latched in the status register, and the waiting
-CPUs are never woken. On an MT8173 tablet with the CPU_SLEEP_0 idle
-state in use, this hung the boot in 20 of 40 boots, and in none of 16
-with this change.
+A driver that reads another supply while holding a lock that its
+get_property() callback also takes is then reported as a circular
+dependency, even though the two semaphores belong to different supplies.
+sc27xx_fgu_get_property() does this with data->lock and the charger, and
+a fuel gauge driver in preparation did the same with its charger:
 
-Enable the interrupt before registering the clock event. The IRQ line
-stays disabled until enable_irq(), so the handler still can't run before
-the clock event is set up.
+  WARNING: possible circular locking dependency detected
+  kworker/2:1/60 is trying to acquire lock:
+   (mutex_#2){+.+.}-{4:4}, at: mt6397_battery_get_property+0x50/0x23c
+  but task is already holding lock:
+   (&psy->epc_sem){.+.+}-{4:4}, at: power_supply_get_property+0x34/0x80
 
-Fixes: 7a097aba7255 ("clocksource/drivers/timer-mediatek: Convert to OF probing")
-Reviewed-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Tested-by: Luca Leonardo Scorcia <l.scorcia@gmail.com> # on mt8167
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Tested-by: Chen-Yu Tsai <wenst@chromium.org> # on Hana (Telesu)
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+Lockdep then turns itself off for the rest of the boot.
+
+Register a lockdep key for each supply, so that only a supply's own epc_sem
+is ordered against its own locks.
+
+Fixes: 9f7f7a859451 ("power_supply: serialize property access with unregister")
 Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 ---
-Since v7.4-rc1 the MediaTek timer probes as a platform device, and on
-MT8173 with PSCI CPU idle the boot then hangs about half the time: the
-broadcast device is armed at once to wake CPUs that are already idle,
-and that event is lost because the GPT's interrupt is enabled only after
-registration. Traced on the board with prints in
-tick_install_broadcast_device() and mtk_gpt_init().
+Since v7.4-rc1 power_supply_get_property() takes the target supply's
+epc_sem, and every supply's epc_sem shares one lockdep class. A driver
+that reads another supply under a lock its own get_property() takes is
+then reported as a circular dependency, and lockdep switches itself off.
 
-This is a resend of the 11-03 patch with the review and test tags from
-its thread folded in. The code is unchanged, and it still applies to
-v7.4-rc4 and tip timers/urgent. As a 7.4-rc1 regression, it would be
-good to have it in 7.4.
+Tested on an MT8173 tablet (Amazon Fire HD 10, 2017) with PROVE_LOCKING:
+the report came at boot with a fuel gauge that reads its charger under
+its own mutex, and doesn't come with this patch (debug_locks stays 1).
+
+This is a resend of the 11-10 patch, now also to Sebastian's Collabora
+address, which I left off the first time. The code is unchanged, and it
+still applies to v7.4-rc4 and to the power-supply for-next branch.
 
 This patch was developed with the help of an LLM coding assistant.
 ---
 Changes in RESEND:
-- Collected Reviewed-by and Tested-by tags from v1; no code change.
-- Cc Daniel's oss.qualcomm.com address and Chen-Yu.
-- Link to v1: https://lore.kernel.org/r/20261103-timer-mediatek-gpt-irq-order-v1-1-6d1ddf977224@gmail.com
+- Added Sebastian's Collabora address; no code change.
+- Link to v1: https://lore.kernel.org/r/20261110-power-supply-epc-lockdep-key-v1-1-39bd0a237a6c@gmail.com
 ---
- drivers/clocksource/timer-mediatek.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/power/supply/power_supply_core.c | 3 +++
+ include/linux/power_supply.h             | 3 +++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/drivers/clocksource/timer-mediatek.c b/drivers/clocksource/timer-mediatek.c
-index 842d6ee4259e..1b2cbcc2795a 100644
---- a/drivers/clocksource/timer-mediatek.c
-+++ b/drivers/clocksource/timer-mediatek.c
-@@ -339,10 +339,10 @@ static int mtk_gpt_init(struct platform_device *pdev)
+diff --git a/drivers/power/supply/power_supply_core.c b/drivers/power/supply/power_supply_core.c
+index de15314ef954..76bbe8772143 100644
+--- a/drivers/power/supply/power_supply_core.c
++++ b/drivers/power/supply/power_supply_core.c
+@@ -1662,6 +1662,7 @@ static void power_supply_dev_release(struct device *dev)
+ 	struct power_supply *psy = to_power_supply(dev);
  
- 	/* Configure clock event */
- 	mtk_gpt_setup(&to, TIMER_CLK_EVT, GPT_CTRL_OP_REPEAT);
-+	mtk_gpt_enable_irq(&to, TIMER_CLK_EVT);
- 	clockevents_config_and_register(&to.clkevt, timer_of_rate(&to),
- 					TIMER_SYNC_TICKS, 0xffffffff);
+ 	dev_dbg(dev, "%s\n", __func__);
++	lockdep_unregister_key(&psy->epc_key);
+ 	kfree(psy);
+ }
  
--	mtk_gpt_enable_irq(&to, TIMER_CLK_EVT);
- 	enable_irq(timer_of_irq(&to));
+@@ -1765,6 +1766,7 @@ __power_supply_register(struct device *parent,
+ 	if (!psy)
+ 		return ERR_PTR(-ENOMEM);
  
- 	return 0;
++	lockdep_register_key(&psy->epc_key);
+ 	dev = &psy->dev;
+ 
+ 	device_initialize(dev);
+@@ -1810,6 +1812,7 @@ __power_supply_register(struct device *parent,
+ 
+ 	spin_lock_init(&psy->changed_lock);
+ 	init_rwsem(&psy->epc_sem);
++	lockdep_set_class(&psy->epc_sem, &psy->epc_key);
+ 	init_rwsem(&psy->extensions_sem);
+ 	INIT_LIST_HEAD(&psy->extensions);
+ 
+diff --git a/include/linux/power_supply.h b/include/linux/power_supply.h
+index cce61137aef4..3cfe2520862e 100644
+--- a/include/linux/power_supply.h
++++ b/include/linux/power_supply.h
+@@ -371,8 +371,11 @@ struct power_supply {
+ 	 * the callback is still using it.
+ 	 * Must not be shared with extensions_sem: callbacks may read their own
+ 	 * properties, which takes that one for read.
++	 * Each supply has its own lockdep class: a driver may read another
++	 * supply's properties while holding a lock its own callbacks take.
+ 	 */
+ 	struct rw_semaphore epc_sem;
++	struct lock_class_key epc_key;
+ 	struct rw_semaphore extensions_sem; /* protects "extensions" */
+ 	struct list_head extensions;
+ #ifdef CONFIG_THERMAL
 
 ---
 base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261103-timer-mediatek-gpt-irq-order-a878ed869f84
+change-id: 20261103-power-supply-epc-lockdep-key-2af05a195ccc
 
 Best regards,
 -- 
