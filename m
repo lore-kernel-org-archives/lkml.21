@@ -1,47 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795598119;
-	b=VAlGPN2lYihikkB6/4p+s25tMVBpxWWmMBWCzHq4HrYyThSJaF8AS+hlArfEkLD6aKXP
-	 z7B+7k1Rfa1Zzz02QKBpTEF7bUzmB5M0MjuZQSfeUkWRI1g4ziC6GfsSYx4P8ZT/4dz4I
-	 P6uYq02buzZKBXEcVMu6z7BLmVsOKR2wfPsMo9o7hFC++Snotvuf57+Qkz5mvHMWwWKXi
-	 SuB756E5zn9s9SPvuSrK6uI7Tnw0SmVZkyB2EDSMVGzH7v6juFy9KZWkJq0iiWeM/1+EW
-	 y38u8OKLXzLcrjYSvQbkJ86XRd0aj5749BmMXdFucifYD9tn+en9MsrfpXfYTYDteYA==
+	t=1795598126;
+	b=CpbsSi/GdfxlXOJZaLtoA8H1pmbu1n+bUryvGAI8JoYPH+g6+yNhsp7BMxVkfVJ3iqUZ
+	 K84JLhhSWGHJWEwe5fkuAoAITkQYNkoBZAa7coZI+hMxV9B8mSIS9ZoAosXsDkCoGKU4y
+	 IqG/am1QIf1hkNOjAf43c3IFbIeqDMdFVZdj3ATx0b7KM6CrzC64zkL7bUOaxAV6gqbuE
+	 TbqTPOsUnbsnw5U+2sUGNDHk5pfxHtorQNK4QWO3qvwidfRTl92+D1j1J+tuU96iNi7U+
+	 pR0/ZekdcguWr7Q1aLjwyaMYcqoHm1ExH02kQ2F7akVZMWEJZlUnd08uVWiHU2qvU1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598119;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=At1d4DsGvoBkrkeqmLrpO5m115sUYRFdd0heKIcaWwI=;
-	b=ZaObDTpAQslR6KqUjonqTifuCJAYD4axPS+Oab5Zjdcda9iVpAC2uXzgGAGl/B4YZThq
-	 PAJp77DWQiqRo2NgnErYJUPfhheNFN654m/Q+QC+DBFKJnu0Yn33makNBGzd3T7NSn8Cs
-	 FXmHXSCz/aKjYRQlO2zsUxkeuCjBq5yF1kzd3KQeJ2zxy0UjtHpCmkxOfMmV64NEspPbu
-	 5HpAbh3JcDzPBT9/h2OzEtcHnK25cpSbgOH/5B8gEL+MREbQSxA0SYa2GlUP9pUqFhLoN
-	 kmy6766hO3QGUdKILtf43pU4VRUM5hfpT1rd4Q7LMJo3gzOgNW4vcwNbvdJvA6Ku/hA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598126;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=y1kNffUcvdpobzp+ZxSevNO0697zJUK1Gx23nNr5DRA=;
+	b=HQN3wBaIXKzbqrwAi/GlS6fR+ms+XcRPDUfT1Q7/4WNBdcfANwz4B5aLLwlMl1pAzw3G
+	 lj2Zq/eTYPpBISnFj5jmGDM+lsrlAonn/cQIqyfvXoaqNE5y62xyIKQGbkgySWFiqUgLh
+	 zBg84DF1XT9C7sUswbpSo/BGVkV+xDePJ8Z6S3dxTqVGkR1tHx3vO2pATi4zYsrQ8DOY2
+	 5n/rMPrQd2NCM7ZfIjvCq5V7VvQLlLo4hDKDapWA2XTC6hE/vwP0WP5D9xDwQysUfJEQ4
+	 5UQ73hdPhEQj5wjGhXRrpG4sgzcVw0nYiBeJYU5SUWpEZcig01H+/87piKPBDrjthwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QQVEFCae;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=HaLrY6vi;
+	arc=none smtp.remote-ip=220.197.31.2
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76B35606A33A;
-	Wed, 25 Nov 2026 09:15:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D9F9606A690
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:15:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D9F9606A690
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QQVEFCae
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98DEF1F000CF;
-	Wed, 25 Nov 2026 09:15:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795598119;
-	bh=At1d4DsGvoBkrkeqmLrpO5m115sUYRFdd0heKIcaWwI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=QQVEFCaevC7OTekhbBH2fgLn4bFnpcyHnzmYrRUGMUcC5JrLTKUIxKjfqOj6VPeg3
-	 LTXhE4pmeFxRUkpOluQWzi6TDDsfzXAfeUT+fLVZ+ovCyKffXaTIm/kLqEBHDL6JM6
-	 MTxr7UOGEI5GVWqAY/LonJF9cdbdWEof0Xc3rPwNJLTQi1NB+muhq6qViOsqiW3uH4
-	 yaUK/haeqkqCJDEYjt61wNoMxmdD/DYMYUj4GwXtUAeQ+VFTPZmQJ0K/Xfu6aVoWKP
-	 J8mcQEsbf0ni5BgSbLUyy5ILwP8q1f206/aWTNEXSLqHCpPGdSjBvl5wpSYtnJ+Edu
-	 STtAhutLpek8A==
-Message-ID: <16abfc2d-daf1-477b-87a0-7a6993370b6f@kernel.org>
-Date: Wed, 25 Nov 2026 10:15:13 +0100
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=HaLrY6vi
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=y1
+	kNffUcvdpobzp+ZxSevNO0697zJUK1Gx23nNr5DRA=; b=HaLrY6viqHcpnU0jL7
+	eP0yKx9h2tQX6XY4MuXniaW/35Y5CFq1Wza5sOm+BfCY9dT1OFWAaMfh3nHC5Inz
+	5RYitasG2HO9jpCVhDAqr9mgHQXZv1BMIiKQjhYP8jN9nVm2xFD06+Z5T2n3+Qj8
+	yB2uXDgX63scSD/dFxrk+RQxQ=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgDH7yzwpgZrIz5UHg--.45691S2;
+	Wed, 25 Nov 2026 17:14:25 +0800 (CST)
+From: Xuewen Wang <wangxuewen_ky@163.com>
+To: akpm@linux-foundation.org,
+	david@kernel.org,
+	ljs@kernel.org,
+	liam@infradead.org,
+	vbabka@kernel.org,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	chansen3@cisco.com,
+	sj@kernel.org
+Cc: linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Xuewen Wang <wangxuewen@kylinos.cn>
+Subject: [PATCH v2] tools/mm: page-types: flush pending idle bitmap bits after walking
+Date: Wed, 25 Nov 2026 17:14:08 +0800
+Message-Id: <20261125091408.1584017-1-wangxuewen_ky@163.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,105 +69,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [BUG] mptcp: pm: WARNING in mptcp_check_listen_stop() when listen
- fails on a new endpoint listener
-Content-Language: fr
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Simon Horman <horms@kernel.org>, mptcp@lists.linux.dev,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <179502042942.2742790.17887994424282536144@gmail.com>
- <5d651146-b21d-44da-9f15-860f0c9c2dc5@kernel.org>
- <179502653236.3033236.9177220287548482679@gmail.com>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <179502653236.3033236.9177220287548482679@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:PSgvCgDH7yzwpgZrIz5UHg--.45691S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxZryrJrWfKr18GF4UuFy3Jwb_yoW5Cryrpr
+	ZxK34jyw4kta4fGwsxZrnrAF1rAwn3XayfGrW7G345ZayUJF1jq3Wxur10vw18WrWkCFW7
+	Jrs8GF98WrWUArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jmwZ7UUUUU=
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbCzRNCK2sGpvOLoQAA3l
 
-Hi Kyuwon,
+From: Xuewen Wang <wangxuewen@kylinos.cn>
 
-On 18/11/2026 19:31, Kyuwon Cho wrote:
-> Hi Matt,
-> 
-> On 18/11/2026 19:18, Matthieu Baerts wrote:
->> Please always decode stacktraces with ./scripts/decode_stacktrace.sh.
-> 
-> I'll keep that in mind and decode them in my next reports.
-> 
->> Out of curiosity: if your LLM has already analysed the root cause and
->> has a reproducer, why not ask to generate a fix and send this patch
->> instead of the bug report?
-> 
-> I'm more used to communities like LLVM, which are cautious about
-> LLM-generated patches, and I was hesitant to send a fix for code I
-> don't know well, made in a way I couldn't fully judge. So I only sent
-> the root cause analysis. Thanks for explaining; I'll send a tested
-> patch with later reports when I can.
+mark_page_idle() buffers bits for one 64-page bitmap word and writes
+that word when a page in another word is encountered.
 
-Thanks!
+walk_addr_ranges() tries to flush the final word by marking PFN 0.
+If the last buffered PFN is below 64, this only adds a bit to the same
+word and nothing is written. Otherwise it writes the pending word but
+leaves an unwanted PFN 0 bit buffered. walk_page_cache() does not flush
+at all, so its final pending bits are not written.
 
-> For this one we do have a small candidate fix, tested with the
-> reproducer: it puts the MPTCP socket back to TCP_CLOSE when
-> __inet_listen_sk() fails. Since you already have a fix for v2, would it
-> still help if we posted it, or should we leave it to your series?
+Extract the write operation into flush_page_idle() and use it both when
+changing words and after either walker returns to main(). Clear the
+buffer after a successful write and skip writes when it is empty.
+Place the final flush before the no-summary early return and return
+EXIT_FAILURE if it fails.
 
-In the meantime, I guess you saw the patch I sent to the MPTCP ML:
+Use 1ULL for the bit mask so shifts by 32 through 63 are also valid
+on 32-bit hosts.
 
+Fixes: 59ae96ffc3a67 ("tools/vm/page-types.c: add support for idle page tracking")
+Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
+---
+Changes in v2:
+- Return EXIT_FAILURE if the final flush_page_idle() fails, as suggested
+  by Andrew Morton.
 
-https://lore.kernel.org/20261121-mptcp-cmason-fixes-v2-36-00327fd1de1f@kernel.org
+v1: https://lore.kernel.org/all/20261118021253.1691428-1-wangxuewen_ky@163.com/
 
-If the fix was different and your reproducer still see the WARN with the
-patch I sent, feel free to share yours.
+Verified on live kernels (v5.10 and v6.6): after "page-types -f <file>
+-i" on a 100-page test file, the kernel idle bitmap held 99/100 of the
+bits before the fix and 100/100 after it.
 
-Cheers,
-Matt
+ tools/mm/page-types.c | 38 +++++++++++++++++++++++++-------------
+ 1 file changed, 25 insertions(+), 13 deletions(-)
+
+diff --git a/tools/mm/page-types.c b/tools/mm/page-types.c
+index 47e4781c5fc3..1695a7b42169 100644
+--- a/tools/mm/page-types.c
++++ b/tools/mm/page-types.c
+@@ -575,27 +575,39 @@ static int unpoison_page(unsigned long offset)
+ 	return 0;
+ }
+ 
+-static int mark_page_idle(unsigned long offset)
++static unsigned long page_idle_offset;
++static uint64_t page_idle_buf;
++
++static int flush_page_idle(void)
+ {
+-	static unsigned long off;
+-	static uint64_t buf;
+ 	int len;
+ 
+-	if ((offset / 64 == off / 64) || buf == 0) {
+-		buf |= 1UL << (offset % 64);
+-		off = offset;
++	if (!page_idle_buf)
+ 		return 0;
+-	}
+ 
+-	len = pwrite(page_idle_fd, &buf, 8, 8 * (off / 64));
++	len = pwrite(page_idle_fd, &page_idle_buf, 8,
++		     8 * (page_idle_offset / 64));
+ 	if (len < 0) {
+ 		perror("mark page idle");
+ 		return len;
+ 	}
+ 
+-	buf = 1UL << (offset % 64);
+-	off = offset;
++	page_idle_buf = 0;
++	return 0;
++}
++
++static int mark_page_idle(unsigned long offset)
++{
++	int ret;
++
++	if (offset / 64 != page_idle_offset / 64) {
++		ret = flush_page_idle();
++		if (ret < 0)
++			return ret;
++	}
+ 
++	page_idle_buf |= 1ULL << (offset % 64);
++	page_idle_offset = offset;
+ 	return 0;
+ }
+ 
+@@ -798,9 +810,6 @@ static void walk_addr_ranges(void)
+ 		else
+ 			walk_task(opt_offset[i], opt_size[i]);
+ 
+-	if (opt_mark_idle)
+-		mark_page_idle(0);
+-
+ 	close(kpageflags_fd);
+ }
+ 
+@@ -1364,6 +1373,9 @@ int main(int argc, char *argv[])
+ 	else
+ 		walk_addr_ranges();
+ 
++	if (opt_mark_idle && flush_page_idle() < 0)
++		return EXIT_FAILURE;
++
+ 	if (opt_list == 1)
+ 		flush_page_range();
+ 
 -- 
-Sponsored by the NGI0 Core fund.
+2.25.1
 
