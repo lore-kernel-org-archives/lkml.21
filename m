@@ -1,49 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.121.94.184
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795599061;
-	b=ZTvpe1+s2frIstNYVQEg/hzY+wHhQ9MD9l5EvlZ4yJvO5cltOwg3sTURzikw44lYpdZH
-	 obG58hPjjcE2Qy6VM+2Vphfxe8dXPOZlFxRJ4vew+zRwelq9L25WMANxdvAwjqqDsFOgj
-	 exsMMwaFB4zTmceD0ymBvyVJB7rotl/hf7Fxx14uxCaVGwgEJN68WeDkOUEhmArAQnjmE
-	 lsl0VBi10LqvqIK8FoNwFGm37mV8WmGV7Sz8/8TZ3UFBbOhOTddG+AdKTc31vutoGuAxK
-	 B5oNgSDlSUFQ4xbxaTvEUV/S2R8LFODa4BTGZ6aTv4/qRJ5NnfO+qMEBsMEw+0TwVrg==
+	t=1795599073;
+	b=avIUcXatZfWDtd2bPQgTOwb7bA5Sgt/f1KlBNd6hADMNyFfLSindubme5wbT9D44tWim
+	 OJfHXdyJe4oRGJhtAhGIHHO5Dvk7TpfuJLjLknYGMIhDxET+Tc9/kPNXwFWjNGfX2AaxB
+	 Z9AQ0hn8/lM722KuXEHb9zKg9iWylsdYeCkGCtE5+RP3SRStoXuaPK075/p0Q+kDBYBpv
+	 HS9lTbOihN36kfCeDsUv9jYpIlIhOOBtsA4z3+LvhKYtuoRiM/PJNLAcP8CMCV9ugFlk4
+	 jTA2oHHQzPU6++NBjEdLOIMBzqQe9EnHfEumWHMe8+gUxYA4rbn73Fnyt7BHZtetG1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599061;
-	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject;
-	bh=JQlKAEjqIcBBJEVbWpsSok9+7pJSA8OprI+hbBiMIKo=;
-	b=wh8Se/7tCcn/5EkUlCf/bsYLVTsDiA4dqRyKPXx7niYcfxFuD96HHY4hYw3BWSPtPpph
-	 n+Rx8NBHSxl0orAP/dSxqUyvRlxGzi8upX81jPBiqUsxE6liCXTfvABYGriz425apRBjG
-	 h34polpaermKjvY2JAqTg0YR6SgKcxVIKuM1gwYYlMJQxJXsRW2sNRlHqUECzMq4yiRuM
-	 aDXyRMnPN5zzSfj7ZCe1fqGpxJzH0Er+N7sy4mI3I04UjlmxXpNUB/i1tpTF0RbM+mwQd
-	 d9ZzmlbyEwviSz7vvCcGlaPnNCvd0JZLyVCk2st2wH4EaJX1ZLQk+EagqD1jgDoP8bw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599073;
+	h=DMARC-Filter:X-KPN-MessageId:Received:Received:DKIM-Signature:
+	 X-KPN-MID:X-CMASSUN:X-KPN-VerifiedSender:Received:Date:From:To:Cc:
+	 Message-ID:In-Reply-To:References:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Priority:Importance:X-Originating-IP;
+	bh=vYW0lwNtZZp4xMT2btYq2BWBULtTKydr9Jf0sny4QFw=;
+	b=wn0wrp9Wd3HFQen4lYjWkMAXnWUzxpkfW1xd8l3rjFG1byrqVzjaSm0bwkDEzn0YdHWX
+	 o+3wdZGYRX9gas8J2tBranZ/dtAwpES4RMOWRvhDgzcadJ00UlLy/4yPtQsQrpIUdehMJ
+	 O26gbABY6TRFIiGiGn8f6+aAt3VASVJRRLZIliU3Ebx0BOaX7LEZJ1r8bN6Wch5hwUC0P
+	 b0VpeKlASUvdRe7+u2wazdFVFr/3ppCNXbmq6FXT607jz97NdQQrg1HUDSzSABVCvohqJ
+	 pUX+F76YIfW5ToVByKdfWdaaBtawDDtMcG9O86sdW8uLTwjQQb2IjomQ4shSFtJ9GCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Csx/xmSe";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=xs4all.nl;
+	spf=pass smtp.mailfrom=xs4all.nl;
+	dkim=pass header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=B9IYqj7t;
+	arc=none smtp.remote-ip=195.121.94.184
+Received: from ewsoutbound.kpnmail.nl (unknown [195.121.94.184])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EC7F606A327;
-	Wed, 25 Nov 2026 09:31:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FAD9606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:31:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FAD9606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=xs4all.nl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xs4all.nl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Csx/xmSe
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6889F1F000C4;
-	Wed, 25 Nov 2026 09:31:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795599060;
-	bh=JQlKAEjqIcBBJEVbWpsSok9+7pJSA8OprI+hbBiMIKo=;
-	h=Date:From:To:Cc:Subject;
-	b=Csx/xmSe0gwGhmWFLs8NvdTzaP5/OTeXZ90ooR+1DVXEHsHaZZTmES+VWBt+z2aa2
-	 cbXAu/PZHCFU3SKM3Dnz74PLzbGPUJDZ/SHtR422DdSF8DhhH2QVGkIZ/hRPifd5P/
-	 bjQDECd0ZE0ZBzLcdbTZnK1DvpI6m7XkH0VAoRHwyQ89oIKbdP0RNduytmuTJd5wpM
-	 2XDG2oIm2g7YJNfI76UIh1AE3piF3PO5zczSS9/vDbNShm4kBmLmxpXge/V6NEQyzk
-	 bZd4Qj8zIwM6lgkMlTdb24gCg8+DdksiWuvz/L76CRUmkVqGl8yH5zw6wLJfD/9uKN
-	 z3VhAVC1ZAthw==
-Date: Tue, 24 Nov 2026 23:30:59 -1000
-Message-ID: <6a805a6f23f76761c1efac4817ea1510@kernel.org>
-From: Tejun Heo <tj@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Johannes Weiner <hannes@cmpxchg.org>, Michal Koutny <mkoutny@suse.com>, Waiman Long <longman@redhat.com>, cgroups@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] cgroup: Fixes for v7.4-rc4
+	dkim=pass (2048-bit key) header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=B9IYqj7t
+X-KPN-MessageId: ef456eb1-e8b2-11f1-98a9-005056994fde
+Received: from mta.kpnmail.nl (unknown [10.31.161.190])
+	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
+	id ef456eb1-e8b2-11f1-98a9-005056994fde;
+	Wed, 25 Nov 2026 10:31:04 +0100 (CET)
+Received: from mtaoutbound.kpnmail.nl (unknown [10.128.135.190])
+	by mta.kpnmail.nl (Halon) with ESMTP
+	id ef41f494-e8b2-11f1-92a9-0050569977a2;
+	Wed, 25 Nov 2026 10:31:04 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xs4all.nl; s=xs4all01;
+	h=content-type:mime-version:subject:message-id:to:from:date;
+	bh=vYW0lwNtZZp4xMT2btYq2BWBULtTKydr9Jf0sny4QFw=;
+	b=B9IYqj7tcmscv9KSkAsiO9t2Q5Z4gC6oTu2tMa92BR7tJDPkJpiygv4d+cymrEaZWCu7XjBj3nbHH
+	 +3Re+xbFr2GjqgAVLb25aP5GPnTggSiwMmkU7+LaMDVgJL+puCNVXXE3ii/crNsCCq+C9mCYIAmCuZ
+	 DuVc5m9E8miIzRO9ffJad8VApbPGvRVpIwnRZURQAXxxgCiKvlYWFaKEvhwOZjWArQ1AVVJnmCTttQ
+	 MkM+K21YXpdhycvedKrM9qbhhSbQrkJq1qYrEfpKgnI8T4AzpAbnEp7326KTfN/CObwRgyHjYKD5TF
+	 9GEypZOLG6HPOl78PnBsYxxvS0QUitQ==
+X-KPN-MID: 33|MZfs89VgIfoUJX5X2lu9dngP4j3RU3Wytuy/Lq5JXjuWesmN2j2bIIbiN5/nPZ8
+ jHrsvxnk9cVg6LP55kyafNw==
+X-CMASSUN: 33|UKWRjPuv7sOoLQoEalkZh/lhDxaoITAfJMz4dawX254Bhx/9sWugtQscX8vqyD8
+ dzeSSc5ojlTE1npcaQcmQAw==
+X-KPN-VerifiedSender: Yes
+Received: from cpxoxapps-mh06 (cpxoxapps-mh06.personalcloud.so.kpn.org [10.128.135.212])
+	by mtaoutbound.kpnmail.nl (Halon) with ESMTPSA
+	id ef366f9d-e8b2-11f1-94bb-005056995d6c;
+	Wed, 25 Nov 2026 10:31:04 +0100 (CET)
+Date: Wed, 25 Nov 2026 10:31:04 +0100 (CET)
+From: Jori Koolstra <jkoolstra@xs4all.nl>
+To: Askar Safin <safinaskar@gmail.com>
+Cc: amir73il@gmail.com, brauner@kernel.org, cyphar@cyphar.com,
+	gregkh@linuxfoundation.org, jack@suse.cz, jlayton@kernel.org,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	neil@brown.name, shakeel.butt@linux.dev, tj@kernel.org,
+	viro@zeniv.linux.org.uk
+Message-ID: <1709003566.2632299.1795599064030@kpc.webmail.kpnmail.nl>
+In-Reply-To: <20261125062146.940336-1-safinaskar@gmail.com>
+References: <20261024213539.1307600-8-jkoolstra@xs4all.nl>
+ <20261125062146.940336-1-safinaskar@gmail.com>
+Subject: Re: [PATCH v8 07/12] vfs: short-circuit MAY_WRITE access for
+ O_DIRECTORY opens
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,44 +83,76 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+Importance: Normal
 
-Hello,
 
-The following changes since commit acec9637e03ca54bd3c3a0c1a6ad5c6dfa07c0df:
+> Op 25-11-2026 01:21 EST schreef Askar Safin <safinaskar@gmail.com>:
+> 
+>  
+> Jori Koolstra <jkoolstra@xs4all.nl>:
+> > Requesting write access on a directory can never succeed. Rather
+> > than performing a path-walk to determine whether the target is
+> > actually a directory (-EISDIR) or not (-ENOTDIR), or does not exist
+> > (-ENOENT), etc., we short-circuit to -ENOTDIR.
+> > 
+> > Currently O_WRONLY for directories is only blocked in may_open(),
+> > which happens after we have the inode for the target, so after any
+> > create via O_CREAT|O_DIRECTORY.
+> > 
+> > The advantage of short-circuiting is that we don't have to add even more
+> > logic to lookup_open() to differentiate -EISDIR/-ENOTDIR. Also, for
+> > filesystems that define ->atomic_open, handling this cannot even be done
+> > at the VFS level, as we can't know ahead what the result of the lookup
+> > will be.
+> > 
+> > Suggested-by: Christian Brauner (Amutable) <brauner@kernel.org>
+> > Reviewed-by: NeilBrown <neil@brown.name>
+> > Signed-off-by: Jori Koolstra <jkoolstra@xs4all.nl>
+> > ---
+> >  fs/open.c | 9 +++++++++
+> >  1 file changed, 9 insertions(+)
+> > 
+> > diff --git a/fs/open.c b/fs/open.c
+> > index e43f02ff64ac..4334f30bb7ff 100644
+> > --- a/fs/open.c
+> > +++ b/fs/open.c
+> > @@ -1343,6 +1343,15 @@ inline int build_open_flags(const struct open_how *how, struct open_flags *op)
+> >  
+> >  	op->intent = flags & O_PATH ? 0 : LOOKUP_OPEN;
+> >  
+> > +	/*
+> > +	 * Requesting write access on a directory can never succeed. Rather
+> > +	 * than performing a path-walk to determine whether the target is
+> > +	 * actually a directory (-EISDIR) or not (-ENOTDIR), we short-circuit
+> > +	 * to -ENOTDIR.
+> > +	 */
+> > +	if ((flags & O_DIRECTORY) && !(flags & __O_TMPFILE) && (acc_mode & MAY_WRITE))
+> > +		return -ENOTDIR;
+> > +
+> 
+> Please, do -EISDIR here, not -ENOTDIR. You returning error here, **because** user attempts to write to **directory**. EISDIR is natural here, ENOTDIR is not.
+> 
 
-  cgroup/cpuset: Don't revive invalid partition without active CPU on hotplug (2026-11-15 10:15:12 -1000)
+That's a fair point, and I have thought about this. The downside is that
+if we return -EISDIR there, that will also be returned if you open(O_DIRECTORY)
+what turns out to be a regular file. So you may then get -EISDIR for something not
+a directory.
 
-are available in the Git repository at:
+The semantics of -ENOTDIR here that I had in my mind is something like "the thing
+you are trying to do can NOT be done _with_ a DIRectory." It made a bit more sense
+to me (but only a bit.) Really it should be -ENOTWITHDIR or something...
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/tj/cgroup.git tags/cgroup-for-7.4-rc4-fixes
+> (I'm human, not LLM.)
+> 
 
-for you to fetch changes up to c99f50e4acf86bfbbe313d79f281d83be1763260:
+Glad :)
 
-  cgroup/rstat: disable preemption in css_rstat_updated() (2026-11-23 20:07:41 -1000)
+Best,
+Jori.
 
-----------------------------------------------------------------
-cgroup: Fixes for v7.4-rc4
-
-- A BPF program could queue a cgroup stat update with preemption enabled,
-  tripping a lockdep assertion.
-
-- When nohz_full= included the boot CPU, the tick code took the CPU back out
-  of the nohz_full set but the housekeeping cpumask still excluded it. The
-  fix is in the CPU isolation code. It comes through cgroup with Frederic's
-  review as further cpuset changes build on it.
-
-----------------------------------------------------------------
-Karl Mehltretter (1):
-      cgroup/rstat: disable preemption in css_rstat_updated()
-
-Waiman Long (1):
-      tick/sched: Make tick_nohz_full_mask and HK_TYPE_KERNEL_NOISE cpumask consistent
-
- include/linux/sched/isolation.h |  2 ++
- kernel/cgroup/rstat.c           |  1 +
- kernel/sched/isolation.c        | 11 +++++++++++
- kernel/time/tick-sched.c        |  6 ++++++
- 4 files changed, 20 insertions(+)
-
--- 
-tejun
+> -- 
+> Askar Safin
