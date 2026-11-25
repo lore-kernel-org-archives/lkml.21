@@ -1,79 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.84
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795605960;
-	b=NNGD4i69GwGhjmEwezrXgsybLZMIXByoCAj3R+oOT4QfxqfPZNLW8kgiXGljO3Z1cjn3
-	 +SBTrkZarrdqmOLP30WQOq31KCKMsgVXZPIrH6tQ5W5U4+0ncbozHue75Zgr5v2AEmAzX
-	 NXsGvl8Er7C+oUf9TVtmEFTCfxh1bHtmLq40JvrVjvp2zHYApr4ssUmk5k3WuFiDEzw0S
-	 EGEcc9AB9FBboz25bLpqPLzoCU9fbVgHuVc/2GOCd/RCzGGZfN0dXvqwr5Gss2uFx+TDK
-	 632ThOHPn+E+F9+qAMTA4ZI/pJeSGqI8T8bSvktS91turTiLGkaOMM5tjPP7GLVFb3g==
+	t=1795605977;
+	b=bfBG5tynLkvPBmCm31CFl2Mk4TxE88ghPLU5HX8ksOsbj57pfh2u9b1UJtmXG0At2H3E
+	 CJge2raw2+wd/DlRnX78Kn88GpDu/+X7dEntOtGUfixb5/mXjn23NMM1gbDkBfEM1qRbt
+	 mBC4JzAZW3ufi6UEAbOCqsjymg1mV4tBmZbJ6UvxZh+HyHbabIAT+vYt1li5TqkjAne/N
+	 +x9JCRUtnL/eKe6DTG6Hac2o9Hznt8Sq5Ldqr8mehXyxy2e2TveU/PBzVBOOTXfnP7sIs
+	 qHaXWvlk0Jpfp4U5BUCADkkR2ns3Nlha7WMOn4USDXKl7wzmBEH4rU8s4HQ4jIG0fug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795605960;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=YaMpE8mwgKIgU6RCzVSB7gVQuVXkm54ZA+zzWDgxsQY=;
-	b=jIRcsuBCkjEFmESos3bk9jre6it2GHRhTPBcWbnZLmQ+Rcmlk4rsPuJqU5AwzDrWp5Ac
-	 s6/Tzr9HkmbVOo0TQLQELTM4HD3CgH0kskiro4a5k13cpWc971twTJpMVfflrjyOTeXSn
-	 mCAnczC7Ri4/8YxMT3xRGc/OXzxftFk8J4YfzOjj8g6XBb6QnmnkIwv9DZ7kL0mny5vmZ
-	 Ircf42uEd3mwnvr5alz4VlOA1lA6MDWs+EUvG+vC1QDBRg8hQgCdKGLhhh+Ga/Kzk1c4j
-	 ex7bhGIa7hqjDKP2yqskRU5UNj6xNVtKlXekEBXoxr9waEqDFiXsC6bx1s3oED3AtMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795605977;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=OC4Q2zWXuivKEV3m6bSW+hewTlyeDz+wr0tU5oJTBu4=;
+	b=p3heYBQ75P9Vlf/vMWNo1gcorZZp23x2Exzw2wfuXrr1U/rlVQyBWHjDmgr5zNserI0B
+	 eFHsHu9BhnxZCrTic6nc4Qg2sxEbhLzCSb2olNrWFZsb/dpE4lA4dlXg4CUno2NYwNQge
+	 KP7xuRX55m6h3NhlGAwzHorm3+l/BnkQGxr4TJrkKYQIQcWQ6/93h5L7DErb6Mkqu85b+
+	 FaLNFNgWVQ33J6rlFfXtEHa2RyfJZTxRejXiXPkeuDJKR8qQOXXFWn2ZAWMvytkX+TtEI
+	 Z/05iq/SEKbaXgH7Qj3qYVx2AV2NfBOACs5O/wJ4wjHclGEoONh63H5LVU6k5X9Smtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NpWuesNd;
-	arc=none smtp.remote-ip=95.215.58.84
-Received: from mta1.migadu.com (out-84.mta1.migadu.com [95.215.58.84])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uRO4sAeq;
+	arc=none smtp.remote-ip=74.125.82.50
+Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D22EC606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:25:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D22EC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4259606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:26:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4259606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NpWuesNd
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=tsWkXInLa1MfUdAiJPkw5Dvzk94Lc8spqVEpz2z7/KQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795605957; v=1; x=1796210757;
- b=NpWuesNdStD+2gc6JjO6Qp8XKsRCnSlzWpRraXZi7gj+eX2M1EssoNz55h7b63+iejSmDrne
- Dfzuuq9Ll4R3jDk4ZjiXtAiNepr6Pj7h+LytBLozalGUqmizvcAUP9g2VCTpx8oYvNfx0024lYC
- AgZe6y9gwILb2PakybXTI3rw=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 604b38b9ccd6a9d9;
-	Wed, 25 Nov 2026 11:25:57 +0000
-X-Mizu-Trace-ID: 604b38b9ccd6a9d9
-X-Migadu-Flow: FLOW_OUT
-From: Ridong Chen <ridong.chen@linux.dev>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Johannes Weiner <hannes@cmpxchg.org>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Kairui Song <kasong@tencent.com>,
-	Qi Zheng <qi.zheng@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>,
-	Wei Xu <weixugc@google.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Joanne Koong <joannelkoong@gmail.com>,
-	linux-mm@kvack.org,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uRO4sAeq
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-15ea896ddc8so9391352c88.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:26:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795605976; x=1796210776; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=OC4Q2zWXuivKEV3m6bSW+hewTlyeDz+wr0tU5oJTBu4=;
+        b=uRO4sAeqNd5YNTTdbJ/ADYpaqmcENot84wO0EwZOGIi5krkAMXU/ARCY5R9J/BYfWJ
+         VNPPZdZTdOzkJqccZzDJHbWhSRSefmJwAPqcLVyfSb66EgiTSHvLng+htDTiy4Xna4mf
+         KVIciMiXA2csdpeWrvWEKKn16hJeZpSsRHdyeDVYo3qdbEyvV7WjwzJMM80mouorclM4
+         wfrqjbIR3ZhNeh4iPwyxz6UUFNeFh4eotxoLqudMaK182A5Eaj2luxxMzQUfTLhkybS3
+         N5OGncKc6Vm80sm4TlD2rH+9zweCg7UEdu0a1RIlD/9glP4LqfSHyML7fiGZsjzfMxXl
+         vJEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795605976; x=1796210776;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=OC4Q2zWXuivKEV3m6bSW+hewTlyeDz+wr0tU5oJTBu4=;
+        b=Bs1Cwr0XNxiK2QNqa+lOk4Gmh8Jhx5VsHgzgCzk+PXYyDDM9ky6TYdLfGTC13c6/Ls
+         njJ8n1o3bYp4+iiP9H6tDrNAT6MiacV8/T2GnNp32PlFxIyN9bc+zEKrhuPsUjhfjNMp
+         rASVFcjCQiQ5vJUUml8IS1wI31Qw4U+uCqAeeIZLBMHmZMovqq5fEsQ1wu2FxdhBTmcq
+         Uh+vwzc//xbUPqL0T5owNfFkVyCgEO2bg0LexEnMmDNddMe1jET8jHeWEOW8jPAoIMMT
+         dHtPep9xm99h8X2LKf2QQyrAd+7nJoWpLcBamgHRWbVKadDpc4nO44gQCCzOtB7S2Ig7
+         IgnQ==
+X-Forwarded-Encrypted: i=1; AL+hErGp+3eSfQt03rvwvnpxr/cK6aHhmKJXK+15XR772fVwSrD3K5GIcHduZmN33byCH1d/Rdw7AJ0Q6wx4iNY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5hLig6ivCkoIhc/fcDqmAX2fsszwmHei5qpIe3Bqz4qtROl2z
+	GaNMcyXWOp5wgtfSrfAokiFwPS6UG2D32TY0LFLV5OSq5y3kDLY1eywn
+X-Gm-Gg: AZFdTZfWYks5mCHqOD3Xik1Sk9M0cpqLtlDd5UeBPKMWKZZy9BOR40k305Ue1CrVZ95
+	RHxpx+bpgeqzC8Bv2s2godJZ+xhjPFoQ5tDbsVCsglH0tHynOcigJ/J6y8EuYWtuRIK4PES8eKk
+	YUstXzt6pZj0LsrIRYc1wFFUPauMcVtUCyQBZWaiZ+SX3qRt32hmA1ZFIOqlFpx7NEpTZLQZV/6
+	yXVpqKyIjRpItfx2ljkULwy5bBWhbv5jJItYLUotvdmVzmu4+RNqoGxMehvaLk+XmEMpvwaNsUy
+	kYL6ARwN6yMq5XERs9KlXFK3TGCdQll1Xtsg8kUbpDfF0ZAd0PBgSjKEvqHjjJ9293pgP4OM+cc
+	TyykR5Sn67YPcXg/hepch8FqGPjlmuJbhEz0gsXhx9dxHtijFD9AylRyN9XGXWoQUhjL72gRXpS
+	l9gu1phSTnwb0w25orOTfw4t0xgQamwJ5okl/4BNWXQfCsgeYN8bDHQdPYJWBnJHrUoVO5Nt12j
+	qfS3aMFeQkWdSIQYDTiZNKn1SVdL10nJKO3VXhtcHnd+8z0vQWUV7GzFXv2GEJURNY6FgmPRO64
+	vKvGRP/m8I2JW4OslOenRjVOCGEcXTXGZw==
+X-Received: by 2002:a05:693c:87c8:20b0:386:ac97:f661 with SMTP id 5a478bee46e88-386ac97f9cdmr9061603eec.9.1795605975654;
+        Wed, 25 Nov 2026 03:26:15 -0800 (PST)
+Received: from pve-server.rlab ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm11778380eec.17.2026.11.25.03.26.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 03:26:15 -0800 (PST)
+From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
+To: linuxppc-dev@lists.ozlabs.org
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
 	linux-kernel@vger.kernel.org,
-	Ridong Chen <chenridong@xiaomi.com>
-Subject: [PATCH] mm/mglru: skip redundant bitmap store in lru_gen_use_mm()
-Date: Wed, 25 Nov 2026 19:25:35 +0800
-Message-Id: <20261125112535.4022171-1-ridong.chen@linux.dev>
-X-Mailer: git-send-email 2.34.1
+	chleroy@kernel.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Mukesh Kumar Chaurasiya <mkchauras@gmail.com>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
+Subject: [PATCHv4 0/4] powerpc: Misc fixes for debug kernel splats
+Date: Wed, 25 Nov 2026 16:56:02 +0530
+Message-Id: <cover.1795603946.git.ritesh.list@gmail.com>
+X-Mailer: git-send-email 2.39.5
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,81 +103,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Ridong Chen <chenridong@xiaomi.com>
+Enabling debug options like PROVE_LOCKING, DEBUG_PREEMPT and
+DEBUG_ATOMIC_SLEEP on powerpc64 showed these warnings.
 
-lru_gen_use_mm() is called from context_switch() on every switch to a
-user task and unconditionally sets mm->lru_gen.bitmap to -1. The bitmap
-is only cleared by the page table walkers in get_next_mm() during aging,
-so between aging passes it is already all ones and the store is
-redundant.
+Main motivation for me to look into this was - many folks internally reported
+that after generic entry/exit feature, they aren't able to use lockdep because
+of the warning splat it generates during boot, after which lockdep gets
+disabled.
 
-The store is not free when the mm_struct is shared: every CPU running a
-thread of the same process must take the cacheline in exclusive state,
-so the line bounces between CPUs on every context switch. On x86,
-switch_mm_irqs_off() returns early when switching between threads of
-the same mm, which can make this the only shared write on that path.
+Therefore this series is an attempt to fix the warnings which are generated
+- when we enable these various debug config options.
 
-Read the bitmap first and only write it when it is not already set.
-The semantics are unchanged: the plain WRITE_ONCE() had no ordering
-guarantees, and a walker clearing a bit concurrently can be missed in
-either version.
+v3 -> v4:
+=========
+1. Dropped notrace in patch-2 - Mukesh
+2. Collected RB tags in rest of the 3 patches.
 
-Tested on an i7-13700HX (8P+8E cores, 24 threads), with turbo disabled
-and the performance governor. On each CPU two tasks sched_yield() to
-each other, either as threads of one process (shared mm) or as one
-process per CPU (private mm, control). Context switches per second per
-CPU, median of 5 runs, averaged over 2 boots of each kernel:
+v2 -> v3:
+=========
+1. Instead of calling lockdep_hardirq_exit() 5 times, consolidated that once
+   for the entire duration of __replay_soft_interrupts(). - (Christophe)
 
-  CPUs   shared mm              private mm
-         base     patched       base     patched
-     1   1114766  1106870 -0.7% 1104512  1109284 +0.4%
-     2   1086513  1110204 +2.2% 1110334  1112209 +0.2%
-     4   1085872  1112258 +2.4% 1113146  1112467 -0.1%
-     8   1085945  1111371 +2.3% 1111662  1111876 +0.0%
-    16    660870   666748 +0.9%  665470   667058 +0.2%
-    24    579382   596472 +2.9%  596177   598500 +0.4%
+v1 -> v2:
+========
+1. Patch-4 fixes a pre-exiting issue pointed out by Sashiko.
+2. Patch-2 and patch-3 from previous revision is re-arranged.
+3. Patch-2 change smp_processor_id() to raw_smp_processor_id() since preemption
+   is already off - (From Shrikanth)
 
-The 16 CPU case uses both SMT siblings of each P-core, which share the
-L1/L2, so less of the traffic crosses cores. With the patch, the shared
-mm case is within noise of the private mm case.
 
-will-it-scale context_switch1 and sched_yield do not show a difference
-(within 1% for both threads and processes): sched_yield runs one task
-per CPU and never switches, and context_switch1 leaves the pipe peer
-unpinned, so most switches stay on one CPU and the line does not move.
+[v3]: https://lore.kernel.org/linuxppc-dev/cover.1795441238.git.ritesh.list@gmail.com/
 
-Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
----
-Changes since RFC [1]:
-- Split out of the RFC series and sent on its own; it is independent of
-  the other two patches. Patch 2 of the RFC is in mm-new as part of
-  MGLRU-FG, patch 3 will be reworked separately.
-- Rebased onto mm-new, no code change. The numbers above were measured
-  on next-20261023; lru_gen_use_mm() and its callers have not changed
-  since.
+Ritesh Harjani (IBM) (4):
+  powerpc/64: Leave lockdep hardirq context around replayed interrupts
+  powerpc/watchdog: Disable preemption in arch_touch_nmi_watchdog()
+  powerpc/kvm-hv-pmu: Don't allocate gsm/gsb GFP_KERNEL allocations under spinlock
+  powerpc/kvm-hv-pmu: Free hostwide stats buffers if perf_pmu_register() fails
 
-The test program is a small C file; I can post it if that helps.
+ arch/powerpc/kernel/irq_64.c   | 19 +++++++---
+ arch/powerpc/kernel/watchdog.c |  6 ++-
+ arch/powerpc/perf/kvm-hv-pmu.c | 69 ++++++++++++++++------------------
+ 3 files changed, 52 insertions(+), 42 deletions(-)
 
-[1] https://lore.kernel.org/20261105132220.2233677-2-ridong.chen@linux.dev
- include/linux/mm_types.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-index 4c576e24ce42..7812b36fefff 100644
---- a/include/linux/mm_types.h
-+++ b/include/linux/mm_types.h
-@@ -1541,7 +1541,8 @@ static inline void lru_gen_use_mm(struct mm_struct *mm)
- 	 * used since the last time it cleared the bitmap. So it might be worth
- 	 * walking the page tables of this mm_struct to clear the accessed bit.
- 	 */
--	WRITE_ONCE(mm->lru_gen.bitmap, -1);
-+	if (READ_ONCE(mm->lru_gen.bitmap) != -1UL)
-+		WRITE_ONCE(mm->lru_gen.bitmap, -1UL);
- }
- 
- #else /* !CONFIG_LRU_GEN_WALKS_MMU */
-
-base-commit: a036649714c3446abfdc36d0ae483046432b16c5
--- 
-2.34.1
+--
+2.39.5
 
