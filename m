@@ -1,47 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795602870;
-	b=eU1/AHV4lliJDm1SW19px2wj+So5b4bD/BCI2QBHrx3gG+x/qVepQOp2laqwtqWOD+Pj
-	 YtS+gtxWFE/YoaIM68TQC4cbyXu6R9Rv/+YuM6nqvrfsGFUjOgNRH8B+HT4nFWs94dnPP
-	 81FVp50n1JdmcJkMTzEHQFhH+IYfxOJyd0J6Q9hZs5qXeoUnkz5OY8+FdKWjkY3GX+g69
-	 6D3ZeyhGwIKDwNjLPJzItLJb2CEgToJJF6VAM/9vSUYYbccxeO+Gt2cTne/2bjIdy5wSq
-	 vmDZuC3B2zVFhlxoO8h87G5GmkfX8Gzixg7elniHzjdzCtetAcTwNv+cE0GYi/ZSFkQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795602870;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=tdhya22vdyYIHSX3+fZBmoDZgCjZPvVDp6y5gPGmsak=;
-	b=qc5pA7281+3E/sqFShKOvmz4bYBZNgUs0S5JTKM3GrIlDj7uIGoNHKl2mGZ12LGOlqTP
-	 po3aQtadUc8X7gzW/PzMQZgL58FVCj4BHLDE6Hpi13sh+27ZVHlIf7Cbx1rPh44xBDriS
-	 Mn71WHyJTQMfUQljBWvyXnUi5xRKtMWKtra9Br9DVA2pe5v/nQafTFC7XoVGfdqJYLaPk
-	 EgsAP+sG/Bg9dIGkmKgvtcIOTRFI6fZC+CURYy2htfSjss4UywJ8fKcqPkdSJIbx+3k0l
-	 fOnrWY3YrAXB//70xW3Ut33n7Y0Yp2ZhFSngwpvSODxsWsuEdINWsgfF4Ap9bzSJEbw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iN8YpcPF;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795602861;
+	b=av1KU5fYzq0qhfzgqsJOH409opk/YtaEg8kRZWpnFcrmUz7IYuWEEc8RxRKZZCjUYR7N
+	 kmwGkJviGo+9kAFOu4P4J3HUTjhQ7AQjLKQzKBcIJ8po36NZmQ0m4hEw6eNB5erJm8eJV
+	 UffRjUKoIqyggWWPO0IGaYZsKt1ukI4o7yYGA6nqduXFLf4ZW0lIcso2zWGLgMrJHxL8T
+	 oZ+GnNOSE6ECiG3iC24J7ZrLqWM9XmYsxEz9wuZ5mThkI0OvTKA8kh1AhgdgP2CY2zWki
+	 HnjnV01mm/tY72rrDVOuzFyyPKSrQ4DBGQfMAzCYRRT1R+Agt7GBcHVeA7yIwn7LugQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795602861;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=dbB8vlDFQn5XnWg+n7KR96SKHqcyEBWit0sDLa1+rqk=;
+	b=l0/JpdRII1lmmMwfAuesGmWFijgiQIkRvRJx0M4eIYj8hVh4jgXrVUccczAts9oQbFwA
+	 lQ54R+h4kJ80X48aeoahmeRMgnGlprbpxrd1fGWwM+GoY3kuAJ7RitZ1EpOTV+DhOdvWF
+	 gHB+kt6Ppst21riTv3zaXLst8X4AZfPi0PM4DE3yF8ftOTVSQiP8oxUKSNnQnGRncgj62
+	 mKU2xCs7AZe43JYogFrhJEvoQxtIeymHLcKsIc4yiadBy5ckba1VVXMt9Fgvfhq3mLN2w
+	 lnMV6OvI8b0dZTZ+FpO092Cm30hc4pkjOCF75YhJUCoe1dA8Cv44iGLearhQyr45jMA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EZT+BLMa;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A898D606A6AD;
-	Wed, 25 Nov 2026 10:34:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DA71606A68F;
+	Wed, 25 Nov 2026 10:34:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iN8YpcPF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 267CF1F000ED;
-	Wed, 25 Nov 2026 10:34:27 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EZT+BLMa
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795602861;
+	b=Gk0AvEjTDm2Bz7H0qt0F5sr1DvIIXS5SI3GmdMDrBFkw23tUMY7GMhiCExZXAdySV61J
+	 1CbH/9WQdRcP2YtH4ppmmhDfwfFqIb/xD2Jj5vlevSvWSSU9dI01K4BfyyyAvBsDE8bhq
+	 W39qxExJwVABEW5+6nhk1ibXVTqt1jRx+DT6cHYiVwBuqbaCMEVJumPKkXOosLZSeoYn/
+	 B/aiZaulynuCRBZDVyX3dieRSrFNWGR+gWQ4eS+EVPZ900cPwBb+4W5OuuDJLpPug4ssh
+	 ySmZ6FM4OzCymGRNvtdrRPJ78mCDBkUDf62ova/07JK/KRT7Mn6j7Zv9mMzrl81dyxg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795602861;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=dbB8vlDFQn5XnWg+n7KR96SKHqcyEBWit0sDLa1+rqk=;
+	b=R85zXin+y91JqY9GBvRMVgGwta9poHNU17cWGneytxlA5G0sUSfagLp9c1FA9dbHAkyg
+	 ovqT4gvVbWTgLqL2buNKl2xBePkb9O/i4w2p74J0Ld56fhGrWYvLrsBSgTSdIGxZvXI0K
+	 BKVU50yfXA0B/I5LisxUNng5TS17IyTrv8E28SkFHGY0TFpzUMVcMPop+EYg+T2uwXwln
+	 CK1lqCZGH+hhaJ4c0VEiTc2GAV6vbEX3Nw24kJsmo/koSaSxau9a9HgnF8q9EMTkFgVnZ
+	 TGQ4PUkyReMxRR8bGzIRlPUGRKr3lYDWHGvlyIRTBWpBM5VTmPo8lSI/8QpBuxKtkjA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 2B0711F0089F;
+	Wed, 25 Nov 2026 10:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795602870;
-	bh=tdhya22vdyYIHSX3+fZBmoDZgCjZPvVDp6y5gPGmsak=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=iN8YpcPFgLq3Ri2n1gAGC2nZHiJrncVd6M197DiLdAr6J3kBkQHzdePhkrTwL80Km
-	 v+aUnoO+CihNtpRc5OksZRDrS8ItGPFovfQAkctmKtJ2zdm8POxTPYt6lp635YOprP
-	 i/CaMLVJCeIEjJyAXEIY7+T14JN9zgkvUn9sxo7g9RsaYmYQpAKo8gRoAwkr231egk
-	 PS2shCOzZF4qHeID18481dK7TIoRJH52+2LxCOOdQp96IjFubsXBZfDK9+b9WcgakK
-	 tC3pWrNE6ua3I/xS0lNteS6g+/LkZlbSFZq3dPJieIYPCaSaA9z43r370Z5ENQbvBf
-	 z5pa6SJvPV7Jg==
-Message-ID: <4d9417a1-eb75-4507-be86-a544437e3abd@kernel.org>
-Date: Wed, 25 Nov 2026 11:34:24 +0100
+	s=k20260515; t=1795602861;
+	bh=dbB8vlDFQn5XnWg+n7KR96SKHqcyEBWit0sDLa1+rqk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=EZT+BLMaW77A0AMPUEZ8WvMWpwHXm0hjA8h8VLRxDrpmRyh7gSjLiKEnBx51yiSF1
+	 ITiVxfPxnb6JFohMkzbl1AjISSdltIRQfQsRu+AuCuGVJ/VkbFzjvRolYEeBnPI73t
+	 49z57t6uKMByy+P19kTk8DL/llrpD/Jyu+NO6CEUEmeLCKdZwQR2k+oc3KCTXceRjM
+	 XUQ8mLDC5LxoVpumOdnVFdn2EmBw4ryOplsBV0GCy43q8N5aukykvSyeV8zf+6DoNv
+	 PmBe1kxJeGNe3Xje7tczPfAq5y+hwndMH4M0yrJn8PBqrMBAJKPzFR4tWvjxYdQtyk
+	 hN25ec8CjTbZA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id A9E284CE4C;
+	Wed, 25 Nov 2026 10:34:09 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Wed, 25 Nov 2026 13:34:09 +0300
+Subject: [PATCH v4 1/6] dt-bindings: soc: Add Cortina Systems CS7542 global
+ controls
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,165 +83,152 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/3] selftests/mm: verify ksm_zero_pages is not
- inherited on fork
-To: "Xu Xin (vivo)" <xu.xin@linux.dev>
-Cc: akpm@linux-foundation.org, chengming.zhou@linux.dev,
- donettom@linux.ibm.com, linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- stable@vger.kernel.org
-References: <20261124130143.128411-1-xu.xin@linux.dev>
- <20261124130343.131760-1-xu.xin@linux.dev>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261124130343.131760-1-xu.xin@linux.dev>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261125-cs7542-syscon-v4-1-3337bb0d3b48@gmail.com>
+References: <20261125-cs7542-syscon-v4-0-3337bb0d3b48@gmail.com>
+In-Reply-To: <20261125-cs7542-syscon-v4-0-3337bb0d3b48@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-gpio@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795602848; l=4010;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=oMbBnadNt9Zr1iGu4MirHsHTm5dEUH08qquCfQb14rE=;
+ b=DoBnnbRDu80WwSff4+ab4qgPwFmqoclnUkU7h7nAjaH/T7eLngif5afGfFuW7cKjZvdP71WG1
+ kJH3cw9f+H/AHyGmmv4hbhHTlnbtrWanMxWMmOnV7GW9q0LjbyXWVgF
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
 Content-Transfer-Encoding: 7bit
 
-On 11/24/26 14:03, Xu Xin (vivo) wrote:
-> Extend test_fork_ksm_merging_page_count() to enable use_zero_pages and
-> merge zero pages alongside non-zero pages before fork(), verifying that
-> neither ksm_merging_pages nor ksm_zero_pages is inherited by the child.
-> 
-> Signed-off-by: Xu Xin (vivo) <xu.xin@linux.dev>
-> ---
-> Changes in v4:
-> - Rename test_fork_ksm_statistic_count() to test_fork_ksm_counters() (David)
-> - Unify cleanup into a single label and munmap before ksm_stop() (David)
-> - Fix phrasing in log messages ("Reading KSM counters failed", etc.)
-> 
->  .../selftests/mm/ksm_functional_tests.c       | 44 +++++++++++++++----
->  1 file changed, 35 insertions(+), 9 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/mm/ksm_functional_tests.c b/tools/testing/selftests/mm/ksm_functional_tests.c
-> index b871d5656688..7aadce09e6c7 100644
-> --- a/tools/testing/selftests/mm/ksm_functional_tests.c
-> +++ b/tools/testing/selftests/mm/ksm_functional_tests.c
-> @@ -655,27 +655,51 @@ static void test_prot_none(void)
->  	munmap(map, size);
->  }
->  
-> -static void test_fork_ksm_merging_page_count(void)
-> +static void test_fork_ksm_counters(void)
->  {
-> +	char *zero_map = MAP_FAILED, *map = MAP_FAILED;
->  	const unsigned int size = 2 * MiB;
-> -	char *map;
-> +	long merging_pages, zero_pages;
->  	pid_t child_pid;
->  	int status;
->  
->  	ksft_print_msg("[RUN] %s\n", __func__);
->  
-> +	if (ksm_use_zero_pages() < 0) {
-> +		ksft_test_result_skip("Enabling use_zero_pages failed\n");
-> +		return;
-> +	}
-> +
->  	map = mmap_and_merge_range(0xcf, size, PROT_READ | PROT_WRITE, KSM_MERGE_MADVISE);
->  	if (map == MAP_FAILED)
->  		return;
->  
-> +	zero_map = mmap_and_merge_range(0x00, size, PROT_READ | PROT_WRITE, KSM_MERGE_MADVISE);
-> +	if (zero_map == MAP_FAILED)
-> +		goto unmap;
-> +
-> +	merging_pages = ksm_get_self_merging_pages();
-> +	zero_pages = ksm_get_self_zero_pages();
-> +	if (merging_pages < 0 || zero_pages < 0) {
-> +		ksft_test_result_skip("Reading KSM counters failed\n");
-> +		goto unmap;
-> +	}
-> +
-> +	if (!merging_pages || !zero_pages) {
-> +		ksft_test_result_fail("KSM failed to merge pages before fork\n");
-> +		goto unmap;
-> +	}
-> +
->  	if (ksm_pause() < 0) {
-> -		ksft_test_result_fail("Stop ksmd from running failed\n");
-> +		ksft_test_result_fail("Stopping ksmd from running failed\n");
->  		goto unmap;
->  	}
->  
->  	child_pid = fork();
->  	if (!child_pid) {
-> -		exit(!!ksm_get_self_merging_pages());
-> +		merging_pages = ksm_get_self_merging_pages();
-> +		zero_pages = ksm_get_self_zero_pages();
-> +		exit(merging_pages != 0 || zero_pages != 0);
->  	} else if (child_pid < 0) {
->  		ksft_test_result_fail("fork() failed\n");
->  		goto unmap;
-> @@ -688,15 +712,17 @@ static void test_fork_ksm_merging_page_count(void)
->  
->  	status = WEXITSTATUS(status);
->  	if (status) {
-> -		ksft_test_result_fail("ksm_merging_page in child: %d\n", status);
-> +		ksft_test_result_fail("KSM counters are not zero in child\n");
->  		goto unmap;
->  	}
->  
-> -	ksft_test_result_pass("ksm_merging_pages is not inherited after fork\n");
-> -
-> +	ksft_test_result_pass("ksm_merging_pages and ksm_zero_pages are reset after fork\n");
->  unmap:
-> +	if (zero_map != MAP_FAILED)
-> +		munmap(zero_map, size);
-> +	if (map != MAP_FAILED)
-> +		munmap(map, size);
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-For that to work you have to initialize both to MAP_FAILED above.
+Describe the shared syscon, its strap-selected clocks, three PCIe
+gates and level resets. Reserve the former group reset ID and assign
+individual IDs to the seven network reset signals.
 
-With that
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ .../soc/cortina/cortina,cs7542-syscon.yaml         | 55 ++++++++++++++++++++++
+ include/dt-bindings/clock/cortina,cs7542-clock.h   | 13 +++++
+ include/dt-bindings/reset/cortina,cs7542-reset.h   | 19 ++++++++
+ 3 files changed, 87 insertions(+)
 
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+diff --git a/Documentation/devicetree/bindings/soc/cortina/cortina,cs7542-syscon.yaml b/Documentation/devicetree/bindings/soc/cortina/cortina,cs7542-syscon.yaml
+new file mode 100644
+index 000000000..561bb7b63
+--- /dev/null
++++ b/Documentation/devicetree/bindings/soc/cortina/cortina,cs7542-syscon.yaml
+@@ -0,0 +1,55 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/soc/cortina/cortina,cs7542-syscon.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Cortina Systems CS7542 global control block
++
++maintainers:
++  - Fil Dunsky <filipp.dunsky@gmail.com>
++
++description:
++  The global control block contains the boot strap status, GPIO/peripheral
++  mux registers, reset controls and the secondary CPU release register.
++  It provides the APB, CPU and AXI clock rates selected by the boot straps,
++  and the three PCIe clock gates and controller reset lines. Individual
++  reset lines control NI, FE, TM, scheduler, QM, NI XRAM and the entire DMA
++  block (LSO and SSP). The network engine consumer must acquire all seven
++  lines exclusively; it cannot run concurrently with a separate SSP DMA
++  user. SDRAM is excluded. Reset identifier 3 is reserved.
++  Clock specifiers are defined in dt-bindings/clock/cortina,cs7542-clock.h;
++  reset specifiers are defined in dt-bindings/reset/cortina,cs7542-reset.h.
++  The pin controller uses the same register map through its parent syscon.
++
++properties:
++  compatible:
++    items:
++      - const: cortina,cs7542-syscon
++      - const: syscon
++      - const: simple-mfd
++
++  reg:
++    maxItems: 1
++
++  "#clock-cells":
++    const: 1
++
++  "#reset-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - "#clock-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    syscon@f0000000 {
++        compatible = "cortina,cs7542-syscon", "syscon", "simple-mfd";
++        reg = <0xf0000000 0x100>;
++        #clock-cells = <1>;
++        #reset-cells = <1>;
++    };
+diff --git a/include/dt-bindings/clock/cortina,cs7542-clock.h b/include/dt-bindings/clock/cortina,cs7542-clock.h
+new file mode 100644
+index 000000000..c68c6ba20
+--- /dev/null
++++ b/include/dt-bindings/clock/cortina,cs7542-clock.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++#ifndef _DT_BINDINGS_CLOCK_CORTINA_CS7542_H
++#define _DT_BINDINGS_CLOCK_CORTINA_CS7542_H
++
++#define CS7542_CLK_APB	0
++#define CS7542_CLK_CPU	1
++#define CS7542_CLK_AXI	2
++
++#define CS7542_CLK_PCIE0	3
++#define CS7542_CLK_PCIE1	4
++#define CS7542_CLK_PCIE2	5
++
++#endif
+diff --git a/include/dt-bindings/reset/cortina,cs7542-reset.h b/include/dt-bindings/reset/cortina,cs7542-reset.h
+new file mode 100644
+index 000000000..4998ca11d
+--- /dev/null
++++ b/include/dt-bindings/reset/cortina,cs7542-reset.h
+@@ -0,0 +1,19 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++#ifndef _DT_BINDINGS_RESET_CORTINA_CS7542_H
++#define _DT_BINDINGS_RESET_CORTINA_CS7542_H
++
++#define CS7542_RESET_PCIE0	0
++#define CS7542_RESET_PCIE1	1
++#define CS7542_RESET_PCIE2	2
++
++/* Reserved legacy composite ID; never reinterpret it as an individual line. */
++#define CS7542_RESET_NE		3
++#define CS7542_RESET_NI		4
++#define CS7542_RESET_FE		5
++#define CS7542_RESET_TM		6
++#define CS7542_RESET_SCH		7
++#define CS7542_RESET_QM		8
++#define CS7542_RESET_DMA		9
++#define CS7542_RESET_NI_XRAM	10
++
++#endif
 
 -- 
-Cheers,
+2.53.0
 
-David
+
