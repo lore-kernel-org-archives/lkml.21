@@ -1,54 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.226
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795594818;
-	b=Nn6oQvc8i+6EYluNw25X+1lejZOVhpyjhstZ/QoDgWn6jJcokF9WcBefi4Xy6qW/XKuj
-	 JnCzaiKDDuOYoIjutWnTb67cR7xHdu8gtC8ETot9sW0b1zdS7qbp4BEKbx6tmIcPD4oIL
-	 lmms5rhjwwby8Pbi47+8zcYZg8VnYDAkEQ1mzkpD7C+7SZcsCnwIyvHsm7huXCl2RWKsV
-	 C4OQ/TTk9BMQryzY3OXShEXdBMsIidGy2vUzP/9N+q8VpWYGOUJlOldeslCVUDwzN9wFj
-	 Q856GpNxVCnbDJQxU9l3j95AVYhpKmBd8kYZ/XXjP4i86M0WTQcBFvX8fsHkgEVivCQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	b=UMBMbgDBB6oXktZ3OkYJJ9covu+3tult7YD7NYE/d3evNbOWLhrB5jIoZD/XQv35cTCq
+	 8QJvLtQO1JPE8y5HBgFLMIHP/MfuhNql9XnjeofZsxChUp/IdJbg8nftpt233hOlPKhoK
+	 DUgBzKBu/C0aL3f2nLs57LiO002fI4k8pB/EvYjQXsJEFn+G/fqYOJiB0sPTJAWuD6nXr
+	 aDbeJnc6ICGrGahutX3p3oAsoUUUgRKCbCHCmXjga25UZfEq211otr/MBH3QGsVohDLdA
+	 AU3A6EvDSr2aQCgoV2DV/nJcYmCXSGwYkuclG5gaFewhJpr80oeXyVZRQqJv758bxkg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795594818;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:Cc:References:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=QfZ3lG2uOxeiODVkla0mMOvEHpv7y5P99cIsSRHzDec=;
-	b=fjXB9/gAk/wvLIblDkKJYv17Fd56rLp26wJR6grqsL1KPbO1cIbUlNotWN63C+6U0Y07
-	 F8CVqEShHFOVdXpimCZrJlwqA97XCNgh1bCtVzoxdLcMscQ8a7m9Mcy+LulYC4jAWNkZs
-	 itE7sPZf13kOo3tb00Yz4rWCPG29RdF3t3qyGFd1+rg/3b7pSWkfjZdLyprW9A5KzwGzj
-	 nVH4NGKwuP111bpttVLfWduCbq7lpx03ppJJu8J4jQQBNMda1krh43o2/AuyZbMF7taVu
-	 9gD0S/mhj37WmrpilFqqPErn9poOjF++q4F48Z9f8Xaz5vVZZdcfYKt/B0ekLxaKUzA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y0E4pc8T;
-	arc=none smtp.remote-ip=95.215.58.226
-Received: from mta1.migadu.com (out-226.mta1.migadu.com [95.215.58.226])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
+	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type:Content-Transfer-Encoding:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=9SCFUcP34G4HPTzeVhTRA14/6Sg/0HZEHD3EpocY7Fs=;
+	b=2Dv3w38I1t0CvUJswfO9w11g22+lYjiHHr0dSn4jGCMEkytls0GTQMyTtuytHG/sZVym
+	 /5ZuPm4bEmGmrN4Igd/JCI6syNUyYQ8cb4v2F/ESGy9olJ/F8nNsHM/JVZWuXVJ1/TL+v
+	 utG7y751gJAAMi12uKv7kxYp8uwc48XHCkRkNN8ZCaMYsJ7hTJL3au8uNXU/bf+56b64I
+	 U1ij504dSFx3jOfxXtomF7uiSrQ7o+/uYnpN8IdzHI8Hu1fOUap/jOXZw5XPIi93vvj0k
+	 saAQHQYRlWyg6kUEAZSORTQOq8UvtoZWw+a1OO0U9sxrpMn/4KdDmg0Qc7o1ayYm80w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XPk+Ing0;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=IbCoMHUp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB86B606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:20:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB86B606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30F62606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:20:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30F62606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y0E4pc8T
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=/919UxKRMyPlULBGJtfj9Q5QU8pqqMoGwH6XL9fnwpU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795594815; v=1; x=1796199615;
- b=Y0E4pc8THdsEx1zmo1BBP1WSc46ylAD4u0nTAgDtqG+t0su8WW+lI+cyTilfJ0oZVaOsXiaY
- b5OJVJM/YiiPlgPIP0OrTfAqBPxcc6ry8HEK+Wmd4iEoV3S+nb6+bpIjxtUnKalLAlQGtR0Kqm0
- UXj1DIgOXIPph2m4lvGVvtuc=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 523a68c985d1740f;
-	Wed, 25 Nov 2026 08:20:11 +0000
-X-Mizu-Trace-ID: 523a68c985d1740f
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <b63bc354-0f29-49fb-84ec-313bf4283360@linux.dev>
-Date: Wed, 25 Nov 2026 16:20:00 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XPk+Ing0;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=IbCoMHUp
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68Zih300022
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:20:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	9SCFUcP34G4HPTzeVhTRA14/6Sg/0HZEHD3EpocY7Fs=; b=XPk+Ing0LGpXGmsj
+	SrqvLiAHuaxlOskwlC1+Q12P6WupG9Nl+w0th5fjp5sYsaNteBZlKAVIvqgIob2a
+	fyj8RKtHnwwtmwlj8ZsbBHEJsSQOjJKnXtNU05wsFEBju/E3NkXwylf9yav1m0Z5
+	bT6QjvKQ9fJeFe71fFj9n9J+rVyVfLxrP7lPy8Sm8H9DrEMwBWc/icnrfNW6wSvx
+	Q4dxKio2UJrbiC7daea8C0suhmeU3Uf3N/ZucjVoBKT/V93rr0fN7cVkQPDi2AHf
+	pKi4dONOw8RrqJ8vh/DgsjCDEz8osc5tVKe7ogdB7P9F8j/5tIx3s+4Ak0lC4Tzk
+	97eaKg==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5n6rsjgc-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:20:17 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93e92aad34aso964296185a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:20:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795594816; cv=none;
+        d=google.com; s=arc-20260327;
+        b=hyriq5T05kmLx8eFeI/e/QyHpSu2JpAISmLH0rcVMdz6NkeHX0wbTmtwyImZ41xvdz
+         71fqw4qJODcTn+ECcXEM77SK96s/VofY6/wJxsj5fhAIvUEtXBxdBNncatjyp1ao20cX
+         rCmGKZvtRgNzDJ/cp1EdsfVh5w7SIOBLnzzmGcmZgcIgglI/+LGJCD9H0hZmToQIqvae
+         nhobcXZV3IW7vTEfl/sqDL/cixe2dImdv3P+oEuHMrmT6ftzJKHHyyus18ONFryCZV2O
+         TsRvumh50MJke7Rk4vBpHR1y6gZ2QqxWQUOZXTEFfYnJ3FQmWDSVbEkER99DostvOEEb
+         vWjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=9SCFUcP34G4HPTzeVhTRA14/6Sg/0HZEHD3EpocY7Fs=;
+        fh=ZfaiTbGcNNvilXxOp+BJnNCvd+IGJXX5QRgLJUcdwnk=;
+        b=E3y0my80wQwvbx+E1InN5CumvcENX38sbUmirK1NWyhLBnCFwcpqp0T/yatUXd91IK
+         UJH3XKNdDOdVYPlmcqpML1/3YL1JP37+1QEvty6fosGWnQGe5jAoGoGLug+aAqoysuNI
+         OSLlyXv9GGuPNLxpUbsvK7lX828xHwWjxrdfQUgZoV6/mb7rcVVF1y6scbs/4ALyO5wT
+         L6jQ5EHzsszCpWiIjcP/Tg5ecGJpmVURWewBzqk1O09hmqJcorjjT3XXbnutXspjmSRu
+         SyHMrRB9p5rhNbnBNut0aLWjd18Y/Ed3ldOkO0fy/7v8/pqBJTqqlwfDXXbsZAJMa1zu
+         tpXg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795594816; x=1796199616; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=9SCFUcP34G4HPTzeVhTRA14/6Sg/0HZEHD3EpocY7Fs=;
+        b=IbCoMHUpnSa8J1fqNptz5m7x77HyJ5beUB6BnqsnnDjixXGv7p0VHlJTVVUAxOp7uj
+         b97Lp9P2c47YpAsEu7FAPHwEZbO5FVrG0T2p+wMlw6kgtT1XJnr80EH709iQm4jZ++GC
+         25MLNb3I1uhX4/fS9bk0ys2fMZUAmX3a5cTG5/Xn1xbNcf3nxtEqPzj+5oYE0DCtxyGH
+         pG1gK8HgYzqju2Cn7LSPYIVZbSquUwSjO9TO9HhnSyWaxumeR89s9x3Trt9iX7bfHAmm
+         1D2nPqp6fH0+rnx/WzLx4GxKVKlRKxHPwywcweMxIb/9ekKkvts57kBOntFre7svjif8
+         4sZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795594816; x=1796199616;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9SCFUcP34G4HPTzeVhTRA14/6Sg/0HZEHD3EpocY7Fs=;
+        b=if3cUYkxU8AKCExw0ud5oxHy5bpV4mbM8PveE41ADsdRhlBr5U8Qv/zpuaDPkmDhyK
+         kor5y3LVLPvinns2PvKLnGhoGNlwHBZ4Dgr0GC/xuLjTtQxxsqRgVawqBXQfEyBZe+e0
+         5Nnzc9aXQ6cn0TZfEmA/DkpyL3PXyBzrmhIdJr3JNu/qAPVRnmsFHmtonWM2b9jk7ozr
+         x2g98ZqdHaEWOqSVQvRI3KFLYS3lx6V/vR0EyRbxNDK6tpR/TMqJIriPjk5iUFXp684O
+         ZdWSr4Q0a8RVol9t/JiwUQlTw8+4C5HNQtm1Fc5vc1bFKv/5XgCrAZL+MpPweS3YEJtB
+         xd6g==
+X-Forwarded-Encrypted: i=1; AL+hErGR6gSNJw6oyHXmb88F0/3hodFx39IKXS+CL3RAcEOBTvGgcoGDWFEI1ZGNyZFCduf/rDSyNCZ4qFo+nCg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Xz6QPgGnRJBeJu9OPPOXk8/w85KA6N15gJbxhtRU/ItaL1ZaC
+	eRO80WiSDIWqKq6KoeDRVIuu5oVpgFX35ops+ey8+1Q3ikzfhB9rjsZS7a3gVlOCzSsOJgiOuw4
+	SCdpEltGUQr2A9xwKZ+vIfvbd14IwJLdlZ/eqZWIrBSXakIy6Xw3G/8LFGW3UNiHi2Yd5LUoeZo
+	wqT5eWBQrsCwgHJkrXCbGcY9aUzOi5+Rt6W9Zq1LnAAA==
+X-Gm-Gg: AZFdTZelf+LzcLiG95DA+N5w+jpfwWn49lon124n1qJXM4I8mmEh5yAYh+2FgbMN9QY
+	3gRKz3JfSpB7djoNhMWEEF0JicFNO9p6GvF41gy257g5/XyP12rHKZkC6sx2l7sdUEm5HEylWHS
+	Zz2W72lRQRFlFyVUoKRTsyQMso0CAtVsfZ0koeot9AX39L1DLO3A+7+NHKfOGFdKX2pjJoraRTs
+	wcJswVbi9sTG6/70z09myxes3bzLNDXzEjdbB1sImPhjAC0a95X8dxBkq7oP9U32xBjYf9768Y=
+X-Received: by 2002:a05:620a:3914:b0:949:673f:72c1 with SMTP id af79cd13be357-949bac9c6e7mr2425266285a.83.1795594816188;
+        Wed, 25 Nov 2026 00:20:16 -0800 (PST)
+X-Received: by 2002:a05:620a:3914:b0:949:673f:72c1 with SMTP id
+ af79cd13be357-949bac9c6e7mr2425264485a.83.1795594815810; Wed, 25 Nov 2026
+ 00:20:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,216 +128,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 02/11] mm/kmsan: undo the shadow mapping when the
- origin mapping fails
-From: Hao Ge <hao.ge@linux.dev>
-To: Suren Baghdasaryan <surenb@google.com>
-Cc: Uladzislau Rezki <urezki@gmail.com>, Dev Jain <dev.jain@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>,
- Alexander Potapenko <glider@google.com>, Marco Elver <elver@google.com>,
- Dmitry Vyukov <dvyukov@google.com>, Dennis Zhou <dennis@kernel.org>,
- Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>,
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com, linux-mm@kvack.org, stable@vger.kernel.org
-References: <20261116071325.263682-1-hao.ge@linux.dev>
- <20261116071325.263682-3-hao.ge@linux.dev>
- <CAJuCfpHOZS6mp_no3wKmU3-S4HKspnbriUw8Mwtxf3nmw0-pfw@mail.gmail.com>
- <CAJuCfpFv=sCeib+SDWJNW6oqbNnhT+m3YjnfKh8jNkquzuYORg@mail.gmail.com>
- <793d63ff-c48b-431d-8a2a-4044feb45721@linux.dev>
- <81b05a10-1b20-4132-8cc6-c71b88f21414@linux.dev>
-Content-Language: en-US
-In-Reply-To: <81b05a10-1b20-4132-8cc6-c71b88f21414@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20261124-tfe-fix-irq-v1-0-fd9840d952ae@oss.qualcomm.com>
+ <20261124-tfe-fix-irq-v1-1-fd9840d952ae@oss.qualcomm.com> <41204b50-d861-435c-9cbb-8155e5e1d771@linaro.org>
+In-Reply-To: <41204b50-d861-435c-9cbb-8155e5e1d771@linaro.org>
+From: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Date: Wed, 25 Nov 2026 09:20:04 +0100
+X-Gm-Features: Aa3M54pwTvkfIe-W3xNrwvsMb_zCkwbrzBCxL0-Sy9LRsk7i40hR7jCMjKFN7w4
+Message-ID: <CAFEp6-1vSybYx6QK2pq13mbuM-eJhto3UxhsttvshmqNN7BXvA@mail.gmail.com>
+Subject: Re: [PATCH 1/2] media: qcom: camss: Latch buffer addresses through a
+ single helper
+To: "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>
+Cc: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzMiBTYWx0ZWRfX/5Mp7qXO+eUP
+ sP7jU5RLXaq/NcDGR60zHLpwIkDVWwlxw6CGM8RYDLlzPKuQuQGByup8wIqd/GfXwCG4/DFE8xU
+ kVhNIyNS9jEPJsRUWWQjYgGKuPn9xP3fy3ffEEL7rUw4d3bA6d1YNYeQH6m7G86qDDUC7eebV9w
+ jiYDqBprccOH845rmT6GBT9S3GV6bcmdpQIigBte/CYfbXQlsQU0qGvQYeRL2J94B6nyPWZOOJv
+ t3fMo1INQKQ2FMhf5bWIMz1QDyLDbn0Wkl9Wgb48LvuK/Hv5IhNhw24QR1u00elInT7QRhW9A03
+ tRsHsZCnVuUmGkJa79tPcch60Qg3QClGNa//7uq2OHQ+hyeTbtZ7Tcym5QUq1p9/O9I1Yzgg3v9
+ hA3bHjCbCAqvhSZ3i0H7fmU0HJOZr8Z8opKJTa6FHMeZ3YYRd2mLa4BxCoKu+dGsahYx40x7CZw
+ xfRrQpJX1cPrDuHocnA==
+X-Authority-Analysis: v=2.4 cv=Voa2kO2n c=1 sm=1 tr=0 ts=6b069a41 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=eoimf2acIAo5FJnRuUoq:22 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8
+ a=Seq3w46qzr7p4GGkWVwA:9 a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: HgzIgbU3DC9WKAda2SIH7UhbmqiaA6Q3
+X-Proofpoint-ORIG-GUID: HgzIgbU3DC9WKAda2SIH7UhbmqiaA6Q3
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzMiBTYWx0ZWRfX/1Z3gm9CPmLu
+ OOHJxzo3E705FzTcH/jsb9LNF/dvklIzHDF1IbC9mXmENE6jzydPqyLZyGTNHk8/YeJFgIQs7u8
+ FQTSHE1nPeH16kDWt1j/WY2YYE+JSd4=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0
+ adultscore=0 spamscore=0 priorityscore=1501 suspectscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250032
 
-Hi Suren
+On Tue, Nov 24, 2026 at 6:33=E2=80=AFPM Bryan O'Donoghue
+<bryan.odonoghue@linaro.org> wrote:
+>
+> On 24/11/2026 16:47, Loic Poulain wrote:
+> > The buffer address written by vfe_wm_update() has to be made visible to
+> > the hardware, and the way to do that depends on the generation, the old=
+er
+> > ones only expose a register update, some relies on a FIFO, while the ne=
+wer
+> > ones expose a dedicated address update that triggers the latch on its o=
+wn.
+> >
+> > Both sequences are open-coded at every call site today, with the addres=
+s
+> > update being additive and always followed by a register update. This
+> > leaves no way for a generation to tell that an address update alone is
+> > enough, or that no latching is needed at all.
+> >
+> > Add vfe_buf_addr_latch(), which calls the generation's addr_update() wh=
+en
+> > it provides one and falls back to reg_update() otherwise.
+> >
+> > The write master configuration programmed by vfe_wm_start() still needs
+> > committing, so vfe_enable_output_v2() now latches each initial buffer
+> > address inside the loop and issues a single register update afterwards.
+> >
+> > Signed-off-by: Loic Poulain<loic.poulain@oss.qualcomm.com>
+> This is a bit too wordy for me.
+>
+> Can you reduce this down to one paragraph. It seems like a
+> straightforward functional decomposition to me.
 
+Sure.
 
-On 2026/11/23 18:15, Hao Ge wrote:
-> 
-> 
-> On 2026/11/23 16:12, Hao Ge wrote:
->> Hi Suren
->>
->> On 2026/11/21 05:49, Suren Baghdasaryan wrote:
->>> On Fri, Nov 20, 2026 at 9:14 PM Suren Baghdasaryan <surenb@google.com> wrote:
->>>>
->>>> On Mon, Nov 16, 2026 at 7:13 AM Hao Ge <hao.ge@linux.dev> wrote:
->>>>>
->>>>> kmsan_vmap_pages_range_noflush() first maps the shadow pages and then
->>>>> the origin pages. If the second mapping fails, the first one is left
->>>>> mapped, and the callers do not roll it back. The next vmap of the
->>>>> same metadata range hits the stale PTEs again and fails with a
->>>>> WARN_ON() and -EBUSY in vmap_pages_pte_range().
->>>>>
->>>>> Undo the shadow mapping on that error path, the same way
->>>>> kmsan_ioremap_page_range() cleans up after a partial failure.
->>>>> __vunmap_range_noflush() only clears the PTEs; nothing has touched
->>>>> the shadow mapping, so no TLB flush is needed.
->>>
->>> After a second thought, kmsan_ioremap_page_range() does not skip TLB
->>> flushing. __vunmap_range_noflush() comment at
->>> https://elixir.bootlin.com/linux/v7.4-rc1/source/mm/vmalloc.c#L497
->>> says:
->>>
->>> The caller is responsible for calling flush_cache_vmap() before
->>> calling this function, and flush_tlb_kernel_range after it has
->>> returned successfully ...". There are no mentions of guarantees that
->>> mapped PTEs require explicit access to be cached. Please double-check
->>> if this is safe.
->>
->> That's a subtle detail. I've looked up the relevant documentation.
->> You are right, and my "no TLB flush is needed" was wrong.
->>
->> The Arm "Learn the architecture" AArch64 memory management guide says it
->> in "TLBs and Changing translations":
->>
->> https://support.arm.com/documentation/101811/0106/TLBs-and-Changing-translations
->>
->> If you change a translation table entry, or the controls that affect how entries
->> are interpreted, then you need to invalidate the affected entries in the TLB. If
->> you do not invalidate those entries, then the processor might continue to use the
->> old translation.
->>
->> The undo changes the shadow PTEs, so the TLB has to be invalidated.
->>
->> I also checked the Arm Architecture Reference Manual:
->> https://support.arm.com/documentation/ddi0487/md/-Part-D-The-AArch64-System-Level-Architecture/-Chapter-D8-The-AArch64-Virtual-Memory-System-Architecture/-D8-16-Translation-Lookaside-Buffers
->> rule R SQBCS:
->>
->> If a stage of translation is enabled for a translation regime that is not out-of-context,
->> any translation table entry for that stage that does not cause a Translation fault,
->> an Address size fault, or an Access flag fault is permitted to be cached in a TLB or
->> intermediate TLB caching structure as the result of an explicit or speculative access.
->>
->> So it may already be cached by speculative access even if there was no explicit access.
->>
->> For the kernel side,  Documentation/core-api/cachetlb.rst
->> https://elixir.bootlin.com/linux/v7.4-rc1/source/Documentation/core-api/cachetlb.rst
->> says that The "TLB" is abstracted under Linux as something the cpu uses to cache
->> virtual-->physical address translations obtained from the software page tables.
->> Meaning that if the software page tables change, it is possible for stale translations
->> to exist in this "TLB" cache. Therefore when software page table changes occur, the kernel will
->> invoke one of the following flush methods _after_ the page table changes occur:
->>
->> The condition there is the page table change, not whether the range was accessed.
->>
->> Likewise, I believe flush_cache_vmap() is also required.
->> The sequence in cachetlb.rst is
->> flush_cache_range()
->> change_range_of_page_tables()
->> flush_tlb_range()
->> so the cache flush has to happen before the unmap.
->> This is exactly the contract that the __vunmap_range_noflush() comment you quoted spells out,
->> the caller is responsible for calling flush_cache_vmap() before the call and flush_tlb_kernel_range()
->> after it.
->>
->> The code will do:
->>
->> --- a/mm/kmsan/shadow.c
->> +++ b/mm/kmsan/shadow.c
->> @@ -258,6 +258,13 @@ int kmsan_vmap_pages_range_noflush(unsigned long start, unsigned long end,
->>                                             o_pages, page_shift);
->>         kmsan_leave_runtime();
->>         if (mapped) {
->> +               /* Undo the shadow mapping set up above. */
->> +               flush_cache_vmap(shadow_start, shadow_end);
-> 
-> Sorry, this should be flush_cache_vunmap.
-> 
->> +               kmsan_enter_runtime();
->> +               __vunmap_range_noflush(shadow_start, shadow_end,
->> +                                      gfpflags_allow_blocking(gfp_mask));
->> +               kmsan_leave_runtime();
->> +               flush_tlb_kernel_range(shadow_start, shadow_end);
->>                 err = mapped;
->>                 goto ret;
->>         }
->>
->> Thanks a lot for catching this, I learned quite a bit about the TLB
->> along the way. 
->>
-
-Let's revisit this. Unless I'm missing something, the unmap counterpart,
-kmsan_vunmap_range_noflush(), appears to be missing its TLB flush.
-
-Taking vmalloc as the example:
-
-vmalloc
-    __vmalloc_area_node()
-        vmap_pages_range()
-            vmap_pages_range_noflush()
-                kmsan_vmap_pages_range_noflush()
-		    installs the shadow/origin and flushes
-		    their TLB at the tail /* flushed */
-
-vfree
-    remove_vm_area
-        free_unmap_vmap_area
-            vunmap_range_noflush /*shadow/origin PTEs cleared,
-				   no TLB flush */
-            free_vmap_area_noflush() /* area -> lazy list
-
-    ... later, when the lazy list is settled: 
-    __purge_vmap_area_lazy
-        flush_tlb_kernel_range(start, end);
-        /* no shadow/origin tlb flush */
-
-So unlike the normal paths, KMSAN performs the TLB flush when the range
-is reused and re-mapped, rather than flushing it immediately after unmap.
-
-I'm not sure this is safe. Reading the documentation, this should not be safe,
-perhaps I have misinterpreted the documentation.
-If this was intentional, maybe a TLB flush is not required here, but if so I would
-expect it in the purge instead, together with the main range. After all, vmalloc is
-frequently called, and lazy TLB flushing is an existing optimization for vmalloc.
-
-Would you mind taking a look at this concern, or letting me know who I could ask?
-This would be a good opportunity for me to brush up on my TLB knowledge, and I would
-greatly appreciate your input.
-
-Thanks
-Best Regards
-Hao
-
->> Thanks
->> Best Regards
->> Hao
->>>
->>>>>
->>>>> Fixes: 47ebd0310e89 ("mm: kmsan: handle alloc failures in kmsan_vmap_pages_range_noflush()")
->>>>> Cc: stable@vger.kernel.org
->>>>> Suggested-by: Suren Baghdasaryan <surenb@google.com>
->>>>> Signed-off-by: Hao Ge <hao.ge@linux.dev>
->>>>
->>>> Reviewed-by: Suren Baghdasaryan <surenb@google.com>
->>>>
->>>>> ---
->>>>>  mm/kmsan/shadow.c | 5 +++++
->>>>>  1 file changed, 5 insertions(+)
->>>>>
->>>>> diff --git a/mm/kmsan/shadow.c b/mm/kmsan/shadow.c
->>>>> index 0c88d89bf0d6..212449db34a1 100644
->>>>> --- a/mm/kmsan/shadow.c
->>>>> +++ b/mm/kmsan/shadow.c
->>>>> @@ -258,6 +258,11 @@ int kmsan_vmap_pages_range_noflush(unsigned long start, unsigned long end,
->>>>>                                             o_pages, page_shift);
->>>>>         kmsan_leave_runtime();
->>>>>         if (mapped) {
->>>>> +               /* Undo the shadow mapping set up above. */
->>>>> +               kmsan_enter_runtime();
->>>>> +               __vunmap_range_noflush(shadow_start, shadow_end,
->>>>> +                                      gfpflags_allow_blocking(gfp_mask));
->>>>> +               kmsan_leave_runtime();
->>>>>                 err = mapped;
->>>>>                 goto ret;
->>>>>         }
->>>>> --
->>>>> 2.25.1
->>>>>
+>
+> ---
+> bod
