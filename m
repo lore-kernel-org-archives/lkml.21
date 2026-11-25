@@ -1,96 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795573089;
-	b=m3ru0hjH83zxCKLG4LtR1bezAsJqYCjKPChwlTrejcF0Tp1C1OLkh15eHscm9X6bRriJ
-	 1Te/oukzDC4tfC2xgh5zQ4fwaRlYk9TFmSF/WRbV9WQCpZnqx2J4mauSyp6fTMsc0tIed
-	 o1v/sY8Scbhwne5yUzjh2yWnZ2R/cYV/RPLiGIulvZORBMsDIDGdaFMC8jR4Y/N99MoW2
-	 DXKNChTGJgpKWaxBHEYXMwSgR7HSzVhgYYQNl63mYTEQHppkNT/SpoH0XS9H95wozaSYD
-	 XlCDOpoajrA/i1E6e11cM3zyY1wlywWWjx/7os6sWsrRfKlByKgacTwOOSeDQIPiSLA==
+	t=1795573101;
+	b=LvlEBUJR7g9UJ/2313LdE4n+8zlEZws0hcrDOMxEu3IWVbxM2AHtVGb/yM3DetWcOPBJ
+	 EHZQAdGKCbhy63nMJPushVkzVWWliIzwaM5gNvVW7MriGEk6cZRJNnOiF6gWdajRogE0+
+	 87Zz9OEWJx9RpGxWF+8vU7RyDLqx37C+27zKPH/mFEwxgdlQ52F23/GhP57jmX669ftDQ
+	 7OjBdp8COJMLuta0PDovqP+/MLp+JvX8LEBpJTPH47COoP7emHY+DCIVyyKfIFlS0FfaL
+	 UKAX8ewaMN/IHOEzpTCW1l9QQkI2XnmiqIs42I01216TQ+ItKayQe/t2kthgjP6SNdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795573089;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=5BmiEAABX0YkZtzL3ymjPboNK9Dk3Xskgw0XpD/U9ic=;
-	b=4NxbPQzDxCW4WDDYv8Zm2SY+3M+/+NOyC/lD2AjCdsw5pPKa97EonK4URroXd8Eypyvq
-	 5hY225jEdn31mrBBg+mxrCGf3C3XChSxMU9c6m/MJKnwcfdJvQZnHPiLepSPpGuud3rGS
-	 IquysPiq+wT4xtA7ZfAeZFxezPKHIqikefqZjqxPNyLP/ds8Ase1KyM2cr5J1Mf+Nzmkk
-	 TIJz04HFuLCoJ0kHCSSUKI/oawfhJaI4qBO2j2fRb0lJ0VABF2/GcDFvrgVZGnZPhM/Ku
-	 uheM4YweGoZ/K2CTm14zCRxEeiyqinCceyY8pOrTuTtDOQsBfjbVyMlu6pAgKDr/Mmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795573101;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=BfBc2nl/+x1jei32QWJml8gTyYfpGpADR+dK5QnbKzw=;
+	b=1ZArsh+mW0RwGRNE77HeJAXAGfj3rRtg2xrS99zo/+Cn42RiINqRpaes33kto86dIl6U
+	 pZdToIW4+9B+dc2CMhfXQIFu0wdcbXzo3PL0OKECSb+LPA8+NyUOM4S0y7UXcdMJYmzkS
+	 KnsBuBPTUs/zTaGfWOh6vqFrq0Lu8KzixmM5UBHkXMSOB2rcWCythISJPuqS/NkxK78/7
+	 7sZjB3a1kbGZa37hjpkF3MzDANE4R8/c8LU8El/lXjmMTPPkz6iFdOQ8gTzXykBg/JJv0
+	 Bv63oTiMeitZJsVjMlfFiBN42bhMyzFdTmnJzx9MRf7UEE2zQXj7hJcrk5K0RQgaCsg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=SZ0zxJnS;
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mMUfAWXc;
+	arc=none smtp.remote-ip=209.85.210.182
+Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08D3D606A31E;
-	Wed, 25 Nov 2026 02:18:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08D3D606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2B73606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:18:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2B73606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key, unprotected) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=SZ0zxJnS
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 9FF9340E01E1;
-	Wed, 25 Nov 2026 02:17:59 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id h4jS9kRgljvp; Wed, 25 Nov 2026 02:17:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795573075; bh=5BmiEAABX0YkZtzL3ymjPboNK9Dk3Xskgw0XpD/U9ic=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SZ0zxJnSQ2E9IDoOQnutqoDmh1YGpIbtrhm7bo90SpFTCs9Wcqt8uAhHF+Nta9qTx
-	 UoQhmJ4LkwoRpI3zFT89TK7JFfxDoGMXqV/roY8bkPUI1uC3dG2uBOwn8dKtn7B97B
-	 MaTPUft5Dw+rw1+dtTeYZixRQOhpwbx47ZHpmqXH51gVpgPskatWRiUP2PI8kuIkc+
-	 gF9ReAOqzKuIzs7wpjYmbJf9ZT7CH9z4NZ7sCGVqjRm8toJXfWiF3nJqq0J6Ogq3Vf
-	 2ukP0MjEsFoiuzQGzlBzRHzOSiXqy/sa0MOqU902b6KDYOAwLAyFdwciK7v8NOm9t+
-	 wqTPO2+hwWFo6WFe5VCgbGA+Se36lLIT1eEF49uhBodo4LeSmTFKB2dUE6MCpkEoKE
-	 tFO/WrC7h5x9V+5MjmGqAHWhfOFRs7aqMZYnxOTmOUEg44J49lb3PHHJEXLeczqwqU
-	 ql6ZeiPY+OP289YMlvPLAvlujGiptxTrvEAUNaLATcxUrgXF4b82xCeAGOvNBRAO+Q
-	 R5E4GZniXeS+RAJLn+BQjUa/Hysnd274bdbhfq/VfAuuYIbCc69jDl0mrRjh2DxPl7
-	 efo2bbRe2DR5oxlGqDSKJMFBu9Isxot18loVSUJQoDaDr+Q7yGVHlznnt5zw/jrW16
-	 i052oh/x/gw31YJKXZ0HksRY=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 2106840E0218;
-	Wed, 25 Nov 2026 02:17:37 +0000 (UTC)
-Date: Tue, 24 Nov 2026 18:17:33 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf@vger.kernel.org,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	kkd@meta.com, kernel-team@meta.com, x86@kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for
- user address faults under SMAP
-Message-ID: <20261125021733.GAawZFPYeXUtqNINJ2@fat_crate.local>
-References: <DM0ESVBT9553.2S1RWK1W7M8WW@gmail.com>
- <20261122200848.GBawNL0FcQoK918YDI@fat_crate.local>
- <CAP01T746W=8FFiJJUM3H-Qv09uRO6-XEi9B-8pjSgtpAPBx4EA@mail.gmail.com>
- <20261123003036.GCawOJLKK1iX47XTDm@fat_crate.local>
- <CAP01T77EgbuyhP=zU9L1hwYL6rHaSbrqQZGJR_+9AQgSWLe7Nw@mail.gmail.com>
- <20261123025529.GDawOrIQcDOPhgWwF6@fat_crate.local>
- <CAP01T75Qps8bKFZAU2gN-3UJTB1aWw46NG5c-sm6K028rSc9sA@mail.gmail.com>
- <DN2E8Q9V38IF.3O738M7NGLSAL@gmail.com>
- <20261123185124.GAawSLLMoWwJ71nq5j@fat_crate.local>
- <DN386F271FUR.35EWQWGMEMX7K@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mMUfAWXc
+Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8b4c8b51b58so2998798b3a.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:18:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795573100; x=1796177900; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BfBc2nl/+x1jei32QWJml8gTyYfpGpADR+dK5QnbKzw=;
+        b=mMUfAWXcVM1xIZ/sjsn1fq08fH4cNvvV+oUQ3eA29ZMZ7A+eR49KLC6qpO8DNy1F2r
+         gkd92auy0Mt4Zky/nz7SbVEL/AGIvelnKaoFgD+J+iDepSfvxxqWY0+T0Z39kxdHTzTY
+         eMscrxm14uebLO9hUbvAA+qdI7KIr5bdpvPWPLiyqQe+mp5hQH4oZ5Ub3qD3qJ74mSua
+         sFJIhhKkRaV9B23MWw4rMZLzDyZ7CbJxvlRCJ6Qpqb1m64EzWOGlB1eu9cvA2wprbAwF
+         KXWhsJVnHVM8dnPdGTgKarfqJIVO7dc6UBO0xheja2CQ0m0G+8S0YM5Dy4YVRFWmMctE
+         dIxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795573100; x=1796177900;
+        h=content-transfer-encoding:mime-version:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BfBc2nl/+x1jei32QWJml8gTyYfpGpADR+dK5QnbKzw=;
+        b=huw0yoMk+eWsfNvXeSTnfeCYJ+Yo/ilmTPyotHcu2nMah4BjKh9nKxVWl4bq3C7jRR
+         QMNjV28AkMBQW2G1HpNttIIy8Sues/6hu8LmxlYn0XWX/1EoVhq0BX8uuD+Bn1Rk3sK/
+         fWKj1vsEFNAS3EOyyDN8ztlKELVCqTBRyN6sF905ea5tmXXlxULz2g6gXpq2PQWuAjTU
+         rkLHxqL6mfrHbHE2xRQlzahzpU2PQUgz3B3I3oiZ8KxcKXSJfXguaPyVKE1AxTf8ueNN
+         PRl+RjE46O46DTs89LYoPLw5K1NnDYJ7Mq447lFVxENmLOVsYn1APSdzUyts7k+hc+QB
+         ssvw==
+X-Gm-Message-State: APuU4Z9OnN16cTNXIrzCfhXGngfbUK3pQMHsiIR8CFUN62vvrT+GTujE
+	byUcPKxFcbiYiz3yCyEmcnc9dLBzvSIB/0JnC+PXoc1jwRPARrgERv1H
+X-Gm-Gg: AZFdTZfO8JCZSlNreVNScRRjp4sFh2Yu/snjRJed0qmWbS7tmpwKe7flwVnbFGQdnhi
+	SJHEqane22YIxaZWNqOLCjsF0GWstP6nLx49ObM+K/uN/L+qlQrcAWRcstrBePT+TAs/XwCMzVM
+	3QT5vZkUC18KkYJ9ewDhpY62SFf2UScn3CwTAmpbVUVo7r4zpHLsjulsx2/vJtZHJToY9WUArf2
+	gBSjuftZ6NpurbShP8g1u8D4n4wckpRWvIF3JGtncNBwZSa+5MRdD20MDv3JF3OQzetaMPHtym5
+	BNBTQxB0GpEUT4n7duhZu12RaTPXXUlcJp6X6mHGajCZnQwHSNh4VuR8I+2LraQS6v+H1b28wKh
+	ohEFwGZFiqr35jTIDWSSmt6IDcqb1BMvTVj8qECUtahyV5NubXHghYZdbKncmWt9z7SwUCi3/FF
+	dFYJjUViWDIsYw4iI1IeoiF52oYcJkFSrdd0JybuXY8HMY4DW2DXnF7WcRgwdJ9WKF0h96TnzR9
+	4CXqrotxXhdUjda1RjWVitXaYdnvzE/5RnrDsiySr3n0jAwTMWdmlFxFl2tAzQ3Onj7I8Onxm0i
+	dclwyevn0WeIDeNt6R3mTBpZx+DY8hqJRFwnP76ky86rUAoCngioFpUl8oCfoXuQdC/hwaWnTy8
+	HREvgyqCQjD8RR3nEYR4+8zEJvL5sUM7//FR46HZaor/vgwwE68qO4vQiZxbACEfu1A==
+X-Received: by 2002:aa7:88cf:0:b0:8b6:594d:7030 with SMTP id d2e1a72fcca58-8c87ca51fe7mr14842703b3a.42.1795573100263;
+        Tue, 24 Nov 2026 18:18:20 -0800 (PST)
+Received: from LDYT9Q2G2M.pvgl.sap.corp ([180.166.22.226])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e45eccsm8048734b3a.31.2026.11.24.18.18.17
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 18:18:19 -0800 (PST)
+From: Zhiqi Zhang <zhiqizhangg@gmail.com>
+To: akpm@linux-foundation.org
+Cc: linux-kernel@vger.kernel.org,
+	kunit-dev@googlegroups.com,
+	pablo@netfilter.org,
+	lfinke@student.ethz.ch,
+	netfilter-devel@vger.kernel.org,
+	jhs@mojatatu.com,
+	jiri@resnulli.us,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] lib/ts_fsm: preserve patterns across tc dump and restore
+Date: Wed, 25 Nov 2026 10:18:14 +0800
+Message-ID: <20261125101335.7868acd102b6-ts-fsm-ping-zhiqizhangg@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261109103454.50617-1-zhiqizhangg@gmail.com>
+References: <20261101081736.51803-1-zhiqizhangg@gmail.com> <20261109103454.50617-1-zhiqizhangg@gmail.com>
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,88 +105,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <DN386F271FUR.35EWQWGMEMX7K@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 06:25:45AM +0000, Alexei Starovoitov wrote:
-> On Mon, Nov 23, 2026 at 10:51 AM Borislav Petkov <bp@alien8.de> wrote:
-> > Look here, our mails crossed last night:
-> >
-> > https://lore.kernel.org/r/20261123043409.GFawPCQT2M-hz0mvZP@fat_crate.local
-> 
-> hmm. I thought my diff answered it already, but ok. Here the answers spelled out.
+Hi Andrew and all,
 
-That's very much appreciated - much better than telling me that I don't
-understand BPF and I should not ask questions.
+A follow-up ping on this two-patch series, sent on November 1:
 
-> diff --git a/arch/x86/mm/fault.c b/arch/x86/mm/fault.c
-> index aa88370..9fe8705 100644
-> --- a/arch/x86/mm/fault.c
-> +++ b/arch/x86/mm/fault.c
-> @@ -1263,7 +1263,16 @@ void do_user_addr_fault(struct pt_regs *regs,
->                      !(error_code & X86_PF_USER) &&
->                      !(regs->flags & X86_EFLAGS_AC))) {
->                 /*
-> -                * No extable entry here.  This was a kernel access to an
-> +                * The CPU refused the access. If the BPF JIT marked this load
-> +                * as one that may fault, skip it and zero the destination.
-> +                */
-> +               if (!user_mode(regs) && !(error_code & X86_PF_WRITE) &&
-> +                   ex_get_fixup_type(regs->ip) == EX_TYPE_BPF &&
+https://lore.kernel.org/all/20261101081736.51803-1-zhiqizhangg@gmail.com/
 
-Ok, I see the JIT is marking exception table entries with that in those
-arenas.
+It fixes a userspace-visible issue where restoring a tc FSM text ematch
+from its dump can change which packets the filter matches, or fail with
+EINVAL.
 
-So if someone would try to exploit this, then something must've jitted
-a binary blob just right in order to bypass that complex conditional.
+v2 describes that impact, splits the fix from the KUnit tests, adds the
+exported-pattern equality assertion, and includes Cc: stable on the fix.
 
-> SMAP stays enabled in that case too.
+Could you please advise which tree should carry this series, and whether
+any further changes are needed before it can be picked up? I would also
+appreciate guidance on MAINTAINERS coverage for the new
+lib/tests/textsearch_fsm_kunit.c file. I can prepare a follow-up revision
+once the intended coverage is clear.
 
-All I mean is, this is the first scenario where one can bypass it. The
-exception fixup thing.
-
-> The fixup doesn't touch CR4.SMAP or AC, and it doesn't retry the load.
-> ex_handler_bpf() writes 0 into the destination register and moves regs->ip
-> past the load. User memory is not read.  A jump straight to that load with
-> a user address in the register gets zero too.  The range check gives the
-> same result today: zero and no oops.  My diff has no is_bpf_text_address().
-> It checks the type of the extable entry of the faulting insn.
-
-Yes, I guess, even if it were a malicious blob, what ex_handler_bpf() is doing
-to it is limited so I guess that's fine-ish. I mean, if the machine is already
-loading bpf programs from userspace, the risk is already there.
-
-> The diff has one check, and it's on the type of the extable entry.
-> error_context() does the same for #MC with ex_get_fixup_type().
-> fixup_exception() has EX_TYPE_BPF already.
-
-Yes, that's a bit better.
-
-> A JITed bpf prog is not a user space program.
-
-I meant, it is a user program which gets loaded and runs in the kernel at
-CPL0. We're on the same page.
-
-> It's kernel text in ring 0 with an extable, like a module.  The bar is the
-> extable: kernel text, an entry for the faulting insn, and a type that says
-> "load from any address, skip it on a fault".  That's an inlined
-> get_kernel_nofault(). It isn't specific to bpf.  If you prefer a generic
-> type instead of EX_TYPE_BPF, that works for me.  Then get_kernel_nofault()
-> can use it too, and copy_from_kernel_nofault_allowed() can drop its user
-> address checks under SMAP.
-
-The hurdles are more, which is better. I guess we can try it and see what
-catches fire.
-
-Next time, when you decide to touch core arch functionality like the #PF
-handler, please include us in the design *early* too so that we can chime in
-and check the sanity of such proposals.
-
-Thanks!
-
--- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
+Thanks for your time,
+Zhiqi
