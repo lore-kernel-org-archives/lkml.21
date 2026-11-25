@@ -1,92 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.74.138
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795584984;
-	b=3q3cPLjVZWIsaXNBCrlSSDxD7wOi6AW9HAXnQlGr6+HGTPDxzTgZswnmbyM55C8SlCpL
-	 fh/rzAMR8dIchwK8euLkM9Xw4M/fRXqrdB7Di+EdcYyXPDTN/CvKWnsCLN7vvJ/t7yh7m
-	 Uz8r08w/2yzoCIv/jXsRmoczOLAR/+hVq38emIlUUUeUmJoCMEjTCpk8YWeKzTCUvRZWy
-	 sBRJlHFZX67OMnnqf6dNVcQDtpddecooqpEyb4eDqfOZSAdb14Wk46vp2Z0mruelKGd+W
-	 FOhPAqUk2WYVZTdsbfsJGKhzYlb1lImrg0Ma2N/xaBBBjbzzjUuAmlFfT9g19o8qYZg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795584984;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=H66yj5a4FsHPSlTvmZkm29hDQuAhLg6o0jY2d5x868Y=;
-	b=W4ZkontAXi13b3c3IAOSyhRdZA23ArZp5xAkpO8QUfSOTwYCZg7qGGbyNPPgomntp/TI
-	 7IglUnhdYJj2GwOLU2jt05qgZ/bGhvH2gQ0f+e61seEpgvGWh4hpg1SG0L1VAomRl9Mtp
-	 iQEwuZiNojkvwqPyXAk5hXZ7O5hFPCoi0DnJhCzwRMqNK7Donjc2xYOYwfCIzkVgHAZpc
-	 tt/ARMkrzgyFBRAtzSIaP/yrWSB+seeQZZoJP3k1ROEsMvnm8ydxVFIPxBxThd5ctDHIP
-	 0Zf+l/10lTPfzh6Dn/uSOftGlNzwuwngF0alJs2M5iNNWyx7YAWPwzNDOQ5LXWr84ug==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=valinux.co.jp;
-	spf=pass smtp.mailfrom=valinux.co.jp;
-	dkim=pass header.d=valinux.co.jp header.i=@valinux.co.jp header.a=rsa-sha256 header.s=selector1 header.b=aowB80y8;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.74.138
-Received: from OS0P286CU010.outbound.protection.outlook.com (mail-japanwestazon11021138.outbound.protection.outlook.com [40.107.74.138])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795585016;
+	b=kQJmZlIUsvgS8f+rC1ys5B4DpihuR2onVRgRRQ8lPDXZ3CXzv9HS6E/1F5c8do6VjK0y
+	 eL+IU4sLYMqfke7LOvZCTGg7aEXzGGRtMmeDfau+7/YGUZcWefef/ju/1ZNNvZtEyW4rg
+	 Ie4M2eywzmfjct1qondH8Qyoy3GVstbp1uNZcAuJOIgmaycMB+F0zO6527moSwcw5cwkk
+	 nB3j6M7nArulgd2Pcpj37sp4WHFiFU8nil0K7xGMafdJp4JBYFp8lAh9AKjUcggQMYZBN
+	 vE/7UYoT3VEnZzXUNpdKqrxFs/EreQYhMYjQ0tMaIArC3ojgJLw6h859aiNofI5GymQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795585016;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-SRS-Rewrite;
+	bh=6tY7qXPR+c8tZisw2M9xzYszGIvCapp/QNzy3udpL9k=;
+	b=Z/GHEhX3pKUwIPBO7Erdq2DuJIMRpgMs0su8EvNVCQMqXVjnT3/OE7gCgwwnzGKr2YFi
+	 k1LgpdStjQDQcfypdCJFM5vuxCy7ApQGvPMOtY9Hj9XGqkLTmdxFTDXVZcyaTl2Fgl0YN
+	 r6uWMbsZxirXkfUxmeALsAPaGUU7lU5mPd+TMvB46NcS/1p/ivWVOI7ie66TJ5LWNbakL
+	 TRJS1eou1Hw3y54lOu9/NxVkfe0Z8BMi/iHG6365yA3/yXyclGoJUIAN1f5OObt+OH7HB
+	 Yab2HlOnvaMyvvavFlL9JoqcUhBHzDL0uwjW16nhHQdEegPv0oIc13gwAuwReYJPzqA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=infradead.org;
+	spf=none smtp.mailfrom=bombadil.srs.infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hj+Mnvzl;
+	arc=none smtp.remote-ip=198.137.202.133
+Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70DB4606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:36:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70DB4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=valinux.co.jp
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=valinux.co.jp
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64EA2606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:36:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64EA2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=bombadil.srs.infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=valinux.co.jp header.i=@valinux.co.jp header.a=rsa-sha256 header.s=selector1 header.b=aowB80y8
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YIRZYZOWlxmfeU1yjWDZZXq8x3WS+RHo+QZ7cZMKbi98ZR/co0EOqN7E/2tofVn0TUROHJsE8+TNUGI7uM18TRQv8kgjmr+00v+5jbTpZAEz0+I0UGnodyz2Uz1m5s8gSe37cn/wL/UpwmlwGL/jeZLgNMRxXltLjcLKF+dgdHVK4RaWaP1Jp69SooMmklWDhKkTEpfGr1lGpcRl4dK36SzaQ/8nTM8hP09qtr510Egw0u19vQNohAMI7dGI0RDz94f09a1YU9LpvVBUNNjqX6sGW0Jgart320fqa4/vv9zjpyNzxRAPDfbkCeaTSJrxZbrgWaEJwweTYk9hhoW7xQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H66yj5a4FsHPSlTvmZkm29hDQuAhLg6o0jY2d5x868Y=;
- b=utF4+LQKVvwPyLGVO4Lsw9KP/ca/tMKHtrJK7hr4FAExgS7FTdiFPbzjCBboaVfxy5UV58EBeoRAy9q/hewCEoYEua/xFZUqNmhPorn6GBr/rVzFiyr0uCH3NJhiktNWMxZF6I2uIvtp9gP0DfUQLS3uPnZ+P9eGRyFk6FlkIhrjj0bsl7n+NgQ328pOBE+5j8t5Z8nMWSLnQjWW5smP/x4salQfLTRQgQ/F4g+lBtH1DkOzGE9UUExekKsOuftBt+1PRrfocFEW4XJCbzNlqv7orN+C6sTWyhMlMOyfFDR4LgrX/dt76Ir+I2egG09trVNMgMIBVtmpL88IvCe6wA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
- header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H66yj5a4FsHPSlTvmZkm29hDQuAhLg6o0jY2d5x868Y=;
- b=aowB80y8WwXHBjMCJGJWTh5DM7oPUwI16qdROLM4VPHCKJv+mExTSr5xHQGPMfwXgAGdOnbqmAyztFIcxn8Ry7l8/q7e89GSY0rIYBb/FvvhAkE2B71SUo/ETHZIZ6LsmVF9eFgCLgcegfY6Z3U1yXkBdWlWRAX+g7TI6ztUyRw=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=valinux.co.jp;
-Received: from TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:325::11)
- by OS9P286MB5949.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:3f5::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Wed, 25 Nov
- 2026 05:36:20 +0000
-Received: from TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
- ([fe80::cce5:2aa8:53f9:dba9]) by TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
- ([fe80::cce5:2aa8:53f9:dba9%5]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 05:36:20 +0000
-Date: Wed, 25 Nov 2026 14:36:18 +0900
-From: Koichiro Den <den@valinux.co.jp>
-To: zhangjiao2 <zhangjiao2@cmss.chinamobile.com>
-Cc: ntb@lists.linux.dev, linux@treblig.org, jdmason@kudzu.us, 
-	linux-kernel@vger.kernel.org, trivial@kernel.org
-Subject: Re: [PATCH] NTB/msi: fix error cleanup mw index in
- ntb_msi_setup_mws()
-Message-ID: <awZzH9bcH4SGYskT@z790sl>
-References: <20261120084039.1954-1-zhangjiao2@cmss.chinamobile.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120084039.1954-1-zhangjiao2@cmss.chinamobile.com>
-X-ClientProxiedBy: TY4PR01CA0092.jpnprd01.prod.outlook.com
- (2603:1096:405:37d::17) To TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:325::11)
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=hj+Mnvzl
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
+	:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=6tY7qXPR+c8tZisw2M9xzYszGIvCapp/QNzy3udpL9k=; b=hj+Mnvzlg2D6efDaM7VGu2tcWZ
+	Wt3E5/jwvZcLhiACnZqF6kDijNXXjHGGUL21yLs44x16ORA0BlXLnmydEzfg3EkMqUob+ijhFbXem
+	FLsdSScnK67WKo0xPL82Ya36hOwF5RcKMCrrq+RPms0w/DyT6bKVB1ipAToYSYV7aosO5RBbou9/0
+	wIaQT5ACkeEKOY9XI682VV5JiedWNwyq/d26EIG2bi9sfXMsSFDvJr2ptqTVvXtqvAsReugOqcwv/
+	VZfkJCbkzlRtt+cstChUoowdChjU0T6Pl/CpUku3eHCgfq98v9J9mMa/GW/7sUbQ/k+bM0TAE23KP
+	CP1ux0mw==;
+Received: from hch by bombadil.infradead.org with local (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xW5gQ-00000008TSS-3Fz1;
+	Wed, 25 Nov 2026 05:36:42 +0000
+Date: Tue, 24 Nov 2026 21:36:42 -0800
+From: Christoph Hellwig <hch@infradead.org>
+To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+Cc: Andi Shyti <andi.shyti@kernel.org>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Andi Shyti <andi.shyti@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	Hugh Dickins <hughd@google.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	kernel-team@meta.com
+Subject: Re: [PATCH] drm/i915/gem: Skip writeback of shmem folios with extra
+ references
+Message-ID: <awZz6sq_4cjIgUcq@infradead.org>
+References: <20261119134243.3745282-1-kas@kernel.org>
+ <av8n42vx3Q7zvQK8@zenone.zhora.eu>
+ <awBIB3vjr_o-gfCn@shutemov.name>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,104 +77,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY7P286MB6866:EE_|OS9P286MB5949:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9812cefd-b2be-41d5-f66c-08df4ab608c4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|10070799003|23010399003|376014|366016|22082099003|18002099003|56012099006|261028144727099003|261022105027099003|261021121427099003|261102123227099003|261022075727099003|261021123027099003|261026121527099003|261026140227099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	B++xG8zQ3l40fBpiZ6ICDvu3SLOuuRqAmA3PiQv/Eqpp3VslS1EdL+bHB9PAFpHJuTzkrZAU5wqkPKT1SMhYxjcvzoBFDPgLUkHYHNTEzhSQNac853S6ov8s6mL8gEUJRGwiyxTHKzPuKuJhpxdhbHBjlTnMUCOibmARslkvgeZC7Dy8jFLKRyze908KM4ope9MWH0EAndicAx6v9EHIIDTTKrOiCJAEdXKgJfSbYGJ9mO+i201XLArH2TCLdf0mFRkOK0bYqB/FSYnpqS6iMrF5khug2TvFdIRfzF4+d0qdpSC8n8LNo/gn/kb1V/0JUpkGElehy9Zv22SHd4Nzh1WxeMRyni4BY0DMflLS3KpiDm8W+3U6/4gUsAN+uqNrKv9SQ6xdTEvEf7PO3YeLy7u1RFbNHKsdHMF9ebuM6QbP5UlrMsJtyM5i7bPFQVmkQXN/I3DyYy4tPvSZHvhbBeQ9U9k0xzUGs5jvqF10a6CjrTAuJtU5gWHzxFLJIP3bcaacEYG1cuVcKz9Jkmhe77qXWofVgiIS3hvYwDv2j5PJWbUtq9KW3vo3ww4UWudmfaZ2FEjBm6OWvOy+z2pi6x3MORUloU5jq6UTznvIgV2X6RXOxs12IySXtBK9mSJZZo1TU+CiSxyCWw0cVAYI9itIKpZhZmpBKfWILa4kO3U=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(23010399003)(376014)(366016)(22082099003)(18002099003)(56012099006)(261028144727099003)(261022105027099003)(261021121427099003)(261102123227099003)(261022075727099003)(261021123027099003)(261026121527099003)(261026140227099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?lHRxp3xLQtvoXvB3pbwcvGI57CUdr+Jpgh/1EQvG0c/e4EedrTRdQCLQcc18?=
- =?us-ascii?Q?C/3QP2sR2XKPYLEz70gIfiUzSxFgicjVJIGaKP9OuYpPx9WOeigKW+wD9kTL?=
- =?us-ascii?Q?KmtNAzKtGrHyWt5xVmBcDofM32MrzPDsZI10hFcrlBQ+XFV4v1YilYOa4V8/?=
- =?us-ascii?Q?S5f5X+M/3v0SE8mlzC4qwO14DNLh4Vh9M+1bBIzuxN2hGIuRRwIBhwCv6Njd?=
- =?us-ascii?Q?kyu2h6wFyMJhedd3jRHDnGWCjS9JhCIvDvLUQHuvQlf6DjWdZNDTd+fWbBQs?=
- =?us-ascii?Q?j8EvBwz9YaLDxCFpF8yXoTsM+x3vvIzLR9bRvtyvbPamRCNHPvUszAP/JTmD?=
- =?us-ascii?Q?cca/sKsjcbvajq3NaPrvvE2ELRNAgNGMfC5PhzMzPdM5UlRupwpvmGWOZ9We?=
- =?us-ascii?Q?IErD1hnkxmdS1TgZ9xRE4OeGAdEzTRwJZDa20jbsNZsf1ZsGXewCx3FvbC5/?=
- =?us-ascii?Q?YN9ZF3/qPfEjiB6rspeaoG1golSgFIUu5DxbHybdMEhE0TBpAS9HuKOsxOau?=
- =?us-ascii?Q?YFEnZl4VzxT2Ezf8gMr+2/lcCZUDB8+icLn5PAYzXC20Qqx0qsWrPb2KXJkg?=
- =?us-ascii?Q?ju6DVZY1ZmLLIasicWE33jREW+jPpP7ljMIX3dTiRP18RGQXDY9f51o/G2OL?=
- =?us-ascii?Q?3DDDuWZrGZbmlKwxOxdwlVEgrWMXiynWZtDYMKlZWC1YVDm/vHTqUYtT8SrL?=
- =?us-ascii?Q?IeOVTjnIluubA/8Doic2XA8y6EOMlSufxttnji7U/vnb+fMOz9U+V4fO/+n2?=
- =?us-ascii?Q?BYofgbOqYaqHXtsR1QFlyIRw62yj5Xvw4uxHyzxcgh29c5jnkVLAr7ICqFQf?=
- =?us-ascii?Q?uSBzpkwi0pEN0YldOZiWil760HmvlG0nyy9qA9LAY6xmmpWAFJyRhZmhKjBn?=
- =?us-ascii?Q?J4qvWkXelGjEK5ck/Fxuw4d0NhXJu33VdBThpXmsBVSlZA1e4oiKJSakQ3gv?=
- =?us-ascii?Q?sEDs12dwFnGppzGuqsWs5HajhIEUgVrxOjAlJwML111rq79xsACdRYBW13y7?=
- =?us-ascii?Q?XxqMlh9oEU3Hi4h9pZbvyAmhrAOBRvrB9D4CCN+KHbmMRK+z5FgzeNAENctK?=
- =?us-ascii?Q?xsA0OVfO2eFuzkjYlASwcRDgWizX78cb9v6cu+av1zm5i6sC3ZZZWbPygvHs?=
- =?us-ascii?Q?RPpa4JlVWaiCbqzn1Z4dDFPIRteAG6e6zHZ7eQpKQXrDCuY5Az+f8KeVQkfo?=
- =?us-ascii?Q?gDSbOkU2hXelevtwb4LKYu8XY30mr/N9Wo9MNEpJTWPFuNkQa1xD9+9oLPph?=
- =?us-ascii?Q?RnVuuYhnsJGU6/P9vG6Ht1FrqAM0e97C8W+GmoLxy0EV1c5gDEBGbk4V8ex1?=
- =?us-ascii?Q?1Cwqqvi8nzAL5Ko1GAHtyaNyEnwuDl6JfG84meHAxBj9aDetI1fWAPG7O62x?=
- =?us-ascii?Q?oQ7fBkOdr7xeUdrIyjAUWHdHhVGbWoKer5idNOZeg4eLQWGsAYDYAao33ieC?=
- =?us-ascii?Q?3FZqdPerEC2ECahdL+wtpMYdYTGTtnWxk6c6YUZdkVEXXdpzsVdYX15TofzJ?=
- =?us-ascii?Q?OEOvvZGenpcmNlHBbWQR+brL3FSBAXeL23upKJQ3AWb3XoQWlpJtg03wAskL?=
- =?us-ascii?Q?4X9MyMFw6uGc3RIm2iPEsqKVRMj5BWxeenp3wRu1BYJQB27UrvgwfEbT04dw?=
- =?us-ascii?Q?d9VOiJbAceMLNrw9Os8ikCToYNoDWOMbBMwhkz3u5GAq5pVPMIu+7AsRGySi?=
- =?us-ascii?Q?d6q24vkvOQIoy+FkM0qyUYLMXODNtqIlcBMLwymtHeBamQCuNDibCWvOGDBS?=
- =?us-ascii?Q?OQ8NujoxT7Jr/DSpgVokhqgY9Nf1uABcoSYkMGrE5DtIW1Hqf6ny?=
-X-OriginatorOrg: valinux.co.jp
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9812cefd-b2be-41d5-f66c-08df4ab608c4
-X-MS-Exchange-CrossTenant-AuthSource: TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 05:36:20.3941
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VZjHaGlhCvpp16Eh+E0ZCLGeBx40G55MMMESKrUhTgZEaNH2YmPguv5iTQm58COsM2l6uv8rlKOOd21sw3fwBA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9P286MB5949
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awBIB3vjr_o-gfCn@shutemov.name>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by bombadil.infradead.org. See http://www.infradead.org/rpr.html
 
-On Fri, Nov 20, 2026 at 04:40:39PM +0800, zhangjiao2 wrote:
-> From: zhang jiao <zhangjiao2@cmss.chinamobile.com>
+On Fri, Nov 20, 2026 at 01:17:31PM +0000, Kiryl Shutsemau (Meta) wrote:
+> > >  	while ((folio = writeback_iter(mapping, &wbc, folio, &error))) {
+> > > -		if (folio_mapped(folio))
+> > > +		if (folio_mapped(folio) ||
+> > > +		    folio_ref_count(folio) != 1 + folio_nr_pages(folio))
+> > 
+> > I don't think we need this fix in the current tree. The i915
+> > writeback iterator already skips the shmem folio in the case you
+> > describe, so the new refcount check doesn't change the outcome.
 > 
-> In the error_out cleanup path of ntb_msi_setup_mws(), the loop
-> iterates over the peers configured so far using the loop variable
-> 'i', but ntb_peer_highest_mw_idx() is incorrectly passed 'peer'
-> (the index of the peer whose setup just failed) instead of 'i'.
-> As a result every iteration looks up the highest memory window of
-> the failing peer, so ntb_mw_clear_trans() clears the wrong window
-> index for each configured peer and the intended translations are
-> left enabled.
+> Oh. It took me a while to see why.
 > 
-> Fix it by passing the correct loop index 'i'.
-> 
-> Signed-off-by: zhang jiao <zhangjiao2@cmss.chinamobile.com>
+> __shmem_writeback() asks writeback_iter() for PAGECACHE_TAG_DIRTY
+> folios, and shmem never sets that tag, its ->dirty_folio is
+> noop_dirty_folio(). So the loop body never runs for any folio, and
+> hasn't since 776a853a43c9 ("i915: Use writeback_iter()").
 
-I suppose the Fixes tag should be added, shouldn't it?
+Heh.  I'm surprised no one noticed..
 
-  Fixes: 26b3a37b9284 ("NTB: Introduce MSI library")
+> That makes me question the whole writeback thing. What's going on
+> there, and what's the plan?
 
-Otherwise, LGTM.
+I (and others) have been asking forever to get drm out of micro-managing
+tmpfs.  I guess given that this code path hasn't worked for a year and
+a half is a pretty good indicator that this instance should simply
+go away.
 
-Reviewed-by: Koichiro Den <den@valinux.co.jp>
-
-> ---
->  drivers/ntb/msi.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/ntb/msi.c b/drivers/ntb/msi.c
-> index 6817d504c12a..13e9f52ec8cc 100644
-> --- a/drivers/ntb/msi.c
-> +++ b/drivers/ntb/msi.c
-> @@ -154,7 +154,7 @@ int ntb_msi_setup_mws(struct ntb_dev *ntb)
->  
->  error_out:
->  	for (i = 0; i < peer; i++) {
-> -		peer_widx = ntb_peer_highest_mw_idx(ntb, peer);
-> +		peer_widx = ntb_peer_highest_mw_idx(ntb, i);
->  		if (peer_widx < 0)
->  			continue;
->  
-> -- 
-> 2.33.0
-> 
-> 
-> 
