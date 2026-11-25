@@ -1,79 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795623180;
-	b=BC2KWbF2x3E6e7jf/8HovG6qjbA227TV4AI6C9aQCOkzggpoIOU0eWOlzSLWF7V82KQl
-	 kcDK78LbzJ7KNncAbMI6aZljAOM3+5ldd37d0RlKJ2XpPPa/lh4NQ25Wo2ygbRWzezhme
-	 /aEsIS9eCthhBFaSIML6vvzChimQgn3BEt3mvNBh/1jVdRwhh2fAoOZ6YoXDzlvKxy2PW
-	 VS656T2XRbOACCid/UuCpivcPYIYKaw2yy0yMDyFgAqsTEQqEp/0M7RNuq0WBRbk6X7W2
-	 HZOCjOvobAfSWLGZgOrZ6RZoKjWYESToRe6XHVOvCz2i1klbXCwR0qJG0dOnkzxZTPQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795623180;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ydAVlbiT7HtdBwFmKZLj3/SdTDt++MO23OROKjnc3CI=;
-	b=FZOeAw7GKVs/Km6Lef18REOtqVrTFSW4diqrBFYNESa41CIQkstHfLzrgxpiz5UvLK3+
-	 7vGpv2a9EchWdT+mtP3VMSeQbbQFGZxNfxuZm3YlpjhNSp0O3xB0hLa5JwFQcNDYOP7mz
-	 5E440iexTSQRqeX851ZTT+rH3nRIUZ7RCzmt9J/RONlPszEaYb+lYysQo2Uxx3XZfZsVH
-	 68CfJXh2gKc2Sca0jRhmlwNG2VpkPhFEhzLB399FGqBj7TUZjDly3CUbX5E5cOXkq7Xz/
-	 jBgEW+aHNPFuk8YKCx55EC1PFL2Ho+y6ZSvy9f8u2xV+zKwNYWb04YsnrCJ3SmecYJg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dXdVOuYL;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F879606A32C;
-	Wed, 25 Nov 2026 16:12:59 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dXdVOuYL
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795623179;
-	b=KOtD60Z9sRWgNc7Jz1Hi8n8WR1vg6ECzc9LtmRi3PiQihSusMhVlRN2jpww7EuZDOoDe
-	 7jAFZe6oHx4Jv1zTzkdzcQLTJyAadLWtDt8UN3RPtbo60htnPAY6I+e8o9B+8ZpjFZx8d
-	 Ij8aHM/KtUQP9+8EtYdWqQ9ZWVGZuIu+dZddsgkZAfyCkLrnPxYd4bL2CJQemOGne6HIU
-	 7SYZEqEJJMMQMLMCe/yOs5kaD7KOyaHcLeoFwC2aKLNVKW0UH4rnZ95kCqGsBL2iuekcn
-	 IaVFGGAQFKEL73rsW16G4dN7oGOl3hXVYyGnFyV5mDU4X/V5jRa3lnSQDuvd+ojBEJA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795623179;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ydAVlbiT7HtdBwFmKZLj3/SdTDt++MO23OROKjnc3CI=;
-	b=cYS0DCHweuDIIeBvBSn9lYK/EPa9jkArTnRoOENB219XGAgy80mywD2yiAfW6nmtN1PX
-	 vUWivvd1gXPH7PhY1EAeIMM1g7IjyzauDl0Pi7YP6FtHj14SM1Xx+/Tbl/Kgv6F+2kNJm
-	 DLhmr6PuVYYDltKUqWaRxDz2pP0r/roSc4cXPVcxQ/2UMQQyTJvS1i5ICkl7XoJ+6UhSs
-	 QF1sh8I81/seUxxH4Tct5NMlr9HWK1EsXCYiKnUPsP0VfyAKuUpxiy+0Mtw7HRxpGFyrv
-	 RUkkvPrAoCW0egP63sZFTfRaokF/LwmKAi4F0NQv8Q5I5G+nWGPqHcT7GZU5yKPqEqw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.180.195.6
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795623233;
+	b=cK8JjdG04G3SxoV2avxmxr1dbeSCM8RxwQFQfJ5ctPwcLbTegI8Z2bSa5ZKPnzZELWHR
+	 pp8K5d5oSSASG2LoyxqQyr4Yo7LLfakOyUaNzRRz63whEFc81uknXbe0Z/KtQLbgq/tLq
+	 VwfPQupPc7BGNsfpCVmm9RhxbHkRy4EZdE1jhxt1EpC+UhjFcnmZKVIccr8UlxrEYfsJn
+	 UQcoJZXDHwLxuvUMCEhyHwcQH1V4iZpK2fQztfSXv2P8AcL2xzJcRayhGTROiOmeYmY8j
+	 mUlXHgZGsBrXfI+0/2YpkwbxL5d5uGjHvUSwVSarWGwnXj5c8SYKyEEGm+61B/og6ow==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795623233;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-Get-Message-Sender-Via:
+	 X-Authenticated-Sender:X-Source:X-Source-Args:X-Source-Dir;
+	bh=fKiB7MDV6K7Y+SUfBzfSXx7nhfpSuibLuHtz+aDsyHw=;
+	b=dPnfxwIXPYI6Au9XiwSy8o90ShJLuoXYbVgK2dXk40ZilWH9B29wXbCKnTh/iuXTum+v
+	 Sb17O0T7/sve6wlCcnECKVmK5NHSPO8KAejcVRlQVh143hmUCEZp0h7gNoWqSwJLav3Hm
+	 0ePo8eWGYS9DCIq6n9ZoepVhRWg0OfTSGmwbMdu/NMzbF4/swYqx/ArTj4reZLUo9Wg6f
+	 7FgweDhqqpFU+moAshGOGc0k13FHtDGqzfuwVWPBe3t6Y1eb65+0uC+Jh6a2GQ3jqRRxt
+	 xi47qwKtx3cSXydT6uyFm6lAuU7KU7bIyKKkbY3K1HuGM4KPqpZ5NJRBmjDjtWd+3Mw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mkio.de;
+	spf=pass smtp.mailfrom=mkio.de;
+	dkim=pass header.d=mkio.de header.i=@mkio.de header.a=rsa-sha256 header.s=default header.b=X7lHcZcK;
+	arc=none smtp.remote-ip=207.180.195.6
+Received: from mail-relay.contabo.net (mail-relay.contabo.net [207.180.195.6])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 49D111F00A36;
-	Wed, 25 Nov 2026 16:12:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795623179;
-	bh=ydAVlbiT7HtdBwFmKZLj3/SdTDt++MO23OROKjnc3CI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=dXdVOuYLYBUylootiJLTxBCIsViAmfYWrcVmPQs0yxeeTOyRaRk7dyCT3Sas0b55B
-	 uz+Ikm6O5VC9vNd5MUDBEQDDSmKtyru9Ep0r2iMDSCIY2Uv3u26SHaSDMHDCLGQLIU
-	 Q+bUy57cV6vBjcgHAaHCxZPD389dS56JNVFbpnL7AucrT+5o8axncd3MfAUuM1YHXt
-	 1Ry82ZwvWl8QQQXYN+UzURdrpuXtZ0YE59dSVSYwo/ZW6GEb4rMCN0SGGYnzpYeGXv
-	 Azw52+sXHjFzJ6ppsNf4LGYhOoCGhKIPnbY9l5g2BahSeeN76spsUSWIotv47Zb9IK
-	 7PfPhzhNy/UhQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id C43E54CF5F;
-	Wed, 25 Nov 2026 16:12:47 +0000 (UTC)
-From: Umer Uddin via B4 Relay <devnull+umer.uddin.mentallysanemainliners.org@kernel.org>
-Date: Wed, 25 Nov 2026 16:12:42 +0000
-Subject: [PATCH v3 2/2] arm64: dts: exynos: exynos7885-gta3xllte: Enable
- FuelGauge support
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D0C8606A31E;
+	Wed, 25 Nov 2026 16:13:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D0C8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mkio.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mkio.de
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=mkio.de header.i=@mkio.de header.a=rsa-sha256 header.s=default header.b=X7lHcZcK
+Received: from pxmg2.contabo.net (localhost.localdomain [127.0.0.1])
+	by mail-relay.contabo.net (Proxmox) with ESMTP id AECFD7C1861;
+	Wed, 25 Nov 2026 17:13:43 +0100 (CET)
+Received: from m2731.contabo.net (m2731.contabo.net [193.34.145.203])
+	by mail-relay.contabo.net (Proxmox) with ESMTPS id 594247C1854;
+	Wed, 25 Nov 2026 17:13:43 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mkio.de;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:
+	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=fKiB7MDV6K7Y+SUfBzfSXx7nhfpSuibLuHtz+aDsyHw=; b=X7lHcZcKEiNSISWcZYoOhSsVO0
+	1BayDYDIOUM5iuY9j29Ku95s6BgKPaddCh1IDxeKtiHjdE5MvIKjeABwRYiAcA07V3mNwbbsvaQOk
+	Az3NPJ+/z9bYPnWzXx6yZ99+moz1JZvJ1AnJVd5MvwwbvkHxfPUrtRlNyV+dVt58DrbLRitZBNzMo
+	9YAW4W1p+ux7cxoeD2wBc1Ud1YjahOf3zIwWxppLNlWsE9jyhZaYyzDGvqnestXwl2Np0Nhjk9yXM
+	ZthmN37PWbYrYz/oeP3CBFqEmj/obxjoKeaoO61X2NoxgKIksehCNi1qfWyY8kgPmCUjWwRDriIbu
+	YVhyiW4A==;
+Received: from ip-078-042-120-089.um17.pools.vodafone-ip.de ([78.42.120.89]:61715 helo=p14s.int.kistler.com)
+	by m2731.contabo.net with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <mk@mkio.de>)
+	id 1xWFct-00000005rgs-2UOI;
+	Wed, 25 Nov 2026 17:13:42 +0100
+From: Markus Klotzbuecher <mk@mkio.de>
+To: Mark Brown <broonie@kernel.org>
+Cc: linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	Sahaj Chaudhari <sahaj123.sc@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] spi: omap2-mcspi: lock the DMA request bit updates
+Date: Wed, 25 Nov 2026 17:13:40 +0100
+Message-ID: <20261125161340.1218564-1-mk@mkio.de>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,100 +79,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261125-gta3xllte-usb-battery-v3-2-2ef962bf5423@mentallysanemainliners.org>
-References: <20261125-gta3xllte-usb-battery-v3-0-2ef962bf5423@mentallysanemainliners.org>
-In-Reply-To: <20261125-gta3xllte-usb-battery-v3-0-2ef962bf5423@mentallysanemainliners.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Umer Uddin <umer.uddin@mentallysanemainliners.org>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Henri Ommer <henri@ommer.net>, David Virag <virag.david003@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795623167; l=1850;
- i=umer.uddin@mentallysanemainliners.org; s=20261109;
- h=from:subject:message-id;
- bh=1xi6TN0cxIIMdEWPE8CrGdgk4y/rnvekhNW2VzWmKzE=;
- b=Ng7NpeXzQis6U9eUxFGZh4M8hXp50VKddJ3WiOfFHPTupT8MCJ3QsyBkAe3EdtWqSdkJHGCvu
- xJ4XCytoJNYDWRiaQKnl4LFccNYDIGrAK+VgQqbs0pTn2kmIFCoSL/Y
-X-Developer-Key: i=umer.uddin@mentallysanemainliners.org; a=ed25519;
- pk=Hsgrt4A72CFTe27AI1AAWlnLsiQrlb4+T+cbrfWDhUA=
-X-Endpoint-Received: by B4 Relay for
- umer.uddin@mentallysanemainliners.org/20261109 with auth_id=1466
-X-Original-From: Umer Uddin <umer.uddin@mentallysanemainliners.org>
-Reply-To: umer.uddin@mentallysanemainliners.org
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - m2731.contabo.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - mkio.de
+X-Get-Message-Sender-Via: m2731.contabo.net: authenticated_id: mk@mkio.de
+X-Authenticated-Sender: m2731.contabo.net: mk@mkio.de
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 
-From: Umer Uddin <umer.uddin@mentallysanemainliners.org>
+omap2_mcspi_set_dma_req() does an unlocked read-modify-write of the
+cached CHCONF value to set or clear DMAR/DMAW. On full-duplex DMA
+transfers the RX and TX completion callbacks both call it to clear
+their own bit. The callbacks are invoked from the per-channel dmaengine
+tasklets, which can run concurrently on different CPUs. One of them
+can then write back a stale copy that still has the other's bit set.
 
-The Samsung Galaxy Tab A 10.1 (2019) has a S2MU005 Multi Function Device
-(MFD). It contains PMIC, FG and EXTCON. This commit enables the FG, to be
-used with a simple battery device to allow for battery percentages to be
-reported.
+DMAR or DMAW then stays set in the cached value and is written back by
+every later CHCONF update. With a stale DMAR, the next PIO transfer
+times out waiting for RXS and the next RX DMA completes early.
 
-Signed-off-by: Umer Uddin <umer.uddin@mentallysanemainliners.org>
+Protect the read-modify-write in omap2_mcspi_set_dma_req() with a
+spinlock. All other CHCONF updates run in the transfer thread while no
+DMA callback is pending, so only this helper needs the lock.
+
+Tested on a TI AM625 with linux-stable 6.18 PREEMPT_RT, a device on
+McSPI2 CS1 at 50 MHz and four spidev transfers per cycle, the larger
+ones via DMA. An instrumented kernel that flags stale DMAR/DMAW on PIO
+entry reported more than 720 stale bit events and DMA transfer errors
+in 15 minutes without this change, and none over an 11.5 hour soak
+with it.
+
+Fixes: 53741ed8f0a3 ("spi: omap2-mcspi: add DMA engine support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Markus Klotzbuecher <mk@mkio.de>
 ---
- .../arm64/boot/dts/exynos/exynos7885-gta3xllte.dts | 28 ++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+Tested on 6.18.y with commit c126e07bde21 ("spi: omap2-mcspi: handle
+DMA setup failures"); omap2_mcspi_set_dma_req() and the DMA callbacks
+are the same on spi for-next. Compile-tested on spi for-next.
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos7885-gta3xllte.dts b/arch/arm64/boot/dts/exynos/exynos7885-gta3xllte.dts
-index c71101ed0ba9..466ae0874880 100644
---- a/arch/arm64/boot/dts/exynos/exynos7885-gta3xllte.dts
-+++ b/arch/arm64/boot/dts/exynos/exynos7885-gta3xllte.dts
-@@ -22,6 +22,13 @@ aliases {
- 		serial2 = &serial_2;
- 	};
- 
-+	battery: battery {
-+		compatible = "simple-battery";
-+		charge-full-design-microamp-hours = <6000000>;
-+		voltage-min-design-microvolt = <3300000>;
-+		voltage-max-design-microvolt = <4350000>;
-+	};
-+
- 	chosen {
- 		ranges;
- 		#address-cells = <2>;
-@@ -86,6 +93,20 @@ cont_splash_mem: framebuffer@ec000000 {
- 	};
- };
- 
-+&i2c_0 {
-+	status = "okay";
-+
-+	fuel-gauge@3b {
-+		compatible = "samsung,s2mu005-fuel-gauge";
-+		reg = <0x3b>;
-+		interrupt-parent = <&gpa2>;
-+		interrupts = <4 IRQ_TYPE_EDGE_BOTH>;
-+		pinctrl-0 = <&fuel_irq>;
-+		pinctrl-names = "default";
-+		monitored-battery = <&battery>;
-+	};
-+};
-+
- &mmc_0 {
- 	bus-width = <8>;
- 	cap-mmc-highspeed;
-@@ -112,6 +133,13 @@ &oscclk {
- };
- 
- &pinctrl_alive {
-+	fuel_irq: fuel-irq-pins {
-+		samsung,pins = "gpa2-4";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
-+	};
-+
- 	key_power: key-power-pins {
- 		samsung,pins = "gpa1-7";
- 		samsung,pin-function = <EXYNOS_PIN_FUNC_F>;
+ drivers/spi/spi-omap2-mcspi.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
+diff --git a/drivers/spi/spi-omap2-mcspi.c b/drivers/spi/spi-omap2-mcspi.c
+index 061d50c65dfd..b1d3b8447d0b 100644
+--- a/drivers/spi/spi-omap2-mcspi.c
++++ b/drivers/spi/spi-omap2-mcspi.c
+@@ -118,6 +118,8 @@ struct omap2_mcspi_regs {
+ 
+ struct omap2_mcspi {
+ 	struct completion	txdone;
++	/* serializes the DMAR/DMAW read-modify-write of the cached chconf */
++	spinlock_t		chconf_lock;
+ 	struct spi_controller	*ctlr;
+ 	/* Virtual base address of the controller */
+ 	void __iomem		*base;
+@@ -205,8 +207,11 @@ static inline int mcspi_bytes_per_word(int word_len)
+ static void omap2_mcspi_set_dma_req(const struct spi_device *spi,
+ 		int is_read, int enable)
+ {
++	struct omap2_mcspi *mcspi = spi_controller_get_devdata(spi->controller);
++	unsigned long flags;
+ 	u32 l, rw;
+ 
++	spin_lock_irqsave(&mcspi->chconf_lock, flags);
+ 	l = mcspi_cached_chconf0(spi);
+ 
+ 	if (is_read) /* 1 is read, 0 write */
+@@ -220,6 +225,7 @@ static void omap2_mcspi_set_dma_req(const struct spi_device *spi,
+ 		l &= ~rw;
+ 
+ 	mcspi_write_chconf0(spi, l);
++	spin_unlock_irqrestore(&mcspi->chconf_lock, flags);
+ }
+ 
+ static void omap2_mcspi_set_enable(const struct spi_device *spi, int enable)
+@@ -1630,6 +1636,7 @@ static int omap2_mcspi_probe(struct platform_device *pdev)
+ 	mcspi->base += regs_offset;
+ 
+ 	mcspi->dev = &pdev->dev;
++	spin_lock_init(&mcspi->chconf_lock);
+ 
+ 	INIT_LIST_HEAD(&mcspi->ctx.cs);
+ 
+
+base-commit: 266ae6df1980a5a5c58735ae114ae62a2acad8db
 -- 
-2.56.1
+2.53.0
 
 
