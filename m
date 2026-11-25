@@ -1,112 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.144
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.153
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795578404;
-	b=rvpTBHl6eJcRviHw31Y77X39titfw7gbKPO7jMAtqGkpS979vLcgxMk2/3KOZlUSp5KW
-	 SFYoqw5te41e4UUk6CJuNprwUrfI7FRR05ea2H2KjT5YbMo19x/0dgDZ/CZG0ncUMzYMi
-	 57WCFPBvKgeFbMxDY1B7qZ5zlJE4gkbU0NsqlVlLAAD0YLr2rzAJm6sYPvMnM1nSt+Lii
-	 c68Vzurc0ST8coEHTObzG8q0MR5d2qj9hu4M2WlFSDV7syyM/OjPlQ3QmoJRNuNh1B5Uh
-	 /yFi7CbxZwuod3ELf+pIigDjnBMTP0votx2xOlzDgeDbd8F+Q1Oe3IZ6BKco8y2hECw==
+	t=1795578411;
+	b=vh0XacUZeC3TwadjtMSton5EoXsAlsRG8cSzwhxYMy3LneYnCTdALcLbFzZnw78w2yIA
+	 2l2g8ZvKqcO1CoUEMzVdpoIOJqcm94omxi5dRJmfSiHIVaiBv5owACKr6gA/Pi5lmHKu0
+	 1joXc50fotfUbbQ3i0OlUfP99amWiTOT6eV9kk+lzwXCWQ3QttdL+tW0q3CU2/tZjqo5P
+	 D5i8cuxVe7UdpSTsMT99+9Mcs0LSlDaldUgYN+oMdvYBmUo6T3cEXlkZSi0yXmkyZTwfg
+	 cd2cXjLmqFLoygvvzl5x1WZaMlaE0u8Agx0ePgZRs5Dzb67uOUmm12b4v3UyQDbIRNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795578404;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795578411;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
 	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
 	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
 	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:Reply-To:MIME-Version:Content-Transfer-Encoding;
-	bh=A+0PFuwkqqPencm2Jt4IcFZklnJtpqqJm/NUrmwEwvU=;
-	b=A10i78DxRu9GrEHGaEkqaj7BU0G37I/wU7ZqHh8TH2Ei7slNGkoi+LBJsms394yhZY+S
-	 2455jyFwDs7ajz3Gm+bOJrA/P5zLZCuvc5EjLELj2FFC953DFMx0IAIiO1+Or9ZqPL9Dq
-	 66q14Qk5YAFPJP0kXhiwyCHXzNzR7vVDnLz5uk9sbnxEL1JKrvMajrMiWHWqxPvsW+vKk
-	 AkCtrbwA9A0kNzJDdufsx7/TNjixgEFls2z0AyxBSfzq7EyFlhvMjAUfTZyPOGqRhvSbU
-	 En/+2AeTirV1/oD7gSaN5h08VsRJe9F1VJ1XwD2bvUuChGsUHUQA0dGiBgpsl5+5W+A==
+	bh=UBXcku4BANKUZbouEAZSdvrf1Tj7sDqkutD5xhyaTdU=;
+	b=MxCTkia3Kgxde9bGljUk6SD1Dh5+YEGh2bUoYV972sMrVMgLMdBJxh/MPDj2NLOVnATl
+	 IEHAxzys+hkJW8T4zyixYFp12kz8EwI4FlD0vA1UsOTyBN4OAbQxUcRXeWDg8AbMfSvoz
+	 JVfeq0odle+Z/WM+VD8ga05SYf/yheQNF/GNMiraGHv1gbeTeWO7gP9EA5cdVKCWFJrHa
+	 cckpKuUBD1N5ARXukHpcmj1Gl2KdOESBiA8WzF5e4QC7dUxYeJNJmJa+E3bZUv8bchaCR
+	 XpAAkuuCs3krT905WMfq77xUOvqh5rJtMO2E98dvvf2D6Nz6jxYlh9ngF4RNM9/hNKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=ownmail.net;
 	spf=pass smtp.mailfrom=ownmail.net;
-	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b="BtwNj/hh";
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=xP6G8+wN;
-	arc=none smtp.remote-ip=103.168.172.144
-Received: from fout-a1-smtp.messagingengine.com (fout-a1-smtp.messagingengine.com [103.168.172.144])
+	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=D3z9PhsR;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=OiBXUgTn;
+	arc=none smtp.remote-ip=103.168.172.153
+Received: from fhigh-a2-smtp.messagingengine.com (fhigh-a2-smtp.messagingengine.com [103.168.172.153])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3404606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:46:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3404606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13D9A606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:46:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13D9A606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=BtwNj/hh;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=xP6G8+wN
-Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
-	by mailfout.phl.internal (Postfix) with ESMTP id 183C4EC09FE
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:46:43 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-07.internal (MEProxy); Tue, 24 Nov 2026 22:46:43 -0500
+	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=D3z9PhsR;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=OiBXUgTn
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 3DAE41400319
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:46:50 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Tue, 24 Nov 2026 22:46:50 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
 	cc:cc:content-transfer-encoding:content-type:date:date:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:reply-to:subject:subject:to:to; s=fm3; t=1795578403;
-	 x=1795664803; bh=A+0PFuwkqqPencm2Jt4IcFZklnJtpqqJm/NUrmwEwvU=; b=
-	BtwNj/hh2MlaZjgdppKO3bdR55bK5HB/BK0JQQAE/lBAPGbJnL7/GWGAi5isu7k1
-	60uWwkYNTQsL4z2eyeFOPYdvD8pZZinpbziXSFchxNnr5S0QFPdhJbmrLvq64dl5
-	kH8XT2abW2rp4TxwCrioOljMA993AAtre8XTGUPwGxVYyJ2c64bpI0dqxoLr2oGj
-	agyrAmD+kwdT3vuPaksX32S5UIHu4XuZdS1EJ1Bb/FjqcLceyWTqvceihwmUvn09
-	AFdKBu0p9DlvATbxVn7Y5az+CpjCmbweD2y1g3G5svEfNzYKSTyOGcKjWP32e2Mv
-	1g+ktL0b3wqOhAgVDJ+oUQ==
+	:reply-to:reply-to:subject:subject:to:to; s=fm3; t=1795578410;
+	 x=1795664810; bh=UBXcku4BANKUZbouEAZSdvrf1Tj7sDqkutD5xhyaTdU=; b=
+	D3z9PhsRibw/jyqnbd/8dr8DJKN+MwbzBNR2DYz6yI7s6PJhWjN95ZMc3t9QevST
+	fgUANP+XeTEKYRHXXPV0Su+JQ3TA9nQpBm+Alij+YJ+O25ispInHAJNKVfon2iEp
+	ZATaQkZq5GtxckU/qeGHHSr4asGmVtJg33ofoQS3Dj7ynzVv2+5c2MRMbBq8wEtn
+	Auzu11LyMAOuFLpWtjdP3hEXLB15gAbnl0q9U13kCXGSmu/VZ6MndrYmYiF7ffsU
+	mg1EIl3dlSud2LyGPevtQnZOfOHFwvcx0maCU1QZA2jIuMB2QzIYUE7MG9e/SSCD
+	Wjk34Clz9rxVi1//dv9X8g==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1795578403; x=1795664803; bh=A
-	+0PFuwkqqPencm2Jt4IcFZklnJtpqqJm/NUrmwEwvU=; b=xP6G8+wN6Xxne3+cn
-	c4iTtUi8ToNZD8P3gAn6ygQXx2b5axXyBnwcYU91FeWbjx+N9OAZhUZQP83KJvzP
-	kyG8oH3D3nGpjayLDu4niwdf3GOY27qpZQ1IgxvF0WEtxHY9kMYL0JrdYyufCEeL
-	WBF4PobOonbZAbFfmid03wDwXIFzZIEcxqsowBi73jZChgM+Rryi5DINmrVptQ42
-	2lsCxSCUXSx9ly9vxEYnph1BzRXpihEM6Vq7413CooxDe+UyVU5RM3HyvCf9YOQU
-	K/ljCpYtbqC13X3VSzDlGe6qUOMAGbmssWIxsoegN2d7PAySxPZ2izLdnpUQzMDf
-	Cussg==
+	:x-me-sender:x-sasl-enc; s=fm3; t=1795578410; x=1795664810; bh=U
+	BXcku4BANKUZbouEAZSdvrf1Tj7sDqkutD5xhyaTdU=; b=OiBXUgTntQ5FeIDi9
+	n76km4wA9oBDeWcYm1cIGPkHZRGW6N6ApFlJU2BdUWqvjo8OgCB0lO3sluWhLIoy
+	TtE0XNZoD0Yhk4QvGAGlNdJ2VIpljleK6bLVpjGm2LbGV0H7W/kzQeCJN/IHNQJh
+	0Zo4VdEjUPkeXASS/Oyysy75ra0GQufJ+fMIW8cr9cifFziDc7Y5+oUQAP46QYpa
+	7oDLRqiKMq2lZwQ202e/fsftpMndRdE+BZtT2kV/gOX81z59XOqjNPYkp2YAsxrJ
+	K/eq7a91d5mkPQtPVotIekz+73IzxbRoUWt0Yz/JlAu1JWKBYgzMSrs3fv35+N+u
+	0j2Lw==
 X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
 	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
 	action=sign d=ownmail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795578403; d=ownmail.net;
+DKIM2-Signature: i=1; m=1; t=1795578410; d=ownmail.net;
 	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
 	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:HecjHO9tqfyeYA9PxLx14tYSynqbYpyd0dQItjV5t90J6iR
-	0meurDNkC5hwb0pqDscUuel8k+U8fSMKqEwigL/gSd2gaEqWH+Fx96xSoVtoTyEY
-	lJdkoZTZ6Z3/2xfPnZ8Mx0tN8o5/Gy+eka5x9dek+dEKZ+o+EwYXc3OEqBr5aB/O
-	ZyL3xKzyj4jrherKqSuS8gMAcxFux3UyDHD2/soFtXaTbUlsXa//oB2IqoL8g4nM
-	E6YouUQG8HeyBXISgJjJYrnONrvlzlNdCPdyyT7ADjFS/bHTQBFbKiWPcaBCQg6j
-	l16DYzkOhmceMlcMlHjNJilQv2tXpJVNIiRMYDg==;
+	s=fm3:rsa-sha256:tkotTl7PCvzZhkeSeONnfxlhTdlK5dyUg4xbRkHF5azKP+6
+	HHjEmHm2nUcscYz7J29vOVK9YtsJ5WW/5OeezhrLhhtR0u1THq1WzpafE9Sr3FQF
+	O+xz3Cibv4LQXg+gMsSPwYTZ9AXxVpD7H27/13Brqeyn2IMvA3lK20fh5fC000mD
+	2Nih17N1WuaOJ6lC5S7jbOAohBlqw54TOKkuB0P6U2sMNTPr/TB96QpEQVVTEXoO
+	iAeQrSZ9dPvfkOckM24RTTD/NDpRyZvaYKNl+ds7F74oAUoVVStJsKxjw7zkhNJ1
+	B9K3OpArdUdNhHipdCP4XhKmLvHbP3jMFAyPwqQ==;
 X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
 	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
 	action=mi-m=1; hc=12;
 	hn=cc,content-transfer-encoding,date,feedback-id,from,
 	in-reply-to,message-id,mime-version,references,reply-to,subject,
 	to;
-Message-Instance: m=1; h=sha256:kZWkqxM0YzamoA/klqsXonuHvTXNCZymcsHe+eOx7rk=:IKMx6k9vO6LY/IhFGyD2yzimZSa28WztvdL6DQli46E=;
-X-ME-Sender: <xms:IloGa-hz6kW1riDRZlWPsvc-VQjWm1N4YBntEIjvw0Mo02vzAsLErA>
-    <xme:IloGawccxSQHvD_nMo06BmODN1lzs8a_nf-UUWlO4mFqT5OIxmDzbwjCodrX_q-5o
-    5V_5MSExe7Q_cS12KVDZSY9JJZIT89zFrM61T2Ast0LstNsYw>
-X-ME-Received: <xmr:IloGaxdxRcwHnTL0mAv-Z4tL05J2K3-REyopkrUBw1sD7w3oDoZERnpnn0i0MTi6F-SlQMjXACI02GmbZ-Mik8lgQwYDG8U>
-X-ME-Proxy-Cause: dmFkZTFR427OSMpMhBUq2c/PRD6RmqRpXHsHavEQEoZib45veoj0ON4Fee0fFpAMf6IRZD
-    7ioshD0AaEWr7quPZ3VJk4MkgPxfK4VajmEfAasmF1N4QuQ1Nx4fAT27aU1zZmPYaReDqx
-    rfP5UHReFgze/pUM1YUaeJAgJLGWSi2iJU/qcqRk+B4M1TsPMqQDofdX/Jn7SjcVJvCtNm
-    zdB65WAuETFQQDYBDZIOHXvboBphMIm2vyy1TKs+e7zZqPSqTzzCVyEWo2arAfhj68hGFx
-    kBzHUYnaQIV/eTYhsd/MgvSt0+AvaXUSwYNCdWWq7bBlwHpxfTlmsOfayzrTTRF9w5P7Qw
-    0NrG9O0v3tN2Xh0lMTSQeVHonl1+7ZwSbnD4kBDyPus1/+yxGd1GZ3kB8GMxyV/4cErIle
-    ZSvxxtsz4HlnyRFV8QtlLpH6bnYTRYY2id+lW7mCK/x9tsrSygRQZzMy20mBpcV1/0m012
-    BXPkjFw7zOPv1qouh6iG6tKHz35wrCsIwR447EFWOQSvuPi5s6DlWdR7IuT+yK39NCkfJe
-    gqhWAQBh7kE9a0cUXRSMevkQjrjZ2edpU61U8BJnZO4kx07an5eRga1Y7oxeNY+IzPBwu5
-    0eiLDM5blqzLpgGYjKO6YufP2dkaKge+h8Sf+WESzTPkvq6Sx1xmxFfMEvdg
-X-ME-Proxy: <xmx:IloGa0XFvqrxgNVDGd015Fty-pLbT2PLvdU-j7nbSXVs-XOzEVvIbg>
-    <xmx:IloGa9fT40ZUJNjyybqJFCncEOsrJuyRtOQMiVTS55pn4rmNm2ViXw>
-    <xmx:IloGaw-l1M7Bwt1J0LcHtTwlQowJH4-5dtZooiz4GNXA5HuO7E4urw>
-    <xmx:IloGa0kQrSRv_h8fXYTzwhb_bJQ4TmEmjKPpJGipg1XX0veOcem-cg>
-    <xmx:I1oGayK2Z0ZpVC6kxKN0jjlgvtzO_hFMOQmnpJqhokI4p4rYqAAU0jDp>
+Message-Instance: m=1; h=sha256:qhXvgrzkw6Ruu030e3itkJdTYm3rUf3nAGH3FAeMnfA=:zA9GEHp1eIGnK4tGy8YN/9i+8sZXWBuy1Zpf109ei4Q=;
+X-ME-Sender: <xms:KloGa4dlKkVE_dG8XPuSoMuqSZJhxKE8LVXIwM8nhzTCzh9e7hE-Ew>
+    <xme:KloGa7rWp-acdw7zo7AC15Gf6Q1kR04aPLtlL2RLLlSePe7bgUfKxpDZUUsIYSTDp
+    69QBAvoAuxPKiqexoOAhEp6EwpvMkBmDdLqYicAjfPrTeuSwAg>
+X-ME-Received: <xmr:KloGa07Bj2QLpFy4Y5-S0MK4lM8NEImoSveoZT3EFD1RWFxywhwl4D81VdvGJrjfbHUZhe_CvCcfWvIys-t3sQMFRqeWqTQ>
+X-ME-Proxy-Cause: dmFkZTE4HtNMS82oETeKxjFsMonchsNmutSXRF8P4Wz/gL5NuR+PmnhI7BdBjNpxinbAbR
+    gE9fr8C0GNc0SnxE2B+IXDaaoddndfcEJfJtcWeI4ytNiRF08hWb9RlxFjA1qgM4oFyoJi
+    /AdIhJNfEVO0oVTJtQVCvv+X67aNRews2LQwnM5uAbOmmoGahsFhP1aXSbisfk+ds7cJJ0
+    OsFbDOPt7ZICh4tniydbOvMlt1+f+7jVXUCHPaOJHWPFgfTUvPivbmMoJSDdfil0VmV1q/
+    2QMjPNE1ltm0/CAvjxy3k0MqWfenoOEUWjyOM0HmgbohwH+N/2hScfzSSITnIBzePDS5Dt
+    vrEJcWcGcRscohUpQEDjaTWG/IdAvCa37ziXe2Z5To667kLN9lI4AOPPZ2QW3dS//toHMK
+    M1ZwFdOXHsGSc3ILp2vVgN6Zc0Rkf4su6sUUDh4gm4bljoZot9WVcaW8assVGalY3Mx5xy
+    RHBkQoEgztQZteoFdBmQqEVrNeySVqmG9iqsBHAETgtxlenWh/IjSSYwuGxEchmnvirT9m
+    Tt/iNJJmAWzf7iIRk8j9UUolVxg8xm0WEWqTdg1n+tStAFvodxq6NnaZH//ztqcokpBMB4
+    2B0N0duNgIhRcYVqYezcO16d6fUZznULSH+l2w9Kw44fr3YMz1HIVPJQFTsg
+X-ME-Proxy: <xmx:KloGa7BWKOvNskizRjLpWVYYlNQZm7-TmGn_etbYgKwDv7hDWDEZXA>
+    <xmx:KloGa2bgIGVo5fyO04sueOhVd-BUXqae89IPsFLbsR1u4kTPMf_tpA>
+    <xmx:KloGa_J37x2RkPpO7f2UopAcjHH2nIoO2FHLKG-EcfumSFjILyvCAg>
+    <xmx:KloGa_DM1C90JgLs3zpRQomBAnIcAS1pGlEaCn7QtFBRBiFnLyZ4tA>
+    <xmx:KloGaxi9rO0OvJP2zbbRNDcFR028vlWe-RrO3BaalUaHDKeMQKoKGh5m>
 Feedback-ID: i9d664b8f:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 22:46:37 -0500 (EST)
+ 24 Nov 2026 22:46:45 -0500 (EST)
 From: NeilBrown <neilb@ownmail.net>
 To: Alexander Viro <viro@zeniv.linux.org.uk>,
 	Christian Brauner <brauner@kernel.org>
@@ -125,9 +125,9 @@ Cc: David Howells <dhowells@redhat.com>,
 	linux-fsdevel@vger.kernel.org,
 	linux-um@lists.infradead.org,
 	linux-afs@lists.infradead.org
-Subject: [PATCH v3 06/11] afs: use d_duplicate()
-Date: Wed, 25 Nov 2026 14:16:44 +1100
-Message-ID: <20261125034543.4084039-7-neilb@ownmail.net>
+Subject: [PATCH v3 07/11] Revert "VFS: Add LOOKUP_SHARED flag."
+Date: Wed, 25 Nov 2026 14:16:45 +1100
+Message-ID: <20261125034543.4084039-8-neilb@ownmail.net>
 X-Mailer: git-send-email 2.50.0.107.gf914562f5916.dirty
 In-Reply-To: <20261125034543.4084039-1-neilb@ownmail.net>
 References: <20261125034543.4084039-1-neilb@ownmail.net>
@@ -145,46 +145,107 @@ Content-Transfer-Encoding: 8bit
 
 From: NeilBrown <neil@brown.name>
 
-To prepare for d_alloc_parallel() being permitted without a directory
-lock, use d_duplicate() when duplicating a dentry in order to perform a
-silly-rename.  This creates on in-lookup dentry which will contine to block
-concurrent lookups after the original dentry is silly-renamed, and until
-the final rename happens.
+This reverts commit cc47a1ba1983116ee7a720a79197eb5299ae5d31.
 
-As the resulting dentry is in-lookup, we need to call d_lookup_done()
-before d_put().
+It turns out that we need to make all ->lookup calls happen under shared
+lock *before* the places where I planned to use LOOKUP_SHARED.
+So LOOKUP_SHARED won't be needed.  Let's discard it.
 
 Signed-off-by: NeilBrown <neil@brown.name>
 ---
- fs/afs/dir.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ fs/namei.c            | 20 +++++++++-----------
+ include/linux/namei.h |  3 +--
+ 2 files changed, 10 insertions(+), 13 deletions(-)
 
-diff --git a/fs/afs/dir.c b/fs/afs/dir.c
-index 672bd83ff112..bc90b30d8b57 100644
---- a/fs/afs/dir.c
-+++ b/fs/afs/dir.c
-@@ -2060,7 +2060,10 @@ static void afs_rename_put(struct afs_operation *op)
- 	store_release_wake_up(&op->dentry->d_flags,
- 			      op->dentry->d_flags &~ DCACHE_BLOCKED);
- 	spin_unlock(&op->dentry->d_lock);
--	dput(op->rename.tmp);
-+	if (op->rename.tmp) {
-+		d_lookup_done(op->rename.tmp);
-+		dput(op->rename.tmp);
-+	}
+diff --git a/fs/namei.c b/fs/namei.c
+index 925aeb63bfa1..6d63a4c08495 100644
+--- a/fs/namei.c
++++ b/fs/namei.c
+@@ -1939,7 +1939,7 @@ static noinline struct dentry *lookup_slow(const struct qstr *name,
+ 	struct inode *inode = dir->d_inode;
+ 	struct dentry *res;
+ 	inode_lock_shared(inode);
+-	res = __lookup_slow(name, dir, flags | LOOKUP_SHARED);
++	res = __lookup_slow(name, dir, flags);
+ 	inode_unlock_shared(inode);
+ 	return res;
  }
+@@ -1953,7 +1953,7 @@ static struct dentry *lookup_slow_killable(const struct qstr *name,
  
- static const struct afs_operation_ops afs_rename_operation = {
-@@ -2190,8 +2193,7 @@ static int afs_rename(const struct mnt_idmap *idmap, struct inode *old_dir,
- 			if (d_count(new_dentry) > 2) {
- 				spin_unlock(&new_dentry->d_lock);
- 				/* copy the target dentry's name */
--				op->rename.tmp = d_alloc(new_dentry->d_parent,
--							 &new_dentry->d_name);
-+				op->rename.tmp = d_duplicate(new_dentry);
- 				if (!op->rename.tmp) {
- 					afs_op_nomem(op);
- 					goto error;
+ 	if (inode_lock_shared_killable(inode))
+ 		return ERR_PTR(-EINTR);
+-	res = __lookup_slow(name, dir, flags | LOOKUP_SHARED);
++	res = __lookup_slow(name, dir, flags);
+ 	inode_unlock_shared(inode);
+ 	return res;
+ }
+@@ -4446,14 +4446,12 @@ static struct dentry *lookup_open(struct nameidata *nd, struct file *file,
+ 	int error, create_error;
+ 	umode_t mode;
+ 	bool got_write;
+-	unsigned int shared_flag;
+ 
+ retry:
+ 	open_flag = op->open_flag;
+ 	got_write = false;
+ 	mode = op->mode;
+ 	create_error = 0;
+-	shared_flag = (open_flag & O_CREAT) ? 0 : LOOKUP_SHARED;
+ 
+ 	if (open_flag & (O_CREAT | O_TRUNC | O_WRONLY | O_RDWR)) {
+ 		got_write = !mnt_want_write(nd->path.mnt);
+@@ -4462,10 +4460,10 @@ static struct dentry *lookup_open(struct nameidata *nd, struct file *file,
+ 		 * a different error; we'll be dropping this one anyway.
+ 		 */
+ 	}
+-	if (shared_flag)
+-		inode_lock_shared(dir_inode);
+-	else
++	if (open_flag & O_CREAT)
+ 		inode_lock(dir_inode);
++	else
++		inode_lock_shared(dir_inode);
+ 
+ 	if (unlikely(IS_DEADDIR(dir_inode))) {
+ 		dentry = ERR_PTR(-ENOENT);
+@@ -4534,7 +4532,7 @@ static struct dentry *lookup_open(struct nameidata *nd, struct file *file,
+ 
+ 	if (d_in_lookup(dentry)) {
+ 		struct dentry *res = dir_inode->i_op->lookup(dir_inode, dentry,
+-							     nd->flags | shared_flag);
++							     nd->flags);
+ 		d_lookup_done(dentry);
+ 		if (unlikely(res)) {
+ 			if (IS_ERR(res)) {
+@@ -4582,10 +4580,10 @@ static struct dentry *lookup_open(struct nameidata *nd, struct file *file,
+ 		if (file->f_mode & FMODE_OPENED)
+ 			fsnotify_open(file);
+ 	}
+-	if (shared_flag)
+-		inode_unlock_shared(dir_inode);
+-	else
++	if ((open_flag & O_CREAT) || create_error)
+ 		inode_unlock(dir_inode);
++	else
++		inode_unlock_shared(dir_inode);
+ 
+ 	if (got_write)
+ 		mnt_drop_write(nd->path.mnt);
+diff --git a/include/linux/namei.h b/include/linux/namei.h
+index c4436e5c2ba6..da5b4ccca1b5 100644
+--- a/include/linux/namei.h
++++ b/include/linux/namei.h
+@@ -32,9 +32,8 @@ enum { MAX_NESTED_LINKS = 8 };
+ #define LOOKUP_CREATE		BIT(17)	/* ... in object creation */
+ #define LOOKUP_EXCL		BIT(18)	/* ... in target must not exist */
+ #define LOOKUP_RENAME_TARGET	BIT(19)	/* ... in destination of rename() */
+-#define LOOKUP_SHARED		BIT(20) /* Parent lock is held shared */
+ 
+-/* 3 spare bits for intent */
++/* 4 spare bits for intent */
+ 
+ /* Scoping flags for lookup. */
+ #define LOOKUP_NO_SYMLINKS	BIT(24) /* No symlink crossing. */
 -- 
 2.50.0.107.gf914562f5916.dirty
 
