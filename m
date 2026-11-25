@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629636;
-	b=5l3xMuwrhO/einihChA2v/AoqAH3oFGoedOYPpNrqasZQ0EIM/1Hj44XZ5EgAEhUzERq
-	 5GCjM3txePN5/hWRvkEnQrQ3hHzbnkwCNygM1zY8mE0kdI4cR1V+NiHtLsMt2bluUBoO4
-	 2ex0+IYCXIVPGdkEuv2D7/Nh1Oer2tM9c4lPi5J9F9LsiZsiW9KeuD6iHlGuXyQccMEjl
-	 PvOobpqkwJpRXMT/Lz2pRXoLw6Lyc0i2aKNwr7iwYxe8d6pRp6ZjjOkFkhpzaY9r71Sft
-	 XVkiC3VJ5IwwPs3Z+H7llOIUsHJ96tOs0V0A2R3MZOud5cdfjCjRrf/SOsz5zjG7Ctw==
+	t=1795629632;
+	b=aHIuNgvfEWsJd290KhgGKPiwJ6RjfTUYUoD/xktj5HnxDAQjmuirPUSKiwr9OvmzwvbZ
+	 Qx3/RGu7DG/2anljTIFq5/P5rF4j6YmWCCi787DUBAaPt64s+KNZ0HRRUTmWADsOkvqVg
+	 K1b9eLRTwDVhhbsVaTlWuy71IfUbFwpFGZ6FeGiqngQ1U3SR0lW2BrhJAiK79JnCsPw5d
+	 joSmJa4LHMTLyQH07xls40Gw5TAeusrJKW2ebMKu+xUXffB7HjDDmapRyHZzjL2AFHLBf
+	 n2bQ+ZrFCHvfLJv1kq5VovbswDlpfNbySmxXtGRBL9Cb+uunfb9JKcwhgtVY/S95rQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629636;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629632;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=3pm0NV4l/0E19QH1D7hyEXJVUZBwSAdff5s9WN+kmkw=;
-	b=CI11dnOwykMt8PA9V6ck5L+VnLQcOpwMC+YMv52OPeoAR859UyA0sK5nxEjdvbLEPnAG
-	 lpjLNWl40vIYZ7pVSkQmbFkeQVYLE1E3Q9xtpZy1u8/mTYXFyeaFbNRSN4T3Zbzcua0Ev
-	 Q6UCSzlIb+JCmNvOM8yJbN51wfiRE4b63d+dFX8Cql1pd67VCfwu/Q6/oPsjeyJjMKHwY
-	 Gk/iRGm2PV33CZXtxPVhcc2PTcPcVOus6o+DGgRRYLrMsxCKMJnUUw0RWDHy4Le1X9aNp
-	 a6hrW65s0nvHEfQ1J4vVFTAB5Ix/zG1YGjrF78+flZ7wHSYl90D//qWnAV3ruC+QL3g==
+	bh=04zPH8pKbZgStm3VZ5cSIvhJbVCbZaL1fubS+I8F7Z8=;
+	b=aN4EeYEKlZguRVmc/JVHQ32+ax76KC281Ea+edeujs8I2XLZXxKyaICXZo9HOE07satB
+	 qD3gxGb1ghKg0tFHT7fA8Ai0mXnnamUChFPDStWZ2Q1Ue+5MMDpNSuBRlt/yl4Axrt2OU
+	 8Xu5cnD8Tjk79ZfeVr1YwIwBVJy09KfCAJjfkZp5zMcn4v5VW9LgbhbcbYRkI9wdjcF+P
+	 5wUfvUM007uFFq7HiZh/RwNnmzYosqol7naB5imgnoeUzx2IWvXYKxN6kSn5VQYJfVWS2
+	 RumnyAS3OA+/en2CvgPv8xvU5kDq2LOFKp0Hgkvlc9AuIj4GfdI1mVryWrW2CFwobwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=dama.to;
 	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qBoKpS3Z;
-	arc=none smtp.remote-ip=209.85.215.174
-Received: from mail-pg1-f174.google.com (mail-pg1-f174.google.com [209.85.215.174])
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=hi9CsyCU;
+	arc=none smtp.remote-ip=209.85.216.47
+Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CA90606A687
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:00:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CA90606A687
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C9B3606A69D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:00:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C9B3606A69D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qBoKpS3Z
-Received: by mail-pg1-f174.google.com with SMTP id 41be03b00d2f7-cde827b7b95so1832326a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:00:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=hi9CsyCU
+Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b413997581so4782845a91.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:00:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795629636; x=1796234436; darn=vger.kernel.org;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795629632; x=1796234432; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=3pm0NV4l/0E19QH1D7hyEXJVUZBwSAdff5s9WN+kmkw=;
-        b=qBoKpS3ZZAB8952Iym+pb8+MiwHIZecNThqHFY21LgH06n26HX/kC9kPbvCPXaIFE/
-         WCgnQ7QIM3sXxomeD/2k6pk/fBFqYC6wH1584SXgaEGeXKmNHUtJZ4rpwWYjAROfU2uf
-         eTLLkE06V1Af6gyF4ZujBdukvmLgr0BdMh6ixf952Sjs4aMfxux7oVFBt6yOWb4ILTxT
-         /Bs9r17IDrmKZ38nrhrkmjkvBqXWIrLT3YcUCbLa1nwpu9jZCSrv2nmsGiOaKg87SjkG
-         i3wL1QXraLDm+Vf2MRO6y5sjJeU9KaMvVE/Ewnr0NaqPXFBMoraDCkFy53K8+WrWXNnn
-         DH3Q==
+        bh=04zPH8pKbZgStm3VZ5cSIvhJbVCbZaL1fubS+I8F7Z8=;
+        b=hi9CsyCUf/b/0VqLamSne6wspz7YbpnBm8Y1GiHDoxoAKD+Q+n68UBacSdCO/w40Lz
+         QKAJPb7pNp57A4kkRCkKzFkyZ6DYXM06miTxqwk5MlAeNooOB9ZmH1D6lva6j3+XYsCI
+         F1kWKTf/iOFRDShDnOINWpnaxlJh2ReLcgI7EqxyuR4W4cr/vzpIjibqysMZ04yz9Yw2
+         SAPY0jcsa8SR0bJKRoNuvrUr/dSscDoCupnTwbuDO30RnopBYjgsmpSFdhYtsAEF7Y86
+         lP8pxE/M9llm6kp9OOuA/TCba8nvEBxOZSSHQJSrmzxOGFhXSdC3tLsJGjW6nk5yS/KD
+         NKSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795629636; x=1796234436;
+        d=1e100.net; s=20260707; t=1795629632; x=1796234432;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3pm0NV4l/0E19QH1D7hyEXJVUZBwSAdff5s9WN+kmkw=;
-        b=tsVPpvAGRkpiPVXwEEiGDzCmxr/Esc9plNV8vEtGbLfQRhFzHXAB6nBRkWyJeUzIxA
-         eM7qPnd6/Nf5b7qAg1k8feO8ET7EXUfOLsKTnoiet7k1DDSgRBbXPlKL/4tAb15USDD7
-         9iGluwuQm7psAMqZtdhAy6FN8vbXGHJSPLXjq2vtGTGwr7jZWaDlfn5vp170/JGD1YCg
-         w6khM7gUZ4l39yoL1pKxvpYgrQk5UWd9A2O9tc1AeJOBaGBOXKV8hohhPG/xLAFKG/j6
-         4HtYnNn2+uEeVaFMFs7QCPvwbsNqA0+sroi3IxmlyZ6gvl9oYEp050wovhr8SpSzGydO
-         QMUg==
-X-Forwarded-Encrypted: i=1; AL+hErE2l7H05gZ86GrWoXk37Eod/87hCT0M9YTYTY8dCnajjEX6lyIOuQpx5MaW+EXcirxsnNr0fHZfZ0sOOUI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/pdYXipwAxLw2Jji41NbTEK3bezpbRXoza9og+SuWLDKQsMaMB
-	kEWFWjEzeQqCaN4g8MszGLyn0pnyuf2KJZmzfoUvipvsCO5eFF5LC4MopY9x7IcLJFs=
-X-Gm-Gg: AZFdTZfjlDEsYe+mbXG0nx/fA97Elr3pgy6mbf98ULKuqO6CgD2SPgiV93BHoV7l4Tf
-	BQx3oY2JRT9ZqY2G20k8S4iGYP6iggD+P8rL9Lz4p7eVJxtauXW2xcTOsLXBGvsg4F9rAsd8XXj
-	kA6/E3F8IQbMeVy/+C3C8OcOL8oNZFZtLTkLzhFbnsl8cTHwGim9bvwH9L3T0zTLlhseTFgumnB
-	vGWy+hCgpXiPtXzIHfNMkVBsEz98K13yfdTUXUgYgWyiz3f+ZdUXM75L1bOUgVzWu3zPm24TNJl
-	G7ItqxxXDy995G5dzd6+P65ijLARAm3s3hFeZ3mBfkP8z5bNpJyZ+zrCsG+NBRTb4tdF9wzyasV
-	BRBHkARSz0kUB0EymSe9CHFISziPrpD4p4DEa9pjz0egWW219Auj4Oom+TMd93kapyRiWTU+CrJ
-	Mow2DIU6uvqkuWKehF2Clo8h84vztMdzCV/m0bcY9OdIZ+uNwQqjZeuMyDipoHmcFcBQ+qwRt0p
-	LaTeBhN9s9p+rACdGCqU4uclyc2NAcJ0rt4ZTOI+WJ1gPlJzCJa+0c5j0szD5ylxZVGgWB5/dpz
-	q8T4WeZWBkrcAemVmYwiVaS7AxgHMv3zJtczCZlrnCui
-X-Received: by 2002:a05:6a20:6a04:b0:3fa:df2d:d3e2 with SMTP id adf61e73a8af0-4014c756bc9mr17912134637.16.1795629635828;
-        Wed, 25 Nov 2026 10:00:35 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:4a::])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e45756sm9446318b3a.27.2026.11.25.10.00.35
+        bh=04zPH8pKbZgStm3VZ5cSIvhJbVCbZaL1fubS+I8F7Z8=;
+        b=fXlgXgAGsAttvMI03MxzZ+1ebBJzx3bRk1SNP2/8EWJIWu1p2oiC65u54FCvOoIJ5O
+         OUPMxGsqgEUkQtLtxy2BFgm++OC7OMJfDf/Xj8bTbhCfC0DoRzB1hWsm076wlNKjFqmx
+         7PebllNVb/GvrJAiycslPKnM/ASeFRe9+HjrmSp5Sw1exWQjro49wby4YBc5qsq0yybC
+         nTnW7S2SdTyiuqat6y+0L2HBqOD4TPMLv/p2wvVRF6MyXfj2hPHz2r1xFoX5cvk/7PAQ
+         OCtvB6UOkmI8jH9jTgIkJEURpIzwNMwT4zxE8OtaJ9GkA3CjKlo4DnKltDQM6CeCC2UA
+         8mRg==
+X-Forwarded-Encrypted: i=1; AL+hErGRulVHskjZPUqccN9KK4U4lMH8WGNWxJa2A9d9rzujfZE1/bFukG9T4pvPNG+hkJOuYcESpGrNanUF4vI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+/N0PjmvRkK9T4i+xPN7nujB4c6sy+gR+218j5hn7JnyugSrTw
+	6mR6XIKrtxliAukKWotkbUMwPtSMTY1w0/GqbcmnpkqmYvIBjSNxwIW+Aj1WwrAZPro=
+X-Gm-Gg: AZFdTZcVZOJN+PnggKphlgbm34xy77ZYfZ1OiXPAnxYfJ+leyOFaxUJ0d3CmdJI2hRB
+	jGgIz/Y2lXiYDzObe0npilQOIrSkMyBkwigc4t9uO1AOFPVGOM16TR2+SaP58xFgLEkjqNKJXYE
+	RqE9Qiahp28/Smj0WsS8MdSblDPlfx7+p0swwnLK29iJEVmfaji65SQkclkaDiqMgal4jguMW+2
+	A9+imtubiedYFD5uqafc7LgYBVhXvqBu6rVb0HhoCbsQF19Lesx8XvDRAsnBXStFTqld0tcnw6l
+	1Kl6Ya7knN/ebuGWkJWuIz+COz66mNo0cojfrTIDVprWMDo2QWrpT0DcCBZIvHx82ZiJ5pYWs5Y
+	UwgM17us7pl/jgb5w+ALHts43cUbL4jVHE8ZEA5cPPvwloww3nEnFlWsCMjXOqXw8UU1z2BnVsv
+	RrQKg6mWMlTf05sr6UxrjG711891veuIpqDNgtauFyeQ552GuluL16v28MG2Jkvy+PyZcOvxTQV
+	y4iF2LH3iZYv5LJoiZ5RL8Iv8tGqySh5x5SADNGaheOIuSoQ10OejmEt/g8PZvuI0vtb1pgWKw0
+	NfNYJZD9IK9u2YE2XAv8k2ttXmWGVQoFyQRt4JEGFiU=
+X-Received: by 2002:a17:90b:3b86:b0:3b3:fe22:2739 with SMTP id 98e67ed59e1d1-3b41c9c34b5mr17223800a91.54.1795629631705;
+        Wed, 25 Nov 2026 10:00:31 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:54::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b792474sm13401830a91.3.2026.11.25.10.00.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 10:00:35 -0800 (PST)
+        Wed, 25 Nov 2026 10:00:31 -0800 (PST)
 From: Joe Damato <joe@dama.to>
 To: netdev@vger.kernel.org,
 	Tariq Toukan <tariqt@nvidia.com>,
@@ -93,9 +93,9 @@ Cc: edumazet@google.com,
 	mbloch@nvidia.com,
 	Joe Damato <joe@dama.to>,
 	linux-rdma@vger.kernel.org
-Subject: [PATCH net-next v3 5/5] net/mlx4: flush pending doorbell when dropping a TX skb
-Date: Wed, 25 Nov 2026 10:00:18 -0800
-Message-ID: <20261125180021.1804204-6-joe@dama.to>
+Subject: [PATCH net-next v3 3/5] net/mlx4: factor HW loopback DMAC into mlx4_en_set_loopback_dmac()
+Date: Wed, 25 Nov 2026 10:00:16 -0800
+Message-ID: <20261125180021.1804204-4-joe@dama.to>
 X-Mailer: git-send-email 2.53.1
 In-Reply-To: <20261125180021.1804204-1-joe@dama.to>
 References: <20261125180021.1804204-1-joe@dama.to>
@@ -110,56 +110,63 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-If mlx4_en_xmit drops an skb (for example because DMA mapping fails) and
-that skb happens to be the last one in the batch, the doorbell for the
-WQEs posted earlier in the batch isn't written.
+Extract the code which copies the destination MAC into the WQE for
+eSwitch loopback into a helper. This helper will be used by a follow-up
+series implementing software USO, so USO packets between functions on
+the same port are looped back too.
 
-The queue stays awake, though, so those WQEs are eventually announced to
-the HW after the next TX, but that depends on traffic and could induce
-latency.
-
-Avoid all of that by writing the pending doorbell in the drop path and
-clearing the flag.
-
-Suggested-by: Mark Bloch <mbloch@nvidia.com>
 Signed-off-by: Joe Damato <joe@dama.to>
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
 ---
-v3:
-  - Add mlx4_en_flush_pending_doorbell which clears the flag.
-  - Call it from mlx4_en_xmit (Mark).
-  - Dropped Daniel's Reviewed-by
-
- drivers/net/ethernet/mellanox/mlx4/en_tx.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ drivers/net/ethernet/mellanox/mlx4/en_tx.c | 28 ++++++++++++++--------
+ 1 file changed, 18 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/net/ethernet/mellanox/mlx4/en_tx.c b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
-index 8a43c86f815c..8fd1850ba756 100644
+index 1fb265a30a30..40dc4f6a7329 100644
 --- a/drivers/net/ethernet/mellanox/mlx4/en_tx.c
 +++ b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
-@@ -759,6 +759,14 @@ void mlx4_en_xmit_doorbell(struct mlx4_en_tx_ring *ring)
- 		  (__force u32)ring->doorbell_qpn, ring->doorbell_address);
+@@ -870,6 +870,23 @@ static __be32 mlx4_en_csum_flags(const struct sk_buff *skb)
+ 	return cpu_to_be32(MLX4_WQE_CTRL_IP_CSUM | MLX4_WQE_CTRL_TCP_UDP_CSUM);
  }
  
-+static void mlx4_en_flush_pending_doorbell(struct mlx4_en_tx_ring *ring)
++static void mlx4_en_set_loopback_dmac(const struct mlx4_en_priv *priv,
++				      struct mlx4_en_tx_desc *tx_desc,
++				      const struct sk_buff *skb)
 +{
-+	if (ring->doorbell_pending) {
-+		mlx4_en_xmit_doorbell(ring);
-+		ring->doorbell_pending = false;
-+	}
++	struct ethhdr *ethh;
++
++	if (!(priv->flags & MLX4_EN_FLAG_ENABLE_HW_LOOPBACK))
++		return;
++
++	/* Copy dst mac address to wqe. This allows loopback in eSwitch,
++	 * so that VFs and PF can communicate with each other
++	 */
++	ethh = (struct ethhdr *)skb->data;
++	tx_desc->ctrl.srcrb_flags16[0] = get_unaligned((__be16 *)ethh->h_dest);
++	tx_desc->ctrl.imm = get_unaligned((__be32 *)(ethh->h_dest + 2));
 +}
 +
- static void mlx4_en_tx_write_desc(struct mlx4_en_tx_ring *ring,
- 				  struct mlx4_en_tx_desc *tx_desc,
- 				  union mlx4_wqe_qpn_vlan qpn_vlan,
-@@ -1131,6 +1139,8 @@ netdev_tx_t mlx4_en_xmit(struct sk_buff *skb, struct net_device *dev)
+ static bool mlx4_en_prep_vlan(const struct sk_buff *skb,
+ 			      union mlx4_wqe_qpn_vlan *qpn_vlan)
+ {
+@@ -1007,16 +1024,7 @@ netdev_tx_t mlx4_en_xmit(struct sk_buff *skb, struct net_device *dev)
+ 		ring->tx_csum++;
+ 	}
  
- tx_drop_count:
- 	ring->tx_dropped++;
-+	/* an earlier skb in this batch may have deferred the doorbell */
-+	mlx4_en_flush_pending_doorbell(ring);
- tx_drop:
- 	dev_kfree_skb_any(skb);
- 	return NETDEV_TX_OK;
+-	if (priv->flags & MLX4_EN_FLAG_ENABLE_HW_LOOPBACK) {
+-		struct ethhdr *ethh;
+-
+-		/* Copy dst mac address to wqe. This allows loopback in eSwitch,
+-		 * so that VFs and PF can communicate with each other
+-		 */
+-		ethh = (struct ethhdr *)skb->data;
+-		tx_desc->ctrl.srcrb_flags16[0] = get_unaligned((__be16 *)ethh->h_dest);
+-		tx_desc->ctrl.imm = get_unaligned((__be32 *)(ethh->h_dest + 2));
+-	}
++	mlx4_en_set_loopback_dmac(priv, tx_desc, skb);
+ 
+ 	/* Handle LSO (TSO) packets */
+ 	if (lso_header_size) {
 -- 
 2.53.1-Meta
 
