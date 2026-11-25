@@ -1,52 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795585948;
-	b=hmSltlC4z9ONSYBBYaPsiUWQ5SZXvlIEDX93Nzi3a0WVKjmnOsBm+ZSW4NxFL0+tqUIW
-	 6Q6XsdfXEHpOGs3FZpMQH6u+nWLkbWrEKmgR2WRCdOlWbNoFWVc+K7IJzxncSnRCQRK4u
-	 7berGHByMu8I9cMChEeYVAYi4S4vjiqOVDjnSCMQ2YDa1FO4rMM9TznnByMh60hvDIciP
-	 3U0t0uCfOHa1kGygq9pVtgoFA2USU0AdF6uxtXbmuGeULAt79WK7KxqWN124d5umIKA35
-	 1BXEQ0gEnYNe58PQeuG+bFIF5yd1hAtv2+S6SN3hwBU2tlbn8WiQu2aK/SQgKTnfC5g==
+	t=1795586025;
+	b=sj63L+K2kmHp6UKV+oMnBnm0XBDx7nbWxDQfuEefHXbdwbTCGx7FdcxOC004Ab5QzRwv
+	 S7qVgW2vXbEWkh6wyDo0dEdlqTXoqrkqkYlpnVWjIJxfoxNZHLjy6obg1VMdvZaebrQH7
+	 stdjt9DTaqtWikrEzLWnMJ9iWp+jXUEypQZmGI1HPNr54aLQ8vEDZkGwUlzRTyQNU1Dx1
+	 qBYtudLHDnigptdcN5Hf/8V32gpsr9Pmu0QnW0XU3A8aVORr9d/vYN3ka1LWml2g3HWwS
+	 Crp0aPg1l2f3C1xOo5xf9Y/cU+3hQFtdobQTtjEF3oOesLtRUo7+uY0UNx3idZXQqOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795585948;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
-	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Z6my1A9thsaz4NgN0A+Y25Es9f9MoLUQc4I1HG/sa0U=;
-	b=lDiS0B4cdaA2mhQYim6gaYwwIys/R/+Kr4GzTti8A6n9f40EGsR7oDcBTHCQbd370FF1
-	 HMxv3H48MMNz3ErbEocpecGekDBtw97jHmfQvBTwWwsKqmmUiUvxrYzWBSnOtJGk//r3e
-	 9V02QW7lLU2vb5MZNjNa/yVBIgM7qMlQcndJyVtL7wtgmeWPuRZzbKO9e0z1s9Ys/cetw
-	 pJlllL0Lrohgm0okyqKwO7TXmbKOZJ1RS7JaTD4MN/YtzKUIh4OLDSSGghsU8MCoSa6VC
-	 V2mfuSuyX1v/LlXkykiCbDCeGMgJQqq/09vtafVauJEui4oxd4bPrCKLd2WSQcEU++A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795586025;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=iMgsgpEKznfx9E2tPu9EJE/6blmi3j8XUJFr/xHJgnU=;
+	b=udWUYnQucI3LCYEYEe/GeC7Nk7ylhGZz+Mmx/1K4eDiHQJBD7t3mEtsn2qU/wIt+cMSu
+	 FDPOGZhjAdD2FcsoqdAqCxrxrQLWuCQerD+z6RbNCK4sDGNReLxwmfhobqhhQfTBAwVDu
+	 rga0dhydzTK3CCvNV+X8v4qcPghaGF2e6zQY+zO+4jMrLXB6ukxC+NFnTMwvE65WRefdZ
+	 j9bvT5QGPwL6unom0zBt1BgmVpLtxlYlLRfS3/Chd8SWNWsrqEfkPoZHqRoUVpseCX2lY
+	 j/rHqo1FyjrlEVTyCKK7CA1fMrfWKLQ8tYqT3TU20YfXHaGhjTE40/ZZygYz8JXnZ+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=Pw3ye2kZ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eFVlaU4A;
+	arc=none smtp.remote-ip=209.85.210.181
+Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5578C606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:52:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30DD7606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:53:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30DD7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=Pw3ye2kZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BE301F000CF;
-	Wed, 25 Nov 2026 05:52:27 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eFVlaU4A
+Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8a07078200fso2781951b3a.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:53:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1795585947;
-	bh=Z6my1A9thsaz4NgN0A+Y25Es9f9MoLUQc4I1HG/sa0U=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Pw3ye2kZV0VPUuqmdYwTZhjfWjNP8XEKVK83FxVboLbzLH/Z5iZrFF7VBROqYUXz/
-	 NnIfymbGFzdaPl3YlJ4T9n2VA+MFbXGyJStmZHh0ALt0z3oZtegFCUNWwslf+vnism
-	 uEFKE0L3aytf08zD23K10rW/gKU9xvVYIqi2YqEE=
-Date: Tue, 24 Nov 2026 21:52:27 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Phillip Lougher <phillip@squashfs.org.uk>
-Cc: linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 00/23] Squashfs: fix a lot of AI issues and AI style
- issues
-Message-Id: <20261124215227.e23732bb6d1e30b8721099b7@linux-foundation.org>
-In-Reply-To: <20261125014737.347231-1-phillip@squashfs.org.uk>
-References: <20261125014737.347231-1-phillip@squashfs.org.uk>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+        d=gmail.com; s=20260707; t=1795586024; x=1796190824; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iMgsgpEKznfx9E2tPu9EJE/6blmi3j8XUJFr/xHJgnU=;
+        b=eFVlaU4AiELn0jQHySTu52yAagv9Y98gP99pMo0Bp5hXsbOCq1aHnPwOqZ84fOaWvE
+         bg/IFGrK8juukRO6U9HbapVs7osBZx/xLlrZ/pS26L40b8IywfwPpQLVmI/xcctN1TSv
+         6AicBNggBCCnDuvMpQbb1xPrm5TYWtEVVE72pmjdQUhHhWdaCdEZapXy4W1PWL7iXm6q
+         QuHFKpTzAvrCh8ZznEXd5mxk4bz1UDy1UEnSVwLFDmYsnvItpL+IMBAeobcif7eVois5
+         qyNESM18ITf3rIjG6PhJq0D7jwxo96eqiPiAdAOUVeNxbdo+/L5EoP0oPyvnLtBqcZAX
+         RWFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795586024; x=1796190824;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iMgsgpEKznfx9E2tPu9EJE/6blmi3j8XUJFr/xHJgnU=;
+        b=bjtodTBeszPBxUrazN/9+gdN/p5LV60UkxyPrVjYlUNgC+ZViLFH0nOSLsxTc2Z/Od
+         KOXWeByTBiBx1z0UF5/pBcl5B6yQB+ulZ81Wk2pJNOFT8yn8SBo0WUHfiFIbIHK7k1B+
+         u7nEfpYOLkaxwKYWLNSPTf+ZERhK59jH6bvJIjAvLrBqYrRSY20tJX7HHXhH+TUnp3zN
+         rkItGROcReDiBLt/x119nNFTZU1Lyk95CZ3CA1zOSrsBKgDSF8Pj/Dw+H4/DJxc1dILT
+         pmb+jHhRQEdhtihs/4Dtk/m9uoOKFBmNdPr8X5QO1R9UYgklsFk2xbLH5aXVj8yiRUVh
+         0lyQ==
+X-Forwarded-Encrypted: i=1; AL+hErHOmlJbMVNOvxNNgT9RP1XsorMvW88dN4vVw+AjYdMyyId+YgR+wQR2ZzYFwSOEwIoKV0jsYacSk4NqLxo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z80LM2REdwE5s89khMApcYZNU/rR4bXj274xtbLzAXCM87vjNiY
+	ystD6/K1EP+1abPCRuQdb4vMvlOTJn0W72nOlY948aqT4ioufeQ0wF9t
+X-Gm-Gg: AZFdTZecfltApzD6koYSJIC+UFkzLmDsrnjpL6pW1hBodL6oTYtMZ58+pFpn9kADlA7
+	9p25Uqpa5xjgl4yRkVlk0+xsbuoW/rmV7gMO6JJF9HtoJoyg3DkqNcjCLf1ToUoGeyvcZMOPRsB
+	9ivygB4yEJRyv0pPjd54kHo/ABNSnRzR65qmmGrEH7Q/cPwDLLUj9yh5utMDhUQZsFi3TccgzxE
+	Allr5S39gRbDCXwWBQPfJ3mMR+Jh7ZmR/JKUsuHWuanWFImdIlzxgfd+D9JaM5N/9T/P0ivwH+g
+	LmJ6kC3T4zgBAjbFZl0BddhHy6OoiT/OOH3RZV0uS3oSxOpR8G5WWCEpP6WCBxIJ1nvnPAP9xt9
+	+Eg8ntXAuDpsNL7hvsshM7Uy30qZ5AsYfvQfHyW6iyvZwBXVkXQgfG64YQxPrn33mAxtaNXKSVL
+	Agxs9XtSMlSKL6OSnkhVpfQR9sl3hfF51heB/0cnwoMPyQGe3mOHDmqXXdxPah2cE0l2cVe/5jN
+	paQqz/EkfwBqcRpPbIriOQw/XWYNJlDE40ztigjOUhhlxklSzdadB3qfRr+jgW2YJ/jvmlczUgz
+	WTB7AEzcRhdn4wTA1X4kIhQCNUMjwCNAN4GVaupr1FMR+c+eszafmotfNNyiGFcnpo/xyaonh23
+	m
+X-Received: by 2002:a05:6a00:2996:b0:89a:19ae:10e7 with SMTP id d2e1a72fcca58-8c87cf29209mr13734304b3a.42.1795586024370;
+        Tue, 24 Nov 2026 21:53:44 -0800 (PST)
+Received: from li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com ([122.161.51.99])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285ccf4sm7958930b3a.12.2026.11.24.21.53.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 21:53:44 -0800 (PST)
+Date: Wed, 25 Nov 2026 11:23:38 +0530
+From: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
+To: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
+Cc: linuxppc-dev@lists.ozlabs.org, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>, 
+	linux-kernel@vger.kernel.org, chleroy@kernel.org, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, stable@vger.kernel.org
+Subject: Re: [PATCHv3 3/4] powerpc/kvm-hv-pmu: Don't allocate gsm/gsb
+ GFP_KERNEL allocations under spinlock
+Message-ID: <awZ31TppgNv1uBuW@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
+References: <cover.1795441238.git.ritesh.list@gmail.com>
+ <52381792ff2e208f213cf250d5122a1ab367de20.1795441238.git.ritesh.list@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,245 +100,137 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <52381792ff2e208f213cf250d5122a1ab367de20.1795441238.git.ritesh.list@gmail.com>
 
-On Wed, 25 Nov 2026 01:47:14 +0000 Phillip Lougher <phillip@squashfs.org.uk> wrote:
-
-> Note: this is an intermediary patch-set, and not the final patch-set.
-> It is intended to see if the issues Sashiko AI reported on the V3 patch-
-> set have been dealt with in a way that stops the AI from complaining.
+On Mon, Nov 23, 2026 at 07:21:52PM +0530, Ritesh Harjani (IBM) wrote:
+> kvmppc_init_hostwide() takes lock_l0_stats with spin_lock_irqsave() and
+> then allocates the guest state message and buffer with GFP_KERNEL. On
+> a nested API v2 host with DEBUG_ATOMIC_SLEEP this warns at boot:
 > 
-> If that has been achieved then the next step will be to deal wih
-> additional issues raised by other AIs, and which could cause Sashiko to
-> start complaining again.
+>   BUG: sleeping function called from invalid context at include/linux/sched/mm.h:322
+>   in_atomic(): 1, irqs_disabled(): 1, non_block: 0, pid: 1, name: swapper/0
+>   preempt_count: 1, expected: 0
+>   RCU nest depth: 0, expected: 0
+>   locks held by swapper/0/1: 1, on CPU#0:
+>    #0: c000000004ad95b8 (lock_l0_stats){....}-{3:3}, at: kvmppc_register_pmu+0x50/0x270
+>   CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 7.4.0-rc2-00028-ge5a8bf3a3ee9-dirty #124 PREEMPT
+>   Call Trace:
+>    dump_stack_lvl+0xe8/0x150 (unreliable)
+>    __might_resched+0x190/0x30c
+>    __kmalloc_cache_noprof+0x4dc/0x760
+>    kvmppc_gsm_new+0x68/0xcc
+>    kvmppc_register_pmu+0xd4/0x270
+>    do_one_initcall+0xac/0x48c
+>    kernel_init_freeable+0x3cc/0x7f0
+>    kernel_init+0x3c/0x274
+>    ret_from_kernel_user_thread+0x14/0x1c
 > 
-> This is not so much see androids fighting but see androids conflicting
-> which is much more boring.  Your understanding is appreciated.
->   
-> This large patch-set is inspired by the recent spate of AI generated
-> code reports.  Four of the patches directly fix AI reported issues, and
-> the rest have been found manually by a read-through and testing of the
-> code.
+> The lock is not needed for the allocation of gsm and gsb buffers.
+> Allocate and fill the message and buffer without the lock and only take
+> it to publish the two global pointers.
+> 
+> Fixes: f0c9c49c5067 ("powerpc/kvm-hv-pmu: Implement GSB message-ops for hostwide counters")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+> ---
+>  arch/powerpc/perf/kvm-hv-pmu.c | 65 ++++++++++++++++------------------
+>  1 file changed, 30 insertions(+), 35 deletions(-)
+> 
+> diff --git a/arch/powerpc/perf/kvm-hv-pmu.c b/arch/powerpc/perf/kvm-hv-pmu.c
+> index aa72b96b5a8c..a58634f656e9 100644
+> --- a/arch/powerpc/perf/kvm-hv-pmu.c
+> +++ b/arch/powerpc/perf/kvm-hv-pmu.c
+> @@ -314,53 +314,48 @@ static struct kvmppc_gs_msg_ops gsb_ops_l0_stats = {
+>  
+>  static int kvmppc_init_hostwide(void)
+>  {
+> -	int rc = 0;
+> +	struct kvmppc_gs_msg *gsm;
+> +	struct kvmppc_gs_buff *gsb;
+>  	unsigned long flags;
+> +	int rc;
+>  
+> -	spin_lock_irqsave(&lock_l0_stats, flags);
+> -
+> -	/* already registered ? */
+> -	if (gsm_l0_stats) {
+> -		rc = 0;
+> -		goto out;
+> -	}
+> -
+> -	/* setup the Guest state message/buffer to talk to L0 */
+> -	gsm_l0_stats = kvmppc_gsm_new(&gsb_ops_l0_stats, &l0_stats,
+> -				      GSM_SEND, GFP_KERNEL);
+> -	if (!gsm_l0_stats) {
+> -		rc = -ENOMEM;
+> -		goto out;
+> -	}
+> +	/* allocate the Guest state message/buffer to talk to L0 */
+> +	gsm = kvmppc_gsm_new(&gsb_ops_l0_stats, &l0_stats, GSM_SEND,
+> +			     GFP_KERNEL);
+> +	if (!gsm)
+> +		return -ENOMEM;
+>  
+>  	/* Populate the Idents */
+> -	kvmppc_gsm_include(gsm_l0_stats, KVMPPC_GSID_L0_GUEST_HEAP);
+> -	kvmppc_gsm_include(gsm_l0_stats, KVMPPC_GSID_L0_GUEST_HEAP_MAX);
+> -	kvmppc_gsm_include(gsm_l0_stats, KVMPPC_GSID_L0_GUEST_PGTABLE_SIZE);
+> -	kvmppc_gsm_include(gsm_l0_stats, KVMPPC_GSID_L0_GUEST_PGTABLE_SIZE_MAX);
+> -	kvmppc_gsm_include(gsm_l0_stats, KVMPPC_GSID_L0_GUEST_PGTABLE_RECLAIM);
+> +	kvmppc_gsm_include(gsm, KVMPPC_GSID_L0_GUEST_HEAP);
+> +	kvmppc_gsm_include(gsm, KVMPPC_GSID_L0_GUEST_HEAP_MAX);
+> +	kvmppc_gsm_include(gsm, KVMPPC_GSID_L0_GUEST_PGTABLE_SIZE);
+> +	kvmppc_gsm_include(gsm, KVMPPC_GSID_L0_GUEST_PGTABLE_SIZE_MAX);
+> +	kvmppc_gsm_include(gsm, KVMPPC_GSID_L0_GUEST_PGTABLE_RECLAIM);
+>  
+>  	/* allocate GSB. Guest/Vcpu Id is ignored */
+> -	gsb_l0_stats = kvmppc_gsb_new(kvmppc_gsm_size(gsm_l0_stats), 0, 0,
+> -				      GFP_KERNEL);
+> -	if (!gsb_l0_stats) {
+> +	gsb = kvmppc_gsb_new(kvmppc_gsm_size(gsm), 0, 0, GFP_KERNEL);
+> +	if (!gsb) {
+>  		rc = -ENOMEM;
+> -		goto out;
+> +		goto free_gsm;
+>  	}
+>  
+>  	/* ask the ops to fill in the info */
+> -	rc = kvmppc_gsm_fill_info(gsm_l0_stats, gsb_l0_stats);
+> +	rc = kvmppc_gsm_fill_info(gsm, gsb);
+> +	if (rc)
+> +		goto free_gsb;
+>  
+> -out:
+> -	if (rc) {
+> -		if (gsm_l0_stats)
+> -			kvmppc_gsm_free(gsm_l0_stats);
+> -		if (gsb_l0_stats)
+> -			kvmppc_gsb_free(gsb_l0_stats);
+> -		gsm_l0_stats = NULL;
+> -		gsb_l0_stats = NULL;
+> -	}
+> +	/* setup the Guest state message/buffer to talk to L0 */
+> +	spin_lock_irqsave(&lock_l0_stats, flags);
+> +	gsm_l0_stats = gsm;
+> +	gsb_l0_stats = gsb;
+>  	spin_unlock_irqrestore(&lock_l0_stats, flags);
+> +
+> +	return 0;
+> +
+> +free_gsb:
+> +	kvmppc_gsb_free(gsb);
+> +free_gsm:
+> +	kvmppc_gsm_free(gsm);
+>  	return rc;
+>  }
+>  
+> -- 
+> 2.39.5
+> 
 
-Yeah, that's fair enough.  It sucks that the only way to get Sashiko
-review is to cc a mailing list.  But it's for good reasons - Sashiko is
-already costing Google a ton of money and permitting people to use it
-privately would permit all sorts of abuse.
+LGTM
 
-I've suggested ways to get around this, such as "if sender has N
-commits in the past M time then permit private review" but that idea
-hasn't gone anywhere,
-
-So the unhappy compromise is for Author to conduct their private
-conversation with Sashiko while the rest of us are spectators. 
-Fortunately nobody reads linux-kernel any more ;)
-
-
-Thanks, I've updated mm.git's mm-nonmm-unstable branch (and hence
-linux-next) to this version.
-
-
-Here's how v4 altered mm.git:
-
-
-
- fs/squashfs/dir.c           |   18 +++++++++---------
- fs/squashfs/file.c          |    8 +++-----
- fs/squashfs/inode.c         |    8 ++++++++
- fs/squashfs/namei.c         |   15 ++++++++-------
- fs/squashfs/squashfs_fs.h   |    3 +++
- fs/squashfs/squashfs_fs_i.h |    1 +
- 6 files changed, 32 insertions(+), 21 deletions(-)
-
---- a/fs/squashfs/dir.c~b
-+++ a/fs/squashfs/dir.c
-@@ -79,10 +79,11 @@ static unsigned int get_dir_index_using_
- 
- 		/* Sanity check the directory index contents */
- 
--		/* size should never be larger than SQUASHFS_NAME_LEN */
--		size = le32_to_cpu(dir_index.size) + 1;
--		if (size > SQUASHFS_NAME_LEN)
-+		/* size should never be larger than SQUASHFS_DISK_NAME_LEN */
-+		size = le32_to_cpu(dir_index.size);
-+		if (size > SQUASHFS_DISK_NAME_LEN)
- 			break;
-+		++ size;
- 
- 		/* The stored index should not be larger than max_index */
- 		index = le32_to_cpu(dir_index.index);
-@@ -226,13 +227,13 @@ static int squashfs_readdir(struct file
- 				goto failed_read;
- 
- 			length += sizeof(*dire);
--			size = le16_to_cpu(dire->size) + 1;
-+			size = le16_to_cpu(dire->size);
- 
--			/* size should never be larger than SQUASHFS_NAME_LEN */
--			if (size > SQUASHFS_NAME_LEN)
-+			/* size should never be larger than SQUASHFS_DISK_NAME_LEN */
-+			if (size > SQUASHFS_DISK_NAME_LEN)
- 				goto failed_read;
- 
--			if (!squashfs_dir_space(inode, length, size))
-+			if (!squashfs_dir_space(inode, length, ++ size))
- 				goto failed_read;
- 
- 			err = squashfs_read_metadata(inode->i_sb, dire->name,
-@@ -262,9 +263,8 @@ static int squashfs_readdir(struct file
- 		}
- 	}
- 
--	kfree(dire);
--
- finish:
-+	kfree(dire);
- 	return 0;
- 
- failed_read:
---- a/fs/squashfs/file.c~b
-+++ a/fs/squashfs/file.c
-@@ -492,8 +492,7 @@ static int squashfs_read_folio(struct fi
- 					PAGE_SHIFT))
- 		goto out;
- 
--	if (index < file_end || squashfs_i(inode)->fragment_block ==
--					SQUASHFS_INVALID_BLK) {
-+	if (index < file_end || !squashfs_i(inode)->has_fragment) {
- 		u64 block = 0;
- 
- 		res = read_blocklist(inode, index, &block);
-@@ -633,7 +632,7 @@ static void squashfs_readahead(struct re
- 			goto skip_pages;
- 
- 		if (start >> msblk->block_log == file_end &&
--				squashfs_i(inode)->fragment_block != SQUASHFS_INVALID_BLK) {
-+				squashfs_i(inode)->has_fragment) {
- 			res = squashfs_readahead_fragment(inode, pages,
- 					nr_pages, expected, start);
- 			if (res)
-@@ -707,8 +706,7 @@ static loff_t seek_hole_data(struct file
- 		return -ENXIO;
- 
- 	/* is offset within tailend and is tailend packed into a fragment? */
--	if (index + 1 == file_end &&
--			squashfs_i(inode)->fragment_block != SQUASHFS_INVALID_BLK) {
-+	if (index + 1 == file_end && squashfs_i(inode)->has_fragment) {
- 		if (whence == SEEK_DATA)
- 			return offset;
- 
---- a/fs/squashfs/inode.c~b
-+++ a/fs/squashfs/inode.c
-@@ -136,6 +136,7 @@ int squashfs_read_inode(struct inode *in
- 	type = le16_to_cpu(sqshb_ino->inode_type);
- 	switch (type) {
- 	case SQUASHFS_REG_TYPE: {
-+		char has_fragment;
- 		unsigned int frag_offset, frag;
- 		int frag_size;
- 		u64 frag_blk;
-@@ -161,7 +162,9 @@ int squashfs_read_inode(struct inode *in
- 			err = squashfs_frag_lookup(sb, frag, &frag_blk, &frag_size);
- 			if (err < 0)
- 				goto failed_read;
-+			has_fragment = true;
- 		} else {
-+			has_fragment = false;
- 			frag_blk = SQUASHFS_INVALID_BLK;
- 			frag_size = 0;
- 			frag_offset = 0;
-@@ -171,6 +174,7 @@ int squashfs_read_inode(struct inode *in
- 		inode->i_fop = &squashfs_file_operations;
- 		inode->i_mode |= S_IFREG;
- 		inode->i_blocks = ((inode->i_size - 1) >> 9) + 1;
-+		squashfs_i(inode)->has_fragment = has_fragment;
- 		squashfs_i(inode)->fragment_block = frag_blk;
- 		squashfs_i(inode)->fragment_size = frag_size;
- 		squashfs_i(inode)->fragment_offset = frag_offset;
-@@ -187,6 +191,7 @@ int squashfs_read_inode(struct inode *in
- 		break;
- 	}
- 	case SQUASHFS_LREG_TYPE: {
-+		char has_fragment;
- 		unsigned int frag_offset, frag;
- 		int frag_size;
- 		u64 frag_blk;
-@@ -216,7 +221,9 @@ int squashfs_read_inode(struct inode *in
- 			err = squashfs_frag_lookup(sb, frag, &frag_blk, &frag_size);
- 			if (err < 0)
- 				goto failed_read;
-+			has_fragment = true;
- 		} else {
-+			has_fragment = false;
- 			frag_blk = SQUASHFS_INVALID_BLK;
- 			frag_size = 0;
- 			frag_offset = 0;
-@@ -230,6 +237,7 @@ int squashfs_read_inode(struct inode *in
- 		inode->i_blocks = (inode->i_size -
- 				le64_to_cpu(sqsh_ino->sparse) + 511) >> 9;
- 
-+		squashfs_i(inode)->has_fragment = has_fragment;
- 		squashfs_i(inode)->fragment_block = frag_blk;
- 		squashfs_i(inode)->fragment_size = frag_size;
- 		squashfs_i(inode)->fragment_offset = frag_offset;
---- a/fs/squashfs/namei.c~b
-+++ a/fs/squashfs/namei.c
-@@ -108,10 +108,11 @@ static unsigned int get_dir_index_using_
- 
- 		/* Sanity check the directory index contents */
- 
--		/* size should never be larger than SQUASHFS_NAME_LEN */
--		size = le32_to_cpu(dir_index->size) + 1;
--		if (size > SQUASHFS_NAME_LEN)
-+		/* size should never be larger than SQUASHFS_DISK_NAME_LEN */
-+		size = le32_to_cpu(dir_index->size);
-+		if (size > SQUASHFS_DISK_NAME_LEN)
- 			break;
-+		++ size;
- 
- 		/* The stored index should not be larger than max_index */
- 		index = le32_to_cpu(dir_index->index);
-@@ -236,13 +237,13 @@ static struct dentry *squashfs_lookup(st
- 				goto read_failure;
- 
- 			length += sizeof(*dire);
--			size = le16_to_cpu(dire->size) + 1;
-+			size = le16_to_cpu(dire->size);
- 
--			/* size should never be larger than SQUASHFS_NAME_LEN */
--			if (size > SQUASHFS_NAME_LEN)
-+			/* size should never be larger than SQUASHFS_DISK_NAME_LEN */
-+			if (size > SQUASHFS_DISK_NAME_LEN)
- 				goto data_error;
- 
--			if (!squashfs_dir_space(dir, length, size))
-+			if (!squashfs_dir_space(dir, length, ++ size))
- 				goto data_error;
- 
- 			err = squashfs_read_metadata(dir->i_sb, dire->name,
---- a/fs/squashfs/squashfs_fs.h~b
-+++ a/fs/squashfs/squashfs_fs.h
-@@ -32,6 +32,9 @@
- /* Max length of filename (not 255) */
- #define SQUASHFS_NAME_LEN		256
- 
-+/* Max on-disk length of filename */
-+#define SQUASHFS_DISK_NAME_LEN		255
-+
- /* Max value for directory header count*/
- #define SQUASHFS_DIR_COUNT		256
- 
---- a/fs/squashfs/squashfs_fs_i.h~b
-+++ a/fs/squashfs/squashfs_fs_i.h
-@@ -17,6 +17,7 @@ struct squashfs_inode_info {
- 	unsigned int	xattr_size;
- 	unsigned int	xattr_count;
- 	int		parent;
-+	bool		has_fragment;
- 	union {
- 		struct {
- 			u64		fragment_block;
-_
-
+Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
