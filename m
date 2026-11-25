@@ -1,81 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795630498;
-	b=LZ2Qw9tA4FXhjB+5w9BQnFWUJq48T0nKfRUw09umYT0imblPWnD81tl8J2kEd5YYXbyr
-	 /KrK2taRUTjRxebMNlcqniGtMzhfVrQLNYg1sBTbFs4LGJIGEzJD5R1GTkkI+6teMZ42v
-	 OBtFf1PSp/GMyLepkcwuOJ4ZAyq07mZnXv14hYaM5XVuNZIJHwtr8NtLL/l28g5zmcyPp
-	 8XvlkNmqTydoSfuOmbu8e7VfK+k8hLB3Bsxi3mLAOvCcPAjBJAaKIoCZPgakOxUNQ6BHp
-	 mfZALjH5Mrgy35CNCVB4TsG++haMOIO/q3GpCxd/B8SW4inghHux3ezDelDQK5oWNVw==
+	t=1795630500;
+	b=SbRQ/EzVCklQop9voHpcne6jsiEiGn+r4IoZs+jcBvhIGbpkYeR6SnV9lHXL6acIDMFc
+	 UcFyS7pPbrXxZ08yNOGw8ccwWcu7QxNS6Y93GzlMhh/dU4apoMaEziLxXPn8OSL+xSqd6
+	 BlbL9zweR25QRDh/xS0nkiQyoMqtrk2OhhMB2lh5AUoYmD40dqExOIiF3TP3D79nhLl4k
+	 M3Y7yj1acqHhWBZYu4v3MuTGehISrK5Fhq5N5FIohsWgl7hMgsmfur6XqPR8VhR9W8qCV
+	 iH7RTzb07PeYbd8T5Vld6kxLYA+MXtJ3Lkf7bRGqoHaKV9IVrpYxMeRW1swF3JiX/lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630498;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630500;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=YVuTcz49Q9b2+slht8YsCMlxCLCkOo7/QKC3OMQMooE=;
-	b=326c7BSYPHSs1Xj/20f+pNlFp2ENN5CCwWrpMv5ZWxP0vNkj7bv7r8wI+G19PQndUxT8
-	 8r2eA6KD7X8R9QBPe6LQ0J/WeU16MZUnfPp5T6Y2E9IQ35GWk1C5YYm6Btlz4bglDXatJ
-	 IJS3DSV7WdmIHfleAC8ZenxW4M2Glen7EbdqY0TjmfDhLB61dlyYmdr1CNrpABWKHZtVj
-	 k6IwPWxJnCsi6ujja78uONNx9K6bnYjHFJY4cF00+1EcMB4ykOIWrhHfnsBl5Lh7+dVcM
-	 dm5VZDsRpkN6gYdlpGKtR3QIyMiyXhcUeOjTKMs6sHdI3kgJTPmaL8bNqi985FYNTRg==
+	bh=OE74N/jLO5L8kW0rYYYkT2JMWRXZNqhc4Q6+JcXJFgw=;
+	b=oaSgMV/xX77XryTV3r2yIsJgGLk0k5aKa0MrsUoBbBBuy8wIZXySnoZsQ2cVcXd4hOfN
+	 MM2qWxsn7YhBzsYsOFT9FXY+rbKTPSIJ5Gxfz+cWRHoKHvshz7/XKDguxfDbV8x67QbvW
+	 rMGrL+09eovJ17GfOm1i9ucS7rpNms/JKpvE9WLxMgLsYw1+xGCB4eLWqkmemxDrQKj7t
+	 NhD79Z1pZoKhW6Cm78F3uXuwcjkKz9xv/XvH+WmZkwO+kzAvN2YH+7o2hmJ6ladF4KnaA
+	 OAG79LeJ4CIqvC0BCqKawgLa3I1/Tf8jbErdaRFsg/refew8y3f7ugJmvATBOgHxeZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qDOT7tOH;
-	arc=none smtp.remote-ip=209.85.128.180
-Received: from mail-yw1-f180.google.com (mail-yw1-f180.google.com [209.85.128.180])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RvJHwPc+;
+	arc=none smtp.remote-ip=209.85.128.172
+Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com [209.85.128.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E94B606A697
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09A05606A688
 	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:14:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E94B606A697
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09A05606A688
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qDOT7tOH
-Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-8b0d126f631so53922817b3.2
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RvJHwPc+
+Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-8b0d126f631so53922927b3.2
         for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:14:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795630496; x=1796235296; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795630497; x=1796235297; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=YVuTcz49Q9b2+slht8YsCMlxCLCkOo7/QKC3OMQMooE=;
-        b=qDOT7tOH0yEyKtTGHuPGtwNIe23KLKgYLOYamckSwZfDJrX6/t3m7FR+zwsEYBPXmz
-         nRHwaRyVVwXKQMhDYuFH7r+OO1n8yx1BhSW+HpDwMP9kq2x6qpsAkRVjeax73hi2zQhg
-         zwdXIiW/s3m5BKZSuvjtKS0oCt1W2wTIqVUqYJExyiGg8emOfDtorhZEq++vDln/r16W
-         CA9G5yG02X9zGcXwJpIfJHef/Xg9CrnmipqljW9KTsix0AIdWuHzyPivm8CMOCNxvFZ9
-         p7Pcx6uQp0oGuU1TIIqT/XoagYtWEkEwta1Bde2g0BmbJN5Ee99OGGeNgKs/E4aWzYoG
-         YEBg==
+        bh=OE74N/jLO5L8kW0rYYYkT2JMWRXZNqhc4Q6+JcXJFgw=;
+        b=RvJHwPc+GCKu0ylWVa983aWeTWX+6cXVnqfDIDTW3mNKE2Z97Ie6Q+FZzpa7hjz3eA
+         gbwHrgikeBeA+KFr3Nh+Km0vaQUPK0R8jz2uFMGL+ctLvwUPFoes44BmlO2wqRoI3SfU
+         yhw+IX+O9r1lZ1QHlu6LOdDgNoZ7d6FdOaDXCLw+RYhAL/UXLZzSUO9Cm45BCDs8hQuB
+         Uv9MlVJuE8dy4Rx4VoxuNjGnD8NQZp2I3x30xVDQQe+2is1e4dshgRqsLh0/jQeO5d7t
+         NNFkYietUWUQH0z0RfPbGl0FAKM+1Epp0ASe6AXhvYABmp7p5WG6doyGjDWZXU4HPqcF
+         X6xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795630496; x=1796235296;
+        d=1e100.net; s=20260707; t=1795630497; x=1796235297;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YVuTcz49Q9b2+slht8YsCMlxCLCkOo7/QKC3OMQMooE=;
-        b=iWBInCZu7g4Fnmsvn9LZV8gOKWxecDMQ2kv9oKD+eKV6kPrwP6R+eDqEvibCwlc/OV
-         VIsWQB9X9cMnMbaCq/ldtA6VlE31dObScXIneh56fRPirrDwxGqVoWzj/tog3YMS3ZSA
-         lBk/I7VqiJhEo78GivmZu60lM/AG7pLmJIKQUsBuBIQgCmvWFUJt10qPizgLMdiMQzM5
-         xJS1PwBpQ00EtfblQ7QYF4Zue+29GweZGA33SeaG3kFHCMLJj//7cZhW14LYg7him/W3
-         /e72AhuIYq31GlDmqOERUdOUmCIF1+/Gw5e31T6v35YZMVrxQVdMzU+lsVrBIcdS+hEf
-         9S0Q==
-X-Forwarded-Encrypted: i=1; AL+hErH3Z1QWV6Uocvvjof8j9NHFNPPLqJvjMV4YZrTz+yFOY6H0EeeUsoc8XipeozjCPL+PwFAP0VgkN148Z5g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Oii3rDcGYAE1mP2CgJnRjMx0kGD8L8g7b7OmKGXD3g21jLgo5
-	doTl35LoSgV1AsA1nc8RlxurjCnbmUe2FRQFr+lEFX+kwCCAfPH+zaI=
-X-Gm-Gg: AZFdTZceFxayDkJD3Zwcw6mp7H/1ahpiv/aL0UTiBc5Ru6InC1pIqPJ0HxO8X28ZPeN
-	zwmWxJs19anA/+MboqfP+yr4UCd1nXdSKHBIlEAIveOpqMjOihMMvFbZc5JVtABtiLubqlZj/AV
-	B/0ZpLp3qKs2HgaL8dYpPo+o5mRlqjPA0TxT7TFU+tlamvimYltScx2t/A4xe+ucdWwit0BzXkM
-	nv56L3ES5dEEExhu13tRb8H0ygLZw3DvsjNW9H8EE+YflbLINfXNfKL7LUzHGUCDoiZ3lKBagfZ
-	vVYBhRePguL5q6UGviHMZ+6mWnityyFwhVieLPpsAYimOeqHtDK4cHoTSXha8atE71o0pL06LMx
-	2KmNqrFkPTs4jbkp3dE8nvWq7lurK8pbKVhHIgiwfFj7SjP2U0IqkLSLRkSTJiSdgc8RvduFdGK
-	JvWRANEWr2OJ/9hpyI2BJx645DJckvgGpIOlJGrLaZpPCDyzupXw+iwZqDK9t4WHSv3Y8IB00d4
-	UEZt1cd+vzK/BroAn3lmrQthh/9SVUDzxRlGXVEfVN0qGDD15Nr1jBHAlU+bt7SUEXprEEGFsQG
-	Vj1hyUAvoR2m3w==
-X-Received: by 2002:a05:690c:2a48:b0:8b4:d8f4:8ccd with SMTP id 00721157ae682-8b52042e7abmr80135727b3.12.1795630496306;
+        bh=OE74N/jLO5L8kW0rYYYkT2JMWRXZNqhc4Q6+JcXJFgw=;
+        b=EQXLmJqBJbDsElXgVoF9KAtgFLgF3F4q0zLBgGh4sBIEZ+t5B+M2msSGbxFXqLCIig
+         3mVsqE1nDSqVNxVsMhdCZrr2N/foTFQTxyyXWuMzYL8aVNI7GvlhZfnz2fguyMm1gu6f
+         A2v+OCcS9LxuZbvfhOKUCdnO2aJh+/PhP2WsQlbrdNyvJvpNwL3rh40minDcFKjar0Sd
+         t7WcSW5dX22gw6CuVnQ+NPOVbOizQwPjgH8Sq7/DKqs+g+lHC8BP0Qc9mzf1bA5a4RwS
+         r6yUqq//pwUJUNIUoiJmGJ9//0A5Pgi8sZV2g2O4qReqyPkLPFBb/h/TxNkjkcULymCq
+         bRBw==
+X-Forwarded-Encrypted: i=1; AL+hErGEF5tiYhdUtAUwRB3mQ225CddsTc/Bla2/Gee6zzNtv/XgI8SsvXzrNH+R7wD6BnPF4F2NzVrCbKnSzhU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/IfYYV/3ADabtd18+3pVUpjqJ6pHiIJjIfv+2NvMgnt6elFBme
+	iAyX+mZKX54u4Dg7Y+uilDJ7J+nVEz/ibPJs9CVUijmXg3ZSA8Je7KiPqUT5EWk=
+X-Gm-Gg: AZFdTZfq+kO3Qx6kZdMov5NvQ70aixHCTAubAq0eyMvnlsP4eGyxrgUzLkMCbkvwhG4
+	DETleIaOzaRbJrrHs+jksAFcGNVJuirwnyy3ZLJwKEMAqZFbiuO9FAz2H2+ncaZM5DIuByWjz1P
+	zni2kn9ubXfiIJLkFntjUHnfRGqqf4SO93IZ6kiTFT69HST0vCKQGAxp9BNnyYStjLVLLGDpNVX
+	IqOuuYCHRXDqmu7pAvp6aRFdMlJFlCdSfw04oZlumMSZSqaiVw2TcqH9rFkRxi1H2IOIYk2TdM1
+	s132gg6CIJwNHiSpotbNn9t9Yl988W/2TUSA0qbB8PfNq3QWVdz4bVodQvXt+yK4sI2YGWbhVIn
+	eqU2LasBR6Mf2H4Nqf5Md0U+WwIT3cREtfwso85VhOMtO4VQuBP60sk6uPH2C26jej6a8W3RcLV
+	mcW0G3qLEEiHGhDZ8Ec/TNEneaOYBO96bhHKUZk1BEDJfJPUI9ujrlXyoZdU9iZlXF+QfaxJZvE
+	Owo07/W+HcsMJ+N8Yi4cF2f+y61fbKllMc9Dru6FvE8D0XGlt4LkCt3aHPEjAEcUpHPeYVlBKVY
+	qtt6aGIJLV+nOA==
+X-Received: by 2002:a05:690c:4a05:b0:8b4:f721:fd62 with SMTP id 00721157ae682-8b5204e1c88mr74043277b3.48.1795630496886;
         Wed, 25 Nov 2026 10:14:56 -0800 (PST)
 Received: from 3511.attlocal.net ([2600:1702:7a3e:17b0::c])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5201b8cdbsm74546187b3.1.2026.11.25.10.14.55
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5201b8cdbsm74546187b3.1.2026.11.25.10.14.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Wed, 25 Nov 2026 10:14:56 -0800 (PST)
 From: Arav Verma <svav2021@gmail.com>
@@ -84,9 +84,9 @@ To: w@1wt.eu,
 Cc: shuah@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH 2/3] tools/nolibc: fix strstr() with an empty needle
-Date: Wed, 25 Nov 2026 12:14:52 -0600
-Message-ID: <20261125181453.814976-3-svav2021@gmail.com>
+Subject: [PATCH 3/3] tools/nolibc: make atoi() and atol() skip whitespace and accept '+'
+Date: Wed, 25 Nov 2026 12:14:53 -0600
+Message-ID: <20261125181453.814976-4-svav2021@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261125181453.814976-1-svav2021@gmail.com>
 References: <20261125181453.814976-1-svav2021@gmail.com>
@@ -101,42 +101,55 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The C standard says that strstr() returns the haystack if the needle is
-an empty string. nolibc returns NULL instead.
+The C standard defines atoi() and atol() as strtol() with a fixed base
+of 10, which skips leading whitespace and accepts an optional '+' or
+'-' sign. nolibc only handles '-', so atoi(" 12") and atoi("+5") both
+return 0.
 
-Return the haystack in that case and add a test case.
+Skip leading whitespace, accept '+' and add test cases.
 
 Signed-off-by: Arav Verma <svav2021@gmail.com>
 ---
- tools/include/nolibc/string.h                | 2 +-
- tools/testing/selftests/nolibc/nolibc-test.c | 1 +
- 2 files changed, 2 insertions(+), 1 deletion(-)
+ tools/include/nolibc/stdlib.h                | 5 +++++
+ tools/testing/selftests/nolibc/nolibc-test.c | 6 ++++++
+ 2 files changed, 11 insertions(+)
 
-diff --git a/tools/include/nolibc/string.h b/tools/include/nolibc/string.h
-index 2693b9bef43a6..191a3bc8af29f 100644
---- a/tools/include/nolibc/string.h
-+++ b/tools/include/nolibc/string.h
-@@ -312,7 +312,7 @@ char *strstr(const char *haystack, const char *needle)
+diff --git a/tools/include/nolibc/stdlib.h b/tools/include/nolibc/stdlib.h
+index 1c5a914c0f231..cccb8922bde7c 100644
+--- a/tools/include/nolibc/stdlib.h
++++ b/tools/include/nolibc/stdlib.h
+@@ -66,9 +66,14 @@ long atol(const char *s)
+ 	unsigned long d;
+ 	int neg = 0;
  
- 	len_needle = strlen(needle);
- 	if (!len_needle)
--		return NULL;
-+		return (char *)haystack;
++	while (isspace(*s))
++		s++;
++
+ 	if (*s == '-') {
+ 		neg = 1;
+ 		s++;
++	} else if (*s == '+') {
++		s++;
+ 	}
  
- 	len_haystack = strlen(haystack);
- 	while (len_haystack >= len_needle) {
+ 	while (1) {
 diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
-index 9e1d0f3afb901..971a7f48e016d 100644
+index 971a7f48e016d..3062af07304a6 100644
 --- a/tools/testing/selftests/nolibc/nolibc-test.c
 +++ b/tools/testing/selftests/nolibc/nolibc-test.c
-@@ -2046,6 +2046,7 @@ int run_stdlib(int min, int max)
- 		CASE_TEST(strstr_foobar_foo);  EXPECT_STREQ(1, strstr("foobar", "foo"), "foobar"); break;
- 		CASE_TEST(strstr_foobar_bar);  EXPECT_STREQ(1, strstr("foobar", "bar"), "bar"); break;
- 		CASE_TEST(strstr_foobar_baz);  EXPECT_PTREQ(1, strstr("foobar", "baz"), NULL); break;
-+		CASE_TEST(strstr_foobar_empty); EXPECT_STREQ(1, strstr("foo", ""), "foo"); break;
- 		CASE_TEST(memcmp_20_20);       EXPECT_EQ(1, memcmp("aaa\x20", "aaa\x20", 4), 0); break;
- 		CASE_TEST(memcmp_20_60);       EXPECT_LT(1, memcmp("aaa\x20", "aaa\x60", 4), 0); break;
- 		CASE_TEST(memcmp_60_20);       EXPECT_GT(1, memcmp("aaa\x60", "aaa\x20", 4), 0); break;
+@@ -2097,6 +2097,12 @@ int run_stdlib(int min, int max)
+ 		CASE_TEST(limit_ptrdiff_min);       EXPECT_EQ(1, PTRDIFF_MIN, sizeof(long) == 8 ? (ptrdiff_t) 0x8000000000000000LL  : (ptrdiff_t) 0x80000000); break;
+ 		CASE_TEST(limit_ptrdiff_max);       EXPECT_EQ(1, PTRDIFF_MAX, sizeof(long) == 8 ? (ptrdiff_t) 0x7fffffffffffffffLL  : (ptrdiff_t) 0x7fffffff); break;
+ 		CASE_TEST(limit_size_max);          EXPECT_EQ(1, SIZE_MAX,    sizeof(long) == 8 ? (size_t)    0xffffffffffffffffULL : (size_t)    0xffffffffU); break;
++		CASE_TEST(atoi_simple);             EXPECT_EQ(1, atoi("35"), 35); break;
++		CASE_TEST(atoi_negative);           EXPECT_EQ(1, atoi("-35"), -35); break;
++		CASE_TEST(atoi_positive);           EXPECT_EQ(1, atoi("+35"), 35); break;
++		CASE_TEST(atoi_space);              EXPECT_EQ(1, atoi(" \t\n35"), 35); break;
++		CASE_TEST(atoi_space_negative);     EXPECT_EQ(1, atoi(" -35"), -35); break;
++		CASE_TEST(atol_space_positive);     EXPECT_EQ(1, atol(" +35"), 35L); break;
+ 		CASE_TEST(strtol_simple);           EXPECT_STRTOX(1, strtol, "35", 10, 35, -1, 0); break;
+ 		CASE_TEST(strtol_positive);         EXPECT_STRTOX(1, strtol, "+35", 10, 35, -1, 0); break;
+ 		CASE_TEST(strtol_negative);         EXPECT_STRTOX(1, strtol, "-35", 10, -35, -1, 0); break;
 -- 
 2.47.3
 
