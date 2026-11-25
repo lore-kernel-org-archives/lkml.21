@@ -1,76 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795622185;
-	b=W0LWHePHIXZx1hp7C0Qm7aKoGsZBdHJtVD4OuPcc/lfS08qRTu6xXdADHmQbloCqJHlH
-	 2Py0tiwEhPCL2e3RmFqr3VM2sgCtpxrUFP7eHmYEddzl9St9oDPrmyrSV+wlVEKsLjcjA
-	 4j3AS3Pbzlqz99th348fU39two9B0S02B/j1XiYVo/HH96VOVbuNFdzbyynT//Z5vvtfg
-	 3YlULaSUoJLC8hJAufFYWJbdtY6u0ByN/JMwmAcxmNXkuc1WHzr57sQI7Jmp35TiFG8BB
-	 hNQQRfc/MquHBwnwxY6WiFTxo/HSPhqWp/6aAS1MV4HYMn0CqTJO6ydIabHHwRvtBQQ==
+	t=1795622309;
+	b=wnikniPFNzpyKU1EE25KhVHg4ps2fzFLaNGbOJm/G70VeWbWXZDM74gOIb8Yi5Pht24I
+	 CbE0vZCMMQffmhHlO62JkBckchIsYZcqbX48zSF11LDGHeJMQkCDFA0ipqAJk0WIZpvn7
+	 +PUmnlbLaiA3kQvcW/EHGfXv47V3ZCXFz7LwWkWsyjJYZMtoCu6JS6JCxT1a2J8VnjRAS
+	 aS0YsvLlq1eEVGCNHUWysUd21Ia2uLOCUA5Q/f152+vllz7uA7EkN851khkxxmAjSIMGI
+	 TKniF0AYZ3kaXwzEJD/DVPekyqsLph1MyCc0O+TIdCzCuNaXU1PgUeUrOsmsltTWKFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795622185;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=q4uv0asRR2dgGMXvOPx/Lal51OzeJ3KhJ9tib17HZ3c=;
-	b=1tcBtIwMaa+tYBd96Uk/63OcfRZ+qOGERd87GJx5snHpbJsBf5wZ2XZsg0DABbKkdKU6
-	 lL4POVKiMErTgG6Ej6iQvtDOHm6eymBRYrGBGi6dsql4IQDNO/ytbAOfptvHfCkz05tXV
-	 KCkw/zspEj8UVYt2gRzzQvoQjdcLEdrYiZbfvFTD/0F0DAivnzCzb08b/Qa81zbsxvSNC
-	 LHvwojsPnRoHjpP61oIg2WWPPttD6q75tzuP6fdcXNnmDk6GCV+QkU6XD4xcLF7Guw03V
-	 tRRC5EtHHD2HPBtcmOXhxxZbpRmXndgZKwiUPBDHBFLBBpVuzth8d3+KHsdIQId9ayA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795622309;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=h52cnjKMjgPAHUO3cUiYoHAJatsTrBmwFnsr03rrh2c=;
+	b=Vu4FLh7pwp2dreDFqsiNHekhdxCqMTJV43OFhV6ezee+4VHVHl4VmuaTPyGb8+JtvRSZ
+	 KjQFqqSMiflqWEr7oP1UKHGj97eCoHfxsfbc56V1iSdLkmucM+fjoX8jBxaPm4godUls4
+	 3+OXcDiBmwR+ggQ1yZdz1G1R2x3OOzDTLb8pncRf9FydRWvO4xRa039+eEA2MjGqdm8/c
+	 FNKDl3lGayi+uzPiQiiMphBPx3NGPr3xBKpgLWiC/8OpsiZJZrDd+BK3b7BABUlwERZZ3
+	 8V71qtLH3XiXibmFT+PTLAseGHhOT73R8EbLzTRbx4mJbznaMZLuRudk4iWCrveus9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R1qv51xI;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Pn8iQ5PD;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AC99606A321;
-	Wed, 25 Nov 2026 15:56:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32784606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:58:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32784606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R1qv51xI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEF581F0093E;
-	Wed, 25 Nov 2026 15:56:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795622185;
-	bh=q4uv0asRR2dgGMXvOPx/Lal51OzeJ3KhJ9tib17HZ3c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=R1qv51xIK6Mx7z4WavGDaEQcFgwJQvutqhCXM+ZAKWIklnCkqRyE/V1eejVf+E3AL
-	 6AxKgPcQNqzrLC2qdJyMbBwrCyb19pNyVKaPQGesLvn56Tl/XBYq8eAYUat852bM/l
-	 5b3hi1x0qvJEt3xurKf6iBdGDD61GFMmLgwW+mXhjWa47oy/9IXL2ZCrpEj94sTRAd
-	 35S5nmvPcm81hxQX26Rjyh58U7nQU64f1wuLs6hQJkAdo5m+djbb8CjPbE8unnayN+
-	 URJAcJloXrqoOTpUay/QP4Ate0tEStRd/ddouTQgq5MGdiPC8ReUkspwuhWnSCOkQl
-	 HnNVLsx9NnT8Q==
-Date: Wed, 25 Nov 2026 16:56:16 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Damien Le Moal <dlemoal@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Aksh Garg <a-garg7@ti.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rhys Tumelty <rhys@tumelty.co.uk>,
-	Manikandan K Pillai <mpillai@cadence.com>,
-	"vladimir.oltean@nxp.com" <vladimir.oltean@nxp.com>,
-	Qiang Yu <qiang.yu@oss.qualcomm.com>,
-	Hans Zhang <18255117159@163.com>, Yao Zi <me@ziyao.cc>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-ide@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-phy@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v5 8/8] ata: ahci_imx: Use bulk PHY APIs for calibration
- PHYs
-Message-ID: <awcFIJlCOxB7nXNz@ryzen>
-References: <20261125043639.249525-1-inochiama@gmail.com>
- <20261125043639.249525-9-inochiama@gmail.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Pn8iQ5PD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795622308;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=h52cnjKMjgPAHUO3cUiYoHAJatsTrBmwFnsr03rrh2c=;
+	b=Pn8iQ5PD02ecBUi+YcgQEk1/tTvb035zrPfYiBxsb/sJNs9+cC+l+m9DTTNA/rcLu9PWJj
+	MNgLbr5JIdSA8uAGphSi4gBiNS+VKs5n86guwNLuqTzDTJGl0DSh/9tZFxaC5OpQT9cJ3B
+	pAw9UyobIJPULNheFjCuP9iZ0fMilMA=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-680-qRZeX7zAOjqNGPkoEJXMmw-1; Wed,
+ 25 Nov 2026 15:58:24 +0000
+X-MC-Unique: qRZeX7zAOjqNGPkoEJXMmw-1
+X-Mimecast-MFC-AGG-ID: qRZeX7zAOjqNGPkoEJXMmw_1795622303
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 43AE91955F73;
+	Wed, 25 Nov 2026 15:58:23 +0000 (UTC)
+Received: from mlevitsk-thinkpadt14gen3.ibmmarkh.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3D0F33001DB3;
+	Wed, 25 Nov 2026 15:58:22 +0000 (UTC)
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: kvm@vger.kernel.org
+Cc: x86@kernel.org,
+	linux-kernel@vger.kernel.org,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Maxim Levitsky <mlevitsk@redhat.com>
+Subject: [PATCH v5 2/5] KVM: x86: split vcpu->arch.hflags into nested_guest_state and smm_mode
+Date: Wed, 25 Nov 2026 10:58:16 -0500
+Message-ID: <20261125155819.408795-3-mlevitsk@redhat.com>
+In-Reply-To: <20261125155819.408795-1-mlevitsk@redhat.com>
+References: <20261125155819.408795-1-mlevitsk@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,185 +81,194 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125043639.249525-9-inochiama@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 
-Hello Inochi,
+Split vcpu->arch.hflags into nested_guest_mode and smm_mode to prepare
+for converting nested_guest_mode into an atomic variable that will contain
+nested guest state that is exposed locklessly for other vCPUs.
 
-On Wed, Nov 25, 2026 at 12:36:39PM +0800, Inochi Amaoto wrote:
-> The i.MX8QM SATA PHY relies on the first two HSIO lanes for shared
-> impedance calibration. Store these calibration PHYs in a bulk array
-> and acquire them by name with devm_phy_bulk_get().
-> 
-> Initialize both calibration PHYs before powering them on in lane order,
-> then keep the SATA PHY initialization, mode selection and power-on
-> separate. Use the bulk helpers to release the calibration PHYs after
-> SATA startup and to unwind failures without repeating power-off after
-> a failed bulk power-on.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
->  drivers/ata/ahci_imx.c | 57 ++++++++++++++++--------------------------
->  1 file changed, 21 insertions(+), 36 deletions(-)
-> 
-> diff --git a/drivers/ata/ahci_imx.c b/drivers/ata/ahci_imx.c
-> index 6aaa18e29abc..18faa033e44f 100644
-> --- a/drivers/ata/ahci_imx.c
-> +++ b/drivers/ata/ahci_imx.c
-> @@ -25,6 +25,8 @@
->  
->  #define DRV_NAME "ahci-imx"
->  
-> +#define NUM_CALIPHY		2
-> +
->  enum {
->  	/* Timer 1-ms Register */
->  	IMX_TIMER1MS				= 0x00e0,
-> @@ -66,8 +68,7 @@ struct imx_ahci_priv {
->  	struct clk *ahb_clk;
->  	struct regmap *gpr;
->  	struct phy *sata_phy;
-> -	struct phy *cali_phy0;
-> -	struct phy *cali_phy1;
-> +	struct phy_bulk_data cali_phys[NUM_CALIPHY];
->  	bool no_device;
->  	bool first_time;
->  	u32 phy_params;
-> @@ -428,30 +429,20 @@ static int imx8_sata_enable(struct ahci_host_priv *hpriv)
->  	 * Initialize the first two lane PHYs here, although only the
->  	 * third lane PHY is used by SATA.
->  	 */
-> -	ret = phy_init(imxpriv->cali_phy0);
-> +	ret = phy_bulk_init(NUM_CALIPHY, imxpriv->cali_phys);
->  	if (ret) {
->  		dev_err(dev, "cali PHY init failed\n");
->  		return ret;
->  	}
-> -	ret = phy_power_on(imxpriv->cali_phy0);
-> +	ret = phy_bulk_power_on(NUM_CALIPHY, imxpriv->cali_phys);
->  	if (ret) {
->  		dev_err(dev, "cali PHY power on failed\n");
-> -		goto err_cali_phy0_exit;
-> -	}
-> -	ret = phy_init(imxpriv->cali_phy1);
-> -	if (ret) {
-> -		dev_err(dev, "cali PHY1 init failed\n");
-> -		goto err_cali_phy0_off;
-> -	}
-> -	ret = phy_power_on(imxpriv->cali_phy1);
-> -	if (ret) {
-> -		dev_err(dev, "cali PHY1 power on failed\n");
-> -		goto err_cali_phy1_exit;
-> +		goto err_cali_phy_exit;
+No functional change expected.
 
-This changes the order the calibration PHYs are brought up in.
+Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
+Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
+---
+ arch/x86/include/asm/kvm_host.h | 18 +++++++++++-------
+ arch/x86/kvm/regs.h             |  6 +++---
+ arch/x86/kvm/smm.c              |  8 ++++----
+ arch/x86/kvm/smm.h              |  2 +-
+ arch/x86/kvm/x86.c              | 13 ++++++++-----
+ 5 files changed, 27 insertions(+), 20 deletions(-)
 
-The commit message describes the new order:
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index ab30f418e526..226091feb44a 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -738,7 +738,6 @@ struct kvm_vcpu_arch {
+ 	unsigned long cr8;
+ 	u32 host_pkru;
+ 	u32 pkru;
+-	u32 hflags;
+ 	u64 efer;
+ 	u64 host_debugctl;
+ 	u64 apic_base;
+@@ -758,6 +757,16 @@ struct kvm_vcpu_arch {
+ 	u64 arch_capabilities;
+ 	u64 perf_capabilities;
+ 
++#define KVM_NESTED_IN_GUEST	BIT(8)
++	/* Non zero when the guest is executing a nested guest */
++	u16 nested_guest_state;
++
++#ifdef CONFIG_KVM_SMM
++#define SMM_MASK		BIT(0)
++#define SMM_INSIDE_NMI_MASK	BIT(1)
++	/* Non zero when the guest is in SMM */
++	u16 smm_mode;
++#endif
+ 	/*
+ 	 * Paging state of the vcpu
+ 	 *
+@@ -1875,16 +1884,11 @@ static inline unsigned long read_msr(unsigned long msr)
+ }
+ #endif
+ 
+-#define HF_GUEST_MASK		(1 << 0) /* VCPU is in guest-mode */
+-
+ #ifdef CONFIG_KVM_SMM
+-#define HF_SMM_MASK		(1 << 1)
+-#define HF_SMM_INSIDE_NMI_MASK	(1 << 2)
+-
+ # define KVM_MAX_NR_ADDRESS_SPACES	2
+ /* SMM is currently unsupported for guests with private memory. */
+ # define kvm_arch_nr_memslot_as_ids(kvm) (kvm_arch_has_private_mem(kvm) ? 1 : 2)
+-# define kvm_arch_vcpu_memslots_id(vcpu) ((vcpu)->arch.hflags & HF_SMM_MASK ? 1 : 0)
++# define kvm_arch_vcpu_memslots_id(vcpu) ((vcpu)->arch.smm_mode & SMM_MASK ?  1 : 0)
+ # define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, (role).smm)
+ #else
+ # define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, 0)
+diff --git a/arch/x86/kvm/regs.h b/arch/x86/kvm/regs.h
+index 447f0ec3e63e..ec9d4a8fbe15 100644
+--- a/arch/x86/kvm/regs.h
++++ b/arch/x86/kvm/regs.h
+@@ -457,13 +457,13 @@ static inline unsigned long kvm_get_effective_dr7(struct kvm_vcpu *vcpu)
+ 
+ static inline void enter_guest_mode(struct kvm_vcpu *vcpu)
+ {
+-	vcpu->arch.hflags |= HF_GUEST_MASK;
++	vcpu->arch.nested_guest_state = KVM_NESTED_IN_GUEST;
+ 	vcpu->stat.guest_mode = 1;
+ }
+ 
+ static inline void leave_guest_mode(struct kvm_vcpu *vcpu)
+ {
+-	vcpu->arch.hflags &= ~HF_GUEST_MASK;
++	vcpu->arch.nested_guest_state = 0;
+ 
+ 	if (vcpu->arch.load_eoi_exitmap_pending) {
+ 		vcpu->arch.load_eoi_exitmap_pending = false;
+@@ -475,7 +475,7 @@ static inline void leave_guest_mode(struct kvm_vcpu *vcpu)
+ 
+ static inline bool is_guest_mode(struct kvm_vcpu *vcpu)
+ {
+-	return vcpu->arch.hflags & HF_GUEST_MASK;
++	return vcpu->arch.nested_guest_state & KVM_NESTED_IN_GUEST;
+ }
+ 
+ static inline unsigned long kvm_get_segment_base(struct kvm_vcpu *vcpu, int seg)
+diff --git a/arch/x86/kvm/smm.c b/arch/x86/kvm/smm.c
+index 656a38dad7e7..60af64a6209f 100644
+--- a/arch/x86/kvm/smm.c
++++ b/arch/x86/kvm/smm.c
+@@ -114,9 +114,9 @@ void kvm_smm_changed(struct kvm_vcpu *vcpu, bool entering_smm)
+ 	trace_kvm_smm_transition(vcpu->vcpu_id, vcpu->arch.smbase, entering_smm);
+ 
+ 	if (entering_smm) {
+-		vcpu->arch.hflags |= HF_SMM_MASK;
++		vcpu->arch.smm_mode |= SMM_MASK;
+ 	} else {
+-		vcpu->arch.hflags &= ~(HF_SMM_MASK | HF_SMM_INSIDE_NMI_MASK);
++		vcpu->arch.smm_mode &= ~(SMM_MASK | SMM_INSIDE_NMI_MASK);
+ 
+ 		/* Process a latched INIT or SMI, if any.  */
+ 		kvm_make_request(KVM_REQ_EVENT, vcpu);
+@@ -311,7 +311,7 @@ void enter_smm(struct kvm_vcpu *vcpu)
+ 		goto error;
+ 
+ 	if (kvm_x86_call(get_nmi_mask)(vcpu))
+-		vcpu->arch.hflags |= HF_SMM_INSIDE_NMI_MASK;
++		vcpu->arch.smm_mode |= SMM_INSIDE_NMI_MASK;
+ 	else
+ 		kvm_x86_call(set_nmi_mask)(vcpu, true);
+ 
+@@ -584,7 +584,7 @@ int emulator_leave_smm(struct x86_emulate_ctxt *ctxt)
+ 	if (ret < 0)
+ 		return X86EMUL_UNHANDLEABLE;
+ 
+-	if ((vcpu->arch.hflags & HF_SMM_INSIDE_NMI_MASK) == 0)
++	if ((vcpu->arch.smm_mode & SMM_INSIDE_NMI_MASK) == 0)
+ 		kvm_x86_call(set_nmi_mask)(vcpu, false);
+ 
+ 	kvm_smm_changed(vcpu, false);
+diff --git a/arch/x86/kvm/smm.h b/arch/x86/kvm/smm.h
+index db3c88f16138..323c03827d28 100644
+--- a/arch/x86/kvm/smm.h
++++ b/arch/x86/kvm/smm.h
+@@ -151,7 +151,7 @@ static inline int kvm_inject_smi(struct kvm_vcpu *vcpu)
+ 
+ static inline bool is_smm(struct kvm_vcpu *vcpu)
+ {
+-	return vcpu->arch.hflags & HF_SMM_MASK;
++	return vcpu->arch.smm_mode & SMM_MASK;
+ }
+ 
+ void kvm_smm_changed(struct kvm_vcpu *vcpu, bool in_smm);
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 79468ddfe473..0d8854bcbc4f 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -3013,7 +3013,7 @@ static void kvm_vcpu_ioctl_x86_get_vcpu_events(struct kvm_vcpu *vcpu,
+ 	events->smi.smm = is_smm(vcpu);
+ 	events->smi.pending = vcpu->arch.smi_pending;
+ 	events->smi.smm_inside_nmi =
+-		!!(vcpu->arch.hflags & HF_SMM_INSIDE_NMI_MASK);
++		!!(vcpu->arch.smm_mode & SMM_INSIDE_NMI_MASK);
+ #endif
+ 	events->smi.latched_init = kvm_lapic_latched_init(vcpu);
+ 
+@@ -3099,7 +3099,7 @@ static int kvm_vcpu_ioctl_x86_set_vcpu_events(struct kvm_vcpu *vcpu,
+ 
+ 	if (events->flags & KVM_VCPUEVENT_VALID_SMM) {
+ #ifdef CONFIG_KVM_SMM
+-		if (!!(vcpu->arch.hflags & HF_SMM_MASK) != events->smi.smm) {
++		if (!!(vcpu->arch.smm_mode & SMM_MASK) != events->smi.smm) {
+ 			kvm_leave_nested(vcpu);
+ 			kvm_smm_changed(vcpu, events->smi.smm);
+ 		}
+@@ -3108,9 +3108,9 @@ static int kvm_vcpu_ioctl_x86_set_vcpu_events(struct kvm_vcpu *vcpu,
+ 
+ 		if (events->smi.smm) {
+ 			if (events->smi.smm_inside_nmi)
+-				vcpu->arch.hflags |= HF_SMM_INSIDE_NMI_MASK;
++				vcpu->arch.smm_mode |= SMM_INSIDE_NMI_MASK;
+ 			else
+-				vcpu->arch.hflags &= ~HF_SMM_INSIDE_NMI_MASK;
++				vcpu->arch.smm_mode &= ~SMM_INSIDE_NMI_MASK;
+ 		}
+ 
+ #else
+@@ -9554,7 +9554,10 @@ void kvm_vcpu_reset(struct kvm_vcpu *vcpu, bool init_event)
+ 	kvm_lapic_reset(vcpu, init_event);
+ 
+ 	WARN_ON_ONCE(is_guest_mode(vcpu) || is_smm(vcpu));
+-	vcpu->arch.hflags = 0;
++#ifdef CONFIG_KVM_SMM
++	vcpu->arch.smm_mode = 0;
++#endif
++	vcpu->arch.nested_guest_state = 0;
+ 
+ 	vcpu->arch.smi_pending = 0;
+ 	vcpu->arch.smi_count = 0;
+-- 
+2.56.1
 
-  "Initialize both calibration PHYs before powering them on in lane
-  order"
-
-but doesn't say that it differs from the current sequence. Could the
-commit message mention the change, and why it is safe for the shared
-calibration?
-
-The cover letter mentions that the PHY timing requirements were checked
-against the documentation. Has the new sequence also been tested on
-i.MX8QM hardware?
-
-
->  	}
->  	ret = phy_init(imxpriv->sata_phy);
->  	if (ret) {
->  		dev_err(dev, "sata PHY init failed\n");
-> -		goto err_cali_phy1_off;
-> +		goto err_cali_phy_off;
->  	}
->  	ret = phy_set_mode(imxpriv->sata_phy, PHY_MODE_SATA);
->  	if (ret) {
-> @@ -465,10 +456,8 @@ static int imx8_sata_enable(struct ahci_host_priv *hpriv)
->  	}
->  
->  	/* The cali_phy# can be turned off after SATA PHY is initialized. */
-> -	phy_power_off(imxpriv->cali_phy1);
-> -	phy_exit(imxpriv->cali_phy1);
-> -	phy_power_off(imxpriv->cali_phy0);
-> -	phy_exit(imxpriv->cali_phy0);
-> +	phy_bulk_power_off(NUM_CALIPHY, imxpriv->cali_phys);
-> +	phy_bulk_exit(NUM_CALIPHY, imxpriv->cali_phys);
->  
->  	/* RxWaterMark setting */
->  	val = readl(hpriv->mmio + IMX8QM_SATA_AHCI_PTC);
-> @@ -480,14 +469,10 @@ static int imx8_sata_enable(struct ahci_host_priv *hpriv)
->  
->  err_sata_phy_exit:
->  	phy_exit(imxpriv->sata_phy);
-> -err_cali_phy1_off:
-> -	phy_power_off(imxpriv->cali_phy1);
-> -err_cali_phy1_exit:
-> -	phy_exit(imxpriv->cali_phy1);
-> -err_cali_phy0_off:
-> -	phy_power_off(imxpriv->cali_phy0);
-> -err_cali_phy0_exit:
-> -	phy_exit(imxpriv->cali_phy0);
-> +err_cali_phy_off:
-> +	phy_bulk_power_off(NUM_CALIPHY, imxpriv->cali_phys);
-> +err_cali_phy_exit:
-> +	phy_bulk_exit(NUM_CALIPHY, imxpriv->cali_phys);
->  
->  	return ret;
->  }
-> @@ -839,19 +824,19 @@ static const struct scsi_host_template ahci_platform_sht = {
->  
->  static int imx8_sata_probe(struct device *dev, struct imx_ahci_priv *imxpriv)
->  {
-> +	int ret;
-> +
->  	imxpriv->sata_phy = devm_phy_get(dev, "sata-phy");
->  	if (IS_ERR(imxpriv->sata_phy))
->  		return dev_err_probe(dev, PTR_ERR(imxpriv->sata_phy),
->  				     "Failed to get sata_phy\n");
->  
-> -	imxpriv->cali_phy0 = devm_phy_get(dev, "cali-phy0");
-> -	if (IS_ERR(imxpriv->cali_phy0))
-> -		return dev_err_probe(dev, PTR_ERR(imxpriv->cali_phy0),
-> -				     "Failed to get cali_phy0\n");
-> -	imxpriv->cali_phy1 = devm_phy_get(dev, "cali-phy1");
-> -	if (IS_ERR(imxpriv->cali_phy1))
-> -		return dev_err_probe(dev, PTR_ERR(imxpriv->cali_phy1),
-> -				     "Failed to get cali_phy1\n");
-> +	imxpriv->cali_phys[0].id = "cali-phy0";
-> +	imxpriv->cali_phys[1].id = "cali-phy1";
-> +
-> +	ret = devm_phy_bulk_get(dev, NUM_CALIPHY, imxpriv->cali_phys);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to get cali_phy\n");
-
-phy_bulk_get() already reports which PHY failed:
-
-drivers/phy/phy-core.c:phy_bulk_get() {
-    ...
-        for (i = 0; i < num_phys; i++) {
-                phys[i].phy = phy_get(dev, phys[i].id);
-
-                ret = PTR_ERR_OR_ZERO(phys[i].phy);
-                if (ret) {
-                        phys[i].phy = NULL;
-
-                        dev_err_probe(dev, ret, "Failed to get phy: (%s)\n",
-                                      phys[i].id);
-                        goto err;
-                }
-        }
-    ...
-}
-
-so a missing cali-phy1 entry in phy-names now prints two errors, and the
-second one doesn't name the PHY.
-
-A plain "return ret;" should be enough here.
-
-
-Kind regards,
-Niklas
