@@ -1,72 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795613737;
-	b=tozxrZCB6cnrvhyFZxZLtFLp+0jbWX/uqna3IE/quZWha9bri7NxIMhTsZNcAHc/EpvI
-	 xOU7sQkJ9JvXu86El81fFh2aRLdHOzfz6I94M42yam/vf61uT8A61S4dLnGjcao7PzE8K
-	 UNnBQVzBKKdYeAMwz7s6fQDj2dp7hJR81qDvNwsPLKWLNq3ejs8n2anwgtrpAH13jSfPH
-	 4G1ocPWGkwxz57sxlMlpbKA5b4sTqZkBrlaSQh1Qs94UbP+rSMo2dNdYqMfwTYapmD6B7
-	 PTphexicIVE1BNtcSAL5mUQzPYlRu9SrJdsoc4ZXvYQPqaHPKJ4o1SlvyEltLfQegwA==
+	t=1795613754;
+	b=fjKkFXlyR9pfVYkuOBVGHWFGke1AwT6YE+rjmgs0/YAr7mTwwVPXhPUcNIeMQRC+Iut2
+	 JGCUMUmTpRDbHEf8St6QTDpiRTpQSprSwSkcJBeoi+9/zuXD+68n3LylofXJnSBa0LLnW
+	 +nHZkrgBPDzCq4NCZfzO4oxByq8tQAzSIvp5T50N1HJZIf+pc/2ar3RZci4y866+p5w6x
+	 yx7dPzmsiUTtddlEuktl+rB7g6l7S4ct/pXUREMZ8bwYYt+XaVauoA8D5EVGaG3YJK5pY
+	 VOhSxqa58xnU7UPG+a3OkHI5QBToYCMlxnZAqD4V5i8wixdb3PJpw/h3QSTjRDZnm9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795613737;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795613754;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer;
-	bh=SAseRpkYHOHxtCyLwxWo6ng1OQmqjK4taSlfohgP3TU=;
-	b=5MCt9jRZ69DZ06a7jiECOv2hxiSjfe9oXtjttDIJHCGhRRNmxiyzoFAJJ7VdNm9+/Chz
-	 HOVhO4EIzuNvv+ljUKVF0+mDMPZY5+xO14jw9ya0O7JsMOGnl9N7tJrsL00WXuXEe+/xO
-	 FlZtBq84ZSEbLD7Hegb9nauuf9Q4m14DoUkJOPWypOvo7OIArakp+aIJTPB1HgSU05fdE
-	 aHNmMrDTSuGYdxOVS5VkftAKH4HCNnbYNbc9zpsDnLo3APRN4dc5iImAWruhVYVfZnlbB
-	 VFO4/iHMtW0FfYultpaxq7XjR0sRY4p9hB+gICl2Cp6A4NDQZWk0q3JZrDW6jzmlAiw==
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=sMVLaCsZfua1FXc6eqgSrhaf5aLDUKXRh3463gesKjA=;
+	b=jD9vsUihzYKoXWh1+BuDOk2WFzODPoWH2pCw7F97Dg4EKgOAJPYb8LDICLyUBxUUCnAc
+	 SrmKYr3PH1VWl2Zo2PkO3jCF70D9xR98pOsxyec2RfcvO5MjP3VBs9cuxqGzYYwlKQ0ri
+	 qzxyMmGPyzkLSbAOwDhLfvqlIpnho5ADmqmDVVIf9v4rmAwauGgJkku/0zN4VnKLyaTgb
+	 QKlL6vCchJ8B6oqs2Q73+dk+JiZjd1vcnU72cI6jeMy9enq6tBiJIcyz99VLhYNbJFarM
+	 7ySrzJP1xdkRQs/AvoEmr2Y3ckTEBupxn6MyLkZJQdKd15cCm1VVoOhfrcwsoYV6sEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=GNBTqgdk;
-	arc=none smtp.remote-ip=68.232.153.233
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JJ1Ep+IC;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BD59606A68E;
-	Wed, 25 Nov 2026 13:35:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BD59606A68E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2D00606A329;
+	Wed, 25 Nov 2026 13:35:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2D00606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=GNBTqgdk
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=JJ1Ep+IC
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795613737; x=1827149737;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=Vbi3tz3CkB6j3ucTPBJQgVOcJX3uxTsbM2Fs24u5Z0U=;
-  b=GNBTqgdk/i8NZA5nHfGaxY1KptU9yiFvfEyQC4cRm5Af4I81SeSEp0tl
-   BdMvH3WrnfCLzOpjaRlsKernTrhalovleYJh3p2VS5WKQpeaMZht9TLbp
-   1QD0tQkDmNa+gWMOkioE5SgvTO7LGo/uhynFhIRbw8gVgjnhKfeFXqSHM
-   HhsoR1YwXwx2fwJbumtQ2zdCCiWCMUBs4gLfSUkNmyX4XAhS8rdM7+EI2
-   uw6rw2dLi06kN1DamScoh1lex32WMzsi4Uco7ZWfuINzoguG1+G3AF2Pj
-   jv16ynuHsXR1YvXDh2MMt5fqD6W7OxoaytgecLIlz6nCTOLw9JSZI+zzj
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795613754; x=1827149754;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=1e5Dk/+eHsZ1l5I1tk3VuGlTcyFCG8sOMZ/3BywUnEk=;
+  b=JJ1Ep+ICGP7yZSo3Cg5sW7fFubadenZDM7NBad+7+6SF2SIgmO31qKaR
+   RigINg780Drekf/O0Wn5+rj0PsCcMM7ERoNqFmrLppEK0wI/nc/5IXzXL
+   A6i/pJMU93Qe9QiTq+iY9daa2n4aAGJ8S55ek3sAs59PtaXZq8gR0GSGh
+   HbAh7XBfmcTKN25EZKoq5lbuovNyreshKqfx3ABUlxTt5osnhu/rV+DMx
+   DaxN6oYPOyEy4+IoFnpqahwxgo99q0bg5nKfcaIdO8axk4+3NZhEVGeCo
+   2B7/gLqSYQra925ZLvtnkOV4UkzDgNJTmWYQbUdOlMQNWJuOj6eYJgTVg
    w==;
-X-CSE-ConnectionGUID: QJF8mUDsRhey5vuKd671Rg==
-X-CSE-MsgGUID: uyprGAqWTt6C4ep59O3PVQ==
+X-CSE-ConnectionGUID: /y134ROzS7ipCKNHq2wRaQ==
+X-CSE-MsgGUID: RhKuKuXKRgigPf+mJ48U4A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4394731"
 X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="298447218"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 06:35:36 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.57; Wed, 25 Nov 2026 06:35:35 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Wed, 25 Nov 2026 06:35:32 -0700
-From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
-	<jensemil.schulzostergaard@microchip.com>
-Date: Wed, 25 Nov 2026 14:35:08 +0100
-Subject: [PATCH net-next v4 3/3] net: sparx5: keep router legs in sync with
- the bridge
+   d="scan'208";a="4394731"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 05:35:53 -0800
+X-CSE-ConnectionGUID: EktULjI+TEyOqMp0HSpAaw==
+X-CSE-MsgGUID: ViRb8WpMRBi9VV4ysbg3dw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="11678817"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.96])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 05:35:48 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Wed, 25 Nov 2026 15:35:44 +0200 (EET)
+To: Priyank Rathod <rathodpriyank@google.com>
+cc: Bjorn Helgaas <helgaas@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+    Lukas Wunner <lukas@wunner.de>, Manivannan Sadhasivam <mani@kernel.org>, 
+    Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+    Shuah Khan <shuah@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, 
+    linux-pci@vger.kernel.org, linux-doc@vger.kernel.org, 
+    linux-kselftest@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v8 1/3] PCI/ASPM: Add internal pcie_aspm_inhibit()
+ helper
+In-Reply-To: <20261125-pcie-link-endpoints-v8-1-19d49c17c05f@google.com>
+Message-ID: <115e024d-f49b-256f-550c-7a64b546a076@linux.intel.com>
+References: <20261125-pcie-link-endpoints-v8-0-19d49c17c05f@google.com> <20261125-pcie-link-endpoints-v8-1-19d49c17c05f@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,385 +83,170 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-ID: <20261125-sparx5_l3_routing-v4-3-86a9bac28fcf@microchip.com>
-References: <20261125-sparx5_l3_routing-v4-0-86a9bac28fcf@microchip.com>
-In-Reply-To: <20261125-sparx5_l3_routing-v4-0-86a9bac28fcf@microchip.com>
-To: Horatiu Vultur <horatiu.vultur@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, "Paolo
- Abeni" <pabeni@redhat.com>, Daniel Machon <daniel.machon@microchip.com>,
-	"Steen Hegelund" <Steen.Hegelund@microchip.com>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Robert Marko
-	<robert.marko@sartura.hr>, Eric Dumazet <edumazet@kernel.org>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-hardening@vger.kernel.org>,
-	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
-	<jensemil.schulzostergaard@microchip.com>
-X-Mailer: b4 0.15-dev
+Content-Type: text/plain; charset=US-ASCII
 
-The conditions for offloading a leg are evaluated when an address is
-added, but the bridge and the upper can change afterwards.
+On Wed, 25 Nov 2026, Priyank Rathod wrote:
 
-A change that would leave the chip routing differently from the kernel
-destroys the leg before it takes effect: disabling VLAN filtering,
-changing the bridge to a VLAN protocol other than 802.1Q, linking the
-upper to a master, and changing the upper's MAC.
+> Internal PCIe services such as Lane Margining at the Receiver need to
+> temporarily keep ASPM disabled on a link and restore its prior policy
+> afterward without clobbering link->aspm_disable, link->aspm_default,
+> L1 PM Substates, or Clock PM state.
+> 
+> pci_disable_link_state() permanently sets link->aspm_disable, and
+> pci_enable_link_state() intentionally refuses to clear it.  Introduce a
+> PCI-internal, reference-counted pcie_aspm_inhibit() helper:
 
-The global leg base MAC follows later bridge MAC changes. When the first
-switch port joins a bridge again, the reconcile is queued and creates
-the legs for its uppers that kept their addresses while the bridge was
-not offloaded.
+As you've discovered, pci_disable_link_state() and pci_enable_link_state() 
+are not symmetric pairs, which is problematic for some use cases like 
+this one.
 
-While the upper is administratively down the leg is disabled as an
-ingress router leg. The same holds while the bridge itself does not
-carry the leg's vid, or carries it untagged, since the kernel then does
-not deliver that vid to the upper. A bridge vlan delete, or an add that
-makes the vid untagged, disables the leg at once.
+There's a series to fix that and to me it looks a prerequisite for this 
+LMR series so you shouldn't be duplicate that effort with this inhibit 
+thing.
 
-A leg with an IPv4 address is kept while the upper is down, so it is
-available again when the interface comes back up. Unless
-keep_addr_on_down is set, link down removes IPv6 addresses, so an IPv6
-only leg goes with its last address.
+Perhaps help in reviewing that ASPM series, and/or, if the work has 
+stalled with things left to address, ask the previous submitter if you 
+could take over in finishing that series.
 
-A down upper does not follow bridge MAC changes, so it can lose its leg
-while down. Bringing a vlan upper of the bridge up queues the reconcile,
-which creates the leg again.
+> - Track temporary inhibitors via aspm_inhibit_cnt on struct pcie_link_state
+>   under pci_bus_sem and aspm_lock.
+> - Force state = 0 in pcie_config_aspm_link() whenever aspm_inhibit_cnt is
+>   non-zero, so concurrent policy or sysfs changes still update the saved
+>   state cleanly and take effect once all inhibitors release.
+> - Return -EPERM rather than overriding firmware-enabled ASPM when the OS
+>   lacks ASPM control, and return 0 when ASPM support is disabled.
 
-IPv6 addresses that the kernel adds without calling the validator, such
-as SLAAC and temporary addresses, get their leg from the reconcile, which
-the address notifier queues for them.
-
-Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
----
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |   3 +
- .../net/ethernet/microchip/sparx5/sparx5_router.c  | 140 ++++++++++++++++++++-
- .../ethernet/microchip/sparx5/sparx5_switchdev.c   |  25 +++-
- 3 files changed, 162 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-index b940f8199942..36df730e9bdb 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-@@ -563,6 +563,9 @@ int sparx5_rr_router_init(struct sparx5 *sparx5);
- void sparx5_rr_router_deinit(struct sparx5 *sparx5);
- void sparx5_rr_bridge_legs_flush(struct sparx5 *sparx5,
- 				 const struct net_device *bridge);
-+void sparx5_rr_legs_reconcile_schedule(struct sparx5 *sparx5);
-+void sparx5_rr_bridge_vlan_clear(struct sparx5 *sparx5,
-+				 const struct net_device *bridge, u16 vid);
- 
- struct sparx5_router {
- 	struct sparx5 *sparx5;
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
-index c04be943e1af..068bf8c71b78 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
-@@ -32,6 +32,8 @@ struct sparx5_rr_router_leg {
- 	struct list_head leg_list_node; /* Router member */
- 	u16 vmid; /* Internal id */
- 	u16 vid; /* VLAN id */
-+	/* The bridge carries vid as a vlan of its own. */
-+	bool vlan_present;
- };
- 
- static void sparx5_rr_schedule_work(struct sparx5 *sparx5,
-@@ -40,9 +42,10 @@ static void sparx5_rr_schedule_work(struct sparx5 *sparx5,
- 	queue_work(sparx5->router->sparx5_router_owq, work);
- }
- 
--static void sparx5_rr_legs_reconcile_schedule(struct sparx5 *sparx5)
-+void sparx5_rr_legs_reconcile_schedule(struct sparx5 *sparx5)
- {
--	sparx5_rr_schedule_work(sparx5, &sparx5->router->legs_work);
-+	if (sparx5->router)
-+		sparx5_rr_schedule_work(sparx5, &sparx5->router->legs_work);
- }
- 
- static void sparx5_rr_split_mac(const unsigned char *mac, u32 split,
-@@ -100,6 +103,19 @@ sparx5_rr_leg_find_by_vid(struct sparx5 *sparx5, u16 vid)
- 	return NULL;
- }
- 
-+static bool sparx5_rr_bridge_has_legs(struct sparx5 *sparx5,
-+				      const struct net_device *bridge)
-+{
-+	struct sparx5_rr_router_leg *leg;
-+
-+	list_for_each_entry(leg, &sparx5->router->leg_list, leg_list_node) {
-+		if (vlan_dev_real_dev(leg->dev) == bridge)
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
- static void sparx5_rr_leg_base_mac_set(struct sparx5 *sparx5,
- 				       const unsigned char *mac)
- {
-@@ -154,6 +170,16 @@ static void sparx5_rr_leg_hw_uc_set(struct sparx5 *sparx5,
- 		 ANA_L3_RLEG_CTRL(leg->vmid));
- }
- 
-+/* Route ingress on the leg only while the kernel would receive on it: the
-+ * upper is up and the bridge carries its vid.
-+ */
-+static void sparx5_rr_leg_hw_uc_update(struct sparx5 *sparx5,
-+				       struct sparx5_rr_router_leg *leg)
-+{
-+	sparx5_rr_leg_hw_uc_set(sparx5, leg,
-+				netif_running(leg->dev) && leg->vlan_present);
-+}
-+
- static void sparx5_rr_leg_hw_init(struct sparx5 *sparx5,
- 				  struct sparx5_rr_router_leg *leg)
- {
-@@ -172,7 +198,7 @@ static void sparx5_rr_leg_hw_init(struct sparx5 *sparx5,
- 		 ANA_L3_RLEG_CTRL_RLEG_EVID, sparx5,
- 		 ANA_L3_RLEG_CTRL(leg->vmid));
- 
--	sparx5_rr_leg_hw_uc_set(sparx5, leg, true);
-+	sparx5_rr_leg_hw_uc_update(sparx5, leg);
- 
- 	/* Configure egress VLAN in rewriter */
- 	spx5_rmw(REW_RLEG_CTRL_RLEG_EVID_SET(leg->vid), REW_RLEG_CTRL_RLEG_EVID,
-@@ -260,6 +286,15 @@ static void sparx5_rr_router_leg_destroy(struct sparx5_rr_router_leg *leg)
- 	kfree(leg);
- }
- 
-+static bool sparx5_rr_bridge_vlan_present(struct net_device *bridge, u16 vid)
-+{
-+	struct bridge_vlan_info info;
-+
-+	return !br_vlan_get_info(bridge, vid, &info) &&
-+	       info.flags & BRIDGE_VLAN_INFO_BRENTRY &&
-+	       !(info.flags & BRIDGE_VLAN_INFO_UNTAGGED);
-+}
-+
- static struct sparx5_rr_router_leg *
- sparx5_rr_router_leg_create(struct sparx5 *sparx5, struct net_device *dev,
- 			    u16 vid, struct netlink_ext_ack *extack)
-@@ -285,6 +320,9 @@ sparx5_rr_router_leg_create(struct sparx5 *sparx5, struct net_device *dev,
- 	/* Global router leg base MAC tracks the bridge MAC. */
- 	sparx5_rr_leg_base_mac_set(sparx5, vlan_dev_real_dev(dev)->dev_addr);
- 
-+	leg->vlan_present =
-+		sparx5_rr_bridge_vlan_present(vlan_dev_real_dev(dev), vid);
-+
- 	list_add(&leg->leg_list_node, &sparx5->router->leg_list);
- 	sparx5_rr_leg_hw_init(sparx5, leg);
- 
-@@ -476,7 +514,7 @@ static int sparx5_rr_inet6addr_event(struct notifier_block *nb,
- 	struct net_device *dev = if6->idev->dev;
- 	struct sparx5_router *router;
- 
--	if (event != NETDEV_DOWN)
-+	if (event != NETDEV_UP && event != NETDEV_DOWN)
- 		return NOTIFY_DONE;
- 
- 	if (!net_eq(dev_net(dev), &init_net))
-@@ -529,6 +567,20 @@ static int sparx5_rr_inetaddr_valid_event(struct notifier_block *nb,
- 					       ivi->extack);
- }
- 
-+static void sparx5_rr_leg_withdraw(struct sparx5 *sparx5,
-+				   struct net_device *dev)
-+{
-+	struct sparx5_rr_router_leg *leg;
-+
-+	mutex_lock(&sparx5->router->lock);
-+	leg = sparx5_rr_leg_find_by_dev(sparx5, dev);
-+	if (leg) {
-+		sparx5_rr_router_leg_destroy(leg);
-+		sparx5_rr_legs_reconcile_schedule(sparx5);
-+	}
-+	mutex_unlock(&sparx5->router->lock);
-+}
-+
- /* Called with RTNL. */
- static int sparx5_rr_netdevice_event(struct notifier_block *nb,
- 				     unsigned long event, void *ptr)
-@@ -547,6 +599,39 @@ static int sparx5_rr_netdevice_event(struct notifier_block *nb,
- 	sparx5 = router->sparx5;
- 
- 	switch (event) {
-+	case NETDEV_PRECHANGEUPPER: {
-+		struct netdev_notifier_changeupper_info *upper_info = ptr;
-+
-+		if (upper_info->linking && upper_info->master)
-+			sparx5_rr_leg_withdraw(sparx5, dev);
-+		break;
-+	}
-+	case NETDEV_CHANGEUPPER:
-+		if (is_vlan_dev(dev))
-+			sparx5_rr_legs_reconcile_schedule(sparx5);
-+		break;
-+	case NETDEV_UP:
-+	case NETDEV_DOWN:
-+		mutex_lock(&router->lock);
-+		leg = sparx5_rr_leg_find_by_dev(sparx5, dev);
-+		if (leg)
-+			sparx5_rr_leg_hw_uc_update(sparx5, leg);
-+		mutex_unlock(&router->lock);
-+		if (event == NETDEV_UP && is_vlan_dev(dev) &&
-+		    vlan_dev_real_dev(dev) == sparx5->hw_bridge_dev)
-+			sparx5_rr_legs_reconcile_schedule(sparx5);
-+		break;
-+	case NETDEV_PRE_CHANGEADDR:
-+		sparx5_rr_leg_withdraw(sparx5, dev);
-+		break;
-+	case NETDEV_CHANGEADDR:
-+		mutex_lock(&router->lock);
-+		if (sparx5_rr_bridge_has_legs(sparx5, dev))
-+			sparx5_rr_leg_base_mac_set(sparx5, dev->dev_addr);
-+		mutex_unlock(&router->lock);
-+		if (is_vlan_dev(dev))
-+			sparx5_rr_legs_reconcile_schedule(sparx5);
-+		break;
- 	case NETDEV_UNREGISTER:
- 		mutex_lock(&router->lock);
- 		leg = sparx5_rr_leg_find_by_dev(sparx5, dev);
-@@ -568,10 +653,34 @@ static void sparx5_rr_router_legs_flush(struct sparx5 *sparx5)
- 		sparx5_rr_router_leg_destroy(leg);
- }
- 
-+/* Follow a vlan of the bridge itself, the kernel only receives on a vlan
-+ * upper while the bridge carries its vid.
-+ */
-+void sparx5_rr_bridge_vlan_clear(struct sparx5 *sparx5,
-+				 const struct net_device *bridge, u16 vid)
-+{
-+	struct sparx5_rr_router_leg *leg;
-+
-+	if (!sparx5->router)
-+		return;
-+
-+	mutex_lock(&sparx5->router->lock);
-+	list_for_each_entry(leg, &sparx5->router->leg_list, leg_list_node) {
-+		if (leg->vid != vid || vlan_dev_real_dev(leg->dev) != bridge)
-+			continue;
-+		leg->vlan_present = false;
-+		sparx5_rr_leg_hw_uc_update(sparx5, leg);
-+	}
-+	sparx5_rr_legs_reconcile_schedule(sparx5);
-+	mutex_unlock(&sparx5->router->lock);
-+}
-+
- static void sparx5_rr_legs_reconcile(struct sparx5 *sparx5)
- {
- 	struct sparx5_rr_router_leg *leg, *tmp;
-+	struct net_device *bridge, *dev;
- 	struct sparx5_router *router;
-+	struct list_head *iter;
- 
- 	ASSERT_RTNL();
- 
-@@ -579,8 +688,29 @@ static void sparx5_rr_legs_reconcile(struct sparx5 *sparx5)
- 
- 	mutex_lock(&router->lock);
- 	list_for_each_entry_safe(leg, tmp, &router->leg_list, leg_list_node) {
--		if (sparx5_rr_dev_addr_list_empty(leg->dev))
-+		if (sparx5_rr_dev_addr_list_empty(leg->dev) ||
-+		    !sparx5_rr_dev_real_is_vlan_aware(sparx5, leg->dev)) {
- 			sparx5_rr_router_leg_destroy(leg);
-+			continue;
-+		}
-+
-+		bridge = vlan_dev_real_dev(leg->dev);
-+		leg->vlan_present = sparx5_rr_bridge_vlan_present(bridge,
-+								  leg->vid);
-+		sparx5_rr_leg_hw_uc_update(sparx5, leg);
-+	}
-+
-+	bridge = sparx5->hw_bridge_dev;
-+	if (!bitmap_empty(sparx5->bridge_mask, SPX5_PORTS) && bridge) {
-+		netdev_for_each_upper_dev_rcu(bridge, dev, iter) {
-+			if (!is_vlan_dev(dev) ||
-+			    sparx5_rr_dev_addr_list_empty(dev))
-+				continue;
-+			if (__sparx5_rr_inetaddr_event(sparx5, dev, NETDEV_UP,
-+						       NULL) && net_ratelimit())
-+				netdev_warn(dev,
-+					    "Failed to offload L3 router leg\n");
-+		}
- 	}
- 	mutex_unlock(&router->lock);
- }
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c b/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c
-index 46b3351f717f..322806fbfe2b 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c
-@@ -152,6 +152,11 @@ static int sparx5_port_attr_set(struct net_device *dev, const void *ctx,
- 		sparx5_port_attr_ageing_set(port, attr->u.ageing_time);
- 		break;
- 	case SWITCHDEV_ATTR_ID_BRIDGE_VLAN_FILTERING:
-+		/* L3 offload requires a VLAN aware bridge. */
-+		if (!attr->u.vlan_filtering)
-+			sparx5_rr_bridge_legs_flush(port->sparx5,
-+						    attr->orig_dev);
-+		sparx5_rr_legs_reconcile_schedule(port->sparx5);
- 		/* Used PVID 1 when default_pvid is 0, to avoid
- 		 * collision with non-bridged ports.
- 		 */
-@@ -160,6 +165,13 @@ static int sparx5_port_attr_set(struct net_device *dev, const void *ctx,
- 		port->vlan_aware = attr->u.vlan_filtering;
- 		sparx5_vlan_port_apply(port->sparx5, port);
- 		break;
-+	case SWITCHDEV_ATTR_ID_BRIDGE_VLAN_PROTOCOL:
-+		/* A leg is classified by vid alone, whatever the protocol. */
-+		if (attr->u.vlan_protocol != ETH_P_8021Q)
-+			sparx5_rr_bridge_legs_flush(port->sparx5,
-+						    attr->orig_dev);
-+		sparx5_rr_legs_reconcile_schedule(port->sparx5);
-+		return -EOPNOTSUPP;
- 	case SWITCHDEV_ATTR_ID_PORT_MROUTER:
- 		sparx5_port_attr_mrouter_set(port,
- 					     attr->orig_dev,
-@@ -179,9 +191,11 @@ static int sparx5_port_bridge_join(struct sparx5_port *port,
- 	struct switchdev_brport_flags flags = {0};
- 	struct sparx5 *sparx5 = port->sparx5;
- 	struct net_device *ndev = port->ndev;
-+	bool first;
- 	int err;
- 
--	if (bitmap_empty(sparx5->bridge_mask, SPX5_PORTS))
-+	first = bitmap_empty(sparx5->bridge_mask, SPX5_PORTS);
-+	if (first)
- 		/* First bridged port */
- 		sparx5->hw_bridge_dev = bridge;
- 	else
-@@ -211,6 +225,10 @@ static int sparx5_port_bridge_join(struct sparx5_port *port,
- 	flags.val = flags.mask;
- 	sparx5_port_attr_bridge_flags(port, flags);
- 
-+	/* The bridge's legs were flushed when its last port left. */
-+	if (first)
-+		sparx5_rr_legs_reconcile_schedule(sparx5);
-+
- 	return 0;
- 
- err_switchdev_offload:
-@@ -448,6 +466,10 @@ static int sparx5_handle_port_vlan_add(struct net_device *dev,
- 		/* Flood broadcast to CPU */
- 		sparx5_mact_learn(sparx5, sparx5_get_pgid(sparx5, PGID_BCAST),
- 				  dev->broadcast, v->vid);
-+		if (v->flags & BRIDGE_VLAN_INFO_UNTAGGED)
-+			sparx5_rr_bridge_vlan_clear(sparx5, dev, v->vid);
-+		else
-+			sparx5_rr_legs_reconcile_schedule(sparx5);
- 		return 0;
- 	}
- 
-@@ -683,6 +705,7 @@ static int sparx5_handle_port_vlan_del(struct net_device *dev,
- 				     switchdev_blocking_nb);
- 
- 		sparx5_mact_forget(sparx5, dev->broadcast, vid);
-+		sparx5_rr_bridge_vlan_clear(sparx5, dev, vid);
- 		return 0;
- 	}
- 
+Generally, don't describe things that are not real lists using bullet 
+points (LLM tend to overuse bullets).
 
 -- 
-2.52.0
+ i.
 
+> 
+> Signed-off-by: Priyank Rathod <rathodpriyank@google.com>
+> ---
+>  drivers/pci/pci.h       |  6 +++++
+>  drivers/pci/pcie/aspm.c | 70 +++++++++++++++++++++++++++++++++++++++++++++++++
+>  2 files changed, 76 insertions(+)
+> 
+> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+> index 77efa4c5c960..e24a6dbf48ce 100644
+> --- a/drivers/pci/pci.h
+> +++ b/drivers/pci/pci.h
+> @@ -1150,6 +1150,7 @@ void pcie_aspm_powersave_config_link(struct pci_dev *pdev);
+>  void pci_configure_ltr(struct pci_dev *pdev);
+>  void pci_bridge_reconfigure_ltr(struct pci_dev *pdev);
+>  void pcie_encode_t_power_on(u32 t_power_on_us, u8 *scale, u8 *value);
+> +int pcie_aspm_inhibit(struct pci_dev *pdev, bool inhibit);
+>  #else
+>  static inline void pcie_aspm_remove_cap(struct pci_dev *pdev, u32 lnkcap) { }
+>  static inline void pcie_aspm_init_link_state(struct pci_dev *pdev) { }
+> @@ -1163,6 +1164,11 @@ static inline void pcie_encode_t_power_on(u32 t_power_on_us, u8 *scale, u8 *valu
+>  	*scale = 0;
+>  	*value = 0;
+>  }
+> +
+> +static inline int pcie_aspm_inhibit(struct pci_dev *pdev, bool inhibit)
+> +{
+> +	return 0;
+> +}
+>  #endif
+>  
+>  #ifdef CONFIG_PCIE_ECRC
+> diff --git a/drivers/pci/pcie/aspm.c b/drivers/pci/pcie/aspm.c
+> index b039b57f8466..0d43dc517098 100644
+> --- a/drivers/pci/pcie/aspm.c
+> +++ b/drivers/pci/pcie/aspm.c
+> @@ -245,6 +245,8 @@ struct pcie_link_state {
+>  	u32 clkpm_enabled:1;		/* Current Clock PM state */
+>  	u32 clkpm_default:1;		/* Default Clock PM state by BIOS */
+>  	u32 clkpm_disable:1;		/* Clock PM disabled */
+> +
+> +	unsigned int aspm_inhibit_cnt;	/* Reference count of inhibitors */
+>  };
+>  
+>  static bool aspm_disabled, aspm_force;
+> @@ -1055,6 +1057,10 @@ static void pcie_config_aspm_link(struct pcie_link_state *link, u32 state)
+>  	/* Enable only the states that were not explicitly disabled */
+>  	state &= (link->aspm_capable & ~link->aspm_disable);
+>  
+> +	/* Temporary inhibition overrides configured policy without mutating it */
+> +	if (link->aspm_inhibit_cnt)
+> +		state = 0;
+> +
+>  	/* Can't enable any substates if L1 is not enabled */
+>  	if (!(state & PCIE_LINK_STATE_L1))
+>  		state &= ~PCIE_LINK_STATE_L1SS;
+> @@ -1538,6 +1544,70 @@ static int __pci_disable_link_state(struct pci_dev *pdev, int state, bool locked
+>  	return 0;
+>  }
+>  
+> +/**
+> + * pcie_aspm_inhibit - Temporarily inhibit or re-allow ASPM on a link
+> + * @pdev: PCI device below the link (Downstream component of the link)
+> + * @inhibit: True to inhibit ASPM, false to release the inhibition
+> + *
+> + * Maintain a reference count of temporary ASPM inhibitions on @pdev's
+> + * upstream link without altering link->aspm_disable, link->aspm_default,
+> + * or Clock PM state.  On the first inhibitor, ASPM is disabled in LNKCTL
+> + * (Downstream component before Upstream component per PCIe r6.0 sec 7.5.3.7).
+> + * When the last inhibitor releases, the configured ASPM policy is restored.
+> + *
+> + * Return: 0 on success, -EINVAL if @pdev has no ASPM link state or on an
+> + * unbalanced release, -EBUSY on counter overflow, or -EPERM if the OS
+> + * lacks ASPM control while firmware has ASPM enabled on the link.
+> + */
+> +int pcie_aspm_inhibit(struct pci_dev *pdev, bool inhibit)
+> +{
+> +	struct pcie_link_state *link;
+> +	int ret = 0;
+> +
+> +	if (!pdev)
+> +		return -EINVAL;
+> +
+> +	if (!aspm_support_enabled)
+> +		return 0;
+> +
+> +	down_read(&pci_bus_sem);
+> +	mutex_lock(&aspm_lock);
+> +
+> +	link = pcie_aspm_get_link(pdev);
+> +	if (!link) {
+> +		ret = -EINVAL;
+> +		goto unlock;
+> +	}
+> +
+> +	if (inhibit) {
+> +		if (aspm_disabled && link->aspm_enabled) {
+> +			pci_warn_once(pdev,
+> +				      "can't inhibit ASPM; OS doesn't have ASPM control\n");
+> +			ret = -EPERM;
+> +			goto unlock;
+> +		}
+> +		if (link->aspm_inhibit_cnt == UINT_MAX) {
+> +			ret = -EBUSY;
+> +			goto unlock;
+> +		}
+> +		if (++link->aspm_inhibit_cnt == 1)
+> +			pcie_config_aspm_link(link, 0);
+> +	} else {
+> +		if (WARN_ON_ONCE(!link->aspm_inhibit_cnt)) {
+> +			ret = -EINVAL;
+> +			goto unlock;
+> +		}
+> +		if (--link->aspm_inhibit_cnt == 0 && !aspm_disabled)
+> +			pcie_config_aspm_link(link, policy_to_aspm_state(link));
+> +	}
+> +
+> +unlock:
+> +	mutex_unlock(&aspm_lock);
+> +	up_read(&pci_bus_sem);
+> +
+> +	return ret;
+> +}
+> +
+>  int pci_disable_link_state_locked(struct pci_dev *pdev, int state)
+>  {
+>  	lockdep_assert_held_read(&pci_bus_sem);
+> 
+> 
