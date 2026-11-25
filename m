@@ -1,100 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795635521;
-	b=2nDdNqjuoM190S1Vni8jkeTZ/UewReJDIO6EOGPtpbvkigBpxlxwJYNmGCbdkS0/LF6T
-	 Mn6eyD24OnrmNtZcAmOI4q80UVZBbdyg6O//SdF0vcJBHP1wBkXlKhVXS44Orl7pM/ynh
-	 SB41ByEtqtqj4nTYJzvjk32rx+pUJS6fbrlaE8Sy0Xch2tYW16y6I12SCYRptQI5f7JqM
-	 4l8GmZBCjIaDGktVzBYU4VrMrXikvPwSPVonC3of3p/7xlPoaXuC/rABr+N+OYsCU1jI3
-	 UwTSmAIPVU/Gyg+VI8ZtCF8gQV3hRYpft406io+KEqbO9RRhEywQtUxubfAPSXHLGwg==
+	t=1795635548;
+	b=HQUrgx+/Zb9svwvJWcgFIvMb4efxUUGG3YmtyUl0le99NPuRvMTyhUmRgj0SYF2GV0Sp
+	 e6M2lAHUJEArJDKwMT4kOANwUWuBqpMsNshCMcsJfWl0tNwRzz/ajnEQSRYEyfP/eGjdw
+	 T0vx+rgvtKnaCMyn47QI32IY/KBhZpCF/B8MbcDF+u1NA9J6vIxJiMS/JCLbDlcjiN9Qe
+	 uqUWxbi7D0ODbWIuWwriFUDKYsxabdp5AiWWs4gJquwYCauy7PW/nzj3Knas4Fh17gqxc
+	 e1E/52BAFcwrj20X6iuVuvHf4QybihRccx83UtV3kc6jZSDPXWc5kTfbML+1hn710yw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795635521;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=6wTnULH75vJSwiwoODIMLxKb+zlMScOTEx4i9CMk/nc=;
-	b=Lqcnec/5uAnRrVQtI0CgRkBa63oQuYtPIUfVZLldeD6223VDLr6niBDZoCEb6+KmuXxm
-	 V9zCMNtbMSKWqHrLS8ex0aRbwABw+oUNBqBuLwoTzjOsm/Po/R3+ITQyq3Q9RFyBrwGaO
-	 I6l/mVcKI9KBDpRZTndX8pAMgxFNS/4z/NH4t6E4A+Rj+Vf+H4XFoPI6kaklnM69DeNno
-	 bgVb7SjoavMZ5gtwpDN2jcXeffR9xCh/hRvZzR1l2TE7EVq/gjQbWTgbQBs3v+3SSe7Mn
-	 PcjqAbkA7E7uiS+Uw+OCK3B0BAQXxKcZHHu9uAlnXquAjM2wGUQ+GndXaZEWU4KLhMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795635548;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type;
+	bh=4JIpkbzf9JBuRi7wi/hXUTx/9PeRcB5EF6i+tZhvo4s=;
+	b=eWrIgM3lZBYS/dNOvlDNrDGoX3hMjdPR1osVnf320EBsk862pk+xzQIW8gZ2CDBFXhA/
+	 QTaxlBzEEm/x+i/IN28C7x+G45dWKbH26ZdrFplqJ/x3XY5VrgYXYumuk5EVO7njyOXox
+	 1stbnTuljktvuZfXj+MqXpQNAAG4HZwKrR4d+lCMze+f/ZDkuSQ1Oe/JYFps8zzTeU7r5
+	 CleLMaIudqtukPVzI6AcdwP9pAyHZGyfGxS9SQHntjz1GM6y+4tA8x3gXN2UImEUgUJVl
+	 /zh19lZ8w5Ij86IZWXOizF1t0/nq3HxFjnsmmn2aQ7E8loUpLgk+hsTg/Qq44L+0X1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k+FCSUCv;
-	arc=none smtp.remote-ip=74.125.82.45
-Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com [74.125.82.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QbuEShLi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A012606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:38:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A012606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2113606A321;
+	Wed, 25 Nov 2026 19:39:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k+FCSUCv
-Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1b563e32936so2163375c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:38:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795635520; x=1796240320; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6wTnULH75vJSwiwoODIMLxKb+zlMScOTEx4i9CMk/nc=;
-        b=k+FCSUCvDpX4i/W8kPyZVk3YdLizmtnxCmt94XBilrEbAtxCeVAY0AZqZt4CSnwLLi
-         NFh9VxBs4haSQhz5kcrOua4Gbeu0Fk3cMgDmu9kMFJqpNA48JBcEFTy8O73hnL6dfM6X
-         FXct+cBNtBbtY/8mha1f9bwXKySLUk6pgCUC359CSmkyDlqo5vVrYk5aSZJw2dJLFaRx
-         /OZrrv2nu8YQZXVG8G99mW7fiyQS6Ok6WD7UhGvNilS6uH9V2AgOx71VikZtni7Ql6gD
-         IeF6TVXz42LTK9s6NEGpIytWKWuoZxFZiJz34oX1uKgyfotGNoEpmEGdegbv8n17iUrd
-         scpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795635520; x=1796240320;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6wTnULH75vJSwiwoODIMLxKb+zlMScOTEx4i9CMk/nc=;
-        b=W83Eb+oBDObYj1l2CgY5TWS8Qtq/gmqEaxljt/cMWe2hbuKRzgZzgfIIDZBNRUjnKU
-         ZFOD7VSH1mBlccFMmOW+W38DKZazbXODPX1pm6vhdyojuyIQPRcogqCtkZZvwz1Sx2Zj
-         DNfuEGtkqtb184CxxnjrAQfoIJGCUXP2QVZqKYbC6yFC8W3HR/pYh4pcL7iYYYiUmoQD
-         KGXh26PT/Vn+vwlbNr5GbZK6m4t42DjFg1nGQF7su+bGBkbsoosjybVY12GqoxdLol6y
-         Zgw8QB0+rfxrrypQR8I0I6GfiUYvfj63A7LN+lsWC907xkxR8vM/Dh8ZYQZB6v0fVxvw
-         mS3A==
-X-Forwarded-Encrypted: i=1; AL+hErGHr7pY9NDiZML1UjpYUPm6fvFnWD8tvIwAcoxlGPtbfyWsbN6XhLuqejiaPWdwd5Dd/zO9DZUIVBDNFLc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9TpZntGAnCZUoVJzHSvasi6x5qJxk81HXzsRayc8qOJ4/jyzwF
-	tti48DUytufwxZl659qFqqPha+4uBVny/vtSlmVTJzy9G6rUT04dgG8E
-X-Gm-Gg: AZFdTZduapqU170LY+9gic7ulEieo2Uy9mG38WQfNyjWJyGDsBZmaH4qQGtPVUkvMm5
-	8GrKTyqQPj/HvaglvlBjObExAvBaFKiURMrFiBUwUbOgjJ9Muh9FFSvrggMyZ+Wre1rjdq6G93P
-	G6RiIDMUZGMp0H0tBsWJio6iSl8ZsR9mKS5+UOJKBtGZ9hRWKLycVGQkLzTsSNJMUdBaG3T4kT0
-	sbfCmNaZ9R0ICcikzU2ZUlCaQMgHUR4+9Bo2FTsqSv8HjTqmhhW505yyNzGiTw+DNMsKPDHMauX
-	S5/6cHC33HYY+wDrIHaWs40hNJjcvqEDw1coF+t+DDAJaYd60E0IsL8tsHP98f5IWlzjbJDGJ6v
-	GVKy28tDuRh5FHfDZ8hxti168w21qmnbShVmdn24qZWSh9esn9PPXUr6ZHUQDN9bm4Frz4x990N
-	hMpnMx4CIyxsulEgoOUA7aK/Wjh3SOc/FQd/vM/ZU5zTA0GLh53Rkdsgz6CmagsTCe/ox0lwWeM
-	VH6HwogALOWPXNTCgDcX1YKr90JV8IybBCsK2m8cRk2OjUxSgez3S4oPsMBo574FDsL0rXR7P9p
-	cxwSp9l/DE8HlBmTHzDIK4vJGpZq46iZMYuPTha0YZhQhNBw//69RdRvUls9pVvozpg=
-X-Received: by 2002:a05:7022:170d:b0:1b5:1c22:6fea with SMTP id a92af1059eb24-1b5566a60efmr17005635c88.0.1795635520254;
-        Wed, 25 Nov 2026 11:38:40 -0800 (PST)
-Received: from localhost.localdomain (wood.seclab.cs.ucsb.edu. [128.111.49.37])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b562a82b3fsm50810012c88.5.2026.11.25.11.38.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 11:38:39 -0800 (PST)
-From: Praneeth Balasubramanian <praneethb2002@gmail.com>
-To: Lee Duncan <lduncan@suse.com>,
-	Chris Leech <cleech@redhat.com>,
-	Mike Christie <michael.christie@oracle.com>
-Cc: "Martin K . Petersen" <mkp@kernel.org>,
-	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
-	open-iscsi@googlegroups.com,
-	linux-scsi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Praneeth Balasubramanian <praneeth@ucsb.edu>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] scsi: iscsi_tcp: Take sk_callback_lock in the recv work
-Date: Wed, 25 Nov 2026 11:38:26 -0800
-Message-Id: <20261125193826.3466197-1-praneethb2002@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <4fc02402-4ab3-42d0-8dbf-d0a36a125e43@oracle.com>
-References: <4fc02402-4ab3-42d0-8dbf-d0a36a125e43@oracle.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QbuEShLi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4EE21F000C4;
+	Wed, 25 Nov 2026 19:39:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795635547;
+	bh=4JIpkbzf9JBuRi7wi/hXUTx/9PeRcB5EF6i+tZhvo4s=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=QbuEShLi544NaqUt1tLMA3EEz4cc//Z80hoJf2oz3FNzqzd1oMQc6bu7mZPjIM3L4
+	 aPysv0MrQF5mpM3fjFSc3MzO1wpRIQP98KRBYcuP6Y8MfZd1zitnhm7W8gIj9K5XZR
+	 AxCa+Ytjhw7GZsJEpUSHLenk7kb7Uiv6eOTwsekLT01X1ipiUViZmzpQgE+cSMK2Tg
+	 wWfzRS+gFM8Y5CCIus+57t1dQZM1giVuQkMOezHnsargX42ERMy2dp+kQp4dTKLuAs
+	 ZbUerKPMxG37Rl81ezxfLltmCIUycyfjK1ziTtnQqeQPCLPw2MCu34fOxsQhmYZVKz
+	 gALHJ2T8i6w7w==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: magnus.karlsson@intel.com, maciej.fijalkowski@intel.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ ilias.apalodimas@linaro.org, alexanderduyck@fb.com, saeedm@nvidia.com,
+ tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ michael.chan@broadcom.com, pavan.chebbi@broadcom.com, corbet@lwn.net,
+ shuah@kernel.org, bpf@vger.kernel.org, netdev@vger.kernel.org,
+ stuclar@meta.com, sdf@fomichev.me, horms@kernel.org, martin.lau@linux.dev,
+ almasrymina@google.com, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ rdunlap@infradead.org, kernel-team@meta.com,
+ dimitri.daskalakis1@gmail.com, bobbyeshleman@meta.com,
+ mohsin.bashr@gmail.com, kees@kernel.org, leitao@debian.org,
+ maxime.chevallier@bootlin.com, cuitao@kylinos.cn,
+ vadim.fedorenko@linux.dev, mike.marciniszyn@gmail.com, kuniyu@google.com,
+ jiayuan.chen@linux.dev, mkarsten@uwaterloo.ca, razor@blackwall.org,
+ dw@davidwei.uk, asml.silence@gmail.com, linux-rdma@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 02/15] xdp: Keep the shared info of a buffer in
+ kernel memory
+In-Reply-To: <179561567996.3135.9952128421877275714@kernel.org>
+References: <20261124125654.183091-2-bjorn@kernel.org>
+ <179561567996.3135.9952128421877275714@kernel.org>
+Date: Wed, 25 Nov 2026 20:39:04 +0100
+Message-ID: <87ld6gog4n.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,121 +78,145 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 
-From: Praneeth Balasubramanian <praneeth@ucsb.edu>
+netdev-bot+sashiko@kernel.org writes:
 
-With recv_from_iscsi_q=1, iscsi_sw_tcp_data_ready() queues
-conn->recvwork, and iscsi_sw_tcp_recv_data_work() runs the receive path
-under lock_sock() only. The data_ready path runs it under
-read_lock_bh(&sk->sk_callback_lock) and returns early when sk_user_data
-is NULL. The work does neither, and that causes two problems.
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in case
+> you want to address the nit picks below when you respin.
+>
+> Low priority / nit picks for your consideration:
+>
+> - [Low] A comment is now stale.
+>
+> Pre-existing issues:
+> - [High] This problem wasn't introduced by this patch, but the patch's
+>   commit message names it and the series leaves it open.
+>
+> --
+>
+> xdp: Keep the shared info of a buffer in kernel memory
+>
+> This patch lets an RX queue keep the skb_shared_info of its XDP buffers
+> in kernel memory, allocated by xdp_rxq_info_reg_ext_sinfo(). Buffers
+> with the new XDP_FLAGS_SINFO_EXT flag look up their shared info there.
+> For such buffers xdp_data_hard_end() reserves no tailroom, and frame
+> and skb conversion refuse them.
+>
+>> diff --git a/include/net/xdp.h b/include/net/xdp.h
+>> index 1629e347b71fb..944418111a86e 100644
+>> --- a/include/net/xdp.h
+>> +++ b/include/net/xdp.h
+>
+> [ ... ]
+>
+>> @@ -212,17 +226,27 @@ xdp_prepare_buff(struct xdp_buff *xdp, unsigned char *hard_start,
+>>  
+>>  /* Reserve memory area at end-of data area.
+>>   *
+>> - * This macro reserves tailroom in the XDP buffer by limiting the
+>> - * XDP/BPF data access to data_hard_end.  Notice same area (and size)
+>> - * is used for XDP_PASS, when constructing the SKB via build_skb().
+>> + * This reserves tailroom in the XDP buffer by limiting the XDP/BPF data
+>> + * access to data_hard_end.  Notice same area (and size) is used for
+>> + * XDP_PASS, when constructing the SKB via build_skb(). Buffers with
+>> + * %XDP_FLAGS_SINFO_EXT keep the shared info elsewhere and reserve none.
+>>   */
+>> -#define xdp_data_hard_end(xdp)				\
+>> -	((xdp)->data_hard_start + (xdp)->frame_sz -	\
+>> -	 SKB_DATA_ALIGN(sizeof(struct skb_shared_info)))
+>> +static __always_inline void *xdp_data_hard_end(const struct xdp_buff *xdp)
+>> +{
+>> +	u32 tailroom = SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
+>> +
+>> +	if (xdp->flags & XDP_FLAGS_SINFO_EXT)
+>> +		tailroom = 0;
+>> +	return xdp->data_hard_start + xdp->frame_sz - tailroom;
+>> +}
+>
+> [Severity: Low]
+> This isn't a bug, but should the comment in bpf_xdp_adjust_tail() be
+> updated along with this change?
+>
+> net/core/filter.c:bpf_xdp_adjust_tail() {
+>     ...
+> 	/* Notice that xdp_data_hard_end have reserved some tailroom */
+> 	if (unlikely(data_end > data_hard_end))
+> 		return -EINVAL;
+>     ...
+> }
+>
+> xdp_data_hard_end() no longer reserves tailroom for XDP_FLAGS_SINFO_EXT
+> buffers. For those buffers this bound reaches the end of the frame, and
+> frame_sz is the only limit.
 
-First, on teardown, iscsi_sw_tcp_release_conn() calls
-iscsi_sw_tcp_conn_restore_callbacks(), which clears sk->sk_user_data,
-and only then flushes recvwork in iscsi_suspend_rx(). Work that runs in
-between processes a socket whose callbacks were already restored. If
-the socket is in TCP_CLOSE or TCP_CLOSE_WAIT, iscsi_sw_sk_state_check()
-then dereferences NULL->session. With a delay added at the start of the
-work to widen this window, a target-side connection close gives:
+Yes, will fix.
 
-  Oops: general protection fault, probably for non-canonical address ...
-  KASAN: null-ptr-deref in range [0x0000000000000010-0x0000000000000017]
-  Workqueue: iscsi_q_3 iscsi_sw_tcp_recv_data_work
-  RIP: 0010:iscsi_sw_tcp_recv_data+0x219/0x420
+>>  
+>>  static inline struct skb_shared_info *
+>>  xdp_get_shared_info_from_buff(const struct xdp_buff *xdp)
+>>  {
+>> +	/* Kernel structures stay out of memory that userspace may write */
+>> +	if (unlikely(xdp->flags & XDP_FLAGS_SINFO_EXT))
+>> +		return xdp->rxq->ext_sinfo;
+>> +
+>>  	return (struct skb_shared_info *)xdp_data_hard_end(xdp);
+>>  }
+>
+> [Severity: High]
+> This is a pre-existing issue, not one introduced by this patch. The
+> commit message gives it as the motivation:
+>
+>     Classic AF_XDP zero copy keeps it in the tail of a UMEM chunk, where
+>     userspace can rewrite it.
+>
+> Is classic AF_XDP zero copy meant to stay exposed? XSK pool buffers
+> never get XDP_FLAGS_SINFO_EXT, either here or later in the series. Later
+> in the series only xdp_sink_mark() sets the flag, and only for
+> MP_XDP_ONLY page pools.
+>
+> So xsk_buff_add_frag() still writes the fragment list into the UMEM
+> tail:
+>
+> xsk_buff_add_frag()
+>   __xdp_buff_add_frag(head, ...)
+>     xdp_get_shared_info_from_buff(head)
+>       xdp_data_hard_end(head)
+>
+> That is the tailroom that xsk_pool_get_rx_frame_size() reserves when
+> XDP_UMEM_SG_FLAG is set.
+>
+> Userspace can rewrite nr_frags and frags[] of chunks it has handed over
+> through the fill ring while NAPI builds a multi-buffer packet. Can a
+> forged nr_frags then overflow sinfo->frags[]? __xdp_buff_add_frag()
+> only checks:
+>
+> 	} else if (unlikely(nr_frags == MAX_SKB_FRAGS)) {
+> 		return false;
+>
+> With a value above MAX_SKB_FRAGS, it writes frags[nr_frags] past the
+> end of the chunk.
+>
+> On XDP_PASS, xdp_copy_frags_from_zc() in net/core/xdp.c has the same
+> problem:
+>
+> 	xinfo = xdp_get_shared_info_from_buff(xdp);
+> 	nr_frags = xinfo->nr_frags;
+>
+> 	for (u32 i = 0; i < nr_frags; i++) {
+>
+> There is no bound on nr_frags here. It indexes skb_shinfo()->frags[] of
+> the new skb and copies from skb_frag_address() of the forged frag
+> netmems. xsk_rcv_zc() also sizes its RX ring reservation from nr_frags.
+>
+> Triggering this needs a zero-copy AF_XDP socket with XDP_UMEM_SG_FLAG
+> and an attached XDP program.
+>
+> Could the commit message say that classic zero copy stays out of scope?
+> Or could MEM_TYPE_XSK_BUFF_POOL buffers use ext_sinfo as well?
 
-Second, the receive path was written to run with BHs disabled. For
-example, __iscsi_complete_pdu() takes session->frwd_lock with
-spin_lock(), and iscsi_check_transport_timeouts() takes the same lock
-from a timer. From the work, BHs are enabled. With lockdep, an
-unmodified kernel booted with recv_from_iscsi_q=1 reports as soon as
-reads run:
+This is older than this series, and the series does not change it.
+Classic is out of scope here.
 
-  WARNING: inconsistent lock state
-  inconsistent {IN-SOFTIRQ-W} -> {SOFTIRQ-ON-W} usage.
-  kworker/u10:2/55 [HC0[0]:SC0[0]:HE1:SE1] takes:
-  (&session->frwd_lock){+.?.}-{3:3}, at: __iscsi_complete_pdu+0x4f7/0x2420
-  {IN-SOFTIRQ-W} state was registered at:
-    _raw_spin_lock+0x2e/0x40
-    iscsi_check_transport_timeouts+0x4c/0x5d0
-    call_timer_fn+0x19f/0x630
-  ...
-   *** DEADLOCK ***
-
-Take sk_callback_lock with read_lock_bh() in the recv work, as
-iscsi_sw_tcp_data_ready() does. The receive path then runs with BHs
-disabled, as it does from softirq, and is skipped once sk_user_data has
-been cleared.
-
-The unlocked sk_user_data read was found with an LLM-based tool that
-checks callers against the locking rules stated in kernel comments.
-
-Fixes: f1d269765ee2 ("scsi: iscsi: Run recv path from workqueue")
-Suggested-by: Mike Christie <michael.christie@oracle.com>
-Cc: stable@vger.kernel.org
-Signed-off-by: Praneeth Balasubramanian <praneeth@ucsb.edu>
----
-
-Notes:
-    v2:
-    - Take sk_callback_lock in the recv work and skip the receive path once
-      sk_user_data is NULL, as Mike Christie suggested. v1 passed conn
-      into iscsi_sw_sk_state_check() instead. That avoided the NULL
-      dereference but still let the work run after the callbacks were
-      restored.
-    - I went with taking the lock rather than calling iscsi_suspend_rx()
-      before restoring the callbacks. Taking it with read_lock_bh() also
-      fixes the frwd_lock report above, which reordering the teardown alone
-      would not.
-    v1 and review: https://lore.kernel.org/all/4fc02402-4ab3-42d0-8dbf-d0a36a125e43@oracle.com/
-    
-    This was found by an LLM-based static analysis (GPT-5.6) that checks
-    kernel code against the rules stated in its comments, as part of
-    research at UCSB SecLab. The patch and changelog were drafted with
-    Claude Opus 5.5. I reviewed the patch and take responsibility for it.
-    
-    Testing: two QEMU VMs on next-20261023 with KASAN and lockdep, an LIO
-    target and an open-iscsi initiator booted with
-    iscsi_tcp.recv_from_iscsi_q=1, using CHAP and continuous reads.
-    
-    - The teardown race: both initiator kernels had a 20 ms msleep() added
-      at the start of iscsi_sw_tcp_recv_data_work(), and the TCP connection
-      was closed from the target side. The unpatched kernel oopsed as
-      above. The patched kernel ran three times with no oops and no lockdep
-      report. In one run, a test-only print showed the work reaching the
-      new check after the callbacks were restored, with the socket in
-      TCP_CLOSE, and skipping the receive path. The race needs the delay to
-      hit reliably.
-    - The frwd_lock report: it appeared in all 10 unpatched runs in this
-      mode, including runs without the delay, and in none of the patched
-      runs.
-    
-    The patch applies to mainline 9ba46df34488 and to next-20261116.
-
- drivers/scsi/iscsi_tcp.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/scsi/iscsi_tcp.c b/drivers/scsi/iscsi_tcp.c
-index 9260b1c9b0e0..6d802b84f7ad 100644
---- a/drivers/scsi/iscsi_tcp.c
-+++ b/drivers/scsi/iscsi_tcp.c
-@@ -160,7 +160,15 @@ static void iscsi_sw_tcp_recv_data_work(struct work_struct *work)
- 	struct sock *sk = tcp_sw_conn->sock->sk;
- 
- 	lock_sock(sk);
--	iscsi_sw_tcp_recv_data(conn);
-+	/*
-+	 * Teardown clears sk_user_data under sk_callback_lock before it
-+	 * flushes this work. Take the lock like iscsi_sw_tcp_data_ready()
-+	 * so the recv path never runs after the callbacks are restored.
-+	 */
-+	read_lock_bh(&sk->sk_callback_lock);
-+	if (sk->sk_user_data)
-+		iscsi_sw_tcp_recv_data(conn);
-+	read_unlock_bh(&sk->sk_callback_lock);
- 	release_sock(sk);
- }
- 
--- 
-2.25.1
-
+I'll work with Magnus and Maciej to get a fix out for classic.
