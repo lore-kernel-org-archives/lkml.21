@@ -1,102 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.205
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795574558;
-	b=K1rs7k8JBTqs/YcK3TgPM4fWqiqjpDjoFRTCZ3DIH0oP3hRiBO/oAUVqF9p0r6nk38WG
-	 CcJrZ8oF9WacLXzjqZkLcD7y5Tc8Q/m0BGN5YADbe3pe2Tjld9Lg8jTdZJIy4Cdk9Gkya
-	 Xilz6aa16CWh2bB6rj9+Hnq9UXDUsjqVz4TSnaPYP5ZMpeM99TmUPwK0fzi5AOs41Zbpd
-	 B7eusyl8ApwOdrva579eQmhk8P1XZb+K5O4Vx6y16BrYrwyB1WMQF6PKvWXNhNMdY+e0W
-	 AFzgEIDZPuqv9yVJ8S7mhcx+hEXPTOOxjH7OONg91etZt9WVwMFRGeQb5lHxLhRwSfw==
+	b=VNTTNXCRpUsZf4WitFiO8UOcqp4GNNIeI8LhIQmO5zlQ8LXFl2IU3evby5xaybcUni90
+	 ReNjbI0uArdOQCZEn2R2aqZzmg+JomfESk5dW4x/yLNb3X5sdndyo0vB+y2SuJ5SZuziI
+	 X4vuLSskPQMxmYN5gIfodi2lrj3u2Ni38ZXvj/t6+i6ECDWgqZladO12tU4pdd/pg8vfl
+	 hTnvd72NPZZvcLvg1ngYuSqeC+F0MXSuX/E/gJt8Wul8zR+aB/OUM55X/ErQ99MHKo/4n
+	 0fFuIJExKu2MI0elt1GfJazB/5gFuNTPuDUfvDa3D7y92U+cFyiehXaU5CvVhR/tWiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795574558;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=mEExPnF37SF6L15+U7oygTLDkR+EbGh7oqFgruuLRMI=;
-	b=OFH9GW8II09AH4PbGPQwyY6Nyq6e/RN9NdZzksHpUqXy1T0LUhYIAEpO2f3aDdI534Za
-	 dO1mzUS+ECVoilQ5NCAFbqBDUXkeVIU2vX4ZnEESXNIAnB/eTMJodMyOCZ71tmB7V9CyP
-	 uaSb79VEvG5Wcjl2WEHxdMgwZZCNuCYKtknaPDDMoRT0QNW7ZAq+cJCxVKcLgyBH0+HuJ
-	 ISoh9EWphBmWYkEvKFeuHqqps6U+EOv8G9cmHmYnniUJak4Aft7bvJ07pKU0zGFImutw7
-	 /UOF2jxvuamHiBzGNp2DBv1ZbIJDURNh/EM5hXNq8tQgU/aHZYcJ2kQdDDmf6mRfEDQ==
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=HDEYsyYf/DPiLd1IWo6embcgdiUpRlnBCx5O1AsnsZE=;
+	b=LtmDF6ogCjLILMFHshPvheBEKhmetHoJUjkY7qP3eMClIF6b9qR8dK8kG1RgMMsmzRfJ
+	 bH8W0TOefRQy43SQVSRtCKzkDfgNA4/LpcD41oV1zXCrWVarYVaJx+hcWxvMVfIQb4RKH
+	 XJayLxo56tEBa77N99oRQNwzRntIZ+jB8jkNojHhUrBxwp8TDKJ8coyg8+xo0cQ6b31+u
+	 D9NON3OJXBVOhY3wz9vjaJEh9IetOjkeGRcJeyoxjagT4Th7Q8R/YE0fxbJpLi3xRYRXq
+	 mEzdXoAKM42p4QX9T9SobI9gey5Mncu3NIASpXSLYmleqA94Epc9Nqd+c9IuOZyi10w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lpqHvE7o;
-	arc=none smtp.remote-ip=209.85.216.44
-Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=C7aj+R4r;
+	arc=none smtp.remote-ip=203.205.221.205
+Received: from out203-205-221-205.mail.qq.com (out203-205-221-205.mail.qq.com [203.205.221.205])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A39FE606A692
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:42:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A39FE606A692
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 823E7606A32C;
+	Wed, 25 Nov 2026 02:42:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 823E7606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lpqHvE7o
-Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b43d30822fso2683560a91.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:42:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795574557; x=1796179357; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mEExPnF37SF6L15+U7oygTLDkR+EbGh7oqFgruuLRMI=;
-        b=lpqHvE7oFQMRktUkqjnAP23urMaMeOWlZbyQz8DFAkOKgQcFkgf/wQXFk3odj6kSsD
-         1oI/GkxWQ11lVFXOW3Q2khTt1HNOnFvUxixkqdxEH7J/37gWizkM51Bccgz5Vy8VHHoj
-         3bd9hJrJx8O0NnkrtjhioYVgiUVJkSrgp2jVx1AcGZZftIyymymXTLkpOzzvwPQ9GISS
-         sx93lMp+QLA/J1QItLXS1SlCgf/k57kooLzH9n2vKqyMoh/5ucyvsxEXtL5NCY+hUm0i
-         tSjMfaSvKb9cPIN3hcwP+X/Wq+ldW9QIv71lfoHNdwjXk7NLKwoXmANZrV1RAOJVmZst
-         /VTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795574557; x=1796179357;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mEExPnF37SF6L15+U7oygTLDkR+EbGh7oqFgruuLRMI=;
-        b=z4pF+lJiL/DZYFYAbrncM6hPDCbJKc7P74+cJeE8I1kvATXmcdkNxdtXGaBQeJ7x7F
-         jDAsIvpMWWA/7QXEdm2BC3wTza8/u7qJQQAxojcTPyeq2HxRrLWbqUZaWsfRjd13qfEc
-         u9BeOIGZgILoHsQQwBWcV3vuqscSDkIZGb+JwyL9sLESzensphR5xwdEGDv//YTqCHdq
-         Ujaxp8NjH+hg031kDYqg23BoazICISY6Fi7Mu01fXqSzHXLSleu88a3BufYX16hOs++o
-         mpawWQT0Jtrnrnv5DOrZSEC50aPTlPV78+F30id6K+BkKWhQ7TlsV1HH53cLw6rShLMy
-         wi/g==
-X-Forwarded-Encrypted: i=1; AL+hErHepu7eiHQpIqJ0ugUuKTCKZ3ImOFeyBEmSQ6+TgfezNq8tEnjGChLUYLnN4YPyqc1JqsDdY6RyYcOE+rM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8CzB0fDP9EX8tTGPkWTD9KTKH9mZihnNRijmNb1ccSiJ/LZI/6
-	Jol2AHCYemeeoe1srGRpHsDaFhbzBYVC0fP3/cZmuhdd0P8FlaGogI9O
-X-Gm-Gg: AZFdTZcIexBcEh6E1L5jLx9gD3+oMubWFVDpMz8G7Wzh+YQHxcgcngYI7wQq2IZEkAZ
-	7XBlSz0tLg0Hm/HPNNlnNVC98TDUz7l7s2qLTuSjZPZkmDc9NdNA1kDreIaAYbbgvv8xgLKpuhp
-	HXDm+oNByYywI++iMEEH/Mm8glLyR/MtgHW86ICgC2DH28VnSH0IiJ2BwmAkU2MQBt6JAdGgcNx
-	LCFKIDca85mAghmVPnjL/Hvfy6wO5JJHHCCog3V7hOoIbUDu5T7OwSIRqLbp7ykOIhv4AIh+VeF
-	5MqYKzTYxXLLoLXnpSCYsikdoRlypW3UPhBzG3xyDLsLGkJJlzb5seDLhdELH7SuctdCJv9U5fB
-	QPSb7raE1bMQcpvSdCnB9FEztS/cwc9oPslhEWW+AWlBfsSqr6Q8F4mGIqv2hiW6V/YQsdtMzJj
-	zdERYj0H3+Q9uoSOULCiQIwqAd9VIX8I3NqqKNUnIdF2C40f7ntBqEO+ZBJMLAUnlDz+d30ZVY9
-	DftRiqnoHFYkiRUGNVmhUZt5ZZg5pRiP7rv6DZwszlSsvpGFRDgUhs4Kgm1S35l/bFunYl6NQGv
-	jt+vapfouqmBr47CQDROVt+SZWq4bGuQ14EyxQyAh1/a4cY3PrlsmVduXZaArnwHR3Y=
-X-Received: by 2002:a17:90b:3f43:b0:3b4:e97:22ec with SMTP id 98e67ed59e1d1-3b41c931cfcmr16259721a91.35.1795574556864;
-        Tue, 24 Nov 2026 18:42:36 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a33fsm25727086a91.6.2026.11.24.18.42.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 18:42:35 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Florian Westphal <fw@strlen.de>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Hui Peng <benquike@gmail.com>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH ipsec v2 2/2] xfrm: refuse modes that AH and ESP do not support
-Date: Wed, 25 Nov 2026 11:42:28 +0900
-Message-ID: <e5abf3005007d9bf3eab4b640d513856f8eacf6c.1795573672.git.kyuwoncho18@gmail.com>
-In-Reply-To: <cover.1795573672.git.kyuwoncho18@gmail.com>
-References: <cover.1795573672.git.kyuwoncho18@gmail.com>
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=C7aj+R4r
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795574554; bh=HDEYsyYf/DPiLd1IWo6embcgdiUpRlnBCx5O1AsnsZE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=C7aj+R4rGu7oYpF5XLhzfFe8CzIN3HyuUK2IK9jyr99ZT6hRsDed9jVhEsZ2wJmpi
+	 I/zLLsWX7jKFhH4mr5HZvpKtkbvf2syhz8MvYH66Hkr2bg7L3YPvZ+1acAsGLrKRFm
+	 Z74krXge8cjUsO8tNm/06rCwa2AQ8fVkj4EjAwqE=
+Received: from HF ([113.90.236.90])
+	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
+	id A9B394D4; Wed, 25 Nov 2026 10:42:27 +0800
+X-QQ-mid: xmsmtpt1795574552tnmiwwevj
+Message-ID: <tencent_05AAFCF8CA47B5D5ED770621DB13E46F1406@qq.com>
+X-QQ-XMAILINFO: M84Ob7gbJGBWfsnIcQdl+mdRtHpsDzFkNHf4CHzZd7s8+//ej0p/727OVGyHKO
+	 GKKuHGopefwaUxKyHMHFFf9oPrugu/Rp5y1Fc8XpiOxa0FikSkaGVrD1V4Iw2thsR4OsluLP1XnQ
+	 WwtlqW0lL8Hhkw6fqjjFO/BsDR6dVlvq5vRaCV6CZyFEIcKZxoz1TgSc6Lbbb6+yWEP8Gh4chz4m
+	 tJIPxvLFHt2b5Y8Aol8C6PTMCQfKF0mm/6wmgxAmb+TMXd2b7GyIHxPpuXULBNqulF3L2Vdv0lKf
+	 5vO9mWC/wT8horAEcElxBzw9DkYJJ+Mtu2rqlF2qJ/Zu9SW9sRq+gZ8ckJK54xSQ54vE8LHZm5zn
+	 zhQZAHGxujbJpFnK6O/6DsxES1Uv/EU9m5ktwYcXc90fMisOTgHJF1pRSJ7I0T/dG4KtAayLOTQf
+	 SeYEqTtQah5H/UwfBiCqB4zS2SI2qZq2XvsrPJvrVttWId96TTgxKAfNXHcwBVrZfNJjxxpbnVEi
+	 fRrnh7J1Kl2jSOVUz9NQ42ls78Koqyr8g+/8XvSNqv0x/YRQ29CmgsLWcHZ/AR0C9MZov0DZ0BGL
+	 v+h30PMw5Rs77pVFosVatZaGHJh+rI7hi5fyqDNlqWBZJa6xrChTFRIJVIlDiYEX/XeP5QHC5tcP
+	 opVLGzaIX9R1NTg7Pr4BcrdpC/gvHaWr1y6H4yvDCioFu9X1S2T/TzVtNZvLBhYPtnqVDSVbLbAk
+	 MJXt89vP4I/bsAy+52QIYTH0J5SvyMRm1N0cMZxINmeNO3u0wFaEZ4LJtMlBv1WxUx6d1iy+WSXu
+	 T07oEmuRDsbjAuM00eL6618DvGhhOk8JiU9VU1ufXWsbt5xUW7gXG+eDtdIiiW5k9sFFMiVVq/zf
+	 yY0jQnfavnCvmOBPxwB9R4CjxfIMgNMWaz/krMTU/mzglovpxI/toGTSouoD9Dl1J7vrW9WrMo8g
+	 nzgJv6lqG2EoQR6gRwLSNkjC6Q2YfhIoF3WX25TxPmkgn9eKyU18/nkfr0G6OK8DDg/S2n2zwFSd
+	 7n70X7nbhlOZa9Zg0mZjV5jnkYyedbVmdH0CqSZQf8B5DC2VSwQFdRCnN3BDPksCfYqbkBZKRbKV
+	 W4WbxzorppOWhmGe83XkGrR/3tdg==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+From: Hefei <3066883572@qq.com>
+To: dri-devel@lists.freedesktop.org
+Cc: linux-input@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	robh@kernel.org,
+	conor@kernel.org,
+	Hefei <3066883572@qq.com>
+Subject: [PATCH v4 5/6] Input: add Jadard JD9365TX in-cell touchscreen driver
+Date: Wed, 25 Nov 2026 10:42:25 +0800
+X-OQ-MSGID: <20261125024226.1293-6-3066883572@qq.com>
+X-Mailer: git-send-email 2.55.0.windows.5
+In-Reply-To: <20261125024226.1293-1-3066883572@qq.com>
+References: <20261125024226.1293-1-3066883572@qq.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,104 +86,415 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ah6_init_state() refuses any mode but transport, tunnel and BEET, but
-ah_init_state(), esp_init_state() and esp6_init_state() accept any mode
-and only adjust header_len for the ones they know. For ESP over IPv6,
-a state in route optimization mode then reaches the WARN_ON_ONCE()s for
-unknown modes in xfrm_state_mtu() and xfrm_inner_mode_input(), as long
-as verify_newsa_info() lets the mode through. Over IPv4 there is no
-route optimization mode, and __xfrm_init_state() refuses it before the
-type is set up.
+Add a polling I2C driver for the JD9365TX in-cell touch controller.
+Typical module FPCs expose I2C only, so the driver polls coordinate
+SRAM after opening the controller backdoor.
 
-Make these functions refuse the modes they do not support, as
-ah6_init_state() does, so that each type checks its own modes. ESP
-keeps IP-TFS.
-
-Fixes: c2d305e51038 ("xfrm: remove input indirection from xfrm_mode")
-Fixes: c7b37c769d2a ("xfrm: remove get_mtu indirection from xfrm_type")
-Suggested-by: Sabrina Dubroca <sd@queasysnail.net>
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+Signed-off-by: Hefei <3066883572@qq.com>
 ---
- net/ipv4/ah4.c  | 11 ++++++++++-
- net/ipv4/esp4.c | 18 +++++++++++++++---
- net/ipv6/esp6.c |  6 +++++-
- 3 files changed, 30 insertions(+), 5 deletions(-)
+ drivers/input/touchscreen/Kconfig           |  12 +
+ drivers/input/touchscreen/Makefile          |   1 +
+ drivers/input/touchscreen/jadard_jd9365tx.c | 356 ++++++++++++++++++++
+ 3 files changed, 369 insertions(+)
+ create mode 100644 drivers/input/touchscreen/jadard_jd9365tx.c
 
-diff --git a/net/ipv4/ah4.c b/net/ipv4/ah4.c
-index 6fd642d2278d..32094169718c 100644
---- a/net/ipv4/ah4.c
-+++ b/net/ipv4/ah4.c
-@@ -535,8 +535,17 @@ static int ah_init_state(struct xfrm_state *x, struct netlink_ext_ack *extack)
- 	else
- 		x->props.header_len = XFRM_ALIGN8(sizeof(struct ip_auth_hdr) +
- 						  ahp->icv_trunc_len);
--	if (x->props.mode == XFRM_MODE_TUNNEL)
-+	switch (x->props.mode) {
-+	case XFRM_MODE_BEET:
-+	case XFRM_MODE_TRANSPORT:
-+		break;
-+	case XFRM_MODE_TUNNEL:
- 		x->props.header_len += sizeof(struct iphdr);
-+		break;
-+	default:
-+		NL_SET_ERR_MSG(extack, "Invalid mode requested for AH");
-+		goto error;
+diff --git a/drivers/input/touchscreen/Kconfig b/drivers/input/touchscreen/Kconfig
+index e2ee722..da425c8 100644
+--- a/drivers/input/touchscreen/Kconfig
++++ b/drivers/input/touchscreen/Kconfig
+@@ -540,6 +540,18 @@ config TOUCHSCREEN_IPROC
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called bcm_iproc_tsc.
+ 
++config TOUCHSCREEN_JADARD_JD9365TX
++	tristate "Jadard JD9365TX in-cell touchscreen"
++	depends on I2C
++	help
++	  Say Y here if you have a Jadard JD9365TX in-cell touchscreen.
++	  The driver polls over I2C when no interrupt line is wired.
++
++	  If unsure, say N.
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called jadard_jd9365tx.
++
+ config TOUCHSCREEN_S6SY761
+ 	tristate "Samsung S6SY761 Touchscreen driver"
+ 	depends on I2C
+diff --git a/drivers/input/touchscreen/Makefile b/drivers/input/touchscreen/Makefile
+index 58094f2..5846f4d 100644
+--- a/drivers/input/touchscreen/Makefile
++++ b/drivers/input/touchscreen/Makefile
+@@ -59,6 +59,7 @@ obj-$(CONFIG_TOUCHSCREEN_IMAGIS)	+= imagis.o
+ obj-$(CONFIG_TOUCHSCREEN_IMX6UL_TSC)	+= imx6ul_tsc.o
+ obj-$(CONFIG_TOUCHSCREEN_INEXIO)	+= inexio.o
+ obj-$(CONFIG_TOUCHSCREEN_IPROC)		+= bcm_iproc_tsc.o
++obj-$(CONFIG_TOUCHSCREEN_JADARD_JD9365TX) += jadard_jd9365tx.o
+ obj-$(CONFIG_TOUCHSCREEN_LPC32XX)	+= lpc32xx_ts.o
+ obj-$(CONFIG_TOUCHSCREEN_MAX11801)	+= max11801_ts.o
+ obj-$(CONFIG_TOUCHSCREEN_MXS_LRADC)     += mxs-lradc-ts.o
+diff --git a/drivers/input/touchscreen/jadard_jd9365tx.c b/drivers/input/touchscreen/jadard_jd9365tx.c
+new file mode 100644
+index 0000000..3312119
+--- /dev/null
++++ b/drivers/input/touchscreen/jadard_jd9365tx.c
+@@ -0,0 +1,356 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2026 VIEWE
++ *
++ * Jadard JD9365TX in-cell touchscreen (I2C @0x68, polling).
++ * Typical DSI FPC has no interrupt line.
++ */
++
++#include <linux/delay.h>
++#include <linux/gpio/consumer.h>
++#include <linux/i2c.h>
++#include <linux/input.h>
++#include <linux/input/mt.h>
++#include <linux/input/touchscreen.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/property.h>
++#include <linux/regulator/consumer.h>
++#include <linux/slab.h>
++#include <linux/unaligned.h>
++
++#define JD_CHIP_ID			0x9084
++#define JD_CHIP_ID_ALT			0x9032
++#define JD_SOC_CHIP_ID2			0x40008076
++#define JD_ERAM_BASE			0x20011000
++#define JD_SECTION_READY_VAL		0xA55A
++#define JD_MAX_DSRAM_NUM		25
++#define JD_ESRAM_COORD_IDX		1
++#define JD_ESRAM_SECTION_NUM		6
++#define JD_DEFAULT_COORD_ADDR		0x20011120
++#define JD_TOUCH_DATA_SIZE		78
++#define JD_REPORT_MIN_SIZE		53
++#define JD_FINGER_DATA_SIZE		5
++#define JD_FINGER_NUM_ADDR		0
++#define JD_TOUCH_COORD_INFO_ADDR	3
++#define JD_MAX_POINTS			10
++#define JD_DEFAULT_POLL_MS		16
++
++struct jadard_tp {
++	struct i2c_client *client;
++	struct input_dev *input;
++	struct touchscreen_properties prop;
++	struct gpio_desc *reset;
++	struct regulator *vdd;
++	struct regulator *iovcc;
++	u32 coord_addr;
++	u16 touch_data_size;
++	u16 max_points;
++	unsigned int poll_interval_ms;
++};
++
++static int jd_bus_write(struct i2c_client *client, const u8 *cmd, u8 cmd_len,
++			const u8 *data, u16 data_len)
++{
++	u8 buf[64];
++	struct i2c_msg msg;
++	int ret;
++
++	if (cmd_len + data_len > sizeof(buf))
++		return -EINVAL;
++
++	memcpy(buf, cmd, cmd_len);
++	if (data_len)
++		memcpy(buf + cmd_len, data, data_len);
++
++	msg.addr = client->addr;
++	msg.flags = 0;
++	msg.len = cmd_len + data_len;
++	msg.buf = buf;
++
++	ret = i2c_transfer(client->adapter, &msg, 1);
++	return ret == 1 ? 0 : (ret < 0 ? ret : -EIO);
++}
++
++static int jd_bus_read(struct i2c_client *client, const u8 *cmd, u8 cmd_len,
++		       u8 *data, u16 data_len)
++{
++	struct i2c_msg msg[2];
++	int ret;
++
++	msg[0].addr = client->addr;
++	msg[0].flags = 0;
++	msg[0].len = cmd_len;
++	msg[0].buf = (u8 *)cmd;
++	msg[1].addr = client->addr;
++	msg[1].flags = I2C_M_RD;
++	msg[1].len = data_len;
++	msg[1].buf = data;
++
++	ret = i2c_transfer(client->adapter, msg, 2);
++	return ret == 2 ? 0 : (ret < 0 ? ret : -EIO);
++}
++
++static int jd_enter_backdoor(struct i2c_client *client)
++{
++	const u8 cmd[5] = { 0xF2, 0xAA, 0xF0, 0x0F, 0x55 };
++	const u8 data = 0x68;
++
++	return jd_bus_write(client, cmd, sizeof(cmd), &data, 1);
++}
++
++static int jd_read_reg(struct i2c_client *client, u32 addr, u8 *rdata, u16 rlen)
++{
++	u8 cmd[6];
++
++	cmd[0] = 0xF3;
++	cmd[1] = (addr >> 24) & 0xFF;
++	cmd[2] = (addr >> 16) & 0xFF;
++	cmd[3] = (addr >> 8) & 0xFF;
++	cmd[4] = addr & 0xFF;
++	cmd[5] = 0x03;
++
++	return jd_bus_read(client, cmd, sizeof(cmd), rdata, rlen);
++}
++
++static int jd_get_chip_id(struct i2c_client *client, u16 *id)
++{
++	u8 rbuf[2];
++	int ret;
++
++	ret = jd_read_reg(client, JD_SOC_CHIP_ID2, rbuf, sizeof(rbuf));
++	if (ret)
++		return ret;
++
++	*id = (u16)((rbuf[1] << 8) | rbuf[0]);
++	return 0;
++}
++
++static bool jd_section_ready(struct i2c_client *client)
++{
++	u8 rbuf[2];
++	unsigned int waited = 0;
++
++	do {
++		msleep(2);
++		if (jd_read_reg(client, JD_ERAM_BASE, rbuf, sizeof(rbuf)))
++			return false;
++		waited += 2;
++		if (((rbuf[1] << 8) | rbuf[0]) == JD_SECTION_READY_VAL)
++			return true;
++	} while (waited < 100);
++
++	return false;
++}
++
++static int jd_resolve_coord_addr(struct jadard_tp *ts)
++{
++	u32 esram_num_addr = JD_ERAM_BASE + 4 + JD_MAX_DSRAM_NUM * 8;
++	u32 esram_sec_addr = esram_num_addr + 4;
++	u8 buf[JD_ESRAM_SECTION_NUM * 8];
++	u32 addr, len;
++	int ret;
++
++	ret = jd_read_reg(ts->client, esram_sec_addr, buf, sizeof(buf));
++	if (ret)
++		return ret;
++
++	addr = get_unaligned_le32(&buf[JD_ESRAM_COORD_IDX * 8]);
++	len = get_unaligned_le32(&buf[JD_ESRAM_COORD_IDX * 8 + 4]);
++
++	if (addr < JD_ERAM_BASE ||
++	    addr + len > JD_ERAM_BASE + 0x1000 ||
++	    len < JD_REPORT_MIN_SIZE || len > JD_TOUCH_DATA_SIZE)
++		return -EINVAL;
++
++	ts->coord_addr = addr;
++	ts->touch_data_size = (u16)len;
++	return 0;
++}
++
++static int jd_hw_init(struct jadard_tp *ts)
++{
++	u16 chip_id = 0;
++	int ret;
++
++	ret = jd_enter_backdoor(ts->client);
++	if (ret)
++		return ret;
++
++	ret = jd_get_chip_id(ts->client, &chip_id);
++	if (ret)
++		return ret;
++
++	if (chip_id != JD_CHIP_ID && chip_id != JD_CHIP_ID_ALT)
++		return -ENODEV;
++
++	if (jd_section_ready(ts->client) && !jd_resolve_coord_addr(ts))
++		return 0;
++
++	ts->coord_addr = JD_DEFAULT_COORD_ADDR;
++	ts->touch_data_size = JD_TOUCH_DATA_SIZE;
++	return 0;
++}
++
++static void jd_report_touches(struct jadard_tp *ts, const u8 *buf)
++{
++	u8 finger_num = buf[JD_FINGER_NUM_ADDR];
++	unsigned int i;
++
++	/* Discard obviously invalid headers instead of clamping to max. */
++	if (finger_num > ts->max_points)
++		return;
++
++	for (i = 0; i < ts->max_points; i++) {
++		const u8 *c = buf + JD_TOUCH_COORD_INFO_ADDR +
++			      i * JD_FINGER_DATA_SIZE;
++		u16 x = get_unaligned_be16(c);
++		u16 y = get_unaligned_be16(c + 2);
++		u8 w = c[4];
++		bool down;
++
++		/*
++		 * Slots are fixed; inactive contacts report 0xFFFF/0xFFFF.
++		 * Do not gate on finger_num, or a lower slot lift drops a
++		 * still-active higher slot.
++		 */
++		down = x != 0xFFFF && y != 0xFFFF &&
++		       x <= ts->prop.max_x && y <= ts->prop.max_y;
++
++		input_mt_slot(ts->input, i);
++		input_mt_report_slot_state(ts->input, MT_TOOL_FINGER, down);
++
++		if (down) {
++			touchscreen_report_pos(ts->input, &ts->prop, x, y, true);
++			input_report_abs(ts->input, ABS_MT_TOUCH_MAJOR, w);
++		}
 +	}
- 	x->data = ahp;
- 
- 	return 0;
-diff --git a/net/ipv4/esp4.c b/net/ipv4/esp4.c
-index 111bea0bd260..1bb7c4b24cc6 100644
---- a/net/ipv4/esp4.c
-+++ b/net/ipv4/esp4.c
-@@ -1148,10 +1148,22 @@ static int esp_init_state(struct xfrm_state *x, struct netlink_ext_ack *extack)
- 
- 	x->props.header_len = sizeof(struct ip_esp_hdr) +
- 			      crypto_aead_ivsize(aead);
--	if (x->props.mode == XFRM_MODE_TUNNEL)
-+	switch (x->props.mode) {
-+	case XFRM_MODE_BEET:
-+		if (x->sel.family != AF_INET6)
-+			x->props.header_len += IPV4_BEET_PHMAXLEN;
-+		break;
-+	case XFRM_MODE_TRANSPORT:
-+	case XFRM_MODE_IPTFS:
-+		break;
-+	case XFRM_MODE_TUNNEL:
- 		x->props.header_len += sizeof(struct iphdr);
--	else if (x->props.mode == XFRM_MODE_BEET && x->sel.family != AF_INET6)
--		x->props.header_len += IPV4_BEET_PHMAXLEN;
-+		break;
-+	default:
-+		NL_SET_ERR_MSG(extack, "Invalid mode requested for ESP");
-+		err = -EINVAL;
-+		goto error;
++
++	input_mt_sync_frame(ts->input);
++	input_sync(ts->input);
++}
++
++static void jd_poll(struct input_dev *input)
++{
++	struct jadard_tp *ts = input_get_drvdata(input);
++	u8 buf[JD_TOUCH_DATA_SIZE];
++	int ret;
++
++	ret = jd_read_reg(ts->client, ts->coord_addr, buf, ts->touch_data_size);
++	if (ret) {
++		/* Panel/power cycle drops backdoor mode; re-open it. */
++		if (jd_hw_init(ts))
++			return;
++		ret = jd_read_reg(ts->client, ts->coord_addr, buf,
++				  ts->touch_data_size);
++		if (ret)
++			return;
 +	}
- 	if (x->encap) {
- 		struct xfrm_encap_tmpl *encap = x->encap;
- 
-diff --git a/net/ipv6/esp6.c b/net/ipv6/esp6.c
-index b287c807b018..ced910d44b47 100644
---- a/net/ipv6/esp6.c
-+++ b/net/ipv6/esp6.c
-@@ -1192,12 +1192,16 @@ static int esp6_init_state(struct xfrm_state *x, struct netlink_ext_ack *extack)
- 			x->props.header_len += IPV4_BEET_PHMAXLEN +
- 					       (sizeof(struct ipv6hdr) - sizeof(struct iphdr));
- 		break;
--	default:
- 	case XFRM_MODE_TRANSPORT:
-+	case XFRM_MODE_IPTFS:
- 		break;
- 	case XFRM_MODE_TUNNEL:
- 		x->props.header_len += sizeof(struct ipv6hdr);
- 		break;
-+	default:
-+		NL_SET_ERR_MSG(extack, "Invalid mode requested for ESP");
-+		err = -EINVAL;
-+		goto error;
- 	}
- 
- 	if (x->encap) {
++
++	jd_report_touches(ts, buf);
++}
++
++static int jadard_tp_probe(struct i2c_client *client)
++{
++	struct device *dev = &client->dev;
++	struct jadard_tp *ts;
++	struct input_dev *input;
++	struct regulator_bulk_data supplies[2];
++	u32 val;
++	int error;
++
++	ts = devm_kzalloc(dev, sizeof(*ts), GFP_KERNEL);
++	if (!ts)
++		return -ENOMEM;
++
++	ts->client = client;
++	ts->max_points = JD_MAX_POINTS;
++	ts->poll_interval_ms = JD_DEFAULT_POLL_MS;
++	ts->touch_data_size = JD_TOUCH_DATA_SIZE;
++	ts->coord_addr = JD_DEFAULT_COORD_ADDR;
++
++	supplies[0].supply = "vdd";
++	supplies[1].supply = "iovcc";
++	error = devm_regulator_bulk_get_enable(dev, ARRAY_SIZE(supplies),
++					       supplies);
++	if (error)
++		return error;
++
++	ts->reset = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_LOW);
++	if (IS_ERR(ts->reset))
++		return PTR_ERR(ts->reset);
++
++	if (ts->reset) {
++		gpiod_set_value_cansleep(ts->reset, 1);
++		msleep(10);
++		gpiod_set_value_cansleep(ts->reset, 0);
++		msleep(20);
++	}
++
++	error = jd_hw_init(ts);
++	if (error)
++		return error;
++
++	if (!device_property_read_u32(dev, "poll-interval", &val) &&
++	    val >= 8 && val <= 100)
++		ts->poll_interval_ms = val;
++
++	input = devm_input_allocate_device(dev);
++	if (!input)
++		return -ENOMEM;
++
++	input->name = "Jadard JD9365TX Touchscreen";
++	input->id.bustype = BUS_I2C;
++
++	input_set_abs_params(input, ABS_MT_POSITION_X, 0, 719, 0, 0);
++	input_set_abs_params(input, ABS_MT_POSITION_Y, 0, 1279, 0, 0);
++	input_set_abs_params(input, ABS_MT_TOUCH_MAJOR, 0, 255, 0, 0);
++
++	touchscreen_parse_properties(input, true, &ts->prop);
++
++	error = input_mt_init_slots(input, ts->max_points, INPUT_MT_DIRECT);
++	if (error)
++		return error;
++
++	input_set_drvdata(input, ts);
++	ts->input = input;
++	i2c_set_clientdata(client, ts);
++
++	error = input_setup_polling(input, jd_poll);
++	if (error)
++		return error;
++
++	input_set_poll_interval(input, ts->poll_interval_ms);
++
++	error = input_register_device(input);
++	if (error)
++		return error;
++
++	return 0;
++}
++
++static const struct of_device_id jadard_tp_of_match[] = {
++	{ .compatible = "jadard,jd9365tx" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, jadard_tp_of_match);
++
++static const struct i2c_device_id jadard_tp_id[] = {
++	{ .name = "jd9365tx" },
++	{ }
++};
++MODULE_DEVICE_TABLE(i2c, jadard_tp_id);
++
++static struct i2c_driver jadard_tp_driver = {
++	.driver = {
++		.name = "jadard-tp-jd9365tx",
++		.of_match_table = jadard_tp_of_match,
++	},
++	.probe = jadard_tp_probe,
++	.id_table = jadard_tp_id,
++};
++module_i2c_driver(jadard_tp_driver);
++
++MODULE_AUTHOR("Hefei <3066883572@qq.com>");
++MODULE_DESCRIPTION("Jadard JD9365TX in-cell touchscreen");
++MODULE_LICENSE("GPL");
 -- 
-2.43.0
+2.55.0.windows.5
 
