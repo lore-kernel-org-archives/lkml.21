@@ -1,84 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.152
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.114
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795610819;
-	b=0kImpMyGoFAhIGt6gfBPdt7XjOmzcnil7/VwCvclykMs2p1d4pbcaXv2G506Ky17OxCT
-	 Po/S/YwXlYmWWrXWDoHZF1bSHALXv2QWMyqLP1RsnuZV2Xyozrrqd9AQVyod5LfB5+GQ7
-	 4TPkHHLaR9qmwiXO+iuc3Qcphrv2GUV7PAlpUL5J50M2jhcyagkFrjQhevogWToOE3aFi
-	 TEO66f06UgexLgYH3UmObbpHwdvOBcmsnraJMV4J9OctJK16qyNrSgVC/uXzDZwfBJxrz
-	 Yt2eAj/HjMx4anZ2SFaeZiAzKK68Jg3BQrNdXyNyXmBDt/BL9IuYePAv3xKNukbP3iA==
+	t=1795610825;
+	b=rxUf/0WFaS9y32dxHRGsraojp/CbXZxur/ZwwyKsHHqZGFkCwrkxUnq5GRrxAoPYFWFy
+	 3Ap3dIbdxZyz0Qt+QBWlEoNq1vBJqSW+zX+3HrOI5jCJYZz1m/7ICI9znnDOCFUONCOOr
+	 zZutuWUqPPGwuudDjx0d6zIjkJwCvJl/f+/GZermyvZmu6skQpGoEvTuMsWZh6ls1aRns
+	 p//vl14A4VGX/Ryw6PhrQgaU79NBa4/URKeez6dLz6e0RwlrV/9GQJF2c1pGRTAdnEqtv
+	 8OCMYFbnKhlllzr+gfZTK7CiNO2EaUdjUR8nSFkh1lm94oBb8gzKl42xP/KbD0O7/KQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795610819;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:
-	 Reply-To:To:Cc:Date:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version:X-MBO-RS-ID:
-	 X-MBO-RS-META;
-	bh=T3MOwzx9XuXBLF1Dj/6JoALu/Hn/CMkytQ7thbURciM=;
-	b=ES8IO5oGYGQK4qiwWOn0moB86bNwJif75RLpT1Oy/OzzV4h+EuuAKZvFtzrNJqsOwfzJ
-	 D+XbtXueR3lMhvRR1dtU0AQNfCITqxS3ze28XPZpCCNmifsereRGtiyzE6+eh0clq7dwj
-	 lsOxWoPZ6JZe4YKUbLsnkE1WKQ1kzg6DwMVa2nkFUiyZio2cgqj1TRwdZa8I46nXTiuXm
-	 LYXQkgtYpV5SAv269HBJaf/r3Dg/iyTSlD7DnUe6Jt4Qzqbz0AY9ktoxFekVLpFhLZUDv
-	 92EJUImOL7DTnTrtEhob9koWi78FjWxw9qwRPcGNG1bneWk9TPtCPw1neOQhaJFgqug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795610825;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=WKLeq57PGDEd4HRLeQ29cPTv5WJHJlL5Kr8i80uht18=;
+	b=OsFOtlCe6eLX/KUj7vPHyYEOhXuEBmyY6+E4SxClaRqXavNKabpxE1Mk6F0qykJBxPou
+	 kYdRaY3fnCMaUhmZK67q3+0ScRu56Wbya7cp1B2gjxZF4bDmN8JDF0heFm6qo19n6cQ87
+	 XWI5oX213MjlWR4XYQRZW3uRJHYS5TspB1juIM0QbSWNCuhp7/HawhHMGU0TdHLgMAPGj
+	 BXJTIdj1i+9gczx6fnp3cjmYUlH03PdqAvMObhkIcx5px2Z+c0omeLgjG1JpRfZP2RXSr
+	 NCdzK4AjHV5jMSyvpHzegpYEzA4h4dZSOgQBer0JO6aGHuFbTGJzcl1MjzZdAEAnfmA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=nnB1IeP5;
-	arc=none smtp.remote-ip=80.241.56.152
-Received: from mout-p-102.mailbox.org (mout-p-102.mailbox.org [80.241.56.152])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=C4pghcHR;
+	arc=none smtp.remote-ip=95.215.58.114
+Received: from mta1.migadu.com (out-114.mta1.migadu.com [95.215.58.114])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0694606A31E;
-	Wed, 25 Nov 2026 12:46:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0694606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 035B0606A332
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:47:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 035B0606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=nnB1IeP5
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4jZKF606zHzKmSh;
-	Wed, 25 Nov 2026 13:46:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795610810; h=from:from:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=T3MOwzx9XuXBLF1Dj/6JoALu/Hn/CMkytQ7thbURciM=;
-	b=nnB1IeP5yjj9ODqIsOpsLIKLZGhjixC8mZZ8P6Pbd4JOz7OCHCf8y8Cxx5uqGFs3mTej4g
-	lnCPNfU0kgGQsm4vt2wZKbCI2gQ8oomYEn9KDtInhmY+LMuWVmv64regr2GUW2OdViCx0+
-	dlM+SmMzKiMR0AYBXicyIDWEE/BtVnDiKWdX3JxwEWDxiWxwKebFZlbrdbz+ipMw5oGenK
-	i6B/BLiUbNqBkCUYMZEV7ghI+uLMHv9v8IiR4zPRTBrt5aiypfIGh2fW/OBesI39Ksbgpd
-	3gkCb8qtiQaBbJ9NkCCuSdjAPToBXdDizAkT0aYucntdq/f51divrZwalsinfg==
-Message-ID: <a6110f748b76b8773e0b5c9cb449a3bed0b19f36.camel@mailbox.org>
-Subject: Re: [PATCH v6 00/12] rust: xarray: add entry API with preloading
-From: Philipp Stanner <phasta@mailbox.org>
-Reply-To: phasta@kernel.org
-To: Andreas Hindborg <a.hindborg@kernel.org>, Tamir Duberstein	
- <tamird@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun Feng	
- <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, =?ISO-8859-1?Q?Bj=F6rn?=
- Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
- Alice Ryhl	 <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
- Danilo Krummrich	 <dakr@kernel.org>, Daniel Almeida
- <daniel.almeida@collabora.com>, Alexandre Courbot <acourbot@nvidia.com>,
- Onur =?ISO-8859-1?Q?=D6zkan?= <work@onurozkan.dev>, Matthew Wilcox	
- <willy@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, Lorenzo
- Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, Vlastimil
- Babka	 <vbabka@kernel.org>, Harry Yoo <harry@kernel.org>, Hao Li
- <hao.li@linux.dev>,  Christoph Lameter	 <cl@gentwo.org>, David Rientjes
- <rientjes@google.com>, Roman Gushchin	 <roman.gushchin@linux.dev>
-Cc: rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, Daniel Gomez	
- <da.gomez@samsung.com>, "Mukesh Kumar Chaurasiya (IBM)"
- <mkchauras@gmail.com>,  Sashiko <sashiko-bot@kernel.org>
-Date: Wed, 25 Nov 2026 13:46:44 +0100
-In-Reply-To: <20261120-xarray-entry-send-v6-0-1f69d7385f70@kernel.org>
-References: <20261120-xarray-entry-send-v6-0-1f69d7385f70@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=C4pghcHR
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=7N2mG8hlwARmTvtTPVydpG6bDGyyYoQuvvnSGfm7Oj4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795610822; v=1; x=1796215622;
+ b=C4pghcHRtOYdeqwJdQetTAvZDL8u+Y4noydJZrICsXOTBw0VPM9rsXdTwwLlZ+HTXUXLZb+a
+ 4C7V9qgUz7RIMcoWS6knUAVwjnEOxUq2BnkGYO8herkShszn5dWnrHt/i64Rif3SGmqSQZlI9zq
+ Kanf5zc0zbOJqq+AN7huvMnU=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 7027d17222310f08;
+	Wed, 25 Nov 2026 12:47:01 +0000
+X-Mizu-Trace-ID: 7027d17222310f08
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: xxx@vger.kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] tcp: fix spurious RST when SYN_RECV race is lost
+Date: Wed, 25 Nov 2026 20:46:52 +0800
+Message-ID: <20261125124653.289409-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,18 +71,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MBO-RS-ID: 4eed8370bf969ed1124
-X-MBO-RS-META: ssgee3yfec9ykzuo1a3ycdtcq3w1izm3
+Content-Transfer-Encoding: 8bit
 
-On Fri, 2026-11-20 at 14:10 +0100, Andreas Hindborg wrote:
-> =C2=A0- Patches 8-9 add support for sheaf-based object caches.
->=20
-> =C2=A0- Patch 10 enables sheaf support for the xarray kmem_cache.
->=20
-> =C2=A0- Patch 11 adds preloading to the new entry API.
+When the last ACK of 3WHS and the first data packet are processed on
+different cpus, both can find the same req. The winner creates the
+child and adds it to the accept queue. If this makes the accept queue
+full, syn_recv_sock() fails for the loser and tcp_check_req() sends a
+RST when tcp_abort_on_overflow is set. Only after that it finds the
+req was stolen, and the packet is fed to the child.
 
-Sorry for my ignorance, I was out of the loop here. What's actually the
-purpose of this series? What's your user, and what is it going to do?
+The client gets a RST for a connection the server has accepted, and
+the server application can even read the data.
 
+Drop the req first, and do not send the RST if another cpu already
+took it.
 
-P.
+Fixes: 079096f103fa ("tcp/dccp: install syn_recv requests into ehash table")
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+---
+ net/ipv4/tcp_minisocks.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/net/ipv4/tcp_minisocks.c b/net/ipv4/tcp_minisocks.c
+index a05bb02e204c..934012cdac27 100644
+--- a/net/ipv4/tcp_minisocks.c
++++ b/net/ipv4/tcp_minisocks.c
+@@ -962,6 +962,13 @@ struct sock *tcp_check_req(struct sock *sk, struct sk_buff *skb,
+ 	}
+ 
+ embryonic_reset:
++	if (!fastopen) {
++		if (!inet_csk_reqsk_queue_drop(req->rsk_listener, req)) {
++			*req_stolen = true;
++			return NULL;
++		}
++		__NET_INC_STATS(sock_net(sk), LINUX_MIB_EMBRYONICRSTS);
++	}
+ 	if (!(flg & TCP_FLAG_RST)) {
+ 		/* Received a bad SYN pkt - for TFO We try not to reset
+ 		 * the local connection unless it's really necessary to
+@@ -973,13 +980,6 @@ struct sock *tcp_check_req(struct sock *sk, struct sk_buff *skb,
+ 		reqsk_fastopen_remove(sk, req, true);
+ 		tcp_reset(sk, skb);
+ 	}
+-	if (!fastopen) {
+-		bool unlinked = inet_csk_reqsk_queue_drop(req->rsk_listener, req);
+-
+-		if (unlinked)
+-			__NET_INC_STATS(sock_net(sk), LINUX_MIB_EMBRYONICRSTS);
+-		*req_stolen = !unlinked;
+-	}
+ 	return NULL;
+ }
+ 
+-- 
+2.43.0
+
