@@ -1,99 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795620954;
-	b=wnSn0f6h6oIbxE3Ghwwl8gV7XFNGWgXpbTb7ICAMR/qUrV25I7auVTuqi5/V4l24Z/jf
-	 np0Q82g5SBrVnh5A85xab8jn/2m9Fptu5n2VF33pNA/l13LOdTDfnljNJc9xGiRFJtN/n
-	 O1rGRd7GuOBjRR+SngF/6gViXJAxnfqV+GsNjCKjgXxNsgI8rggxGt/dmzfZs8MsdmMLr
-	 PHVl5vIch0gMtcNgbf7MoXk4HmlzR9uHjABxEd3q3ZBMV4ow1AV+TUhSfQ8vfjWRQm46I
-	 36yupP3++1Np3yh7VaxB9JxUfjyNNeIV40Tl+qa8GBxOXBXOVtOWZT50qXPWr9APY9w==
+	b=OdNYcWOTZM+CoqYiaYGu5HfwcSZXjfQJ+YigFw1a1cDIfAbdgIzCiDfJW8yaasZq4f5o
+	 dHqO6jAnbWiBuFg8yUO3lYVbHl6KdIRVFR+SVfkOzGazR34vGvh6cY34CSHCjfGL61DiB
+	 NxvaZ/AkFjBZwuXFaT2K/iEBofo+3Nm2atxJYxIKTbryy4NzNFYTG65LXOjHA2chqdOTG
+	 rj/QOGmjMWUBeT2Zx/paAZYjrvPYrB7GP1TRlL/wqnpezZErqxJefJ8RqBqjpDGU/WQ6v
+	 DYky1/j+hDLXKEBtY2IGv0/0+mXB6hYdKRpkUFXaZHi8XE85DCe+9ALFA6kfpJsVq3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795620954;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=zW5K52MSqR13vjMOGRw7WSmYMI0ONd2XOyiatd+7KVc=;
-	b=Z5q2OF3mW17Ao44MQUcP62XQnSjY0O1FTMuTnnP2H1c5+Ypt/h5QsPiNJFGJDZ8zp0y/
-	 84DDIDSe8O8qMwUts3jWu60C70eHRfOKo1/6am8EfsD7XQGipiVM+IQ43Dzi+4wy+46/F
-	 0Qn9JpMRILApWHY7F2g0TyUmE0plmxxDqP7FT8cpWem2JKmAn/UinjbaONNfDPfmxQQ5e
-	 +30SYdY8Eyzpts7f0INbmMX79QaEMvLAz8GfFB4JtoWRIyEzvfhLwFQwwbKr4tpImKBb0
-	 pbysrqV+GZaKaI1Pbw+qwC8XwiGL/SzHtpjMv+YdXvORtYAMGVkKeNXuCc9fLqyg9ew==
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=VuxqO60SfIBEuqsK6n4/P79x+kzhDZYWP7FbuCsCQ34=;
+	b=edb++NxDS/sXTcLb265I46Q0Xvo3h4FWQC4nkFgmaA1eL8oAcf1e0V4H0TjClo2FgK9J
+	 uEGDLXIJk2JkYu7cTbrSfB4Yu9XwHqWxmTRlNwPUXcBXhzgyEoUtUTW+XvXgF4cpHsJYb
+	 39VMPm9hMJ2UgcJUnPgzEA27mJB7is9or38DREHOCi8VoYF+DIgBP/n/CrvcslzO/nu9j
+	 bcD7d5hcbrqrvKi6qj70LcTR7DrhwjmnI3b2rsHtpeNJjatnUElZdNHpbnEgKHH51qtyo
+	 MhA30o4Medf/wQhru1DXAi3ZQWAOkfAdmLaxnnCayCy6wDj4PW1fr8ghlXbbUBA1pkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linbit.com;
-	spf=pass smtp.mailfrom=linbit.com;
-	dkim=pass header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=lWFrForJ;
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="SVPIy/Ce";
+	arc=none smtp.remote-ip=192.198.163.14
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCCA960A2604
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:35:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCCA960A2604
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65A2460A383B;
+	Wed, 25 Nov 2026 15:35:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65A2460A383B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=lWFrForJ
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-4aa5833c263so5708511f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:35:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linbit.com; s=google; t=1795620948; x=1796225748; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zW5K52MSqR13vjMOGRw7WSmYMI0ONd2XOyiatd+7KVc=;
-        b=lWFrForJqT7zOrmjI34bqPJSqTHNMyN/22Z0Uwzi6TGnnWYFmLAEaFB3BAm3W/LuLo
-         xUrUv9rG0AKytxLHhYYf3h8wvi3OAFbRxgABdukzShaCQ2v2dFE+u29vyjS/2bSeBWU8
-         tf291Ha0kj3NO0gmHsF1x71k/mzX1TIlGRNr/97o9HRrxReM1N4J2mT1t3m8LmTcPsLc
-         BQuFiYmRtJ9zmkZRTXvWHgi1SjhjC39kV7pQhSY26r1r48JHyyOfHFJf+8I046conMZZ
-         iRQtTHmF6WZFsbaRNFcClyFprfVKj95scia3KJlE7x2v7jisPYcQL4RY2jpZa859232T
-         8ovA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795620948; x=1796225748;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zW5K52MSqR13vjMOGRw7WSmYMI0ONd2XOyiatd+7KVc=;
-        b=D7MjYGpAedfde8cAb10EHNUGkTiUnnuiBmGAeYkUKU20DCu0ZkUPRzwPKX85uxF7AU
-         X4qLTKEnroiw+JMDnyV4h//KHXufCkbNMoeojuORiuSt/tbsMsdwg22NkIUyosupjHlq
-         DkQTHGtna3KNQ2vpZiTGLHVj9aVNoVfDaR3V14wSPoUm1mTBCfgQHlz0Y/WDx3vLImQ0
-         X0kAy7Gcovj1Tnlanb+qLdu4TSOlawDogpSPYnKn0pTTm2TboCdZrEDyBChcN9xXnNPc
-         b4xFNaQep/bMk9EL8pbc/7QAPLNr2CaBnaRHZEkr0hQHRysccBwWTnuQBBemJKAlX5JS
-         xDyw==
-X-Forwarded-Encrypted: i=1; AL+hErHptgA1cQWuxJy5tSC1qcAoOlpSG+XcRaru8lAeVHE6rpor7pji2S6+I6iHzblDTz7O1v5jiKhUwmEirCo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9wBFqRZMJRNTQEL4mkG66zDKk90RKhlfdKl74b6p2ALWGpPu9J
-	gzt72v6QK6oHFktDe4OcqYYxui9xDmyUpxA5v229cI68LIeB5cw3Yg7EKZA8uqpgjKg=
-X-Gm-Gg: AZFdTZetrMRKTzFiahF/Kl5uxrg4q2btOqSgU3IpupuZHghsoBI+BGLU3l8X/h54gaX
-	l8eSSgcOOrbKfFZSgeg0ulkGa/d4sz8CXCSbRcC/jU1FRyhHLFokp+iEaeRsTapwcOOVYBuvDx+
-	Ay7BzrVLY3wwr48QmkJyIXWFpoLira2tpyS01iLXD5uR0p1zgt7Yj5ayvpHI2zMzn+wXVBSIDvf
-	s+1cdK5N2M+xHaURq6iJOd40knKAUrEvx5DXoSxlB9UCp3VSxgFgk/yUEWrjGJTa1OvhwBWsaks
-	T+rbzMB0Y4MEuPvgu8sYSEjROPp+RIElgWkFTJG28Om+qkXrQmvGdmM32x9V1+Lw4EYVhIZxHq8
-	p4PCA+7IsJ4rWk1wisKpXw1viUqpjBqu+/gRmlx65ZNZLjN7Wr3Pz2X88BOWoTkgD7Y4zJQIop1
-	fh67Crw55wk9VhiZbieBTg29/dCyLzjjqR49ZKrWs108gt+maGzVD0veSOplPRZ7SV/w1dpdKV+
-	B+EGTZowTvpw16X3ongFS6DpiONuUkNb63ybYFeYudxH/6OM62BCXK6U0CynaAkbSOwxHhgvQ4L
-	Zg7FfagU+MAKHFRkJ2SaQTdwRii8zJs0Vw47gbWmFk3Vqtbf7Ofa9m+08B48/9Fp2ikjacUH4Q=
-	=
-X-Received: by 2002:a05:6000:1a86:b0:4ad:d65:aaf9 with SMTP id ffacd0b85a97d-4ad0d65afa1mr37658772f8f.56.1795620948143;
-        Wed, 25 Nov 2026 07:35:48 -0800 (PST)
-Received: from linbit.com (h082218129081.host.wavenet.at. [82.218.129.81])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm35816275f8f.3.2026.11.25.07.35.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 07:35:47 -0800 (PST)
-From: =?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: drbd-dev@lists.linux.dev,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Philipp Reisner <philipp.reisner@linbit.com>,
-	Lars Ellenberg <lars.ellenberg@linbit.com>,
-	=?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>
-Subject: [PATCH v4 21/21] drbd: remove BROKEN for DRBD
-Date: Wed, 25 Nov 2026 16:35:11 +0100
-Message-ID: <20261125153511.3060599-22-christoph.boehmwalder@linbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261125153511.3060599-1-christoph.boehmwalder@linbit.com>
-References: <20261125153511.3060599-1-christoph.boehmwalder@linbit.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SVPIy/Ce
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795620953; x=1827156953;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=TpcPUxXUMiuSzfXM00FOshGXSknpfhiuyV6xSE4ppbE=;
+  b=SVPIy/CeHobiWaw0Nnkgu1fSr9TGxSU8XaJ0EMXl38VYbA3pYCO9De47
+   GFhRQjGwuXp3laHz2OaKCxCfCZ6FWBqMrqFJdUZ2IMk/CKMWbUd1Bho/6
+   AHeX+Po5RfEP0dkPlb5nGn1DEGBuU20eVP3ntOVkvl3mLg1n1Dxhp9Eo2
+   dn7672awqqwvI3azvgazg6b/ii0ANOXqGF2ircyJqj2OXx8g2kW4sYjFQ
+   6Yw0foeaN37IPSqMdXvqcaWVLtiBt7jDUe+x4rqdIDU1gYUVjqgb9iafe
+   1Y+4cXD+xkTym2zfamlQfbX+o4/8lmyAeZlaiJHtAJRVqJ56k10F+gT6k
+   A==;
+X-CSE-ConnectionGUID: x8f1IUaRQhqFJEp2+PY0tw==
+X-CSE-MsgGUID: 5cYYTHncS22hJun4Jl05yQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4434294"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4434294"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 07:35:52 -0800
+X-CSE-ConnectionGUID: DQ2nQHpGR1G6/Pu9chbd5w==
+X-CSE-MsgGUID: nY4lbNS/TT29N6hdU37N9Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="12480861"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO pujfalus-desk.intel.com) ([10.245.244.1])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 07:25:22 -0800
+From: Peter Ujfalusi <peter.ujfalusi@linux.intel.com>
+To: stable@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	kai.vehmanen@linux.intel.com,
+	yung-chuan.liao@linux.intel.com,
+	broonie@kernel.org
+Subject: [PATCH stable 6.18.y backport] ASoC: SOF: Intel: lnl: Enable offload for UAOL link
+Date: Wed, 25 Nov 2026 17:26:02 +0200
+Message-ID: <20261125152602.22513-1-peter.ujfalusi@linux.intel.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,29 +79,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Remove the BROKEN dependency now that the DRBD 9 rework is complete
-and the driver compiles cleanly again.
+commit fdfbd9ff86a145f09978ab49305ed7acfad66a1d upstream.
 
-Signed-off-by: Christoph Böhmwalder <christoph.boehmwalder@linbit.com>
+The handling of UAOL (USB Audio Offload Link) is similar to SSP and DMIC,
+it is handled by the DSP firmware.
+Set the offload enable for it similar to SSP and DMIC.
+
+Cc: <stable@vger.kernel.org> # 6.18.x
+Signed-off-by: Peter Ujfalusi <peter.ujfalusi@linux.intel.com>
+Reviewed-by: Bard Liao <yung-chuan.liao@linux.intel.com>
+Reviewed-by: Kai Vehmanen <kai.vehmanen@linux.intel.com>
+Link: https://patch.msgid.link/20260520150639.25301-3-peter.ujfalusi@linux.intel.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
+[ Peter: Adjusted to the int returning hdac_bus_eml_enable_offload() as
+  commit 978152b2cab5 ("ASoC: SOF: Intel: hda-mlink/lnl: Convert offload
+  enable functions to void") is not backported. The helper is renamed from
+  hdac_bus_offload_dmic_ssp() to hdac_bus_set_dsp_offload() to match
+  upstream, since it now also handles UAOL.
+  Firmware built with UAOL support reads the UAOL registers and crashes if
+  the host has not granted the DSP access to them. ]
 ---
- drivers/block/drbd/Kconfig | 1 -
- 1 file changed, 1 deletion(-)
+ sound/soc/sof/intel/lnl.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/block/drbd/Kconfig b/drivers/block/drbd/Kconfig
-index 713ac6c9f9f1..058a30efd6d0 100644
---- a/drivers/block/drbd/Kconfig
-+++ b/drivers/block/drbd/Kconfig
-@@ -8,7 +8,6 @@ comment "DRBD disabled because PROC_FS or INET not selected"
+diff --git a/sound/soc/sof/intel/lnl.c b/sound/soc/sof/intel/lnl.c
+index 2f3222040f98..7b859bb9dea4 100644
+--- a/sound/soc/sof/intel/lnl.c
++++ b/sound/soc/sof/intel/lnl.c
+@@ -20,8 +20,8 @@
+ #include "lnl.h"
+ #include <sound/hda-mlink.h>
  
- config BLK_DEV_DRBD
- 	tristate "DRBD Distributed Replicated Block Device support"
--	depends on BROKEN
- 	depends on PROC_FS && INET
- 	select LRU_CACHE
- 	select CRC32
+-/* this helps allows the DSP to setup DMIC/SSP */
+-static int hdac_bus_offload_dmic_ssp(struct hdac_bus *bus, bool enable)
++/* Configure DSP offload for DMIC/SSP/UAOL */
++static int hdac_bus_set_dsp_offload(struct hdac_bus *bus, bool enable)
+ {
+ 	int ret;
+ 
+@@ -35,7 +35,8 @@ static int hdac_bus_offload_dmic_ssp(struct hdac_bus *bus, bool enable)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	return 0;
++	return hdac_bus_eml_enable_offload(bus, true,
++					   AZX_REG_ML_LEPTR_ID_INTEL_UAOL, enable);
+ }
+ 
+ static int lnl_hda_dsp_probe(struct snd_sof_dev *sdev)
+@@ -46,17 +47,17 @@ static int lnl_hda_dsp_probe(struct snd_sof_dev *sdev)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	return hdac_bus_offload_dmic_ssp(sof_to_bus(sdev), true);
++	return hdac_bus_set_dsp_offload(sof_to_bus(sdev), true);
+ }
+ 
+ static void lnl_hda_dsp_remove(struct snd_sof_dev *sdev)
+ {
+ 	int ret;
+ 
+-	ret = hdac_bus_offload_dmic_ssp(sof_to_bus(sdev), false);
++	ret = hdac_bus_set_dsp_offload(sof_to_bus(sdev), false);
+ 	if (ret < 0)
+ 		dev_warn(sdev->dev,
+-			 "Failed to disable offload for DMIC/SSP: %d\n", ret);
++			 "Failed to disable offload for DMIC/SSP/UAOL: %d\n", ret);
+ 
+ 	hda_dsp_remove(sdev);
+ }
+@@ -69,7 +70,7 @@ static int lnl_hda_dsp_resume(struct snd_sof_dev *sdev)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	return hdac_bus_offload_dmic_ssp(sof_to_bus(sdev), true);
++	return hdac_bus_set_dsp_offload(sof_to_bus(sdev), true);
+ }
+ 
+ static int lnl_hda_dsp_runtime_resume(struct snd_sof_dev *sdev)
+@@ -80,7 +81,7 @@ static int lnl_hda_dsp_runtime_resume(struct snd_sof_dev *sdev)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	return hdac_bus_offload_dmic_ssp(sof_to_bus(sdev), true);
++	return hdac_bus_set_dsp_offload(sof_to_bus(sdev), true);
+ }
+ 
+ static int lnl_dsp_post_fw_run(struct snd_sof_dev *sdev)
 -- 
-2.56.0
+2.56.1
 
