@@ -1,80 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616996;
-	b=rK6Y80ufKcbyFS1cICy71JEcGJk7KkRlwIGo6Qeke4SFoIhd9jbRcH3pawmYk0yiEdRE
-	 0I2lG1uscJZxRuVwVOZdukxsVCgqaEOQslSVf0atgPkmeps/FhIKhay3ZHegOeBvFQ4z5
-	 WghpbSdITXyfnVLvnLKwWtnSQ70+74lGXLZ+jAmhGtmf9ujUkydyIew/ywaMgZ09OjRQd
-	 +Xcu5/0/o7Up8SfIeEgW2MsF/rm6uhLFbo8Mukcjdt9w9FgBfK0mjUATlJnPiLcB3Fd8d
-	 VxTTcptthUuuWYhX60qmb4NivRwTUTDyDi2n3hdAUCdZCpMT/xT6h6BRYNxLunjhy+w==
+	t=1795617055;
+	b=indO2UPcIZ7YJmmbPmvR1BKgd6Dx1rs9ZiMzmV9V0cSfZTSN4erd9adq4HkryUkIjXCc
+	 Q+voLcnXlmV9EaOs3oFc1q8jmodWFisUQO/nopuKag9Ii+CgPx76NZ11Awmj5Q1Ds6unW
+	 18XUFArfCrCZdEKL/2vkQGHj7omRUKWtRlIN7lWwanPAxLTqPqHDqMEPckJxEalx0fXgd
+	 XyPzPtFE2iJWl69PYvu2Fl5bDGmlGs/s01agdFbWdloGcqC6ztWIx6MWLhKke15CazNT7
+	 /41nL4JWpBUUpyPsTNUcarkWh/iLruMiZ8ywm9XLS1gXUdZllxScoYeoTGP7svrDhJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616996;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=yzob3IjNhlkrELuFZotbKtg9maqB1cC/YQY8iPS0b0o=;
-	b=BOXbv6x//yHEObJ7Qc4U2qeiS8J/E8F331WA/kz+0/jQg82IKV5T6rWBBvr0z1dpOtSC
-	 HpL4W7kH6CnfYNhRAVsN6Nt48a3s+/rMfVv5jBnmvS2or4MihLWrBFcG2y05lVjDiYx1W
-	 NU0+RgEhDBTEdoWn2AXU4S88XXVl32J/NHAnQd5zEqE6VWst5Hw1D5pug7rQO7o/vrlBB
-	 IjoaURsGgIm2RXnGQVYDYYSfttvGhpkx3YhpHtRrYJZsKST/fT1t8+aNpna8dRjkK8sxr
-	 D3Snev5aNPGu0kLovnlFF5kH7mBpJNnV6aFwD5Zkq4GO0ekCtLJa6Y5xvAdH76D43cQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617055;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=o7NfTeHgie8kk98wdxr3cUN3JAiQZkYebkrK1SD6t6w=;
+	b=zO5TG3hwD+eE174BATZIfKjAbHE55kbUtWYUx5RtnHcGTeaTzOqglRj4iFW7qejMMCYb
+	 UCWp+8gJtN2XeMNwC9dCTRONcFSm51YF5RmgFPec++9znM/FYS3OFmVbcmmJCsaKCGoJ9
+	 HdpGSHqAOevFf5b4LBnR2xSLY+QfuZqJ/Hxs8ALj0TIQUngYvyKyCfecnAInwj1ccA0zV
+	 s5TqQhK5osWLEzUUgp74kt8ZwYL1CsCsvjdCyLOsvkpZtY08cRLa7iiRB8+ntiwRSk7Am
+	 P8Tb5PfiZ4cNE4GYUZES6QtJYgVD8djaCd0zViTU8f8D46g5WaInyny/bbCaLVgvxjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=btDetiEW;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9598E606A321;
-	Wed, 25 Nov 2026 14:29:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9598E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BetaRQnY;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 052F6606A321;
+	Wed, 25 Nov 2026 14:30:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=btDetiEW
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA6FD2F;
-	Wed, 25 Nov 2026 06:29:51 -0800 (PST)
-Received: from e143914.arm.com (e143914.arm.com [10.2.213.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF7893F763;
-	Wed, 25 Nov 2026 06:29:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795616994; bh=irJ+SLW2diU+AhutWrsQkPmnPIapmN0EHmgj2AIri5o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=btDetiEW6iagg1Fl4BzF0k9NBnwE7C9i2RYKjvc2M9/Nkk1H4Od9YD9FWkoDGmaKS
-	 2otJ3Vv1HcTLqwGA2kG3AzVGZ3yVGdT+UFEXcIh5+Hs/D7v4Z6f04gjeE61UswGTcQ
-	 Y4zU6Yjv/ZMaIHmSEfJY21N/cuT66qe2B3dQbn3o=
-Date: Wed, 25 Nov 2026 14:29:48 +0000
-From: Joey Gouly <joey.gouly@arm.com>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>, Paolo Bonzini <pbonzini@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-s390@vger.kernel.org
-Subject: Re: [PATCH v3 02/23] KVM: arm64: Extract number of sys_reg_desc into
- a constant
-Message-ID: <awbw3NyDifa0WjhZ@e143914.arm.com>
-References: <20261106-sysreg-v3-0-75e95980fb10@linux.ibm.com>
- <20261106-sysreg-v3-2-75e95980fb10@linux.ibm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BetaRQnY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99ACE1F000D0;
+	Wed, 25 Nov 2026 14:30:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795617054;
+	bh=o7NfTeHgie8kk98wdxr3cUN3JAiQZkYebkrK1SD6t6w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BetaRQnYjnzenM/h40NWfe8nEyvUTBR0OueMt/3UKx9DphWz5Jz+xIVdKbjZGzqjr
+	 xvkFy4THWdsptklDzOyBa65zOoqT96e81bl+eq2pCE1lHLWudPYCDr9GBzAqQB2pfZ
+	 CXhHzUwrtVlcN6cn/5dgEEjfx0eEdeZPYZHoW5BnxzOl8Q1U/Rlp+mGjwKnzyGhX/r
+	 o+Uvo+FOCvjFwO6iSz7GU8/Fd8GVgkk8v30gw2LMKQT0x5N4vzBoQUiQtpKloaYUGB
+	 uuv/vxu6/v+icbuGJBKEBNpvxlM1T0XNbvqMBtiVZzZIWk2BrDrPpVa5mxuDF5vYan
+	 C5p8uR7gn1fZg==
+Date: Wed, 25 Nov 2026 14:30:52 +0000
+From: Harry Yoo <harry@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, bpf@vger.kernel.org, andrii@kernel.org, eddyz87@gmail.com, 
+	memxor@gmail.com, daniel@iogearbox.net, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, linux-rt-devel@lists.linux.dev, 
+	Vlastimil Babka <vbabka@kernel.org>, Hao Li <hao.li@linux.dev>, 
+	Andrew Morton <akpm@linux-foundation.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Brendan Jackman <brendan.jackman@linux.dev>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>, linux-mm@kvack.org, 
+	David Hildenbrand <david@kernel.org>, Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, 
+	Boqun Feng <boqun@kernel.org>, Waiman Long <longman@redhat.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH bpf-next v1 1/4] bpf: Add call for selecting kmalloc or
+ kmalloc_nolock at call time
+Message-ID: <awbvek-HS3OJYJGF@thinkstation>
+References: <20261124060357.11700-1-emil@etsalapatis.com>
+ <20261124060357.11700-2-emil@etsalapatis.com>
+ <DN38HGVL8JHQ.2ZVZQCKFXVA9T@gmail.com>
+ <awWRZ9xCzWLnj_R6@thinkstation>
+ <20261125140902.GE2668804@noisy.programming.kicks-ass.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,147 +72,66 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261106-sysreg-v3-2-75e95980fb10@linux.ibm.com>
+In-Reply-To: <20261125140902.GE2668804@noisy.programming.kicks-ass.net>
 
-On Fri, Nov 06, 2026 at 05:07:35PM +0100, Steffen Eiden wrote:
-> Define the constant `num_sys_reg_descs` which stores the number of
-> elements in the sys_reg_descs array. Replace all occurrences of
-> ARRAY_SIZE(sys_reg_descs) with the new constant.
+On Wed, Nov 25, 2026 at 03:09:02PM +0100, Peter Zijlstra wrote:
+> On Tue, Nov 24, 2026 at 01:59:31PM +0000, Harry Yoo wrote:
+> > [+Cc Relevant folks]
+> > On Tue, Nov 24, 2026 at 06:40:11AM +0000, Alexei Starovoitov wrote:
+> > > On Mon, Nov 23, 2026 at 10:03 PM Emil Tsalapatis <emil@etsalapatis.com> wrote:
+> > > > +	/* Only try the spinning allocation when preemption disables are tracked. */
+> > > > +	if (IS_ENABLED(CONFIG_PREEMPT_COUNT) && can_spin_in_alloc() &&
+> > > > +	    size <= KMALLOC_MAX_CACHE_SIZE && !(flags & ~nolock_flags))
+> > > > +		ptr = kmalloc(size, flags | GFP_NOWAIT | __GFP_NOMEMALLOC);
+> > > 
+> > > It works, but I after a bit of brainstorming the following
+> > > might be a better fix, since it will address the root cause:
+> > > Pls run it by Vlastimil, Harry, Sebastian.
+> > >
+> > > diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+> > > index 2fef409..4368ab5 100644
+> > > --- a/mm/page_alloc.c
+> > > +++ b/mm/page_alloc.c
+> > > @@ -2536,6 +2536,24 @@ __rmqueue(struct zone *zone, unsigned int order, int migratetype,
+> > >  	return NULL;
+> > >  }
+> > >  
+> > > +static DEFINE_WAIT_OVERRIDE_MAP(zone_nolock_map, LD_WAIT_CONFIG);
+> > > +
+> > > +/*
+> > > + * zone->lock is always held with IRQs disabled. A caller that runs with IRQs
+> > > + * enabled is not nested inside of it, so it can wait for the owner.
+> > > + */
+> > > +static bool zone_lock_nolock(struct zone *zone, unsigned long *flags)
+> > > +{
+> > > +	if (IS_ENABLED(CONFIG_PREEMPT_RT) || irqs_disabled() || in_nmi())
+> > > +		return spin_trylock_irqsave(&zone->lock, *flags);
+> > > +
+> > > +	/* The caller may hold a raw_spinlock_t. */
+> > > +	lock_map_acquire_try(&zone_nolock_map);
+> > > +	spin_lock_irqsave(&zone->lock, *flags);
+> > > +	lock_map_release(&zone_nolock_map);
+> > > +	return true;
+> > > +}
+> > 
+> > I'm not sure this is a better solution unless this could be generalized
+> > or abstracted further.
 > 
-> This refactoring eases the integration of handling system registers for
-> arm on s390. s390 needs code from the shared code to define the
-> sys_reg_descs. But also the shared code needs the definition of the
-> sys_reg_array and we cannot forward declare arrays and use their size
-> before it is properly defined. This patch solves this chicken or egg
-> problem. For the time being s390 cannot process the full arm64 defined
-> sys_reg_descs array.
-> 
-> No functional changes.
-> 
-> Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-> Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> This is absolute atrocious shite. You cannot attempt a spin_trylock from
+> NMI context. That thing might be a mutex.
 
-I see later in the series, the include of sys_regs.c into s390 is done
-before the s390 sys_reg_descs array is defined.
+Uh, right. We went through this when kmalloc_nolock() was introduced.
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+> This should not work; if it does, that is an accident we need to fix.
 
-Thanks,
-Joey
+Current implementation handles this by can_spin_trylock() in
+mm/internal.h.
 
-> ---
->  arch/arm64/kvm/sys_regs.c | 26 ++++++++++++++------------
->  1 file changed, 14 insertions(+), 12 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 0f0b0495b710..2b28b929f9f3 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -3976,6 +3976,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->  	EL2_REG(SP_EL2, NULL, reset_unknown, 0),
->  };
->  
-> +static const size_t num_sys_reg_descs = ARRAY_SIZE(sys_reg_descs);
-> +
->  static bool handle_at_s1e01(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
->  			    const struct sys_reg_desc *r)
->  {
-> @@ -5187,7 +5189,7 @@ static bool emulate_sys_reg(struct kvm_vcpu *vcpu,
->  {
->  	const struct sys_reg_desc *r;
->  
-> -	r = find_reg(params, sys_reg_descs, ARRAY_SIZE(sys_reg_descs));
-> +	r = find_reg(params, sys_reg_descs, num_sys_reg_descs);
->  	if (likely(r)) {
->  		perform_access(vcpu, params, r);
->  		return true;
-> @@ -5205,7 +5207,7 @@ static const struct sys_reg_desc *idregs_debug_find(struct kvm *kvm, loff_t pos)
->  {
->  	unsigned long i, idreg_idx = 0;
->  
-> -	for (i = 0; i < ARRAY_SIZE(sys_reg_descs); i++) {
-> +	for (i = 0; i < num_sys_reg_descs; i++) {
->  		const struct sys_reg_desc *r = &sys_reg_descs[i];
->  
->  		if (!is_vm_ftr_id_reg(reg_to_encoding(r)))
-> @@ -5268,7 +5270,7 @@ static const struct sys_reg_desc *sr_resx_find(struct kvm *kvm, loff_t pos)
->  {
->  	unsigned long i, sr_idx = 0;
->  
-> -	for (i = 0; i < ARRAY_SIZE(sys_reg_descs); i++) {
-> +	for (i = 0; i < num_sys_reg_descs; i++) {
->  		const struct sys_reg_desc *r = &sys_reg_descs[i];
->  
->  		if (r->reg < __SANITISED_REG_START__)
-> @@ -5370,7 +5372,7 @@ void kvm_reset_sys_regs(struct kvm_vcpu *vcpu)
->  	struct kvm *kvm = vcpu->kvm;
->  	unsigned long i;
->  
-> -	for (i = 0; i < ARRAY_SIZE(sys_reg_descs); i++) {
-> +	for (i = 0; i < num_sys_reg_descs; i++) {
->  		const struct sys_reg_desc *r = &sys_reg_descs[i];
->  
->  		if (!r->reset)
-> @@ -5594,8 +5596,8 @@ int kvm_arm_sys_reg_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg
->  	if ((reg->id & KVM_REG_ARM_COPROC_MASK) == KVM_REG_ARM_DEMUX)
->  		return demux_c15_get(vcpu, reg->id, uaddr);
->  
-> -	return kvm_sys_reg_get_user(vcpu, reg,
-> -				    sys_reg_descs, ARRAY_SIZE(sys_reg_descs));
-> +	return kvm_sys_reg_get_user(vcpu, reg, sys_reg_descs,
-> +				    num_sys_reg_descs);
->  }
->  
->  int kvm_sys_reg_set_user(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg,
-> @@ -5634,8 +5636,8 @@ int kvm_arm_sys_reg_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg
->  	if ((reg->id & KVM_REG_ARM_COPROC_MASK) == KVM_REG_ARM_DEMUX)
->  		return demux_c15_set(vcpu, reg->id, uaddr);
->  
-> -	return kvm_sys_reg_set_user(vcpu, reg,
-> -				    sys_reg_descs, ARRAY_SIZE(sys_reg_descs));
-> +	return kvm_sys_reg_set_user(vcpu, reg, sys_reg_descs,
-> +				    num_sys_reg_descs);
->  }
->  
->  static unsigned int num_demux_regs(void)
-> @@ -5723,7 +5725,7 @@ static int walk_sys_regs(struct kvm_vcpu *vcpu, u64 __user *uind)
->  	int err;
->  
->  	i2 = sys_reg_descs;
-> -	end2 = sys_reg_descs + ARRAY_SIZE(sys_reg_descs);
-> +	end2 = sys_reg_descs + num_sys_reg_descs;
->  
->  	while (i2 != end2) {
->  		err = walk_one_sys_reg(vcpu, i2++, &uind, &total);
-> @@ -5772,7 +5774,7 @@ int kvm_vm_ioctl_get_reg_writable_masks(struct kvm *kvm, struct reg_mask_range *
->  	if (clear_user(masks, KVM_ARM_FEATURE_ID_RANGE_SIZE * sizeof(__u64)))
->  		return -EFAULT;
->  
-> -	for (int i = 0; i < ARRAY_SIZE(sys_reg_descs); i++) {
-> +	for (int i = 0; i < num_sys_reg_descs; i++) {
->  		const struct sys_reg_desc *reg = &sys_reg_descs[i];
->  		u32 encoding = reg_to_encoding(reg);
->  		u64 val;
-> @@ -5957,7 +5959,7 @@ int __init kvm_sys_reg_table_init(void)
->  	int ret = 0;
->  
->  	/* Make sure tables are unique and in order. */
-> -	valid &= check_sysreg_table(sys_reg_descs, ARRAY_SIZE(sys_reg_descs), true);
-> +	valid &= check_sysreg_table(sys_reg_descs, num_sys_reg_descs, true);
->  	valid &= check_sysreg_table(cp14_regs, ARRAY_SIZE(cp14_regs), false);
->  	valid &= check_sysreg_table(cp14_64_regs, ARRAY_SIZE(cp14_64_regs), false);
->  	valid &= check_sysreg_table(cp15_regs, ARRAY_SIZE(cp15_regs), false);
-> @@ -5980,7 +5982,7 @@ int __init kvm_sys_reg_table_init(void)
->  
->  	check_feature_map();
->  
-> -	for (i = 0; !ret && i < ARRAY_SIZE(sys_reg_descs); i++)
-> +	for (i = 0; !ret && i < num_sys_reg_descs; i++)
->  		ret = populate_sysreg_config(sys_reg_descs + i, i);
->  
->  	for (i = 0; !ret && i < ARRAY_SIZE(sys_insn_descs); i++)
-> 
-> -- 
-> 2.56.0
-> 
+One remaining accident we're aware is that we cannot attempt a
+spin_trylock or local_trylock under pi_lock (even on !RT).
+
+Currently I don't have a good idea to fix this :/
+
+-- 
+Cheers,
+Harry / Hyeonggon
