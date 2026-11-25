@@ -1,65 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.157
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795634874;
-	b=NNy041VKnxDHDtPhJLFfzKLiX+337IUIXz0YyiK6mj81LVP2ZHFT0dYOcFFlHJTK9lP3
-	 XROGhWCh27nU1hNNIdHvIMSyJCMKqHVR3clAFuMlUUQ+s72wI5Jt/Nu02PJp88SctDoXU
-	 Wvxj5vXDLgPUMQoLrs2+EvGS1W1+u6+wwBCztH5i/3A480rRpAbIo4BA91getkZHihvTY
-	 emaqz9vHx4fjTENYNDzQ5RSDR7y+f5JNxQcxmF0Zz/l5IskOOJQSQU+BXu2k/DWLkxs1K
-	 WXBW5RKpiVaQbMiTTt7BiYIhRqJ9dRu9L+sPFsldySUpFtKZQ5jpGi4wPxXvjUiJRCA==
+	t=1795634953;
+	b=Q7iMiBpRB90M8e4B2iV84rmZCL/b17i295lRTsaL+q5MXkURu29j+AC73751B63vFPy5
+	 QBYLa2Uf9vA58ksjUE83czx/kKSlyJry5IuqpQ8HSu3UTuRV8xgLQWSr3WhfHQCh2sldk
+	 cCwce1ZlGek8U74A+EZqMitnx8NDOdmRnqJQwGtd2opbv4ZT0H8u3F4CNOetTG9Ot3Efu
+	 8AOaw4nKYWg2s33c6xfWR0ga6qERKrnPUMc/Il+uruz+h76/VjKKFs0T30yimnocX8AQU
+	 M10icDToJWCarHGSCCtN9AWjvSndiCRkuvqv4ObOGnYstFrJw+zqwmut/clYW1pRkLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795634874;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=95k2Iy13yoDS+kywNlvIjNWyQBsXVtjAHDEMSkqvDoU=;
-	b=T7Dt0EvR82drPdGIHrgCQrsVd6xAzg0NMtxa9OMHeE/zxCQEtQRpOiFjg8Aj6fwQxQvP
-	 gmiBNte/bK2d2wdqlt+ALUAPgy+AJdqfGwHOw7IyJHBRwvp77V8t9/MpZqC8eUtA/Ekup
-	 fX7FIzacG6N831/wdAOPkaGbIG7xoQkvp8r+AN6NF9/gbWNB/wgGOrcFT/JDDhiS2SqBU
-	 yoRtSHqU1lGImZ+ldqwC+9y9gtOuuarnp8vgSYgujiGdbaX8WiIhzJn7UwIw4Rj/P17by
-	 P/b6PqJ8swNdPDI02zPR5fsl5MHy0h8vFQyhddvtDSQnse7rIhLNw0S62xoz7iORg8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795634953;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=3aUQR/uRNbfqhxE1+AnZcfzSuYfltsDA4horcMDLYeA=;
+	b=qjg26ShoI02eEap2gbrreRjseLxlQSGl8UDDr0rn0wtNIkpFpsWvp5w27eMYPgCGuQB2
+	 CLmD5KPumR8h4kbs6ekTdAKun7hd2mQVyzUCA4mJLhfMbe5SiaeaDr2/WIXfjLoN130Np
+	 fvvCBdINXSCnJiRyyLyhxQmEj/eSGe//CeOjlIqTGQ4nsMgoiWC6ggUlCtxqR0i81M3si
+	 XP2mJXmZymvyQ6ZJiFLlPn7oWLssCbwg3LVdUolXAOoAWdHzyhyyJJumUptKoQEe8kFD+
+	 /EsEOGRsKRpWGzWddSw/0Ppkg/jwbi0qU0u1FbQ0BMuKwN/cDgsVYQCPFZFg4++xviA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SERJ79tP;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=arndb.de;
+	spf=pass smtp.mailfrom=arndb.de;
+	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=IyfCLVIj;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=xZJ2xvi+;
+	arc=none smtp.remote-ip=202.12.124.157
+Received: from fhigh-b6-smtp.messagingengine.com (fhigh-b6-smtp.messagingengine.com [202.12.124.157])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B068606A338;
-	Wed, 25 Nov 2026 19:27:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02724606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:29:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02724606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SERJ79tP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02C231F000D0;
-	Wed, 25 Nov 2026 19:27:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795634873;
-	bh=95k2Iy13yoDS+kywNlvIjNWyQBsXVtjAHDEMSkqvDoU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SERJ79tP5g07W+n5+0WnXnUcHiRFiBFuuSZo28ea7dfOo43kYMdg5p3xmCDbgK3dd
-	 jZacsV4RvnuJyhlaR4I5BqFlLwymQr08mJVYeL2jdg+4ACoOJKnnQwuOiDE4RmUNA3
-	 jBAa4l3CKhuAlI+5h7N8Gr6XXHeXVNK9HbIYaA4B0S726xQe7pz+M+QTACrrio1UbM
-	 vj+jaRw7Y/qBSHjdCGnh2eHVCNuMj1xpajQ13M37PD88gnPlNizqjiF3jTmT8KY3h7
-	 nC4/9icD2EIx58RZil9eM+oRsmrdO0WjW6/RDTOBhIOvcFNmKyBoydsoYQ2E4NSVNF
-	 iPzt/n/3512dw==
-From: netdev-bot+sinfo@kernel.org
-To: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- Jose.Abreu@synopsys.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, lorenzo.bianconi@oss.qualcomm.com,
- hongmei.xu@oss.qualcomm.com, abhishek.chauhan@oss.qualcomm.com,
- sarosh.hasan@oss.qualcomm.com
-Subject: Re: [PATCH net] net: stmmac: xgmac: fix RX split header length on
- multi-descriptor frames
-Date: Wed, 25 Nov 2026 19:27:52 +0000
-Message-ID: <179563487252.3294.9801787654778788859@kernel.org>
-In-Reply-To: <20261125192531.1940982-1-sagar.cheluvegowda@oss.qualcomm.com>
-References: <20261125192531.1940982-1-sagar.cheluvegowda@oss.qualcomm.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=IyfCLVIj;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=xZJ2xvi+
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 082937A055D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:29:11 -0500 (EST)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Wed, 25 Nov 2026 14:29:12 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1795634943;
+	 x=1795721343; bh=3aUQR/uRNbfqhxE1+AnZcfzSuYfltsDA4horcMDLYeA=; b=
+	IyfCLVIjgGqco5cGUjUrf4tGqaSAql+/EjK7HU68M600gX+Mj50aRzMgrIQ5DEtw
+	9tUm5mzZl5FL1usxkEpjytrczb0UhjTH61BNOL3hYqxMSV4BJ0u2XqvX5GiJGZK3
+	wm/Xwwe8E2cQ5Buu3lfDGv42aBv3xwRX0HYVv9vwA4vLZpgxOtIMDU/pSOF0JyEU
+	BR9OBRnq6TBFKrv/DCDuLS5gexodZ2tcBdz+quhITgUIa7AjC39DgtMxbX57itRr
+	c9qss2VLVjTS/WLo2AnZL+mWiOFb1VgxcwWuoR0/jFTdHG2Z/QzTGsMSlCpVFIq6
+	wbbrCrWyw5HLEx0xLqteYQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795634943; x=
+	1795721343; bh=3aUQR/uRNbfqhxE1+AnZcfzSuYfltsDA4horcMDLYeA=; b=x
+	ZJ2xvi+krDmdnejxxf/GBfA+ELvlDl0HnfGws6ApT9bfqdJY1dLd6RkOXfXIdTG1
+	oPE3NyXEpi2shkTn0dETeim8vcO1zDcLjfDpDqI6u9+zq5FPwbKtCJ+nHr7Lm+zw
+	KtTSSsM8NqxRITX0d0ztjwYo/sQXYnNalH9zEx3l3xuLjXdRxhbqNyWOwgF80Dmu
+	yeWMVPceWEmZZOUWA7rOn8Q+CpN9giWp3F8sXqNr1XIylP6uInbvdZLxtd3huwb3
+	NsYAYPRtXM3ciIdGvRjvIb8/njVnOEYYVh8sHc0Wlm3Z8mAfAsE669UmRdK1ATx2
+	kATvMaCCyr10onE75S7eA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=arndb.de a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795634943; d=arndb.de;
+	mf=PGFybmRAYXJuZGIuZGU+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:nYceyiD3NrijllADHn8Z5vMCQF3JFGLP+bPr0XLKRTG57Fw
+	k+phJdj4fVAGcGXaNIsIXSdP2Sy+DO22GvhF1i4/stDSm/BaMgY5r/ghCmUicQ27
+	IiSdn9eclGFlH1snqizcBapcKxnd3wm28PCGh1LKlpjWBs5fEOG7qSliC7T8MNb3
+	NKrjJZGmDnV8OeSK6qMxRCLiX8gWT/rdnvtoy1nhGo62sDY0w+If6N4/iqbEfHtg
+	Dum/p3fotEhaxFEkW5R6aq1Ow3p7iRbVyBnyKfYiWBI03N7iRexDPfE/TFHFmVaU
+	k12nRtdwQVO/zQbdZ/WDmx+BtJbWdex0RGY9o2Q==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:+QazOxuBjNsSvpq0AuEcRNLCXDw1PMj6pyc4LhmDGPE=:lyskuWo1LywLI5j6RdniwXvKPv431tjNWDjMqx6+P/g=;
+X-ME-Sender: <xms:-TYHa5judzuN3YdIMSTG4lo7mexe-EWITSWVeXy1pQCGn7VMGYSQOQ>
+    <xme:-TYHa436G7KHwsCadPi10ZqaRm1s1UW240Uuj0IefwsqMmtlVFNwtpunK-W7Itk0V
+    itCAOR4vc_gxE0w1rz1pFJkluXem80gIO-DBSMa35at0aYVc8XEWXWP>
+X-ME-Proxy-Cause: dmFkZTGTTsDBmXm93ARvO6jeLdx+oqEXK93SA0pHfRb7qRr42B83MNIxFMd4yoplTuItbX
+    X/j5a314plhXFgpqfXc2/CkhwngTVylFEdGV8MOHeXfOv7BEJTglkE2DtRJn3ztY1ImMNb
+    7GIpnZs1zrtbklfhrgyq0OraNDsQmzblAAkA93wBFl3JP2bdxPOcagCs4KBXNCaMyI6qgf
+    mliLqnXe9bjVczJFJQEE01fDWSr80/3Jp7ohhxDGSVB2UDT/BUHlcz3zBhNEu1ZCaMvAYu
+    FmKsIK11Qp/AGzyzrrRuTUKwYcFl5zAdgar2dyz/AW+2spHaSQsPX73e8/XmXEYaREFpGE
+    ySXiwj9vX9Mng5Kqzyx6qLv6Gn//xIQJxG+NWB1EgS8ocdnmMb2RENFnnZ3AAIMYXuTdIo
+    4y8U9UUjIvNZze6B3uJurvvtdz/n/lK2v68ou2kUcF2OUayyuhKh1IsmoFv989zA5UExC1
+    cowJFCsB0SqGNnRRJOPHkgMqUMFpRUEL0sk9/j3f1RCdzingNuVhKYja9PVJoeSjlJsgCq
+    Uy5w3LzsZsRvesgljYNabf4/FJAngP9i/U4fOjTKJA8FwoRabnmqMYUOpaHPWd7GuCnqRt
+    W8YTARC81CubSoJt3p3vAR/wpHq69Mv0guKXNzi2AuWTkA1NWuiZM57KQhvw
+X-ME-Proxy: <xmx:_DYHayr8uwcF57WeHOipMEfBlek0ujdXkd6UNnKRnrFTJfhYsq5oLw>
+    <xmx:_DYHa_kee6YbnBnxQ9j2ohPoPZ0b7zgbXnVL77z9otANea3uPjXa_A>
+    <xmx:_DYHazRZdi9WEIJh3qV9ZtHa7KlIecDWFYT_8sCKUwonJ_HsNPpVBA>
+    <xmx:_DYHa1YjXD7ce_GxZs86bDpCeABTs0DfiRPLNxOEGsdyEVpZj4wGOQ>
+    <xmx:_zYHa8AeLaUwq02vADZr9aoP7Ud04qijkj-B8BwekgQHcjMh-XB0AaDy>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 873A632A009E; Wed, 25 Nov 2026 14:28:57 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,26 +115,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-ThreadId: AEfgzeNhvdo3
+Date: Wed, 25 Nov 2026 20:28:37 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Jude Gyimah" <jude.gyimah87@gmail.com>, lgirdwood@gmail.com,
+ "Peter Ujfalusi" <peter.ujfalusi@linux.intel.com>,
+ "Bard Liao" <yung-chuan.liao@linux.intel.com>,
+ "Daniel Baluta" <daniel.baluta@nxp.com>,
+ "Kai Vehmanen" <kai.vehmanen@linux.intel.com>,
+ "Pierre-Louis Bossart" <pierre-louis.bossart@linux.dev>,
+ "Vijendar Mukunda" <Vijendar.Mukunda@amd.com>
+Cc: "Mark Brown" <broonie@kernel.org>, "Jaroslav Kysela" <perex@perex.cz>,
+ tiwai@suse.com, sound-open-firmware@alsa-project.org,
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <c8c7c888-4b9c-490d-afd5-0b49ae98b5cf@app.fastmail.com>
+In-Reply-To: <20261125183706.53331-1-jude.gyimah87@gmail.com>
+References: <20261125183706.53331-1-jude.gyimah87@gmail.com>
+Subject: Re: [PATCH] ASoC: SOF: ipc4-topology: fix link failure with
+ SND_INTEL_DSP_CONFIG=m
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-Hi!
+On Wed, Nov 25, 2026, at 19:37, Jude Gyimah wrote:
+>  }
+> 
+> -#if IS_ENABLED(CONFIG_ACPI) && IS_ENABLED(CONFIG_SND_INTEL_NHLT)
+> +#if IS_ENABLED(CONFIG_ACPI) && 
+> IS_REACHABLE(CONFIG_SND_INTEL_DSP_CONFIG)
+>  static int snd_sof_get_hw_config_params(struct snd_sof_dev *sdev, 
+> struct snd_sof_dai *dai,
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+IS_REACHABLE() is practically always a mistake, don't do that.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+There is surely a way to correctly express the dependencies and avoid
+the configuration that leads to this.
 
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+     Arnd
