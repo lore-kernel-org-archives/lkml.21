@@ -1,89 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795637787;
-	b=Yt3q6OSzcwMmxgTFKNs/x3P2Nr7W2s8ByNoAxD/Cx26CE0ZawsZhKveMSOr3b985t2Al
-	 3zHaZHxbigHluk6ixJH30Y97fyyKL22AQ7F7w0m/V3skw0N2Dx+9O/TDujTX18tM5/M4f
-	 JCP5B58VgyBeDcm2TCrG61t2hxd793kq5VXC1gF6Mnm1c7dvKvMcXSXxvm0EI1zvxPBIq
-	 imcfsgVRbSaaxf/ZBjLAkaqLEzhKdgIQ8wJUE+1PeAyobiTpMfs8mw4kFXlqn2hmgtlFS
-	 ASx8cJlU/bYVQTPOhauLe7DvDeP+ONz6gIHOi2E28CihVTTdObrPO8cnIO+VV+4T4hA==
+	t=1795637802;
+	b=ifn+iycOPBK0VVNYVj4S3Ei6ACOA6+FJbWWp16CsJMYhaRai35iGq0FelmGHv8FVmZM5
+	 WucTrMjnLIrCmo53OnAYEECI6Ns8tQIMLi/Q2nF2RV3Ymdw96aiKOc+r5r+k85LXOgFii
+	 jGBV3Xct5NzDKGtyQjys8MIqc+QvGb7OB4QHoQh++o2rJP9/w0gARTcGkVSJrsWIGb+Yj
+	 ejki2j8y5H0gTA3ilsqdC19fsGssX7Hubz7eQ9MV+jAtHSwkilHQAsvPnrlzBTdpBqH9p
+	 /rcpNyJ+gQkw66u1/5RG46iCDDCeDeI5i6e7+T8bazd+MCH3P0cIZpxMibGy2+uu5Qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795637787;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=2/+Zf3N1CnddY8JlOrVc8DsTWkURHkyHGw0xs/XTPrE=;
-	b=nwMoVgK1jE5njh8bFnt001o3/uQCNFWSTMnTwuXfvgiCXNsOvUKrJOPIeLgyOu829KBN
-	 5PEV5N4AoaBUjX3pXpYIa/NGk2LVyIdD907eYu4rSHuzU3KTUBsAH4JTHySjoXyyxLCzx
-	 1r/Kd4Dg9SLB7VHva3wpLyj7LjCSlU4we7wbZxq0iPuqb74hAlP3SYmYV4L3116tukQlC
-	 ekAd0ar70/KarN34Us3KkaKaAQv+BC1EH2UrI3QNEMu3X/1Z2l0wEReOb4DiL+38pRpeV
-	 MnFVhsqskQxOuHl/QkP/2VsH5K+TJgwFy23mNMm7t9lp0iQMs70ACOa/NJ+K+kbUCQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795637802;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=FMoTVIsv2IP6m7YESB31vaDMuhfNof+tzgvvUh6wb7I=;
+	b=pyqOocE9IomqniU1u9UmgUpXJERB9mY3KVFDEJHgzOJNY/8BM9z7U8Moa8NCAdPbE8Qe
+	 f/QbBWNs0Ujq6d8cjTiB2l8pRgVpxv6DOHalcx9PwdO/cP8O4UJFn1Ppsy6PO6vcaLnGe
+	 yLysMyROo4/VYexbtA+azZSq7PZaMaSX1O+mZW31s8420EKNuAEXsd7rJqa1csGZ2ABYn
+	 0Qfr/lmh9NjJsp3zE3ODY2kX9nia8S/ePgAt6x3pYKTDJiXiDBxpVm3MBefTGyDQZVwX2
+	 X0/B6begCRTwUoZVq+2Pmjqewbo4V7SwVDSJNAIthg8zVPufKveiPvGzxg8PJgvrw7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r6fxhiH5;
-	arc=none smtp.remote-ip=74.125.231.137
-Received: from mail-oo2-f9.google.com (mail-oo2-f9.google.com [74.125.231.137])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="il/dmMEK";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3075960A261A
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:16:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3075960A261A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13F48606A327;
+	Wed, 25 Nov 2026 20:16:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r6fxhiH5
-Received: by mail-oo2-f9.google.com with SMTP id 006d021491bc7-71adbc33a72so1842156eaf.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:16:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795637786; x=1796242586; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2/+Zf3N1CnddY8JlOrVc8DsTWkURHkyHGw0xs/XTPrE=;
-        b=r6fxhiH5zAu2PhfMMK0Gi1gTW3Bb4bL8oGtJrVOoRfk7nRr1Tm9iBFMzdcHm8aWyh+
-         IcJbOrq3Koh8vyV7NUiFSt9RtJQeP9AsNZZNfiSGgxhfjzfQx+SWZywsVQTBLwA1nKf1
-         RqAzVdxh1YERFY9Tl6RZC68RjJQbMukMDrc4j2MXmzaDsTe7dVHNdL9M1i/K1x1A3vOz
-         WGwO6pYSn+ZFQAjZq8xtmw/sYfdPfPxDg+pn3K1rnVMc/7VhHLbYsXH3p+mQz4RPTM0W
-         ztRm7xgNaP8UbgGmui+cB7Z1MK2M3xwBLXg1h2kANDPLPDLiQUfi4oyUdthKdwwZgkAe
-         2sUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795637786; x=1796242586;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2/+Zf3N1CnddY8JlOrVc8DsTWkURHkyHGw0xs/XTPrE=;
-        b=PJOl4iA4EqPOgrnN1MpfqYQcOlcibk4FoVX7IhuPUKhOrv5pDQBuWJP2tKTFpyaKRJ
-         mtxpwDn0SIH9JD++hBzUZhQq9eilEXUBN3AXPokAoSyxya460eXEzjWNOICR8x2lEwHW
-         wuYMB5I2QQG3/KCpY5soL2JmYQqVJUb0uE17vOz0kTxlC1dZeLIPPzU51vM3tUVxRMhK
-         UJmIHfAVxHbs7JRHmTAYhxTjCY+RuVIzpD6QRewwSV7f0RnY/TypTIuqQXzT7EVplDIH
-         XaxHDalBCNVa6fYlnnnZ1q2jAGMDUqYX6SxpMBpXX8F28N9KiOyceKWIrSNkSjLI2RnU
-         f7SQ==
-X-Forwarded-Encrypted: i=1; AL+hErFEtPQTenFTOR/FMC+zo1uX/m5/m8FTRAEhEMYQJOYpyy8/1sT6EIgHeiAwRAOkvO/YPTe668s7xK+VGwI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/MxV78xrwvdWlaK0CE9WVjucCqPmoxwi9OziyLDmcN4J5ivHub
-	yYb4HIxWH0rAkm6QySJngs5edMP2wzwd2thQ9z0VWwBjkvGctvkGAHf8
-X-Gm-Gg: AZFdTZdprlvPYeZhOGJni7DQcxVcQbl7cM2BeZi4y7xUzOAVj5ObTAMbPMTGF+80JPM
-	VSLYUxm8MSuSNPRI4G7MXkMPIt2ZDdW5mEqrpknxrHmFsRMMICyxtSz8Yk/ovFmiTsC8mtRyY7a
-	A+xOjEXu1uKgs+eMMA4i/RbnMBphSXv2Ek9ZugC/QaNmfHU+XWTcRNmb8HTqlyPqIeJhaj/xQyQ
-	gShYmaTBcL2MPqnl71hcd9Qqzvm3nCKNUVT2CGOmlYNECHUeJKXB/H818RJIinDNkiv6zPb3Mw7
-	DzRW9WpinEDZredxxPWOyaKUFdVZXtawgl0JjSvCrU6mVq9LEiZPS70re4izYDYaHsXhbrgPOmA
-	Mp/tY8g7/Ocm7+8xIz1b9xKKZ+L4/VRRQWdX5YrWGeZBjYnzwsrsXCBNtfvv7jZBknL542C5Ryb
-	kyxJOxt7SNUEju9rLiI3U6bC+DtrnNT8mOfi6WFBtVanBfOCaOQOO5VReV1YopHiv1nGYBD34WA
-	LCrVnc0BDOqfB9ewNldk2m8pGZXwWTXiEbdEHwgj0wvDYRNnlDcM7zaD5hlx/7fDWA3Ew8reyWm
-	szBSVWx8uY7ON89c9NwNJW6Ca5rsU7vdKcV7dRJHG/VtNgSWXfPKtd4/
-X-Received: by 2002:a05:6820:350f:20b0:702:6977:34db with SMTP id 006d021491bc7-71b395c579emr11640137eaf.72.1795637786196;
-        Wed, 25 Nov 2026 12:16:26 -0800 (PST)
-Received: from [192.168.0.98] ([50.26.120.197])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380b6f82sm11341859eaf.10.2026.11.25.12.16.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 12:16:25 -0800 (PST)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Wed, 25 Nov 2026 14:16:12 -0600
-Subject: [PATCH v2 9/9] media: mediatek: vcodec: Flag the last buffer
- before a resolution change
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=il/dmMEK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 167F81F000D3;
+	Wed, 25 Nov 2026 20:16:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795637801;
+	bh=FMoTVIsv2IP6m7YESB31vaDMuhfNof+tzgvvUh6wb7I=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=il/dmMEKcJqRKHQ63Xsm7kj9wIdp1Rb/LuTssYKXM/Zs+sJLJyuzFCGGqSWBc1sGV
+	 3DesCnw1x+Uv2XW5HLmVyYKNHmQMZf1mdxj/BACtRNq8wYAYKDOipgsB7/xDFzBRq9
+	 jKl7WTugFvxx7goJSD+IfPjaCUFuLcQkbi9KwTu14KT5UPEFDZYJm1xHCB+St/BVKG
+	 M8TlDq43AMWBe79ckUsZ978D6WYxql7h/C7lrvk5FkmtHtjaR6edvaiDn+NQUrJeje
+	 reORIEhjWYS71Qgch7Li9ftHyz57mY3Y52bO5SLcm8ARXylD7Qt9MlUkEw/G0FeT77
+	 zFKqlPMP3dxOg==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: magnus.karlsson@intel.com, maciej.fijalkowski@intel.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ ilias.apalodimas@linaro.org, alexanderduyck@fb.com, saeedm@nvidia.com,
+ tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ michael.chan@broadcom.com, pavan.chebbi@broadcom.com, corbet@lwn.net,
+ shuah@kernel.org, bpf@vger.kernel.org, netdev@vger.kernel.org,
+ stuclar@meta.com, sdf@fomichev.me, horms@kernel.org, martin.lau@linux.dev,
+ almasrymina@google.com, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ rdunlap@infradead.org, kernel-team@meta.com,
+ dimitri.daskalakis1@gmail.com, bobbyeshleman@meta.com,
+ mohsin.bashr@gmail.com, kees@kernel.org, leitao@debian.org,
+ maxime.chevallier@bootlin.com, cuitao@kylinos.cn,
+ vadim.fedorenko@linux.dev, mike.marciniszyn@gmail.com, kuniyu@google.com,
+ jiayuan.chen@linux.dev, mkarsten@uwaterloo.ca, razor@blackwall.org,
+ dw@davidwei.uk, asml.silence@gmail.com, linux-rdma@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 08/15] xsk: Receive in the device's buffer layout
+In-Reply-To: <179561570478.3135.6883565218778603025@kernel.org>
+References: <20261124125654.183091-8-bjorn@kernel.org>
+ <179561570478.3135.6883565218778603025@kernel.org>
+Date: Wed, 25 Nov 2026 21:16:39 +0100
+Message-ID: <875wxkmztk.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,164 +77,320 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v2-9-fdc047cf75a5@gmail.com>
-References: <20261125-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v2-0-fdc047cf75a5@gmail.com>
-In-Reply-To: <20261125-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v2-0-fdc047cf75a5@gmail.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, 
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
- Yunfei Dong <yunfei.dong@mediatek.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Hans Verkuil <hverkuil@kernel.org>, 
- Minghsiu Tsai <minghsiu.tsai@mediatek.com>, 
- Houlong Wei <houlong.wei@mediatek.com>, 
- Enric Balletbo i Serra <eballetbo@kernel.org>, 
- Eizan Miyamoto <eizan@chromium.org>, 
- Francois Buergisser <fbuergisser@chromium.org>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Youngjoon Lee <getfeus@gmail.com>, linux-media@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
- Ryan Brue <ryanbrue.dev@gmail.com>, stable@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795637766; l=5381;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=Y1SCU8OkUEdpQ3ilaD/8tRCyrFrvygGo3anBgXd8zNE=;
- b=Xymw8nTU27gApkcaTJe3iPpcMVrBpPIb8WcWK0w0YSKzWjrycv5MT5q0HoerLVJwtncP6cxbc
- lRpPQyXEkepCKrFLdP960Hof//sDKGkmtvh0aNmVF9i026i2WblqyJ4
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-When the stateful decoder finds a resolution change, it flushes the
-frames decoded before it and sends V4L2_EVENT_SOURCE_CHANGE, but never
-returns a CAPTURE buffer with V4L2_BUF_FLAG_LAST: the destination buffer
-of the job that found the change is taken off the queue and dropped.
-dev-decoder.rst has the client wait for that buffer before it
-reallocates, so a client following it waits forever and a mid-stream
-resolution change stalls decoding (GStreamer's v4l2h264dec, for one).
+netdev-bot+sashiko@kernel.org writes:
 
-After the flush, queue the event and then return an empty CAPTURE buffer
-flagged LAST, or flag the next one queued if none is ready.
+> Thank you for your contribution! Sashiko AI review found 6 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 2 =C2=B7 Low: 3
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+>
+> - [High] Since this patch, a process with only CAP_NET_RAW in the
+>   device's netns can install an XDP-only memory provider on an RX queue.
+> - [Medium] With an XDP_UMEM_DRV_LAYOUT UMEM, a bind that passes
+>   XDP_ZEROCOPY succeeds, but the socket is not reported or treated as=E2=
+=80=A6
+> - [Medium] xsk: skipped synchronous unbind in xsk_sink_release() for TX-
+>   only pool
+> - [Low] xsk_sink_wakeup() (net/xdp/xsk_sink.c) is the first lockless
+>   reader of rxq->napi.
+> - [Low] The commit message of "xsk: Receive in the device's buffer
+>   layout" lists the new bind rules in detail: one receiver, -EBUSY,=E2=80=
+=A6
+> - [Low] (Baseline: rejected.) The concern was that XDP_UMEM_DRV_LAYOUT
+>   and XDP_RX_CHUNK_FREE have no documentation or selftests.
+>
+> --
+>
+> xsk: Receive in the device's buffer layout
+>
+> This patch accepts XDP_UMEM_DRV_LAYOUT at UMEM registration and installs
+> the xsk_sink memory provider when a socket with such a UMEM binds to a
+> queue. A queue in this mode has one receiving socket, and the provider is
+> removed when that socket closes. recvmsg() and poll() now schedule the
+> queue NAPI when the RX need_wakeup flag is set.
+>
+>> diff --git a/net/xdp/xdp_umem.c b/net/xdp/xdp_umem.c
+>> index cd8643360eb3a..5989e5e0e17e5 100644
+>> --- a/net/xdp/xdp_umem.c
+>> +++ b/net/xdp/xdp_umem.c
+>> @@ -153,6 +153,7 @@ static int xdp_umem_account_pages(struct xdp_umem *u=
+mem)
+>>  		XDP_UMEM_UNALIGNED_CHUNK_FLAG | \
+>>  		XDP_UMEM_TX_SW_CSUM | \
+>>  		XDP_UMEM_TX_METADATA_LEN | \
+>> +		XDP_UMEM_DRV_LAYOUT | \
+>>  	0)
+>
+> [Severity: High]
+>
+> With this flag accepted, can a process that has only CAP_NET_RAW in the
+> device's netns take over an RX queue that the administrator's native XDP
+> program runs on?
+>
+> xsk_create() only checks:
+>
+> 	if (!ns_capable(net->user_ns, CAP_NET_RAW))
+> 		return -EPERM;
+>
+> The bind path xsk_bind()->xp_assign_dev()->xsk_sink_bind() checks device
+> features, queue leasing and dev_xdp_drv_prog_held(). It does not check
+> privilege before:
+>
+> 	err =3D netif_mp_open_rxq(dev, queue_id, &p, NULL);
+>
+> Once the provider is installed, bpf_prog_run_xdp() overrides the
+> program's verdicts for every buffer on that queue:
+>
+> 	if (static_branch_unlikely(&xdp_sink_key) && xdp_buff_is_sink(xdp) &&
+> 	    (act =3D=3D XDP_PASS || act =3D=3D XDP_TX))
+> 		act =3D XDP_DROP;
+>
+> While dev_has_xdp_only_mp() is true, dev_xdp_attach() also refuses with
+> -EBUSY to detach the native program. If netif_mp_close_rxq() fails at
+> socket close, xsk_sink_unbind() calls netif_close() on the whole device.
+>
+> The other memory provider install paths require CAP_NET_ADMIN. io_uring
+> zcrx uses capable(CAP_NET_ADMIN), and the devmem netlink bind is admin
+> only. Classic AF_XDP zero copy under CAP_NET_RAW does not override
+> XDP_PASS or XDP_TX on the queue.
+>
+> Should xsk_sink_bind() require CAP_NET_ADMIN in the device's netns before
+> it installs the provider?
 
-Fixes: 590577a4e525 ("[media] vcodec: mediatek: Add Mediatek V4L2 Video Decoder Driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
- .../mediatek/vcodec/decoder/mtk_vcodec_dec.c       |  2 +
- .../mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h   |  3 ++
- .../vcodec/decoder/mtk_vcodec_dec_stateful.c       | 44 +++++++++++++++++++++-
- 3 files changed, 48 insertions(+), 1 deletion(-)
+Ah, yes, like devmem and iouring rz do.
 
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
-index 71db692ed848..b8cc58e2a155 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
-@@ -899,6 +899,8 @@ void vb2ops_vdec_stop_streaming(struct vb2_queue *q)
- 		return;
- 	}
- 
-+	ctx->last_buf_pending = false;
-+
- 	if (ctx->state >= MTK_STATE_HEADER) {
- 
- 		/* Until STREAMOFF is called on the CAPTURE queue
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
-index c9d27534c63e..5c30a96c1ccd 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
-@@ -170,6 +170,8 @@ struct mtk_vcodec_dec_request {
-  * @empty_flush_buf: a fake size-0 capture buffer that indicates flush. Used
-  *		     for stateful decoder.
-  * @is_flushing: set to true if flushing is in progress.
-+ * @last_buf_pending: return the next CAPTURE buffer queued as the LAST one
-+ *                    (a resolution change found no buffer to flag).
-  *
-  * @current_codec: current set input codec, in V4L2 pixel format
-  * @capture_fourcc: capture queue type in V4L2 pixel format
-@@ -216,6 +218,7 @@ struct mtk_vcodec_dec_ctx {
- 	struct vdec_pic_info last_decoded_picinfo;
- 	struct v4l2_m2m_buffer empty_flush_buf;
- 	bool is_flushing;
-+	bool last_buf_pending;
- 
- 	u32 current_codec;
- 	u32 capture_fourcc;
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateful.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateful.c
-index aa9bdee7a96c..6cff75cd9f32 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateful.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateful.c
-@@ -208,6 +208,34 @@ static int mtk_vdec_flush_decoder(struct mtk_vcodec_dec_ctx *ctx)
- 	return 0;
- }
- 
-+/*
-+ * Return an empty CAPTURE buffer flagged LAST: the end of the frames decoded
-+ * before a resolution change. Without it a client following
-+ * dev-decoder.rst waits for it forever and never reallocates.
-+ */
-+static void mtk_vdec_return_last_buf(struct mtk_vcodec_dec_ctx *ctx)
-+{
-+	struct vb2_v4l2_buffer *dst_buf;
-+	struct mtk_video_dec_buf *dst_buf_info;
-+	unsigned int i;
-+
-+	dst_buf = v4l2_m2m_dst_buf_remove(ctx->m2m_ctx);
-+	if (!dst_buf) {
-+		ctx->last_buf_pending = true;
-+		return;
-+	}
-+
-+	dst_buf_info = container_of(dst_buf, struct mtk_video_dec_buf, m2m_buf.vb);
-+	mutex_lock(&ctx->lock);
-+	dst_buf_info->used = false;
-+	mutex_unlock(&ctx->lock);
-+
-+	for (i = 0; i < dst_buf->vb2_buf.num_planes; i++)
-+		vb2_set_plane_payload(&dst_buf->vb2_buf, i, 0);
-+	dst_buf->flags |= V4L2_BUF_FLAG_LAST;
-+	v4l2_m2m_buf_done(dst_buf, VB2_BUF_STATE_DONE);
-+}
-+
- static void mtk_vdec_update_fmt(struct mtk_vcodec_dec_ctx *ctx,
- 				unsigned int pixelformat)
- {
-@@ -403,9 +431,12 @@ static void mtk_vdec_worker(struct work_struct *work)
- 		 * before the resolution change point ready to be
- 		 * dequeued on the CAPTURE queue, the driver sends a
- 		 * V4L2_EVENT_SOURCE_CHANGE event for source change
--		 * type V4L2_EVENT_SRC_CH_RESOLUTION
-+		 * type V4L2_EVENT_SRC_CH_RESOLUTION, then returns the
-+		 * LAST buffer, so a client that sees LAST finds the
-+		 * event already queued.
- 		 */
- 		mtk_vdec_queue_res_chg_event(ctx);
-+		mtk_vdec_return_last_buf(ctx);
- 	}
- 	v4l2_m2m_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx);
- }
-@@ -433,6 +464,17 @@ static void vb2ops_vdec_stateful_buf_queue(struct vb2_buffer *vb)
- 		buf = container_of(vb2_v4l2, struct mtk_video_dec_buf,
- 				   m2m_buf.vb);
- 		mutex_lock(&ctx->lock);
-+		if (ctx->last_buf_pending && !buf->used) {
-+			unsigned int i;
-+
-+			ctx->last_buf_pending = false;
-+			mutex_unlock(&ctx->lock);
-+			for (i = 0; i < vb->num_planes; i++)
-+				vb2_set_plane_payload(vb, i, 0);
-+			vb2_v4l2->flags |= V4L2_BUF_FLAG_LAST;
-+			vb2_buffer_done(vb, VB2_BUF_STATE_DONE);
-+			return;
-+		}
- 		if (!buf->used) {
- 			v4l2_m2m_buf_queue(ctx->m2m_ctx, vb2_v4l2);
- 			buf->queued_in_vb2 = true;
+> [Severity: Low]
+>
+> This isn't a bug, but this change makes XDP_UMEM_DRV_LAYOUT (and
+> XDP_RX_CHUNK_FREE) usable from userspace before they have documentation
+> or selftests.
+>
+> Two later patches in the series close this gap:
+>
+>   "selftests: net: xsk: Test the device's RX buffer layout" adds -D mode
+>   to xskxceiver.
+>
+>   "Documentation: networking: Describe AF_XDP RX in the device's layout"
+>   adds a Device Buffer Layout section to af_xdp.rst.
+>
+> [ ... ]
 
--- 
-2.56.1
+Right.
 
+>> diff --git a/net/xdp/xsk_sink.c b/net/xdp/xsk_sink.c
+>> index 9f1f7cf822667..2c23fecb59d41 100644
+>> --- a/net/xdp/xsk_sink.c
+>> +++ b/net/xdp/xsk_sink.c
+>
+> [ ... ]
+>
+>> @@ -501,6 +501,10 @@ int xsk_sink_bind(struct xsk_buff_pool *pool, struc=
+t net_device *dev,
+>>  	struct xsk_sink *sink;
+>>  	int err;
+>>=20=20
+>> +	/* Without a wakeup, a queue that used up the FILL ring stays dry */
+>> +	if (!(flags & XDP_USE_NEED_WAKEUP))
+>> +		return -EINVAL;
+>> +
+>
+> [Severity: Low]
+>
+> The commit message lists the new bind rules: one receiver, -EBUSY,
+> XDP_COPY fails, no fallback. It does not mention this new -EINVAL for a
+> bind without XDP_USE_NEED_WAKEUP.
+>
+> It also does not mention that the pool->uses_need_wakeup checks are
+> removed from xsk_sink_bind() and xsk_sink_alloc_netmems(). Those checks
+> were added by "xsk: Lend UMEM chunks to the page pools of a queue".
+>
+> The UAPI comment on XDP_UMEM_DRV_LAYOUT in include/uapi/linux/if_xdp.h
+> only lists the registration constraints ("Needs aligned page-sized chunks
+> and no headroom").
+>
+> af_xdp.rst documents the EINVAL later in the series, so this only affects
+> the description of this patch. Could the commit message mention that
+> XDP_USE_NEED_WAKEUP is now required, and why the uses_need_wakeup guards
+> are removed?
+
+Yeah, I'll add this.
+
+>>  	if (flags & XDP_USE_SG)
+>>  		needed |=3D NETDEV_XDP_ACT_RX_SG;
+>>  	if (flags & XDP_COPY || !dev->queue_mgmt_ops ||
+>
+> [Severity: Medium]
+>
+> XDP_COPY is rejected here. What happens with XDP_ZEROCOPY?
+>
+> xp_assign_dev() sends every DRV_LAYOUT pool to xsk_sink_bind(). It
+> returns before the force_zc and zero copy setup:
+>
+> 	if (pool->umem->flags & XDP_UMEM_DRV_LAYOUT) {
+> 		err =3D xsk_sink_bind(pool, netdev, queue_id, flags);
+> 		...
+> 		return 0;
+> 	}
+>
+> So umem->zc stays false, and xsk_bind() then sets xs->zc =3D xs->umem->zc.
+>
+> A bind with XDP_ZEROCOPY | XDP_USE_NEED_WAKEUP therefore succeeds. After
+> that, getsockopt(XDP_OPTIONS) does not report XDP_OPTIONS_ZEROCOPY, and
+> TX goes through xsk_generic_xmit() in copy mode.
+>
+> Documentation/networking/af_xdp.rst says "the XDP_ZEROCOPY flag will
+> force the socket into zero-copy mode or fail". The section added at the
+> end of the series says these sockets transmit in copy mode. It does not
+> say what XDP_ZEROCOPY means for them.
+>
+> Should xsk_sink_bind() also reject XDP_ZEROCOPY? Otherwise, should the
+> documented semantics be updated before this becomes ABI?
+
+Same as patch 6.
+
+> [ ... ]
+>
+>> @@ -591,6 +594,22 @@ void xsk_sink_unbind(struct xsk_buff_pool *pool)
+>>  	xsk_sink_detach(pool);
+>>  }
+>>=20=20
+>> +int xsk_sink_wakeup(struct xsk_sink *sink)
+>> +{
+>> +	struct netdev_rx_queue *rxq;
+>> +	struct napi_struct *napi;
+>> +
+>> +	rxq =3D READ_ONCE(sink->rxq);
+>> +	napi =3D rxq ? READ_ONCE(rxq->napi) : NULL;
+>
+> [Severity: Low]
+>
+> Does this lockless read of rxq->napi pair with anything on the writer
+> side?
+>
+> struct netdev_rx_queue documents napi as "ops protected". Other readers,
+> such as xsk_bind() and netdev-genl, hold the instance lock. This one is
+> reached from recvmsg() and poll() through xsk_wakeup() with only
+> rcu_read_lock() held.
+>
+> The writer, netif_queue_set_napi(), does a plain store:
+>
+> 	rxq->napi =3D napi;
+>
+> Drivers call it during queue restarts, for example in
+> mlx5e_activate_channel() and mlx5e_deactivate_channel(). A poll() that
+> races with an ethtool ring change would then be an unannotated data race
+> that KCSAN reports.
+>
+> The lifetime of the napi_struct is also not tied to the sink:
+>
+>   The synchronize_net() in xsk_sink_stop() covers sink->rxq, not the
+>   NAPI.
+>
+>   __netif_napi_del_locked() does not clear rxq->napi.
+>
+> mlx5, bnxt and fbnic all clear rxq->napi and go through synchronize_net()
+> before they free the NAPI. The core does not document or enforce that.
+>
+> Would this need WRITE_ONCE() in netif_queue_set_napi() and a documented
+> RCU rule for rxq->napi?
+
+We can do that, and document the rules.
+
+>> +	if (!napi)
+>> +		return -ENETDOWN;
+>> +
+>> +	local_bh_disable();
+>> +	napi_schedule(napi);
+>> +	local_bh_enable();
+>> +	return 0;
+>> +}
+>
+> [ ... ]
+>
+>> diff --git a/net/xdp/xsk.c b/net/xdp/xsk.c
+>> --- a/net/xdp/xsk.c
+>> +++ b/net/xdp/xsk.c
+>> @@ -1585,6 +1605,29 @@ static void xsk_delete_from_maps(struct xdp_sock =
+*xs)
+>>  	}
+>>  }
+>>=20=20
+>> +/* The pool may outlive the socket, see xp_put_pool(). A queue in the
+>> + * device's buffer layout stops receiving when its receiving socket goe=
+s,
+>> + * so that its program can go right after.
+>> + */
+>> +static void xsk_sink_release(struct xdp_sock *xs)
+>> +{
+>> +	struct xsk_buff_pool *pool =3D READ_ONCE(xs->pool);
+>> +	struct net_device *dev;
+>> +
+>> +	if (!pool || !READ_ONCE(pool->sink))
+>> +		return;
+>> +
+>> +	rtnl_lock();
+>> +	dev =3D pool->netdev;
+>> +	if (dev) {
+>> +		netdev_lock_ops(dev);
+>> +		if (pool->sink && xsk_sink_sock(pool->sink) =3D=3D xs)
+>> +			xsk_sink_unbind(pool);
+>> +		netdev_unlock_ops(dev);
+>> +	}
+>> +	rtnl_unlock();
+>> +}
+>> +
+>>  static int xsk_release(struct socket *sock)
+>>  {
+>>  	struct sock *sk =3D sock->sk;
+>
+> [Severity: Medium]
+> What happens when the socket that creates a DRV_LAYOUT pool has no RX
+> ring?
+>
+> xsk_bind() only requires xs->rx or xs->tx. A TX-only socket with a
+> FILL and COMPLETION ring can therefore create its own pool, either
+> with its own UMEM or through XDP_SHARED_UMEM on another queue or
+> device. xp_assign_dev() then hands the pool to xsk_sink_bind() without
+> looking at xs->rx, and netif_mp_open_rxq() installs the provider on
+> the RX queue. xsk_sink_add_sock() only records a socket that has an RX
+> ring, so sink->xs stays NULL.
+>
+> While that socket is open, the queue runs with the provider, but its
+> packets reach no socket.
+>
+> When it closes, xsk_sink_release() compares xsk_sink_sock(pool->sink)
+> with xs. The sink socket is NULL, so xsk_sink_unbind() is skipped.
+>
+> The provider then stays until the pool itself goes:
+>
+>   The socket is SOCK_RCU_FREE, so its destructor runs after a grace
+>   period.
+>
+>   The destructor drops the pool with xp_put_pool(), which defers
+>   xp_release_deferred() to system_freezable_wq.
+>
+>   Other TX-only sockets that share the pool keep it longer still.
+>
+> Until then dev_has_xdp_only_mp() stays true, and dev_xdp_attach()
+> refuses to detach the program with -EBUSY.
+>
+> The commit message says the provider goes with the receiving socket so
+> that the program can be detached right after. That does not hold when
+> no receiving socket ever bound.
+>
+> Should xsk_sink_bind() refuse a bind without an RX ring? Or should
+> xsk_sink_release() also unbind when sink->xs is NULL and xs is the
+> last socket of the pool? The -EBUSY check in xsk_bind() lets a later
+> RX socket join a sink that has no receiver yet, so it is not clear
+> which of the two is intended.
+
+Good one! TX-only sockets has to keep working.
