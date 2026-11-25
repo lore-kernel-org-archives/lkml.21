@@ -1,57 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.100
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.31
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795648795;
-	b=HCfL3gBn2nf9jiAgN6gAz3vmmuelxsUMu4S5wF4b1nSOoRn1CZe+/NHVuMmg+mZjAobM
-	 SURyXXZSW/mBpsnDIVaYDnzi8f68DkMuAVsE6ifkQbtK0jjG9A+/xQhCKLRCY7qY371g9
-	 ap6DMidoFlssrXAMBDX5fSpl+op8ThJ6WvoYTn/um0aa0B88iOJEGi3NN61ZMw5YmuipU
-	 Tp6DcBXZX9HI9ytZDtr3T7ZhEIOQr+xxcw+v3tK2NDtu/8dbr1hZOClpM3cGPJCehZI3s
-	 auNzfM4eZGDVZqPrbfmYOi+0rvQgJp++6MN5/Fg5e0AZPPjF+upbfUa2t22UrC+NJPg==
+	t=1795648821;
+	b=V40HHHyVda/LkjRwAIbYjqtp7Y0uHKDCDt1g1RWvNkZn24cqoelc5vz18bd7pS6df9JH
+	 hYT0ABmo1DLfhCLyvjTzvchRDE0VdCAsVIjySEKM3EiMDObxpzqoYo4nEa+s4DF5PKPJq
+	 LZeUqUZTs9k/1sABcdLHa8vs7gF3M6hk5HNCsO5ne7E5kWRPPPXjr8AzPfz1dJPOR913w
+	 D/au+kSwIxNJLHdBgVjRi3i8YCyr1UHB5AksOqQZTFGpNzYxcrja71Do2btuuZo9CKeNd
+	 8mQUC/ontndZeMdV0GPQe/hQWoTbkPtlvrNUKcKz2Ib+zQHUYQIkxlFROqYtbM9Tb8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795648795;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795648821;
 	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
 	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=TEazLALDsobz/tolntOMr8U1plLFZVK7A/itYnyis2E=;
-	b=V/dXCCIULUMcJ/VPA0cLdMW2GZLGuRTsDRK6W8oT1Uad6OtXag1nilS1BevXHJwzPzaM
-	 mMXCdn8sKceMG5LvbXkonZkqwlo2X6SaAWNASeofeKohdrpjBwomWya7GHm7yXU8tjvn8
-	 KmN6BSlFWsfS+Uv0/S3nZr5bNJRGvjgGEhOf7gE6DCUgvNreum72bXK/FFoR+WWumhKq1
-	 u/zOHTrZBi9Ujf4VNRqm2lMJbNBAqe7hE0207rH93cf5LVM5ILiMbq/u0TPrLQzBGdWW8
-	 0/X8rOMTYncxS9HzUwRJoCgvc6rgzRfZnLNuv8ZptZgBV7OzGywcrUvnlGEc90EItVQ==
+	bh=xa5TxEwMSu/tHhTRii+AZOVjx00nlbMu+ZgWqbet4C4=;
+	b=fcZSTHzE9BZiKxS1X4ceZcSzu2bAzXd4b+RKYeUffDvJp1rZoy4XLQWlt0IWrUXnoF2N
+	 7+QHuIY0+pNwzx6WZNXTBjh65EGw8DuhLjv1aVmydeONj2ZqMEPt6oMhjJ+yB5Hbrbiss
+	 lfL7o3TSIdS/1wzX+lcgAq3BLR9xZC8sO5bGfu07/xZCZpfW7jLzFoHNoi3GNjFCopKhB
+	 lzeRGapEMze0P6FX4GPFq8thXSI9bZADSLKLUl/K4Smpnh1W7j027YNik4WOK+BGeSDuE
+	 KAuE2hVLSejAJIRVEUmmHNXKyLUBoBnqbw/bf/+4IdGsoGZxsJ9At2SsN5i0DZWwhtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=protonmail.com;
 	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=LXKEKlfR;
-	arc=none smtp.remote-ip=185.70.43.100
-Received: from mail-43100.protonmail.ch (mail-43100.protonmail.ch [185.70.43.100])
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=V0Sk4CKS;
+	arc=none smtp.remote-ip=79.135.106.31
+Received: from mail-10631.protonmail.ch (mail-10631.protonmail.ch [79.135.106.31])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB7FA606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:19:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB7FA606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0C34606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:20:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0C34606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=LXKEKlfR
+	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=V0Sk4CKS
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795648792; x=1795907992;
-	bh=TEazLALDsobz/tolntOMr8U1plLFZVK7A/itYnyis2E=;
+	s=protonmail3; t=1795648818; x=1795908018;
+	bh=xa5TxEwMSu/tHhTRii+AZOVjx00nlbMu+ZgWqbet4C4=;
 	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
 	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=LXKEKlfRrOmKXenEU+iku5083lRmnybybFQKQcH+t0wHbggpIJgJGYFF07I6fEVjK
-	 +xiHHMpQaVcXdETN0UsPXrK/w+19Dz1gH86MohaIB17vJRadp4QXAjWt7/JXDov/9j
-	 ZX6vfvhqSIWR8g9gSm/cpAonUtr0YUnO4r9cAGXnhkUb7VNAakdxFH04s+E7jDvHGw
-	 +/4IkGV0ldhD6KqlQFR/KsjqToAhfBTh5MLaeCUCewHxHVrG/e6Pdye8CSBjEAT+/M
-	 Ng9UPk1xICaKbkwxHWJhG97+HDjT5XzU1z6KBfmUF0ZOJFQkxaOe7WaVvOjqzjeycs
-	 YVqSFuTKGSntg==
-Date: Wed, 25 Nov 2026 23:19:46 +0000
-To: Zhiqi Song <songzhiqi1@huawei.com>, Longfang Liu <liulongfang@huawei.com>
+	b=V0Sk4CKSOg3l3HGKIeA0DMJUMapOoqVbZgqSbH8XiusI5ReR4wo69+7jpGfeJIab1
+	 /yXVN537+U+VvT6zU24PcjwK5jQLDmEdvuYV+3T64dWPZfLFMCQrCPcGVCrrkJfkzu
+	 1xB7QlMvnucsa8RbwUgZ8d027Ym77HavDw+At1wPenO6UJupq4tuSChy3SPfke7GA1
+	 +/ThNj4XqIAxdzdXGqH84zYEXbXR6LAWCF3o6UjQRuHdwiKIQc9JoIV4wVG2kTi/4H
+	 x5gesA06OxlwdY4ogcwex8Kg5hUvE4tApPxBNgKPF5YGWy41/jBOvbtXDJXM2FDQxb
+	 o8E8kglyvYscw==
+Date: Wed, 25 Nov 2026 23:20:13 +0000
+To: Herbert Xu <herbert@gondor.apana.org.au>
 From: Ryan Prinz <rc4d5a@protonmail.com>
-Cc: Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>, linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, Ryan Prinz <rc4d5a@protonmail.com>
-Subject: [PATCH v4] crypto: hisilicon/hpre - fix missing DH/ECDH public key validation
-Message-ID: <20261125231929.1857637-1-rc4d5a@protonmail.com>
+Cc: "David S . Miller" <davem@davemloft.net>, Giovanni Cabiddu <giovanni.cabiddu@intel.com>, linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, Ryan Prinz <rc4d5a@protonmail.com>
+Subject: [PATCH] crypto: dh - fix missing DH public key validation on non-FIPS kernels
+Message-ID: <20261125231954.1857828-1-rc4d5a@protonmail.com>
 Feedback-ID: 190731814:user:proton
-X-Pm-Message-ID: d98190fbdf172366d2fb2d564d3b0c8692158541
+X-Pm-Message-ID: f00976f35fe7f67c4fc029525008f206445447dc
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,302 +64,121 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-hpre_dh_compute_value() and hpre_ecdh_compute_value() pass the peer's
-DH/ECDH public value into the hardware queue without checking it
-first. Neither hpre_hw_data_init() nor hpre_ecdh_src_data_init() do
-any validation; they only format and DMA-map the buffer.
+dh_is_pubkey_valid() returns 0 immediately when fips_enabled is
+false, so on a non-FIPS kernel dh_compute_value() never checks the
+peer's public value at all before using it to derive the shared
+secret.
 
-The generic software implementations this driver falls back to do
-check it: crypto/dh.c's dh_is_pubkey_valid() rejects a DH public value
-outside [2, p-2], and crypto/ecc.c's ecc_is_pubkey_valid_partial()
-rejects an ECDH public point that is zero, out of range, or not on the
-curve. HPRE's hardware-accelerated path is the default/primary path,
-not the fallback, so the DH/ECDH value check is normally skipped
-rather than normally run.
+That gating was added in the Fixes: commit because the function's
+own range check (2 <=3D y <=3D p - 2) used to take a shortcut: it tested
+y < p instead of y < p - 1, relying on the y^q mod p test further
+down to reject y =3D=3D p - 1. That test only runs in FIPS mode, so the
+range check alone wasn't safe to run unconditionally, and gating the
+whole function was the simplest way to keep the two consistent.
 
-Both algorithms are registered under their generic crypto_kpp names
-("dh", "ecdh-nist-p192/256/384"), so any caller requesting those names
-gets this unvalidated path whenever the hardware is present.
-Two in-tree callers are affected:
+drivers/nvme/common/auth.c requests "ffdheNNNN(dh)" for NVMe-oF's
+in-band DH-HMAC-CHAP authentication, used by both
+drivers/nvme/host/auth.c and drivers/nvme/target/auth.c. Forcing the
+derived session key Ks to a known value lets an attacker who holds a
+handshake transcript perform an offline brute-force attack against
+the pre-shared key, which is what the DH exchange is documented to
+protect against on top of plain CHAP. With bidirectional
+authentication enabled, an attacker can obtain a transcript by
+connecting to the target directly and requesting it without valid
+credentials, exposing the target's authentication key
+(dhchap_ctrl_secret).
 
-- drivers/nvme/common/auth.c requests "ffdheNNNN(dh)" for NVMe-oF's
-  in-band DH-HMAC-CHAP authentication, used by both
-  drivers/nvme/host/auth.c and drivers/nvme/target/auth.c. Forcing the
-  derived session key Ks to a known value lets an attacker who holds
-  a handshake transcript perform an offline brute-force attack against
-  the pre-shared key, which is what the DH exchange is documented to
-  protect against on top of plain CHAP. With bidirectional
-  authentication enabled, an attacker can obtain a transcript by
-  connecting to the target directly and requesting it without valid
-  credentials, exposing the target's authentication key
-  (dhchap_ctrl_secret). Cryptographic soundness then relies solely on
-  the strength of the target's key.
+Fixed by computing p - 2 directly and checking against that instead
+of the y < p shortcut, so the range check is a complete partial
+validation (SP800-56A section 5.6.2.3.2) on its own and can run
+before the FIPS gate rather than behind it. The y^q mod p check
+(SP800-56A section 5.6.2.3.1's additional step for safe-prime groups)
+is unchanged and stays FIPS-only.
 
-- net/bluetooth/smp.c allocates "ecdh-nist-p256" for LE Secure
-  Connections pairing and performs no validation of the remote
-  device's public key before calling compute_shared_secret(); it
-  relies on the crypto_kpp backend. On real HPRE hardware this call
-  fails before reaching that point today, for an unrelated reason:
-  hpre_ecdh_msg_request_set() requires dst_len of 2 * key_sz for
-  compute_shared_secret() as well as generate_public_key(), while
-  compute_ecdh_secret() only ever provides key_sz. That's a
-  pre-existing bug, not something this patch depends on or fixes.
-  Once it's corrected, or for any caller unaffected by it, a peer
-  can send an invalid public key and force the resulting DHKey to
-  one of a small number of predictable values in a single pairing
-  attempt.
-
-Fixed by validating the peer-supplied value before it reaches the
-hardware queue, in both compute_value() functions: for DH, rejecting
-any value outside [2, p-2]; for ECDH, reusing ecc_is_pubkey_valid_partial()
-after converting the raw big-endian coordinates HPRE already works
-with into the digit form that function expects.
-
-Fixes: c8b4b477079d ("crypto: hisilicon - add HiSilicon HPRE accelerator")
-Fixes: 05e7b906aa7c ("crypto: hisilicon/hpre - add 'ECDH' algorithm")
+Fixes: f66a211e8c5d ("crypto: dh - Make public key test FIPS-only")
 Signed-off-by: Ryan Prinz <rc4d5a@protonmail.com>
 ---
-v4:
- - Giovanni pointed out (reviewing the separate QAT fix for the same
-   bug) that the [2, p-2] range check was about to exist twice,
-   byte-for-byte identical, in two different drivers. Moved it into
-   crypto_dh_pubkey_in_range() in crypto/dh_helper.c, exported via
-   dh.h, so DH backends share one implementation instead of each
-   reimplementing it. This patch now calls that shared function
-   instead of carrying its own private copy; the QAT fix has been
-   updated the same way. The ECDH check already reused a shared
-   function (ecc_is_pubkey_valid_partial()) as of v1, so that part is
-   unchanged. Depends on the separate "crypto: dh - add shared DH
-   public key range check" patch.
+Verified by building crypto/dh.o directly, confirming it compiles
+cleanly with no new warnings or errors.
 
-v3:
- - Corrected the net/bluetooth/smp.c paragraph above: on real HPRE
-   hardware, that call fails before reaching this patch's code, for
-   an unrelated, pre-existing reason (a dst_len mismatch in
-   hpre_ecdh_msg_request_set(), not something this patch depends on
-   or fixes). No code change.
-
-v2:
- - Fixed a bug Sashiko's automated review found: ctx->key_sz is the
-   hardware slot width, not the curve's own coordinate size (HPRE
-   pads P-192's 24-byte coordinates into the 32-byte P-256 slot), so
-   reading ecc_swap_digits() from the start of that padded region
-   shifted every P-192 coordinate and rejected every valid P-192
-   public key, including testmgr's self-test.
- - Fixed a second bug Sashiko's review found: ecc_alloc_point()
-   allocates with GFP_KERNEL unconditionally, which could sleep in a
-   context where CRYPTO_TFM_REQ_MAY_SLEEP is clear. Switched to a
-   stack-allocated ecc_point via ECC_POINT_INIT(), which removes the
-   allocation (and the sleep question) entirely.
- - Fixed a third bug found during further review of the above fix:
-   for P-192, the extra bytes between the caller's half-width and the
-   curve's own 24-byte coordinate size were accepted without checking
-   they were zero. A value with non-zero content there is wider than
-   P-192's prime once it reaches the hardware at its full submitted
-   width, which is the out-of-range case this patch fixes. Now
-   rejected unless those extra bytes are zero.
- - Resent as a new thread rather than a reply to the v1 thread.
-
-No HiSilicon HPRE hardware was available to reproduce this. Verified
-by applying this patch to an unmodified kernel tree and building
-drivers/crypto/hisilicon/hpre/hpre_crypto.o directly (along with the
-crypto_dh_pubkey_in_range() change in crypto/dh_helper.c), confirming
-both compile and link cleanly with no new warnings or errors. The DH
-fix now reuses crypto_dh_pubkey_in_range() unmodified (same range-check
-logic as before, just no longer a private copy); a standalone test of
-that function exercising the boundary values 0, 1, 2, p-2, p-1 and p
-produced the expected accept/reject result, same as prior to this
-move. The ECDH fix reuses ecc_is_pubkey_valid_partial() unmodified; a
-separate standalone test confirmed its zero-padding of a
-shorter-than-full-length coordinate produces the same byte layout as
-hpre_ecdh_src_data_init()'s existing shift-based padding. A third
-standalone test confirmed the coordinate-extraction offset correctly
-accounts for curves whose coordinate size differs from the hardware
-slot width (P-192's 24-byte coordinates inside the 32-byte P-256
-slot), while P-256 and P-384 (where the two sizes already match) are
-unaffected. A fourth standalone test confirmed the gap-byte check
-rejects a crafted P-192 value with a non-zero byte outside its real
-24-byte coordinate while still accepting both a plain 24-byte encoding
-and a caller zero-padded out to the full 32-byte slot.
+Also verified step 1 itself under AddressSanitizer/UBSan outside the
+kernel, by building lib/crypto/mpi/'s arithmetic files standalone and
+running the new code against mpi_sub_ui()/mpi_cmp_ui()/mpi_cmp().
+Using p and b_public from crypto/testmgr.h's dh_tv_template[], y =3D 0,
+1, 2, p-2, p-1, p, and p+1 all produced the expected accept/reject
+result.
 
 AI Disclosure: An AI assistant was used to assist with the
 analysis and testing. I have verified the vulnerability, the fix, and
 the test results myself and take responsibility for this contribution,
 per Documentation/process/coding-assistants.rst.
 
- drivers/crypto/hisilicon/hpre/hpre_crypto.c | 124 ++++++++++++++++++++++++=
-+++
- 1 file changed, 124 insertions(+)
+ crypto/dh.c | 40 +++++++++++++++++++++++++---------------
+ 1 file changed, 25 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/crypto/hisilicon/hpre/hpre_crypto.c b/drivers/crypto/h=
-isilicon/hpre/hpre_crypto.c
---- a/drivers/crypto/hisilicon/hpre/hpre_crypto.c
-+++ b/drivers/crypto/hisilicon/hpre/hpre_crypto.c
-@@ -4,6 +4,7 @@
- #include <crypto/dh.h>
- #include <crypto/ecc_curve.h>
- #include <crypto/ecdh.h>
-+#include <crypto/internal/ecc.h>
- #include <crypto/rng.h>
- #include <crypto/internal/akcipher.h>
- #include <crypto/internal/kpp.h>
-@@ -471,6 +472,49 @@ static int hpre_send(struct hpre_ctx *ctx, struct hpre=
-_sqe *msg)
- =09return ret;
- }
+diff --git a/crypto/dh.c b/crypto/dh.c
+--- a/crypto/dh.c
++++ b/crypto/dh.c
+@@ -97,34 +97,44 @@
+ /*
+  * SP800-56A public key verification:
+  *
+- * * For the safe-prime groups in FIPS mode, Q can be computed
+- *   trivially from P and a full validation according to SP800-56A
+- *   section 5.6.2.3.1 is performed.
++ * * Step 1, the partial validation from SP800-56A section 5.6.2.3.2
++ *   (2 <=3D y <=3D p - 2), is performed unconditionally, regardless of
++ *   FIPS mode.
+  *
+- * * For all other sets of group parameters, only a partial validation
+- *   according to SP800-56A section 5.6.2.3.2 is performed.
++ * * For the safe-prime groups in FIPS mode, Q can be computed
++ *   trivially from P, so step 2, completing the full validation
++ *   according to SP800-56A section 5.6.2.3.1, is also performed.
+  */
+ static int dh_is_pubkey_valid(struct dh_ctx *ctx, MPI y)
+ {
+-=09MPI val, q;
++=09MPI val, q, p_minus_2;
+ =09int ret;
 
-+static int hpre_dh_peer_pubkey_valid(struct hpre_ctx *ctx,
-+=09=09=09=09     struct scatterlist *src,
-+=09=09=09=09     unsigned int src_len, gfp_t gfp)
-+{
-+=09unsigned int key_sz =3D ctx->key_sz;
-+=09u8 *p_minus_1, *y;
-+=09size_t copied;
-+=09int i, ret =3D 0;
-+
-+=09if (!src_len || src_len > key_sz)
-+=09=09return -EINVAL;
-+
-+=09y =3D kzalloc(key_sz, gfp);
-+=09if (!y)
+-=09if (!fips_enabled)
+-=09=09return 0;
+-
+ =09if (unlikely(!ctx->p))
+ =09=09return -EINVAL;
+
+ =09/*
+ =09 * Step 1: Verify that 2 <=3D y <=3D p - 2.
+ =09 *
+-=09 * The upper limit check is actually y < p instead of y < p - 1
+-=09 * in order to save one mpi_sub_ui() invocation here. Note that
+-=09 * p - 1 is the non-trivial element of the subgroup of order 2 and
+-=09 * thus, the check on y^q below would fail if y =3D=3D p - 1.
++=09 * Unlike step 2 below, this has to hold regardless of FIPS mode, so
++=09 * the upper limit is p - 2 itself rather than the old y < p
++=09 * shortcut, which relied on step 2 to reject p - 1 and only runs
++=09 * in FIPS mode.
+ =09 */
+-=09if (mpi_cmp_ui(y, 1) < 1 || mpi_cmp(y, ctx->p) >=3D 0)
+-=09=09return -EINVAL;
++=09p_minus_2 =3D mpi_alloc(0);
++=09if (!p_minus_2)
 +=09=09return -ENOMEM;
 +
-+=09copied =3D sg_copy_to_buffer(src, sg_nents_for_len(src, src_len),
-+=09=09=09=09   y + (key_sz - src_len), src_len);
-+=09if (copied !=3D src_len) {
-+=09=09ret =3D -EINVAL;
-+=09=09goto free_y;
-+=09}
-+
-+=09p_minus_1 =3D kmemdup(ctx->dh.xa_p + key_sz, key_sz, gfp);
-+=09if (!p_minus_1) {
-+=09=09ret =3D -ENOMEM;
-+=09=09goto free_y;
-+=09}
-+
-+=09for (i =3D key_sz - 1; i >=3D 0; i--) {
-+=09=09if (p_minus_1[i]-- !=3D 0)
-+=09=09=09break;
-+=09}
-+
-+=09if (!crypto_dh_pubkey_in_range(y, p_minus_1, key_sz))
++=09ret =3D mpi_sub_ui(p_minus_2, ctx->p, 2);
++=09if (!ret && (mpi_cmp_ui(y, 2) < 0 || mpi_cmp(y, p_minus_2) > 0))
 +=09=09ret =3D -EINVAL;
 +
-+=09kfree(p_minus_1);
-+free_y:
-+=09kfree(y);
-+=09return ret;
-+}
++=09mpi_free(p_minus_2);
++=09if (ret)
++=09=09return ret;
 +
- static int hpre_dh_compute_value(struct kpp_request *req)
- {
- =09struct crypto_kpp *tfm =3D crypto_kpp_reqtfm(req);
-@@ -485,6 +529,15 @@ static int hpre_dh_compute_value(struct kpp_request *r=
-eq)
- =09=09return ret;
++=09if (!fips_enabled)
++=09=09return 0;
 
- =09if (req->src) {
-+=09=09gfp_t gfp =3D hpre_req->flags & CRYPTO_TFM_REQ_MAY_SLEEP ?
-+=09=09=09    GFP_KERNEL : GFP_ATOMIC;
-+
-+=09=09ret =3D hpre_dh_peer_pubkey_valid(ctx, req->src, req->src_len, gfp);
-+=09=09if (unlikely(ret)) {
-+=09=09=09dev_err(ctx->dev, "invalid peer public key, ret =3D %d!\n", ret);
-+=09=09=09return ret;
-+=09=09}
-+
- =09=09ret =3D hpre_hw_data_init(hpre_req, req->src, req->src_len, 1, 1);
- =09=09if (unlikely(ret))
- =09=09=09goto clear_all;
-@@ -1574,6 +1627,71 @@ static int hpre_ecdh_dst_data_init(struct hpre_asym_=
-request *hpre_req,
- =09return 0;
- }
-
-+static int hpre_ecdh_peer_pubkey_valid(struct hpre_ctx *ctx,
-+=09=09=09=09       struct scatterlist *src,
-+=09=09=09=09       unsigned int src_len)
-+{
-+=09const struct ecc_curve *curve =3D ecc_get_curve(ctx->curve_id);
-+=09unsigned int nbytes =3D ctx->key_sz;
-+=09unsigned int half =3D src_len >> 1;
-+=09u8 coord_buf[2 * ECC_MAX_BYTES] =3D { };
-+=09u64 x[ECC_MAX_DIGITS], y[ECC_MAX_DIGITS];
-+=09struct ecc_point pk;
-+=09unsigned int cbytes;
-+=09size_t copied;
-+
-+=09if (!curve)
-+=09=09return -EINVAL;
-+
-+=09/* ctx->key_sz is the hardware slot width, not the curve's own
-+=09 * coordinate size: HPRE pads P-192 (24-byte coordinates) out to
-+=09 * the wider 32-byte P-256 slot.
-+=09 */
-+=09cbytes =3D curve->g.ndigits << ECC_DIGITS_TO_BYTES_SHIFT;
-+=09if (cbytes > nbytes)
-+=09=09return -EINVAL;
-+
-+=09/*
-+=09 * Src_data is gx and gy concatenated, each zero-padded up to
-+=09 * nbytes, matching the convention hpre_ecdh_src_data_init() uses
-+=09 * for the hardware submission path.
-+=09 */
-+=09if (!half || half > nbytes || 2 * nbytes > sizeof(coord_buf))
-+=09=09return -EINVAL;
-+
-+=09copied =3D sg_pcopy_to_buffer(src, sg_nents_for_len(src, src_len),
-+=09=09=09=09    coord_buf + (nbytes - half), half, 0);
-+=09if (copied !=3D half)
-+=09=09return -EINVAL;
-+
-+=09copied =3D sg_pcopy_to_buffer(src, sg_nents_for_len(src, src_len),
-+=09=09=09=09    coord_buf + nbytes + (nbytes - half),
-+=09=09=09=09    half, half);
-+=09if (copied !=3D half)
-+=09=09return -EINVAL;
-+
-+=09/*
-+=09 * If half is wider than the curve's own coordinate size (only
-+=09 * possible for P-192 inside the wider P-256 slot), the extra
-+=09 * leading bytes of each half must be zero, or this isn't a
-+=09 * value this curve can represent.
-+=09 */
-+=09if (half > cbytes &&
-+=09    (memchr_inv(coord_buf + (nbytes - half), 0, half - cbytes) ||
-+=09     memchr_inv(coord_buf + nbytes + (nbytes - half), 0, half - cbytes)=
-))
-+=09=09return -EINVAL;
-+
-+=09/*
-+=09 * Extract each coordinate's cbytes-wide value from the end of
-+=09 * its nbytes-wide zero-padded region.
-+=09 */
-+=09ecc_swap_digits(coord_buf + (nbytes - cbytes), x, curve->g.ndigits);
-+=09ecc_swap_digits(coord_buf + nbytes + (nbytes - cbytes), y, curve->g.ndi=
-gits);
-+=09pk =3D ECC_POINT_INIT(x, y, curve->g.ndigits);
-+
-+=09return ecc_is_pubkey_valid_partial(curve, &pk);
-+}
-+
- static int hpre_ecdh_compute_value(struct kpp_request *req)
- {
- =09struct crypto_kpp *tfm =3D crypto_kpp_reqtfm(req);
-@@ -1591,6 +1709,12 @@ static int hpre_ecdh_compute_value(struct kpp_reques=
-t *req)
- =09}
-
- =09if (req->src) {
-+=09=09ret =3D hpre_ecdh_peer_pubkey_valid(ctx, req->src, req->src_len);
-+=09=09if (unlikely(ret)) {
-+=09=09=09dev_err(dev, "invalid peer public key, ret =3D %d!\n", ret);
-+=09=09=09return ret;
-+=09=09}
-+
- =09=09ret =3D hpre_ecdh_src_data_init(hpre_req, req->src, req->src_len);
- =09=09if (unlikely(ret)) {
- =09=09=09dev_err(dev, "failed to init src data, ret =3D %d!\n", ret);
+ =09/*
+ =09 * Step 2: Verify that 1 =3D y^q mod p
 --=20
 2.51.2
 
