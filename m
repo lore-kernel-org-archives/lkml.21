@@ -1,46 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795574403;
-	b=TGIIyisq/optQ/KMvRTJLyct04ajhNaSDLTB2AqwRbYh2hlzeNf8UF+BQxo7T/rUeMD6
-	 JBzGU8X4sK/Xt1EWTDn5x9S2/uYyefwFQ+mu8dWc3scKAjuKNxLEByqyzw0Bl0yLWlFac
-	 sPAsYdK5UnQCy0zd4dmyeWttuCwDcaNh0Zx5m0PtZkPIuai9I12KyxljijmEMfkJwnGnQ
-	 OJzUODgZcnnqDSBvOR173KzI3QKg5ZLgQE5hNFPMPFBhszDHApFHaqtvj64T/N61yrj0/
-	 EfrH32bexiW6tHEzkK7HwNDOBKP6TM/L451KDD2WqG9xfQ0FSU8iAmvtqJwYYVSEQyA==
+	t=1795574407;
+	b=slTvx72svJ08Q0YUOBvmuIpHmb37oksZsKHQVqK5vWVkToxlgx9qI3ThuhtWV+fVW2RZ
+	 1VO6eDvgUEGNSLSANNuGnOdQCXFsG/0Q9YPUr801GJ26C7s9ihmtx6tBfCs2sv/NhuO5Y
+	 XQvonS4QVfOuwRlNsK8NAFae8vGXHCDLgxIXdHL7GCkGHN2gFOFYeKrY44qB43SBBNRid
+	 5OLe27hT4kIZy8jSoBVRO4TVdML4NWaZIHJoRwo00bV1O6cyB4mdiP0QuX1zyHIWoooNP
+	 SV7svlRmnyFhaSgFhlbqXWtF+N0FsBsWxalSKdVRTRYUyCnrgmgN8K9nSYxzrTPYvAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795574403;
-	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-Coremail-Antispam;
-	bh=x9IONys28uxvQ48AVO1v+lm6hsIk1POMmg5EdVLd3Z8=;
-	b=F9iGTYtbjMpn5+8RVvy3A73iY/Kbza92Ld/yoVtkAeJtaxfo4Ntqyprsykmikeoh1nJM
-	 qHA6hpJ69FGSlUzmoRHV79HpL73lY6rZ4ttCLo1C53/LWOh6dJkS4jq4+FrpxyMC+dc1T
-	 rq8Qw8KlUlXbMUcRNAlMtbLHy2DmWmnAzv2ds34c0KQYrhiBaX5EpaENen2+t3/sF48yZ
-	 WLwxvjFlugPqKaPaqZz5rweigI8MomM0/c+w4JJT3kchattTUq0bddkrXg3d2+MNiiptq
-	 o6PwHvKI72hjyygJ/ZfhSZqW1l4AvbtgG1rcDkXPEjtZAeW17SlGmgPz/I85NgrSF4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795574407;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=2psxhemLwWePLKMkwXTMskyCXNpmQmIq5wJPjFBPrXU=;
+	b=drS6D8BSYcij+C5nzUvxhbDLtNvNvKuQR/AEFtXe8sbaxrkHFy13A30WGuCK3lvmPxvK
+	 xOkR7rLc4mQgWR1SJz9uDyHltG16c/hbCRRTjVnp1YI0rKOKrFqopTFVqaJMdT6GImhMU
+	 MEhK6hxdBcSgWHN7D1pejKmJH3z0uvciRCiMBFJNQhnBEC2fdrZk+NhJExEScOoflUX0e
+	 0FFiHjF6ME2KG9HT/GAyoSXnB5EhWu8OsMagCxJLnkDOaH+KT8cKk6usBbBtSARbbs67W
+	 6pdwI42ToaV53nPRF3biL34s/R9ldHfirQxWSF1Rm73qA0dwZKZRCNG7tVhXKgUJrQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=loongson.cn;
-	spf=pass smtp.mailfrom=loongson.cn;
-	arc=none smtp.remote-ip=114.242.206.163
-Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 379BF606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:40:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 379BF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
-Received: from loongson.cn (unknown [123.138.236.242])
-	by gateway (Coremail) with SMTP id _____8DxytF_SgZr6cciAA--.32916S3;
-	Wed, 25 Nov 2026 10:39:59 +0800 (CST)
-Received: from linux.localdomain (unknown [123.138.236.242])
-	by front1 (Coremail) with SMTP id qMiowJCxf899SgZrUC43AA--.46328S2;
-	Wed, 25 Nov 2026 10:39:58 +0800 (CST)
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: loongarch@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] LoongArch: Expose msgint and avecint in /proc/cpuinfo
-Date: Wed, 25 Nov 2026 10:39:56 +0800
-Message-ID: <20261125023956.26825-1-yangtiezhu@loongson.cn>
-X-Mailer: git-send-email 2.42.0
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=liAyDYO8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98399606A31E;
+	Wed, 25 Nov 2026 02:40:07 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=liAyDYO8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 091C71F000C6;
+	Wed, 25 Nov 2026 02:40:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795574407;
+	bh=2psxhemLwWePLKMkwXTMskyCXNpmQmIq5wJPjFBPrXU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=liAyDYO8srVd5ct5gTi2CBiSgtmgSFCEdBgoV7K9+Mkm0qMvDPp2yQQr6eSg1ODXj
+	 3qwDJ3wrs1beyRODV7IhScVv0GOBwm6leE2ZsRN1jx4F5lKT9CQYoPOc5mXtGJ8Vu0
+	 dvzlvDr254TuiS2RODv4dp+RH04qjoG+TPPdwNYcdhu/T65PmulK0g8tj0hBS4eqZt
+	 t8cRCwjXsqrh+78ywWGEOMFwz9yFiDip2Vlsw5VQS5C23i3md1jHl+eAaLLVxu+jft
+	 gxD+jKIvJmD/EUHABLzqJc1uxFbSqmd1QXUzRw614QafyDlsX2QA0h5dyC0eowdAZ6
+	 n2owtdtWi1G0g==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15A13808209;
+	Wed, 25 Nov 2026 02:40:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,52 +54,53 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:qMiowJCxf899SgZrUC43AA--.46328S2
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj9xXoW7Jry5XrWUtF4kCw4fWr4DGFX_yoWDZwbE9F
-	y7Gw1UGr48Gr4j9wn8K3W5Jry8A348tFnY93Z7uF1UZryYkr1aq398Z3WrAr1DKFZrtrZ5
-	Aay8Jryvvw1a9osvyTuYvTs0mTUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUj1kv1TuYvT
-	s0mT0YCTnIWjqI5I8CrVACY4xI64kE6c02F40Ex7xfYxn0WfASr-VFAUDa7-sFnT9fnUUI
-	cSsGvfJTRUUUb7xYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E6xAIw20EY4v20x
-	vaj40_Wr0E3s1l1IIY67AEw4v_JrI_Jryl8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
-	w2x7M28EF7xvwVC0I7IYx2IY67AKxVW8JVW5JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
-	W8JVWxJwA2z4x0Y4vEx4A2jsIE14v26F4j6r4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	Gr0_Gr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx1l5I
-	8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AK
-	xVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l42xK82IYc2Ij64
-	vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8G
-	jcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1Y6r17MIIYrxkI7VAKI48JMIIF0xvE2I
-	x0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK
-	8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I
-	0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x07j8yCJUUUUU=
+Subject: Re: [PATCH net v2 0/5] net: bcmgenet, systemport: DIM and Rx discard
+ fixes
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179557440577.178200.16007627750203770675.git-patchwork-notify@kernel.org>
+Date: Wed, 25 Nov 2026 02:40:05 +0000
+References: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
+In-Reply-To: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: opendmb@gmail.com, florian.fainelli@broadcom.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ justin.chen@broadcom.com, pgynther@google.com,
+ bcm-kernel-feedback-list@broadcom.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 
-Expose the msgint (cpu_has_msgint) and avecint (cpu_has_avecint) feature
-flags in the Features line of /proc/cpuinfo.
+Hello:
 
-Having both flags visible in userspace makes it straightforward to check
-whether the CPU hardware supports message interrupts versus whether AVEC
-is actually enabled by firmware and exposed via IOCSR.
+This series was applied to netdev/net.git (main)
+by Willem de Bruijn <willemb@google.com>:
 
-Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
----
- arch/loongarch/kernel/proc.c | 4 ++++
- 1 file changed, 4 insertions(+)
+On Fri, 20 Nov 2026 23:42:34 +0100 you wrote:
+> Sashiko has flagged a few genet bugs over time. I'll work through them
+> as time permits, fixing the ones that seem worth it.
+> 
+> DIM on genet and systemport wants running totals but gets per-poll
+> counts, so it picks bogus profiles from the wrong numbers.
+> 
+> The series also fixes DIM getting stuck after a down/up or suspend and
+> resets the Rx discard count with the ring.
+> 
+> [...]
 
-diff --git a/arch/loongarch/kernel/proc.c b/arch/loongarch/kernel/proc.c
-index 37e9b144ec09..df0ce4e4bdc2 100644
---- a/arch/loongarch/kernel/proc.c
-+++ b/arch/loongarch/kernel/proc.c
-@@ -98,6 +98,10 @@ static int show_cpuinfo(struct seq_file *m, void *v)
- 		seq_puts(m, " lbt_arm");
- 	if (cpu_has_lbt_mips)
- 		seq_puts(m, " lbt_mips");
-+	if (cpu_has_msgint)
-+		seq_puts(m, " msgint");
-+	if (cpu_has_avecint)
-+		seq_puts(m, " avecint");
- 	seq_puts(m, "\n");
- 
- 	seq_printf(m, "Hardware Watchpoint\t: %s", str_yes_no(cpu_has_watch));
+Here is the summary with links:
+  - [net,v2,1/5] net: bcmgenet: keep DIM from getting stuck after close or suspend
+    https://git.kernel.org/netdev/net/c/aa5a537ec43c
+  - [net,v2,2/5] net: bcmgenet: accumulate the DIM packet and byte counters
+    https://git.kernel.org/netdev/net/c/a15079369636
+  - [net,v2,3/5] net: bcmgenet: reset the Rx discard count with the ring
+    https://git.kernel.org/netdev/net/c/e99faa3a1620
+  - [net,v2,4/5] net: systemport: restart DIM from the default profile on start
+    https://git.kernel.org/netdev/net/c/8e428e263fa4
+  - [net,v2,5/5] net: systemport: accumulate the DIM packet and byte counters
+    https://git.kernel.org/netdev/net/c/3e7e20beef4e
+
+You are awesome, thank you!
 -- 
-2.42.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
