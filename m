@@ -1,108 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.195.97
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795624087;
-	b=1TnaUdrMLyC8utGUnPgS6tkPES7wREhQrNij4Ll9DKleTyO3cURglyyoC7GCsAAopSLw
-	 nWRuIwOWoPf/hyyFI6Xmwd2Q7S76I5T7FR1T/mzce5a53eRJTB7g1RuUGj2da4Po47zp+
-	 pqLo2rxiRcA3HwtSawal44UnR1Pvi1uEA0E0/99o0vpabc6hND8QKxkb4qr1nTUZuEevP
-	 DeI/Pxu7Ag2ra1iAjDXALO3I6ZZYz/1/YhIv7NRdUDXRDIGTb1QOG7W0L2csvmB0rhn8n
-	 HFcK0rM7G4HlJswzlNM9wGGHrGyqpqjXiZhOBGILX5IAtvUCXwejFcfiw/iwO9oIbrg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795624087;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:From:
-	 To:Cc:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=etV7w6McVU4IkyvSR1MbS3GvzqUUoDoXyhVUKvZEZQ0=;
-	b=2y72EYTGb0aVku/C+OIT2ZvYQuC310iO5NArhjQigBZTmljfz1dvHyKWz2QzPoF5theD
-	 ++NJdr4X4PtDIELwnIxmalvMq584OTfXHUs6JEoYr+M/3pEoh0lovDwwG4RjzrTWlQBHE
-	 P2KE4yRjxeS2f5o3SBC9YG4Km7PXnp+5fNiP/cePU4cXaBe5ND770GuV1fnrmydu5pMXx
-	 ir3waklloZB/DOCZvQa9NbPURy8IYm929YtiVTkIMlLvbD3Jc50BV40g5/EoExt3toLL8
-	 7jKkKIv6o406gpAn8v35L+C6gNj2zJEH55Y3CC6ghZvbZ7rVuhpgIawNPokh8MQV71g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=garyguo.net;
-	spf=pass smtp.mailfrom=garyguo.net;
-	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=tVRKWPxs;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.195.97
-Received: from CWXP265CU008.outbound.protection.outlook.com (mail-ukwestazon11020097.outbound.protection.outlook.com [52.101.195.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795624118;
+	b=kUWlWYHO6NuQIjA1nMYKGciIJL6h8cAbMnRZtjQFp/pG4r/Z6o9dXczSdPUz7jaVrZ+a
+	 VhrfFn8gzhIOEJH4r4oB+MR6dyXyat05EdayIwJBt9hO0VDJF2yvz/jZ0xZFjuzhWEklP
+	 4/4joVFXne0MHBeQvSgCrHjoeQCGKpO2KX4OWjMve7lAUgBNlmFW67QyywAIOoiBvj17g
+	 CIbqm7mV4+WacJqzVqp0orKCT9FE21O2OJ8Az9kZH3FV5dw0jSj/FylAOz4dC5z6WGJrN
+	 Cu4rAD+V0EmhOjwmagCvwSNDtRZWyZagwjUJi+bL3COxJociKGFtb0zPLaB6+K6hXAg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795624118;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=F33PfOK0msjzeBxtvP6gRqlD2SQxJhJCJJqwD2eVgsE=;
+	b=ojx5CrdspzjiSDfRr8OCHOmEL+3JnnvX6AC2qxNdLqdylQszF0DlxUc/hINHCLfEdp4X
+	 dlGQARyNaMbZ3STAHUaW+5ghbFNSaJtVP/3372fxxMzhzr1j5s8+U2SRC7apAAmsTuBgm
+	 Q1KAJzYIUGUGDm2UjVSIG241NT05DZEmUp6K4OGVfMLyvtDjX5x/U+odXGjhQIgjomuRQ
+	 VUBlMwCKNlt/KWUJebesohswUT3Rsq7jifx4MKJMfXfhcUAEsgu3u4iQTogi9TMPIKnty
+	 Cig99nUvV0zSi49FLqjG0VcVTDIYGUoIyHLWcyHplsGCo34sjVDzFFIxpY6pbegmuQw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=thegoodpenguin.co.uk;
+	spf=pass smtp.mailfrom=thegoodpenguin.co.uk;
+	dkim=pass header.d=thegoodpenguin-co-uk.20260707.gappssmtp.com header.i=@thegoodpenguin-co-uk.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=h+qqryqR;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DD81606A327;
-	Wed, 25 Nov 2026 16:28:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DD81606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3B6B606A32D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:28:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3B6B606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=thegoodpenguin.co.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=thegoodpenguin.co.uk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=tVRKWPxs
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ha1iZpZvU0UvAZlA0LGSw04MVNvqWTqomTPr1ZI8HiXBjMhmbQdjBX4AHTTPqBybf4X1nV2zT8bgsB8QcAcaEPeon+r4lv8GszAfqw4TZ1NYaVEgJ/DHmXjbSFn+p5M9tbbF8pvJMQp/vxfo1QRiYmisiKgEy9MxQCJhSlKY3lN93nT8y2ObMsTcfJqMDUHQOF1uUekRhzolidCcMXLMzk3nClkNjAUu2gMktGh27Lt7qODc4207WZUl4JfejbDNe3IiFHf1bHwzXFRRG9Xg/PDRmSkj37kw2czgojOJ5WDOKehFAYcN7dhcuHSFpoD04aiYs17OosYq5hTWExAgdQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=etV7w6McVU4IkyvSR1MbS3GvzqUUoDoXyhVUKvZEZQ0=;
- b=iN4fTo/BIhIyALnk64XGac9fvKPMdKXwvhOZ+MsXEg0ytGbBg3t7mpts8oOIHr7bZzK4SL96gFvY9tY3a8wMYr3CnYyV0k8qaHJrrNYeDU3YTIejjRU4Mryg+leayu2EZVLpfxs/Hbm+OKhAz0nYZy279s24oPnXxjQMRUIpJ8PO+hfUq/FSKykfD9sI3zBI//WhmSM6PghJxGCFOGi+jLmrppZPQ4TWk7UkON21S0qR8TKG3U2SJjAMBjfYACEe0rafKuMy75L/fSyKLA/p1xkmmiVY1+uVTIQLeXKqY7xtjSmWYqdQ9wAerTeYhF1CfUGud71yy4v7+EszbvM9CQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=etV7w6McVU4IkyvSR1MbS3GvzqUUoDoXyhVUKvZEZQ0=;
- b=tVRKWPxsYNS0b7XyHyEJiZxCMgHdb9DBwZwvTn8tfu0gm1XcqeisvaPh0IB4fnaIACSiojPJwkCPBLdh+uh0dWEPU9zDefg5ERQ3TADUVyMUTo1XGA2YPxEGnnIydZEhr3gR3G6mrSv1PLWOX7tFMOHrDKpJGzP5y7UQ2wOzfnU=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
- by LO8P265MB7671.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:3ca::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Wed, 25 Nov
- 2026 16:28:04 +0000
-Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 16:28:04 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 25 Nov 2026 16:28:02 +0000
-Message-Id: <DN4FM3TBOJ9T.2QOOL77P5HETO@garyguo.net>
-Subject: Re: [RFC PATCH v2 00/30] unwind: Minimal DWARF CFI unwinding for
- user and kernel space
-From: "Gary Guo" <gary@garyguo.net>
-To: "Ian Rogers" <irogers@google.com>, <linux-kernel@vger.kernel.org>,
- <linux-trace-kernel@vger.kernel.org>, <linux-arch@vger.kernel.org>
-Cc: <jpoimboe@kernel.org>, <rostedt@goodmis.org>, <peterz@infradead.org>,
- <mingo@redhat.com>, <tglx@kernel.org>, <bp@alien8.de>,
- <dave.hansen@linux.intel.com>, <x86@kernel.org>, <catalin.marinas@arm.com>,
- <will@kernel.org>, <mark.rutland@arm.com>,
- <linux-arm-kernel@lists.infradead.org>, <pjw@kernel.org>,
- <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
- <linux-riscv@lists.infradead.org>, <acme@kernel.org>,
- <namhyung@kernel.org>, <linux-perf-users@vger.kernel.org>,
- <mhiramat@kernel.org>, <ast@kernel.org>, <daniel@iogearbox.net>,
- <andrii@kernel.org>, <bpf@vger.kernel.org>, <nathan@kernel.org>,
- <llvm@lists.linux.dev>, <nsc@kernel.org>, <linux-kbuild@vger.kernel.org>,
- <ojeda@kernel.org>, <rust-for-linux@vger.kernel.org>, <ardb@kernel.org>,
- <linux-efi@vger.kernel.org>, <maz@kernel.org>, <oupton@kernel.org>,
- <kvmarm@lists.linux.dev>, <shuah@kernel.org>,
- <linux-kselftest@vger.kernel.org>, <indu.bhagat@oracle.com>,
- <jremus@linux.ibm.com>, <wnliu@google.com>, <dylanbhatch@google.com>
-X-Mailer: aerc 0.22.0
-References: <20261125061523.1540234-1-irogers@google.com>
-In-Reply-To: <20261125061523.1540234-1-irogers@google.com>
-X-ClientProxiedBy: LO4P265CA0261.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:37c::14) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:400:1cb::9)
+	dkim=pass (2048-bit key) header.d=thegoodpenguin-co-uk.20260707.gappssmtp.com header.i=@thegoodpenguin-co-uk.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=h+qqryqR
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so51024845e9.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:28:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=thegoodpenguin-co-uk.20260707.gappssmtp.com; s=20260707; t=1795624116; x=1796228916; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=F33PfOK0msjzeBxtvP6gRqlD2SQxJhJCJJqwD2eVgsE=;
+        b=h+qqryqR1Ovck0gRlo++6eEZTK5bo9GLe5NEQZqXoHrOhbgTMx+7+kLiM7oJ82hjcJ
+         T1Bje06ySXgrgS3zSGaElO5atTz+DzRWGZPZyH5sJ2pPJmegu+FS5Iv1IVsGrtBa1A0Z
+         Mv2Lh1Ae1rqgL01kuX84mfvtSyTRGwEe6BNCEZY8vWhFBwRQf3K9Eu/x5NLCJ93GgxUC
+         46radye/pBMsLpvuJKyy3jDA+P2lKff1EKXIo57raii3ROeQ36SckuZUSKC6DST1raiJ
+         nWXWw9vvLUFiduK7SCy0Qh5sm0m70KZMMnwXOYyA7lh7qNwmKFBqXZY/GGDKfHoQBhMI
+         yUEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795624116; x=1796228916;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=F33PfOK0msjzeBxtvP6gRqlD2SQxJhJCJJqwD2eVgsE=;
+        b=o0ba0g4XAcCP/Qw9EmeOOAu3l8UT18Le9/GagWO3pMQGEaNqn/SvH/pIOTn2Dpm/jN
+         SMttMXs6k8qR/s1PgUvGna0yMDCyMRHiiuNiAQeRGBgEKY1SG0waqHupVDZLAINuqHcM
+         WywKyGoGCrNILBtzD7qPN9yYgA6mg+QbFfsBl/+qa/BUDfrEct7ssA0kkoB9IZGG/leP
+         B9+L+6ICn2d4klVwV8HlQcs/Qs5tmNrsjK4TQ1LBKqxCCwO2ycB+HFaQTDb+Bt8kWsH9
+         kCgXRldflvP+4aWD/Ou2EdDpTdOmYhtEpmOmIuWkSzJyGUbY0YR+KTxVoHGDjVQN9Pvm
+         pKEg==
+X-Forwarded-Encrypted: i=1; AL+hErGIqmYMlCiJkQ5gn+wBP2RWArz+ncz+FCTuO13gn9n04WM1WZfMUj4+ZeZJ0yItH0ZjSvk5e/av0f0Av8w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8el5NDRQbKkOTmSgKLnUcTB2myISLrDBDwi2MtjiMKn+S1/Dva
+	fRUP7TFWcLAQEzwxcJ6KJGAwpXjCwmsL/PyTl2vOBDgCewPIkTgVwAdj/RzyzWSwMXQ=
+X-Gm-Gg: AZFdTZc60GJ5IGGu+015eDkgTWSMNuiSUaBrD5ieRoGJ0U9bEXiGYrq/4Kv9xvNJKdR
+	4T2n4at4h4qKbRTkR+c99sst+GjNCyNnT0n6w09UBWot6nFwN0Eb7UBmt586UrrPsXeZah0hTcO
+	QKN9ilMrOJIUTnRYo5PDR1mX/5+daeUObvt22KykE/w4kc9lUE5gHBEw5DZanvXB+QnW50gACJ8
+	3ZBYK+/HbTcpYSGAnkAVok+nrLYattBnCEjy7YR2Y0MkAWP6/kZlAHhZeCaf6fwR91ajTJH/ML9
+	MxabvRePm6PzaWYbDxSHGhPeN8yqg6UHNjsjGuaxEv10ymDcZmhPiYFdaRZNg2EV12IWfeZCVRz
+	R3gfJhuqZSans3m6asmAwbWQ8oj+s2fRsWpBVM3EdVrDjwFt6d0MTfG4QPI8MU8KoDXFUZfVYOb
+	pupYggrnD3RQnNjSenbk21hBBn1LyW3q3MXqmouAIniIcPIHak0X7eC6+Qrb3YJsfG+BIzVw5E/
+	pYKohb6Riv8MyFg3GpZcgWpFpbj+52rhbqwPD1wi+Ih4szOkegtiAhexbyLEXA/QQBlQprNkBRM
+	+7eK2G6vwGBbEgeVfAfBiekoGUsqEjZZWLrWghJDf34ANqan41q2J3O2stIEmXX7uHE=
+X-Received: by 2002:a05:600c:5395:b0:4a3:5a98:c279 with SMTP id 5b1f17b1804b1-4bb8880e599mr376023745e9.8.1795624116009;
+        Wed, 25 Nov 2026 08:28:36 -0800 (PST)
+Received: from [10.42.0.1] ([2a00:23c7:1d1a:9c01:f716:ba19:8aaa:f1c2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853368d3sm527336375e9.1.2026.11.25.08.28.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 08:28:35 -0800 (PST)
+From: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Subject: [PATCH 00/10] mtd: use desginated initializers in *_device_id
+ arrays
+Date: Wed, 25 Nov 2026 16:28:26 +0000
+Message-Id: <20261125-acpi-mtd-v1-0-42ad2f645bee@thegoodpenguin.co.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,97 +93,216 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|LO8P265MB7671:EE_
-X-MS-Office365-Filtering-Correlation-Id: 93a54ba0-c3e9-4a79-2c32-08df4b111461
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|7416014|23010399003|376014|10070799003|366016|261009223027099003|18002099003|22082099003|56012099006|261028144727099003|261022113327099003|261022075727099003|261022105027099003|261026140227099003|261026121527099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	4pEqPffHiIuHgwKDpWn0vgwlvV+li/4UKkd8XhWfSs6FiCqlSZHm2qMrxAN33Ao0pjeuZcanPTs4urwLEn+8+iYXhvEUSwjI8pAX8njmDkmwzkkCjRRHj3KB1dsJGO/pHe9koiI1f2bzgkz1HdMYzNQw0rCs+MO7KZT3NL9YdW9OACcKcn7jc5TWBPsWHu/OLhCmA42tv2vw2lKajqHmfzf3xHE9G2f4S0no2poSPJbePyp7TNUvkj1t4ytj2qzz5Pscgnfp1kMMdoMRV3eEVc7Cl/oSiXgABtF4kIuDUxtthnGaRrWs9Z1e2DzR19XjuoBmw1X0I47LWZk2bxm4YPfibFqsWjGx5ucRCTWKz/vX936zj4WH2RQ8tcOPKFAOSlbYBtgUbdlFFgji3uPQfq2ZtXp43b/aGJgkgBfwsztggidzqoaXkjFjTw2RF6ZIkRcC54Z9xm31YjS3uD1IfXHBQs3ovWiCH2SPoSu98NRXnZQLRRLbWNEnz/gVBUdt5xJac34a0FplOngbLaSQyUR8Hf8EbhxzgLg1nPc1YWAzPkCEVkW7Yn0hPHJL64eeIDIksvRg4080GTawHF5IqsQ9W6f1oBW2mixJRu+7NVa7SCyfKxxykLiYz6TLJoh/OlqBeM539LNfXhw7NXP24l3n7T6Qmf1StckpPG/fey0=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(23010399003)(376014)(10070799003)(366016)(261009223027099003)(18002099003)(22082099003)(56012099006)(261028144727099003)(261022113327099003)(261022075727099003)(261022105027099003)(261026140227099003)(261026121527099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?NVczU2p1NUxqVzg1QlRxN0JiSjUwN1g5a0Z0WUxoS3BvMUxZTE1OMStnd0Z5?=
- =?utf-8?B?Z1RtaWFaZjNJMWxHRmR5QS90MkpFSUMxL2w5TVh5YU9kSWpxeVc5ZHlXVG5m?=
- =?utf-8?B?M2tMU1RRT0ZRR3hocEtiWWU3QlVFWGp3K1VLaXRRZmx4OGNhOFBOY295OFdO?=
- =?utf-8?B?MStlZkdFUG5jVnprTVhQTU5uZjdRR2JOQlBiN2tvYytucEZFN0UvTTdCNCty?=
- =?utf-8?B?Y2tsVFFQWnprbXN3bXJMSFNEZ2ErdC9haFJNWlkyS0kvdXRqWXQ1MTlBNUI0?=
- =?utf-8?B?UVdZL2d5VmRRS2cxSGYxcHI0dVU4NTVuVE45Z1lpQTNjMkZvSndNSU9ZdWdO?=
- =?utf-8?B?VUZ1QjF2U21uMlhPS3BmTXBxaERnK0hxa3R4Q0MvQ29KbGQrTWxVY2kzc0gz?=
- =?utf-8?B?VGN0Z1dwa092dG05ei9uSkF1Ky9mQko1UUlzSlIvdnRuRFJqUkVqdVF4ZFk2?=
- =?utf-8?B?cnBPZ1c3ZjBJM0J3UUFpdVFCUERTb2Uya1Y3YzlNWlc0R3kyUnJjd01TWi8v?=
- =?utf-8?B?TzVSMUo2aFZZKzRCdDlBY045RUx1WUpIY05ETUt4U2dTcUI3R0lvUmVCeS8r?=
- =?utf-8?B?ZXpTQVVIa3gxTzFnUUtDZmc2K3JYSXN0cEN3VEFGdVlObmZvYmFVMDBuc0hB?=
- =?utf-8?B?cHBkcFh5dnNlOUN5eWxTcGhWOHJSeXc4YlcvdDRJZHM5NEdlMlE3YlZCQ3Vt?=
- =?utf-8?B?Tjc4a2paUnJFR005MW1CR0tZeHlOeTdhRG83K1JhS2FMOURPa0pFbG44VHBU?=
- =?utf-8?B?akRPZ3FVcmd6d2RhM0FpSlpsWkFEb25nYVpaUG5zV3M5ZHNZbEVzSkJtbXFO?=
- =?utf-8?B?aGNoTE4xdlI1RndlRDYvZ3ZTbjZtMnN2cktmeFd5ZVN6NkJ3U2o4UFFHU1F3?=
- =?utf-8?B?MCtkWDBxcWxoZ3Y2dVQ0MXVEblZGN1NUWW1aS09sV28xTmJrOGpYZCtaMnEz?=
- =?utf-8?B?WmQ3SVM3VDR4L2RadXBqZWUwQ21RQ1d5QTNCaUdoZ09RSm5MYWg2N3d1dDNx?=
- =?utf-8?B?TzJCZnJoaWw1dUxJRjE1UG1PNUw4VWtqQmxHQXdkSGc1ZGREcThIUjV3YWZE?=
- =?utf-8?B?OWtVcUxLVGdnM3hiMmJDdHhCSjNpVVUwV0JTMmFkUTB6aG00akRGS0cvT2pR?=
- =?utf-8?B?VW5WV21uckJkWENOVUZwSlZpNUJyU3ZtWXMwR3cvTHBuSGJvK2Y2YmR1Qnhp?=
- =?utf-8?B?SWUraGYwaXFxc1FRVGNTdXlLWnh6ZE81V044NGc0dC95UEFmTms1ZzB1cHVs?=
- =?utf-8?B?QlVaOFkyZDFPajJpcEFBQitZRzlEOFNiYW4vTTNKaTgzdXZWR0lMRC9ZbUxP?=
- =?utf-8?B?dHlTZUpOMDk2V1ZGL0FUYVVJTFFPQ3ZUKzFxKzF1ZU9Kak15Z0JrRTIyOEFK?=
- =?utf-8?B?MGN5ejd4TXBkYmpFR3dCcFZ1ZXlSNjQ3cVlibStza0h1SGdaYzMxbFBGQnk3?=
- =?utf-8?B?c3pQNnoveXVYalczdktCUjdldUJQdllodjMwbXhnd1l3YXhpRHpRdXRXQkNh?=
- =?utf-8?B?bEthSUlkWGxsTWI3SnFFakZJQ2gxR3JUOFNlckhqRXlIdDVHdlFsVXVESVB1?=
- =?utf-8?B?N2ZTamNPSWlEZzhEV25Hc2Y0LzRYWVZxRXRoN1F3cjcvbTlPak9OSHNvZElB?=
- =?utf-8?B?dkRSVnJTRysxRmJ1U1E0Ty9ROUozZFlaZzJNUk5wajBPNm1RaURLRG5ZQWhp?=
- =?utf-8?B?WXVhRThnQmZTQnBzc1dTNmpHaUgwWGZuQ01TMklsRmdQNGdVczI3V3dxNTk3?=
- =?utf-8?B?Q1M1UDZSVzBEOEJjK1l6enFHQmdQOTV5WXdLd2R6MUVnNnAzTnlhcTV2TXBG?=
- =?utf-8?B?eDVZbXBGMXo1a1UrWVZXSjU2Q0NCRjI5ZzFTV0lWZ2F4TkFCQnJGZWZpNDMv?=
- =?utf-8?B?VU5OMDVKZ0M0eU9IWWlTcS9RNzBkV0k2aUtIT0RVQ1VscTRialRudjdGSXEr?=
- =?utf-8?B?V1VobW9WRndjV0pVYXJqRXlueEpVelc3SVM3aGdFQzdMNzQwaVNjWEpMTlhp?=
- =?utf-8?B?Z2xtSmZkNis5V3VCY09GOVRaQ05md1EwbW9neGVpdjdRWmNJck5rVURGRDU0?=
- =?utf-8?B?U1hma2UvdlJvcVJLbTNBbHdzcjNuSXNhZkh3QUxLd1FYQitYOUxVTlRWeEUw?=
- =?utf-8?B?VGxaRGZFd2xMelcxMUFVdS8rdllEZFYwbDEwK2ZwNVpTWEp1UmxtQVJrYXpK?=
- =?utf-8?B?dlJIRVYzTC92Tm93N1Bzc202OCtvQjN5eTB0U2FQRkpHTTd0QTl3Rjl3UmxT?=
- =?utf-8?B?M1pHM3l2cDVwUUFwVkdJUnh0Wnk3aVJUVFZSekZqeGphbzRRWWNhR3A1ZlNo?=
- =?utf-8?B?TC80b1E2Tll0VmhZV1VzaVBTRnZjcGUrZTZEVDBHUzF2OWtISmFxQT09?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 93a54ba0-c3e9-4a79-2c32-08df4b111461
-X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 16:28:03.9540
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zfLPUsOGfR/d8B9Jc7ISsOR1doPTigyD8v8xZJajv77s4IRWJaS+Ul7s/UjjTU/DZ1mNYwogycPZR6w7HBNHBA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO8P265MB7671
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqAIBCF4avErBPUSqirRAvTqSbIQi2C6O5ZL
+ T/437sgoCcM0GQXeDwo0OoSRJ6BmbQbkZFNBsmlEkIWTJuN2BIt4zgoXXHLy9pCyjePA53fVdv
+ 9Dns/o4nvHu77AVc++4JsAAAA
+X-Change-ID: 20261123-acpi-mtd-0ef6a50d049d
+To: Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Vladimir Zapolskiy <vz@mleia.com>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+ Alexander Usyskin <alexander.usyskin@intel.com>, 
+ Joern Engel <joern@lazybastard.org>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
+ Shrikanth Hegde <sshegde@linux.ibm.com>, 
+ Michal Simek <michal.simek@amd.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Brian Norris <computersforpeace@gmail.com>, 
+ Kamal Dasu <kamal.dasu@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ William Zhang <william.zhang@broadcom.com>, 
+ Anand Gore <anand.gore@broadcom.com>, 
+ Kursad Oney <kursad.oney@broadcom.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Han Xu <han.xu@nxp.com>, Paul Cercueil <paul@crapouillou.net>, 
+ Harvey Hunt <harveyhuntnexus@gmail.com>, 
+ Keguang Zhang <keguang.zhang@gmail.com>, 
+ Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
+ Liang Yang <liang.yang@amlogic.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Stefan Agner <stefan@agner.ch>, 
+ Lucas Stach <dev@lynxeye.de>, Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, Jacky Huang <ychuang3@nuvoton.com>, 
+ Shan-Chun Hung <schung@nuvoton.com>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Linus Walleij <linusw@kernel.org>, 
+ Kyungmin Park <kyungmin.park@samsung.com>
+Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linuxppc-dev@lists.ozlabs.org, imx@lists.linux.dev, 
+ linux-mips@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, 
+ linux-tegra@vger.kernel.org, 
+ Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795624113; l=7528;
+ i=pzalewski@thegoodpenguin.co.uk; s=20260430; h=from:subject:message-id;
+ bh=5meG2QA5zHmWMtBw+F49CrqQgn4FVKx2LdaJonRgfn8=;
+ b=VsRd3x/iYztgIPcpTxO4VQupjJr1Sy2+c/9eTKQar8LJIPG9KJ1ebtAJORbrWf8vSzuEg1YpX
+ faQork5qqUYCOdbRXiu56hLw5mIk8BvbvFb2W3hRkqwPWXFxr+5Gj8A
+X-Developer-Key: i=pzalewski@thegoodpenguin.co.uk; a=ed25519;
+ pk=vHq4n9IonORH2GTzLv8r6CWAFHzgfBuNkQPXA8NSly0=
 
-On Wed Nov 25, 2026 at 6:14 AM GMT, Ian Rogers wrote:
-> Overview
-> =3D=3D=3D=3D=3D=3D=3D=3D
->
-> This RFC v2 series introduces Minimal DWARF Call Frame Information (CFI)
-> stack unwinding in the Linux kernel for both user-space deferred
-> callchains (unwind_user / PERF_RECORD_CALLCHAIN_DEFERRED) and
-> kernel-space stack traces (stacktrace.h / HAVE_RELIABLE_STACKTRACE)
-> across x86-64, ARM64, and RISC-V, paired with an optional standalone C
-> build-time .eh_frame minifier (scripts/min_eh_frame.c).
->
-> It enables reliable stack unwinding across kernel and user-space
-> binaries compiled with or without frame pointers (-fomit-frame-pointer),
-> without introducing duplicate .sframe sections in user-space ELF files
-> or requiring new compiler, assembler, or dynamic-loader formats.
->
+This series is converting lists that contain the *_device_id structs,
+to make use of named initializers (which they do not use currently).
+This work is part of the on going effort in the kernel associated with
+device-ids [1]
 
-Hi Ian,
+The plan is to convert *_device_id::driver_data to have an anonymous
+union, like it was introduced for PCI and I2C device ID tables.
+The goal is to increase type-safety (most of the existing casts are gone),
+to improve readability and to make use intent a bit more clear:
 
-I'm a big fan of using DWARF. I haven't got the time to look into the detai=
-ls,
-but minifying the info so only IP/CFA is kept sounds like a reasonable appr=
-oach.
+```
+union {
+	kernel_ulong_t driver_data;
+	const void *driver_data_ptr;
+}
+```
 
-A quick question: how do you plan to get this working on 32-bit ARM which h=
-as
-its own EHABI?
+But for that to work all lists containing the structs need to use named
+initializers first to avoid triggering -Wmissing-braces for that field.
+This effort is split per every subsystem into:
+- pre-clean-ups that convert the lists to use named initializers
+  (which is this series)
+- actual implementations that make some of the modules use the new
+  driver_data_ptr member (which is not needed in the mtd subsystem)
 
-Best,
-Gary
+That way the task can be fragmented into manageable and independent chunks
+of work and makes this effort easier to review.
+
+Patches 1-3 implement the named initializer change.
+Patched 4-10 are just churn to unify the list termination and can be dropped.
+
+[1] https://lore.kernel.org/all/cover.1780048925.git.u.kleine-koenig@baylibre.com
+
+Signed-off-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+---
+Pawel Zalewski (10):
+      mtd: maps: pismo: Use named initializers for i2c_device_id
+      mtd: spi-nor: Use named initializers for spi_device_id
+      mtd: maps: int0800: Use named initializers for acpi_device_id
+      mtd: spi-nor: Unify of_device_id list terminator
+      mtd: devices: Unify *_device_id list terminator.
+      mtd: nand: raw: Unify list terminator for *_device_id lists
+      mtd: hyperbus: Unify list terminator for *_device_id lists
+      mtd: maps: Unify list terminator for of_device_id lists
+      mtd: nand: Unify list terminator for *_device_id lists
+      mtd: parsers: Unify list terminator for of_device_id lists
+
+ drivers/mtd/devices/docg3.c                        |  2 +-
+ drivers/mtd/devices/mchp23k256.c                   |  4 +-
+ drivers/mtd/devices/mchp48l640.c                   |  4 +-
+ drivers/mtd/devices/mtd_dataflash.c                |  8 +--
+ drivers/mtd/devices/mtd_intel_dg.c                 |  4 +-
+ drivers/mtd/devices/phram.c                        |  2 +-
+ drivers/mtd/devices/powernv_flash.c                |  2 +-
+ drivers/mtd/devices/spear_smi.c                    |  2 +-
+ drivers/mtd/devices/st_spi_fsm.c                   |  2 +-
+ drivers/mtd/hyperbus/hbmc-am654.c                  |  2 +-
+ drivers/mtd/hyperbus/rpc-if.c                      |  2 +-
+ drivers/mtd/maps/int0800.c                         |  2 +-
+ drivers/mtd/maps/lantiq-flash.c                    |  2 +-
+ drivers/mtd/maps/physmap-versatile.c               |  4 +-
+ drivers/mtd/maps/pismo.c                           |  4 +-
+ drivers/mtd/maps/sun_uflash.c                      |  2 +-
+ drivers/mtd/nand/ecc-mtk.c                         |  2 +-
+ drivers/mtd/nand/ecc-mxic.c                        |  2 +-
+ drivers/mtd/nand/ecc-realtek.c                     |  2 +-
+ drivers/mtd/nand/onenand/onenand_omap2.c           |  2 +-
+ drivers/mtd/nand/onenand/onenand_samsung.c         |  3 +-
+ drivers/mtd/nand/raw/ams-delta.c                   |  7 +-
+ drivers/mtd/nand/raw/arasan-nand-controller.c      |  2 +-
+ drivers/mtd/nand/raw/atmel/nand-controller.c       |  4 +-
+ drivers/mtd/nand/raw/atmel/pmecc.c                 |  4 +-
+ drivers/mtd/nand/raw/brcmnand/bcm6368_nand.c       |  2 +-
+ drivers/mtd/nand/raw/brcmnand/bcmbca_nand.c        |  2 +-
+ drivers/mtd/nand/raw/brcmnand/brcmnand.c           |  2 +-
+ drivers/mtd/nand/raw/brcmnand/brcmstb_nand.c       |  2 +-
+ drivers/mtd/nand/raw/brcmnand/iproc_nand.c         |  2 +-
+ drivers/mtd/nand/raw/cadence-nand-controller.c     |  3 +-
+ drivers/mtd/nand/raw/davinci_nand.c                |  2 +-
+ drivers/mtd/nand/raw/denali_dt.c                   |  2 +-
+ drivers/mtd/nand/raw/fsl_elbc_nand.c               |  2 +-
+ drivers/mtd/nand/raw/fsl_ifc_nand.c                |  2 +-
+ drivers/mtd/nand/raw/fsl_upm.c                     |  2 +-
+ drivers/mtd/nand/raw/fsmc_nand.c                   |  2 +-
+ drivers/mtd/nand/raw/gpio.c                        |  2 +-
+ drivers/mtd/nand/raw/gpmi-nand/gpmi-nand.c         |  2 +-
+ drivers/mtd/nand/raw/hisi504_nand.c                |  2 +-
+ drivers/mtd/nand/raw/ingenic/ingenic_nand_drv.c    |  2 +-
+ drivers/mtd/nand/raw/ingenic/jz4725b_bch.c         |  2 +-
+ drivers/mtd/nand/raw/ingenic/jz4740_ecc.c          |  2 +-
+ drivers/mtd/nand/raw/ingenic/jz4780_bch.c          |  2 +-
+ drivers/mtd/nand/raw/intel-nand-controller.c       |  2 +-
+ drivers/mtd/nand/raw/loongson-nand-controller.c    |  2 +-
+ drivers/mtd/nand/raw/lpc32xx_mlc.c                 |  2 +-
+ drivers/mtd/nand/raw/lpc32xx_slc.c                 |  2 +-
+ drivers/mtd/nand/raw/marvell_nand.c                |  4 +-
+ drivers/mtd/nand/raw/meson_nand.c                  |  2 +-
+ drivers/mtd/nand/raw/mpc5121_nfc.c                 |  2 +-
+ drivers/mtd/nand/raw/mtk_nand.c                    |  2 +-
+ drivers/mtd/nand/raw/mxc_nand.c                    |  2 +-
+ drivers/mtd/nand/raw/mxic_nand.c                   |  2 +-
+ drivers/mtd/nand/raw/ndfc.c                        |  2 +-
+ .../mtd/nand/raw/nuvoton-ma35d1-nand-controller.c  |  2 +-
+ drivers/mtd/nand/raw/omap_elm.c                    |  2 +-
+ drivers/mtd/nand/raw/orion_nand.c                  |  2 +-
+ drivers/mtd/nand/raw/pasemi_nand.c                 |  2 +-
+ drivers/mtd/nand/raw/pl35x-nand-controller.c       |  2 +-
+ drivers/mtd/nand/raw/plat_nand.c                   |  2 +-
+ drivers/mtd/nand/raw/qcom_nandc.c                  |  2 +-
+ drivers/mtd/nand/raw/rockchip-nand-controller.c    |  2 +-
+ drivers/mtd/nand/raw/sh_flctl.c                    |  2 +-
+ drivers/mtd/nand/raw/socrates_nand.c               |  2 +-
+ drivers/mtd/nand/raw/stm32_fmc2_nand.c             |  2 +-
+ drivers/mtd/nand/raw/sunxi_nand.c                  |  2 +-
+ drivers/mtd/nand/raw/technologic-nand-controller.c |  2 +-
+ drivers/mtd/nand/raw/tegra_nand.c                  |  2 +-
+ drivers/mtd/nand/raw/vf610_nfc.c                   |  2 +-
+ drivers/mtd/nand/raw/xway_nand.c                   |  2 +-
+ drivers/mtd/nand/spi/core.c                        |  4 +-
+ drivers/mtd/parsers/afs.c                          |  2 +-
+ drivers/mtd/parsers/bcm47xxpart.c                  |  2 +-
+ drivers/mtd/parsers/bcm63xxpart.c                  |  2 +-
+ drivers/mtd/parsers/brcm_u-boot.c                  |  2 +-
+ drivers/mtd/parsers/parser_imagetag.c              |  2 +-
+ drivers/mtd/parsers/parser_trx.c                   |  2 +-
+ drivers/mtd/parsers/qcomsmempart.c                 |  2 +-
+ drivers/mtd/parsers/redboot.c                      |  2 +-
+ drivers/mtd/parsers/scpart.c                       |  2 +-
+ drivers/mtd/parsers/tplink_safeloader.c            |  2 +-
+ drivers/mtd/spi-nor/controllers/hisi-sfc.c         |  2 +-
+ drivers/mtd/spi-nor/controllers/nxp-spifi.c        |  2 +-
+ drivers/mtd/spi-nor/core.c                         | 77 +++++++++++++++-------
+ 85 files changed, 153 insertions(+), 123 deletions(-)
+---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+change-id: 20261123-acpi-mtd-0ef6a50d049d
+
+Best regards,
+--  
+Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+
