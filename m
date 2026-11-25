@@ -1,102 +1,154 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795648140;
-	b=5UFmISCMzvjB+vs4K3xFwV0nG+Tq36LjKhb81TrCdmz9exccFvvS538rCfZjK7tYKgB9
-	 jTQ86eoRUeQNiHN5ZB3crfsKSbrRUyLEcTiZlgF7YqDaOXKaC0HSlNKToY9SIIhx/PFcK
-	 ULwL0Cj/uVgKXomgv3YoANo/N1nYPWWCwbp5i2xqSdSTu6vRfA10WuPauizCLcP7IpEEz
-	 6wJMvtCfYly9g8h8D2CWdvw1Se8vEoc0wQkbaM1m/m1HL4fsikYYgX8Ep9hG8GwH5gn+Z
-	 Iyx10UBXEh4Nghdw7DM49001t86D6d9mcZmu9aYfM7i9/pux1zYr/i0t0JN/lsp5aAQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795648140;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=EorhezSB3H7kybqBFg7VnnNzD79YcoCZdwMFraja7fw=;
-	b=4W+iCCE9wYq7rCTv83lyDqwJLz1kxqb3VXwEHQs1RUNBR4fkMtJrQQo3aIr4F0rvSeS6
-	 ntcAOjCrsVu/p/SCS6pIkPxXNPADvJI2AsurB31rs+0OqbHUgJz/3q0lanKe1ZDvheuWV
-	 TwjQYiAdIevBr+ejcryODLt6iL4r0BXsljB2fAXBUepjVqJlSb3Kx6Ooc78DCEuOzqKYz
-	 tgYaG2gU/Nprj18D8zrkue/zL6u8AHEYiETNg1jXBWdAg4adjW9sMLnZE0837e0YYFokd
-	 8DT/Pr7y6VsLQVYwf5HmjqUSJkoIO+KfscWBvqdCu1TBN1JE6pnPPjWeri9roqHC2gA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MgEQxPvq;
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.98
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795648149;
+	b=EZWcb0w/Nfpo5En5xhcbCafNLH9NIvido4uhrPc8P5MhXKi/NB2og5r2PX01K0tlwqsB
+	 pB7cjdhv9vMd8uv8fY/cUAF1W2kG9ZZ0W+paoe/QUDIkIwL1jdSk7LvxzZ5petgRmfV2S
+	 3QorEBn28QeOpecyRW4k0wEwVwoUu2JgKqLV7GBISLLLlfsmGZSt6oO4f4PE5nLV7S14a
+	 q9NQTDjaFjSe2hL0u8KVrJVhYUQdmg4uD/wInCkPQOX5C4AvtIqW0eBggoTu38d7qolkh
+	 GDEoCg6uaXzPENk12uoVdntAWDQV8x/5GwrgSDNbrGyCazsSIyZLkvxxa75MMk6TIiA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795648149;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=5PiyDVhNF0dRr1J2kLFRQZyuceWh1Ki+1kWbHNtK0fg=;
+	b=fJvDLl3QWMZ/jtqWg5xgINSRPEkNyk8HFEjOUOVutKQ8PHC8S4SaD571e4etJ2igJLCI
+	 s7As3FmA0KMRw2pL+r8zUEoGzeUWjnKL1iJd4sidhfoLHpnzTGetPkeciTZl+3PzzAQwZ
+	 qlwaIsVO6WVmhgtI7YZkOu4yumnAuNKCMJS26eyJ3JekIkgNQV6B3NpU0Rew6rrrsCEQf
+	 1V13pCPbWAKne274WiKGY+Lvy1JEjwYmz+a4IZw4JRdaKDPN6gUpIuOx5luoGm6QvuX9F
+	 TA5tuUekWCGjleFNlSQbdRFEE5FMOuGgcn6SKU8QxkHi3tWyh15bklsfzgUm//2fvoA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=vt.edu;
+	spf=pass smtp.mailfrom=vt.edu;
+	dkim=pass header.d=VirginiaTech.onmicrosoft.com header.i=@VirginiaTech.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-VirginiaTech-onmicrosoft-com header.b=aglEhUsb;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.98
+Received: from CH5PR02CU005.outbound.protection.outlook.com (mail-northcentralusazon11022098.outbound.protection.outlook.com [40.107.200.98])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3648606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:08:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3648606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAB86606A323;
+	Wed, 25 Nov 2026 23:09:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EAB86606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=vt.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=vt.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MgEQxPvq
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f045b921caso37523915ad.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:08:59 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=VirginiaTech.onmicrosoft.com header.i=@VirginiaTech.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-VirginiaTech-onmicrosoft-com header.b=aglEhUsb
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F0EPYT8O94QQJngG/O7oXAPJEVO9OYNcfXy+jz2SBKk8pPkGmLdMFoHtnOP5HYGgxVrYV31WbAiAypuB8BlmjBrFCrmpiGOvyXbGTyKfWTxq02aKSLT/GTRowrmexlG96DsvwnjqOV/8+qpw4Q/CUaz4uxDtIrggmA+m8ScZYKJBTKbVuKo534pUXka87QaGku6WCLV5JhudfLdY6maM6/1T8lY/nn7EJhXxEFHn/SsCAjwBy+My0VQME28wBpfLhnG4ynzY4Jp1QnASLETfjiPlGbabVNE3RaEdgIebMeuuDaUMTcKjg7SmAoUXI32SV/S98oD2PWWp60JSkJ4aGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001; h=From:Date:Subject:Message-ID:MIME-Version;
+ bh=5PiyDVhNF0dRr1J2kLFRQZyuceWh1Ki+1kWbHNtK0fg=;
+ b=W6zDwupKPl0FJtrs8JzkbEDVFbjINQX+JBNQR345EYK1VFmzTAwV/nFP54vvFkgYslxn2aK1XNLYiY1qz7R+5g5HEW+OgmBwApzS+uIKxssCBF4ATigjzsNI8jiYexa2LReyRdEyTNrEjAaGjRlDfYcqwvxsXcxbHlUJ90UKGQvZRg2yKHjzMiwFq2OVxTvPkjAMZtxHF+SOULhcxn1AFEoa6urHtllhig9WJka7E3pgTkxFbu++xwOsCQ53rDn/W7lcv2NpACuF06tBvBzRj3+M5weuf+pZPnTrYKYA6PAyOjSMMKVdWERNj+byJ1HjEmNZ7claohhloe7Z2t2TZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vt.edu; dmarc=pass action=none header.from=vt.edu; dkim=pass
+ header.d=vt.edu; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795648139; x=1796252939; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=EorhezSB3H7kybqBFg7VnnNzD79YcoCZdwMFraja7fw=;
-        b=MgEQxPvqyytLZXf90OJPdh9PK1QbYUQGR9tBs/gU/iq2JMuoIc1EOF5PMb/JixBK+Z
-         wZdsRu1GceHsqwSdB+3O2/7Uf7ghDdLNUL7SLKmR8/BiYzlM1mkLX6XZUrB07Tev7973
-         X7MksrtBfscb8nNYJbxGM+eNYzSr71x9jR0MLpzAgaxAa53nHoo9ysokjg+ydCbjgkum
-         arsJzwe58DZENu8fxE6FjTT5rKBGlRJsyFCeIjUGG4w0BdBAA0Jpn1+K96zKAZvSAaz2
-         90vgLS9ls0SHShj4sXXg5R8AEfgvAuPpE5qByrYdt2raTvSBo95lFHi8Jk2qURMPkz7v
-         cZbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795648139; x=1796252939;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EorhezSB3H7kybqBFg7VnnNzD79YcoCZdwMFraja7fw=;
-        b=Ba+UtOuI3+rAcTFl/UfG96JA4d4Ktzo+m6ThLin+q5FZE0LjiwCP9b6rRENal81a/m
-         TU9KyLD3U35xP4p7ucS+ei5jXp+nYI/u48soLcCZaPiu5KJ/I+1vwUIge0qACG/XQxgN
-         7IgaMytziotOKwRoWuWkASherbiExDuL672zvCEGO2JoXzOypePT4YCdfKox4WocOoLa
-         YrLyJRNo3txUYHY95J5zBelJVN3ATSutdavWbWyvFaZK3D0FnVGN86nsX7LxnSMdIS3y
-         9UNXfeyBtC0R7l4KFaxFBtfyS2Peby8J7/h2xFVzcWRwbEOcFoRM6ZdXuUHX+pOmDZ4E
-         KueA==
-X-Forwarded-Encrypted: i=1; AL+hErGZ8kyKshn9YvWT/415VzHUtvsstYTLwltE+IzIX1cb80LUDvRtDMsY6H6u76lcLtAStMu0zVIMo4Jaouw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Wc4lWAhHWdgjJQ1FAYwOQUvjfCTEmZKS0KxP/VNcTQIoqnM82
-	zsy4Vk2BGY30Ah/eguSMvX3lz6SpFDVAuLBDjh564VEZm4VpK5RzrLKr
-X-Gm-Gg: AZFdTZdSl0XSiwxp8698Ltz4XaEb+LV6iwHkfY+53oTGjKWBJH0pxvaOsyVenaqi9Yt
-	ugS+NY8z3UHEJrcOGW7qweVdQFHOPxwHyTjSypBKLRY9lbvPHiW4N4D0fAnyANJUqwGogcjoMtB
-	OJtkTyh1OzVnQ1C6kTvd+hEiRtEnIvLxRXaL7pCOLWGXiMVoObAogrifmIO91wbof+O2WAkb1Vc
-	zfKVegYe9mJtCzU70IgugE7vF5LcTo2n8QMpCubdJRugLc54eT2FMUkjxEL/MCdCYl3XJuVGhBu
-	ssd7ES3eSDD2njhQfoVIee97q6dpxw7z3cUmwgbh1XsgSmT+hmZmt1AT71pZYGMnIAt5fNlky1I
-	clNLYKAkRnT0jC1KK7NbA3cZMitMCOc6+idBDCX3HqsCmz0y1Omyofaz+UhuEDnGjKXZG8T5FZ3
-	Nu0nxfn4jfCCDbPL3G9wMrTB5ydpjixkxUmHjim0cSfpJX91yQgEY8CNKSaHA009MqdGFusX2g0
-	GuINf5UAlrm+FY6GzLZd3WVLga3JUlGL3uE1fnTCSiOPFqAQVQtVyxk9ieFNpgQZNPpO684ECwo
-	RM+zY+Z8BbE/7LaI0u/y3Pem/KWGSP1wyICCYD9GdZOHkX9+
-X-Received: by 2002:a17:903:19e7:b0:2ed:b7e4:f5b with SMTP id d9443c01a7336-2f03f18a7d9mr181302175ad.40.1795648139044;
-        Wed, 25 Nov 2026 15:08:59 -0800 (PST)
-Received: from archie.me ([210.87.74.117])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d02ba46sm9395193a12.21.2026.11.25.15.08.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 15:08:57 -0800 (PST)
-Received: by archie.me (Postfix, from userid 1000)
-	id 78DBD420A76D; Thu, 26 Nov 2026 06:08:54 +0700 (WIB)
-Date: Thu, 26 Nov 2026 06:08:54 +0700
-From: Bagas Sanjaya <bagasdotme@gmail.com>
-To: Willy Tarreau <w@1wt.eu>, Jonathan Corbet <corbet@lwn.net>
-Cc: skhan@linuxfoundation.org, Randy Dunlap <rdunlap@infradead.org>,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	gregkh@linuxfoundation.org, Johan Hovold <johan@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>
-Subject: Re: [PATCH v2 05/14] docs: security-bugs: explain how to send a fix
- that can be applied
-Message-ID: <awdqgBF62SOKaU0Q@archie.me>
-References: <20261114190014.17826-1-w@1wt.eu>
- <20261114190014.17826-6-w@1wt.eu>
+ d=VirginiaTech.onmicrosoft.com; s=selector1-VirginiaTech-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5PiyDVhNF0dRr1J2kLFRQZyuceWh1Ki+1kWbHNtK0fg=;
+ b=aglEhUsblJvh4Yv99cSn3M6DJqTmWsdM3cWWdYBLdCNuLQHrPe4Orq5twN5hmEoj23T9Y4cWZgqDjApNYGGEx9fdb4oN4sQ3B+k+FJs14m+3a9b/kZMF1pZ0XnQ4rD2ZA+ZqMBjZGYptDhp1yWeJx8hkoEorLKcrK5GlCx+B36I=
+Received: from DM6PR05MB4137.namprd05.prod.outlook.com (2603:10b6:5:81::28) by
+ SN6PR05MB6638.namprd05.prod.outlook.com (2603:10b6:805:107::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 25 Nov
+ 2026 23:08:59 +0000
+Received: from DM6PR05MB4137.namprd05.prod.outlook.com
+ ([fe80::a6db:3b91:d780:cd9b]) by DM6PR05MB4137.namprd05.prod.outlook.com
+ ([fe80::a6db:3b91:d780:cd9b%5]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 23:08:58 +0000
+From: "Ravindran, Binoy" <binoy@vt.edu>
+To: Yafang Shao <laoar.shao@gmail.com>
+CC: "Paul E. McKenney" <paulmck@kernel.org>, Frederic Weisbecker
+	<frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, Joel
+ Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>, Steven
+ Rostedt <rostedt@goodmis.org>, Mathieu Desnoyers
+	<mathieu.desnoyers@efficios.com>, Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Josh Poimboeuf <jpoimboe@kernel.org>,
+	Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, Joe Lawrence
+	<joe.lawrence@redhat.com>, Song Liu <song@kernel.org>, Ingo Molnar
+	<mingo@kernel.org>, Jiri Kosina <jikos@kernel.org>, "rcu@vger.kernel.org"
+	<rcu@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "live-patching@vger.kernel.org"
+	<live-patching@vger.kernel.org>, "Shastri, Jaidev" <jaidevshastri@vt.edu>
+Subject: Re: [PATCH v2 2/3] livepatch: Include exiting tasks in the transition
+Thread-Topic: [PATCH v2 2/3] livepatch: Include exiting tasks in the
+ transition
+Thread-Index: AQHdfClvNP3k139GOk6eHZFGrstIR7c+0a0AgACYqmI=
+Date: Wed, 25 Nov 2026 23:08:58 +0000
+Message-ID:
+ <DM6PR05MB4137BC9878BC4D758AC9C191D1432@DM6PR05MB4137.namprd05.prod.outlook.com>
+References: <20261124-klp-series-v3-v2-0-50d20829a337@vt.edu>
+ <20261124-klp-series-v3-v2-2-50d20829a337@vt.edu>
+ <CALOAHbAtgHUU+eY7LMOscmua23mqEd0EpU8v7Z0wG-E3qh-dvA@mail.gmail.com>
+In-Reply-To:
+ <CALOAHbAtgHUU+eY7LMOscmua23mqEd0EpU8v7Z0wG-E3qh-dvA@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vt.edu;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DM6PR05MB4137:EE_|SN6PR05MB6638:EE_
+x-ms-office365-filtering-correlation-id: 5e9321cf-4a68-4ab5-abf9-08df4b491619
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|10070799003|7416014|366016|23010399003|786006|376014|1800799024|38070700021|261022075727099003|261026121527099003|4143699003|11063799006|10067099003|261028144727099003|261022105027099003|261026140227099003|56012099006|261009223027099003|18002099003|22082099003;
+x-microsoft-antispam-message-info:
+ S47CRz83soi1KLvDsHJgPeuiUORJoDerKhfozwP/ODx7I8Ogw82g2+i+g3zOYEzCAzQJtvs3LCbyi8U2EeTK0RH3m39+xc8Mhmr3Tq7bO6IrIC+RIjO+/BKDLMo1a91ptdkuV+MMkn1eoRJdzd1PkTXUabyDuA2GUjK5c6hIl7KzmN/SJ/q5H+qMUBJ/Fd0+4ENoBouFXHdWsjsLJkBOp7kQ16NphcWFXr2doyzH+0La1de7hNv+0LCEWMyRUUQKNYn2slgnWJnVGRggy5KWFpJzdgDOKnlfoht0p4KhTJTrwpdKe1lxSuyHF6TgY0RJ1OpiBVF58PHrjuodRKIn8xHxjKfkXOBERTKnYUhmUQTJV5fwDYZIyTXk9ROrIvF5oK5PuPVeX+j/4w4REvNjPRJdiAUaIrt2NMmWDILF1virSzop630+sAURJSnG3P29e7ERYi0GuNbejjlZz8U7qMg6a7uKQnc5cG+QxCXCoCJs4GJz5yU48euVu2hvNAYZjZYWzw390YaHskW8aOLd/tRBH1QRbTD5QG0DRBNSp8zqoMpexffkHVgBmR9AJdwOHOW24p4gxxR+0wAUEbYL3fQdbkzr+LJGxNBvwfdO8+G73Bm1/LYv20OrsmfBGGn16VJBqnXbrCGEN2kJv3pekjYKpN7/287XdXzxYHAeU5hhTZEsxFH+fmhJAfrQLIfF9qa+XqffZV+m+3Ga4GBIUMTJb224fAAao3bVAp5+6Kc=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR05MB4137.namprd05.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(7416014)(366016)(23010399003)(786006)(376014)(1800799024)(38070700021)(261022075727099003)(261026121527099003)(4143699003)(11063799006)(10067099003)(261028144727099003)(261022105027099003)(261026140227099003)(56012099006)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?L4PzBZ9E3KGF09wXPEcL/eRAyBtqJO1HrMzjdxrl1lg3X5s6IH8iKsz0qV?=
+ =?iso-8859-1?Q?QKiyHTt48m6tMHQTKXyulCpsy/w/jc4SxU7dj/dudD6jMJWM41CdM7ohVm?=
+ =?iso-8859-1?Q?f5tl7y2B7jRhR5o+wlBUfbsaGbkC4w5Y6FXYuBu9QGRo/QUK+aGX855WdY?=
+ =?iso-8859-1?Q?yKCcrqREQW92zumoHs0RXRjF6T36C7IsNpl1hxPex5ufdzP8DOkatgAV8M?=
+ =?iso-8859-1?Q?uchfoQ0k2cpCS0Zmn+I1RNnWXLuefu0qud/vLvEXDdwXPovP8AUV8PA3ro?=
+ =?iso-8859-1?Q?xnUWJk0SDwgjEr0aGxuD2UqHa34WD9EPtDIiRn11wASK55LOY2zC0edF/o?=
+ =?iso-8859-1?Q?9NvCr63BX1FDzK4sGFlQxNwHGmCTpqAwwO9KuYoYn2unBMXj8UJZ+C13rh?=
+ =?iso-8859-1?Q?cYAbwX7deI+BVuOT6fX8WPke8/LUbtLgZLQQPvge2p76HOwvVKO2C3XrDY?=
+ =?iso-8859-1?Q?+xaa1IINaDhWbq4W0mM9xfsaNck0oiWycjFEiZahxRKxcZ1tAAx40s8E0x?=
+ =?iso-8859-1?Q?e5eupEKP2qGhH4DbkB/4+oXIAfjqcAlUKCDXNmHddSfuhkwZZg7mnmaE+B?=
+ =?iso-8859-1?Q?GIHRlZgwXXzcJ+jGjmDnw9M1G70bzqz26Hg89cqhKLxy6P9rBzHxeCCR6G?=
+ =?iso-8859-1?Q?+f8UWX+bATNwbnpCQywJmG6TEBawKp8zTy6NkWmATJu6+BaM1dsMDCWjQc?=
+ =?iso-8859-1?Q?syipzJzutKmvWEX0bNcfamNTE76FNeAiyt9W8yB8V3bnjJsnaKEBxXBNrt?=
+ =?iso-8859-1?Q?kASCsKRyrsDsntRcIeEgUvqUMdNdiD+no9S81PzmzoZSiAeJtIypJx8lhm?=
+ =?iso-8859-1?Q?ulV1WyUlAKpuNW70xi1vnVXmGvBEtI3yG1ZOnU8RvrDhDckFsrdKolg19L?=
+ =?iso-8859-1?Q?yS26r2W6gGolUVeBITrAi44fXiBf8KzgAiHe/bWxkx7hD66L3PGuBEixhv?=
+ =?iso-8859-1?Q?19E/qh9IHUmmqPts6LHaqfGS8WtVXVtGYQxpxF6advo0cbM5wjBrHOy28Z?=
+ =?iso-8859-1?Q?dE7bWj7+C2A4C4D181G7fjq7GK5lxxJR2lC3HoJ0gbQ1yvOYBSCKfqg3QC?=
+ =?iso-8859-1?Q?MZfgH7hsUI7oEeyrxyKA1mKWij27h7gLcc1yifeotEeNlVxq9N9A1bUcgY?=
+ =?iso-8859-1?Q?vjTJtXZC+OVjwwXeqtkmW3Snhk8et6hauXxrlHmslqZgs6Axu3lG/1loGD?=
+ =?iso-8859-1?Q?CM6/6fTPNKAj08RfaA2lKiHDNtI5tuq+CS6UeNo8pug7xb/nWVAH/7R8Lo?=
+ =?iso-8859-1?Q?Gezvn6I32djv9sc4RmV/j0R6nNKkxswny8aJOfONa/f3mEMv8icuE1TevG?=
+ =?iso-8859-1?Q?vnjGTU9CRxXXvNN8svSmLiOvdZZ5CIUd0HsZl4nIKWQoD1QG/PsJiK/ShU?=
+ =?iso-8859-1?Q?2iDhVixA5AwJrKU1Ds8J/tSLMk+Vjj/Dr0iftHFSrPZiE3TMHhD54kUsPU?=
+ =?iso-8859-1?Q?ulzLUuaZQLPFftXzZ03i/ovUBy5AfPDMujJI41RiVBM+azh9Y29BE/zjx+?=
+ =?iso-8859-1?Q?CmGES4dYcUTOkzeRGJ1rCp+HWb82L8xlT70UY0oduvHBAkmC8KclW5cl66?=
+ =?iso-8859-1?Q?oLCFsEcmk9RAwefBx2+u2AixShL7MABQUvQ4+P6yhn2Ft2XEl8ZBQ0xP3u?=
+ =?iso-8859-1?Q?4uuJ2/PLOBG1RVpAeWaZOOBtGuxncYG4k/cGNYVjXcdkr4Ah1WztiScHQ1?=
+ =?iso-8859-1?Q?RXFstqN6MfDhOog5yXgeKBu2eYHxuu688hopV+NwnscQ8uYpSajJ3ommO5?=
+ =?iso-8859-1?Q?Ast5W9zriAYPq0bgo1d+XqZMbFynuZP9iVge1HRWCeMZDd?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,54 +158,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/uqKRyynA7J8RM0T"
-Content-Disposition: inline
-In-Reply-To: <20261114190014.17826-6-w@1wt.eu>
+X-OriginatorOrg: vt.edu
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR05MB4137.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5e9321cf-4a68-4ab5-abf9-08df4b491619
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2026 23:08:58.4790
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 60956884-10ad-40fa-863d-4f32c1e3a37a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: lFFGi/t1tVu7rj9iG8R7+JkqYp0SXrrCC5pYZrwk8QuOEzCQzbxw1aEfcY6Kws6L
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN6PR05MB6638
 
---/uqKRyynA7J8RM0T
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Sat, Nov 14, 2026 at 08:00:05PM +0100, Willy Tarreau wrote:
-> +Most fixes sent along with reports cannot be applied as-is because they =
-were
-> +damaged by the mailer or lacking a commit message, forcing maintainers t=
-o ask
-> +for a resend. A fix must be applicable using ``git am``, which is most e=
-asily
-> +achieved by letting git produce and send the messages (see
-> +Documentation/process/submitting-patches.rst).
-> +
-> +When the fix is meant to only be sent privately, the preferred method is=
- to
-> +send the report as a cover letter of a series, followed by the fix::
-
-Documentation/process/submitting-patches.rst guidelines also applies to
-privately-sent fixes, no?
-
-> +
-> +  $ git format-patch --cover-letter -1
-> +  (edit 0000-cover-letter.patch and replace the subject and text with the
-> +   report's subject and text)
-replace the subject and message body placeholder as appropriate for the rep=
-ort
-
-Thanks.
-
---=20
-An old man doll... just what I always wanted! - Clara
-
---/uqKRyynA7J8RM0T
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCawdqgAAKCRD2uYlJVVFO
-o8cvAP0UI4UPI69NykSfDcgis1xBWe2etCvfNQGcwSBb/jIkFAEAk4tq4aFkzzMk
-UKJQhOV/RP0fTwz7if/m457ISve37wU=
-=72sa
------END PGP SIGNATURE-----
-
---/uqKRyynA7J8RM0T--
+=0A=
+On Wed, Nov 25, 2026, Yafang Shao wrote:=0A=
+> klp_exiting_try() is the only function ever passed as @fn, so does the=0A=
+> callback indirection buy us anything?  We could drop @fn and @arg and=0A=
+> let klp_visit_exiting_tasks() return the result directly, which would=0A=
+> also get rid of the "*(bool *)arg =3D false".=0A=
+=0A=
+No, it does not. v3 replaces klp_visit_exiting_tasks() and=0A=
+klp_exiting_try() with=0A=
+=0A=
+  static bool klp_try_switch_exiting_tasks(void)=0A=
+=0A=
+which returns false if a task in the snapshot has not switched yet or=0A=
+the snapshot was incomplete. It sits right before=0A=
+klp_try_complete_transition(), so the forward declaration of=0A=
+klp_try_switch_task() goes away too.=0A=
+=0A=
+> Can we use synchronize_rcu() instead in the two places this series=0A=
+> adds, the same way rcu_tasks_postgp() does?=0A=
+=0A=
+Yes. Both waits only cover the do_exit() tail after=0A=
+exit_tasks_rcu_finish(), which runs with preemption disabled, in normal=0A=
+kernel context, until the final schedule(). synchronize_rcu() waits for=0A=
+that region, which is exactly what rcu_tasks_postgp() relies on, and I=0A=
+agree that the "RCU is not watching" argument behind=0A=
+klp_synchronize_transition() does not apply here. It also avoids=0A=
+queuing work on every CPU.=0A=
+=0A=
+I reran the tests with both changes. The reproducer, the lockdep and=0A=
+PROVE_RCU runs, and 20,000 replace cycles without the injected sleep all=0A=
+passed with no fault or report. One cost showed up: with preempt=3Dfull,=0A=
+the median transition time in my exit-storm test rose from 8 ms to=0A=
+0.8 s, while the 90th and 99th percentiles stayed about the same. I=0A=
+think that is acceptable, since a transition is not latency-critical,=0A=
+but I can go back to klp_synchronize_transition() if you prefer. The=0A=
+details are in the v3 cover letter, which I am sending now.=0A=
+=0A=
+Thanks for the review.=0A=
+=0A=
+Binoy=0A=
+=0A=
+=0A=
