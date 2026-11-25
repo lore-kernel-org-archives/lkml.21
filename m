@@ -1,104 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.133
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593065;
-	b=kfoxH/x8tQc9ZRmVO11JOxe483nUShHQe8kaK6qmYyzjy1DLrbcS0ygSB/Iixmi1m7kO
-	 o+XhC+tlR2hFF/+WBKkAJnCxSzYu+I8bdW+V7r12Ut1XBrGOUumSKxIr20TChsSkZb+vP
-	 TOkIaiFLCQhzuvJeimLEYXmsa/Aqn5ru4bKoJbRzwIrppeIgUoL/+E/O0sTyKSz/wJA/G
-	 FDYig5gVWZevimxxWC94E129DFMSRmn8ewD/ZXVD+ZnwkmQxZ/XWQgOo86UyxUzQnEkvR
-	 ixLBL27qe8VTk7bgNnSpSauIl0aD2uVcgyt+ET9GjpWbh1sj2V8CkWa2IZE8Dzu9FSw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593065;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795593114;
+	b=KMBFrLOGpov/Jha2+mrJNteAjavoz2DECVdq6QXCyiQekMs/Btx0HSQyriPNwOPn/OLo
+	 /owLExeB1v3YbQivcTQskqHtFM57vIOip1JzVC+jVrYA8ZMQ8nmh1baMOyERwm6l6DbFD
+	 /S2nI0FXxGFH/qzS7Cx//Fxw4z3GyibvyUTBR59lFoctkJcwKQCMxtj8OavX8W3hDJNVx
+	 drodU+FNK5zywsu1sxejtygWObQElgN/eC60Df1t7GGd65CzY1by92SPc1mLcA1Mvar29
+	 a0QS34Rppv5LDTenRll8EPayGAqerrGgycQyn1tdifwByCxZs59pre+U+Fto0jK7y5w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593114;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=CvAjV0S+oO0YGxdmFbKoXiKIWCesLPGwRDNvZl4jprQ=;
-	b=Mv7WLV4j2pPG1LMeKpHanbJ/0s6WKlLp3IW0Rs9Y5bCdWHvENxWFBS9U6lYphApz+rBI
-	 FbE1WLzXR6tT2vvIaCtbCnns82awGaAGfltzpMXFwg2aztp3gPY2+LBGAnxuGzXaE17lL
-	 keLM42FRa2MsfNDVbSxsh5NfUgYuFyaUP/tX706UQXBrRAVDqgW+ItTcZsLxZlzNpbNH/
-	 08VlsWVcWhAznlCptqeBdQKgZWfL4kZHX60P+qoPdRQ2FALnDiVEaNJ3Mn0dyMYRIZpwO
-	 low38ZjBFvOoItw/OMgaz8qMHjBWsQ84Etikgcsfw44V9hcjHoFTvK3ULcvLWCwamsQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zFqko7p5;
-	arc=none smtp.remote-ip=74.125.227.133
-Received: from mail-pj2-f5.google.com (mail-pj2-f5.google.com [74.125.227.133])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Jvc6T0hsHWXffEvQKNFhCmtcAcfBWvvbJSXZbmwAzQQ=;
+	b=NFTcD0NluNnAX6PUnbajfLcZiPPz0TVyXo8dIkazMZdtSZOxNPWbWUgKH1R5Qx0Wr3Q0
+	 kV5/xRqEJupIUJX19ZelZZeRQTnL1jca+tWl/F+P3p7kbdI45X+tZ+SHfv5V4PbhIvGkZ
+	 vJsOcRAVSTxNSEhkA4UbUtAmbBByrcd1XDiVVOVXpfqKaEm6Tpsz1r/wS/pyZXB1WhLyq
+	 J24y7NHZmE1qk3iOX3D5WwMBVcbt+iMJhJ7W2KaaazYKP9ZkX+eOCHiLbUyDTYVFEzAEj
+	 GBF7xCtneV3HRCNPHMDoCSZRDRBjZvnUv5esGxc44D9oQBY9JJl3jeigmCyKPYofOkg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=jvPW46IX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.44
+Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com [209.85.208.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BC8D606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:51:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BC8D606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9E4C606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:51:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9E4C606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zFqko7p5
-Received: by mail-pj2-f5.google.com with SMTP id 98e67ed59e1d1-3b411059cd2so1230520a91.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:51:05 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=jvPW46IX
+Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6b8a2518f7cso6362075a12.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:51:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795593112; cv=none;
+        d=google.com; s=arc-20260327;
+        b=AD9nPZGVAESzF9CKrc3yd/6rwQDKKnA4TXPQBy9v8i7HCte6W0TxSZx5f92Mzv0fFU
+         g+XvaaA4y2rzBG1XV9087CQTJJ4q6fT01KDgyFRFhJbkIuRpSINjY+oClD+f7NGlTkMt
+         XXSAcgbcmNNS+7JoH/v4bstIedt/X+c38i9rGzcnmi4ymnmUxHbhMDsU73iU96pF1hh3
+         +FdlDmei3rEzfS9AXjo22r8RR0nnmRzAlsWgadj6bbHO2N5S7i0ygtqFGXZAFF/HtV7/
+         USzD77mVreKxkS4POYPGWqa4+OCZoNKNAUtKIvDuVTl3FceNDIUGJ/74uH48RTpCf9Rm
+         r5+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Jvc6T0hsHWXffEvQKNFhCmtcAcfBWvvbJSXZbmwAzQQ=;
+        fh=XsYTi0bzfwAaS0kVvWqnF6ci4YR2b2EimTSr5h4eSJ4=;
+        b=jqXAcookL6oe8bDkvLaYfzU8rtX8LlG6ELEBjQz8GbQY3Qc93Xii05bl1734qbqBON
+         v7OUGNXqWh9+/AAoAjA02d9ivDvu/Az0hdXY9IrT1mnBIKBFCCZtAoWoB+Swz4gd8dEC
+         +onDxDAbw/nFrpUIG0eHd4WNsJPk5axYwWIOSZvQhSO3ykDUsWnbg8/kvf+N5lxQ1ny/
+         8QL1xw22YJNWdR2wbYSz1UZuA3uuH8LM8kaX3DLVxu1GM3gxuGTX281Efzm+btwk+Jqc
+         x4MLLB/xGTuDd2gGmhqNIyFHxWhDmfuIqJXStujz8alWXVxHV3Hb87H1aQSyIwqhgPoC
+         ftoA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795593065; x=1796197865; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+        d=linaro.org; s=google; t=1795593112; x=1796197912; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=CvAjV0S+oO0YGxdmFbKoXiKIWCesLPGwRDNvZl4jprQ=;
-        b=zFqko7p5m+zohQoNl5FgNLHWrDGTuOAae/lxM/3iRDil0k0nCuKQQ45aIyogl4s+eV
-         2eBdL+zTBhWLsOHDnJbwqKioxMih/+IRCgGQ7sI4Wh/OMjzf2GDVOAFHoPsZIwUbV7dI
-         COWuQFyYhMg9cg5yOiHmHdVMo7KDfjZnnN8q3k8yj10oKjDDR8dMr85xDSd5OSDxgllK
-         lHmHNVFEosZbtynQVfCIBUr8LZp5d5mHJmB5xQC2TaefiFtdLjs/06tz9R2aPFsYN9YL
-         YdAB6FwSApuk5qQktw8vr4pzVnszotzkAUTzLB+VIeb74DUajvQTUThFW/4x6xaXzNlO
-         uDqw==
+        bh=Jvc6T0hsHWXffEvQKNFhCmtcAcfBWvvbJSXZbmwAzQQ=;
+        b=jvPW46IX5TxDfI7JaifihWxwTJLYErkO3sPQAmCltLPjLJAnZpIv00NI7/qrDOWTh9
+         ojG6Cmm0bzb9FmcHX9grhUCZPIIocpvtsUQ9bc8WyqTl4ZdzjkmOLHrbp5J2CLT6PBkz
+         ToX2FZhbNnVS0JWwMvk1z4SlIcsRwa/mgH5iR6LkhQbOcX2gFEMNQN/8RI/yMWDFr3Uo
+         pzvUSuwNUUACuTQmeydQXiGFNbsWWoy4WabRpGQYwTvFq+o7mBTsWn97CgIPoR88b15b
+         k0+uu0hTtmtMYug12Iz/b+p3a3osxVz9CyMzggkpVB95xINI9PSY2ewL+yveLSnBDDU9
+         YmKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795593065; x=1796197865;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795593112; x=1796197912;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=CvAjV0S+oO0YGxdmFbKoXiKIWCesLPGwRDNvZl4jprQ=;
-        b=m2KZLXI7wedDsk/Ke/dqUZxWR3GBUl+4q7fwqOdbNVwDzyp/YOhDhkwi8lJ/1erAxh
-         7OvwZfPo2gXzb3jCay/r/q8D1+kTdt41e7s/eXEJjzJzB0D+wiwQi/3VN3jrPm8wp63X
-         M7n0846GNf2/6kyGSbaXHS/c2vm9zR6QxScIcmLmSdM63+KddCbvFN1jNZSbh3iHgb+w
-         hZruXPFX7eIbCT3UfSfWiw6ItGPOSThnKVtxXy1in2IFLSybq8QxPkHwwnJhtXSXrV1w
-         uKULkUq4s0+5Xm7A6AA4NFq1qgsmbWOnPWcMu1MeT8V4P9sjDWBd5pdNDBED02zDhFwd
-         vaiA==
-X-Forwarded-Encrypted: i=1; AL+hErGaNVSHckG4eNXpuKz/LGBLc1sDOxaRtjFL39LSwvpUO1qb4VFKAdOPgnn+S9maktesRfvX1fKxP8MPU/k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8KKN8Op7T61OuTnQrzF24FmMFWaZIBCLYgtKYoN9qoDGAA86l5
-	iBuWnezEvpIQvvuFn4cXy3iyFMeWXkwA5HhlCv+ehhriBfLIZIEJsgyp
-X-Gm-Gg: AZFdTZebGlRLcD8F/WsrFlj3tg74fXh1gw4t1r+wJHocvwSCniha/jS3lac63P9HJSn
-	Ickb4TP381kT5TiEYvrsJoXjyP4sz+kv4OT1M409vLSF8kPIk+I5aPS0HYybPOcbAIXdf6mFGez
-	2eYgfuZ18CSKGUfDExug8JC7hZHvrH+16p50LH0W4qZd7Q+ziXf14radN3Kh0uSPCMxyT6fEg1W
-	TjmXdIqWrMwBb0syKUZhxaFzCluGOyh7Nh8VVScsfGIViOpuyZooKJFLNgzcM9IX6fjclGNo+wo
-	9wEzIxWT0W8KhST1UgfJ6u+aQp10/X0jJsTztBBxplEHz3CwPmPK4Lc58hu3qNeG/xSpk2v95Gu
-	zD9+NcCVPVoRbh1k5J+EWgbtWV3oh+7OKF3YARYwg8UIMnwMg8pfW+SU6xokgY3KbuJJJZZsLLt
-	uL5qpV7qopTm9nCeElHdp1jlArG96bs9LMRCIgMG655i7r0b2fvJNG1CqPGAuBsWUM8Q7jXjLH1
-	nf82I8XeLBeGdDVJ0124aYR4xdEGGIwjTO9uEwCMf2Pw6NLGzagFlu3DfcWbbwY/W1wO+MHg7Ia
-	NvQ/iOVcoyZ1WUvrQ+B9kyPqXw==
-X-Received: by 2002:a17:90b:57c4:b0:3b0:9cc6:62ba with SMTP id 98e67ed59e1d1-3b41caead33mr14614340a91.38.1795593064735;
-        Tue, 24 Nov 2026 23:51:04 -0800 (PST)
-Received: from nixos ([2409:8a28:ae4:7f20:3645:b698:a929:4bcd])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b7c6513sm12341521a91.4.2026.11.24.23.51.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 23:51:04 -0800 (PST)
-From: Zixin Wang <w1355457260@gmail.com>
-To: "Ahmed S. Darwish" <darwi@linutronix.de>
-Cc: Zixin Wang <w1355457260@gmail.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	linux-doc@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	clrkwllms@kernel.org,
-	rostedt@goodmis.org,
-	corbet@lwn.net,
-	wagi@monom.org,
-	atomlin@atomlin.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5] Documentation: real-time: Add boot parameters and task isolation section
-Date: Wed, 25 Nov 2026 07:49:43 +0000
-Message-ID: <20261125075037.33630-1-w1355457260@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <awXN9RY3x5xEGFe4@lx-t490>
-References: <20261124163202.56921-1-w1355457260@gmail.com> <awXN9RY3x5xEGFe4@lx-t490>
+        bh=Jvc6T0hsHWXffEvQKNFhCmtcAcfBWvvbJSXZbmwAzQQ=;
+        b=fsdThh14MFdwIqyVU/P9Am9Y6EprHU6oHiKDfxm/hwU6VQ5Uk3q67F5TN0NorGpMUU
+         c3nngRo9yh5Ds9H7ZnKVTGJmXGRSuhLg0u28ANurWNpca12rZlxyc9mpUuboU9RKbDfa
+         1Mc3XT/LpX7iouHUgnUAzjuI7vqb8MO1EGwQQJOmjPCgy4EQ5c1NuinX2sX8RItqt5hB
+         yxBKt9NmSQ/LivX6CIPE2ncnr66P71k3H2W0YmwBX5qFZ8XKqkEYzDel8kO7uciQpkph
+         lim/vxHbTcwzFK2x3j2OYM21SCSs0PEpRTASBncMDuIDWmzOC1IWPwwRujamwIqNq9eP
+         WRtg==
+X-Forwarded-Encrypted: i=1; AL+hErEhe3ff6FD+d0lodxy1ikQomfY1lIuc3rkpOrpOa+OL0s36Wx7VMseJZcyOgwQjH/Ewh+IEFyQ7uXXxSE4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9i6HCm3c8sZwTvxi44P8xRsn9ijUcNNM6lLmnHR+8K/syiXjUt
+	br0gE6FgoF991sQkXzg/iYPgWG0yn9Ct0vpV+nLUmhWN+Y6sDYW6Kc/dSKW23FDbc46mpGoUrhh
+	uIdBNrGmcctStQCrizcUiU+dcnJZmzqECFQYapDwn4A==
+X-Gm-Gg: AZFdTZcH/QZwPrZD2YmGHOh8nzGteHfx7Ju14WQ1HnQHgB1zqjy8S+IXPjGOWhtN+0S
+	oryCX653ZHudjBBVeC0FeZq3WjN1V2wqpqW4M6VSDlAH7QWOY8sl/qlmCu6iWyfVqMFDpTxKSPq
+	otz8z9lUZAYBej4Bfij8rKreWc5YTPJoH2ph+jVKy7U+WsAipZ8CBfpnlxOGVa3ZZT7Nz1T1j/s
+	k4DtRDuL+dI23QNwQS42F/TPwfqs7tOa9BB80dDKqiXHpNSgITSRLp9G4yRg3NDnqj9pHR1f/qo
+	jbm+g2qWb84EHgutvtb5pjxR50FSmmw2hcPJNd7m5CGPIegS2oidV4YISGjdBcuJCUtB94vouIU
+	jVol0EsQjYlGIu/G8zP/Go95EC2aUg34lbDkuVMdbRe7wgHShTLFTQ4fFdBC8inL0IH+E
+X-Received: by 2002:a05:6402:c88e:20b0:6b8:854:da16 with SMTP id
+ 4fb4d7f45d1cf-6bae6cc26f1mr3051170a12.18.1795593112101; Tue, 24 Nov 2026
+ 23:51:52 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,25 +104,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <CY5P221MB09262B7D6A68954CC1B3199FBD442@CY5P221MB0926.NAMP221.PROD.OUTLOOK.COM>
+ <awWOCejxtjP12xFX@gpd4> <ce38fb8b-94d7-48ba-93bb-3b72cfcb3e61@amd.com>
+In-Reply-To: <ce38fb8b-94d7-48ba-93bb-3b72cfcb3e61@amd.com>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Wed, 25 Nov 2026 08:51:39 +0100
+X-Gm-Features: Aa3M54rR6ZVPUahJy75241j29uSb7ZkPGUY3AC_gpwVLxdzpj7tWpPJ6cpSau0Y
+Message-ID: <CAKfTPtCudy4NV8sU+JWE=dcJpbKd+LVNZPZztU_0nD1a04Ca9g@mail.gmail.com>
+Subject: Re: [REGRESSION] sched/fair: SIS_UTIL limit in select_idle_capacity()
+ leaves busy tasks on little CPUs while big CPUs are idle
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Andrea Righi <arighi@nvidia.com>, James Buck <jbuck2005.linux@outlook.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Juri Lelli <juri.lelli@redhat.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Valentin Schneider <vschneid@redhat.com>, Usama Arif <usama.arif@linux.dev>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"regressions@lists.linux.dev" <regressions@lists.linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Ahmed,
+On Wed, 25 Nov 2026 at 03:53, K Prateek Nayak <kprateek.nayak@amd.com> wrot=
+e:
+>
+> Hello Andrea,
+>
+> On 11/24/2026 6:45 PM, Andrea Righi wrote:
+> > Hi James,
+> >
+> > On Tue, Nov 24, 2026 at 11:56:52AM +0000, James Buck wrote:
+> >> Hi,
+> >>
+> >> Since commit 61ea17a63719 ("sched/fair: Add SIS_UTIL support to select=
+_idle_capacity()"), first in v7.2, CPU-bound multi-threaded work on my big.=
+LITTLE arm64 board runs 12-19% slower than on v7.1 and earlier, because wak=
+ing threads are placed on idle little CPUs while idle big CPUs are never lo=
+oked at.
+> >>
+> >> Turning SIS_UTIL off at runtime restores the old speed. select_idle_ca=
+pacity() and update_idle_cpu_scan() are unchanged in v7.4-rc4, so I expect =
+mainline to behave the same.
+> >
+> > A related regression from the same commit was reported by Usama here:
+> > https://lore.kernel.org/r/20261113153157.2495664-1-usama.arif@linux.dev=
+/
+> >
+> > On Grace, a zero SIS_UTIL budget skips the search despite suitable CPUs
+> > being idle. Your case shows that a nonzero budget can stop the scan
+> > before reaching an idle big CPU.
+> >
+> > We've discussed a minimum scan budget and accounting for idle CPU
+> > availability, though a small minimum alone may not fix your case.
+>
+> This had problems in the past when Chenyu was iterating on SIS_UTIL
+> where the search opportunity at higher utilization is actually very
+> low and cutting off search for !idle core was beneficial for SMT
+> systems.
+>
+> Now, for systems without SMT, it has its benefits too but a system
+> without SMT should be equivalent to a SMT one where test_idle_core()
+> returns true always if an idle CPU is present.
+>
+> So I'm wondering if {set,test}_idle_cores() can be extended !SMT
+> to act like a gating indicator to say if an idle core exists or
+> not much like how !get_rd_overloaded(this_rq->rd) serves as a
+> gate for newidle balance - it can be flipped to true when a CPU
+> goes idle or if load balancer sees an idle CPU. Thoughts?
 
-Thanks for the review and for pointing out the scope issue.  I have sent v6,
-which moves the runtime tuning material out of kernel-configuration.rst into
-a new Documentation/core-api/real-time/runtime-tuning.rst, and keeps the
-configuration guide focused on Kconfig options.
+I tested idle_cores tracking for !SMT and EAS months ago [1]
+[1] https://lore.kernel.org/all/20251202181242.1536213-6-vincent.guittot@li=
+naro.org/
 
-The existing CONFIG_* section headings and anchors in kernel-configuration.rst
-are unchanged, so the documentation links generated by kconfig-checker remain
-valid.  I ran the preempt_rt rules from your v1 checker (reconstructed in the
-7.3.5 tree, since the tool is not merged there): all 12 generated
-documentation URLs resolve to anchors in the built HTML.
+>
+> > Given both reports, reverting the commit seems the safest thing to do
+> > for now. That would restore the previous asym search behavior and we ca=
+n
+> > revisit a better consistent strategy to cover both sym and asym CPU
+> > selection later.
+> >
+> > Prateek, Vincent, what do you think?
+>
+> IMO it still makes sense for SMT systems since capacity on systems
+> with SMT only makes sense if the entire core is idle and then it is
+> just a best effort thing right?
+>
+> set_idle_cores(), would flip the flag as soon as an idle core is
+> available and after that SIS_UTIL is bypassed. I don't think the
+> SIS_UTIL cut-off for non-SMT ASYM_CAPACITY systems makes that much
+> sense given misfit penalty is much higher.
 
-The C-state, EFI runtime, CPU isolation, RCU offload, and interrupt affinity
-content from v5 is now in the runtime tuning guide, and the configuration
-guide links to the relevant sections.
+In fact that depends on the number of CPUs in your LLC.
+The current SIS_UTIL is unfair for small system because you skip the
+loop with "low" utilization:
+- with 12 cores per LLC, you skip the loop if the avg utilization per
+cpu is above 839 whereas it also means that you have the compute
+capacity of more than 2 CPUs that is not used and util_est can worse
+the situation
+- but with 64 cores LLC, you still tries 5 CPUs for the same avg
+utilization per CPU
+- and with 12864 cores LLC, it's 10 CPUs
 
-Thanks,
-Zixin
+
+>
+> --
+> Thanks and Regards,
+> Prateek
+>
