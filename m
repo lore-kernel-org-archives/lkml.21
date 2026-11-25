@@ -1,88 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.128.210.58
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625140;
-	b=HbWmf8fT16uil3tYrxKmXY4lsFnEMG+TqqvxdtPkVJLwwxTTIRu1VRUqJbVsLeLNgzig
-	 Ocj05nBm2LyfgSr0qwlVCiwOIVcq2Pp9Rml6qLbfYq2kr7Ufqz81AhzwU5JbpJvHcQ56k
-	 6in8p4ljN05wKsdn/oTh0G5tWlwFEP/HX7Puzy8jvM+emTdaqeDfS5DrbLJ9VvKm7uwzr
-	 0D7fiLi0u877EHWVc47PXqe4Wot1gcEI0zYj/ENyQTs/j3iFphKROWnUDT7+Ijn4pavBQ
-	 YEqTq6fXYz+t+HPConnuvbqBD1xiziLzUKGGlAKps5sGM3/D+FdcDsBertjlEyb86QQ==
+	t=1795625144;
+	b=DJqwBvWnn1ozQ0QscB7jHH70bPAvZ0+Zs/jJ7uxoZzRUzdUd/M8J+eUozTDndFTO1mUB
+	 wl0KemQQIvU8qNqJWuouVp92WE21CgSA/n41JVr82hSzhYt8i3ZPTgEmho4DgSFOPYUIn
+	 ysuYEWk2ML5SSh5TMBs/o2eiamf5U8C5oeQ+ULB+dlY81m4oCkGcmQ9k0ZoUxjxqtesk0
+	 raR8/3XJAkQy4yc11Yu+shuVFOABdIjJTU7GAtQX8riO0OchXrO/p2PhnXCvRUfujeiso
+	 3vFkvy32NMGVIitVkfxI+bBxT8TR6tHr1KjkhY2H8fJ3vYLvCySzSE8MFjhMWKrhitw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625140;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625144;
+	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=qzSNzkmnLjAnm2o7UEPNC82u2CvWGqHDymHqRLR8nws=;
-	b=10/9DkLxd/vdqRkrORM+FUeIeSSgyJyCVxIQstdaXuDkNkuwSAdQovTfxIS8Bj5UBk0w
-	 NDNXO5yNOyquPXD8qI0V+1zyfkuH5IX+BDNAuORZk7tl8ijPE7wq5GFd0Pw4ZOcM+tgew
-	 BgriyHNmtfqnEWCsxNu/PkXSePsuBnpCrlVgflmacIsAPS8qYfcO9VEuMa0QDBkZ5WuTu
-	 eWl+p747BPfyxICPGpVW6rRkkxRw70t3ijOVs1DOr8rlZbsONzK05ASo8ELdTpGJcbGXj
-	 9pSAzVr7zIxS0VDWi44YyIanoyracFaZZj36/nhaIUPkbQ7yHuSOavjJP/Nk9LiMUXw==
+	bh=vC74YOAPrBcAC9LMP7HaSPzA4IqP9flaTn0o7gnLByI=;
+	b=fLxN/OThD0sGIEFD8FRhFWlcrmOXufR/v7u0EFx53bbHyOC2WcsKDTrd0Mc7yHI1o8N7
+	 Zhsta2L7fzopPESHqKG7//ML+3LPvjPlBJ68YQxAUXTkfzbB3L3VYGutuzEw55HMUQ7rj
+	 4Cmlb400KqC7vw+pJhFvvsHK1YHCSfwy4YV31Hq6r1AhXxZzTPc+xxUPr4J7KtD2z2IPD
+	 mhhFG38DhyEmBT6L1W/xLA7826X3/yxPEme3ZLXrawdH1PYQN33RaSwXbn0eXRR/6CzNK
+	 xdzFqsRma8Tnoiq2AAF/DQWm5MKr/UWN7YjIXKA6q7SgmbLE4+vqU/NHs1QZSzHIt4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=VeMZMFlK;
-	arc=none smtp.remote-ip=209.85.221.41
-Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=librecast.net;
+	spf=pass smtp.mailfrom=librecast.net;
+	dkim=pass header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b="Z/Vehjjv";
+	arc=none smtp.remote-ip=185.128.210.58
+Received: from bregans-0.gladserv.net (bregans-0.gladserv.net [185.128.210.58])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B5A1606A684
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:45:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B5A1606A684
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA28C606A6A2;
+	Wed, 25 Nov 2026 16:45:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA28C606A6A2
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=librecast.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=librecast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=VeMZMFlK
-Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-498f5fa4f70so4919331f8f.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:45:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795625138; x=1796229938; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qzSNzkmnLjAnm2o7UEPNC82u2CvWGqHDymHqRLR8nws=;
-        b=VeMZMFlK4XeBzwrDD6z4Doe5ujZ5PmFlBvgdtXgvDNgqyB2+a2sCMN2wk+r327T/uW
-         /r2BhYppBsmLCfA6wEf9rqAgdyevRRA01ag2IXLdtngT05rT8V5qUBbFQDnjjQgYE2gf
-         VRO105Wv3wS0sYOzpdh62UmMxKFuJZsiAfPK9beaxT/i9ZUHpkfJOUrelw8QBpX9lGS4
-         m35Q/nRZpkrOo84dL5yj6BJK1saMLREXy289b+W8lcU1Li54eo2LPH2XZ2BzxTKFv4V2
-         TU/7Cyf6kqOyQ8kgJ2U5PgB/NbN2a8Bu0WSQShF93YOhfgaUMd2kQPQDvfuKKEMIIK8r
-         gfQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795625138; x=1796229938;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qzSNzkmnLjAnm2o7UEPNC82u2CvWGqHDymHqRLR8nws=;
-        b=lsjxOLCLbK4g/ZQa2aV1Oi72lzNKrWum1047V5ANwZ/qu6Z3Wo19OKUqQJboIwp+Ut
-         BaPKbvxI9Vf6wXoWO9MlykCI25AbeMtrLmnUxv4tSu29Y/ZKOuqEMd+HYcOqXPV5Xbfa
-         CZBhYS4SZpu0SboLpwMgq8YcM/nG/KvEm5O4pWZVUoX3iRuLZEkBfHSfl5ESzBSva4Cu
-         CdrtDB//EYMcF5Ui6eD4wOSLb+xBTxQa9P4myCWI4pKSs4YxDgXnvH12L3c3k+LLa0E/
-         BOvham9yWwGz3uTP8bwHqZqZWhFVvt/ijElJa1/tNAKvQQsdWVio4cTXF23QjKbNaJmX
-         d6aw==
-X-Forwarded-Encrypted: i=1; AL+hErHtwdHpMe2VKKj+6/PxZbQtWwQ7+B/J4hA4iLHfgwn7VmBNlV+VLXScnGDFsxRSXUGvCMFpY0TWe/+TPYc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/EmBCY73QIVlbxvtKBJZEw7aYwvxtbq2cqWA3o+8a6JLf3ciPs
-	k4I9t2Emkgw+0wFGOFlqUfDHqPHp+MP/aO/1nZ9dtbTu2Lo3P/TvYKcZq/jFqJm30dw=
-X-Gm-Gg: AZFdTZdKM1S/U01UTaBrs/IuiMPbOHUgSlAwzVkwqUf7hMlNRscpu6EhCUn6a5iYdKs
-	ZlDfWs9g9mpf7lZAp08nMxHQIwc7840/iRHj7KcTHdKNrwoO5LLip5GZXbNWzxOvIlYyAZSdI8T
-	LB1Yr+4+pSywEC3c+AxvozM+WcKuKfLh+GofwDv65NhTSV3LP4aBkeUGnlG7YZWin+5iLVaiA4g
-	m81KTdZvPeAdITb5F6eaIq4nOvlNGrf8cCQQuhRlnVoTqZ7/oTT2YQs1qw1KHvn/koqpDohRMIU
-	GbBtHLG9OO6jf1VIEkOD9MQbp6IPjAzUASTxAj9WXwBkCvs2EA+qElN1uaNFrHoqXFnqrPlm+VD
-	BzhGPXmXmWj4Np0sitaq4gFSSrx5Xr18w3w+FISXftKkDoxRn/SkNgy/ME+MUXA9fzPF9hz2bqo
-	SHxy3yfII/ZIiU9rCMLefWa1xql/pcZONQzkGE45vXbp1ZtY2mlwRa7l1HkwWlsaPGLcDWlC0Fs
-	kmGnNh2DCIoEsaav0PBLMt1yEQPDVgAR3muuyjAKAkWgvtHhcIpjZdbDw2sC6slLq2pGr8xqhPG
-	HR8GYvNVmA4Hwlgj6z2rYazOyEZd5fypWf/BZTMOCFTSTvs3/qF9sl9A1A9z31Tz2Q==
-X-Received: by 2002:a05:6000:4617:b0:48d:f464:6989 with SMTP id ffacd0b85a97d-4abb18cbe2cmr35982135f8f.27.1795625138335;
-        Wed, 25 Nov 2026 08:45:38 -0800 (PST)
-Received: from ?IPV6:2a07:de40:8100:0:89a9:fd0e:583d:4a53? ([2001:af0:8000:1409:193:86:92:181])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110c50sm34852448f8f.37.2026.11.25.08.45.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 08:45:37 -0800 (PST)
-Message-ID: <0c2e606e-e0b8-4466-b9dd-4db14cc35d1d@suse.com>
-Date: Wed, 25 Nov 2026 17:45:36 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=Z/Vehjjv
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=librecast.net; s=2026110900; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=vC74YOAPrBcAC9LMP7HaSPzA4IqP9flaTn0o7gnLByI=; t=1795625143; x=1796489143; 
+	b=Z/VehjjvbV6ckWi/Dd6idtHC80NSqO9NXHnQfa44KrW2M1x82RnVInJ3Q9vHa/ykq6TR48F8Bkx
+	KnBMpwcogTd4NH22MOk3yOP52qq+wSXQkyZnXBFyWZSS1trzLeQ5r3WufX5AdUyXNrKHYwH+CsIVk
+	rNPyFgp0D9OVMOGaqBKnkbZOkCo67h8LO3A/CJIPGRZv5mgENIBpsJvIE6cxFXtmZW96nUm9edGGL
+	A+P5NrknY7PfG9p5l3ZjdlqZLFJZz4v/E1ySoSiEiatN8M22Fk76Rw025Q+gKW35O4ZOTEVfIVA69
+	C3kQLoCWk41hAgqyPzuJ9RkN8fL8FOlAleoQ==;
+From: Brett A C Sheffield <bacs@librecast.net>
+To: gregkh@linuxfoundation.org
+Cc: stable@vger.kernel.org,
+	patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	torvalds@linux-foundation.org,
+	akpm@linux-foundation.org,
+	linux@roeck-us.net,
+	shuah@kernel.org,
+	patches@kernelci.org,
+	lkft-triage@lists.linaro.org,
+	pavel@nabladev.com,
+	jonathanh@nvidia.com,
+	f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com,
+	rwarsow@gmx.de,
+	conor@kernel.org,
+	hargar@microsoft.com,
+	broonie@kernel.org,
+	achill@achill.org,
+	sr@sladewatkins.com,
+	Brett A C Sheffield <bacs@librecast.net>
+Subject: Re: [PATCH 7.3 0000/1005] 7.3.7-rc1 review
+Date: Wed, 25 Nov 2026 16:36:52 +0000
+Message-ID: <20261125163654.740362-1-bacs@librecast.net>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261125143821.729802100@linuxfoundation.org>
+References: <20261125143821.729802100@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,91 +82,14 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v3 2/9] module: Add module_kallsyms_find_name()
-To: Samuel Wu <wusamuel@google.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Randy Dunlap <rdunlap@infradead.org>, Luis Chamberlain <mcgrof@kernel.org>,
- Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
- Aaron Tomlin <atomlin@atomlin.com>, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>,
- Jan Kara <jack@suse.cz>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>,
- Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
- <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- Andrew Morton <akpm@linux-foundation.org>, Petr Mladek <pmladek@suse.com>,
- David Laight <david.laight.linux@gmail.com>, kernel-team@android.com,
- linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-modules@vger.kernel.org,
- bpf@vger.kernel.org, linux-kselftest@vger.kernel.org, llvm@lists.linux.dev
-References: <20261113221248.3535369-11-wusamuel@google.com>
- <20261113221248.3535369-13-wusamuel@google.com>
-Content-Language: en-US
-From: Petr Pavlu <petr.pavlu@suse.com>
-In-Reply-To: <20261113221248.3535369-13-wusamuel@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/13/26 11:12 PM, Samuel Wu wrote:
-> KALLSYMS_QUERY_BY_NAME, added later in this series, needs to find a
-> symbol name or prefix across module symbols in one pass.
-> module_get_kallsym() walks the module list from the head and runs an
-> export bsearch() for every symbol index.
-> 
-> Add module_kallsyms_find_name(), and put the shared query struct in
-> linux/kallsyms.h, so we have a more efficient linear walk.
-> 
-> Signed-off-by: Samuel Wu <wusamuel@google.com>
-> ---
-> [...]
-> diff --git a/kernel/module/kallsyms.c b/kernel/module/kallsyms.c
-> index 1ff8ce857d92..72006c9bad42 100644
-> --- a/kernel/module/kallsyms.c
-> +++ b/kernel/module/kallsyms.c
-> @@ -406,6 +406,63 @@ int module_get_kallsym(unsigned int symnum, unsigned long *value, char *type,
->  	return -ERANGE;
->  }
->  
-> +/**
-> + * module_kallsyms_find_name - Find a module symbol by name or prefix
-> + * @symnum: in: index to start at; out: index of the match. The index
-> + *          counts the symbols of the searched modules in list order.
-> + * @q: name query; if @q->modname is set, only that module is searched
-> + * @value: set to the symbol address
-> + * @name: set to the symbol name (KSYM_NAME_LEN bytes)
-> + * @module_name: set to the module name (MODULE_NAME_LEN bytes)
-> + *
-> + * Undefined (SHN_UNDEF) symbols are skipped.
-> + *
-> + * Return: 0 on a match, or -ENOENT.
-> + */
-> +int module_kallsyms_find_name(unsigned int *symnum,
-> +			      const struct kallsyms_name_query *q,
-> +			      unsigned long *value, char *name,
-> +			      char *module_name)
+# Librecast Test Results
 
-Nit: kernel/module/kallsyms.c already contains a zoo of lookup functions
-with similar names. Adding module_kallsyms_find_name() adds more to the
-confusion, being similar to module_kallsyms_lookup_name() and
-find_kallsyms_symbol_value().
+044/044 [ OK ] liblcrq
+010/010 [ OK ] libmld
+120/120 [ OK ] liblibrecast
 
-I suggest calling it module_kallsyms_query_name() to match the
-kallsyms_name_query parameter and to express that this is a structured
-query, as opposed to a simple by-name lookup. It might be a good idea to
-similarly stick to "query" instead of "find" in kernel/kallsyms.c.
+CPU/kernel: Linux auntie 7.3.7-rc1-g7f248ec61cf1 #1 SMP PREEMPT_DYNAMIC Wed Nov 25 15:12:41 -00 2026 x86_64 AMD Ryzen 9 9950X 16-Core Processor AuthenticAMD GNU/Linux
 
-Otherwise, this looks ok to me from the modules perspective. Feel free
-to add:
-
-Reviewed-by: Petr Pavlu <petr.pavlu@suse.com>
-
--- 
-Thanks,
-Petr
+Tested-by: Brett A C Sheffield <bacs@librecast.net>
