@@ -1,58 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620152;
-	b=spuzC60RC4SqpbdQSJUfiukmfZo3fk62Vzw94hVGwNAP48kMCGepkMDKAy1+umNWx98Y
-	 9SsGDaaP/v0tuUVIMFRDAe8g8NXgYlJK920yyM7jcl0lvVmqsEEPkMimElpJqMEatcTth
-	 k5V6kswivPlqPxZSHkDSOko8trigeXkgVnfg0e0yfliEaPic453nlbL0RY69NTlacdC2k
-	 Eaqg7Qtwf8ou085QdE0kseiBKw98gZGOrB1B7nRXoarg9DVcsCWLvrDCYtA9bFM1sObBS
-	 hbFiCgO9qFiIMmkBL8ArJkCa0g58uj1tRfPq79sAHw4BSB5O05/0oPQawiNPcF1W92Q==
+	t=1795620156;
+	b=2IBsQqKzow2CA3vtqiQ43vHQSk5fMtQNaOxIjbsbNakKv/ahdhdsJFcrMGje4wXjhBBf
+	 3Ai/q5ImKlAIcMstuZMxQmQYYxTiCAaKHcwxyfydCRnRThw6qy0991uUPJta0Y9zJwE3/
+	 O+CI7ud2dv2yvqTKYJEPbAGX0wFKXX1pMXsuQPYYStOVecrDp8yuqzB+pKZwaVofYcIGx
+	 WtFAEPapyCgXS6qrEDPjyCdLgbOoADMTa15Ds0D9unLgw8GLLG6wU2lY8Be/5nQkiF/y6
+	 l0zbN/W9xQ4JEbzpkcqTm0Srlu1v6FSZccasIA3EvnCYRkIyZzAwWSvxZe+FetH+qlg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620152;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=s0Sjb1DgacCXHrpE8DixpKmLTLzsenxzTbzFw1kwskM=;
-	b=hfjblB0VYP3ZVIPyjaOfdaxdZsseZJWK2XL7S/p60qEsKJz+YSJhJPxmCnJUtkSn6I3p
-	 WbXmqeVAXtvDISWdiI4+ditFS5g4zAlJXSkJFVFmmtBohEVVmOjrjDqVA9cE9UHGAyxJc
-	 29URjcBdXuIsEd6fkANqkaV/2AjZlLagMAdhhWM1T3I0LyuD9Bhqjtp3rVZfZg/KrRDNU
-	 xhbBMK64RPKhNfSdJRhC+L5uUjou8BHy9GLrJepVbZVu9Nbagoks2H6BboAiH5tViK9zu
-	 SubW7Z8tYfMBj9ObJJKUbUAr2Ns+0pTQzGgd5JZdrmCVxvc0loeRuiTRjhG15mhzsAQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620156;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=m/P+s8e9LEiFl0Qu09s+H0T52nV18YVsV7Iu8lShA6E=;
+	b=HNUbha3DGaipoVfjf+on8w2sSaIQuxEwKTZBeyVEtVCi0Szmr1Dk8dn/uXlZBIF1g4HB
+	 I1M1uhm/b3mhZ4ruWjJyzeCxfW0GFlUur/hZ0cIto5581sVAfTOPVwmcpaNCPm2Oi4FN+
+	 hc+grJjouNK8r5hk0t/VcLrSkq3zui3ZFDe4ZLfXYRfx43mdGzETX+mxvAcdWpjC0/j9o
+	 jqDA7CONx3zy+H4qov7kQLpIydyY9Rs4dB1drpuCJCVOUSOdkrMrWxF3IfAW890qJiq7h
+	 9Qegp7fe5/SVfuMOecBvF6wUV3JMddY5y9fvfX2ephe2tHcTTBMQFEkispo4Yh6Slkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="W5RseR/Q";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="oK11i/6G";
+	arc=none smtp.remote-ip=209.85.210.182
+Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E92B8606A327;
-	Wed, 25 Nov 2026 15:22:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10720606A32D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:22:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10720606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W5RseR/Q
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE62A1F000CF;
-	Wed, 25 Nov 2026 15:22:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795620151;
-	bh=s0Sjb1DgacCXHrpE8DixpKmLTLzsenxzTbzFw1kwskM=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=W5RseR/QkC7iZ18SXo4XPZT82eZfO7qCEQXJHhAxT941VXW20T+6sUOimetiXHQTg
-	 5jnFy4zt6+w8tegyzIFHP8SGxzzdDze+acpjVTYtRBUnyiQbhLMb1J/XfsOd2cpaK1
-	 raWvPNK0FHVwPisfM99cUamOCRG4FcVC7I5Dic+rcqPCDc5x9JO6SM3jZnVtV4oExL
-	 IfNwuTDBTGYmttKJ11VmtPZ+G8eFDDy6ARScfgR8ZJun2t4+8ZBa/bcyiXtDp4LQya
-	 2lekjrFyo2Yp169SIM4ayZ/XsC65W6GP7NgzGV2JQnJIzp64iitWb36a2hlCA1wKJW
-	 AjEHetdIxiHXg==
-From: Mark Brown <broonie@kernel.org>
-To: phucduc.bui@gmail.com
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Kees Cook <kees+treewide@kernel.org>, 
- Jihed Chaibi <jihed.chaibi.dev@gmail.com>, 
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
- linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261117042102.12442-1-phucduc.bui@gmail.com>
-References: <20261117042102.12442-1-phucduc.bui@gmail.com>
-Subject: Re: [PATCH 0/2] ASoC: cirrus: ep93xx-i2s: Clean up resource
- management
-Message-Id: <179554463637.947306.4123953706641155831.b4-ty@b4>
-Date: Tue, 24 Nov 2026 18:23:56 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oK11i/6G
+Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8a070781f63so2809088b3a.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:22:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795620154; x=1796224954; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=m/P+s8e9LEiFl0Qu09s+H0T52nV18YVsV7Iu8lShA6E=;
+        b=oK11i/6GApnRKdA/Ui/DZGKRVTnYi1Zt4xvqNPvWKzZs/8Ee2w8INiN14d7atKsL0c
+         xzDu4pv2ZJInhd9mE0DuA90UhSHXmP/329jlbZs8ywz87+6Tpej015n99C6altAA9Brc
+         kLshRsz+OZROLRaH7pfDc7nILS9aTAuFknbRoHlm2XQytevlcZZoErtyhDd6kWfZQww6
+         74ZDvFHW0zpgZtZTeF4l7nD4NDMZb0VLfEYxSWh3LM4u2lzAd7t4P07gL2oS4qfbI2kl
+         1vqJbtzuLQ5YEFRd7zQbHzlvOCFvIUsu1JvFyr9P9ay1yiLEgyo0c4i01vtQQb3AXOMg
+         oSyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795620154; x=1796224954;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=m/P+s8e9LEiFl0Qu09s+H0T52nV18YVsV7Iu8lShA6E=;
+        b=He+FQA2A++cMVlGQcVI9NMEdPnI3d4NlirPOOca6S9zCLO5eLmr0vvn3zeZJFIr7O2
+         n8f8m4R5blCeL/WVJoY4L5dEGfap8wZ74LouLH7t1aGYf+mRWKU1vkepv+b+WyidDDGo
+         7YKXVyB/SrMw1Ufhp3tqL2w978/Nov2EPbhB01HLTtBAjWKFNq1f5giMCRUo45vR+FSo
+         CtPBucrKHdPkdYpBqCM1gJJiwZNaeJwWUViMDWWA4afhGFiUsCEz1/ieuMFpv0AOv2/x
+         Rhg6sBK7OA4sqohBm+owXHSqIaeCYq7q1jIdbzj40Uu61YZ5p5Snd07Et+6UBeWtE6xy
+         Lbjw==
+X-Forwarded-Encrypted: i=1; AL+hErHvsfiP+NyKX3f4QhRKAmvCS9wHcSaGaNhPpGL3SLdAZYakp3tPyQtBgYtRDguGqX7ptbve6h5vbFXAc1k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/9S7k/1ydcC1NX/CLKl6PcRgeyHGgtsjpjF5erRrFT1EbPeQMy
+	h5aeRdZOovRM0K57WsMUKZqvXSsJHe9uelG2Fu+OL9Ct3AH5vDurSWZA
+X-Gm-Gg: AZFdTZdm+43pzlVYenTIeuAIObBIJN6cauEJlK0dXcr7uv2EQyQhQeLrYCsh3v+X/Wp
+	5OBtJfpPyhp0CPJgZJzJqtTvsycdMn9Yw+/Ud3m7JPPU0GSSXeAa+fAhZhpHj/oN3F0iwrENqWR
+	NEykGZHgaLvHuY3hqD0qz9f1hcgFzGOZ6ZCw4ME8JpzzgFHY/358/zd0fiDpVLIBTU7uXRYqdSg
+	kV6M3pQxQLUxSOKS3LqHuZmU251Z91uxSVP/Gzl1hlB13hlDNf7Wgr8io3nq5lIffK8+C7D//Co
+	QWr/rnecg5chIUauIIdoUHQMcyZLPgEVLcTDNlOUwNfQ+niAP7fwm36xcUMeFCvzl81MTKsLQ0A
+	llt8YwTuyzxW7Z2t40X5XcSUPsMJ5gCSxhgG1VzZ65KW7Yi/OEw2unl/UvJfUi9Z/9/KVjZa8kr
+	ig7z8Qx5sFmg918zZ6qYkb+A+JmVcvTuj8WrG4Dv+lq34vk591UFuuBv4yA8wEQzTcDRnxsuucr
+	m+HghjUbIBBecZ6MTMRX38tyqnH6P86Gthks20wZD2EqnX8C9llwj7bXlfYc1tHNTFgL/AZrbZ5
+	tJgSp6Eor1mblajm812SvQ8G
+X-Received: by 2002:a05:6a00:a01:b0:893:4980:630e with SMTP id d2e1a72fcca58-8c87c38b5d7mr14799436b3a.31.1795620153916;
+        Wed, 25 Nov 2026 07:22:33 -0800 (PST)
+Received: from localhost ([111.228.63.84])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077a058sm9221775b3a.8.2026.11.25.07.22.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 07:22:33 -0800 (PST)
+From: Cen Zhang <zzzccc427@gmail.com>
+To: marcel@holtmann.org,
+	luiz.dentz@gmail.com
+Cc: linux-bluetooth@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	baijiaju1990@gmail.com,
+	jjzuming@gmail.com,
+	zzzccc427@gmail.com
+Subject: [PATCH 1/2] Bluetooth: RFCOMM: Reject listen after socket shutdown
+Date: Wed, 25 Nov 2026 23:22:17 +0800
+Message-Id: <pm-bluetooth-objects-candidate-0218-followup-v2-88edfec8c72ed860e626-1@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <pm-bluetooth-objects-candidate-0218-followup-v2-88edfec8c72ed860e626-0@gmail.com>
+References: <pm-bluetooth-objects-candidate-0218-followup-v2-88edfec8c72ed860e626-0@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,57 +102,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1443; i=broonie@kernel.org;
- h=from:subject:message-id; bh=i65/khEverv/t4MZb/sMgT44sPx8dhG9HuSw8r/tozI=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLLZ/po8//W5NJTD5b5B3A/P1gMlCk1Z9qllG+9IfIwSu
- Hx2FqNJRykLgxgXg6yYIktcFvfL+pLXa/gOLmyDmcPKBDKEgYtTACayq5uRYa13ZDD3p1Al411b
- /q8y7/gWrdnvx/Wp4IBHa4XOfwdZH4b/iUV/C+1Px0z5lS3WJe+03/CE9Ky0C1P2aF5h26V4M+E
- jLwA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
 
-On Tue, 17 Nov 2026 11:21:00 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: cirrus: ep93xx-i2s: Clean up resource management
-> 
-> From: bui duc phuc <phucduc.bui@gmail.com>
-> 
-> Hi all,
-> 
-> This series simplifies IRQ error checking and clock resource
-> management in the ep93xx-i2s driver.
-> 
-> [...]
+RFCOMM drains a listener's accept queue on its first shutdown. A bound
+socket can retain BT_BOUND after shutdown, however, and the listen
+state check can admit it as a listener. Release then skips the accept
+queue cleanup because sk_shutdown is already set. Queued children can
+retain a pointer to the listener after it is freed.
 
-Applied to
+Check sk_shutdown before entering BT_LISTEN. The socket lock serializes
+this check with rfcomm_sock_shutdown() setting the flag.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Link: https://lkml.iu.edu/hypermail/linux/kernel/2611.2/24606.html
+Cc: stable@vger.kernel.org
+Signed-off-by: Cen Zhang <zzzccc427@gmail.com>
+---
+This patch was written with assistance from Codex (OpenAI).
 
-Thanks!
+ net/bluetooth/rfcomm/sock.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-[1/2] ASoC: cirrus: ep93xx-i2s: Simplify platform_get_irq() error check
-      https://git.kernel.org/broonie/sound/c/0262f255ad9e
-[2/2] ASoC: cirrus: ep93xx-i2s: Use devm_clk_get()
-      https://git.kernel.org/broonie/sound/c/59852db7b402
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/net/bluetooth/rfcomm/sock.c b/net/bluetooth/rfcomm/sock.c
+index 889e45dd5d04e..86a43dc0ab5e3 100644
+--- a/net/bluetooth/rfcomm/sock.c
++++ b/net/bluetooth/rfcomm/sock.c
+@@ -448,7 +448,7 @@ static int rfcomm_sock_listen(struct socket *sock, int backlog)
+ 
+ 	lock_sock(sk);
+ 
+-	if (sk->sk_state != BT_BOUND) {
++	if (sk->sk_state != BT_BOUND || sk->sk_shutdown) {
+ 		err = -EBADFD;
+ 		goto done;
+ 	}
 
