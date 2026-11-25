@@ -1,150 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.128
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795637756;
-	b=g4CQs0HtsvtUoXfHtXagQsk9Dkv1biFTU/5OIA3a51iwO8ehv+jBIwtf61wGRtb7VZNi
-	 9RBgQSWrJingoOwq/alig5gBiow6dx4Gu5smshpd59LTFh+H6wAUrOJ327sAtyN5d2u0+
-	 XR5iHRZl6aIWyD0M1vc3b8a8C2RpoNeykUhMqzN3DXkx4c0dhfjvZIfyZAHYBKSYYvJHp
-	 gyOJ5bmY5OlDSUXjyGV1JZecSuUtjrGrq+WhvzjFhQRe01fU9gnvV8SJWEEmZ9PrrTd8z
-	 vBbFfSQzNspR8dlEHQ58yQbfRYvjiGIyGMTWRcM3bCwxvDze5oaNXYhqaZRsnXrYgSw==
+	t=1795637769;
+	b=m8xvnxQWh+6HsngqwF9eDZdcJIa7OPETaGZz5KxDAVL0A03HIigfqowSMQdtzBZuAw/A
+	 yR4MnLOj9p86gwEE0V8s5cmO3lnJZpTR99r1SRUR4EVgJiWorjHWz4zdfH6QhnY69JvZ7
+	 Y6BxJtcMgG6JI2Q6oHP/LQnJX2OoPijconFtyoe2kgTZw5fDbQy0SV7NHrGS4iI7yvJTA
+	 Ysc7fjltHwZC3dncXZr5cAdm3Q7SYUMKJ3tMCFHU7KOu7QGxxgMwKHnB//C6yVCUSXGF6
+	 BqanAkbD/ZovZlSc3ldANAPMQbYfzeiJIawyDu9TwIRDEkkjNMXLAvfc5rYdbFTZ8AQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795637756;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Subject:From:To:Cc:
-	 In-Reply-To:References:Autocrypt:Content-Type:
-	 Content-Transfer-Encoding:Date:MIME-Version:User-Agent:X-TM-AS-GCONF:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=rb/tXleQG/ksLL66I6VY/gKzssHMexklUooEaxWhqY4=;
-	b=WX7tB1vmzBK2shmjvPtmiQCM+LtcqeFAdUlHg2RHDPAumEwAdLGdgY/LWIyap4CwUXOU
-	 k7b0BRzmRbaNmP/9/NMPrtJHz1qcVeyvc+p+VHGuWVzbCEusbXq6gXHJOviubRKOEdCdp
-	 CN3uic507KiJ4VOnEO8+h6wGa/kNE6EZm7aQN9ARZVHxI/rOVB0XgTpHX/ffPPJxVuxfS
-	 J2nJiZ/QbdL/r3Igfgw0Bj1MehbYCmTs+hmSlLWynXPGfWm/Mt8i4fWcGEnhxaiFFdCZV
-	 gbCPV2m7ETSqM9wmCba6LCkSNk7C3BcFRKF/EhbyjjfvRiNQJT+dEAHcaIfPaPSJm2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795637769;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=dAZBhqePErN5XoE3TjBeSV916TZl6zwKukFpkFOF1YE=;
+	b=bUpZYgcUXrLJoFqJpQ7QdUOS3rCX6G5N53dMIUjRP/KZjKRdqUioSLpIB4OS3iErW0f1
+	 X517quzrfGBe2ZJca6qABqzJ6QAC+h7w7A6Ulzgk5PFvgN7/LxmE3wdhZpZgumePjWOvd
+	 lXIwOcqWN0ZbO77vupOY4B2w/sVK1jB8Zhw0GV/G/HWD0c5vurWLm/Olqk/Ec8gYupCCM
+	 zm/LwYFqo5OGhDEkfJQEjpTpBKbnI4SjS7j2ZpToM0mocY6gvPhduZcTWaPn8DNMIE10D
+	 c3kKhcPGq09Bx1rZwwUe7hruxa5wAmPwwHbAs/n3DcDcR0f6x+sbv5rKaM8oDLIIVRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=n5h8ZZ9i;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qQpuFhdt;
+	arc=none smtp.remote-ip=74.125.231.128
+Received: from mail-oo2-f0.google.com (mail-oo2-f0.google.com [74.125.231.128])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5575E606A321;
-	Wed, 25 Nov 2026 20:15:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5575E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 813ED606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:16:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 813ED606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=n5h8ZZ9i
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APJZGIw2178407;
-	Wed, 25 Nov 2026 20:15:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=rb/tXl
-	eQG/ksLL66I6VY/gKzssHMexklUooEaxWhqY4=; b=n5h8ZZ9il0nPaBs+OlhFJY
-	XNDWGc7V52AGmj+QtzyOL6g8sYSXcJPGiqf2OldKB4gxq2U6xdrPS+jddr/3SG8G
-	RiihhOA0OG7oON0M1x57CF5DltgMt9mZpdZSXGMkdpb9B1IWcLOHu60TVQJY3TQl
-	ozqw5DtklFHJzwAubIuyKfIQbidrusQ/ft1tVOykvnvRbkZpIAyhKfK63gYf6jcb
-	oSNHIwb64uYWpSHaoODnWIrvL5z/2CWWo/8GX1vzIwncaiwwgF5WcW2C9h+dCyhU
-	BDhF60d1FdH/TJuCasKPLUC4nwOKoKIuZasGWIuAbLfahQMMBNtRPIiahzQKQafQ
-	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34gvdxrj-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 25 Nov 2026 20:15:44 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6APJJFfE2627651;
-	Wed, 25 Nov 2026 20:15:44 GMT
-Received: from smtprelay04.dal12v.mail.ibm.com ([172.16.1.6])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j5a415jq0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 25 Nov 2026 20:15:44 +0000 (GMT)
-Received: from smtpav05.wdc07v.mail.ibm.com (smtpav05.wdc07v.mail.ibm.com [10.39.53.232])
-	by smtprelay04.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6APKFgo930671390
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 25 Nov 2026 20:15:43 GMT
-Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AEE2458053;
-	Wed, 25 Nov 2026 20:15:42 +0000 (GMT)
-Received: from smtpav05.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AD78358059;
-	Wed, 25 Nov 2026 20:15:40 +0000 (GMT)
-Received: from [9.111.87.46] (unknown [9.111.87.46])
-	by smtpav05.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 25 Nov 2026 20:15:40 +0000 (GMT)
-Message-ID: <a993fe95d464abe9526ba71f9775924ff70f8eb6.camel@linux.ibm.com>
-Subject: Re: [RFC linux v1 2/3] iommu/virtio: Prevent driver unbind via
- sysfs
-From: Niklas Schnelle <schnelle@linux.ibm.com>
-To: Cam Miller <cam@linux.ibm.com>, jpb@kernel.org, joro@8bytes.org,
-        will@kernel.org
-Cc: robin.murphy@arm.com, iommu@lists.linux.dev,
-        virtualization@lists.linux.dev, linux-kernel@vger.kernel.org,
-        mjrosato@linux.ibm.com
-In-Reply-To: <20261124155410.768743-3-cam@linux.ibm.com>
-References: <20261124155410.768743-1-cam@linux.ibm.com>
-	 <20261124155410.768743-3-cam@linux.ibm.com>
-Autocrypt: addr=schnelle@linux.ibm.com; prefer-encrypt=mutual;
- keydata=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
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 25 Nov 2026 21:14:39 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qQpuFhdt
+Received: by mail-oo2-f0.google.com with SMTP id 006d021491bc7-71b2566b798so598001eaf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:16:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795637768; x=1796242568; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=dAZBhqePErN5XoE3TjBeSV916TZl6zwKukFpkFOF1YE=;
+        b=qQpuFhdtBkOgsEfNRBMALwsDBIVgLX42y69LA0eHFG+7ni6xl9mwkUihQJDmwehruy
+         UD/TtGkGeSYh/dN6+YX80wYiNcrNIRDoKQSZCMyyDU09U1atqpuVP56cfqi5wLver4Th
+         JPWU6gU6Nqpv6koZIL871KP+hrf7iqDjmDmParLxeiI3nj1L40otFcqOrPe22eVrkYTx
+         F9tB0g+gyKmx4NWWBB6foEGFiLhrfT4Wwc6wr0yStTKzykIhoIefmSykbBwSD42ihHwU
+         wlSyXDwsGp4GTa97bIGuIDFXGcMlHp9V064/oinHycCB7p73dhsoqqa8NJmyt5Oobedd
+         K8mQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795637768; x=1796242568;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=dAZBhqePErN5XoE3TjBeSV916TZl6zwKukFpkFOF1YE=;
+        b=HfIlVCZKSOTSpDXjcQsJe7P6nNzoD7RW6b09rBStLBjGYL6UHT6jSY6dFqEWDRV452
+         2ut1IIcEAypYu6LZdifEOGLQBFXpJbJzgWSeOuI17XBYXrH/Egjdobx0zNusi49zLT/P
+         r2J72plc2hT3qAzN99sxixCGrX+G4pdrzLNB/JMKfumCdSSVH77qDvtNSXtZPJ3fRx7p
+         c1O+iWJviJlghlD3ZYbeHgjtMZlRigYb8FePwIamZpg0ffaPlmbxf4GX3RXj4derTe+9
+         2YujPJpp64uUpKyRsYees00oNjCI2AcikcamjICZekHu5t9SrZhFIol6xVlBrChvTCza
+         VtoA==
+X-Forwarded-Encrypted: i=1; AL+hErE8nbnCFK79m+7VtqRHYzW3Knit+KjEPI/m+SzoTVtttyOIcq/6jsuLsVaib1rJUlKNax3h3O/4kIg+jwU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/G021Y423mVEtGYVUGAoAm2BAwEYH5RktR37kEbAfnwByGcPY3
+	y8uGASyjjO6DP5Ftyebk2zBo1taBKD1f1xpWi4qMjLL3Ac/V6ZajI0nW
+X-Gm-Gg: AZFdTZdHUgnuWxJ6T/3esFe2Z2J7qFxCDEmDukSs9gKVLwvIo4+d9BabHKktQMRY3fe
+	Hw7UGT8B6pvOw9bB2X9a9fsp40f6/AGfCRpTNyVGRurQ6TwR9RKXr1QDP1xEFuYZ1HYV+X4cKXk
+	+W5OpXquaBVnYUauDEAHCHOcB/tvnst26zwooZRjIztQg1rfCvRbqU/NxixGqqDFcCXP2mAQZsb
+	KrY/6aOPDGCii0fyDdP/Rz6HijdGDYeQa4P9aFaWdg8h8+QIQmjcYI7ZhbMZVuADlCma4EKLldZ
+	9JmrhchLe+LKoed0/M9cdRM/G+U1yUY1+njicwjwtY5xAqCUChsCaxj/IxEUj5LEk63UQLysM2C
+	75mNooFx0FRzCnun5Q9P6UbeLyXRc4RRCF7esQyRWrZ+j7gV9BOIDUEwEfNWBrrNDEBiIhEtSPq
+	DmuW05Ri2IiBolz0yTYw/p1CiKw3t3vRW+io1QldW0G6wbSFSNXCzKZxlb8zud9LJCiTSq00lwr
+	8RIc1UC9mYvuU3xNIuEDXbonMfv3lyeV7ivt7jK938XIWXbsqLnx0MxZQvqhYz1lNuovzQOmygQ
+	j4NliJImbj/WKJxu6+2osyPFKOfRHIHDBq2YJ3jnRFOh24Tk9XUslI6V
+X-Received: by 2002:a05:6820:571a:20b0:6de:aeea:5c90 with SMTP id 006d021491bc7-71b39438320mr9788646eaf.26.1795637768381;
+        Wed, 25 Nov 2026 12:16:08 -0800 (PST)
+Received: from [192.168.0.98] ([50.26.120.197])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380b6f82sm11341859eaf.10.2026.11.25.12.16.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 12:16:07 -0800 (PST)
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+Subject: [PATCH v2 0/9] media: mediatek: Fix MT8173 decoding through
+ GStreamer
+Date: Wed, 25 Nov 2026 14:16:03 -0600
+Message-Id: <20261125-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v2-0-fdc047cf75a5@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -154,74 +93,141 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=CYCdd7rl c=1 sm=1 tr=0 ts=6b0741f0 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
- a=c2y1nhzc0TmZerhBWyQA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA4MCBTYWx0ZWRfXwPPxdp318sMI
- sBH1LMdtHO+1vk4fViuv0UBZ7dlJ0QhduOkyH2iYLacL4Tf31YtvN0n9GvaNs4b+KU6/kLeFWzV
- 4tJz+UT2QS64RwgSySN2K8dU7fDy1S8=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA4MCBTYWx0ZWRfX/2qCsvLdNomm
- UN4/EuHX6r5Kmx8cZw/sYgGfa5CkGuoxQWfjPc7Uq5rez31d4fNu+Z3Sx78sDXajsMLNewrZrgk
- TWmJJ3Xb8iNvICXwoNc3kCRytzT7sVE7IKNzqQc9n6sZefPrXIIvG55qa6qPSHFQAM3wEbtBpXW
- xXXVsW5cXqnc8bKTPFAkoiAklD4xzJ9mzZMdd8YONvZXbv9W1+d7Y4qE9BMW/gPxpa7bLFnQ92S
- BnCKw5iiWRs+tOCiVthRuNj5qIXnt1nYIvt9OjegGJW9MANWPmmjT/KPaSs49/OWbNoGBM2sWX0
- zd6fgUzIYm29aV1ALWHr1adfavrGLBpiUr5TuslXQasud3NOgXXdXjqjZ7CV3/GDaFGNE3vf1Y1
- +ghV7RoA9oszIhfJJpgzdO1BZJy3giVxDpaIM0GydXZrnpg8ncroOe6EytMGQMzAOuxOgzDkA17
- fh32XAsSH5hfJdeqLzA==
-X-Proofpoint-ORIG-GUID: VjzfaP0VEtXlGn5MTSQAM8vNfyOEgyxV
-X-Proofpoint-GUID: VjzfaP0VEtXlGn5MTSQAM8vNfyOEgyxV
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_05,2026-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 priorityscore=1501 lowpriorityscore=0
- clxscore=1015 spamscore=0 bulkscore=0 impostorscore=0 adultscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611250080
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/5XNQQ6CMBBA0as0s2ZMWwxFVt7DsCjtAI2WkhYal
+ XB3I/ECbv9fvA0SRUcJGrZBpOySCxM0TBYMzKingdBZaBhILishRImxiythWumN65yWSNq7aUC
+ /3DGbYMmgtzP27kkJa1Idv3SqqsoeCgZzpGNAw25twWB0aQnxdeBZfOvPkfwvJwvkWCtlSYuzK
+ S2/Dl67x8kED+2+7x+kWw2Y5gAAAA==
+X-Change-ID: 20261113-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-8e7b09b7663f
+To: Tiffany Lin <tiffany.lin@mediatek.com>, 
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
+ Yunfei Dong <yunfei.dong@mediatek.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Hans Verkuil <hverkuil@kernel.org>, 
+ Minghsiu Tsai <minghsiu.tsai@mediatek.com>, 
+ Houlong Wei <houlong.wei@mediatek.com>, 
+ Enric Balletbo i Serra <eballetbo@kernel.org>, 
+ Eizan Miyamoto <eizan@chromium.org>, 
+ Francois Buergisser <fbuergisser@chromium.org>
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Youngjoon Lee <getfeus@gmail.com>, linux-media@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
+ Ryan Brue <ryanbrue.dev@gmail.com>, stable@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795637766; l=5534;
+ i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
+ bh=70e+oVtA9v6pUdkJvj3m+aYfVUYdPR/nbMSAxA9cKZQ=;
+ b=nNtr/9rlKDMFX6JMSeSRjVOYdatf25eVzakwEpG+SSDQJcu6UNbe/djR6lJ3XfHhMH4ZpqiZi
+ EIrwIllhk5iA80UPYlKMbf+GwX4U/9n4HMHLbnbGvei9Hc/w/mUyaAk
+X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
+ pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 
-On Tue, 2026-11-24 at 10:54 -0500, Cam Miller wrote:
-> Set suppress_bind_attrs on the virtio-iommu driver to prevent userspace
-> from triggering driver unbind via sysfs.
->=20
-> Unbinding the IOMMU driver from beneath live endpoint devices would
-> leave those devices with dangling domain pointers. This would not be a
-> recoverable operation.
->=20
-> Note that suppress_bind_attrs covers only the driver bind/unbind path,
-> not PCI-level device removal triggered via the sysfs remove file.
->=20
-> Fixes: edcd69ab9a32 ("iommu: Add virtio-iommu driver")
-> Signed-off-by: Cam Miller <cam@linux.ibm.com>
-> ---
->  drivers/iommu/virtio-iommu.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/iommu/virtio-iommu.c b/drivers/iommu/virtio-iommu.c
-> index a08474eeed58..dd10c3e98a3d 100644
-> --- a/drivers/iommu/virtio-iommu.c
-> +++ b/drivers/iommu/virtio-iommu.c
-> @@ -1285,7 +1285,10 @@ static struct virtio_device_id id_table[] =3D {
->  MODULE_DEVICE_TABLE(virtio, id_table);
-> =20
->  static struct virtio_driver virtio_iommu_drv =3D {
-> -	.driver.name		=3D KBUILD_MODNAME,
-> +	.driver		=3D {
-> +		.name		=3D KBUILD_MODNAME,
-> +		.suppress_bind_attrs     =3D true,
-> +	},
->  	.id_table		=3D id_table,
->  	.feature_table		=3D features,
->  	.feature_table_size	=3D ARRAY_SIZE(features),
+These fix the MT8173 video decoder and MDP for clients that follow the
+stateful decoder interface, found while getting GStreamer's v4l2 decoders
+to play through them.
 
-Makes sense to me and this is also in line with other IOMMU drivers
-like arm-smmu-v3 that use the same attribute.
+Patch 1 is the main one: the MT8173 VPU firmware takes one H.264 NAL unit
+per call, but the interface hands the driver whole access units, so any
+access unit that begins with a delimiter, parameter sets or an SEI failed,
+and pictures of more than one slice never decoded at all. The driver now
+walks the units of each buffer. Buffers holding one NAL unit decode as
+before.
 
-Reviewed-by: Niklas Schnelle <schnelle@linux.ibm.com>
+Patches 2 and 3 fix the decoder's answers to what GStreamer asks: a zero
+bitstream buffer size, and the default compose rectangle (1088 lines for a
+1080-line H.264 stream).
 
-Thanks,
-Niklas
+Patches 4 to 7 fix the MDP: MT21C sources that are not whole 16x32 tiles,
+which the firmware refuses (1280x720 failed on every frame), a crop
+refused against the destination size a client had not set yet (the
+scaling ratio is now checked once both queues stream), buffer plane
+sizes that were never checked, and a format change that took effect even
+when it was refused. Patch 8 fixes the same last bug in the decoder,
+where VIDIOC_S_FMT on a busy queue changed the format and returned 0.
+
+Patch 9 fixes a resolution change in the middle of a stream (dynamic
+resolution change, dev-decoder.rst), which stalled: the decoder signalled
+V4L2_EVENT_SOURCE_CHANGE but never returned a CAPTURE buffer marked
+V4L2_BUF_FLAG_LAST, so a client waiting for it to reallocate waited for
+ever. It now returns an empty one after the event, or marks the next
+buffer queued if none is ready.
+
+Patch 1 carries no Fixes tag: the driver has taken one NAL unit per buffer
+since it was added, and the change is larger than a stable fix usually is.
+
+Tested on an Amazon Fire HD 10 (2017), an MT8173 tablet (board DTS under
+review), on v7.4-rc2 with VPU firmware 1.2.0 and Youngjoon Lee's MDP RFC
+[1], without which the MDP writes nothing on this board. Through a small
+V4L2 test client with one access unit per buffer, the decoder and the
+MDP turn H.264 Baseline, Main and High, H.264 with four slices per
+picture, VP8 and VP9 into frames that match ffmpeg's software decode
+byte for byte. With one NAL unit per buffer the output is byte-exact as
+before, for every stream but the four-slice one, which cannot decode
+that way. Through GStreamer's v4l2 decoders, H.264 High and VP9 also
+match ffmpeg byte for byte, every frame; 1080p H.264 and VP9 play
+through GStreamer as well.
+
+Patch 9 was tested on v7.4-rc3, with an earlier revision of patches 1
+to 5. On an H.264 stream that changes from 720p to 1080p to 480p,
+GStreamer's v4l2 decoder stalled before the first frame without it, and
+decodes all 180 frames to the end of the stream with it; so does the
+test client, with one NAL unit or one access unit per buffer. The frames
+after a change were not compared with a software decode.
+
+v4l2-compliance 1.32.0: the MDP passes 48 of 48 with the series (47
+without patch 6). A downscale beyond the MDP's limits (1280x720 to
+16x16) is refused at VIDIOC_STREAMON; a 2:1 one streams. The decoder
+passes 47 of 48, with and without patch 9; the failure is in the
+controls test, about V4L2_CID_MIN_BUFFERS_FOR_CAPTURE, in code the
+series does not touch. Only MT8173 was tested; patches 2, 3 and 8
+touch code the later SoCs share, while patch 9 changes only how the
+stateful decoder, which only MT8173 uses, behaves. Patch 8 makes the
+stateless decoders refuse VIDIOC_S_FMT on a busy CAPTURE queue, as the
+spec asks; confirmation that ChromeOS's clients free those buffers
+first would be welcome.
+
+This series was developed with the help of an LLM.
+
+[1] https://lore.kernel.org/all/20261111-rfc-v2-generated-v3-1-e49697d20806@gmail.com/
+
+Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+---
+Changes in v2:
+- New patch 9: return the LAST buffer at a mid-stream resolution change,
+  the stall v1's cover letter left for a separate fix.
+- Rebased onto v7.4-rc4; patches 1 to 8 are unchanged.
+- Added r-b, and cc-ing stable on patches with commits in stable
+  (Nicolas).
+- Link to v1: https://lore.kernel.org/r/20261120-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v1-0-877dea14c3d0@gmail.com
+
+---
+Ryan Brue (9):
+      media: mediatek: vcodec: Decode H.264 access units on MT8173
+      media: mediatek: vcodec: Pick an OUTPUT buffer size when given zero
+      media: mediatek: vcodec: Report the visible rectangle as default compose
+      media: mtk-mdp: Round MT21C sources up to whole tiles
+      media: mtk-mdp: Do not refuse a crop for the other side's size
+      media: mtk-mdp: Check buffer plane sizes against the format
+      media: mtk-mdp: Refuse a format change once buffers are allocated
+      media: mediatek: vcodec: Refuse a format change once buffers are allocated
+      media: mediatek: vcodec: Flag the last buffer before a resolution change
+
+ drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c  | 148 +++++++++++-------
+ .../mediatek/vcodec/decoder/mtk_vcodec_dec.c       |  60 +++++---
+ .../mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h   |   3 +
+ .../vcodec/decoder/mtk_vcodec_dec_stateful.c       |  44 +++++-
+ .../mediatek/vcodec/decoder/vdec/vdec_h264_if.c    | 168 ++++++++++++++++++++-
+ 5 files changed, 335 insertions(+), 88 deletions(-)
+---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+change-id: 20261113-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-8e7b09b7663f
+
+Best regards,
+-- 
+Ryan Brue <ryanbrue.dev@gmail.com>
+
