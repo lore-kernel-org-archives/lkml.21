@@ -1,69 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795573358;
-	b=NX1dEzq78+yJLiyll1U7/R4OaWDn19ne6mTw0r4XGP1+VBcOAfgf0JedNOWWH8UA0/JZ
-	 uckYEYScVGPLyF+fNSK1QvAkwLdAWCj4OwTwAx0ve0cFbwbHrXtnFMjtK/pe4bruYMVkN
-	 Y2f/MujAgfa2Gt2K8b8VaEw9r34LwsZHz4nCha/pUWqF4p+ChbHWQg9VM0KXYAmlxKWSo
-	 4P5pcyw+8XCPO4ge3nRnUItn2vmeGKGpgxSecS89E+HDsZNKgSM6HtPjadZvWtZSuoCPA
-	 HRg3lpbUTJVifns4U8yckj17BqswZFIVINxpReILTlYubAvfBAXd0vO0VPehXhATUPw==
+	t=1795573477;
+	b=U80dSIUWAcjfZwiow5UgsoIdMiKRMlyMicEEZ4WXk5gI/7m7pvmBX7vJK2pqTG1xkMze
+	 pvdFaKPA3PFyjVkwaY9KXDeOFxDL/T5xcuUrwIZ3RYDZqYFiwH57QDIOjx4WXCA6iAdHc
+	 rKqsIyZCvQXn53o7rC+3DzEYv5GX7JsQKXd+iAjCvWU6+aMukfuTjxKHzgftwcea1c1+N
+	 m7vH6SKU84ApKUsevdmDXb4IRjWIRo6w7cOo1tvaRmYx16OxRmBc5POrntU95HKBdwoHI
+	 d73AAENGjwUkwIec5P/z1LZ46ELzgIIeCIddVlKpKds16qOCZ3FC68aGyHQJfjApLMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795573358;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795573477;
 	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
 	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=VZUPOUml8Z7QMmIQLAEErFWrTkqLYi47llUNz2Msvxc=;
-	b=hhnx7mwj7SYamZHLKBidF29JvsEvNPda7Ax8lo5z2/k5R3iiBXrd7V4sHNH/t1udD6v2
-	 GW6z9oUhy48TmQN/GkxvEyyyBsKobKUlE63hSjjbHtj1ELAg0svzK8h7kScTXBhJa76AH
-	 XouNrX9kH4h5gOmITOQPYM2Xwn+iv5VOIelRDWy/HFUpmNcAIz1FUOk2nMOJRbTMSuMPs
-	 Pehb/diQZ9duqQMImFYJF2gLHW+tdhGGpj6TRxy668rcZ0CDtyFXsRTaoXFI3Jk1jv5dn
-	 /yslL/m+yJddSLt8LMlbIXD7saE+oGP/JlSKEOEv2qxd2Fj2ECwrA6yhaLhDO66pz3g==
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=dHHQ7jSaJxbUODBdGi0CeB6ULyimgP5oUJ8IXyEveFU=;
+	b=yI1N9gJlGJtQyipflYSh/qwtjbldfNtQoWT/qJfqFqERoitdlNL0UpY1bqn96AIzsLtN
+	 osH1aw074zxR+wVJolodJj0SEyv7lOqQ4k0drtTokS6Il2ce/lM61XzTD8nE0OEL4RCMZ
+	 MYtjAzLqS1TFAUXV549GOLI0PnNn9o/gN3hFo0AMZV+hdeOfxa6/pm9Q1zLh0L+fmaqAf
+	 2c9hDlIn94Wez4jUthWeuWxYDxy7sQYtTe5oJUqKlNgvL82AA1hPLXJ5+4z/rSL/aKgIH
+	 CGDbbe9NcYPTj+JPL9u2PQSiy5lKda+KK2rWt/11Q6yPDMz8msGNTlaPbh6mF2H1nIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cmss.chinamobile.com;
 	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=AE2PYD0e;
-	arc=none smtp.remote-ip=111.22.67.135
-Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 16C50606A329;
-	Wed, 25 Nov 2026 02:22:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16C50606A329
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=VEpg09sO;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 382EC606A321;
+	Wed, 25 Nov 2026 02:24:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 382EC606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=AE2PYD0e
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=VEpg09sO
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=cmss.chinamobile.com; s=default; l=0;
 	h=from:subject:message-id:to:cc:mime-version;
 	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=AE2PYD0eraeDlLOYUxzctfs7qLEwOmOqlhLCD5sID96ASmIpkE6dmw9zmWCNdIfSV44R6gNsX1fVA
-	 X0hGk17CmtCx7sFcwtdXxZNtlGKpEgM+YQ9o4SdpurV3F/NP/DLx+Oqxtp87lg0vUoQ77uXQPo+Bds
-	 Qgv37vDlcWGUZxBw=
+	b=VEpg09sODpnapN/a9Jw9ortGlUt7I7WRsY/TLmuNzBL0nHKgoTeyYnWeo1QObro9twx/NwcSMIKFz
+	 rpI//pHydTFO98DWB9ZzfP4axZbBdkI5pDGGX0A01zVDu5VABhBM8hG3ho9XqHpOT2dkB9x2Mu8iHV
+	 jo0ScwjbiK6/3VuU=
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app07-12007 (RichMail) with SMTP id 2ee76b064668378-4d5fe;
-	Wed, 25 Nov 2026 10:22:33 +0800 (CST)
-X-RM-TRANSID:2ee76b064668378-4d5fe
+	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26b0646e23e3-88c53;
+	Wed, 25 Nov 2026 10:24:34 +0800 (CST)
+X-RM-TRANSID:2ee26b0646e23e3-88c53
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
-	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16b064667cc8-35135;
-	Wed, 25 Nov 2026 10:22:33 +0800 (CST)
-X-RM-TRANSID:2ee16b064667cc8-35135
+	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76b0646e0cbe-35130;
+	Wed, 25 Nov 2026 10:24:34 +0800 (CST)
+X-RM-TRANSID:2ee76b0646e0cbe-35130
 From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: chester.a.unal@arinc9.com
-Cc: daniel@makrotopia.org,
+To: netdev-bot+sashiko@kernel.org
+Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
+	chester.a.unal@arinc9.com,
+	daniel@makrotopia.org,
 	andrew@lunn.ch,
 	olteanv@gmail.com,
 	sean.wang@mediatek.com,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	netdev-bot+sashiko@kernel.org,
-	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Subject: [PATCH v5] net: dsa: mt7530: enable the regulators in probe() and unwind on error
-Date: Wed, 25 Nov 2026 10:22:31 +0800
-Message-ID: <20261125022231.1936-1-laixiangwu@cmss.chinamobile.com>
+	kuba@kernel.org
+Subject: Re: [PATCH v4] net: dsa: mt7530: enable the regulators in probe() and unwind on error
+Date: Wed, 25 Nov 2026 10:24:32 +0800
+Message-ID: <20261125030000.377-2-laixiangwu@cmss.chinamobile.com>
 X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <179557049962.3135.7449288288799250763@kernel.org>
+References: <179557049962.3135.7449288288799250763@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,168 +76,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-mt7530_setup() enables the core and io regulators of the MT7530, but the
-only matching regulator_disable() calls live in mt7530_remove(), which
-never runs when the probe fails.  A failure anywhere between the enables
-and a fully registered switch - the remaining steps of mt7530_setup(),
-the IRQ chip or MDIO bus registration in mt753x_setup() (both can also
-return -EPROBE_DEFER), the SGMII PCS creation, or the DSA core itself -
-therefore leaves both regulators enabled.  The devm-acquired handles
-are then released with a non-zero enable_count, which triggers the
-WARN_ON() in _regulator_put(), and each probe deferral grows the count
-further.
+Hello,
 
-Move the enables to mt7530_probe(), right after the regulators are
-acquired, and unwind them with plain error labels if a later step in
-the probe fails.  mt7530_setup() and mt7530_remove() keep their original
-shape, so the enables and disables stay balanced in every combination of
-probe, setup and unbind: a failed probe always unwinds, and a switch
-that stays bound is always disabled exactly once by mt7530_remove().
+On the review of v4 (Subject: [PATCH v4] net: dsa: mt7530: enable the
+regulators in probe() and unwind on error,
+https://lore.kernel.org/all/20261124013422.1408-1-laixiangwu@cmss.chinamobile.com/):
 
-On the boards that hold the switch in reset with a GPIO
-(mt7623n-bananapi-bpi-r2 and mt7623n-rfb-emmc, which wire the supplies
-inline), the reset line has been asserted since it was acquired in
-mt7530_probe() with GPIOD_OUT_LOW, so the rails come up while the chip
-is held in reset.
+> [Severity: Medium]
+> Does the safety argument in the commit message hold when the switch is a
+> multi-chip module? ... When mediatek,mcm is set there is no reset GPIO.
+> mt7530_probe() only gets a handle to the reset control, and getting the
+> handle does not assert it ... The first assert happens in mt7530_setup()
+> ... The boards that get mediatek,mcm plus core-supply and io-supply from
+> mt7623a.dtsi are mt7623a-rfb-emmc.dts and mt7623a-rfb-nand.dts.
 
-On the MCM boards (mt7623a-rfb-emmc and mt7623a-rfb-nand, which get
-mediatek,mcm and the supplies from mt7623a.dtsi) there is no reset
-GPIO; the reset control handle is only acquired in mt7530_probe() and
-the first reset pulse still happens at the top of mt7530_setup().  With
-the enables moved to probe, the chip therefore runs on its power-on
-defaults during the window between the probe and that pulse.  The
-window spans dsa_register_switch() up to the switch setup, it repeats
-on every -EPROBE_DEFER retry, and it is unbounded while a multi-switch
-tree waits for its other members.  The pulse at the start of
-mt7530_setup() re-initializes the chip, so the window behaves like a
-cold boot whose external reset arrives late; no configuration is lost.
+Both parts of this finding are correct, thank you.  I verified:
 
-All of these boards connect the supplies to switchable MT6323 PMIC
-outputs, so a failed probe would otherwise leave them on and trip the
-WARN_ON(enable_count) splat when the devm handles are released.  MT7621
-does not have these supplies and is skipped by the priv->id ==
-ID_MT7530 guards, and the MT7988 MMIO variant has no regulators at all.
+  - On the mcm path mt7530_probe() only calls devm_reset_control_get();
+    the first reset_control_assert() is at the top of mt7530_setup(),
+    which only runs from dsa_register_switch().  So on the mcm boards
+    the chip runs on its power-on defaults between probe and setup.
+  - The board list in the v4 commit message was wrong.
+    mt7623n-bananapi-bpi-r2.dts and mt7623n-rfb-emmc.dts include
+    mt7623n.dtsi and wire the supplies and reset-gpios inline; those
+    boards are held in reset while the rails come up.  The boards that
+    get mediatek,mcm and the supplies from mt7623a.dtsi are
+    mt7623a-rfb-emmc.dts and mt7623a-rfb-nand.dts.
 
-Found by code inspection; the issue has not been triggered at runtime
-and no MT7530 hardware was available for testing.
+V5 with the corrected commit message is out; the diff is unchanged:
 
-Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
-Suggested-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
----
-Changes in v5:
+  [PATCH v5] net: dsa: mt7530: enable the regulators in probe() and unwind on error
+  https://lore.kernel.org/all/20261125022147.377-1-laixiangwu@cmss.chinamobile.com/
 
-- Rewrite the commit message safety argument.  The previous version
-  claimed the reset line is always asserted since probe, which is only
-  true for the boards with a reset GPIO.  On the MCM boards the reset
-  control is only acquired in probe and the first reset pulse still
-  happens at the start of mt7530_setup(), so the chip runs on its
-  power-on defaults between probe and setup; this window is now
-  described as it is instead of being masked by a wrong claim.
-- Fix the list of affected boards: mt7623n-bananapi-bpi-r2 and
-  mt7623n-rfb-emmc include mt7623n.dtsi and wire the supplies and the
-  reset GPIO inline; the boards that get mediatek,mcm and the supplies
-  from mt7623a.dtsi are mt7623a-rfb-emmc and mt7623a-rfb-nand.
+The v5 message now scopes the reset-held argument to the reset-gpios
+boards and describes the mcm window as it is, including that it
+repeats on -EPROBE_DEFER and is unbounded while a multi-switch tree
+waits for its other members.
 
-No code change; the diff is identical to v4.
+> [Severity: Low]
+> Is this teardown order safe when dsa_register_switch() fails after
+> mt753x_setup() has already run? ... the IRQ chip and the internal MDIO
+> bus are therefore released by devres_release_all() after mt7530_probe()
+> returns, which is after these labels have already cut the supplies.
+> If the threaded regmap-irq handler runs in that window, it reads
+> MT7530_SYS_INT_STS from an unpowered chip.
 
-Link: https://lore.kernel.org/r/20261124013422.1408-1-laixiangwu@cmss.chinamobile.com
+The mechanics are correct: mt7530_setup_irq() registers the IRQ chip
+with devm_regmap_add_irq_chip_fwnode() and mt7530_setup_mdio() with
+devm_of_mdiobus_register(), both on the mdiodev, and mt753x_teardown()
+only cancels stats_work, so those resources do live until
+devres_release_all() after the probe returns.
 
- drivers/net/dsa/mt7530-mdio.c | 38 ++++++++++++++++++++++++++++++++---
- drivers/net/dsa/mt7530.c      | 18 -----------------
- 2 files changed, 35 insertions(+), 21 deletions(-)
+I would scope the practical impact as follows:
 
-diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
-index 0be107dc6..b1daefc90 100644
---- a/drivers/net/dsa/mt7530-mdio.c
-+++ b/drivers/net/dsa/mt7530-mdio.c
-@@ -210,18 +210,50 @@ mt7530_probe(struct mdio_device *mdiodev)
- 		priv->io_pwr = devm_regulator_get(&mdiodev->dev, "io");
- 		if (IS_ERR(priv->io_pwr))
- 			return PTR_ERR(priv->io_pwr);
-+
-+		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);
-+		ret = regulator_enable(priv->core_pwr);
-+		if (ret < 0) {
-+			dev_err(&mdiodev->dev,
-+				"Failed to enable core power: %d\n", ret);
-+			return ret;
-+		}
-+
-+		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);
-+		ret = regulator_enable(priv->io_pwr);
-+		if (ret < 0) {
-+			dev_err(&mdiodev->dev,
-+				"Failed to enable io pwr: %d\n", ret);
-+			goto err_disable_core_pwr;
-+		}
- 	}
- 
- 	rc.lock_arg = &priv->bus->mdio_lock;
- 	priv->regmap = devm_regmap_init(priv->dev, &mt7530_regmap_bus,
- 					priv, &rc);
--	if (IS_ERR(priv->regmap))
--		return PTR_ERR(priv->regmap);
-+	if (IS_ERR(priv->regmap)) {
-+		ret = PTR_ERR(priv->regmap);
-+		goto err_disable_powers;
-+	}
- 
- 	if (priv->id == ID_MT7531)
- 		priv->create_sgmii = mt7531_create_sgmii;
- 
--	return dsa_register_switch(priv->ds);
-+	ret = dsa_register_switch(priv->ds);
-+	if (ret)
-+		goto err_disable_powers;
-+
-+	return 0;
-+
-+err_disable_powers:
-+	if (priv->id == ID_MT7530)
-+		regulator_disable(priv->io_pwr);
-+
-+err_disable_core_pwr:
-+	if (priv->id == ID_MT7530)
-+		regulator_disable(priv->core_pwr);
-+
-+	return ret;
- }
- 
- static void
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index 7781a63b4..b669a94d4 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -2411,24 +2411,6 @@ mt7530_setup(struct dsa_switch *ds)
- 	ds->ageing_time_min = 2 * 1000;
- 	ds->ageing_time_max = (AGE_CNT_MAX + 1) * (AGE_UNIT_MAX + 1) * 1000;
- 
--	if (priv->id == ID_MT7530) {
--		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);
--		ret = regulator_enable(priv->core_pwr);
--		if (ret < 0) {
--			dev_err(priv->dev,
--				"Failed to enable core power: %d\n", ret);
--			return ret;
--		}
--
--		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);
--		ret = regulator_enable(priv->io_pwr);
--		if (ret < 0) {
--			dev_err(priv->dev, "Failed to enable io pwr: %d\n",
--				ret);
--			return ret;
--		}
--	}
--
- 	/* Reset whole chip through gpio pin or memory-mapped registers for
- 	 * different type of hardware
- 	 */
--- 
-2.50.1.windows.1
+  - None of the in-tree MT7530 boards that wire the regulators
+    (mt7623a-rfb-emmc, mt7623a-rfb-nand, mt7623n-bananapi-bpi-r2,
+    mt7623n-rfb-emmc) wire the switch interrupt, so
+    mt7530_setup_irq() takes the "no interrupt support" exit and there
+    is no regmap-irq handler to run in the window.
+  - The create_sgmii() example path is MT7531, which has no regulators;
+    the error labels are guarded by priv->id == ID_MT7530 and are no-ops
+    there.
+  - devm was deliberately ruled out for this driver per the netdev
+    maintainer guidance (the disables are plain error labels on
+    request of the tree owner), so the "register the disables with
+    devm" suggestion is not an option here.
+  - mt7530_remove() in the unmodified driver also cuts the supplies
+    before the devm resources are released, so the probe error path
+    now mirrors the existing remove order rather than introducing a
+    brand new shape.
 
+That said, asserting the reset control and releasing the setup
+resources before disabling the supplies in the probe error path would
+be a cleaner unwind, and I am happy to add it if the maintainers want
+it; that is Andrew's call to make.
+
+pw-bot: cr
 
 
