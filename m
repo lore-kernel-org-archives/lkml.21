@@ -1,90 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=81.169.146.169
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795589076;
-	b=K62wSfAX4dydOq9mLA2VkL6aDXhcRw2pDybt7byCKZd7+92SYRa2VZTl8OJYQbTEffOb
-	 n8TF7tHgmj2uaWU5UEeYPLss7USUIdADE4r1nXwVyVTYWkzOJ6xbQ6dgsrq5wTU0X6LXu
-	 9Q6SoTfVK+u6w3oNc8kAJbtI4SmdZpFdKs8O4osFRaMEEX5wM31Z3hmsHTcM/FPz1EMsW
-	 jGUJthIT4rXU6714yufui64ms6RZg9NMlhXqoZeyfxQ51d6nF3lnuZ0mk+mn4GKeCuPf8
-	 eN5AAZ9K5QXLHzZOXeyquwt7+JvK+dCyT8wUPgLyAxlJ7s8Novn7axuNbsJ2Jt9k/qA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795589076;
-	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
-	 Received:Content-Type:Mime-Version:Subject:From:In-Reply-To:Date:Cc:
-	 Content-Transfer-Encoding:Message-Id:References:To:X-Mailer;
-	bh=1gk2zDY+qHFoLpfFOUqPZn9pkTFPLdiycG87z3EJLfY=;
-	b=IW6+Hy3IFnWgTxKZp1jW5jPQAliT+b3VK2CLi8N8dwbZnIx+w0t8rRrMbJtCNGB55g/H
-	 Qh1lfCOApGkaHgivXwV7t4NHRziXYJiy6RzAul44ql4qvkvTOerF3S6mSusPyg06EwZCG
-	 lCQGSo4RwMx2xkBeKhjFpdhj96klB51qq7uwTBmbalQsgjhHwwO5xW7Pb2MNzD8ToM0It
-	 B6OwRj6c/v0U37ivXam932sUG51hbDD69bQTDWriuUAU6mvjsIIqP3YHf1V/ANXJhrcGL
-	 zc2q4whNr8iz1hBc846FZQOzckxKAYvAUc+85v12h1iQtz4t1VT8pC1orL/OabqIBKw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goldelico.com;
-	spf=pass smtp.mailfrom=goldelico.com;
-	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b="k/jEVpVv";
-	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b="I+Y/BRNS";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=81.169.146.169
-Received: from mo4-p02-ob.smtp.rzone.de (mo4-p02-ob.smtp.rzone.de [81.169.146.169])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795589102;
+	b=yAxpPTyYJ+ezdbnYCwulGAtPGQl0YFBpTg8qM/vS7X90DJY7xzmGG9tGJCM6sEftSqD1
+	 vZwveXS+V5SOUqgd57V6O97i5yCJyVztslRC+uN9J6BDMpWM866pKowFyahgKXmqwDJ0H
+	 lFjxu9Elx1vyWajIHbp4MLK+3PCiXhGhGpp+t2LVumxKV38SlNb/lVMfWoDZEn0defOwW
+	 HgNXS7Y0CamHptoSvyVnSzd1+eoDITp9coPkiz7MOSh5OaYCXvmXebf0rFY3SfP2K4gc1
+	 2acm0AgTUWfYKkYl6T3O9jV7Nz61foot26TojmKTQBD0LiL4TQj9nLtT91WYpxeGPfg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795589102;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=R3sbzhOnYUrS8wYvSIhWCG5ex9jxl9wVxRyhTnmBIp8=;
+	b=mqFOP9GPCJmaoeW2SoMmppABNea7t+zVcZCQO7DTfREXn2b2fUIL3bLiqwXardmen81a
+	 rAZpG2hTsdp9Xd3lQ19Ei7fDZqMYs5gwVIUiWNJKARq2DDvVUGUHK8m8U8XrMqZBF9Svf
+	 kDoQHHniS+S5Ao6EQl2NtX8zprUg0B5ChJQBHlT3Irb/wy1E72VSdwLP8yQ4vHO6AclbH
+	 VS6OlC+Z3mFgYPi75MOS+lqBFN1TwbTl/kGcMPiYQFzvjWbGoSvu+oaoZmEHy9vnf8Kr1
+	 WK1Pug+4BsuRii0W3zZ+OJDfibnNWAMUslkbdbNx/FCehl0H8jwh0BrvFwYkgnfzoxg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=d5dyiyT1;
+	arc=none smtp.remote-ip=209.85.216.44
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6BE9606A31E;
-	Wed, 25 Nov 2026 06:44:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6BE9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=goldelico.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goldelico.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEC4B606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:45:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEC4B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=goldelico.com header.i=@goldelico.com header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=k/jEVpVv;
-	dkim=pass header.d=goldelico.com header.i=@goldelico.com header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=I+Y/BRNS
-ARC-Seal: i=1; a=rsa-sha256; t=1795588973; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=cTnbBPeGovHeLT6q6u9ZQyfIcEbHxmGIT0GrghPBSMc0a8wnvXLtuQfkzrUkZuOig+
-    mjlrb2X9BAMV6Niob3O8lWaPpn0e2SdWNdjNmOniwDiCZzqNRfWlUcROWNXaHY5Ve/NY
-    0VtyS2euhWucTcYnwTYon1YrmlfKfZqLYxa+qOPkv3sBr3ecSeQhrjCD2A5z9j+paM+0
-    rVWwnW9u+e0WtxWUhTDMffhkDAndZfl9WrnAH8ZAPV4eKb9fiwp9k208ODbrRSGsbdsg
-    j3/FNSbgbwldCxxsf4/oW8ZuSQ7/5LhlEuJLh16CY1sXuLGDgGTwZ6sZYN9iz1IICxLH
-    BmLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795588973;
-    s=strato-dkim-0002; d=strato.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=1gk2zDY+qHFoLpfFOUqPZn9pkTFPLdiycG87z3EJLfY=;
-    b=VnsemKLEMl+3O0YMCi8sFARtWux1a17AXnxlzhRywNWKFcfap3DH7difiJlRoGytYh
-    0lOcJWFo7zxhNwp1yt3/yyQ6N4YsfMUGObwXOKvs4A5PTFMk0fIug+tCVkPz4A//bvId
-    jxdtI+t8tUjP1cM0OjQcUc+7LTkHs2scm9F9oIOZetWaErP1jEVAIELCzO4t4KbALYLi
-    Jw1E1xmzK3Oiz6FwxQ41LBe7+tDd3B01/ZH1FJL1A+y8qC+R7qsqDEMYTgrNAZPhKyf8
-    RLLci93fYIazcGHZ3aHRYdTRVHq/Ax90aMZHWEnskYt5wjVw9tE+H9/kWGZsWXKRGccY
-    5LLg==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795588973;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=1gk2zDY+qHFoLpfFOUqPZn9pkTFPLdiycG87z3EJLfY=;
-    b=k/jEVpVvLQkIML9nalg1JpMqB9CTqv/wAXr1zhqxzs/o7JG9ou3ERFGcSh+GlbUNZn
-    3tq85SddEbKil5B7cchZLZTrAwFexsBaMs9qsmh1iCRlQ1k6fHzxw0ptVxAI3mTDKdQL
-    4FxIaWJCkEHW4UASXFZnhxLqQn7CtpEwLzx6WyFXmsohzLa/KHGYS/rke0TQqo4/JxkA
-    jdfdPQTfKFoLe7ntolGx8485ObKLaY/+bpykLMy52JLbu3wYhBttQ1/RFXnt/tLR18T6
-    beJ+5cYvFYqR4grNQ3iFfE1hMjcMvNNuRfSugQ0WE2Fjb766Bf/tfXpjfxJEV5n02c70
-    dlsg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795588973;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=1gk2zDY+qHFoLpfFOUqPZn9pkTFPLdiycG87z3EJLfY=;
-    b=I+Y/BRNSdG/pLdf5zxxzQco0G17o3kqUXrsy6r9rvniFtpueTu2DVpyc8o6OxvGsQI
-    iHXykzGIK8KtXwVBJmDw==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrS25oMlMiNMn5e/Npe6SVDIvzG+5uG4p/zkDZq"
-Received: from smtpclient.apple
-    by smtp.strato.de (RZmta 55.6.3 AUTH)
-    with ESMTPSA id Qb56a22AP6go5ny
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
-	(Client did not present a certificate);
-    Wed, 25 Nov 2026 07:42:50 +0100 (CET)
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=d5dyiyT1
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b439e37813so2630094a91.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:45:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795589101; x=1796193901; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=R3sbzhOnYUrS8wYvSIhWCG5ex9jxl9wVxRyhTnmBIp8=;
+        b=d5dyiyT19Km7tDmbpxJjL4rEnANFAC86v3EYHetyWOXfRhF8nqTd1zj3BIgDx3qhR3
+         Otfrb/bMHdn/BzzA2hn4O8iQ8rCUMUo5W4QakiPooXQ5Q3ftn3MxeYEy1Hj4Clx9pPzq
+         6zxqQkKGx18KdULbG8PpcWWJHDQORxn+D9AZtMYg5AkJvOaq27sApC9cOwzgmJcQ5+8e
+         FzVqdhPMdbb/LCv1i9hsjVrKHje9UQq2gZYH8geza2XNhS4XLpqnaCrtDJnExFAhPVHJ
+         PklcmdBQqSgLJ5VGJFFXC66xij/lzTqgjLa6bkNrx7Vv/zG5xGwGotjjb7FdXpnCVFN2
+         /zzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795589101; x=1796193901;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=R3sbzhOnYUrS8wYvSIhWCG5ex9jxl9wVxRyhTnmBIp8=;
+        b=Ne3VQ8E6sfNg1jjAZrUa8aIJDBRC7up4XAyriSPZDV81TlZ3rejzHX9n31XkOosYLF
+         Jz4n5bTYgulIeNRx4PrHH+B0J+98uYpwOIFE0/B6qAkS4FHPLV1x8eqxbInqvDG1c6vB
+         cvabDyS787yZeBByt6nylrGhwLnXTz6tSOnRqnTi3++rXZA+T2XSSzKPwcezoYd2Lowq
+         aL5/08uqYd/R6UPv7KfhHi3lEAzT1fQgsQW74C6FXtjoBM2rbqBwq47Vls5tYUJD/85F
+         6BHP7puu7PKfYgayBwT4r5cd1NF5YgiU0JXFoclYCvnwfjtwprlANUo9MlkQcV3mApfc
+         laQg==
+X-Forwarded-Encrypted: i=1; AL+hErHxMnPq6oiJjBePfQnYrc5Fl9J6JmSnVXSrfSIQzwODIgFq9HIS++r3DYaLEBkxrQ+j6gr6fkIuvhvIDyI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/RHw0eMCBzVKyQntFr42sSuLB9b1Dnnj2d7iA+SnvGJA+f5s+W
+	TDcuFemf2d1f9Jpy9ijTswHRrvJ2P9DCigejhL8wHwIrFoR/7yBzRdXL
+X-Gm-Gg: AZFdTZdS6LcwJIE332sN+/3objpB7PQNzUUJU2pCgo7pMi+DqwwbObSX+BlIo2bbZqi
+	stjQlUdpZEFHC/qd0VCXl+s3y0OqYgZQdnOO6pNiwcWw9InzlIOH504kkQuhCP9wjabg2yRW3vT
+	OUp/+W3obVhUXEJqico+iXUzk3quSfeqSybRu/iRPQyPgEUzLjrQ5AHfxZo3XGYiCyYWq8HyOEo
+	vs1Dz/RIcZbL7EqcIP+HzIMZYR3AfWH1k0jKj6lXUS5ThqAQ5SawN6udi2OBen9oqp2NBLtVf9w
+	0+lRfr/Gp3V6a6wdj8LEHtUSEQ4eLmVhiQqzAWTajy94GxrXazvyFZT5A8YHnTZ8LAZHJyDyTFg
+	pNITt+/+DaSJX4MYtQ6QYCqdsPZ8yAIbCoG7qeItJ361xNPCssw8JQYyOfDYh0/CWWztXn0UKsD
+	60d50gwddPMrBOBsoRRLVwmYdGPnSRDBBRTna6w7/adspirilPPtwGAyfFYFpfR744JzeoiB3Im
+	x/yFer1kcvU2uFUWbDYZQc1DKjoHqiNKer1Rit8X7pMO+ygsbfDTQRK27gTRKsCylXVeJr/ny62
+	nZxfJU3ZvmCfCLsOSyofhG6u9WDMWLiuYLoG6I60keyNyGhaeBKNWzAQTSJ4M+LdzjZd4HTbfnu
+	4/GF665UaAHafJ93TxEZh7CSjfIvBFLUQ5Q==
+X-Received: by 2002:a17:90b:1b09:b0:3b4:d6a6:e5b with SMTP id 98e67ed59e1d1-3b4d6a60f6dmr3827042a91.33.1795589101097;
+        Tue, 24 Nov 2026 22:45:01 -0800 (PST)
+Received: from localhost ([153.61.198.249])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm28789109a91.16.2026.11.24.22.45.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 22:45:00 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 25 Nov 2026 06:45:00 +0000
+Message-Id: <DN437OYZ5FGP.20VLV7ZEXQ5YY@gmail.com>
+Cc: "Puranjay Mohan" <puranjay@kernel.org>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, "Emil Tsalapatis" <emil@etsalapatis.com>,
+ "Ihor Solodrai" <ihor.solodrai@linux.dev>, "Dave Hansen"
+ <dave.hansen@linux.intel.com>, "Peter Zijlstra (Intel)"
+ <peterz@infradead.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar"
+ <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, <kkd@meta.com>,
+ <kernel-team@meta.com>, "the arch/x86 maintainers" <x86@kernel.org>, "Linux
+ Kernel Mailing List" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups
+ for user address faults under SMAP
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Andy Lutomirski" <luto@kernel.org>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>, <bpf@vger.kernel.org>
+In-Reply-To: <df69ab5d-bc97-4651-8668-a2b3e4bb272a@app.fastmail.com>
+References: <20261009024925.3169077-1-memxor@gmail.com> <20261009024925.3169077-2-memxor@gmail.com> <df69ab5d-bc97-4651-8668-a2b3e4bb272a@app.fastmail.com>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,120 +108,59 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.11\))
-Subject: Re: [Letux-kernel] [PATCH v2 00/20] ARM: omap3: pandora: Modernize
- audio and backlight to use Device Tree to finally remove pdata-quirks
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-In-Reply-To: <20261124234143.4f099646@kemnade.info>
-Date: Wed, 25 Nov 2026 07:42:19 +0100
-Cc: linux-fbdev@vger.kernel.org,
- Lee Jones <lee@kernel.org>,
- linux-pwm@vger.kernel.org,
- Tony Lindgren <tony@atomide.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- dri-devel@lists.freedesktop.org,
- Jaroslav Kysela <perex@perex.cz>,
- =?utf-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- David Airlie <airlied@gmail.com>,
- linux-leds@vger.kernel.org,
- Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>,
- Aaro Koskinen <aaro.koskinen@iki.fi>,
- Kevin Hilman <khilman@baylibre.com>,
- Helge Deller <deller@gmx.de>,
- Bartosz Golaszewski <brgl@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Peter Ujfalusi <peter.ujfalusi@gmail.com>,
- Daniel Thompson <danielt@kernel.org>,
- devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>,
- Pavel Machek <pavel@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Roger Quadros <rogerq@kernel.org>,
- linux-gpio@vger.kernel.org,
- Mark Brown <broonie@kernel.org>,
- linux-sound@vger.kernel.org,
- Takashi Iwai <tiwai@suse.com>,
- linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jingoo Han <jingoohan1@gmail.com>,
- Liam Girdwood <lgirdwood@gmail.com>,
- linux-kernel@vger.kernel.org,
- Thomas Zimmermann <tzimmermann@suse.de>,
- kernel@pyra-handheld.com,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Jarkko Nikula <jarkko.nikula@bitmer.com>,
- Discussions about the Letux Kernel <letux-kernel@openphoenux.org>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <D4A9EE97-468E-4720-8D26-D3B008F8E762@goldelico.com>
-References: <cover.1795505160.git.hns@goldelico.com>
- <20261124151318.GA536798-robh@kernel.org>
- <1DCFB59E-E5EA-4470-997E-EAA4ED35D906@goldelico.com>
- <20261124234143.4f099646@kemnade.info>
-To: Andreas Kemnade <andreas@kemnade.info>
-X-Mailer: Apple Mail (2.3826.700.81.1.11)
+MIME-Version: 1.0
 
-Hi Andreas,
+On Tue, Nov 24, 2026 at 08:22 PM Andy Lutomirski <luto@kernel.org> wrote:
+> Didn't we hash this out a decade ago or so?
 
-> Am 24.11.2026 um 23:41 schrieb Andreas Kemnade <andreas@kemnade.info>:
->=20
-> On Tue, 24 Nov 2026 16:27:16 +0100
-> "H. Nikolaus Schaller" <hns@goldelico.com> wrote:
->=20
->>> Surely=20
->>> this can be broken up into smaller series? =20
->>=20
->> Yes it (we?) can. It is just a question how to do it and properly =
-describe
->> the dependencies to avoid bisectability problems and avoid that the =
-final
->> goal is lost.
->>=20
-> I think it is indeed tricky, and probably induces delays.
-> You can point to the pandora_bl driver  resp the pandora sound card to =
-show the
-> final goal.=20
->=20
-> If I understand it correctly,  you have
->=20
-> 1. preparations/extensions for using the standard pwm backlight.
-> 2. REGEN stuff to wire up the power supply.=20
-> 3. dts changes to wire up backlight and its power supply.=20
-> 4. sound: quirks in twl4030 codec
-> 5. sound: dt conversion of the sound card.
-> 6. dts changes to wire up sound card and its power supply
-> 7. machine quirk cleanup
+Twice. Feb 2019 for probe_kernel_read() and Jan 2021 for PROBE_MEM:
+https://lore.kernel.org/all/300C4516-A093-43AE-8707-1C42486807A4@amacapital.net/
+https://lore.kernel.org/bpf/CALCETrVZRiG+qQFrf_7NaCZ9o9f2-aUTgLNJgCzBfsswpG7kTA@mail.gmail.com/
 
-Basically yes.
+The problem in 2021 was a CPU without SMAP. There the fault handler
+can't tell a PROBE_MEM load of a user address from a valid uaccess.
+That part stays. Without SMAP the JIT emits the range check.
+With SMAP and AC clear a fault on a user address is never a valid uaccess.
 
->=20
-> So what brings it all together: the power supply requirments,
-> so both backlight and sound depend on 2.
->=20
-> Maybe it is an idea to split this into a set of
->=20
-> One patchset for
-> 7a. machine quirk conditionally depending on available compatible
-> 2.
-> 1.
-> 3.
-> Each can go into their individual trees.
-> 3. might to in the next release cycle after 7a, 2. 1.
->=20
-> A second patchset sent after 3 is in -next, containg
-> 4.
-> 5.
-> 6.
+In the 2019 thread Linus proposed the same for __probe_kernel_read():
+no uaccess_begin(), SMAP refuses a user address, extable returns -EFAULT.
+https://lore.kernel.org/all/CAHk-=whNf_n1WXWW+ugAVeL5ZK0GcEP3cTYocju1nS85VtMjjQ@mail.gmail.com/
 
->=20
-> A third:
-> 7b: remove quirk + pandora_bl
+> Can you at least explain how a non-range-checked pointer read of a non-verifiable pointer doesn't have a problem with, say, MMIO?
 
-Yes, this is a good approach. I am currently checking if the =
-series-scheme
-can be simplified even more to help everybody.
+The range check doesn't know about MMIO. It refuses user addresses, the
+guard page, and VSYSCALL_ADDR and above.
+ioremap() space is in the vmalloc range, so it passes the check today.
+It passes copy_from_kernel_nofault_allowed() too.
+"compare" and "CPU" refuse the address, "load" reads it:
 
-BR and thanks,
-Nikolaus=
+                              user address,  kernel address
+                              RAM or a BAR   RAM     ioremap()
+  --------------------------  -------------  ------  ---------
+  copy_from_kernel_nofault()  compare        load    load
+  PROBE_MEM today             compare        load    load
+  PROBE_MEM, patch 2, SMAP    CPU            load    load
+
+A BAR that is mapped into user space is a user address.
+The device sees no read in all three rows.
+
+> Does anyone have a compelling argument as to why the vsyscall page is any different from a PCIe (virtual or otherwise) BAR other than the fact that the x86 arch code will OOPS you when you accidentally read the vsyscall page but you will just possibly deadlock or otherwise screw up more subtlely when hitting a different inappropriate page?
+
+It's not different. The oops is the only reason for that check.
+syzbot hit the oops through bpf_probe_read_kernel(). Then 32019c659ecf
+added the vsyscall page to copy_from_kernel_nofault_allowed() and
+b599d7d26d6a added it to the JIT.
+
+> If not, then I think this series primarily serves to make x86 complicit in papering over a problem with eBPF: right now eBPF has a heuristic that is wrong, but with the patch set applied, eBPF can make the heuristic even more wrong and x86 will paper over the cases that it happens to be able to detect.
+
+The range check is not a heuristic for "safe to read". It's the user
+address part of get_kernel_nofault(), inlined. You asked for that in 2021.
+Its job is to keep user addresses away from the load. SMAP does the same
+job. With patch 2 PROBE_MEM reads the same addresses as
+copy_from_kernel_nofault().
+
+In both threads you wanted probe_kernel_read() / get_kernel_nofault() to
+tell MMIO from RAM. arch/x86/mm/maccess.c has no such check.
+bpf_probe_read_kernel(), kprobe event args and kdb pass any address to it.
+So MMIO is a problem of every nofault reader, not of bpf and not of this
+series.
