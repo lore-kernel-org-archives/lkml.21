@@ -1,74 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795635789;
-	b=nu3LWheMd/PSSb1wOKC2MG0PCJi8ZRbFAGLQvNH02xGp2wD1Mb7wXoNyTH8xEzYVtOi+
-	 84ZQGIckw0hW40uzd98xW1WT2JLCfx0gR+O4/7s6s6nURM8eNWv7dM09HP/k25ImaaOQ7
-	 1c/9EgLo+m1vK8J7JFbwR5YiN+flThUmYpFYMVdKeNtzLOHd/0w8XENDusZ0SQ3M+YMFy
-	 4ZjMTfGOnWIq/r8lq1UGId5J04/s3FTTHY3yJmlmZJLFsuO6HYEGg9KU7vjFngmKmZMMC
-	 gzY6/DIJjIQyQXJqe7pl/xbZ+faBZeDsjoqZOmGNOppwDwITtzoKSKedyBtZNW1iEJQ==
+	t=1795635842;
+	b=NNNuh6hGfywj4+qAukaJ91C+zcfy5DQWNpaeeycYkkJjaYn3Hm8t9GDRJkLMs9ZniN4G
+	 uvqcVJhV7i/Gyovp4fO7z4KoLiWdFrC2LOyha4hQg4Ksd0V2SZnMSK8wjbsxm6D7dgSUX
+	 sEkaRKx5TF2O6pez24s3KXZTQzapCLI0aRqyjkcXy/mQSuBDdSsAzDdR6EeS5AN8OOvxt
+	 GTh2M9XnZMQjq/CgGk63fx8+9vN3EI+edT9qiHU4cjP7wJwBq/+EMHN5TJ8o799pPx+0y
+	 lezqCYwGV3Z5jtg3kxDvw5sPyGKs8shkHWezynilsFssQzoAC3VDMY+4eJEqny7mnpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795635789;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=MLc4/6k9Z6sxMwo5Ugfr+gMYCrDQyFv5j935bfc4lHg=;
-	b=0+j9OmUKBgDnpXmxqqXR7VXlVd57wa/S3/JDFylYumfqlkk0nP9+/CU3FKJCelvhpegm
-	 qQG+bcoaqaGvIeJdMRPqkKAfHyctjGxvZcq2q1Nzo2McCK3ZlYjtegKF1oxqqpXLLt/dD
-	 vbhOUQHcuNrQ3/qX6yO8tQCrL506hb1VjIxxx5bfFq+dBWt05DswG9TD7xj6ckXYwvpJR
-	 B8XoKXirqzwuLYdRihrebYDwjMdfdFoV8LK0q5rC/sxaDPRzYD5oyGGzamaDtFjJmJdNg
-	 0E4P0tN0zOkNLxc1Tz7nJivYnOYfSJwCJjVvxSCbKQHtpgakxwDn/8yx01WfXRErXxw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795635842;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=vRPmU+/hfY//G5IeGfjJPt/W101rY542B/faEGkldBk=;
+	b=X3NZJAEfB0vGV3nbvuCOcl+cswXlW8qTAnOCHJA4xgvE0sG4g7v5M0IAqMIMaQcF/m+s
+	 DVQYt95uoxY/fWwWoD60E3Wczxer08Xq9Pdf82uLXij7FDdn1P7R3CrG9MGaQJ0oIe1vf
+	 LZeo0jCtEoDa+9RDFoHLQ6wPSvP3zr6ZEp61J8FqcDYlgC6eRDJb2gJwfKjyPxpBCJ59p
+	 zkAyv2wtTxeFhdNmCVwYFtHmhBFWRrXA0eU27yZxQlvexRF+yNhH9QO4KCDa7ddUlYVsq
+	 SgWJFeRhpeyvR9ILwANNNo0C8c0p7+OXI0/B4lnvmUzVdiOWicKtDPkb8kPa7cJaqUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IlB4xbnc;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XG0UVB9C;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6667606A321;
-	Wed, 25 Nov 2026 19:43:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F5FC606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:44:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IlB4xbnc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07B731F000C0;
-	Wed, 25 Nov 2026 19:43:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XG0UVB9C
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 522DD1F000C0
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795635789;
-	bh=MLc4/6k9Z6sxMwo5Ugfr+gMYCrDQyFv5j935bfc4lHg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=IlB4xbncT7TdKfveO1rm1FT2gCv4IrTSQ05brtd2009HIOI86yf1t3YO9xQcOpuqm
-	 plQ3clS+mv14LdeWvVQeB80S43PeuiptlMEkhkm7cvp4Zc0wqB9563ctgrQ+Fi2TMq
-	 sLGpJdYdnBreL+XLlfv1CXxOCcvZ1CNSI24CocAOUeNwUwRrfpnACcwrDRfjpuPgpH
-	 s7/V3e5TEknLqvfFLiOoFQ+VvEaIl4LLR0jAZ92VEtv7Zo2MQs03phRdNTCbhi+zQl
-	 WQGXej1P1//AE8xrQwLbF466qrnPQPcZCp8bOtqmfAvdFovymXQuqLh8M2zCmK3wX9
-	 N6hMNK3MH/JTw==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: magnus.karlsson@intel.com, maciej.fijalkowski@intel.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, andrew+netdev@lunn.ch, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
- ilias.apalodimas@linaro.org, alexanderduyck@fb.com, saeedm@nvidia.com,
- tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
- michael.chan@broadcom.com, pavan.chebbi@broadcom.com, corbet@lwn.net,
- shuah@kernel.org, bpf@vger.kernel.org, netdev@vger.kernel.org,
- stuclar@meta.com, sdf@fomichev.me, horms@kernel.org, martin.lau@linux.dev,
- almasrymina@google.com, song@kernel.org, yonghong.song@linux.dev,
- jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
- rdunlap@infradead.org, kernel-team@meta.com,
- dimitri.daskalakis1@gmail.com, bobbyeshleman@meta.com,
- mohsin.bashr@gmail.com, kees@kernel.org, leitao@debian.org,
- maxime.chevallier@bootlin.com, cuitao@kylinos.cn,
- vadim.fedorenko@linux.dev, mike.marciniszyn@gmail.com, kuniyu@google.com,
- jiayuan.chen@linux.dev, mkarsten@uwaterloo.ca, razor@blackwall.org,
- dw@davidwei.uk, asml.silence@gmail.com, linux-rdma@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 03/15] net: Add memory providers that only feed
- XDP
-In-Reply-To: <179561568417.3135.7506567631056689365@kernel.org>
-References: <20261124125654.183091-3-bjorn@kernel.org>
- <179561568417.3135.7506567631056689365@kernel.org>
-Date: Wed, 25 Nov 2026 20:43:05 +0100
-Message-ID: <87h5h4ofxy.fsf@all.your.base.are.belong.to.us>
+	s=k20260515; t=1795635842;
+	bh=vRPmU+/hfY//G5IeGfjJPt/W101rY542B/faEGkldBk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=XG0UVB9C3q74ZOqMzsPtnfYbZeusKzlFSNTjyukGWuKYwFHmJM6Zr4nJedo9bvqNn
+	 9f2/0uEVQVNq+2M7Vck5NZmyxcQS1Jj3NfOpr/cxTvZBue+ZvJGXF54VL9x9TdrB55
+	 8v+AM0enAkb6XmZUKN0C4qrmxgaE55a+wONSBsnc1QGiZsgGcVhCM74Cag0rmyJxLn
+	 Sr0TCvqG4mxy8c2O8os6smow05ERmmEs2BJGp97ccKXg4A6f7UiF7oMe6x8pWyZ2Yq
+	 OODJlkur0+ojdxQEh4WKX+SA7DC8Wzvh2XptyK9PzICTiODt+0lFNX0WFNkegy9eV7
+	 5n/2sKUeiv7Cg==
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c516a192844so599405866b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:44:02 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErF1Lw2OSvwTqQBAAdCEuoj/e4BvtB6upe2V6Pr72WLHW972r13vDlRlydORsHAydvad7itls9C2HO/Ujjs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+/OuejvgfZJKIYCJEHcX788kSvDwO4P0n0zmONFFQjUw4OyEln
+	vl00GGSCVCTgCIiIulXhwaDqeiW6zcQWQ4Fhpi2Y+XApIZsb6/bOSYDeb1lTRYiYAp69eFaBOMx
+	HPFMgoBosTCnSB+92YEAYjf73/wHI8xQ=
+X-Received: by 2002:a17:907:da0c:b0:c50:5545:b66f with SMTP id
+ a640c23a62f3a-c513a803353mr1445531166b.23.1795635841280; Wed, 25 Nov 2026
+ 11:44:01 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,115 +59,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+References: <20261118233719.2101265-1-jmattson@google.com>
+In-Reply-To: <20261118233719.2101265-1-jmattson@google.com>
+From: Yosry Ahmed <yosry@kernel.org>
+Date: Wed, 25 Nov 2026 11:43:50 -0800
+X-Gmail-Original-Message-ID: <CAO9r8zNV3w7bQuPw59Y7Os4Z-1K3Ba6QWwp2TvJdY-fNhBiWUg@mail.gmail.com>
+X-Gm-Features: Aa3M54pBdwALV85djUZxebzdMfDvcMR5Hg4ZKY8Tzpg3YhE9I1Axp16L5ZNrY6U
+Message-ID: <CAO9r8zNV3w7bQuPw59Y7Os4Z-1K3Ba6QWwp2TvJdY-fNhBiWUg@mail.gmail.com>
+Subject: Re: [PATCH] KVM: SVM: Set V_IGN_TPR when enabling a dummy V_IRQ for
+ an IRQ window
+To: Jim Mattson <jmattson@google.com>
+Cc: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-netdev-bot+sashiko@kernel.org writes:
+On Wed, Nov 18, 2026 at 3:37=E2=80=AFPM Jim Mattson <jmattson@google.com> w=
+rote:
+>
+> Per the APM, the processor takes a virtual INTR interrupt only if
+> V_INTR_PRIO is *strictly* greater than V_TPR, unless V_IGN_TPR is set to
+> bypass the priority comparison.
+>
+> In svm_set_vintr(), KVM injects a dummy V_IRQ with V_INTR_PRIO=3D0xf to
+> trigger #VMEXIT(VINTR) as soon as an interrupt window opens, but it does
+> not set V_IGN_TPR.  If V_TPR is 0xf when the window opens--e.g. when
+> CR8=3D0xf (in L1, or in L2 with V_INTR_MASKING=3D0) while a TPR-independe=
+nt
+> ExtINT or userspace IRQ-window request is pending, or in L2 with
+> V_INTR_MASKING=3D1, INTERCEPT_INTR=3D0, and vmcb12.int_ctl.V_TPR=3D0xf--t=
+he
+> priority comparison (0xf > 0xf) fails, and hardware masks the dummy
+> V_IRQ indefinitely (also stranding any VM-wide AVIC IRQ-window inhibit).
+>
+> Set V_IRQ_INJECTION_BITS_MASK (which includes V_IRQ_MASK,
+> V_INTR_PRIO_MASK, and V_IGN_TPR_MASK) in svm_set_vintr().  Note that
+> svm_clear_vintr() already clears and restores V_IRQ_INJECTION_BITS_MASK.
+>
+> Fixes: 649d68643ebf ("KVM: SVM: sync TPR value to V_TPR field in the VMCB=
+")
+> Signed-off-by: Jim Mattson <jmattson@google.com>
 
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
->
-> - [Medium] This patch adds MP_XDP_ONLY providers, which by design sit
->   next to native XDP and AF_XDP.
->
-> --
->
-> net: Add memory providers that only feed XDP
->
-> This patch lets a memory provider mark itself XDP-only with MP_XDP_ONLY.
-> Such a provider needs no header split and does not block native XDP. A pa=
-ge
-> pool takes it only when the driver sets PP_FLAG_ALLOW_XDP_ONLY_NETMEM. The
-> XDP install, XDP propagate and ethtool rings checks move from
-> dev_get_min_mp_channel_count() to the new dev_mp_blocks_xdp().
->
->> diff --git a/net/core/dev.c b/net/core/dev.c
->> index 4ca8a9f5a7a5c..8a1d5a284e53c 100644
->> --- a/net/core/dev.c
->> +++ b/net/core/dev.c
->
-> [ ... ]
->
->> @@ -11146,6 +11146,23 @@ int dev_change_xdp_fd(struct net_device *dev, s=
-truct netlink_ext_ack *extack,
->>  	return err;
->>  }
->>=20=20
->> +/* Native XDP runs next to XDP-only providers only, see %MP_XDP_ONLY */
->> +bool dev_mp_blocks_xdp(const struct net_device *dev)
->> +{
->> +	const struct memory_provider_ops *ops;
->> +	unsigned int i;
->> +
->> +	netdev_assert_locked_ops_compat(dev);
->> +
->> +	for (i =3D 0; i < dev->real_num_rx_queues; i++) {
->> +		ops =3D dev->_rx[i].mp_params.mp_ops;
->> +		if (ops && !(ops->flags & MP_XDP_ONLY))
->> +			return true;
->> +	}
->> +
->> +	return false;
->> +}
->> +
->
-> [Severity: Medium]
-> Should the AF_XDP zero-copy setup paths use this helper too?
->
-> Two callers still use dev_get_min_mp_channel_count(). It counts every
-> provider by mp_priv, including XDP-only ones:
->
-> net/xdp/xsk_buff_pool.c:xp_assign_dev() {
->     ...
-> 	if (dev_get_min_mp_channel_count(netdev)) {
-> 		err =3D -EBUSY;
-> 		goto err_unreg_pool;
-> 	}
->     ...
-> err_unreg_pool:
-> 	if (!force_zc)
-> 		err =3D 0; /* fallback to copy mode */
->     ...
-> }
->
-> drivers/net/netkit.c:netkit_xsk() {
->     ...
-> 	if (!create || !dev_get_min_mp_channel_count(phys))
-> 		ret =3D phys->netdev_ops->ndo_bpf(phys, &xdp_lower);
->     ...
-> }
->
-> Later in the series, xsk_sink_bind() installs an MP_XDP_ONLY provider
-> (xsk_sink_ops) on q0. After that, a classic AF_XDP socket that binds q1 on
-> the same device would see this:
->
->   bind with XDP_ZEROCOPY fails with -EBUSY
->   bind without a mode flag falls back to copy mode and does not report it
->   XSK pool creation through a netkit leased queue returns -EBUSY
->
-> The result also seems to depend on bind order. Suppose the classic
-> zero-copy socket binds q1 first. The sink can then still be installed on
-> q0, because __netif_mp_open_rxq() only checks the pool of its own queue:
->
-> net/core/netdev_rx_queue.c:__netif_mp_open_rxq() {
->     ...
-> 	if (rxq->pool && !xdp_only) {
->     ...
-> }
->
-> So the same end state (sink on q0, zero copy on q1) is accepted in one
-> order and refused in the other. Is that intended?
-
-No, that's not intended. The device-wide check in
-xp_assign_dev()/netkit_xsk() predates this work, and a sink on another
-queue does not stop native XDP. I'll switch both to dev_mp_blocks_xdp()
-in the next version, so the bind order no longer mattters.
-
+Reviewed-by: Yosry Ahmed <yosry@kernel.org>
