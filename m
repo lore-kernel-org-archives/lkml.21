@@ -1,88 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795643197;
-	b=sW/cuqniFIhqlNplW0ZTtdwNiG0fsjeew7Gg3Jlm0LACMnZCbq5FsUPGwgNYsPNaVTMS
-	 hq+21AQJphI1NM7W37PgweIjSh8pGFifqP0yK4pVy5r/TBw3EgnNY8Q3/LKjaBr0qae9h
-	 LE10u6IbNbwjdb+SlHgHWon3dB3KVBSl3f64hxpLEYB54Fviy4mP7TX/E9Psxs4M4NKW0
-	 g+B6pfXVaQA+CTU5bov82O842GmJ3CHkps6oZjrh4GERd3N9qzZP/oIZDK2vEk+ViFoAl
-	 EHPJZ4Xhw4c4W8FYVcJasd5SBgQfE7x9NMkOHVKys0+1jhBjv3nUIm8fmE+VWXQh9LA==
+	t=1795643254;
+	b=2FMUMjtbBW+as9YmDPuAU3dWxUED35KuKa0dMl4GG9u5I18h2EW0kOTTCP6LHYfdL2Bg
+	 Vv5J8Gj5nNrADlyW1FsQhB60ufRtn6rC8H6VOV7RIbwj9p4LsW2oMMNw+AJS06LeYDmrm
+	 cIODCIaO8H725YQf4S8v3mxzMRmFSvUauCUj71NtEmYfU96EpjlrhwssN+a5fM/R8A7iT
+	 IgnXTGGXG5hjWkzvoJJB2cIKvgcmiHirAeuiyy2WYd1NCv7Ec6pkQGSYxO8uA3WJvLc9q
+	 Fgj5wEWw0uKFqhFErkfV/NmLqk34fbVlREPwX+RBtbTmh+aChKaU2ODlJnW5nfgbQFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795643197;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795643254;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
 	 Content-Language:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=ECZfLCqovArdDXRBWaYMU5CLXc1REyLj6z5OT4Fz8Bo=;
-	b=uxd2RAslzNkqfRjFoZL6Om/JDGb2HdSOutiu+cNSLF4RCyF6wJ9wQAPZawxeaVQoSDMN
-	 0Ybm16r9MyCMNcHOQ+GjKgwHLcEycwfENv1pzHbAc6EDsoMQHi2d5agjJjlKEzakDUl8K
-	 /DdK86jLKeCkPiOKs7J2gXiiON4WfvgjXkWEhOtpM8bCbhkc55oOFATbgoE8r14f3yhMx
-	 gAA/J5HJ52bgUqtYLlVFzt8hmpO8x0ULOomzpr61yHs/ogvwhh1vuuO6XdIDfL4Tw0K9o
-	 At84Qv9Xc+29edCWBJzThcdBtaCXBXK1W4SsuEe720Q0Jc/HD2lT1fUNG3opXv5Ka0g==
+	bh=qYtfSV7pXPeTfIc4mFEoIenAEwjJso8HErV9eJ0iS/Q=;
+	b=DPIKcgM746EsvlA2wOKBEhLR6hn4C9nK5/MpoelNRa+hbc0y91lTiPTSYvDj5QV3YoEu
+	 av8RnLbsLXp1PKIrL8R4OGDhpgBllUxk2c9QtiqfvPCFXA29DBq4xtACL20Uy39X9KP7O
+	 RkF2gTOFGyLrUSRgboe6NJhgcW2+Bt0u4jhWXZmPiAc0rg/J4NicnaUEoiWJlje9jVQUD
+	 CH0B8quj/vFpOPZOew2kXlQ8wp2L7RrF7nYOOd8ZrrioLpmWu88qBP8UfvWssTu3KLErD
+	 RtTkp89lvM8QqakndVfp5resY6/L+PU+pUetRZuOFPR/hO3jnXLtB7U/IvTnrQc0yjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q6DDfZ3C;
-	arc=none smtp.remote-ip=209.85.167.49
-Received: from mail-lf1-f49.google.com (mail-lf1-f49.google.com [209.85.167.49])
+	dmarc=pass header.from=kernel.dk;
+	spf=pass smtp.mailfrom=kernel.dk;
+	dkim=pass header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=QhSgR6jf;
+	arc=none smtp.remote-ip=74.125.82.170
+Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC78D606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:46:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC78D606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 560FD606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:47:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 560FD606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kernel.dk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernel.dk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q6DDfZ3C
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5c15ccd7fb5so3905913e87.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:46:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=QhSgR6jf
+Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-38699cf08dfso7608081eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:47:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795643195; x=1796247995; darn=vger.kernel.org;
+        d=kernel.dk; s=google; t=1795643252; x=1796248052; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ECZfLCqovArdDXRBWaYMU5CLXc1REyLj6z5OT4Fz8Bo=;
-        b=Q6DDfZ3CCebl4e9HvBobZzkLW/P8sKHU0HU2C9ODPcInP3WzlLsfZiDv0nQcnmYBbQ
-         xGmgYPdGNZlf5Izomd71XWWUHcCtOjZ0kL0u5lTw4AyLwBRkZm1eaEBFLm9/aZ8EvFJH
-         T85M2uadjTRj+zwqY0M/MZAeZ+r/qR0zt4mKQt3pZeG9X9FbYrSNUhIESPh5PNr1cDEL
-         yOLEhumkriehOb2kpvtlMALMbEEIHBwsEyjhjPdIBYpN6Dc32cSe+3hpeu7QHU+hgDtW
-         SdfOKmzpj0LsGzC1MB0ODQJLMNn4Q5gNrI1U1DmdOpDXlvYCmFF/7naKQQR/ZrJAwC7K
-         a6lg==
+        bh=qYtfSV7pXPeTfIc4mFEoIenAEwjJso8HErV9eJ0iS/Q=;
+        b=QhSgR6jfKHc4KQuRrW28/UnwFauHpcwusBDSzItvH11mJAYX4ilqK4kQPo+RGc9P+b
+         l7TQW9X/6+DH/ct2BvVRqHhNI2pprR63/itI1TTWOhIIy6TotVfu8p2lhIbMj3sBZKj7
+         pwvgBfaST27s7N1+aFKIOI2ichwtiGqkAFOjaBMOG+qACgbMDTvc2zj0k+RQ1+Sc7jyj
+         ZTSgpq7HTWLZqO80lFZq1uobzVzGYUScIwuS8KIqxy4lLTCMHsns02qz2o+c0LElwZF9
+         vmuiXwHNSWK9y74b18KXGcCZOFqNq/Zuil/IuBnMrQhP5SM2HJ6Cw9lBKA3YEiA3v2do
+         zfwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795643195; x=1796247995;
+        d=1e100.net; s=20260707; t=1795643252; x=1796248052;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ECZfLCqovArdDXRBWaYMU5CLXc1REyLj6z5OT4Fz8Bo=;
-        b=yYvfUVjIqQYRzxSsDV6mRfla5PfsAmSDMIdonFwAMfEx++N7Ere2hywYNgTmFnJxca
-         atx/I/6ELFGJcTBdqrz03V9ujJqvYgwwnHIXl1B/fekPdOEftXbDPnpPmsvtZb+XMDrn
-         dcJ9vW0XxD5DndsK5FlZMGH4A0XITpLNm8mlGJ7sI+obo454nuWbk5PrcfLtEiyHTlML
-         brKVJdU6ylbCM0dyf07C7kJaB2Pp3Q8p/VIq+pI93UXeFeC/3tvny0n/3zd3Uwnr1yfG
-         KfdzWpMLByfBjO0UB65zgieUwqtEs40P8fI/BA0FmNINO0Bz+YnwaA4O6byXgmwRBHER
-         KZGQ==
-X-Forwarded-Encrypted: i=1; AL+hErFc6cFkqpV8ZOvmcsOHSW3mppS9Kg4mpHpeymcLgSlNT68N9CSZPejM6J1Z6LOdTsiNPPLSvyb5tP3JjHM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9FciIDhO9+1H9OsY4FNwpYQkXiu7WrhWhvYz6gEGUnHmvori/A
-	BnJsP0QtkAiHwp8JwuC6pyVe6mc5OsE6Tyj3MtMMSFVkeiFzivCZvaI0
-X-Gm-Gg: AZFdTZdAku8fpKan4JoXo7v6ahHrCWXko1WEgpOyo4nqmGUOxYm4Fw3I+qUp7leEfvP
-	/ZbPTDrbo+T57RM2ivU6tdxb9HpLI+udUkXfrwDw4LzmrZQSwCQI5gozb4sk/z2YSLfFthDryDF
-	FFoKeZQjniRVAwc/xuRBICVIBJwW+Ss+IDTEtJpdzrlIX0tHK1kkU37wvwszHmGbO0evrqM5SM6
-	vP/F4FGuxo4vK1V3kA508u5zQGNe/4FO+rBW5R7l4aQutEPZ2z6AIPQcILUFPdff70Qur5wReU1
-	fXptw++ituoYEAZnG+2zi9nrNWeRLYRyKyyLM91kk9WlQfjeQJZ+37m+gzOp3n36/ANuRRou7Hu
-	fsoLUn47bdth+SnN24IQc7A4NLjaMEJBFi1odkaUpdAmRzN+6u4qI2CY1QGF8hYqYmsxX13I3/n
-	EFYuDWK7GEF0rHFZyx5cGQJYHmKd4GkmjYnpLeyunlKIbEsNxnROXQnOZ5OgkLx6Qt4PlZFQyHI
-	E028Pw3Wz4gJoCk0wYlMLfxFWs/Vk3XeUCia1gPE0o8ZEgAbuclYxtQ8ypGrXckDqPG7MxFUy+x
-	KBxrgooI1Pvpr9/i9lnZTepZwcnCKg763X71suUaacem3MBL4iM+G/TOJiP2aA==
-X-Received: by 2002:a05:6512:3b08:b0:5c1:b29a:1ba3 with SMTP id 2adb3069b0e04-5c1bc7d5ce5mr7798199e87.29.1795643194950;
-        Wed, 25 Nov 2026 13:46:34 -0800 (PST)
-Received: from [192.168.0.103] ([46.8.6.187])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd04327bsm4896168e87.51.2026.11.25.13.46.33
+        bh=qYtfSV7pXPeTfIc4mFEoIenAEwjJso8HErV9eJ0iS/Q=;
+        b=GQr+yHRR1qh2SeCx50+Nyvn/iPYVKypbB3OTbssEuDhl31lKIMfXE4wvBHk4P2BcxH
+         2oEwZoWpPHuYbbneTurytq6HJKzbzJ1jQNWZ8tqeERG7IAeAuI1n1FGlZt29t+dEoPU0
+         PlTnA9gAwdM4hhpbPlJXYuRVhaYGGsWdr14DqRBLE0FQh6IxthdHCx9hZObSIBGxmDcz
+         4YJ6Q3/ZrOVzBFR9AzFPmuaf6BquaMosidJZqZj0bvwZSucteU61+stHFlm+bPVx5c30
+         8tePtMrDZOT6I8Lc6x3FCZmvOA6sjlCZZuWAwle/oqxeATM0BCm070M9MRYJqC17YN8o
+         dkMQ==
+X-Forwarded-Encrypted: i=1; AL+hErHOSyZS3MkL+8DefFETZyiUyYg4SPQPRJscgO1sCl9WrUuttChXT+R67xFeHo9lxHXYn8Ag6eRwtil6KCM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8FM+PLt2KDXNVu3+rG/LNJmQhkesgQ3W0ii/PkllfF+U9bBSMQ
+	vBHu+r1C0kwv1YTCRpx9KbYi8vgwG5L8uZFSpkjTDJIoxAXqG59L/iRjR44pRRvuBXY=
+X-Gm-Gg: AZFdTZdogiFmO0rRzzuczGJZzZU7xeMbbmpZQUYo9/E9HcnIE2VAkSO43k/5OXzbs24
+	8InXUIVEh3zz2XPeSPrjDEpVtJmeYkS1YdkVqYGNte0RSrXrytWWa8Rfj+Xg80f3Ljq9jEXD5GD
+	YMU5R+lk/9sWflNWi3iCtG6TCj+FjFSZex8qDAcoNLUk7mYeq6uiCi8U8VR+XtpiOWBC9kD8zbf
+	8+Bt+RGR1dem0OcGFPI3JutRwlU+bv6YyXg+dMg5MhoJOGTq4zW91Ospx8ZfAUd67T4r6TNkFfo
+	GsKa4s/KQL+jpMxJ9Ygp5q6VkQvuy40cUnB41QZNoMeH2zseh0uwGmF7E46/KZwJTgpt5Qd2R8k
+	WvTkAhE1I4VXPyZeV5PB0l5QD6YqleOfNM4Anu+XyW+U0mjpgyix7sxnF6weuDrVsj/4SU1a8Kl
+	AzAeDtVE7JFTL/M1l6cS4yCwIoONS/kD+HUEYiL+1atmq4P+w1Cbo+dLp2c9hEQ5y2hHlIRw35/
+	sBTbECv9OvwNKdBf/OEE4DIuUYC2noOAVZSMDHl5M7UO0ejPvtXRQMmhUixQXHgNU6KBquVhkGe
+	sxQUY2mYM0B96Sk3z+c1fDRNClsgZk0Vh45cwvkAze1Tlq5tMDAxZ46rGnU/36UXVp3iEN9hB8A
+	mwFQ0U8wNhG8BRX3ULJtshJGVKbwR4euZlXFmuDTly10JmL7D
+X-Received: by 2002:a05:7300:c001:20b0:386:d2a2:135b with SMTP id 5a478bee46e88-386d2a213e1mr2605327eec.39.1795643252198;
+        Wed, 25 Nov 2026 13:47:32 -0800 (PST)
+Received: from [192.168.1.142] ([198.8.77.135])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm100644292eec.3.2026.11.25.13.47.31
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 13:46:34 -0800 (PST)
-Message-ID: <edfb1d04-0d55-47ed-b1cb-dcd8c5df75ce@gmail.com>
-Date: Thu, 26 Nov 2026 00:46:33 +0300
+        Wed, 25 Nov 2026 13:47:31 -0800 (PST)
+Message-ID: <86fea5ad-43d5-46d6-b2e5-f93b8a6afb8f@kernel.dk>
+Date: Wed, 25 Nov 2026 14:47:30 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,56 +94,132 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] percpu_ref: make percpu_ref_switch_lock per percpu_ref
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-mm@kvack.org, dennis@kernel.org, tj@kernel.org, cl@gentwo.org,
- zhengqi.arch@bytedance.com, linux-kernel@vger.kernel.org
-References: <01612865-faa0-4fe5-8184-a177f104843f@gmail.com>
- <6c943754-05b5-4017-9145-0d145766909a@gmail.com>
- <20261125113537.bdb168bfe8962ef1aefc097b@linux-foundation.org>
+Subject: Re: [PATCH] io_uring/openclose: allow an empty path with O_EMPTYPATH
+To: Jori Koolstra <jkoolstra@xs4all.nl>, Hengyu Liang <hengyul@cs.unc.edu>
+Cc: Christian Brauner <brauner@kernel.org>, Aleksa Sarai <cyphar@cyphar.com>,
+ io-uring@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261125180817.3682397-1-hengyul@cs.unc.edu>
+ <170898867.2781789.1795642036410@kpc.webmail.kpnmail.nl>
 Content-Language: en-US
-From: Egor Shalashnov <shalasheg@gmail.com>
-In-Reply-To: <20261125113537.bdb168bfe8962ef1aefc097b@linux-foundation.org>
+From: Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <170898867.2781789.1795642036410@kpc.webmail.kpnmail.nl>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-
-
-On 25/11/2026 22:35, Andrew Morton wrote:
-> Well, an unpublished module isn't very useful for us.
+On 11/25/26 2:27 PM, Jori Koolstra wrote:
 > 
-> And an intense microbenchmark isn't as interesting as a real-world
-> workload.  So can you please provide more details about what "our
-> workload" is doing and some measurements on how much this patch
-> improves that workload?
+>> Op 25-11-2026 19:08 CET schreef Hengyu Liang <hengyul@cs.unc.edu>:
+>>
+>>  
+>> Commit 31cf44efa6df ("vfs: add O_EMPTYPATH to openat(2)/openat2(2)")
+>> made build_open_flags() accept O_EMPTYPATH and turn it into
+>> LOOKUP_EMPTY, so that openat(fd, "", O_EMPTYPATH) reopens the file
+>> behind fd.
+>>
+>> However, io_uring also uses build_open_flags(), but __io_openat_prep()
+>> still copies the name with delayed_getname(), which rejects an empty
+>> name with -ENOENT. As of now, IORING_OP_OPENAT and IORING_OP_OPENAT2
+>> accept O_EMPTYPATH, but fail on the empty path this flag is meant for.
+>>
+> 
+> I think you should leave the reproducer from the commit message.
+> 
+>> The issue can be reproduced with this program:
+>>
+>>     #define _GNU_SOURCE
+>>     #include <fcntl.h>
+>>     #include <liburing.h>
+>>     #include <stdio.h>
+>>
+>>     #ifndef O_EMPTYPATH
+>>     #define O_EMPTYPATH (1 << 26)
+>>     #endif
+>>
+>>     int main(void)
+>>     {
+>>             struct io_uring ring;
+>>             struct io_uring_sqe *sqe;
+>>             struct io_uring_cqe *cqe;
+>>             int fd = open("/etc/passwd", O_PATH);
+>>
+>>             printf("openat: %d\n", openat(fd, "", O_RDONLY | O_EMPTYPATH));
+>>
+>>             io_uring_queue_init(1, &ring, 0);
+>>             sqe = io_uring_get_sqe(&ring);
+>>             io_uring_prep_openat(sqe, fd, "", O_RDONLY | O_EMPTYPATH, 0);
+>>             io_uring_submit_and_wait(&ring, 1);
+>>             io_uring_peek_cqe(&ring, &cqe);
+>>             printf("IORING_OP_OPENAT: %d\n", cqe->res);
+>>             return 0;
+>>     }
+>>
+>> Before that commit (v7.1), both calls fail: it prints "openat: -1" and
+>> "IORING_OP_OPENAT: -2". After that commit (v7.2), the result is:
+>>
+>>     openat: 4
+>>     IORING_OP_OPENAT: -2
+>>
+>> This patch will copy the name with delayed_getname_uflags() and
+>> AT_EMPTY_PATH when O_EMPTYPATH is set, as io_uring's statx already does
+>> for AT_EMPTY_PATH.
+> 
+> It ain't a sin, but try to avoid "this patch" references.
+> 
+>>
+>> Fixes: 31cf44efa6df ("vfs: add O_EMPTYPATH to openat(2)/openat2(2)")
+>> Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
+>> ---
+>> I found this while comparing the behavior of different kernel versions.
+>> I used an LLM to analyze the problem and to draft the patch and this
+>> message, and I analyzed the result myself.
+>>
+>> Tested on io_uring-7.4 (0659e44ce739) with KASAN and lockdep. A test
+>> that runs 24 cases through IORING_OP_OPENAT/OPENAT2 and through
+>> openat(2)/openat2(2) now gets the same result from both (32 of 42
+>> results differed before). The cases include O_PATH and regular fds,
+>> AT_FDCWD, forced async opens, RESOLVE_CACHED, a direct descriptor slot,
+>> a bad pointer and an unprivileged reopen of a 0600 file (EACCES). The
+>> liburing open tests and the openat2 selftests pass on both kernels.
+>>
+>>  io_uring/openclose.c | 5 ++++-
+>>  1 file changed, 4 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/io_uring/openclose.c b/io_uring/openclose.c
+>> index 24cf3ce2e2bc..29fe31f16a2b 100644
+>> --- a/io_uring/openclose.c
+>> +++ b/io_uring/openclose.c
+>> @@ -54,6 +54,7 @@ static int __io_openat_prep(struct io_kiocb *req, const struct io_uring_sqe *sqe
+>>  {
+>>  	struct io_open *open = io_kiocb_to_cmd(req, struct io_open);
+>>  	const char __user *fname;
+>> +	int uflags = 0;
+>>  	int ret;
+>>  
+>>  	if (unlikely(sqe->buf_index))
+>> @@ -67,7 +68,9 @@ static int __io_openat_prep(struct io_kiocb *req, const struct io_uring_sqe *sqe
+>>  
+>>  	open->dfd = READ_ONCE(sqe->fd);
+>>  	fname = u64_to_user_ptr(READ_ONCE(sqe->addr));
+>> -	ret = delayed_getname(&open->filename, fname);
+>> +	if (open->how.flags & O_EMPTYPATH)
+>> +		uflags = AT_EMPTY_PATH;
+>> +	ret = delayed_getname_uflags(&open->filename, fname, uflags);
+>>  	if (unlikely(ret))
+>>  		return ret;
+>>  	req->flags |= REQ_F_NEED_CLEANUP;
+>>
+>> base-commit: 0659e44ce739ecd856164c75a5325b7959a2921d
+>> -- 
+>> 2.53.0
+> 
+> Reviewed-by: Jori Koolstra (CIQ) <jkoolstra@xs4all.nl>
+> 
+> @Jens - You've pulled this already, I don't know if io_uring appreciates reviews
+> after pull. Let me know if not.
 
-The workload is a full-volume discard on an out-of-tree storage
-block device backed by NVMe drives. The test machine has 128 logical CPUs.
+Always appreciate that, the link is in the commit too so it'll be
+discoverable after the fact as well.
 
-The device maintains a percpu_ref for each independently managed
-logical region of a thin volume. Normal I/O holds a reference while accessing 
-that region. To process a discard, we kill the affected references and
-wait for outstanding I/O to drain before removing the mappings.
-After the metadata updates complete, we reinitialize the references
-so the regions can accept I/O again.
-
-A large discard repeats this lifecycle for many regions, with
-different regions processed concurrently on multiple CPUs. Although
-the regions are independent, their kill and reinit operations
-contend on the global percpu_ref_switch_lock.
-
-We measured the elapsed time of blkdiscard over the entire volume,
-refilling the volume before each run.
-
-Volume    Global lock    Per-reference lock    Speedup
- 1 TB       3.424 s            1.218 s            2.81x
- 8 TB      27.943 s            6.133 s            4.56x
-16 TB      56.021 s            8.591 s            6.52x
-
-> Alternatively, this looks like somewhere where a hashed spinlock will
-> work well.  A static array of 32(?) cacheline_aligned spinlocks, hash
-> the percpu_ref* onto one of those.  That'll get 90% of the benefit
-> without growing percpu_ref.
-
-This might be a better approach. I'll compare it with the global-lock
-and per-reference-lock variants and report the results.
+-- 
+Jens Axboe
