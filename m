@@ -1,66 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795627891;
-	b=ZDzKjAt3Db9wghzdu0V/daSpvUPLH68l7S5Xr4Xa2XQH/+RWxYyg9tXuTczMxNSnyHf5
-	 Aj4dWAZQxprEL1zf+B9usIDWvuqOshP7zXz5Ogw3xTqseM7Xwvmhsh7wVLUd62OeWQvzQ
-	 jc9W9jGXg2eJlY8kUXq+yuJMBoYstLiv5WC+aq31Pu6DTeAvxJDdyT4ZrEgofbu2XggtF
-	 xvpf/q/I8XoIvOPL87G1FoAhLFlYc7MxiiuGikKXwSfKWbKIxhoA8vUg+yUA4n6lyGvoV
-	 NgwRknszooZx0q8/EJxLdL0ar3wE2+ckuv9pJ9hsmUn13nU/yjENiszyn9axDmLxd7w==
+	t=1795627936;
+	b=KAxB8LwuMZPV4FINsGtir4uqDWVVmcBh4AOKl8aP5xGRVcDawebCCrBcvv+UBy9ILMl7
+	 lZTuLovdMnSWDL94ohQ+qMzPeI1vBQJq9N0yPZxk5PT569r0P0gBVRw2r7afPPo0yxdiX
+	 skMwvjw7PYKpb2Vxsa7rw71pz1KBWUVT33CKd/mxQaHk0YUv/rIOpOC+ChOgVaP/LwFRU
+	 1fMVbo3EvUU65GUT4Ti838wPTiu5UQwBbaMvlydTlWgr9+aMcoA14M3070RO1KeYVvIUf
+	 6Y3Ta6x/MNUQOk+lNMaJoK0FJFjBIOfH/0zFrGWJiGxZYXe4f/LXlbRxgF/7NtN3XnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795627891;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=XS3eIHi5UuZWCUtDjSvWRCxA/x+dQV/HyQs2ohE6QW4=;
-	b=kENAUkGV4KIKoEIonqhksSAQF3j+HT5FGkl654U2lJxPD6nEPmPMtuy5awB4WfyoY7oJ
-	 2Mj2ML+0+PHGnVcdgslYQFnTCfus/bfHdQngTLkOa0zJeSLT3TlQoTxmT6qvtKV4xJ/CO
-	 ivkbzxdD9L7qUJDraVww8LLI8OIA3yS3NHVjx4BcHEKhE+3tbmSzep7gN/M6SM8Bnebob
-	 rzm2+6RNarCtDTSEYyNjH9CTmBLt8Tyf8fxOFixxTr8oF5jg43qf8MFV6d3oDUor06Ofg
-	 Qw6coWUy3V+bGhZp4A2N3HI/Xb9JkEOHP3ICuYlKXkoqzPuvtyRyommDZqfB+amg2DQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795627936;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=0HkGUAt0TkownVkXwCMu1x41EkVyymRWNHmR1Em1gck=;
+	b=eK4uK7M8YaCylcmMvGqVhav+0B7TH0wDbGy3DwZGKS7EPBqI8P8FiSSNP/tV6yBFHq6T
+	 qWuoq77qZlkGUMYF6IOw+kexHkJLjrm9ur+Iz4RFZDm4bYD5fAQXl9Lef9cPfPuLW6R+7
+	 CsCKweWN5tyPpATL5ZrCQvF6RkiA157HXD2SLY8T9PAofq5N7o6ECGeYTJj9CRHVqLj5Z
+	 fRy67aTQqRbXQYCqSCOTR/kX0RNdFfs/4sbapLb7/E2b5R5uNVDGCKEK8HUIncHYVBjMX
+	 DJspC7yAuhiDBCFAY7bZ9aEQBEqpgXGo1MUYQFSHiKw2qZS3qHiR+EQqCCPUr5Q6AUA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M6MlHa5J;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=cs.unc.edu;
+	spf=pass smtp.mailfrom=cs.unc.edu;
+	dkim=pass header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b="U165c6/a";
+	arc=none smtp.remote-ip=209.85.128.176
+Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com [209.85.128.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4167A606A32E;
-	Wed, 25 Nov 2026 17:31:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCE2B606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:32:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCE2B606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cs.unc.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cs.unc.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M6MlHa5J
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E3041F000C4;
-	Wed, 25 Nov 2026 17:31:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795627890;
-	bh=XS3eIHi5UuZWCUtDjSvWRCxA/x+dQV/HyQs2ohE6QW4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=M6MlHa5JQNpB+G3v1Ghgo4FVo7W4SDi94YdzFo0n/KoU/WkkQZqm7s6BvMMIoBVgC
-	 7FWpHhTtLRi9PiTHG8bhO4n0/c0KRo4pHaHsGTZ59UkRa0fy4PRje8TSKPoIeKgSko
-	 z0Gl+IwrJPhdNg//9dFj2c9cqhK/Fc0EJWrgLSNZiaOmiUfiFC+s+xOugluccVpMEa
-	 lrJkGqv316FqmHQap+D02K9vUOlOr2LN5j9r/JKMlbWqi27tPEQuv5kDLa8OJpP4SZ
-	 RV7avFFRbhumJ6JNQe0GztH8Fp6MII8BnPyhfwvJY7JiUMqtCWTeLLxQifY9vLW+tt
-	 1e5Y+llcYJ3VQ==
-Date: Wed, 25 Nov 2026 17:31:26 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Ilyas NHASSE <ilyas.nhasse@skf.com>
-Cc: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Marcelo Schmitt <marcelo.schmitt@analog.com>,
-	"linux@analog.com" <linux@analog.com>,
-	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/2] dt-bindings: iio: adc: adi,ad7124: make interrupts
- optional
-Message-ID: <20261125-antihero-tartness-df3e03c9db01@spud>
-References: <20261120-ad7124-no-irq-v1-0-7826c5c3fd25@skf.com>
- <20261120-ad7124-no-irq-v1-1-7826c5c3fd25@skf.com>
- <20261120-deflator-purifier-c746b2f9bba6@spud>
- <BR0PR09MB441440387856BA66983FCBD37A89442@BR0PR09MB441440.eurprd09.prod.outlook.com>
+	dkim=pass (2048-bit key, unprotected) header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=U165c6/a
+Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-8b4d543b6b6so35345947b3.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:32:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cs.unc.edu; s=google; t=1795627935; x=1796232735; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0HkGUAt0TkownVkXwCMu1x41EkVyymRWNHmR1Em1gck=;
+        b=U165c6/aZO6PCaTP1gi0+DzvxzmItJj0Ii1VSWCGVKRW8JNwSeZHA1wUZ9q/eGLeYH
+         yNjnw8VgP7iWrGEf4UAupDv4MdO1cE1AgLJrsy0/pXVU2mCQw6DF0kA5lJK+Ar5JfGMI
+         B02AayfnZIkW8hp+6r07ZbH3pzuICVhRxBb0gULHaJNtSccZRZtyUqJk5Zl+AIH6h2JA
+         u6mncC1Ay8v4ZmbBf3gXCHXviCIU27J2iUp0qN1P9oz+MOrDWY09qEGQcQp2XItCagzt
+         i0A+zKJ/MCxXTqR0mpPbAPlYcP8v0Qg0PQ1jGG9tQqzCZsekk/Z7HTDvelaXgwbm3WC/
+         DwsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795627935; x=1796232735;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0HkGUAt0TkownVkXwCMu1x41EkVyymRWNHmR1Em1gck=;
+        b=YbSrjrjiSx6cvnBTQm58xgjCnkd/KvVU5S28L1Wlwrt++pd/D8cZy/Zos2pWCy2v0c
+         7+4bM95jiPQ6A4Wvi904RVVPQHbp4Nz/LNUqR5DiQo3DrtdyrgZEvjMET5B4PVLkgQHN
+         UJVc4D/qZuD/7Lm+Unr4BRnTCruuiEeUln1cpzu5PiRonYFxc0CToqXyrXTu/IEump7R
+         fr2ryJCI0p3wkqVLrQQNS1jN8CqWG4UmjLEzOgsZkefr9cjW4mq/8WAgfKnO2cHx+UlD
+         bxhGH9MfDfpuCkB9sWWuDovVIcU2WUuOsc0/5gvDoS5C0n+ClpxrJFrGCKIekWLo3K4e
+         8sAg==
+X-Forwarded-Encrypted: i=1; AL+hErHz0MYqzQ4ORZ9A9OFGNWlBGnccCX+TTM8n+J+eq/C9/jIobO7kdRHcc8px3tRLotMf0z0p3UbXUXMF78k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+dTlAxXgPk7MJvmzHBoMVCW4zj7HCVW2oj18y2xK9GQdYJkuZW
+	4z1DVhtF/JR266f5iyus+ogEijVJeJnMFYi49lG8ypwtQwKcztamWcM4FnClkPxOfg==
+X-Gm-Gg: AZFdTZdn5N7P81ypUaADwWi+xDamIdRTJ+04zCMxsWGt4zXHcCiO+uk465ewhhYjUC4
+	y4gXvo6e5FHhAK0fFmUO/TCbAUGi8GlC92hlORzQNRryCKMuIPHdaYTp6NJQlGNQ2uQrERbhdoy
+	CNY6VhmiWX0CnFak07AMmLhLsFS5JRX2sTyM0JomwQUaN9iM6Adhjq3WGOttodApE1t8zrZ9Ugm
+	JQliIdd577cm7ngAVuWBVkfC0aNdU8phUtNQLXQzSYqG5PiaqOQGNV/xAitqQ4LO86rmwjScTHD
+	uJKrMrIFF4dMf2MU8eY5ewBsTya4ezFlGjhdanzsoI+Jq1NxL+w/yRRJtMOtSSmvt2RUp9GLmIT
+	AJif3cKpSh3rzpvjult+jbBB2rojmDBI/VErhe+Z8sjn/1KfZptYmG6yzaRBWD/RD4Fmpe+ESXQ
+	aKvZ+7qyD8PDoFJNGETh38eCLu8uWJq9B/5X3VQ03RQ2sEDfVvaIbe3jvAcW+B497SCEGYwTtuf
+	kK9I+tRmYUy3hpO1Mv8NR5Kit1yzaYgABeBygqLzFRBBSUakE5be/O7F1j7RtDoteBiY6SP+Kt5
+	q0A/VksNd3RNi/Q4kPYtZ2DT+FC2YSjvbD+JvwkOKkMNfI2ToODD
+X-Received: by 2002:a05:690c:6988:b0:8b1:70be:d4d0 with SMTP id 00721157ae682-8b52047d511mr73732187b3.48.1795627934796;
+        Wed, 25 Nov 2026 09:32:14 -0800 (PST)
+Received: from cobra01.cs.unc.edu (cobra01.cs.unc.edu. [152.2.130.143])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b52030d5c3sm75406057b3.32.2026.11.25.09.32.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 09:32:14 -0800 (PST)
+From: Hengyu Liang <hengyul@cs.unc.edu>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>
+Cc: Baoquan He <baoquan.he@linux.dev>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	John Hubbard <jhubbard@nvidia.com>,
+	Peter Xu <peterx@redhat.com>,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] mm/gup: fault in ranges that start at address 0
+Date: Wed, 25 Nov 2026 12:32:02 -0500
+Message-ID: <20261125173202.3636133-1-hengyul@cs.unc.edu>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,65 +100,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mZgf9zJdIVcx+b3z"
-Content-Disposition: inline
-In-Reply-To: <BR0PR09MB441440387856BA66983FCBD37A89442@BR0PR09MB441440.eurprd09.prod.outlook.com>
+Content-Transfer-Encoding: 8bit
 
---mZgf9zJdIVcx+b3z
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Commit a7797e74bd39 ("mm/gup: clean up codes in fault_in_xxx()
+functions") made the loops of fault_in_readable(), fault_in_writeable()
+and fault_in_safe_writeable() stop when the current address is 0, to
+detect an overflow.
 
-On Tue, Nov 24, 2026 at 08:49:14AM +0000, Ilyas NHASSE wrote:
-> On Fri, Nov 20, 2026 at 05:46:10PM +0000, Conor Dooley wrote:
-> > On Fri, Nov 20, 2026 at 12:26:47PM +0100, ILYAS NHASSE via B4 Relay wro=
-te:
-> >> The AD7124 signals the end of a conversion on its DOUT/RDY pin, which =
-is
-> >> also the SPI MISO line. Using it as an interrupt requires the board to
-> >> route that pin to an interrupt-capable input as well, which is not alw=
-ays
-> >> possible, e.g. when the ADC sits behind a digital isolator that only
-> >> carries the SPI signals.
-> >
-> > What does this actually mean? Does the isolator only permit data
-> > transmission when CS is active?
->=20
-> No, the isolator passes the SPI signals normally. On our board DOUT/RDY
-> crosses it as MISO and then only goes to the SPI controller's MISO
-> input; it isn't also routed to a GPIO or other interrupt-capable input.
-> The isolator doesn't really matter, so as Jonathan suggested, v2 will
-> only say that DOUT/RDY may not be wired to an interrupt.
+However, the loops then do not run at all for a range that starts at
+address 0, and the functions report that nothing was faulted in. As of
+now, a write() from a buffer at address 0 fails with EFAULT when the
+page is mapped but not present yet.
 
-Right. The isolator having nothing to do with it explains why the commit
-message made no sense to me.
+The issue can be reproduced with this program, run as root:
 
-Cheers,
-Conor.
+    #include <fcntl.h>
+    #include <stdio.h>
+    #include <sys/mman.h>
+    #include <unistd.h>
 
->=20
-> Thanks,
-> Ilyas
-> The information contained in this email is intended solely for the use of=
- the individual or entity to whom it is addressed and may contain informati=
-on that is confidential. Please delete and notify the sender if received in=
- error. SKF does not accept liability for any damage arising from this emai=
-l.
->=20
-> For information on SKF=E2=80=99s processing of your personal data, please=
- visit SKF=E2=80=99s Privacy Policy available via www.skf.com<https://www.s=
-kf.com/privacy>.
+    int main(void)
+    {
+            int fd = open("file", O_WRONLY | O_CREAT, 0644);
 
---mZgf9zJdIVcx+b3z
-Content-Type: application/pgp-signature; name=signature.asc
+            mmap(NULL, 4096, PROT_READ | PROT_WRITE,
+                 MAP_PRIVATE | MAP_ANONYMOUS | MAP_FIXED, -1, 0);
+            printf("%zd\n", write(fd, NULL, 7));
+            return 0;
+    }
 
------BEGIN PGP SIGNATURE-----
+Before commit a7797e74bd39 ("mm/gup: clean up codes in fault_in_xxx()
+functions"), the result is:
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawcbagAKCRB4tDGHoIJi
-0la8AP0TFnFIK+AbZT/3vzkzBqsMDQPFBQUWeANxvf4VdNkVuwD/bdyaOmF356CF
-XKWDvgd5z3T+QC74EJ1tZ8IvOwPl6QE=
-=EUpp
------END PGP SIGNATURE-----
+    7
 
---mZgf9zJdIVcx+b3z--
+After that commit, the result is:
+
+    -1
+
+With this patch, the result is the same as before that commit.
+
+This patch will stop the loops when the current address is below the
+start address instead, which is only the case after an overflow.
+
+Fixes: a7797e74bd39 ("mm/gup: clean up codes in fault_in_xxx() functions")
+Cc: stable@vger.kernel.org # v6.16
+Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
+---
+I found this while comparing the behavior of different kernel versions.
+I used an LLM to analyze the problem and to draft the patch and this
+message, and I analyzed the result myself.
+
+Tested on v7.4-rc3 with KASAN and lockdep: with the buffer at address 0
+and at 0x10000, on ext4, tmpfs and xfs, write(), pwritev() and O_DIRECT
+reads and writes give the same results as before commit a7797e74bd39.
+
+ mm/gup.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/mm/gup.c b/mm/gup.c
+index 2b405cce2ca5..a174e93327e9 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -2074,7 +2074,7 @@ size_t fault_in_writeable(char __user *uaddr, size_t size)
+ 		return size;
+ 
+ 	/* Stop once we overflow to 0. */
+-	for (cur = start; cur && cur < end; cur = PAGE_ALIGN_DOWN(cur + PAGE_SIZE))
++	for (cur = start; cur >= start && cur < end; cur = PAGE_ALIGN_DOWN(cur + PAGE_SIZE))
+ 		unsafe_put_user(0, (char __user *)cur, out);
+ out:
+ 	user_write_access_end();
+@@ -2144,7 +2144,7 @@ size_t fault_in_safe_writeable(const char __user *uaddr, size_t size)
+ 
+ 	mmap_read_lock(mm);
+ 	/* Stop once we overflow to 0. */
+-	for (cur = start; cur && cur < end; cur = PAGE_ALIGN_DOWN(cur + PAGE_SIZE))
++	for (cur = start; cur >= start && cur < end; cur = PAGE_ALIGN_DOWN(cur + PAGE_SIZE))
+ 		if (fixup_user_fault(mm, cur, FAULT_FLAG_WRITE, &unlocked))
+ 			break;
+ 	mmap_read_unlock(mm);
+@@ -2176,7 +2176,7 @@ size_t fault_in_readable(const char __user *uaddr, size_t size)
+ 		return size;
+ 
+ 	/* Stop once we overflow to 0. */
+-	for (cur = start; cur && cur < end; cur = PAGE_ALIGN_DOWN(cur + PAGE_SIZE))
++	for (cur = start; cur >= start && cur < end; cur = PAGE_ALIGN_DOWN(cur + PAGE_SIZE))
+ 		unsafe_get_user(c, (const char __user *)cur, out);
+ out:
+ 	user_read_access_end();
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-- 
+2.53.0
+
