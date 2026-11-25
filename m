@@ -1,124 +1,120 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795612710;
-	b=jw2HCpIRHnSVa/CRfMMdocsJM6LTNFrAiRZo+wMzC3yIMUyaQtjB5dPH7tz4IXlwRGVG
-	 0Sf3ZwAxP1++BD46UQNtP5JMQaqDWzIrOK7fBpGlghiMgnPeN8wWiOlZJSztkNLLQ7TpX
-	 1/d+rPO+1YQCXoOBEnvaWbw74nWhP7ZEFa1KkeDYlUT6LpM8n1JkAJsBN5KA+e9+kIOwI
-	 Sv+w9xAx/GLTM67SCW9NB6TCW5Fw530OZjJcW3elAmYDOoDnmqEClPyJ7lzaW6FE1VGCA
-	 CTgkWRHvk5Mkdig88L/rHgeOSL7JTk38hd5BBiADDhiavy2Al9l5DwJZDyUAq/48STg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795612710;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795612704;
+	b=cqORwE+GMMilAudiZvjGJ04JPCnSTBvXKz/eLNneldXHErHq88Y6zZQOkkO45OPveGID
+	 +JHqPDM93pm1Gz5BejctMf+G+viOyn+0I1aK/a9f7KAQ6ZmXCJiGBNnfPuA8B/7LNHh1q
+	 UFvRq1XhALzVV9lium6W2DnoMTSqi832gtrX02OqklPK39xZICJbQKpUhZnx/FR0ilKq0
+	 78A6kZawnqv0eLy3/gqYnoHg2QD7z+X7gYBu1magZJiTUT5p7Jo+V+hQG6kBgF3wdh8w4
+	 BJFK9Csks2aN0J9I8TQbUYk/ffLKXjuUecKvS9w9n/80ye1XbQOeWObDCSyXkUOiMwg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795612704;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:MIME-Version:
-	 References:In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:
-	 Cc:Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=jfQ8zUONTyEFfJZ+AnDpw8kVCqkJU2Y/oL+XJFKbGKQ=;
-	b=SlhvzOdHerXOjyUO2J9q0nERL311NZ390J5cSvF0xgEmsKam+bzBMKR0u6r1Ybs584hA
-	 Pk+leqJhh+Rhluke45BSP+O7hJblWH2sfuV3DKsapA744c8ORL3AWxSUnVZwb3sRfPTxk
-	 yCu15Cgzcua4Hmz/D297PVQZnHPBJmZvWacCjvfGHXZxvJFOdNQMCAXx8824TCTNA6YG+
-	 d8TF/w5J9QmLiv9gaL45ulyzXcQ6vWFXKwwmmOsEmKlk2oiT2Q/p2qE+AK9ViRU7UJYCo
-	 mJdfKO7/Ut6eEga7PyOF89BRd6nfh1xDSG6DAwjeh6k7X1vY/Mx8+z73EMfx75P0vmA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	bh=D0rA4mbm0SnOvC13pf1fD8JRZYtCZj00L/zRbkMsbxU=;
+	b=2VAWpx2/l0coWDFR4PcrWClCF4iJXLYqoH3169MdO3JajxYjWtnSDAZm8PQZz5aLYYR1
+	 BGXdtTwwskD2eRppudVWIoAc3z+NYrimL5x9wv4TvPexgFR11YHvV4YC5bIP39ZBp4QfO
+	 /OFoi8miqNt/b9cKyZ3LFjCz0t3WaCoD03+mD+ux1ccTxMaKKmv8M8x6gpuyOjD0V/par
+	 UnCSl161cwQ9HtiDEccjfW3oXoHJ0nvV4PWZ1dAqK/qJB5IjhQwGswuK700aJk7XBjKvW
+	 mtUcG9kbaWMy3PdceVDR8Zicwygh1WU3PwX+DG1jrR5m6Yr6nPZs/54h3Tp4eq40NVA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=STRQMq6x;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Sn+b0q4k;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="YsH/mTW8";
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=c6dhz6dN;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83A90606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:18:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83A90606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41B79606A33D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:18:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41B79606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=STRQMq6x;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Sn+b0q4k
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9mTjn4034158
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:18:29 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=YsH/mTW8;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=c6dhz6dN
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9mHGn4131158
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:18:22 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	jfQ8zUONTyEFfJZ+AnDpw8kVCqkJU2Y/oL+XJFKbGKQ=; b=STRQMq6xNGwHCMk7
-	fXateg9/XtLfBr9qpcXwH6KSUbkDddyLuUKuIgYCv/mlDnPVWasDlm2Qy/SUcB9b
-	8fh5ph1cE1albFkMW1KZ0evWmfAr3l6NlvXpNzbsVUXFfcNGMJBkC8VApujcCh+8
-	Q5jfErCFb5pSnw9AlOTiw9Ll/smChyteCdpI/WiR642dLYSLl+321FwiRE9B7HQM
-	5Hrtjjr1P3hxrEBcThapFLnfNS6P0ZgoMreFlTrcLzUI2rT3p+1xxrAQdUxTs7M/
-	qjWkRwWPJYvE+kwI5I65ztZxQSQnPCYqg6QkK8BnRXqSXHmRI2jq6jV0O/WvJoO8
-	ZBsVQQ==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5mqbjxf3-1
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=D0rA4mbm0Sn
+	OvC13pf1fD8JRZYtCZj00L/zRbkMsbxU=; b=YsH/mTW8Yfze59pzM5U4jIYv2AR
+	BxHVjutTBhlqU+LBEjrFMFvNOZLZndmn5wfLF0IEWgYaZnnRc2s+QXSaUX0xRHJC
+	LUyNVan2XKBTxTj0+gSXoU7stPJ2/fSrRY8JTiZeDoIL7O6S06vR76kdu25obYEA
+	HGTJ0Ki6JLP2aTfyU/FHA9oquSZR7MHlxHMchdhIdgU0g96vOwF2TByBon7oJgZr
+	0P7YXTRzC5nLQLEM0FJkHQbXDVcUNVuY8/X+9EtlxatAUJmiHwc0UEKgbEGEZCnq
+	8/2mRMF++2pns8NMIrdqc2u3wsUKIa4ZT1PKh/isxQgNjsxl2jS3/hcoFyw==
+Received: from mail-vk1-f198.google.com (mail-vk1-f198.google.com [209.85.221.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5vuhs0gv-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:18:28 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-94967c6d4f4so634479985a.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:18:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795612707; cv=none;
-        d=google.com; s=arc-20260327;
-        b=j6Aqe9bUsrlnvn0jg0visyeRAwUWwogpu09Jyf+VMPVTXSfdjNKw4y1llLzC8wyKtD
-         BvscbJZI3vji5dicTnzFXo5kccxPNyc7Cj3dbhraRZoUnz11qgSWGEdRWg7CEMZShpCa
-         21WLwzx/fgnxdh7ZammAoKEwoqYEbkLlcVeA+QhcC6qCgFFFAxcbwodLkI+gzgA/p3UF
-         8x/ebUwdkB4U/FCYMP2TElCnsPOXwizjq2HwgT4f9kDmRMqjP9gTasfLOMUXY/W6DcaH
-         ZZVZ5gr2Gga3QslXrAIoI9sMT4lARWssUa8jxiAUo8nzaLBTF6Mr+tlQIGDnNQ7K71WN
-         BJvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=jfQ8zUONTyEFfJZ+AnDpw8kVCqkJU2Y/oL+XJFKbGKQ=;
-        fh=u0RDwuBpzck3Her8NKfe59Q5v/zjxOoP0qWMJIkBB4c=;
-        b=AhBAhxw+bH53onrdp5wf02P/1AIFe0DP5JVB+7vOlP5xieePWdmLRSFAOCP9P1xiz0
-         NRozDHOgXzMK9eMeyKSH39es11qNTT4r9u9ilMQHwkICBbjmcJjmVi6IvKchaWG3cGqA
-         hH6Qa9Di7p7WAe0rzLpf4tmhTJpML0QP529GHaGjbavuqiHrtpy+XatLBK4JVBQwtrhc
-         ioX0+run8xOTP4kPrY2o3FywrxNk5xISH3BtozuwYhvp0VqtP7EZZQ+ALotmV+i0hc1B
-         /kj+qtgHGw80Ml+0KgmTy0tVHjX+P4wkF7oqoSoA4TKfd63I7feZ7gUPrm7XQ0rMabLF
-         uo+Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:18:21 +0000 (GMT)
+Received: by mail-vk1-f198.google.com with SMTP id 71dfb90a1353d-5ed100ed770so509184e0c.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:18:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795612707; x=1796217507; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jfQ8zUONTyEFfJZ+AnDpw8kVCqkJU2Y/oL+XJFKbGKQ=;
-        b=Sn+b0q4kdaLMcDhaRbTrK9kryV3BYOK33/K18IDZ3WkIwpvhJsMaew2L3i7XVJcrYn
-         g9Pyk8ThI/hHLCzrv3IzbXexkoml5+VZQqoBH46Q0b/XBTqEq2eCHfVq5HNYQouXHd2K
-         zhywMYMAkf7OVBtKV3JGLp0yrnxQrLjZ5XF+cqzYamuwlEYxOuUrUotzVLblqcwMe+pD
-         KYfFl6TUBgsEKi6IbcySg8ajvX4WLxe3YP35wpV/PoDpY7tsvdX+R/rfZap2BixFeCjV
-         4nLU64OmUrNEG0M/aXcZ9vOalo2yVWvk2ibHNhfXIQ5msPLhqTT4bgbahIa5ef9ws7SG
-         bO5A==
+        d=oss.qualcomm.com; s=google; t=1795612701; x=1796217501; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=D0rA4mbm0SnOvC13pf1fD8JRZYtCZj00L/zRbkMsbxU=;
+        b=c6dhz6dN3FwuJ6WDuZdvcEA7x5ATZMTXQDkK25+dCgcWYQE+KaM1NyxDYuSrrMULLV
+         ZwwMhsYJ4xb7lfZ2/4SpbxAj57UXFEzbQ6/u1wkBpUspgIXZs3/GgOkyocFgdkb4sQW1
+         xGhsBqzlJ6cQEOm3hKxnWHSweZKwCdmjjuFrZSkX05Zugjl0CbA1V+lyTHb/W/97LLUL
+         dtqQ8MM0x1H4XWEs8WBiUhkiakKZlONMEII7CFnxLfkkfFpl1ayJm/ghHORc8lUPyjwy
+         mzBX+kt9ArcdxSXvAbVGWOVG2ZUTpxgLD9yjXvoKUfrPblGaYoCW3n/JA4Kg+5C5WAcy
+         pGZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795612707; x=1796217507;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jfQ8zUONTyEFfJZ+AnDpw8kVCqkJU2Y/oL+XJFKbGKQ=;
-        b=ZxC3eueBf81/F3hCRBM7wVU15KWpRTemEaeTbuTlJ2XCxCOkPmFRGP6IDg1tkxn9G0
-         +R+HemNTuwKC4sPLbQV1kfLX6k5qY2D5rlg94lc8ymqa35X5Eaqz0qeSRCSIuNHEHxJx
-         oaX4aGcwOyAyatgBRzqusc1zL+V+592N96OiIk8pmoGZ/RIznJ91JP7ltFywTvsfGYbR
-         F5XsN5UYaVEDsWJBOMUm8h/l1A5l/a+5js0J7QenTifjDX7HkLqcgcGOz5zypRx95hKs
-         Bhasz+fCAJ2B75u/ptgi0BFo44xSrBkOF+8/UO7WLmrVozjvUYZ3ooti5s3ewsWN0jAR
-         OpAQ==
-X-Forwarded-Encrypted: i=1; AL+hErE5inkQL5tQA758+Vku+Adv8Br2nJjIdwnBiZCEXWToJfIUc8ZY39zokYRwWDkIPPcx9lpK5r9/VsN11Qs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9aSoupEz730+K5UWDOmwtL5lQNyr3LGAVosGl36yacNvK51QPW
-	By4+gUP2EETxSpTSgGx545OHTw5AEa7LPUlcGtzgWaJGCfWIi8f6N2c7ZXhwryicLa0Z/ucYtmb
-	hua3QrZ/7qRAAKHnDH0k7xiPdk095zGCOnH7un79oQCfdxTlYzdsixz2VnCFZnMZJQrk98ZS4fP
-	5nQpDnVHBGguxTmYyH5TW+Gpwox9Zl4qHOd+DLpc3sVA==
-X-Gm-Gg: AZFdTZckuL8q4trBnPzdZtamO3yatWrx7C4Zv2k8vV/c+9s3eHHm7ZwSTwM7qXLGzMs
-	RYQAIk0UqDhQPfIJ++16XD3kMq1UHAg4MxF48Devojm3LApjWzawio6lvzVoed041QtDZX2K9qm
-	w2Dm4+iFLmFIJZ0hWcHq6ua6asAM1ltpIscqfhlh2CzQjC+mBvgKYv5QzD46QdLEuteDjKm6SAC
-	pDKEDIGPuvd5HU8toDSlOPCwFRA7194gHIXA9kZucWb2T32lDvu6g/BEAwmpd1m1SI0TUOdHiE=
-X-Received: by 2002:a05:620a:46a4:b0:949:70f1:de35 with SMTP id af79cd13be357-949ba825d86mr3250678785a.7.1795612707379;
-        Wed, 25 Nov 2026 05:18:27 -0800 (PST)
-X-Received: by 2002:a05:620a:46a4:b0:949:70f1:de35 with SMTP id
- af79cd13be357-949ba825d86mr3250672385a.7.1795612706762; Wed, 25 Nov 2026
- 05:18:26 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795612701; x=1796217501;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=D0rA4mbm0SnOvC13pf1fD8JRZYtCZj00L/zRbkMsbxU=;
+        b=vGcpkQbaGn0LyhYjLe3NizhQsPlw+j6WktOOjmP7cHSSdqe8IgCI57ScfndSXpxfPE
+         fRYVm7v3WhAPfasg7eYNEVC1Ocx+XX5WjQnUk3Unru9F8qG36149PChULBYBMQ+vpApc
+         O4mY6r7/0Lq7u0whhQSgmXC2HN/RCNsN+EuemeDbJLdoUCyBQLo7fQNrbXReDt6LBOHP
+         bcuzujMwO2Vp3JcE02CJdnjjBQErJps9wn0Ex6Fbad+kOsXihcYfiMhqC4DtfLFs0fkh
+         U2mz6py2DEred3tGS6Z7Y17FxbingP2fnRjNT6cvjHhEtonloC2IGWcuNvlUNCZYhf1C
+         u0KQ==
+X-Forwarded-Encrypted: i=1; AL+hErGq4KSBlEjLAGUGvBiqQZ9EIB+rHyvCDMsAq6QaqwjsklsT2i+2vstNodemQRwYxZhLKpNR84WXrLnmheg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Ymy/a+WNNcGd87t5LVDQf5WiVyPbGD4zJ9eh3wngL2km1HThP
+	QvXzdoPD8lzEW7N/9VgtXqxuOdus4DTXC99BEfPWlfNJll/JfGCNnTJp/mYWbeznNU7SJJWTYG2
+	oun8f/MjUPoZVH3uH7nPPUZwvI/+Y01cuorKvrDnU9vg7cOqTOG2vHNe4ilMVsv1SvTI=
+X-Gm-Gg: AZFdTZfEp6e45Vvw5TQG5yHrh5pX+bF5OPVBfZei5q0WsTywCRRRtXZjipwqbfY1kdO
+	E8TpZ0B11z8w8WF4hAkjxzhEBLuzJEUvA04suq9CIIn6UmRrZmbGIiw1ZaKJR75dWODRTrKowfp
+	pel/Jhk7bs5Rj97xg5LNt6ks5poAxMaH65F6POu3XKNJHKnaV3XGCcYZo62aAyo3GdDugNAAhWN
+	RRVpb9btdqMWD23nUc0lA7/EkUOW6VrK3gc5KfRPvx1Og9kr0PC+Zj/VlO34/ge6TuhCOXuvOxL
+	vBV4hnA29q5sTqwz8MUO5Ge0BpDQydqlQ1lB4HSqnFgU3MZ7dGYWy0XIuPRwPfyGtwLt9Pvd6Mm
+	dco9ypw9V4Qf7uElJh2C/0ukCdTRYDnV57LvGUOdby9XOD3EqJw/Aq+eCzt71bZh4
+X-Received: by 2002:a05:6122:d03:b0:5e4:f6c8:b0a5 with SMTP id 71dfb90a1353d-5ee8ad0eb56mr9557104e0c.0.1795612701248;
+        Wed, 25 Nov 2026 05:18:21 -0800 (PST)
+X-Received: by 2002:a05:6122:d03:b0:5e4:f6c8:b0a5 with SMTP id 71dfb90a1353d-5ee8ad0eb56mr9557053e0c.0.1795612700624;
+        Wed, 25 Nov 2026 05:18:20 -0800 (PST)
+Received: from debian ([5.133.47.210])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88f148aasm205035365e9.0.2026.11.25.05.18.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 05:18:18 -0800 (PST)
+From: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
+To: andersson@kernel.org, sboyd@kernel.org, bmasney+clk@redhat.com,
+        jbrunet+clk@baylibre.com, robh@kernel.org, krzk+dt@kernel.org,
+        conor+dt@kernel.org
+Cc: abel.vesa@oss.qualcomm.com, abelvesa@kernel.org,
+        taniya.das@oss.qualcomm.com, konrad.dybcio@oss.qualcomm.com,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
+Subject: [PATCH v4 1/4] dt-bindings: clock: qcom: Add LPASS AUDIOCC reset controller for Glymur
+Date: Wed, 25 Nov 2026 13:17:54 +0000
+Message-ID: <20261125131757.1163466-2-srinivas.kandagatla@oss.qualcomm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261125131757.1163466-1-srinivas.kandagatla@oss.qualcomm.com>
+References: <20261125131757.1163466-1-srinivas.kandagatla@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,272 +124,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125-camss-hw-ts-v2-0-24c955e43d75@oss.qualcomm.com>
- <20261125-camss-hw-ts-v2-2-24c955e43d75@oss.qualcomm.com> <8808df3f-e090-4dba-af7d-a51146290d48@oss.qualcomm.com>
- <c5ec6619-7001-4ab4-9035-405dcaa3b739@oss.qualcomm.com>
-In-Reply-To: <c5ec6619-7001-4ab4-9035-405dcaa3b739@oss.qualcomm.com>
-From: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 14:18:15 +0100
-X-Gm-Features: Aa3M54rS6W4Gj8-UsNxYBgNGFaRIiqao9vqyRPZWDkWxosV6vOaMiiF9u8oAvDk
-Message-ID: <CAFEp6-2kW9-Cq9kz-T9Rdz5EKL92TW=QzcSPGBPqLNfcLeDYMg@mail.gmail.com>
-Subject: Re: [PATCH v2 2/7] media: qcom: camss: csid: Add an operation to read
- the SOF timestamp
-To: "Gjorgji Rosikopulos (Consultant)" <gjorgji.rosikopulos@oss.qualcomm.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-        "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA1MiBTYWx0ZWRfX9HX6WxDtUHg2
- KccSamj/pFSKPsbwDw2mp2WGmIbZCF4sj8Tj+/Y0ykJhIVLP3Hi0stKGkXp+tJt2zCe1Ij74cFO
- gIvDnlOo2pO+w9j4MHSJtKmzlM2ygSs=
-X-Authority-Analysis: v=2.4 cv=Bb9NQbt2 c=1 sm=1 tr=0 ts=6b06e024 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=n8IlR8rfZ27013JM:21 a=IkcTkHD0fZMA:10
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=FPmOVOos c=1 sm=1 tr=0 ts=6b06e01d cx=c_pps
+ a=1Os3MKEOqt8YzSjcPV0cFA==:117 a=ZsC4DHZuhs/kKio7QBcDoQ==:17
  a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
- a=KKAkSRfTAAAA:8 a=FHOEy1rzMmd96heRGqsA:9 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA1MiBTYWx0ZWRfX8QHgroiI3stJ
- 6pxiXOBf2oDkMOtMt0OeXCtWdWIXNoj7kWeACRxJq+9B22ABnSeJVo9pzNTXbHhLRdmqh4Yu/1u
- 0wVZGYPCahfK0Dw+t4teNRQnuLKQvjoLSIZZZ9ZzAFmzanVYjjF3Md3zzaS5EscN6seiFZ+EfEf
- XDvGK+tbxZsfNp2PamtqukvNikyy8B7OZVx2irnerYVam665lC8MK2t+6U2aq5dwq/N44zqriB/
- sRZ67cl6SF4JnoEBqCZILwVPx3VPQiIK+98VmTA3et3Q878mP1n0y1pgmzGIUY2MUkWx/BWIuAf
- CyEozK7KGjabya7vGoXA+lVKHPDHF+mZ5LZTOMQKJ9Bw+kLnj5Eczk5LbN78SI8t9HfoOpMtqaO
- CJlal730eOqjByFQpUq8CMw+AX0qnl12czhmKLqd4op5GGEFkfWVL14Xg5TpCrJqChSpE8bhWzn
- 7X74774t25fkBRCCelA==
-X-Proofpoint-ORIG-GUID: -Y3vU38MMSZEfuUNcHZh_4eKWIvdfHLA
-X-Proofpoint-GUID: -Y3vU38MMSZEfuUNcHZh_4eKWIvdfHLA
+ a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=gEfo2CItAAAA:8
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8 a=peyyOT9P35Ab0jvJzsIA:9
+ a=hhpmQAJR8DioWGSBphRh:22 a=sptkURWiP4Gy88Gu7hUp:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: _o3wGOmX2X57FU7EktFWiip1_wDXitua
+X-Proofpoint-ORIG-GUID: _o3wGOmX2X57FU7EktFWiip1_wDXitua
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA1MiBTYWx0ZWRfX8xZK0Gp19lte
+ 2pPO2uBphAU9ZB+FmxKMQntisj2VXW/kwK1HxEFyHELGdMZGcoXRvhqopNR88nD5y94XB+YYcS8
+ 5gmExgNyb7nR2gAPuohmGTbDDVbsCgI=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA1MiBTYWx0ZWRfX5x4jYe55xTUW
+ s8ISqhZ555vRU0F25n/qoRod3Vu2FS80LBLMCPMPycFumDkHL9n5NP3RT1MWc1xfto6oEtoooAw
+ nOXyUB9S8UkucFHXuiqMzqnZ1si54SU96gvwR2FDHTlKOCpOyBUjB2jJIrvlFsPQK6vH7yEnzOh
+ YoEWWPtzjjHEuBUuhWrtCgNkTYEm47VzIqOLq22Z/Xo9B38EsddWRaQr3fYv3Xe+FHTsiuDDhzF
+ EBiDTC+bz1no4TWW1MbfwWeEryZ+P4SOSbBrogG99qBTVwOSPbMt3fWr1h+05EqPzUk/HvVYV/F
+ AZcTSWrP25afiFfW/JrDX1PqITVRTnhsFZaxhRTCV+Kq+BBgz/SsKMYcQgQySJU0+6BjpDnxT9C
+ nrsDUKCeBqOCLjUGmaEOTp/3UUBD65pnGKH8jl5KsijUW/m6TAbO44EggzskwIblSY70w6mALW8
+ iol9m7Mk0xWrOVZgoaQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 clxscore=1015 priorityscore=1501 impostorscore=0
- malwarescore=0 lowpriorityscore=0 bulkscore=0 phishscore=0 suspectscore=0
+ lowpriorityscore=0 bulkscore=0 malwarescore=0 suspectscore=0 impostorscore=0
+ priorityscore=1501 adultscore=0 phishscore=0 clxscore=1015 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250052
 
-On Wed, Nov 25, 2026 at 1:06=E2=80=AFPM Gjorgji Rosikopulos (Consultant)
-<gjorgji.rosikopulos@oss.qualcomm.com> wrote:
->
->
->
-> On 11/25/2026 2:04 PM, Gjorgji Rosikopulos (Consultant) wrote:
-> > Hi Loic,
-> >
-> > On 11/25/2026 12:19 PM, Loic Poulain wrote:
-> >> Modern CSID revisions latch the global timestamp counter at SOF. That
-> >> counter is the ARM architected counter, so correlating it with
-> >> CLOCK_MONOTONIC through ktime_get_snapshot_id() turns the latched valu=
-e
-> >> into the time the frame actually started, rather than the time the
-> >> interrupt handler ran.
-> >>
-> >> Add a hardware operation returning that counter value and do the
-> >> correlation in one place, leaving a CSID revision with nothing to do b=
-ut
-> >> read its own registers. Revisions not implementing it keep being
-> >> timestamped at queue time.
-> >>
-> >> Suggested-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> >> Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
-> >> ---
-> >>  drivers/media/platform/qcom/camss/camss-csid.c | 72 +++++++++++++++++=
-+++++++++
-> >>  drivers/media/platform/qcom/camss/camss-csid.h |  9 ++++
-> >>  2 files changed, 81 insertions(+)
-> >>
-> >> diff --git a/drivers/media/platform/qcom/camss/camss-csid.c b/drivers/=
-media/platform/qcom/camss/camss-csid.c
-> >> index 588122beec854ae5b78de9997b68c7a81d4207e1..0d9b4f7dd768aeaed65d01=
-da58b4dd8a3a425cbc 100644
-> >> --- a/drivers/media/platform/qcom/camss/camss-csid.c
-> >> +++ b/drivers/media/platform/qcom/camss/camss-csid.c
-> >> @@ -8,14 +8,17 @@
-> >>   * Copyright (C) 2015-2018 Linaro Ltd.
-> >>   */
-> >>  #include <linux/clk.h>
-> >> +#include <linux/clocksource_ids.h>
-> >>  #include <linux/completion.h>
-> >>  #include <linux/interrupt.h>
-> >>  #include <linux/io.h>
-> >>  #include <linux/kernel.h>
-> >> +#include <linux/math64.h>
-> >>  #include <linux/of.h>
-> >>  #include <linux/platform_device.h>
-> >>  #include <linux/pm_runtime.h>
-> >>  #include <linux/regulator/consumer.h>
-> >> +#include <linux/timekeeping.h>
-> >>  #include <media/media-entity.h>
-> >>  #include <media/mipi-csi2.h>
-> >>  #include <media/v4l2-device.h>
-> >> @@ -37,6 +40,16 @@
-> >>
-> >>  #define LANE_CFG_BITWIDTH 4
-> >>
-> >> +/*
-> >> + * The CSID latches the global timestamp counter on SOF. That counter=
- is
-> >> + * the ARM architected counter, 56 bit wide and ticking at 19.2 MHz.
-> >> + */
-> >> +#define CSID_TIMESTAMP_WIDTH        56
-> >> +#define CSID_TIMESTAMP_MASK GENMASK_ULL(CSID_TIMESTAMP_WIDTH - 1, 0)
-> >> +#define CSID_TIMESTAMP_NS_MUL       10000   /* NSEC_PER_SEC / 19.2 MH=
-z, reduced */
-> >> +#define CSID_TIMESTAMP_NS_DIV       192
-> >> +#define CSID_TIMESTAMP_MAX_AGE_NS   (2 * NSEC_PER_MSEC)
-> >> +
-> >>  #define MSM_CSID_NAME "msm_csid"
-> >>
-> >>  const char * const csid_testgen_modes[] =3D {
-> >> @@ -1370,12 +1383,71 @@ atomic_t *csid_get_sof_seq(struct media_pad *p=
-ad)
-> >>      return &csid->sof_seq[pad->index - MSM_CSID_PAD_FIRST_SRC];
-> >>  }
-> >>
-> >> +static u64 csid_timestamp_to_ns(u64 ticks)
-> >> +{
-> >> +    return mul_u64_u32_div(ticks, CSID_TIMESTAMP_NS_MUL, CSID_TIMESTA=
-MP_NS_DIV);
-> >> +}
-> >> +
-> >> +static u64 csid_timestamp_to_monotonic(struct csid_device *csid, u64 =
-ticks)
-> >> +{
-> >> +    struct system_time_snapshot snap;
-> >> +    u64 delta, delta_ns, now;
-> >> +
-> >> +    ktime_get_snapshot_id(CLOCK_MONOTONIC, &snap);
-> >> +
-> >> +    /*
-> >> +     * Translating requires reading the counter the CSID latched from=
-.
-> >> +     * If timekeeping is driven by something else there is nothing to
-> >> +     * correlate against, so let the caller fall back to IRQ time.
-> >> +     */
-> >> +    if (!snap.valid || snap.cs_id !=3D CSID_ARM_ARCH_COUNTER) {
-> >> +            dev_warn_once(csid->camss->dev,
-> >> +                          "CSID%u: Can't use hardware timestamp, inva=
-lid clock source (%d)\n",
-> >> +                          csid->id, snap.cs_id);
-> >> +            return 0;
-> >> +    }
-> >> +
-> >> +    /* How long ago, in counter ticks, the timestamp was latched */
-> >> +    delta =3D (snap.cycles - ticks) & CSID_TIMESTAMP_MASK;
-> >> +    delta_ns =3D csid_timestamp_to_ns(delta);
-> >> +    now =3D ktime_to_ns(snap.systime);
-> >> +
-> >> +    /* Fall back rather than reporting a nonsensical timestamp */
-> >> +    if (delta_ns > now) {
-> >> +            dev_warn_once(csid->camss->dev,
-> >> +                          "CSID%u: SOF timestamp predates CLOCK_MONOT=
-ONIC, ignoring\n",
-> >> +                          csid->id);
-> >> +            return 0;
-> >> +    }
-> >> +
-> >> +    if (delta_ns > CSID_TIMESTAMP_MAX_AGE_NS)
-> >> +            dev_warn_ratelimited(csid->camss->dev,
-> >> +                                 "CSID%u: Too slow! SOF timestamp is =
-%llu us old\n",
-> >> +                                 csid->id, delta_ns / NSEC_PER_USEC);
-> >> +
-> >> +    return now - delta_ns;
-> >> +}
-> >> +
-> >> +static u64 csid_hw_sof_ts(struct csid_device *csid, unsigned int id)
-> >> +{
-> >> +    const struct csid_hw_ops *hw_ops =3D csid->res->hw_ops;
-> >> +
-> >> +    if (!hw_ops->sof_ts)
-> >> +            return 0;
-> >> +
-> >> +    return csid_timestamp_to_monotonic(csid, hw_ops->sof_ts(csid, id)=
-);
-> >
-> > I am not sure if we need to do this every SOF. Most probably the delta =
-will
-> > remain the same during the streaming, so I think it's best to use the d=
-elta within
-> > tolerance and then apply that for the whole streaming session. Also, I =
-think it's better
-> > to have a constant delta from the monotonic clock rather than a fluctua=
-ting one.
->
-> I think it will be the best to send both timestamps to userspace, and giv=
-e the freedom
-> to userspace to decide by him self. But the API is not allowing that as d=
-iscussed.
+The LPASS (Low Power Audio Subsystem) Audio clock controller on Glymur
+provides reset support for the SoundWire RX and WSA1..4 masters when
+LPASS is under the control of Q6DSP.
 
-No, the delta is not constant. In fact, that's precisely why we use
-it, it captures the variable CPU and software latencies between the
-hardware event and the timestamp acquisition. By combining the
-captured hardware timestamp with the current system timing
-information, we can reconstruct an accurate event timestamp that
-remains aligned with the Sensor/CSI timing, rather than being affected
-by software scheduling and processing delays. According to my testing,
-the resulting timing error is below 1 =C2=B5s, from which we can derive an
-accurate sensor framerate.
+The programming model is a near-exact match for the existing SC8280XP
+LPASS AUDIOCC, so add the qcom,glymur-lpassaudiocc compatible to the
+existing qcom,sc8280xp-lpasscc.yaml rather than creating a new file,
+and add a Glymur reset-ID header for the clients.
 
---
-watching /dev/v4l-subdev2 (msm_csid0), id 0
-id0    478 ev   60.06 fps   16.650 ms
-  events           : 478
-  timestamp (mono) : 180.160315690 .. 188.102256050
-  duration         : 7.942 s
-  frame rate       : 60.061 fps
-  frame_sequence   : 539 .. 1016 (missing: 0)
-  interval (ms)    : mean 16.650  median 16.650  min 16.650  max 16.650
-                     p95 16.650  p99 16.650
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
 ---
+ .../bindings/clock/qcom,sc8280xp-lpasscc.yaml    |  6 ++++--
+ include/dt-bindings/clock/qcom,glymur-lpasscc.h  | 16 ++++++++++++++++
+ 2 files changed, 20 insertions(+), 2 deletions(-)
+ create mode 100644 include/dt-bindings/clock/qcom,glymur-lpasscc.h
 
-Regards,
-Loic
+diff --git a/Documentation/devicetree/bindings/clock/qcom,sc8280xp-lpasscc.yaml b/Documentation/devicetree/bindings/clock/qcom,sc8280xp-lpasscc.yaml
+index f235b4e24cc7..a25e043ab894 100644
+--- a/Documentation/devicetree/bindings/clock/qcom,sc8280xp-lpasscc.yaml
++++ b/Documentation/devicetree/bindings/clock/qcom,sc8280xp-lpasscc.yaml
+@@ -4,22 +4,24 @@
+ $id: http://devicetree.org/schemas/clock/qcom,sc8280xp-lpasscc.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: Qualcomm LPASS Core & Audio Clock Controller on SC8280XP
++title: Qualcomm LPASS Core & Audio Clock Controller on SC8280XP and Glymur
+ 
+ maintainers:
+   - Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+ 
+ description: |
+   Qualcomm LPASS core and audio clock control module provides the clocks,
+-  and reset on SC8280XP.
++  and reset on SC8280XP and Glymur.
+ 
+   See also:
+     include/dt-bindings/clock/qcom,lpasscc-sc8280xp.h
++    include/dt-bindings/clock/qcom,glymur-lpasscc.h
+ 
+ properties:
+   compatible:
+     oneOf:
+       - enum:
++          - qcom,glymur-lpassaudiocc
+           - qcom,sc8280xp-lpassaudiocc
+           - qcom,sc8280xp-lpasscc
+       - items:
+diff --git a/include/dt-bindings/clock/qcom,glymur-lpasscc.h b/include/dt-bindings/clock/qcom,glymur-lpasscc.h
+new file mode 100644
+index 000000000000..3006b12e385e
+--- /dev/null
++++ b/include/dt-bindings/clock/qcom,glymur-lpasscc.h
+@@ -0,0 +1,16 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#ifndef _DT_BINDINGS_CLK_QCOM_LPASSCC_GLYMUR_H
++#define _DT_BINDINGS_CLK_QCOM_LPASSCC_GLYMUR_H
++
++/* LPASS AUDIO CC CSR */
++#define LPASS_AUDIO_SWR_RX_CGCR				0
++#define LPASS_AUDIO_SWR_WSA1_CGCR			1
++#define LPASS_AUDIO_SWR_WSA2_CGCR			2
++#define LPASS_AUDIO_SWR_WSA3_CGCR			3
++#define LPASS_AUDIO_SWR_WSA4_CGCR			4
++
++#endif
+-- 
+2.53.0
 
->
-> >
-> > ~Gjorgji
-> >
-> >> +}
-> >> +
-> >>  void csid_sof_event(struct csid_device *csid, unsigned int id)
-> >>  {
-> >> +    u64 ts =3D csid_hw_sof_ts(csid, id);
-> >> +    struct timespec64 sof =3D ns_to_timespec64(ts);
-> >>      struct v4l2_event event =3D {
-> >>              .type =3D V4L2_EVENT_FRAME_SYNC,
-> >>              .u.frame_sync.frame_sequence =3D
-> >>                      atomic_inc_return(&csid->sof_seq[id]),
-> >> +            .timestamp.tv_sec =3D sof.tv_sec,
-> >> +            .timestamp.tv_nsec =3D sof.tv_nsec,
-> >>      };
-> >>
-> >>      if (atomic_read(&csid->frame_sync_users))
-> >> diff --git a/drivers/media/platform/qcom/camss/camss-csid.h b/drivers/=
-media/platform/qcom/camss/camss-csid.h
-> >> index ccafdbf3a9fe0c282da68ccdd04661b3fab81ff5..17cc3b42c8d83180d6abfc=
-c3efe22178dcc2f2e7 100644
-> >> --- a/drivers/media/platform/qcom/camss/camss-csid.h
-> >> +++ b/drivers/media/platform/qcom/camss/camss-csid.h
-> >> @@ -111,6 +111,15 @@ struct csid_hw_ops {
-> >>       */
-> >>      int (*reset)(struct csid_device *csid);
-> >>
-> >> +    /*
-> >> +     * sof_ts - Read the counter value the hardware latched at SOF
-> >> +     * @csid: CSID device
-> >> +     * @id: CSID src-stream ID
-> >> +     *
-> >> +     * Return the raw counter value of the most recent SOF
-> >> +     */
-> >> +    u64 (*sof_ts)(struct csid_device *csid, unsigned int id);
-> >> +
-> >>      /*
-> >>       * src_pad_code - Pick an output/src format based on the input/si=
-nk format
-> >>       * @csid: CSID device
-> >>
-> >
->
