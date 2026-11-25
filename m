@@ -1,94 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.224.81.214
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795605730;
-	b=TZr3Tbdral29PyBdOTRIpFvv0Wh0rFZ8lPAZ2NAN/zHiGFYdkQnpLtJ2kiVpukiQhjFG
-	 AwfV817ST2PJL0Jft5SsPzCGRX+JI6uz2V2fNCTrEf6x4iMMDEB3yyappjnA7I7+h1wxn
-	 GjBVY3m7OVVrfC/kTeSqHD90JsSEOrBo3nvM4UW9Mf3VA3uOmML8B7PUZorDs6xXP+sU0
-	 yd7CnqVpQb+ylr8sYHwgOBizraUcm/G2SwKshts3eUzyfDhoMjn2rrXR4QDgZNGlicIAd
-	 qPw43iSVN4/5/PIcYKUkUh/a+0xaaFGS68UH6++lcAe7ITIcK3mTtYWE8MaW7chBChg==
+	t=1795605736;
+	b=fYDXjgolTpJZA0ZWLsb5DU+uwsVCrvVgXV9bvxiI4Mi23R7x8o/2Wc7R2sM+YoMNaPe/
+	 AUHexm85CauK/IumoPU2mTQrCZ9C+iUMKQcveAy50+xcHWwCS+89BJdOmXdri3rLSZ29G
+	 OCz7wi5FpqttdwoldObXOfQj7tZmjMQcaRnZRU+CMbtDuenVzxuvG4X43mzz37fbV7fgg
+	 G+WcRgMVRaUMRlEwnNkjN/bOjN4ZzER4oBKzwKIr0RvP6QkN1am1a6kyAcCcUI0yNy7Z6
+	 IRYzfbZ93C1xr18r5ju7GFpWhSEWkfM+DT/CdJEQ/tcJnWkC9pHQpFpEQKxtK6prZzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795605730;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
-	bh=co9/jCMuDpW3sZtjGQUu7H6Z7tadkDLGpuzEguSSeDs=;
-	b=TLoEQOW1kNyll6AZVL14hjD+MINk7tki938vdggD50L4xMjrW3wTzGdBoPFj2g8YoTwL
-	 lZeJstn2UT5rKwVc3X7+SjRpbl7CY9jQQdsWAhXWV6O+s02KSEdRMuerd4eYDlXSqS4Pu
-	 YGYtgM37kg0W4fXt+q9e0SWiCzkchZnrG7IK1TjMi8fM3tggB9WjQghx/u/XeO2eVc/TP
-	 bKp2uwqqG+57jWvKor2GwbYfiy2qDklTfepv7sYTXBipEU6FbhTVdLl579OoVR2PvJwOS
-	 IQlKh32Fkyo5xPN+Ehjwi4vP6rD1i5/62wojKaEcpyXGiIrM7raHDPOYPb0/AO+pwMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795605736;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 X-HM-Tid:X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
+	bh=B0S4TeatqcgFI1CQuKPrV5OqrTk62VwVmWdAQnwCQ+s=;
+	b=TGEUpjKuq/gCmVvPpSDVXo2yM4H8Ssc8sXC8muxFyJMrlSW8l5CTiDDk0aq+IFvS4gKS
+	 gk1hDQBl8wcVtUV8wzeP8oIT26D9XikN2fGg65sluWLjg8juOa0p/1g7t9aah9LTFnC98
+	 85Rx+4DU62F0LiAm5UTMDgOtXO4srpBAyPTWBcK5Mi+wWPeMuyVHjZvO3zkylBXbyrwtx
+	 oqdR3HzbAb55YLwGDEoXd+lgGtd9fno3IdS46wcNsmqAbHWE8UttXMT9IaArCfQfXOT8b
+	 hc/l1nj12QUZQU6oeLJmzt+9z1XMa+9nkOxaCkAVUnA729D4mHZhCvSuqmYxx9Far7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=ZZHRRZUi;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=rock-chips.com;
+	spf=pass smtp.mailfrom=rock-chips.com;
+	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=aPpT0sd0;
+	arc=none smtp.remote-ip=156.224.81.214
+Received: from mail-m81214.xmail.ntesmail.com (mail-m81214.xmail.ntesmail.com [156.224.81.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A20CE606A68B
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:22:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A20CE606A68B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93D3860A2613;
+	Wed, 25 Nov 2026 11:22:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93D3860A2613
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=ZZHRRZUi
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb6057b333so26500645e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:22:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795605728; x=1796210528; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=co9/jCMuDpW3sZtjGQUu7H6Z7tadkDLGpuzEguSSeDs=;
-        b=ZZHRRZUiShYawjnhoSgxwDhbvXJ1IRVSWUUtl6OVJo1N0wAeMX1c1zUnxIVSZnP+PU
-         UMawSju2SjU7ezb2eZY7F2cYe72fK/wcxUg3DejTCEimGZxXaW29KxXmPjJ6+5I2J4r2
-         0251tCgCEpWmvDZv9hhvVXgdvX18stoLCtQmL02keQiFrHjIZh+r7hAOnc+uNPQ9AEQD
-         bsmGG2hpGiD6ByrJrpHuvFOtj94ommabNn/3MTskSuiusXghOdHuEwQb4JuO/z1eZpQ/
-         f+ZXW9+yazeQi+Av9xV6M0pTUaKSXD9kPOKPlsXtjEevotxuoEw/4O4zeTIL5w4oF+jV
-         hI/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795605728; x=1796210528;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=co9/jCMuDpW3sZtjGQUu7H6Z7tadkDLGpuzEguSSeDs=;
-        b=zlehDK15AHmrClRj1lcXrKOwxUqDJRv5hqHf3ggFlpkWUbBYhxskN8TTg4fDeAQsMj
-         lEeNKghiu+8Egn4+LxXSXKBr04YY9PQKeZk1RLv8+UZ31ePvwe3wod9TATIiUaxmWomf
-         VPHsX+HkLsCEpDqUlVLl8PtVpQhKcOP8LCCLHawbscj4Lm/1eXJ86YZYp2Anb6/RbaE/
-         oz8a93RFbOLNXrlhxjHgei4U+gOeD5SB4y1QDqIv+xjxUM+jdy4YrUji5PeP9XnLFKam
-         GWsd+dp8SxH6A3WIwSiA7jNMNKgHq8GA5VNm79g6QMUcasVbmrGtRQ4yejTX1rxHswIp
-         eyNg==
-X-Forwarded-Encrypted: i=1; AL+hErFJWBB3dZ2UFL/b0wNb+bxkRg7g9LD6DOS3fja5CxmveskLJk0cTXN93AmUoXs8Ter9n0Ht465RRhzRH80=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Js2vMEnoZxHYx+numnpBjmAPc4j3lDGKxxF4aUEZPyWDWHDth
-	AlZQcvPQ8mMIq1Ums7SEmvqHUHUqtpKzKr5NA3FinF5XR0FpeiH6zPAcIM9c+9+mraZ3xMluCxG
-	g+Gcv
-X-Gm-Gg: AZFdTZc92KWXwss5xOQ/lahgYTX6F5aF2A/YKPZeXmcz1FQCKdXVMPZ63HiG10IKXvf
-	zz1Ki4B7rxtJDJ8K2Fzd1YYWqzQHMH1vU5ALycPwGp9xjPS7fD5N8OO857kGAkRXeVYPCRka4ro
-	I3jW3jO27tI8UM+DKkt34hb/sdeUr2RIOrj7+SnGWrwo6bGvq5pwxJkOKnyJTfY2i8/JBvlRlVM
-	ClhG3pu+49PA4bhCmxCKyPujxJpywKt+VS9fVhDjSrZebccY+MMUrcufq9ePgd/77mzzOuGDza+
-	4DvaRfs/rLdxZvQoy45HEP7DlQBtji/wz2+SxBgLpGoEcgCg685yRkOfUCzJi57uSq7pmv6qnOi
-	F5RCJqgJkbwCtS/25Ko96NXEBOi2E0KgGiqGUf38dAe5pnIHKrsrtZVl8Ik3Wtpy2ATY1TU7LFd
-	OPanP+vANujJ1Nd7C28JijAvfQms0iry7kw2CS/19eeevzOo9HdHfcdQQLlt0MoskVRiGLo1GMS
-	X4ntZHCDOODR+z7sscllwMH7LW/aoogMAMeVWFtydck487PNyqiT2O8vt/lsqg2gyZamYjXxAkU
-	2BTBPE4yYPBarPbigT0NQYaJzhpY1ML85zRLdyPi3M5X3uaEZAb/WIByBJg2ZsjOCIBs50z2Tpd
-	h1Ang96DHUm5i0WH2
-X-Received: by 2002:a05:600c:4f0f:b0:4bb:87f4:3674 with SMTP id 5b1f17b1804b1-4bb8880ef40mr445497505e9.15.1795605727974;
-        Wed, 25 Nov 2026 03:22:07 -0800 (PST)
-Received: from localhost (p200300f65f19a9043ef7230869dfba63.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3ef7:2308:69df:ba63])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb906d6a13sm274079765e9.3.2026.11.25.03.22.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 03:22:06 -0800 (PST)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Stephen Boyd <sboyd@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>
-Cc: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] spmi: Drop struct spmi_device_id
-Date: Wed, 25 Nov 2026 12:21:52 +0100
-Message-ID: <20261125112158.938835-2-u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (1024-bit key) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=aPpT0sd0
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 55f816048;
+	Wed, 25 Nov 2026 19:22:04 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Inki Dae <inki.dae@samsung.com>,
+	Seung-Woo Kim <sw0312.kim@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andyshrk@163.com>
+Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v7 08/20] drm/bridge: analogix_dp: Add IRQF_ONESHOT and simplify IRQ handling
+Date: Wed, 25 Nov 2026 19:21:29 +0800
+Message-Id: <20261125112141.1434903-9-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261125112141.1434903-1-damon.ding@rock-chips.com>
+References: <20261125112141.1434903-1-damon.ding@rock-chips.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,59 +82,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1563; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=ZDpRQHx3IyAiiwcGiQlfk73ex+b+rpaxrLKas9ndLWE=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrBsTXKJddFNddcsnikbHPceB6Ger+CxxvRlhFq 278I1wgfnWJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawbE1wAKCRCPgPtYfRL+ ToqsB/4jmCVr/16jf/tXbb0mWEkL+/fOqTuZuqLEnBopBmJ1zbwzpuFxHWSK6lvRwDr2cTpfPoo F61w2T88lLuzjKBgBVuvOu2Oc1YQsPSOcuvzdf6vXVMjiFo2xE51i8LzgHQ2X8DL5YuUwB4hLFe Dd/zhHGZJEfsjnOlpd+aHUVQ7UCp097hacCNuQcRsxf8f9irHfI3Tnm/Jsdbamejmhi3cujl3/g IqOPpjwbQ7TEi+J0sC4oleK0ao5m97QmZkDzcwfZiw0B/u5HbY0b8lW7Fue9Eo6g/I9i4LpzjgI tGuRE1EV7ZP53w0ds+hJusjXJpKhMIOuaUMrMk6XYCSMPKRV
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa21270fed903a8kunm17c23050775898
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDGR9IVhpMGkwaGEMeQ0gfSVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=aPpT0sd0hAcXxv0h/Ou8lo8jfQloG8a28lIVLlKM4PGYl7IAH2sdDwHicmvtujWHUAqOVZfOj0233yhqWQcA7eW71V6creReYq0bMJZhtQtcseosIE2rjnKLczw66tKKNXcwU8r5Iz2clq0tCKpZhefS8NBi7ckQAinOfkE47Bs=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=B0S4TeatqcgFI1CQuKPrV5OqrTk62VwVmWdAQnwCQ+s=;
+	h=date:mime-version:subject:message-id:from;
 
-This was introduced by commit 5a86bf343976 ("spmi: Linux driver
-framework for SPMI") in 2014 for Linux 3.15 and already then was unused
-and no user was added since then.
+The threaded IRQ is requested without IRQF_ONESHOT, allowing hardirq to
+preempt the threaded handler. This creates a read-modify-write race on
+HPD interrupt mask registers between the hardirq mute and thread unmute
+operations.
 
-Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+Add IRQF_ONESHOT to keep the IRQ line masked during thread execution,
+which eliminates the race and makes the per-event mute/unmute calls in
+hardirq and thread handlers redundant. Move interrupt status clearing
+to the beginning of the threaded handler, before
+drm_helper_hpd_irq_event(), to avoid losing events that arrive during
+the event handling.
+
+Tested-by: Heiko Stuebner <heiko@sntech.de>
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+
 ---
- include/linux/device-id/spmi.h  | 17 -----------------
- include/linux/mod_devicetable.h |  1 -
- 2 files changed, 18 deletions(-)
- delete mode 100644 include/linux/device-id/spmi.h
 
-diff --git a/include/linux/device-id/spmi.h b/include/linux/device-id/spmi.h
-deleted file mode 100644
-index a821c42cfc9a..000000000000
---- a/include/linux/device-id/spmi.h
-+++ /dev/null
-@@ -1,17 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0 */
--#ifndef LINUX_DEVICE_ID_SPMI_H
--#define LINUX_DEVICE_ID_SPMI_H
--
--#ifdef __KERNEL__
--typedef unsigned long kernel_ulong_t;
--#endif
--
--#define SPMI_NAME_SIZE	32
--#define SPMI_MODULE_PREFIX "spmi:"
--
--struct spmi_device_id {
--	char name[SPMI_NAME_SIZE];
--	kernel_ulong_t driver_data;	/* Data private to the driver */
--};
--
--#endif /* ifndef LINUX_DEVICE_ID_SPMI_H */
-diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
-index a69947f2c1dc..fd21238c99f5 100644
---- a/include/linux/mod_devicetable.h
-+++ b/include/linux/mod_devicetable.h
-@@ -51,7 +51,6 @@
- #include "device-id/serio.h"
- #include "device-id/slim.h"
- #include "device-id/spi.h"
--#include "device-id/spmi.h"
- #include "device-id/ssam.h"
- #include "device-id/ssb.h"
- #include "device-id/tb.h"
+Changes in v3:
+- Split out a separate commit to improve the return value checking for
+  &analogix_dp_device.irq. (Sashiko)
 
-base-commit: 3dd8c790a7b7027abdd568e36db5e82ffaea7c77
+Changes in v4:
+- Add Tested-by tag.
+
+Changes in v6:
+- Add Tested-by tag.
+---
+ .../gpu/drm/bridge/analogix/analogix_dp_core.c  | 17 +++++++----------
+ 1 file changed, 7 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+index 749d63e55d2a..ecc10a01cb48 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+@@ -707,10 +707,8 @@ static irqreturn_t analogix_dp_hardirq(int irq, void *arg)
+ 	u32 irq_type;
+ 
+ 	irq_type = analogix_dp_get_irq_type(dp);
+-	if (irq_type) {
+-		analogix_dp_mute_hpd_interrupt(dp);
++	if (irq_type)
+ 		ret = IRQ_WAKE_THREAD;
+-	}
+ 
+ 	return ret;
+ }
+@@ -721,6 +719,9 @@ static irqreturn_t analogix_dp_irq_thread(int irq, void *arg)
+ 	u32 irq_type;
+ 
+ 	irq_type = analogix_dp_get_irq_type(dp);
++	if (irq_type)
++		analogix_dp_clear_hotplug_interrupts(dp);
++
+ 	if (irq_type & DP_IRQ_TYPE_HP_CABLE_IN ||
+ 	    irq_type & DP_IRQ_TYPE_HP_CABLE_OUT) {
+ 		dev_dbg(dp->dev, "Detected cable status changed!\n");
+@@ -728,11 +729,6 @@ static irqreturn_t analogix_dp_irq_thread(int irq, void *arg)
+ 			drm_helper_hpd_irq_event(dp->drm_dev);
+ 	}
+ 
+-	if (irq_type) {
+-		analogix_dp_clear_hotplug_interrupts(dp);
+-		analogix_dp_unmute_hpd_interrupt(dp);
+-	}
+-
+ 	return IRQ_HANDLED;
+ }
+ 
+@@ -1508,10 +1504,11 @@ analogix_dp_probe(struct device *dev, struct analogix_dp_plat_data *plat_data)
+ 		 * that we can get the current state of the GPIO.
+ 		 */
+ 		dp->irq = gpiod_to_irq(dp->hpd_gpiod);
+-		irq_flags = IRQF_TRIGGER_RISING | IRQF_TRIGGER_FALLING | IRQF_NO_AUTOEN;
++		irq_flags = IRQF_TRIGGER_RISING | IRQF_TRIGGER_FALLING | IRQF_NO_AUTOEN |
++			    IRQF_ONESHOT;
+ 	} else {
+ 		dp->irq = platform_get_irq(pdev, 0);
+-		irq_flags = IRQF_NO_AUTOEN;
++		irq_flags = IRQF_NO_AUTOEN | IRQF_ONESHOT;
+ 	}
+ 
+ 	if (dp->irq < 0) {
 -- 
-2.56.0.rc1
+2.34.1
 
