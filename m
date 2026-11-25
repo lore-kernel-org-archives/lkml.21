@@ -1,56 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.218
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795580955;
-	b=40hkVDkE3a18038FcMSElBncV8ZCqyiUNnfUXZ/JpvEnks7o0hectNR7YHj0Ard/5L5O
-	 3uh7VUMRKJWWNSpDLf/v6T4o1Lb3FthDaJxgyopbyQYr2LAkichPfolhPLNbRSDz60CwP
-	 G9Na/Vf3d5qBEYPicMTBcmtcVvs3bcSPpxMAfmC0kek51TJfOmdXut3V8gUi1PTvIaj9i
-	 8LKxsC2CuAnZVedMW5yjnUxhzLtx/qW4p/xdaOGwbKEU/GTw9H7c8rGtNuD/YhNeNu8ws
-	 SvQBI5DN0CAHXbXMs5mT+PvrfNVLdt7lvLeJe/5SYVyyfiF+9ycy4sp1ioPXcFWBWlw==
+	t=1795581074;
+	b=HQhKbRZQqeJUO/baiL2vWYh6AU93mtjpZ42nycui1e6Q6r0WRJ+mWGu5ZSapmdNzT9yV
+	 6Xl1MCL/A/ZKZec2r5S0vOYweWrnras2t9C1BB0euLZMsx+ciDiGTIvXueCxZOKoOZN0X
+	 exPVHN5zpH6nqjyKAls4SQOqKyzTMtr9CUUYrgK1Lr6lT6jStVeTehybG0XUUm21uX71o
+	 tEjcxf1bJY+oPGJuwJHfGsvpsXPWVuOo+9vGFpumZvRUQK7fDsvEQWONr2OhCRdZnO0s4
+	 26TfqHujBOMaN8s27S53Rr10AWbwa0anT9myAM5582zjR+4XPPBVKJIYYPQjZlDqwuA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795580955;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=rqapGEif3pOFnTQjLzudYGSBpb8F1n57DN8SWyMte9E=;
-	b=TLuczjkGzMbVj7K63DHyCd7BtB0p8OU7erZHjH9pELhhALMKpGUjG9MVGi4mR7Gzm4oa
-	 AkCOgUkEJZ28ipPUFenW7L4MmDKRcrR9flb04vItfd3ML5rZ96G1tLYIjNLZIgWtys+3P
-	 yQIMl7F1aHu2Mz5ubt3XPD8G6wWw90500tBtb26Ig6eoan2x6HPs9tsB71cCT79lGcL74
-	 vV94rR1Qy0jTwS69vPIXnucy6gsnuBkykBP8taPXwRt++aPPdfq7ytWiWyMQhuWbUfEE9
-	 ZpwSnSO+gyFFMrQm+1MNIN0qF8fhLfmWzzFPjH73DCeOHREiqglSuYYXPS6nBKNXmFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795581074;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:To:Cc:Message-ID:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=LqCAbsFv75X8FpT2kuDVemXn9DMtQ2UrANDaKURHbUU=;
+	b=SRvrFoeJSwn7cZnQ2kyQ3dIJWwy3wuR6lKp98HqZDbsPG38l2/K7KSGYdCHCYqdRcWSc
+	 3NzkrDCYJbx4F3AFLU9AweRnu8YEL2zAFLPCD3Mrsyrt3tLOWcd9UD28A1CzPaoL4WZ6G
+	 ok7gLXozOzHAfNqb57F8Va3TCifXp4LiiXO9Tnc8N3TGM0Cq19rv7VvDxOXw+GnW3nw7m
+	 xcZTGXtyM7t1YPVNoPVeu95EbpAwiDo90fjnVn37A9tJLTaMONOz1mjLruSAJi4fiAWft
+	 WQf4WhGvPe2mx6GNEeGJrFHLgXK2QD+WGvgVO6KuvftflD6i2neJOaPQEIigs4+Umnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chenxiaosong.com;
-	spf=pass smtp.mailfrom=chenxiaosong.com;
-	dkim=pass header.d=chenxiaosong.com header.i=@chenxiaosong.com header.a=rsa-sha256 header.s=key1 header.b=o4Qzim7j;
-	arc=none smtp.remote-ip=91.218.175.218
-Received: from mta0.migadu.com (out-218.mta0.migadu.com [91.218.175.218])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t9xaBilI;
+	arc=none smtp.remote-ip=209.85.160.180
+Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39C03606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:29:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39C03606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=chenxiaosong.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chenxiaosong.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1060E606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:31:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1060E606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=chenxiaosong.com header.i=@chenxiaosong.com header.a=rsa-sha256 header.s=key1 header.b=o4Qzim7j
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=W+sC4+T1oBRbe2aR0eng8GaPnp96q47rE2lkk+nu9V4=;
- c=simple/simple; d=chenxiaosong.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795580951; v=1; x=1796185751;
- b=o4Qzim7jPimtxnu1EOxk5IiMOP8bNgJ7m8Uyx2UZ1hk6Fy+kOoUbsaKuvraRg4tk7jkFjRqa
- cEsP7SY/nHyfXk2h3C2bCXnQ6nxHwu23qdVltVTT9vLIPUsHVsCFu+9Q4SOzOOQF+531DROk/34
- e8FKyqjicbuVIcjEw2wv0mHJm/PKyVW1oYeKMteAnYKljOb2NZUEWtuYLsRjAjsfthkZGWIa7AD
- iM0JqSZLEN10+rs2Y+7zsLnLNzAT3irXTt11UbPz38AvlJsMAiUKLklQhZfExpI7S9uiczkGAYz
- XEVjk/p06pZtJ9jAHOLdu5i/n1ST7EyqpcyzUaokHBaYQ==
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id ef756b0f33637438;
-	Wed, 25 Nov 2026 04:29:10 +0000
-X-Mizu-Trace-ID: ef756b0f33637438
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <a5b87baf-0573-4c47-85f4-0629dc1cf000@chenxiaosong.com>
-Date: Wed, 25 Nov 2026 12:29:01 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t9xaBilI
+Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-5363c8de563so57413491cf.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:31:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795581073; x=1796185873; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:message-id:cc:to:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LqCAbsFv75X8FpT2kuDVemXn9DMtQ2UrANDaKURHbUU=;
+        b=t9xaBilIOSfrKNfdyYoYv0fqw8MH2K4V/ls2xdv/XMF2Y7q+0FeBKT08Y8d356eHZx
+         ZZrO0XeB7oddmjUFHDeCZuq09o6W4o3F5l679+WsVsjdpvVjrBPpYqTziW7ImtZ350k8
+         p1iBOcySHX2sS+BpiR9BlFHzYvx1Xf5ON00IpOEVWKdWm1jVnlRFvOGGzkWOZ7Fji893
+         S8y5w1WZGalKSlup2KqBhICVzJi2gliF55C2HldJQMjAtm7KkLZy2sC67sVDx8rhKCws
+         c1q3Kwib5FBhJNmqRxDoxocCrWBe2NOGQ4Hdek/jYKrlEBbApxyLcDVCiAAO6dN3AfZl
+         nEug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795581073; x=1796185873;
+        h=content-transfer-encoding:content-type:message-id:cc:to:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LqCAbsFv75X8FpT2kuDVemXn9DMtQ2UrANDaKURHbUU=;
+        b=EqQhvsL1hbm9ROQaPpsT34mnwM1CIzdqQww/jRYNKq7NcYv4996XgiwjBXrzzG7d38
+         VG91umJo5vKt9BsY2u0ACr9A99eCNiHDe6fU4YsGB7i+ILz0cvR43TDrJaJ8J9m11UD4
+         Sr7+I7yHiOxVmghDGiKMxgorRW+OsuBkuOxuGuHT1ewnP1ytuiLDWZf154PUiaLB15MS
+         3Q4+C1FmH4YE0ergdl1oU4+1JxIOMX+pH6tLT0AK+oWGRRMbAsSfzSao5FfvcdF2mxbH
+         GZU272tNuFX/AttEv1fztFP/kzh/8LBX6/I+5pd9onPdI2st3rT0pPlg9gr+lsjy0FVB
+         eTFA==
+X-Forwarded-Encrypted: i=1; AL+hErFsfypPiTZPxdIf9gzQWPrHMheO6x6MOLDxLORwo2rnoeeAwP591ruigCW9BDQ1+I98Kgz+kzRaaigYYpg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9RIzxJQqIrvK9HjO+X8cB1jnk68HPpbnlj/a5KEnPqgOuw7/5d
+	/vdRko0CxrpEa3JA/3hAP9IAHg/cZADJaOXoMemJ2ES7zltR0BuIoOU=
+X-Gm-Gg: AZFdTZepVC8wxOBJxdEpjqrh//xMq1E9AnnWtjPRQLJ0k7q+MHs09/Xdx5n1dMEITGC
+	fp8i6PD5cHilZi+pyQkOmmZoK6YQqtswL84BZUfrB4C8Bma4VW+aUmVB5qs8CpZoeYob+RfAgL+
+	BVvOVuPS4Qg9ZYTumEZhNYjtbR8oKIdi9G5Xnx4Jov5a/BEA2gv9QambLpTDFbfgMZZvZCS3Gzh
+	Xjycdybq1Ro4A5cnLCo0aDnm1LhuZb4FSIHLYXPyIfrfnKGka2BMLWhO9EYuBTCeJz342qyKd38
+	MjTj2/l1EzNaBWAcoMyqX/lxjZdWJoF8SnAqskQ+bqgzMf7T8tYFp9VaDlumo+8zcF0bPqXtLLI
+	c7T8h1D8WWxNb2JDYk5poA/wkm+3SVCUzRxoXOVOu/YGKc6O1uNW/hHN//NjPdDsndZpuRnoDcz
+	bkACONTbugv/qujLY5pErp0QIha9JxpzT5ejCjFFw2w+0lJjI1XvSv0LDoF0QBWh5TLMmJTznYw
+	3jrdUbY3y/45cKwmd369Bryg2VqzS9pJGPTdEhUY2X4lfXTR541IiK30H3H0sJMd9VtuNE7ildS
+	SiiZlVD/8S/NCT5TrR/5jNHDXuPwQWsdZq4NRmK0njG2r/8ACVQ+kBmXj9Onn4+GqzgQmJtElBV
+	zUkb9Uwnqmmibq6Wud4HUaJT+KtcKMh/TY6Ypq0Xz3kN61EXzwIKH9rZ6HCCqck7fI37bAgJqt3
+	NgqAPupiJUeZQ/g/0=
+X-Received: by 2002:ac8:6545:0:b0:55c:f5a5:3900 with SMTP id d75a77b69052e-55d76aa8574mr311966681cf.62.1795581072923;
+        Tue, 24 Nov 2026 20:31:12 -0800 (PST)
+Received: from [127.0.1.1] (207-237-119-98.s2383.c3-0.nyr-cbr1.nyr.ny.cable.rcncustomer.com. [207.237.119.98])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7889f8absm143087821cf.27.2026.11.24.20.31.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 20:31:12 -0800 (PST)
+From: Eugenio Zuccarelli <eugenio.zuccarelli@gmail.com>
+Date: Wed, 25 Nov 2026 04:31:11 -0000
+Subject: [PATCH RESEND v2] Documentation: kunit: document --summary and
+ --failed
+ options
+To: david@davidgow.net, brendan.higgins@linux.dev, corbet@lwn.net
+Cc: danielmaraboo@gmail.com, raemoar63@gmail.com, skhan@linuxfoundation.org,
+ rdunlap@infradead.org, linux-kselftest@vger.kernel.org,
+ kunit-dev@googlegroups.com, workflows@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-ID: <179558107134.36587.13120861622026385297@gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,67 +100,52 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] ksmbd: splice READ payloads over TCP
-To: Huiwen He <huiwen.he@linux.dev>, Namjae Jeon <linkinjeon@kernel.org>,
- linux-cifs@vger.kernel.org
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>, Tom Talpey
- <tom@talpey.com>, linux-kernel@vger.kernel.org
-References: <20261124132554.1185817-1-huiwen.he@linux.dev>
-Content-Language: en-US
-From: ChenXiaoSong <chenxiaosong@chenxiaosong.com>
-In-Reply-To: <20261124132554.1185817-1-huiwen.he@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-Reviewed-by: ChenXiaoSong <chenxiaosong@kylinos.cn>
+Commit 062a9dd9bad7 ("kunit: tool: Only print the summary") and commit
+3c67a2c09b3c ("kunit: tool: print failed tests only") added the --summary
+and --failed options to kunit.py, but the matching entries in the
+run_wrapper documentation were never added.
 
-On 11/24/26 21:25, Huiwen He wrote:
-> From: Huiwen He <hehuiwen@kylinos.cn>
-> 
-> ksmbd reads file data into a private response buffer. TCP then copies
-> the payload into an skb. If the reply must be queued, ksmbd also
-> copies the unsent bytes into a queue buffer.
-> 
-> This series uses MSG_SPLICE_PAGES to avoid those TCP copies for plain,
-> standalone READs: patch 1 splices the initial TCP send from private
-> pages and a header page fragment, and patch 2 retains references to
-> unsent payload folios on the send queue so the send worker can splice
-> them as well.
-> 
-> Summary of fio sequential read results (16 jobs, QD32 per job, SMB3.1.1
-> tmpfs; each column is relative to the preceding commit):
-> 
-> Channels  I/O         Throughput change        Host Gcycles/GiB change
->                       patch 1    patch 2          patch 1    patch 2
->         1  4 KiB        -0.3%      -0.9%            +1.8%      -1.1%
->         1  64 KiB      +28.4%      +0.9%           -31.5%      -5.9%
->         1  256 KiB     +60.8%      +5.3%           -40.5%     -22.5%
->         1  1 MiB       +51.5%      +9.2%           -33.1%     -32.2%
->         4  4 KiB        +0.2%      +0.2%            +0.9%      +0.2%
->         4  64 KiB       +3.9%      +2.6%            -6.9%      +0.8%
->         4  256 KiB     +12.1%      -0.4%           -43.0%      -0.8%
->         4  1 MiB       +17.6%      +7.1%           -39.5%     -34.7%
-> 
-> Huiwen He (2):
->    ksmbd: send READ payloads with MSG_SPLICE_PAGES
->    ksmbd: retain unsent READ pages on the TCP send queue
-> 
->   fs/smb/server/connection.c    |  18 +++
->   fs/smb/server/connection.h    |   1 +
->   fs/smb/server/ksmbd_work.c    |  24 ++--
->   fs/smb/server/ksmbd_work.h    |   8 +-
->   fs/smb/server/smb2pdu.c       |  74 +++++++++--
->   fs/smb/server/transport_tcp.c | 223 ++++++++++++++++++++++++++++++----
->   fs/smb/server/transport_tcp.h |   1 +
->   7 files changed, 301 insertions(+), 48 deletions(-)
-> 
-> 
-> base-commit: 89d5e8fdd5a74a318d18b7267c4ec5d70b2285f1
+Add descriptions for both options next to the other output options, so
+the documentation lists the arguments the tool actually accepts.
 
+An LLM-based coding assistant helped draft these entries; I checked them
+against kunit.py and kunit_parser.py.
+
+Reviewed-by: Daniel Pereira <danielmaraboo@gmail.com>
+Signed-off-by: Eugenio Zuccarelli <eugenio.zuccarelli@gmail.com>
+---
+Resending: no changes since v2 (26 Oct), only Daniel's Reviewed-by added.
+
+Changes in v2:
+- Moved the tool disclosure into the changelog text; the Assisted-by
+  trailer is no longer described in Documentation/process.
+
+ Documentation/dev-tools/kunit/run_wrapper.rst | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/Documentation/dev-tools/kunit/run_wrapper.rst b/Documentation/dev-tools/kunit/run_wrapper.rst
+index cecc110a..641ab50a 100644
+--- a/Documentation/dev-tools/kunit/run_wrapper.rst
++++ b/Documentation/dev-tools/kunit/run_wrapper.rst
+@@ -327,6 +327,14 @@ command line arguments:
+ - ``--junit``: If set, stores the test results in JUnit XML format and prints to `stdout` or
+   saves to a file if a filename is specified.
+ 
++- ``--summary``: If set, prints only the summary line for parsed test
++  results, rather than the result of every individual test. Does nothing
++  if ``--raw_output`` is set.
++
++- ``--failed``: If set, prints only the tests that failed or crashed, along
++  with the summary line, once all tests have run. Does nothing if
++  ``--raw_output`` is set.
++
+ - ``--filter``: Specifies filters on test attributes, for example, ``speed!=slow``.
+   Multiple filters can be used by wrapping input in quotes and separating filters
+   by commas. Example: ``--filter "speed>slow, module=example"``.
+
+base-commit: c03c1a14507dfaf8b856c2608f9ac216021fc222
 -- 
-ChenXiaoSong <chenxiaosong@chenxiaosong.com>
-Chinese Homepage: https://chenxiaosong.com
-English Homepage: https://chenxiaosong.com/en
+2.34.1
+
 
