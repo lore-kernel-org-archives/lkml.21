@@ -1,63 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.225.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795568489;
-	b=Bt9QKTtpfqRBumY69WTRhcug+VV8UEyfPEEmZ5X3ZRDioJTCMUUZvgikh0bJAzEr8ilx
-	 94VPqDfeI5NRoZQ2JvE8x5M5TN1CVtMLIqSExpX9c4GovZiaYcPDqedtNwxqqghiJu65/
-	 wvDruHlWw3VHV/7v4E53vcTnLjxH9pOHqafeJaxV/qomOvElpGnCX3vZjtjfZvYKuOIIZ
-	 14gMm3sE0xP/rg0xKJTv74l1LAaSoH6dUU7FOKaCk/X039g/SEXNTON73TIOc+WiM/xaF
-	 odeMTupX+ltM31ghHzbCYEynxtzlGkCflb/blmi/OPoZ5VkAcldzRwxmUhKXJV8p1KA==
+	t=1795568555;
+	b=NiJ4G1sj8ALvX4adQDq+5jNiMOz+7RqZf1fhyNzQ68vbbVLeb6/+EU96OcPtBmK/jJeG
+	 mDT6BsZPsM4w6L4cyGhVbUfOlTkro8NSeKYonIYdZzJA3gOmJwf7PdmCCV8ezG+aSRoL5
+	 wJRJVdSS+Z2vrKNJIMgHKTMHrLGJ4rc27KoxuhPYmfpzvPdmt53rkLnu33TkZXpK2u4He
+	 LeoNdqwhKleuTEqwOJ/WRn4c74LRKgBYlpbzmaWPwE5kupmVcKeovn4jOwvXi4AxKPWuX
+	 D5r1WDVAZAQDFf689VgrKpgm3SUTRAyNjsljt00ypN0OubEvJP/gGUcWdr5da4jl0dQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795568489;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=tD6D7eOpdU3J9Niw++brCIW9sp+eVurU7w2P3fH9VtI=;
-	b=n2iE72rD8DHBB3LSi9irTzRv6BCMv8XjNwUhFzx5shcUOLrmxnfOOcoyqhI6JE50MxU+
-	 OrnFJozfFqKikpn/QnEFFQKI+svIBSgXy9mk2X/ze70olTMn/xBDY+AqPv/1Qw84T36sj
-	 5Ib0ux/fKZfezWhpkz6LkZ2ski380FQutkqauGxFxoWeAPQYuuDBtGdEt60YL7fb9jAjW
-	 k8PWMT6UohS7FRiEirtABSfZFfcCgPiEHhqNijsb2glDz8Fl8VLYi2OxapMJw6GH8dymC
-	 dZ06LNSPQWyPewWXUfVfIHkqCtYAesKWXTZp64kYqaMgjY+e/1CPAqUL1Cyf7HnThwg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795568555;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Content-Language:To:Cc:From:
+	 Subject:Content-Type:Content-Transfer-Encoding;
+	bh=uePKERkPYqyNMKFitbdJV3Xl/oPfgxHA9R+TZal+XKQ=;
+	b=t/zRs9nlln+cYEpPYNQliYdPgeMCxU9ROOA2bRlGtMENEjY2PXd7NZq922Is8SJxVPC8
+	 T7+HraoFsni47rxWjjKqKkXOjjNlP06vPOASEtGjSv2WoVd85/QqFtZ1fwKD4nRBJEX35
+	 Q2RhKU2i6YD1OR7JJTns9TLC5auvcOp6W8dUmEo2EsaAQl6KAfPFONOphmOaYspTEhO9f
+	 aXuBntb74rzI/BFekkC3KAUNWFS4mIXYidS/ZuAWtbsTYPiJpnm+39kuyoc44KCMs1+Jg
+	 8qdXhnYNG6wKy60BcX++9TaBufcknv5FV1N14JtnF0W9U9ZZVEXVKX7CpB8tZVW7rfA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=emP3rh+P;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RG5Karly;
+	arc=none smtp.remote-ip=74.125.225.138
+Received: from mail-wm2-f10.google.com (mail-wm2-f10.google.com [74.125.225.138])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68C90606A31E;
-	Wed, 25 Nov 2026 01:01:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08602606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:02:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08602606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=emP3rh+P
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A23951F000C4;
-	Wed, 25 Nov 2026 01:01:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795568488;
-	bh=tD6D7eOpdU3J9Niw++brCIW9sp+eVurU7w2P3fH9VtI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=emP3rh+PUBax4VRuK4Q3yqpr5+BKSRMsc6jx68NwEFb944vKzvA5faXk/XTJ4fO3H
-	 KrakpyE+t92ov6C6FKXXtkNm6Z3LIAV5YW+CoXQcquiPCcOzpL5PbYUMyIaHF4V8tQ
-	 GiVJFb9BwhcGhILcxh3FUttUNLZazpc5btnQlBdqk+YLMc4y2/pjraH01Jx816AOos
-	 c6iLUP1neetRKhQb8So+Ov/NgNsFXZ9XwqvDsXCl9tivj/Kq9SvAE2G5kqp17r/oys
-	 6wbxIaP1Lf8X3cycn25PHPW0giUO5525omuLocZv+h7TWu4Bjy+GMpQMCO/KLTG7IG
-	 WD3ObNlskmSZQ==
-Date: Wed, 25 Nov 2026 01:01:21 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Nathan Lynch via B4 Relay <devnull+nathan.lynch.amd.com@kernel.org>
-Cc: nathan.lynch@amd.com, Vinod Koul <vkoul@kernel.org>, Frank Li
- <Frank.Li@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, David Rientjes
- <rientjes@google.com>, John.Kariuki@amd.com, Kinsey Ho
- <kinseyho@google.com>, Mario Limonciello <mario.limonciello@amd.com>,
- PradeepVineshReddy.Kodamati@amd.com, Shivank Garg <shivankg@amd.com>,
- Stephen Bates <Stephen.Bates@amd.com>, Tycho Andersen <tycho@kernel.org>,
- Wei Huang <wei.huang2@amd.com>, Wei Xu <weixugc@google.com>,
- dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org
-Subject: Re: [PATCH v4 03/25] dmaengine: sdxi: Add PCI initialization
-Message-ID: <20261125010121.78c33243@jic23-hlaptop>
-In-Reply-To: <20261103-sdxi-base-v4-3-3668ccc7aab8@amd.com>
-References: <20261103-sdxi-base-v4-0-3668ccc7aab8@amd.com>
-	<20261103-sdxi-base-v4-3-3668ccc7aab8@amd.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RG5Karly
+Received: by mail-wm2-f10.google.com with SMTP id 5b1f17b1804b1-4b886ebe069so14082685e9.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:02:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795568553; x=1796173353; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:subject:from:cc:to
+         :content-language:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=uePKERkPYqyNMKFitbdJV3Xl/oPfgxHA9R+TZal+XKQ=;
+        b=RG5KarlyyYsWVArQiiPw6wjoU9mKWznmcMbnSGl7j3/XSSGHDUffkDYGTweS+tDxKT
+         I5G5pWWUFU/yLrkxuUV9NZzcYXxBBUDe7ie39Cg01SePlhau8ZUnIjjO+V92KZNKh0FT
+         G1QsJSN2M3SUtUkjswNndMIxlPTABzuZBDXH+2RbgDysTlQIwRmhAhq4ZmwFkiuMYCOw
+         Qs7jrl80KGRnh2olWCCXr1y/lHrMTg8GdSiGDrawXCS6O+DaxDI2ANl6Jeuk3PBKFuGL
+         wJgzHi+S17A0H7oLPd3Tyrc4rCJcZZ0hbPjQubG0U/CHSZuwUeQiyjOUdtqhpP/e4Cls
+         3cSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795568553; x=1796173353;
+        h=content-transfer-encoding:content-type:subject:from:cc:to
+         :content-language:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uePKERkPYqyNMKFitbdJV3Xl/oPfgxHA9R+TZal+XKQ=;
+        b=c75G7FFiguRnE95qAOOYnCKcg0Vkc67wpAW0qVAZ7MuvNCIO0oXPEP8RBAnzr4/pCt
+         +CM6K5gYaOD9airUVzK7DBtW33lvkvBhzKLsMzYjwOtbQShDRZ9HmDkOx3bf9WolUzdY
+         qrn/r15UVJWH5qHqmNVO0t1cMyYgtp7rsIsPnIxWsl1T3nYxAcxaEsFZKBQBQsC8JLEP
+         UWzez1yRR+0HTbR2m9ZAr7hL/GIUdhDDt36BjZOKnsN/RFndoQtVgjrLH94bedQt1lPw
+         Tyo+Sphkd5kKcVsfZqIGJoDWhgPBoj0U5Rs4m70KK5Sl7SCPml6KiNgp3RPgabrII/lu
+         NVpA==
+X-Forwarded-Encrypted: i=1; AL+hErErU+/iLULLwlTsObaRR+ZrYK6G7tjCQTCj5lpfOtCGl+F7kjhu0/hL31vRQLypKIZrUNnAwuNer4zFQmk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9oA82zjewnhe23Q7X1u3tQTe5AUSwz98Kk0mjLiYHfMnCn8EuP
+	SXPB9r+oiFa+k52IHJMIxizFTZ0EpxnQkZMB6e+eMftHBRp6jTZsqt12
+X-Gm-Gg: AZFdTZdl3wCuL5CIWZlDSCSNmgv/R8eSI794y9uWUlZnJDeBWNPM0SY/S6lYJBXAMES
+	jlyULjCG32CGse7MOWvstzm1DKdLCkizPbKrUzDF4HUaExFBclrdyCtIAB3bGGhkQmBh92dYHr1
+	7Oi+9dZtmY/GBiO9aUFnFUQ8YtWym59GzAu7gB7CopGxDhikoZgjHt86RTMxH12oi5Y/tOjal6C
+	qrshxxv7X8RatwpzZ/jklTMEKX34Pd8mb2fIo2IrOeqrFwWr6dSWrt0/gjGEHzW5eTZnWCUO6WR
+	CDvCljyuQoiT8d+DxsZtn2dBiubotlms1wsdlHrMYGa4hjGRLmylVahXAUKMUKHbhgizC8xXOta
+	RRbjEwz9gFccAYKLcbJMrbvIPiF//aY0MhChaCLdxIJg2uEZU8HiGzzPaQ7imwwA1YLeH4ESrwS
+	+2NcKU9TjEZVTPzoH5tHrDBgAiYS1c4QKX9f9zCTTL1oRdrcAISu3LXMK2ubY/22rqrRNXT0x93
+	/on//8id/uLStPiFTgARqes3nMhElfSp9yEmW4L5nCxe2SVTzvdS0kS3OWxZ6v/mQe3t8AZIEJy
+	KHU0WOETdTjAd92XL2fK4Ekgp9v5iGBCObE21sDdu9neeWBl+kZL5Qhq5w==
+X-Received: by 2002:a05:600c:3b84:b0:4bb:6f45:2a6d with SMTP id 5b1f17b1804b1-4bb888074bbmr395065225e9.12.1795568553403;
+        Tue, 24 Nov 2026 17:02:33 -0800 (PST)
+Received: from [192.168.1.11] ([31.94.68.154])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d55sm31262183f8f.5.2026.11.24.17.02.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 17:02:32 -0800 (PST)
+Message-ID: <77a4adb4-5539-4d5b-911f-36b5be6fdc0d@gmail.com>
+Date: Wed, 25 Nov 2026 01:02:31 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,157 +90,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: amd-gfx@lists.freedesktop.org
+Cc: Alex Deucher <alexander.deucher@amd.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Mario Limonciello <mario.limonciello@amd.com>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ Richard Lane <richardlanedev@gmail.com>
+From: Richard Lane <richardlanedev@gmail.com>
+Subject: [PATCH v3 1/3] drm/amdgpu: use pitch and surface offset for GMC v7/v8
+ fb size
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On Tue, 03 Nov 2026 20:49:44 -0600
-Nathan Lynch via B4 Relay <devnull+nathan.lynch.amd.com@kernel.org> wrote:
+gmc_v7_0_get_vbios_fb_size() and gmc_v8_0_get_vbios_fb_size() currently
+calculate the pre-OS framebuffer reservation as VIEWPORT_WIDTH *
+VIEWPORT_HEIGHT * 4, assuming the scanout stride matches the viewport
+width and that the surface starts at offset 0 of VRAM.
 
-> From: Nathan Lynch <nathan.lynch@amd.com>
-> 
-> Add enough code to bind a SDXI device via the class code and map its
-> control registers and doorbell region.
-> 
-> Keep PCI resource setup in pci.c and register devices with the SDXI core
-> through bus operations.
-> 
-> Co-developed-by: Wei Huang <wei.huang2@amd.com>
-> Signed-off-by: Wei Huang <wei.huang2@amd.com>
-> Signed-off-by: Nathan Lynch <nathan.lynch@amd.com>
+On Apple Retina iMacs, EFI initializes a single-tile viewport at boot
+but allocates a full-panel stride surface in mmGRPH_PITCH and places
+mmGRPH_PRIMARY_SURFACE_ADDRESS at an offset (e.g. 0x300000) from
+vram_start. Reserving only VIEWPORT_WIDTH * VIEWPORT_HEIGHT * 4 bytes
+allows permanent TTM driver BOs to overlap the active scanout and
+corrupt the boot splash screen.
 
-Just a few quick comments inline.
+Calculate the reservation size using mmGRPH_PITCH instead of
+VIEWPORT_WIDTH and add the mmGRPH_PRIMARY_SURFACE_ADDRESS offset from
+vram_start so the full active pre-OS scanout region is preserved.
 
-> diff --git a/drivers/dma/sdxi/device.c b/drivers/dma/sdxi/device.c
-> new file mode 100644
-> index 000000000000..0974a83bb45c
-> --- /dev/null
-> +++ b/drivers/dma/sdxi/device.c
-> @@ -0,0 +1,33 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * SDXI hardware device driver
-> + *
-> + * Copyright Advanced Micro Devices, Inc.
-> + */
-> +
-> +#include <linux/device.h>
-> +#include <linux/export.h>
-> +#include <linux/slab.h>
-> +
-> +#include "sdxi.h"
-> +
-> +int sdxi_register(struct device *dev, const struct sdxi_bus_ops *ops)
-> +{
-> +	struct sdxi_dev *sdxi;
-> +
-> +	sdxi = devm_kzalloc(dev, sizeof(*sdxi), GFP_KERNEL);
+Signed-off-by: Richard Lane <richardlanedev@gmail.com>
+---
+ drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c | 8 +++++---
+ drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c | 8 +++++---
+ 2 files changed, 10 insertions(+), 6 deletions(-)
 
-Perhaps switch now to devm_kzalloc_obj() and avoid the churn
-if it being updated once applied.  The mass change is there
-in rc3.
-
-> +	if (!sdxi)
-> +		return -ENOMEM;
-> +
-> +	sdxi->dev = dev;
-> +	sdxi->bus_ops = ops;
-> +	dev_set_drvdata(dev, sdxi);
-> +
-> +	return sdxi->bus_ops->init(sdxi);
-> +}
-> +EXPORT_SYMBOL_NS_GPL(sdxi_register, "SDXI");
-> +
-> +MODULE_AUTHOR("Wei Huang");
-> +MODULE_AUTHOR("Nathan Lynch");
-> +MODULE_DESCRIPTION("SDXI core");
-> +MODULE_LICENSE("GPL");
-
-
-> diff --git a/drivers/dma/sdxi/pci.c b/drivers/dma/sdxi/pci.c
-> new file mode 100644
-> index 000000000000..0778cde31f14
-> --- /dev/null
-> +++ b/drivers/dma/sdxi/pci.c
-
-> +
-> +static const struct sdxi_bus_ops sdxi_pci_ops = {
-> +	.init = sdxi_pci_init,
-> +};
-> +
-> +static int sdxi_pci_probe(struct pci_dev *pdev,
-> +			  const struct pci_device_id *id)
-> +{
-> +	return sdxi_register(&pdev->dev, &sdxi_pci_ops);
-
-This seems oddly miss balanced. Perhaps it's better to introduce
-an empty sdxi_unregister() ready for when it's needed later?
-
-
-> +}
-> +
-> +static void sdxi_pci_remove(struct pci_dev *pdev)
-> +{
-> +	pci_disable_sriov(pdev);
-> +}
-
-> +
-> +MODULE_IMPORT_NS("SDXI");
-> +MODULE_AUTHOR("Wei Huang");
-> +MODULE_AUTHOR("Nathan Lynch");
-> +MODULE_DESCRIPTION("SDXI PCIe interface driver");
-> +MODULE_LICENSE("GPL");
-> +module_pci_driver(sdxi_driver);
-
-This is normally placed near the struct pci_driver.  So before all
-the MODULE_ macros. I found a few examples of this style, but that
-one is much more common and makes sense given this is just generating
-boiler plate functions to register etc that structure.
-
-> diff --git a/drivers/dma/sdxi/sdxi.h b/drivers/dma/sdxi/sdxi.h
-> new file mode 100644
-> index 000000000000..d4c61ca2f875
-> --- /dev/null
-> +++ b/drivers/dma/sdxi/sdxi.h
-> @@ -0,0 +1,38 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * SDXI device driver header
-> + *
-> + * Copyright Advanced Micro Devices, Inc.
-> + */
-> +
-> +#ifndef DMA_SDXI_H
-> +#define DMA_SDXI_H
-> +
-> +#include <linux/compiler_types.h>
-> +#include <linux/types.h>
-> +
-> +struct sdxi_dev;
-> +
-> +/**
-> + * struct sdxi_bus_ops - Bus-specific methods for SDXI devices.
-> + */
-> +struct sdxi_bus_ops {
-> +	/**
-> +	 * @init: Map control registers and doorbell region, allocate
-> +	 *        IRQ ranges. Invoked before bus-agnostic SDXI
-> +	 *        function initialization.
-
-Trivial but comment wrap should be closer to 80 chars.
-
-> +	int (*init)(struct sdxi_dev *sdxi);
-> +};
-> +
-> +struct sdxi_dev {
-> +	struct device *dev;
-> +	void __iomem *ctrl_regs;	/* virt addr of ctrl registers */
-> +	void __iomem *dbs;		/* virt addr of doorbells */
-> +
-> +	const struct sdxi_bus_ops *bus_ops;
-> +};
-> +
-> +int sdxi_register(struct device *dev, const struct sdxi_bus_ops *ops);
-> +
-> +#endif /* DMA_SDXI_H */
-> 
-
+diff --git a/drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c b/drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c
+index c09f5153679e..00704dbfc1bb 100644
+--- a/drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gmc_v7_0.c
+@@ -929,9 +929,11 @@ static unsigned int gmc_v7_0_get_vbios_fb_size(struct amdgpu_device *adev)
+ 	} else {
+ 		u32 viewport = RREG32(mmVIEWPORT_SIZE);
+ 
+-		size = (REG_GET_FIELD(viewport, VIEWPORT_SIZE, VIEWPORT_HEIGHT) *
+-			REG_GET_FIELD(viewport, VIEWPORT_SIZE, VIEWPORT_WIDTH) *
+-			4);
++		size = REG_GET_FIELD(viewport, VIEWPORT_SIZE, VIEWPORT_HEIGHT) *
++		       RREG32(mmGRPH_PITCH) * 4;
++		if (size)
++			size += RREG32(mmGRPH_PRIMARY_SURFACE_ADDRESS) -
++				lower_32_bits(adev->gmc.vram_start);
+ 	}
+ 
+ 	return size;
+diff --git a/drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c b/drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c
+index 15592027e7c0..a64a3cc07858 100644
+--- a/drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c
+@@ -1037,9 +1037,11 @@ static unsigned int gmc_v8_0_get_vbios_fb_size(struct amdgpu_device *adev)
+ 	} else {
+ 		u32 viewport = RREG32(mmVIEWPORT_SIZE);
+ 
+-		size = (REG_GET_FIELD(viewport, VIEWPORT_SIZE, VIEWPORT_HEIGHT) *
+-			REG_GET_FIELD(viewport, VIEWPORT_SIZE, VIEWPORT_WIDTH) *
+-			4);
++		size = REG_GET_FIELD(viewport, VIEWPORT_SIZE, VIEWPORT_HEIGHT) *
++		       RREG32(mmGRPH_PITCH) * 4;
++		if (size)
++			size += RREG32(mmGRPH_PRIMARY_SURFACE_ADDRESS) -
++				lower_32_bits(adev->gmc.vram_start);
+ 	}
+ 
+ 	return size;
+-- 
+2.55.0
