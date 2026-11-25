@@ -1,89 +1,132 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.144
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795578341;
-	b=vX+BiS59zc4nQW1TdZvhw60pZHo5yJWsLB/ReivPVOTsK5uliovVEUb+x57hAnfuEJbH
-	 8hZxU9UBUG7qSMKfCBcxr/fs2XZtbtYxqzNXVRf7yBf46dL4Q+FTZU+37MWp/ngw91k1c
-	 3rdtZ0rBVKLysFv2+QP7Oc4gPr+8w0qvClip+GyjMMUrNGVqCXP7cFgtgZ6wcQvGlpvNp
-	 40vl4bvh5czhLxRj4MkFbavapdGwpJwAe7v2M3Vn7ZEMapJOjsrSyi9mcLz7Y7E/S7LQ1
-	 5vbGEuFlkI08XgG3k34wQ9sAhVn7YKw3IQKU+h4mmHHFSuuLkHKpz/el7YD/E1KNc1A==
+	t=1795578359;
+	b=2NywtnRgHVsFOa+ZFIR+YU2tKsUpszUoDDUZLPQj6VWBPw+xuOsKa+87yNw9XkuHWe1C
+	 FqPXiMZnUmgaoqiO6JED1JqRtE1nUgCt7BAdGpmYrwaOW8YFvgBeI/vLEk7ov7sdouVm/
+	 YU38agS8j9+5XulT2EPA0JtAem4d9+d3lp6x9znNtRJ7RmrHMTjvCEDIfvTjitRahyjs9
+	 46yTug8C77g4O03R9B51YiEiOyxi9Ju9++SQjOTXdIdthTPQC/9Mh3deK3yFTAvq7wpuS
+	 13FN42bdyCCcBDDaKRRL08RwUIo/IhYFJW1rND/7aLTT4PqtnruSDN10PULLsXAcbmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795578341;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=2ohJ/yRwCSsqX+AfknXQHeI95bmqyiUW2Z4qRuVtpKo=;
-	b=JMCO7b7njAViuyxZui4VQmOhiP1mi1U9BWPmjG8L70WAnBc9rDzRH8Y2pKEQdXsbtZ2v
-	 3xGoWMRR39vlVyfrFJNC0/B7IJ7uTGU9141PQjDDVngfbUhCIUziHRNv/lSWaBxXNFOAP
-	 YabGyK3Xg+3XkvyMy8aYANa5OFH4KwefrDhmdQZyiAaq4zZRpLSyBZgBt9Pf7gPvyuTXl
-	 5KTA5xRJzOXn6Nq/au3m4TJ9ZmX82ftvNVSLUlmYNaa6YXJhqdgTkO5FziLTndDDos4RG
-	 JLfHuUY4U+XMNd+V/9j9nTm1QmvLMcFXEBZZvmts72itGT+rsarmZgZgQuuw7wzHEFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795578359;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:Reply-To:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=te+85rs6L0Tu1kg3pduPz/TdZSjogt/uQT+qd17wdHs=;
+	b=YXoCAcEky3xiFUccaRIVQwr6KKW4p11mxE8tlAEuUnFMb08f/4Cj7Gd1qrmh2mRFzoGv
+	 PLZ20OxfXoFtao8LM3YCCJ17tCClkNyKE+yyj+TZG/VoifR7d2Ftemt0W6uMauc3XmHyg
+	 FLf5wYCWBtWxrb6QYifHascyQIxGBrNwDQfmV0UQycYo3Qjq0ZcIqvZ7FL6U9hAqjBZLH
+	 zWKojszcIIFszZHG2rWkX7TRYgCW+gml55Ih+63u8Mnhpinm+fD4+jtFK2H5CHB5s21KA
+	 IIENhbu8e++qEYJ0+axkv6crZTil14YrKiOnnir0yXu0KBVFonwKM7p83WPLTqNXm0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sAQhBe0H;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=ownmail.net;
+	spf=pass smtp.mailfrom=ownmail.net;
+	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=DC+u0VGj;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=XWfVsu7y;
+	arc=none smtp.remote-ip=103.168.172.144
+Received: from fout-a1-smtp.messagingengine.com (fout-a1-smtp.messagingengine.com [103.168.172.144])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BB09606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:45:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8BB09606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67CFF606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:45:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67CFF606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sAQhBe0H
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-386cf1041cdso641494eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:45:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795578340; x=1796183140; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2ohJ/yRwCSsqX+AfknXQHeI95bmqyiUW2Z4qRuVtpKo=;
-        b=sAQhBe0HlfJZHkRCnhgfPgDLIPCC7CmNbypB0n8CUzhh8YbUkuNjInH6XC6uYbINXf
-         edSCQlERVlWt1PqTL4VUP0sp2ldjCzHVx5pfsSeYei7QXgPMYNfUwaIx6qg9G6sOPid9
-         IyA6pkseXOxpoEaAUzl3IqHRZy7Yzgq5+Js0QSG7z0EjiEQPbr6m86QU2+zUjj7dBa2W
-         OeO6xiUU3h4QqNvNQAObbQezuhqDlGIx0puJ1AY16D+Vxvjdk//R/ocMtm4q7zM0KP8L
-         +3lFzPDh8QWBRdpcSUGYsJeiJnBQMgOx9qHBJDTo8gmb+CGiS8DR6eyJ/SAE9NqXJyAt
-         u2MA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795578340; x=1796183140;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2ohJ/yRwCSsqX+AfknXQHeI95bmqyiUW2Z4qRuVtpKo=;
-        b=2htzrz+FMlaG2OAC2Gv89ETdO7yvvBnHITecfWgNAr2oyFU5y5IuHqAFWwPoYlx+bV
-         BMlG//wA8ne9yo7QFzKpDNEsz1V0bz86YQi+QEDlRsBXBEjyWRvaffTK5wF4I0BqjpB1
-         cpACfH1EZEu69cKT32uBI+0dUp6gjbblDuYegw+iZodapCyZ7utldzThIzsIGZ90uBf1
-         GrJDbeYJnimzgZC/8RShnsyeG8v7KzIcWEoOB+8QReoUUH7D9BiDE+dr/l2dQTZyBIYd
-         6/hSY1IYBwVY2HXm9P9EdQsIUcKvatR4TGcx46zddQLdyAE+Dj+wQYWhwEZwAvlR5cda
-         QA8A==
-X-Forwarded-Encrypted: i=1; AL+hErE7Z0+Oggaq5qN8/gzlHcE2Le+thVw8118D1MUr+Mp+c3obQp7K3WSykgxAqxRcXDzj+LQSfa5hVA/EwLo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ZEEOl6xkLc5BOy3M2yry0GOH/i8rNitfIrgQ5EbCjYr2p5SCz
-	y04pi6RR9Tz98idRlsxgqjidzoO08uPju36Ss9yqJRvoL3zGq0uVWHFj
-X-Gm-Gg: AZFdTZd3pyZAz4J2Kf8mJFYKQQByLmb6v6TezOGWsDW9vFaGwWJs5cS6JGy6EQz9fsM
-	8OR1Z8Nk70i6vR5K64DHssdG1KrCe+L8lj/KLdUo/Slutf400cJ7d/XPqYrhBMd9t7CStstB2Uv
-	RJeCwEoGRqlhJtjBq2ReQpyNDZLOjXc9j3WiRTMEGGBvKdQZLqbdkXjdf7xHY4j+N7oSKAep5Hl
-	XjhOaOGc0aAXrnx66G31kRTMLvHdAwKXqrcQMmpiMZRUIo34iBtrMrqHmzlIeYvl9XlYNoWOr19
-	VagC3LDlz43YUDeVAeWzWBWs02umARzNlubw9MHDyBAEF3623S+GUHE2T6Ln/VUVGIjAwXW2bTM
-	X/HEbiNqdhqx4snTb/9Rl7Vi4p/ZOTPxBPRqaAj7K8tOqklsnh9AGksJISgrjwZOwFKp+8eptSz
-	bK97bgSUwCg8IMSlPDfi+cQWnzMy0dE8Y8rxXC6+w0YaMQKu9kPts07e2IQIN1VKjcLO7faFzRw
-	0qeaG7NyU41KhZK4ZmiXzP1mqEuxgggPhwUVjVm/oDNbg3CaeTGZrkQ2mFPNDlmKlKKnfEUR9Vt
-	+DzCB3FYKeJFd9G/4ws0qbuizTtLQl6+ND4X1E2YFKUR/z4/1eVi/TmmNEoIYlkMJj0UzIwmybH
-	iP20=
-X-Received: by 2002:a05:693c:8955:10b0:386:9cae:abef with SMTP id 5a478bee46e88-386bf39f8b9mr4512973eec.36.1795578339467;
-        Tue, 24 Nov 2026 19:45:39 -0800 (PST)
-Received: from [192.168.10.126] (ip70-187-214-22.oc.oc.cox.net. [70.187.214.22])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c0c1dsm54437849eec.21.2026.11.24.19.45.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 19:45:38 -0800 (PST)
-Message-ID: <609904cc-0d66-498a-bf83-54ad0da6cc0c@gmail.com>
-Date: Tue, 24 Nov 2026 19:45:17 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=DC+u0VGj;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=XWfVsu7y
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.phl.internal (Postfix) with ESMTP id 906A3EC0A82
+	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:45:57 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Tue, 24 Nov 2026 22:45:57 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:reply-to:subject
+	:subject:to:to; s=fm3; t=1795578357; x=1795664757; bh=te+85rs6L0
+	Tu1kg3pduPz/TdZSjogt/uQT+qd17wdHs=; b=DC+u0VGjhueZqVxgfl8gwONxO0
+	oBznNlhevQZAEAUu+r36xA99W9a9oR+jxpqC0ewn+eOrkywE/xQovHK/m2PhgbEt
+	w/WqSmu/Mp/+NLdzQOcxqlnZktZ/VptSZIXPnic7A9VEQzydJHU8c9l9c0HXP8z3
+	f1he6adItjEocphVGvzCUH+kIBRclWbZPbMkXnjAUjsuiCKHvNYFST0JZfXvg51+
+	E3Kmnk9n2GVvrKFXB6b7QKX5lb4E1fU9uE94Kn2BHUjcVEZ04lX3LMz3+7lrs04G
+	5NwUPM2ZDarNyDzQVAHVCnOk3z8yIAz2Sj7RLAYYnm+qAV03b9yERUvzt19w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm3; t=1795578357; x=1795664757; bh=te+85rs6L0Tu1kg3pduPz/TdZSjo
+	gt/uQT+qd17wdHs=; b=XWfVsu7y8NvcqBvkgx6AQvHsBOkiuzcZwrYGZAQC5Bhw
+	vtE73miMY/vLyuOzg7Fzu4YU/9mYTRcY9IbDQoMFdLPz9gIU4Jb6C0GuVa50930P
+	N47f5oHBminLjxjgiJrSvY/WviUSIwjgeioIxb7Ef8j5qMI5OMX+U7Uvl/uPut+c
+	XNRI9jNeGdAAvDDR9ODf+8mtIlkxnXcXFgUVptDEny1wot8IIFIHeuH/H7K5dRnA
+	qhD4TOLXn2+K/4QTaa7B6t+0ZsNAsx5UtxPBnU67byV4jDP7vT+gjyB5akeC8Fjx
+	FRMlEZGvWGU+Pd6GWCo9JSO/Iy/DPLIUyCFvoS/xaA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ownmail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795578357; d=ownmail.net;
+	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:A+1t8rGEpw9UG6CUduBWd35yHgsfKlhD0J3w00lin0/pwht
+	qnDSprYoCGCMOB12am2vmWVpqdVcsmTit1C/P5yFG6vQ7k44TiaFlP5DMr62eCsK
+	Ve65lFAwrOWnCHblVIsfB1dKvzaHsSC/d8glyu5T8tr188bZr0W6MxrmVAEuUGgK
+	B01u+QEGPm+zpvAcBnt8WvAX764ihcgcsn1Fi5XWxMEhh35ongxiuUXXS49w25VL
+	W83uJt1s+9gedYg1RLl+WRhOJXzp/J5mdRLeqJv712dn3NoIYT0gCSbF1e4kYYnA
+	PBKhYazlZkZwIeBD2JHY5iVtPWE+D0koTinDTUQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=10;
+	hn=cc,content-transfer-encoding,date,feedback-id,from,
+	message-id,mime-version,reply-to,subject,to;
+Message-Instance: m=1; h=sha256:6gIgKmEK+V1m8xQeD9wAvM2W7KHH8KguQF7kcD8RfFw=:KIpdI8wXTkKfTbClohnjMMutdVqFsf8UXtyA3Nw66JM=;
+X-ME-Sender: <xms:81kGawuuyqWvXHqmVqljAlQedszfwZO9EA5rtQ4yIqdPSULxXEBooA>
+    <xme:81kGa0ZascAx2U54dKCZxqpgQPp59dWetNxPpwyHddGeX1TQjNJEVQxN93auHIoTc
+    mgGiFiYYiADfxRvTjlS7giTm7NNr6TYs6fqN3vnSjRL6-VmnxE>
+X-ME-Received: <xmr:81kGaw2mFQG2xymvtRzybD_q0_b4KW8DdRwXRcAvZXOxbkcp-qjpqpXXz2uPS4v5lw>
+X-ME-Proxy-Cause: dmFkZTGHTDLHrhSdcFVSltAhItO5CQcE/TjFbuhiumOu22/hJvNr30J77pkfAtY26o2DMg
+    VSD3uY+/cuaDJ4Sh2bWyrrkqZBASGKCdjQbH6pMHWkkbOYJMg5HQITRhPlC6KnXFgzK1io
+    I1b2u1NNTXTg/nkeE00xO7eBghnrtGEl7S/Rn5evCukV0GkFGzbkDSZAXnsLIpDwTTZ6bD
+    TJMeI+IavU+KlNcB+hcEpXWHmEnj4UwjAz83EM4764K87HVhTIQ+CSy4s3TFg2j0TXM1eZ
+    QVHK8rdWI846K2nUNW9gZUmN1pKfh+FdDUZxf2KFlC+9FBLtsS+qj3sdT5Stx/bTFOO0IX
+    q2V4lTFYErE5TfSXc249mMlVKib+slQADVsyE+fJ38+pWN3L/9jBGZV7687vBrpIz+shzY
+    bbPYsXQHsP+JSxeCQtQFGLBK2XK5r99hpxQzRfWuMqs2sdH1L00+aJXV3VTnSH96fP0qhs
+    9ZJwyCNOH1dTJdSqthybpeDIaCydF8GMHm7UDWxXVYcCwuy43S0CZQRLQROy40JUa6Go2m
+    H0oo/eT2fYlff7D3LTvaO9jt7PJKUBLZWWzfngmG5PQ06bP2f86MBc+pcEK3LfV/dE9nd0
+    89wPPfXq1YcsILR/jFv3tqMVus8/YqE0wtK5YaZ1LttvH40YoChtPmCo+Rjw
+X-ME-Proxy: <xmx:81kGa6WZGWgAoyTx_rB0U6xCgY_RO7sCFffzTnybvXOgXC7HreJn2A>
+    <xmx:81kGa7udaydsCniw3bdpJEdSckm6DO_jRFs2PacG2UL_RGiWvRKacQ>
+    <xmx:81kGaxUCvoegXUpv2RRc4kkXsnG5Ce32qXDxBS90PBFrvEj5G1uvfg>
+    <xmx:81kGa3UJbtZmsHlTig2b9B6lM4eldHbONHWbgqNQBM966-au78wlfQ>
+    <xmx:9VkGax7pJjaB4qXIZwDpaWUtfa98NSvU5HEyDycAnKopGiGBuoisihSY>
+Feedback-ID: i9d664b8f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 24 Nov 2026 22:45:51 -0500 (EST)
+From: NeilBrown <neilb@ownmail.net>
+To: Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>
+Cc: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>,
+	Jan Harkes <jaharkes@cs.cmu.edu>,
+	coda@cs.cmu.edu,
+	Jan Kara <jack@suse.cz>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Jeff Layton <jlayton@kernel.org>,
+	Amir Goldstein <amir73il@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	codalist@coda.cs.cmu.edu,
+	linux-fsdevel@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-afs@lists.infradead.org
+Subject: [PATCH v3 00/11] multiple-filesystems: prepare for changes to VFS locking
+Date: Wed, 25 Nov 2026 14:16:38 +1100
+Message-ID: <20261125034543.4084039-1-neilb@ownmail.net>
+X-Mailer: git-send-email 2.50.0.107.gf914562f5916.dirty
+Reply-To: NeilBrown <neil@brown.name>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,169 +136,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v4 08/10] net: phy: smsc: wait for LAN83C183
- power-down recovery
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- hkallweit1@gmail.com, linux@armlinux.org.uk, shaojijie@huawei.com,
- horms@kernel.org, runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
- danny.kukawka@bisect.de, mugunthanvnm@ti.com,
- sebastian.hesselbarth@gmail.com, linux-kernel@vger.kernel.org,
- manuel.lauss@gmail.com
-References: <20261121004809.1690280-9-f.fainelli@gmail.com>
- <179557011237.3135.15846967917791186180@kernel.org>
-Content-Language: en-US
-From: Florian Fainelli <f.fainelli@gmail.com>
-In-Reply-To: <179557011237.3135.15846967917791186180@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
+(ACKs for hostfs and afs still sought).
 
+For this version I have included the AFS patches, included
+"use d_alloc_parallel() in lookup_one_qstr_excl().
+The latter patch is needed to make it safe to use
+d_alloc_parallel() outside of i_rwsem.  This is, in turn,
+needed for the three patch which drop i_rwsem before
+calling d_alloc_parallel() (which is preparation for
+inverting the order between i_rwsem and d_alloc_parallel()).
 
-On 11/24/2026 5:28 PM, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The new 500 ms recovery delay in lan83c183_resume()
->    (drivers/net/phy/smsc.c) only runs if the smsc PHY driver is already…
-> - [Low] This patch rewrites the SMSC_PHY Kconfig help line to 'Currently
->    supports the LAN83C183, LAN83C185, LAN8187 and LAN8700 PHYs'…
-> 
-> --
-> 
-> net: phy: smsc: wait for LAN83C183 power-down recovery
-> 
-> This adds a LAN83C183 entry to the smsc PHY driver. Its resume callback
-> sleeps 500 ms after clearing BMCR_PDOWN, so the PHY has time to recover
-> before the Au1000 MAC is started on MTX-1. The ID match also covers the
-> LSI L80227, which has the same OUI and model number.
-> 
-> Link: https://pdf.dzsc.com/LAN/LAN83C183.pdf#page=44
-> Link: https://datasheet.octopart.com/L80223-LSI-datasheet-11757091.pdf#page=73
-> 
->> diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
->> index 30e9d22c8d1a3..10466b2574eb4 100644
->> --- a/drivers/net/phy/Kconfig
->> +++ b/drivers/net/phy/Kconfig
->> @@ -421,7 +421,7 @@ config SMSC_PHY
->>   	tristate "SMSC PHYs"
->>   	select CRC16
->>   	help
->> -	  Currently supports the LAN83C185, LAN8187 and LAN8700 PHYs
->> +	  Currently supports the LAN83C183, LAN83C185, LAN8187 and LAN8700 PHYs
-> 
-> [Severity: Low]
-> This isn't a bug, but should the help text also mention the LSI L80227?
-> 
-> The new 0x0016f840/0xfffffff0 entry in smsc_phy_driver[] and smsc_tbl[]
-> also binds L80227 PHYs. The code comment says "shared with L80227". Those
-> PHYs now also get the 500 ms delay when they leave power-down. The
-> rewritten help line does not say this.
-> 
-> Separately, the help text also leaves out the LAN911x internal,
-> LAN8710/8720, LAN8740 and LAN8741/8742 PHYs that are already in
-> smsc_tbl[]. That gap is pre-existing and was not introduced by this patch.
+I've also reverted the LOOKUP_SHARED patch as I now see that was a
+mistake.
 
-The driver was not tested on the LSI L80227 due to lack of availability, 
-so no, it does not make sense to be listing that in the PHY driver 
-Kconfig text unless it gets eventually tested.
+Thanks,
+NeilBrown
 
-> 
->> diff --git a/drivers/net/phy/smsc.c b/drivers/net/phy/smsc.c
->> index 48487149c2252..c0713017e54b0 100644
->> --- a/drivers/net/phy/smsc.c
->> +++ b/drivers/net/phy/smsc.c
-> 
-> [ ... ]
-> 
->> @@ -684,8 +685,33 @@ int smsc_phy_probe(struct phy_device *phydev)
->>   }
->>   EXPORT_SYMBOL_GPL(smsc_phy_probe);
->>   
->> +static int lan83c183_resume(struct phy_device *phydev)
->> +{
->> +	int ret;
->> +
->> +	ret = phy_modify_changed(phydev, MII_BMCR, BMCR_PDOWN, 0);
->> +	if (ret < 0)
->> +		return ret;
->> +
->> +	/* The PHY needs up to 500 ms to restore operation after power-down. */
->> +	if (ret)
->> +		msleep(500);
->> +
->> +	return 0;
->> +}
->> +
->>   static struct phy_driver smsc_phy_driver[] = {
->>   {
->> +	/* LSI/SEEQ OUI 00:a0:7d, model 4; shared with L80227. */
->> +	.phy_id		= 0x0016f840,
->> +	.phy_id_mask	= 0xfffffff0,
->> +	.name		= "SMSC LAN83C183",
->> +
->> +	.get_features	= genphy_read_abilities,
->> +	.suspend	= genphy_suspend,
->> +	.resume		= lan83c183_resume,
->> +	.set_loopback	= genphy_loopback,
->> +}, {
-> 
-> [Severity: Medium]
-> Will lan83c183_resume() actually run with the in-tree MTX-1 config?
-> 
-> The commit message says SMSC_PHY must be built in when the au1000 MAC is
-> built in. Nothing in Kconfig or the defconfig enforces that.
-> arch/mips/configs/mtx1_defconfig has:
-> 
-> CONFIG_MIPS_MTX1=y
-> CONFIG_SMSC_PHY=m
-> 
-> It does not set CONFIG_MIPS_AU1X00_ENET at all.
-> 
-> With CONFIG_MIPS_AU1X00_ENET=y and CONFIG_SMSC_PHY=m, the PHY is attached
-> during the MAC probe:
-> 
-> au1000_probe()
->    mdiobus_register()
->    au1000_mii_probe()
->      phy_connect()
->        phy_attach_direct()
-> 
-> No driver is bound yet at that point, so phy_attach_direct() falls back
-> to genphy:
-> 
-> 	if (!d->driver) {
-> 		if (phydev->is_c45)
-> 			d->driver = &genphy_c45_driver.mdiodrv.driver;
-> 		else
-> 			d->driver = &genphy_driver.mdiodrv.driver;
-> 
->>From then on, genphy_resume() runs on reopen with no delay. Loading
-> smsc.ko later does not rebind the PHY. So the reopen hang can still
-> happen even with both patches in the series applied.
-> 
-> Neither this patch nor the companion au1000 patch touches arch/mips/ or
-> drivers/net/ethernet/amd/Kconfig.
-> 
-> Could "imply SMSC_PHY" be added under MIPS_AU1X00_ENET or MIPS_MTX1, as
-> drivers/net/dsa/Kconfig already does? Another option is to update
-> mtx1_defconfig to CONFIG_MIPS_AU1X00_ENET=y and CONFIG_SMSC_PHY=y.
-> 
-> When both drivers are modules, request_module() in phy_device_create()
-> normally loads smsc.ko before attach, so that case looks fine.
+Original description, updated.
 
-mtx1_defconfig is outdated and it can serve as a reference but it would 
-need to be re-generated, this is separate from the scope of this patch.
--- 
-Florian
+I am working on changes to directory locking.  The medium term goal is
+to lift d_alloc_parallel() locking above i_rwsem, so d_alloc_paralle()
+can be run unlocked, and consequently cannot be called when ->i_rwsem is
+held.
 
+This patch set makes small changes to a number of filesystems which each
+require just one patch.  Patch series for nfs, cifs, fuse, cephfs
+have been posted separately
+
+The main requirements are:
+ 1/ that d_alloc_parallel() not be called while i_rwsem is held.
+    Places which currently do this can be changed to use d_alloc_trylock(),
+    or d_duplicate(), or change to drop and retake the parent lock.
+
+ 2/ a dentry must not be d_drop()ed while an operation is ongoing, as an
+    unlocked d_alloc_parallel() would then be able to create a new
+    dentry with the same name.  d_splice_alias() can now work with a
+    hash dentry, so often the d_drop() can simply be dropped.  Other
+    times it can be moved to after the operation has completed.
+
+I think it would be best for these to land in the VFS tree and would
+appreciate Acks from relevant maintainer.
+
+ [PATCH v3 01/11] coda: don't d_drop() early.
+ [PATCH v3 02/11] hostfs: don't d_drop() before d_splice_alias() in
+ [PATCH v3 03/11] afs: don't unhash/rehash dentries during
+ [PATCH v3 04/11] afs: use d_splice_alias() in afs_vnode_new_inode()
+ [PATCH v3 05/11] afs: use d_alloc_trylock in afs_sillyrename()
+ [PATCH v3 06/11] afs: use d_duplicate()
+ [PATCH v3 07/11] Revert "VFS: Add LOOKUP_SHARED flag."
+ [PATCH v3 08/11] VFS: use d_alloc_parallel() in
+ [PATCH v3 09/11] VFS: drop parent lock across d_alloc_parallel() in
+ [PATCH v3 10/11] procfs: drop parent lock for d_alloc_parallel() in
+ [PATCH v3 11/11] afs: lookup_atsys to drop and reclaim lock.
