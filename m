@@ -1,88 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795649204;
-	b=gn8Px5DLkx6HyDrp27HCzw05bDxDnQOOoiXnWNTJGQsg4XfV/Kx++rNVXBpyyP9PpToY
-	 N5vB6C4b+RQOfEUkR9kk2fsDVwJjcbD/uW4OiB1jkkejLuTD38R2NsfwvMdB5dKDAL5GB
-	 ky8AKDci+/WJZSbYmmE6KQn52utGUV/WrCf/VIAaK4Fdj4CgS9EwsAXB2D+QzpBFxNcwW
-	 h48aFJocjn8Snq7zeByN8W+W+9hj85tkSJVJeUnI8lc3dK87FF0y3Ji6T/+BY1igttAiK
-	 YM+R08Na3mtz4NqBJNi4X6u0uuC75SmUDw7y1rZZvNtfR/6fCLKtvKBcsm+DGPe0WXA==
+	t=1795649208;
+	b=nzJe9Z1LOmJpDwJS3EELmXC7rYYcfhqSwWc+buyAd5h6tiR4Dg3uoOdrgHZsA3eC43Dy
+	 XbeFr9ERNvr/8a0KvXj4XjdvW/Iih1oCct6EKDyrD0/D/GJw1HRlb5gYBLi+Av6E17iCP
+	 Yz6BXrej3c5a6io5AeKIw4ZWsj51YCF4LqvTICOpsK6xm2y1/+cIo7u/UPDFnJAK+pnZb
+	 qz23yHg1xwgPLFLQZYX3nnSjdQpQMJAzyA3kc5Ws3byo/RpUqGf5+DNVAl8oxduz8bhtB
+	 k7yUX2h+uNCN4EW9M4jIPiYYLjf+oUdr445Qb9N3/CWGfIgoI5eIbSSrXS2ha5coAeA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795649204;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795649208;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=6h7kwsZNiIakcDOBteqgCk42cVXx+EQMyY+qUW44Ixg=;
-	b=YRCpsbL9cj2mc2F9DhlydYBIujBH5A2+Rjo2cfMh1Y6PwJ0gLbitI45y3fyzZ4xP0jXu
-	 Dvm5d+VQBStNpDuXqTMq1Afafg+i6EPLBzYY10hZRfjercx7zjpudwe/Hkdt8NP5xBA8F
-	 SK3LXNFHvcDNMhdqnBMRNfi+nw7IR3wOFgvloG4IQ48jmdrmaMxhKKHG+6RjcXo0eAJK9
-	 rFPvmVWZiqMYycX0J9zE705K0H/dRUcItNgMHPYDiuGl+7E758rqyF7OQcVDGpV3Dgz0K
-	 iQw2Qk0lIVs/rWou6tdfFPeRrNVIkMH8G9pNQ6naTaKD3rlUPcTEUbR+XuCQUUxfAcw==
+	bh=hO8RLWgXAol9xN62Zc8zT+WmHPhN/Afuqjr33ogoN5A=;
+	b=Yt9HDinrUPIwZGUviRt7fG6h5BOdE+/rT72SV9RG305jHQRjRT3iQitoQx2I8YdsbdvV
+	 Pw4aa+HP46ZxdMSV1uef22KJZPzOZIFgXutuZ9e6dECUViIMzfxS6KdvhiXhKlWELq6fD
+	 Jjzf8tdPpsm1U9S4BRY9NkWqpucyZzwjyGlHmyEgwOEokXz4QRqvRLc+KGfbQx6KxRhsW
+	 CKYvXffhGZ90e04smt+rcqqY9jyLBH8LIkAHWhdmFcceDiTTGsy+ydYr0il0POH2vyUdy
+	 yhf/OUVsJ+kXYaBnjyxBHZdKBFMpQOcN7zhXTFAlBTOreJ2K1ewLYC0YZVvGh1cjOeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qLxuGZBl;
-	arc=none smtp.remote-ip=74.125.231.133
-Received: from mail-oo2-f5.google.com (mail-oo2-f5.google.com [74.125.231.133])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OWfF9D3n;
+	arc=none smtp.remote-ip=74.125.231.135
+Received: from mail-oo2-f7.google.com (mail-oo2-f7.google.com [74.125.231.135])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81A98606A32E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:26:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81A98606A32E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DC99606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:26:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DC99606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qLxuGZBl
-Received: by mail-oo2-f5.google.com with SMTP id 46e09a7af769-862a1dbb516so1149310a34.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:26:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OWfF9D3n
+Received: by mail-oo2-f7.google.com with SMTP id 006d021491bc7-6dcee5a2fa8so245661eaf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:26:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795649203; x=1796254003; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795649206; x=1796254006; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6h7kwsZNiIakcDOBteqgCk42cVXx+EQMyY+qUW44Ixg=;
-        b=qLxuGZBlIJO1CODoy/7gbN2TVx9a/brmOGwHaA3X7IbliSar0vj9qgQL5bwr+QaN/C
-         oBEpE+csCOKKbi+Eew9oMjcICZKqGBmJkA35ZjU9N19UAMOOt7Qp26uX+sdnSye9D6iX
-         dz3Ak169tAuXuwHtYqGABbT3od8RWBc/hBMB4QH/PK8WQCvA/I+lHCcvoyVJ46kt/CJ1
-         0PWiNB4k2fjVKD3BDQsZn2ZO7bbEMzrZ4BAeToqyY3SmzEDJib0Hw+C6KMjlhn37Fn25
-         2RJsAuwx5FaxwMaLa6V+1q77wL9OoZRSL4BJ84goi8Lr/XCQKc7XeYhBjdqKKAYUPJg1
-         RyKA==
+        bh=hO8RLWgXAol9xN62Zc8zT+WmHPhN/Afuqjr33ogoN5A=;
+        b=OWfF9D3nq9F31BmGAch34iONF5Qt8HzluUeDl5cMrYqONS7b3Mk75Sp4gzXmL8JFa9
+         5sjlZz5Elo94WIyzFC0JaNtQXOO8Isn6/Ur9HqC8NSIl6XGCs5wjUtojCfPK2UHzprjr
+         wwo199mNjI6fM1O+24ESi24MIoGpauDjyIpEjAOaekDSP4j4XaDDB8LhBcBQr8Igx7sZ
+         GJNn8nEciPIt9o9XGLhVUdOYeb6oYb3eT6AY4BLXHAdgR/d3sIz0ytRp1ORxppvpuMdI
+         OIyG41dSPozQic9EV3z3FLLpgkr2EP4MlB4YtLQfkAm9my05Ihmac/YVMen6Og6dck6Y
+         bNVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795649203; x=1796254003;
+        d=1e100.net; s=20260707; t=1795649206; x=1796254006;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=6h7kwsZNiIakcDOBteqgCk42cVXx+EQMyY+qUW44Ixg=;
-        b=NAXZCKk6Gw1K7tTiOTeOJewzoThiuLSjOqy43rDTtPUxEIqvypcE4JaQSsl4in/Xwp
-         9+nXkqoRPCQj0/VelgRr8BujMz6D3oTvxfdQN33kpJy8l9abi+7pVOl6kZAVNEKQpKRP
-         vbbSnAKtSqlPp0CqhAmCfjTnjZoRBFE1MI2GbXzN/ZkcUsfLRlL33HB/S4/R6ilhuKje
-         YwGO2iFOUL4MdLnfW1tBJBKjy+p+4yrIA/xyhb6ILpY2m+j3CL4l4AN30ueii7UBfOz6
-         akj/RhiNjKO7QMRYtMGMAFK8/cNGGbo5DgV/oH3c9cplX0H5Wzv2+yEheIh5bsQjXn4k
-         mamw==
-X-Forwarded-Encrypted: i=1; AL+hErF2MwGLeTJPRHmuOfLNOj5yY5XciarXfget25IGvOoAmyBDqJ2w8ojf5K+ZafKth07/LHGuEb0PvN50N3s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/yLFXRYs6X8a+uu5rR0i2G2OG39gDHrVVKupXr98z7g5SL1TRT
-	VJDXFwSE5xh8sT+zWK+Xe0E0zRCXR2xrtNnEPP/XPkbd0N6LPn1sz8dy
-X-Gm-Gg: AZFdTZevBZxSEyqGttsRhe2KPdMGfUrdgW6YRgjENegxrsdK46OO9/PumHeiiang69n
-	RhvHLz+4BHKA9Chl+mQhZt3bkf+toNnUgdr7iaZDk4UCy69g8yWEpcbPNZeO/vlEl6boOUhEtxt
-	6Z5PXhJ+YWO51iQMl2k5mCcm9YXp0MIJ56jyp2ec3QArWVp6XZ2YWj9aRbJJt3kOORBfy20NDUg
-	gTVvBk8Vjc2f1BzXEpbSnVznNZC7QvX5EhUP+QVNBm0D5LfVj7RynbK0NTyb69RRZLxiARbZXBs
-	kCvqvbmxeMK4ryCvIXO7XqNN0/G+37cQWZpHnjJGRmXxnNDbllU79aVjUNuHv/CXxwOpUdJjNqY
-	KDHt2fypEeJbLHtjUJbe77Gtqf4h/h5BOGJLnGIDhBACaCuAcIw22/M0+x0poZunTJc5wBrhT3P
-	lAUd/VnHuC7TuCGPDrac8IzFT2RfrrjRREN5lSGm4bbKSCltVM1Fe3X1oUG8WMDxkhiebfe4KgK
-	7rWMsEbH2yIomulQ9AJrnAN8upvfa19HC+5izruDMKrVtralCAmQrA/WU7V6x+2WRbV7GokVSoG
-	A/rxKnuPBmXl3WytkcOXAC5dThrQTllgCxs=
-X-Received: by 2002:a05:6830:310d:b0:83f:f24d:fe19 with SMTP id 46e09a7af769-863151bafcamr28010483a34.3.1795649203395;
-        Wed, 25 Nov 2026 15:26:43 -0800 (PST)
+        bh=hO8RLWgXAol9xN62Zc8zT+WmHPhN/Afuqjr33ogoN5A=;
+        b=xRrPhSrGdjtXGNI2mMlU/JOZF0KcBCf6I0iNxeaGvnDvO5brhCjDHD8PAzjlgImJkx
+         6v3xK1FB1mWYoA6gYnp6/Z24y//6xQntLHnLtt7JAt30A6JiAQtzGg0QaAOZLxusuUDT
+         p4lCThLXCjKCcf8Uf6MLtW0cgOEn08FVAiAjs5CaITpB2YYLqWBziBvtBQKHN9xt41Sb
+         S4HeavCZ+eNo2hCdKAwm3zTeP8f2VGpsEEQY75N2Q4MfPR8S2MRLVfLQPUr5xV3JX7KR
+         Z7+p96AuY477Abdi6+2Ium2qUhosVQYv4Ed+VPinnqDmijwTYGhk+P81NacRlVXOWsnl
+         CxRw==
+X-Forwarded-Encrypted: i=1; AL+hErE/hlHW1LpQf0VuHIQGtsApwSOEFQdP+C+CIoYiQ0l6uzKesSMEjopDUp8bFx0caSUm/hBuOVudzca8sfw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/scSDq6liEMh63nJRJ8FvP2XU/KZ3wsYIkEvA7BmODP/3SGV4l
+	SnKx9R7grp/Px1+LPfMPrUUuMmvHx41d/LN9oWVQGlrG3j5D/8DQbjW0
+X-Gm-Gg: AZFdTZcIho9RvA0WQ2ErHs1x7n8zcivmm7+02feSV4c26D/7ESuEVKPv1vSGyC0pavp
+	vB8p8BigICUf5F5lpjKdmqMbAnoGGmNvuEeUexlid3yI5SMe9/yyWGUTq2YYq53ObQ6XS2yqShL
+	SDRK3fHnehoeeAL01czGOA6kcXf+i/Aje055O2P2tyHqi6nDkhOsgp3SIYEKemsoS9095LQ6arp
+	lqc2lqwCGFk/5ImOnwUKkB3sFVs79ExOtSRaTQNRurNdLnzDyelk5D5NXINw8eEdiKCs1j1K0S1
+	Fyyod3XFRKlycOB8nRFw1rN+Hr6lTiHqy/HQ10QZV+IkQlM4PEfr7Ly+HJ+1clYj49fHfa8AoU/
+	ZvWUvYl2Cy3mP8fOpjA970/dYjn2kn6+coqGFdQM1E4W7WWwY8ut0JF2Sdp3sovLHQ7gcVBhXg+
+	yhSylPJMrdJccktrNmJc9D7AhMAJz556DqfbnnPQYxWYMHrJq/aGlyjcQBRj5zHaoalwDL09RP5
+	9YVcGqFAdEHz3hDCUyCnl/tiigOAG6Mk9SuhS5LXy2l9TCDzBrfK2oekCSov9L65by13Lbkl2Cq
+	VD7WMPiDNHPsaEpj5NjoyUSby7gc5ieHW90=
+X-Received: by 2002:a05:6830:3491:b0:863:3892:70d3 with SMTP id 46e09a7af769-86338927828mr10242972a34.14.1795649206522;
+        Wed, 25 Nov 2026 15:26:46 -0800 (PST)
 Received: from [192.168.0.98] ([50.26.120.197])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8631692f049sm14304892a34.25.2026.11.25.15.26.41
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8631692f049sm14304892a34.25.2026.11.25.15.26.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 15:26:42 -0800 (PST)
+        Wed, 25 Nov 2026 15:26:45 -0800 (PST)
 From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Wed, 25 Nov 2026 17:26:06 -0600
-Subject: [PATCH 1/2] drm/imagination: Report firmware page faults
+Date: Wed, 25 Nov 2026 17:26:07 -0600
+Subject: [PATCH 2/2] drm/imagination: Don't wait for a running META to idle
+ on a hard reset
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,7 +95,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-rbrue-suez-pvr-reset-recovery-v1-1-2cea8b163e7e@gmail.com>
+Message-Id: <20261125-rbrue-suez-pvr-reset-recovery-v1-2-2cea8b163e7e@gmail.com>
 References: <20261125-rbrue-suez-pvr-reset-recovery-v1-0-2cea8b163e7e@gmail.com>
 In-Reply-To: <20261125-rbrue-suez-pvr-reset-recovery-v1-0-2cea8b163e7e@gmail.com>
 To: Alessio Belle <alessio.belle@imgtec.com>, 
@@ -107,42 +108,182 @@ To: Alessio Belle <alessio.belle@imgtec.com>,
 Cc: imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
  linux-kernel@vger.kernel.org, Ryan Brue <ryanbrue.dev@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795649198; l=1161;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795649198; l=6765;
  i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=0immpeEVfo1V2B9tlmsJ5GtsVBowBS1U3ikCLcI8PL8=;
- b=VxmzF7BQwsqcVZ+C2zOAWyW7mWer5SCFRdV+aW4tFsuXDHQHHURY7JLUxsHbLkW6L7d1zPeZS
- dmX18LpCAF6AydZWUlqXqDAxXO/qGDUfztNAHSS8d0RR+sQdtNLRLuO
+ bh=iczJBCCH7lzPQjGHXOusehPAUKAtFplLFsiGkVaoMM0=;
+ b=wahARHemZ0pFlEFvtDIyI/IQAg5Cht+KlcKCGznTWsYp2NMwlZqLL2zegFg+qEgLv2BnfxcfQ
+ +o/m6ygL/ruA51YXB3188uGviKyPtTeD9sGV7C4T1DmNkzXaAA0fk2q
 X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
  pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 
-The firmware tells the host about a page fault of its own with
-ROGUE_FWIF_FWCCB_CMD_CONTEXT_FW_PF_NOTIFICATION. The driver has no case
-for it, so it logs "Received unknown FWCCB command (type=112)" and
-drops the faulting address.
+A hard reset skips the idle and power-off requests, because the firmware
+is presumed hung, and then calls pvr_fw_stop(). On a META firmware
+processor that is still running, the Garten wrapper never reports idle,
+so pvr_fw_stop() times out and every hard reset ends with the device
+lost, even with an idle GPU. On a GX6250 (MT8173) every other idle poll
+in pvr_fw_stop() passes.
 
-Log the address as an error.
+Skip the Garten idle wait on a hard reset, as is already done when a
+debugger has halted META, and let the soft reset that follows stop it.
+The decision is META's must_wait_fw_idle() hook, so pass it hard_reset.
+The other idle polls, and other firmware processors, are unchanged.
 
+Fixes: cc1aeedb98ad ("drm/imagination: Implement firmware infrastructure and META FW support")
 Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 ---
- drivers/gpu/drm/imagination/pvr_ccb.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/gpu/drm/imagination/pvr_fw.c           |  2 +-
+ drivers/gpu/drm/imagination/pvr_fw.h           |  3 ++-
+ drivers/gpu/drm/imagination/pvr_fw_meta.c      |  6 ++++--
+ drivers/gpu/drm/imagination/pvr_fw_startstop.c | 10 ++++++----
+ drivers/gpu/drm/imagination/pvr_fw_startstop.h |  4 +++-
+ drivers/gpu/drm/imagination/pvr_power.c        |  4 ++--
+ 6 files changed, 18 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_ccb.c b/drivers/gpu/drm/imagination/pvr_ccb.c
-index 7043b491fe54..0a4d338ca47e 100644
---- a/drivers/gpu/drm/imagination/pvr_ccb.c
-+++ b/drivers/gpu/drm/imagination/pvr_ccb.c
-@@ -167,6 +167,11 @@ process_fwccb_command(struct pvr_device *pvr_dev, struct rogue_fwif_fwccb_cmd *c
- 						    &cmd->cmd_data.cmd_context_reset_notification);
- 		break;
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
+index d620141b5df0..d75fa3e4c575 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.c
++++ b/drivers/gpu/drm/imagination/pvr_fw.c
+@@ -976,7 +976,7 @@ pvr_fw_init(struct pvr_device *pvr_dev)
+ 	return 0;
  
-+	case ROGUE_FWIF_FWCCB_CMD_CONTEXT_FW_PF_NOTIFICATION:
-+		drm_err_ratelimited(drm_dev, "Firmware page fault at address 0x%llx\n",
-+				    cmd->cmd_data.cmd_fw_pagefault.fw_fault_addr);
-+		break;
+ err_fw_stop:
+-	pvr_fw_stop(pvr_dev);
++	pvr_fw_stop(pvr_dev, false);
+ 
+ err_destroy_structures:
+ 	pvr_fw_destroy_structures(pvr_dev);
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.h b/drivers/gpu/drm/imagination/pvr_fw.h
+index e9a802be45b2..d985089ae191 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.h
++++ b/drivers/gpu/drm/imagination/pvr_fw.h
+@@ -189,6 +189,7 @@ struct pvr_fw_defs {
+ 	 *                     to report FW idle before proceeding.
+ 	 *
+ 	 * @pvr_dev: Target PowerVR device.
++	 * @hard_reset: The FW was not asked to idle before this stop.
+ 	 * @wait[out]: Whether the FW stop sequence should wait for FW idle.
+ 	 *
+ 	 * This function is optional. The assumption is that we must always wait
+@@ -199,7 +200,7 @@ struct pvr_fw_defs {
+ 	 *  * 0 on success.
+ 	 *  * Any appropriate error on failure.
+ 	 */
+-	int (*must_wait_fw_idle)(struct pvr_device *pvr_dev, bool *wait);
++	int (*must_wait_fw_idle)(struct pvr_device *pvr_dev, bool hard_reset, bool *wait);
+ 
+ 	/**
+ 	 * @has_fixed_data_addr: Specify whether the firmware fixed data must be loaded at the
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+index 41f5e9ddc7f0..19baea23c434 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+@@ -562,7 +562,7 @@ pvr_meta_irq_clear(struct pvr_device *pvr_dev)
+ }
+ 
+ static int
+-pvr_meta_must_wait_fw_idle(struct pvr_device *pvr_dev, bool *wait)
++pvr_meta_must_wait_fw_idle(struct pvr_device *pvr_dev, bool hard_reset, bool *wait)
+ {
+ 	u32 reg_value;
+ 	int err;
+@@ -574,8 +574,10 @@ pvr_meta_must_wait_fw_idle(struct pvr_device *pvr_dev, bool *wait)
+ 	/*
+ 	 * Wait for Sidekick/Jones to signal IDLE including the Garten
+ 	 * Wrapper if there is no debugger attached (TxVECINT_BHALT = 0x0).
++	 * A META that was not asked to idle (hard reset) keeps the Garten
++	 * Wrapper busy; the soft reset that follows stops it.
+ 	 */
+-	*wait = !reg_value;
++	*wait = !reg_value && !hard_reset;
+ 
+ 	return 0;
+ }
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_startstop.c b/drivers/gpu/drm/imagination/pvr_fw_startstop.c
+index 40af04a64b0c..f543ebd2f56d 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_startstop.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_startstop.c
+@@ -188,13 +188,14 @@ static inline bool layout_is_mars(struct pvr_device *pvr_dev)
+ 	return layout_mars_value > 0;
+ }
+ 
+-static inline int must_wait_fw_idle_before_stop(struct pvr_device *pvr_dev)
++static inline int must_wait_fw_idle_before_stop(struct pvr_device *pvr_dev, bool hard_reset)
+ {
+ 	bool wait_fw_idle = true;
+ 	int err;
+ 
+ 	if (pvr_dev->fw_dev.defs->must_wait_fw_idle) {
+-		err = pvr_dev->fw_dev.defs->must_wait_fw_idle(pvr_dev, &wait_fw_idle);
++		err = pvr_dev->fw_dev.defs->must_wait_fw_idle(pvr_dev, hard_reset,
++							      &wait_fw_idle);
+ 		if (err)
+ 			return err;
+ 	}
+@@ -205,13 +206,14 @@ static inline int must_wait_fw_idle_before_stop(struct pvr_device *pvr_dev)
+ /**
+  * pvr_fw_stop() - Stop FW processor
+  * @pvr_dev: Target PowerVR device.
++ * @hard_reset: The FW processor was not asked to idle first.
+  *
+  * Returns:
+  *  * 0 on success, or
+  *  * Any error returned by pvr_cr_poll_reg32().
+  */
+ int
+-pvr_fw_stop(struct pvr_device *pvr_dev)
++pvr_fw_stop(struct pvr_device *pvr_dev, bool hard_reset)
+ {
+ 	const u32 sidekick_idle_mask = ROGUE_CR_SIDEKICK_IDLE_MASKFULL &
+ 				       ~(ROGUE_CR_SIDEKICK_IDLE_GARTEN_EN |
+@@ -309,7 +311,7 @@ pvr_fw_stop(struct pvr_device *pvr_dev)
+ 		if (err)
+ 			return err;
+ 
+-		wait_fw_idle = must_wait_fw_idle_before_stop(pvr_dev);
++		wait_fw_idle = must_wait_fw_idle_before_stop(pvr_dev, hard_reset);
+ 		if (wait_fw_idle < 0)
+ 			return wait_fw_idle;
+ 
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_startstop.h b/drivers/gpu/drm/imagination/pvr_fw_startstop.h
+index a3cef061bd60..79a95bbbe4e1 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_startstop.h
++++ b/drivers/gpu/drm/imagination/pvr_fw_startstop.h
+@@ -4,10 +4,12 @@
+ #ifndef PVR_FW_STARTSTOP_H
+ #define PVR_FW_STARTSTOP_H
+ 
++#include <linux/types.h>
 +
- 	default:
- 		drm_info(drm_dev, "Received unknown FWCCB command (type=%d)\n",
- 			 cmd->cmd_type & ~ROGUE_CMD_MAGIC_DWORD_MASK);
+ /* Forward declaration from pvr_device.h. */
+ struct pvr_device;
+ 
+ int pvr_fw_start(struct pvr_device *pvr_dev);
+-int pvr_fw_stop(struct pvr_device *pvr_dev);
++int pvr_fw_stop(struct pvr_device *pvr_dev, bool hard_reset);
+ 
+ #endif /* PVR_FW_STARTSTOP_H */
+diff --git a/drivers/gpu/drm/imagination/pvr_power.c b/drivers/gpu/drm/imagination/pvr_power.c
+index eb4b6ecdf4f4..d88a522c4bfd 100644
+--- a/drivers/gpu/drm/imagination/pvr_power.c
++++ b/drivers/gpu/drm/imagination/pvr_power.c
+@@ -111,7 +111,7 @@ pvr_power_fw_disable(struct pvr_device *pvr_dev, bool hard_reset, bool rpm_suspe
+ 		disable_irq(pvr_dev->irq);
+ 	}
+ 
+-	err = pvr_fw_stop(pvr_dev);
++	err = pvr_fw_stop(pvr_dev, hard_reset);
+ 	if (err && rpm_suspend)
+ 		enable_irq(pvr_dev->irq);
+ 
+@@ -133,7 +133,7 @@ pvr_power_fw_enable(struct pvr_device *pvr_dev, bool rpm_resume)
+ 	err = pvr_wait_for_fw_boot(pvr_dev);
+ 	if (err) {
+ 		drm_err(from_pvr_device(pvr_dev), "Firmware failed to boot\n");
+-		pvr_fw_stop(pvr_dev);
++		pvr_fw_stop(pvr_dev, false);
+ 		goto out;
+ 	}
+ 
 
 -- 
 2.56.1
