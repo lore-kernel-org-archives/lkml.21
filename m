@@ -1,56 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795627165;
-	b=z2aInozAMHczVnKUP++fhbctVLVNYSY5AMbeD0qEgsXUCNQvyhehFfemO6UyeMbFD4ck
-	 D+Y51owe2hPzkmg/3LuSs4n6Iv7wDzmxZUus63SlDlIUORTiIvl9KMdlwdzzhSqfNQliH
-	 NAOqGMG1hNDWRe4aF3bZb3VvhQXCA3JuvavNuUs4/ZVYmiZZzhPoVzPk5AKJtBoAcfjqR
-	 RCLJZJ7kh4Ba7bX3kZh/ZBZPLglQM5JusKo+WkYzwKOetFvojtPzrWwLsnkLIUYRkVRje
-	 rVKnMT1DWQRI1Cu+MCBpMArj201SYPr2LjLUq/MvffUvDGv67ZDWhzXjSVL4nZA3ePA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795627165;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=zlUDtLSedtGVqw9aJT44i6qtvT7PvK8DE79lqMDex5I=;
-	b=4dmDzzq/LU3XnwapslHzM7T75zM07hNLHjn0zCpkImZJMm9wT58VThkDnY4Jw4S5cUXd
-	 /XkoXxjmmELobYIpetUv3k8Err/imCY4Qv7qqxyIHuhBzEGAwnN0Q3o87nlXk/3Cug8jT
-	 AAbH3/Qc+zFnUVvw0NHVvaL7bJ3Qu938IUvzZjSnfM77sX4dyVWiPhRLz/XV71SuEfChJ
-	 4SQuZuJxVL6DLKvRheLzaRm5Xgag2cuevkhJHtVSOoYvnex83RwbcK/eyPTxecpyEprjX
-	 qtM18Qrh1+DN5bAm0Kxts2GXDJUGO4G4d7pRUU/zWkVRB5VKePE6I6wae+zHtSoPXKA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mY2vPG6c;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.64
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795627193;
+	b=zXsvrzFkR7af0OcwhPyW6vnUSStfn3z+4CnPccIKkgVGRaulFXLBjPLInrmqd+Eu4Y6e
+	 Lefp5EWRlcC1TbhIaEFIu/5zESyWBXWro8I1n0fXebz/y7iJqwKFgep5KR9zECXaXNqbG
+	 MF4YI34j5xwAZHB8tmmnUneCFJkq0z4QV+4apZMK8nNPpCU+E7MEc2VeH+2+VX6DJY1w6
+	 4PaEfAwQ0FgFzW7Je+umWh11cisDzGWq4ngKnXeXeEoUVwzQ5J3QCxirxiUDxGWtp1DmC
+	 OVy9Ka3bscMsBhWnoMaI2ewYbvjD1orR7kswplkmVI7fTgAEtaEUr286CXzLZFlsdIA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795627193;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=YJ5zbM1KAkMv2nx850qzKF+VmrPat36BOb8eNpynfSM=;
+	b=Hf6Wr6xRY6ZK3r3dXxwf4Yt8Pd0OUW6WhM7Xar81s7AYniFhxk4qrjIb1CfpKbcnPU04
+	 q1bLxVXlF9d0amHATz0QlhtChtz0vFQuQYEIxyD70kx7CBGfLsrcF+RD+N3kRXxNBkgRw
+	 h4ObZoscukPlhgxA4TNUrcnVHr+1KwHmgRdGvwmFv17wOLJIlNlFdKn86iv6X/xTuCLji
+	 Hp4P8sT6sOrhFKAWb0ltXf3MZqpMeapA8bn6KBICfn6R9Qmq7MbVUyxfcV/Aw02nije+L
+	 oQz3/D7s+B4kumBGHAWXxnLbaxQQbCMkQMRi7DCNew1NdBMngD/LswcPlCsoSdW+8/Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=t5ik5znB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.64
+Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010064.outbound.protection.outlook.com [52.101.61.64])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id F1A84606A31E;
-	Wed, 25 Nov 2026 17:19:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D37BD606A31E;
+	Wed, 25 Nov 2026 17:19:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D37BD606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mY2vPG6c
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id A03911F000CA;
-	Wed, 25 Nov 2026 17:19:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795627164;
-	bh=zlUDtLSedtGVqw9aJT44i6qtvT7PvK8DE79lqMDex5I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mY2vPG6cNcQZRH4rhcFHA18JmcAtiNBnjCZT8VLygTsLVlMZdxX08/dKKCICB7hv0
-	 R8xFabYiDqcsN+O4lHBLmHvQgrPW3tktJqHIi3eI7zgo0SODliFaJmqXMaK9TGzBDT
-	 j3YBrxmxYzaM+V4nzatSZ2zCgV4ftIwDyKhK3n3LGsqUd1dW8kFeL7qSFJrvQ0g4L9
-	 i6TDaRWPJagM+A07gCFstmKbcYTSonQW6F7CUlle0psrT9GL3uL/zfxXGgm/nBKSIB
-	 nrGVO+z9xpJlzUBroTzItfiHGWfVMP1Q5fNCIMRpKtPuiTPygDvtEenhjbwabIcmMU
-	 /HTPb4Z4LKT1Q==
-Date: Wed, 25 Nov 2026 19:19:20 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Guicai Ma <maguicai@kylinos.cn>
-Cc: David Howells <dhowells@redhat.com>, Paul Moore <paul@paul-moore.com>,
-	James Morris <jmorris@namei.org>,
-	"Serge E . Hallyn" <serge@hallyn.com>, keyrings@vger.kernel.org,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] KEYS: Protect key instantiation and rejection against
- type removal
-Message-ID: <awcYmOxzJ9TfsdjJ@kernel.org>
-References: <20261124091243.1019217-1-maguicai@kylinos.cn>
- <20261125032605.1327954-1-maguicai@kylinos.cn>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=t5ik5znB
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ae2UqiHhHu+vWcCIqqfBb8ifxWV0OAgYiGzXXG0Hmfx0PiRHFvZR8eKQmzamqWx9U32jwHxRj+xfHPhj8GFfJs8OZORg3ZTHgbOJa0NB6TGaaLYR38NNpqhAsXlUT0YD1cb4uBjsKVbEBfyEoXV07ZAQfhf1kNd2UFsPyBkm06AIIH3Xqyhrsr/U1BUWPyF+p8IgTgXVBSbRlqRM5vp35qU23mJgxMJuAhTqjy99AqloVGF8wSwweOUI4CR2b8OcJ8Z+5DLwmJ/dyV3VFWNTfbiPmRJJACOlYdfY4iEnLrkNPKb2Z3CkZMQDBFoatZOYV9Xw4D/JuVT6Gu6SrKT4JA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YJ5zbM1KAkMv2nx850qzKF+VmrPat36BOb8eNpynfSM=;
+ b=qSwqeCm0tKNSCNTw9rjq+zaoPoFVBX/3aaFW9rUjjyrxBpgbyleKFZIpO+c0bkft0Pgq0sm+DgNcBoG6JsBOlABw9cyU1QOMOFVRj31yAxeLQWPyo8iOn1RyDtzH0RitK/m96G2RkCLSYOxwoAHvGZv0CWakyzd7/hCCVl1Be/gofr++WGvQjglwzyA4bUSdvtC3oTMse5x+sCSI9v7nRcVH0lS5632eyRiR/mE0GdXb3swknCt8mqIKYymAtXiiLfZZZxrta6Z3dYJNujFa9dP0yxtuD7Zpw456NgUpOlsaj1Sv/rFkUaUayUq66kFE3JlymKCQ4v3MfAYSnGaOPA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YJ5zbM1KAkMv2nx850qzKF+VmrPat36BOb8eNpynfSM=;
+ b=t5ik5znBwxuX+3QhhpUXzbAb2ZDq+CZoNzpcphnFTdNFVS8Gl3bXJpVHh5HB2Y2pluCHBLjuSFhJQiYPOx6kNUtBiUQy0BSJY7apYprEoGbWps/F106BPMLmMTckR/lsDZK5BSbdoWjTrFZUoFyLwZUpuymXj09nNZPd4WNO2J8=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from EAYPR12MB923140.namprd12.prod.outlook.com
+ (2603:10b6:303:2fd::15) by CH3PR12MB9021.namprd12.prod.outlook.com
+ (2603:10b6:610:173::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Wed, 25 Nov
+ 2026 17:19:20 +0000
+Received: from EAYPR12MB923140.namprd12.prod.outlook.com
+ ([fe80::b986:8b81:beda:c167]) by EAYPR12MB923140.namprd12.prod.outlook.com
+ ([fe80::b986:8b81:beda:c167%4]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
+ 17:19:20 +0000
+Date: Wed, 25 Nov 2026 12:19:10 -0500
+From: Yazen Ghannam <yazen.ghannam@amd.com>
+To: Lukas Wunner <lukas@wunner.de>
+Cc: Tony Luck <tony.luck@intel.com>, Bjorn Helgaas <helgaas@kernel.org>,
+	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+	Oliver O'Halloran <oohall@gmail.com>, Len Brown <lenb@kernel.org>,
+	linux-pci@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/6] PCI/DPC: Decide DPC ownership with
+ host_bridge->native_dpc
+Message-ID: <20261125171910.GK2156781@yaz-khff2.amd.com>
+References: <awVV71IbFuYAJDzh@wunner.de>
+ <20261125000838.GA1194450@bhelgaas>
+ <awbF3MrVWm98q95O@wunner.de>
+ <20261125162258.GH2156781@yaz-khff2.amd.com>
+ <awcQrljZYEuCZWGA@wunner.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awcQrljZYEuCZWGA@wunner.de>
+X-ClientProxiedBy: BN9P223CA0007.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:408:10b::12) To EAYPR12MB923140.namprd12.prod.outlook.com
+ (2603:10b6:303:2fd::15)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,293 +105,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125032605.1327954-1-maguicai@kylinos.cn>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: EAYPR12MB923140:EE_|CH3PR12MB9021:EE_
+X-MS-Office365-Filtering-Correlation-Id: ba2b536e-a71b-46bd-3de0-08df4b183e4a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|4143699003|6133799003|261009223027099003|22082099003|18002099003|10067099003|56012099006|11063799006|261102123227099003|261026121527099003|261028144727099003|261022105027099003|261026140227099003|261021121427099003;
+X-Microsoft-Antispam-Message-Info:
+	sQXVLa1IQLd7DjPK9sx9L8ae69fRt1o1J18/nsAxWqoWg+0Z0ZfG18NTs+kFtc9wOTzeB/zwhd0hqAdOG/cUDb+1GlqCzwa2YsSHAzhMO9+1CiGfI2RkEautCjxGg5CU/Gq8tVaiSr8UAQgNbLznOQS0+SAdq+/OCSN9MuJcCPYrDdj6rwB5QdBlPP8zCXYRWViHDBTvaW0hBuhHpEp9eAPsiryI1jwH3XDM34QhvQOjUQKhB3ifDgvyKSoyKdjAzsyg1xlp6I6jU2tkCfFEJVR5jWmhFqNF2vhlTJw7Di0IW+pLiIBrVdxq2zted8f+8QkGgFLMMK1g4Oww2Bdcr0b+WQRwmRzQMyjNNwVTt8L/ZS5YHnnRPLl/2HeXa8IIK8rd46ct9Mr9rq0Gs5mndPd1EPoQXJeXQ9+BKA2vWVnao8q/P2KV9hGrLnszKNfzVbFweq9DrnPp0jOorSP/MrKBR4uwbLaAh5a4XRQ3Q2NYsyxGsPNEKI23pY5FCcnKFxCc8fr6kYtzHlsyBTCSyyODangP22y97FRZ39sFUgCRS+354zIW0J558OeDhD2xG5ZnZdR9qKSutifdGcFmykhmt8vQoGX8wU0hd4grfEFy1fPsFsIXk18SUPqA9S8ZCvhSQFN8lS5sAOiyLzgY9kGzQ8B6TsN76dI+/ZnIVj0=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:EAYPR12MB923140.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(4143699003)(6133799003)(261009223027099003)(22082099003)(18002099003)(10067099003)(56012099006)(11063799006)(261102123227099003)(261026121527099003)(261028144727099003)(261022105027099003)(261026140227099003)(261021121427099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?1DKA0IuSHHyqfvbZ+0BomJ9qKiwBXWiFLXaKP+VJ/NxDdRWXUH0mFhAerLKn?=
+ =?us-ascii?Q?c+1WYmY5Xtd6IxRB6C0V55pSiwhzH0N2Y+D7w7jDuRLr+NgrV6QMBV49WrO8?=
+ =?us-ascii?Q?AmZT3f7s/5d0EgbRuU4HVCdIPxyFfYF7O9MeIBNh2lZFwRaaY7WA2B4kM3W0?=
+ =?us-ascii?Q?2589ieYhXZXqxVjR/9uakLNjWAAd+Yj8ecwoWqfL4JFsLdFMdQWkicUjr/7k?=
+ =?us-ascii?Q?JqIXKDVUHEg8A8zDCs4SvYOZePBfjpu5Yb4Ax10VRS1NPD9TWg3eJlNl85Ip?=
+ =?us-ascii?Q?PfYEdTLKUux0N/2oGwqmtw8gfUj1NeJB1FluX2bFXA3Syr6hSmYXRrayaqh7?=
+ =?us-ascii?Q?+xuhAVAGo5UYkqpTflzfQEIXNJCPL1ZRbpQzwhJL1+S9QHwa7aBV4mr6Q+iF?=
+ =?us-ascii?Q?VGe29iYy/UDVFy+XPKe9Ba9P++/QAqkunGRS6lddM4nUzP8IyoVQ165Mz+G8?=
+ =?us-ascii?Q?HAQRVSrJ4Dcw6GUqvPeSpdLXWH2IfGu3PMuowJJaRvrH05hruwyaB+dabkSo?=
+ =?us-ascii?Q?iwpsyrQXd5F2glJYOii2SGqT3lo+2LmYx0R5XVRFVqwUu4XN54lCQJczGmHu?=
+ =?us-ascii?Q?rUPj1QXRMuObsjri3bRQZszeS4eZCj5HrimL/Y0oOH0WCaIr3gkTEVQaYHb/?=
+ =?us-ascii?Q?3XVpI8Its43KjqIADb+26GX2XqRKCuAfztHFPPuan56Vi7YBf4KegcQ+d8sY?=
+ =?us-ascii?Q?SYRUQdbzC7liW2UOerBJJMhak+yXQjRcH6MBKt92FpDo3t/XZK9WKtDdwCu4?=
+ =?us-ascii?Q?s/hnWmxH/CV4ssE65iocncDEgDLjJdyInC//xwKX1ZI0hw6Ytrf+PnoZ7Fni?=
+ =?us-ascii?Q?yEgfKHsr/Gs76M8UzqMZTkFrCjM33wuWjqw60Ab7/QAAMWsmAlige4zBDcUB?=
+ =?us-ascii?Q?lX1K41t4Gdb8Ho6L5NxwX1yHGaXygR+/jqQ8JqwLkZ+fkCkAFe3MolRMquH0?=
+ =?us-ascii?Q?8gqAU5ouk02ZyJFxSndkW3udUjDhegJXunUzMUkgg5f8xfc1MxLi1c1U/yYD?=
+ =?us-ascii?Q?+lJKDz41LmX8YLhWUqs9ko+QZP4eVlDjNd545j2tl0MaHtwMj5bVb2+Qo/FZ?=
+ =?us-ascii?Q?KHDuGmYcOQR3bYJeRYxoQU4E2QJ1hTjT6pyZqAmqahBVsfa7dNzk23rUeF2r?=
+ =?us-ascii?Q?Tots2jV4byRTJWenwX6TorQuJ0S4xyd5XOhHClYknc7WW9CBJjKJx9cWptVK?=
+ =?us-ascii?Q?eMwUHwvsXGDJgdsKjIG/QUEwrxR2swL8rO0HOeUCyQMeqaENzuRGJ2wzNOmc?=
+ =?us-ascii?Q?HOCSTmShWzGJ+FHBNRTWCPOgEW/dOWRijfcimrrJxz0/4VWa3/41aBoe6uis?=
+ =?us-ascii?Q?hYzN1/8d5StxSC2mERj/DHYpEXuTg1i+xKliVLA9kqC60RH+BOpXh5iansWP?=
+ =?us-ascii?Q?NdiJSOUUC1abLKvSSup62igk4nZH0KeeSUlFvxpdJlflgi8wOYCu3+g4EhBw?=
+ =?us-ascii?Q?tkzkMFffmeCtflcPcfMl0MmAI9bItyfTTfDu/Zd3vVL1ITanGO5HrE1NoB51?=
+ =?us-ascii?Q?2wdMooMXfYgSI7wkdm0AroNYWlIl6KuLGzbtM+1Az+pAy6w8fvlKUpqA/lfT?=
+ =?us-ascii?Q?QGNKAlr0b6VP3KmL4XELV5DP770G6vlE/yca1wlHRcI9V5xeoC+9QtDEVn6p?=
+ =?us-ascii?Q?iba+Y9uPug327jlSuUOyZ56GGy1UU1g1o9kLKx+zo3Ze2r2bL3oAtyAoOnq0?=
+ =?us-ascii?Q?GX7q+zqbamchgNkdgUPPPcJ1HjFKcLQla3Ds3SaPVxvoGgBK?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ba2b536e-a71b-46bd-3de0-08df4b183e4a
+X-MS-Exchange-CrossTenant-AuthSource: EAYPR12MB923140.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 17:19:20.6896
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Z4ZzAOurxIYfkG3rC0XCy5IP5AiiW8IfOE6eoYozFnM8InYxn+TX2cbyGYbsGJ42Lm65L/mPxLsWSWjQY3V6hA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9021
 
-On Tue, Nov 24, 2026 at 10:26:05PM -0500, Guicai Ma wrote:
-> key_instantiate_and_link() and key_reject_and_link() access key->type
-> and link keys without synchronizing against unregister_key_type(). If
-> the type is removed while a key is under construction, GC retypes it to
-> key_type_dead (where ->instantiate is NULL) or links a dead key before
-> pass 3 rewrites key->type.
+On Wed, Nov 25, 2026 at 05:45:34PM +0100, Lukas Wunner wrote:
+> On Wed, Nov 25, 2026 at 11:22:58AM -0500, Yazen Ghannam wrote:
+> > On Wed, Nov 25, 2026 at 12:26:20PM +0100, Lukas Wunner wrote:
+> > > Hm, I thought about this some more and realized that at least on x86,
+> > > the kernel may receive PCI System Errors through pci_serr_error() in
+> > > arch/86/kernel/nmi.c.
+> > > 
+> > 
+> > Do modern systems still do this?
 > 
-> key->sem cannot be used here because it inverts lock order against
-> encrypted_instantiate() and references a freed lockdep class after a
-> modular type unloads, while callers may already hold key_types_sem and
-> ->preparse() or ->instantiate() may sleep. Guard both paths with
-> key_type_srcu and a KEY_FLAG_DEAD check, and wait for in-flight calls
-> with synchronize_srcu(&key_type_srcu) at the end of GC pass 1.
+> The reports I found are for systems sold in the early 2010s, e.g.:
 > 
-> Fixes: 0c061b5707ab ("KEYS: Correctly destroy key payloads when their keytype is removed")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guicai Ma <maguicai@kylinos.cn>
-> ---
-> v3:
-> - Shorten the commit message and focus on why SRCU is used.
-> - Change Fixes tag to 0c061b5707ab.
-> - No code changes.
+> HP Proliant ML330 G6 (2010)
+> HP Proliant DL380 G6 (2010)
+> Intel Server Board S2600CP (2012)
 > 
-> v2:
-> - Switch from key->sem to key_type_srcu and check KEY_FLAG_DEAD in
->   key_instantiate_and_link() and key_reject_and_link().
+> However the reports are as recent as 2024 because people continue using
+> the hardware despite its age.
 > 
->  security/keys/gc.c       |  13 +++++
->  security/keys/internal.h |   2 +
->  security/keys/key.c      | 108 +++++++++++++++++++++++++++++----------
->  3 files changed, 95 insertions(+), 28 deletions(-)
-> 
-> diff --git a/security/keys/gc.c b/security/keys/gc.c
-> index eda445f815d4..61cb2b9a7aaf 100644
-> --- a/security/keys/gc.c
-> +++ b/security/keys/gc.c
-> @@ -35,6 +35,8 @@ static unsigned long key_gc_flags;
->  #define KEY_GC_REAP_KEYTYPE	1	/* A keytype is being unregistered */
->  #define KEY_GC_REAPING_KEYTYPE	2	/* Cleared when keytype reaped */
->  
-> +DEFINE_SRCU(key_type_srcu);
-> +
->  
->  /*
->   * Any key whose type gets unregistered will be re-typed to this if it can't be
-> @@ -286,6 +288,17 @@ static void key_garbage_collector(struct work_struct *work)
->  		key_schedule_gc(new_timer);
->  	}
->  
-> +	if (unlikely((gc_state & KEY_GC_REAPING_DEAD_1) &&
-> +		     (gc_state & KEY_GC_FOUND_DEAD_KEY))) {
-> +		/* Wait for any in-flight key_instantiate_and_link() or
-> +		 * key_reject_and_link() calls that did not observe
-> +		 * KEY_FLAG_DEAD before pass 2 unlinks dead keys from keyrings
-> +		 * and pass 3 retypes them to key_type_dead.
-> +		 */
-> +		kdebug("gc dead type sync");
-> +		synchronize_srcu(&key_type_srcu);
-> +	}
-> +
->  	if (unlikely(gc_state & KEY_GC_REAPING_DEAD_2) ||
->  	    !list_empty(&graveyard)) {
->  		/* Make sure that all pending keyring payload destructions are
-> diff --git a/security/keys/internal.h b/security/keys/internal.h
-> index b7b622bc36a1..73d71de274c2 100644
-> --- a/security/keys/internal.h
-> +++ b/security/keys/internal.h
-> @@ -19,6 +19,7 @@
->  #include <linux/compat.h>
->  #include <linux/mm.h>
->  #include <linux/vmalloc.h>
-> +#include <linux/srcu.h>
->  
->  struct iovec;
->  
-> @@ -86,6 +87,7 @@ extern struct kmem_cache *key_jar;
->  extern struct rb_root key_serial_tree;
->  extern spinlock_t key_serial_lock;
->  extern struct mutex key_construction_mutex;
-> +extern struct srcu_struct key_type_srcu;
->  extern wait_queue_head_t request_key_conswq;
->  
->  extern void key_set_index_key(struct keyring_index_key *index_key);
-> diff --git a/security/keys/key.c b/security/keys/key.c
-> index 3f1f0fc13710..d923ddf457e9 100644
-> --- a/security/keys/key.c
-> +++ b/security/keys/key.c
-> @@ -422,9 +422,10 @@ static void mark_key_instantiated(struct key *key, int reject_error)
->  
->  /*
->   * Instantiate a key and link it into the target keyring atomically.  Must be
-> - * called with the target keyring's semaphore writelocked.  The target key's
-> - * semaphore need not be locked as instantiation is serialised by
-> - * key_construction_mutex.
-> + * called with the target keyring's semaphore writelocked.  The caller must
-> + * hold key_type_srcu (after checking !KEY_FLAG_DEAD) or key_types_sem for
-> + * reading via key_type_lookup(), so the type cannot be retyped to
-> + * key_type_dead or its module unloaded while its methods run.
->   */
->  static int __key_instantiate_and_link(struct key *key,
->  				      struct key_preparsed_payload *prep,
-> @@ -496,7 +497,9 @@ static int __key_instantiate_and_link(struct key *key,
->   *
->   * If successful, 0 is returned, the authorisation token is revoked and anyone
->   * waiting for the key is woken up.  If the key was already instantiated,
-> - * -EBUSY will be returned.
-> + * -EBUSY will be returned.  If the key's type has been removed, -EKEYREVOKED
-> + * will be returned.  If the key type does not provide an instantiate method,
-> + * -EOPNOTSUPP will be returned.
->   */
->  int key_instantiate_and_link(struct key *key,
->  			     const void *data,
-> @@ -506,7 +509,28 @@ int key_instantiate_and_link(struct key *key,
->  {
->  	struct key_preparsed_payload prep;
->  	struct assoc_array_edit *edit = NULL;
-> -	int ret;
-> +	int ret, srcu_idx;
-> +
-> +	/*
-> +	 * A reference on the key does not pin the module that provides its
-> +	 * type.  Hold key_type_srcu across every use of key->type
-> +	 * (def_datalen, preparse, restrict_link->check, instantiate and
-> +	 * free_preparse) and across linking into @keyring.  Pass 1 of
-> +	 * key_garbage_collector() sets KEY_FLAG_DEAD and waits for
-> +	 * synchronize_srcu(&key_type_srcu) before pass 2 unlinks dead keys
-> +	 * and pass 3 retypes them to key_type_dead.
-> +	 */
-> +	srcu_idx = srcu_read_lock(&key_type_srcu);
-> +
-> +	if (test_bit(KEY_FLAG_DEAD, &key->flags)) {
-> +		ret = -EKEYREVOKED;
-> +		goto out;
-> +	}
-> +
-> +	if (!key->type->instantiate) {
-> +		ret = -EOPNOTSUPP;
-> +		goto out;
-> +	}
->  
->  	memset(&prep, 0, sizeof(prep));
->  	prep.orig_description = key->description;
-> @@ -517,17 +541,17 @@ int key_instantiate_and_link(struct key *key,
->  	if (key->type->preparse) {
->  		ret = key->type->preparse(&prep);
->  		if (ret < 0)
-> -			goto error;
-> +			goto out_free_preparse;
->  	}
->  
->  	if (keyring) {
->  		ret = __key_link_lock(keyring, &key->index_key);
->  		if (ret < 0)
-> -			goto error;
-> +			goto out_free_preparse;
->  
->  		ret = __key_link_begin(keyring, &key->index_key, &edit);
->  		if (ret < 0)
-> -			goto error_link_end;
-> +			goto out_link_end;
->  
->  		if (keyring->restrict_link && keyring->restrict_link->check) {
->  			struct key_restriction *keyres = keyring->restrict_link;
-> @@ -535,19 +559,22 @@ int key_instantiate_and_link(struct key *key,
->  			ret = keyres->check(keyring, key->type, &prep.payload,
->  					    keyres->key);
->  			if (ret < 0)
-> -				goto error_link_end;
-> +				goto out_link_end;
->  		}
->  	}
->  
->  	ret = __key_instantiate_and_link(key, &prep, keyring, authkey, &edit);
->  
-> -error_link_end:
-> +out_link_end:
->  	if (keyring)
->  		__key_link_end(keyring, &key->index_key, edit);
->  
-> -error:
-> +out_free_preparse:
->  	if (key->type->preparse)
->  		key->type->free_preparse(&prep);
-> +
-> +out:
-> +	srcu_read_unlock(&key_type_srcu, srcu_idx);
->  	return ret;
->  }
->  
-> @@ -581,7 +608,8 @@ int key_reject_and_link(struct key *key,
->  			struct key *authkey)
->  {
->  	struct assoc_array_edit *edit = NULL;
-> -	int ret, awaken, link_ret = 0;
-> +	int ret, awaken, link_ret = 0, srcu_idx;
-> +	bool dead;
->  
->  	key_check(key);
->  	key_check(keyring);
-> @@ -589,22 +617,42 @@ int key_reject_and_link(struct key *key,
->  	awaken = 0;
->  	ret = -EBUSY;
->  
-> +	/*
-> +	 * Hold key_type_srcu across linking into @keyring and
-> +	 * key_set_expiry() (which reads key->type->flags).  If the key is
-> +	 * already marked dead, skip linking and expiry but still complete
-> +	 * negative instantiation so waiters are woken and @authkey is
-> +	 * invalidated.
-> +	 */
-> +	srcu_idx = srcu_read_lock(&key_type_srcu);
-> +	dead = test_bit(KEY_FLAG_DEAD, &key->flags);
-> +
->  	if (keyring) {
-> -		link_ret = __key_link_lock(keyring, &key->index_key);
-> -		if (link_ret == 0) {
-> -			/*
-> -			 * Check the restriction under the keyring semaphore.
-> -			 * keyring_restrict() installs it while holding the
-> -			 * semaphore, so testing it beforehand races with a
-> -			 * concurrent restriction install.
-> -			 */
-> -			if (keyring->restrict_link) {
-> -				__key_link_end(keyring, &key->index_key, edit);
-> -				return -EPERM;
-> +		if (dead) {
-> +			link_ret = -EKEYREVOKED;
-> +		} else {
-> +			link_ret = __key_link_lock(keyring, &key->index_key);
-> +			if (link_ret == 0) {
-> +				/*
-> +				 * Check the restriction under the keyring
-> +				 * semaphore. keyring_restrict() installs it
-> +				 * while holding the semaphore, so testing it
-> +				 * beforehand races with a concurrent
-> +				 * restriction install.
-> +				 */
-> +				if (keyring->restrict_link) {
-> +					__key_link_end(keyring, &key->index_key,
-> +						       edit);
-> +					ret = -EPERM;
-> +					goto out;
-> +				}
-> +				link_ret = __key_link_begin(keyring,
-> +							    &key->index_key,
-> +							    &edit);
-> +				if (link_ret < 0)
-> +					__key_link_end(keyring, &key->index_key,
-> +						       edit);
->  			}
-> -			link_ret = __key_link_begin(keyring, &key->index_key, &edit);
-> -			if (link_ret < 0)
-> -				__key_link_end(keyring, &key->index_key, edit);
->  		}
->  	}
->  
-> @@ -616,7 +664,8 @@ int key_reject_and_link(struct key *key,
->  		atomic_inc(&key->user->nikeys);
->  		mark_key_instantiated(key, -error);
->  		notify_key(key, NOTIFY_KEY_INSTANTIATED, -error);
-> -		key_set_expiry(key, ktime_get_real_seconds() + timeout);
-> +		if (!dead)
-> +			key_set_expiry(key, ktime_get_real_seconds() + timeout);
->  
->  		if (test_and_clear_bit(KEY_FLAG_USER_CONSTRUCT, &key->flags))
->  			awaken = 1;
-> @@ -641,7 +690,10 @@ int key_reject_and_link(struct key *key,
->  	if (awaken)
->  		wake_up_bit(&key->flags, KEY_FLAG_USER_CONSTRUCT);
->  
-> -	return ret == 0 ? link_ret : ret;
-> +	ret = ret == 0 ? link_ret : ret;
-> +out:
-> +	srcu_read_unlock(&key_type_srcu, srcu_idx);
-> +	return ret;
->  }
->  EXPORT_SYMBOL(key_reject_and_link);
->  
-> -- 
-> 2.47.3
-> 
-o
 
-LGTM with quick skim. I'll revisit later with time
+Yes, that's fair.
 
-Br, Jarkko
+> > I don't think the reason and CPU give any explicit indicator for the
+> > error-reporting device.
+> > 
+> > I expect there would need to be a platform-specific handler. Or do you
+> > think a brute force search across all PCI devices would be okay?
+> 
+> The PCI topology of these systems seems to be fairly small, so a
+> brute force search would seem okay.
+> 
+> However my point is that there are platforms which do signal System
+> Errors in a way that may benefit from the statistics and ratelimiting
+> knobs exposed for AER.
+> 
+
+Right, so basically the EDAC behavior but folded into PCI subsystem.
+
+EDAC scan: edac_pci_do_parity_check()
+
+Not sure if there is anything worth moving. Or just do something fresh
+and deprecate the old code. What do you think?
+
+Thanks,
+Yazen
