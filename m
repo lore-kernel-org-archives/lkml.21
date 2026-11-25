@@ -1,60 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795631895;
-	b=YiXuZyqlD4G4F6Eg/PfMxEtjiWHMgwRmd3Drbl5BZtHHmosWWQlzx1v7Usj1dDfEl4jH
-	 X1obYaLE7xuEKVHNM0TuK9+XyVQMebhy9p0qVbw9wS6kEKGoKr70VEaCv5/ljSBoD1koy
-	 IkjQ8s5vfXT5uxakgk0Bq9gplP1rTV/H+GgBhWxTWqJsZAwj9QEwJXDZkC31RQrIAMeD2
-	 j3r2x7gJ0AZtjyb8eahUJbnjwrgoktnZc/+Js1ggtcxsVGVUOOCP7CV6AlJmXXUvX+oFQ
-	 M2giZlCh6EpUUhtE5NLDDUBvrLP/zzVBSC1I2GgeU5FETbCzfyqSnvp+gWizi/WLhbw==
+	t=1795632031;
+	b=04rSTxvpZNwAhO2aj2Zl3AOS+cih2VbIsZ2mF4PdzfqY5oWnQNX9AiwAHp/cBpqd+8g0
+	 m9QpklAXN2DN4BPyjJJpeJ1vcpTBFiGmFSGDytodXFq/K7vJRcAgA+aR4QNNnIt9TPHtt
+	 aPsVat/64aIZv9QYqGrKs2d4xEE94GMDGGNO2lEmGhSWIV4CC99+4f9HNZ7fk84bqqfsW
+	 PeZdpDA1voExqRkqb3w2tGzX79ehJcG4TubW5okAg9OzR5iKZPc0G9HRfhGU6Zp1a4s/m
+	 B8y/wblD/7QJ9T9lfOieTdjDRRCPBPKV25AXf09pXgMXqvGblcfMRVtc8qfxKsZkD3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795631895;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=LBXfaNtpxMx3TkkX4gfbHV0iMPOegU1w1tIaTd7J1dE=;
-	b=jxPy0Q/VvG2PTTLDc2itgvdpbAy5kd2uWN0WgR7+G9IzWUR2ngokeLanaK99d+R5o8R9
-	 MbD3sjSLEUj/T1B/aLAJcW/Nk5uAXcr8oDJfGRqspEPmnQsXBALC//mXufB9TPitvf/iD
-	 1WxRqdE6mRJ8I+UM95KEdBp9TcKLrfexg+di9rGclDkXZZPHltIV6jjW/dSSLeNuNQSF9
-	 ReMNI8H95+kHrWNZz1E/VErS94FF15lhcgN8F4xB5sEkhiq62DsAU3WjjO2GPlT5Hu2Sn
-	 y55fv5zycHZBgp8IM2o83PJ/RBQjzJwOBsvcsyucBgmEtUAs4nJYTBc2thN2kwQT87w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795632031;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=eFpNfukvpRxA9ZSwbqvjegicm52kayQGu2t0jHfEpps=;
+	b=Eob6RBSrb0XZW7loyaCxRNArzLUNGe+qQjtoUXaPva3Wcb4x0sUFKo5ChAI8aQc9xeCA
+	 yqVLndMLfa+JQVl1WmRX7+OmsRTaeC4a7gvV0ZSvUe4nzdytJ7ZAKfmPByJtd14b+wofx
+	 ykUoFu4hbq1vXFE1FspthB45sGFHZcWyBHRUropCGVmuFs6bAnTJ0FT/NTDOS3niC8y7C
+	 SZWk5fnE9CLl/4o7gbhBS5wFrtsdQSu/W4jcWN48p8pOQvYYru2ze7NdiElpRhUEH37ky
+	 fsjyaPbeXYK13HTxKVL4iSuqGNge19Adxk/vlXdqzG8gTXV/ecdre/NJkX5fmCNG/0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YUUP65x9;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=niXPV2SW;
+	arc=none smtp.remote-ip=74.125.82.169
+Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6B8C606A329;
-	Wed, 25 Nov 2026 18:38:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78038606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:40:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78038606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YUUP65x9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 922D61F000C0;
-	Wed, 25 Nov 2026 18:38:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795631895;
-	bh=LBXfaNtpxMx3TkkX4gfbHV0iMPOegU1w1tIaTd7J1dE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YUUP65x974U8Qt7ijSvC0EL+AddB/NBrvM4wk4AowrpLEVk1ctJMIMcgFCfmR5CgP
-	 vRyHK/nrkRrQr3wrtBCisKd3RNrsZwbiFlMVvE9N9vTrlOarLbBM2YDl0WkUZGIFTJ
-	 9osB6/+ZUwFM3nnDXayQQH92kro9cNSFAe5VMGh8R7flsDL8fU3TJkeKQn38qwj+ZD
-	 BUyoxUN9na4/OWNGzEOxyrVKCUSHNFs8czkYkbtnKamDNCxWhOwr0hFOMcj1yuSmvh
-	 ND3oQiQ5ekH+MBMnwsfePGt7uLTDURj9kFZ4aMNZiuradPZ6RxCXZfnr74Onfx0I+Q
-	 sL/ITheczVthw==
-Date: Wed, 25 Nov 2026 15:38:11 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Clark Williams <williams@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: Re: [PATCH v12 19/19] perf scripts: Add a coverage table
-Message-ID: <awcrE211m2HtJy4h@phoenix2>
-References: <20261123220024.14891-1-acme@kernel.org>
- <20261123220024.14891-20-acme@kernel.org>
- <awYyPRudKyzS5lUF@google.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=niXPV2SW
+Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-3863db981d4so8611500eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:40:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795632030; x=1796236830; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eFpNfukvpRxA9ZSwbqvjegicm52kayQGu2t0jHfEpps=;
+        b=niXPV2SWbN2ZyIEZcaIIsSMrAHiorSnrf6Z5bc3szs6AMgtrgkbV7KJCEZ6f94aTZv
+         Lc/6MuQYcGd/AJTcWz/VdgmgZtDV8CFOwHG11V1GKfZIhHN4DQVhUPK9BBRxPLI6RVuA
+         Z5pOUzWP2cuXVTel+8qnjc7lqDybkBDX7h0TyrcImOM7zlYc6HCtrWm1eP5dS3Tr9pRJ
+         X+jnLGw/847yhr6m4QBCB3fB7RUtKpQ+SuqYomB8jAW717jL5LE7sjpOMhjkslbJZA6I
+         OpvYmKEwuDyPa2g6uc1MVedVTGiggdkGkmg4xKQEx7XUeoe2oJz6psClyyHx1aJipCOE
+         /4Pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795632030; x=1796236830;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eFpNfukvpRxA9ZSwbqvjegicm52kayQGu2t0jHfEpps=;
+        b=11KLRRe+vSR95osF11lRxhG3Ql8fWPDEx35CdZSq+9wTKv0LYG5O9m9H37RHt+q3fT
+         YE1kiT9235Sa2xC4OJjY0wSi5q5zqef25OE3LEHFsWeSJa0qIjq1ecEQL1UTlU+37G5k
+         JJJK1k0erRSTiKT1S0n5VFpzh8sbB5KcMl/b8So/QipUAw695lLOAvqPB5y3yUyKj+ZJ
+         oX6vYP6+OmO/I6Em4Pj97POeIfgeyd70gWDDMr7/zpwwzJdnN1lg9kMDw1Znk9aU+m9H
+         TnM51SWLmyhMgTNeNzYMzyA/9vjxVE9hUEwK1cVFqwkgriMSe1LPEWDKwwHnXD0CLJey
+         oCww==
+X-Forwarded-Encrypted: i=1; AL+hErFYrlYADX8/GXmMEXmKMNg7n8Qu1dQw92GC7s6DPAa5ROeJNFmrhCiszj4o+81+u7rMFnzVPemGpciFShI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8gR73H4c51g2HOiqDcRreIw9cGONUwTCMxSX5NUnsPmnFhJkTG
+	DDKOx7qbsLQhiOTyEWOKQPuOQtuOPay2TGse1Vwru598OAAuns9swGuk
+X-Gm-Gg: AZFdTZeiHpx5yBYR4zVHCITFhlpEZhpkcnQPcWbTx72XamM8otOEo+sm8G7DdbIYDyO
+	pQjd57HAv0bn8MjFK/zuy9OrLwF1whTgjsWvrA5o4jp8RRyRVMyMwMnBrGYi1sixNCWzZoCzSGU
+	sLexfEsEmcb1JFwaUZ2QhC2Z5GEvYbiqMCtv10UHWdr2UTqjE5qWWh3laMR6ELEV1R8jQnGWRbt
+	GIXEE4qRe5Sn32tovTIv3/4A10giiIFBIVOYnpUYOnusiNWUb7glL3H7gfi7bMsL40C21q0Lv3o
+	hl4iwPou4vgoCmjfGevqbMNPnwELMQsBzsoIh9B+fH5ZCgp7h2yQbgtF5eUEV1c395RcnnAKgVP
+	+wOC2139USCaE4DVPqydcqkVjFuTrB9xLdaw62B5L9IwEUgKH7YcdcxoLChSp8puxiap0vmRHcz
+	GqBAvtF5mlMv+U0KYH4dUwJoEtGH39aS/vs4Czt/RYxOhnmNTamZG7mbuerBNkx6cLQMzIilgFF
+	aljaf07qHytymG9A/1lkBIXpkZANzVDT5YrH/MbELPWU/yfw44LY5GmMUOy+7hefl+NKNaA9Z/s
+	GZiMeNCmuIjQOiWKJ474GQ==
+X-Received: by 2002:a05:7300:6da7:b0:36c:3b8a:8090 with SMTP id 5a478bee46e88-3856c9a302amr1376516eec.2.1795632030315;
+        Wed, 25 Nov 2026 10:40:30 -0800 (PST)
+Received: from a1-free ([2603:c021:8021:f000:0:1865:8c38:18fc])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm57393496eec.6.2026.11.25.10.40.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 10:40:29 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: Theodore Ts'o <tytso@mit.edu>,
+	Jan Kara <jack@suse.cz>
+Cc: linux-ext4@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	TAKANO Mitsuhiro <takano32@gmail.com>
+Subject: [PATCH] jbd2: Document the h_invalid flag of a handle
+Date: Wed, 25 Nov 2026 18:40:27 +0000
+Message-ID: <20261125184027.2402549-1-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,75 +96,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <awYyPRudKyzS5lUF@google.com>
 
-On Tue, Nov 24, 2026 at 04:56:29PM -0800, Namhyung Kim wrote:
-> On Mon, Nov 23, 2026 at 07:00:24PM -0300, Arnaldo Carvalho de Melo wrote:
-> > From: Arnaldo Carvalho de Melo <acme@redhat.com>
-> > 
-> > Render the report of the last coverage run as a table of the files with
-> > the most uncovered lines, biggest gap first; --all lists every file and
-> > -f picks files explicitly, failing when a requested file has no coverage
-> > data.  coverage.sh prints the table when a run finishes; it is also wired
-> > as 'make -C tools/perf coverage-table', to print just the table.  It only
-> > reads coverage.sh's report.txt, so the measurement and the table are
-> > reviewed and changed separately.
-> > 
-> > For example, with --top 4 on a full test suite run:
-> > 
-> >     $ make -C tools/perf coverage-table O=/tmp/build/coverage \
-> >           COVERAGE_ARGS="--top 4"
-> >     tools/perf (no tests/ or bench/), 100+ executable lines:
-> >     the 4 biggest uncovered gaps, start here when adding coverage tests.
-> >     --all for every file: make -C tools/perf coverage-table O=/tmp/build/coverage COVERAGE_ARGS="--all"
-> > 
-> >     ┌──────────────────────────────────────────┬────────┬────────┬────────┬─────────────────────────────┬─────────────┬──────────┐
-> >     │ File                                     │  Lines │    Hit │   Miss │        Line Coverage        │       Funcs │  FuncCov │
-> >     ├──────────────────────────────────────────┼────────┼────────┼────────┼─────────────────────────────┼─────────────┼──────────┤
-> >     │ util/intel-pt.c                          │   3237 │      0 │   3237 │ ░░░░░░░░░░░░░░░░░░░░   0.0% │     0/142   │    0.00% │
-> >     │ util/intel-pt-decoder/intel-pt-decoder.c │   3208 │      0 │   3208 │ ░░░░░░░░░░░░░░░░░░░░   0.0% │     0/119   │    0.00% │
-> >     │ ui/browsers/hists.c                      │   2742 │      0 │   2742 │ ░░░░░░░░░░░░░░░░░░░░   0.0% │     0/124   │    0.00% │
-> >     │ builtin-sched.c                          │   3737 │   1543 │   2194 │ ████████░░░░░░░░░░░░  41.3% │    62/141   │   43.97% │
-> >     ├──────────────────────────────────────────┼────────┼────────┼────────┼─────────────────────────────┼─────────────┼──────────┤
-> >     │ TOTAL (perf)                             │ 174097 │  86374 │  87723 │ █████████░░░░░░░░░░░  49.6% │  5650/9358  │   60.38% │
-> >     └──────────────────────────────────────────┴────────┴────────┴────────┴─────────────────────────────┴─────────────┴──────────┘
-> 
-> Maybe you can use similar format both for line and function coverage
-> data.
+struct jbd2_journal_handle has an h_invalid bit: ext4 sets it when it
+has given up on the handle, and __ext4_journal_stop() BUG_ONs when the
+bit is clear.  The kernel-doc comment lists the other three flags and
+not this one, so kernel-doc reports the member twice:
 
-Like this?
+  Warning: include/linux/jbd2.h:523 struct member 'h_invalid' not
+  described in 'jbd2_journal_handle'
 
-⬢ [acme@toolbx perf-tools-next]$ bash tools/perf/scripts/coverage-table.sh --cov-dir=/tmp/opencode/cov-more-cov --top 4
-tools/perf (no tests/ or bench/), 100+ executable lines:
-the 4 biggest uncovered gaps, start here when adding coverage tests.
---all for every file: make -C tools/perf coverage-table COVERAGE_ARGS="--cov-dir /tmp/opencode/cov-more-cov --all"
+Add the line next to h_aborted.
 
-┌──────────────────────────────────────────┬───────────────┬───────────────────────────┬───────────────┬───────────────────────────┐
-│ File                                     │         Lines │         Coverage          │         Funcs │         Coverage          │
-├──────────────────────────────────────────┼───────────────┼───────────────────────────┼───────────────┼───────────────────────────┤
-│ builtin-trace.c                          │      155/3661 │ ░░░░░░░░░░░░░░░░░░   4.2% │         1/198 │ ░░░░░░░░░░░░░░░░░░   0.5% │
-│ util/intel-pt.c                          │        0/3237 │ ░░░░░░░░░░░░░░░░░░   0.0% │         0/142 │ ░░░░░░░░░░░░░░░░░░   0.0% │
-│ util/intel-pt-decoder/intel-pt-decoder.c │        0/3208 │ ░░░░░░░░░░░░░░░░░░   0.0% │         0/119 │ ░░░░░░░░░░░░░░░░░░   0.0% │
-│ builtin-sched.c                          │      737/3737 │ ███░░░░░░░░░░░░░░░  19.7% │        16/141 │ ██░░░░░░░░░░░░░░░░  11.4% │
-├──────────────────────────────────────────┼───────────────┼───────────────────────────┼───────────────┼───────────────────────────┤
-│ TOTAL (perf)                             │  75546/174407 │ ███████░░░░░░░░░░░  43.3% │     5044/9362 │ █████████░░░░░░░░░  53.9% │
-└──────────────────────────────────────────┴───────────────┴───────────────────────────┴───────────────┴───────────────────────────┘
-⬢ [acme@toolbx perf-tools-next]$
+Verification: kernel-doc -none include/linux/jbd2.h prints that warning
+twice before the change and nothing after it.
 
-?
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+---
+ include/linux/jbd2.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-- Arnaldo
+diff --git a/include/linux/jbd2.h b/include/linux/jbd2.h
+index e3886963ba00..361aa5dbe395 100644
+--- a/include/linux/jbd2.h
++++ b/include/linux/jbd2.h
+@@ -482,6 +482,7 @@ struct jbd2_revoke_table_s;
+  * @h_sync: Flag for sync-on-close.
+  * @h_reserved: Flag for handle for reserved credits.
+  * @h_aborted: Flag indicating fatal error on handle.
++ * @h_invalid: Flag indicating the handle must not be used any more.
+  * @h_type: For handle statistics.
+  * @h_line_no: For handle statistics.
+  * @h_start_jiffies: Handle Start time.
 
-> | File               |       Lines | Coverage     |     Funcs | Coverage     |
-> | util/intel-pt.c    |      0/3237 | ##      0.0% |     0/142 | ###     0.0% |
-> | ...
-> 
-> Thanks,
-> Namhyung
-> 
-> > 
-> > Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-> > ---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+-- 
+2.53.0
+
