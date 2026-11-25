@@ -1,101 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795649478;
-	b=mSET35vuqY4V9A//Kp5wj4Nk+Bf1ob3tDe/0xCztN3TdTkhWN8kwD1hB7qqn3c8dNEAi
-	 /1CldDV/aQfaMPTF2aGqH+yDEYP0zxEzD8BJ5YD0GLMT7cpwofLUWs2r09oxnDuNbfrFR
-	 zcm2fEPu1CujzSwQWlus3sMsn1p3e7P2cFla15vVkBznUwOWMpXfpNqLeWmbhvLZjy40B
-	 5WM7K44+DFCgg25jEn5G4JR4wHmXVkh4eHxOOkDM8G9XgBS3L+gca6TsyQVgi6CsTfJMR
-	 SUAVIfOg1skTSQAk8cD+PPprdfYToGtoXaqEo6D1GaZcfWRP7IaRA6s8p2ZiVvVVRww==
+	t=1795649483;
+	b=eXWUSDjTpRX8+OE0gl5ACkYs6+x3kRVaPMBUiNi1gArHhByR394EQuDvlztYq11IJ/jM
+	 UyFSY+8LuLl5swForB4/id86FL8lRrYHecygXg7I/8pH1Sb2tT5RcxbVRvFLSHTIMLoKo
+	 wg9aSaEF7oWVpv3gvfK2HUrV5hvsYa2mAjtBeCo70JXC4WOnUNT+ajxYwNFFrXZghR0bD
+	 MGyxBGSgBtfqpRMJxFyrc1XNepQM6nsqvaPsKQ4GyYXv34zfyNthHBsle+gUXZV8N1YOK
+	 dUYAO8Ahie+BCNto7AaltM24O7EkZuWAJZgRoyFywgDPdKNwUtNp62NRUb26ivAc3QA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795649478;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795649483;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=9We/x/kFtavsjCZuqwAHil7LDT45RYjQGWVveqfhXeM=;
-	b=xYUORe44dkDUELiLFSDRQseScjMmGA/ISMLund9FqbobAfq+sfqz52pGTAQHR8zo3tA9
-	 pizxvLFUy1L9ODj8+E0rgWOA7X9zZdxS8kraqhb1G2VJTC6SgaPsEUPZk8/giS93lthMG
-	 luwaOx00mQVSSv4kz6kaXNDoSii4HkuDUSJotFHnPDpKPR7Ap4zYaTzflK/sjqn5Q5aLu
-	 jKUAD/r1dNp14jOcat2tDfR6xPGUTB8IDR2ph5djNmMvHs3HvShirr9MYxWexNm4g77fT
-	 VbvRStcFPYruNNelRwW0pwuhYYqyZVvwR1dUbP3vBWquwt1PVczmNyfwdjP4iqJaDyA==
+	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=/ZtgARPu379mLd6QbSu5w/3cZo17qHpWETtyZC6BRtE=;
+	b=hLIioxvemnGeSCb14e/5hh1yLG07UieoLUzZtCwRFEgNkdL7iD+LUSjHkfs3Bq4SVZM+
+	 rrf7R4qAuZ73ane5jbASzXgAN9TQvnxzMDJdcVAaj5koUJdM1N+1MKXFiZo57kTFkaUeW
+	 2tCKfW5kmYvCzBe/Kn0VXG8g2PRc3+KxysGivQfRCz1PxXNOKYrJy782vqI76eJTq2HIW
+	 iZwD5PC6jsR6yl+F1uwZXq6wkrqQP74Kl2CBCGQn6bM5lFJWhkdCPEUEx3ddRPl7NjNM1
+	 hXC8VQ+LbFXHbINh60hcdr9pWy5lZs9CHFJM+lsqbXCyMlX6n22kCMYM9T4co0H5ENw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xKlyKc7+;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	dmarc=none header.from=linux-foundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=Etw1usMc;
+	arc=none smtp.remote-ip=209.85.218.46
+Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com [209.85.218.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D753606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:31:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D753606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B990606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:31:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B990606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xKlyKc7+
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so53919355e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:31:17 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=Etw1usMc
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c50d3ac6b51so1328131966b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:31:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795649476; x=1796254276; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9We/x/kFtavsjCZuqwAHil7LDT45RYjQGWVveqfhXeM=;
-        b=xKlyKc7+DA/Gf8K7PbnxNgL9otqdu9NBuqKjIMuC+eKAToV5EA5k+wBTtFX27DSMGh
-         x3xiT+NHDGEorXMZHmS7kH5z+vwQJEzOk58ANkMGoGZYX9R+RtqiqMJxytw5R0+/gCbr
-         wu1VK5rC+mmr2acaBYictwCrCRK7TBZH38gEYfsnYCDEJuQFksepcc3xQNP4YNKAZASe
-         CEoqeNyXrW/odj+KpBHG72dY4PE+DlCWzNadyx8EJ3pZisrxEtG09M0AKI+fG4JYA+yx
-         FwcgdaPnC41cmaXhI9wB/GGqS0w9WtaJ3ZYY4BC2j/mtIadv0L8EFYhq/F3ALoAAXbxA
-         P/Jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795649476; x=1796254276;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=linux-foundation.org; s=google; t=1795649481; x=1796254281; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=9We/x/kFtavsjCZuqwAHil7LDT45RYjQGWVveqfhXeM=;
-        b=MT7x7HNlGLXk8/VTTKRcnQHqdmUforSiA+AhE7VZgJthEkcNMoHVhM6lI6Ocs6J+X1
-         Nq7a2iRKNOzbpIDYOPBtCUNwMUcqDBapzvHf3Lt0xJWTIA92FYHNkk8tYzeVgthi6tnM
-         xx6UVrw5hg0R01zn3ktIHb7CM9B4zg9BmMPEfqUMEmNq5dcL6kgoQW93M59bb5nTsR2w
-         bNuOb4sYU12/a9A8pvQePMCYg6j4JoBtphHKboqOAN9wPzLdqCdYhurcNo6zSZQikSrX
-         TzPjD91welWwVGRV1p4gy52J9nT8nYExTAO+TeQ7NB0qpwUrlTS0ZEtGgKlmfm1TVk7i
-         hMjA==
-X-Forwarded-Encrypted: i=1; AL+hErG3tX5vAeZKXQ6wFhVLotysiJjqIfE49al4jfB5Np1CbJGzOTX848puPt1rvi3lxdh3WMiGZoiKmbUwL0w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+gB/EEpq6eU89lecfSNRjFCWTv8lIjP4hdlWNIP89XVlQCH/q3
-	La8zYBGCdcXp/hxiyUDQtJtn84l5/Crf4EyZUbMlWsBlH0p8EGYxWZQXXoUk1sSjroM=
-X-Gm-Gg: AZFdTZfAeI+xu4m0tvSByWYNkBI2O2UU4U+pDAaZd+A99jKfBDeFjvWWlD65xfAmSHc
-	sN0RUsAHzwZZL/BmyQVTxjFCCl2/D/8ljaYb58dd5xM0XGNFcNqOHVhNueSbpjuwpTJfLBTYCrm
-	B1ZF0iyiBQOoyOXkTKioUTz6CTGTmHhD7dkvUj8UauMpQ1QatCRlksnO4TBMWOUn2BZQo0hrSiN
-	lDPhou9B2qk6Qpyhc/4EVMe2w1GKXe1kigKVpBadXs5QnYx7dztSx9AhkADRj0UxsUEqycANMZA
-	x4mlkCQ5CrkUfcjXEzzBXEyevZ0DYFXvGlj7LJPfX3nJcR0518w+GC52EP4rNWdSLtw64pNq+Qj
-	PqnvnKb6eFFxPQdqqnY6a71Zi/Be1+TQQLXxKEYvitSkCgNTjDMFE3LfvCl9bspGhmxJfDYOyau
-	Wws++neR+AGzADRjUh3I2pQPWAeWPItzmu39Bkwn19D5iemQuFX3J5h1oWEy5rYBriG/BuzsiZ3
-	4wWt1orvBAtNnDx8amfFQhRQ+sgoMbNq63sxJn5kkNd7Zp9+IxkdIcPUQMjpIohDKFK+NkLyNg+
-	M6aOE8L8T6nOiVOoQMcuDU4GLMX7UbTXcYJygHDIi6LieVAtRvr5dvy2edTpvaUlDMuXICfaGQ2
-	2h8pxIVgrWg==
-X-Received: by 2002:a05:600c:638e:b0:4bb:6c5e:b006 with SMTP id 5b1f17b1804b1-4bb887e265fmr363197555e9.3.1795649476302;
-        Wed, 25 Nov 2026 15:31:16 -0800 (PST)
-Received: from localhost (bl20-90-91.dsl.telepac.pt. [2.81.90.91])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm506528425e9.2.2026.11.25.15.31.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 15:31:16 -0800 (PST)
-From: =?UTF-8?q?V=C3=ADtor=20Hugo=20Silva?= <vitorhg20080@gmail.com>
-To: linux-riscv@lists.infradead.org
-Cc: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-serial@vger.kernel.org
-Subject: [PATCH RFC 09/19] dt-bindings: serial: Add Espressif ESP32-P4 UART
-Date: Wed, 25 Nov 2026 23:30:10 +0000
-Message-ID: <20261125233020.1380594-10-vitorhg20080@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261125233020.1380594-1-vitorhg20080@gmail.com>
-References: <20261125233020.1380594-1-vitorhg20080@gmail.com>
+        bh=/ZtgARPu379mLd6QbSu5w/3cZo17qHpWETtyZC6BRtE=;
+        b=Etw1usMcblqCO3PinEaDwsNBIFfJ2R3bcanX/VT2bD6spbWXgs4VMDGUWXITmEzF6l
+         4cKuhjSQww9QCE9PiuHa0LDpfymmbEJ+aGkTLBUteHROqzGGXddaiwL8Ae04N/ksy9Si
+         +Mag1Nerdbq310xTftvr6cmB5ax480VS+WF8g=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795649481; x=1796254281;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=/ZtgARPu379mLd6QbSu5w/3cZo17qHpWETtyZC6BRtE=;
+        b=Dtz7X6fjFoAylwRJF+EPQWhqKmxuW6029k2dfWH6EUksjg5+j3b/bbCOFlUT8DU/Te
+         pmLR0PgIjRmrbhDfhqedyEGf7CdfMzY9hNTier5DQVk4IYOegR3B0Ec/Ba2DeQI6zrOW
+         4o74wFuRLfHU6EGAZZE7vANR6uMdHpwh5klGrQlWVxCNKs6BZVhQbH8I5K81OcoKdMjq
+         zZewAnPZU6frweDUQaRDx7jBfJD6+TOgydUpwG+pQ79UOyCuf6N+GApwu5LVlkO8BBVd
+         whMRtFQIzugGs78c/J+ztHdA1tX85pQuOXFK7Epw1uoFS2qSFbHFmdbrueNq5c78aIZG
+         W59w==
+X-Forwarded-Encrypted: i=1; AL+hErGNwkeaQdFiTYolPMdWwOIvQ+Vqm7GuQ4Tp8FyiykJuwlIP1LdkSCZ6fK16zYw2SccRi6EaU499Dgn2GeQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9tX31LathHT8efTwsxI8jw+gw9FQVwoQmjGTo6LVsWMrfB5UQL
+	P0jkBkzcmQrN+vZcmL0+vu1SdgwYRAkH4G83gLQQA2Gg0mN57dbtk4b68HwbpvpCOTQyAlOTwFb
+	QBjH3+BE55w==
+X-Gm-Gg: AZFdTZcWQt1VX7WeEEz1we2WBOI+HAMOrR2tgmbh1IGttUygHo5EWiAUKBUJCldJL6m
+	imXNcrG1mHXUMvWaj/Ert+p/pVXCP2iqX7QCmodnuj+BvjVFBvSyaGGfLDaNoBM+sVSAs0bW0HX
+	6jLk0EIN++Ums0CGN2xyxXAZZlji3I6gC3XAQWTe299AezZtrXwv6aKrqOIC4M5+M8RZNVbH93z
+	yLXT8SXmy6vUGvsRczkHx0vN4uG/7anQNNNkNCxvwp7+BW5FjsKn9X/6xQU40rXlVoXBu4cR9ed
+	EX+/dZGKKaXIkgKGOEK3ZtZizpICJuZcfJJj+1loptOv25hRg50lD60AVXLKvP42xOkOfDphgrj
+	Fj2yI4k3CyVHN+Wy1heW9pDkLLSNkPVi662jPAwlTcT/GY4euSRNTdMfBozAttp0PyH1reCJR2Y
+	fXYClcU5RsBalCAlew+czDKgOYEAn46X+pCqUnpGZlUNuJMcKIFzt0pa9PFH25mx4GIFsuynoP7
+	tYSvGuT8PULVjC2oF/ZGQHqwtvQN5SKE1kqlSJHbh+8quvO1oUk+W7GW1srEI2S/OijjLw7f38+
+	QUWFxyWr9+ZgnqsdzGgk4y7p8VAXWRnH4Kt1ZEnC/4R3d1PgxfPybIYF2d4FVbBtGh+sXFHF3SK
+	vS8B2SgvaRFNbO/D3rdKb4PG7
+X-Received: by 2002:a17:907:968c:b0:c51:205e:6e8e with SMTP id a640c23a62f3a-c51319b6e77mr1721755466b.24.1795649480815;
+        Wed, 25 Nov 2026 15:31:20 -0800 (PST)
+Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com. [209.85.208.43])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acff65bsm726507866b.4.2026.11.25.15.31.20
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 15:31:20 -0800 (PST)
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6bab10844b5so6873698a12.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:31:20 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErESpzbhWZL4sLgX40OTiUoAekGkGLgOqvOdD2KBEAa+WIAsrsVjJDLCoqEJqCgfNB7tB/Y44HKZmWsLa88=@vger.kernel.org
+X-Received: by 2002:a17:907:3e86:b0:c36:777f:824c with SMTP id
+ a640c23a62f3a-c51315851d7mr1801088966b.4.1795649480354; Wed, 25 Nov 2026
+ 15:31:20 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,41 +94,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
+ <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
+ <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com> <awV66PQWrBOKcZCE@redhat.com>
+In-Reply-To: <awV66PQWrBOKcZCE@redhat.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Wed, 25 Nov 2026 15:31:03 -0800
+X-Gmail-Original-Message-ID: <CAHk-=whanFATRSwcW9TCa+4zR=k_QnNFtgxnFCg1d_vr6Ye=OA@mail.gmail.com>
+X-Gm-Features: Aa3M54q0sE_qX8UjHHTquK89Ec1CONb0zaQmq3jckN_Jm8WAOhqo827YNI7zBIg
+Message-ID: <CAHk-=whanFATRSwcW9TCa+4zR=k_QnNFtgxnFCg1d_vr6Ye=OA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] sched/wait: Queue non-exclusive waiters at the
+ head in do_wait_intr*()
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: mt4022@columbia.edu, Jens Axboe <axboe@kernel.dk>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Christian Brauner <brauner@kernel.org>, Michal Nazarewicz <mina86@mina86.com>, Wen Yang <wen.yang@linux.dev>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	tz2294@columbia.edu, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Document the ESP32-P4 UART compatible using the existing binding
-properties for the register range, interrupt and input clock.
+On Tue, 24 Nov 2026 at 03:54, Oleg Nesterov <oleg@redhat.com> wrote:
+>
+> This will change the current behaviour if ret < 0. Say wake_page_function() does
+>
+>         if (flags & WQ_FLAG_EXCLUSIVE) {
+>                 if (test_bit(key->bit_nr, &key->folio->flags.f))
+>                         return -1;
 
-AI assisted with drafting the binding.
+So I looked into this. We only have a couple of cases where waiters
+return -1 to break out of the loop, and none of them have other
+waiters.
 
-Signed-off-by: Vítor Hugo Silva <vitorhg20080@gmail.com>
----
- Documentation/devicetree/bindings/serial/esp,esp32-uart.yaml | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+In fact, I think that's pretty fundamental. The reason you'd return -1
+is because you have made any other wakeups pointless.
 
-diff --git a/Documentation/devicetree/bindings/serial/esp,esp32-uart.yaml b/Documentation/devicetree/bindings/serial/esp,esp32-uart.yaml
-index 2a80ca997a0c..bf141db5e2e5 100644
---- a/Documentation/devicetree/bindings/serial/esp,esp32-uart.yaml
-+++ b/Documentation/devicetree/bindings/serial/esp,esp32-uart.yaml
-@@ -13,7 +13,8 @@ maintainers:
- description:
-   ESP32 UART controller is a part of the ESP32 SoC.
-   ESP32S3 UART controller is a part of the ESP32S3 SoC.
--  Both SoCs are produced by Espressif Systems Co. Ltd.
-+  ESP32-P4 UART controller is a part of the ESP32-P4 SoC.
-+  These SoCs are produced by Espressif Systems Co. Ltd.
- 
- allOf:
-   - $ref: serial.yaml#
-@@ -22,6 +23,7 @@ properties:
-   compatible:
-     enum:
-       - esp,esp32-uart
-+      - esp,esp32p4-uart
-       - esp,esp32s3-uart
- 
-   reg:
--- 
-2.56.1
+The wake_page_function() is a good example of that: it returns -1 when
+it has taken over the lock. That means that the page simply isn't
+unlocked any more, and there is nothing else to wake up, because the
+*reason* for the wakeup has fundamentally gone away.
 
+But you're right that it's a differen tkind of case, so there's a
+slightly expanded comment about it now in that "always queue new
+waiters at the tail" commit.
+
+And:
+
+> Can't we at least cleanup __wake_up_common() ? See the patch below, I already
+> sent it but it was ignored.
+
+Yes. I've added that to the branch too. Maybe I should have added it
+to the head, but I was lazy.
+
+And I've updated some of the commits with reviewed-by and acked-by.
+Maybe I should have added it to the head, but I was lazy.
+
+               Linus
