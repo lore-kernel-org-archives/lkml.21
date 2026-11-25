@@ -1,67 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.29.241.158
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=139.138.36.223
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795567185;
-	b=KLG3M/18fO8kE4sic/bB8EDvLyLCvnt5ijk7Yjt2rJSCkC6MMxjXaXtF29KeJkHaZNBg
-	 q5P2XBAg/bbdVqT42I1kICPSq4QFFkbvCpSoaq77VE8Z5l3OxpR0gbAzZLT9P1HxMfLYM
-	 Bjf5qv40O2WtrqC30TRdiiRVb9S5HA4nynMQT0QeCCi7XZd0T5oOewWrtfMnLEDq20AL1
-	 NyyJ/TWkdedA3m0qp0O7JMCJ8z20G1KcDyBF/v5u7vcusBUmR6yVIak/E92q40vKfLVis
-	 QerLQbERErl2sLRnVMQeBr7kuf/BTHD2hBbce4UID4x81eH/yBhq+3I3TgZtyQc72XQ==
+	t=1795567193;
+	b=RI8Dr/Umu0v8ulHrB7Evng0h5jKppAS5Hq5pBoMNkMqkXqYR55/4bXldQEnTgoKItmNO
+	 uhbn/NTJmGJQF5cv//kLaOQFDk/wO0PPYZiCIhjSUvhUwZ4WAYjk86wjlwoOPC6lYspPW
+	 VZuPGM2b/V3lEsCqKtUgKHGepCKcUTBxWzFuKwalD80vzC4Ly6YRpTzFKk8de5v5kHoUK
+	 ujdyIXc/4cT7u2IUxYVtYHlVPCH63HprTx1lJFXFdcgEziUlIORbsFyhCBBbPI/89j9Wq
+	 2W7VTwbyozk6s7tgaEdmsqntRHKRQAWbSn2TEBCy+k6SGVu175SKvewSK7Ythp75oJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795567185;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=ddifEJUsVQ/3k7zg20+LhtIcVvTSta6RtHRdIXEKLp4=;
-	b=BBn8SjZDGKDDKJSM/tm3p8avdVABEjz4FFsZevnFPhDHUb3NXLSHcXdoIAvrQPSiI71j
-	 sLB2fcyegl+wNuxH0TTHIxYwyvKOyE5v7mQhuFMxF+z/N8VM2OQdrZKSMaJkA5yTra36f
-	 O3mu0WcUojSD3MDqWgoWq0tWc5SVq7q6zj7UrN7r5HP85ILb2wDo2ISUCAvNqZ5q+Vp9i
-	 QFKQ/OzV8IAxHEkrW1y4FLVF0ST9xUQCfTd9SaGfZR97EscwPF74gWyFBrwD/Sgh9dax2
-	 uUsSYvmuv+V/gEPyrZEHayhF9IoRRgAGEkNPVjhTc/KN+Awj8c/QRX2pRsleORrupvw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795567193;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:Received:Received:Received:From:
+	 Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=FIByHlTPNo6yonGSdO2RYDduoUN+XoU6L/TvYdP6w/E=;
+	b=gyHjqrgE823LI5RwT1asGifR7ibp5fhPS3Mszsn6wLAEAPMK0O6Shu8VDMwet74QdV0U
+	 XhCgubD9RnYIOD8gtpWFnbRgbrzOJbI6Db9fQSSOYCJbQyCFv71OAwoeCyQ98zvHazjXn
+	 CqPZ5/UFvMHprZdN0gF8iWf+SKKqK+KrXFBvJE++K2IUF/ue+riOT/wlAR0TNNawo5K03
+	 XcfdSV8fVgPx6ew9rHnLDQoxstX83GAuKzLaxUQcE6GGv0ZvsQzmK1V39KOpPR1l7HDwH
+	 I9Hz4FL5TYBZLxNt+ze7GeSYm0vZEZibn8n254urvkRF8MdlYH/ys8F0b8S3mS+4/qg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=codeconstruct.com.au;
-	spf=pass smtp.mailfrom=codeconstruct.com.au;
-	dkim=pass header.d=codeconstruct.com.au header.i=@codeconstruct.com.au header.a=rsa-sha256 header.s=2022a header.b=YfcHIhAF;
-	arc=none smtp.remote-ip=203.29.241.158
-Received: from codeconstruct.com.au (pi.codeconstruct.com.au [203.29.241.158])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=fujitsu.com;
+	spf=pass smtp.mailfrom=fujitsu.com;
+	dkim=pass header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=WyFfwkEM;
+	arc=none smtp.remote-ip=139.138.36.223
+Received: from esa9.hc1455-7.c3s2.iphmx.com (esa9.hc1455-7.c3s2.iphmx.com [139.138.36.223])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33D74606A321;
-	Wed, 25 Nov 2026 00:39:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33D74606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=codeconstruct.com.au
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=codeconstruct.com.au
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 193D1606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:39:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 193D1606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=fujitsu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fujitsu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=codeconstruct.com.au header.i=@codeconstruct.com.au header.a=rsa-sha256 header.s=2022a header.b=YfcHIhAF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1795567176;
-	bh=ddifEJUsVQ/3k7zg20+LhtIcVvTSta6RtHRdIXEKLp4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YfcHIhAFS+V9xD/DxHFPBg3q52jU1s8sm/dpBo0DUGAPk4KTeRkfl7VSW6NDS+9CV
-	 qidG+M1pcl4ZZnnBgyAORSPE9nxYz2MYuiuj3G+mp4OJptuxgh3TeYr2u+mOFdrGxs
-	 jO2OMhbqeTlwAmcJJQIndHGFbthNc6kro/G3pJ/IZkzZFQ5UMsZVDvabFRvmj22tSn
-	 lpdbx0p3Z5izXhz9bX+iVeGzeXsajIJHWAkDJKURSUPDUbvdhOKY8vgP39CQroV3R2
-	 CEfryR7lI4y54h9XFKD+hYeGOq8kRqKbHETt2YyDpyeCS7tbYaTjWk1DMK6bYpINCV
-	 PwPJVMXEYZJtQ==
-Received: from pecola.lan (unknown [159.196.93.152])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id D0B8B60895;
-	Wed, 25 Nov 2026 08:39:35 +0800 (AWST)
-Message-ID: <554f3a558a73c9984ec7d3395aa53aefc91d8a36.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v3 3/3] net: mctp i3c: clamp transfer lengths to the
- controller limits
-From: Jeremy Kerr <jk@codeconstruct.com.au>
-To: Shubham Patil <shubhamsanjay.patil@amd.com>, Alexandre Belloni
-	 <alexandre.belloni@bootlin.com>, Frank Li <Frank.Li@nxp.com>
-Cc: Matt Johnston <matt@codeconstruct.com.au>,
- linux-i3c@lists.infradead.org, 	netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	meaganlloyd@linux.microsoft.com, git@amd.com
-Date: Wed, 25 Nov 2026 08:39:35 +0800
-In-Reply-To: <20261124060651.1987454-4-shubhamsanjay.patil@amd.com>
-References: <20261124060651.1987454-1-shubhamsanjay.patil@amd.com>
-	 <20261124060651.1987454-4-shubhamsanjay.patil@amd.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=fj2 header.b=WyFfwkEM
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1795567192; x=1827103192;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=9zVoKV2VBSnVaNWOGCXlH1YLrznYJ/CwSJb8o0cmF1o=;
+  b=WyFfwkEMEx9Pj+LlfdWbFVMz6Dyx+ni6F5hBiuUe52QUHzFftLTNeMjk
+   jKFNe0YrM20SMEABKECz63goAUGVH1HtAdDjAoVSaGZvO7mEQCkUuGRCd
+   MS5xl/vE5rb1qKGYXOhfuW/I8jsC+W2WWaRZPxouSlve/YMJNg+vPkqGO
+   WHNoLZzsOfT5tK1W3LmuVbLUPt2bXUKlXKRE/rxL6Lv4458gACGf9x7Dm
+   9BR6a6xga5Cpb5Qy7zttDpqFFH3ByIZZBPYPCU2vjOAUhd4dbFYrY/664
+   z0gE0en+jErvFRI4+9Q8Cdf/Vsgld39tutGHkyCJxnfoMHxG0YTURoWNY
+   g==;
+X-CSE-ConnectionGUID: YHhOD2s2S0KPyvxr4b/1qw==
+X-CSE-MsgGUID: YegCySV3Qwqso9z5HrFnqA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="250507207"
+X-IronPort-AV: E=Sophos;i="6.27,231,1786978800"; 
+   d="scan'208";a="250507207"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa9.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 09:39:50 +0900
+Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 7361F42A316
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:39:50 +0000 (UTC)
+Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id 268B71004141
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:39:50 +0000 (UTC)
+Received: from [127.0.1.1] (unknown [10.124.178.20])
+	by az2uksmom2.o.css.fujitsu.com (Postfix) with ESMTP id EB5B51400271;
+	Wed, 25 Nov 2026 00:39:46 +0000 (UTC)
+From: Kohei Enju <enju.kohei@fujitsu.com>
+Date: Wed, 25 Nov 2026 09:39:31 +0900
+Subject: [PATCH] dma: swiotlb: Use system_percpu_wq for dynamic pool
+ freeing
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,36 +81,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-swiotlb-replace-system_wq-v1-1-83807c6afb75@fujitsu.com>
+X-B4-Tracking: v=1; b=H4sIAEMuBmsC/yXM0QqCQBCF4VeRuW4gBZPtVSJi3E42YWo7Wyriu
+ 7flufsuzr+QISiMjtlCAR817buEfJeRv0vXgPWaTMW+OORpbKP2sa05YGjFg222iOdlfLE4V4p
+ UVekglP5DwE2nf/t03mzv+gEff0Fa1y9Z/TeefQAAAA==
+X-Change-ID: 20261111-swiotlb-replace-system_wq-a995aa7759ea
+To: Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Robin Murphy <robin.murphy@arm.com>, 
+ "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>, 
+ Petr Tesarik <ptesarik@suse.com>
+Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Kohei Enju <enju.kohei@fujitsu.com>
+X-Mailer: b4 0.16.0
 
-Hi Shubham,
+system_wq is deprecated, and queueing dynamic SWIOTLB pool teardown work
+on it causes the following warning:
 
-> mctp_i3c_setup() takes the maximum read and write lengths straight from
-> GETMRL and GETMWL. Those describe the endpoint alone, so on a controller
-> with a smaller limit every read can be built too large and rejected.
-> Transmit packets can similarly reach the controller even when they are
-> larger than its transmit buffer. The receive path also allocates an skb
-> for data the hardware can never deliver.
->=20
-> Use i3c_device_get_max_read_xfer_bytes() and
-> i3c_device_get_max_write_xfer_bytes() instead, which return the smaller
-> of the endpoint and controller limits.
->=20
-> Behaviour is unchanged when neither reports a limit, as the helpers
-> return 0 exactly as the GETMRL and GETMWL fields do today.
->=20
-> Signed-off-by: Shubham Patil <shubhamsanjay.patil@amd.com>
+  workqueue: work func swiotlb_dyn_free_work enqueued on deprecated workqueue. Use system_{percpu|dfl}_wq instead.
 
-Looks good, thanks!
+Use system_percpu_wq instead, which preserves the per-CPU workqueue
+behavior of system_wq.
 
-For the MCTP side of things:
+Fixes: e13d4d9a4915 ("dma: swiotlb: free dynamic pools from process context")
+Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
+---
+ kernel/dma/swiotlb.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Reviewed-by: Jeremy Kerr <jk@codeconstruct.com.au>
+diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+index 786954bc5e6a..4060d9ad5b24 100644
+--- a/kernel/dma/swiotlb.c
++++ b/kernel/dma/swiotlb.c
+@@ -926,7 +926,7 @@ static void swiotlb_dyn_free_work(struct work_struct *work)
+ static void swiotlb_schedule_dyn_free(struct io_tlb_pool *pool)
+ {
+ 	INIT_RCU_WORK(&pool->dyn_free, swiotlb_dyn_free_work);
+-	queue_rcu_work(system_wq, &pool->dyn_free);
++	queue_rcu_work(system_percpu_wq, &pool->dyn_free);
+ }
+ 
+ /**
 
-Since this depends on the new i3c helpers, which (I assume) would be
-going through the i3c tree, I assume the whole series should stay
-together?
+---
+base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+change-id: 20261111-swiotlb-replace-system_wq-a995aa7759ea
 
-Cheers,
+Best regards,
+--  
+Kohei Enju <enju.kohei@fujitsu.com>
 
-
-Jeremy
