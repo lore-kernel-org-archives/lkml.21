@@ -1,72 +1,72 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645635;
-	b=Du8XmQfEua/4aTBmMfWASYXqej5yZ9Re0rbzdjYGi+YGN/X8xXdRVvJ7DbM0km5vP6iy
-	 ejcDuUwuut4GkrujBYJ2j5mjT9Z4lBzaeUOjINawICFhl4ChCXSuBha1p0bS1pAyR4c8j
-	 7uT59uGR4G7VAqZqigo4DRYiQoswnkXhT72Ef0tHiNb4JVLEoi3spruZTExzBiCGVugr5
-	 4DKM/pAkXZzw8HoeBObki5OLO98PRGCSLGjKGHXj42laARnAlogW6UT/4Mp8XbIy37Exc
-	 4LJFaTJ/LXdK7NtYpjAg+lcI+vwL0QwXn2XJVoCpzpO9s2JOPAg1CTx5mzifcKrEcOw==
+	t=1795645651;
+	b=fpGkKRWs+BLR0kb9hIDNBDBHirvXz4iK+rfk0pM+hnGe5rEjq9LvDIhGYmBtH5Lezwd0
+	 /zc+XBO8Tk3E1LjkNWSaJ0o0tLiy9ZdEIsGdikskrPK70QZgiquJmm85ZFnxrMiy+xHN3
+	 OX7ENP0wqIBKt7HbAMF2N5mQKY3MHUh2ntHmZEJtGOm1eSPmEb7lxnbTNH/1EiMiBORWj
+	 Mi3Pf4dIb1+pBPO+XSGSGNzpzeTZ9DyJniuyfzFg/pRzGNFlx5Xm72fAqjkYUv4F0pvyR
+	 A8Xk5JFGFF0inrD/xYL1LpEVcHJyvFpABiLGi4Jy9WLsQGiW3YqPJVQ39Stponl8xDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645635;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645651;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=0tzFeKCwOoFb6bvhWfk3Oe+1P7rt3PYjl4BuN72k99w=;
-	b=rtiFG6ySASy3jr6ConOByH+d1jCdGxLLDUt9doexz76ttAq7bCyk4vZ+zVZQlN5WTmhx
-	 ibFOP+Dhp9ljWu6Xqx3/alP9u09nKWY1V+NsjoJIS4nQBk//NDBm+gzkAsbDJUaT5a0oi
-	 fFvSneWsf0Zdo330LrSRIxNxhp0B9lBBkhnJ/9aIX5Toy40o2x0WMyUDLH9qk3bEhSC6K
-	 dip73eBNv0Ow6wd3tNumhBsERZpZjWG6HLmZpYWjvSdmeTlzzg8w3N2yndxN2QZkSGyDd
-	 WroNoD0Dstzn1yeN3D0bjQoIEXv8SJBOXZqxKVAnC5FhLQDUYsvl/YxKv1EAfFOykkw==
+	bh=RiNM9OF5vBLtGgFl62pfxBUQi+W1VLFdVJFedeCHig4=;
+	b=gvSwtHEHdJ7W/6sMDuyQRSNP10SWhoR30/zK2VZF7+bSalley5MxJ322PZJcgMd+r591
+	 W+MKTTu/xSvmQkA17dRV6MOVboL1Id95cdey0lyUyPkvtreSUKXoLfHgTCJfl73qb3GIn
+	 TdN72PeUP1Uk4/uHQ3CqbD/2nxQPrqio1oJu0Wyrvm+QZY9nVxNEJR8/cBhlS5oC3/Jep
+	 mb7eNqY5VolRtFKsQ3d217lmfniBLUOywuo2ZqegYCKbErx9bq1av/jtCvAug+1GIAM7m
+	 sYZ3U+HiIo7IbRHFt4+/VEAE2bSgO9OJ1OyFVOAxUGdroVt2aOKkYzHMgiHARCORhkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jaO0HsqW;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nZp8zMxx;
 	arc=none smtp.remote-ip=74.125.82.200
 Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32587606A329
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:27:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32587606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E45EA606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:27:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E45EA606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jaO0HsqW
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-3846d5f54c1so7337165eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:27:14 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nZp8zMxx
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-3869865a304so490596eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:27:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795645633; x=1796250433; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795645649; x=1796250449; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0tzFeKCwOoFb6bvhWfk3Oe+1P7rt3PYjl4BuN72k99w=;
-        b=jaO0HsqWvDhXsTL1z+rc8IVo2zErMi5qnH0mxcNXuYgGSIoTvcURxSkEvGyO8BDJJw
-         qV98AOrRAJWrtKb5oLghEpNFo8apBTwVmEmzevW2vcRKRBWcU8gIMAQDn605jljUqWP6
-         FbqroJaQuCM3sliHhtog+jxQu6OAYnhDw6sobLPQi6E3lcis7Rn8bXyHQN6hteCM4AUN
-         I27w1VIQ8mf5gDdYvPVrgCcYWgbFbi7cq+taOdfcEmqOuSPKWlebJFrJm0m1YOs/bUvR
-         3Zk09iO/MZHyWEWTxk6Qamk/eav8FlBPZarvGNAnoqrkXHbAN1aGev9Re/ijSqAFK9zy
-         gbtQ==
+        bh=RiNM9OF5vBLtGgFl62pfxBUQi+W1VLFdVJFedeCHig4=;
+        b=nZp8zMxx+xiHgR6o7ArSyLmlUC+8TFeTxpnjim/CeWqQULhssE6GK2uwFqCuFnwfEp
+         +I6a+WEfjTzj0vXnutB0nbx4TAUlRbWMV/yRzaqYdqpFIs1U39lclRIQZAL+YoKnNsvs
+         RBK6o9DiZ1u/Zy8fQSwOPlFVGH7dkTMwbWex2vyr/3e/1F+pXUNQ1Zx4cli2XQ/g8iMu
+         Br6Ur8/b1cKyVXPDoyB4Ryn/s/QSxo/Qm05sq6TQ9hPtBuj3Yat4Fmn7q8ZumG6fAMwd
+         RmJrvPHQvnfcc9397M3PhZjbMDr9w6kQcA7/CshHdCKrzAWgSYGbP10bFp4v2TLjU9QL
+         WC9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645633; x=1796250433;
+        d=1e100.net; s=20260707; t=1795645649; x=1796250449;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=0tzFeKCwOoFb6bvhWfk3Oe+1P7rt3PYjl4BuN72k99w=;
-        b=BBFASLNs6Sf1tZo67bHYjR3gOnRQw0Ai2/kUs5owRO2eIHeOurxVajqEKRt4/2fOeY
-         HmgZlUId4AkiPIsp1nT0NRlhV4qTuBHJZe/5n2TrevSOuoiEiz3bxIiZ0ZouQOxdgi5r
-         70VXpvsDCrbSpvLpMow1h9g4bs476fcrDhiaZXM91PWBY8o5sY8sjqPMf2BL1qalERRL
-         dcLz1aU/LRSTHJd7CJNg5C6m/Sntz0d3uMlW3Z3ZiYqEh4FP0XGB7MSkMfwxdgwMFN2Q
-         ncqFvMY5m4F1X41DSfJy9RWqrkSzyNO3HRwIfisCFlsHhHBkpVnm+eNVm6/B6b7NmS6c
-         Z+Pw==
-X-Forwarded-Encrypted: i=1; AL+hErHoBs/Z8hVLL6XWvbvL5jVtzcZswmAre+3gCVYOC4LT60B2GNtei5GitNK2MRv5AP3dAUb3Mg6poe/8Iyw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9wYc9MtWF+BWdoHUOb5Ppqt2opc/ZW171Gv66UbO9Uk2uOpoST
-	HAE56vRBx1sJUJIdhaDLJsMWr05hDmwiMCzqOBgkqqgHyqs7BalQ2aT1UMwuRfOSodBffkOlduH
-	3iQ==
-X-Received: from dycnb22.prod.google.com ([2002:a05:7301:b16:b0:386:af9c:96b6])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:d81c:b0:386:b7d2:a279
- with SMTP id 5a478bee46e88-386b7d2aba6mr8835631eec.34.1795645633028; Wed, 25
- Nov 2026 14:27:13 -0800 (PST)
-Date: Wed, 25 Nov 2026 22:26:06 +0000
+        bh=RiNM9OF5vBLtGgFl62pfxBUQi+W1VLFdVJFedeCHig4=;
+        b=dMnLUNzSdoG4MCfTLV3JZFxOWZ3+1O5ACVdp8Xajs54KkIzz4JqxCSZCKclDW4TNR3
+         Ox9ZLZgN3p8LPzFHqxRzCaDpCGTErrEuCjf9YmBTS1O0kKLCpg0qLH/QM8d0QFC4BGVT
+         MmixJq+Hh72OO/49/6WlOCqWNtq+NjLD1prM/Z6p6gjP7bFYUO8bgSoLQRXKoVZftvtr
+         MIVCOtO6bPfpZBW9O10fzeHNOFHcEiOuz550c69M32BPgQSEWJG3ATfgbN5bdjNoNJrE
+         XJmRGdAhpMCdX5r7vbyUuLT0Wu4zIwSFtyH99AKEN8+6S1EJIwtPZZgi9phfGONAyeGk
+         /qhw==
+X-Forwarded-Encrypted: i=1; AL+hErHnPzOYGHA33HAGgImdQhOz+a3WgW5Z0GADSjSc4gvbkuQu8YBXiXFKIq12N1qx282bcZfVytB+bvNvJDM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/bPwp7MFRyOYoxlruUOyaoUyUcoH9OsLYfDSNJaXsGbHvPktDj
+	jlQuApViS+c0H7tBzw9vMYRNCrHsxX+IVLo05Qill9HSlNmAt47H5S5ENDEMcvRKwNf5YN2ADFe
+	ETg==
+X-Received: from dyp12.prod.google.com ([2002:a05:693c:65cc:b0:381:fb4c:34e1])
+ (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:4710:b0:378:314:4042
+ with SMTP id 5a478bee46e88-385702587c5mr17876713eec.14.1795645648594; Wed, 25
+ Nov 2026 14:27:28 -0800 (PST)
+Date: Wed, 25 Nov 2026 22:27:13 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,25 +77,32 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125222606.1448637-1-elkin@google.com>
-Subject: [PATCH] pinctrl: nomadik: validate DT pin config property read and range
+Message-ID: <20261125222713.1450385-1-elkin@google.com>
+Subject: [PATCH] mm/migrate_device: use locked folio in migrate_device_{range,pfns}()
 From: Elkin Cruz <elkin@google.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+To: David Hildenbrand <david@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
+Cc: Zi Yan <ziy@nvidia.com>, Matthew Brost <matthew.brost@intel.com>, 
+	Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>, 
+	Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>, 
+	Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org, Lorenzo Stoakes <ljs@kernel.org>, 
 	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, irogers@google.com, 
 	Elkin Cruz <elkin@google.com>, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-In nmk_pinctrl_dt_get_config(), of_property_read_u32() is only checked
-for (ret != -EINVAL), passing an uninitialized val to
-nmk_dt_pin_config() on other error returns. In addition, val is signed
-and nmk_dt_pin_config() returns 0 even when val is out of bounds for
-nmk_cfg_params[index].choice.
+migrate_device_range() and migrate_device_pfns() read a speculative
+folio pointer via page_folio() prior to taking a reference or lock in
+migrate_device_pfn_lock(). If the page splits or changes compound state
+before lock acquisition, folio_nr_pages(folio) inspects stale state and
+the nr > npages - i error path calls unpin_anon_rmap(), folio_unlock(),
+and folio_put() on the unowned speculative pointer while leaking the
+reference and lock on the folio actually locked by
+migrate_device_pfn_lock().
 
-Check (!ret) after of_property_read_u32(), make val unsigned (u32), and
-return -EINVAL when val >= nmk_cfg_params[index].size.
+Return the referenced, locked folio directly from
+migrate_device_pfn_lock() and skip unlocked entries cleanly.
 
-Fixes: e32af8894588 ("pinctrl/nomadik: add device tree support")
+Fixes: dc41e961a269 ("mm/migrate_device: avoid out-of-bounds writes for compound folios")
+Fixes: a30b48bf1b24 ("mm/migrate_device: implement THP migration of zone device pages")
 Cc: stable@vger.kernel.org
 Signed-off-by: Elkin Cruz <elkin@google.com>
 ---
@@ -108,58 +115,92 @@ then checked against linux-next (not runtime-tested on hardware).
 Thanks,
 Elkin
 
- drivers/pinctrl/nomadik/pinctrl-nomadik.c | 24 +++++++++++++----------
- 1 file changed, 14 insertions(+), 10 deletions(-)
+ mm/migrate_device.c | 41 ++++++++++++++++++++++-------------------
+ 1 file changed, 22 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/pinctrl/nomadik/pinctrl-nomadik.c b/drivers/pinctrl/nomadik/pinctrl-nomadik.c
-index 617ad259f62c..400009929dbd 100644
---- a/drivers/pinctrl/nomadik/pinctrl-nomadik.c
-+++ b/drivers/pinctrl/nomadik/pinctrl-nomadik.c
-@@ -693,18 +693,21 @@ static const struct nmk_cfg_param nmk_cfg_params[] = {
- 	NMK_CONFIG_PIN_ARRAY("ste,sleep-pull-disable",	nmk_pin_sleep_pdis_modes),
- };
+diff --git a/mm/migrate_device.c b/mm/migrate_device.c
+index a953e7acbea6..a599d5baa340 100644
+--- a/mm/migrate_device.c
++++ b/mm/migrate_device.c
+@@ -1416,11 +1416,13 @@ void migrate_vma_finalize(struct migrate_vma *migrate)
+ }
+ EXPORT_SYMBOL(migrate_vma_finalize);
  
--static int nmk_dt_pin_config(int index, int val, unsigned long *config)
-+static int nmk_dt_pin_config(int index, u32 val, unsigned long *config)
+-static unsigned long migrate_device_pfn_lock(unsigned long pfn)
++static unsigned long migrate_device_pfn_lock(unsigned long pfn,
++					     struct folio **foliop)
  {
- 	if (!nmk_cfg_params[index].choice) {
- 		*config = nmk_cfg_params[index].config;
--	} else {
--		/* test if out of range */
--		if  (val < nmk_cfg_params[index].size) {
--			*config = nmk_cfg_params[index].config |
--				nmk_cfg_params[index].choice[val];
--		}
-+		return 0;
+ 	unsigned long src_pfn = migrate_pfn(pfn) | MIGRATE_PFN_MIGRATE;
+ 	struct folio *folio;
+ 
++	*foliop = NULL;
+ 	folio = folio_get_nontail_page(pfn_to_page(pfn));
+ 	if (!folio)
+ 		return 0;
+@@ -1436,6 +1438,7 @@ static unsigned long migrate_device_pfn_lock(unsigned long pfn)
+ 		return 0;
  	}
--	return 0;
-+
-+	/* test if out of range */
-+	if (val < nmk_cfg_params[index].size) {
-+		*config = nmk_cfg_params[index].config |
-+			nmk_cfg_params[index].choice[val];
-+		return 0;
-+	}
-+
-+	return -EINVAL;
+ 
++	*foliop = folio;
+ 	return src_pfn;
  }
  
- static const char *nmk_find_pin_name(struct pinctrl_dev *pctldev, const char *pin_name)
-@@ -724,11 +727,12 @@ static bool nmk_pinctrl_dt_get_config(struct device_node *np,
- {
- 	bool has_config = 0;
- 	unsigned long cfg = 0;
--	int i, val, ret;
-+	int i, ret;
-+	u32 val;
+@@ -1464,18 +1467,18 @@ int migrate_device_range(unsigned long *src_pfns, unsigned long start,
+ 	unsigned long i, j, pfn;
  
- 	for (i = 0; i < ARRAY_SIZE(nmk_cfg_params); i++) {
- 		ret = of_property_read_u32(np, nmk_cfg_params[i].property, &val);
--		if (ret != -EINVAL) {
-+		if (!ret) {
- 			if (nmk_dt_pin_config(i, val, &cfg) == 0) {
- 				*configs |= cfg;
- 				has_config = 1;
+ 	for (pfn = start, i = 0; i < npages; pfn++, i++) {
+-		struct page *page = pfn_to_page(pfn);
+-		struct folio *folio = page_folio(page);
+-		unsigned int nr = 1;
++		struct folio *folio;
++		unsigned int nr;
++
++		src_pfns[i] = migrate_device_pfn_lock(pfn, &folio);
++		if (!folio)
++			continue;
+ 
+-		src_pfns[i] = migrate_device_pfn_lock(pfn);
+ 		nr = folio_nr_pages(folio);
+ 		if (nr > npages - i) {
+-			if (src_pfns[i] & MIGRATE_PFN_MIGRATE) {
+-				unpin_anon_rmap(folio, src_pfns[i]);
+-				folio_unlock(folio);
+-				folio_put(folio);
+-			}
++			unpin_anon_rmap(folio, src_pfns[i]);
++			folio_unlock(folio);
++			folio_put(folio);
+ 			memset(&src_pfns[i], 0,
+ 			       (npages - i) * sizeof(*src_pfns));
+ 			break;
+@@ -1508,18 +1511,18 @@ int migrate_device_pfns(unsigned long *src_pfns, unsigned long npages)
+ 	unsigned long i, j;
+ 
+ 	for (i = 0; i < npages; i++) {
+-		struct page *page = pfn_to_page(src_pfns[i]);
+-		struct folio *folio = page_folio(page);
+-		unsigned int nr = 1;
++		struct folio *folio;
++		unsigned int nr;
++
++		src_pfns[i] = migrate_device_pfn_lock(src_pfns[i], &folio);
++		if (!folio)
++			continue;
+ 
+-		src_pfns[i] = migrate_device_pfn_lock(src_pfns[i]);
+ 		nr = folio_nr_pages(folio);
+ 		if (nr > npages - i) {
+-			if (src_pfns[i] & MIGRATE_PFN_MIGRATE) {
+-				unpin_anon_rmap(folio, src_pfns[i]);
+-				folio_unlock(folio);
+-				folio_put(folio);
+-			}
++			unpin_anon_rmap(folio, src_pfns[i]);
++			folio_unlock(folio);
++			folio_put(folio);
+ 			memset(&src_pfns[i], 0,
+ 			       (npages - i) * sizeof(*src_pfns));
+ 			break;
 -- 
 2.56.1.839.g22a8290db9-goog
 
