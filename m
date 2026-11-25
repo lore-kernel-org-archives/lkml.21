@@ -1,102 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795648580;
-	b=f5FgYa9bDS8J9B4Sv0z3a1cpA6xVYdzmMQOFg1vsvA/LtClpnA6CRn+s4JH4qOkZ96Mq
-	 5XOc1smJckH34+MJpsxFTN5/Zt9AkO2bq0mh1RwlFf05tY+1i+IxnEhXceTOJG7opptFl
-	 DEfC0L0V9GhvmwpPp1X9Okt8HEN2Zr/iHWxyBTfr6ZM1mOWt4kOcnisBHvIWLSkc1XEo3
-	 mc2i3yMWr0JPTf3t8wRKuRHPcayXxTVbbqg6WYU7+ODuCNIyrmvVI5t+2DvV56ahanIVH
-	 eW9+67SVjHLnNrknJX8Ldsc9oupaKunje+mqCJ5RfejO/t0HPtg19flQAMW8YNpvD/w==
+	t=1795648633;
+	b=r/mdBntaagYtSbqLYSXpV9GfdoVbKMKYDxWePuIq+kAArLYKGBigyazBlw2SL/bpF6cP
+	 FXMvFpt4UPCbWpG1ebtlo7ulN0EthgLSvTcbhOgzGDbBalqLPz01WzFCT3YtLDXOmkTV8
+	 6oz1m4ArauSX+9aj0CnwOQ7W2y+/9ugQP17567LCzvvmfPw6k2GjFzWr7XSHFev7vY3ZV
+	 CnotXMxkPtlaCVWFNXaVCAFcVXFlaHJJcmdn94/K6plSA3NZ3s96ww9Gjbehi8rPRV+Io
+	 HlzY8EU1l9Rmh3yoi1wItajkHgHmtkhIk3IJyfge/RxBOwZ6lmqe9s6XnrT+YXyBm0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795648580;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795648633;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=E8vKd1x4175mc7dp2xB6lAEMhr1F0E2ODkggdlQIUIE=;
-	b=QcNuASQtD4WBNUB8ASnu2L9Cm7nOa00iNSBks1VrPKgVordcCyHkR1P6Z/yjBNFwR79T
-	 e0NQsQrCsnDrklCWaY9UQni2cbdTaXZ+fsr7DzcrOmKjeBHYM5KQrNOB6LTsR7flPlOW1
-	 kahuIehnUhRnR2J/EIAjnvZtNdbYVWPk6YoGqS1+Axn9f7vV13a3Fl5nIdCwBk6Ig7c3L
-	 SWcEI4zgFM4IE9+BtnhnD9y4JwdvXLnzxxms+TzwuTLVV+XUnS5M1YywmRuMC/c1ZKwIR
-	 Z8RZIRHq8NQ48VdPpHYhnRGsqd1StfM32Qswjw1Dlvsv4do57MxMBJL1S0istlF3yLA==
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=fB66r+RmtclwuoJkRq22iMu7bQUDw+29XRRh1BvFsls=;
+	b=5MJCFbLptpJahd3KlROFIsaNNSd3B6UEKrzkA5vLKOnDdT/C4tfbDVRHPbVO4ckvn5jP
+	 F/IkQMUxw6O0Vg5Jo40m96G4dD3CKkYuW3e4blIxbOuGGOTVrM3as/d8eM5cDHihXvPGU
+	 5NbnWMpfCXTgiLpxiz5vIvzzDkUUACBR0UJQ/mkVpUKem+DqhD64mheJ+vaQYctfgIRpR
+	 z8qpLuKcHY69wLU9oaxePg/PVjo9FnqzmExd9CHzG5fvO3U27pFg77oLJcyXRUjyr1FAH
+	 8oA4nWQGkqdEy3qvr/g76pIpVAYd1aE4Nt+O+bbOYXIWLm7fRorJgIBExdfGE+19sCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jKVIZ7Dv;
-	arc=none smtp.remote-ip=209.85.216.43
-Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nJ9Bbj63;
+	arc=none smtp.remote-ip=209.85.215.175
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ED5A606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:16:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ED5A606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF7E1606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:17:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF7E1606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jKVIZ7Dv
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b487f44ee0so2456155a91.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:16:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nJ9Bbj63
+Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cd6acc50b8dso3324534a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:17:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795648579; x=1796253379; darn=vger.kernel.org;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795648632; x=1796253432; darn=vger.kernel.org;
         h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=E8vKd1x4175mc7dp2xB6lAEMhr1F0E2ODkggdlQIUIE=;
-        b=jKVIZ7DvKZtbXaP2DWsG09+5JZ3RgD/mzAYzNjFfghXqE8SLLfTjgQVYyBObvfZCIE
-         u46RPFKr8glGu10TadtWqkJSA+3yPwR6nZ7qoJY3i9sH2LNi4yvOq2SMZBS3h3J46CnL
-         CkVwe0jjwltsnc7kUiZHEkusvRGEg86aCCiucpp/NAxej67F4qRP4AsCDV7CrqXlEadi
-         I4ZJvss+NMW9r2Tp3r17lk6RoXBeo6dA/zcXSL3qyGEfzRDD6F/xUfn7zmYoNLHFv+0F
-         D1ZFxvU3E62+cAleVRJ/ZhJhKRi3GTUlH8P58M9GUwU9apVhS2soKP335BgzHyB97ApV
-         bMvw==
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fB66r+RmtclwuoJkRq22iMu7bQUDw+29XRRh1BvFsls=;
+        b=nJ9Bbj63zsgWN5c0pucRTQGaqsxYGqVFbiEu54isfe25Aa4ZhpQclXxzUQOFzVzzjn
+         AV5Dt2/KxYiC2cqC5N0xPpL218CBcw419aWStzqgQjKQM5bGs39uZAnXBJZeYNepRROO
+         pHzOwslBLW+sG6drs79vSbWX0cxSWu3OJybZMYILiu/PxXhgxEigLLV3Z+ctx5BWpG+X
+         mDgZjw11vtGg87BO2C2Xk1bOcytQL7GgH4lI10/BKSzrsRjXWfu5wBnBt8h0ew2+mdTq
+         sK7mTpHa3TroUGnuWJ5y2l1xK+BBQFXozp7EW3eliuo8eysrIGYfjihMqCjLyQxcMtFF
+         8MVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795648579; x=1796253379;
+        d=1e100.net; s=20260707; t=1795648632; x=1796253432;
         h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=E8vKd1x4175mc7dp2xB6lAEMhr1F0E2ODkggdlQIUIE=;
-        b=CNPWI8Og83bRQ7oZKNSd7W42UCEthPs2vL5V/uO+otqojKHTe2bZfScHQTlEBjVvfF
-         NpfcY0OVSV13RyqQnSKNlmD9KLkVateSTCEGRe9FhHK0S5in6oQmP8h1KmRmgcgiPVDr
-         AbPaHedyYM+jpLZJL0Cp3iKX01wuqfFzxH11MfBnZHyp2KhvDOCHI9Eb9w35VigAtyLY
-         qB99vp02g6gFspulvVmsuAoBIMPrMMFdLgBNUWmEdWs7YjEv9INU0xm/8t9jDCmQAzck
-         gmKA+5Jk20DlNBUIceUWDEwKBeoSPFaOsIgrFXHOqIcvRRvHeZ3NuZWOj43jV6Sa+Eg5
-         sJCA==
-X-Forwarded-Encrypted: i=1; AL+hErHPCmj35MGYB1LrrcVKH70uT8+7aet4oX5whNw/B3vF/nl+aAIbaFVNlOFJEPA9Jt/z8MeCTb1fDWnTgtg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+bO/lUCHaUmikUnlHb5PJ//cgFtRw4Ef2occCekMDC0o7TDZdE
-	9GfNDae2VOiTV8gY2nK0FdGw60zv9h7oHuyEiGezfwa0EapFnWuZVmM3
-X-Gm-Gg: AZFdTZddDoMDaUf5qw7B+5afvkL20DS0wHljON7FgXQV1m6SspIeDe5P9/PwN4vUWof
-	861k7enqkXwg2PUgmkoj2gAGw7wWeAIcQvk5aRYaqXq0X5GXJcJ8MzJBlsVLO2N2mzGKQeP2W24
-	2Bj9BUw4K36BITLQFS7O3QU8RZOsCxlUBqo+EL0b1WjvC8PYlQN3bF4AEQL5gWK4Mblr/+Br4xN
-	ry1J3e+Hkdh+D77vma2sLzEcjbbxERUs7gctGIkIXZ+922CCZQtKFcfj6wgadcX5YVFwkFyB14x
-	q1ILnL+jG0mJDVqE0M24yHHzOch39Otixa7fyVhb0MOTaF7ygwy4GGRqHBhi95MTTCZbpZzDbiy
-	Yn78iiOe6BEAGIN+gCIZfkburgSt1CbBXVsA0KhykuoVrzfGR+PgWYMBS3Xef73ly2t8LtO9Hnl
-	N4jcXdVBYSG9UI9L9Z0ozTVm8PDjexrrfasE2I02Wg05YGisnUuxv2oGxpG7b70I1cjoKUbVoTt
-	vJQTltpLfR1q7rZyjjMcATo4VAgReJos340Sgi+fQ065BBTHObyB7O0d2GmcZP5SUEwGXSB0fnZ
-	3In2hSPoVAkY4QjfMF9dKBRGPQM=
-X-Received: by 2002:a17:90b:2e49:b0:3b4:625:3d2f with SMTP id 98e67ed59e1d1-3b41cb212bfmr17680989a91.55.1795648579180;
-        Wed, 25 Nov 2026 15:16:19 -0800 (PST)
-Received: from archie.me ([210.87.74.117])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41aab4729sm29282158a91.0.2026.11.25.15.16.16
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=fB66r+RmtclwuoJkRq22iMu7bQUDw+29XRRh1BvFsls=;
+        b=biSLzxcbsS4HxJN8IsU1UXq9Vc+piv2YG83jiShvqQKt7015pH4TJm5VHu9Uej6qyk
+         7xPAbabDhe56dn8pToxadDCgB+hYsMC4olPV4tft40CIF+mOEgvXQdi4RE9Rw6wLzNOU
+         aX/nZ8EobnuNkquS/shpdOr2S4WCMCsNtddvCAN5Zv0Oexsdi8c4Sfn0zDRdgRJ2EQ84
+         9qzd7fsWZHwTv/Rs4X3Q7Ew0GE/WaYchASle4x/+yUOI08ar2/kB86rijGq0POjgXtbI
+         SZKwtQ8GSEe6vVICRs3aMHQjOJMYALgNO4WFPaEk75o8q1dbe+Ie5HUoCRC1m0e4ldEz
+         7TFw==
+X-Forwarded-Encrypted: i=1; AL+hErFR8xDeWiT2SWr8UOvmwXvXpALw45R15tMdKneD+NplpDnvoF2geAn8ZLGJFefrTy1HdaZVeWlobBt/vYo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/LdrC4GdfqKhhUYHrvYqedtuqWkx8kZ3/Plj5zQe8LPc5yTp/1
+	VDCqAv3fHdcY3QrcYJahZzHpeWqF5OxceUGvbZMAJTaBvOHEnqjIZyKIvQRIy3hxDHM=
+X-Gm-Gg: AZFdTZczoQaw7EF0eGVjDI7CnLeGbyTcwyKSFZlEmUU25ymi7r994HAIEpPOaBJUkh4
+	+4LBBm1gTcYgjf/NQ5ELg6eigGuH/YA6Nm8zwhubfajMKvRnGMQL433QAqO+WjU0AgBEEHVaX4E
+	+xgOX4wUeGa3jiGeyDCrerl7NcUHZPOu6ffuWPdxy62LKfmLMhGmTzknYJxJCFCgUzWyn6W/qD1
+	S23hU77giY4wf3CtFike0fN+klDmHaRUjvjCwgqATFVJinSZeumQjKfjH3RG9Ok4GV9sJXSMsPn
+	coF2F15mnDH6X7RzhJfBVn0vH0YRGNQnhip78Q1SCJDMCjnl7keeuRdVeBqDbLLJEBM7TAARz8+
+	tVE1s5W9nmCwI7zqA+7e0DSxhaGJYKA5haTVTwsmm1HZGU1y4+zoNcUMG9wW3EovLURZXjgro8H
+	Fh6thXNL1xSQqimnmB68vlyGdIjD4vlTUuPBsQPBaCvvFX61Laipg7+gTBRIhjzq84uv5tlV0k+
+	r2JtJNzpW2AAh8mYKzdw42ctjiUh24TFTPL/YoaJwQ0IdzlfjqKsWcneNEz+vL7zqERJmdY8DME
+	uzfwbZKgEGEqvCrSfZbpZQDwzWTJvidA4aoVCV+D8Mg=
+X-Received: by 2002:a17:90b:4d11:b0:3b4:d00b:d0b3 with SMTP id 98e67ed59e1d1-3b4d00bd2cemr7778086a91.51.1795648632220;
+        Wed, 25 Nov 2026 15:17:12 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:48::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b8c2fcesm10811396a91.4.2026.11.25.15.17.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 15:16:18 -0800 (PST)
-Received: by archie.me (Postfix, from userid 1000)
-	id 5F6F6420A76D; Thu, 26 Nov 2026 06:16:14 +0700 (WIB)
-Date: Thu, 26 Nov 2026 06:16:14 +0700
-From: Bagas Sanjaya <bagasdotme@gmail.com>
-To: Willy Tarreau <w@1wt.eu>, Jonathan Corbet <corbet@lwn.net>
-Cc: skhan@linuxfoundation.org, Randy Dunlap <rdunlap@infradead.org>,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	gregkh@linuxfoundation.org, Johan Hovold <johan@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
+        Wed, 25 Nov 2026 15:17:11 -0800 (PST)
+Date: Wed, 25 Nov 2026 15:17:09 -0800
+From: Joe Damato <joe@dama.to>
+To: TAKANO Mitsuhiro <takano32@gmail.com>
+Cc: Jesper Dangaard Brouer <hawk@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>
-Subject: Re: [PATCH v2 06/14] docs: security-bugs: do not send archives or
- binary attachments
-Message-ID: <awdsPgHF6Y0xuSQI@archie.me>
-References: <20261114190014.17826-1-w@1wt.eu>
- <20261114190014.17826-7-w@1wt.eu>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] net: page_pool: Drop fast and slow from the params
+ kernel-doc
+Message-ID: <awdsddjX8STuJ4WR@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>,
+	TAKANO Mitsuhiro <takano32@gmail.com>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org
+References: <20261125184640.2407270-1-takano32@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,56 +109,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Yd+Dybq0Bn8RY/CL"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261114190014.17826-7-w@1wt.eu>
+In-Reply-To: <20261125184640.2407270-1-takano32@gmail.com>
 
---Yd+Dybq0Bn8RY/CL
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, Nov 25, 2026 at 06:46:40PM +0000, TAKANO Mitsuhiro wrote:
+> struct page_pool_params groups its members with struct_group_tagged(),
+> so fast and slow are group names, not members.  kernel-doc does not
+> expand the group, and reports both as excess:
+> 
+>   Warning: include/net/page_pool/types.h:105 Excess struct member 'fast'
+>   description in 'page_pool_params' (did you mean one of: 'flags',
+>   'offset')
+>   Warning: include/net/page_pool/types.h:105 Excess struct member 'slow'
+>   description in 'page_pool_params'
+> 
+> Each one is reported twice.  Drop the two @-lines and say in the
+> description which members are read on the hotpath, where a reader of
+> the rendered page looks for it.
+> 
+> Verification: kernel-doc -none include/net/page_pool/types.h prints the
+> four warnings before the change and nothing after it.
+> 
+> Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+> ---
+>  include/net/page_pool/types.h | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
 
-On Sat, Nov 14, 2026 at 08:00:06PM +0100, Willy Tarreau wrote:
->  Please send **plain text** emails without attachments where possible.
->  It is much harder to have a context-quoted discussion about a complex
-> -issue if all the details are hidden away in attachments.  Think of it li=
-ke a
-> +issue if all the details are hidden away in attachments. Archives (zip, =
-tar,
-> +etc.), binary files and documents (PDF, etc.) are never acceptable: when=
- a
-> +reproducer is too large to be placed in the message, attach its source f=
-iles
-> +as plain text, and provide scripts that generate the required files (e.g=
-=2E file
-> +system images) instead of the files themselves. Think of it like a
->  :doc:`regular patch submission <../process/submitting-patches>`
->  (even if you don't have a patch yet): describe the problem and impact, a=
-nd
->  list reproduction steps, all in plain text, then provide a proposed fix =
-as
+Not sure I fully understand all the docs tooling. Would this [1] solve the
+problem? If so, it seems like it might be better to wait for that to land ?
 
-What if the issue can only be reproduced with specific binary files? Should=
- I
-send it as e.g. ASCII-armored, OpenPGP-encrypted attachment or should I put
-it somewhere else on the Internet (as privately-accessed file) and share its
-link instead?
-
-Confused...
-
---=20
-An old man doll... just what I always wanted! - Clara
-
---Yd+Dybq0Bn8RY/CL
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCawdsPgAKCRD2uYlJVVFO
-o5lbAQCf+HFr4dpqHo/NjE5YZQjZhBumSvZxjxGVy4Bc+rJ6OwD/dQ9wDciflsw8
-W5Gcx2EYKEBwUYE42WbwBHghakXKQQc=
-=0aJI
------END PGP SIGNATURE-----
-
---Yd+Dybq0Bn8RY/CL--
+[1]: https://lore.kernel.org/all/20260916214357.22573-1-emmaonana18@gmail.com/
