@@ -1,109 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795601746;
-	b=VwaYe8NjpUAkvLLNniuyYFht5RVXKZ/92xbkmWbmtI0QEdjI2bJ+mMJuL9P2e/6BuG9P
-	 DIPFCpb2Gv1XfBUNqNqLFo2bUFb1wpMQN8sYMAq1c/9vxrN6mPJOBziQlhBO6t2bLwmHj
-	 JmBlUFrve9jCjOv8A7SsJYpIac6qRVemmCjX7JiWGRY35xsLFAKXVTZc1wf5F2jN/H2Og
-	 gpnGWRprwk1NGMp0gXiX1gaX4kdd7iiDb3OI1CZI4yB7XIPHsXNnzBAo0ZE55zI0qHbQ7
-	 Mqx2DPqrRurfQcv6IKtFXwSUC/4Qh4RjqT+Tz3LdYIx1/6UTetjbJ1tRDbKr4oE4AcA==
+	t=1795601752;
+	b=JnNCrJO432kZQ42hN1B2mVy0ND9tOIelRTb7OnVkALVOrVyJlA5IGHRMOza8Hei5cFua
+	 yke8SUIeByz2Vygm14omJ1br1nD9kWXljyj0PjRZGGF6svCKVzYVi0wtuCOI/ksSVV7aL
+	 JjqqGs0DM8EyOVYOMN8z8Y5b0sCtlpSpG6fg2ebazp27Gzaol8lxbDYfhjnOIDscmHliF
+	 nt00YU8s6DB27CSMPRcc5sXtnu3Rg92C00ZnwpS81yGuOpgDrK/MDwNKqQkzl373++bj0
+	 kS6ztFORFpzsaULNnLDDaa0BBPQy+iKe1HNYjs2xog3u6ZBXMp8WqUd1esJUAULIAtw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795601746;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=PFUuksXTO3TNxrTTYeNDfahMSpkP8c6YJRD7Cdnatmg=;
-	b=WO/tQYDG5tLxEhrvJfRrQGjBhtnE2+PDKCLgkXqW2sEccXU69WxBSwSCqcHEfo1fgn3b
-	 nMNSlI0Y+YMcsVlrd9wy2xJUP65jM6c+5uegxnglXbbV+C5sbrO++RG9C3ag7Xo2RtqR1
-	 fHqAHApZ2QlIFSqRpbC3yOJpaSjcsadSQ5u3xX6yGu3Xc9MBX4A2XCUroEppH5+TsAkr1
-	 35XK6dBW5PXpfP/Bq7huGqXGOE0m6yJCWREwLagsDVoxunLuxAIadBmUA0FssbUIR17Bg
-	 5IyKhD0WUDyJts7YSGIyxd05q1rEn/dXOvwLIHsAdYgm87uqIqL46oKboLSkGM9alBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795601752;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=l39RWAIoM0Feov+aApkur4PMWRZaz1boBdpLerg+atQ=;
+	b=3Fyt7Ca2ZpM9Jl0vNlsNqpMeU/spjEAuPBdkT9j+IWkCcatXKfTbd4Qba5x+IwOIj6Id
+	 Z/G3SZTTGFHAR9AWGwlU11HmoMw6XD4LquIgYF4wsDmsLmAfcXKCRMmhjGsXRk2ga1npE
+	 swU7sO25vSzbw/I884FoFIKB3Uy9k1epeoMS9ofP7WRHWo4UhlS+eIntcRYJOm8QzRQON
+	 8402AIXcpDMbiX+oEFjjY0Qvoe+6WTyZRCTsyr+J2W4IYvPkrjr2aWmyT9GDO/pKE+wLM
+	 fJXrPx2MwYf/tQkeuiEzE2mNh3oi+zR1I6QeLOrjH7GDTX4g5f/glTPIdXIK/fsx7DA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iK9MqZW3;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="D3YOFm/y";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D19B7606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:15:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D19B7606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AA3E606A31E;
+	Wed, 25 Nov 2026 10:15:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iK9MqZW3
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4ac08f4a0b2so3924000f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:15:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795601744; x=1796206544; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PFUuksXTO3TNxrTTYeNDfahMSpkP8c6YJRD7Cdnatmg=;
-        b=iK9MqZW3FqxCVrre9hD6C+9kW6iZFZL1s2vr1bHDzmhUiv5HqWaOnVPQA71pUgi6b9
-         imVHSKUWK9Dgxx3KcAdHVhgVSipwiuX+c9CpCHBfkVLH3wUeH7moIVUgKPsLVPgTyBZL
-         R4zu+SpZiB0t3JayxwgxpMCIg2jQhIUcMyIF39ycxsP8zgHycZPjgXKTki2IuvhCUZqn
-         tE6k8BRig4gc8KHHQ3dvUVQgZUCNNQ/YDntCfLjQpNq1cJvAh6V1IOrQAc5Qn3P7QeyL
-         pFbfXke4W2KTGPCrK3KxQeEH5pXP7tPPY6Xsyefo8jRgGQSjUhwbVQN1KIdbh8Dbne18
-         D4zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795601744; x=1796206544;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PFUuksXTO3TNxrTTYeNDfahMSpkP8c6YJRD7Cdnatmg=;
-        b=rKmHOfawq4tNiVzyLh8n6X5tcfFD5K2saImxSRdkoo4MC0mg4WINZ2ZyMA7uNoo7Zi
-         uxuSRjJ02yAG099fXxrpmV8isIoh0ISM/VT5FyvLddMwSVf56CkvJnT0ZFMmjwIcugJT
-         b2Z1MYg77R+ojP204YDx+1x/x8CVngzgAOIjxeuLBelPzicrqCvdQ95brVUi/11kUrAt
-         XhVRXGudMKv3Id+exKp6aDfEeARUvaH1C0QSPpvUlLozuqgb7zQSPql8caU1A/xd0DB/
-         vTS+cvQfnFfAK0hjPagyvtp5EzyFSFGVWh+YwWKgx8HsYzOhqci7qnltu1REIYsQKEkR
-         6pgQ==
-X-Forwarded-Encrypted: i=1; AL+hErHM6SqqlfwNrNTmjep54Px2eJ5Z+qQ9FVXYp3elDnukhDoPeKj078exPcIJlUYPp4IPMRcmYcMBLjb4te0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/FxPoz4GZLRj3Bjru1qplk8lvX5UNiE6EvjpjDNNR6Sq1dIbSV
-	Phu/yNdKO5uM/uVSsxG8HCrPMA2j7dyO9dmTfIzny94F2lHpR24FbQAv
-X-Gm-Gg: AZFdTZdLh/MVJmyxzzkEHd03KCqwtogPKC8ddbMwMkzZUiMveJZE2AsXMYPOOWZp3ve
-	4OAv3pcMptioSVRHwOkcqeUdppgJpYoMhT5DZgd8mEh4ozf6ZvuqU+wXYqOvhqCZzUgvm8vniMQ
-	ztPoDQ6bRUW+8788WkbZw5IxSlWV+86l1KvVrBgrz5kj6O2aIQ5LqDElaPnH9wYGIWonoAgWDjj
-	Ll+9EvrRZdlPeuqGVRzTnoYXAAah7/WC9NxqtMw0PAe7NWKyLdvm8WYknO0/itTxJ5/zyghaZdD
-	ElxyV6FUyMePf/O7O3djtHTSUcDDesYJss0B0KfNYl8r0fXklx44hj4Jazan8/uc8/MzVxPMTD9
-	Y81MH+jh9J4u4hdlAvuIzvr3I8SXmJRs/lDvIO22lTnW7hXCED7DeKhk0lz8qKqCVA3wXcj96lC
-	EAtF8hZW+kcQANEi28yENM9o6V5NPj8TX3WWiSB0/tv7HBd4j3D81ifbbeeucmbCpmc2i1k4SNw
-	CN4DwVkCyX53D9K0dxTmntuPQ+w+Iz7YYe4bxyt5vCoqhnztJytwmmQsstzHhafY/cus95sNUOi
-	Nk/XkeyUva1vd6nOq67EP5ITGJ3nRU8N4B76j73+sCIXHlPzjuxCuOo=
-X-Received: by 2002:adf:e012:0:10b0:48e:3697:708d with SMTP id ffacd0b85a97d-4abb0d51ab2mr23863330f8f.12.1795601743982;
-        Wed, 25 Nov 2026 02:15:43 -0800 (PST)
-Received: from ingenieria31.oficinasStQ.local ([79.117.0.220])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb41f4sm32236192f8f.7.2026.11.25.02.15.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 02:15:43 -0800 (PST)
-From: =?UTF-8?q?M=C3=A0xim=20Pedraza=20Padilla?= <maximpedraza@gmail.com>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Jyri Sarha <jyri.sarha@iki.fi>,
-	=?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
-Date: Wed, 25 Nov 2026 11:15:41 +0100
-Message-Id: <20261125101541.463585-1-maximpedraza@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <e58a5ff5-9c1b-40cc-a65d-c7fbfdaf18d1@ideasonboard.com>
-References: <20261116142707.1299360-1-maximpedraza@gmail.com> <20261116142707.1299360-4-maximpedraza@gmail.com> <avs2dagfmQkv00H0@houat> <20261118212114.150992-1-maximpedraza@gmail.com> <20261124141119.441163-1-maximpedraza@gmail.com> <e58a5ff5-9c1b-40cc-a65d-c7fbfdaf18d1@ideasonboard.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D3YOFm/y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BEA71F000C4;
+	Wed, 25 Nov 2026 10:15:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795601751;
+	bh=l39RWAIoM0Feov+aApkur4PMWRZaz1boBdpLerg+atQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=D3YOFm/ySUL4vtdQ93vXOYE4eaJx7lXYk7wbNG02vLTCaSmnKkEJb73/R9UesQF0N
+	 MXWPx9EqWhxYAtjw9V2YaW2IY6bjW+n5Lgh6LCX4p5OwgG6Cgn9nzmmy3+Zt3Kw2jw
+	 vGBJkbKom8dDSMX5DIgrMyYW0hBe3H1iy3nRDuel7EJQ3uX/aF5Ke/epiCj70gdNGy
+	 JGs1h0TBDg/N/Hn4HJ58msXffhmzZoIbXDNipV9FEDk/Jtuk6L2MAusPGJ85VyfqGF
+	 9Mlf7Sl0S07yyXcd8TY6Yl/qy5l7kwOXKhH64/hXTmHQFNRe+Cnv7DJm2N5UHRYUw8
+	 a6gDniprtSkAA==
+Message-ID: <e85a2666-9722-420b-9a60-9d4251fc3d4c@kernel.org>
+Date: Wed, 25 Nov 2026 11:15:33 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,30 +51,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 08/18] mm/mglru: make folio lru referenced times count
+ a generic API
+To: kasong@tencent.com, linux-mm@kvack.org
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
+ Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>,
+ Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
+ Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>,
+ Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>,
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
+ Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>,
+ Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>,
+ Gregory Price <gourry@gourry.net>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
+ SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
+ Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
+ Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>,
+ Kairui Song <ryncsn@gmail.com>, Xiang Liu <liuxiang.277@bytedance.com>,
+ Ehab Ababneh <ehab.ababneh@intel.com>,
+ Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang
+ <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
+ Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
+ Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org,
+ cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org,
+ Tianyi Chen <hi@tychen.cc>, Ridong Chen <ridong.chen@linux.dev>
+References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+ <20261124-mglru-fg-v6-8-8ffea39934a6@tencent.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261124-mglru-fg-v6-8-8ffea39934a6@tencent.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 24, 2026 at 04:38:43PM +0200, Tomi Valkeinen wrote:
-> I felt that approach was a bit odd (and if I recall right, failed with
-> my OLDI panel), and in my tidss version I just used the clock rate
-> directly from the clk_get_rate() (see dispc_vp_readout_mode):
+On 11/23/26 19:53, Kairui Song via B4 Relay wrote:
+> From: Kairui Song <kasong@tencent.com>
+> 
+> Pure code shuffle, no behavior change.
+> 
+> Make the folio LRU refs helpers available regardless of CONFIG_LRU_GEN.
+> Without MGLRU the extra bits are never set, so they are inert. Move the
+> lru_gen_* helpers into the CONFIG_LRU_GEN section.  This prepares for
+> unifying the API for checking folio referenced and workingset status.
+> 
+> folio_migrate_lru_refs() now migrates the complete refs count,
+> including PG_workingset (bit 1 of the encoding), bitwise identical to
+> the direct copy dropped from folio_migrate_flags().
+> 
+> lru_set_refs_flags() skips the nonexistent mask bits when
+> LRU_REFS_WIDTH collapses to 0, preserving the two independent flags for
+> !CONFIG_LRU_GEN builds.
+> 
+> Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
+> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+> Tested-by: Andrew Morton <akpm@linux-foundation.org>
+> Signed-off-by: Kairui Song <kasong@tencent.com>
+> ---
+>  include/linux/mm_inline.h | 55 ++++++++++++++++++++++++-----------------------
 
-Thanks, good to know I'm not the only one it didn't work for. v2 does the
-same: the functional clock rate divided by the LCDC divider, rounded to
-the nearest kHz.
+I'm starting to feel like all of these mglru/reclaim thingies should go into a
+dedicated helper.
 
-What I added is a 1% tolerance on the pixel clock in tilcdc's CRTC
-compare hook. When tilcdc_crtc_set_clk() can't get the exact rate, the
-clock read back after a commit differs from the mode by a few kHz: here,
-asking for 16941 kHz gets 16940.69 kHz from the display PLL. Out of 20
-pixel clocks between 16.9 and 45 MHz, four were off by up to 0.015% and
-the exact comparison reported them as mismatches.
+Can you do that as a prio cleanup in this series, so we don't have to mess with
+mm_inline.h in later patches anymore?
 
-Since you know tilcdc: do you know why tilcdc_crtc_mode_fixup() flips the
-HSYNC polarity? Its comment says the LCDC aligns VS on the second edge of
-HS, but I couldn't find that in the AM335x TRM, where IHS directly sets
-the polarity of the HSYNC pin. As it is, a panel needing an active low
-HSYNC has to leave hsync-active out of its DT timings.
+On related notes, can we move mglru stuff into a mglru.c ?
 
-Thanks,
-Màxim
+-- 
+Cheers,
+
+David
