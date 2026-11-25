@@ -1,113 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795611723;
-	b=HZs91w43qncDOiIRj3cV4+1GqC6IuEW3+8ObmIG5RwIygOh3rcThAzEhySfBu8xC7hEe
-	 XHfb4eEXnnKTQbjoT5sU+0lPZvE+TCFnpsXvRdVw+/COItGdDhgN6m341XhyvE7ino03/
-	 13oeOcEHL+Csicx+fmSBjIjoaL2bCwyWdxBS8U53ySl6Te8KOy15x34Fnl7iIEMMR6KRM
-	 iXvlaCRjRE8FSiCSDPGJWeo0e1SZ4Pt/1xEYrxh3je1NqxVnSBJTi7rAf4SvoHKWqHdNM
-	 p/ZBo0IpEFg97CG9chepPnYQXhOi/ECsMFGnFdSQm0r1xM7JkNwr/KCZLCZIRib+jWQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795611723;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Spamd-Result:X-Spam-Score:X-Spam-Level:
-	 X-Spam-Flag;
-	bh=p7hITA70+SpCbowH/AjvFi6LN2jQuQHv5dRUa44fFfI=;
-	b=IB75f6o7psgFU9EPnuBUCkvJIWYgVIoq8Efm+DFLhQzot0XFMDb++iAhSjlFuYdb6Qm9
-	 RDAN5qOcNB7e16OWGKd3D9/BoYmPRB7mmcW8g9L8wEp6WMaCsBopCKJeyvXDh5r1vGJAj
-	 RjKVLnxTokIsJI0RN39InC3ufTM6Z13bRw37Zb3RkAqtQDyWeMsC1CwzBd3y3IawxEIqQ
-	 Amuvlu68wu5w569eCvl7oxpbgxQI8XBMdv8Z0EL/zXvcqvaqflsxOiDrpC7mroFtVDZoQ
-	 js39kgzCrbedTSQDjRmf1LupKxg4VQFe/2odBP4B/eKzXdbEbzwLLyur2rRNR1NC1fg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=nFTccKKb;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=B6e7nMCf;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=oYUdnWiO;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=BdORVejW;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.31
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795611731;
+	b=EXAwModTSprOuEdfKQ+UT99kdE4vP3o8qPgIZEE8cOW3DK0IQfC3sigzE3GmEUk6GKMX
+	 zIBLUcOBzqcwPxCR6ZwuGIe2YveV99bY0+RfpUASKSDgcGDwLLO9YQyHw/XtkcWBz/Atc
+	 N2JVsoqBeOGeWw9df7+G75yHV3F4CKAeAkq+p55pCCm756rgihPmp8BOnHY6KS20H95M4
+	 vgL96yuL0mqiI1BH6Hz/0j5X3SVf1jQB9pfIfQWpe9vcz7pq97evX8BvAQ606jkWMmW+R
+	 UOQA5EYf/+H6BvQ/p1frmSu/5GUKtjzdBt7xHtVZ9Ck06DvJOK5f5LBwYRaUWgQnpjA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795611731;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SharedMailbox-RoutingAgent-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=0QsMJtJV/CkPhS4NsdJdCHHhtGGr6AOii/eJkT+S85w=;
+	b=i6LQFpF7FbZ39MX8jOhQwsvUfBt9GABon3kxd+09fojGbHBxcEeNdMp/cL0ZE3514MGz
+	 RKGbrha6GSMZWdgsBCE2phT9pxZLFQR6UDFkzZcde35lRbs5IvS4XFA/tnhNzaA2+jXVu
+	 oTdh0/BS20LzuJJu/QqY/bzOVe5QQTatYjlSvZjVU0kGn+HdV5JlSHjwHmVZ6h6lGWXWX
+	 N0zLgS7g6pYRqPzyVa2tjlLkIeppc9A+G5ClNv2Kaq+MGtH3bvtipIOwDPpukJ7R/fEEc
+	 Cq87cpkI6WRsUEDNHrbuDbNWejgc79aF8hvUbOZHTTs9czKC8DMDCAUa8kYdDSooAcg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=AWbd4jrq;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.31
+Received: from AM0PR02CU008.outbound.protection.outlook.com (mail-westeuropeazon11013031.outbound.protection.outlook.com [52.101.72.31])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A796D606A31E;
-	Wed, 25 Nov 2026 13:02:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A796D606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05BD5606A32D;
+	Wed, 25 Nov 2026 13:02:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05BD5606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=nFTccKKb;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=B6e7nMCf;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=oYUdnWiO;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=BdORVejW
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 0D4561F790;
-	Wed, 25 Nov 2026 13:01:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795611720; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=p7hITA70+SpCbowH/AjvFi6LN2jQuQHv5dRUa44fFfI=;
-	b=nFTccKKbGMDnPJoiKKHpoG7FBXg4kaUVgRh2+/7P7+a25hxjLz0Nhj+GmtKYz7IvS7RZ+u
-	h7NrgQvqEIns9IgP6YNwd5LusieIsRMgphyV4VWTh6RBKLi8W2PqXmkVrOlBP5/orr9KXC
-	JzEgxPVfbJN9OXcsIMwqFIfYsMOUVDw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795611720;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=p7hITA70+SpCbowH/AjvFi6LN2jQuQHv5dRUa44fFfI=;
-	b=B6e7nMCfabypWNv+a3GQL46vZKXkP11jcnW4zsjZkSPKp++qFXN4rgsAhDp5dAC4/YpCuF
-	W+kJdfM2aU7NGqAw==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795611719; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=p7hITA70+SpCbowH/AjvFi6LN2jQuQHv5dRUa44fFfI=;
-	b=oYUdnWiOcBt/7Qc302iNd+2wFmw1U8NlM/tR5LVoc3F9Fv89z1p+yepMzE5+7eSk3YxS9Y
-	ctQut4qeUVD3lt2foUL3UFXBTchFqbR/uJMEiG8GdfaDJn/p/5pbueALm6sTq2Xmm3oUhx
-	Z6m1uQ+jomLBxt2XHEjFM103J9EiYVk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795611719;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=p7hITA70+SpCbowH/AjvFi6LN2jQuQHv5dRUa44fFfI=;
-	b=BdORVejWQVbfi328wmasgi0TiH614hsruAsj3yWW37g1N+ohb5/Va7T4RISs4oiQrBlt9u
-	FIRKm3kmxLdcXzAg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id B665D134CA;
-	Wed, 25 Nov 2026 13:01:58 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Y7g3I0bcBmuOCgAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Wed, 25 Nov 2026 13:01:58 +0000
-Date: Wed, 25 Nov 2026 14:01:58 +0100
-Message-ID: <875wxl83p5.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: =?GB2312?B?0Ozqz8/o?= <xuhx@hust.edu.cn>
-Cc: perex@perex.cz,
-	tiwai@suse.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] Re: sound: core: card->devices is unlocked across the codec-side  targeted free and the card-side bulk free (double free / UAF; KASAN  confirmed on 7.3)
-In-Reply-To: <107cbd83.556.1a212b8f680.Coremail.xuhx@hust.edu.cn>
-References: <18ba4e54.1b567.1a18b1ea506.Coremail.xuhx@hust.edu.cn>
-	<107cbd83.556.1a212b8f680.Coremail.xuhx@hust.edu.cn>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=AWbd4jrq
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RecQWHcf0g/7phsZhG6kVT1xfoMmFPKf3VWSRx3g5gx00W66A+JCsg32K19YAezwF84XNl1JdXcVyZlY3OIdrL0CXiGIG0dQCiY/gNssxJQnPFzLVoTfS0hP9ujjC42xSVrTu9GqwVi1SBe3US+C7SBNY8doFFKXx3TKr7HiUJsnpnz2x9mtie+BE8eQvs3xu0TJLXibxOZT1PeZ/Nk7OZBv9lUgkaBhTG1dZif/iZbsPsbgOgn1bNJOaDp9EZV8xBP3obtMhh7Oaq9MLhxCXpzS8GGlzs5SyfqN5eyvnLegHmL3V86SmG6nq9jOASRKWxHsJV7OOOlap/ZZ1tC3Vw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0QsMJtJV/CkPhS4NsdJdCHHhtGGr6AOii/eJkT+S85w=;
+ b=XT03KaONAKHD9AgHuoTpt7aP6eN08rD8OQv9Zf1K4aQBX6Ftfa9V2M0PN5MOpWJBmJhjO2HEySS/SIQB0gESBtHmm99k7hbU8A8cMfdv3w2zzTZMBRuDMoxT4JiuV6IqbpPYVXg6vc4xdBZrleuvW2bLAu+pSMschW8xsyXhrOkzARUq6DOuWHLlujHEpF5wscfHWJL8xoBQWt91yg9dtGXhvoO4poyr4bHx69fRFKVz/fv3HohxNTT8pYUPa6pYZQ+ZftwkE5/TXDnaHa7Z96xu7aCOlGGARdGAuDAg+Kwyria979b3j075X+/sSq7j+xvhQ2PK9qoOggKGrRbpsQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0QsMJtJV/CkPhS4NsdJdCHHhtGGr6AOii/eJkT+S85w=;
+ b=AWbd4jrqPGDXlSAXKHLZY1AHo5kp7odSke/Ch/r61summhzcI/3iQLAwMNJXh5n8j052QdyvEEAXQcvSGPqwvgdBX2ibU5LHbnSeVtD2pXH5a5FP/nA71MZx0UMyA2XEor43ctjB+UsLhkvxtWeaKqrUsyjzWTq+19m3Ws6LY/fiO/LVPND6Iz6jNWnqit0fJRkVipPC7MrJ73T5dvqO8xVmXAAHqJ9fAzUwTl1T4NMAwsBTw5JgfpjqSAjNu2CjJsVsOvaBTXLdbNN2r4sG+B4MmOXmWWCiGWEa4z1Zyi+YT2hzG5DeHNIsr0b8oN29+UzKfgBnA1A32rKjF0Oc6g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
+ by WA4PR04MB209098.eurprd04.prod.outlook.com (2603:10a6:1d0:35::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 13:02:07 +0000
+Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
+ ([fe80::fc6e:ca22:f065:def4%5]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 13:02:07 +0000
+Message-ID: <92ce4557-a93b-4ef7-af6c-a2c1b24a3b11@oss.nxp.com>
+Date: Wed, 25 Nov 2026 15:05:49 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 3/5] dt-bindings: clock: nxp,imx95-blk-ctl: Add LDB
+ bridge child node
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+ Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, linux-clk@vger.kernel.org,
+ imx@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org
+References: <20261120-dcif-upstreaming-v13-0-966ac248773f@oss.nxp.com>
+ <20261120-dcif-upstreaming-v13-3-966ac248773f@oss.nxp.com>
+Content-Language: en-US
+From: Daniel Baluta <daniel.baluta@oss.nxp.com>
+In-Reply-To: <20261120-dcif-upstreaming-v13-3-966ac248773f@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR4P281CA0365.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f8::8) To GVXPR04MB12316.eurprd04.prod.outlook.com
+ (2603:10a6:150:2c6::8)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,548 +110,80 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=GB2312
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-12.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	URIBL_BLOCKED(0.00)[snd-hammer-b.sh:url,suse.com:email,perex.cz:email,imap1.dmz-prg2.suse.org:helo,hust.edu.cn:email];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[5];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[hust.edu.cn:email,perex.cz:email,suse.com:email,snd-hammer-b.sh:url,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -12.30
-X-Spam-Level: 
-X-Spam-Flag: NO
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|WA4PR04MB209098:EE_
+X-MS-Office365-Filtering-Correlation-Id: 89148a5e-00bd-4860-4d6c-08df4af44f1a
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|19092799006|23010399003|376014|7416014|366016|18002099003|22082099003|921020|10067099003|11063799006|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info:
+	kFgAWY+SuPfR3RxDJva4i/wWCLc5WWQj8f2NRgSDiYLx1He0SyYjAqnv/aDVsrIix0U5ZhWcCtCcksntcSx0/BfWy5WVYXvP482bk3JtTe7llUV2fYodFTCmpK3NcDKdsx/UlMkzA6B/8D7s5IZ1v+9aNUs0sg62WsxXfhmDi2PnRpK6GkGhp8PA7on9L+d1afj3shCIQXMx/zjus949sFwwn24R783fHxDHjCBi4+q2h4S0XJGQE6OYcB+/mflqazZWrUbHkMe7+4+kxjIcYiKxorVyAaJ0NmQxP3+MXyWO0GzaosLlEYr/tFTbtxSnCyYX4ZSMHJtdLAUaZMZdMRRGDrOBcuFFlME9ZJMMkH/FVE4q9ZB2LSLeepSMQqZTDQfPujRm5TeBPsT0vjNayvZgTjRsl22P8Do4UFvIUFXa2Sa36kRzQsKKSq5SwPdeICCNqS5yikKLoC9gZ9gEjSNDk+oIRcXngOGL+aIujC54wZJQ6JoagCNI6OOyg31TixbrA7CLhRxqaoev2T18x1xLfdkAYeC5x//orM8MROjoRl7GNswEsTWIsl7a8lkUZ3QhYYBWP5PZ8QbY6QcV/zstXiUw0+jXSSA0k/RvC2QVZBxL1SFsa8hj/cd1MXd99f66GTBqe5fqeUsN+KzqPDl996kHnsyq9CHbB4vbxXcNGbbOYU2fUhRQAAzvT8Xj0Nz9Yzu8EF63yUsZiArgLw==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(23010399003)(376014)(7416014)(366016)(18002099003)(22082099003)(921020)(10067099003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?bmlTdWZHb0UzdHY0cTNPeGVwcmxzSUE2MzF1dUw0NVBNSnlxQVVCUjkrMUZn?=
+ =?utf-8?B?NW5kcTB2SFpZWnVtbzRWTlVXVEo5ZU11bmtESEZnTE1uYkRCMktFaVRBRFRU?=
+ =?utf-8?B?QnEzZG1Hd3FYRG1haVU1bklVZ1NHN1FtcSt4NTBUdWdZOWNHaWE0aXAvdVZM?=
+ =?utf-8?B?VGhTd0phZmNKM1oyb3JURU45UUtwamUvbzFvR2VLOHFUcDNHTFdvSlBvdEJZ?=
+ =?utf-8?B?aExQRzMzcEhrQjFZN3NLd1lYOUdHZW1YUTRCVm10MGZWa2Z5TkJBMjE3ZDdK?=
+ =?utf-8?B?L205RXNJVGt3bTVTQXJ1TTVFWUt3a3lsWWRhaVhTSXEyWkNUbTZnWUpCYzFl?=
+ =?utf-8?B?QVViTVQzVmhWaEYwTlNON25hK0xOTm9jSnZYZTh2bjF5YitVMlpEQW4vU3ky?=
+ =?utf-8?B?SHBraEtKL3FyNnRDYTJGTmRUMlMxMUk1eVhOZkJMTlpEd2lJdmk2TzJoVVdY?=
+ =?utf-8?B?VG9ITjhVd21MdnBPL1FCYlRXN0o4aDRoSHVCM3Vid0pmRXdMbDQxRVRDQjhW?=
+ =?utf-8?B?T0YvVnlwT2hIcjAxa281cGJFWm14eWx5T1RoQWllakdVOEVWejZWZytaQXd6?=
+ =?utf-8?B?MVEvQ3FJZ0xsQThvU1RjMGt6Ry9EV3R4ZStiUGJkcVBCS1pwc0NFVVpvV0t6?=
+ =?utf-8?B?SGJyNmR4eXhHQ1F4Vnd2a1BmcUlCa25NajFWOW1oRWZnVlY0ek5uV0FkMFVF?=
+ =?utf-8?B?d2JQdjU3MElkQjVXWmgxM2dSQnhIRGxNWVBOQ1NKd0FEMFBMS1JESElNVEpj?=
+ =?utf-8?B?OWRDUDVVSytQVVZpdDBzRjZKclV5NXYyMHlsOGJ6MXpaYm1XQmRIR0FCMWFX?=
+ =?utf-8?B?clFhMks0ZVA0R0dZRHVYYkE1Tml2b3NEcjNFVzIxRWxlSjVHZjhRU0NNcmVW?=
+ =?utf-8?B?ZFEyN0hKZXZLYzYzTkRmQzdSODgzRnVTMjJWcHBpZDRGdnJDOEFYOHpqTHFz?=
+ =?utf-8?B?V0MyQ3NGWkd4VjVPaS9nQzNIcGlkd0x1cVdWanZZbHBRWW51WWE4V3hDK2dP?=
+ =?utf-8?B?c3ZkM2NCMUtPcmZvYW1jbTl2STNCenk4NmhlVVNyZmk5eEFCUzJUTWRhbDVw?=
+ =?utf-8?B?K1VwOGgwczNGNndnU0xVK0grdndLMXA3TmhUVUVnZW02aTU0VWc4M3RvQVhU?=
+ =?utf-8?B?OVo2ZFpZRWFzeko4ODEvUndSSXFxSGx0Z0g1QXI4VXVkdG5qRW1LOFFhdjc5?=
+ =?utf-8?B?Y2JCWHFXcXJHOEEzNVkvU2tyYVBmVEJOZVNwMnl2cHRvZ0FzVlVhUHNOYzNx?=
+ =?utf-8?B?d1ZGVmNqZ0F4MkU0dGVrNnhLc2NzcVhGNzVpSVhpNVhXT0JHbmpGb0dDb0Jo?=
+ =?utf-8?B?V0c3VStUaWhFWlJJNHV2aklKT0o5cjJCS1k1ckJEZGRXZGl1bGJVUFowNUND?=
+ =?utf-8?B?RzRVSG9xWXRPTUYza1JDMzlTNk55eWw5Zlo4SjU1c2FzM01lclkxN1h3NXZ0?=
+ =?utf-8?B?Q0pQQlhFZkNpNTUwUlhya0hmT1cyTG9CVnBtZGI2RHZra1NjbThFb2dtak1j?=
+ =?utf-8?B?bFN3Umx6U2VNejhxNmpjalFkZTA4ZVJENnVVSmliZ2ZTUWpNUWFuNFYrMVpX?=
+ =?utf-8?B?Yzh2UnRGV0t3My80TXVmRi91UXQ4bElGd2FtRFNPTXpEb2NCMXNiTVYvMVpk?=
+ =?utf-8?B?WVlEUnEydGlhREtwanM5UWVvQ3ZVSFZ2NCticU42dUxtMGtWREEyVjF1SG9z?=
+ =?utf-8?B?UGV6UnZTQlhaUE8rOExYeFVyWkdCM0F0eXppaW83UTFUTHhINXh4WW1jUlFU?=
+ =?utf-8?B?NGJIV2VRRzI0dGNadWVlR3hrbXRWQTIyN0dJeXg1SElQNzZMamRjazFLQ2Fz?=
+ =?utf-8?B?WGJTY2FzWGRuQW1iSmhCR0NEQXhiSXZDV0tmbVdFUjA1Q0VGN2lIbmE4ZHRO?=
+ =?utf-8?B?d3hESlpwM2REQ3VNV0hlUVBWZVdhNUc3THZLNGJaOEw1c1pvMVo3dkZSZEMv?=
+ =?utf-8?B?SlVTL2ZNaU9CaDdwbUt2RzJwWTc2M2JaOWFjQ0pnRHNIV3J3UE9zdnZZMk1T?=
+ =?utf-8?B?em1ZSlFzemdaeHIyYTFpcERTajNNQmpMOFlCaGk2eGhzNTMrakxtMXlZY1kv?=
+ =?utf-8?B?RTV6NFZoYkRJZkVLS050YlEyYTgyQVJpTHpYWUk0aTl1YjdhSDhTV3Q3UTYv?=
+ =?utf-8?B?VFkvd3BTdjNWbzNuYjh0N01xWXpaZGx1L1g1eEhCSTlXUDZqcmNINTZadTd3?=
+ =?utf-8?B?NCszbmUyL3RaZmZORjFtT0ZZQlJvQkgvY1FpUCtRYUNMOUcvK2c0V3NsSzhn?=
+ =?utf-8?B?eFdBK1RUcXNKNGlJWWNBbVluZFd4ZENzakF1bUU4S3AwRXErUU16T0RZclhN?=
+ =?utf-8?B?T1p5UXNSQmlFNHl6K2l2OWRIa0JiK281dXZ5KzVhcnJ1d1BCbWxBZz09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 89148a5e-00bd-4860-4d6c-08df4af44f1a
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 13:02:07.1197
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mpidVdqUMBIsnc03cHEB+kw0ThyknxnkGkcPXsZ1B19flkWudzkcLfm3ob6ukIttJUSDZx+EwbC+HVuwhrOzqA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: WA4PR04MB209098
 
-On Wed, 25 Nov 2026 13:40:41 +0100,
-徐晗翔 wrote:
+On 11/20/26 14:50, Laurentiu Palcu wrote:
+> Since the BLK CTL registers, like the LVDS CSR, can be used to control the
+> LVDS Display Bridge controllers, add a 'bridge' child node to handle
+> these use cases.
 > 
-> card->devices was maintained entirely without locks while three
-> paths with pairwise-disjoint lock sets mutate it: the HDA codec
-> driver's targeted snd_device_free() of its PCM/JACK nodes, the
-> card-side bulk snd_device_disconnect_all()/snd_device_free_all(),
-> and the register_all() traversal.  A codec unbind racing the card
-> teardown produced double frees and use-after-frees on the list, the
-> snd_device and the freed PCM/chmap kcontrol.
-> 
-> Serialize every list operation with a per-card device_list_lock,
-> but never hold it across a device callback: a node is *claimed*
-> (unlinked under the lock) while its dev_disconnect/dev_register/
-> dev_free callbacks run, so a concurrent targeted free can no longer
-> find and double free the same node, and no traversal can touch a
-> node being freed.  For the chmap kcontrol form, snd_ctl_remove() now
-> verifies the instance is still linked on card->controls before
-> touching it, so a stale pointer can no longer be list_del()'d and
-> double kfree()d by the PCM teardown racing the CONTROL teardown.
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 
-Sorry, but this is way too much for that corner case.  Basically it's
-a job of the driver, not calling those functions concurrently.
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
-The HD-audio codec unbind race should be addressed differently,
-e.g. the whole procedure there should be serialized.
-
-So, if the problem happens only by HD-audio codec binding/unbinding
-thing, let's avoid this kind of workaround in the core side.
-
-
-thanks,
-
-Takashi
-
-
-> ---
->  sound/core/control.c | 13 ++++++++++++-
->  sound/core/init.c    |  1 +
->  sound/core/device.c  | 185 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-----------------------------------
->  include/sound/core.h |  1 +
->  4 files changed, 164 insertions(+), 36 deletions(-)
-> 
-> diff --git a/sound/core/control.c b/sound/core/control.c
-> --- a/sound/core/control.c
-> +++ b/sound/core/control.c
-> @@ -620,10 +620,21 @@
->   */
->  int snd_ctl_remove(struct snd_card *card, struct snd_kcontrol *kcontrol)
->  {
-> +	struct snd_kcontrol *ctl;
-> +
->  	if (!kcontrol)
->  		return 0;
->  	guard(rwsem_write)(&card->controls_rwsem);
-> -	return snd_ctl_remove_locked(card, kcontrol);
-> +	/* Paranoia against stale pointers: a caller (e.g. the PCM chmap
-> +	 * teardown) may race the card's CONTROL teardown, which has
-> +	 * already removed and freed this very kcontrol.  Verify the
-> +	 * instance is still linked on the card's control list before
-> +	 * touching its contents. */
-> +	list_for_each_entry(ctl, &card->controls, list) {
-> +		if (ctl == kcontrol)
-> +			return snd_ctl_remove_locked(card, kcontrol);
-> +	}
-> +	return -ENOENT;
->  }
->  EXPORT_SYMBOL(snd_ctl_remove);
->  
-> diff --git a/sound/core/init.c b/sound/core/init.c
-> --- a/sound/core/init.c
-> +++ b/sound/core/init.c
-> @@ -315,6 +315,7 @@
->  	WARN_ON(IS_MODULE(CONFIG_SND) && !module);
->  	card->module = module;
->  	INIT_LIST_HEAD(&card->devices);
-> +	spin_lock_init(&card->device_list_lock);
->  	init_rwsem(&card->controls_rwsem);
->  	rwlock_init(&card->controls_rwlock);
->  	INIT_LIST_HEAD(&card->controls);
-> diff --git a/sound/core/device.c b/sound/core/device.c
-> --- a/sound/core/device.c
-> +++ b/sound/core/device.c
-> @@ -10,6 +10,82 @@
->  #include <linux/errno.h>
->  #include <sound/core.h>
->  
-> +/*
-> + * The card device list (card->devices) has independent free paths: the
-> + * targeted snd_device_free() calls from driver teardown (e.g. the HDA
-> + * codec cleanup) and the card-side bulk snd_device_disconnect_all() /
-> + * snd_device_free_all() (plus the register_all() traversal).  They run
-> + * under different driver-core locks, i.e. they are real concurrency, and
-> + * every list operation here is serialized by card->device_list_lock.
-> + *
-> + * The device callbacks (dev_disconnect / dev_register / dev_free) may
-> + * sleep and may take arbitrary driver locks, so the list lock is never
-> + * held across a callback.  Instead a node is *claimed*: it is removed
-> + * from the list under the lock and processed with the lock released.
-> + * A claimed node is invisible to all the other list operations, hence
-> + * a concurrent targeted free cannot find, list_del() or kfree() the same
-> + * node again (double free), and a concurrent traversal cannot touch a
-> + * node that is being freed (use-after-free).
-> + */
-> +
-> +/* insert dev into the card's device list, keeping the type-sorted order;
-> + * the caller must not hold the list lock */
-> +static void snd_device_insert(struct snd_card *card, struct snd_device *dev)
-> +{
-> +	struct list_head *p;
-> +
-> +	guard(spinlock_irqsave)(&card->device_list_lock);
-> +
-> +	/* insert the entry in an incrementally sorted list */
-> +	list_for_each_prev(p, &card->devices) {
-> +		struct snd_device *pdev = list_entry(p, struct snd_device, list);
-> +		if ((unsigned int)pdev->type <= (unsigned int)dev->type)
-> +			break;
-> +	}
-> +
-> +	list_add(&dev->list, p);
-> +}
-> +
-> +/* claim (unlink) the node for @device_data, or return NULL if it is not
-> + * on the list (e.g. concurrently claimed and freed by another path) */
-> +static struct snd_device *snd_device_claim(struct snd_card *card,
-> +					   void *device_data)
-> +{
-> +	struct snd_device *dev;
-> +
-> +	guard(spinlock_irqsave)(&card->device_list_lock);
-> +
-> +	dev = look_for_dev(card, device_data);
-> +	if (dev)
-> +		list_del(&dev->list);
-> +	return dev;
-> +}
-> +
-> +/* move all devices to @head in reverse list order while holding the list
-> + * lock, so the caller can process the claimed nodes without the lock */
-> +static void snd_device_claim_all(struct snd_card *card, struct list_head *head)
-> +{
-> +	struct snd_device *dev, *next;
-> +
-> +	guard(spinlock_irqsave)(&card->device_list_lock);
-> +
-> +	list_for_each_entry_safe_reverse(dev, next, &card->devices, list)
-> +		list_move_tail(&dev->list, head);
-> +}
-> +
-> +/* put the previously claimed nodes back on the card list in their
-> + * original order */
-> +static void snd_device_restore_all(struct snd_card *card,
-> +				   struct list_head *head)
-> +{
-> +	struct snd_device *dev, *next;
-> +
-> +	guard(spinlock_irqsave)(&card->device_list_lock);
-> +
-> +	list_for_each_entry_safe_reverse(dev, next, head, list)
-> +		list_move_tail(&dev->list, &card->devices);
-> +}
-> +
->  /**
->   * snd_device_new - create an ALSA device component
->   * @card: the card instance
-> @@ -30,7 +106,6 @@
->  		   void *device_data, const struct snd_device_ops *ops)
->  {
->  	struct snd_device *dev;
-> -	struct list_head *p;
->  
->  	if (snd_BUG_ON(!card || !device_data || !ops))
->  		return -ENXIO;
-> @@ -44,14 +119,7 @@
->  	dev->device_data = device_data;
->  	dev->ops = ops;
->  
-> -	/* insert the entry in an incrementally sorted list */
-> -	list_for_each_prev(p, &card->devices) {
-> -		struct snd_device *pdev = list_entry(p, struct snd_device, list);
-> -		if ((unsigned int)pdev->type <= (unsigned int)type)
-> -			break;
-> -	}
-> -
-> -	list_add(&dev->list, p);
-> +	snd_device_insert(card, dev);
->  	return 0;
->  }
->  EXPORT_SYMBOL(snd_device_new);
-> @@ -66,11 +134,9 @@
->  	}
->  }
->  
-> +/* run the free callbacks of an already claimed node */
->  static void __snd_device_free(struct snd_device *dev)
->  {
-> -	/* unlink */
-> -	list_del(&dev->list);
-> -
->  	__snd_device_disconnect(dev);
->  	if (dev->ops->dev_free) {
->  		if (dev->ops->dev_free(dev))
-> @@ -83,6 +149,8 @@
->  {
->  	struct snd_device *dev;
->  
-> +	lockdep_assert_held(&card->device_list_lock);
-> +
->  	list_for_each_entry(dev, &card->devices, list)
->  		if (dev->device_data == device_data)
->  			return dev;
-> @@ -109,12 +177,15 @@
->  
->  	if (snd_BUG_ON(!card || !device_data))
->  		return;
-> -	dev = look_for_dev(card, device_data);
-> -	if (dev)
-> -		__snd_device_disconnect(dev);
-> -	else
-> +	dev = snd_device_claim(card, device_data);
-> +	if (!dev) {
->  		dev_dbg(card->dev, "device disconnect %p (from %pS), not found\n",
->  			device_data, __builtin_return_address(0));
-> +		return;
-> +	}
-> +
-> +	__snd_device_disconnect(dev);
-> +	snd_device_insert(card, dev);
->  }
->  EXPORT_SYMBOL_GPL(snd_device_disconnect);
->  
-> @@ -130,15 +201,19 @@
->  void snd_device_free(struct snd_card *card, void *device_data)
->  {
->  	struct snd_device *dev;
-> -	
-> +
->  	if (snd_BUG_ON(!card || !device_data))
->  		return;
-> -	dev = look_for_dev(card, device_data);
-> -	if (dev)
-> +	/* claim the node off the list before running its callbacks: a
-> +	 * concurrent targeted free or the card bulk free can no longer
-> +	 * find (and double free) the same node */
-> +	dev = snd_device_claim(card, device_data);
-> +	if (dev) {
->  		__snd_device_free(dev);
-> -	else
-> -		dev_dbg(card->dev, "device free %p (from %pS), not found\n",
-> -			device_data, __builtin_return_address(0));
-> +		return;
-> +	}
-> +	dev_dbg(card->dev, "device free %p (from %pS), not found\n",
-> +		device_data, __builtin_return_address(0));
->  }
->  EXPORT_SYMBOL(snd_device_free);
->  
-> @@ -171,14 +246,19 @@
->  int snd_device_register(struct snd_card *card, void *device_data)
->  {
->  	struct snd_device *dev;
-> +	int err;
->  
->  	if (snd_BUG_ON(!card || !device_data))
->  		return -ENXIO;
-> -	dev = look_for_dev(card, device_data);
-> -	if (dev)
-> -		return __snd_device_register(dev);
-> -	snd_BUG();
-> -	return -ENXIO;
-> +	dev = snd_device_claim(card, device_data);
-> +	if (!dev) {
-> +		snd_BUG();
-> +		return -ENXIO;
-> +	}
-> +
-> +	err = __snd_device_register(dev);
-> +	snd_device_insert(card, dev);
-> +	return err;
->  }
->  EXPORT_SYMBOL(snd_device_register);
->  
-> @@ -190,11 +270,26 @@
->  {
->  	struct snd_device *dev;
->  	int err;
-> -	
-> +
->  	if (snd_BUG_ON(!card))
->  		return -ENXIO;
-> -	list_for_each_entry(dev, &card->devices, list) {
-> +
-> +	/* register one device at a time: claim it off the list while its
-> +	 * dev_register callback runs.  A dev_register callback may itself
-> +	 * register another (not yet processed) device, so the nodes stay
-> +	 * visible on the list between the callbacks. */
-> +	for (;;) {
-> +		scoped_guard(spinlock_irqsave, &card->device_list_lock) {
-> +			dev = list_first_entry_or_null(&card->devices,
-> +						       struct snd_device, list);
-> +			if (dev)
-> +				list_del(&dev->list);
-> +		}
-> +		if (!dev)
-> +			break;
-> +
->  		err = __snd_device_register(dev);
-> +		snd_device_insert(card, dev);
->  		if (err < 0)
->  			return err;
->  	}
-> @@ -207,12 +302,23 @@
->   */
->  void snd_device_disconnect_all(struct snd_card *card)
->  {
-> -	struct snd_device *dev;
-> +	LIST_HEAD(claimed);
-> +	struct snd_device *dev, *next;
->  
->  	if (snd_BUG_ON(!card))
->  		return;
-> -	list_for_each_entry_reverse(dev, &card->devices, list)
-> +
-> +	/* claim every node, then run the disconnect callbacks with the
-> +	 * list lock released; a claimed node is invisible to concurrent
-> +	 * targeted disconnect/free calls, so no callback races a free of
-> +	 * its own device */
-> +	snd_device_claim_all(card, &claimed);
-> +	list_for_each_entry_safe(dev, next, &claimed, list)
->  		__snd_device_disconnect(dev);
-> +
-> +	/* put the disconnected devices back in their original order; the
-> +	 * card free path walks the list again */
-> +	snd_device_restore_all(card, &claimed);
->  }
->  
->  /*
-> @@ -221,19 +327,28 @@
->   */
->  void snd_device_free_all(struct snd_card *card)
->  {
-> +	LIST_HEAD(claimed);
->  	struct snd_device *dev, *next;
->  
->  	if (snd_BUG_ON(!card))
->  		return;
-> -	list_for_each_entry_safe_reverse(dev, next, &card->devices, list) {
-> -		/* exception: free ctl and lowlevel stuff later */
-> +
-> +	/* first pass: free everything but ctl and lowlevel stuff later;
-> +	 * the claimed list is in reverse card-list order, i.e. the original
-> +	 * free order */
-> +	snd_device_claim_all(card, &claimed);
-> +	list_for_each_entry_safe(dev, next, &claimed, list) {
->  		if (dev->type == SNDRV_DEV_CONTROL ||
->  		    dev->type == SNDRV_DEV_LOWLEVEL)
->  			continue;
-> +		list_del(&dev->list);
->  		__snd_device_free(dev);
->  	}
->  
-> -	/* free all */
-> -	list_for_each_entry_safe_reverse(dev, next, &card->devices, list)
-> +	/* free all; the claimed nodes are off the card list, so a
-> +	 * concurrent targeted free cannot find them again */
-> +	list_for_each_entry_safe(dev, next, &claimed, list) {
-> +		list_del(&dev->list);
->  		__snd_device_free(dev);
-> +	}
->  }
-> diff --git a/include/sound/core.h b/include/sound/core.h
-> --- a/include/sound/core.h
-> +++ b/include/sound/core.h
-> @@ -116,6 +116,7 @@
->  	void (*private_free) (struct snd_card *card); /* callback for freeing of
->  								private data */
->  	struct list_head devices;	/* devices */
-> +	spinlock_t device_list_lock;	/* protects the devices list */
->  
->  	struct device *ctl_dev;		/* control device */
->  	unsigned int last_numid;	/* last used numeric ID */
-> -- 
-> 
-> 
-> > -----原始邮件-----
-> > 发件人: 徐晗翔 <xuhx@hust.edu.cn>
-> > 发送时间:2026-10-30 12:43:23 (星期五)
-> > 收件人: perex@perex.cz, tiwai@suse.com
-> > 抄送: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-> > 主题: sound: core: card->devices is unlocked across the codec-side  targeted free and the card-side bulk free (double free / UAF; KASAN  confirmed on 7.3)
-> > 
-> > The per-card device list (card->devices) has two independent free
-> > paths that share no lock: the HDA codec driver's targeted release
-> > (unbinding the codec driver walks snd_hda_codec_cleanup_for_unbind()
-> > and frees the codec's PCM/JACK snd_device nodes) and the card-level
-> > bulk release (snd_card_free() -> snd_device_free_all(), entered from
-> > PCI remove or, when files were open, from the last file close).
-> > sound/core/device.c maintains that list -- lookup, traversal, unlink,
-> > free -- entirely without locks; the two paths run under different
-> > driver-core locks (codec_dev->mutex vs pci_dev->mutex vs none), so
-> > the interleavings are real concurrency.  I reproduced it on a vanilla
-> > Linux 7.3 KASAN kernel with an emulated Intel HDA controller using
-> > only root sysfs writes: the first concurrent round already produced
-> > slab-use-after-free reports, and a sustained hammer accumulated
-> > ~1900 KASAN reports, including a three-stack closure on the JACK
-> > objects (allocated by the codec probe, freed by the codec-side
-> > targeted cleanup, written by the card-side bulk free).
-> > 
-> > Where the locks are, and where they are not: the PCM disconnect
-> > callbacks do take the global register_mutex, so the *disconnect*
-> > stages of both paths are serialized -- the gap is the *free* stage
-> > and the list itself (__snd_device_free(), look_for_dev(),
-> > snd_device_free_all() in sound/core/device.c are all unlocked).  A
-> > fourth, wider form extends to card->controls: when the codec-side PCM
-> > free reaches free_chmap() -> snd_ctl_remove() for the PCM's channel
-> > map kcontrol, the card-side CONTROL teardown
-> > (snd_ctl_dev_free()) may already have deleted and freed that same
-> > kcontrol -- controls_rwsem serializes the list operations but cannot
-> > protect the dangling chmap_kctl pointer, so snd_ctl_remove()
-> > performs a UAF write (list_del) and a double free.  This form does
-> > not depend on winning the narrow instruction-level windows of the
-> > list races: its window is the whole second half of the targeted
-> > snd_pcm_free() versus the card-side CONTROL-round completion, i.e.
-> > tens of microseconds, and I expect it to be the first form hit under
-> > sustained pressure on real hardware.
-> > 
-> > The detailed description:
-> > 
-> > * The two unlocked paths (Linux 7.3 line numbers)
-> > 
-> >   T1 (codec side): /sys/bus/hdaudio/drivers/<codec-drv>/unbind ->
-> >     device_release_driver(codec_dev) [codec_dev->mutex] ->
-> >     hda_codec_driver_remove() (sound/hda/common/bind.c:152-174) ->
-> >     snd_hda_codec_cleanup_for_unbind() (codec.c:758-791) ->
-> >     codec_release_pcms() -> snd_device_free(card, pcm)
-> >     (codec.c:747); along the way snd_hda_jack_tbl_clear() ->
-> >     snd_device_free(card, jack->jack) (jack.c:188).
-> >   T2 (card side, no open files): PCI unbind/remove ->
-> >     device_release_driver(pci_dev) [pci_dev->mutex] -> azx_remove()
-> >     -> snd_card_free() -> snd_card_disconnect() ->
-> >     snd_device_disconnect_all(); same-thread put_device ->
-> >     snd_card_do_free() -> snd_device_free_all().
-> >   T3 (card side, files were open): the last close's
-> >     snd_card_file_remove() -> put_device() runs snd_card_do_free()
-> >     -> snd_device_free_all() in the closing task.
-> >   All snd_device list operations in sound/core/device.c (82-91
-> >   look_for_dev; 69-80 __snd_device_free's list_del; 208-216
-> >   disconnect_all; 222-239 free_all) are unlocked; T1/T2/T3's lock
-> >   sets are pairwise disjoint.  The best window is the "same close
-> >   event, dual wakeup": with a PCM stream open, T1 blocks in
-> >   snd_refcount_sync(&codec->pcm_ref) and T2 blocks in
-> >   wait_for_completion(&released); the stream's close wakes T1
-> >   (snd_hda_codec_pcm_put) and simultaneously makes the closer itself
-> >   run the card bulk free -- one event releases two unlocked paths.
-> > 
-> > * Failure forms
-> >   1. free vs traversal: T1's look_for_dev() picks a node, T2/T3
-> >      frees it, T1's list_del/dev_free/kfree hit freed memory (UAF
-> >      write + indirect call); the reverse tears T2/T3's
-> >      list_for_each_entry_safe traversal.
-> >   2. free vs free: both obtain the node before either unlinks --
-> >      two snd_pcm_free() executions, double kfree of the snd_device,
-> >      the snd_pcm and the azx_pcm private data, plus a double
-> >      put_device on the stream devices (kref underflow).
-> >   3. chmap vs CONTROL teardown (the wide one, see above):
-> >      snd_pcm_free() -> snd_pcm_free_stream() -> free_chmap()
-> >      (pcm.c:802-810,836) -> snd_ctl_remove(card, chmap_kctl) races
-> >      snd_ctl_dev_free() (control.c:2457-2477): the rwsem orders the
-> >      list ops but T1's chmap_kctl is a bare pointer; if T2 freed the
-> >      kcontrol first, T1's __snd_ctl_remove() does remove_hash_entries
-> >      (UAF read/write) + list_del (UAF write) and snd_ctl_free_one
-> >      runs private_free + kfree again (double free).
-> > 
-> > * Evidence (vanilla 7.3 KASAN + CONFIG_SND_HDA_RECONFIG/GENERIC,
-> >   QEMU intel-hda + hda-duplex; reproducer attached)
-> >   Hammer (attached snd-hammer-b.sh): T1 codec-driver unbind/bind
-> >   loop x T2 PCI unbind/bind rounds x T3 PCM open/close churn -- pure
-> >   root sysfs writes, no kernel modification.
-> >   - First concurrent round: 4 slab-use-after-free reports; sustained
-> >     run: ~1900 reports.  Dominant forms:
-> >       * hda_free_jack_priv+0x23/+0x31 slab-use-after-free (write),
-> >         three stacks closed:
-> >           use: snd_device_free_all -> snd_jack_dev_free ->
-> >                hda_free_jack_priv  (card-side bulk free)
-> >           free: snd_hda_codec_cleanup_for_unbind -> snd_array_free
-> >                (codec-side targeted cleanup of the jack table)
-> >           alloc: hda_codec_driver_probe -> snd_hda_gen_build_controls
-> >                -> snd_hda_jack_tbl_new -> snd_array_new (codec probe)
-> >         -- i.e. the audited two-path interleaving, materialized on
-> >         the JACK objects (jack->jack is a snd_device on the same
-> >         card->devices list).
-> >       * snd_pcm_open slab-use-after-free + snd_card_file_add
-> >         out-of-bounds/NULL (opens racing the teardown).
-> >       * snd_device_register_all wild-memory-access reading list
-> >         poison (dead000000000118): the delayed probe work's
-> >         snd_card_register traversal racing the concurrent teardown --
-> >         the register_all side of the same unlocked list.
-> >       * ~1890 reports of queued_spin_lock_slowpath
-> >         slab-out-of-bounds: spinning on locks embedded in freed
-> >         memory (the card/files lock family) -- the freed-lock spin
-> >         family that also explains the hang shape in my separate
-> >         reconfig report.
-> >   - Baseline (sequential reconfig, sequential PCI unbind/bind, 40
-> >     churn rounds without concurrency): zero splats.
-> > 
-> >   Honest scope note: the natural hammer hit the widest-window forms
-> >   first (JACK UAF, freed-lock spins); the PCM/chmap-specific forms
-> >   1/2/3 above were source-verified and are the same unlocked-list
-> >   root cause, but were not individually isolated in this run.
-> > 
-> > 
-> > 
-> > Regards,
-> > Hanxiang Xu
-> > xuhx@hust.edu.cn
-> > 
-> > 
