@@ -1,89 +1,148 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795638737;
-	b=G7IM+4Dqu9qRbTXHsxQdtk8aciOEfyDRyE/SQ7B28aDO/SSCfTURIxfmRRO39HkZlhNj
-	 RK5GeAjbrz8Eb3+iVf1X2Q5ryJJLMEjAzRe4sxCNVpfFjmX0egdLoLQ84jcUb0mHoICm7
-	 BQq/NeR7BezhIEs3PE/5pf6XEdM5zeQYwJgkPiQ7XSC6na2eqr4t3s5ELOXeb4anUMCPo
-	 k+Ad0kxTwDgpUnALokzoTNuYjO0vYbitlJ+cdf/K0pDvK9S3LXIh0uOnEW1dmPbjx3xU5
-	 hSIAM4v1ykiMA8V14XXH9qPTnEtqfKRU/h5xW7LnuTG+Z4swjHTluBWF7WaMrwO1P5Q==
+	t=1795638789;
+	b=cXP/Z2M1nL8CfAJkcE0wqgzGGfed91Lwo2BvqC3q7vj0fjJx6S3KoW2AuSH+3cVSXeEy
+	 tefsxIb971lXt15UoWz0SSx39qGL9Ydo4/FC+0u6Rw8oKQ7E9XRCQjsnutV1UGukv9Wx9
+	 xL/2NChrfL1G06vLoj2KWqx0WA1TpgpdmHrUJCQJxBRHZjKxLpUwzCHRq8EllIgf/AxS2
+	 2IN+zgr9yDhyGGslgvWCoi/GK1SmUcotBdZawnQZjuL+9Y6/mFhdMja5dtbkCg3nT8JwY
+	 X1y6kts0x7vhP9RCktjV6XIUJ+HlSK9Hv2uiyZH8PflMThojEhqhFi4dnUppgf2NIZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795638737;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=mDhvBvovwpJTge71NdthCCdTa9trxCPJhLZ+RIaHARI=;
-	b=fqPYGGaSN+6kYr6querNtrLWEdxwpvjASc750ZI2ggUSv26f90sELkxPfdcgy07EfEJC
-	 t5scMsyfQrtDl2eRU5mAoLTCpnmfaktGFLofLuhuttS9QyKYmVdHfumblU/3+JNqG9K+3
-	 oviiJJrCRlv/Nt67L/HBmvae7ffiETFwMvehNzx/MzA0G7XSM+l2jpxn5tMvxpxR3G/Xl
-	 inCS+EE73pBaD5+GHgcZ4uvInoQwM+IWhifPShcdulMqOPPr7paQv8PiNvDb1K+U4j+FH
-	 wsaZvHisbI/HqkrmRLWkR5dGcM7si1SJiTDiBA6Dee29j2htocUG9os+kr6Bdbw45lA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795638789;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Subject:From:To:Cc:
+	 In-Reply-To:References:Autocrypt:Content-Type:
+	 Content-Transfer-Encoding:Date:MIME-Version:User-Agent:X-TM-AS-GCONF:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=jEeLCB+aXgOVbuv66IfMGqFTl5oga9w2PPFkHOWOMdM=;
+	b=T351DBWybhGQ6MSoMa5PrdNU+v683bS5FXdrcvNsucLldn9BM2Z21Bbr5QgLlK8ZCOQM
+	 Cnty5Iy6IEhfRFT1wCNKlXIw4nog9wQtyTsH9vwsNsptWJEfQe0nRGtAGcYJBfESRsOjY
+	 eNGh01lj6pzb2zqA2xMSDo9Oj61idl8DTzDgnsSwejirOFssjz7NWuK5B4wpeUXClz2mT
+	 M2pLAcgNlrfBGuiGFHe3jMooRA3RoasTwkCTaOIlaxM86o43m1QmUv43rW2wZadqoQiMt
+	 kWufoVSd4G7XYegANwR9X3Jtw6794JRfRNMDhcNhJsANL+1i+nQw03wWujSa6C/CQaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=O+QxZTzG;
-	arc=none smtp.remote-ip=209.85.208.173
-Received: from mail-lj1-f173.google.com (mail-lj1-f173.google.com [209.85.208.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=M9xSkiRk;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD6C5606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:32:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD6C5606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B0A2606A31E;
+	Wed, 25 Nov 2026 20:33:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B0A2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=O+QxZTzG
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-3ae854fd0f5so47573871fa.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:32:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795638735; x=1796243535; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mDhvBvovwpJTge71NdthCCdTa9trxCPJhLZ+RIaHARI=;
-        b=O+QxZTzGJKZE1f45ctwhg2D8IAzdtvGpRnSimOPHzZDyOGlf53Om/8QDO5AwZBTn60
-         vJh5Q86iifYdSHQzWZRBYXmqrEIPfxgGrbPtD+4CnS10X4Oug799cbLLDXgUM5LT1SJp
-         zKEQTpcWG5xIHaR7s42+95v1jOK/d/l5I0WkU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795638735; x=1796243535;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=mDhvBvovwpJTge71NdthCCdTa9trxCPJhLZ+RIaHARI=;
-        b=eSnH9VPf/5dpF9+rGNk2+0tiLpheu7H3T9UROX5iG6xr3hBAN8eMz4d1Hpc/rym34K
-         7jIMjHI9X7scDviKBY44vItFNR1P9hSo+4fQR+4QTAluVYRf5Ry/Z9qtBfzd/9s0s8me
-         tXFKufIF/eTSF5NeLAt8B8FOSUR+vAi4u/N/kSnN98z2iaMDnswqbmielsTgmsFaZ6HX
-         rhuMLuvS8/t6wL4x6n6S+8qEgTXK5GrRO33oPRQ5t3+h8KWm14OZAvM1aYXmkevT+arv
-         syZW6LMYMB3lbFoM1vX6bAn27LDqo90kuHVWqgLoZRth3a6QfbrmV0DkSEulj51ktXeM
-         xQrw==
-X-Forwarded-Encrypted: i=1; AL+hErHTvwAUDVBaDyhG9hz0qFn3HTE3I8l96a7g1m+RfoWsKSXdZx6wuEScqqnHo8xtV/q5eB8EiqetajGunsI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9YFsTG5Eq7iZLkR/bRpxFtFBdPpT2r4RLz/i1Z+oMXQI/4+3QF
-	KBKImbF3EB4htLDuW6Er/dspYATYcgolcghegc9JL2+kxrMaM0FAK0+w4l56U+/uSOmaZXF+2BA
-	cKleatPvP
-X-Gm-Gg: AZFdTZcWU6lmu6ska2HP/Hza3qW6LM+tR2LeKmPaX55IyhcDRLBEuektNo9UkEHd+J9
-	AFiBjv4k1Q++OpO+hhyamt8puOTpuaCCHOzhDZFs2tJbrkh9S+t3pk42teH2oe7MHVDxdY/e50c
-	qTi4ib8TyiIRTaMp9BiAB86Ckj5cg7VRk4OQOqG8QI0tL45OajgmZw3Dv1Ah8h7F7RNKC4Hdo91
-	4oL6aANcWM/fhHHwCdv6OgZLXPqm/L81Nc05o9Xp1dGCcxlB97FWvn+g0AVUAQ67tInwUrg4LI2
-	+iHlPNpD2vaOgyZSJUdjXC4ruq6ZfzV11Ei8eUSJ1yEhpdMLaUhTLmAOacY0c1Akh2w+FeEnDr+
-	ZjGVmCBwrDc1U3mrYWNe72krbcEyHzpj0ppan2DrAOq4grcgczgjVRL413E6AykreIRtKdifQgh
-	9My/2+Fr9+fYqjeapYQgc0+/eIay3WGUgBvLB06HRUNAe+FsEv9I0HeoTUY3+zmGuT7o1zymEFz
-	9RJQMaNKDHI0hM04nHyQJIQaFh5vuomtm0Bvlr+mzrQ9qIfG13as/ouXt8nzXIqL/ZkU5regVct
-	5qwVzGWtudT/sQ0SeJGhlufwiArSsMOZ1GwbIQp3n71gFFH62/2cflYuYyhGREl0ryz+
-X-Received: by 2002:a05:6512:6682:10b0:5c1:c3b6:49ca with SMTP id 2adb3069b0e04-5c1c3b64b13mr3526662e87.42.1795638734784;
-        Wed, 25 Nov 2026 12:32:14 -0800 (PST)
-Received: from mail-lf1-f46.google.com (mail-lf1-f46.google.com. [209.85.167.46])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd051944sm4735055e87.66.2026.11.25.12.32.14
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 12:32:14 -0800 (PST)
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5c17ef1e18cso3971667e87.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:32:14 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErE7EBxiY8n94O25/zsjX8n4SF6iKs9IMKbi/M262Qz35rVwi496rfzF2+tmULCjy19/T6gFvSA1qau5HIo=@vger.kernel.org
-X-Received: by 2002:a05:600c:8210:b0:4a2:1a:a116 with SMTP id
- 5b1f17b1804b1-4bb887865b5mr380873225e9.0.1795638297387; Wed, 25 Nov 2026
- 12:24:57 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=M9xSkiRk
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APJYlho613499;
+	Wed, 25 Nov 2026 20:32:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=jEeLCB
+	+aXgOVbuv66IfMGqFTl5oga9w2PPFkHOWOMdM=; b=M9xSkiRkEO176N8TQ1Ps5c
+	p3TkpgcyRrbbPjl6/XwPrCOwH/khz8SIIdzCwmfzISKZtgr3mkiD3zLQmjV4CQWM
+	hODw385qM1J64HExQUMD3kL2LYs5ciAnsNc9jZNdbTdLM7Qo0Bp9cA+JTqOBkAuT
+	mYmNTPEkoRzSgvw1LuJCHKgFF5UUfXpfTb5ys9fpONk85kfJSGWqPheFc4eWEFIC
+	iOeDdc98amRKKBKH/1lTaLk7PjYNnIeZ1zQIKQCAhKuKkdXaKfvm7C8slvVgfwkP
+	lmA7REQBaOU5yHLQAocWdYVWrQw7xYigFgshev1i5A1h5UuBNKwv/ivfxVPPux1Q
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g3eg83-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 20:32:55 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6APJJLTO1254917;
+	Wed, 25 Nov 2026 20:32:55 GMT
+Received: from smtprelay04.dal12v.mail.ibm.com ([172.16.1.6])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j5dcuvyj7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 20:32:55 +0000 (GMT)
+Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
+	by smtprelay04.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6APKWrJx27722414
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 25 Nov 2026 20:32:54 GMT
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 976845803F;
+	Wed, 25 Nov 2026 20:32:53 +0000 (GMT)
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A471058054;
+	Wed, 25 Nov 2026 20:32:51 +0000 (GMT)
+Received: from [9.111.87.46] (unknown [9.111.87.46])
+	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 25 Nov 2026 20:32:51 +0000 (GMT)
+Message-ID: <f2ce64236c70db1e377c3cb5b6acabcf6e8be8d2.camel@linux.ibm.com>
+Subject: Re: [RFC linux v1 3/3] iommu/virtio: Add device links for endpoints
+From: Niklas Schnelle <schnelle@linux.ibm.com>
+To: Cam Miller <cam@linux.ibm.com>, jpb@kernel.org, joro@8bytes.org,
+        will@kernel.org
+Cc: robin.murphy@arm.com, iommu@lists.linux.dev,
+        virtualization@lists.linux.dev, linux-kernel@vger.kernel.org,
+        mjrosato@linux.ibm.com
+In-Reply-To: <20261124155410.768743-4-cam@linux.ibm.com>
+References: <20261124155410.768743-1-cam@linux.ibm.com>
+	 <20261124155410.768743-4-cam@linux.ibm.com>
+Autocrypt: addr=schnelle@linux.ibm.com; prefer-encrypt=mutual;
+ keydata=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
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Wed, 25 Nov 2026 21:31:50 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,311 +152,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115180147.1208082-1-vamshigajjela@google.com> <20261115180147.1208082-3-vamshigajjela@google.com>
-In-Reply-To: <20261115180147.1208082-3-vamshigajjela@google.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Wed, 25 Nov 2026 12:24:45 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=VJwuHaRhWGMHyPgudyB9ocdW8nzxYFdW5o+UKxn8x2RQ@mail.gmail.com>
-X-Gm-Features: Aa3M54reZu_rV6EQr2mwr095PUCfeijuzUgiyBLvGVjyYCOWWagODc3ImgmqMIk
-Message-ID: <CAD=FV=VJwuHaRhWGMHyPgudyB9ocdW8nzxYFdW5o+UKxn8x2RQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] spmi: Add SmartDV SPMI controller driver
-To: vamshi gajjela <vamshigajjela@google.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Jim Wylder <jwylder@google.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, google-soc@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b0745f7 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=w36FetE1Bn8a3QyTgNcA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA4MCBTYWx0ZWRfX3rMBp8VrwuXs
+ TC7gM4EAMZCdQfVQABK9+9H2xjDyy9G8oAgzvqXhC/47OmL1RbD9BGTgGYhZjEgPC2lHjOJKzhk
+ Xck0hdrlWlK8J0O3J299od3baDdWZyI=
+X-Proofpoint-ORIG-GUID: gzkm3lQmll0A_GmF04sM4d0S7gAqb43j
+X-Proofpoint-GUID: gzkm3lQmll0A_GmF04sM4d0S7gAqb43j
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA4MCBTYWx0ZWRfX+D4AMmdaABfI
+ HTGE6JwDrBZn2oIX3ND0mrgszhdXgBJdAJuSuKdzFmfULaD8OYPqQ052IaLOukdmcuLan4BybC5
+ qs8Wb8t40+AxkoieakYIIh0VdvEXtxkEh2cdnMRxL301WzcUWaPQ8FJeiIexsf2DlByzZguG8kB
+ Pqs9DUq0/7IEN+Hkcputrmu2vlA1J3a8YtkEzOt4sllsGu93PP1uD4L+eAec224DmvVHyCP/0Jd
+ J3wpD+c8ljwqs8D3DEAmHGPlEbD5uarCPWpWxqK4H0pPqGRuJsZSFND8R0kWl5FqbPS95xouK5g
+ qNfQKkaPNPJO1HT/5sBmOmocwEbTrMQ3hpJE75zKB5icXw0qNeqc9lkdhLji62jUT4zIngYy97E
+ 7dLlYDULWPQGS3pMasDtzO8nGrWFt3dGHZMqBGz3xFjQjiG+hQ8A9FFdA2RXvZzaRwiooLILtVX
+ yocn46pc2RImNotMv2A==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_05,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
+ lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250080
 
-Hi,
-
-On Sun, Nov 15, 2026 at 10:01 AM vamshi gajjela
-<vamshigajjela@google.com> wrote:
-> diff --git a/drivers/spmi/Kconfig b/drivers/spmi/Kconfig
-> index a80cf4047b86..e20fcc9f2c68 100644
-> --- a/drivers/spmi/Kconfig
-> +++ b/drivers/spmi/Kconfig
-> @@ -54,4 +54,14 @@ config SPMI_MTK_PMIF
->    This is required for communicating with Mediatek PMICs and
->    other devices that have the SPMI interface.
->
-> +config SPMI_SMARTDV
-> + tristate "SmartDV Technologies SPMI Controller"
-> + depends on HAS_IOMEM
-
-Please add:
-
-depends on ARCH_GOOGLE || COMPILE_TEST
-
-Right now "google,lga-spmi" is the only compatible string supported,
-and that matches how the other controller drivers in this Kconfig file
-are scoped. When another SoC family is added later, its ARCH_* symbol
-can be added here too.
-
-> [...]
-> diff --git a/drivers/spmi/spmi-smartdv.c b/drivers/spmi/spmi-smartdv.c
-> new file mode 100644
-> index 000000000000..d4671667596e
-> --- /dev/null
-> +++ b/drivers/spmi/spmi-smartdv.c
-> [...]
-> +/* SPMI controller CONTROL register bit masks */
-> +#define SPMI_CONTROL_MASTER_EN BIT(0)
-> +#define SPMI_CONTROL_ARB_ENABLE_MASK BIT(1)
-
-nit: SPMI_CONTROL_MASTER_EN omits the _MASK suffix for a single BIT(),
-whereas single-bit flags like SPMI_CONTROL_ARB_ENABLE_MASK,
-SPMI_REQ_COMMAND_NEW_CMD_MASK, and SPMI_REQ_COMMAND_PRIMARY_ARB_MASK
-keep _MASK. Dropping _MASK on single-bit BIT() definitions would be
-more consistent.
-
-> [...]
-> +#define SPMI_IRQ_ARB_REQ_TIMER_TIMEOUT BIT(10)
-> +#define SPMI_IRQ_IS_BOM BIT(11)
-> +#define SPMI_IRQ_CONNECTED BIT(12)
+On Tue, 2026-11-24 at 10:54 -0500, Cam Miller wrote:
+> Make each endpoint a consumer of the virtio-iommu device, so that the
+> driver core unbinds each endpoint driver before viommu_remove() runs.
+>=20
+> Before this change, removing a virtio-iommu (for example via "echo 1 >
+> /sys/bus/pci/devices/<dev>/remove") tears down the IOMMU groups of all
+> its endpoints while their drivers are still bound. The endpoints keep
+> stale IOVAs and their later dma_free_contiguous() leads to WARNs in
+> __iommu_group_free_device(), endpoint IO hanging, and crash at shutdown.
+>=20
+> Make each endpoint a consumer of the viommu with device_link_add(), as
+> arm-smmu and other IOMMU drivers do. The driver core then unbinds the
+> endpoint drivers before viommu_remove() runs, so that their DMA teardown
+> will still see an intact domain.
+>=20
+> Fixes: edcd69ab9a32 ("iommu: Add virtio-iommu driver")
+> Suggested-by: Jean-Philippe Brucker <jpb@kernel.org>
+> Signed-off-by: Cam Miller <cam@linux.ibm.com>
+> ---
+>  drivers/iommu/virtio-iommu.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>=20
+> diff --git a/drivers/iommu/virtio-iommu.c b/drivers/iommu/virtio-iommu.c
+> index dd10c3e98a3d..a84a653f269e 100644
+> --- a/drivers/iommu/virtio-iommu.c
+> +++ b/drivers/iommu/virtio-iommu.c
+> @@ -1044,6 +1044,9 @@ static struct iommu_device *viommu_probe_device(str=
+uct device *dev)
+>  			goto err_free_dev;
+>  	}
+> =20
+> +	if (!device_link_add(dev, viommu->dev, DL_FLAG_AUTOREMOVE_SUPPLIER))
+> +		dev_dbg(dev, "could not add device link\n");
 > +
-> +#define SPMI_ANY_ERROR_IRQ_FLAG \
-> + ( \
-> + SPMI_IRQ_ABORT_MST_CMD | \
-> + SPMI_IRQ_READ_DATA_PAR_ERR | \
-> + SPMI_IRQ_READ_NO_RESP_ERR | \
-> + SPMI_IRQ_CMD_NACK_ERR | \
-> + SPMI_IRQ_BUS_TIMEOUT | \
-> + SPMI_IRQ_NO_BOM_CMD_PAR_ERR | \
-> + SPMI_IRQ_NO_BOM_ADDR_LO_PAR_ERR | \
-> + SPMI_IRQ_NO_BOM_WR_DATA_PAR_ERR \
-> + )
+>  	return &viommu->iommu;
+> =20
+>  err_free_dev:
 
-SPMI_IRQ_ARB_REQ_TIMER_TIMEOUT is defined right above
-SPMI_ANY_ERROR_IRQ_FLAG, but isn't included in it. Shouldn't an
-arbitration request timer timeout also be treated as an error?
+Looks good to me and like the unbind suppression is also already used
+by other IOMMU drivers in this case e.g. arm-smmu in a similar fashion.
 
-> [...]
-> +#define REQ_COMMAND_TIMEOUT_MS 100
-> +#define REQ_COMMAND_TIMEOUT_US (REQ_COMMAND_TIMEOUT_MS * USEC_PER_MSEC)
-> +#define REQ_COMMAND_POLL_US 1
+Reviewed-by: Niklas Schnelle <schnelle@linux.ibm.com>
 
-100 ms is a very long time to busy-poll with readl_poll_timeout_atomic()
-while holding spin_lock_irqsave(). If a target stops responding or the
-bus hangs, a CPU will sit with local interrupts disabled for 100 ms.
-
-At 2.4 MHz SCL, even a full 16-byte SPMI transfer is under 100 us on
-the wire, and other SPMI controller drivers (spmi-pmic-arb,
-hisi-spmi-controller, spmi-mtk-pmif) use timeouts of 1 ms to 10 ms.
-Can this be lowered to something in the 1-10 ms range?
-
-> [...]
-> +struct smartdv_spmi {
-> + struct spmi_controller *ctrl;
-> + struct device *dev;
-> + void __iomem *base;
-> + spinlock_t lock; /* Serialize bus access */
-> + struct clk *i_clk;
-> + struct reset_control *rst;
-> + unsigned long clk_freq;
-> + u32 ctrl_reg;
-> +};
-
-nit: ctrl, i_clk, rst, and clk_freq are never used after probe() (and
-platform_set_drvdata() in smartdv_spmi_probe() has no corresponding
-reader either). Keeping clk, rst, and clk_freq as locals during probe
-would trim struct smartdv_spmi down to the fields actually used at
-runtime.
-
-> [...]
-> +static int smartdv_spmi_wait_for_done(struct smartdv_spmi *sdrv, u32 *irq_status)
-> +{
-> + int ret;
-> +
-> + /* wait for cmd done status */
-> + ret = readl_poll_timeout_atomic(sdrv->base + IRQ_STATUS, *irq_status,
-> + (*irq_status & SPMI_IRQ_REQ_CMD_DONE) != 0,
-> + REQ_COMMAND_POLL_US, REQ_COMMAND_TIMEOUT_US);
-> + /* clear all interrupts */
-> + smartdv_spmi_writel(sdrv, IRQ_STATUS, *irq_status);
-> +
-> + return ret;
-> +}
-
-Does the hardware guarantee that SPMI_IRQ_REQ_CMD_DONE is always set
-even on fault conditions like SPMI_IRQ_ABORT_MST_CMD,
-SPMI_IRQ_BUS_TIMEOUT, or SPMI_IRQ_ARB_REQ_TIMER_TIMEOUT? Or should the
-poll condition check:
-
-*irq_status & (SPMI_IRQ_REQ_CMD_DONE | SPMI_ANY_ERROR_IRQ_FLAG)
-
-so that an error terminates the poll immediately rather than spinning
-until timeout?
-
-> +
-> +static int smartdv_spmi_xfer(struct smartdv_spmi *sdrv,
-> +     enum smartdv_spmi_xfer_type xfer_type,
-> +     u8 opc, u8 sid, u16 saddr, size_t bc)
-> +{
-> + u32 irq_status;
-> + u32 cmd = 0;
-> + int ret;
-> +
-> + /* program control register, master enable */
-> + smartdv_spmi_writel(sdrv, CONTROL, sdrv->ctrl_reg | SPMI_CONTROL_MASTER_EN);
-
-Two questions/issues here:
-
-1. IRQ_STATUS is never cleared in probe() or before writing REQ_COMMAND.
-If an earlier boot stage left SPMI_IRQ_REQ_CMD_DONE latched, or if a
-previous command timed out and finished on the bus right after
-smartdv_spmi_wait_for_done() returned, the next transfer will see the
-stale SPMI_IRQ_REQ_CMD_DONE bit immediately, read zeros out of
-REQ_DATA0..3, and clear SPMI_CONTROL_MASTER_EN while the new frame is
-still in flight. Clearing stale IRQ_STATUS bits before issuing
-REQ_COMMAND (and after disabling MASTER_EN on timeout) would prevent
-that.
-
-2. Is there a hardware reason to toggle SPMI_CONTROL_MASTER_EN on and
-off around every single transfer instead of enabling it once in probe()
-(reprogramming CONTROL on resume if needed, and disabling via
-devm_add_action_or_reset())?
-
-> +
-> + /* prepare req_command register */
-> + cmd |= SPMI_REQ_COMMAND_NEW_CMD_MASK;
-> + cmd |= SPMI_REQ_COMMAND_PRIMARY_ARB_MASK;
-> + cmd |= FIELD_PREP(SPMI_REQ_COMMAND_OPCODE_MASK, opc);
-> + cmd |= FIELD_PREP(SPMI_REQ_COMMAND_ADDR_MASK, sid);
-> +
-> + if (xfer_type != SMARTDV_SPMI_XFER_CMD) {
-> + cmd |= FIELD_PREP(SPMI_REQ_COMMAND_BYTE_CNT_MASK, bc - 1);
-> + cmd |= FIELD_PREP(SPMI_REQ_COMMAND_REQ_ADDR_MASK, saddr);
-> + }
-> +
-> + /* request new command */
-> + smartdv_spmi_writel(sdrv, REQ_COMMAND, cmd);
-> +
-> + ret = smartdv_spmi_wait_for_done(sdrv, &irq_status);
-> + if (ret) {
-> + dev_err(sdrv->dev, "request timeout.\n");
-> + goto out;
-> + }
-
-nit: drop the trailing period in "request timeout.\n" to match the rest
-of the driver, and consider logging sid, opc, saddr, and irq_status
-here too like the error path below so it's clear which target timed
-out.
-
-> [...]
-> +static int smartdv_spmi_read_cmd(struct spmi_controller *ctrl,
-> + u8 opcode, u8 sid, u16 saddr, u8 *__buf, size_t bc)
-> +{
-> + struct smartdv_spmi *sdrv = spmi_controller_get_drvdata(ctrl);
-> + unsigned long flags;
-> + int ret;
-> + u8 opc;
-> +
-> + switch (opcode) {
-> + case SPMI_CMD_READ:
-> + opc = SMARTDV_SPMI_CMD_REG_READ;
-> + break;
-> + case SPMI_CMD_EXT_READ:
-> + opc = SMARTDV_SPMI_CMD_EXT_REG_READ;
-> + break;
-> + case SPMI_CMD_EXT_READL:
-> + opc = SMARTDV_SPMI_CMD_EXT_REG_READ_L;
-> + break;
-> + default:
-> + dev_err(&ctrl->dev, "invalid cmd %#x\n", opcode);
-> + return -EINVAL;
-> + }
-> +
-> + spin_lock_irqsave(&sdrv->lock, flags);
-> +
-> + /* clear req_data registers by writing zeros */
-> + smartdv_spmi_clear_req_data_reg(sdrv);
-> +
-> + /* clear read status register */
-> + smartdv_spmi_writel(sdrv, REQ_RD_STATUS, 0x0);
-
-A few things in smartdv_spmi_read_cmd() (most apply to
-smartdv_spmi_write_cmd() too):
-
-1. Even though spmi-core currently bounds lengths to 1..16 in
-spmi_ext_register_*(), REQ_DATA0..REQ_DATA3 is only 16 bytes and
-REQ_RD_STATUS sits immediately at REQ_DATA3 + 4 (0x24), plus bc - 1
-underflows if bc == 0. Please add a defensive bounds check (e.g.
-!bc || bc > SMARTDV_SPMI_MAX_BYTES) in read_cmd and write_cmd like
-spmi-pmic-arb, spmi-mtk-pmif, and hisi-spmi-controller do, so
-smartdv_spmi_write_req_data() can never walk past REQ_DATA3 into
-adjacent CSRs.
-
-2. You clear REQ_RD_STATUS before a read, which is nice, but
-smartdv_spmi_read_err_status_dump() also logs RD_ERR_INDEX. Should
-RD_ERR_INDEX be cleared to 0 here too so an error dump doesn't report
-stale bits from an earlier failed read?
-
-3. nit: rename __buf to buf in both smartdv_spmi_read_cmd() and
-smartdv_spmi_write_cmd() (there is no local buf variable shadowing it),
-and consider guard(spinlock_irqsave)(&sdrv->lock) from
-<linux/cleanup.h>.
-
-4. nit: "invalid read cmd %#x\n" here to match "invalid write cmd %#x\n"
-in smartdv_spmi_write_cmd().
-
-> [...]
-> +static int smartdv_spmi_init_clk_reset(struct smartdv_spmi *sdrv)
-> +{
-> + struct device *dev = sdrv->dev;
-> +
-> + sdrv->i_clk = devm_clk_get_enabled(dev, NULL);
-> + if (IS_ERR(sdrv->i_clk))
-> + return dev_err_probe(dev, PTR_ERR(sdrv->i_clk), "could not get i_clk\n");
-> +
-> + sdrv->clk_freq = clk_get_rate(sdrv->i_clk);
-> + if (!sdrv->clk_freq)
-> + return dev_err_probe(dev, -EINVAL, "i_clk rate not defined\n");
-> +
-> + sdrv->rst = devm_reset_control_get_exclusive_deasserted(dev, NULL);
-> + if (IS_ERR(sdrv->rst))
-> + return dev_err_probe(dev, PTR_ERR(sdrv->rst),
-> +     "could not get and deassert reset\n");
-> +
-> + return 0;
-> +}
-
-1. The reset needs to be optional:
-
-devm_reset_control_get_optional_exclusive_deasserted(dev, NULL);
-
-I saw from the v1 review that resets was made required for v2, but on
-Tensor G5 only the LSIO_E SPMI instance (0x3a1b0000, RST_LSIO_E_SPMI)
-exposes a reset control to Linux. The CPM SPMI instance (0x053f1000,
-connected to the MAX77779 PMIC) has its reset managed by CPM and has no
-resets property, so probe() fails with -ENOENT there unless this is
-optional.
-
-2. Right now probe() fails if clk_get_rate() returns 0, yet
-sdrv->clk_freq is never used for anything except a dev_dbg() print in
-smartdv_spmi_pr_info(), while google_lga_spmi_cfg hardcodes
-.prescaler = 4 below. That assumes i_clk is always 19.2 MHz (giving
-2.4 MHz SCL), even though the LSIO_E SPMI instance is fed by a
-CPM-managed clock (CLK_LSIO_E_SPMI) whose rate isn't hardcoded to
-19.2 MHz. Wouldn't it be better to specify the target max bus frequency
-(e.g. 2.4 MHz) in smartdv_spmi_config and compute prescaler from
-clk_get_rate()? (Or if a fixed prescaler is really intended, please
-don't fail probe() when clk_get_rate() returns 0.)
-
-> +
-> +static u32 smartdv_spmi_build_ctrl_reg(const struct smartdv_spmi_config *cfg)
-> +{
-> + return FIELD_PREP(SPMI_CONTROL_VERSION_MASK, cfg->spmi_version) |
-> +       FIELD_PREP(SPMI_CONTROL_PRESCALER_MASK, cfg->prescaler);
-> +}
-
-In v1, DEFAULT_ARB_RETRY_LIMIT and DEFAULT_READ_LATENCY were both 32,
-whereas v2 leaves SPMI_CONTROL_ARB_RETRY_LIMIT_MASK and
-SPMI_CONTROL_RD_LATENCY_MASK as 0. Just want to double-check: is 0
-intended for both fields on Tensor G5, or were those defaults dropped
-accidentally when removing the v1 DT properties?
-
--Doug
+Thanks,
+Niklas
