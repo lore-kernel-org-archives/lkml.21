@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645019;
-	b=EDFzxjAS6OZ0jOS5gUCkPTYEMIpykYwe5whxwEpNKCEaZmoXpiHQHdTvDv8UqmEpFd70
-	 XzRflPjBu4Rr6NaOXezu84aSHbnuMSrqRe7GGUt+FXrXM21wu5hBYNEJtD7LzKyRQ6Zi8
-	 BAM+JQxK/iNzNnt/XFtcj+DdKaOAESP8K1MaSf6oHSZuB4iSi+LcTp87vMclTmcfQbkch
-	 7Q6BQ2pIb45s0EeL+IpA6Lxgyabq5EZ8jduMJGHiOC1Lp2g87OVwstoi8/l0i2olfpeWt
-	 9GKsAgOynjTGAoNP3PTYEDgOkPcHHELZvGh1kdbfw+3QtSdh6Gutx97KaH6IHO/1Kng==
+	t=1795645051;
+	b=NY8KbMmHmXcjD07BFtDEA6LHI6Yka2+ncxZmSfV5myfaX3LcQK2Qcknx+wKAFpu9bn5g
+	 AFJ6cf9qcPenOlnBCGNkAGCxmOxKUccBKwSKOZPPrnmV0n+yXHuyvUsgzndHb27uej7Lo
+	 ZCDGntyUTPkGghEaf2RnZU5hbPM7VF3ynWdlcCymXrrq0UIM7hfAjS4BF8GE9DYMICjqD
+	 +NKF4w0VNKSibz8h9vUjZF3vcAJpgmktM+VspXDfJNIhZs3ajGcljP7ozB+9ZpoBuUcXx
+	 9Cp75ijIUaRsm9nJXfZj9nu2C/JRkgBMGpUNxzeWgLnX5oDdiGBLU+hiMNH3MoMc5PA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645019;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645051;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
 	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=81UweMnintdLpa4xhqWOsmoebWo8cnvUdLQSh95F9E8=;
-	b=jFOzjxrsTn8Kr7AGNCexXY/OQ/qef/uNAZq40nLfEyhWqO1VC3FRfwxyUMPLzJpKPqeG
-	 nDUlePP67rLfj8hdu9+letydFlzqTjJHLoWTc47jGrp+59zf6fLwdQSgT/XFh2Hsumm+B
-	 afZ24N7CwYDz4U1jFVU7MwB08oEWcOEYBuvWRrxirIiZQ8elzGUZ0fE4t3Va2bbPkuXlk
-	 tl5TdqfHmByLQpwE9QubCBpyKmymisT9nsWXD3v5ER942Vd9DXohU9r+vBQXqEJlckYRs
-	 OsAnhldiTvxc9PpJXoePEuzaw+AYyj22/4fHVv8mUlxTEv7QW90uhPtDaUTH7BLsdjw==
+	bh=Lv54m/y+dipKo9yg+wSMdMb5I16q7BiPD4/g2CnTvkE=;
+	b=Ih2+qmFXf0ZkE+cLV6xmq70+4x8C6BzMn5I+/dseMGGK7OxNiVbC61mdkrMqk5tXZGJJ
+	 il2pgC0iysY4CcUplgEUMP5YmIjeOKdrFeblyEJA9ru7orCQiONK6+FB6/G7UcrOTwwrd
+	 QwXT0b+PLmK3Vs56PU+wOHGO0kkzNJ7F9MVflsGmz7B9q/Cp7YWvRFnpYJcubwlqKTEVy
+	 X24uzCH115KMmrtmlaCl/nhRxp60KunZg8dvpAF46V3HI3bJgEr27PBkLVMr/dyJCs4AW
+	 qCilthEXUQffk/mKRfzW5ibMCObFu7Ue8Wh94WNkO8tgb+062p+jtNhqsR4a8NYMNBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="C/m8qY2H";
-	arc=none smtp.remote-ip=74.125.82.71
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pUID44TT;
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43AF3606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:16:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43AF3606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF253606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:17:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF253606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=C/m8qY2H
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b3b45597c7so1882593c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:16:59 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pUID44TT
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-38531c1a566so481623eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:17:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795645018; x=1796249818; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795645050; x=1796249850; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=81UweMnintdLpa4xhqWOsmoebWo8cnvUdLQSh95F9E8=;
-        b=C/m8qY2HyaEZyw8rv5fW4LH8uDfYlgA4ICxEnS2Q2UnJS4c85gab/ALWXagjK/igjI
-         zlLbcVbjx2/gMZt2MyllXmHu9u0NPpPSdWPPfLse8iWgQaKVNyXxfWeGkUxw9zgL/mLH
-         oLBtnBV3Ym/xuyZrb0dOU3bqK8U1lPlCud9lXWJYiiRUmnUKf0lV4HmgNeAJzeXEprQE
-         4eYHIAtwyoWxnIS3QRdbHtqL4uudJiqeCEG5deuNErvQTRWyZB4me6fqKaJdfVFzZYQA
-         D1nUl52DhQWmQ9TXo5hPvkWgi7ttgvxGgCPH1nu7dzQcQ/qnIFuFx2VUFXtwvw1T3AdR
-         prDw==
+        bh=Lv54m/y+dipKo9yg+wSMdMb5I16q7BiPD4/g2CnTvkE=;
+        b=pUID44TTQ4/Fzfi/L0/1db/SVlq9R5gZ4HJCykAH2o+oN7qZAuRZ+iCImjKkUfLOdi
+         j7aP6gH68gmsMNHyX1KtYdbwSJ9iZAEwKsX/gjdJKMCAsEz7JGWRgV2CgVSN2hns/6jA
+         4Hd0quAzuHaBHazRpgxkx8Pz6R9QN1ZEXTsfFeMuhUoog+EOBsEGFbmhi1Mcd0tpELaY
+         I6fsAAA/6m3EzowDm+8GzlLrYAYAA9FZ7JTsPkXWIJc5cgZNOOeoPdWHQYfXV5pM1n0G
+         oP+AtkIU1G8RVRGeA5IvDOZsptI0naQ27ylBhMDkz450nBXuJ6GXKNT7I07htljxJnwJ
+         BEkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645018; x=1796249818;
+        d=1e100.net; s=20260707; t=1795645050; x=1796249850;
         h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=81UweMnintdLpa4xhqWOsmoebWo8cnvUdLQSh95F9E8=;
-        b=0XkUXcb2u92LhuLU7Dd615h9cz69zebjmGg4EIaAaOucgDLwSlStvSN/XIzsWkhqyC
-         mpA/jxqhqe4lAtnbm8s5PoH9K7VenZY8stwqLgS5+YHg4p/2q/zh//OageZwjMtZQWbL
-         fgDrHhTznqnfTYHkojwHvRa5/5BK/iUX6fW+GaycukfbPU23AW/+FUgSTmCVhqh/aM6T
-         n4v4cXcK4xWNFxS7J+PclEtKVZWt6HVRuyoADWZdprW35zckcRd32MBELvhiDR1uEJwD
-         d7IWqMmfMjU9EVg5B1QUAWkFNmgwjcZknUQUEpHL4VV5WvIW5G50JqnntMlYmH8QPTrw
-         cy/g==
-X-Forwarded-Encrypted: i=1; AL+hErEUZz9DXUq27kpKnk5eWohk2AMDVcQPMqZeYaPL/cn4TavVWvxdgkile6wtYub39MgzZfpXcOcjMnH4VBE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/FKVUcDB+rSy9l0VueZvuTAgsxeyaEAzfDexiSeHFpGQOnc0Vh
-	sU7T6xXfHmCEbmpNc2Tx7JLRD20L4Cqjiq+JItXSV/RMTO5a82jL1d5o7HLLHZDejj7Yz2rj1Df
-	rEw==
-X-Received: from dlbtx1.prod.google.com ([2002:a05:7022:fc01:b0:1a7:58c6:c957])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:231a:b0:1b3:a927:f17a
- with SMTP id a92af1059eb24-1b5567a950fmr17469563c88.5.1795645017932; Wed, 25
- Nov 2026 14:16:57 -0800 (PST)
-Date: Wed, 25 Nov 2026 22:16:34 +0000
+        bh=Lv54m/y+dipKo9yg+wSMdMb5I16q7BiPD4/g2CnTvkE=;
+        b=d+CjLPXh/8jRRcLPu1BYMB8PX5vXkjf5FDtxQnm6EuND1j6gqnSTJl3B7RZE5906ya
+         xj+qDGTkk6NSG4aXm0PDZLuLXMoXxRoO3wV/JZG6T2jZzx3xC9L0afPKCuNI9E7fwJf5
+         PF8hNLu9rpUxtenh8+rr9B+Yw5qET13cyeaGqaJlcE1nMeZMuxNyP73CrOonfsMV/8PQ
+         s5QHgi4EqkfIVr8cltrxXEhRnwxk3pkEEOHBP5qBi6Vb4ILCxoNo3E5AyU3yYPST6fXV
+         b11f6G0pgLGwXzTzgA382oV2Y2FsQrv9MV1cu+cBG1fdfgHjm2q5mgowVJirazYOp1fG
+         cFQw==
+X-Forwarded-Encrypted: i=1; AL+hErFlCikvmQObWhKY3cm1eLaROzCpWlVL1tQGaacWoikb9RFhdzVDYt0bP/FCaWOKg6P4Kj0d/heBWeGe7Es=@vger.kernel.org
+X-Gm-Message-State: APuU4Z81KT40y8zKOpwetWKkKekHnFlnyar/UaDepKTZQSvZ71GZhYq9
+	TQ6gS4pTaiOefc1DKt1C/ltIqXlXMZWIZIzDgjF5zeXjie5Qn/3Hn1Fz40T7l95lE2THSZth7wp
+	RCw==
+X-Received: from dybph20.prod.google.com ([2002:a05:7301:4194:b0:385:8165:80dc])
+ (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:8604:b0:386:b3e6:e741
+ with SMTP id 5a478bee46e88-386b3e6e883mr8734453eec.26.1795645049680; Wed, 25
+ Nov 2026 14:17:29 -0800 (PST)
+Date: Wed, 25 Nov 2026 22:16:58 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,67 +77,55 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125221635.1419707-1-elkin@google.com>
-Subject: [PATCH wireless] rfkill: initialize work items before publishing
- rfkill device
+Message-ID: <20261125221658.1420387-1-elkin@google.com>
+Subject: [PATCH net] nfp: fix use-after-free in nfp_ccm_mbox_skb_return()
 From: Elkin Cruz <elkin@google.com>
-To: Johannes Berg <johannes@sipsolutions.net>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, irogers@google.com, Elkin Cruz <elkin@google.com>, 
-	stable@vger.kernel.org
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Nathan Chancellor <nathan@kernel.org>
+Cc: Simon Horman <horms@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, oss-drivers@corigine.com, 
+	netdev@vger.kernel.org, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	irogers@google.com, Elkin Cruz <elkin@google.com>, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-rfkill_register() added the device to rfkill_list, called device_add(),
-and set rfkill->registered = true before initializing poll_work,
-uevent_work, and sync_work. Because rfkill_set_states() and
-rfkill_set_hw_state_reason() only serialize on rfkill->lock and schedule
-uevent_work once rfkill->registered is true, a concurrent state update
-can race with INIT_WORK().
+nfp_ccm_mbox_skb_return() casts skb->cb to struct nfp_ccm_mbox_cmsg_cb,
+frees skb via dev_kfree_skb_any() when cb->err is non-zero, and then
+reads cb->err from the freed skb to return it.
 
-Initialize all three work structs prior to publishing the device.
+Read cb->err into a local variable before freeing skb.
 
-Fixes: 19d337dff95c ("rfkill: rewrite")
+This issue was found while trying out new Clang static analysis checks for
+kernel bug classes. The finding was triaged and fixed, and this commit
+description was drafted with the help of AI, then verified by code
+inspection and compile-tested against linux-next (not reproduced and not
+runtime-tested on hardware).
+
+Fixes: d3e4dfe060cc ("nfp: add support for sending control messages via mailbox")
 Cc: stable@vger.kernel.org
 Signed-off-by: Elkin Cruz <elkin@google.com>
 ---
+ drivers/net/ethernet/netronome/nfp/ccm_mbox.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-I am trying out new Clang static analysis checks for kernel bug
-classes, and they flagged this code as possibly buggy. The findings
-were triaged/fixed and commit descriptions were drafted with help of AI,
-then checked against linux-next (not runtime-tested on hardware).
-
-Thanks,
-Elkin
-
- net/rfkill/core.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/net/rfkill/core.c b/net/rfkill/core.c
-index 9e143c4bfe6a..071beb249b4c 100644
---- a/net/rfkill/core.c
-+++ b/net/rfkill/core.c
-@@ -1095,6 +1095,10 @@ int __must_check rfkill_register(struct rfkill *rfkill)
- 	dev_set_name(dev, "rfkill%lu", rfkill_no);
- 	rfkill_no++;
+diff --git a/drivers/net/ethernet/netronome/nfp/ccm_mbox.c b/drivers/net/ethernet/netronome/nfp/ccm_mbox.c
+index aa8aba4ff7aa..c0f1d84208a4 100644
+--- a/drivers/net/ethernet/netronome/nfp/ccm_mbox.c
++++ b/drivers/net/ethernet/netronome/nfp/ccm_mbox.c
+@@ -420,10 +420,11 @@ static void nfp_ccm_mbox_run_queue_unlock(struct nfp_net *nn)
+ static int nfp_ccm_mbox_skb_return(struct sk_buff *skb)
+ {
+ 	struct nfp_ccm_mbox_cmsg_cb *cb = (void *)skb->cb;
++	int err = cb->err;
  
-+	INIT_DELAYED_WORK(&rfkill->poll_work, rfkill_poll);
-+	INIT_WORK(&rfkill->uevent_work, rfkill_uevent_work);
-+	INIT_WORK(&rfkill->sync_work, rfkill_sync_work);
-+
- 	list_add_tail(&rfkill->node, &rfkill_list);
+-	if (cb->err)
++	if (err)
+ 		dev_kfree_skb_any(skb);
+-	return cb->err;
++	return err;
+ }
  
- 	error = device_add(dev);
-@@ -1107,10 +1111,6 @@ int __must_check rfkill_register(struct rfkill *rfkill)
- 
- 	rfkill->registered = true;
- 
--	INIT_DELAYED_WORK(&rfkill->poll_work, rfkill_poll);
--	INIT_WORK(&rfkill->uevent_work, rfkill_uevent_work);
--	INIT_WORK(&rfkill->sync_work, rfkill_sync_work);
--
- 	if (rfkill->ops->poll)
- 		queue_delayed_work(system_power_efficient_wq,
- 			&rfkill->poll_work,
+ /* If wait timed out but the command is already in progress we have
 -- 
 2.56.1.839.g22a8290db9-goog
 
