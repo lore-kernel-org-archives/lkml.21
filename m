@@ -1,79 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795609915;
-	b=R/gizlJm3JD6R0ry+XfToFb7myuwVC1+iwSCnLIG9XiRQBWGWfboaqlwK7ae/ineAHPK
-	 ZrfTJqI88cNSTuBZzDwopyC5ztGOGZx7Rj9EeFWBY7b1u9FFon+yhUtWXLkz9KsGvqIMa
-	 7gHpa9WgeY4v1P9HEfl1B5BdVmK1NPDyIzp4bvBupy6b+6gOoJXmuQdWDh4gbvJWRbt6i
-	 KsK+si6rYMWjin0TlaefvwIYmGN5r4vM7DvO9DTSMBmenizX0/R5FCTAROvqQWPOR0QWU
-	 9r8AteI0YVSrw8FJ4LbQ30f8Qilk9Z3MAlu/h2Xa7OIwbotanMxdgjwPKbU2ruyEy3w==
+	t=1795609947;
+	b=JKadF2Jzdl+7fyp307tSax/sVUSYSEPk8rHW7waDDBmFFtL3x38IU6e0KCPsY3p0Issy
+	 f0FNB5GuVye9cD1Y05trI7VetB5nb6YPJOdaMc/Fen6gADWYWlNGk9N8LOKeAKYzycw+U
+	 hIrWbS1kwFj71ibitiJoGx5+XNvPPw7RkBvjP12DhBrn1Bg5hEMPgGZcZ/jpePLI+ACBJ
+	 dgLbVz50qBlLsPAt2vXqvDci27rMtAsHwHHnMa5ipZ0Yl8gy8cAzxTkyi1xNXbyMMeqiF
+	 XQ9UzSk8qdLXePeotVRyPXjU6rjWEsVo50QdmlrPbqxmlDyBWgdR23TlI71PI8sk+oA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795609915;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=3yaDcAf1oj/ySN2vpJMlDxXJGpm/IAJcorBM34baRh8=;
-	b=wpgFRlqflM1sw2A1KunvpCXyspwC1eZEqeu5qhssKd6uqoUpv1HEtxbBsZDl6RjuCQiu
-	 IP9teBxe6gvWg0dea4HCRBgkEQa6xoNZtaF0hrzkkWi3LvWOGOIUQd8+47qbFP1BLA6zR
-	 3WSB8Y8cba2yVYgIZXefHFGwvPFOlTN7DSF5JnrfJnA46mWxVbB9NrfCBctBcp0nLYHBw
-	 EvEaTr1aH2tUg0HkBJ4sqox6nCa6vsndopfaHaJ7bpdjHDALCKwWDMd6rCr4rTwpPYIzO
-	 Zp2erh7B/bmtTZO3eJWEKRHIIte8E5vTcvH3YRpGUJ7SW6gdq4CxFxbxFuy/vp0THEg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795609947;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=4NWmtZ8CW/7A9XJyobnEBmpRbMXZZGSv3a/9zyUB5u4=;
+	b=rImRU0qWdLW47u/TFogPP+Og7gtMrQLhvrChKhuOR/kBturVN7OFuAmtc12kOoiNZyTY
+	 +U4vJwcgYHv6Q7ebKI7UjArjRWW9yF7m7ArQdZSfKvgHlK1GYKFT9XnBOWT7lFdG1ZEJj
+	 XWwYt0oL+NiF7gPOaCrzIfW6wHdnaYz2VBeVjkMSVy7BPHvKEo6Ov/1vSX5p/gDN8sTZU
+	 svYFK68kv/Q4KDW4N4g9FSiSCJAvwfyf7Tj01+3hWyaefKjR5j4TjN3gZ7VN8xLMZkWPR
+	 ygDRs+6mFoEJOF2+cdXImFsjCBLjIB+Aik/Gj9//K0XQIrjHmevOFhUVfWzOTk9S7kQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=iNJwuccu;
-	arc=none smtp.remote-ip=68.232.153.233
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TAjcqReb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2354606A31E;
-	Wed, 25 Nov 2026 12:31:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2354606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC027606A31E;
+	Wed, 25 Nov 2026 12:32:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=iNJwuccu
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795609923; x=1827145923;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=4UZpFuKDX/vjyd2dmzd1ze33NJp5qh9mgYFYYWHOYzM=;
-  b=iNJwuccunI8vNAEQRbZx8dkb7mMssyHlKTx+y4PI+IUvfKBVa2yGXWrd
-   X/RWr2YbwUesf+4fwwuIPKP+TDWxBsZIRi2Cqwcsnt+35UtES3DQmzpvU
-   bUBkK0veE9Jssf/QPAB/4VfzFwjGhF8SsxsTC4+hU3RO+wGOfM0PVafz9
-   hEE+8Y5JNnJQgTj6YDVNrSmE+OIokfWfjPOvLzxIBRvciQXZRcdMXD/RA
-   2Gx4UF1zS+efeQXo4SUO7XCGRdbmu+XpHUsqsaGmB86zecEKVFgUwbXTA
-   KPBeAulOLnpdnzR08YQ6iCxj+kI0PwsnAgDHdA+9DxQpUQ/0G+GMwhvw+
-   w==;
-X-CSE-ConnectionGUID: Z/VTAwobRie9TaLrsDOrXw==
-X-CSE-MsgGUID: s218ldDgS0uvBxuK1GrKrA==
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="298445225"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 05:31:56 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.57; Wed, 25 Nov 2026 05:31:47 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Wed, 25 Nov 2026 05:31:45 -0700
-Date: Wed, 25 Nov 2026 13:31:44 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Ian Rogers <irogers@google.com>
-CC: Samuel Mendoza-Jonas <sam@mendozajonas.com>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Paul Fertser
-	<fercerpav@gmail.com>, Simon Horman <horms@kernel.org>,
-	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<llvm@lists.linux.dev>, Elkin Cruz <elkin@google.com>
-Subject: Re: [PATCH net] ncsi: Initialize vid in set_one_vid() to handle
- concurrent VLAN removal
-Message-ID: <20261125123144.p5i5dc4ifsnqbhly@DEN-DL-M70577>
-References: <20261119171009.1534335-1-irogers@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TAjcqReb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CECD11F000C6;
+	Wed, 25 Nov 2026 12:32:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795609947;
+	bh=4NWmtZ8CW/7A9XJyobnEBmpRbMXZZGSv3a/9zyUB5u4=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=TAjcqReb3U63bw0ULkLKAMgSBOS3ijzwvQqcP9eEtXz8BRBbQotTHRHXWBxOTSPS8
+	 d6bDOnf2cnNqfdtylj8qXNFONq9MA6l/lYM+ESj3t4PDA+HR/177wZPJU9lrUSaRSW
+	 LufX50vkMUIG+ftf4RH8KfRLBMnqtE5qsDbKVLBhpOtR9wT41FtVKi5nufDP5yPKv5
+	 MDXJaanHRm1Oee7wDmb9Cd04BnpKxWAOQHfI7MbI0zYPIZROK0nUdUtwNC3riztpzZ
+	 MkzkLDd1ktKM8GTrtWH1VUez75lB1avIKRpNxFf5bV4p6aweDbFB24fLJ+xwHXcV8e
+	 XgHDJPYEWcp4A==
+From: Leon Romanovsky <leon@kernel.org>
+To: Zhu Yanjun <zyjzyj2000@gmail.com>, 
+ Andrew Stellman <astellman@stellman-greene.com>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, Zhu Yanjun <yanjun.zhu@linux.dev>, 
+ Daisuke Matsuda <matsuda@preferred.jp>, Daisuke Matsuda <dskmtsd@gmail.com>, 
+ linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261122003712.91551-1-astellman@stellman-greene.com>
+References: <20261122003712.91551-1-astellman@stellman-greene.com>
+Subject: Re: [PATCH rdma-rc] RDMA/rxe: Fix the copy offsets in
+ __rxe_odp_mr_copy()
+Message-Id: <179560994458.1211799.13917205332984308475.b4-ty@kernel.org>
+Date: Wed, 25 Nov 2026 07:32:24 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,53 +61,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261119171009.1534335-1-irogers@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-18f8f
 
-> set_one_vid() checks list_empty(&ndp->vlan_vids) before acquiring
-> nc->lock and rcu_read_lock(). If ncsi_vlan_rx_kill_vid() removes the
-> last VLAN entry in that window, list_for_each_entry_rcu() executes
-> zero iterations and leaves vid uninitialized on the stack. The
-> subsequent 'if (!vid)' check can then proceed and program stack
-> garbage into ncf->vids[index] and an NCSI_PKT_CMD_SVF command packet.
-> 
-> Initialize vid to 0 so that an empty RCU list cleanly hits 'if (!vid)'
-> and returns -1.
-> 
-> Found via Clang -Wconditional-uninitialized on an x86_64 allyesconfig
-> build. Verified by building net/ncsi/ncsi-manage.o with LLVM=1 W=1
-> (-Werror) and -Wconditional-uninitialized; not runtime-tested on NCSI
-> hardware.
-> 
-> Fixes: 062b3e1b6d4f ("net/ncsi: Refactor MAC, VLAN filters")
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  net/ncsi/ncsi-manage.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/net/ncsi/ncsi-manage.c b/net/ncsi/ncsi-manage.c
-> index 1d63958c4429..f7eca228c281 100644
-> --- a/net/ncsi/ncsi-manage.c
-> +++ b/net/ncsi/ncsi-manage.c
-> @@ -640,7 +640,7 @@ static int set_one_vid(struct ncsi_dev_priv *ndp, struct ncsi_channel *nc,
->  	unsigned long flags;
->  	int i, index;
->  	void *bitmap;
-> -	u16 vid;
-> +	u16 vid = 0;
 
-I am not entirely sure, but can the list_empty check below be dropped as a
-consequence of this change? Seems like the !vid check further down catches that
-case now.
-
->  
->  	if (list_empty(&ndp->vlan_vids))
->  		return -1;
-> -- 
-> 2.56.1.708.g77570a6a1d-goog
+On Sat, 21 Nov 2026 19:37:11 -0500, Andrew Stellman wrote:
+> __rxe_odp_mr_copy() maps each page it copies and copies to or from the
+> start of that page. It uses the offset of iova in the first page only
+> to size the first copy, not to find where in the page to copy, and it
+> does not advance addr after each page, so each page is copied between
+> the start of that page and the start of addr.
 > 
+> Tested as root on rxe loopback (path MTU 1024), three runs, with an
+> ODP MR registered 100 bytes into a page:
+> 
+> [...]
 
-Either way:
+Applied, thanks!
 
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+[1/1] RDMA/rxe: Fix the copy offsets in __rxe_odp_mr_copy()
+      https://git.kernel.org/rdma/rdma/c/53598d569e5509
+
+Best regards,
+-- 
+Leon Romanovsky <leon@kernel.org>
+
