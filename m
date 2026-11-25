@@ -1,55 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795630437;
-	b=OG8qKiP7CuackLHHl0pGFIyeyhYgG7ouCvIcp6R1c7b0ODKz4C9w4r/aVRqACg58N6jg
-	 Gh17FEGe7y/RUtGerWWfE2qWZyaa7YYL2DpinBBV5n6htnXyfCTTyex30/+8UUR1U8qYs
-	 V+gJ1FGJbgg9Ei9+NdfkXHbig+Axd7ufvwtXOtKN0dkVb1wgsMLDSD4JUZzyLchmL0nIE
-	 05HHtqaTW6hPNLneAnOcNLjar9/a5EYQKZcGQYh/jf5SExbjPvkWhlX5bEJUu7qlLCI0C
-	 9yVRSkMQG9/uqlJ8UU7Tmdma0W3o4HM1GbPltmX7YsLKi/Vj4LjH5+4sWBQMcl1+Xcw==
+	t=1795630447;
+	b=iXt8mvn1AFFGXsKoI63MSymm34Z1p5QQHZY7kmNGS8PvTd0JcaPbHX2GTM4/Kzylj5Qb
+	 yTnqvblT//bjhr9tlAn+hyrSpHUW5sKlnYSnUghBsmnkOBQfczeNY70TopIekWGWEtAyz
+	 TKtQH/LuJVBuoIG3ysrt/0e7gWYg6xQYgLJ5xBZKFkxt6LLE5RdZ3ZDUrcjGsUkoaxZL5
+	 vqMNoJpBuZVNxU61F5IkME8lLDTbCpKvt5hbgoxX8sdeChxh5AX/TgJJUUHsp80bqwUpO
+	 fkN694c5ZzVmfjefrjuMvmNVmwA5dfyNvUgGJlOvwSsWrdlzGvLS3o/cl1GnFaw0xXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630437;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=UQyjdIZXnyN7pbRcpgqMvYP2FTIzZjKLrH9OPluFP54=;
-	b=nYLIY9ohH2LOjIq2Wl477CJQBOm5zswV3unS6T3vzeewuXyo4NfqrBrd5/ncU0KDA9Br
-	 jGoyzOR1hj89lMmu4ZV0dc/EjSzd0TTFf3aH/9aoO6dAJ+Pc0ptvXU4V4XCiYkSLCtNWE
-	 wL8GemOPs+3g7RwZdvLOYNa2Wa2ay+EmFf8tIASIWg4kPaCuWUN5G8B26RfGNJm+PJvpi
-	 oPKH9acX6LoLhaXxRB7gvk0s9iYJFIFyOEBovyrAyxLCOS90Sb0xx/60f/Z7tMHUiT5OC
-	 4vRZCH0tN1p09VRjCLPIS3Gy/Ca76XndD3RJi1A/fJ0EYOM2BKrj4ILNh4WcuxdrSxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630447;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=ZwRGu5/OnsrkftCiXnzxko3YG0ZahDFZFdz2PcRV2x8=;
+	b=tc19LD9mR+U0OYQXHSOwm8tA0Jo7uO7QPLdxpYlAaJK7A7TivQqp3kLylin+qv8tvvxl
+	 EpOAloa97FwKCqviKQneRCWZGtvBZ0BYVB9OpORFgJM5GI+IYhjeetHvo1RYyIrOVMDk+
+	 M0ktQf7p44geIyEeP8AQntPzO3nxVnEP+hvzSTuc7JNtjXsxONHg2kEELWb7r2xGt57YC
+	 BKN6Cvx47ilHzVcVK11qAqf+efeOJl4JVP/YGGfbvZaZnFWYRWKe3h/HPC4oJkb4Xfd6R
+	 Ge157crR62zQbq82QqXSrM9B+UId5zenNpGiJe3HAt6wffDDi7MvK3HSYmo4i8rHwFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Iz93ajdg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--akorn.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eOzAl2Tn;
+	arc=none smtp.remote-ip=209.85.214.197
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34BCE606A333
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:13:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4433F606A332
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:14:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4433F606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--akorn.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Iz93ajdg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5256C1F000E1
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:13:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795630436;
-	bh=UQyjdIZXnyN7pbRcpgqMvYP2FTIzZjKLrH9OPluFP54=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Iz93ajdg1Nd8CJzVL1szboFhLn8kqrwe/ZCcJh0uQLv97qGaDfCqudOjhaTObJBfO
-	 BXliTF/2V/TQYgVUCimigeZEPsiVStwzRW9nTEorwDTwgV+1TdSU3Sj3OJotAvi4f3
-	 pboPW9r1qTUv2Kmgl/FZmcBd+gHS2PVVDPbSGlTWWJHmygCPpZDJlJj7NFMQnsgMJF
-	 uTzw/hoQUm28x9z/+JEJKdADDjK/nyr/I20r5dNvMXoagOwwilIjGY207fwZ1PpqQN
-	 43F5dyWPzJx37IRk/janFiAMuKhnZYrpEgdmaGC5zeyma92Y8ooRZcnw47XBw3qZGa
-	 4/qGZJmZB82tA==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5c158c4c15fso7511924e87.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:13:56 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFyf1GyBrIRK6VyIggm8PHmr3pr52gGJ8cIqTzT1xpUAW5EH1PDEBbv4OFb5jmkkLl49wCQ/qgQolMQyws=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9K2Vu4uXSTe1A00ZE94jL9AkrB7PAbLcoWSrEaInoCtNDzj3kN
-	2yY4gKuZ/r+MutT5hp5C4dkUw+YXX2MEiJKO1sOp4VKfSak4LM1TW3tlsnV3dIjurQmaz8sF8II
-	ZDFZwUMmxDUo+jbL2kP29CJt64rnuRZ8=
-X-Received: by 2002:a05:6512:2313:b0:5c1:5457:a147 with SMTP id
- 2adb3069b0e04-5c1b7c5f28fmr4759565e87.32.1795630435118; Wed, 25 Nov 2026
- 10:13:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eOzAl2Tn
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2f05b674e3eso44088435ad.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:14:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795630444; x=1796235244; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZwRGu5/OnsrkftCiXnzxko3YG0ZahDFZFdz2PcRV2x8=;
+        b=eOzAl2TncpyH0MDYvjHHt1nSPJ7GabZAUU2kqZ391oP7GKOVwJOmJMDoD3XA8feSQL
+         8CSxH5+4KtqRbjakuWvVcksHs0/N3DvEjJFfYhenBr+vvIdUYKj0K6T3rT1JcR0KIFKP
+         pzZH/lBSZZRKmzpy9zq0z+OvDZGnELuNvifmz7kekVgOQJyAhNYV3ugufwgmHkCXxS0C
+         RhJTzrYxHqHQGpzoPJv92Xz+chgeZtXkcYHosGiqQcBJVNhTqC6fJWTXSI7iCDF+yzEr
+         HBA+Xh/bJUjwrrjorUlbEvSwriZe7xNDnxkrdZAalIOB2y48Aj/Ux9KcfiVXOjCH93lJ
+         vP4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795630444; x=1796235244;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZwRGu5/OnsrkftCiXnzxko3YG0ZahDFZFdz2PcRV2x8=;
+        b=nle1aU2it8VengzD/0zFf4WP9j206QPfcXzWhuIdrDocimO+2PPFjw43pelRQeRpFJ
+         GphPv7yauzbh0aopYritZLYVz+Z4bCLSEAVYfN7aVZGDPTwDu6OHO3z6XCquMxo528P9
+         AuaZWK9EvTlWfJUcWGnNiOH0Rk/zyUvtuwJ/Q+DC3yRUpbGZwFcp8iPwDZyS1PzuMc+1
+         Of4jTUERhb/4ZR3IQsPYa1Pl2YtRenX7mgSouMwBXQJh/v/LychelVIG5g88zlpywpkU
+         81CkClq/mFMumFTBwebnwyQfao0vbYPMSr8wujm2/PqI+mExdljFRMpjdeWQ96NcLXQp
+         65qQ==
+X-Forwarded-Encrypted: i=1; AL+hErG8b072Q6tLwufXWWnEgpvK/ccDc5wYWzAHWa3QrSLyQUfo6LPfkX1WFDchIScVrKsoq/OhaKtOr1JU6go=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8FvfVYQKVmXOP8vcRgW18rKRuMqQv+00A51uZW4FzI8V8eUJUs
+	z0liRG3dInAb2Fdn3UCh5WbEIshUEFky2hLp8lqdtcrZvZ0Lbd2ISH1GNt1PiTiYXO2kVsmb79W
+	MTQ==
+X-Received: from plha17.prod.google.com ([2002:a17:902:ecd1:b0:2f0:6f2e:4b9f])
+ (user=akorn job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:3b88:b0:2ef:de6e:9877
+ with SMTP id d9443c01a7336-2f03f1fd49dmr195687415ad.57.1795630444372; Wed, 25
+ Nov 2026 10:14:04 -0800 (PST)
+Date: Wed, 25 Nov 2026 18:13:35 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,49 +75,159 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261111-kuno-dts-memory-unit-addr-v1-1-89e965f2c3ac@oss.qualcomm.com>
-In-Reply-To: <20261111-kuno-dts-memory-unit-addr-v1-1-89e965f2c3ac@oss.qualcomm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 25 Nov 2026 19:13:40 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmnHp-TVDj4-CKqH-020GkmRZmgVx5-u=Uem8c0_NhTBQ@mail.gmail.com>
-X-Gm-Features: Aa3M54qKCffdcCQPk9s4DaSpiTPHhKFZVElFuVJfZUz3prnPo1qEkIVkhJwQfoU
-Message-ID: <CAD++jLmnHp-TVDj4-CKqH-020GkmRZmgVx5-u=Uem8c0_NhTBQ@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: qcom: kuno: Add unit address to memory node
-To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kernel test robot <lkp@intel.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261125181336.3298961-1-akorn@google.com>
+Subject: [PATCH v2] hwmon: (pmbus) Fall back to CLEAR_FAULTS when STATUS_CML
+ is read-only
+From: Arthur Korn <akorn@google.com>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Arthur Korn <akorn@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 11, 2026 at 5:16=E2=80=AFPM Hardeep Sharma
-<hardeep.sharma@oss.qualcomm.com> wrote:
+Some PMBus 1.2 devices (such as ADI ADM1273 and ADM1281) report
+PMBUS_REVISION = 0x22 and implement STATUS_CML (0x7e) as read-only:
+they ACK SMBus byte writes to PMBUS_STATUS_CML without clearing latched
+fault bits, and only clear STATUS_CML via CLEAR_FAULTS (0x03).
 
-> The /memory node has no unit address. The dtschema root node schema
-> does not allow a bare "memory" node, and dtc warns about the missing
-> unit name with W=3D1:
->
->   qcom-kuno.dtsi:89.9-93.4: Warning (unit_address_vs_reg): /memory:
->     node has a reg or ranges property, but no unit name
->   qcom-kuno-idp.dtb: / (qcom,kuno-idp): False schema does not allow
->     {'device_type': ['memory'], 'reg': [[0, 0]]}
->
-> The bootloader fills in both the base and the size of the memory node,
-> so keep the reg =3D <0x0 0x0> placeholder and name the node memory@0 to
-> match it, as done on other 32-bit Qualcomm SoCs such as apq8064,
-> msm8226 and msm8974.
->
-> Fixes: 7f6a63bc5fc9 ("ARM: dts: qcom: Add initial device tree for Kuno So=
-C")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/r/202611101833.G7LTXoJv-lkp@intel.com/
-> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+During pmbus_init_common(), probing an unsupported register such as
+PMBUS_WRITE_PROTECT (0x10) latches PB_CML_FAULT_INVALID_COMMAND in
+STATUS_CML. When pmbus_clear_cml_fault() writes to PMBUS_STATUS_CML and
+sees ret == 0, PB_CML_FAULT_INVALID_COMMAND remains latched, causing
+subsequent pmbus_check_status_cml() calls during attribute discovery to
+fail with -EIO.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Verify on non-write-protected devices that PB_CML_FAULT_INVALID_COMMAND
+and PB_CML_FAULT_INVALID_DATA actually cleared when a CML fault is
+expected or cleared unconditionally. If the write succeeds and either
+bit remains set on readback, disable STATUS_CML write-1-to-clear for the
+device and fall back to pmbus_clear_fault_page(). Do not clear
+has_status_cml when _pmbus_write_byte_data() returns an error, so
+per-page write failures (such as -EOPNOTSUPP on read-only virtual pages
+like max16601 page 1) fall back for that page without disabling
+STATUS_CML write-1-to-clear on other pages. Skipping the readback on
+supported register probes (rv >= 0) avoids extra SMBus traffic in the
+common path.
 
-Yours,
-Linus Walleij
+Tested on BMC hardware across ADI ADM1273-1A (adm1275), Maxim
+MAX16600B.04 (max16601, 3 virtual pages across VCORE, sensor IIN/PIN,
+and VSA), Renesas RAA228234 (isl68137), Infineon XDPE1A2G5B (tda38740),
+ADI ADM1266, and factory write-protected converters.
+
+Fixes: d9d30e1cb9ca ("hwmon: (pmbus) Clear only CML command and data faults during probe")
+Signed-off-by: Arthur Korn <akorn@google.com>
+---
+v2:
+  - Only clear data->has_status_cml when _pmbus_write_byte_data()
+    succeeds and the post-write readback shows PB_CML_FAULT_CLEAR_MASK
+    still set, so per-page write failures (such as -EOPNOTSUPP on
+    max16601's read-only virtual page 1) do not disable STATUS_CML W1C
+    for other pages. (Sashiko, Guenter Roeck)
+  - Verified STATUS_CML W1C and virtual-page behavior on MAX16600B.04
+    (max16601) hardware.
+  - Link to v1: https://lore.kernel.org/linux-hwmon/20261125053711.3098007-1-akorn@google.com/
+
+ drivers/hwmon/pmbus/pmbus_core.c | 41 ++++++++++++++++++++++----------
+ 1 file changed, 29 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/hwmon/pmbus/pmbus_core.c b/drivers/hwmon/pmbus/pmbus_core.c
+index 2772860..b7f2f01 100644
+--- a/drivers/hwmon/pmbus/pmbus_core.c
++++ b/drivers/hwmon/pmbus/pmbus_core.c
+@@ -727,15 +727,32 @@ void pmbus_clear_faults(struct i2c_client *client)
+ }
+ EXPORT_SYMBOL_NS_GPL(pmbus_clear_faults, "PMBUS");
+ 
+-static void pmbus_clear_cml_fault(struct i2c_client *client, int page)
++#define PB_CML_FAULT_CLEAR_MASK	(PB_CML_FAULT_INVALID_COMMAND | \
++				 PB_CML_FAULT_INVALID_DATA)
++
++static void pmbus_clear_cml_fault(struct i2c_client *client, int page,
++				  bool verify)
+ {
+ 	struct pmbus_data *data = i2c_get_clientdata(client);
++	int ret;
++
++	if (data->has_status_cml) {
++		ret = _pmbus_write_byte_data(client, page, PMBUS_STATUS_CML,
++					     PB_CML_FAULT_CLEAR_MASK);
++		if (ret >= 0 && verify &&
++		    !(data->flags & PMBUS_WRITE_PROTECTED)) {
++			ret = _pmbus_read_byte_data(client, page,
++						    PMBUS_STATUS_CML);
++			if (ret >= 0 && (ret & PB_CML_FAULT_CLEAR_MASK)) {
++				data->has_status_cml = false;
++				ret = -EIO;
++			}
++		}
++		if (ret >= 0)
++			return;
++	}
+ 
+-	if (!data->has_status_cml ||
+-	    _pmbus_write_byte_data(client, page, PMBUS_STATUS_CML,
+-				   PB_CML_FAULT_INVALID_COMMAND |
+-				   PB_CML_FAULT_INVALID_DATA) < 0)
+-		pmbus_clear_fault_page(client, page);
++	pmbus_clear_fault_page(client, page);
+ }
+ 
+ void pmbus_clear_cml_faults(struct i2c_client *client)
+@@ -744,7 +761,7 @@ void pmbus_clear_cml_faults(struct i2c_client *client)
+ 	int i;
+ 
+ 	for (i = 0; i < data->info->pages; i++)
+-		pmbus_clear_cml_fault(client, i);
++		pmbus_clear_cml_fault(client, i, true);
+ }
+ EXPORT_SYMBOL_NS_GPL(pmbus_clear_cml_faults, "PMBUS");
+ 
+@@ -776,7 +793,7 @@ static bool pmbus_check_register(struct i2c_client *client,
+ 	if (rv < 0 && (data->flags & PMBUS_READ_STATUS_AFTER_FAILED_CHECK))
+ 		data->read_status(client, -1);
+ 	if (reg < PMBUS_VIRT_BASE)
+-		pmbus_clear_cml_fault(client, -1);
++		pmbus_clear_cml_fault(client, -1, rv < 0);
+ 	return rv >= 0;
+ }
+ 
+@@ -793,7 +810,7 @@ static bool pmbus_check_status_register(struct i2c_client *client, int page)
+ 			status = -EIO;
+ 	}
+ 
+-	pmbus_clear_cml_fault(client, -1);
++	pmbus_clear_cml_fault(client, -1, status < 0);
+ 	return status >= 0;
+ }
+ 
+@@ -821,7 +838,7 @@ static bool __maybe_unused pmbus_check_block_register(struct i2c_client *client,
+ 		rv = pmbus_check_status_cml(client);
+ 	if (rv < 0 && (data->flags & PMBUS_READ_STATUS_AFTER_FAILED_CHECK))
+ 		data->read_status(client, -1);
+-	pmbus_clear_cml_fault(client, -1);
++	pmbus_clear_cml_fault(client, -1, rv < 0);
+ 	return rv >= 0;
+ }
+ 
+@@ -3094,7 +3111,7 @@ static int pmbus_init_common(struct i2c_client *client, struct pmbus_data *data,
+ 	if (data->info->pages)
+ 		pmbus_clear_cml_faults(client);
+ 	else
+-		pmbus_clear_cml_fault(client, -1);
++		pmbus_clear_cml_fault(client, -1, true);
+ 
+ 	if (info->identify) {
+ 		ret = (*info->identify)(client, info);
+@@ -3742,7 +3759,7 @@ static int pmbus_write_smbalert_mask(struct i2c_client *client, u8 page, u8 reg,
+ 	 * Clear fault systematically in case writing PMBUS_SMBALERT_MASK
+ 	 * is not supported by the chip.
+ 	 */
+-	pmbus_clear_cml_fault(client, page);
++	pmbus_clear_cml_fault(client, page, true);
+ 
+ 	return ret;
+ }
+-- 
+2.56.1.750.gf70dc682cf-goog
+
