@@ -1,102 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.3
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795646218;
-	b=cFAtNazxaUGWfL5DkUh24ePxjZum4G5FV/xCj6eHdpqIUcF8SsmKPwR6WC4zg3sB926P
-	 /x9zkd+mGMgosCSeD+RvRRdkeoLpzuFSuFDOHpLtqiaiNXffnLw3+F/NWg9PWM3rxmOKx
-	 fdpgcd+na8aDWNIWQuYmgWWZc+myTOQD3Xx7vPQAwvW7p6eMxEunIqugWChA5p67oq+67
-	 FBd9aNob6WBduxzWXKYT/p0dhg21dK/7RszHneR/WcDxwrt8VDV7cMYn1Fci4oK4LFQ5w
-	 13zS7TMwqC/uFKoNinT9lWkFqF4q0FaF06psVdnvbnL537td5yon1Hn7Qj9R+mYgRqA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795646218;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=5lG6hjWpaomtDK0cBZVisErvnCecq5m9FWgBUcR09l8=;
-	b=BH4jfVf2VW52yPE4xif3ky5gmv7p/Ov82DNlGmZMEp76C9GJ+LQ0j5VrAlHDMANAFq0u
-	 Lire/AUwzDJoYv1PrmMKBwj10pSu1yIbnUChGX+4FejIi36ko1m03it2cLDAcKEwe6zV7
-	 e1pv2Ln1p1a30Coe3mIkHRoXYDIHgC5VWJoJ9fmQdeV1yzxnz3KT9KLv/vdPV2VRHX4OF
-	 5NJkoG++BnKaiV5hYLhj7VGSOCGPUH5WjnTvsbzXKH3+QhZKb5dBQLEb0X/SKfsGayPEq
-	 xtubG9L2c+ve8Ls8xUBK/tgMBm3z0335F/SqMrHIK+yeOSb1LP2FPerQC7vQEqqTacg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=WjEd3r5k;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.3
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011003.outbound.protection.outlook.com [52.101.57.3])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795646230;
+	b=p4ua15kQSyviHmz5xHuHIxhenWukzvqELtEwcrBDosFPy0uytAcPXiVwJsr+tySVnm03
+	 mgFG3GijBpEyEZA0B9ASY/B4VdbDOPcYMm9YEJM6ps/DqHKm/8RhDMTSq40UwMJ9bBoPz
+	 QUJV3KS0Or6qFd1J/f4kgJm/ywE18c3IvtSjmyitSFRwpU8HqWNUXahPzvjrUZhlAcJRG
+	 Dk97J15BPo3PUfuHZfzYUXbK7ECf81mrAXLDtb8qP7PRDi0hNzVt7C0c3zMS0HhF7ykXS
+	 y6rDHnqA+CrnMmvObvZoHVlU5wRjwmoWDabTcOcpU6ExQ4NkmkdV3wZGEzjtAbzP+iA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795646230;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=LPv00HXBHGcnrHwnYYcnQWrnezJpmZjmRwZVDwpJYZs=;
+	b=lg9F1tulatxOBv3GJ2nPdrDbX+BkwEBa3Sj0LeJIm4HiTIYsCMiPGrAqUkBeA50d/Kpt
+	 aE6aHaL5LGl3fQcVce0Zs/lUmXdSSI8Dr8kIXj6JyzAKVrohKDEeufGVr17CO7gWNQWE8
+	 jWnmayzqViif+uB0EjsSjxLnsPl4EGI9TaastAat3q9oGt32g0iHr5IsPv7ZOYclyOktR
+	 MdVJRuCHmpOWHdIyrj6nyzoNuZ44ajkipQ+GQQwfYbqT7UwsH3eVcUcWikGFCRDy4GwQl
+	 22tViXZtMH+1eq8PtQY2QDOxY97n2lZKIDbfGwDbIDVEOeMvdaCmzXc46DLUaQ8UQPg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xd9AE7iW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B88F8606A333
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:36:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B88F8606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A86F7606A31E;
+	Wed, 25 Nov 2026 22:37:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=WjEd3r5k
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yTn9iaAPyUCMNS+F6SfANNaB4vyln5Y0TRF347I0TB6neWHb+LAofFchWk9BdT8p8ZQ6S/1kRmCAh4wiejgcrdyTwJhoRnbsYud2kYew4ihgHrbIySdf1vV2XSbHT2AP9U+UAzwfGxXaRsS0ETlq0iApxGY4TRHMb9o2jWw2SLUO6+m7GGjoa9ZzGikUZmObxiDixNz52O10IMD/KN+z9vngfBWeoKbn1qp5RBqtMv3bXSKnXHSXXI1l+Yr+Tb+YgOCFSMRYcizNYPKNj+AbVtL6APz0b3x2vFJp0/YY8sGSx77utjOwJWMd1Xz/nqJV2i/PX4C9DEdwg44l6LRqJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5lG6hjWpaomtDK0cBZVisErvnCecq5m9FWgBUcR09l8=;
- b=PFY1Vs2t8zxa8QHN9i1aTUXeC3ZOEZoh4kKJtUO1mrUtXcbAUJ/pkVl758SjephE0XRrTWbvy8Hyqo7zC3CYm79mQP5Z2qDgAR1IUZqa9EdBODJCNzKGYw0W+9U4sn43va6hFjjiEM6mbcRhX77xNzU8W3UEPzq5iC4ph/g5pGRzNJEwPaH8mylenUd+N1R1uPOiNC6LSU/qMz5eSEfJLpjVk0Ps2497mc8ipM0p3txoEGlUfA20RmtUk+c/3mi3L93TiiaJRMmVgmTT2VRC7x3lKV8TkN3T8Z7WxMtxt2KQ25fTHti0cBZUb12cawKjJUeKAiFuvAgREYjpr1BY4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5lG6hjWpaomtDK0cBZVisErvnCecq5m9FWgBUcR09l8=;
- b=WjEd3r5k2GGUAmGinfIy7sEck7FBO/+Z7gDGFFS6Z9VPL4+3HBl6KY0sdJ8cVhJKLi5y35B1Jd7sePEsiSSL5acl+H9dbH8xVsK9E4AzFY6y5fZbcFEwvuHbiFm1cSmRpl9mgEgM2+0VYVubIlWP7zTqD/+Cnzau3cagX/DGUr4IysgYZgBrdJR6BPdsUCABbTOhoYrd3lDTcF2Z8Jh1e6T8M51PKXvv5582538RqArTR/BRUvjyYDPM8hAThTOOBYYYLOEmtkyA6NRkEQ4HUiXvb8bVbcFy8YNyuoGS3XI5Kd8aBwwaMlNn0E9AlyVrgAkzNkzghAJ98zhXW7O6Nw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM4PR12MB5390.namprd12.prod.outlook.com (2603:10b6:5:389::15)
- by DS0PR12MB7629.namprd12.prod.outlook.com (2603:10b6:8:13e::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
- 2026 22:36:52 +0000
-Received: from DM4PR12MB5390.namprd12.prod.outlook.com
- ([fe80::2815:c27e:a0a:2720]) by DM4PR12MB5390.namprd12.prod.outlook.com
- ([fe80::2815:c27e:a0a:2720%3]) with mapi id 15.21.0662.001; Wed, 25 Nov 2026
- 22:36:52 +0000
-Message-ID: <6bed8c59-476b-442d-a8a5-158fa0d9d978@nvidia.com>
-Date: Wed, 25 Nov 2026 14:36:49 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/6] KVM: arm64: nv: Grow the shadow S2 MMU pool on
- demand
-To: Oliver Upton <oupton@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
- Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Suzuki K Poulose
- <suzuki.poulose@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
- Joey Gouly <joey.gouly@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>,
- Marc Zyngier <maz@kernel.org>, Tom Matthias <tmatthias@nvidia.com>,
- Shameer Kolothum Thodi <skolothumtho@nvidia.com>,
- Jason Gunthorpe <jgg@nvidia.com>, Julian Miller <julianmiller@nvidia.com>
-References: <20261124211218.2751086-1-nathanc@nvidia.com>
- <awYPtXVeY1NYeTla@kernel.org>
-Content-Language: en-US
-From: Nathan Chen <nathanc@nvidia.com>
-In-Reply-To: <awYPtXVeY1NYeTla@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR05CA0003.namprd05.prod.outlook.com
- (2603:10b6:a03:33b::8) To DM4PR12MB5390.namprd12.prod.outlook.com
- (2603:10b6:5:389::15)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xd9AE7iW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3D821F000E6;
+	Wed, 25 Nov 2026 22:36:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795646230;
+	bh=LPv00HXBHGcnrHwnYYcnQWrnezJpmZjmRwZVDwpJYZs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Xd9AE7iWYslCbkrOtsacMp9S4QZka9TCU/PTNwIXNqVICw0J/mz8SeELZNUrsWsMT
+	 i/3vqUZbMVdkv0i5UiOE913bfUaSAUQrzbUx7YHK3OM+bJdIdQ7pb8HRwU6UdI6bh6
+	 6EUZDa6zh9fZYGiDDzM8RsVCOVrKdi5kK8sqsHLD8b9TE7IhDNAUKZsZS/jTCC+4AD
+	 cplOKfhFhaAxb6ucOMt8Gj1rzz+Pkf3t1NXhNp4bsAuYXFez+3IQ24oLgM0J6pSfAr
+	 i8fkUVtfgvdIjIjTpmhhU4RDqv3dLlNMkJmSN7ELsHi1pWuRZgWvuAWV0v0WYZvKNQ
+	 LePKrkoEiP4sQ==
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Date: Wed, 25 Nov 2026 23:33:12 +0100
+Subject: [PATCH 14/21] mm/hugetlb: count migration entries at fork and
+ unmap
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,119 +53,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR12MB5390:EE_|DS0PR12MB7629:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8ef06fd8-49a5-4840-0245-08df4b4499c0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|18002099003|22082099003|56012099006|4143699003|5023799004|11063799006|261102123227099003|10067099003|261026140227099003|261022105027099003|261022075727099003|261026121527099003|261021121427099003|261028144727099003;
-X-Microsoft-Antispam-Message-Info:
-	BZgaWtuuACH3QWU2uBnyY1QSUpYJdp8XgGrxrAFCjPe3WkSmsk73jmJcEhLV19QZcwNgcjZC9v9SOCkXtUvYYdILm+2rSp/N/Ovz2f1jy32h38EACPui2GrHYX77OdLzDlwqeGAY+O+PQie4YqE/9MZK+SkTRlL8ykwyX/MQd8XSbcqA7UD3VhU1bgQjszVClr/PbzaIF/QmGb3Vid/7Mh4u2R3bSGT6ZhfIx2IQ8hr25iBGvSdXqMIzFahTPM1kFFIqt8AB8ZhpVALzk3uCesTHP8UuQV5v9fTOWkEpXT4fuSkKf1pZbHPIJS9+QZLSQ+8gRtcZCvCCe6GgBA924QhfPA9rQ8tnhrasLziYO+P8AAI+4gXaY0uqHi/Ji33u6DPq3GOoL0MoGo5mqeETDJSutEAg0e+0zLXlG5BM0RHqTPqs1sWQy3F6aSDbWKNyq7GzKs075iuNKPnyeQtyAXqTYNquS0Qc0ElsmsRHL7p3gOE9Wn+Bu8zFLpIOM38iZOLoZXzskPTAB65Qs6+8Cgl/GFM0QpizMmjq5grg6DzBvyDgQ4jHH39dehnYcG5el1SxN4TDTkme5V6LUb4eT5Po5chkoH3rd7ZFTrxjMMAGPQ3gt6AQWyaNQiZWta7qTh5GEQqXzqdTKftTa8fTo4AqSUuQ/0nLCpCI02XDTyY=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5390.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(18002099003)(22082099003)(56012099006)(4143699003)(5023799004)(11063799006)(261102123227099003)(10067099003)(261026140227099003)(261022105027099003)(261022075727099003)(261026121527099003)(261021121427099003)(261028144727099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?ZnZtaENEckpRZkJSNit2bVBqYTRjYjZsY2ZnazBaNG5XaUphTTFwUFdxNDJW?=
- =?utf-8?B?WERLRFY2OHZFNXdkYnI5eldSTndjTmFscjdrSU1LdUFQa05rekhJL3hKK3Zn?=
- =?utf-8?B?cHgzUThkQjJKUE10bjNHcGVabFFvUk0zcktDaXArQTlacjVpN0piTzd5ZUI3?=
- =?utf-8?B?V29RVjRiZjdNdTVQSm04OVFaWExzbDAwdzdsVVlwYmdlRFZBd0FkemYxcnpn?=
- =?utf-8?B?S0s2RGlpWi9XUDIwSldVY3FmVk5kNy9VdWJkUk4yck1WbHA0M1dtczdISXdm?=
- =?utf-8?B?L2V1UXYvamZkR2tmNkRUSzRpV1UwREpJb3U5T2FFQzkraU0wT2JOYnpXM2Ry?=
- =?utf-8?B?TVdUZ3FTWWdSMUx5RUwzNHRyTVNyNHpnQlBYYkZGSjBYZkt6VGwxRElUUmVo?=
- =?utf-8?B?cW5SL3FSMTkybC9qeG5aZ1NBWUE3RlJ4UUNMUmwzZzcwc0VqMDJUcnZsZS8r?=
- =?utf-8?B?akFHN3lLczBPbFVYZFRmeStsalFzRGI4TVRRTCtXVzhrSmswOXJUTHplNk1G?=
- =?utf-8?B?anRodUQveTkrNU1idE03VEZGRnJaT0tYSnE2UWVxUU5BaWRiaDVLMWFSQUl5?=
- =?utf-8?B?Y2kxaEJmNWpMRjBtMmU1RmZ6QTJjV3ZpRWVyRGYzQ2pxSk5ycVFUTVBaNllm?=
- =?utf-8?B?Ulk1SjVlQXNiSjFFa2FtRW9FdWg1OStBRXVBa1hrMUczOXc4UkJiV0k3WTMr?=
- =?utf-8?B?NnMwaWQ0SFU3dUMxQlU4TDFYZGNPcVZYSk1FT0R0Y0V1bXhhVW4yUmxCTEdP?=
- =?utf-8?B?YzFtZTVGT2xtWjNZVk1RRitDVDBQbllsVXZvbnZXMlNNTDFUSHFZdjJ5Rk5j?=
- =?utf-8?B?SEpiSHBoeSs2YUg5R3BKTzdMTFVzYjlrMEY5YXIweU1UMlY3LzBHMHlDL1lQ?=
- =?utf-8?B?RlFuSmUxUm15c3FPUmdTSFJnTEl2ZmtXRVAwRThPZS9lZk15SUs2NWhGZHlN?=
- =?utf-8?B?ekc1UzBzZVByZXZUeEwvbHZ0cFhnU2RtOGdVMUppWE44QVZtVmdQaXJmTHNt?=
- =?utf-8?B?Nk1IVmxrZEx6clhDUm8wVTNKZE9UNTh5dHdKbGJ1MGVGSmJoaEtwUkpnTFhZ?=
- =?utf-8?B?ejM0TnF6SEIxN2lYSUQyclBpcm8wWDFSdVBRR1pBeWUwVlBmVGw5dTBsNWRm?=
- =?utf-8?B?U2ZlMW5sS0ZuMGVaWmFJVUNkc2p5M0ozT3FsU0J5VFRiNjF3eXZWWklrd3Bu?=
- =?utf-8?B?c3BFOWt2WGR0Mlk3NXUrM090UVpIb0RWMTcrZ3hvSWRxcFo5emdqQ3FaRFV5?=
- =?utf-8?B?eWp4dEpPcFVvNkEzTC9KUzZqRHZvcnY0ekRDQlZ4T29ncU9uNUJlam9IdGxJ?=
- =?utf-8?B?eXNCT2FtQXhiU2FmT3lHdlV0amdBbkxrdSs2aHFNN3RnTHpKcGZXQkU4WFJL?=
- =?utf-8?B?ZkpTM1V4a0l4U096S2JlMzJKeWFwQ2xQN0FIZmdzSDB2RVp0R0FLeTYzUm1V?=
- =?utf-8?B?eWI4SmRKc2xhVXYxSzRQZ2pTMjRRSjdMOUZ4ZlpBNHZybmtQdzVXMFNQZ2E2?=
- =?utf-8?B?WnB0aDVOMGpTOWZIbFE3eTNxZTNvbUxLY3hOSTNubVRucWJRS1Nnd01say9v?=
- =?utf-8?B?cXRvVktqWGRJZ29kOE4zYUhzUmFTRnMvRGtPQ3pNc3JxOWxiaDdIM1FKL3hr?=
- =?utf-8?B?V0hBa2dxMVpRMlh2MTJFNXFUOE91MnNIOUtLZkYzUGVXajFEVzF5aWhyNUpX?=
- =?utf-8?B?U09vUWZCZHRORGx5WFFmTTgyTEdHTEFEamJUWThTaDFFZzF4Q2llQ0RPSU12?=
- =?utf-8?B?eGpmNUFZL2x4cUNnZ1BQTDNvcmQzb0lpS3lIR2RPSzZ5Ykl4dUZPamdpbXpT?=
- =?utf-8?B?V2tOZlNyZDU3QjJGdWIwUUNHWVpFRi8zcUdTejhUbXJNWFhwaDNUK1IwZTBM?=
- =?utf-8?B?bmxBZkRJeThTdnFjYVA0R0lNdGQzU0w4QXM0Y3FxTk9nVmx4WjhFUm80Zm5p?=
- =?utf-8?B?V2tpOVZrTll0bmhvYUdHbEJvZWt5ZkhjckZnNTBsYVMycEUwVUdEWDlxWmVX?=
- =?utf-8?B?OFk5UEZ3ZSs4R0RZSTNERFZZTFUzZ00wblFndXVrdENVNlRvbExpdU9XUXc4?=
- =?utf-8?B?WGJEdFlPOFo1bnZLVW84RmZjS0dmMHlZeGRyazRvWmtYRmh6ZUZBVnRBNGFq?=
- =?utf-8?B?bU84MUlPWDZ5V2l4TU0wNVRDOUtoU1hkSzhPWEpZMC95Z3podjZ0N25FUS9V?=
- =?utf-8?B?WWJseU01bGpLRnkraE9HTVR5WEU3NEpvNUFrdkUrU0Y3cFRBeHdGeG1qajRn?=
- =?utf-8?B?Z0VlUWpUUEdkZ3liQnJEK1NwNXY2STFlaHVwdnpzeWdSTDN2SEwzR1IyOFUx?=
- =?utf-8?B?VWUxb3lTaFBPdWJMZ1BvVURqSktGNzBEMk1xVTF5WDdQQ0taSFRzdz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8ef06fd8-49a5-4840-0245-08df4b4499c0
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5390.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 22:36:52.0653
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XBZSCjvWjHi95DAlv3c7QjKQhZ8q5BHinr79RDWKwO2byzRL1uZKEp3RxhFit/a6kloRtV/F9HYsjYY6VC6QPQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7629
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-hugetlb_fixes_2-v1-14-db27fd2f71a8@kernel.org>
+References: <20261125-hugetlb_fixes_2-v1-0-db27fd2f71a8@kernel.org>
+In-Reply-To: <20261125-hugetlb_fixes_2-v1-0-db27fd2f71a8@kernel.org>
+To: Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Jinmeng Zhou <jinmengzhou22@gmail.com>, Hongfu Li <lihongfu@kylinos.cn>, 
+ Andrea Arcangeli <aarcange@redhat.com>, 
+ Mike Kravetz <mike.kravetz@oracle.com>, 
+ Naoya Horiguchi <nao.horiguchi@gmail.com>, Hugh Dickins <hughd@google.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Dave Airlie <airlied@redhat.com>, 
+ Vivek Kasireddy <vivek.kasireddy@intel.com>, 
+ Gerd Hoffmann <kraxel@redhat.com>, Mike Rapoport <rppt@kernel.org>, 
+ Mel Gorman <mel@csn.ul.ie>, Dave McCracken <dave.mccracken@oracle.com>, 
+ Andy Whitcroft <apw@shadowen.org>, Adam Litke <agl@us.ibm.com>, 
+ Lorenzo Stoakes <ljs@kernel.org>, Rik van Riel <riel@surriel.com>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Harry Yoo <harry@kernel.org>, Jann Horn <jannh@google.com>, 
+ Lance Yang <lance.yang@linux.dev>, James Houghton <jthoughton@google.com>, 
+ Yang Shi <shy828301@gmail.com>, Suren Baghdasaryan <surenb@google.com>, 
+ Shakeel Butt <shakeel.butt@linux.dev>, Pedro Falcato <pfalcato@suse.de>, 
+ Gregory Price <gourry@gourry.net>, Zi Yan <ziy@nvidia.com>, 
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, 
+ Ying Huang <ying.huang@linux.alibaba.com>, 
+ Matthew Brost <matthew.brost@intel.com>, Byungchul Park <byungchul@sk.com>, 
+ Alistair Popple <apopple@nvidia.com>, 
+ Wanpeng Li <liwanp@linux.vnet.ibm.com>, Andi Kleen <ak@linux.intel.com>, 
+ Kenneth W Chen <kenneth.w.chen@intel.com>, Hugh Dickins <hugh@veritas.com>, 
+ Michal Hocko <mhocko@suse.com>, David Rientjes <rientjes@google.com>, 
+ Joern Engel <joern@logfs.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, Michal Hocko <mhocko@suse.cz>, 
+ "Aneesh Kumar K.V" <aneesh.kumar@linux.vnet.ibm.com>, 
+ KAMEZAWA Hiroyuki <kamezawa.hiroyu@jp.fujitsu.com>, 
+ "Kirill A. Shutemov" <kirill@shutemov.name>, 
+ Sasha Levin <sasha.levin@oracle.com>, 
+ Guillaume Morin <guillaume@morinfr.org>, Wanpeng Li <liwp.linux@gmail.com>
+Cc: linux-mm@kvack.org, Jason Gunthorpe <jgg@ziepe.ca>, 
+ linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ Andrew Morton <akpm@osdl.org>, linux-doc@vger.kernel.org, 
+ "David Hildenbrand (Arm)" <david@kernel.org>, 
+ Chris Mason <mason@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2527; i=david@kernel.org;
+ h=from:subject:message-id; bh=irf5GUIfBQCl4azbFe2lzFg+Z8O8lLWnIpcOG+Ooqq0=;
+ b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLLZk1SvdCdnH1Dp2q7waYJMTTen2x+d5O1NyinbLpRf6
+ W5U/vGto5SFQYyDQVZMkSUo+L7By5fraqvd+Jhh5rAygQxh4OIUgInYpzMydFg8+TjFoIT7VpSU
+ tBrv042ykYeL7ydm+z+7c6d9n+LzNkaGntqIqXvql15JSA76aLPu+95pOXMftDx2bRd4nGM2NX4
+ qLwA=
+X-Developer-Key: i=david@kernel.org; a=openpgp;
+ fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
 
-Hi Oliver,
+HugetlbPages in /proc/<pid>/status can be wrong, and even drop below
+zero, if we fork() or unmap while mapped hugetlb folios are being
+migrated.
 
-On 11/24/2026 2:29 PM, Oliver Upton wrote:
-> On Tue, Nov 24, 2026 at 01:12:12PM -0800, Nathan Chen wrote:
->> A nested-capable VM gets 2 shadow stage-2 MMUs per vcpu. Once the guest
->> hypervisor runs more nested VMs than that, nearly every nested context
->> switch recycles a live MMU and spikes host CPU usage.
->>
->> This series lets KVM grow the shadow MMU pool on demand when the pool
->> is too small, up to a host-wide VMID budget. It also parks grown MMUs
->> on a guest TLBI ALLE1 and when a guest range invalidation leaves them
->> empty, in order to return unused capacity.
-> Thanks for taking a look at the problem. There's no argument that we
-> need to do something, the existing MMU allocation policy was good enough
-> for doing nested development and would get replaced eventually.
-> 
-> With that said, I feel rather strongly that we should not invest further
-> in the MMU array because it is quite inflexible. On top of that we need
-> an actual eviction policy that selects cold MMUs as victims instead of
-> the current round robin approach. I don't think you need to do anything
-> special on the invalidation side with a good eviction policy.
-> 
-> I think this is what we need:
-> 
->   - A VM-wide hashtable for storing stage-2 MMUs, keyed off of
->     {VTCR_EL2, VTTBR_EL2, HCR_EL2.VM} to align with how we handle TLB
->     match at stage-2. The hashtable can be dimensioned based on a
->     configurable VM limit for shadow stage-2 MMUs.
-> 
->   - A state tracking mechanism for victim selection. An LRU list seems
->     like a reasonable starting point.
-> 
->   - RCU replacement of the evicted MMU. I need to think about it a bit
->     more but you should be able to reuse the PGD in the new MMU context
->     as well since we know that no vCPU holds a reference on the victim.
->     That ought to be the goal anyway.
-> 
-> That should allow us to dynamically allocate MMUs while also improving
-> upon the current behavior for constrained MMU allocations.
+There is an inconsistency: when installing migration entries we don't
+adjust the counter, treating them as if they were present. However, when
+copying or unmapping a migration entry, we don't adjust the counter like
+we would for a present entry.
 
-Thanks for the detailed direction, that makes sense. I'll drop the
-array-based approach, including the invalidation-side parking, and
-rework the series around the approach you mentioned above.
+Let's fix it by adjusting the counter also for migration entries in
+these cases. Add pte_is_migration_entry() like we did for other softleaf
+types already.
 
-For the per-VM limit, should we keep it capped at
-S2_MMU_PER_VCPU * nr_vcpus by default? And should it be overridable
-via a module parameter or per-VM capability, or would you prefer no
-per-VM cap at all, with the pool growing on demand and only evicting
-when allocation fails?
+This has low urgency and given that this has been around forever and
+likely nobody cares, let's not CC stable.
 
-Thanks,
-Nathan
+Fixes: 5d317b2b6536 ("mm: hugetlb: proc: add HugetlbPages field to /proc/PID/status")
+Reported-by: Chris Mason <mason@kernel.org>
+Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+---
+ include/linux/leafops.h | 11 +++++++++++
+ mm/hugetlb.c            |  3 +++
+ 2 files changed, 14 insertions(+)
+
+diff --git a/include/linux/leafops.h b/include/linux/leafops.h
+index 4c1476ae32343..c315a3531485e 100644
+--- a/include/linux/leafops.h
++++ b/include/linux/leafops.h
+@@ -587,6 +587,17 @@ static inline bool pte_is_uffd_marker(pte_t pte)
+ 	return false;
+ }
+ 
++/**
++ * pte_is_migration_entry() - Does this PTE entry encode a migration entry?
++ * @pte: PTE entry.
++ *
++ * Returns: true if the PTE encodes a migration entry, otherwise false.
++ */
++static inline bool pte_is_migration_entry(pte_t pte)
++{
++	return softleaf_is_migration(softleaf_from_pte(pte));
++}
++
+ #if defined(CONFIG_ZONE_DEVICE) && defined(CONFIG_ARCH_HAS_PMD_SOFTLEAVES)
+ 
+ /**
+diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+index 2bba0940a40d5..89d71e3dadd77 100644
+--- a/mm/hugetlb.c
++++ b/mm/hugetlb.c
+@@ -5131,6 +5131,7 @@ int copy_hugetlb_page_range(struct mm_struct *dst, struct mm_struct *src,
+ 			if (!userfaultfd_protected(dst_vma))
+ 				entry = pte_swp_clear_uffd(entry);
+ 			set_huge_pte_at(dst, addr, dst_pte, entry, sz);
++			hugetlb_count_add(npages, dst);
+ 		} else if (unlikely(pte_is_marker(entry))) {
+ 			const pte_marker marker = copy_pte_marker(softleaf, dst_vma);
+ 
+@@ -5480,6 +5481,8 @@ static void hugetlb_unmap_range(struct mmu_gather *tlb,
+ 				spin_unlock(ptl);
+ 				continue;
+ 			}
++			if (pte_is_migration_entry(pte))
++				hugetlb_count_sub(pages_per_huge_page(h), mm);
+ 			/*
+ 			 * If the pte was wr-protected by uffd-wp in any of the
+ 			 * swap forms, meanwhile the caller does not want to
+
+-- 
+2.56.1
+
