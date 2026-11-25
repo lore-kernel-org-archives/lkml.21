@@ -1,81 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795628963;
-	b=Wknq321N10+efd70pJin5lWKLUB94MQrWemufImumS1ohIZ+cR7oMmz6DkP0RDad9pPU
-	 9fVXYy+RpoMJuMKjxiP1Q8qs+LMZLc/hr0gCq7Ujdx+u5x0mv0NwERlT+DVEL5AW7YOPn
-	 MdrXmAv1sXmepdhHH/0LdhASgxp5hi5OI5govjJ09Z+YVTHMfhTwUWMYd0zpEuNf3HrU7
-	 K/O9oX3ZRrxugG4lkF4Sj9BKT6BFED0LU/gVSJARsCPtE503+btxuq0sIpvk4cTm2h1UP
-	 aBUd2yyK5pQoZOim1XNq4/TMQ1Cyo4LggyzeO7qdnY/46LlByOrG9vQzI6NV6hqTphQ==
+	t=1795629013;
+	b=CqwNZSLTRmr4SmatIrJM2cQbLo1Le/pYzWCg8+qG/TtsYiZju56DRyKzf4SPP7NlRvw+
+	 M//zYSS8NtKVdwVELrpEk75MdE5584vcsD+PDH+9lNSR0leiolOFOv292OpibgOdLHfgJ
+	 AfJ/rKeiCFXUUQBwg3yHpKo9KeM9aMWFF2Nc+xvgQmZFGksRgtKY+eCUShbciEWzC1meX
+	 pSsIX5iAVPcFTne4REFl+NBSv5ZiUgyhJ2hZAA7S+XUomuLsKL1FgQuuO64KlAt0EM7yz
+	 RlKDvfFtE5Bdp4YjPdsB6RAwHVe5EdMSwq7rBvCA47vV74OEMF3Fa2Db9R/7flK0o4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795628963;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Subject:
-	 From:To:Cc:Date:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=VSrdhCV78Kqq7+HZq7TSgeUaWdvzaWenMwAyVDxuYJw=;
-	b=doxQkBWcKK4KxxnMIJSQosiBARD1bPGlsY6fh/56lZARkvQw8jBtM/8Cig5Ql5PDiTkA
-	 Eg1XmojBVaQy/skvD2XmC0YMYAmJdiNWjAxedUBcqwHfBDdojfDnBIsrv+mdSpUyTt5Pi
-	 brTv3Xl5UEuFR7jQBlb+1j4YgqTjL8/CSVwN3iymssxQC/Ve1ExnC9e5rXdt1EPmoz5VH
-	 g3/DyLgBYApAeghaf6ww2/cLlt7L88AXO4xKPMKmHohuUOOCYNH4GEke3m3W8JTl7X0OF
-	 wun9o5gePlpg1QjIgn/PoGz+bFzvivIr9PfWJ50q6rBcdbHVnHlSkmqo+cfAuLcTKtA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629013;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=iVdPOcw1bs6hdzSnoCmlTQe9oM25xdIMmK+wXSHKTBo=;
+	b=hi/u/mkn15Zuah2f8SUEgbQ0BTJbV9PM2hPf5nsdBMoXA5G5zrU+g7ruJzuTnTlTy8ZX
+	 5rsNpZ7S/GeSEe25jU9dQTLtqf0LTI+m1yj/aAXesacstY6wT61SmhRwsJgorFV8pucan
+	 6LilJ+lYIeE0R+8aI207CgIuSSEP70A1AX5NEcjw160K3shnWkn6WRTIUJXuEG/3a4V/D
+	 9Kmdmti1i77CC8t03CoYqYhAMef/Kx/Tw/379vr5F7SMBcp92fJZL/2tQqw23jF02fNqB
+	 VeJHPpMSnjmvEJxXZAdguKFIQ3T487SM/6UpN7Fa2F4bJkkd5I7/3A11XA19GbtP8kg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gmXpwMT8;
-	arc=none smtp.remote-ip=192.198.163.12
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=cs.unc.edu;
+	spf=pass smtp.mailfrom=cs.unc.edu;
+	dkim=pass header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=VAa13JZp;
+	arc=none smtp.remote-ip=209.85.128.169
+Received: from mail-yw1-f169.google.com (mail-yw1-f169.google.com [209.85.128.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86EE6606A33A;
-	Wed, 25 Nov 2026 17:49:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86EE6606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C13EC606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:50:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C13EC606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cs.unc.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cs.unc.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gmXpwMT8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795628963; x=1827164963;
-  h=message-id:subject:from:to:cc:date:in-reply-to:
-   references:content-transfer-encoding:mime-version;
-  bh=K9Pyi1PyzMu36Fq+bvuCkDzpoXpuwUc9Lc0EQ63cwbw=;
-  b=gmXpwMT8bRxhVuotVeXxCvje86+KLhwQ7FFRogXLeXOYqPgKhEnyJnoe
-   4aw2ypdFqpo3FB4NEi54ZNaL/52aqgqIIfLctEUFImISeBeGJDGqLL/Tb
-   4fMa/nskbY6kAyJzKI5qVEvBdTCBB5TkGIunGzyL1YBj1q0GCnCJMsKTN
-   Wd99G4Q1F6ogtqgsNUKxFvVnbFc4G1KkoXr3j/MdXmPeKNwb4BzThNDv+
-   mRfhIRYQyHCXOl2Fu4sv3Zx/R2e8d7RZULg/7jLf3pMJfxMe19vKJu/eY
-   zci9Smu0l5j0SR8maRgALnRHPCX6RidX9P5xrFoMFXmIgdxWX3LSket05
-   A==;
-X-CSE-ConnectionGUID: xsLR8qKdSgKl2TQAEopMaw==
-X-CSE-MsgGUID: +0QAVA2ISMOuEv8v/HVUow==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4409236"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4409236"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 09:49:22 -0800
-X-CSE-ConnectionGUID: ENU4monsQTWyfOq7WMbOiw==
-X-CSE-MsgGUID: TM64G7RVQ96QHve/gDrDyQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="11911000"
-Received: from spandruv-mobl5.amr.corp.intel.com (HELO [10.124.220.229]) ([10.124.220.229])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 09:49:21 -0800
-Message-ID: <39da5f7295537024b97eeca6b567720c117ee002.camel@linux.intel.com>
-Subject: Re: [PATCH] platform/x86/intel/tpmi/plr: Fix CPU selection on
- partitioned systems
-From: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
-To: Qinyun Tan <qinyuntan@linux.alibaba.com>, Ilpo
- =?ISO-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>, Hans de Goede
- <hansg@kernel.org>
-Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	xlpang@linux.alibaba.com
-Date: Wed, 25 Nov 2026 09:49:19 -0800
-In-Reply-To: <20261125092244.3641945-1-qinyuntan@linux.alibaba.com>
-References: <20261125092244.3641945-1-qinyuntan@linux.alibaba.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	dkim=pass (2048-bit key) header.d=cs.unc.edu header.i=@cs.unc.edu header.a=rsa-sha256 header.s=google header.b=VAa13JZp
+Received: by mail-yw1-f169.google.com with SMTP id 00721157ae682-8b360828905so56632627b3.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:50:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cs.unc.edu; s=google; t=1795629012; x=1796233812; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=iVdPOcw1bs6hdzSnoCmlTQe9oM25xdIMmK+wXSHKTBo=;
+        b=VAa13JZp07sBbOtWf3GoIBMIBQheUsIZTo3rZc0GmkeFHLHaPzAoIRZd7GdDmnRrRJ
+         3a3EO/RwOxQes9cJgDIvwhUr1psiHVxzS9QV4IISmDTLGCktmYY6IZgzxLA4FBa+FGDS
+         soP+EpDUm4KUe9avhBaeI7zdedR4GdIObTjNQLG4RKn+7UPwCHaMCQ0xAdbQx4mcreMu
+         AV9h4tGyOnXg0pL1/BbDlCA6KK538ImkSkkhNaOxG3eU1ojjwZs+SGbOaNzp4LweZvDN
+         n+gdgxejXIxaDbctTrOng4qUiBRJ8JpiNV8Cud+pfPDHdJAz8KsZoq9JrP7yNm6XH3Bu
+         miCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795629012; x=1796233812;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iVdPOcw1bs6hdzSnoCmlTQe9oM25xdIMmK+wXSHKTBo=;
+        b=KFuOcVOjf+pSwlu3L1lI1P48WUm+OR5gi+l/Cf96tjO8Jt0ahLKP57TgDUWA2yolah
+         5d5zphFWozQOR8V8bpdUN9chQoHI5AS/l/fhCLIgKKrcr7UFxrsTQfjuavH85NQplpcc
+         6w0KfvyUEqK6ZhUFvKkNO6N8T5VDPGZ9BPPWB6XqwIxwIxiPW/qiJ3rkdeWjfSLHj8vc
+         QqGKw6WrkOEtwqnJtlj1zZYrx6JwYurjddoFsT59lL7prQgoxggU4psqGqDCGKu4v/nz
+         odYCygtXYkZaVgt+JMSoinp1Ig3uU7wjySh1t/zpcTZ6fOiUdf5g8kzI5KpSXgUlAxRl
+         TI8Q==
+X-Forwarded-Encrypted: i=1; AL+hErGxkfdnIDSMvLz2p9cAVPoc2yHPdfIFZ34I84tJ8frXSEzOzAu559kNXyynLNVh8BoePyGiUbB/3Sqv440=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/pO5mXGUVNSzSgW8aTg/HRcu3P42+NkOSFqfPyMthEYWG9kMum
+	F2q1IuAl9ZDhd3wryf/sBIB0cjP9DY/+dvDgMV3s04bQ4QpRJcG45V9Yfk/8a+sx1g==
+X-Gm-Gg: AZFdTZdrGFogjYN0g0rsJjmaemjrUEGErA5e4U4CXop6Y/N+MdsjiyA0BMdHp+I+4+8
+	DCS5KCkKb6Aod+wJaS1N1R5LYqdnw7rB5NKBfPRTxa6A0+8SmhFROyryP6pRj3XDBY1l5oeXHs6
+	rU9FoXMbjOiAMWh3cbevm06jcNMp1MsrWUlgdslE/cbcCYfXxWsi7DlhXrp+v/zTobwcr2q19sh
+	AoAWX485cdAyJScRZqE3ZYxyI1R+ve/e3hcmV0VYz/oL9K3HzAxGlFZ3AAcD1J2VsftYd1e7rl0
+	htv3iJQAF1S8R87EMJcMC/1GLMDx0vai61kg2sPsEjl66YSlHASiJF++Xmly4H6CPtfvYIJKGpO
+	4pA39w7UjIMCfCr1zVHr9KpuRwhKNW1dqODXISEZGE/HBycEDGwomc9Oipuq1kegJ0x2nMIHgJs
+	exmD/j5RB3zhHQm2GvpUhFkWiOgIF31JDC+R3A8zfvI5bep1tRDIIRu0htIfLa8cxQVuZKYVEP3
+	FhFFE1F96DehZADh1LDTYylVNF6pR/s+3oOBFrWx2K8dRtju13YAKVTu3s5uXpKbrOHq68hEJPR
+	D1cL2hJsEIfbha+LwlomvBbfzLQ+FabU1QVsS3xtVgt8m2CuZRY=
+X-Received: by 2002:a05:690c:4448:b0:8b2:e4cf:c399 with SMTP id 00721157ae682-8b520435b9emr76177847b3.18.1795629011607;
+        Wed, 25 Nov 2026 09:50:11 -0800 (PST)
+Received: from cobra01.cs.unc.edu (cobra01.cs.unc.edu. [152.2.130.143])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b52034f7absm75322567b3.41.2026.11.25.09.50.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 09:50:11 -0800 (PST)
+From: Hengyu Liang <hengyul@cs.unc.edu>
+To: Andreas Gruenbacher <agruenba@redhat.com>
+Cc: gfs2@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] gfs2: restart rename when a signal interrupts the glock wait
+Date: Wed, 25 Nov 2026 12:50:07 -0500
+Message-ID: <20261125175007.3659558-1-hengyul@cs.unc.edu>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,186 +95,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Wed, 2026-11-25 at 17:22 +0800, Qinyun Tan wrote:
-> When a package has multiple TPMI partitions, PLR can report the same
-> CPUs in more than one partition. For example, on a single-package
-> system with 72 logical CPUs and two TPMI partitions, both partitions
-> list CPUs 0-35 in their PLR status files. CPUs 36-71 are missing.
->=20
-> Each partition numbers its PLR resources from zero. The driver
-> compares
-> that index with the CPU's power domain ID from MSR_PM_LOGICAL_ID,
-> which
-> is unique within the package. As a result, both partitions select the
-> same CPUs. A mailbox read or clear on the second partition then uses
-> a
-> module ID taken from a CPU in the first partition.
->=20
-> Use the partition's cdie_mask to map each PLR resource to its package
-> power domain. For compatibility with older platforms, keep using the
-> resource index for partition 0 when no mask is available. Skip per-
-> CPU
-> mailbox accesses if the resource has no valid CPU mapping.
->=20
-> Fixes: 9e9397a41b7b ("platform/x86/intel/tpmi/plr: Add support for
-> the plr mailbox")
-> Signed-off-by: Qinyun Tan <qinyuntan@linux.alibaba.com>
+Commit 11d763f0b0af ("gfs2: Retries missing in gfs2_{rename,exchange}")
+made gfs2_glock_async_wait() interruptible. It returns -EINTR when a
+signal is pending.
 
-Hi Tan,
+However, -EINTR goes back to user space as it is, and the system call
+is not restarted. As of now, rename() and renameat2() on gfs2 fail
+with EINTR when a signal arrives while they wait for a glock, also
+when the signal only stops and continues the process.
 
-Thank you for submitting this change, similar change was in our queue
-waiting to test.
+The issue can be reproduced with:
 
-You have moved definition of MAX_POWER_DOMAINS to header file, but this
-there is no description of that in the commit description.
-If you happen to post update, add that.
+    mkfs.gfs2 -O -p lock_nolock -j 1 /dev/vda
+    mount /dev/vda /mnt
+    mkdir /mnt/a /mnt/b
+    for i in $(seq 12000); do echo > /mnt/a/$i; done
+    umount /mnt; mount /dev/vda /mnt
+    mv /mnt/a/* /mnt/b/ &
+    while kill -STOP $!; do kill -CONT $!; sleep 0.005; done
 
+Before commit 11d763f0b0af ("gfs2: Retries missing in
+gfs2_{rename,exchange}"), mv moves all 12000 files.
 
-Acked-by: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+After that commit, the result for 783 of the files is:
 
+    mv: cannot move '/mnt/a/10' to '/mnt/b/10': Interrupted system call
 
+With this patch, mv moves all 12000 files again.
 
-> ---
->=20
-> Notes:
-> =C2=A0=C2=A0=C2=A0 Tested on a single-package system with 72 logical CPUs=
- and two
-> TPMI
-> =C2=A0=C2=A0=C2=A0 partitions. The PLR status files now list the CPUs bel=
-onging to
-> each
-> =C2=A0=C2=A0=C2=A0 partition.
->=20
-> =C2=A0drivers/platform/x86/intel/plr_tpmi.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 | 31 ++++++++++++++++-
-> --
-> =C2=A0.../platform/x86/intel/tpmi_power_domains.c=C2=A0=C2=A0 |=C2=A0 2 -=
--
-> =C2=A0.../platform/x86/intel/tpmi_power_domains.h=C2=A0=C2=A0 |=C2=A0 2 +=
-+
-> =C2=A03 files changed, 29 insertions(+), 6 deletions(-)
->=20
-> diff --git a/drivers/platform/x86/intel/plr_tpmi.c
-> b/drivers/platform/x86/intel/plr_tpmi.c
-> index 785c279b4540..33066f4763ef 100644
-> --- a/drivers/platform/x86/intel/plr_tpmi.c
-> +++ b/drivers/platform/x86/intel/plr_tpmi.c
-> @@ -51,7 +51,7 @@ struct tpmi_plr_die {
-> =C2=A0	void __iomem *base;
-> =C2=A0	struct mutex lock; /* Protect access to PLR mailbox */
-> =C2=A0	int package_id;
-> -	int die_id;
-> +	int power_domain_id;
-> =C2=A0	struct tpmi_plr *plr;
-> =C2=A0};
-> =C2=A0
-> @@ -201,10 +201,13 @@ static int plr_status_show(struct seq_file *s,
-> void *unused)
-> =C2=A0	seq_puts(s, "cpus");
-> =C2=A0	plr_print_bits(s, val, 32);
-> =C2=A0
-> +	if (plr_die->power_domain_id < 0)
-> +		return 0;
-> +
-> =C2=A0	guard(mutex)(&plr_die->lock);
-> =C2=A0
-> =C2=A0	for (int cpu =3D 0; cpu < nr_cpu_ids; cpu++) {
-> -		if (plr_die->die_id !=3D
-> tpmi_get_power_domain_id(cpu))
-> +		if (plr_die->power_domain_id !=3D
-> tpmi_get_power_domain_id(cpu))
-> =C2=A0			continue;
-> =C2=A0
-> =C2=A0		if (plr_die->package_id !=3D
-> topology_physical_package_id(cpu))
-> @@ -241,10 +244,13 @@ static ssize_t plr_status_write(struct file
-> *filp, const char __user *ubuf,
-> =C2=A0
-> =C2=A0	plr_write(0, plr_die, PLR_DIE_LEVEL);
-> =C2=A0
-> +	if (plr_die->power_domain_id < 0)
-> +		return count;
-> +
-> =C2=A0	guard(mutex)(&plr_die->lock);
-> =C2=A0
-> =C2=A0	for (int cpu =3D 0; cpu < nr_cpu_ids; cpu++) {
-> -		if (plr_die->die_id !=3D
-> tpmi_get_power_domain_id(cpu))
-> +		if (plr_die->power_domain_id !=3D
-> tpmi_get_power_domain_id(cpu))
-> =C2=A0			continue;
-> =C2=A0
-> =C2=A0		if (plr_die->package_id !=3D
-> topology_physical_package_id(cpu))
-> @@ -281,6 +287,23 @@ static void intel_plr_unregister_notifier(struct
-> notifier_block *nb)
-> =C2=A0	tpmi_unregister_notifier(nb);
-> =C2=A0}
-> =C2=A0
-> +static int plr_power_domain_id(const struct oobmsm_plat_info
-> *plat_info, int index)
-> +{
-> +	u16 mask =3D plat_info->cdie_mask;
-> +	int id =3D index;
-> +
-> +	/* Resource indices are relative to the partition's first
-> compute die. */
-> +	if (mask)
-> +		id +=3D __ffs(mask);
-> +	else if (plat_info->partition)
-> +		return -ENODEV;
-> +
-> +	if (id >=3D MAX_POWER_DOMAINS || (mask && !(mask & BIT(id))))
-> +		return -ENODEV;
-> +
-> +	return id;
-> +}
-> +
-> =C2=A0static int intel_plr_probe(struct auxiliary_device *auxdev, const
-> struct auxiliary_device_id *id)
-> =C2=A0{
-> =C2=A0	struct oobmsm_plat_info *plat_info;
-> @@ -340,7 +363,7 @@ static int intel_plr_probe(struct
-> auxiliary_device *auxdev, const struct auxilia
-> =C2=A0
-> =C2=A0		plr->die_info[i].base =3D base;
-> =C2=A0		plr->die_info[i].package_id =3D plat_info->package_id;
-> -		plr->die_info[i].die_id =3D i;
-> +		plr->die_info[i].power_domain_id =3D
-> plr_power_domain_id(plat_info, i);
-> =C2=A0		plr->die_info[i].plr =3D plr;
-> =C2=A0		mutex_init(&plr->die_info[i].lock);
-> =C2=A0
-> diff --git a/drivers/platform/x86/intel/tpmi_power_domains.c
-> b/drivers/platform/x86/intel/tpmi_power_domains.c
-> index ebe052c3bbe4..f6a46b4571ec 100644
-> --- a/drivers/platform/x86/intel/tpmi_power_domains.c
-> +++ b/drivers/platform/x86/intel/tpmi_power_domains.c
-> @@ -70,8 +70,6 @@ static DEFINE_PER_CPU(struct tpmi_cpu_info,
-> tpmi_cpu_info);
-> =C2=A0/* The dynamically assigned cpu hotplug state to free later */
-> =C2=A0static enum cpuhp_state tpmi_hp_state __read_mostly;
-> =C2=A0
-> -#define MAX_POWER_DOMAINS	8
-> -
-> =C2=A0static cpumask_t *tpmi_power_domain_mask;
-> =C2=A0
-> =C2=A0static u16 *domain_die_map;
-> diff --git a/drivers/platform/x86/intel/tpmi_power_domains.h
-> b/drivers/platform/x86/intel/tpmi_power_domains.h
-> index 2fd0dd7afbd2..43a80b526133 100644
-> --- a/drivers/platform/x86/intel/tpmi_power_domains.h
-> +++ b/drivers/platform/x86/intel/tpmi_power_domains.h
-> @@ -10,6 +10,8 @@
-> =C2=A0
-> =C2=A0#include <linux/cpumask.h>
-> =C2=A0
-> +#define MAX_POWER_DOMAINS	8
-> +
-> =C2=A0int tpmi_get_linux_cpu_number(int package_id, int die_id, int
-> punit_core_id);
-> =C2=A0int tpmi_get_punit_core_number(int cpu_no);
-> =C2=A0int tpmi_get_power_domain_id(int cpu_no);
->=20
-> base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+This patch will return -ERESTARTSYS instead, as gfs2_statfs_slow()
+does for its glock wait, so that the system call is restarted.
+
+Fixes: 11d763f0b0af ("gfs2: Retries missing in gfs2_{rename,exchange}")
+Cc: stable@vger.kernel.org
+Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
+---
+I found this while comparing the behavior of different kernel versions.
+I used an LLM to analyze the problem and to draft the patch and this
+message, and I analyzed the result myself.
+
+Since commit a098f26d3b80 ("gfs2: Get rid of sd_async_glock_wait"),
+signals are only checked while a glock is still pending, so fewer
+renames fail: 60 of the 12000 files on gfs2 for-next. The stable trees
+that have commit 11d763f0b0af do not have that one, so the change is a
+single line there.
+
+Application impact (Ubuntu 26.04 user space): rsync 3.4.1 updates
+12000 small files on gfs2 while its processes are stopped and
+continued every 5 ms (kill -TSTP / -CONT). On v6.19, rsync exits with
+0. On v7.0, it exits with 23 after 267 "rename ... Interrupted system
+call" errors, and those files keep their old content.
+
+Tested on gfs2 for-next (9aa0082cf969) with lock_nolock, KASAN and
+lockdep: rename, RENAME_EXCHANGE and directory renames no longer fail
+under a SA_RESTART handler or under stop / continue. A handler without
+SA_RESTART still gets EINTR.
+
+ fs/gfs2/glock.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/fs/gfs2/glock.c b/fs/gfs2/glock.c
+index aa11168255e9..05e6b0f6ccc7 100644
+--- a/fs/gfs2/glock.c
++++ b/fs/gfs2/glock.c
+@@ -1318,7 +1318,7 @@ int gfs2_glock_async_wait(unsigned int num_gh, struct gfs2_holder *ghs,
+ 		if (!glocks_pending(num_gh, ghs))
+ 			break;
+ 		if (signal_pending(current)) {
+-			ret = -EINTR;
++			ret = -ERESTARTSYS;
+ 			break;
+ 		}
+ 		ret = schedule_timeout(ret);
+@@ -1329,7 +1329,7 @@ int gfs2_glock_async_wait(unsigned int num_gh, struct gfs2_holder *ghs,
+ 			break;
+ 		}
+ 		if (signal_pending(current)) {
+-			ret = -EINTR;
++			ret = -ERESTARTSYS;
+ 			break;
+ 		}
+ 	}
+@@ -1363,7 +1363,7 @@ int gfs2_glock_async_wait(unsigned int num_gh, struct gfs2_holder *ghs,
+ 	return ret;
+ 
+ interrupted:
+-	ret = -EINTR;
++	ret = -ERESTARTSYS;
+ 	goto out;
+ }
+ 
+
+base-commit: 9aa0082cf969a9973ec6554586753c53211ab799
+-- 
+2.53.0
+
