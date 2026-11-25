@@ -1,138 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.145
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606731;
-	b=vkd8bXJoAy9Zqay7UZDu+iih2W0WEuBtSnScSfajuFm+L1ZFTObkX5qYkkIJrD/Oeb8W
-	 OloEoAWC5m5k2EoLYRZ/Hm6N6j3BZVrJ/vsU7b5HVJlu+scB0ftZcKI7KlojQhA3zugpc
-	 zG/yIMjO5ElVzH+6koqQkm1z6WwjSJIVp947ziOe3Tt5ZU3/D3xCO1R4InERkped4L5+b
-	 DybZ507/LI4luA6akfVxaVQVlMMnQrBr2ngbM0LgaBDnE7EY+jPFWjl115B+W9QiFgamQ
-	 QEEaCRrjVLERnah7unVQgsoZuaMpbtkhC9dRYn4yaVPS0jUj9Cl/Ue8sg+7nBDSfbkg==
+	t=1795606745;
+	b=5mUrINZaxboGvg2Mp8kHK+YzcBVKPVfrXcrN3ltdkdsaHPPyGVhWBfrYguD6UnJPWJre
+	 mEvAkjhDvEvXt+OqCwqjEhnlfrl/vrUE5gBzZJNECD3rkhqzdUff1VlDmGp9w7r1HthXr
+	 cC2Rg6MPNZg9KPcBA0V9CC/nvXtn7iaO7V73NUFw+hXAUTB6EQvtq6a4PIXbdKv+j8eSy
+	 hANqhVzzDTySJeJ5DoGTJmwGw9Bq+OZ1QT97KONquaJ6ERWmFT6YmUzGrNds1+qImeHyE
+	 wQnT4RdQ01iX+zKA8p3/7YciSGV5Oy2njJyY+0g6Y8LNXe5I9t8oJ5lIR0mFR7PxzKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606731;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=iAD+Ad7NT5/4uS4i5Ra5VqZcMWRddUP0s1yBjvo3Qp0=;
-	b=29hEODfxboBnoVaK6todVhITNjL/ZFCH7kr3qJbBhii9RhX0xHG7/ScwprWp0fSpk+E+
-	 qupp1oPaL34ec/sxj9Z5xkNFItfrJqceYrDbvQU7A68IfU177QMFrqv4rXpMpLy6J6smQ
-	 3RqcmV38uPbYVsyIcGRnXDVu+bcMsY6ByX1z/Ds5GzuvC7/7nbfryKSPIqShS/tXxOS1p
-	 0qztimSldrkOOGB6s7VX2A3bXD+e5u06m2mxiK9SYicJ5dR0ogO+zRTf+BV12Dt6LXRlC
-	 6h/BBdHYvLkNFR8GM+RGcwQSzkeelQ2XSCIoDv5Q4Go21+pGUfI62OTJAO8ZHmt59Ow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606745;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=MVWBICeTjf8qK83d1J+ekt2+KhQ2TiQiLz4B4oi35/4=;
+	b=MMClkKgEabikPW+ueHwEIUjl1+THuXX7Pb+ZUKUe6eek+aAXOE6MPGIhUv6WZn4yBuhz
+	 KxzYYnUF+vb/6nUEF+5JGJoYbPwjnBDNtfimjGdqqbJ8NO8UbD0fXRiYQQz57DMzvcy72
+	 L2tumnJsKOSNqEcdKAqMH2D6Wx7Dq8RwEX0FuBM10iLMKBUU/d6IiDOGO1FRklDrBxt16
+	 OGglsV9EiqM8N11WSCrzKEDUDS3GDIMXIZJQY7UvCe+qZ8fn/4jNr6CNr4jUmR/v9jTop
+	 Feqzr3N5OOflMpUfkeBDRdJGBtwM+nkv77r/+HxVvAYgu+r+FQpSsQ/NBQm+dPdXl9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=jannau.net;
-	spf=pass smtp.mailfrom=jannau.net;
-	dkim=pass header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm2 header.b=mFodScwZ;
-	dkim=temperror header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=R+UPbx9w;
-	arc=none smtp.remote-ip=103.168.172.145
-Received: from fout-a2-smtp.messagingengine.com (fout-a2-smtp.messagingengine.com [103.168.172.145])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=fOV73sjb;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=rDEe25b9;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C44A0606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:38:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C44A0606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jannau.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jannau.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8081F606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:39:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8081F606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm2 header.b=mFodScwZ;
-	dkim=temperror header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=R+UPbx9w
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.phl.internal (Postfix) with ESMTP id D4A81EC0C7F
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:38:49 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-01.internal (MEProxy); Wed, 25 Nov 2026 06:38:49 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1795606729; x=1795693129; bh=iAD+Ad7NT5
-	/4uS4i5Ra5VqZcMWRddUP0s1yBjvo3Qp0=; b=mFodScwZNfmtYTSwLaQ6w1ZaE1
-	g/nJpbXdJq6ibWzfLs4pqaeFubKwyUM8rvlVE+8HunCNxISFis7OySN/XWvjd/X8
-	he242huEmUDqZlF06zv9F63dcEmVk5TVvksQmzRBmrLP5LL4daEu9SmW7VMbGnPo
-	ULQa4XZhIifW0TzOY+5p88v+wvNXK85YrZc29S7Zc2Aqku78b94A8UZRuYA1eehb
-	k2Bufl0TreNi/R4+DZh+5wCJWcrv35I9Om3qCBNqpegr92rg75qJRpR/ZU8T32Ff
-	EGtEviMjXASYGiZG6D6CToBcIewt20Tt2lL/7j6KNBXGbXzUTDrivODoTkuA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795606729; x=1795693129; bh=iAD+Ad7NT5/4uS4i5Ra5VqZcMWRddUP0s1y
-	Bjvo3Qp0=; b=R+UPbx9wJa0kfhpYxIZryz0kFZ/vtcHeB16R6Om1V3N575RePKP
-	2y+TUBXI8VBwnIQ1s0A45nA78cYKmLKXjROrfTvNiY42PX07zhub1GEScys65+Y7
-	KfBh5Ei+5jHa8GEPVW/E2SQQhwG3nwLmcCU1EzU45NksBJ+IBcFt6odp7XRXKCk5
-	eAlyPUT1edV3StPgClcC2csQbNzz3H7LhWCTKJRFYEG2bgRd6LAHLqaXtLxGV1so
-	hpdq5q60q/gM4uN3IX5B1Zxq5oi+6BFhdqJwOv+vAlW8vhqCHDAcSRLRIT9kZCaL
-	jZwgiGA/mbUJqpAnKMWDtFA81AjCJUvoewA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=jannau.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795606729; d=jannau.net;
-	mf=PGpAamFubmF1Lm5ldD4=;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:bm42cfLj/I2blyoEZt2HxmoagjbKr984ik/H8XCpc6+xNNv
-	jt7633Wul5tkhFADrGVxSD2qBBYgwOBWCS7I0l6VhnWromTtRTUjS4hPEQgvtoz0
-	rk/rwBNwiWoBfsIQwyjgt6QXbeVDKIOIhzWZphV8ikww5KzzNn4/nAqeaT3rReko
-	ZbCugOcBPmCoW3GUHpoLti5hexVVavYvgSBwSpB/wIoxIsmBOwQt3G5pUsRRUpe1
-	mqTJtKfGJw4V+v1Kda9yMM4U53UTGq2Kj0sRot/9/8ILXpcokgu/c5tfN15ZfzWK
-	YAcgym+81KSnvR4wjFl457BONteOk+m00yqfneQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-disposition,content-type,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:TQcZS0GE3XFOemI5U0d/fmAcYiMbdJkw43VVp64SP9w=:kvKhtlvYmOwozjxXOiNVGWZFpFm94DrmU31h+MpA/88=;
-X-ME-Sender: <xms:ycgGa9SFdQl1jQ4jMEo4K33bty-fwVkyXMjAE3nbb9j2F0d_WvUUkg>
-    <xme:ycgGay0ktdFn8uwp0901WY5xHlbzReDsMBl5HOw7JxKAWoFhLs92EAZEhKB0QrpRx
-    1ppgIf6Eq5YBsalwq5oaNko8PiKJzRqql-OLYmer66gZLiN4YRTf9w>
-X-ME-Received: <xmr:ycgGa-LKi8H0ZQ2xNZAMaeOYLl9DjlPkn2MeV5mIYQSlJ6fU28KC6xD1Zrx_KqvQBstRKioop_sSxKHtDcTW4FR-cnl66AQ7q2g>
-X-ME-Proxy-Cause: dmFkZTEbReCOWvmoFnuw+QSaZ5Gsjwx+kckQkxqBv+HHd3snXsECRlQfnwZpk90zFsExLW
-    aOe3walW+e+AJA8K89u3mwa0DtoP1NOon/UrnuIhMgCYGen63cQbsifY1HoQNgozbgZnRC
-    I6hZylZlOl4/iMBbJuJXOTvWar4dYI99WblysqeihImVHE5J6H2NOxEDcqP7+68EFSYF3t
-    2flf5Fq5QfNHfbYFMyqM+0e+0/b4px0j1He6PUzHNZZqu/s/+0wFg/4UpRUzGdPguePBR5
-    lRUTUUOcJrAZtXQwndfoaYb2LbS7L7cdx85al77wXWPjxIWByF4PiMtngYUKn8WKWpCYko
-    ApBBPKIp2rv/WjBxikjN05YpYBPbuY8m1qB/fWo5VzXUDJeQvgwzhMMgwQT+mjLaY6dcTX
-    24ZKrzekUUwa+RPclb0OR1tFi3Yyl660g+pnx2KIxSTcx2UdZXia3XYOnycTQNvqSv9xFx
-    6PXafimTY3wjkX2tEUAYW4VJVb3/6p6JNTjdp+Mly1KAegrgGfr8YBI7ttAQrNX7iV7mLE
-    1HQafjFoMn3nF4+gppa+DVvAYw7hvN79cbCgAIxgfiCgGwrQSDNy4AaycHPTbl+xEHshl9
-    sPFlJI2qOyiHc47Er4QnDzVpL4yR8b0/Pa/egV5EZzPwcDfWRihp/avTjF0g
-X-ME-Proxy: <xmx:ycgGaz_LkAnW346zBRkPrkmzmrYtIXAmhy6l3F15NR_DCuwylDEBLA>
-    <xmx:ycgGa_miN0qCr2OHOlx4b31gKmwpn4ha83CoPlUgMskzThYdZgsBuA>
-    <xmx:ycgGa-UggBgCpdncAGhg2qtsEu2521-M2h3H83DiPQCHnrAJRqkBTg>
-    <xmx:ycgGa7p26FxlB1JS4YBKmGoCfufx2HTDbTUcp6JUS2-C9quo62GWlQ>
-    <xmx:ycgGa4fgz3mLSTN1-f7K6stb1uiD-XaR0N5X5piWrEojxsM2gxPpIkOF>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 25 Nov 2026 06:38:48 -0500 (EST)
-Date: Wed, 25 Nov 2026 12:38:46 +0100
-From: Janne Grunau <j@jannau.net>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <lossin@kernel.org>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tamir Duberstein <tamird@kernel.org>,
-	Alexandre Courbot <acourbot@nvidia.com>,
-	Onur =?utf-8?B?w5Z6a2Fu?= <work@onurozkan.dev>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Lyude Paul <lyude@redhat.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, nova-gpu@lists.linux.dev,
-	stable+noautosel@kernel.org
-Subject: Re: [PATCH v2 3/5] rust: drm: gem: shmem: Implement
- prime_import_sg_table callback
-Message-ID: <20261125113846.GB372978@robin.jannau.net>
-References: <20261124-rust-drm-gem-shmem-imported-sgt-v2-0-000f7a9ccb8d@jannau.net>
- <20261124-rust-drm-gem-shmem-imported-sgt-v2-3-000f7a9ccb8d@jannau.net>
- <awXA70GWssuU991c@google.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=fOV73sjb;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=rDEe25b9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795606743;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MVWBICeTjf8qK83d1J+ekt2+KhQ2TiQiLz4B4oi35/4=;
+	b=fOV73sjbuarzCZOdYz0xuUx+25nR0y8eU5WwFxze2ZPH8THiy1cjhPabl1XZsNxEoRvyvB
+	H10MrnDt7yQjqto6fq/4JhuEdVrzbLBFl6X18JaFbUK3KthsS6jXejJ0E6if5kZbYYcm2E
+	cdNIUWyvDs+tHTRo5nZVnRdpdZFxlbo=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-650-hkpKryOOPb243fbXk8M2-w-1; Wed, 25 Nov 2026 11:39:01 +0000
+X-MC-Unique: hkpKryOOPb243fbXk8M2-w-1
+X-Mimecast-MFC-AGG-ID: hkpKryOOPb243fbXk8M2-w_1795606740
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-48e0af48c18so3436269f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:39:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795606740; x=1796211540; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MVWBICeTjf8qK83d1J+ekt2+KhQ2TiQiLz4B4oi35/4=;
+        b=rDEe25b9Tb6MiYVtOtS70qf9qM222Mm7/NgjCdRbtEuo+gLxFFNKWc8vOFfcwCe0Qe
+         eEodUbK2T/gyueczGpyvuup/3kHGUHey16w02055R+wspZIJ5AV8IgT1W9nkvdT5s/aa
+         i4f7SZUmXBLeaDsrhXqkEWC9gIpIc/RJUGbKcZlhrDjAsR7H6vfv+XiOo4mjJ8ZvqdxG
+         bmcfP1rsm90rvAkjyCyuYkk8P64TTTG6gv271Bxb8Rby6X3zseASncUAcWyVkp7ZSkuQ
+         t/ufDZxf0LpYzKF/sb7XfgIaLRm6Utx2OBj0oaMNAeZ65stXVJD0aZEXfSR2Q4/FMzbr
+         MSYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795606740; x=1796211540;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MVWBICeTjf8qK83d1J+ekt2+KhQ2TiQiLz4B4oi35/4=;
+        b=t57B1bCYRnpHnpStsT0+wOxAXCB+We4Rr/777VS5MF5FYGewN1YgwHfyeM60HlOlcL
+         L2mqQI7kGE4XCxWqyajWENBHdsiJ8agO0Bt9tWjS4h9QYK2WdzE4lNoYBjfl00K+scmu
+         65py7CruKusgidQIWKGpLjtQ0m6rL2m/HjR/N3rWtyX7su5xNmCV6de2a7VERhMZ3EIu
+         +x+xTRnCphP5qcNlDoct/9h5rCNK5ZzxW2vgBuTds/K5r2hJTuDYhtz4i0OEbK5lmAMw
+         GOTd3pScq5Vvx/rseWlGjmZ4feduDh55Ftj1xLT1gl0SftQRhD3/Ox5uLiDbXYc5UNYz
+         U/vA==
+X-Forwarded-Encrypted: i=1; AL+hErGasSdWt9AhUyabKxUYt+QECO5zQsu8sx3XzIbGrOIm18hyKJgcgrxjABn/ZhEe8XO/hrF+5NagVNCgaiY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8v+mod4jD3YKbg0i9YhZHoB+72ksV375pinyZOEAJxV1VS60Um
+	opxQ9n/06c/RSn40vHmOtBXcRm9qPG+ybvHrTPQWbKhnRqoecxY4rAoMb11M/TtvCCE30aOcbw2
+	cmlG+VruHwdsNX44FIVnvAV+r1UvfsuOhpCLv5vD3t+ho8BZ00hkbCnbIhIEd5Z98JA==
+X-Gm-Gg: AZFdTZc4njXk742UAyf3dZ1OIB8VvHc3W5ROqdnnXbOvUHd1D76eM1dDr4knNSp+1lc
+	jutw27BUulGyWAp+1wvbBN4haKWTwRdoot6Afcb7qCu7LZXtNG92AoqTwU/gA2Gp2elBF9LfrWm
+	SHJVD35N+v5TFIUoQa4qZ1YZkEwv6NUf9FnMVcZa0wlzGm9IYS4LdaCGpNIEWAHdws7LNHdtb7Q
+	9qZWJI/3RnMEgC+afZVKs1C3g4XHxwEwmwVg0lom7mAdB8Yr4STGI6H2aXGMl6iLgPwv8Bt4YFJ
+	ZOy9hpP3Adz8ZfKu++d/CD3xa5GrOMGVLw8jVb/zl5Yqo+R68/9F9btKN0V1ahACrP1Hi+59uZu
+	tKt0L+KnvKRHksaGGqVZIxHfHk5EEE7pTmG/JjN8Sz1HhOEVC5/n2F4PJJsa4yl1LMOG93NRIDq
+	yX6hEihtZMhTaOs8lobR+fz9HgoxTxIX3n4foNfsNrFlh4
+X-Received: by 2002:a05:6000:4025:b0:4aa:bcd2:c3ff with SMTP id ffacd0b85a97d-4abb71cbb6cmr29939000f8f.31.1795606739863;
+        Wed, 25 Nov 2026 03:38:59 -0800 (PST)
+X-Received: by 2002:a05:6000:4025:b0:4aa:bcd2:c3ff with SMTP id ffacd0b85a97d-4abb71cbb6cmr29938951f8f.31.1795606739409;
+        Wed, 25 Nov 2026 03:38:59 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf680fsm38650991f8f.14.2026.11.25.03.38.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 03:38:58 -0800 (PST)
+Message-ID: <fdc005b9-e48a-4550-b66b-0f58db82babe@redhat.com>
+Date: Wed, 25 Nov 2026 12:38:57 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -142,30 +112,78 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <awXA70GWssuU991c@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] ptp: vmclock: keep the device state until the last
+ file is closed
+To: David Woodhouse <dwmw2@infradead.org>, Chad Aldreda <ca@modelmiser.com>,
+ Richard Cochran <richardcochran@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>,
+ Shuangpeng Bai <shuangpeng.kernel@gmail.com>, netdev@vger.kernel.org,
+ stable@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261119061517.1142436-2-ca@modelmiser.com>
+ <1f77fa9014f8dfafb2be9cf15a66c5541880656a.camel@infradead.org>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <1f77fa9014f8dfafb2be9cf15a66c5541880656a.camel@infradead.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 04:53:03PM +0000, Alice Ryhl wrote:
-> On Tue, Nov 24, 2026 at 12:37:45PM +0100, Janne Grunau wrote:
-> > +        // SAFETY: The DRM shmem helper only invokes this callback for a registered DRM device of
-> > +        // type `T::Driver`, which is `Self`'s driver per the `AllocImpl` impl below.
-> > +        let dev: &Device<T::Driver> = unsafe { Device::from_raw(raw_dev) };
+On 11/24/26 20:44, David Woodhouse wrote:
+> On Thu, 2026-11-19 at 06:15 +0000, Chad Aldreda wrote:
+>> vmclock_probe() allocates struct vmclock_state with devm_kzalloc_obj()
+>> and maps the shared page with devm_memremap(), so both are released
+>> when the driver is unbound, but an open /dev/vmclockN keeps using them
+>> through its file state. After an unbind, read() runs on the freed
+>> struct and reads through the released mapping, and a poll() in
+>> progress sleeps on a wait queue in the freed struct. KASAN reports a
+>> slab-use-after-free in vmclock_miscdev_read(). In testing, the same
+>> read() faulted on the unmapped page once the device had been bound
+>> again.
+>>
+>> Allocate the state with kzalloc_obj() and map the page with memremap(),
+>> and release both on the last reference: open() takes a reference and
+>> release() drops it, and a devm action drops the device's own reference
+>> after vmclock_remove() has called misc_deregister(). misc_open() calls
+>> open() with misc_mtx held, and misc_deregister() takes misc_mtx, so
+>> open() always runs while the device's reference is held.
+>>
+>> vmclock_remove() now marks the device as removed and wakes every waiter
+>> on the wait queue. A read() or mmap() on a file that is still open fails
+>> with -ENODEV once it sees the mark. On a device that supports
+>> notifications, poll() returns EPOLLHUP | EPOLLERR, including a poll()
+>> that was already waiting; it tests the mark after poll_wait(), so it
+>> cannot miss the wake-up. The wake-up uses wake_up_interruptible_all(),
+>> because no later notification will reach a waiter that the remove-time
+>> wake-up skips, such as a second epoll instance that registered the file
+>> with EPOLLEXCLUSIVE. Without notifications poll() already returns
+>> POLLHUP.
+>>
+>> Separately from the report below, the bug was also found by a
+>> Coccinelle script that reports device nodes in devm-allocated memory,
+>> posted at
+>> https://lore.kernel.org/r/20261106193517.3267013-2-ca@modelmiser.com,
+>> and reproduced in QEMU 10.2.4 with -device vmclock. There is no access
+>> to EC2 hardware with this device, so the fix has only been tested in
+>> QEMU. QEMU's device has no notifications, so the poll() path was tested
+>> with a local change that lets poll() wait without them.
+>>
+>> Fixes: 205032724226 ("ptp: Add support for the AMZNC10C 'vmclock' device")
+>> Reported-by: Shuangpeng Bai <shuangpeng.kernel@gmail.com>
+>> Closes: https://lore.kernel.org/all/178144969601.60470.14493569608271069160@gmail.com/
+>> Cc: stable@vger.kernel.org # 7.0+
+>> Signed-off-by: Chad Aldreda <ca@modelmiser.com>
 > 
-> `drm::Driver` in `rust/kernel/drm/driver.rs` currently declares:
+> Reviewed-by: David Woodhouse <dwmw@amazon.co.uk>
 > 
->     type Object: AllocImpl;
-> 
-> without any constraint that `T::Object::Driver = T`. I think we should
-> introduce one similar to how Driver::File constrains this?
+> We did have a plan to pull the PHC-only drivers out into drivers/phc
+> and leave only the *real* PTP in drivers/ptp. I kind of stalled on that
+> because I wasn't sure I had consensus especially from Richard and the
+> net maintainers. Shall I revive that and repost it?
 
-so changing it to `type Object: AllocImpl<Driver = Self>;`?
+I'm sorry but that conversation is way of my context window. Do you have a
+pointer to the prior discussion? why such separation would be useful?
 
-I think it's hard to get that accidentally wrong but since the change
-relies on that constraint and we can express it sure.
+/P
 
-I added it locally for v3 but feel free to make that change before
-pushing this series to drm-rust-next if there is nothing else that
-warrants a v3.
-
-Janne
