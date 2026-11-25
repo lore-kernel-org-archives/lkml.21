@@ -1,100 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.170
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795585875;
-	b=d/j1dGUuKJIpsMJgC0C2rSn+sRnl9b/2i9GpuBOuTppYTb+GnsijQl/onmi8i7qhMbUq
-	 T0dwh6sKm7a06vR5lKet//oA+XoGZgYwTfV0weLdnWNrq7q4iO56Ko3k9OheGyS1Oy4tR
-	 oMUT0dqXgxg/anvvZAAUee2livtW1t9DH4MBGKpyQte3mH7tkBWzn7Nl/zXlGRmy1QdkZ
-	 gw1zoRYnjAjFje9o16swP61ETC4Dj/RkdX/OWYd3el+/GewVhRQH/3Dp+6xSNSB3CRg5k
-	 k8N66yWzIx6nyCdoKqussYBwJgMBLwX/2BMHQICbvQ5fZdLxFWlQPZ6HwTZFGvOaGMA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795585875;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=9T8VWNlC22pM1qjvLbYEaQzBzJ9S1PZJc2NX6XMx7dE=;
-	b=JHAQ07BTPePS39KzoAEbOxL2Pfm3AQH4Yik8cDUJ1i07l2r708gpbjRPX84rWOqmtozq
-	 dxBxOozFVM2Kohg92v6zPeTyU70tgZanWq7e88rAiSzIb8qByXJuTj745IPrKGs7Ekr0G
-	 qABqkGuBp/fPoFyGGBfWGYa3e3CwL4uO5vdJ7J8M9z+dCWVLuAHXtqdzTTEW6NiAD/70c
-	 dJxLs319wzWLuICT+qE2faFZsnPX0rj/6QC+meZLRJtlX8H5mRga8L17jH7PL4dRghHHA
-	 4t2J+pbsI2A0ylUCiuO/nTFXHbRTC9g3kkzV9J2dbxt0FjWpAeS/86z7h3KanbNk1+Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sfb4J9CF;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795585948;
+	b=hmSltlC4z9ONSYBBYaPsiUWQ5SZXvlIEDX93Nzi3a0WVKjmnOsBm+ZSW4NxFL0+tqUIW
+	 6Q6XsdfXEHpOGs3FZpMQH6u+nWLkbWrEKmgR2WRCdOlWbNoFWVc+K7IJzxncSnRCQRK4u
+	 7berGHByMu8I9cMChEeYVAYi4S4vjiqOVDjnSCMQ2YDa1FO4rMM9TznnByMh60hvDIciP
+	 3U0t0uCfOHa1kGygq9pVtgoFA2USU0AdF6uxtXbmuGeULAt79WK7KxqWN124d5umIKA35
+	 1BXEQ0gEnYNe58PQeuG+bFIF5yd1hAtv2+S6SN3hwBU2tlbn8WiQu2aK/SQgKTnfC5g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795585948;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
+	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Z6my1A9thsaz4NgN0A+Y25Es9f9MoLUQc4I1HG/sa0U=;
+	b=lDiS0B4cdaA2mhQYim6gaYwwIys/R/+Kr4GzTti8A6n9f40EGsR7oDcBTHCQbd370FF1
+	 HMxv3H48MMNz3ErbEocpecGekDBtw97jHmfQvBTwWwsKqmmUiUvxrYzWBSnOtJGk//r3e
+	 9V02QW7lLU2vb5MZNjNa/yVBIgM7qMlQcndJyVtL7wtgmeWPuRZzbKO9e0z1s9Ys/cetw
+	 pJlllL0Lrohgm0okyqKwO7TXmbKOZJ1RS7JaTD4MN/YtzKUIh4OLDSSGghsU8MCoSa6VC
+	 V2mfuSuyX1v/LlXkykiCbDCeGMgJQqq/09vtafVauJEui4oxd4bPrCKLd2WSQcEU++A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=Pw3ye2kZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0194606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:51:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0194606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5578C606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:52:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sfb4J9CF
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso2384256eec.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:51:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795585874; cv=none;
-        d=google.com; s=arc-20260327;
-        b=UWxOO/iC29xA3ihmn4yziKnZnBuJxf2rfJGLSR6c/8Oxproi266Kt/1syfMuxGxAyS
-         4b3yj3BHZl8rGQ43A8xjvqe00yx4en23rwjBFVkNsajRL6YWYiq5sFwl8zkJ1/1mQ8HT
-         LH1krnhNQdWFRclwtKYpdQQx32J5D55qoMXUV7odzkKPxKSExsWMLXWaU9LGdazkDPm4
-         Ndsw1xIEslShXwmlb76xYVH5i1JE+/S71Nlm64YbtlrIOqLN1qK70SrQfxBxLOFrDQIm
-         jZU9DxzwIS9myu+EWXNS6btKe2A0hMW1x2JW6g0AyN1IkDn4akxqaNLKlVfhdzHzKsFb
-         U3WQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=9T8VWNlC22pM1qjvLbYEaQzBzJ9S1PZJc2NX6XMx7dE=;
-        fh=cffzbM3+VnBaoLnXfFs+0B726RNBEObpp4I9pP8gB2w=;
-        b=IWYwyhV/1SOUS4VWlBGVg/aOT4s+jR7xK3uEGyJHivCYe1eFLgI9RIrn8IcMKj/0A2
-         8Ql+njnh2BEwVmzmQNsi6nXT/IQOpq/8BrL6J+8YfAIPZ6A1gKu2I8+KRAuctpUbs7y/
-         9rSL1xX6yjOm5vMhKbKj3TA6HmwfhnfLjAmdtOnn6Xfe2+78M4YLcLNQYI9SsUYUcveC
-         W5NH1DJmUSmMrayOZYSC4quNttG1+TvHkc2YKvz/W77xRohSJVDiQY2z0Mb/w0hsgTzq
-         UaWBcDeBaD0hUW+70znZZfp+ScsmL86O+QIcG/pFP+isDad1MgDBkbZRBymBPVMtemzh
-         sj9Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=Pw3ye2kZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BE301F000CF;
+	Wed, 25 Nov 2026 05:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795585874; x=1796190674; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9T8VWNlC22pM1qjvLbYEaQzBzJ9S1PZJc2NX6XMx7dE=;
-        b=sfb4J9CF+5yjZ/x/Iu7BFWCbJgOx5jjpqUiqLSNFSquy1M0qtMmn27RFXaMWciCfMn
-         eEjJhWhPQSG7f63esOhYIuCQitedZEjca26PsfPOt0YMtriD5xjj2MZiVf/3ZLx2QFOl
-         +Wg52BMCp1fizm2tYTbNHuH6IB3qhIxgD6Sg4JY4mKEL3EH4WPSbrWAntLcKznqcLIaa
-         ux57gd/YQObMfbtzn7M4iNGX12h/6aeDyT6qGEjv82ySLL740fsUb6n9NDMZHEWe1CJX
-         O9B2LRVmpPCj0g9iF1MJGLwxImwsCwIiQ7YhgJZ+CSqej/saT+XCQTxjkM7MkX6YxelR
-         bm5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795585874; x=1796190674;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9T8VWNlC22pM1qjvLbYEaQzBzJ9S1PZJc2NX6XMx7dE=;
-        b=v2qDGlzWfHio4bB+Qvk6cVVodv4cNnjORUaB+0TuQkVQURAYouQf+I+hKx2I2Op/hM
-         WDpNdk/rW9oeim/ns2XItISXvZx/pZ0MDNJB2u1FVNbzGqsQNBdKXrz5UGLSxQJh+9qR
-         Ww8zJlPq8xGv6mlhqdAjiwdLLyOPzo5ia2Q/GQquI93ebJd38juRMCyeeSthyzOsRnn/
-         5VWZIartaGhyJia27byLVR7XtOROYD3gr3HX/FUJ9klaULqlndYV/Q2vEitwx0GnALBO
-         OUVFaYqu3LMAI1tE7qNTcZ8Sq7AgsyQf8QVqGnD+IWEmJkwyLrnkdHGMEilxCmmgi1//
-         Andw==
-X-Forwarded-Encrypted: i=1; AL+hErE3V/r7bJ4UnNNHr9MxHBqKWxMiOTYR/9ZVlTJigBQo1gCbwtlpu2DdfcZIrzNvLdunl5f8jmCr4T9E2Iw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+PfzHq0MD7/e9RmjSdDIarGzTsCumlCQ1SB9EcK50SkPAIn66J
-	PHfuL/mNZw2Ii7pNgE5NhHhUWQwUXqoLiTopXSMNMBGTLbIL/9BtO7J6TvThlSLHxXia7FANWqo
-	wTG1zWAyHS8Cd5RCF4VmcVnab0Lq6G+M=
-X-Gm-Gg: AZFdTZfb7rM2LICPkJK0yODlWubcAGC15CkXKR41w+ZnGmsHeu+kNodh5hvYQLYuCzP
-	utC7/mfwzsk/ThdojWwPiOL1SFd11moOSPEaqmLqk19+3ejX1uExg8KJNqwJ9xkbIt2pI1ZnyrU
-	1Gs5N0jN5P2UCZJUypdqgk13GukYfInerQkBsuQlrqz4OsRK84RPjH7c3qEopTQ3JD3hgaE2L/s
-	2OJwM4vDc505LPZkFNTsTjkvLwKur+bP2P/AiVcTiyKNhop0aHGZML1w8AWx6INZCVPzfKOfcm8
-	GLmCKqfEFYx8KsvhUvNuf02lQRa1iPZth9XJZfd7bFSdZVckmNqy630Pv7sJbMdWdS1v9RCRZvp
-	j1keKiERyu9oAMoaptMTcmI901AbI/A4AX0VecBQ=
-X-Received: by 2002:a05:7301:140b:b0:386:ca0e:430a with SMTP id
- 5a478bee46e88-386ca0e44c5mr2612452eec.24.1795585873408; Tue, 24 Nov 2026
- 21:51:13 -0800 (PST)
+	d=linux-foundation.org; s=korg; t=1795585947;
+	bh=Z6my1A9thsaz4NgN0A+Y25Es9f9MoLUQc4I1HG/sa0U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Pw3ye2kZV0VPUuqmdYwTZhjfWjNP8XEKVK83FxVboLbzLH/Z5iZrFF7VBROqYUXz/
+	 NnIfymbGFzdaPl3YlJ4T9n2VA+MFbXGyJStmZHh0ALt0z3oZtegFCUNWwslf+vnism
+	 uEFKE0L3aytf08zD23K10rW/gKU9xvVYIqi2YqEE=
+Date: Tue, 24 Nov 2026 21:52:27 -0800
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Phillip Lougher <phillip@squashfs.org.uk>
+Cc: linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 00/23] Squashfs: fix a lot of AI issues and AI style
+ issues
+Message-Id: <20261124215227.e23732bb6d1e30b8721099b7@linux-foundation.org>
+In-Reply-To: <20261125014737.347231-1-phillip@squashfs.org.uk>
+References: <20261125014737.347231-1-phillip@squashfs.org.uk>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,100 +55,245 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <b2853b9410d049e08b3e2ae2491e775506b4f0e8.1795122681.git.zcliangcn@gmail.com>
- <e6d7aa66-3df1-476d-a8cb-359827cd8243@ovn.org>
-In-Reply-To: <e6d7aa66-3df1-476d-a8cb-359827cd8243@ovn.org>
-From: Zhengchuan Liang <zcliangcn@gmail.com>
-Date: Tue, 24 Nov 2026 21:51:02 -0800
-X-Gm-Features: Aa3M54pDG29o7dVlFlqPFuvbM77f8i9ZHjtQ98m_VMlQguub6jqHv5TZuSqbqlU
-Message-ID: <CAOny8pvHhv2UVYSv++pukE+0+G5+JNirQiGGVS3=O0Rrvw22BQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v2] net: openvswitch: avoid hashing the network
- namespace pointer
-To: Ilya Maximets <i.maximets@ovn.org>
-Cc: Aaron Conole <aconole@redhat.com>, Eelco Chaudron <echaudro@redhat.com>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	netdev@vger.kernel.org, dev@openvswitch.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 22, 2026 at 7:46=E2=80=AFPM Ilya Maximets <i.maximets@ovn.org> =
-wrote:
->
-> On 11/19/26 10:20 PM, Zhengchuan Liang wrote:
-> > The Open vSwitch vport name table uses the network namespace pointer as
-> > the Jenkins hash seed. When an Open vSwitch vport already exists in the
-> > attacker's network namespace, unprivileged OVS_VPORT_CMD_GET requests c=
-an
-> > look up attacker-chosen missing names and time whether those lookups
-> > traverse an occupied bucket. Ranking the resulting collision pattern
-> > across possible KASLR slides recovers the init_net pointer and thus the
-> > kernel text base.
-> >
-> > Use the namespace cookie instead. It is a stable, unique, non-address
-> > identifier that is deliberately exposed to userspace. setup_net() assig=
-ns
-> > it before per-net initializers run, and it remains unchanged for the
-> > namespace lifetime. Hash the cookie down to a 32-bit seed so vports in
-> > different namespaces retain namespace-dependent bucket placement.
-> >
-> > Found by AI-assisted code review and reproduced on an unmodified kernel
-> > without fault injection. After privileged setup created the resident
-> > vport, the timing measurements ran as an unprivileged user with no
-> > effective capabilities. With this change, the pointer-derived predictio=
-n
-> > fails. Existing and missing vport lookups behave as expected. Identical=
-ly
-> > named vports in separate network namespaces remain independent.
-> >
-> > Fixes: 46df7b814548 ("openvswitch: Add support for network namespaces."=
-)
-> > Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-> > Signed-off-by: Zhengchuan Liang <zcliangcn@gmail.com>
-> >
-> > ---
-> > Changes in v2:
-> > - Use hash_64() rather than jhash_2words() to derive the 32-bit seed.
-> > - Use u32 for the local hash value.
-> > - Drop Cc: stable because this net-next change is not a stable candidat=
-e.
-> > - Drop the deprecated Assisted-by trailer.
-> >
-> > v1: https://lore.kernel.org/netdev/4e124b37fc972925a825881c50f95eb6b3c2=
-e231.1794989369.git.zcliangcn@gmail.com/
-> > ---
-> >  net/openvswitch/vport.c | 4 +++-
-> >  1 file changed, 3 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/net/openvswitch/vport.c b/net/openvswitch/vport.c
-> > index 083f7a8d9d4e..04e4df103b26 100644
-> > --- a/net/openvswitch/vport.c
-> > +++ b/net/openvswitch/vport.c
-> > @@ -4,6 +4,7 @@
-> >   */
-> >
-> >  #include <linux/etherdevice.h>
-> > +#include <linux/hash.h>
-> >  #include <linux/if.h>
-> >  #include <linux/if_vlan.h>
-> >  #include <linux/jhash.h>
-> > @@ -53,7 +54,8 @@ void ovs_vport_exit(void)
-> >
-> >  static struct hlist_head *hash_bucket(const struct net *net, const cha=
-r *name)
-> >  {
-> > -     unsigned int hash =3D jhash(name, strlen(name), (unsigned long) n=
-et);
-> > +     u32 hash =3D jhash(name, strlen(name), hash_64(net->net_cookie, 3=
-2));
-> > +
-> Sashiko had a nice comment about using net_hash_mix() as a seed, which
-> seems to be a good idea as it fits the use case pretty well.
->
-> Best regards, Ilya Maximets.
+On Wed, 25 Nov 2026 01:47:14 +0000 Phillip Lougher <phillip@squashfs.org.uk> wrote:
 
-That would allow an attacker to recover the 32-bit net_hash_mix, which
-is reused by other networking hash tables.
+> Note: this is an intermediary patch-set, and not the final patch-set.
+> It is intended to see if the issues Sashiko AI reported on the V3 patch-
+> set have been dealt with in a way that stops the AI from complaining.
+> 
+> If that has been achieved then the next step will be to deal wih
+> additional issues raised by other AIs, and which could cause Sashiko to
+> start complaining again.
+> 
+> This is not so much see androids fighting but see androids conflicting
+> which is much more boring.  Your understanding is appreciated.
+>   
+> This large patch-set is inspired by the recent spate of AI generated
+> code reports.  Four of the patches directly fix AI reported issues, and
+> the rest have been found manually by a read-through and testing of the
+> code.
 
-Best, Zhengchuan
+Yeah, that's fair enough.  It sucks that the only way to get Sashiko
+review is to cc a mailing list.  But it's for good reasons - Sashiko is
+already costing Google a ton of money and permitting people to use it
+privately would permit all sorts of abuse.
+
+I've suggested ways to get around this, such as "if sender has N
+commits in the past M time then permit private review" but that idea
+hasn't gone anywhere,
+
+So the unhappy compromise is for Author to conduct their private
+conversation with Sashiko while the rest of us are spectators. 
+Fortunately nobody reads linux-kernel any more ;)
+
+
+Thanks, I've updated mm.git's mm-nonmm-unstable branch (and hence
+linux-next) to this version.
+
+
+Here's how v4 altered mm.git:
+
+
+
+ fs/squashfs/dir.c           |   18 +++++++++---------
+ fs/squashfs/file.c          |    8 +++-----
+ fs/squashfs/inode.c         |    8 ++++++++
+ fs/squashfs/namei.c         |   15 ++++++++-------
+ fs/squashfs/squashfs_fs.h   |    3 +++
+ fs/squashfs/squashfs_fs_i.h |    1 +
+ 6 files changed, 32 insertions(+), 21 deletions(-)
+
+--- a/fs/squashfs/dir.c~b
++++ a/fs/squashfs/dir.c
+@@ -79,10 +79,11 @@ static unsigned int get_dir_index_using_
+ 
+ 		/* Sanity check the directory index contents */
+ 
+-		/* size should never be larger than SQUASHFS_NAME_LEN */
+-		size = le32_to_cpu(dir_index.size) + 1;
+-		if (size > SQUASHFS_NAME_LEN)
++		/* size should never be larger than SQUASHFS_DISK_NAME_LEN */
++		size = le32_to_cpu(dir_index.size);
++		if (size > SQUASHFS_DISK_NAME_LEN)
+ 			break;
++		++ size;
+ 
+ 		/* The stored index should not be larger than max_index */
+ 		index = le32_to_cpu(dir_index.index);
+@@ -226,13 +227,13 @@ static int squashfs_readdir(struct file
+ 				goto failed_read;
+ 
+ 			length += sizeof(*dire);
+-			size = le16_to_cpu(dire->size) + 1;
++			size = le16_to_cpu(dire->size);
+ 
+-			/* size should never be larger than SQUASHFS_NAME_LEN */
+-			if (size > SQUASHFS_NAME_LEN)
++			/* size should never be larger than SQUASHFS_DISK_NAME_LEN */
++			if (size > SQUASHFS_DISK_NAME_LEN)
+ 				goto failed_read;
+ 
+-			if (!squashfs_dir_space(inode, length, size))
++			if (!squashfs_dir_space(inode, length, ++ size))
+ 				goto failed_read;
+ 
+ 			err = squashfs_read_metadata(inode->i_sb, dire->name,
+@@ -262,9 +263,8 @@ static int squashfs_readdir(struct file
+ 		}
+ 	}
+ 
+-	kfree(dire);
+-
+ finish:
++	kfree(dire);
+ 	return 0;
+ 
+ failed_read:
+--- a/fs/squashfs/file.c~b
++++ a/fs/squashfs/file.c
+@@ -492,8 +492,7 @@ static int squashfs_read_folio(struct fi
+ 					PAGE_SHIFT))
+ 		goto out;
+ 
+-	if (index < file_end || squashfs_i(inode)->fragment_block ==
+-					SQUASHFS_INVALID_BLK) {
++	if (index < file_end || !squashfs_i(inode)->has_fragment) {
+ 		u64 block = 0;
+ 
+ 		res = read_blocklist(inode, index, &block);
+@@ -633,7 +632,7 @@ static void squashfs_readahead(struct re
+ 			goto skip_pages;
+ 
+ 		if (start >> msblk->block_log == file_end &&
+-				squashfs_i(inode)->fragment_block != SQUASHFS_INVALID_BLK) {
++				squashfs_i(inode)->has_fragment) {
+ 			res = squashfs_readahead_fragment(inode, pages,
+ 					nr_pages, expected, start);
+ 			if (res)
+@@ -707,8 +706,7 @@ static loff_t seek_hole_data(struct file
+ 		return -ENXIO;
+ 
+ 	/* is offset within tailend and is tailend packed into a fragment? */
+-	if (index + 1 == file_end &&
+-			squashfs_i(inode)->fragment_block != SQUASHFS_INVALID_BLK) {
++	if (index + 1 == file_end && squashfs_i(inode)->has_fragment) {
+ 		if (whence == SEEK_DATA)
+ 			return offset;
+ 
+--- a/fs/squashfs/inode.c~b
++++ a/fs/squashfs/inode.c
+@@ -136,6 +136,7 @@ int squashfs_read_inode(struct inode *in
+ 	type = le16_to_cpu(sqshb_ino->inode_type);
+ 	switch (type) {
+ 	case SQUASHFS_REG_TYPE: {
++		char has_fragment;
+ 		unsigned int frag_offset, frag;
+ 		int frag_size;
+ 		u64 frag_blk;
+@@ -161,7 +162,9 @@ int squashfs_read_inode(struct inode *in
+ 			err = squashfs_frag_lookup(sb, frag, &frag_blk, &frag_size);
+ 			if (err < 0)
+ 				goto failed_read;
++			has_fragment = true;
+ 		} else {
++			has_fragment = false;
+ 			frag_blk = SQUASHFS_INVALID_BLK;
+ 			frag_size = 0;
+ 			frag_offset = 0;
+@@ -171,6 +174,7 @@ int squashfs_read_inode(struct inode *in
+ 		inode->i_fop = &squashfs_file_operations;
+ 		inode->i_mode |= S_IFREG;
+ 		inode->i_blocks = ((inode->i_size - 1) >> 9) + 1;
++		squashfs_i(inode)->has_fragment = has_fragment;
+ 		squashfs_i(inode)->fragment_block = frag_blk;
+ 		squashfs_i(inode)->fragment_size = frag_size;
+ 		squashfs_i(inode)->fragment_offset = frag_offset;
+@@ -187,6 +191,7 @@ int squashfs_read_inode(struct inode *in
+ 		break;
+ 	}
+ 	case SQUASHFS_LREG_TYPE: {
++		char has_fragment;
+ 		unsigned int frag_offset, frag;
+ 		int frag_size;
+ 		u64 frag_blk;
+@@ -216,7 +221,9 @@ int squashfs_read_inode(struct inode *in
+ 			err = squashfs_frag_lookup(sb, frag, &frag_blk, &frag_size);
+ 			if (err < 0)
+ 				goto failed_read;
++			has_fragment = true;
+ 		} else {
++			has_fragment = false;
+ 			frag_blk = SQUASHFS_INVALID_BLK;
+ 			frag_size = 0;
+ 			frag_offset = 0;
+@@ -230,6 +237,7 @@ int squashfs_read_inode(struct inode *in
+ 		inode->i_blocks = (inode->i_size -
+ 				le64_to_cpu(sqsh_ino->sparse) + 511) >> 9;
+ 
++		squashfs_i(inode)->has_fragment = has_fragment;
+ 		squashfs_i(inode)->fragment_block = frag_blk;
+ 		squashfs_i(inode)->fragment_size = frag_size;
+ 		squashfs_i(inode)->fragment_offset = frag_offset;
+--- a/fs/squashfs/namei.c~b
++++ a/fs/squashfs/namei.c
+@@ -108,10 +108,11 @@ static unsigned int get_dir_index_using_
+ 
+ 		/* Sanity check the directory index contents */
+ 
+-		/* size should never be larger than SQUASHFS_NAME_LEN */
+-		size = le32_to_cpu(dir_index->size) + 1;
+-		if (size > SQUASHFS_NAME_LEN)
++		/* size should never be larger than SQUASHFS_DISK_NAME_LEN */
++		size = le32_to_cpu(dir_index->size);
++		if (size > SQUASHFS_DISK_NAME_LEN)
+ 			break;
++		++ size;
+ 
+ 		/* The stored index should not be larger than max_index */
+ 		index = le32_to_cpu(dir_index->index);
+@@ -236,13 +237,13 @@ static struct dentry *squashfs_lookup(st
+ 				goto read_failure;
+ 
+ 			length += sizeof(*dire);
+-			size = le16_to_cpu(dire->size) + 1;
++			size = le16_to_cpu(dire->size);
+ 
+-			/* size should never be larger than SQUASHFS_NAME_LEN */
+-			if (size > SQUASHFS_NAME_LEN)
++			/* size should never be larger than SQUASHFS_DISK_NAME_LEN */
++			if (size > SQUASHFS_DISK_NAME_LEN)
+ 				goto data_error;
+ 
+-			if (!squashfs_dir_space(dir, length, size))
++			if (!squashfs_dir_space(dir, length, ++ size))
+ 				goto data_error;
+ 
+ 			err = squashfs_read_metadata(dir->i_sb, dire->name,
+--- a/fs/squashfs/squashfs_fs.h~b
++++ a/fs/squashfs/squashfs_fs.h
+@@ -32,6 +32,9 @@
+ /* Max length of filename (not 255) */
+ #define SQUASHFS_NAME_LEN		256
+ 
++/* Max on-disk length of filename */
++#define SQUASHFS_DISK_NAME_LEN		255
++
+ /* Max value for directory header count*/
+ #define SQUASHFS_DIR_COUNT		256
+ 
+--- a/fs/squashfs/squashfs_fs_i.h~b
++++ a/fs/squashfs/squashfs_fs_i.h
+@@ -17,6 +17,7 @@ struct squashfs_inode_info {
+ 	unsigned int	xattr_size;
+ 	unsigned int	xattr_count;
+ 	int		parent;
++	bool		has_fragment;
+ 	union {
+ 		struct {
+ 			u64		fragment_block;
+_
+
