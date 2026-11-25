@@ -1,60 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596854;
-	b=jpggZsFLiwRg5b1UCLY5QGN2/QZcYKeQCv4djDAwNaKkaSHp6oiyco/mQTOXpTbJT948
-	 lQ2INfwcYthCxkRip+ASOOTGOi/u4VsRyZKuQucrmn1Yuf2mTZdHy+DzEQRI7SshOoNEy
-	 uAhyvOeIT12UAaGlg7c7GqohFp1HdJU3l91usm29kCQqOsy3wJex8veX7gwj/sV4wI14B
-	 CY17BeVKcNWYIZ0S+cMh4/OCFUaLsWbh18Rik9Zp/t9f7AUeDgTdXESAWv4qhB5hnSm6x
-	 UdteZZlhThI8nX85pZ0X0Uy8Q87ghrJishgj+923+72Z3ZuzwqX2QDv2z56+c20haJw==
+	t=1795596919;
+	b=4tG1QtILieDZ+oepdhiC0ON/I9pYu3KlLO5BxjQEzuxLrPwoVgjNagHTI4d5KVLNjEeu
+	 Bcd5hGJBFRk2JruE4YMNe063iLaEWYMM0jDD0hWqCNV56rA6aKBLQc/w0nEPtSLAjo/LQ
+	 0bXJ7NovmrlLPhBoxztIquQFKm7bIZkExaOgFj5qIdSv66Ceq/mhfCiSSIIKJFzkooez3
+	 ta9we9trGeUVEVZHOCg609QTMvIn5uRReyUlkm09y2YPD0ukQPMIoP0vxBTnGXYehZkcc
+	 tj4SAvHEbZbWoeFnYcUywW69pVvet+5N4w9zdKeEtX3tbX2ZS/a2KSsy/VHND5WO1jw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596854;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
-	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
-	 X-CMS-RootMailID:References;
-	bh=/0+lAOOij2K52U4R0VRs3qIZIOgm3jcSCXFoO01Bohg=;
-	b=gc+LqWamtKbuzH53LLQypuz0u07TNM3SgZmfgoAJEY82cPg+jimJg1ylx4QWwFnMem/x
-	 geUXst9ZA6hcb31y9gCP4mxHHa4eygyLqDxfbjD41XLmpDC1fclL+Bx//4PIAPh1pG5Gx
-	 iqoU4UId5l6RMQ34wUteJRS+OqY8ff8cRouPC82z7CPRLRxIzWcXZNTFmuTwMRO3kObWj
-	 iShgEn+O52AhODzDqxZgySjCUGYQXErNzfN+cXXhM5Wg3XNbmtFV60owJVmsQ2knUI4RY
-	 WkvEgVxL+QYipZSiwSApooemxla/LInAjOR2eK7KNXuiEKTMaXB9dPOzuGJ0Wyz9rtg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596919;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=ltkcJXou2Sk6MxEHxOTGoZvucs99rnFqVFhzyx4fQeU=;
+	b=48H0XHF5rbFZFOwu0rAC8ZtP+Yg4w8cSKFND5TEyZXgzCMdXlPq0AivmnKDtPH7TFCXc
+	 tLaa35M1wEJOL2SIis+5OlehXQjmioy06knG9QfATnyPznTi/pFGVlxy6BKwDK6UP5D9e
+	 wlES4J3nn/P8MQoijAL+afHjKsbRVXZJS8RaSTY5Fo3CMXEduv/tGtJjKP0FUiqyxDm/1
+	 KApX4KWo91++Oit45I2Do59Puz+uSCgfNOBxFndQKgPHJfDuED6igP/r1wjUxgAKhtPNR
+	 6p0ka27knYiAv+DnVBfkG9b2sAB4t/ujjNEYlEHmJiVVKdTh6mFHORHRat5pHKU/fkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=J1yzosnh;
-	arc=none smtp.remote-ip=210.118.77.12
-Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="WhUJ/GcR";
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 522DA606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:54:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 522DA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C2DB606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:55:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C2DB606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=J1yzosnh
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261125085411euoutp02d978041cf601be2a08ab656482a1efc1~rPdKiooXL1461614616euoutp02k
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:54:11 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261125085411euoutp02d978041cf601be2a08ab656482a1efc1~rPdKiooXL1461614616euoutp02k
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795596851;
-	bh=/0+lAOOij2K52U4R0VRs3qIZIOgm3jcSCXFoO01Bohg=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=J1yzosnh8O0FQ+zOv4xV6wlWYSkwmCBvsTdVPW401AfwWJxN4L78IQe8rbJW1vatb
-	 hZcg5/xPfPxRGSsWRLSmDMcAobQidGl/bXypi1JVQNc8fQkRJfeEGt7H6XD6F91xzJ
-	 eatuJhhXprNVbYaTSK0AY0O4RpLts+lTdBydLYKo=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261125085411eucas1p26fb11707f67c2628fd55e71335d08bab~rPdKQhucL0555705557eucas1p2m;
-	Wed, 25 Nov 2026 08:54:11 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261125085408eusmtip12dc81ec341b1bfaabed6853baaabffe2~rPdIRjxTi1139111391eusmtip1Q;
-	Wed, 25 Nov 2026 08:54:08 +0000 (GMT)
-Message-ID: <3467269e-9929-4c9f-bc19-847976f49527@samsung.com>
-Date: Wed, 25 Nov 2026 09:54:08 +0100
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WhUJ/GcR
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 6A3EAC2F4C8
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:55:24 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 99E0260480;
+	Wed, 25 Nov 2026 08:55:16 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BBB3A11E68022;
+	Wed, 25 Nov 2026 09:55:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795596916; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ltkcJXou2Sk6MxEHxOTGoZvucs99rnFqVFhzyx4fQeU=;
+	b=WhUJ/GcRVLR49m8UGrh3NO45/FZkFiqSZwvkLmHB4/Fzu50+lSCW6OShejxSp8aV7b++J/
+	EJGJUSuXkZRbt6S3zGiOhMs5mY6bt9xqN/XFAygmdtI54dL1rtO8JSl/7ewmjKLX/kH9T2
+	2UlDTVOLYPrDXDWYF6d6IzP25zEL52x7V5VDMcwcIfrFMOco6FaxA8LmoB3QcGcSPooqHA
+	y+HjEuE6kEyUjUy3ql+keeLqXw1t2RLWR1XP/3kFPkV6WGF3+jO/84EWjkyrKblX8XDiFx
+	s154sJ9IAK+0Crg4TLc50d4ZT+Pp8iL5xgW1RViC9kAqq0yugvmK7GkGmR1QGA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Ping Li <leeonion.muyu@gmail.com>
+Cc: richard@nod.at,  vigneshr@ti.com,  linux-mtd@lists.infradead.org,
+  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] mtd: rawnand: r852: bounce non-linear-map buffers
+In-Reply-To: <20261123070440.3060882-4-leeonion.muyu@gmail.com> (Ping Li's
+	message of "Mon, 23 Nov 2026 15:04:40 +0800")
+References: <20261123055020.1995251-1-ping.li@horizon.auto>
+	<20261123070440.3060882-1-leeonion.muyu@gmail.com>
+	<20261123070440.3060882-4-leeonion.muyu@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Wed, 25 Nov 2026 09:55:13 +0100
+Message-ID: <875wxl1ea6.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,198 +73,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v3 2/2] alpha: enable contiguous memory allocation for
- coherent DMA
-To: Magnus Lindholm <linmag7@gmail.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>
-Cc: richard.henderson@linaro.org, mattst88@gmail.com,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-next@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
-	netdev@vger.kernel.org, iommu@lists.linux.dev, joro@8bytes.org,
-	will@kernel.org, Mark Brown <broonie@kernel.org>
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <CA+=Fv5QJxoxEoKxRpm5Hisdf=y+VpmM-s_VBC1tDQ2FTCfb08w@mail.gmail.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261125085411eucas1p26fb11707f67c2628fd55e71335d08bab
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261124232303eucas1p10f2da7a94c8aa19fa4e406d089c1367e
-X-EPHeader: CA
-X-CMS-RootMailID: 20261124232303eucas1p10f2da7a94c8aa19fa4e406d089c1367e
-References: <20261115103809.1288167-1-linmag7@gmail.com>
-	<20261115103809.1288167-3-linmag7@gmail.com> <awVzJMLVw4wUSqky@monoceros>
-	<CGME20261124232303eucas1p10f2da7a94c8aa19fa4e406d089c1367e@eucas1p1.samsung.com>
-	<CA+=Fv5QJxoxEoKxRpm5Hisdf=y+VpmM-s_VBC1tDQ2FTCfb08w@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hi Magnus,
+On 23/11/2026 at 15:04:40 +08, Ping Li <leeonion.muyu@gmail.com> wrote:
 
-On 25.11.2026 00:22, Magnus Lindholm wrote:
-> On Tue, Nov 24, 2026 at 12:32 PM Uwe Kleine-König
-> <u.kleine-koenig@baylibre.com> wrote:
->> On Sun, Nov 15, 2026 at 11:37:43AM +0100, Magnus Lindholm wrote:
->>> Select HAVE_DMA_CONTIGUOUS and reserve a default CMA area after the
->>> machine has initialized its DMA windows. Prefer top-down placement
->>> below the direct-map and usable RAM limits. Skip the default reservation
->>> when no direct-map window exists. Explicit cma= ranges retain their
->>> generic override semantics; top-down placement is a preference, not a
->>> hard lower bound excluding the first 16 MiB.
->>>
->>> Use dma_alloc_contiguous(), which rejects non-blocking callers, before
->>> falling back to alloc_pages_exact(). Pair both paths with
->>> dma_free_contiguous(), whose buddy fallback uses free_pages_exact().
->>> Skip CMA on the GFP_DMA retry after a mapping failure so it cannot
->>> return the same unsuitable CMA pages. Retain zeroing for CMA memory.
->>>
->>> Round the size up to a page boundary in both allocation and free. CMA
->>> allocates size >> PAGE_SHIFT pages, so an unaligned size could otherwise
->>> allocate too few pages and overrun the allocation during zeroing. Keep
->>> the mapping and unmapping lengths consistent with the aligned size.
->>>
->>> With CONFIG_DMA_CMA=y, the default CMA_SIZE_MBYTES setting reserves
->>> 16 MiB without a cma= argument. cma=0 disables the default area.
->>>
->>> Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
->>> ---
->>>  .../io/dma-contiguous/arch-support.txt        |  2 +-
->>>  arch/alpha/Kconfig                            |  1 +
->>>  arch/alpha/kernel/pci_iommu.c                 | 19 +++++++++++++------
->>>  arch/alpha/kernel/setup.c                     | 15 +++++++++++++++
->>>  4 files changed, 30 insertions(+), 7 deletions(-)
->>>
->>> diff --git a/Documentation/features/io/dma-contiguous/arch-support.txt b/Documentation/features/io/dma-contiguous/arch-support.txt
->>> index 3c6ce35d704f..6cd205a991f6 100644
->>> --- a/Documentation/features/io/dma-contiguous/arch-support.txt
->>> +++ b/Documentation/features/io/dma-contiguous/arch-support.txt
->>> @@ -6,7 +6,7 @@
->>>      -----------------------
->>>      |         arch |status|
->>>      -----------------------
->>> -    |       alpha: | TODO |
->>> +    |       alpha: |  ok  |
->>>      |         arc: | TODO |
->>>      |         arm: |  ok  |
->>>      |       arm64: |  ok  |
->>> diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
->>> index 6ccb2d230326..cddc1f3af209 100644
->>> --- a/arch/alpha/Kconfig
->>> +++ b/arch/alpha/Kconfig
->>> @@ -30,6 +30,7 @@ config ALPHA
->>>       select HAVE_ARCH_COMPILER_H
->>>       select HAVE_ASM_MODVERSIONS
->>>       select HAVE_DEBUG_KMEMLEAK
->>> +     select HAVE_DMA_CONTIGUOUS
->>>       select HAVE_GUP_FAST
->>>       select HAVE_KERNEL_BZIP2
->>>       select HAVE_KERNEL_GZIP
->>> diff --git a/arch/alpha/kernel/pci_iommu.c b/arch/alpha/kernel/pci_iommu.c
->>> index 955b6ca61627..19aa5c05de2b 100644
->>> --- a/arch/alpha/kernel/pci_iommu.c
->>> +++ b/arch/alpha/kernel/pci_iommu.c
->>> @@ -408,15 +408,20 @@ static void *alpha_pci_alloc_coherent(struct device *dev, size_t size,
->>>  {
->>>       struct pci_dev *pdev = alpha_gendev_to_pci(dev);
->>>       void *cpu_addr;
->>> -     long order = get_order(size);
->>> +     struct page *page;
->>>
->>> +     size = PAGE_ALIGN(size);
->>>       gfp &= ~GFP_DMA;
->>>
->>>  try_again:
->>> -     cpu_addr = (void *)__get_free_pages(gfp | __GFP_ZERO, order);
->>> +     /* A low-memory retry must not return the same unsuitable CMA pages. */
->>> +     page = (gfp & GFP_DMA) ? NULL : dma_alloc_contiguous(dev, size, gfp);
->>> +     if (page)
->>> +             cpu_addr = page_address(page);
->>> +     else
->>> +             cpu_addr = alloc_pages_exact(size, gfp | __GFP_ZERO);
->>>       if (! cpu_addr) {
->>> -             printk(KERN_INFO "pci_alloc_consistent: "
->>> -                    "get_free_pages failed from %ps\n",
->>> +             pr_info("pci_alloc_consistent: allocation failed from %ps\n",
->>>                       __builtin_return_address(0));
->>>               /* ??? Really atomic allocation?  Otherwise we could play
->>>                  with vmalloc and sg if we can't find contiguous memory.  */
->>> @@ -426,7 +431,7 @@ static void *alpha_pci_alloc_coherent(struct device *dev, size_t size,
->>>
->>>       *dma_addrp = pci_map_single_1(pdev, virt_to_phys(cpu_addr), size, 0);
->>>       if (*dma_addrp == DMA_MAPPING_ERROR) {
->>> -             free_pages((unsigned long)cpu_addr, order);
->>> +             dma_free_contiguous(dev, virt_to_page(cpu_addr), size);
->> On next-20261123 I get a build error on an ARCH=alpha allmodconfig build
->>
->> arch/alpha/kernel/pci_iommu.c: In function ‘alpha_pci_alloc_coherent’:
->> arch/alpha/kernel/pci_iommu.c:418:41: error: too few arguments to function ‘dma_alloc_contiguous’; expected 4, have 3
->>   418 |         page = (gfp & GFP_DMA) ? NULL : dma_alloc_contiguous(dev, size, gfp);
->>       |                                         ^~~~~~~~~~~~~~~~~~~~
->> In file included from arch/alpha/kernel/pci_iommu.c:14:
->> include/linux/dma-map-ops.h:105:14: note: declared here
->>   105 | struct page *dma_alloc_contiguous(struct device *dev, size_t size, gfp_t gfp,
->>       |              ^~~~~~~~~~~~~~~~~~~~
->>
->> which seems to be a conflict between
->>
->>         next-20261123~159^2 = f03df6019b56 ("alpha: enable contiguous memory allocation for coherent DMA")
->>
->> from
->> https://git.kernel.org/pub/scm/linux/kernel/git/lindholm/alpha.git for-next
->>
->> and
->>
->>         next-20261123~104^2~23^2~7 = 31f7e12d621b ("dma-contiguous: pass the NUMA node to dma_alloc_contiguous()")
->>
->> from
->> https://git.kernel.org/pub/scm/linux/kernel/git/kuba/linux.git dma_alloc_coherent_node
->>
->> I guess the right thing to do is to pull
->>
->>         https://git.kernel.org/pub/scm/linux/kernel/git/kuba/linux.git dma_alloc_coherent_node
->>
->> into the alpha tree and fix the offending function call in the merge
->> commit.
-> Thanks for catching this and identifying the interacting commits.
+> r852_do_dma() only bounces buffers that are not R852_DMA_LEN
+> aligned.  An aligned vmalloc'd buffer passes this check and gets
+> fed to dma_map_single(), which is only valid for linear-map
+> addresses.  Such buffers are not hypothetical: mtdblock's write
+> cache is vmalloc'ed, and UBIFS passes vmalloc'ed LPT buffers.
 >
-> I reproduced the error on next-20261123. In
-> arch/alpha/kernel/pci_iommu.c, I changed:
+> Extend the bounce condition with a virt_addr_valid() check so
+> that non-linear-map buffers go through the existing internal
+> bounce buffer instead.
 >
-> page = (gfp & GFP_DMA) ? NULL : dma_alloc_contiguous(dev, size, gfp);
+> Fixes: 67e054e919248 ("mtd: nand: Add driver for Ricoh xD/SmartMedia read=
+er")
+> Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+> ---
+>  drivers/mtd/nand/raw/r852.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 >
-> to:
->
-> page = (gfp & GFP_DMA) ? NULL :
-> dma_alloc_contiguous(dev, size, gfp, dev_to_node(dev));
->
-> This fixes the allmodconfig pci_iommu.o build. A full DP264 UP build
-> with CMA enabled also passed, as did an object build with CMA disabled.
-> The full allmodconfig build hit an unrelated cgroup sample error
-> involving PATH_MAX and LINE_MAX.
->
-> I'd prefer to keep the Alpha tree independent of the DMA series.
-> Could we coordinate with Jakub and Marek to carry the adjustment in
-> linux-next and ensure it reaches Linus when both changes are present?
-> I'm happy to help with further testing.
->
-> If that proves awkward, I can remove the CMA patch from for-next and
-> defer it to a separate Alpha pull request once the DMA changes have
-> landed, updating the caller then.
+> diff --git a/drivers/mtd/nand/raw/r852.c b/drivers/mtd/nand/raw/r852.c
+> index 92c47d351c27..4dbfc053fb21 100644
+> --- a/drivers/mtd/nand/raw/r852.c
+> +++ b/drivers/mtd/nand/raw/r852.c
+> @@ -188,8 +188,8 @@ static void r852_do_dma(struct r852_device *dev, uint=
+8_t *buf, int do_read)
+>  	  from device, for writes first fill the buffer  from memory*/
+>  	dev->dma_state =3D do_read ? DMA_INTERNAL : DMA_MEMORY;
+>=20=20
+> -	/* if incoming buffer is not page aligned, we should do bounce */
+> -	if ((unsigned long)buf & (R852_DMA_LEN-1))
+> +	/* if incoming buffer is not usable for DMA, we should do bounce */
+> +	if (!virt_addr_valid(buf) || (unsigned long)buf & (R852_DMA_LEN
+> - 1))
 
+Why do we need a local bounce if the core can do it with NAND_USES_DMA?
 
-I think that rebasing the alpha changes on top of Jakub's stable tag:
+Also please add Cc: stable to these three patches.
 
-git://git.kernel.org/pub/scm/linux/kernel/git/kuba/linux dma_alloc_coherent_node
-
-would be the easiest way of handling this conflict as this way we will
-avoid any build breaks and keep the changes bisectable.
-
-However if You still want to keep Your CMA changes based on v7.4-rc1 in
-alpha tree, then please provide a stable tag or branch with them.
-I will merge it to dma-mapping-for-next and apply the needed fixup.
-
-
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
+Thanks,
+Miqu=C3=A8l
