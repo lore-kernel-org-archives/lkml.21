@@ -1,95 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.67
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795575462;
-	b=3qqLz3sWILupIEchUytknNnyq7OJa4kOGCnLmeH4prmCfDAGAfzm+WwsSa16FtDNZokB
-	 5ZsbHJZE+zhri0hFG1oXnpyXmEvL75LmopuBFIN36B6PVqBqeotBED4BoYwFlPAS66iZs
-	 Y7BRiN6zbGLOhDXgBcSWo8NaCWrBOFW+eP2UoLCGRQD6Qw2+0fMCFq2imerZVmQAErGXG
-	 B5xzDXplHZlCYmHBivbpkQEYPhXv4Nl9ZvZTmc/ufBts3jXcYaSJKePYZi139TAgOziD9
-	 tn7T9R9KQL42h4wvE7Yeo/v8ZWrsO88THJZUzWnv4VVkTMre+5xjwSmkQ5HrR9Dzw5Q==
+	t=1795575471;
+	b=AaKqAuj4OIILtWAaJ31dt9Qlc7Nu5QyGPthViOwtbgtVdPZjrqoQx4lmrH/V1mjlGBVC
+	 9D8XF7rJNFCRQgpuRK+rL11WUys9xDda3/2Q6DPtMR6zCX6rjYpQ1hy3Ud6LxSxlFEx2y
+	 IO6mjzinOnWUK7QZ6XH/6DswZ8Ux+PY9d6bZ7DAgtMYl9IVQjUuJO15VnxmniE2gdxevm
+	 OxPArib8kQf234FG4SPorQzz6W+3tGiYYplNjajZhz6Ua/kkxll113eg/8ZVm0cJANq8W
+	 ZolXu65hM35q1x+8M/jUSV0xnKIJ6ZB8Fn3fmu/J3uJ1UaSQB62g0zNp4bGQ8ceztoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795575462;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=SwOZibvAccnxBelZH8y949wCLqVF2LXLaAyvhlz6UsE=;
-	b=bgArJNuIZS+ug/me4k4rj6Dq6vbi3Btq5/vQ5FpV8TQHGhWLl47JtJdtqx6W02AtTjt9
-	 yTUmvuPCeraGzv1/LoT8/ryERHg+8V6VVH64KtUMJ0BW1ise3mO1XZhG5pdcUrTdJTGSc
-	 2KJyuWXuLLJLf6qHd3rMWiuYBcK/+nJHGKFqvQ2B/GBJoq5h3giQELuS6yZDq4iwR+UN0
-	 fanlddE2yt2zHyks14d1I2yxfUYsiFJO34Hbv/zEPajBqBS9PqpGnpq+86VS1eRGL04oJ
-	 9eBcnWVslp9zxxKVk+j/Q51K2ot9xhnoxf4e3nw2j8DADkVMM/sFQmGdcI8xvD+pwhw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795575471;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Cc:Subject:To:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=DqdH48qbeeTIPU/MMal9aRyucQ5S+jscMJXwGqSYhak=;
+	b=1qApcMQC6kXpYyq4EvpMVexJb1jmmWgycbPcIV0drNx4Y58hqq+cGg9G4hSSiw8+2aAB
+	 q4Z7x/ec3QV9BFkGzltr72ypSrK9wGiSOadwqa7qkE8EB4z3cGq+tO+vfcPt08MdW1itU
+	 f8mEHBfUQh3428XVeh+Ov25YGjCarGzL0roeLcxjWIgGhAESM90/MFPAIEOeUpE85ahgQ
+	 OZboQ/tke3TNsiaYLmaoYo2t/qyeCOhMHcfkTYVJ//odCAW4X6YrG+TNfETnOV10qEi2V
+	 u91KEq3wr00dU+VwgskNEUNW4a2RpUjjlmX++/ssxfeS1H1usPntPTmPhTCaWWkJdYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t9pck++a;
-	arc=none smtp.remote-ip=209.85.210.67
-Received: from mail-ot1-f67.google.com (mail-ot1-f67.google.com [209.85.210.67])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Fpmd9S+W;
+	arc=none smtp.remote-ip=198.175.65.14
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48E74606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:57:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48E74606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE95B606A323;
+	Wed, 25 Nov 2026 02:57:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE95B606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t9pck++a
-Received: by mail-ot1-f67.google.com with SMTP id 46e09a7af769-86288992de5so3988467a34.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:57:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795575460; x=1796180260; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SwOZibvAccnxBelZH8y949wCLqVF2LXLaAyvhlz6UsE=;
-        b=t9pck++a1w4bc/mxi1Z84pgYZwdNd2gw5rXSY2Hazzt7fsd+ONy4xJDVFKnCck73AG
-         eCppw7T6xcbzrFCuZuWPv6wC7/yrV8wRUazl8ni2x+qAEggMepFHaN+g2r7NFooWDBkZ
-         x9WeLHk+l584mjuO1qtOb6krBqkc7eJz4Avi1ll/lq6RwyWSC05vCKW1kTYWenhuQ+UC
-         7bnKodMtl96aMJjYt+FFRX4AqbgqLg153LtCC+WvWtKozQ0CfNqDTDQ2ivpPKd9aZpSe
-         JUT8JIuE16PeTKA2FaUZEVE9baLGvRUdTMQBfZcZRYPS0txuzYjcsib1ALlX80oFJ+vE
-         /2lA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795575460; x=1796180260;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SwOZibvAccnxBelZH8y949wCLqVF2LXLaAyvhlz6UsE=;
-        b=cahTR1rpJie+RZAfjaPCQ/odN0BE/MZ7gjeoIVhIpXbPQt58QA9p3wGfwGefvKaTMH
-         77Nrn31SSE/zfOdr+Y8k52yxOlpDIPvNVrECIymviZFKbIaa4Mvm60es7FdPUZWT3JLB
-         BxHdJgwDpUSgRQDjZ22t96kj7jq3fRynltilR8roVSHFP4FMoFrK9MVPKHzkFIqjNzX8
-         Yc6W0ny/0a/W6dk4cCVsZOJMicCpxzwmOFsGYoxjVonIAtBHQLtNsa+XOsrxlQEkSwh3
-         re/91fDGlPkdHv9a8I53kaiRL4Q9dOmKr2L5oK6yuLKA6pOKdBqFodzdcNCNyAjJmgTe
-         6A2w==
-X-Forwarded-Encrypted: i=1; AL+hErFFoi5PDYeNTK7j5x/WVwrh5kc6/NlQwI/VVXT/OHnUDtgauUF/qcmlmcqUolA3NWhJzJsA7evg8hWz95M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9lKA4MSkMEOK8TycbKIzjiP/pwoqeaWraPFHWX72T+3pNIKDMD
-	7Ss6tWa0e+wrn4VKR5XarFj6XdEezRPm5tct9qKJnTzFsN4SHAfY++sZ
-X-Gm-Gg: AZFdTZeFkKbnwrU18LF4YxVEbbCy3isR4M8ruW3jkm+wr6KqiP2eqQ5jgX7Ktt+RURL
-	qs1PA/vFCSHeNsqZOkyFJCLjZAbc/d2OjAOlIlKoFoLaV8jeVx0lFjpXI3kh8k+e6d2O8eUjMCi
-	P0YjI30agkAQB+UA1z1qQagYdJRZpVw2cF8N9c7UH5vNZGFtqNNLFwVCKB+C7Zi7z8fr7TmPt6H
-	jszPFWrCdxS9wCw1jgBCR00eEdIOjIhI48aU+Uj5okob0bHxrDlo9mZ0xBL7K37/IMn4OtbHLvU
-	DCODjBOlJ6+iKyeWpnu86nL3MaeB07dxPlU+UnUFx/6uBu9Oh20qBuMkSEBts70aik3EMNyAMef
-	oAUbsHqEAUbPMULei6j9nCxCov3+EAxgAbuDRber+Gzhf8SkMhcsecj6JwwK++BSdh9Sq4mgy6B
-	Jrs+suAO6jwnDTcXE5zFDi3xg50ODHkiXD8helSJU3KmPV30ZtXsKxKqBk978cizmYZpULedxgQ
-	TkIIUFNu+OFW/aRTRF4kvT4C+u1c6TlqaOii8AEpk3DdxwADiVhKnTFAfRWug23oioUrqj1RTnv
-	5mw4Y+gD0rXOTA34v7SSasNL69/yrG8RBhWKAbASToaPvcFkGM3ZbdFPiqmnrOCesTsr
-X-Received: by 2002:a05:6830:640d:b0:862:c21e:4f75 with SMTP id 46e09a7af769-863091e1e95mr13456344a34.15.1795575460166;
-        Tue, 24 Nov 2026 18:57:40 -0800 (PST)
-Received: from localhost.localdomain ([14.116.239.36])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-86322db2d1asm10701384a34.4.2026.11.24.18.57.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 18:57:38 -0800 (PST)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: david@ixit.cz
-Cc: oe-linux-nfc@lists.linux.dev,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	edumazet@kernel.org,
-	horms@kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH nfc v2] nfc: llcp: walk the accept queue under the socket lock
-Date: Wed, 25 Nov 2026 10:57:30 +0800
-Message-ID: <20261125025730.383142-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.43.7
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Fpmd9S+W
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795575471; x=1827111471;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=hBXaaSjSnIZ8q+a+Q1Y+asuqrPnvsTtRyx/khUd1WI4=;
+  b=Fpmd9S+W7cIr1VAcDni/Yg3s+lfn3WilqhRQVjEohcXxR0+rShyAN+E5
+   rDUgiJRbB0l+Fi3Ns2+KzLojgJn6RJ3VOBcC0yej6N2pVjjGjbLSXX3GA
+   tz6TLAU6d9D6ggzcKX/lPUeNaEAgKhrn9k0i6bQ+yXzdrTSypn9+ATzes
+   Q7b5S+cczy0zyEp8AhIJ5ct+pv3ahDFMlMNWy51NW7RvZVx9W59cTVVbx
+   I1SWE3YWmNz1hYIjTtissYjqAnDEAQ1thdWEkslsgdrFspVKdxtvQ26D6
+   HBRUWRMEutMCk90DhmKNbcEAtql3FC+7SCGVjB7lCc2ItdDdNTFfDst1w
+   g==;
+X-CSE-ConnectionGUID: qUBb3aReSfqlkA14mR3KQg==
+X-CSE-MsgGUID: gp88YJg9QCu1KDobzlRO0A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4339248"
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="4339248"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 18:57:50 -0800
+X-CSE-ConnectionGUID: XIQPsWwYQIy0N1gzI8vwlA==
+X-CSE-MsgGUID: ldw1n/tdQgutvyocEUZdDQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="11529710"
+Received: from unknown (HELO [10.238.1.144]) ([10.238.1.144])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 18:57:47 -0800
+Message-ID: <b069428b-85e1-4aa4-a53a-d7baf43f629e@linux.intel.com>
+Date: Wed, 25 Nov 2026 10:57:45 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,64 +72,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Cc: baolu.lu@linux.intel.com, "iommu@lists.linux.dev"
+ <iommu@lists.linux.dev>, "x86@kernel.org" <x86@kernel.org>,
+ "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Kiryl Shutsemau <kas@kernel.org>,
+ "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+ "yilun.xu@linux.intel.com" <yilun.xu@linux.intel.com>,
+ "Li, Xiaoyao" <xiaoyao.li@intel.com>, "Gao, Chao" <chao.gao@intel.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 2/9] x86/virt/tdx: Read global metadata for trusted
+ IOMMU
+To: "Tian, Kevin" <kevin.tian@intel.com>,
+ Binbin Wu <binbin.wu@linux.intel.com>
+References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
+ <20261112043054.2664857-3-baolu.lu@linux.intel.com>
+ <f2c46640-959d-4fb6-a313-0f907c127414@linux.intel.com>
+ <158ce0a3-3bd7-4be6-89e7-ecac25027404@linux.intel.com>
+ <CO1PR11MB4835BE5970A03254F7B0BE518C442@CO1PR11MB4835.namprd11.prod.outlook.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <CO1PR11MB4835BE5970A03254F7B0BE518C442@CO1PR11MB4835.namprd11.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-llcp_accept_poll() walks parent->accept_queue and reads each child's
-sk_state without holding the socket lock.  nfc_llcp_accept_dequeue()
-unlinks closed children and drops their creation reference under that
-lock, and the last sock_put() frees the child.
+On 11/24/2026 4:13 PM, Tian, Kevin wrote:
+>> From: Baolu Lu <baolu.lu@linux.intel.com>
+>> Sent: Monday, November 23, 2026 12:10 PM
+>>
+>> On 11/18/2026 9:39 PM, Binbin Wu wrote:
+>>> On 11/12/2026 12:30 PM, Lu Baolu wrote:
+>>>> Add support for reading the global metadata of the trusted IOMMU.
+>>>>
+>>>> The trusted IOMMU feature is optionally enumerated via TDX_FEATURES0.
+>>> Nit:
+>>> The feature enumerated is TDX Connect, I don't think they are
+>> interchangeable.
+>>> Trusted IOMMU is part of TDX Connect, right?
+>>
+>> Yes. I will update it like this:
+>>
+>> Add support for reading the global metadata of the trusted IOMMU, which
+>> is part of TDX Connect.
+>>
+>> TDX Connect support is optionally enumerated via TDX_FEATURES0. Check
+>> this feature bit before reading the metadata to avoid causing the entire
+>> TDX initialization to fail on platforms that do not support it.
+>>
+> 
+> let's not introduce new terms here. TDX Connect is Intel's branding name
+> for trusted I/O. Intel IOMMU introduces a new TDX mode to support
+> trusted DMA for trusted I/O.
+> 
+> so here we just read metadata of the TDX Connect feature, which includes
+> information to enable the TDX mode in Intel IOMMU, blah blah...
 
-A poll() racing with accept() therefore reads a freed child:
+Okay, sure.
 
-  BUG: KASAN: slab-use-after-free in llcp_sock_poll+0x440/0x4e0
-  Read of size 1 at addr ffff888112387812 by task poc.bin/528
-  Allocated by task 198:
-   nfc_llcp_sock_alloc
-   nfc_llcp_rx_skb
-  Freed by task 529:
-   __sk_destruct
-   nfc_llcp_accept_dequeue
-
-Take the listener lock around the accept queue walk.
-
-This issue was discovered by Tencent CodeBuddy Security.
-
-Fixes: d646960f7986 ("NFC: Initial LLCP support")
-Cc: stable@vger.kernel.org
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
----
-v1 was posted to netdev without a target prefix; netdev does not take
-nfc patches, so repost to the nfc tree as [PATCH nfc].  No code change.
-
-v1: https://lore.kernel.org/netdev/20261118083811.1721010-1-bsdhenrymartin@gmail.com/
-
- net/nfc/llcp_sock.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
-
-diff --git a/net/nfc/llcp_sock.c b/net/nfc/llcp_sock.c
-index 1e5ee4bcde68..3503f1a7a7cc 100644
---- a/net/nfc/llcp_sock.c
-+++ b/net/nfc/llcp_sock.c
-@@ -584,8 +584,16 @@ static __poll_t llcp_sock_poll(struct file *file, struct socket *sock,
- 
- 	sock_poll_wait(file, sock, wait);
- 
--	if (sk->sk_state == LLCP_LISTEN)
--		return llcp_accept_poll(sk);
-+	if (sk->sk_state == LLCP_LISTEN) {
-+		/* nfc_llcp_accept_dequeue() unlinks and frees closed children
-+		 * under the listener lock, so the queue can only be walked
-+		 * with that lock held.
-+		 */
-+		lock_sock(sk);
-+		mask = llcp_accept_poll(sk);
-+		release_sock(sk);
-+		return mask;
-+	}
- 
- 	if (sk->sk_err || !skb_queue_empty_lockless(&sk->sk_error_queue))
- 		mask |= EPOLLERR |
--- 
-2.43.7
-
+Thanks,
+baolu
