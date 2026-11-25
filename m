@@ -1,86 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795638810;
-	b=y+4Iw9Qt9VFyb07HZvNQw5Wa65EOq43RMzWiPnzhbD59OYjkKJvXnwfIfWkOe3foxbgh
-	 wYm+cWk2hpj6EIA/Yd0s1PI0cLBqxb+EcF2t5Qx/SXcunxyazghBPakdj8JRzikMgRBKM
-	 /QYva3oryuQ6/wppASfmO7a2r3dTy1f+Vcf5jG321HNMZ8L60BINvqkPC3CjMoj9mri+U
-	 /T0EQ/yiocAt/TVrT1DrzuSQW+GQS+Why8FT6LeIlm74bwUgrHDLsLbXQMewZHsr5qbhW
-	 +RQMzHKlXd2niifqIkWCcP0Ur3fXwRhd+CaCfS66vAaJLmskNejyUTcvneXtawveeXg==
+	t=1795638822;
+	b=T0iHJzUoirnTbsjauREUERz6fRtGteUi5KtfJC0hnFWuLy7AOeZbzQjG1VlXV8jL4Onb
+	 PXKmsotHq34eHKaDczE4ezBLAB4HsvSjj1+EWWPLhW1aIsqFFbHrfmogeoR8V7PyQdAAy
+	 xJ8XLaQF0KHBc+hdKZiVlrWLI6EcIcaGIxc4cGs6TflVQ/Q1Zltsy+hF5rPlU0LdZTXYJ
+	 TCD0/cXcCtHDkFc/xtkqMexAp7RpOLhDH+xcJi0/dUf9VIYGOGx8YvhEJqqv5jUeM9/2T
+	 7HkTZOc974upgPELhkdB3ZaWWyuf+NC2Sr0+lIaVPdBmIjpZ/31KiabPym+Qx2zz7rw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795638810;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:From:To:Cc:References:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=p7VQPtUNRM/ow8fyeOLLOBoYjPKsKPj8Yjd/CKESr7s=;
-	b=BtfpB6YV8B0WdlLlbd9bMsAPMHGTcDHgkWwZgr1l1n4+0H2NEpNopVeh8RjEkCmA7CYP
-	 z5l0uW0Fefag/BadJnKubSw5Dv7S+HZL6Qw7Hy2sYNTLkK14B6/VpEhJGE6yac+hkDgrw
-	 cOswW7X+0Px90RGDZRYoqvLUIFLqJWfGg7s7omYc/qBmwrIJZ1q2oKN8Lr5pzggEC7JnF
-	 OMd/5laEjlyQVxAKRKs0J/d5pSrS7A0Xdrq5BlIqDEyBxEgv7XtVOwz0Jk79v2I7UPkxx
-	 hBVilGJs3EwKgXowbV1uMvZVGo9KD0EEH6fxyVR/8LxXgFSP2hwqVztsnRcXpgksXgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795638822;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:To:
+	 Cc:References:Subject:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
+	bh=V8FUCiGNj/oDwlyphyr1vjzx3mc0o+zaEblUbM0v+Ak=;
+	b=AnyZiX9nL4a8VdIdIiyYxv7LorUClXFQrNSrXMd4C2YN+DxOTSCmKqJuh6AGdASPD/Iu
+	 AD0RDNDqWncvfM1DfB1lWlTDxmCOOscO0LAbiq9sZj7HXYUlCKzLwZL5/+MKICBjJQcpH
+	 1vmRCcYYJD9jrbJ2XCgm6TqKwJDjOam7fpD1li0sqvjEHuT89URmOloZs5Hog5KXO66Bx
+	 aQclIMUT5frrEuZrCTJ7ZhSJc44A03VaoXbp4VfqLbd7163Len+E4i9pQO9UKln7kL2YO
+	 QRUEhw4zJSb1xm8v5dWXjRu/BlbbqykWe/GLXluG4mgtgk8WBrPcUB0WqW5+HntRFIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=riscstar.com;
-	spf=pass smtp.mailfrom=riscstar.com;
-	dkim=pass header.d=riscstar.com header.i=@riscstar.com header.a=rsa-sha256 header.s=google header.b=KRE1YBli;
-	arc=none smtp.remote-ip=209.85.210.41
-Received: from mail-ot1-f41.google.com (mail-ot1-f41.google.com [209.85.210.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=S2+QYLaH;
+	arc=none smtp.remote-ip=212.227.17.11
+Received: from mout.web.de (mout.web.de [212.227.17.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 556A3606A329
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:33:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 556A3606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=riscstar.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=riscstar.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4387B606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:33:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4387B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=riscstar.com header.i=@riscstar.com header.a=rsa-sha256 header.s=google header.b=KRE1YBli
-Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-86288992de5so4644431a34.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:33:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar.com; s=google; t=1795638809; x=1796243609; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:from:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=p7VQPtUNRM/ow8fyeOLLOBoYjPKsKPj8Yjd/CKESr7s=;
-        b=KRE1YBlikOL5/meEMp27DhiYqWuo428gJSlGz4fP/B0FFv3joA/ilc8mHdFk2DXtI3
-         fKM9f+1z9NBeYMHGEk6RO+YPMQpPHkfriXIMolNBGM6UyoKSkw0/g1AnDEJL+wAzIWkE
-         WLFc1VEzL6Imut0yK8ULesUcGvHa6Odm9L1joccbAc6RFNd1ZGt461nbZyxTc4KWTH7a
-         Lyr4BPTYIH+MLrAx3ABdQbQlHvIRho53gPuN0ShDiBVhNIuZVV4Q0Th0LoQ/wAdGNf3P
-         B8yemud+Vs8p5+7xNCjoM6ULtp4afDSzRd6/3qjVr81dhECwVYPDKftCF1VM15mti8VL
-         iMRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795638809; x=1796243609;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:from:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=p7VQPtUNRM/ow8fyeOLLOBoYjPKsKPj8Yjd/CKESr7s=;
-        b=ZgvE6RipPsqDbFN+k94ZQ8wZ8PTE2z4x/ju2lMmhBK+fY12y3HK8OnRQl4i5oOUZqe
-         kAO5ws4guU6OCrpV3f6kx6EErYsj1//vSB222LXaqV7bA9CKEmmUzjhiVFIf0c+KZ2Gf
-         OW1TBHHa610a+Nxl8+M8iJDAPB1tiuuRYYt/cxOgAMBp+UuHf78WrvO+7rXAgzg6qVBM
-         xKCEY7ra1jA3EVUCc1FW8tybZdpWu01eQnSmLsSUphsnOhiYQZ0FemBLHnif0xtuq5z7
-         78eb2c52FuY3Fa2bzDIQEaflzGxzc7lm+pffVcMZCh3bNakxGFWFJ2cIdX5ENZ2gs9dG
-         lffA==
-X-Forwarded-Encrypted: i=1; AL+hErEQSXmwFt0jdnyQ/R9MXNZSy55ROBk6PgSbOPRKJWifOVYACDT/lDKO2HSo+yCcAlrFTwfTmqKd1ak65AE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+EVX4X8MKNxBM5OqivhApiT2ktgn5d3Ze4DqOU5WHDDhxmEZIl
-	Wug6cDj6wNc8+NqBY3Wmixx8ZHHVuUvIpSM65Rqqgoae66RBiUTB5dKjjd6LYt7REPs=
-X-Gm-Gg: AZFdTZdn4aCtgmSs7OkzqnhwswwzawDJwNFO5mB2RoSLZ1fuhzxpQZ2HCLNXDeeiKza
-	ahPxZpi1Dx/YeTOoPUoUT3hMJb+DcCXdwo5l0qMcUIduaq+4g30Yr2ZW10rYqXq4iFy+5GKyWX9
-	EMzIfWdKIw2QaFrPe+YqQ9W8hxiuPCxvVWcsIEeOjls3tMKSwVjDusjW+bUEQv4Dm7uaGWYa4Zh
-	1Rk/UHei96x8aYlMlTAhwUPVmB8ea/0DR+4ln3b5mwEcaoPk3hM0LQ78SBX/0E+1T+EzoayVYpt
-	gMZ5b8lZs5aQTo4v4nmC6+s0R1V6uNkEguiQP/39Q33K9Gz9HRBzsrnU7fYlQ3IDlN0bKk/Yf7z
-	F6O9MkegYG3NTSVR2Aaf8+7DBPDQgeqcBxogj8TrYxh0C6Oavp+Y57ynaZyRrAPa8SDaT+PFUWw
-	M6+bcfzp/4uC5u/05nKKabIMXxsi/mPtnFZtoxa0Qu8TCAeVtrHTyEL4bYOsaYA5vsaWuCCNC0m
-	hsZdYhjiR5Z9faJbFRDZ2lO0PEDfwIdYq9syThI8TnJdeQaL1Or5KK7QF2sqy146Q52pjvoV/Es
-	3WZtJimonTtDg40IoL3YOkP/TVpTzlEt
-X-Received: by 2002:a05:6830:4107:b0:862:a205:e1cb with SMTP id 46e09a7af769-8630920a762mr17392310a34.17.1795638809214;
-        Wed, 25 Nov 2026 12:33:29 -0800 (PST)
-Received: from [172.22.22.28] ([76.156.233.211])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168f784fsm13861425a34.16.2026.11.25.12.33.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 12:33:28 -0800 (PST)
-Message-ID: <f255b01e-ae16-407b-8cab-1af030059e7a@riscstar.com>
-Date: Wed, 25 Nov 2026 14:33:27 -0600
+	dkim=pass (2048-bit key, unprotected) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=S2+QYLaH
+DKIM2-Signature:  i=1; m=1; t=1795638819;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:SKQ5N0d2mH9BKV7Dcm0gO0VMolUD
+   9w6nVfJ6MHPKEyA8/Si38RPqjCDYCaASLgYrFoLp1Ck1mBPpZ5RjIGAi6zr+lsvJLqmFl+5Q/ME
+   5hOq3FeGIiQsmpV8axruJD4enty0MYnOda6WBBwe7NyNgyYJVjd1x+nDNeR6V2uW2AD8pkOd9SR
+   85JVVGDNxbqSmucU4yhE0K461b/VtxgK5ngnyJwHUnInU0F0IjH10pK6LLmwthUo+5fcBwxWUvc
+   xTm0oKC4Hjc1KVOWW5tOFtQGIhWZKxj2JaGszHz288Ym5YejLnGloOGMR7Gr2lkFWI6TvxbY3TL
+   vH1iAwNkSY0ppw==;
+Message-Instance:  m=1;
+ h=sha256:
+   BDaCLlZbTJ62ZmT4Pfcv0uAQURBMaWqnEH9az8VDjYs=:
+   fqT10FfGs6yot3MOB7Y0XMN0loe5YXb5Pvu6HBRa5ig=,
+  sha512:
+   X5us1RuUASJEfMF4wv74euL2JL19DCx0wC2YcLGj/iSN3wudQtLfxHEyOP5nyg3mOjkQu7u311oss++t9GkHXA==:
+   MctCrrGfu7zvcBXht78lsauMTfD0lpexoWuWYNZmRo+Rx3JkOrO7ss4tyjC+ZLV/3gn4exWhrK1o5b0zQoBYhg==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795638811; x=1796243611; i=markus.elfring@web.de;
+	bh=V8FUCiGNj/oDwlyphyr1vjzx3mc0o+zaEblUbM0v+Ak=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=S2+QYLaHUwS+Qsi3BzrLvPycK0Zm0QjjzNxNJex8wlGPWQtN8Hud4UrTa+FS67n6
+	 uHxlqi4TfIv2+i9LJ1n8wKObdX+6nF/JoAKXPyLa9GOkE6TvyI1W32pk2HXz0V+Nw
+	 sadj7qMYcbjQRGSGu9QVnufNosDWSMFaQbSKSjY6U54Kx6Axg15ZVKzAcbVY+1K6D
+	 d2c7kShrBHhA/HAaUhc6y7gkrxDtYOE57MASpsE0WEEcTLKLT4DHmdqZdcf1Mxx7v
+	 B9oMI/lTFNebs0oa1aBKHHPL5d0gecKtwQmiiIdFbnt3UzmERR1W5hcXUxzjO68Ud
+	 WxesM7MLGpWOGsbocg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MbTGt-1y7aRG0nJh-00g5zT; Wed, 25
+ Nov 2026 21:33:31 +0100
+Message-ID: <4e958c1a-3a7f-49ab-bd1f-a41b804043b6@web.de>
+Date: Wed, 25 Nov 2026 21:33:29 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,119 +80,136 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/3] clk: tc9564: introduce a clock and reset driver
-From: Alex Elder <elder@riscstar.com>
-To: sboyd@kernel.org, bmasney+clk@redhat.com, jbrunet+clk@baylibre.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- p.zabel@pengutronix.de, andersson@kernel.org, konradybcio@kernel.org,
- abelvesa@kernel.org
-Cc: daniel@riscstar.com, mohd.anwar@oss.qualcomm.com,
- lorenzo.bianconi@oss.qualcomm.com, fabrice.gasnier@foss.st.com,
- alexandre.torgue@foss.st.com, marex@nabladev.com,
- changhuang.liang@starfivetech.com, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261125202141.1288493-1-elder@riscstar.com>
-Content-Language: en-US
-In-Reply-To: <20261125202141.1288493-1-elder@riscstar.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+To: Matthew Laux <matthew.laux@gmail.com>, linux-media@vger.kernel.org
+Cc: LKML <linux-kernel@vger.kernel.org>, Hans Verkuil <hverkuil@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Mehdi Djait <mehdi.djait@bootlin.com>
+References: <20261125194951.19072-1-matthew.laux@gmail.com>
+Subject: Re: [PATCH v8 00/12] Add driver for StarTech USB3HDCAP capture device
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20261125194951.19072-1-matthew.laux@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:0hL48C2QvgvmjEYvD5PbrExr5PXUi1is91Uww3Pv0fJS3fdHKTn
+ P1JREW0u9+84/nWR1buKmXmyL+sO0bizOv2jXPi062cl9FF+r49E6dwE2PlFJ5A4kCccgI6
+ xj2AOe6Hn3z3FssMgL1AtDgms5EAl4i6t3wBp5nr0XQNDpg8RgJjg/xLoBnizlJ46TShZ68
+ aps7CK0GfUQYVKEmBECTQ==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:EG8YYPSqiOw=;fD9Ccc5kc5dyrTBx2gUfPBsF83E
+ 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
+ qR2gdcSVrYjDVeewqJJqIjL0DXw==
 
-On 11/25/26 2:21 PM, Alex Elder wrote:
-> This series introduces a devicetree binding and single driver to support
-> the clock and reset components present within the Toshiba TC9564 chip.
-> 
-> The Toshiba TC9564 is an SoC that attaches to a host system via PCIe.
-> It includes a PCIe switch with three downstream ports.  To one of
-> these ports an embedded PCIe endpoint is attached, and that implements
-> two PCI functions.  BAR 4 for both PCI functions provides access to
-> registers controlling blocks within the SoC, including the clock and
-> reset controllers supported by this series.
-> 
-> The first version of this series included a system controller, which
-> has since been removed.  This version addresses all review feedback
-> received on version 2.
-> 
-> 					-Alex
+=E2=80=A6
+> Changelog:
+>=20
+> v8: remove RX power control
+=E2=80=A6
+>     use scoped_guard in tw9900 progressive commit
+=E2=80=A6
 
-As I provided last time, a copy of a working DTS file that uses this
-binding and driver is available here:
+tw9900_s_routing()?
 
-   https://github.com/riscstar/linux/tree/tc9564-dts
+What did hinder you to apply lock guards at further source code places?
 
-Isolated in this commit:
-  
-https://github.com/riscstar/linux/commit/e1f8e40b04137798ffd410fc675d9eccfb1c13f9
+How do you think about to extend applications of scope-based resource mana=
+gement
+any more?
 
-					-Alex
-
-> 
-> Version 2 is available here:
->    https://lore.kernel.org/all/20261120183212.1264522-1-elder@riscstar.com/
-> 
-> Between version 2 and version 3:
->    - Added Lorenzo's Reviewed-by on the devicetree binding patch
->    - The devicetree binding now uses @kernel.org e-mail addresses
->      for Daniel and me
->    - Cleaned up the patch header text in patch 2
->    - The Kconfig option now depends on RESET_CONTROLLER
->    - The Kconfig option can now be enabled if COMPILE_TEST is enabled
->    - The generic gate clock controller code is now used rather than
->      implementing a custom one
->    - Only the gate clock IDs are now published in "toshiba,tc9564.h";
->      the PLL and internal fixed clocks are implemented and accessed
->      only within "clk-tc9564.c"
->    - The PLL is initialialized, followed by all fixed rate clocks,
->      followed by the gate clocks, to ensure each clock's parent is
->      initialized before the clock is
->    - Updating the reset registers (read/modify/write) is now protected
->      by a spinlock
->    - There are no more "unnecessary newlines" in the initialization
->      arrays for clocks and resets
->    - An update to the DTS file is now included as the last patch in
->      this series
-> 
-> The version prior to v2 of this code was included in this series:
->    https://lore.kernel.org/all/20261104004332.2141282-1-elder@riscstar.com/
-> 
-> Between that series (v1) and this one (v2):
->    - There is no more syscon, so its devicetree binding and driver have
->      been dropped
->    - The clock and reset components now have a single devicetree binding
->    - We no longer use a syscon-generated regmap for accessing the common
->      range of memory used by multiple drivers; specific sub-ranges are
->      instead mapped
->    - The clock and reset drivers have been combined into a single driver
->      located under drivers/clk
->    - The config option for the driver includes COMPILE_TEST, as requested
->      (last month) by Jerome Brunet
->    - The help text for the config option is simplified, first suggested
->      by Philipp Zabel
->    - The driver now names clocks using dev_name() rather than trying to
->      hand-code a unique name into a fixed-size name array (also suggested
->      by Jerome)
->    - Certain functions now always return 0, which simplifies callers
->      so they can simply return what the called function returns
->    - As suggested by sashiko, a counted-by field in a flex array is now
->      assigned explicitly
-> 
-> Alex Elder (3):
->    dt-bindings: toshiba: introduce toshiba,tc9564-clock.yaml
->    clk: toshiba: introduce a TC9564 clock/reset driver
->    arm64: dts: qcom: qcs6490-rb3gen2: add TC9564 clock node
-> 
->   .../bindings/clock/toshiba,tc9564-clock.yaml  |  73 +++
->   MAINTAINERS                                   |   9 +
->   arch/arm64/boot/dts/qcom/qcs6490-rb3gen2.dts  |  15 +
->   drivers/clk/Kconfig                           |   9 +
->   drivers/clk/Makefile                          |   1 +
->   drivers/clk/clk-tc9564.c                      | 456 ++++++++++++++++++
->   include/dt-bindings/clock/toshiba,tc9564.h    |  40 ++
->   7 files changed, 603 insertions(+)
->   create mode 100644 Documentation/devicetree/bindings/clock/toshiba,tc9564-clock.yaml
->   create mode 100644 drivers/clk/clk-tc9564.c
->   create mode 100644 include/dt-bindings/clock/toshiba,tc9564.h
-> 
-> 
-> base-commit: 9437046953b2fb3bf55b36582450ea0267df82a7
-
+Regards,
+Markus
