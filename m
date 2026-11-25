@@ -1,97 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593986;
-	b=wSltgDbsAccVdwEGEHnb3TFBQLgkll374jz6AxmLTBR5q7/JemsgkOXX8Y/a7kz7W9Yd
-	 lvjjrdNXmAdvwL7AtvJRpLgS+fcXjRY0JzkXqTBtzVNrWecqx2Wm1fHAZST+wHGViE4Cz
-	 FaUDAJFa3R3tdi5eHHBcQXBPCGREn7Q/FJ8IDNKshhoEXWAasEUy1pYeZoDjtILRakBFA
-	 jX1QNlb4SaRSi4hzuQ/EovSBZmgEPQKuCGU1H7qTJJn9FlgYFyoedCbd8bWaut08FaZkt
-	 DOTFPJhDDOtdyEmgNBNwW2K6UENez7kfiDrBw3ECn1SXDqn9BjnfKMNVvlGv496SpJQ==
+	t=1795594003;
+	b=fDHScXSD4wqEGYngOrMRevc3d5m3pCb6jiAbmtTFJWKMi1HnrQaSgd+cDjst4ptbtLCz
+	 tMVrpBVf3fLp8aNaGFojhKqFpkzcoWMPSYJ5nFxrgFnIBz3BZ/VwJe7/RPMLSxG11mdwI
+	 yF3LBGzAFBRuK9bXWB8uv6i51wTGXdRiwwtVrBULLzziJD6krEa1wujFlrzQx5qwEjIne
+	 GCi/aBG8ar1NRVnLGGJohNoJKz+y5sDWaxFgbesA2W/nG1T68xGIDQQ9T6H32Ffkxcgxm
+	 53/b3BuozkgRR9exZXYdCTtyYPk90YnukL5uZLUmDU5Z6tVSY/eDzYnseBK861qSN2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593986;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=qtWuoC5FN2MELDFAKVm54MaDOVUHKz/6gxfQ29IMYEs=;
-	b=Hsfs2nAM1xkpvXqykcjYZ3W4PurNyQKOBM0CTsfEjnr5F3yE8G1pgnJCjp/9X1TXnDud
-	 uqnQtnpXkseVBGYplG5wJkOIgUDDfAg5xi5AeAFwr3WVrn40cAY9rkRvdj4gwIeejCAQK
-	 WsErRjR8R2BUEI9Xo8z+2uLOCCR1HsTJXfz7HuFFpnLgGKiKzN3qdPuTvP9uBzkdg8t38
-	 WMtl78VLWKrtU98/ImDF29S2l53/SxAvG5I8CwZp1hQdD6UdR8Ylchy9ln97rmbA+7v5B
-	 sXxjP/9S7VkH/ZBJIXQDuPMb/YHo5t3GHMdmFZdgCKiKtXXo2eZ7A03gIVGiP8IUYaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795594003;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=M8XCrFSHUIgYWUoAO1XKorle5rekNJC2RkxqBaaweHQ=;
+	b=rkQTPrEGAyB+XKIHQHipq1Q+j/l5USCi/0E/IjyiSCNLU3E0W9fR8eaE1nZMsfk3LPGP
+	 NHIdpGK9dMiBZUcLapot7qVfEZAx5KM81mMKIYgYEZ0fWmBbS4Ss91l95wtlAkLt72teu
+	 fDoGAGwTIE5rjTtVGJzusBgrm98xyH+SdcD6m0r9k9Bt9gy87pBqRCNxlgd9hj8+HP0ZM
+	 JKNlcra2EL95xjaSwVymz9NWtCB8v0uQz9Y/gX0qT6kg/Hf2wQFXlOm02yC0IRcKq8anS
+	 8p6cf2F3CGvNDt2BWyMg7j6XFyGqdjF6loFUa3XiN1WnmKi7JCHFHjcUi4ZVDrV+Egg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gUIFb+z3;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=xiaopeng.com;
+	spf=pass smtp.mailfrom=xiaopeng.com;
+	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=gUfHis60;
+	arc=none smtp.remote-ip=115.124.28.197
+Received: from out28-197.mail.aliyun.com (out28-197.mail.aliyun.com [115.124.28.197])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ED1C606A31E;
-	Wed, 25 Nov 2026 08:06:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51323606A321;
+	Wed, 25 Nov 2026 08:06:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51323606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gUIFb+z3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0A421F000D4;
-	Wed, 25 Nov 2026 08:06:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795593985;
-	bh=qtWuoC5FN2MELDFAKVm54MaDOVUHKz/6gxfQ29IMYEs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gUIFb+z3EoGY/k5hBc/4s5BAcJqoX9NRdGz5EQ6vBgq3rKgAr7rBRsJERd4dmZigO
-	 sgMEGylJulCdyIpDhHG6/2txMVQjqrlwfpZxIzCQD9ih0XAAV5jcvSffX4lkzrl50w
-	 cDOqkERHka2UohPOATjzjz7RQTUHWII6+yvEv/39m5kvL8wGeIVNx0KY9I4eCtkGIO
-	 7CyKz2J4/slnL7IdCSuRKiy7aSog5s+20Q6CNmFwovssbysi2Rs0WtFZQmgkhVyUTp
-	 WzzU5qaaMeAJRyM1mX5Ul3b1ERZi7ZWbYDbm/BGlP2UbP3Rj7THpZilyDmxSEyIYfZ
-	 j4WqRkjdYr7Qg==
-Date: Wed, 25 Nov 2026 10:06:21 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Johan Hovold <johan@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
-	Chris Lu <chris.lu@mediatek.com>, Mans Rullgard <mans@mansr.com>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Cornelia Huck <cornelia.huck@de.ibm.com>,
-	Andrew Morton <akpm@osdl.org>, Jeff Garzik <jeff@garzik.org>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Bart Van Assche <bvanassche@acm.org>,
-	Alexander Duyck <alexander.h.duyck@linux.intel.com>,
-	Dan Williams <djbw@kernel.org>, linux-kernel@vger.kernel.org,
-	driver-core@lists.linux.dev, linux-input@vger.kernel.org,
-	netdev@vger.kernel.org, linux-wireless@vger.kernel.org,
-	linux-usb@vger.kernel.org, linux-bluetooth@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-pci@vger.kernel.org, iommu@lists.linux.dev,
-	linux-coco@lists.linux.dev, Alexey Kardashevskiy <aik@amd.com>,
-	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
-	Greg Kroah-Hartman <gregkh@suse.de>, linux-sound@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: Re: [PATCH v4 21/33] driver core: Introduce a generic device trust
- level
-Message-ID: <20261125080621.GW14811@unreal>
-References: <20261124-device-trust-core-v4-0-037eb0d17b1f@nvidia.com>
- <20261124-device-trust-core-v4-21-037eb0d17b1f@nvidia.com>
- <1bc8f048-4d35-484b-af60-2d13541e683f@infradead.org>
+	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=gUfHis60
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xiaopeng.com; s=default;
+	t=1795593996; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=M8XCrFSHUIgYWUoAO1XKorle5rekNJC2RkxqBaaweHQ=;
+	b=gUfHis60C3+O/B40185hi+72VcG8++A/lna5SMCFShKKQQhoTBzGkZhyGo0/gktiziTzxcTEE2FAnwg53UwMfbEjNKCEdup6cweJ0Es0CrIusmRMZ6nXfX3YMNEqKaNrvBnOUqG4HbKXrGYC4Lj/GyVtImgwc7ouBcEsW8Hs0aE=
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07436259|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.0195112-0.0299786-0.95051;FP=12050426819878012378|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033045166233;MF=zhugl3@xiaopeng.com;NM=1;PH=DS;RN=5;RT=5;SR=0;TI=SMTPD_---.k9lhNRn_1795593995;
+Received: from DESKTOP-UL5U09E.xiaopeng.local(mailfrom:zhugl3@xiaopeng.com fp:SMTPD_---.k9lhNRn_1795593995 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Wed, 25 Nov 2026 16:06:35 +0800
+From: Zhu GuangLei <zhugl3@xiaopeng.com>
+To: Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-kernel@vger.kernel.org,
+	liuwb@xiaopeng.com,
+	stable@vger.kernel.org
+Subject: [PATCH] misc/pvpanic: share the shutdown handler across devices
+Date: Wed, 25 Nov 2026 16:06:35 +0800
+Message-ID: <20261125080635.112699-1-zhugl3@xiaopeng.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,52 +61,175 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1bc8f048-4d35-484b-af60-2d13541e683f@infradead.org>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 04:13:16PM -0800, Randy Dunlap wrote:
-> Hi Leon,
-> 
-> On 11/24/26 1:43 AM, Leon Romanovsky wrote:
-> > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> > index 0b3c140babd94..8a94482f0b19b 100644
-> > --- a/Documentation/admin-guide/kernel-parameters.txt
-> > +++ b/Documentation/admin-guide/kernel-parameters.txt
-> > @@ -1259,6 +1259,20 @@ Kernel parameters
-> >  	dell_smm_hwmon.fan_max=
-> >  			[HW] Maximum configurable fan speed.
-> >  
-> > +	device_trust	[KNL]
-> > +			Enable device trust with blocked as the implicit default.
-> > +
-> > +	device_trust.default=
-> > +			[KNL] Set initial trust policy for all devices, including
-> > +			hotplugged devices.
-> > +			Format: { default | blocked | adversarial | unrestricted }
-> > +			No trust options selects legacy unrestricted mode, preserving
-> 
-> By "No trust options," do you mean using
-> 	"device_trust.default="
-> or just
-> 	"device_trust", which says above means "blocked"?
-> 
-> If I want the status quo (before generic trust levels), do I need to do
-> anything? If so, what?
+Each pvpanic device registers its own power-off handler at
+SYS_OFF_PRIO_LOW. register_sys_off_handler() accepts only one handler
+per non-default priority, so when a second pvpanic device is probed the
+registration fails with -EBUSY and the driver logs "Could not register
+sys_off_handler". The handler that did get registered notifies every
+device on the list, but it is owned by the first device. Once that
+device is unbound, or its shutdown event is masked through sysfs, the
+handler is unregistered and the remaining device stops reporting
+shutdowns even though its events mask still has PVPANIC_SHUTDOWN set.
 
-I mean that if you do nothing and do not write to any device_trust*
-knob, the system will continue to work exactly as it does now. That is
-what "No trust options" means.
+Register a single handler for the driver and keep it as long as at
+least one device has the shutdown event enabled. Serialize updates of
+the events mask and of the handler registration with a mutex. The
+panic and power-off paths still take only the list spinlock, so access
+the events mask with READ_ONCE()/WRITE_ONCE().
 
-Thanks
+The shutdown event only reaches pvpanic when no higher priority
+power-off handler, such as the ACPI one, turns the machine off first.
+Tested on a v6.18 based guest booted with acpi=off under QEMU 8.2.2
+(TCG) with two pvpanic-pci devices created with events=7: after
+unbinding the first device and powering off, QEMU did not receive the
+shutdown byte (0x4) without this change and does receive it with it.
+Masking the shutdown event on a single device still suppresses the
+write.
 
-> 
-> > +			bus policy and existing authorization. Otherwise blocked is the> +			implicit default. An explicit value wins regardless of option
-> > +			order. default preserves bus policy; other values replace it.
-> > +			unrestricted disables runtime policy changes.
-> > +			See Documentation/driver-api/driver-model/device-trust.rst.
-> 
-> thanks.
-> -- 
-> ~Randy
-> 
+OpenAI Codex was used to write the code change and the QEMU test
+scripts, and to run the tests. GitHub Copilot was used to review the
+change and to rewrite this changelog.
+
+Fixes: 7b51b1373321 ("misc/pvpanic: add support for normal shutdowns")
+Cc: stable@vger.kernel.org
+Signed-off-by: Zhu GuangLei <zhugl3@xiaopeng.com>
+---
+ drivers/misc/pvpanic/pvpanic.c | 56 ++++++++++++++++++----------------
+ 1 file changed, 30 insertions(+), 26 deletions(-)
+
+diff --git a/drivers/misc/pvpanic/pvpanic.c b/drivers/misc/pvpanic/pvpanic.c
+index 3d43045bf..ed7a01d45 100644
+--- a/drivers/misc/pvpanic/pvpanic.c
++++ b/drivers/misc/pvpanic/pvpanic.c
+@@ -16,6 +16,7 @@
+ #include <linux/limits.h>
+ #include <linux/list.h>
+ #include <linux/module.h>
++#include <linux/mutex.h>
+ #include <linux/panic_notifier.h>
+ #include <linux/platform_device.h>
+ #include <linux/reboot.h>
+@@ -35,12 +36,14 @@ struct pvpanic_instance {
+ 	void __iomem *base;
+ 	unsigned int capability;
+ 	unsigned int events;
+-	struct sys_off_handler *sys_off;
+ 	struct list_head list;
+ };
+ 
+ static struct list_head pvpanic_list;
+ static spinlock_t pvpanic_lock;
++static DEFINE_MUTEX(pvpanic_sys_off_lock);
++static struct sys_off_handler *pvpanic_sys_off_handler;
++static unsigned int pvpanic_sys_off_users;
+ 
+ static void
+ pvpanic_send_event(unsigned int event)
+@@ -51,7 +54,7 @@ pvpanic_send_event(unsigned int event)
+ 		return;
+ 
+ 	list_for_each_entry(pi_cur, &pvpanic_list, list) {
+-		if (event & pi_cur->capability & pi_cur->events)
++		if (event & pi_cur->capability & READ_ONCE(pi_cur->events))
+ 			iowrite8(event, pi_cur->base);
+ 	}
+ 	spin_unlock(&pvpanic_lock);
+@@ -86,30 +89,34 @@ static int pvpanic_sys_off(struct sys_off_data *data)
+ 	return NOTIFY_DONE;
+ }
+ 
+-static void pvpanic_synchronize_sys_off_handler(struct device *dev, struct pvpanic_instance *pi)
++static void pvpanic_set_events(struct device *dev, struct pvpanic_instance *pi,
++			       unsigned int events)
+ {
+-	/* The kernel core has logic to fall back to system halt if no
+-	 * sys_off_handler is registered.
+-	 * When the pvpanic sys_off_handler is disabled via sysfs the kernel
+-	 * should use that fallback logic, so the handler needs to be unregistered.
+-	 */
+-
+ 	struct sys_off_handler *sys_off;
+ 
+-	if (!(pi->events & PVPANIC_SHUTDOWN) == !pi->sys_off)
+-		return;
+-
+-	if (!pi->sys_off) {
+-		sys_off = register_sys_off_handler(SYS_OFF_MODE_POWER_OFF, SYS_OFF_PRIO_LOW,
++	mutex_lock(&pvpanic_sys_off_lock);
++	if ((pi->events ^ events) & PVPANIC_SHUTDOWN) {
++		if (events & PVPANIC_SHUTDOWN)
++			pvpanic_sys_off_users++;
++		else
++			pvpanic_sys_off_users--;
++	}
++	WRITE_ONCE(pi->events, events);
++
++	if (!pvpanic_sys_off_users) {
++		/* Allow the kernel to fall back to halt if no handler remains. */
++		unregister_sys_off_handler(pvpanic_sys_off_handler);
++		pvpanic_sys_off_handler = NULL;
++	} else if (dev && !pvpanic_sys_off_handler) {
++		sys_off = register_sys_off_handler(SYS_OFF_MODE_POWER_OFF,
++						   SYS_OFF_PRIO_LOW,
+ 						   pvpanic_sys_off, NULL);
+ 		if (IS_ERR(sys_off))
+ 			dev_warn(dev, "Could not register sys_off_handler: %pe\n", sys_off);
+ 		else
+-			pi->sys_off = sys_off;
+-	} else {
+-		unregister_sys_off_handler(pi->sys_off);
+-		pi->sys_off = NULL;
++			pvpanic_sys_off_handler = sys_off;
+ 	}
++	mutex_unlock(&pvpanic_sys_off_lock);
+ }
+ 
+ static void pvpanic_remove(void *param)
+@@ -126,7 +133,7 @@ static void pvpanic_remove(void *param)
+ 	}
+ 	spin_unlock(&pvpanic_lock);
+ 
+-	unregister_sys_off_handler(pi->sys_off);
++	pvpanic_set_events(NULL, pi, 0);
+ }
+ 
+ static ssize_t capability_show(struct device *dev, struct device_attribute *attr, char *buf)
+@@ -141,7 +148,7 @@ static ssize_t events_show(struct device *dev, struct device_attribute *attr, ch
+ {
+ 	struct pvpanic_instance *pi = dev_get_drvdata(dev);
+ 
+-	return sysfs_emit(buf, "%x\n", pi->events);
++	return sysfs_emit(buf, "%x\n", READ_ONCE(pi->events));
+ }
+ 
+ static ssize_t events_store(struct device *dev, struct device_attribute *attr,
+@@ -158,8 +165,7 @@ static ssize_t events_store(struct device *dev, struct device_attribute *attr,
+ 	if ((tmp & pi->capability) != tmp)
+ 		return -EINVAL;
+ 
+-	pi->events = tmp;
+-	pvpanic_synchronize_sys_off_handler(dev, pi);
++	pvpanic_set_events(dev, pi, tmp);
+ 
+ 	return count;
+ }
+@@ -197,10 +203,8 @@ int devm_pvpanic_probe(struct device *dev, void __iomem *base)
+ 
+ 	/* initlize capability by RDPT */
+ 	pi->capability &= ioread8(base);
+-	pi->events = pi->capability;
+-
+-	pi->sys_off = NULL;
+-	pvpanic_synchronize_sys_off_handler(dev, pi);
++	pi->events = 0;
++	pvpanic_set_events(dev, pi, pi->capability);
+ 
+ 	spin_lock(&pvpanic_lock);
+ 	list_add(&pi->list, &pvpanic_list);
+
+base-commit: 917fcbf033154a6c8d83cfa6c88f012b71eb37b2
+-- 
+2.43.0
+
