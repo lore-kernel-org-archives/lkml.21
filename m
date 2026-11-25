@@ -1,65 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.117
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570857;
-	b=GLX5s2+V4no1ufJHNw7jWRyee2XAa3mx+6P6uSwX5YO1UUOGHiTv7dcddbhMMqVygdVo
-	 EWMMd3W3lZcIbLd2zAOzi65GMYehHfKllMtccbuDX9WNCoxmZr9Skun0JUNvxqLZwq37Z
-	 qwDpmj+Ist4221NK2SnXI0B95OZkdcN6vhqkqyAg38hDsew/NeQBOscasZhu5Xjwe6WwC
-	 0ke2igTdqZI/n2AWdueH86ZFPmrAYhL5MR1b2NE7yOdAbKPkHXRhtMzL0ZMrYvcKdVsDR
-	 WJbpJjqm1KjL3hbEyUgRjz75czoWZeYyQadaedF9AO4o+zJhR8Rpym8R4iu+uByit7Q==
+	t=1795570858;
+	b=BAjofodTUFg58kM0QcTJflEPupwk81pM9VUzC0Tm9tt0J77P5c4jR/wmpLuxsU2jLnna
+	 VgrTlLTgRVHFQlip3iO4/hHTjL3UoBj2VvJ4yWU5JB9t26GpzBy7uLbAp98+eGO/QXMDZ
+	 speqemuRxCD4mcgHAhp/eZpbHdYvLaudb9jGLLXpK6tfce/8CsMLjOYXjsJpjudwrQjox
+	 eZqrTjvozo5ujCU2H7O1lwZQC4SY4rgfljrzqoQ7AfPSMmmnaQprwd2sPm8ziXTyz4FPL
+	 IpiRrNbYURbTjraEL4bgg5XDBdQ4aG56Wwvf2uUjRxIys2QZgb3LhId4o6UD3gon+4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570857;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570858;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=2k30GY8w8sIQsAWoDKXFJYTpD8SvpUR5692TePf907w=;
-	b=Xp3c+EgrH0z2t11qn8A5yddjbuXztGvfB5y/S+EbIEy/VB3nLukfRYN39Pw1KreQ1UAx
-	 wlcfivnXWyQpXXyCfN6b+r2FiJ1NDSZWOeBdwrNVTeD8TDaiu6EdwDcnhG7taW5ByRoGg
-	 G3fE6JKowLgtgNkCIdImsCxCqyRPQULvWTgQSnBHqu6JjTsfl4U68XzlXP4Wlh0azv6mJ
-	 gC5YVcL4iG2uyYh9Uxh6PvCM8g+EE8tz0Kv5wZ0AElt1c7luoegNok0FoxjnuMCM8aYLv
-	 rfvx8zt0dDB3lqamRS0oze/cZa1cuJNxocU+nbH265mfFuCSsVubC2God2GCWPRu18A==
+	bh=Nr8AhD/JTXYY4nRgKW9w8rOfFqSdm8MOb29z4lUlrQU=;
+	b=zsu8EfA6//to9l2XbqPGM9BREZBVgOhMfomiCLOSwnL0K8R22tE2l6odX17QpzmzWWC/
+	 CiDyn6oCQUoljWJlN216syJpf9z59oeEIdcXhTaylajD6YNaPZ9unk2hB1j39WPtUvaU/
+	 BMhg8qFka4kPtG72bOozg3EOPma/E3SAdGDOmGngs+CcVrA6gCJY0RAv5+DsfW6E/bw6w
+	 2mBSaDZvl8znqt0wgo6eomjk0xl3rPWRsvHI0o2l6BUKkdOpKzLg/FNRFRNMk0o43INqW
+	 /33Xeqv/y4ORy/w3OX81C0eU+k7eOM2OeU+77NdUK5owVpZin8XU4G5ep/bEHp2pHzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=QIUPozd9;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 45A12606A321;
-	Wed, 25 Nov 2026 01:40:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45A12606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=empyreal.works;
+	spf=pass smtp.mailfrom=empyreal.works;
+	dkim=pass header.d=empyreal.works header.i=@empyreal.works header.a=rsa-sha256 header.s=protonmail2 header.b=BCPnZTlN;
+	arc=none smtp.remote-ip=79.135.106.117
+Received: from mail-106117.protonmail.ch (mail-106117.protonmail.ch [79.135.106.117])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE2DE606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:40:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE2DE606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=empyreal.works
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=empyreal.works
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=QIUPozd9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=QIUPozd9wvqQg8t0XWYzF8JACoiHkePj9QwMsL/Eigtz+iZ0m9sL9/U6JUbq8pMo9yANyXVdmtH88
-	 wcLA6cVMDqpcVZeXMiKbjv+enEnPI97+avgBNeqTiJESX1sa2v0I9+IEoWo7mnED+C5qk54QdjVGlc
-	 QoZbDJcf9UrPd6fE=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66b063c9a360-18904;
-	Wed, 25 Nov 2026 09:40:46 +0800 (CST)
-X-RM-TRANSID:2ee66b063c9a360-18904
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
-	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76b063c9c755-33b71;
-	Wed, 25 Nov 2026 09:40:46 +0800 (CST)
-X-RM-TRANSID:2ee76b063c9c755-33b71
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: adrian.hunter@intel.com,
-	ulfh@kernel.org
-Cc: linux-mmc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Subject: [PATCH v2] mmc: sdhci-acpi: Fix free_irq() of a never requested IRQ
-Date: Wed, 25 Nov 2026 09:40:43 +0800
-Message-ID: <20261125014043.258-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+	dkim=pass (2048-bit key, unprotected) header.d=empyreal.works header.i=@empyreal.works header.a=rsa-sha256 header.s=protonmail2 header.b=BCPnZTlN
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=empyreal.works;
+	s=protonmail2; t=1795570854; x=1795830054;
+	bh=Nr8AhD/JTXYY4nRgKW9w8rOfFqSdm8MOb29z4lUlrQU=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=BCPnZTlNkRnWBhS17tF34xhMehKjFjO1oN2blzAwsnORVQOt0tr8Sk02/fG3wnBrv
+	 3MLTLF9xuvrrzjVtSoXRZNAv/oF62zFjR/LlysHHuKxk/R3F17dT7TMwy3mnuwpsnW
+	 0tZEituom5ID4o/FIyzzCUzBjsTV3CIpdJCi6d20LXcO94fOFK/I1TZFca0piOB9Fa
+	 HUQ1d/FRn6Tc5vbWjHrPKyGjXOXGYgVe//BqyoI8VZ16aQjRg+6u1ydlQpWirakmoP
+	 rhNZQuriD0qvVeDTAEWQ47yGfgz+gqoFCpQItjvSvM7QEvDhUU+4/4pNisWawyJVa/
+	 P6Lx9Kzq+9zeA==
+Date: Wed, 25 Nov 2026 01:40:49 +0000
+To: Min Ma <mamin506@gmail.com>, Lizhi Hou <lizhi.hou@amd.com>
+From: Andrei Rusu de Castro <arc@empyreal.works>
+Cc: Oded Gabbay <ogabbay@kernel.org>, "Mario Limonciello (AMD)" <superm1@kernel.org>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Subject: [BUG] accel/amdxdna: Phoenix NPU unusable after a TDR, and unbinding it then deadlocks on dev_lock
+Message-ID: <20261125-amdxdna-tdr-dev-lock-report-3b8e51c2@empyreal.works>
+Feedback-ID: 182420409:user:proton
+X-Pm-Message-ID: fabd76ec0ec40cd28e9acd98cda0a11ed6d21bcf
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,63 +61,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-qcom_probe_slot() stores the IRQ number from platform_get_irq() in
-*irq and requests it afterwards.  When request_threaded_irq() fails,
-sdhci_acpi_probe() already jumps to the error path that calls
-qcom_free_slot(), but *irq still holds the positive IRQ number, so
-the (*irq < 0) guard in qcom_free_slot() does not catch it and
-free_irq() is called for an IRQ that was never requested, resulting
-in a "Trying to free already-free IRQ" warning.
+Hi,
 
-Reset *irq to the -EINVAL sentinel when the request fails, so
-qcom_free_slot() skips the free_irq() as intended.
+On 7.4-rc3 with a Ryzen 7 PRO 7840U (Phoenix NPU, 1022:1502, firmware
+1502_00/npu_7.sbin), one command that ran past the 2 s TDR left the NPU
+unusable until reboot, and unbinding the driver afterwards deadlocked.
 
-Fixes: 96ccb858093d ("sdhci: acpi: add qcom sdhci host reset quirk fix")
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
----
-Changes in v2:
+The command's shim DMA waited on a FIFO that never filled. At the
+timeout:
 
-- Fix the Signed-off-by line to match the sender name. The SoB text
-  was left over from an older commit and was not regenerated when the
-  author name was updated. No functional change.
+  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_tdr_detect: TDR timeout detected
+  amdxdna 0000:65:00.1: [drm] *ERROR* xdna_send_msg_wait: Wait for completi=
+on timeout
+  amdxdna 0000:65:00.1: [drm] aie2_destroy_context_req: Destroy context fai=
+led, ret -62
+  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_hwctx_restart: Create hwctx fail=
+ed, ret -19
+  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_set_runtime_cfg: Failed to set r=
+untime config, ret -19
+  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_runtime_cfg: Set type 1 value 1 =
+failed
+  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_suspend_fw: Failed to suspend fw=
+, ret -19
+  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_mgmt_fw_fini: Suspend_fw failed
+  amdxdna 0000:65:00.1: [drm] *ERROR* smu cmd 4 failed, 0xff
+  amdxdna 0000:65:00.1: [drm] *ERROR* Power off failed, ret -22
 
-Link: https://lore.kernel.org/r/20261110070032.1387-1-laixiangwu@cmss.chinamobile.com/
+After that, every DRM_IOCTL_AMDXDNA_CREATE_HWCTX and GET_INFO fails in
+the runtime resume:
 
- drivers/mmc/host/sdhci-acpi.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+  amdxdna 0000:65:00.1: [drm] *ERROR* smu cmd 4 failed, 0xff
+  amdxdna 0000:65:00.1: [drm] *ERROR* Access power failed, ret -22
+  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_hw_start: failed to init smu, re=
+t -22
+  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_hw_resume: Start hardware failed=
+, -22
+  amdxdna 0000:65:00.1: [drm] *ERROR* amdxdna_pm_resume_get: Resume failed:=
+ -22
 
-diff --git a/drivers/mmc/host/sdhci-acpi.c b/drivers/mmc/host/sdhci-acpi.c
-index 84c705460..85705d2eb 100644
---- a/drivers/mmc/host/sdhci-acpi.c
-+++ b/drivers/mmc/host/sdhci-acpi.c
-@@ -412,6 +412,7 @@ static int qcom_probe_slot(struct platform_device *pdev, struct acpi_device *ade
- 	struct sdhci_acpi_host *c = platform_get_drvdata(pdev);
- 	struct sdhci_host *host = c->host;
- 	int *irq = sdhci_acpi_priv(c);
-+	int ret;
- 
- 	*irq = -EINVAL;
- 
-@@ -422,9 +423,13 @@ static int qcom_probe_slot(struct platform_device *pdev, struct acpi_device *ade
- 	if (*irq < 0)
- 		return 0;
- 
--	return request_threaded_irq(*irq, NULL, sdhci_acpi_qcom_handler,
-+	ret = request_threaded_irq(*irq, NULL, sdhci_acpi_qcom_handler,
- 				    IRQF_ONESHOT | IRQF_TRIGGER_HIGH,
- 				    "sdhci_qcom", host);
-+	if (ret)
-+		*irq = -EINVAL;
-+
-+	return ret;
- }
- 
- static int qcom_free_slot(struct platform_device *pdev)
--- 
-2.50.1.windows.1
+From the code, the destroy-context timeout makes aie_send_mgmt_msg_wait()
+destroy the management channel, so SUSPEND_FW and every later message
+fail with -ENODEV, and aie2_hw_stop() asks the SMU to power off with the
+firmware still running. The SMU answers 0xff, and since every resume
+starts with that same power-off in aie_smu_init(), the device stays
+dead until a reboot. Is a power-off with the firmware still running
+expected to be refused, and is there an intended way back short of a
+reboot?
 
+Then "modprobe -r amdxdna" hung in D state (over 40 minutes) with:
 
+  amdxdna_pm_resume+0x20/0x80 [amdxdna]
+  __rpm_callback+0x9b/0x330
+  rpm_resume+0x49b/0x680
+  pm_runtime_forbid+0x49/0x60
+  aie2_fini+0x12/0x30 [amdxdna]
+  amdxdna_remove+0xc4/0xf0 [amdxdna]
+  pci_device_remove+0x45/0xb0
+  device_release_driver_internal+0x18c/0x2e0
+  driver_detach+0x8f/0xd0
+  bus_remove_driver+0x102/0x190
+  pci_unregister_driver+0x1e/0xa0
+  __se_sys_delete_module+0x294/0x450
+
+pci_device_remove() tries to resume the device before .remove(), which
+fails as above and leaves it suspended. amdxdna_remove() then takes
+dev_lock and reaches pm_runtime_forbid() through aie2_fini() and
+amdxdna_pm_fini(); forbid resumes the suspended device synchronously,
+and amdxdna_pm_resume() blocks on the dev_lock its own task holds. The
+resume callback has taken dev_lock since commit 1aa82181a3c2
+("accel/amdxdna: Fix dead lock for suspend and resume"). Because the
+task also holds the device lock, a reboot afterwards hung in
+device_shutdown() and the machine needed a hard power-off.
+
+The same lock order is in linux-next (20261120) and drm-misc-next,
+where aie4_classic_fini() calls amdxdna_pm_fini() the same way. I
+haven't tested whether commit 8e2afcd2b579 ("accel/amdxdna: Fix SMU
+command execution on platforms without interrupt trigger") changes the
+first part.
+
+Thanks,
+Andrei
 
