@@ -1,58 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590047;
-	b=UGkBwWrBW49/2vDlqxKOkfJp8mMK+G1zhUthheBeZ1M756Q4GqDx6aY0WAGrdK7gYgDL
-	 9hAjSJGrS3kEvQXN42G72sBCrNGJpolXKMYFFL/2k/ScP+18HAVj1OgC3lF85G/Isz8Y7
-	 jXhZf+13a/mS7YLMRi20JIKKOF360tBb+QaOhQ/DHfw0A8LSgAjQeo5W+731ZRLUrhEe0
-	 qj3vli8Ch/8gPw1pykLfPkB46wNzSaWi5Nr8cEtajej6s6ZdUTwVYxSEKqO2m8Ypg/Bul
-	 D9CZXVJEV5sof0FHA/hFvOhahEzeZvf+2C8VGLWwssPHnvAKTcVutkixOElJrmBIntQ==
+	t=1795590239;
+	b=tJk1XXXAxttvNIR7OEgsxLOnmt/q5YHfhnwdLvMYOOchECk2u+5Y3JyyIF6fUcqwPUv5
+	 j+sypWYGYnQNmeCiLTkC8xaTdNjxgepMQQwkEfNht0Cuw6pYEso5EFvh/+oX90x9eU87f
+	 z0Vxi82AfEz3KwjFtCIb0o3zvGU6mwuM2eWw2hnK9LKwjLRfnU22Cq9Ci9S85EtYDXkG6
+	 1JuY0k1n6XP2v4YURL7jkCIZVrBD7RXBEkN8bgFKV6GvxyjkqSvSrv+95NwHq8SjDkoaI
+	 49oQQ1pN+gvjurrKJNuFlsQ6W3AiS8YIEIqvqVOvg9LUSfpTlnR/9i9IiLpqZtTN6Zw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590047;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
-	bh=m1q9khOarWhPvFmmpMt92L2bFshdQUMvx9wv6wCJtYU=;
-	b=ZtgeG6DhbZRPdoBUXigvifmrsg90wHi+3TynmBMqG5uFQ/iqh3xCI9MvnuzFWwTEmCYx
-	 Rw5tbPE/mr1kAijU/8ykY6BhQn8qYRQN6g1GObgvD003xwHwt2A+59ZPQwV913yxu4Oc+
-	 9hMfn8UQIPz8ollPaVnCVLA+uUi5UiXiN/uHnZTnPjlwaz2YNMrldpXp5ZUY6RlnQun9/
-	 n0DfgLeeZEgC4wk9Lh9TNh47pMaRs/wulHBlfRi0IkBsEOloTBVftjG18a9U8EXWf/inZ
-	 qgZq6LtpMiFz713IRgoiVA3wB3W7Yh0+rw1EJj2Smu0hwal5P85o9sxXjFzgYhnTIIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590239;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=oACP7KwOi4wJuUdzN0kOj5H4T/uZOHxuyB1uiYqEcAU=;
+	b=0+7P+D4EozLcAfBdrzziYTdDfwjO//qU9CfgepyTvDZJKPclPCqy0tx7SA3Llww48VQS
+	 GqSOVc/vYGqXnykIClRPmpqHBgBmwb0S0Ti+lw+1ee5Ihdo/cs5ViLudkdh8rAgB0EOCB
+	 +n4LwD6YaENLHB5RJjQX/7beTsXrnqweJLA5Oql1t5WNOXXCxquer+/0Wtxltf1sdKkNo
+	 fc1tuwgh3GxJgWpkyPz4vEBJfNkrDSwtTCsrX1KvAoR/kmmLZWZ8GaNqP8qByCVlkPz4W
+	 CcA3KxGYSJFqDR826FRrGV7Q6FmqQTpYGVWKEZtfz46RwFLUWXENMhAGrKWR+2m9s3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=5GWbwqXh;
-	arc=none smtp.remote-ip=113.46.200.219
-Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0uzasNhA;
+	arc=none smtp.remote-ip=209.85.214.177
+Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8998606A329;
-	Wed, 25 Nov 2026 07:00:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8998606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40938606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:03:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40938606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=5GWbwqXh
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=m1q9khOarWhPvFmmpMt92L2bFshdQUMvx9wv6wCJtYU=;
-	b=5GWbwqXhtlsmZckgqSs888Rnd8UTfhq/1wGM5l1/RxArQ+p6LmQUAqS0TtYBgw62s2YAY0OeW
-	n2Cg18PIZIopLR787jRzd7VxS5PLbe4w7Vkt80f6qyD4cTBd0jTF2xyykillALnqrz5PxHpsvcs
-	YThIu/XXv2RJeveRruqwPmQ=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jZ9YM1Bxrz1prqH;
-	Wed, 25 Nov 2026 15:00:23 +0800 (CST)
-Received: from whupemp200008.china.huawei.com (unknown [7.152.184.21])
-	by mail.maildlp.com (Postfix) with ESMTPS id 21D3C40561;
-	Wed, 25 Nov 2026 15:00:40 +0800 (CST)
-Received: from [10.174.176.113] (10.174.176.113) by
- whupemp200008.china.huawei.com (7.152.184.21) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 25 Nov 2026 15:00:38 +0800
-Message-ID: <3001f950-9693-4f71-aabc-41b741af865b@huawei.com>
-Date: Wed, 25 Nov 2026 15:00:37 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0uzasNhA
+Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2f01f296937so41721895ad.3
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:03:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795590238; x=1796195038; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=oACP7KwOi4wJuUdzN0kOj5H4T/uZOHxuyB1uiYqEcAU=;
+        b=0uzasNhAkBiX5LhlsXmhFVq6ektOu95bPqOSvE2huFfrGZ/6ZQ54FGBVgVKBFkbXFd
+         J+N82c8f9n8ZMfB8xGUeA20jj+SR2TiX65wm3GXGTBu2sK8UXQR7y86J1cL4LtZYaiOu
+         3/a0KsGac7kX8hWBptRlFUyXZroGjgkrHC8YZvucxejtAvZ2yiqIwW0iBcp7E0ZJVcvY
+         z5Ig4fcLYbDrDlEc9LiD8XhGkM2K5cghGudNyaXpGHQEt82j3PEnH6nktwU5pzStMXqH
+         RZdmHcNzckISfxef66kAPBzihoruylI9JiiYnnvuchBkiKWNO1GH4jb+LmFnIGznFLuK
+         tTFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795590238; x=1796195038;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=oACP7KwOi4wJuUdzN0kOj5H4T/uZOHxuyB1uiYqEcAU=;
+        b=jdFbDS37VJxf1Y7qgod2wPnI9/ySkz8gdgv0QdqGpgFuI4YXvizRSe93TGuYk82d2O
+         oJ0CjwALvpHppbOZeiEET2QI0opVSN2LVKNgRxH2TI3bTmgbqVDSU/B38gJM/JZ4f0VA
+         hAatNev3zd76RLlrtb8rATfRv3l7m/0/MD4hb0WU+3b4mirFFvZNN5YafLp2MbvnW9Mw
+         1G8mkIHsoK+07nk2rNVOL7SxXN0UQ8lBs/Vy/r7pedkUZt0B+QDzuT/casfg0OHc0pFH
+         Rmw/Df41rC5pyDEoyKUxS3Vvq1Hx/uMC0mIRypb5dFl0tAZDGcr6Z7Gj839NM4oBqyX0
+         II8w==
+X-Forwarded-Encrypted: i=1; AL+hErGz69eu0OrX8nGEVlJG+Tq53vYZYVqRysUJr8UAlufa768fgzhoJ57DNs0ty17ZR5lCM6zW5FrNao1pl9o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+4tdR2HyOYpboi7YZ9SR0rkH1q5Um9UoiSeoCVTF/iofHVa10l
+	F2x0vQdjT/aDFEV9OITwqIC0CDXMvq5taHfyYzefhZ9GOckBWLhPBswyY/kjhHki
+X-Gm-Gg: AZFdTZds0S7YtJrGPAys47Aqx+s3cxjnzBt9CtWpTisQYreQGRWEZpeZEk7o3GY/8T0
+	+T8xSBhsLogm/PDe64r5ieVZpPZtYAj5V+T5rybsT2wGT2TQzV6dK30skCgUloMJNw0AnR4LjA7
+	Ws2KM6tWsooWj5fgkvepnqjHC1cdxn9dbsloDIIWCFnNH657POYNztkigyP57jZpnQTC1T0bfOu
+	IHE6JPmAaQW31Pgw2uiJGO3Ff271YRs10JEkBRUYMkNZOULbQItBl/jwVSTs/MWvkeLb0mTHefs
+	h7K8pKaciCx0mWKqzdmSqw1VuDn+mArZrZEa53hhLokGDE+Qon6WZjUFOM13wDonQm5ZEAI4Ux8
+	ijZ0q2yl6jiq4MdSAO6z4OXD9/Zt2HhmSIf9MPkcXPjRZmzaVgsktKZrQnTLWPUZVVZZsMPKbUz
+	ofK7qqvJcaDCy1nB/cg+wMCdmDIStIUoNNsfDaEjcsvYe5ccI26kGvtK3O8GgFyfn6vlg+g3xk1
+	ST5UPmnhnv9rfmikwQr9+vMGrPCPrl+UjUMWljjFd9T2sLFuLEj/i4M2vXtt+QBoywI1jgVCCZL
+	SCY0FqmZvlNBeID6nM35aDQh407C+dbpwmBOz35QVTHnhCwfbqyG3DKSyA03Rb88+iX6Htb97j4
+	pwzZjnt94WuRVkEx9bAII0PGPYWgPZ0TR
+X-Received: by 2002:a17:903:19cb:b0:2ef:f37c:722 with SMTP id d9443c01a7336-2f03f1cfac2mr177248305ad.17.1795590238501;
+        Tue, 24 Nov 2026 23:03:58 -0800 (PST)
+Received: from [127.0.0.1] ([180.166.22.226])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f14fc8csm79177425ad.74.2026.11.24.23.03.55
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Tue, 24 Nov 2026 23:03:58 -0800 (PST)
+From: Zhiqi Zhang <zhiqizhangg@gmail.com>
+To: Donald Hunter <donald.hunter@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] tools: ynl: reject missing regen path argument
+Date: Wed, 25 Nov 2026 15:03:54 +0800
+Message-ID: <20261125070354.18200-1-zhiqizhangg@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,112 +100,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] bonding: clear stale usable_slaves in broadcast mode
-To: Hangbin Liu <hangbin.liu@linux.dev>
-CC: <netdev@vger.kernel.org>, Jay Vosburgh <j.vosburgh@gmail.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Hangbin Liu <liuhangbin@kylinos.cn>, Changzhong Zhang
-	<zhangchangzhong@huawei.com>, <linux-kernel@vger.kernel.org>
-References: <20261124130102.18807-1-jiangjiehua1@huawei.com>
- <20261125012632.GB19338@Liu-laptop>
-Content-Language: en-US
-From: "jiangjiehua (A)" <jiangjiehua1@huawei.com>
-In-Reply-To: <20261125012632.GB19338@Liu-laptop>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- whupemp200008.china.huawei.com (7.152.184.21)
+Content-Transfer-Encoding: 8bit
 
+ynl-regen.sh expects -p to be followed by a path.  If -p is
+passed without an argument, $2 is empty and shift 2 fails without
+consuming $1.  The option parser then keeps looping on -p until
+the caller kills the script.
 
-Hi Hangbin,
-On 11/25/2026 9:26 AM, Hangbin Liu wrote:
-> Hi Jiehua,
-> On Tue, Nov 24, 2026 at 09:01:02PM +0800, JiangJieHua wrote:
->> In broadcast mode, bond_set_slave_arr() frees the usable_slaves argument
->> and returns early, but does not clear bond->usable_slaves.
-> 
-> Since the issue was introduced in bond_set_slave_arr(). Should we set
-> the bond->usable_slaves to NULL here before return?
+I found the issue by manual code inspection and validated it with:
 
-Clearing bond->usable_slaves in bond_set_slave_arr() does fix the leak,
-but it is too late for updelay: bond_enslave() links the new slave via
-bond_master_upper_dev_link() before calling bond_update_slave_arr(),
-so miimon can already see the slave while the stale empty array is
-still there and skip updelay.
+  timeout 2s bash tools/net/ynl/ynl-regen.sh -p
 
-Clearing when the mode changes to broadcast happens while the bond is
-down with no slaves and mii_work has already been canceled, so the
-stale pointer is gone before any new slave is visible.  That fixes both
-the leak and the updelay issue.
+which used to time out with exit code 124.
 
-Thanks,
-Jiehua
+Reject -p without an argument before shifting.  Also stop if the
+selected path cannot be entered, so the script does not continue
+from an unintended directory after a bad -p path.
 
-> 
-> Thanks
-> Hangbin
->> 
->> A mode change requires the bond to be down with no slaves.  When the
->> last slave is removed in balance-xor, balance-tlb or balance-alb,
->> bond_update_slave_arr() publishes an empty usable array, and later mode
->> changes do not clear it.  If the bond is switched to broadcast, the
->> stale pointer remains: bond_miimon_inspect() sees count == 0 and
->> ignores updelay for slaves enslaved while the stale array remains, and
->> bond_uninit() leaks the array.
->> 
->> Clear bond->usable_slaves when the mode is changed to broadcast.  The
->> bond is down and has no slaves at that point, so the array can be freed
->> and set to NULL before the bond is brought up again.  Broadcast never
->> publishes usable_slaves, so it stays NULL.
->> 
->> The issue was discovered by an AI code review agent and confirmed by
->> manual code inspection.  It was reproduced on mainline with virtme-ng;
->> no kernel modifications or error injection were needed.  With a dummy
->> slave and miimon=1:
->> 
->>   ip link add bond0 type bond mode balance-xor miimon 1 updelay 1000
->>   ip link add dummy0 type dummy
->>   ip link set bond0 up
->>   ip link set dummy0 master bond0
->>   ip link set dummy0 nomaster
->>   ip link set bond0 down
->>   ip link set bond0 type bond mode broadcast
->>   ip link set bond0 up
->>   ip link set dummy0 master bond0
->> 
->> After the final enslavement, dummy0 comes up within 50 ms despite
->> updelay=1000 (20 of 20 runs on the unpatched kernel).  With the fix,
->> none of 300 runs skipped updelay.  The bonding mode-2 recovery-updelay
->> selftest passes on the same kernel.
->> 
->> Fixes: 45fc134bcfad ("bonding: do not set usable_slaves for broadcast mode")
->> Signed-off-by: JiangJieHua <jiangjiehua1@huawei.com>
->> ---
->>  drivers/net/bonding/bond_options.c | 8 ++++++++
->>  1 file changed, 8 insertions(+)
->> 
->> diff --git a/drivers/net/bonding/bond_options.c b/drivers/net/bonding/bond_options.c
->> index 9efadeff6a22..f65916444fa1 100644
->> --- a/drivers/net/bonding/bond_options.c
->> +++ b/drivers/net/bonding/bond_options.c
->> @@ -936,6 +936,14 @@ static int bond_option_mode_set(struct bonding *bond,
->>  	WRITE_ONCE(bond->params.arp_validate, BOND_ARP_VALIDATE_NONE);
->>  	WRITE_ONCE(bond->params.mode, newval->value);
->>  
->> +	if (newval->value == BOND_MODE_BROADCAST) {
->> +		struct bond_up_slave *usable;
->> +
->> +		usable = rtnl_dereference(bond->usable_slaves);
->> +		RCU_INIT_POINTER(bond->usable_slaves, NULL);
->> +		kfree_rcu(usable, rcu);
->> +	}
->> +
->>  	/* When changing mode, the bond device is down, we may reduce
->>  	 * the bond_bcast_neigh_enabled in bond_close() if broadcast_neighbor
->>  	 * enabled in 8023ad mode. Therefore, only clear broadcast_neighbor
->> -- 
->> 2.33.8
->> 
+GPT wrote the code change; I reviewed and tested it.
+
+Tested with:
+
+  timeout 2s bash tools/net/ynl/ynl-regen.sh -p
+  timeout 2s bash tools/net/ynl/ynl-regen.sh -p \
+    /definitely/not/a/kernel/tree
+  bash -n tools/net/ynl/ynl-regen.sh
+  scripts/checkpatch.pl --strict --file tools/net/ynl/ynl-regen.sh
+
+Fixes: 25b5a2a1905f ("ynl: regenerate all headers")
+Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
+---
+ tools/net/ynl/ynl-regen.sh | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/tools/net/ynl/ynl-regen.sh b/tools/net/ynl/ynl-regen.sh
+index d9809276db..524fadb770 100755
+--- a/tools/net/ynl/ynl-regen.sh
++++ b/tools/net/ynl/ynl-regen.sh
+@@ -9,13 +9,20 @@ search=
+ while [ ! -z "$1" ]; do
+   case "$1" in
+     -f ) force=yes; shift ;;
+-    -p ) search=$2; shift 2 ;;
++    -p )
++      if [ $# -lt 2 ]; then
++        echo "Option -p requires a path" >&2
++        exit 1
++      fi
++      search=$2
++      shift 2
++      ;;
+     * )  echo "Unrecognized option '$1'"; exit 1 ;;
+   esac
+ done
+ 
+ KDIR=$(dirname $(dirname $(dirname $(dirname $(realpath $0)))))
+-pushd ${search:-$KDIR} >>/dev/null
++pushd "${search:-$KDIR}" >>/dev/null || exit 1
+ 
+ files=$(git grep --files-with-matches '^/\* YNL-GEN \(kernel\|uapi\|user\)')
+ for f in $files; do
+
+base-commit: 7ccb044c27720d48175577080b851f047ddcfd1c
+-- 
+2.54.0 (Apple Git-157)
+
 
