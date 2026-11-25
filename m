@@ -1,48 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795646071;
-	b=UttiFVsnF7ISBBr4XIPzPbDMDnmBSqvEMrhmRWYnye+AgYtCl+mkpzkHoHA/PUl7penZ
-	 E7VMptSMSsUk3VQXB4e609IdyjtfWu6vs0P289I7fMEUAcQHcVRSr3BAFl9IgoH2DXRhz
-	 xz26vnfKR2nHIW2ioRM4Q0zErgP6yEwfyHPRCbtPfUaut1v/pHcI4sYeGQJgrjXu88aVk
-	 aBq0v3sFiCrS9YzT/RqDy1mJCU6+h1LnBRmfooPI8Ufhfda17izKlpnJR9Jyegsjpdhxg
-	 uIlmfM6jEi3kxspxwCTxdGWYullac25ERNrdHefXCbNQSAPAOZ1U0zRS1YL03WsZX4g==
+	t=1795646097;
+	b=MkUHYuG66HxjfmUyB0/isoFbXXEpQ17CkgsRj7wJV7rkl9DDDD1zkhECPlJGtilMBFS7
+	 4kby8h6F56I7SOQr2saXmMzL9UrKaI62JxE5o1yKCtkUYQByoLUnH8BUMIeOPbLSrybO8
+	 uNUL+L6E/5VX+U1CNsgF8uWJetLsJwFKESj0uHheuTVrUaw7DEIilkXSzjXIuyQDjIbuN
+	 H56u7j8ULsrsIdCotUY4QVcAp4stW5Eo+J1lGo+3UP6QKrX2blAjy/aZ+ffTT05OPW7+Q
+	 IoTMnJAvGdblbXh0EzE5XKDyxaazmtkvgcvBcF81kaLkBRtYScZtetOv0gBAKJ3Lrnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795646071;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=8fTo2Z8MBd6ECzqB32nwIsRFTY+y4eGXyeXoke+qtck=;
-	b=fLL/GutEQA5LBx+FufP38L/UPb99JBlCod5aiBRYQ0VLK/0AVuT0qeq2J0o6po96uNb6
-	 6w0VGLCAjYPR2PSVgeD6Y+kEfe4KE643O9s/EWh2fbX5R9bdy/23NpfpSG1PH6ntZqLSK
-	 1U/vR5lEzJAxhZcz+9BIQ7rUuHVRkIU4TvUsGD2+9ZeizhE7rT9XHo/fGr7kja0XWQkH3
-	 TxuGiTq5qeeQ8foxnDiXTS2ANZZMWPDpDoGkoiNxJQwAGTtOlWfxwtoReGV3nOEgS+e7r
-	 uuXgQcHNieaBc6yD7IAcIgoGYwZhjsfdS+Oc7nmPXy6TJxfF6RffBsIu6xL8cWgbL1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795646097;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=OLNYMcQ2Y1oIxnqaAzxlR1bRdVnHH6Z3Siej5MTnqR8=;
+	b=lMQ+Pq1u9CUmzqlfn40RrB0NAJqgkKdUMjzl7QhapStqGkxE3wWABaFT2wMXKPK3Sq1K
+	 ndSHf+gGcsRtzkbX6UBQgxkZvaIHSgwHBds8KqhAd7Zz+bm0IDgxvoTw4BlJcQs9FYPcO
+	 +AuXPCnhkRu22u/OrBxZ06r26gLaTLIalB0j3r3G5RJxCnI19ajHB40qeih1wvSMv9Rbf
+	 oxP1I7jxnhY4UmQ9cLir7Xt7xUbDdttubnLL3yqmVwF4py7rcODzBp9Qnzu4FnFVuxwHx
+	 uIvBXVB1KdcSnf2S2UcLk8K141F48+ScKvHYClaWZ4fgnQQWipNvkrgtTLTf5vkHhPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m630vnF8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CsISQOf1;
+	arc=none smtp.remote-ip=209.85.214.176
+Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6594606A321;
-	Wed, 25 Nov 2026 22:34:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5C39606A334
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:34:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5C39606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m630vnF8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7955E1F000CF;
-	Wed, 25 Nov 2026 22:34:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795646070;
-	bh=8fTo2Z8MBd6ECzqB32nwIsRFTY+y4eGXyeXoke+qtck=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=m630vnF8CBqdvferMVJw3+VLwe1fZh4JBEzWxfp12Xy8MH1d6IKJWmVQ63ZJIyvyr
-	 SUuChcUOJLomXlHQcsTpfBfLK8B/Of/ubxETq+/LNTvUD+KEhax9Osjswyc4EWvqAr
-	 IeJPVdEZB2rYyNB8BAGbVK/J86rRctBEYE9udDp91QgkduO9HGZUsFWH8I9jxSEE4t
-	 iu1MkhUIxBcdMJPuz9v75QJnGoVmSuHApHDUH+Sp1vfu5prmOKdVNFhkFdzxIlRJIh
-	 9zo8c/2iZgscF0PlsAkpPgyFXGuIUe29Mzp2RU9mMFL4zoWMdffOk4JYDZHlp67gx2
-	 0gSC2V9mpM9Sg==
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Wed, 25 Nov 2026 23:33:02 +0100
-Subject: [PATCH 04/21] mm/memfd: mark new hugetlb folios migratable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CsISQOf1
+Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2f01f296937so49121635ad.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:34:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795646096; x=1796250896; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=OLNYMcQ2Y1oIxnqaAzxlR1bRdVnHH6Z3Siej5MTnqR8=;
+        b=CsISQOf1o4qiv5EEtNLT/UKO6YzVvMBXURsmLIJJDDZdp2FDLlixMlmv+7GtyKg3wg
+         tLKOwvPIIxOyGgURlHpanhNpCcNEazC806pIuN8wFOeFHqqFqTWSIU0bHB+LalQtUEpm
+         HS13XAz48ZNkPCStFs3Z7LHvxJHK9bnlHhEl02bAdaFVs0uN+2AFr2O2vkgf9lod9103
+         KWiH0BMIrATh0WvnfW2frvKc49jMcXB3EjHBiZzXYDPLwkb2BCTYD7j+aOqrdu/F8mWD
+         f//OMb60/+mHeFcgvezJ+eb/FV2MCY4Gv1Au4uTxGVXQzWGVcRIC4tCJ/BYOmU+nEW9Y
+         Ub+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795646096; x=1796250896;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=OLNYMcQ2Y1oIxnqaAzxlR1bRdVnHH6Z3Siej5MTnqR8=;
+        b=EdxQ9UwNdDvrVn+syFCwK69muwn0NWfh7jfW8KAPcBlsFkeT5lmvQSsGzt/iWC7wbk
+         HrC57SneM+M/T6wmaVWCWM7XGYh1wpE2kZnkXJiv45bBwti1LGzU0etLNWJ994vs3p//
+         Q7uG/5FUCV4Xbs4YHj08XJDd94nrfBHxSGVrIrdXp24YsDzn9CfciddLeLiE3OCJwH83
+         KD2iekbMsNJCG+WbKg/Ozv2c45Fkgv9O+RqL3VrzOoly1TG+jJjgAESWnfeRlua3m6ne
+         IshO1SRXSTiQQCNw+pIQMi/Sg7LcCXGHv07FkUrh2IfNkvhWnqObh+Q4E0KcfJlRxCt+
+         7Jvw==
+X-Forwarded-Encrypted: i=1; AL+hErF3L8pKHHsh04BviYLHaDkScgUlH2+MJxolKzdnVFq60iodzZYv5vi6R8Vo82W0lPLU8uGK5audoDClcFQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+r/n5mD/329eBiqG63dTg2jdukMvgd5PvhlMN1HsRs1BrJPri+
+	LK6P1ypd5qLL+k5j4f87vzJrFyn65y6jqiKwRwckVVKfaRXLuHbQSED2uoDOArp3
+X-Gm-Gg: AZFdTZdPQG4NEIe+GugN1fNmOeXqo6pjZb0EGmAOsesCqrCFIESRXxlpOGQ8ATNkaCn
+	qnkyLf6l4c7WybGK8gTsHU/o6984ExsW16B+vcOTDMnvrvBddwJdJDCwnMllSNlxf5qQVkeppmR
+	MjIhAK3zHhtL68tt+aD7OwHd9OeYHe8xq6m30Djn0QjnzMYXO72/+qeEgZakMcBTsG81C5lX9cN
+	H3KpnXQ90EyUhYmbdO8HliRePSRJDN1Dpfb+ebi8Caaxr/Grcb1Gxz8Uw1PblqI3h3zFRuALxiy
+	dRArszv64hE0mB3r2L4MCYukXqmjmmRqurHVEaS95kXal+tJpzrg1n5FzFOuU+XoCDu2NmiAtbK
+	0Rb/j2ymIAYqPXuUI3bBZn2jtXRju+MqzlPcnJDE+lfHMPtL9FleqUBJcixxZYf8hI3oTBwjc6G
+	LMw6DTS7Lj8bddWhK5o6968QP1hHx9PIE4qACHfvtRAN4CGhOUyzJVO8/cjlWEk1tIhP9zIGpAG
+	6tUvfxxKDD1sO9nlaSghx5N0eZpVpjtZtFKpKg3Kdt0pr9lGHGIZGegUmFFTqMqGx/re+jAuwHk
+	I7IL7Y0LFzT21nDvgxpW1/41t6DR2I1dE+CaTYb6z/H3A++YPw==
+X-Received: by 2002:a17:90b:2e49:b0:3a4:b0f3:6597 with SMTP id 98e67ed59e1d1-3b41c58ae4dmr17896124a91.0.1795646096100;
+        Wed, 25 Nov 2026 14:34:56 -0800 (PST)
+Received: from localhost.localdomain ([112.170.44.210])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cdebb45c972sm907029a12.20.2026.11.25.14.34.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 14:34:55 -0800 (PST)
+From: Junyoung Jang <graypanda.inzag@gmail.com>
+To: Miklos Szeredi <miklos@szeredi.hu>
+Cc: Junyoung Jang <graypanda.inzag@gmail.com>,
+	Sasha Levin <sashal@kernel.org>,
+	Gwanhyun Lee <gwanhyunlee@gmail.com>,
+	Joanne Koong <joannelkoong@gmail.com>,
+	Bernd Schubert <bernd@bsbernd.com>,
+	Amir Goldstein <amir73il@gmail.com>,
+	fuse-devel@lists.linux.dev,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH 6.12.y 6.6.y 6.1.y v2] fuse: fix fuse_set_nowrite() race with parallel direct writes
+Date: Thu, 26 Nov 2026 07:34:46 +0900
+Message-ID: <20261125223447.651208-1-graypanda.inzag@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <2026-11-23-1-daily-reply-0006@kernel.org>
+References: <20261123141024.2476753-1-graypanda.inzag@gmail.com> <2026-11-23-1-daily-reply-0006@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,95 +105,115 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-hugetlb_fixes_2-v1-4-db27fd2f71a8@kernel.org>
-References: <20261125-hugetlb_fixes_2-v1-0-db27fd2f71a8@kernel.org>
-In-Reply-To: <20261125-hugetlb_fixes_2-v1-0-db27fd2f71a8@kernel.org>
-To: Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Jinmeng Zhou <jinmengzhou22@gmail.com>, Hongfu Li <lihongfu@kylinos.cn>, 
- Andrea Arcangeli <aarcange@redhat.com>, 
- Mike Kravetz <mike.kravetz@oracle.com>, 
- Naoya Horiguchi <nao.horiguchi@gmail.com>, Hugh Dickins <hughd@google.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Dave Airlie <airlied@redhat.com>, 
- Vivek Kasireddy <vivek.kasireddy@intel.com>, 
- Gerd Hoffmann <kraxel@redhat.com>, Mike Rapoport <rppt@kernel.org>, 
- Mel Gorman <mel@csn.ul.ie>, Dave McCracken <dave.mccracken@oracle.com>, 
- Andy Whitcroft <apw@shadowen.org>, Adam Litke <agl@us.ibm.com>, 
- Lorenzo Stoakes <ljs@kernel.org>, Rik van Riel <riel@surriel.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Harry Yoo <harry@kernel.org>, Jann Horn <jannh@google.com>, 
- Lance Yang <lance.yang@linux.dev>, James Houghton <jthoughton@google.com>, 
- Yang Shi <shy828301@gmail.com>, Suren Baghdasaryan <surenb@google.com>, 
- Shakeel Butt <shakeel.butt@linux.dev>, Pedro Falcato <pfalcato@suse.de>, 
- Gregory Price <gourry@gourry.net>, Zi Yan <ziy@nvidia.com>, 
- Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, 
- Ying Huang <ying.huang@linux.alibaba.com>, 
- Matthew Brost <matthew.brost@intel.com>, Byungchul Park <byungchul@sk.com>, 
- Alistair Popple <apopple@nvidia.com>, 
- Wanpeng Li <liwanp@linux.vnet.ibm.com>, Andi Kleen <ak@linux.intel.com>, 
- Kenneth W Chen <kenneth.w.chen@intel.com>, Hugh Dickins <hugh@veritas.com>, 
- Michal Hocko <mhocko@suse.com>, David Rientjes <rientjes@google.com>, 
- Joern Engel <joern@logfs.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Michal Hocko <mhocko@suse.cz>, 
- "Aneesh Kumar K.V" <aneesh.kumar@linux.vnet.ibm.com>, 
- KAMEZAWA Hiroyuki <kamezawa.hiroyu@jp.fujitsu.com>, 
- "Kirill A. Shutemov" <kirill@shutemov.name>, 
- Sasha Levin <sasha.levin@oracle.com>, 
- Guillaume Morin <guillaume@morinfr.org>, Wanpeng Li <liwp.linux@gmail.com>
-Cc: linux-mm@kvack.org, Jason Gunthorpe <jgg@ziepe.ca>, 
- linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
- Andrew Morton <akpm@osdl.org>, linux-doc@vger.kernel.org, 
- "David Hildenbrand (Arm)" <david@kernel.org>, stable@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1263; i=david@kernel.org;
- h=from:subject:message-id; bh=3/a8tud39mF9CLqnRD7ju9MjzM6vMjDpQCZWW0NPirI=;
- b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLLZk1Rqtm3aekvro5vjhFDVz06enxdvcZm8/cjmDNmts
- 1Zs2XlMqKOUhUGMg0FWTJElKPi+wcuX62qr3fiYYeawMoEMYeDiFICJuFxn+B96X6vfrGjy6dIT
- ReI8HgHuVbpJDhOOnrvZcUyX68tCs08M/8yLc//qb5RTFxTOvv2lSV1yUuYLL+bQd7e87n8MZLR
- azgcA
-X-Developer-Key: i=david@kernel.org; a=openpgp;
- fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
+Content-Transfer-Encoding: 8bit
 
-memfd_alloc_folio() adds a new hugetlb folio to the page cache, but
-never sets it migratable, unlike hugetlb_no_page() and
-hugetlbfs_fallocate().
+In 6.12.y, 6.6.y, and 6.1.y, queuing a FUSE_WRITE_CACHE request clears
+folio writeback immediately while keeping the request in fi->writepages
+until the daemon replies. Pending requests can outlive a cached file
+handle if write_inode_now() fails in fuse_flush() and returns before
+fuse_sync_writes(), or if a cached mmap drops its last file reference
+via munmap() without calling fuse_flush().
 
-Later faults will find it as an existing folio and never set the
-migratable flag.
+Once the cached file is released, FOPEN_PARALLEL_DIRECT_WRITES allows
+concurrent direct writes under inode_lock_shared(). While one writer
+holds FUSE_NOWRITE and waits for the pending request, another can enter
+fuse_set_nowrite() and hit BUG_ON(fi->writectr < 0).
 
-Such a folio can never be isolated for migration, even once it is no
-longer pinned, which breaks memory offlining, alloc_contig_range() and
-memory failure handling.
+Fix this by waiting on fi->page_waitq in fuse_set_nowrite() while
+fi->writectr < 0 before setting FUSE_NOWRITE, and still running
+fuse_sync_writes() in fuse_flush() when write_inode_now() fails. Wake
+waiters in __fuse_release_nowrite() rather than fuse_release_nowrite()
+because fuse_do_setattr() calls __fuse_release_nowrite() directly on
+success, including under a shared inode lock via fuse_direct_IO() ->
+fuse_do_truncate().
 
-Let's fix it by setting the new folio migratable after adding it to the
-page cache, like hugetlbfs_fallocate() already does.
+Mainline is unaffected since commit 0c58a97f919c ("fuse: remove tmp
+folio for writebacks and internal rb tree") removed fi->writepages and
+keeps folio writeback active until the daemon replies. Fix the ordering
+directly in the stable trees rather than backporting that larger rework.
 
-This has low urgency.
+This bug was found with an in-house LLM-based tool, and the root cause,
+reproducers, and fix were manually verified by the authors.
 
-Fixes: 89c1905d9c14 ("mm/gup: introduce memfd_pin_folios() for pinning memfd folios")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+Fixes: 153524053bbb ("fuse: allow non-extending parallel direct writes on the same file")
+Cc: stable@vger.kernel.org
+Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
 ---
- mm/memfd.c | 1 +
- 1 file changed, 1 insertion(+)
+Changes in v2:
+- Move wake_up(&fi->page_waitq) into __fuse_release_nowrite() to cover
+  the shared-lock fuse_do_setattr() path pointed out by Sasha Levin.
+- Verify and target 6.12.y, 6.6.y, and 6.1.y together.
+- v1: https://lore.kernel.org/r/20261123141024.2476753-1-graypanda.inzag@gmail.com
 
-diff --git a/mm/memfd.c b/mm/memfd.c
-index 0e02ca69d27cb..6340e8a7c4355 100644
---- a/mm/memfd.c
-+++ b/mm/memfd.c
-@@ -152,6 +152,7 @@ struct folio *memfd_alloc_folio(struct file *memfd, pgoff_t idx)
- 			}
+This single patch applies cleanly to linux-6.12.y, linux-6.6.y, and
+linux-6.1.y. Tested with KASAN and lockdep in QEMU on 6.12.119,
+6.6.163, and 6.1.193 using unprivileged FUSE daemons (UID 1000 via
+fusermount3) against the close -EIO and dirty mmap/munmap reproducers.
+Also reproduced the v1 missed-wakeup hang on the shared-lock
+fuse_do_truncate() -> fuse_do_setattr() path using an artificial delay
+and confirmed v2 completes cleanly across 6.12.y, 6.6.y, and 6.1.y.
+Standalone C reproducers are available on request.
+
+FUSE maintainers: could you please consider an Acked-by for this
+stable-only fix?
+
+ fs/fuse/dir.c  | 10 ++++++++--
+ fs/fuse/file.c |  5 +++--
+ 2 files changed, 11 insertions(+), 4 deletions(-)
+
+diff --git a/fs/fuse/dir.c b/fs/fuse/dir.c
+index 54fcf91272a0..aaf364fe0e7b 100644
+--- a/fs/fuse/dir.c
++++ b/fs/fuse/dir.c
+@@ -1821,8 +1821,13 @@ void fuse_set_nowrite(struct inode *inode)
  
- 			hugetlb_set_folio_subpool(folio, subpool_inode(inode));
-+			folio_set_hugetlb_migratable(folio);
- 			folio_unlock(folio);
- 			filemap_invalidate_unlock_shared(memfd->f_mapping);
- 			mutex_unlock(&hugetlb_fault_mutex_table[hash]);
+ 	BUG_ON(!inode_is_locked(inode));
+ 
+-	spin_lock(&fi->lock);
+-	BUG_ON(fi->writectr < 0);
++	for (;;) {
++		spin_lock(&fi->lock);
++		if (fi->writectr >= 0)
++			break;
++		spin_unlock(&fi->lock);
++		wait_event(fi->page_waitq, READ_ONCE(fi->writectr) >= 0);
++	}
+ 	fi->writectr += FUSE_NOWRITE;
+ 	spin_unlock(&fi->lock);
+ 	wait_event(fi->page_waitq, fi->writectr == FUSE_NOWRITE);
+@@ -1841,6 +1846,7 @@ static void __fuse_release_nowrite(struct inode *inode)
+ 	BUG_ON(fi->writectr != FUSE_NOWRITE);
+ 	fi->writectr = 0;
+ 	fuse_flush_writepages(inode);
++	wake_up(&fi->page_waitq);
+ }
+ 
+ void fuse_release_nowrite(struct inode *inode)
+diff --git a/fs/fuse/file.c b/fs/fuse/file.c
+index f733a0f78114..b1646a452cc4 100644
+--- a/fs/fuse/file.c
++++ b/fs/fuse/file.c
+@@ -538,13 +538,14 @@ static int fuse_flush(struct file *file, fl_owner_t id)
+ 		return 0;
+ 
+ 	err = write_inode_now(inode, 1);
+-	if (err)
+-		return err;
+ 
+ 	inode_lock(inode);
+ 	fuse_sync_writes(inode);
+ 	inode_unlock(inode);
+ 
++	if (err)
++		return err;
++
+ 	err = filemap_check_errors(file->f_mapping);
+ 	if (err)
+ 		return err;
 
+base-commit: e2e4b92c2b2a3ae78423cb343951cb5d2241b405
 -- 
-2.56.1
+2.43.0
 
