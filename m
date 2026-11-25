@@ -1,56 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625942;
-	b=ZpJ/9Z7/o6fUWR1NdIMi10bZHgzkRSezyk+VmOWqTSR1ri5Jba3YiuXFioq5/GSNkIw5
-	 czQOsCHz1TpSJfElFgXUVdmXKvZbDa6choQglph4Z4RcDscKoNBnxmTNLENg/FeQ0gDMS
-	 W8L2k6PzRz/0OLwDFbk6srghR02+MKXttYEUUlyAyes+txjWwNEhVCspYFg51QwrVZezV
-	 rd6elEabbhDChZcqgR1X/i6clPwgpv18QlJi88+Pj30sGPvrdrYgbr6z13OoBzMBqPzkq
-	 +oPVg4N/i16e4zeb7cCbLe6VUTlAQoZHoGPjq7xljYn8SPPIGaZv0u3Xd/YZHJX3kWw==
+	t=1795625958;
+	b=qEbjaqjoxkCXEA+bIYWzqZN/orSlDJkr0J9+vHJid1flr1jlZMrn64utCsLP8stOY3/X
+	 bog6UfaRp0a811W1rGZMWyEtralR2McKpwyguNLJRkRSlOdmlOGBrnh63/Ymn6p6dpmo+
+	 uKUOqZBr3+mfNh39/xKGBx7iSjJjB10O/XIO5MoRfYNjadfuGTUVcEP5GsBy87I/0NO2Z
+	 xIdrolU8CJrjcjp2DeUviygMZrWabVyZxvFmskd9VoJnKQtfEUNYsq4LAx1W7irEpVE/U
+	 VhebAJR/zZw7yMdDeULgDt9QKxRM3VncSTMtiAijJAY0RRrbJGYAdlahrRsEo/3hNWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625942;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625958;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=2+o1EBv4JQsHaK2LddYpkv6BdTI9JvYGTu/rpoBC/Cs=;
-	b=zSE2iHcjshe2TdjdC4xoxH+5+iLrWqv18c/HMfcB/emo18fRB1lYnd+5gblzeG2mlz9S
-	 s78T7ltdYISIt8XMb5yh8X5hyrHIVFmCz1Trp/OfRN5XtL0o5BDuGqf7NSPuOuGfkjCXI
-	 vpO5wCigzjTS5dCVLEvih2ctH3XHtv8EOSqjOppC1aVrCOyHopAvKnFULiacR8Fip/rWW
-	 Id9zXBqLCYoR5TLwZUrt2AEpHvbZZERNo5MfUL3SuVw0MS1pSRhpPq0+cQDu9i53J95Kw
-	 HHqpACouGXwAJ0bR6Ex0NuM8Qgm03PK50g1cESMj09j+r+atHUXCZikTOAlmVvoAGVA==
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=SQQncmT/Wl6HjAYO86rxtIdewDLZRTGF1ImjCznbro0=;
+	b=0xVQon0eI1IuujIlpdmKlpkNukQIAotrt4i+8WeUbIF22ts+/s2AaM5z+/zlCR1tYWfz
+	 a91wi4rSC+uI4xxSOOoz+iCbrxHi6qstjAWIUUHfGZxWWxAspS7S4Q92mthytsE/uQ95j
+	 rRdAbP3eFLjrKlx/xnpEUPSfcFbPdJQ29uyNax6cPIITZMUEtazhebXE7kUeI+F3OWKzZ
+	 GTbylidCAff57tFclrAPpVk5dcin+5sifMl8bMiovn978wTEkDyx5+ocnxykNgAOwOZ22
+	 VivAihGehTdj7YbZR+NJX+08p+2uw23+PPYCYJW5MtTcOs9fy6PQT62Q4DxLVQM691Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=clqpZet5;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fVme2v5e;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 6C385606A321;
-	Wed, 25 Nov 2026 16:59:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAC21606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:59:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=clqpZet5
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 5DD3F1F000D0;
-	Wed, 25 Nov 2026 16:59:01 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fVme2v5e
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED8781F000CF;
+	Wed, 25 Nov 2026 16:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795625942;
-	bh=2+o1EBv4JQsHaK2LddYpkv6BdTI9JvYGTu/rpoBC/Cs=;
+	s=k20260515; t=1795625958;
+	bh=SQQncmT/Wl6HjAYO86rxtIdewDLZRTGF1ImjCznbro0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=clqpZet5kuT2xHFaB0UMl0LNlxmAnU4YFAvwqaEgB3G6pg3ceVz7xhi0UQwg9UaAy
-	 RcCdlIo/tmid6MqiWs6MvHmXwxV0eDwmoqyp3HKdevSYSjcy3CXCQR1seq9gnK3Vjq
-	 Qv1IxnOwYvAedQAXgqQfBKeMP3GXsd8JU4CXp/tvd0zh1o4cweXDoKnq//jUFhaFE/
-	 L37vdpDN7cgo5mvJx17iP5EzgCZs5VUju2zDwTI01nzTPR/4MECExpVVm2tW3etSt7
-	 zV130NvFsbbOyY4rq7rbgco8ZA0TOVqK6QboNwd0biWgWe2lMBleVkTX3lsqsllw6F
-	 tEPEEbP1SCkxw==
-Date: Wed, 25 Nov 2026 18:58:57 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Rustam Mustafin <rmustafin@cloudlinux.com>
-Cc: Peter Huewe <peterhuewe@gmx.de>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Shuah Khan <shuah@kernel.org>, Jaewon Yang <yong010301@gmail.com>,
-	linux-integrity@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] tpm: Do not allow io_uring for /dev/tpm0 and
- /dev/tpmrm0
-Message-ID: <awcT0WnnJ-fyovnn@kernel.org>
-References: <awXHzblUfp05jZSQ@kernel.org>
- <20261125065429.1483868-1-rmustafin@cloudlinux.com>
+	b=fVme2v5eVWqiLG0XGEngRTj1/NVlH0UMgFocxlSeVjVX2ycDVpQAifztQ15Vq10Z5
+	 U8xROKTCan77H2WbJFVeTgociB03xuPMESscTC9KZ3zvET4zsNw/cPWxuz3bkjeYZ4
+	 NItB50dhzTZLjf9Asc+cxUQbsBcZpFCU9qrKIFLXR7hqdpCar5sF1M9kZXpLL4XKtr
+	 C0hWaq5rt13hbQy+zdChaHdxiiJ2Q7luPsJ/3b3S1soL62j8ZiTznhixvNZEedvygh
+	 mIe7FgvX+xQAVN5eGLOQ7s4CxuCzIvZfYCnE9WXt8V638MeR1b/LAaDFP19o4QSL0E
+	 nk2IMpW1gGFcA==
+Date: Wed, 25 Nov 2026 22:21:38 +0530
+From: Naveen N Rao <naveen@kernel.org>
+To: Nikolay Borisov <nik.borisov@suse.com>
+Cc: Pedro Falcato <pfalcato@suse.de>, Dave Hansen <dave.hansen@intel.com>, 
+	x86@kernel.org, mhocko@suse.com, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
+	Vishal Annapurve <vannapurve@google.com>, Kirill Shutemov <kas@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	"Liam R. Howlett" <liam@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	David Hildenbrand <david@kernel.org>
+Subject: Re: [RESEND PATCH] x86/devmem: Drop /dev/mem access for confidential
+ guests
+Message-ID: <awcMnXKDWjTvxumG@blrnaveerao1>
+References: <20261124160025.738362-2-nik.borisov@suse.com>
+ <0dc6759e-ada2-461c-85de-809c170abd6a@intel.com>
+ <awXBtrPSHfs51Y2f@pedro-suse.tail5790ac.ts.net>
+ <8500860b-d2ff-45c1-8604-28a2b3d66382@suse.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,27 +68,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261125065429.1483868-1-rmustafin@cloudlinux.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <8500860b-d2ff-45c1-8604-28a2b3d66382@suse.com>
 
-On Wed, Nov 25, 2026 at 01:54:28PM +0700, Rustam Mustafin wrote:
-> io_uring passes its own file offset to the TPM character devices, although
-> they are opened with nonseekable_open(): IORING_OP_READ copies sqe->off
-> into ki_pos without checking FMODE_PREAD. The devices also keep a single
-> command and response per open file, which does not fit asynchronous
-> requests.
+On Tue, Nov 24, 2026 at 07:57:05PM +0200, Nikolay Borisov wrote:
+> On 24.11.26 г. 19:10 ч., Pedro Falcato wrote:
+> > On Tue, Nov 24, 2026 at 08:36:45AM -0800, Dave Hansen wrote:
+> > > On 11/24/26 08:00, Nikolay Borisov wrote:
 > 
-> Add tpm_common_read_iter() and tpm_common_write_iter(), which fail io_uring
-> and AIO requests with -EIO. A multishot read uses a synchronous kiocb, so
-> also reject IOCB_NOWAIT and io-wq workers. The callbacks call
-> tpm_common_read() and tpm_common_write() once per iovec, so readv() can
-> still split a response into the header and the body.
+> > 2) open-codes random CC checks in mm, which is kind-of regrettable
+> > 
+> > OTOH, it's unclear to me why that CC check is needed. If configs select
+> > STRICT_DEVMEM and IO_STRICT_DEVMEM, shouldn't it Just Do The Right thing?
+> > in iomem_is_exclusive, etc. If not, could the CC awareness sit there
+> > instead?
 > 
-> Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
+> Well, you are right that if we retain just the select
+> STRICT_DEVMEM/IO_STRICT_DEVMEM it might fix the immediate issue. I don't
+> know why eventually Dan decided to also add this check, I guess it's an
+> instance of "fail fast".
 
-Checkpatch with strict afaik already complains about assisted-by and
-it is not a discussion topic for me. I make people do enough effort
-to the patches so that they can call them of their own :-)
+Actually no? On x86, devmem_is_allowed() allows access to the first 1 MB 
+area, so STRICT_DEVMEM alone isn't sufficient.
 
-Br, Jarkko
+
+- Naveen
+
