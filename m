@@ -1,48 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795633840;
-	b=GqCWthEnU/OXMcAi2nM3UuFxpn5l0E/2wzSb4zIaOw66plcOTAy7WHQ1FjolaJ2dw08b
-	 iO0Zo+V0OM4483g8aHPy2pLPE4iRRR+wVGBWEtJVlvkGAxTLoFURmUwTYEyenphRTgMt5
-	 TlwIMmKRH+LWL9SLX7VfLcODu7zkt6RXL83XnF8BAbLmXJCEB5c/ihcEDJXBwOB47nJTX
-	 h97M+OZtcd33eEXaL6cz3hikLAS9Ua+ZMfz6B8H8jtYOJ8IaOJ/OdBvG8IvTu/jMHWsLj
-	 d6wgmoRToj4Ygh9Y2/zedO5qasNxxTv24DV1h8qiQjNUgIs2mYPTxsRNQajUoHhLCIg==
+	t=1795633977;
+	b=EMThjwadiwB0sSGkd1NGZ8vAmVnDCPPzHdcTerfpQ6dv7KGAXsUFBkozVOOpxuF4HeKa
+	 0L4Czva0QM+WMFHWfOpDBDWJ9U+SF6xWXFpiACKoOnEzf0xCLeDca3YGil+qXDpstn3fJ
+	 y8g3MfhAVtKoE1CkUmlayCbnrBZcscu4g6kfX/O+ztIfoFdlAoZokrMnn0kNxgp3TzsLi
+	 6wbb1UcS9dHPX/jXLeH8kDJYHsflU8XwClhkiPhurBh89eKHsCfKjCz9LHWUO63QNLE8s
+	 VYFNmIVIku9pAjyDBkVbUyqcubD8l/Ww+WEEqNMJZbp+b6Q+dF/ybIBOcTXc0miEnzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795633840;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=gdJT2ccAmvh0rOqxKnPGiTdo4RGbeB5XvNplqFwpnbA=;
-	b=4QnOL+HBn6xJ/HxCWnp3nHgqPzMKLA8zzMm33yUhPI2rXQD+TF6NXJWCoT71zBHgCQYo
-	 +EK52NhPjaahb24lWPqtNS+HB+gpdnUGh/0FDnKzqm2O+Z7QVzds9ej77K5Jcl3s+FIXG
-	 FAZRYHnZg3uIiDl7kINKR+qFjI6YQabTGOvTIaEw7YhFxMQnlodrQ/iSEhcah0rwkMo2Z
-	 8irjBc53VTJNgbOkGc6Ou/OOqiM5bWt8p2tOFP8lngyjComF727Riz+DjZgPumV0dghmz
-	 Uw0jodhpef4r0sA8ay+pmjbEslxq6ul3HeBYtquHzEtJM3vb9XDj2Dbig0y12GlFGbg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795633977;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=YB4Gj/bwdtqKdimiyrXCpXIQgGLQ/u8w3QhowIhVaN4=;
+	b=VB11q81pmWgZdrPZIA+fQfQAMcNaj3iMqAAq2aZY2fEa3BeQm/6uZJor1G48HLzMUHld
+	 QiKN16h61XLpSQQIAYvuhR2ZkuHPTB741i+S80Cp3O2M3VvOlAZdDOA160mcLpX0PMYbG
+	 GmY5I3MmDTQpHmsSOL6aEUVGBEeR9Qj7k/rgx590TrJHrXZ1dBq6BUJzM38Fp56F5DSqy
+	 yhtMOejIKtkeh1szF4DL8XhRqk3X8f5XkXFtQmZLXM9zmHdLnGIT6TchkKQWWDBPIa6nn
+	 NHnPozcfLKEeZXLv5LuNf7fsSA/4jcTF2/Yygscxnw2ljqoAi0cBJ5OVaZXUtDSPKXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nb2PMwHa;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eLYv0AW7;
+	arc=none smtp.remote-ip=209.85.214.174
+Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBDA9606A31E;
-	Wed, 25 Nov 2026 19:10:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC1B2606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:12:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC1B2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nb2PMwHa
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD5AE1F000C0;
-	Wed, 25 Nov 2026 19:10:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795633840;
-	bh=gdJT2ccAmvh0rOqxKnPGiTdo4RGbeB5XvNplqFwpnbA=;
-	h=From:Date:Subject:To:Cc;
-	b=nb2PMwHaKL2ly+Ltwwy1U5Gzjyv+RAE8sNl/e6s6Mt8D1RST8Ps8U1Fl6HI70fFwV
-	 kPGhOwFmIL1kSaEM5K0/mCTn1jgP5hoQNvkV8jxTEB35wr9kW6kLSWEppBTi9Ai/H/
-	 oPAy71k3Qh3W1y5A1N2DuDqbdKV1TrQuD0HSgsiMsoTo7zZ8Lx/lDX6a9Vztbg6BQA
-	 arbmN8lcHFZNAdOyNQvdj9QyEeqVNMXVhYAPEhZaVrW9yMZq/J8IKjuBcFatUYUeN5
-	 XvTHWU/kI5hTcHEok0MLosHMWcxZtlbidvbJMvdHczQKha1OxSxxGCXuFFzSActlY0
-	 I2HnaKo/IL4Bw==
-From: Andreas Hindborg <a.hindborg@kernel.org>
-Date: Wed, 25 Nov 2026 20:10:08 +0100
-Subject: [PATCH v4] rust: alloc: add per-task memalloc scope abstractions
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eLYv0AW7
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f0a0d1a1e5so18601305ad.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:12:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795633976; x=1796238776; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=YB4Gj/bwdtqKdimiyrXCpXIQgGLQ/u8w3QhowIhVaN4=;
+        b=eLYv0AW75oPkxDz7XIhHggBJrokrS2krA0nKG8wbqCscce9LdPSEboCOTk7g13G7FI
+         qXBVgqH4SjzCIodnE4eOn7zmayfvCnHhNlcAwo5hQwdEk3lPn850rvQTEuuFcWCZkpVc
+         hDZ/uBu2bf4HcMwKr1HxD8dxh9/EgppDnM9IwnexfsS30EKly3iMwSm6lALM1o0HsLJS
+         IbiQZ/tanUcljgdSPHjdzPcs4FEMpa43NPbCQKw3AKKZU2XtYjqBGAU/OpEk+FpGvzpj
+         aj90gm4ZCMw0mWuvcnQGjsNhJg9Hlrz1Gj3XAHkkP7ZcFCENcLF+Cys+XE9i2SES5bTJ
+         Q7gQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795633976; x=1796238776;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YB4Gj/bwdtqKdimiyrXCpXIQgGLQ/u8w3QhowIhVaN4=;
+        b=GduMbrqDZhuJTYLp3sIiKkqyglL1STeB9s1gtYwLPOo3kkEi+GmQP0Wy/j72BMYuYX
+         7NBTCbsUALvjxDb7aV1xAhfQuuwETSw/ka21XRImmAID2oZWF9air/ZtIeAZpMcttCGe
+         aol8Aw6rYn1v5Bw0Xr15N9oQNwok1D+sc11L0cBIbJCwyjNWtY7vr9dx7v4cim5zPkZs
+         o/BBj5U+rKZpB+YvBCS71meROTQN23SLNh0pWyS1CinEaCSbCByzL78uRVh4VFtx5Qh5
+         OBd2GAf98PM7IyWBQI8/NIv55mLa+rV6wIfgdQCuVhMI5W5xAbNa55fmnKsFpzEX3QzP
+         1/5A==
+X-Forwarded-Encrypted: i=1; AL+hErErzaMFP2CYaRfTNIZUMQAp2MM2ZASjU38D/aDC9SNrXAvyBJi6GVPufvZE72Xe0nS2l/L3q/IhbPtA3sg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9QbXcYxFXP2+NtlcLhP6vyqmYxlaYUHRYY1TnAYqOdVUlK5ogp
+	puc0ovdfTG/wlvE8eD0Foxfzk6is0muszi0uC5rPc0PXGpuvo4H4xAfC7PgIwHBFSQ==
+X-Gm-Gg: AZFdTZdbwBqD91NHtssUJWaON+R72Sa9UL1zUV4pauqBzheIAu3CiFwWWdd8eBkpAI+
+	eoJ1NJBcY2xO03gW24EOo3EhN/T8uzO4x8Bofa+w0zkxd9Lp27RqSHljds+g7zLrr+fEDlJUI1X
+	hFzVzzDdHOo6QWaqfuaSdfFHVBNp8/3BS9NDDxtvJ9x9YlC0zv6U6c2HXUq3VNXuy+FcTFU2BNY
+	th5h3CSpm9ef2BrHu14hQjMb3AJFB+p1cgpQLh8mE+1VkaQ7nXB28qz83u8E5KeM/jnJNX0I8gQ
+	PN8mFJI1Il8V0S5n/oCO6AcYOd5G08v00WjvaXDQ0GMabcyz6/Nbhb949GswollnWGnJffvJ1eT
+	dNyIwdI6gZtnoBwX6Hcqy7dGOs5BpamLOao6MxUlk6mzsUW85sn4700wU+KY3WnbRn96nCB3Eh+
+	v70QfLDi06gI6vFiA8z5T9Oftqy31+mLKgllvbqLcumMDoILQ6gub20+RZ9B1TCs0nbzYyYEPFL
+	C69M7WSqSGdjPHwmuXNKewTYPTrEuow1bU6IkwVAq+frtNz/R3spxhOUUVNA2SZ4fqLAgmX7n3i
+	Gra2IuEUyN/y0RCz9nsTYSVPZgLR+EFpcQQNHYyVw499g0wYoaTyuF+qBuitLFcP
+X-Received: by 2002:a17:903:2283:b0:2f0:7707:228e with SMTP id d9443c01a7336-2f077072aeamr126105065ad.32.1795633975347;
+        Wed, 25 Nov 2026 11:12:55 -0800 (PST)
+Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f0b5647b94sm39776055ad.14.2026.11.25.11.12.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 11:12:54 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,281 +87,137 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-gfp-noio-v4-1-0f67ab9895ab@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAI8yB2sC/23NTQ7CIBRG0a0YxmL4awuO3IdxQOmjJRpowBBN0
- 71LO9BGHX4vnMuEEkQHCR13E4qQXXLBlyH2O2QG7XvArisbMcJqQpnEvR2xDy5g23aCAuUVkRK
- V52ME6x5r6nwpe3DpHuJzLWe6XP9EMsUUKy2JtEaoVojTFaKH2yHEHi2VzD6yJtVGsiKN1QwYr
- w3T/Efyt6SUqI3kReqq4dC0oMzXn/M8vwAmVIzkFQEAAA==
-X-Change-ID: 20260128-gfp-noio-fbd41e135088
-To: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
- Lorenzo Stoakes <ljs@kernel.org>, Vlastimil Babka <vbabka@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Uladzislau Rezki <urezki@gmail.com>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>
-Cc: rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-mm@kvack.org, Andreas Hindborg <a.hindborg@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9565; i=a.hindborg@kernel.org;
- h=from:subject:message-id; bh=0YRhhuKoy9a8ZWo6v32rODo4LhAbhlvxZN1lEYkVOw8=;
- b=kA0DAAoB+lApCKrFvdAByyZiAGsHMpaj80yAAtDs2/HBL2/2iD6q8ROCtcVTm1LX5MyAqVdUY
- IkCMwQAAQoAHRYhBFeK2cjZZnYmKsBqhvpQKQiqxb3QBQJrBzKWAAoJEPpQKQiqxb3QlTAP/jS0
- MAELtG5ofjnYaNxy3Zg4S6rkf1bzZqmQWh0LhRjU8lnlCSpWaRwHQ9NHjE0GYShtZ+pdtKfdhM4
- UCzm4UcwFaL6JZujqUBBe9NsEZzrYsWkLmDzE8bY0Q10XqYd1d5PzjJFozIeWbL2GKvC60WktZc
- 26miCJc2hvSlN7nrK6oVMeNOIPInSIGh9rJMEBqTfPVqucBFxaGDONUOix5pRFoehTb/HNKQ0L7
- 5sLh0P/pOtkmD3qjwNTP3OTcMkXnWeZYuZVCeYQAJFbxEl+6juzRX8vP0C0Z3XAgNNcontLJuI5
- ACetC5iqfwZ1y4lw25ADlJKahTIZLGcWjIBKM+Kke47HFabgVpy3ugRtHosX3cM3Y4gHRXt1L0N
- BdfwZvzZy4PLi+q0+Q89Ks07T4uqkg2v1XGAakdH5dZ4tthG1CeN9f2RHADb1FJ0FH5GBQnQAAd
- IwkN3iCPlhRCF1b8P9uC/qfF0HrpK1pyPq8dGRNmIAvm7WqN8o+ujrE5Qe03nlezM7fv8c5DVWn
- 7q/vl7vA+Pa5jUcMRNfC1Pff0N4BeEyd6JhDd98VM3X1JTMNmMLRePiPILpSzilLfih3QRM5Xt2
- 5wAuSIO5+t+z/v2ClX3mcky9WNcdl2c9R/6dlWRTNOES3A0xZ3Ci8ygIjy+cMTZci68kt0wd8/A
- w2ple
-X-Developer-Key: i=a.hindborg@kernel.org; a=openpgp;
- fpr=3108C10F46872E248D1FB221376EB100563EF7A7
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 25 Nov 2026 11:12:53 -0800
+Message-Id: <DN4J4BQK3N90.2WVQBRV6SRNXF@google.com>
+Cc: "David Matlack" <dmatlack@google.com>, <kvm@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, "Sean Christopherson" <seanjc@google.com>,
+ "Vipin Sharma" <vipinsh@google.com>
+Subject: Re: [PATCH v9] vfio: selftests: Find devices that have VFIO
+ selftest drivers
+From: "David Matlack" <dmatlack@google.com>
+To: "Josh Hilke" <jrhilke@google.com>, "Alex Williamson" <alex@shazbot.org>
+X-Mailer: aerc 0.21.0
+References: <20261120012553.3745742-1-jrhilke@google.com>
+In-Reply-To: <20261120012553.3745742-1-jrhilke@google.com>
 
-Add an abstraction for the per-task allocation policies exposed by
-the kernel through paired save/restore helpers in `linux/sched/mm.h`:
-`memalloc_noio`, `memalloc_nofs`, `memalloc_noreclaim` and
-`memalloc_pin`. Each pair wraps `memalloc_flags_save` and
-`memalloc_flags_restore`. The save call sets bits in `current->flags`
-and returns the bits it added, which the restore call clears again. The
-pairing assumes strict LIFO nesting; restoring out of order corrupts
-the per-task state.
+On Thu Nov 19, 2026 at 5:25 PM PST, Josh Hilke wrote:
+> Add -q to print only the PCI addresses of usable devices so the output
+> can go straight to setup.sh. Add -a for use with -q to include unusable
+> devices as well.
 
-Expose each policy as a variant of the `ScopeFlag` enum, with
-`ScopeFlags` as the corresponding set type, both generated by
-`impl_flags!`. Add `alloc_scope`, which applies a set of policies, runs
-a closure and restores the previous policies before returning. The save
-and restore operations are not exposed on their own, so safe code
-cannot leave a scope open or restore out of order.
+Feeding the output straight into setup.sh worries me a bit. -q prints
+every matching device, including ones the host is actively using, e.g.
+the ConnectX NIC carrying the host's network connection or the GPU
+driving the display. And once the NVMe driver lands, that could include
+the boot disk. setup.sh will happily unbind all of them.
 
-Signed-off-by: Andreas Hindborg <a.hindborg@kernel.org>
----
-Changes in v4:
-- Replace the `ScopeKind` trait and its tag types with an `alloc_scope()`
-  function taking `ScopeFlags` built with `impl_flags!` (Gary).
-- Replace the per-policy C helpers with a single `memalloc_flags_save()`
-  and `memalloc_flags_restore()` helper pair.
-- Do not expose a safe/restore functions public (Sashiko).
-- Mark `alloc_scope()` as `#[inline]` (Sashiko).
-- Link to v3: https://msgid.link/20261109-gfp-noio-v3-1-a573e7be9c44@kernel.org
+I don't think list_supported_devices.sh should try to filter these out,
+but it should at least show the user what each device is currently bound
+to (see below). The real protection belongs in setup.sh, since that's
+the script that actually unbinds devices, regardless of how the user
+picked the BDF. Please add a patch before this one that makes setup.sh
+refuse to set up a device that is bound to a driver (other than
+vfio-pci) unless -f is passed, e.g.
 
-Changes in v3:
-- Rebase on v7.4-rc1.
-- Replace the pinned `Scope` guard and `memalloc_scope!` macro with a
-  closure-based `ScopeKind::with` entry point (Alice, Gary).
-- Make the doctests compile and run under KUnit instead of `ignore`.
-- Document that `NoReclaim` has no effect in hard interrupt context.
-- Link to v2: https://msgid.link/20260605-gfp-noio-v2-1-cfa2e236c2a3@kernel.org
+  $ ./setup.sh 0000:00:04.0
+  0000:00:04.0 is bound to ioatdma, pass -f to unbind it.
 
-Changes in v2:
-- Rewrite the patch to use scoped allocation flags instead of exposing
-  a `GFP_NOIO` flag constant.
-- Link to v1: https://lore.kernel.org/r/20260128-gfp-noio-v1-1-9a808fc49b44@kernel.org
----
- rust/bindings/bindings_helper.h |   1 +
- rust/helpers/mm.c               |  10 +++
- rust/kernel/alloc.rs            |   1 +
- rust/kernel/alloc/scoped.rs     | 134 ++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 146 insertions(+)
+Devices that are unbound or already bound to vfio-pci should not
+require -f.
 
-diff --git a/rust/bindings/bindings_helper.h b/rust/bindings/bindings_helper.h
-index 3791af0aadc7..df21b5b129a4 100644
---- a/rust/bindings/bindings_helper.h
-+++ b/rust/bindings/bindings_helper.h
-@@ -86,6 +86,7 @@
- #include <linux/refcount.h>
- #include <linux/regulator/consumer.h>
- #include <linux/sched.h>
-+#include <linux/sched/mm.h>
- #include <linux/security.h>
- #include <linux/serdev.h>
- #include <linux/slab.h>
-diff --git a/rust/helpers/mm.c b/rust/helpers/mm.c
-index b5540997bd20..42424583e7b3 100644
---- a/rust/helpers/mm.c
-+++ b/rust/helpers/mm.c
-@@ -48,3 +48,13 @@ __rust_helper void rust_helper_vma_end_read(struct vm_area_struct *vma)
- {
- 	vma_end_read(vma);
- }
-+
-+__rust_helper unsigned int rust_helper_memalloc_flags_save(unsigned int flags)
-+{
-+	return memalloc_flags_save(flags);
-+}
-+
-+__rust_helper void rust_helper_memalloc_flags_restore(unsigned int flags)
-+{
-+	memalloc_flags_restore(flags);
-+}
-diff --git a/rust/kernel/alloc.rs b/rust/kernel/alloc.rs
-index 68d80f3fa6c8..5e4c142b5682 100644
---- a/rust/kernel/alloc.rs
-+++ b/rust/kernel/alloc.rs
-@@ -6,6 +6,7 @@
- pub mod kbox;
- pub mod kvec;
- pub mod layout;
-+pub mod scoped;
- 
- pub use self::kbox::Box;
- pub use self::kbox::KBox;
-diff --git a/rust/kernel/alloc/scoped.rs b/rust/kernel/alloc/scoped.rs
-new file mode 100644
-index 000000000000..7fec1c974192
---- /dev/null
-+++ b/rust/kernel/alloc/scoped.rs
-@@ -0,0 +1,134 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+//! Scoped allocation policies for the current task.
-+//!
-+//! The kernel exposes several per-task allocation policies through save/restore pairs in
-+//! [`include/linux/sched/mm.h`]: `memalloc_noio`, `memalloc_nofs`, `memalloc_noreclaim` and
-+//! `memalloc_pin`. Each pair is a wrapper around `memalloc_flags_save` and
-+//! `memalloc_flags_restore`. The save call sets bits in `current->flags` and returns the bits it
-+//! added, which the restore call clears again. The save/restore APIs assume strict LIFO nesting;
-+//! restoring out of order corrupts the per-task state.
-+//!
-+//! This module exposes each policy as a [`ScopeFlag`]. [`alloc_scope`] applies a set of policies,
-+//! runs a closure and restores the previous policies before returning.
-+//!
-+//! [`include/linux/sched/mm.h`]: srctree/include/linux/sched/mm.h
-+//!
-+//! # Examples
-+//!
-+//! ```
-+//! use kernel::alloc::scoped::{
-+//!     alloc_scope,
-+//!     ScopeFlag, //
-+//! };
-+//!
-+//! // Every allocation inside the closure behaves as if `GFP_NOIO` were set, even though the call
-+//! // site passes `GFP_KERNEL`.
-+//! let b = alloc_scope(ScopeFlag::NoIo, || KBox::new(42_u32, GFP_KERNEL))?;
-+//! assert_eq!(*b, 42);
-+//!
-+//! // Policies can be combined with the bitwise OR (`|`) operator.
-+//! let b = alloc_scope(ScopeFlag::NoIo | ScopeFlag::Pin, || KBox::new(42_u32, GFP_KERNEL))?;
-+//! assert_eq!(*b, 42);
-+//! # Ok::<(), Error>(())
-+//! ```
-+// # Implementation details
-+//
-+// Since the closure used in this API is synchronous it cannot contain a suspension point, so the
-+// save and restore always execute in the same call frame, on the same task, and nested scopes
-+// restore in LIFO order. The save and restore operations are not exposed on their own, so safe
-+// code cannot begin a scope without ending it.
-+use crate::impl_flags;
-+
-+impl_flags!(
-+    /// A set of per-task allocation policies.
-+    ///
-+    /// Build a set by combining [`ScopeFlag`] values with the bitwise operators, then pass it to
-+    /// [`alloc_scope`] to run code under the policies.
-+    ///
-+    /// # Invariants
-+    ///
-+    /// Only bits that correspond to a [`ScopeFlag`] are set.
-+    #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-+    pub struct ScopeFlags(u32);
-+
-+    /// A per-task allocation policy.
-+    ///
-+    /// Each policy corresponds to a `memalloc_*_save` / `memalloc_*_restore` pair in
-+    /// [`include/linux/sched/mm.h`](srctree/include/linux/sched/mm.h).
-+    #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-+    pub enum ScopeFlag {
-+        /// `GFP_NOIO` scope.
-+        ///
-+        /// Allocations on the current task behave as if `GFP_NOIO` were set, making them safe to
-+        /// issue from the IO completion path.
-+        ///
-+        /// Corresponds to `memalloc_noio_save` / `memalloc_noio_restore`.
-+        NoIo = bindings::PF_MEMALLOC_NOIO,
-+
-+        /// `GFP_NOFS` scope.
-+        ///
-+        /// Allocations on the current task behave as if `GFP_NOFS` were set, making them safe to
-+        /// issue from a filesystem critical section.
-+        ///
-+        /// Corresponds to `memalloc_nofs_save` / `memalloc_nofs_restore`.
-+        NoFs = bindings::PF_MEMALLOC_NOFS,
-+
-+        /// No-reclaim scope.
-+        ///
-+        /// Allocations on the current task may dip into the memory reserves. Callers must be sure
-+        /// their allocations will help free more memory shortly; see the kernel C documentation
-+        /// for the full contract.
-+        ///
-+        /// The scope has no effect in hard interrupt context, where `PF_MEMALLOC` does not grant
-+        /// access to the reserves; see `__gfp_pfmemalloc_flags()` in
-+        /// [`mm/page_alloc.c`](srctree/mm/page_alloc.c).
-+        ///
-+        /// Corresponds to `memalloc_noreclaim_save` / `memalloc_noreclaim_restore`.
-+        NoReclaim = bindings::PF_MEMALLOC,
-+
-+        /// Long-term pin scope.
-+        ///
-+        /// Allocations on the current task are restricted to zones that allow long-term pinning.
-+        ///
-+        /// Corresponds to `memalloc_pin_save` / `memalloc_pin_restore`.
-+        Pin = bindings::PF_MEMALLOC_PIN,
-+    }
-+);
-+
-+/// Run `f` with the allocation policies in `flags` applied to the current task.
-+///
-+/// The policies in `flags` are applied before `f` runs. When `f` returns, the policies that were
-+/// not already in effect before the call are removed again. `flags` can be a single [`ScopeFlag`]
-+/// or a [`ScopeFlags`] set.
-+///
-+/// # Examples
-+///
-+/// ```
-+/// use kernel::alloc::scoped::{
-+///     alloc_scope,
-+///     ScopeFlag, //
-+/// };
-+///
-+/// let b = alloc_scope(ScopeFlag::NoFs, || KBox::new(42_u32, GFP_KERNEL))?;
-+/// assert_eq!(*b, 42);
-+/// # Ok::<(), Error>(())
-+/// ```
-+#[inline]
-+pub fn alloc_scope<R>(flags: impl Into<ScopeFlags>, f: impl FnOnce() -> R) -> R {
-+    let flags: ScopeFlags = flags.into();
-+
-+    // SAFETY: By the type invariant of `ScopeFlags`, `flags` only contains `PF_MEMALLOC*` bits.
-+    // Setting these on the current task is sound from any context. In hard interrupt context
-+    // `PF_MEMALLOC` is ignored rather than misinterpreted.
-+    let added_flags = unsafe { bindings::memalloc_flags_save(flags.into()) };
-+
-+    let ret = f();
-+
-+    // SAFETY: `added_flags` was produced by the `memalloc_flags_save` call above on this task. `f`
-+    // is a synchronous closure, so it has already returned and any scope it began has already
-+    // been restored.
-+    unsafe { bindings::memalloc_flags_restore(added_flags) };
-+
-+    ret
-+}
+[...]
 
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20260128-gfp-noio-fbd41e135088
+> +# Devices that have a driver in selftests/vfio/lib/drivers. NVIDIA GPUs =
+are
+> +# matched separately in is_nv_gpu() because nv_falcon_probe() matches on
+> +# vendor, PCI class, and PMC_BOOT_0 rather than PCI device ID.
+> +readonly DEVICES=3D(
 
-Best regards,
---  
-Andreas Hindborg <a.hindborg@kernel.org>
+Please add a comment that this list must be kept in sync with the probe()
+routines in lib/drivers/, similar to what you did for
+print_nv_falcon_note(). Otherwise the next device ID added to e.g.
+mlx5.c is going to get missed here.
 
+> +# Devices in DEVICES that are also on the vfio-pci denylist. The denylis=
+t is
+> +# in vfio_pci_dev_in_denylist() in drivers/vfio/pci/vfio_pci.c.
 
+Same here, s/The denylist is in/Keep in sync with/.
+
+[...]
+
+> +function print_denylist_note() {
+> +	echo
+> +	echo "  To use denylisted devices, load vfio-pci with disable_denylist=
+=3D1"
+> +	echo "  (or boot the kernel with vfio_pci.disable_denylist=3D1)."
+> +}
+
+The script checks for "Y" when reading disable_denylist, so please use
+disable_denylist=3DY here too, to keep things consistent.
+
+[...]
+
+> +	while getopts "qa" opt; do
+> +		case "${opt}" in
+> +			q) quiet=3D"true" ;;
+> +			a) all=3D"true" ;;
+> +			\?) usage ;;
+> +		esac
+> +	done
+
+Please add a -h option to print the usage. Right now -h works by
+accident, but getopts prints a confusing "illegal option -- h" first.
+-h should also exit 0, since asking for help isn't an error.
+
+[...]
+
+> +		IFS=3D',' read -r name driver <<< "${entry}"
+> +		line=3D"${bdf} - ${name} [${id}] - lib/drivers/${driver}/${driver}.c"
+
+Please also print the kernel driver the device is currently bound to (if
+any), so users can see at a glance which devices are in use by the host
+before handing them to setup.sh. e.g.
+
+  Supported:
+    0000:00:04.0 - Intel IOAT SKX [8086:2021] - lib/drivers/ioat/ioat.c (bo=
+und to ioatdma)
+    0000:00:04.1 - Intel IOAT SKX [8086:2021] - lib/drivers/ioat/ioat.c (bo=
+und to vfio-pci)
+    0000:00:04.2 - Intel IOAT SKX [8086:2021] - lib/drivers/ioat/ioat.c (un=
+bound)
+
+Please source lib.sh and use get_driver() for this rather than
+open-coding it, like the other scripts do.
+
+Note that "driver" is already used in this script to refer to the
+selftest driver, so you'll want a different name for the kernel driver
+variable.
+
+[...]
+
+> +	if [ -z "${printed}" ]; then
+> +		echo "No devices with a VFIO selftest driver found." >&2
+> +	fi
+> +}
+
+Please print this with -q as well, since the message goes to stderr
+anyway and won't get mixed in with the BDFs. Right now -q silently
+prints nothing, e.g. when vfio-pci isn't loaded, which leaves the user
+guessing.
+
+And in both cases the script should exit with a non-zero status when it
+doesn't find any devices, so callers can tell the difference. This
+should include the case where devices are found but none of them are
+usable (e.g. -q without -a when vfio-pci isn't loaded or the devices
+are all denylisted), since -q prints nothing in that case either.
+
+Lastly, please update Documentation/driver-api/vfio-selftests.rst. The
+"Picking a Device" section says it "will be expanded in the future to
+guide developers on how to find a device with a supported driver", which
+is exactly what this script does. Please describe the script there, and
+update the "Setting up Devices" section to cover the new -f option for
+setup.sh.
