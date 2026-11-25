@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795605981;
-	b=Yijpf7v+xDWHWt/duVcfFWkjY8vtBwQpDcsRZAu3vXvZU5CI8qtkSbb6D3xA58AnNpaw
-	 hOn12Pj4eWD0wsFX6//HhH51an7eSVkYrXK+KYw0wADmCLBtDwBHzf6t6vEpZVH/VMim+
-	 jcvAbt43QFRi8o91wEXJglo1XmS4TVDoejYC0Wty6vLJMecJj87zEaeXU1BKsTL24CmYX
-	 O9/IL+cgvJ2AweUp8jsxvZomtPH1praQ1BSzKqprX2esi1gz6M4ZIm7/mksQA9b90AULz
-	 g4Es+AF+ZP2/gw9+PrRVilmmGPrse/1Isah8d9TiKXN/QGsi2LDfe+Nr3xuRhurk+2Q==
+	t=1795605986;
+	b=1A9Ygs9+P4O6fq9lWgNnqxUkh/gNqt+G7Oveh2CjdEf9Voz51bZzY8CbLT/Zg0QW3hXg
+	 qh3UaAB7xJE6Llqmp9Dz+M+2UBiPOUGHd4nDbVXDKB4NL5EYHtwuPXWJsc9ToDhTEfdio
+	 wrnTrZmcTb5YO/ohpCb1UZZqdZZe1t50qKW3qC+HRTq3gjuRZjXCMRmrMcE9I9ZFINEzD
+	 vCFAVt0dQkQZWsbVs8bRKTbcUXYoC7OD/hapndLGsWz5Lh43BAWLlNNta76OIlS7yRshh
+	 B4+ExH6LQXw19D9RN3P3fTY4A0dd2p8jN3pf85Hz/8J7WZGjeg4Z9Q0X0TGhXEe4DHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795605981;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795605986;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=rDl21FEwKc8w1wUvpoWP8YurzYoH5QDYcY6p8dT/kgw=;
-	b=jUkqwbnOSFgma2UMu1VPlC2bXHmu81xPfk0jPLqaiE3gMJfsQWdRBcv2G3PFIjnBk5zO
-	 KMY55FnQqE7yTe2g82kqddGvJmEubo9yQ0U51G0wJh/GJa7ddseQT8RoR2+20zxIshUUY
-	 AO9LZartf5ICh449icrgpg/C9U99eODp+8kRvoi7SNN6OtC72aCFDbkqaByZDmgtkf59+
-	 RfzO96OD6u+QtEgzOYAeXpy6Z9wQ8NW4i5lvZ2RRLWAx3f9+pDxADOLDhOAWNzG5W+yxN
-	 hpCzPSBEGN8MLpZMXrjhaJb8d32o4c29Lp84jfuv4kGfLLmmMxj0V10t1hUNXxOAH2A==
+	bh=FPpoQE6KUvyWN2jX7u+574bkZWMVb7HlyPTqHT4GBCQ=;
+	b=3rh5vyhb/6zu5GKZhA/kTIqU61zXa7AO/oyBH13ZiWpaVyNA56+Ad8x8TROHv1D3Od9+
+	 if2MGG3Vp8KyS2Y8M8Fuk5l4kIz9j2uPurTLdwb70meWY42ruVERJk9CgsV3gbKz350Gs
+	 wU2D55X8HPdc2eq7F5pwdl5xNhC2zaXYfzHekgQpur7Buq7bqriaxew/pDj46cD8XsyqB
+	 ELaAZl8Ac/aG/Xh2asrpq1k8Of+OLlqW+wHjKii+p2bYTuHcx5DNInLTZtiXDq7qKJ9KA
+	 o2OGpR44M/F3DRWud7YbinUs/QsKb6fQOTNxmNm5yLKEBMevBl8sNfecsITuQYSd5Dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Cj7xzYJ3;
-	arc=none smtp.remote-ip=74.125.82.177
-Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Puer5IEp;
+	arc=none smtp.remote-ip=74.125.82.175
+Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68D61606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:26:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68D61606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EBF2606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:26:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0EBF2606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Cj7xzYJ3
-Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-38644aedba1so8591571eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:26:21 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Puer5IEp
+Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-33fb4680717so14339373eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:26:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795605980; x=1796210780; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795605985; x=1796210785; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rDl21FEwKc8w1wUvpoWP8YurzYoH5QDYcY6p8dT/kgw=;
-        b=Cj7xzYJ3gSDH4Ay+OSuf4iWtR5EpdJhYyvSBnTTMDfcAz9wRgjAfbxobJ/yykFaD2a
-         76e/gEJ4btLlcI9nudSZIFK1V5uKGEQHVE1mEjoo4o1xKDJ+BN2JCvobKHFHj3wvK1CT
-         VBzpMQmBueBO4n34fkRE5vEEQJaS0lJCvyR95BVzTzdZBh0n5dHmrAS3p/bFUFewkEoC
-         pHtLfsVULmuz18EmYG2lA5SZQlDHlouVUlKW1hjHzzPa+bYtKAv4SLYRLeyglGi7or0I
-         U6Lq1b6tDicMgT7tbVAOZndRD5GdyOs246jvdDhgTFNSMUaV7tsQMDX1+C2i0E4uy5vq
-         Pf7Q==
+        bh=FPpoQE6KUvyWN2jX7u+574bkZWMVb7HlyPTqHT4GBCQ=;
+        b=Puer5IEpNe0hOLhrLAeFd7whyqwOxFxxpiWI3U7+E/Q2K7E/uVVcVStw0QGs5LlI6V
+         iE+TvplTmpuiBQBLcHL8UyWaKNhW7ZGcbsEZqzbgn+U7MQ0NxykCdSCDplTY8VTz/Sap
+         4i/LbTNWu0dE/qU5izHWHeXUzJ7cOsyXNUsUJDssYN+eNgOk1Jg5qCBMGEWGiLAIJe5k
+         4TrpvX+bNMsvmlCYe+VyLf+wcoSt+8rJ8NlLLiqj+rSccHyDeqRsHZt8YLMddTKR44W8
+         3FrORcJUC58mNzHxxHQ+nVCjoasdhf/2ekrzHq+zEhvUzCT4P7FNbjEwvGQoYVICDnxm
+         y5Rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795605980; x=1796210780;
+        d=1e100.net; s=20260707; t=1795605985; x=1796210785;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rDl21FEwKc8w1wUvpoWP8YurzYoH5QDYcY6p8dT/kgw=;
-        b=o4BgFeIVfrQpTgHxrqxnHTI086W7qPD5HulYdfJ/jQJVQDoBNgxYIlgisPKzbqt/Pw
-         kVC7If0oO27QHVbuzKvd4I9ZPn6E3r4tAc5N+XV52UY+W6egKBuuEdCVoc2wSjLgnPd7
-         FnYmhvuOseVQBzc2hQK/bmltd3lwBRdgJdfkE1uxz7Kg3s2kKe3+Xwdt1G4/Xv4hm8PI
-         d8bFGpuVjdzrXo3WLUeB3jAX+A9BiZdMi7/G8Dnb+O3LtxFsoL1/aHTOXjIr44eWgr5U
-         gzOsXHOQUxfc9VfnEcZuAfWlutvvtpjoefy/kpeVPozqkZxTHYgkozMk6kJMUu1W7JSx
-         L4GQ==
-X-Forwarded-Encrypted: i=1; AL+hErF2NSBcnXcpyVCDVh4Rk8vRjuuZXT0B5nmWUyUbrAThfOnV8/AO5y9HwBkzZ2yN8iecfG/cy+EnNmdM2nU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/9GgfGqbnteOewW8VVD7MkVtxiGJQ5cs6z+C4PMsPUJevGQx67
-	I75ecESpiCMLqX2Aap3OdFyO8CpBjmf84l5iuDJTUwkrrmvcMbRfAew2+LjnQA==
-X-Gm-Gg: AZFdTZeEMyGqJb7+FtbC/qySGV61mLb8/+/RtCkHbNSXqZTJghRDaQqDKEd0SaM8Ytz
-	wd82kYAdxwMBmOvDLnxhaHjWh7ZOzR1XmQunfR+V+kkWHgsyHEnQdP9lfALzJQYZal0YSne68Dj
-	7fMDNgDuxqQai1keTj39t65PEt3EGLCnd5wLNkaSY9XbOslH+BZGCszwBiZwlibWZbEueo1S7xd
-	EfitJn5KR/q/GdqsIavJmHYaAab8h0pOS8N5RL/Br/2+rp6EoksrkYtRiNl2QgvbQb1dovl/mdd
-	VP3/Cr0YZV1yL28dj5qQUyn/yW2T4Am84ZEw+4Icq85J9VSvxcZgZTaeJRaimTM/NhCawlV8NiG
-	K6tddHKi9cvBXL5mtlA5OFgWfXbDCwOLXtwQrjPeukdfG09mczJO6+IT5dA37TpF3KoVDw+5ZSK
-	pHhLSMS+zQF9K38acnRLLGm01QHYB+vsG58AyBm+5iOlvWd4ueWvmOyK5eS1e5YSj3hNfCLAHzA
-	pIt4GFRsXqNOADYWLHRPJRYQD7vF48jrhDI4QwZw291dbnBbkXHSpAstao7EUO1/UWb003uQr7F
-	XE8G+Cb4p4bE+ZGynrn77Y7u5hoSR/DjVbJIYgxop78sHH2aAJKI++7G
-X-Received: by 2002:a05:7300:7316:b0:386:c5d3:7300 with SMTP id 5a478bee46e88-386c5d37603mr5633447eec.12.1795605980290;
-        Wed, 25 Nov 2026 03:26:20 -0800 (PST)
+        bh=FPpoQE6KUvyWN2jX7u+574bkZWMVb7HlyPTqHT4GBCQ=;
+        b=akw66Eq6JELVgH8K78QParmzzvpUjpuMLoXvIT4y9PUbUOYj1NmVzeuWXGYeedBuAD
+         Nvew8dVqQe2SRT2QDB78mvaLdnsMniAJITzPmNTHf0dOAqhQ0AqSJIOGx3O0iI5h5ogK
+         buMlj/QSE2F5FmBYMu2yRYvP2NLTY6epgeRvwxkOh0R9i8eDLhWRsLg2lFJcNgyjdFl/
+         tZMzhO6OWypZn1KFZZ+0ZUem80hCjM/4zG3r75U3AJJrOS4BIhsi69c15fY2NN4zjhlT
+         16sMmr/r0NAEFal1Uxpe6JgB0apjyrYZxiZJepVhqsVDub6ZxyXwkqEjdJiZPA1PJosy
+         Qacg==
+X-Forwarded-Encrypted: i=1; AL+hErGwOKrNldd+OLHyHaMAJgCs4Lvyf4YoOJ1zfLuPZbDST1h7PdLCb+3zQk9302coSCXi8Oq4rCyJnbvCTS0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Jb3/VHwkK0p2asrdHf97eHWYvkeuOTAgcM+rKc3dA5EPGZFwZ
+	Z1H7xxyxWPvCxKWbcNAO+r1ansZgzFUbyn25dsFCzg1t/aJ/TNdqs0eo
+X-Gm-Gg: AZFdTZdOvignVTf2VCLzFDPLiOqP7VgFy5yEy7sChWbeZwyvXjSU/hwtxNRC8DtR9IH
+	8v4gkk6MfYlq3xeshXVxdHjwQ6L1WCEyE6HxRAe3mXniN2rWGqPlWrxxHL7rQVOgqprjc//RkS4
+	/trppvMGw91Oc5groWPYLkQyV9Jdv0eZRGo8Rx6AiPBgMoPgzm70mKJ2x6jrtjeEGQMtgi+1BUx
+	B0qHVoOTLKrv4naJLctmZlrgZVog8hs1Ar3LE3y7mdq/iIAkaEu9b82dCW3n/JjJKBz5tl7j7zW
+	DmdQ10SO/QvXry1leGmSyS6ZNCGG4jtfT76we2FDRbJQeLjn+dcNzX75zMe3AA0S/r8pclfAeD0
+	2KmNQwUQANgk9NlptOT5Cv9QOMOTcusgdjlflB+eIiaFjy16lcYXlC+a92ySEpNh7BTfhohw+aq
+	OiHi9PU4JWeJm8kM+tiq7nzmUbHglZZXGxazQ7XT7V6TRRy2pu+48I3MACYGDpMYTOuNnA2t0lg
+	Z0PvvyydShgNngiKNcVkFsHofxUNc9bW+HmR2U0XzL0osUJzxsLCTX2wWg7LHwmRvQ0anWE5caI
+	4tOT9DZCoIJ0mKWmgRxaKtWJMKrrd1qrviGYrDwRivqR3T+YVyjXwIA=
+X-Received: by 2002:a05:7301:618f:20b0:386:ad3b:a48a with SMTP id 5a478bee46e88-386ad3ba7cfmr10073158eec.5.1795605984884;
+        Wed, 25 Nov 2026 03:26:24 -0800 (PST)
 Received: from pve-server.rlab ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm11778380eec.17.2026.11.25.03.26.16
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm11778380eec.17.2026.11.25.03.26.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 03:26:19 -0800 (PST)
+        Wed, 25 Nov 2026 03:26:24 -0800 (PST)
 From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
 To: linuxppc-dev@lists.ozlabs.org
 Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
@@ -89,11 +89,10 @@ Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
 	Shrikanth Hegde <sshegde@linux.ibm.com>,
 	Mukesh Kumar Chaurasiya <mkchauras@gmail.com>,
 	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	stable@vger.kernel.org,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [PATCHv4 1/4] powerpc/64: Leave lockdep hardirq context around replayed interrupts
-Date: Wed, 25 Nov 2026 16:56:03 +0530
-Message-Id: <6a02babe73f316616cf829af3ddbbfc61fb4066a.1795603946.git.ritesh.list@gmail.com>
+	stable@vger.kernel.org
+Subject: [PATCHv4 2/4] powerpc/watchdog: Disable preemption in arch_touch_nmi_watchdog()
+Date: Wed, 25 Nov 2026 16:56:04 +0530
+Message-Id: <fb07a250216a733b064f8eec672f9e682c3660d8.1795603946.git.ritesh.list@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795603946.git.ritesh.list@gmail.com>
 References: <cover.1795603946.git.ritesh.list@gmail.com>
@@ -108,112 +107,63 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-With PROVE_LOCKING, boot warns once and lockdep turns itself off:
-  DEBUG_LOCKS_WARN_ON(lockdep_hardirq_context())
-  WARNING: kernel/locking/lockdep.c:4448 at lockdep_hardirqs_on_prepare+0x22c/0x2d4, CPU#0: swapper/0/0
-  CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.4.0-rc2-00027-g074831f06e18-dirty #123 PREEMPT
-  NIP:  c0000000002b2f2c LR: c0000000002b2f28 CTR: c000000002426f90
-  REGS: c000000004f075c0 TRAP: 0700   Not tainted  (7.4.0-rc2-00027-g074831f06e18-dirty)
-  MSR:  8000000002021033 <SF,VEC,ME,IR,DR,RI,LE>  CR: 48022221  XER: 20040000
-  NIP [c0000000002b2f2c] lockdep_hardirqs_on_prepare+0x22c/0x2d4
-  LR [c0000000002b2f28] lockdep_hardirqs_on_prepare+0x228/0x2d4
+touch_nmi_watchdog() can be called from preemptible context, e.g.
+sysrq-w via /proc/sysrq-trigger. The powerpc implementation uses
+smp_processor_id(), so with DEBUG_PREEMPT we get:
+
+  root@buildroot:/# echo w > /proc/sysrq-trigger
+  sysrq: Show Blocked State
+  BUG: using smp_processor_id() in preemptible [00000000] code: bash/238
+  caller is arch_touch_nmi_watchdog+0x3c/0xd4
+  CPU: 0 UID: 0 PID: 238 Comm: bash Not tainted 7.4.0-rc2-00029-g7664547149ae-dirty #126 PREEMPT
   Call Trace:
-    lockdep_hardirqs_on_prepare+0x228/0x2d4 (unreliable)
-    trace_hardirqs_on+0x98/0x11c
-    irqentry_exit+0x64c/0x1064
-    timer_interrupt+0x274/0x6bc
-    __replay_soft_interrupts+0x158/0x380
-    arch_local_irq_restore+0x1cc/0x244
-    console_flush_one_record+0x438/0x654
-    console_unlock+0xb8/0x1e0
-    vprintk_emit+0x300/0x56c
-    vprintk+0x20/0x34
-    _printk+0x40/0x54
-    lockdep_init+0xdc/0x104
+   dump_stack_lvl+0x138/0x150 (unreliable)
+   check_preemption_disabled+0x120/0x158
+   arch_touch_nmi_watchdog+0x3c/0xd4
+   show_state_filter+0xf0/0x338
+   sysrq_handle_showstate_blocked+0x24/0x38
+   __handle_sysrq+0x134/0x3a8
+   write_sysrq_trigger+0x178/0x22c
+   proc_reg_write+0xf4/0x150
+   vfs_write+0xfc/0x71c
+   ksys_write+0x8c/0x150
+   system_call_exception+0x310/0x590
+   system_call_vectored_common+0x15c/0x2ec
+  ---- interrupt: 3000 at 0x7ffd01755b98
 
-The warning is triggered because trace_hardirqs_on() gets called while
-lockdep's hardirq_context still says we are handling an interrupt. To
-fix that, we need to ensure lockdep's hardirq_context and
-hardirqs_enabled state stays consistent with powerpc's soft-masked
-interrupt replay code and the generic entry/exit code.
+Unlike the generic version, which only sets a flag, we update the CPU's
+timebase stamp and its SMP watchdog pending bit, so a migration in
+between touches the state of a CPU we are no longer on.
 
-With the current change, this is how the new state machine looks like:
-                                       hardirq_context  hardirqs_enabled
-  arch_local_irq_restore()
-    trace_hardirqs_off()                     0             1 -> 0
-    irq_enter()                           0 -> 1           0          (softirqs held off)
-    __replay_soft_interrupts()
-      lockdep_hardirq_exit()              1 -> 0           0          patch: the loop is not a handler
-      timer_interrupt(&regs)
-        irq_enter_rcu()                   0 -> 1           0          handler starts
-        irq_exit_rcu()                    1 -> 0           0          handler done
-        irqentry_exit()
-          trace_hardirqs_on()                0             0 -> 1     legal: context is 0
-      next_interrupt()
-        trace_hardirqs_off()                 0             1 -> 0     still replaying: back to off
-      ...                                 same for each pending interrupt
-      lockdep_hardirq_enter()             0 -> 1           0          patch: restore for the caller
-    irq_exit()                            1 -> 0           0          softirqs may run now
-    trace_hardirqs_on()                      0             0 -> 1     IRQs really enabled
+Disable preemption across the update to fix this.
 
-Fixes: bee25f97ad24 ("powerpc: Enable GENERIC_ENTRY feature")
+Fixes: 2104180a5369 ("powerpc/64s: implement arch-specific hardlockup watchdog")
 Cc: stable@vger.kernel.org
-Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
-Reported-by: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
-Reported-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Closes: https://lore.kernel.org/linuxppc-dev/b44aefc5-e066-478b-8d34-50d2d0deab6b@linux.ibm.com/
-Closes: https://lore.kernel.org/linuxppc-dev/20260922150619.lwWqj1AO@linutronix.de/
+Reviewed-by: Shrikanth Hegde <sshegde@linux.ibm.com>
 Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 ---
- arch/powerpc/kernel/irq_64.c | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
+ arch/powerpc/kernel/watchdog.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/arch/powerpc/kernel/irq_64.c b/arch/powerpc/kernel/irq_64.c
-index d5c48d1b0a31..e2f1e5b7a3a7 100644
---- a/arch/powerpc/kernel/irq_64.c
-+++ b/arch/powerpc/kernel/irq_64.c
-@@ -76,13 +76,11 @@ static inline void next_interrupt(struct pt_regs *regs)
- 	}
-
- 	/*
--	 * We are responding to the next interrupt, so interrupt-off
--	 * latencies should be reset here.
-+	 * We are responding to the next interrupt. The irqentry_exit() of the
-+	 * replayed handler has traced hardirqs on, which also reset the
-+	 * interrupt-off latencies. Trace them off again.
- 	 */
--	lockdep_hardirq_exit();
--	trace_hardirqs_on();
- 	trace_hardirqs_off();
--	lockdep_hardirq_enter();
- }
-
- static inline bool irq_happened_test_and_clear(u8 irq)
-@@ -116,6 +114,15 @@ static __no_kcsan void __replay_soft_interrupts(void)
- 	 */
- 	local_paca->irq_happened |= PACA_IRQ_REPLAYING;
-
-+	/*
-+	 * The irq_enter() of our callers is there to hold off softirqs. Each
-+	 * replayed handler enters and leaves the hardirq context itself and
-+	 * returns through irqentry_exit(), which again traces hardirqs on.
-+	 * Since lockdep only allows that outside of hardirq context, so leave
-+	 * it for the duration of the replay.
-+	 */
-+	lockdep_hardirq_exit();
+diff --git a/arch/powerpc/kernel/watchdog.c b/arch/powerpc/kernel/watchdog.c
+index 44f178e07531..1a8514b2d853 100644
+--- a/arch/powerpc/kernel/watchdog.c
++++ b/arch/powerpc/kernel/watchdog.c
+@@ -459,9 +459,13 @@ static enum hrtimer_restart watchdog_timer_fn(struct hrtimer *hrtimer)
+ void arch_touch_nmi_watchdog(void)
+ {
+ 	unsigned long ticks = tb_ticks_per_usec * wd_timer_period_ms * 1000;
+-	int cpu = smp_processor_id();
++	int cpu;
+ 	u64 tb;
+ 
++	/* Callers may be preemptible. Stay on this CPU for the update. */
++	guard(preempt_notrace)();
++	cpu = raw_smp_processor_id();
 +
- 	ppc_save_regs(&regs);
- 	regs.softe = IRQS_ENABLED;
- 	regs.msr |= MSR_EE;
-@@ -168,6 +175,8 @@ static __no_kcsan void __replay_soft_interrupts(void)
- 		next_interrupt(&regs);
- 	}
-
-+	lockdep_hardirq_enter();
-+
- 	local_paca->irq_happened &= ~PACA_IRQ_REPLAYING;
- }
-
---
+ 	if (!cpumask_test_cpu(cpu, &watchdog_cpumask))
+ 		return;
+ 
+-- 
 2.39.5
 
