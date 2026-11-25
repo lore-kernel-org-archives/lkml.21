@@ -1,76 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795601011;
-	b=3CPB+6ebo4s8TQQpsOnUX0P64DpdQC4Tq1Zk5i8sN2jk7Vgj7hd2CzmWGINc4ysGAuLM
-	 y6mA2ZX15JIi7kT51KXhs5fXX4wgYa48yOqGbMTBLhzxtZw/a9Gea670cLwmmWTtuDRD9
-	 nStYVARQC/Zxfz/ooqD0YMbevQFRno4sCwJJ1nab3IldbUfknrb7pPy+bI9S3gZ3oyIwU
-	 JUrjUY5XZEpDnyziOYPUGgaftsRlx9kjoNKTmbQrCMjtA5FbUv7zMm6hrqhvyjlsPbvsQ
-	 zrx4D8zgOamYSGcMUFgBweNA4l7PBcEjlQ1YTnGvdxPaz1+Bp3MKGu8/DaUaii/3A0w==
+	t=1795601042;
+	b=gbwtcuh75TgPcpR9Y9lAYJB+0vONbPa30xWgdEWbkU5AopjLZfifer8yarvyRchhIaNb
+	 /x1YDC9EzGQmtMjNIVDK5sCBSoM43iUv5toLvWaTQrE/D47q3txKL8BkTMsc2ce7w5VcG
+	 TZpu8ondStV1AnwcxIwI/4G0HI5ab+kJxVlJ1Nm/hIBuD37vg7D6is2mFtGUqYaIJkVvz
+	 5hFqnxY99FGjBK4KlobkBuFNIeLoLYNQRjtoSB8lV4NmWZ4HItwDlGm26iPUmqeqqYVKL
+	 fhikp7vR3/k6YMisXNsZz0IVi3JivMAOL2+6MEaEAsc95ngznO75PiDz3oKfnaOxBMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795601011;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
-	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
-	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=Oey54bd0XnMBiKp07AITA59Mxc7mR2eyt2SUP8f27lo=;
-	b=qGEZecTZo9yaC1gOFb+UgFu5+pdkHDLalDkadKUCTfuJO3GwfdERs1QnONpSwa6z28i7
-	 dezAfwJJDJXjUBf3WfPeQi3Ib+5OMQYVvkM4hUX0Ns0vqE0Ohb2Cw1+WyNvXcHTJKKfyw
-	 2WC0bkmjuzid6N4ozvsAqHPD9FIQl6JNg4aez/W7GiGdVlipVNtzqtYRwEWKcjN8r7lBB
-	 yqJUfw1WbR0il4wJJnEM1GD0VsWluig+qPRlJxyuGwoRFQCmS01xEsmHZdvsqPMrGp7FN
-	 7Hj3CvEttuuYQwpB1qoJ39AmrrFj1x1zBTFQkCxrcaX5jJRX+xoA70gwuVSz+sSTg9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795601042;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=jY9qOc0xWy86TYB23oPhSaWC0qCicnAeytX8EZDNghU=;
+	b=pXCo/zhtZi13UOAM0I0nC1vA1YQiwhbbi4ssHyPm7ldEsR2iEOnDlRyigCiuk+3y8VRq
+	 0I1b/1AxESG2s/639UaVZGITnFlQhKQiAfH01PKF8IS8r5PldYaccn4J7EgGyyFflli6t
+	 wmGDQpbj2qikNCQqZ57kIRsAMIxxGy2xwL0/+XJE+yTHogQ0nK7ZkO901K4ncBUGGGoXV
+	 pFeLCOUFeUtqd6WrrYH1jVxhfj+yqsdAH7Eayjx4opmdfHhXsQJb6n69gU+hVxczG4NIJ
+	 Y13hx9EAwX3p9wtYUMXqWqsiMkUXPN3LRDSZ3inwYTu4Pp5hrk3xfHJmBNLf+YR/VgA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=WIanEbWm;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=nP3qz6t3;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z6O+preA;
+	arc=none smtp.remote-ip=74.125.82.42
+Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03CB8606A321;
-	Wed, 25 Nov 2026 10:03:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03CB8606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56543606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:04:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56543606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=WIanEbWm;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=nP3qz6t3
-Date: Wed, 25 Nov 2026 10:03:26 -0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795601009;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Oey54bd0XnMBiKp07AITA59Mxc7mR2eyt2SUP8f27lo=;
-	b=WIanEbWm/f+BoW6sfF/ewWfjvKAoRvPq7CH00Z7kYW5J6O/01qreQAKtuCKxaLK+Bdrx10
-	ZpN1bX4qTkabW0Gy6AHWlo6PPHTDy+pvFielhM1AoU3NmT7FdJN0OmF7n4jQzSh1gzW2OS
-	t6CDchQ3l0lPycUzq2b6X/sUUqIo9ZgADokbpDrZFCBnI1E3Vo8YxqgRbDEAdZP3BA0Qyg
-	TU0OJ8fMSNBtXbEdhZTWXQzLsly570FZH7syo5KW+LlOn5+9zd86i9s33beII+dG9DhNLo
-	2pUWaRqSJByAhBG1A/tbXML13dhkIMFaVZGnTYqNHgeYTellGmhO73bmsxDMNw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795601009;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Oey54bd0XnMBiKp07AITA59Mxc7mR2eyt2SUP8f27lo=;
-	b=nP3qz6t3qLuVZB/LW4jpqoikP2rC9H7XcBYF+ZJi5Udk2rn7h5PLuSo06ToEb4S98spbu9
-	PcyfzAHC+h38HxBQ==
-From: "tip-bot2 for Sohil Mehta" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
-To: linux-tip-commits@vger.kernel.org
-Subject: [tip: x86/cpu] x86/bugs: Replace RFDS model checks with VFM ones
-Cc: Sohil Mehta <sohil.mehta@intel.com>,
- "Borislav Petkov (AMD)" <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, Ingo Molnar <mingo@kernel.org>,
- Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, x86@kernel.org,
- linux-kernel@vger.kernel.org
-In-Reply-To: <179359388559.1009794.13162832200073973480.tip-bot2@tip-bot2>
-References: <179359388559.1009794.13162832200073973480.tip-bot2@tip-bot2>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z6O+preA
+Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b546061d58so12595105c88.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:04:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795601041; x=1796205841; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jY9qOc0xWy86TYB23oPhSaWC0qCicnAeytX8EZDNghU=;
+        b=z6O+preAdIolvfuN+jX8kUQlDus4PRUpHLxLCJAFY6MqqPHg24PvRv5TNlbtYCjx3N
+         l3dmDoHhKMexzrvmzvuONr90yOMj5ZbfQiUWKo5DkAT+o042s71GFCmIpGjNWCFggoPR
+         9+LgyLUxOuS0Cmf50jtYFv9aT/jDFyevtyT/RklgIujtUrnnPFjMwAwKSBTTwxYln5WI
+         CvJNysUa4auHWQr7KGhzKSxmSGX+wyvYgtJYVcdh9SosiIywyR14z2+wkJGUuJyY3Odw
+         OgEQod33oicHWnQpYvA3pb9rg/q3kWc7Fdh29haqAyhh0eIGM8O2o1eFEqE7lYhhUp4K
+         0UWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795601041; x=1796205841;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jY9qOc0xWy86TYB23oPhSaWC0qCicnAeytX8EZDNghU=;
+        b=yeuVJTzIRohi4cBWvdkhTzuUi9BpY/HR3PEelrBlBpc2B37OCjsPjL9j8inre4YkXV
+         ku/01JEOfs7VAOgHFAp+iEHwebcwgRfXCEujM3g5QQTDFxRz27V3vBdWFM/rtYckAiS6
+         DdssHBaqmUEJv5FUnSnuInVrh+MCWf+Gi3ZMg1WdmvuL5XmJLdj8CHD6cI0oEV8t+9kd
+         YtMayAp+Egy6wUQPloCr2bC4IXvKQlJAIUfeNovwPNcu2X+rkxtWymXc0BVJwkFTQjdz
+         7G4VJTwbQRNd3HYv2Os1usDOLRkB6j4w6+W7/woMBza3KSs0P003svj+IRkpZeFo60Y/
+         YR4Q==
+X-Forwarded-Encrypted: i=1; AL+hErFoiRpm5FAfCD+E6bzkPMUV7rLx1TLnkKeQP+Y9viy9/TXxpxuImgJOVIJhoPvatX3h3e1/dfBXKmwK9KY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/yWHzLI66g+8DwbyHpziSyBxqsCXD45zWuMSpJLSxqCYJf2fqD
+	ITPU3YdPH4rjOX3WlhuXG74uzKDBQukEdXjK9cTymZO6znffueYyHXrY
+X-Gm-Gg: AZFdTZfZdQd9izAotbRaxwVUrjQElWiyz9Z5PHdVpvzSXvaJ7pFbcmmS/Tqh0INuCAR
+	h49uDECj3bFR95cCFMJtDFO/1pbcWfv2WyUs5gi1EHY/qnLJkAGLz/wzgaOGUVUpRyQGhkj809h
+	v5ILyxOuoK8A8ECjye97D3BqWz/tLgxEoo4d5r8odpiovdHN0pV6zJUK6+74h0FCDVpUV7zECaD
+	qO7pfzNhf5EUBIvEOWUf6CpgMzgwZk9/v7liAETK1G05w8WgzzIQapnEb/iPlcHNE4y8RGjlYWq
+	bj0qAg5/HseK/wsDpZSIbq3PdvA2127t7/xjnsQTHDbVBhsXpLzjPFLMnjCpQ+aIKqAd6Pv/RL/
+	59rOda7uebKohlL1Qf8NmiBTQnrpHNk+1itkPHkGGxHB24RGhP2l2UJ7vtKuudv44u3p3k6ElAN
+	utKpavdYMFxJ5eNPVeD6MVCvL1hLU7bEiERMhirwrAGayF0NUF3Kc/xiPVb3UE+qrPwD+vQTM4A
+	y1DTz7pBD14AKY7UO6Anlt+Ln8iIoZ9p8s01Ye99TbEQ4g8dKv19CjAX5bglNgyKeyH5tu5y3Xy
+	3Bol2mI01omBqtdKvWek
+X-Received: by 2002:a05:701b:2704:b0:1b5:4f6d:8277 with SMTP id a92af1059eb24-1b5568e78b1mr16762572c88.26.1795601041141;
+        Wed, 25 Nov 2026 02:04:01 -0800 (PST)
+Received: from a1-free ([2603:c021:8021:f000:0:1865:8c38:18fc])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55ff0e4e6sm33863045c88.11.2026.11.25.02.03.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 02:04:00 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	TAKANO Mitsuhiro <takano32@gmail.com>
+Subject: [PATCH v4] arm64: perf: Drop the example the userspace counter section points at
+Date: Wed, 25 Nov 2026 10:03:57 +0000
+Message-ID: <20261125100357.1937729-1-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261111034432.2020955-1-takano32@gmail.com>
+References: <20261111034432.2020955-1-takano32@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,59 +107,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179560100687.92412.13730232637974946992.tip-bot2@tip-bot2>
-Robot-ID: <tip-bot2@linutronix.de>
-Robot-Unsubscribe:
- Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
-Precedence: bulk
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-The following commit has been merged into the x86/cpu branch of tip:
+Documentation/arch/arm64/perf.rst points at
+tools/perf/arch/arm64/tests/user-events.c, in the text and in the link
+target, but that file is not in the tree and no commit in the history
+leading to this base has added one.
 
-Commit-ID:     bbb389a04a410f49a2976125997217ea8747661a
-Gitweb:        https://git.kernel.org/tip/bbb389a04a410f49a2976125997217ea874=
-7661a
-Author:        Sohil Mehta <sohil.mehta@intel.com>
-AuthorDate:    Mon, 02 Nov 2026 04:31:25=20
-Committer:     Ingo Molnar <mingo@kernel.org>
-CommitterDate: Wed, 25 Nov 2026 10:56:38 +01:00
+The section already describes how to use the libperf helpers and points at
+tools/lib/perf/tests/test-evsel.c as the example, so the sentence that
+sends the reader elsewhere is redundant.  Remove it and the link target
+rather than pointing at another test, and give the commands to build and
+run that example in the How-to section, next to the reference it belongs
+to.
 
-x86/bugs: Replace RFDS model checks with VFM ones
+The edit and this changelog were written with the help of an LLM
+assistant (Hermes Agent).  I reviewed the diff and the reasoning, and I
+am responsible for the submission.
 
-x86/bugs: Replace RFDS model checks with VFM ones
-
-The RFDS vulnerability check uses raw model numbers to identify Alder
-Lake and Raptor Lake. Most Intel-specific code has already moved away
-from x86_model checks, but this one got added recently.
-
-Replace the x86_model checks with VFM ones to make them more readable.
-
-Signed-off-by: Sohil Mehta <sohil.mehta@intel.com>
-Signed-off-by: Borislav Petkov (AMD) <bp@alien8.de>
-Signed-off-by: Dave Hansen <dave.hansen@linux.intel.com>
-Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Reviewed-by: Pawan Gupta <pawan.kumar.gupta@linux.intel.com>
-Link: https://patch.msgid.link/20261030195214.1284995-1-sohil.mehta@intel.com
-Link: https://patch.msgid.link/179359388559.1009794.13162832200073973480.tip-=
-bot2@tip-bot2
+Fixes: aa1005d15d2a ("Documentation: arm64: Document PMU counters access from userspace")
+Reviewed-by: James Clark <james.clark@linaro.org>
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
 ---
- arch/x86/kernel/cpu/common.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+v2: drop the reference instead of pointing it at another file, and give
+    the libperf build and run commands in the How-to section.  The
+    perf test -v user step is not moved; it is gone.
+v3: drop the v1 review history so the commit log is the change alone.  The
+    missing file is stated once.  Raised by Sashiko:
+    https://lore.kernel.org/all/sashiko-outbox-208137@kernel.org/
+v4: rebased onto v7.4-rc4, with the Fixes tag and the note about the tool
+    that wrote this changelog back.  The diff is unchanged from v3:
+    https://lore.kernel.org/all/20261111034432.2020955-1-takano32@gmail.com/
+    v2 and v3 did not go to linux-arm-kernel; v1 did, and James Clark
+    answered it there.
 
-diff --git a/arch/x86/kernel/cpu/common.c b/arch/x86/kernel/cpu/common.c
-index 7e4eb70..0374746 100644
---- a/arch/x86/kernel/cpu/common.c
-+++ b/arch/x86/kernel/cpu/common.c
-@@ -1391,8 +1391,8 @@ static bool __init vulnerable_to_rfds(u64 x86_arch_cap_=
-msr)
- 	 * both Core and Atom CPUs. Mark unaffected when Atom CPUs are not
- 	 * present.
- 	 */
--	if ((boot_cpu_data.x86_model =3D=3D 0x97 ||
--	     boot_cpu_data.x86_model =3D=3D 0xB7) &&
-+	if ((boot_cpu_data.x86_vfm =3D=3D INTEL_ALDERLAKE ||
-+	     boot_cpu_data.x86_vfm =3D=3D INTEL_RAPTORLAKE) &&
- 	     boot_cpu_data.topo.intel_type !=3D INTEL_CPU_TYPE_ATOM &&
- 	     !boot_cpu_has(X86_FEATURE_HYBRID_CPU))
- 		return false;
+ Documentation/arch/arm64/perf.rst | 17 ++++++-----------
+ 1 file changed, 6 insertions(+), 11 deletions(-)
+
+diff --git a/Documentation/arch/arm64/perf.rst b/Documentation/arch/arm64/perf.rst
+index 997fd716b82f..5b9cc2aeb642 100644
+--- a/Documentation/arch/arm64/perf.rst
++++ b/Documentation/arch/arm64/perf.rst
+@@ -131,7 +131,12 @@ changed.
+ 
+ The userspace access is supported in libperf using the perf_evsel__mmap()
+ and perf_evsel__read() functions. See `tools/lib/perf/tests/test-evsel.c`_ for
+-an example.
++an example, which can be built and run from the source tree:
++
++.. code-block:: sh
++
++  make -C tools/lib/perf make-tests
++  tools/lib/perf/tests-static
+ 
+ About heterogeneous systems
+ ---------------------------
+@@ -140,14 +145,6 @@ only be enabled when the tasks are pinned to a homogeneous subset of cores and
+ the corresponding PMU instance is opened by specifying the 'type' attribute.
+ The use of generic event types is not supported in this case.
+ 
+-Have a look at `tools/perf/arch/arm64/tests/user-events.c`_ for an example. It
+-can be run using the perf tool to check that the access to the registers works
+-correctly from userspace:
+-
+-.. code-block:: sh
+-
+-  perf test -v user
+-
+ About chained events and counter sizes
+ --------------------------------------
+ The user can request either a 32-bit (config1:0 == 0) or 64-bit (config1:0 == 1)
+@@ -160,8 +157,6 @@ userspace must treat the upper 32-bits read from the counter as UNKNOWN. The
+ and should be used to mask the upper bits as needed.
+ 
+ .. Links
+-.. _tools/perf/arch/arm64/tests/user-events.c:
+-   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/perf/arch/arm64/tests/user-events.c
+ .. _tools/lib/perf/tests/test-evsel.c:
+    https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/lib/perf/tests/test-evsel.c
+ 
+
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+-- 
+2.53.0
+
