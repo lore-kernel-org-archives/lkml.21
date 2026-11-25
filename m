@@ -1,53 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597727;
-	b=YdWR4AXTKUpsntrkUQXLA9OuILoSRcj8+DNPwTdD7uOGXiB9z4CyqlATgQ2FPoV0TA3Z
-	 aiyZNeYYsSoQa6zusJde7v3ysUkFwsNccjTs96hG1MaweOrnQ1xc1uTWrSO2qWnzlBRFv
-	 p2C7ARBGV4samwFjjeI7o7yHk/lWwEMYWGTjkWKfOZ8Cp9feDXkgAYqfCsBru8bxveLlA
-	 hYP8WSKVj6YpowV5aTdEqoAxnIdRVZOtdiFC5tVmViLNn4vGVjsTFgoXj7+gVFDr2K/82
-	 T6hJRQ70He0l2j5xXikfI5FalwvsOBAgEp2edvd0yrLoORjdbL/a1DoJHSuucYI3uXA==
+	t=1795597779;
+	b=BMmmbDQtBQE7NafJ+AIla4QikitgPNQ5rOYXWciqAGshlPzyTmNM2/8GphGHTUZK8Rhu
+	 ykZs+g/0/enERgHoHOQhr2Px33VS05hUzkpmm5vOAOBw3D4tB1FMYnpIRYRssJe3sDtqY
+	 IXHbJm1uvxo7rhk5e6+fY4ld7QhQs1IfCaZeMWELvC4VU+LekuzJOLizmUbF78BOpDlRB
+	 X/lhgyfIyIXhDOeNjqDAtS42ac8L3ga1MZqa+KemkaBbCTm+w6Gs+nD02QECl/zLlHPRs
+	 wxJfra1FbrmzxVRz+RiR4DwGDxAMwfVIAxDVBLoZUcAvCVA3tPK6t2dL+mG3w4DKvuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597727;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=AVxa9wNqzpor2S7o18/l49o4PJSdrJGbHuLndqGm64A=;
-	b=WUH7TCC0d6SwzGVnsEqB/JnPuC4bZgzo1lY2utyUVHox4lJ6NB+4/5d6pxUr5UFdat5c
-	 yDNzeXhgv17vAPOnL6E5aI3cUnIHgOvSx7W5wwsW9y5ChCmWmKC35nWd9NfkWLsEg1OmS
-	 wvdeY+MYuTb+w/wRKpkyCAH9bsDJCE5C5jnR3oB64x0fBaTRb26fRcwN4/j4swhUt+omt
-	 kzJEUcxGY/JNgM9PW11nWU7AUQoJbov+UWrl5Mr7W3XuHZKESvpxk6poZsfIjmxK8A4oz
-	 wJsK4sVyCJnIUTP/7vJkAD/3hc3kzcnW3RQ11p0X1qD9rMeC1rzKj115gkgqZLhnlJQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597779;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=qm/FI2mE1ewe632JTFSK32XwvOS0GNyWzPRE758QoDs=;
+	b=4Vso5qVweeqdgPmFK/rXJEF88Qkv8RJe4SdSxUsYPoBuK3LK1sH33PbC4qLr818ZmHT9
+	 jwKjPmcdBDi2h23816ZItkbc8JRmhbClCe+YIbALCvgXPBQcqymkAvkX/nV2WQR2Hr5cJ
+	 5fkyQuziRxfjClxkB4InXcNvFM7NU7gDBmt/v3vLptUn6vlWFcYXxC1KEYtDWG2j6dxSQ
+	 /cxKrJV5KNxqKuvCK4POghfaM9oex62U5m8alCRx1QkT8twUFcYJd4K4ak8jS60zo6QkK
+	 fIMKo7LOIq1I4uVGZXzZqAIJJNYYsF5pklc4BvXQ3iDhkYsJYR2NKaslFbQCr2+FIiQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 687F9606A68B;
-	Wed, 25 Nov 2026 09:08:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 687F9606A68B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AGuiiqVQ;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40AA0606A332
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:09:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40AA0606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AGuiiqVQ
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4a3517554f7so50252925e9.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:09:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=AVxa9wNqzp
-	or2S7o18/l49o4PJSdrJGbHuLndqGm64A=; b=GC40UAoaeZ+7Z8yLCQD1hZNlWv
-	8EZrTvVOVv5Wp4eKFZn5s2+5s3zyDpNPv1XU25RrnZzJNC9Y6mjIppIhovQpk6MY
-	hMr41n6Wr6sPloRYs5ETiBPRFzNQyS0Wh5otChaJwnD1RGsvodg/pfh5b2EzjGXb
-	QmUFhH0+9XDD6X4hI=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.108])
-	by hzbj-edu-front-4.icoremail.net (Coremail) with UTF8SMTPA id BrQMCkDW_wWPpQZrDPEzAg--.16377S2;
-	Wed, 25 Nov 2026 17:08:32 +0800 (CST)
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Cc: linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: [PATCH] media: siano: free the smsclient after the DVB devices are gone
-Date: Wed, 25 Nov 2026 17:08:30 +0800
-Message-Id: <20261125090830.8243-1-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
+        d=gmail.com; s=20260707; t=1795597776; x=1796202576; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qm/FI2mE1ewe632JTFSK32XwvOS0GNyWzPRE758QoDs=;
+        b=AGuiiqVQqunjoBCYAQf0+aaIX9u8Idwr4BsqXiFG1Y2GXVcd2nGAwNB2bzu0OZsqvt
+         JBQWV39Rzw0Nejmv3JjqTkzRxtSB81AvLEnWqd3BIlVhavaIMQto0Hj4ItwMuVJN5t9m
+         qDDTsY+zGckYze/eL0Fh35Cvy9GGXbsePdi8hxB00PegW5V2xSwtYpgnQ+XID8ik3L5c
+         ETRwW6xnMEEQ916w2d83q83ZxbDdUag/69/1p5CzvXoFbS+9l6yLn8rKodkjDPPM+Rpi
+         9t2xYHAx0GtrAFVGzYv5GsoMxIqDShH+sPkkV4Fh0S/+l/GBUcpTn7YbFICB2vlEmz20
+         X+gg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795597776; x=1796202576;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qm/FI2mE1ewe632JTFSK32XwvOS0GNyWzPRE758QoDs=;
+        b=l5ohRzBohiRXcikNlyWEVYFhLbuqnFOh6elBbqEswAve0/NsIsX2Eg5fg+AmKbyRmd
+         ckmwN1Rz4x8Ax4U9iAtWYxhJ8FF1QSdihGTYA2bVhE0g4QZuNMD3LZjxPpk6FR7naGjh
+         bm2QVnv/DVXkU9sIQ28dTBuVAgpFVRodCZTqTuW+pNZ3XK3yt8RrtW3cy53s9TBrcmGk
+         sALhEh4ydwduiXPqX8+pjPzqVIaZ0SdggMq4iKCjJ43NzrUpHpLS5FKYsys4D22fYFJw
+         +G/CLhr7/TQXDLhF6s0fHn6FOyddyllQToa4vBEFPAFN9kTDivfeWNJnOtCjaPkDfx6l
+         5Hew==
+X-Forwarded-Encrypted: i=1; AL+hErEiMOze+/xVGEqbKZMlWcJUSGTN+oF59uV3/NGj+8DcbFRvQrSk2lHVJxZJsMlkm6Mk0pVXXsHqTI2fFdU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8yJffEHmx0tP4NC6KcW1cZ0vBabkMOJiR3rf03ZagNx+G5BBd6
+	kor9bwaldTwc/1fm4pYd9h8+oJiQEB7+LCqnQHiOBMemcrjeCTEqXUEG
+X-Gm-Gg: AZFdTZcPc4iamiprWOi62jyjWBVCXn4GXGYGOZNF6FkblKPJqLZOdVBq4MpURyvHN7m
+	R1xU70VI6VXIfbwuZHL3K3j/FNpkFPE+OIC/DjxBNceD+Fjpu98isBSosdnZ09kQ/DYa24keRiz
+	/Mj3h1B3styijsqDbRoS/vJ2duXe8Wvnc4R8Hb7+PgVpu+O2GIoOEYnGgTsiADpt33xQIEZ4gEd
+	LKqkPVWBa46Yk2NOXjoHnhJUSXs0p2RBUpBRdsx3zSaZ1AmolQV8j6P5NNj3sbv3GQTwRaZ+pF9
+	DO8f+DknVxV7HtyI8RGABkZVFRlX1wlL7a9yxefVoUG3GRlb2zg+TxUWAaZRVdPu65cgvd0bGFz
+	2UvzodQ1EG2FcuXjufBLfmwJAde/IeIL0br89HqfVwvdvbJVmxFJzHzbUI334HbSZ3IJBci45ax
+	hU9vAvGXu/IRXc02BYzPd5juI7Lpku0jQV+Q7kr4o4B34RTCFoWYdY/Zw5dfFgZ0M83vLYymj9+
+	VHmzZZXHzrAJirWX0yEb/FWMPFbzsFP+AlB6S09P/hcK2yjdzvUmXTwL3BCgkGLxwToASYgKXjn
+	gkHGMVM6ixhOMcwv5jtRiD4L5tDZ7gp4ZJ3Wnm8eE8bC4N3lYCAGrVHZc05f2tIdGQ==
+X-Received: by 2002:a05:600c:3509:b0:4bb:76f6:d23a with SMTP id 5b1f17b1804b1-4bb88814d16mr374824975e9.21.1795597776397;
+        Wed, 25 Nov 2026 01:09:36 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b216esm558503985e9.12.2026.11.25.01.09.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 01:09:36 -0800 (PST)
+Date: Wed, 25 Nov 2026 09:09:30 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: keyrings@vger.kernel.org, dm-devel@lists.linux.dev,
+ linux-crypto@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-security-module@vger.kernel.org, Ahmad Fatoum
+ <a.fatoum@pengutronix.de>, Alasdair Kergon <agk@redhat.com>, Andrew Morton
+ <akpm@linux-foundation.org>, Benjamin Marzinski <bmarzins@redhat.com>,
+ David Gstir <david@sigma-star.at>, David Howells <dhowells@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>, David Woodhouse
+ <dwmw2@infradead.org>, Herbert Xu <herbert@gondor.apana.org.au>, Ignat
+ Korchagin <ignat@linux.win>, James Bottomley
+ <James.Bottomley@HansenPartnership.com>, James Morris <jmorris@namei.org>,
+ James Prestwood <prestwoj@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Jonathan Corbet <corbet@lwn.net>, Lukas Wunner <lukas@wunner.de>, Mike
+ Snitzer <snitzer@kernel.org>, Mikulas Patocka <mpatocka@redhat.com>, Mimi
+ Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>, Peter Huewe
+ <peterhuewe@gmx.de>, Randy Dunlap <rdunlap@infradead.org>, "Serge E.
+ Hallyn" <serge@hallyn.com>, Shuah Khan <skhan@linuxfoundation.org>, Sumit
+ Garg <sumit.garg@kernel.org>
+Subject: Re: [PATCH v2 1/9] KEYS: trusted: Allow ASN.1 TPM2 sealed data
+ shorter than MIN_KEY_SIZE
+Message-ID: <20261125090930.698d8f1b@pumpkin>
+In-Reply-To: <20261124194043.1651679-2-jarkko@kernel.org>
+References: <20261124194043.1651679-1-jarkko@kernel.org>
+	<20261124194043.1651679-2-jarkko@kernel.org>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,83 +116,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BrQMCkDW_wWPpQZrDPEzAg--.16377S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Zr1DWr1ktw4fJrWrKFW3Wrg_yoW5JFWUpa
-	95CayjkFWDKr47Cw4DCa4xWF95t3Z3XFW3C34UWr43t3WDGFySkFZ0y34qgr1DJryfAF4q
-	kFn0gayjva4UAr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvGb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
-	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r
-	18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vI
-	r41lc7CjxVAaw2AFwI0_JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
-	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
-	17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
-	73UjIFyTuYvjxU4CD7UUUUU
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUID2sFqFm2rwAAsF
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-A KASAN slab-use-after-free read was observed in smsclient_sendrequest()
-when a demux file descriptor is closed after the Siano USB receiver has
-been disconnected:
+On Tue, 24 Nov 2026 21:40:35 +0200
+Jarkko Sakkinen <jarkko@kernel.org> wrote:
 
-  Read of size 8 at addr ffff888006067a10
-  smsclient_sendrequest
-  smsdvb_stop_feed
-  dmx_section_feed_stop_filtering
-  dvb_dmxdev_feed_stop
-  dvb_dmxdev_filter_stop
-  dvb_dmxdev_filter_free
-  dvb_demux_release
+> tpm2_unseal_cmd() rejects unsealed payloads shorter than MIN_KEY_SIZE (32
+> bytes) with -EFAULT even when loading an ASN.1 TPMKey (OID_TPMSealedData,
+> 2.23.133.10.1.5) blob.
+> 
+> While kernel-generated trusted keys ("new <keylen>") and legacy old_format
+> blobs are at least 32 bytes long, external TPM2 tools allow sealing any
+> non-empty payload up to 128 bytes.
+> 
+> Keep MIN_KEY_SIZE for legacy old_format blobs and accept 1..MAX_KEY_SIZE
+> bytes for ASN.1 TPMKey sealed blobs.
+> 
+> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> ---
+>  security/keys/trusted-keys/trusted_tpm2.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/security/keys/trusted-keys/trusted_tpm2.c b/security/keys/trusted-keys/trusted_tpm2.c
+> index 30188a0ec676..d7336f25b514 100644
+> --- a/security/keys/trusted-keys/trusted_tpm2.c
+> +++ b/security/keys/trusted-keys/trusted_tpm2.c
+> @@ -559,9 +559,11 @@ static int tpm2_unseal_cmd(struct tpm_chip *chip,
+>  	rc = tpm_buf_check_hmac_response(chip, buf, rc);
+>  
+>  	if (!rc) {
+> +		u16 min_len = payload->old_format ? MIN_KEY_SIZE : 1;
 
-The object is the smscore_client_t created by smscore_register_client().
-smsdvb_unregister_client() frees it through smscore_unregister_client()
-before the frontend and the demux are torn down.
+There is no point using u16, just use unsigned int.
 
-dvb_dmxdev_release() waits for userspace to close the demux device nodes,
-and the close path calls the stop_feed() callback before it drops the
-device user count. A demux file that is still open when the device is
-disconnected therefore always reaches smsdvb_stop_feed() after
-client->smsclient has been freed.
+The same goes for data_len.
 
-Move the smscore_unregister_client() call to the end of the teardown,
-after dvb_unregister_frontend() stopped the frontend thread and after
-dvb_dmxdev_release() drained the open demux files. At that point no
-callback can reach the client any more.
+David
 
-Fixes: 2e5c1ec8865a ("V4L/DVB (8258): add support for SMS1010 and SMS1150 based digital television devices")
-Cc: stable@vger.kernel.org
-Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
----
- drivers/media/common/siano/smsdvb-main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/media/common/siano/smsdvb-main.c b/drivers/media/common/siano/smsdvb-main.c
-index 415c24fbbb65..245cd26ab7a1 100644
---- a/drivers/media/common/siano/smsdvb-main.c
-+++ b/drivers/media/common/siano/smsdvb-main.c
-@@ -655,12 +655,12 @@ static void smsdvb_unregister_client(struct smsdvb_client_t *client)
- 	list_del(&client->entry);
- 
- 	smsdvb_debugfs_release(client);
--	smscore_unregister_client(client->smsclient);
- 	dvb_unregister_frontend(&client->frontend);
- 	dvb_dmxdev_release(&client->dmxdev);
- 	dvb_dmx_release(&client->demux);
- 	smsdvb_media_device_unregister(client);
- 	dvb_unregister_adapter(&client->adapter);
-+	smscore_unregister_client(client->smsclient);
- 	kfree(client);
- }
- 
--- 
-2.34.1
+> +
+>  		data_len = be16_to_cpup(
+>  			(__be16 *)&buf->data[TPM_HEADER_SIZE + 4]);
+> -		if (data_len < MIN_KEY_SIZE ||  data_len > MAX_KEY_SIZE)
+> +		if (data_len < min_len || data_len > MAX_KEY_SIZE)
+>  			return -EFAULT;
+>  
+>  		if (tpm_buf_length(buf) < TPM_HEADER_SIZE + 6 + data_len)
 
