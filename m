@@ -1,75 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795638162;
-	b=fuZimdtIgaLaROTfBF9nSt1uYCWUtyZ/oVIHuhgeG02/WCG37xSlHWqVs8Ux0jdhZQR3
-	 Ti9YBmkmOTxywJA9RBgjJEKB6aksk8fPwETZM4O4FMPovcGKC+1OUSNMiXxNtntcyNZ/n
-	 NSeeFTlRChLfR8j5VNjsv8wYgPkdSF70qGJ7RuqGT5uqTvTF0xOdsIEH6P28GJGRv7zkO
-	 T1OANwtDCn4lmmsuOlqu58HpzEcQGBLWL7I9/mZ0OwiY/nKp6t6yN6dh0KqFWqrsUVAej
-	 LUk3L7j+oUpQuCk37S7O8Q1XGAsfvCiJ7i7xuT1ciy0jQeCjs+c0uITxI0+8TsFC5Uw==
+	t=1795638172;
+	b=0Y+VpYnNg98b3Fzm00XKgHEiieIETapydHQbGWCmuRZVx1KtnawBsHJUiRiOgVjH+57m
+	 k1Q1the2g2YuRVPxpcAR87vm5NOX+33QNXwul+5gedaUiPGCETZthc+4EgktyvUT1lTqo
+	 JpbaTiv+AS+ODRGAyycKgtz1WNivhfiWCkJwAdx4DXG5CwPTKo5RIlflx1iMz2V9pSJNy
+	 EBWVjz/IOmcP50OggfXE5H3KYoaXGDRt1gbdyaNGKDdS/coTZ6UmibDKIe3GYPaP4h8X9
+	 MUmDzMd5COnUlTbKMZmqAw7OeaMnmTBOt7szFQgCxLTKUpifmLNYBGg4giQNiihN9zA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795638162;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer;
-	bh=vLO+3to2ifdHl+Ks1bFGEuKH9kn1cjMkuQMwhtsS+Wc=;
-	b=cu+O/38oBW90LtMugIJes7CZEfS4lwiagbmKoOG413MpoR8K0pVHPR1JELPfEbh6X+m7
-	 6Qi/LBfEwjsnB4HNlh6JNAF858U2cWofd8tF3TiOxd8vAsi2dg387Ibg63jU6zcNQpu3h
-	 +jdbaUTjH7DDe2ZJss4DSqjVeU4LHP95gtNeWflSN/VZTWBN/aHl362Hwgt/SjsNqXdzV
-	 sLpXin+PgjY5tNoL4KMoZDhr+p3LoDgwX5CgLkM9Ay/Jt3LMXMpyi0iXwIOeL01R9T1w4
-	 UebJwleHzSpWjrEgFPC4BMU7IWjW9/ruCsY4apLZQ2raBvhzre+vqbTf7f3os9TwkxQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795638172;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
+	 References:In-Reply-To;
+	bh=fNWZNgc0WrQFHfNJaMklHOXMh0dDISx4ZPchEsw172w=;
+	b=t7Uc4lBFS9j6RQa8q6t/rgEtCifeP9Nc0cDxI85GhDVCD2aVNiSgeN98cYPVR1YMggzp
+	 Js9ohEMBHdwSAP93F/ItUGgmKgAvWeZwThcCG5y67evaKJk4ONtJR+FZ9aB7mZY3OPjKZ
+	 mU3i3Vkkpe8/d7DtnwkxMCG4qBiwmVBctZp+Cq/EOJwVqam72Mj2PLna92c9sOigOfC4Q
+	 l0ND74wnW1C5ripa3oMx3JIkP+/43AvgC0Ohp/rRQWSjZhY60o/222WdyLFvW5zWNoaNk
+	 8dUNvJ54dnEHipjgXhWCUl84car1ww+OcBbmsyI0SIBeHxuW5DoXVLRK6a8EWXli0cg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=telaak.dev;
+	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.128.169
-Received: from mail-yw1-f169.google.com (mail-yw1-f169.google.com [209.85.128.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i0Ex6MNd;
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3D0960A2607
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:22:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3D0960A2607
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=telaak.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16240606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:22:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16240606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-yw1-f169.google.com with SMTP id 00721157ae682-8b4e246acc2so45073407b3.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:22:41 -0800 (PST)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i0Ex6MNd
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso62330925e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:22:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795638170; x=1796242970; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=fNWZNgc0WrQFHfNJaMklHOXMh0dDISx4ZPchEsw172w=;
+        b=i0Ex6MNdliAEH+x5mFALHDaiWJdfTAl4IhmXju9fZvF3axpQ3WoM3fmFIsUzzJhRMv
+         vvbZkI1tlcBZ7ger0oocOZKJErp/uqzAD03wg0wJpleVC1j8C0AOKYoKiP0d3zvGuR4f
+         pSglSdeKO6MnxUAxHod7TcV0r9jTdFLWl+DJZKeEIKNPBUKsniHuv7KYkjwu67cK1hIz
+         aRXfHqp6E4st2KecikxHKqcrkZhTqSlTHcm4j1bxvxftqQF1q7waGVnL1UIQneIwMoZc
+         2aMQ9jQmyIM3odhg0zkjEtuThTTJoyno2+SvDBP2aBt/Zo/g7Jz6p5oxjl3PG1V6Ao2t
+         gl2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795638161; x=1796242961;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vLO+3to2ifdHl+Ks1bFGEuKH9kn1cjMkuQMwhtsS+Wc=;
-        b=X+Xh5RhWtgcucuUKAXQAkjSyJig2VfF/ZIArn6gdHQyhUmVHSuZEvwcCUbjLgYdAyp
-         YvVNIJ68Kem4QXxWYWYNUjRpcWl4uEnEN1b4/vbrNUa6a4xDynUtUgiOBkWZNYcc+YrU
-         EwvY70RQT1M6CQ7J2yrEKrM6z8liRjAc6nC6HIoslShDcB3Av99ArAQHnvJWNWnikHp+
-         trHOACWNKahi8uh0Hf1H1Z2FZIjtrBMUwTkk9kzL4c30RovQ4n9Z3y8UliyNEPUen0ql
-         6q4pMAQxBkOk9ev4XYSawlBMJ+wf9fY4v7XFuZgDcBiUClqCNhHt+9R011BKWmpseUqB
-         mipA==
-X-Forwarded-Encrypted: i=1; AL+hErFJLydys3LYfpVETn8mEYpsldS6LJfNZlJ/OzXgwHcXOvLzDk38Ok7ouGzjsQDBfgIPSDuQ7X826xOd6B8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+/KY7yZLuSiG/NbJJX0izlWQt2H8WA5id3+M5hzSTm4ZQ0uTLs
-	kLnIq2NMad4GIiqYEYJzyxn4LeGDHOu9hOZfsFXcyJsSMYOiTQrWSPg7KBTF4T5cWAM=
-X-Gm-Gg: AZFdTZcFRqlhvsyysXPy/9yiI10xG/fa4tw9CYGgOTyPrJcapMtffABgastN3Cye7eF
-	rs6aNKdz/RzHIKdfh6hV0/yHNe5qIA0QWuMpI+X3mJNxJ65u0N/TLlgXHnfHc8EAm+qfARjTrOD
-	cmgiELQFIblcMLO6q6uPATuFCYp/ZFO8vih3qN+rJbXRJvBhQHoznCn0JdqLXMuVnwg7M2Fyro3
-	Wj3E5hUKcDsWv2KHP6xw6fSMK1SKP1ZKJUtHtjAXCjI/YEwnw/anZ1qBWu/cKlP/O65GcVLoMvv
-	fvZT39+lxirGzdx7e7pJxSHoGpG980YcsxZH5WBSn3fRUrGpJGPwpbolTyj7CIg0FxBdePiP9G9
-	QBmaxhde1jmrRKKwQyYTT1G3IeeIwsT6eQOuGJNmZm9vTwbVuh220rYvf6sLliZ/hxxLVIiRZSK
-	W7zznbTW/ujgKCg0ZUzVUEnF68kKKnhubk+MM0ueyMLCIk6p6tD5IOYhEARAexIP9Z6ayQoqIcZ
-	z7i17s3AeUbe4VZqDMAltrUzZPCVOrVzC5tLjFY83IwGvqyCLYeVoYLD3jCFHX6pj7lptfGJt5k
-	LaXS7CGGXALYjZHSENIYGD0pTPROItZaUrJgfQLv33kggp4FClAu5tdz4IqH5AVUCnkg5YwDZD1
-	uBK2t2NPlJJLTvNTUBkjY4GN1BKMieevCelFjlvyTyYa0mD4BsdTQyrKQo6BENjk7CSdizTaTKS
-	VD6f13AAF3BkIgqu7Dp4bwtIp+
-X-Received: by 2002:a05:690c:4a02:b0:8b4:c1ef:7a62 with SMTP id 00721157ae682-8b5204e0b7cmr75810357b3.49.1795638160836;
-        Wed, 25 Nov 2026 12:22:40 -0800 (PST)
-Received: from 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa ([71.68.170.161])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5201bb6c7sm77074377b3.6.2026.11.25.12.22.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 12:22:40 -0800 (PST)
-From: Joseph Telaak <joseph@telaak.dev>
-Date: Wed, 25 Nov 2026 15:22:33 -0500
-Subject: [PATCH v2 6/6] iio: potentiometer: mcp4018: Add Analog Devices
- AD5246
+        d=1e100.net; s=20260707; t=1795638170; x=1796242970;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=fNWZNgc0WrQFHfNJaMklHOXMh0dDISx4ZPchEsw172w=;
+        b=BADUafI8M2U8Awhj/jsnc2QY3WR7/Q1TTqKpaNsfrVBglsgHLZAT1YBrZxwPMA4Ka0
+         4NXthBHZNiVtBY2tO5PwhzsLxPMEghKvtF1dZx//1h8xQLI9xkzNsYwU5l1Q/8EaQAeF
+         khj5IofvaL/I0veBvbuh6yLunnaIz2a9/mesVy3i1ZM50RoT5ipLJ/xHxZ2ceUJkbKX6
+         rpwb3f5gQqak5TLDYXIUFGjsagpvtfIQU+pTAl4QDYPnJ2uA6v9mMtOyiL0hJNy1fFBa
+         Q135F9dpZjFBS7K8t5RRq4ANkcbDd3Nn4euBZZfqV7oL7ZFIqtpo/bluIKlQjtlBibBw
+         fKkA==
+X-Forwarded-Encrypted: i=1; AL+hErFR/XMQNwSVg87AdXIgw43zSUVzSe9di1GwztKIzz/ShhXfx85g2JdNmABwM/xt6kE9vdR1eoNFXhmmT6k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+v8elZsOHNdiZUxUXvPflX58l2JkwVwDj/dyJePy1fTAj7bMON
+	p8zd7NKsDlJB/w+52D9JPbsD3yFZ7y13yF4l6LBBtbKKlMCRr97GN5/M
+X-Gm-Gg: AZFdTZduO1Rgbpra783xLB0uXcZ6VOCewv2lDplTIgBTnN/2g+BgLjC6qrQn8ruCzmw
+	x2onuw4WXWtfD9pcTi6Q5SxSKngGveyXL8P/6RDxm1AjdaYfAXfg+kWfOA1qngDodhXpDHvhXCv
+	KX0EpahJWUYTJPq+Z3dBOAkSBvpZgeIpbroiOf3yiEAAz5w+mutnuJEF6i1PZIDhNDD8p8UX/i5
+	KpWJVtGqoKW+WmvztpRrEJCJ1HcMSeauh3X1wTUHzrVDDlTnfXiPD9YIzErs9LmgbsybZZ8MvOz
+	/KL70vP4cgIvfI2D9SjkvVT7Yg3sTPJejYbXvPkNPc2FqEkYaFwRcjbA2WLK2ssZQe9lKfjlxH+
+	U63YjEi65Y/ltnLe04xdU2alEm99cysjqPK3SsBBgVEeGHb46Ev2TzvUrbnYD7WGsxUUB99rn4a
+	Ou90tNAmyYIQAhdItKQFhfGQShObRz74Uczk/dMPprCwIgUKef2PZg+X3GYJjxgZ/Hdvd1mdCqq
+	8I6vlZTdPS1CUZALfA9QmjMApdBrHGv8jZRv4mHMAYa3udPBr/huJGBWme1ywkbW/qTt9JTJIXy
+	2CWZzVebFKbmf7Vh2LrqLjCChCQZLmbDAnBebm38N+Wlwff6
+X-Received: by 2002:a05:600c:6749:b0:4bb:71c1:3ca6 with SMTP id 5b1f17b1804b1-4bb88819d15mr367467105e9.21.1795638170093;
+        Wed, 25 Nov 2026 12:22:50 -0800 (PST)
+Received: from localhost ([2001:b07:5d26:7a6a:de3b:51f3:e461:c0df])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61f558sm37191611f8f.58.2026.11.25.12.22.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 12:22:48 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,146 +86,331 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-iio-ad5246-v2-6-8feeb630f0b6@telaak.dev>
-References: <20261125-iio-ad5246-v2-0-8feeb630f0b6@telaak.dev>
-In-Reply-To: <20261125-iio-ad5246-v2-0-8feeb630f0b6@telaak.dev>
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, Peter Rosin <peda@lysator.liu.se>, 
- Michael Hennerich <Michael.Hennerich@analog.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joseph Telaak <joseph@telaak.dev>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux@analog.com, devicetree@vger.kernel.org
-X-Mailer: b4 0.16.0
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=e8caff26652db83e371b7bbbf1756842a7f68d613d7cadc16719f19bedf2;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Wed, 25 Nov 2026 21:22:44 +0100
+Message-Id: <DN4KLSM2OO0K.2C8Q5CPFBVNL6@gmail.com>
+Cc: "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul Lee"
+ <hyc.lee@gmail.com>, "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian
+ Brauner" <brauner@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff
+ Layton" <jlayton@kernel.org>, "Jan Kara" <jack@suse.cz>, "Darrick J . Wong"
+ <djwong@kernel.org>, "Andrey Albershteyn" <aalbersh@kernel.org>,
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, "Lauri Gates"
+ <lauri.gates@gmail.com>, "Christoph Hellwig" <hch@infradead.org>, "Dave
+ Chinner" <dgc@kernel.org>, <linux-btrfs@vger.kernel.org>,
+ <linux-xfs@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-fsdevel@vger.kernel.org>, <ntfs@lists.linux.dev>,
+ <linux-nfs@vger.kernel.org>, <linux-api@vger.kernel.org>
+Subject: Re: [PATCH 2/3] vfs: add xflags mask to fileattr API
+From: "koraynilay" <koray.fra@gmail.com>
+To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
+ <koray.fra@gmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261122000856.536902-1-koray.fra@gmail.com>
+ <20261122000856.536902-3-koray.fra@gmail.com>
+ <CAOQ4uxhegn1z=41_MHL1Zu2hXuPtzNhC=x4gd371oaeJE4-weQ@mail.gmail.com>
+ <DN2N6A68PBO1.2QT8ZOARF4I6L@gmail.com>
+ <CAOQ4uxhDQqEQ3T9NveBFpUmSU032BxrNV5D+_zHj8u9LOQY+qg@mail.gmail.com>
+ <DN4DRUYPHYMP.20U4DYV5VBN7P@gmail.com>
+ <CAOQ4uxg0g+XkPb3-kQS5ez1-rp7Q=BkYDHW0CGOFhpbcf70yMg@mail.gmail.com>
+In-Reply-To: <CAOQ4uxg0g+XkPb3-kQS5ez1-rp7Q=BkYDHW0CGOFhpbcf70yMg@mail.gmail.com>
 
-The AD5246 is a 128-position digital rheostat with the same I2C
-interface as the MCP4017/18/19: a single data byte writes the 7-bit
-wiper and a single-byte read returns it, with no command byte. Add its
-four resistance options.
+--e8caff26652db83e371b7bbbf1756842a7f68d613d7cadc16719f19bedf2
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Its resistance is D/128 of the end-to-end value, where the MCP401x's is
-D/127. Name the driver for the MCP4018 and compatible parts.
+On Wed Nov 25, 2026 at 5:51 PM CET, Amir Goldstein wrote:
+> On Wed, Nov 25, 2026 at 4:01=E2=80=AFPM koraynilay <koray.fra@gmail.com> =
+wrote:
+>>
+>> On Mon Nov 23, 2026 at 4:29 PM CET, Amir Goldstein wrote:
+>> > On Mon, Nov 23, 2026 at 2:58=E2=80=AFPM koraynilay <koray.fra@gmail.co=
+m> wrote:
+>> >>
+>> >> On Mon Nov 23, 2026 at 2:24 PM CET, Amir Goldstein wrote:
+>> >> > On Sun, Nov 22, 2026 at 1:09=E2=80=AFAM koraynilay <koray.fra@gmail=
+.com> wrote:
+>> >> >>
+>> >> >> Add fa_xflags_rw_mask and fa_xflags_ro_mask to struct file_attr an=
+d
+>> >> >> equivalent masks to struct file_kattr.
+>> >> >>
+>> >> >> Also add has_masks selector to struct file_kattr so we can know wh=
+en a
+>> >> >> user of this API (userspace or filesystem) supports them.
+>> >> >>
+>> >> >> This lets filesystems advertise their support for specific xflags,=
+ like
+>> >> >> statx.stx_attributes_mask does, and userspace can specify only whi=
+ch
+>> >> >> xflags it wants to change without needing a RMW cycle:
+>> >> >> - on GET: each filesystem that wants to support this new API fills=
+ the
+>> >> >>   masks according to its supported and read-only xflags, then:
+>> >> >>   * for boolean xflags: it fills fsx_xflags with the current on-di=
+sk value
+>> >> >>   * for value xflags: it sets the xflag bit to 1 in fsx_xflags and=
+ the
+>> >> >>     xflag value in the struct field;
+>> >> >> - on SET: userspace fills the rw_mask with the bits of the xflags =
+it
+>> >> >>   wants to change, then:
+>> >> >>   * for boolean xflags: it provides the xflag value as a bit in fa=
+_xflags
+>> >> >>   * for value xflags: it sets the xflag bit to 1 in fa_xflags and =
+then
+>> >> >>     provides the value in the struct field; if the xflag bit is se=
+t to 0
+>> >> >>     instead, this informs the kernel to unset/clear that value.
+>> >> >>
+>> >> >> Since fa_xflags_rw_mask means "I want to change the xflags specifi=
+ed in
+>> >> >> here", if userspace specifies fa_xflags_rw_mask =3D 0, only check =
+for
+>> >> >> permissions and fileattr support without checking any xflags.
+>> >> >>
+>> >> >> Behaviour of older programs that already use file_[gs]etattr() is
+>> >> >> preserved by checking against FILE_ATTR_SIZE_VER*.
+>> >> >>
+>> >> >> Also add the missing FS_XFLAG_PROJID xflag, to allow userspace to =
+set
+>> >> >> the projid using file_[gs]etattr() by leveraging the new masks.
+>> >> >>
+>> >> >> Finally, in order to prevent the legacy FS_IOC_FSSETXATTR from acc=
+epting
+>> >> >> FS_XFLAG_PROJID, add a FS_FILE_ATTR_XFLAGS_MASK to support new xfl=
+ags
+>> >> >> and use it to validate/clamp both the _xflags fields and the masks=
+.
+>> >> >>
+>> >> >> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.11
+>> >> >> Signed-off-by: koraynilay <koray.fra@gmail.com>
+>> >> >> ---
+>> > ...
+>> >> >>         err =3D fileattr_set_prepare(inode, &old_ma, fa);
+>> >> >> @@ -424,6 +504,14 @@ SYSCALL_DEFINE5(file_getattr, int, dfd, const=
+ char __user *, filename,
+>> >> >>                 return error;
+>> >> >>
+>> >> >>         fileattr_to_file_attr(&fa, &fattr);
+>> >> >> +       /*
+>> >> >> +        * Remove xflags added in or after VER1 so userspace progr=
+ams compiled
+>> >> >> +        * against VER0 don't try to write xflags they don't know =
+about (since
+>> >> >> +        * they do RMW).
+>> >> >> +        */
+>> >> >> +       if (usize < FILE_ATTR_SIZE_VER1)
+>> >> >> +               fattr.fa_xflags &=3D FS_XFLAGS_MASK;
+>> >> >> +
+>> >> >
+>> >> > This looks odd.
+>> >> > old struct size with new flags should be -EINVAL not silently drop =
+them
+>> >>
+>> >> Right, and the GET path should strip any new flags, so old programs
+>> >> doing RMW will never see them, correct?
+>> >>
+>> >
+>> > Yes, I think so.
+>> >
+>> >> >
+>> >> >>         error =3D copy_struct_to_user(ufattr, usize, &fattr,
+>> >> >>                                     sizeof(struct file_attr), NULL=
+);
+>> >> >>
+>> >> >> @@ -460,10 +548,6 @@ SYSCALL_DEFINE5(file_setattr, int, dfd, const=
+ char __user *, filename,
+>> >> >>         if (error)
+>> >> >>                 return error;
+>> >> >>
+>> >> >> -       error =3D file_attr_to_fileattr(&fattr, &fa);
+>> >> >> -       if (error)
+>> >> >> -               return error;
+>> >> >> -
+>> >> >>         CLASS(filename_maybe_null, name)(filename, at_flags);
+>> >> >>         if (!name && dfd >=3D 0) {
+>> >> >>                 CLASS(fd, f)(dfd);
+>> >> >> @@ -479,6 +563,30 @@ SYSCALL_DEFINE5(file_setattr, int, dfd, const=
+ char __user *, filename,
+>> >> >>                         return error;
+>> >> >>         }
+>> >> >>
+>> >> >> +       /*
+>> >> >> +        * Userspace said "I don't want to change any flag", so be=
+ it I guess.
+>> >> >> +        * Still check for fileattr support and permissions, also =
+in case this
+>> >> >> +        * is just a probe.
+>> >> >> +        */
+>> >> >> +       if (usize >=3D FILE_ATTR_SIZE_VER1 && fattr.fa_xflags_rw_m=
+ask =3D=3D 0) {
+>> >> >> +               struct inode *inode =3D d_inode(filepath.dentry);
+>> >> >
+>> >> >
+>> >> > No No this is not what this userspace said!
+>> >> >
+>> >> > This user space is the same old chattr programs recompiled with a n=
+ew
+>> >> > fs.h header file
+>> >> > installed.
+>> >>
+>> >> Oh, right, I did not think about this case, I hope it doesn't break t=
+oo
+>> >> much of the new code I changed already for v2 :(
+>> >>
+>> >> > When userspace does not set anything is masks it means "old API"
+>> >>
+>> >> And so a modern program using masks that passes rw_mask as 0 should b=
+e
+>> >> also interpreted as "old API", even if it kinda goes against the
+>> >> definition of rw_mask right?
+>> >
+>> > Yes, but it is not a problem to describe this backward compat exceptio=
+n:
+>> > When (rw_mask | ro_mask) =3D=3D 0, it means "no mask" "set everything"
+>> > but then vfs will not accept new xflags that were not supported in v0
+>> > syscall.
+>>
+>> Uhm, since we have no way to know on the GET path if the caller is mask
+>> aware or not, on mask aware filesystems and legacy programs recompiled
+>> against VER1, file_getattr() will return rw_mask !=3D 0, when the progra=
+m
+>> does RMW, so calling file_setattr() with the old struct which has
+>> rw_mask !=3D 0, vfs will think that the caller is mask aware.
+>>
+>
+> True. This is a requirement from the design of v1
+> that RMW works correctly when the program does not change the masks.
+>
+>> This causes problems when that legacy program changes the projid, since
+>> vfs will see rw_mask =3D PROJID but fsx_xflags will not have PROJID, vfs
+>> will clear it even tho the program wanted to set it to some value.
+>>
+>
+> Yes, this is a specific issue with PROJID itself, not with the
+> entire masks API.
+>
+>
+>> Unless I'm missing something, there is no way for us to know if a caller
+>> of file_getattr() is a new mask aware program or just a recompiled legac=
+y
+>> program.
+>
+> Right.
+>
+>>
+>> My robot proposed 2 fixes: either don't introduce FS_XFLAG_PROJID
+>> (which, eh, not the best imo)
+>
+> Me neither. It's inconsistent IMO.
+>
+> But it is inconsistent in that we want to have a way for chattr -p to say=
+ with
+> the new API "set only projid", so we must have the flag, but we
+> mostly need it for the mask, we don't really care about its value in
+> fsx_flags.
+>
+>> or add a new flag to be used in at_flags,
+>> like AT_FILEATTR_MASKS, which would resolve all our legacy vs non-legacy
+>> problems, but it would be in *at*_flags, so doesn't really make sense
+>> semantically (but it would work well since file_getattr already rejects
+>> unknown at_flags, so it wouldn't cause problems for old programs).
+>
+> I think this is an overkill as well.
 
-The misc ad525x_dpot driver also knows the AD5246, by I2C id only and
-through its own sysfs files. It can't provide an IIO channel, which a
-consumer such as dpot-dac needs. The AD5272 is likewise in both drivers.
+Semantics issue aside, I think this shuold be the way to go, because
+it's explicit and doesn't rely on guessing based on struct size or mask
+values.
 
-Tested on an AD5246 at 0x2e, described as adi,ad5246-010 with a
-vdd-supply. It probes, out_resistance0_raw_available reads [0 1 127] and
-out_resistance_scale reads 78.125000000. Raw writes of 0, 64, 100 and
-127 read back the same value, and 128 is rejected. Writes through
-iio_write_channel_raw() from an in-kernel consumer of the channel read
-back as well (127, 38, 0 and 76).
+> We discussed this before.
+>
+> Attributes that have X_value like fsx_projid have few types:
+> 1. 0 means disabled (all existing values incl. projid)
+> 2. 0 is a valid value but cannot be unset (btime)
+> 3. 0 is a valid value and NULL/unset is also a valid value
+>
+> Only for type 3 does can the interpretation of
+> (!XFLAG_X && !fsx_X) be considered as an "unset"
+> and anyway, this will require support in individual fs.
 
-Datasheet: https://www.analog.com/media/en/technical-documentation/data-sheets/AD5246.pdf
-Signed-off-by: Joseph Telaak <joseph@telaak.dev>
----
- drivers/iio/potentiometer/Kconfig   | 10 ++++++----
- drivers/iio/potentiometer/mcp4018.c | 24 ++++++++++++++++++++++--
- 2 files changed, 28 insertions(+), 6 deletions(-)
+IMO !(xflags & XFLAG) && (rw_mask & XFLAG) should clear/unset the value
+in all cases, ignoring what's in fsx_X.
 
-diff --git a/drivers/iio/potentiometer/Kconfig b/drivers/iio/potentiometer/Kconfig
-index e6a9a3c67845..05833455e82a 100644
---- a/drivers/iio/potentiometer/Kconfig
-+++ b/drivers/iio/potentiometer/Kconfig
-@@ -70,12 +70,14 @@ config MAX5487
- 	  module will be called max5487.
- 
- config MCP4018
--	tristate "Microchip MCP4017/18/19 Digital Potentiometer driver"
-+	tristate "Microchip MCP4018 and compatible Digital Potentiometer driver"
- 	depends on I2C
- 	help
--	  Say yes here to build support for the Microchip
--	  MCP4017, MCP4018, MCP4019
--	  digital potentiometer chips.
-+	  Say yes here to build support for the following digital
-+	  potentiometers and rheostats:
-+
-+	  - Analog Devices AD5246
-+	  - Microchip MCP4017, MCP4018, MCP4019
- 
- 	  To compile this driver as a module, choose M here: the
- 	  module will be called mcp4018.
-diff --git a/drivers/iio/potentiometer/mcp4018.c b/drivers/iio/potentiometer/mcp4018.c
-index 75a63a01acef..b593082db4bb 100644
---- a/drivers/iio/potentiometer/mcp4018.c
-+++ b/drivers/iio/potentiometer/mcp4018.c
-@@ -1,12 +1,15 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * Industrial I/O driver for Microchip digital potentiometers
-+ * Industrial I/O driver for Microchip MCP4018 and compatible digital
-+ * potentiometers
-  * Copyright (c) 2018  Axentia Technologies AB
-  * Author: Peter Rosin <peda@axentia.se>
-  *
-  * Datasheet: http://www.microchip.com/downloads/en/DeviceDoc/22147a.pdf
-+ * Datasheet: https://www.analog.com/media/en/technical-documentation/data-sheets/AD5246.pdf
-  *
-  * DEVID	#Wipers	#Positions	Resistor Opts (kOhm)
-+ * ad5246	1	128		5, 10, 50, 100
-  * mcp4017	1	128		5, 10, 50, 100
-  * mcp4018	1	128		5, 10, 50, 100
-  * mcp4019	1	128		5, 10, 50, 100
-@@ -31,6 +34,10 @@ struct mcp4018_cfg {
- };
- 
- enum mcp4018_type {
-+	AD5246_005,
-+	AD5246_010,
-+	AD5246_050,
-+	AD5246_100,
- 	MCP4018_502,
- 	MCP4018_103,
- 	MCP4018_503,
-@@ -38,6 +45,11 @@ enum mcp4018_type {
- };
- 
- static const struct mcp4018_cfg mcp4018_cfg[] = {
-+	/* The AD5246's resistance is D / 128 of the end-to-end value */
-+	[AD5246_005] = { .kohms =   5, .div = 128, },
-+	[AD5246_010] = { .kohms =  10, .div = 128, },
-+	[AD5246_050] = { .kohms =  50, .div = 128, },
-+	[AD5246_100] = { .kohms = 100, .div = 128, },
- 	[MCP4018_502] = { .kohms =   5, .div = MCP4018_WIPER_MAX, },
- 	[MCP4018_103] = { .kohms =  10, .div = MCP4018_WIPER_MAX, },
- 	[MCP4018_503] = { .kohms =  50, .div = MCP4018_WIPER_MAX, },
-@@ -130,6 +142,10 @@ static const struct iio_info mcp4018_info = {
- }
- 
- static const struct i2c_device_id mcp4018_id[] = {
-+	MCP4018_ID_TABLE("ad5246-005", AD5246_005),
-+	MCP4018_ID_TABLE("ad5246-010", AD5246_010),
-+	MCP4018_ID_TABLE("ad5246-050", AD5246_050),
-+	MCP4018_ID_TABLE("ad5246-100", AD5246_100),
- 	MCP4018_ID_TABLE("mcp4017-502", MCP4018_502),
- 	MCP4018_ID_TABLE("mcp4017-103", MCP4018_103),
- 	MCP4018_ID_TABLE("mcp4017-503", MCP4018_503),
-@@ -152,6 +168,10 @@ MODULE_DEVICE_TABLE(i2c, mcp4018_id);
- }
- 
- static const struct of_device_id mcp4018_of_match[] = {
-+	MCP4018_COMPATIBLE("adi,ad5246-005", AD5246_005),
-+	MCP4018_COMPATIBLE("adi,ad5246-010", AD5246_010),
-+	MCP4018_COMPATIBLE("adi,ad5246-050", AD5246_050),
-+	MCP4018_COMPATIBLE("adi,ad5246-100", AD5246_100),
- 	MCP4018_COMPATIBLE("microchip,mcp4017-502", MCP4018_502),
- 	MCP4018_COMPATIBLE("microchip,mcp4017-103", MCP4018_103),
- 	MCP4018_COMPATIBLE("microchip,mcp4017-503", MCP4018_503),
-@@ -214,5 +234,5 @@ static struct i2c_driver mcp4018_driver = {
- module_i2c_driver(mcp4018_driver);
- 
- MODULE_AUTHOR("Peter Rosin <peda@axentia.se>");
--MODULE_DESCRIPTION("MCP4018 digital potentiometer");
-+MODULE_DESCRIPTION("Microchip MCP4018 and compatible Digital Potentiometer driver");
- MODULE_LICENSE("GPL v2");
+And all existing values would be of type 1 for VER0, but of type 1 + 3
+for VER1.
 
--- 
-Git-155)
+> fileattr_set_prepare() already treats the existing values as:
+> fsx_X =3D=3D 0 =3D> clear XFLAG_X
+>
+> And xfs returns EINVAL for !!(fsx_X) !=3D !!(XFLAGX)
+>
+> A simple solution is to fix the flag according to val in fileattr_set_pre=
+pare()
+(This should be in file_attr_to_fileattr() I think, but yeah)
+> if rw_mask contains this flag:
+>
+> if (fa->fsx_xflags_rw_mask & FS_XFLAG_PROJID) {
+>     /* Possibly legacy chattr -p compiled with new headers unaware of PRO=
+JID */
+>     if (fa->fsx_projid =3D=3D 0)
+>           fa->fsx_xflags &=3D ~FS_XFLAG_PROJID;
+>     else
+>           fa->fsx_xflags |=3D FS_XFLAG_PROJID;
+> }
 
+I think this would be a bit too overcomplicated to understand, and
+robot says (with the current v2 code at least) it would make e.g. ntfs
+return 0 instead of -EOPNOTSUPP for e.g. chattr +S.
+
+It also told me that statx already has AT_STATX_* flags that don't match
+the at_flags semantics (and indeed, AT_STATX_FORCE_SYNC/DONT_SYNC don't
+really make sense for "at"_flags semantics), so my only blocker for that
+solution is gone and I would really prefer that approach since it's way
+simpler and way cleaner.
+
+One more thing gemini told me is that if we don't want to use AT_*, we
+have to choose between (copy-pasted, "ntfs" meaning any mask-aware fs):
+1. Keep clamping fattr->fa_xflags & rw_user_mask (VER1 masked semantics
+   are clean, but recompiled VER0 RMW tools setting unsupported
+   flags/projid on ntfs silently return 0)
+2. Reject unexpected non-zero bits/fields outside rw_user_mask | ro_mask
+   (protects recompiled VER0 RMW error reporting on ntfs, at the cost that
+   VER1 callers must zero or mask fa_xflags / fa_projid / fa_extsize
+   themselves rather than expecting bits outside rw_mask to be ignored).
+
+So I would *really* prefer adding AT_FILEATTR_MASKS and setting
+has_masks based only on that.
+This way we can keep the whole legacy path frozen and not have to worry
+about weird edge cases (well, converters code aside of course).
+
+And personally in this way I can reason about the changes a lot more
+clearly and I can finally take a better look at the whole code and maybe
+simplify it in some cases (probably not, but I'll have to see).
+
+(Unless there is something equivalent to AT_FILEATTR_MASKS to filter on,
+like maybe a FS_XFLAG_MASKS (?), but that would be even worse
+semantically I think)
+
+Thanks,
+koraynilay
+
+> Does that leave any problematic corner case?
+>
+> Thanks,
+> Amir.
+
+--e8caff26652db83e371b7bbbf1756842a7f68d613d7cadc16719f19bedf2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRJ2XvJtXGwULYEerQ0bnTtJTDoOAUCawdDlAAKCRA0bnTtJTDo
+ONCrAP4wS19X15Zd1uxiHUaDnK5f93ecvn/xycDO7CK+uvKZdwD9HC9Tplb/KxkJ
+8/e31e481B/iXJEnCBIVupaaR1iwxgg=
+=abpA
+-----END PGP SIGNATURE-----
+
+--e8caff26652db83e371b7bbbf1756842a7f68d613d7cadc16719f19bedf2--
