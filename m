@@ -1,68 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588280;
-	b=YXcO+XDbI/pbEfXMq6jyPH1+5hC2Ji4/NgxQhVY6XSWB4pgS143ytbDYnnizZqjFrKy2
-	 3l7HUrQ40FS/uAUPwpGb+v3TDZmuMcAz5Azw1nPl4tMtQ5bz7jsUnf7DWNj30gplXNVhd
-	 ZAYGqM5WdpWeWaTalNl3z/wlXA7dOkLbjsF7Y5kq6apAilFgPnoaAE273C9HB/nAeWl9/
-	 BdyzhMPT84/yIZJdV9cCQSNuafiwUDgt0xryIi5BomwYOuf9jrhJWurGnoCdjwEtGj7VI
-	 e0M66xZgh+wOMLXbmsKkpHT2wCTORp4FzvSQ/vvH53ykuOBpoUwBuOeloXS5T965ZBw==
+	t=1795588295;
+	b=skTiD603YaFf+pZFNbOSrmyAwZcG0q9oG2PbBvdqvHV9RMN19ZX0sQDRSl+YcDEsTYN4
+	 msRKqewYqMYS8N+EniQmbYp0wSQ1hjMvX5HP1vw+sRooeqLG6n2nYKPdjpv8/ghMETju4
+	 Cxk8SCUv1JYyDtsJ0IdXwiWrxYYsGXK2KsxvNx/Gr2dFfdJEX7Ah8Z7BP2V65M5uPCmgA
+	 zhYhWIOPF507xdyfvJss/CtzN5OB6DmyOinbl2a34HkvIX3tsTECi+tRA+L1vjBRFyDQ6
+	 BUjNCIzynpT1Xpteh4G4hToWUXBHeHioy+xsklfAqBIpQ09VLDQT/R7rRULjQszJ9iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588280;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Cc:Subject:To:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=dNNow8pU0EgspMEvDUxBJ5a9af5PUjY1loG/b00zoNY=;
-	b=yNEmABX0zFcxPkaV+OEZ6k/2N/8DsSz9ziOtl2QcRoSjZM72Axubn9kyNoDaZXfn/cVD
-	 uDtl3JrvaZ2vpzx6Bwo3vaH547VSTj0yGeBA+2g1Mc5bPGzSE+ehvbBJFr8urcKl8fvPM
-	 r+x1xxK/OcUvXYk2gBLx4n9NTTTyvR7nGxW60zcvbWiloNOW8mLMwULimYcAqj52vzmnv
-	 YpjAggwSRqvaW92tSmBg5IpMb5gvYllzEHHlx713LgFlr2j9v3NiaHTP6pPpnQLgtAOKi
-	 VGl4LZsxgMaZ3hjho90Dhvdu734nQHTPE03fDTesw4boYic9OmB+3IfNHAXlNOVYMVg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588295;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-B4-Tracking:X-Change-Id:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=9E8HWuLfY3Nf/OQ9d6R8gO1UtYxqp2kDEADX+rOyoUE=;
+	b=EKt26IjaWzpQozsVCr7QwMHZ9yaAgxRwA+kDD1gyJPdga3TB75b9k/A1KNtgLwqOeP9D
+	 tdqHaf2vwLhu2qdvYPmbxts1H1hKBJknxPt3boeIkiAXY88MQvIkSbCugZgu6LlFc0FwE
+	 4MGh0W2DgD2tU9P9ByQDvqHh7VgWqrW1bYzf5aA4UKa6i8vdey73eEc3KYBFYTodxEHSs
+	 /cMdWbsN5Ur3JoQxQYSqGjEHCPn7E2MXMN4juFPjXq7TT0rt1ralnLOZlkOID/sPtPyK+
+	 /9X3d8JlwckAdqhJ2oSv3aOAsoY2+FlHVK6sV4UH/A1OHGFDrU4qis36NlBLaT0qvrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=exhRYpub;
-	arc=none smtp.remote-ip=192.198.163.18
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--rathodpriyank.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cep0HBaz;
+	arc=none smtp.remote-ip=209.85.214.197
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5048E606A31E;
-	Wed, 25 Nov 2026 06:31:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5048E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEF0A606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:31:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEF0A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--rathodpriyank.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=exhRYpub
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795588279; x=1827124279;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=AY2ItQH4n8SPEJWuIkbJCQ/t2DnGTrUZX9TmGLTjYU4=;
-  b=exhRYpubCZ4B+/4KTnFLkQmefLLvP6RLLTXN7FyOpiUqi12aoBv3askV
-   ojeAVGigb2wIQxpAyzqSxJolpHe8VVS+wCur0UOMdz/AdRV4QxD39lcXg
-   6YOXvo7UwbrUH3qUptK2R49KQVR/ORNks1JCvvIVFUlMb6Enjr8paLFYu
-   b8uqZ7p7cex5GkMFYv+vZAeeQNgFHwalSWxZ+2Nc3vHtosinWIKsMkXL7
-   cVo8yi+nEmJlKH4CvfEgwdwAvKJcx2mwId4HZW/NMd9CX6f/FRiVN/rAn
-   GtzRYKuYc6MuPQjHYgoMstmmVC6YmNVvUAliJus2rX+DvNJTkhzV5Lx4v
-   w==;
-X-CSE-ConnectionGUID: h7+MUX2dS9iQUFACLDt2pA==
-X-CSE-MsgGUID: kronBU0fQsa+1hkWLBk0Bg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4467694"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4467694"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 22:30:11 -0800
-X-CSE-ConnectionGUID: Xa+KThYJQ/mz0e8mRQ2i5w==
-X-CSE-MsgGUID: 4vr1ggl2Q1GgBnGRFyzm0Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="11891600"
-Received: from unknown (HELO [10.238.1.144]) ([10.238.1.144])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 22:27:06 -0800
-Message-ID: <9ce9d375-4a95-4e00-9d62-d6a0b2875a2d@linux.intel.com>
-Date: Wed, 25 Nov 2026 14:27:02 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cep0HBaz
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2f05b674e3eso38671355ad.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:31:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795588294; x=1796193094; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9E8HWuLfY3Nf/OQ9d6R8gO1UtYxqp2kDEADX+rOyoUE=;
+        b=cep0HBazVXzsf9PkAdljOv6G5MXFloV8WG81m90sSHMoYIcmRvOmjhm6oTMSkwpaun
+         pzHHaOTBFmdCmfJ+13KNqBO1FuQGVJum0GJqPzQl4QRFXgyQ8Hvo03jD0JgRHMDwk03B
+         DLYjQsoal4MKgLI3qsnjfCpZ7EBOaoM5ulBq44yBjz53rAkvTYBkVh4iKyNR0GfFRYgS
+         JZDvTwMCAPLeiZLLJGteHxxOc/KhBQrWGw3Ltw+QesLR53YU3Nou+jIfq5gwF/63+eZR
+         n79TEBDEkA8a/fP7k5LHPVjaZYz2yTEIZG3g6403wH3len5MNyLrRwm/4CDJncRMJ+h1
+         ePiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795588294; x=1796193094;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9E8HWuLfY3Nf/OQ9d6R8gO1UtYxqp2kDEADX+rOyoUE=;
+        b=EIvZChT5ExiC/OVxj+M02TnRP7fAPTUteQ3OD/gFmwlBe9a9YZJwjHgqmFqdQDyed8
+         VhIuFtKSMl0tSGPXnoVsY8hd3Z+du5GYkH5uzQuLj1pyIYwRX4g6DyAv/X7c2SeH/0kz
+         CWTvwCYqrLRPrYheliPR36Pg2VC0FBAQW0CPrOue23yFiZoO09QNwATV0MQPIDt1DeXy
+         aSCIShWuSv6HtU4ltehv/jExlgWxLARv+eyDSY4bgOcGrTVLxPpoGlF79m1wJFnDoajC
+         HpVlAeZaWibPzpktRcqHicssk0G6RUiGvYFM2daAL9JCRxH7OnDo6JBFx5WaOEEJe6jE
+         nXRw==
+X-Forwarded-Encrypted: i=1; AL+hErFnTxh68PIIYfFkUS6u2CteecOMbmf4GwWqFMe5Yisu92fpBnYH/w6aRSlhrrT9urHFg8KluLgG21kF6cg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5Q3h6Mi+yVJCjhG1fiQGqVwGjILIOwhZ3SSAJuV93+DXAzSEq
+	r3Gv08WD2B4/Yrw1YpcAs+r9su44fYV1v+Ktm8RjMj9mwUxxFy8sB7BHLxOPRNU1oJXH8fcqpKA
+	KKsg/RJg3SXiqihoCYes2mEAiTon0CDu2iw==
+X-Received: from plrd18.prod.google.com ([2002:a17:902:aa92:b0:2eb:50b1:b505])
+ (user=rathodpriyank job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:902:ecc4:b0:2f0:3c38:9133 with SMTP id d9443c01a7336-2f0c5f91aa0mr41199225ad.43.1795588293874;
+ Tue, 24 Nov 2026 22:31:33 -0800 (PST)
+Date: Wed, 25 Nov 2026 06:31:32 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,69 +76,179 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, Jason Gunthorpe <jgg@ziepe.ca>,
- Kiryl Shutsemau <kas@kernel.org>,
- "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
- "yilun.xu@linux.intel.com" <yilun.xu@linux.intel.com>,
- "Li, Xiaoyao" <xiaoyao.li@intel.com>, "Gao, Chao" <chao.gao@intel.com>,
- Binbin Wu <binbin.wu@linux.intel.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 6/9] iommu/vt-d: Refuse system suspend while acquired
- by the TDX module
-To: "Tian, Kevin" <kevin.tian@intel.com>,
- "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
- "x86@kernel.org" <x86@kernel.org>,
- "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
- <20261112043054.2664857-7-baolu.lu@linux.intel.com>
- <CO1PR11MB4835B7CA0A21EB68A2034C108C432@CO1PR11MB4835.namprd11.prod.outlook.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <CO1PR11MB4835B7CA0A21EB68A2034C108C432@CO1PR11MB4835.namprd11.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAMSABmsC/43QSWrEMBAF0Ks0WkdBpdJgZZV7hCw0lN0iHcvYj
+ UlofPfIvciATfDyF9T78G9sojHTxJ5ONzbSnKdc+hqahxOLZ993xHOqmUkhjWgQ+BAz8Uvu3zj
+ 1aSi5v07c2YZAiKSTMKx+DiO1+eOuvrzWfM7TtYyf95IZ1uv/3gwcOMoo29Q4JEfPXSndhR5je
+ WcrOMsfxAm1j0guOJg2BhTgkdQGwQMIVkQF5x2EpALqDaK+kbqA2UdURXzS6JqoalncIPoAois SgSxK1FaZsEHMAcSsm2iVLBhtE8oNYn8hIPcRWxE0PngXHbQg/iDLsnwBnEtit1UCAAA=
+X-Change-Id: 20260831-pcie-link-endpoints-978e100d5d06
+X-Mailer: b4 0.14.3
+Message-ID: <20261125-pcie-link-endpoints-v8-0-19d49c17c05f@google.com>
+Subject: [PATCH v8 0/3] PCI: Add Lane Margining at the Receiver debugfs interface
+From: Priyank Rathod <rathodpriyank@google.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, 
+	"=?utf-8?q?Ilpo_J=C3=A4rvinen?=" <ilpo.jarvinen@linux.intel.com>, Lukas Wunner <lukas@wunner.de>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Shuah Khan <shuah@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, linux-pci@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Priyank Rathod <rathodpriyank@google.com>
+Content-Type: text/plain; charset="utf-8"
 
-On 11/25/2026 12:01 PM, Tian, Kevin wrote:
->> From: Lu Baolu <baolu.lu@linux.intel.com>
->> Sent: Thursday, November 12, 2026 12:31 PM
->>
->> While tdx-host has acquired an IOMMU, the VT-d driver blocks its GCMD
->> writes. TDX disables S3 by clearing acpi_suspend_lowlevel, but that is
->> only checked after the syscore suspend callbacks have run, so an S3
->> request, e.g. "echo mem > /sys/power/state", still runs iommu_suspend()
->> and then iommu_resume():
->>
->>    suspend_enter()
->>      syscore_suspend()
->>        iommu_suspend()                  <- runs on the acquired IOMMU
->>      suspend_ops->enter() = acpi_suspend_enter()
->>        if (!acpi_suspend_lowlevel)      <- TDX's "S3 disabled" check
->>            return -ENOSYS
->>      syscore_resume()
->>        iommu_resume()                   <- runs on the acquired IOMMU
->>
->> Register a PM notifier for each DMAR unit that supports trusted DMA and
->> refuse PM_SUSPEND_PREPARE with -EBUSY while the unit is acquired. The
->> suspend then fails before tasks are frozen and before syscore callbacks
->> run.
->>
-> 
-> what about directly returning error in iommu_suspend() if any acquired
-> IOMMU exists? at this point all other processes are frozen so no contention
-> exists at this point.
-> 
-> or introduce a new flag or counter (intel_iommu_suspend_disabled) which
-> is set/cleared or incremented/decremented along with acquire/release,
-> then just check this flag/counter in iommu_suspend().
+Lane Margining at the Receiver lets software move the sampling point of
+a receiver in time or in voltage while the link stays up, and read back
+the errors the receiver sees, to find out how much margin a link running
+at 16.0 GT/s or faster has.  pcilmr in pciutils does this today by
+writing the capability registers directly from user space.
 
-I'm fine with this. It's actually what I did at first. The only downside
-is that iommu_suspend() runs very late. By then, every device has
-already been suspended, and suspending a device that is assigned to a TD
-may affect its TDISP state. That shouldn't be the IOMMU driver's concern
-anyway, so let's start with the simpler approach.
+This series adds a debugfs interface for it.  The kernel sets the link
+up for margining and puts it back afterwards:
 
-Thanks,
-baolu
+  - ASPM is temporarily inhibited for the session with an internal
+    reference-counted helper in the ASPM driver, Hardware Autonomous
+    Width/Speed Disable are set on both ends, and both ends are kept
+    runtime resumed.  All of this is undone when the session ends or
+    either end of the link is removed.
+  - Before each margining command, the link is checked against the
+    state the session started in.
+  - User space selects the receiver and the steps; the kernel does not
+    run sweeps or interpret results.
+
+Patch 1 adds the internal pcie_aspm_inhibit() helper in
+drivers/pci/pcie/aspm.c, patch 2 adds the LMR debugfs interface and its
+documentation, and patch 3 adds a kselftest.
+
+The only PCI core changes outside drivers/pci/pcie/ are the init/exit
+hooks in probe.c and remove.c and internal declarations in
+drivers/pci/pci.h; drivers/pci/pci.c, drivers/pci/pci-driver.c, and
+include/linux/pci.h are not changed.
+
+Signed-off-by: Priyank Rathod <rathodpriyank@google.com>
+---
+Note on the v4, v5, and v6 reposts on Oct 6:
+Apologies for posting v4, v5, and v6 within a four-hour window.  The
+root cause was reacting immediately to each incremental automated
+sashiko-bot report on the mailing list instead of running the full
+review pass locally first and batching feedback into a single revision:
+
+  1. v4 (16:09 UTC) reworked the series into two patches, dropping
+     pcie_get_link_endpoints() and pci_aspm_inhibit() per Ilpo's review.
+  2. v5 (17:35 UTC) was sent after sashiko-bot flagged
+     'up=$([ "$rx" = 6 ] && echo "$dev" || echo "$partner")' in
+     pcie_lmr.sh, mistaking the PCIe Upstream Port (receiver 6, the
+     child device below the Downstream Port where aspm.c attaches the
+     sysfs 'link/' directory via pcie_aspm_get_link()) for the
+     Downstream Port.  Although the logic in v4 was right, v5 renamed
+     'up' to 'child' and added a comment so human reviewers would not
+     hit the same ambiguity.
+  3. v6 (20:59 UTC) was sent after sashiko-bot flagged on v5 that
+     pci_lmr_reboot_notify() used mutex_trylock(&port->lock) under
+     pci_lmr_mutex and could skip resetting a port if a debugfs command
+     was in flight during reboot/kexec.  v6 replaced that with a kref on
+     struct pci_lmr_port and pci_lmr_end_sessions() so reboot/kexec
+     waits for p->lock outside pci_lmr_mutex.
+
+Changes in v8:
+- Rebase onto v7.4-rc1.
+- Replace pci_force_enable_link_state() and the bitmask return value of
+  pcie_aspm_enabled() (both deferred before v7.4-rc1) with an internal
+  reference-counted pcie_aspm_inhibit() helper in drivers/pci/pcie/aspm.c.
+- Hold port->lock continuously across claiming and activating a session
+  in pci_lmr_start(), recheck pci_lmr_rebooting under pci_lmr_mutex,
+  wait on starting sessions in pci_lmr_find_session(), and drop runtime
+  PM and partner references outside the device locks in pci_lmr_stop().
+- Preserve unread too_many_errors status in PCI_LMR_LANE_STS when
+  pci_lmr_sync_lane() resets software offsets for a lane.
+- Link to v7: https://lore.kernel.org/r/20261012-pcie-link-endpoints-v7-0-36aba9c91f10@google.com
+
+Changes in v7:
+- Match PCI_LMR_LANE_RX | PCI_LMR_LANE_TYPE | PCI_LMR_LANE_PAYLOAD in
+  pci_lmr_no_cmd() instead of U16_MAX, and format the error count in
+  status_show() with %u and an explicit unsigned int cast.
+- In pcie_lmr.sh, check all unreachable receiver numbers for the port
+  type and, on a Downstream Port, discover any retimers on the link
+  (receivers 2..5 via LNKSTA2), test caps and a timing step 1 -> 0
+  round-trip on each present retimer receiver, and verify that absent
+  retimer receivers are rejected with -EINVAL.
+- Link to v6: https://lore.kernel.org/r/20261006-pcie-link-endpoints-v6-0-154d71657d32@google.com
+
+Changes in v6:
+- Add a kref on struct pci_lmr_port and use pci_lmr_end_sessions() in
+  pci_lmr_reboot_notify() so reboot/kexec waits for in-flight commands
+  outside pci_lmr_mutex (preserving the port->lock -> pci_lmr_mutex lock
+  order) instead of skipping ports on mutex_trylock() failure.
+- Link to v5: https://lore.kernel.org/r/20261006-pcie-link-endpoints-v5-0-c1e73235746b@google.com
+
+Changes in v5:
+- Clarify in pcie_lmr.sh why the sysfs 'link/' check targets receiver 6
+  (and rename 'up' to 'child'): in PCIe terminology the Upstream Port
+  (receiver 6) is the child device below the Downstream Port, and in
+  drivers/pci/pcie/aspm.c aspm_ctrl_attrs_are_visible() looks up the
+  link via pcie_aspm_get_link(pdev) -> pci_upstream_bridge(pdev)->link_state,
+  so '/sys/bus/pci/devices/<dev>/link/' is attached to the child device
+  below the Downstream Port, not to the Downstream Port itself.
+- Link to v4: https://lore.kernel.org/r/20261006-pcie-link-endpoints-v4-0-ad5398c4260c@google.com
+
+Changes in v4:
+- Drop the exported pcie_get_link_endpoints(); the partner lookup is
+  private to margin.c (Ilpo).
+- Drop pci_aspm_inhibit() and all aspm.c changes.  Use
+  pcie_aspm_enabled(), pci_disable_link_state() and
+  pci_force_enable_link_state(), call neither when no ASPM state is
+  enabled, and restore Clock PM when CLKREQ# was enabled.  ASPM Control
+  is checked on both ends before each command.  The remaining
+  differences after a session are documented.
+- Remove the MSampleMultipleReceivers capability bit.
+- One receiver per session, selected with a port-level 'receiver'
+  file.  A session starts with receiver 1 on a Downstream Port and 6
+  below it, as pcilmr does; receiver 0 is not used for margining.
+- Add a per-lane 'status' file with the step response and error count,
+  and a per-port 'port' file with the Margining Port bits.  Stop writing
+  Margining Port Status.
+- Locking: take both device locks with pci_dev_trylock() only while a
+  session starts or stops, require both ends to be added, and make no
+  runtime PM calls under the LMR locks.
+- End sessions from pci_lmr_exit() for either end of the link.
+- Commands fail with -EIO after a system suspend.
+- Move debugfs to pcie_lmr_<device> at the debugfs root.
+- Keep per-device state in margin.c instead of struct pci_dev.
+- Split the selftest into its own patch, rename it pcie_lmr, use KTAP,
+  and only start a session on the port named by PCIE_LMR_DEV.
+- Refer to registers by name instead of specification section numbers.
+- Link to v3: https://lore.kernel.org/r/20260904-pcie-link-endpoints-v3-0-4b9a91bd4b35@google.com
+
+Changes in v3:
+- Link to v2: https://lore.kernel.org/r/20260904-pcie-link-endpoints-v2-0-16fcb301a3e4@google.com
+
+Changes in v2:
+- Link to v1: https://lore.kernel.org/r/20260831-pcie-link-endpoints-v1-1-32c2fd893e9e@google.com
+
+---
+Priyank Rathod (3):
+      PCI/ASPM: Add internal pcie_aspm_inhibit() helper
+      PCI/LMR: Add Lane Margining at the Receiver debugfs interface
+      selftests/pcie_lmr: Add tests for the Lane Margining debugfs interface
+
+ Documentation/PCI/index.rst                  |    1 +
+ Documentation/PCI/pcie-lmr.rst               |  155 +++
+ MAINTAINERS                                  |    8 +
+ drivers/pci/pci.h                            |   14 +
+ drivers/pci/pcie/Kconfig                     |   11 +
+ drivers/pci/pcie/Makefile                    |    1 +
+ drivers/pci/pcie/aspm.c                      |   70 ++
+ drivers/pci/pcie/margin.c                    | 1596 ++++++++++++++++++++++++++
+ drivers/pci/probe.c                          |    1 +
+ drivers/pci/remove.c                         |    1 +
+ include/uapi/linux/pci_regs.h                |   18 +
+ tools/testing/selftests/Makefile             |    1 +
+ tools/testing/selftests/pcie_lmr/Makefile    |    3 +
+ tools/testing/selftests/pcie_lmr/pcie_lmr.sh |  387 +++++++
+ 14 files changed, 2267 insertions(+)
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20260831-pcie-link-endpoints-978e100d5d06
+
+Best regards,
+-- 
+Priyank Rathod <rathodpriyank@google.com>
+
