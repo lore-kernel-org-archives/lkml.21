@@ -1,80 +1,167 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621384;
-	b=4ivFoTeMSlYZHSrPiQczgC13XuMbgrLWLKsZkHesqsxiPFhApjArEs2QjFvXfMAaFG3y
-	 zB+KlzHmFBVhlpNseAv2PW8Rg6B9xTkiSkZciWkeNLeOcYOxeZo8DDrl5ku08SFUm1W9K
-	 CQ3NObctgP0C8EWVZ7llqJE8zZ+xqzfbdUGRZybAltg7I0tVhQzc4EmA3liOu8B4xCyr+
-	 J0uyJqo8shZ7P4MkaRR4hqBiqqyY3Gk8X69PDE69RE9JhrAyC+NUkp3stLcizjZv79kkN
-	 lOH5dzTSHWvrzlZjBBONr3jx0O+1XBDk04b9tT68jXI8x9EddX/UkaYHrnmT0rVFmwg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621384;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
-	bh=WZPSE+/aPUgUkU5d51JstPYKeYOzV9gOp4cllrxEEKA=;
-	b=28AV1KPmQiSg35cBkZf/FExR6pX/K1dB/Km5F1yfMEfYr2Pt4t+/bf177FR96xrzL9rv
-	 6GMDnn1OPNpshbxx0kW3q2/EC9dnOZXsElJzsIMGZLW9Gd9h4GlEN2A9QD0lXyK31r1K9
-	 Ren64AOVVddi/T/ImZnF4D1N8lyIndwS4Hs246SCXOYUlToyC8IIMqMMeynA2RjU9mXgD
-	 Mt/M58l/DqXLzVzd/cYF8l7T07AmH7XE3lj366soLhDBUQNqZZAf9MNOIbrBwQyYXPzUw
-	 dA4gEN48bsOW+mRdSy781ppU0Faz5LsSkQMSeleubPMMD/mupT79Zj+r6V21zALbnVA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=aXW9kDnh;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.20
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795621375;
+	b=Gy2BQYxYTihpPuF9yMZr/VWajXdPR82YTGmFPmXa6usLY6JdohJrnVqJUAJdLvP5JeAS
+	 TPqm2Mm9IIHnm4pZpiMijXNvzZEJY0sRmCmw++hBsOTeWCgz8FfgsLSrVR6RMeVYErASy
+	 urx4Vl+xyYbFPCR8oUOsqxFsPSD2zaDG3X5kgL0qR5ds1stUGsNXbOI4a4G9Gt9kzw+/s
+	 WqTx8PholU1i5lNpdsmmkKDYbc/cvc1XmdvtJ/7XwNX9ZkyXuN0l9nCPU9m/wKLsoeQkg
+	 h2xP/Fx+rXUmgfpKqaxqOUlXTmw+Ub1ohsLsPU/wjsD1YqviDiHj3ghZNN8cwZTCAzg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621375;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ld-processed:
+	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
+	 x-microsoft-antispam:x-microsoft-antispam-message-info:
+	 x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=51H70+L/Moo2tq1MNooRkWMBParyLJ6dgENFVsCZwi4=;
+	b=UO3Bw9uG+/9AHVZKIkhsK5J/dZsfMelLDbQLmKcSeH/vMbu9Jme2vIGqldcH7/rjhQjE
+	 3g6K1Xl3tabOqqvlD2Plb+P6w9LTrWae0k9MRrcG19GBkBn6v7u9W91GzSbZ99e8hRI0E
+	 nasHWt8/Dis/RMsM3dvkvPcM1vXHdVX2dRsiYgJi519M9LWBpFFCaBH2GxVaM4vxQAC1L
+	 cI8OSd7jbVuT91aq8oJro+46saoVzrknGr1Ow1Kscvn23E6H6RGuc2qT6LegkWl+aIndQ
+	 x+lp5gzjhJYKqLE1dHhXyFHMHQUCwaR2es02s3Jy1T5eM5sE2j/VAvpXglF5DHjIV0A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bp.renesas.com;
+	spf=pass smtp.mailfrom=bp.renesas.com;
+	dkim=pass header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=q+HwVhLc;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.20
+Received: from TYVP286CU001.outbound.protection.outlook.com (mail-japaneastazon11011020.outbound.protection.outlook.com [52.101.125.20])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CD64607DE8A
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:43:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CD64607DE8A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8BDA606A6A9;
+	Wed, 25 Nov 2026 15:42:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8BDA606A6A9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bp.renesas.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bp.renesas.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=aXW9kDnh
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795621382;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=WZPSE+/aPUgUkU5d51JstPYKeYOzV9gOp4cllrxEEKA=;
-	b=aXW9kDnhpwnY+O3c1Y0HT8o915eJd1iIvbd+4j6xhQ225kIs1JeE5XrtZrXssp7MYTEBeg
-	3ksyUA2k6GUrQg8ERTMraDBaN8EqHV0dpeiZ60HEUZlhNTkgZtg3KDVXxz0hnvTa75eCuy
-	hVAGvHOHypvYVScWKOvbCgKCh+69q7g=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-539-qZB1CWkgOLKgBYtHZpmc2Q-1; Wed,
- 25 Nov 2026 15:42:54 +0000
-X-MC-Unique: qZB1CWkgOLKgBYtHZpmc2Q-1
-X-Mimecast-MFC-AGG-ID: qZB1CWkgOLKgBYtHZpmc2Q_1795621371
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 71FA919540E3;
-	Wed, 25 Nov 2026 15:42:50 +0000 (UTC)
-Received: from ivecera-thinkpadp16vgen1.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C0276436;
-	Wed, 25 Nov 2026 15:42:46 +0000 (UTC)
-From: Ivan Vecera <ivecera@redhat.com>
-To: netdev@vger.kernel.org
-Cc: Min Li <min.li@microchip.com>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Petr Oros <poros@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2] dpll: zl3073x: do not block DPLL callbacks while PTP ops wait
-Date: Wed, 25 Nov 2026 16:42:45 +0100
-Message-ID: <20261125154245.205758-1-ivecera@redhat.com>
+	dkim=pass (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=q+HwVhLc
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bSNARYzjTmq4emCAU02YfO/4OvoRfb1XzHFN32b+Qi/lOB3/aJPyjux48za2kFEFNWW6MrLL4J8hNvtrxY5MpuPoRtgTfR7hmLMiiOA41K5vUvfbOxWEkUVBXz2BTmHzsC8nmz9lTFWyIkltIGivgvuX3ct5PnPGiQUPRUC4wD3ZMR62lszlDFCAIPf61L2LewX4xliHeEGpaD02tyFdEAprXCWimmo9P3Z2NoPg1v76eY+KkUlG58Wt2UWmfJoVu7tm/BcDqDeW/ZV0C1Vg3VU7gn7wH18beMhKifPMA6tS8mtW6hHqHNnuXz388hOb7pC6mUuqBcythFltamdXAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=51H70+L/Moo2tq1MNooRkWMBParyLJ6dgENFVsCZwi4=;
+ b=Fs6WR0H13HA8cLDZ/xOEsn+AlYKKIsdxeMdfbFW25pBGCfdzaslN7WXUGB6lkQ04XCbQUmgVjOQPbGye5s5aRIdSBOXZDPQY21Te8Jtx0lE11BiQHa+mmg6FjMdEeZUGVkInFyCnXooBfe2HgTLDP0/kxs0k2LVg5It3alYQg8iZDH2P1I7KWYIKsEmxTpPJjLVwRkqARsihc3TakD6vPHyvlJBy7Wy/+A1mcCZXB1KAxsBocz2jSlOz/hXg+VrfIMWvBIaydnVM3eazgpqKuWN+VxDTu89qvxfYCuwjWD5HDOVAYDn3imJ5zD0YgQ3K5nvYYBG3Hd6b60s8ibFDCg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=51H70+L/Moo2tq1MNooRkWMBParyLJ6dgENFVsCZwi4=;
+ b=q+HwVhLclmN76gnpfbQntCKYlbYPglMn5M10VKOi/TqFVucIYWUL3K4tbsHuUcS/lb6dI0fFdJn++qygpwTkV89Ft53TwyvbcC1IbWYcuLjK/v6RCrLei7kTQ7OSUWoC1vFwgVE0ewIrW58FYX2gN5uAPYrD9BvG0U4oh9ks2Yo=
+Received: from TYYPR01MB6603.jpnprd01.prod.outlook.com (2603:1096:400:e0::9)
+ by TY4PR01MB15779.jpnprd01.prod.outlook.com (2603:1096:405:2ba::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.5; Wed, 25 Nov
+ 2026 15:42:47 +0000
+Received: from TYYPR01MB6603.jpnprd01.prod.outlook.com
+ ([fe80::145b:b854:162:2e7f]) by TYYPR01MB6603.jpnprd01.prod.outlook.com
+ ([fe80::145b:b854:162:2e7f%5]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 15:42:43 +0000
+From: Biju Das <biju.das.jz@bp.renesas.com>
+To: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Tommaso Merciai <tomm.merciai@gmail.com>,
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Geert
+ Uytterhoeven <geert+renesas@glider.be>, "magnus.damm"
+	<magnus.damm@gmail.com>, Laurent Pinchart
+	<laurent.pinchart+renesas@ideasonboard.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v10 10/12] drm: renesas: rz-du: Support several DU
+ instances in one DRM device
+Thread-Topic: [PATCH v10 10/12] drm: renesas: rz-du: Support several DU
+ instances in one DRM device
+Thread-Index:
+ AQHdc2mQXc9YOQBvg02jmZuHcmeGVrc781HAgAE6mgCAABQz0IAADw6AgAABgjCAAA1wAIABElhggABqnQCAAACi8IAACdYAgAAU0vA=
+Date: Wed, 25 Nov 2026 15:42:43 +0000
+Message-ID:
+ <TYYPR01MB6603FEBB7A68BE8A95F930D286432@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+References:
+ <e22a176720a38df652c7f7eabe27219da50f217d.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
+ <TYYPR01MB660397C3B66F6EED53656B2086442@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+ <awV6pAtcSz8e9Q74@tom-desktop>
+ <TYYPR01MB660334463EC01FCF06F7A9E586442@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+ <awWXLFAbDd_35Q-l@tom-desktop>
+ <TYYPR01MB6603D650B839F808ACBA811F86442@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+ <awWkwJTxdJV1owf-@tom-desktop>
+ <TYYPR01MB66037146324486059A62A60486432@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+ <awbkUiagA_n9z521@tom-desktop>
+ <OS3PR01MB65961475F4B3C1D5D781E7C486432@OS3PR01MB6596.jpnprd01.prod.outlook.com>
+ <awbtGl7FghBWsW2C@tom-desktop>
+In-Reply-To: <awbtGl7FghBWsW2C@tom-desktop>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYYPR01MB6603:EE_|TY4PR01MB15779:EE_
+x-ms-office365-filtering-correlation-id: bd667f39-7f5d-4961-6de3-08df4b0abede
+x-ld-processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|366016|22082099003|18002099003|6133799003|261009223027099003|56012099006|4143699003|261028144727099003|11063799006|261022105027099003|261021121427099003|261102123227099003|261022075727099003|261021123027099003|261026121527099003|261026140227099003|38070700021|10067099003;
+x-microsoft-antispam-message-info:
+ Cv1Tg0kSGV2GpiSMa2Of9d51yhP8HSs5vJXaWNJppiGi5posUkFyyiD+ZVdc6ozVDFRrgmT6ZC07cQxA52ixvpenUbWsDQflf7XCpRuAgJdSZhzWJXIU/27BV+/jscGgrGtWtkzf0ZgD7jt9kfdvQZbAPGDGny5GLT4UXnpMYlmNk89cFcAeBeGkeYlezEt22RrNrtK9tOtQpS8oBFeBgS+2FnGdblEa9+njc5+CXZW9KPBCNjg3DDtM78XFgSGNwQQ7giuvM5DHR+cAw0xszU4jUma0+Y8Z+w4u+K8rYNpmFrVvSeitoVSyiSFc1hI23KfK9k91s0C5oz5jCuZRkZLNEiB2Lz1E4zuBNV6xDkVGFExfoEYNJamIncloTzZAEfj1GGnMOH8017OYZlrzCNGEoELX9nMxyAHkKA4wX+zgi0yq181lcsQNFX29d/GGxtPb8R0VxqQq6UHA+rWCYQZ56150Bh0NL/ChTNrVY1S4HJ2eLOw5OeRQyOZ5//DGYexfvQO573TrxXc3OTLKe8UrKIUM+7ju9sBIo5FfieCDuFGThyLetlJ1HAz53ooOCqwfyjtXT+2J+q1SQM9V6Kg0qaAtHg8B/Z/xmu9RXHFWKYPz9JsdREKB0bRIM9mOKcaNJI4Rs+JwZ1nuS7m1bLbXO/q5JaHVCor03n2bbKA=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYYPR01MB6603.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(366016)(22082099003)(18002099003)(6133799003)(261009223027099003)(56012099006)(4143699003)(261028144727099003)(11063799006)(261022105027099003)(261021121427099003)(261102123227099003)(261022075727099003)(261021123027099003)(261026121527099003)(261026140227099003)(38070700021)(10067099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?u12mFoAp7Ef/lvYfmrIun8XOH85mBVHn3LOoA+DB/Sk8VriCsUb3wWbwAm?=
+ =?iso-8859-1?Q?EWo8e3/PkgAu797w5IhdFIS5d41wk2E4u9yc1sWcTHrkZbQ02W9ae2UWsC?=
+ =?iso-8859-1?Q?39BaE1gdwDqwOFDQO01aqanIw5tAuWVZhtyoKZr1QGwZ8bk8HaIfmNLGZq?=
+ =?iso-8859-1?Q?mH9oNO+Kaw+3a5dkecZwZ1WxAYQW0vkrmxHcrzseG8EcSM+ns8cAmhVRIT?=
+ =?iso-8859-1?Q?pGMPfBYOud3Vy1CUnyOYsDEBw0ggOqNtxs21aPh+SOseZt1UbAG3ma6sil?=
+ =?iso-8859-1?Q?tnhZ5YGBaB3hS5PS1vGaHdGNM0EYUTv/VNkzqEKbHSXqlttqoaDr4BNotp?=
+ =?iso-8859-1?Q?eCleSpqH2wQdfVrrbl1jZImnCNWjSZCjdka12XkFsMsWKNBUn9MNmZ7R3r?=
+ =?iso-8859-1?Q?JQs0nzXyPfsWSSSuueQnU82lGTj0wcIpH6Vx4SmoPtR548VHDTNMmc+dn+?=
+ =?iso-8859-1?Q?WAk8nVoc3Vcw+t2JNZMrx2VChLlsJuzextybxkbjtKM0I7lcG4QsCwVJos?=
+ =?iso-8859-1?Q?bjDjkthqrTCXsLC4tBLENXLuLbfFXDuqymUEg+7xLHfgNXvUEe/MZleduF?=
+ =?iso-8859-1?Q?dgORfbW16cxG9l+FA8WZtor9TJQpFckzqSRWpN7C/FYfvRg2DuWq5wuq30?=
+ =?iso-8859-1?Q?DtqLIxpk/W/Dwfn3KjTuRPzDBgVx2xLwTRGNN2nZKlrgLukKXmmV6gJtMC?=
+ =?iso-8859-1?Q?U4wvCKmfMXc3BDXun3VRw9VPkxBQO4rUYcvzC0O3CjGK7e2E28kC1/T6ps?=
+ =?iso-8859-1?Q?nA+6NGIqDbB3pM0FglsT3kj0uCEFXYHC2mSEf7RjMoRo8TtWb/SSc2klwo?=
+ =?iso-8859-1?Q?5Or5a1dpksA46M1I7k3o4e7pFnbBuSbIpjqCA4hGi/du9k7GH70ph12M4J?=
+ =?iso-8859-1?Q?sZFV4HYsYZeusMdKTFuHgvBzvhPNzW7IjkPeVX1frYXo8J6bmF6KfKqAv3?=
+ =?iso-8859-1?Q?xcPefgTLcZ9he6JBQuCTrBJRYc5FGy0jA/dPj/X2Fr10cjYmYMn3a4LYP4?=
+ =?iso-8859-1?Q?5NItN/q7R6RXXVQG3Gf95Lp5xgjphrER4tMGmI3ucQG/RWIbkAHFK9s6ph?=
+ =?iso-8859-1?Q?Fq1HApsvtYVNnwn570rcAMjx+RpDIR+syE7jrHoTcCuV8sTxNf/lYBmubg?=
+ =?iso-8859-1?Q?4+DnGEJaM0mimmftdz/vgv5uGYgVue4tA7w5AJMj1bDuOSp2qgTcsAhtS5?=
+ =?iso-8859-1?Q?IuU3ZWSiwMpSEwYXZc4B1B6477ng6DSAxYfjTghasVwunY6zorDA98Wys4?=
+ =?iso-8859-1?Q?nJfZZF50Yns3HLC56LTwjPnHnQkrSirCmi1VPETl9fgu8qZDHauTTK3z+3?=
+ =?iso-8859-1?Q?U8HyxZUVQeonLvj5kINd6usZBqgyh9TRJ1W59IYwh6MMYuHld0dvYEy2o1?=
+ =?iso-8859-1?Q?lw0gZDQ3sIhZarC1bGEtWl6QrlPkXvwDc5tLa4EiVKniNGZjnQK+v0s21h?=
+ =?iso-8859-1?Q?k9qIF9T/UyJY28bl9Sf1BHeAhZEozr5EzgHZhwsslIasMd+BYqdxVjMkxJ?=
+ =?iso-8859-1?Q?DCfKuCOZdKblX3m1R6zooGM/YBgwWtnTeK6qwcKZspVpOVmRJyJFSTTkbR?=
+ =?iso-8859-1?Q?YevZQ20/gYByhifOtVNkw4FA/FXsovNcOW6CDtWr+2AyF0KOG8b+sc7bPk?=
+ =?iso-8859-1?Q?Pwmcyed18WqA8MZ4bYpU/nwJusJ0pEQqVSBe2vAInF+LbC4XxbJQdF3BGv?=
+ =?iso-8859-1?Q?HpVHNljN4KbTGQ7GkN0DsKr0+YRInhSVjVKmx24U3q/1olAmfbxWXUDMXX?=
+ =?iso-8859-1?Q?qAgHXymOTc+al/Lpn+TE2MWGcNpIVmvfDdVP7PTlTNpp8+KE+ECzZP8K8+?=
+ =?iso-8859-1?Q?N3uDJ5uUNQ=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,507 +171,437 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYYPR01MB6603.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd667f39-7f5d-4961-6de3-08df4b0abede
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2026 15:42:43.3325
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: GNtbfujHMSLRGYjWt0I/QG6AVWtp8Bq3jz0nabqfI0CD56QYEBHFUCKD9TnqedDjPttrxTZlVpfMQsObqmy8L0Ms0i0HCiixmXUh45qbfRo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB15779
 
-The PTP clock operations hold the channel lock while they wait for the
-device: up to 1 s for a pending ToD write to be applied on the next
-1 Hz edge, up to 1 s for a previous TIE write and up to 3 s for a
-previous output phase step. The DPLL callbacks and the periodic state
-check of the channel take the same lock, so they wait as well. The DPLL
-callbacks wait under the global dpll_lock, which stalls the requests
-for all DPLL devices in the system.
+Hi Tommaso,
 
-On a GNR-D system with a ZL30732, device-get requests for both DPLL
-channels and for a DPLL device of ice took 950 ms in median while
-settime() ran in a loop on the PTP clock of channel 0, and 2955 ms
-while adjtime() did output phase steps in NCO mode. With this change
-they take 2 ms in both cases.
+> -----Original Message-----
+> From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> Sent: 25 November 2026 14:14
+> Subject: Re: [PATCH v10 10/12] drm: renesas: rz-du: Support several DU in=
+stances in one DRM device
+>=20
+> Hi Biju,
+>=20
+> On Wed, Nov 25, 2026 at 01:45:46PM +0000, Biju Das wrote:
+> > Hi Tommaso,
+> >
+> > > -----Original Message-----
+> > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > > Sent: 25 November 2026 13:36
+> > > Subject: Re: [PATCH v10 10/12] drm: renesas: rz-du: Support several
+> > > DU instances in one DRM device
+> > >
+> > > Hi Biju,
+> > >
+> > > On Wed, Nov 25, 2026 at 07:28:17AM +0000, Biju Das wrote:
+> > > > Hi Tommaso,
+> > > >
+> > > > > -----Original Message-----
+> > > > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > > > > Sent: 24 November 2026 14:53
+> > > > > Subject: Re: [PATCH v10 10/12] drm: renesas: rz-du: Support
+> > > > > several DU instances in one DRM device
+> > > > >
+> > > > > Hi Biju,
+> > > > >
+> > > > > On Tue, Nov 24, 2026 at 02:11:16PM +0000, Biju Das wrote:
+> > > > > > Hi Tommaso,
+> > > > > >
+> > > > > > > -----Original Message-----
+> > > > > > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > > Sent: 24 November 2026 13:59
+> > > > > > > Subject: Re: [PATCH v10 10/12] drm: renesas: rz-du: Support
+> > > > > > > several DU instances in one DRM device
+> > > > > > >
+> > > > > > > Hi Biju,
+> > > > > > >
+> > > > > > > On Tue, Nov 24, 2026 at 01:18:43PM +0000, Biju Das wrote:
+> > > > > > > > Hi Tommaso,
+> > > > > > > >
+> > > > > > > > > -----Original Message-----
+> > > > > > > > > From: Tommaso Merciai
+> > > > > > > > > <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > > > > Sent: 24 November 2026 11:53
+> > > > > > > > > Subject: Re: [PATCH v10 10/12] drm: renesas: rz-du:
+> > > > > > > > > Support several DU instances in one DRM device
+> > > > > > > > >
+> > > > > > > > > Hi Biju,
+> > > > > > > > > Thanks for your review.
+> > > > > > > > >
+> > > > > > > > > On Tue, Nov 24, 2026 at 07:47:04AM +0000, Biju Das wrote:
+> > > > > > > > > > Hi Tommaso,
+> > > > > > > > > >
+> > > > > > > > > > > -----Original Message-----
+> > > > > > > > > > > From: Tommaso Merciai
+> > > > > > > > > > > <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > > > > > > Sent: 13 November 2026 12:20
+> > > > > > > > > > > Subject: [PATCH v10 10/12] drm: renesas: rz-du:
+> > > > > > > > > > > Support several DU instances in one DRM device
+> > > > > > > > > > >
+> > > > > > > > > > > RZ/G3E has two DU instances that share a single DRM d=
+evice.
+> > > > > > > > > > >
+> > > > > > > > > > > Add an RZG2L_DU_FEATURE_COMPONENT flag and use the
+> > > > > > > > > > > component framework for it. The first available
+> > > > > > > > > DU
+> > > > > > > > > > > instance is the master and creates the DRM device,
+> > > > > > > > > > > the other one binds to it as a
+> > > > > component.
+> > > > > > > > > > >
+> > > > > > > > > > > If only one DU instance is available, it creates the
+> > > > > > > > > > > DRM device directly at probe time, as on SoCs without=
+ the flag.
+> > > > > > > > > > >
+> > > > > > > > > > > Set the index of each instance to the number of CRTCs=
+ already created.
+> > > > > > > > > > >
+> > > > > > > > > > > Signed-off-by: Tommaso Merciai
+> > > > > > > > > > > <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > > > > > > ---
+> > > > > > > > > > > v9->v10:
+> > > > > > > > > > >  - New patch.
+> > > > > > > > > > >
+> > > > > > > > > > >  drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c | 118 +=
++++++++++++++++++-
+> > > > > > > > > > >  drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.h |   2 +
+> > > > > > > > > > >  2 files changed, 115 insertions(+), 5 deletions(-)
+> > > > > > > > > > >
+> > > > > > > > > > > diff --git
+> > > > > > > > > > > a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > > > > > > > > > > b/drivers/gpu/drm/renesas/rz- du/rzg2l_du_drv.c
+> > > > > > > > > > > index
+> > > > > > > > > > > 93d59e2cf8a4..873586f2ef28 100644
+> > > > > > > > > > > --- a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > > > > > > > > > > +++ b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > > > > > > > > > > @@ -7,6 +7,7 @@
+> > > > > > > > > > >   * Based on rcar_du_drv.c
+> > > > > > > > > > >   */
+> > > > > > > > > > >
+> > > > > > > > > > > +#include <linux/component.h>
+> > > > > > > > > > >  #include <linux/dma-mapping.h>  #include
+> > > > > > > > > > > <linux/module.h> #include <linux/of.h> @@ -14,10
+> > > > > > > > > > > +15,12 @@
+> > > > > > > > > > >
+> > > > > > > > > > >  #include <drm/clients/drm_client_setup.h>  #include
+> > > > > > > > > > > <drm/drm_atomic_helper.h>
+> > > > > > > > > > > +#include <drm/drm_crtc.h>
+> > > > > > > > > > >  #include <drm/drm_drv.h>  #include
+> > > > > > > > > > > <drm/drm_fbdev_dma.h>  #include
+> > > > > > > > > > > <drm/drm_gem_dma_helper.h>  #include
+> > > > > > > > > > > <drm/drm_managed.h>
+> > > > > > > > > > > +#include <drm/drm_of.h>
+> > > > > > > > > > >  #include <drm/drm_print.h>  #include
+> > > > > > > > > > > <drm/drm_probe_helper.h>
+> > > > > > > > > > >
+> > > > > > > > > > > @@ -170,6 +173,7 @@ static int rzg2l_du_instance_init=
+(struct rzg2l_du_device *du,
+> > > > > > > > > > >  				  struct drm_device *ddev)  {
+> > > > > > > > > > >  	struct rzg2l_du_device *rcdu;
+> > > > > > > > > > > +	int ret;
+> > > > > > > > > > >
+> > > > > > > > > > >  	rcdu =3D drmm_kzalloc(ddev, sizeof(*rcdu), GFP_KERN=
+EL);
+> > > > > > > > > > >  	if (!rcdu)
+> > > > > > > > > > > @@ -180,9 +184,28 @@ static int rzg2l_du_instance_ini=
+t(struct rzg2l_du_device *du,
+> > > > > > > > > > >  	rcdu->mmio =3D du->mmio;
+> > > > > > > > > > >  	rcdu->ddev =3D ddev;
+> > > > > > > > > > >
+> > > > > > > > > > > -	return rzg2l_du_modeset_init_du(rcdu);
+> > > > > > > > > > > +	rcdu->index =3D ddev->mode_config.num_crtc;
+> > > > > > > > > > > +
+> > > > > > > > > > > +	ret =3D rzg2l_du_modeset_init_du(rcdu);
+> > > > > > > > > > > +	if (ret < 0)
+> > > > > > > > > > > +		return ret;
+> > > > > > > > > > > +
+> > > > > > > > > > > +	if (WARN_ON(drm_crtc_index(&rcdu->crtcs[0].crtc) !=
+=3D rcdu->index))
+> > > > > > > > > > > +		return -EINVAL;
+> > > > > > > > > > > +
+> > > > > > > > > > > +	return 0;
+> > > > > > > > > > >  }
+> > > > > > > > > > >
+> > > > > > > > > > > +static int rzg2l_du_instance_bind(struct device *dev=
+, struct device *master,
+> > > > > > > > > > > +				  void *data)
+> > > > > > > > > > > +{
+> > > > > > > > > > > +	return
+> > > > > > > > > > > +rzg2l_du_instance_init(dev_get_drvdata(dev),
+> > > > > > > > > > > +data); }
+> > > > > > > > > > > +
+> > > > > > > > > > > +static const struct component_ops rzg2l_du_instance_=
+ops =3D {
+> > > > > > > > > > > +	.bind =3D rzg2l_du_instance_bind, };
+> > > > > > > > > > > +
+> > > > > > > > > > >  /* -------------------------------------------------=
+----------------------------
+> > > > > > > > > > >   * DRM device
+> > > > > > > > > > >   */
+> > > > > > > > > > > @@ -191,7 +214,7 @@ struct rzg2l_du_drm {
+> > > > > > > > > > >  	struct drm_device ddev;  };
+> > > > > > > > > > >
+> > > > > > > > > > > -static int rzg2l_du_drm_init(struct device *dev)
+> > > > > > > > > > > +static int rzg2l_du_drm_init(struct device *dev,
+> > > > > > > > > > > +bool
+> > > > > > > > > > > +has_components)
+> > > > > > > > > > >  {
+> > > > > > > > > > >  	struct rzg2l_du_device *du =3D dev_get_drvdata(dev)=
+;
+> > > > > > > > > > >  	struct rzg2l_du_drm *rzgdrm; @@ -213,6 +236,12 @@
+> > > > > > > > > > > static int rzg2l_du_drm_init(struct device *dev)
+> > > > > > > > > > >  	if (ret < 0)
+> > > > > > > > > > >  		goto error;
+> > > > > > > > > > >
+> > > > > > > > > > > +	if (has_components) {
+> > > > > > > > > > > +		ret =3D component_bind_all(dev, ddev);
+> > > > > > > > > > > +		if (ret < 0)
+> > > > > > > > > > > +			goto error;
+> > > > > > > > > > > +	}
+> > > > > > > > > > > +
+> > > > > > > > > > >  	ret =3D rzg2l_du_modeset_init_finish(ddev);
+> > > > > > > > > > >  	if (ret < 0)
+> > > > > > > > > > >  		goto error_fini;
+> > > > > > > > > > > @@ -235,6 +264,8 @@ static int
+> > > > > > > > > > > rzg2l_du_drm_init(struct device
+> > > > > > > > > > > *dev)
+> > > > > > > > > > >
+> > > > > > > > > > >  error_fini:
+> > > > > > > > > > >  	drm_kms_helper_poll_fini(ddev);
+> > > > > > > > > > > +	if (has_components)
+> > > > > > > > > > > +		component_unbind_all(dev, ddev);
+> > > > > > > > > > >  error:
+> > > > > > > > > > >  	/*
+> > > > > > > > > > >  	 * Don't use dev_err_probe(), as it would
+> > > > > > > > > > > overwrite the probe deferral @@ -246,7 +277,7 @@
+> > > > > > > > > > > static int rzg2l_du_drm_init(struct device
+> > > *dev)
+> > > > > > > > > > >  	return ret;
+> > > > > > > > > > >  }
+> > > > > > > > > > >
+> > > > > > > > > > > -static void rzg2l_du_drm_fini(struct device *dev)
+> > > > > > > > > > > +static void rzg2l_du_drm_fini(struct device *dev,
+> > > > > > > > > > > +bool
+> > > > > > > > > > > +has_components)
+> > > > > > > > > > >  {
+> > > > > > > > > > >  	struct rzg2l_du_device *du =3D dev_get_drvdata(dev)=
+;
+> > > > > > > > > > >  	struct drm_device *ddev =3D du->ddev; @@ -254,6
+> > > > > > > > > > > +285,83 @@ static void rzg2l_du_drm_fini(struct devic=
+e *dev)
+> > > > > > > > > > >  	drm_dev_unregister(ddev);
+> > > > > > > > > > >  	drm_atomic_helper_shutdown(ddev);
+> > > > > > > > > > >  	drm_kms_helper_poll_fini(ddev);
+> > > > > > > > > > > +
+> > > > > > > > > > > +	if (has_components)
+> > > > > > > > > > > +		component_unbind_all(dev, ddev);
+> > > > > > > > > > > +
+> > > > > > > > > > > +	du->ddev =3D NULL;
+> > > > > > > > > > > +}
+> > > > > > > > > > > +
+> > > > > > > > > > > +/*
+> > > > > > > > > > > +---------------------------------------------------
+> > > > > > > > > > > +----
+> > > > > > > > > > > +--------
+> > > > > > > > > > > +--------
+> > > > > > > > > > > +------
+> > > > > > > > > > > + * Component master  */
+> > > > > > > > > > > +
+> > > > > > > > > > > +static int rzg2l_du_master_bind(struct device *dev) =
+{
+> > > > > > > > > > > +	return rzg2l_du_drm_init(dev, true); }
+> > > > > > > > > > > +
+> > > > > > > > > > > +static void rzg2l_du_master_unbind(struct device *de=
+v) {
+> > > > > > > > > > > +	rzg2l_du_drm_fini(dev, true); }
+> > > > > > > > > > > +
+> > > > > > > > > > > +static const struct component_master_ops rzg2l_du_ma=
+ster_ops =3D {
+> > > > > > > > > > > +	.bind =3D rzg2l_du_master_bind,
+> > > > > > > > > > > +	.unbind =3D rzg2l_du_master_unbind, };
+> > > > > > > > > > > +
+> > > > > > > > > > > +static int rzg2l_du_instance_probe(struct rzg2l_du_d=
+evice *du) {
+> > > > > > > > > > > +	struct component_match *match =3D NULL;
+> > > > > > > > > > > +	const struct of_device_id *of_id;
+> > > > > > > > > > > +	struct device *dev =3D du->dev;
+> > > > > > > > > > > +
+> > > > > > > > > > > +	if (!rzg2l_du_has(du, RZG2L_DU_FEATURE_COMPONENT))
+> > > > > > > > > > > +		return rzg2l_du_drm_init(dev, false);
+> > > > > > > > > > > +
+> > > > > > > > > > > +	for_each_available_child_of_node_scoped(dev->of_nod=
+e->parent, np) {
+> > > > > > > > > > > +		of_id =3D of_match_node(dev->driver->of_match_tabl=
+e, np);
+> > > > > > > > > > > +		if (!of_id || of_id->data !=3D du->info)
+> > > > > > > > > > > +			continue;
+> > > > > > > > > > > +
+> > > > > > > > > > > +		/* The first available DU instance is the componen=
+t master. */
+> > > > > > > > > > > +		if (!du->is_master) {
+> > > > > > > > > > > +			if (np !=3D dev->of_node)
+> > > > > > > > > > > +				return component_add(dev,
+> > > > > > > > > > > +&rzg2l_du_instance_ops);
+> > > > > > > > > > > +
+> > > > > > > > > > > +			du->is_master =3D true;
+> > > > > > > > > > > +			continue;
+> > > > > > > > > > > +		}
+> > > > > > > > > > > +
+> > > > > > > > > > > +		drm_of_component_match_add(dev, &match,
+> > > > > > > > > > > +component_compare_of, np);
+> > > > > > > > > >
+> > > > > > > > > >
+> > > > > > > > > > The master=A0is chosen purely by DT order. If the first
+> > > > > > > > > > available DU never probes, the second never gets a DRM
+> > > > > > > > > > device. How do you handle this
+> > > case?
+> > > > > > > > >
+> > > > > > > > > All available instances are part of the component match,
+> > > > > > > > > so the DRM device is only created once all of them have
+> > > > > > > > > probed, whichever one is the master.
+> > > > > > > > >
+> > > > > > > > > This is how the component framework works.
+> > > > > > > > >
+> > > > > > > > > To use a single DU, the other one can be disabled in DT,
+> > > > > > > > > in this case the remaining instance becomes the master
+> > > > > > > > > and initializes the DRM device on its own.
+> > > > > > > >
+> > > > > > > >
+> > > > > > > > Assume both DU's available and run time
+> > > > > > > >
+> > > > > > > > second DU is probed first and master never probed at all.
+> > > > > > > > What is the state of second DU as bind never calls?
+> > > > > > >
+> > > > > > >
+> > > > > > > The second DU probes, registers itself with component_add()
+> > > > > > > and stays idle, without touching the hardware.
+> > > > > > >
+> > > > > > > When the master probes, both instances are bound and the DRM =
+device is created.
+> > > > > > >
+> > > > > > > If the master never probes, there is no DRM device, because
+> > > > > > > the bind is only triggered once the
+> > > > > master
+> > > > > > > has registered the aggregate device with
+> > > > > > > component_master_add_with_match()
+> > > > > >
+> > > > > > Not sure is it the normal use case? DU0 and DU1 are
+> > > > > > independent devices
+> > > > > >
+> > > > > > 1) DU0 or DU1 should work independently irrespective of the pro=
+be failure of
+> > > > > >    other device
+> > > > > >
+> > > > > > 2) When both DU's are probed, then we need to aggregate the dev=
+ice using component
+> > > > > >    framework so that use case like dynamically switching DSI0 t=
+o DSI1 can be achieved.
+> > > > >
+> > > > > IMHO 1) and 2) can't be achieved together.
+> > > > >
+> > > >
+> > > > I guess we can achieve both use cases, if we define a companion pro=
+perty in the second device.
+> > > > This is a static design choice left to the DT user to choose betwee=
+n either 1 or 2.
+> > > >
+> > > > Krystof/Rob/Conor: Is it ok to add optional companion property to
+> > > > support both
+> > > > 1 and 2? Otherwise, we plan to stick with use case 2.
+> > > >
+> > > > Use case 1: 1 DRM device per DU
+> > >
+> > > Some clarification:
+> > >
+> > > For 1)
+> > >
+> > > Just FYI, the series already supports this when only one DU is
+> > > enabled in DT. If only DU0 (or only
+> > > DU1) is enabled, it creates its own DRM device directly, without the
+> > > component framework, and we will get 1 DRM device with 1 CRTC.
+> > >
+> > >
+> > > # r9a09g047e57-smarc-du0-dsi.dtso
+> > >
+> > > &du0 {
+> > > 	status =3D "okay";
+> > > };
+> > >
+> > > &du1 {
+> > > 	status =3D "disabled";
+> > > };
+> > >
+> > > > Use case 2: 1 DRM device for 2 DU's
+> > >
+> > > For 2)
+> > >
+> > > When both DU0 and DU1 are enabled, DU0 registers the aggregate
+> > > device with
+> > > component_master_add_with_match() and DU1 registers itself with
+> > > component_add(). Both are driven by the same DRM device, with 2 CRTCs=
+.
+> > >
+> > >
+> > > &du0 {
+> > > 	status =3D "okay";
+> > > };
+> > >
+> > > &du1 {
+> > > 	status =3D "okay";
+> > > };
+> >
+> > DU0 and DU1 are independent devices.
+> > Currently if DU0 fails to probe, DU1 won't work.
+> > So, there is a limitation in the current design.
+>=20
+> Mmmm, checking better the others vendor drivers I can see the same behavi=
+our:
+> if one member of the aggregate fails to probe, the others won't work eith=
+er.
+>=20
+> mtk_drm_drv.c driver where we have vdosys0 and vdosys1 [1] that are shari=
+ng the same drm device. And
+> also in this case if one fails to probe there is no drm device.
+>=20
+> Same for rk3399-base.dtsi where we have vopl_out and vopb_out [2] Same fo=
+r imx6q.dtsi with ipu1_di0,
+> ipu1_di1, ipu2_di0, ipu2_di1 [3] Same for sun7i-a20.dtsi where we have fe=
+0, fe1 [4]
+>=20
+> Please correct me if I'm wrong.
+>=20
+> [1] https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/gpu/drm/medi=
+atek/mtk_drm_drv.c#L374
+> [2] https://elixir.bootlin.com/linux/v7.4-rc1/source/arch/arm64/boot/dts/=
+rockchip/rk3399-
+> base.dtsi#L245
+> [3] https://elixir.bootlin.com/linux/v7.4-rc1/source/arch/arm/boot/dts/nx=
+p/imx/imx6q.dtsi#L304
+> [4] https://elixir.bootlin.com/linux/v7.4-rc1/source/arch/arm/boot/dts/al=
+lwinner/sun7i-a20.dtsi#L254
+>=20
 
-Only the PTP clock operations use the ToD, TIE and phase step
-registers. They need the channel lock only for the channel mode and
-the list of output pins.
+Thanks for the link. After googling
 
-Serialize the PTP clock operations with a new per-channel ptp_lock and
-take the channel lock only to read the mode and the output pins and to
-issue a TIE write or the first phase step of an adjustment, which also
-steps the ToD. Wait for the previous TIE write or phase step before
-taking the channel lock, with tie_lock or phase_step_lock held, and
-check the mode again under it, so they are issued only in a mode that
-supports them. The phase steps for the other synthesizers move only
-the outputs and are issued in any mode, so all outputs get the same
-step even if the channel leaves NCO mode meanwhile. The lock order is
-ptp_lock, then tie_lock or phase_step_lock, then the channel lock.
+Separate DRM devices (card0 + card1) are only advantageous when physical is=
+olation is mandatory
+(e.g., safety-critical medical or automotive instrument clusters where a pr=
+imary gauge cluster
+cannot share a kernel driver/compositor with an infotainment screen) and no=
+ one normally
+split SoC display engine for such use case. So, I think we can go with sing=
+le DRM card
+approach and no need to support 2 separate DRM cards.
 
-Fixes: 1db73ce01856 ("dpll: zl3073x: add PTP clock support")
-Signed-off-by: Ivan Vecera <ivecera@redhat.com>
----
-Changes in v2:
-- issue the phase steps for the other synthesizers even if the channel
-  left NCO mode while waiting, so the outputs are not stepped partially
-  (Sashiko)
-- adjphase: check the mode before waiting for the device (Sashiko)
-- @ptp_lock kernel-doc: mention the pins list (Sashiko)
-
-v1: https://lore.kernel.org/r/20261120171800.327855-1-ivecera@redhat.com
----
- drivers/dpll/zl3073x/chan.c |  60 +++++++++----
- drivers/dpll/zl3073x/chan.h |   2 +
- drivers/dpll/zl3073x/dpll.c | 165 ++++++++++++++++++++++++++++++------
- drivers/dpll/zl3073x/dpll.h |   6 +-
- 4 files changed, 190 insertions(+), 43 deletions(-)
-
-diff --git a/drivers/dpll/zl3073x/chan.c b/drivers/dpll/zl3073x/chan.c
-index ba4d303d41b47d..3d0388f28e7bcc 100644
---- a/drivers/dpll/zl3073x/chan.c
-+++ b/drivers/dpll/zl3073x/chan.c
-@@ -460,6 +460,25 @@ int zl3073x_chan_df_offset_set(struct zl3073x_dev *zldev, u8 ch, s64 offset)
- 	return rc;
- }
- 
-+/**
-+ * zl3073x_chan_tie_ready_wait - wait for the previous TIE write to complete
-+ * @zldev: pointer to zl3073x device
-+ *
-+ * The TIE write operation is shared by all channels, and the device can take
-+ * up to one second to complete it.
-+ *
-+ * Context: Caller must hold zldev->tie_lock.
-+ * Return: 0 on success, <0 on error
-+ */
-+int zl3073x_chan_tie_ready_wait(struct zl3073x_dev *zldev)
-+{
-+	lockdep_assert_held(&zldev->tie_lock);
-+
-+	return zl3073x_poll_zero_u8(zldev, ZL_REG_DPLL_TIE_CTRL,
-+				    ZL_DPLL_TIE_CTRL_OP,
-+				    ZL_POLL_TIE_WR_TIMEOUT_US);
-+}
-+
- /**
-  * zl3073x_chan_tie_write - adjust DPLL phase using TIE write
-  * @zldev: pointer to zl3073x device
-@@ -469,6 +488,8 @@ int zl3073x_chan_df_offset_set(struct zl3073x_dev *zldev, u8 ch, s64 offset)
-  * Converts nanoseconds to TIE units (0.01 ps) and writes TIE data
-  * to the specified channel.
-  *
-+ * Context: Caller must hold zldev->tie_lock and must have waited for the
-+ * previous TIE write with zl3073x_chan_tie_ready_wait().
-  * Return: 0 on success, <0 on error
-  */
- int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
-@@ -476,14 +497,7 @@ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
- 	s64 tie_data;
- 	int rc;
- 
--	guard(mutex)(&zldev->tie_lock);
--
--	/* Wait for any previous TIE operation to complete */
--	rc = zl3073x_poll_zero_u8(zldev, ZL_REG_DPLL_TIE_CTRL,
--				  ZL_DPLL_TIE_CTRL_OP,
--				  ZL_POLL_TIE_WR_TIMEOUT_US);
--	if (rc)
--		return rc;
-+	lockdep_assert_held(&zldev->tie_lock);
- 
- 	/* Convert ns to TIE units (0.01 ps = 10^-14 s) */
- 	tie_data = delta_ns * 100000LL;
-@@ -500,6 +514,25 @@ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
- 				ZL_DPLL_TIE_CTRL_OP_WR);
- }
- 
-+/**
-+ * zl3073x_chan_phase_step_ready_wait - wait for the previous phase step
-+ * @zldev: pointer to zl3073x device
-+ *
-+ * The output phase step operation is shared by all channels, and the device
-+ * can take seconds to complete it.
-+ *
-+ * Context: Caller must hold zldev->phase_step_lock.
-+ * Return: 0 on success, <0 on error
-+ */
-+int zl3073x_chan_phase_step_ready_wait(struct zl3073x_dev *zldev)
-+{
-+	lockdep_assert_held(&zldev->phase_step_lock);
-+
-+	return zl3073x_poll_zero_u8(zldev, ZL_REG_OUTPUT_PHASE_STEP_CTRL,
-+				    ZL_OUTPUT_PHASE_STEP_CTRL_OP,
-+				    ZL_POLL_PHASE_STEP_TIMEOUT_US);
-+}
-+
- /**
-  * zl3073x_chan_phase_step - execute one output phase step operation
-  * @zldev: pointer to zl3073x device
-@@ -511,6 +544,8 @@ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
-  * All masked outputs must use synthesizers of the same frequency since
-  * the step value is in synthesizer clock cycles.
-  *
-+ * Context: Caller must hold zldev->phase_step_lock and must have waited for
-+ * the previous phase step with zl3073x_chan_phase_step_ready_wait().
-  * Return: 0 on success, <0 on error
-  */
- int zl3073x_chan_phase_step(struct zl3073x_dev *zldev, u8 ch,
-@@ -520,14 +555,7 @@ int zl3073x_chan_phase_step(struct zl3073x_dev *zldev, u8 ch,
- 	u8 ctrl;
- 	int rc;
- 
--	guard(mutex)(&zldev->phase_step_lock);
--
--	/* Wait for any previous phase step operation to complete */
--	rc = zl3073x_poll_zero_u8(zldev, ZL_REG_OUTPUT_PHASE_STEP_CTRL,
--				  ZL_OUTPUT_PHASE_STEP_CTRL_OP,
--				  ZL_POLL_PHASE_STEP_TIMEOUT_US);
--	if (rc)
--		return rc;
-+	lockdep_assert_held(&zldev->phase_step_lock);
- 
- 	rc = zl3073x_write_u32(zldev, ZL_REG_OUTPUT_PHASE_STEP_DATA,
- 			       step_cycles);
-diff --git a/drivers/dpll/zl3073x/chan.h b/drivers/dpll/zl3073x/chan.h
-index 99c3b7088f678f..55932e950e7e6e 100644
---- a/drivers/dpll/zl3073x/chan.h
-+++ b/drivers/dpll/zl3073x/chan.h
-@@ -52,11 +52,13 @@ int zl3073x_chan_tod_write(struct zl3073x_dev *zldev, u8 ch,
- 			   struct timespec64 ts);
- int zl3073x_chan_tod_adjust(struct zl3073x_dev *zldev, u8 ch,
- 			    struct timespec64 delta);
-+int zl3073x_chan_phase_step_ready_wait(struct zl3073x_dev *zldev);
- int zl3073x_chan_phase_step(struct zl3073x_dev *zldev, u8 ch,
- 			    u16 out_mask, s32 step_cycles, bool tod_step);
- 
- int zl3073x_chan_df_offset_set(struct zl3073x_dev *zldev, u8 ch, s64 offset);
- 
-+int zl3073x_chan_tie_ready_wait(struct zl3073x_dev *zldev);
- int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns);
- 
- /**
-diff --git a/drivers/dpll/zl3073x/dpll.c b/drivers/dpll/zl3073x/dpll.c
-index 1cdadb8e46fb2d..e8bdba4b44d82f 100644
---- a/drivers/dpll/zl3073x/dpll.c
-+++ b/drivers/dpll/zl3073x/dpll.c
-@@ -2460,7 +2460,7 @@ static int zl3073x_dpll_ptp_gettimex64(struct ptp_clock_info *info,
- 	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
- 						   ptp_info);
- 
--	guard(mutex)(&zldpll->lock);
-+	guard(mutex)(&zldpll->ptp_lock);
- 
- 	return zl3073x_chan_tod_read(zldpll->dev, zldpll->id, false, ts, sts);
- }
-@@ -2478,11 +2478,59 @@ static int zl3073x_dpll_ptp_settime64(struct ptp_clock_info *info,
- 	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
- 						   ptp_info);
- 
--	guard(mutex)(&zldpll->lock);
-+	guard(mutex)(&zldpll->ptp_lock);
- 
- 	return zl3073x_chan_tod_write(zldpll->dev, zldpll->id, *ts);
- }
- 
-+/**
-+ * zl3073x_dpll_ptp_phase_step - execute one output phase step
-+ * @zldpll: DPLL channel
-+ * @out_mask: bitmask of outputs to step
-+ * @step_cycles: phase step in synthesizer clock cycles
-+ * @tod_step: also step the ToD counter
-+ *
-+ * Waits for the previous phase step without the channel lock, as the device
-+ * can take up to three seconds to complete it. A step with @tod_step is then
-+ * issued under the channel lock and only in NCO mode, the only mode where the
-+ * device expects a ToD step. A step of outputs only follows a ToD step of the
-+ * same adjustment and is issued in any mode, so all outputs get the same step
-+ * even if the channel has left NCO mode in the meantime.
-+ *
-+ * Context: Caller must hold zldev->phase_step_lock.
-+ * Return:
-+ * * %0			- success
-+ * * %-EOPNOTSUPP	- @tod_step is set and channel is not in NCO mode
-+ * * negative		- other error
-+ */
-+static int zl3073x_dpll_ptp_phase_step(struct zl3073x_dpll *zldpll,
-+				       u16 out_mask, s32 step_cycles,
-+				       bool tod_step)
-+{
-+	struct zl3073x_dev *zldev = zldpll->dev;
-+	const struct zl3073x_chan *chan;
-+	int rc;
-+
-+	rc = zl3073x_chan_phase_step_ready_wait(zldev);
-+	if (rc)
-+		return rc;
-+
-+	if (!tod_step)
-+		return zl3073x_chan_phase_step(zldev, zldpll->id, out_mask,
-+					       step_cycles, false);
-+
-+	mutex_lock(&zldpll->lock);
-+	chan = zl3073x_chan_state_get(zldev, zldpll->id);
-+	if (zl3073x_chan_mode_is_nco(chan))
-+		rc = zl3073x_chan_phase_step(zldev, zldpll->id, out_mask,
-+					     step_cycles, true);
-+	else
-+		rc = -EOPNOTSUPP;
-+	mutex_unlock(&zldpll->lock);
-+
-+	return rc;
-+}
-+
- /**
-  * zl3073x_dpll_ptp_adjtime_phase_step - adjust sub-second time via phase step
-  * @zldpll: DPLL channel
-@@ -2503,7 +2551,7 @@ static int zl3073x_dpll_ptp_settime64(struct ptp_clock_info *info,
-  * Return:
-  * * %0			- success (or partial success if a later synth group
-  *			  failed after the first was already stepped)
-- * * %-EOPNOTSUPP	- no synths available
-+ * * %-EOPNOTSUPP	- no synths available or channel is not in NCO mode
-  * * negative		- error
-  */
- static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
-@@ -2517,10 +2565,13 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
- 	bool tod_stepped = false;
- 	s32 step_cycles;
- 	u32 synth_freq;
--	int rc;
-+	int rc = 0;
- 	u8 i;
- 
-+	mutex_lock(&zldev->phase_step_lock);
-+
- 	/* Build per-synth output masks from registered output pins */
-+	mutex_lock(&zldpll->lock);
- 	list_for_each_entry(pin, &zldpll->pins, list) {
- 		u8 out_id, synth_id;
- 
-@@ -2540,8 +2591,11 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
- 		}
- 		synth_mask[synth_id] |= BIT(out_id);
- 	}
-+	mutex_unlock(&zldpll->lock);
- 
--	/* Process each synth group */
-+	/* Process each synth group. The synth state is read before the PTP
-+	 * clock is registered and does not change while it is.
-+	 */
- 	for (i = 0; i < ZL3073X_NUM_SYNTHS; i++) {
- 		synth = zl3073x_synth_state_get(zldev, i);
- 		if (!zl3073x_synth_is_enabled(synth) ||
-@@ -2560,33 +2614,74 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
- 		/* Safe for s32: max synth freq is 750 MHz */
- 		step_cycles = div_s64(delta * synth_freq, NSEC_PER_SEC);
- 
--		rc = zl3073x_chan_phase_step(zldev, zldpll->id,
--					     synth_mask[i], step_cycles,
--					     !tod_stepped);
-+		rc = zl3073x_dpll_ptp_phase_step(zldpll, synth_mask[i],
-+						 step_cycles, !tod_stepped);
- 		if (rc) {
- 			if (tod_stepped) {
- 				dev_warn(zldev->dev,
- 					 "Partial phase step failure\n");
--				return 0;
-+				rc = 0;
- 			}
--			return rc;
-+			goto unlock;
- 		}
- 		tod_stepped = true;
- 	}
- 
--	if (!first_synth_freq)
--		return -EOPNOTSUPP;
-+	if (!first_synth_freq) {
-+		rc = -EOPNOTSUPP;
-+		goto unlock;
-+	}
- 
- 	/* No enabled outputs found; step ToD counter only using the
- 	 * first enabled synth's period (empty output mask).
- 	 */
- 	if (!tod_stepped) {
- 		step_cycles = div_s64(delta * first_synth_freq, NSEC_PER_SEC);
--		return zl3073x_chan_phase_step(zldev, zldpll->id, 0,
--					       step_cycles, true);
-+		rc = zl3073x_dpll_ptp_phase_step(zldpll, 0, step_cycles, true);
- 	}
- 
--	return 0;
-+unlock:
-+	mutex_unlock(&zldev->phase_step_lock);
-+
-+	return rc;
-+}
-+
-+/**
-+ * zl3073x_dpll_ptp_tie_write - adjust DPLL phase using TIE write
-+ * @zldpll: DPLL channel
-+ * @delta: phase adjustment in nanoseconds (must be in (-1s, 1s))
-+ *
-+ * Waits for the previous TIE write without the channel lock, as the device
-+ * can take up to one second to complete it. The write is then issued under
-+ * the channel lock, so it is issued only in a mode that supports TIE.
-+ *
-+ * Return:
-+ * * %0			- success
-+ * * %-EOPNOTSUPP	- channel mode does not support TIE
-+ * * negative		- other error
-+ */
-+static int zl3073x_dpll_ptp_tie_write(struct zl3073x_dpll *zldpll, s64 delta)
-+{
-+	struct zl3073x_dev *zldev = zldpll->dev;
-+	const struct zl3073x_chan *chan;
-+	int rc;
-+
-+	mutex_lock(&zldev->tie_lock);
-+	rc = zl3073x_chan_tie_ready_wait(zldev);
-+	if (rc)
-+		goto unlock_tie;
-+
-+	mutex_lock(&zldpll->lock);
-+	chan = zl3073x_chan_state_get(zldev, zldpll->id);
-+	if (zl3073x_chan_mode_supports_tie(chan))
-+		rc = zl3073x_chan_tie_write(zldev, zldpll->id, delta);
-+	else
-+		rc = -EOPNOTSUPP;
-+	mutex_unlock(&zldpll->lock);
-+unlock_tie:
-+	mutex_unlock(&zldev->tie_lock);
-+
-+	return rc;
- }
- 
- /**
-@@ -2616,17 +2711,26 @@ static int zl3073x_dpll_ptp_adjtime(struct ptp_clock_info *info, s64 delta)
- 	const struct zl3073x_chan *chan;
- 	bool sec_adjusted = false;
- 	struct timespec64 ts;
-+	bool is_nco, is_tie;
- 	int rc;
- 
- 	if (!delta)
- 		return 0;
- 
--	guard(mutex)(&zldpll->lock);
-+	guard(mutex)(&zldpll->ptp_lock);
- 
--	/* Modes without phase step or TIE use plain ToD adjust */
-+	/* Hold the channel lock only to read the mode. The ToD, TIE and phase
-+	 * step operations below can wait for up to seconds and they do not
-+	 * have to block the DPLL callbacks for that long.
-+	 */
-+	mutex_lock(&zldpll->lock);
- 	chan = zl3073x_chan_state_get(zldev, zldpll->id);
--	if (!zl3073x_chan_mode_is_nco(chan) &&
--	    !zl3073x_chan_mode_supports_tie(chan))
-+	is_nco = zl3073x_chan_mode_is_nco(chan);
-+	is_tie = zl3073x_chan_mode_supports_tie(chan);
-+	mutex_unlock(&zldpll->lock);
-+
-+	/* Modes without phase step or TIE use plain ToD adjust */
-+	if (!is_nco && !is_tie)
- 		return zl3073x_chan_tod_adjust(zldev, zldpll->id,
- 					       ns_to_timespec64(delta));
- 
-@@ -2661,12 +2765,12 @@ static int zl3073x_dpll_ptp_adjtime(struct ptp_clock_info *info, s64 delta)
- 	}
- 
- 	/* Apply sub-second delta via phase step (NCO) or TIE write */
--	if (zl3073x_chan_mode_is_nco(chan)) {
-+	if (is_nco) {
- 		rc = zl3073x_dpll_ptp_adjtime_phase_step(zldpll, delta);
- 		if (!rc)
- 			return 0;
- 	} else {
--		rc = zl3073x_chan_tie_write(zldev, zldpll->id, delta);
-+		rc = zl3073x_dpll_ptp_tie_write(zldpll, delta);
- 		if (!rc)
- 			return 0;
- 	}
-@@ -2719,6 +2823,7 @@ zl3073x_dpll_ptp_adjfine(struct ptp_clock_info *info, long scaled_ppm)
- 	 */
- 	offset = -div_s64((s64)scaled_ppm * 67108864LL, 15625);
- 
-+	guard(mutex)(&zldpll->ptp_lock);
- 	guard(mutex)(&zldpll->lock);
- 
- 	chan = zl3073x_chan_state_get(zldpll->dev, zldpll->id);
-@@ -2747,20 +2852,26 @@ static int zl3073x_dpll_ptp_adjphase(struct ptp_clock_info *info, s32 delta)
- {
- 	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
- 						   ptp_info);
--	struct zl3073x_dev *zldev = zldpll->dev;
- 	const struct zl3073x_chan *chan;
-+	bool is_tie;
- 
- 	if (!delta)
- 		return 0;
- 
--	guard(mutex)(&zldpll->lock);
-+	guard(mutex)(&zldpll->ptp_lock);
- 
--	chan = zl3073x_chan_state_get(zldev, zldpll->id);
-+	/* Check the mode first, so a mode without TIE does not wait for
-+	 * the TIE write of another channel.
-+	 */
-+	mutex_lock(&zldpll->lock);
-+	chan = zl3073x_chan_state_get(zldpll->dev, zldpll->id);
-+	is_tie = zl3073x_chan_mode_supports_tie(chan);
-+	mutex_unlock(&zldpll->lock);
- 
--	if (!zl3073x_chan_mode_supports_tie(chan))
-+	if (!is_tie)
- 		return -EOPNOTSUPP;
- 
--	return zl3073x_chan_tie_write(zldev, zldpll->id, delta);
-+	return zl3073x_dpll_ptp_tie_write(zldpll, delta);
- }
- 
- static s32
-@@ -2926,6 +3037,7 @@ zl3073x_dpll_alloc(struct zl3073x_dev *zldev, u8 ch)
- 	zldpll->id = ch;
- 	mutex_init(&zldpll->lock);
- 	INIT_LIST_HEAD(&zldpll->pins);
-+	mutex_init(&zldpll->ptp_lock);
- 
- 	return zldpll;
- }
-@@ -2941,6 +3053,7 @@ zl3073x_dpll_free(struct zl3073x_dpll *zldpll)
- {
- 	WARN(zldpll->dpll_dev, "DPLL device is still registered\n");
- 
-+	mutex_destroy(&zldpll->ptp_lock);
- 	mutex_destroy(&zldpll->lock);
- 	kfree(zldpll);
- }
-diff --git a/drivers/dpll/zl3073x/dpll.h b/drivers/dpll/zl3073x/dpll.h
-index 993221dc63249d..1f51875007e253 100644
---- a/drivers/dpll/zl3073x/dpll.h
-+++ b/drivers/dpll/zl3073x/dpll.h
-@@ -19,10 +19,12 @@
-  * @ops: DPLL device operations for this instance
-  * @dpll_dev: pointer to registered DPLL device
-  * @tracker: tracking object for the acquired reference
-- * @lock: per-DPLL mutex serializing all operations
-+ * @lock: per-DPLL mutex serializing DPLL operations and channel state access
-  * @type: DPLL type (PPS or EEC)
-  * @lock_status: last saved DPLL lock status
-  * @pins: list of pins
-+ * @ptp_lock: serializes PTP clock operations, taken before @lock, which they
-+ *	      hold only while they use the channel state or the pins list
-  * @ptp_info: PTP clock info
-  * @ptp_clock: registered PTP clock (or NULL)
-  */
-@@ -39,6 +41,8 @@ struct zl3073x_dpll {
- 	enum dpll_type			type;
- 	enum dpll_lock_status		lock_status;
- 	struct list_head		pins;
-+	/* Serializes PTP clock operations */
-+	struct mutex			ptp_lock;
- 	struct ptp_clock_info		ptp_info;
- 	struct ptp_clock		*ptp_clock;
- };
-
-base-commit: 4d67cf2fd2352f130c42494a933ba9158b925c65
--- 
-2.56.1
-
+Cheers,
+Biju
