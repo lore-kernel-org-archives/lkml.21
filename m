@@ -1,112 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.121
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596135;
-	b=VOvJPI/7XcQO/WHfhZhEzMM9QhoDX/arVUYcZRp9TVaIYQEq6AXlPpS88Afa+swPC3I9
-	 voTj5X8OrAp45tUADJde7nUzJfQgGaJ0rAycmyeOFEUhd/X2OPVa3FEIfFlX/MorWKO7I
-	 IqoeRJF0vDTwM01qzEdcDm0g9Ly0t5Y/pbXDnzEUSomZDBt+iZoSNGb+Upy7LTvqgnfCr
-	 ZZDeFKyBRWhEUVPg8xsxCX1Hs06UX8frcaw6iFSqkvrvszRLxtfOOgXNES3hRx/FN7tje
-	 Bo75BYEsX4VyGkrQOnsC+yLr9njyrRHJAwEzRwveviSTmdlvWAvcwuCR5HUoJFXYCUA==
+	t=1795596151;
+	b=YDU8PnZZAG+yWliIwbBqmqQd79GdOLAJ97MyJ3MZUgK36GI91jNCLXKHKvLHgvaP7Dwr
+	 IW/GM0oKjXeauG+CzEfVXRaiO2mGMmL5d77JUI95awnr4fF1LCr6BnMB16oRJbE1U0XPV
+	 63BrvbNptcXRGZpPN5uP2K3NjJxbudosdPyarI7wwfShrmq7CfzzN7C7YN4cpvqCuubD7
+	 xX5RKBR4U9YY2eUIbHLlzhLaPSInY1dccK9OabZ3BrawrIRAViqv1IzXmbzb8U5aFa4g3
+	 aTsnFFPCEU3QfsljMcRcnW2klRhyUBKTjVzy5IMoIIJydB7rukLA/gZPoDaMeHopzdg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596135;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:From:To:Cc:Subject:In-Reply-To:References:Date:
-	 Message-ID:MIME-Version:Content-Type;
-	bh=bfedwSxwQLGGz+Z2vyd2vC4NVHhMFBOOXh9XyPwMEUc=;
-	b=DFhEjJRtmY9DB4i04DqKhQPFC/3ztdR0gGjpents3F8tz/jpv6QT8dMQcZ96HubnjKmb
-	 DppqNh8Cy9wVCRnwfyBRcFzg+4ObPOrCKJfhvnVTd2eVO4PPtxHtxKOOTQyISB1+d8Q98
-	 3RukrXF/ULfp9qT4zC0e7ed1g/3014XqrRVMUT2AL202o8sum2pN18Y4Wdd/RGAc0WNMt
-	 fPgj+iUPIZfnPVb1SJ181txDUJw/dXVB37x4A3Yf+g0V8AmxWdlTpXKVf0yV5NGrDedoO
-	 nntJdCNRvBholjRWLr9ib5HCwNxJ/gdpyMxhNlJUvZXVVuot39gGzFkOiMLOAaXokbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596151;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=ZSvh4Qwu0h8OJdR8+MiT1ZzApUDwrQReChmK7wamOaE=;
+	b=0lRy4KEO4mtj5nrMCWaK8Nrt+THWxsVg2R0p+yt80I/eS0t3ow4cLHhMOy/7f2cZBHZS
+	 LZlFEui2/l9ffGBOSPjNTFT41Nji9phGBZziaCjNtW/JoaykdBHxYI8DH3l8+VZdka1LI
+	 2X4a5bpf4Kx2yZIXRo8oK2iKy4BJQcPDwv3Y0J5xK9QpHbd7JOe+YyZUZn9SlXaF9B5Ge
+	 KkVVOypP4F5GvUNQjNfzxXNL7OlXbqdP5wpalhVolMe94X6oO0nAc1ppIcA85h28KdBmo
+	 D47M9GQVtzf+xGiEUZhYJB4Fv/1vBH+Yu0XdtBfr/Ku4aPbePc35Gkk9FzdRDoztqcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Px26KOns;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=CTaHRziO;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=h3IiHOrW;
+	arc=none smtp.remote-ip=95.215.58.121
+Received: from mta1.migadu.com (out-121.mta1.migadu.com [95.215.58.121])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67AC5606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:42:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67AC5606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B034606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:42:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B034606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Px26KOns;
-	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=CTaHRziO
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795596133;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bfedwSxwQLGGz+Z2vyd2vC4NVHhMFBOOXh9XyPwMEUc=;
-	b=Px26KOnsf8VzWaT5M4+AXcSNp0xsxvL1F6fNbr7DrhkBSuZfc89DxLbq56hteEnSnsCC1P
-	XC0DDlgCO9PWNvFGT8J1/10w32LNQmUSnDexmrqotpmPjGLs2yIpE9PleFJrHiOlcSpJF6
-	hVsBNoRC49PsF4OsiUpxpOfl7krYqVU=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-575-RzSHO9_WPMG70O9-iJsfYQ-1; Wed, 25 Nov 2026 08:42:11 +0000
-X-MC-Unique: RzSHO9_WPMG70O9-iJsfYQ-1
-X-Mimecast-MFC-AGG-ID: RzSHO9_WPMG70O9-iJsfYQ_1795596130
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4bb8ae35aeaso45981275e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:42:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795596130; x=1796200930; darn=vger.kernel.org;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bfedwSxwQLGGz+Z2vyd2vC4NVHhMFBOOXh9XyPwMEUc=;
-        b=CTaHRziOWhRLfDiA8sCcG27lxyX/1F5a4BlJiDD4p+Dl3MZv4mIP2LFQIu9P+CC/Q0
-         7GeWfauPuuGzzBVopwUkXMjSdY0IeQb6VqWY1ZKXhwZQTxtvcneY3ow1rnl2sLbQSe6+
-         q2sC4CvyAyDXmFRUdQA44PynRRUPZ+VnLXSPdGCabB+g/AbHVMcNXZAtypRJ9OEPz3jc
-         fRIxNfxVZ7Lqsd+SUDSsbqsYM5tbCg6me929qizqtdiA/G0xcdNj1/6+oh0VdN1GqYSn
-         3IdJ780DHdDGICVzxUquB8k+nL3wERpQMTCD2mK6DmirW9i5ILUZDA40nIT3g1djYNZN
-         oxlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795596130; x=1796200930;
-        h=content-type:mime-version:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bfedwSxwQLGGz+Z2vyd2vC4NVHhMFBOOXh9XyPwMEUc=;
-        b=V0S2jSAqsRS6BBDG4Pz38oXhoRY1Jp3CjRVBphv93EYS9NLl7bD2XHmiP/4+kb+fIM
-         /WC52fSUESw0srPkrul7ovmyPkmFAxX/v7L1mTYstpIMoGOFJpm7hEBSdDtTJWKE+Puw
-         QitBBLV7XOGSCiEixj6ln4TqVsajdW7AgRWqpTzkqA4xD28fnl5/MBXfm0klRSp5BFBE
-         qsEMNYWej2+cyysXTzMoWiXX031YRdPQmLbRFVuckSdWzuTqEl1B2zO/TJ1AznbZIslu
-         xmRVkZUhBtNoz2C9/e/JpNQ3qVOuZG0+WXQpiHok2iVb28RqySC5W9SJnXG5bGjGAUFA
-         rb/g==
-X-Forwarded-Encrypted: i=1; AL+hErHQS9ea2e1BJH72PMoldj3/DKP+EmE3i8IuiDSTLEBseSJY2s91t47rnKq05Rdxoh7q3LxOFOT+SwMWhKg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9TTBcjGaTrogzfdJCh6/HDprtafmqw6tN84pJOa71pILANS8OE
-	wiqu/ZB4cKkHvtuLOZbpAovE6rpzqZHR2m0Of3j6Tj5wIxKObPGX3bDe0gUpRfN/sz6swFydhCd
-	Z+9HcRkXgNrNGBaPq1MN08qCEDp1Lcn4+u4q5vWQIHPGqG425UtSAEGTJLDcMiW1rOQ==
-X-Gm-Gg: AZFdTZce0JTP25cc69DNeKgRbYgiFu+hWHd7yWvd6FiJMC2centd7hlY/j7KNnFJh3T
-	xjRf7RjBUSyxx9WLRYs7XMCQwnHO0skxziZmCOqWjZkJErAJ3Zh3J3m5nSVBzNdynWnHeyKSA4i
-	aCwh/UULkDP7SyJaROwkRZfrntJqg/p/oHqn0LeX+dP98ofnEWbqRGSP6q49GA9QRF51l1yYsXI
-	fGcbxIqsolXUrgJiXIPCpkTdTRUiky1V2bDYDby7Zp/+5sDk891eFLmLqb2aM9c2Aga+CGELe+a
-	W3noze+HSninSAttqjnVpNcx6nvgx/dTex6yJ6lrMjjPaZ8Cu0j2c0KWSKMS/NzP1RmytuuDcDz
-	NGbl1P6ULCYS1Byo7ozihZPBBblMBvxTgZ7vjGHPWOi5ONHP64FitFSPIE1nvjh9TKD6geCE08Q
-	foJnuq0+UH4yL7rjbVou4JqubwD9ADBGwOlkIiong=
-X-Received: by 2002:a05:600c:4584:b0:4b8:4af2:88b3 with SMTP id 5b1f17b1804b1-4bb88817aa2mr346072985e9.22.1795596130193;
-        Wed, 25 Nov 2026 00:42:10 -0800 (PST)
-X-Received: by 2002:a05:600c:4584:b0:4b8:4af2:88b3 with SMTP id 5b1f17b1804b1-4bb88817aa2mr346072345e9.22.1795596129635;
-        Wed, 25 Nov 2026 00:42:09 -0800 (PST)
-Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d55sm32983935f8f.5.2026.11.25.00.42.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 00:42:09 -0800 (PST)
-From: Javier Martinez Canillas <javierm@redhat.com>
-To: Yige Jiang <yigejiang86@gmail.com>, Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Yige Jiang <yigejiang86@gmail.com>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] firmware: sysfb: Clear the device pointer on
- registration failure
-In-Reply-To: <confirmed-20261105-25-a16124b5ff57@gmail.com>
-References: <confirmed-20261105-25-a16124b5ff57@gmail.com>
-Date: Wed, 25 Nov 2026 09:42:07 +0100
-Message-ID: <xlv1mrqxl2u8.fsf@fmartine-thinkpadx1carbongen12.rmtes.csb>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=h3IiHOrW
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=sJ/2ZbzaqcfeCaxGMm3EfPm8Ar39j5+iRnGJrB7nvUs=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795596149; v=1; x=1796200949;
+ b=h3IiHOrWRs95/O+DTtGWrpA7RlLiQN4DX9yNaBXtQn4TeFCQXUAVhGZN/LP2F1S4OOJxgXVe
+ TFkSbuc1YQlCNGGMVHT9jlv6GbgMYgqWOSsa0vDmMwTwVCqksQy6SbCcLH1o4ptvAmtxXOUuGDB
+ MfTeTiatzOffL46ErvwqHVdw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 8fa35624655c959f;
+	Wed, 25 Nov 2026 08:42:28 +0000
+X-Mizu-Trace-ID: 8fa35624655c959f
+X-Migadu-Flow: FLOW_OUT
+From: xu.xin@linux.dev
+To: david@kernel.org
+Cc: ziy@nvidia.com,
+	baolin.wang@linux.alibaba.com,
+	liam@infradead.org,
+	nico.pache@linux.dev,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	baohua@kernel.org,
+	lance.yang@linux.dev,
+	usama.arif@linux.dev,
+	kas@kernel.org,
+	akpm@linux-foundation.org,
+	xu.xin@linux.dev,
+	chengming.zhou@linux.dev,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] mm/mm_slot: introduce mm_slot_next() helper
+Date: Wed, 25 Nov 2026 16:42:05 +0800
+Message-Id: <20261125084205.345860-1-xu.xin@linux.dev>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,35 +76,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 
-Yige Jiang <yigejiang86@gmail.com> writes:
+From: "Xu Xin (vivo)" <xu.xin@linux.dev>
 
-Hello,
+Add a generic mm_slot_next() macro to simplify getting the next
+mm_slot container entry from the list, and use it in khugepaged.c
+and ksm.c, just for cleaning up.
 
-> sysfb_init() stores the legacy framebuffer device in the file-scope pd
-> pointer before adding its data and registering it. If either operation
-> fails, the error path drops the allocation reference but leaves pd set.
-> A later sysfb_disable() then passes this stale pointer to
-> platform_device_unregister().
->
-> Clear pd after releasing the failed device, while disable_lock is still
-> held. This makes sysfb_unregister() skip it just as it skips an absent
-> or already unregistered framebuffer.
->
-> Fixes: bde376e9de3c ("firmware: sysfb: Add sysfb_disable() helper function")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
-> ---
+No functional change intended.
 
-Thanks for the fix.
+Signed-off-by: Xu Xin (vivo) <xu.xin@linux.dev>
+---
+ mm/khugepaged.c |  5 ++---
+ mm/ksm.c        | 18 ++++--------------
+ mm/mm_slot.h    |  3 +++
+ 3 files changed, 9 insertions(+), 17 deletions(-)
 
-Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
-
+diff --git a/mm/khugepaged.c b/mm/khugepaged.c
+index 4ceb1b16c03c..0a5c78d01159 100644
+--- a/mm/khugepaged.c
++++ b/mm/khugepaged.c
+@@ -3074,9 +3074,8 @@ static void collapse_scan_mm_slot(unsigned int progress_max,
+ 		 * mm_slot not pointing to the exiting mm.
+ 		 */
+ 		if (!list_is_last(&slot->mm_node, &khugepaged_scan.mm_head)) {
+-			slot = list_next_entry(slot, mm_node);
+-			khugepaged_scan.mm_slot =
+-				mm_slot_entry(slot, struct khugepaged_mm_slot, slot);
++			khugepaged_scan.mm_slot = mm_slot_next(slot,
++						struct khugepaged_mm_slot, slot);
+ 		} else {
+ 			khugepaged_scan.mm_slot = NULL;
+ 			khugepaged_full_scans++;
+diff --git a/mm/ksm.c b/mm/ksm.c
+index fd2d212cae79..11914f649a73 100644
+--- a/mm/ksm.c
++++ b/mm/ksm.c
+@@ -1217,15 +1217,12 @@ static int remove_all_stable_nodes(void)
+ static int unmerge_and_remove_all_rmap_items(void)
+ {
+ 	struct ksm_mm_slot *mm_slot;
+-	struct mm_slot *slot;
+ 	struct mm_struct *mm;
+ 	struct vm_area_struct *vma;
+ 	int err = 0;
+ 
+ 	spin_lock(&ksm_mmlist_lock);
+-	slot = list_entry(ksm_mm_head.slot.mm_node.next,
+-			  struct mm_slot, mm_node);
+-	ksm_scan.mm_slot = mm_slot_entry(slot, struct ksm_mm_slot, slot);
++	ksm_scan.mm_slot = mm_slot_next(&ksm_mm_head.slot, struct ksm_mm_slot, slot);
+ 	spin_unlock(&ksm_mmlist_lock);
+ 
+ 	for (mm_slot = ksm_scan.mm_slot; mm_slot != &ksm_mm_head;
+@@ -1256,9 +1253,7 @@ static int unmerge_and_remove_all_rmap_items(void)
+ 		mmap_read_unlock(mm);
+ 
+ 		spin_lock(&ksm_mmlist_lock);
+-		slot = list_entry(mm_slot->slot.mm_node.next,
+-				  struct mm_slot, mm_node);
+-		ksm_scan.mm_slot = mm_slot_entry(slot, struct ksm_mm_slot, slot);
++		ksm_scan.mm_slot = mm_slot_next(&mm_slot->slot, struct ksm_mm_slot, slot);
+ 		if (ksm_test_exit(mm)) {
+ 			mm_slot_remove(&mm_slot->slot);
+ 			spin_unlock(&ksm_mmlist_lock);
+@@ -2647,12 +2642,9 @@ static bool scan_should_start_new_cycle(void)
+ static struct ksm_mm_slot *scan_get_first_mm(void)
+ {
+ 	struct ksm_mm_slot *mm_slot = &ksm_mm_head;
+-	struct mm_slot *slot;
+ 
+ 	scoped_guard(spinlock, &ksm_mmlist_lock) {
+-		slot = list_entry(mm_slot->slot.mm_node.next,
+-				  struct mm_slot, mm_node);
+-		mm_slot = mm_slot_entry(slot, struct ksm_mm_slot, slot);
++		mm_slot = mm_slot_next(&mm_slot->slot, struct ksm_mm_slot, slot);
+ 		ksm_scan.mm_slot = mm_slot;
+ 	}
+ 
+@@ -2789,9 +2781,7 @@ static struct ksm_rmap_item *scan_get_next_rmap_item(struct page **page)
+ 	remove_trailing_rmap_items(ksm_scan.rmap_list);
+ 
+ 	spin_lock(&ksm_mmlist_lock);
+-	slot = list_entry(mm_slot->slot.mm_node.next,
+-			  struct mm_slot, mm_node);
+-	ksm_scan.mm_slot = mm_slot_entry(slot, struct ksm_mm_slot, slot);
++	ksm_scan.mm_slot = mm_slot_next(&mm_slot->slot, struct ksm_mm_slot, slot);
+ 	if (ksm_scan.address == 0) {
+ 		/*
+ 		 * We've completed a full scan of all vmas, holding mmap_lock
+diff --git a/mm/mm_slot.h b/mm/mm_slot.h
+index 9b09b68e5742..303da2cef759 100644
+--- a/mm/mm_slot.h
++++ b/mm/mm_slot.h
+@@ -33,6 +33,9 @@ static inline void mm_slot_free(struct kmem_cache *cache, void *objp)
+ 	kmem_cache_free(cache, objp);
+ }
+ 
++#define mm_slot_next(ptr, type, member) \
++	mm_slot_entry(list_next_entry(ptr, mm_node), type, member)
++
+ /*
+  * Note: mm_slot_lookup and mm_slot_insert cannot be converted to static inline
+  * functions because the hash helpers (hash_for_each_possible and hash_add) rely
 -- 
-Best regards,
-
-Javier Martinez Canillas
-Core Platforms
-Red Hat
+2.34.1
 
