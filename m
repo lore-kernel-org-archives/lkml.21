@@ -1,76 +1,76 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596049;
-	b=liQT3PrUyt1FZh4RO3XbOyvzDuizEUKyXQvhNSIprYH0s6c1TjXCkJlZH7JmR+9n0z4c
-	 8we6+ZpoIM3xj1eyW4cYBUmSti/TKWJdk1WJk80SdDLphQANt3ZDYfbHo1ZxA2zcmPhaQ
-	 f0gc3jEshDXxlG/17Rv2p9R7WiG5A1baRmp4tX9If/oN/oETIviGfqarDiYG8bR4VzFnP
-	 NQUol5EC1SkMSM6+psqCUNKrEuqUnjRRt0TdFmZSvL40wgfRyTqb62a0/WUDIDm+j51V1
-	 2W7rDCrbIElVeru+g0qsJBqvKCeKMmKYvBHdxnBfSfo8v8jPsOnanPEIX7061UQM4xQ==
+	t=1795596052;
+	b=BYAsDdMwv8kCBQut5vywjYBjRwcBN/DqzI8g10gmKY+OSD/+OiPnH9mOjBB3fBu2hBfX
+	 VnG5/zmp2yRrSYcHV2uTY7jqL7JEij/vwYK6KUqjNaRyueNI09EvoV3cUAPEiduxUcM7b
+	 yNFEq8MUuIZUg7bn4Dq7dt+12IHijAIWsxDgd6RoovpYB7bNv8YigHM8HgGvEONsF0QLP
+	 25kE+4kqv5E67UnOFQdvZfuTIxfao3pbCtGGBU5k8X+SgBEo7+QJyO/D7gMmJK8bRDaMo
+	 bokrTFPSiOti8SZ6dlZtn63Est8av3b1lOBl4+eMDK0H/xC3bDW9rk02Mwtx5rwcGqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596049;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596052;
 	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
 	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
 	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=YtXJlTEvqx5XQygLSJShQwaJUGuYe5/AAwZGVwwLhgg=;
-	b=uBEk9NIbWHG+AnqaJN+AL4QhxJZu4EOKzfWyvDc3yGHfBXIFJJeVw7PqGlbV8l77cdzd
-	 V2rceOMM46wGjvzLyCbAYwqFRsyOvIhZqfz7+BiKhwir8oGtCVkHTBfWHhNA7eBsBYVCg
-	 8CTouuj7CAs3gGjcOo1jAO+SOdYg19ZtrtwjQHEuurO7a2vCgDsXkTr8WfqocrQjNmv7D
-	 yLplxizYCcbe7PGe+GVL8p90V+KnNyoE5KanOolmwbIH6A64ADWTAfr0Ts03NhJnxWIjy
-	 WaXYdDg16379Ot1bR6OFC4xKUeXKft2GGRUy60FNopPPnRS3wcWUWIqPspWt+1bu2Kw==
+	bh=T8/KRqOd72K5yjFhgDWwGqCWV3NyJr/CRKI16NnmYbA=;
+	b=VewvDr5e3RLzNwDFDoaGZ0mqVUF2TY9rBV06B5IOrV79LJUK7BHhILjQrodslCW80Wka
+	 Vy+u4NnV09uJ6PrYKaRVqA9NA2xuCgQmAXnZRos0ixLDgayfanG/Obj1o15csZwSrRiSs
+	 MqGa12638N6Q/B74OwDvfx/HnBEh8iaUFQOcJzCsc5SsKqZvIaywTOHT7H0rjWc74fXlc
+	 Ms8sucFw3c7i7nv2t7v1cSF44ExhGke9gLq3zA50VAaZDmaHoT5Vy82dtFnsduK3CKThE
+	 4lNFxAHfqG7YwdppNBJct6gOaHhOR4LbtdW1/+HXvEmVc62517HA1LQ/UgADzkUdRgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=lCFmVWc8;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=agE9eBKN;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=RVKJ94nk;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="y/BLBIca";
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F055606A335;
-	Wed, 25 Nov 2026 08:40:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F055606A335
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEAEB606A681;
+	Wed, 25 Nov 2026 08:40:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEAEB606A681
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=lCFmVWc8;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=agE9eBKN
-Date: Wed, 25 Nov 2026 08:40:45 -0000
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=RVKJ94nk;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=y/BLBIca
+Date: Wed, 25 Nov 2026 08:40:47 -0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795596047;
+	s=2020; t=1795596048;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=YtXJlTEvqx5XQygLSJShQwaJUGuYe5/AAwZGVwwLhgg=;
-	b=lCFmVWc8HCVSz8mgIPp1Q9ayJIawn29mJXQ5jJK30yfy/MTYtoXefDkN8YTcURhNHAYX1B
-	FETlZJHrNh+Nae6sfDzq+gG7/Fy9HeJNDkknVvfuAz6ylNqTLOuzoUcXR8CygLMf7wD4KW
-	CNmfhHBJvoEctH1OnBGm0PRnO3CPIIUTvwvKqSfEaE5KOQgjyWSc8XMohP6PwysPsicWRp
-	Q4DdJwiqrFK8j2CBswN0r5hV2UDXZRwnZ0NWoKHBWMY2OHz3NjSJQ6WsYzUxan7thTB2vk
-	rq41JraxRQ02avJv6VvwZtK4zhhgHIOcE4TvSMxBwEFbzwslP0qQpC1WdVAR1w==
+	bh=T8/KRqOd72K5yjFhgDWwGqCWV3NyJr/CRKI16NnmYbA=;
+	b=RVKJ94nkUr13LjuBGJ+uiZl5e1aQrpPd1yq73spiNMI4HV17D6TGwOFe6LPA01W3K0AgY6
+	Rtpu873AbJ0yFLvdmNj5VrSnNWGDzaOgJNmVtrYYy09cm1SXzTNhjsOC/IbMTkJxoFuTyb
+	ZFVPgBxwBgvf1Zah7bc02BpGogm641c80OFYII95h2omJ40JanuRRUUkWtFDbOIOMDEe5c
+	4GaanWeFORkO8zX0UbDe/0jGFWzctVwT2QqaE2FYwkdnTS18SkSb3rCIHRG8kBwKtt18lV
+	v1nTCNo4sP2rY/5koy8t9Q0P+WoxUGXyr49G0uRJiKOC+dtGTsNkIxh6U2rnzw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795596047;
+	s=2020e; t=1795596048;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=YtXJlTEvqx5XQygLSJShQwaJUGuYe5/AAwZGVwwLhgg=;
-	b=agE9eBKNR4vNaO0UENkjb37un1bJo7PAyR0xyAi7SRV2ZqH+c+cK5iC+Qa62jBlT8M14Nc
-	USjsNbDviQ1yqxDQ==
+	bh=T8/KRqOd72K5yjFhgDWwGqCWV3NyJr/CRKI16NnmYbA=;
+	b=y/BLBIcaddbuqiLrew6F05tbkiy7AWzLTSxsoBGIr04Sblk10dyltVaeEtllDPVgz+6Tpe
+	JZTOZ+tsARWphDAQ==
 From: "tip-bot2 for Puranjay Mohan" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-tip-commits@vger.kernel.org
-Subject: [tip: objtool/core] objtool/klp: Add test for changed functions
- without an ftrace call site
+Subject: [tip: objtool/core] objtool/klp: Reject changed functions without an
+ ftrace call site
 Cc: Puranjay Mohan <puranjay@kernel.org>,
  Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
  Josh Poimboeuf <jpoimboe@kernel.org>, x86@kernel.org,
  linux-kernel@vger.kernel.org
-In-Reply-To: <20261022171637.3298443-4-puranjay@kernel.org>
-References: <20261022171637.3298443-4-puranjay@kernel.org>
+In-Reply-To: <20261022171637.3298443-3-puranjay@kernel.org>
+References: <20261022171637.3298443-3-puranjay@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,7 +80,7 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179559604542.92412.17801959190123887698.tip-bot2@tip-bot2>
+Message-ID: <179559604701.92412.13543579922017019723.tip-bot2@tip-bot2>
 Robot-ID: <tip-bot2@linutronix.de>
 Robot-Unsubscribe:
  Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
@@ -90,191 +90,114 @@ Content-Transfer-Encoding: quoted-printable
 
 The following commit has been merged into the objtool/core branch of tip:
 
-Commit-ID:     94877d50b89cf6a579e406581db7805ec6b8ad58
-Gitweb:        https://git.kernel.org/tip/94877d50b89cf6a579e406581db7805ec6b=
-8ad58
+Commit-ID:     dee7e5a566e777ec9c5d1dfc61bc1320412cab46
+Gitweb:        https://git.kernel.org/tip/dee7e5a566e777ec9c5d1dfc61bc1320412=
+cab46
 Author:        Puranjay Mohan <puranjay@kernel.org>
-AuthorDate:    Thu, 22 Oct 2026 10:16:36 -07:00
+AuthorDate:    Thu, 22 Oct 2026 10:16:35 -07:00
 Committer:     Josh Poimboeuf <jpoimboe@kernel.org>
-CommitterDate: Sat, 21 Nov 2026 23:38:32 -08:00
+CommitterDate: Sat, 21 Nov 2026 23:38:31 -08:00
 
-objtool/klp: Add test for changed functions without an ftrace call site
+objtool/klp: Reject changed functions without an ftrace call site
 
-Test that klp diff rejects a changed function without an ftrace call
-site, both a notrace one and an inline one emitted out of line, and
-reports each of them.  Also test that a fully inlined function and an
-ordinary function can still be patched.
+Livepatch redirects a function through its ftrace call site.  If a
+changed function doesn't have one, klp-build succeeds but the patch
+module fails to load:
+
+  livepatch: failed to find location for function 'nsproxy_free'
+  livepatch: failed to patch object 'vmlinux'
+  livepatch: failed to enable patch 'livepatch_nsproxy'
+
+This is easy to hit because the kernel's 'inline' implies notrace, so
+any inline function which the compiler emits out of line can't be
+patched.
+
+Make klp diff fail for any changed function which has no __mcount_loc
+entry in the original object.
 
 Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 Acked-by: Joe Lawrence <joe.lawrence@redhat.com>
 Acked-by: Song Liu <song@kernel.org>
-Link: https://patch.msgid.link/20261022171637.3298443-4-puranjay@kernel.org
+Link: https://patch.msgid.link/20261022171637.3298443-3-puranjay@kernel.org
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/tests/x86/fixtures/notrace_target.c | 71 +++++++++++++-
- tools/objtool/tests/x86/test-notrace-target.sh    | 74 ++++++++++++++-
- 2 files changed, 145 insertions(+)
- create mode 100644 tools/objtool/tests/x86/fixtures/notrace_target.c
- create mode 100755 tools/objtool/tests/x86/test-notrace-target.sh
+ tools/objtool/include/objtool/elf.h |  1 +-
+ tools/objtool/klp-diff.c            | 44 ++++++++++++++++++++++++++++-
+ 2 files changed, 45 insertions(+)
 
-diff --git a/tools/objtool/tests/x86/fixtures/notrace_target.c b/tools/objtoo=
-l/tests/x86/fixtures/notrace_target.c
-new file mode 100644
-index 0000000..64da58c
---- /dev/null
-+++ b/tools/objtool/tests/x86/fixtures/notrace_target.c
-@@ -0,0 +1,71 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/* PATCH_<name> changes <name> in the patched build. */
-+#define notrace __attribute__((__no_instrument_function__))
-+
-+static const char __modinfo[]
-+	__attribute__((section(".modinfo"), used, aligned(1))) =3D "\0name=3Dvmlinu=
-x";
-+
-+#ifndef PATCHED
-+#undef PATCH_OUTLINED
-+#undef PATCH_NOTRACE
-+#undef PATCH_INLINED
-+#undef PATCH_TRACED
-+#endif
-+
-+#ifdef PATCH_OUTLINED
-+#define OUTLINED_K 2
-+#else
-+#define OUTLINED_K 1
-+#endif
-+
-+#ifdef PATCH_NOTRACE
-+#define NOTRACE_K 2
-+#else
-+#define NOTRACE_K 1
-+#endif
-+
-+#ifdef PATCH_INLINED
-+#define INLINED_K 2
-+#else
-+#define INLINED_K 1
-+#endif
-+
-+#ifdef PATCH_TRACED
-+#define TRACED_K 2
-+#else
-+#define TRACED_K 1
-+#endif
-+
-+int sink;
-+
-+/* Address taken, so emitted out of line. */
-+static inline notrace int outlined(int x)
+diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objt=
+ool/elf.h
+index a82517a..f7e6a65 100644
+--- a/tools/objtool/include/objtool/elf.h
++++ b/tools/objtool/include/objtool/elf.h
+@@ -98,6 +98,7 @@ struct symbol {
+ 	u8 klp		     : 1;
+ 	u8 dont_correlate    : 1;
+ 	u8 fake		     : 1;
++	u8 traceable	     : 1;
+ 	struct list_head pv_target;
+ 	struct reloc *relocs;
+ 	struct section *group_sec;
+diff --git a/tools/objtool/klp-diff.c b/tools/objtool/klp-diff.c
+index 34da55e..95d0d86 100644
+--- a/tools/objtool/klp-diff.c
++++ b/tools/objtool/klp-diff.c
+@@ -1098,6 +1098,47 @@ static int mark_changed_functions(struct elfs *e)
+ 	return !changed ? 1 : 0;
+ }
+=20
++static void mark_traceable_functions(struct elf *elf)
 +{
-+	int i;
++	struct section *sec;
++	struct reloc *reloc;
 +
-+	for (i =3D 0; i < x; i++)
-+		sink +=3D i * OUTLINED_K;
-+	return sink;
++	sec =3D find_section_by_name(elf, "__mcount_loc");
++	if (!sec || !sec->rsec)
++		return;
++
++	for_each_reloc(sec->rsec, reloc) {
++		struct symbol *func;
++
++		func =3D find_func_containing(reloc->sym->sec,
++					    reloc->sym->offset + reloc_addend(reloc));
++		if (func)
++			func->traceable =3D 1;
++	}
 +}
 +
-+int (*outlined_ptr)(int) =3D outlined;
-+
-+notrace int notrace_fn(int x)
++/*
++ * Livepatch redirects functions through their ftrace call sites, so a funct=
+ion
++ * without one can't be patched.
++ */
++static int validate_traceable_functions(struct elfs *e)
 +{
-+	return x * 3 + NOTRACE_K;
++	struct symbol *patched_sym;
++	bool error =3D false;
++
++	mark_traceable_functions(e->orig);
++
++	for_each_sym(e->patched, patched_sym) {
++		if (!patched_sym->changed || patched_sym->twin->traceable)
++			continue;
++
++		ERROR("%s: no ftrace call site, can't patch", patched_sym->twin->name);
++		error =3D true;
++	}
++
++	return error ? -1 : 0;
 +}
 +
-+static inline int inlined(int x)
-+{
-+	return x + INLINED_K;
-+}
+ static int clone_included_functions(struct elfs *e)
+ {
+ 	struct symbol *patched_sym;
+@@ -2260,6 +2301,9 @@ int cmd_klp_diff(int argc, const char **argv)
+ 	if (ret > 0)
+ 		return 0;
+=20
++	if (validate_traceable_functions(&e))
++		return -1;
 +
-+int inlined_user(int x)
-+{
-+	return inlined(x) * 5;
-+}
-+
-+int traced(int x)
-+{
-+	return x * 7 + TRACED_K;
-+}
-diff --git a/tools/objtool/tests/x86/test-notrace-target.sh b/tools/objtool/t=
-ests/x86/test-notrace-target.sh
-new file mode 100755
-index 0000000..09414ae
---- /dev/null
-+++ b/tools/objtool/tests/x86/test-notrace-target.sh
-@@ -0,0 +1,74 @@
-+#!/bin/bash
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# A changed function without an ftrace call site can't be livepatched:
-+# klp_enable_patch() fails with "failed to find location for function".
-+# klp diff must reject it instead.
-+
-+. "$(dirname "$0")/../lib.sh"
-+
-+# mcount_entry <function>: orig.o has an __mcount_loc entry for it.
-+mcount_entry()
-+{
-+	in_relocs "$orig_obj" | awk '/rela__mcount_loc/,/^$/' |
-+		awk -v f=3D"$1" '$5 =3D=3D f || $5 =3D=3D ".text." f' | grep -q .
-+}
-+
-+# check <expected exit status> <-DPATCH_... flags>
-+check()
-+{
-+	local expect=3D"$1"; shift
-+
-+	setup
-+	build_pair notrace_target.c "$@"
-+
-+	assert_input_symbol outlined
-+	assert_input_symbol notrace_fn
-+	has_input_symbol "$orig_obj" inlined &&
-+		fail "inlined() was emitted out of line; the fixture tests nothing"
-+	mcount_entry traced ||
-+		fail "no __mcount_loc entry for traced(); the fixture tests nothing"
-+	mcount_entry inlined_user ||
-+		fail "no __mcount_loc entry for inlined_user(); the fixture tests nothing"
-+	mcount_entry outlined &&
-+		fail "outlined() has a __mcount_loc entry; it should be notrace"
-+	mcount_entry notrace_fn &&
-+		fail "notrace_fn() has a __mcount_loc entry; it should be notrace"
-+
-+	run_diff "$expect"
-+}
-+
-+rejected()
-+{
-+	local n
-+
-+	n=3D"$(diff_log | grep -c "error: objtool: $1: no ftrace call site, can't p=
-atch")"
-+	[ "$n" =3D 1 ] ||
-+		fail "expected '$1' rejected once, found $n: $(diff_log | tail -2)"
-+}
-+
-+check 255 -DPATCH_OUTLINED
-+rejected outlined
-+cleanup
-+
-+check 255 -DPATCH_NOTRACE
-+rejected notrace_fn
-+cleanup
-+
-+check 255 -DPATCH_OUTLINED -DPATCH_NOTRACE
-+rejected outlined
-+rejected notrace_fn
-+cleanup
-+
-+# Fully inlined: the traceable caller gets patched.
-+check 0 -DPATCH_INLINED
-+assert_patched inlined_user
-+assert_not_patched traced
-+cleanup
-+
-+check 0 -DPATCH_TRACED
-+assert_patched traced
-+assert_not_patched inlined_user
-+cleanup
-+
-+pass "changed function without an ftrace call site rejected"
+ 	e.out =3D elf_create_file(&e.orig->ehdr, argv[2]);
+ 	if (!e.out)
+ 		return -1;
