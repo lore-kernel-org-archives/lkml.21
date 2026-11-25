@@ -1,82 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795615750;
-	b=dHI2mtE3NrBgqu52jEtDuhpqVojMQz87svzzIpsxzjtzgezE/QSanDZXFvClKesqRMBX
-	 hAqpwiU3UnRMyo6q2edfsrtV/YFsJNECqz/vUN3lHWoJmbgipgEc4SmNLqPsfKnU/EJGW
-	 h8y7lDA6NXrKkcrt/F1rtBO23HcBvLNhw3FWLzKAox2doJr6zV2kupqs0N6jl2MIpUzaI
-	 tccBgbEj2CTHk5SAhJH564IzL9G/D7HvaYAMPo01KX4EvMPWdywCvVR0CnS9y91fPlcFi
-	 f+n5OpiMpq71fymaZhDgYxWaE8R0xb0LiwqwJ9C8/fCWNmTTO489XAVqp7JMDB45e2A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795615750;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=OJfj0NWZLxmiap02Jgv9y6mBQfosM9khI8VQAwhpY5c=;
-	b=fqtacTEG3wxjcLvdcQ4xt08RXgKDFGADRA1LCbEA9mt8dhMA5oOqX4bcq+W3VXmOkW7s
-	 n2avDIY+88OXUpUFbs1m2mEBiZeOS7MH2ci9nB4k/4Hl2Xr5PvmLLlpKHQNi79f+TnqHi
-	 LVA0RHTdBiVmqWi0hnB7WF5iwwUHBcUBXRTxI1mPrwfmvufDl7/+hQeTQ0aXfL+IspFe/
-	 4oixkHrHsk6PqTrrIcILfo29rmUtDX7eRTbegycTagFA0PfEeYJ4rx29pWewxuVyf9kJI
-	 4xLpJRFeV5aRcEALIA1CKeqDxhVfnOzNMzdAeAW+awrYnOp5Ti9r1N2I4jBPw2xebfg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=HLOmayJZ;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.182
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795615790;
+	b=N0lLK0ooWFK2hWIqmtao00LNJmPf/PdZL6LuKRgFkINuiUZenGgr6zQWeN3ikqAwu3bf
+	 wqAEBBYXvalZojEmtikJTyxFSpt/m96mn42mTcZaG5HsY1q05hSMZ7oxD4VqEgq/Wvssq
+	 VcWeCCkEZFz3fqYYeDEuM1u/fcbI7hhIGebTYFRV4DnCAoQWQLWRNDUaIsE6zWQGbuj6h
+	 TL1fFf9k2rhh7UfBFWMoicdfudXAakHi4/5W0XI+ulkkLsWLt3N45Vgadm81Yw0L70f0v
+	 lG5eb8dAhpY1Wmv+7lDl3AwSi1v0hPeTuvulTF8q7VumZ1QfqvKg3nLSyfsLo0CST7g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795615790;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=7E8tk8WNCvQTWLwjy68MzTzeM/OC9j+djS5ylZwUSPs=;
+	b=G0tLLIdr7VEUqt8C1oCeULxx4scHxN+BbLFRrBCJ9CQz6D1mx/Ye2+nwLH7n0yAfzQ05
+	 hg6NilxfUlSbl3NwIWFVIJcyIvuSND2LFvaSbvUPojAuw06Tv/C7k0LRPXEGgvNcZ6WwX
+	 7EyFUKTDTSDPfRcbf6r/9HtM+o9mBLwdw66s2BKVKWqido2/sa2sDnBdgQOGXG5F0kbzI
+	 0W2/b3PBQGPxvHA9hQbKPX8qBFoNbNqcxa7cXJBV16uv3MfWYUJZuE1Y7SArgddaCxHeI
+	 jmLAjEcr08Pj/6P/0QT5Q2FMfcgLknNfouinyln9VYTWWLgaVgxwOsPiGsZvp//IaFA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=thegoodpenguin.co.uk;
+	spf=pass smtp.mailfrom=thegoodpenguin.co.uk;
+	dkim=pass header.d=thegoodpenguin-co-uk.20260707.gappssmtp.com header.i=@thegoodpenguin-co-uk.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=FhJ3t8Zi;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.182
+Received: from mail-vk1-f182.google.com (mail-vk1-f182.google.com [209.85.221.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3A0D606A6BD;
-	Wed, 25 Nov 2026 14:09:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3A0D606A6BD
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5ED56606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:09:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5ED56606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=thegoodpenguin.co.uk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=thegoodpenguin.co.uk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=HLOmayJZ
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=OJfj0NWZLxmiap02Jgv9y6mBQfosM9khI8VQAwhpY5c=; b=HLOmayJZkdjmUcSo04fNYiJZ+F
-	iuOcY/vbBOs7dUr1USwUAgETw2iJRkCXAb4zbYLJWrHC3WdrMh0hRKm6cbzkctZ33FtIMF3UbqamV
-	lfulBT3qwftheBZI9jUuNiHYSb/CAexRFMIcHIHIePn/PM2FGT2Xzfm8Ex9gbwZ3577im9HaOCuQp
-	EO6f8P1MAwM2LMF7+4K7DdbOh3BJG58TXUNqO2FWUdFV8PzNHKMuGvIPM9gAtb4Q+PEVJ3+a+MkRD
-	lY9sYRYO7EkLhaHmTL+YpkUgZ7yNNP/ohxd6aFksxkzhoeN2Z63iEYrIVQSfWtTmEswM2oOxhh4an
-	Bd/m2EIA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWDgG-00000005O70-0o3R;
-	Wed, 25 Nov 2026 14:09:04 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id B818F302186; Wed, 25 Nov 2026 15:09:02 +0100 (CET)
-Date: Wed, 25 Nov 2026 15:09:02 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Harry Yoo <harry@kernel.org>
-Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>, bpf@vger.kernel.org,
-	andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
-	daniel@iogearbox.net,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-rt-devel@lists.linux.dev, Vlastimil Babka <vbabka@kernel.org>,
-	Hao Li <hao.li@linux.dev>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>,
-	linux-mm@kvack.org, David Hildenbrand <david@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
-	Boqun Feng <boqun@kernel.org>, Waiman Long <longman@redhat.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH bpf-next v1 1/4] bpf: Add call for selecting kmalloc or
- kmalloc_nolock at call time
-Message-ID: <20261125140902.GE2668804@noisy.programming.kicks-ass.net>
-References: <20261124060357.11700-1-emil@etsalapatis.com>
- <20261124060357.11700-2-emil@etsalapatis.com>
- <DN38HGVL8JHQ.2ZVZQCKFXVA9T@gmail.com>
- <awWRZ9xCzWLnj_R6@thinkstation>
+	dkim=pass (2048-bit key) header.d=thegoodpenguin-co-uk.20260707.gappssmtp.com header.i=@thegoodpenguin-co-uk.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=FhJ3t8Zi
+Received: by mail-vk1-f182.google.com with SMTP id 71dfb90a1353d-5ebf39def3aso2119128e0c.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:09:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795615789; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KV7SAZ1dvEmi9KRNiSv8boj6OQW9dLNAAoFmLSaaF54K4wJp/LO5K1haYXQmdoDYLE
+         7jJIA9m76fsXdN6C7eo5MgKJgWuhsI/8ONIgdf+4k4Uyja3XDmer/4TedIYyj785w0II
+         ADw1AhA1GEsOyYiuoaiTPmvhe61BqG20i/tHZRjMGDaUDdUVKN99Y+oCqk8FYA2WLGCc
+         wkyhqUGua1v0CwTU3t0HUkXVKTOCLw82kkFkIaJFvSKdqfDmn0wTeFAZyspvQ/vlt+nL
+         M9/EAunaiFbM7RRiX55IgL/4eu7Ir3GUkV9/LXuU2m/XX2A39pg9dEVKEe98Jc/zX+qZ
+         nEgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=7E8tk8WNCvQTWLwjy68MzTzeM/OC9j+djS5ylZwUSPs=;
+        fh=5omCE1PEy/cBPLpLWApmaVOc0F7RrCqo8da8li7OLTI=;
+        b=Cb2qCnjdW7OG4W+qimyZrT8wGHmDsfhv7mSWfysnZDE92w0h6b6/XT7elTY188/bye
+         0AyLPYYxnU3Ei/yMuhylWRS5gw69y1Et79hgkJW2dHxhE8zfx3u7ClgScFuMdIjvzJUK
+         5983eTKcK+KdmCitCDvk2R5AuWzuoNgkVseDtKVMBggWP3Wd+bHxn65rzEEbALDavZRE
+         0TUOd7UQpvkU9xT6Y/fvc6iW+JSH7i3dxv2nzIqZwYCWh9BE17UHiCAkDI+NpjYZPhka
+         m6K6y94hOJoPSFiA9PbWxxHB7tqEm7bwRYl4wMfTAionJ0S1ARfD2MshpmbgQwvHs5Yh
+         T6Rg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=thegoodpenguin-co-uk.20260707.gappssmtp.com; s=20260707; t=1795615789; x=1796220589; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7E8tk8WNCvQTWLwjy68MzTzeM/OC9j+djS5ylZwUSPs=;
+        b=FhJ3t8ZiilsdEUXpw+64Z4kkdtv/auYs+JX2tu2TeZo5nG2fO5eCS1Hy0O08b4b3Ie
+         FER8I1a9t8kdDX9n7n/aPZTmphPwZskuQdsdDnYT2wBVPbhcTleMwdRJ1UkPFOtlqTIS
+         U5dkfZTpbKmh7bmtqjMcb2L3df8KcAydn6qHzmcTOU+Dqsw3urrIb1nqv1OD0x16l0u5
+         gnj1xWCr/aks3dYlrIjG+7SpJusi/HqVguhfxgypbBD4dpxB/RktjA1JZi+gdnkhBOxH
+         bA9aOTBKYJpAhUqdEOmvAxQjM4LnzwwAgsQLDQMRGdsbRR1k7tWAerSbYH1lRhxJow+B
+         pLww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795615789; x=1796220589;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=7E8tk8WNCvQTWLwjy68MzTzeM/OC9j+djS5ylZwUSPs=;
+        b=ozcxx1HtfKGMC0zACs9AF1o/3NxsBJL9WMyHMij9OSgCWcDU4yXMfSxN2MVsP8J63x
+         XS66xdfm87fOcGcPfTeIymPVYLL/n6Hd4KVE50og6bHUBhZYdweDb+OUeku4zg7SbULT
+         n8N5Ep1uX2kr8OhgLpMUdoOSvaZH2QOO0O1alcxpP+H0dlczGgwwzoRvY/9t57zt9jh7
+         sIvGjYCWvjaVt0VFxkadT00spN3ZVs0OL0hMs98CzV/rLhuY2e4u/VRVhJj34aSnaJbL
+         oebAFhW0NlSMs0Z4y5pN1xuxVP1wbHiiJrR8hhz4hwLqCeIdmCpuudR01VM6xOh5hZrx
+         c2LQ==
+X-Forwarded-Encrypted: i=1; AL+hErF4RH6ugJUd5x9x8W8o0Q1lDhGyXmuu+Mh4hvvvVdVW3HKZdW49X7qSKUwJhQ0Gw8zedc52RfrF781+KrI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/rsBGnANhZhRjztSAJi3zHugZ6LmjsNc8uqnXxGMTDfTiwYvh+
+	at8kXsNfgiIIaXvYJqnY6Uh49CCQJvytSqlDYGMQr0i8Yqq02lR+lJT0jV9s+le1NOiVmPigzIa
+	yW8Vckvb3ulwZj0oP4JMekPaCDeCkYApIduYswBzUyg==
+X-Gm-Gg: AZFdTZerJ691mK38YHMxIEYF1c8jxeBPLANtZvXc2fRBvnSCKn2Lb27T5wN6eZvbwHR
+	1zacUH2TPsouhI8kByF64cbbbDyHNzz7+jCoMKB9WXxe+/Pl8JXnP98Rmhd0M1UyQdmlGyOPxY4
+	JvA5JCuohcQv5kkOFFZOKkR168XvZU65Fo5FdG3blwdx9NYkRfOnbRzv8EsoJ4cNxmd5ekgbvZk
+	XaOLMJlUqnLESmCT34wxPSUxCrQy0gtm16NAF/cctnmo85XZMx49r5zEjmyLbmnnoWxngSIPdHk
+	MXdWYUJ00jYhjwFRoPQq2d45TgI1h8gpkPI77Ew1CMTIp+Ud+S/HGsOgoj/6G2qG1dgiLJ4wGN2
+	4zCu/t696qzF58vo/JkND+i2phuxaRM1LPbxPHTaFzhpsmEhvmakDVL0FoFJxxFcZLSES8t4=
+X-Received: by 2002:a05:6122:c99:b0:5ea:a0d9:e5d6 with SMTP id
+ 71dfb90a1353d-5ee8af3d595mr8272641e0c.17.1795615789157; Wed, 25 Nov 2026
+ 06:09:49 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,74 +103,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awWRZ9xCzWLnj_R6@thinkstation>
+References: <20261125112158.938835-2-u.kleine-koenig@baylibre.com>
+In-Reply-To: <20261125112158.938835-2-u.kleine-koenig@baylibre.com>
+From: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
+Date: Wed, 25 Nov 2026 14:09:38 +0000
+X-Gm-Features: Aa3M54obGj0SSyVHHSsOwfYIRaKHRsKVEjS56uh3mH9SaQixJVuueHwCusR4AEo
+Message-ID: <CAA6zWZJY9wHN4L0BNHX=no4+tMNH=ZGvEaEYGqd=u6EA=UGkNA@mail.gmail.com>
+Subject: Re: [PATCH v1] spmi: Drop struct spmi_device_id
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Abel Vesa <abelvesa@kernel.org>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, Nov 24, 2026 at 01:59:31PM +0000, Harry Yoo wrote:
-> [+Cc Relevant folks]
-> 
-> And a bit of context on the underlying problem.
-> 
-> kmalloc_nolock() could fail when there is a contention on locks
-> shared across CPUs (e.g., n->list_lock in slab, zone->lock in buddy),
-> or there is a decent amount of memory pressure. It's more restrictive
-> than GFP_ATOMIC.
-> 
-> Unconditionally using kmalloc_nolock() in BPF local storage is
-> unnecessarily restrictive when the program can sleep or spin, and
-> Emil's patchset teaches the local storage whether the BPF program
-> accessing the local storage could sleep or spin on a lock.
-> 
-> Answering the question "Does this context allow sleeping, or spinning
-> on a lock" is extremely tricky in the Linux kernel as BPF programs
-> could run and call kfuncs almost at any point in the kernel code and
-> the "context" is usually encoded in the GFP flags or the process flags.
-> 
-> Tracking whether certain locks are taken by current context is not
-> ideal either as it adds unnecessary overhead for everybody.
-> 
-> On Tue, Nov 24, 2026 at 06:40:11AM +0000, Alexei Starovoitov wrote:
-> > On Mon, Nov 23, 2026 at 10:03 PM Emil Tsalapatis <emil@etsalapatis.com> wrote:
-> > > +	/* Only try the spinning allocation when preemption disables are tracked. */
-> > > +	if (IS_ENABLED(CONFIG_PREEMPT_COUNT) && can_spin_in_alloc() &&
-> > > +	    size <= KMALLOC_MAX_CACHE_SIZE && !(flags & ~nolock_flags))
-> > > +		ptr = kmalloc(size, flags | GFP_NOWAIT | __GFP_NOMEMALLOC);
-> > 
-> > It works, but I after a bit of brainstorming the following
-> > might be a better fix, since it will address the root cause:
-> > Pls run it by Vlastimil, Harry, Sebastian.
-> >
-> > diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-> > index 2fef409..4368ab5 100644
-> > --- a/mm/page_alloc.c
-> > +++ b/mm/page_alloc.c
-> > @@ -2536,6 +2536,24 @@ __rmqueue(struct zone *zone, unsigned int order, int migratetype,
-> >  	return NULL;
-> >  }
-> >  
-> > +static DEFINE_WAIT_OVERRIDE_MAP(zone_nolock_map, LD_WAIT_CONFIG);
-> > +
-> > +/*
-> > + * zone->lock is always held with IRQs disabled. A caller that runs with IRQs
-> > + * enabled is not nested inside of it, so it can wait for the owner.
-> > + */
-> > +static bool zone_lock_nolock(struct zone *zone, unsigned long *flags)
-> > +{
-> > +	if (IS_ENABLED(CONFIG_PREEMPT_RT) || irqs_disabled() || in_nmi())
-> > +		return spin_trylock_irqsave(&zone->lock, *flags);
-> > +
-> > +	/* The caller may hold a raw_spinlock_t. */
-> > +	lock_map_acquire_try(&zone_nolock_map);
-> > +	spin_lock_irqsave(&zone->lock, *flags);
-> > +	lock_map_release(&zone_nolock_map);
-> > +	return true;
-> > +}
-> 
-> I'm not sure this is a better solution unless this could be generalized
-> or abstracted further.
+> This was introduced by commit 5a86bf343976 ("spmi: Linux driver
+> framework for SPMI") in 2014 for Linux 3.15 and already then was unused
+> and no user was added since then.
 
-This is absolute atrocious shite. You cannot attempt a spin_trylock from
-NMI context. That thing might be a mutex.
+Yeah you are correct; I have not found any users either.
 
-This should not work; if it does, that is an accident we need to fix.
+Reviewed-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
