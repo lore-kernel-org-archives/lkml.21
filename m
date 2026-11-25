@@ -1,95 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795630496;
-	b=18evbD+8iw9J1omAdY2fLTX/7Dy5BuWcxl2X7Y/S6mXJ1y8YIbYobZ4vwNA36HCAoLMN
-	 2dt3UKkww4j5uoAPHyMWnQAcBYDD1Hh2sRd60TkBXAiBS9VErrT4Yx5huH+PKt7PvOl/S
-	 4VwgAtszQOd14DFBzkrL/+tR7QviBizXTzzPZYOQwwzyhjPqv0vMtJ1Kb74h6S/hrh2cB
-	 wWz5XAZ6WKk997Er3rph7S6bFJG7bQc9GK2DxfjuRqpJQelvPxbydwFuzbLZ7tehPrJNQ
-	 ehoK/EcmX8mF/7SI2qO+oRjfuDbed1GuBSzcjmDgzhMAplt+yLyvpyE3gIoT8bFjjQA==
+	t=1795630498;
+	b=eEQKCO1dzjuF4kmS5bhLXvB7mIpeBymV1FSeQ77h3zvSEkXYc9KOD6xl4gxzpyg2mZWa
+	 Qp4epf+acJpzVUIdikXpxWAbyPV6fBOKNSK+BIRQ6cT1meWefPTspK3SLA6wAJHsxa7ss
+	 iU8NCu+Er2R2yt2uStaM5PTp6SzHzXwtkzMFhMpFkWTEGZ3nkjMlu8X2EMINfkHuuvS1d
+	 Ov1YHWcKRQjBNfvps8KXbkNlcr8oU4E+71PMA2boAqIjWTEaaSa1j0gWsVnAfgJeSwCIU
+	 GmRfwy2QDrUznVZ/pAYBGw+H/vAqYSXR05c7EGukMzCM6U5FSww/Vfb5kH8annuswmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630496;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630498;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=/3R9jInxYucZc5UgFwp0iS2EvpFdqsgv2PW7AZ1EIq8=;
-	b=vdmcqjLV96Ij5tOiBCbqkvoltT06X4HqFhik83E55sbnyvtUzfeH9WHC0V0QS+Cmei+U
-	 Njxi/T9G7U5gyos6gGLUTePH29nTSKEvcYELqMqmRfxMLZBcJq1W0bGIbrpAKESX1yHa+
-	 GyvRTl51l4vbE7VmImdTpPUAPQnFq6VKyr3jxKTBhySlFKhFtfSgbQ6OQNg+GrAxqYCoM
-	 BIqmeRiAL1SFyvwbToKagvmZs2AIyy5LmaQs6Idq8G1EbLirbItBl1InyuztV4jcC0SJ5
-	 mNg1tuzUCtEiCkmspY95Go4ZxASkQifXUtIhBr+oYPhdZuyEENDf0/oyG5MhVuBSaAw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=VtvIgmARk0ylTz1Vb55Uz9jsAfEsRaDu6ZRMFkPArig=;
+	b=k7k5L1QCjNrEkh5CzgiIhVeA/ZchGgZqUVjNaEWc8qKbXzNGfeLBvifijM8lM7tjl63T
+	 dOqyeLTipE3ipCNP0p5CT1zTK0z1MN7AEX0JMmVUjhAKshdAy3TNtjR78mQYOGCSWL52H
+	 //BVEbegr+C3rxRCWecgPeeBbmF0fWrIX8eVWYyFBitTbeJxzUpLjw5QXDFCc0w6+TA1y
+	 px0T8X6TTeG2lvMB735kC2WdB+cB0NIH36PpfgT6T523gkmyyY+4okfb8ZALmaGHxtbzl
+	 Z3dv4ePcv50si+MZzok6gUeAHzgVzEHYaJD7QPd+GQ8IVM2s2O5ldhc7SdPMOr8Qp6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="kbqh4Eb/";
-	arc=none smtp.remote-ip=209.85.128.169
-Received: from mail-yw1-f169.google.com (mail-yw1-f169.google.com [209.85.128.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GkRxM0I3;
+	arc=none smtp.remote-ip=209.85.128.178
+Received: from mail-yw1-f178.google.com (mail-yw1-f178.google.com [209.85.128.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E2DA606A33B
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:14:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E2DA606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3C5E606A686
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:14:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3C5E606A686
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kbqh4Eb/
-Received: by mail-yw1-f169.google.com with SMTP id 00721157ae682-8b4e246acc2so44114237b3.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:14:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GkRxM0I3
+Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-8b4fb5d96b3so95044097b3.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:14:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20260707; t=1795630495; x=1796235295; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/3R9jInxYucZc5UgFwp0iS2EvpFdqsgv2PW7AZ1EIq8=;
-        b=kbqh4Eb//yLrc6tOqxrgUFFGqFnUNHFY6GozDX05Z+5BG176V6qLThFZNI4L9TfDvQ
-         MaR9joMj8txXUb+ZUD7TWTG2vLkbCyMB9BwanANkL+YEmvqfV11aFFqb7S6tDBoNAIty
-         70ToEs2kIKmwyw/Xrq13IncPEr29QOLIF8Po0b2WkdVaBIbo+nQWKwW4+g7SGxOAtPzS
-         E749CIoNuFToCEQNMDOsd45RXcJpVovW5KFs5uvnAK80cv0EetCcYcUGR2wXDp6lUvXp
-         8gcd9EjMkN8Vin32w6qsngNt574f0Pyn8ZQOVpP8tbslTNtmZK38ug8da4Qkv/I62g0Z
-         CaDA==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VtvIgmARk0ylTz1Vb55Uz9jsAfEsRaDu6ZRMFkPArig=;
+        b=GkRxM0I3I9rw9mLuQwX/dgq1if9czrDya769L7oT8W7BXPcs6ii0XDH+75MEXs9q75
+         9laMkh98+PVzu7I8zowc0qlg1rh+e+5kRkZsR8kOxQRgYjWDbn3DQuikB/DpDkqxZX3m
+         hcKTMgHq2SxoCgrCl1r8B5p5I/aOM7hjR2xkU9YVSuoU2lu08e5FgFmsLYpNkp0XBvz1
+         SrVDiKbu/CFB+dXKsYh9nJbMKZy7ngbjxR1M6HiHQ7gz8OHG1NIlTjVWujmI+lE5mNgv
+         A4RRvaLxog6eQ+YwYTSyjW1T6Ul5YW7CCSBhAZRhjQpLNFgXXflxTCfgTQh/eQqBMTRX
+         lpDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795630495; x=1796235295;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/3R9jInxYucZc5UgFwp0iS2EvpFdqsgv2PW7AZ1EIq8=;
-        b=fXC/QN2yP05PJn9UXB5Rcx10MSD4raCTxoneAikVBBdb6JhUu8dOZxI4OUyIqCu+mB
-         IAGffhxktQuOfQQeCF2TIr0H7qA1/jf+11/v/dahtZpf0oA3xSijppPxHvAInFitOgVR
-         yju7m124LP0tt9z21ltoDxAvtJazB2/+VGLWoXi/9WqoO2hKPUb+/wZRupECQNTs/Px7
-         YOxFZnxZEpT525845OiMzwyzhPcIqjK2fEtCXXYa+SbHmVr1aLZSYKMmKcHDHraTZYJV
-         Za1dOefPzThOIdJy9lc9syM6eAZh2q7j3nMSR66FE0QeETvLFGsqotZi5qozSmrB9E7w
-         E/6A==
-X-Forwarded-Encrypted: i=1; AL+hErF83NRffAkBGlODy44mmX/HDKIG+KaSeCYzcfL+stM1NyWlxDBIest1unwvzLhMhNGkXTN3crutzuXjUY4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/pYC3CfhPPMyUderFPboo3R/RGtUtz+5ccvvNaiTt1ZJOn/bKO
-	UVWFZi9KC9GXeM+Ki3PX5uu8yiCqgvYTN9F6/dVL8LZ80BdToxWA/wM=
-X-Gm-Gg: AZFdTZcaZn2+S/v9/jMX3liclb6tVT1u/UcrP55N4VMhjDIMHpuzlUfLYWHka0HbI7/
-	EXYAhf7T9m5YYzzSgIhRYhtzUtlA10wRGUnq0dmnKFwY0NLqdbNTKX7X2dprmy2Wh/0aObLf206
-	AiA/xi61/p2pOkRr1ZW2gkFXV+ZyLrR7NGwHZjqTrNB7oObdrtkgDvteEGGXbUnU5hC44ivnfeD
-	DAPqwHpR/rfzgHwz9rMG4/hdxxnXCm8+oaHgnv1eB6elRZ5pkUi7jOyzyLHVSg5+okZTFddWQBt
-	RyIaREI8HRb2GiYUudpO29UOCU09EoQ8uQYY++RRiKmjVnr7aNxl0DLiaQe7Y9PrR4I918NoZw7
-	QR8A3H9P0lKnDDu0x09QpuEKziBuhQTCzEb17UAvQhV7zBIGaJiye3ickjysoMvT+bTuhvLXMsm
-	pjueAYt9/uw7TOuwX8SkmM51Jzh3ou53ONrJAc6HgzDzOShamjmpWJE5KrBdcrG6kYRSQSxzyTr
-	RF7pUki3HuLslTdh5VM9ODmHSRp43xHWaK91sYB9ZzfOKNWjRPGag2kcLU7SC2uw1q0kt5qzhcZ
-	q5kZbxEmrHECWw==
-X-Received: by 2002:a05:690c:6886:b0:8b3:1fab:fbdc with SMTP id 00721157ae682-8b52051799emr73665767b3.64.1795630495470;
-        Wed, 25 Nov 2026 10:14:55 -0800 (PST)
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VtvIgmARk0ylTz1Vb55Uz9jsAfEsRaDu6ZRMFkPArig=;
+        b=z0PukO+Xye8E2RgYMAbwJ1AwNwZqTRPl9XM0AzWIlnNxQ0ZKWUAh1q0gs+Rapt8xuF
+         59XYVWihoFXUZo7nF/62RIidj25s3VhQtwRU9OxXoMJiLYhYB1wFityDq4JeW7d1kpyL
+         Mg5gFaQcIj9icemk7RSHub48vvhJNKnAgoe+tFa5Nt+PhIBLT6G6i6nedudswGMPWK7C
+         ZHsV2co4r/aS6ujMdxHUg9xLZKK8vEZsjtLnV8ycjkHtjsRSnG50WsSPY3xP3jw+5cfD
+         f7cxXp2Vv+7t6cUlTgNb3fIR3wHxsTJVu4/OGzKsJWPTD0Yx/8xU5IZG+d2TJH0ehm1W
+         fdSg==
+X-Forwarded-Encrypted: i=1; AL+hErFk2GYBlglwfDfk7mkeEdapDzmS4NNpdkGto+ayUv9cNNnwIosxllSa2YXoYf29xNNt7JV+c+P3MBF3WjY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9cWtm0LCJt/NeK5sMUtMv3UV8odE/AjlXKlotv96ABK0stZiw/
+	91pqkOAXGqg3NslM04Sf2Hrtn8Zw3GDKWCNSdeROVL+jhaev6P23jiw=
+X-Gm-Gg: AZFdTZe282jm4dwzNDGQojH7qyrf4skjtNICdJDjjj56ORe8xnCwSfaOIlAYAaK0RFN
+	P9rJacUQ5rlf6g39JIxxO6FzCmQh0Dmrf8JTl0nP5zIjWSw+qZ8kXTBvHej1UlWh2sEaZ+2EAHI
+	eKwLvunHauYYUMWvIqPe5P3ZvsTbsTsEoIzz24ldRWS3Q5xolK+3ALRGGKgK5BhvupJf/DkLVxb
+	EKft+ojgmY9N/HjTnRfbvBucD8mYEhlOJFh77Aw6xtPwhe2/g+m7cW7OU8+Yj6jXUBFgGS4rAdU
+	QFAH8tv69wKF19y/RX9eUb0zT+zHM+QGg+2SmDIhBEzWu6XScGQVdyaen9rZdoU70X1OplPt0Qs
+	7qrzD8p9rdlc7mAyojnIT4DpvRx5DuWk4ETQp/EEXy4SYki5LfGj+FKLNdcfzy1lqV21MNBFBKR
+	WW4kWhTxoDTGuow1/l+CEKmVE0tQ1m64N9UyATo2uSirLw1qzeM4/CS72uXHfyl3cYJmh8jfFif
+	61bgkBWjU3MXYqKxB3SPcketBWVGSWfJSBY29wLC2K80v7YwnyRI4mOPtGc4mo/3wx4n1FLPN8t
+	xgCuHv8/+LP7pnyB8u4BXL65pI4GknHVh/s=
+X-Received: by 2002:a05:690c:38b:b0:8b4:f6be:d2b7 with SMTP id 00721157ae682-8b518e8aa37mr74974367b3.6.1795630494808;
+        Wed, 25 Nov 2026 10:14:54 -0800 (PST)
 Received: from 3511.attlocal.net ([2600:1702:7a3e:17b0::c])
         by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5201b8cdbsm74546187b3.1.2026.11.25.10.14.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 10:14:55 -0800 (PST)
+        Wed, 25 Nov 2026 10:14:54 -0800 (PST)
 From: Arav Verma <svav2021@gmail.com>
 To: w@1wt.eu,
 	linux@weissschuh.net
 Cc: shuah@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH 1/3] tools/nolibc: fix strchr() and strrchr() for the NUL terminator
-Date: Wed, 25 Nov 2026 12:14:51 -0600
-Message-ID: <20261125181453.814976-2-svav2021@gmail.com>
+Subject: [PATCH 0/3] tools/nolibc: fix standard conformance of a few string functions
+Date: Wed, 25 Nov 2026 12:14:50 -0600
+Message-ID: <20261125181453.814976-1-svav2021@gmail.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261125181453.814976-1-svav2021@gmail.com>
-References: <20261125181453.814976-1-svav2021@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,66 +98,24 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The C standard says that the terminating NUL character is considered
-part of the string, so strchr(s, '\0') and strrchr(s, '\0') must
-return a pointer to the terminator. Both functions stop before it and
-return NULL instead.
+A few nolibc functions deviate from the C standard in corner cases:
+strchr()/strrchr() do not find the terminating NUL, strstr() returns
+NULL for an empty needle, and atoi()/atol() do not skip leading
+whitespace or accept a '+' sign.
 
-Check the terminator too and add test cases.
+Fix them and add test cases. The new tests fail without the fixes. The
+results were also compared against glibc.
 
-Signed-off-by: Arav Verma <svav2021@gmail.com>
----
- tools/include/nolibc/string.h                | 10 ++++------
- tools/testing/selftests/nolibc/nolibc-test.c |  2 ++
- 2 files changed, 6 insertions(+), 6 deletions(-)
+Arav Verma (3):
+  tools/nolibc: fix strchr() and strrchr() for the NUL terminator
+  tools/nolibc: fix strstr() with an empty needle
+  tools/nolibc: make atoi() and atol() skip whitespace and accept '+'
 
-diff --git a/tools/include/nolibc/string.h b/tools/include/nolibc/string.h
-index 4000926f44ac4..2693b9bef43a6 100644
---- a/tools/include/nolibc/string.h
-+++ b/tools/include/nolibc/string.h
-@@ -111,11 +111,10 @@ void *memchr(const void *s, int c, size_t len)
- static __attribute__((unused))
- char *strchr(const char *s, int c)
- {
--	while (*s) {
-+	do {
- 		if (*s == (char)c)
- 			return (char *)s;
--		s++;
--	}
-+	} while (*s++);
- 	return NULL;
- }
- 
-@@ -299,11 +298,10 @@ char *strrchr(const char *s, int c)
- {
- 	const char *ret = NULL;
- 
--	while (*s) {
-+	do {
- 		if (*s == (char)c)
- 			ret = s;
--		s++;
--	}
-+	} while (*s++);
- 	return (char *)ret;
- }
- 
-diff --git a/tools/testing/selftests/nolibc/nolibc-test.c b/tools/testing/selftests/nolibc/nolibc-test.c
-index 1157b521e65b1..9e1d0f3afb901 100644
---- a/tools/testing/selftests/nolibc/nolibc-test.c
-+++ b/tools/testing/selftests/nolibc/nolibc-test.c
-@@ -2028,8 +2028,10 @@ int run_stdlib(int min, int max)
- 		CASE_TEST(setncmp_blah_blah6); EXPECT_NE(1, strncmp("blah", "blah6", 6), 0); break;
- 		CASE_TEST(strchr_foobar_o);    EXPECT_STREQ(1, strchr("foobar", 'o'), "oobar"); break;
- 		CASE_TEST(strchr_foobar_z);    EXPECT_STRZR(1, strchr("foobar", 'z')); break;
-+		CASE_TEST(strchr_foobar_nul);  EXPECT_STREQ(1, strchr("foobar", '\0'), ""); break;
- 		CASE_TEST(strrchr_foobar_o);   EXPECT_STREQ(1, strrchr("foobar", 'o'), "obar"); break;
- 		CASE_TEST(strrchr_foobar_z);   EXPECT_STRZR(1, strrchr("foobar", 'z')); break;
-+		CASE_TEST(strrchr_foobar_nul); EXPECT_STREQ(1, strrchr("foobar", '\0'), ""); break;
- 		CASE_TEST(strlcat_0);          EXPECT_STRBUFEQ(is_nolibc, strlcat(buf, "bar", 0), buf, 3, "test"); break;
- 		CASE_TEST(strlcat_1);          EXPECT_STRBUFEQ(is_nolibc, strlcat(buf, "bar", 1), buf, 4, "test"); break;
- 		CASE_TEST(strlcat_5);          EXPECT_STRBUFEQ(is_nolibc, strlcat(buf, "bar", 5), buf, 7, "test"); break;
+ tools/include/nolibc/stdlib.h                |  5 +++++
+ tools/include/nolibc/string.h                | 12 +++++-------
+ tools/testing/selftests/nolibc/nolibc-test.c |  9 +++++++++
+ 3 files changed, 19 insertions(+), 7 deletions(-)
+
 -- 
 2.47.3
 
