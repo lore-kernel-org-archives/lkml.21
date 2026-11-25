@@ -1,89 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.162
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795594253;
-	b=hhOne9Gp8MBxbkNsQ75RfvPFCrInJsP0x8aiVHGY9TgFO//O5cRu5KRI8zhGn3dmVeUH
-	 gSnuAgLzQn4Pu18lgx0tQgUUxQn0+BPM1bRWG7yVZOu1Jutg6ap//HJL6YoUzXAhEtKPy
-	 zgsy6SmKRVcKirTh3IC4VzlJumj898/zifL+EM+IS7IRHZPTx5aHP/OJZfMUMGn8yQ1OM
-	 6a4Xgdr5otJRP7iTpr9UpAqRMcT9tzfHS19E7WqtaZ3cCoOGl1hOZZeUuk6J2kjotUF98
-	 cZZHaN9xqqg7CRx0vgt3XTX+Kxmx9iEF8+3QU98xLlBTH1Srqinpva6uxq6q2QktmPQ==
+	t=1795594283;
+	b=R6i16Mra+MbXKBZSjQhRRQXCJEQttZF7iaNOwQHcd2wwJZFs2C+IIBDdSdH/1MKsh33N
+	 fgpKJ76urEBwdg7cBaUw3kgZUnE5wcUM2LrjB7KD1JhWRMzUGz4jQkcIGZd/mcSVcJC8O
+	 gXUi5eS08iKP5MclsZC/WE9Tl3x3UzY4iiI7qzP0UFza4/bu6753ISIo2O7syCgfogVrw
+	 9Ooavb5iRPpXJ+RJ3hW6fS+ZTZ+1f46y4nlPN0HNn+Ere5UGGr6y+PPyG+hf37DNHeT4G
+	 q7EGG9BaIZk4Pt4nBQpddYhR9cEdmOfQmOu0w+hItkDK7pO6lESSC35Kepr82Gb+7dQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795594253;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795594283;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=YVCS8IMOn/kwNHYEAA1+rZv+hhTaZu2a0obFMQzn71w=;
-	b=LWeZOAASoGRafsfiKcuIure4PFwmR60dqjIeNmgKzgTnW3z832tbhFF5+EM7cNU7dD0G
-	 pxD3qyeVLbdQ9cKJjBYeE02xEu/w0EM0ZoF7oziHzewJiCLTLVdRYvHZUq2vAQTbRF5h/
-	 SRf98GGyo0MzSGG7+eoP+X0xG7RO+ugo+W+Jx7KhGiRs8OJgpyBM6uT9BaDp/BMpdTHGS
-	 5w4z59toYOTZadieiZAldDncWQIQHNLkYD90E5zeSXxj7OKt4aduMZk6DhRxYKkJsFwtU
-	 EH9htdZzf9gxMyXdByqiDwazuMFfwCqbzhBgcXBoclKBbOfjbBfD13F0gOI5tcvoMYQ==
+	bh=2giyVH86fiD0iX5yZJuW6a/h1ndm6zT9fM4WKgXkwXM=;
+	b=LTqIku0VcTLtMREqk7o8kqDpF1pnVgesn1WazGRNw6sQkpKqghsnww8jfQ6P6Y1omhly
+	 gzkUu4TcQWI3oQ3LNjLMiDLc75fTX67i9WADZegFlk9yXflQ9qJ0fudWCBE8dVb+04WLB
+	 7ymMvi6nQBE1drUKBdNHCwYJDYdLd8ZUiAGB+SQDJogAO7xQoWhVAXZ5hF0D5cRO7H0aW
+	 19O8qT9fLSWOG0HuIaqx3xDE9QIZQzXM7Q1AMgS1hECuV8U5aivNNjMyLOBVZ+tRiqzhA
+	 uaKsZyZi3mwq2izc/ijKZHNmGN14cJaOSi7Le/F1GjEO67QGdYTYt0u8nQ0YHODjfxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=bytesatwork.ch;
-	spf=pass smtp.mailfrom=bytesatwork.ch;
-	dkim=pass header.d=bytesatwork-ch.20260707.gappssmtp.com header.i=@bytesatwork-ch.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="Axi/6UaU";
-	arc=none smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dQPpRoOs;
+	arc=none smtp.remote-ip=91.218.175.162
+Received: from mta0.migadu.com (out-162.mta0.migadu.com [91.218.175.162])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECF0B606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:10:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECF0B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=bytesatwork.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytesatwork.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FF6E606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:11:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FF6E606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bytesatwork-ch.20260707.gappssmtp.com header.i=@bytesatwork-ch.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Axi/6UaU
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-48dee593f18so5090257f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:10:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytesatwork-ch.20260707.gappssmtp.com; s=20260707; t=1795594250; x=1796199050; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YVCS8IMOn/kwNHYEAA1+rZv+hhTaZu2a0obFMQzn71w=;
-        b=Axi/6UaU56VI48FBOJ0Iuol++iREtc8Gq+qW1zWGU1vVEnaSvbob0k+3ZfA+F+RIZO
-         I5uQl7TAdl1SPHyDZjq5Dv23VwS0DC9RL5k2X5NCa3z23u7EFZRvqTknvRZ9hO1p2Rf+
-         KMrYnPJlwhXc6saE+VVVh/zmQbOjbEFka2m1a4abMx0WMhltlVR0wKryxEoeUsWKm7p4
-         /SaTRtv4WDijhvmjHVG4lgM+x4N8jEoTKElJqf48QpLRnF7Q28DzwO4SC0jGHEggwCof
-         o64i5ChchfZ34nDZLE4xJ9OZRWiU3WFpBk9v2dx4wtKbSYZp29Z/gh3bbDmDVrnabc9w
-         brag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795594250; x=1796199050;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YVCS8IMOn/kwNHYEAA1+rZv+hhTaZu2a0obFMQzn71w=;
-        b=IgX+uRaJQwflgHDbyrmiN/noqRoTfOYbCjX1SHzjK6/pP1ukT9PN9UkQHXm16Fl8cn
-         yGhykuKKWJIyvK5UGo3Y06B085gFY19OnycQ1McLKTL5UiCyEXc6u2Q9PJDRXVKbaJuv
-         csotgHCRt3lwV/Oh4ZPmR5JKOSWqwp8fysMp5BeddyAOGIh24RS+t0Mj2w7wU6yjp6N4
-         Izh5Ta1kk32dp5/7leHN7plwrOG44Fe89KPU7TEMD3eMXx8bpa4335beCdaV6kb/y9iu
-         Pe1pYufjtkiFBSAgiqbPCS6mHINUpaGyAWZx4hLOVA8YsOX8jHNxJ7coo5St50jVWDBA
-         Lb4Q==
-X-Forwarded-Encrypted: i=1; AL+hErF142VnT5v6XHI+b8pJIv72lsEJvQV2E78fucvU45obQJOiT8MKILVv5N7/xd61HQ4VVyZEFxMQSHIE1JM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Kj3rc4gUzfR6t/y0l9Fx0m6WzEbpVVPZoaZ5qG3+G/C5Myz08
-	8cJRpFXPvWOn9grqjiCSyVQ9JAX40pU8lwJD11ynu5h7CxVczabPury62Fl4zbutHp4=
-X-Gm-Gg: AZFdTZcGjC2Jj+bdj9//bo4faLZxE6wt0Zz7NPtXWLnMm0y9f4QgLWcFoHsALF8CV1O
-	GHA1fAMzq7EULh1Bg0riSAk2uJTPSd1ZVaZigygClm73HKqRKp1OHTfS92Xpz0RU68xhh0lhMbJ
-	tAn2CudO2kVzUAsTSVZYcZH75Gi+rGxMZ8CgwcoZ6+BAsb4KD2nb4mwaItVcHv2Hm0wLyoYHVr2
-	UwUNg8eL/BV5wGl6wF6/G1toDbOlceQbtK+tv0YNI5TUG0fQsk6JwBD8aAEt/rLIyGYs+Ux0VzT
-	ulcUCGrP4mpf1nbXwyf5BpfGguOolNiN0/PglBaXUyuIIJv3GySFJe12At/90/7Mggy0ZzsJqzD
-	1Ws0OtKSpUqs03qLuinoKUgMTPJ9+arBC1o4wXWgBoAwHLj702VCHm0Up9bdM1hxVJIakJIBnqd
-	rLgCsQOnPcoeGXfO1MIoHBk0Su+PMLL6bSSiXEOrkgPsH7pmQQqjJKeyxQs3e752E9WqmfW9Ef0
-	n92eBLZGQIvXaoK2hVe19ckUEizMBxF9642q1iSxBHl4WX9gvSVZSkpHYDLqRVjhna8SZ3iSNYw
-	tNIxlzNJNj+ocUOtc073YKX+8uJdZPnoR+KoqCByihj4kZhECR2Ih64JroJ/PymfZVtnQLXwwCM
-	=
-X-Received: by 2002:a5d:5f93:0:b0:4a5:33ad:871a with SMTP id ffacd0b85a97d-4aba56f470cmr32677127f8f.0.1795594250026;
-        Wed, 25 Nov 2026 00:10:50 -0800 (PST)
-Received: from [192.168.2.69] (162.40.150.83.ftth.as8758.net. [83.150.40.162])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab5ffcad11sm31415134f8f.0.2026.11.25.00.10.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 00:10:49 -0800 (PST)
-Message-ID: <f7fe449e-5dd9-4476-9f1a-100466dc0c8f@bytesatwork.ch>
-Date: Wed, 25 Nov 2026 09:10:48 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dQPpRoOs
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=XIDuvbDmASzXTaeTkwCkboNpVob5bHBGaZ8fqBcxs1A=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795594280; v=1; x=1796199080;
+ b=dQPpRoOsndcFOWCRMeREL5tZjUzaZ8N51udrgxJmMiP7z60H81w/fhc/8gC1Mu+EQHWvFtBF
+ xKOTcC2qrohXsA8LNpT5NG7wWOAQbMRkz9LZU6AokVeQf239sXIWjeepsF+wE/05o5CcKMWa9kU
+ R/zM864Eh3imnGAnQGCzFV4o=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 8f26a41e6856e0d2;
+	Wed, 25 Nov 2026 08:11:20 +0000
+X-Mizu-Trace-ID: 8f26a41e6856e0d2
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <5ace7a93-b12e-4f15-a857-eff02ec8cb40@linux.dev>
+Date: Wed, 25 Nov 2026 16:11:13 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,59 +59,154 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/5] arm64: dts: freescale: imx93: Add MIPI DSI
- controller node
-To: Francesco Dolcini <francesco@dolcini.it>, Frank Li <Frank.Li@nxp.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Neil Armstrong <neil.armstrong@linaro.org>, Michael Walle
- <mwalle@kernel.org>, Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Daniel Baluta <daniel.baluta@nxp.com>,
- Jessica Zhang <jesszhan0024@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Alexander Forsch <alexander.forsch@bytesatwork.ch>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261111133119.1063210-1-frank.obergfell@bytesatwork.ch>
- <20261111133119.1063210-4-frank.obergfell@bytesatwork.ch>
- <20261124201110.GA366860@francesco-nb>
-Content-Language: en-US
-From: Frank Obergfell <frank.obergfell@bytesatwork.ch>
-In-Reply-To: <20261124201110.GA366860@francesco-nb>
+Subject: Re: [PATCH v5 00/12] cpuset: rework local partition logic
+To: Waiman Long <longman@redhat.com>
+Cc: Guopeng Zhang <zhangguopeng@kylinos.cn>, cgroups@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Ridong Chen <chenridong@xiaomi.com>,
+ Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+ =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>
+References: <20261114083124.1340140-1-ridong.chen@linux.dev>
+From: Ridong Chen <ridong.chen@linux.dev>
+In-Reply-To: <20261114083124.1340140-1-ridong.chen@linux.dev>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-Hi Francesco,
 
-Thanks for the feedback and the offer to review/test!
 
-Frank Li actually just applied patch 3/5 (the i.MX93 MIPI DSI controller 
-node) to his tree. The remaining patches (dt-bindings and board DTS) are 
-currently waiting for the Youritech et050fw01-kt panel driver patch to 
-be picked up on the DRM/panel side so we don't introduce broken 
-dt-binding references.
+On 11/14/2026 4:31 PM, Ridong Chen wrote:
+> From: Ridong Chen <chenridong@xiaomi.com>
+> 
+> This is v5 of the cpuset local partition rework [1], which I started
+> while at Huawei and am now continuing at Xiaomi. Since v4, the fixes and
+> preparatory changes at the start of the series have been posted
+> separately, last as [2], and merged into cgroup/for-7.4-fixes. This
+> version is based on it and only has the part that consolidates the
+> partition state changes into common helpers, the remaining parts will
+> follow.
+> 
+> The partition state of a cpuset is currently changed in many places, and
+> local and remote partitions are handled by different code.
+> update_parent_effective_cpumask() alone handles five partcmd_* commands
+> for local partitions, while the remote partition helpers open code the
+> same updates of partition_root_state, prs_err, effective_xcpus,
+> subpartitions_cpus and isolated_cpus.
+> 
+> The idea is to have one set of common helpers to enable, disable and
+> update a partition. Local and remote partitions only do their own
+> validation and then call these helpers, and all partition related
+> state is set or changed only inside them. After this series:
+> 
+>       update_prstate()        update_cpumask()
+>       update_cpumasks_hier()  cpuset_hotplug_update_tasks()
+>                            |
+>            +---------------+---------------+
+>            |                               |
+>            v                               v
+>    +-------------------+         +--------------------+
+>    |  local partition  |         |  remote partition  |
+>    |                   |         |                    |
+>    | validate_local_   |         | remote_partition_  |
+>    |     partition()   |         |     enable()       |
+>    | local_partition_  |         | remote_cpus_       |
+>    |     enable()      |         |     update()       |
+>    |     update()      |         |                    |
+>    +-------------------+         +--------------------+
+>            |                               |
+>            +---------------+---------------+
+>                            |
+>                            v
+>    +------------------------------------------------+
+>    |  partition_enable()                            |
+>    |  partition_disable()                           |
+>    |  partition_update()                            |
+>    +------------------------------------------------+
+>                            |
+>                            |  partition state, only changed here
+>                            v
+>    +------------------------------------------------+
+>    |  cpuset:  partition_root_state, prs_err,       |
+>    |           remote_partition, effective_xcpus,   |
+>    |           exclusive_cpus                       |
+>    |  global:  subpartitions_cpus, isolated_cpus    |
+>    +------------------------------------------------+
+> 
+>    partition_enable()  - make a cpuset a valid partition root, or switch
+>                          a valid partition between root and isolated
+>    partition_disable() - make a partition a member or invalid, give its
+>                          CPUs back to the parent and propagate the change
+>    partition_update()  - update the exclusive CPUs of a valid partition
+> 
+> A partition is disabled with partition_disable() directly, for both
+> local and remote partitions, as giving the CPUs back to the parent needs
+> no partition specific handling.
+> 
+> With this, every caller follows the same pattern (validate, then
+> enable/disable/update), and it is much easier to see where and why a
+> partition state changes.
+> 
+> Patches 1-3 introduce the common helpers and patches 4-6 use them for
+> remote partitions. Patches 7-11 add validate_local_partition(),
+> local_partition_enable() and local_partition_update() and convert the
+> local partition paths, including the hotplug path, to them. Patch 12
+> removes update_parent_effective_cpumask() and the partition_cmd enum.
+> 
+> The series is meant to be functionally equivalent, except that the
+> failure reason of an invalid partition is kept more accurately. For
+> example, PERR_CPUSEMPTY of a partition with empty cpuset.cpus and
+> cpuset.cpus.exclusive is no longer overwritten by PERR_INVCPUS when its
+> parent changes.
+> 
+> The remaining parts of the rework, e.g. validate_remote_partition(),
+> removing the partition field updates left outside the helpers and
+> simplifying update_prstate(), will be posted as a follow-up series.
+> 
+> test_cpuset_prs.sh passes with this series applied, with no boot option,
+> with isolcpus=10-11 and with nohz_full=8-11. Patches 10-12, which change
+> the hotplug path in between, are also tested individually.
+> 
+> Changes in v5:
+>    - Drop the RFC tag and rebase onto cgroup/for-7.4-fixes, which has
+>      patches 1-3 of v4 merged [2]. Only post patches 4-14 of v4.
+>    - Call partition_disable() directly, instead of local_ and
+>      remote_partition_disable().
+>    - Add validate_local_partition() in a separate patch.
+>    - Keep PERR_CPUSEMPTY for empty cpumasks (Sashiko).
+>    - Add __maybe_unused to unused helpers (Guopeng).
+>    - Link to v4: https://lore.kernel.org/all/20261101114206.2434398-1-ridong.chen@linux.dev/
+> 
+> [1] https://lore.kernel.org/all/20261101114206.2434398-1-ridong.chen@linux.dev/
+> [2] https://lore.kernel.org/all/20261112031931.2815548-1-ridong.chen@linux.dev/
+> 
+> Ridong Chen (12):
+>    cpuset: introduce partition_enable()
+>    cpuset: introduce partition_disable()
+>    cpuset: introduce partition_update()
+>    cpuset: use partition_enable() for remote partition enablement
+>    cpuset: use partition_disable() for remote partition disablement
+>    cpuset: use partition_update() for remote partition update
+>    cpuset: introduce validate_local_partition()
+>    cpuset: introduce local_partition_enable()
+>    cpuset: use partition_disable() for local partition disablement
+>    cpuset: use partition_disable() to invalidate local partition
+>    cpuset: introduce local_partition_update()
+>    cpuset: remove update_parent_effective_cpumask
+> 
+>   kernel/cgroup/cpuset.c | 856 +++++++++++++++++++----------------------
+>   1 file changed, 398 insertions(+), 458 deletions(-)
+> 
+> 
+> base-commit: e234ed1bb82c96a5643fd70784f16cf3d72eeed3
 
-Any additional Tested-by or Reviewed-by tags on the remaining patches 
-(or the panel patch) would definitely be very welcome.
+Hi Longman,
 
-Best regards,
-Frank
+The recent cpuset fixes have been merged, so v5 no longer applies
+cleanly and needs a rebase. Before I send v6, would you have time to
+take a look at v5? I'd like to fold your comments into v6, together
+with the ones from Guopeng.
 
-On 24/11/2026 21:11, Francesco Dolcini wrote:
-> Hello Frank (both),
->
-> On Wed, Nov 11, 2026 at 02:31:17PM +0100, Frank Obergfell wrote:
->> Add dsi node to the i.MX93 for support with mipi dsi panels.
->>
->> Signed-off-by: Frank Obergfell <frank.obergfell@bytesatwork.ch>
-> I am not sure if the other patches of the series are ready to be merged
-> or not, but this seems a patch we should merge in any case so that we
-> enable other users of the DSI interface of the imx93.
->
-> What do you think? What's the plan for this series?
->
-> (yes, I could test and review it to help, I know :-)
->
-> Francesco
->
+If you'd rather review a rebased version, I can send v6 first instead.
+
+-- 
+Best regards
+Ridong
+
