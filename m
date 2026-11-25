@@ -1,45 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590366;
-	b=xfR1qx4szNhF+9dmERmHOEsKzV6ZrCIvyx6p/2Hr1q9/qFPBRLQa49mOyc9WdDZtulYn
-	 dhIGwoH6Hf9zO1zwNCGPDo89HDZ//CVJQi38BJBtk/Fn5usLYHED5l1v6Wn+Rag7oH5FD
-	 FN/jTg6c7BkPL4079GyoBD+NOqcmrUAPensYl9UxOZnDiQgv95vhV6WlcgQUN54OeP0uh
-	 RZ9plno2ssL223SQo4hdKbTMx9pIqYP1rAwgaFo9xuF1tuhr4sH937axMTOnRRdEXNUSt
-	 dSYoRk55Cu7kWFt1f8/K5k3CzuGqLpOj0Yd9M/IbucpLuihw103+cRq1A8AujX3CE+Q==
+	t=1795590363;
+	b=oLZ5daZ/kA35dte8fEQNOUJni4ejEM3g0F9wmKc2JIQV6U7o7P6cWRdDn5LmvimtAKDu
+	 yDiEqmV0/zhT0VN5IQS1oiHfGT+PQ4UUpxa5jEXIGGeRVNTgMuD10or2gGkMNrgmXCAGQ
+	 1GF6czn9L4ukIfAu0C4VwIkHhUnn+bB/abjW63TdsjdjdyKXTJ/p6Q9KR2VRtCH04tQ3N
+	 mNuETV0xS58wSe3Wf1+1hJkdkwpx7qwEwiE/4p2Sy6p24o9ZrSFFP42UjoeTS9V4kcoin
+	 IcAki9AgT810kV2b7NqVj/ErdeNG9i5zClyKLKN521X/nPiZK3oHhsn/kKeVuzMXn1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590366;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=hyUGVDmprxQhAj50WjzUk1/vaaBy//3iaYrzXIMA2eA=;
-	b=SE/AoHq8YkLU3EEHoQMf3g7ME/iI737dEWeLmIEKdr1SW/cLNeiP1/OE8h9CiV9Ran3y
-	 EI3f/zmM2HaMDwP3d1RxQDQqpYOYyxUzfCEUw6VNppehc9D4OMVIKj/Nk+SyQE+dhnArf
-	 yGWcGBalUBz1krt8gasy2f5PIXQioj2S1UdozP3lXVpX7MHo7YcsVLeITSWaj64qPqpHl
-	 1aTieAiPVkg0RKNGGK32mfuydlVBt8k44ArTKtNKpdBLZvKuQPtZD9eL3KtC09uwUbvq6
-	 wDGymQ5ThhoUEtilDI2wxPx7yNtFdOLeH92p2yKXr+c2xoNtQXxw0YUJFfWfF1yCMBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590363;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=7KO6BJkPL4Xh/S2hlOpY8o2wtZX2tSI3Ngql/Modzpo=;
+	b=iZjqGPYnDPTG6pWPZkohtCNF2cMW0r/cCpEDeP/xYkiFgfUozIgw/aZf/FpA2Od+wzxy
+	 swGVykLj1FAiF5ApZMfky4CVv7jJq0P6Sbutpz6w/7nifPFPI1ftyl8UXjlzt3uRMkR0M
+	 qYqVYFSFB9/gpL8CDknpoOmigfjlNrNy+OP7LHjA1w6+OfQNISD38aXTik66YPbVTfqLq
+	 9/tUzBNCEu5tosZk6yeB0eGeS6RdeI9kTbsEya0aGavyQAO/hyac28gHeVENE/CGNzqud
+	 RI+7u/iVimYby9qSGfkZV+wrrh11w8nvWAzh+LV53enaIyKsLvUvMxUIxiGewXhGxIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=fail reason="signature verification failed" header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YvKoL5qI;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="JM/gUZ6M";
+	arc=none smtp.remote-ip=209.85.215.174
+Received: from mail-pg1-f174.google.com (mail-pg1-f174.google.com [209.85.215.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B397E606A329;
-	Wed, 25 Nov 2026 07:06:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74B92606A33C
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:06:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74B92606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YvKoL5qI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F3591F00ACF;
-	Wed, 25 Nov 2026 07:06:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795590366;
-	bh=hyUGVDmprxQhAj50WjzUk1/vaaBy//3iaYrzXIMA2eA=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=YvKoL5qIpzrIqVi7SNh+5Muu2JJaxW1V9tBNRWWqZ+I8zV3a4XkLT0APhVQMuzBC7
-	 JHOmVjUtZeiGIuu5ektu1FulpCUXEf8IfpQoN2m4eUuI0JVKjHalBp7/CIxGzLzFsy
-	 D46UXprCgwAbAB018ecPrxILDJBi+k1/Xmp0yBXLaOf5xTRwG2BDx1DWs8f9XR44CT
-	 QMuNBRSsFiNcNr9Fibud2FK6wGSHzp/eg/0iLkGpOMewZX5u0IocDHL4FMK0Aqilql
-	 VWLgBU/m0lwdvo+h4mDIdYtGNGyDN4dlaBAfrwmIfZ8AVUjtu3fqqEeb2U+uwzpYCz
-	 QgWWeupD1rSUQ==
-Content-Type: multipart/mixed; boundary="===============5092901143825754910=="
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JM/gUZ6M
+Received: by mail-pg1-f174.google.com with SMTP id 41be03b00d2f7-cdab8873d9dso2538640a12.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:06:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795590363; x=1796195163; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7KO6BJkPL4Xh/S2hlOpY8o2wtZX2tSI3Ngql/Modzpo=;
+        b=JM/gUZ6MnB0HIH9eK8aGhMfp1BgxgrDR6Q+JcQLNpNr+yAn80p2kj2lImXPdyhGH7S
+         HGIXV1nVDQS/KnYzNKjeGkR1qd0vkBh/3DIs8x6Sj6LCH+LSoOjq52kJnC9BD94ZGxHU
+         vkLQdMJrwopevzUAbNgJPRyn6mOEiYpAfbcuQoyF0AiPl+6Zj4d+4WyR0yNdFj4T5EG/
+         vaKsl8Y8Ab8u3BHS0QAZ2aipApB+EVkqu4s+59UDjAwCxlimSUepBswarAd23qE1Ayvr
+         HlRa2MSUGe8udPcKd08G8JfhyWXlB06/llqz/+84qoo5m91HKAr+JdHMdpWd0xTw/ctR
+         VwRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795590363; x=1796195163;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7KO6BJkPL4Xh/S2hlOpY8o2wtZX2tSI3Ngql/Modzpo=;
+        b=N12kJj07ukdYGqyMTdcAcVmYY7e9bdVOnvX3SjikPZB4ocE+Sx9JhBokqxiybK99QR
+         BGiFrX91Jx0aEn+FHzFXH8QsmHQWJJBlbVLHWYJPtYFbXno4z89mw+6+eJlAsMqVPLk5
+         VS0filX5ZSDL5k2o5BmO6IxxiuhzMzNfeGeBTDqV52Hg/f4xBetKyeo/9T2yf+EQMUr0
+         jD9mLBwkMnSJa4GbeN/Q5uIB26cyLJN3DX25i8nFtk6UvevfPUQ5VN+zk6TmIm61O1j8
+         6Sd8U35oVMk3luGAXu8r2qmzbpimiUPsBi/+2S04Pa8zOieG4bkiygm8rPBqNPbsxFjp
+         UP6Q==
+X-Forwarded-Encrypted: i=1; AL+hErG+eHA6dFUPf2krzt6Qd/gw13jxpS06zvoDJ4LuEsUTV+PZEGXNE18O01L/r6dxHrr7cFCboCNrOb12tx8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/iYj2hYEQHoxJWTiMBJNHAm0zyXZBg+XghgdcGoBSWoN1WmI5H
+	2zpvFVeHsBb9Q795QD+fsCDO9kj5JM72Ouq5UtdF7fj6ans+T4uminqW
+X-Gm-Gg: AZFdTZfNcPGGNXs0pC67EAH63VOoDI7gTikJkCzic50gJQKPR+4HdIhfbDymbR54oV7
+	JHAzYaBd7+yJtV6ci6DqpI3BlNHiTvKFUa98YVC0l3qt1JosdvO3YcHjP2ETEFWPXj+7+olFElW
+	0NoxyR/Ui6aJZQr7Njbe/qSncoaopgIICAo//dxowECC981xZKZ2OB//jZZgEciPPJnCJRZJKti
+	B991BDJcjAQiaku51z2ycXfSJ5kcZBetrVLkO/YnnrDS3F9kwbAbFaIBDtOE5Tat54UPrOdz25O
+	HFbyWeOBKrQ28yBHzT+yalU9+vWI6uHW5HlR20t/SRQ9U//8sCX4E5QFCaKGVQ5swvDQK7MAZtW
+	525gA7luf9bFOroZZUHS8auFmSyvjGQKNMn7r8PI6Tix7d+TgylJ9I+nECPgOdNoaDNlvCP2CRB
+	/6wSSnQk++un8JaKv6aoaTFTm7qbkbtZ4+63jrnd/lf9QZDkesQCm86XB/7UWtazB5hXuIe+5sY
+	81NZ6asswKhUDS5LDRnqRadTsVaorPN2EP+2b0P5HkyhTBfUqILoE8A39A9vHhqAnEhL2Py2sLZ
+	Yjb0v+qur5HjQbPSJNohZrEwOeNraBVu6X6dsg9cVA==
+X-Received: by 2002:a17:90a:d2cf:b0:3b3:b595:2473 with SMTP id 98e67ed59e1d1-3b41c906b61mr14892216a91.24.1795590361654;
+        Tue, 24 Nov 2026 23:06:01 -0800 (PST)
+Received: from a-VirtualBox ([168.188.125.88])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a34asm25898247a91.3.2026.11.24.23.05.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 23:06:01 -0800 (PST)
+From: Minseo Park <hiyoukou@gmail.com>
+To: clabbe@baylibre.com,
+	mchehab@kernel.org,
+	hverkuil@kernel.org,
+	linux-media@vger.kernel.org
+Cc: mjpeg-users@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	Minseo Park <hiyoukou@gmail.com>
+Subject: [PATCH 0/4] media: zoran: fix capture buffer size / geometry desync
+Date: Wed, 25 Nov 2026 16:05:44 +0900
+Message-ID: <20261125070548.28989-1-hiyoukou@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,73 +98,111 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <3bd046e1156b06c06b0a3c90eddace99d419b20b620d8980538ce47b314272a9@mail.kernel.org>
-In-Reply-To: <20261125061523.1540234-19-irogers@google.com>
-References: <20261125061523.1540234-19-irogers@google.com>
-Subject: Re: [RFC PATCH v2 18/30] riscv: Add DWARF CFI annotations to entry, ftrace, rethook, and BPF JIT
-From: bot+bpf-ci@kernel.org
-To: irogers@google.com,linux-kernel@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arch@vger.kernel.org
-Cc: jpoimboe@kernel.org,rostedt@goodmis.org,peterz@infradead.org,mingo@redhat.com,tglx@kernel.org,bp@alien8.de,dave.hansen@linux.intel.com,x86@kernel.org,catalin.marinas@arm.com,will@kernel.org,mark.rutland@arm.com,linux-arm-kernel@lists.infradead.org,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,linux-riscv@lists.infradead.org,acme@kernel.org,namhyung@kernel.org,linux-perf-users@vger.kernel.org,mhiramat@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,bpf@vger.kernel.org,nathan@kernel.org,llvm@lists.linux.dev,nsc@kernel.org,linux-kbuild@vger.kernel.org,ojeda@kernel.org,rust-for-linux@vger.kernel.org,ardb@kernel.org,linux-efi@vger.kernel.org,maz@kernel.org,oupton@kernel.org,kvmarm@lists.linux.dev,shuah@kernel.org,linux-kselftest@vger.kernel.org,indu.bhagat@oracle.com,jremus@linux.ibm.com,wnliu@google.com,dylanbhatch@google.com,irogers@google.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yongho
- ng.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Wed, 25 Nov 2026 07:06:01 +0000 (UTC)
+Content-Transfer-Encoding: 8bit
 
---===============5092901143825754910==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+zoran_v4l_set_format() updates zr->buffer_size before it validates the
+line alignment, and zoran_s_fmt_vid_cap() updates zr->map_mode before it
+calls zoran_v4l_set_format() at all.  When the alignment check rejects
+the format with -EINVAL both fields keep their new values, while
+zr->v4l_settings, which is only committed after every check has passed,
+still describes the format that was accepted before.
 
-> riscv: Add DWARF CFI annotations to entry, ftrace, rethook, and BPF JIT
+That matters because the two sides of the frame size contract come from
+different fields:
 
-TL;DR: Commit message only: it says the return_to_handler() rewrite in riscv
-mcount.S is under CONFIG_UNWINDER_DWARF_CFI, but part of it is unconditional.
-The code looks functionally correct.
+  zr_vb2_queue_setup()     -> zr->buffer_size
+  zr36057_set_memgrab()    -> zr->v4l_settings
+  zr_set_buf()             -> zr->v4l_settings
 
-> riscv: Add DWARF CFI annotations to entry, ftrace, rethook, and BPF JIT
->
-> Prepare RISC-V assembly, probe trampolines, and RV64 BPF JIT prologues
-> for runtime Minimal DWARF CFI kernel unwinding:
->  - Export end labels for ret_from_fork_user_asm, call_on_irq_stack, and
->    ftrace_caller save/restore boundaries, and save s0 in ftrace_caller
->    under CONFIG_UNWINDER_DWARF_CFI.
->  - Annotate return_to_handler() and arch_rethook_trampoline() with
->    .cfi_* directives and key rethook shadow stacks on entry SP (CFA)
->    under CONFIG_UNWINDER_DWARF_CFI.
->  - Save RV_REG_RA unconditionally in RV64 BPF JIT prologues under
->    CONFIG_UNWINDER_DWARF_CFI so leaf BPF programs unwind into frameless C
->    callers.
->
-> Signed-off-by: Ian Rogers <irogers@google.com>
+The ZR36057 has no transfer length register, so the geometry and stride
+registers alone bound the write, and nothing compares them against the
+size the buffers were allocated with.  An accepted VIDIOC_S_FMT, a
+VIDIOC_S_FMT that fails the alignment check, and then VIDIOC_REQBUFS is
+enough to allocate buffers for the rejected format and have the chip DMA
+a frame of the accepted format into them.  768x576 BGR32 followed by a
+rejected 33x24 RGB555 leaves zr->buffer_size at 1584 bytes, so the queue
+allocates a single page and the chip writes 768 * 576 * 4 = 1769472
+bytes into it.
 
-The commit message describes the return_to_handler() changes as being
-under CONFIG_UNWINDER_DWARF_CFI, but part of that rewrite is not config
-gated:
+zr_vb2_prepare() does not catch it, because it compares the plane size
+against the same zr->buffer_size that was used to allocate the plane.
 
-arch/riscv/kernel/mcount.S:
- 	call	ftrace_return_to_handler
--	mv	a2, a0
-+	mv	ra, a0
- ...
--	jalr	a2
-+	ret
+Patch 1 removes the buffer size check in zoran_v4l_set_format(), which
+has not been able to fire since the assignment above it was introduced
+by commit 11c9c16f7cb5.  The comparison used to be made against
+fh->buffers.buffer_size, the size of the already allocated buffers, and
+was a real bounds check.
 
-and RESTORE_RET_ABI_STATE no longer does:
+Patch 2 defers the zr->buffer_size and zr->map_mode updates until every
+check has passed.  This is what zoran_s_fmt_vid_out() already does for
+the JPEG path: it negotiates into a local struct zoran_jpg_settings,
+calls zoran_check_jpg_settings(), and only then commits.
 
--	REG_L	ra, FREGS_RA(sp)
+Patch 3 rejects VIDIOC_S_FMT while the queue is busy, which the driver
+never checked.
 
-This applies to every riscv kernel with CONFIG_FUNCTION_GRAPH_TRACER,
-including builds that never enable the new unwinder.  On return, ra now
-holds the real return address instead of a value inside return_to_handler,
-a2 is no longer written, and ret replaces an indirect jalr.
+Patch 4 adds KUnit tests for the above.
 
-The new sequence looks functionally correct, but should the commit message
-say that this part is unconditional and explain why it is needed (the
-.cfi_same_value ra over the final instructions), so riscv and ftrace
-maintainers can review it as such?
+Verified on v7.0 with:
 
+  ./tools/testing/kunit/kunit.py run --arch=x86_64 \
+      --kconfig_add CONFIG_PCI=y --kconfig_add CONFIG_I2C=y \
+      --kconfig_add '# CONFIG_I2C_HELPER_AUTO is not set' \
+      --kconfig_add CONFIG_I2C_ALGOBIT=y \
+      --kconfig_add CONFIG_MEDIA_SUPPORT=y \
+      --kconfig_add '# CONFIG_MEDIA_SUPPORT_FILTER is not set' \
+      --kconfig_add CONFIG_MEDIA_CAMERA_SUPPORT=y \
+      --kconfig_add CONFIG_MEDIA_PCI_SUPPORT=y \
+      --kconfig_add CONFIG_VIDEO_DEV=y --kconfig_add CONFIG_DEBUG_FS=y \
+      --kconfig_add CONFIG_VIDEO_ZORAN=y \
+      --kconfig_add CONFIG_VIDEO_ZORAN_KUNIT_TEST=y zoran
 
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+With only patch 4 applied:
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45561209846
---===============5092901143825754910==--
+  # zoran_set_format_rejected_keeps_state: EXPECTATION FAILED at
+  drivers/media/pci/zoran/zoran_driver_test.c:70
+  Expected 768u * 576 * 4 == zr->buffer_size, but
+      768u * 576 * 4 == 1769472 (0x1b0000)
+      zr->buffer_size == 1584 (0x630)
+  [FAILED] zoran_set_format_rejected_keeps_state
+  [PASSED] zoran_set_format_accepted_is_consistent
+  [PASSED] zoran_set_format_out_of_range
+  # Totals: pass:2 fail:1 skip:0 total:3
+
+With the whole series applied:
+
+  [PASSED] zoran_set_format_rejected_keeps_state
+  [PASSED] zoran_set_format_accepted_is_consistent
+  [PASSED] zoran_set_format_out_of_range
+  # Totals: pass:3 fail:0 skip:0 total:3
+
+A W=1 build of drivers/media/pci/zoran/ is warning free with the series
+applied.
+
+I do not have the hardware, so the DMA overrun itself is derived from
+reading zr_set_buf() and zr36057_set_memgrab() rather than observed, and
+only the state desync is covered by the tests.  Testing on a real card
+would be appreciated.
+
+Disclosure: this series was prepared with AI assistance (Claude Opus 5).
+I reviewed every patch and take responsibility for the submission.  I left
+the Assisted-by tag out of the commit messages because checkpatch.pl
+flags it as an error in v7.0.
+
+Note also that VIDIOC_S_FMT rejects a misaligned width while
+zoran_try_fmt_vid_cap() adjusts it through v4l_bound_align_image().
+Making VIDIOC_S_FMT adjust the width the same way would remove the
+failing path altogether, but it changes what existing applications get
+back, so I left it out of this series.
+
+Minseo Park (4):
+  media: zoran: remove always-false buffer size check
+  media: zoran: do not update device state before the format is validated
+  media: zoran: reject VIDIOC_S_FMT while the queue is busy
+  media: zoran: add KUnit tests for capture format negotiation
+
+ drivers/media/pci/zoran/Kconfig             |  14 ++++
+ drivers/media/pci/zoran/zoran_driver.c      |  21 +++--
+ drivers/media/pci/zoran/zoran_driver_test.c | 123 ++++++++++++++++++++++++++++
+ 3 files changed, 147 insertions(+), 11 deletions(-)
+ create mode 100644 drivers/media/pci/zoran/zoran_driver_test.c
