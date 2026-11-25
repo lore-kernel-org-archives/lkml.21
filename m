@@ -1,94 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795610581;
-	b=dH8cohh7ewpRxERYIXiR2cM2uzi6QptMo+EdprX1Bo4pvISfo5yUGRyqnMhlEzMFQulk
-	 AwyfRD+RfxD2ZCDCDJKausu2ugyI5l6n4taZAmJGif1DV+pgHbjENIXppVJK6LFjBDBPQ
-	 toDAeH5dgBa6kvGEhGZi5jMl9mDdfbt6Vaz7XEDY5wb5CajOrwhBhLbWHaUwgMDmwr5tx
-	 TamY04X4gvaIw89Kj1KT05GlWrnguQVmnAHjx01ZQOS5HLjyJxaFMhEWTB6QBxS/pArz4
-	 dO0siMvZ7t7g8HjE1ALl2MzCH0hGsfUGRZ447CVM8lqcmsNTYC35gv/5vj5xDEJkfmg==
+	t=1795610584;
+	b=hWD15nzAMAodvkYvIRWKJy9XAGzHieiq6fHbo6aaratI0C1VrkVnIzqgckN9h2Lcs/d9
+	 pa+WocLEF/VJUppXdNyIVqwY8t6S+5846WBWj0bkS9UMSk9NzFZGiLxS2D3PQvNG+HOXT
+	 fLG9AYWf8HNETy3cD6ScVNn7Ddc4DgwGylUFAD+1H7mUOkeM9SHAZVdK9Kpqr5FmTnCwq
+	 wVQBvBcuKLB9GbfX3xfSfUF5os6WND8DANBi/izjekm8gQEVQaxGVSgqFSfc6QkEZGXNH
+	 qZ5kjrHfPskyOXNGGh6+iTaQFskkGmffGDZ92fiNfqy903mYZp8bzJD6B3HPlZiQB7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795610581;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=iZI22dC0BuvL3b6xzlWPN3s8IoHdRulrkyuTDVsWIGE=;
-	b=VihSOK2N/ouGp8bxhThjwKPPBR9glzWzupP7vo2m01CVWiNc0u1xsqQs1Kg/dJDqJAVt
-	 62c3IAEhI3OFIDYeBfGtNdcGr9GmyLQnOg0cJvhY5QhjBJO2xZiYKnsUCaqKzReXNUYfe
-	 dfM5+1qxai4wgHuW2dTP8mGybh2Tu9rzvjBASyW528TXpehTfEKDJPRmli0SK717vWgZ/
-	 HM9nbzpT4+NqFT8m9Jg1JPe7M6Y+f7WIWBP4sgkXL2T3OT9I6SALhiWRnugju5Z0W1xI2
-	 wrezyoU+Q0xy5kUCgybf6u2LwniJUO3T4CZltlZ+0+R0Uu6JnLsvH322IzBPIB83EMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795610584;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=BVKqiS2iqCBcGWA+RsyURKlTSzk0qOWa1xpecr48ZA0=;
+	b=0XhhECHynMZQZ0ashF93yFPK9VbLqZuf352Lj+M1vHa+9Ms5O+JBLeJ04c8Jpxd+FQhY
+	 jAPSeozUiWrKeBXyfCqsart6bC+atnVdhTb1hV1rK2ULf0mkdgWnlxFyYBmVPUIJyrAXw
+	 AAQsP8hPBNqCIvfGC30m/f78jECsUu2JuXx9M/8602wSH1d/1L9ACO/90veGo13ymJxld
+	 2RFYOKM/kn2ls8SgchdrBhdSqCac7sttM6cEanJvU9TGQaU12+iotGvkyc4oLs3nOpsbs
+	 LuVlF+xsPkmZ/SLxTAKDulgVSKas8237LEIu1QtJSe0vQX09eY4roHessd4/z17MdJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lH5SZz6G;
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f4TgIn+T;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5302606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:43:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5302606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B3A3606A335
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:43:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lH5SZz6G
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-38190551625so11332937eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:43:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795610580; x=1796215380; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=iZI22dC0BuvL3b6xzlWPN3s8IoHdRulrkyuTDVsWIGE=;
-        b=lH5SZz6G6yeLj1J77LPO8OzqF3h6LykbNJQG+IgdKowAQe+tIg92nG/LJzr8oDG7QK
-         22vlr2hdsiJaW4j7X1BrcgRTu2hQFhVwtU2Q7utU7f6afn5mQCqxB6BgQoChloU5p0oN
-         isQcsbLTuDAe7JWjIyc/r025qrQ1YSiMgy6zzbbAC4K+8PoiTkDhNJCy+M2H3wMGgPQ0
-         nOY/2ca0dwbVIsZL9/NBAJrUutu8W7PHKNHXMO84Kdvo1Ced9JjCS5jveavst0aVwQ+q
-         o+5sZPk4OLyvxRm89tbPPoBABipm6JY6LmWTB/Psl+Gk512Iutbb6h0fqb2RobUXiAih
-         QQjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795610580; x=1796215380;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iZI22dC0BuvL3b6xzlWPN3s8IoHdRulrkyuTDVsWIGE=;
-        b=q81h67QEKOkBQFBmjRXhmnOWUCiAu/8xm6kCJ1Tx80ZjiipXt91I6f6jaeUUDgD6AI
-         FiShu1k5jnnCqYD1rHoXoW4bx/etNjt/Cp5nK00IH9QeVHVI1j0zv9m3xgB0P3n+RUmg
-         EArkT7nF28vHQjm2u8sQVTrLdonycnfabHLWOnCqhYwSpUq/lggYEykoPOhqpyCOKkEz
-         bAfizvGJO8WyrOS49wKScEOPaljs7UFTraZ2UT+xGlVHow2BwuxrJyuWZenOKqb+ylA6
-         L0dE48OqISsyFP188MgeNTBsQpbHw5r21lLTdt7s/nBRM7R3AYE/Nr4Kr5fg8jKO+MzP
-         ihhA==
-X-Forwarded-Encrypted: i=1; AL+hErEHrwI8S6QYXKB0L55JeziCKzqi650mPiUFppCgOUTec+nUsTNZNge3Qh/JLSC9zXdPZx8o+94itTAkL5s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+/kxPnO6/JQ7I00axCo9bhFD78PSsVBQS3N3iP/m2rLvMzePI0
-	kkfkPqxwx3qbLoZ+48idfMJGiQi9xCN9lXB8j2oF1/v4Yvha+pFACVUE
-X-Gm-Gg: AZFdTZcxMPFNONQvOsmrJKDn9giPv4YqbQT7I+vpWBSJaHW/1IwbKrCwfh6Kvc2EpZ9
-	XFcdLaEFTkqqN29sRpU+yrt1eT6pcPClgL/FpXiHoofB2ndhQtHsANFV9cW4E1U9FK/wJy+/f/b
-	zt/EJn31SRBxScN4BmJRv3cS5XOeBKCrbhBoDser17dI8Lmysf2BajQGNzj3dsTvEH4PQbx4kYS
-	NeVZogtoqg7JVDxxcEBwOWYtGLjSReV5DG9/Z2Qwy7WRo+pP6Wt4Jsd8uwUvHinhwm8QPj+ctps
-	n4EgoJBpJVP8w94/EIDkU8+ArL7KzGHVh5kkvYSnW6/L3EqVPQeTIG4RWnsZEnJDU64i0NTQNM6
-	mF0zx5LlngQ48YcXcCZHFCE48fmPqe4UHFgMv14kmVuMZdu8V7vLf/I5PC+WwE4MxWYSfeH38Ha
-	jW7GKkiPGGfHt1jGrbRlDIxGBWFPJ3mi7BLFEv9piKQSYIWE8Mt5UxVp9iJ5/aJG3AMyq9FtwKM
-	Yhn5+Fh5MOyah/DayNIEAfz/DTlBti4d9ZNDAS07lzomFLW56CgIfZn+KejOQEOu40f38ZGCw7g
-	aiINfkAT8FmdVRy6oiJ1di/guHSQbS6MgH3xtOBmJ0I3R0F0TlCPLdi2TMvo
-X-Received: by 2002:a05:693c:69c7:b0:386:b745:ac60 with SMTP id 5a478bee46e88-386b745b019mr7056277eec.18.1795610579840;
-        Wed, 25 Nov 2026 04:42:59 -0800 (PST)
-Received: from LAPTOP-LJ15R92N.localdomain ([152.58.24.125])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c0c1dsm60000044eec.21.2026.11.25.04.42.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 04:42:59 -0800 (PST)
-From: Akshat Rawat <akshatrawat095@gmail.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-rtc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Elena Popa <elena.popa@nxp.com>,
-	Akshat Rawat <akshatrawat095@gmail.com>
-Subject: [PATCH] rtc: pcf2127: use const per-variant regmap_config tables
-Date: Wed, 25 Nov 2026 12:44:15 +0000
-Message-ID: <20261125124416.468-1-akshatrawat095@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f4TgIn+T
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A1D81F000EE
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:43:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795610583;
+	bh=BVKqiS2iqCBcGWA+RsyURKlTSzk0qOWa1xpecr48ZA0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=f4TgIn+TMDeOW3k/gS/vCG8lNwyLF1Y/poHilRkmfXS5wKHVkXySpjkvEx9UlsCFC
+	 WkHZCflVBm/dbFjkJQthvHFMjLlmK7Z9C1WXGm1Gub/wz2Dv8ZDHgPe26MhhrFEHPI
+	 otRgORzccaq5DRJEyAZ2SAjjWDRFjBmdvlA8vac0M9kfvuxJBO9TijvORxAdVtquO/
+	 Viz0HJUw00w5kZhVelgY8YR6l2I9cn5RI+ERSksaHDM8hMETDk6XS3pLrDOfryUuOJ
+	 jBvokPXXF0X013UNiVa3k9NkaterqY8OZQgrjy3eiKCpQ9QWEXMKdG1VLQn+eHt5Uj
+	 Q6gILZzVajv9A==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5bfa65c8617so3569651e87.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:43:03 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEz0NoqVdH4DNDAeEAQi/mRybotBTDJJgbm47DCJ5VcmphQEipBYXZidvAF2ZslG4h1KQr6ztKZ9rRO6YM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+P/A7gHPY2jaJ7v+7oNin8BTYhlrO2GaMRqkkr0QnnIPq52+cv
+	C+6aCJHxCHASAPQUnvo8TVxQfLAvfc9htA0nouXQqThx8DIGsNuU3jME6g6j/pfWw7ywL5otruY
+	OxGzHQ017yd4p61p0gxToSZ6C+pPmVyk=
+X-Received: by 2002:a05:6512:31ce:b0:5bc:b0b9:f457 with SMTP id
+ 2adb3069b0e04-5c1bc80be1cmr5225392e87.47.1795610581845; Wed, 25 Nov 2026
+ 04:43:01 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,166 +59,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261123084218.673382-1-b-padhi@ti.com> <20261123084218.673382-2-b-padhi@ti.com>
+In-Reply-To: <20261123084218.673382-2-b-padhi@ti.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Wed, 25 Nov 2026 13:42:48 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0hFxkiVpTYJRgqRVEY2hOmMqk7-2S+qeo7De19yn7bT0Q@mail.gmail.com>
+X-Gm-Features: Aa3M54oDbnkqyJw2fKc7Zn3MFiurM1hEXB_4W8o4Qwap4SILpZ7JlD693JrkKTI
+Message-ID: <CAJZ5v0hFxkiVpTYJRgqRVEY2hOmMqk7-2S+qeo7De19yn7bT0Q@mail.gmail.com>
+Subject: Re: [PATCH 1/2] PM: domains: Honour PD_FLAG_ATTACH_POWER_ON for genpd
+To: Beleswar Padhi <b-padhi@ti.com>
+Cc: gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org, 
+	johan@kernel.org, pavel@kernel.org, lenb@kernel.org, ulfh@kernel.org, 
+	sid9.karanam@gmail.com, afd@ti.com, nm@ti.com, vigneshr@ti.com, 
+	u-kumar1@ti.com, driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Both pcf2127_i2c_probe() and pcf2127_spi_probe() declare config as a
-static struct regmap_config and update it in place based on the chip
-variant.
+On Mon, Nov 23, 2026 at 9:49=E2=80=AFAM Beleswar Padhi <b-padhi@ti.com> wro=
+te:
+>
+> dev_pm_domain_attach() takes PD_FLAG_ATTACH_POWER_ON to let the caller
+> decide whether the PM domain is powered on during attach. But, only the
+> ACPI path honours it today. genpd_dev_pm_attach() takes no flags and
+> always powers on the domain, so a DT based device cannot be attached to
+> its PM domain without powering it on.
+>
+> Add a power_on argument to genpd_dev_pm_attach() and pass it on to
+> __genpd_dev_pm_attach(), which already supports it for the multiple PM
+> domains case.
+>
+> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
 
-In pcf2127_spi_probe(), if a PCF2131 probes first, read_flag_mask and
-write_flag_mask are overwritten to 0 and never restored. Any PCF2127 or
-PCF2129 probed later reuses those zeroed masks instead of 0xa0/0x20,
-breaking SPI register access. Modifying static max_register and flag
-masks also races if multiple instances probe concurrently.
+Fine with me.
 
-Replace the shared mutable config structs in both probe paths with
-per-variant static const struct regmap_config tables, and drop the
-now-unused max_register field from struct pcf21xx_config.
+Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
 
-Fixes: fd28ceb4603f ("rtc: pcf2127: add variant-specific configuration structure")
-Fixes: fa78e9b606a4 ("rtc: pcf2127: fix SPI command byte for PCF2131")
-Cc: stable@vger.kernel.org
-Signed-off-by: Akshat Rawat <akshatrawat095@gmail.com>
----
-Compile-tested (x86_64 gcc 15.2.0, W=1, CONFIG_WERROR=y) with
-I2C+SPI, I2C-only, and SPI-only configs; not tested on hardware.
-
- drivers/rtc/rtc-pcf2127.c | 65 +++++++++++++++++++++++++--------------
- 1 file changed, 42 insertions(+), 23 deletions(-)
-
-diff --git a/drivers/rtc/rtc-pcf2127.c b/drivers/rtc/rtc-pcf2127.c
-index 27c5fb9b2aaa..b665728c6c1d 100644
---- a/drivers/rtc/rtc-pcf2127.c
-+++ b/drivers/rtc/rtc-pcf2127.c
-@@ -186,7 +186,6 @@ struct pcf21xx_ts_config {
- 
- struct pcf21xx_config {
- 	int type; /* IC variant */
--	int max_register;
- 	unsigned int has_nvmem:1;
- 	unsigned int has_bit_wd_ctl_cd0:1;
- 	unsigned int wd_val_reg_readable:1; /* If watchdog value register can be read. */
-@@ -1020,7 +1019,6 @@ static struct attribute *pcf2131_attrs[] = {
- static struct pcf21xx_config pcf21xx_cfg[] = {
- 	[PCF2127] = {
- 		.type = PCF2127,
--		.max_register = 0x1d,
- 		.has_nvmem = 1,
- 		.has_bit_wd_ctl_cd0 = 1,
- 		.wd_val_reg_readable = 1,
-@@ -1048,7 +1046,6 @@ static struct pcf21xx_config pcf21xx_cfg[] = {
- 	},
- 	[PCF2129] = {
- 		.type = PCF2129,
--		.max_register = 0x19,
- 		.has_nvmem = 0,
- 		.has_bit_wd_ctl_cd0 = 0,
- 		.wd_val_reg_readable = 1,
-@@ -1076,7 +1073,6 @@ static struct pcf21xx_config pcf21xx_cfg[] = {
- 	},
- 	[PCF2131] = {
- 		.type = PCF2131,
--		.max_register = 0x36,
- 		.has_nvmem = 0,
- 		.has_bit_wd_ctl_cd0 = 0,
- 		.wd_val_reg_readable = 0,
-@@ -1452,13 +1448,27 @@ static const struct i2c_device_id pcf2127_i2c_id[] = {
- };
- MODULE_DEVICE_TABLE(i2c, pcf2127_i2c_id);
- 
-+static const struct regmap_config pcf2127_i2c_regmap_config[PCF21XX_LAST_ID] = {
-+	[PCF2127] = {
-+		.reg_bits = 8,
-+		.val_bits = 8,
-+		.max_register = 0x1d,
-+	},
-+	[PCF2129] = {
-+		.reg_bits = 8,
-+		.val_bits = 8,
-+		.max_register = 0x19,
-+	},
-+	[PCF2131] = {
-+		.reg_bits = 8,
-+		.val_bits = 8,
-+		.max_register = 0x36,
-+	},
-+};
-+
- static int pcf2127_i2c_probe(struct i2c_client *client)
- {
- 	struct regmap *regmap;
--	static struct regmap_config config = {
--		.reg_bits = 8,
--		.val_bits = 8,
--	};
- 	const struct pcf21xx_config *variant;
- 
- 	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C))
-@@ -1468,10 +1478,9 @@ static int pcf2127_i2c_probe(struct i2c_client *client)
- 	if (!variant)
- 		return -ENODEV;
- 
--	config.max_register = variant->max_register,
--
- 	regmap = devm_regmap_init(&client->dev, &pcf2127_i2c_regmap,
--					&client->dev, &config);
-+				  &client->dev,
-+				  &pcf2127_i2c_regmap_config[variant->type]);
- 	if (IS_ERR(regmap)) {
- 		dev_err(&client->dev, "%s: regmap allocation failed: %ld\n",
- 			__func__, PTR_ERR(regmap));
-@@ -1518,14 +1527,30 @@ static void pcf2127_i2c_unregister_driver(void)
- static struct spi_driver pcf2127_spi_driver;
- static const struct spi_device_id pcf2127_spi_id[];
- 
--static int pcf2127_spi_probe(struct spi_device *spi)
--{
--	static struct regmap_config config = {
-+static const struct regmap_config pcf2127_spi_regmap_config[PCF21XX_LAST_ID] = {
-+	[PCF2127] = {
-+		.reg_bits = 8,
-+		.val_bits = 8,
-+		.read_flag_mask = 0xa0,
-+		.write_flag_mask = 0x20,
-+		.max_register = 0x1d,
-+	},
-+	[PCF2129] = {
- 		.reg_bits = 8,
- 		.val_bits = 8,
- 		.read_flag_mask = 0xa0,
- 		.write_flag_mask = 0x20,
--	};
-+		.max_register = 0x19,
-+	},
-+	[PCF2131] = {
-+		.reg_bits = 8,
-+		.val_bits = 8,
-+		.max_register = 0x36,
-+	},
-+};
-+
-+static int pcf2127_spi_probe(struct spi_device *spi)
-+{
- 	struct regmap *regmap;
- 	const struct pcf21xx_config *variant;
- 
-@@ -1541,14 +1566,8 @@ static int pcf2127_spi_probe(struct spi_device *spi)
- 		variant = &pcf21xx_cfg[type];
- 	}
- 
--	if (variant->type == PCF2131) {
--		config.read_flag_mask = 0x0;
--		config.write_flag_mask = 0x0;
--	}
--
--	config.max_register = variant->max_register;
--
--	regmap = devm_regmap_init_spi(spi, &config);
-+	regmap = devm_regmap_init_spi(spi,
-+				      &pcf2127_spi_regmap_config[variant->type]);
- 	if (IS_ERR(regmap)) {
- 		dev_err(&spi->dev, "%s: regmap allocation failed: %ld\n",
- 			__func__, PTR_ERR(regmap));
--- 
-2.56.1.windows.1
-
+> ---
+> No changes since RFC.
+>
+> Link to RFC:
+> https://lore.kernel.org/all/20261027140751.2465743-2-b-padhi@ti.com/
+>
+>  drivers/base/power/common.c | 5 +++--
+>  drivers/pmdomain/core.c     | 5 +++--
+>  include/linux/pm_domain.h   | 4 ++--
+>  3 files changed, 8 insertions(+), 6 deletions(-)
+>
+> diff --git a/drivers/base/power/common.c b/drivers/base/power/common.c
+> index 9bef9248a7052..3263659c58dc8 100644
+> --- a/drivers/base/power/common.c
+> +++ b/drivers/base/power/common.c
+> @@ -102,14 +102,15 @@ EXPORT_SYMBOL_GPL(dev_pm_put_subsys_data);
+>   */
+>  int dev_pm_domain_attach(struct device *dev, u32 flags)
+>  {
+> +       bool power_on =3D !!(flags & PD_FLAG_ATTACH_POWER_ON);
+>         int ret;
+>
+>         if (dev->pm_domain)
+>                 return 0;
+>
+> -       ret =3D acpi_dev_pm_attach(dev, !!(flags & PD_FLAG_ATTACH_POWER_O=
+N));
+> +       ret =3D acpi_dev_pm_attach(dev, power_on);
+>         if (!ret)
+> -               ret =3D genpd_dev_pm_attach(dev);
+> +               ret =3D genpd_dev_pm_attach(dev, power_on);
+>
+>         if (dev->pm_domain)
+>                 dev->power.detach_power_off =3D !!(flags & PD_FLAG_DETACH=
+_POWER_OFF);
+> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
+> index e0bf30c59ccea..c73927ac07e2c 100644
+> --- a/drivers/pmdomain/core.c
+> +++ b/drivers/pmdomain/core.c
+> @@ -3556,6 +3556,7 @@ static int __genpd_dev_pm_attach(struct device *dev=
+, struct device *base_dev,
+>  /**
+>   * genpd_dev_pm_attach - Attach a device to its PM domain using DT.
+>   * @dev: Device to attach.
+> + * @power_on: Whether to power on the PM domain during attach.
+>   *
+>   * Parse device's OF node to find a PM domain specifier. If such is foun=
+d,
+>   * attaches the device to retrieved pm_domain ops.
+> @@ -3566,7 +3567,7 @@ static int __genpd_dev_pm_attach(struct device *dev=
+, struct device *base_dev,
+>   * found or turned on, then return -EPROBE_DEFER to ensure that the devi=
+ce is
+>   * not probed and to re-try again later.
+>   */
+> -int genpd_dev_pm_attach(struct device *dev)
+> +int genpd_dev_pm_attach(struct device *dev, bool power_on)
+>  {
+>         if (!dev->of_node)
+>                 return 0;
+> @@ -3579,7 +3580,7 @@ int genpd_dev_pm_attach(struct device *dev)
+>                                        "#power-domain-cells") !=3D 1)
+>                 return 0;
+>
+> -       return __genpd_dev_pm_attach(dev, dev, 0, 1, true);
+> +       return __genpd_dev_pm_attach(dev, dev, 0, 1, power_on);
+>  }
+>  EXPORT_SYMBOL_GPL(genpd_dev_pm_attach);
+>
+> diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
+> index 14e0e346c610a..010fbfffee39d 100644
+> --- a/include/linux/pm_domain.h
+> +++ b/include/linux/pm_domain.h
+> @@ -481,7 +481,7 @@ int of_genpd_add_child_ids(struct device_node *np,
+>  int of_genpd_remove_child_ids(struct device_node *np,
+>                               struct genpd_onecell_data *data);
+>
+> -int genpd_dev_pm_attach(struct device *dev);
+> +int genpd_dev_pm_attach(struct device *dev, bool power_on);
+>  struct device *genpd_dev_pm_attach_by_id(struct device *dev,
+>                                          unsigned int index);
+>  struct device *genpd_dev_pm_attach_by_name(struct device *dev,
+> @@ -527,7 +527,7 @@ static inline int of_genpd_parse_idle_states(struct d=
+evice_node *dn,
+>
+>  static inline void of_genpd_sync_state(struct device_node *np) {}
+>
+> -static inline int genpd_dev_pm_attach(struct device *dev)
+> +static inline int genpd_dev_pm_attach(struct device *dev, bool power_on)
+>  {
+>         return 0;
+>  }
+> --
+> 2.34.1
+>
