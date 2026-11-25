@@ -1,55 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795636016;
-	b=OiU2XegttsrPqucWVvVVHD1a83Hu/Oz5veUWjrc4L7IsQENp3aGYzWyXekZeo7n5pGy9
-	 1f9tsRtn1A9BtAA1Su9nsWr+7xxu0PYgcLhE9g/Ll/cAh7t3grAJGpuMP5xZ/bk9jpvbU
-	 Wr3UcVq97OXf6d0hOX5ulUqvG4IY/qJWD4Mm5NpD5GQOGkolpZO1Gne8poT8StDFGGMEO
-	 yrgDWlf6DLtOxM1f25YwuwfTxzd84bIConknRXnGKbhxOZmfqYtZ+uYC63ScYklN7ZFdq
-	 VWDXS8f5jOpybOCx5rSWOdVfVqoZuiZ4va8R1fw9AgJKZ+kQ8XoGrsVJr6uozMm159g==
+	t=1795636055;
+	b=BliTHfrLrBPYxclYIS6IOL+esY8bHITpeZD/vbfNrybU1FtAORwtbgMdrx7RZKHjvs4v
+	 GUV9zIuXTP7J3pgJ1jdHG0mcvIaMny0RSK9RCQFeYwOyABHTnSikaJ4gYFsMF930Wx3dL
+	 0TelZsMaoVa4+87N2DiSOq8qrXvjS6/K4/97EpxI8UVq09fz0sD2sN8WynlfKE7W6H/om
+	 a8mQ4E7nYoAP6jxIhqhi9UxVx/99Yz87t672rtEtCErHBwAm/IMeHDXH09nzkLSusgLDg
+	 0inzxDe4Ly17YsqRi2lY71SO4uGQypwNnqL1igKo+CtHiSB7epP8iRUGOjFEphj2Vgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795636016;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=wzmgNFA0iKS+jumrdmlwlbdpeFh47bs6LrqFms2QcyU=;
-	b=mzqlevjQc2cQzPB4i0YrLvqucg8znepmfbKD8s8IiRWtJqMfPkwDk3ND9VUMtYqOCHVD
-	 dK+EVMTauatZ9YyjVbaXukJUDDNHvogfHMZAfXnLQdjdu0LBepEWdzhpVC/eUbg9AJZVk
-	 jGZwwTFqaE8NyHQmZtELfdR7hRZ9JM3iwRfKqCGs2hLgmvYr8j+sxU1+x7OqYkbv6O0o4
-	 7m5O8y3uQ3NXIXnCz6HcAzyGE5xhqOclmuT23PbZQuBpkH5hc7LEUSn6kghPgqXts7IAD
-	 KSWQWfie5hPpvZF6To7+DTXtWguVlU4L3QT5LR6KRH9kfqMvMfHeFQ9ZOfeFlxJ/72A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795636055;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=grrU0uEFit9XRwVTApcRlB5D+yBJZUkCWHnay5I3nKM=;
+	b=vFZvx9ALDrjfcimGnXq6uZtHjJIrIo0Jg7AV16M8o0ERVmH/RwXHedeO4hLfuol+QZbD
+	 DBCFxAjBXGmNzbELvW9fzpQ/7AMqgHpyR3AbiWGM/OYJXvbqBwxY/UVNwbccu9Ee1JfNs
+	 hHhsdq20wLV+b8v5afwTyCpZRzfuWNpJydZUpxbP9mv35xJppMWzMfKunBK7jVB5r+T9z
+	 kJsevxdR9L9PGmJAEiVd1Ge1+AlnS91DEC9SGZhRxLrFzi+UAM8krhZGdGGc//suBYuCK
+	 +fbYWhCTUeciGPVa4pyV+XLka+S3ftddsLgTUz3s/8viyKtMJMpn1PYDtakWs1VeUxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FXgJyB2Q;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TKyKp0qs;
+	arc=none smtp.remote-ip=209.85.161.48
+Received: from mail-oo1-f48.google.com (mail-oo1-f48.google.com [209.85.161.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F85C606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:46:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E81E606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:47:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E81E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FXgJyB2Q
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 191671F000E6
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:46:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795636016;
-	bh=wzmgNFA0iKS+jumrdmlwlbdpeFh47bs6LrqFms2QcyU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=FXgJyB2QGn/jP/5E6lWvlFKjaAp1XvwnMfFvqmKtZxRet4mISpf7FgDqHtLB9ZjCw
-	 DcmtrRUa3oATOZqs3ymhCZj5WyVVsHb10lcxw3GMMeFkW0YacScqds0G+O5rSlIqxS
-	 +l/3WOx8hqueQQcY7zLd9ou1gqKdvCcb8i3DBnMTUMQ0jllpTxK7ugt8ADJt2khTKl
-	 yaC/8IpxPDNbDt9kk6rhFjMGZu9WxuCDKxrED8f7EHBcB99847BEpQx1geRh3ckkhm
-	 VJXXGVFZM4LrH1VJesDM5gCMmiGFk3iW9X+XBx8ymo8xf8vzdwtep99AL89Yr2ivna
-	 SfknY88xQIWow==
-Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c50e26763a4so69843966b.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:46:56 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHBSe6YjX+0JZSMDAZXE5vjhVrQ1C/UoQScF8MZKMdc97RRHSJ8R1Xmz0ey7h3olQsnW2MpEfcq40U/Vu4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+t1eijR+a88diFtrDlAesZ3YjDbkH+pUuKQkf2Ud4dT1fHtrcH
-	FI4get50jygbGxNt/e0R6tVeN/mfBbKOwPGadZKaZMgsnvc2+d+QEDvQltVIDqMUHvFUHTGDxm2
-	BvYDgVvT4BE1qGfpw2RJnW+kSJmgsVeA=
-X-Received: by 2002:a17:907:7f91:b0:c50:c04d:cbb4 with SMTP id
- a640c23a62f3a-c513ac9f641mr1641402066b.43.1795636014987; Wed, 25 Nov 2026
- 11:46:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TKyKp0qs
+Received: by mail-oo1-f48.google.com with SMTP id 006d021491bc7-6ddef424972so5032384eaf.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:47:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795636054; x=1796240854; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=grrU0uEFit9XRwVTApcRlB5D+yBJZUkCWHnay5I3nKM=;
+        b=TKyKp0qslwB4z3SvhO4t2bcXRwL3CbBD4oIxzuOdwOA3zSwh6laUJbsIJiqpFPtBsO
+         E2gkpHjapAYrqOU/QAvG/sHwHufNeA0D4KHGjBeaIxTr7r5WC7KPNn9fQLaOALX2YpUI
+         QvMpBxm5VZuLfOH9WZldV2+mYW0kltM+0PowVuLeCNpCuUNb+mDT2Xkm7xWGgQWwg38E
+         felaFX+EdWPXdC6zmnqsAec1WHvBPc0rw9vpHZsiZr4CtYz3hzMZnvuHYzFNERA7qphS
+         9QmC8zFpC2uEMTpqh4S+UBOsYHK4TYDUAHKnrmfvsFkNN732ehxvYmgPGHpA+OzaaIGo
+         CxQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795636054; x=1796240854;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=grrU0uEFit9XRwVTApcRlB5D+yBJZUkCWHnay5I3nKM=;
+        b=AmQUbrqgUu3/rlwwWxsPrwT4VsQGhn1tU9SIf0cUYj/xDeg6Djd1/WjFRnisTbeAm+
+         xYNNGL/0fAxKyVPf1mYpMPH5bz676ogKsVFUhRn1pdQu9SP6MtnvtKYWOvIk3gTettdT
+         FlT70J1/C1LONOyVK5dJNPoFRyBhYMC8DTOsjjMNXB+SdHUHJlUVA/69w+2iTGNgIiO1
+         ydqErFUJISb38T2TP9Q2Fmx0Rfv4MoIbFySbX+FVgaeX6MwKxnfPQtB/pjv6+AuW6fEq
+         IY3QWTOzRNWFSSMdSy1IJl4R1KNYSz3EQ+D9ENNwK5LsM7qurKKG7IgCS6YNycAFroBN
+         JzpQ==
+X-Forwarded-Encrypted: i=1; AL+hErHyQdt8/tnXOZifrjXAXAI5Gly1gL7YNOEyjfyr/J1GlAT3JFqjmFDhk5i3iNmRO2qK3pztvm4D5M/MP6I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9AJPNG7JZ997t39o354wk8nnHS+PC3oDl5FW1ozRSfqHaTLC8V
+	Juvx1rQwJZ93wU/p6bD3jMhX1PEUhwxaetL8KYBG/F6z/AQBaWg7Oa8=
+X-Gm-Gg: AZFdTZdw+zBI82rMpGdkL+puWUDw22Ch0tssgnJkRWOpMjb+A9Ee3wD0NyNgFXa7NRa
+	N9lUKvUIRnyFZ3EF0sR65NGUOQAxQ74yFEZojtB1msEAuc8t0mytFGpEkgk/ZLMSWR4XzB/88FQ
+	FZLP0HqWgCbGKsneK2SM4U+UGBEezFE6YlBxfi1fNbcnxUQA/ns1/VvJoRMCrJw3o4E2VEvgvbR
+	Z6EEW2qCaggMwPcCGf8HkaPU/b11jwG1ne+UfF2zILcJ9L7jbOlJK0sMqdg/wF9yyqj4s/rIvkk
+	dfjO+fSZ8X9+qfvNk/WWYFwG08JClueXUuPEUT5VWi6G8PPYxRSI7PgX/HKnG6RO7wVgMNXFr7r
+	updQUCgKpz/yRvQtFdArl//nv3unyRPDIztEl2daG4Qrr0dAel/wGCQLfxUWzu2JtRLsKeeLVmF
+	XJIZzdF8bgO/R6FD4Co1TVUNyTGOr2DmNddWlx5knwwyp0/uPqvJo7q+YNu584JE6BZTd1gDyem
+	uljQW8N5C26gdNqwRoawA3U8hCK/EOtvETk3mzMSaS3BSU8EJlHND2J5GKUodDKv0a+FGDK6U6r
+	KxWixojnAz43gAuySmiWcAt8qS9NSuUA+uBjidHhR0eM5UfV75s=
+X-Received: by 2002:a05:6820:c7d3:b0:717:163:aeac with SMTP id 006d021491bc7-71b39563bbemr12689828eaf.68.1795636054231;
+        Wed, 25 Nov 2026 11:47:34 -0800 (PST)
+Received: from miso ([136.62.61.36])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b8345e1f1sm1121467eaf.5.2026.11.25.11.47.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 11:47:33 -0800 (PST)
+Date: Wed, 25 Nov 2026 13:47:32 -0600
+From: Matthew Laux <matthew.laux@gmail.com>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: linux-media@vger.kernel.org, Hans Verkuil <hverkuil@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Mehdi Djait <mehdi.djait@bootlin.com>,
+	LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v7 10/12] media: tw9900: add S-Video input and
+ progressive source detection
+Message-ID: <awc7VK8eOleuJwKW@miso>
+References: <20261121035523.26764-11-matthew.laux@gmail.com>
+ <5ff7af23-de12-40cc-a8a9-29d787873837@web.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,114 +101,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120041906.5785-1-kanchanapsridhar2026@gmail.com>
- <CAKEwX=MLrDn55wmVKKba5=PcU+qFpkEbMmN2SjGTfTBiFKX8cw@mail.gmail.com>
- <awXr6iHBR54wBB05@google.com> <CACpmpodH3UUDLEze8=5v8LWgKnZWQVrQBhzSGJFY-PwEYmHEzQ@mail.gmail.com>
- <awYsDfYqrS2ldOTw@google.com> <CACpmpofsU3f=PVQF4moe6n=_qit1ZGyo4FMjyM-sVgumfyN0iw@mail.gmail.com>
- <awZt7P_p-GNZ3A2i@google.com> <CACpmpod_87WY_PcOsNmPZvFzmJyBtCpyvvq1a_BqmZgGmO1e5A@mail.gmail.com>
- <awcK9oNDbc1QFJr6@google.com> <CACpmpoenPZ_SqhxL70r8q09WBfrnqvPu3H+F8Tz3nVwO=rvUTw@mail.gmail.com>
-In-Reply-To: <CACpmpoenPZ_SqhxL70r8q09WBfrnqvPu3H+F8Tz3nVwO=rvUTw@mail.gmail.com>
-From: Yosry Ahmed <yosry@kernel.org>
-Date: Wed, 25 Nov 2026 11:46:43 -0800
-X-Gmail-Original-Message-ID: <CAO9r8zP3Skc=X8+cxnV4V=CKaAqcndnAVniMvcfeOHVeSk4oAA@mail.gmail.com>
-X-Gm-Features: Aa3M54qLwSXNnEFYYZN0F3oYiYtn-3ATn2o5XyuwKkol_nEWwwxfcBqUZ70NKoo
-Message-ID: <CAO9r8zP3Skc=X8+cxnV4V=CKaAqcndnAVniMvcfeOHVeSk4oAA@mail.gmail.com>
-Subject: Re: [PATCH v4 0/8] Batched zswap_store() framework with compression batching
-To: "Kanchana P. Sridhar" <kanchanapsridhar2026@gmail.com>
-Cc: Nhat Pham <nphamcs@gmail.com>, hannes@cmpxchg.org, chengming.zhou@linux.dev, 
-	akpm@linux-foundation.org, linux-mm@kvack.org, herbert@gondor.apana.org.au, 
-	davem@davemloft.net, linux-crypto@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, rientjes@google.com, willy@infradead.org, 
-	senozhatsky@chromium.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <5ff7af23-de12-40cc-a8a9-29d787873837@web.de>
 
-On Wed, Nov 25, 2026 at 10:06=E2=80=AFAM Kanchana P. Sridhar
-<kanchanapsridhar2026@gmail.com> wrote:
->
-> On Wed, Nov 25, 2026 at 8:31=E2=80=AFAM Yosry Ahmed <yosry@kernel.org> wr=
-ote:
-> >
-> > [..]
-> > > > write_s would be calculated averaging the time in the ".. bytes / .=
-.
-> > > > usecs" lines, and free_s by averaging the time from the ".. usecs t=
-o free
-> > > > memory" lines.
-> > > >
-> > > > In this run:
-> > > > write_s =3D 37.31 s
-> > > > free_s =3D 23.39 s
-> > > >
-> > > > With your patches, I got:
-> > > > write_s =3D 37.03 s
-> > > > free_s =3D 18.86 s
-> > >
-> > > I am not sure how useful it is to apply user-space gettimeofday()
-> > > results that time many higher level C code API, as an indicator of
-> > > zswap_store() performance.
-> >
-> > It is useful to see where the time is being spent, and it is consistent
-> > with the perf profiles.
-> >
-> > [..]
-> > > > You can see that the cycles spent on zswap_store() are almost the s=
-ame,
-> > > > and the cycle reduction happens in zswap_invalidate().
-> > >
-> > > The cycles spent in zswap_store() should be normalized to the # of
-> > > zswpout events that these CPU cycles represent, for this to be a
-> > > reliable measure of latency improvement. There could be an increase i=
-n
-> > > reclaimed folios for any number of reasons, all of which are not
-> > > necessarily due to performance-improvement/degradation of
-> > > zswap_store() itself. IOW, more work for less latency per unit of wor=
-k
-> > > is not always indicative of a performance degradation in this case.
-> > >
-> > > A realistic scenario would be that with zswap_store() becoming more
-> > > efficient, the 30 allocating threads cause more memory.high breaches,
-> > > that causes more zswpout..
-> > > This would cause more CPU cycles in zswap_store(), but the fact
-> > > remains that zswap_store() efficiency has improved due to batching.
-> >
-> > The zswpout number is almost identical: 45,796,107 vs 45,796,089.
->
-> Can you also share these vmstat/zswap stats for this run (baseline and
-> with patches):
->
->  pswpin
->  pswpout
->  thp_swpout
->  thp_swpout_fallback
->  zswpin
->  zswpout
->  zswpwb
->  pgmajfault
->  2048kB-alloc
->  2048kB-zswpout
->  2048kB-swpout
->  2048kB-swpout-fallback
->  zswap_pool_total_size
->  zswap_pool_limit_hit
->  zswap_written_back_pages
+On Wed, Nov 25, 2026 at 03:38:01PM +0100, Markus Elfring wrote:
+> > +	mutex_lock(&tw9900->mutex);
+> > +	ret = tw9900_apply_input(tw9900);
+> > +	mutex_unlock(&tw9900->mutex);
 
-These are the ones I have. I only enable 2M mTHP so I think most
-2048kB-* stats can be derived:
+> Under which circumstances would you become interested to apply a macro call
+> like “scoped_guard(mutex, &tw9900->mutex)”?
+> https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/cleanup.h#L325-L328
 
-                               base          p1-8
-      pswpin                      0             0
-      pswpout                     0             0
-      thp_swpout                  0             0
-      thp_swpout_fallback         0             0
-      zswpin                    265           247
-      zswpout            45,796,107    45,796,089
-      zswpwb                      0             0
-      pgmajfault              2,811         4,231
-      thp_fault_alloc       153,600       153,600
+This is a nice feature - fixed in v8.
 
-The increase in pgmajfault is unrelated, probably because I dropped
-caches before runs and these are file page faults. The number of
-swapins is ~the same. zswap_pool_limit_hit, zswap_written_back_pages,
-and post-run zswap_pool_total_size are all 0 (consistent with
-pswpout=3D0 and zswpwb=3D0).
+Thanks,
+Matthew
+
+> 
+> Regards,
+> Markus
+
+
