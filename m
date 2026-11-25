@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795631729;
-	b=B8e1aANjrPLhY82VBX9YK7SPE9QZ7nmKcevBL8s/QlL2/4ipL/aRrm7Ulp9HsUy1+QtC
-	 BtsjkKKcwr57VmfCKC+9MOFyAM5tFn6I5+SZFQdhHhh/SD7oH+a+LB2SQxshyu1wJGQzu
-	 C6AnpnZo/YriqIB18vlhp/XCOOgbDxpvNAmDP3TGGe8uIAvWaCpulBNfPED8w93I8f+js
-	 QzCSHamZQfkKPg4wge0iWn38zT/u+LRbO8m967YbXRnjPnOoSoVU7T0U37mCSlv2ujrbS
-	 R/b1GW/kn4VviIYg6m5pHjFWlqcxy4hoMQt4Kmw6jL/zxonlIuj5KvuHXyLsaQrD0Zg==
+	t=1795631766;
+	b=DOVdzoEt4IcO8jEVjgRI7rYDO0HggP7GU5Q3clA6J3FkAhuoi9zmR0Iyn/YPrqkMrtTX
+	 +DKEjHFhkdStt0Fb+5rWox/0PuTZIAWCFsEGC6ypPW0F2v/OUWvDmh2FmQxAUbmMdlY+T
+	 3lPTMOHqRosWi2G4/fDEbfbFHiGTrPqyruEEtkWU8+71SEwSt1KG9KMFphDv9Z9sDRW+4
+	 qRTcOgtrewZsTWA5oCw5I3fQDoE7As2QMcv4MpAQM/eaWNcoXo0HhL+CBV1TBIt4qY+d4
+	 FPVIGACJLaJHjhMQkYNw5gQo2z3M48ZA5N5C09hysMi6y4YgRrQ5p8izDHLe/Gj8Nnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795631729;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795631766;
 	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
 	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
 	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=9xVD7bdz9+WmMAUxY10TyWuzNNqlkKipL2zUO5K9vKY=;
-	b=WiNZoZCiIFpFFjKZpUzFtfry0S6FM4aHH0+jBYmm82zG4uScF0AQxRpYZd1SIxdGHkc0
-	 gSqR6nP4+NoKRnSVrUWFeX95Kgkqavy2ETqGmIQL2SvyLaF/l1lnMNZIGCqzp1qrZPEpr
-	 n0yhAkbkRoQgsRYmxMWbJXKxGQFTFD2PEjt5I+lUASx4C1FVDzz6UDJ47IqvoARBi7/S8
-	 XZtsuIi3/m+sVfDCsjr6IllHPMggQUXoh2qp5kzoS52XDZxhkpRLh/Usk8YSNyMj0sy0/
-	 5hCue5hPRRyc0HnIUeZDSeKhhCsIVxjcHszDsbqfl9A/82QDjeUOwnmu46m6gq3OMWw==
+	bh=prrX32fJ5wksd3jSdKGTMIlOF4TSPJHLdr5EwTLREDg=;
+	b=kO2C3n2bETW+WAhRZ9MN254QrKuTxDt4NxQalId+rS4n9ChbSOVGpB4cltacSgr6jTs6
+	 DX1rXtoOOo9CS36EYqZ0DPNdY6zH7XNWq+LbLzGlBOELEmHr/HqL+scraJDNib+Vv3v8B
+	 YCrQNrf7o4gH4GPER9ynvNQlmQgWF/jvUMEv4KAKI8mdnFzuRJGIe7lnJIhOXU6jV3QiF
+	 DTrpKZ++laNMNuGDT6qD+a+CkUwpuOx0PiRMhmlWfzXT1E95TuvtY039zvKy5o2O/kPwu
+	 xQERFgUDHdv0kWim2Asb3C4RSqHaOCLyzdqvNcN4/CMVylcspKhqr+R4Szfp7awU3mA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Se44L7Q4;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MKwKUi1f;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC6E3606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:35:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40348606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:36:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Se44L7Q4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9235F1F000E0
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:35:29 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MKwKUi1f
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F1B91F000D2
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795631729;
-	bh=9xVD7bdz9+WmMAUxY10TyWuzNNqlkKipL2zUO5K9vKY=;
+	s=k20260515; t=1795631766;
+	bh=prrX32fJ5wksd3jSdKGTMIlOF4TSPJHLdr5EwTLREDg=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Se44L7Q4cJUXGUkTEzWkUfaYZtmSE6mglSqozkwjpXGe25j0WfPbfVDEuR+zdqMSo
-	 +o2GmmVafalPbZPHZPxBFUmdC3o/h2ruPQT2dDO3Zv1pg28lG0J5weslKOmg+EwG+Z
-	 NNRKA16MLuY2hkb/A7a4lIJzuioAVut7n9LtTYVzU7H4zOY66qVzTsyyJ1wp+nHVqm
-	 PzW6MG9aopLXb/fzYrO924LnIfnCOlSdXmhm7j3qXS5BDdLN30oJsQJhI5GiyM+2dz
-	 nGQc8G9kJew6QqIDQPjbb43XIFb6PzaB1cS2Hp51up7jhxHOBGEhY/qP6Gv9WiigSj
-	 SYQ1O3gm/GHMA==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5be53e5fce1so5623987e87.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:35:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErE7lWdAGF97Ke1PUyLPv5CdWMOntYImfCTOgsvX3TYuhAncW9g4lMFgRoxXg3Qkhsw7PRgOs4pLE7UM4fg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8pxgQMLX4yZ9uLHwNu4EfXSu8hLQAP1Gxao9Smb9wiW+cFveet
-	K+cmK4RTAP69ioyFBQ4ScYkZWR5e0CewEN6bwvx6TYiGI4D/OQSx78Ee/OQ8Z6YTXBFw/qf8uvf
-	4/GXV7qTrrNQ1t1Vmi9b/FoA2Chkl9vM=
-X-Received: by 2002:a05:6512:3ca7:b0:5c1:57c1:bc89 with SMTP id
- 2adb3069b0e04-5c1bc8c6d32mr5057176e87.65.1795631728358; Wed, 25 Nov 2026
- 10:35:28 -0800 (PST)
+	b=MKwKUi1fJJvcCPVdLLxu8p50q0lnzCJf9bfKw3VLUaOnYBTQeZVi70M9Q58NAnrgN
+	 Q579fHlrscQ8TCiJBKkDa1/WHtu40DMUvC01Rud71CSQqnqo/hMXAJxqJtF64KqOlT
+	 33cT/TxT0+HgAA6PnIfL0jMWqkVu/aQeb391FcsZUts2JlnFYJF2VSdrg7tx+gdI/h
+	 8Jyb6qA5oYxFxfTtbxHBWl7dhKSC5Hw3Y2qoMMHAoupwu9/d0AdzteuIwZFsYm5888
+	 Ym5VngmyEn9Ipj8Y8UhpLvSOQFRw1PBJ8O923JC1LbqbKNxwArgV6CR/wtKnTYTHPX
+	 rpQUJHgZi3uxg==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3afa1c39d76so9126571fa.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:36:06 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErE0GOzxZRehXWod77xf9a4S27MbkeT/J8fvsDPMQYdtlRxuxzydVCtC6swsBuaGE7z9LvmOb9vGpSKfuas=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8mkMJnvQcWYwNxz3lONorcufll6ZFb3dWUi7u3KDKwR9h4fqfg
+	s0PzWjhUgUemPyrcIv2mSSnxwIdHh/sZmymlZHcPGk0vBxXYkFeXHcPnuYmx2WgM12tRZOrOIwA
+	NpAJjKKqosYnad4yXAPhxm79JzURQMOQ=
+X-Received: by 2002:a05:6512:1585:b0:5c1:4cd0:16d6 with SMTP id
+ 2adb3069b0e04-5c1bc9055eemr5174503e87.65.1795631764829; Wed, 25 Nov 2026
+ 10:36:04 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,39 +59,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119204748.2558209-1-lee@kernel.org> <20261119204748.2558209-5-lee@kernel.org>
-In-Reply-To: <20261119204748.2558209-5-lee@kernel.org>
+References: <20261119204748.2558209-1-lee@kernel.org> <20261119204748.2558209-7-lee@kernel.org>
+In-Reply-To: <20261119204748.2558209-7-lee@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 25 Nov 2026 19:35:15 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmPs3MxaRvk3+csA5wwx04ccaYF=DqC61Twb+b+Q5Ys+A@mail.gmail.com>
-X-Gm-Features: Aa3M54pSiUm-Sabn52M6gTOmNq3pyFFBJdM-jwrYQTrlBs-ynEpBtUVfQzaBT0w
-Message-ID: <CAD++jLmPs3MxaRvk3+csA5wwx04ccaYF=DqC61Twb+b+Q5Ys+A@mail.gmail.com>
-Subject: Re: [PATCH v2 4/6] pinctrl: mediatek: Guard against NULL eint in
- mtk_eint_do_suspend() and mtk_eint_do_resume()
+Date: Wed, 25 Nov 2026 19:35:52 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmAsPibiNju4HzAYztN96fwdErzZa2DS1tyThiUAtgzXw@mail.gmail.com>
+X-Gm-Features: Aa3M54qVG3vyGiBbOuH0mxEC3oK27vU7UJnEn5z_uqUEslE_IpB0bR_gdzrAv9A
+Message-ID: <CAD++jLmAsPibiNju4HzAYztN96fwdErzZa2DS1tyThiUAtgzXw@mail.gmail.com>
+Subject: Re: [PATCH v2 6/6] pinctrl: mediatek: Prevent divide-by-zero for pins
+ with fixed drive strength
 To: Lee Jones <lee@kernel.org>
 Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Maoguang Meng <maoguang.meng@mediatek.com>, Hao Chang <ot_chhao.chang@mediatek.com>, 
-	Qingliang Li <qingliang.li@mediatek.com>, Nicolas Boichat <drinkcat@chromium.org>, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	stable@vger.kernel.org
+	"Ryder.Lee" <ryder.lee@mediatek.com>, linux-mediatek@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 On Thu, Nov 19, 2026 at 9:48=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
 
-> mtk_paris_pinctrl_probe() treats mtk_build_eint() failure as non-fatal,
-> logging a warning and completing probe with hw->eint left as NULL
-> whenever EINT initialisation is skipped or fails.  However, the system
-> sleep callbacks pass pctl->eint unconditionally to
-> mtk_eint_do_suspend() and mtk_eint_do_resume(), both of which
-> dereference eint without checking for NULL.
+> mtk_drive[] only defines entries for DRV_GRP0 (1) through DRV_GRP4 (5),
+> leaving mtk_drive[DRV_FIXED] (0) zero-initialised with min =3D 0, max =3D=
+ 0,
+> step =3D 0, and scal =3D 0.  If mtk_pinconf_drive_set() or
+> mtk_pinconf_drive_set_rev1() is called with arg =3D 0 on a pin with
+> drv_n =3D=3D DRV_FIXED, the range check (0 >=3D 0 && 0 <=3D 0) succeeds a=
+nd
+> !(arg % tb->step) divides by zero.  Similarly, mtk_pinconf_drive_get()
+> and mtk_pinconf_drive_get_rev1() divide by tb->scal (0) if the pin has
+> drive register fields defined.
 >
-> Return 0 early from mtk_eint_do_suspend() and mtk_eint_do_resume() when
-> eint is NULL.
+> Return -ENOTSUPP immediately when desc->drv_n =3D=3D DRV_FIXED.
 >
-> Fixes: 5c0904488a20 ("pinctrl: mediatek: Add pm_ops to pinctrl-paris")
+> Fixes: c28321979ba8 ("pinctrl: mediatek: add driving strength related sup=
+port to pinctrl-mtk-common-v2.c")
+> Closes: https://sashiko.dev/#/bug/linux-d3852d37-6806-4c41-a493-f249dd59d=
+0c6
 > Cc: stable@vger.kernel.org
 > Signed-off-by: Lee Jones <lee@kernel.org>
 
