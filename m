@@ -1,69 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795583167;
-	b=Ojr3gjx2zXVsQIJf6RGGmk35T0lVgIo/x8Z/dqyEncH8Eu6+yBFWQUaURY5lUCDh8PRe
-	 DTS0SKQsjjMwQoLisP/wjQIPa+3q3+b7/fISNec357O/GuWbg+yzGr7nkNe5+KPMrIabK
-	 vHJwWgEpSXtfMpXz5lC8DZWYJatXP2LBLw5SqvJxkCGi5ove/rhACqoWf0jNd5rAnUR6B
-	 B//Psu2TVWLRRcGOfTORafgOln4VcxBJuB5azeBBfG3nZ4cHFksP9gXODJrmQoxnMcP5N
-	 SrA1Xmob0P3wZTzdnuhK/TaNQzCw3yYQ9+LTluFMqWeJZIxuR/8UBHMo8pF5N+b/PNw==
+	t=1795583176;
+	b=IKQUYMpWlhsebikNk65hj7uFHpY4ejqDJKMMSEXL9HfpdFKGDVmI586YNM9G9e0C95D5
+	 qIPal6YllHId60+0XX09PiRgnWNr1MGFm38aMBoa7TVHwwjpMBrlAJjGfNUz+GuSCBASn
+	 13ej7uBEQFU0qxaFtuwTnD19pWrAoBf7tUPyGOLtIBOHLYPo+/XYMG02rlYzhAT2NEPh4
+	 mKOKF5oLOzaCRAv7xPL1UcDxg4r6550Vj5FRS1QMtDVNsqZ/HJcKmwo+4vnKp3RJPrMJn
+	 5jCxrCGPpnkJigimqMFjzJqpaTTWaeBGl1jXkXtAJBTLjwWSfL031BGx7v4jLxv3Wuw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795583167;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=Uz/lRB43XRntDAJzkH7ycnHE4dBan8nKXw3o4HGoSjE=;
-	b=oQODLyoKlUunAEnqJ6ZqGxIu2z0waF3QtuKyB+dm7Ow3f45JL/Cry4rJ+SHVjEZmmTEd
-	 apUPX66+Oo5rRBBSEPEQH3dVAi7ztCrBUYKjpaICRUfsx3UUwlhKydAHLRV/ndt2b6iCt
-	 6F5Ri0lAKAra52JwL5oN6kndvClq1h+cpXJwAkmaPzTLV1fJ3E8Rr/KsHPRsE7ehpXkbc
-	 FRxGjNhO3WyYTFziT7jIvOK/IqvVljieO4DfKm8SBriXfRWivTNAaqDrzFrSoFadiQfWo
-	 f35ajMKte7ZcX+NxDfH82AbkSUNj+meXqmLnS5nVjHFMvOlX7mlmpFwrkxkVvbw6PeA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795583176;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
+	 X-Spam-Checker-Version;
+	bh=azksqZAW92CbjHkbREx5pfJmqzQt9OGUQC59o+UYlqw=;
+	b=uojAjIbNTucEsr7K30aev7RWmrNt/4jJELumc672XyOZ//IRWIhDC0ZmFQigf9dt/zMJ
+	 rGabdKGpg3iiISTifnl8rK0+L29du+HfnCWRxOHYPtAPxiBMp3budhhqCggXTnp6Qj9mF
+	 yXSPfWnOyQgLvW4x81NmKcvBMvK5vTNO8xA1watfYaqEtiUqUOrrFGLhFVD34BbbbvzJq
+	 IN8Azvi/94+r4DhPOsHBsjQ7EnbSBNc1cYK7Q2IE5Udp0ZNwgoPSJxG28VQ56bnost+ef
+	 jFB8tqMfmkXvznu1ehFRpPbQ1vvKocRZiZf+b+woc8wkP6y3DQ5GCz6KWBespJvT68w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=HlXDUdBs;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA312606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:06:07 +0000 (UTC)
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=CnxFwsQn;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 991C5606A321;
+	Wed, 25 Nov 2026 05:06:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 991C5606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=HlXDUdBs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 392EB1F000C6;
-	Wed, 25 Nov 2026 05:06:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795583166;
-	bh=Uz/lRB43XRntDAJzkH7ycnHE4dBan8nKXw3o4HGoSjE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HlXDUdBs2uLBBs/puvB7zu8QlY/VjjLdP0hmISSus30YRf4hL0tV1W2VDoWCetPW9
-	 k6GUWglGmvzRaVJf5K/o168KBMpWmZ86xKCVZKu3vATMtNSEABNCV1AkNfvPcjFmBg
-	 IOIZnu2BAzE8a3gNJopeLTbH2ZE03IWUZdBhBopU=
-Date: Wed, 25 Nov 2026 06:06:26 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Nikolay Borisov <nik.borisov@suse.com>
-Cc: Pedro Falcato <pfalcato@suse.de>, Dave Hansen <dave.hansen@intel.com>,
-	x86@kernel.org, mhocko@suse.com, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Dan Williams <dan.j.williams@intel.com>,
-	Kees Cook <kees@kernel.org>, Ingo Molnar <mingo@kernel.org>,
-	Vishal Annapurve <vannapurve@google.com>,
-	Kirill Shutemov <kas@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"Naveen N Rao (AMD)" <naveen@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	David Hildenbrand <david@kernel.org>
-Subject: Re: [RESEND PATCH] x86/devmem: Drop /dev/mem access for confidential
- guests
-Message-ID: <2026112533-juncture-skyline-91d5@gregkh>
-References: <20261124160025.738362-2-nik.borisov@suse.com>
- <0dc6759e-ada2-461c-85de-809c170abd6a@intel.com>
- <awXBtrPSHfs51Y2f@pedro-suse.tail5790ac.ts.net>
- <2026112404-hyperlink-widget-ff36@gregkh>
- <15d9c032-a8cd-4469-9272-0964e8d9ac9d@suse.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=CnxFwsQn
+Received: from [192.168.1.70] (unknown [52.172.102.222])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 5B2BF20B7166;
+	Tue, 24 Nov 2026 21:06:04 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5B2BF20B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795583169;
+	bh=azksqZAW92CbjHkbREx5pfJmqzQt9OGUQC59o+UYlqw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CnxFwsQnXbbxofd2hf9UCwyICBjDe1Ie9Vu5nynyI5dbs9yHVpUb0p3ckb93uoWKI
+	 yyygxnaoTXr2KP6ApmFNZQRa6krKMyOfrIum1RfurjKfSUy0KG6W9QdRD7Z+7sDizX
+	 ZEl+OTQOcMFzoA3Fl0myn2e/CCDrOyTsJn+pfhmo=
+Message-ID: <428b0ccd-b59d-410c-bada-609396d879b1@linux.microsoft.com>
+Date: Wed, 25 Nov 2026 10:36:06 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,57 +53,178 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <15d9c032-a8cd-4469-9272-0964e8d9ac9d@suse.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] x86/tlb: Make the conditional flush predicate
+ reusable
+To: Michael Kelley <mhklinux@outlook.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "luto@kernel.org" <luto@kernel.org>,
+ "peterz@infradead.org" <peterz@infradead.org>
+Cc: "hpa@zytor.com" <hpa@zytor.com>, "riel@surriel.com" <riel@surriel.com>,
+ "bigeasy@linutronix.de" <bigeasy@linutronix.de>,
+ "zhouchuyi@bytedance.com" <zhouchuyi@bytedance.com>,
+ "houwenlong.hwl@antgroup.com" <houwenlong.hwl@antgroup.com>,
+ "qq570070308@gmail.com" <qq570070308@gmail.com>,
+ "bastien.curutchet@bootlin.com" <bastien.curutchet@bootlin.com>,
+ "dianders@chromium.org" <dianders@chromium.org>,
+ "jgross@suse.com" <jgross@suse.com>, "hawk@kernel.org" <hawk@kernel.org>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20261117091507.2088642-1-namjain@linux.microsoft.com>
+ <20261117091507.2088642-3-namjain@linux.microsoft.com>
+ <MN2PR02MB6863198AC15E17474598EF23D4442@MN2PR02MB6863.namprd02.prod.outlook.com>
+ <14e81d94-1219-4999-8d32-a3f8d1a90e50@linux.microsoft.com>
+ <DM6PR02MB68607FE813E55D371E03B4E2D4442@DM6PR02MB6860.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <DM6PR02MB68607FE813E55D371E03B4E2D4442@DM6PR02MB6860.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 24, 2026 at 07:53:53PM +0200, Nikolay Borisov wrote:
+
+
+On 11/25/2026 2:08 AM, Michael Kelley wrote:
+> From: Naman Jain <namjain@linux.microsoft.com> Sent: Monday, November 23, 2026 10:44 PM
+>>
+>> On 11/24/2026 5:46 AM, Michael Kelley wrote:
+>>> From: Naman Jain <namjain@linux.microsoft.com> Sent: Tuesday, November 17,
+>> 2026 1:15 AM
+>>>>
+>>>
+>>> In the patch Subject, avoid the "flush predicate" terminology (see my
+>>> comment on Patch 4).
+>>
+>> Acked. I can use this:
+>> [PATCH v3 2/5] x86/tlb: Make should_flush_tlb() available to Hyper-V
+>>
+>>>
+>>>> Make should_flush_tlb() available to the Hyper-V backend and give it a
+>>>
+>>> What is the Hyper-V "backend"?  Maybe more specific would be
+>>> "PV tlb flush functions"?
+>>
+>> yes, I should change it to "Hyper-V PV TLB flush functions".
+>>
+>>>
+>>>> const struct flush_tlb_info pointer instead of void *. Keep a
+>>>> should_flush_tlb_wrapper() adapter for the SMP callback interface.
+>>>
+>>> Is there any particular reason for needing a specific type instead
+>>> of keeping the void *? I'm just wondering what value that change
+>>> adds other than the compiler being able to typecheck the call
+>>> as made from the Hyper-V code.
+>>>
+>>> Michael
+>>
+>> No functional reason. I changed the type because the Hyper-V caller
+>> passes a "const flush_tlb_info *" while should_flush_tlb() expects
+>> "void *". The original function does not modify the request, although
+>> its local pointer is not declared const.
+>>
+>> Keeping the void * signature would also work, with an explicit cast
+>> at the Hyper-V call site. I can keep the existing signature if you
+>> prefer a smaller change.
 > 
+> I was originally thinking that even a cast isn't necessary because
+> any pointer type is acceptable for a void * parameter.  But the "const"
+> on flush_tlb_info makes that not work, and the cast to void *
+> is needed.  Casting a const pointer as void * to discard the
+> const is a bit dubious, though native_flush_tlb_multi() is doing
+> it. Your new wrapper function goes the other way -- passing a
+> void * value as a const pointer parameter, which is OK.
 > 
-> On 24.11.26 г. 19:35 ч., Greg Kroah-Hartman wrote:
-> > On Tue, Nov 24, 2026 at 05:10:21PM +0000, Pedro Falcato wrote:
-> > > Holy cow the CC list is stale.
-> > > Fixing some up.
-> > > 
-> > > On Tue, Nov 24, 2026 at 08:36:45AM -0800, Dave Hansen wrote:
-> > > > On 11/24/26 08:00, Nikolay Borisov wrote:
-> > > > > Resending this with the hope of either getting it accepted or
-> > > > > arriving at a consensus what exactly is missing so that I can take
-> > > > > it from there and eventually get something merged. As previously
-> > > > > mentioned this results in real problems for confidential guests both
-> > > > > on TDX as well as SEV-SNP.>
-> > > > >   arch/x86/Kconfig |  4 ++++
-> > > > >   mm/char-mem.c    | 10 ++++++++++
-> > > > >   2 files changed, 14 insertions(+)
-> > > > 
-> > > > I'm still OK with doing this.
-> > > > 
-> > > > But I didn't want to sneak an mm/ change in via the tip tree. Any mm
-> > > > acks or naks on this?
-> > > 
-> > > For what it's worth, I don't love this fix. Yes, it fixes issues in /dev/mem,
-> > > but it:
-> > > 1) skips any other potential problem spots (I don't know which)
-> > > 2) open-codes random CC checks in mm, which is kind-of regrettable
-> > > 
-> > > OTOH, it's unclear to me why that CC check is needed. If configs select
-> > > STRICT_DEVMEM and IO_STRICT_DEVMEM, shouldn't it Just Do The Right thing?
-> > > in iomem_is_exclusive, etc. If not, could the CC awareness sit there
-> > > instead?
-> > 
-> > Yeah, why is anyone letting a CC system access /dev/mem at all?  That's
-> > ripe for abuse lots of different ways, so I really don't like this
-> > change either.
+> It's judgment call. I think I prefer skipping the wrapper just
+> to have less machinery, but you or others may prefer adding
+> the wrapper, and I'm OK with that too.
 > 
-> You are missing the point, this pertains to /dev/mem in the guest. There are
-> a bunch of libraries (libhd for example) which reads the first meg of
-> memory. This causes the CC guest to shutdown in both AMD-SEVSNP and TDX
-> world.
+> Michael
+> 
 
-Then don't allow those libraries to work in cc guests :)
+Got it. I would prefer to retain it. We can reconsider if we
+get more comments around it.
 
-Again, why would you want anyone to access /dev/mem/ at all in those
-types of situations?
+Regards,
+Naman
 
-greg k-h
+>>
+>> Regards,
+>> Naman
+>>
+>>>
+>>>>
+>>>> No functional changes.
+>>>>
+>>>> Signed-off-by: Naman Jain <namjain@linux.microsoft.com>
+>>>> ---
+>>>>    arch/x86/include/asm/tlbflush.h |  1 +
+>>>>    arch/x86/mm/tlb.c               | 18 ++++++++++++++----
+>>>>    2 files changed, 15 insertions(+), 4 deletions(-)
+>>>>
+>>>> diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
+>>>> index 70098d448e999..1d1852ecaf084 100644
+>>>> --- a/arch/x86/include/asm/tlbflush.h
+>>>> +++ b/arch/x86/include/asm/tlbflush.h
+>>>> @@ -263,6 +263,7 @@ void flush_tlb_one_user(unsigned long addr);
+>>>>    void flush_tlb_one_kernel(unsigned long addr);
+>>>>    void flush_tlb_multi(const struct cpumask *cpumask,
+>>>>    		      const struct flush_tlb_info *info);
+>>>> +bool should_flush_tlb(int cpu, const struct flush_tlb_info *info);
+>>>>
+>>>>    static inline bool is_dyn_asid(u16 asid)
+>>>>    {
+>>>> diff --git a/arch/x86/mm/tlb.c b/arch/x86/mm/tlb.c
+>>>> index 53dcab39566f2..9b1aea2b3a1d5 100644
+>>>> --- a/arch/x86/mm/tlb.c
+>>>> +++ b/arch/x86/mm/tlb.c
+>>>> @@ -1279,10 +1279,14 @@ static void flush_tlb_func(void *info)
+>>>>    			nr_invalidate);
+>>>>    }
+>>>>
+>>>> -static bool should_flush_tlb(int cpu, void *data)
+>>>> +/*
+>>>> + * Select ordinary flush targets using state ordered against context switches.
+>>>> + * Callers must bypass this filtering for page-table freeing and global ASID
+>>>> + * transitions, as native_flush_tlb_multi() does.
+>>>> + */
+>>>> +bool should_flush_tlb(int cpu, const struct flush_tlb_info *info)
+>>>>    {
+>>>>    	struct mm_struct *loaded_mm = per_cpu(cpu_tlbstate.loaded_mm, cpu);
+>>>> -	struct flush_tlb_info *info = data;
+>>>>
+>>>>    	/*
+>>>>    	 * Order the 'loaded_mm' and 'is_lazy' against their
+>>>> @@ -1317,6 +1321,12 @@ static bool should_flush_tlb(int cpu, void *data)
+>>>>    	return false;
+>>>>    }
+>>>>
+>>>> +/* Adapt the typed predicate to the SMP conditional-call interface. */
+>>>> +static bool should_flush_tlb_wrapper(int cpu, void *data)
+>>>> +{
+>>>> +	return should_flush_tlb(cpu, data);
+>>>> +}
+>>>> +
+>>>>    static bool should_trim_cpumask(struct mm_struct *mm)
+>>>>    {
+>>>>    	if (time_after(jiffies, READ_ONCE(mm->context.next_trim_cpumask))) {
+>>>> @@ -1357,8 +1367,8 @@ STATIC_NOPV void native_flush_tlb_multi(const struct cpumask *cpumask,
+>>>>    	if (info->freed_tables || mm_in_asid_transition(info->mm))
+>>>>    		on_each_cpu_mask(cpumask, flush_tlb_func, (void *)info, true);
+>>>>    	else
+>>>> -		on_each_cpu_cond_mask(should_flush_tlb, flush_tlb_func,
+>>>> -				(void *)info, 1, cpumask);
+>>>> +		on_each_cpu_cond_mask(should_flush_tlb_wrapper, flush_tlb_func,
+>>>> +				      (void *)info, 1, cpumask);
+>>>>    }
+>>>>
+>>>>    void flush_tlb_multi(const struct cpumask *cpumask,
+>>>> --
+>>>> 2.43.0
+>>>>
+>>
+> 
+
