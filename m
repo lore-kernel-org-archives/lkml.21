@@ -1,119 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795613026;
-	b=qNfWixaPW5IoUmJbQTyNrdlS9vfNzj5dJ2sL68ywmF7898X1u4Tv/yo2/7NICHDv9E7G
-	 Y5gJ6oUDHiN5F0f2p6JqCVhEL6qNHetTHl7crDRGP4Q5GKXwBQw9HyTYy718GUkHgoDW2
-	 IGEc9g1NUFPpWZ/y4l+SpXKSZvv8ibsLHHReS5xozcqUFW8YaaqXs6tY4rEM91GaSQMYq
-	 GzXwgNSXyivQ5C2e9LXavipF7jDYG2DuEX8WFN3H/UVXNlZB94uNhLDNWrFOcst0x/JLA
-	 HNWvba8TKcLdR4HXRY9YUeqtSAOb2cgpwucpx6VMIY4f0ESNax5wxpQ2/VBHnHLw/yw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795613026;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=DEXSKj0qLtLCuzwB7F4ETUvNv7J3DjigdPft60M7V4A=;
-	b=w0U34OFC9KBOiWN9PS6ZZRJMxffS3H15zDyOmHT6Afvt44HCDSPMC0rN6eZrPPOVDk76
-	 LuLPHOUXQBk/T7evIaE3zBoHc8KhfEf9s5Wgu+jr1ABeOUqRhxGNICnKq5sNBZN4tuafc
-	 WZJXE1DtWMa7xFHgADW21t3DCjB4I4yeZd0LtlmfnZVYRpK6X+93axC6xX9W7gVwz2AMw
-	 sMqTJL8zunR6kBLNuESDbwm8wAyjFcABFxLUVx6lYnfprWl61Qb0DHLfG/6gobUCP/3tY
-	 jg+aF1DiL7ey9vkte5voc7KpR6NHLajOj8Pxwlc/aoVw36VJ+znN44OxRrtTD20FXQw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UeIjzfxP;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=AgIMKDlQ;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795613028;
+	b=Um5KQTXFV1Xp8wuq0W9D3bHuEyBJzQ+pT7Shhd24YkK27ntBHxdm/pPZd/yINOPGlO4T
+	 M5DS8gM06AgsQ5SQVEpl97BuIrhhInhTRhtlAMjoNcs+KTrMG62cynA1YnQsf9f83yoqy
+	 tZMmRGSpwHxLhmbRXDl+B+y1uxRWODCDWuTNjKiAtX+duFdHZInwzm1OVKoazJ+pcvAjs
+	 lbOfJKNuAqGt2CdbIfeJdZUyy5mFtJu3RpcHue0YUKe5T2Si2o9J/Fvt95W82mcndYT5Y
+	 McX5ou1rzwxeYy4tVDLGFa49zGgefF1DXaGHaw5WoXzyAZoOXZi7UPB4C93f/aTvjRQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795613028;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
+	 MIME-Version:User-Agent:X-ZohoMailClient;
+	bh=rDIlJeLiW1UM0feLkzAHATTJDCWCHt9MGJP9CMm7LWU=;
+	b=Yf/J+bSPEy+f1WvE2zC2ILCWyIynaI2iz2RG/k6/zVYbV/5WtzGGZ7Ix9BQnNlxwlCEb
+	 fQKVDFnwaXWhDagofRMRh+zW0IzMB3g+cYH7rzjRZxV6Lc1BFBQj9Tdy/XyERIQaGHq3i
+	 1tTUtb4MGNLlPNUJfkGYQJ5VPDsFNLMauc5SXJXGKyrRUJM83J5Uj2jf1JiaV8lGQnNvx
+	 0tQNjDriQhV7iXY9AeUZO4/R88JvGZKsYKxXQmVNgl0WdzZEYTjZqRkKcJCw7BNZJY6s+
+	 t9MrcUaE4sL0a+64cYg7jGOw3qoRa+R79MmnNBhdyl85rZIocfsicyU51YAoUyysSHg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=OZEnA9vL;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.112
+Received: from sender5-pp-f112.zoho.com (sender5-pp-f112.zoho.com [165.173.182.112])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E13A606A333
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:23:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E13A606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 929F0606A32C;
+	Wed, 25 Nov 2026 13:23:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 929F0606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UeIjzfxP;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=AgIMKDlQ
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9mcfN796791
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:23:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	DEXSKj0qLtLCuzwB7F4ETUvNv7J3DjigdPft60M7V4A=; b=UeIjzfxPQSU5Mrvy
-	XTX3ZedT1gudutbBoFGqtfnM22kog3U9MaelqjlOHQqrG+gdpoL0tsJp4SFvrPLi
-	oBab+Hcyz70CNYP4Jub/V7Tg9VqjRAhQruMxDYh5QqzJcwIgBe01vf+shWbapGci
-	DYRCs6QwYfOu/tilS+Z1xCjOfHnXhvbCWeiSBwo7eL6Ew11C+NQpyaeEy3zwk/Kv
-	FqCQSQuBmB4ss35oKp0DjbgxwEiCM0mbRZe70N0iaI5QIozEV92VQNMKI2e4ODoj
-	dsfAkKDsGQ0SJTddDgZ7UJLJMU08uz7MObJpdsAan5t0hWN/W+ww+rs9OzsoWQXc
-	9/uiWQ==
-Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5n6rtv43-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:23:44 +0000 (GMT)
-Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5eac2cf3905so1262729e0c.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:23:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795613024; x=1796217824; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DEXSKj0qLtLCuzwB7F4ETUvNv7J3DjigdPft60M7V4A=;
-        b=AgIMKDlQmHih4Ig6vpNq1cdJwpFiSfzXiD9vVSoStkJau5zLFtD1DzadvTF6PVd1cx
-         5KY17/0Ans9elkFt9PAnblBXytRcu/N1cO9BBDt3mFvX6c9vFGB4LpIVB+YacnlsBga5
-         L1pwumLGr3nAnb+CNal47dpi/AWTq1Sq5KGW3AFNKVQasJ9hEPOMkMeueuhCM+T3VoZp
-         atwrflmz7xcqCiA7XePjYV8qgIiVxnM4x5IQc32ygWY5janZCMlg7V8JbMV769sZ9g8o
-         isYupyC4WnIRS3YpLjVra3gn75oesF5xKR4ouoUjPvqPVXEA8Ua9IanduFOLA681BXwQ
-         UpxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795613024; x=1796217824;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DEXSKj0qLtLCuzwB7F4ETUvNv7J3DjigdPft60M7V4A=;
-        b=Sgpz5g0d9nEzUtwRPZdU38O1sM1VO3m4+y8WE8WejJNGDuqlN4Gx0YA6CIAFg3Ukp0
-         QgMNkqv5Mpe8K5qazqLO7yj3tfkQLwwwBsqsJUktKKVzUWF703JRR5ITAUzo4AbLwNLu
-         1HkAzK3h1upn5oLGnEC4GdeWdvktLprdsCJbJDXUG6NU6J0QbantH5+gQWVPfMz7lcjG
-         KrNWAYjRIS75TLMz8tyhNj90IoB6RD22/gtGs/XmfPz9PkRjM3Yc9gT8gd8AZpzq6TKQ
-         sU8ZwuMtasnlsKo9cGMYKeOSgCA4Px2+h5TpUEnBDiJtbQHzRwCDbfsgrcwKS4mSj/d1
-         +oEw==
-X-Forwarded-Encrypted: i=1; AL+hErG77VHoC/b08WQbDR8BRVHo51ffooghUgR9vu245mPbPbdzlyZ4yifmeW7eojmtzqkrsYxRUnj4CE0YqXc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/TwwQO9+3ZtmsXvloEbAwRiZSqPZfGM2VlxC4NNzz5SCu2Lz04
-	t0jRH1s3UoijkGSUtkQKxejB0ncdde2QN8ZI0Dg12FKz/ZEvrxy1msZkh0+xYftZjlByd8+3Cei
-	zRDfrsxU5Rt5V/xu8Bag03tXuZw3Lpl3xLZ/kCxrVmWDKRwMkh3mv7H5FMxVktfV5mmc=
-X-Gm-Gg: AZFdTZcC9NsG4mvUgwcNuXfN1XxYaHcLKg+6r1YAwvYEGH1Rk9qd5QPDoXO6wy16shc
-	0ESff97ycBj80LiWL2q8g23/vGOXySYbgOasl0eYgfRq/2+vbdQxxS68QZxe2yBuKTYSiA+bxRw
-	c9GcHD01f+DOvSUdgp+pTKTZHsNBFCYea7qcKiDBej8WVnTSnZlboFta/ycrTR9Vmt/IML4E1mW
-	sBBZXwQgwsLj4uJ6fzqmLMrG/Watc3ZvSWX8bdqXNkGsbxlL6/NlVA303VyXglIFxiUqX+JIonK
-	6BEY/tzTobV1742Y0ajviqmPfRe3UjEUOf7+uwOvnUVz/dMcE8K6qqyQiCdcXYhMIYQzW+CQBXo
-	CKbf5HZAo8m/EFin9TAqBHeVf5QsSAzmvkiNUXXtfDlSq4aWsldYhttLcb/scmTnHfbP+DjVCG2
-	//sSpTcoL+VPMUXwEsjX/PNeuubO35U43GbIXZ1prFVHyMEE6qg5ZwA1NbKjPyMA==
-X-Received: by 2002:a05:6122:7cc:b0:5ea:a0f0:192f with SMTP id 71dfb90a1353d-5ee8aee2709mr9459966e0c.10.1795613023501;
-        Wed, 25 Nov 2026 05:23:43 -0800 (PST)
-X-Received: by 2002:a05:6122:7cc:b0:5ea:a0f0:192f with SMTP id 71dfb90a1353d-5ee8aee2709mr9459896e0c.10.1795613022653;
-        Wed, 25 Nov 2026 05:23:42 -0800 (PST)
-Received: from brgl-qcom.home (2a01cb1d00dc7e0089167b9b97a26c96.ipv6.abo.wanadoo.fr. [2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853ca452sm506211355e9.15.2026.11.25.05.23.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 05:23:41 -0800 (PST)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-        =?UTF-8?q?Jan=20Sch=C3=A4r?= <jan@jschaer.ch>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] gpiolib: fix inverted trace values in gpiod_get_array_value()
-Date: Wed, 25 Nov 2026 14:23:39 +0100
-Message-ID: <179561301701.43809.14124670705710652305.b4-ty@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261120130208.89621-1-jan@jschaer.ch>
-References: <20261120130208.89621-1-jan@jschaer.ch>
+	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=OZEnA9vL
+ARC-Seal: i=1; a=rsa-sha256; t=1795612995; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Qsx5OVDVgo639ewVViD4Yk9sTWn5lMKBKUiKShF4HHyTOl7dtEzwZj6hDxtpTwI/1/KPpWq/d7LzDXug+92af8IP1XEtn7OD7TAwv9EDTX2FirfoscJVSZdsx2cwOkTZWDGRhym1MIkOXkMp+wwtSyh1pfKvDutG4xk3hoPsxcY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795612995; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=rDIlJeLiW1UM0feLkzAHATTJDCWCHt9MGJP9CMm7LWU=; 
+	b=CLdeOlU47OAnXKrIhEOftcPJUPu58tR1E9HCfbhUKgkHpG2l5ou+ocSobcpdGbgcZ1fzlKjOZwWcOo4sr8s+vWqx9uSyfFm2BA5aoK7wrbOiRrUiI55Jsg0riD73fC44imAuaxldRM2hw43EK2nYW11aadvMLFcUX04+SSG8zkU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=OZEnA9vLUYhUow5p1G+oGZ5H/L0sxFuIfzr3P6OQhGbjFL6XksHUnx4rT1BxgIH6/qwPpJ9Xo32BUIQ7tEycM5/vzmLxuf2iWEeheETRo6ynkKo4lLuNLYtLZZS5i84p+dUjND2OZ2M4QZ+g06y+3vqttX7llIXDE0eBram2tt0HW4TMd27//zpCP/kosUFe6x79WLtsXxRqZu0S9RBuk6ussDC7k7LXuhdi8Hp4QAnZJK8ehai0D8LyxyD+NL42UlfG4ngdVgwIYieK0ePvww3mT+c0CFJfWVLzRmpTtnOdimoJuRVKOO3IOZkel6/WnNKy7F24zhTPr1w9LJmkcw==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=rDIlJeLiW1UM0feLkzAHATTJDCWCHt9MGJP9CMm7LWU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795612992723857.8540790151453;
+	Wed, 25 Nov 2026 05:23:12 -0800 (PST)
+Message-ID: <bef9953c3e33e4ae38cce4464912088808240540.camel@rong.moe>
+Subject: Re: [PATCH v4 5/6] platform/x86: thinkpad_acpi: Detect auto-mode
+ capability via MLCG
+From: Rong Zhang <i@rong.moe>
+To: Qiling Zhu <kmatzkaczor244@gmail.com>, Mark Pearson	
+ <mpearson-lenovo@squebb.ca>, "Derek J. Clark" <derekjohn.clark@gmail.com>, 
+ Hans de Goede <hansg@kernel.org>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>,  Henrique de Moraes Holschuh	
+ <hmh@hmh.eng.br>
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	ibm-acpi-devel@lists.sourceforge.net, Lee Jones <lee@kernel.org>, Pavel
+ Machek	 <pavel@kernel.org>, Griffin Kroah-Hartman <griffin@kroah.com>, 
+	linux-leds@vger.kernel.org, vishnuocv@gmail.com, vsankar@lenovo.com, Andrea
+ Rabbaglietti <rabbagliettiandrea@gmail.com>
+In-Reply-To: <20261125084644.137506-6-kmatzkaczor244@gmail.com>
+References: <20261125084644.137506-1-kmatzkaczor244@gmail.com>
+	 <20261125084644.137506-6-kmatzkaczor244@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Date: Wed, 25 Nov 2026 21:17:04 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -123,53 +76,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA1MyBTYWx0ZWRfXzdkT3KBWkz3F
- akFqlHQs3DYLUuPhbZxICxaSi/0XtmlzIpr4fxAHRB3/TNTbky3DLScKYMzKOtuQ96Ov3lg4hXM
- oNr9n1PEAI1uj9NoHOIPKFv6yz4AMuB5LBWR0s3KQJNFq11SH2Cc4Zr6GmaAaXIm+0rD7yN9wJc
- jh/5+VcZrEcP89eRvnBsgIhIgKciRVpnhEmCVhSxWxigNnQZHzL3bfTi7qZffspO3ruigSssLJd
- YT7nn/4FsGPcL7jP6TJItxFYhl+WO8p8TOPK9T87gCsQPt2tDR81gBYkn9NPhAjPPdic59FXZTF
- /QHTGMmqRH+XTtdgQSubu0NKZyAAAhQWzSxwtPynxycyQmgLRlPLRTODoz1CEGuv0EQeqEs6+LK
- wTUmf1Wc63Xc7EfkmfIzIHZ7OUODC1CtrWvqNs4nYTWOxvr+6dL3uMb5CUeQVSPP3/9fHxs5KTA
- FY1MliPiN1nT6zYt7UQ==
-X-Authority-Analysis: v=2.4 cv=Voa2kO2n c=1 sm=1 tr=0 ts=6b06e160 cx=c_pps
- a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=4nZhoAphiK6mMl3Pq-EA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=tNoRWFLymzeba-QzToBc:22
-X-Proofpoint-GUID: WpCByskKz6EfQiR_G9qo4p_G5GpT0MMb
-X-Proofpoint-ORIG-GUID: WpCByskKz6EfQiR_G9qo4p_G5GpT0MMb
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA1MyBTYWx0ZWRfX3RVFNZW60D8I
- X8I+c7acZBIhNxRsDjJJ7U5hXWFzVii+ez/zdALWLK+TdQjslcBr2rypxs5eP+A7tL2a7OR4X3s
- PKyUj+t0DOSVK38rOXSgcnixk9CpiX4=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0
- adultscore=0 spamscore=0 priorityscore=1501 suspectscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250053
+User-Agent: Evolution 3.62.1-4 
+X-ZohoMailClient: External
 
+Hi Qiling,
 
-On Fri, 20 Nov 2026 14:02:08 +0100, Jan Schär wrote:
-> Almost all trace_gpio_value() calls report the raw value.
-> gpiod_get_array_value_complex() is the only exception; it reports
-> the logical value in traces unless the caller requests raw values.
-> This inconsistency makes GPIO traces confusing.
-> 
-> Move the trace call earlier, where the value is still raw.
-> Now, all GPIO traces consistently report raw values.
-> 
-> [...]
+On Wed, 2026-11-25 at 16:46 +0800, Qiling Zhu wrote:
+> MLCG bit 20 indicates whether the EC supports the auto mode of the
+> keyboard backlight (0 =3D manual levels only, 1 =3D auto mode available),=
+ as
+> defined by the firmware.
+>=20
+> Record it in tp_features.kbdlight_auto, for use when registering the
+> auto-mode trigger in a subsequent change.
+>=20
+> Link: https://lore.kernel.org/r/CABxCQKuEP5wMSstO0MK1MhaqXTKrPhUSN3V2mrE_=
+42j4cXsXZQ@mail.gmail.com
+> Signed-off-by: Qiling Zhu <kmatzkaczor244@gmail.com>
+> Reviewed-by: Rong Zhang <i@rong.moe>
+>=20
+> ---
+> Mark Pearson's Reviewed-by was given on the v3 version of this patch,
+> which tested BIT(20) directly.  The symbolic name was added at Rong's
+> request, so the tag is not carried over.
 
-Applied, thanks!
+Usually you don't need to drop a tag when your implementation doesn't
+change a lot. Adding a symbolic macro is just a trivial change to improve
+readability and maintainability.
 
-[1/1] gpiolib: fix inverted trace values in gpiod_get_array_value()
-      https://git.kernel.org/brgl/c/601acadb79b62ee52edbd29ec69d8f677dc32dcd
+> ---
+>  drivers/platform/x86/lenovo/thinkpad_acpi.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+>=20
+> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c b/drivers/platfo=
+rm/x86/lenovo/thinkpad_acpi.c
+> index 764b1efa6..ee8f7429d 100644
+> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
+> @@ -363,6 +363,7 @@ static struct {
+>  =09=09TP_HOTKEY_TABLET_USES_GMMS,
+>  =09} hotkey_tablet;
+>  =09u32 kbdlight:1;
+> +=09u32 kbdlight_auto:1;
+>  =09u32 light:1;
+>  =09u32 light_status:1;
+>  =09u32 bright_acpimode:1;
+> @@ -5105,6 +5106,9 @@ static struct ibm_struct video_driver_data =3D {
+>  /* EC level that selects the auto mode for the keyboard backlight */
+>  #define TPACPI_KBD_LIGHT_AUTO_LEVEL 3
+> =20
+> +/* MLCG bit that indicates whether the EC supports the auto mode */
+> +#define TPACPI_KBD_LIGHT_AUTO_CAPABLE_BIT 20
+> +
+>  /*
+>   * Cached EC level, including TPACPI_KBD_LIGHT_AUTO_LEVEL.  All state
+>   * tracking compares EC levels; the auto mode is translated to a
+> @@ -5189,6 +5193,13 @@ static bool kbdlight_is_supported(void)
+>  =09}
+> =20
+>  =09vdbg_printk(TPACPI_DBG_INIT, "kbdlight MLCG returned 0x%x\n", status)=
+;
+> +
+> +=09/*
+> +=09 * MLCG bit 20 indicates auto mode support: 0 =3D manual levels only,
+> +=09 * 1 =3D auto mode available (per the firmware definition).
+> +=09 */
 
-Best regards,
--- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Usually you don't need to repeat what has been expressed by the code and
+symbolic name themselves, so this comment can be dropped in favor of the
+comment of TPACPI_KBD_LIGHT_AUTO_CAPABLE_BIT.
+
+Thanks,
+Rong
+
+> +=09tp_features.kbdlight_auto =3D !!(status & BIT(TPACPI_KBD_LIGHT_AUTO_C=
+APABLE_BIT));
+> +
+>  =09/*
+>  =09 * Guessed test for keyboard backlight:
+>  =09 *
