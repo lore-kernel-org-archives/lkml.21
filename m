@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795637785;
-	b=zUVeuOp3OzoaJvhGksHP6LMMjdlY7rCB0633Qf7g7C4tQKAJBRMw6xCiyiay9M77bgY/
-	 gA34rRY1q5UXPtEjVQBF+iYSMSrmz/fjO1UKJC2TjjzIb5a4RNA354CWIy2HBra/buhke
-	 83icbzYOg+Ie7Rv8FIHQmn+tJ0RGte4NWzQHvSpRr5FF8lVHUGAo/0RrMkjiPm1ixSVEY
-	 Is+oIqLLK6+EtLcCIKjjfUO/bMWeSf8HbcIDkwKYnIaIVc1PdzaVBhx7Sue7ZruUzcVpq
-	 JHyLFWrbf5SAiaFLtLzpxrRVHyn5O/8KVL2BgnF3NmVTIjLa4Ap9QAiKiyCd2KMdOJg==
+	t=1795637786;
+	b=YcyMfEVmapaOVMDP1fEBLtql3nm12j0TEU93rPvizIbZmmu6SOc9FQC6mjrAWlzqqYTX
+	 KDSOqDRAdazrmWWV8hFNI3A8b86KD4MIKJ44q0POPPNEqryxbSHEu6I1NLfiix0HsMqDe
+	 cHiCEWwnZ8f+wtAtESnZ18Itnhw890gXe3Q7iVL8SGOBvxy98eC1LyEEkb8fCRcCNcMMB
+	 NH3lEJ5ZMxT+7WJVAJU8jJzxQjpv1w6EVlfJXSVM5jBvGukJEN6ZExbIWsh7pFge6SLgY
+	 kvRSzBHBPQxjRTz06a3J7EUGPB8+fhT+Wc2owRnx8rP6XH1/kzcP0yflIcQKdziOVBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795637785;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795637786;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=moswij1DxNlgtZ2psQp6vB5WbP0Zx8EDmr2Dk41oG4M=;
-	b=uNk+3oenkSVavMdWmlqKjE5VeSJo9/DgDpJp4BPnNdPsPyVDljJL2iSbLDRl2BBMOGoe
-	 0r35msmrCAM4x71ZR7Vvn7vpQjhgokFMBnphcrRQ+T9j85xUHJITDJX8euRce5N1uDSPq
-	 Iy5lNJ7xbMSopSCopgdoKtzdWvfyvK+B6urFKWoEiSjVBwvpeq9WlnIAnH5YJ0UOedwbn
-	 WRxZ22T86OpUOBlR5P8TVyZSsb2ibE8i/5cg/+Bui0a14WuvAFHK9hdV5USyMoKh52WZS
-	 QEif/KIWzPboLqoavfv3XYWNoCvDnv2x+ie3zV1v+4jcRNylaTfZg51d/RKkmpRMBDw==
+	bh=0Gf2EAUcJRVl7OuOkX2Dws1/ZTM9OuXnITDMSmBlcuo=;
+	b=gXrOCFIOM7Mdhmnq7+d+cZE8uTwHwbeIX2059+uz1iona3GX8pq42TCZHpd4hrML/mAp
+	 iExSRE8I82vD0uYM5ITuq0zmttylhzvWTj8P3Bgusxj3cpAMg4+9KdbdfWhL319JpZVIS
+	 /SQHfFtJ2PWqJ9QGQkKRHRQaCdH0Dl8MhcFvqYPdxLX14MglmLKebg6yX7mKns+y1P2m+
+	 RucTQrDcTXsh+a6DwwAof1B0pjdmmqIFpELjYlw6JL8JqH9h5+vYmqFQpCEbSKvudNr80
+	 NP/SAYrB0XLwz3qLt8JwB+KEbQ356g0mLJklExZ19WjqYHCaXPvzCjAHgqYngCYlH9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qi04bJaQ;
-	arc=none smtp.remote-ip=74.125.231.137
-Received: from mail-oo2-f9.google.com (mail-oo2-f9.google.com [74.125.231.137])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=j4k3tAT5;
+	arc=none smtp.remote-ip=74.125.231.135
+Received: from mail-oo2-f7.google.com (mail-oo2-f7.google.com [74.125.231.135])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27E6D60A2601
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:16:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27E6D60A2601
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F04A606A6A9
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:16:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F04A606A6A9
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qi04bJaQ
-Received: by mail-oo2-f9.google.com with SMTP id 006d021491bc7-71adbc33a72so1842137eaf.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:16:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=j4k3tAT5
+Received: by mail-oo2-f7.google.com with SMTP id 006d021491bc7-71abadc4460so1916252eaf.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:16:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795637783; x=1796242583; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795637784; x=1796242584; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=moswij1DxNlgtZ2psQp6vB5WbP0Zx8EDmr2Dk41oG4M=;
-        b=Qi04bJaQ4HhiSJ//koZXkew6zDX/nHhlJInUxqfzQYe7eKa/6O8j71LniMHfnIzz6p
-         M/UGrlWpRLDobK2L+3YOCH3Xxx7w36xy1nTSjgB/cWPAmYaXB1ntuZU7JH6oPEKWaYxv
-         MrvH2+bnW0VfLTGfohB3OjgBEoL/sF0IfRcUrDpkCMILCwdkWUvmPu6TX9UDk2l9J2xm
-         GKpWoHkF3U2r/5+iBIcbtcbbpO0NflYhrzN/KBrRypqfW15C3MmSF2R5eu3F5tehHTf4
-         9C4y9RwBpu70nqwd03wpoT9Y+N+ZJJYlUNuiSjKHD4p9nbS0o1Cif4Cpe3kTcErFgR7z
-         u0yw==
+        bh=0Gf2EAUcJRVl7OuOkX2Dws1/ZTM9OuXnITDMSmBlcuo=;
+        b=j4k3tAT5dAXjGSz03eKpD38liuL+zlc7E0yRO2ftyKb37sTKoTpgmylqgz0too95Mx
+         FXWIDtx67QHOR9ZMGnAk5URfhxPUgt1sC9Q7cG9dAKAJDmym8qM08b7eYsUyaOAIHKwx
+         Z5TWdU6lqmS0L/GZzDMZBLF7i4h6kuq5E2leywsthFSs1oSKaVt6JKv7n0WSO/PhnbQm
+         lI6RRlkI/j2QW8ZtdcZzKRp3YFMpCgNRsoNtfdmxqS8O9JEcWhg82BPbZxbTHe1hH5b4
+         QqcWMEV/U7Fw2efUZ03YOhxZqdpNDht/YRhzSBlMwV8iuWIJ0KJgVY+H3C5x2UJZ77em
+         NSXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795637783; x=1796242583;
+        d=1e100.net; s=20260707; t=1795637784; x=1796242584;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=moswij1DxNlgtZ2psQp6vB5WbP0Zx8EDmr2Dk41oG4M=;
-        b=tWVSr+FYwz/z8b/truNStlLkjj9jW+RC82jjVu32/JrNa+lWRepDRMtJs7zaUR/970
-         H3npZ9gg59aq9+7xT6e0/1VHiyp/dYEnGQ7CYTFGKbuKNwqtmLbSLzoika6hY51NN1Xn
-         80XIoFwBdhExmChxc6cYpwF1esIywbkDxyMDsJJXMC6XoNHre5TkD7spkpS+xREgY47P
-         emripadlQctIb5Ziee7pH1nsOwYHDP7IIxz20VH6QyQwdWxNYr5gKTR6Hbcgz9okY03t
-         0lChmmP2UBCI/shoFAz6CcxgFbmcIAPEJy3s0wRes/2kihSkyExdbHcSmCI0B2kPGADe
-         5oFw==
-X-Forwarded-Encrypted: i=1; AL+hErGJrAIvd7UcQVDJ5S8TepPE8I6Wx/RFz6mccg9EGd9OCTDINCQLvrGxNLqi7nNAzwXn7ONkUB08XopR/nM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8gX2Cr9B25WinDW+fJJ6cKwLK9KZhatjQHkyCK1YXVaGp6R+/0
-	Lf98UKctHgl+2uTiYbFWak/iQm9dqLG8IIKI33wEZ5Inci1WrZvB0UI8
-X-Gm-Gg: AZFdTZfSWOAfswUqR/tSDETwZMTpRVecetsx3glYJpBgdw5VCIoGczmVC1Fa3oWQifH
-	KVQ5pH5QeJ8rrI15MuDuWq+NQhy0s9qfXl01tLWwiuQSDgxQKpFfNv+2RNH7YwKE/q9Q7Shtnc7
-	VUjkD6sCTIUDC/3bujaZs8dD5H0EhSbVD+LUD6mx80NnN0YJ1XUJlGW14LbI9AWoJ+6Md2ECMh9
-	nY4zEec3Y3AeS6FgKRoVSyyE5Pa73GYGWwoV7UAAkJ2EO8EszUsDBzjVHbTHXZdjd6TDd4PuSkD
-	i9iz1R7Hb9ExSdLKj/ZxR0BIHv3L4HvMtilaawq/Jnef+ATrz0rmBjL4TX/co0BEIySDaF0MI+S
-	oeGP5Hoqu6Xeq1QJgGM163a2hS5DHOoqY+H23F61sNBw1IHBbnue4aXgq8uHYMTaljy7NBkrVvB
-	J02xpgeu4jgDWRVMPvQ73h3Wusxdiwi/+RQN4EPUpBT4Ais6422YnpzteE3LFkCJID5/CtUQqSU
-	SQcxdnlVKj9n+EgmT5i3Ps1yW9S+dr5LTghyAcZcxMl5g3+/g+041LcJrXL83B7OvSsNzC0X75j
-	K1Erx3+F9FB+E3eT5nnPpA9gDf7lLZZ4eAqXSKu+gnlR6zg5idSYvCH+
-X-Received: by 2002:a05:6820:1c92:b0:71b:7929:cb54 with SMTP id 006d021491bc7-71b7929d44fmr3615961eaf.38.1795637783065;
-        Wed, 25 Nov 2026 12:16:23 -0800 (PST)
+        bh=0Gf2EAUcJRVl7OuOkX2Dws1/ZTM9OuXnITDMSmBlcuo=;
+        b=B4lTB0GJ45JbSfHY6+cXwC12T+sOMRrk74ROBP/NMfv5RgfBHkNgfzoQVgYbl5Dy+c
+         oTxkcXAd1wOBuq0B4oRBFd7bjQSf7Zvx+XuAnkSl3oyqWhROODKZmGGYHYlmV9JCC1ia
+         kcsKOAUux51tiOUM4bpIvHRgt0/Bq486tJDntRMCbkfMU2kI73ruoNUvJgGN+pim2UT6
+         tKjm9GIi5LhsYSUdeHWWQG9YQlJP/vlyYI8LEn7AkTg238ZuEotT68YphT9gELlBYttF
+         8r2dbtJKgY2oess5uca55MxmB/A3CO8lLFZ6/9NNGq0KgEfg78ATZUO4Yn99U5Phg3FO
+         KYGw==
+X-Forwarded-Encrypted: i=1; AL+hErH/hy7xKg0QIghrPYV7ThGo1FraU18Db/cO7D07yjVDmNhmrzp1yJH5JP9yveSqbmeJTZlFSPKj/gb1mz8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/PaAeP0oFCUUs+hrjLXXR8UyrOjUXBMKNXo1NbZa1Gtqnob4D2
+	RxKe2g/JUB0YZoaBv6C9RqqnOo2XYLyMnb8xmUpB62QJw/cCtdthFXHw
+X-Gm-Gg: AZFdTZcpQueAq1UxVbR+Z8JwgJwCwF5sdu/FmfrqBD69wlYpIlczZPaLG633g8bN1cr
+	F06fascFYtn3uDJx1hG2ItibmLyVk8g6xEGNQlKybY01jOJfmDt25rE9XnODEwsfFkjRRYG4+Zr
+	MdeZFffg7XULBsBbrLkuA83Up0wed0zebn9Ia/+t0RuPODJ6tpq0Bysw/Od8SnD7KZc9RmRZajD
+	MD31JSQT0VFhPXUoItryhRPpMfWTfrNUSjRSfyhPk/nv8bN86zspn0trky4lQCNcfpp2dYBd8IR
+	sQJcap6IagLZ+3DQLrIMSl9ywTGV2n98trtJ2O9MIPO40r5/Fo32OF8BWrBnDMPHg05ockscyJA
+	Xv0ulgn46tIrZ6XMVLpn1m1cL75rbjv6Sqdz6wMq5Wx8C6OlPIuYCxGJiUDr4RUY1unOojz4cUa
+	N5tfucV1gdK4DG7yxhf9pAB385vb7nj8dZ5voii0e/qdWt/DCY1ZBaWLgA87/N8dj/g5zaYS2Uh
+	92ditqweutCTn3KWQvDHXEDzhjmoNaa3mvvE3WWYYfZDKjKpDsjuMO/7gHAD7w+kpcswi1+U/1T
+	R+7gDzGr5qk3086e5zuJfXIr02Hrz/kDAic=
+X-Received: by 2002:a05:6820:1387:b0:716:df3b:e940 with SMTP id 006d021491bc7-71b3944022emr18067391eaf.16.1795637784658;
+        Wed, 25 Nov 2026 12:16:24 -0800 (PST)
 Received: from [192.168.0.98] ([50.26.120.197])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380b6f82sm11341859eaf.10.2026.11.25.12.16.20
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380b6f82sm11341859eaf.10.2026.11.25.12.16.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 12:16:22 -0800 (PST)
+        Wed, 25 Nov 2026 12:16:24 -0800 (PST)
 From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Wed, 25 Nov 2026 14:16:10 -0600
-Subject: [PATCH v2 7/9] media: mtk-mdp: Refuse a format change once buffers
- are allocated
+Date: Wed, 25 Nov 2026 14:16:11 -0600
+Subject: [PATCH v2 8/9] media: mediatek: vcodec: Refuse a format change
+ once buffers are allocated
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,7 +95,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v2-7-fdc047cf75a5@gmail.com>
+Message-Id: <20261125-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v2-8-fdc047cf75a5@gmail.com>
 References: <20261125-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v2-0-fdc047cf75a5@gmail.com>
 In-Reply-To: <20261125-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v2-0-fdc047cf75a5@gmail.com>
 To: Tiffany Lin <tiffany.lin@mediatek.com>, 
@@ -117,62 +117,57 @@ Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
  Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
  Ryan Brue <ryanbrue.dev@gmail.com>, stable@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795637766; l=1974;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795637766; l=1978;
  i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=ToIzGemh2HZYfPM+0fU+WVM5fBqJcWgALuaETYVwNso=;
- b=YyKMx+idzrYsHi5C/jJHDCr8A4+FV3/lteY93PlNVBFkvn2Yc532M5WpbprdE0h37qx239ObY
- NbKcfOxO94bBh6twJeOGkYBw44Fa9nxQDmOu8P83mq+1flUeTlwmTUz
+ bh=z9CNO4bCWGYjNQTDYVvQNuOaV1YRFSzVKYh+7SCdusA=;
+ b=GzF6pMC0GCPOHve0CXuogF6oQG8hAnVLXT0K2N9Woit8cMr6jKke65a0sorZ6u3wiUe6HkT/F
+ jNzOTZp9VN8A/BhNIpxCSQBMnSCT8Z7NjqdpvTXjWKfxIN/UV3Apuw0
 X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
  pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 
-VIDIOC_S_FMT stores the new format in the frame before it checks whether
-the queue is streaming, so a refused change still takes effect: a client
-switching a streaming CAPTURE queue from NV12M to YUV420M gets -EBUSY,
-and the next frame is set up for three planes in buffers that have two.
-And the check is for streaming only, so a format set after
-VIDIOC_REQBUFS can need more than the buffers already allocated.
+VIDIOC_S_FMT on a queue whose buffers are allocated sets the result to
+-EBUSY, then goes on to store the new format and returns 0, so the
+client is told the change worked, and buffers allocated for the old
+format are used with the new one.
 
-Check first, and refuse once the queue has buffers, as vb2_is_busy()
-does for other drivers, logging it at debug level since any client can
-trigger it.
+Return -EBUSY there, as the checks intended, and log it at debug level,
+since any client can trigger it. The CAPTURE check applies to the
+stateless decoders too, which now also refuse S_FMT on a busy CAPTURE
+queue, as vidioc-g-fmt.rst asks.
 
-Fixes: c8eb2d7e8202 ("[media] media: Add Mediatek MDP Driver")
+Fixes: 590577a4e525 ("[media] vcodec: mediatek: Add Mediatek V4L2 Video Decoder Driver")
 Cc: stable@vger.kernel.org
 Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 ---
- drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c b/drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c
-index e0627127430b..1be0f44fe1b2 100644
---- a/drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c
-+++ b/drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c
-@@ -698,6 +698,12 @@ static int mtk_mdp_m2m_s_fmt_mplane(struct file *file, void *fh,
- 
- 	mtk_mdp_dbg(2, "[%d] type:%d", ctx->id, f->type);
- 
-+	vq = v4l2_m2m_get_vq(ctx->m2m_ctx, f->type);
-+	if (vb2_is_busy(vq)) {
-+		dev_dbg(&ctx->mdp_dev->pdev->dev, "queue %d busy\n", f->type);
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
+index 1223738ece4e..71db692ed848 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
++++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
+@@ -493,8 +493,8 @@ static int vidioc_vdec_s_fmt(struct file *file, void *priv,
+ 	if (!dec_pdata->uses_stateless_api &&
+ 	    f->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE &&
+ 	    vb2_is_busy(&ctx->m2m_ctx->out_q_ctx.q)) {
+-		mtk_v4l2_vdec_err(ctx, "out_q_ctx buffers already requested");
+-		ret = -EBUSY;
++		mtk_v4l2_vdec_dbg(1, ctx, "out_q_ctx buffers already requested");
 +		return -EBUSY;
-+	}
-+
- 	frame = mtk_mdp_ctx_get_frame(ctx, f->type);
- 	fmt = mtk_mdp_try_fmt_mplane(ctx, f);
- 	if (!fmt) {
-@@ -706,12 +712,6 @@ static int mtk_mdp_m2m_s_fmt_mplane(struct file *file, void *fh,
  	}
- 	frame->fmt = fmt;
  
--	vq = v4l2_m2m_get_vq(ctx->m2m_ctx, f->type);
--	if (vb2_is_streaming(vq)) {
--		dev_info(&ctx->mdp_dev->pdev->dev, "queue %d busy", f->type);
--		return -EBUSY;
--	}
--
- 	pix_mp = &f->fmt.pix_mp;
- 	for (i = 0; i < frame->fmt->num_planes; i++) {
- 		frame->payload[i] = pix_mp->plane_fmt[i].sizeimage;
+ 	/*
+@@ -503,8 +503,8 @@ static int vidioc_vdec_s_fmt(struct file *file, void *priv,
+ 	 */
+ 	if ((f->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) &&
+ 	    vb2_is_busy(&ctx->m2m_ctx->cap_q_ctx.q)) {
+-		mtk_v4l2_vdec_err(ctx, "cap_q_ctx buffers already requested");
+-		ret = -EBUSY;
++		mtk_v4l2_vdec_dbg(1, ctx, "cap_q_ctx buffers already requested");
++		return -EBUSY;
+ 	}
+ 
+ 	fmt = mtk_vdec_find_format(f, dec_pdata);
 
 -- 
 2.56.1
