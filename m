@@ -1,81 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.252
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795572705;
-	b=Uijj7FxxgV3Fs9ec3BEu3IQClFwEs1XJVqoDTFaTgbZdr2eWYFw2sMGy51VTdC7FeplS
-	 DgYkk+keUOWlR08dxCizW9Bb8R9iYngSCSqhWfJK5JS3Es4pEkuLsurcqGj51jo5XbxsS
-	 KPTKNMaJhiv+LJWH5mBQd0SuwnI8qGI9TYesY4JWVT2cAg6VkOccRo80itmD0VSyOd1Ey
-	 FuswPDKTOiy0BV0mD8iNGidY1xTN5XWTxJCIIes0B+XJ9dZCazD2uFn5xEVEcZl2eYQHV
-	 tJyBaakTlNkBGyB4bKX4Q24cbONoWVKNBxXgpjtOodpdbwDskTTGbaWVgPYoeedngrg==
+	t=1795572780;
+	b=JuoZTUCC1IwhC8RH7wSZvuMVI+eaIyKValxLGLbxKw8lkscX7Vzjs7CKPrvRlZUecYaf
+	 fJgFKymbu9g5EUmmi7RF2gvOwOqMWYpBLK2UtOinDCPOBGe8a60psbX8beytk1FkIJLgC
+	 69OYT6pXlNmhzR8mJlnZDVeOZSvyljxNDtaHe1FiGn0scbIntqAAw/1uUY+ykeN8Q0ukG
+	 an5H9DIV1syWksNz6HITVApcl8xJmcI5rKefwMyyn++ecwoJ+TZaHN2UEd4jo0vMugL2d
+	 O11MKVuEO2/ZvoAZhkAEzTfk74K15uI07X+mVd3dyF76pjbDAmeHCHFJPemxartlX9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795572705;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=8o2eFM0hEp3bckqxilWkip4AP0ZcM1uxjRx6JW35CV4=;
-	b=BTgjzKRJCmWyMtKMH63HaPs5CDXFMPYWN1L8oOyuIzlDjOtK53eNSduoc0i+FZM51Srw
-	 3lNk1hSd93vEK24WCtfOVejke8wZ14uJMGa9uX4AOYSza+mOZSV7wpnRMm8WvLo/tFVRt
-	 NnEenF4XRjpi/AYBdaxTgJ8Bxynu4/nRrR5mtfpLRVSglYbCDOwOLH+8ZPX4ppKMlkqCT
-	 SesR30W6jtze8UVlxiUZz8VWjcawIWDbUIrfkvHckTd2zZGIcklJe8HAFEvUVXYq4OgZb
-	 l7Zjua0BCgkSRzH80tHyOv3XYi9Z6/XRFluMGH0uO+mG379qy5Ny5x1Xxbf5GY3meLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795572780;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=uxSvM8v9iWMdJLRUywcsIsLABIUqe2hJ+iF7YYdPOzKM+5onkKvFqSSC+U/BJxyvpNxA
+	 kNU15jlY0dDTExK+EsMKHlaHKui/wWqUVvkhCrggsKBZXve8XAgTHiAfTxZYJsqKrSJmS
+	 jrQJuMgJnoY+XFpbptBWYbabo+SggA3Pg5PkXRgQkI5eo7M0gPGFFJ5nhu6yUiWhzAeXP
+	 nycoY8yOET2/8SPQPlM37XFsF8ItiPxQO+Tgn47gk9fj2PhsIod1MuKrBMLCBwG+NqyVb
+	 YNRTbZsCSy9FswrdfWE4C+n44QoPzEvhH21iPLcZorpPKTetSms2aQbf5hkvAQElYiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=LwSqyR9F;
-	arc=none smtp.remote-ip=162.62.57.252
-Received: from out162-62-57-252.mail.qq.com (out162-62-57-252.mail.qq.com [162.62.57.252])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XCDjNUoF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02AEC606A321;
-	Wed, 25 Nov 2026 02:11:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02AEC606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 430AC606A31E;
+	Wed, 25 Nov 2026 02:13:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=LwSqyR9F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795572693; bh=8o2eFM0hEp3bckqxilWkip4AP0ZcM1uxjRx6JW35CV4=;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XCDjNUoF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93E2F1F000C4;
+	Wed, 25 Nov 2026 02:12:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795572779;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LwSqyR9FinMF2GqLFeKIfBJawu578qDXFqpgOGpNAcDThJfsxf92O0FYdsnBnOb8k
-	 MSjP7oa+ODnuauiMmafW3eGsDyo1Htbh706/HmjWEEDbhGEHOvL9bgxptJNl2Ks3D7
-	 UuV2tCULHEX+ZQmPZ6+UAfMFheDLW4Nhhe7XAegc=
-Received: from HF ([113.90.236.90])
-	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
-	id 2DCBA053; Wed, 25 Nov 2026 10:11:28 +0800
-X-QQ-mid: xmsmtpt1795572691tyvcjf7qq
-Message-ID: <tencent_33047574BCFD03DA2AE57B9890EB09FE7705@qq.com>
-X-QQ-XMAILINFO: NzySSbD1GC1pcVD57Xnya8DhHHMG1EvHVQuHE+tByQDsplbVpFv95635k00Tx6
-	 7Ltk46lYiNJjMJQ/Ae2T4zbFSjdvflu4hZZw2yjkaJalpKIWFu7ctbPPuR0zBnKwG9gsEjwtdvck
-	 w/xajG1/trkDFoGPA8wCRSh90pSm9jja+dsd9HwTlwT7q8GF3PtRdGThvbAAUCMvNJYIYSYlUJuZ
-	 qy0x8fmw8qX3UzBCQQQxaL1pA0VwB/JxRgcjW8flpxqolpFL7IZ0+jAQrDs/0dzmT0EcyQSlBAb4
-	 rdD1J/Nbdgv084WH5iV5QrnxvJOK4VVPocaIig6hFMSDx/Qf54StdnBEKpNd2xWrWHXnm9Elnk70
-	 vKLVD8mQ0XWZBy4TAiS0NJiVDZIUQ002D7GNCnXcslTw+7WXnjkCASjpooBcPln1w7NefcRNVjZm
-	 1IgHYryL48cLNOIkFJEP6dHQh/KPrNW2GzePUjwKeQmfUZpHPz2MGGjCqmPuDw5VeGq35B7KMcpt
-	 nkgPiOikl5Co87qBylIWwr63iDY5XAdj6Rfni5mR9+eupGsf1ifUM/U75HSIIvE46SkbL0irPRJf
-	 ZdOXJt7bTHuDM9Ke31Jxh9ibCkmhfR1kh+py1tL1YjOdLD9QuYW3lxrywLS3ZTO5FEtPi0JUf42J
-	 eezdUs5vKAtIov20MTZa1w+5g0X6Zi/VqeKhX0V9F1rNsSRmLjK8Bxdq16cx9GFazSf29NkfjgDY
-	 vPVd/L6uOTuP/JnV7qmJPyjvY/9lAAS8Z4wjL8ehtwuGGC7t/IhjJppiU3/Gh26DEQYjiDo4pHpJ
-	 m7hUA6IjoZqJoF3HxIftRe3roqFOUXmKHUr+43twyoEGzOwOHQFIyZyRU+ooRtfbvWMnzbkSEU8X
-	 V2QAv7+BBZeD8Ikbnlbu6hACFx+HkOtDNbbmQwJs9Iwi/7N5oCrSMGR3pTQhxCvCTBFoKsWXcQtl
-	 tzbpl7o/C5Idoxrs44Cw+VzJxsUJiF08UCL9LDQ7AN8UXPvC+FvFOuETwJzgiWyJmo8EWIzl3wee
-	 0R2CY01c6gI+SvtLSyZJ5G/RSxJQGfxCJimwS/03tuAbdr/HobcYlxRlWE7q+r1wcrDTlNi9nJRW
-	 ByVq1kBwUkDhwOk4p9/FWDMTJo8kJlVtunB8uZVtFKwcZqsQYLawDXc4vSt8ww2YUrUMXHIRa+JH
-	 VDKEtlYoiyQVi6Ew==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-From: Hefei <3066883572@qq.com>
-To: dri-devel@lists.freedesktop.org
-Cc: linux-input@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	robh@kernel.org,
-	conor@kernel.org,
-	Hefei <3066883572@qq.com>
-Subject: [PATCH v3 3/6] dt-bindings: backlight: add VIEWE I2C backlight binding
-Date: Wed, 25 Nov 2026 10:11:24 +0800
-X-OQ-MSGID: <20261125021127.1430-4-3066883572@qq.com>
-X-Mailer: git-send-email 2.55.0.windows.5
-In-Reply-To: <20261125021127.1430-1-3066883572@qq.com>
-References: <20261125021127.1430-1-3066883572@qq.com>
+	b=XCDjNUoFlP8R/mimEQcwuL0ua4CMl70HbtnAAIZ5DaXNTZ+6E6groMFINPvaXRfNL
+	 8JY0RvHkdUgWV4vZ5WE0FOTNtploYUItlulstdV1MLxL7X1X8MypiTxNpMvlwRZYsc
+	 4N0VCIYzz3458zLoCRe1UX7GL+P8gSkcIlv6tMTp9kKhJUbSy54hyVlCXJ2krtOqon
+	 VhKeA1OLJR84V7hwhrKmqIQoSaRvr/PNUY4P+QIx74czP/EsMfuVOpF8iqT4JRZjwc
+	 2C4fiE0c/cCwZZzwtiru7COiakT8REYAwwdlxSLg6qvz0p6xgr7/TW0MygqPknYgXl
+	 QETspATV9FeeA==
+From: netdev-bot+sinfo@kernel.org
+To: Jianbo Liu <jianbol@nvidia.com>
+Cc: netdev@vger.kernel.org, ipsec@lists.linux.dev,
+ Steffen Klassert <steffen.klassert@secunet.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Leon Romanovsky <leon@kernel.org>,
+ Raed Salem <raeds@nvidia.com>, Saeed Mahameed <saeedm@nvidia.com>,
+ Cen Zhang <zzzccc427@gmail.com>, linux-kernel@vger.kernel.org,
+ Carolina Jubran <cjubran@nvidia.com>
+Subject: Re: [PATCH ipsec] xfrm: Serialize offload stats updates with x->lock
+Date: Wed, 25 Nov 2026 02:12:58 +0000
+Message-ID: <179557277808.3294.12876532999063461182@kernel.org>
+In-Reply-To: <20261125020835.1132797-1-jianbol@nvidia.com>
+References: <20261125020835.1132797-1-jianbol@nvidia.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,66 +68,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Signed-off-by: Hefei <3066883572@qq.com>
----
- .../leds/backlight/viewe,i2c-backlight.yaml   | 46 +++++++++++++++++++
- 1 file changed, 46 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/leds/backlight/viewe,i2c-backlight.yaml
+Hi!
 
-diff --git a/Documentation/devicetree/bindings/leds/backlight/viewe,i2c-backlight.yaml b/Documentation/devicetree/bindings/leds/backlight/viewe,i2c-backlight.yaml
-new file mode 100644
-index 0000000..9be4bc9
---- /dev/null
-+++ b/Documentation/devicetree/bindings/leds/backlight/viewe,i2c-backlight.yaml
-@@ -0,0 +1,46 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/leds/backlight/viewe,i2c-backlight.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: VIEWE 7KF82 I2C panel backlight
-+
-+maintainers:
-+  - Hefei <3066883572@qq.com>
-+
-+description: |
-+  I2C backlight MCU used on the VIEWE 7KF82 DSI module. Protocol is device
-+  address 0x45, register 0x86, brightness 0..255. A discrete MCU part number
-+  is not exposed on the FPC silk; the binding is therefore keyed to the
-+  module.
-+
-+allOf:
-+  - $ref: common.yaml#
-+
-+properties:
-+  compatible:
-+    const: viewe,7kf82-backlight
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    i2c {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        backlight@45 {
-+            compatible = "viewe,7kf82-backlight";
-+            reg = <0x45>;
-+            default-brightness = <200>;
-+        };
-+    };
-+...
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
+
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
+
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
+
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-2.55.0.windows.5
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
