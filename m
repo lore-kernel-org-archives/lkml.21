@@ -1,115 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795614460;
-	b=GgTk2uLTlVo6mtt8ZAD4OWajLDDKO+PUP41lB6unzUHW7SjF5toT34aExnhvGsZM3Cjw
-	 PMieEjV3PRq1Cgw1Se/HZjIeTHcQgihf3M22p5VA/FxPD4oq+syQMz9hmImh+pympoo2C
-	 Ut3/rrX3F/32/nvnV6onwHvxGAaQUKS+FG2XpBMfO06J3LhGleJeYtixUqjWldk1OL1AW
-	 xPCK59tVsh7o5wg888I8YKVs//R9UjXgw1Fel88uIoE28vtAzK1PzN30jy+0cuZj+//CM
-	 +BQdsHGZIEJKylnxCyyj1L8c0rq4xFp0B7SKt06m4ujX3Ck6UwtktaqxkZKJqgRoQJw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795614460;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=tNd0IbaZQFJuxJS+R9ayDKLW68Bcl2zYZx6i5ipU+qg=;
-	b=O9+kBczrV7aN9oIOiC0C7iYcSziWhEhBwCiWk9EYfy1w84QtHNK36w0eWbVjp7TuZrdU
-	 wxs6kKadxQeCWk8l1zehj59CUkOj/r7jP+HBkCtma5veqffg1KHasKmI0PSPvBNW7STP1
-	 J4HspNR2Sk6WoeNiuAzOtIYLqmjwgWmoi4aOX7Gj+NeqRBzJmBwqGrOsWhGIhzkOeCkld
-	 /3fkqxAX48p3fwKFtHMa9obcn0DLfN4gDRZKKbHjBOeTl3Cb85+81nyfSL5qwLi7q1Ez7
-	 DA3RjfWMrsMbumMRv9P8Cc5MqsH4aZeD8bAQOgrwOFuL12A8eHy1954dByjR8S2TCMg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VuYMKNxx;
-	arc=none smtp.remote-ip=209.85.216.43
-Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.31
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795614469;
+	b=nXl6Pzm5tbOliO+1HUD6O/6pIz4qfz4Tbayiz4yIJbnJQBn4PmrPwfAsy07wgugzlz3a
+	 7qb3455rZTU1ATPUYQBxVQgUM6fdHh/bhfKF9MpO2XIADd8BwxhGOOFYI+0bfX+FgbjRq
+	 3WVSHVWZkSLxpmY1gHLFJ6ouTXBsB8voCU/hgBXnOO9YoXE5FGe/9g/tI4TwJKNCiA/MI
+	 8cPXjv71HeY5xiCATgsMQIHoWoWjL7m2Q4gbQQteBwJA5gb5wYwaQZi2zT8yJH4u8u3rv
+	 Not0X4tHmSjOSxwyR+RgO6sdI5+7KkeB57sltdMItcfJQFmHxV2N1sXufj4+NeOqUFQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795614469;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=ejt5gDYjk9+qx7vpzXmU4SDhh+vXTMXNDdPM+1ps7zA=;
+	b=e55reeSwifm76hLv64hWVp1J4xbBRNhRVmq4JyT+ZajjV652YM4zx0LR30ige9orvrbH
+	 Z9ntpt9x7I+VD+5+t6g4SMoZ8Uez3K2Ncdo6FG0i5n2Wx8NivmQihT7hMi960D+5WydGO
+	 ulTfuxJ0GdRUi5yYjqhPTDoxlVlecVZDOCpvCxohjT85hS/rwl1/B+aoatI5j7rfln1xl
+	 3fB8xF55y2I59bcn0p2DXUCYx5mDhN/5S/ZyW+V6hiZwgWxHj6LncYX494BMOlhpVrQ+e
+	 B2/EVb52bl1Wi6LP7t5WcaXwilV4YKya+TrAezyfrfGTbtpaVS+8YlcuSW4gPs2jY1w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bp.renesas.com;
+	spf=pass smtp.mailfrom=bp.renesas.com;
+	dkim=pass header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=dHHHOMpO;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.31
+Received: from TYVP286CU001.outbound.protection.outlook.com (mail-japaneastazon11011031.outbound.protection.outlook.com [52.101.125.31])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24CC3606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:47:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24CC3606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C28BF606A321;
+	Wed, 25 Nov 2026 13:47:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C28BF606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bp.renesas.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bp.renesas.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VuYMKNxx
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3ae6b4c669fso5455210a91.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:47:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795614458; x=1796219258; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tNd0IbaZQFJuxJS+R9ayDKLW68Bcl2zYZx6i5ipU+qg=;
-        b=VuYMKNxxv+Zu001gmt0ClbtMscwdHC0CE2MvHQonG1WroM5WNV3+4ev5P/ikq9yzaN
-         /z3DPQvGaBWTyXrWy/2CiALGqaY+6I4sQzGc6sQd4ciwPTy7HSpE88zRhePRLmfB+gFW
-         URxUqWndcDH9Lnsq2OS1nW/Bju1TMfKWYwQh8UWOmr5+ZWXXPszX0GwG+fV/XiKM2pgX
-         K4zNTgkaAPFBB6NL7Ll5ngyD8IITuEpfDCw3cQvuzjk71Kof+4DP9fciXTONoaiKzwtT
-         36JN6x3tbK3xBpujkfjvg3gME9POl7NyxTuQRiDuzVfveQ1jTgXg/r5lFpzw0R1z+9bl
-         H6QA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795614458; x=1796219258;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tNd0IbaZQFJuxJS+R9ayDKLW68Bcl2zYZx6i5ipU+qg=;
-        b=2NGd5iFsfYsCSVRLFU1kuA/qXyEzl+GfFR0Q7O/swTmfW1X29jIMmU30zx0xszRRo2
-         4M844aXbGImjZgnvVQhXOTOemjBCeZDVyKjoCSSjOMXCpD5ocgrarZdc6FslquAzaxoe
-         HwoIKAUhBhAdwuzLN5i67cSUTfmQHHSBsFIVyCEJj/9U1c9Pq2aoF4gdIa1Vl+Xe3fIs
-         VbBsvQJzcXWDc3SJn9/Byps5aYXkUOaB8ntZLAtpLToFMSNdlIw+F1mnKs8uMPHeADbw
-         vFH5tRTlj6sgbFsRBu6/Jn43AkYpHTzG5q8FmzIwhVUlWiqBRFdCd+tusMaoYkV1eEg6
-         ZC1w==
-X-Forwarded-Encrypted: i=1; AL+hErEMk6SOfjqkQdGciBpmoRUHN7ccDzVGTO5aaydKEBpW0+124+3l+qe3SipSgb6Lt1DpGdkqQ0qPNQJ7Uos=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+pPaHjqDWTucXlFlAeWvvON9yhQa06qDolF4ADG1peO9bpJUaj
-	UvHUbW+L8d99JU3AMSH8oK88Bqq9DtNydGEs5qeswp33ZoIXi87wtEqf
-X-Gm-Gg: AZFdTZcntFi87yH1eeOhg6GarPQ01B4v8V8Eg1JpyF14vyRbxoY0CHdJOGzrhLBhV3p
-	Q5nFjoOY3zdW0l+DS7NvKXslxfngH7gOEVrXxp+bh9FVvI3KrAs7HJ2Olir1yXaq2KOOmuLp21x
-	+icV3nXzpprRF8wEgI7ztTLkSa5fTH1Gj+5NDixYSoSsjSodVynKYRFqyQHjyr8y0i7+GMCg/Oz
-	JTQofK0YM5erD+ehdXD7O5lwbl+kOBHgs+Sf9on2BVj1ryfUhVUUZ7R0/NnXuhIj9EdDc5kNWpY
-	zY1Jcb3wvxLjnkA7otSLRMZgA63HauD39XoC4IBoesp/QrwHdo16rOhnr3NmuE+UWflqPniP+6e
-	vyr3mVIIm0kOO5hiN3iTappEWG5G87oywOmPG7jjWb9z8SOiBeT5nN/NB4TPqnnPBxZKKzcZtiB
-	7BbWCKN48ExL7rzYRWfxAScx/ghcgMyLOja6QkgywxQGryv0G9k06VlVb3y4ptbPO1jUjZC2fim
-	Cpvo5c05ANg0/P40zUADFQylAZupJ+007kBpJ/1NhglgosYXCCj+ZUX3Zv4CzkaKLJhqmn5BjKS
-	le+0kq6LoztLgCnR8nQbXFDXRq7Eb38JOcYtwJ5MmC/S
-X-Received: by 2002:a17:90a:d2cf:b0:3a0:e568:ed63 with SMTP id 98e67ed59e1d1-3b41c8e0507mr11255737a91.8.1795614458296;
-        Wed, 25 Nov 2026 05:47:38 -0800 (PST)
-Received: from localhost.localdomain ([240e:b8f:1df9:a600:c693:b19f:ada0:748])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b7d36bcsm11786323a91.3.2026.11.25.05.47.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 05:47:37 -0800 (PST)
-Date: Wed, 25 Nov 2026 21:47:18 +0800
-From: Vernon Yang <vernon2gm@gmail.com>
-To: kasong@tencent.com
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
-	Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
-	Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
-	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
-	Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>, 
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
-	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, 
-	Hugh Dickins <hughd@google.com>, SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, 
-	Yu Zhao <yuzhao@google.com>, Zicheng Wang <wangzicheng@honor.com>, 
-	Tal Zussman <tz2294@columbia.edu>, Kairui Song <ryncsn@gmail.com>, 
-	Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh <ehab.ababneh@intel.com>, 
-	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>, 
-	Joanne Koong <joannelkoong@gmail.com>, Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, 
-	Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
-	damon@lists.linux.dev, linux-doc@vger.kernel.org, Tianyi Chen <hi@tychen.cc>, 
-	Ridong Chen <ridong.chen@linux.dev>
-Subject: Re: [PATCH v6 10/18] mm/mglru, gup: mark folios referenced via a
- fast helper
-Message-ID: <6c3d32a9-3004-4a17-b854-7088e69f164a@gmail.com>
-References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
- <20261124-mglru-fg-v6-10-8ffea39934a6@tencent.com>
+	dkim=pass (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=dHHHOMpO
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mSryrpXwMlXQfc2GEd4az4y5O1f8328yPcOcKWAurKGTA81M7yOiskPwzTodk8WZI2hOqO1Cr8wUy7ZSsfCBt3bCGsEtHPumD8ylkf6cjIGQ0pn0BmXeX7mkgZhGZ06uZ1MxCJazUMKvcAGLuwEKBkX0+W0B43yEnEfBx61yzjSdMrhEl3duoLDKSxHSRBwgrFtFWp8gVAg58SOAG6QE+qgKUsV24nPNramCIp2Fj/+KhkVDqo8YwsT7VAEgcH+o4gR2YRHgSlMMe8NLnB9wZqq4ZnVR3RCHQxKDZqriz2A0N1dKcZY/Jzz+Ipc3WIlu7X1wIi2icN3G2F3Td/Vx3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ejt5gDYjk9+qx7vpzXmU4SDhh+vXTMXNDdPM+1ps7zA=;
+ b=s3lgzsiDSh1O493CHG3ZyYJnjfBh7jM8vx+ZovOOTJuk3W4XCLzekKAsRN1BTOZb0YnxVayTsuLbC1+2XybNdblAJxc+44ErWCywHtF3m3N5iJyhsfEC7GXvAwYbD0OlraBKtR/xC2gv6dC0DnnT0F06v1jLdPwjHT9oWdgHg+3TrgIHFgZvMMgRcok2dgwdrBn3Gm3sxdR9mDinexbI9mYaM1+y4F7T2/6BSZH3b4wSLq0xvRtT4TIDSlSD7g48aTjjRUnLBukZechsAA0m28rZjHvYhcEQTVhYrJyw+4ADD9rn4kIIpQ+SXo8lgRoQSM8PkSgIlWroOUlX+H34Lw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ejt5gDYjk9+qx7vpzXmU4SDhh+vXTMXNDdPM+1ps7zA=;
+ b=dHHHOMpO/kaGiS0Uub95ziFCmWGTIWdH57MinH/xSnspQv5o0UU5E05Jyqic2jV601QiItM6o0L2Kq8hXTLCTfhVL+VIIQO6vowpXC7NvtHaugCx/vuOSLeXlVmWzaBLDsxbUbYt9foak26fhLtBMChJCT1Oe0ghYtsswRNoeY4=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+Received: from OSOPR01MB295138.jpnprd01.prod.outlook.com
+ (2603:1096:604:521::15) by OSCPR01MB15909.jpnprd01.prod.outlook.com
+ (2603:1096:604:3f0::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 13:47:41 +0000
+Received: from OSOPR01MB295138.jpnprd01.prod.outlook.com
+ ([fe80::4f0e:fd0e:ff2b:b180]) by OSOPR01MB295138.jpnprd01.prod.outlook.com
+ ([fe80::4f0e:fd0e:ff2b:b180%7]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 13:47:41 +0000
+Date: Wed, 25 Nov 2026 14:47:21 +0100
+From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+To: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: Tommaso Merciai <tomm.merciai@gmail.com>,
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	"magnus.damm" <magnus.damm@gmail.com>,
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v10 08/12] drm: renesas: rz-du: Separate the DU instance
+ from the DRM device
+Message-ID: <awbm6f3ovtva5gg2@tom-desktop>
+References: <68fcf838eee14c1906f23b2b7c74c560793cd1d4.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
+ <OS3PR01MB65968FEBCB08429F11188CE986452@OS3PR01MB6596.jpnprd01.prod.outlook.com>
+ <awVW5B4p06FUfBHw@tom-desktop>
+ <TYYPR01MB6603AA1B7A48B7D899604EE586442@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+ <awV8G86QIth4GtaA@tom-desktop>
+ <TYYPR01MB6603A1FB28A473A400A2C49386442@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+ <awWsGjt6cW_CSoMH@tom-desktop>
+ <OS3PR01MB659637409ADFF9CFC2AD395186442@OS3PR01MB6596.jpnprd01.prod.outlook.com>
+ <awXcSSnNeaOQFQZ5@tom-desktop>
+ <TYYPR01MB660340BEF9704BB69FE150FC86432@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <TYYPR01MB660340BEF9704BB69FE150FC86432@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+X-ClientProxiedBy: FR2P281CA0069.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:9a::10) To OSOPR01MB295138.jpnprd01.prod.outlook.com
+ (2603:1096:604:521::15)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,143 +119,303 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124-mglru-fg-v6-10-8ffea39934a6@tencent.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSOPR01MB295138:EE_|OSCPR01MB15909:EE_
+X-MS-Office365-Filtering-Correlation-Id: e85c5b8c-0065-4f92-372e-08df4afaacd0
+X-LD-Processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|23010399003|4143699003|261009223027099003|18002099003|22082099003|10067099003|11063799006|56012099006|261102123227099003|261026121527099003|261026140227099003|261021123027099003|261022105027099003|261022075727099003|261028144727099003|261021121427099003|38350700014;
+X-Microsoft-Antispam-Message-Info:
+	w6fJdAFG+wmyjYchxIcbMQsFLcr8tom2PBqnHfwpq9vp1ILYHBh10TZtBA+3f624i3LSRKGpmfeARY9q2Aw1JSNg1T1JFm9Z5dYKlBvFbH+wIUDoSE5rHdH2dzq2BIMlIzJu/SwzF8/YnlU3OcmtNwGzPznnXHEhFMKPT5mLa7FW8e3tLuctwx6i01eDpGLoei24OhJmGQulrVVGnSNv4y83/DLd3rXTXm2eGYO4Cuus7RZ4KqGvN5KeQY7Ov0QNz9ua0mf0c8KcWuxOiVtskWXwb/YwJY8FY93FR7YK5yvpHslzWlr64OVcIM0JATltLNd+nI6pdfCkudnWIsSsS1hYTLwaGF1sk7xlHoRmnjDF0mbWE0LwTyKSSG2alKJlYa5fKAsjTlPdYZKfRPpZj8fsF+dDT371+u0MqU5mJziLQeTQUDhLsY3pmbdUckIuvpjL7p2o+ToAw/F1W9Y1Mop9+OKwlKKGQC/XTq/wyYvgM0YvRIs06II2TZwsrXJlAwt+qmWxfreoqtR7cB1sX8dDO8cFD7MLDev0qJkq9bVUK7ODr74cy2uUpwdxfTCbWYIGP20TaMz/kI/hMD4rgyy90NHHSwBOAr/gMwhwVfiW8e9gTK42yfHZGtHt/T+LTKBAgOucagbfun0cWDNCrCi7MkgpjklnFWhDtIF9Bw6q6ZD/U8KaDrbWYy5wQeV4Hy279SHEHhJaI6vH0IJF3s5OqruXCRcVnl0y2zYI1cw=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSOPR01MB295138.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(23010399003)(4143699003)(261009223027099003)(18002099003)(22082099003)(10067099003)(11063799006)(56012099006)(261102123227099003)(261026121527099003)(261026140227099003)(261021123027099003)(261022105027099003)(261022075727099003)(261028144727099003)(261021121427099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?E9+CYzJWE/XkMRtzQ4EPRCH1NfrLXnrD2QmLn2ZOhmph2HndP2DLMcurzoa1?=
+ =?us-ascii?Q?8DNJwG/K2XwgyxFB2gCIKLFPRBI/ih4FqiS63GyVvAMUvUD4LKUodp3Nu3la?=
+ =?us-ascii?Q?IMnL6FTFKQOSywJ/f/0XltFyF+itgDorrAHWOJMmPnDSqb5z61ldRYxk+mXJ?=
+ =?us-ascii?Q?a+GakxUqHzIpEcbUFRk8++DtxwdaHx+nCFJ4O46sj4+mhRL/dIF6IAiyWryq?=
+ =?us-ascii?Q?o+lxD1O3RBpp8cShRx59GBgPicDWh/HaF5O6UlOJXOnwcjoNnTPN4W9S/1dO?=
+ =?us-ascii?Q?TmQDSBRzYcNA5RakOatP1FzPvMjTMn03+sArGPpgNU+4TmIJ1EX5h8TexIoq?=
+ =?us-ascii?Q?vYpECcVQCh57I7++Ya+yv/QRlCmVvoIU6CoZJteiAOnJ2CVsSHD66qDVEymk?=
+ =?us-ascii?Q?SjNiN0yATXqiGLAEFMW4UuRnuG+eGG72La3qccQZXu+PdcYzwmr8sJAMjymd?=
+ =?us-ascii?Q?/nVZp8yCQKljmJc10tgPxt7RavnAvXmr+3DosDfgXULKXKoFuSW6TNntlsWd?=
+ =?us-ascii?Q?Q9n5qKKi3EVCKUP3RruWfBRReS72fS4d3Kzfd/SmSgbU/eA+DRRrYKiSxyHT?=
+ =?us-ascii?Q?Ih1IgxkKk/sSMmfcT9MfdU3Mht9tP6kuCFEig5jPL4fTm+0F6GZi2R3Zt3jo?=
+ =?us-ascii?Q?Z3HYZVJ3YQ1A448yaznXnrSbLqyzGq+1h8yPeJDF+mDrwiAd8Wo+qmMFwXFs?=
+ =?us-ascii?Q?rFxOCMryEO8rTcqeHyz1dQmz/9iCYm9LJCY5QeBcYLItFN9egfqXpiapfO7P?=
+ =?us-ascii?Q?b+KfGy073XykVQEOR/VNvPaDY1cCM4ZT/lCz570s1EU2YCCBPVNYKVraaoMv?=
+ =?us-ascii?Q?lWWZ+xKOxp5EDpR+K90htTqMRLvFhY0L74k+xXLDhnNAuN/YhW/G/iKOSoG7?=
+ =?us-ascii?Q?WzPaEA2aMOGQj5/iEJYn6y7//nY7vK2XQhv96qGMGtWZfdlc4jxoWR2HkDky?=
+ =?us-ascii?Q?WLB3sBLgtrNfQSawyjzh7WGVYNWdJwMba07uxdaY4CeQzmz356f1GYLDlQ1m?=
+ =?us-ascii?Q?R0HgEeTYv9P9Xdd4MpT3mS6BI/5GsoykxDS4a2zq4GUhgE+I79WYFtU55KFG?=
+ =?us-ascii?Q?aHI5u0JuEWWUS1PU/0nj6Umo/H3xzjXK6Z7lybDPAHVch6YX8u42J+knln0m?=
+ =?us-ascii?Q?pC2lHZVIxGQZ7KYEA1rRfFDhZLRHoevVjT/al40J/axKEq4dAlLKfBwhmNzp?=
+ =?us-ascii?Q?VgWDWiI5SUbV+WxUn9Dq/uUGwRRnpzaefFG/zv4ykwgn5iTKgK9jwgab+80M?=
+ =?us-ascii?Q?08WFlBsaubSvj2gSxayF+dSWIZvzAt0CJDzDWrwN3ghJ1XJTgGUiK/8XrwbE?=
+ =?us-ascii?Q?c5RyV81wZzGVORPEPwiDBN5yBnJY0LWbxBcAAzDsrAuGlQUmYq91NBEufmvf?=
+ =?us-ascii?Q?Nc59kGrhYb+VBIe9Qj6kEGi6TidJ/uG4dEKvDQO71PaNoYesZtwnYSv9qPHM?=
+ =?us-ascii?Q?tgSOH5Ae8+gpxQ8u1+BzR7n3VrmBJUjG1XrsHhvWM+nvJnqw3nzRzPsm18zY?=
+ =?us-ascii?Q?KsVzUmBEkQCD2fgAet3Qbiq6SmLU7O60URcn5yBQgu/wK6eJ8VPZom5YTEac?=
+ =?us-ascii?Q?VCUSxWKE8dDPmho8SLX3PdEN/C/KmzYv0eHTExK+5yYh/f9nRww+L90e889U?=
+ =?us-ascii?Q?GHmjp6Vj1KQ63o4/VdhmO9ve345RNz1mSUbsTGcITf8osD2/7VO0DKH/2dSf?=
+ =?us-ascii?Q?jFUxi2g3d1OnJ5K1wc+XJgZubE5uAstekDcaPnLxYu/53GpXbA+NK00YY49p?=
+ =?us-ascii?Q?3uXyPLHvjktRaW5+QMY3i6ggOhlumw6n5ckz0Y9GTurRn/WHmzb3?=
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e85c5b8c-0065-4f92-372e-08df4afaacd0
+X-MS-Exchange-CrossTenant-AuthSource: OSOPR01MB295138.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 13:47:41.4494
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aSsM4o4OdUqd4gLJCU9U34W6tfUyGDFVduNVIRmas5nMd7jWx7OgIwhBRgSgC+CDTvcGi/x/95eOCA/Bp68QWQRJ/LLGGQPXTBfWCjCWMa+bOMAnZfjszl5EE3I2+UhX
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSCPR01MB15909
 
-On Tue, Nov 24, 2026 at 02:53:02AM +0800, Kairui Song via B4 Relay wrote:
-> From: Kairui Song <kasong@tencent.com>
->
-> Introduce folio_inc_lru_refs_fast(): raise refs from 0 to
-> LRU_REFS_REFERENCED via cmpxchg, or just set PG_referenced for the
-> classical LRU as before. No counter update or promotion is needed,
-> nonzero MGLRU refs are left unchanged.
->
-> The classical path is taken for a folio that is off the gen lists while
-> MGLRU is off, not on lru_gen_enabled() alone: while MGLRU is being
-> turned off, a folio can still be on a gen list after the static key
-> flips, and setting PG_referenced there would bump its refs count.
->
-> That check uses lru_get_gen_flags(), so move the helper out of the
-> CONFIG_LRU_GEN block, it is now built with the option off, where
-> LRU_GEN_WIDTH is 0 and LRU_GEN_MASK is zero. Keep the decoded value in
-> an int so the subtraction of the offset-by-one encoding cannot fold to
-> ULONG_MAX before it happens to avoid -Woverflow error with CONFIG_WERROR.
->
-> This helper only aims to be fast, it exists so the gup fast path can
-> stay a fast path. The new helper doesn't account for refs above
-> LRU_REFS_REFERENCED but that's fine for now as GUP never used that
-> or anything similar for CLRU either.
->
-> Convert the gup fast-path sites. No behavior change for classical LRU,
-> no regression for MGLRU either. Just prepare for the following changes
-> by providing a helper that follows the new convention.
->
-> Tested-by: Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>
-> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
-> Signed-off-by: Kairui Song <kasong@tencent.com>
-> ---
->  include/linux/mm_inline.h | 62 +++++++++++++++++++++++++++++++++++------------
->  mm/gup.c                  |  6 ++---
->  2 files changed, 49 insertions(+), 19 deletions(-)
->
-> diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-> index b15c3618a1f2..13c8b6bce349 100644
-> --- a/include/linux/mm_inline.h
-> +++ b/include/linux/mm_inline.h
-> @@ -105,6 +105,22 @@ static __always_inline enum lru_list folio_lru_list(const struct folio *folio)
->  	return lru;
->  }
->
-> +/**
-> + * lru_get_gen_flags - Return the LRU generation number from folio flags.
-> + * @flags: folio flags
-> + *
-> + * Returns: A number between 0 and (MAX_NR_GENS - 1), inclusive. Returns
-> + * -1 if the flags indicate the folio is off the list (e.g., isolated).
-> + */
-> +static inline int lru_get_gen_flags(unsigned long flags)
-> +{
-> +	int gen = (int)((flags & LRU_GEN_MASK) >> LRU_GEN_PGOFF);
-> +
-> +	/* The gen is stored offset by one, so zero means off-list */
-> +	VM_WARN_ON_ONCE(gen > MAX_NR_GENS);
-> +	return gen - 1;
-> +}
-> +
->  #ifdef CONFIG_LRU_GEN
->
->  static inline bool lru_gen_switching(void)
-> @@ -168,22 +184,6 @@ static inline void lru_set_gen_flags(unsigned long *flags, int gen)
->  	*flags |= (gen + 1UL) << LRU_GEN_PGOFF;
->  }
->
-> -/**
-> - * lru_get_gen_flags - Return the LRU generation number from folio flags.
-> - * @flags: folio flags
-> - *
-> - * Returns: A number between 0 and (MAX_NR_GENS - 1), inclusive. Returns
-> - * -1 if the flags indicate the folio is off the list (e.g., isolated).
-> - */
-> -static inline int lru_get_gen_flags(unsigned long flags)
-> -{
-> -	int gen = ((flags & LRU_GEN_MASK) >> LRU_GEN_PGOFF) - 1;
-> -
-> -	/* Exclude the legal -1 from the unsigned MAX_NR_GENS comparison */
-> -	VM_WARN_ON_ONCE(gen != -1 && gen >= MAX_NR_GENS);
-> -	return gen;
-> -}
-> -
->  static inline int folio_lru_gen(const struct folio *folio)
->  {
->  	return lru_get_gen_flags(READ_ONCE(*const_folio_flags(folio, 0)));
-> @@ -483,6 +483,36 @@ static inline bool lru_gen_del_folio(struct lruvec *lruvec, struct folio *folio,
->  }
->  #endif /* CONFIG_LRU_GEN */
->
-> +/**
-> + * folio_inc_lru_refs_fast - Bump folio refs count without promotion.
-> + * @folio: the folio
-> + *
-> + * Raise refs from 0 to LRU_REFS_REFERENCED and leave hotter folios
-> + * untouched. For a folio off the gen lists with MGLRU off, a plain
-> + * PG_referenced set.
-> + */
-> +static __always_inline void folio_inc_lru_refs_fast(struct folio *folio)
-> +{
-> +	unsigned long new_flags, old_flags = READ_ONCE(*folio_flags(folio, 0));
-> +	unsigned int refs;
-> +
-> +	do {
-> +		refs = lru_get_refs_flags(old_flags);
-> +		if (lru_get_gen_flags(old_flags) < 0 && !lru_gen_enabled()) {
-> +			/* For CLRU, just do folio_set_referenced() */
-> +			if (refs & LRU_REFS_REFERENCED)
-> +				break;
-> +			refs |= LRU_REFS_REFERENCED;
-> +		} else {
-> +			if (refs)
-> +				break;
-> +			refs = LRU_REFS_REFERENCED;
-> +		}
-> +		new_flags = old_flags;
-> +		lru_set_refs_flags(&new_flags, refs);
-> +	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
-> +}
+Hi Biju,
 
-The implementation code of this function looks a bit convoluted.
-Would it be better to simplify it into the following code?
+On Wed, Nov 25, 2026 at 07:07:00AM +0000, Biju Das wrote:
+> Hi Tommaso,
+> 
+> > -----Original Message-----
+> > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > Sent: 24 November 2026 18:50
+> > Subject: Re: [PATCH v10 08/12] drm: renesas: rz-du: Separate the DU instance from the DRM device
+> > 
+> > Hi Biju,
+> > 
+> > On Tue, Nov 24, 2026 at 04:04:48PM +0000, Biju Das wrote:
+> > > Hi Tommaso,
+> > >
+> > > > -----Original Message-----
+> > > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > > > Sent: 24 November 2026 15:24
+> > > > Subject: Re: [PATCH v10 08/12] drm: renesas: rz-du: Separate the DU
+> > > > instance from the DRM device
+> > > >
+> > > > Hi Biju,
+> > > >
+> > > > On Tue, Nov 24, 2026 at 12:51:18PM +0000, Biju Das wrote:
+> > > > >
+> > > > > Hi Tommaso,
+> > > > >
+> > > > > > -----Original Message-----
+> > > > > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > Sent: 24 November 2026 11:59
+> > > > > > Subject: Re: [PATCH v10 08/12] drm: renesas: rz-du: Separate the
+> > > > > > DU instance from the DRM device
+> > > > > >
+> > > > > > Hi Biju,
+> > > > > >
+> > > > > > On Tue, Nov 24, 2026 at 09:33:13AM +0000, Biju Das wrote:
+> > > > > > > Hi Tommaso,
+> > > > > > >
+> > > > > > > > -----Original Message-----
+> > > > > > > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > > > Sent: 24 November 2026 09:21
+> > > > > > > > Subject: Re: [PATCH v10 08/12] drm: renesas: rz-du: Separate
+> > > > > > > > the DU instance from the DRM device
+> > > > > > > >
+> > > > > > > > Hi Biju,
+> > > > > > > > Thanks for your review.
+> > > > > > > >
+> > > > > > > > On Mon, Nov 23, 2026 at 04:59:32PM +0000, Biju Das wrote:
+> > > > > > > > > Hi Tommaso,
+> > > > > > > > >
+> > > > > > > > > > -----Original Message-----
+> > > > > > > > > > From: Tommaso Merciai
+> > > > > > > > > > <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > > > > > Sent: 13 November 2026 12:20
+> > > > > > > > > > Subject: [PATCH v10 08/12] drm: renesas: rz-du: Separate
+> > > > > > > > > > the DU instance from the DRM device
+> > > > > > > > > >
+> > > > > > > > > > On RZ/G3E two DU instances share a DRM device, which can
+> > > > > > > > > > only be created once both instances have been probed.
+> > > > > > > > > >
+> > > > > > > > > > Split the DU device structure: keep the match data and
+> > > > > > > > > > the registers in a structure allocated with the platform
+> > > > > > > > > > device, and allocate the KMS objects with the DRM device
+> > > > > > > > > > in a new
+> > > > > > > > > > rzg2l_du_instance_init() helper, as they are released
+> > > > > > > > with it.
+> > > > > > > > > >
+> > > > > > > > > > No functional change intended.
+> > > > > > > > > >
+> > > > > > > > > > Signed-off-by: Tommaso Merciai
+> > > > > > > > > > <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > > > > > ---
+> > > > > > > > > > v9->v10:
+> > > > > > > > > >  - New patch.
+> > > > > > > > > >
+> > > > > > > > > >  drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c | 61
+> > > > > > > > > > ++++++++++++++------
+> > > > > > > > > >  1 file changed, 44 insertions(+), 17 deletions(-)
+> > > > > > > > > >
+> > > > > > > > > > diff --git
+> > > > > > > > > > a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > > > > > > > > > b/drivers/gpu/drm/renesas/rz- du/rzg2l_du_drv.c index
+> > > > > > > > > > d3cccbdf9012..d102876c07e1 100644
+> > > > > > > > > > --- a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > > > > > > > > > +++ b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > > > > > > > > > @@ -162,6 +162,27 @@ static int
+> > > > > > > > > > rzg2l_du_pm_resume(struct device
+> > > > > > > > > > *dev)  static DEFINE_SIMPLE_DEV_PM_OPS(rzg2l_du_pm_ops,
+> > > > > > > > > >  				rzg2l_du_pm_suspend, rzg2l_du_pm_resume);
+> > > > > > > > > >
+> > > > > > > > > > +/*
+> > > > > > > > > > +-------------------------------------------------------
+> > > > > > > > > > +----
+> > > > > > > > > > +----
+> > > > > > > > > > +----
+> > > > > > > > > > +----
+> > > > > > > > > > +------
+> > > > > > > > > > + * DU instance
+> > > > > > > > > > + */
+> > > > > > > > > > +
+> > > > > > > > > > +static int rzg2l_du_instance_init(struct rzg2l_du_device *du,
+> > > > > > > > > > +				  struct drm_device *ddev) {
+> > > > > > > > > > +	struct rzg2l_du_device *rcdu;
+> > > > > > > > > > +
+> > > > > > > > > > +	rcdu = drmm_kzalloc(ddev, sizeof(*rcdu), GFP_KERNEL);
+> > > > > > > > > > +	if (!rcdu)
+> > > > > > > > > > +		return -ENOMEM;
+> > > > > > > > >
+> > > > > > > > > Why there is duplicate allocation of rcdu? One in probe()
+> > > > > > > > > and here
+> > > > > > > >
+> > > > > > > > The two allocations have different lifetimes.
+> > > > > > > >
+> > > > > > > > The one in rzg2l_du_probe() is tied to the platform device.
+> > > > > > > > It holds what is needed before the DRM device exists and
+> > > > > > > > outside of the component bind (dev, info, mmio, and
+> > > > > > > > ddev/is_master for the master, PM and remove), as on RZ/G3E
+> > > > > > the DRM device is only created once both instances have been probed.
+> > > > > > > >
+> > > > > > > > The one in rzg2l_du_instance_init() holds the KMS objects
+> > > > > > > > (crtcs, vsps, lvds, index). Their drmm cleanup handlers
+> > > > > > > > point into it and run when the DRM device is released, which
+> > > > > > > > can happen after the platform device has been unbound,
+> > > > > > so it has to be allocated with the DRM device.
+> > > > > > >
+> > > > > > > Then there is an issue right, platform unbound will unmap mmio
+> > > > > > > and other data structures it allocated in rzg2l_du_probe()and
+> > > > > > > drm driver is using after that( Use after free Bug)
+> > > > > >
+> > > > > > Mmmm In theory no.
+> > > > > >
+> > > > > > The KMS part keeps its own copy of dev, info and mmio, and its
+> > > > > > drmm cleanup handlers only drop references, they don't access the hardware.
+> > > > >
+> > > > > Can you please make sure these variables set to NULL, after
+> > > > > Platform unbound?
+> > > >
+> > > > Please correct me if I'm wrong but IMHO this patch keeps the same
+> > > > behaviour as the driver before this series.
+> > > >
+> > > > Where rcdu is embedded in the DRM device (devm_drm_dev_alloc()) and
+> > > > mmio is devm managed. Setting the pointers to NULL would only turn an invalid access into a NULL
+> > dereference no?
+> > >
+> > > Ack.
+> > >
+> > > But why you need copy? What preventing to use original allocated rcdu
+> > > in rzg2l_du_modeset_init_du()?
+> > 
+> > The copy is needed because the two DUs share one DRM device, which can only be created at bind time,
+> > once both instances have been probed.
+> 
+> That is ok. Both DU's share 1 DRM device.
+> 
+> > 
+> > Before this series, the DRM device was allocated in probe with devm_drm_dev_alloc(), and rcdu was
+> > embedded in it.
+> > 
+> 
+> OK.
+> 
+> > Now each instance needs its own structure at probe time (dev, info, mmio), before the DRM device is
+> > allocated with devm_drm_dev_alloc() in the master bind, so it is allocated with devm_kzalloc().
+> > 
+> 
+> That is ok.
+> 
+> > The KMS objects (crtcs[], vsps[]) belong to the shared DRM device, so at bind time each instance
+> > allocates its own structure for them with drmm_kzalloc(), released with the DRM device.
+> 
+> Why we need drmm_kzalloc() here? Can't we use pointer allocated with devm_kzalloc() 
+> to avoid another copy?
+> 
+> > 
+> > Each instance copies its own dev, info and mmio into that structure, as they are used by the KMS code,
+> > e.g. rzg2l_du_crtc_set_display_timing()
+> > (mmio), rzg2l_du_encoders_init() (info) and rzg2l_du_crtc_create() (dev).
+> 
+> Since each probe's DU allocates rcdu, can't we reuse same rcdu for holding
+> dev, info and mmio and pass the pointer to KMS code to reuse mmio,info and 
+> dev in rzg2l_du_crtc_set_display_timing(), rzg2l_du_encoders_init() and
+> rzg2l_du_crtc_create()
+> 
+> Is the below code[1] does not work? Do you see any issues?
+> 
+> [1]
+> static int rzg2l_du_instance_init(struct rzg2l_du_device *du,
+> 				  struct drm_device *ddev)
+> {
+> 	du->ddev = ddev;
+> 
+> 	du->index = ddev->mode_config.num_crtc;
+> 
+> 	ret = rzg2l_du_modeset_init_du(du);
+> 	if (ret < 0)
+> 		return ret;
+> 
+> 	if (WARN_ON(drm_crtc_index(&du->crtcs[0].crtc) != du ->index))
+> 		return -EINVAL;
+> 
+> 	return 0;
+> }
 
-	do {
-		bool clru = !lru_gen_enabled() && lru_get_gen_flags(old_flags) < 0;
+TO avoid the copy maybe we can do:
 
-		refs = lru_get_refs_flags(old_flags);
-		if (clru ? (refs & LRU_REFS_REFERENCED) : refs)
-			break;
-		new_flags = old_flags;
-		lru_set_refs_flags(&new_flags, refs | LRU_REFS_REFERENCED);
-	} while (!try_cmpxchg(folio_flags(folio, 0), &old_flags, new_flags));
+static int rzg2l_du_instance_init(struct device *dev, struct drm_device *ddev)
+{
+	struct rzg2l_du_device *rcdu;
+	int ret;
 
---
-Cheers,
-Vernon
+	rcdu = drmm_kzalloc(ddev, sizeof(*rcdu), GFP_KERNEL);
+	if (!rcdu)
+		return -ENOMEM;
+
+	rcdu->dev = dev;
+	rcdu->info = of_device_get_match_data(dev);
+	rcdu->ddev = ddev;
+
+	rcdu->mmio = devm_platform_ioremap_resource(to_platform_device(dev), 0);
+	if (IS_ERR(rcdu->mmio))
+		return PTR_ERR(rcdu->mmio);
+
+	rcdu->index = ddev->mode_config.num_crtc;
+
+	ret = rzg2l_du_modeset_init_du(rcdu);
+	if (ret < 0)
+		return ret;
+
+	if (WARN_ON(drm_crtc_index(&rcdu->crtcs[0].crtc) != rcdu->index))
+		return -EINVAL;
+
+	return 0;
+}
+
+In this way we can drop the devm_kzalloc() from the rzg2l_du_probe().
+Will be fine for you?
+
+
+Kind regards,
+Tommaso
+
+> 
+> Cheers,
+> Biju
