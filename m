@@ -1,50 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.128.210.58
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795627585;
-	b=fYz2St5XVMFxYfPAnggl78a/qfTdwGocu8+EKmm+2fPWnk2FNsL0T2j/ZjazW7vTDswz
-	 OT/YMXyFxdpOkxI4sMep7IiSDtV4YqHCd+rZcDaViqDtZpqvDKv5EfYda7mAFDOhUwNOI
-	 jmvwjTG+kf4/16HR1bsQfSC9JcMwyUj3r0vPzsFDlvn1Q0+iKO6+Uxf4dVvVD8Y1QcJRv
-	 /AdSvhdDciGyiPTJZiRFfvi40BKGaOi8BuNaliaYRmO/rT9ggWH5FksczOaiAtJIwk5Ip
-	 J9Alm8jRCxrNhnskRxEh4XzMplvmqRJIsz4KLbEFidYpV3NcPHnc0JrD5Juh0jKEyCg==
+	t=1795627592;
+	b=csNSkQ/eHZlbp5H8NrMt+1YndbuW/YB6rDErhk8w4HQm5GZJTUancBcgTUypkh2B09gn
+	 UR6X1pSmZhltN2k5fbsrXrT7klJWbKQXVb/y34nEencRBNIe85bt99/bsokmq8znj1ZW7
+	 EyV4m+SnXSapp5t3Kh2Cf6dh5xv21oFR2W692oV5kcm91WP4vuX4+hSMBnn+KrlqNQjCu
+	 tyWMDon6/fHUfgRA+QdJmBDY7S+1NP4QXyZ9FrBjy8TdpYUabbjENK8s/wOQmG0CPZziD
+	 j34shTaUm4FQ6oElyRgGw8v6GGnuyR/b7ucznn2k+8VSCvaKGRB0CG2acXLo5cryKvQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795627585;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=J4yNQlVXzhlgxpWW/VWMNk4O1dDGaOKqRdceelW1SIM=;
-	b=Qaa69iug9ucvCxXSgOIy5UlHJNo1JsVr/uYvzVWrHLEuo6RQ5Ah+aaTRaUVCGzDICYKp
-	 1znbo2QfTmruIdrTp9Zi1U7PKrEXwIJLIkG+Drf28ndHOL6/Hja99FnXbSMpmtrgfosge
-	 d6N4SXXErosZoiUlMYlUvpMHihbZ1i9DKGjBcph9GN2oZqFjTiMxRZsTj6hJKATFiaBVS
-	 Z17KigRNshFP/0Chmw1G7m2L1Qf2IAf8BKB9j9YcOMBIYlB5NBV1pyqF6NtHB2D8VqOus
-	 stchQzmExnYjmVqRDDT1yfLQt6UIEAOJL5jLlZ8mhMM3KhrnUQeRm7p/4gObbrMffpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795627592;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=JstmfSkb+NU61BDbHfVoDsey+CLK6rf72wXZJgfJDWM=;
+	b=mLucqqYbhzRNeeTPlip6z4DC7cpqntIpRgVCNjCY3Y/hNb09bpvLBiESp4ilVHEzFr3c
+	 uDW6vCnPtlMdRrkcMpypRmOu0VTilNvpClVdYjpeEcRCylSz8FMbZvsC3hKol/MGWJNvB
+	 5KTw0nhAXXY07EjJEKchDHl38buy8QiMb3t1gvP75JNALjMsVzatRMjg2h5bMiRjlKwY0
+	 Z8uji3jEaZtTkaJObbjakHolZYs81QruQx7Cb0aZcHYqgi7NUujc56o+YSoiinikajTuM
+	 C7vrxJFzZVIOx3W52aEaufJ9352tcKkiFXAbtui6W6Y8giuG8PBP/m9r1BjdrEn7c2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W5LnpFhP;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=librecast.net;
+	spf=pass smtp.mailfrom=librecast.net;
+	dkim=pass header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=NMk5KAOl;
+	arc=none smtp.remote-ip=185.128.210.58
+Received: from bregans-0.gladserv.net (bregans-0.gladserv.net [185.128.210.58])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B69F3606A31E;
-	Wed, 25 Nov 2026 17:26:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF732606A321;
+	Wed, 25 Nov 2026 17:26:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF732606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=librecast.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=librecast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W5LnpFhP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C68511F000C0;
-	Wed, 25 Nov 2026 17:26:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795627585;
-	bh=J4yNQlVXzhlgxpWW/VWMNk4O1dDGaOKqRdceelW1SIM=;
-	h=Date:From:To:Cc:Subject;
-	b=W5LnpFhPCGHB1CsCfb9bCJyjvppPtQM6CoJTPkJQDwWrpyJv786rS9GbWN+HYXruI
-	 1B/RU5DEO6bs/3A5WcgUCYF1Ww7G+9HKM1gtLQt33Z08e6Da7KrsRi36CSJbAv5Ee7
-	 CaHPAZSONuKklBTxjDWGIOUyIVWPJbDcoF4p260yfWAfeW1dTKhkwA5bdI/NZKwx9X
-	 kHTYAXxEJsHI6z/gTa34pyh9Qwn/2sXkXsAL9XUSSBhmaz/1zleLa5inUcsvwFXrdD
-	 LNOUtSDbidvpszj7pJhgTWArZBm+nTE245U5Pz3RdTeXMe/BGF1kib/tKE6PpBbcgL
-	 QbBJFBuRRBHzw==
-Date: Wed, 25 Nov 2026 17:26:21 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Linux Next Mailing List <linux-next@vger.kernel.org>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: linux-next: Tree for Nov 25
-Message-ID: <awcaPXZ3nWjXDaNO@sirena.org.uk>
+	dkim=pass (2048-bit key, unprotected) header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=NMk5KAOl
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=librecast.net; s=2026110900; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=JstmfSkb+NU61BDbHfVoDsey+CLK6rf72wXZJgfJDWM=; t=1795627590; x=1796491590; 
+	b=NMk5KAOljFJi9/8rFDf+IbhjmVXf9i5QA/r66bbo+azVqR0nasnDSQtudGAr619Q/GDBmE+ESoj
+	foCeZwzYoX/FigTMxwu8gpwA+ndbLxqHYxrL8ms6J3f/Bhy+j8SpxbojH59dx3AZI6Al5VtF+Y9KF
+	FVSXWUYH5j9emVI0lLuv8OW1FQDRjLQAM9kQvyFU91BWag6lZTTspg9YOa3R+nQb0KLBwS3880O6c
+	SX83+dWsbaWycfLRMOi5F48ailEYMUq/Z6KauBJvFmywR7egwkTVwxYxmaKMW07IYWkVuaatpZs8c
+	2m8nt+yFoAb+O2n6L7L6B+ZeZ+aRjgMJIcqQ==;
+Date: Wed, 25 Nov 2026 18:26:23 +0100
+From: Brett A C Sheffield <bacs@librecast.net>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 6.12 000/816] 6.12.120-rc1 review
+Message-ID: <awcaP4DG5A3hT0uK@karahi.librecast.net>
+References: <20261125143849.205329330@linuxfoundation.org>
+ <awcMgK7ss_gQtDs9@karahi.librecast.net>
+ <2026112507-among-disclose-3713@gregkh>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,70 +70,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="l0UbzjkRN/2SR5yD"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <2026112507-among-disclose-3713@gregkh>
+
+On 2026-11-25 18:10, Greg Kroah-Hartman wrote:
+> On Wed, Nov 25, 2026 at 05:27:44PM +0100, Brett A C Sheffield wrote:
+> > On 2026-11-25 15:25, Greg Kroah-Hartman wrote:
+> > > This is the start of the stable review cycle for the 6.12.120 release.
+> > > There are 816 patches in this series, all will be posted as a response
+> > > to this one.  If anyone has any issues with these being applied, please
+> > > let me know.
+> > > 
+> > > Responses should be made by Fri, 27 Nov 2026 14:37:39 +0000.
+> > > Anything received after that time might be too late.
+> > > 
+> > > The whole patch series can be found in one patch at:
+> > > 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.12.120-rc1.gz
+> > > or in the git tree and branch at:
+> > > 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.12.y
+> > > and the diffstat can be found below.
+> > 
+> > Build failure:
+> > 
+> >   CC [M]  drivers/gpu/drm/amd/amdgpu/../display/modules/hdcp/hdcp2_transition.o
+> >   LD [M]  drivers/gpu/drm/amd/amdgpu/amdgpu.o
+> >   AR      drivers/gpu/built-in.a
+> >   AR      drivers/built-in.a
+> > make[1]: *** [/usr/src/linux-stable-rc/Makefile:1983: .] Error 2
+> > make: *** [Makefile:224: __sub-make] Error 2
+> 
+> That doesn't show the actual build error :(
+
+Apologies. Here tis:
+
+  CC [M]  drivers/gpu/drm/radeon/radeon_encoders.o
+  CC      fs/ext4/acl.o
+fs/nfs/nfs4proc.c: In function ‘nfs4_proc_unlck’:
+fs/nfs/nfs4proc.c:7281:24: error: variable ‘cbnl’ has initializer but incomplete type
+ 7281 |                 struct cb_notify_lock_args cbnl = { .cbnl_valid = false };
+      |                        ^~~~~~~~~~~~~~~~~~~
+fs/nfs/nfs4proc.c:7281:54: error: ‘struct cb_notify_lock_args’ has no member named ‘cbnl_valid’
+ 7281 |                 struct cb_notify_lock_args cbnl = { .cbnl_valid = false };
+      |                                                      ^~~~~~~~~~
+fs/nfs/nfs4proc.c:7281:67: warning: excess elements in struct initializer
+ 7281 |                 struct cb_notify_lock_args cbnl = { .cbnl_valid = false };
+      |                                                                   ^~~~~
+fs/nfs/nfs4proc.c:7281:67: note: (near initialization for ‘cbnl’)
+fs/nfs/nfs4proc.c:7281:44: error: storage size of ‘cbnl’ isn’t known
+ 7281 |                 struct cb_notify_lock_args cbnl = { .cbnl_valid = false };
+      |                                            ^~~~
+fs/nfs/nfs4proc.c:7285:33: error: ‘struct nfs_client’ has no member named ‘cl_lock_waitq’; did you mean ‘cl_rpcwaitq’?
+ 7285 |                 __wake_up(&clp->cl_lock_waitq, TASK_NORMAL, 0, &cbnl);
+      |                                 ^~~~~~~~~~~~~
+      |                                 cl_rpcwaitq
+fs/nfs/nfs4proc.c:7281:44: warning: unused variable ‘cbnl’ [-Wunused-variable]
+ 7281 |                 struct cb_notify_lock_args cbnl = { .cbnl_valid = false };
+      |                                            ^~~~
 
 
---l0UbzjkRN/2SR5yD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-Hi all,
-
-Changes since 20261124:
-
-The origin tree acquired a test failure for which I applied a
-workaround.
-
-The fs-next tree acquired a conflict with the mm-nonmm-unstable tree.
-
-Non-merge commits (relative to Linus' tree): 10403
-
-----------------------------------------------------------------------------
-
-I have created today's linux-next tree at
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-(patches at https://www.kernel.org/pub/linux/kernel/next/ ).  If you
-are tracking the linux-next tree using git, you should not use "git pull"
-to do so as that will try to merge the new linux-next release with the
-old one.  You should use "git fetch" and checkout or reset to the new
-master.
-
-You can see which trees have been included by looking in the Next/Trees
-file in the source.  There is also the merge.log file in the Next
-directory.  Between each merge, the tree was built with a defconfig
-for arm64, an allmodconfig for x86_64, a multi_v7_defconfig for arm,
-an arm64 build of various kselftests, a KUnit build and run on arm64,
-and a native build of tools/perf.  After the final fixups (if any), I do
-an x86_64 modules_install followed by builds for x86_64 allnoconfig,
-arm64 allyesconfig, powerpc allnoconfig (32 and 64 bit),
-ppc44x_defconfig and pseries_le_defconfig and i386, s390, sparc and
-sparc64 defconfig and htmldocs.
-
-Below is a summary of the state of the merge.
-
-I am currently merging 438 trees (counting Linus' and 135 trees of bug
-fix patches pending for the current release).
-
-Stats about the size of the tree over time can be seen at
-http://neuling.org/linux-next-size.html .
-
-Thanks to Paul Gortmaker for triage and bug fixes.
-
---l0UbzjkRN/2SR5yD
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsHGj0ACgkQJNaLcl1U
-h9Brswf9ECh2E+EVqw3R1FgpS+2JiXhsPK/ufE7oUezMUhcNpf8Ryac7b9A9Fpxv
-00KPKNSU+9dDOjOXKfnR6Ut7HFZ1ebRHN5MGCXJASeDdjXIzuUFu85TDXmB15FIK
-J7ri7caLRXJBKJHw0TUHqbzRfgyJgAbr1vZTEkC6qVGz7KeIWXU2fwFNP5ITrOaV
-V8i3yInMRSBLMDBz0fBPpMlto3qdBbVSFdyR9cZz1QzwnvVkoKTS28IA1G9g+Qme
-y/f8eWuemgQ045h2A7/Znm1FrltvAolY6sdlU98wXvc5leJ6kwyjs25vqi8cEI3V
-0h7wB3KjSmUALoKiPspqRVr9QTxM0g==
-=9lZb
------END PGP SIGNATURE-----
-
---l0UbzjkRN/2SR5yD--
+-- 
+Brett Sheffield (he/him)
