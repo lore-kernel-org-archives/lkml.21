@@ -1,98 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795630270;
-	b=qmCuSE5iar+qEPYLBGmksyj3FU+c+vsuED7nWfkOou0qrxXK6BYHANHBRNTcWGv8/a3R
-	 QuPXf5Xnh9rcbySabSQp3Ct/uaqODmtV6r0ZlNimPyhpCXMsViUTV08o2wWmmrZmd79Ne
-	 maudtZGtym6FJI5LfW2Iym09+qa1Ejo8FW52g05E7mx2UEHiXox+vFGzgDVeQVmyD4IxO
-	 ZKKkWEbtqFkACzvzoYMQZf609LbTxAjmdGk3CSYFI8SHhxXavLBw+hAq1XxniaEAbM006
-	 Wc6GpJFIhNJMJKAkyU4lSYZoLt2CAnyckBjnBV9+HU2tTMH9masbjdnC24BvnNLcuvA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630270;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=bV56WuCqdxs/d/79ZdlE9Y5jpjOdMcPVYy0fTABj0Lw=;
-	b=nc9auhgj8rMohW3T6m3cnnpCmu7lYa7QlW7no+Y409YlnFGZLmnZsq4n9VvlVnpFbvGV
-	 zA4TCfy0xswW3Y/dV9W/iO0VwlSkDb265TY4WHpTVOa4XOhGov0di0aD6TbjVqCFIMg//
-	 2+CgMPuC/uUHsxrOh9P3T1Rb1VgDU67mp6uZlgpgZkomRwpu0B+MHk97gVgOzMS0FHi2r
-	 jkV2JkXQmdIGAkjS49wxShelzGaeDFot2yQl55jHMUf8iVtqmzR5EWyuu2y7arfGRxFCE
-	 +usQRqnKEMx52Bs99ZtY+bUGmsUha/OQh8RvVdAepGwkjjPPPkbCskNHyI7PiysorTQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JB+6cSqt;
-	arc=none smtp.remote-ip=74.125.82.51
-Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795630276;
+	b=2LJkMN3eiWUe4onmGoKrovWckAss89bL/Fpf5kiP5IwHrX9dIVCa1utbyVllnjUxnoCF
+	 qiLoA0MlG1uZXJRAPQsb0BZ9ShH4hz9Gm/sN3BgW0RMwMnJEjp3TqDsnd707vFWj0Wjpd
+	 5NHvM7b9Ywxq1SK9zY6FcnBlp2yJdKsQi243UUYkNK/Y3xY8iUg/FkubkYabBwKToZNFi
+	 6ViRLoaT6Tu5zkO8shBFmmqIgnhOwv0PKYABSKUx5+vErR4ArkRBtNfMk18zkRrPVbqxY
+	 P0duEjdFaB37RKHAp9wuAyNMxMOmgj38twg+2Kqk7uHYMIV0u6nfyBH6rKWwXSffmAA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630276;
+	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
+	bh=6KOMSeMBCnjs5mhrPq+LnQxT/aixBEKr23EpHe5/yHk=;
+	b=PL0SVYY1uZO+gXvyVpVs77cy0Q3K/UxnXI5w2V9XDEuRpiR6Tx/nq+WRlSeKmnVvr5Sy
+	 HRKkxViDb94jFIrsVhaNIjzXT4VwsTiC+AQ3hAuFD34cSlKrYjrP4dFLTpIs7K2Yd63k0
+	 bL97QkRhIYNoyxkcPn7NjINSE3EHHfjTFeL/BfFWeu+ISvHPGOWuh3QvQUUzCacl+ktKM
+	 qlv8qpN0nlAYa+gsbmB3HddNkDVm/g6orb0wyGSxfwWrCtkOz/yn3Znr6gJxdvlcVw5NS
+	 0zmVP80osnKkpjFuj8z0KB2EVqstZ2uz8h9VNbPjKG+BdvCtYNkrk2Xm2u2vNsp7g7w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rong.moe;
+	spf=pass smtp.mailfrom=rong.moe;
+	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=lPzQ+qrx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
+Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF83B606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:11:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF83B606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3B52606A69E;
+	Wed, 25 Nov 2026 18:11:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3B52606A69E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JB+6cSqt
-Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-1a2761c69fbso7633130c88.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:11:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795630269; x=1796235069; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bV56WuCqdxs/d/79ZdlE9Y5jpjOdMcPVYy0fTABj0Lw=;
-        b=JB+6cSqtrJ7NdNPYm7dhd/ymdEhEFOHZN/J+sqsuPD8YXcPI9tNxImftGOMcZNQ+fX
-         WUyqqgy92aSEnJUgwypqoz/3CWO0Q2GgHVvxHo/6DEs8V6tLZP3ViTH37dPiq8c/NnyD
-         Yssb5DzKLO6w0558NReh5/L9tx4QhcIxkNdzr479zllmz6SndcOX68skn2uT2fMBHCd9
-         AoA5+o9OeIIXZR9slOE2EelhG6qgZ7wq+xfuGTuZ+C9vtyFbDoUHvBFOkbToeERhWC55
-         oHXIHYv9DMGdCTW1D7ppLKSA9PpX8WGjL3ZKVIFcopNLlBtRVBoFdaz1d7D6KT+LoCPG
-         kxAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795630269; x=1796235069;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bV56WuCqdxs/d/79ZdlE9Y5jpjOdMcPVYy0fTABj0Lw=;
-        b=mRTKt4I8LUxymyjW8ffliAfWWJlYqrFoLCSJMeGe9WcexQVESnbncw8HU9+AtnCr0G
-         Sxva94+eguxLfx5vzO3o+IA1UzI9f62lAyPEfzey5oQRLU83h1CZo3QEeXg903lgX8Q8
-         9gqliFcHICst9+CvkuZxBIQ//p7aeDicxdXC9emvSTs1j41UKJe1dYHWUrVqbsEJ/uxO
-         G9+kluivvddjVqoNxnzfwRKWEZyrRmmo/s+l9dpPKAcE8+njbYVfCHtuvYbO+dcCBoFo
-         5Gz1TwnPDLY5Ezp10IehobwYh7kQLtRI7l/eVRFEV0/JN+VoKafdS1UEmX20HtPfTfU+
-         acPA==
-X-Forwarded-Encrypted: i=1; AL+hErFXnWVpKulP6k9/2eW2b7zGZpvR1QJsAjSFp8KUXra+vX8VgMf5ShswMj6zE7DlgQcyQ3io4OkO9sn9T78=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+VHWnEtCYfJXwJ7uAfiZnwQs1OK6+NzhmSK1JmN894MYukxNQd
-	qiKj2dOLP4g4hCCN1IjhmsIescu6y+1QH4J8u/+TSjUUNQTsMDqnvQIZ
-X-Gm-Gg: AZFdTZe/iaMu2xOOWMKi7B/1aP2MNNljPpU7xhFAWEPSe1B5QtSTDOPt+Mic1v2j5FB
-	7j3aMRbNPrppAiXzXNluMoUAHtOQgJQWBIbHIolENTNoCOZodSf//2C2HEwtIuG4wSIPjBVm0D5
-	hAHPouop/jpXeRDHtHxjJ96hPrte/9O/L/spw9OSClXr9cpCrTiB8j4cP8iwDeAvEbgB7p2xN9V
-	j5q3+L9agvfIVyVFu/mUhLlXfDKDEfCLhgedSg01IMKvFmnD3UGqFolDMc/WUt4KwCQ1mh2Fozf
-	4zBH3Yrl1DQ17iadS+dWTBRfBD8GPuRU4pBVSGPPYmB/29QpDvC99vrk+FAl0Mv3il5eB0edGeC
-	JR+kUy/99yGFpCwpZs22zs6X0RUiZjuEArPEJQwHLFjAewBZJMVzzVfHQstpCkx+4RoDkaUkwWF
-	wpBIaIBglyFhBjFRDAMIeaZn0qUcuISx3k/ttfkowoXrV+AKCLEqFDV4uNl6eHhHVD4ZkdETBJL
-	t9OMoL0WReJQIFKzcyqPdgRketQrVWqSET8ZfD1C7qe+MIWRHhF9L/FQp4S/mkXZRjtziu4wnyC
-	fREsqrQArhpRDUAj4KL7SJRRu4OA/FnEJGuxAg==
-X-Received: by 2002:a05:693c:20ce:20b0:37a:a9db:6bd2 with SMTP id 5a478bee46e88-3856e63b064mr20473117eec.11.1795630268730;
-        Wed, 25 Nov 2026 10:11:08 -0800 (PST)
-Received: from DESKTOP-NM9EKIA ([2001:e60:8549:f8b6:d936:b4fc:15f9:5ee6])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd40c5sm66440899eec.10.2026.11.25.10.11.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 10:11:07 -0800 (PST)
-From: Joonhoe Kim <26rote@gmail.com>
-To: Xu Yang <xu.yang_2@oss.nxp.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: gregkh@linuxfoundation.org,
-	aiyengar1990@gmail.com,
-	mathias.nyman@intel.com,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] usb: dwc3: tell xHCI that it lost its state when the core is powered off
-Date: Thu, 26 Nov 2026 03:11:03 +0900
-Message-ID: <20261125181103.830-1-26rote@gmail.com>
-X-Mailer: git-send-email 2.55.0.windows.5
-In-Reply-To: <rtgfuz44sjpiomzhamrkvteqygkk6jdzrvxh4nfcpabiae6bsy@cbtvblfx5uao>
-References: <20261112141512.1840-1-26rote@gmail.com> <awZHwRiICsPs-UyI@vbox> <rtgfuz44sjpiomzhamrkvteqygkk6jdzrvxh4nfcpabiae6bsy@cbtvblfx5uao>
+	dkim=pass (2048-bit key) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=lPzQ+qrx
+ARC-Seal: i=1; a=rsa-sha256; t=1795630149; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=J5Vkn7hWEOf/ZnmoJZ6v25mxyxRkqr7VjKRNt8JKHz9ArifquNVm4lRIMtggF7hMJne9JOqAFseV3i3gGsDZeK4Cg6kSoFEoa3npaydQoBNigxW96Sdx1/oX1uf98cal2iqrB22vAgkAjn0MRcs1bXbMr6xbku9UvWkAV0QK+cY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795630149; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=6KOMSeMBCnjs5mhrPq+LnQxT/aixBEKr23EpHe5/yHk=; 
+	b=YYNTJeNn+lZiIPS46p0DByGXnaiUFb/b22J8xSE17Z+A/9wiMglltXh+3dZDCUiUyJ80z82BsPyXDVuU1MMbxJUXvawztANcqDFEAN3t00X2Q1eNCGqcXM8HKf+ELqP/Pfn2IVAK0wxYYeQnCzPZOoxJZRnbNLxJLIrkbcjWE5Y=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: a=rsa-sha256; b=lPzQ+qrxwcsrvlvMEpQte36vIBy2TZdTMnbgPaOYzAvxpE7MmgLdWEo2QeV9k1lhy0wGjl/tuQF1mTn2QzpikTaqhB02g7gFEd8K67EEsQR/FQ1OVjHri3Oznjvr0BmiDieyysmS328NYQuDIKlynK70VcFDv1Ll13GaDUNJcmWUOnOHaUDc2il+saXlUWE4Clhad63QmpDIbR5HDxd2sWIRKVe1xMQLUfgkOTTnHHw/kagEYuiWAWJm//MjNEdopKvduaxcjNKmke9vt8Bd61Q1+Yn+6ZNCKxZzOu2ZYv2najGVRMw5ry4z5A3Ks9UYE4ZBiVl0Jng6FqxiTJHzkQ==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=6KOMSeMBCnjs5mhrPq+LnQxT/aixBEKr23EpHe5/yHk=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795630146459286.87903086355686;
+	Wed, 25 Nov 2026 10:09:06 -0800 (PST)
+From: Rong Zhang <i@rong.moe>
+Date: Thu, 26 Nov 2026 02:08:26 +0800
+Subject: [PATCH v3 8/8] platform/x86: ideapad-laptop: Enable ymc_ec_trigger
+ for Lenovo Yoga 7 14ARP8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,29 +60,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-ymc-82yl-v3-8-e30842671ec3@rong.moe>
+References: <20261126-ymc-82yl-v3-0-e30842671ec3@rong.moe>
+In-Reply-To: <20261126-ymc-82yl-v3-0-e30842671ec3@rong.moe>
+To: Mark Pearson <mpearson-lenovo@squebb.ca>, 
+ "Derek J. Clark" <derekjohn.clark@gmail.com>, 
+ Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Gergo Koteles <soyer@irl.hu>, Ike Panhc <ikepanhc@gmail.com>, 
+ Andrew Kallmeyer <kallmeyeras@gmail.com>
+Cc: Eduard Aliman <edialiman20@gmail.com>, 
+ platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Mahir Faisal <mahirfaisalantiq33@gmail.com>, Rong Zhang <i@rong.moe>
+X-Mailer: b4 0.17-dev-ce4c1
+X-ZohoMailClient: External
 
-On Wed, Nov 25, 2026 at 12:44:05PM +0800, Xu Yang wrote:
-> On Wed, Nov 25, 2026 at 02:37:38AM +0000, Thinh Nguyen wrote:
-> > Can we also Cc stable?
+The Lenovo Yoga 7 14ARP8's EC must be triggered by software on YMC
+events, or else the enable states of touchpad, keyboard, and keyboard
+backlight become out of sync.
 
-Yes. I'll send a v3 with Cc: stable, limited to 6.15.x and later since
-xhci-plat got power_lost in 6.15, and with the Acked-by and Tested-by
-tags.
+Add a DMI quirk table entry for the said device.
 
-> > Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Reported-by: Eduard Aliman <edialiman20@gmail.com>
+Closes: https://msgid.link/CAA4HgYKab7_GMCNdHF9+E=9ECVBHRs_axefeCOnZbUNUoyVSoQ@mail.gmail.com
+Signed-off-by: Rong Zhang <i@rong.moe>
+---
+Changes in v3:
+- New patch to address Eduard Aliman's report
+- Drop Eduard Aliman's Tested-by: as a prerequisite patch has changed
+---
+ drivers/platform/x86/lenovo/ideapad-laptop.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Thank you, Thinh.
+diff --git a/drivers/platform/x86/lenovo/ideapad-laptop.c b/drivers/platform/x86/lenovo/ideapad-laptop.c
+index ec060bcb5c88..dfd3eda05a4b 100644
+--- a/drivers/platform/x86/lenovo/ideapad-laptop.c
++++ b/drivers/platform/x86/lenovo/ideapad-laptop.c
+@@ -1880,6 +1880,13 @@ static const struct dmi_system_id ymc_ec_trigger_quirk_dmi_table[] = {
+ 			DMI_MATCH(DMI_PRODUCT_NAME, "82YL"),
+ 		},
+ 	},
++	{
++		/* Lenovo Yoga 7 14ARP8 */
++		.matches = {
++			DMI_MATCH(DMI_SYS_VENDOR, "LENOVO"),
++			DMI_MATCH(DMI_PRODUCT_NAME, "82YM"),
++		},
++	},
+ 	{ }
+ };
+ 
 
-> > This may conflict with your "usb: dwc3: wait for the port to leave
-> > RxDetect before xHCI reset" patch. Can you check if rebasing on this
-> > patch work for you?
->
-> OK, I can rework a new patch based on this one later.
-> Maybe I should wait for it to land first?
+-- 
+2.55.0
 
-Either order is fine with me.
-
-Thanks,
-Joonhoe
