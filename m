@@ -1,80 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795603003;
-	b=AY0MaC6WpaapTsrOtGHXBfz6oke7JNkcHocXvaI69To+2LIKNXw2dOXM4/DTO+iOd+dT
-	 g8GZN6Y1qnM9BX/pJXDz1oklNl6PTETw5ksqauXoVT/HnZCW+rlcxe7UKEkPI2WP5l2y9
-	 YF27bdx6hiokd2tESnjaJuBDcI0nqxDt1g7jgVqVwercqlnsSTslzlfLHdD3n8vvXdiqx
-	 I4SWseRqmtbmFXcpKOLBYDin197iMgURplh6rriatzM9B82su+PuNtSfHJLWJVwyej6o3
-	 2goxIekT0HBKrQzg0vZLMn9fOGjTyEc+OFSi1RH5FOoxyjT4tS1K6PrYe0O9yzoL5GA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795603003;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=4Omsk3aCF2GLKrO6+1yETWUmtvbvNI+t02oC5/uK2gs=;
-	b=bzzAi0gFO1o9K5AwLVPH4GW39Cf0j8zpY3BZQmGuehrcB3++Ewo1SB3uT6wL9Z6M+/TN
-	 lDlbvVj4HTWdz/b57ZVKSFqmO6TllPwdWEojrTBdZHnR0jFG39qQh0bPtklmSW4U9u631
-	 AcOVGVNfl18qISbsrmmXV7MGAU84D+BqIeSZc/eGYe02omXGVqDSat9a7ptyF2Q9C5X1b
-	 Mn+Vd/fl4RVDHnaABdXqYrKsw4FJ5mmqMlAm9X6aqlsWl2uPWqsUaYDuQw95Vawht8JxA
-	 fJaAa/9/RHwLO6TSSgvQ9JJKPajh+YkRGlym8cqCKVc5TKDjdsf/yAY8Q02XsFCvESQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OyicAg7O;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C19D606A32E;
-	Wed, 25 Nov 2026 10:36:43 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OyicAg7O
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795603003;
-	b=V0lPG1WaMQXR9LznYbJTIv0uCl/Vl+6vysZ61Emg25Fgyzs7Ft1grufXt1Tl3CWguRJa
-	 YB/Dnc7Ae0TRdwRW+EQ3ajjDWX6MC531AJ5je5mhqEbXnDhWVIw5hpL2qEqs9NliaddGi
-	 R7hdrvlSnv1AcLCsOZuPCZVJT/TdlbiWBtPmxoAc8EH6JFex/N0SzbUXRTUYCSfpkAC8e
-	 j53pQqbvVkVmQv7KPstyDo2IFaYL3xHejRcqRiQIurPOKkrCQeWtkd9LpFbhJTwZYi6BI
-	 4NydwZr8scN0G64JRs+lGtPRVdjhXIt44gR3QT7+Ehy3KGuyKikkbUcmvvoth8kNYsg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795603003;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=4Omsk3aCF2GLKrO6+1yETWUmtvbvNI+t02oC5/uK2gs=;
-	b=UdWw6SPtjpyafHohDQ4P+kEWSz0svn8uEdSjFqJ6oGE/XldZdiw8jzS1YorFlbAYt8+A
-	 NyzbbOEGLzzXh/k8/KeGd4Z/E2mJIeAbkPtxRzIWWAJxsatq84aoEshwVpkOpEem/mNUT
-	 btFte86vS6iAkdHoVgJA8pF5MtZzNtlfJyhz2ziFXIDewUHVDYqQb4Zx5fVYAY3P9Gjw3
-	 UPWyA4QLuM6GuLyrLhBZD8SYV8cJPTCRP24FWSw4f8ob7NSXWhMMtLnMU3osBnYnzIv9L
-	 46PMOSYLv4+EYud6VJ3fe/wZiZ8/XVOWnacpfdFM2Bz6mATCTlzpZzWL5gE1UrSCsnA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795603037;
+	b=n15qmTlc2OllOq9TfCvYafE3aBmaa0rB+W4zoizMuAUhL/LtIajH6vgirvlm4aoJwa2+
+	 qU9b4TXEaee45LC4/BD0wQTgs8CvghBHAqs75hor3yIIm5xv9eMnUsAa2vxbi+LQsH4Kp
+	 OgTYoaoOXczLZpxgRL294QqYFBBF/zgeh2+A5i0bqLlxUUdvjnp8Z+YU36FDtSc2v69I1
+	 0uWs1EWeyTI1ZGu5rIzk3p0ZXx1Yqr97KPS6Zd6isWklt/S1MfQSvWExZmszCe68NYAsB
+	 Sjn/lTrC+K3S0jOsqcc0bvMMD+SKOQPFqDxWnMeMwXbLVoVxGKV0dGHCXiUl/JkYoqA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795603037;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=HjjQ4RF7btdRb/yccVHLGll0ZfchmSlAwpbX+qzuMEk=;
+	b=ZKjwT7Di7lFPacJpXyTFPwBXXIYkVi7MsNI9JsZ1yr9Mvip3sTh0OSHPFSWKJ7tFunIh
+	 /6JyxE/vZUuMCWmv0PFybaEEt63AGH/H15EFpWnb+kxeM4oBFpT5YudPlXM8kfb0eySHx
+	 27LtBPbPqog2b8jlvmTplaD6ruyY6SkvyxjHhNjnbO0WrOO6ZiwUnhoWtvSkaKmwtL6k2
+	 evcVZ1X4LJTHNHIFNq7/p20qI/2+BJwrMM/Sh+ryFgyhycsjBISqt9GrDFA7qseoBzCAr
+	 FAMZi8L47W8yBh+AmRvg1EORm1FsSp/z2OEmbdzx3BsS+kJ4lxLvfGvUBuDUK21jOuQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=cnyG9anV;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A5FCA1F000C6;
-	Wed, 25 Nov 2026 10:36:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795603003;
-	bh=4Omsk3aCF2GLKrO6+1yETWUmtvbvNI+t02oC5/uK2gs=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=OyicAg7OvxFCey622RAph9RI5fpVKTraJAQ23MYwNUaTiQdW6QYHs1/SUJfsitTsQ
-	 FlixvhJkZJKT6hFJSo5J6AcBYF0pIljP8bQ9PLWx4o4YzeSbEZnhY7BpcT5UMOFI6+
-	 TP3PGt+oDdRdGw5ztjw0ZMdEUZXsqh7x6nI6bzYOCiKixPKM1+5YyHJVcSEe5WzHXX
-	 rhHMK8TweAiLlkXHOgbKX95r0GpUQcrNeAUkM6XcRIOm9/oL5jk0L52u5dXRj/0ITN
-	 /h0UKwvQsfdD+k/jADmfzT6uELq8Y2TzGMBNPSMXDqOV/I0XLvLReHgXdBGZ1pGm7d
-	 KYNAYM0eKi4Sg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 18FA64CE4C;
-	Wed, 25 Nov 2026 10:36:32 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Subject: [PATCH net-next v2 0/3] net: cortina: Add CS7542 network engine
- support
-Date: Wed, 25 Nov 2026 13:36:30 +0300
-Message-Id: <20261125-b4-cs7542-ethernet-v2-0-d0ea3c6eb375@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0254606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:37:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0254606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=cnyG9anV
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb5b8ef642so49689125e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:37:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795603035; x=1796207835; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=HjjQ4RF7btdRb/yccVHLGll0ZfchmSlAwpbX+qzuMEk=;
+        b=cnyG9anV9+tEJ8LtFELy6ZIeP9iGbpJnEWHEWD8m2xEXLjZ2r6XX6Q0L2BC6eHIuqR
+         tFOQW0MTnVfX8wGmdS8DuzmOqGl2PVJyyGl31BoQkuv9j8vdAcUmINALr2JUK92O0MEH
+         Sf/7gjxpQzAiKVvT+vBhZFSZpnMTVE5Uem5a2kQFbiw6u92BcUoKZ3NuTsdx8gvPR6NP
+         S+5+eG2VG/LU2d2vWySqhLkqmFKhfy5cJ7KSbDDwgy73WMn05lmM4Nw7k2E40KpYUYUQ
+         NWjwWU2aSwW2Rb9P317N/kRlukga4FWST7HpoByeDojD61soL/szUpUk9O8VB4CSTE11
+         OqYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795603035; x=1796207835;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HjjQ4RF7btdRb/yccVHLGll0ZfchmSlAwpbX+qzuMEk=;
+        b=GfQUG+sdsGlUNQI+oTLTAXQxI1SjGBrDaiAFyIzvUfemheGEdu2lZsj+yF7YUQCuaE
+         o+wUfIjCtSsvL9a8jzx20Yc4h5XrmHxpbjKn0evS8jHAFMPDzrsCOyDtAYWUEMLxARTT
+         Bn0aGgk/uC9B1oFhvG/6uY97L1uVtoKjJlz3jncMO/nGGkFoYZmcX54q0nTx+Hok4rgB
+         zfSx+BaN7A+NLgiJ3Ju/58H3QAKPg9lCtt/KUSlIh47o2o2d2Zf/17jtCilWeszyNniZ
+         xvO1w2C7F81gQHm+/L7HgF4lGG4u5GFVhjqAmCpRfh6fNwqtKcptDtKDREuNwG5wjJA6
+         Pimw==
+X-Forwarded-Encrypted: i=1; AL+hErENu8qIaR9Y3Lnx58syR/KX54oMy/hkNVPOjxsGHtBLjV7IVX+T5U9v6pXFViGf+w+IZiyuP+yqLcqTUa4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8w3HIdt8My5kGYkQU5po7v0RA+HqN8muvQlBwTYrG1L8gVocfP
+	UJrpDADjiWvvYN3lCfD/oKzJZ7QOtFVBdochamFFzrCMdgnK8RmfBRja9y5yBD4uUK8=
+X-Gm-Gg: AZFdTZefFvnVLHFwxjtCDZhfZqoxzmM7J+OMc+NcYQt4pTY18HK5gOaYsams1LCa7Bq
+	9qvOLMkQALwgTpF7jX1ygBWPySUQpVBZK/IDFhvY7N/hHpMdWL5Et6ib2xdNN/KqJ3fW1vmBmv4
+	dQW1KquoG6Jl8Wd6gKcfxVGbty1qZjmkzsag9hyHkRwYAH+4rR79hJPr2Uhl3CC09gMZBN9dW4Z
+	894XW2/U3AfpltSv+Av5Qo0GCHqMhKqth5eris9oG7XLprspDZUC1jOZbCEmRKY+MLK0x4UGFxo
+	KDrtqw8rwgTx5gvns0aSYt2nXFz4Nh/3aErdPfXEkQD3sWyeeGnYU3fuLZFJe6bVCZxhKa2xzM8
+	bkDo8bQrSkFOjrlvllZGaVEr6IoeQDSf4wBHudlCY2y3RxrjjOW03/7q/Qr6Loyj6YJDgou9GVr
+	fUTdThA3XzFhE873ocexRzOoZezfqCoziSviW6bA2b/pVcS7OLcjjbi9Yv0kuwGpNH/jr1z5lJw
+	zTxGSD11kuWr4xr7FjMWhZJikxwEGBlrNAKQ6uEsh94rDmU8vDpV/uRn9y2NWCKbM1phbYeGSXA
+	JmhPoicHoded14WNSQuh16edX4s=
+X-Received: by 2002:a05:600d:600b:b0:4a2:cbe:bec2 with SMTP id 5b1f17b1804b1-4bb8882375cmr360820775e9.32.1795603034960;
+        Wed, 25 Nov 2026 02:37:14 -0800 (PST)
+Received: from localhost ([82.192.120.76])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b3a7sm569732465e9.3.2026.11.25.02.37.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 02:37:14 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Wed, 25 Nov 2026 11:41:13 +0100
+To: Joshua Covington <joshuacov@gmail.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <masneyb@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] clk: rp1: reset cached rates on probe
+Message-ID: <awa7SfNvWXcItiBk@apocalypse>
+References: <20261124231751.83938-1-joshuacov@gmail.com>
+ <20261124231751.83938-4-joshuacov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,141 +104,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32QTW6EMAxGr4KybiryBwFVVe9RzSJxnCHVAG2SQ
- TMacfcGSqWuurRsv+/ZD5IwBkykrx4k4hJSmKdS8KeKwGCmM9LgSk14zRvGuKBWUkitkpxiHjB
- OmKnqgClnocUWSVn8jOjDbYe+k21gwlsmp59OutoPhLwxj9mIX9eSm48FaxJSmMcx5L6yjem8E
- RJQMt2CbTonQGltpLXeg2CAJVn7DTViSmYX7quXw1f9yqZ7gnmii6Q1FUK01tZOWKnfzqMJl+e
- S97obDiHlOd73fyxsF/rv9IUVnndWoQbuVP2HR07run4DvRG3aGABAAA=
-X-Change-ID: 20261123-b4-cs7542-ethernet-59c15dbc7e7e
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, 
- Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
- Russell King <linux@armlinux.org.uk>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795602990; l=5902;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=hzfTSEncl8+6lQFtXl+HvtjdqGsPTGMtg6pa3a7jny0=;
- b=0ioYPAfU7bBMgacGabqirz3qfnCgZP6w9zOFbJdu1Kz6Kej95t+FkeymnfMXfAz/EdfRpFL3+
- yYK4yjei4ysDY0MQsawJPbe6Bvbr62Lfl1aUGdsdkth6w2DdQOOVlh/
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Reply-To: filipp.dunsky@gmail.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124231751.83938-4-joshuacov@gmail.com>
 
-Add the CS7542 CPU network datapath with phylink for three GMACs.
-Almond+ connects two GMACs to QCA8337 CPU ports handled by DSA. Use the
-global reset controller's seven exclusive lines, including the shared
-LSO/SSP DMA block. The reset provider binds to the existing syscon.
+Hi Joshua,
 
-Apply the combined CS7542 global controls series to Linux v7.4-rc4
-first. Its clock and reset patches describe the NI, FE, TM, SCH, QM,
-DMA and NI-XRAM reset IDs. The board DTS is posted separately.
+On 23:17 Tue 24 Nov     , Joshua Covington wrote:
+> The clock descriptors are static, so their cached rates survive when
+> RP1 is unbound and bound again. The "varsrc" clocks then report the
+> rate of the previous probe, and the audio PLL and I2S clocks start with
+> stale cached values.
+> 
+> Reset the cached rates before registering the clocks, so that a second
+> probe starts from the same state as the first.
+> 
+> Fixes: 6486341721a2 ("clk: rp1: Add support for clocks provided by RP1")
+> Signed-off-by: Joshua Covington <joshuacov@gmail.com>
+> ---
+>  drivers/clk/clk-rp1.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/drivers/clk/clk-rp1.c b/drivers/clk/clk-rp1.c
+> index 1dd276dd2b..60037b19db 100644
+> --- a/drivers/clk/clk-rp1.c
+> +++ b/drivers/clk/clk-rp1.c
+> @@ -2416,6 +2416,12 @@ static int rp1_clk_probe(struct platform_device *pdev)
+>  	clockman->onecell.num = asize;
+>  	hws = clockman->onecell.hws;
+>  
+> +	for (i = 0; i < asize; i++) {
+> +		desc = clk_desc_array[i];
+> +		if (desc)
+> +			desc->cached_rate = 0;
+> +	}
+> +
+>  	for (i = 0; i < asize; i++) {
+>  		desc = clk_desc_array[i];
+>  		if (desc && desc->clk_register && desc->data)
 
-Use normal NAPI weight64 and the supported external-DDR QM/TM setup,
-with no module parameters. Preserve scatter-gather TX, multi-buffer RX,
-tracked DMA ownership and bounded initialization. Require the verified
-64 MiB no-map queue-manager reservation; NAND uses PIO and a separate
-SSP DMA consumer cannot run concurrently.
+Thanks for your patch!
 
-Attempt and check every protective assertion without rolling back
-already asserted controls. Preserve the first reset error, and retain
-all active DMA allocations if any line cannot be confirmed asserted.
-Serialize shared NI register updates and stop scheduler initialization
-on its first command failure before publishing DMA buffers.
+Reviewed-by: Andrea della Porta <andrea.porta@suse.com>
 
-Validation includes actual-source reset/cleanup/error models, shared NI
-RMW interleavings and scheduler command failures, ARM builds and binding
-examples.
-
-A separate combined Almond+ Linux v7.4-rc4 RAM kernel with private
-log-only instrumentation passed two network-engine probe/removal epochs.
-The trace checked all seven reset lines and their readbacks. Twenty-nine
-exclusive-acquisition negative tests returned -EBUSY in a private test
-module; they are intentional test warnings, not ordinary driver activity.
-The external host matched 600 UDP echoes (six payload sizes, 0..1400
-bytes) and 20 ICMPv6 replies. A distinct CPU-port scatter-gather/jumbo
-fixture completed 448 frames. These are separate trace, host functional
-and fixture observations, not a throughput or hardware-offload result.
-The composed kernel also contained PCIe/PHY and other board drivers;
-this is not a standalone provider-only hardware test. Watchdog expiry
-returned to normal firmware. Protected-region hashes and flash layout
-matched. Concurrent unrelated settings activity is excluded from any
-unchanged-settings claim.
-No checksum/NAT offload or performance capability is added.
-
-The additional MAC-deferral/unwind correction is tested separately on
-the host with actual-source fault models, not on the board. The hardware
-evidence above describes the preceding source revision; its successful
-factory-address path and packet datapath are unchanged by this error-path
-correction. Missing NVMEM now defers before registering reset cleanup;
-a late defer is returned instead of assigning a random address.
-
-Additional local review corrections are tested with focused actual-source
-fault/ownership models and ARM compilation. They have not yet been run
-on the board: count bounded RX fragments independently of delivery
-eligibility, schedule an initial masked NAPI poll on open, and retain
-completion reaping for outstanding TX while all ports are closed.
-No hardware offload capability or packet-MAC rewrite is added.
-
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
-Changes in v2:
-- Use the common parent provider and all seven exclusive reset lines;
-  remove the virtual reset child, duplicate provider and consumer hook.
-- Assert and verify every line without protective-assert rollback;
-  retain active DMA allocations on any error and deassert in reverse order.
-- Use rgmii-id in the binding example for switch-inserted RX/TX delays.
-- Remove module parameters and unused internal-buffer mode; retain the
-  previous default external-DDR initialization policy.
-- Use NAPI weight64, plain static MMIO helpers and goto-based open cleanup;
-  retain the lock-protected publication and stopping gates.
-- Serialize shared NI RMW and stop on the first scheduler command error.
-- Keep MAC preflight before hardware cleanup registration and preserve
-  a late NVMEM probe defer instead of replacing it with a random MAC.
-- Recycle bounded RX fragments also when the frame is dropped.
-- Poll already queued RX after open and retain safe closed-port TX reaping.
-- Review Sashiko 231860: existing NI/SCH/NAPI fixes address the older v1;
-  temporary BM initialization bypass clearing follows the vendor sequence.
-- Link to v1: https://lore.kernel.org/all/20261123-b4-cs7542-ethernet-v1-0-fdb5e8c2d508@gmail.com/
-
----
-Fil Dunsky (3):
-      dt-bindings: net: Add Cortina CS7542 network engine
-      net: cortina: Add CS7542 CPU network datapath
-      MAINTAINERS: Add CS7542 network engine support
-
- .../bindings/net/cortina,cs7542-ethernet.yaml      |  160 ++
- MAINTAINERS                                        |    7 +
- drivers/net/ethernet/cortina/Kconfig               |   14 +
- drivers/net/ethernet/cortina/Makefile              |    3 +
- drivers/net/ethernet/cortina/cs752x_fe.c           |  477 +++++
- drivers/net/ethernet/cortina/cs752x_ne.c           | 1869 ++++++++++++++++++++
- drivers/net/ethernet/cortina/cs752x_ne.h           |   13 +
- drivers/net/ethernet/cortina/cs752x_sch_tm.c       |  687 +++++++
- 8 files changed, 3230 insertions(+)
----
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
-change-id: 20261123-b4-cs7542-ethernet-59c15dbc7e7e
-prerequisite-message-id: <20261125-cs7542-syscon-v4-0-3337bb0d3b48@gmail.com>
-prerequisite-patch-id: a9208276c628f8741a807d0e5c5945d4bf211c8a
-prerequisite-patch-id: 65d46bb3caaa8518ee561f65d3f603ade396fff9
-prerequisite-patch-id: a0ed5fbcfa308b16eaf265371a6697ad0aea6802
-prerequisite-patch-id: bb8ffd99cb30e5a0b47881f6ba19a36329d5f4f2
-prerequisite-patch-id: 7fbe9405265ef3d1ec62811415a46c0061afd7c8
-prerequisite-patch-id: 01ece2c91e080d5cae6af81944159373776484ca
-
-Best regards,
---  
-Fil Dunsky <filipp.dunsky@gmail.com>
-
-
+> -- 
+> 2.56.0
+> 
