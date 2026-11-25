@@ -1,63 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.79.88.28
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620572;
-	b=JMNqI2a6uKNidWYRfMZp5Qb3DiHZsMWrlFeH5zVR8ob9XbYIfFvdDStI1D2A/GYNahUo
-	 iJbp6m9CvLJDlsYMYlBPSOOFMSeXiU6UDMCvP6coZoIRGlj0r/f3Aqpnq8HCkX9FXf+x7
-	 MwOBKEBEBrDafQUCTiLZH9c/dGfTTyMGszPa0YWQZzEuBlGiJYRQ9DRpDOov5JjYMVHLd
-	 HDlvEZNXXAl6qHVtMS8avIfAKjqJdwcqkiOmJ0ThXaUNhgbwDoEGuMV7CyBixPjCBsLG1
-	 WgfUPCPPfOw//Ta20SfaXfvnu8XfgUpi5HtvzKUFNNocVM1QcnWL9rsMxxHq5uSqPXg==
+	t=1795620615;
+	b=Lvv4edQ8Df1dBirGoD3EPcx5d1CSKdaA2ESjLQ3roO6uM2PNmbs0A6fGCU7Sk99z/hK8
+	 S9XebOkkU8wAYvzESDbnaPaB8kploeq2l9KB6aXPUaCoaksKqZx0uaSA0JrOkaEJUFxh+
+	 5ruRPINigovPd4dgVzJRBVnHrBdCY98C4kvSupkSAY/6d7uUZYe6jkrCVNMw4jTgBVeQX
+	 Do9OC6Qfgn6yusEHKShpJIpZmPwUJa4YvxF2PzlbAL0YNBjHbM/n05iH/1WvADxl9XnsV
+	 Q4VRtJKiv5B6RgORyEzgpmaoRBaS9ZXtBCCJ6mTQjzBEIgNApTghKAVOx0LbmyqCSaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620572;
-	h=DMARC-Filter:DKIM-Filter:DKIM-Signature:Received:From:To:Cc:Subject:
-	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=XxZNqoOP0eI7+1VsBPbwEPbuYDffz2H0UqXKKI/BgPw=;
-	b=oxq3C5AyrLOYMJCWDNSMZmKYroKFXNgad3opyKGFTeyHOLLzeVERfLRs4XCxDayJFuZe
-	 Lu8A/cUOw4uCngctm3YgPobfhsrZ0qiQJLP8dSePQNuKUKO0tfBylQOVSB7tPPWzQB7fR
-	 Q89PHFiiCNMB2eyDh3qIVsFbOYL+4A7u0s+/RXC6pQRPRkz8TjYOmwtNK1VUP0XvRMdg/
-	 Xs0IIAh7ApQkf83yh0AIyC7X5mOowZeZfq8dpM5CVsYQYqBCp+yOz4hnY9md1DxDgPHLF
-	 RF4++l/3W7gXTK6GxH7Q92wULvdlgM8jTHtqzw4f4NlaEww39iqh6pPRgpTRgs8Ak/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620615;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=YPoCqSchukPk/6/Q0GhtP4g/d4Rfs7HULyummTBWQ3o=;
+	b=bTm2BXUUOgxlmQ5QUqFuKjVVOVcsJE6yLPsbGE02OIzdHNjN/9Sjm/p/9jJ/K+xgBLcK
+	 oJrH+EJFFRpHPshb/ERspXCLktvwq3Jius9IQp7yQyaTL7XstNvUz1d1P+WdBsh2JyTP9
+	 IbhhmEwMfLIaQfcgSJ6+rPDjaH/vgtZ2laUsv3EmrbqbMbVmaNrj5EOtq1oxDyIsGhRs9
+	 Ze+pT+CKbb2hFdHAbJK4ny2WOKrvpR2lhGh09DtTbz1n6PoD+3d4NpkpK41djojustamg
+	 aWMRRdk39cfE0gqkB8YDyLxQnwzlC5ha8955fICb/4huiTiNDQhMidViwPYEkN3lYIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lwn.net;
-	spf=pass smtp.mailfrom=lwn.net;
-	dkim=pass header.d=lwn.net header.i=@lwn.net header.a=rsa-sha256 header.s=20201203 header.b=s5AwtU5x;
-	arc=none smtp.remote-ip=45.79.88.28
-Received: from ms.lwn.net (ms.lwn.net [45.79.88.28])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dkObNx2z;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED66C606A31E;
-	Wed, 25 Nov 2026 15:29:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED66C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lwn.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lwn.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC044606A327;
+	Wed, 25 Nov 2026 15:30:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lwn.net header.i=@lwn.net header.a=rsa-sha256 header.s=20201203 header.b=s5AwtU5x
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 055B7410DA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1795620571; bh=XxZNqoOP0eI7+1VsBPbwEPbuYDffz2H0UqXKKI/BgPw=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=s5AwtU5x73Gwar9DPlhMCe7VIbnZoUGTk07zmeRiQt8Za3JCufiV+mt9FfUBl3Shc
-	 5oY/bEE9G8BORr8gMrqz3HoVaA3hw0wNUQEAlkN3fTN2RIMHlhTnIgEKQ8ICATDv7P
-	 Ra76i+7WM8R6/1+i+KXAWk+tUhEgrFHKe8gl+RgqTEAv261ZmqU/TA4l2ie3mKunHo
-	 duOBJnMv4dd/MaXoZq5InfroOdwPJJKNeOfWbEJaTYHjWKmrj61lt8qXuZTKnfGgIa
-	 dKMmbgYYLOH8JTgq7V/uGH77LlemDfDPzBY5SxkZpiaJv267BFBF1DjyoP8g6LvBBp
-	 Eq8mgx/6F0Z9g==
-Received: from localhost (mdns.lwn.net [45.79.72.68])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id 055B7410DA;
-	Wed, 25 Nov 2026 15:29:28 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: Sean Lyon <sean@seanlyon.dev>
-Cc: Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Sean Lyon <sean@seanlyon.dev>
-Subject: Re: [PATCH] docs: conf.py: register sphinx_rtd_theme as an extension
-In-Reply-To: <20261119195117.32709-1-sean@seanlyon.dev>
-References: <20261119195117.32709-1-sean@seanlyon.dev>
-Date: Wed, 25 Nov 2026 08:29:20 -0700
-Message-ID: <87y0ahx73j.fsf@trenco.lwn.net>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dkObNx2z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 700DC1F000D3;
+	Wed, 25 Nov 2026 15:30:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795620615;
+	bh=YPoCqSchukPk/6/Q0GhtP4g/d4Rfs7HULyummTBWQ3o=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=dkObNx2zcPTd3f9rFQBRt5WG4mZDje4dmjArFxz5CcLHc90Gw9zeuBJF4r9hjQG4p
+	 LN4Tgq9wIOHnNZ0QzVUOcaG+s138T24qQ7ezTsZ2Yja+ut7WPFvUngm8xj0ly0Vl8Z
+	 cOQVJVTZBSsZieXaYbVBsEFDVpmJJZ/X9PGhFGQD/qUDk7/M2CpOCbwQN7MIemo2Sm
+	 TVMfpKCHVQh1PDFPNKJQ8HV4/C6SXRFzm2Z7Nu0YiSOoIu5myNjCEIitESKr8oizLc
+	 PlwaoVs8w3iOmdg78956KfMeV2c+OtJ2cuDkytTdMAeamdQgWsw6puT/OEmsVFSbY/
+	 T5XEEM0eIUBrA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 67C1A3808209;
+	Wed, 25 Nov 2026 15:30:15 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,38 +53,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net: dsa: felix: fix NULL pointer dereference in
+ felix_port_enable()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179562061426.619539.1681509079424527727.git-patchwork-notify@kernel.org>
+Date: Wed, 25 Nov 2026 15:30:14 +0000
+References: <20261119100710.129379-1-aristo.chen@canonical.com>
+In-Reply-To: <20261119100710.129379-1-aristo.chen@canonical.com>
+To: Aristo Chen <aristo.chen@canonical.com>
+Cc: vladimir.oltean@nxp.com, UNGLinuxDriver@microchip.com, andrew@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
 
-Sean Lyon <sean@seanlyon.dev> writes:
+Hello:
 
-> The sphinx_rtd_theme sidebar has collapsible sections. The theme uses
-> jQuery to add the toctree-expand buttons that control them.
->
-> Sphinx 6 stopped bundling jQuery. Since sphinx_rtd_theme 1.2.0, the
-> theme's setup() enables the sphinxcontrib-jquery extension to load it,
-> but setup() does not run when the theme is loaded through
-> html_theme_path. Without jQuery, the buttons are never added, so sidebar
-> sections cannot be collapsed.
->
-> Register sphinx_rtd_theme as an extension so its setup() runs. The
-> setup() also registers the theme, so html_theme_path is no longer
-> needed, and sphinx_rtd_theme 3.0 warns that it is deprecated.
->
-> Signed-off-by: Sean Lyon <sean@seanlyon.dev>
-> ---
-> Note for testers: with Sphinx >= 8.1, some pages (e.g. core-api/) expand
-> more than one sidebar section. This also happens without this patch. It
-> comes from documents included in multiple toctrees. Sphinx warns about
-> these documents, but the warnings are only shown with make V=1 htmldocs.
-> I'm looking into this separately and plan to send an RFC.
->
-> Tested with sphinx_rtd_theme 3.1.0 and sphinx_rtd_dark_mode 1.3.0 on
-> Sphinx 9.2.0, and on min_requirements.txt with sphinx_rtd_theme 1.3.0.
-> No new build warnings, and the get_html_theme_path deprecation warning
-> is gone.
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-Just to be clear, which versions of Sphinx have you tested this with?
+On Thu, 19 Nov 2026 10:07:10 +0000 you wrote:
+> DSA registers the user ports in dsa_tree_setup_ports() before it sets
+> conduit->dsa_ptr in dsa_tree_setup_conduit(). On teardown, it clears
+> conduit->dsa_ptr in dsa_tree_teardown_conduit() before
+> dsa_tree_teardown_ports() removes the user ports. RTNL is not held
+> across either pair of steps, so user space can open a user port while
+> conduit->dsa_ptr is NULL.
+> 
+> [...]
 
-Thanks,
+Here is the summary with links:
+  - [net] net: dsa: felix: fix NULL pointer dereference in felix_port_enable()
+    https://git.kernel.org/netdev/net/c/469b61e4be88
 
-jon
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
