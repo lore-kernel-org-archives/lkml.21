@@ -1,97 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.1
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795627349;
-	b=g3b/lR9mDWPOLA+OqcTbo575Q3fGjfctQqlkG24KvXh6NxhPRa452JdwG2wO5nxh2hpN
-	 P/LbGoLHzicnGY8Y1el6lmcsKOY8W5Umgf83mv7G5cf2OPS7G20FLULLLbtoHPkm3bJS4
-	 281SL/mrnkWouLWPDKexghAtPaiQQJktqpiqRmgyi9fUJ9F1mlcx5zsAbhJVJYncoxt28
-	 lrwOYoURd54QfW+ZnlDc0xFdS4ngKAYAJFpANnV+ixunzPnv+F19LKIgQ5iHwi8InGXrk
-	 RS9wx2Q8tQA7DXtcy7+vdHXhSzp666ssG9Ej9Z2u0enLhZw6oijIprd05mpfP2eLlnA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795627349;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=J3KgT1H07SppIzi+Y6T9x84tNDZfDlSXqVlo2UZbZxA=;
-	b=yXjzn9JBFJIL4qQk1KNfH1KK3SQnYx2XcYcko1nqJPF6FpQbMq/Ake8Jyb0DYx23Ca2w
-	 /QPTbf2zyIbUDBPdEPhha+ZK4C50J0sIgXY2aO508Nz0SBmo90YbACtSvuC6PFgWZJYSK
-	 cubjwspee2/U4rQA4uxOQX6HnGxwDN366yGiyPbKY/9pkX6i5rd8syXwtm/MQ1qS5uT4a
-	 ABNmlgdWkmbdpMZZYXA5zjAETousFJenDA0xFqKivJ3AXjv2DhfyzmPT95Ia/gGLlUBuz
-	 f5HKHy/w8RqElTufYNRdXtaALQk4RqJ9sIcK3y69hbFuOkLmagyyiG5S1aRtpVFpg/w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=e1PxPTQI;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.1
-Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013001.outbound.protection.outlook.com [40.93.201.1])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795627427;
+	b=ikYW+IPoNs+rzUtbHX++w2pYvB/SmT3bqjQG4IQMTWsxWpFfQk+1JYw8B1ojdvljlt43
+	 byJJL5M25LnZJaWr7CbTtDqn6z+IPxbu8TCKFKswgYOzP5jsKRS4R0QViXFI3BIV85VC8
+	 DQcs9mYAFP1FaxoODftUcAT7jvBupmnuxdcWsZPYJp0uyhEV58kuIDzVAWqx961EDuN1H
+	 h741Px0Omr2OWUoECvwlTvmj0mJ+93iQH9qZ/Yg2ocihqFlUiejKRrwEGUU3uyBHTYKu+
+	 qTLKsRXTW6jzVU+spfmDwstLUErddRAD6feYEN2XmKNS+lh6D5ez3Oo7B1mHa6bdIHA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795627427;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=aw3rwrSPsVLcrl9Ot0gID0+ufM4TfMctEXtb0aQaDo8=;
+	b=c/EnCKJh05gJcnHHvOZBSgAVt6HzYiMKvN60KG22170sRGNPtTh49iGxJDgOWO9GG2st
+	 cuhMMOsf66MhufUL3WRyskL5QFYt4hPS3aB/6cDegeG1kxFvuTGyoolq6NeBWuo6zZa9E
+	 Tc+/yV1blK0ZJ3qOjVjaqyegHpxFBkIQLH8zTz5UfETsOnptwTNptZAO3Js7YCkuCCO0s
+	 /dNcaSgWKTbpEb2BgOiVC8s9/ZaR2p+IYzYCuvDXTKV2S8QZ8IAfyTGbR1rEo4jBxQcSw
+	 s6ua/lg+9WPCwcVCpE3Ql+jmsAH0jCrvdsWeoJARAk6PcDx+tdFxeVyNRtlO5CDis5w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="UtCft/fq";
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=S65oxcug;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B27A606A326;
-	Wed, 25 Nov 2026 17:22:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B27A606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 788C9606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:23:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 788C9606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=e1PxPTQI
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e1xl8Bq3AnkfuaXeEm0jM7+TksEYRTlDD81EGqFGPAvZa0OHYqY4NVyR4rgQihe+t/vV9WV4pxpfdJC77dRKCPpHyZtmXUPfTlilRFIHUOMh3UQuDrirCua6MskC4sNmY6yJel9XledhJj5pvEvZRmHCTstGn0K6/y9Mu0n8/2XwMfUBtKKG+/I0NElpM8/CD99mffeK34DUM3T0K38B2baYtBZAMNrIQPBpUOKxI0IjgfKeZa9UN3uevvQK/c6HfoM4luwCvaBB+6frZonk8+lGVKoZApvEh4b+AUAhwGuEoVY/Un+AaE8FkeMM09cQgLwxMyj41CkaKHnD22HKHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=J3KgT1H07SppIzi+Y6T9x84tNDZfDlSXqVlo2UZbZxA=;
- b=QvneCo+2m1zoFuom6k+ZKuDix0QYgV0GsoLWUWTI2jsF0LWgRFfK0GBgvSjXGFmeVl1n6U5XGHON0pOvYABtH0bySNoQGhQ5EImAbFYa0ITStZiFwlbEO34vEhZqF3p0SpF5IqOLMbzhBReqkzrJet/KtWTNyOhjwu0NeTtLxDYnwa1m26rFuuuXYUFC0CC63fQ43L+PuSw5vCkHyoZ/mPz6gmwtYQCIhac2Yjucbh/y+Ev/3o3UfkuHVkL0ZMBOyLbIqStRgvKKSDGrZ1xXpREvcQNVYmvR6jO9kW+d2uLA3Nxxr/S5HOGDN7cimcPWSz4p1KGdMlAzmRvSAvsedg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=J3KgT1H07SppIzi+Y6T9x84tNDZfDlSXqVlo2UZbZxA=;
- b=e1PxPTQIUu2fG/VeQ5vtRou1cCqDzseWWzwSi7uZcXWnJk3Cemuv9D4HU14uqIK9nwIqR71SWdS1EJaZjX5C8rAN/Nt9dbcYZIfGSSxecdS8HdOkzB5tQmk5SJyFYmaNHA+hPd4CoOkvSB1LwUG5yQdB4LYxMc6mPmPTjSsycnc=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from EAYPR12MB923140.namprd12.prod.outlook.com
- (2603:10b6:303:2fd::15) by PH7PR12MB5951.namprd12.prod.outlook.com
- (2603:10b6:510:1da::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Wed, 25 Nov
- 2026 17:22:15 +0000
-Received: from EAYPR12MB923140.namprd12.prod.outlook.com
- ([fe80::b986:8b81:beda:c167]) by EAYPR12MB923140.namprd12.prod.outlook.com
- ([fe80::b986:8b81:beda:c167%4]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
- 17:22:15 +0000
-Date: Wed, 25 Nov 2026 12:22:10 -0500
-From: Yazen Ghannam <yazen.ghannam@amd.com>
-To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-Cc: linux-edac@vger.kernel.org, git@amd.com, shubhrajyoti.datta@gmail.com,
-	michal.simek@amd.com,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 12/12] EDAC/versalnet: Make get_ddr_config() return
- errors
-Message-ID: <20261125172210.GL2156781@yaz-khff2.amd.com>
-References: <20261118142213.100581-1-shubhrajyoti.datta@amd.com>
- <20261118142213.100581-13-shubhrajyoti.datta@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118142213.100581-13-shubhrajyoti.datta@amd.com>
-X-ClientProxiedBy: BN9PR03CA0437.namprd03.prod.outlook.com
- (2603:10b6:408:113::22) To EAYPR12MB923140.namprd12.prod.outlook.com
- (2603:10b6:303:2fd::15)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UtCft/fq;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=S65oxcug
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APGQNTO326835
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:23:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	aw3rwrSPsVLcrl9Ot0gID0+ufM4TfMctEXtb0aQaDo8=; b=UtCft/fqEK+XlqLE
+	a4oH3JsIqz8HZOoKxhNV/2aKy9RyaCJEWG1E3BnB2xttZ/14GsaXr4jjxaINhRlx
+	kyEWtNX3kye8bGKNvspbj0mDrmaKm9Rzh3/kSY10e4iWgudgdok9swhGTDzuID/T
+	6JN6tVDgCxPbiFCZZdEJdEnrzHB2IWBxfm55l9DXnldpUCL4k618Mxax8qmreeYl
+	7qTQaV9+7APzmZ/ZXviEEMrv/hwA/k8mexneaZB3tpJvU8aKAQVLbjOo8UpQkcO0
+	sKWQee1p6C6BlAVb5LJbjl7zzbAVzH5YElUKIX1+mlcC/wU3BaKxRpSm/eUO0xMH
+	0POelA==
+Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com [209.85.128.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5mc2c1hj-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:23:45 +0000 (GMT)
+Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-869553205a7so80814177b3.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:23:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795627425; x=1796232225; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aw3rwrSPsVLcrl9Ot0gID0+ufM4TfMctEXtb0aQaDo8=;
+        b=S65oxcugSJ2lx///pLeEp9NrvnpShuHhgHNkIoJAtU14MIzXHsEtMXNZ15XQHH9EbQ
+         NcP7YCFgn4LOWURxVKT72K2k1Dzjvy2V9Bc0hTpeZnSZ0T8HWA3YjAdUe4PcVYR+HzlP
+         YiejjAvjZaXEeCyDp0SkD60/g/0db+6dpsgVKnWSLSP581RE1REBhdOG/osxTXIVo9+H
+         dNt/LbUd2eACRdh1AtvcOjHrKNpzGmhFA9NX1UoH2xTuyCRIs3QKuFh/HqaVgXLD8g4J
+         0dmVedfbtjTJCW2Zg8Sg+GeReEYiDXf6XS42SUxrBL2PGEZqUTrMEzFSaYZxOyPyVN0N
+         bMVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795627425; x=1796232225;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aw3rwrSPsVLcrl9Ot0gID0+ufM4TfMctEXtb0aQaDo8=;
+        b=e+1m7rbQkOXF8o2Ir2zUxK242r0gXoiPR6fMg812vM4Sezb8c03OYfTiffC4icPgRo
+         nf2zVECAEN5aqjmbgjyx0w/5hYHVXB7b8Uvv2uIQ6Uzy+ytsWjYjWMZq2kwKAISl2/G2
+         G/K/sHss/AIKagGrX07duSNrSJ4/6lTGjEPPP3a3QNw6ya/E7DqRWVMr5aBlMkVX/wqG
+         mChUxvHyx3ooAYnKllDS6/QJbMfkgsAEzHqRkZMTfErXApslTw/gebIUsxuc/eUndDF/
+         rUHmT7kxkpKW/rCaDBgHZc0QWqZOdvykYeua1Ya+QOpB82RJHak+XmKUwHt3lfsAe+r4
+         p4dg==
+X-Forwarded-Encrypted: i=1; AL+hErHlPHW6fkF5P2hw4syjOuhosCk/95HUsDCRMqNhYfbVeNBzr0CtXxYcIIjWevOrwLODo5/e1ycbxXfXAXQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/egFHSOrRXkJtl08cN4ZuWkUcWxoNTj/7LTz+71pqRyxNvzZoe
+	d8d/tyBAz1obz765H6FGlVGZiiiAFYM0cUEIiX1Hi/WNWdGD0vGqTP00dDW5ukFPPYfSS9lvOWP
+	wJ/4U+xiHkfJcALxiROaGGJmGhPnbkTY+ArsyLRtWbD+l0SanW7B0GMr2SCe/iY+37dQXWM1mhK
+	XIpA==
+X-Gm-Gg: AZFdTZedWiUshrOGCoFWLSBFlR+OMwAZ8irU/VmMTXQ3zEPICaeDFIIRS/6K5ZlBjPH
+	ZvQSsj+IoFjjpUWJIF4v1RzohxBEnEp6cPnMLhjoD3fRgTa+I5gef53HJfo2MREKw0BGk0l+8/0
+	HiDt6eW55rzhkoZJs1PyrSOUlZPREMDtxEJkgF4O/1zFuzxiv9wF9U/dadWYZ2Kio9eIJoZd5Fy
+	wez7GFcOW3KUSKT5D0CoBTPdDrewmCiQoFnkgCqpAvGIC+V1Gpdjbz3GYvYXkNzsgmsjlkpHOL1
+	4QIu9Vw/pVyV/PuRGGMHd5bOl1IeCCiTtYVlEtKj8FdzjKs2gcGSCJbVSjUO61Ub/Q1GWwp3Owx
+	7LV94MWmPJxcxyFh8+xoJkPpxUDQStTKhGLPglJbqxFBLyMPQfprNubGydyQh2ypjp3/fZ3b3Sa
+	jkK6LEl6vwUEBd
+X-Received: by 2002:a05:690c:e1da:10b0:8b1:43b7:e2e0 with SMTP id 00721157ae682-8b530a71019mr43495747b3.50.1795627424700;
+        Wed, 25 Nov 2026 09:23:44 -0800 (PST)
+X-Received: by 2002:a05:690c:e1da:10b0:8b1:43b7:e2e0 with SMTP id 00721157ae682-8b530a71019mr43495597b3.50.1795627424101;
+        Wed, 25 Nov 2026 09:23:44 -0800 (PST)
+Received: from [192.168.1.31] ([85.196.172.179])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4b8e564e39asm5813780f8f.57.2026.11.25.09.23.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 09:23:43 -0800 (PST)
+Message-ID: <d56b1e2b-ff7a-4587-b45e-2607ab85861d@oss.qualcomm.com>
+Date: Wed, 25 Nov 2026 19:23:42 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,78 +117,310 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: EAYPR12MB923140:EE_|PH7PR12MB5951:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8d093244-687e-481c-9656-08df4b18a649
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|261028144727099003|261026140227099003|10067099003|4143699003|261021121427099003|11063799006|5023799004|261022105027099003|56012099006|261102123227099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	+Z56YLQxYdc89U6a8E8bb2X4pFe1FMd5VCmsUEp9ydxytTE+cX+1G23BBp8t5h39JJyulvJxdkDqdByTqTiX79FNq0PtnN2plBJmEqsBipxCKBKnEUv1NxDHz7ajPR0FUTOJPuIQp3kFFeoaL8B5Aqm9IVahnHsPtq5S3LAHhzkdYnf+X7/a7wx6I7pbXQvrda2d79s4VP/rnFdY76a63RaTjOO2xZGgB4eefvinD/whOos6k4nmF8U8G4j8HJ9aCAssOWc7JsxhEASUARMWG5bzly5T2YQqjs4TxNwF9aSLoLBqtZfaMKIkjsZ1A4qRvYfrjTP1Yt1a8lEJ+mJghPTLYcyZ3RYMcDklvZTEHbUbx3MdP8MVA6wleLVbjttYDeiZpo9eyc7YAPE1ossnuREGg7lIdwwKGSKzjIM0H7BkAUZo1wxbQgB5hT3t8PpYwppMEyAeRvcY87ZNKqH7oHQrnr7RV5xn5wl0H6dMyA9kLmDE//D9hBwqQKItlYo77pJB3jY+tJ2+fWXcU9iRWcaBlIsIplWndj2/tL5xthAfiLyFsc7TVjVApfgWD/24JZgiHyByMZ/li6vbE00mM20gLg82kLFgNDFlMrXuPJ6k3RFq4QrR17WOh09DkO+xJ4q5mvlkfYgXns1pCfFfyalr5RlgiVqiuymby+Yvxoo=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:EAYPR12MB923140.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(261028144727099003)(261026140227099003)(10067099003)(4143699003)(261021121427099003)(11063799006)(5023799004)(261022105027099003)(56012099006)(261102123227099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?k3eUPGrLuzcIIOQWCBA1oQxklvSd8WrJxO/2XOnnTWKt/giNRQCxvOi75awF?=
- =?us-ascii?Q?FRnPtBGv9JyDTAgvS7Scu8xgXuo4nsWFTbN56Jj24U4u9/y+Ci7pSi4m2Ll6?=
- =?us-ascii?Q?D/Ynum74iqZMdDs/pTyePoAGP7GsrLWBjf/6OvcqE4vvUpnA9kQspZNIwoYh?=
- =?us-ascii?Q?/SeX40im9dDPQZscdTmYBo9Ewx0AdNLDd+l9tN6yGJ0JCFYC67bHAqJLz6vt?=
- =?us-ascii?Q?UJy8qF2CV/3bw2P6bDgrW7ZDm5il9AzYMYTk674U51Z2eblkEgPxguNrb+3X?=
- =?us-ascii?Q?qkjRYq3Bj+l2cqbeHGNqvZW66qz9iUyB7MTKkdcQ6luhnaFpvD5fDpkaLE7x?=
- =?us-ascii?Q?dsguPRfSUfnWH/cyoFzTvKKk9Vcvi5J0SG6wBhIhCzaEe7UdP4lBZpJqIpOx?=
- =?us-ascii?Q?87hQHa6VTmbRfdlu/WcTnkwK5NkLJMQiTV7VCdFLVCdKaMYSFCdWnzK07oh1?=
- =?us-ascii?Q?lcmIzD1fa8ZYAnms5392k7mqmhaADhbfduEN0zZnpsvbDI6aoGH547papSoS?=
- =?us-ascii?Q?dW/kqooElmbS4r3Y8vbnmbpaC6FBWjFAfKoXUtvbUUFQ7LzmFFK2O2d7zO0C?=
- =?us-ascii?Q?EgPRK68IFoF/gLFxPlUc3KiHdiz1C+7zO6keb5cT+e/lwflf1ghwWIAwxlye?=
- =?us-ascii?Q?G1ILXi8eI0/JaglmGtq+/nZNpt/1UNf5CuRhR+ulwQUJtYkMh9pk7MisZwl8?=
- =?us-ascii?Q?7vZhRnsZT/DyQSWLAt+CiNngR33QKtArlwr7gHfJGHidnZNFfdoKmbpfLr/E?=
- =?us-ascii?Q?JN9z+ty3ICXvxWc8DmwQeT52bgB9mTqBuLbSgWANQUbm7CU42VP2MdRkp338?=
- =?us-ascii?Q?qYI14fFUDgXTTb0/cxHjEbs85f0LYqkVaBQjkh7l+qrnV72wcibvzahrC3Ms?=
- =?us-ascii?Q?2YQQTnpisHbTTKu2/OgTEap2WoAMOINqRftJOu9GTFG+geBHdJk3DMuj6mP3?=
- =?us-ascii?Q?aqodkqzVFJMLHSwmhniEt/FB7bAltKlcND9IVB+9JDekoWo5DZkKD2KdPEeA?=
- =?us-ascii?Q?AHoWppVgeqvWAzUD3dkAJ1UMOSIytzvZOeNkcl2m1qnxR1GAeJBseT+7bNEb?=
- =?us-ascii?Q?EeSjJqRltP6VAyA7vQhN/iWoWGVx4OGCu5SBQEsZVciaXPe5gHWZCFFS4nG5?=
- =?us-ascii?Q?yTNl+0bo9ZWhh01Li9sppUHxPCM4FyCCbouDxw7D9TC4jCLb59Jis1E0kJLd?=
- =?us-ascii?Q?hzLj/DD5REGXFEi/TeW4eqw01teZpMW10KUzcOsMiCb/08td76hqcDhg8GO5?=
- =?us-ascii?Q?4rTraEgHFGCrnnTr1xZsVUXM2wluaA+xLG+x27QVud/y4ZHt+gGn0gL8ziDR?=
- =?us-ascii?Q?Bq49TpXfHhWAeqv9tiZBv80dlbQ0KDz0qyvYD4d1wumR2SheR/PZKbeXAMJg?=
- =?us-ascii?Q?EbYmZhKIWvz5/1WFAUFx3ni7Q39eG1y2d7/DyXfxeyJAi27IW47OErjgJ+TH?=
- =?us-ascii?Q?JOfWxQR4iwinQuxu1V4Ay2MhsCY7TySQkJ9od7PyPMpikL5u4hX0PppwlRHE?=
- =?us-ascii?Q?AcvMKwOgapU3htTkK55DpLlyWX5+NUJ+LGJmOoO2A+BxdAT5IaAPd5yILEVV?=
- =?us-ascii?Q?WdsY8SSpni/bdh4bMR7J8iachAPmhgKpzvhHVGNiFNxLmZv9YA822HDzM5i7?=
- =?us-ascii?Q?o5XUpz3YBp7wJ40h1FOB7iZxw8S2MIrRF0z0EUfSaALTYDLADnyQzx6VWG1F?=
- =?us-ascii?Q?+AgvyRzM8WWWnS8sVZgqAYxc142BXen9VP04w0Wkh03eO9/l?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8d093244-687e-481c-9656-08df4b18a649
-X-MS-Exchange-CrossTenant-AuthSource: EAYPR12MB923140.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 17:22:15.2497
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uOrGTyLohqr1F/wasO7A8AenfXoxPTdSlz8OQoS+c5Q8Q0VnR3juKEwHz2K/RXtFXrGayzovFF8Nt7XPukgyHw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5951
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/7] media: qcom: camss: csid: Add an operation to read
+ the SOF timestamp
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org
+References: <20261125-camss-hw-ts-v2-0-24c955e43d75@oss.qualcomm.com>
+ <20261125-camss-hw-ts-v2-2-24c955e43d75@oss.qualcomm.com>
+ <8808df3f-e090-4dba-af7d-a51146290d48@oss.qualcomm.com>
+ <c5ec6619-7001-4ab4-9035-405dcaa3b739@oss.qualcomm.com>
+ <CAFEp6-2kW9-Cq9kz-T9Rdz5EKL92TW=QzcSPGBPqLNfcLeDYMg@mail.gmail.com>
+ <b962afd1-9e66-4780-a7ac-43426bca1a67@oss.qualcomm.com>
+ <CAFEp6-1Sk1rjhqsdm+-GHBESdExWr4vVX5wMcFzEpMt8zQJhsA@mail.gmail.com>
+Content-Language: en-US
+From: "Gjorgji Rosikopulos (Consultant)"
+ <gjorgji.rosikopulos@oss.qualcomm.com>
+In-Reply-To: <CAFEp6-1Sk1rjhqsdm+-GHBESdExWr4vVX5wMcFzEpMt8zQJhsA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=aPJlOr9m c=1 sm=1 tr=0 ts=6b0719a1 cx=c_pps
+ a=72HoHk1woDtn7btP4rdmlg==:117 a=Q/e3f29T3Hw2hnAEzBPF7w==:17
+ a=n8IlR8rfZ27013JM:21 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8 a=tSMG9UjVsoGyTiA_F3gA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=kA6IBgd4cpdPkAWqgNAz:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: fhfnQHZw_aaaorKkQO_bAuVg2b5cdYm6
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA2OSBTYWx0ZWRfX+aRmeRYSZFEy
+ IMpg5DnOEX1nsRzXY3Lt3kFztI7Ug+IAqUiG56WvKQCtMyOKl8CnAdgyJ52+Rt4MIxeYhbks6U9
+ XsRr+7JHiCT/7yr1Gk7VXu2RIggHqHVrnVNKKn+/HLJFbZHJTsaCVyhPG/KgJ3AlX6DUzccJVI7
+ 5g/CuNlqG3VYol0SxDPBWyKhsfKGI7jRWo2+F5Yi80zspECYTykPvFPK/Z1FU5maIELyQEAbzwb
+ l5pdPJN6PrQERQwh258b1ShzrCf2zSBFAW+Sa7Pjkpzn9SYQPMwTxMHyjiC55D8XWvxw/Ip7zSZ
+ oKlaqjd18jvHtrUuJp3gcB/Kf7IqSSx9a6/GZd3wl/GsXpCXVYjlzedaiVgzAwCXtfKavkVNw6z
+ mvOHMeatyERJ61aRZUaPalzBecq+4loMMbY9g9a853mZ9g/QpQJQnrHtguMAy5GcMGh/VuqAtyM
+ GIzmyIW9NjTBLAzVc0A==
+X-Proofpoint-ORIG-GUID: fhfnQHZw_aaaorKkQO_bAuVg2b5cdYm6
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA2OSBTYWx0ZWRfX66HHUjRsVaaX
+ 81+tg4fd3/dhZ3n+0mNp6I5aVGGrLtr/9+BXnv/Kh6tdjLV0WE1l8gdJXwYBdI51/Vh/oGCwG5y
+ JDjzRIBykKawqd1QGW8KP2XgDSnUgt8=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_04,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
+ adultscore=0 spamscore=0 clxscore=1015 malwarescore=0 bulkscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611250069
 
-On Wed, Nov 18, 2026 at 07:50:36PM +0530, Shubhrajyoti Datta wrote:
-> get_ddr_config() invokes cdx_mcdi_rpc() but ignores its return value,
-> and proceeds even if the cdx_mcdi_rpc returned errors. Also it
-> copies the data out of the response buffer without checking that
-> the firmware actually returned that much data.
+
+
+On 11/25/2026 6:21 PM, Loic Poulain wrote:
+> On Wed, Nov 25, 2026 at 4:01 PM Gjorgji Rosikopulos (Consultant)
+> <gjorgji.rosikopulos@oss.qualcomm.com> wrote:
+>>
+>>
+>>
+>> On 11/25/2026 3:18 PM, Loic Poulain wrote:
+>>> On Wed, Nov 25, 2026 at 1:06 PM Gjorgji Rosikopulos (Consultant)
+>>> <gjorgji.rosikopulos@oss.qualcomm.com> wrote:
+>>>>
+>>>>
+>>>>
+>>>> On 11/25/2026 2:04 PM, Gjorgji Rosikopulos (Consultant) wrote:
+>>>>> Hi Loic,
+>>>>>
+>>>>> On 11/25/2026 12:19 PM, Loic Poulain wrote:
+>>>>>> Modern CSID revisions latch the global timestamp counter at SOF. That
+>>>>>> counter is the ARM architected counter, so correlating it with
+>>>>>> CLOCK_MONOTONIC through ktime_get_snapshot_id() turns the latched value
+>>>>>> into the time the frame actually started, rather than the time the
+>>>>>> interrupt handler ran.
+>>>>>>
+>>>>>> Add a hardware operation returning that counter value and do the
+>>>>>> correlation in one place, leaving a CSID revision with nothing to do but
+>>>>>> read its own registers. Revisions not implementing it keep being
+>>>>>> timestamped at queue time.
+>>>>>>
+>>>>>> Suggested-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+>>>>>> Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+>>>>>> ---
+>>>>>>  drivers/media/platform/qcom/camss/camss-csid.c | 72 ++++++++++++++++++++++++++
+>>>>>>  drivers/media/platform/qcom/camss/camss-csid.h |  9 ++++
+>>>>>>  2 files changed, 81 insertions(+)
+>>>>>>
+>>>>>> diff --git a/drivers/media/platform/qcom/camss/camss-csid.c b/drivers/media/platform/qcom/camss/camss-csid.c
+>>>>>> index 588122beec854ae5b78de9997b68c7a81d4207e1..0d9b4f7dd768aeaed65d01da58b4dd8a3a425cbc 100644
+>>>>>> --- a/drivers/media/platform/qcom/camss/camss-csid.c
+>>>>>> +++ b/drivers/media/platform/qcom/camss/camss-csid.c
+>>>>>> @@ -8,14 +8,17 @@
+>>>>>>   * Copyright (C) 2015-2018 Linaro Ltd.
+>>>>>>   */
+>>>>>>  #include <linux/clk.h>
+>>>>>> +#include <linux/clocksource_ids.h>
+>>>>>>  #include <linux/completion.h>
+>>>>>>  #include <linux/interrupt.h>
+>>>>>>  #include <linux/io.h>
+>>>>>>  #include <linux/kernel.h>
+>>>>>> +#include <linux/math64.h>
+>>>>>>  #include <linux/of.h>
+>>>>>>  #include <linux/platform_device.h>
+>>>>>>  #include <linux/pm_runtime.h>
+>>>>>>  #include <linux/regulator/consumer.h>
+>>>>>> +#include <linux/timekeeping.h>
+>>>>>>  #include <media/media-entity.h>
+>>>>>>  #include <media/mipi-csi2.h>
+>>>>>>  #include <media/v4l2-device.h>
+>>>>>> @@ -37,6 +40,16 @@
+>>>>>>
+>>>>>>  #define LANE_CFG_BITWIDTH 4
+>>>>>>
+>>>>>> +/*
+>>>>>> + * The CSID latches the global timestamp counter on SOF. That counter is
+>>>>>> + * the ARM architected counter, 56 bit wide and ticking at 19.2 MHz.
+>>>>>> + */
+>>>>>> +#define CSID_TIMESTAMP_WIDTH        56
+>>>>>> +#define CSID_TIMESTAMP_MASK GENMASK_ULL(CSID_TIMESTAMP_WIDTH - 1, 0)
+>>>>>> +#define CSID_TIMESTAMP_NS_MUL       10000   /* NSEC_PER_SEC / 19.2 MHz, reduced */
+>>>>>> +#define CSID_TIMESTAMP_NS_DIV       192
+>>>>>> +#define CSID_TIMESTAMP_MAX_AGE_NS   (2 * NSEC_PER_MSEC)
+>>>>>> +
+>>>>>>  #define MSM_CSID_NAME "msm_csid"
+>>>>>>
+>>>>>>  const char * const csid_testgen_modes[] = {
+>>>>>> @@ -1370,12 +1383,71 @@ atomic_t *csid_get_sof_seq(struct media_pad *pad)
+>>>>>>      return &csid->sof_seq[pad->index - MSM_CSID_PAD_FIRST_SRC];
+>>>>>>  }
+>>>>>>
+>>>>>> +static u64 csid_timestamp_to_ns(u64 ticks)
+>>>>>> +{
+>>>>>> +    return mul_u64_u32_div(ticks, CSID_TIMESTAMP_NS_MUL, CSID_TIMESTAMP_NS_DIV);
+>>>>>> +}
+>>>>>> +
+>>>>>> +static u64 csid_timestamp_to_monotonic(struct csid_device *csid, u64 ticks)
+>>>>>> +{
+>>>>>> +    struct system_time_snapshot snap;
+>>>>>> +    u64 delta, delta_ns, now;
+>>>>>> +
+>>>>>> +    ktime_get_snapshot_id(CLOCK_MONOTONIC, &snap);
+>>>>>> +
+>>>>>> +    /*
+>>>>>> +     * Translating requires reading the counter the CSID latched from.
+>>>>>> +     * If timekeeping is driven by something else there is nothing to
+>>>>>> +     * correlate against, so let the caller fall back to IRQ time.
+>>>>>> +     */
+>>>>>> +    if (!snap.valid || snap.cs_id != CSID_ARM_ARCH_COUNTER) {
+>>>>>> +            dev_warn_once(csid->camss->dev,
+>>>>>> +                          "CSID%u: Can't use hardware timestamp, invalid clock source (%d)\n",
+>>>>>> +                          csid->id, snap.cs_id);
+>>>>>> +            return 0;
+>>>>>> +    }
+>>>>>> +
+>>>>>> +    /* How long ago, in counter ticks, the timestamp was latched */
+>>>>>> +    delta = (snap.cycles - ticks) & CSID_TIMESTAMP_MASK;
+>>>>>> +    delta_ns = csid_timestamp_to_ns(delta);
+>>>>>> +    now = ktime_to_ns(snap.systime);
+>>>>>> +
+>>>>>> +    /* Fall back rather than reporting a nonsensical timestamp */
+>>>>>> +    if (delta_ns > now) {
+>>>>>> +            dev_warn_once(csid->camss->dev,
+>>>>>> +                          "CSID%u: SOF timestamp predates CLOCK_MONOTONIC, ignoring\n",
+>>>>>> +                          csid->id);
+>>>>>> +            return 0;
+>>>>>> +    }
+>>>>>> +
+>>>>>> +    if (delta_ns > CSID_TIMESTAMP_MAX_AGE_NS)
+>>>>>> +            dev_warn_ratelimited(csid->camss->dev,
+>>>>>> +                                 "CSID%u: Too slow! SOF timestamp is %llu us old\n",
+>>>>>> +                                 csid->id, delta_ns / NSEC_PER_USEC);
+>>>>>> +
+>>>>>> +    return now - delta_ns;
+>>>>>> +}
+>>>>>> +
+>>>>>> +static u64 csid_hw_sof_ts(struct csid_device *csid, unsigned int id)
+>>>>>> +{
+>>>>>> +    const struct csid_hw_ops *hw_ops = csid->res->hw_ops;
+>>>>>> +
+>>>>>> +    if (!hw_ops->sof_ts)
+>>>>>> +            return 0;
+>>>>>> +
+>>>>>> +    return csid_timestamp_to_monotonic(csid, hw_ops->sof_ts(csid, id));
+>>>>>
+>>>>> I am not sure if we need to do this every SOF. Most probably the delta will
+>>>>> remain the same during the streaming, so I think it's best to use the delta within
+>>>>> tolerance and then apply that for the whole streaming session. Also, I think it's better
+>>>>> to have a constant delta from the monotonic clock rather than a fluctuating one.
+>>>>
+>>>> I think it will be the best to send both timestamps to userspace, and give the freedom
+>>>> to userspace to decide by him self. But the API is not allowing that as discussed.
+>>>
+>>> No, the delta is not constant. In fact, that's precisely why we use
+>>> it, it captures the variable CPU and software latencies between the
+>>> hardware event and the timestamp acquisition. By combining the
+>>> captured hardware timestamp with the current system timing
+>>> information, we can reconstruct an accurate event timestamp that
+>>> remains aligned with the Sensor/CSI timing, rather than being affected
+>>> by software scheduling and processing delays. According to my testing,
+>>> the resulting timing error is below 1 µs, from which we can derive an
+>>> accurate sensor framerate.
+>>>
+>>> --
+>>> watching /dev/v4l-subdev2 (msm_csid0), id 0
+>>> id0    478 ev   60.06 fps   16.650 ms
+>>>   events           : 478
+>>>   timestamp (mono) : 180.160315690 .. 188.102256050
+>>>   duration         : 7.942 s
+>>>   frame rate       : 60.061 fps
+>>>   frame_sequence   : 539 .. 1016 (missing: 0)
+>>>   interval (ms)    : mean 16.650  median 16.650  min 16.650  max 16.650
+>>>                      p95 16.650  p99 16.650
+>>> ---
+>>
+>> Ok i will test the changes on my side. Just for other people we have conflicting names
+>> CSID (stands from clock fw perspective to Clock Source ID, and from camss for the
+>> csi decoder). If you are sure that the for csi decoder the CSID_ARM_ARCH_COUNTER
+>> is always the clock source this will work i agree.
+>> But if that is not the case and we end up with big delta what is the idea to do
+>> that every frame. It is kind of confusing to me at least. Also i think we need
+>> to check for the other platforms if the clock source is always the same.
 > 
-> Make get_ddr_config() return an int: propagate cdx_mcdi_rpc()'s
-> return code on failure, and return -EIO if the response is shorter
-> than expected. Update mc_probe() to check the return value and bail
-> out through the existing error path on failure.
+> Yes, the camera hardware always snapshots the architecture counter. If
+> we detect that the monotonic clock is not derived from the same timer,
+> we simply fall back to the traditional IRQ timestamping path. The same
+> fallback is used if the computed delta is found to be inconsistent.
+
+If the both clocks are from same timer there are two checks:
+
+1. Big delta big delta something is completely wrong,
+   most probably the csid timestamp has some stall data.
+2. snap.cs_id != CSID_ARM_ARCH_COUNTER. If that is true do 
+   we need to check on every SOF, most probably every time
+   you will get the same result.
+
+If the error can be recovered on next SOF maybe make sense
+to enter this function. But i think in both cases most probably
+you will end up there for every SOF, which is for each pipeline.
+If all all streaming 4 times per frame.
+
 > 
-> Fixes: d5fe2fec6c40 ("EDAC: Add a driver for the AMD Versal NET DDR controller")
-> Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-> ---
+> When Linux receives the interrupt, we know:
+> - The counter value now (C_NOW)
+> - The Linux timestamp now (T_NOW)
+> - The counter value captured by hardware when the frame started (C_SOF)
+> 
+> Since the Linux monotonic clock and the camera counter both come from
+> the same hardware timer, we can convert the difference between C_NOW
+> and C_SOF into time (T()) and "rewind" from T_NOW back to the
+> **exact** frame start time:
+> 
+> T_SOF = T_NOW - T(C_NOW - C_SOF)
+> 
+> Regards,
+> Loic
+> 
+>>
+>> ~Gjorgji
+>>
+>>>
+>>> Regards,
+>>> Loic
+>>>
+>>>>
+>>>>>
+>>>>> ~Gjorgji
+>>>>>
+>>>>>> +}
+>>>>>> +
+>>>>>>  void csid_sof_event(struct csid_device *csid, unsigned int id)
+>>>>>>  {
+>>>>>> +    u64 ts = csid_hw_sof_ts(csid, id);
+>>>>>> +    struct timespec64 sof = ns_to_timespec64(ts);
+>>>>>>      struct v4l2_event event = {
+>>>>>>              .type = V4L2_EVENT_FRAME_SYNC,
+>>>>>>              .u.frame_sync.frame_sequence =
+>>>>>>                      atomic_inc_return(&csid->sof_seq[id]),
+>>>>>> +            .timestamp.tv_sec = sof.tv_sec,
+>>>>>> +            .timestamp.tv_nsec = sof.tv_nsec,
+>>>>>>      };
+>>>>>>
+>>>>>>      if (atomic_read(&csid->frame_sync_users))
+>>>>>> diff --git a/drivers/media/platform/qcom/camss/camss-csid.h b/drivers/media/platform/qcom/camss/camss-csid.h
+>>>>>> index ccafdbf3a9fe0c282da68ccdd04661b3fab81ff5..17cc3b42c8d83180d6abfcc3efe22178dcc2f2e7 100644
+>>>>>> --- a/drivers/media/platform/qcom/camss/camss-csid.h
+>>>>>> +++ b/drivers/media/platform/qcom/camss/camss-csid.h
+>>>>>> @@ -111,6 +111,15 @@ struct csid_hw_ops {
+>>>>>>       */
+>>>>>>      int (*reset)(struct csid_device *csid);
+>>>>>>
+>>>>>> +    /*
+>>>>>> +     * sof_ts - Read the counter value the hardware latched at SOF
+>>>>>> +     * @csid: CSID device
+>>>>>> +     * @id: CSID src-stream ID
+>>>>>> +     *
+>>>>>> +     * Return the raw counter value of the most recent SOF
+>>>>>> +     */
+>>>>>> +    u64 (*sof_ts)(struct csid_device *csid, unsigned int id);
+>>>>>> +
+>>>>>>      /*
+>>>>>>       * src_pad_code - Pick an output/src format based on the input/sink format
+>>>>>>       * @csid: CSID device
+>>>>>>
+>>>>>
+>>>>
+>>
 
-Fixes should generally go first in a series. Any reason to leave this
-until the end?
-
-Thanks,
-Yazen
