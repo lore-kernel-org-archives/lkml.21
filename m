@@ -1,77 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.22
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795647957;
-	b=RF32lPFHJyHulzQ4NhbVooRmsuqOuUFamTNkRqXgGCIFpB3N5/ge8hfCLv/rYFkSdcVs
-	 82cxfruJ4cYDllL2wv17OTf5M9lMj64Rh5F2cxvHCMpBeDwMOMu0At3XUVvExWmMhFEER
-	 GmqkygKruQnKh9qoOjGg6hF+iBfYoKF+jUnLfmV7/Y3RxOOEi5WDjtFx65BnjxU4dj+8m
-	 kNj5QXpaEbUKGB8ajDEdKHq6ftxBzC12t/C4Pg5tDTeJU6BunHULLichg2Yq3JgJBF+5K
-	 +/psYf7JHtr4ZNs6k1ZdXaSEn45moi5YXLULpTcF2Cy0UalwwbjCrCoEPkdbJOxCvhw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795647957;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=vyG+QP7aVJceCbCL6IsryBR6S53JsWgTGZFEzxwGdhQ=;
-	b=RZYXWwXYAnwf1z5otGzSmO+Z/kOsOI9/TBMAVH87oSusaigV9PSG2lcMGqO5BE1vdAaM
-	 H3SxlW+4qaIpRzAcOpXURtpV931neLz4dgYQ6T0RyDCTOQruxYriO4nBhwRjMmfTx3YKH
-	 M4l6oospACrxMk9r/P2GlZFfOjnnyptWhWdB9ilr9WxE4JWOE9UsqZSjTPs3JoqKIjRlK
-	 e6vhxJqs9mSXZCOOoDnXmU6LwBh9O5XRcB8DvZqhNwqqq6a0aYjASd2qyw2CFEzu8At3z
-	 sgdDhQKzP0tLZ53JiRljdwUXkexrmqUgxgAzYmaRShLJrxB7kXd8Prqp+oNjuCAdGrA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.com;
-	spf=pass smtp.mailfrom=gmx.com;
-	dkim=pass header.d=gmx.com header.i=quwenruo.btrfs@gmx.com header.a=rsa-sha256 header.s=s31663417 header.b=Nk5vWfee;
-	arc=none smtp.remote-ip=212.227.17.22
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.22])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795647996;
+	b=E6V7ZufsfDLdYgPyOpXuQq7i0V3+jnEZuSTTGhfVXnhpDiL25gE79riJ3/MT2qfSY4+L
+	 77/JP2NZrhP6532FIBxTbi7GqQb3C4/hLJPkiioOyw+seDs8ZuMEH4CQmYbfaI8eCaLlw
+	 zj8DvddeuXNT9jKrdTmD0o51mUeYVRxJklct1zNQXZ+oKgBndw6pnh7b5TOrpMNjmZvNd
+	 fNNjGnQX/a4sW+9pBHIxyzSGpENojBxEFbG20Zfhxnl/sFqQQYgOT1bgA8TT3rl/I1ie3
+	 vLiuUzRxE2aT99M/pVeN8RTwGiHfPdB/hdmpVi/dbpI8Kf+ti5HqdUhsGfSmEBU4Gqw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795647996;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=MCU1hyXnqlzSyru55X8RjiRxlqURXvrM/c8OHkhnVlE=;
+	b=gA80ndeaRLEfrazxVB9l2ovyy4SvqTgIZpXUErg75XBhJ0dTKaKdGMhcQGrbVaVoE+xZ
+	 2i2Z6NP3TTSx726d0PjWFyaR13kgk+brun8ilhUvQOlBAJbTQeeA6bLNqrTAds/mQB3/R
+	 xGIJQxysUPG/kozf6k/WSIm/GCheO3YwohDIemqUGUzViRkFkODmMQZUjL5y7YXFQFbZZ
+	 Mx/05YeE+M9QCt3j2VD+wfL56472ueqDmO4MpIz3iuUYCGSBvjprXLmhk1Hpq+yUd/ztN
+	 HwzdrI1C/VGJDtfuZ6SZM4ibR0wySsJPNU8VbbFm+qjgLLRCqaRw9IBmp5hwN0/fqEA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HVm3rNos;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F291606A32E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:05:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F291606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1368606A31E;
+	Wed, 25 Nov 2026 23:06:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.com header.i=quwenruo.btrfs@gmx.com header.a=rsa-sha256 header.s=s31663417 header.b=Nk5vWfee
-DKIM2-Signature:  i=1; m=1; t=1795647954;
- mf=PHF1d2VucnVvLmJ0cmZzQGdteC5jb20+;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.com;
- s=s31663417:rsa-sha256:ewPU5erQK1AeQmDz+ZNzGYkyffX5
-   FoT2TuncKfOdBGLiVSPK5zMbdhH4BAY4BRuUEt4AfBhsY27zpV03SG8R/diOiywwC7KEHdwTd8+
-   aeDTrYy+FDlHbX38ZySU5KrSMLKsBKEyG/K8Vg8rSroj/vyEiEDToZAVXvw1IajBQAdJmNamM1R
-   lrxtY5MjMMasjcFurWlKWN+QM52qOVYC2fopEkOTA8WrKSC8S4JVUvHufWpi5i4Z/BJlzCkWoVR
-   Ibp6Iy4khmcALvnAEfhsVrbKGit2+iOkJbfpZpY3pqniMQ8kSixC7nfbpG7OMqbhlus5FpmqMl6
-   APgqJdPt+KxCAA==;
-Message-Instance:  m=1;
- h=sha256:
-   /P4WST+u9tbK2xNxONOcirDeZCil39khRVx6fxZEqzA=:
-   SGFsC0Cfl3xN49iQENFQE0/azrxjJdZ7Hiy9+T2fmyc=,
-  sha512:
-   GoIi8rRskVPAhzYq3tUmTHq+578k7LYEecxMgriF1oXIAu6H8oRJbJSzSYafvwCXKFo74YlWkOLD/a8Ys3khgQ==:
-   7JgAz5A3Fuv7d8UPwcFq4REdGtg/zU3XR6sb1egJQ+CruY/Fk8kl00ukWXEip9b4SU98zbwScyW2hOctKDZy+Q==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.com;
-	s=s31663417; t=1795647940; x=1796252740; i=quwenruo.btrfs@gmx.com;
-	bh=vyG+QP7aVJceCbCL6IsryBR6S53JsWgTGZFEzxwGdhQ=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=Nk5vWfee/tGL90H7RjATHuqHWWWT5PEgVIZ1NgilMvSuKP35lpKTuP2wdywOj2Bt
-	 g56Pk49AkweqvnkaLst1Fx0/Ql5u+Wc+jaIlQFppXgBbs8P8kLXJllHb+NROTbC87
-	 AEZkWyNiRwr5yLZT0iuMgezISwToBI+OyoiPdvb7M48wdkiMIxW/U5Q6EU2lp4Rye
-	 fqO3kKPwNz5hLw09Z9tfjfsc13oNd83QbP1BLq4KYLxZ5lw3p/6Vt/26crKZXBe4o
-	 SzpGj5ooRWswCipIJ/uHheVWaI15IilRu6MHrNzMZ8tZyOsv8s+IpSD5rq5DliUIp
-	 SoJaBIqDxwK7A27ezg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
- [212.227.17.174]) with ESMTPSA (Nemesis) id 1MvsEx-1yLIeK3Ntn-010hqq; Thu, 26
- Nov 2026 00:05:40 +0100
-Message-ID: <271c5680-958f-48d0-ba17-f07e8a41f262@gmx.com>
-Date: Thu, 26 Nov 2026 09:35:34 +1030
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HVm3rNos
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795647995;
+	b=dvQqKTr70kvT560uzgp+UgPRIDTtNwFKkrOgamXxYj3yGWChb1vaCG6i+hJEwdfwc1X1
+	 r6nn+oH/HHzGZQCL2rGafpvTm05KodLH9ELCXlkKqQibv9vdZyApUy2a0jbISLL2+Rk6p
+	 qIVInwSjKzD7LDTPqZUO7eKsCIDIQg6TkXleiQm6e8/ybBBIHXK2M0y4/hNrKALtJ50Hv
+	 XC/VsasfulEftwn/SUaBe4pl7N7oVUuRPnmIs2sHXxaEk8qXmY3FOVrGl9ZgOpzzcw9Q3
+	 WocDm3CLODJXScfh8OcNsb++B0Xxliyqc5udbUmzGxhxzvLC1f9hdtiLEOipRx1gKNA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795647995;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=MCU1hyXnqlzSyru55X8RjiRxlqURXvrM/c8OHkhnVlE=;
+	b=akRPPWrE14yf+QVoRJCs+3LInl4/dgdhYApRorjNlREeFICnJSdzpEPiV4zVAIFMEoIY
+	 bljtNlQWFml6ii2VBJ5CzyGo+TJZXDS+ClXdEPrrwVu2aapfxgE9MAk46Vz020dMKcytN
+	 7ISJYsrHXycV/7FiRmlg8LoyNYm3JBQA9+GyTIRalcEaNNPhZkk2ABBYJKxAl7JeCQpK1
+	 RsltFM4Hc6XkvPKNsKiwdjSiqQoovw4YXdGECiu7Pr+z3K9sk+xPPqhvbk6VMIOKzbBR3
+	 oHBcpyFDxPNB4HMbO86W6/2Nk7g0bNxf9KOso9PoSaxJN1Go8sCDqsyMXnAmQjH0coA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 8AAD81F000C6;
+	Wed, 25 Nov 2026 23:06:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795647995;
+	bh=MCU1hyXnqlzSyru55X8RjiRxlqURXvrM/c8OHkhnVlE=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=HVm3rNosm+24Rma3HTP/pxUgMAAaxgpww14fGxWms2JjU5ps7luvFSkLkfj1ufG2o
+	 dXb+Y+X/WjhFYhaODJ2HmrMDf2HqNkvdt5ut5H8hFl8k4xKw7XuXG64ZmlQa39O9kF
+	 3Jz9s6G5N8gltxzyXT41SSXRWEHOSnG9ufEV1kw+wpOgrwDNcLkBO+xmrIxcNdMbYD
+	 imONC2nVwFCHmrSuC8Hsetw4LVhT1Y5Dp/3yMW40CHFOkugkyLSQNo+MnqS/+GwtdQ
+	 7rClv2gOAvqnxig9zsYolmVJNpC80NHGqejmP2yLyqMhwnQeaKFo2CtbzhOYgm040T
+	 3VSpPsjZ1ME8g==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id DA70C4D0A1;
+	Wed, 25 Nov 2026 23:06:30 +0000 (UTC)
+From: Alexis Calin via B4 Relay <devnull+alexiscalin.protonmail.com@kernel.org>
+Date: Thu, 26 Nov 2026 00:06:12 +0100
+Subject: [PATCH] platform/x86: panasonic-laptop: Support the hardware
+ wireless switch
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,216 +83,324 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] btrfs: tree-checker: verify tree_block_info bounds in
- check_extent_item()
-To: Elkin Cruz <elkin@google.com>, David Sterba <dsterba@suse.com>
-Cc: Chris Mason <mason@kernel.org>, linux-btrfs@vger.kernel.org,
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev, irogers@google.com,
- stable@vger.kernel.org
-References: <20261125221849.1424464-1-elkin@google.com>
-Content-Language: en-US
-From: Qu Wenruo <quwenruo.btrfs@gmx.com>
-Autocrypt: addr=quwenruo.btrfs@gmx.com; keydata=
- xsBNBFnVga8BCACyhFP3ExcTIuB73jDIBA/vSoYcTyysFQzPvez64TUSCv1SgXEByR7fju3o
- 8RfaWuHCnkkea5luuTZMqfgTXrun2dqNVYDNOV6RIVrc4YuG20yhC1epnV55fJCThqij0MRL
- 1NxPKXIlEdHvN0Kov3CtWA+R1iNN0RCeVun7rmOrrjBK573aWC5sgP7YsBOLK79H3tmUtz6b
- 9Imuj0ZyEsa76Xg9PX9Hn2myKj1hfWGS+5og9Va4hrwQC8ipjXik6NKR5GDV+hOZkktU81G5
- gkQtGB9jOAYRs86QG/b7PtIlbd3+pppT0gaS+wvwMs8cuNG+Pu6KO1oC4jgdseFLu7NpABEB
- AAHNIlF1IFdlbnJ1byA8cXV3ZW5ydW8uYnRyZnNAZ214LmNvbT7CwJQEEwEIAD4CGwMFCwkI
- BwIGFQgJCgsCBBYCAwECHgECF4AWIQQt33LlpaVbqJ2qQuHCPZHzoSX+qAUCat7o8gUJFKS8
- OQAKCRDCPZHzoSX+qAogB/9C5ErH7KGAGpcLPte3Wcfdt3acCkGAuMpCjqOt8BVw30mX0kmF
- SRo2nODjz8YsYhWR1T8L3ylANAS/IGIJ64idBmObaqGHQn845nXLIvG33LqMsAGXmOJdRgTT
- BnBA+QFCEIZpo7L9Qt1dOQdHSpHT31Ta1kKsbDm582KPVBl6KRcJJBnjudIerOA1/L/zEyDa
- YjIfHIcvuM3Xm8AS00iBpsmc151QgCPljqnSRXBiup9C1oMgVlaROhY1iDam4UIQB6glkHQs
- LZhUmFDNimX5LxfOzi2pFJSjJvPclRZVX7Sq6XhK/OFb6IvswN7i0nUYZMQfuGDNqGn70ic3
- AQImzsBNBFnVga8BCACqU+th4Esy/c8BnvliFAjAfpzhI1wH76FD1MJPmAhA3DnX5JDORcga
- CbPEwhLj1xlwTgpeT+QfDmGJ5B5BlrrQFZVE1fChEjiJvyiSAO4yQPkrPVYTI7Xj34FnscPj
- /IrRUUka68MlHxPtFnAHr25VIuOS41lmYKYNwPNLRz9Ik6DmeTG3WJO2BQRNvXA0pXrJH1fN
- GSsRb+pKEKHKtL1803x71zQxCwLh+zLP1iXHVM5j8gX9zqupigQR/Cel2XPS44zWcDW8r7B0
- q1eW4Jrv0x19p4P923voqn+joIAostyNTUjCeSrUdKth9jcdlam9X2DziA/DHDFfS5eq4fEv
- ABEBAAHCwHwEGAEIACYCGwwWIQQt33LlpaVbqJ2qQuHCPZHzoSX+qAUCat7pCgUJFMw7KQAK
- CRDCPZHzoSX+qEjbB/9crFFjips2NKxkt2XUutUIKjBoUlg/xCeFIj8PsTuJePhrV9HzgKsa
- rJgSqo3t78oQWmeaP9WPoDYjfhOkQXEs+G9UwHe/LENm70+Q1jrwY3nlcR3YrkDCJ+EvMZOW
- ackgcOYn46Iri9DN91FbSTszPMnwHi/nf0aeJXicO9krrY5C8mUxv4CSKeKSRg/5BR59uDiy
- 9CMRHDtIDnpDWaLOXtUeowCdiC5O/jA571PMFx3Aolc7g4SSyNbYodblCBOdJrh0CVm2LlQW
- 3SXrvFpSAw7LMVDgsS8pTRt4A11eTIS7mz0zqafTohXP1wt+575IBHK5ZpThQb+PzSQmxAqa
-In-Reply-To: <20261125221849.1424464-1-elkin@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:wylhbFNh9luowl9gkTJ0PFI3Eo3M3jaZo9XOytK1y7HL2r0aMar
- 7BVw8NKgo68sLPw2PMFiOPgYG3wWZhEqRVePbZdYDq6pjsBPGrA6qxbENN42hSSYe5mp0R8
- mH8jHT0MgmeKdNDQWJ4e/PPVDreoiAGHfy3J/UP1+ik0DT/o96Q6lfS2QyWEJ99Yf+OVEdG
- +jfFRCgMIsaEsGH6+HBGw==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:G6s6J3dLnzg=;vgb1aM140e78KM8b6VJgZpDsEWk
- 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
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261126-panasonic-wireless-switch-v1-1-97f4e3a207da@protonmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MWwqDMBAF0K0M99sBk1If2Yr0I00ndUCiZKQWx
+ L0XehZwTphUFUOgE1U+aroWBHINIc2xvIX1hUDwre+c83feYom2Fk18aJVFzNgO3dPMQ+zG/pb
+ 7/BwEDWGrkvX7v6fHdf0AQFGnEmsAAAA=
+X-Change-ID: 20261125-panasonic-wireless-switch-8a6973f7fb8e
+To: Hans de Goede <hansg@kernel.org>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Kenneth Chan <kenneth.t.chan@gmail.com>
+Cc: Alex Yeo <alexyeo362@gmail.com>, platform-driver-x86@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Alexis Calin <alexiscalin@protonmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795647990; l=10330;
+ i=alexiscalin@protonmail.com; s=20261114; h=from:subject:message-id;
+ bh=cpAQygnhRQC+zvGun1GukJAWmpC+SrBXmDzkX7bdkVc=;
+ b=mAqfCFNP0Gw3eOpN7pzwsUMNIUKNhbfqx7rRgUirdxk3vmlFgdrRJSRUeX0mD0VXd4Ds6aNMA
+ 123GOROxdjmAnrF1wV2nsLLkQH85mExOlRzk9f5N4nQwn4dkU6k7Q4Z
+X-Developer-Key: i=alexiscalin@protonmail.com; a=ed25519;
+ pk=oNYBG1X8+3bGmJMn0tnt+BbJC1vI7dgqomx4pGPM+4c=
+X-Endpoint-Received: by B4 Relay for alexiscalin@protonmail.com/20261114
+ with auth_id=1528
+X-Original-From: Alexis Calin <alexiscalin@protonmail.com>
+Reply-To: alexiscalin@protonmail.com
+Content-Transfer-Encoding: 7bit
 
+From: Alexis Calin <alexiscalin@protonmail.com>
 
+The Let's Note CF-SV7 has a hardware wireless switch and an ACPI device
+MAT0028 ("WLSW"). When the switch is flipped, the firmware queues hotkey
+index 0x50 on the HKEY device, which this driver reports as "Unknown
+hotkey event: 0x0050". If a driver for MAT0028 is loaded, the vendor
+ASL notifies that device instead; no such driver exists in Linux. The
+firmware itself cuts Bluetooth but leaves Wi-Fi on, so under Linux the
+switch only turns Bluetooth off.
 
-=E5=9C=A8 2026/11/26 08:48, Elkin Cruz =E5=86=99=E9=81=93:
-> check_extent_item() only verifies item_size >=3D sizeof(*ei) before
-> reading struct btrfs_tree_block_info on non-skinny tree block extent
-> items (BTRFS_EXTENT_ITEM_KEY with BTRFS_EXTENT_FLAG_TREE_BLOCK). A
-> crafted filesystem image with 24 <=3D item_size < 42 causes
-> btrfs_tree_block_level() to read past the item and potentially past the
-> extent buffer's populated folios.
->=20
-> Verify item_size >=3D sizeof(*ei) + sizeof(*info) before accessing
-> btrfs_tree_block_info.
->=20
-> Fixes: f82d1c7ca8ae ("btrfs: tree-checker: Add EXTENT_ITEM and METADATA_=
-ITEM check")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Elkin Cruz <elkin@google.com>
+The switch position is available as SINF[0x0B]: the firmware returns
+0xC0 when the radios are enabled and 0x80 when they are disabled (vendor
+HKEY.SGET(0x0B), from an EC status bit). Bit 7 is used as a check that
+the entry is a wireless switch, bit 6 as its position.
 
-The check overall looks good to me, but still a minor nitpick inliend belo=
-w.
+When MAT0028 is present and SINF[0x0B] has bit 7 set:
+- register a read-only rfkill device whose hard block follows the
+  switch, as dell-rbtn does for its slider; NetworkManager and GNOME,
+  which take over rfkill handling from rfkill-input, honour it;
+- report SW_RFKILL_ALL on the hotkey input device, for systems that
+  rely on rfkill-input.
+Both are updated at probe, on each 0x50 event and after resume.
 
-> ---
->=20
-> I am trying out new Clang static analysis checks for kernel bug
-> classes, and they flagged this code as possibly buggy. The findings
-> were triaged/fixed and commit descriptions were drafted with help of AI,
-> then checked against linux-next (not runtime-tested on hardware).
->=20
-> Thanks,
-> Elkin
->=20
->   fs/btrfs/tree-checker.c | 7 +++++++
->   1 file changed, 7 insertions(+)
->=20
-> diff --git a/fs/btrfs/tree-checker.c b/fs/btrfs/tree-checker.c
-> index d2bf21c7b848..a38eeef7b859 100644
-> --- a/fs/btrfs/tree-checker.c
-> +++ b/fs/btrfs/tree-checker.c
-> @@ -1665,6 +1665,13 @@ static int check_extent_item(struct extent_buffer=
- *leaf,
->   	if (is_tree_block && key->type !=3D BTRFS_METADATA_ITEM_KEY) {
->   		struct btrfs_tree_block_info *info;
->  =20
-> +		if (unlikely(item_size < sizeof(*ei) + sizeof(*info))) {
+SINF is now read before the input device is registered, because the
+switch capability depends on it.
 
-I won't call this easy to read, nor following the common pattern used late=
-r.
+Tested on a CF-SV7 (BIOS V3.00L14) only, with this change backported to
+Debian's 6.12.118: with GNOME and NetworkManager, Wi-Fi is disabled
+while the switch is off and reconnects after it is switched back on,
+and evtest shows SW_RFKILL_ALL following the switch.
 
-I'd prefer the more common (ptr + sizeof() > end) check instead.
+Assisted-by: LLM
+Signed-off-by: Alexis Calin <alexiscalin@protonmail.com>
+---
+Notes beyond the changelog:
 
-Thanks,
-Qu
+A first version reported only SW_RFKILL_ALL. It had no effect on Wi-Fi
+under GNOME, because gsd-rfkill disables rfkill-input and does not act on
+the switch event; hence the rfkill hard block, as in dell-rbtn.
 
-> +			extent_err(leaf, slot,
-> +				   "invalid item size, have %u expect [%zu, %u)",
-> +				   item_size, sizeof(*ei) + sizeof(*info),
-> +				   BTRFS_LEAF_DATA_SIZE(fs_info));
-> +			return -EUCLEAN;
-> +		}
->   		info =3D (struct btrfs_tree_block_info *)ptr;
->   		if (unlikely(btrfs_tree_block_level(leaf, info) >=3D BTRFS_MAX_LEVEL=
-)) {
->   			extent_err(leaf, slot,
+The meaning of SINF[0x0B] comes from the CF-SV7 DSDT (HKEY.SGET(0x0B),
+WLSW/MAT0028). I checked that the EC status bit behind it (EC RAM 0xA6
+bit 0, read with ec_sys) follows the switch, and that the driver, loaded
+while the switch is off, starts with the rfkill device hard-blocked.
+
+Built with W=1, with CONFIG_RFKILL=y and =n, on platform-drivers-x86
+for-next. Not checked with sparse. checkpatch flags the Assisted-by
+trailer as a non-standard signature.
+
+The code and the changelog were drafted with an LLM coding assistant,
+which also did the DSDT and firmware analysis behind them. I reviewed
+the change and ran the tests on my machine.
+
+Alex, Cc'ing you since you have several Let's Note models: if any of
+them has a MAT0028 device, a test there would be very welcome. This is
+independent of your pending platform_profile RFC, but both touch probe.
+---
+ drivers/platform/x86/Kconfig            |   1 +
+ drivers/platform/x86/panasonic-laptop.c | 126 ++++++++++++++++++++++++++++++--
+ 2 files changed, 122 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
+index 78e39cafea91..6ee410f4d490 100644
+--- a/drivers/platform/x86/Kconfig
++++ b/drivers/platform/x86/Kconfig
+@@ -677,6 +677,7 @@ config PANASONIC_LAPTOP
+ 	depends on BACKLIGHT_CLASS_DEVICE
+ 	depends on ACPI_VIDEO=n || ACPI_VIDEO
+ 	depends on SERIO_I8042 || SERIO_I8042 = n
++	depends on RFKILL || RFKILL = n
+ 	select INPUT_SPARSEKMAP
+ 	help
+ 	  This driver adds support for access to backlight control and hotkeys
+diff --git a/drivers/platform/x86/panasonic-laptop.c b/drivers/platform/x86/panasonic-laptop.c
+index ef2ada1ba627..6d24dc0f8363 100644
+--- a/drivers/platform/x86/panasonic-laptop.c
++++ b/drivers/platform/x86/panasonic-laptop.c
+@@ -132,6 +132,7 @@
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
++#include <linux/rfkill.h>
+ #include <linux/seq_file.h>
+ #include <linux/serio.h>
+ #include <linux/slab.h>
+@@ -157,6 +158,15 @@ MODULE_LICENSE("GPL");
+ #define METHOD_HKEY_SSET	"SSET"
+ #define METHOD_ECWR		"\\_SB.ECWR"
+ #define HKEY_NOTIFY		0x80
++/*
++ * Hardware wireless switch (Let's Note models with a MAT0028 "WLSW" device,
++ * e.g. CF-SV7). Each flip queues hotkey index 0x50 and SINF[SINF_WIRELESS_SW]
++ * reports the position: bit 7 = switch present, bit 6 = radios on.
++ */
++#define PCC_WIRELESS_SW_HID	"MAT0028"
++#define PCC_WIRELESS_SW_KEY	0x50
++#define PCC_WIRELESS_SW_PRESENT	BIT(7)
++#define PCC_WIRELESS_SW_ON	BIT(6)
+ #define ECO_MODE_OFF		0x00
+ #define ECO_MODE_ON		0x80
+ 
+@@ -178,6 +188,7 @@ enum SINF_BITS { SINF_NUM_BATTERIES = 0,
+ 		 SINF_MUTE,
+ 		 SINF_RESERVED,
+ 		 SINF_ECO_MODE = 0x0A,
++		 SINF_WIRELESS_SW = 0x0B,
+ 		 SINF_CUR_BRIGHT = 0x0D,
+ 		 SINF_STICKY_KEY = 0x80,
+ 	};
+@@ -247,6 +258,8 @@ struct pcc_acpi {
+ 	int			ac_brightness;
+ 	int			dc_brightness;
+ 	int			current_brightness;
++	bool			has_wireless_sw;
++	struct rfkill		*wireless_sw_rfkill;
+ 	struct acpi_device	*device;
+ 	struct input_dev	*input_dev;
+ 	struct backlight_device	*backlight;
+@@ -838,6 +851,85 @@ static const struct attribute_group pcc_attr_group = {
+ 
+ /* hotkey input device driver */
+ 
++/* Returns 1 if the switch enables the radios, 0 if not, -errno on error. */
++static int acpi_pcc_wireless_sw_on(struct pcc_acpi *pcc)
++{
++	if (!acpi_pcc_retrieve_biosdata(pcc))
++		return -EIO;
++
++	return !!(pcc->sinf[SINF_WIRELESS_SW] & PCC_WIRELESS_SW_ON);
++}
++
++/*
++ * Report the switch position as the rfkill master switch (for rfkill-input)
++ * and as the hard block of a read-only rfkill device (for userspace that
++ * takes over rfkill handling, such as NetworkManager and GNOME). On the
++ * CF-SV7 the firmware does not cut the Wi-Fi radio itself.
++ */
++static void acpi_pcc_report_wireless_sw(struct pcc_acpi *pcc)
++{
++	int on;
++
++	if (!pcc->has_wireless_sw)
++		return;
++
++	on = acpi_pcc_wireless_sw_on(pcc);
++	if (on < 0)
++		return;
++
++	if (pcc->wireless_sw_rfkill)
++		rfkill_set_hw_state(pcc->wireless_sw_rfkill, !on);
++
++	input_report_switch(pcc->input_dev, SW_RFKILL_ALL, on);
++	input_sync(pcc->input_dev);
++}
++
++static int acpi_pcc_wireless_sw_set_block(void *data, bool blocked)
++{
++	/* the switch is read-only, it has no soft block */
++	return -EINVAL;
++}
++
++static const struct rfkill_ops acpi_pcc_wireless_sw_ops = {
++	.set_block = acpi_pcc_wireless_sw_set_block,
++};
++
++static void acpi_pcc_wireless_sw_rfkill_init(struct pcc_acpi *pcc)
++{
++	struct rfkill *rfkill;
++
++	if (!pcc->has_wireless_sw)
++		return;
++
++	/* the switch acts on all radios; rfkill has no "any" type, use WLAN */
++	rfkill = rfkill_alloc("panasonic-wireless-sw", &pcc->device->dev,
++			      RFKILL_TYPE_WLAN, &acpi_pcc_wireless_sw_ops, pcc);
++	if (IS_ERR_OR_NULL(rfkill))
++		return;
++
++	/* pcc->sinf was just read by probe */
++	rfkill_set_hw_state(rfkill,
++			    !(pcc->sinf[SINF_WIRELESS_SW] & PCC_WIRELESS_SW_ON));
++
++	if (rfkill_register(rfkill)) {
++		pr_warn("Couldn't register the wireless switch rfkill device\n");
++		rfkill_destroy(rfkill);
++		return;
++	}
++
++	pcc->wireless_sw_rfkill = rfkill;
++}
++
++static void acpi_pcc_wireless_sw_rfkill_exit(struct pcc_acpi *pcc)
++{
++	if (!pcc->wireless_sw_rfkill)
++		return;
++
++	rfkill_unregister(pcc->wireless_sw_rfkill);
++	rfkill_destroy(pcc->wireless_sw_rfkill);
++	pcc->wireless_sw_rfkill = NULL;
++}
++
+ static int sleep_keydown_seen;
+ static void acpi_pcc_generate_keyinput(struct pcc_acpi *pcc)
+ {
+@@ -857,6 +949,11 @@ static void acpi_pcc_generate_keyinput(struct pcc_acpi *pcc)
+ 	key = result & GENMASK(6, 0);
+ 	updown = result & BIT(7); /* 0x80 == key down; 0x00 = key up */
+ 
++	if (key == PCC_WIRELESS_SW_KEY && pcc->has_wireless_sw) {
++		acpi_pcc_report_wireless_sw(pcc);
++		return;
++	}
++
+ 	/* hack: some firmware sends no key down for sleep / hibernate */
+ 	if (key == 7 || key == 10) {
+ 		if (updown)
+@@ -965,6 +1062,9 @@ static int acpi_pcc_init_input(struct pcc_acpi *pcc)
+ 		goto err_free_dev;
+ 	}
+ 
++	if (pcc->has_wireless_sw)
++		input_set_capability(input_dev, EV_SW, SW_RFKILL_ALL);
++
+ 	error = input_register_device(input_dev);
+ 	if (error) {
+ 		pr_err("Unable to register input device\n");
+@@ -996,6 +1096,9 @@ static int acpi_pcc_hotkey_resume(struct device *dev)
+ 	if (pcc->num_sifr > SINF_CUR_BRIGHT)
+ 		acpi_pcc_write_sset(pcc, SINF_CUR_BRIGHT, pcc->current_brightness);
+ 
++	/* the switch may have been flipped while suspended */
++	acpi_pcc_report_wireless_sw(pcc);
++
+ 	return 0;
+ }
+ #endif
+@@ -1039,17 +1142,24 @@ static int acpi_pcc_hotkey_probe(struct platform_device *pdev)
+ 	pcc->handle = device->handle;
+ 	device->driver_data = pcc;
+ 
++	/* read before the input device is set up: it decides the switch capability */
++	if (!acpi_pcc_retrieve_biosdata(pcc)) {
++		result = -EIO;
++		pr_err("Couldn't retrieve BIOS data\n");
++		goto out_hotkey;
++	}
++
++	pcc->has_wireless_sw = pcc->num_sifr > SINF_WIRELESS_SW &&
++			       (pcc->sinf[SINF_WIRELESS_SW] & PCC_WIRELESS_SW_PRESENT) &&
++			       acpi_dev_present(PCC_WIRELESS_SW_HID, NULL, -1);
++
+ 	result = acpi_pcc_init_input(pcc);
+ 	if (result) {
+ 		pr_err("Error installing keyinput handler\n");
+ 		goto out_hotkey;
+ 	}
+ 
+-	if (!acpi_pcc_retrieve_biosdata(pcc)) {
+-		result = -EIO;
+-		pr_err("Couldn't retrieve BIOS data\n");
+-		goto out_input;
+-	}
++	acpi_pcc_report_wireless_sw(pcc);
+ 
+ 	if (acpi_video_get_backlight_type() == acpi_backlight_vendor) {
+ 		/* initialize backlight */
+@@ -1110,6 +1220,9 @@ static int acpi_pcc_hotkey_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	i8042_install_filter(panasonic_i8042_filter, NULL);
++
++	/* not fatal: the SW_RFKILL_ALL event still works without it */
++	acpi_pcc_wireless_sw_rfkill_init(pcc);
+ 	return 0;
+ 
+ out_platform:
+@@ -1146,6 +1259,9 @@ static void acpi_pcc_hotkey_remove(struct platform_device *pdev)
+ 	acpi_dev_remove_notify_handler(device, ACPI_DEVICE_NOTIFY,
+ 				       acpi_pcc_hotkey_notify);
+ 
++	/* after the notify handler is gone: switch events use the rfkill */
++	acpi_pcc_wireless_sw_rfkill_exit(pcc);
++
+ 	sysfs_remove_group(&device->dev.kobj, &pcc_attr_group);
+ 
+ 	backlight_device_unregister(pcc->backlight);
+
+---
+base-commit: 61c0dac952b9308884936d05cce97565a5c89af4
+change-id: 20261125-panasonic-wireless-switch-8a6973f7fb8e
+
+Best regards,
+-- 
+Alexis Calin <alexiscalin@protonmail.com>
+
 
