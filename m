@@ -1,109 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795649432;
-	b=iJb4zC2ZIbVwmIb1WJtoeCLeEILjAjXMEprZLeckivdlZjyPk0JFdv5i6JpCmg83++r+
-	 2MFfIlO3LkvbZS1Uke4/jEjMa25uP4eXTiZ1nrJratm731UEiM+uZHC11MFTOWyzY1X4X
-	 9B7EGhrHByBsmzA1v3UqmDUoFLiIv9+W2Q7vcuDvCymrKJ5gZrYNaPlT1U+43m9jATozA
-	 l0UXJm4X/45J0nMh/DY/RJ9m5/M0T5xsgCRb36yIkzuj1LKKRIG/goA38eVt0lMydp0Kr
-	 Jbg+LMAETkvses3aLrqXKdTL2G43WAKLXtynDNF6K1t4s2xe37qWc6aCNUYabextnaw==
+	t=1795649442;
+	b=GV+vScQ0gqTZJcj1ooaEU6US+ix5HbV88L1O1Gd7F5ecgA+piZEQPeLNk8yxwyUFCP8Y
+	 elADaEZZHMTwTSlQ7QKDGSQXAJez15f/nrCMCaT+YTIjh5HvmhqmH9RKSGnTABFhWxADX
+	 h3/ciRT5yvHiP85jJsm9YAwZII4l6xSwG8fRgIBMF96+aZGCECg1UBzYQvp4Vd5RsdXO6
+	 FH4/tmvgZJah8OAUMCMY42q1q3sy2loUSiPkGzkZWpIzg02d1yqVLL9kkSMfR+a8ugsSf
+	 S8Uyh4q1CxkOmU3LwxUZcWheMlrYq4Iy2PsgFq8LD8z0VD7Ne1kIVyE+qxuL3xx88bw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795649432;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795649442;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=e35aD9xDuc1hKVMZ4DHpu/O6GiR6BdX7QfpIMiYdEOE=;
-	b=IEoYM/mLos7ZZ/iTzG5Q6T8g2W+T1Dpm5auEx/MDh9fnaRMPPZmK7wVUQ+PgabVEvP00
-	 6pBTPNIpafWFYF8sGSdJ1Gs9HJcNI4Wde2gqdaZ4CL58haziuFBJyIOpohgY9f4s9020a
-	 Ds79qmDpdPnSsEPEVKropCicZAWcpYj4YYVWkeJtWHvhMEQtSBZ22VHttjJcKV/2pEReg
-	 FiheMQ6eXfdwCwNfqOT++K6AAjXmJ9R1pNDqUcW6B+ShYgnOOghR1BgJ7PGsIFlja2NWC
-	 r0FxxxMc/yEGHnbQq7y8nExq4Yo4lpOSTqLEpZX8y8En6ZJaa7D1pzBv61C+9+TGE8g==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=k1Ij9HGRNVPxHOypgke3ebIZ/asDfBx2BgBH8YIUh70=;
+	b=xTpx71vY2nd/lWnVqvLmK00rLol6ahgjrB1NN41ul202QKWHy/zEjTs05R7EuzWIq4i9
+	 h5wkUdPflCfKV08xZvydSFazznlJMa7DfjxfwCv5tKDx5+duOQBEhllMjUfbzdTGyEb3N
+	 6+Zook6daMhW5LWeBFot/oIkif1vZlIxcyqJxYbxSWtl9dfeXx8o4TFKOs5HV2Ztg6R5G
+	 r2nAIB2CORXzpBZn9HpcTskzittKHxs+mPdDsGB9lbhIlIiy8vf/EPEQiXGwZw+nrS+i8
+	 EYRuS76nge4C7XrRMx44bcygGnFL9KV3iF5GuMctfM+7gHYXz3qJCJntAh80dyegMrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q4WIHuji;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cRZVjhQV;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DD4D606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:30:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DD4D606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13865606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:30:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13865606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q4WIHuji
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso78951625e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:30:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cRZVjhQV
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-48e20ed3b9dso5593841f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:30:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795649431; x=1796254231; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=e35aD9xDuc1hKVMZ4DHpu/O6GiR6BdX7QfpIMiYdEOE=;
-        b=q4WIHujiO3KUwyueidP7nGuHFOYg3YjRfJekEql5FlsaKNifD52JgCVIFcJlCa7U2J
-         GF248vhoTd18/9L2jk+s0vC/1F7ULwBlkvIwGgujigVNH5KLO9NFl3xnBqK3qAZ4slAs
-         57n0Vebr1TNCj5k+2AmSWtjPwx8lod+dBBBA/uDiAU+5+rS+L0SRaskI5ly5rVOIirBf
-         glBTF5zskUrMaSXWJjsojpYGJFHPC0956B4ZKTqL/JjxX1P6YTIMs7OXX+jU+aQMY2Jx
-         n4Ep3J3oNqsFTcw+OOGHrytcW1JoiewpfbdbCWskz7OmmCD3tXiL8Y0jkfKW4II2F340
-         ZJlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795649431; x=1796254231;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795649440; x=1796254240; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=e35aD9xDuc1hKVMZ4DHpu/O6GiR6BdX7QfpIMiYdEOE=;
-        b=uZi7HQ03VmdeTnYQdy4XlmoqFnE66/eJ1wiSNWxFYKd6tbdpNdi9kHVSXxGohz6j2A
-         uRuUPkIMLZTzhMSgu5JGlhvqI2fGPn6Cwf1i7HzZizb3oqGB9yb2WSr8V0hE2whyyJ3z
-         /Gw9mBWw9PXwvxCOZqYZE6hrUIW0itB7cOv1o7xwMir2S8JjuY3YlCDvAY+vBKYdT5iA
-         UYvSrR61UVmvEuj/jibC4+OuT/g0sYxmRs6bKEOIhgFrAvfpmm1rd/nIM2eKsmwyzmij
-         INI8KAkLGK967+GgUArGpCSvJ05HY+D9F6cxAGgZIngvTayXrZaknT/kBeEqgL6wW46O
-         zo7w==
-X-Forwarded-Encrypted: i=1; AL+hErEELWmLTZIjax0w6A6PnUEH81R3JPMVM0nrSy1fxAFGBt+7hzusb+Dnx5g8o9rQSSwxpGgXuBpwPPMrqMg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z97CtOUfhzTLveuCSLhjrRCJ2Sj+03CjWLDLbN4psyIwvf1Pz4Y
-	Yb5seqGDLa9OTHzXehi8wdJS31WlFNgL4QIU7sEpvQ5xi0eOJc+TKr7B
-X-Gm-Gg: AZFdTZegAORZdbHZdO17O/ApjKNoIpY/eKzZbOCvf1yZZ9NaGyMaNLn2ff3PRfw4iLI
-	TpllTOj28bN6sqyNraTl5QGfZYOWZc7b3lzrdvIxYK7lOUQHB0JUCJppWd42C1yZG1s4JRjmmCJ
-	5a7qhFJ4dVo8LF8UWPXRMfDBjZJVUCU0mpofLBdTDmMKRS3qrgLSBATLPLrvEIgUoLSRP3IKBF7
-	7jxpqy6WuUT6zSdyimdh0CKn7pQyB6qBXNxn7XQUM2uUSTINsXbEGwTf4uhTZvzzpMePZ5zvO9G
-	e6n4GEH1zt3BXckGvaFA3tmT2POxi6SAlSSCjsnPQVfRW1w37pxO/frR2xlnP83VgxwQsBsqs2O
-	rvwPJqletl3hN7+8RvQx5oFgzSTItmxUHrKdp0TNgRpgb1PSaOJG02EPIdqKguS7GYWlChSE/X/
-	58BBCyVy7qj72CfSLWwnzzCYC5K1N0hTVE3E0LwjDoM0dsyfIx8EcsBbXvjsRj9SnmuGTTNyhsX
-	emTNk95nE2/zUmfxPWrwkUOZtgIPPCigG8f4M0/8QBDnr3oxwkrWdqzU2IH1yfOdScVhLObZowf
-	KCHU52QEaQ5aTLmvnE8Iq52glpX1H+Az7IwKBdruh0hAZ9QdkkveCjAICbkzj6T74d1nud/O+GC
-	ZlHNk4+VkNlISEQSZ+vvgKiHY7VXQPwY=
-X-Received: by 2002:a05:600c:4f50:b0:4a2:1612:637a with SMTP id 5b1f17b1804b1-4bb888063f3mr484937095e9.16.1795649430462;
-        Wed, 25 Nov 2026 15:30:30 -0800 (PST)
+        bh=k1Ij9HGRNVPxHOypgke3ebIZ/asDfBx2BgBH8YIUh70=;
+        b=cRZVjhQVJNxnitQ0BaR5Ma8MvwOI/7MtLd8Kx5VJ34jKIWrcFw9QLivdS94GEaW/Ac
+         3oyXmhbMUSPtyUdiKFc7EM2DbkAcDSoBFUQxhl+JJn+7qQuykBUVVXBDLLJuwudIDBQw
+         UAsWVVlnwKYxflFLp/tRbY3T9fmHoHkqMxPqXWa4kCbOOzWIY/evG+SPz9W5wWlDSWft
+         sjuel1QB+B8SgmbTEV9JWjYImuPgTVqFRdcR5R7cDs5mZVUiTNQdH8EhkXXTrzwCwg3D
+         +JNfQW5aPrvs+iYQ3uwf6sg2c7Q3oOG//CxU/t9pEpqA2GKbYaZpF5wtvgRwsVMpvhdU
+         4q+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795649440; x=1796254240;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=k1Ij9HGRNVPxHOypgke3ebIZ/asDfBx2BgBH8YIUh70=;
+        b=1vA1M7MuMHgrnqWdPg9s+8op3Vn9VjuI/1F0kI4qQPjpn8Rl0EjYp4tuQwsofOlUjB
+         8dehCaiXFbzn4MqfXy3iVKtbo3YDiqq/dgnoWkF32uwCHDGwD+sw88OdfY5ZG4xwIAPy
+         f+Y8WaG83PzHUMVaYE8EOc00zzU/2uAcGa/4dab38MQ53VrmAVFS3IxAGr4RiqddWuNU
+         uKqAomYDEGN/cxsB/r9Fg/oNg8xkg0Sgl2WRqfm7EOJpY7op8ZTDU3Brw277jBMVlT5U
+         F9MEIl2/BoGjJJFUijKwjTgh7299yF0l9etD7cF32CJ053wuXBCmtViBnxgLYxPpFgUO
+         7yjw==
+X-Forwarded-Encrypted: i=1; AL+hErEXlJ3b8vnhqx3tITdJPNbzawC/NfXs6KaXSnsx76lB6ZEOgeaVi6+SpP26bYY2bnSwikDLUDGDXC5//7k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/CfuJxDzaV6Tz/jzsSeL6T9z+JfsOp4v+euqL2hBi32HIcpBrS
+	Wlcb/4WdyuMJM5qISkHzhhIBDm17eKLR7GhmRsg8hlU8jB44o/GN9uuPN/nAeEKP3Bg=
+X-Gm-Gg: AZFdTZcNnHgKyawPelsqr6OGjexbA0Db1Gt/0MOEqcwEcc0KnTsb+ZPk8GdGhSYdqjQ
+	dR3xG0hXcGUSdwgQ+8zicIC0kRGLyFyyg6BNmPExGH8LaORaZBDmQKrwsjJXayNl4XdoRP98Oeg
+	FPMXfiOfZD3jRc/CDgMQwd++/Cgd8ieDrtMDKq7fKQVvn/PzRvJ1D0OYdXr/jLYJMcoPg3z4Zmk
+	JJ+E8vgCI+53DEpxYkb+ygvvh1oS7ns4IYXGlLNj3SzkoievfkmHS0B0Gcx5C5VEVngK0mhouZZ
+	wb7x/d8Q75M6GkgoByfB0dOVuORkXjzM4awDsxNKjOvh+vC52tgs3ysneD28VHI95Gz1dxOGeNN
+	topNUaydAvN/Hk661QdOox15KvHK1hzBY/VkA2rOArveCyXf5DWu0WRPaP0MT6e7rwU1obixkhF
+	ONphtEpCcE38L0XUWOMrwcbWwz3TPserkG4YO474UqsQwiZBVgxsJaH4SQpQwP2E1CQqbaAt5ox
+	hzmj+pKZ1tub3JqEGsyOh46u2xpNY2Km7ci9PX9AZjUPSxkyutw1G9Esco97xGylwQl/uhNp4Ro
+	wUzQEIwtjmzxMIcoo3K4a5DZ4wiu029ndKLFrFDICQC/CW8tsTvl2kjQIKllEzC5uHpyaBriWzX
+	L7iwPHdRItQ==
+X-Received: by 2002:a05:6000:4284:b0:48e:3b53:e100 with SMTP id ffacd0b85a97d-4abb9edfd7cmr38748071f8f.56.1795649440438;
+        Wed, 25 Nov 2026 15:30:40 -0800 (PST)
 Received: from localhost (bl20-90-91.dsl.telepac.pt. [2.81.90.91])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm35729850f8f.56.2026.11.25.15.30.29
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a680483sm37411248f8f.28.2026.11.25.15.30.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 15:30:29 -0800 (PST)
+        Wed, 25 Nov 2026 15:30:40 -0800 (PST)
 From: =?UTF-8?q?V=C3=ADtor=20Hugo=20Silva?= <vitorhg20080@gmail.com>
 To: linux-riscv@lists.infradead.org
 Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Paul Walmsley <pjw@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-serial@vger.kernel.org,
-	Christian Brauner <brauner@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	linux-fsdevel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: [PATCH RFC 00/19] riscv: Add initial support for Espressif ESP32-P4
-Date: Wed, 25 Nov 2026 23:30:01 +0000
-Message-ID: <20261125233020.1380594-1-vitorhg20080@gmail.com>
+	Oleg Nesterov <oleg@redhat.com>
+Subject: [PATCH RFC 02/19] riscv: Handle ESP32-P4 CLIC trap context
+Date: Wed, 25 Nov 2026 23:30:03 +0000
+Message-ID: <20261125233020.1380594-3-vitorhg20080@gmail.com>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261125233020.1380594-1-vitorhg20080@gmail.com>
+References: <20261125233020.1380594-1-vitorhg20080@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,111 +110,185 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Hello,
+The ESP32-P4 CLIC encodes trap return state alongside the cause
+code and interrupt flag in mcause. The RISC-V exception dispatcher
+expects only the cause code and interrupt flag.
 
-This series of patches adds the initial support for the Espressif's
-ESP32-P4 on the Waveshare ESP32-P4-Module-DEV-KIT. It boots in M-mode on
-a RV32 NOMMU kernel with one HP hart.
+Save the raw mcause in pt_regs, normalize the cause for dispatch
+and translate MPP and MPIE into the saved status layout. Restore
+the saved interrupt level and rebuild MPP and MPIE from pt_regs
+on the non-vectored trap return path.
 
-The series adds CLIC trap handling, drivers for clic and for interrupt
-matrix, and extends the CLINT timer driver. It restores a previously
-removed ESP32 UART driver with ESP32-P4 UART support and early console
-support. It also synchronizes the instructions written to the PSRAM,
-aligns the init data to the ESP32-P4 PMP granularity, and it adds DT
-bindings and the board devicetree.
+The current CLIC level stays active until mret. irq_exit_rcu() can
+run softirqs with interrupts enabled, and irqentry_exit() can
+schedule before the final mret. Holding the hardirq level across
+either path blocks interrupts at that level or below.
 
-The boot firmware initializes PSRAM, loads the kernel, DTB and the
-initramfs from the microSD, and it supplies the timebase-frequency
-before jumping into the kernel.
+Restore the interrupted context's level with an M-mode mret
+after the hardirq handler and before irq_exit_rcu(). Keep interrupts
+masked across this intermediate return and retain the original
+trap frame.
 
-The bootloader source and microSD boot instructions are available at:
-https://github.com/pushdword/waveshare-esp32-p4-bootloader/blob/390880e881208ab16aa16eb520b3e5ea0c63c0a2/README.md
+Tested on a Waveshare ESP32-P4-Module-DEV-KIT with revision v3.2
+silicon. The kernel booted to a UART shell, completed 20 consecutive
+two-process pipelines and continued to receive CLINT timer and UART0
+interrupts.
 
-I tested this series on the hardware, the Waveshare
-ESP32-P4-Module-DEV-KIT with the ESP32-P4 revision v3.2 with 32MB of
-PSRAM. The kernel booted to the UART shell from the initramfs. The
-/proc/interrupts showed the CLINT IRQ's increased, UART0 interrupts were
-routed through the interrupts matrix. 
+AI assisted with the assembly and JTAG diagnosis.
 
-It would be nice to you all send feedback on restoring the interrupted
-CLIC level before irq_exit_rcu() and the interface for propagating
-instruction-cache sync failures to NOMMU executable loading, and signal
-setup.
+Link: https://documentation.espressif.com/esp32-p4_technical_reference_manual_en.pdf
+Signed-off-by: Vítor Hugo Silva <vitorhg20080@gmail.com>
+---
+ arch/riscv/include/asm/asm-prototypes.h |  4 ++
+ arch/riscv/include/asm/ptrace.h         |  4 ++
+ arch/riscv/kernel/asm-offsets.c         |  3 ++
+ arch/riscv/kernel/entry.S               | 61 +++++++++++++++++++++++++
+ arch/riscv/kernel/traps.c               |  4 ++
+ 5 files changed, 76 insertions(+)
 
-AI disclaimer: I have used 6.2-Sol to assist development and to assist
-debug/troubleshoot some ongoing issues. I have used Codex's 6-Sol
-with Daybreak Blue enabled to generate peer-review-like report to
-pinpoint potential security issues regarding the patches. I manually
-reviewed and validated each change, including the AI-assisted changes.
-I also manually tested each change on the hardware as described above.
-
-Vítor Hugo Silva (19):
-  riscv: Prepare ESP32-P4 early CLIC trap vectors
-  riscv: Handle ESP32-P4 CLIC trap context
-  dt-bindings: interrupt-controller: Add Espressif ESP32-P4 CLIC
-  irqchip: Add Espressif ESP32-P4 CLIC support
-  dt-bindings: interrupt-controller: Add Espressif ESP32-P4 interrupt
-    matrix
-  irqchip: Add Espressif ESP32-P4 interrupt matrix support
-  dt-bindings: timer: Add Espressif ESP32-P4 CLINT
-  clocksource/drivers/timer-clint: Add Espressif ESP32-P4 support
-  dt-bindings: serial: Add Espressif ESP32-P4 UART
-  serial: esp32: Restore the ESP32 UART driver
-  serial: esp32: Add support for the ESP32-P4 UART
-  serial: esp32: Rearm TX interrupts when the FIFO is full
-  serial: esp32: Add early console support for ESP32-P4
-  riscv: Synchronize instructions written to ESP32-P4 PSRAM
-  riscv: Align init data to the ESP32-P4 PMP granularity
-  dt-bindings: riscv: Add Waveshare ESP32-P4-Module-DEV-KIT
-  dt-bindings: riscv: cpus: Document Espressif ESP32-P4 HP harts
-  riscv: dts: Add Waveshare ESP32-P4-Module-DEV-KIT
-  MAINTAINERS: Add the Espressif ESP32-P4 platform
-
- .../esp,esp32p4-clic.yaml                     |  53 +
- .../esp,esp32p4-intmtx.yaml                   |  67 ++
- .../devicetree/bindings/riscv/cpus.yaml       |  17 +-
- .../devicetree/bindings/riscv/espressif.yaml  |  22 +
- .../bindings/serial/esp,esp32-uart.yaml       |   4 +-
- .../bindings/timer/sifive,clint.yaml          |  28 +
- MAINTAINERS                                   |  14 +
- arch/riscv/Kconfig.socs                       |   9 +
- arch/riscv/boot/dts/Makefile                  |   1 +
- arch/riscv/boot/dts/espressif/Makefile        |   2 +
- .../esp32p4-waveshare-module-dev-kit.dts      |  46 +
- arch/riscv/boot/dts/espressif/esp32p4.dtsi    |  64 ++
- arch/riscv/include/asm/asm-prototypes.h       |   4 +
- arch/riscv/include/asm/cacheflush.h           |   6 +
- arch/riscv/include/asm/ptrace.h               |   4 +
- arch/riscv/kernel/asm-offsets.c               |   3 +
- arch/riscv/kernel/entry.S                     |  67 ++
- arch/riscv/kernel/head.S                      |  13 +
- arch/riscv/kernel/patch.c                     | 132 ++-
- arch/riscv/kernel/signal.c                    |   6 +-
- arch/riscv/kernel/traps.c                     |   4 +
- arch/riscv/kernel/vmlinux.lds.S               |   4 +
- drivers/clocksource/timer-clint.c             |  57 +-
- drivers/irqchip/Makefile                      |   2 +
- drivers/irqchip/irq-esp32p4-clic.c            | 178 ++++
- drivers/irqchip/irq-esp32p4-intmtx.c          | 139 +++
- drivers/tty/serial/Kconfig                    |  15 +
- drivers/tty/serial/Makefile                   |   1 +
- drivers/tty/serial/esp32_uart.c               | 940 ++++++++++++++++++
- fs/binfmt_flat.c                              |   6 +-
- fs/exec.c                                     |  10 +-
- include/linux/cacheflush.h                    |   7 +
- 32 files changed, 1910 insertions(+), 15 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/esp,esp32p4-clic.yaml
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/esp,esp32p4-intmtx.yaml
- create mode 100644 Documentation/devicetree/bindings/riscv/espressif.yaml
- create mode 100644 arch/riscv/boot/dts/espressif/Makefile
- create mode 100644 arch/riscv/boot/dts/espressif/esp32p4-waveshare-module-dev-kit.dts
- create mode 100644 arch/riscv/boot/dts/espressif/esp32p4.dtsi
- create mode 100644 drivers/irqchip/irq-esp32p4-clic.c
- create mode 100644 drivers/irqchip/irq-esp32p4-intmtx.c
- create mode 100644 drivers/tty/serial/esp32_uart.c
-
-
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
+index a0ca9efff267..e0fec71022f9 100644
+--- a/arch/riscv/include/asm/asm-prototypes.h
++++ b/arch/riscv/include/asm/asm-prototypes.h
+@@ -64,4 +64,8 @@ asmlinkage void handle_bad_stack(struct pt_regs *regs);
+ asmlinkage void do_page_fault(struct pt_regs *regs);
+ asmlinkage void do_irq(struct pt_regs *regs);
+ 
++#ifdef CONFIG_RISCV_ESP32P4_CLIC
++asmlinkage void esp32p4_clic_restore_irq_level(unsigned long cause);
++#endif
++
+ #endif /* _ASM_RISCV_PROTOTYPES_H */
+diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
+index addc8188152f..5729fbac0b57 100644
+--- a/arch/riscv/include/asm/ptrace.h
++++ b/arch/riscv/include/asm/ptrace.h
+@@ -53,6 +53,10 @@ struct pt_regs {
+ 	unsigned long cause;
+ 	/* a0 value before the syscall */
+ 	unsigned long orig_a0;
++#ifdef CONFIG_RISCV_ESP32P4_CLIC
++	/* Raw mcause for CLIC trap return */
++	unsigned long clic_mcause;
++#endif
+ };
+ 
+ #define PTRACE_SYSEMU			0x1f
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index a75f0cfea1e9..9f8310dd0a6e 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -130,6 +130,9 @@ void asm_offsets(void)
+ 	OFFSET(PT_STATUS, pt_regs, status);
+ 	OFFSET(PT_BADADDR, pt_regs, badaddr);
+ 	OFFSET(PT_CAUSE, pt_regs, cause);
++#ifdef CONFIG_RISCV_ESP32P4_CLIC
++	OFFSET(PT_CLIC_MCAUSE, pt_regs, clic_mcause);
++#endif
+ 
+ 	OFFSET(SUSPEND_CONTEXT_REGS, suspend_context, regs);
+ 
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index f659bf62bb39..91269ab82c60 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -196,6 +196,22 @@ SYM_CODE_START(handle_exception)
+ 	csrr s2, CSR_EPC
+ 	csrr s3, CSR_TVAL
+ 	csrr s4, CSR_CAUSE
++#ifdef CONFIG_RISCV_ESP32P4_CLIC
++	REG_S s4, PT_CLIC_MCAUSE(sp)
++	/* Translate CLIC MPP and MPIE into the saved mstatus layout. */
++	li t0, ~(SR_MPP | SR_MPIE)
++	and s1, s1, t0
++	srli t0, s4, 28 - 11
++	li t1, SR_MPP
++	and t0, t0, t1
++	or s1, s1, t0
++	srli t0, s4, 27 - 7
++	andi t0, t0, SR_MPIE
++	or s1, s1, t0
++	/* Keep the interrupt flag and the six bit CLIC cause code. */
++	li t0, CAUSE_IRQ_FLAG | 0x3f
++	and s4, s4, t0
++#endif
+ 	csrr s5, CSR_SCRATCH
+ 	REG_S s0, PT_SP(sp)
+ 	REG_S s1, PT_STATUS(sp)
+@@ -311,6 +327,25 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
+ 
+ 	csrw CSR_STATUS, a0
+ 	csrw CSR_EPC, a2
++#ifdef CONFIG_RISCV_ESP32P4_CLIC
++	/*
++	 * Preserve INT, MPIL and CODE from the saved trap.
++	 * Clear MINHV so mret uses mepc as an instruction address.
++	 */
++	REG_L a3, PT_CLIC_MCAUSE(sp)
++	li a4, CAUSE_IRQ_FLAG | (0xff << 16) | 0x3f
++	and a3, a3, a4
++
++	/* Rebuild MPP and MPIE from the current pt_regs status. */
++	li a4, SR_MPP
++	and a4, a0, a4
++	slli a4, a4, 28 - 11
++	or a3, a3, a4
++	andi a4, a0, SR_MPIE
++	slli a4, a4, 27 - 7
++	or a3, a3, a4
++	csrw CSR_CAUSE, a3
++#endif
+ 
+ 	REG_L x1,  PT_RA(sp)
+ 	REG_L x3,  PT_GP(sp)
+@@ -329,6 +364,32 @@ SYM_INNER_LABEL(ret_from_exception_end, SYM_L_GLOBAL)
+ SYM_CODE_END(ret_from_exception)
+ ASM_NOKPROBE(ret_from_exception)
+ 
++#ifdef CONFIG_RISCV_ESP32P4_CLIC
++/* Restore MPIL from the IRQ frame without leaving M-mode. */
++SYM_FUNC_START(esp32p4_clic_restore_irq_level)
++	csrr t0, CSR_CAUSE
++	csrr t1, CSR_EPC
++	csrrci t2, CSR_STATUS, SR_IE
++
++	li t3, CAUSE_IRQ_FLAG | (0xff << 16) | 0x3f
++	and a0, a0, t3
++	/* MPP=M and MPIE=0 keep interrupts disabled on the synthetic return. */
++	li t3, 3 << 28
++	or a0, a0, t3
++	csrw CSR_CAUSE, a0
++	lla a0, .Lclic_irq_level_restored
++	csrw CSR_EPC, a0
++	mret
++
++.Lclic_irq_level_restored:
++	csrw CSR_CAUSE, t0
++	csrw CSR_EPC, t1
++	csrw CSR_STATUS, t2
++	ret
++SYM_FUNC_END(esp32p4_clic_restore_irq_level)
++ASM_NOKPROBE(esp32p4_clic_restore_irq_level)
++#endif
++
+ #ifdef CONFIG_VMAP_STACK
+ SYM_CODE_START_LOCAL(handle_kernel_stack_overflow)
+ 	/* we reach here from kernel context, sscratch must be 0 */
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index f8292adda099..28343a601969 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -428,6 +428,10 @@ static void noinstr handle_riscv_irq(struct pt_regs *regs)
+ 	old_regs = set_irq_regs(regs);
+ 	handle_arch_irq(regs);
+ 	set_irq_regs(old_regs);
++#ifdef CONFIG_RISCV_ESP32P4_CLIC
++	/* Restore the interrupted level before irq_exit_rcu() can run softirqs. */
++	esp32p4_clic_restore_irq_level(regs->clic_mcause);
++#endif
+ 	irq_exit_rcu();
+ }
+ 
 -- 
 2.56.1
 
