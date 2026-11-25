@@ -1,100 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795612923;
-	b=xJOXs5LnNHQTSLEt1zKRY00MCYPovvcGgYwjMT0lHu4kb2NoKAiFHSGf1fKCvZP1sxFH
-	 2Hli/VmMkS9yTsZ3NyZFz35YuF+v2kTbN8I8Ku/5vc1foHWj0AUiMOAIY/3tkRNChzkil
-	 WAmipXQnCP+mLiND7Jju/xASw+Y7joidE803vpZcM+xt4Qb2c/uvg/aRbSTb31ggOJxBo
-	 Fix4fgocpaTJX97JZiMSaHcBFAmFpowYoqMp2ryT9vV5HhFR7X88c3HNuvlEsSE7eRFTL
-	 vUTPzjJHD8AJFpYmUPVNl3d4tA7iYG0SakIy8M07I522iqxlBDXQyDoFYMKFORbSJuQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795612923;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=i9r9UPtioq2obgdZhRICZquaiNExWv3cUxSGfBwpneI=;
-	b=PvbW8tNh+F1c0RR8Vu1twD1yBQKO39HahBXfFUGGu2ARGQVhx9pE2gZpBBMTgv47RgEY
-	 hL1zicAyt3Elud3EMJbi70KZdhTnkwE/89sFBPtzaB5T2DxRl3Z6XMny6391df4q+nxu8
-	 vYeAJaERs0EMdj81Zn5heQdRFQPGwEq6K3Fxnsgs/YueKm60bvNK/cTR3WnBErFyWvQce
-	 E9krj09QKa5zlo9I3izVPl0co6kh9BOXo2c6p9qzfQ72j1NnrwyxRiXtLAKAupEMMLZ4X
-	 bjDtwcrdy1W7ZZOLTBqW45iVkD9JDMTXpVR+XKjs6DlBFBfYpyfBbfkeFEZOueIX6vA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=opSEdQTb;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795612953;
+	b=SiIhKFWzIkN1Y32MDTUKdxEAVhMV/4vFxPkpWXVwtardNmaw5f4rf9V+uW3UD2qzACZK
+	 xZuWSYUDml1exUJKWU6FPv9l8gPQZFkBz597Vs998rg6yGxzRO8HfwgmcX5meAYM7L5Im
+	 Loj0/8MW/SYW/dLC+N5xf/oC9YjMr93c7Xv/G6Q3lJDiJ5/e3211kPepiLAS49f2i8L9z
+	 4H6S+1t7BpHevHgw/ezJKRZXBQPC4X83EeeCUzIghokzv49xkMQyIhARJlAYJNhhdVoK0
+	 we2nASrCngi9NcgQjAuHqg6RRNN/ihh4kmT0wCOYjYP+Zl/oS43eRrev5bvAACRwfsA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795612953;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=Ipja5WGFJr2wY12IBTtFvehjTc7AMtHKnrCB3Ak9jgw=;
+	b=kQcB9BjEJGRO5XJJdkqiZkQVp7NvXqUJ30arAkCd1KojIEGcHrdb4y2m8QZCBa4j2nF/
+	 gvXqTk2Eu9KqxVMT4okihidACFQlKwP8iyNoqqjXEr5Jfr66kZu2W7/YGxn1d+/kQwLIY
+	 vdCSX+O5aTDjmPB/KjccfHutR1tMl7RapXhC406LPl1lsQHGlKNiJSW3JUwYt6AdT6A49
+	 5smzHuxy3twJ7E108cVsje++8WytelefnhHPNxBZ9CRCaj+dRgRBaMrPGykduMGACondw
+	 VYq1Q5KEX/IfOnbA39m1AcLEB2bYsMwUec4k5cOqZ1jUu/MtWZtgTWcawyzCHZ+MOrw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LhVW+n7u;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC452606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:22:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC452606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46E76606A326;
+	Wed, 25 Nov 2026 13:22:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46E76606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=opSEdQTb
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4a3e706b5dfso3606016f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:22:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795612921; cv=none;
-        d=google.com; s=arc-20260327;
-        b=XVXGufpkSCHiHh+UmlQ29Z6xgc/LktFk277adUMhTqyFRxR8wIX31SlDdtn33SDSxp
-         kVkfgaX7mfPY3w4NAxIlkfj5yD6ptDP6HiFj5Nn6peJ7MVTJ9ErbBBWlHzoGOPWkf//p
-         95N6jybmt2q3a+T12zycbJhlhuwQi5ibyGwrWX1e6dgIoiTWb7Arijl1tKYIW3xmXirl
-         wgmO41HKmrb1GClyldrmfzTEC4nh5KeoDPWX6HSh+Y8TTrCk0FRusUr1gwSUMR4b1c1b
-         g3/OMOVwp3WLRNrEvzgV5U6wfpPpQnsyW41LBYWrx2uQxH3VlN8SDmHPZbeL3lLKRFXo
-         C84A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=i9r9UPtioq2obgdZhRICZquaiNExWv3cUxSGfBwpneI=;
-        fh=0K7N4byvlArgwvsUMjfpeFgo9eTfRTk9EIr4lKzHIHo=;
-        b=QVRVI8s7Dj8o0hXPPePGOA5hg/1eT5P4R/HNZs+gfKHgnl/7is6QBJ7VEJ3lhLsGsw
-         fe5UwALrXw4yov8yfZSMrmC9c0CtpN9jCWdOOYfs6mf+TW/6UZwU3T9eNbXifikvm/Ba
-         9mzYYi+yax4HjKOmPG8gD+emCm9ybUoQIS6bqJsLAhNkIe35rDc9yhNUtPSZoGDZnlmS
-         iIxLQUGQvuhuszJAOc/yWN7Huy0UL0p7b1nWf/N86i/hHUamoLwt1sqn29rlBECXJcj1
-         9SsuWcfY6CiFXC0A2Pk0am4v19pDLjfsM0tbjsMJ+h3vbVxev+R5a+yesPiQL1RKBWf1
-         aDuQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795612921; x=1796217721; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=i9r9UPtioq2obgdZhRICZquaiNExWv3cUxSGfBwpneI=;
-        b=opSEdQTbB7rgsyjJ9BhIF9Grz8b8sB9R9IGgbDOXEPXF6u8P9tys2nt82Xr1hix9Lb
-         8r1U84bKZE3IfywQtRNjB6DXi365U3bKGvDwwm6VW3FzLWLZUURNvYxRxaOrBsSaAF3b
-         kmNDGoTQEXpo/V/DeQYIVVeUTpl3WNO658iG8xcNyiddyqdPNjTz39B9yYIzXeV9jOM1
-         eBgDDjK+4rWvtPTrY/fZ34EkLwKoOeNSLrjB4uf8ZmRWmAtbyI2zBNE4I2XxCCfPgGWW
-         M+VtL2OnG2s5Qyj9fFaREcdfCGYPh0zITb0diJNUfQQN76e9tViR2JTBDY23vcp7hYjZ
-         BOnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795612921; x=1796217721;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=i9r9UPtioq2obgdZhRICZquaiNExWv3cUxSGfBwpneI=;
-        b=oVP36rVZs36/YArokXnArenfgnSjWyD+PD+Ejqc1bv3rzLzQJPZZAyLphpybB+S3Nr
-         Ky3XfQjrr3KkI1DoIqbiTFIg8OZXGLsHcbtFWm4xyOouKPDVZFckCsBclvoia+sXn6r1
-         8xyY1TApI3cZPO4fp/u7KigHYosniMj2LDeJbyxtqnfHCISXcwOm2STZOUCfMZjFcw0W
-         E/fGgFq8s9qeh+hw00pZXW6jz70CBsmTeHiDRLFn/I3+tH60SzwcfQUH4Z9mL8ONDRxl
-         df0s3urgLp08FaMbcKEHW+wSdCiY//FNrq7MYux+sj/Ji7a7F2uFJdY0A+xXJDe0aIr5
-         i09Q==
-X-Forwarded-Encrypted: i=1; AL+hErGx5G6TTMKjGxd6hdaIZTK1rzRFJ37UqNtke967nzM/KMMKB1AP4GEGGWw+t2ShSlWv/c80a8WDQo3MZmY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/6DAsJWZttWj0Oxbyy08cHmGLqRuRJgWG5QTkXgTi+YsHtVWxj
-	mg9H/XWoRNqIkHztFVVaqx2nR+VSYV1UnNKAaLKsULT0+cy6E4hO4N+K7cxRQTHHfGNzC5+gIA/
-	luDnMumAxM0ZCsHOMEOpXmgFon25mCeU=
-X-Gm-Gg: AZFdTZeTr6AdZ5CcpGe/iFTQLoLYaGt+mR1GFdfMUwf51x8DBGa/tHhrdNTnIxCIUOz
-	OueWiU6Dp/RRI3gsKw0H2Ypj9fVPWLJ5qcGsyHznUhMFTjUUJV15JLObyaoreItZWi8QfOvfH8n
-	ziHDsAhCna9Fl7BNJ5QkE0xlgP+Fsmy3dAEv3CDJyc5ugnxJQF0coZKFP29pv/Yr4kXdiBKI8hs
-	uEXfbyLFpbCQX7vrriA32NsP9L0dkNBvjV2NaJvG804ZinNai7/4Xdh7szSJrFwRk++sUi5ste4
-	EDmDlJMm8vuYOz6ibUIsrNEoxv/ePF6MuzVXJ0O4LfQ0MwOuQwGIfo3YSadquv7h5HBPOuYCQtQ
-	QhmCLhhdscABIMgsbeyjQq61Esp/rkIVjTRb5KDdP4K9vehKIjuzmeKn4NvEz
-X-Received: by 2002:a05:6000:490f:b0:492:a72:9303 with SMTP id
- ffacd0b85a97d-4abb47b242fmr34560131f8f.22.1795612920985; Wed, 25 Nov 2026
- 05:22:00 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LhVW+n7u
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795612953; x=1827148953;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xMZJqBJS/iUcGVaGQWziBnwHMl+g9+YwZ2CYauGmfRk=;
+  b=LhVW+n7uqGGu1wVKNFOEjv3NRGROzNXL/KGqnQSN+AHt12z4UEym+O+0
+   7tEwjPq+y2GJCrOSSJWliF3kklYbY+r9mE4LH5xkeRy0kdbiEatU4LxHn
+   8GyLMAgB9xMVx5xyz8IxeoLsJqVWlU7QN43DzzAFw57mTcpxmwRDWfpvJ
+   3xpQfx1465tVcHMyHS7FyZqI4rk9eplaoIlUSQYfF/r8PO5hhNxhLjhmd
+   RotbJAGhLgqhbDaNT8+KopKZIHtps8h9UgBK0sQHAY70wnqnvjm+KBQdi
+   q1qkVTh46ZkL1x0ZDc6Cwt5xWFeYH275QZK6ycObmwt6n6HcmlK26+51J
+   A==;
+X-CSE-ConnectionGUID: sn0Y/ciyTuiRJY6uFn2t9w==
+X-CSE-MsgGUID: w7ZdDsSJR6aIM2INLyfuEQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4550446"
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="4550446"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 05:22:32 -0800
+X-CSE-ConnectionGUID: gY5d0gdCQBegZceIY9aUSQ==
+X-CSE-MsgGUID: 9zyMiZcASqSPIroOmrlW7g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="11856614"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa004.fm.intel.com with ESMTP; 25 Nov 2026 05:22:30 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id 7ADD098; Wed, 25 Nov 2026 14:22:28 +0100 (CET)
+Date: Wed, 25 Nov 2026 14:22:28 +0100
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: Tobias Heath <heathtobias@gmail.com>
+Cc: Andreas Noever <andreas.noever@gmail.com>,
+	Mika Westerberg <westeri@kernel.org>,
+	Yehezkel Bernat <YehezkelShB@gmail.com>,
+	Sukhdeep Singh <sukhdeeps@marvell.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-usb@vger.kernel.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] thunderbolt: add opt-in to preserve tunnels across
+ s2idle
+Message-ID: <20261125132228.GE191152@black.igk.intel.com>
+References: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
+ <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,49 +91,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-0-c8079f8f569f@gmail.com>
- <20261125-upboard-pinctrl-add-intc1057-intc105e-support-v2-4-c8079f8f569f@gmail.com>
- <awXJ3Ki8i9b-Kokp@ashevche-desk.local>
-In-Reply-To: <awXJ3Ki8i9b-Kokp@ashevche-desk.local>
-From: GaryWang <is0124@gmail.com>
-Date: Wed, 25 Nov 2026 21:21:49 +0800
-X-Gm-Features: Aa3M54p0xO3lEZyqglSCQSV8T77pe3-rwZ_B8_WgOtklEC3zCzvHR5oUtvb-Z6A
-Message-ID: <CANYHO6pSi9G9N38+mh5610XcHATV0otOr+6rJfiW=kNEyy5sVQ@mail.gmail.com>
-Subject: Re: [PATCH v2 4/5] pinctrl: upboard: fix I2C pinmux-select set CPLD
- GPIO OUT not function mode
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Mika Westerberg <mika.westerberg@linux.intel.com>, Andy Shevchenko <andy@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Thomas Richard <thomas.richard@bootlin.com>, 
-	Daniele Cleri <danielecleri@aaeon.eu>, JunYingLai <junyinglai@aaeon.com.tw>, 
-	Louis Chen <louischen@aaeon.com.tw>, BillyChou <BillyChou@aaeon.com.tw>, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
 
-On Wed, Nov 25, 2026 at 1:31=E2=80=AFAM Andy Shevchenko
-<andriy.shevchenko@linux.intel.com> wrote:
->
-> On Wed, Nov 25, 2026 at 01:10:38AM +0800, Gary Wang wrote:
-> > The CPLD I2C pin mode setting through pinmux-select is not correct.
-> > Should be set UPBOARD_PIN_MODE_FUNCTION on AANT0F04 devices.
->
-> > CC: stable@vger.kernel.org
->
-> I already mentioned that it's better to use 'Cc: ...'.
-Noticed!
->
-> > Fixes: dca2f73cf19f ("pinctrl: Add pin controller driver for AAEON UP b=
-oards")
-> >
->
-> No blank lines in the tag block.
-OK.
->
-> > Signed-off-by: Gary Wang <is0124@gmail.com>
->
-> --
-> With Best Regards,
-> Andy Shevchenko
->
->
+Hi,
+
+On Wed, Nov 25, 2026 at 12:45:36PM +0000, Tobias Heath wrote:
+> The current implementation of tb_switch_suspend() / tb_switch_resume()
+> writes ROUTER_CS_5 SLP into each USB4 switch on entry to s2idle and
+> rebuilds the tunnel on resume, independently of whether the host router
+> and connected switches actually need that teardown.
+
+Well after router sleep is set and acked and the implementation specific
+method is run (typically ACPI power resource is turned off) the routers
+reset their config spaces to default except certain fields that are
+mentioned in the spec.
+
+> On AMD USB4 host
+> controllers (verified on Ryzen AI 9 HX 370; same expected on Phoenix /
+> Strix generation hardware), the switch config survives D3hot intact,
+> and the mandatory rebuild produces an entirely avoidable re-enumeration
+> cascade on wake:
+
+It is expected to go into D3cold and at that point you lose everything.
+
+>   * Every downstream USB device goes through USB disconnect + fresh add,
+>     device numbers increment, open file descriptors onto those devices
+>     are invalidated (audio streams interrupted, filesystem mounts
+>     unmounted-and-remounted by udisks, etc.).
+>   * PCIe hot-plug fires for the dock-side bridges.
+>   * The dock's PD controller is reset, producing a 1 - 2 s
+>     ADP1 ONLINE=0 blip that interferes with any userspace relying on
+>     AC state at wake time (for instance systemd's HibernateOnACPower=
+>     policy).
+>   * resume_devices takes ~2 - 5 s of avoidable work.
+> 
+> Add a module parameter, thunderbolt.s2idle_preserve (default: off), which
+> skips both the tb_switch_suspend() teardown on suspend_noirq and the
+> tb_switch_resume() + tb_tunnel_activate() rebuild on resume_noirq, when
+> the sleep target is PM_SUSPEND_TO_IDLE. S3 and hibernate paths are
+> unaffected.
+
+Adding new module parameters should be avoided.
+
+> Measured on GPD Win Max 2 with CalDigit TS5 Plus dock:
+> 
+>   Default upstream:  resume_devices = 2.6 s; USB storm per wake; AC blip.
+>   s2idle_preserve=1: resume_devices = 0.2 s; zero re-enumeration events;
+>                      AC stable; downstream connections (audio, storage,
+>                      keyboard) survive unchanged.
+> 
+> The opt-in gate is deliberate. Where the TB tree is not preserved by
+> hardware across s2idle (e.g. some Intel generations under specific
+> firmware configurations), enabling this would leave the kernel with
+> stale state at wake; users are expected to test on their own hardware
+> before enabling.
+
+That's actually everything except your system according to the USB4 spec at
+least and I would also assume AMD follows that too. Why it does not enter
+D3cold is not clear at this point. Do you disable it via sysfs?
+
+There is also the power problem if you keep them alive.
+
+What we can do is to avoid the unnecessary runtime resume if the domain is
+already runtime suspended when entering s2idle but that's USB stack that
+does the wake up.
