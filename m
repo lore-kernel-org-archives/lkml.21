@@ -1,56 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795646919;
-	b=X/MSA+zTZDGGOk1RsJ9b/pNFP1ORtQ3tl1VOr79YuCiUDoou4tTh7dgZ+a2jWZ/YrT0F
-	 Rnb7Q9YVUUIOUUwW8Rpr6ePxsyE2DHuN3S/AK/wJU1tj0Gw/A38CjKe+QXkguJHltfUfd
-	 muq+G5n4DFf3fHww9ijQroaAoMkdnfc5IU1GX7ZjQL//n1qmsYyvJ89Wc9P3pklSS3QD7
-	 qBAm636TKqCWPVVCZDxi2ZDEILOf+SGW0Rp1VCkLPFAbXI41k0EomXPziaHFH/7qKtygq
-	 QOh3HsDem6O9maN7ENnplo1MFgcWfFpNrZJDprlXYczv5+Zvm//2MsrkvZCSfxIeAkA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795646919;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-ZohoMailClient;
-	bh=OcoNfhRzueM4nmkVOl/eWUDadIuxLOkb0KKg/ezBuXI=;
-	b=lWt7fyWGpZs9t7lu4EhaC4TakO/fU2H311vMTos4p4w6p60Gbvyq2c4WFObIEniFJwF6
-	 akpM3JZiUk+JzEjsig3sfc45FDj/ksbRZd1oM3aa73SEMqbFZL13K4UfxisVV81AAQbSK
-	 23JWQRzPyZsNJ5SKuVafkM0NZGuxmf+4MkxA5LZrgj+81HmszTr4Co8Q71MO0+RVg1J/U
-	 FQt9egi6iKjxeFG5Vh0SvcP4ezLJPPNa7LHgr9N3U84BuUkYkD888gOxxAqrixjHFY+0c
-	 Cw7uy9Khh8wyhPIIwsiHdyp1W+m1MtyznRxOyLf2Ib7HkO7neCpo5F/UHSQvyzDn50A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=CnGDaOZ9;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
-Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795646934;
+	b=Fqy4tAFytO2+72RU0fuZpCwrRugzDGV1ojH91zFh1qw4JZb6FcPbDXlkFWWybEMjdmrq
+	 /hQV7EeOrRBH+HTKNlnWfvWmPIg2U4vC6xMjOywWyxi4LAIoLbkmQ/gOU3G9InPj1H7a7
+	 aOxut4dm8UvVuvUabFELnUEs6FEqVBsqi16uI7vufxeMW4tKJ1RmVOuecCm+4nbukCTNL
+	 R7qXOAm9g722v5jMSrMX6Cj1E2RJoxeY1mj2t9v91EuqpIFRkQRefh1Jn6sqtDrA0EdnR
+	 Th0BFT4ScnfCPOc4jUkSVY08BxCXLqU0lt9VcZP2JueiQlqrS1l+oz2u9p3TnkFZG+Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795646934;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=YDsDCXLkXL3cNo22jNaL7+utbyOJuM3+sdQzz79cB1A=;
+	b=FuIVgI2MjB8n0mcq/QI6nGch833FJ4vlIqJDqIeJgLYJvIkIBDgmA1AHMhSmcxlNHrkm
+	 6Kt48sqFgDnGj26MldRd21IoiEOTNfJ1/HbCLXzA7N1Q+V1EmygOoLUjcwZc/gwX0uDNW
+	 im0e1XlVsKWUiD+/mR5TWORUXLQ3mj/k0Q131POVk41g5RgUssWH8bysFPxhlODB0nGiH
+	 vWJl1vZi2tYiENjk43/1pGrGBtDKuUNxra6H0M2cjQbMfbYYLqpjSTeVg08Du5abNFJly
+	 s5dTwvOFU9+i1ehsThv84E025KxIpspwuw2T4EYT+nqg1F9EY7uQfaXCdTDkp2oGx8w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lHhUDsm3;
+	arc=none smtp.remote-ip=209.85.216.48
+Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C17FA606A6A1;
-	Wed, 25 Nov 2026 22:48:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C17FA606A6A1
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B186B606A6B7
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:48:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B186B606A6B7
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=CnGDaOZ9
-ARC-Seal: i=1; a=rsa-sha256; t=1795646874; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=T1977zerzDbblLEHB4lmzINsgZqTNhXd9pMx0tT03WNNIG8gHYTUDNw01WzGruglpscBYVuOvCzVgw8LW8sOcyJxzqcdLOCiHMnNdK6gg46IpivZhHGseQ/xCsipNUu2o6gUIsLQZoNrGbL77YSneUehVpuKfjhriOT1a8UCVD4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795646874; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=OcoNfhRzueM4nmkVOl/eWUDadIuxLOkb0KKg/ezBuXI=; 
-	b=GJEw8elqYtGBNmuL6467K5u2S3gutYtca6xXGMXGX/kegX66mG0XQmclz+E9LlL5dKlGzPTAGoy83pMfBOigtGVDzqgZsdWkRK65HpynT0UU6DT+p6SfhnIy/RNYs2Yt2c2Kfg+bZ9SFSYw/rz9+FWSWlLiwZRfpL/VYSwUl1ME=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=daniel.almeida@collabora.com;
-	dmarc=pass header.from=<daniel.almeida@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=CnGDaOZ9OyvERxzenT1Sk8r0lUExIS7ZKfAH1mcXZv6wL6uSxpxvOmS+7xERTPPPGF+GPzLdxCOuGWRE84HTqtSnfTaOYJ7aGf8JABsLZmgKEt1A2X1z1yrE3fUNngOj1lFM1A+lQmm5eettDpWuo34Dhxej/dn7cn/X1CbI6rY=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=OcoNfhRzueM4nmkVOl/eWUDadIuxLOkb0KKg/ezBuXI=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795646871124918.3804823342383;
-	Wed, 25 Nov 2026 14:47:51 -0800 (PST)
-From: Daniel Almeida <daniel.almeida@collabora.com>
-Date: Wed, 25 Nov 2026 19:47:00 -0300
-Subject: [PATCH 09/13] drm/tyr: justify the casts of enums to their integer
- value
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lHhUDsm3
+Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3b3d4d3bba3so3222577a91.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:48:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795646926; x=1796251726; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YDsDCXLkXL3cNo22jNaL7+utbyOJuM3+sdQzz79cB1A=;
+        b=lHhUDsm3vzYxbrG0XKMHpULVIRUum6mQ2gyPAuoK9IQgAQ94X3IXkwhla9s9ac0/ar
+         zxJESCPJbraVYEhyqdQzsE4Vhp48XYK8zEeYSQjwUPqKPKvOCqX3GPwMWe82PhP8uHMj
+         O1jOXSnR9sTWpVtbFr6ptxyGM3tIOGbh3leES2Rh3ziQe4x1WnMDk88dXg1um6Fgu446
+         IHiVmFt4YKFpBhn3n/D8e3a3jHsSDkHXpPTa0P5f4HvsGDmJfRcyzd0L1VF+Ppah8klJ
+         MLICsutSRHytfv9zlJCgUL8z/5nvc678T4dYuYzY2AKebt4yVd8XOs5T6scTQbPnaUQ0
+         o+aA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795646926; x=1796251726;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YDsDCXLkXL3cNo22jNaL7+utbyOJuM3+sdQzz79cB1A=;
+        b=N0WUwds+nRi/E+EvAeGQhaTUrdEbRPI/JAk7bhE9L6NQAKFoppC8HtBFbxBXhAvpIz
+         PfNHYvByrsECVfOka6Dvzplj/6rfoMueBbCxWu0c9ndfPr39OW8ddZln+e+F1qQ+X8HO
+         4JdqMJLVKKevrKkgJoyGFhl9UeIbzTouv2IeziXmEcUpVcioP1tU9KfUBsNKmySSaWgJ
+         sESTpTUq1K4G4b12W9b6UoASEt5NJUda0DDuU5EDazQeeqixfJKe1uOv8CWM9Mcr+Wlm
+         s8LKWibkm+YMz7rP1xeRlFhUvdXEqRQ+T/20FUwZyyOk6LjIL1DydsGn5Ztw2QdjMyMt
+         ze7A==
+X-Forwarded-Encrypted: i=1; AL+hErG2dcWIXsArjp381oRN1m8yfdsM4eJsYGtiYpNoWS2FjZHnnVNo/9c596uecQloW2h9+3oG6A2jLwMbaqU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9bHUiqJrP0hn3IsqdUp7ReYWS2hHFRJTTamUOh+hnV805Q57n9
+	UV6I9deB4rtgIlI/LfI1F6Fx+4GuFS0GY50eEQjSz8ZyJVG3egxeouCO
+X-Gm-Gg: AZFdTZdc+iVfZXY8g6UYh9Y4IebY2YfaQAQtNjtZql/ZgDLTexxgM4hIfE2ix4LDDau
+	6Pj+xoiEXFYRAvisEHfnPzRItLitgqIG0kEGT96wrqiKy8KyfQBDZW77WyHgbtPL+PeWG/h6Dpq
+	u2vco/MyDgj1ybZRpG/kkhyv8YEHTsTuoMt1AjtRojpUA5xtYLYI6NFou9A4OQhRYSgwe/E7Nlj
+	qZu8Fl7hWfeIY9ckC9+1sdqx8NS8cM+9C+Of+S1fe5znUMuI1jE6udO1B1pwXIfCwrBacpePzOz
+	GuC2bluAZ2BFp0MgCa0R7UjyWD0Tgn/FzwU9+dtLBAB/nL1UrQqLuq7xo9ly0F+ws4gi2QNdyaW
+	4SGylTppW5t4eC+hGmd6UjbyTvDkCPxj928YzO2BGiict7N6OKjArH3augwJbJXBWtFSzHC6koi
+	b9UWTvcyFuP9ssaAZ9qe+hCzAXBIMvCXm42oIcanzuw93cZOwH4MrfzBG4SCWQ/B/gLawPuVolJ
+	Glb+ulueGRhKmH04mqHtyW0deUBNUfDT5vuvPqy8QWAFC0aeqm156ASGHMv0J2ahq9ox8XlF36b
+	3Af888qaNUsEHNMujEeiqZXB+aU=
+X-Received: by 2002:a17:90b:134e:b0:3ac:9a5e:9ce7 with SMTP id 98e67ed59e1d1-3b41c96764dmr18868042a91.49.1795646925992;
+        Wed, 25 Nov 2026 14:48:45 -0800 (PST)
+Received: from localhost ([2001:19f0:8000:4ce8:5400:7ff:fe0e:e6b2])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4afeaaa84sm13819382a91.10.2026.11.25.14.48.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 14:48:45 -0800 (PST)
+Date: Thu, 26 Nov 2026 06:48:37 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Niklas Cassel <cassel@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Damien Le Moal <dlemoal@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Aksh Garg <a-garg7@ti.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rhys Tumelty <rhys@tumelty.co.uk>, 
+	Manikandan K Pillai <mpillai@cadence.com>, "vladimir.oltean@nxp.com" <vladimir.oltean@nxp.com>, 
+	Qiang Yu <qiang.yu@oss.qualcomm.com>, Hans Zhang <18255117159@163.com>, Yao Zi <me@ziyao.cc>, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-ide@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
+	linux-phy@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v5 8/8] ata: ahci_imx: Use bulk PHY APIs for calibration
+ PHYs
+Message-ID: <awdjOLoxBpS6t1KN@inochi.infowork>
+References: <20261125043639.249525-1-inochiama@gmail.com>
+ <20261125043639.249525-9-inochiama@gmail.com>
+ <awcFIJlCOxB7nXNz@ryzen>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,243 +111,198 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-b4-tyr-as-casts-v1-9-2b2f53164d86@collabora.com>
-References: <20261125-b4-tyr-as-casts-v1-0-2b2f53164d86@collabora.com>
-In-Reply-To: <20261125-b4-tyr-as-casts-v1-0-2b2f53164d86@collabora.com>
-To: Daniel Almeida <daniel.almeida@collabora.com>, 
- Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Benno Lossin <lossin@kernel.org>, Gary Guo <gary@garyguo.net>, 
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>
-Cc: dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awcFIJlCOxB7nXNz@ryzen>
 
-An `as` cast silently drops the bits that do not fit the target type,
-and nothing at the cast shows whether that can happen. As part of a
-larger effort to reduce the number of `as` casts in Tyr, justify the
-casts that convert an enum to its integer value. These stay, since
-`as` is how Rust reads the value of an enum.
+On Wed, Nov 25, 2026 at 04:56:16PM +0100, Niklas Cassel wrote:
+> Hello Inochi,
+> 
+> On Wed, Nov 25, 2026 at 12:36:39PM +0800, Inochi Amaoto wrote:
+> > The i.MX8QM SATA PHY relies on the first two HSIO lanes for shared
+> > impedance calibration. Store these calibration PHYs in a bulk array
+> > and acquire them by name with devm_phy_bulk_get().
+> > 
+> > Initialize both calibration PHYs before powering them on in lane order,
+> > then keep the SATA PHY initialization, mode selection and power-on
+> > separate. Use the bulk helpers to release the calibration PHYs after
+> > SATA startup and to unwind failures without repeating power-off after
+> > a failed bulk power-on.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> >  drivers/ata/ahci_imx.c | 57 ++++++++++++++++--------------------------
+> >  1 file changed, 21 insertions(+), 36 deletions(-)
+> > 
+> > diff --git a/drivers/ata/ahci_imx.c b/drivers/ata/ahci_imx.c
+> > index 6aaa18e29abc..18faa033e44f 100644
+> > --- a/drivers/ata/ahci_imx.c
+> > +++ b/drivers/ata/ahci_imx.c
+> > @@ -25,6 +25,8 @@
+> >  
+> >  #define DRV_NAME "ahci-imx"
+> >  
+> > +#define NUM_CALIPHY		2
+> > +
+> >  enum {
+> >  	/* Timer 1-ms Register */
+> >  	IMX_TIMER1MS				= 0x00e0,
+> > @@ -66,8 +68,7 @@ struct imx_ahci_priv {
+> >  	struct clk *ahb_clk;
+> >  	struct regmap *gpr;
+> >  	struct phy *sata_phy;
+> > -	struct phy *cali_phy0;
+> > -	struct phy *cali_phy1;
+> > +	struct phy_bulk_data cali_phys[NUM_CALIPHY];
+> >  	bool no_device;
+> >  	bool first_time;
+> >  	u32 phy_params;
+> > @@ -428,30 +429,20 @@ static int imx8_sata_enable(struct ahci_host_priv *hpriv)
+> >  	 * Initialize the first two lane PHYs here, although only the
+> >  	 * third lane PHY is used by SATA.
+> >  	 */
+> > -	ret = phy_init(imxpriv->cali_phy0);
+> > +	ret = phy_bulk_init(NUM_CALIPHY, imxpriv->cali_phys);
+> >  	if (ret) {
+> >  		dev_err(dev, "cali PHY init failed\n");
+> >  		return ret;
+> >  	}
+> > -	ret = phy_power_on(imxpriv->cali_phy0);
+> > +	ret = phy_bulk_power_on(NUM_CALIPHY, imxpriv->cali_phys);
+> >  	if (ret) {
+> >  		dev_err(dev, "cali PHY power on failed\n");
+> > -		goto err_cali_phy0_exit;
+> > -	}
+> > -	ret = phy_init(imxpriv->cali_phy1);
+> > -	if (ret) {
+> > -		dev_err(dev, "cali PHY1 init failed\n");
+> > -		goto err_cali_phy0_off;
+> > -	}
+> > -	ret = phy_power_on(imxpriv->cali_phy1);
+> > -	if (ret) {
+> > -		dev_err(dev, "cali PHY1 power on failed\n");
+> > -		goto err_cali_phy1_exit;
+> > +		goto err_cali_phy_exit;
+> 
+> This changes the order the calibration PHYs are brought up in.
+> 
+> The commit message describes the new order:
+> 
+>   "Initialize both calibration PHYs before powering them on in lane
+>   order"
+> 
+> but doesn't say that it differs from the current sequence. Could the
+> commit message mention the change, and why it is safe for the shared
+> calibration?
+> 
 
-Each of them gets a `// CAST:` comment and an
-`#[expect(clippy::as_conversions)]`, so that the lint can be enabled
-for the driver.
+According to the document, there is no initialization order requirement
+mentioned, so I thought it will be safe to change that since the
+document shows that the calibration is independent in section 19.3.3.5.
 
-No functional change intended.
+> The cover letter mentions that the PHY timing requirements were checked
+> against the documentation. Has the new sequence also been tested on
+> i.MX8QM hardware?
+> 
 
-Signed-off-by: Daniel Almeida <daniel.almeida@collabora.com>
----
- drivers/gpu/drm/tyr/fw.rs   |  2 ++
- drivers/gpu/drm/tyr/regs.rs | 36 ++++++++++++++++++++++++++++++++++++
- 2 files changed, 38 insertions(+)
+I does not check it on real hardware, the only thing I find is the
+document.
 
-diff --git a/drivers/gpu/drm/tyr/fw.rs b/drivers/gpu/drm/tyr/fw.rs
-index 14cfe2884d5a..2fa9852e0b83 100644
---- a/drivers/gpu/drm/tyr/fw.rs
-+++ b/drivers/gpu/drm/tyr/fw.rs
-@@ -98,7 +98,9 @@ fn from(value: Bounded<u32, 2>) -> Self {
- }
- 
- impl From<CacheMode> for Bounded<u32, 2> {
-+    #[expect(clippy::as_conversions)]
-     fn from(value: CacheMode) -> Self {
-+        // CAST: `CacheMode` is `#[repr(u8)]`, so the cast is lossless.
-         Bounded::try_new(value as u32).unwrap()
-     }
- }
-diff --git a/drivers/gpu/drm/tyr/regs.rs b/drivers/gpu/drm/tyr/regs.rs
-index 49e4adf2231d..443e9a1e7a21 100644
---- a/drivers/gpu/drm/tyr/regs.rs
-+++ b/drivers/gpu/drm/tyr/regs.rs
-@@ -251,7 +251,9 @@ fn try_from(val: Bounded<u32, 8>) -> Result<Self, Self::Error> {
-     }
- 
-     impl From<GpuCommand> for Bounded<u32, 8> {
-+        #[expect(clippy::as_conversions)]
-         fn from(cmd: GpuCommand) -> Self {
-+            // CAST: `GpuCommand` is `#[repr(u8)]`, so the cast is lossless.
-             (cmd as u8).into()
-         }
-     }
-@@ -279,7 +281,9 @@ fn try_from(val: Bounded<u32, 4>) -> Result<Self, Self::Error> {
-     }
- 
-     impl From<ResetMode> for Bounded<u32, 4> {
-+        #[expect(clippy::as_conversions)]
-         fn from(mode: ResetMode) -> Self {
-+            // CAST: `ResetMode` is `#[repr(u8)]`, so the cast is lossless.
-             Bounded::try_new(mode as u32).unwrap()
-         }
-     }
-@@ -313,7 +317,9 @@ fn try_from(val: Bounded<u32, 4>) -> Result<Self, Self::Error> {
-     }
- 
-     impl From<FlushMode> for Bounded<u32, 4> {
-+        #[expect(clippy::as_conversions)]
-         fn from(mode: FlushMode) -> Self {
-+            // CAST: `FlushMode` is `#[repr(u8)]`, so the cast is lossless.
-             Bounded::try_new(mode as u32).unwrap()
-         }
-     }
-@@ -434,7 +440,9 @@ fn try_from(val: Bounded<u32, 8>) -> Result<Self, Self::Error> {
-     }
- 
-     impl From<ExceptionType> for Bounded<u32, 8> {
-+        #[expect(clippy::as_conversions)]
-         fn from(exc: ExceptionType) -> Self {
-+            // CAST: `ExceptionType` is `#[repr(u8)]`, so the cast is lossless.
-             (exc as u8).into()
-         }
-     }
-@@ -465,7 +473,9 @@ fn from(val: Bounded<u32, 2>) -> Self {
-     }
- 
-     impl From<AccessType> for Bounded<u32, 2> {
-+        #[expect(clippy::as_conversions)]
-         fn from(access: AccessType) -> Self {
-+            // CAST: `AccessType` is `#[repr(u8)]`, so the cast is lossless.
-             Bounded::try_new(access as u32).unwrap()
-         }
-     }
-@@ -772,7 +782,9 @@ fn try_from(val: Bounded<u32, 32>) -> Result<Self, Self::Error> {
-     }
- 
-     impl From<CoherencyMode> for Bounded<u32, 32> {
-+        #[expect(clippy::as_conversions)]
-         fn from(mode: CoherencyMode) -> Self {
-+            // CAST: `CoherencyMode` is `#[repr(u8)]`, so the cast is lossless.
-             (mode as u8).into()
-         }
-     }
-@@ -814,7 +826,9 @@ fn try_from(val: Bounded<u32, 2>) -> Result<Self, Self::Error> {
-     }
- 
-     impl From<McuControlMode> for Bounded<u32, 2> {
-+        #[expect(clippy::as_conversions)]
-         fn from(mode: McuControlMode) -> Self {
-+            // CAST: `McuControlMode` is `#[repr(u8)]`, so the cast is lossless.
-             Bounded::try_new(mode as u32).unwrap()
-         }
-     }
-@@ -857,7 +871,9 @@ fn from(val: Bounded<u32, 2>) -> Self {
-     }
- 
-     impl From<McuStatus> for Bounded<u32, 2> {
-+        #[expect(clippy::as_conversions)]
-         fn from(status: McuStatus) -> Self {
-+            // CAST: `McuStatus` is `#[repr(u8)]`, so the cast is lossless.
-             Bounded::try_new(status as u32).unwrap()
-         }
-     }
-@@ -1050,7 +1066,9 @@ fn try_from(val: Bounded<u8, 2>) -> Result<Self, Self::Error> {
-         }
- 
-         impl From<AllocPolicySelect> for Bounded<u8, 2> {
-+            #[expect(clippy::as_conversions)]
-             fn from(val: AllocPolicySelect) -> Self {
-+                // CAST: `AllocPolicySelect` is `#[repr(u8)]`, so the cast is lossless.
-                 Bounded::try_new(val as u8).unwrap()
-             }
-         }
-@@ -1095,7 +1113,9 @@ fn try_from(val: Bounded<u8, 2>) -> Result<Self, Self::Error> {
-         }
- 
-         impl From<Coherency> for Bounded<u8, 2> {
-+            #[expect(clippy::as_conversions)]
-             fn from(val: Coherency) -> Self {
-+                // CAST: `Coherency` is `#[repr(u8)]`, so the cast is lossless.
-                 Bounded::try_new(val as u8).unwrap()
-             }
-         }
-@@ -1126,7 +1146,9 @@ fn from(val: Bounded<u8, 2>) -> Self {
-         }
- 
-         impl From<MemoryType> for Bounded<u8, 2> {
-+            #[expect(clippy::as_conversions)]
-             fn from(val: MemoryType) -> Self {
-+                // CAST: `MemoryType` is `#[repr(u8)]`, so the cast is lossless.
-                 Bounded::try_new(val as u8).unwrap()
-             }
-         }
-@@ -1379,7 +1401,9 @@ fn try_from(val: Bounded<u32, 8>) -> Result<Self, Self::Error> {
-         }
- 
-         impl From<MmuCommand> for Bounded<u32, 8> {
-+            #[expect(clippy::as_conversions)]
-             fn from(cmd: MmuCommand) -> Self {
-+                // CAST: `MmuCommand` is `#[repr(u8)]`, so the cast is lossless.
-                 (cmd as u8).into()
-             }
-         }
-@@ -1476,7 +1500,9 @@ fn try_from(val: Bounded<u32, 8>) -> Result<Self, Self::Error> {
-         }
- 
-         impl From<MmuExceptionType> for Bounded<u32, 8> {
-+            #[expect(clippy::as_conversions)]
-             fn from(exc: MmuExceptionType) -> Self {
-+                // CAST: `MmuExceptionType` is `#[repr(u8)]`, so the cast is lossless.
-                 (exc as u8).into()
-             }
-         }
-@@ -1508,7 +1534,9 @@ fn from(val: Bounded<u32, 2>) -> Self {
-         }
- 
-         impl From<MmuAccessType> for Bounded<u32, 2> {
-+            #[expect(clippy::as_conversions)]
-             fn from(access: MmuAccessType) -> Self {
-+                // CAST: `MmuAccessType` is `#[repr(u8)]`, so the cast is lossless.
-                 Bounded::try_new(access as u32).unwrap()
-             }
-         }
-@@ -1575,7 +1603,9 @@ fn try_from(val: Bounded<u64, 4>) -> Result<Self, Self::Error> {
-         }
- 
-         impl From<AddressSpaceMode> for Bounded<u64, 4> {
-+            #[expect(clippy::as_conversions)]
-             fn from(mode: AddressSpaceMode) -> Self {
-+                // CAST: `AddressSpaceMode` is `#[repr(u8)]`, so the cast is lossless.
-                 Bounded::try_new(mode as u64).unwrap()
-             }
-         }
-@@ -1672,7 +1702,9 @@ fn try_from(val: Bounded<u64, 5>) -> Result<Self, Self::Error> {
-         }
- 
-         impl From<InaBits> for Bounded<u64, 5> {
-+            #[expect(clippy::as_conversions)]
-             fn from(bits: InaBits) -> Self {
-+                // CAST: `InaBits` is `#[repr(u8)]`, so the cast is lossless.
-                 Bounded::try_new(bits as u64).unwrap()
-             }
-         }
-@@ -1703,7 +1735,9 @@ fn try_from(val: Bounded<u64, 2>) -> Result<Self, Self::Error> {
-         }
- 
-         impl From<PtwMemattr> for Bounded<u64, 2> {
-+            #[expect(clippy::as_conversions)]
-             fn from(attr: PtwMemattr) -> Self {
-+                // CAST: `PtwMemattr` is `#[repr(u8)]`, so the cast is lossless.
-                 Bounded::try_new(attr as u64).unwrap()
-             }
-         }
-@@ -1735,7 +1769,9 @@ fn try_from(val: Bounded<u64, 2>) -> Result<Self, Self::Error> {
-         }
- 
-         impl From<PtwShareability> for Bounded<u64, 2> {
-+            #[expect(clippy::as_conversions)]
-             fn from(sh: PtwShareability) -> Self {
-+                // CAST: `PtwShareability` is `#[repr(u8)]`, so the cast is lossless.
-                 Bounded::try_new(sh as u64).unwrap()
-             }
-         }
+> 
+> >  	}
+> >  	ret = phy_init(imxpriv->sata_phy);
+> >  	if (ret) {
+> >  		dev_err(dev, "sata PHY init failed\n");
+> > -		goto err_cali_phy1_off;
+> > +		goto err_cali_phy_off;
+> >  	}
+> >  	ret = phy_set_mode(imxpriv->sata_phy, PHY_MODE_SATA);
+> >  	if (ret) {
+> > @@ -465,10 +456,8 @@ static int imx8_sata_enable(struct ahci_host_priv *hpriv)
+> >  	}
+> >  
+> >  	/* The cali_phy# can be turned off after SATA PHY is initialized. */
+> > -	phy_power_off(imxpriv->cali_phy1);
+> > -	phy_exit(imxpriv->cali_phy1);
+> > -	phy_power_off(imxpriv->cali_phy0);
+> > -	phy_exit(imxpriv->cali_phy0);
+> > +	phy_bulk_power_off(NUM_CALIPHY, imxpriv->cali_phys);
+> > +	phy_bulk_exit(NUM_CALIPHY, imxpriv->cali_phys);
+> >  
+> >  	/* RxWaterMark setting */
+> >  	val = readl(hpriv->mmio + IMX8QM_SATA_AHCI_PTC);
+> > @@ -480,14 +469,10 @@ static int imx8_sata_enable(struct ahci_host_priv *hpriv)
+> >  
+> >  err_sata_phy_exit:
+> >  	phy_exit(imxpriv->sata_phy);
+> > -err_cali_phy1_off:
+> > -	phy_power_off(imxpriv->cali_phy1);
+> > -err_cali_phy1_exit:
+> > -	phy_exit(imxpriv->cali_phy1);
+> > -err_cali_phy0_off:
+> > -	phy_power_off(imxpriv->cali_phy0);
+> > -err_cali_phy0_exit:
+> > -	phy_exit(imxpriv->cali_phy0);
+> > +err_cali_phy_off:
+> > +	phy_bulk_power_off(NUM_CALIPHY, imxpriv->cali_phys);
+> > +err_cali_phy_exit:
+> > +	phy_bulk_exit(NUM_CALIPHY, imxpriv->cali_phys);
+> >  
+> >  	return ret;
+> >  }
+> > @@ -839,19 +824,19 @@ static const struct scsi_host_template ahci_platform_sht = {
+> >  
+> >  static int imx8_sata_probe(struct device *dev, struct imx_ahci_priv *imxpriv)
+> >  {
+> > +	int ret;
+> > +
+> >  	imxpriv->sata_phy = devm_phy_get(dev, "sata-phy");
+> >  	if (IS_ERR(imxpriv->sata_phy))
+> >  		return dev_err_probe(dev, PTR_ERR(imxpriv->sata_phy),
+> >  				     "Failed to get sata_phy\n");
+> >  
+> > -	imxpriv->cali_phy0 = devm_phy_get(dev, "cali-phy0");
+> > -	if (IS_ERR(imxpriv->cali_phy0))
+> > -		return dev_err_probe(dev, PTR_ERR(imxpriv->cali_phy0),
+> > -				     "Failed to get cali_phy0\n");
+> > -	imxpriv->cali_phy1 = devm_phy_get(dev, "cali-phy1");
+> > -	if (IS_ERR(imxpriv->cali_phy1))
+> > -		return dev_err_probe(dev, PTR_ERR(imxpriv->cali_phy1),
+> > -				     "Failed to get cali_phy1\n");
+> > +	imxpriv->cali_phys[0].id = "cali-phy0";
+> > +	imxpriv->cali_phys[1].id = "cali-phy1";
+> > +
+> > +	ret = devm_phy_bulk_get(dev, NUM_CALIPHY, imxpriv->cali_phys);
+> > +	if (ret)
+> > +		return dev_err_probe(dev, ret, "Failed to get cali_phy\n");
+> 
+> phy_bulk_get() already reports which PHY failed:
+> 
+> drivers/phy/phy-core.c:phy_bulk_get() {
+>     ...
+>         for (i = 0; i < num_phys; i++) {
+>                 phys[i].phy = phy_get(dev, phys[i].id);
+> 
+>                 ret = PTR_ERR_OR_ZERO(phys[i].phy);
+>                 if (ret) {
+>                         phys[i].phy = NULL;
+> 
+>                         dev_err_probe(dev, ret, "Failed to get phy: (%s)\n",
+>                                       phys[i].id);
+>                         goto err;
+>                 }
+>         }
+>     ...
+> }
+> 
+> so a missing cali-phy1 entry in phy-names now prints two errors, and the
+> second one doesn't name the PHY.
+> 
+> A plain "return ret;" should be enough here.
+> 
+> 
 
--- 
-2.56.0
+Thanks, I will fix it.
 
+Regards,
+Inochi
