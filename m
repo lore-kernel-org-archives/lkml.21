@@ -1,57 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795594003;
-	b=fDHScXSD4wqEGYngOrMRevc3d5m3pCb6jiAbmtTFJWKMi1HnrQaSgd+cDjst4ptbtLCz
-	 tMVrpBVf3fLp8aNaGFojhKqFpkzcoWMPSYJ5nFxrgFnIBz3BZ/VwJe7/RPMLSxG11mdwI
-	 yF3LBGzAFBRuK9bXWB8uv6i51wTGXdRiwwtVrBULLzziJD6krEa1wujFlrzQx5qwEjIne
-	 GCi/aBG8ar1NRVnLGGJohNoJKz+y5sDWaxFgbesA2W/nG1T68xGIDQQ9T6H32Ffkxcgxm
-	 53/b3BuozkgRR9exZXYdCTtyYPk90YnukL5uZLUmDU5Z6tVSY/eDzYnseBK861qSN2g==
+	t=1795594081;
+	b=18rvTavCexN7ZdqF9D+vpzsH4wTIjV6xu4z3sQnTj73SwUQq8Yz9zpObLqlqChjfdKCg
+	 U50ysbQXoMhY9tq+28PpLGgkiIaR5xYRd+tqi6BlGzSIvUfd3HgsOpSc/EL/KzNQflQPV
+	 a+fRUZuyfH2E5IoKFsPEYUH4Yaj/JSPtcmnLsrYpxNG2NGy2C/TJ3iHa5QCEcWTyhvtZ9
+	 Ger97Fgg0CDgeTpglvbPBiiB9DrImuj3s9CVwdnXR7e24kK3+qop03FQoWmf38LUqsEXB
+	 4/qaAZt151mBgEooB3z/aewmp+Epa1T5sv0emugbteD8qj8TcPERK/o53htb90zM8oA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795594003;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=M8XCrFSHUIgYWUoAO1XKorle5rekNJC2RkxqBaaweHQ=;
-	b=rkQTPrEGAyB+XKIHQHipq1Q+j/l5USCi/0E/IjyiSCNLU3E0W9fR8eaE1nZMsfk3LPGP
-	 NHIdpGK9dMiBZUcLapot7qVfEZAx5KM81mMKIYgYEZ0fWmBbS4Ss91l95wtlAkLt72teu
-	 fDoGAGwTIE5rjTtVGJzusBgrm98xyH+SdcD6m0r9k9Bt9gy87pBqRCNxlgd9hj8+HP0ZM
-	 JKNlcra2EL95xjaSwVymz9NWtCB8v0uQz9Y/gX0qT6kg/Hf2wQFXlOm02yC0IRcKq8anS
-	 8p6cf2F3CGvNDt2BWyMg7j6XFyGqdjF6loFUa3XiN1WnmKi7JCHFHjcUi4ZVDrV+Egg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795594081;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=E8makF8FM1RabaNV+Vat/DWzk+BJa7APz9oiRRwMMUc=;
+	b=4UIVvLmM5yA/+sa5JFA1r6gGK21DQ2hrmd5JhcR58IBHEH0ixRxTZCpwIZrWF5HhCGBG
+	 t4b1FdqTmSefWMh+1Wo0WB5+mq6LIcSOw4j755UYElgsmzSReaEj6SPZv6K8Q3qoQHgjM
+	 CoUBH3Z7tuUA2Gr568LpgtAVmw9bM3TJDcnA/TVUXK0LDmGGWn5n4LOEWK5FH6hiRnOPG
+	 AQkoZ9zIiHV477hmD+b+O3edCjKfqpLlARI3Cu70VLd7k4/DkPjZByMBETF325J8pz5Wq
+	 UYeRH5c5D7SGloQne5uNDoK4T+ZFavCmPkSJh/TvhE4UBMNUb6Gyf8jySVvmZnmgJ9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=gUfHis60;
-	arc=none smtp.remote-ip=115.124.28.197
-Received: from out28-197.mail.aliyun.com (out28-197.mail.aliyun.com [115.124.28.197])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=fail reason="signature verification failed" header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MB1nAShb;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51323606A321;
-	Wed, 25 Nov 2026 08:06:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51323606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C1C7606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:08:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C1C7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=gUfHis60
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1795593996; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=M8XCrFSHUIgYWUoAO1XKorle5rekNJC2RkxqBaaweHQ=;
-	b=gUfHis60C3+O/B40185hi+72VcG8++A/lna5SMCFShKKQQhoTBzGkZhyGo0/gktiziTzxcTEE2FAnwg53UwMfbEjNKCEdup6cweJ0Es0CrIusmRMZ6nXfX3YMNEqKaNrvBnOUqG4HbKXrGYC4Lj/GyVtImgwc7ouBcEsW8Hs0aE=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07436259|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.0195112-0.0299786-0.95051;FP=12050426819878012378|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033045166233;MF=zhugl3@xiaopeng.com;NM=1;PH=DS;RN=5;RT=5;SR=0;TI=SMTPD_---.k9lhNRn_1795593995;
-Received: from DESKTOP-UL5U09E.xiaopeng.local(mailfrom:zhugl3@xiaopeng.com fp:SMTPD_---.k9lhNRn_1795593995 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Wed, 25 Nov 2026 16:06:35 +0800
-From: Zhu GuangLei <zhugl3@xiaopeng.com>
-To: Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-kernel@vger.kernel.org,
-	liuwb@xiaopeng.com,
-	stable@vger.kernel.org
-Subject: [PATCH] misc/pvpanic: share the shutdown handler across devices
-Date: Wed, 25 Nov 2026 16:06:35 +0800
-Message-ID: <20261125080635.112699-1-zhugl3@xiaopeng.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MB1nAShb
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68kbq3143002
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:08:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=E8makF8FM1R
+	abaNV+Vat/DWzk+BJa7APz9oiRRwMMUc=; b=MB1nAShb0YngRFbK/b2GGN+iqoj
+	x0NLSeiX2LpC+1Nk+pwZ4eOpeVamc3tCac0ZhZRVI2a+Pyg+O/OnLEqvM2L4OjEV
+	j7fF9FpvURfwX1msXv++ubB4evykAeiwQGSvN2pBLRcApmbBVDdtYTTEsBNIfzAG
+	O/xhSrGHbXne5IshdA6rAu5FVWwjysdklV9Q+IIvm6ccvms4onJ51YVh3KEuaz2R
+	yFfgBKdZqn2KkAodn9KJhnPc3lETh2qzHclqD1OmMufVWu0SZ1hI6aWgKXBxnqHF
+	BfFkOQI+1V/PbHPvXoVDy4OlwXAsmrTMN6zSexymVTxVRNcdqQYJst43Ocw==
+Received: from mail-oo1-f71.google.com (mail-oo1-f71.google.com [209.85.161.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5mc29nda-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:07:59 +0000 (GMT)
+Received: by mail-oo1-f71.google.com with SMTP id 006d021491bc7-702a3e438dbso4725289eaf.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:07:59 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795594079; x=1796198879;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=E8makF8FM1RabaNV+Vat/DWzk+BJa7APz9oiRRwMMUc=;
+        b=YSRCAWj9VZCFmlNmeWslPVxbWZ6HWNrLM9K+OadnaAi1eaLgiTMs+V3rhnyBlCpGdA
+         NMWF4JGxZ0NVbekrGii/wgO6dWWdQJdXsFpZHBkzrg7Fg7RDUhSqK2IR8LvuczknnoSV
+         6vY6HHgXrGfn4gZMq188rcv2bKrDN80ti5QLShPeRAScy82eZpYl/Ev+Jh2DiG52lRE/
+         pjSFMdSpMtQdGwsEqx7ORVybLdBiJOG7JyoPd98T7/5V6fcqzsts3qIi/q5i/7fP1JBH
+         P8q8JRQLdP/E+HlffOk4io20vRtP8n/576+Y9g62zCZhVrn0egvsgvnQFZm4W99ZqtXT
+         kDhg==
+X-Forwarded-Encrypted: i=1; AL+hErEAzh5j/DZpEgVTHQkNjTWbQqxG4CMBu6QqkZJ1qLwMsUAfDoeGBCRFmCcSTiRPZV3QW+2Zeo6VNdM4c/w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z86/wgTD4fXfUXwNc2RfCXgFIHCz4+VQF7D4OAr/jYNdwfAUseD
+	INsA/5a6FMUqOTBPYdnAvxZ426cb2SNsh9tipdZFs23wDROS5Uwszfs5K8z0HOGcfrt2jvT+gNd
+	GHPNjTxkMrRkQdXJw9nd86hxGHtAKLd4bDgKVbc4wH5jq00x+QkQbrimFmGL6PqdDqDc=
+X-Gm-Gg: AZFdTZdZLSFMcZSpiOvvQvqc26nJ6iDLLHba5xJapOeYA6i8of7bDTJifhT9BVL2jkW
+	EjeTB3w2BhXzViAuHErUNsSlaW4L8bEBU/44SsunYQw/oNMT5n3O8yxkqJvsLikC+16YzlVaMUL
+	C5pO5O8mZHB22V3q/6mF27ZQyS6hlw5jI5sPNFwUkF1x6rZIsNgRqtRNIzb7c8qtwvGf3IaTiTm
+	HIgokDl7DhUHzel7mn4KeVGsaj8Hm1hvSccJMcuMAzPw7MZG8HxfOdp7fetUvfpnxQZLLWoKjBT
+	fopew6bS6EDP7WVuzFBAN0qcdFWN0/8pVfbbxXHoVq2MyOz3pVqZlSYv81JwJSUOw2lELFK7DeU
+	0lcbbPmEtgj/SFTsPaYfKHFhSEG6VN551
+X-Received: by 2002:a05:620a:f04:b0:949:3ba5:15d1 with SMTP id af79cd13be357-949ba8239b2mr2982727185a.4.1795593619844;
+        Wed, 25 Nov 2026 00:00:19 -0800 (PST)
+X-Received: by 2002:a05:620a:f04:b0:949:3ba5:15d1 with SMTP id af79cd13be357-949ba8239b2mr2982709285a.4.1795593618711;
+        Wed, 25 Nov 2026 00:00:18 -0800 (PST)
+Received: from lin-0843.qualcomm.com ([212.136.9.4])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm585912015e9.11.2026.11.25.00.00.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 00:00:17 -0800 (PST)
+From: Gjorgji.Rosikopulos.gjorgji.rosikopulos@oss.qualcomm.com
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Cc: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        linux-kernel@vger.kernel.org, Hitesh Patel <hitesh@ebytelogic.com>,
+        Atanas Filipov <atanas.filipov@oss.qualcomm.com>,
+        Jigarkumar Zala <jigarkumar.zala@oss.qualcomm.com>,
+        Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
+Subject: [PATCH v2 07/12] media: qcom: camss: Add streams API support in tpg subdev
+Date: Wed, 25 Nov 2026 09:59:56 +0200
+Message-Id: <20261125080001.2540101-8-gjorgji.rosikopulos@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261125080001.2540101-1-gjorgji.rosikopulos@oss.qualcomm.com>
+References: <20261125080001.2540101-1-gjorgji.rosikopulos@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,174 +112,456 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=aPJlOr9m c=1 sm=1 tr=0 ts=6b069760 cx=c_pps
+ a=V4L7fE8DliODT/OoDI2WOg==:117 a=dNlqnMcrdpbb+gQrTujlOQ==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8 a=CAsIyaI2BfGF7LVpe1AA:9
+ a=WZGXeFmKUf7gPmL3hEjn:22
+X-Proofpoint-GUID: VZMDAGKbo5ZR-bCfaF5XYGhugkOvwspF
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzMiBTYWx0ZWRfXxhOvu2+xvfui
+ WBNbhJ0v7KnkeNG/mzldCWVZ/zg8K7rcrm5nwX8fhGfWl0b/OX8+WSFTlY0ZLBnA3+/ngw5EsTy
+ Hhp8h6uZOFb3epSAq8enBIQ+7hSjwIZpTYekD+bOXdh2iGYVo6Xban3VCDtv3VtwYE9EK5AoZpS
+ Db8+rVDXEbgQZ8yj9o0V1KcCRtLk1hQ8n8B8pBkdKVPs2yQDt5ZmKWpVqpiIDEUOhP9wCnwCjOV
+ CJGGNft9QU3WY0zHibGr6plefMYG+/GZA3Kqknk2KlAQ2/EOdyzRO/szjscxCXg0/aQEZkuDMds
+ nUxCRtax1voQvtKqlXbFiQAo09V5RJkWNO7W0VVE1QrMpC2ZzQsve/+N2B1x5FtqawUypQrTi5V
+ yiVDDbDpIguJDp1okweiaxmjxNulfuzxPvAPwSa8jbBTZAjNQtqLHt07DZl/DG6t7URVKUMXqqC
+ Bu+t4KEIvcvRdxpaI+g==
+X-Proofpoint-ORIG-GUID: VZMDAGKbo5ZR-bCfaF5XYGhugkOvwspF
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzMiBTYWx0ZWRfX8/rH4gs1Vc9n
+ M09UiE65hZ/nBQ3qOv10Oq3WhzH1ySaLBohPRyea56UFGMgtnhM7/Lqsfmesw3lUh9JeeUif3bn
+ icLeFiTwWkJH/rpGzWeadFm4pQJ8rT0=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
+ adultscore=0 spamscore=0 clxscore=1015 malwarescore=0 bulkscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611250032
 
-Each pvpanic device registers its own power-off handler at
-SYS_OFF_PRIO_LOW. register_sys_off_handler() accepts only one handler
-per non-default priority, so when a second pvpanic device is probed the
-registration fails with -EBUSY and the driver logs "Could not register
-sys_off_handler". The handler that did get registered notifies every
-device on the list, but it is owned by the first device. Once that
-device is unbound, or its shutdown event is masked through sysfs, the
-handler is unregistered and the remaining device stops reporting
-shutdowns even though its events mask still has PVPANIC_SHUTDOWN set.
+From: Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
 
-Register a single handler for the driver and keep it as long as at
-least one device has the shutdown event enabled. Serialize updates of
-the events mask and of the handler registration with a mutex. The
-panic and power-off paths still take only the list spinlock, so access
-the events mask with READ_ONCE()/WRITE_ONCE().
+Add support for the TPG subdevice to generate multiple concurrent
+virtual channels under the streams API. Replace the single fmt field
+with a per-stream array sized MSM_TPG_MAX_STREAMS and track the set
+of active streams in a new enabled_streams bitmask.
 
-The shutdown event only reaches pvpanic when no higher priority
-power-off handler, such as the ACPI one, turns the machine off first.
-Tested on a v6.18 based guest booted with acpi=off under QEMU 8.2.2
-(TCG) with two pvpanic-pci devices created with events=7: after
-unbinding the first device and powering off, QEMU did not receive the
-shutdown byte (0x4) without this change and does receive it with it.
-Masking the shutdown event on a single device still suppresses the
-write.
+Add tpg_pad_enable_streams()/tpg_pad_disable_streams() pad ops that
+update enabled_streams and (re)configure the hardware, a
+tpg_get_frame_desc() implementation that reports one CSI-2 frame
+descriptor entry per active route with VC equal to the stream index,
+and a tpg_init_state() internal op that sets up one default route per
+stream.
 
-OpenAI Codex was used to write the code change and the QEMU test
-scripts, and to run the tests. GitHub Copilot was used to review the
-change and to rewrite this changelog.
-
-Fixes: 7b51b1373321 ("misc/pvpanic: add support for normal shutdowns")
-Cc: stable@vger.kernel.org
-Signed-off-by: Zhu GuangLei <zhugl3@xiaopeng.com>
+Signed-off-by: Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
 ---
- drivers/misc/pvpanic/pvpanic.c | 56 ++++++++++++++++++----------------
- 1 file changed, 30 insertions(+), 26 deletions(-)
+ .../platform/qcom/camss/camss-tpg-gen1.c      |  63 +++---
+ drivers/media/platform/qcom/camss/camss-tpg.c | 179 +++++++++++++++++-
+ drivers/media/platform/qcom/camss/camss-tpg.h |   6 +-
+ 3 files changed, 205 insertions(+), 43 deletions(-)
 
-diff --git a/drivers/misc/pvpanic/pvpanic.c b/drivers/misc/pvpanic/pvpanic.c
-index 3d43045bf..ed7a01d45 100644
---- a/drivers/misc/pvpanic/pvpanic.c
-+++ b/drivers/misc/pvpanic/pvpanic.c
-@@ -16,6 +16,7 @@
- #include <linux/limits.h>
- #include <linux/list.h>
- #include <linux/module.h>
-+#include <linux/mutex.h>
- #include <linux/panic_notifier.h>
- #include <linux/platform_device.h>
- #include <linux/reboot.h>
-@@ -35,12 +36,14 @@ struct pvpanic_instance {
- 	void __iomem *base;
- 	unsigned int capability;
- 	unsigned int events;
--	struct sys_off_handler *sys_off;
- 	struct list_head list;
- };
+diff --git a/drivers/media/platform/qcom/camss/camss-tpg-gen1.c b/drivers/media/platform/qcom/camss/camss-tpg-gen1.c
+index d29de5f93c18..22fdeef8e76f 100644
+--- a/drivers/media/platform/qcom/camss/camss-tpg-gen1.c
++++ b/drivers/media/platform/qcom/camss/camss-tpg-gen1.c
+@@ -5,6 +5,7 @@
+  *
+  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+  */
++#include <linux/bitops.h>
+ #include <linux/io.h>
+ #include <linux/kernel.h>
  
- static struct list_head pvpanic_list;
- static spinlock_t pvpanic_lock;
-+static DEFINE_MUTEX(pvpanic_sys_off_lock);
-+static struct sys_off_handler *pvpanic_sys_off_handler;
-+static unsigned int pvpanic_sys_off_users;
+@@ -106,13 +107,16 @@ static int tpg_stream_on(struct tpg_device *tpg)
+ 	u8 payload_mode = (tg->mode > TPG_PAYLOAD_MODE_DISABLED) ?
+ 			   tg->mode - 1 : 0;
+ 	u8 lane_cnt = tpg->res->lane_cnt;
+-	u8 vc, dt, last_vc = 0;
++	u8 vc, last_vc = fls64(tpg->enabled_streams) - 1;
+ 	u32 val;
  
- static void
- pvpanic_send_event(unsigned int event)
-@@ -51,7 +54,7 @@ pvpanic_send_event(unsigned int event)
- 		return;
- 
- 	list_for_each_entry(pi_cur, &pvpanic_list, list) {
--		if (event & pi_cur->capability & pi_cur->events)
-+		if (event & pi_cur->capability & READ_ONCE(pi_cur->events))
- 			iowrite8(event, pi_cur->base);
- 	}
- 	spin_unlock(&pvpanic_lock);
-@@ -86,30 +89,34 @@ static int pvpanic_sys_off(struct sys_off_data *data)
- 	return NOTIFY_DONE;
- }
- 
--static void pvpanic_synchronize_sys_off_handler(struct device *dev, struct pvpanic_instance *pi)
-+static void pvpanic_set_events(struct device *dev, struct pvpanic_instance *pi,
-+			       unsigned int events)
- {
--	/* The kernel core has logic to fall back to system halt if no
--	 * sys_off_handler is registered.
--	 * When the pvpanic sys_off_handler is disabled via sysfs the kernel
--	 * should use that fallback logic, so the handler needs to be unregistered.
--	 */
+-	for (vc = 0; vc <= MSM_TPG_ACTIVE_VC; vc++) {
+-		last_vc = vc;
 -
- 	struct sys_off_handler *sys_off;
+-		input_format = &tpg->fmt;
++	/*
++	 * The hardware generates traffic for VC 0 up to last_vc as a
++	 * contiguous block, so every VC in that range must be configured
++	 * with a valid format, not just the ones actually streaming.
++	 */
++	for (vc = 0; vc <= last_vc; vc++) {
++		input_format = &tpg->fmt[vc];
+ 		format = tpg_get_fmt_entry(tpg->res->formats->formats,
+ 					   tpg->res->formats->nformats,
+ 					   input_format->code);
+@@ -120,7 +124,8 @@ static int tpg_stream_on(struct tpg_device *tpg)
+ 			return -EINVAL;
  
--	if (!(pi->events & PVPANIC_SHUTDOWN) == !pi->sys_off)
--		return;
+ 		/* VC configuration */
+-		val = FIELD_PREP(TPG_VC_n_CFG0_NUM_ACTIVE_DT, MSM_TPG_ACTIVE_DT) |
++		val = FIELD_PREP(TPG_VC_n_CFG0_VC_NUM, vc) |
++		      FIELD_PREP(TPG_VC_n_CFG0_NUM_ACTIVE_DT, 0) |
+ 		      FIELD_PREP(TPG_VC_n_CFG0_NUM_FRAMES, 0);
+ 		writel(val, tpg->base + TPG_VC_n_CFG0(vc));
+ 
+@@ -136,31 +141,29 @@ static int tpg_stream_on(struct tpg_device *tpg)
+ 		writel(TPG_COLOR_BARS_CFG_STANDARD, tpg->base + TPG_VC_n_COLOR_BARS_CFG(vc));
+ 
+ 		/* DT configuration */
+-		for (dt = 0; dt <= MSM_TPG_ACTIVE_DT; dt++) {
+-			val = FIELD_PREP(TPG_VC_m_DT_n_CFG_0_FRAME_HEIGHT,
+-					 input_format->height & 0xffff) |
+-			      FIELD_PREP(TPG_VC_m_DT_n_CFG_0_FRAME_WIDTH,
+-					 input_format->width & 0xffff);
+-			writel(val, tpg->base + TPG_VC_m_DT_n_CFG_0(vc, dt));
 -
--	if (!pi->sys_off) {
--		sys_off = register_sys_off_handler(SYS_OFF_MODE_POWER_OFF, SYS_OFF_PRIO_LOW,
-+	mutex_lock(&pvpanic_sys_off_lock);
-+	if ((pi->events ^ events) & PVPANIC_SHUTDOWN) {
-+		if (events & PVPANIC_SHUTDOWN)
-+			pvpanic_sys_off_users++;
-+		else
-+			pvpanic_sys_off_users--;
-+	}
-+	WRITE_ONCE(pi->events, events);
+-			val = FIELD_PREP(TPG_VC_m_DT_n_CFG_1_DATA_TYPE, format->data_type);
+-			writel(val, tpg->base + TPG_VC_m_DT_n_CFG_1(vc, dt));
+-
+-			if (tpg->hw_version == TPG_HW_VER_2_0_0) {
+-				val = FIELD_PREP(TPG_VC_m_DT_n_CFG_2_PAYLOAD_MODE, payload_mode) |
+-				      FIELD_PREP(TPG_V2_0_0_VC_m_DT_n_CFG_2_USER_SPECIFIED_PAYLOAD,
+-						 TPG_USER_SPECIFIED_PAYLOAD_DEFAULT) |
+-				      FIELD_PREP(TPG_V2_0_0_VC_m_DT_n_CFG_2_ENCODE_FORMAT,
+-						 format->encode_format);
+-			} else if (tpg->hw_version >= TPG_HW_VER_2_1_0) {
+-				val = FIELD_PREP(TPG_VC_m_DT_n_CFG_2_PAYLOAD_MODE, payload_mode) |
+-				      FIELD_PREP(TPG_V2_1_0_VC_m_DT_n_CFG_2_USER_SPECIFIED_PAYLOAD,
+-						 TPG_USER_SPECIFIED_PAYLOAD_DEFAULT) |
+-				      FIELD_PREP(TPG_V2_1_0_VC_m_DT_n_CFG_2_ENCODE_FORMAT,
+-						 format->encode_format);
+-			}
+-			writel(val, tpg->base + TPG_VC_m_DT_n_CFG_2(vc, dt));
++		val = FIELD_PREP(TPG_VC_m_DT_n_CFG_0_FRAME_HEIGHT,
++				 input_format->height & 0xffff) |
++		      FIELD_PREP(TPG_VC_m_DT_n_CFG_0_FRAME_WIDTH,
++				 input_format->width & 0xffff);
++		writel(val, tpg->base + TPG_VC_m_DT_n_CFG_0(vc, 0));
 +
-+	if (!pvpanic_sys_off_users) {
-+		/* Allow the kernel to fall back to halt if no handler remains. */
-+		unregister_sys_off_handler(pvpanic_sys_off_handler);
-+		pvpanic_sys_off_handler = NULL;
-+	} else if (dev && !pvpanic_sys_off_handler) {
-+		sys_off = register_sys_off_handler(SYS_OFF_MODE_POWER_OFF,
-+						   SYS_OFF_PRIO_LOW,
- 						   pvpanic_sys_off, NULL);
- 		if (IS_ERR(sys_off))
- 			dev_warn(dev, "Could not register sys_off_handler: %pe\n", sys_off);
- 		else
--			pi->sys_off = sys_off;
--	} else {
--		unregister_sys_off_handler(pi->sys_off);
--		pi->sys_off = NULL;
-+			pvpanic_sys_off_handler = sys_off;
++		val = FIELD_PREP(TPG_VC_m_DT_n_CFG_1_DATA_TYPE, format->data_type);
++		writel(val, tpg->base + TPG_VC_m_DT_n_CFG_1(vc, 0));
++
++		if (tpg->hw_version == TPG_HW_VER_2_0_0) {
++			val = FIELD_PREP(TPG_VC_m_DT_n_CFG_2_PAYLOAD_MODE, payload_mode) |
++			      FIELD_PREP(TPG_V2_0_0_VC_m_DT_n_CFG_2_USER_SPECIFIED_PAYLOAD,
++					 TPG_USER_SPECIFIED_PAYLOAD_DEFAULT) |
++			      FIELD_PREP(TPG_V2_0_0_VC_m_DT_n_CFG_2_ENCODE_FORMAT,
++					 format->encode_format);
++		} else if (tpg->hw_version >= TPG_HW_VER_2_1_0) {
++			val = FIELD_PREP(TPG_VC_m_DT_n_CFG_2_PAYLOAD_MODE, payload_mode) |
++			      FIELD_PREP(TPG_V2_1_0_VC_m_DT_n_CFG_2_USER_SPECIFIED_PAYLOAD,
++					 TPG_USER_SPECIFIED_PAYLOAD_DEFAULT) |
++			      FIELD_PREP(TPG_V2_1_0_VC_m_DT_n_CFG_2_ENCODE_FORMAT,
++					 format->encode_format);
+ 		}
++		writel(val, tpg->base + TPG_VC_m_DT_n_CFG_2(vc, 0));
  	}
-+	mutex_unlock(&pvpanic_sys_off_lock);
+ 
+ 	/* Global TPG control */
+diff --git a/drivers/media/platform/qcom/camss/camss-tpg.c b/drivers/media/platform/qcom/camss/camss-tpg.c
+index 5764a60fa34c..a7ef6d2bb4e8 100644
+--- a/drivers/media/platform/qcom/camss/camss-tpg.c
++++ b/drivers/media/platform/qcom/camss/camss-tpg.c
+@@ -200,22 +200,78 @@ static int tpg_set_stream(struct v4l2_subdev *sd, int enable)
+ 				"could not sync v4l2 controls: %d\n", ret);
+ 			return ret;
+ 		}
++
++		tpg->enabled_streams = BIT_ULL(0);
++	} else {
++		tpg->enabled_streams = 0;
+ 	}
+ 
+ 	return tpg->res->hw_ops->configure_stream(tpg, enable);
  }
  
- static void pvpanic_remove(void *param)
-@@ -126,7 +133,7 @@ static void pvpanic_remove(void *param)
- 	}
- 	spin_unlock(&pvpanic_lock);
- 
--	unregister_sys_off_handler(pi->sys_off);
-+	pvpanic_set_events(NULL, pi, 0);
- }
- 
- static ssize_t capability_show(struct device *dev, struct device_attribute *attr, char *buf)
-@@ -141,7 +148,7 @@ static ssize_t events_show(struct device *dev, struct device_attribute *attr, ch
++static int tpg_pad_enable_streams(struct v4l2_subdev *sd,
++				  struct v4l2_subdev_state *state,
++				  u32 pad, u64 streams_mask)
++{
++	struct tpg_device *tpg = v4l2_get_subdevdata(sd);
++	bool start = !tpg->enabled_streams;
++	int ret;
++
++	if (pad != MSM_TPG_PAD_SRC)
++		return -EINVAL;
++
++	tpg->enabled_streams |= streams_mask;
++	if (!start)
++		return tpg->res->hw_ops->configure_stream(tpg, 1);
++
++	ret = v4l2_ctrl_handler_setup(&tpg->ctrls);
++	if (ret < 0) {
++		tpg->enabled_streams &= ~streams_mask;
++		return ret;
++	}
++
++	ret = tpg->res->hw_ops->configure_stream(tpg, 1);
++	if (ret)
++		tpg->enabled_streams &= ~streams_mask;
++
++	return ret;
++}
++
++static int tpg_pad_disable_streams(struct v4l2_subdev *sd,
++				   struct v4l2_subdev_state *state,
++				   u32 pad, u64 streams_mask)
++{
++	struct tpg_device *tpg = v4l2_get_subdevdata(sd);
++
++	if (pad != MSM_TPG_PAD_SRC)
++		return -EINVAL;
++
++	tpg->enabled_streams &= ~streams_mask;
++
++	/*
++	 * Growing the active VC range live is safe, but shrinking it while
++	 * the generator is still running for the remaining VCs corrupts its
++	 * state machine. Only touch the hardware when the last VC disables.
++	 */
++	if (tpg->enabled_streams)
++		return 0;
++
++	return tpg->res->hw_ops->configure_stream(tpg, 0);
++}
++
+ static struct v4l2_mbus_framefmt *
+ __tpg_get_format(struct tpg_device *tpg,
+ 		 struct v4l2_subdev_state *sd_state,
+-		 unsigned int pad,
++		 unsigned int pad, u32 stream,
+ 		 enum v4l2_subdev_format_whence which)
  {
- 	struct pvpanic_instance *pi = dev_get_drvdata(dev);
++	if (pad != MSM_TPG_PAD_SRC || stream >= MSM_TPG_MAX_STREAMS)
++		return NULL;
++
+ 	if (which == V4L2_SUBDEV_FORMAT_TRY)
+-		return v4l2_subdev_state_get_format(sd_state,
+-						    pad);
++		return v4l2_subdev_state_get_format(sd_state, pad, stream);
  
--	return sysfs_emit(buf, "%x\n", pi->events);
-+	return sysfs_emit(buf, "%x\n", READ_ONCE(pi->events));
+-	return &tpg->fmt;
++	return &tpg->fmt[stream];
  }
  
- static ssize_t events_store(struct device *dev, struct device_attribute *attr,
-@@ -158,8 +165,7 @@ static ssize_t events_store(struct device *dev, struct device_attribute *attr,
- 	if ((tmp & pi->capability) != tmp)
+ static void tpg_try_format(struct tpg_device *tpg,
+@@ -282,7 +338,7 @@ static int tpg_get_format(struct v4l2_subdev *sd,
+ 	struct tpg_device *tpg = v4l2_get_subdevdata(sd);
+ 	struct v4l2_mbus_framefmt *format;
+ 
+-	format = __tpg_get_format(tpg, sd_state, fmt->pad, fmt->which);
++	format = __tpg_get_format(tpg, sd_state, fmt->pad, fmt->stream, fmt->which);
+ 	if (!format)
  		return -EINVAL;
  
--	pi->events = tmp;
--	pvpanic_synchronize_sys_off_handler(dev, pi);
-+	pvpanic_set_events(dev, pi, tmp);
+@@ -299,10 +355,13 @@ static int tpg_set_format(struct v4l2_subdev *sd,
+ 	struct tpg_device *tpg = v4l2_get_subdevdata(sd);
+ 	struct v4l2_mbus_framefmt *format;
  
- 	return count;
+-	format = __tpg_get_format(tpg, sd_state, fmt->pad, fmt->which);
++	format = __tpg_get_format(tpg, sd_state, fmt->pad, fmt->stream, fmt->which);
+ 	if (!format)
+ 		return -EINVAL;
+ 
++	if (fmt->which == V4L2_SUBDEV_FORMAT_ACTIVE && tpg->enabled_streams)
++		return -EBUSY;
++
+ 	tpg_try_format(tpg, &fmt->format);
+ 	*format = fmt->format;
+ 
+@@ -326,6 +385,69 @@ static int tpg_init_formats(struct v4l2_subdev *sd,
+ 	return tpg_set_format(sd, NULL, fh ? fh->state : NULL, &format);
  }
-@@ -197,10 +203,8 @@ int devm_pvpanic_probe(struct device *dev, void __iomem *base)
  
- 	/* initlize capability by RDPT */
- 	pi->capability &= ioread8(base);
--	pi->events = pi->capability;
--
--	pi->sys_off = NULL;
--	pvpanic_synchronize_sys_off_handler(dev, pi);
-+	pi->events = 0;
-+	pvpanic_set_events(dev, pi, pi->capability);
++static int tpg_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
++			      struct v4l2_mbus_frame_desc *fd)
++{
++	struct tpg_device *tpg = v4l2_get_subdevdata(sd);
++	struct v4l2_subdev_state *state;
++	struct v4l2_subdev_route *route;
++	unsigned int i = 0;
++
++	if (pad != MSM_TPG_PAD_SRC)
++		return -EINVAL;
++
++	state = v4l2_subdev_lock_and_get_active_state(sd);
++	fd->type = V4L2_MBUS_FRAME_DESC_TYPE_CSI2;
++
++	for_each_active_route(&state->routing, route) {
++		const struct tpg_format_info *format;
++
++		format = tpg_get_fmt_entry(tpg->res->formats->formats,
++					   tpg->res->formats->nformats,
++					   tpg->fmt[route->source_stream].code);
++		if (IS_ERR(format))
++			continue;
++
++		fd->entry[i].stream = route->source_stream;
++		fd->entry[i].flags = 0;
++		fd->entry[i].bus.csi2.vc = route->source_stream;
++		fd->entry[i].bus.csi2.dt = format->data_type;
++		i++;
++	}
++
++	fd->num_entries = i;
++	v4l2_subdev_unlock_state(state);
++
++	return 0;
++}
++
++static int tpg_init_state(struct v4l2_subdev *sd, struct v4l2_subdev_state *state)
++{
++	struct tpg_device *tpg = v4l2_get_subdevdata(sd);
++	struct v4l2_subdev_route routes[MSM_TPG_MAX_STREAMS];
++	struct v4l2_subdev_krouting routing = {
++		.num_routes = ARRAY_SIZE(routes),
++		.routes = routes,
++	};
++	struct v4l2_mbus_framefmt fmt = {
++		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
++		.width = 1920,
++		.height = 1080,
++	};
++	unsigned int i;
++
++	for (i = 0; i < ARRAY_SIZE(routes); i++) {
++		routes[i].sink_pad = MSM_TPG_PAD_SRC;
++		routes[i].sink_stream = i;
++		routes[i].source_pad = MSM_TPG_PAD_SRC;
++		routes[i].source_stream = i;
++		routes[i].flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE;
++		tpg->fmt[i] = fmt;
++	}
++
++	return v4l2_subdev_set_routing_with_fmt(sd, state, &routing, &fmt);
++}
++
+ static int tpg_s_ctrl(struct v4l2_ctrl *ctrl)
+ {
+ 	struct tpg_device *tpg = container_of(ctrl->handler,
+@@ -433,16 +555,36 @@ static const struct v4l2_subdev_pad_ops tpg_pad_ops = {
+ 	.set_fmt = tpg_set_format,
+ };
  
- 	spin_lock(&pvpanic_lock);
- 	list_add(&pi->list, &pvpanic_list);
-
-base-commit: 917fcbf033154a6c8d83cfa6c88f012b71eb37b2
++static const struct v4l2_subdev_pad_ops tpg_streams_pad_ops = {
++	.enum_mbus_code = tpg_enum_mbus_code,
++	.enum_frame_size = tpg_enum_frame_size,
++	.get_fmt = tpg_get_format,
++	.set_fmt = tpg_set_format,
++	.get_frame_desc = tpg_get_frame_desc,
++	.enable_streams = tpg_pad_enable_streams,
++	.disable_streams = tpg_pad_disable_streams,
++};
++
+ static const struct v4l2_subdev_ops tpg_v4l2_ops = {
+ 	.core = &tpg_core_ops,
+ 	.video = &tpg_video_ops,
+ 	.pad = &tpg_pad_ops,
+ };
+ 
++static const struct v4l2_subdev_ops tpg_streams_v4l2_ops = {
++	.core = &tpg_core_ops,
++	.video = &tpg_video_ops,
++	.pad = &tpg_streams_pad_ops,
++};
++
+ static const struct v4l2_subdev_internal_ops tpg_v4l2_internal_ops = {
+ 	.open = tpg_init_formats,
+ };
+ 
++static const struct v4l2_subdev_internal_ops tpg_streams_internal_ops = {
++	.init_state = tpg_init_state,
++};
++
+ static const struct media_entity_operations tpg_media_ops = {
+ 	.link_setup = tpg_link_setup,
+ 	.link_validate = v4l2_subdev_link_validate,
+@@ -453,12 +595,15 @@ int msm_tpg_register_entity(struct tpg_device *tpg,
+ {
+ 	struct v4l2_subdev *sd = &tpg->subdev;
+ 	struct device *dev = tpg->camss->dev;
++	bool streams_api = tpg->camss->res->streams_enable;
+ 	int ret;
+ 
+-	v4l2_subdev_init(sd, &tpg_v4l2_ops);
+-	sd->internal_ops = &tpg_v4l2_internal_ops;
++	v4l2_subdev_init(sd, streams_api ? &tpg_streams_v4l2_ops : &tpg_v4l2_ops);
++	sd->internal_ops = streams_api ? &tpg_streams_internal_ops : &tpg_v4l2_internal_ops;
+ 	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE |
+ 		     V4L2_SUBDEV_FL_HAS_EVENTS;
++	if (streams_api)
++		sd->flags |= V4L2_SUBDEV_FL_STREAMS;
+ 	snprintf(sd->name, ARRAY_SIZE(sd->name), "%s%d",
+ 		 "msm_tpg", tpg->id);
+ 	sd->grp_id = TPG_GRP_ID;
+@@ -497,15 +642,27 @@ int msm_tpg_register_entity(struct tpg_device *tpg,
+ 		goto free_ctrl;
+ 	}
+ 
++	if (streams_api) {
++		ret = v4l2_subdev_init_finalize(sd);
++		if (ret) {
++			dev_err(dev, "Failed to finalize subdev: %d\n", ret);
++			goto media_cleanup;
++		}
++	}
++
+ 	ret = v4l2_device_register_subdev(v4l2_dev, sd);
+ 	if (ret < 0) {
+ 		dev_err(dev, "Failed to register subdev: %d\n", ret);
+-		media_entity_cleanup(&sd->entity);
+-		goto free_ctrl;
++		goto subdev_cleanup;
+ 	}
+ 
+ 	return 0;
+ 
++subdev_cleanup:
++	if (streams_api)
++		v4l2_subdev_cleanup(sd);
++media_cleanup:
++	media_entity_cleanup(&sd->entity);
+ free_ctrl:
+ 	v4l2_ctrl_handler_free(&tpg->ctrls);
+ 
+@@ -515,6 +672,8 @@ int msm_tpg_register_entity(struct tpg_device *tpg,
+ void msm_tpg_unregister_entity(struct tpg_device *tpg)
+ {
+ 	v4l2_device_unregister_subdev(&tpg->subdev);
++	if (tpg->camss->res->streams_enable)
++		v4l2_subdev_cleanup(&tpg->subdev);
+ 	media_entity_cleanup(&tpg->subdev.entity);
+ 	v4l2_ctrl_handler_free(&tpg->ctrls);
+ }
+diff --git a/drivers/media/platform/qcom/camss/camss-tpg.h b/drivers/media/platform/qcom/camss/camss-tpg.h
+index 7fb35a97dd06..5a6e9e726716 100644
+--- a/drivers/media/platform/qcom/camss/camss-tpg.h
++++ b/drivers/media/platform/qcom/camss/camss-tpg.h
+@@ -26,8 +26,7 @@
+ #define ENCODE_FORMAT_UNCOMPRESSED_24_BIT	0x7
+ 
+ #define MSM_TPG_PAD_SRC		0
+-#define MSM_TPG_ACTIVE_VC		0
+-#define MSM_TPG_ACTIVE_DT		0
++#define MSM_TPG_MAX_STREAMS		4
+ 
+ #define TPG_MIN_WIDTH   1
+ #define TPG_MIN_HEIGHT  1
+@@ -89,11 +88,12 @@ struct tpg_device {
+ 	struct camss_clock *clock;
+ 	int nclocks;
+ 	struct tpg_testgen_config testgen;
+-	struct v4l2_mbus_framefmt fmt;
++	struct v4l2_mbus_framefmt fmt[MSM_TPG_MAX_STREAMS];
+ 	struct v4l2_ctrl_handler ctrls;
+ 	struct v4l2_ctrl *testgen_mode;
+ 	const struct tpg_subdev_resources *res;
+ 	u32 hw_version;
++	u64 enabled_streams;
+ };
+ 
+ struct camss_subdev_resources;
 -- 
-2.43.0
+2.34.1
 
