@@ -1,90 +1,127 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.147
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795624797;
-	b=qfbo8tU24Ze7E8ozfw5rLk31sna0AB+z31XneSP2luQzSxxtOqrK7Pr3GV/f6vo2hCZ9
-	 Ut95+pwDgJjsttsKm2OaPWv8K0hyKo8dsEwreW8EaYTeSoqHI/Fxy1iqSl5gb+0FMfu1u
-	 6NJSLUMArEgHogD2hvfe1iVVbHvF0f6lfkvC/XaIPK1ULU7cKKrNR5yfakAUemTS22CfA
-	 qL/jBYSzscMF9dM/fVCAO9DYR/0aDkBaBzsMlXdjUACGXnumLUoeEXPozBybn6HA2hsa6
-	 0vxjVPodtAMpqrdOoRUXAvF59ZvUJRY/wCzeZuCBCJYTfcjeqKiGH5UEAFMqTqIDu/A==
+	t=1795624800;
+	b=AS/XKPgh/CpMi5XpXRJjz/It9zdh2jIXUqBeTRFUTCNvG+iaa0fnARUPa1a/wgR/FkhE
+	 F+KwOFj1IABTYhnyAzuMMGrtmUvyae6F0UWNBLX2VUSyxu2yS9SqKFfAduZ66RSOsFlmZ
+	 Al6JyjjOoojAcj1OHSvAcGShfHlab1/us/PSy16JVBmaHjmqNkhWQ95b0l56z3kts5map
+	 Wq8fSs6Tm6qvXqYUC5630b2uL/Aa7fG63wLj+uoiDnCqcDkyQALDsAilgivdC6c2v3qg2
+	 R826Nj2FEhPS0BgBGmK4P12yUtxnEjbEJTkbITaktJFp+ZgN46byBoTQ0nqyu/hgM6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795624797;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=JxExNuQaJd3Cwz7l+JHbWMh1g3amu769QhEVBhR2vvc=;
-	b=gPDsy8upAZy3z+wf1ocQUiUGhdShPdX3Hg9pmuamrsySzrb49jIGFDGG2lfC8EDYba0Q
-	 lf5DxhKWg1Ck6qcgwp1jijqCtfD/kykBfIe9eNxCNvkau0exMbrZgqXvHmEKgLmDnsgxY
-	 88xnFaTlrhRfHlPvZKzDlce6s7GAwXSFswi/3LJ8AZiW8/ToKu8GryHDn8uczjbk3/C0A
-	 JQXw/zHQSwX8hcy+dz3A3GnRrsO5mY3T+670D2eyFlbnyVPs4Owa7J9DWEGfpSH6MGRGE
-	 ajF9fT6CIi+EvzYiSg0g2bR2cxvxE29QIHfrQH+PEQsH/XMuuApMQjtbrcyGThcV8YQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795624800;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=g3enkNkjVyBvG0MHM+KWIa1N7BGaXbJaNRt9VzjWX80=;
+	b=Lrzgtl1R2AH7lxMktysftfGIRts20oilyNBYWICzW5VhNmIyJMkRXINI674s0tRS7Cxa
+	 CLHWULp1fGaPOZf5LClKv0HME61UgttNHNYKvSjpLpWZS+p4lEl0pfo7SnNIdcI1NCPX8
+	 Vd1YR3OdpMB14K1xlQFbRjomu+irI297E+R2dL/xqewYqVEwsJUXg9/F2JVCwimkpnizB
+	 0BNcaSOEp1IbQ+scnEIVDVC7HeaPj2x7uOyPaygD75sbkeOsoOiGdTUqAIN8aGT1g8ha/
+	 9vMYFrMLPhDlI7azt5m0P6u03Bx0LpChswmE/By2Xxq5gNvRj2Q0mTVeN5xmnOfnqWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=linux-foundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=OSDkQj1T;
-	arc=none smtp.remote-ip=209.85.218.43
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=queasysnail.net;
+	spf=pass smtp.mailfrom=queasysnail.net;
+	dkim=pass header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=XNDHqpA8;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="YcwCiXb/";
+	arc=none smtp.remote-ip=202.12.124.147
+Received: from fout-b4-smtp.messagingengine.com (fout-b4-smtp.messagingengine.com [202.12.124.147])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6664606A33E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:39:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6664606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19BBB606A680
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:40:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19BBB606A680
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=queasysnail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=queasysnail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=OSDkQj1T
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c506a231b88so816462866b.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:39:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1795624795; x=1796229595; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JxExNuQaJd3Cwz7l+JHbWMh1g3amu769QhEVBhR2vvc=;
-        b=OSDkQj1Ti0rYbrt+XplUWwAibe6OKpBozVfOioKe07INIwByGhPZk7VfEJExJR9pOx
-         nDfhakDELK0CUMl1tWJLFPMtRJ/ksEHj/dh73akiu0hekPteZFuCQ7bSnhYoLtZW8DtO
-         cAqE6puS+a0YtjqIDKfuaEDLlNbmYp9Gc7oyE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795624795; x=1796229595;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=JxExNuQaJd3Cwz7l+JHbWMh1g3amu769QhEVBhR2vvc=;
-        b=acY333KO+0jZPC+kxSfY+xc4fz8Ne4Wv3JK7W3uL0i5YnB63FyRgqjezOJhS4UBk5l
-         MSRR5/vhnZKcCnSXQG98Gx5HDpdc7jOE1m5mxwKyiNOW5AvTAnRENd96p9JZxNCMb4qs
-         Bnnwpu5FSPJDsy8EusjWwrE0yMFb/bFWji6A4kygK/DFEv3PjkOcbZifrI94KRrlGK3T
-         MU8yP/fsDKSYd+/00ZMkXH9JC8anMRcfs418mf/eQJVmjj+JkwgDxuZw1zwg0HHiDX/B
-         oyQYUOh6uaFoXtpQ0JsOmNA9yXrxegYWDe2PoY1EESWWh7wad9AEYkmS4UKbPEbkF6p2
-         dGYg==
-X-Forwarded-Encrypted: i=1; AL+hErFm40BiZ5GtyC9zwTaVRisEgCMFwNZ9GxeZH0u0Cx2tDdXjo+LKs76L6UfLCjk7QSFS/KxBM1kmm7Z17qk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+j2geRwTTMdMhCIF4xRIonDzPXvNC7h4O8QiE1ULAoAqLY1Rta
-	tIv8cTdVVW3UmTxUPw3Lgct3Pd1uwYBYfrDRVTwjvdF5JQcVkPSa9NMkuewBU565pMdpr+wHIH8
-	K5Zj+MdDGUg==
-X-Gm-Gg: AZFdTZc6hdsPNa69l80WM0RBdn0tVlkfWeg6Mn37OAHC90DCWGHHhBIBwbBDKWqSs+M
-	YhnbUoVyAPsFceQPqvC493OmJBKOnNf+JER9tuzkLhGX70q28n9NJBijY0SBoul34hc17vZuX+c
-	QOIUYUAFhu3TkJpDzuydj40v0f1fESh7RSpHJpYcTpVbc8OMJasyyg+8cWja4ovW34ule3sIZx0
-	S60k0SV4rzvGpKGY/o7vLaznD9A3i62Wlhjt3TRxeRpaThSTmuNv+d5gehN11SQ0v3lkagtplOR
-	ruDfFHe4EXlGlguiCF1tnsn3yJWomIZ5Q/0ES1QI7y1q9QH8Inq+tFzsVlRbWmmYTdsqNI1QaFQ
-	eC/pMWA5aqb+qKVtDDXVYS3GEp6Dzgr3ET9RBi6zFniCHRK9Y8etAoy+NB1D/YpRe8y2/401LDk
-	w4T768HGoDnjr+DmU9qDSBVhDgvnYRig1HtQRMoYfV3ElAbEhW+joqifA8GRtYgDYu/j2TNfTHh
-	j6KaQDWIH7m63H5KndlbLcRaBljG+hpy0ZxCr8JWQK79lbnP3TcGJ/dQ1TVWZD5WfNcYcgbkw7D
-	PlfRJ/VHke/BllmV1w/5KlM0xRQrEM9mdIm/NfWnbDnmZovAi/wRHTCnM87X+vc/PxLNDwMo5mV
-	T0D8=
-X-Received: by 2002:a17:907:da0c:b0:c50:5545:b66f with SMTP id a640c23a62f3a-c513a803353mr1408612066b.23.1795624795206;
-        Wed, 25 Nov 2026 08:39:55 -0800 (PST)
-Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com. [209.85.218.53])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aea1fd8sm656651666b.38.2026.11.25.08.39.53
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 08:39:54 -0800 (PST)
-Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c5133831027so857314866b.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:39:53 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGBTGi9vDlMhgjbnAKiKO8KaiFoTLOyZ+BeYo7Blx8P9JWHi1ANRAVhjYvnE5Q6WNnJpPGHtowPytrKhmk=@vger.kernel.org
-X-Received: by 2002:a17:907:da02:b0:c2d:c247:5400 with SMTP id
- a640c23a62f3a-c513a8493eemr1490131966b.27.1795624793689; Wed, 25 Nov 2026
- 08:39:53 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=XNDHqpA8;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=YcwCiXb/
+Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
+	by mailfout.stl.internal (Postfix) with ESMTP id 862AB1D0063B
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:39:59 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-11.internal (MEProxy); Wed, 25 Nov 2026 11:39:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=queasysnail.net;
+	 h=cc:cc:content-type:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1795624797; x=
+	1795711197; bh=g3enkNkjVyBvG0MHM+KWIa1N7BGaXbJaNRt9VzjWX80=; b=X
+	NDHqpA8OBmHA39syNiqFLQowcg2z3/AUs0x0LxBbTrHx2Te9BUlc7PLNcDIWI8oq
+	QR0mN6g8Rpm8IQ+KS8Kdu8H0gOaVc41ibJdZZCOKS8gsP7Jpq6PO1YlL0OnoEEHA
+	khMBhztDyGw2PQBRMURvD6bsWlxYEtRR5vfybcqD79KNlQeSATLSW3h6GUEv1MSz
+	n0HezIi2wzskzZzPNSB7WKz1APmXbMyRtRLxLGW8j7DSKI4NPT3AX+2h/kyoxKH9
+	J2iutpQrz2faCDBh9hfwxR+E3jvDk0k/38+7/soKzM6Eea2ELV8NgjFubgs9gCmR
+	8V4gbhsX32zoKjbo0Q5Kw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795624797; x=1795711197; bh=g3enkNkjVyBvG0MHM+KWIa1N7BGaXbJaNRt
+	9VzjWX80=; b=YcwCiXb/P9fn4srv59kljyBYSTJn6S7c0xfmeLHYYRj1Gs4ukEQ
+	Ts+FShPo8/6F4OvZFWkGH/OYTcvQUKo4D2leiuqyUsRavsywU6LLJQDcUHCz/CmG
+	4g9ZMMibm8nlvLwPhdZRs0JMLw71RHDNoLM36ZDeCXOrxMbnis9pzI+sH6JwCNzI
+	HTx/5BeZ4faoFHpBA2oDmpjGomG2nqISTw+4NHksPAL8JnkEXWtgq5u6VoGfZe9L
+	xRrgT2XqTxanhRPVodf4kcIAUwBCItiTFPPoITOdH27uO2xbZbvHjPjf9xDHoI7q
+	cvBNWCM+kwlilsGovj17zItnFuneuEIcMTw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=queasysnail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795624797; d=queasysnail.net;
+	mf=PHNkQHF1ZWFzeXNuYWlsLm5ldD4=;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:jd+qMwWeJzc9hgmMuXF8q97m7JAhRaqxo1qeEmXjPEYmBB/
+	+DIk3+83S9YRL4F3+TneLXZYVWU7+qPu1AsWAEQhH/crHJZkbN+5uDw4/pRaDNuy
+	WNXPp7a9g8rHCnAwzOTGq3ncfbSWGzJFHrU1Y03JE2ymS1Rd7zI6NDGwjPL2KQO4
+	wj5WbkdLfTxSJt+yRglDvCmObPFcFR76xA9+2NQPa7DP0oA9hfvKKtPR+cKB1gs7
+	sx+7rH/0dzjlOLyJ89yGwt87ku/IzKJey1UgNZ+yHx89ZXhWgDSDwN3D4gJ50ipM
+	vj3znAGzUgUQhj07u2ESyIbNX4FTXUe+fp0AJMw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-disposition,content-type,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:JUaZbP33mWNJ24OlGyehRVTiNbe7qyoaI3RQT3g4FcI=:3V7oVBdpGfdrkhgSI2whlAULFrAHua2VShOVgC0hzJY=;
+X-ME-Sender: <xms:XQ8HawK-A6iufDAXnzN4_tyHixX1tN2GQDu7OHzhKLG4rF8KKfwxyw>
+    <xme:XQ8Ha-rwq6txJBvJAYha8t5KZK9CeRkO-3BiB66lJ3TQOhmuPmbX4ZrC44ql7WjUz
+    XCtzEbIwj7z7eDtYF3Jx7PPgmr0ixW43uiNGPLaaEgIiXTMgvGo8OW4>
+X-ME-Received: <xmr:XQ8Ha3jrWwzzJddeSLiQ-Q7OTr8PlMsI0Sw69oya_8T1w3v_GVWJQyNHk3o>
+X-ME-Proxy-Cause: dmFkZTG1AIosMnXXQ3TVkZAM1xBtIcV0Q0klgVHxTUYZGoQ/5iae4eFVyvEAuo5L4ttIbh
+    85f0rterZnIAh6hOrrvviw2meX8naOhQKHUzQrqrt7pAwf4isXtdCJxwDxcsDtZsSKvxaP
+    +TCT1wfxIlw7GAEq30JaW4u8rk66lQdoshbKm751QX3Uu2JS0YCLP+4Ybcjg3m/mZOY7aR
+    /dy3nOnInYehqXtB+1vtcoDO0As8D4uQoUR9DiImcD8G0TbSHcAMwEYBd/Chy6BTxj12w3
+    6LL/A9pLtQUPIgqRkG4aG4uh6mk3n+h2cTqG+MmIst645q5BQ9nyX4AXkw8k/lfTJvvNag
+    NDOyLAS1dYqDWuFy+NyTSdg6wsvS3YC/3AHPFUB/BxpdRqAa8mJnbgf7T/TOUE91hW9T0i
+    DHjNsdzGAyOmErwcEz6VwlvFeWHTTnVqaGg4/bvYAEUvhMRrnZjbuJa8UscXWyezML2d8L
+    Lmx1vL1b6fNk3NBwNoud4HxSFY01lpXpm/NkDaPQGCgBcj25iCE9YkPH85No+uJmK6gNhG
+    3p5NbeFDAjR2M8E6XwCPF9B0CChmr2v4vC1q4tiYB6vZGh7tPY/km/KAf6AZExButntxSz
+    7pJd9glblPYAa5SpFAyChpwpzdgBJiCfm2sAQQpkYNQ2BmR3rgUXSY/yAsCQ
+X-ME-Proxy: <xmx:XQ8Ha9Zdt8xPjvupPtFXIC3Tor3p62JzssrTCoxO6g4MxatgZo5jhg>
+    <xmx:XQ8Ha_l1qM3kKSpL-Vdlau1UUyh-M-L69E23I3VA9tCwqJzcdKxNGA>
+    <xmx:XQ8HazxvfNa_1lwmwfR4OefL3jV7N_mY3ZnuaA8IBhJsQ3jEQ21RLA>
+    <xmx:XQ8Ha19K6JD0LkBCN1GmgOUgFxgik3WYPlhbuyoPvylmqqpAeEuSMQ>
+    <xmx:XQ8HawZdunWInBQdCc9j3Q376fTVDzUrzLMF-XQDe-ywPXxk6zoZDWSY>
+Feedback-ID: i934648bf:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 25 Nov 2026 11:39:56 -0500 (EST)
+Date: Wed, 25 Nov 2026 17:39:54 +0100
+From: Sabrina Dubroca <sd@queasysnail.net>
+To: Felipe Pereira Stival via B4 Relay <devnull+v0idpwn.gmail.com@kernel.org>
+Cc: John Fastabend <john.fastabend@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Shuah Khan <shuah@kernel.org>,
+	netdev@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Felipe Pereira Stival <v0idpwn@gmail.com>
+Subject: Re: [PATCH net 1/2] tls: don't hide a queued KeyUpdate from poll()
+Message-ID: <awcPWkEtU8rgPAz-@krikkit>
+References: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-0-8e25101e7be6@gmail.com>
+ <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-1-8e25101e7be6@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,37 +131,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
- <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
- <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
- <awWSwmvaTwBxfU-r@redhat.com> <CAHk-=wj3GCXZohdFWWPAOkC_LHno4X0oQW+0sQFJzRMvjpODUg@mail.gmail.com>
- <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
- <CAHk-=wgFnKO_O0fR_-O+i5yUGaDcz8_HwpM5QiLM4jPFYZb41Q@mail.gmail.com> <awbMwBDP9TsJBmzV@redhat.com>
-In-Reply-To: <awbMwBDP9TsJBmzV@redhat.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 25 Nov 2026 08:39:37 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wiTUE9vfMvHeGz+dgex_+sMicSHnf6Nt2_w1-SkOmu8ng@mail.gmail.com>
-X-Gm-Features: Aa3M54phjOT0um3z9odpNNELrhe-bLH1gtujI8-yceR8vi0wZ9OAzggOhpFehRM
-Message-ID: <CAHk-=wiTUE9vfMvHeGz+dgex_+sMicSHnf6Nt2_w1-SkOmu8ng@mail.gmail.com>
-Subject: Re: [PATCH 3/7] eventpoll: don't claim real exclusivity for EPOLLEXCLUSIVE
-To: Oleg Nesterov <oleg@redhat.com>
-Cc: mt4022@columbia.edu, Jens Axboe <axboe@kernel.dk>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Christian Brauner <brauner@kernel.org>, Michal Nazarewicz <mina86@mina86.com>, Wen Yang <wen.yang@linux.dev>, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	tz2294@columbia.edu, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-1-8e25101e7be6@gmail.com>
 
-On Wed, 25 Nov 2026 at 03:55, Oleg Nesterov <oleg@redhat.com> wrote:
->
-> FYI, none of these patches can be applied, both patch and git-am complain
-> "patch: **** malformed patch at line 34: *file, wait_queue_head_t *whead,"
+2026-11-18, 17:35:48 -0300, Felipe Pereira Stival via B4 Relay wrote:
+> From: Felipe Pereira Stival <v0idpwn@gmail.com>
+> 
+> When application data and a KeyUpdate are both queued, the recv() for
+> the data can also decrypt the KeyUpdate. That makes a rekey pending,
+> and the KeyUpdate is left on rx_list because its record type differs.
+> tls_sk_poll() reports no read events while a rekey is pending, so the
+> socket doesn't poll readable although a recvmsg() would return the
+> KeyUpdate. A reader that waits for a read event before each recv()
+> never reads it, never provides the new key and receives nothing more.
+> 
+> Report read events for records on rx_list while a rekey is pending,
+> since they are already decrypted. Keep ignoring the records still in
+> the strparser, so once the KeyUpdate has been read there are no read
+> events until the new key is provided, as before. Update the
+> documentation to say so.
+> 
+> Found with a level-triggered epoll reader that does one recv() per
+> read event. Without this patch it gets the data and then no read event
+> for the KeyUpdate; with it, the KeyUpdate is reported and the rekey
+> completes.
+> 
+> Fixes: 47069594e67e ("tls: implement rekey for TLS1.3")
+> Assisted-by: Claude:claude-fable-5-2
+> Signed-off-by: Felipe Pereira Stival <v0idpwn@gmail.com>
+> ---
+>  Documentation/networking/tls.rst | 7 ++++---
+>  net/tls/tls_main.c               | 6 +++---
+>  2 files changed, 7 insertions(+), 6 deletions(-)
 
-Grr. I was so proud of having finally figured out how to make gmail
-send uncorrupted patches so that I could do it in my normal workflow.
+Reviewed-by: Sabrina Dubroca <sd@queasysnail.net>
 
-But apparently my clever hack was just hot garbage. Not the first time
-that has happened...
-
-Back to the drawing board,
-             Linus
+-- 
+Sabrina
