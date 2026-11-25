@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795581456;
-	b=0wR1YfP5ZAHhZv86elJQD24ANoJWXfyb1s/v6QD2nKc6h1nhMIfZaJoVWRM3o34mAgD2
-	 yeyLaZHCBu/E3ILYd3C58mPOc0igr3DRlv6+olrUWFaxlEUfN7KPvdqx0CJeViAzH25VL
-	 ElRVBHL9++bC6g4vw1rLUkfx4fHbcGbLk/S0LvNRWbDsV+jn2ktl7igNd4YYlFmNChQbF
-	 c2e/D5pC/iwp9XB2Tkbhg7IPQgcAWovtvtPhj/3vv7xhWrT6iz0G+0WMVHw6QB6JkIZ4T
-	 8DAlLq5EoEQeCOVThpShZn9bp1ePXbEeDDTYquJ7eIbH/cOumjF+IvCcFyzZCnSh9JA==
+	t=1795581459;
+	b=2REOU+HHDxRPjzKLdigViodu8X3wBSynwnkxQyTdrjcYwXHaPFI6QB/eZfBMasyCE4x/
+	 lVMky6RiRYJ28QS3melcW3eOSwGK2xdRW6XxmBjdk/b1c82u8tGUr0DjTWTYdWyHwqTuA
+	 ayphruQmIzmsxwAv1cF0uO4nzU0YTcyhcGq0srcTfJIPd24IxUjU4mQdqj8KwvJkkILJu
+	 IDtHEIaOMp0RIIhDKV0LWxNq7MVgAT4+wUf7B5gbhyNkm2SKsm5dBWWUbd6KOr+SKG3rp
+	 8JG74EVZhUNVpQQuKo91leQxIbz5EBRaH9kZ4t0JESiLjql/QUC6NpQZUWB6oPSBEPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795581456;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795581459;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=Ry895IeeCwvvoVrLKPY1qGl5vh7XehrgPQ0oBew1BlU=;
-	b=pXkcfKpvmzwJJBXI/0gKhNE8/M9CK1MX/t4RgyWbeEcE1wcamojvow0JVlNSRBDyNSZy
-	 ixCo/diXjQncgUUroAqdB0hqxBVQv1vw1VeXVAeRPB3DwabQQFSumSD9KVJpBeIcfvy6Y
-	 DBAXCO95g3fF0NjZ/dCWvm6BX01ELtlGNFFWKUZTagc2PCd3xyJcCeS/6UcB2gYxAQsSO
-	 NxFdoBgUQlrOJA36nkwim0OLxq1oEjMhH/V5yUIUo+Y9G5tI5nvrYkWDiw7cLDNKHDCG1
-	 IiqfdmXix3YfqLJpPgRRKTWnNdWNga94UTOoc5diwTGR0vpXCbEb1IR1cpo++nNa+SA==
+	bh=p0LC0sUIzj6iLFfqcqtwKGB2+VgW9jHKFGlHAfP+Aeo=;
+	b=sFrYE546J1bzqM3O/lhuz1eOdE1QbgE9shP8ySgOMtf+1ebPqY54ca35+WyVnyOX3NPO
+	 WN9HrnUm+HUnO3n1IrgyZWn3qlBwpCEMtgHo7rp6j5URqSbH3qq7QAsgwzem2ejpdJtKf
+	 Db3dXaliM4Yk/gTvlzDMrA75o76E6t67zSmRoRcX3vF1UfA5MZ2s0x5Z6It5SvO1ze0A3
+	 LWA5EN/RaIpfn0hGlGEYAo9YsHoOSH6lHVkFD3xBDx5FzFLwnP+2LkMVA45QcFSnSuSzD
+	 aCm1PVseyMTCbPIFGr8MP/VLUVozczm09LN85bvRuPKAglbtl+0ycxcTp3nIdNysSTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=j1c5+oH9;
-	arc=none smtp.remote-ip=209.85.210.178
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pvonKtza;
+	arc=none smtp.remote-ip=209.85.210.175
+Received: from mail-pf1-f175.google.com (mail-pf1-f175.google.com [209.85.210.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B5A3606A338
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:37:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B5A3606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FCCB606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:37:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FCCB606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=j1c5+oH9
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8b612fd74e1so1777053b3a.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:37:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pvonKtza
+Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8b32bc605d9so2527939b3a.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:37:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795581456; x=1796186256; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795581459; x=1796186259; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Ry895IeeCwvvoVrLKPY1qGl5vh7XehrgPQ0oBew1BlU=;
-        b=j1c5+oH9X/OlciKGuwj7HM9ZcXGErk0YCUBDlVBZjkAxRohOl/4iwun0LbFAxgj53u
-         3zED6Jp9CwXj/asYsoLD6YtH09GSxxKNgzFLjt+tiM27Wi12XKAxntb7OknkAxW/yHyx
-         0I7BmEBbymCElBoPxCpE/eNHQnfIgh8lBWm9/CxOPP+xZSU9Z/+67vIbHeSE04iaPf91
-         HnGVuF6sCD3kgaYm/5YFsc2zGtJ3cfmf9h1Ava4kQNbCOuD3gpnzvYYOYz36E95c7mIG
-         UWuT3EaCKZYVUWd4M6e8RKy5rzR0gQUu7fE9qzm7L+FwoQguhYjMgmSCLtheIWD2TFqH
-         icNg==
+        bh=p0LC0sUIzj6iLFfqcqtwKGB2+VgW9jHKFGlHAfP+Aeo=;
+        b=pvonKtzaM5Wyk4CZmuG+bv1luP4hRBIDQlwZ3sKoJ36e/Bw3Y4pRek8KjQ7VDVbOo7
+         fZgx1adpdLIdwu9BI4YXoD96CZ2EPF9WIVytdfCMZr4pBIS5N0UjXJ4WzZ8iaVc4bUYr
+         Rg7BbMaiaQz2/7Y2q1E4ywyZYY/NCR1VDPe+98ERZ2tVtDV3IXkNWj2XEZAaH8u/pVuQ
+         0O4Zm9DQCMMjbkvdSz0unPleqkuBZdvObOkeckPbpazhirEi6Uxidtszq1puuOqiejDH
+         a8tu6JrDzUXppBdFxHJH68yoMHym6z+0S1tLAu0YzEfJ6hAp6icPFSiWAMMwOqtvfFva
+         uSJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795581456; x=1796186256;
+        d=1e100.net; s=20260707; t=1795581459; x=1796186259;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ry895IeeCwvvoVrLKPY1qGl5vh7XehrgPQ0oBew1BlU=;
-        b=SyeK3F7M6vrofBmBPjVuXZ5fVOciILS+9BaL6061z2ODXWy9mLyMCpwadJ66k/OCH3
-         s1zplU3IQ+pTnKQpl5aZMVjhshn6qWS1BLp/orCbMAdkJ9fk3s1AGtptsvyQawOdsylY
-         aKebwETFb4bSCvp0tmFtcdSHOtxSHF69yDkCqB7jc2bhizJgMsFHvJ1Bz5YgJDjqRnIQ
-         MhDSmcutjeC2DzlWJ8aVTmggmo56Goc0vqFK9hwvNTsj+jneSM60EFBMkv5gqZ2bc0lk
-         E/BEXB7SagaT3Rlhj3nGtVlJvcu0jWW3aR+Rtdk57lxLNlfRrDYre20W/6tUB0gO2Qd1
-         kUdg==
-X-Forwarded-Encrypted: i=1; AL+hErEw+YyNqC8FGO7d2/iYmcJgMNApJruN65PnT+/KK+fREbUr1UGLHtxEBBOx8b/gbif5p2/9Y4BtLLRsR6M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+nlPpx6fwrP6XbQknIlkEHEVJES22DjSaAf/rwURmRfVYEvHA7
-	49rUJzOBgN6zMHmAboZ3u2tRjnPem+7yOyK85p8QuyCh4mZE2hgYjS3x
-X-Gm-Gg: AZFdTZek06gmPxaV7KZN6//5eupKX8Eh2E9boFoPIXtW5E+5mPB+fzMmZvfrlXVLN77
-	9jU+fyWBOb9bZq6Soh84VsvR+PWZ9CKrGh3FNGXbbtuntaha4di5Ftl9kKMi1fzpk5mMttTTxPq
-	g3UfMQcjFjwQ7kxjckkKbOXqG3SJV7BAFYrMrFmu4VnlQ9+2+9Je4WOP6sJQxeOd3tHsfxOmrB6
-	x3MODDVrWEMjf9e9OFSwDq337HS2efhis+IdYhQTj+0DvsXLWPgN5ZEBfTLm7H2LabKkVTAAFPY
-	SzCqtGKpmeeh2Q7YUlTTwxcjwiOblqIAgki4UUcKS7lF/7c5i1WmE8NGDG+MqCddbP09vAIDDHr
-	tvRMCEeieByDqoaf71pV3eZTTOXkZetWnJeCmyCKl/2m9fzTjXrOlloSb6jGbxeGTwCojNM/7jV
-	TRYNsJRDrsRJxCTVFu7sVGd3OHEpJabJjgvv1LzNe8ghi+uMwkmRYDUZbkWcE8IypEiisp7CchN
-	+0z8GJxX0xHBt5odxrt+yFDxaJUzlnxCHIF1myRIP+trmXDEpJdExbN3cBav3TlHRXEDp4wogcO
-	xQ0d64xRG5S5lyfIRqwXeGdUYRk=
-X-Received: by 2002:a05:6a00:b92:b0:882:6d80:e5ad with SMTP id d2e1a72fcca58-8c87bcbcee9mr14392696b3a.9.1795581455547;
-        Tue, 24 Nov 2026 20:37:35 -0800 (PST)
+        bh=p0LC0sUIzj6iLFfqcqtwKGB2+VgW9jHKFGlHAfP+Aeo=;
+        b=no1NJv1GXPgojibq2huxFUauGD+FExSWUVT1E5dOTdvKasDuXSOMEJhdplE/AKjP14
+         1ds9keWmDIYuAsRZ6cXGFHLRQm3D5d+D0tWWtvhzyXlv/ng4VWYJyZK3dE5zkgWb/353
+         5+30+jjMEG2kEZyX/ertaCUFobCEVNUQm3/ncMHECzZrVYp3P65qTCE1k9fGZpDIZ1AA
+         gNeZYxCNHcclLj06UBfFSNnQ7plUzBBsqNbI7o9KqIMDv3qKxpm1CwpwFYVkWj7TSr+z
+         bFHnX/XXuPlO7ewBl3Nsy/IRt79MxDf8rrEigA4KIeNRoCLJ7au1jzz1OEs1Lfs59UFw
+         qYOw==
+X-Forwarded-Encrypted: i=1; AL+hErGUFf5bHu5O+fAnJHsdw4Rk5kkTi/2UEhJSJtho8msCUi3O+hb0zNW+lP7H/2Etfo9eqpaXCfd5a3qRLMU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9sRl4L3ytczYqh8GW55uGJ7TBhj0MxMwy/AzTxkXnioiTJZUAL
+	K2gc9yHJhBRC7v98+BgeOqGqHFhJ9NfOIrUI8gGkhmaMLCEeUbPbine8
+X-Gm-Gg: AZFdTZcpJDJjtGvkMqQgk9xKJwNQSPUrbtcA0cXmPOBTS11pw7IJjGjxbqoFOsXDdoa
+	cLtAX5rGYc4Uad/e/I+BqMN5QCYe8Ekuamk3uLbAuXS8iVlq0xPvA6cLQ6rb2vL1Qwyb8vHTGsd
+	1XnXWiWPyhrHB1VqXBO7FpAfRGrrjwa8KG3DV8oaFoZLem6xtfvyIsefQUM2whXM2LMjVCxQULD
+	B+eu3DbQlHH71AOIBKGXcrLuLrS1M8e5DOjuQhsgBiTonJqzzSbVV3aRfsG9ibf31N01ECea9EV
+	scVRSzfCEAbK37hXw0zgkwNYyNaly0axgPBLxEfzC3f7QEGaxU/LAOU6iesZCkBSUNmXNUfQOB3
+	EmYn3i6TFOTA9zDtIcluOGFcTlATQFKPyBNHSXk5+dcZ+6S+VdhGoxqQR9PSDq9lpyo1mgqKS9l
+	wsKy9/iyaXdnHabJR2oSduXnnJ6D3bddIIvcY9ow1++dRLoqJBlh8BUKR+Hvbn5/jrXzk0saz6N
+	wLH+P/8tr2xZCjdoNMQzDWUAjWMY3FjbnIt0wQW+1JPvBg3gS7Ci42bzCrhKwgHjp3BWYfMfGaV
+	iSrg8/UIjyFrfsMpFGT8y6loBj4=
+X-Received: by 2002:a05:6a00:c311:20b0:8c8:e7ae:5ab2 with SMTP id d2e1a72fcca58-8c8e7ae5b89mr11374449b3a.53.1795581458605;
+        Tue, 24 Nov 2026 20:37:38 -0800 (PST)
 Received: from localhost ([2001:19f0:8000:4ce8:5400:7ff:fe0e:e6b2])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e45eccsm8215994b3a.31.2026.11.24.20.37.34
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c86d821637sm8324761b3a.0.2026.11.24.20.37.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 20:37:35 -0800 (PST)
+        Tue, 24 Nov 2026 20:37:38 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Jonathan Corbet <corbet@lwn.net>,
@@ -113,9 +113,9 @@ Cc: linux-doc@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v5 6/8] doc: phy: Document some bulk helper functions
-Date: Wed, 25 Nov 2026 12:36:37 +0800
-Message-ID: <20261125043639.249525-7-inochiama@gmail.com>
+Subject: [PATCH v5 7/8] PCI: cadence: Use phy bulk data api to simplifiy the logic
+Date: Wed, 25 Nov 2026 12:36:38 +0800
+Message-ID: <20261125043639.249525-8-inochiama@gmail.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261125043639.249525-1-inochiama@gmail.com>
 References: <20261125043639.249525-1-inochiama@gmail.com>
@@ -130,91 +130,131 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Document all newly added bulk helper function, it can be used to manage
-a set of PHYs automatically. This is useful when the driver want to
-simplify the management of multiple PHYs.
+According the document of cadence PCI controller, it use multiple
+phys for multi-lane setup, so replace the loop of phy operation
+with phy bulk apis.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- Documentation/driver-api/phy/phy.rst | 40 ++++++++++++++++++++++++++++
- 1 file changed, 40 insertions(+)
+ drivers/pci/controller/cadence/pcie-cadence.c | 62 +++++--------------
+ drivers/pci/controller/cadence/pcie-cadence.h |  2 +-
+ 2 files changed, 16 insertions(+), 48 deletions(-)
 
-diff --git a/Documentation/driver-api/phy/phy.rst b/Documentation/driver-api/phy/phy.rst
-index 0865c2e94eec..cae3d4700814 100644
---- a/Documentation/driver-api/phy/phy.rst
-+++ b/Documentation/driver-api/phy/phy.rst
-@@ -114,6 +114,12 @@ it. This framework provides the following APIs to get a reference to the PHY.
- 	struct phy *devm_of_phy_get_by_index(struct device *dev,
- 					     struct device_node *np,
- 					     int index);
-+	int devm_phy_bulk_get(struct device *dev, int num_phys,
-+			      struct phy_bulk_data *phys);
-+	int devm_phy_bulk_get_all(struct device *dev,
-+				  struct phy_bulk_data **phys);
-+	int devm_of_phy_bulk_get_all(struct device *dev, struct device_node *np,
-+				     struct phy_bulk_data **phys);
+diff --git a/drivers/pci/controller/cadence/pcie-cadence.c b/drivers/pci/controller/cadence/pcie-cadence.c
+index 0ac980249941..8ed2a679625d 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence.c
++++ b/drivers/pci/controller/cadence/pcie-cadence.c
+@@ -179,39 +179,22 @@ EXPORT_SYMBOL_GPL(cdns_pcie_reset_outbound_region);
  
- phy_get, devm_phy_get and devm_phy_optional_get can be used to get the PHY.
- In the case of dt boot, the string arguments
-@@ -129,6 +135,21 @@ Some generic drivers, such as ehci, may use multiple phys. In this case,
- devm_of_phy_get or devm_of_phy_get_by_index can be used to get a phy
- reference based on name or index.
+ void cdns_pcie_disable_phy(struct cdns_pcie *pcie)
+ {
+-	int i = pcie->phy_count;
+-
+-	while (i--) {
+-		phy_power_off(pcie->phy[i]);
+-		phy_exit(pcie->phy[i]);
+-	}
++	phy_bulk_power_off(pcie->phy_count, pcie->phy);
++	phy_bulk_exit(pcie->phy_count, pcie->phy);
+ }
+ EXPORT_SYMBOL_GPL(cdns_pcie_disable_phy);
  
-+The bulk helpers are useful when a controller operates several PHYs together,
-+for example the lanes of a single PCIe port. To get a set of PHYs by name,
-+the driver supplies an array of ``struct phy_bulk_data`` with the ``id`` of
-+each entry set to the corresponding PHY name. devm_phy_bulk_get() returns
-+zero if it obtains all the requested PHYs or a negative error code on failure.
-+The driver owns the array and keeps it valid until driver detach, when the
-+PHY references are released.
-+
-+When a controller needs every PHY listed in a device node's ``phys`` property,
-+devm_phy_bulk_get_all() obtains them from the controller's device node.
-+devm_of_phy_bulk_get_all() does the same for an explicitly supplied device
-+node. These functions return the number of PHYs listed in the node, which may
-+be zero, or a negative error code on failure. They store the allocated array
-+in ``*phys`` only when the return value is positive.
-+
- It should be noted that NULL is a valid phy reference. All phy
- consumer calls on the NULL phy become NOPs. That is the release calls,
- the phy_init() and phy_exit() calls, and phy_power_on() and
-@@ -149,6 +170,14 @@ The general order of calls should be::
-     phy_exit()
-     [[of_]phy_put()]
+ int cdns_pcie_enable_phy(struct cdns_pcie *pcie)
+ {
+ 	int ret;
+-	int i;
  
-+After acquiring a set of PHYs with a bulk helper, the order is::
-+
-+    phy_bulk_init()
-+    phy_bulk_power_on()
-+    ...
-+    phy_bulk_power_off()
-+    phy_bulk_exit()
-+
- Some PHY drivers may not implement :c:func:`phy_init` or :c:func:`phy_power_on`,
- but controllers should always call these functions to be compatible with other
- PHYs. Some PHYs may require :c:func:`phy_set_mode <phy_set_mode_ext>`, while
-@@ -172,6 +201,12 @@ PHY framework provides 2 APIs to release a reference to the PHY.
- Both these APIs are used to release a reference to the PHY and devm_phy_put
- destroys the devres associated with this PHY.
+-	for (i = 0; i < pcie->phy_count; i++) {
+-		ret = phy_init(pcie->phy[i]);
+-		if (ret < 0)
+-			goto err_phy;
++	ret = phy_bulk_init(pcie->phy_count, pcie->phy);
++	if (ret)
++		return ret;
  
-+For devm_phy_bulk_get_all() and devm_of_phy_bulk_get_all(), driver detach
-+releases both the PHY references and the allocated array. To release them
-+earlier, use::
-+
-+	void devm_phy_bulk_put_all(struct device *dev, struct phy_bulk_data *phy);
-+
- Destroying the PHY
- ==================
+-		ret = phy_power_on(pcie->phy[i]);
+-		if (ret < 0) {
+-			phy_exit(pcie->phy[i]);
+-			goto err_phy;
+-		}
+-	}
+-
+-	return 0;
+-
+-err_phy:
+-	while (--i >= 0) {
+-		phy_power_off(pcie->phy[i]);
+-		phy_exit(pcie->phy[i]);
+-	}
++	ret = phy_bulk_power_on(pcie->phy_count, pcie->phy);
++	if (ret)
++		phy_bulk_exit(pcie->phy_count, pcie->phy);
  
-@@ -221,3 +256,8 @@ DeviceTree Binding
+ 	return ret;
+ }
+@@ -221,10 +204,8 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
+ {
+ 	struct device_node *np = dev->of_node;
+ 	int phy_count;
+-	struct phy **phy;
+-	int i;
++	struct phy_bulk_data *phy;
+ 	int ret;
+-	const char *name;
  
- The documentation for PHY dt binding can be found @
- Documentation/devicetree/bindings/phy/phy-bindings.txt
-+
-+Missing Bulk Helpers
-+====================
-+Currently, only a few bulk helper functions are added as they have users.
-+Function not upstreamed can be found at https://lore.kernel.org/linux-phy/20260904083709.425893-1-inochiama@gmail.com/
+ 	phy_count = of_property_count_strings(np, "phy-names");
+ 	if (phy_count < 1) {
+@@ -233,31 +214,18 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
+ 		return 0;
+ 	}
+ 
+-	phy = devm_kcalloc(dev, phy_count, sizeof(*phy), GFP_KERNEL);
+-	if (!phy)
+-		return -ENOMEM;
+-
+-	for (i = 0; i < phy_count; i++) {
+-		of_property_read_string_index(np, "phy-names", i, &name);
+-		phy[i] = devm_phy_get(dev, name);
+-		if (IS_ERR(phy[i])) {
+-			ret = PTR_ERR(phy[i]);
+-			goto err_phy;
+-		}
+-	}
++	phy_count = devm_phy_bulk_get_all(dev, &phy);
++	if (phy_count < 0)
++		return phy_count;
++	else if (phy_count == 0)
++		return -ENODEV;
+ 
+ 	pcie->phy_count = phy_count;
+ 	pcie->phy = phy;
+ 
+ 	ret =  cdns_pcie_enable_phy(pcie);
+ 	if (ret)
+-		goto err_phy;
+-
+-	return 0;
+-
+-err_phy:
+-	while (--i >= 0)
+-		devm_phy_put(dev, phy[i]);
++		devm_phy_bulk_put_all(dev, phy);
+ 
+ 	return ret;
+ }
+diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
+index 4a96e1869e53..3cde29592331 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence.h
++++ b/drivers/pci/controller/cadence/pcie-cadence.h
+@@ -274,7 +274,7 @@ struct cdns_pcie {
+ 	bool			             is_rc;
+ 	bool				     is_hpa;
+ 	int			             phy_count;
+-	struct phy		             **phy;
++	struct phy_bulk_data		     *phy;
+ 	const  struct cdns_pcie_ops          *ops;
+ 	const  struct cdns_plat_pcie_of_data *cdns_pcie_reg_offsets;
+ 	int				     max_link_speed;
 -- 
 2.56.1
 
