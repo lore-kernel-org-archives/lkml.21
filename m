@@ -1,56 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795612847;
-	b=OcZTxZZhbqRBByU0PcLVruVXFgfl4Or5H5ol0903LbcbnRoX/lUTnQCp252QJY6yZJAb
-	 PFC2eMGgcscci0MFOsZbW5v9kBd4Qs5F+T3Y+rB4hvvT/OMvP0Em9t7hRrI0SiyZSZEW7
-	 5cLqKJdPwLrjEjOzO6GmPgcBGjdAPn2ikmEcg2t9wovh33RkDw1kRKdAmXRAYo1Snl08G
-	 aodlj9v8kfSz4NUIrpQfcNc/nRRxwT4nOtqKGsLupCylAJM7oDSysdFFjCqSKVYZVNhke
-	 TZiuLbQKG9gQ9F8DPHOO24FVowP3pg7chJrq1z8x+voHiaZf2EAe7+7ipHXm0gPb77g==
+	t=1795612858;
+	b=YkRcEA2XUIb/IKiY696syEluGPpI7eeBjWbHChmvk0F8NN0yeRxhxbIy27AKqrvrc9C7
+	 YR58C205LlIuzI86akkeLQDMzNsLkcyKvwavLJagBr3aEF9Os23WtaZp5hBtJlmY45nVz
+	 8ciDJ5f9coN6EvHPDHAunry/pYg4PQG0T/C69474vqf+rKW1qtnT7yUZDR+HLm0vXipPl
+	 aGDz2pqWJesGSX/MJAKkEkJ+iKoPkbXqifI+eNc48xJ9V9a2q6f2GCxpXaNb20LhpqR0n
+	 2xpUD6Qpn7e5WmAOQ/yHhk+UhOVniArPEur6l4maEoi2QsIxHvF+ElFalzKR48PEhSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795612847;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=BpbsyFzLIuLLRIYUo5HYMqPLpIFsXjaSEvpIntsRtr0=;
-	b=ONk4f8k+1F+19CpHMUWTTjSStN7p9ygBXxEStu9j03aDZNHLNmjDsF//KLV4IomYVq+J
-	 iWx6FriO0wlCf/oRCVUMBMUrrb2fZhKv+JHTrBLrPSRslT08UsvTUU4uMM3Xnnzaup4zh
-	 kP4pT4PhGdjfqrl/gKOcxyTfhg0pbg1SJC4dKqM4CXq9A/XWdzuUNp1Wa8sTktqNCInhp
-	 NwU6LDoyyJLxdqnHNkKhG1YtM+suDCcJWh+ADq7/Hst7Shij7S3fDM86lhyGIFW5Jb+EZ
-	 7rXY2gvnXjmUlQUnmoK6Z/NC+lSLYPITa/KScQlWlNk4iIadUVWBjve0SnWeWZnU6/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795612858;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=FSEDyfxSTPcIGOMud9C2CIH0AankhOmnnyfmu4tSqH8=;
+	b=x7dMat/e7lqQT+EwhfFwlm42+qmA7epID7JOrAQLaDO9M4n1DZqgkUkJauZzPN1lBwQA
+	 HwRd1lxyfL6Gre/K3GrvUTrBxsTltc8YZMPCsqqVrRM22oNwA+8EJi8cNOEObN8LglueQ
+	 JdfoAezHW168xHu7vR06CEYtHGWGDSorhOg6XzRnhXcKL7QSirZvsSHFD2QCz5P2Dqgfd
+	 KgBygqP/VyjljyLChbPBvpt2418K3e9iOQOqRWTW9hhWYHekMS88f71vBhPrLY9GNMG8R
+	 MMgd3UVBnsGK8jNO0RhNKO+p+amUnTVxfpsbNasqjLkv+K1y5SrgpMpyUo3Jt89NymA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nz28PkFL;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30807606A321;
-	Wed, 25 Nov 2026 13:20:46 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Oemqflkg;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9B4A1606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:20:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B4A1606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nz28PkFL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFEFA1F000C6;
-	Wed, 25 Nov 2026 13:20:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795612846;
-	bh=BpbsyFzLIuLLRIYUo5HYMqPLpIFsXjaSEvpIntsRtr0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Nz28PkFLFYFGWEiprnX/yPyrxQsP8nKvrvdcWwUgxzh3FoRp12gGpD9UROXfm5y0m
-	 iELAGyxgX94lNmbKmbz7a+PDFZGWWFZVBOOlveXfIO+glA29LEo0b79CylwE0HLTeS
-	 lg4mYoJysr3g/ef8KSfuhvairPs7vvKvxQSKOaqCIRcCi2t3nUw9lmw01Kp9/sVd48
-	 teXoxuJUqe9Fwu9tVtBL1k3gn85WoEpdPOVcLj95stwXkMma4faYwFGKxu+l4YSpZo
-	 jvkts9N34r680JGLJzjZ1DZwsudXjP7R/5nVXMj1x37vR3EkvOmtbBQqyYz5QBio46
-	 R54G/sSyh7cbA==
-Date: Wed, 25 Nov 2026 14:20:43 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Zixin Wang <w1355457260@gmail.com>
-Cc: linux-doc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	bigeasy@linutronix.de, darwi@linutronix.de,
-	john.ogness@linutronix.de, clrkwllms@kernel.org,
-	rostedt@goodmis.org, corbet@lwn.net, wagi@monom.org,
-	atomlin@atomlin.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6] Documentation: real-time: Add runtime tuning guide
-Message-ID: <awbgq0xQyJATel0_@localhost.localdomain>
-References: <20261125074658.33117-1-w1355457260@gmail.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Oemqflkg
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D94A2F;
+	Wed, 25 Nov 2026 05:20:54 -0800 (PST)
+Received: from [10.0.154.42] (e121487-lin.cambridge.arm.com [10.0.154.42])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 10CD33F86F;
+	Wed, 25 Nov 2026 05:20:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795612856; bh=o+g6T0SKB4A2t//VSduq7zL1oBlD6qtVm9U/dPU7Dr0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OemqflkgmfdfC+KnMHjvYx4vWJlyDu/kQl+p7P29+d1/z2KNi+KO3194mNfG5ag8D
+	 t2EWzp19bCxzCMW2SbfDA368RHZJviDTfp1lZRyTBa2qfSS/H4vnhPSbHUTl7rrRFV
+	 l51VaLUflgozNOHD1WaI4xOrGubWZikkG55oW4Zc=
+Message-ID: <a162ddf0-3a6a-4c9f-8506-ff66974c2931@arm.com>
+Date: Wed, 25 Nov 2026 13:20:53 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,68 +53,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261125074658.33117-1-w1355457260@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] ARM: NOMMU: pmsa-v8: Fix off-by-one in
+ __pmsav8_setup_region()
+To: Brad Hawthorne <brad@sim.vu>, linux@armlinux.org.uk,
+ linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+References: <20261125025757.1159931-1-brad@sim.vu>
+ <20261125025757.1159931-6-brad@sim.vu>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <20261125025757.1159931-6-brad@sim.vu>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Le Wed, Nov 25, 2026 at 07:46:58AM +0000, Zixin Wang a écrit :
-> +CPU isolation
-> +=============
+On 11/25/26 02:57, Brad Hawthorne wrote:
+> __pmsav8_setup_region() rejects "number > mpu_max_regions", which lets
+> number == mpu_max_regions through. Regions are numbered from 0, so
+> that number names a region the MPU does not have. Reject it.
+> 
+> A Cortex-M33 can be built with 4 regions. Under QEMU (mps2-an505) with
+> a 4-region MPU, QEMU logs "MPU region out of range 4/4" and the kernel
+> takes an unhandled exception during the setup. With this patch the
+> setup warns "MPU region initialization failure! -2" and the kernel
+> faults later, in memblock_alloc_try_nid(), because RAM that region
+> would have mapped has none. On an RP2350 board (Cortex-M33, 8 regions)
+> the boot is unchanged.
+> 
+> This patch was written with an AI coding assistant (Claude Opus 5.5,
+> Anthropic): it found the bug in review, wrote the fix, the QEMU tests,
+> the board test and this changelog, and ran them; I reviewed the
+> reasoning and the test results.
+> 
+> Fixes: 046835b4aa22 ("ARM: 8757/1: NOMMU: Support PMSAv8 MPU")
+> Signed-off-by: Brad Hawthorne <brad@sim.vu>
+> ---
+>  arch/arm/mm/pmsa-v8.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm/mm/pmsa-v8.c b/arch/arm/mm/pmsa-v8.c
+> index 28cdc5468406..e5353a030731 100644
+> --- a/arch/arm/mm/pmsa-v8.c
+> +++ b/arch/arm/mm/pmsa-v8.c
+> @@ -140,7 +140,7 @@ static int __init __mpu_max_regions(void)
+>  
+>  static int __init __pmsav8_setup_region(unsigned int number, u32 bar, u32 lar)
+>  {
+> -	if (number > mpu_max_regions
+> +	if (number >= mpu_max_regions
+>  	    || number >= MPU_MAX_REGIONS)
+>  		return -ENOENT;
+>  
+> -- 2.43.0
 
-Isn't it kind of duplicating Documentation/admin-guide/cpu-isolation.rst ?
+Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
 
-> +
-> +.. caution::
-> +
-> +  CPU isolation is best effort.  Work that is explicitly bound to an
-> +  isolated CPU, such as per-CPU kernel threads, bound workqueues, and
-> +  interrupts, may still run there unless it is steered away.  Measure
-> +  the resulting latency with tools such as ``osnoise``, ``timerlat``,
-> +  and ``rtla`` rather than assuming that an isolated CPU is free of
-> +  kernel noise.  See Documentation/timers/no_hz.rst and
-
-And cpunoise but that's all in Documentation/admin-guide/cpu-isolation.rst
-
-> +RCU callback offloading
-> +=======================
-> +
-> +``CONFIG_RCU_NOCB_CPU`` in
-> +Documentation/core-api/real-time/kernel-configuration.rst enables support
-> +for offloading RCU callback invocation from selected CPUs to per-CPU
-> +``rcuo`` kthreads.  The offload is selected with ``rcu_nocbs=``, implied
-> +by ``nohz_full=``, or enabled for all CPUs by
-> +``CONFIG_RCU_NOCB_CPU_DEFAULT_ALL`` when neither parameter is given.
-> +
-> +``rcu_nocbs[=cpu-list]``
-> +  Offload RCU callback invocation from the listed CPUs to the
-> +  corresponding ``rcuo`` kthread, which can run on a housekeeping CPU.
-> +  This reduces callback-processing jitter on the CPU that enqueued them.
-> +  On a non-real-time kernel this also moves invocation out of softirq
-> +  context; with PREEMPT_RT, callbacks already run in kthread context
-> +  because ``rcutree.use_softirq`` is false, and the offload only changes
-> +  where they run.  If the parameter is given without a CPU list, no CPU
-> +  is offloaded at boot; the mode can still be toggled at runtime through
-> +  cpusets.  The parameter takes precedence over
-> +  ``CONFIG_RCU_NOCB_CPU_DEFAULT_ALL``.
-> +
-> +``rcu_nocb_poll``
-> +  Make the ``rcuo`` kthreads poll for callbacks instead of requiring the
-> +  offloaded CPUs to wake them.  This improves the real-time response at
-> +  the cost of higher power consumption, because the kthreads wake up
-> +  periodically to do the polling.  Consider this option only when wakeup
-> +  latency matters more than power.
-
-Does nocb polling really improve real time response?
-I have doubts.
-
-It checks callbacks and grace periods every jiffy instead of waiting
-for actual callbacks and grace period events.
-
-This means introducing jiffy worst case latencies.
-
-Thanks.
-
--- 
-Frederic Weisbecker
-SUSE Labs
