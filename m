@@ -1,78 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.53
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795638309;
-	b=UjOEmYr//wprenIc0rmrYxo2wdRluSl2q4OE2ZWTxqHXGKKFgJFHjN+F4MtTIc2oxE/l
-	 QR61IUWRscnW3s4Y0X32Mx0dHODTEKcVnlLRkuUKltC1rvlVhnl0mWE26hYSAQ9GFmpVv
-	 uFPIg/Ecd1aBdX2+ANoBzij8yDM2StBtsO4i1wR1xTzP87/d0zErZRlvHmW9zImNAc6XS
-	 BLQu1iPPvD3fh2u3GX2Noo2N5Mn/BNq/MhkrPnS+WAw1yFlxroybyvO0rMI3uqmrGd6mR
-	 x60Lj0Q4B5VCHIt9fsrfAagL+s8qBNdyZp5ewrdoGlw7MR/kcYLtkQGmlXf21M0c01Q==
+	t=1795638315;
+	b=GQ5smmX3LPABYUDIOaWOup8EoY9ftTi4AWS5j3xZMhikTnz3i3SVIG1xR7Kswn1OpxiH
+	 POLQu+0sZEGj+M8nN/4U0OoiUgKm3whyYnCoijFtm3OA6kCjlIB2RUXx4ZY1p5oI+eSSd
+	 Da2iyg0tEL6A36UESHmQ8kVhe+iK1v0eOdNSUwVwguMR7DNE5YDVn1ZBMVD+3eDViWbs6
+	 ZlJu0WdB0CLiaJ0A1O2UY1PylGZGQoZFeik9D1Q18xPI9OyfW/5liwCvY3EsGl3uoSg+a
+	 m7R8E1WTvBLDqJUdXygw0CW1qMHU1SvGF88CGRxtzJVybuNNHe2QdIjPiZLMEacKp3Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795638309;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=EWCYG+2X5m1DqIj2hff3mLJpoByQ3qdU+WHH2Eg+vDs=;
-	b=My9iFGSU44/KbkpTQ9NhFPxP7NqIJF8G72+TuehGbrTDEg66OkXKF2bafHDWRLB6pH0q
-	 gRdaivgnfS6+3sD4gIzYgDom+QXX95tWkN85LbLHWlItmxtcY7+ZVQmk7/yF8csVgT6p1
-	 c1z3I1soN1B+XGxmpAscH1ORBvA/r7lswHcUaGjlFwLLAkaldcqmMspigSgrxHIMopxY+
-	 LboVy8/DbUDPBSqolIT4JMv+4HAQCJIng8V/uod/+GMFokzkN27apPwzoZFxzvaXy/sY2
-	 NasvhdVigTSlLeKoPTo/Tk9fLeZymdPKq6IZQOwcKZ/2ChqNw5AEKIcaEVl8KQZm11w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795638315;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=tNTrkUuaHlHdlSJ9SFhPuXAnSzxCe+1wYBLFF6dY6Vo=;
+	b=dmifmEP7rsT5T7e1tmrJGyvIeZTk/pfILe6BA221ABJ0s4TLE88HMg3RoCD5RXYsLpH3
+	 w34Mb9pj9KphTGxdXkCQTVUIk+cubbNvBeKsAZ66beCZiozRJyWSu/n1CJh1oXC+Bz/0q
+	 TKLukEVoSAQxrh4aGH82LgLb9VaJ3vqZV3M5sXkLuKZmmirVoFm1iDY6gAgzmTX/O6poh
+	 6iWEkHK47BE+3U1Ibs95pwyUenkxUmZ2PsU7SPQDCM1+zyAo46uWOgUFHYIpwcNGWhQ/y
+	 yCmu4fgioK0lz3Jmaqg9FMBGTxawv+r/hadl4XiWngiJ6ijsdaZewFqDLqwgHLPAAgQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N5KCZP5U;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FA0F606A697;
-	Wed, 25 Nov 2026 20:25:09 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N5KCZP5U
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795638308;
-	b=LR7P6wgYM7763+M9sK06k9mZkt2K+g0cS9GzRmsjP5ETknVWpO1BRYCLRAGLBhlPnsoh
-	 Q5K6YIm5AvnWhDd89koWP/LQ4KWFZwd7BNIwJPsMvl455CxQU3QBs3OL375YhgIl3bsuR
-	 qbmwSSTs3ThS46rL5x+hrj47N3uMRJZ8vP1qAXkQYggACI/9IHCyQS9Ngt2imCb0il64H
-	 lKTdvM4pDeEVlD5ipQBaGivE49TfF83FOkyxzlvmB4XAqn7RP3XRjAHaN7W3vmjdBiWFA
-	 GNQu7jAN06OWhyqvv3/d3McuKepphapv7aBbJD+Ox8R9ai3gMbXb7w/KjCCdUDQUNVg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795638308;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=EWCYG+2X5m1DqIj2hff3mLJpoByQ3qdU+WHH2Eg+vDs=;
-	b=Bl5ljTfeDdJNVv1qWG859ot6UEI/aYb236DZ6tAVCGoOxW1+3LFid0ORBasLwVdd9fYL
-	 sJq9Ta49+bG9a0zEjna8x6YO9SM5TfIt7np7j45Xby7+qEtit42ODz4F/UqIDe1xc7mJU
-	 5JL7x3FOvColDZkhsc6qNIEp5FSUAQPVQNn2infdCBi4W2XpsdZl2i1lEFi4pfDXUiFYC
-	 2HkrzPAtfn19FYl/EjTrODTKB+neAqtSUAU+bw+TZalphcwT0XjXOxkBjBTIxuwWK7ufq
-	 m/8O3f0hV9eNqyhEfxQpbeuamUfYgRukJCS9pp58t1BbdlgtuynxGkrnrw0MbHvW2fQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FsVUFq4K;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 05CF41F000C4;
-	Wed, 25 Nov 2026 20:24:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795638308;
-	bh=EWCYG+2X5m1DqIj2hff3mLJpoByQ3qdU+WHH2Eg+vDs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=N5KCZP5U4s0jeLAf876fM6ytWGzk9yYr/yThtwYmJtE6qDLO/jXOy4Ws5axxj5xd/
-	 /1UI19PS7DkkIuEOT4xkOJFElL2GyD2AfYsQu6EZk+aLr8FuoB/zAzJeCZ95lvHSZ7
-	 peesAUR223d6ptN5fsjkHa761cCrzyqa+KD/srGebBvg2CJSHEQ+GYKsTjQuhvdCQF
-	 xCftPCdDrq1Y66HmwnGG49KRb+wp48yGV6gaykar6GdnQKiJQksekReMFj64qh6Yk6
-	 EA89GEnLKhIdt4GoznqfRzo97KbILsRLFfrYxFHjh7pHdIjveheMw1SGNkUZqqL6x9
-	 jtr98/D1Q1E5g==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 869264D029;
-	Wed, 25 Nov 2026 20:24:55 +0000 (UTC)
-From: Joseph Telaak via B4 Relay <devnull+joseph.telaak.dev@kernel.org>
-Date: Wed, 25 Nov 2026 15:24:50 -0500
-Subject: [PATCH v6 3/6] clk: siflower: Add SF19A2890 clock manager driver
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C24C3606A33D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:25:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C24C3606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FsVUFq4K
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4a34ffd3e39so3419067f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:25:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795638313; cv=none;
+        d=google.com; s=arc-20260327;
+        b=PEL0zwG8NR4p13FeJJ1Rw6iGSZt0/WPrSVSnAQE/z0D185E+s2IMw5ZJpue82Z+I3w
+         UF3DqoWusuQqjFWIQMYCAVjpRzhyyyISrMitO7Auj+pydRybbip7qBhIGVbHlAppSqIs
+         1NFO9wg1zWnSQMi6PeOYSsKPcOzvv6mEDqBXDWapAuwBRcm6JigJ+FRbN4cd/bFwk/aK
+         eEoo6IQtR1SkTvZJ43goMl/2yj0glEAbLOV3Z6T8tFsfPUErQNBUC0JmwvPwxJfwNMTp
+         QVsmu3Go2GiJGiHWQF3E+gCgmMiy4FDMDQWZrBS/LDIVOVVKTnGyzCCCRsq1RzMOTbBN
+         aFEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=tNTrkUuaHlHdlSJ9SFhPuXAnSzxCe+1wYBLFF6dY6Vo=;
+        fh=3ErFK11sfKwvW6mYXPGHSdLH73CNmK+CT6dTWURqsLc=;
+        b=czDKa1fnvkRAJAMULvGWgWLwYrqVlxQB6s6qDz58e8vpogOx3LbKrXvdZNjCMTm5iz
+         Udh86/4bBsfTiNajVHN2O7ZcQ9u+PcWThsB1XA6Aa7CMzKDqRfdwZOCk/juysXsz4Yoe
+         ai/YhWcO4xibCt1kOBZNp+ZyK0IEPAKJEIl/5+QYSK+qzWMcibe7TCrwIT83dhKtk4jj
+         zayKKbmyBvBowdnAmwa0+tXKdVAx86bUHbXzORvmx+u5gicBnW9smr29rrCj+uknYwiH
+         1JAO8rVFsvGxa5CCrY0+lwvf5tKKmrwwIynAPJ4ii/EQQGDV/UM1bSQicRGaFXmyK4e9
+         ZxxA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795638313; x=1796243113; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tNTrkUuaHlHdlSJ9SFhPuXAnSzxCe+1wYBLFF6dY6Vo=;
+        b=FsVUFq4Kxydr5a/GRpviIjKPXJDEjD+WqAdPZ1XWo1WKh6FISDbmtggw9Zb9JFW3df
+         my0mKvhcR7rXcURvxIiyLaU0x8G53jEG3RdWyadxD5Sjrd3S3bRm9m2X9eRmHdgcwpBt
+         kJEx19iUSOYIvPsz94vQNgXJI2BVbCnizYEbhclF+Ay+piUCPYbizA3IKKECYAyth31c
+         1cycvaj0oJ30o2SFzRwfoCqCkfAxS5IRdiXE6Aygof4B197kFd92a26XgWumaMHu5NwL
+         j2GNWzFlP3MDK3hmVarn2zbz/A34WRbObbIdjkRH2C2OpDhJyhYRxAmTFIj0Zm516Hlh
+         0Dhw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795638313; x=1796243113;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tNTrkUuaHlHdlSJ9SFhPuXAnSzxCe+1wYBLFF6dY6Vo=;
+        b=tWsm/p6qCfRQBxrNKboWLGvHtFGPHII2I1LXjaNnnP/Dcku2VH938gvT88jC1vzfR4
+         ra1pz5Wvn120k4Az44a0UDpMXCVJzb/N1LI3TTkg2AqE+rSq6pKo7/33n+v7JaoJvXgj
+         4pBNiIquID++vMTLo0XLchiPtgWc5OcW5orbylCC1ib/L3zVv8ZF8wbfkWd0SPrwK6hX
+         3GuguGZ5CSO4NK2TqJUdwvfTVOSWQChoKN96HeQkrNgYzWXpMCJCi28oDnFqmOrvj/jR
+         zEJe4c2CKHgkJQBfPScwXmztTMZrE19yLtq6Z3yvLwoUPmlU0GeWGgSHorLMnV9HC/br
+         XumQ==
+X-Forwarded-Encrypted: i=1; AL+hErFuNAzOKA75qiIn0qJBXN9LTL7SEjmBM4Y9kBoLSmDunA4E4fwIORUKg+g4bzwcChUJgTd3H2Vf9S2LEe4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+eIw9lxBpZcIPoW3usaS0iCB0ifm7/Z9kOoxXwtnnb4o6XJWja
+	JvOxTr8tEauT8CKlm1pGz2U+h0Kjo2RhTkZCCDGTl6kJQtgrmVHmAjBPBInE9u5Ku7XnQw8PYM/
+	towtEk2ckDOQGWNMEtz1D2R6lEAkmI/s=
+X-Gm-Gg: AZFdTZc398z8knhBJn9Sb+ha8OANp+OFkJJ6wDSRQ1QIIoyw/9EnLzaWmCgjtlXiERy
+	hlEn3LqwzxwJ4g2107RMZFjdATjq2TjNXlXJa4zwyqIrmUzR74x4ZYs5SH9/E8siqpuUHiTQVL7
+	LpS4YYyD+cptOk8FvVWi8yimmSkgC2XSlKOqiefPTvVpGWo7g8VFy+0riPYbp4kFu0S90HwNtqd
+	0s0uz9lpdnRO7TuawMFqJ6+XiM1UKBgWtr0DL6beMw2lFSCnk3fQ8GAzrHA9Ovi0TSQIjQvyNhb
+	MsPciYwqgUPk/nO6LyUsc1RxUC6oqOmxejJ32o36qCVkPj8gSYYRQ/QplD7U129QJaW++HtgA2a
+	bwapkA49yNFZoAJls6dPv8JlAVlnKaPXvaWwCky+xCyyeUvesQkKXRe7WnBS3uKrvtkfg4Ef07b
+	rrRkpc/filwXsoTBTN4cCRaZQsjI2OZYUvYZUiKME=
+X-Received: by 2002:adf:e010:0:10b0:4a7:518f:bea6 with SMTP id
+ ffacd0b85a97d-4abb3a4d2b1mr26580561f8f.28.1795638312899; Wed, 25 Nov 2026
+ 12:25:12 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,630 +105,202 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261125-sf19a2890-sysm-v6-3-181875c10682@telaak.dev>
-References: <20261125-sf19a2890-sysm-v6-0-181875c10682@telaak.dev>
-In-Reply-To: <20261125-sf19a2890-sysm-v6-0-181875c10682@telaak.dev>
-To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: Paul Burton <paulburton@kernel.org>, 
- Jiaxun Yang <jiaxun.yang@flygoat.com>, Chuanhong Guo <gch981213@gmail.com>, 
- Yao Zi <me@ziyao.cc>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Joseph Telaak <joseph@telaak.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795638294; l=18724;
- i=joseph@telaak.dev; s=20261104; h=from:subject:message-id;
- bh=Zth2jxYQvLJ7i1Vq9gWamHJVnnXBlNLeZRjIxhVi2tk=;
- b=qV7wEg7gXGJhek5NPd+ja54E6NftSgIR5Yzg5jjTZjrYeEUW5awTluQRpgROuw/jOMuZybJo6
- mFuADNJE0YnCcwsi+5cTMF0PUGyBY7PVgBAAO82Ot55bYQFWDKiGVME
-X-Developer-Key: i=joseph@telaak.dev; a=ed25519;
- pk=oQI+UfddlZ0wK2ac4WKOGNjUl1ZEN8j9ZVFSqEDoNP0=
-X-Endpoint-Received: by B4 Relay for joseph@telaak.dev/20261104 with
- auth_id=1404
-X-Original-From: Joseph Telaak <joseph@telaak.dev>
-Reply-To: joseph@telaak.dev
-Content-Transfer-Encoding: 7bit
+References: <20261113221248.3535369-11-wusamuel@google.com> <20261113221248.3535369-14-wusamuel@google.com>
+In-Reply-To: <20261113221248.3535369-14-wusamuel@google.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 25 Nov 2026 12:25:01 -0800
+X-Gm-Features: Aa3M54pvd_ufUhqcRiZwrOrjoyqqBDQhM2r6c2QuhvkGt5RO4ZEh7lWEiXzteDk
+Message-ID: <CAEf4BzYLqCCwxSAfuzB-wZiae_tgf0yxAVsFc_wzfRAdeqjDtw@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 3/9] kallsyms: Add KALLSYMS_QUERY_BY_NAME
+ ioctl to /proc/kallsyms
+To: Samuel Wu <wusamuel@google.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Petr Pavlu <petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, 
+	Sami Tolvanen <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Petr Mladek <pmladek@suse.com>, 
+	David Laight <david.laight.linux@gmail.com>, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-modules@vger.kernel.org, bpf@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Joseph Telaak <joseph@telaak.dev>
+On Fri, Nov 13, 2026 at 2:14=E2=80=AFPM Samuel Wu <wusamuel@google.com> wro=
+te:
+>
+> To find a few kernel symbols, users such as libbpf parse all of
+> /proc/kallsyms, which is several MB and text based.
+>
+> Add the KALLSYMS_QUERY_BY_NAME ioctl. It finds a symbol by exact name or
+> by prefix in the entries of /proc/kallsyms, with vmlinux matches first,
+> and optionally in a single module with module_filter, or all modules by
+> default. Each call returns one match and its position; pos + 1 continues
+> the search, until -ENOENT. The output returns the address, the size, and
+> optional name and module buffers. A buffer that is too small gives
+> -ENAMETOOLONG and the required size.
+>
+> vmlinux symbols are found with a lower-bound binary search on the sorted
+> names, module symbols in one pass, and ftrace, BPF, and kprobe symbols
+> with the per-index getters that read() uses.
+>
+> For versioning, the struct carries their sizes, so the command does not
+> change when the struct grows.
+>
+> The command uses 'f' 0x30; register 0x30 in ioctl-number.rst.
+>
+> Suggested-by: Andrii Nakryiko <andrii@kernel.org>
+> Signed-off-by: Samuel Wu <wusamuel@google.com>
+> ---
+>  .../userspace-api/ioctl/ioctl-number.rst      |   1 +
+>  include/uapi/linux/fs.h                       |  43 +++
+>  kernel/kallsyms.c                             | 319 ++++++++++++++++++
+>  3 files changed, 363 insertions(+)
+>
+> diff --git a/Documentation/userspace-api/ioctl/ioctl-number.rst b/Documen=
+tation/userspace-api/ioctl/ioctl-number.rst
+> index fbc3537fc9ee..f5dbb597257a 100644
+> --- a/Documentation/userspace-api/ioctl/ioctl-number.rst
+> +++ b/Documentation/userspace-api/ioctl/ioctl-number.rst
+> @@ -250,6 +250,7 @@ Code  Seq#    Include File                           =
+                  Comments
+>  'f'   00-0F  fs/ocfs2/ocfs2_fs.h                                       c=
+onflict!
+>  'f'   10-11  linux/fs.h                                                c=
+onflict! procfs ioctls (PROCFS_IOCTL_MAGIC)
+>  'f'   13-27  linux/fscrypt.h
+> +'f'   30     linux/fs.h                                                p=
+rocfs kallsyms ioctls (PROCFS_IOCTL_MAGIC)
+>  'f'   81-8F  linux/fsverity.h
+>  'g'   00-0F  linux/usb/gadgetfs.h
+>  'g'   20-2F  linux/usb/g_printer.h
+> diff --git a/include/uapi/linux/fs.h b/include/uapi/linux/fs.h
+> index a46c33692aa2..987569dcdbea 100644
+> --- a/include/uapi/linux/fs.h
+> +++ b/include/uapi/linux/fs.h
+> @@ -674,6 +674,49 @@ struct procmap_query {
+>         __u64 build_id_addr;            /* in */
+>  };
+>
+> +/* /proc/kallsyms ioctls. -EPERM if the opener cannot see kernel address=
+es. */
+> +#define KALLSYMS_QUERY_BY_NAME _IOC(_IOC_READ | _IOC_WRITE, PROCFS_IOCTL=
+_MAGIC, 48, 0)
+> +
+> +enum kallsyms_query_flags {
+> +       /* Match query_name as a prefix. */
+> +       KALLSYMS_QUERY_NAME_PREFIX =3D 0x01,
+> +};
+> +
+> +/*
+> + * Symbol returned by a query. Each buffer pointer and its *_len must bo=
+th be
+> + * set or both be 0. When set, the kernel sets *_len to the string size
+> + * including the NUL, even if the buffer is too small and the ioctl fail=
+s with
+> + * -ENAMETOOLONG. The module name of a vmlinux symbol is "".
+> + */
+> +struct kallsyms_query_sym {
+> +       __u64 sym_addr;         /* out - start address */
+> +       __u64 sym_size;         /* out - bytes to next symbol, 0 if unkno=
+wn */
+> +       __u64 sym_name;         /* in - user ptr to name buffer, or 0 */
+> +       __u64 sym_name_len;     /* in/out - buffer size / string size */
+> +       __u64 sym_module;       /* in - user ptr to module name buffer, o=
+r 0 */
+> +       __u64 sym_module_len;   /* in/out - buffer size / string size */
+> +};
+> +
+> +/*
+> + * Find a symbol by exact name, or by prefix with KALLSYMS_QUERY_NAME_PR=
+EFIX,
+> + * in the entries of /proc/kallsyms, except undefined module symbols. vm=
+linux
+> + * matches come first. A module_filter of "vmlinux" selects the core ker=
+nel.
+> + *
+> + * Each call returns one match and sets pos to its position, even on
+> + * -ENAMETOOLONG. Start with pos 0 and use pos + 1 for the next match, u=
+ntil
+> + * -ENOENT. Use pos only with the same query. Matches can be skipped or
+> + * repeated if symbols change between calls.
+> + */
+> +struct kallsyms_query_by_name {
+> +       __u64 size;             /* in - sizeof(struct kallsyms_query_by_n=
+ame) */
+> +       __u64 query_flags;      /* in - enum kallsyms_query_flags */
+> +       __u64 query_name;       /* in - user ptr to name or prefix */
+> +       __u64 module_filter;    /* in - user ptr to loaded module name, o=
+r 0 */
 
-Add a driver for the clock manager of the Siflower SF19A2890: the CPU,
-DDR and common PLLs, and the muxes with dividers that derive the bus,
-CPU and peripheral clocks from them. The GIC timer probes before the
-platform bus and needs the CPU clock, so the driver registers that clock
-and its PLLs early, from CLK_OF_DECLARE_DRIVER, and the other clocks from
-a platform driver.
+similar to the comment on the previous patch, how does the user
+express that it only wants to search vmlinux image and not consult
+module?
 
-Based on the driver in Chuanhong Guo's SF19A2890 branch.
+and naming nit: query_module to be consistent with "query_name"?
 
-Link: https://github.com/981213/linux/commit/0466d6303c25
-Co-developed-by: Chuanhong Guo <gch981213@gmail.com>
-Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
-Signed-off-by: Joseph Telaak <joseph@telaak.dev>
----
- MAINTAINERS                          |   1 +
- drivers/clk/Kconfig                  |   1 +
- drivers/clk/Makefile                 |   1 +
- drivers/clk/siflower/Kconfig         |  11 +
- drivers/clk/siflower/Makefile        |   2 +
- drivers/clk/siflower/clk-sf19a2890.c | 501 +++++++++++++++++++++++++++++++++++
- 6 files changed, 517 insertions(+)
+> +       __u64 pos;              /* in/out - start position / match positi=
+on */
+> +       __u64 sym;              /* in - user ptr to struct kallsyms_query=
+_sym */
+> +       __u64 sym_struct_size;  /* in - sizeof(struct kallsyms_query_sym)=
+ */
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ce8d0596939c..de087d1c255d 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -25703,6 +25703,7 @@ M:	Joseph Telaak <joseph@telaak.dev>
- L:	linux-clk@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/clock/siflower,sf19a2890-clk.yaml
-+F:	drivers/clk/siflower/clk-sf19a2890.c
- F:	include/dt-bindings/clock/siflower,sf19a2890-clk.h
- 
- SILEAD TOUCHSCREEN DRIVER
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index 37a8e35d4178..8e73490cb702 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -536,6 +536,7 @@ source "drivers/clk/renesas/Kconfig"
- source "drivers/clk/rockchip/Kconfig"
- source "drivers/clk/samsung/Kconfig"
- source "drivers/clk/sifive/Kconfig"
-+source "drivers/clk/siflower/Kconfig"
- source "drivers/clk/socfpga/Kconfig"
- source "drivers/clk/sophgo/Kconfig"
- source "drivers/clk/spacemit/Kconfig"
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index 52d138d4ffc8..d2f07584783e 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -160,6 +160,7 @@ obj-y					+= renesas/
- obj-$(CONFIG_COMMON_CLK_ROCKCHIP)	+= rockchip/
- obj-$(CONFIG_COMMON_CLK_SAMSUNG)	+= samsung/
- obj-$(CONFIG_CLK_SIFIVE)		+= sifive/
-+obj-y					+= siflower/
- obj-y					+= socfpga/
- obj-y					+= sophgo/
- obj-y					+= spacemit/
-diff --git a/drivers/clk/siflower/Kconfig b/drivers/clk/siflower/Kconfig
-new file mode 100644
-index 000000000000..ad1b04b4bb9b
---- /dev/null
-+++ b/drivers/clk/siflower/Kconfig
-@@ -0,0 +1,11 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config CLK_SF19A2890
-+	bool "Clock driver for Siflower SF19A2890"
-+	depends on MACH_SIFLOWER_MIPS || COMPILE_TEST
-+	default MACH_SIFLOWER_MIPS
-+	help
-+	  Supports the clock manager of the Siflower SF19A2890: its PLLs
-+	  and the muxes and dividers that feed the CPU, the buses and the
-+	  peripherals. The GIC timer runs from the CPU clock, so a kernel
-+	  for this SoC needs it built in.
-diff --git a/drivers/clk/siflower/Makefile b/drivers/clk/siflower/Makefile
-new file mode 100644
-index 000000000000..3f4d689f7d9b
---- /dev/null
-+++ b/drivers/clk/siflower/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-$(CONFIG_CLK_SF19A2890) += clk-sf19a2890.o
-diff --git a/drivers/clk/siflower/clk-sf19a2890.c b/drivers/clk/siflower/clk-sf19a2890.c
-new file mode 100644
-index 000000000000..181febf5b30e
---- /dev/null
-+++ b/drivers/clk/siflower/clk-sf19a2890.c
-@@ -0,0 +1,501 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#define pr_fmt(fmt) "sf19a2890-clk: " fmt
-+
-+#include <linux/bitfield.h>
-+#include <linux/clk-provider.h>
-+#include <linux/device-id/of.h>
-+#include <linux/io.h>
-+#include <linux/math64.h>
-+#include <linux/of_address.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+
-+#include <dt-bindings/clock/siflower,sf19a2890-clk.h>
-+
-+#define CLK_SF19A2890_NR_CLKS	(CLK_MUXDIV_NPU_PE + 1)
-+
-+#define REG_PLL_BASE		0x0
-+#define REG_PLL_PD		0x0
-+#define  PLL_PD			BIT(0)
-+#define  PLL_PD_VCO		BIT(1)
-+#define  PLL_PD_POSTDIV		BIT(2)
-+#define  PLL_PD_4PHASE		BIT(3)
-+#define  PLL_PD_DAC		BIT(4)
-+#define  PLL_PD_DSM		BIT(5)
-+
-+/*
-+ * PLL_PARAM is a 48-bit value put into 6 registers, 8-bit per register:
-+ * REFDIV = PLL_PARAM[47:42]
-+ * POSTDIV2 = PLL_PARAM[41:39]
-+ * POSTDIV1 = PLL_PARAM[38:36]
-+ * FRAC = PLL_PARAM[35:12]
-+ * FBDIV = PLL_PARAM[11:0]
-+ */
-+
-+#define REG_PLL_PARAM(_x)	(0x4 + (_x) * 4)
-+#define  PLL_REFDIV_HI		47
-+#define  PLL_REFDIV_LO		42
-+#define  PLL_POSTDIV2_HI	41
-+#define  PLL_POSTDIV2_LO	39
-+#define  PLL_POSTDIV1_HI	38
-+#define  PLL_POSTDIV1_LO	36
-+#define  PLL_FRAC_HI		35
-+#define  PLL_FRAC_LO		12
-+#define  PLL_FRAC_BITS		(PLL_FRAC_HI - PLL_FRAC_LO + 1)
-+#define  PLL_FBDIV_HI		11
-+#define  PLL_FBDIV_LO		0
-+
-+#define REG_PLL_CFG 0x1c
-+#define  PLL_CFG_BYPASS		BIT(0)
-+#define  PLL_CFG_SRC		GENMASK(2, 1)
-+#define  PLL_CFG_OCLK_SEL	BIT(3)
-+#define  PLL_CFG_OCLK_GATE	BIT(4)
-+#define  PLL_CFG_LOAD_DIVS	BIT(5)
-+
-+#define REG_PLL_LOCK 0x20
-+
-+/*
-+ * Read-only register indicating the value of the hardware clock source
-+ * override pin. When the first bit of this register is set, PLL clock
-+ * source is forced to the 40M oscillator regardless of PLL_CFG_SRC
-+ * value.
-+ */
-+#define REG_PLL_SRC_OVERRIDE 0x24
-+
-+struct sf_clk_common {
-+	void __iomem *base;
-+	struct clk_hw hw;
-+};
-+
-+struct sf19a2890_clk {
-+	struct sf_clk_common common;
-+	u32 offset;
-+};
-+
-+#define SF_CLK_COMMON(_name, _parents, _op, _flags)				\
-+	{								\
-+		.hw.init = CLK_HW_INIT_PARENTS_DATA(_name, _parents, _op,	\
-+						    _flags),		\
-+	}
-+
-+static inline struct sf_clk_common *hw_to_sf_clk_common(struct clk_hw *hw)
-+{
-+	return container_of(hw, struct sf_clk_common, hw);
-+}
-+
-+static inline struct sf19a2890_clk *cmn_to_clk(struct sf_clk_common *cmn_priv)
-+{
-+	return container_of(cmn_priv, struct sf19a2890_clk, common);
-+}
-+
-+static inline u32 sf_readl(struct sf_clk_common *priv, u32 reg)
-+{
-+	return readl(priv->base + reg);
-+}
-+
-+static inline void sf_writel(struct sf_clk_common *priv, u32 reg, u32 val)
-+{
-+	writel(val, priv->base + reg);
-+}
-+
-+static u32 sf_pll_param_get(struct sf19a2890_clk *priv, u32 hi, u32 lo)
-+{
-+	struct sf_clk_common *cmn = &priv->common;
-+	u32 ret = 0;
-+	int reg_hi = hi / 8;
-+	int reg_lo = lo / 8;
-+	u32 reg_hi_pos = hi % 8;
-+	u32 reg_lo_pos = lo % 8;
-+	int i;
-+
-+	if (reg_hi == reg_lo) {
-+		u32 mask = (BIT(reg_hi_pos - reg_lo_pos + 1)) - 1;
-+		u32 reg_val = sf_readl(cmn, priv->offset + REG_PLL_PARAM(reg_hi));
-+
-+		return (reg_val >> reg_lo_pos) & mask;
-+	}
-+
-+	ret = sf_readl(cmn, priv->offset + REG_PLL_PARAM(reg_hi)) & (BIT(reg_hi_pos + 1) - 1);
-+	for (i = reg_hi - 1; i > reg_lo; i--)
-+		ret = (ret << 8) | sf_readl(cmn, priv->offset + REG_PLL_PARAM(i));
-+	ret = (ret << (8 - reg_lo_pos)) |
-+	      (sf_readl(cmn, priv->offset + REG_PLL_PARAM(reg_lo)) >> reg_lo_pos);
-+
-+	return ret;
-+}
-+
-+static unsigned long sf19a28_pll_recalc_rate(struct clk_hw *hw,
-+					     unsigned long parent_rate)
-+{
-+	struct sf_clk_common *cmn_priv = hw_to_sf_clk_common(hw);
-+	struct sf19a2890_clk *priv = cmn_to_clk(cmn_priv);
-+	u32 refdiv = sf_pll_param_get(priv, PLL_REFDIV_HI, PLL_REFDIV_LO);
-+	u32 fbdiv = sf_pll_param_get(priv, PLL_FBDIV_HI, PLL_FBDIV_LO);
-+	u32 postdiv1 = sf_pll_param_get(priv, PLL_POSTDIV1_HI, PLL_POSTDIV1_LO);
-+	u32 postdiv2 = sf_pll_param_get(priv, PLL_POSTDIV2_HI, PLL_POSTDIV2_LO);
-+	u32 pll_pd = sf_readl(cmn_priv, priv->offset + REG_PLL_PD);
-+	u64 rate;
-+	u32 frac;
-+
-+	if (!refdiv || !postdiv1 || !postdiv2)
-+		return 0;
-+
-+	rate = div_u64((u64)parent_rate * fbdiv, refdiv);
-+
-+	/* With the DSM on, the VCO runs at parent / refdiv * (fbdiv + frac / 2^24) */
-+	if (!(pll_pd & PLL_PD_DSM)) {
-+		frac = sf_pll_param_get(priv, PLL_FRAC_HI, PLL_FRAC_LO);
-+		rate += div_u64((u64)parent_rate * frac, refdiv) >> PLL_FRAC_BITS;
-+	}
-+
-+	return div_u64(rate, postdiv1 * postdiv2);
-+}
-+
-+static u8 sf19a28_pll_get_parent(struct clk_hw *hw)
-+{
-+	struct sf_clk_common *cmn_priv = hw_to_sf_clk_common(hw);
-+	struct sf19a2890_clk *priv = cmn_to_clk(cmn_priv);
-+	u32 cfg;
-+
-+	if (sf_readl(cmn_priv, priv->offset + REG_PLL_SRC_OVERRIDE))
-+		return 1;
-+
-+	cfg = sf_readl(cmn_priv, priv->offset + REG_PLL_CFG);
-+
-+	return (FIELD_GET(PLL_CFG_SRC, cfg) == 1);
-+}
-+
-+static const struct clk_ops sf19a28_pll_ops = {
-+	.recalc_rate = sf19a28_pll_recalc_rate,
-+	.get_parent = sf19a28_pll_get_parent,
-+};
-+
-+static const struct clk_parent_data clk_pll_parents[] = {
-+	{ .fw_name = "osc12m" },
-+	{ .fw_name = "osc40m" },
-+};
-+
-+#define SF19A28_PLL(_name, _offset, _flags)				\
-+	struct sf19a2890_clk _name = {					\
-+		.common = SF_CLK_COMMON(#_name, clk_pll_parents,	\
-+					&sf19a28_pll_ops, _flags),	\
-+		.offset = REG_PLL_BASE + (_offset),			\
-+	}
-+
-+static SF19A28_PLL(pll_cpu, 0x0, 0);
-+static SF19A28_PLL(pll_ddr, 0x40, 0);
-+static SF19A28_PLL(pll_cmn, 0x80, 0);
-+
-+#define REG_MUXDIV_BASE		0x400
-+#define REG_MUXDIV_CFG		0x0
-+#define  MUXDIV_USE_NCO		BIT(3)
-+#define  MUXDIV_SRC_SEL		GENMASK(2, 0)
-+#define REG_MUXDIV_RATIO	0x4
-+#define  MUXDIV_RATIO_MAX	0xff
-+#define REG_MUXDIV_NCO_V	0x8
-+#define REG_MUXDIV_EN		0xc
-+#define REG_MUXDIV_XN_DIV_RATIO	0x10
-+#define  MUXDIV_XN_DIV_MAX	3
-+
-+static unsigned long sf19a28_muxdiv_recalc_rate(struct clk_hw *hw,
-+						unsigned long parent_rate)
-+{
-+	struct sf_clk_common *cmn_priv = hw_to_sf_clk_common(hw);
-+	struct sf19a2890_clk *priv = cmn_to_clk(cmn_priv);
-+	u32 div;
-+
-+	div = sf_readl(cmn_priv, priv->offset + REG_MUXDIV_RATIO) + 1;
-+
-+	return parent_rate / div;
-+}
-+
-+static int sf19a28_muxdiv_determine_rate(struct clk_hw *hw,
-+					 struct clk_rate_request *req)
-+{
-+	unsigned int div;
-+
-+	if (!req->rate)
-+		div = MUXDIV_RATIO_MAX + 1;
-+	else
-+		div = DIV_ROUND_CLOSEST(req->best_parent_rate, req->rate);
-+
-+	if (!div)
-+		div = 1;
-+	else if (div > MUXDIV_RATIO_MAX + 1)
-+		div = MUXDIV_RATIO_MAX + 1;
-+
-+	req->rate = req->best_parent_rate / div;
-+
-+	return 0;
-+}
-+
-+static int sf19a28_muxdiv_set_rate(struct clk_hw *hw, unsigned long rate,
-+				   unsigned long parent_rate)
-+{
-+	struct sf_clk_common *cmn_priv = hw_to_sf_clk_common(hw);
-+	struct sf19a2890_clk *priv = cmn_to_clk(cmn_priv);
-+	unsigned int div;
-+
-+	if (!rate)
-+		return -EINVAL;
-+
-+	div = DIV_ROUND_CLOSEST(parent_rate, rate);
-+	if (div < 1)
-+		div = 1;
-+	else if (div > MUXDIV_RATIO_MAX + 1)
-+		div = MUXDIV_RATIO_MAX + 1;
-+	div -= 1;
-+
-+	sf_writel(cmn_priv, priv->offset + REG_MUXDIV_RATIO, div);
-+
-+	return 0;
-+}
-+
-+static int sf19a28_muxdiv_enable(struct clk_hw *hw)
-+{
-+	struct sf_clk_common *cmn_priv = hw_to_sf_clk_common(hw);
-+	struct sf19a2890_clk *priv = cmn_to_clk(cmn_priv);
-+
-+	sf_writel(cmn_priv, priv->offset + REG_MUXDIV_EN, 1);
-+
-+	return 0;
-+}
-+
-+static void sf19a28_muxdiv_disable(struct clk_hw *hw)
-+{
-+	struct sf_clk_common *cmn_priv = hw_to_sf_clk_common(hw);
-+	struct sf19a2890_clk *priv = cmn_to_clk(cmn_priv);
-+
-+	sf_writel(cmn_priv, priv->offset + REG_MUXDIV_EN, 0);
-+}
-+
-+static int sf19a28_muxdiv_is_enabled(struct clk_hw *hw)
-+{
-+	struct sf_clk_common *cmn_priv = hw_to_sf_clk_common(hw);
-+	struct sf19a2890_clk *priv = cmn_to_clk(cmn_priv);
-+
-+	return !!sf_readl(cmn_priv, priv->offset + REG_MUXDIV_EN);
-+}
-+
-+/* MUXDIV_SRC_SEL values of clk_muxdiv_parents */
-+static const u32 sf19a28_muxdiv_table[] = { 0, 1, 2, 4, 6 };
-+
-+static u8 sf19a28_muxdiv_get_parent(struct clk_hw *hw)
-+{
-+	struct sf_clk_common *cmn_priv = hw_to_sf_clk_common(hw);
-+	struct sf19a2890_clk *priv = cmn_to_clk(cmn_priv);
-+	u32 cfg = sf_readl(cmn_priv, priv->offset + REG_MUXDIV_CFG);
-+
-+	return clk_mux_val_to_index(hw, sf19a28_muxdiv_table, 0, FIELD_GET(MUXDIV_SRC_SEL, cfg));
-+}
-+
-+static int sf19a28_muxdiv_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct sf_clk_common *cmn_priv = hw_to_sf_clk_common(hw);
-+	struct sf19a2890_clk *priv = cmn_to_clk(cmn_priv);
-+	u32 cfg = sf_readl(cmn_priv, priv->offset + REG_MUXDIV_CFG);
-+
-+	/* Keep MUXDIV_USE_NCO */
-+	cfg &= ~MUXDIV_SRC_SEL;
-+	cfg |= FIELD_PREP(MUXDIV_SRC_SEL, clk_mux_index_to_val(sf19a28_muxdiv_table, 0, index));
-+	sf_writel(cmn_priv, priv->offset + REG_MUXDIV_CFG, cfg);
-+
-+	return 0;
-+}
-+
-+static const struct clk_parent_data clk_muxdiv_parents[] = {
-+	{ .hw = &pll_cpu.common.hw },
-+	{ .hw = &pll_ddr.common.hw },
-+	{ .hw = &pll_cmn.common.hw },
-+	{ .fw_name = "osc12m" },
-+	{ .fw_name = "osc40m" },
-+};
-+
-+static const struct clk_ops sf19a28_muxdiv_ops = {
-+	.recalc_rate = sf19a28_muxdiv_recalc_rate,
-+	.determine_rate = sf19a28_muxdiv_determine_rate,
-+	.set_rate = sf19a28_muxdiv_set_rate,
-+	.enable = sf19a28_muxdiv_enable,
-+	.disable = sf19a28_muxdiv_disable,
-+	.is_enabled = sf19a28_muxdiv_is_enabled,
-+	.get_parent = sf19a28_muxdiv_get_parent,
-+	.set_parent = sf19a28_muxdiv_set_parent,
-+};
-+
-+#define SF19A28_MUXDIV(_name, _offset, _flags)				\
-+	struct sf19a2890_clk _name = {					\
-+		.common = SF_CLK_COMMON(#_name, clk_muxdiv_parents,	\
-+					&sf19a28_muxdiv_ops, _flags),	\
-+		.offset = REG_MUXDIV_BASE + (_offset),			\
-+	}
-+
-+static SF19A28_MUXDIV(muxdiv_bus1, 0x0, CLK_IS_CRITICAL);
-+static SF19A28_MUXDIV(muxdiv_bus2, 0x20, CLK_IS_CRITICAL);
-+static SF19A28_MUXDIV(muxdiv_bus3, 0x40, CLK_IS_CRITICAL);
-+static SF19A28_MUXDIV(muxdiv_cpu, 0x100, CLK_SET_RATE_NO_REPARENT);
-+static SF19A28_MUXDIV(muxdiv_pbus, 0x120, CLK_IS_CRITICAL);
-+static SF19A28_MUXDIV(muxdiv_mem_phy, 0x140, CLK_IS_CRITICAL);
-+static SF19A28_MUXDIV(muxdiv_uart, 0x180, 0);
-+static SF19A28_MUXDIV(muxdiv_eth_ref, 0x200, 0);
-+static SF19A28_MUXDIV(muxdiv_eth_byp_ref, 0x220, 0);
-+static SF19A28_MUXDIV(muxdiv_eth_tsu, 0x240, 0);
-+static SF19A28_MUXDIV(muxdiv_gmac_byp_ref, 0x260, 0);
-+static SF19A28_MUXDIV(muxdiv_m6250_0, 0x280, 0);
-+static SF19A28_MUXDIV(muxdiv_m6250_1, 0x2a0, 0);
-+static SF19A28_MUXDIV(muxdiv_wlan24_plf, 0x2c0, 0);
-+static SF19A28_MUXDIV(muxdiv_wlan5_plf, 0x2e0, 0);
-+static SF19A28_MUXDIV(muxdiv_usbphy_ref, 0x300, 0);
-+static SF19A28_MUXDIV(muxdiv_tclk, 0x320, 0);
-+static SF19A28_MUXDIV(muxdiv_npu_pe, 0x340, 0);
-+
-+static struct clk_hw *const sf19a2890_hws[CLK_SF19A2890_NR_CLKS] = {
-+	[CLK_PLL_CPU] = &pll_cpu.common.hw,
-+	[CLK_PLL_DDR] = &pll_ddr.common.hw,
-+	[CLK_PLL_CMN] = &pll_cmn.common.hw,
-+	[CLK_MUXDIV_BUS1] = &muxdiv_bus1.common.hw,
-+	[CLK_MUXDIV_BUS2] = &muxdiv_bus2.common.hw,
-+	[CLK_MUXDIV_BUS3] = &muxdiv_bus3.common.hw,
-+	[CLK_MUXDIV_CPU] = &muxdiv_cpu.common.hw,
-+	[CLK_MUXDIV_PBUS] = &muxdiv_pbus.common.hw,
-+	[CLK_MUXDIV_MEM_PHY] = &muxdiv_mem_phy.common.hw,
-+	[CLK_MUXDIV_UART] = &muxdiv_uart.common.hw,
-+	[CLK_MUXDIV_ETH_REF] = &muxdiv_eth_ref.common.hw,
-+	[CLK_MUXDIV_ETH_BYP_REF] = &muxdiv_eth_byp_ref.common.hw,
-+	[CLK_MUXDIV_ETH_TSU] = &muxdiv_eth_tsu.common.hw,
-+	[CLK_MUXDIV_GMAC_BYP_REF] = &muxdiv_gmac_byp_ref.common.hw,
-+	[CLK_MUXDIV_M6250_0] = &muxdiv_m6250_0.common.hw,
-+	[CLK_MUXDIV_M6250_1] = &muxdiv_m6250_1.common.hw,
-+	[CLK_MUXDIV_WLAN24_PLF] = &muxdiv_wlan24_plf.common.hw,
-+	[CLK_MUXDIV_WLAN5_PLF] = &muxdiv_wlan5_plf.common.hw,
-+	[CLK_MUXDIV_USBPHY_REF] = &muxdiv_usbphy_ref.common.hw,
-+	[CLK_MUXDIV_TCLK] = &muxdiv_tclk.common.hw,
-+	[CLK_MUXDIV_NPU_PE] = &muxdiv_npu_pe.common.hw,
-+};
-+
-+/*
-+ * The MIPS GIC timer runs from the CPU clock and probes from
-+ * TIMER_OF_DECLARE() in time_init(), before the platform bus. Register that
-+ * clock and the PLLs it may run from early, and the others at probe.
-+ */
-+static const unsigned int sf19a2890_early_clks[] __initconst = {
-+	CLK_PLL_CPU,
-+	CLK_PLL_DDR,
-+	CLK_PLL_CMN,
-+	CLK_MUXDIV_CPU,
-+};
-+
-+static struct clk_hw_onecell_data *sf19a2890_clk_data;
-+static void __iomem *sf19a2890_clk_base;
-+
-+static void __init sf19a2890_clk_early_init(struct device_node *node)
-+{
-+	struct clk_hw_onecell_data *data;
-+	void __iomem *base;
-+	unsigned int i;
-+	int ret;
-+
-+	data = kzalloc_flex(*data, hws, CLK_SF19A2890_NR_CLKS);
-+	if (!data)
-+		return;
-+
-+	data->num = CLK_SF19A2890_NR_CLKS;
-+	/* The clocks registered at probe defer until then */
-+	for (i = 0; i < data->num; i++)
-+		data->hws[i] = ERR_PTR(-EPROBE_DEFER);
-+
-+	base = of_iomap(node, 0);
-+	if (!base) {
-+		pr_err("failed to map the registers\n");
-+		goto err_free;
-+	}
-+
-+	for (i = 0; i < ARRAY_SIZE(sf19a2890_early_clks); i++) {
-+		unsigned int id = sf19a2890_early_clks[i];
-+		struct clk_hw *hw = sf19a2890_hws[id];
-+
-+		hw_to_sf_clk_common(hw)->base = base;
-+		ret = of_clk_hw_register(node, hw);
-+		if (ret) {
-+			pr_err("failed to register clock %u: %d\n", id, ret);
-+			goto err_unregister;
-+		}
-+		data->hws[id] = hw;
-+	}
-+
-+	ret = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, data);
-+	if (ret) {
-+		pr_err("failed to add the clock provider: %d\n", ret);
-+		goto err_unregister;
-+	}
-+
-+	sf19a2890_clk_data = data;
-+	sf19a2890_clk_base = base;
-+
-+	return;
-+
-+err_unregister:
-+	while (i--)
-+		clk_hw_unregister(data->hws[sf19a2890_early_clks[i]]);
-+	iounmap(base);
-+err_free:
-+	kfree(data);
-+}
-+
-+CLK_OF_DECLARE_DRIVER(sf19a2890_clk, "siflower,sf19a2890-clk", sf19a2890_clk_early_init);
-+
-+static void sf19a2890_clk_unpublish(void *data)
-+{
-+	struct clk_hw **hw = data;
-+
-+	*hw = ERR_PTR(-EPROBE_DEFER);
-+}
-+
-+static int sf19a2890_clk_probe(struct platform_device *pdev)
-+{
-+	struct clk_hw_onecell_data *data = sf19a2890_clk_data;
-+	struct device *dev = &pdev->dev;
-+	unsigned int i;
-+	int ret;
-+
-+	if (!data)
-+		return -ENODEV;
-+
-+	for (i = 0; i < data->num; i++) {
-+		struct clk_hw *hw = sf19a2890_hws[i];
-+
-+		/* Registered early */
-+		if (!IS_ERR(data->hws[i]))
-+			continue;
-+
-+		hw_to_sf_clk_common(hw)->base = sf19a2890_clk_base;
-+		/* Published first, so its orphans find it as it registers */
-+		data->hws[i] = hw;
-+		ret = devm_clk_hw_register(dev, hw);
-+		if (ret) {
-+			data->hws[i] = ERR_PTR(-EPROBE_DEFER);
-+			return dev_err_probe(dev, ret, "failed to register clock %u\n", i);
-+		}
-+
-+		ret = devm_add_action_or_reset(dev, sf19a2890_clk_unpublish, &data->hws[i]);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id sf19a2890_clk_dt_ids[] = {
-+	{ .compatible = "siflower,sf19a2890-clk" },
-+	{ /* sentinel */ }
-+};
-+
-+static struct platform_driver sf19a2890_clk_driver = {
-+	.probe	= sf19a2890_clk_probe,
-+	.driver = {
-+		.name			= "sf19a2890-clk",
-+		.of_match_table		= sf19a2890_clk_dt_ids,
-+		.suppress_bind_attrs	= true,
-+	},
-+};
-+builtin_platform_driver(sf19a2890_clk_driver);
-
--- 
-Git-155)
+I'd name it "sym_size" for consistency with "sym" naming, and the
+comment/doc here is unambiguous about what that is (struct size, not
+the symbol's recorded size). seems fine as far as UX goes
 
 
+other than nits, this API looks great
+
+[...]
+
+> +/* On -ENAMETOOLONG, *ksym is still copied, to return the required sizes=
+. */
+> +static int kallsyms_copy_sym_to_user(u64 usym, u64 usym_size,
+> +                                    struct kallsyms_query_sym *ksym,
+> +                                    const struct kallsyms_sym_match *m)
+> +{
+> +       size_t copy_sz =3D min_t(size_t, usym_size, sizeof(*ksym));
+> +       bool too_long =3D false;
+> +       int err;
+> +
+> +       ksym->sym_addr =3D m->addr;
+> +       ksym->sym_size =3D m->size;
+> +       err =3D kallsyms_copy_str_to_user(ksym->sym_name, &ksym->sym_name=
+_len,
+> +                                       m->name);
+> +       if (err =3D=3D -EFAULT)
+> +               return -EFAULT;
+> +       too_long |=3D (err =3D=3D -ENAMETOOLONG);
+
+nit: if (err =3D=3D -ENAMETOOLONG) too_long =3D true; is just as short
+
+but also you are eating any other error, maybe write it so that
+original err is preserved as is, not special-casing ENAMETOOLONG? if
+you get EFAULT later, original error still takes precedence
+
+> +
+> +       err =3D kallsyms_copy_str_to_user(ksym->sym_module, &ksym->sym_mo=
+dule_len,
+> +                                       m->modname);
+> +       if (err =3D=3D -EFAULT)
+> +               return -EFAULT;
+> +       too_long |=3D (err =3D=3D -ENAMETOOLONG);
+> +
+> +       if (copy_to_user(u64_to_user_ptr(usym), ksym, copy_sz))
+> +               return -EFAULT;
+> +
+> +       return too_long ? -ENAMETOOLONG : 0;
+> +}
+> +
+
+[...]
