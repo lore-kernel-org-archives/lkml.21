@@ -1,46 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.194
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795578253;
-	b=bXU2lqI9y6VsTK/phYOAgEPWuy0dwypOlh0kJWdmW/73x8vGJe5kExi7Im+33aG74u8q
-	 xjrKoVewRZ+gxbbjRqq06k4O7JkkA2W7w19jcoMOOyYP/ToKUpqgFr2oB7W+LgU9qGJdj
-	 RqOej0tMu0ritND1tggHamNNHVoZAjqYaV5ylgbZF5DlCk9pn7JEL9W5mfwsgWqPRsLbd
-	 v5Qc5JAGmS2i5/INqFJD7maaLcZ2oAAh97AVjYPfQIS82FQTFkxZ5wfjPfegOWTtSYrP9
-	 BtrLdVnpMHyILPSIW0EE5SaET/qJCcfyfCwuFbU95xM/zZ7BL/nwog1yApbO/TRF/oQ==
+	t=1795578254;
+	b=0twYZ5PYlo4XrElpUpN9g7uRqvnNqaXqJMQnxI+aLLhB97bW/pwamOmKPXMPtIdtXcg3
+	 KsSQg2i+qrISSJpXFRryCjozzdLaAUCqGJPIPP/Rx1l/iTgDdvGK0Hr9pGHR2dwapLrh4
+	 6YeQYHo2T6X0VUj/X6l3dij/vgNIV+XGefbiRtwuk1eQVaUYEWWIEWeNIg0wpyEb/Tn5t
+	 CTnFPQRSyXvdtBTje7UFyBQXIqrNl3tKZ+s6buRCtmeqtcKMkE49+4BvVgCCuE+5OjVpK
+	 bKJ5FOmEDt7sO5/+6leHBjsMvdRjoS9riRtzKz1L00qYSCsFUl68FM5FKLpu3h/RKDA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795578253;
-	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=1C8mzc8O3akAV57HUhZPtHlb7rdlzPdhO44dj+rNJ60=;
-	b=Tcj6RA8mj5de0FTClTO/oENiNA+TT84HiluCRQe12UBE62zFEB4neirBPUih8r4JXWox
-	 HAaWFCLGKY87bIwg3ftn445vYTucdhF7DiksSanLxpfEOVQgzh4Hehk4TPnOMaWF7VvlW
-	 6cGRhYZay4zKAUpn6oHZ/8Ob0r91lnJ9kHrpKBYAvRzlYT/MklA9XdEoEuSGcvFw7Qizw
-	 cvlKZfIiPRnYaq5Vg5suJIfBmUFppa+yVcqYCbAdyjF+KH58BeNF3WqUanVQUu5FPSYAH
-	 K8B45zNDTqfFv/uR65FY1jlUV+Mr9hDZp1PeI1NMwneUWb09Xo+vgTlM+NlvVwH5dbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795578254;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=0gMkbbLOot3bX7ZvRSJsql+Zsoh4W/ttXNIHMpReErE=;
+	b=s7BwFhJxm6hvitEZza4R7BsBvvj9jA6GekedhElFROBMmZVwJ10L7oipRQ4sAbWfCZhM
+	 pykjAjrI4WFYE+X+MAi4URey71DlBn3sitwzbjViGCZmfGH9OVHl7RLBjVjoIZuCYv7pf
+	 neweXGJyWChA6DiHIP4Un4fE2fxHUXu62s6zDzCq4NQz+L5kuEXnCP7cuqc6m719v+NUF
+	 9lo4LCb+zCdEvxByvK4ifFaHSKNpl8UwpJXgP71XlakQSgdQyqBIpuT50I9QdXDGgzwDs
+	 2/gp2Vnaqj9HoCbJO/S1+3ARWvTA71aScmYVM4u21+13bYJ6LzKy3AxA/bda8i2AWWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kaihong.com;
-	spf=pass smtp.mailfrom=kaihong.com;
-	arc=none smtp.remote-ip=115.124.28.194
-Received: from out28-194.mail.aliyun.com (out28-194.mail.aliyun.com [115.124.28.194])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lEdBuKcF;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C995606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:44:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C995606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kaihong.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kaihong.com
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.0743626|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.365823-0.00936331-0.624813;FP=10097895317560180978|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037034017;MF=yanghaoming@kaihong.com;NM=1;PH=DS;RN=3;RT=3;SR=0;TI=SMTPD_---.k9bikPQ_1795578241;
-Received: from localhost.localdomain(mailfrom:yanghaoming@kaihong.com fp:SMTPD_---.k9bikPQ_1795578241 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Wed, 25 Nov 2026 11:44:01 +0800
-From: yanghaoming <yanghaoming@kaihong.com>
-To: hirofumi@mail.parknet.co.jp
-Cc: linux-kernel@vger.kernel.org,
-	syzbot+c1b4f0f31099fb2324e2@syzkaller.appspotmail.com
-Subject: [PATCH] fat: hold buffer lock while reading and writing FAT table entries
-Date: Wed, 25 Nov 2026 11:43:36 +0800
-Message-Id: <20261125034336.3724504-1-yanghaoming@kaihong.com>
-X-Mailer: git-send-email 2.34.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E635E606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:44:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E635E606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lEdBuKcF
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb69f5b161so34189985e9.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:44:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795578252; x=1796183052; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0gMkbbLOot3bX7ZvRSJsql+Zsoh4W/ttXNIHMpReErE=;
+        b=lEdBuKcF0JncIpcutUemWRCVLwcBptVk45nftYoXdUPaaPEMjOXhRvlDgUBMqszRSi
+         GjVW7ES9OlK67a/2KLB5I65GkIV14Ylzo/LfhicqUla0tHCcqXUHFVnVhyXZGsWk1GYi
+         30KWFrA88HI/8R90LcNab9RdDuPnarcq6aW8IuA8Dbg3UasrVz81iXsAmAz52FFpSxkl
+         kwCNrdjoDvsHBIUIV7L7pGx49IZu2fqgEP7oIu858HUHqjSUGsKRfpJS4Xm/DgASvkCY
+         ohconOG9BXS7zsTTxG601/wjTYdl90IpxPDLaEEQRmhw8dfhpInmpWHAFkRnignmsUL1
+         jNnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795578252; x=1796183052;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0gMkbbLOot3bX7ZvRSJsql+Zsoh4W/ttXNIHMpReErE=;
+        b=feEMk2BeGarLxXfUvJLUc1s+PeOkrRjDhdv0mJbjf7ZGjS9FpqdyFzapTsbAlnAUo3
+         6Xtm3NjcIdNI/NcLQzs0G0qYBPIoe3peLTYMfpaVx5yxSCkFTGyRQ4VVXZ21MxLzOkZZ
+         xW8nJHjWjb0vxcbwY2KrEeCWW7AgOYJN8+TGn/bep14Kc2J9fY8mEBd7I+70Ccd98Jnq
+         Yr5EUEsn+kPizRhYuCXxo2pwlrnl5QfMGMQ4QKOhQz+vaDWMaU+ujV6o4oWpbFN17UTo
+         pFsZpcxRdOfrdQ37jVB7xekj/dL0j27HtXzpEdXvTMcKrKim+uw2R5PD2Ys7rqCciC3o
+         2GBg==
+X-Forwarded-Encrypted: i=1; AL+hErGBLnPZO+sBZK6njJWQtP93F8lkw24Rb6qoZ3dE4MG+2jpnxr4NHVadHBwi3KHe3KkPeGcomBxLx0oEgZU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8zAnZaxgVfsHqeH3+7b+5VXxML54D3W31MtBZSopCXuLibJeGz
+	FUuq6DB10Ulpzfy7OH3bWLVBjKJZjWQa01TJPXjqEQ7ppetCU6WdPVJe
+X-Gm-Gg: AZFdTZf7H1TjMTbshNatq67iKm8CFMv0bJo16DeEwY7XTr4L+smoxlAsfAbrurE9dpt
+	MrKC7D1y3C6Vuk1GBanNE0eZNlJkfNuai3y3Ks3w5+NEYNvHqRADOHVdOknDtsGHB3zCG0daH96
+	7ray/ihiZDaa1k2hx9lgAh3PLAG2RTz228o/d+Gbh44yKUdgg3JKAWXZLVQ9vL7Gn8lMpnA06jh
+	ySZH2kLqdE8AEt6+ielDkGNXNt/t6Fu228D4367AWwfgjzn/gsCsGKqz/BIyNIIMwrhm5EA60wi
+	0JdwCW4AkPmFeCM5gp3TeUiohXseT455cYiXmCe/4fKdh+MN85/K1rOFH37J7sSy1SRaalQ1R7e
+	GsHx4Wgkji13NpCczdL8cu3a45V+uZyBAN25feNxJpYcANsqsjUG43ic11eaTm0k9S4VOx21K5w
+	gZb70RoWnqRLgd6rypSmBNc7u1gKhAsTtkvnSgzYL/VK31n9tIHhrR7AjPHi/gtq1S0V/rTxtK6
+	rV4pzFkbC7Yn9VSKewYoV4Zlx9kf8K46pp3W+xYXeQ8BnUJlCfP9HrjJKZ6AfnuM2QikPeqkM2+
+	d48obbeCNHRm0F4HqusshUf5U8giJr0qTOpy6bpmzpJUaGcEM81uBKJlEXQ=
+X-Received: by 2002:a05:600c:3b84:b0:4bb:6f45:2a6d with SMTP id 5b1f17b1804b1-4bb888074bbmr399963545e9.12.1795578252392;
+        Tue, 24 Nov 2026 19:44:12 -0800 (PST)
+Received: from [10.32.31.239] ([212.58.121.92])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88402ce9sm391107925e9.0.2026.11.24.19.44.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 19:44:10 -0800 (PST)
+From: Stanislav Aleksandrov <lightofmysoul@gmail.com>
+Date: Wed, 25 Nov 2026 03:43:04 +0000
+Subject: [PATCH v3 08/14] dt-bindings: crypto: qcom,inline-crypto-engine:
+ Add Halliday
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -50,209 +93,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-halliday-dts-v3-8-5c8311c0b70b@gmail.com>
+References: <20261125-halliday-dts-v3-0-5c8311c0b70b@gmail.com>
+In-Reply-To: <20261125-halliday-dts-v3-0-5c8311c0b70b@gmail.com>
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Robert Marko <robimarko@gmail.com>, 
+ Guru Das Srinagesh <linux@gurudas.dev>, Thomas Gleixner <tglx@kernel.org>, 
+ Radu Rendec <radu@rendec.net>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Wesley Cheng <wesley.cheng@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche <bvanassche@acm.org>, 
+ Bean Huo <beanhuo@micron.com>, Stanley Jhu <stanleyjhu@google.com>, 
+ Herbert Xu <herbert@gondor.apana.org.au>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, Amit Kucheria <amitk@kernel.org>, 
+ Thara Gopinath <thara.gopinath@gmail.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Georgi Djakov <djakov@kernel.org>, 
+ Sibi Sankar <sibi.sankar@oss.qualcomm.com>, Ulf Hansson <ulfh@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ iommu@lists.linux.dev, linux-usb@vger.kernel.org, 
+ linux-phy@lists.infradead.org, linux-scsi@vger.kernel.org, 
+ linux-crypto@vger.kernel.org, linux-pm@vger.kernel.org, 
+ Stanislav Aleksandrov <lightofmysoul@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795578204; l=991;
+ i=lightofmysoul@gmail.com; s=20261108; h=from:subject:message-id;
+ bh=iODhhsd3yfvGtcciUvxgx8qkDXgsEtkBlczLh6ZRfrQ=;
+ b=lvcDevXHoUjfOVIKmGcAADmxVZULBy9zMoHqx2H32a0E3wUM2ikLAFlGNM8+8Y16B1yXdXwzE
+ 0y99BcDJDu0At3F9ibFbmmvIZEbRo82dQ3K+iKDoR8DVQfXtRsOln6S
+X-Developer-Key: i=lightofmysoul@gmail.com; a=ed25519;
+ pk=jeRUlfmkhE53CJPoeIIXgu7rTE0ybDRH0HQrEwbydzg=
 
-FAT metadata pages are ordinary buffer_heads on the block device
-(often a loop device over shmem or a writable backing file).  When the
-VFS updates the allocation table it goes through
-fatent_operations->ent_put(), which writes directly into bh->b_data.
-In parallel, the block layer writeback path may touch the same
-buffer: __block_write_full_folio() only inspects and copies buffer
-contents while the buffer is under lock_buffer(), then submits I/O.
+Document the Inline Crypto Engine on the Qualcomm Halliday SoC.
 
-The failure mode reported by syzkaller (KCSAN) on FAT12 over loop
-typically looks like this on two CPUs:
-
-  [CPU0, process] unlink / truncate / cluster free
-           fat_free_clusters()
-             fat_ent_read() -> fat12_ent_get()
-             fat12_ent_put() stores into ent12_p[] in bhs[0]->b_data
-             (and bhs[1] when needed) without BH_Lock
-
-  [CPU1, kworker] I/O on the block device under the FAT (e.g. loop)
-           blkdev_writepages() -> __block_write_full_folio() uses
-           lock_buffer() before touching b_data; with a loop-backed
-           volume, submitting those pages can reach the backing file
-           write path, where copy_folio_from_iter_atomic() reads the
-           same buffer memory as in the syz report
-
-There was no happens-before relationship between those accesses, so
-KCSAN reported a data race (write in fat12_ent_put vs read in the
-writeback path).  The problem is not specific to FAT12's nibble
-packing; fat16_ent_put and fat32_ent_put had the same pattern for
-their le16/le32 stores.
-
-Historically FAT12 used a global spinlock (fat12_entry_lock) around
-packing high/low nibbles.  That only serialized other ent_put callers
-in process context; it does not synchronize with the block layer, which
-relies on BH_Lock (see buffer.c: writers and writeback must coordinate
-through lock_buffer() on the same buffer_head).  fat_mirror_bhs() and
-several paths in dir.c already lock buffers before touching b_data;
-ent_get/ent_put were the missing piece.
-
-Fix:
-
-- Add fat_lock_entry_bhs() / fat_unlock_entry_bhs(): for each fatent
-  buffer, lock_buffer() in ascending index order and unlock in reverse
-  (FAT12 may use two bhs when an entry spans a sector boundary).
-- Wrap all fat12/fat16/fat32 ent_get() and ent_put() access to
-  bh->b_data with these helpers; leave mmb_mark_buffer_dirty() after
-  unlock, matching existing ent_put and dir.c behaviour.
-- Drop fat12_entry_lock.
-
-After this change, any modification of FAT table contents in memory
-holds BH_Lock for the duration of the read/write, the same lock
-writeback takes before reading b_data for I/O.  The two sides cannot
-access b_data concurrently, so the reported KCSAN race class cannot
-recur on this path.  ent_get/ent_put remain on VFS/FAT process-context
-call chains only; they do not run in interrupt context.
-
-No on-disk format or VFS-visible allocation semantics change; this
-only serializes in-memory access to FAT table buffer_heads with the
-block layer BH_Lock, consistent with blkdev_writepages and dir.c.
-
-Testing: qemu-x86-lab/repro-fat12-kcsan on parent fatent (KCSAN bzImage):
-FAT12, loop over writable backing, 12 writers + sync pressure, 600s.
-
-- Pre-fix: KCSAN STRICT (fat12_ent_put vs copy_folio_from_iter_atomic); syz
-  class; no production corruption case attached to the syz bug id.
-- Pre-fix: host fsck.vfat -n -v on exported loop image: both FAT copies
-  differ; several files show cluster chain longer than inode size; dirty
-  bit set; no cross-link / invalid-FAT structural fsck failures.
-- Post-fix (same repro, 240-600s): check-syz STRICT write+read same report
-  count 0; log stacks omit fat12_ent_put; fsck.vfat -n -v clean on export.
-
-Performance: FAT32 volume mounted vfat (fat32_ent_get/put path), QEMU/KVM
-on 1 GiB test images (parent fatent.c vs this patch).  Median of 3 guest
-runs on virtio (direct) and loop; loop is the backend relevant to syz.
-
-- dd 512 MiB + sync: ~170 MiB/s; loop -1.2%, virtio -0.8%.
-- 3000x create/unlink: loop total time -1.1%.
-- 512 MiB sequential file grow (1 MiB writes, FAT updates): loop -0.8%.
-- 64x4 MiB files, 4 KiB rewrite (stresses fat_ent_put): loop throughput
-  -0.2% (3 runs); per-4KiB latency +1.5% on loop.
-- Same 4 KiB rewrite, 100 paired before/after boots: loop throughput
-  median +0.02%; paired before-vs-after delta stdev 4.9% (isolated
-  +/-16% swings are run-to-run jitter, not a stable loop regression).
-
-Fixes: 98283bb49c6c ("fat: Fix the race of read/write the FAT12 entry")
-Reported-by: syzbot+c1b4f0f31099fb2324e2@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=c1b4f0f31099fb2324e2
-Signed-off-by: yanghaoming <yanghaoming@kaihong.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Stanislav Aleksandrov <lightofmysoul@gmail.com>
 ---
- fs/fat/fatent.c | 41 ++++++++++++++++++++++++++++++++++-------
- 1 file changed, 34 insertions(+), 7 deletions(-)
+ Documentation/devicetree/bindings/crypto/qcom,inline-crypto-engine.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/fs/fat/fatent.c b/fs/fat/fatent.c
-index 2d10a815a579..be2c50ebcd77 100644
---- a/fs/fat/fatent.c
-+++ b/fs/fat/fatent.c
-@@ -18,7 +18,22 @@ struct fatent_operations {
- 	int (*ent_next)(struct fat_entry *);
- };
- 
--static DEFINE_SPINLOCK(fat12_entry_lock);
-+/* Avoid race with blockdev writeback while accessing bh->b_data */
-+static void fat_lock_entry_bhs(struct fat_entry *fatent)
-+{
-+	int i;
-+
-+	for (i = 0; i < fatent->nr_bhs; i++)
-+		lock_buffer(fatent->bhs[i]);
-+}
-+
-+static void fat_unlock_entry_bhs(struct fat_entry *fatent)
-+{
-+	int i;
-+
-+	for (i = fatent->nr_bhs - 1; i >= 0; i--)
-+		unlock_buffer(fatent->bhs[i]);
-+}
- 
- static void fat12_ent_blocknr(struct super_block *sb, int entry,
- 			      int *offset, sector_t *blocknr)
-@@ -122,12 +137,12 @@ static int fat12_ent_get(struct fat_entry *fatent)
- 	u8 **ent12_p = fatent->u.ent12_p;
- 	int next;
- 
--	spin_lock(&fat12_entry_lock);
-+	fat_lock_entry_bhs(fatent);
- 	if (fatent->entry & 1)
- 		next = (*ent12_p[0] >> 4) | (*ent12_p[1] << 4);
- 	else
- 		next = (*ent12_p[1] << 8) | *ent12_p[0];
--	spin_unlock(&fat12_entry_lock);
-+	fat_unlock_entry_bhs(fatent);
- 
- 	next &= 0x0fff;
- 	if (next >= BAD_FAT12)
-@@ -137,8 +152,12 @@ static int fat12_ent_get(struct fat_entry *fatent)
- 
- static int fat16_ent_get(struct fat_entry *fatent)
- {
--	int next = le16_to_cpu(*fatent->u.ent16_p);
-+	int next;
-+
- 	WARN_ON((unsigned long)fatent->u.ent16_p & (2 - 1));
-+	fat_lock_entry_bhs(fatent);
-+	next = le16_to_cpu(*fatent->u.ent16_p);
-+	fat_unlock_entry_bhs(fatent);
- 	if (next >= BAD_FAT16)
- 		next = FAT_ENT_EOF;
- 	return next;
-@@ -146,8 +165,12 @@ static int fat16_ent_get(struct fat_entry *fatent)
- 
- static int fat32_ent_get(struct fat_entry *fatent)
- {
--	int next = le32_to_cpu(*fatent->u.ent32_p) & 0x0fffffff;
-+	int next;
-+
- 	WARN_ON((unsigned long)fatent->u.ent32_p & (4 - 1));
-+	fat_lock_entry_bhs(fatent);
-+	next = le32_to_cpu(*fatent->u.ent32_p) & 0x0fffffff;
-+	fat_unlock_entry_bhs(fatent);
- 	if (next >= BAD_FAT32)
- 		next = FAT_ENT_EOF;
- 	return next;
-@@ -160,7 +183,7 @@ static void fat12_ent_put(struct fat_entry *fatent, int new)
- 	if (new == FAT_ENT_EOF)
- 		new = EOF_FAT12;
- 
--	spin_lock(&fat12_entry_lock);
-+	fat_lock_entry_bhs(fatent);
- 	if (fatent->entry & 1) {
- 		*ent12_p[0] = (new << 4) | (*ent12_p[0] & 0x0f);
- 		*ent12_p[1] = new >> 4;
-@@ -168,7 +191,7 @@ static void fat12_ent_put(struct fat_entry *fatent, int new)
- 		*ent12_p[0] = new & 0xff;
- 		*ent12_p[1] = (*ent12_p[1] & 0xf0) | (new >> 8);
- 	}
--	spin_unlock(&fat12_entry_lock);
-+	fat_unlock_entry_bhs(fatent);
- 
- 	mmb_mark_buffer_dirty(fatent->bhs[0],
- 			      &MSDOS_I(fatent->fat_inode)->i_metadata_bhs);
-@@ -182,7 +205,9 @@ static void fat16_ent_put(struct fat_entry *fatent, int new)
- 	if (new == FAT_ENT_EOF)
- 		new = EOF_FAT16;
- 
-+	fat_lock_entry_bhs(fatent);
- 	*fatent->u.ent16_p = cpu_to_le16(new);
-+	fat_unlock_entry_bhs(fatent);
- 	mmb_mark_buffer_dirty(fatent->bhs[0],
- 			      &MSDOS_I(fatent->fat_inode)->i_metadata_bhs);
- }
-@@ -190,8 +215,10 @@ static void fat16_ent_put(struct fat_entry *fatent, int new)
- static void fat32_ent_put(struct fat_entry *fatent, int new)
- {
- 	WARN_ON(new & 0xf0000000);
-+	fat_lock_entry_bhs(fatent);
- 	new |= le32_to_cpu(*fatent->u.ent32_p) & ~0x0fffffff;
- 	*fatent->u.ent32_p = cpu_to_le32(new);
-+	fat_unlock_entry_bhs(fatent);
- 	mmb_mark_buffer_dirty(fatent->bhs[0],
- 			      &MSDOS_I(fatent->fat_inode)->i_metadata_bhs);
- }
+diff --git a/Documentation/devicetree/bindings/crypto/qcom,inline-crypto-engine.yaml b/Documentation/devicetree/bindings/crypto/qcom,inline-crypto-engine.yaml
+index 23bf98c2b9fa..1512fd1d7471 100644
+--- a/Documentation/devicetree/bindings/crypto/qcom,inline-crypto-engine.yaml
++++ b/Documentation/devicetree/bindings/crypto/qcom,inline-crypto-engine.yaml
+@@ -14,6 +14,7 @@ properties:
+     items:
+       - enum:
+           - qcom,eliza-inline-crypto-engine
++          - qcom,halliday-inline-crypto-engine
+           - qcom,hawi-inline-crypto-engine
+           - qcom,kaanapali-inline-crypto-engine
+           - qcom,maili-inline-crypto-engine
+
 -- 
-2.34.1
+2.55.0
 
