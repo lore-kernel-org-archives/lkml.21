@@ -1,78 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795610321;
-	b=MzBCsJnK6IsZTFfEo2FFIYZDr1DE4H3mPcGmyLMj11CkefdtJIcSdGQuufsupcrMPjcI
-	 RgA19vCtNtIKhAP9jrEre+WeWNCRKISkJnGivi/bQNcJreqUtLkH+gdsADTEzZdkfwCR6
-	 U5j+fNkybd4iz8bf/OKHms74lNH342ixKHqxYo3+ZIV9PILhL26mYve3tBYHJ1JVs0cot
-	 D5LIF3zFUwSBpykl69/FtBgVDPYHggMCwPvz5RxdfDdpySFxv0bpPWOB/0eqqXDsTyd7O
-	 9m5o2nyUiNujogHp8z60uN7HMHQcON3z+v08Cnyr5E51bkfap4e3PFCsmg9jRXz6jIQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795610321;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=eRQOicpchPrZCt4YqUDAz2zN1yXBgPyxEnaRvrX014M=;
-	b=mamZ/H2h2Ojiu63g0uR3whguHysS02yDR0UwAEr6KONTQlUAP3q57rwrmkYi0xTfhjkB
-	 oNSxAuA1ClSo3tCTWtr2XWT81bWeFRtQCob4lxFJjBISJloKpUGTelZUBzx4qAQYWHMDC
-	 5orj0lBH5u1o5P6Jvc7a4xx2mi2ktG+YHovPz50C0a/HLSQkwREetp+vEILBeBMbm4v5I
-	 ltiJ3mxUi5POqt2eUt3lenJHxNz0S+iT2dutXIlZjLndBU7bXMxVt9z+4YVYg1D0+3QtS
-	 sronmf1QQvvnhZk6L+UCjSAl1AsomBFNvJGEplKymwmsyZGifzis7ObCWDP8PCdVZsA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Txso7YoT;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B9CE606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:38:41 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795610341;
+	b=O5zWHvzX+gMA5rgsVEIFnMaQY1wVCoSgSVViAdWOmRf+XD+o5g3p21tYswqN0qFqCN9E
+	 hNXXWCqy87BIEICtW2kX27xD5f4+A1od8kH77eEuPcu5HN3PiKImd44/y7W7hW9VqRj+J
+	 ssf1G7fE40+Hx2LKSN1jgQ1eFXLbFRwZQtHdp6s0z45rsqsgY1mc5XOZpeu/qW+uRTK/1
+	 68C5f17IjiVP1kt8saO7Ou9t1HXsw1u3Zj/yFdX/ncpm6Joug8wJqhDNLHC1EMbWBYxO6
+	 1ZiZCjka31XLcdG0lUypG8MUlp0hSq2mqhsA36mAWwlRGVaLkVsNX2ZHsXC5TyroMXA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795610341;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=8ksBKm+pzxuuq+S/3andYFYeVp/N1SmT8kmvLEwpdiM=;
+	b=eaNDc41wg9fvYHzJa5ab5e98M6DIQJppfwiLU41NjEkn9ASsI6kLDxmr4olN5uCCJwV+
+	 HjZVxuFPmyP4sqHZM7wJ4Yeh6S6FnLSaHieog/bbUdOtzX1FU7qCPDQ0NZCm6PBU4p87I
+	 TEY4ss/vE0AhxMTw3dF68qTbO8fitCqhe78NIboZa+UnwzFuTv7bz4ioW7ovL9auvJFSj
+	 64wOm2bHC73qFIXHwGHZ7gNn+g9WJ9NuiRvDnRd/JD8a+d4GGI1bayjlEVPic/6he74ME
+	 9mWGVuBbTcBptAxYK1/u3OWas69J3ynOJ7pX+8dLpo8NPcMwMp1RqaWIBmmwAxiQlDg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=NOrbCY2W;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0DB01606A31E;
+	Wed, 25 Nov 2026 12:39:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DB01606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Txso7YoT
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795610320;
-	b=lbRpuhHQJidV2nq+KK6ubqxD1tnW+HhFVt4HVNA8H+6Ly6G6UCkyaEQlGJ2iLLPHjcCY
-	 ptVuqGgsDmei8on4C6cp0b8SUHdhSpV3xjazq04I/YlrDtN1xv/rd3E7XrYQn58eDgl+A
-	 peUKFQuvutQ/44glBtCLKyaY3C7B6LmUjeBfBzxziWP6xPwNRnVhqUFH46CW1Io5SmeCj
-	 HQdaKDsq38dhPvHptU2by/toZ7JeDrx7+ITURPp/HVes7xw6/ptdIifvtloJAb/P/0gm/
-	 kQpbRtnBicaRgj5D5ZQcHNjmw6PeI9BXQWZnCZZrFb3KnwANm6o5JfC6P/+pcYtSV1w==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795610320;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=eRQOicpchPrZCt4YqUDAz2zN1yXBgPyxEnaRvrX014M=;
-	b=Mhg+gsGoYXZoH7L7ErbsnUI+W2R1BPpnbhEVAuM3asef6GD61qwNZb74irxHOw6pTAn6
-	 1bJwkLvtPWsbfj66Kq+jJMa4pEn2Vu7XBZprFCGvPKDdadPUz7Sb9EI8ih7yyxq+rgC44
-	 rkZ9g0rzh5pHq8a75lk4CJp8YAQFPfjIIBNMKwIXMsmpcaBzXpivM/llvmGHbuglZ6Ind
-	 oOEa5TT66f5cORHAY+erkpAtMC9jEVjzFx3Al1+syaOUUaAdLxbc/ZiR7ep2jzayamFq3
-	 EeSTaytRMniJQBRzP3gu1L+arqMN+CWcJv+y7X3gQILqGUZn3K1XZ0gPQmDx6kssDhQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A68F21F000E0;
-	Wed, 25 Nov 2026 12:38:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795610320;
-	bh=eRQOicpchPrZCt4YqUDAz2zN1yXBgPyxEnaRvrX014M=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Txso7YoTrqTV2+U7LXuU/5IT+YbJgO3b7CZ0QCMNYPfSizA+nfgSC+4KY/SwiRPNK
-	 iyWFxMGxlnUrJcsAgzEB/xkB7nqVZaJOqgpXvBKXpiMVKOuHy93K2AZgIi3ffQblcm
-	 sEPUnWiykqZfZX8TAbHmJTFtFRtTSufazY0JjTarBDtuXVNt/DiTvfZjZpG+XQHAcI
-	 Yz5hu1VYHEEEoq26XMxb+bvHALLoXl21uDfrRaGKI6RmxRxKgrHiILCNnpTqhf5ZJs
-	 L+rb19aZnDPEN9Jc6Il2UtVI+lCNx1fahfUMLxZxOHg3YeBZ2J3e+8yHlczOLrZsQH
-	 wb0c7kAaVjUyg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 342144CEBB;
-	Wed, 25 Nov 2026 12:38:36 +0000 (UTC)
-From: Kylie C via B4 Relay <devnull+kyliepc.proton.me@kernel.org>
-Date: Wed, 25 Nov 2026 07:38:29 -0500
-Subject: [PATCH] drm/fbdev-client: Don't restore while fbcon isn't bound
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=NOrbCY2W
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D2F32F;
+	Wed, 25 Nov 2026 04:38:57 -0800 (PST)
+Received: from gaia.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F29D83F86C;
+	Wed, 25 Nov 2026 04:38:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795610340; bh=cmw1itbte3IzHLZQjDwA+gCBb29y9QBqMepaxZQDr1I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=NOrbCY2WFx1gwZJX7Wx1i7fm4XXe2zPom8L5eAedmsmxMPBfiaBWikKdBGOk7bjHS
+	 mHVKCa9/zp6coBzVCeCbxTt1If7iDivGxte3uh7DK+9cMls6f2Qv71tpRMJQ9jLZUW
+	 oBbGSjYObKlRGV4l6GLPWtMDYoT/emhCsRY+ZCY8=
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: will@kernel.org,
+	Rui Qi <qirui.001@bytedance.com>
+Cc: mark.rutland@arm.com,
+	dylanbhatch@google.com,
+	song@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	ardb@kernel.org
+Subject: Re: [PATCH v3] arm64: module: Use text-poke for late PLT/veneer emission
+Date: Wed, 25 Nov 2026 12:24:17 +0000
+Message-ID: <179560945711.1480244.17746046705685189549.b4-ty@b4>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261117113535.399407-1-qirui.001@bytedance.com>
+References: <20261117113535.399407-1-qirui.001@bytedance.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,65 +68,59 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261125-fbdev-no-early-restore-v1-1-f81dc7acf3ad@proton.me>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQrCMBBG4auUWTtgQlPRq4iLpvmrI5LITFuU0
- rsbdfkt3lvJoAKjU7OSYhGTkivcrqHh1ucrWFI1+b3vnPOBx5iwcC6MXh9vVthUFJwOrg1tAOK
- xoxo/FaO8fuPz5W+b4x3D9L3Rtn0AljY7xHoAAAA=
-X-Change-ID: 20261125-fbdev-no-early-restore-d714545eeb96
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- Kylie C <kyliepc@proton.me>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795610315; l=1165;
- i=kyliepc@proton.me; s=20261022; h=from:subject:message-id;
- bh=2N+1pHpr6q4BPQmblStjA3/pJkTxrz1YV0M42dq9rME=;
- b=+w3aqPeBetmqfZ1x45FXHC4bGkF8NiQGgsL+Lm9O5wJAcxwluT9qHEz5JW1ulNKXSTl+D5pq+
- e/403IBKrbwC1BZx3Po3y0h8tKqko9wgniubf3B3Qs8lmp4u4/ShY3j
-X-Developer-Key: i=kyliepc@proton.me; a=ed25519;
- pk=T/yRT5OdlaWnEmvYU6894i5NEH44SmsyRlMNTde5DDs=
-X-Endpoint-Received: by B4 Relay for kyliepc@proton.me/20261022 with
- auth_id=1285
-X-Original-From: Kylie C <kyliepc@proton.me>
-Reply-To: kyliepc@proton.me
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Kylie C <kyliepc@proton.me>
+On Tue, 17 Nov 2026 19:35:35 +0800, Rui Qi wrote:
+> module_emit_plt_entry() and module_emit_veneer_for_adrp() write PLT
+> entries into the .plt section by direct assignment.  Once a module is
+> fully formed its .plt is read-only/executable, so a late (livepatch)
+> relocation that falls back to PLT emission -- an out-of-range
+> R_AARCH64_CALL26/JUMP26, or an ADRP under CONFIG_ARM64_ERRATUM_843419
+> -- triggers a synchronous Data Abort and panics.
+> 
+> [...]
 
-With deferred console takeover, fbcon hasn't bound to
-that framebuffer yet, so there is no console to bring back. Restoring
-it only replaces what the last DRM client left on screen, with an empty
-framebuffer breaking flicker-free boot.
+Applied to arm64 (for-next/fixes), thanks!
 
-Only restore on lastclose once fbcon has bound to the framebuffer.
+[1/1] arm64: module: Use text-poke for late PLT/veneer emission
+      https://git.kernel.org/arm64/c/a7e632493acf
 
-Signed-off-by: Kylie C <kyliepc@proton.me>
----
- drivers/gpu/drm/clients/drm_fbdev_client.c | 3 +++
- 1 file changed, 3 insertions(+)
+I folded in a small fix which addresses Sashiko's comment: the bounds
+check before the write must allow i == plt_max_entries since .plt has
+plt_max_entries + 1 slots (the last one is where a duplicate of the
+final entry is built before being discarded). I restored the
+plt_num_entries check after the duplicate test as well.
 
-diff --git a/drivers/gpu/drm/clients/drm_fbdev_client.c b/drivers/gpu/drm/clients/drm_fbdev_client.c
-index eec463d19943..7981d613e652 100644
---- a/drivers/gpu/drm/clients/drm_fbdev_client.c
-+++ b/drivers/gpu/drm/clients/drm_fbdev_client.c
-@@ -50,6 +50,9 @@ static int drm_fbdev_client_restore(struct drm_client_dev *client, bool force)
- 	if (!fb_helper->info || !fb_helper->fb)
- 		return 0;
- 
-+	if (!force && !fb_helper->info->fbcon_par)
-+		return 0;
-+
- 	drm_fb_helper_restore_fbdev_mode_unlocked(fb_helper, force);
- 
- 	return 0;
+I moved the module_write_place() prototype to asm/module.h, next
+to the other PLT emitters. I concluded it's a better fit than
+text-patching.h. My concern on v2 was the macro but now it's an
+out-of-line function. I also dropped the const from the val argument,
+which removes the (void *) cast when calling aarch64_insn_copy(). All
+callers pass non-const locals anyway. It would be a good cleanup in the
+future but that should also add const to aarch64_insn_copy().
 
----
-base-commit: a2853fd7f6217573dfb780809663683d5b9c5835
-change-id: 20261125-fbdev-no-early-restore-d714545eeb96
+Please check that I got these right.
 
-Best regards,
---  
-Kylie C <kyliepc@proton.me>
+Sashiko had some comments on v2 which we concluded are existing
+problems, just exposed because we no longer take a fault. If you have
+time for a livepatch reload follow-up (probably not cc stable), there
+are two separate problems when the target module is unloaded and loaded
+again:
 
+- The livepatch module's .plt slots are reserved once but used again on
+  every klp_module_coming(), so a reload eventually hits the WARN and
+  the target module is rejected. This is safe but we need some slot
+  rewinding or a clear_relocate_add().
 
+- With the A53 erratum 843419 workaround, if the first application
+  replaced an ADRP with a B to a veneer, reloc_insn_adrp() reads the
+  B back on reload as if it were an ADRP. It either encodes the ADR
+  immediate into the B or decodes Rd from the branch offset. This
+  corrupts the livepatch code silently on the first reload (unrelated to
+  how many slots are left). Not sure yet how to fix this, maybe the
+  original instruction needs restoring on unload (or saving).
+
+Thanks.
+
+-- 
+Catalin
