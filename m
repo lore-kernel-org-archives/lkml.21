@@ -1,59 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.25
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795600617;
-	b=bA69aUNEyrWMk+6VvUqHN+EFe4Ae1PPTRnYw+jnRD8bllz+G6M0A2rKWsx72usyRiwa0
-	 +sbNyOfzVyRzZQzd6j3VnHgQ2DWo71HPofGzrbxLQIAiJSLLrtA0D9vVrZvaoytR86kJ8
-	 BSujueBhOu+6v6AUIh4Nv6D8FQ3p8FkMFq1BhDcf3JK9Q4poV5Yo+VJOlVjMIQ+b8V+kH
-	 jxTOs1ifgjiD/lrw/QZDOVg6O5Tu/+6kaPEEgPEFD1aYCEbp1Y5F4mkLfFvgssIvxtkZO
-	 7ZIA1KF4kDl2p5ZfOM1fKqjgBowCiIu56Hm8qbdkGcHesMcopHQLu4VlQZeVIjInBAQ==
+	t=1795600677;
+	b=uilm48KHS173CubGLbyYw3eUdhmdunhbBVpw+HtD6Ew3fzL8pFkntPBfVLLJrw7de0l2
+	 OdHfyflUgCVP0oG7jknwbHgtT8MmNDnPAqDkiRSYATz/hcZQxeCP6wmqXvh4ZcB/9UJip
+	 Na7k/HPsDvOMH4j0rMNrLKvIayENZhdd39M0uHqrXT08g012+rqSFcdqyi/7UtOtyKjWd
+	 1UGnD8vyJ2bJtT0qG94+hB6ObundQjHzj3CttcbeGfojD9lnbUEEs9VGkfHZtVr47eSSA
+	 RPN93bGLqAc8nNWPHnerwL2lZtIzn2mH/Su5Lam2/t2iwEqJEbM72P6QiWGu59WK1Tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795600617;
-	h=DMARC-Filter:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
-	 MIME-Version:X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:
-	 X-CM-SenderInfo;
-	bh=nPEw7aOERYlIdruT9TqrFmk/oH6cGVDE62g1FJtuBus=;
-	b=vtuqCRHrTM9xAk3/dDQDc3x1zJMqmFZiGCS9iP6Yw390iPHnTSA1+UG2sUSniVu+aGcQ
-	 EXmuN4xsXy9VnmOUQfC9bVTJVrISa2OEWDSPI1M1RRdHUaHMZku211+dvw+thlSoS7uxS
-	 9+w2DsEgEDI7CHZOZcsuJvKjVv70uuMkH0Ad10zITukLSGiJsVvOy3x/gK+BrA+7K1azd
-	 gx3mTx9/E+2PYxu7X9P+6dUoV/8Wn18UyaF8ta6vERbZHb+gvR2U/OEnFoP/BTrNGYhFd
-	 jmGRJwLmlx5n22Tur60ZHOd+0NpRQSmHp3cWsg01wPfNd3QhKMOCMAld0KxjhcHgIkg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795600677;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=k6KEcTl/pyiQsKyyg/2eQ+l+POB59ejsRYmW+NNyeA8=;
+	b=xakHUUz6ougpPhgvUrXDWLWwRF2kisqZkSPCrHC9my7OjvFuWiTdzL2lEN3MKKP5MOAh
+	 eXwEzQZ//6qvEdZAU+kDcqgLyBMadSi/UUV6ncUM1dO0E9A8Yhb0jAtPE48TB5a5TSfcA
+	 BxFcITSqyhgMDrAFrsHDRfT037TSJoj0Wv/b4gut1xdG+ySgUnFbZ1rtfXHsEqhygF6on
+	 EpdbSy/VX+j2x4z2P4T/klXggcU9dHjBOUNzvXULfGn+G7grMF8x2o8D9Lb8qav0qAQkf
+	 8V7JLrawCcTty8UtKOiptbINcrEAQoxLAsCHzPKSCtsusByk7EpMCGU+2AO621Gf57g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iscas.ac.cn;
-	spf=pass smtp.mailfrom=iscas.ac.cn;
-	arc=none smtp.remote-ip=159.226.251.25
-Received: from cstnet.cn (smtp25.cstnet.cn [159.226.251.25])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=U4ho5SIW;
+	arc=none smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA610606A31E;
-	Wed, 25 Nov 2026 09:56:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA610606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.207])
-	by APP-05 (Coremail) with SMTP id zQCowAAHoLXNsAZr2kjpAQ--.1098S2;
-	Wed, 25 Nov 2026 17:56:30 +0800 (CST)
-Message-ID: <0caf6ab1187bc701815f4777e8f15697b61c9089.camel@iscas.ac.cn>
-Subject: Re: [PATCH v4 2/2] phy: add a driver for T-Head TH1520 USB PHY
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Drew Fustini <fustini@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
- <neil.armstrong@linaro.org>,  Manivannan Sadhasivam	 <mani@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Philipp Zabel	 <p.zabel@pengutronix.de>, Wei
- Fu <wefu@redhat.com>, Drew Fustini	 <dfustini@tenstorrent.com>,
- linux-phy@lists.infradead.org, 	devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-riscv@lists.infradead.org, Han Gao
- <rabenda.cn@gmail.com>
-Date: Wed, 25 Nov 2026 17:56:29 +0800
-In-Reply-To: <awXrnQVKZBXKsV2c@thelio>
-References: <20261103081444.1983071-1-zhengxingda@iscas.ac.cn>
-	 <20261103081444.1983071-3-zhengxingda@iscas.ac.cn>
-	 <awXrnQVKZBXKsV2c@thelio>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 675FF606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:57:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 675FF606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=U4ho5SIW
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-4a34ffd3e39so3013538f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:57:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795600676; x=1796205476; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=k6KEcTl/pyiQsKyyg/2eQ+l+POB59ejsRYmW+NNyeA8=;
+        b=U4ho5SIWBLfAJh6L5LxddeznA40KG8rNkgKkmJbUOGnKML97JS7z0daSK34Zyvnr9Z
+         emW4BnhTJPTGzn7MDO/XQ6XFuGAkn8PqfR9lmVM0j/npQJm39KhqnCc5mQozsg9zFA+k
+         nTSmV7GBL+NT8vrX+Pa7YX6Ru7xTGU3qM4CTFBA8YOieDt6N4g/1BiI6yxOrWS2aEow8
+         FD4gXsInN6ZPK2FqjU/gAVh5kZCCcJGd27RWkC3rnlR+1ThU7hUb+s02kJRgG7hQmeZ7
+         re6IrPGN9TT1ywerZEdUzP/LM47cfXwtQjFH72RWIUB23Wx/B17BIfb9f+7Dj7GSHpJO
+         SiKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795600676; x=1796205476;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=k6KEcTl/pyiQsKyyg/2eQ+l+POB59ejsRYmW+NNyeA8=;
+        b=gKk0WiNFIeDA6vIpY6yUktEf5/ZJQcddKKi8xG64qIdUdh83vr/0B2q4YfeQPKqLjX
+         vZUNfmzNfTkR7J5wUx8TK8Zjqedzvipwp/O/kYp9vOnHweeBHydimXMXBYvYGB5NaoHi
+         xjFtjxK+Gp+hjfu/KzE0nNEsnuazJWrjBJF54k0V4uYOv6Ds+NV2CX9d+4msi1gyRDLp
+         Mn3LSgj6h+/RcvwVrpnX8w6VWjHvU+AYlP+KgtLr4p1UZBmEANWWFNT8vWyXRVj4tcpV
+         CeMjuvwJxRFkzYd+lCUBucFXfo0L9NncliswWhPgbHPF8GC5cArgAja4EcmFf+i4SMbf
+         JqKA==
+X-Forwarded-Encrypted: i=1; AL+hErF6xSJxOO3FF2oBQdX6uB30FVlr8xTMyWK5PdOkMNNurrrX2LgX38UTCZXcBxO9euI8pYQBQ98MPN+LkdA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/gplocMoZXOcaTCIkg+b5ygD4lE+2Urpr2fX8RR7wwv9+AfcDr
+	WrzyffR5qYBfbcKXDHSv4G2RrshQyOXBeAK3qKDS/1fXFPOrFsNhKLMBg6aMRvulPME=
+X-Gm-Gg: AZFdTZeK4B5sMGNZNDinCxKe5FBdAJG8GBYK2p5a9wZCT3QbJP1FQiqoM3ROdzXhD5Z
+	zUGSMJD6JJ6GWGWre/bl5xzzN0AzuCIfMM4SVTCbozZ7wIyu7Zs7gmm3IBeQlilMzwPMZq7Txep
+	6mulK8PY4KtTuBXttAogHNNdD4qDEfpLJWhQsCQsugWAbkb0rKNpJrAdCmSxfltkjE7+GbA2UXz
+	v6pFnA/o5N/jbLzr/gIQqWzGmyhWljZH9Q3J/SnEsehsFhPoW0oy78bSSXB60jVo55GIB6MtpXN
+	tmhI2o4asrgNqi8b81LcCC0lBKtM5RWqkn74EBEtvqP+rOf0xezNtK4zM50RSy29P6fL9LK2SMw
+	/IHdsDGed0xbULJEkqGTDqjSGy8KbLMB9v3haDF5abAIIq/g2PiFZiy2P9X0+q+Ck9tCXvtcZPi
+	6ZuWYPXRWw07zTjX3Ntj3RRVGep2xV96KbSyL8VQwn8N7Yjvf9nGHdfW+OozimoNjvWFiI6eyzP
+	K6rpnWIPlKeK/ijt1HOMcBTf29kPG56OzSS0qlCa/K/v4zs9K9e7qOn5gNl80aCITm6snk23oM2
+	iBu7UpbiiE0xgVHJIoW+H4Su+LT7kDuHVg==
+X-Received: by 2002:a5d:64c9:0:b0:488:88ec:59c3 with SMTP id ffacd0b85a97d-4abb0f3c071mr35368426f8f.14.1795600675654;
+        Wed, 25 Nov 2026 01:57:55 -0800 (PST)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf6804sm32730070f8f.10.2026.11.25.01.57.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 01:57:55 -0800 (PST)
+Message-ID: <d2ae7970-63cb-4c8a-8c04-483d88fcbffb@linaro.org>
+Date: Wed, 25 Nov 2026 09:57:53 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,102 +92,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-CM-TRANSID:zQCowAAHoLXNsAZr2kjpAQ--.1098S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWr4DWr1DAFWxuFyDtF1kKrg_yoW5Gw45pa
-	97GF45CF4ktF9Fga1fGF1UuFyFyw4IqFy5Wry3J34fZFyakryrXa9IqFW5ZFWqqr4rW34I
-	q3WYqFy3CF1YyaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26r4UJVWxJr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
-	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
-	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xK
-	xwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
-	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
-	1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x07betCcUUUUU=
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 15/19] perf auxtrace: cs-etm: Capture wrapped snapshots
+To: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>,
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>,
+ linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Arnaldo Carvalho de Melo <acme@redhat.com>, linux-doc@vger.kernel.org,
+ John Garry <john.garry@linux.dev>, Leo Yan <leo.yan@linux.dev>
+References: <20261105-james-cs-unformatted-per-thread-fix-v4-0-7759e0ce2449@linaro.org>
+ <20261105-james-cs-unformatted-per-thread-fix-v4-15-7759e0ce2449@linaro.org>
+ <8b37f5ea-9427-43f6-8abf-07a36a9bbb72@intel.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <8b37f5ea-9427-43f6-8abf-07a36a9bbb72@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-=E5=9C=A8 2026-11-24=E4=BA=8C=E7=9A=84 11:55 -0800=EF=BC=8CDrew Fustini=E5=
-=86=99=E9=81=93=EF=BC=9A
-> On Tue, Nov 03, 2026 at 04:14:44PM +0800, Icenowy Zheng wrote:
-> > The USB PHY on T-Head TH1520 SoC is a Synopsys USB 3.0 FemtoPHY, with
-> > some PHY parameters exported as another system controller along with it=
-.
-> >=20
-> > A few PHY parameters have unusable defaults. Add a driver that programs
-> > them before releasing the PHY from reset in addition to
-> > clock/reset/regulator management.
-> >=20
-> > Signed-off-by: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-> > ---
-> > Changes in v4:
-> > - Make exit callback always success to prevent PHY state machine desync
-> >   with clk/rst state as suggested by Sashiko.
-> > - Re-wrap some comments targetting full 80 columns.
-> > - Use dev_err_probe for PHY creation error handling, to prevent spammin=
-g
-> >   the kernel log with -EPROBE_DEFER.
-> > Changes in v3:
-> > - Use fsleep() to replace udelay(), and add proper inclusion of
-> >   linux/delay.h for this function. (fsleep() suggested by Drew and
-> >   inclusion suggested by Sashiko)
-> > - Adapt Drew's suggestion on the wording of the commit message's 2nd
-> >   paragraph.
-> > Changes in v2:
-> > - Removed unreferenced register names.
-> > - Changed the behavior to leaving bus clock on instead of binding it to
-> >   the regmap.
-> > - Removed early return for reset deassert failure in phy exit callback.
-> > - Tweaked the Kconfig item (removed default value and added "select
-> >   REGMAP_MMIO).
-> >=20
-> >  drivers/phy/Kconfig                |   1 +
-> >  drivers/phy/Makefile               |   1 +
-> >  drivers/phy/thead/Kconfig          |  12 ++
-> >  drivers/phy/thead/Makefile         |   2 +
-> >  drivers/phy/thead/phy-th1520-usb.c | 179 +++++++++++++++++++++++++++++
-> >  5 files changed, 195 insertions(+)
-> >  create mode 100644 drivers/phy/thead/Kconfig
-> >  create mode 100644 drivers/phy/thead/Makefile
-> >  create mode 100644 drivers/phy/thead/phy-th1520-usb.c
->=20
-> Sorry for the delay in review. I think binding and driver dir should be
-> added under thead soc support in MAINTAINERS, right?
 
-Ah, yes.
 
->=20
-> > +struct th1520_usb_phy {
-> > +	struct platform_device *pdev;
->=20
-> It seems that pdev is only assigned in th1520_usb_phy_probe() and never
-> read. I think it can be dropped.
->=20
-> With those addressed:
->=20
-> Reviewed-by: Drew Fustini <fustini@kernel.org>
+On 24/11/2026 20:41, Adrian Hunter wrote:
+> On 05/11/2026 13:45, James Clark wrote:
+>> find_snapshot() isn't implemented for Coresight, so when a wrap occurs
+>> we only save from offset 0 to current head, modulo buffer size, rather
+>> than capturing the whole buffer. Coresight drivers currently use a
+>> monotonic head pointer even in snapshot mode, which gives a lot more
+>> information for taking snapshots than a wrapped pointer. It means we
+>> don't need to search for data at the end of the buffer to guess if a
+>> wrap has occurred, and we can go back to saving partial buffers after a
+>> wrap by checking if the next size to take is less than the buffer
+>> size.
+>>
+>> The drivers will always be able to generate a monotonic head because
+>> TRBE has a bytes written counter, so even if we stop generating an AUX
+>> record on every overflow, we can check if the counter indicated an
+>> overwrite and offset head by a whole buffer size if it wrapped. This
+>> forces userspace to read the whole buffer rather than between last and
+>> current head. ETR and other sinks use software double buffering, so can
+>> continue as they are.
+>>
+>> Add auxtrace_record__monotonic_find_snapshot() and use it for Coresight.
+>> A monotonic head can't be auto-detected in the default find_snapshot()
+>> by checking if head > buffer size, because before the first wrap a
+>> monotonic head looks the same as a wrapped one. The search would then
+>> falsely detect a wrap when head is near the end of the buffer, and the
+>> wrapped pointer fixup moves 'old' and 'head' a whole buffer ahead of the
+>> driver's head. With a wrapped head that doesn't matter because only the
+>> offset within the buffer is used, but with a monotonic head the next
+>> snapshot would either save already saved data again or drop up to a
+>> buffer's worth of new data.
+>>
+>> Reviewed-by: Leo Yan <leo.yan@arm.com>
+>> Tested-by: Leo Yan <leo.yan@arm.com>
+>> Signed-off-by: James Clark <james.clark@linaro.org>
+> 
+> Reviewed-by: Adrian Hunter <adrian.hunter@intel.com>
+> 
 
-Thanks for the review.
-
->=20
-> BTW, I see that I never applied the MISC clock patches (1 to 3) from the
-> v1 series [1] like I said I would. Do you still want me to apply them?
-> If so, I will fix up the platform data check for usb_suspend_div_clk in
-> patch 2 when applying.
-
-Please apply them.
-
-Thanks,
-Icenowy
-
->=20
-> Thanks,
-> Drew
->=20
-> [1] https://lore.kernel.org/r/20260507081710.4090814-1-zhengxingda@iscas.=
-ac.cn/
+Thanks!
 
