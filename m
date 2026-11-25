@@ -1,81 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795580388;
-	b=mtA1nYT5PQr1Q+hHVdgDezNGGuGQzySxPjMybBEIyBcSSJMSHDpiqyqCk89+0F+OS9yw
-	 G13/Np/Aiy4PgFRKStaaXzfSQJ8YFm7NNu+qEyOUWkH/peWN9BG3kIg3le3zuzYJutGqJ
-	 u/n/lOr4qhIdTKQoFllPxsmqFB/iggZun2oaA+Hc650nVphO954B7LKWX3OHM99vPaNP9
-	 tG4GP10v2UT7szFCeZQ1FxNUepCJFVpTiVn/CI+fr2kyZi/e3csfzRNaPhhyI3R+MXSIq
-	 KhKIXRRne356TXb0ccee3wds4mhwllkZSe3ts9IteB1gnkesAB8N0m/00we/lY8FgdA==
+	t=1795580596;
+	b=pNMhxLqKw9aI0xYhmCXp/tk1PMOxQ2ueO3GTGeVruO7Rgg4MY1J7kIJM2FY56iMYFnxa
+	 KXnuQ7++cUI8ZhJXGjUn6LIPMxppLWJNPzEv3OllrzEanKGPeJ8Q0MvuOnkAHSCrKjRII
+	 xXlsz2eCZDOKE2q0OZ5V6+nCm5PiASHiR9Ay+d871YfRl/UoDXZp79JTdWMMAe5CpzOop
+	 Pmg/r80ldZVURWDEzpy6HbRzi1vL6kNvn0G8abEJTV06AXgfW7EI+4+1U1Co1bHdN5oht
+	 9GUtGRnyZW+PgacDRPdVaZ53Gp+nKzQXiW7aS6UAStqAGQVtZYBmIYqTH+2/RO2e5ZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795580388;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=8FpdbQr5U540XWq8qpM0aJQCblydKOK5+qBnoBbGMYo=;
-	b=YsoMjBR/8Wmp0DK531pa8CrPlPRK2/xBvYQPsS9nr1sWj/dxuXS2g84fbuLkHEJ6kOlc
-	 UMyiwgxdP0CmvzTDiWnNobXnfNmDGnHmOf+Jry7v2cSIMQA0hWS3CpA6x4JnOdILweT7m
-	 IMuX5EATFsKEPwh7EvptGurZ2Be8+JFjsg+nFUerOiMoATpwfRWRHoHAzJDs56wvwygBm
-	 au27riDoQKgkWSLa1Yox8BuBSWZVPtna90ZDyAgRF21co2fNkQ36lV0Vq18jHxCEnC0Ed
-	 Tsq60vYPtU3xRPKji3zaLvd/kQjRMnSPJZmUoKiXcd8bjG/URHfKP1LnlL/jsnD6lUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795580596;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=D2AfVlTPC+NsUsB064L9pOKXA7uJcY99wYNds60qd4U=;
+	b=5FzhmbH5pDAAu0ZJfVCQIQZ/LnPexS05c2gqfx9M4ig2+N/WXRsd5rk5YxfFEI5RbheI
+	 wZrk10Z+2orao4cSk5J/1Kvnm/Y+GsVhh6dIwNZ5zNiONKEGcD22N+Dtyvk7eXdAXJVLN
+	 OatSktETESfvh9uHRFSct3mlqNTMP+IUrL5sO5W9lndR8bTbV0ku5q4JErLmwZXacsyam
+	 Qfp5uOszHQQXJsPluXzAhu0NsRdJvSauvrgCgnHQbN0mxqGA2FttzVxkWGjFQOFsPr7fJ
+	 Smqt5D3LDC/ZLmnRDbGIhAxWGWMJIOjoOeUPwHOb146KKHOTJ9OUu30FNWnN5BBAvWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=alien8.de;
-	spf=pass smtp.mailfrom=alien8.de;
-	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b="lLadB7/A";
-	arc=none smtp.remote-ip=65.109.113.108
-Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eJWSV6Wx;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94F89606A323;
-	Wed, 25 Nov 2026 04:19:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94F89606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F65B606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:23:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=lLadB7/A
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 3030440E0232;
-	Wed, 25 Nov 2026 04:19:45 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id erZbZOSv36E0; Wed, 25 Nov 2026 04:19:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1795580382; bh=8FpdbQr5U540XWq8qpM0aJQCblydKOK5+qBnoBbGMYo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lLadB7/AMSH0bnWrG9xwLno+OYr+qwCYSvaF3NMxOG2vSxPl6Hflo6BOJBmBrKADS
-	 16gNb3w9ez0vTY4wJxM63+WgPp0FsHCxCyAAnVzncLqR2cFwKCB/U4KohCXJpgA4l9
-	 8A9xi4XwdnwklHJox1J2XPLTNNAgj2MJDXNkDGcy4YV2sPGxlwEWy3H5SQVQrRr6ev
-	 f38O+m9kKzD/eM9LveP1fl06IBu6qQHAIjvYpyA5e/OtEub3T9NoGPD7PF6gGJOn6r
-	 3Wax4h3aAK4rlJVaA/kYgnGh6Hp4xAsW97NAn4UBURWJPReTUBiGJu7XDDANEEp9GG
-	 syZdcHObLvvsNOCEfxKmk3yDRphG9VRkEPtXUDa4e2pKBEbXYSuLoMPM1pJS1ygct7
-	 G+ijXFu01gKaYaXDTn6u2LzoCNZX0x13ZlIptdYyJeDpEMmvZeQbmthaMRKg+lnaYy
-	 btzsvM8FTGC1hA7tr4BNM+FEekS2AdvLGtYio7j6ezT0FCbrmHN1lp9QAswBe8Wn8g
-	 0yVEPAvHkV70ASMVczs+j371QMI6K/os2ZiUQYIb56O9/w+AfMi8QhyzeZ4e7DTwb6
-	 K8oT03neUIkDcx9tdxR0NZO2XRdBDAO5CYRgUv3n0FgVtHdJ5OIuto+FU6ZAbdCEKy
-	 hg200zQQ1NHTqdnQFGOtO9g4=
-Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 8BE7040E01E1;
-	Wed, 25 Nov 2026 04:19:29 +0000 (UTC)
-Date: Tue, 24 Nov 2026 20:19:25 -0800
-From: Borislav Petkov <bp@alien8.de>
-To: "Kalra, Ashish" <ashish.kalra@amd.com>
-Cc: nikunj@amd.com, tglx@kernel.org, mingo@redhat.com,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	thomas.lendacky@amd.com, Srikanth.Aithal@amd.com,
-	kvm@vger.kernel.org, linux-coco@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] x86/sev: Skip DR7 write during kexec when it would
- trigger an unserviceable #VC
-Message-ID: <20261125041925.GCawZhzVbU3ngXnt5c@fat_crate.local>
-References: <20261116230335.1161521-1-Ashish.Kalra@amd.com>
- <20261123234341.GCawTPrczGd6iM_Uby@fat_crate.local>
- <47cb97d1-5919-4ee7-ad67-6039551304d6@amd.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eJWSV6Wx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C48211F000C4;
+	Wed, 25 Nov 2026 04:23:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795580596;
+	bh=D2AfVlTPC+NsUsB064L9pOKXA7uJcY99wYNds60qd4U=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=eJWSV6WxJRNPaELbfPb9duDj/C3KcUixgsIqYxag/t5AvnvYtysrhl1a3/zUpMgTM
+	 AWcXY++o1p6Jt3sgALVWl7VjP9QB52pQbjZPcdBRVRJoVNvNMnRiI6/8LoGAdko37t
+	 e/EzMxM/chDds2N5xdqkW1BviufTq712GiOkbAsQEMoWa7u7WYIpJfnhu3mcOokyP7
+	 z9P9eBVQR86bJ3LrFvuMIcidbCdPTxYGr7jWsXyYZvgLKrsdRsi+pI7+VawR/vNQqi
+	 qi8AbZKh6mmqwXFozdhc6RvrAPx77HehuVOxgjMU0cGmbCWuDKWGARCfEEDsb3L1Rz
+	 WgWIq9T09z5Xw==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id D428BF40066;
+	Tue, 24 Nov 2026 23:23:14 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Tue, 24 Nov 2026 23:23:14 -0500
+X-ME-Sender: <xms:smIGa_TdMH7OC0jvuOhi_hBXIY1sZGrCIwOI5src9EOqq425qQ-FTw>
+    <xme:smIGa7mMtrKnLwy0j-XRx9mFbvwkGq53sbJQsiiIt57CcjYNlDy_M46NJLJ3hzxXS
+    nFSw5JTvkn9Up60AdfYT-KAQ4fJVwyUJzxXEicFvGP5NzRCRo08_ZM>
+X-ME-Proxy-Cause: dmFkZTFZHvM/PIACT3wvtgzcRIp6jjfHrf++Y7+PHTHxLOjNYHyxDj4n2JpUfb/hGNyYO2
+    B3dK6nXKEZ/PRR0WCO+jAd1elVyyK9QD5rvuJx9X0ivvPr7XigFlPsh1KxrUqukJ4G5ktn
+    cRqQqMv1F+dg4zmfwnEOCB90ybUV+Ij6ZC6EIWzHWStrGAF/5p/DbLxJCe2MMVRSCO3IwW
+    /SzR0zCrafk0E9pbGOmj2ziaOyyq3wsssCm15RQ6IEL68ugeF/BnBr1L5J6De6DyQxkA5X
+    L2jGV58PXJWnSvCmI5mpsKTtztcSOCZbngi0d6bcPtOKumSgR5I6TEPllWdsaduVwkCNSj
+    5PsE6a/SEeqRXMn6qCpBx5JW/obAGQWWuLlZiClrFtIpinRj20UGfmfzRUL282yl5JV1Vm
+    MVdfMpiijBeIPywTUIoEb0wQA80ltqVHaLu8AGZS36bYkEbaY0SGs9Wb/cgMIlacWEO9RX
+    iGBbOaYqqs5gNo+o5+scFQN83ksSvLkGc/p3qpQ+xeRBYN6DebA22evrPAKUfbq7dcBQ7R
+    Yoh3AeftSiWiv0Wap7VIl0h6yCC3wmDiOX1Fq9k5OG3Y0xANVEzngupgXE2RpaX3rFwTuh
+    44mOUlF7uHphkgFC9gssxpo7vg2SxWaXmtH4iSowuTqwqg4c7aFZFuDfMIig
+X-ME-Proxy: <xmx:smIGa91MhhXd81CMgC6rHSwomvTXKvNokVzuI59dukd46t8J1kEaXQ>
+    <xmx:smIGa83jIfLdN9bYbP47tBZ8OUHPGMTrqL581q891UuCr1nofkk9Fg>
+    <xmx:smIGa8lLs5x5_xLBcOEZcVUj4NmvPfoMQl9wcR9rVeXBW4ATshqpmA>
+    <xmx:smIGa9Nx1FvXWLsbdBlHwG18grmn5SrfYjKoYue0JPDldN7RnAF5QA>
+    <xmx:smIGaz7I8ntU1HDuq1UVZFjRM3b7naHRwTt9FZobZzYjmkIw28aDWjDe>
+Feedback-ID: ieff94742:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id B4142700063; Tue, 24 Nov 2026 23:23:14 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,34 +77,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <47cb97d1-5919-4ee7-ad67-6039551304d6@amd.com>
+X-ThreadId: AisSLPdYCdlo
+Date: Tue, 24 Nov 2026 20:22:53 -0800
+From: "Andy Lutomirski" <luto@kernel.org>
+To: "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, bpf@vger.kernel.org
+Cc: "Puranjay Mohan" <puranjay@kernel.org>,
+ "Alexei Starovoitov" <ast@kernel.org>, "Andrii Nakryiko" <andrii@kernel.org>,
+ "Daniel Borkmann" <daniel@iogearbox.net>,
+ "Eduard Zingerman" <eddyz87@gmail.com>,
+ "Emil Tsalapatis" <emil@etsalapatis.com>,
+ "Ihor Solodrai" <ihor.solodrai@linux.dev>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+ "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>, kkd@meta.com, kernel-team@meta.com,
+ "the arch/x86 maintainers" <x86@kernel.org>,
+ "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>
+Message-Id: <df69ab5d-bc97-4651-8668-a2b3e4bb272a@app.fastmail.com>
+In-Reply-To: <20261009024925.3169077-2-memxor@gmail.com>
+References: <20261009024925.3169077-1-memxor@gmail.com>
+ <20261009024925.3169077-2-memxor@gmail.com>
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for user
+ address faults under SMAP
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 23, 2026 at 06:22:09PM -0600, Kalra, Ashish wrote:
-> On the "bogus VMGEXIT": before Nikunj's change, __sev_get_ghcb() returned
-> the per-CPU GHCB, which snp_kexec_finish() had already converted back to
-> private. The host mapped that GPA, read ciphertext (exit code 0) and
-> returned GHCB_ERR_MISSING_INPUT, but couldn't write the result into the
-> private page, so the guest saw its own stale contents, treated the call as
-> successful and moved on. The DR7 write was simply dropped. It worked by
-> accident.
+On Thu, Oct 8, 2026, at 7:49 PM, Kumar Kartikeya Dwivedi wrote:
+> With SMAP enabled, do_user_addr_fault() treats a kernel-mode fault on a
+> user address with EFLAGS.AC clear as a kernel bug: it does not consult the
+> exception table and oopses right away. That is correct for ordinary kernel
+> code, where get_kernel_nofault() and the other nofault accessors never let
+> a user address reach a faulting instruction.
 
-Oh lovely.
+...
 
-> As for using do_vc_no_ghcb(): the GHCB MSR protocol requests are meant for
-> specific guest-initiated operations (protocol negotiation, GHCB
-> registration, page state changes, termination, etc.). The only one that
-> corresponds to an intercepted instruction is CPUID, which is why
-> do_vc_no_ghcb() handles only the CPUID exit code and terminates the guest
-> for anything else. There's no MSR-protocol equivalent of a DR7 write, so the
-> no-GHCB #VC handler can't handle it.
+>
+> The next patch uses this to drop the range check from the JIT when SMAP is
+> enabled. Nothing changes about which addresses a BPF program may read: a
+> user address never becomes readable, since SMAP forbids the access, and a
+> PROBE_MEM load of a kernel address is handled as before. Without SMAP the
+> JIT keeps its range check and this path is never reached.
 
-Well, can you fashion something with VMEXIT_DR7_WRITE and a dummy GHCB MSR request
-to the HV which is innocuous, just so that it can satisfy the flow?
+Didn't we hash this out a decade ago or so?
 
--- 
-Regards/Gruss,
-    Boris.
+Can you at least explain how a non-range-checked pointer read of a non-verifiable pointer doesn't have a problem with, say, MMIO?
 
-https://people.kernel.org/tglx/notes-about-netiquette
+If you are so inclined, you can ask your favorite chatbot about common MMIO ranges for which reads have side effects.  Mine informs me that they are quite common, and you can find them even in very modern designs like virtio.  I'm pretty there was a conversation like this, minus the chatbot part, years ago.
+
+Does anyone have a compelling argument as to why the vsyscall page is any different from a PCIe (virtual or otherwise) BAR other than the fact that the x86 arch code will OOPS you when you accidentally read the vsyscall page but you will just possibly deadlock or otherwise screw up more subtlely when hitting a different inappropriate page?
+
+If not, then I think this series primarily serves to make x86 complicit in papering over a problem with eBPF: right now eBPF has a heuristic that is wrong, but with the patch set applied, eBPF can make the heuristic even more wrong and x86 will paper over the cases that it happens to be able to detect.
+
+No thanks.
+
+--Andy
