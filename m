@@ -1,86 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795630023;
-	b=aRggiWfheWG6DJbxtG0eJtkZbGK+ZjX7C56dY2RTsDsjvZj2G63DvtR5/0a0JXCv4pEJ
-	 k4K3hJ73/GnSROQDxmGWyBs98kWvWMZ++OCkw/kRv8DUo3pMpR9gO/1VUWeb3HTz42TOR
-	 pYRD6SNpW3MLZIQm/gQN8FcZIzt0cRIND14BLWxPfouxMwPD7D7GTd3uVh3Tq2pSztWPk
-	 5mdS0So5/EH0tbe5OL1Q/Azceg3LkZNP+DQCYXOr4Q316frS2Rzs/UPvN33ngY7aqlZF4
-	 qLiJEr2tcMLYy9xuQ+nB8FCYIdderhGhkkvy67CzEgaln3pXM8BvMI3IX0SX5ilFZxA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630023;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=EytTlp9VDRkdR4cUfqXRwuUB70WPvL64cBEWaHJ0U8Y=;
-	b=qqjLu4smeC5HrhIZn5nzsa65NC7KM99ZZ9Hqzg4VPFmDTsoysqPepOEFDylGmKYYH3e+
-	 irj6SM3UPKDg+9Cg+pvm5SC+oC/oNLHzIEV9FjCAmI7qiKnd2wKvJRnc8Bsgt13RR8eJe
-	 Hq+sTA/cm+BCasFUdt1+YUtiTs+FtRjvJ1413eHu6fUNNEhEijFfp4r0Y9BH1z5oaDxoE
-	 Qh6ehGmHKBrP+wrP7/0mcmxUKMiInIJfzmI4uuOjIJAenyN7FOI0r7qYg0CQ5dOemR6T0
-	 z4e3ReOyBqvirz8m9ZZRZ6D83DG9AJtN1Hs6U5mEwakeZggZ84z2Hr1XUbu1z8r2wLQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DXsF5vTY;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.7
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795630041;
+	b=BANX2cxUldm678gFGgevch172fjb/GcFPaQ8TCBe0VgHIzYrrxNtCUwt49Zaxy13TtWx
+	 qTDrizQNkXyGg4t6Qews/p6PsuftKs7HEbX5WCeRJvb5q4ANp5upfxTmND0IzRWvFmfHe
+	 3inFVRXCJyvLzVLpchQMGX3tjgBLYWY9g36jCJl+3dOSDCjmVorYrPfeAZUMt/rL/B15Q
+	 6GhouO2wqKTorRJAitKy8k9EHKY65Mxbg8l53xyhTnJkNDRfU+huVQWaHc255VcW9gGwN
+	 oErOpWL6rZyqPPKR8Md6d26RjVXfoW7bAtku3pHY/muq+16R6gFW1DEwUEnD/CAytuQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630041;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=XwTcVsJsvlegJROqPJ7WHLq+fIHacICkpmd/cPJwMM8=;
+	b=ljBhYJsBOnyaml2zM3FKLYvpwUoz398lO9XKaKCMgTTQy6TOMNYct6KVgP/F5ZoBbt4x
+	 uHgBLfzjLjgZdQfDkSrABDc237tX8rDgQzRlyHD8ndt786ttrbB56ncY8GRtOYgDZH0QW
+	 62qurm5ltFoCXE60FzEWKfh/FS62+/SkjdGuHZftonRDg5LvBaS6QQGDr8N3X9i0bAEID
+	 wOd5TqtO5zl0OKAZGa2Dn0hK2c2Q7p/lPbYYqkWtwyiivqfncl7do4J0zeYFm+C4VEk8O
+	 KGmaByyAAA4NIhsYoBRhv4pMfu9UwiPaMLx/MwLXcHEindxxAzywCHBXLCZmnM0xkXg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=pqSsThs0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.7
+Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010007.outbound.protection.outlook.com [52.101.84.7])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id BE982606A688;
-	Wed, 25 Nov 2026 18:07:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96FC6606A32C;
+	Wed, 25 Nov 2026 18:07:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96FC6606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DXsF5vTY
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id DB5B81F00A3D;
-	Wed, 25 Nov 2026 18:07:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795630023;
-	bh=EytTlp9VDRkdR4cUfqXRwuUB70WPvL64cBEWaHJ0U8Y=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DXsF5vTYoYCD00KJzy0Es4uRzRVg1LgDLg0ZofhK/+E2VuLf+hOD5bu1DUo9ENReG
-	 3NLDSERtryDO9gHJrlnoCIhA266inFSCpQB1mLgHOujTvIy4h4FiUSiqQ4f/FwVDXE
-	 LMLwp7ZxEc2JtyZNENVE9dszjZ+1mTJmPUNtcvf+DZ5entKzrgKrSB40vtIlX6FLLg
-	 anX2ifQXg1EUp/v6IBc9PfHpHtyLA/mq7oPhtlSvRUcA1a8PepjyzziBUCK9s8e7Sy
-	 JFXFh7QY+Gu+awsrO7j6lsYPZ8bTnVgrMSb4bX5f7KTDegmCAOc2rxpEFv50Wccyl/
-	 xVVdg61d/RDcA==
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: keyrings@vger.kernel.org
-Cc: Jarkko Sakkinen <jarkko@kernel.org>,
-	dm-devel@lists.linux.dev,
-	linux-crypto@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Alasdair Kergon <agk@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Benjamin Marzinski <bmarzins@redhat.com>,
-	David Gstir <david@sigma-star.at>,
-	David Howells <dhowells@redhat.com>,
-	David Laight <david.laight.linux@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Ignat Korchagin <ignat@linux.win>,
-	James Bottomley <James.Bottomley@HansenPartnership.com>,
-	James Morris <jmorris@namei.org>,
-	James Prestwood <prestwoj@gmail.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Lukas Wunner <lukas@wunner.de>,
-	Mike Snitzer <snitzer@kernel.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	Mimi Zohar <zohar@linux.ibm.com>,
-	Paul Moore <paul@paul-moore.com>,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sumit Garg <sumit.garg@kernel.org>
-Subject: [PATCH v3 8/9] KEYS: trusted: Factor out TPM2 blob loading
-Date: Wed, 25 Nov 2026 20:06:14 +0200
-Message-ID: <20261125180616.1854753-9-jarkko@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261125180616.1854753-1-jarkko@kernel.org>
-References: <20261125180616.1854753-1-jarkko@kernel.org>
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=pqSsThs0
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LwkZt9XGFRZZLihcLckGl7U/2iFhBa58ZmggoGFZrx7V1JoUr48sJGlixCCYDsNzDIGCYGwksDinGzub9sqheYzVCtFBKmBPIfJT8lMkWpLErrbVdtsJWWq7AT7CPD7zNvXiX24Uh2ff13W1GCSX3FlHFevOwpj0qq5kJVz1f5raEK8NxI6dPK7pbra93Nk2C+s3Tnoh0XT9BWI6yBBHy3K8fw3X5Gd4X/HGnp7IJMxERvUg0I5IWHdFI3mTEZMxuNx4hltAQ2X7EBKbzPD/PYQkQHlDjvLWgtVYf3yVCOrtwHexjVGB0MlqkjGd/0Q85EnUldin1oOmZ+IVKUKDdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XwTcVsJsvlegJROqPJ7WHLq+fIHacICkpmd/cPJwMM8=;
+ b=hZ1ywF5WgXwy+wbdG+SSzLVXaAnMfLyV2AosvsTyz5+BbgN0GCecb5jqUCv5TOYrRWQUOLCSM0FgH0R1l5ZtB1gENomoc5VSQ91CZ4ZmOIRFzP3dmpDAcTLaC5AFkLolg7//JGiYkDyFAobcuKGzpVGYfE8Ev4YzOUsovX9uVctBdrLAk4TIxZN71KyrKW2e/+Si/JtVRE/I/pJFmTmzceAaoE2D7ym0I+by4Joz/5Zi0SWBUaNCC/ZpAuiqZMzdgdG6W+OLyXzdoNH/ig/scVQ66WgucdnYG5J5kASVfrEeVAifPGmEFnaiOiletBeY4kbqQIqstlnE9K3TmpQirQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XwTcVsJsvlegJROqPJ7WHLq+fIHacICkpmd/cPJwMM8=;
+ b=pqSsThs0mxpZZ0YT1CfR1EA6SZzRK790CD74TGf1iVQ1NrsesNCizc281wZ8B2AhJL7ono2RhWkLQCnC/Y2y4X+IIDn/xw0fdhmIgPouHGeQ8SQ3i4bxgKaWbAP9TkOQAMM+YF3YVyCOwGxtU05wkUBjEJSzVlbo1iSFvOC+3lWLOYegm8uXSuElzt95lfhpso5yJp01hYaPTstFtAryz4Lo5Ra/3z6euQPFqjoog1cfg2xlx6oWClvqdej8tHQIlgqEJ9eNpU75R7OiDNWvglCpoODdKYPxkoDLekTcZvu5KYotLS5Bgv9Oxri9LPgG2uDo+gqvzZDUs4YLrhgsPA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by DB8PR04MB6892.eurprd04.prod.outlook.com (2603:10a6:10:113::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 18:07:17 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 18:07:17 +0000
+From: Frank.Li@oss.nxp.com
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v2 1/1] arm64: dts: freescale: imx8mp-var: Add Cortex-M7 support
+Date: Wed, 25 Nov 2026 13:07:11 -0500
+Message-ID: <179563002608.3152769.14994139895163818293.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261120181727.33321-1-stefano.r@variscite.com>
+References: <20261120181727.33321-1-stefano.r@variscite.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CPBP307CA0022.DNKP307.PROD.OUTLOOK.COM
+ (2603:10a6:380:2::11) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,412 +108,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DB8PR04MB6892:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0bcfe15-e690-4346-7dae-08df4b1ef123
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+ BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|19092799006|56012099006|261102123227099003|10067099003|11063799006|261022075727099003|261021121427099003|261009223027099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+ NyDhT+938YXLhnkp1gOldK0DMW5eIxa37j8uWfasf68P5ihCVRMkaxo7W2jzJwCufZQDlYkGTvacP+BpU4z+/j8SyPf39Fky8EZsJ8YB2C2BD4f+hriSnOdWJ1pcDlocGGs8XBF3cs3BzbE0wHWe8RIE7HtSgy2RQPlltCcvoGTm+J05GijUehfkMdz5s/ur8or8whFzFI/lt8a6Xwz7goh4lOjjbogAN1smKaGeJfkwctY81d6wl8w2W4dHI85K5aOnjZ2mulojlZ7mMg/NC8tGHoQEIsVNhIcjvWoBQSxaboIzs8GxY+V/TXPPaplQplmsLweaJ3mEg8v7uglmW3En3Pr2uW7zpBR+hH6TtEb+EyV8VjTZnjpZh+rvHkskLztVobHOFuc4aZYXvutebRjX6JUVj7CSzu9yAHP+I7adOWVr/uEet4CkxU1vngkMsx9Uj7S/L4Uj2iCp34RmMgyUzMteEoAZQzLb/cyFWLyJvQsWmtLzlDgtd+nZWlJ8495p49Il79yIySsPvb6j98dMp6KIL8Vjo9sRYz2WuwGWRCwbtPuy1bVgmKSPPtXNfPO+VfAzyCzCuGXcOz9FRWICFM4nUl1ca9x6O4iTI7aGbLtrxBfGn18hczOi/EvCHvFaglBVJMwONKQ6yKgpDuQkRKocqMvZo3CAAtCO0b4=
+X-Forefront-Antispam-Report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(19092799006)(56012099006)(261102123227099003)(10067099003)(11063799006)(261022075727099003)(261021121427099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+ =?utf-8?B?VjF6cWRDZUJ3QndQNmFMS2crVHM5Z0FMYjRjMTBidGxHT1VnTU10MzVHak1t?=
+ =?utf-8?B?KzJvTHYwNzZUZllpOHdwU00zWUZEQWV4K1c0Wm5PMmhzTFRXM0NHMVo4WXZL?=
+ =?utf-8?B?ZHpaUERWRGd3czJJU2gyZjJTOWhMdEhBL0ltMEFPaG9aMlgxYkNWWEt4a2FL?=
+ =?utf-8?B?UXRLV3NTK0lxQ3Q4d1J5azJQSGxWU3hQZlBrSEQ1Wmpra2N5TXA2cy9WNjBZ?=
+ =?utf-8?B?QUpsaGd5dlJPRzJBeDEvcHVvaFJSRC9BQ3Arc2liakZQNlN3SGpYeW5YblFm?=
+ =?utf-8?B?MldYMWprclJQaTFDLys4YllBY0FxalBsVTVGeWw4YkQzTXoyeE5hREloVllO?=
+ =?utf-8?B?SFhvcTRjcEhzMEtvQUFpNlUxZzUxYkxTc0dhWWdBYkMvRWorQUZObTk3Tkg3?=
+ =?utf-8?B?VlpURE5ZTkN4aW1UOEVVNndoVkd6WXdsZ1FrYU4rVE1jVm55ajlOUzk0d3lj?=
+ =?utf-8?B?QzFRM1RGcFNSamU2SFkxN3JsRTVyOVlZRnVtTEdEQmR6b3RMK04yUFJMOExa?=
+ =?utf-8?B?RmtNTkFPaENWUVYrN2h4TlBPWGxMQUUzWGpBVlkyZmRkS1hWc0dJbGVjTjlj?=
+ =?utf-8?B?dkZ4YlZ4Y1ZycG1xNUhIZXk0V1BxMkNMcXEvTy9Ja01hb0Y4T2VMS0w2S1lW?=
+ =?utf-8?B?S0NoQ2twQzdaMENWajZseXVTMkgxTEVGZmZuZ0lYcURCNUM1YjRodmNsWEQv?=
+ =?utf-8?B?d0VYRTY1eXJ6Um1UTXM5WUlybUp1YUs0VHRTTkRnVXlMaTJmb0VwbHVTdFQv?=
+ =?utf-8?B?OEFhZ0lWVE9aaUVpTis2V3FsSVNsRzc4MmwwNnFhK3RyTVU5Si8rVzl6amU5?=
+ =?utf-8?B?Nk9VSWN5U3lCdHdpOFA0VU1iZjZtYXdFbHlkUVNhekVJUzNTOUNEL2lweEoy?=
+ =?utf-8?B?WFdMeGIvcEYwMjc2S0ttcXdIWTZ3cEJvc2lUOHNtOXMyeEt0blFaNFovMkZk?=
+ =?utf-8?B?YWxtSUZoMTB3aFVQZlpZSlFGc0Z2ZTZnNEcxVDJieVVtcTVGNzlZYmpaQlNE?=
+ =?utf-8?B?cjRmTEd6SkpEUXd0Ymw5OXBweWVQcm00M2FkMTJxM1EzMFFJNUhjbkF0M0lU?=
+ =?utf-8?B?dElxVC9jRmswSSswL3p6eUZOWWZKOFB0cVE4NG9QcEF3NUQ0alZiNjlSbEo1?=
+ =?utf-8?B?UVNlMXFZNElYbHE2d2hGQ1ZwUFpDSThnbDNkaVFBL2ZVM2RjVVN6N2ZSbjUv?=
+ =?utf-8?B?UnlHU0IyUjNrakVtcWt5NG15OFhQeW1wY3NYbGo3MjJLV01RZ1FJVWFrSnlk?=
+ =?utf-8?B?bExXQUJPb3l2WWJtNVZhVi8rdEVsUGNvWEtJM2lnS2FVaUVQaGNGSlMyenpR?=
+ =?utf-8?B?S1c0WXg0NXB2a2VCQXlOVU1nWnhtSGs3b1BEb2x5YzUvQUtWR2dSSGd0UlVQ?=
+ =?utf-8?B?eXdGUHZ2dEdOU1RDK1VOOUNETWJwRTBvbVlxZzlQaXk3QkNCREcwUE00NDVX?=
+ =?utf-8?B?YlVqa1dNdXlVTVVabVBFZGlCUVRweVcvRndqdHhLRzNNcGtGb2taL0t1WkFR?=
+ =?utf-8?B?TmZRWkorK3lvaHIrT2pXeW02WDVKeElvdzEvQkkrclZpVFo5dlhLejZlYWdq?=
+ =?utf-8?B?V3kzVGFBS2tXTEN4S0dzcUpSUFkzSS9UTmVVVWRjdTFjTVZ3QnZEWkxqV3p4?=
+ =?utf-8?B?QTlMMWF6akQ0NWw3c2pzdm8waFQxbUdJME5PdW5pRnErYnpCcW13bXJYaFJV?=
+ =?utf-8?B?NEJQTGM1WjVJejRnMjhNWmNaQzZTUWE2aUlEYnRLdnQ2UW5IOTVrWWNXaysv?=
+ =?utf-8?B?RVo0L2tuWk41NkdiK1hxa0hUZnNhRU5wbitVSXpaUkJ1R01NYmpiM0libW9Q?=
+ =?utf-8?B?WTluMlhmZGxPSmR1QnB2K3gyb0t2cnllek8ycVpaUzMvT3Z4dmtSVlQ5Vytm?=
+ =?utf-8?B?U3pGTXIwNTJGK0QyL256WmUrZjR1NnRaSkZRQlErdy9YZklZVUwvSGEycGN5?=
+ =?utf-8?B?clYvL01aZzRrT0hLMWpHOG5zTzI3TDNGK3VEcjRsVzFtYVlITVJGczEyZ2c3?=
+ =?utf-8?B?czhQR2lxWURDaERQMU54NlhMRTZFTVZ2UitzL00yRG96QXBJNXBzV3ZTeFd2?=
+ =?utf-8?B?U0o0NGsxMCt5dmx6a20wSHdXcGF6ZzB1bnhPUmxHb3RWNk5WdnpnbXg4QVBT?=
+ =?utf-8?B?Kzc0WDVMd1RIRVdWMitPeHpWY29aT3lwNFBCbmF5VXNEYlNmQkNRMzdwVWZM?=
+ =?utf-8?B?dHVxNWxiZmZySHZIVFRkSnJHZWp5ZjVIQ2R0UFJUbmZER2syVXBTWWhaelkz?=
+ =?utf-8?B?UXk4T0hjR21IdHRJRnNSVzAwOE4xODZ3TEVzcmN3eFg3eGZJQ3Z4b3A1cXAw?=
+ =?utf-8?B?WHBZVnVDb1M3Ykw3aHZwMnBta2NMNzVnQ0Z4bWJ3ZGVnVzBza2hpc1JjZEZ0?=
+ =?utf-8?Q?9v52BKzdmCvIuNwI1cgkaXn/TGerx4F5vZalk?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0bcfe15-e690-4346-7dae-08df4b1ef123
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 18:07:17.7379
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MBcPTeCmdTVnjs1G2lDVXO+6UPjtJO9aD/y2npMP+RKfkllDRZD8QJozzkw3Q4Eq2bc78MG5dYhZ8N+OJLYKMqTbWxEkK98YAI3+Uq7wKm5+ieHe6OpN7+KOA75Pp/9a
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6892
 
-Factor out TPM2 blob loading:
+From: Frank Li <Frank.Li@nxp.com>
 
-1. tpm2_key_decode() from trusted_key_options.
-2. tpm2_load_blob() and tpm2_buf_append_key_auth() from tpm2_load_cmd()
-   and tpm2_unseal_cmd().
 
-Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
----
- include/keys/trusted-type.h               |   1 +
- security/keys/trusted-keys/trusted_core.c |  18 +-
- security/keys/trusted-keys/trusted_tpm2.c | 210 ++++++++++++----------
- 3 files changed, 131 insertions(+), 98 deletions(-)
+On Fri, 20 Nov 2026 19:17:27 +0100, Stefano Radaelli wrote:
+> Add Cortex-M7 configurations for DART-MX8M-PLUS on Sonata,
+> VAR-SOM-MX8M-PLUS on Symphony and VAR-SMARC-MX8M-PLUS on Echo.
+> 
+> Share the reserved memory and remoteproc configuration through a common
+> include, and add board overlays and combined -m7 DTBs for remoteproc and
+> RPMsg support.
+> 
+> [...]
 
-diff --git a/include/keys/trusted-type.h b/include/keys/trusted-type.h
-index 3db61b57cf73..790ffabb0d18 100644
---- a/include/keys/trusted-type.h
-+++ b/include/keys/trusted-type.h
-@@ -33,6 +33,7 @@ struct trusted_key_payload {
- 	unsigned int blob_len;
- 	unsigned char migratable;
- 	unsigned char old_format;
-+	void *private;
- 	unsigned char key[MAX_KEY_SIZE + 1];
- 	unsigned char blob[MAX_BLOB_SIZE];
- };
-diff --git a/security/keys/trusted-keys/trusted_core.c b/security/keys/trusted-keys/trusted_core.c
-index 3721980ed83a..b8f980da606d 100644
---- a/security/keys/trusted-keys/trusted_core.c
-+++ b/security/keys/trusted-keys/trusted_core.c
-@@ -149,6 +149,14 @@ static struct trusted_key_payload *trusted_payload_alloc(struct key *key)
- 	return p;
- }
- 
-+static void trusted_payload_free(struct trusted_key_payload *p)
-+{
-+	if (!p)
-+		return;
-+	kfree_sensitive(p->private);
-+	kfree_sensitive(p);
-+}
-+
- /*
-  * trusted_instantiate - create a new trusted key
-  *
-@@ -223,7 +231,7 @@ static int trusted_instantiate(struct key *key,
- 	if (!ret)
- 		rcu_assign_keypointer(key, payload);
- 	else
--		kfree_sensitive(payload);
-+		trusted_payload_free(payload);
- 	return ret;
- }
- 
-@@ -232,7 +240,7 @@ static void trusted_rcu_free(struct rcu_head *rcu)
- 	struct trusted_key_payload *p;
- 
- 	p = container_of(rcu, struct trusted_key_payload, rcu);
--	kfree_sensitive(p);
-+	trusted_payload_free(p);
- }
- 
- /*
-@@ -269,7 +277,7 @@ static int trusted_update(struct key *key, struct key_preparsed_payload *prep)
- 	ret = datablob_parse(&datablob, new_p);
- 	if (ret != Opt_update) {
- 		ret = -EINVAL;
--		kfree_sensitive(new_p);
-+		trusted_payload_free(new_p);
- 		goto out;
- 	}
- 
-@@ -283,7 +291,7 @@ static int trusted_update(struct key *key, struct key_preparsed_payload *prep)
- 	ret = static_call(trusted_key_seal)(new_p, datablob);
- 	if (ret < 0) {
- 		pr_info("key_seal failed (%d)\n", ret);
--		kfree_sensitive(new_p);
-+		trusted_payload_free(new_p);
- 		goto out;
- 	}
- 
-@@ -322,7 +330,7 @@ static long trusted_read(const struct key *key, char *buffer,
-  */
- static void trusted_destroy(struct key *key)
- {
--	kfree_sensitive(key->payload.data[0]);
-+	trusted_payload_free(key->payload.data[0]);
- }
- 
- struct key_type key_type_trusted = {
-diff --git a/security/keys/trusted-keys/trusted_tpm2.c b/security/keys/trusted-keys/trusted_tpm2.c
-index 0a81608844ff..231062fd17b6 100644
---- a/security/keys/trusted-keys/trusted_tpm2.c
-+++ b/security/keys/trusted-keys/trusted_tpm2.c
-@@ -97,6 +97,7 @@ static int tpm2_key_encode(struct trusted_key_payload *payload,
- 
- struct tpm2_key_context {
- 	u32 parent;
-+	enum OID oid;
- 	const u8 *pub;
- 	u32 pub_len;
- 	const u8 *priv;
-@@ -104,11 +105,11 @@ struct tpm2_key_context {
- 	bool has_policy;
- };
- 
--static int tpm2_key_decode(struct trusted_key_payload *payload,
--			   struct trusted_key_options *options,
--			   u8 **buf, unsigned int *blob_len)
-+static int tpm2_key_decode(const struct trusted_key_payload *payload,
-+			   const struct trusted_key_tpm *private,
-+			   u32 *parent, u8 **buf, unsigned int *blob_len,
-+			   enum OID *oid)
- {
--	struct trusted_key_tpm *private = options->private;
- 	int ret;
- 	struct tpm2_key_context ctx;
- 	u8 *blob;
-@@ -132,8 +133,10 @@ static int tpm2_key_decode(struct trusted_key_payload *payload,
- 
- 	*buf = blob;
- 	*blob_len = ctx.priv_len + ctx.pub_len;
--	if (!private->keyhandle)
--		private->keyhandle = ctx.parent;
-+	if (oid)
-+		*oid = ctx.oid;
-+	if (parent)
-+		*parent = ctx.parent;
- 
- 	memcpy(blob, ctx.priv, ctx.priv_len);
- 	blob += ctx.priv_len;
-@@ -209,18 +212,22 @@ int tpm2_key_type(void *context, size_t hdrlen,
- 		unsigned char tag,
- 		const void *value, size_t vlen)
- {
-+	struct tpm2_key_context *ctx = context;
- 	enum OID oid = look_up_OID(value, vlen);
- 
--	if (oid != OID_TPMSealedData) {
-+	if (oid == OID_TPMSealedData) {
-+		ctx->oid = oid;
-+		return 0;
-+	}
-+
-+	if (IS_ENABLED(CONFIG_DEBUG_KERNEL)) {
- 		char buffer[50];
- 
- 		sprint_oid(value, vlen, buffer, sizeof(buffer));
--		pr_debug("OID is \"%s\" which is not TPMSealedData\n",
--			 buffer);
--		return -EINVAL;
-+		pr_debug("OID \"%s\" is not supported\n", buffer);
- 	}
- 
--	return 0;
-+	return -EINVAL;
- }
- int tpm2_key_pub(void *context, size_t hdrlen,
- 	       unsigned char tag,
-@@ -462,6 +469,68 @@ int tpm2_seal_trusted(struct tpm_chip *chip,
- 	return tpm_ret_to_err(rc);
- }
- 
-+static int tpm2_load_blob(struct tpm_chip *chip,
-+			  struct trusted_key_tpm *private,
-+			  const u8 *blob, unsigned int blob_len,
-+			  u32 *blob_handle)
-+{
-+	struct tpm_buf *buf __free(kfree) = NULL;
-+	u8 parent_name[TPM2_NAME_SIZE];
-+	bool created_parent = false;
-+	u32 parent_handle;
-+	int rc;
-+
-+	rc = tpm2_load_parent(chip, private->keyhandle, &parent_handle,
-+			      parent_name, &created_parent);
-+	if (rc)
-+		return rc;
-+
-+	rc = tpm2_start_auth_session(chip);
-+	if (rc)
-+		goto out;
-+
-+	buf = kzalloc(TPM_BUFSIZE, GFP_KERNEL);
-+	if (!buf) {
-+		tpm2_end_auth_session(chip);
-+		rc = -ENOMEM;
-+		goto out;
-+	}
-+
-+	tpm_buf_init(buf, TPM_BUFSIZE);
-+	tpm_buf_reset(buf, TPM2_ST_SESSIONS, TPM2_CC_LOAD);
-+
-+	rc = tpm_buf_append_name(chip, buf, parent_handle,
-+				 created_parent ? parent_name : NULL);
-+	if (rc)
-+		goto out;
-+
-+	tpm_buf_append_hmac_session(chip, buf, 0, private->keyauth,
-+				    TPM_DIGEST_SIZE);
-+
-+	tpm_buf_append(buf, blob, blob_len);
-+
-+	if (buf->flags & TPM_BUF_INVALID) {
-+		tpm2_end_auth_session(chip);
-+		rc = -E2BIG;
-+		goto out;
-+	}
-+
-+	rc = tpm_buf_fill_hmac_session(chip, buf);
-+	if (rc)
-+		goto out;
-+
-+	rc = tpm_transmit_cmd(chip, buf, 4, "loading blob");
-+	rc = tpm_buf_check_hmac_response(chip, buf, rc);
-+	if (!rc)
-+		*blob_handle = get_unaligned_be32(&buf->data[TPM_HEADER_SIZE]);
-+
-+out:
-+	if (created_parent)
-+		tpm2_flush_context(chip, parent_handle);
-+
-+	return tpm_ret_to_err(rc);
-+}
-+
- /**
-  * tpm2_load_cmd() - execute a TPM2_Load command
-  *
-@@ -482,18 +551,15 @@ static int tpm2_load_cmd(struct tpm_chip *chip,
- {
- 	u8 *blob_ref __free(kfree) = NULL;
- 	struct trusted_key_tpm *private = options->private;
--	struct tpm_buf *buf __free(kfree) = NULL;
--	u8 parent_name[TPM2_NAME_SIZE];
--	bool created_parent = false;
- 	unsigned int private_len;
- 	unsigned int public_len;
- 	unsigned int blob_len;
--	u32 parent_handle;
-+	u32 parent = 0;
- 	u8 *blob, *pub;
- 	int rc;
- 	u32 attrs;
- 
--	rc = tpm2_key_decode(payload, options, &blob, &blob_len);
-+	rc = tpm2_key_decode(payload, private, &parent, &blob, &blob_len, NULL);
- 	if (rc) {
- 		if (rc != -EBADMSG ||
- 		    (payload->blob_len &&
-@@ -507,6 +573,8 @@ static int tpm2_load_cmd(struct tpm_chip *chip,
- 	} else {
- 		/* Bind for cleanup: */
- 		blob_ref = blob;
-+		if (!private->keyhandle)
-+			private->keyhandle = parent;
- 	}
- 
- 	/* new format carries keyhandle but old format doesn't */
-@@ -527,6 +595,9 @@ static int tpm2_load_cmd(struct tpm_chip *chip,
- 	if (private_len + 2 + public_len + 2 > blob_len)
- 		return -E2BIG;
- 
-+	if (public_len < 8)
-+		return -EINVAL;
-+
- 	pub = blob + 2 + private_len + 2;
- 	/* key attributes are always at offset 4 */
- 	attrs = get_unaligned_be32(pub + 4);
-@@ -541,56 +612,40 @@ static int tpm2_load_cmd(struct tpm_chip *chip,
- 	if (blob_len > payload->blob_len)
- 		return -E2BIG;
- 
--	rc = tpm2_load_parent(chip, private->keyhandle, &parent_handle,
--			      parent_name, &created_parent);
--	if (rc)
--		return rc;
-+	return tpm2_load_blob(chip, private, blob, blob_len, blob_handle);
-+}
- 
--	rc = tpm2_start_auth_session(chip);
--	if (rc)
--		goto out;
-+static void tpm2_buf_append_key_auth(struct tpm_chip *chip,
-+				     struct tpm_buf *buf,
-+				     struct trusted_key_tpm *private,
-+				     u8 hmac_attrs)
-+{
-+	struct tpm_header *head;
-+	int offset;
- 
--	buf = kzalloc(TPM_BUFSIZE, GFP_KERNEL);
--	if (!buf) {
--		tpm2_end_auth_session(chip);
--		rc = -ENOMEM;
--		goto out;
-+	if (!private->policyhandle) {
-+		tpm_buf_append_hmac_session(chip, buf, hmac_attrs,
-+					    private->blobauth,
-+					    private->blobauth_len);
-+		return;
- 	}
- 
--	tpm_buf_init(buf, TPM_BUFSIZE);
--	tpm_buf_reset(buf, TPM2_ST_SESSIONS, TPM2_CC_LOAD);
--
--	rc = tpm_buf_append_name(chip, buf, parent_handle,
--				 created_parent ? parent_name : NULL);
--	if (rc)
--		goto out;
--
--	tpm_buf_append_hmac_session(chip, buf, 0, private->keyauth,
--				    TPM_DIGEST_SIZE);
--
--	tpm_buf_append(buf, blob, blob_len);
--
--	if (buf->flags & TPM_BUF_INVALID) {
--		tpm2_end_auth_session(chip);
--		rc = -E2BIG;
--		goto out;
-+	/*
-+	 * FIXME: The policy session was generated outside the kernel so we
-+	 * don't know the nonce and thus can't calculate a HMAC on it.
-+	 * Therefore, the user can only really use TPM2_PolicyPassword and we
-+	 * must send down the plain text password, which could be intercepted.
-+	 */
-+	tpm2_buf_append_auth(buf, private->policyhandle, NULL, 0, 0,
-+			     private->blobauth, private->blobauth_len);
-+	if (tpm2_chip_auth(chip)) {
-+		tpm_buf_append_hmac_session(chip, buf, hmac_attrs, NULL, 0);
-+	} else {
-+		offset = buf->handles * 4 + TPM_HEADER_SIZE;
-+		head = (struct tpm_header *)buf->data;
-+		if (tpm_buf_length(buf) == offset)
-+			head->tag = cpu_to_be16(TPM2_ST_NO_SESSIONS);
- 	}
--
--	rc = tpm_buf_fill_hmac_session(chip, buf);
--	if (rc)
--		goto out;
--
--	rc = tpm_transmit_cmd(chip, buf, 4, "loading blob");
--	rc = tpm_buf_check_hmac_response(chip, buf, rc);
--	if (!rc)
--		*blob_handle = be32_to_cpup(
--			(__be32 *)&buf->data[TPM_HEADER_SIZE]);
--
--out:
--	if (created_parent)
--		tpm2_flush_context(chip, parent_handle);
--
--	return tpm_ret_to_err(rc);
- }
- 
- /**
-@@ -611,13 +666,10 @@ static int tpm2_unseal_cmd(struct tpm_chip *chip,
- 			   u32 blob_handle)
- {
- 	struct trusted_key_tpm *private = options->private;
--	struct tpm_header *head;
- 	struct tpm_buf *buf __free(kfree) = NULL;
- 	unsigned int data_len;
--	int offset;
- 	u8 *data;
- 	int rc;
--
- 	rc = tpm2_start_auth_session(chip);
- 	if (rc)
- 		return rc;
-@@ -635,35 +687,7 @@ static int tpm2_unseal_cmd(struct tpm_chip *chip,
- 	if (rc)
- 		return rc;
- 
--	if (!private->policyhandle) {
--		tpm_buf_append_hmac_session(chip, buf, TPM2_SA_ENCRYPT,
--					    private->blobauth,
--					    private->blobauth_len);
--	} else {
--		/*
--		 * FIXME: The policy session was generated outside the
--		 * kernel so we don't known the nonce and thus can't
--		 * calculate a HMAC on it.  Therefore, the user can
--		 * only really use TPM2_PolicyPassword and we must
--		 * send down the plain text password, which could be
--		 * intercepted.  We can still encrypt the returned
--		 * key, but that's small comfort since the interposer
--		 * could repeat our actions with the exfiltrated
--		 * password.
--		 */
--		tpm2_buf_append_auth(buf, private->policyhandle,
--				     NULL /* nonce */, 0, 0,
--				     private->blobauth, private->blobauth_len);
--		if (tpm2_chip_auth(chip)) {
--			tpm_buf_append_hmac_session(chip, buf, TPM2_SA_ENCRYPT,
--						    NULL, 0);
--		} else  {
--			offset = buf->handles * 4 + TPM_HEADER_SIZE;
--			head = (struct tpm_header *)buf->data;
--			if (tpm_buf_length(buf) == offset)
--				head->tag = cpu_to_be16(TPM2_ST_NO_SESSIONS);
--		}
--	}
-+	tpm2_buf_append_key_auth(chip, buf, private, TPM2_SA_ENCRYPT);
- 
- 	rc = tpm_buf_fill_hmac_session(chip, buf);
- 	if (rc)
+Applied, thanks!
+
+[1/1] arm64: dts: freescale: imx8mp-var: Add Cortex-M7 support
+      commit: 155719b8c629e560c940e601db9af057fca7282f
+
+Best regards,
 -- 
-2.47.3
-
+Frank Li <Frank.Li@nxp.com>
