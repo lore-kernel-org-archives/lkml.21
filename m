@@ -1,73 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795587408;
-	b=BNuAmXC69XpTSGIDxz41yC3DGFOdaJOY0n8eHy1J0aTMY2yTbvnVP1pxxlgE2pTRbzbu
-	 79CXMcjvHmtmhz2s83Uu9s14u91/91Q1maapPtF1Lyp2o9lrnXBNR1YWQsWC8lfyPWDqu
-	 2EC1nEimKatsOlMgb0pdVtBj0YsCODWntoKf23OxLa4ExD0MmakfBqV8vF83r03zbRnD+
-	 QfKYXrIw0vyH5sxago62KVve6s6lJuuP2ehrOX2kqoVLDhpcYy6BwEh+Q+/wNFSM1AAis
-	 ujLskq+kgLf6p83DesrtHdutv7ECA4LC/rHDrhAuuLLsJFw+I+WLCNyN/mGQHmYzvzA==
+	t=1795587404;
+	b=g5mMMkO8aH/eyoloSNz7el+W78Nqu9ixDHsAr+QgB5J8a+7NokeufiDlgaTeTSeQm9qa
+	 CyXlUB64LvdU7S4+qchESsWkn9G4m7gT+lgTS9SolK4vbFSH0MXAxczJcEDyzHPNlRPen
+	 I7HaAz6QyooZ5WUv0EMVq3ctIbsFwIW7s52H+I4HWBf1eBwHbX40Bfreef7I/DBwn1WiX
+	 skrsxnJWDHL7lb2cosUe/M65Bu0rRH+aVUMSFYljDPivbo+HiKl8GFTIxRknAassKHcTM
+	 aS+D6hioVX7qCCf+JQG/vr/5owyxBxyklmv3sSXqv+byvyGvC1+B+h3qqaqLIGvFp8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795587408;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795587404;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
 	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=XJ5Bj2HUeqnSIN+0jmezTl4ea1LIGCfrIoPbd+y7XVY=;
-	b=zppSwvSIgQDR+ue8ZuLci1843Ted+uwhW16dYFRhk1qRNumoA8urdK6Vje3fu/uTa46g
-	 rAPpTpOFd1qYhqzzWzcRN5yurO6K9+hWDnkwe/MhSypUN2wOLnITLgw9mpu6Nc+wOjxP5
-	 ge222/2zGDGz+1RaL/snqd/CIVb4+EI3RLGsofOreUtiGsOwK8M8hjHhzXH/mGK1fhSSN
-	 hYwtKOw4ximO4diGmBhXsYmGLIZoxCY5Nl2CJyzlE/YS9xVDPZ85C31/3Hu/CibMha/wH
-	 7XsRDc9o1RQ2+2/bbGWf2ATdkelLHdMxP9CFieiuu85bdsgIpUGwRHJChFIleTh+F8w==
+	bh=+QmErJox492f/cV643DmQCmOGVVcvGNSWKULs52mChM=;
+	b=WltoRcx3cVvyHnumBPDDAwpHKgtGY3x7QvFH4XHsSJvUaLD/rMt7OcG6q7cWsOY1rQP5
+	 oM7DFBZQnDqiMKm83Z4tuPaNnsA/m2fmj5JnxOHTaNF9No1xSe5T4kD7JGu1vkCLTAprC
+	 aSWXzafBmI/JluuNPtjBewk7335AuOuJ2OpQtNPK69SumhowDaB1WrOE2Qmz/5qauogP7
+	 XY2dyDlsFx+hS8rl4BUgkPKt0OZjliHDDZ2BLzKKFw1pQ+Zw0KyglduZcI2kkRUEBHHki
+	 hw6z20xFgJ6a6C2y5aNeLPHlMXeY2CeFYl93JxEIXIi2wimdfHDrHyS9tf2xxYGlaWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=A2pTrFMJ;
-	arc=none smtp.remote-ip=74.125.82.70
-Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MEbKO0Lo;
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A844606DE58
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:16:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A844606DE58
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1661660795AC
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:16:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1661660795AC
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=A2pTrFMJ
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1383723dfddso5633044c88.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:16:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MEbKO0Lo
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-38355b03cb8so5261825eec.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:16:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795587408; x=1796192208; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795587403; x=1796192203; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XJ5Bj2HUeqnSIN+0jmezTl4ea1LIGCfrIoPbd+y7XVY=;
-        b=A2pTrFMJIfsCkS+FQGT671ur2Mpg3phgQVSo+9pmmEK/kDi+RicDzAm8UjcOxLv9DR
-         AybPZBi6Y+YuhtClXyN8ZamlY8PXM6mVORzZnlcdPtBI66DKDm+UOEGp8v3ddu6/1DVA
-         AfALevxeVBpIYk00sNHVb/r2xPOvmgJa40SuT81YOoeNUveMVAen4g2b/P9k+UNw758h
-         poWfHwmbONsayWFaGylPvNwzADThwwn2Bp6VGZ1uhkk2EMIxxS/tMKL3J/0N4CD7GJNo
-         FHP7/p8Sm0bKjfes0PV8ZmvMVRV9GvtY26teD+BMwZqA/z5VrrQsXD91XBVRa4JR4Gqe
-         p3Fw==
+        bh=+QmErJox492f/cV643DmQCmOGVVcvGNSWKULs52mChM=;
+        b=MEbKO0LoHQwLj1bIZk09lifr35NGJ2VkRQ1VTaeJHoksy5TSvXTmTG1xywHP2uaKBn
+         cY/1HmHGrV/+b+xxzYRSipC/l/7+wlN2JpSHhDpn+y463ivmz3lPFC4mYLIZonZPJlay
+         wVwWerAbSXBxdqhc87qBis7556YTNw3V8W5mYQcTdw0V0sbPhVLiA5FM1qMEbcjm3Zys
+         ClOR/usB8LIJXtdhCpIh5jLvlNzXyrK6p4Nf3sgsGk+moC8JZnk3Qb4/3z3Xnwf9zfjO
+         j394iLRKNLzQaDay1BmH51N1d9voxfr3Qd1eQRJHoE4LDyzd6xwY1B1Hb3qiIHxTz2pG
+         N9dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795587408; x=1796192208;
+        d=1e100.net; s=20260707; t=1795587403; x=1796192203;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=XJ5Bj2HUeqnSIN+0jmezTl4ea1LIGCfrIoPbd+y7XVY=;
-        b=gz3kNYKUC8iAB5unmrxnxAiWObIPooDj7aN13Ti93U4Qw68Yhh5MhaFBRV+V6WIjfo
-         J9kRtvtdF2KpfnhkeMYliZRvTSPH6eWIoBiuZsi3Z5gjzy7/PRrMCwwEupPP5tKNUfxW
-         2EKLAnD1SWxuaKkZA7b7XjQpf1xy/M0uKgo0HEcmhuiMlj5VHMgrZBoc8dNYjL9AIX0n
-         YIQlb5OLbnSKwx8m3IRsUMJ96iIg4UyyFibSOW5V5gBLCvNecH2+g6bWvAox7jTB5P5C
-         bbLZbH9i05MBA7sBA5qLTGR3sUKnsv/LSsOpi5DGbL6JX8Vm/Mwo2hpOLpTXE6KRWK/4
-         whcQ==
-X-Gm-Message-State: APuU4Z/do/a7gD8EK5wuOCDN7ERjAZObfQdwCgFmYx5xNfbRtfP64f1m
-	Oq7PdGNzFhN50gZeSkQNAz+hv0ulG+Dy+nAm3gpcq4SbBYIuOB/Pqsh5sQWIF6m6LAe+MW/A4ST
-	XqrcB8Big4K1lG5elot99z6jStLLcW2CgGWWNZgz2FLdH6iOXEDu8rZlFFXbySiqvyGEBA+SafZ
-	gs2f7TBP6o5sH+fGz7StqtEMQa0XbWWyDJ0HwLTzRNBVMIXUES7A==
-X-Received: from dlar8.prod.google.com ([2002:a05:701b:21c8:b0:1b5:345d:ed30])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701a:cc88:10b0:151:6e80:ba7e
- with SMTP id a92af1059eb24-1b5567dcec1mr15970822c88.4.1795587407220; Tue, 24
- Nov 2026 22:16:47 -0800 (PST)
-Date: Tue, 24 Nov 2026 22:15:18 -0800
+        bh=+QmErJox492f/cV643DmQCmOGVVcvGNSWKULs52mChM=;
+        b=DXjVSXa1pch+cg78XzS+PJjWAb0sJLUjxDhS68bo6XNiXV5kmTy7dwCXkpr+PC5e/E
+         LdsI3hrywmYoj1r3XJAPlIDWp8fcw36vM4OCdG3VNZSavh0+CL7gsm91FQF3QewUPjE4
+         s9qlRGmlLhuk0wePb+RHjr+7hyw1tfxTEKGx7YoUE2VqBIU1HBJ8xjaS6+chlPkE1/Cf
+         WMYVskiaglLaRhbXYClOaP1/Fp8XeUYsusWm9XFKzX/Tv1ifBJClKZmb8l8JKc0yolom
+         KdNf/3S/8e3mcKqbpgBz1uGg1x9RjoNL4lafLVy5naYr0fedtnRnMM36xOGuuP+saLLz
+         Yogw==
+X-Gm-Message-State: APuU4Z+udb2osiGuvdcoZvPN6vb5Mnmsn4z6PHQPr8fNtv6de3WPmBBF
+	VuV1IfpLLYABKBruFmZQc9/p2wvFqbr8svOPJD6wdQJEPwp+1KIWfUfGBFxSp8m/ZOfVFWAryU+
+	kd/cRZ9O6wuthA5h7wdHcMabePQosKihMfLAjuyzkqgVggCY0XuHD+uHQt3R1oEGQhIUNyFrja5
+	Ujs1tTk2tSOosIGfX5Ho/PExTNIjnkBw+6L8vNwbdmnfypmsDxGg==
+X-Received: from dycnm7.prod.google.com ([2002:a05:7300:d187:b0:383:6d6a:6b7a])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:1505:b0:384:df31:6a07
+ with SMTP id 5a478bee46e88-386a87efea0mr9863448eec.30.1795587402758; Tue, 24
+ Nov 2026 22:16:42 -0800 (PST)
+Date: Tue, 24 Nov 2026 22:15:16 -0800
 In-Reply-To: <20261125061523.1540234-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -80,9 +80,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261125061523.1540234-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261125061523.1540234-26-irogers@google.com>
-Subject: [RFC PATCH v2 25/30] tools include: Add linux/uaccess.h stub for
- userspace tools
+Message-ID: <20261125061523.1540234-24-irogers@google.com>
+Subject: [RFC PATCH v2 23/30] tools headers: Add linux/nospec.h copy from the
+ kernel sources
 From: Ian Rogers <irogers@google.com>
 To: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
 	linux-arch@vger.kernel.org
@@ -102,31 +102,124 @@ Cc: jpoimboe@kernel.org, rostedt@goodmis.org, peterz@infradead.org,
 	wnliu@google.com, dylanbhatch@google.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-Add a minimal tools/include/linux/uaccess.h providing a no-op
-might_fault() stub so userspace tools under tools/ can compile shared
-kernel code that includes <linux/uaccess.h>.
+Copy include/linux/nospec.h to tools/include/linux/nospec.h (using the
+standard /* ... */ header SPDX comment style), include
+<asm-generic/bitsperlong.h> in tools/include/linux/kernel.h for
+BITS_PER_LONG, and register linux/nospec.h in
+tools/perf/check-headers.sh.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/include/linux/uaccess.h | 9 +++++++++
- 1 file changed, 9 insertions(+)
- create mode 100644 tools/include/linux/uaccess.h
+ tools/include/linux/kernel.h |  1 +
+ tools/include/linux/nospec.h | 74 ++++++++++++++++++++++++++++++++++++
+ tools/perf/check-headers.sh  |  1 +
+ 3 files changed, 76 insertions(+)
+ create mode 100644 tools/include/linux/nospec.h
 
-diff --git a/tools/include/linux/uaccess.h b/tools/include/linux/uaccess.h
+diff --git a/tools/include/linux/kernel.h b/tools/include/linux/kernel.h
+index c8c18d3908a9..e0108edc2251 100644
+--- a/tools/include/linux/kernel.h
++++ b/tools/include/linux/kernel.h
+@@ -11,6 +11,7 @@
+ #include <linux/panic.h>
+ #include <endian.h>
+ #include <byteswap.h>
++#include <asm-generic/bitsperlong.h>
+ #include <linux/container_of.h>
+ 
+ #ifndef UINT_MAX
+diff --git a/tools/include/linux/nospec.h b/tools/include/linux/nospec.h
 new file mode 100644
-index 000000000000..5a9e6bf4cfb5
+index 000000000000..464a9a9e16ba
 --- /dev/null
-+++ b/tools/include/linux/uaccess.h
-@@ -0,0 +1,9 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
-+#ifndef _TOOLS_INCLUDE_LINUX_UACCESS_H
-+#define _TOOLS_INCLUDE_LINUX_UACCESS_H
++++ b/tools/include/linux/nospec.h
+@@ -0,0 +1,74 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++// Copyright(c) 2018 Linus Torvalds. All rights reserved.
++// Copyright(c) 2018 Alexei Starovoitov. All rights reserved.
++// Copyright(c) 2018 Intel Corporation. All rights reserved.
 +
-+#ifndef might_fault
-+#define might_fault() do { } while (0)
++#ifndef _LINUX_NOSPEC_H
++#define _LINUX_NOSPEC_H
++
++#include <linux/compiler.h>
++#include <asm/barrier.h>
++
++struct task_struct;
++
++#ifndef barrier_nospec
++# define barrier_nospec() do { } while (0)
 +#endif
 +
-+#endif /* _TOOLS_INCLUDE_LINUX_UACCESS_H */
++/**
++ * array_index_mask_nospec() - generate a ~0 mask when index < size, 0 otherwise
++ * @index: array element index
++ * @size: number of elements in array
++ *
++ * When @index is out of bounds (@index >= @size), the sign bit will be
++ * set.  Extend the sign bit to all bits and invert, giving a result of
++ * zero for an out of bounds index, or ~0 if within bounds [0, @size).
++ */
++#ifndef array_index_mask_nospec
++static inline unsigned long array_index_mask_nospec(unsigned long index,
++						    unsigned long size)
++{
++	/*
++	 * Always calculate and emit the mask even if the compiler
++	 * thinks the mask is not needed. The compiler does not take
++	 * into account the value of @index under speculation.
++	 */
++	OPTIMIZER_HIDE_VAR(index);
++	return ~(long)(index | (size - 1UL - index)) >> (BITS_PER_LONG - 1);
++}
++#endif
++
++/*
++ * array_index_nospec - sanitize an array index after a bounds check
++ *
++ * For a code sequence like:
++ *
++ *     if (index < size) {
++ *         index = array_index_nospec(index, size);
++ *         val = array[index];
++ *     }
++ *
++ * ...if the CPU speculates past the bounds check then
++ * array_index_nospec() will clamp the index within the range of [0,
++ * size).
++ */
++#define array_index_nospec(index, size)					\
++({									\
++	typeof(index) _i = (index);					\
++	typeof(size) _s = (size);					\
++	unsigned long _mask = array_index_mask_nospec(_i, _s);		\
++									\
++	BUILD_BUG_ON(sizeof(_i) > sizeof(long));			\
++	BUILD_BUG_ON(sizeof(_s) > sizeof(long));			\
++									\
++	(typeof(_i)) (_i & _mask);					\
++})
++
++/* Speculation control prctl */
++int arch_prctl_spec_ctrl_get(struct task_struct *task, unsigned long which);
++int arch_prctl_spec_ctrl_set(struct task_struct *task, unsigned long which,
++			     unsigned long ctrl);
++/* Speculation control for seccomp enforced mitigation */
++void arch_seccomp_spec_mitigate(struct task_struct *task);
++
++#endif /* _LINUX_NOSPEC_H */
+diff --git a/tools/perf/check-headers.sh b/tools/perf/check-headers.sh
+index 76fc6e20096c..3e684c851a86 100755
+--- a/tools/perf/check-headers.sh
++++ b/tools/perf/check-headers.sh
+@@ -193,6 +193,7 @@ check include/uapi/asm-generic/mman.h '-I "^#include <\(uapi/\)*asm-generic/mman
+ check include/uapi/linux/mman.h       '-I "^#include <\(uapi/\)*asm/mman.h>"'
+ check include/linux/build_bug.h       '-I "^#\(ifndef\|endif\)\( \/\/\)* static_assert$"'
+ check include/linux/ctype.h	      '-I "isdigit("'
++check include/linux/nospec.h	      '-I "^.*[S]PDX-License-Identifier:"'
+ check lib/ctype.c		      '-I "^EXPORT_SYMBOL" -I "^#include <linux/export.h>" -B'
+ 
+ # diff non-symmetric files
 -- 
 2.56.1.831.g720f3f5937-goog
 
