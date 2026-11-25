@@ -1,103 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795591334;
-	b=ifSTGXbfiYibh1vSiK+0PuJ+qbMSYXnq9lkpos4qgX9AnECm0MduV24Bh8YUyfcr0GcA
-	 A6mGkmeS+o1xUE+mvMz++gTaK/HqCoIpHge1X06TAal6KgWIFNmX+0j7U9QKeboFzZyil
-	 w0r3n1hLoavEE9ojhAUVr6df5x7nVq5ObzNnE7OnYLJ4peMSZ1GCY89dPalLUKadfmmcl
-	 x7vPxyYciai3L59RcNzPU5gzKnxjWSvd87WlSp2rsINEHftvDeZ2kYfvbUtNCFNKFHWQx
-	 YdVpOBJsKYwmKA5fw1qaswByuetvsmZE64C+e0NtKQuuyE52h4fiktzYwY+2gwXHVhg==
+	t=1795591341;
+	b=3CTMpwVJnQtnC7GxDzSkbM5Wp2RYmNA5UaDnxEWd9DD40K29RWI56S/BcId+NGzftshX
+	 Jq+Voo2el+rqhIq6FiAPxS/pby8FUUnBuRdN4gxJ5USRLHPt53bzJ83FgKiR48r4KfC9h
+	 BB3yeTmQxbkStKfURoxIi/+EDipxClmXiwxJX8feAIkGbdcBZdrqYPS4aEqtYQvNrbOvA
+	 TbbmR7bd0BrNlnesLOF9gZ2GsjTsmxcj85WZ9BNCG/q10s/A0b8Uo9ioS6Vxo6ihd3w7/
+	 La5C40DLpCA1i3a7bUfbu08Trl/9IENgqZu1nN7gdpkL4Dd+cqDSUbBOA1SzS7t9rQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795591334;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795591341;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 X-Developer-Signature:X-Developer-Key:Content-Transfer-Encoding;
-	bh=1mqak/oTHzzf33mZlhyESkRVPDIMxG41q7JJp3wZRXc=;
-	b=V7D3Rg6jzr3jWEjThysrDoYjimirZNEqGYmgUd+nMHO7WVF6RAdiQpQPVOtvvB9M84QI
-	 cnib4PylkJuMdxiLbVui+KN/dHmiPreJpkiKpe/r75Ey0PDgDcflGnO12Q5EksxZmVGFk
-	 m2wDLANANR/dbqpQ6Q1/WS8KThk0SfSG8hHUXqVC9sxS4vLy/0X85CaH+RoL0ef5blgEO
-	 cTjV6CiVjt1XeKylI9atkf/B3igeaXkWnBVm7DEyjC4hz/XHtyb9SsqN9+tmsAnsCqm2e
-	 2oO1+LdlZXMYCcM9kZ+ZmgUmW7kpIW3HBZLaQfRgA6fPrxu/4edIdu8W2LbegRgxcMg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:X-Developer-Signature:X-Developer-Key:
+	 Content-Transfer-Encoding;
+	bh=zfcmyiq+nRVD4Gw8rxfHm8nS2Ueyfoxb3FhyxGvekek=;
+	b=FL5q7yRg5yMJ1py3xXW5Coie6vOVufz0CsdMtS3Hj52PDlLNnS7BFt7+CvaHWWdkmbR1
+	 D4Wtzved7rHOA0jRnuB1pCz0+OqDcSMVSRz4dH9PEF0qu9Aqta88qrXzjWmlkxwaS/n6c
+	 1mOA/uYdRozIBEtiAe7TsrjWNIo+CXTGgfl5QYDm7BmaTgt/3kz3kh+MdSvAupdhVrwMa
+	 h74Ydg51MXw2AI1OQbOT3o0t81f+npnUY+UoafYDeYUj4jm4pEz1VyFO4sW554usB8PQe
+	 t+pkfC4oViocwGvjjAbzZjXaHr5vtKETjLCq8zd2XK6wu80B/DDdc4DXcNrb0vtzDkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=baylibre.com;
 	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=APGRYVVI;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b="gaJW/l6v";
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E550C606A329
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:22:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E550C606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3BB6606A333
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:22:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3BB6606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=APGRYVVI
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb64c99d2fso51293595e9.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:22:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=gaJW/l6v
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4a9be758734so3359588f8f.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:22:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795591331; x=1796196131; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1mqak/oTHzzf33mZlhyESkRVPDIMxG41q7JJp3wZRXc=;
-        b=APGRYVVIm1Ke5XKCEvoemamE7OVMlp1jxFmv+I634jpq4E0mDh/I94JcmX2VnyHJ/7
-         /Q+AquHUYDya3NbI57GAAvqSopUHf9zP8ACSRQyVeOb1wV+A+AbQRrwJa/XniOTRhFg6
-         zxOFFnKsZkqMbaRk9R0KM0dwwzju+B1ikWgMCbY7kAoh/zk2Y/jEEf+wwohmh1pwoJ3Y
-         yYWTxCg/SEAjOc7pyiLJMimkGBdHGaK8EJP9z80AJ1MZr96ujQlYQLrfZLkQckAeVQgB
-         gszx40G6B0W8MnZ6otBlYsHIVWzuiOEJecDKRIVHqVZTyBhDtT8rr0JJEMBg7Xi6PPkT
-         DAKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795591331; x=1796196131;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=baylibre.com; s=google; t=1795591339; x=1796196139; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=1mqak/oTHzzf33mZlhyESkRVPDIMxG41q7JJp3wZRXc=;
-        b=NoPacSWCcoFNvEd9gfcn/xd4uZmBMdfAun4vfQylYJL+ZXRmQik/9ckJgiRqkUZHyl
-         VNgJJgVfizVzaXc1VVrTBmbLMIfT5iM4gesMcbhbi+R2Y//m9ElbIevUT3a3SXDB0Fns
-         2B4yXgKsQrnH0H/Aozpaxj+6JJ+hRYB8ICr2yWfrBgmJOX1gfKZV4AVHzhei2D33HC5c
-         ahgm83fUyCQJqRyAamlEM7eFJvQpmtFvrCQ9Wa0zpW2h5fjhEjD8mUF2FHsBcM4M0Mw4
-         TCQepmUsqZcZHqEZIXxeTSWFukbkDQdA8yXkYLdwpRHBK2ohyns+PNa4p9vgpHdNcuPN
-         PJNg==
-X-Forwarded-Encrypted: i=1; AL+hErFVouRgQiS8pY/rgUJeajmq5/CCqVv0Zq86mIMJhVuLopc+GIbTdTfUETUxQp8AepUnTBHFd/yqv+psTEk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/SVx6Pa5HrZAYB4lCNaa/VsWj6RMAJUyj6i+rN4BL6fn9ZxBOi
-	+inOj183dBk67hexWzFrX8X+gXHD9W2j/ggdJc9IXjg8b4nROylcSaSoHjNUormswTk=
-X-Gm-Gg: AZFdTZfCpVvGdkBPXAicESJaAwlUXccppeWK+SfmRJAbDcKLZkdfOQazYmdPn0ExLab
-	KQco4YVh7tAdeaC4z9OmhFUBkuNaWmjNJG0MCWZX/vyx1YPB7zeDDZl7fxAmZE34txcmDivV4Qr
-	mbtyYeAMW+n6DCuUjqJ3juUNroJDdM4g+9tdBBFwLFRDH1xtwuVl7H+IUxasO8k9ucNLwkIR1t3
-	ogpbmO/3Wk2HEPjtKRl1qafUaKOVmEHKoE/BnXewSsJkRZgcbrU8JJ2RJSFx7dypYU7oL0oa/c4
-	suN02TV9ElivNiguTS0iRAPOy22GSMPjYOb2ilbF5cbEGDvUu65rZZDQdcgSsjjQAueO9bFYQnO
-	bL3mo0283KG2EEOxAcQcPnA6YVF8hKzqDYSVehdILgw8W+9pF4Ld0ARuc+cUtgzLLkZaQ+dK7QX
-	AHDEC2BSPfoYyf4nH9HhMSs7kL8I8Wr6SiBiO9i06NlGVTHOC/kdPxYS/vtfXyb8JmzSTGIeMaj
-	NOrSurXSwd0GS4Xx3TOcQBMJtRIqSN+OVSTPsdyDDB6robhRN+j+CoIzmuFRP+1YswkLDkuw79r
-	pUdYpM5RgeAXpnWOsRxeJVaRP62qqYRGSAfsB+t/ALevYEozO2+JpV8=
-X-Received: by 2002:a05:600c:3b1a:b0:4bb:875b:3d91 with SMTP id 5b1f17b1804b1-4bb88820bfamr357770365e9.30.1795591331274;
-        Tue, 24 Nov 2026 23:22:11 -0800 (PST)
+        bh=zfcmyiq+nRVD4Gw8rxfHm8nS2Ueyfoxb3FhyxGvekek=;
+        b=gaJW/l6vSmRuBobAdkKGDwe7cEsHsWI47/VJzdmD/pJMKNw6R5O+m7PxgJQFU93K7E
+         OVZQAn2JPTOIAbOqyZ1X6ISVStN2mm5ZdLf/8G+ldSovwqU94LoPdv1di36yOhfIIydD
+         766NEZInyqIUXNTsilUjyakO6xM8NUaQR7LNCnzicCRvOTjnVbPp4T75k1uFrVsiFpx7
+         wQJle5kMg1/OHtmrVnMLcyjgUIhOqhQLfRwSaEbfTnCKeusE4ZJbJk2ekgHWlBzhk3Py
+         cjkJ1XNPMPCBriuQtGRXlhiF+RhYtAwo5V6GmUSb1BZHdEkqQtRANYOSILbj8+++xQDh
+         Go/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795591339; x=1796196139;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zfcmyiq+nRVD4Gw8rxfHm8nS2Ueyfoxb3FhyxGvekek=;
+        b=oilFDUI0252L6JEUcYWRE3hd125VfeNZhu1kZtD7CLzd8E8YfxEXcQu5pog1OMYqeR
+         XdJDSTR/pSzSkDlNaxd1UC5EwpevKsC6h4oUgxyRg5wW9syk5zYyYxjZt4JEopQaM4CH
+         aGwYZSNLlhhdLLkTekP1esOKlWnomK+iirS0GIcER8J+aI7YCWJMbt2Tc9p4fD98/c2G
+         s/OLJRZUl+MvMCyvqnXDHcy/ifVeLNdWxSJxccEDRHIAi9ClyyhcmAg0v2sxpgtrYUuL
+         uhztWzC/mZjUVs89rRiygpKFtnBOs38DH5glsYMV0W+1ldlCm+v0okcPuNXnY8ZRrR7b
+         KluQ==
+X-Forwarded-Encrypted: i=1; AL+hErEByM7Fhv5tvvy2XkyxKXNkayn+TVsnH6+G/u9NvOyYuO5mtSYOosk39eMwr7epfCYk4nuG5KQqIu4cHyI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z80PMRY5hffpp5my3kDeStnZEzfUdWKe3IqsvbGq8JyN+dmSXOa
+	uehEpTtmr9Zf0CveCFY8jbBAguPZvuTMjf6F2z7xkcRY1yTy/wrGYISnZ91EMLhjT/k=
+X-Gm-Gg: AZFdTZcEeRb3EWUyQTufQPD4Cy36ZaxNPMsR7OxhqtHf+9S1Rxemrcq6u/Ssy80z3k4
+	wCDNZvkLB3GDvWLOhIhhEcjPSOLGDiQUJRqiAis1PGCFuolBtxRNAywGxdt/+M2ZS39rGjrz5ea
+	bXSpgQN0yTgmNayhZmhDnFVIKF+mP0wxMS+JlyRNf44dxzHIU3bcYfdahWnNcUEaUKauYqO1e2Q
+	3M5GsQmM0gemk33w8G870vMzK205CPFOH/sFC8mwJzu/xQcpjwcVO+2fuZt+WiqxeBn4NPsWo3z
+	tGnidnaBEYfHpf+iQwYIfw68sU+4nWuZWMpaVmrgtTjpbtHgbCgNNBYoxzJd1EhPvz3jQAQSs4p
+	Ux0dnnb3ncE4XI9q+PawgjksZzjixlhWVlOS01yNYk7yMcAE5yEKkl48Dmd1PL++94XZKQ2SXVQ
+	NrLxLRYLphELOYZs33REx23AxsPgUUFZSD+aEbQ2LerQvS1nKEjCgKspo9aRNpMLQ0nDW6X3D7t
+	rmYFVxtdEGsngR8taMEhWk2rC+L4fM1OB83ITXyOwuSM/vUJdUETsfuoRsivmd61PReIbPoaMij
+	uMpmupBd5ClASguk+uo9RDv+Pfb4FT0Lpg==
+X-Received: by 2002:a05:600c:1549:b0:4bb:6f45:2a77 with SMTP id 5b1f17b1804b1-4bb8880abf7mr327186815e9.11.1795591339161;
+        Tue, 24 Nov 2026 23:22:19 -0800 (PST)
 Received: from localhost ([2a02:8071:6e30:8500:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb884b8429sm780146835e9.14.2026.11.24.23.22.10
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb884865a2sm509382235e9.3.2026.11.24.23.22.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 23:22:10 -0800 (PST)
+        Tue, 24 Nov 2026 23:22:18 -0800 (PST)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: Jiri Kosina <jikos@kernel.org>,
-	Benjamin Tissoires <bentiss@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>
-Cc: linux-input@vger.kernel.org,
+	Benjamin Tissoires <bentiss@kernel.org>
+Cc: Takashi Sakamoto <o-takashi@sakamocchi.jp>,
 	Danilo Krummrich <dakr@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Takashi Sakamoto <o-takashi@sakamocchi.jp>,
 	Geert Uytterhoeven <geert@linux-m68k.org>,
 	Aleksa Savic <savicaleksa83@gmail.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	linux-input@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Ping Cheng <ping.cheng@wacom.com>,
-	Jason Gerecke <jason.gerecke@wacom.com>,
-	linux-hwmon@vger.kernel.org,
 	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>,
 	"Christian A. Ehrhardt" <lk@c--e.de>
-Subject: [PATCH v1 0/9] HID: Make driver_data in hid_device_id a union
-Date: Wed, 25 Nov 2026 08:21:32 +0100
-Message-ID: <cover.1795589119.git.u.kleine-koenig@baylibre.com>
+Subject: [PATCH v1 5/9] HID: core: Make driver_data in hid_device_id a union
+Date: Wed, 25 Nov 2026 08:21:37 +0100
+Message-ID:  <15ea0b7b8bdbda0d19772b4d75a65131e1adf15e.1795589119.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1795589119.git.u.kleine-koenig@baylibre.com>
+References: <cover.1795589119.git.u.kleine-koenig@baylibre.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,88 +108,39 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3641; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=WKAFjahqsz1WADW4GQZA2AqcKEs67qPodb0ziWRr2bc=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrBox8D3OsqGVp8d9eNjV0Xl3jDEO2G2/iqVEi5 ZFnCUOaW1iJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawaMfAAKCRCPgPtYfRL+ ThbLCACxJyH7addcG5QUOzghaAV3UIuswR+tsPVOGz6kUyM+BDF2vXNYHYrOKjIk49Yjd3jnIPm +bVDgcXYYG1/XQnI6911gqpKD0ku/4iEz8G1bgMFiNJY2RaUfcBga4hA4z7SZtoo3tB95V+WB0z qp2+PeD+FsIx9C3VmOh3kTonHyFMJxarbh7N/v4RhbeeGVVuXa0XgMunhqB3BFmag5t1mFdZm/9 +3wO74TfeCeL+rRKj+x+LDAtrtHrc3FYXVo8I67CGAIaQlTXo9U74eG5f8//8dboyg/wx260KNF t2VCkGPI2ac/ZCBjcZu9wrDCYDLtceoPubxfoUWbYQv1yOsd
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1000; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=QEFTzo2iU5KSQHdF8CX3tT8L9BSwZU/9ye4ZMlX548s=; b=owGbwMvMwMXY3/A7olbonx/jabUkhmy2ng5bn83r/94WCMo5cje93rHHpKNDi8UpPqYwf1fK1 fkGvis7GY1ZGBi5GGTFFFnsG9dkWlXJRXau/XcZZhArE8gUBi5OAZiI0wIOhhZHMZbi++rBLUJ9 rnHOB01cdodLPy3fa6nzPuBmUJcMb6DuupoLVQ/cBMy5VJLK1pU5vND9uejDaw7zx2t3985eLR4 QlCC5ZotDGuvm8jxZG/nXTU6hprGh9b1ObldV496arTS95KvmuOerm/au7825S5df2LOE9XZq4f 19igVWrP+2Zb/8Yrjac6dgyd3dl6sfLTayiLTOOGh/yyZxYYWw4ooUd65jNmGWNybZmr+z+TQhx e7IacUgQ0l5Jg+P8w39obJR7U+CSvcrVPrX3O+6pVDEtrf1YZuipXmq7iXmux/+ZSXduav9fJ1F 9s17vGujXZWX7/6wwHGl7eVdEzwlTMsWT6pJtVQ47wsA
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 
-Hello,
+With that anonymous union usage of struct hid_device_id is nearly
+identical; only initialisation using a list initializer doesn't work
+(and there are none of these in the tree).
 
-the 5th patch of this series replaces .driver_data of struct
-hid_device_id by an anonymous union. Drivers that store pointers in
-.driver_data can benefit from that by less casting and still more
-implicit type safety as something like:
+The upside is that drivers storing a pointer in driver_data can do so
+with more type-safety. So usually a missing const is catched by the
+compiler. Also less explicit casting is needed.
 
-	struct sometype *driver_data = id->driver_data_ptr;
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+ include/linux/device-id/hid.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-is catched by the compiler to lack a `const`.
-
-The (IMHO tiny) downside is that with that union initialisations must be
-done using designated (i.e. named) initializers. The first four patches
-implement that for the few drivers that don't do that yet, which IMHO
-could stand as improvements on its own. Patches #6 and later convert
-drivers that store pointers in .driver_data to the new .driver_data_ptr.
-All patches intend to have no effect on the build result, so this is
-only about easier source code and tighter compiler checks.
-
-My original motivation to work on this is that the result also works on
-machines with CHERI support that have sizeof(unsigned long) <
-sizeof(void *). It's still a long way to get these running mainline
-Linux but the nice thing about this series is that it works towards such
-a future and improves the code for non-CHERI architectures, too.
-
-Some of the existing initializers use an unusual coding style. In the
-first patch I converted that to a more common indentation while updating
-to designated initializers, in the quirks patch I mostly kept the
-existing style. If you have a strong opinion there or think the
-opportunity should be taken to convert all such arrays, I can do that.
-This conversion is also the main reason that this series doesn't have a
-diffstat with nearly an equal number of insertions and deletions.
-
-The dependencies are as follows:
-
- - patch #5 (HID: core: Make driver_data in hid_device_id a union)
-   depends on patches #1 - #4
- - patches #6 and later (...: Benefit from pointer typed driver_data in
-   hid_device_id) depend on patch #5.
-
-I would expect that all but maybe the last patch go in via the HID tree.
-I can resend patch #9 to hwmon when its dependencies landed in the
-mainline.
-
-I build tested this series on top of next-20261123 using allmodconfig on
-arc, sh, alpha, arm64, x86_64, s390, riscv, mips, powerpc, loongarch,
-sparc, m68k and parisc and there were no build regressions.
-
-Best regards
-Uwe
-
-Uwe Kleine-König (9):
-  HID: asus: Use designated initializer for hid_device_id
-  HID: i2c-hid: Use designated initializer for hid_device_id
-  HID: input: Use designated initializer for hid_device_id
-  HID: quirks: Use designated initializer for hid_device_id
-  HID: core: Make driver_data in hid_device_id a union
-  HID: steelseries: Benefit from pointer typed driver_data in
-    hid_device_id
-  HID: tmff: Benefit from pointer typed driver_data in hid_device_id
-  HID: wacom: Benefit from pointer typed driver_data in hid_device_id
-  hwmon: (asus_rog_ryujin) Benefit from pointer typed driver_data in
-    hid_device_id
-
- drivers/hid/hid-asus.c                   | 199 ++++++-----
- drivers/hid/hid-input.c                  | 114 ++++---
- drivers/hid/hid-quirks.c                 | 400 +++++++++++------------
- drivers/hid/hid-steelseries-arctis.c     |  39 ++-
- drivers/hid/hid-tmff.c                   |  22 +-
- drivers/hid/i2c-hid/i2c-hid-dmi-quirks.c |   2 +-
- drivers/hid/wacom_sys.c                  |   8 +-
- drivers/hid/wacom_wac.c                  |  10 +-
- drivers/hwmon/asus_rog_ryujin.c          |  14 +-
- include/linux/device-id/hid.h            |   5 +-
- 10 files changed, 438 insertions(+), 375 deletions(-)
-
-
-base-commit: 3191063649dbf7c0d0b768e1f3655e4c5fc6edb5
+diff --git a/include/linux/device-id/hid.h b/include/linux/device-id/hid.h
+index e865fc64bf94..e05a8974de4b 100644
+--- a/include/linux/device-id/hid.h
++++ b/include/linux/device-id/hid.h
+@@ -16,7 +16,10 @@ struct hid_device_id {
+ 	__u16 group;
+ 	__u32 vendor;
+ 	__u32 product;
+-	kernel_ulong_t driver_data;
++	union {
++		kernel_ulong_t driver_data;
++		const void *driver_data_ptr;
++	};
+ };
+ 
+ #endif /* ifndef LINUX_DEVICE_ID_HID_H */
 -- 
 2.47.3
 
