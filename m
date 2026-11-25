@@ -1,98 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795618754;
-	b=fOmy6f0APto7drScdJsadlh8pnMn+Rg9vGbhhznvdOAbuwynv+avmHG+Emk3F9t43op2
-	 ni1jSkWefY9dEozwuq1FxNr7t1KQsXyk2cGgqsKtBCFHe1/vAweL3TbtoIT1/xRConvEk
-	 vAU2f9kf1D590C5Wc8AgzEJmtXeMDXfH/hREfJed4mg0RdPuUeUFT33hhJwcUgRycHD/2
-	 l5G0VwI12M6q6zVL2CcUxQO+YHyxm0JrE4uqqC8eHdYBs2DqvVY4mn4Bf1XkII1mQ7GW2
-	 VpXOFsToSDNWJuzr+MheeQTLs30SEsIqGe+A8d/+bB/h0/SMDWszTOKkY0SBuByceug==
+	t=1795618774;
+	b=aRma6ZSp/yeIlRBi06ad+KLjEtgNgpk3oM6NR8c74vcGhDqigC81YNZ1r8a4wovsb7PH
+	 edtz4D8VW58TehJEexgRbmS00PKvdX5fd6MTzg3E+OkV8RVO+YzQndSR/eo2S8BhGmxYm
+	 SspCQttv0hiG98CITtsRnrYm4kNMhV6xerUBR/OW0mx9KiIkaPhx1kF1LQawgcl+qXY9w
+	 teq4z/s+33hB5mtEVZR2/muynVXSzvavgAMsOOcda7vQYhMp8o5406uUw+++FleDZ6WFd
+	 zHMc0+rPdABJufMfjY5nqu1F+5mEtziw4FbFw+KZyI7es4uWQIuDl7Y4D4UiRnmPl+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795618754;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795618774;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=4OeI5EFvoaAXtoZ5Eb5FS6GHhurfl3MoetK4e4Eh3dw=;
-	b=OjRrSdG2FPqG5XyxVDwTWQYRcd7+od7ZROJPCUz01CjnRV0VNuM5QEabMKw1JFDgg+hU
-	 Rmw3I6s/NDhFEqbnRoILNrjA03VAl/t79pOyE/YgYwkjT72r8SWA87nlkvuaBMo0Qcxya
-	 kid+A8fKDlHlxA5iagFj3pQB520/NRvoaPElDUTDeigZT1hMTuGWrr4gL5AOYXVEzuU38
-	 Pevz09wlaxtoDL6o3pfz1JG6om4G5XETXWQI4jiYk+Z46WZ0iCLso9AebNA/O1lzHITc9
-	 ij3st5+ViIMOP6O6l/3I6OZkr4NsqSTJAuxhovgGjVa1cge5LVleWHTH5cPzCp57KZw==
+	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=XC2QUBHmj2G1tj4pefmJXOx7ehHVSaXH3xnNoSU8UE8=;
+	b=FFteG/Tjv4yzZSsina+ROl1NeP/+qejFn25GxIRTAljiIuN9bk8U1UGG5VBE3t+Rob5E
+	 A8GNUZXbkQ0nJnL5qqtGDILokHfl2/Ie0xc5+Y7AGIdR+bPVN5Uq3YXbIMO0CJSR/Yjr9
+	 PfQ6PEQ2+JGSn5SXF46CGvR9UvQTHU2BeOcL/phQqfItGyjKMprzwY1l5aQqstdDTf237
+	 /RrnZKODRYqujRMfyudn0bpm4EnM6ozhUdmdGrBn+0+uiKD36XDbmNDxwPHZctpVyU+FH
+	 F/jBayh1D2h1VzI/Y+5+8eE+GSbSkR3daWpqA3rBg/6hPylES01FbCDWVH2vcUewRkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=isslab.korea.ac.kr;
-	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=CBhd6DgH;
-	arc=none smtp.remote-ip=209.85.210.180
-Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ymfY2YQ0;
+	arc=none smtp.remote-ip=74.125.82.182
+Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E898606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:59:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E898606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBE99606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:59:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBE99606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=CBhd6DgH
-Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8b66d1a08ccso4066629b3a.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:59:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ymfY2YQ0
+Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-386cf1041cdso1563640eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:59:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795618752; x=1796223552; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4OeI5EFvoaAXtoZ5Eb5FS6GHhurfl3MoetK4e4Eh3dw=;
-        b=CBhd6DgHuGdiZI5Oz0U/8bGNQ9GMoNWd4ttlUDNJcJSuZadOjCzJZlKhRZlVst6LLF
-         ndNXo84hT8haJN1EhEialmAmTjK/3GyvlUkpjcvNxVYpIgloftCal8dYNUjdWD3HoFQs
-         Np0kWeLl+c/IjPaCrnDeqRqpCZYXaYxR0mUsMvXuZU0DB/kK3C3Ewgaur9QsQblzsHQR
-         96MJ7XIqYc23OrERRq8clgqpzgUAfvqgdqNWqL3N/X66LZaJ3cVhtb28s5qj0gfbS0wk
-         hX1yDaiKha0NPnkrbE4aZeHHI996JOG4q+GpgGI38mKSgj+nY4XnG98DkzYtYQTQc6g/
-         QaBw==
+        d=gmail.com; s=20260707; t=1795618773; x=1796223573; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XC2QUBHmj2G1tj4pefmJXOx7ehHVSaXH3xnNoSU8UE8=;
+        b=ymfY2YQ0ET6DcvleQzZKnfr0gxRDGfIVDBeZPFbIAWAoWMrBeVVHqlLEnIwU4D91sh
+         k57XlYyQq+gC2WgAQkqpIFjeQak+Eh2fLGvxnZt1SCaydy403xFJYKl7N0lKfZetvVeM
+         XvtmBrAg80Dys3IlEQrn3FAwypF4VR7xMkQC5LpNHVpX8AKdXUhJtCgNJPDy+ls/jRye
+         JYQ/YmyF27wnLaWdtsbMqT0PtbrvDtliUEoc0u/v2zuoICwWIYQe/kH+t2lC8WGoNQaM
+         GP+sUu3MULj9JZ6OomdIuncvBk3t+7V95zYpdewfBmK0TFi4I6ghtICBbTGymoQjtj+x
+         uxPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795618752; x=1796223552;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4OeI5EFvoaAXtoZ5Eb5FS6GHhurfl3MoetK4e4Eh3dw=;
-        b=BaRaeCP2gYoV0lvB/5R7QkTTnElsq5+2nA0lpC2hVihuB2MiUahdOmSxIYQUwxlAM5
-         BEr8GMDb7uNlaQkuHgpN8AhD6Uif0fuoOvec8+gJtgbUc9sxGK5lU+ZCak3RroGNX+Xg
-         c4NHP4xGBCp83+bj5LRpslsmWtgaSzjImkR+206w/K4dvLls75uoTglH+uzGQBks4tvV
-         +zvzsix7b1V6lCoY2KTMrsE7uswRkmrJJR2anE7kGFjLHHvuhEjCQ+w0zYe9bo0R7/VB
-         cJVuwuJUVCv5hzYX/0re7e9P5I9/7Za+wcdcHom8I0UvzhjCkV4Gi3CGprGrNfVr9eBf
-         GkfQ==
-X-Forwarded-Encrypted: i=1; AL+hErHknEvNgJiajhr4QwJW/dawGqwTxZk6prpWyL4N8zvx+U7+ezAdOB6TQAehZjgqFaAVryW2mIeKGQMT9rE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Oyk8MWbSJSOyxMNJ48IIB8wqr09hr2ZJK+rhGq2tgS92RaKj7
-	CzxN9gfv5VpHipIJ24DXaXA62QumNbdfiAvLitBatSVJnNL92+SMerWpBSPwYJYzP0VRc4MF9/K
-	zjDXCRiY=
-X-Gm-Gg: AZFdTZeODkpytO4Bt/zl/BNduKBZWZGKhwe82DiWjVWeonR8xeMZm204MW+9Jkh0lxp
-	nLS2w2LBP5KizQb2BGgSamSGSIZYvq1lSABKB4bxBfopskR+vXOUxt0ENS9WXt9iENvWX7OxgOE
-	lXduDFDKwSKXdyRkei2L6Ds81u5JZZesC6SgIG0pPDHDVaNWHEit3uiPYWvyYBE4rzhTL2S7BmV
-	BYLjNhR7bRG5IHEgFtvsDdiQh0zA5JWZvQBr7250J0TLsrVw00glZk91vroeq07RlyJ0uqcNodG
-	m1VQqMeZGMyH4rM+o5SSK/Bfb4tn1D6sQUwKQLoNRCmS4yqe8gff+Rj6tT+7S+NpuY3RyX/gixt
-	CAyiYxCCle0Olt28J0Jw4/hy8HUaCdRT3a8hp2O4UhHdrr7YlNBFv2/YdFiN2d1/a1jC2ktXEKS
-	/p3dLAx0V9hsWixkP8pAivblyK1elSm7rWdf5X3v7ghwsKfMlZ/gu68YZqVTZ9Ryqv0e9x71uho
-	idzPGtfI1Xy9PrQ17zat6CJZHL/18hjqO56Enhm1uzRTzSp3z41HDSRchQEYQOCstOwvY+Z8WZk
-	7JFp7pPJ0KxKXXtbpTy8/qkOM86wXyrWNv9S39UFAFlBucySlPsAkb2d3Ryhn1j4i6KASTYuAe/
-	eDglC6nbjNj5DdzKiHRmCQv0vEstiqmkQmNjaWA==
-X-Received: by 2002:a05:6a00:410f:b0:89e:71df:d6da with SMTP id d2e1a72fcca58-8c8796a7bbcmr14809643b3a.5.1795618752315;
-        Wed, 25 Nov 2026 06:59:12 -0800 (PST)
-Received: from localhost.localdomain ([2406:5900:1044:110c:6ad4:29a9:2f98:35a3])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e45756sm9117488b3a.27.2026.11.25.06.59.10
+        d=1e100.net; s=20260707; t=1795618773; x=1796223573;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XC2QUBHmj2G1tj4pefmJXOx7ehHVSaXH3xnNoSU8UE8=;
+        b=aEtqntqet2cAYyImfppt9Vc1pwzhkV4e6GuKOcmU5gfZuzwSQsvpKIksqEbAY5EcEl
+         Ms8jEXX1Ryo3mAG++DGrdMMUxf2pIP9NtIQgB1IzDod3E60n/24xGb+NqvuWRNYCXW6o
+         KDsqc/sg+VsOJ0kncyWSDVxGMtXRBqd3eoGnPfGJSzRzVBcAjeNEVkh/rKU2r8ul/WfN
+         rRsL4Uac81u110bqJd2R3WLI6C5FIIaLsyngXtIFSQO6I9XFqTcbh6HBJ72/Um1H4im3
+         Uc5UYgq0OysVOnhx/E5IO9AO/vIyutG0H1zpUJ7YLz3h6tDTH62zgqOihQ3f6xFF5Ulk
+         le1Q==
+X-Forwarded-Encrypted: i=1; AL+hErFWzVf4fp8aH4gHOFFDMLqTd3P2YR+eSnHXVR5WV3QjnlUMQkY62fVy0bCl8OpT5kjBLOm1FVUqcxue6uM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ezpxt+ZdWNR/NFLfKPY85AbuvaEj8s2r5CteSbW3kUEk/C2Gr
+	zipfnd4D9w7ewSB/k36nXKmJ4AUR7wYs0dZ85UPjSdINc/xDgukX/nSk
+X-Gm-Gg: AZFdTZdmXS2uO/JtSNOUZDzS/ysHuvUpEQwvGYJxAIdMDtcS7RjUvdahk7iPTsw2tgD
+	NriuYsGdvtP6Udo7VpmtItM5hLy8s4PaTYOAhcwbd5FF65CiSK2rdD8JktPDaYo+mnobHztp6iZ
+	ZCO1vDHUv3ZvRCLUNRV4RWv5qRlKlZtCQTbWOpjvGt0g7PQfrZEaR5Se2s2QU/6MEG7Wtp3WpqJ
+	91I46nXdvdzrVGOpHerQCBdCjC2H1SMc7ofumMdyed2cOONLIlspwTK5eFPc2Kfgksx3tprL1fr
+	sFUbIGe/K4MdksbZmRjyIe67Q7Tmy+U1Xt1pqNLe4rFviDEt/+jovuDJtu32q8vO5Fe7ILHQ08P
+	VclK+E9vodx7NAD8AurZSyiH+ZhogoU4FUMl2V84MN6NLalfyBcz1x+vFLMN/aByJ+yVvyL7xfA
+	eqyl+JKw8GAr5CtNuTilkiAXREWhGChGndTR6l7qXgUhKYV7Tq4dJwxHWrt5u7dT+8EXA0zlJdZ
+	sGVboL9UZOV02Qz87vZZRhl4Emv+ECZASe1L2Om+fWo/n5WeFAUrEAqiuQdCK+CsKGsN2bvSIMU
+	iABxYZn/oTW+Wu9bv8rW3izhN9L1MpjyXOgaPtKJdq0+vdQL5/xeAFjbbm+wn0BVaKE=
+X-Received: by 2002:a05:693c:8955:10b0:386:9cae:abef with SMTP id 5a478bee46e88-386bf39f8b9mr5885843eec.36.1795618772691;
+        Wed, 25 Nov 2026 06:59:32 -0800 (PST)
+Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c0c1dsm61060566eec.21.2026.11.25.06.59.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 06:59:11 -0800 (PST)
-From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-To: hch@lst.de,
-	kbusch@kernel.org,
-	sagi@grimberg.me
-Cc: kamaljit.singh@opensource.wdc.com,
-	linux-nvme@lists.infradead.org,
+        Wed, 25 Nov 2026 06:59:31 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: Carlos Maiolino <cem@kernel.org>
+Cc: Christoph Hellwig <hch@infradead.org>,
+	"Darrick J. Wong" <djwong@kernel.org>,
+	Aldo Ariel Panzardo <qwe.aldo@gmail.com>,
+	linux-xfs@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] nvme: reject a controller type change on reinitialization
-Date: Wed, 25 Nov 2026 23:59:02 +0900
-Message-ID: <20261125145902.254297-1-yhlee@isslab.korea.ac.kr>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124133122.4167640-1-yhlee@isslab.korea.ac.kr>
-References: <20261124133122.4167640-1-yhlee@isslab.korea.ac.kr>
+Subject: [PATCH v2] xfs: reject a hole in a remote xattr value
+Date: Wed, 25 Nov 2026 23:59:28 +0900
+Message-ID: <179559978502.2875040.12926533524466805036@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,101 +98,69 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-nvme_init_identify() caches id->cntrltype on every initialization, and the
-Identify Controller data is read again on every reconnect.  A fabrics
-controller that reported itself as an I/O controller on the first connect
-can therefore report itself as an administrative controller on a reconnect,
-after its namespaces are in use.
+xfs_attr_rmtval_get() maps the blocks of a remote xattr value from the
+on-disk value length and only asserts that a mapping is not a hole. The
+leaf verifier caps the length at XFS_XATTR_SIZE_MAX but does not check
+it against the blocks the value owns, so a larger length makes the read
+reach a hole. Without CONFIG_XFS_DEBUG the hole becomes a disk address
+past the end of the device:
 
-nvme_init_ctrl_finish() then overrides queue_count to 1, so the transport
-skips I/O queue setup and the queues that error recovery freed are never
-reallocated, leaving queue->sock NULL.  The controller is switched to LIVE
-anyway with the namespaces still present, and nvme_check_ready() lets any
-request through once the state is LIVE, so blk-mq dispatches to the freed
-queue:
-
-  Oops: general protection fault, probably for non-canonical address 0xdffffc0000000003: 0000 [#1] SMP KASAN NOPTI
-  KASAN: null-ptr-deref in range [0x0000000000000018-0x000000000000001f]
-  CPU: 0 UID: 0 PID: 81 Comm: kworker/0:1H Not tainted 7.4.0-rc4 #1 PREEMPT(lazy)
-  Workqueue: kblockd blk_mq_run_work_fn
-  RIP: 0010:selinux_socket_sendmsg+0x76/0x2f0
-  RSP: 0018:ffffc900008ef528 EFLAGS: 00010206
-  RAX: dffffc0000000000 RBX: ffffc900008ef730 RCX: ffffffff822ab089
-  RDX: 0000000000000003 RSI: 0000000000000000 RDI: ffffc900008ef738
-  RBP: 0000000000000000 R08: 0000000000000005 R09: 0000000000000000
-  R10: 0000000000000001 R11: ffffffff84c14740 R12: 0000000000000000
-  R13: 0000000000000018 R14: 0000000000000000 R15: 0000000000000000
-  FS:  0000000000000000(0000) GS:ffff8880e6931000(0000) knlGS:0000000000000000
-  CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-  CR2: 00007f52b4001b78 CR3: 0000000009275003 CR4: 0000000000770ef0
-  PKRU: 55555554
+  xfs_buf_map_verify: daddr 0x258000001a7f0 out of range, EOFS 0x96000
+  WARNING: fs/xfs/xfs_buf.c:423 at xfs_find_get_buf+0x160f/0x2350
   Call Trace:
-   <TASK>
-   security_socket_sendmsg+0x6f/0x90
-   sock_sendmsg+0x117/0x390
-   nvme_tcp_try_send_cmd_pdu+0x4b7/0x9d0
-   nvme_tcp_try_send+0x20e/0xbf0
-   nvme_tcp_queue_rq+0x1148/0x1510
-   blk_mq_dispatch_rq_list+0x3e3/0x1e30
-   __blk_mq_sched_dispatch_requests+0x218/0x15c0
-   blk_mq_sched_dispatch_requests+0xd7/0x1b0
-   blk_mq_run_work_fn+0xe4/0x190
-   process_one_work+0x747/0x11c0
-   worker_thread+0x57c/0xcb0
-   kthread+0x327/0x430
-   ret_from_fork+0x394/0x770
-   ret_from_fork_asm+0x1a/0x30
+   xfs_buf_read_map (fs/xfs/xfs_buf.c:648)
+   xfs_attr_rmtval_get (fs/xfs/libxfs/xfs_attr_remote.c:434)
+   xfs_attr3_leaf_getvalue (fs/xfs/libxfs/xfs_attr_leaf.c:2718)
 
-Reject any controller type change on a controller that has already been
-initialized.
+Check for a hole or a delalloc extent at run time and return
+-EFSCORRUPTED, as xfs_attr_rmtval_stale() does.
 
-Fixes: e715b8733df60a ("nvme: add capability to connect to an administrative controller")
-Cc: stable@vger.kernel.org
-Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 ---
-v1: https://lore.kernel.org/linux-nvme/20261124133122.4167640-1-yhlee@isslab.korea.ac.kr/
+v2:
+- Read the start block into a local so that the checks fit in 80
+  columns, and post the patch as its own thread (Christoph).
+v1: https://lore.kernel.org/linux-xfs/179523678723.1642977.7101755246592074809@gmail.com/
+Report: https://lore.kernel.org/linux-xfs/179505710272.3511680.12978324583605871086@gmail.com/
 
-Changes in v2, after review feedback:
-- Generalize the check and move it.  v1 rejected the change from inside
-  the administrative-controller override in nvme_init_ctrl_finish(), and
-  only for the I/O-to-administrative direction.  v2 checks in
-  nvme_init_identify(), immediately before ctrl->cntrltype is overwritten,
-  and rejects any controller type change on an already initialized
-  controller.  That also covers administrative-to-I/O and changes to or
-  from a discovery controller, both of which v1 let through.
-- Cut the commit message down to the basics: drop the walkthrough of the
-  resulting state, the CVE references and the note about the other fabrics
-  transports.
-- The subject changed with the generalization ("an administrative
-  controller type" -> "a controller type change"); say so and it goes back
-  to the v1 wording.
+An image with crafted metadata and recomputed CRCs is outside the XFS
+threat model, so this is a hardening fix for such an image, not a
+security fix.
 
- drivers/nvme/host/core.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+The issue was found by an LLM-guided test generator that we are
+developing as a research prototype. The patch was written with LLM
+assistance; we reviewed and tested it. It applies to the xfs for-next
+branch. With it, the reproducer from the report no longer triggers the
+warning, and XFS reports the corruption instead.
 
-diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
-index f43582e5f6c4a9..ffe6a63d24e1dc 100644
---- a/drivers/nvme/host/core.c
-+++ b/drivers/nvme/host/core.c
-@@ -3736,6 +3736,18 @@ static int nvme_init_identify(struct nvme_ctrl *ctrl)
- 	ctrl->max_namespaces = le32_to_cpu(id->mnan);
- 	ctrl->ctratt = le32_to_cpu(id->ctratt);
+ fs/xfs/libxfs/xfs_attr_remote.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/fs/xfs/libxfs/xfs_attr_remote.c b/fs/xfs/libxfs/xfs_attr_remote.c
+index e6c8dd1a997a..7cd3f2de1a80 100644
+--- a/fs/xfs/libxfs/xfs_attr_remote.c
++++ b/fs/xfs/libxfs/xfs_attr_remote.c
+@@ -424,12 +424,16 @@ xfs_attr_rmtval_get(
+ 		ASSERT(nmap >= 1);
  
-+	/*
-+	 * The controller type fixes whether the controller has I/O queues,
-+	 * so it must not change while the controller is in use.
-+	 */
-+	if (ctrl->identified && ctrl->cntrltype != id->cntrltype) {
-+		dev_err(ctrl->device,
-+			"controller type changed from %u to %u on reinitialization\n",
-+			ctrl->cntrltype, id->cntrltype);
-+		ret = -EINVAL;
-+		goto out_free;
-+	}
-+
- 	ctrl->cntrltype = id->cntrltype;
- 	ctrl->dctype = id->dctype;
+ 		for (i = 0; (i < nmap) && (valuelen > 0); i++) {
++			xfs_fsblock_t	fsbno = map[i].br_startblock;
+ 			xfs_daddr_t	dblkno;
+ 			int		dblkcnt;
  
+-			ASSERT((map[i].br_startblock != DELAYSTARTBLOCK) &&
+-			       (map[i].br_startblock != HOLESTARTBLOCK));
+-			dblkno = XFS_FSB_TO_DADDR(mp, map[i].br_startblock);
++			if (XFS_IS_CORRUPT(mp, fsbno == DELAYSTARTBLOCK) ||
++			    XFS_IS_CORRUPT(mp, fsbno == HOLESTARTBLOCK)) {
++				xfs_bmap_mark_sick(args->dp, XFS_ATTR_FORK);
++				return -EFSCORRUPTED;
++			}
++			dblkno = XFS_FSB_TO_DADDR(mp, fsbno);
+ 			dblkcnt = XFS_FSB_TO_BB(mp, map[i].br_blockcount);
+ 			error = xfs_buf_read(mp->m_ddev_targp, dblkno, dblkcnt,
+ 					0, &bp, &xfs_attr3_rmt_buf_ops);
 -- 
 2.43.0
 
