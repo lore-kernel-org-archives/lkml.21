@@ -1,87 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.187.6.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795610739;
-	b=mkY0i75gKOJ73hLWi+YAiACMgR3juiczVWEtj/k+l+wOIr5Z/MF64bfvYRSXBKSI7QKy
-	 VeECp5sEmM6zcbRAAKMaJHsonHp3BWelXnVnLLF2ReShSIEk+67/ASTYh1TwZNPXS5SuO
-	 5x5dR32pQG/Jq6uq2iwm15pMofiqJVsyH27sWctLrwwTWmf46lF5bd6mEHtilwAGNZ9+n
-	 iB9V1sZiRSZeCRFvEos6BgRPQdBEfNFQyyh72P9W52gdnmMoEtuHUASyuzK8XNhmJmvHW
-	 ACp/lnL27iU1bK5lZSOXUbtmzhX26na8sJ29j2UiILprBXfg37pE75MfNYTDwFcH43g==
+	t=1795610788;
+	b=Vxw8VSJlkHG26gY9CIs8dHufPLxWtsWzVBD5hq1dD9M2gKiOexcDATSwdfXvy8TUSfkX
+	 qm4rdSLQio+iwAX1n69rMKJp2tGXgdhukMlCZkXre98JetX109/N/rr7dKlBWzA9QCYu3
+	 OJKRhOL6xFihlQq/vdD/FPx7APm9/FDqo0zO+4sNh73k80MHfuafxAnmRLzHR80wp1OBL
+	 tcqss6l29YUecgtYFyTNfJwt56eAOjFXQyZ6XquRamNMUEpuYg4mNi4ysaszza7pG1Quk
+	 J5+LzVR01fKyaJ5F0/kWojR50Q1Bnn+IBEoQypVlhfCeEGNMfsVBFM3zZqrotCsFIoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795610739;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:From:To:Cc:References:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=qCN9DtRdE/+gcLb8xRI6LYPt6eU/gxBRp9uUHYDGFwU=;
-	b=th+3Sfr1LbY5G3dSxBndVeME6n4NDEzDP8NL6c0QdkpC62WngwFx4y5orvevuiozR20W
-	 MmP4GZ1ujElwDdqx+qqT9L64St6ukn4Hh5ypnXeQ6r/YdtokP5iiIg+iRkAxHU1gzJ7XD
-	 hXUAgkX0ZJ1gZC5RoxZiPMYOCFygllvNrrU7WMJMsZ+COERu2MxMd4L+lZ2x7GgPEEU+Q
-	 UiqgfGgYVJDltgbAjxscIXn5HkTLhLhLf2oxvzhsjmOUtiuYNiXpxwcTMbYLeA4WFRyy3
-	 iwjTTCgln8115H9Vn/5khlbsVWIdsiD/Mv/wbnaT0+euu+tXb3a+cvvw+AWbJg31/zg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795610788;
+	h=DMARC-Filter:Received:X-Originating-IP:Date:X-CM-HeaderCharset:From:
+	 To:Cc:Subject:X-Priority:X-Mailer:In-Reply-To:References:
+	 X-CM-CTRLMSGS:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	 Message-ID:X-Coremail-Locale:X-CM-TRANSID:X-CM-SenderInfo:
+	 X-Coremail-Antispam;
+	bh=vWuSs2rzCjEx+95ZdfpQRbN3m7CDnHmvuipHx07P0PQ=;
+	b=biunOZmdsYs29xxJ8p7WcFRXeruuRD1+1Ghd223pw1RSe3XRF9JpPyf8XZ+TB3RV7xIJ
+	 lGZq4sYVogbbKvMxvNnLkNJ20Ojf+TH6C/oLQrOpKSgFOITvowGie2YWvWb5ZAFXzRApI
+	 PqlPqafIY6+7kuxeOXAu8wcvYxxv6gKSg9jLDFfUv7tDsshryM4LIzOGVPkqVwsediStn
+	 bgNAljq7zwbY8YkeqyJGP450RMKMyRgtRZNSdKbgLTKqeCGTWBYnv6J8+xCvnTkS69/jN
+	 g/mK2ks8u2Dv/xPnvK9NqDWRPuXFRZhHEk0xxKdkIvyfe9QzKuEuxycvd2SJNc8nxmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vud2LTlg;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8691A606A339
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:45:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8691A606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vud2LTlg
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so73673545e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:45:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795610738; x=1796215538; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:from:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qCN9DtRdE/+gcLb8xRI6LYPt6eU/gxBRp9uUHYDGFwU=;
-        b=Vud2LTlg4bg+1/37o+Cst/0aGdxrJ6W3Tp/rVd6l2vVhvG4dFi3TP84W8UhlkRa4td
-         +64nQiKhh/jBsVID2R3Ud4zwks1TJP6oDt30N+qHCzT7MVd87U31fZ4WGJNYfoMeJbPT
-         Ngz+Ro6FI0edvNEiJG8sPHIy0I+c7lBshMWlM+cFNaE223Obwrrw4tCKFAzjrb65gl8H
-         AGdXlyrHueMZb+UvN4yF81GbdMCB5yp2LgksHKzQRhb84YCQvkzwLfAsvJqs29CoqD8i
-         zmuPB6WrWXVF7E9jyFuyNI1PXxER2zZcT4WaM33KpCL2qby8Y+Iq1UHJpjx8ZeLoVtcF
-         PlQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795610738; x=1796215538;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :references:cc:to:from:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qCN9DtRdE/+gcLb8xRI6LYPt6eU/gxBRp9uUHYDGFwU=;
-        b=S3EcL83yntl+dMbwFuruqxrNSF/DBphasOW79sD49hzB8dFMT2nPawpEk50BaungHb
-         xNDXnyCoUQ9Mgn1HPh6/l40EyEMPmAO1K77l7EQZl084sQ7ahFyYWR28ab1f3XaRPlmE
-         jany5sCzKXzSabKhrKmK6/J/1MA5xHFhd6BHma8cV3E8smhuEpcmvEdXVymqQ5fmBXUr
-         xoMEmq0MSpi4ybfh5JWtTDeXcN80DV8FVQYtVOv8E3y9fAtF+uTgLsCy7+QLVmfetql4
-         GmOzxen3V2/TBLv3Pa0ASIjtfLCGcLBLODNAZlrkXu6XaBxiv4NVEAItgxoZW/k/2eRX
-         usOg==
-X-Forwarded-Encrypted: i=1; AL+hErHA0T/Cu2QQ+Kuv1vENRgATUROs+C7xaAscfQ9b1n8i82aQeibcs6Z0z2E+/fbLnNn6x2nKgfHKw/R3XlU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+xwKqCGdGMq7lZhxGrXplD1T9sRpqs64v5urcvQvmmHx0Dm7mt
-	+GN9aTVI6O+rUnKQBho4RgDCgM8uTYLP9NOifiJbbDRieRMuAupn1GcM
-X-Gm-Gg: AZFdTZee38eJ9PkWyA0SFKjB7tSpYaFqlIbKf6cUcZ72hAv/+Cdt5RcPxpblaNwThoi
-	loEPpGRA51orY7pfuMDPn/JixgzN7+N8toY1dwD0f9h8z2mm5AWVjHYf5vMkF2gBLFV1FKB/Iix
-	0pIN/lm1bRkmwdfgPoOUWjtQvPnTR/m6gKfR+LEZxZ8lfiyNd4RWDmPKiF532E+NsoWlWaGqAfa
-	4DYmKVwVegVhxX3qdcnJ087uLExOK0lXy4wBKttaoZsvd6Miq8m4YMPbx7C/qQWmzBVe6TX4M8y
-	SqzlNVpNtz0dH4E5HZn77vwlK9gRZmu0uRoIux5/VwMIbM0MlBhzXJ2oMrY1sdSLls5Aupv4BS8
-	FhwxPXyBGLfNStaO7ss8IjmiXbIJDC+m/SA8QdYd37bio1gGUNjd7cTgIiXuMrj4xjSI92u6WAZ
-	Ds+vKqeUYTEs8B63Q2H3AHZybTmlaJd75Ji2+1zYXyZiLm35ftzUHf6afdzLY3GhBrSijC9SR+m
-	MlcjQdgC8wiGyY2VKbATiZQdmReNzyDFYY6ZQmfIC1ckCngjGNFY8RadD9TgAkVJgqJ6d5wnYiG
-	RZe32Ywwl/zQoKPWjhDbUig4XTbUBlv7gNCYviLpo2Y+Pk8/8cv6m9Den90AUA/ZSfRKOm1xHEM
-	RQZoxvikG4qA=
-X-Received: by 2002:a05:600c:8905:b0:4bb:6816:127c with SMTP id 5b1f17b1804b1-4bb861468cdmr344483245e9.8.1795610737633;
-        Wed, 25 Nov 2026 04:45:37 -0800 (PST)
-Received: from [192.168.0.36] (firewall-214-232.seh.ox.ac.uk. [163.1.214.232])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb4341sm34358805f8f.4.2026.11.25.04.45.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 04:45:37 -0800 (PST)
-Message-ID: <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
-Date: Wed, 25 Nov 2026 12:45:36 +0000
+	dmarc=none header.from=hust.edu.cn;
+	spf=pass smtp.mailfrom=hust.edu.cn;
+	arc=none smtp.remote-ip=52.187.6.220
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [52.187.6.220])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id CAD72606A326;
+	Wed, 25 Nov 2026 12:46:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CAD72606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=hust.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hust.edu.cn
+Received: from xuhx$hust.edu.cn ( [10.12.190.107] ) by ajax-webmail-app2
+ (Coremail) ; Wed, 25 Nov 2026 20:46:18 +0800 (GMT+08:00)
+Date: Wed, 25 Nov 2026 20:46:18 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5b6Q5pmX57+U?= <xuhx@hust.edu.cn>
+To: perex@perex.cz, tiwai@suse.com
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] Re: sound: core: get_available_index() calls
+ snd_ctl_find_id()  without controls_rwsem (UAF risk)
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2025.3-cmXT6 build
+ 20260810(6c94e3b5) Copyright (c) 2002-2026 www.mailtech.cn hust
+In-Reply-To: <34dd9f9d.2ad23.1a2024081bb.Coremail.xuhx@hust.edu.cn>
+References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
+ <2026102727-data-sequel-ce41@gregkh>
+ <34dd9f9d.2ad23.1a2024081bb.Coremail.xuhx@hust.edu.cn>
+X-CM-CTRLMSGS: =?B?NfoSETiH6nJ5xwDR7hwMki1N8jM=
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,154 +57,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: [PATCH 1/2] thunderbolt: add opt-in to preserve tunnels across s2idle
-From: Tobias Heath <heathtobias@gmail.com>
-To: Andreas Noever <andreas.noever@gmail.com>,
- Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat
- <YehezkelShB@gmail.com>, Sukhdeep Singh <sukhdeeps@marvell.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Richard Cochran <richardcochran@gmail.com>, linux-usb@vger.kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
-Content-Language: en-US
-In-Reply-To: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Message-ID: <35a9af21.56c.1a212be1cb2.Coremail.xuhx@hust.edu.cn>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:IQEQrMAG7xGa2AZrZnYDAA--.4197W
+X-CM-SenderInfo: bgsqjkayqyjmo6kx23oohg3hdfq/1tbiAQICB2sGaXQ7IwAGso
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VW3Jw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 
-The current implementation of tb_switch_suspend() / tb_switch_resume()
-writes ROUTER_CS_5 SLP into each USB4 switch on entry to s2idle and
-rebuilds the tunnel on resume, independently of whether the host router
-and connected switches actually need that teardown. On AMD USB4 host
-controllers (verified on Ryzen AI 9 HX 370; same expected on Phoenix /
-Strix generation hardware), the switch config survives D3hot intact,
-and the mandatory rebuild produces an entirely avoidable re-enumeration
-cascade on wake:
-
-  * Every downstream USB device goes through USB disconnect + fresh add,
-    device numbers increment, open file descriptors onto those devices
-    are invalidated (audio streams interrupted, filesystem mounts
-    unmounted-and-remounted by udisks, etc.).
-  * PCIe hot-plug fires for the dock-side bridges.
-  * The dock's PD controller is reset, producing a 1 - 2 s
-    ADP1 ONLINE=0 blip that interferes with any userspace relying on
-    AC state at wake time (for instance systemd's HibernateOnACPower=
-    policy).
-  * resume_devices takes ~2 - 5 s of avoidable work.
-
-Add a module parameter, thunderbolt.s2idle_preserve (default: off), which
-skips both the tb_switch_suspend() teardown on suspend_noirq and the
-tb_switch_resume() + tb_tunnel_activate() rebuild on resume_noirq, when
-the sleep target is PM_SUSPEND_TO_IDLE. S3 and hibernate paths are
-unaffected.
-
-Measured on GPD Win Max 2 with CalDigit TS5 Plus dock:
-
-  Default upstream:  resume_devices = 2.6 s; USB storm per wake; AC blip.
-  s2idle_preserve=1: resume_devices = 0.2 s; zero re-enumeration events;
-                     AC stable; downstream connections (audio, storage,
-                     keyboard) survive unchanged.
-
-The opt-in gate is deliberate. Where the TB tree is not preserved by
-hardware across s2idle (e.g. some Intel generations under specific
-firmware configurations), enabling this would leave the kernel with
-stale state at wake; users are expected to test on their own hardware
-before enabling.
-
-One known caveat: a wake event originating from a USB input device on
-the host's own xHCI (not routed through the dock), while a TB dock is
-connected and preserve is active, can produce a quiet resume hang on
-some hardware. The resume path appears to enter but never completes;
-no DPM watchdog or softlockup fires. We were unable to capture a panic
-or stack for this case. Workaround for affected users: route input
-devices through the dock. Likely root cause: tb_switch_set_wake() is
-not called on dock-side routers when preserve skips tb_switch_suspend,
-leaving the dock's routers unaware of a wake coming from elsewhere on
-the system bus; a future refinement might split wake-arming from the
-teardown path.
-
-A second, more serious caveat is the reason the companion atlantic
-patch exists: unplugging a Thunderbolt device during a preserved s2idle
-window surfaces a pre-existing atlantic / pciehp deadlock that panics
-the kernel after 120 s on DPM watchdog. See the cover letter.
-
-Signed-off-by: Tobias Heath <heathtobias@gmail.com>
----
- drivers/thunderbolt/tb.c | 35 +++++++++++++++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
-
-diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
-index 57c11ba13..f48c365be 100644
---- a/drivers/thunderbolt/tb.c
-+++ b/drivers/thunderbolt/tb.c
-@@ -11,6 +11,7 @@
- #include <linux/delay.h>
- #include <linux/pm_runtime.h>
- #include <linux/stringify.h>
-+#include <linux/suspend.h>
-
- #include "tb.h"
- #include "tb_regs.h"
-@@ -49,6 +50,22 @@ MODULE_PARM_DESC(asym_threshold,
- 		"threshold (Mb/s) when to Gen 4 switch link symmetry. 0 disables. (default: "
- 		__stringify(TB_ASYM_THRESHOLD) ")");
-
-+/*
-+ * Experimental: on s2idle entry, skip the tunnel teardown so the host router
-+ * and downstream switches keep their state across Modern Standby. The TB
-+ * switches stay in D3hot with their config registers intact; on wake no
-+ * re-enumeration or tunnel rebuild is needed and downstream USB devices do
-+ * not re-appear with new device numbers. Applies only when the sleep target
-+ * is PM_SUSPEND_TO_IDLE; S3 and hibernate are never affected.
-Runtime-writable.
-+ * The suspend-time value is latched for the matching resume.
-+ */
-+static bool s2idle_preserve;
-+module_param(s2idle_preserve, bool, 0644);
-+MODULE_PARM_DESC(s2idle_preserve,
-+		"preserve TB tunnels across s2idle (default: 0, off)");
-+
-+static bool s2idle_preserve_active;
-+
- /**
-  * struct tb_cm - Simple Thunderbolt connection manager
-  * @tunnel_list: List of active tunnels
-@@ -3109,6 +3126,15 @@ static int tb_start(struct tb *tb, bool reset)
- static int tb_suspend_noirq(struct tb *tb)
- {
- 	struct tb_cm *tcm = tb_priv(tb);
-+	bool is_s2idle = (pm_suspend_target_state == PM_SUSPEND_TO_IDLE);
-+
-+	s2idle_preserve_active = is_s2idle && s2idle_preserve;
-+
-+	if (s2idle_preserve_active) {
-+		tb_dbg(tb, "s2idle-preserve: skipping tunnel teardown on suspend\n");
-+		tcm->hotplug_active = false;
-+		return 0;
-+	}
-
- 	tb_dbg(tb, "suspending...\n");
- 	tb_disconnect_and_release_dp(tb);
-@@ -3175,8 +3201,17 @@ static int tb_resume_noirq(struct tb *tb)
- 	struct tb_cm *tcm = tb_priv(tb);
- 	struct tb_tunnel *tunnel, *n;
- 	unsigned int usb3_delay = 0;
-+	bool latched = s2idle_preserve_active;
- 	LIST_HEAD(tunnels);
-
-+	s2idle_preserve_active = false;
-+
-+	if (latched) {
-+		tb_dbg(tb, "s2idle-preserve: skipping switch_resume and tunnel
-re-activate\n");
-+		tcm->hotplug_active = true;
-+		return 0;
-+	}
-+
- 	tb_dbg(tb, "resuming...\n");
-
- 	/*
--- 
-2.56.1
+Z2V0X2F2YWlsYWJsZV9pbmRleCgpIHdhbGtlZCB0aGUgY29udHJvbCBpZCBzcGFjZSB2aWEKc25k
+X2N0bF9maW5kX2lkKCkgd2l0aG91dCBob2xkaW5nIGNhcmQtPmNvbnRyb2xzX3J3c2VtOyB0aGUK
+Q09ORklHX1NORF9DVExfRkFTVF9MT09LVVAgZmFzdCBwYXRoIGRvZXMgeGFfbG9hZCgpIGFuZApl
+bGVtX2lkX21hdGNoZXMoKSB3aXRob3V0IGFueSBsb2NrLCBzbyBhIGNvbmN1cnJlbnQKc25kX2N0
+bF9yZW1vdmUoKSAocndzZW0gd3JpdGUsIHJlbW92ZV9oYXNoX2VudHJpZXMsIGxpc3RfZGVsLApr
+ZnJlZSkgY291bGQgZnJlZSB0aGUga2NvbnRyb2wgYmV0d2VlbiB0aGUgeGFfbG9hZCgpIGFuZCB0
+aGUgaWQKcmVhZCAtLSBhIHVzZS1hZnRlci1mcmVlLgoKUmVzdG9yZSB0aGUgdXBzdHJlYW0gZ3Vh
+cmQ6IGhvbGQgY29udHJvbHNfcndzZW0gZm9yIHJlYWRpbmcgYWNyb3NzCnRoZSBpbmRleCBsb29w
+IGluIHNuZF9rY3RsX2phY2tfbmV3KCk7IHRoZSByZWFkIHNpZGUgaXMgcmVsZWFzZWQKYmVmb3Jl
+IHRoZSBjYWxsZXIncyBzbmRfY3RsX2FkZCgpLCB3aGljaCB0YWtlcyB0aGUgd3JpdGUgc2lkZS4K
+LS0tCiBzb3VuZC9jb3JlL2N0bGphY2suYyB8IDEwICsrKysrKysrKy0KIDEgZmlsZSBjaGFuZ2Vk
+LCA5IGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKCmRpZmYgLS1naXQgYS9zb3VuZC9jb3Jl
+L2N0bGphY2suYyBiL3NvdW5kL2NvcmUvY3RsamFjay5jCi0tLSBhL3NvdW5kL2NvcmUvY3RsamFj
+ay5jCisrKyBiL3NvdW5kL2NvcmUvY3RsamFjay5jCkBAIC03Myw3ICs3MywxNSBAQAogCQlyZXR1
+cm4gTlVMTDsKIAogCWphY2tfa2N0bF9uYW1lX2dlbihrY3RsLT5pZC5uYW1lLCBuYW1lLCBzaXpl
+b2Yoa2N0bC0+aWQubmFtZSkpOwotCWtjdGwtPmlkLmluZGV4ID0gZ2V0X2F2YWlsYWJsZV9pbmRl
+eChjYXJkLCBrY3RsLT5pZC5uYW1lKTsKKwkvKiBnZXRfYXZhaWxhYmxlX2luZGV4KCkgd2Fsa3Mg
+dGhlIGNvbnRyb2wgaWQgc3BhY2UgdGhyb3VnaAorCSAqIHNuZF9jdGxfZmluZF9pZCgpLCB3aG9z
+ZSBDT05GSUdfU05EX0NUTF9GQVNUX0xPT0tVUCBmYXN0IHBhdGgKKwkgKiByZWFkcyB0aGUgY2Fu
+ZGlkYXRlIGtjb250cm9sJ3MgaWQgd2l0aG91dCBhbnkgbG9jayBvZiBpdHMgb3duLgorCSAqIEhv
+bGQgY29udHJvbHNfcndzZW0gZm9yIHJlYWRpbmcgYWNyb3NzIHRoZSBsb29wIHNvIGEgY29uY3Vy
+cmVudAorCSAqIHNuZF9jdGxfcmVtb3ZlKCkgY2Fubm90IHJlbW92ZSBhbmQga2ZyZWUoKSB0aGUg
+a2NvbnRyb2wgYmV0d2VlbgorCSAqIHRoZSB4YV9sb2FkKCkgYW5kIHRoZSBpZCByZWFkLiAgVGhl
+IHJlYWQgc2lkZSBpcyByZWxlYXNlZCBiZWZvcmUKKwkgKiB0aGUgY2FsbGVyJ3Mgc25kX2N0bF9h
+ZGQoKSwgd2hpY2ggdGFrZXMgdGhlIHdyaXRlIHNpZGUuICovCisJc2NvcGVkX2d1YXJkKHJ3c2Vt
+X3JlYWQsICZjYXJkLT5jb250cm9sc19yd3NlbSkKKwkJa2N0bC0+aWQuaW5kZXggPSBnZXRfYXZh
+aWxhYmxlX2luZGV4KGNhcmQsIGtjdGwtPmlkLm5hbWUpOwogCWtjdGwtPnByaXZhdGVfdmFsdWUg
+PSAwOwogCXJldHVybiBrY3RsOwogfQoKCj4gLS0tLS3ljp/lp4vpgq7ku7YtLS0tLQo+IOWPkeS7
+tuS6ujog5b6Q5pmX57+UIDx4dWh4QGh1c3QuZWR1LmNuPgo+IOWPkemAgeaXtumXtDoyMDI2LTEx
+LTIyIDE1OjU1OjExICjmmJ/mnJ/ml6UpCj4g5pS25Lu25Lq6OiBwZXJleEBwZXJleC5jeiwgdGl3
+YWlAc3VzZS5jb20KPiDmioTpgIE6IGxpbnV4LXNvdW5kQHZnZXIua2VybmVsLm9yZywgbGludXgt
+a2VybmVsQHZnZXIua2VybmVsLm9yZwo+IOS4u+mimDogc291bmQ6IGNvcmU6IGdldF9hdmFpbGFi
+bGVfaW5kZXgoKSBjYWxscyBzbmRfY3RsX2ZpbmRfaWQoKSAgd2l0aG91dCBjb250cm9sc19yd3Nl
+bSAoVUFGIHJpc2spCj4gCj4gZ2V0X2F2YWlsYWJsZV9pbmRleCgpIGluIHNvdW5kL2NvcmUvY3Rs
+amFjay5jIHdhbGtzIHRoZSBjb250cm9sIGlkIHNwYWNlCj4gYnkgY2FsbGluZyBzbmRfY3RsX2Zp
+bmRfaWQoKSBpbiBhIGxvb3AsIGJ1dCBpdCBkb2VzIG5vdCBob2xkCj4gY2FyZC0+Y29udHJvbHNf
+cndzZW0uICBzbmRfY3RsX2ZpbmRfaWQoKSdzIGZhc3QgcGF0aCBpcyBpdHNlbGYgbG9ja2xlc3M6
+Cj4gaXQgZG9lcyB4YV9sb2FkKCZjYXJkLT5jdGxfaGFzaCwgLi4uKSBhbmQgZWxlbV9pZF9tYXRj
+aGVzKCkgcmVhZHMgdGhlCj4gY2FuZGlkYXRlIGtjb250cm9sJ3MgaWQuICBBIGNvbmN1cnJlbnQg
+c25kX2N0bF9yZW1vdmUoKSBob2xkcyB0aGUgd3JpdGUKPiBzaWRlIG9mIGNvbnRyb2xzX3J3c2Vt
+LCByZW1vdmVzIHRoZSBoYXNoIGVudHJpZXMsIGxpc3RfZGVsKClzIHRoZSBub2RlCj4gYW5kIGtm
+cmVlKClzIHRoZSBrY29udHJvbC4gIGdldF9hdmFpbGFibGVfaW5kZXgoKSBjYW4gdGhlcmVmb3Jl
+IGxvYWQgYQo+IGtjb250cm9sIHRoYXQgaXMgYmVpbmcgZnJlZWQgYW5kIHJlYWQgaXRzIGlkIGFm
+dGVyIHRoZSBmcmVlIC0tIGEKPiB1c2UtYWZ0ZXItZnJlZSByZWFkLiAgVXBzdHJlYW0gcHV0cyBn
+dWFyZChyd3NlbV9yZWFkKSgmY2FyZC0+Y29udHJvbHNfcndzZW0pCj4gYXJvdW5kIHRoZSBsb29w
+IGluIHNuZF9rY3RsX2phY2tfbmV3KCk7IHRoaXMgdHJlZSBoYXMgbm8gbG9jayB0aGVyZS4KPiAK
+PiBUaGlzIGlzIGEgc3RhdGljIHJlcG9ydDogSSBoYXZlIGEgY29tcGxldGUgY29kZSBwYXRoIGFu
+ZCBhbiB1cHN0cmVhbQo+IGRpZmYsIGJ1dCBJIGRpZCBub3QgYnVpbGQgYSBkeW5hbWljIHJlcHJv
+ZHVjZXIgZm9yIHRoaXMgcGFydGljdWxhcgo+IHdpbmRvdy4gIEkgYW0gcmVwb3J0aW5nIGl0IGJl
+Y2F1c2UgdGhlIG1pc3NpbmcgbG9jayBpcyB1bmFtYmlndW91cyBhbmQKPiB0aGUgcmVxdWlyZWQg
+Y29uY3VycmVudCBvcGVyYXRpb25zIGFyZSByZWFjaGFibGUgZnJvbSB1c2Vyc3BhY2UuCj4gCj4g
+VGhlIGRldGFpbGVkIGRlc2NyaXB0aW9uOgo+IAo+ICogVGVzdCBlbnZpcm9ubWVudCAvIGFmZmVj
+dGVkIHZlcnNpb24KPiAKPiAgIFNvdXJjZSBhbmFseXNpcyBhZ2FpbnN0IG1haW5saW5lIDcuMzsg
+bm8gZHluYW1pYyByZXByb2R1Y2VyIHdhcyBydW4KPiAgIGZvciB0aGlzIGNhc2UuICBUaGUgcmVs
+YXRlZCBzb3VuZC9jb3JlIHJlcG9ydCB3YXMgcHJvZHVjZWQgb24gYSA3LjMKPiAgIEtBU0FOIGtl
+cm5lbCwgYnV0IHRoYXQgcnVuIGRvZXMgbm90IGNvdmVyIE1SLTA1Lgo+IAo+ICogUm9vdCBjYXVz
+ZQo+IAo+ICAgc291bmQvY29yZS9jdGxqYWNrLmM6MzEtNDYgKGdldF9hdmFpbGFibGVfaW5kZXgp
+Ogo+IAo+ICAgICBzdGF0aWMgaW50IGdldF9hdmFpbGFibGVfaW5kZXgoc3RydWN0IHNuZF9jYXJk
+ICpjYXJkLCBjb25zdCBjaGFyICpuYW1lKQo+ICAgICB7Cj4gICAgICAgICBzdHJ1Y3Qgc25kX2N0
+bF9lbGVtX2lkIHNpZDsKPiAgICAgICAgIG1lbXNldCgmc2lkLCAwLCBzaXplb2Yoc2lkKSk7Cj4g
+ICAgICAgICBzaWQuaW5kZXggPSAwOwo+ICAgICAgICAgc2lkLmlmYWNlID0gU05EUlZfQ1RMX0VM
+RU1fSUZBQ0VfQ0FSRDsKPiAgICAgICAgIHN0cnNjcHkoc2lkLm5hbWUsIG5hbWUsIHNpemVvZihz
+aWQubmFtZSkpOwo+IAo+ICAgICAgICAgd2hpbGUgKHNuZF9jdGxfZmluZF9pZChjYXJkLCAmc2lk
+KSkgeyAgIC8qIG5vIGNvbnRyb2xzX3J3c2VtICovCj4gICAgICAgICAgICAgc2lkLmluZGV4Kys7
+Cj4gICAgICAgICAgICAgc2lkLm51bWlkID0gMDsKPiAgICAgICAgIH0KPiAgICAgICAgIHJldHVy
+biBzaWQuaW5kZXg7Cj4gICAgIH0KPiAKPiAgIHNvdW5kL2NvcmUvY29udHJvbC5jOjg0My04Njgg
+KHNuZF9jdGxfZmluZF9pZCkgZG9jdW1lbnRzIHRoYXQgaXQKPiAgIHRha2VzIGNhcmQtPmNvbnRy
+b2xzX3J3bG9jayBpbnRlcm5hbGx5LCBidXQgdGhlCj4gICBDT05GSUdfU05EX0NUTF9GQVNUX0xP
+T0tVUCBmYXN0IHBhdGggZG9lcyB4YV9sb2FkKCkgYW5kCj4gICBlbGVtX2lkX21hdGNoZXMoKSB3
+aXRob3V0IHRha2luZyBpdDsgb25seSB0aGUgZmFsbGJhY2sgbGlzdCB3YWxrIHRha2VzCj4gICBy
+ZWFkX2xvY2tfaXJxc2F2ZSgpLiAgX19zbmRfY3RsX3JlbW92ZSgpIChjb250cm9sLmM6NTgxLTYw
+MSkgcnVucwo+ICAgdW5kZXIgY29udHJvbHNfcndzZW0gd3JpdGUsIGNhbGxzIHJlbW92ZV9oYXNo
+X2VudHJpZXMoY2FyZCwga2NvbnRyb2wpLAo+ICAgdGhlbiBzbmRfY3RsX2ZyZWVfb25lKGtjb250
+cm9sKSAtPiBrZnJlZSgpLiAgVGh1cyBhIGxvY2tsZXNzCj4gICB4YV9sb2FkKCkgY2FuIG9ic2Vy
+dmUgYSBrY29udHJvbCB0aGF0IGlzIGFib3V0IHRvIGJlIGZyZWVkLCBhbmQKPiAgIGVsZW1faWRf
+bWF0Y2hlcygpIGNhbiByZWFkIGl0IGFmdGVyd2FyZHMuCj4gCj4gICBVcHN0cmVhbSBzbmRfa2N0
+bF9qYWNrX25ldygpIGhhczoKPiAKPiAgICAgZ3VhcmQocndzZW1fcmVhZCkoJmNhcmQtPmNvbnRy
+b2xzX3J3c2VtKTsKPiAKPiAgIGJlZm9yZSBjYWxsaW5nIGdldF9hdmFpbGFibGVfaW5kZXgoKTsg
+dGhlIGN1cnJlbnQgdHJlZSByZW1vdmVkIGl0Lgo+IAo+ICogUmVhY2hhYmlsaXR5Cj4gCj4gICAt
+IGdldF9hdmFpbGFibGVfaW5kZXgoKSBpcyBjYWxsZWQgZnJvbSBzbmRfa2N0bF9qYWNrX25ldygp
+Cj4gICAgIChjdGxqYWNrLmM6NjItNzcpLCB3aGljaCBpcyBjYWxsZWQgYnkgc25kX2phY2tfa2N0
+bF9uZXcoKQo+ICAgICAoamFjay5jOjQyNi00NTYpIGFuZCBzbmRfamFja19hZGRfbmV3X2tjdGwo
+KSAoamFjay5jOjQ2OC00NzgpLgo+ICAgLSBSdW50aW1lIGNhbGxlcjogc291bmQvc29jL3RpL2Ft
+cy1kZWx0YS5jOjM2MSBjYWxscwo+ICAgICBzbmRfc29jX2phY2tfYWRkX3BpbnMoKSBmcm9tIHRo
+ZSB0dHkgbGluZSBkaXNjaXBsaW5lIHJlY2VpdmUgcGF0aDsKPiAgICAgc25kX3NvY19qYWNrX2Fk
+ZF9waW5zKCkgKHNvdW5kL3NvYy9zb2MtamFjay5jOjE1NSkgY2FsbHMKPiAgICAgc25kX2phY2tf
+YWRkX25ld19rY3RsKCkgYWZ0ZXIgdGhlIGNhcmQgaXMgcmVnaXN0ZXJlZC4KPiAgIC0gQSB1c2Vy
+IHdpdGggd3JpdGUgYWNjZXNzIHRvIC9kZXYvc25kL2NvbnRyb2xDKiBjYW4gYWRkIGFuZCByZW1v
+dmUKPiAgICAgU05EUlZfQ1RMX0VMRU1fQUNDRVNTX1VTRVIgY29udHJvbHMgd2l0aCBpZmFjZQo+
+ICAgICBTTkRSVl9DVExfRUxFTV9JRkFDRV9DQVJEIGFuZCBhbiBhcmJpdHJhcnkgbmFtZQo+ICAg
+ICAoc25kX2N0bF9lbGVtX2FkZCgpL3NuZF9jdGxfcmVtb3ZlX3VzZXJfY3RsKCksIGNvbnRyb2wu
+Yzo2NjItNjc4KS4KPiAgICAgQSBjb250cm9sIHdpdGggdGhlIHNhbWUgbmFtZSBhcyB0aGUgamFj
+ayBrY29udHJvbCBpcyB0aGUgY29uY3VycmVudAo+ICAgICBvYmplY3QuCj4gCj4gICBDb25kaXRp
+b25zOiBDT05GSUdfU05EX0NUTF9GQVNUX0xPT0tVUD15IChvdGhlcndpc2UgdGhlIGZhbGxiYWNr
+IHdhbGsKPiAgIGhvbGRzIHRoZSByZWFkIGxvY2sgYW5kIHRoZSBVQUYgZG9lcyBub3QgYXBwbHkp
+OyBhIHJ1bnRpbWUgamFjay1waW4KPiAgIGFkZGl0aW9uIHBhdGg7IGEgY29uY3VycmVudCBjb250
+cm9sIGFkZC9yZW1vdmUgd2l0aCBhIGNvbGxpZGluZyBuYW1lLgo+ICAgVGhlIHJhY2Ugd2luZG93
+IGlzIHNtYWxsLCBidXQgdGhlIG1pc3NpbmcgbG9jayBtYWtlcyBpdCBhIGtlcm5lbCBidWcKPiAg
+IHJlZ2FyZGxlc3Mgb2YgcmVwcm9kdWNpYmlsaXR5Lgo+IAo+ICogSW1wYWN0Cj4gCj4gICBlbGVt
+X2lkX21hdGNoZXMoKSByZWFkcyBrY29udHJvbC0+aWQubmFtZS9pZmFjZS9pbmRleCBmcm9tIGZy
+ZWVkCj4gICBtZW1vcnk6IEtBU0FOIHVzZS1hZnRlci1mcmVlIHJlYWQsIHBvdGVudGlhbCBjcmFz
+aCBvciBsaW1pdGVkCj4gICBpbmZvcm1hdGlvbiBleHBvc3VyZS4gIEEgc2Vjb25kLCBub24tbWVt
+b3J5LXNhZmV0eSBzeW1wdG9tIGlzIHR3bwo+ICAgamFjayBrY29udHJvbHMgY2hvb3NpbmcgdGhl
+IHNhbWUgaW5kZXg7IHRoZSBsYXRlciBzbmRfY3RsX2FkZCgpCj4gICByZXR1cm5zIC1FQlVTWSwg
+c28gamFjayBjcmVhdGlvbiBmYWlscy4KPiAKPiAqIFN1Z2dlc3RlZCBkaXJlY3Rpb24KPiAKPiAg
+IEhvbGQgY29udHJvbHNfcndzZW0gZm9yIHJlYWRpbmcgYWNyb3NzIHRoZSBnZXRfYXZhaWxhYmxl
+X2luZGV4KCkgbG9vcCwKPiAgIGUuZy4gcmVzdG9yZSB0aGUgdXBzdHJlYW0gZ3VhcmQgaW4gc25k
+X2tjdGxfamFja19uZXcoKSAodGhlIGxvY2sgbXVzdAo+ICAgYmUgcmVsZWFzZWQgYmVmb3JlIHNu
+ZF9jdGxfYWRkKCksIHdoaWNoIHRha2VzIHRoZSB3cml0ZSBzaWRlKS4KPiAKPiAKPiAgIFBsZWFz
+ZSBrZWVwIG1lIGluIENjOyBJIGFtIG5vdCBzdWJzY3JpYmVkIHRvIHRoZSBsaXN0cy4KPiAKPiBS
+ZWdhcmRzLAo+IEhhbnhpYW5nIFh1Cj4geHVoeEBodXN0LmVkdS5jbgo=
