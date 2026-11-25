@@ -1,109 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=129.217.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620236;
-	b=vGeStyd6oNVisdDcuIxmJ+r963dsCkl8SSzefiTipARr6ogwOBz6f8cgHLu33p4QeK6h
-	 5k9kdSTgCNqLq7M8co4ftoHtNNgQoIKYqZFrSXS5fbK3V64sj13RsjYoa/egX2Fj+NFuL
-	 pmZv/6Ot2W4ruj4KzsfDQcbFi/Tp6LZ52asYLaXUaOLdetNauu/PEWguGGZWygdwbvahq
-	 aCmnPrpry/ORM0QxMLjyFviRL49FULTHaBibPVYzx9NHQ7I3QZAyS2W3zsh8vZchLjxyk
-	 KyBJaTUHZfhElC6HahCvTVtwuemJjn14ZE6iFds8tmQZjnMTrwNDFwFq8sUEC5Ds2tg==
+	t=1795620227;
+	b=b+FI0rIelTaiD0bNpAri6NLsQ7bVVL9rfCLeJJRpNy5t1hD+yEH/Zs8yHrMKmYkvC0dc
+	 dyZWuWvsYNKymfiPLLupJky1nbLVmE+JQM/5aY9n49H/syFg8ilj9828kAYafO00m/Gwr
+	 p0KbH1rQJOH15uIFn9oCFaBao4F/m4ZpGaNJRk+IESLfvDOzVoq5CEgFx7bup/MM1JulW
+	 7MzBsUdP1OFDcddZPpqVl7nAlH4FRwTLyf08spcZvn2v8uSPWXubLemOmsBjd0LgMqr3m
+	 nqVEFxxA3eZ3SE0L+zBBYLBe1nm9jeRnLcUnuR/FCkG0a/PEEqzZaAy2SesozBI2+Ag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620236;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=6EawhG+KLo0QFi1RDOt/xFrv1BkUvSlbwXPxTKgA5RU=;
-	b=23uTWgmB0qFKaCnRHLuTXdHtb4WPhas27a76ksg6pHL7Hot3GVFtuRYoGNYce92f6PMr
-	 383C1XVYvZvqtRX4teHZuNPI+6Hgm60Zur5qbrYtMR/fQU/XjDq0LjgOhpiKCEWHBomnU
-	 JRw0675i/LSZVYQ6YHqd4quHr47jEIJYhhWI1a61C1c7NXvTBeJDKkXejbui/jnlwO0r1
-	 Z3hV5PDaYTg/AjMxSFnp+AtgrTPRvZT+YCgvmguk6xFWB/8IyVEq74rzDBhjibyBXyEyM
-	 MCqMlWYAsj9hFasxnOHlKmkPJSBEXE6rZXQI8fF/mJCL1BAEfMDV8UYX9T74bpc61lg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620227;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=i8WL8KVOFFwJaUNqpb8Y5QPC+4OxinZ301w/l2clA6k=;
+	b=L1PS9jrKZ094piofFM+kGtnLuRp2dLiRxLx76/E/+Kw9XzgBTEW1fr6lH4UjQRy6wmL2
+	 bsWHMb9nIYj1X190LrwETlCL4s8eN2eU8AnGa1+WGlo3gx+6JS2GikNNENnTcmMR0a/V0
+	 r65dQjDWcIpeElbK9HoKsEEZpJD5wjEBEdiGNNvSenLOjmTdjiCxc7T9JKN2lLS53gRkS
+	 gStFYY2gvlC8Hkbqwf7Jien3U/Lksb5okJy+cXJyPVH35yP4nBU1tvp+ePO8IihGyxgcJ
+	 EhEmMFHQ5Cgg8yD/z2Dp2nF6A7LPD0EMQ3qDncY9W6PlTvvuGlkO/4NeSz9IYXfVioA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="HV59Go/c";
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=tu-dortmund.de;
+	spf=pass smtp.mailfrom=tu-dortmund.de;
+	dkim=pass header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b=FPnoMXV9;
+	arc=none smtp.remote-ip=129.217.128.51
+Received: from unimail.uni-dortmund.de (mx1.hrz.uni-dortmund.de [129.217.128.51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D120606A333
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:23:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D120606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DE76606A321;
+	Wed, 25 Nov 2026 15:23:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6DE76606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=tu-dortmund.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tu-dortmund.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HV59Go/c
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb67b3a18aso5640135e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:23:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795620234; x=1796225034; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6EawhG+KLo0QFi1RDOt/xFrv1BkUvSlbwXPxTKgA5RU=;
-        b=HV59Go/cpYxcL5WAtD+1Xny/BMhy0t9/kE+xSUBeIAXT2ybiCQLIyTQ4h3HkOSA2iq
-         gNyH9I8G/McXyIPTXuzl14x+pjVZ87BluZhtNOeTcSGH4nzsaFp3M6hxc1PnlWFzuXK3
-         QNdVzw/Aejc2xEcOcciscKn5TAVulJgU5L99QIYaUJPpzsS92Cd0hVkaEzdBtnIwti4U
-         pxmm7IGW1a67oLYNGiSKwli/TzIA8SRprYd/iw9Ry8YwYmozZZAGEDyTU/xj6VEZn/be
-         2S4/cgN4xMsLbNse50VLvxG0hag43J4BvpXXIFgacs9GnWPvyHuoy1fRcnJxLdGbM6vr
-         erGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795620234; x=1796225034;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6EawhG+KLo0QFi1RDOt/xFrv1BkUvSlbwXPxTKgA5RU=;
-        b=PGhuoc2QVDA7809bC7L11cvrTEyYE0moHRLwootSwsJhDwLBmG1AJJC/Fj4H5yeP5J
-         k2SgElB0qZAMY7vRzEb4PDhdSbG/6h0SSVmV7Z++AxU0rWO/D5So6zewHUKOO1yJilqI
-         bpw5lDi7KPu2s0c5nc97tepoa2hnI9f6XCVxxFcUh6RwLPH8M6j/dOtviH/cMvXfgeAp
-         ISR8vVtJ3ajluUQekEN5pjHcYGaRWWpAHcffYwkjwQLjJxnHqBTqF46AYBN3wdxfU8j1
-         wT72Zmtt9ljYTjU3m4rO/Hxr7go9Yfvptn2ycshbHmaNociBOQln167VJM8NKBWuFdyN
-         xgcA==
-X-Forwarded-Encrypted: i=1; AL+hErGN2w0kw7eMj4A7QOe7qbNkCfIfXMP9/xj0itJYTnzxT6UdIK9DmW7AUoSJeBOfijUuNWyvPHOV0Wv0FQw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8IJkIZKc+/Vxl8oZ69m07fAeIXhde7VhwIvmhBikNBc9HCrfEx
-	uejciF0rKopbDhaYklSFWHGMS5beitKw2HBp8If4mqEAlXezAbWZCbXd
-X-Gm-Gg: AZFdTZeeU1AwWwh29uFUD5gQOHztjkw08nuSMMy9Y+sPen44MEj29jYvNw3GIwdoabD
-	tq7hluK0MXgsulsNerSQ6Il1VG9toeuHvNEC0ZPvIfXP2Dt2adP5zL3rchiPbKo4MVz2TPp0qBj
-	s9XwTw5WvpWZ5xQncsC96K/w45jwzUk+WJd9DEEmCZPLuRXyx6RLhWTEbtCkIOTklV9EeUHPyhp
-	08YMm84tki+eXWDs/QMWA46TzXZaJsnY4WKBCtMJEnUTaArdr9ESESbcMOGvuAHa/WYBPBWpJJe
-	AKMV5eKtQVuR2CF/me/AIp97iNFF6hUI6n0gxT+WuvrBX/mR7F7nZBERjnO2lU0b+2hazFshRUx
-	A7nT8DmIXE/mQ9xSLaI6T5Q2c+3nCXdZ9k9Nvgy9zWKS8C/shtUfJBFNmw1Qlb0ZRy0lsXu/X+C
-	4/MRJF3aWhbVBs7kqRKioF8j6sPlU7RgFQPBHFSKg7gpQV/ELse3rKraCbn993I04ntK31Fh2e1
-	Y3ELoubyW/HCppSHHCiL/psKWcSx9az2oha89nbWWoq73dLkf0jn4NyMxeTCQ3f18aH3acTCOkP
-	2owNLxKXe31XsutQS2KX
-X-Received: by 2002:a05:600c:8210:b0:4bb:7ad8:99f2 with SMTP id 5b1f17b1804b1-4bb88785da4mr344398855e9.0.1795620233772;
-        Wed, 25 Nov 2026 07:23:53 -0800 (PST)
-Received: from skbuf ([2a02:2f04:d401:2601:d3cc:6bc:a861:f9da])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906635c7sm316515815e9.2.2026.11.25.07.23.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 07:23:53 -0800 (PST)
-Date: Wed, 25 Nov 2026 17:23:50 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Damien Le Moal <dlemoal@kernel.org>, 
-	Niklas Cassel <cassel@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Aksh Garg <a-garg7@ti.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rhys Tumelty <rhys@tumelty.co.uk>, 
-	Manikandan K Pillai <mpillai@cadence.com>, "vladimir.oltean@nxp.com" <vladimir.oltean@nxp.com>, 
-	Qiang Yu <qiang.yu@oss.qualcomm.com>, Hans Zhang <18255117159@163.com>, Yao Zi <me@ziyao.cc>, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-ide@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	linux-phy@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v5 7/8] PCI: cadence: Use phy bulk data api to simplifiy
- the logic
-Message-ID: <awb9XRze_e8xt9tA@skbuf>
-References: <20261125043639.249525-1-inochiama@gmail.com>
- <20261125043639.249525-1-inochiama@gmail.com>
- <20261125043639.249525-8-inochiama@gmail.com>
- <20261125043639.249525-8-inochiama@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b=FPnoMXV9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tu-dortmund.de;
+	s=unimail; t=1795620201;
+	bh=i8WL8KVOFFwJaUNqpb8Y5QPC+4OxinZ301w/l2clA6k=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=FPnoMXV90YdHIuiVRrB5NvAJOaRLZrtwR3WQMGS2T3cQOtnSZylxpMIlYxfEgn/n0
+	 6OFqx1iZxrs3t5pR7BUwjALRyKcnefWnuteKLxqBhsnmB9aFDb0FYAyKW0LHVFC/0O
+	 UuH/DzJw/CniCOyfQXFNriMS+yuspOB97sh8+b+g=
+Received: from simon-Latitude-5450.cni.e-technik.tu-dortmund.de ([129.217.186.207])
+	(authenticated bits=0)
+	by unimail.uni-dortmund.de (8.19.0.2/8.19.0.2) with ESMTPSA id 6APFNERQ004665
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 16:23:20 +0100 (CET)
+From: Simon Schippers <simon.schippers@tu-dortmund.de>
+To: netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Jesper Dangaard Brouer <hawk@kernel.org>,
+        Tim Gebauer <tim.gebauer@tu-dortmund.de>,
+        =?UTF-8?q?Jonas=20K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>,
+        "Michael S. Tsirkin" <mst@redhat.com>,
+        Jason Wang <jasowangio@gmail.com>, Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann <daniel@iogearbox.net>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav Fomichev <sdf@fomichev.me>, bpf@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Simon Schippers <simon.schippers@tu-dortmund.de>
+Subject: [PATCH net-next 3/3] veth: stop the txq as soon as the ptr_ring is full
+Date: Wed, 25 Nov 2026 16:23:11 +0100
+Message-ID: <20261125152311.805325-4-simon.schippers@tu-dortmund.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
+References: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,19 +76,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125043639.249525-8-inochiama@gmail.com>
- <20261125043639.249525-8-inochiama@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 12:36:38PM +0800, Inochi Amaoto wrote:
-> According the document of cadence PCI controller, it use multiple
-> phys for multi-lane setup, so replace the loop of phy operation
-> with phy bulk apis.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
+veth_xmit() stops the txq only once a produce has failed. The skb is
+then returned with NETDEV_TX_BUSY and requeued by the qdisc. Under a
+flood every refill of the ring after a wake ends this way, with a failed
+produce and a requeue.
 
-Minor nitpick in commit title: s/simplifiy/simplify/
+Check under the producer lock whether the produce has filled the ring,
+and stop the txq then, as for NETDEV_TX_BUSY but with the skb sent. The
+next skb waits in the qdisc and is not requeued. NETDEV_TX_BUSY stays
+for a ring that another producer, like XDP redirect, has filled.
 
-Reviewed-by: Vladimir Oltean <olteanv@gmail.com>
+The stop is ordered as in the NETDEV_TX_BUSY path. The stop bit is set
+before the smp_mb() in __veth_xdp_flush(), which pairs with the
+smp_store_mb() in veth_poll(). Either the producer finds NAPI idle and
+schedules it, or the poll sees the stopped txq and wakes it.
+
+Same setup as in the previous patch, an AMD Ryzen 9 9950X with all
+cores on the same CCX at a fixed 4.3 GHz, compared to it:
+
+  threaded NAPI     before          after           requeues
+  pktgen            1343008 pps      +0.2 +-0.4%     210594 -> 0
+  iperf3 TCP          33113 Mbit/s   +0.1 +-0.4%       4587 -> 3213
+  iperf3 UDP            363 Mbit/s   +1.2 +-0.6%         14 -> 14
+
+iperf3 TCP keeps its requeues, the change is within noise. When the txq
+stops in the middle of a GSO segment list, the rest of the list goes
+back to the qdisc, and each segment counts as a requeue. The few UDP
+requeues show up with every kernel, also without this series.
+
+With softirq NAPI and a single sender the ring does not fill, and the
+only change on that path is the __ptr_ring_check_produce() check.
+iperf3 changes by -0.1% to +0.4% there, with confidence intervals of
+0.4% to 0.9%.
+pktgen is 1.4 +-0.5% slower. The patch also moves the code of net/ by
+16 bytes, as veth is linked before it, and I could not separate the
+two.
+
+With the two iperf3 senders on one queue from the previous patch,
+throughput stays within 1.2% of it. The UDP requeues with threaded NAPI
+drop from 81520 to 48929 per run.
+
+Signed-off-by: Simon Schippers <simon.schippers@tu-dortmund.de>
+---
+ drivers/net/veth.c | 25 ++++++++++++++++++++++---
+ 1 file changed, 22 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/veth.c b/drivers/net/veth.c
+index 02ffc7ba59ab2..911da9893e82d 100644
+--- a/drivers/net/veth.c
++++ b/drivers/net/veth.c
+@@ -40,6 +40,11 @@
+ #define VETH_XDP_TX_BULK_SIZE	16
+ #define VETH_XDP_BATCH		16
+ 
++/* Returned by veth_xdp_rx() when the skb filled the ring. Internal to
++ * veth, veth_xmit() returns NETDEV_TX_OK for it.
++ */
++#define VETH_RING_FULL		0x20
++
+ struct veth_stats {
+ 	u64	rx_drops;
+ 	/* xdp */
+@@ -312,10 +317,17 @@ static void __veth_xdp_flush(struct veth_rq *rq)
+ 
+ static int veth_xdp_rx(struct veth_rq *rq, struct sk_buff *skb)
+ {
+-	if (unlikely(ptr_ring_produce(&rq->xdp_ring, skb)))
+-		return NETDEV_TX_BUSY; /* signal qdisc layer */
++	struct ptr_ring *ring = &rq->xdp_ring;
++	int ret = NET_RX_SUCCESS; /* same as NETDEV_TX_OK */
+ 
+-	return NET_RX_SUCCESS; /* same as NETDEV_TX_OK */
++	spin_lock(&ring->producer_lock);
++	if (__ptr_ring_produce(ring, skb))
++		ret = NETDEV_TX_BUSY; /* signal qdisc layer */
++	else if (__ptr_ring_check_produce(ring) == -ENOSPC)
++		ret = VETH_RING_FULL;
++	spin_unlock(&ring->producer_lock);
++
++	return ret;
+ }
+ 
+ static int veth_forward_skb(struct net_device *dev, struct sk_buff *skb,
+@@ -388,6 +400,13 @@ static netdev_tx_t veth_xmit(struct sk_buff *skb, struct net_device *dev)
+ 		else
+ 			__veth_xdp_flush(rq);
+ 		break;
++	case VETH_RING_FULL:
++		txq = netdev_get_tx_queue(dev, rxq);
++		if (!qdisc_txq_has_no_queue(txq))
++			netif_tx_stop_queue(txq);
++		__veth_xdp_flush(rq);
++		ret = NETDEV_TX_OK;
++		break;
+ 	case NETDEV_TX_BUSY:
+ 		/* If a qdisc is attached to our virtual device, returning
+ 		 * NETDEV_TX_BUSY is allowed.
+-- 
+2.43.0
+
