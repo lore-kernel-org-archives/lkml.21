@@ -1,120 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.100
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795607706;
-	b=OIZkpp1JTJUML1bWmhvVvDQ/+41Y2Ia3hFXWF2mYnCO0bgjeinXaLSTVXZSwlR2GcXgS
-	 KYuIXMAJTRo5WQVoUv/RgiZGjbf4e2hhZJIPRpAFMtdA1bnFHJC97IeudTQqdMQSFQQ/O
-	 JRWNWb8CDSVxZQcCRFkAyDlSO6T+Z3qQwTnxSSCDnp2p9F4ZKlwhri0DPd0MNTccONzDl
-	 zntWquw35wn4IeP9fs6b+f3Ks7sYyHhEWIOjstSOcB0LwHPilgairit/a01loDI9htxen
-	 6V3CZ1zinaKbnkeMROEHvz2Keu4IEpV3yK0BtnwYTCCCe3fsMqpU0OnmydLL4tmX+8A==
+	t=1795607709;
+	b=SjzYU4+wLm/+zIoNnCzUtxCiMhK5Rvv7UpwTREh1ddBGL0BoksfnCeIxz3Mw4E38SlJT
+	 f4WI4HGzoSo+TKcT0FKtk85uNBW0rJkLWuJB2jKWtKOR7vXJDuosYu0huoWEUOW7FnUQJ
+	 1sLlwQCOQ1/XvuKxTtEuXnmZeXuqyvNO+szHfav0aqz0chRxayTLjW4d5n6Pj73xC/eGi
+	 i0JTkXCUiuVU3cblNBZUqHJzNz+x+irZDVj96wzN3txd0AaJgjsJJDcDQlcLB+i7LtDT4
+	 3omACXu7O/LQgF2OSyWTc5QkywVAuLDW2TlQ1XN+1VK34tIiWUGUQ+M90z+StpgG4Ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795607706;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=klBYaYmvlWeS248SUrrVSQiTO4fMqB8X3lbiV0iWWNo=;
-	b=rZ0sL4Ms9yuS40aCfgd1XjF23RSOXxXhthBG3RjLAE6i/f+yOluha+y/XCh25srjHBB8
-	 SrrsKy76o5o6eW0uAkpxbIz6T0XWmX6fWZJoDdVS5X8bKvcqs7+mfj8r2q+JXze4PtV/0
-	 VBFUfxj3O15btcfjrFG2vtUJmcTDgeB7on6N9TTBDYzWEdTctXxGlIr/Ps1LxxpP2MTYM
-	 4kW5TO8941A4ESGzGjeYdP1ZWBziDo00iL4IDe3L9aUsa61zMobMPsSjTebUEDkQpQbNq
-	 QfaQIwmT6HSbSSYOgqPT2DELxay2NGbL3jmHVaZ4kOkUQuRevu9cn7CfWFQE4wMbB4g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795607709;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key;
+	bh=qpanCRQ7fQBNcD8pSlKi3AvR/B/Ifc+Qf+20P1mthnE=;
+	b=tIGjdThGWnh4dMCq7P9AmCGRq+Jk8ECNMQ5D7hRticGiLf3ZHKnGcya4ibwLRFre+rXc
+	 xd0hflVQXi962j8jLtPoYwCAAtMK4gtCGoOYxxNxov2N/l/Zw1nC3aljJs3DLCu00giBm
+	 GaZ5gTJCZvgmWmjdgG95rDFHBi4I+4M3RQV1XGVsvSxEBUA81aIjMKGSTD9NIXliiujW6
+	 8R2F8Sq6ru0emr6pLspDFFm8qx2DMgdEm28zvxnqyAeaY8fhfFTdbqsASEdIUtd1H68FW
+	 Bni61WRnCLQFjHhkdKajXubf96xJN8/73V8nXu6kIEz+2OWgp+kxmRncxuisKX8nJPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ZGe9nV8V;
-	arc=none smtp.remote-ip=209.85.216.100
-Received: from mail-pj1-f100.google.com (mail-pj1-f100.google.com [209.85.216.100])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5BF3606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:55:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5BF3606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="VHdnNh/U";
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id CD82B606A330;
+	Wed, 25 Nov 2026 11:55:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD82B606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ZGe9nV8V
-Received: by mail-pj1-f100.google.com with SMTP id 98e67ed59e1d1-3b4cd193b50so1164490a91.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:55:05 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795607705; x=1796212505;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=klBYaYmvlWeS248SUrrVSQiTO4fMqB8X3lbiV0iWWNo=;
-        b=iPe1ogx1Rb4XqyUe1vJ/jcex+ioqzCsGMExLDDsZw0zOHMO4OWxHgOupdnG77pJO8N
-         5OOQott+NHIfeHwRI+7FSCI9aQreD2vJ1Yjy9pWNQRLFnrORTg9vJEqmJIsGEMUPkWGa
-         sx/eGpgwHnQmCakFJnfa2qYr/M/ShmmWM0U2dxzqK9e6sQ0RPjRIsbXlPxx/WvGYK7RL
-         GUIJYGWEzacvDOYFBaRR8EaEYNgQ6YSjZj1WSVuW2LCuTYfrC0UGU4mEWNXvhAJduBFy
-         dLaQufRk/fl4Urd0WWeAeRyu7vFxy1qEnwKy7KOGbap9xbS7NEp1YVif0xRyLw1XO7eI
-         qBNw==
-X-Forwarded-Encrypted: i=1; AL+hErENxjXmgUQECn4ir9ah7C1fq+6rwoatB5WvKUzuvx9rdR5CEGoLlZU+gS4m2srRtwbQRCwIgUabfhZZ3Nc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8MDbZLGpgB7uWrC7c+GOFGoqteeLO1sgftIFwhj07kdIMPxBYi
-	duk5rfph/W6AWTzua+pBRJfyEBZng1zO6yiyVaWL7ASYLIoQGEKmTDnMGdDqIpDiUAtDJuJSpN5
-	P0pY/B67EzO5k/RKr3qCsSCMJnItdRz7YeCXd40pIYF3vwccSvCbVNVlvzoNuI43E8bcx++7ED2
-	HTRwCUmvY+/j0P5r8nAgdkYEG6oJm13O7dvkYAWO1PmmV2+EejgxCHvsqlMYMiLKXn2l9QZgDhe
-	bp25rybSq9l7YHGDQ==
-X-Gm-Gg: AZFdTZdsyacKEqqYAnVWfJgCZGCLw5dvDBMhvfQswDSgEsa0NXzY7WMdbXuP3w9qm7Z
-	t86u0YF+FmAWcS+aTY11ScCfhMkbuia4Gt/05cSbxj3vIJFMs99Wu3sPP/egHnHxKiZpUUNO2+m
-	BFgBCe64SVuZyeNkDqq6cf5h8yRAaE56Q0uDL83S1g4Cg6CMGGJxf7Gq2Ii5BbEvP2SXn6JNM50
-	4LC2CGKQ7ZSI2Ft7nX+yulKTu6fs1jqhhfPY3su3FSCBnjdmfMF4npZfKF4N/j4Qp/cbVPbg3P6
-	ZV0Iq8dNHQ+Kx2nZPNQA5uvXh1Nj1Gja/uY3CekAKav37rTppS+v0yu7yjVhkO0NGfvqzborLUh
-	RK6yc1aT9+VFr4EmihoUH80Yjk9OP2ld3/zks7MYgK6PKbtk6q+Tr6ZjY24wvDchHcgyED/A2rB
-	Hi5rgdwMTQJhCXU1miOD2OVNEPF9/VwWF5tg==
-X-Received: by 2002:a17:90b:1641:b0:3b4:fcba:8c57 with SMTP id 98e67ed59e1d1-3b4fcba964fmr1035198a91.20.1795607705132;
-        Wed, 25 Nov 2026 03:55:05 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b42005a1a1sm12430523a91.0.2026.11.25.03.55.04
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 25 Nov 2026 03:55:05 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3846d5f54c1so6829180eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:55:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795607703; x=1796212503; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=klBYaYmvlWeS248SUrrVSQiTO4fMqB8X3lbiV0iWWNo=;
-        b=ZGe9nV8V9lFev9J2f5Qxi2sN6/p2N9sYGyr2FMisPPygzWfEUg9rp0OmmfgLy2j69K
-         BDxgz1gPbyZPZiXrj1eOzZZoSKp2/bh6j/73Ssc7IKlUMQ+RqTGiKantXNTudW6N01KR
-         m4Bhbtg5o/vCLoHZtmf+XBgmciJ9syAN6unYI=
-X-Forwarded-Encrypted: i=1; AL+hErHjQ3tNlN4DXM1Yy+nN//msrfWePA8EzFnbj/hjgHiEIVTAzOFJBq2foj4ZTuvzgrlFtyfuoxE234TkdLU=@vger.kernel.org
-X-Received: by 2002:a05:693c:6390:10b0:386:ac97:f670 with SMTP id 5a478bee46e88-386ac97f867mr9355189eec.12.1795607703322;
-        Wed, 25 Nov 2026 03:55:03 -0800 (PST)
-X-Received: by 2002:a05:693c:6390:10b0:386:ac97:f670 with SMTP id 5a478bee46e88-386ac97f867mr9355166eec.12.1795607702616;
-        Wed, 25 Nov 2026 03:55:02 -0800 (PST)
-Received: from H5-S1 ([192.19.203.250])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c349csm56693813eec.22.2026.11.25.03.54.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 03:55:02 -0800 (PST)
-From: Vikas Gupta <vikas.gupta@broadcom.com>
-To: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	horms@kernel.org
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bhargava.marreddy@broadcom.com,
-	rahul-rg.gupta@broadcom.com,
-	vsrama-krishna.nemani@broadcom.com,
-	rajashekar.hudumula@broadcom.com,
-	dharmender.garg@broadcom.com,
-	ajit.khaparde@broadcom.com,
-	Vikas Gupta <vikas.gupta@broadcom.com>
-Subject: [PATCH net-next v10 02/10] bnge: add NTUPLE/ARFS VNIC
-Date: Wed, 25 Nov 2026 17:24:26 +0530
-Message-ID: <20261125115434.2080590-3-vikas.gupta@broadcom.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20261125115434.2080590-1-vikas.gupta@broadcom.com>
-References: <20261125115434.2080590-1-vikas.gupta@broadcom.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=VHdnNh/U
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4CC3F2F;
+	Wed, 25 Nov 2026 03:55:05 -0800 (PST)
+Received: from e132581.arm.com (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D5FE43F86F;
+	Wed, 25 Nov 2026 03:55:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795607708; bh=8ymv2lqmaKFrbWC5sFDsSMgvzVFIe/lMVbvxbCn0gBU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=VHdnNh/UagVAdVqRHK8o5p7OkXKJwwBC7FjNXoTiO6ro0EUP1updeJkYWZUBhwpGz
+	 sxg9ryRenY12tbBMW/yrdN2fVFNwlKJTIXT9F5bSzPsGyNJuW3aawUQtuc0XJ7Saif
+	 mJBXiRbUFkdnEwcqU/ZMnrl57Jfbbqm4nrWBDF88=
+From: Leo Yan <leo.yan@arm.com>
+Date: Wed, 25 Nov 2026 11:54:53 +0000
+Subject: [PATCH v2] perf/aux: Avoid reclaim for optional higher-order
+ allocations
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -124,350 +56,161 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-perf_aux_alloc_optimize_psi-v2-1-b2ac7ed12849@arm.com>
+X-B4-Tracking: v=1; b=H4sIAI3MBmsC/43NQQ6CMBCF4auQWVtDqxBx5T0MaeowlUmANi0Sl
+ PTuVk7g8nuL/20QKTBFuBYbBFo4spsy1KEA7M30JMFdNqhS1VKWjfAUrDavVZthcKidn3nkD2k
+ fWaCyFyRFjSkRcsEHsrzu9Xub3XOcXXjvZ4v8rf91Fymk6Kra4PlhT2SrmwnjEd0IbUrpC1QUH
+ DPEAAAA
+X-Change-ID: 20261109-perf_aux_alloc_optimize_psi-c2f8ce2e9a0c
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Will Deacon <will@kernel.org>, Yabin Cui <yabinc@google.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>, Tamas Petz <tamas.petz@arm.com>, 
+ Tamas Zsoldos <tamas.zsoldos@arm.com>, 
+ Michiel van Tol <michiel.vantol@arm.com>, Dev Jain <dev.jain@arm.com>
+Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795607705; l=5414;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=8ymv2lqmaKFrbWC5sFDsSMgvzVFIe/lMVbvxbCn0gBU=;
+ b=pT+MXSiwNwNNbVQf7rKyWSUWaBmV/1uljnxbFJDZYZOcDoMC/DlO4HXioGhmz+gwatNuqAKuc
+ 3SmF3EeshIsD/qbYbJRF0SOI7pQLQIH2SvQ00XQ10b2G2wD0KJefgak
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 
-Initialize the second VNIC, which is specifically used for the
-NTUPLE/ARFS feature. This VNIC helps support the aRFS/NTUPLE
-functionality. With this change, the total number of VNICs becomes 2.
+PERF_AUX_GFP includes GFP_KERNEL, which contains __GFP_RECLAIM. On
+fragmented systems, costly AUX allocations can wake kswapd. When perf
+falls back to lower orders, the allocating task can stall in direct
+reclaim or compaction. Yabin Cui reported that the resulting memory
+pressure can trigger Android's lmkd to kill applications.
 
-The NTUPLE/aRFS VNIC is always allocated, so the function needs at
-least BNGE_BASE_VNICS (2) VNICs and the matching RSS contexts.
-Firmware grants these to every supported function. If it grants fewer,
-bnge_reserve_rings() fails with -ENOMEM and the device does not probe,
-so there is no fallback to a single VNIC.
+For PMUs that support scatter-gather, higher-order AUX allocations are
+optional. Clear __GFP_RECLAIM and set __GFP_NOMEMALLOC for these
+attempts. Perf can then use contiguous pages when available and fall
+back to smaller orders without reclaiming memory or drawing on emergency
+reserves for the larger allocation.
 
-NETIF_F_NTUPLE can only be changed while the interface is down.
-bnge_fix_features() keeps the current NTUPLE state while the interface
-is running, so a request made then stays in wanted_features.
-bnge_close() calls netdev_update_features() once netif_running() is
-false, which applies it through bnge_set_features(). The feature is not
-advertised yet; the patch that adds the ethtool rxnfc ops enables it.
+The comparison is based on Yabin's result from an Android Pixel, a
+production phone with 4 KiB pages, 12 GiB of RAM and 6 GiB of zram.
 
-bnge_reserve_rings() checks bnge_rings_ok() before it changes the
-driver ring counts (tx, rx and nq), so a failed reservation leaves
-them as they were. bnge_net_init_dflt_rings() calls it a second time
-at probe; a later call computes the reduction again and resets the
-default indirection table, instead of finding the reduced counts
-already in place.
+  v7.4-rc3-sim
+    Android baseline kernel with the v7.4-rc3 perf AUX and page
+    allocator paths, including commit 526d945ad9c0 ("Revert "perf/aux:
+    Allocate non-contiguous AUX pages by default"") and
+    commit 0e05a469c294 ("mm/page_alloc: avoid direct reclaim and
+    compaction for costly __GFP_NORETRY allocations").
 
-The patch also removes BNGE_FW_CAP_CFA_NTUPLE_RX_EXT_IP_PROTO and
-BNGE_FW_CAP_CFA_RFS_RING_TBL_IDX_V3, which nothing uses, and renumbers
-BNGE_FW_CAP_VNIC_RE_FLUSH.
+  rc3 + [1]-noretry
+    The same baseline with this patch's GFP flag changes applied only
+    to optional higher-order AUX allocations.
 
-Signed-off-by: Vikas Gupta <vikas.gupta@broadcom.com>
-Reviewed-by: Dharmender Garg <dharmender.garg@broadcom.com>
+The test allocated 4 MiB AUX buffer per CPU while running Dev Jain's
+compact-bench [1] at 90%, 95% and 99% memory pressure. Both kernels
+completed ten runs at each level without an AUX buffer allocation
+failure. Across the 30 runs per kernel, system-wide memory stall time
+(PSI some) fell by 97.7%.
+
+  Totals over 30 runs        v7.4-rc3-sim  rc3 + [1]-noretry
+  Memory PSI some (ms)           1,840.29              41.78
+  compact_stall                       522                  0
+  allocstall                          161                  0
+  compact_daemon_wake                  14                  0
+  sp_kswapd_wk                         21                  1
+
+In a separate test with realistic Android memory fragmentation, lmkd
+killed an application during TRBE testing on the baseline kernel, and
+SPE allocations stalled in direct compaction and reclaim. Neither issue
+was observed with this patch applied. When memory was unfragmented,
+the patched kernel allocated AUX buffer chunks at order 9 (2 MiB).
+
+[1] https://lore.kernel.org/all/d2b8edf0-39ab-4a44-bd0d-58230dee2fad@arm.com/
+
+Reported-by: Yabin Cui <yabinc@google.com>
+Link: https://lore.kernel.org/lkml/CALJ9ZPO9XxF-kz5K67Jg8RtpiEmK7XFU3e+xDak6LyV_We7yBQ@mail.gmail.com/
+Suggested-by: Yabin Cui <yabinc@google.com>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/net/ethernet/broadcom/bnge/bnge.h     |  4 +-
- .../net/ethernet/broadcom/bnge/bnge_netdev.c  | 55 +++++++++++++++++--
- .../net/ethernet/broadcom/bnge/bnge_netdev.h  |  1 +
- .../net/ethernet/broadcom/bnge/bnge_resc.c    | 38 +++++++++----
- .../net/ethernet/broadcom/bnge/bnge_vnic.c    | 33 ++++++++++-
- .../net/ethernet/broadcom/bnge/bnge_vnic.h    |  8 ++-
- 6 files changed, 117 insertions(+), 22 deletions(-)
+Changes in v2:
+- Dropped __GFP_RETRY_MAYFAIL and kept __GFP_NORETRY, as no allocation
+  failures were observed in Android testing. (Dev/Yabin)
+- Updated the commit log based on Yabin's test results to reflect the
+  benefits on Android. (Yabin)
+- Link to v1: https://lore.kernel.org/r/20261109-perf_aux_alloc_optimize_psi-v1-1-d56ac4bf3ef5@arm.com
+---
+ kernel/events/ring_buffer.c | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge.h b/drivers/net/ethernet/broadcom/bnge/bnge.h
-index b175d63021aa..66eed890953b 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge.h
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge.h
-@@ -63,9 +63,7 @@ enum {
- 	BNGE_FW_CAP_THRESHOLD_TEMP_SUPPORTED		= BIT_ULL(21),
- 	BNGE_FW_CAP_DFLT_VLAN_TPID_PCP			= BIT_ULL(22),
- 	BNGE_FW_CAP_VNIC_TUNNEL_TPA			= BIT_ULL(23),
--	BNGE_FW_CAP_CFA_NTUPLE_RX_EXT_IP_PROTO		= BIT_ULL(24),
--	BNGE_FW_CAP_CFA_RFS_RING_TBL_IDX_V3		= BIT_ULL(25),
--	BNGE_FW_CAP_VNIC_RE_FLUSH			= BIT_ULL(26),
-+	BNGE_FW_CAP_VNIC_RE_FLUSH			= BIT_ULL(24),
- };
+diff --git a/kernel/events/ring_buffer.c b/kernel/events/ring_buffer.c
+index 95f4fbdfd2764de5b72d901d778c46302f525fad..317a0454be8b26d60a14a5790a15625868836257 100644
+--- a/kernel/events/ring_buffer.c
++++ b/kernel/events/ring_buffer.c
+@@ -619,7 +619,7 @@ long perf_output_copy_aux(struct perf_output_handle *aux_handle,
  
- enum {
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-index c8b5d3d6d331..fef45dfa9179 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-@@ -1173,12 +1173,7 @@ static int bnge_alloc_vnic_attributes(struct bnge_net *bn)
+ #define PERF_AUX_GFP	(GFP_KERNEL | __GFP_ZERO | __GFP_NOWARN | __GFP_NORETRY)
  
- static int bnge_alloc_vnics(struct bnge_net *bn)
+-static struct page *rb_alloc_aux_page(int node, int order)
++static struct page *rb_alloc_aux_page(int node, int order, bool no_sg)
  {
--	int num_vnics;
--
--	/* Allocate only 1 VNIC for now
--	 * Additional VNICs will be added based on RFS/NTUPLE in future patches
--	 */
--	num_vnics = 1;
-+	int num_vnics = BNGE_BASE_VNICS;
+ 	struct page *page;
  
- 	bn->vnic_info = kzalloc_objs(struct bnge_vnic_info, num_vnics);
- 	if (!bn->vnic_info)
-@@ -1355,6 +1350,9 @@ static int bnge_alloc_core(struct bnge_net *bn)
- 	bn->vnic_info[BNGE_VNIC_DEFAULT].flags |= BNGE_VNIC_RSS_FLAG |
- 						  BNGE_VNIC_MCAST_FLAG |
- 						  BNGE_VNIC_UCAST_FLAG;
-+	bn->vnic_info[BNGE_VNIC_NTUPLE].flags |= BNGE_VNIC_RSS_FLAG |
-+						 BNGE_VNIC_NTUPLE_FLAG;
-+
- 	rc = bnge_alloc_vnic_attributes(bn);
- 	if (rc)
- 		goto err_free_cp_rings;
-@@ -2642,6 +2640,13 @@ static int bnge_init_chip(struct bnge_net *bn)
- 	if (rc)
- 		goto err_out;
+@@ -627,7 +627,16 @@ static struct page *rb_alloc_aux_page(int node, int order)
+ 		order = MAX_PAGE_ORDER;
  
-+	rc = bnge_alloc_rfs_vnic(bn);
-+	if (rc) {
-+		netdev_err(bn->netdev,
-+			   "hwrm aRFS vnic alloc failure rc: %d\n", rc);
-+		goto err_out;
-+	}
+ 	do {
+-		page = alloc_pages_node(node, PERF_AUX_GFP, order);
++		gfp_t gfp = PERF_AUX_GFP;
 +
- 	if (bd->rss_cap & BNGE_RSS_CAP_RSS_HASH_TYPE_DELTA)
- 		bnge_hwrm_update_rss_hash_cfg(bn);
++		/*
++		 * Don't reclaim or use emergency reserves for optional
++		 * higher-order allocations.
++		 */
++		if (order && !no_sg)
++			gfp = (gfp | __GFP_NOMEMALLOC) & ~__GFP_RECLAIM;
++
++		page = alloc_pages_node(node, gfp, order);
+ 	} while (!page && order--);
  
-@@ -3260,6 +3265,11 @@ static int bnge_close(struct net_device *dev)
- 	bnge_hwrm_shutdown_link(bn->bd);
- 	bnge_hwrm_if_change(bn->bd, false);
- 
-+	/* netif_running() is false now. Apply an NTUPLE change that
-+	 * bnge_fix_features() held back while the interface was up.
-+	 */
-+	netdev_update_features(dev);
-+
- 	return 0;
- }
- 
-@@ -3342,6 +3352,36 @@ static const struct netdev_stat_ops bnge_stat_ops = {
- 	.get_base_stats		= bnge_get_base_stats,
- };
- 
-+static netdev_features_t bnge_fix_features(struct net_device *dev,
-+					   netdev_features_t features)
-+{
-+	/* NTUPLE can only be changed while the interface is down. */
-+	if (netif_running(dev)) {
-+		if (dev->features & NETIF_F_NTUPLE)
-+			features |= NETIF_F_NTUPLE;
-+		else
-+			features &= ~NETIF_F_NTUPLE;
-+	}
-+	return features;
-+}
-+
-+static int bnge_set_features(struct net_device *dev, netdev_features_t features)
-+{
-+	struct bnge_net *bn = netdev_priv(dev);
-+	u32 flags = bn->priv_flags;
-+
-+	flags &= ~BNGE_NET_EN_NTUPLE;
-+	if (features & NETIF_F_NTUPLE)
-+		flags |= BNGE_NET_EN_NTUPLE;
-+
-+	if (flags == bn->priv_flags)
-+		return 0;
-+
-+	bn->priv_flags = flags;
-+
-+	return 0;
-+}
-+
- static const struct net_device_ops bnge_netdev_ops = {
- 	.ndo_open		= bnge_open,
- 	.ndo_stop		= bnge_close,
-@@ -3349,6 +3389,8 @@ static const struct net_device_ops bnge_netdev_ops = {
- 	.ndo_get_stats64	= bnge_get_stats64,
- 	.ndo_set_rx_mode_async	= bnge_set_rx_mode,
- 	.ndo_features_check	= bnge_features_check,
-+	.ndo_fix_features	= bnge_fix_features,
-+	.ndo_set_features	= bnge_set_features,
- };
- 
- static void bnge_init_mac_addr(struct bnge_dev *bd)
-@@ -3589,6 +3631,7 @@ int bnge_netdev_alloc(struct bnge_dev *bd, int max_irqs)
- 	bnge_set_ring_params(bd);
- 
- 	bnge_init_l2_fltr_tbl(bn);
-+
- 	bnge_init_mac_addr(bd);
- 
- 	rc = bnge_probe_phy(bn, true);
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
-index f6fd11de7de0..13871d3d8286 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
-@@ -152,6 +152,7 @@ enum {
- 	BNGE_NET_EN_GRO		= BIT(0),
- 	BNGE_NET_EN_LRO		= BIT(1),
- 	BNGE_NET_EN_JUMBO	= BIT(2),
-+	BNGE_NET_EN_NTUPLE	= BIT(3),
- };
- 
- #define BNGE_NET_EN_TPA		(BNGE_NET_EN_GRO | BNGE_NET_EN_LRO)
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_resc.c b/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
-index 01205b161d82..5207091a7290 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
-@@ -206,12 +206,16 @@ int bnge_cal_nr_rss_ctxs(u16 rx_rings)
- static u16 bnge_get_total_rss_ctxs(struct bnge_dev *bd,
- 				   struct bnge_hw_rings *hwr)
+ 	if (page && order) {
+@@ -683,6 +692,7 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
+ 		 pgoff_t pgoff, int nr_pages, long watermark, int flags)
  {
--	return bnge_cal_nr_rss_ctxs(hwr->grp);
-+	u16 rss_ctx = bnge_cal_nr_rss_ctxs(hwr->grp);
-+
-+	rss_ctx *= hwr->vnic;
-+
-+	return rss_ctx;
- }
+ 	bool overwrite = !(flags & RING_BUFFER_WRITABLE);
++	bool no_sg = event->pmu->capabilities & PERF_PMU_CAP_AUX_NO_SG;
+ 	int node = (event->cpu == -1) ? -1 : cpu_to_node(event->cpu);
+ 	int ret = -ENOMEM, max_order;
  
- static u16 bnge_get_total_vnics(struct bnge_dev *bd)
- {
--	return 1;
-+	return BNGE_BASE_VNICS;
- }
+@@ -733,7 +743,7 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
+ 		int last, order;
  
- u32 bnge_get_rxfh_indir_size(struct bnge_dev *bd)
-@@ -237,8 +241,12 @@ static void bnge_copy_reserved_rings(struct bnge_dev *bd,
+ 		order = min(max_order, ilog2(nr_pages - rb->aux_nr_pages));
+-		page = rb_alloc_aux_page(node, order);
++		page = rb_alloc_aux_page(node, order, no_sg);
+ 		if (!page)
+ 			goto out;
  
- static bool bnge_rings_ok(struct bnge_hw_rings *hwr)
- {
--	return hwr->tx && hwr->rx && hwr->nq && hwr->grp && hwr->vnic &&
--	       hwr->stat && hwr->cmpl;
-+	/* The default and the NTUPLE VNICs each need a full set of RSS
-+	 * contexts for the final number of ring groups.
-+	 */
-+	return hwr->tx && hwr->rx && hwr->nq && hwr->grp &&
-+	       hwr->vnic >= BNGE_BASE_VNICS && hwr->stat && hwr->cmpl &&
-+	       hwr->rss_ctx >= bnge_cal_nr_rss_ctxs(hwr->grp) * BNGE_BASE_VNICS;
- }
+@@ -748,8 +758,7 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
+ 	 * buffering. In this case, the entire buffer has to be one contiguous
+ 	 * chunk.
+ 	 */
+-	if ((event->pmu->capabilities & PERF_PMU_CAP_AUX_NO_SG) &&
+-	    overwrite) {
++	if (no_sg && overwrite) {
+ 		struct page *page = virt_to_page(rb->aux_pages[0]);
  
- static bool bnge_need_reserve_rings(struct bnge_dev *bd)
-@@ -247,18 +255,21 @@ static bool bnge_need_reserve_rings(struct bnge_dev *bd)
- 	u16 cprs = bnge_cprs_demand(bd);
- 	u16 rx = bd->rx_nr_rings, stat;
- 	u16 nqs = bnge_nqs_demand(bd);
--	u16 vnic;
-+	struct bnge_hw_rings hwr = {};
- 
- 	if (hw_resc->resv_tx_rings != bnge_tx_rings_demand(bd))
- 		return true;
- 
--	vnic = bnge_get_total_vnics(bd);
-+	hwr.grp = bd->rx_nr_rings;
-+	hwr.vnic = bnge_get_total_vnics(bd);
- 
- 	if (bnge_is_agg_reqd(bd))
- 		rx <<= 1;
- 	stat = bnge_func_stat_ctxs_demand(bd);
- 	if (hw_resc->resv_rx_rings != rx || hw_resc->resv_cp_rings != cprs ||
--	    hw_resc->resv_vnics != vnic || hw_resc->resv_stat_ctxs != stat)
-+	    hw_resc->resv_vnics != hwr.vnic ||
-+	    hw_resc->resv_rsscos_ctxs != bnge_get_total_rss_ctxs(bd, &hwr) ||
-+	    hw_resc->resv_stat_ctxs != stat)
- 		return true;
- 	if (hw_resc->resv_irqs != nqs)
- 		return true;
-@@ -347,6 +358,16 @@ int bnge_reserve_rings(struct bnge_dev *bd)
- 		hwr.rx = rx_rings << 1;
- 	tx_cp = hwr.tx;
- 	hwr.nq = sh ? max_t(u16, tx_cp, rx_rings) : tx_cp + rx_rings;
-+
-+	/* One ring group per rx ring, so rss_ctx is checked against the final
-+	 * rx ring count. Fail before the driver ring counts (tx, rx and nq) are
-+	 * changed, so that a failed call does not leave reduced counts behind
-+	 * for the next call to find unchanged.
-+	 */
-+	hwr.grp = rx_rings;
-+	if (!bnge_rings_ok(&hwr))
-+		return -ENOMEM;
-+
- 	bd->tx_nr_rings = hwr.tx;
- 	if (!bd->num_tc)
- 		bd->tx_nr_rings_per_tc = bd->tx_nr_rings;
-@@ -358,9 +379,6 @@ int bnge_reserve_rings(struct bnge_dev *bd)
- 	bd->rx_nr_rings = rx_rings;
- 	bd->nq_nr_rings = hwr.nq;
- 
--	if (!bnge_rings_ok(&hwr))
--		return -ENOMEM;
--
- 	if (old_rx_rings != bd->hw_resc.resv_rx_rings ||
- 	    old_rx_nr_rings != bd->rx_nr_rings)
- 		bnge_set_dflt_rss_indir_tbl(bd);
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
-index 3a6c8f0a5954..d98a6196c859 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
-@@ -42,7 +42,11 @@ void bnge_fill_hw_rss_tbl(struct bnge_net *bn, struct bnge_vnic_info *vnic)
- 	for (i = 0; i < tbl_size; i++) {
- 		u16 ring_id, j;
- 
--		j = bd->rss_indir_tbl[i];
-+		if (vnic->flags & BNGE_VNIC_NTUPLE_FLAG)
-+			j = ethtool_rxfh_indir_default(i, bd->rx_nr_rings);
-+		else
-+			j = bd->rss_indir_tbl[i];
-+
- 		rxr = &bn->rx_ring[j];
- 
- 		ring_id = rxr->rx_ring_struct.fw_ring_id;
-@@ -98,3 +102,30 @@ int bnge_setup_vnic(struct bnge_net *bn, struct bnge_vnic_info *vnic)
- 	}
- 	return rc;
- }
-+
-+static int bnge_alloc_and_setup_vnic(struct bnge_net *bn,
-+				     struct bnge_vnic_info *vnic,
-+				     u16 rx_rings)
-+{
-+	int rc;
-+
-+	rc = bnge_hwrm_vnic_alloc(bn->bd, vnic, rx_rings);
-+	if (rc) {
-+		netdev_err(bn->netdev, "hwrm vnic %u alloc failure rc: %d\n",
-+			   vnic->vnic_id, rc);
-+		return rc;
-+	}
-+
-+	/* If bnge_setup_vnic() fails, the VNIC allocated above is not freed
-+	 * here; the caller (bnge_init_chip) unwinds via its err_out path.
-+	 */
-+	return bnge_setup_vnic(bn, vnic);
-+}
-+
-+int bnge_alloc_rfs_vnic(struct bnge_net *bn)
-+{
-+	struct bnge_vnic_info *vnic;
-+
-+	vnic = &bn->vnic_info[BNGE_VNIC_NTUPLE];
-+	return bnge_alloc_and_setup_vnic(bn, vnic, bn->bd->rx_nr_rings);
-+}
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.h b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
-index c81d3a64561e..72357e0b37ac 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
-@@ -22,13 +22,16 @@ struct bnge_l2_filter;
- #define BNGE_MAX_UC_ADDRS	4
- 
- enum {
--	BNGE_VNIC_DEFAULT	= 0
-+	BNGE_VNIC_DEFAULT	= 0,
-+	BNGE_VNIC_NTUPLE	= 1,
-+	BNGE_BASE_VNICS		= 2
- };
- 
- enum {
- 	BNGE_VNIC_RSS_FLAG	= BIT(0),
- 	BNGE_VNIC_MCAST_FLAG	= BIT(1),
--	BNGE_VNIC_UCAST_FLAG	= BIT(2)
-+	BNGE_VNIC_UCAST_FLAG	= BIT(2),
-+	BNGE_VNIC_NTUPLE_FLAG	= BIT(3)
- };
- 
- struct bnge_vnic_info {
-@@ -60,4 +63,5 @@ int bnge_hwrm_vnic_rss_cfg(struct bnge_net *bn,
- 			   struct bnge_vnic_info *vnic);
- int bnge_setup_vnic(struct bnge_net *bn, struct bnge_vnic_info *vnic);
- void bnge_set_dflt_rss_indir_tbl(struct bnge_dev *bd);
-+int bnge_alloc_rfs_vnic(struct bnge_net *bn);
- #endif /* _BNGE_VNIC_H_ */
+ 		if (page_private(page) != max_order)
+
+---
+base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
+change-id: 20261109-perf_aux_alloc_optimize_psi-c2f8ce2e9a0c
+
+Best regards,
 -- 
-2.52.0
+Leo Yan <leo.yan@arm.com>
 
