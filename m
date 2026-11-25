@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795580147;
-	b=I2hctgPNQbzI43BgyV/xAEHK6oIVHxXJ0om5h3q6ss5KtarGZM51CWg2gV1g/3aIjHn4
-	 Nte3jlnin6TiyNKfZq06+08pmDb85TAlJ5Z2dOdi0zxi9/d1osiLnpNE2IWojIVnBAdoa
-	 rNepuIIZvByBcFAWpco11X2pjoAb1Er2S6Z1qTS8atlLGti54MaWFwSQAbeG1qdJOWQ0I
-	 Ggqkmudwd2nlGjzfwzbWbxueb2shsx/8bSAja7nS7S5/meYp17adofCrRkQNRKUsWCKMM
-	 HidZkkM18EO3N35pjyUp41MZkGvWKu+KzZQ7exfGnRd8/HJQwdJ1+VdPniGCLTrwBVA==
+	t=1795580150;
+	b=Kn60BtkEIyYw3NnDx87rKRwHuic7bk7YBxwc+ChOAlxhTDP1jYJx0ri6Z5EXqRK7jAdc
+	 eYrUL2jUtpu/PEHV8mGmF8fg+ZkFnx9Hl/pDP0Gs0mf8kWB0CBuOjHgeaec8yfRIMmpAB
+	 aUE6V7qJnbuTwKMNrSK9y/RQIsA81V6WGvHsn5m/vGxrRAJXHkUv8pDT4gTnOi8HHRVsL
+	 O9AKBVWO5+nRigVVicz77qxziRAdOMLIv73dbe9rDNqYtidRD7sPXivOGdhhI4pnvqmOM
+	 6hSdfUjzBupruV5AzMYbkVtuOrZ9VFjaXlOCW1D6StiPZqbxU7wmdE6TigbpqIrGF4Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795580147;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795580150;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=UBdZz/M5NDcaiH2YNNBzA7mMgFU5hsYYyPrjQqPIGtE=;
-	b=fBvkcia9/qEu4u+FoHeyJArXvxwGTSL2uzlUrGsURFfDP1Myrcy3DNGoIds9iozS5GEh
-	 9OCZmTUAFZmUsiGtX89OzmrlP17QKxfTmnQNyuB/p8rynrkhViCUrUXsasXsDAXws/IKx
-	 clbkPpp9fd4ANTKrnA9l/NOhkOS35IoqZ2U5iUW/iiCUsp5dQaFLQ5TYW2KIprip4KpfD
-	 dPxyt5C3IKSpIz6Y/F64/8LIwiObt9eM5fw2wYHtsA37O4PowS8bt1+X9y+HbcPY0Iqmi
-	 zfJ8JZsAlY7Zj1k9p5QzN1+0xC0BA25RqpNLGJ3xzCXz1+i7uloEa0OIe1fnc5XHU1w==
+	bh=/RsxGu9Qo+d5h2F4SHHbDEzcGRL3TV6KceFfHx6kJUw=;
+	b=v5gEmVJ2azBauwq1ZgzfpzxwxhzTz20VuHPpo1X1EQEO/AvqJx70styRnBMJo9CJ4CRb
+	 +djw7kfQynDN+UiRXjTZ3dDhx7VgEpZefC02ggR8tCz39I+GUwlMZCU9Z8HBanHxfTIoL
+	 ZpGrmc2/udzNmdsBbYCa3LPzclyDRz60SbKql87chYna2ZBTuU7yftamxrwYOjgmottUd
+	 8+BvW9s8A18P1YdZbSI8kXS6uPvB9EOXbAy9ju5sXaez5SU79q6vfbSnXFLSc+lOlcBTd
+	 c3OeVzgyZdaP+yXHJX3v6nw1qanwW9kiDvOEHOPqwqleyPx51QCcBWR1rUpFO0JaPYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RY9UffRu;
-	arc=none smtp.remote-ip=209.85.210.178
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Cxkz6Iq8;
+	arc=none smtp.remote-ip=209.85.210.170
+Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8F47606A330
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:15:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8F47606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C52AD606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:15:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C52AD606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RY9UffRu
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8b3577deeb0so2396636b3a.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:15:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Cxkz6Iq8
+Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8a05b210703so2483836b3a.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:15:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795580146; x=1796184946; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795580149; x=1796184949; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=UBdZz/M5NDcaiH2YNNBzA7mMgFU5hsYYyPrjQqPIGtE=;
-        b=RY9UffRu/b2u3n5dhx0nPxdAeyUJQhaf+fZ1XpKlVoaBHtN1QcheQI0PhaP5qVgqN6
-         8QRqa4tEnEXCM21sRSzXp1x4YhLKv50d29Y+0RrgRjssM3+e0GXv+js4bzR31xJdXK5X
-         pmozDbM9tovgNHS0blZx7WxmktDhgT5kSa8Q5uK3O0drzUR9HjHJw1+6nxXZPd2sQTvs
-         mpoDTlOviZjjxdxdnJT441Qk2q7bfESj/BVstY3mZ8l33WGetv7c5WvxJoPR862XTtag
-         1qWkLuOMZV5TVR4LSVxEd8meTUV4bLmMizPewvZXUvH94g3pcDJwOD7sBffQzyVxgngM
-         1NjA==
+        bh=/RsxGu9Qo+d5h2F4SHHbDEzcGRL3TV6KceFfHx6kJUw=;
+        b=Cxkz6Iq8TOzSh/DEeWv/n+zLEBKaBJLzuILtoqeZxIPxfx1q0BDaVF9Opc43yNGB0P
+         IF8fQKuHP6ujy17EFfwQr1r8s2FYmGmu44EYSYHRGxAKlLAfMpeG1YjDXKRfv/QbEjGk
+         LvoObMpRzIpVpfHFBEPTw1klZwCLV88mnevVkKlbhLHjVw/rhF3haZla30WbPKUBOZQf
+         KYlWJAbv07yQ9p3lqN3M9Lr5V3DpCC3NF4jyu6w3ZCbiwf/eNh6ptVZFpB90o9Vvtk3L
+         S4/BDeJa1cdUVV7ZJnYKUoFxnD4n/mXcPiDjmMaQLc4rd4UABwqODlryoOZBNYB+tU+y
+         IP4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795580146; x=1796184946;
+        d=1e100.net; s=20260707; t=1795580149; x=1796184949;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UBdZz/M5NDcaiH2YNNBzA7mMgFU5hsYYyPrjQqPIGtE=;
-        b=SuW7MjKHJUem5A19hJB3rjOluEg3QkiLVyKszun77duBvRyCNI8stu2nTIsSkF4MbC
-         gaxSML63ew3KOP2ahuIAlAwPBQMJq0/KcJNVrUaott0+TZxFB9hnav6aZGqY81LoR4mD
-         5CU79Rf1a424/q2a5zWxL5sM6FFs6HmeNyXtqNG+3j98iuPPxXJanQ4RSR+94Id5PT17
-         cT4qr2r5ij4cL04m7PUaYmHdxOyuKG1Ycd7nhUyfM9hDikBWnRQrFmopITODSESkpRuC
-         IRO7PeZ7Ngmb+a5EGh+ziUB2AImY7mSWT6bmKOi6io2rrg3jpeCfYvfm4Q7IIxPqGAsQ
-         Af4Q==
-X-Forwarded-Encrypted: i=1; AL+hErEwvFeJgU7BL6ggtTGBL2EyX19oKJcfcGxS+LTHCSYq10HUpBG0gNFJ6Zn4q7gHS2OusqpTkgFn16RoGx8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+lhy6S/cpobkT/FR9MIXemNzRLKUANrBKpIOs6oWZtDNKEvP7y
-	kBaszF33s4r7ho+eKpqa0z9A1oPRl8Vja7OgoplQcGQgI0UX/A+HenPv
-X-Gm-Gg: AZFdTZd24B08mxkpXGkPazbW/fyDP3lFjt2ItlE0dxVn+Vbq+yn9LmpjGv6BpVAIE04
-	UoFZ5E+xiXOFveEM+IlRORTPi7Pqb+7EoL5mxG3K9I5gkFg82eJXT/b3s2QLjJkf1TRuZZ5yEai
-	CuWhJIP5cs/uQLOSifnv8xGB8Fb/k0hPIsiroahlzgRZd+zRhgPtKveenb1gdmMp/CXYEBt8h6k
-	j/9D7D0DQtxefEowztEPvu0yN6aPZb/SPf0Ipy3k66nkr4eGsWNhp+BzHBWcTb58idYQ9uBAbr4
-	99iUzNnvO1scE15xga+yX/CMHMJlCmDIX9zYZ6DTw9vLY8JoxxA6b8Li5bDTZtktNUvEJU3FAOo
-	VCu6RVfaAENavfNxP1OBOmY9TlyjdCGeP5Y1VCGHsKXTVZPlrnzM+zGklunP1QUppqarcdkba5k
-	AyFJ7rZtxX1kIsQzg5v2eR/XFF2frXStEiO+flyW90SL1iTtqtLeJJ8EguaZKWHXIJTu6dWC0+A
-	ejqU2NSEy03o6H4QuJ3TDfp5esPnCOUgfc1sS2awAKQj+CcHGTSZWILp4D447uDZt364u4rsz1/
-	NHlEhLj8sANgh2BTGnT4y9s4yBQ=
-X-Received: by 2002:a05:6a21:3b8d:b0:3e2:1a24:fb82 with SMTP id adf61e73a8af0-4014c94a7a3mr16524789637.16.1795580145986;
-        Tue, 24 Nov 2026 20:15:45 -0800 (PST)
+        bh=/RsxGu9Qo+d5h2F4SHHbDEzcGRL3TV6KceFfHx6kJUw=;
+        b=IGqq81NysyNMkuWQQ03wvTY/pz6Fcg0J3NJJGTnv32Ge+xpYeUg//wCRpNHdQ168ce
+         zMx41zuG0w9t5bcHhHCPP5EnKzoKlwZrxVrscFUrpowZJnNJN7RGbaulByfqil7R7hqJ
+         iU+ad8UfpyGWuvZ7B75qDgG0R+IDTz6oX3YKnmIrzsro2mobttTQUeddJ6KPwmG9GhTX
+         xWmRlffF55w/710RlFz3aw/6/cIAnXuZMnM0APv7/2gKxsCMOCMnJLbZJogpLXeH6uNk
+         FYCLxfdZW+YyCJJuqD/GErRNz5T5qPuRxuNPQfNJFUTIsqoX5U2LfI6AWnoxqotFmcXw
+         rDMQ==
+X-Forwarded-Encrypted: i=1; AL+hErH0lEBOpb+nnWusoS/TJTM6xvZlpsAkLkQnDEwalhIsARa3SVFHSyWwxCKFrpi9rKOhiBnxP9cMMKme4Sw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8XmAE1tPYCHAOx5a/ZzJukCT43hC41sUsVT9LIcKIVwqmEJm8/
+	UW4fs2VEdCzjJ1tP05M7OwEucu9fBoNikpo7D3BjueuhJq2HB0TsFK6e
+X-Gm-Gg: AZFdTZeVqIX5bFMkF21UYtglvSJdBAIEePtQovTRo7lFXMM22REIh0QlMA3jXB0uyT2
+	9+AWyHQ3d8MTikuJ0NUAa0VgnLtfnZKHuaIfw05I55jO3ORs4EqffW/h9lPLVlvi4WjXNvcN5hQ
+	BcYS0EhUe70cRuBy90R+8irNREVYt4ZBcJ8oJaqM0tbYwd8pvcmUdv80SjWf3T/H3yGlyAnYIV+
+	qxFxBUAad1p/vLxU0zfYLY5shs0uHs6PJ8Lx/Tc+Ua51GK74YgV08L3Z098wXGHnPkQGV0zbZ8w
+	0OSJEpLiW4+nkrITCvsYcsxulJ2SXAILH1c7nQDbSxYR4cCqAd4fIjLRlXzvyNN+39FlmsUkQyn
+	rUzTew6Yablvjmw5sBJ5bKPfDqvfGRGDEgDf/84rnjdlWGL/AuPmrcaPVos7+3JmDhSLLDGXVbc
+	PEDqwXJquE5+gyqXGhWga1jOTLQIBaBj8n/g8bWNsvtEWHEim4YpcciK/en2PZYD9JWCmsZVeuB
+	JfPI3H33bun4cL5Vrb6rO0lO73wk6FsqYq5otmhCU3sFbB39YEkM9UFsvFYkmp49rSKaeY5Vain
+	o9EcsENQBtXbqSMe7cUXkKO++uA=
+X-Received: by 2002:a05:6a00:1f14:b0:89e:9c7e:fd49 with SMTP id d2e1a72fcca58-8c87b9cf695mr14659779b3a.20.1795580149082;
+        Tue, 24 Nov 2026 20:15:49 -0800 (PST)
 Received: from localhost ([2001:19f0:8000:4ce8:5400:7ff:fe0e:e6b2])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c272sm8306084b3a.19.2026.11.24.20.15.45
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c873b25bfasm8204660b3a.46.2026.11.24.20.15.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 20:15:45 -0800 (PST)
+        Tue, 24 Nov 2026 20:15:48 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Jingoo Han <jingoohan1@gmail.com>,
 	Manivannan Sadhasivam <mani@kernel.org>,
@@ -119,9 +119,9 @@ Cc: linux-pci@vger.kernel.org,
 	spacemit@lists.linux.dev,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v8 4/6] dt-bindings: PCI: snps,dw-pcie: Add msi-parent for MSI handle check
-Date: Wed, 25 Nov 2026 12:15:18 +0800
-Message-ID: <20261125041523.242588-5-inochiama@gmail.com>
+Subject: [PATCH v8 5/6] dt-bindings: PCI: spacemit: Introduce Spacemit K3 PCIe host controller
+Date: Wed, 25 Nov 2026 12:15:19 +0800
+Message-ID: <20261125041523.242588-6-inochiama@gmail.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261125041523.242588-1-inochiama@gmail.com>
 References: <20261125041523.242588-1-inochiama@gmail.com>
@@ -136,38 +136,133 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The IMSIC device on RISC-V based system does not require ID
-remapping for MSI. So this device only needs "msi-parent"
-property for IMSIC-based SoC, and the "msi-map" is not a
-necessary property.
-
-Add new condition for MSI handling on IMSIC based SoC.
+Add binding support for the PCIe controller on the SpacemiT K3 SoC.
+This controller is almost a standard Synopsys DesignWare PCIe IP,
+with some extra link and reset state control.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ .../bindings/pci/spacemit,k1-pcie-host.yaml   | 55 ++++++++++++++++---
+ 1 file changed, 46 insertions(+), 9 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
-index b3216141881c..91bbbc8924f6 100644
---- a/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
-@@ -27,8 +27,11 @@ allOf:
-   - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
-   - if:
-       not:
--        required:
--          - msi-map
-+        anyOf:
-+          - required:
-+              - msi-map
-+          - required:
-+              - msi-parent
-     then:
-       properties:
-         interrupt-names:
+diff --git a/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml b/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
+index c4c00b5fcdc0..af32e427c0c5 100644
+--- a/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
++++ b/Documentation/devicetree/bindings/pci/spacemit,k1-pcie-host.yaml
+@@ -4,7 +4,7 @@
+ $id: http://devicetree.org/schemas/pci/spacemit,k1-pcie-host.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: SpacemiT K1 PCI Express Host Controller
++title: SpacemiT K1/K3 PCI Express Host Controller
+ 
+ maintainers:
+   - Alex Elder <elder@riscstar.com>
+@@ -12,28 +12,32 @@ maintainers:
+ description: >
+   The SpacemiT K1 SoC PCIe host controller is based on the Synopsys DesignWare
+   PCIe IP.  The controller uses the DesignWare built-in MSI interrupt
+-  controller, and supports 256 MSIs.
+-
+-allOf:
+-  - $ref: /schemas/pci/snps,dw-pcie.yaml#
++  controller, and supports 256 MSIs. The K3 controller uses an
++  external MSI interrupt controller and may use multiple PHYs.
+ 
+ properties:
+   compatible:
+-    const: spacemit,k1-pcie
++    enum:
++      - spacemit,k1-pcie
++      - spacemit,k3-pcie
+ 
+   reg:
++    minItems: 4
+     items:
+       - description: DesignWare PCIe registers
+       - description: ATU address space
+       - description: PCIe configuration space
+       - description: Link control registers
++      - description: Data Bus Interface (DBI) shadow registers.
+ 
+   reg-names:
++    minItems: 4
+     items:
+       - const: dbi
+       - const: atu
+       - const: config
+       - const: link
++      - const: dbi2
+ 
+   clocks:
+     items:
+@@ -66,6 +70,8 @@ properties:
+   interrupt-names:
+     const: msi
+ 
++  msi-parent: true
++
+   spacemit,apmu:
+     $ref: /schemas/types.yaml#/definitions/phandle-array
+     description:
+@@ -84,7 +90,8 @@ patternProperties:
+ 
+     properties:
+       phys:
+-        maxItems: 1
++        minItems: 1
++        maxItems: 6
+ 
+       vpcie3v3-supply:
+         description:
+@@ -96,13 +103,43 @@ patternProperties:
+ 
+     unevaluatedProperties: false
+ 
++allOf:
++  - $ref: /schemas/pci/snps,dw-pcie.yaml#
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: spacemit,k1-pcie
++    then:
++      properties:
++        reg:
++          maxItems: 4
++
++        reg-names:
++          maxItems: 4
++
++      patternProperties:
++        '^pcie@':
++          properties:
++            phys:
++              maxItems: 1
++
++      required:
++        - interrupts
++        - interrupt-names
++    else:
++      properties:
++        reg:
++          minItems: 5
++
++        reg-names:
++          minItems: 5
++
+ required:
+   - clocks
+   - clock-names
+   - resets
+   - reset-names
+-  - interrupts
+-  - interrupt-names
+   - spacemit,apmu
+ 
+ unevaluatedProperties: false
 -- 
 2.56.1
 
