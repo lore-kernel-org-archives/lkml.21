@@ -1,57 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570499;
-	b=cnjcET1bejSolIZHmvoeO2Zo9d6WRU9DAJ3+SKSHJEQdEM10n9SrzhryLFVHsHW84E+c
-	 1PUF8d2pKo0NVARN7+Y7A/4khFclCeHLI9yUeSltxCqJBL+/0mHcF0mqU1XXG3ndkz3kV
-	 7UZVVQR4uMkU9+RlOASeBknrjI1I6P4K7sE1PYn2zkOcI++CiYPKbH0J8NTTrI+qGrffg
-	 Q825bWsEJkJBS6zwi46NRc3tDeFJAVojD05eE/5e9n5MdvgDnDCsRLfOiBnF2YhX7SQ74
-	 1249CGIXiynKTIRDLqFmS8JTeX+JxJr/VGuTMBR7/VXxVtN2DqItXv15lATGe8jm+qQ==
+	t=1795570501;
+	b=KGVWkNZGuxhc0w/aNaxEaWjkr6NZQ6Nwq3nb8bgwvsnfJOBiVCrGtH4kBTn9+g12t2Hd
+	 tB3PoWH3lvE3SqI+lHfVmEsjSY1k/ZtO8urzfd+yN9g6QICZgryPkPmieIVRlZAT6OQUA
+	 sQ40NoEIwLYRL0RjqBbL0RxrRtd9F0HcpNBZvwxuDl00AvQhjke9CwoyHiXhODE9XyEcq
+	 hns6XzkohdEXsbdJPDoe75gc04wWuaUUDK4ODxEuQKSmQdw9rzyLPRef2GyP4/fp9Cibs
+	 ysY29o3CFhHdGu08oGQ/ZlOjNTmoC3RbyXPm2Vf/nG05ldPE+1AXeHg795tgjlMZ7Iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570499;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570501;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=ISBgR7gESgw4ZES9JGQDlJ1ooxeV9C8odGf+egbdKG0=;
-	b=HscXtg9W5YiDtmJQC5Wr+TtEsLjEh74oerqT8MHU4jcAqL+GigfUF1qe7FqniofQuUt3
-	 XoORP6syYc07VY7Z8MpOyFf+mUvybdw34NQ8cQ61fn7wPKlqKioxNz8Jpk/JZtdzIQm1A
-	 DZr9xbo9aTIaFrE7qddgaNFOE81DH5V1MRXVE5v1Il+eHdzR0/id6NJ5BipsAXSxxkdBT
-	 mMsQbFqB8k/9tW13AiuY5y+JDvuoxZKu9XlEN2xldCjGpmB1UpX/qXlATLSV4x9W7vEBF
-	 fIenYF8sSLGUi92g6/pHD25IzrOGF8aSLzSeiL8urnz8C0KeNsEpdX+FLMsWZrr340w==
+	bh=ey/DdBZK0AxrIh+FVZDhFw46AU3tmy5ylGTvhSh6jPs=;
+	b=Ip7HCDWeC91bn3HyQe1gJieymAYTfAtWycX7B4RFP390FpzfUEWuua69rbLePpyin3eA
+	 tzexrUAuhG8LkEbTJ9DDVoPXN3S0vjmxyNPTLakvTl9gnK2d+ey4blidoVBI3MT36poLn
+	 tVFJaHScABxOC4aDDXvUD1/QfgqmbGHNPk/0/AftpkIc0JApwb2cKNyTpHYBvMSzCao6P
+	 oXW7r9gkfDQTOk7CHPl9t9OKRx3KZNh3Rdv5mWSX3FtBCwsFIQS8JY6f/bHb5oPi5SNyh
+	 mkydB1qHMTf/BF1+OZCHMaMoL2YKrYE17yBvmNsz6UgypMJ5TjiNSjK2+Ca+RIhXoJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DUKoyJB6;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U19h06pE;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29C12606A33A;
-	Wed, 25 Nov 2026 01:34:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 016D0606A6B1;
+	Wed, 25 Nov 2026 01:35:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DUKoyJB6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE2791F00A01;
-	Wed, 25 Nov 2026 01:34:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U19h06pE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A01B1F000C0;
+	Wed, 25 Nov 2026 01:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795570498;
-	bh=ISBgR7gESgw4ZES9JGQDlJ1ooxeV9C8odGf+egbdKG0=;
+	s=k20260515; t=1795570500;
+	bh=ey/DdBZK0AxrIh+FVZDhFw46AU3tmy5ylGTvhSh6jPs=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=DUKoyJB6GOhGYlMCU4ndLe/8YcEiOLjypzmVCVs2b/s3bkFKeF7okDDnCEADkPYI2
-	 Q/YZWXb19/7J75cTBc+aOHpv/mHOEg0h+p7ov/UmlCqaCEahKmapQLIjnbLOZ7D5+S
-	 Dh6kbvTR21oo8jA8XRyAYoGBNOMkNsRmWkY6Qp1qMODCNRRSnn+7vDyYx3gdtEy864
-	 11d/pof8pV/kRIso/4tbnO6AlxQTugh7fXHE6Aw9fsAW1dDRBgs6C3+XxZRUIuzePS
-	 S4elv1Dvzl6wOiKEW06vFkUayyHEVAMCSHa09pKV3sY9gFgKQBvKrJ8JVtWYiV8km9
-	 bTyMKdIcv5bDg==
-Subject:
- Re: [PATCH net-next 6/6] selftests: net: big_tcp_tunnels: Cover IP tunnels
+	b=U19h06pEB0hVaqkSAAb8SaMRxbmgkb0uLm2pXBkMG1g7dr6gUjwg4QQGteXPOWAkh
+	 Iad/LhuFWhGIWi06fYRUGbblbaQIZykKW9I8AKMRa/1mtsduJQ8sKnMEW3dqn047Yq
+	 Drm1jAUDXvstPQw+P7tjU3y2zS35gtTsZGQhHxsdjy97np7GFquTelMsuiM27RwrJD
+	 t1A5W6JRsaC7VV5U4jCoxn8LNo5C3Bk085dVGod1bT1xOt5uRF4Ye2LO9aTBvlwleu
+	 iHQ4YvvM0gF52vaBZ2OmV+a0hvJ5XazEtZ28JrFDzbDGeOgHpJYVLdmVs8fq9A9wHC
+	 9rVV5vxekqXLw==
+Subject: Re: [PATCH v4] net: dsa: mt7530: enable the regulators in probe() and
+ unwind on error
 From: netdev-bot+sashiko@kernel.org
-To: yanhaishuang@cmss.chinamobile.com
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, shuah@kernel.org, alice.kernel@fastmail.im,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Wed, 25 Nov 2026 01:34:57 +0000
-Message-ID: <179557049725.3135.4073142828865813935@kernel.org>
-In-Reply-To: <20261124013124.3693-7-yanhaishuang@cmss.chinamobile.com>
-References: <20261124013124.3693-7-yanhaishuang@cmss.chinamobile.com>
+To: laixiangwu@cmss.chinamobile.com
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
+ olteanv@gmail.com, sean.wang@mediatek.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev-bot+sashiko@kernel.org, kuba@kernel.org
+Date: Wed, 25 Nov 2026 01:34:59 +0000
+Message-ID: <179557049962.3135.7449288288799250763@kernel.org>
+In-Reply-To: <20261124013422.1408-1-laixiangwu@cmss.chinamobile.com>
+References: <20261124013422.1408-1-laixiangwu@cmss.chinamobile.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -65,10 +64,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,181 +75,154 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] In the main loop of
-  tools/testing/selftests/net/big_tcp_tunnels.sh (lines 373-374), the…
-- [Low] The commit message says fou and fou6 are loaded "like pmtu.sh
-  does".
-- [Low] The comment in run_ip_tunnel() (big_tcp_tunnels.sh lines 338-339)
-  explains the skipped sit csum-off case as "GRO does not build sit…
+- [Medium] The commit message's safety argument for enabling the supplies
+  early in mt7530_probe() does not hold on the in-tree boards that run…
+- [Low] The new error labels in mt7530_probe()
+  (err_disable_powers/err_disable_core_pwr, lines 247-253) cut the core…
 
 --
 
-selftests: net: big_tcp_tunnels: Cover IP tunnels
+net: dsa: mt7530: enable the regulators in probe() and unwind on error
 
-This patch extends big_tcp_tunnels.sh to run the BIG TCP checks over
-ipip, gre, gretap, sit, ip6tnl, ip6gre and ip6gretap. They run without
-encapsulation and with FOU, and with GUE on an IPv4 underlay. sit runs
-only with veth tx checksum offload enabled, and fou/fou6 are loaded with
-modprobe before the tests start.
+This moves the MT7530 core and io regulator enables from mt7530_setup()
+into mt7530_probe(). It also adds error labels that disable the supplies
+again if regmap init or dsa_register_switch() fails. The aim is to stop a
+failed or deferred probe from leaving the regulators enabled.
 
-> diff --git a/tools/testing/selftests/net/big_tcp_tunnels.sh b/tools/testing/selftests/net/big_tcp_tunnels.sh
-> index 9c1482b842bfc..9f185eb20652e 100755
-> --- a/tools/testing/selftests/net/big_tcp_tunnels.sh
-> +++ b/tools/testing/selftests/net/big_tcp_tunnels.sh
+Link: https://lore.kernel.org/r/20261123022415.433-1-laixiangwu@cmss.chinamobile.com
 
-[ ... ]
-
-> @@ -240,6 +330,26 @@ if ! ip link help 2>&1 | grep gso_ipv4_max_size &> /dev/null; then
->  	exit "$ksft_skip"
->  fi
->  
-> +# $1: tunnel type, $2: tunnel family, $3: traffic family, $4: encapsulation
-> +run_ip_tunnel() {
-> +	local csum_offload
+> diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
+> index e85ef2aceee56..2de5e26edad61 100644
+> --- a/drivers/net/dsa/mt7530-mdio.c
+> +++ b/drivers/net/dsa/mt7530-mdio.c
+> @@ -209,18 +209,50 @@ mt7530_probe(struct mdio_device *mdiodev)
+>  		priv->io_pwr = devm_regulator_get(&mdiodev->dev, "io");
+>  		if (IS_ERR(priv->io_pwr))
+>  			return PTR_ERR(priv->io_pwr);
 > +
-> +	for csum_offload in on off; do
-> +		# GRO does not build sit packets larger than 64KB, so with
-> +		# software GSO on the sender there is nothing big to receive.
-
-[Severity: Low]
-Is this the real reason the csum-off sit case has nothing big to receive?
-
-In csum-off mode, do_test() counts packets over 64KB on PREROUTING
--i tun1, after decapsulation. The sender did software GSO, so those
-packets can only exist if receive-side GRO aggregated them.
-
-ipip and gre get that aggregation through ip_tunnel_rcv():
-
-net/ipv4/ip_tunnel.c:ip_tunnel_rcv() {
-    ...
-	gro_cells_receive(&tunnel->gro_cells, skb);
-    ...
-}
-
-sit has no gro_cells and ends in a plain netif_rx():
-
-net/ipv6/sit.c:ipip6_rcv() {
-    ...
-		dev_sw_netstats_rx_add(tunnel->dev, skb->len);
-
-		netif_rx(skb);
-    ...
-}
-
-veth also has GRO disabled by default (veth_disable_gro()), and the test
-never enables it. So the 64KB limit for encapsulated packets (the
-p->encapsulation check in skb_gro_receive()) never applies here, because
-sit packets don't go through GRO at all on this receive path.
-
-Would it be more accurate to say that sit does not use gro_cells on
-receive? The commit message gives the same explanation.
-
-> +		if [ "$1" = sit ] && [ "$csum_offload" = off ]; then
-> +			continue
-> +		fi
-> +		setup_tunnel "$1" "$2" "$csum_offload" "$3" "$4" || exit "$?"
-> +		do_test "$2" "$3" "$csum_offload" || exit "$?"
-> +		cleanup_tunnel "$2" "$4"
-> +	done
-> +}
+> +		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);
+> +		ret = regulator_enable(priv->core_pwr);
+> +		if (ret < 0) {
+> +			dev_err(&mdiodev->dev,
+> +				"Failed to enable core power: %d\n", ret);
+> +			return ret;
+> +		}
 > +
-> +# fou is not loaded on demand when built as a module
-> +modprobe -q fou
-> +modprobe -q fou6
-
-[Severity: Low]
-The commit message says fou and fou6 are loaded "like pmtu.sh does".
-pmtu.sh, however, turns a modprobe failure into a skip:
-
-tools/testing/selftests/net/pmtu.sh:setup_fou_or_gue() {
-    ...
-		modprobe fou || return $ksft_skip
-    ...
-		modprobe fou6 || return $ksft_skip
-    ...
-}
-
-Here the errors are silenced and the result is not checked. If fou or
-fou6 is not available, won't the script report a failure instead of a
-skip?
-
-setup_ip_tunnel()
-    ip -netns "$1" fou add port "$FOU_PORT" ... || return 1
-setup_tunnel()
-    setup_ip_tunnel ... || return 1
-run_ip_tunnel()
-    setup_tunnel ... || exit "$?"
-
-The script then exits 1, after the vxlan, geneve, bareudp and
-encap-none cases have already passed. A kernel that passed
-big_tcp_tunnels.sh before this patch would now fail it.
-
-tools/testing/selftests/net/config sets CONFIG_NET_FOU=y and
-CONFIG_IPV6_FOU=m, so only kernels built with a different config are
-affected.
-
-Could a modprobe failure here exit with ksft_skip, or skip only the fou
-and gue cases?
-
->  WORKDIR=$(mktemp -d)
->  trap cleanup EXIT
->  setup
-
-[ ... ]
-
-> @@ -254,3 +364,18 @@ for tunnel in vxlan geneve bareudp; do
->  		done
->  	done
->  done
-> +for encap in none fou gue; do
-> +	run_ip_tunnel ipip 4 4 "$encap"
-> +	for traffic_family in 4 6; do
-> +		run_ip_tunnel gre 4 "$traffic_family" "$encap"
-> +		run_ip_tunnel gretap 4 "$traffic_family" "$encap"
-> +	done
-> +	# GUE is only supported on an IPv4 underlay
-> +	[ "$encap" = gue ] && continue
-> +	run_ip_tunnel sit 4 6 "$encap"
+> +		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);
+> +		ret = regulator_enable(priv->io_pwr);
+> +		if (ret < 0) {
+> +			dev_err(&mdiodev->dev,
+> +				"Failed to enable io pwr: %d\n", ret);
+> +			goto err_disable_core_pwr;
+> +		}
+>  	}
 
 [Severity: Medium]
-Is this comment accurate? net/ipv6/fou6.c defines gue6_build_header()
-and registers GUE for IPv6 tunnels:
+Does the safety argument in the commit message hold when the switch is a
+multi-chip module? The commit message says:
 
-net/ipv6/fou6.c:fou6_init() {
-    ...
-	ret = ip6_tnl_encap_add_ops(&gue_ip6tun_ops, TUNNEL_ENCAP_GUE);
-    ...
-}
+    the reset line has been asserted since it was acquired in
+    mt7530_probe() with GPIOD_OUT_LOW, so the rails come up while the
+    chip is held in reset
 
-Also, pmtu.sh in the same directory already runs
-pmtu_ipv4_gue6_exception and pmtu_ipv6_gue6_exception.
+When mediatek,mcm is set there is no reset GPIO. mt7530_probe() only gets
+a handle to the reset control, and getting the handle does not assert it:
 
-The continue also comes before the sit line, and sit uses an IPv4
-underlay. Like ipip, sit sets up its encap with ip_tunnel_encap_setup()
-and calls ip_tunnel_encap() in ipip6_tunnel_xmit(). pmtu.sh also tests
-sit over gue4. Was sit meant to be skipped for GUE?
+    if (priv->mcm) {
+        ...
+        priv->rstc = devm_reset_control_get(&mdiodev->dev, "mcm");
 
-As written, sit, ip6tnl, ip6gre and ip6gretap never get BIG TCP coverage
-with GUE. The earlier patches in the series still raise tso_max_size for
-these devices whatever the encap type.
+The first assert happens in mt7530_setup(). That function only runs from
+dsa_register_switch() during tree setup:
 
-The loop also doesn't match the new file header:
+    if (priv->mcm) {
+        reset_control_assert(priv->rstc);
+        usleep_range(5000, 5100);
+        reset_control_deassert(priv->rstc);
 
-    # and over ipip, gre, gretap, sit, ip6tnl, ip6gre and ip6gretap tunnels,
-    # without encapsulation and with FOU and GUE.
+With this patch the switch is powered, out of reset and running on its
+power-on defaults from probe until mt7530_setup() runs. Before the patch,
+the reset pulse came right after the enables.
 
-It doesn't match the commit message either, which says "with GUE too on
-an IPv4 underlay".
+The window now covers all of dsa_register_switch() up to setup. It
+repeats on every -EPROBE_DEFER retry. It can also last indefinitely when
+dsa_register_switch() returns 0 for a multi-switch tree that is not yet
+complete.
 
-Could the continue move below the sit line, with the comment corrected?
-Could GUE also be run for the IPv6 underlay tunnels?
+Non-MCM boards without reset-gpios are affected the same way, because
+devm_gpiod_get_optional() returns NULL there.
 
-> +	for traffic_family in 4 6; do
-> +		run_ip_tunnel ip6tnl 6 "$traffic_family" "$encap"
-> +		run_ip_tunnel ip6gre 6 "$traffic_family" "$encap"
-> +		run_ip_tunnel ip6gretap 6 "$traffic_family" "$encap"
-> +	done
-> +done
+The list of affected boards also looks wrong:
+
+    The in-tree boards that wire these supplies (the MT7623 boards
+    mt7623n-bananapi-bpi-r2 and mt7623n-rfb-emmc via mt7623a.dtsi)
+
+mt7623n-bananapi-bpi-r2.dts and mt7623n-rfb-emmc.dts include mt7623n.dtsi,
+not mt7623a.dtsi. They set reset-gpios and the supplies inline.
+
+The boards that get mediatek,mcm plus core-supply and io-supply from
+mt7623a.dtsi are mt7623a-rfb-emmc.dts and mt7623a-rfb-nand.dts. Those are
+the boards where the chip is not held in reset while the rails come up.
+
+Could the commit message be corrected? Is the longer powered but
+unconfigured window on these boards intended?
+
+>  
+>  	rc.lock_arg = &priv->bus->mdio_lock;
+
+[ ... ]
+
+> -	return dsa_register_switch(priv->ds);
+> +	ret = dsa_register_switch(priv->ds);
+> +	if (ret)
+> +		goto err_disable_powers;
+> +
+> +	return 0;
+> +
+> +err_disable_powers:
+> +	if (priv->id == ID_MT7530)
+> +		regulator_disable(priv->io_pwr);
+> +
+> +err_disable_core_pwr:
+> +	if (priv->id == ID_MT7530)
+> +		regulator_disable(priv->core_pwr);
+> +
+> +	return ret;
+>  }
+
+[Severity: Low]
+Is this teardown order safe when dsa_register_switch() fails after
+mt753x_setup() has already run? Some ways this can happen:
+
+    - mt7530_setup_mdio() returns -EPROBE_DEFER after the IRQ chip was
+      added
+    - create_sgmii fails
+    - a later step in the DSA core fails
+
+In that case, devm resources created during setup are still registered
+on mdiodev->dev:
+
+    mt7530_setup_irq()
+        devm_regmap_add_irq_chip_fwnode(...)
+
+    mt7530_setup_mdio()
+        devm_of_mdiobus_register(dev, bus, mnp)
+
+mt753x_teardown() only cancels stats_work. The IRQ chip and the internal
+MDIO bus are therefore released by devres_release_all() after
+mt7530_probe() returns, which is after these labels have already cut the
+supplies.
+
+If the threaded regmap-irq handler runs in that window, it reads
+MT7530_SYS_INT_STS from an unpowered chip.
+
+mt7530_setup() has also already deasserted the reset with
+gpiod_set_value_cansleep(priv->reset, 1). Nothing reasserts it before
+power is removed here.
+
+Would it help to register the disables with devm right after the
+enables? The other option is to reassert reset and release the setup
+resources before disabling the supplies.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124013124.3693-1-yanhaishuang%40cmss.chinamobile.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124013422.1408-1-laixiangwu%40cmss.chinamobile.com
