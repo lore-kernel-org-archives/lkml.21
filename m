@@ -1,46 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592799;
-	b=YXg3D/r84kOr6dJJB0m4dKDt07Uk+UekkdhDNCk0K45R9g7ltJUX20bMdRJT9CiSsjwP
-	 3dt+LxlBHRJdORgTk+TmvJ4WDSlNOzmzrDVksTXdDfJZ0sEbVeNQU5ilL27W1pzw6+M+a
-	 IGNm5lGS5q4fh42Kp8v6QXmfyoQNKH52J9V9wmR8ePxzQVnZV2ko7lFl9GfWxGUOzCVUv
-	 2VK4q6Gf86Skhd+wgITgz4Ylt4P76dnpLl7tXzn3I884g40wz2JROliumnPRZ72KD4TUK
-	 NuHVF9CA2x2GkwodRbQlTXNrMsiln+MI6+9imV3rAnebS/P3HA9ZW1rMMcqXUJ67udg==
+	t=1795592794;
+	b=2LFbQb6EphRX+33pTjfoVfq0SVNMOA/G28lgYqRY5ZjACSyPN2k5BQ1TF4Xh/4LCrIB1
+	 1Mto+kboNTHauXrcM7lJN/jCr1n2XFOju29NerAHuZOLzDlbdPPJRkoMhRU1NwTN3n+O0
+	 eukrdWeSFroQrJvPBCCTjU7Dv5ro5bTz/Z7/FrneFDvg2+qS4sEqSz2Nx0RR/u4G4+J+2
+	 cnxPPXUzrBAg1k8wUx4UUL0dtGWlavqLx9hI2wsOC0goD+TZLthgxdjZWt/A8rIY8zfD6
+	 PCkz0rWI4avZhkRB+wP26V7019Ja7mbdFX8DijcbjrANr9BGqg4s/Ncv4vHj6ICuyOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592799;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592794;
 	h=DMARC-Filter:Received:Received:Received:Received:From:To:CC:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=EK4p4LMf18EOkIJI/axzmeCgFKsTmYxTizFC1QgWRhM=;
-	b=Q9yn4NuPUHflsnuta6tmlhaL5QHpFOB5Ve/fdl3PwWdzyCup5v6jBU/qfk7D2AD0zTPF
-	 DMYvdOzpLjb8ensFlNwcreY48tKnVP2+es3u7OjRTEhcR8zmBVoSu9FK5roxBlsQrZvF9
-	 xlzegzxOVqrisTQk/PdCfQ27rz1Ajj5X9plsGPJQuc+zLkQnnXmQbL6BdL5AqFh/QndUM
-	 lTBOkDQVPAvBArNdD541KOn8eR84oHn1oGecILK1yZlzBOoHgFllMYP9kta11vz05nb/4
-	 SAxqzK8MAtNRbOtfHFVWZHcVNQn5jIxLi/2Pqbl0Az0EI31ixxdsDBfoS+kAm/+1r9w==
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-Originating-IP:X-ClientProxiedBy;
+	bh=Imqkd7xKLsDI20X2OMVhw8aQGSuklVlLwofVUI+4PLc=;
+	b=E6J9bNBvaG4xCo+8qBXHfpBfaCqIULXqbWgitGT2zIUymxjPPTS54X4wS/OwSeiXWsYq
+	 FckmxXik0mCUdMip1WAvVzoAH9vgjDmGDNpwdpdLs0VOl84ea6Kpv7oDHqUVclbKLV0HU
+	 lsguXDzASK1PvQMNvS3RqeBd4ibdqpwi6869dgzlUrL1jk4yVppYGEax6liJzrNK41QaY
+	 EEVXQwkwirMy7epN+FVNhV0csy5aYlFNnQ7oCJvj0FvyHjXkEpQSTgnj2EzU8Z7cvcTBc
+	 KGncj06A2YnGkahnvdHJfh/RuY/036zOkE66JZPdIAdRwC0CVJ+6KY7RLTYNOhkuvsQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=hygon.cn;
 	spf=pass smtp.mailfrom=hygon.cn;
 	arc=none smtp.remote-ip=101.204.27.37
 Received: from spam01.hygon.cn (unknown [101.204.27.37])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 289A9606A33C;
-	Wed, 25 Nov 2026 07:46:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 289A9606A33C
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0B13F606A326;
+	Wed, 25 Nov 2026 07:46:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B13F606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
-Received: from maildlp1.hygon.cn (unknown [127.0.0.1])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jZBZg6F4VzVcB7;
-	Wed, 25 Nov 2026 15:46:35 +0800 (CST)
-Received: from maildlp1.hygon.cn (unknown [172.23.18.60])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jZBZg4rfdzVcB7;
-	Wed, 25 Nov 2026 15:46:35 +0800 (CST)
+Received: from maildlp2.hygon.cn (unknown [127.0.0.1])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jZBZV6DrPzg1cV;
+	Wed, 25 Nov 2026 15:46:26 +0800 (CST)
+Received: from maildlp2.hygon.cn (unknown [172.23.18.61])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jZBZT0wNJzg1cV;
+	Wed, 25 Nov 2026 15:46:25 +0800 (CST)
 Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
-	by maildlp1.hygon.cn (Postfix) with ESMTPS id 1215C157D;
-	Wed, 25 Nov 2026 15:46:29 +0800 (CST)
+	by maildlp2.hygon.cn (Postfix) with ESMTPS id 84B10300B6F1;
+	Wed, 25 Nov 2026 15:45:12 +0800 (CST)
 Received: from hygon.hygon.cn (172.25.24.133) by cncheex04.Hygon.cn
  (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 25 Nov
- 2026 15:46:35 +0800
+ 2026 15:46:24 +0800
 From: Depei Yang <yangdepei@hygon.cn>
 To: <linux-crypto@vger.kernel.org>
 CC: Tom Lendacky <thomas.lendacky@amd.com>, Herbert Xu
@@ -48,12 +47,10 @@ CC: Tom Lendacky <thomas.lendacky@amd.com>, Herbert Xu
  R Hook <gary.hook@amd.com>, <linux-kernel@vger.kernel.org>, Depei Yang
 	<yangdepei@hygon.cn>, Shan Chen <chenshan@hygon.cn>, Yongwei Xu
 	<xuyongwei@hygon.cn>, Xiaochen Shen <shenxiaochen@hygon.cn>
-Subject: [PATCH 05/11] crypto: ccp - split v5 command submission from queue run
-Date: Wed, 25 Nov 2026 15:46:03 +0800
-Message-ID: <c2a7b7a4303dfd79e95a61658b33706a20bc58ad.1795588986.git.yangdepei@hygon.cn>
+Subject: [PATCH 00/11] crypto: ccp - add Hygon SM3/SM4 support
+Date: Wed, 25 Nov 2026 15:45:58 +0800
+Message-ID: <cover.1795588986.git.yangdepei@hygon.cn>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1795588986.git.yangdepei@hygon.cn>
-References: <cover.1795588986.git.yangdepei@hygon.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,129 +65,81 @@ Content-Type: text/plain
 X-ClientProxiedBy: cncheex05.Hygon.cn (172.23.18.115) To cncheex04.Hygon.cn
  (172.23.18.114)
 
-ccp5_do_cmd() copies one descriptor into the ring and immediately runs
-the queue and waits for the completion.  Some engines prepare several
-descriptors for a single operation and only need the queue run once.
+This series adds SM3 and SM4 offload for Hygon CCP devices, which use
+the v5 programming model, and fixes two pre-existing problems in the
+queue handling that were found while validating it.
 
-Split the descriptor copy from running the queue.  ccp5_do_cmd() keeps
-its behaviour by calling both helpers back to back; the SM engines will
-run the queue through the new ->run action once a whole batch has been
-submitted.
+Patches 1-2 are generic fixes that apply to the AMD devices as well:
 
-Reviewed-by: Shan Chen <chenshan@hygon.cn>
-Tested-by: Yongwei Xu <xuyongwei@hygon.cn>
-Signed-off-by: Depei Yang <yangdepei@hygon.cn>
----
- drivers/crypto/ccp/ccp-dev-v5.c | 38 ++++++++++++++++++++++++++-------
- drivers/crypto/ccp/ccp-dev.h    |  1 +
- 2 files changed, 31 insertions(+), 8 deletions(-)
+  1: correct the LSB region mask, which tested the wrong region
+  2: acknowledge the queue interrupt before publishing the completion
 
-diff --git a/drivers/crypto/ccp/ccp-dev-v5.c b/drivers/crypto/ccp/ccp-dev-v5.c
-index 372ccf7d1c8b..f7c107b93ccc 100644
---- a/drivers/crypto/ccp/ccp-dev-v5.c
-+++ b/drivers/crypto/ccp/ccp-dev-v5.c
-@@ -218,14 +218,12 @@ static unsigned int ccp5_get_free_slots(struct ccp_cmd_queue *cmd_q)
- 	return n % COMMANDS_PER_QUEUE; /* Always one unused spot */
- }
- 
--static int ccp5_do_cmd(struct ccp5_desc *desc,
--		       struct ccp_cmd_queue *cmd_q)
-+static void ccp5_submit_cmd(struct ccp5_desc *desc,
-+			    struct ccp_cmd_queue *cmd_q)
- {
- 	__le32 *mP;
- 	u32 *dP;
--	u32 tail;
--	int	i;
--	int ret = 0;
-+	int i;
- 
- 	cmd_q->total_ops++;
- 
-@@ -233,6 +231,7 @@ static int ccp5_do_cmd(struct ccp5_desc *desc,
- 		CCP5_CMD_IOC(desc) = 1;
- 		CCP5_CMD_SOC(desc) = 0;
- 	}
-+
- 	mutex_lock(&cmd_q->q_mutex);
- 
- 	mP = (__le32 *)&cmd_q->qbase[cmd_q->qidx];
-@@ -242,6 +241,16 @@ static int ccp5_do_cmd(struct ccp5_desc *desc,
- 
- 	cmd_q->qidx = (cmd_q->qidx + 1) % COMMANDS_PER_QUEUE;
- 
-+	mutex_unlock(&cmd_q->q_mutex);
-+}
-+
-+static int ccp5_run_queue(struct ccp_cmd_queue *cmd_q, bool wait)
-+{
-+	u32 tail;
-+	int ret = 0;
-+
-+	mutex_lock(&cmd_q->q_mutex);
-+
- 	/* The data used by this command must be flushed to memory */
- 	wmb();
- 
-@@ -253,7 +262,7 @@ static int ccp5_do_cmd(struct ccp5_desc *desc,
- 	iowrite32(cmd_q->qcontrol | CMD5_Q_RUN, cmd_q->reg_control);
- 	mutex_unlock(&cmd_q->q_mutex);
- 
--	if (CCP5_CMD_IOC(desc)) {
-+	if (wait) {
- 		/* Wait for the job to complete */
- 		ret = wait_event_interruptible(cmd_q->int_queue,
- 					       cmd_q->int_rcvd);
-@@ -262,8 +271,7 @@ static int ccp5_do_cmd(struct ccp5_desc *desc,
- 			 * moving the head pointer
- 			 */
- 			if (cmd_q->cmd_error)
--				ccp_log_error(cmd_q->ccp,
--					      cmd_q->cmd_error);
-+				ccp_log_error(cmd_q->ccp, cmd_q->cmd_error);
- 			iowrite32(tail, cmd_q->reg_head_lo);
- 			if (!ret)
- 				ret = -EIO;
-@@ -274,6 +282,19 @@ static int ccp5_do_cmd(struct ccp5_desc *desc,
- 	return ret;
- }
- 
-+static int ccp5_run_cmd(struct ccp_op *op)
-+{
-+	return ccp5_run_queue(op->cmd_q, op->ioc);
-+}
-+
-+static int ccp5_do_cmd(struct ccp5_desc *desc,
-+		       struct ccp_cmd_queue *cmd_q)
-+{
-+	ccp5_submit_cmd(desc, cmd_q);
-+
-+	return ccp5_run_queue(cmd_q, CCP5_CMD_IOC(desc));
-+}
-+
- static int ccp5_perform_aes(struct ccp_op *op)
- {
- 	struct ccp5_desc desc;
-@@ -1111,6 +1132,7 @@ static const struct ccp_actions ccp5_actions = {
- 	.rsa = ccp5_perform_rsa,
- 	.passthru = ccp5_perform_passthru,
- 	.ecc = ccp5_perform_ecc,
-+	.run = ccp5_run_cmd,
- 	.sballoc = ccp_lsb_alloc,
- 	.sbfree = ccp_lsb_free,
- 	.init = ccp5_init,
-diff --git a/drivers/crypto/ccp/ccp-dev.h b/drivers/crypto/ccp/ccp-dev.h
-index ef88962ff6e6..16d5ea7773e2 100644
---- a/drivers/crypto/ccp/ccp-dev.h
-+++ b/drivers/crypto/ccp/ccp-dev.h
-@@ -659,6 +659,7 @@ struct ccp_actions {
- 	int (*rsa)(struct ccp_op *);
- 	int (*passthru)(struct ccp_op *);
- 	int (*ecc)(struct ccp_op *);
-+	int (*run)(struct ccp_op *op);
- 	u32 (*sballoc)(struct ccp_cmd_queue *, unsigned int);
- 	void (*sbfree)(struct ccp_cmd_queue *, unsigned int, unsigned int);
- 	unsigned int (*get_free_slots)(struct ccp_cmd_queue *);
+Patches 3-11 prepare and enable the Hygon support on top of a per-device
+capability set instead of unconditional registration:
+
+  3-4: add struct ccp_caps and gate algorithm registration on the
+       engines the device implements.  AMD v5 devices keep their
+       current set of algorithms; the v3 CCP does not implement DES3
+       and no longer advertises it.
+  5:   split descriptor submission from running the queue, so that the
+       SM engines can submit a whole batch and run the queue once.
+  6-7: add the SM3/SM4 command ABI, the Hygon PCI IDs and vdata.
+  8:   ignore the empty-queue interrupt status bit, which the Hygon
+       CCP reports and the v5 handler must not treat as a completion.
+       AMD hardware has not been observed to report it; for the status
+       values AMD produces the check makes no difference.
+  9:   read the implemented engines from the Hygon version register.
+  10-11: add the SM4 skcipher and SM3 ahash front ends, registering
+       ecb/cbc/ctr(sm4), sm3 and hmac(sm3).
+
+Every patch was built separately with W=1 and passes checkpatch.  The
+driver has been tested on Hygon CCP hardware: the crypto API self-tests
+pass, and an out-of-tree test module passes all 17 of its cases.  The
+cases cover known-answer vectors, cross-checks against the generic
+software implementations, streaming and export state, multi-segment
+scatterlists, repeated requests and concurrent requests.
+
+AI assistance: the code and changelogs were produced with AI coding
+assistants under human review.  The assistance is recorded here, as the
+patches do not carry per-patch Assisted-by tags:
+
+  Assisted-by: Claude:deepseek-v4-flash-1017
+
+The test module is not part of this series.
+
+Depei Yang (11):
+  crypto: ccp - fix LSB region mask calculation
+  crypto: ccp - acknowledge queue interrupt before waking waiter
+  crypto: ccp - add engine capability and version information
+  crypto: ccp - register algorithms only for supported engines
+  crypto: ccp - split v5 command submission from queue run
+  crypto: ccp - add SM3/SM4 command definitions
+  crypto: ccp - add Hygon CCP device IDs and vdata
+  crypto: ccp - handle only supported interrupts in v5 irq bh
+  crypto: ccp - detect the Hygon CCP engines from the version register
+  crypto: ccp - add SM4 engine and skcipher algorithms
+  crypto: ccp - add SM3 engine and ahash algorithms
+
+ drivers/crypto/ccp/Kconfig           |   1 +
+ drivers/crypto/ccp/Makefile          |   4 +-
+ drivers/crypto/ccp/ccp-crypto-main.c |  36 +-
+ drivers/crypto/ccp/ccp-crypto-sm3.c  | 468 +++++++++++++++++++++++++
+ drivers/crypto/ccp/ccp-crypto-sm4.c  | 254 ++++++++++++++
+ drivers/crypto/ccp/ccp-crypto.h      |  67 ++++
+ drivers/crypto/ccp/ccp-dev-v3.c      |  21 +-
+ drivers/crypto/ccp/ccp-dev-v5.c      | 260 +++++++++++++-
+ drivers/crypto/ccp/ccp-dev.c         |  37 ++
+ drivers/crypto/ccp/ccp-dev.h         |  31 ++
+ drivers/crypto/ccp/ccp-ops.c         | 487 +++++++++++++++++++++++++++
+ drivers/crypto/ccp/sp-dev.h          |  12 +
+ drivers/crypto/ccp/sp-pci.c          |  35 ++
+ include/linux/ccp.h                  | 187 ++++++++++
+ 14 files changed, 1878 insertions(+), 22 deletions(-)
+ create mode 100644 drivers/crypto/ccp/ccp-crypto-sm3.c
+ create mode 100644 drivers/crypto/ccp/ccp-crypto-sm4.c
+
+
+base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
 -- 
 2.34.1
 
