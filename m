@@ -1,82 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795644262;
-	b=NmGhop6nfpfwkHXOthxG7IWHhcOke4LIlvvCe9ifbFhXHH2ElpPV4+A0juXVle9fCzPD
-	 MP7yuglpIoTviup5Oz1nanmojD+JXayIFfbBo4773thneK4U7XE+M2jf1OHg2CAaEhv+W
-	 quqiOh5xqr8Ktf9k+B8XYgoq9l6/zcJyoPPgvCvvWY3cBuZvlqlL0WkbEc7o0IHCAe961
-	 KiHgyjhId3Z/j5KclWr8CDTYPUs5VHGtCjLJi1h5R2VnK2yYtRIpcaaFdu38LwIqyIl7W
-	 gKGY+tZTpBOsldD7rZ5ikWdUq6S9AY17bxMt/iUkk5lwAk+PgKpBA+R6SUUQiGHk9yw==
+	t=1795644332;
+	b=NpGjy9QsfRYZrIAts3cJkXeq4FUXltPXeXH5UaXLsm5IjneLloMpQ0X+lhEmbhWGUcez
+	 NI9jZQgZMQ7Q33y4g2voVmV3dBm3XTPWtjgnmSvPGAgh9iRP8Ma1SAzwKnVcFCbQAtSHS
+	 haM65H7BRG/t90Lg7OW4UN80M2H+eHI9g64RQaG8zM1h2VKQQ3UibEMzlLWjXizqYpf27
+	 +7jVy3LXKqVZ1O5tPi5KapqgeXQ1S7cPFpyK3AeDEuLDtveW1mo4Ns9owlVJ+ACmxM9VE
+	 sKHlcMAufEewxDx3yEAIZDukzATiIvy2ITbGUMopTD5XGMA9zu7orWA+xWrEtZFV8pA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795644262;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=u6Qy1eP9AXMcS0YGdzUTIkDgXFyVXYB9cu5EHurdTks=;
-	b=LCquvQPP76sPyPwwC+FtDYckSVV3n0mmKdyX1eepPOq1B5F76h0wV8J5mBmlrbM/5E2z
-	 LoPQFfVma+9u0QpDOyDvvOFYZzeYsZTJ9TXF/XyOHUCyCKfZdSiDd54Jyh7L8K7a+R/4k
-	 pfsXyUPiVKEfkfR9E1cv6Dj/VugEF7UHHpWbd044zgHT3jTmDyfSY7sbTqEkHmT+EIPXv
-	 /ey0at4aOywP5hOYqkHY79u4PlbVwJHXrpCiEPkC1NyvRqqbq/7Jf+9qZIEpp4b/BBSjv
-	 Yrxmk37pj/fKRrmWEfs+m2pEhB4AE+PEhlFzs5W4TAItdQyui5Lgn4UTjHIHwIeLibA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795644332;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=PFMx5gcHoGq+aybX24krgUmTqr/EIcl1w7rEetCl/eM=;
+	b=j3HPbpkT0YahKBKjCnkSWXCNBiBFwEtpeaz9QGOHnzFGbvtUyhePpxcZCrYAjtVJM1eU
+	 hX7jaX469rsyxWuWq+4j7VFDguFpswnGlfu9sMGHBAvSHRr8s9JJXfguwSSSsEiZIGO9d
+	 9OkUz6GuOX2CRF+gvVfpsXCAOwMklHv+eYvp25QDHyX/moPI50Gvhi7q6Y/wBjHd3P0lR
+	 yriQgQdnI4Ayg4Xv4NDmWCRbJzxutFc92/cOr0AIJVjHZrWTUcAsq6GMUI4eJthxKfnp4
+	 UE3c9jZu9+3mfdt05eN12+92gmpGjTtkJWHpAjwbj45amE1JOBxGpw0PlL8B3Lv/QVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZbO7NfeI;
-	arc=none smtp.remote-ip=192.198.163.16
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hRsY6FcO;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93CE1606A31E;
-	Wed, 25 Nov 2026 22:04:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93CE1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0A12606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:05:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0A12606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZbO7NfeI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795644262; x=1827180262;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=lMb/80yw09Qli5cfDrBkjICNjWURWuysaW0via6gAjw=;
-  b=ZbO7NfeI+HtIVC0uW49+RWyMxgF/MfGXsAAqeXQS5Q6OjNjLm9BbqsT1
-   79nHYDnSDzkJLShDFxGTaxouGSM1OjRoK9WqIQr7idM3EWp6ELJbBaxEe
-   j5wNII8RjGIK/M+Tu9R7mWiroG6qKClC9IFZ++h3Kq1zuRzMEG2J64zBp
-   /BFxemq2VJPkSNgSPW5GVLr/2rf65UTLGvF+0s3kwLg+kV9oBMrmlPl/4
-   hRGsJ0Hp9HJF31OYfDdn0tMmx+un59DbPQxd4NS+x8tLuPT4VvSmv+CPY
-   95SXYQB+OgqihPRDGE/BX4n1470gdkGfBenqZ4dMQM/5Op+h/GCIgx5Te
-   w==;
-X-CSE-ConnectionGUID: 09qw/9rPTJO4N08m5dXS5g==
-X-CSE-MsgGUID: 9n9Bg7ZMRGO0FF31sqS8Ig==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4563375"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4563375"
-Received: from fmviesa012.fm.intel.com ([10.60.135.152])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 14:04:19 -0800
-X-CSE-ConnectionGUID: hRJzoclMT/W8IYj4zEVe+w==
-X-CSE-MsgGUID: 66Ir4qgUSgaFnUxE/Zb+WA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="13646383"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.96])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 14:04:14 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Thu, 26 Nov 2026 00:04:10 +0200 (EET)
-To: Abel Vesa <abel.vesa@oss.qualcomm.com>
-cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-    Conor Dooley <conor+dt@kernel.org>, Hans de Goede <hansg@kernel.org>, 
-    Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
-    Bjorn Andersson <andersson@kernel.org>, 
-    Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
-    devicetree@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
-    platform-driver-x86@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-    Hans de Goede <johannes.goede@oss.qualcomm.com>
-Subject: Re: [PATCH v2 2/4] platform: arm64: lenovo-thinkpad-t14s: Add Gen
- 7 EC support
-In-Reply-To: <20261123-t14s-gen7-ec-v2-2-3420a6202366@oss.qualcomm.com>
-Message-ID: <f575410d-f0be-5ad5-834f-3b1c59109c53@linux.intel.com>
-References: <20261123-t14s-gen7-ec-v2-0-3420a6202366@oss.qualcomm.com> <20261123-t14s-gen7-ec-v2-2-3420a6202366@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hRsY6FcO
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so67956345e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:05:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795644330; x=1796249130; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PFMx5gcHoGq+aybX24krgUmTqr/EIcl1w7rEetCl/eM=;
+        b=hRsY6FcO9VKK/UOP2vT1k2XjTWekQ5+uV5pYD/ykGM2TvFCyGMhb3aYmmesN/XrDM7
+         /xa+R5z8TfXWB8q3iC3SJujbwY+KX79yguFoL2/rHEyUduY3s6a2Pv3F0n15bbHIg4V5
+         WR2l8gEtzHyz0zdHGDTbTcthKXhlzTX2niHKXed5ySIIvuMR6lYDsV9apaFFC1GKGY0B
+         yK6xEfP/kLAM90sSgP4FCwuj10gbhEo45nAoZhvn9+4Uwebuq3G/4Bvae1/F/7yEu/vh
+         2FVnxNb/1g8JkQLKE1FsLRvC8Y8DAaiw0iilY6hXNScPUtyZmYfE/0UxFKB10RD4OMv4
+         CLog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795644330; x=1796249130;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PFMx5gcHoGq+aybX24krgUmTqr/EIcl1w7rEetCl/eM=;
+        b=fT9eSXsC2/WAzOJCClnI0D05xzXtVVZGZAxBG6R9C6aikx1Dx6cwesWsecMXJNebEQ
+         X+JsVfR6GVzfxRPrQkWCFExwJyV74SuQCK0zyHxXvl1nWAvGfneKoUqosW58PnLiduBH
+         fY6TZDUMKxPg1O1qVDYUzy25N8NyR40wwGoYVHVKvu8jmKJ/uO3f/5Xq+eDRuTkkyyjS
+         ++8RlQXnw0lQ7Vr0nXl7jQy8WO1oKsjC1ge1u76cYQpojH6u15zR67tdB5EEArRIXFcF
+         JBFoEOiFwxUwWFlDZHozA4j+qIXxtSENJe+NiLUFGPPmMvDrWq1s0stBwHUjxc6u2PFm
+         dZ9g==
+X-Forwarded-Encrypted: i=1; AL+hErEstojWIlWxMxoAGcqdH0AWkttiFWCtBNkcBcHF3kjjDq7VkAN6kv/TFBKrX5BRy4a9Yao20VeuhuDVj9A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9qzCesOt7pRdBANS0Q98Jk7jKwgtNsPfsabkJzkThtOnR6HXvf
+	JozgrQAknQweUt+zfXzoetBFBdH3i1vEP2130HaWa32QJPu461yneeWJ
+X-Gm-Gg: AZFdTZcRvfi/ek/fNoUOHG9Tjnl2AXQBeZy6dRcc+fWrwNVs6xvFQzvPbjvtWvyIsoN
+	IVqWIcCRoCt4IaSrPukEu2M4aUEjowKOWCB71+MW7wFJHf3qu7TY4/8oBD6QBenIuY5MdCguMxp
+	R/JR1LlC+Z+eS2RAv045EwobuXFy02tSUL10lHEyWFXIIw0Rf5Lvbo3TVJZgXEOSHNNXd+dqbch
+	3a/8o+lfplfp/9F/mT0oQ/ArCx1xFpc2zbK9i2JQW84HunWkEKaL5aVlHT2N/vD2qxlOgM60uFd
+	LmkPUQb8WXCJIOl4AEA7oF1M7k+fMilLccRmKpb+O1xkhqQEXLi0E1gRQAEhH3q3rGx7ePGsmDh
+	A66UgV0yDIGKrw0yRBB3vRVMzkWwmMprbOa27woQ0CuLvX+QuFzTor6ExXiv7pBbacRiUbKx1RZ
+	9SWshcNcAuB7Gdrisy1eXbsXEN4/ROYSYYGEeTwdxxJCY+FyHdU0R2sG6ryUgac6dS6VCD91c4m
+	RzUFTRC1/q0mRiRMRxr5blxLYZpPxjen3JbgiEmb4KTBWzBG+Rb8Q/XUsWLHfHuMqwcKY3R3WCG
+	RE5qiW+KNOHMYolr
+X-Received: by 2002:a05:600c:e549:10b0:4bb:a60a:fc8 with SMTP id 5b1f17b1804b1-4bba60a11d2mr42321925e9.35.1795644330050;
+        Wed, 25 Nov 2026 14:05:30 -0800 (PST)
+Received: from krava ([176.74.159.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b09bsm1016582145e9.4.2026.11.25.14.05.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 14:05:29 -0800 (PST)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Wed, 25 Nov 2026 23:05:27 +0100
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Jiri Olsa <olsajiri@gmail.com>, Naveen N Rao <naveen@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ingo Molnar <mingo@redhat.com>, x86@kernel.org,
+	linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org
+Subject: Re: [PATCHv2 1/2] kprobes: Increase the kprobe hash table size
+Message-ID: <awdbpwBAyzIdG9tL@krava>
+References: <20261122200239.1481088-1-jolsa@kernel.org>
+ <20261122200239.1481088-2-jolsa@kernel.org>
+ <undine-1795477745290490698-99e2fcc5c9b45beb@undined.local>
+ <awWdDfj1fknA8fuF@krava>
+ <undine-1795616480318619368-1be7e961905611b5@undined.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,405 +106,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <undine-1795616480318619368-1be7e961905611b5@undined.local>
 
-On Mon, 23 Nov 2026, Abel Vesa wrote:
+On Wed, Nov 25, 2026 at 11:21:20PM +0900, Masami Hiramatsu (Google) wrote:
 
-> The embedded controller of the ThinkPad T14s Gen 7 uses the same
-> register layout and event codes as the Gen 6 one, but a different set
-> of I2C commands. Going by the ACPI EC accessors in the Gen 7 firmware:
-> 
->   - register read:  write {0x80, reg}, then write {0x80} + read 1 byte
->   - register write: write {0x81, reg, val}
->   - event read:     write {0x84, 0x00}, then write {0x84} + read 1 byte
-> 
-> With the Gen 6 commands the EC never reports any event and the LED
-> and keyboard backlight accesses have no effect.
-> 
-> Describe the bus accessors and event read per variant and add one for
-> the Gen 7. The multi-message Gen 7 reads are done with the I2C bus
-> locked, as the Gen 6 ones already are.
-> 
-> Besides the protocol, the Gen 7 differs in a few other places:
-> 
->   - there is no second keyboard backlight register and, when cycled
->     with Fn+Space, the keyboard backlight also reports level 3;
->   - the mic mute LED is a generic LED (id 0x0e) instead of a bit in the
->     audio register;
->   - Fn+F12 reports its own event code (0x19);
->   - suspend is signalled through bit 5 of register 0xcf instead of the
->     Gen 6 modern standby register, and the firmware makes the power and
->     lid logo LEDs glow while suspended;
->   - a few hotkeys which already come in through the I2C-HID keyboard
->     (volume, mute and some Fn+Fxx combinations) also raise an EC event,
->     and the firmware reports some status events nobody acts upon.
-> 
-> Handle those differences and treat the Gen 7 only events as known ones,
-> ignoring the duplicate hotkey events.
-> 
-> Co-developed-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
-> Signed-off-by: Hans de Goede <johannes.goede@oss.qualcomm.com>
-> Signed-off-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
-> ---
->  drivers/platform/arm64/lenovo-thinkpad-t14s.c | 197 ++++++++++++++++++++++++--
->  1 file changed, 186 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/platform/arm64/lenovo-thinkpad-t14s.c b/drivers/platform/arm64/lenovo-thinkpad-t14s.c
-> index 7a875877c8f3..cc7713aeac8e 100644
-> --- a/drivers/platform/arm64/lenovo-thinkpad-t14s.c
-> +++ b/drivers/platform/arm64/lenovo-thinkpad-t14s.c
-> @@ -17,7 +17,9 @@
->  #include <linux/interrupt.h>
->  #include <linux/leds.h>
->  #include <linux/lockdep.h>
-> +#include <linux/minmax.h>
->  #include <linux/module.h>
-> +#include <linux/mutex.h>
->  #include <linux/regmap.h>
->  #include <linux/slab.h>
->  #include <linux/pm.h>
-> @@ -26,8 +28,20 @@
->  #define T14S_EC_CMD_ECWR	0x03
->  #define T14S_EC_CMD_EVT		0xf0
->  
-> +/*
-> + * The Gen 7 (Snapdragon X2) EC uses a different command set over I2C, as
-> + * described by the ACPI EC accessors in its firmware (RDEC, WREC, QEVT).
-> + */
-> +#define T14S_GEN7_EC_CMD_RD	0x80
-> +#define T14S_GEN7_EC_CMD_WR	0x81
-> +#define T14S_GEN7_EC_CMD_EVT	0x84
-> +#define T14S_GEN7_EC_LED_MIC_MUTE	0x0e
-> +
->  #define T14S_EC_REG_LED				0x0c
->  #define T14S_EC_REG_KBD_BL1			0x0d
-> +#define T14S_EC_REG_MODERN_STANDBY_GEN7		0xcf
-> +/* Gen 7 DSDT sets this bit on Windows modern standby entry */
-> +#define T14S_EC_MODERN_STANDBY_GEN7_ESLS	BIT(5)
->  #define T14S_EC_REG_MODERN_STANDBY		0xe0
->  #define T14S_EC_MODERN_STANDBY_ENTRY		BIT(1)
->  #define T14S_EC_MODERN_STANDBY_EXIT		BIT(0)
-> @@ -41,6 +55,7 @@
->  #define T14S_EC_EVT_NONE			0x00
->  #define T14S_EC_EVT_KEY_FN_4			0x13
->  #define T14S_EC_EVT_KEY_FN_F7			0x16
-> +#define T14S_EC_EVT_KEY_FN_F12_GEN7		0x19
->  #define T14S_EC_EVT_KEY_FN_SPACE		0x1f
->  #define T14S_EC_EVT_KEY_TP_DOUBLE_TAP		0x20
->  #define T14S_EC_EVT_AC_CONNECTED		0x26
-> @@ -67,6 +82,18 @@
->  #define T14S_EC_EVT_KEY_FN_F11			0x7a
->  #define T14S_EC_EVT_KEY_FN_G			0x7e
->  
-> +/* Gen 7 only */
-> +#define T14S_GEN7_EC_EVT_HKEY_1010		0x14
-> +#define T14S_GEN7_EC_EVT_HKEY_1011		0x15
-> +#define T14S_GEN7_EC_EVT_HKEY_1017		0x1c
-> +#define T14S_GEN7_EC_EVT_STATUS_35		0x35
-> +#define T14S_GEN7_EC_EVT_DYTC			0x3c
-> +#define T14S_GEN7_EC_EVT_STATUS_40		0x40
-> +#define T14S_GEN7_EC_EVT_STATUS_4B		0x4b
-> +#define T14S_GEN7_EC_EVT_STATUS_4E		0x4e
-> +#define T14S_GEN7_EC_EVT_HKEY_1016		0x76
-> +#define T14S_GEN7_EC_EVT_HKEY_1015		0x7b
-> +
->  /* Hardware LED blink rate is 1 Hz (500ms off, 500ms on) */
->  #define T14S_EC_BLINK_RATE_ON_OFF_MS		500
->  
-> @@ -83,6 +110,7 @@
->  enum t14s_ec_led_status_t {
->  	T14S_EC_LED_OFF =	0x00,
->  	T14S_EC_LED_ON =	0x80,
-> +	T14S_EC_LED_GLOW =	0xa0, /* Gen 7 only, only works for power and lid LEDs */
->  	T14S_EC_LED_BLINK =	0xc0,
->  };
->  
-> @@ -93,9 +121,18 @@ struct t14s_ec_led_classdev {
->  	struct t14s_ec *ec;
->  };
->  
-> +struct t14s_ec;
-> +
-> +struct t14s_ec_variant {
-> +	const struct regmap_bus *regmap_bus;
-> +	int (*read_evt)(struct t14s_ec *ec, u8 *val);
-> +};
-> +
->  struct t14s_ec {
->  	struct regmap *regmap;
->  	struct device *dev;
-> +	const struct t14s_ec_variant *variant;
-> +	enum led_brightness mic_mute_cache;
->  	struct t14s_ec_led_classdev led_pwr_btn;
->  	struct t14s_ec_led_classdev led_chrg_orange;
->  	struct t14s_ec_led_classdev led_chrg_white;
-> @@ -206,6 +243,85 @@ static int t14s_ec_read_evt(struct t14s_ec *ec, u8 *val)
->  	return ret;
->  }
->  
-> +static int t14s_gen7_ec_cmd_read(struct t14s_ec *ec, u8 cmd, u8 arg, u8 *val)
-> +{
-> +	struct i2c_client *client = to_i2c_client(ec->dev);
-> +	u8 req[2] = { cmd, arg };
-> +	struct i2c_msg msgs[2] = {
-> +		{ .addr = client->addr, .flags = 0, .len = 2, .buf = &req[0] },
-> +		{ .addr = client->addr, .flags = I2C_M_RD, .len = 1, .buf = val },
-> +	};
-> +	int ret;
-> +
-> +	i2c_lock_bus(client->adapter, I2C_LOCK_SEGMENT);
-> +
-> +	/* Send cmd + arg */
-> +	ret = __i2c_transfer(client->adapter, msgs, 1);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	/* Resend the cmd byte + read the value */
-> +	msgs[0].len = 1;
-> +	ret = __i2c_transfer(client->adapter, msgs, 2);
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	ret = ret == 2 ? 0 : -EIO;
+SNIP
 
-Aren't these literal 2 same as ARRAY_SIZE(msgs) ? (x2)
-
-I wish we could use guard() of the i2c lock.
-
---
- i.
-
-> +out:
-> +	i2c_unlock_bus(client->adapter, I2C_LOCK_SEGMENT);
-> +	return ret;
-> +}
-> +
-> +static int t14s_gen7_ec_write(void *context, unsigned int reg,
-> +			      unsigned int val)
-> +{
-> +	struct t14s_ec *ec = context;
-> +	struct i2c_client *client = to_i2c_client(ec->dev);
-> +	u8 buf[3] = { T14S_GEN7_EC_CMD_WR, reg, val };
-> +	int ret;
-> +
-> +	ret = i2c_master_send(client, buf, sizeof(buf));
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	return 0;
-> +}
-> +
-> +static int t14s_gen7_ec_read(void *context, unsigned int reg,
-> +			     unsigned int *val)
-> +{
-> +	struct t14s_ec *ec = context;
-> +	u8 result;
-> +	int ret;
-> +
-> +	ret = t14s_gen7_ec_cmd_read(ec, T14S_GEN7_EC_CMD_RD, reg, &result);
-> +	if (ret)
-> +		return ret;
-> +
-> +	*val = result;
-> +	return 0;
-> +}
-> +
-> +static const struct regmap_bus t14s_gen7_ec_regmap_bus = {
-> +	.reg_write = t14s_gen7_ec_write,
-> +	.reg_read = t14s_gen7_ec_read,
-> +};
-> +
-> +static int t14s_gen7_ec_read_evt(struct t14s_ec *ec, u8 *val)
-> +{
-> +	return t14s_gen7_ec_cmd_read(ec, T14S_GEN7_EC_CMD_EVT, 0x00, val);
-> +}
-> +
-> +static const struct t14s_ec_variant t14s_ec_variant = {
-> +	.regmap_bus = &t14s_ec_regmap_bus,
-> +	.read_evt = t14s_ec_read_evt,
-> +};
-> +
-> +static const struct t14s_ec_variant t14s_gen7_ec_variant = {
-> +	.regmap_bus = &t14s_gen7_ec_regmap_bus,
-> +	.read_evt = t14s_gen7_ec_read_evt,
-> +};
-> +
->  static void t14s_ec_write_sequence(struct t14s_ec *ec, u8 reg, u8 val, u8 cnt)
->  {
->  	int i;
-> @@ -318,6 +434,9 @@ static int t14s_kbd_bl_set(struct led_classdev *led_cdev,
->  	if (ret < 0)
->  		return ret;
->  
-> +	if (ec->variant == &t14s_gen7_ec_variant)
-> +		return 0;
-> +
->  	val = FIELD_PREP(T14S_EC_KBD_BL2_MASK, brightness);
->  	ret = regmap_update_bits(ec->regmap, T14S_EC_REG_KBD_BL2,
->  				 T14S_EC_KBD_BL2_MASK, val);
-> @@ -338,7 +457,11 @@ static enum led_brightness t14s_kbd_bl_get(struct led_classdev *led_cdev)
->  	if (ret < 0)
->  		return ret;
->  
-> -	return FIELD_GET(T14S_EC_KBD_BL1_MASK, val);
-> +	/*
-> +	 * When cycled with Fn+Space, the Gen 7 EC also uses 3 for the high
-> +	 * level, which looks the same as 2.
-> +	 */
-> +	return min(FIELD_GET(T14S_EC_KBD_BL1_MASK, val), 2);
->  }
->  
->  static void t14s_kbd_bl_update(struct t14s_ec *ec)
-> @@ -383,7 +506,10 @@ static enum led_brightness t14s_mic_mute_led_get(struct led_classdev *led_cdev)
->  	struct t14s_ec *ec = container_of(led_cdev, struct t14s_ec,
->  					  led_mic_mute);
->  
-> -	return t14s_audio_led_get(ec, T14S_EC_MIC_MUTE_LED);
-> +	if (ec->variant == &t14s_ec_variant)
-> +		return t14s_audio_led_get(ec, T14S_EC_MIC_MUTE_LED);
-> +
-> +	return ec->mic_mute_cache;
->  }
->  
->  static int t14s_mic_mute_led_set(struct led_classdev *led_cdev,
-> @@ -391,8 +517,19 @@ static int t14s_mic_mute_led_set(struct led_classdev *led_cdev,
->  {
->  	struct t14s_ec *ec = container_of(led_cdev, struct t14s_ec,
->  					  led_mic_mute);
-> +	int ret;
->  
-> -	return t14s_audio_led_set(ec, T14S_EC_MIC_MUTE_LED, brightness);
-> +	if (ec->variant == &t14s_ec_variant)
-> +		return t14s_audio_led_set(ec, T14S_EC_MIC_MUTE_LED, brightness);
-> +
-> +	ret = regmap_write(ec->regmap, T14S_EC_REG_LED,
-> +			   T14S_GEN7_EC_LED_MIC_MUTE |
-> +			   (brightness ? T14S_EC_LED_ON : T14S_EC_LED_OFF));
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	ec->mic_mute_cache = brightness ? LED_ON : LED_OFF;
-> +	return 0;
->  }
->  
->  static enum led_brightness t14s_spk_mute_led_get(struct led_classdev *led_cdev)
-> @@ -444,6 +581,7 @@ static const struct key_entry t14s_keymap[] = {
->  	T14S_EC_KEY_ENTRY(FN_F10, KEY_SELECTIVE_SCREENSHOT),
->  	T14S_EC_KEY_ENTRY(FN_F11, KEY_LINK_PHONE),
->  	T14S_EC_KEY_ENTRY(FN_F12, KEY_BOOKMARKS),
-> +	T14S_EC_KEY_ENTRY(FN_F12_GEN7, KEY_BOOKMARKS),
->  	T14S_EC_KEY_ENTRY(FN_SPACE, KEY_KBDILLUMTOGGLE),
->  	T14S_EC_KEY_ENTRY(FN_ESC, KEY_FN_ESC),
->  	T14S_EC_KEY_ENTRY(FN_TAB, KEY_ZOOM),
-> @@ -478,7 +616,7 @@ static irqreturn_t t14s_ec_irq_handler(int irq, void *data)
->  	int ret;
->  	u8 val;
->  
-> -	ret = t14s_ec_read_evt(ec, &val);
-> +	ret = ec->variant->read_evt(ec, &val);
->  	if (ret < 0) {
->  		dev_err(ec->dev, "Failed to read event\n");
->  		return IRQ_HANDLED;
-> @@ -501,6 +639,7 @@ static irqreturn_t t14s_ec_irq_handler(int irq, void *data)
->  	case T14S_EC_EVT_KEY_FN_4:
->  	case T14S_EC_EVT_KEY_FN_F8:
->  	case T14S_EC_EVT_KEY_FN_F12:
-> +	case T14S_EC_EVT_KEY_FN_F12_GEN7:
->  	case T14S_EC_EVT_KEY_FN_TAB:
->  	case T14S_EC_EVT_KEY_FN_F10:
->  	case T14S_EC_EVT_KEY_FN_N:
-> @@ -553,6 +692,23 @@ static irqreturn_t t14s_ec_irq_handler(int irq, void *data)
->  	case T14S_EC_EVT_KEY_FN_D:
->  		dev_dbg(ec->dev, "FN + D - toggle privacy guard mode\n");
->  		break;
-> +	case T14S_GEN7_EC_EVT_DYTC:
-> +	/*
-> +	 * Keys which send an EC event which the DSDT maps to a HKEY, which
-> +	 * also send a key-press over I2C-HID, so ignore the EC event.
-> +	 */
-> +	case T14S_GEN7_EC_EVT_HKEY_1010:
-> +	case T14S_GEN7_EC_EVT_HKEY_1011:
-> +	case T14S_GEN7_EC_EVT_HKEY_1015:
-> +	case T14S_GEN7_EC_EVT_HKEY_1016:
-> +	case T14S_GEN7_EC_EVT_HKEY_1017:
-> +	/* Status events the Gen 7 firmware does not act upon either */
-> +	case T14S_GEN7_EC_EVT_STATUS_35:
-> +	case T14S_GEN7_EC_EVT_STATUS_40:
-> +	case T14S_GEN7_EC_EVT_STATUS_4B:
-> +	case T14S_GEN7_EC_EVT_STATUS_4E:
-> +		dev_dbg(ec->dev, "EC event 0x%02x\n", val);
-> +		break;
->  	default:
->  		dev_info(ec->dev, "Unknown EC event: 0x%02x\n", val);
->  		break;
-> @@ -572,9 +728,13 @@ static int t14s_ec_probe(struct i2c_client *client)
->  		return -ENOMEM;
->  
->  	ec->dev = dev;
-> +	ec->variant = i2c_get_match_data(client);
-> +	if (!ec->variant)
-> +		ec->variant = &t14s_ec_variant;
-> +
->  	i2c_set_clientdata(client, ec);
->  
-> -	ec->regmap = devm_regmap_init(dev, &t14s_ec_regmap_bus,
-> +	ec->regmap = devm_regmap_init(dev, ec->variant->regmap_bus,
->  				      ec, &t14s_ec_regmap_config);
->  	if (IS_ERR(ec->regmap))
->  		return dev_err_probe(dev, PTR_ERR(ec->regmap),
-> @@ -618,8 +778,15 @@ static int t14s_ec_suspend(struct device *dev)
->  
->  	led_classdev_suspend(&ec->kbd_backlight);
->  
-> -	t14s_ec_write_sequence(ec, T14S_EC_REG_MODERN_STANDBY,
-> -			       T14S_EC_MODERN_STANDBY_ENTRY, 3);
-> +	if (ec->variant == &t14s_ec_variant) {
-> +		t14s_ec_write_sequence(ec, T14S_EC_REG_MODERN_STANDBY,
-> +				       T14S_EC_MODERN_STANDBY_ENTRY, 3);
-> +	} else {
-> +		regmap_assign_bits(ec->regmap, T14S_EC_REG_MODERN_STANDBY_GEN7,
-> +				   T14S_EC_MODERN_STANDBY_GEN7_ESLS, 1);
-> +		t14s_led_set_status(ec, &ec->led_pwr_btn, T14S_EC_LED_GLOW);
-> +		t14s_led_set_status(ec, &ec->led_lid_logo_dot, T14S_EC_LED_GLOW);
-> +	}
->  
->  	return 0;
->  }
-> @@ -628,8 +795,15 @@ static int t14s_ec_resume(struct device *dev)
->  {
->  	struct t14s_ec *ec = dev_get_drvdata(dev);
->  
-> -	t14s_ec_write_sequence(ec, T14S_EC_REG_MODERN_STANDBY,
-> -			       T14S_EC_MODERN_STANDBY_EXIT, 3);
-> +	if (ec->variant == &t14s_ec_variant) {
-> +		t14s_ec_write_sequence(ec, T14S_EC_REG_MODERN_STANDBY,
-> +				       T14S_EC_MODERN_STANDBY_EXIT, 3);
-> +	} else {
-> +		regmap_assign_bits(ec->regmap, T14S_EC_REG_MODERN_STANDBY_GEN7,
-> +				   T14S_EC_MODERN_STANDBY_GEN7_ESLS, 0);
-> +		t14s_led_set_status(ec, &ec->led_pwr_btn, T14S_EC_LED_ON);
-> +		t14s_led_set_status(ec, &ec->led_lid_logo_dot, T14S_EC_LED_ON);
-> +	}
->  
->  	led_classdev_resume(&ec->kbd_backlight);
->  
-> @@ -637,13 +811,14 @@ static int t14s_ec_resume(struct device *dev)
->  }
->  
->  static const struct of_device_id t14s_ec_of_match[] = {
-> -	{ .compatible = "lenovo,thinkpad-t14s-ec" },
-> +	{ .compatible = "lenovo,thinkpad-t14s-ec", .data = &t14s_ec_variant },
-> +	{ .compatible = "lenovo,thinkpad-t14s-gen7-ec", .data = &t14s_gen7_ec_variant },
->  	{}
->  };
->  MODULE_DEVICE_TABLE(of, t14s_ec_of_match);
->  
->  static const struct i2c_device_id t14s_ec_i2c_id_table[] = {
-> -	{ .name = "thinkpad-t14s-ec" },
-> +	{ .name = "thinkpad-t14s-ec", .driver_data = (kernel_ulong_t)&t14s_ec_variant },
->  	{ }
->  };
->  MODULE_DEVICE_TABLE(i2c, t14s_ec_i2c_id_table);
+> > > If this change is intended solely to improve performance for an extremely
+> > > unlikely use case, I would, at the very least, make the size configurable
+> > > via Kconfig.
+> > > 
+> > > Since this change affects all architectures, those working with small,
+> > > embedded-system chips might be reluctant to "pay" 32 KB for a use case
+> > > that is highly unlikely to ever occur.
+> > 
+> > I can add CONFIG_KPROBE_HASH_BITS with range 6-16. I'd keep 6 for
+> > CONFIG_BASE_SMALL, so small systems don't pay anything, and use
+> > 10 (8KB on 64-bit) as the default otherwise, which gets most of the
+> > speedup from the table in the changelog
 > 
-> 
+> That is good. If you introduce the inline function support which is
+> enabled by some kconfig, that kconfig can increase the hash bits. That
+> should be more reasonable.
 
+yes, good idea, something like below, I'll send that as part of the
+inline tracing changes
+
+thanks,
+jirka
+
+
+---
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 1163736de1f9..350144df6863 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -141,6 +141,23 @@ config KPROBES
+ 	  for kernel debugging, non-intrusive instrumentation and testing.
+ 	  If in doubt, say "N".
+ 
++config KPROBE_HASH_BITS
++	int "Kprobe hash table size in bits" if EXPERT
++	depends on KPROBES
++	range 6 16
++	default 10 if DEBUG_INFO_BTF_INLINE
++	default 6
++	help
++	  Size of the kprobe hash table as a power of two. The default
++	  of 6 (64 buckets) is enough for a small number of probes.
++
++	  Attaching to inlined functions can register thousands of
++	  kprobes at once, so the default is raised to 10 (1024 buckets,
++	  8KB on 64-bit) when the inline site information is available
++	  (DEBUG_INFO_BTF_INLINE).
++
++	  If in doubt, keep the default.
++
+ config JUMP_LABEL
+ 	bool "Optimize very unlikely/likely branches"
+ 	depends on HAVE_ARCH_JUMP_LABEL
+diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+index f14f7ff45961..eba446e8ae37 100644
+--- a/kernel/kprobes.c
++++ b/kernel/kprobes.c
+@@ -50,7 +50,7 @@
+ #include <asm/errno.h>
+ #include <linux/uaccess.h>
+ 
+-#define KPROBE_HASH_BITS 6
++#define KPROBE_HASH_BITS CONFIG_KPROBE_HASH_BITS
+ #define KPROBE_TABLE_SIZE (1 << KPROBE_HASH_BITS)
+ 
+ #if !defined(CONFIG_OPTPROBES) || !defined(CONFIG_SYSCTL)
