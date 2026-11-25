@@ -1,97 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596692;
-	b=4Iti9lDuoR286WACeGGnz/4D77G3HGaNttOjgNIuD99BXJG8Q29u29Is+CjkiZnaPgF7
-	 wip0C3/qJUmwJ1DwWgwLTXsH889QWUeXiXhjkB/jEcPZguKkZkafx9n6ac8znGvMZXkqb
-	 6dOmJNFKLS5XlRndgysrePO8n4stgUf1aDuXxWnhCHu7+hi7itcffJNyANqDhefGp6Y0Q
-	 ELEqLLIUMPf2tuVMgW5NBiEMRyI8UfD5lcDbeIjnT6I/1RDNbGHBiNnIoFEmbUsetlhj3
-	 CIUX+Px92xcw2fNosxPGJGuvKwu8xJu08N09D7M0fe9OEsMnAbBGeKK9eafhm1K2eMQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596692;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795596706;
+	b=24Ms/LcfEMFfzJA1V1H754G5z6XpW9zQhWrHy9Bbahg+tVK00dCej/vP4Ccokm4q+HsX
+	 0ghhod/itPF8WwUDe7RpaWG99etb/Ppob0lfRq16+2pdd7HqMyhyND2AsHWfrCblMyPVb
+	 QlIsa1ZOtYoefGRdbQVdNaNHFdMnqkydDVwbLvmqjYJSqq4FY0bBZCLiFw/Dr3hSSsnnQ
+	 foOCE7sUlXHt1MN6clvRh0Ivvqrmlw01XdWuvlwIantyKcYAdGR6nGvAHdwHzNWbSQtpJ
+	 n4lJWP3Y+nIDKmDl7oJEbyenTUB2wecbcg8zRk1XzIoCYmYAnIgq6RuloadSvAXhgOw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596706;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=leW8W9Y5oRbK5oa4kJuWxpI8Iff2iYdyPFQ5BQru5+M=;
-	b=SOEyxtC2bHV82qvvHANh2w30WtrKqN4qWtcA9Bd3sMY39debS5q8e4RJW7zRl3ZoAJ+3
-	 sK86wHAeyhHLeaiWVwoMEFTs7kzIC4OSXXDpkt2gkqYbsnH7pr0OVkp1ZOdmhCu1GZkET
-	 kOSf1++YvynaughvTqSh0nuAUJDpHr4jPo+z5EWZ7AAmPE1vrRv0vGgFAQMJpSVDXqJ6G
-	 lHVLDu2yjKvH7lepZpsX9adfgPO0bauBGrTijGTtAgMi3aQ/ZJVSfR29BGS5EcF5TbMOA
-	 GeVzTJNkgh2PmwD2XxUjCrhDEepDfBYeMYEihH2QYvak0wP+jI4lZdHnqx7nYevXnHA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=JVZec+P0ncDLVtLUbU8V9WfHdjX3mnAfmKUvh9J6NzY=;
+	b=YvdCwS5rLV4fnThVO8D7lrk3MXdE0ZxWjF6gFe8GASbWw8ywB4CdPJah4tSgmrAdaZKJ
+	 0GBvzFoSqsRtFzxZ8wj17Scl1Fzr50ouLUUBWr6VHkZO90BD6s8pjcDPyCQGxDkILMwDr
+	 kU9tiiBA7RQiGENEokTVHfD3Mm745S+4c4+z6l0QlZojv80+l7ElyI3/y3EALicOMmX8d
+	 Z5lP8Rqliy4V9O+bujFAy0SO7P/gAjvEOzoU8SvQFFKgQkfmY2HKvv+nHGuOhP77zAbKu
+	 okp8TQSsIl1VvsaV3WLQlHeXqs8HwECflM6XXBSWcJA9TpYyH6xIc8VtC5UnLrdZFMQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e6T6I228;
-	arc=none smtp.remote-ip=209.85.216.51
-Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c6Tgw5+8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.48
+Received: from mail-qv1-f48.google.com (mail-qv1-f48.google.com [209.85.219.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5092D606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:51:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5092D606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F3C6606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:51:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F3C6606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e6T6I228
-Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3ae1da332bcso2844938a91.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:51:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c6Tgw5+8
+Received: by mail-qv1-f48.google.com with SMTP id 6a1803df08f44-92106d5371dso70575506d6.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:51:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795596705; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ki6H+vig0JGlrFuZdi5Eswtod72mMDDjSH2CuvQX5qiJIvy2YliOaLVnYriEExDEQX
+         7iASg7IE6SVRBsDyNc08dE14UfuGkjA6LduASg8HJK+/oWzmWJwmjM+Hm78ludUlE97q
+         twlKcxBGWxnLItLaJ2tnYf/v1n4P/C1b5jBlDkqeYy8HEumqyQcbqDkoodMd3k7+kdHP
+         EB8ML1HM0FPLq1aAYmW0soUtKDw4pUzyyg6JQkT59m9r+SIjqaTAsQbXRppv0eGX3gTo
+         7kPYf30rV5rZXtvAD4vHnadIpIieOzeIkhr2GZV/SO+qp1rhi6CSYHeMB4AZUKfAHM1I
+         nGfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=JVZec+P0ncDLVtLUbU8V9WfHdjX3mnAfmKUvh9J6NzY=;
+        fh=1E4EcHHrxwJhynjXWVIobG3O6L6THQ5Z5LBfWQhz8Co=;
+        b=d3BA4M3FA3oZ3SnNPQgB11kc5HFgWsufoBtlL+g2ZxLp1a6nl4xbEuvvO9HrbOKb9X
+         Mlg27csREPXyS3zmuv0p9HihRRLD4GfiCMc3C+W950oPakIWvkVptr3SyWt/tYWipJ/0
+         NYWKgdM//iFFpMOLVvOGRDZ8ffUiuFTgaktcA44LOtHWomn0B5M3h/kDdiQZJTPQDjXB
+         d0bhTk1Q0B3Y2qUOXlfs7iKAw/MA7glE9rlx2xIjaTCUEDRY7e9T+GTL7lo9Gm7/1pLm
+         P2IYwNYBqFMiQqcttvgAVmsTwpeedE/HBmS1pg20LJVV5sZZiwHnHXVuUcYaYDDaNFPT
+         py2Q==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795596692; x=1796201492; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795596705; x=1796201505; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=leW8W9Y5oRbK5oa4kJuWxpI8Iff2iYdyPFQ5BQru5+M=;
-        b=e6T6I228mNjFijA6R3pcSSqpOr/m02aqzwmFIkyHslr7sYbbf5f/8uofDwQ7hU9Kza
-         0hZk4EOtq+hYd46fzJAHGHC4WmCnolpsAOg8YW54OsxnxpnXKhB49VmYVfSK1ZtGnzHC
-         dkV/MfHh0E2ce/CPKYavkEx+Yz0XdQvO58jfvjUO7UodxaXCt6I5KBhg9BCoEXHdNbxv
-         z36Quu14jvH6je5wKggCr0Lhu72x8qZATKdK/Fg6dUi9A8QCknr1hdY8oZuEdOsTw52x
-         zYaMAZjYETATvVFeEA6wB6cWrMVZpUTK9ZydQH2+oTudLHomoI04Ag8p7nRA/v0zqBrh
-         HmOw==
+        bh=JVZec+P0ncDLVtLUbU8V9WfHdjX3mnAfmKUvh9J6NzY=;
+        b=c6Tgw5+8AuhyvQ0O6xvbT7EaPvrBiCZs++KPav58cWh0q/9O7wSlGgalTS79GBte9w
+         UQyCelSL66O3J+8Zbc+xeDLxLWs1F8uNdF5C4gfMD111hq3k+esDXnPx/JwFVlIFanBR
+         MjuU8dbZuzYEaRhRBsxOspW+sYtZsLnDql907g19QuOJIvtdfn1amv3CnX2rGJoJCFM+
+         icZkeYuXn+xz63AAWz+ceZB1w7pdX1EEJ4ZIpWLoCN6w//6gJ5zCx9+3Hw4Dt9VdNI7k
+         y4ZLr8S0Ho+S0P826cpMHmG+IA7JFPo7Vi/ePqtVmq+gOIOAyynNL5qvIoFWQOMG4O7H
+         ukCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795596692; x=1796201492;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795596705; x=1796201505;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=leW8W9Y5oRbK5oa4kJuWxpI8Iff2iYdyPFQ5BQru5+M=;
-        b=HLA247P7P1CDJBBXIJHNa6ZKBwHG4N48CteSXsAPnaEoozZYlICT4bmHqbQpAQCHdN
-         mR/uCAwBgu1lvMoLJAMIz+0GSZW+G9QxWfYOvULjjWRvhLVZKjjFlD43YWuU9NGbaqW8
-         3Es6bILC1FHn98Bkt5C3m3Vjf3FUJDGaJ9AgBqSi9oJrtoyJH/3mqlotxBXt04zSdfxv
-         tZuzAbcBpQSSVwIgpJ49FDnokXKdRobnXlAgtZka/+ipBuffNeJDtMyuOLnDs18vOpNc
-         DzfzWmSTPbtVZZFSNV2mijwc5BfvwnUT92rnZuUaI/asuHR6F3I10Ziomb+luk6AdTMw
-         P1YA==
-X-Forwarded-Encrypted: i=1; AL+hErGqnf61j64355Zx26Xewtx6zamE0SSfW38wkdy/qoDOes9twf93cPzzHMJlfat9IXW6ySZXiEo9RwB1sZs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9T/J8r+2gTQ74ANM+JgoGPCcz6m65PYy7VddwdJudoPvbi7OD3
-	+qWRBaP1X6oUby8sdolr/TtyNuASevSaoZlxstaUxx05znBHJqhScvPZ
-X-Gm-Gg: AZFdTZdRt48J9yu/TxfACGauxmNaMX9Hlg5jkolnHDGh1xNgRT4UGlsk3AAEC2bhfy/
-	fY7Hn38tYPhqoMuc0kqQbRXtj8C8bxexYp4i1SIFe/UezRgueX7eyLGvyY/AV1vssAfzWXuCSpD
-	ymTKlyUIIcmA0cCGdR31+3vPLNi/KqhLG7BZqxmCLSAadlKV43JVPrVuONEiaFjrthxLoXzWYzs
-	04YIGXZZsfeXpkw0mU8CBgOvYVo5/I9r8nf8eOL0PFh1qdpwlxDXX6WaXNtHy8+ZdaPNbDRNTfQ
-	6tK+0Lsr7cWcy4EeWY0k6LkVXe2bBnSOv/KF2Jp1dF7NBt57bKKbfgmYlkpW4nhO5xlav609STv
-	X8uEC+y1rgo9xYV1DI3a5S/jp2GKgo14HHm06uhjHneIBr5eIpdl67WYHMsmlyilWqtumo34ZBB
-	RTnKININ2jUWO8hK07NSCUGX0xfx1asLJn2sYN5s7Si3crmXLpcwNFyDxLBRnL2Nd6gFLq7kv1v
-	IcpXXlBGlI97rPyYIHedlMz4PGzAlQgD84uoodV8csyLsTWatKD1/ord6OHL67cu83B7Nn3QxEV
-	C85Hc+OViqmXekbJJu8Cztcwlg==
-X-Received: by 2002:a17:90b:55c5:b0:3b4:5b2c:2959 with SMTP id 98e67ed59e1d1-3b45b2c29b9mr11827069a91.63.1795596691606;
-        Wed, 25 Nov 2026 00:51:31 -0800 (PST)
-Received: from duge-G3-3500 ([138.199.21.246])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad8e93asm26632567a91.11.2026.11.25.00.51.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 00:51:31 -0800 (PST)
-Date: Wed, 25 Nov 2026 16:50:47 +0800
-From: Jiayu Du <duge1256@gmail.com>
-To: Aurelien Jarno <aurelien@aurel32.net>
-Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, dlan@kernel.org, troy.mitchell@linux.spacemit.com, me@ziyao.cc, 
-	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	p.zabel@pengutronix.de, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] nvmem: Add read-only SpacemiT K3 eFuse support
-Message-ID: <kahf2gbctnhtwngvtwkz7nxg2th2ecisdte66p2m7ukqup7jsj@7tmya5uxzg6o>
-References: <20261122173810.2409146-1-duge1256@gmail.com>
- <20261122173810.2409146-3-duge1256@gmail.com>
- <awYHAU239WMaqVKk@aurel32.net>
+        bh=JVZec+P0ncDLVtLUbU8V9WfHdjX3mnAfmKUvh9J6NzY=;
+        b=KP5p68oFg7un0vHhvh3iDclYUp6b/BtmAPMfcvTMyo8Wr77g30JFRjI0WSVIU6Xw8B
+         Nu9Ka0OGYVS94yUhqlkACSX5d1SfPhLcSp1zH/HeIzOp5O+jQ0RzoazoV4ZL7wZtTj7R
+         IaGFqBqmM0H54G4+41b2j3caLWGAhljbxJi/xjweYe+FgOvN1wTOHwLCQpDKcUwjoazU
+         9TSMN4wXvZc9eN0VxKM3rW+M+9Y0LwgnYW1KKV8WS2k3ZRtlbE2evPDx+wPrzr2SPQ0n
+         8bzG/6SQ/L5OkKsnZ6caWnAJl4u9AOcCzIhkUOGZUKnHs1vMLhPnavG8Uze9kv3VLdDO
+         xCZQ==
+X-Forwarded-Encrypted: i=1; AL+hErEbQdDcDPRgAvpCG4aCsET5FHqtnTImJAk3D3n8kqfMt7WxkBSYxoaleTmtxbDKuvryj9MVhZPXeyhEvwo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z//JrRl2UVKxB7g3UtQr/GLht0g38yPueo8J+jXYBQUD3iAugLd
+	o4k8UhOOmp+Duej3pJKWI8+mzOXdvUkd6RGhUk0g8p03vzduuYaAMjTYDiLYQ1uOjawYhX+n5qi
+	zy4uBVill4oP7KnykC5jkob2HDC0bj3c=
+X-Gm-Gg: AZFdTZfizYjmPlG2uhQWeQllrJnjHqwyq2FyznBkC87AT8jKesAbpFjwsGz9ZfuiWSK
+	iIQbrzr2tY2Ai+b5p7yTXky59lyiLpSsuwsO5MlKLnv4on94/Sa2UXPPYyBj4fqCIEERH0bl0nd
+	ulSTTEM6iYwFOjbHZAX9qv8/lMUpMqCwameNcFef/jSbKN8sxbCbRFt5izLJu9XnWAJchUxNEFU
+	E3OAjMGYMgfmbL+9JTMAGrb4lehTnFEpkGEtWs5xla5vIrGT7CcMf0rvRZh5V8Ln3QI+2bKxi+k
+	U60nHp3gj9QF0Ws+JGj1V79NidqLoKC9Hq85/4YMaifuePHEkNwJKJs2BliVyZK1bYHaYeAqbCf
+	UPpj2fa1ynrz0ZpnVX3bTRSf27joNy2YtiK8ylw==
+X-Received: by 2002:a05:6214:c2b:b0:921:1e3c:efeb with SMTP id
+ 6a1803df08f44-9212e0d16a1mr304088126d6.18.1795596705319; Wed, 25 Nov 2026
+ 00:51:45 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,42 +104,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awYHAU239WMaqVKk@aurel32.net>
+References: <20261118025528.2703790-1-zxyan0222@gmail.com> <179520945915.3135.14304625182301747705@kernel.org>
+ <500079e9-e626-4e4b-9880-adeea0724338@bootlin.com> <CAP7veT+EjJabWrvczNwcZQ16P_SyH_rAQkTz+nf1G+FjxMvgNw@mail.gmail.com>
+ <e44876ec-4f91-4120-bbf3-3a1eb330a2dc@bootlin.com>
+In-Reply-To: <e44876ec-4f91-4120-bbf3-3a1eb330a2dc@bootlin.com>
+From: zhu xin <zxyan0222@gmail.com>
+Date: Wed, 25 Nov 2026 16:51:34 +0800
+X-Gm-Features: Aa3M54oVZ8QH8baEESvpsl4u2Q4IYlXKuxY1eSxFeiZgwZmn4Zh87ziubRwHQe8
+Message-ID: <CAP7veTLioytfJYQ-BDc4+CrRMrMMjprR32f0CzN_uL0TschNbw@mail.gmail.com>
+Subject: Re: [PATCH net-next v4] net: stmmac: program the FSM timeout timer
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: netdev-bot+sashiko@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	netdev@vger.kernel.org, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	rmk+kernel@armlinux.org.uk
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 24, 2026 at 10:52:01PM +0100, Aurelien Jarno wrote:
-> Hi Jiayu,
-> 
-> On 2026-11-23 01:38, Jiayu Du wrote:
-> > Add read-only NVMEM access to bank 0 and bank 7 of the SpacemiT K3 eFuse
-> > controller. These banks contain temperature calibration parameters and
-> > other configuration data.
-> > 
-> > Reload the shadows during probe and cache the data for subsequent reads.
-> > Use a 512-byte NVMEM space with bank-based offsets and keepouts for the
-> > other banks.
-> > 
-> > Signed-off-by: Jiayu Du <duge1256@gmail.com>
-> > ---
-> >  MAINTAINERS                       |   1 +
-> >  drivers/nvmem/Kconfig             |  11 ++
-> >  drivers/nvmem/Makefile            |   1 +
-> >  drivers/nvmem/spacemit-k3-efuse.c | 205 ++++++++++++++++++++++++++++++
-> >  4 files changed, 218 insertions(+)
-> >  create mode 100644 drivers/nvmem/spacemit-k3-efuse.c
-> 
-> Thanks for this new version. I confirm the nvmem format is now much more 
-> intelligible. The content for banks 0 and 7 matches what is reported by 
-> the vendor driver under Bianbu. Therefore:
-> 
-> Tested-by: Aurelien Jarno <aurelien@aurel32.net>
+Hi Maxime,
 
-Hi Aurelien,
+On Wed, Nov 25, 2026 at 4:28=E2=80=AFPM Maxime Chevallier
+<maxime.chevallier@bootlin.com> wrote:
+>
+>
+>
+> On 11/25/26 09:22, zhu xin wrote:
+> > Hi Maxime,
+>
+> > Separately, I'd like your take on the hardcoded 1s timeout. At 10 Mb/s =
+a
+> > PAUSE frame with the maximum 0xffff quanta stalls the transmitter for
+> > about 3.36s, longer than the ~1.048s NTMRMD programmed here. If the Tx
+> > FSM is still timed during a flow-control stall, that would raise a
+> > spurious FSM timeout and reset the interface. I don't have a 10 Mb/s
+> > link locally to verify it, and the databook only hints at a large-mode
+> > (LTMRMD) without being explicit. Would you prefer bumping the default t=
+o
+> > 4s to be safe, or is 1s acceptable?
+> >
+>
+> Yup, this should do the trick. If I'm not mistaken, you'll add some
+> better controls once you start upstreaming the glue for your XGMAC
+> device, right ?
 
-Thanks for testing and comparing the data with the vendor driver.
-I'll include your Tested-by in v4.
+Right, I'll use a 4s timeout for now, and add a per-platform timeout
+config along with the glue once that goes upstream.
 
-Best regards,
-Jiayu Du
+Thanks,
+Zxyan
 
+>
+> Maxime
+>
