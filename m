@@ -1,104 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629808;
-	b=I5CU78sYBJja9o3Gii4l7elWs+8xnxxUJSb3JnG1eduaH/nqeEPNypB8r1R+U2WtYX/g
-	 tt+EKEDzFNyXuwDHr15BHbGYsfbVjQTNiOhKwxvpNFw4zGgR6yj72qqgdgVTHXMiYp+Gk
-	 RHuS5K9QdXxZTOE4Eqm4v0zE5A6fWU01QkROvV/n+IYdZx9kOo5W6rM/UUVnBNbhnj73N
-	 8R98Qv3gAKSYPoal/yDGVvKyn5W3dYpcfH65c9f5BbEWf3a73+5WL2UXtsMpWWiAhU+tf
-	 Uj67jgcx4Z7Lca9JUXpyOTgWFq89NKJn+82GWQJj97fJsQlZpyEXf56ylXX+GzC0B2w==
+	t=1795629804;
+	b=ET0O7yArGa4YI3wyt9YlCvnBZDzjHH5IGrE0nQPlyZlLGRmusyw+xiXui24U1x4Vvaj+
+	 qZzF+g50Hz2+IOSmKmniC95dXuLKEw1Rmxznx70kVxDyKrg855i14Ki4Fl7IQo2RIwa+s
+	 iv6/2gUSBxbRoR/+UmIyeyDF1WHg4/KTAr9yp+Ix9A0ngA7fU/70UXoT6GONkcjzROHX3
+	 LKGsCji+47Xgfl8PaacdQeBGrQcpqAaekd5pvVv1BxBpUltnq6G5Lat2U/wFbu7ak9+lh
+	 hyxN+uNIgkPlgGCaJRTbrWE1BDfr5CiRbaOEXSrastP1wL5BYg4o3Dm8hAVwTUV8rzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629808;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629804;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=9SB42I57ppceG6E1W7wOKk3sONGmJq77q2GPQ6ZHdGs=;
-	b=b4oJYOfLscEeosnWxtPuuBDImqTkqsDIhCUCGCLml0Sbl+/t1C/LLljy/qEKn18rpy02
-	 qieLZ+biv/iq6mtJpdc8IotwEKmP+IP0WsYxCbfVD/O7twN7GddSSyzO7AiwpOf/GK31S
-	 oT/34GBU4MItKChMKsWdEoDBjGhgNioPyL9siD6PtCOPjq4E22CcwInwUbQ/WVc77ZdsO
-	 1hDvQ24vH+4pyWuch9FDX5v0wH8GdHOTT2I9yLL4x+TN1qK0IyT5S8nQrs+NAyBYxroxa
-	 GnYH8pty1CDMqfWpk2SqBYNbhBjkjs5Uic1l5XY3B6o093+ifDeBz7suaKg7rCYFQSw==
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 From:To:Cc:Subject:X-Mailer:References:In-Reply-To;
+	bh=X+1AYy7Mp2a7SBL4ePYq/G5iDJIRCdCJCue8L7l5f3k=;
+	b=boR7TZXD97cS0K1J1PsvBgGeLhZyISrPyEG/1pd2F3uY6ZiiHnUnchp+c/Vjfuk4ygyr
+	 Vi6oHeURipzSSH7RHN8DeV/2SdGtBCLwH8IdshUWPb+XycYjvW9yL4M5DiorFUzFMW2oQ
+	 tNVNuhgznxUe1GDNwKuwU72JofMOiRhHIbq0BHa67IncmcQkeOs5w5Zl4SPec8YBGLOdm
+	 7bPkG6parmMDZ5BRrEFbxbkqI8KTft5C3A8nsKaqBxNb7Jlq9khkD8FTEL2GogfGKwT+a
+	 tqoj5ckyMLxv9TvRHYp/mnUSaDOn10FyXQxIBH4GHA+e1P7N6ZsshcKihhFSBUZY18w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amarulasolutions.com;
-	spf=pass smtp.mailfrom=amarulasolutions.com;
-	dkim=pass header.d=amarulasolutions.com header.i=@amarulasolutions.com header.a=rsa-sha256 header.s=google header.b=h3sDblAN;
-	arc=none smtp.remote-ip=209.85.221.54
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=A95H94SU;
+	arc=none smtp.remote-ip=209.85.214.180
+Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9F6C606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:03:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9F6C606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=amarulasolutions.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amarulasolutions.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F9BA606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:03:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F9BA606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amarulasolutions.com header.i=@amarulasolutions.com header.a=rsa-sha256 header.s=google header.b=h3sDblAN
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-48dee593f18so5679900f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:03:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=A95H94SU
+Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f04b676219so34355855ad.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:03:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1795629806; x=1796234606; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9SB42I57ppceG6E1W7wOKk3sONGmJq77q2GPQ6ZHdGs=;
-        b=h3sDblANI2RVIH4Yr1D2FwtABrU8bG7C5+5LH6yS+nJ97AEgYBfR7aMEQxPGDgO95Y
-         Zr2DOHNRZr0pXgomunrD7vqyUhO83dYa9b16yM2JuS3ig3q0qwRAYn3LpTAJoA/UvUGE
-         jXlvsx55c0FAot7DH5NCm+PYK0hwOnNVlIy+w=
+        d=google.com; s=20260707; t=1795629804; x=1796234604; darn=vger.kernel.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=X+1AYy7Mp2a7SBL4ePYq/G5iDJIRCdCJCue8L7l5f3k=;
+        b=A95H94SU9aU41X9Qdw1IDB9XFy9sE+pVMkssDqz5UP6xSP3vg85yutqk/5Ml20CrFx
+         8csRNqN1wMi5HgLKS+Za1S6ObBSTEG16G5Wadl0S/zdF+vZuNph+oXSFiv5qjvVqsHCs
+         /+QNk36QzE0ZAeuPGsRdGF5/vNYWdE5/DNEYfiPVfRivzQTnSlIiQfpXE+6Nq6HLZQD3
+         I726J+6XoLyFWiRRWW1cLvOUnTi4MsweX+FHvrqFfe2XJ9ihDPu8JNrm9da3ym2IIWq1
+         QfQY75kYGmaA/GkOicVMnxrkmTt6nz3SpYVpXZRuI34K+WOMApV1T46NwXAed7AlVt8h
+         lqMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795629806; x=1796234606;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9SB42I57ppceG6E1W7wOKk3sONGmJq77q2GPQ6ZHdGs=;
-        b=Bzrk/KxqLAKrHtKI/l/xK8rDWrQbghWzWTDdF3I2/GJXJI7F8cmAEPVduAWRsVFOns
-         C9fguFvhLNnIBLmgF3h0edAl9P/vquug2w8g5l10Wc8DkPOiiYeptag9DiAm+n6QPjXK
-         /nOD6X1AH+T20ft87EhDa+jevm2latp9zUuky8h9ClWbT/sC6/K/63x2eEoBWVtFCbS4
-         8A9t+OttWZPxUUgByZWwKVdsJvXoX/9lXJp21n7jLxZPZsTvf8ocs3G6tSJ59IEGR2NP
-         LcKmE/BlYU7IWfTABwV7vA1sEYiV0NjhA2MZo0wj2NY9D7klHO8MUEC33eAHW68VVLmg
-         aDjQ==
-X-Forwarded-Encrypted: i=1; AL+hErGIIupfG8IMHvj66HE5Ff7kq0m9b3qxFlTUDmr7BAjN5YFM7C6zljv6iBZLfRgQMR8FlUgX5OrorkJs8cc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/5aRdiawWFHg3UFLByr1b/MbHiWwAAIEGQqitl86xN8zdTw9Hk
-	Kcz8SjuxF5lIesO9UwkdUVPLtNyaPRWg2/W1FzYPodRPEOHcDjMXCqRWnV4NiUNNnUA=
-X-Gm-Gg: AZFdTZe0EFoa/7zsZbeIqCuoKRnO1B3sdUmUq2t7nn+rEstdlw3lpb3DGzuh6JXVP7i
-	Vcne4xWnS/gDHw9h7MLFNTvBp0P2lvE81pXTEoErR9CbBh5mp+Z+NwVjRTw2U4Q0Ww/NPUH1x9W
-	lQ7CQio3SolHT7KdY51x7EKsXBkRUlwvn6bVtE6hja+KEvzBHqhKLWFQ15eru7Vn+p/vwCRo6gi
-	lAekRxIaAzxdNzVRWsuEJ2QGK2K5zzJ4CjYcvAkV+mb0NCqK8a6ewqIMvxSE5YnUfr/uBRnlZmj
-	BXzSjUpb/ZmDUa7X9dXINm4ceFmoi/YsuF3G0oS3I/+rF1nPsYlKxCRRqflBnlf5v+xMg+xnNMC
-	ecB463xuuQDHbfm5MHBAtwaQnaF4OF9Vbuv2eExywg1mfw1pk9C5niV2wigxn+jM0FIsa2DASTK
-	YtvORxj6/Iu4CmVSIXdNqoDxD79fOS1tOvRAob6ciLHddsBNIyzJe04xlz566VrhVVZ6hwKld2Y
-	mh4DovynsKjWnwl/xze0I6SBkwCYVLf+MIc6OSpCjRzBfB0vQpuAz24iCF9LZQMJ5YaQyNg/koo
-	Ha9mrhMOPifv3DIYVaymr/3lqw8KQu6JTKLY3eTWgR9iea5b26ZwrXnIN3pVx3QU4r5zIMmNpEf
-	kGGJ6GkJqb2e7p9pmS9NuqIkaNy8/YGIsUydUF4tXkBZ4Pv/nL2Bkpvb7sz3ax26pZ4n3dbuSeh
-	dfVvCBbnX0zrgjkFmUxmjA
-X-Received: by 2002:adf:e00a:0:20b0:490:1881:80ec with SMTP id ffacd0b85a97d-4abb3a4d2camr26718119f8f.36.1795629806160;
-        Wed, 25 Nov 2026 10:03:26 -0800 (PST)
-Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com (host-79-14-29-58.business.telecomitalia.it. [79.14.29.58])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4b34e9c3ffesm19644251f8f.19.2026.11.25.10.03.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 10:03:25 -0800 (PST)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: michael@amarulasolutions.com,
-	linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Akhil Narayanan <akhil.narayanan@in.bosch.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Florian Ager <florian.ager@bshg.com>,
-	Haoning Cheng <Haoning.CHENG@cn.bosch.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Qiu Guochang <guochang.qiu@cn.bosch.com>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] ARM: dts: imx6ulz-bsh-smm-m2: add boot phase properties
-Date: Wed, 25 Nov 2026 19:03:11 +0100
-Message-ID: <20261125180316.882220-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20260707; t=1795629804; x=1796234604;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=X+1AYy7Mp2a7SBL4ePYq/G5iDJIRCdCJCue8L7l5f3k=;
+        b=tDOLGo8Ke4XHZH5ZGk897LgJJ9AdovCoikSJZy1X6Qn5aG7y4sNC6g/g7MQC4hHwPq
+         O/kvuSmcfJfZ2/BotmVQelVe3s2t0EAiZ+3xJpTZyB9ysagNWA8vv1A4oqQL9lm2IvFA
+         9hhSrwLEvKscGPTQ1pdD/QIdjX1Xer2KmrxDl5Nd004Sf8Iqb8pE9Qt3zxCoqoMePntU
+         pETiiZUTU8nu5RTFeCoUzerTzQY/PBAyr83AekKEWluBf/xeRr7lSyihIV0ZpbsoETLW
+         wDf6d2XkN5YygBBy422E4bQREpch3XKsDYsAei3YmEh0poZ+b2Id4fb/s/TE7oY2KXZZ
+         ZLHA==
+X-Forwarded-Encrypted: i=1; AL+hErGZTN+iFk0Wf2SD1DAnRogHcWw/rbOxZWBYwePtFrSJxCPPsAu/9KDbRBwhbpp+eEll94RkAHMg+PypqcI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9eo3gtMa1uhf5B1/u6duLGQk1nNuURXdYxPbE8qtauUSUmeuDC
+	8Q9V+qX9s5nQx/gqbOBzwPNMRXWJjJLskHdsoSWuqnEZuv0NgNrHKYpWOLIvhIydug==
+X-Gm-Gg: AZFdTZev11OUuM0sPhXeRdBK4ZwJ7HMneDUqT9z+qsTVeTQJvd7tCvzwTnaxyONWL9l
+	bZo1aWKRsWWNI1/7RGOqNgD38+KTom0B9WQcIg/tlJTudYGpHALdPOqIhNz5bWI2w3DMta+8/Zj
+	kH/m5B5N6ollqk9w3+tSnijV/cvc0Q1S0Cu+/Mj+LpK6e0gSnEtD8r1WqpT1tcWkJ5MFuZ/sjdu
+	ldIW4fyNaiFDgUzIEVQz8klTG5T4TCAfc1NQhiAK6zzhBkWLGwcCoj6ZpTMjwixT65/AwBGsDmK
+	1RXG3TKK1GdLwANxhYUBj+XG3lwP9aFmJBoYKnz37awzkG9BpqMkZlxIrPs8atAqmqBeNIc/7+s
+	jOkIv21Ej9EN2yaOhFfGDBsV4zIgB8bV6Ygd3Lc5urtAjqKKztSG5/bXo0HHIgs/mjs3Lh3MkPW
+	toEJoU1mEhWuTZ7BHUgFEI4ojFt0SJeZRCzWJdSc8jrysIFbtPw/hKK8hY2IN8FOA0/PcQSmf3I
+	fS7RLHqmLDQamMcYtwYYcHuTAp6hTn1vGX1rY5NfWH3cEEbZ+vx6gKRDHtD9wOrNLFLMU/6vN1t
+	cCS3B/OL3hRSxLm6Id0/u7lasWohnJmna1NIB1fz8ALTcbZPFF2JuGJTzzGsANZbeA==
+X-Received: by 2002:a17:902:f54c:b0:2e8:9820:80cf with SMTP id d9443c01a7336-2f03f1cfbe5mr188390265ad.58.1795629802894;
+        Wed, 25 Nov 2026 10:03:22 -0800 (PST)
+Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f14a432sm91361725ad.75.2026.11.25.10.03.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 10:03:21 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,56 +87,62 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 25 Nov 2026 10:03:21 -0800
+Message-Id: <DN4HN2W6ZVES.289H6BZD9U7KB@google.com>
+From: "David Matlack" <dmatlack@google.com>
+To: "Vipin Sharma" <vipinsh@google.com>, "David Matlack"
+ <dmatlack@google.com>
+Cc: <kexec@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-doc@vger.kernel.org>, <kvm@vger.kernel.org>, <linux-mm@kvack.org>,
+ <linux-kselftest@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+ <ajayachandra@nvidia.com>, <alex@shazbot.org>, <amastro@fb.com>,
+ <ankita@nvidia.com>, <apopple@nvidia.com>, <bhelgaas@google.com>,
+ <chrisl@kernel.org>, <christian.koenig@amd.com>, <corbet@lwn.net>,
+ <graf@amazon.com>, <jacob.pan@linux.microsoft.com>, <jgg@nvidia.com>,
+ <jgg@ziepe.ca>, <jrhilke@google.com>, <julianr@linux.ibm.com>,
+ <kees@kernel.org>, <kevin.tian@intel.com>, <leon@kernel.org>,
+ <leonro@nvidia.com>, <lukas@wunner.de>, <mattev@meta.com>,
+ <michal.winiarski@intel.com>, <parav@nvidia.com>,
+ <pasha.tatashin@soleen.com>, <praan@google.com>, <pratyush@kernel.org>,
+ <rananta@google.com>, <rdunlap@infradead.org>, <rientjes@google.com>,
+ <rodrigo.vivi@intel.com>, <rppt@kernel.org>, <saeedm@nvidia.com>,
+ <schnelle@linux.ibm.com>, <skhan@linuxfoundation.org>,
+ <skhawaja@google.com>, <vivek.kasireddy@intel.com>, <witu@nvidia.com>,
+ <yanjun.zhu@linux.dev>, <yi.l.liu@intel.com>
+Subject: Re: [PATCH v6 07/27] vfio/pci: Preserve vfio-pci device files
+ across Live Update
+X-Mailer: aerc 0.21.0
+References: <20261102153656.1431701-1-vipinsh@google.com>
+ <20261102153656.1431701-8-vipinsh@google.com> <auzftbPFO_6XBYVw@google.com>
+ <20261117220059.GA2250529.vipinsh@google.com>
+ <DMZLLYOVIGOU.1RXWYJN6UQTM@google.com>
+ <20261124234830.GB3545683.vipinsh@google.com>
+In-Reply-To: <20261124234830.GB3545683.vipinsh@google.com>
 
-Add boot phase properties to the resources needed during the boot
-process.
+On Tue Nov 24, 2026 at 4:22 PM PST, Vipin Sharma wrote:
+> On Thu, Nov 19, 2026 at 04:06:38PM -0800, David Matlack wrote:
+>> The incoming kernel computes its own virt[] and write[] masks and
+>> requires both to match exactly with what's in vfio_pci_core_device_ser,
+>> otherwise it fails the retrieve. On take-over it uses the preserved
+>> value for bits in virt and its own freshly initialized value for the
+>> rest, like your option 1.
+>
+> For now, we will be rejecting any changes and in future when we add
+> userspace opt-in mechanism then we can loosen this check, am I right?
 
-The BSH SMM M2 and M2B need UART and NAND access.
+Yes, any difference fails the retrieve.
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+I don't think the opt-in would loosen the check. What changes is the
+masks the incoming kernel expects: it builds its emulation for the
+device with the opt-in bits recorded in struct vfio_pci_core_device_ser,
+so a device that opted in to new emulation still matches. Devices that
+didn't opt in get the baseline emulation and keep matching older
+kernels.
 
----
-
-Changes in v2:
-- Rebase on imx/dt
-
- arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2-common.dtsi | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2-common.dtsi
-index 96f084b6ade4..c1ab536bb1c2 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2-common.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ulz-bsh-smm-m2-common.dtsi
-@@ -17,6 +17,7 @@ &gpmi {
- 	pinctrl-0 = <&pinctrl_gpmi_nand>;
- 	nand-on-flash-bbt;
- 	fsl,use-minimum-ecc;
-+	bootph-all;
- 	status = "okay";
- };
- 
-@@ -33,6 +34,7 @@ &uart2 {
- &uart4 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart4>;
-+	bootph-all;
- 	status = "okay";
- };
- 
-@@ -75,6 +77,7 @@ pinctrl_uart4: uart4grp {
- 			MX6UL_PAD_UART4_TX_DATA__UART4_DCE_TX	0x1b0b1
- 			MX6UL_PAD_UART4_RX_DATA__UART4_DCE_RX	0x1b0b1
- 		>;
-+		bootph-all;
- 	};
- 
- 	pinctrl_uart2: uart2grp {
----
-base-commit: d868355562901bd5043b52ab903811bd95a7d65a
-branch: imx6ulz-bsh-smm-m2-bootph
-
--- 
-2.43.0
-
+Separately, if we later find specific differences that are safe to
+accept (e.g. a newer kernel allowing writes to a bit that used to be
+read-only), we could relax the comparison for those. But that's
+independent of the opt-in.
