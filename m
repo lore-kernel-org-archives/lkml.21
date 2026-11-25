@@ -1,60 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629993;
-	b=1BUnQ5KaKHpjVtpJCWMWOEUHki5yMxw+zeF/LiSFQAKfiBBj8mJPKdMQRp96bWfXqoeM
-	 S4QVvTgKtOyJBDov4s2CH991hOSwbKf83l4hGVrpBJYl4x5kaDvozIkaqDdmUvkQSynVs
-	 tT567l3oZL3D5s2I/xOzRTkvPl25cs0DArm1K4SqjEWvHSV8F9v2ia+OHoYIdsW70UJA6
-	 1TKvbWUtym2lohkqn44mNlIUhLRV8jus3ytDhB2atfXQATKrYSfgi15eBFeV//7Smyfjl
-	 uCnK+UxmxFH2GodZNjBVmiRN9ddbosMtYIl9m+ZGM0wQcu4O6RnMwilU58k4WubQqGw==
+	t=1795629999;
+	b=WWsfHYmfJsw/o/NqjoTDe8GB3+/XHx6KetYmBpSfSND3/UiBr1g6C50J3nUe9zUiuzGB
+	 0m++k3dRWo/oiXknx5lXbjnrAiLUGqE7Y9nVOlsY8s3KuswsKZ7MQlIOKjGEU5nLnt6k7
+	 H4qJN5wvWiq05K7P2QhvO2HIpfb4/D/TC5sEwJf3s+frknsLrt7CIG0uwAG2NtiDJ8BZi
+	 MwOd+0JSJFx2gO2LsEugVXuJ8oqqiKbKP0TD3lS/Qv1VOM8Lyl9Fy6S8ZusvWrl4RTJP7
+	 A79CENoThP19pHCx8s1ZI0aDzk99DvaHEVnlrkhSIB4Wnw/gCaKfUo9aR6ZnS+YSufQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629993;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=D5XbwBFll67YZe8Aeb4/L1Vh5a1XCowJmsBP1YYfyKs=;
-	b=wCsHmBbdPzCpR9HXcEemoVeWedXKrYHMNdsM+EwzFnV8p8NYFqpynd4HD8T1Nurk3tZA
-	 657A3TUzXI71nj/d1ZonK3IlswgXBC6Ish8XqwU95/QDmWtVc2AZyoMlaSU2utVT7B40f
-	 dudmUoYkUMH7N0DFSMERtsG9Nvw1574lpn6fbslrqIsCTsMFjISiSsnxPPoJtF+WfAjV2
-	 Kv+bel0KPNZTaonRorUNtfnlX4NeQML22tMvBzw0BVroPohIghEzbGv++7L1ATzNgNVHB
-	 Gvt9XYue7GnM92Rv5FNbJCj26jDgmbIEPOMfFZSOhVOYjR+QlX8bE/1vzwwacIEjvvg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629999;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Vfpqfghp8rtJ0ttiLbaqibQehjgOthc7Xhwq+CR89LA=;
+	b=16dFCR+jSmJNXuQC438vSCmWrngfP5T4BkVxeHGittR7SZcUHq3wfKv9RO1+KFJ3MGRG
+	 YhbsFzsEeqv4830qQer6VrPk9Y/pjJ/5B8n+DIMPVo+PzDEyKzDYlMBcIYUnBkDt29Y2I
+	 wn8TnJbdCIR0e+fc5GgZo1vOz7Fwi0fmHhDo40wFyr20ZJlYkv8yIIUL2KvLmJjen5MiK
+	 u3cgJ1aMTx4Nje1wjODFsMXmVmY5GUuFo7LFb5YP+qIRcyxBYFsYeISMF1TokINJ085dx
+	 BtizIbZMYzldasVXM8436hbGCfQgyQCQpeZ+EBs/O84QZ+ybX3QZ3IyFjRAericddlg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sm27QWLM;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ULmO+bnX;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 481A7606A693;
-	Wed, 25 Nov 2026 18:06:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9124606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:06:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sm27QWLM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AC411F00A01;
-	Wed, 25 Nov 2026 18:06:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ULmO+bnX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 471761F00A3C
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795629992;
-	bh=D5XbwBFll67YZe8Aeb4/L1Vh5a1XCowJmsBP1YYfyKs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Sm27QWLMo77o4X0LRAYLJSKN9Uv7DC0hm3FXm0MQkDe4CqW+7xDDOhKZoIjp8GbvS
-	 2U6qqMXDaG9LhA/M73SSxpczn0yjgMLX4kadRY5AUKRldJ4wru77H0pVV63I6ZTLhg
-	 TkzN55VGPU3ff4u+lSvNzBjVVSSOs5m+Ug2comc5EX6FyEMjacogwcXPhvZ6oiATfK
-	 ZYqGRkEp7lQK4ch50G0jZAYxaowVcPXh+HmZKJCKTbPGduqHOr9CusRvlKt+oNKj+F
-	 rbFV9xzd5qwfjeLCBp33OBCyKF+kRwk8FqZSmVunxOqObpV2bj1NjAAWkdklznGGQD
-	 rkrJXThI5ay1Q==
-Date: Wed, 25 Nov 2026 18:06:29 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Mason Huo <mason.huo@starfivetech.com>
-Cc: Corey Minyard <corey@minyard.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"openipmi-developer@lists.sourceforge.net" <openipmi-developer@lists.sourceforge.net>
-Subject: Re: [PATCH v1 1/2] dt-bindings: ipmi: Convert starfive,kcs-bmc to DT
- schema
-Message-ID: <20261125-outbid-ritzy-705bdb883059@spud>
-References: <20261118062526.1436893-1-mason.huo@starfivetech.com>
- <20261118062526.1436893-2-mason.huo@starfivetech.com>
- <20261118-repackage-backlight-1bdc5955a8d2@spud>
- <BJSPR01MB0577DD87B6BE14E93640FD3A85432@BJSPR01MB0577.CHNPR01.prod.partner.outlook.cn>
+	s=k20260515; t=1795629999;
+	bh=Vfpqfghp8rtJ0ttiLbaqibQehjgOthc7Xhwq+CR89LA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=ULmO+bnXi7PFZD226VAWRBnKz5WR4LDSEbP0tNUK+LrfDOFb7VrGIgBLTgZGWZBky
+	 Y4usFC9BXJanyoFrP8UTW4Rh6SaaXE48vhC7qmUNQQTbslCe6tP75JWGBtpbDKkWmX
+	 AR66ew6g7FKpr6fp5uCp2H5QSBFwjOpCoUPZapAPbvbL6/lst4xm6+sE8K7frf/1ro
+	 cUB6yl+h9J2/elGh8HFk+k4Js0C7ElvsDAIoUMNEsdIJRx+kIzC6bnYMAMR2ZXniOx
+	 0JlGg30LTvfbSCr0mflz55y/uMcbC394TzNv7soG6UlMFqpbZmy5XZ/tkn9Fga7aJV
+	 a25dHYFcYmG0A==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5c1c0c8d61aso4090815e87.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:06:39 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFBCj1DQJtmbXortKYU+BNHcxcKFsP71CoxR4KFciWeTkZRxSFIJdMrw9eUwtHzADpiLZ2C7dCzmaV+wQQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/5JtHaJizMQ/teqqiL2TW0fijanVtB695R+Y/UMOV3R/fBj+UX
+	V67g2oR7/3ZecFaf9rI9HFkqwwAa778rkUj30W7ENKgqQzfdz3t3s+K5vOgxx9UhkHOtIJhB2+z
+	tMsKVr0mq7seZOjBKoEhWzljU4DZT1NQ=
+X-Received: by 2002:a05:6512:61aa:b0:5c0:e5:7e49 with SMTP id
+ 2adb3069b0e04-5c1bc806f13mr5272038e87.44.1795629998006; Wed, 25 Nov 2026
+ 10:06:38 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,108 +59,263 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RwHjz7y9O6zqBr58"
-Content-Disposition: inline
-In-Reply-To: <BJSPR01MB0577DD87B6BE14E93640FD3A85432@BJSPR01MB0577.CHNPR01.prod.partner.outlook.cn>
-
---RwHjz7y9O6zqBr58
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+References: <20261110142058.354518-1-mstrozek@opensource.cirrus.com>
+In-Reply-To: <20261110142058.354518-1-mstrozek@opensource.cirrus.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 25 Nov 2026 19:06:24 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmUNxbVBLXg1aGysRGCjcQFjo=JSwx4-=8TWa7bj-iXuA@mail.gmail.com>
+X-Gm-Features: Aa3M54qrOtW7v88959U2QkIHeP3Sl4QoSZukrMhtwzQVb3_px1CPH3x87TWk2cQ
+Message-ID: <CAD++jLmUNxbVBLXg1aGysRGCjcQFjo=JSwx4-=8TWa7bj-iXuA@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: cs42l43: Add GPIO controlled mic/spk mute LEDs
+To: Maciej Strozek <mstrozek@opensource.cirrus.com>, Andy Shevchenko <andy@kernel.org>, 
+	Mika Westerberg <mika.westerberg@linux.intel.com>
+Cc: brgl@kernel.org, patches@opensource.cirrus.com, linux-gpio@vger.kernel.org, 
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 25, 2026 at 01:07:46AM +0000, Mason Huo wrote:
-> > From: Conor Dooley <conor@kernel.org>
-> > Sent: 2026=E5=B9=B411=E6=9C=8819=E6=97=A5 1:58
-> > To: Mason Huo <mason.huo@starfivetech.com>
-> > Cc: Corey Minyard <corey@minyard.net>; Rob Herring <robh@kernel.org>;
-> > Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
-> > <conor+dt@kernel.org>; linux-kernel@vger.kernel.org;
-> > devicetree@vger.kernel.org; openipmi-developer@lists.sourceforge.net
-> > Subject: Re: [PATCH v1 1/2] dt-bindings: ipmi: Convert starfive,kcs-bmc=
- to DT
-> > schema
-> >=20
-> > On Wed, Nov 18, 2026 at 02:25:25PM +0800, Mason Huo wrote:
-> > > Convert the starfive,kcs-bmc binding to DT schema format.
-> >=20
-> > This is not a conversion since you are not deleting anything?
-> >=20
-> Thanks for the correction, will update the commit message in v2.
->=20
-> > >
-> > > Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
-> > > ---
-> > >  .../bindings/ipmi/starfive,kcs-bmc.yaml       | 53 +++++++++++++++++=
-++
-> > >  1 file changed, 53 insertions(+)
-> > >  create mode 100644
-> > Documentation/devicetree/bindings/ipmi/starfive,kcs-bmc.yaml
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/ipmi/starfive,kcs-
-> > bmc.yaml b/Documentation/devicetree/bindings/ipmi/starfive,kcs-
-> > bmc.yaml
-> > > new file mode 100644
-> > > index 000000000000..2cb91d321a32
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/ipmi/starfive,kcs-bmc.yaml
-> > > @@ -0,0 +1,53 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/ipmi/starfive,kcs-bmc.yaml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: StarFive BMC KCS Devices
-> > > +
-> > > +maintainers:
-> > > +  - Mason Huo <mason.huo@starfivetech.com>
-> > > +
-> > > +description:
-> > > +  The StarFive BMC SoCs use Keyboard-Controller-Style (KCS) interfac=
-es
-> > on
-> > > +  the eSPI bus for in-band IPMI communication with their host. The K=
-CS
-> > > +  channels are part of a Super I/O (SIO) block and each channel occu=
-pies a
-> > > +  0x100 byte register window, starting at offset 0x200 of the SIO re=
-gister
-> > > +  space. A channel is identified by its register offset and the
-> > > +  "starfive,sio-id" of the parent SIO node.
-> >=20
-> > Where is the binding for the parent SIO node? Hard to review this
-> > without that I think.
-> >=20
-> Sorry for missing the SIO node commit, will add it next version, and it l=
-ooks like:
-> +        superio@10582000 {
-> +            compatible =3D "starfive,jhb100-sio", "simple-mfd", "syscon";
-> +            reg =3D <0x0 0x10582000 0x0 0x1000>;
-> +            #address-cells =3D <2>;
-> +            #size-cells =3D <2>;
-> +            ranges =3D <0x0 0x0 0x0 0x10582000 0x0 0x1000>;
-> +            starfive,sio-id =3D <0>;
+Top posting to loop in more people.
+
+(Andy & Mika)
+
+On Tue, Nov 10, 2026 at 3:21=E2=80=AFPM Maciej Strozek
+<mstrozek@opensource.cirrus.com> wrote:
+
+> Add ability to use cs42l43's GPIOs to drive speaker and microphone mute
+> LEDs. The LEDs must be described using
+> 01fa-global-mute-led-(spk|mic)-mute-gpio ACPI property, which tells
+> which of the 3 available cs42l43's GPIOs to use for the respective
+> function.
+>
+> Signed-off-by: Maciej Strozek <mstrozek@opensource.cirrus.com>
+
+ACPI property, so Andy and Mika need to decide if this is a reasonable
+way to go about this issue.
+
+> ---
+>  drivers/pinctrl/cirrus/pinctrl-cs42l43.c | 156 +++++++++++++++++++++++
+>  1 file changed, 156 insertions(+)
+>
+> diff --git a/drivers/pinctrl/cirrus/pinctrl-cs42l43.c b/drivers/pinctrl/c=
+irrus/pinctrl-cs42l43.c
+> index 8990fab0446cf..7e4e43783ef14 100644
+> --- a/drivers/pinctrl/cirrus/pinctrl-cs42l43.c
+> +++ b/drivers/pinctrl/cirrus/pinctrl-cs42l43.c
+> @@ -5,11 +5,15 @@
+>  // Copyright (c) 2023 Cirrus Logic, Inc. and
+>  //                    Cirrus Logic International Semiconductor Ltd.
+>
+> +#include <linux/acpi.h>
+>  #include <linux/array_size.h>
+>  #include <linux/bits.h>
+>  #include <linux/build_bug.h>
+>  #include <linux/err.h>
+> +#include <linux/gpio/consumer.h>
+>  #include <linux/gpio/driver.h>
+> +#include <linux/gpio/machine.h>
+> +#include <linux/leds.h>
+>  #include <linux/mfd/cs42l43.h>
+>  #include <linux/mfd/cs42l43-regs.h>
+>  #include <linux/module.h>
+> @@ -29,9 +33,18 @@
+>
+>  #define CS42L43_NUM_GPIOS 3
+>
+> +struct cs42l43_mute_led {
+> +       struct led_classdev cdev;
+> +       struct gpio_desc *gpio;
+> +       u32 gpio_num;
+> +};
 > +
-> +            kcs@200 {
-> +                compatible =3D "starfive,jhb100-kcs-bmc";
-> +                reg =3D <0x0 0x200 0x0 0x100>;
-> +                interrupts =3D <282>, <57>;
-> +                interrupt-names =3D "kcs", "espi_rst";
-> +            };
-> +        };
-
-Why can this ipmi device not just be part of the parent node?
-
---RwHjz7y9O6zqBr58
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawcjpQAKCRB4tDGHoIJi
-0nBLAP9RwUwiZwQ6dquOrw1OA9DuPS0z7Xh62O3XVtrlg6vheAD5AQAAO138w07c
-4VSIjM6xrYcYkrHDFnKeQkE4UjQi7QI=
-=4ZnL
------END PGP SIGNATURE-----
-
---RwHjz7y9O6zqBr58--
+>  struct cs42l43_pin {
+>         struct gpio_chip gpio_chip;
+>
+> +       struct cs42l43_mute_led spk_mute_led;
+> +       struct cs42l43_mute_led mic_mute_led;
+> +
+>         struct device *dev;
+>         struct regmap *regmap;
+>         bool shutters_locked;
+> @@ -535,6 +548,143 @@ static void cs42l43_fwnode_put(void *data)
+>         fwnode_handle_put(data);
+>  }
+>
+> +#if IS_REACHABLE(CONFIG_LEDS_CLASS)
+> +static int cs42l43_find_mute_gpios(struct cs42l43_pin *priv, struct fwno=
+de_handle *fwnode)
+> +{
+> +       struct cs42l43_mute_led *mic =3D &priv->mic_mute_led;
+> +       struct cs42l43_mute_led *spk =3D &priv->spk_mute_led;
+> +       int ret;
+> +
+> +       fwnode_for_each_child_node_scoped(fwnode, child_fwnode) {
+> +               struct fwnode_handle *ext_fwnode __free(fwnode_handle) =
+=3D
+> +                       fwnode_get_named_child_node(child_fwnode,
+> +                                                   "mipi-sdca-function-e=
+xpansion-subproperties");
+> +               bool mic_present, spk_present;
+> +
+> +               if (!ext_fwnode)
+> +                       continue;
+> +
+> +               mic_present =3D fwnode_property_present(ext_fwnode,
+> +                                                     "01fa-global-mute-l=
+ed-mic-mute-gpio");
+> +               spk_present =3D fwnode_property_present(ext_fwnode,
+> +                                                     "01fa-global-mute-l=
+ed-spk-mute-gpio");
+> +               if (!mic_present && !spk_present)
+> +                       continue;
+> +
+> +               if (mic_present) {
+> +                       ret =3D fwnode_property_read_u32(ext_fwnode,
+> +                                                      "01fa-global-mute-=
+led-mic-mute-gpio",
+> +                                                      &mic->gpio_num);
+> +                       if (ret)
+> +                               return dev_err_probe(priv->dev, ret,
+> +                                                    "Invalid mic-mute LE=
+D GPIO property\n");
+> +               }
+> +
+> +               if (spk_present) {
+> +                       ret =3D fwnode_property_read_u32(ext_fwnode,
+> +                                                      "01fa-global-mute-=
+led-spk-mute-gpio",
+> +                                                      &spk->gpio_num);
+> +                       if (ret)
+> +                               return dev_err_probe(priv->dev, ret,
+> +                                                    "Invalid spk-mute LE=
+D GPIO property\n");
+> +               }
+> +
+> +               return 0;
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +static int cs42l43_mute_led_set(struct led_classdev *cdev, enum led_brig=
+htness value)
+> +{
+> +       struct cs42l43_mute_led *led =3D container_of(cdev, struct cs42l4=
+3_mute_led, cdev);
+> +
+> +       return gpiod_set_value_cansleep(led->gpio, value !=3D LED_OFF);
+> +}
+> +
+> +static void cs42l43_mute_led_gpio_free(void *data)
+> +{
+> +       struct cs42l43_mute_led *led =3D data;
+> +
+> +       gpiochip_free_own_desc(led->gpio);
+> +}
+> +
+> +static int cs42l43_mute_led_register(struct cs42l43_pin *priv,
+> +                                    struct cs42l43_mute_led *led,
+> +                                    const char *function, const char *tr=
+igger)
+> +{
+> +       int ret;
+> +
+> +       led->gpio =3D gpiochip_request_own_desc(&priv->gpio_chip, led->gp=
+io_num - 1,
+> +                                             trigger, GPIO_ACTIVE_HIGH,
+> +                                             GPIOD_OUT_LOW);
+> +       if (IS_ERR(led->gpio))
+> +               return dev_err_probe(priv->dev, PTR_ERR(led->gpio),
+> +                                    "Failed to request GPIO%u for %s LED=
+\n",
+> +                                    led->gpio_num, trigger);
+> +
+> +       ret =3D devm_add_action_or_reset(priv->dev, cs42l43_mute_led_gpio=
+_free, led);
+> +       if (ret)
+> +               return ret;
+> +
+> +       led->cdev.name =3D devm_kasprintf(priv->dev, GFP_KERNEL, "%s::%s"=
+,
+> +                                       dev_name(priv->dev), function);
+> +       if (!led->cdev.name)
+> +               return -ENOMEM;
+> +
+> +       led->cdev.default_trigger =3D trigger;
+> +       led->cdev.brightness_set_blocking =3D cs42l43_mute_led_set;
+> +       led->cdev.max_brightness =3D 1;
+> +
+> +       ret =3D devm_led_classdev_register(priv->dev, &led->cdev);
+> +       if (ret)
+> +               return dev_err_probe(priv->dev, ret, "Failed to register =
+%s LED\n",
+> +                                    trigger);
+> +
+> +       dev_dbg(priv->dev, "%s LED uses codec GPIO%u\n", trigger, led->gp=
+io_num);
+> +
+> +       return 0;
+> +}
+> +
+> +static int cs42l43_mute_leds_register(struct cs42l43_pin *priv,
+> +                                     struct fwnode_handle *fwnode)
+> +{
+> +       struct cs42l43_mute_led *mic =3D &priv->mic_mute_led;
+> +       struct cs42l43_mute_led *spk =3D &priv->spk_mute_led;
+> +       int ret;
+> +
+> +       if (!is_acpi_node(fwnode))
+> +               return 0;
+> +
+> +       ret =3D cs42l43_find_mute_gpios(priv, fwnode);
+> +       if (ret)
+> +               return ret;
+> +
+> +       if (mic->gpio_num > CS42L43_NUM_GPIOS ||
+> +           spk->gpio_num > CS42L43_NUM_GPIOS ||
+> +           (mic->gpio_num && mic->gpio_num =3D=3D spk->gpio_num))
+> +               return dev_err_probe(priv->dev, -EINVAL,
+> +                                    "Invalid or shared mute LED GPIOs: m=
+ic=3D%u, spk=3D%u\n",
+> +                                    mic->gpio_num, spk->gpio_num);
+> +
+> +       if (mic->gpio_num) {
+> +               ret =3D cs42l43_mute_led_register(priv, mic, LED_FUNCTION=
+_MICMUTE,
+> +                                               "audio-micmute");
+> +               if (ret)
+> +                       return ret;
+> +       }
+> +
+> +       if (spk->gpio_num) {
+> +               ret =3D cs42l43_mute_led_register(priv, spk, LED_FUNCTION=
+_MUTE,
+> +                                               "audio-mute");
+> +               if (ret)
+> +                       return ret;
+> +       }
+> +
+> +       return 0;
+> +}
+> +#endif
+> +
+>  static int cs42l43_pin_probe(struct platform_device *pdev)
+>  {
+>         struct cs42l43 *cs42l43 =3D dev_get_drvdata(pdev->dev.parent);
+> @@ -598,6 +748,12 @@ static int cs42l43_pin_probe(struct platform_device =
+*pdev)
+>                 return dev_err_probe(priv->dev, ret,
+>                                      "Failed to register gpiochip\n");
+>
+> +#if IS_REACHABLE(CONFIG_LEDS_CLASS)
+> +       ret =3D cs42l43_mute_leds_register(priv, dev_fwnode(cs42l43->dev)=
+);
+> +       if (ret)
+> +               return ret;
+> +#endif
+> +
+>         return 0;
+>  }
+>
+> --
+> 2.47.3
+>
