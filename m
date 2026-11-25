@@ -1,49 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795615590;
-	b=DZSdS7Ncnn1pWoBYcRv8WibePbAGEcETCTDz06Noqw2XVqhoNtTgs1oMj1sXHCg/Wjue
-	 iKu/CseoCE1lqhbV83hUpF6TUABx6ByD1CNr9+pA1CphDV+6ZwocZN+Yc5MjCZ4hASjFr
-	 DuxvM357wEfLUzQk6fxucqRFhb+f4tfxEsh+djpkS6962WgrBrh3Fp3gcxKNmSERVQIlX
-	 BcgElD0PtXLoLxXNXkaZAzxATHtTZxq7L6m8cqWqROty3KRpS9Dv1zeD6EfwGpPDc5cgM
-	 xVyALtZaBL1rQk2hAyw22O0d0ICvAENNOTxaPohYtxjUpW52aSb9grpJE5hGgm0IqYw==
+	t=1795615610;
+	b=muZ14vaFfdjdDAh3xigFcXQ/gcAHB2xy71MSFGjvgwTmWCkrMpcd9cDucMq0JJD+5UQq
+	 6hEM57U6xZlwkU+povQSco8IoXGOYj2nVzcfw95Cblp5p3bG+aMSunFH9SC5TUDvSgIGC
+	 GweJdTWR2Hqwsc4ViMWjEJ5PNHXLbOW0QrEM8gzWY4JECHv8g5qZrWHgB7GalPEN/tix1
+	 pm2xqLQ1IZ3+6dikDYgheLldwc6nKzOmxoyNBevGPQswAwWNfVFLVOg/P5NmTzQNE+u4P
+	 aUIaKpI+0bTmG/CpsHGz8HVs0Ai00+/tAX2D1vjDTNz3oMipB7N6jO7Agd8tbWud8BA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795615590;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=udX8+6efrLtSNS7M6NmNK8oMmjBqcwNuQyv9PojvCh4=;
-	b=dob7L8ODo0HxRq0WscD0oe/+roSMIcYJmjs9l485u289gFUEJNjSqbkyMOW5whczWSQf
-	 bdumOJq35CGBXHINb39ztOzjLU/pooJvFtToG/aRk6rjLdiscHctSZ8VP8d74Lm8JiPLp
-	 w7R+aIVnJgL1UXCjVW15hQJYmvwwasi1W9b7YCus3zDtCkxCO2ANRw5Ph/FFbvOzHPKRZ
-	 kftjE0yT+6ZQ7SZl5C0i+n3RzPXvJAfh6yWyoo4TMZh/PV8D0mejIlO37MixXALwdULOT
-	 I3jhxvUVFRfTysP+uPPdyecKpPYRdwZXqJI9AU+w/Fc2yjFSUP8J3yZ8TVbrVYQ2U3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795615610;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=MP09FK8BKciK7H/NzSBFI5ee4XjfPiGr8z/17qMy3kI=;
+	b=5iOuiLu136DFvfAVjW/t7UxgTkD64qVEDrgmxUKh/ytfk4peznx0jSk/xlnzGxvRgZWp
+	 fQpVXjWGbAUWYgN1brdgWWh+DJPIjs00yawgKMuC0koGKLX89/OQs4r83fRfznWUJZIoF
+	 AzwykyS1ZfgY7MrVJ2y6bXvlDrm2DuSfRf2ss4U0mzbUTvlmsGKj9lsC+O0/CCEIByvlf
+	 ao6vCS6fYnzMxiK+zH8ozLo93yD5XKk2q72dM89BsJjbj7icvo3iOEJoZROimE37Og/vC
+	 93kiot8qkwq11VFGBPOuOP09APrH6IaOF0bw6QMVOa32tVecyp50+PoIkfz3LDe06/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=vhQgwU3c;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 79903606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:06:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79903606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fVeMPU2L;
+	arc=none smtp.remote-ip=74.125.229.137
+Received: from mail-dl2-f9.google.com (mail-dl2-f9.google.com [74.125.229.137])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51167606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:06:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51167606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=vhQgwU3c
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 96D642F;
-	Wed, 25 Nov 2026 06:06:26 -0800 (PST)
-Received: from [10.0.135.195] (M0PRX50XMG.cambridge.arm.com [10.0.135.195])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0463C3F763;
-	Wed, 25 Nov 2026 06:06:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795615589; bh=sRlaaXQR0JeVzFmKrvC614bxVGzxPhzTL8Hc566Ovgs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vhQgwU3chBcYz1dWEVQ+cPH8psTGIYlZRx6YmtCrFcdDC/A1dqaJ4Nm7ejmc9FGX6
-	 NebtfNK7EM2SmzySskSqFujEaHp1B6IZlxpmn7r96Q3tGb57PSUJzjgyUPXFsznW5C
-	 hme8951n1R0pB9fzJC1yWKVQwqmhQIXECnB9bx2E=
-Message-ID: <2c5b41fd-d5b8-492f-9f16-9b88ac0ff862@arm.com>
-Date: Wed, 25 Nov 2026 14:06:26 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fVeMPU2L
+Received: by mail-dl2-f9.google.com with SMTP id a92af1059eb24-1397ad3d891so813043c88.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:06:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795615608; x=1796220408; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=MP09FK8BKciK7H/NzSBFI5ee4XjfPiGr8z/17qMy3kI=;
+        b=fVeMPU2LQflS9t5Hux2xZmBbd7AQUgCcFsHVsMBbyb1onFoxxv3rIAiSh8CTXacTz+
+         mICIXq3wAe4SwVyPYoPXICZjy5J+0ufY/gVPITAUp1VduxA6gs5TKZ7ujaR+CNRDdVke
+         qseDoHa6B02E4Al6EO6DimgZyCpiUI0Mp/xCUBDjxMHVjVSNkWK/TMndxsQyephR/Ami
+         AgLrZbfaIMMJOnAFvi1fgUon/13tg7hzXIWWbeU1E6SM3hEDzj2mGRbFjpkx6oOBnpiw
+         2U5MkOtkZrRf3aUiyMSho4m5cajyw7M7+d3xs+w6weTOoBLbjnXZPTGNbBb/jBVKN8Gv
+         6JWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795615608; x=1796220408;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MP09FK8BKciK7H/NzSBFI5ee4XjfPiGr8z/17qMy3kI=;
+        b=IMKwiblYMxLF0L0vjYQzJDPtvUwx0sYecOc8Zh5u7dfQfGbUIevwvhK3LtpmtQ7Jlh
+         e99AfUqN9+C+3k1l2Rc4ph2sJCqRi8ZC2lmN3Ji3Yd7kjJllf3c7vJeTFgYv+1UAkBc7
+         zND+QsMM/gHAkyQ140ERq6e14FiIvYCCmaaK4/TjItqtLbP0Ts6+pAVUqFcOyuS1pADY
+         u5HmYuOLSmXuWxEYhXwqODOBnb7IEOEOwiijQ3qoR7tT21Q5ENey9nDO5uYRNTyq0t7y
+         OSWqCA+ss+lPzhfmNsYqV9Jf6Jw5QFChFw9k57PJvYAJj38Q3uVOw4pIgg+CxN7yKKqo
+         QzaQ==
+X-Forwarded-Encrypted: i=1; AL+hErHuEShc39DshQ3LpHL1vfwN0+juGS4XDJALQjRtCTFPiF8fx5qC5Au+MGpgLMwhZig2ZjVlxbD9R4Wih0A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ooixBOTOaWwIblqNLTjGOF6WbKcmYssKCXOrHLKCRh3q+Et8r
+	UMqxDIyKHGKbXS4nYfdbi1q9QV8zg13kEeaJskaTWDoGtB6Om9GABzas
+X-Gm-Gg: AZFdTZfredPXJt4k2UPCM0sVSNr9frcB4DLYr68aLGEY7sjmH8/yXPO0ykrcLQIJbTK
+	wxMAtzCT29NN9mCAu5FhUygVLerXnillDJ2rtDuwn2CbIlQUTbDSVaIDO29S1n4dwEp/R2KQk2N
+	FaROqmnJ1KFIfG5S+AHLrJxYDESCgD8S0UCJH6bi6QK+Sd5Eu6JMmwO9nsmLa4wVHqleHRSZJte
+	ERYoSpXZJhyOktQ61imWcDFHiVltIEa3IX2q2fpDFSQ8HyFpKH+Z04da48JcN5eIxxSjK84BVVC
+	TpM8m9TxMbDNvJs9moq76bHXypfB6cOuqaDFoeExMQ3/UNNpzl1gZpsDuvi6MjqNa2Ti3+hLFLC
+	zDjKb5QSbOQuOuabBOqVJi2UTfOWvfqG60KmwOE23X8cZT4QmOpqVCNhCGiDBGePxXyOh++FamA
+	cWQKrx+mhAgPOxrpHcEOY25TUkm0nSu1Wp9Pk9yKT6ZWQDxByNO9lLjszzch5SezpLF4c6m8oK1
+	FS04CPBc1PfXn+wj3KRNcSQXJYkKGBSsVJHI3qIZvRnuxP4unptVBj1Mip3kjwrCHjt74FVmwJb
+	oOk0ha5v0CgFaFcGZKJ8Q/OjZSqUgVH1vrPhteH5Ww==
+X-Received: by 2002:a05:701a:844e:10b0:1b0:20:6444 with SMTP id a92af1059eb24-1b56e185990mr10444498c88.39.1795615608143;
+        Wed, 25 Nov 2026 06:06:48 -0800 (PST)
+Received: from localhost ([2604:a840:3:1e0::3003])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm61981028eec.26.2026.11.25.06.06.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 06:06:47 -0800 (PST)
+Date: Wed, 25 Nov 2026 22:06:43 +0800
+Message-ID: <eccf3f1e6dc94fbe847d112e8804c053.codykang.hk@gmail.com>
+From: Cody Kang <codykang.hk@gmail.com>
+To: James Morris <jmorris@namei.org>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
+ Troy Mitchell <troy.mitchell@linux.spacemit.com>,
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Haylen Chu <heylenay@4d2.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Yao Zi <me@ziyao.cc>,
+ Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Guodong Xu <docular.xu@gmail.com>, Icenowy Zheng <uwu@icenowy.me>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>,
+ Sarah Emery <sarah.emery@canonical.com>, Ze Huang <ze.huang@oss.qualcomm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>, dri-devel@lists.freedesktop.org,
+ linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v3 00/17] drm/spacemit: add SpacemiT K3 display support
+In-Reply-To: <87eaeb2-b6e9-9198-b9cf-7e9f96bdcbc@namei.org>
+References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
+ <87eaeb2-b6e9-9198-b9cf-7e9f96bdcbc@namei.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,62 +119,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 14/14] irqchip/gic-v5: Invalidate the L1 DTE when
- allocating an L2 device table
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
- Radu Rendec <radu@rendec.net>, Timothy Hayes <timothy.hayes@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Jonathan Cameron <jic23@kernel.org>,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261118-host_gicv5_fixes-v3-0-13c1859e8aa3@arm.com>
- <20261118-host_gicv5_fixes-v3-14-13c1859e8aa3@arm.com>
- <av7Ly_iLyiOAXQUR@red-moon>
- <CA+EHjTxTaEj25Ts-67B6nwxF_x1_ZTik6tg_a4sDbU+7B=FmEw@mail.gmail.com>
- <av77avzIzIbk_KUD@red-moon>
-Content-Language: en-GB
-From: Sascha Bischoff <sascha.bischoff@arm.com>
-In-Reply-To: <av77avzIzIbk_KUD@red-moon>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 19/11/2026 13:36, Lorenzo Pieralisi wrote:
-> On Thu, Nov 19, 2026 at 12:32:56PM +0000, Fuad Tabba wrote:
->> On Thu, 19 Nov 2026 10:13:31 +0000, Lorenzo Pieralisi
->> <lpieralisi@kernel.org> wrote:
->> [...]
->>>> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
->> [...]
->>>> +static int gicv5_its_device_l1_cache_inv(struct gicv5_its_chip_data *its,
->>>> +                                         u32 device_id)
->>>> +{
->>>> +        return __gicv5_its_device_cache_inv(its, device_id, 0, true);
->>>
->>> I would highlight why event_id_bits is set to 0 (actually it is irrelevant,
->>> let's explicitly say so).
->>
->> With L1 set, the effective value of ITS_INV_DEVICER.EVENTID_BITS is
->> the maximum in ITS_IDR2.EVENTID_BITS, whatever was written.
-> 
-> Yep, that's what I meant, I don't want "0" to look like we are
-> trying to optimize anything in there because there isn't anything
-> to optimize; a comment would do.
+Hi James,
 
-Yup, done :)
+On Tue, 24 Nov 2026 19:53:11 -0800, James Morris wrote:
+> On Sat, 21 Nov 2026, Cody Kang via B4 Relay wrote:
+>
+> > This series adds display support for the SpacemiT K3 [2], a RISC-V SoC:
+> > a new DRM driver, a new PHY driver and three new bindings.
+>
+>
+> Tested-by: James Morris <jmorris@namei.org> # CoM260-IFX, DisplayPort
+>
+> Assisted by an LLM.
+>
+> v3 on v7.4-rc1 works on a SpacemiT K3 CoM260 IFX with an Acer EDB323QU
+> (2560x1440, 144 Hz) on the DisplayPort connector. The DRM, DP and PHY
+> drivers were built in, and Linux ran from an initramfs with
+> clk_ignore_unused.
 
-> 
-> Thanks,
-> Lorenzo
-> 
->> nit: this helper has a single caller, so could you call
->> __gicv5_its_device_cache_inv() directly from
->> gicv5_its_alloc_l2_devtab() and put Lorenzo's comment on that call?
->>
->> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
->>
->> Cheers,
->> /fuad
+Thanks for testing v3. I will add your Tested-by in v4, on the PHY,
+DRM driver, SoC device tree and CoM260-IFX patches.
 
+> The board has the vendor U-Boot 2022.10 built on May 21 2026, not the
+> uboot-for-k3-display-verify branch. That link in the cover letter
+> returns 404 for me.
+
+I will drop that link in v4.
+
+[...]
+> Two observations:
+>
+> 1. The HPD interrupt never fired. /proc/interrupts stayed at 0 for
+>    cac88000.dp in both boots, also across the unplug and replug, when
+>    the stream was running. The connector poll caught both.
+
+Same on my CoM260-IFX: the count stays at 0, also across an unplug
+and replug with the output on.
+
+The external DP connector is polled on purpose. The interrupt needs
+the pixel clock, so it cannot report a plug into an idle port, and the
+bridge leaves out DRM_BRIDGE_OP_HPD there.
+
+> 2. With the monitor asleep, nothing was displayed. It kept HPD high and
+>    returned a generic 1920x1080 EDID. Link training passed at
+>    2.7 Gbps x2, but the monitor stayed dark until I woke it by hand
+>    and a later modeset retrained the link. The kernel got no event
+>    when the monitor woke. I found no DP_SET_POWER write in the driver;
+>    could the sink be left in D3?
+
+Right, v3 never writes DP_SET_POWER. v4 will set the sink to D0
+before link training.
+
+Cody
