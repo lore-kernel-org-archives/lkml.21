@@ -1,75 +1,74 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795630720;
-	b=5TBFO++ZjrmH4jk8yo8uUQ4vfNgh9RqGLsimxACPQRIiCN13vOFP7czYM5s/lc7yCA+u
-	 qC+2uExubwNLRjHwdavhD6tBr/Ij4hDL+ra8GmSzzFrVhcquB6RanM1rFS054SupFWo1b
-	 6vstTLdKih+FBuIgJdLBztjX8vvkn4lCmJBbfJDBa54nm0CB2TU3rpzO5OkC8RZ4GYn2c
-	 m/DXAVznlEEfoinhuTS7vm1Jr/QPogl7vihEDAy4ZC+LfTntHZSgQ91Fs/hrf78b8hcUP
-	 SX/AYFSVZsZqGKK1I/e4EXHUM/6QWIz/75GEAFbCU9/aZIK+al3U4E7OBkWYDdPdE6A==
+	t=1795630722;
+	b=0TGNOd55T20cDb7Bs9FkPYEcfCTxvCdsA7ADjCFESthqLWHLYhBSsIdoNKbJew/GYHki
+	 D17AKwhhQGwNY+tv7ccOg1fiyIj2lMgcFnUYXYg3+fDZhsQmQwl1lfsQv6j3lNXuw74rN
+	 kKQRcxhVvyROXlHdrwrMzUvDTM2XUUNyInmjGC5UHwzKdCeRcwj0E6BB7zbDncnj8A1B/
+	 4gPzUXjUIC0DEf+IlwAhZ1eqn4R9lTMYVHy28mtWdQ+wNz5PLUVw02EcsDUJbd7SgWOBH
+	 O8yk2CsLasxl3B2ugejPOSeDcjTk3adKNuuo0mukJxH2txAI3zIOWR6Fkyxf3ASRgQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630720;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630722;
 	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
 	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
 	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=w5+5Ek14eh/ok26w6TZeIupsCkZMl9d7/wNNeptttYk=;
-	b=bPogiXotbtxsehwCNU9DM6YBIBNmVf2/MrP3032e2i9LodlUVez3a3wy0MPqCkME03EQ
-	 jaFnguR+4rY/G6NzweXgEddKFxYUQTcLUmgnBMhXJcdxPAKBq/sjuJZQKgn3fw6dLp7kc
-	 iak1kGzoPtFI6FBL0qYc1a7JT5TNDG8SzNXnCGuSQVeRN76O925QKKRglkRPLcseFyRm5
-	 AlBM6mnC5P2m+GarYgdutJ92CCfDZ2kNoN+7o8PAIiJf1IP84UEJw+pV1NiifkgR7o80I
-	 eTLkwCbeq/w6gMVZ1XSzcHlsa1IHCO0xaPVXfN5sbQMbe4Gxs/R/eroyEy5SPrJZ/cQ==
+	bh=fhCnOfWLhFBSQqjP+vSMTWq1XnvoZDpR7hPoqjqO7ns=;
+	b=zS3OXDOsz8b6mUXWolaj6dx5mOuYUrRRvYINjG6AAT9vxb5u/uM6G4VkzPUOpmAPhLpN
+	 YN5J+IXDJCKGJ03v3ygdYT14+KVhhJ1WesA2C1dFSszPAWO7ShUsFLFHK5XVprUZOa+pP
+	 i1DP751W2+aLEsXw5PYXc0uyV04PtMU1wo6Iu0D2FhrDlJ75JubcA7XQ+o0y15uPE0ar4
+	 YhbweMNffmA0V96NNhYMK4sNGk5WhedtCgX5NwJUsrIXYnpaneaAUaPF0/OSlEOaxDgFH
+	 ZIvKXVQkjD04O9KGf9Pv6WPRpJaj2BSw+npuyDaIgs8Oj3OCisDdpB7qaITPYuMSouQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=oQjopnfL;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=fztfkvjz;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=L3ScmQuE;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=Hs6+GEZk;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68522606A32C
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:18:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68522606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6683606A6A1
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:18:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6683606A6A1
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=oQjopnfL;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=fztfkvjz
-Date: Wed, 25 Nov 2026 18:18:33 -0000
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=L3ScmQuE;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=Hs6+GEZk
+Date: Wed, 25 Nov 2026 18:18:37 -0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795630715;
+	s=2020; t=1795630719;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=w5+5Ek14eh/ok26w6TZeIupsCkZMl9d7/wNNeptttYk=;
-	b=oQjopnfLQRQwxmAVboKCRtnXRbe+OARUnEYiElCav4NxVVsi/P1xp+v11vWogUM1gKRXHB
-	RPbCMXjlK/4Rc8YuXQXCBALwJlxodMTfTfGx/JqFH4dHgcWfL2A8MHQvdxD4doQ88x2PmA
-	TixwDieORuwiyzKb65znOONMn1Vqfj8lKLHSglUfmWEUCKhzKR8UcipMoPN/CA66ddJHcT
-	JdD38Wvq9qG+uy929nj9oyG6TyxcJtfU1K0U96/iiAWLk0j5ykxFYzSNzLzr/Z4bFO6KF+
-	3Yto5ZdVC7uG/aYZz5X1L5uAnVq+wdNTISeFUUgLqtXq+mh0alV3mvAV/pjYIg==
+	bh=fhCnOfWLhFBSQqjP+vSMTWq1XnvoZDpR7hPoqjqO7ns=;
+	b=L3ScmQuExEc+1oi+7kJJL3LGXzaDs4zrATdoAd/fB6/tNQ0bD3RC3NAxMXJGRMye/vkJ0z
+	c+R88APVaOVwunAgx/U4K7tQBLTlLfgKox/WxOMrYwgiD0kkPS5pru+fZ28jVtWTsjeB5e
+	QtHMxnDMJF7Xx7Fhth1OhmRhROxwWSx0SPPvC860on6bJxhjWZ/NrfFVzdA8kQdYqYEdR9
+	+ayijJOaBBimQGWP0aYJgR79/VnKpsIjEIePXZGEQ8WgP33w+57pzyLhu0Z2f1lhe54cGJ
+	vxiX0JTGgCVq/U/ORT4RU5pkit2Rckn3eTkSgskI6CmqjNdF8YPEjnbeJVz6lw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795630715;
+	s=2020e; t=1795630719;
 	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=w5+5Ek14eh/ok26w6TZeIupsCkZMl9d7/wNNeptttYk=;
-	b=fztfkvjzxiFgs+KqOvp6KhuvvkQlBy/KBQDynaDTF4hz5mSlwxeUQaqHbAs0akD1WiNII0
-	5rU+JklK96j3n/AQ==
-From: "clocksource-bot for Juhee Kang" <tip-bot2@linutronix.de>
+	bh=fhCnOfWLhFBSQqjP+vSMTWq1XnvoZDpR7hPoqjqO7ns=;
+	b=Hs6+GEZkMX/1pbjvIKooLIA9ZBrRAxH96paGsKR+RTZxKCErNPvSIwcruOGuI6ZhSRkawQ
+	34c+JLgLqpke4xBw==
+From: "clocksource-bot for Brian Masney" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-kernel@vger.kernel.org
-Subject: [clocksource: timers/drivers/next] clocksource/drivers/nxp-stm:
- Register sched_clock once
-Cc: Dustin Black <dblack@redhat.com>, Juhee Kang <juhee.kang@redhat.com>,
- Daniel Lezcano <daniel.lezcano@kernel.org>,
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
-In-Reply-To: <20261015113738.435986-1-juhee.kang@redhat.com>
-References: <20261015113738.435986-1-juhee.kang@redhat.com>
+Subject: [clocksource: timers/drivers/next] clocksource/drivers: Convert to
+ subsys_platform_driver() sh_cmt, sh_tmu, sh_mtu2 and em_sti
+Cc:
+ Brian Masney <bmasney@redhat.com>, Daniel Lezcano <daniel.lezcano@kernel.org>
+In-Reply-To: <20261105-clocksource-subsys-v1-1-b0b710681b66@redhat.com>
+References: <20261105-clocksource-subsys-v1-1-b0b710681b66@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,7 +78,7 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179563071353.92412.1445511540297479838.tip-bot2@tip-bot2>
+Message-ID: <179563071792.92412.5394284567488605348.tip-bot2@tip-bot2>
 Robot-ID: <tip-bot2@linutronix.de>
 Robot-Unsubscribe:
  Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
@@ -90,78 +89,138 @@ Content-Transfer-Encoding: quoted-printable
 The following commit has been merged into the timers/drivers/next branch of c=
 locksource:
 
-Commit-ID:     beb664be74abb8fb6753800d9f79d5a492cd3f86
+Commit-ID:     7422d80ca3b14db74a73f972f918c6adf818f4a0
 Gitweb:        https://git.kernel.org/pub/scm/linux/kernel/git/daniel.lezcano=
-/linux.git//beb664be74abb8fb6753800d9f79d5a492cd3f86
-Author:        Juhee Kang <juhee.kang@redhat.com>
-AuthorDate:    Thu, 15 Oct 2026 20:37:38 +09:00
+/linux.git//7422d80ca3b14db74a73f972f918c6adf818f4a0
+Author:        Brian Masney <bmasney@redhat.com>
+AuthorDate:    Thu, 05 Nov 2026 20:32:03 -05:00
 Committer:     Daniel Lezcano <daniel.lezcano@kernel.org>
-CommitterDate: Wed, 25 Nov 2026 18:28:20 +01:00
+CommitterDate: Wed, 25 Nov 2026 17:54:08 +01:00
 
-clocksource/drivers/nxp-stm: Register sched_clock once
+clocksource/drivers: Convert to subsys_platform_driver() sh_cmt, sh_tmu, sh_m=
+tu2 and em_sti
 
-Each probe updates stm_sched_clock before calling sched_clock_register()
-again. The call then subtracts the counter value saved during the
-previous registration from the new STM's counter. If the new counter is
-smaller, the subtraction wraps and the timestamp jumps forward.
-(e.g. from 0.4 to 32.9 seconds below)
+Reduce boilerplate code in these drivers and convert them over to use
+the macro subsys_platform_driver().
 
-  [    0.403653] sched_clock: 32 bits at 132MHz, resolution 7ns, wraps every =
-16243448316ns
-  [    0.404056] clocksource: timer@40120000: mask: 0xffffffff max_cycles: 0x=
-ffffffff, max_idle_ns: 14456668980 ns
-  [   32.890509] sched_clock: 32 bits at 132MHz, resolution 7ns, wraps every =
-16243448316ns
-  [   32.890882] clocksource: timer@40124000: mask: 0xffffffff max_cycles: 0x=
-ffffffff, max_idle_ns: 14456668980 ns
-
-To fix this, register sched_clock once at the end of the first
-successful probe. Clocksource and per-CPU clockevent registration
-remain unchanged.
-
-Fixes: cec32ac75827 ("clocksource/drivers/nxp-timer: Add the System Timer Mod=
-ule for the s32gx platforms")
-Reported-by: Dustin Black <dblack@redhat.com>
-Signed-off-by: Juhee Kang <juhee.kang@redhat.com>
+Signed-off-by: Brian Masney <bmasney@redhat.com>
 Signed-off-by: Daniel Lezcano <daniel.lezcano@kernel.org>
-Reviewed-by: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
-Tested-by: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
-Link: https://patch.msgid.link/20261015113738.435986-1-juhee.kang@redhat.com
+Link: https://patch.msgid.link/20261105-clocksource-subsys-v1-1-b0b710681b66@=
+redhat.com
 ---
- drivers/clocksource/timer-nxp-stm.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+ drivers/clocksource/em_sti.c  | 13 +------------
+ drivers/clocksource/sh_cmt.c  | 13 +------------
+ drivers/clocksource/sh_mtu2.c | 13 +------------
+ drivers/clocksource/sh_tmu.c  | 13 +------------
+ 4 files changed, 4 insertions(+), 48 deletions(-)
 
-diff --git a/drivers/clocksource/timer-nxp-stm.c b/drivers/clocksource/timer-=
-nxp-stm.c
-index ca6c0df..dcf2bc8 100644
---- a/drivers/clocksource/timer-nxp-stm.c
-+++ b/drivers/clocksource/timer-nxp-stm.c
-@@ -211,10 +211,6 @@ static int nxp_stm_clocksource_init(struct device *dev, =
-struct stm_timer *stm_ti
- 	if (ret)
- 		return ret;
-=20
--	stm_sched_clock =3D stm_timer;
--
--	sched_clock_register(nxp_stm_read_sched_clock, 32, stm_timer->rate);
--
- 	dev_dbg(dev, "Registered clocksource %s\n", name);
-=20
- 	return 0;
-@@ -473,6 +469,15 @@ static int nxp_stm_timer_probe(struct platform_device *p=
-dev)
- 			return ret;
+diff --git a/drivers/clocksource/em_sti.c b/drivers/clocksource/em_sti.c
+index 1d62ed6..5cf19d9 100644
+--- a/drivers/clocksource/em_sti.c
++++ b/drivers/clocksource/em_sti.c
+@@ -346,18 +346,7 @@ static struct platform_driver em_sti_device_driver =3D {
  	}
+ };
 =20
-+	/*
-+	 * STM counters run independently at the same rate. Use the first
-+	 * probed instance for sched_clock to avoid timestamp jumps.
-+	 */
-+	if (!stm_sched_clock) {
-+		stm_sched_clock =3D stm_timer;
-+		sched_clock_register(nxp_stm_read_sched_clock, 32, stm_timer->rate);
-+	}
-+
- 	return 0;
- }
+-static int __init em_sti_init(void)
+-{
+-	return platform_driver_register(&em_sti_device_driver);
+-}
+-
+-static void __exit em_sti_exit(void)
+-{
+-	platform_driver_unregister(&em_sti_device_driver);
+-}
+-
+-subsys_initcall(em_sti_init);
+-module_exit(em_sti_exit);
++subsys_platform_driver(em_sti_device_driver);
 =20
+ MODULE_AUTHOR("Magnus Damm");
+ MODULE_DESCRIPTION("Renesas Emma Mobile STI Timer Driver");
+diff --git a/drivers/clocksource/sh_cmt.c b/drivers/clocksource/sh_cmt.c
+index 7977507..0bca806 100644
+--- a/drivers/clocksource/sh_cmt.c
++++ b/drivers/clocksource/sh_cmt.c
+@@ -1168,22 +1168,11 @@ static struct platform_driver sh_cmt_device_driver =
+=3D {
+ 	.id_table	=3D sh_cmt_id_table,
+ };
+=20
+-static int __init sh_cmt_init(void)
+-{
+-	return platform_driver_register(&sh_cmt_device_driver);
+-}
+-
+-static void __exit sh_cmt_exit(void)
+-{
+-	platform_driver_unregister(&sh_cmt_device_driver);
+-}
++subsys_platform_driver(sh_cmt_device_driver);
+=20
+ #ifdef CONFIG_SUPERH
+ sh_early_platform_init("earlytimer", &sh_cmt_device_driver);
+ #endif
+=20
+-subsys_initcall(sh_cmt_init);
+-module_exit(sh_cmt_exit);
+-
+ MODULE_AUTHOR("Magnus Damm");
+ MODULE_DESCRIPTION("SuperH CMT Timer Driver");
+diff --git a/drivers/clocksource/sh_mtu2.c b/drivers/clocksource/sh_mtu2.c
+index 3aca86d..a45bf94 100644
+--- a/drivers/clocksource/sh_mtu2.c
++++ b/drivers/clocksource/sh_mtu2.c
+@@ -505,22 +505,11 @@ static struct platform_driver sh_mtu2_device_driver =3D=
+ {
+ 	.id_table	=3D sh_mtu2_id_table,
+ };
+=20
+-static int __init sh_mtu2_init(void)
+-{
+-	return platform_driver_register(&sh_mtu2_device_driver);
+-}
+-
+-static void __exit sh_mtu2_exit(void)
+-{
+-	platform_driver_unregister(&sh_mtu2_device_driver);
+-}
++subsys_platform_driver(sh_mtu2_device_driver);
+=20
+ #ifdef CONFIG_SUPERH
+ sh_early_platform_init("earlytimer", &sh_mtu2_device_driver);
+ #endif
+=20
+-subsys_initcall(sh_mtu2_init);
+-module_exit(sh_mtu2_exit);
+-
+ MODULE_AUTHOR("Magnus Damm");
+ MODULE_DESCRIPTION("SuperH MTU2 Timer Driver");
+diff --git a/drivers/clocksource/sh_tmu.c b/drivers/clocksource/sh_tmu.c
+index 8b3cfa6..38bfbe8 100644
+--- a/drivers/clocksource/sh_tmu.c
++++ b/drivers/clocksource/sh_tmu.c
+@@ -636,22 +636,11 @@ static struct platform_driver sh_tmu_device_driver =3D {
+ 	.id_table	=3D sh_tmu_id_table,
+ };
+=20
+-static int __init sh_tmu_init(void)
+-{
+-	return platform_driver_register(&sh_tmu_device_driver);
+-}
+-
+-static void __exit sh_tmu_exit(void)
+-{
+-	platform_driver_unregister(&sh_tmu_device_driver);
+-}
++subsys_platform_driver(sh_tmu_device_driver);
+=20
+ #ifdef CONFIG_SUPERH
+ sh_early_platform_init("earlytimer", &sh_tmu_device_driver);
+ #endif
+=20
+-subsys_initcall(sh_tmu_init);
+-module_exit(sh_tmu_exit);
+-
+ MODULE_AUTHOR("Magnus Damm");
+ MODULE_DESCRIPTION("SuperH TMU Timer Driver");
