@@ -1,17 +1,17 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=40.93.194.71
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795625825;
-	b=QFIu8RN4VTtoXbQ6894EREjeCrV5K2fpVP1beysgf65nTgrERGF1xvxFpeNV0kZwQcV5
-	 lniW15MJ5F3EX7rl2lRdT3LlEgKyWl52uizsmiKum7s4GPQiDghFK43nnjd8Zaru4Mafx
-	 ZKtH8+IX8wQoF69dLpR3+S0+Uk7XnFUqzw3gYV2Q2JNBW4FmnTT/+R5zpaa9v3wzTkwro
-	 1rh1/PBjNeucgaFZVYyZagLm0aSzbArvmvxqbnkRXf/WiNiEc8X5DMxfXQpaX436snzpx
-	 SYLj/SOajaLq9rl9qxoNYFCLFLmVqftgdQvs/wTag37pEjt/Kdb7AJzVMIwPH9XYbJQ==
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.100.122
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795625845;
+	b=lO2+zEkJpnvftKMM5muze9QhWCTHuZJQ/YPsrLgzeAjL9H/b5HjKOozAChRvaYCJ8Tyv
+	 B0EK8gaZG1Kmqk9CZYdUTp3WdcNcByLkbmS5WUZw0z06G06awerl4OP1P/KcbuYaw2SnJ
+	 NZaGhWmcO8EB3h9nfAL4OAeFozBVjm1dfq4uFUEUOKRC2oYPAz/2g/jvldCuiwI+JDdj7
+	 0pZ07HQFs66N4Aj1IjMiKSARb6jWggBglmGggJwuTAdD77yVkAmb6Clmz9D+lSPaXGMPG
+	 5dzZPnx/rEcYYODXyIbjocR4gCHU4+gEd+tlQEv7/+98V+4siNHF5Ouqee7m93vAEWA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625825;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625845;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
 	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
 	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
 	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
@@ -24,100 +24,79 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=qiFmxAg7uvI2chrtozhWWUzKJEUCjS2xqjlFfyFOdh8=;
-	b=G/iFkfKM64oNH73cKWQJWVXSw8RGLtUhxHI6WAKw2NPRCQVxYpRoyJthmnjBkz3qCwmX
-	 zY8OVcbl7pZeqsH3w+xxfgefhm4ED9+BJjfmCt7aTEkTFdXDYl6WpKTQZZGyqzN19jXes
-	 ij6c5v52fbZdsJxd/y/bVMi6pKeFlpn3BQ2nZfAtx3Pr8HJ4hFWCEv8FFmGebC/axzDJS
-	 tB7xpC12iXAZbpI2wxIFJkJoBl5Hj9DLbVh8l7z4EKgh+BFPgltWgrajc1Uu7rpzDUZNe
-	 8i0+Yn27fja8b3iIB30v3wKBkQQo+tivctVXMGBBPGJOEdbCPoxbNHJmf/nWQrlycag==
+	bh=7tQlHAs7KQUy6b+cbTwngdXkqV17unFtNGTM3PLKtBM=;
+	b=ym7vS4H1277B27x9oJHmBbPhbQkJMX2qXnBSdW0haMZCXHSDmtByeunl76xdALiELThx
+	 vn/hI/v9PuaPDvUD0fYU9MEUue3D24JRWcln2ozDL0/jweTZhyw37DgFI2HGWkB2+yTBk
+	 gVLsineyb8P/29Qa3d8ll8nn0782JYDJwzk89yvsNYHxaQsP+oODQMP1c2OYEBnVbiZxV
+	 gH/sQkGbnYeF61GebMAaNA/X18UuiSPt5TwfnynCHE59pJCKB8P0P4Ngfuu+KIAMLhhMN
+	 k8WXEqii4BHwaEn6dS9lDxbMvuS8OrQH4oGguminphxc/5cwuP/BYZwBRzYy7iHDNQg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=fail reason="signature verification failed" header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gN4n1cuD;
-	arc=fail smtp.remote-ip=40.93.194.71
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011071.outbound.protection.outlook.com [40.93.194.71])
+	dmarc=pass header.from=garyguo.net;
+	spf=pass smtp.mailfrom=garyguo.net;
+	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=jsdOwtIl;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.100.122
+Received: from CWXP265CU009.outbound.protection.outlook.com (mail-ukwestazon11021122.outbound.protection.outlook.com [52.101.100.122])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDB1D606A32D;
-	Wed, 25 Nov 2026 16:57:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDB1D606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2C88606A321;
+	Wed, 25 Nov 2026 16:57:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2C88606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gN4n1cuD
+	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=jsdOwtIl
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ltvW+GVBYEtfLcLj6hVa83+Fwwf/dBe3b7ANFGX6FftKEUcjNWZ5w3gjy/1lGQng4ikotujxCv8e2i2LkTOSsYabU3sIjNvS6VANeihhyvCVR3mHCJQ9CfkD1g9gtaoK5mjt4hPr50q9MPGVzED0M/91P3Lzk2BwvSwn6wJGeu2MBrFEhwet+uY9lnQz7rBNut+ImL80aO3/aNYslElqHjKn10dr0zwZBSEpEQDxmEQ2Cy+RSxmMCaQwYMXe3YgtWbd9Uv98k7vO0wN9wl/XOkW0dBEIVodSDX5hAgEibX3EF0Bzeq6AGpdYxVgAKTJhm3IeWZTNsLAFoejQGAxn0g==
+ b=g4QuJWtG3+4+KoWH9yHR5hd11X4R9vc/hOgyEDO0KIwizdUa/UiUu4JGZzDc+W6PhcMlmirtz1iGzMXfV5AvjPX2MBUXam1tKZfL4guCMtDClL/FKkLbRv4osdkdRUnPwnMlV9W7nmj24HuerjPlyL9l1NoDS/x46GXA5ocP3ooR0n4DV2M1ThK2oK1egXzqzkRZUQmHG5wI9uYimeDV774HLryCL6FyRjWkuu7oX84uWCfejToRKoq864apafYvVZ9WgSUwAwYD32VR7IFY4rxmPqgFs4uckjCmcudT7Cs8nRq7QFED5idS0rrBCSbKjQafZUlQnBOK+V/Szgtjxw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=n2BjKrDMr+a+QTobO6ygfTBY+FnJAXtW6hashTaGM/k=;
- b=tlwc+ScDYP4qh2M05g7PBxfSI1wi9WWnIhUfIvT+NEnXRAQZ8GgZ5ABrLtPYxcU8iCG4M1foS0b6mvCWQhstjLArDKrvaKwRLNTnxtNcFAlby/4gDY/Ol1ufP6ufo+6Asz0qUhFIjPhluuqymP7Auc5AQmPFwS48FL0kz0Yxyhweb1ceShmsFhZm/I5llfolRXvk03U/FiN34jTlwoQxFOpI9j0ZpDTDj/alsxnNKioQjgcQugO+bJu1NI3QQTANgETgzcYtMqU76RAKeMLlt+8xr/2Hvqlec8iEdWggosyHJWDczov6Ze3Xh+qy8Jab6RU2Dl0tZf6Bw8fT4akQ4A==
+ bh=7tQlHAs7KQUy6b+cbTwngdXkqV17unFtNGTM3PLKtBM=;
+ b=ORXr0Ag2Kxf3x1XPhaOt/o5ceXP/8cHzv0B1OSGM2d2wMfr9k1SpSUCHo5RNbOE1HKcYfXGY6opgpYoRZN/5nISPoLrCc0I7WM+YgNmaLKxbrBsRLOpz8133om7Pdh4G9dtdYi0cBeCPafmftL08hS4QGYaF7qvR9U17stSnKqlqOLVgboJL9++CsmMW/OtiLGcsYgTm6vUqUXhKAjBjZ05e51ePfMIFweBL3/FZGtB95fHyQYr2FWLtn0/EuDVp9ccMb0mfZtMOTWRnp4UM53KazgmRLLenNFk0K55EbRjs7JOOEYvuJKYB9Z1u0JHAUHRYEuSEkp+dcPubz5WAfw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=n2BjKrDMr+a+QTobO6ygfTBY+FnJAXtW6hashTaGM/k=;
- b=gN4n1cuDryBEF6cJJVZG9x6whzqdI/LBjMHVHIRDJ3M/bldq6Tcsdo8mdG1Rr3Bb8jOY8b9PQLNePXx9ij5PSe4SqGws/Tqfe/93pSr36xmTwbs9iYNLGkDtC0ZVh8AK1meQSUnX1sSdi7ZaYgL5dar/KQ5zv1dXuYL7MmT1FFM=
+ bh=7tQlHAs7KQUy6b+cbTwngdXkqV17unFtNGTM3PLKtBM=;
+ b=jsdOwtIlicgGvvvkKsz/8DbqKWYchbfsHQhIG2WWtvgurF9H6VjkGofkBirzv5F/jYHlRKwD1nOuGx3pWgxf7W0iDc0SZdYUO72JwhAPwV0YsJ3MHpPS7irWOQl5LbZ+I5HDiz0s/dlWquRZVplLQJntrzZXzbFjxw6zI1k970k=
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from EAYPR12MB923140.namprd12.prod.outlook.com
- (2603:10b6:303:2fd::15) by SA1PR12MB8096.namprd12.prod.outlook.com
- (2603:10b6:806:326::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Wed, 25 Nov
- 2026 16:54:54 +0000
-Received: from EAYPR12MB923140.namprd12.prod.outlook.com
- ([fe80::b986:8b81:beda:c167]) by EAYPR12MB923140.namprd12.prod.outlook.com
- ([fe80::b986:8b81:beda:c167%4]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
- 16:54:54 +0000
-Date: Wed, 25 Nov 2026 11:54:41 -0500
-From: Yazen Ghannam <yazen.ghannam@amd.com>
-To: Pierre Gondois <pierre.gondois@arm.com>
-Cc: Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>,
-	Lukas Wunner <lukas@wunner.de>, linux-kernel@vger.kernel.org,
-	Ashok Raj <ashok.raj@oss.qualcomm.com>,
-	James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shuai Xue <xueshuai@linux.alibaba.com>,
-	Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-	Oliver O'Halloran <oohall@gmail.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
-	Pawel Chmielewski <pawel.chmielewski@intel.com>,
-	Qiuxu Zhuo <qiuxu.zhuo@intel.com>,
-	Avadhut Naik <avadhut.naik@amd.com>, Radu Rendec <radu@rendec.net>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Dave Jiang <dave.jiang@intel.com>,
-	Kai-Heng Feng <kaihengf@nvidia.com>,
-	"Fabio M. De Francesco" <fabio.m.de.francesco@linux.intel.com>,
-	Breno Leitao <leitao@debian.org>,
-	Terry Bowman <terry.bowman@amd.com>, linux-acpi@vger.kernel.org,
-	linux-edac@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-pci@vger.kernel.org, acpica-devel@lists.linux.dev
-Subject: Re: [PATCH v1 19/19] PCI/ERR: Avoid NULL bridge pointer
-Message-ID: <20261125165441.GI2156781@yaz-khff2.amd.com>
-References: <20261117111444.4185512-1-pierre.gondois@arm.com>
- <20261117111444.4185512-20-pierre.gondois@arm.com>
- <avw_daENKPcY7_04@wunner.de>
- <28da8229-99f9-47c7-b2d6-d301ae34253f@linux.intel.com>
- <ba5f649c-f338-40d1-9e85-b666590835ca@arm.com>
- <20261124160027.GC2156781@yaz-khff2.amd.com>
- <92f3a4a7-a4be-40ce-b156-c3fbec150e58@arm.com>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <92f3a4a7-a4be-40ce-b156-c3fbec150e58@arm.com>
-X-ClientProxiedBy: BN9PR03CA0703.namprd03.prod.outlook.com
- (2603:10b6:408:ef::18) To EAYPR12MB923140.namprd12.prod.outlook.com
- (2603:10b6:303:2fd::15)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
+ by CW1P265MB625033.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:2b3::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 16:57:21 +0000
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 16:57:21 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 25 Nov 2026 16:57:20 +0000
+Message-Id: <DN4G8JETRABW.2O6NBI29ALL1N@garyguo.net>
+Cc: "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng" <boqun@kernel.org>,
+ "Gary Guo" <gary@garyguo.net>, =?utf-8?q?Bj=C3=B6rn_Roy_Baron?=
+ <bjorn3_gh@protonmail.com>, "Benno Lossin" <lossin@kernel.org>, "Andreas
+ Hindborg" <a.hindborg@kernel.org>, "Trevor Gross" <tmgross@umich.edu>,
+ "Daniel Almeida" <daniel.almeida@collabora.com>, "Tamir Duberstein"
+ <tamird@kernel.org>, "Alexandre Courbot" <acourbot@nvidia.com>,
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, "John Hubbard"
+ <jhubbard@nvidia.com>, "Philipp Stanner" <phasta@kernel.org>,
+ <rust-for-linux@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <driver-core@lists.linux.dev>
+Subject: Re: [PATCH v4 4/5] rust: workqueue: add creation of workqueues
+From: "Gary Guo" <gary@garyguo.net>
+To: "Alice Ryhl" <aliceryhl@google.com>, "Tejun Heo" <tj@kernel.org>, "Lai
+ Jiangshan" <jiangshanlai@gmail.com>, "Danilo Krummrich" <dakr@kernel.org>
+X-Mailer: aerc 0.22.0
+References: <20261119-rust-workqueue-v4-0-707c68994940@google.com>
+ <20261119-rust-workqueue-v4-4-707c68994940@google.com>
+In-Reply-To: <20261119-rust-workqueue-v4-4-707c68994940@google.com>
+X-ClientProxiedBy: LO4P265CA0015.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:2ad::18) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:400:1cb::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,127 +107,87 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: EAYPR12MB923140:EE_|SA1PR12MB8096:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67266ca9-94f1-4bdd-3d24-08df4b14d407
+X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|CW1P265MB625033:EE_
+X-MS-Office365-Filtering-Correlation-Id: bd2b8454-0bdb-495b-ec92-08df4b152bfa
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|18002099003|22082099003|4143699003|56012099006|11063799006|261026140227099003|261026121527099003|261028144727099003|261022105027099003|261022075727099003|261021121427099003|261009223027099003|261102123227099003|10067099003;
+	BCL:0;ARA:13230040|366016|23010399003|10070799003|7416014|376014|1800799024|18002099003|22082099003|4143699003|261009223027099003|56012099006|10067099003|261102123227099003|261026121527099003|261021123027099003|261021121427099003;
 X-Microsoft-Antispam-Message-Info:
-	p0sSF4ktlg+7C9sgZ4vIDuNJDhbKb9z6AQE3qhJofWeroY1FkCVae4KTTlNvhdrmJ0cHAmIE12Mn8DPeTa4GEAGChfGz5hT/uPlxnk6GDyYQGxvk5cWOznzSGixrHbRNiawxT1uXOszH9//+J3Nr7Rv0lzyhdRDG762KiUXbtRu4PIAwSyVK6yz4lBJn/j9nqYDmuyTSzYXwOkH8MOOwJoqn/WwZmYeoiP+bFJoaRunOQh77DPHHZNXDONMILLOOqun3iyH1daDre4hiTjVkgV3QkdTpU1D8IdDZ13GLp1rmvoM/PfJyBJ9bxBIpj3n4zWcQv583rt7LCQ2Zrb9sMM1+34QancqOos+wajKvOD6BGnscccmSKdjNj9r/qGmfKPKmciuKuy19u33PidVtFVBF4yuymAIPiilZSBzRDGJ6xan80gv7XRVxbBNRE64QOSKvYBuzobwculD7e/YEIoBpw/v5Hm3n9YAxXhIUIRZqPslAo5U/n5610H9CPr4KISAPyUBtpy/0F7iwoDxdQfO/oT4INZ4A/FmPB2VYeUeHncOYRWyu9IWRGJ8Ei0Ez+9EW9W+R6LV/BjQ0m4jJ1rw7y3F2k9194tc5d01+KluvNx5LlrFbQ74vgoRgK9/qKO91v2eCBDX+P3eYtef5M43yzmTpHQcGAI/YqB/dDDw=
+	JSxxXIEukRZ6GAXhz4h1RPdtRs9ORknlLr8ko7S3+gUsCpf/bNYcejbkb/ncug3as0KNZEpI0rCen1SJO/m1FtKU40PeSTHk8qwLoHQWAhMJvqkDymOh0hcp2H6pSsjWsxj9kwgaXeeMCO/3UjQ3tMWI8T6CHA188NN4c+6IKVdhCDb7NTAm97ycr7jbIq3me4ssUfOaQRixk19BRePq06r0lhcDqAISr5nWOzTZxqAophIw+sdMuJ0jZ7eoC9Q+357kLTjIMcCPllWIaw3xB5TdnKaqe2Fh5pyN2NvqRnaS/4AjSXmGiQaETyWQnwWVORZEhKe1UG5VeQWV5SxmjpFZS+uXwO4ww2a6S/kDpFDOB6WVqdim4FbQbHk5P0pPLs7PIQZBvq7VR09cr2cw8lHt/GQ4scxJ8zc0NOGgsxtmHfqVlj2qFT+vQoYohqEq8seInHdIjK2tCH1eQYh/dYsZmrJHGpIWYckjR1ytmjHRrHQxKu8LXN+54DG7wpPVuzO/g5vuKPlRon035yXleFc0DHLmBJteqteFU3iPRTvfAt6m0Wp05+BrPq5oef0exWPPOBDiFYYktxTxa94CpArLmnQTii8ZU8E3Qs2SDq4TkctVrfJqufwdj0MBqdRK9RLEM5xprRoAwD308HtkX29iDEHHV150Qctqxq2IyNg=
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:EAYPR12MB923140.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(18002099003)(22082099003)(4143699003)(56012099006)(11063799006)(261026140227099003)(261026121527099003)(261028144727099003)(261022105027099003)(261022075727099003)(261021121427099003)(261009223027099003)(261102123227099003)(10067099003);DIR:OUT;SFP:1101;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(10070799003)(7416014)(376014)(1800799024)(18002099003)(22082099003)(4143699003)(261009223027099003)(56012099006)(10067099003)(261102123227099003)(261026121527099003)(261021123027099003)(261021121427099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?iso-8859-1?Q?n3wqqvKlan+wesRdhFPnMYpTFm1qdRiWB5oM/U8aCoZBZM03p8ZIu/QAB+?=
- =?iso-8859-1?Q?ZveH4PpAQIxmbdY/7SRtw550khUiPgPEwzSyJKNW4SHNcjzidmp8VJdBDB?=
- =?iso-8859-1?Q?5nMg7SY0dqZsdwWllMcOYOSKHnfcp+I4y34HIsmMFHLVyvaFv1sSgCwZAv?=
- =?iso-8859-1?Q?8WqwKgTTbs7ZCXm7hZjRdSOhJDrpQuJJ2H5i1CGWMMHcbbvlEGCNRDgYNm?=
- =?iso-8859-1?Q?oW39ws6Vc4lOIuXpeOEI+xVeOB0gOPNvP+iMZnZvViJe8mrK8hPza0/GUU?=
- =?iso-8859-1?Q?Y3LDMkeTVn/VEamzaWqZROHA1qmfnlP4yzjXXIbn+1cUAmRKoDqrGbTinH?=
- =?iso-8859-1?Q?YHoD5PEPtlN1jJRc75LjO4Nj12I6nq3rV/gZNpQ/aCwvbMxfxVWMw2BiEV?=
- =?iso-8859-1?Q?lzoUxVeZmNVnWw9UxT0JEqkFbzyQAgOYGSGO3gaQ3aNpo6IOGvBGGT9TJS?=
- =?iso-8859-1?Q?GeSpMApOoLqrA4RfjerToWUjOH9RdB6Ek1TIOTdOu+Im4RAr5raw0yodcv?=
- =?iso-8859-1?Q?Rs2JfRFRx+p9ivrdUEef+Ga/9LPmbDORnjeWM8+m/8yxUXKR8gm9wvJTlt?=
- =?iso-8859-1?Q?mkvEF4B91u7NYPoOaHW+XzH5LxFJUWrzSAosbMSO7c/18EOMqf1TU/ZD8m?=
- =?iso-8859-1?Q?MGLhXoWbYinzRz8QWTlugm9HYMHVMsDCI8N1VoCj4XNA+Yv7clqPTFMjkI?=
- =?iso-8859-1?Q?ORnvM1qfO2XJJJe0tJkv/D/nDOgsFSTh5k5HK0irniQwOXQhck3afowoDx?=
- =?iso-8859-1?Q?zQU9gFSEHg1tD4H444eDEG7QD2zu58g47QsA6OZJgRAgWHKkQqEVhT7EJR?=
- =?iso-8859-1?Q?9wgICfjQlCaDq3iMkjdn0koPSK/i9NqUgsLcwRbAkoMe4CSmRyuZ5juQbl?=
- =?iso-8859-1?Q?5cQ/zYRjCR3mEhECsHQfoO6KVyGvUzZbEB7e1FOWkOETJwi7yUxCGSh3m8?=
- =?iso-8859-1?Q?f/sVXPJ+7A34kaG5WnV0CdTmjhfzTq45UDhAQ9m2dv9eRrp4kCzII77r45?=
- =?iso-8859-1?Q?efc16lYHLRH01g7nZPZeTL7mLNJjwcYeRlPZlVK9tDJYgeIhH9Q2lwZydd?=
- =?iso-8859-1?Q?u1Nw9pxjTJQBi0nB8e0Cmlr7+dm4s6p5qTrLqIVBdhpnp6O0XDE+feTDYK?=
- =?iso-8859-1?Q?fPHVUmnBa2aEKxIPvP45dyi+W/nmf0DUTjhoK9jNhMzltjMdEmPedXs8bi?=
- =?iso-8859-1?Q?5zriWTDLvFcVYzkcTI7Mur+S/wSZyQ1Fle/1zlrwHQfiGbyhf8enVaSm5L?=
- =?iso-8859-1?Q?gNeJLLAWJSbSDI7WcuurVxJzNfF5farZlC4fzitwOW51L1H08S0Pc1S1vg?=
- =?iso-8859-1?Q?9XC/RE78Rb5oovaTaRE6mCyWBdTsai/VcwjQbvtMvCimp9GaktswN6CkcO?=
- =?iso-8859-1?Q?vi9xSZOsq3ZHLyXgzZXqunwlgcLYCnTWEMfGRrXhnBTzFl0Y7PQG4i97Cw?=
- =?iso-8859-1?Q?KGRX3L3ZeFjMsHE+/wkNunfeayqKTbC5FZVbJ+C6dUvoHIieHuEX1n/Io3?=
- =?iso-8859-1?Q?QjA4eObUOZv/N/tSabacp5DPFb+qmQeOLEqMSeT1rvVbcWIW4SFWhLQGrL?=
- =?iso-8859-1?Q?3+bTdKe39RkQTOF6KKlLkZNp5F37w3VcKYnS0GXPPV97zUe3zWo8dLH8z3?=
- =?iso-8859-1?Q?86biaiWo8ObisXJSyIjWxhSW8KaMBjoy3BwDen2Pp4TiwxCxw+Ak0CuUNI?=
- =?iso-8859-1?Q?7Uz4evQZKY7Odl89vblSNweAhSz1dk5bN8cXkBFVNgT64PjFrFR7cp7tA5?=
- =?iso-8859-1?Q?cxJbBIfir7cbBlYuoHYQ8ELLjjukq5sT/YD/3drq/XhaF9?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67266ca9-94f1-4bdd-3d24-08df4b14d407
-X-MS-Exchange-CrossTenant-AuthSource: EAYPR12MB923140.namprd12.prod.outlook.com
+	=?utf-8?B?MmJsYy9pU3VkNjBscmtydG1MQ3QyRW51Ui8xekIzOVhIeHgrdmNkTDFld1l5?=
+ =?utf-8?B?TmpybWQrZXNzRlZFSldrdEt0TGlucHNRbHJDQXFvM2lQeTdKRVI0OFZJNzBa?=
+ =?utf-8?B?cWhvazNRQjFZNy9Pc3RMeFNlRm1MSWJWYTdnb3RMRkJNWDR3Y0laNGhNK3hT?=
+ =?utf-8?B?US9lNDBYc3Fnb2lUbVlhMWg4dlh0QjJ3eWw2T3gxaXhPSXhJYUdlcUNWRUw0?=
+ =?utf-8?B?NUs5NnRYY2h4VnZDUllQUm0rS3lKdjBFYWVubDZwaXlrV0JYQ3lFZmtBOGlW?=
+ =?utf-8?B?bG96QzJSRHVVeW9nOEkrMHlrVXJtbUZKZUwvdlRySGJqeFVXQTZXRkpFZGpr?=
+ =?utf-8?B?cEM1QWcrTlNzRDF4dENUNkJuWjlJazkzR01CcTVlYzNIYWNPN3Y4NVljUDVu?=
+ =?utf-8?B?VEJhVjVEQWNrVERaNVNRQ2RqdTU4VnhOR2ZLSjNjYno4a3VTbktsU3NXTUFC?=
+ =?utf-8?B?N2RWS1dvNnNweUkzak5QbDhYcG1Oei9QTUwveXcwa3NUL1NZVWVLNFFKM1Nn?=
+ =?utf-8?B?OXJIbGF1YkVlQ2lzNXkwTlhoNEwyVlpCc3c1SW5HZ2x2MFhURENOeXBTTDlR?=
+ =?utf-8?B?Zi85WVpycTB0UmlqQ1crSldGcHNkWDcvbjE2K1ZYNllYNU9KZ0w0S3prUDNn?=
+ =?utf-8?B?aFQxU3IvMm1iclpYRllXMExWZnVhSVVteVdtakhxbnJCME4vQmJvSzZzaGkr?=
+ =?utf-8?B?aVVTYWYvOGF4T01WOCtld3dLU0dEOFdnMk1YZElsOFVlendnNDFMdTNYb1Zw?=
+ =?utf-8?B?YXhGRVZ2bVFXVDkrNWNsOXBybXVyenR6T3FTYlJQY1dOWFJLOHNsQ0tjZks1?=
+ =?utf-8?B?SXVrc0h3R2xkT3lzYm1YU1JuSHFQeWFRTzRjeG9KRkh6OFExMXVEbFhab21x?=
+ =?utf-8?B?VlNva0U1NjB0Z3pTRzhscUpFRjVlUmpaR0w5SWZseWpiR0x4NjlVSTlweHls?=
+ =?utf-8?B?SFp5K2N0OXI2ZnErRWhtR0lUZDE3V3hib2UxRVVLOGxBempZNmFGZTZkM0Iv?=
+ =?utf-8?B?SjJ2bVBHczdqUlNjRDQ1dmJJVlZ1dGlOTHpyamRLcmFEL05ZQVJ2akFSSUdm?=
+ =?utf-8?B?dlY4NVNYS3FLNklkME44ZHZnT2NLV2h3NTY0cnN3QncwRHB5ckorNWR5dzM2?=
+ =?utf-8?B?ZXBEMmJPNDVjUk1hR21ERWIyaGdBR2daczJUdDBlMXB0Y1AwUm5UUGlPOW13?=
+ =?utf-8?B?cjd3Vks1ME1YN1hGRWdMMzljZ3I5R00yVk5XMC9QVkZMV29CRkUxU0hLamJS?=
+ =?utf-8?B?Rk11Z2FyZjNxeDZLbTRKYzNQNkxMbWFSNzJyTjNFMXdPYTZGa3NwaHN0NGZz?=
+ =?utf-8?B?SWZlbUtPRmJqUk1rNFZpeGgvSHliNWtCUTdocThJc2xnaHJ5Tm1XNUl0a0h2?=
+ =?utf-8?B?RHlKeCtLZ1hYUUJyV1I3ZXcrODI2OGFrYUxieXUwWU5jM0ZDNlg3a1V1aUtV?=
+ =?utf-8?B?aVYyK0ZVSUc0bktrNnJZdzBkN3g4SjNqNjZtb2dPVCsvRS9WelgyY21TOVJu?=
+ =?utf-8?B?VkxkOGtlTEtNR2pxRWo0eno5RG9hSkZxM0x1dlhJQUozTjJJVGZkbXFmeENn?=
+ =?utf-8?B?d2I2QjlkWEZhZ0tENkZTbFNVV0hXcjZ4eUZYcDBZQ1c0TTVXUURHM3ZKR1Fq?=
+ =?utf-8?B?RktDZFduRGRDclJtbVhjSnhEZkpFaWlRMXNwdWdyVWtPTGwxM243ZnZHZU9N?=
+ =?utf-8?B?NnZyUllpNm1Jd0JpRi80Mmx4bWFGdGpBSVNRaHVlc1VKQ3dZU0FYYTYzWWpZ?=
+ =?utf-8?B?S3FnOVloczlSM1VYQWtKc1RsZUdxT0ZOMm5YaE45V0hYM0xrWjAxa0JYZjE0?=
+ =?utf-8?B?cXgvT3A1emZ2SDlPNWNTOFdJUFZKVHBNbzRYbVBhM29oNVlqRGF4RW84aTRQ?=
+ =?utf-8?B?N3ZJS09MSUpCZlVYaTNDWG13MlpYMFRscDhIR1hJNTg4MUZvclM3bUt6RFdo?=
+ =?utf-8?B?Z3VnTGFQdmJHeDVnVWZ5M3FQY2plWVpjRm52SzNFbkg5ZEtNV2VUZjlhQnJU?=
+ =?utf-8?B?SS80WGcvVER6R0ZtS1Z6RU5OaVFzN2twVVNWUHVEeTh5enpJZklDd1hFRzVP?=
+ =?utf-8?B?ZldHYXpIMUhzN1RQSHA4VU1pSnVSa052SDZabzA3QzA2ZUR2L3A4dHUxQ1di?=
+ =?utf-8?B?bGpCaHk4OCtEZlZSTEVyRHFTeXRTSHBjUitab081S3pQcjZxcFYreWU5RG54?=
+ =?utf-8?B?WXdmUmhXTHlzQlNwTDdOWWZ3dEJXR0pyZUZLMWora2IrN3dLTlFCZnFLRlFn?=
+ =?utf-8?B?MVdKMWliNjVCZ1FzNjJ5enJ5RUk4dElDMWFicWZwajh2VWZwTkFqMUlRTUtl?=
+ =?utf-8?B?aEtxL2p6WUdxazQ5bWFMSURjNVJMYnBJN2pMYnR4cUFhZDZ1NUlBUT09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd2b8454-0bdb-495b-ec92-08df4b152bfa
+X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 16:54:53.9996
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 16:57:21.5280
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: G4eNZqaVsr984ciJKYLKPrxpSq65dDcMRcUyJr5CRvTFrPXE04+HfLt3PDL4yspGK0oKAIDubIJW67EzkFc51w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8096
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1erBQNqqoaO2L+ux74qIr+rUxNhdTbO1zt8r9fdYy9utE0ckb5WnNZa+WXn+NLyyGpDI8tGaUighdtPEPnriZA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CW1P265MB625033
 
-On Wed, Nov 25, 2026 at 05:30:32PM +0100, Pierre Gondois wrote:
-> 
-> On 11/24/26 17:00, Yazen Ghannam wrote:
-> > On Wed, Nov 18, 2026 at 04:11:48PM +0100, Pierre Gondois wrote:
-> > > Hello Lukas, Kuppuswamy,
-> > > 
-> > > On 11/17/26 19:57, Kuppuswamy Sathyanarayanan wrote:
-> > > > On 11/17/26 03:50, Lukas Wunner wrote:
-> > > > > On Tue, Nov 17, 2026 at 12:10:29PM +0100, Pierre Gondois wrote:
-> > > > > > Return PCI_ERS_RESULT_DISCONNECT when no upstream bridge is available,
-> > > > > > avoiding a NULL pointer dereference in pci_walk_bridge().
-> > > > > How can that happen?  If it can happen (which I doubt), why isn't this
-> > > > > patch tagged for stable?
-> > > > One way I can see is a device without a PCIe capability on a root bus.
-> > > > pci_pcie_type() returns 0, which is PCI_EXP_TYPE_ENDPOINT, and
-> > > > pci_upstream_bridge() returns NULL. Native AER never gets there. Only
-> > > > firmware-first can, through aer_recover_work_func(), and only if
-> > > > firmware reports a PCIe error section for such a device. If that is
-> > > > the case, skipping recovery for !pci_is_pcie(pdev) in
-> > > > aer_recover_work_func() seems a better fit than a check in
-> > > > pcie_do_recovery().
-> > > > 
-> > > > > Why is it at the end of this series?  Does the series somehow make it
-> > > > > possible that there's no upstream bridge?  Which patch does that?
-> > > > > If the preceding patches are not the cause of a potential NULL
-> > > > > pointer deref, why isn't this patch submitted separately from the series?
-> > > To test this serie, I generated and injected synthetic CPER records.
-> > > The PCI device referenced in some synthetic CPER records did not
-> > > actually exist. In such case, the kernel crashes due to a NULL
-> > > pointer deferencement.
-> > > 
-> > > This use case is indeed slightly unsusual and unlikely to happen
-> > > in the real world. The patch was still included in the serie.
-> > > 
-> > > Please let me know if the patch should be either dropped or better
-> > > documented.
-> > It would be good to include these details in the commit message.
-> > 
-> > Also, I agree it is fair to be prepared for, and gracefully handle,
-> > unexpected data from firmware. A platform may report a CPER to OS with
-> > the intention that the data is only for reporting purposes, not recovery
-> > action.
-> > 
-> > **BUT**, we could argue this is a platform bug. CPER serverity is one
-> > item used to decide if recovery should be attempted. The platform should
-> > not report a severity that indicates recovery/action is needed while
-> > giving bogus/incomplete data.
-> > 
-> > If the platform is intending to share data for reporting only, then the
-> > CPER severity should be set appropriately.
-> > 
-> > Otherwise, this should be a big FW_BUG message "Platform reported
-> > recoverable error for unknown device."
-> 
-> I'm not sure to understand. Are you saying that we should
-> try to fetch/resolve the PCI bridge in pci_aer_handle_error()
-> before calling pcie_do_recovery() ?
-> 
+On Thu Nov 19, 2026 at 2:12 PM GMT, Alice Ryhl wrote:
+> Creating workqueues is needed by various GPU drivers. Not only does it
+> give you better control over execution, it also allows devices to ensure
+> that all tasks have exited before the device is unbound (or similar) by
+> running the workqueue destructor.
+>=20
+> Reviewed-by: Andreas Hindborg <a.hindborg@kernel.org>
+> Reviewed-by: Daniel Almeida <daniel.almeida@collabora.com>
+> Co-developed-by: Danilo Krummrich <dakr@kernel.org>
+> Signed-off-by: Danilo Krummrich <dakr@kernel.org>
+> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 
-I'm not sure where the best place is. Your patch adds a generic warning
-in pcie_do_recovery(). It is not clear from this why the bridge is not
-found. Is it because of a major hardware/topology issue or an
-inconsistent error record?
+Reviewed-by: Gary Guo <gary@garyguo.net>
 
-To differentiate these two, you may need to do the check earlier. Or you
-may need to pass in another piece of info indicating the source of the
-report. Maybe a check for "native AER" is enough in this case.
+> ---
+>  rust/helpers/workqueue.c         |   7 +
+>  rust/kernel/workqueue/builder.rs | 370 +++++++++++++++++++++++++++++++++=
+++++++
+>  rust/kernel/workqueue/mod.rs     |  51 +++++-
+>  3 files changed, 425 insertions(+), 3 deletions(-)
 
-Thanks,
-Yazen
