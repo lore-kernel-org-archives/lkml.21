@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795643888;
-	b=YWdVp4cuZhmZkmYNjXsQXvSSixwFM2HfWKUJkiJdcfGylPDxeIY4VyLiuq+JuO10fFoX
-	 XPY8ZLewE1W4PxVkKg2VqHa5bvlavVmOSD5RtCxjHdJpT6My9KYeqiO544wXiSkbyNAKf
-	 GOSOVepIjBUJBgo6FxaM7W2QgVad4T/IgRqBc+AxM7l+bPGwYBcA7qrjnXpZUz6N999Fu
-	 2kBDqjvdmjuF+h6ZKKGpTi20Ob7NzE77p2RM+pMP/mdE5y/sK8wzmW+I+m0Fo49+Y/PrZ
-	 QJWfSS8u9vMr4iOTRdyVpK7endbuSB2H+qLjp4r4IUcj674rNQaCKiFnalpBL8tmqag==
+	t=1795643896;
+	b=nSR+5es2ODJoF2trDGrOIR7dnN6sbhG4ff8GE0gAsRaLay8wN46gU+eZnB3aX7nTBVz6
+	 KCazoAn0qs5GVhJHIy9YIdjFnoWqCYzkSu2NnO5O32BQaOoiv7xRW1zopKYSwocJrAYeA
+	 1V48p6BES4o6qACxKNtcbeuwriymTXRpWMD3mp4cAdht78/exlpu8thq9QNZENz4/DTgS
+	 /aMs3rjtUQqibJikPFSK4hiUOowgkmwkZV4yJUqJ7TKrGw/2XeZ7OzrZjZTw3WQMy25R9
+	 r9vF6bxCaBa16e8sfSvHftyW+HCDey8iMQ0Iuh6eCt8Uv4gHWXtBXj9Y4WWb26xgaCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795643888;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795643896;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=IyvqgKo2v6BVnDcrFL6Wvc36wm6DoPtZFNiMkXU3xrc=;
-	b=UPq0m32/eS5Kdpbu0H6gz6cyIaUvBmKrY3eoWHiFSN8O1CF46zhjGISlBSY/hPQmLTUw
-	 h027Ukpzc/vLofM5i2sr3UqrDjIAPAT3X3wnTfzB5Czjkol0tATApDmfc6ycXdUC/b9ka
-	 G2mh5rvtlzxwkugGl9QPot7MUxVH/gcQLiWyDZiLfygu9ni8AavQ6twCn22Dconj1+m1/
-	 Fx3Gf1znrRCEL70os5M7++D3j5CXVUo7PF/9D99D+1fma12WDJB0cExDulY6cUehPd1XV
-	 /dMhLb2DqV18oXxQ6FmH9Sm46lM/nqmBoG0M444HQH5X71WAbhdjv5q3mnPWbdvh1Wg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=OOGMcpRscnB5zpQyjujbICDtzLr0MBrEJ9VDi4/JVl0=;
+	b=AkcuYo6AFYeJxVzvLlQOvmCMv5u/oBt3riadQlwfzPtcXO4HqXAie3XIa8K4cHYCyg4d
+	 ap+hPuuR2zUnWtWZwSIuONJ+eo/nwN72ljklxS3y0Q6VOEzejHTI4YaD9z8VA6z2GRF5j
+	 j7szsTgd3qR1cPNLSA5ETL2cftaCpksJyz2e1B+j2TnfmouR8BCLwMoN5oMxPo4Cm51yl
+	 KlsSfHKWuZiSOhLNZodslWvKfW+zwlfFpi+nvKju/nX9rMpVREWktnfCjK92A/KP0Z1qk
+	 VTzkq9w2rDHMoseTRpYJ9sCSS5NMEkrNQhm7321Pm8CzPmfWOvff18jlSehSseq40ew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="r/Ybxl8q";
-	arc=none smtp.remote-ip=209.85.214.180
-Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yDlzHdhA;
+	arc=none smtp.remote-ip=209.85.214.178
+Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB08C606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:58:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB08C606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF3D4606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:58:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF3D4606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r/Ybxl8q
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f02b9c1f6fso43791825ad.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:58:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yDlzHdhA
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f037bc348dso51430625ad.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:58:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795643887; x=1796248687; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IyvqgKo2v6BVnDcrFL6Wvc36wm6DoPtZFNiMkXU3xrc=;
-        b=r/Ybxl8q3Wc0ygxh7eeEgZmgmz3k9BuYIGmmAFyMinBlLuTVxGadBtzd9nsrULGjwm
-         0VFCOKNNyu5H0nKL0ACWvrdzrycSn6oudMciLnIRNGsKty/tdpXsRM60Z+ty33ZXJyDX
-         sEUzMS27QkI0kFsgZgo3Ppqd6JU+eaZ3g5rhFeYoXk+C4uaEFF078HAjY87lPAVhKV8Q
-         +Jayyp1myy6TVJV42ZYbuw6PXuXmpGgevNxgssW8dHJe+dkQO4sokT321R9Grnzy15/h
-         rpEQ6fZoJJdNr1SMjqCroZi+sQpJCTT5PHJnEhZkp8HhjgnIjlbg7bJmuUbcjWqMhwzx
-         bMqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795643887; x=1796248687;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795643895; x=1796248695; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=IyvqgKo2v6BVnDcrFL6Wvc36wm6DoPtZFNiMkXU3xrc=;
-        b=bSmI1xF5jRdpu67MCynwWsC19A5+DbPt9H6jBhmI3+eQaLuERwviCdQyQZ4DnkzrbF
-         1suc4yfYYZqudMIG2kgMNQU+UD2JnuaRqY9Ws7J96C5YZ++MfWNY53mB9gefcGfrrukq
-         jMlFsQ+L7PeUXvvYV/x/km08HMWBWjiTSR8DNZZ9NK4ZNVXanNlyTV+Akw7EWm5S4s4o
-         LcAUzCQ7p/vjrEAdC2q57bdgBiRegSXvKJHi2x9pqXsnCL3wB+O7HYnorxnXXLot+Qez
-         WkO3+sXkGd1rBCJAmGSJbGFtjOFzIblHdhmLp2yIJeLRSwH9Hl+g3bDtAIDR056np+e/
-         MRbQ==
-X-Forwarded-Encrypted: i=1; AL+hErFQp8FftHOQtvl6VzasMsSt6YR9h/T5LRyPDeouEF6HrSxnYAc22X5ZzdscVh/Hwdbjde2PhiIZml1FXko=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9vxByzwpz/JdDxMLZCIha10SpjhomU/RuCMKZ1veefE4+8s5rn
-	0rZoQv0NbKXo2FLMJjGMOQ3M6hIAE7aGw0GfamnWYyUhwseSm87tFM5iUZcsEjfknSSL/Q==
-X-Gm-Gg: AZFdTZfdctL9kLwmLjewModM19bMfm+O+J/GXtrx8Q567u5dAU1pYy0CkWuR0XUobAi
-	OoljkWSPRaLe0vblTV8HZf9MLoXWPeh9OVOZz539YKF+rpFwcUPLE3dwPbBxbmPImEXYlLy4bk9
-	iVj1hbeN8oj2mNfqQ7xK8IjjdHJXSeJCeH7tbYnnFJXihi4FeLD5AeqrpzSIL7mFI36wZbkFcKR
-	hUJyLqKb69PtTiIMcy+WyTLp8CAQAliEnb45vsMD9Xe65e7uVpCH7QQ9EV0gt/oi2GS41kcIYi0
-	MguE5WQEhftJNatC5FrKe0oECKh/kgspnh8og3/8qrJIw6BiPhFks8jHFHpG2Q6U/SYzGTz66Kf
-	DM4AkqutdP2gAzl2+zq86b61r4oja/1f4hU8HgvlPupyYa8HfJ8LlZRNwEBK/5yPWcp3Q41JrK5
-	+woTeqV3KE7hBHA1gPq6yjnjdc4KqjSL4gId7KzqZITqFHZQWhEqMUejFJ23QKgS16sTOnaJR9+
-	xTCsC9Mb5thJ0XZ/afqzJYey7vMxEOjVg4Uxh/x/uGUiI3oF9fPqfgjaHY9aBy8MzWbqr+Qyzbp
-	F92lbxLlxtn3lo1O5shhCeQ+1U87mAOTEzwn93nvgM4WGCa4mpk1vA172wMP2nkfXEv0QJASkIA
-	ZHxipZv28t4bJHa1hnX+nmw5NGtF4K0g4xNbaU9JVaqg=
-X-Received: by 2002:a17:902:c406:b0:2f0:5a4a:2d9d with SMTP id d9443c01a7336-2f05a4a3812mr122752875ad.19.1795643886954;
-        Wed, 25 Nov 2026 13:58:06 -0800 (PST)
+        bh=OOGMcpRscnB5zpQyjujbICDtzLr0MBrEJ9VDi4/JVl0=;
+        b=yDlzHdhAJVGVrDiaX2oqMTi0zvNl9pb30GBAtz68OThzpfQFvs2K34+/R1Qp/LdETy
+         TswJqqabd0Ont/FKq4sAX7A855/Om4XHN/j94RlzwzN6rCC9cI5Cer2ZK46iHjsuW10E
+         TWz9rTOOAGWgYSHi72B5XVJjBjR4IljR5L+sRCeIgrHxLEaU7CNxYTmfVnBZrSlCE8cW
+         prBZhV4PFQ4rW+HsfDERKM3ldvuoDowTbjlvZDZxgeV7tEQOgRAHcvneQNV2tmr8f1eX
+         02Lk4/gMhfCw5qMl3Mh1Qz/uGdQ1aIe2qU7HxSh/6Lsa/YVE/c38RqyddL0rF3WMTq6Z
+         tT4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795643895; x=1796248695;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=OOGMcpRscnB5zpQyjujbICDtzLr0MBrEJ9VDi4/JVl0=;
+        b=E1kkBcAgLNxkZl3wkEYYNokfjcBP3nC0/v0Uj+2h1BrSXOOX19ZtyTkJiLj0STLVD4
+         p4fz5b8YGHGBTQFNReeW27iuPo56Mkwjlp2qubE88WFQTvLGV6Qrjg80OyhsvXVpmG+l
+         xbyAIgEqtbBS5LcoX0fJM4QUO6CRa6Vcjm/CYYB5X/+dglt09rrexrYsfpIbThjwnOak
+         W2N6uKsFIESrt32nwutIufBvz5JX6jDIUnA5X9y7JdVXhgCYDGHsh9fEsc10/xDhUSRg
+         RvwsUGra1vsnw8j1ePCWFOxbFvPXvmaLggfhk7PcUsNmNZDuZJwG8A9w7kL22+bBKGzR
+         9cSw==
+X-Forwarded-Encrypted: i=1; AL+hErFJKfBHp7r/4zmZwxdhWL0sT8N325oEg4+YezinGQmKT9s/1E17MhkHSuc1TNgRNzZvDi0ZGJlq3ORvbWg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/PbS9x9AaXA2SLbw/JR1yjx6vQbTl8Xe+C6fTfd19WLUE0r2Ys
+	UiytHA8r41SF0O8E6abiV6oNzjolqMiPHb4uq2lm170mSkuwiNZR0/IY
+X-Gm-Gg: AZFdTZd/uVPDtqeq+SN9WKFIBiZhPEhH0dN7r8G0NwS/ie0qjWx0Q+vrXLQyDm818b9
+	FboKE1ACqRd5joyFW+OJ95Blcj59xhSgA/RbgApXt0R00YUErTvuy2ze9dCVPHJSmZlN2J7BkrI
+	Snst51//vQ3fOPwvQuY2RdDA4vJeC+p32OQSWXpkiLulmDDz+HTfxzgYIsRq/s5iL4uEKXw1F+t
+	l9We4dumLvYcQEIMrKOC5dkwEyf8v0Up75MjkGuwNBwCS0Lg/BqW/SZT6GQ5UBBAaSZ73f8Fy9D
+	tnP4t/Nm3IbueysRpd1g9MxccQv3ZO5IXhBGiGV9+8pSeQ8eOXEyNc3ZT7Ld1u4X7aFQ8p+e2OT
+	h2J/RtVyaL1w5HVceTSiTNn+gSCMWNkhCpyZmLvAiuKnxEn+ZcdSaRMIvVNoWaEytBolJs7YD6M
+	UY+u3OfHT2TErEDWhQyOPjMQZwXuZlzFAeGJonc9jKxnLB/hmU8cV4n4CzAPp6axoZI1su+m9F3
+	nNojdRC8nKHL96plqcdHN9wg6irFz73IJoX5jWxYm1CdK9APtWGD3XXuen1lYAHWLW0VyEv8PP2
+	PvveEhTjCUKzIzuoj/7OFd745/BkreeM0bFGSKPliK+IYAyUQMsOqsoAoiZNO4BFZLiSNwq7ZlC
+	aGg/u6CxJ49HlM9nLThz4uy2yh7YD5DLizi4xmYr7hNs=
+X-Received: by 2002:a17:903:a8b:b0:2f0:42b6:eba8 with SMTP id d9443c01a7336-2f042b6ef73mr185236595ad.27.1795643895211;
+        Wed, 25 Nov 2026 13:58:15 -0800 (PST)
 Received: from localhost.localdomain (74.82.221.43.16clouds.com. [74.82.221.43])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84285sm91547365ad.3.2026.11.25.13.58.02
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84285sm91547365ad.3.2026.11.25.13.58.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 13:58:06 -0800 (PST)
+        Wed, 25 Nov 2026 13:58:14 -0800 (PST)
 From: Nikita Ivannikov <www.nextry@gmail.com>
 To: Corentin Chary <corentin.chary@gmail.com>,
 	"Luke D . Jones" <luke@ljones.dev>,
@@ -88,10 +89,12 @@ Cc: Chipang Kao <chipang_kao@asus.com>,
 	platform-driver-x86@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Nikita Ivannikov <www.nextry@gmail.com>
-Subject: [PATCH 0/2] platform/asus: asus-armoury: GA403GM power limits and a MAINTAINERS fix
-Date: Thu, 26 Nov 2026 00:54:29 +0300
-Message-ID: <20261125215431.120307-1-www.nextry@gmail.com>
+Subject: [PATCH 1/2] platform/asus: asus-armoury: add power limits quirk for GA403GM
+Date: Thu, 26 Nov 2026 00:54:30 +0300
+Message-ID: <20261125215431.120307-2-www.nextry@gmail.com>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261125215431.120307-1-www.nextry@gmail.com>
+References: <20261125215431.120307-1-www.nextry@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,29 +106,77 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This series adds power limits for the ASUS ROG Zephyrus G14 (2026)
-GA403GM and fixes a MAINTAINERS gap left by the move of the ASUS
-drivers to drivers/platform/asus/, which I noticed while preparing
-patch 1: get_maintainer.pl returned only linux-kernel@vger.kernel.org
-for a change to asus-armoury.h.
+Add a power limits quirk entry for the ASUS ROG Zephyrus G14 (2026)
+GA403GM (AMD Ryzen AI 9 465, NVIDIA GeForce RTX 5060 Laptop GPU).
+Without it, asus-armoury logs "No matching power limits found for this
+system" and the ppt_* and nv_* firmware attributes return -ENODEV.
 
-The two patches are independent. Patch 1 was tested on my GA403GM as
-described in its changelog.
+No ThrottleGear XML is available for this model, so the limits are
+taken from the GA403WM entry. Both are the same Zephyrus G14 chassis
+(31.1 x 22.0 x 1.59 cm, 73 Wh battery) with an RTX 5060 Laptop GPU, and
+ASUS specifies the same GPU power for the GA403GM: 85 W TGP plus 15 W
+Dynamic Boost (100 W) in Manual mode, which matches the GA403WM
+nv_tgp_max and nv_dynamic_boost_max values.
 
-I used an AI coding assistant (Claude Code) to find both issues, draft
-the changes and changelogs, and run the test; I reviewed everything
-before sending.
+Tested on a GA403GM (BIOS GA403GM.302) running 7.3.6 with this entry
+applied to the 7.3.6 asus-armoury.h: the ppt_*, nv_dynamic_boost,
+nv_temp_target and nv_tgp attributes are exposed with the ranges above,
+and ppt_pl1_spl=81 is rejected with -EINVAL. As on the GA403WM, PPT
+writes return -EBUSY until a custom fan curve is enabled; without one,
+PPT writes through the legacy asus-nb-wmi attributes are silently
+ignored by the firmware, so requires_fan_curve is needed here too. With
+the custom CPU fan curve enabled, PL1/PL2/PL3 values of 25/30/40 W and
+80/80/80 W were accepted, and ryzenadj --info reported the matching
+STAPM, slow and fast limits. The NVIDIA attributes were only read.
 
-Nikita Ivannikov (2):
-  platform/asus: asus-armoury: add power limits quirk for GA403GM
-  MAINTAINERS: cover all files in drivers/platform/asus/
-
- MAINTAINERS                          |  2 ++
+Signed-off-by: Nikita Ivannikov <www.nextry@gmail.com>
+---
  drivers/platform/asus/asus-armoury.h | 32 ++++++++++++++++++++++++++++
- 2 files changed, 34 insertions(+)
+ 1 file changed, 32 insertions(+)
 
-
-base-commit: 61c0dac952b9308884936d05cce97565a5c89af4
+diff --git a/drivers/platform/asus/asus-armoury.h b/drivers/platform/asus/asus-armoury.h
+index 331c3bddf013..33b3014815a3 100644
+--- a/drivers/platform/asus/asus-armoury.h
++++ b/drivers/platform/asus/asus-armoury.h
+@@ -1395,6 +1395,38 @@ static const struct dmi_system_id power_limits[] = {
+ 			.requires_fan_curve = true,
+ 		},
+ 	},
++	{
++		.matches = {
++			DMI_MATCH(DMI_BOARD_NAME, "GA403GM"),
++		},
++		.driver_data = &(struct power_data) {
++			.ac_data = &(struct power_limits) {
++				.ppt_pl1_spl_min = 15,
++				.ppt_pl1_spl_max = 80,
++				.ppt_pl2_sppt_min = 25,
++				.ppt_pl2_sppt_max = 80,
++				.ppt_pl3_fppt_min = 35,
++				.ppt_pl3_fppt_max = 80,
++				.nv_dynamic_boost_min = 0,
++				.nv_dynamic_boost_max = 15,
++				.nv_temp_target_min = 75,
++				.nv_temp_target_max = 87,
++				.nv_tgp_min = 55,
++				.nv_tgp_max = 85,
++			},
++			.dc_data = &(struct power_limits) {
++				.ppt_pl1_spl_min = 15,
++				.ppt_pl1_spl_max = 35,
++				.ppt_pl2_sppt_min = 25,
++				.ppt_pl2_sppt_max = 35,
++				.ppt_pl3_fppt_min = 35,
++				.ppt_pl3_fppt_max = 65,
++				.nv_temp_target_min = 75,
++				.nv_temp_target_max = 87,
++			},
++			.requires_fan_curve = true,
++		},
++	},
+ 	{
+ 		.matches = {
+ 			DMI_MATCH(DMI_BOARD_NAME, "GA403UI"),
 -- 
 2.56.1
 
