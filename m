@@ -1,78 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.128.210.58
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625144;
-	b=DJqwBvWnn1ozQ0QscB7jHH70bPAvZ0+Zs/jJ7uxoZzRUzdUd/M8J+eUozTDndFTO1mUB
-	 wl0KemQQIvU8qNqJWuouVp92WE21CgSA/n41JVr82hSzhYt8i3ZPTgEmho4DgSFOPYUIn
-	 ysuYEWk2ML5SSh5TMBs/o2eiamf5U8C5oeQ+ULB+dlY81m4oCkGcmQ9k0ZoUxjxqtesk0
-	 raR8/3XJAkQy4yc11Yu+shuVFOABdIjJTU7GAtQX8riO0OchXrO/p2PhnXCvRUfujeiso
-	 3vFkvy32NMGVIitVkfxI+bBxT8TR6tHr1KjkhY2H8fJ3vYLvCySzSE8MFjhMWKrhitw==
+	t=1795625147;
+	b=bNLyDdj0zfSm/m3sfxDC7JQgnUqL09VSwV38OH8a0b1OP1weEeLOAkwGGtNOZ0dEdzY+
+	 h6O7KJoWGOkG9piGTupFMf9bVg9e0A5mpu+lgshF4zdBP58CGvSzOvS6VZbu3askbhrg9
+	 ywFdq3VetcFvnGLhdiJHh6gzDYhXpdRBm79tIBVOO50eDNO3bXU9p7kbveodMH/f4nftk
+	 q/j6PH0gtV/fPqappEu0XtD7Ds/+XQb6twz+knQmG0xxAkKsKI/ryA4yMWpLpunYn8ucM
+	 BkQCPUNZ3OaEvEEurhlxIrfyNJn3IvLXL7zQneqzzMDc8i7DwSElwRKS4zMn5LNYz+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625144;
-	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vC74YOAPrBcAC9LMP7HaSPzA4IqP9flaTn0o7gnLByI=;
-	b=fLxN/OThD0sGIEFD8FRhFWlcrmOXufR/v7u0EFx53bbHyOC2WcsKDTrd0Mc7yHI1o8N7
-	 Zhsta2L7fzopPESHqKG7//ML+3LPvjPlBJ68YQxAUXTkfzbB3L3VYGutuzEw55HMUQ7rj
-	 4Cmlb400KqC7vw+pJhFvvsHK1YHCSfwy4YV31Hq6r1AhXxZzTPc+xxUPr4J7KtD2z2IPD
-	 mhhFG38DhyEmBT6L1W/xLA7826X3/yxPEme3ZLXrawdH1PYQN33RaSwXbn0eXRR/6CzNK
-	 xdzFqsRma8Tnoiq2AAF/DQWm5MKr/UWN7YjIXKA6q7SgmbLE4+vqU/NHs1QZSzHIt4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625147;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=kX6olOzBq41GkfDHyUGpCY/uJoANcms9e6hEsvxBREI=;
+	b=EN1Hyxa2/OiuNsAr0pgr6Wq56xZV1yknPSj2HCooX50OGR2vxvUkkQRxBLeLTu7SrGUG
+	 24DJoG1Z5nW86e0GJx1YBmXiraIt3sJT3RLB1kjPOl/WR/km8SeKLB+VtSEGTcAAYPmOB
+	 AmUSc0Xk8rFokT/FeFXNkaY82PORaKqn7RFl+YmsDwEp18p7Dv6JDXMvO21Dd7pkaGYb3
+	 9lNHSYjwx54u1HiiBsnQDDFwjex1moJeCo3amtfNjVMU9+gNmrCGM4Pxwrc7uz9ZCo14Y
+	 iRTy5bdrKPgLnDWTW62n7QJIeua3zOFCOT+VZZ3Nrs3zYQi2NZrrwM18of+RG4P2VDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=librecast.net;
-	spf=pass smtp.mailfrom=librecast.net;
-	dkim=pass header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b="Z/Vehjjv";
-	arc=none smtp.remote-ip=185.128.210.58
-Received: from bregans-0.gladserv.net (bregans-0.gladserv.net [185.128.210.58])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=P8DOkGGG;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=HDI9Sw0z;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA28C606A6A2;
-	Wed, 25 Nov 2026 16:45:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA28C606A6A2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=librecast.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=librecast.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07139606A6AE;
+	Wed, 25 Nov 2026 16:45:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07139606A6AE
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=Z/Vehjjv
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=librecast.net; s=2026110900; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=vC74YOAPrBcAC9LMP7HaSPzA4IqP9flaTn0o7gnLByI=; t=1795625143; x=1796489143; 
-	b=Z/VehjjvbV6ckWi/Dd6idtHC80NSqO9NXHnQfa44KrW2M1x82RnVInJ3Q9vHa/ykq6TR48F8Bkx
-	KnBMpwcogTd4NH22MOk3yOP52qq+wSXQkyZnXBFyWZSS1trzLeQ5r3WufX5AdUyXNrKHYwH+CsIVk
-	rNPyFgp0D9OVMOGaqBKnkbZOkCo67h8LO3A/CJIPGRZv5mgENIBpsJvIE6cxFXtmZW96nUm9edGGL
-	A+P5NrknY7PfG9p5l3ZjdlqZLFJZz4v/E1ySoSiEiatN8M22Fk76Rw025Q+gKW35O4ZOTEVfIVA69
-	C3kQLoCWk41hAgqyPzuJ9RkN8fL8FOlAleoQ==;
-From: Brett A C Sheffield <bacs@librecast.net>
-To: gregkh@linuxfoundation.org
-Cc: stable@vger.kernel.org,
-	patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	torvalds@linux-foundation.org,
-	akpm@linux-foundation.org,
-	linux@roeck-us.net,
-	shuah@kernel.org,
-	patches@kernelci.org,
-	lkft-triage@lists.linaro.org,
-	pavel@nabladev.com,
-	jonathanh@nvidia.com,
-	f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com,
-	rwarsow@gmx.de,
-	conor@kernel.org,
-	hargar@microsoft.com,
-	broonie@kernel.org,
-	achill@achill.org,
-	sr@sladewatkins.com,
-	Brett A C Sheffield <bacs@librecast.net>
-Subject: Re: [PATCH 7.3 0000/1005] 7.3.7-rc1 review
-Date: Wed, 25 Nov 2026 16:36:52 +0000
-Message-ID: <20261125163654.740362-1-bacs@librecast.net>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261125143821.729802100@linuxfoundation.org>
-References: <20261125143821.729802100@linuxfoundation.org>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=P8DOkGGG;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=HDI9Sw0z
+Date: Wed, 25 Nov 2026 17:45:44 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795625145;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kX6olOzBq41GkfDHyUGpCY/uJoANcms9e6hEsvxBREI=;
+	b=P8DOkGGGGECMk6DEE17kITZt6KDpur38Pi8WmUtQpyNUsv/w40jlZmWkFr+fFamfcM9OKp
+	y056Rq7yebqrzaQqPK/UJ478nFY0NJBT3pAN54uB8UiMTNP7ru8WwMuCETFsfYi6zDgQu0
+	4mzD0AWHJBpQxADJGo7OYeD/x+89alAw6aku8YTai7Z7k9K7vYor0eA1eJLHxPkG5iql7a
+	kgptz1fdTODO9U1+jJ4cLlTlIfUmmEgLNAGucg6i7T9s7rI0g5+f272NrDK8ZQvdpycxxi
+	ixnt/SfIHQxP1/l0jfa9v0KGQH8lpruot4ZWqlf2XzvP6P+7l4FaRAEWrwGPgg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795625145;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kX6olOzBq41GkfDHyUGpCY/uJoANcms9e6hEsvxBREI=;
+	b=HDI9Sw0zpwuN8DdSW4qFUd57mhC+/OEaApcIYXkjOfS00tCyzPI6BRKQiz5Y6r78Lgiy7z
+	HylbFs3NJWMK/zDQ==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Tengda Wu <wutengda@huaweicloud.com>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
+ enqueue
+Message-ID: <20261125164544.OQOQJ1oq@linutronix.de>
+References: <20261120154457.GZ2668564@noisy.programming.kicks-ass.net>
+ <20261120154959.zw08JC0V@linutronix.de>
+ <20261120160140.GR2668804@noisy.programming.kicks-ass.net>
+ <20261120162604.GL2669272@noisy.programming.kicks-ass.net>
+ <20261120172831.5XwELZY5@linutronix.de>
+ <20261120174942.GU2668804@noisy.programming.kicks-ass.net>
+ <20261123080004.MKzgHQ3W@linutronix.de>
+ <20261125082711.GV2668804@noisy.programming.kicks-ass.net>
+ <20261125105547.WBO5iSOJ@linutronix.de>
+ <20261125161735.GG2668804@noisy.programming.kicks-ass.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,14 +90,15 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261125161735.GG2668804@noisy.programming.kicks-ass.net>
 
-# Librecast Test Results
+On 2026-11-25 17:17:35 [+0100], Peter Zijlstra wrote:
+> Ah, indeed. Let me add that as a comment.
 
-044/044 [ OK ] liblcrq
-010/010 [ OK ] libmld
-120/120 [ OK ] liblibrecast
+Perfect, thank you. I would offer tag but since you did all the work
+yourself, I go stand in the corner=E2=80=A6
 
-CPU/kernel: Linux auntie 7.3.7-rc1-g7f248ec61cf1 #1 SMP PREEMPT_DYNAMIC Wed Nov 25 15:12:41 -00 2026 x86_64 AMD Ryzen 9 9950X 16-Core Processor AuthenticAMD GNU/Linux
-
-Tested-by: Brett A C Sheffield <bacs@librecast.net>
+Sebastian
