@@ -1,76 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795643840;
-	b=UTNMai39wZzMqWgQ3w4LAB5vk7tBV2Zll++A1XCnowx3bLq92ntk430y7z6NMrJJdbfw
-	 IfrARE3OH60mf09fOwKmeIbHy9TZTJDJKOqXqOjZveVZRmEagXoXwJ0eAXvv4TNLtN5gO
-	 6NYYdf+QrIs+9ntYBXHez4zAU422H1h7h4poqZa40OD4L4f6cYNFEa5WWV7PGqZ803bMb
-	 piARD9LS2nJyLG4AZ5jUFoBhtZgu6zaxU6ItEKbmwoEYFKLh3p0dCBRRrAZY/o4/ahbpS
-	 gzZPT5kYtbaK9NqFhVEL8USgug2VDOuxvfZYvOS3+bdsOSu1l81Kjs+yvZ2zJaBi8Vg==
+	t=1795643841;
+	b=Be5o8h+AarI+46B9m0UgqipHTzyHC5yj17VsB7uP1rLT5Jq06jjecz9OTGGvYtugmuu0
+	 F9kAYul6+ueZ8e81+fzTaYqBl0XGMml8LQMQwT5cuM6+xj9s/1SfsGCVvcwRYF6HAOTb0
+	 SrDss5xBQIQm8fnG9WxjDgMTUW4Nub7u87Wjv8TCTekw1louDBFlT1iiM0oO5HFp5n9Bl
+	 5sbsUE/dmGhzguKBW1G0XAPqEW5hjylzW18+h57TfctNkjxL+adV/H0BZeefkTj+iH2Zs
+	 chRpj+LpaBnJrEhgMBvYFaMNDw4HUCx1a4/+DKpkmZljaPjGw9tAWZb5kNJORGd+NVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795643840;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795643841;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=2K3Db8LNwo4qWMxRImmBccaaTsxsdI5hMj+xr2B1FZ0=;
-	b=ZOvquoLlKrsDdu0bRN08E2od6AfZlUB4T2bgTQ/4YSPYA5A0bn1hIVoetohGPjBcjdxg
-	 IIgkHfMpwJN4kAZk7bsqW2UgP5V/ZiQXqkKHyWN7nNa98C+tJ+JXDmiM3Gec5IGTCI2/R
-	 cH2f2bt1gRZVI5nFxkWOLBg3f6jJgInN7muf//DnVTpwjYiw2wzWa0Vu5UtC5omUh21jc
-	 PZ+AxNx1rvHcvArxDX2kOFjU1/K2IDRua1n3layXeYk9bPXEiKvbpcsZor202wCgrR0Dq
-	 q66xreXCHiBjRJW9e8k4sVW7Cw4N/RIajs96yoQIw1n1r/+Ld5vsx/OgQjukYOigVOg==
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=qmP5Jdad07O6ks3WIceH4SrcsGPpZ6VnUNTz1k+Kn9k=;
+	b=Acic3vImIYFDadj8hQJ22Yti7VBPvmSXsQZlmXd50HJqJ4gGm16vdpdM6YiLrwylLl5y
+	 wwqXyREZ//kk9BaIvv2OdVFHYXg5iHhlvNmrCWL7VpCAjfdz54hkL5fXxCFbzvwtjbjII
+	 uro/DfZvEpOs535TwrpJVIWAFzFG6z2jjjDou2YDB46jdES993yWoafPlBqf9LZmURc5d
+	 0P4TW9ikvz0127hXQwy9xwmVcd5YkQJ/uWJxaCKHosxGvLTW6a9WuRGrIG4dwHsykA2bg
+	 yidhaqVdUuQ6JhiVR84HLPik/4RZE1fjmXIjfYUU533acUpeEmE1pYT21cd4Ws/0wtA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XBzLmfQP;
-	arc=none smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YTQDnlrr;
+	arc=none smtp.remote-ip=192.198.163.10
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B39A6606A31E;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2659606A321;
 	Wed, 25 Nov 2026 21:57:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B39A6606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2659606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XBzLmfQP
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YTQDnlrr
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
   t=1795643840; x=1827179840;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=DI+/KXJxI3NkcVpi2dKOEaihNHueHSF6UIpyMuXHXFM=;
-  b=XBzLmfQPqTB5muMt/+V0Jx8MCrmZeNiLc6Wyq0ROvDVwC9eOFzL3v0RX
-   AXBnYu6F5BYPvS1N1zJvH8seNLIMKkWImHPjLcW6k9kIpcLZ54UE1z7gT
-   jxv/5CK0/mzH8SFnIHGZXWevWHCk7uen5Xis1MLATu6WdklesEpgerFy1
-   +P6eRpRVr6X858qvjd2VnL9zFQRnx5m07dNGu94yGqIX6m/d0tjud+Zra
-   pij9jL7HSMNT/yPzboiICdpBoFv2Ieaj1QV/sD6SnQnHC66v2a5R8dlSP
-   kQCQaj34/DP+Lc1ZcuLSAkinwRUvv584tCVuEcvqYRVOoB6fcFllS7608
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=YsGA109JKb0XGyZ0iIgbqFxSMZl8ygNh3OSlEMQPl+g=;
+  b=YTQDnlrrqSOmkXfgXhsKyaI2Pwwas4oAkXtrqCSpIxDSs9RBQmg+XbRf
+   39GfELFOjKSJQH6WRmHgc/xOEq2CjJpvN03JjlEgVY8kb2AEl8pJKfMjd
+   JwZuKpPcsuHdnPxe55mrCM9TS7jXEwXYg/jv2imcaImYULx2OZVeagPdH
+   rMZGH+kKeCBkgHoTgCRMritHHv2zVMq7b5snzEAeU5VbplBBIlQJQN2PC
+   3aWlozX7pnxBBTimOVCWuRLU6m23j1myTzM+76ceOus7jvCEKB2KHUEHP
+   pCENV4Hc7iXZ/YkqFeiO7YBNAgQsceWYgwzOtxa6DsC1gNb2bXF6sr8Tk
    Q==;
-X-CSE-ConnectionGUID: tgXKwFsDR1mMhgBd6j+SPg==
-X-CSE-MsgGUID: AGmbWj1wRr27Gv1LTwGt6Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4528273"
+X-CSE-ConnectionGUID: N/nMkPwySSK9MXzJnyyxgA==
+X-CSE-MsgGUID: Xlm9CKkIRgSHT6vFb9AZ1g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4429601"
 X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4528273"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 13:57:19 -0800
-X-CSE-ConnectionGUID: EWCvkhejRz2crE4uaINclw==
-X-CSE-MsgGUID: 88viNq/0Rp+VAVTby/bghQ==
+   d="scan'208";a="4429601"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 13:57:19 -0800
+X-CSE-ConnectionGUID: RqhCKDMyS7SzIoZAlwDHyQ==
+X-CSE-MsgGUID: X48KgJsnRfOCT5HDrja9jg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="14023381"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.96])
+   d="scan'208";a="12228271"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.73])
   by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 13:57:16 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Wed, 25 Nov 2026 23:57:13 +0200 (EET)
-To: Ziqiang Xia <xiazq123666@gmail.com>
-cc: Armin Wolf <W_Armin@gmx.de>, Hans de Goede <hansg@kernel.org>, 
-    Guenter Roeck <linux@roeck-us.net>, platform-driver-x86@vger.kernel.org, 
-    LKML <linux-kernel@vger.kernel.org>, linux-hwmon@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] Documentation: ABI: testing: Add emdoor-intel-wmi
- sysfs ABI
-In-Reply-To: <20261123-emdoor-intel-wmi-rfc-v2-1-3f4a03095f2e@gmail.com>
-Message-ID: <13db1531-58e4-1db9-4f1e-5911aec82f8c@linux.intel.com>
-References: <20261123-emdoor-intel-wmi-rfc-v2-0-3f4a03095f2e@gmail.com> <20261123-emdoor-intel-wmi-rfc-v2-1-3f4a03095f2e@gmail.com>
+Date: Wed, 25 Nov 2026 23:57:13 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Joshua Crofts <crofts@kernel.org>
+Cc: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Nishant Malpani <nish.malpani25@gmail.com>, linux@analog.com,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/9] iio: gyro: adis16130: apply iwyu principle
+Message-ID: <awdZuWcPTXQ35SMX@ashevche-desk.local>
+References: <20261125-gyro-kernel-header-removal-v1-0-969b3e668d35@kernel.org>
+ <20261125-gyro-kernel-header-removal-v1-4-969b3e668d35@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,57 +84,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125-gyro-kernel-header-removal-v1-4-969b3e668d35@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Mon, 23 Nov 2026, Ziqiang Xia via B4 Relay wrote:
+On Wed, Nov 25, 2026 at 08:24:05PM +0100, Joshua Crofts wrote:
+> Remove the catch all kernel.h header and add/remove the remaining
+> headers in accordance with the IWYU principle.
 
-> From: Ziqiang Xia <xiazq123666@gmail.com>
-> 
-> Document the read-only touchpad_enabled sysfs attribute exposed by
-> the Emdoor Intel EWMI platform driver.
-> 
-> Signed-off-by: Ziqiang Xia <xiazq123666@gmail.com>
-> ---
->  Documentation/ABI/testing/sysfs-bus-wmi-devices-emdoor-ewmi | 7 +++++++
->  MAINTAINERS                                                 | 6 ++++++
->  2 files changed, 13 insertions(+)
-> 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-wmi-devices-emdoor-ewmi b/Documentation/ABI/testing/sysfs-bus-wmi-devices-emdoor-ewmi
-> new file mode 100644
-> index 000000000..6cf85db62
-> --- /dev/null
-> +++ b/Documentation/ABI/testing/sysfs-bus-wmi-devices-emdoor-ewmi
-> @@ -0,0 +1,7 @@
-> +What:		/sys/bus/wmi/devices/0B30FD67-1B62-4FCA-B10B-50DC7ADE6A39-*/touchpad_enabled
-> +Date:		November 2026
-> +KernelVersion:	7.4
+...
 
-This ship has sailed already.
+> -#include <linux/kernel.h>
+>  #include <linux/spi/spi.h>
+> -#include <linux/module.h>
 
-> +Contact:	platform-driver-x86@vger.kernel.org
-> +Description:
-> +		(RO) Firmware touchpad enable state ("0" or "1") queried via
-> +		WMCD GTPS (0x03/0x07).
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 981eb3fdb..70c976ffe 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -9848,6 +9848,12 @@ T:	git git://linuxtv.org/media.git
->  F:	Documentation/admin-guide/media/em28xx*
->  F:	drivers/media/usb/em28xx/
+> -
+
+Leave this blank line before iio/ group as it originally was.
+
+> +#include <linux/unaligned.h>
+> +#include <linux/types.h>
+>  #include <linux/iio/iio.h>
 >  
-> +EMDOOR INTEL EWMI DRIVER
-> +M:	Ziqiang Xia <xiazq123666@gmail.com>
-> +L:	platform-driver-x86@vger.kernel.org
-> +S:	Maintained
-> +F:	Documentation/ABI/testing/sysfs-bus-wmi-devices-emdoor-ewmi
-> +
->  EMMC CMDQ HOST CONTROLLER INTERFACE (CQHCI) DRIVER
->  M:	Adrian Hunter <adrian.hunter@intel.com>
->  M:	Asutosh Das <quic_asutoshd@quicinc.com>
-> 
-> 
+> -#include <linux/unaligned.h>
 
 -- 
- i.
+With Best Regards,
+Andy Shevchenko
+
 
