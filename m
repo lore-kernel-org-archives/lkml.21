@@ -1,80 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795641477;
-	b=j9dFAyMj4ELnQfyY2vEeU/JuR3/G3i3o49p2z36gDmjX/45mKJ0UhDxO282qpcwL1cIm
-	 NuXJGOSK0lI11YuxKgjMhqFPryQfo47WjcI5G2+m66mglvKGv0AhAP8W4OLOBAPRc3uVo
-	 KrXgOsIjm5tAk/qHGjTrobWSVJe9tHlnA4fqK4izo2fQeRpvovQDQ3Jg5mxV2MDUg9X+w
-	 rSbgfvx5Mb380qxbgtDPDIaTYcFG/kdukB24IugsYaQhcP5SQOhAVtz0sB7kzEo6zGRpF
-	 BticeRDfaU2HpaWIrf9pHcREnvmJMyH//KEXFxZMh/Eq3y2h9Mbhx0Uwtpo86NUVLZQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795641477;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=Q3LohTUTvTDKTOnmMCdsVFV7yA521KeB7VGeO+9OdHQ=;
-	b=ix6OU71SzJIFUIZAgC70w6oQWqfth+s/3yIYzU0M6LMFHiHCkN+X9HIMA9K2g8yFoWYs
-	 zidKxfTnV3QNAQaF8IIjcMgnYF8wjiAJuuiQxjUWY+wQfTcbpuJafi1OiP+MkT2IjJ2Yy
-	 Gf6ezVpLQ2NKUR4F2tmdGXtG8TAGl0xerp7dAhCjuK0NeAiuG1fYeVaz/0SZHBhuUrrgH
-	 rrDa+VQz7IDM5EpcHMvrnqC0MnNq380I1n531Yqczf1FiRND4vaAxu2qN9jfvUpmdQZVi
-	 8KYGLiW6p0e4dI1mhcynXDTalkOgp7HvXOOP8sPVrA0qgPw9T9TnKQ0jbfCl8z/yqFg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YyMW2j68;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA689606A32A;
-	Wed, 25 Nov 2026 21:17:57 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YyMW2j68
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795641477;
-	b=E7EvnVMkS/uuRmwl9oAL60IdVOzZil5wBNAzr2j6uLIHZpqO8UsyxZh9okudltXziTXb
-	 GroD/NpSTDOyBReNCGwzeGbcw6iz9fxYKQkzSv+ZDGTnpe47nvEMbxbrD8GkWJzTStucZ
-	 6OVoBJ1qlWmiGXEkeB06bwtup59QOlVgsmvGsXxrDyZz4Fcw/8F/K89qPVMzomalxek4D
-	 RDmK4OehAdB6m2f/Gs5m6srKPE55/HxG1Hbm4JlD9B+3yi3nuqV0aJUKGpwL/OOnMcnyZ
-	 5TyaL7EQuCHO7ar/stI5aqWYU8/nTbXXxhwSZW7m4ra+oTkZm2IifDyTSTTMPXNQCdA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795641477;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=Q3LohTUTvTDKTOnmMCdsVFV7yA521KeB7VGeO+9OdHQ=;
-	b=HKHNYgBNknSjsfxETZsoArSY4DpMYFz0pj+vwjJKGkTju4512MFDDydJiI3A4tY0Rd6U
-	 3vb88N6/LJFRlmz1JGrN9leh+SVl+JKddUnByRSVcSfhuxb8P2fN0QdwiSKsYzjIgUbnK
-	 /KSRnl09cy7mg47Lh5jGvKipjsUKNxVSsrrmkyQjaDrD6Jn+6QiyY3s7K7bBXHEoDPdP3
-	 kyoa34AfUp7yN1PVIiUOdqOQwlNgsEQhdfxrwfJNXm0qIarM77XqbJA0TVWvztoTSBHY9
-	 9MshzAVxc1AkQ3Z1YLZcU43xjKq5UL/fj/3qFEtaX0q9Zb5OSIfEg+hS6eHUsImNB+w==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.20
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795641682;
+	b=xmIjIDXUIC44dV4cSebeRpRIJ1B4u3FSfXm5eftT+ysLuPXR93b76nQVdyvMqrNkgBHf
+	 Dx4IcY3UDrQwXVcon2otwNBYdB4MxT0NTKAEFEhrlMTXqFYBejkRe9/nfZCtwD3QKGo7r
+	 W2jaPTQpGzdMcm+QwnHAI/ThU4v5uZhst4J35eTy7DWXaw9MbH0EkmfWRJ442p6hOIkSg
+	 C1QdvIMJAMCoGHcL5ed+Xu5ZvIVrlAIYn9n+TWEJcGWjijt30xDDTh9gL4iHxeXe9fhWV
+	 UhxkbdiMcqVE/7tEYpDpPZbmcVDyAgkTHkqc85Z3MoW7Q+xj34PdeMp0wxsey4IcqfA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795641682;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=vfLZQumhvisvpmzurTjKPkeiD17r56G5HfxylZWgS5c=;
+	b=mdedN2X2OIRplnTfO64RvSWJijawTrSw6jElGe7LG+ocRVsja1sNd+UoxcuTrcqiZ1wn
+	 xrSH9qlQA5Ey9M1zCIyJLFKP1s5/DF83vgnU5GRWFRoL8ak+LtFB/4wMQeY6gORvqPujo
+	 YJFleVXOKI1De5/AE2v7HQzjqkjx20qcNAG4RT3tc5EDh9LTLSJ8JlN0S1r5MeOcQu5Tb
+	 /SaMQ+wkZ+6nZvykKYFriSrSBsgiVugGDZMAqBV+jgUCA4q98X+iGV25rJPDS5FmjNpZG
+	 HLKeXUpQE0S6+4pTq9zpqcYFrOagwGFzJugMP+ZCvGsB0hDYGB+FKjeXCd+UgcWrvhg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=1g4.org;
+	spf=pass smtp.mailfrom=1g4.org;
+	dkim=pass header.d=1g4.org header.i=@1g4.org header.a=rsa-sha256 header.s=protonmail header.b="K6HH/md3";
+	arc=none smtp.remote-ip=109.224.244.20
+Received: from mail-24420.protonmail.ch (mail-24420.protonmail.ch [109.224.244.20])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 612291F000D0;
-	Wed, 25 Nov 2026 21:17:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795641477;
-	bh=Q3LohTUTvTDKTOnmMCdsVFV7yA521KeB7VGeO+9OdHQ=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=YyMW2j689EtMMJMQysPk5Dbu05K41zBDSuU+1czCBdQPK2xbYgFCv2FfskS/n+qST
-	 IhMyTcDJxNqMUwEpnwuqi/1UIb1IvaJtFcDku72CCoFusdAskTZpPnU9KcV4g6EV/y
-	 DH0W4PLRV3Yfw50aFwRjPUkk/2aWms/Q7oZam+YM0N+UZGHMC58TTV6Kurxsb5D0iR
-	 +WwtRHPLM0+z+3AVxGs29TacwHGjW10q1qQQ5pbvC11f/an3CN+rhM4VGcEyUSZNQw
-	 obHbhe/yqf2qpBjfZq5Ce5BVdH05h67qyLevyECFrg5pXUb+Y2u/+3dIah3IJfIJvn
-	 AQxCYIrd06iZg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B72D14D04F;
-	Wed, 25 Nov 2026 21:17:46 +0000 (UTC)
-From: Kalash Nainwal via B4 Relay <devnull+kalash.nexthop.ai@kernel.org>
-Subject: [PATCH net-next v2 0/2] tcp: add net.ipv4.tcp_l3mdev_exempt_ports
- sysctl
-Date: Wed, 25 Nov 2026 14:17:45 -0700
-Message-Id: <20261125-tcp-l3mdev-exempt-ports-v2-0-b920f3ff8f5e@nexthop.ai>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0DBE606A323;
+	Wed, 25 Nov 2026 21:21:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0DBE606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=1g4.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=1g4.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=1g4.org header.i=@1g4.org header.a=rsa-sha256 header.s=protonmail header.b=K6HH/md3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1g4.org;
+	s=protonmail; t=1795641671; x=1795900871;
+	bh=vfLZQumhvisvpmzurTjKPkeiD17r56G5HfxylZWgS5c=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=K6HH/md3pBKFeCn6smvdxo3PrAftyS8IW5f6xh7qv2uIyYwqd0JUpPVm+2xPbYHM6
+	 Qt4RHM9I1ScB7leWfeEwOKuycQI14m1Yu27mEK32Pwav3AvcUs/F4gOiv8qf16nDYT
+	 gV9QP4ML4lQI3mOQoHb4nLKK4SydwrwztGVv3R6P4/cbx+w8hpdEnDe2TURO5ESzXl
+	 Ug7mnZv6y4G0sb0p9JoiOTLBP6e9CH3eI5c4IGE4L+pEwdlgGruVSx1yRIC3r0XC0Y
+	 RIsWJOZv9uQomc20hXludvz8FgWNuU852aG+w/saQZVLOh7zl1hzkkOzTLO8UjcAF7
+	 F26BT1Tv0vmAQ==
+Date: Wed, 25 Nov 2026 21:21:01 +0000
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+From: Paul Moses <p@1g4.org>
+Cc: "chenglong.ma" <longpareto@gmail.com>, "Michael S . Tsirkin" <mst@redhat.com>, Linus Torvalds <torvalds@linux-foundation.org>, kvm@vger.kernel.org, virtualization@lists.linux-foundation.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 2312891301@qq.com, blum@kernel.org, co+6dcbccedc9ec6452@bugs.sh, eperezma@redhat.com, fangxy@xiaopeng.com, jasowangio@gmail.com, kmehltretter@gmail.com, linfeng.sun.dev@gmail.com, lirongqing@baidu.com, oss.patchbox@gmail.com, phx0fer@gmail.com, physicalmtea@gmail.com, sergiiushakov@google.com, shubham@octane.security, stable@vger.kernel.org, stjepan.poljak@gmail.com, syzbot+13df72e0dc4be5c62215@syzkaller.appspotmail.com, tavhadia@gmail.com, tjdqudcks0424@naver.com, tz2294@columbia.edu, xieyongji@bytedance.com, xmei5@asu.edu, yuz08559@gmail.com, zenghui.yu@linux.dev, zhaimingbing@cmss.chinamobile.com, zhangjiao2@cmss.chinamobile.com
+Subject: Re: [GIT PULL] vhost,virtio,vdpa: bugfixes
+Message-ID: <s1xGKGqyb3Uk_gDZmeWG7nVEq4_m00HsO9pS1RL3cUnIdr4GMgH5OEBifQIl-30ZdUu7_uUoe-TxhMQd2GuW2sWKzY6UUGSWXKaqMz_XeEE=@1g4.org>
+In-Reply-To: <awbTgufgR4Uge1kJ@gremlin>
+References: <20261104081535-mutt-send-email-mst@kernel.org> <awWOpS3HR_2FTN3I@gremlin> <20261125060533.1296-1-longpareto@gmail.com> <awbTgufgR4Uge1kJ@gremlin>
+Feedback-ID: 8253658:user:proton
+X-Pm-Message-ID: 4a2ea5626cc74c6da271abf63e2ead6a3c9e8c0a
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,139 +64,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHlQB2sC/4WOQQ6CMBREr2L+2m/aEkhw5T0Mi/L7kRppm7Y2G
- MLdBTyAy8nMm5kFEkfLCa6nBSIXm6x3m1DnE9Co3YPRmk2DEqqRUgnMFPBVTYYL8sxTyBh8zAm
- pHWozcM9V3cBGh8iDnY/mOzjO6HjO0P2c9O6fTHkv3rOjTdnHz3GiyIP4u1ckCiQipSvdkBHtb
- R8YfbhoC926rl+pVAgu2wAAAA==
-X-Change-ID: 20261120-tcp-l3mdev-exempt-ports-c9f5dfebe356
-To: "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, David Ahern <dsahern@kernel.org>, 
- Ido Schimmel <idosch@nvidia.com>, Neal Cardwell <ncardwell@google.com>, 
- Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Shuah Khan <shuah@kernel.org>, Joel Granados <joel.granados@kernel.org>, 
- netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Kalash Nainwal <kalash@nexthop.ai>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4398; i=kalash@nexthop.ai;
- h=from:subject:message-id;
- bh=gL/eOMgLt2xrx8fI3Mk4bs+cV56GAlBQ2KWpr+GQrDw=;
- b=owEB7QES/pANAwAKAdTKslu1X9B2AcsmYgBrB1B5M7xrqSbAKxNuP3sEOE16/RtTSoroHMNR/
- dacFmbMmzaJAbMEAAEKAB0WIQSWKdfHnHcAucb08LDUyrJbtV/QdgUCawdQeQAKCRDUyrJbtV/Q
- dhpTC/9MGgLNn849nJhgPys67rtFmcKAntVW9pYhI5Cbws2z2r8JbXw7CL6VSBWDUgSFkYBdgKv
- 8XT4Rzule/r1wEpFYOLTEaaWKsU7Kjup6ixO01BvoseO3Fsfyt5kObIu6+xTVbp2cnLOOdRASFs
- 7Vq60grwUc5MVKxVt6s21hHW72ySCZ7rLhMG2+YQqDB4dzS21vPZrHyNN6Z/oH0ipAUJszkCvmK
- uL1V87t/jiQUkrFHMIJSBqaX+ibuAQ9qiSEgMiInSNH9RPBBlhqUIH9V/mLMQDnlEXe6eVFXgMi
- CtgoQHKMMROHcdo+qccg2HciMfSqis9due22AczJ04AQYSan3xa67/jJf6y/Rdkn6f6kZCbQdHw
- /zup3MtEL+HUjDjmlAfCxtjuXoKE6GAcBI6n9ED//+NJJ70NwwQb/rReQbv/vaJ8ksHx6EbnPE0
- MWtnSodiwtxc5RGZ0qvkvgfrb1liARaOLEWFt15glHY6Y91pqJ94t1Ci8zZAmXbjOMV90=
-X-Developer-Key: i=kalash@nexthop.ai; a=openpgp;
- fpr=9629D7C79C7700B9C6F4F0B0D4CAB25BB55FD076
-X-Endpoint-Received: by B4 Relay for kalash@nexthop.ai/default with
- auth_id=1588
-X-Original-From: Kalash Nainwal <kalash@nexthop.ai>
-Reply-To: kalash@nexthop.ai
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-With net.ipv4.tcp_l3mdev_accept=1, an unbound TCP listener also accepts
-connections that arrive in a VRF. When a VRF-bound listener exists on
-the same port and both use SO_REUSEPORT, the lookup does not prefer the
-VRF-bound one: inet_lhash2_lookup() returns the reuseport pick of the
-first socket that beats the current best score, and the two sockets
-are in different reuseport groups. The winner depends on bucket order,
-and AF_INET6 reuseport listeners are added at the tail while AF_INET
-ones are added at the head, so IPv4 and IPv6 behave differently.
+There appears to be a recurring problem with how previously reported=20
+vulnerabilities are being handled in this subsystem.
 
-We hit this with a BGP daemon that has a TCP-MD5 key on its VRF-bound
-:179 listener and none on its unbound :179 listener. IPv6 VRF peers
-reached the unbound listener and came up without MD5. Setting
-tcp_l3mdev_accept=0 is not an option because other services on the
-host need it.
+Yu Zhang publicly reported the VDUSE VA/PA confusion on August 7,=20
+including runtime evidence and a proposed fix:
 
-Patch 1 adds a per-netns port list, net.ipv4.tcp_l3mdev_exempt_ports,
-modeled on ip_local_reserved_ports. For a listed port, an unbound socket
-does not match VRF traffic. The check runs only for VRF traffic
-(sdif != 0) on unbound sockets, so other lookups are unchanged.
+https://lore.kernel.org/r/20260807022657.11318-1-yuz08559@gmail.com
 
-Patch 2 adds a selftest.
+Nearly three months later, bb2e6f166547 was merged with attribution to=20
+Claude Code, but without any acknowledgment of Yu's earlier report. As=20
+Lorenzo has now pointed out, the accepted patch also breaks the driver's=20
+mmap path.
 
-Testing:
-- New selftest on net-next in virtme-ng: all 10 cases pass. Without the
-  port listed, the first listener in the bucket wins (IPv4 fails when
-  the VRF-bound listener is created first, IPv6 when the unbound one
-  is).
-- The same change on 6.12, with a BGP daemon over a VRF with TCP-MD5 on
-  hardware: the IPv6 VRF session now uses the VRF-bound MD5 listener.
+This is particularly concerning given my own experience with the vDPA=20
+netlink double-free.
 
-Why a sysctl rather than changing the default lookup: with both
-listeners present, existing setups get a result that is stable but
-depends on creation order and address family. Making the VRF-bound
-listener always win would change that for every tcp_l3mdev_accept
-user, so this series keeps the default and makes the new behavior
-opt-in per port. If changing the default is preferred, I can rework it
-that way.
+I reported the issue in March, submitted a patch at your request, provided=
+=20
+runtime evidence, and received repeated assurances that my patch would be=
+=20
+applied. Nearly eight months later, a different Claude-assisted implementat=
+ion=20
+was merged instead after I reported it to security list a second time.
 
-Alternatives considered: a BPF sk_lookup program can do this, but needs
-a loader attached in every netns that runs the daemon.
+I acknowledge that I eventually received a Reported-by tag. That does not e=
+xplain=20
+why a known and acknowledged memory-safety defect remained unfixed for near=
+ly eight=20
+months.
 
----
-Changes in v2:
-- Patch 1: only build the sysctl with CONFIG_NET_L3_MASTER_DEV, next to
-  tcp_l3mdev_accept.
-- Patch 1: say in the docs that only listener lookup changes, and that
-  a listener bound to the receiving device also matches.
-- Patch 1: add the field to net_cachelines/netns_ipv4_sysctl.rst.
-- Patch 2: wait for the listeners with ss instead of a fixed sleep.
-- Patch 2: skip if VRF is not supported; fail if setup fails.
-- Patch 2: require a timeout from the listener that must not get the
-  connection.
-- Patch 2: use ALL_TESTS and check_gen_prog; fix shellcheck warnings.
-- Wrap lines at 80 columns.
-- Link to v1: https://patch.msgid.link/20261120-tcp-l3mdev-exempt-ports-v1-0-ccc2a3a6cd09@nexthop.ai
+I have no objection to the use of AI-assisted development. I do object to a=
+ process=20
+in which previously submitted security fixes remain unresolved for months, =
+only to=20
+be replaced by AI-assisted implementations, particularly when those impleme=
+ntations=20
+introduce regressions that basic functional testing would have caught.
 
-To: "David S. Miller" <davem@davemloft.net>
-To: Eric Dumazet <edumazet@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-To: Simon Horman <horms@kernel.org>
-To: Jonathan Corbet <corbet@lwn.net>
-To: Shuah Khan <skhan@linuxfoundation.org>
-To: Randy Dunlap <rdunlap@infradead.org>
-To: David Ahern <dsahern@kernel.org>
-To: Ido Schimmel <idosch@nvidia.com>
-To: Neal Cardwell <ncardwell@google.com>
-To: Kuniyuki Iwashima <kuniyu@google.com>
-To: Shuah Khan <shuah@kernel.org>
-Cc: netdev@vger.kernel.org
-Cc: linux-doc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-kselftest@vger.kernel.org
+Why was Yu Zhang's earlier report not acknowledged?
 
----
-Kalash Nainwal (2):
-      tcp: add net.ipv4.tcp_l3mdev_exempt_ports sysctl
-      selftests: net: add tcp_l3mdev_exempt_ports test
+And what is being done to ensure that previously reported vulnerabilities a=
+re not left=20
+unresolved until they are rediscovered?
 
- Documentation/networking/ip-sysctl.rst             |  24 ++
- .../net_cachelines/netns_ipv4_sysctl.rst           |   1 +
- include/net/ip.h                                   |  15 ++
- include/net/netns/ipv4.h                           |   3 +
- net/ipv4/inet_hashtables.c                         |   5 +
- net/ipv4/sysctl_net_ipv4.c                         |  21 ++
- net/ipv6/inet6_hashtables.c                        |   4 +
- tools/testing/selftests/net/Makefile               |   1 +
- .../selftests/net/tcp_l3mdev_exempt_ports.sh       | 260 +++++++++++++++++++++
- 9 files changed, 334 insertions(+)
----
-base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
-change-id: 20261120-tcp-l3mdev-exempt-ports-c9f5dfebe356
-
-Best regards,
---  
-Kalash Nainwal <kalash@nexthop.ai>
-
-
+Thanks,
+Paul
