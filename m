@@ -1,55 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795642005;
-	b=zJIUu9DvNSVvN89SgTn2NZYAB6KYw8TDW6pvdV9EUgvDBzdtu5MtGodk6zaWdOHAch6d
-	 sIaGci5yxNuzkWUnEwAsnm+StTCH9reLhg1YqynrXYDU/6S3V5M0fWEYlI17NJklb24L+
-	 UCSKvg1AQmN8xM6hOYIFDGKYOMcAtjPEcbGAg+zCX6Q3+ZXh5uBaIuVfNVuS0zSy73SUM
-	 FCq5QmA3XfjNYuNLlzbpgn2JWgkwvmUxkCRW2zspNVqqrp6/Ot8gtn6IpBKe/nonTisWb
-	 XjGi94b4ZiVgWGLVBdk9LvxeCAu9qjWMXIFUMI0l9cPJJVtgLYmwwIsvnHHhGT1prBA==
+	t=1795642014;
+	b=Ue1SrywV/iDuIrdxaRaerNFy7bMmCC+2uE114t0eu1AlzqCZpUUoF28JcfBbW/Jn46VG
+	 rKPuu/0tdKEPE2xVaHz6OpgvPTmDsp4E9PH9IGJ0q1ftbkuXKgZZ7N6+nJNBS4ef4+Tzj
+	 Cm5RtkjecvIixy1JZm/3fYxNeP4erpxk0HsJ3uMWwaIpfLp40C2yDay25TAgB9WAtp8BJ
+	 qVriDaNxKXqHT8dxPvIZ0psyuv7fp3fVqPXn7XMzmkPs0F7rEjW36q3CFhbdvGjoCiGkN
+	 KZNx/YgREoMZstVbH3ylzC6C1tN9bgzIrhoIoETOpDCFKAgoNoSZC6RQF6sY/wvU9tQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795642005;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=guDPdAYNJbWbC6d5sTKqRJq9OmSRPmOCdNbIU1+Gch0=;
-	b=rHGLz7rLFMzU/vC2L7YF5r46bZkLdMk5FxOmgX/SxxlrLJx1CH4/ILTD+/KdoKBltvLQ
-	 aTkYgjPaNJv4rMeZLfbqQk+SiUpZ8tOpR/iwlsai6RH3GkTryd0+1wBeDMH//MdeYKPt5
-	 h9DLqbNMJBJQlvOK9uvlY92bE8WJE8qmWO30j/fmCTdFXJhr04lppLsnSYX+9OUfU73sf
-	 Ab491IMWYATYruRSZO61V4C8VJT2K6guR7e98NOYCbeTVfAx41UFIt1ELdqzXivgEZKA7
-	 MpcbAoVZfWkk1N9hvB6FQi0SBLHQmvL2GgMlr/E7kCNMkastbjS4SMBJwsraRVZY0Iw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795642014;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=TvrU0wA9nQ8NmkHqlIbwXmklpSSQk+6g+lOk6duGUaY=;
+	b=ZnVE4ObDYMRGLx3r5rlHL6w/WdbC5Lw3ytpfx3ZHGWvr84xtzuUuX2xwceM7KPb57tmu
+	 lCmG8DGxtCteG5h4IhmDZzua10Vt2rbESXN/JtapmuIlW0GgCALDtDX+4tg88dZtZ9gir
+	 gIsNXiWNBdDjRhz6UZyVqcz7qnR4r9xBpn3nLEdZZt6AGbXu9rHnbQDh5FLssrOxDmB3B
+	 ONxplBdOR2mOXRITZGBjc8RwoMDtj2ItHSSMOQdM1vQV+f6qmEUeDPOazcz3/yxbpRqg4
+	 CyKKzbRnns0u4YVzyql+S2SrXq5tJL3gwYP5wPIqvZRYYplGwsPuWzgyE1e67SMZnaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=euYshZwF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=khbHvIZS;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6573606A338
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:26:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C19B606A332
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:26:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C19B606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=euYshZwF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF9511F000D4
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:26:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795642004;
-	bh=guDPdAYNJbWbC6d5sTKqRJq9OmSRPmOCdNbIU1+Gch0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=euYshZwFCWO8msiqlyp3g86AQLKD+Mp+LppuO3wwvhqdQXrj413xBIAYHTY2o8Hu0
-	 Le2+VZ04LPhLXV4DPbgMH9C9c7RWlgRxgTB+OtuLW76pjkvCmL87ACVIkeSYyCP4DW
-	 83vO8q9l2IzvfvOhuj8kAD9sG+wfOnAy6GjnLxoayo5bMFscLVuFGJuwwkK3vw+G1t
-	 EMVxFoIUdJ5vafz6BbjN3fAc2j1JbbJMQQAQd9kpTUltEe2r3uAjkdxmT5+YJxn2Aj
-	 oBznpSx2Yp0aUfeke2vgkHSo9zMrZgTFNdWMmu83/NMZO8OjiLBSdh9ETIy7Gh5pQz
-	 SR02WqxNHki1A==
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c51a02ad3acso199560666b.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:26:43 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEtoxDRGqZ5P21HWVBDq0rRpnSa7pCWxRG+XOJF4g6MLL2GIkMCXiJPybSeE1AEL8qOXe0ngdGT8KKsnA0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z93+7WmEcIosmfCyTAJPRnYIYk/ZTZJlp5djcO4pwGXuccj2do8
-	wTYpypkvYytWdfTT0+qjtXMTBXGwbRLXIMHkoGddDz3PDotvrF3g353WVJ1vZghXX9qF3wyvzpa
-	6i4k9J23+ODpIo4HCe2UinCd4x5LRKjk=
-X-Received: by 2002:a17:907:6ea9:b0:c46:a5bb:5740 with SMTP id
- a640c23a62f3a-c513a3a656cmr1716577266b.5.1795642002900; Wed, 25 Nov 2026
- 13:26:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=khbHvIZS
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso58544425e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:26:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795642012; x=1796246812; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=TvrU0wA9nQ8NmkHqlIbwXmklpSSQk+6g+lOk6duGUaY=;
+        b=khbHvIZSswKzRKScFBxEP5dKyjo1fhxkUl/Tm9a7vooLiIEIc3+D/8+f+l2qOQAqqt
+         NkhbUqa1fNS3fq7OMj0WJMaJl1khGxmmDggv3i+SWU85FgAdjmbQ2zLZepZPts3zxApM
+         +6QfPBplV6uwffDVwMTmMBw7k1e3de0G6FQe/sfuWrH5Ds6lbEvkXQTXgjHFZ3p+bjez
+         1kr4qDOVCP9dTt5FKMHZl8AC9yxsqKbDOwSROd6mExDAJeQ3K3/NchHUz2ApoMTPzZeQ
+         /uhnbwnb7ArGmTHzNkayy/FGQamuBbJ3FEoi6BqwxfvCMlyHosFKu+w8DEKRCPmU15eV
+         1whQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795642012; x=1796246812;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TvrU0wA9nQ8NmkHqlIbwXmklpSSQk+6g+lOk6duGUaY=;
+        b=hticOMdvaG5PAO1y3TsPZfihtDeF9xLMCalNfJJb0mSbFa/ZvQ84rqQLmZhLO2ZMWJ
+         X2iulKEotMvqvwyTpXcfhXiA4yzj50AFjtCJywLW9d60QzyJvx2lhe0VUu1n9vyx4wDG
+         gpEwRqH7KeSrRj/+02x0W5xUkVF4LkFitI9b6Z9iR2s9yND3LWZ6GqYh5OCft25vS04k
+         YL3SVUq1+YjhBswZfr+gVk5qN8xyan5xdHlP63/K7em4+jn0MmQ4i4kyKcFwWdMXLzEW
+         3xDqfjLc8TDfA+1W8mL8r5goigrbQcs31Apwyarxakvwqa+692S/E/SI2GhB+uJ5bKiF
+         RDuQ==
+X-Forwarded-Encrypted: i=1; AL+hErHnv46JCnZSlfkZcNojp2Orx3Q8/cL2HuAlxNIT0hxG4jOt3Aj5DjTaQTtd0sui4aqHWH4hstKiG88ubEo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/1Ef3WUFvi72EY2yHXXqYXVVQnqJ7jwaI3rRI4ZGQkJ0FYYnF5
+	NZYlFUyXhcntd55xEXlrvHzXOKeeuZesLOGSlq0ec5aWjqpWdFS1Jcwb
+X-Gm-Gg: AZFdTZeAbTgJ3VijktNUrgVtpVECibvdjayzDpWoMYJu9T4/KDAFVvEJTiQ9LJzO771
+	XO/fMvYX5XnnpN64Tb6CxW0i7uIpgY4WRmdZK/KRW993bQu3dL+Jlmvio8PqPsk1He+OriY4Jp4
+	pi0ZxP1roXAeWBaYi9V1I8oD3za9qvwNtVEqE3fKf2TdJ7NKF5vNYz2tQC8s7r+OvfrC2cPBSR5
+	lJRTXtYgy/sDhvSEKfMTvm+GTBTaMQ1wNSVY9aanvKYyGMIS814aMPGPRYCtPXUJKw5ok4iKYS+
+	qxh9myVRZjxuwE9olZFWtC/BZGpkPDf4Y6H/cFblUGQAXQE3WbgnFc66BJ21XsykLN7kW8skrY0
+	zsjJoTzIBV1+18Iot0Oe1uOjH1xZdqXIzpZ0ltcZHg6BI8uoLDekb4rdPWa/ZVgHSwYAek6LsPS
+	+y6HoF7lURVwET73Ef0C1ZhHll1MTDDjOFSsGLhfhimBzWSK4VIxkCmozkbhgmOPM8OseRohvwD
+	7x5cAVUf4MPdwqUslYNcksZVCa/O9Dh5/XhHZFVxAsBWd7aRrEtO2vLJJSvgQskwIJQht7N4Ubn
+	fZIGzw9CjlG/kXC6JyvVv9mkv8C/KT/q7Y/glBRsZj48x/TFf3tmOmCR6oowVS2B0w==
+X-Received: by 2002:a05:600d:82c5:b0:4a3:5aee:2c25 with SMTP id 5b1f17b1804b1-4bb88822642mr433032475e9.31.1795642012525;
+        Wed, 25 Nov 2026 13:26:52 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906cdcc1sm310815745e9.2.2026.11.25.13.26.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 13:26:52 -0800 (PST)
+Date: Wed, 25 Nov 2026 21:26:50 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: keyrings@vger.kernel.org, dm-devel@lists.linux.dev,
+ linux-crypto@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-security-module@vger.kernel.org, Ahmad Fatoum
+ <a.fatoum@pengutronix.de>, Alasdair Kergon <agk@redhat.com>, Andrew Morton
+ <akpm@linux-foundation.org>, Benjamin Marzinski <bmarzins@redhat.com>,
+ David Gstir <david@sigma-star.at>, David Howells <dhowells@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>, David Woodhouse
+ <dwmw2@infradead.org>, Herbert Xu <herbert@gondor.apana.org.au>, Ignat
+ Korchagin <ignat@linux.win>, James Bottomley
+ <James.Bottomley@hansenpartnership.com>, James Morris <jmorris@namei.org>,
+ James Prestwood <prestwoj@gmail.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ Jonathan Corbet <corbet@lwn.net>, Lukas Wunner <lukas@wunner.de>, Mike
+ Snitzer <snitzer@kernel.org>, Mikulas Patocka <mpatocka@redhat.com>, Mimi
+ Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>, Peter Huewe
+ <peterhuewe@gmx.de>, Randy Dunlap <rdunlap@infradead.org>, "Serge E.
+ Hallyn" <serge@hallyn.com>, Shuah Khan <skhan@linuxfoundation.org>, Sumit
+ Garg <sumit.garg@kernel.org>
+Subject: Re: [PATCH v2 1/9] KEYS: trusted: Allow ASN.1 TPM2 sealed data
+ shorter than MIN_KEY_SIZE
+Message-ID: <20261125212650.479bea7c@pumpkin>
+In-Reply-To: <awcAeLUROL0l_g3X@kernel.org>
+References: <20261124194043.1651679-1-jarkko@kernel.org>
+	<20261124194043.1651679-2-jarkko@kernel.org>
+	<20261125090930.698d8f1b@pumpkin>
+	<awcAeLUROL0l_g3X@kernel.org>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,56 +118,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117210934.7765-1-seanjc@google.com> <20261117210934.7765-2-seanjc@google.com>
-In-Reply-To: <20261117210934.7765-2-seanjc@google.com>
-From: Yosry Ahmed <yosry@kernel.org>
-Date: Wed, 25 Nov 2026 13:26:30 -0800
-X-Gmail-Original-Message-ID: <CAO9r8zNkyn4Ps7zE1nBvDOcfB8V2kqjBwuxuMhmsE3LcFbFx-g@mail.gmail.com>
-X-Gm-Features: Aa3M54p2OfvxkLPbVRwbmW5CDmhyFk3PAAFu-ddqfZd9eKEX2ohUTX9VzuOtD5E
-Message-ID: <CAO9r8zNkyn4Ps7zE1nBvDOcfB8V2kqjBwuxuMhmsE3LcFbFx-g@mail.gmail.com>
-Subject: Re: [PATCH v2 1/5] KVM: nSVM: Pre-check current (L2's) CR3 during KVM_SET_NESTED_STATE
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Stefan Teodorescu <fane@google.com>, Sashiko Bot <sashiko-bot@kernel.org>, 
-	syzbot@syzkaller.appspotmail.com, Chris Mason <mason@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 17, 2026 at 1:09=E2=80=AFPM Sean Christopherson <seanjc@google.=
-com> wrote:
->
-> When loading nested state, explicitly check that the current CR3 is valid
-> before loading any state, as a misbehaving userspace can muck with guest
-> CPUID to make KVM think the current CR3 is invalid, and thus cause the la=
-te
-> "load" of CR3 to fail when initializing the guest's MMU.  If that happens=
-,
-> KVM will leave half-baked state in the vCPU, e.g. in L2 with L1's page
-> walker, and if nested NPT is disabled, L1's PGD as well.
->
-> Alternatively, KVM could try and unwind vCPU state if the late CR3 "load"
-> fails, but that is subtly quite difficult as it would require snapshottin=
-g
-> and restoring the previous state.  Simply leaving nested on failure isn't
-> an option either, because that too would leave the vCPU with half-baked
-> state (in L1 with L2 state and a very stale MMU).
->
-> Pre-checking CR3 will also allow hoisting the CR3 check out of
-> nested_svm_load_cr3() entirely.
->
-> WARN and bug the VM if the late CR3 load fails, as loading nested state
-> never loads PDPTRs, i.e. failure is impossible, and KVM doesn't unwind on
-> failure (see above).  I.e. if the impossible happens, KVM needs to block
-> all operations on the half-baked vCPU.
->
-> Fixes: e1779c2714c3 ("KVM: x86: nSVM: fix potential NULL derefernce on ne=
-sted migration")
-> Cc: stable@vger.kernel.org
-> Reported-by: Stefan Teodorescu <fane@google.com>
-> Reported-by: Sashiko Bot <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/all/sashiko-outbox-210535@kernel.org
-> Closes: https://lore.kernel.org/all/sashiko-outbox-205939@kernel.org
-> Closes: https://lore.kernel.org/all/sashiko-outbox-193903@kernel.org
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+On Wed, 25 Nov 2026 17:36:24 +0200
+Jarkko Sakkinen <jarkko@kernel.org> wrote:
 
-Reviewed-by: Yosry Ahmed <yosry@kernel.org>
+> On Wed, Nov 25, 2026 at 09:09:30AM +0000, David Laight wrote:
+> > On Tue, 24 Nov 2026 21:40:35 +0200
+> > Jarkko Sakkinen <jarkko@kernel.org> wrote:
+> >   
+> > > tpm2_unseal_cmd() rejects unsealed payloads shorter than MIN_KEY_SIZE (32
+> > > bytes) with -EFAULT even when loading an ASN.1 TPMKey (OID_TPMSealedData,
+> > > 2.23.133.10.1.5) blob.
+> > > 
+> > > While kernel-generated trusted keys ("new <keylen>") and legacy old_format
+> > > blobs are at least 32 bytes long, external TPM2 tools allow sealing any
+> > > non-empty payload up to 128 bytes.
+> > > 
+> > > Keep MIN_KEY_SIZE for legacy old_format blobs and accept 1..MAX_KEY_SIZE
+> > > bytes for ASN.1 TPMKey sealed blobs.
+> > > 
+> > > Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> > > ---
+> > >  security/keys/trusted-keys/trusted_tpm2.c | 4 +++-
+> > >  1 file changed, 3 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/security/keys/trusted-keys/trusted_tpm2.c b/security/keys/trusted-keys/trusted_tpm2.c
+> > > index 30188a0ec676..d7336f25b514 100644
+> > > --- a/security/keys/trusted-keys/trusted_tpm2.c
+> > > +++ b/security/keys/trusted-keys/trusted_tpm2.c
+> > > @@ -559,9 +559,11 @@ static int tpm2_unseal_cmd(struct tpm_chip *chip,
+> > >  	rc = tpm_buf_check_hmac_response(chip, buf, rc);
+> > >  
+> > >  	if (!rc) {
+> > > +		u16 min_len = payload->old_format ? MIN_KEY_SIZE : 1;  
+> > 
+> > There is no point using u16, just use unsigned int.
+> > 
+> > The same goes for data_len.  
+> 
+> Hmm... or just int?
+
+Unsigned int can generate slightly better code - especially for
+array indexes.
+I sort of prefer it for values that can never be negative.
+
+David
+
+> 
+> 
+> > 
+> > David  
+> 
+> 
+> Br, Jarkko
+
