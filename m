@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795642141;
-	b=G9YviD19OYOHLWymRGSwIn74dIaqQgOJnhjRqgK/LcuE3F+QkC7iLc0kXu9JvGdPJmkq
-	 sx40CSQF3e+Z2wiOGKPzuVLhBC0CZhJe3quv0QYfaaGbj4n0AEjILrr42zdUOWs33a4YC
-	 CWKPfQVmKbWLvgkTrNqN5B29uzb9hNyiDC6o6hypfqjLJliZJZLUXWVB77KX8XpBVNd3z
-	 gcMG4EgaMFT+OvX6c5ZQ7VfExb/l2exAZznUchEN4h10HGXc5FQKuecZdCgKsNPEMwDZo
-	 3H/B+jZuMZVeTo3dsqlFpa2bWcXguYUe2yAQcFqNnAgTGRg/yRNnVb6j2OCFUGf+u+g==
+	t=1795642140;
+	b=pSzj4SZdRk6rPmb54tr3ZbJ+5r7lRMe+Jny4KqFQgJwA7baNz5H5G5iXJScUjAehhetv
+	 HE1dobGPP8ixw4JD6Svxm3EniRk0DGg0R+O7JzqVipSKlqsPPcVy9LHMHgOEceJ33PJDV
+	 tEL4eJkFi7xEwiIKTYZXMoX1LPr9BjjfDVqlrcOi9uLeWj4KITNF7l/8viUBg2yeIyrII
+	 9jkCt2DH7RKB0oGMFrYoGJzmGv15mCSZ9ynE+wJhvvcAptJyubsWEcpfSH9ufMveZJdOV
+	 NZOCCqWCYSQmFe7COgDo+TVwlQJrhl89xDYoC2S8qX89DM6MOPuJcEw+sXYVS5oja0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795642141;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795642140;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=AQJEmYEk0I4Oui3XCPylMPXLbDTkL37xHqT09lPUs+I=;
-	b=TF08ag9ZmL8FikH7DmjsKTeLK1DOiOkdHtgSFuuk9/UhUslF6pY55i1/7jMGF2U4Visk
-	 39SDK198Rwuio70MIYIDy1EIjsWzP+ER5L1rPfN6suzWL79yJBmIUlIvI/lX2SZSneFsY
-	 M/WoWk/B3PkohDd5LrRm84uDw7TgUp+vZLo6zf7pPvHdFsLNrgueqmF0alUv/bITR5Xde
-	 /WPyhr3+/y8BbrBTgmA/hKAXjIHEDMcHI/o2JW/iyMiuSp+wcwi7PHv3SWStNOCiuoGJy
-	 DznsnLB4YHqGiM/36Y3UKsul7c1sVeOQAVHz1lF82322FzxZstRavPmkaNQFQP5c65g==
+	bh=QVIaNqvm6C/yHL90s4yhpWa9CT2zuw5OCjmLKtDNIDI=;
+	b=n+bvo4XL/X07QCSwu1GIAoxaV95ylYu9nyPwv1AJMM4x6hXfJpOpQZrvAFH1iaXtfS9M
+	 YDJmDE3iUWzblQTRo0zBqEzWykzufG9/jD30wIVP1GiFrxbF1pWGCAU3AAORM5WHa1ifR
+	 /IwhPwXSDmPPVAizI0p9JiGmVXJam2HjWg8YWyaZVyvqYk8vbUPnCtZK84hHMOXto/OTd
+	 AaHNILfFyp9b+fNa5Z5qVtPS7W5VISIZAATDqWrt5gZfO02xNkgIUHTwYAKEB6t0eMyk9
+	 v3XqgHRBUu8O3Ya5my3V7CLCvc5N+3gQUbofpZ7mvVHl5tC0Csv1PnNhfC4OP/c2+tA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="oSlb/6lD";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y3ra7kDB;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C48160A381C;
-	Wed, 25 Nov 2026 21:29:01 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oSlb/6lD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1B881F00A36;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8951606A6A0;
 	Wed, 25 Nov 2026 21:29:00 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y3ra7kDB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B96D01F0156A;
+	Wed, 25 Nov 2026 21:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795642141;
-	bh=AQJEmYEk0I4Oui3XCPylMPXLbDTkL37xHqT09lPUs+I=;
+	s=k20260515; t=1795642140;
+	bh=QVIaNqvm6C/yHL90s4yhpWa9CT2zuw5OCjmLKtDNIDI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=oSlb/6lDQb01k0piB7PaE7Dof4FiMAKLAWo+aQqI4ML8e232gtkURd0HvxzKFyLBf
-	 KKeFATDx5S78WkVXd2ysUBt+ByfgDEofXa8R8T9n5ostV6NwiyzIoo7YJzMBJJYOVI
-	 5r1ulyVMEHGcSAvSSMyElFGP8Fs8C5lQb6zQBWPOwEMnKYw2eGzzgMykICifLdl0db
-	 ij9ubCZrai/8/7r8vk3vruhwDEEBScYG6Genr80K+vLHNuP6PNg4i0F4U8DTHGNTD1
-	 km79sKQ0+gUuAaIRsUIyqhpOLfzd7VsRbYFBOcAHj9SOmU+EFGaPapY+6VpRk4yxuM
-	 pT7Q7EV9u1FIw==
+	b=Y3ra7kDB+eStAci+grVW4c8w5L04DFotwHqUAhkPdKeV7jS3cYo+yj/n1zNFIGWAP
+	 ATfQYwzN7+Lck1+mWQRYxnYqpTG36LqlKxpOszIMNeaaZ3P+miDOn7BX5y6dP3vjwJ
+	 9Vph4cxJqcnpzgNNg54piLddUCJ9LgiveDTvRrexS3FkNAPWt9yqSdK18TQPh6jwkC
+	 7P+dLGeZboEmDzGPr3TfdC+OpO9LQz6a7u+RGCusIMci+bnvxeP4bA4+JZtrqZz0Wf
+	 rS3JNLjoDldGIkAWzCYTSXN8NJm8vet80bBtBwh/YqXYui9vPQoe1elHsqn7JPTzAr
+	 3V/bJcaAIxRnA==
 From: Namhyung Kim <namhyung@kernel.org>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>
 Cc: Ian Rogers <irogers@google.com>,
@@ -49,9 +49,9 @@ Cc: Ian Rogers <irogers@google.com>,
 	Ingo Molnar <mingo@kernel.org>,
 	LKML <linux-kernel@vger.kernel.org>,
 	linux-perf-users@vger.kernel.org
-Subject: [PATCH v4 10/11] perf tools: Scope mount namespace entry in dso__load()
-Date: Wed, 25 Nov 2026 13:28:50 -0800
-Message-ID: <20261125212851.1792988-11-namhyung@kernel.org>
+Subject: [PATCH v4 09/11] perf tools: Only enter mount namespace if necessary
+Date: Wed, 25 Nov 2026 13:28:49 -0800
+Message-ID: <20261125212851.1792988-10-namhyung@kernel.org>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 In-Reply-To: <20261125212851.1792988-1-namhyung@kernel.org>
 References: <20261125212851.1792988-1-namhyung@kernel.org>
@@ -66,138 +66,290 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Enter the target mount namespace only for the specific binary types
-that need it in dso__load(), and use filename__read_build_id_ns() for
-BUILDID_DEBUGINFO lookup and in symbol-minimal's dso__load_sym() so it
-does not read the wrong build-id from the host filesystem.
+Add dso_binary_type__needs_ns() to distinguish DSO binary and debuginfo
+types that reside inside the target process's mount namespace from
+host-side paths.
+
+Gate mount namespace entry in open_dso(), dso__find_binary_type_locked(),
+dso__find_dbginfo_type(), __dso__read_symbol(), debuginfo__new(),
+symbol__disassemble(), and symbol__disassemble_capstone_powerpc() using
+dso_binary_type__needs_ns().
 
 Signed-off-by: Namhyung Kim <namhyung@kernel.org>
 ---
- tools/perf/util/symbol-minimal.c |  4 ++-
- tools/perf/util/symbol.c         | 45 +++++++++++++++-----------------
- 2 files changed, 24 insertions(+), 25 deletions(-)
+ tools/perf/util/capstone.c  |  8 ++++--
+ tools/perf/util/debuginfo.c | 19 +++++++++-----
+ tools/perf/util/disasm.c    |  8 +++++-
+ tools/perf/util/dso.c       | 51 +++++++++++++++++++++++++++++--------
+ tools/perf/util/dso.h       | 34 +++++++++++++++++++++++++
+ 5 files changed, 100 insertions(+), 20 deletions(-)
 
-diff --git a/tools/perf/util/symbol-minimal.c b/tools/perf/util/symbol-minimal.c
-index fa87c2d9de2a13ae..16f7b96502cecfc4 100644
---- a/tools/perf/util/symbol-minimal.c
-+++ b/tools/perf/util/symbol-minimal.c
-@@ -348,7 +348,9 @@ int dso__load_sym(struct dso *dso, struct map *map __maybe_unused,
- 	if (ret >= 0)
- 		RC_CHK_ACCESS(dso)->is_64_bit = ret;
+diff --git a/tools/perf/util/capstone.c b/tools/perf/util/capstone.c
+index 95881f15324aa614..e1de77879c5e5f97 100644
+--- a/tools/perf/util/capstone.c
++++ b/tools/perf/util/capstone.c
+@@ -649,13 +649,17 @@ int symbol__disassemble_capstone_powerpc(const char *filename __maybe_unused,
+ 	bool disassembler_style = false;
+ 	uint16_t e_machine = EM_NONE;
+ 	bool is_big_endian = false;
++	bool nsenter;
  
--	if (filename__read_build_id(ss->name, &bid) > 0)
-+	if (filename__read_build_id_ns(ss->name, &bid,
-+				       dso_binary_type__needs_ns(ss->type) ?
-+				       dso__nsinfo(dso) : NULL) > 0)
- 		dso__set_build_id(dso, &bid);
- 	return 0;
- }
-diff --git a/tools/perf/util/symbol.c b/tools/perf/util/symbol.c
-index d6a841dadcad0f9c..fb86edc00c60bbc9 100644
---- a/tools/perf/util/symbol.c
-+++ b/tools/perf/util/symbol.c
-@@ -2322,17 +2322,6 @@ int dso__load(struct dso *dso, struct map *map)
- 	const char *map_path = dso__long_name(dso);
+ 	if (args->options->objdump_path)
+ 		return -1;
  
- 	mutex_lock(dso__lock(dso));
--	perfmap = is_perf_pid_map_name(map_path);
--
--	if (perfmap) {
--		if (dso__nsinfo(dso) &&
--		    (dso__find_perf_map(newmapname, sizeof(newmapname),
--					dso__nsinfo_ptr(dso)) == 0)) {
--			map_path = newmapname;
--		}
--	}
--
 -	nsinfo__mountns_enter(dso__nsinfo(dso), &nsc);
- 
- 	/* check again under the dso->lock */
- 	if (dso__loaded(dso)) {
-@@ -2356,8 +2345,16 @@ int dso__load(struct dso *dso, struct map *map)
- 
- 	dso__set_adjust_symbols(dso, false);
- 
-+	perfmap = is_perf_pid_map_name(map_path);
- 	if (perfmap) {
-+		if (dso__nsinfo(dso) &&
-+		    (dso__find_perf_map(newmapname, sizeof(newmapname),
-+					dso__nsinfo_ptr(dso)) == 0)) {
-+			map_path = newmapname;
-+		}
++	nsenter = dso_binary_type__needs_ns(dso__binary_type(dso));
++	if (nsenter)
 +		nsinfo__mountns_enter(dso__nsinfo(dso), &nsc);
- 		ret = dso__load_perf_map(map_path, dso);
+ 	fd = open(filename, O_RDONLY);
+-	nsinfo__mountns_exit(&nsc);
++	if (nsenter)
 +		nsinfo__mountns_exit(&nsc);
- 		dso__set_binary_type(dso, DSO_BINARY_TYPE__JAVA_JIT);
- 		dso__set_symtab_type(dso, ret > 0
- 				? DSO_BINARY_TYPE__JAVA_JIT
-@@ -2380,7 +2377,7 @@ int dso__load(struct dso *dso, struct map *map)
- 		struct build_id bid = { .size = 0, };
+ 	if (fd < 0)
+ 		return -1;
  
- 		__symbol__join_symfs(name, PATH_MAX, dso__long_name(dso));
--		if (filename__read_build_id(name, &bid) > 0)
-+		if (filename__read_build_id_ns(name, &bid, dso__nsinfo(dso)) > 0)
- 			dso__set_build_id(dso, &bid);
+diff --git a/tools/perf/util/debuginfo.c b/tools/perf/util/debuginfo.c
+index db188c397d63880c..d339906c28b41425 100644
+--- a/tools/perf/util/debuginfo.c
++++ b/tools/perf/util/debuginfo.c
+@@ -17,6 +17,7 @@
+ #include "dso.h"
+ #include "debug.h"
+ #include "debuginfo.h"
++#include "namespaces.h"
+ #include "symbol.h"
+ 
+ #ifdef HAVE_DEBUGINFOD_SUPPORT
+@@ -93,17 +94,23 @@ static struct debuginfo *__debuginfo__new(const char *path)
+ 
+ struct debuginfo *debuginfo__new(struct dso *dso)
+ {
+-	struct debuginfo *dinfo;
++	struct debuginfo *dinfo = NULL;
++	struct nscookie nsc;
+ 	char *path;
+ 	bool decomp = false;
++	bool nsenter;
+ 
+ 	dso__find_dbginfo_type(dso);
++	nsenter = dso_binary_type__needs_ns(dso__dbginfo_type(dso));
++	if (nsenter)
++		nsinfo__mountns_enter(dso__nsinfo(dso), &nsc);
+ 	path = dso__get_filename(dso, "", &decomp, dso__dbginfo_type(dso));
+-	if (path == NULL)
+-		return NULL;
+-
+-	dinfo = __debuginfo__new(path);
+-	dso__put_filename(dso, path, decomp);
++	if (path != NULL) {
++		dinfo = __debuginfo__new(path);
++		dso__put_filename(dso, path, decomp);
++	}
++	if (nsenter)
++		nsinfo__mountns_exit(&nsc);
+ 	return dinfo;
+ }
+ 
+diff --git a/tools/perf/util/disasm.c b/tools/perf/util/disasm.c
+index ca478191813cf46f..5b9bc94be55ef088 100644
+--- a/tools/perf/util/disasm.c
++++ b/tools/perf/util/disasm.c
+@@ -1499,7 +1499,8 @@ int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
+ 	bool delete_extract = false;
+ 	struct kcore_extract kce;
+ 	enum dso_binary_type dbt;
+-	bool decomp = false;
++	struct nscookie nsc;
++	bool decomp = false, nsenter;
+ 	int err;
+ 
+ 	dbt = dso__find_binary_type(dso);
+@@ -1507,8 +1508,13 @@ int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
+ 	if (dbt == DSO_BINARY_TYPE__KALLSYMS)
+ 		return SYMBOL_ANNOTATE_ERRNO__NO_VMLINUX;
+ 
++	nsenter = dso_binary_type__needs_ns(dbt);
+ 	mutex_lock(dso__lock(dso));
++	if (nsenter)
++		nsinfo__mountns_enter(dso__nsinfo(dso), &nsc);
+ 	symfs_filename = dso__get_filename(dso, "", &decomp, dbt);
++	if (nsenter)
++		nsinfo__mountns_exit(&nsc);
+ 	mutex_unlock(dso__lock(dso));
+ 
+ 	if (symfs_filename == NULL) {
+diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
+index dafd5acd6be41908..fdade14520d869bd 100644
+--- a/tools/perf/util/dso.c
++++ b/tools/perf/util/dso.c
+@@ -692,9 +692,7 @@ static int open_dso(struct dso *dso, struct machine *machine)
+ {
+ 	int fd;
+ 	struct nscookie nsc;
+-	enum dso_binary_type bt = dso__binary_type(dso);
+-	bool nsenter = bt != DSO_BINARY_TYPE__BUILD_ID_CACHE &&
+-		       bt != DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO;
++	bool nsenter = dso_binary_type__needs_ns(dso__binary_type(dso));
+ 
+ 	if (nsenter) {
+ 		mutex_lock(dso__lock(dso));
+@@ -875,12 +873,22 @@ static int dso__find_binary_type_locked(struct dso *dso)
  	}
  
-@@ -2393,28 +2390,29 @@ int dso__load(struct dso *dso, struct map *map)
- 		struct symsrc *ss = &ss_[ss_pos];
- 		bool next_slot = false;
- 		bool is_reg;
--		bool nsexit;
-+		bool nsenter;
- 		bool chroot = false;
- 		int bfdrc = -1;
- 		int sirc = -1;
- 
- 		enum dso_binary_type symtab_type = binary_type_symtab[i];
- 
--		nsexit = (symtab_type == DSO_BINARY_TYPE__BUILD_ID_CACHE ||
--		    symtab_type == DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO);
--
- 		if (!dso__is_compatible_symtab_type(dso, kmod, symtab_type))
- 			continue;
- 
-+		nsenter = dso_binary_type__needs_ns(symtab_type);
+ 	do {
+-		dso__set_binary_type(dso, binary_type_data[i++]);
++		struct nscookie nsc;
++		enum dso_binary_type type = binary_type_data[i++];
++		bool nsenter = dso_binary_type__needs_ns(type);
++
++		dso__set_binary_type(dso, type);
++
 +		if (nsenter)
 +			nsinfo__mountns_enter(dso__nsinfo(dso), &nsc);
-+
- 		if (dso__read_binary_type_filename(dso, symtab_type,
--						   root_dir, name, PATH_MAX))
-+						   root_dir, name, PATH_MAX)) {
+ 
+ 		errno = 0;
+-		path = dso__get_filename(dso, "", &decomp, dso__binary_type(dso));
++		path = dso__get_filename(dso, "", &decomp, type);
+ 		if (path == NULL) {
+-			if (errno == EMFILE)
++			saved_errno = errno;
 +			if (nsenter)
 +				nsinfo__mountns_exit(&nsc);
++			if (saved_errno == EMFILE)
+ 				goto open_err;
  			continue;
--
--		if (nsexit)
--			nsinfo__mountns_exit(&nsc);
-+		}
- 
- 		is_reg = is_regular_file(name);
--		if (!is_reg && errno == ENOENT && dso__nsinfo(dso)) {
-+		if (!is_reg && errno == ENOENT && nsenter && dso__nsinfo(dso)) {
- 			char *new_name = dso__filename_with_chroot(dso, name);
- 			if (new_name) {
- 				is_reg = is_regular_file(new_name);
-@@ -2431,8 +2429,8 @@ int dso__load(struct dso *dso, struct map *map)
- 		if (is_reg && bfdrc < 0)
- 			sirc = symsrc__init(ss, dso, name, symtab_type);
- 
--		if (nsexit)
--			nsinfo__mountns_enter(dso__nsinfo(dso), &nsc);
+ 		}
+@@ -890,9 +898,11 @@ static int dso__find_binary_type_locked(struct dso *dso)
+ 		if (!found)
+ 			saved_errno = errno;
+ 		dso__put_filename(dso, path, decomp);
 +		if (nsenter)
 +			nsinfo__mountns_exit(&nsc);
  
- 		if (bfdrc > 0) {
- 			dso__set_symtab_type(dso, symtab_type);
-@@ -2500,7 +2498,6 @@ int dso__load(struct dso *dso, struct map *map)
- out:
- 	dso__set_loaded(dso);
- 	mutex_unlock(dso__lock(dso));
--	nsinfo__mountns_exit(&nsc);
+ 		if (found)
+-			return dso__binary_type(dso);
++			return type;
+ 		else if (saved_errno == EMFILE)
+ 			goto open_err;
  
- 	return ret;
- }
+@@ -2117,11 +2127,14 @@ static const u8 *__dso__read_symbol(struct dso *dso, const char *symfs_filename,
+ 	};
+ 	u8 *code_buf = NULL;
+ 	int saved_errno;
++	bool nsenter = dso_binary_type__needs_ns(dso__binary_type(dso));
+ 
+-	nsinfo__mountns_enter(dso__nsinfo(dso), &nsc);
++	if (nsenter)
++		nsinfo__mountns_enter(dso__nsinfo(dso), &nsc);
+ 	fd = open(symfs_filename, O_RDONLY | O_CLOEXEC);
+ 	saved_errno = errno;
+-	nsinfo__mountns_exit(&nsc);
++	if (nsenter)
++		nsinfo__mountns_exit(&nsc);
+ 	if (fd < 0) {
+ 		errno = saved_errno;
+ 		return NULL;
+@@ -2242,8 +2255,9 @@ void dso__find_dbginfo_type(struct dso *dso)
+ 		DSO_BINARY_TYPE__NOT_FOUND,
+ 	};
+ 	const enum dso_binary_type *type;
++	struct nscookie nsc;
+ 	char *path;
+-	bool found, decomp = false;
++	bool found, decomp = false, nsenter;
+ 
+ 	if (dso__dbginfo_type(dso) != DSO_BINARY_TYPE__NOT_FOUND)
+ 		return;
+@@ -2253,28 +2267,43 @@ void dso__find_dbginfo_type(struct dso *dso)
+ 	dso__set_debuginfo_searched(dso);
+ 
+ 	/* Maybe debug info is in the same file with the symbol table */
++	nsenter = dso_binary_type__needs_ns(dso__symtab_type(dso));
++	if (nsenter)
++		nsinfo__mountns_enter(dso__nsinfo(dso), &nsc);
+ 	path = dso__get_filename(dso, "", &decomp, dso__symtab_type(dso));
+ 	if (path) {
+ 		found = filename__has_section(path, ".debug_info") ||
+ 			filename__has_section(path, ".zdebug_info");
+ 
+ 		dso__put_filename(dso, path, decomp);
++		if (nsenter)
++			nsinfo__mountns_exit(&nsc);
+ 		if (found) {
+ 			dso__set_dbginfo_type(dso, dso__symtab_type(dso));
+ 			return;
+ 		}
++	} else if (nsenter) {
++		nsinfo__mountns_exit(&nsc);
+ 	}
+ 
+ 	/* Otherwise check distro debug locations */
+ 	for (type = dbginfo_types; *type != DSO_BINARY_TYPE__NOT_FOUND; type++) {
++		nsenter = dso_binary_type__needs_ns(*type);
++		if (nsenter)
++			nsinfo__mountns_enter(dso__nsinfo(dso), &nsc);
+ 		path = dso__get_filename(dso, "", &decomp, *type);
+-		if (path == NULL)
++		if (path == NULL) {
++			if (nsenter)
++				nsinfo__mountns_exit(&nsc);
+ 			continue;
++		}
+ 
+ 		found = filename__has_section(path, ".debug_info") ||
+ 			filename__has_section(path, ".zdebug_info");
+ 
+ 		dso__put_filename(dso, path, decomp);
++		if (nsenter)
++			nsinfo__mountns_exit(&nsc);
+ 		if (found)
+ 			break;
+ 	}
+diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
+index ebd8230b9895dcf1..75483598e093fb1b 100644
+--- a/tools/perf/util/dso.h
++++ b/tools/perf/util/dso.h
+@@ -142,6 +142,40 @@ enum dso_binary_type {
+ 	DSO_BINARY_TYPE__NOT_FOUND,
+ };
+ 
++static inline bool dso_binary_type__needs_ns(enum dso_binary_type type)
++{
++	switch (type) {
++	case DSO_BINARY_TYPE__SYSTEM_PATH_DSO:
++	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE:
++	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP:
++	case DSO_BINARY_TYPE__DEBUGLINK:
++	case DSO_BINARY_TYPE__GNU_DEBUGDATA:
++	case DSO_BINARY_TYPE__FEDORA_DEBUGINFO:
++	case DSO_BINARY_TYPE__UBUNTU_DEBUGINFO:
++	case DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO:
++	case DSO_BINARY_TYPE__BUILDID_DEBUGINFO:
++	case DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO:
++		return true;
++	case DSO_BINARY_TYPE__KALLSYMS:
++	case DSO_BINARY_TYPE__GUEST_KALLSYMS:
++	case DSO_BINARY_TYPE__VMLINUX:
++	case DSO_BINARY_TYPE__GUEST_VMLINUX:
++	case DSO_BINARY_TYPE__JAVA_JIT:
++	case DSO_BINARY_TYPE__BUILD_ID_CACHE:
++	case DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO:
++	case DSO_BINARY_TYPE__GUEST_KMODULE:
++	case DSO_BINARY_TYPE__GUEST_KMODULE_COMP:
++	case DSO_BINARY_TYPE__KCORE:
++	case DSO_BINARY_TYPE__GUEST_KCORE:
++	case DSO_BINARY_TYPE__BPF_PROG_INFO:
++	case DSO_BINARY_TYPE__BPF_IMAGE:
++	case DSO_BINARY_TYPE__OOL:
++	case DSO_BINARY_TYPE__NOT_FOUND:
++	default:
++		return false;
++	}
++}
++
+ enum dso_space_type {
+ 	DSO_SPACE__USER = 0,
+ 	DSO_SPACE__KERNEL,
 -- 
 2.56.1.831.g720f3f5937-goog
 
