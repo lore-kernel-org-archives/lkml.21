@@ -1,54 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588437;
-	b=yhyojFn4Y0AUvtPWFkHJcY0M33yu3slunZpCnZFJlcq8r/CE34PHA60B6YGHCEecTnNp
-	 h60SvFC7If2kM09hKSX6YzmvJiAUANkgOF3CvIfjfzuq8flKnxTwRQ9sHOEo1Te1AaPLS
-	 3zynRLcRiBay8YOnmFc5Hv1dXkmvfwwjR43AnZ3I9xqn7H21qcWtIXIjbyv5RK2Gjqr98
-	 6KzCNXnVabvVky/lKV8m949E2ReEvYA5W/+BAur8GJsaHuzju1jT66QAGw1hm/LbkG/Gw
-	 9ohZDmt467FC9a7qSl2ZCdc6OH5ha+2Nh9l77lafNVnOrCyjY+i5cnMe4DaX/52Z1Zw==
+	t=1795588532;
+	b=L1vg/GauVkkNzV8QmeRF+aYHKNkmfRdO0/pPLo2D4FJQJrbw3GOUd+2LXCsZ4aegFf/v
+	 PKlbrf7gijSFwXvWfFfvszOlMXcpIw55MyxdmulXGWLVfF43CAWVu8FGBD3F/elkDFqqk
+	 uS629xEYHZHMxqe/HsWgQ7OHiLKQ5+hAj18zxLQgRpKwzISFEyg+BuEGaqhcwofPM63od
+	 ZE02/huRVa0MC6abguqpK31iXg2tt31V+nb/ub3YYj2sGflc5XH37Eo0q2GjzBxVyGe2r
+	 ovfgE+Il4U7fKLsKhoQ3bPvd2Kydq+LH8RnotSC6aQrR5dnYhnmepVUJZkaXnrkwWfw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588437;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-Id:
-	 In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588532;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=JtR1J/tjzg5++JWccn3tur0BBmBLKynjew31a07ikO4=;
-	b=jvC2xPeBvLEsZFgRvD1zXxbe7S1fjGkPe7GH2DcNN062CWDblOZVEZhgyKPrz81nUdAC
-	 O+OB30udGPbgIpVaXowfbGng8Ni+wxUcfwk4Thqgeuj6a3BDYEiNlAuyAyFp6RKfVqt5Y
-	 oMmYupUzDMlrmBsj3K3MuNZ9u9XvJHOceLzU1MrXVVkCLo3gMVIrgAye4neS445vH0Xhs
-	 y2DV6SzO2gJy/N2j7Ow5AsXkZfRQGMsMq6gemh78DD7c4+rS7gWckx1y72BK1kzftj/Ff
-	 Hx+DM7sKy1ExLIfGGb/AuEWK8pht0NeAzsCKeI+6qDtjSqwNw2gCVB7DY2TlUV9SvLA==
+	bh=I6+kzu5wlP2gNqaFOLzY8J/HA+tCbkwiTb+BR4uUO2I=;
+	b=fkrm9+7eLaKpGCsw4qJaapEl6PTzsslS6DGBlozdXlWDu+L3hsZ0piuCCMc9UwhG4rPL
+	 viTTfAMW2S/LWm5kWYt60m4sH3DKWZrxtQw1lEBDzIAru+lsomdBvqUcwAHZqIoIhfZcJ
+	 Mk3cqOF12uDS/3hevq5w5dFdUD/9dfgO+GFUqW/s8nrf7j0YPd1T2VjTFy1tm4p89oY6B
+	 zJ2KVfgzJ0DIGPp0FvoaKqbccC8sLczRLx67oeZw8vXbt2+s8bOQT6SFnv+n2Luk7ShH9
+	 DrTfvqpySzmYYnaMAZaHvMoSR7Y7tjex/hhigDAz8z77yLE3auu7MkbjAtWVUOofmlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=jBbWCYfH;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=iHqOCSvg;
+	arc=none smtp.remote-ip=115.124.30.118
+Received: from out30-118.freemail.mail.aliyun.com (out30-118.freemail.mail.aliyun.com [115.124.30.118])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0B6A606A321;
-	Wed, 25 Nov 2026 06:33:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACCB9606A321;
+	Wed, 25 Nov 2026 06:35:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACCB9606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=korg header.b=jBbWCYfH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FC041F000C0;
-	Wed, 25 Nov 2026 06:33:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1795588436;
-	bh=JtR1J/tjzg5++JWccn3tur0BBmBLKynjew31a07ikO4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=jBbWCYfHkceRQwvYbmv9tmw2C1uexEIzRdCmOWyDVi4/rSFuItNFxXrpynITgIuXR
-	 O+QpKrRuLFP8bxw2naRGIao9oXlgMo6TI417BzR9HkdPVAgL/ncVvPu7vgMO+QTlAN
-	 MPyd+MjU/TnhwNHp0APcwXwe620cz84gvalUTwfs=
-Date: Tue, 24 Nov 2026 22:33:55 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Qingshuang Fu <fuqingshuang@kylinos.cn>
-Cc: Andy Whitcroft <apw@canonical.com>, Joe Perches <joe@perches.com>, Shuah
- Khan <shuah@kernel.org>, Alexey Dobriyan <adobriyan@gmail.com>,
- linux-fsdevel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] selftests/proc: skip fd-003-kthread if run as non-root
-Message-Id: <20261124223355.15a364523377daf5cf2734cb@linux-foundation.org>
-In-Reply-To: <20261120062933.3169112-1-fuqingshuang@kylinos.cn>
-References: <20261120062933.3169112-1-fuqingshuang@kylinos.cn>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=iHqOCSvg
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795588528; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=I6+kzu5wlP2gNqaFOLzY8J/HA+tCbkwiTb+BR4uUO2I=;
+	b=iHqOCSvgZIBUMTOo4cuC2CMO0SJJgwLdRYTUDv+Z3R4iaWFdl8DKIRySpKtBj61MxHggj4jM+gCmf0t0R3ADv2+hlfv8jwo9rPzdoiZokTgGKAY9If/BYcAXQ9jE1lS0/ziacUizleZzO1hRqAsGcwH8Q/h2Cs+bkKJKwsMOpmM=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=yadong.qi@linux.alibaba.com;NM=1;PH=DS;RN=12;SR=0;TI=SMTPD_---0XFQjoFf_1795588525;
+Received: from L-G4162440-1116.localdomain(mailfrom:yadong.qi@linux.alibaba.com fp:SMTPD_---0XFQjoFf_1795588525 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 25 Nov 2026 14:35:27 +0800
+From: Yadong Qi <yadong.qi@linux.alibaba.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	ying.huang@linux.alibaba.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	ryan.roberts@arm.com,
+	robh@kernel.org,
+	gregkh@linuxfoundation.org,
+	ptg-linux-kernel@linux.alibaba.com,
+	yadong.qi@linux.alibaba.com,
+	stable@vger.kernel.org
+Subject: [PATCH v2] arm64: fixmap: fix missing break-before-make in __set_fixmap()
+Date: Wed, 25 Nov 2026 14:32:24 +0800
+Message-Id: <20261125063224.553-1-yadong.qi@linux.alibaba.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,57 +67,124 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Fri, 20 Nov 2026 14:29:33 +0800 Qingshuang Fu <fuqingshuang@kylinos.cn> wrote:
+__set_fixmap() installs a new PTE with __set_pte() but never invalidates
+the TLB; only the clear path calls flush_tlb_kernel_range(). The
+dsb(ishst)/isb that __set_pte() emits makes the new PTE visible to the
+table walker but does not invalidate stale TLB entries. Overwriting a
+still-valid slot therefore leaves the old translation cached and
+violates break-before-make: accesses may keep hitting the old output
+address, and changing the attributes of a cached entry can trigger TLB
+conflict aborts or CONSTRAINED UNPREDICTABLE behaviour.
 
-> /proc/$KERNEL_THREAD/fd can only be opened with ptrace access, so
-> openat() on the "fd" directory of a kernel thread returns EACCES
-> when the test is run as non-root.  kernel_thread_fd() conflates this
-> with "process is userspace process", the scan over /proc runs to
-> completion without finding a usable descriptor and the test exits
-> with 1 (KSFT_FAIL) instead of 4 (KSFT_SKIP):
-> 
->   $ ./fd-003-kthread; echo $?
->   1
-> 
-> Distinguish the two cases and skip the test like the rest of
-> selftests/proc does when privileges are missing, so that unprivileged
-> runs report "skip" instead of a false failure.
-> 
+Two in-tree callers overwrite a valid FIX_EARLYCON_MEM_BASE slot:
 
-Fair enough.
+ - earlycon: earlycon_map() maps the UART before match->setup() runs.
+   If setup fails, con->write is unset, or the DT reg-io-width is
+   unsupported, the slot stays valid but no console is registered. The
+   console_is_registered() guard only blocks successful registrations,
+   so a later attempt (e.g. a failed DT earlycon followed by earlycon=
+   on the command line) remaps the slot to a different UART.
 
-> --- a/tools/testing/selftests/proc/fd-003-kthread.c
-> +++ b/tools/testing/selftests/proc/fd-003-kthread.c
-> @@ -36,6 +36,7 @@
->   *
->   * Return /proc/$PID/fd descriptor if process is kernel thread.
->   * Return -1 if a process is userspace process.
-> + * Return -EACCES if run as non-root.
->   */
->  static int kernel_thread_fd(unsigned int pid)
->  {
-> @@ -88,6 +89,8 @@ static int kernel_thread_fd(unsigned int pid)
->  	fd = -1;
->  	if (flags & PF_KHTREAD) {
->  		fd = openat(dir_fd, "fd", O_RDONLY|O_DIRECTORY);
-> +		if (fd == -1 && errno == EACCES)
-> +			fd = -EACCES;
->  	}
->  	close(dir_fd);
->  	return fd;
-> @@ -168,6 +171,8 @@ int main(void)
->  		pid++;
->  	}
->  	/* EACCES if run as non-root. */
-> +	if (fd == -EACCES)
-> +		return 4;
->  	if (pid >= 1024)
->  		return 1;
+ - samsung_tty: apple_s5l_early_console_setup() overrides the
+   just-installed entry from PROT_DEVICE_nGnRE (FIXMAP_PAGE_IO) to
+   PROT_DEVICE_nGnRnE on the normal successful boot path.
 
-Why "4"?
+Both are valid-to-valid changes (different output address or memory
+type), which arm64 requires to be break-before-make.
 
-(and why didn't they call it EACCESS.  Also s/creat/create/)
+Fix this in __set_fixmap() by invalidating any existing valid mapping
+up front: clear the old PTE and flush the TLB, then install the new PTE
+only when setting. The old translation is gone before the new one is
+created, so the two can never coexist in the TLB. A first-time mapping
+(old entry invalid) skips the invalidation and pays no extra cost, and
+clearing a slot is handled by the same step.
+
+A clear (!flags) always clears and flushes, even when the PTE is already
+invalid. An invalid PTE does not imply an invalid TLB: another CPU may
+have cleared the PTE but not yet completed its TLB flush, leaving a stale
+entry cached locally. The unconditional flush preserves clear_fixmap()'s
+TLB shootdown guarantee, which callers such as the KVM VNCR unmap path
+rely on when racing with a remote invalidation.
+
+This belongs in the callee, as on x86: __set_fixmap() there calls
+set_pte_vaddr(), which flushes the TLB unconditionally after writing the
+PTE. x86 can flush after the write because it has no break-before-make
+requirement; arm64 must invalidate and flush before installing the new
+valid entry to avoid TLB conflict aborts.
+
+Fixes: 9aac5887595b ("tty/serial: add generic serial earlycon")
+Cc: stable@vger.kernel.org
+Reported-by: Huang Ying <ying.huang@linux.alibaba.com>
+Signed-off-by: Yadong Qi <yadong.qi@linux.alibaba.com>
+---
+v2:
+- Rebase to arm64 for-next/fixes
+- Fix comments from sashiko: always clear and flush on the clear path
+  (!flags), even when the PTE is already invalid.
+---
+ arch/arm64/mm/fixmap.c | 42 +++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 39 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+index 951004ad700c..5da49e201b6f 100644
+--- a/arch/arm64/mm/fixmap.c
++++ b/arch/arm64/mm/fixmap.c
+@@ -126,13 +126,49 @@ void __set_fixmap(enum fixed_addresses idx,
+ 
+ 	ptep = fixmap_pte(addr);
+ 
++	/*
++	 * Break-before-make: when the slot still holds a valid mapping
++	 * (e.g. earlycon re-mapping FIX_EARLYCON_MEM_BASE), invalidate the
++	 * old entry and flush the TLB entries caching it before a new
++	 * mapping is installed, so old and new translations never coexist.
++	 *
++	 * A clear (!flags) always flushes even if the PTE is already invalid:
++	 * a remote CPU may have cleared the PTE but not yet completed its TLB
++	 * flush, leaving a stale entry cached locally. Take KVM VNCR unmap as
++	 * example:
++	 * When CPU1 wins atomic_xchg_relaxed(&vt->cpu, -1) in unmap_l1_vncr(),
++	 * CPU0 calls clear_fixmap() on its own slot so it cannot finish
++	 * vcpu_put() before the local TLB entry is invalidated:
++	 *      CPU0                                  CPU1
++	 *                                 invalidate_vncr()
++	 *                                 unmap_l1_vncr()
++	 *                                   atomic_xchg_relaxed(&vt->cpu, -1)
++	 *                                   clear_fixmap(vncr_fixmap(0))
++	 *                                     __pte_clear(..., ptep)
++	 *                                     <delayed before TLB flush>
++	 * kvm_vcpu_put_hw_mmu()
++	 * this_cpu_reset_vncr_fixmap()
++	 *   unmap_l1_vncr() == -1
++	 *   clear_fixmap(vncr_fixmap(0))
++	 *     !pte_valid(__ptep_get(ptep))
++	 *     <skips flush_tlb_kernel_range()>
++	 *                    <stale TLB entry still live on CPU0>
++	 * If another nested vCPU then schedules on CPU0 and calls
++	 * kvm_map_l1_vncr() before CPU1 finishes flush_tlb_kernel_range(),
++	 * __set_fixmap() also sees !pte_valid(__ptep_get(ptep)) and installs
++	 * the new PTE while the old translation is still cached in CPU0's TLB.
++	 * Unconditionally clearing and flushing when !pgprot_val(flags)
++	 * preserves clear_fixmap()'s TLB shootdown guarantee.
++	 */
++	if (pte_valid(__ptep_get(ptep)) || !pgprot_val(flags)) {
++		__pte_clear(&init_mm, addr, ptep);
++		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
++	}
++
+ 	if (pgprot_val(flags)) {
+ 		/* The slot must be usable on return, even in lazy MMU mode. */
+ 		__set_pte_nosync(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
+ 		emit_pte_barriers();
+-	} else {
+-		__pte_clear(&init_mm, addr, ptep);
+-		flush_tlb_kernel_range(addr, addr+PAGE_SIZE);
+ 	}
+ }
+ 
+-- 
+2.43.0
+
