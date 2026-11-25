@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625742;
-	b=VQ6VffhJHX6vYJeNbSs/swR0JEfboydIg/YJAP5YTlZHP6XBtWssw711x6QjIuDnSw7h
-	 3qJNNUT8yZO3wNES/A6FjLyU7kTrNCb0LYUbpTvD2vu02pbsODj43jmZE8EV37W/4cGVz
-	 psHqYq3i3C1HyozjavN0fm5dHTdud7ZRpx1cRfJ91XCB2wLbHeecoiCAvcoaQ+p71RBrJ
-	 LDB4euNw/AC9BizfI62bDht+ZrZ43NgWUdPJlRSZYiyfQuUmeHbejit08aeFMx1SH0KBz
-	 u3YDBFrNr92UrEcL3k1L+mWl+vQARLLn67Iol//aKhRfQmzmu4MCepjSvnrfQ1L5NVA==
+	t=1795625739;
+	b=yd2aTu2rQwaVDhgc/lMBOYw4FKD5JQeGmrV3PzE94FxMBGsag4feSD7seY5XyblskOql
+	 bRj50Wo2App7RxvrlagNm9BhnzmiGWy1GZRJCrDTdKIM0N+VwQ1u56wCHRIFyNLEF3a7j
+	 7RJZZDTacbWnOTMVTBeV31VEWnohQCSosQpa/VyhIrlOpqKwq6ndPTdmVVf3T1jQbh+om
+	 xh4wnGelv52YfkNIgJeXt2hK6/y2lXX3Y9jk89Fsqm0G7dLES5jFDnw/0uDac0BQYUyMn
+	 MVn4bzYiR1EuF8ROyMPawvINO6HCa0ppQuIKvd3sdArdmnCe2tHdc6K9HdhF6IrjcTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625742;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625739;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=0A62Mt49jG54fQl7bP/m4esR20VvdRdkwPsuBaQgw5Q=;
-	b=jXYcbKWvEwvPG4Z5BROU0FL1zX6whn326KAMwSF4tDHOVu8gIjPqNEO/N6GG+AK2Py3E
-	 FPwpFrz/aBR2zprZJrhLSDKeneJyQjBZFKnyU/RF6kd0cvdbY2LzAN33YFqvIUmtfEkdj
-	 FLRVPW2+tGyN2ZkZJxKd9rDF+0ZruAObSDF4oHrquwP7a/oAkA3bKInmdfqZZKFFniMce
-	 b01wF4oXRCSGZi6vTj6QiqE8ZEgXds5WboOmQhG1xrfXDU2WPdhps8+iz2BnhXh1CRVU7
-	 UE7S52OuSdkK/uozXUH/QN8YZKsysiflRmLXPoHMuzxroe9xuU7tB2cWvfBQAof+vQQ==
+	bh=TM5M6gaqvv4tGMQjKyJRerOCIFtinYtn8De+ocmceSY=;
+	b=rPZLKPb3cab3ToMXR95JSI/qA/C0xf1cz+cI+ytNfIlHGR/FPEYMA2XCvr89Ga7ja4mL
+	 9aUEggdcNuwli+gQVr+lNhOY7TOZrtkpoexj43NVSnAzCj0ypdqBrAj4Mr9gmAQjA1Ozj
+	 3xfFPaKjCViyjmztYSvnaa6UsrEEml6SnjJOEVU/3mNi1o1iW4ezA1N8vYPXjNOUGrCHA
+	 YHPXlYdaJdUskwp7ioJ3tlWuSpgT/TsKdPnujMDF+gWv0CW0Um2CMm2zwjvFDyY4u8m7E
+	 kRgC7yLnWNqptqp+joYZrQvt/L+207p3c3WEBaeGMWd0qmNG/NGhO3nfK3z+5vETkNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gSM9hb2f;
-	arc=none smtp.remote-ip=209.85.128.181
-Received: from mail-yw1-f181.google.com (mail-yw1-f181.google.com [209.85.128.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Oo7DUZmr;
+	arc=none smtp.remote-ip=209.85.128.179
+Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com [209.85.128.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2791F606A6A9
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:55:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2791F606A6A9
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DAAB606A332
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:55:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6DAAB606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gSM9hb2f
-Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-8b4dd5cb4f6so42159667b3.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:55:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Oo7DUZmr
+Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-8b4e04eda5aso45245907b3.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:55:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795625741; x=1796230541; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795625738; x=1796230538; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0A62Mt49jG54fQl7bP/m4esR20VvdRdkwPsuBaQgw5Q=;
-        b=gSM9hb2fwTo6VUv/k3z3Y+hTy9dzC5WUQwoUUoXazxEF79YkIqTHxJKrnk95lYTeXs
-         cjC2Gt09Ye4NQPbWvEjKgkO6ieJ1QH+ASlHyskZrNyEPtGCFoq3zvy+/9M+tNsqZklXx
-         yk+cT2qUzENAT6VKKWlxJM7mKL+z2reluE1PDeKwmn7zEmgSUPfVTIjqJRcsabz2nd/O
-         skqtxJw7fEGH43nSDELHVRfii8oTMhn+AiegwHeM6/NWi1Ub2nsuslhY/6VIWcOKpILU
-         3uaBBpu4bhweM9iiOU/I6FPU6LdtKevgbP4/fwV3ggQgKAk6gm5JjdPHf3bOTntnYUzZ
-         Ug8A==
+        bh=TM5M6gaqvv4tGMQjKyJRerOCIFtinYtn8De+ocmceSY=;
+        b=Oo7DUZmrV6Gh1U1PVe6ZA99gzvbHJeHwKCE86d/FWdmkRWBDZMWVOlJ9uzUDdF9cF/
+         YHwg8ws6yfKm0azgx3grOpR8Igmrh3gbIut2rx1haEzfrOWeYE8f22NObS9dBkzwSHh0
+         iOoP8DIqkyPdiPr0LfxQDTKp7cH5TWzTzrZHuAGjsUwgeu+wZA6/8JqUjzT7Pb8ZAnVO
+         TpnhJytbsk8o8BP/skDnbP1RczpWwbOXlcc/TyG2miR1pVyefwqRYv1SOCEpD5G6iGUH
+         dDNaSQD0jZXglL+kg6qK6k/YIDQQowNc8IQ/vR8vmLqbYamqazGMhbfldIny5Ur1S7Ca
+         ZhUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795625741; x=1796230541;
+        d=1e100.net; s=20260707; t=1795625738; x=1796230538;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0A62Mt49jG54fQl7bP/m4esR20VvdRdkwPsuBaQgw5Q=;
-        b=m+Ef8ImDNCX0/v4qFlHOazv28MH+IZHvRq+I3UpZ6yfsBpDke5IzHo2tDIlhjKvJ4A
-         O6aFtgx/Y8LMVLGyZiOd5iH4K1W31+uPqAhHZJnZO+Q0zF06lJUPwGfSM2dGk8zZ+T/O
-         pwgjOaV9klezAqbGVNKyi0Pys2iGRvFN0U8b2aomduxwnMjKltcu1OemKFCNFuq/+96N
-         9PkTJ+1DFqc04xGY6qiGZUlLAuJXC62zC5f/Rgj8rMOhWJJi40Jv5PpLjts2HrJBOeqJ
-         ZGzTIFq8mz7yNfxvAf3rc6fNZJcuJ8RpbpzWIxN6AgLRaf/BDD17TRZwH3H6cn88dGIu
-         T9fg==
-X-Gm-Message-State: APuU4Z8B3/0DxN0aIuB2D2GJRMOWk8a6IOMizPb+9uF6O3OOOR6M8n5B
-	cwBBeZSmraWFml2gbgVJMAGnjBif0gsVF6gUBFPw8hT5T4Bhzrm9oLv42r0iO0s=
-X-Gm-Gg: AZFdTZdG94SmmhR7LSLhy+6bkrqTh+lUDvxh6befwd+ppSAs+WpCLOOzWk7OaEbjHUa
-	3snW1ptNMBIub5qdyt3HH5l7WFtMKLbeNbZAG020GElDkiFDOB7YL1vxRxQKHb7g1W7fNABE8un
-	52qaKlbOUCwOj9K1CEoxYI2l70DD47zMAGRe4hLP3Mi3lcGZk5HGe2Sq8kapB23429ws1p7yKFL
-	4KKB9aSYWCVc2EkFKwtCfeSurjU3nAXAlQ+/7UXkQhDkeLcM0CFsiiFAK2fPm/Tr7uICYXIFPZR
-	7SlYmh6k80RswOa8jv2Gyl1rrabmnwgOL9LwYRPMg3ULRJHi89HWI4TEV+MlkhZb5HoCBwO4baR
-	yIfogaCAq18hoFsPrJgK7P060OZPWLmwNfrwJRSzRczEt0HKbLWqyYwA2Kc1R5o1a7LyJ6GOr8a
-	q/jaYx9olgeHetzmRRaAagThv2LO7APln44h6TrUoAkS4I05tnfygx2NoznV3ztr2HMCpopntq2
-	8RFS2sb3yagiQbXboD6sO5GCVxQFzgUXtr69qp0rCYPzpjq6SPof79LuYF5JWHg3w3aJYMlnoAO
-	iP5rfYEK0BcIwg==
-X-Received: by 2002:a05:690c:998c:b0:8b3:5121:3d44 with SMTP id 00721157ae682-8b52046f394mr81347737b3.26.1795625741130;
-        Wed, 25 Nov 2026 08:55:41 -0800 (PST)
+        bh=TM5M6gaqvv4tGMQjKyJRerOCIFtinYtn8De+ocmceSY=;
+        b=NcdCVf+veO6iIxdzOvznCsNtYMzf/gdYoix1J7oQVmrr6Ge7ghO6D51PULEhkgK/Q7
+         UqsYSCEWB2aD/CLUMF7wa78oDPF7EjAyqmLmATzPhNQ/UNLDUplqM4qVOmrBA9/J8rgu
+         vswqf2WDvX85u1HjtNdnaVubuffvkKJuW+gKkuFWjjoGBNFDus9L1PXIlBAy/CU+BsJD
+         0rPwYwCUTJe4visRtyAGg76Qdl2ea9ahqNiif7YRbIxEu90+yHtKT6x651QX2n3aFaM6
+         ORTNOA4WnY6wIZN04T8Z9MisxVsilW62KnFlzv7HLQmKrKj2fwFBHxCKniDBmru3T1iN
+         hSSw==
+X-Gm-Message-State: APuU4Z/fgU30UsWGLWJq+89HjiPlfXqTpJADezQuxawHqLj5CzSvmgJz
+	3lunx0cq0Drh/mbd2XrfvZhMfWu2lV+OwkOI5dieJ2B58y+/y1g7JFieAkcBudE=
+X-Gm-Gg: AZFdTZfboYW9S2QuYHdT1LFYLObTfCXkiOMtRdyATkCit3aj7u0rUaNKrX5wdgJX9+U
+	cMlFz5ZMQGY1L9vGVgaYhCrzxbKqshUTLKwaICCXwubaRR11hBamIrfLlaEHsSWe/dgLRzRh6SP
+	Ts8Dx8XvecyzccuqPg3H75PGsiYv29hEjfZDc+V1BOdGHA8yhCVioj5CQPdEKNmmEDL/5xoMONY
+	B3mbEFLJeFFA2lBpTtUm8umctWZOf/O1S0CsvONiEA0V6BxEvaWxj3eJgpw6j09WuapAoq0Vrih
+	8EuNU6/7ZZzffbFFntRV/rT1f+KPOaI1dUrhNC6LTrQdCh8QoOOBAEdmxyDVVdJGrmzucTubxE1
+	IysAfHtfwxRpgSstIDEVbu44EI2BFeGNoD3fqWFl5LNawEITXvtMXvkneUSrXdBlf9Di90K5mrE
+	5/T8bmTAZBwTN/WLW52fhd5tLcI9qYUFP6mwTaqPBUfvrMwW/0p5GD5ks+57JlrZDCREU3BSXk4
+	A7NtyfGmwtaRw1JhQE4ILmDJou6ctFQSPyxPGtgZ4JGxBKwp9Bs+/CavLx7JElMBKHYE3v7D5aX
+	2/yjuCRZkjs6AA==
+X-Received: by 2002:a05:690c:a40f:20b0:8b5:635b:4ec7 with SMTP id 00721157ae682-8b5635b4f9amr22314197b3.44.1795625738536;
+        Wed, 25 Nov 2026 08:55:38 -0800 (PST)
 Received: from 3511.attlocal.net ([2600:1702:7a3e:17b0::c])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5202bf474sm74766167b3.21.2026.11.25.08.55.40
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5202bf474sm74766167b3.21.2026.11.25.08.55.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 08:55:40 -0800 (PST)
+        Wed, 25 Nov 2026 08:55:38 -0800 (PST)
 From: Arav Verma <svav2021@gmail.com>
 To: akpm@linux-foundation.org
 Cc: linux-kernel@vger.kernel.org
-Subject: [PATCH 8/9] MAINTAINERS: Move MAX77705 HARDWARE MONITORING DRIVER entry to sorted position
-Date: Wed, 25 Nov 2026 10:55:35 -0600
-Message-ID: <20261125165536.792563-9-svav2021@gmail.com>
+Subject: [PATCH 3/9] MAINTAINERS: Move SENARYTECH AUDIO CODEC DRIVER entry to sorted position
+Date: Wed, 25 Nov 2026 10:55:30 -0600
+Message-ID: <20261125165536.792563-4-svav2021@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261125165536.792563-1-svav2021@gmail.com>
 References: <20261125165536.792563-1-svav2021@gmail.com>
@@ -97,47 +97,50 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The MAX77705 HARDWARE MONITORING DRIVER entry is out of alphabetical
-order. Move it between MAX6650 HARDWARE MONITOR AND FAN CONTROLLER
-DRIVER and MAX9286 QUAD GMSL DESERIALIZER DRIVER.
+The SENARYTECH AUDIO CODEC DRIVER entry is out of alphabetical order.
+Move it between SELINUX SECURITY MODULE and SENSABLE PHANTOM.
 
 Signed-off-by: Arav Verma <svav2021@gmail.com>
 ---
- MAINTAINERS | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ MAINTAINERS | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 9217708367ddd..bf2817dd595d1 100644
+index 137297afddfb2..d8576ec2cdcf1 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -16386,6 +16386,13 @@ S:	Orphan
- F:	Documentation/hwmon/max6650.rst
- F:	drivers/hwmon/max6650.c
+@@ -25519,6 +25519,15 @@ F:	include/uapi/linux/selinux_netlink.h
+ F:	scripts/selinux/
+ F:	security/selinux/
  
-+MAX77705 HARDWARE MONITORING DRIVER
-+M:	Dzmitry Sankouski <dsankouski@gmail.com>
-+L:	linux-hwmon@vger.kernel.org
++SENARYTECH AUDIO CODEC DRIVER
++M:	bo liu <bo.liu@senarytech.com>
++M:	qianghua.wang <qianghua.wang@senarytech.com>
 +S:	Maintained
-+F:	Documentation/hwmon/max77705.rst
-+F:	drivers/hwmon/max77705-hwmon.c
++T:	git git://git.kernel.org/pub/scm/linux/kernel/git/tiwai/sound.git
++F:	sound/hda/codecs/senarytech.c
++F:	sound/soc/codecs/sn624x*
++F:	sound/soc/sdw_utils/soc_sdw_senary*
 +
- MAX9286 QUAD GMSL DESERIALIZER DRIVER
- M:	Jacopo Mondi <jacopo+renesas@jmondi.org>
- M:	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-@@ -21340,13 +21347,6 @@ S:	Maintained
- F:	Documentation/hwmon/pc87427.rst
- F:	drivers/hwmon/pc87427.c
- 
--MAX77705 HARDWARE MONITORING DRIVER
--M:	Dzmitry Sankouski <dsankouski@gmail.com>
--L:	linux-hwmon@vger.kernel.org
--S:	Maintained
--F:	Documentation/hwmon/max77705.rst
--F:	drivers/hwmon/max77705-hwmon.c
--
- PCA9532 LED DRIVER
- M:	Riku Voipio <riku.voipio@iki.fi>
+ SENSABLE PHANTOM
+ M:	Jiri Slaby <jirislaby@kernel.org>
  S:	Maintained
+@@ -31011,15 +31020,6 @@ F:	include/linux/zswap.h
+ F:	mm/zswap.c
+ F:	tools/testing/selftests/cgroup/test_zswap.c
+ 
+-SENARYTECH AUDIO CODEC DRIVER
+-M:	bo liu <bo.liu@senarytech.com>
+-M:	qianghua.wang <qianghua.wang@senarytech.com>
+-S:	Maintained
+-T:	git git://git.kernel.org/pub/scm/linux/kernel/git/tiwai/sound.git
+-F:	sound/hda/codecs/senarytech.c
+-F:	sound/soc/codecs/sn624x*
+-F:	sound/soc/sdw_utils/soc_sdw_senary*
+-
+ ZTE DINGHAI ETHERNET DRIVER
+ M:	Junyang Han <han.junyang@zte.com.cn>
+ L:	netdev@vger.kernel.org
 -- 
 2.47.3
 
