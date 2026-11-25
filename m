@@ -1,111 +1,143 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.156
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592518;
-	b=ocRxtYjf4FBRMkjX6RYfeC/DX+YiVFnBaiYNL7tIJYAbnSS/VuXiH7ksfnlxrmhfd4ZS
-	 Jdcry++1n3MoGfGsBp7Yvey7KAZqc/7bUzVrq45XSIvvp35DJAGWgIqHU/jc0pjG7z3kW
-	 OJG/6pOGeCRbMepAOM2j4uAG7QnXuLnpcsPpvpzP1+k8BAKDpe4A58+CHSskI1xmkgVZQ
-	 RgbRDGSt7xNKsRcU/HrojtGgCBT/80hZ2I3qTXq7sUMKgzDrRCWyfL+kXXg4E8ghhqUEa
-	 z6TnNXif/MWoY0+1gkACwII2P7GSZAszVtkqSU+s3DaybW4UKsd7MLUcB4Ltwr1MISA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592518;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=sUQMKO7LilW2w6ufZE8mk27aCEqDFRdOrzRnrwN2leY=;
-	b=g9fUtpWnNeEm9LT2npvsq+IyzfONO4ZsRA2d71AZ7DYa0LcslhOHls223R08Fz35pHhA
-	 hKkPXBsNmnL+o8hr4u2Se06w6h68wLC9uKyj0bUjF5Kv9qbaMo2LOaRvYldySALcteF7P
-	 3Z47R87tQ/i1eDdpec0B/hW+og595sJfN+W7HapAkAv8U/QlbeDW9HfGTMKybMy3bd9O1
-	 hpqiRUijsonSu2MvMmJJwMcJsc2O0YjG6+boS9+HI4H18gJ8hLbD6Hyzo00OeYI0uekNH
-	 yZnCIoMtRttLcrgFa69igkJo24dP/8Gw5dAWVQ+Lbet+FEt1qsMkfk7FVm0Wr2iTFEA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arndb.de;
-	spf=pass smtp.mailfrom=arndb.de;
-	dkim=pass header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=eXkohKX7;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=CZTMgU8u;
-	arc=none smtp.remote-ip=103.168.172.156
-Received: from fhigh-a5-smtp.messagingengine.com (fhigh-a5-smtp.messagingengine.com [103.168.172.156])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795592583;
+	b=AmifAI4FENCDe07/C3xlwu/ykqfTf2D3nkm7orsGQGpX9cefJCLcJjCYppfQws5SFYWD
+	 k+qDRDhpj2dd2vQLsF1MPR9i5USws34bMjrM3/G3GPB+sQ6/j51N4Jingnrr1HtOWTsJw
+	 NjVTkgEJJ2kbPaY/MdFsfY0Cx6XihyrXz3iQs5dQU3xBa0CK/tzWak2PSjvKBkDG0JCOC
+	 8p4k6cXPzltNpUHY77AjRW6votlKZAu2Jg9ufcsHIsW8+40vogHDq4gZvHah1h0zS4QA0
+	 QFa7mYYeo8UP72naivsRC+UR1YhDmNQoUDIKJrwxN1PscirZEiwGiOK1wk5wxKXk8KA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592583;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
+	 Subject:To:CC:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=OSAsyZ7K8AdVvx0IvgIwxxj7HkfzmAAYgzja0TA9l9M=;
+	b=MFHiGSyFvzQXxBWi24W0otwaZH/OkAO0ZpRFn2S7fZBTxMANX6RO3L4E2hlFpR52h+Pv
+	 LV7fohsJbu+DYyruejV52bpdQvaTdgEpuWxfAuEeGyA0kX/EjWK9zI/EIQBMzVfhzAEyK
+	 KWquWb0XpFRYu2MUVuv63lx5NHlOGhGG1h6/43RXKmyW99jzuii+Y7D/DZ5eC03avhesv
+	 BRW11iJ4F4YxM4V/cVTYf2a5FSo9BucXHVMS8u74/4m7ggiSfCOKuKdU0Zs/hoeGn2vj4
+	 pyHgGxwZ56gVkfEFcJPBB4vHGfEtgbXflbSiqAcz8VgpPXsOGzIgk4APkLFa+S4mJWA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=l6+j2PCJ;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=A1mje2ia;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.13
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64DEF606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:41:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64DEF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arndb.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arndb.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75C69606A31E;
+	Wed, 25 Nov 2026 07:43:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75C69606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=arndb.de header.i=@arndb.de header.a=rsa-sha256 header.s=fm3 header.b=eXkohKX7;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=CZTMgU8u
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 4A05F140042E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:41:57 -0500 (EST)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Wed, 25 Nov 2026 02:41:57 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1795592514;
-	 x=1795678914; bh=sUQMKO7LilW2w6ufZE8mk27aCEqDFRdOrzRnrwN2leY=; b=
-	eXkohKX7GhP2NuuJOp0waTc53+TQdHh9z/I1NX7MGoVGR39n0u04a4H/G8Mewr0Q
-	SYfthWKDyDC47lSbu7Q2WVIXuLRjcyQxs2bcUY6O7UCxfsD2eG17A0UNSVdNrYnQ
-	A9zXC2YlAbi7SuCHVrBB0AQHKDBvAcBnur3k9xU5E387FGDNp7Tf46S6b0iGMViQ
-	QwkYIkJ1RpvCo/kWixio+/6UDPfSNJDlrpatlbp6FTdiRNGnhzSclK+3fhk8y7UA
-	df4rLYN7LM+4qsQF48Ob3tAyoqsu8tCGURT5IXp0EkIS7IoT5oiUZNLkctXLVLlD
-	SkX7UEn/G9qzWwtPnM8xfg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795592514; x=
-	1795678914; bh=sUQMKO7LilW2w6ufZE8mk27aCEqDFRdOrzRnrwN2leY=; b=C
-	ZTMgU8uZtf0uw0OvoM/4bJ8POwIbFFqDgkgAxK3ci1ElZEUcHoLfRMrmMOkwcArO
-	XfGFegX2xtEyoXaB0VtUaPvRpGNfF4IccnhXxpQyWxY2Qpmds8dEyg4ZC+Xc+sOA
-	EWN+N5+xnsDvj081A5h0bZt/AID2cCRPp0K0xcHUJ59RqDadi/Ty/AniJPP7xffh
-	++pMoIJALiGEckRnScEcHoIwJVTLRntYpNqbVMRA4aLYkoDkxCgvEHYoQ+gA02fD
-	IuRyLeowk9HIPiSDAbQ9diPvG2Me9gHOPkbLdKiX5yGUL9hJ5roNfM582MzE+gu4
-	peNFtKTAZX9y0cx6ncoRA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=arndb.de a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795592514; d=arndb.de;
-	mf=PGFybmRAYXJuZGIuZGU+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:ZqywgD95QSr3Dg+3ieXe2vWHHjePgr1wf9gQfgTwkbFe0RJ
-	Lb1xtFMP1cNblK5yXF5fgyWsY+GlQRDRe3j+WQTaliFJohK92Q3l5nfDjTQaeRTt
-	jXb1STPWlPKDE7CxVMDCKwlR2jyvAalj1n0YWqZressvMXhnpfERDOdwQhfZ9zLB
-	YfoS9P+id/cbxOuV/rO8aFnwUwjGpPa4battqTdrpviFiKKlENrgaXoknmYOR48u
-	lvuVnl+ourp+sF2iPFcAHV9W7I90yNOm5FFqU4nGOO4xhOwWLPkGcGFuU+4iVUGs
-	lCU8PjoR6g9GJaHvFbR65wcg1fExfO0N3FfPiRQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:lK+FIkXps6mc5Mb7q3GyVU2aH/l5Zp+2smZ5ROVNZdM=:gtOez/TCn1Zm2sPYGVfyUbMuqoBXdDR2I6sZGA/wUOI=;
-X-ME-Sender: <xms:PZEGa5dGPV0RA-v4VEPBa1uiDw78FeTYGREu5-HrYYr6m7eJtVSJ6A>
-    <xme:PZEGayCMRaHl1vkNlk8Nc_WC7QxQ0MOPL3prAOCn4GwRcPvQkR7eXYWKIn8epAALd
-    00xYUNs_XWmQ0xLgw_RH8tOO111XBbOtkc6mXQcREQNyq98na9er6irCg>
-X-ME-Proxy-Cause: dmFkZTFuQuQ1vusds7s5aDcjN/zVZNCjnILCZfnoCQsGGq9OnABW8KSd5xsr0hv+s5Stm0
-    8rb4U0xSHjPemQqolhbDc/BuhMYaKlBhQ9KS6+gn3P7uOgZqFBrcY8X8y8VHi5o3X2p+3D
-    UWiZG6fZXaE98H4KOOdff3QWn/FgBhtF4yw85DpaET9rVuuscX5ctw7ghp4bq8p4tkc1ap
-    hcfvYT9xZiWkDILwNSmlJwX03eGbfK0lu6PrEo0qKYDPqBmWC0nxcmm37Jv1WakBVGZ2qD
-    N8XZPiBkgDG9kykmEgTfhWOHIQL1uqzjGYdqQ5YOGEZT3XP+6ZZ+oLX3VDwGdoYkC/C5SL
-    4TphOpGqsEaN8KxX49HORPODab7wEmNi7KZud3Xw6yrRLWccyKR2CwR6IfzJQpurJONUJC
-    xyZIhWH0Xn9KgDoVcZ44VBgBpaHvUaK9xUVJCHY7qgVIX8IdPTJxoBdZH9oighKQgyGuAp
-    XQPWmhhn8TRthBTB7pF6xrdExWUmiDCnE7m9Op8m0l/Dm3xoIHFOasLYsQdjhN9psToIvf
-    h7ORg1QeCAlZKxQXvEuakTScZQIvh6iA+fin6e3Uqd3slcWeK9ggp+SLNEiyn4TwzY5BUW
-    dgNUB4Ug7ahLgn2trVrPFUcLFnj/fY170k/yDmTJHs+v/ecIu8pf1uu/P4Fw
-X-ME-Proxy: <xmx:PpEGa1CsKWHJnwLAXDt6PIA2SrKCwuTH7ffc_PR2dCjycCMe769qjw>
-    <xmx:PpEGayk5t5e-RB8_VefG68Q4PN5hIjYjhMFyESbZVGMzD3ick0hp8Q>
-    <xmx:PpEGa2zqtgkH1vegr-YcXsajJ6-46O3U7FYUWj8gjUrD9SOipLx6Ng>
-    <xmx:PpEGa8T197EOdsymi3ZYHOqBhhKS8pzJ-w1_AtVbQGzSPnMu3rFLxA>
-    <xmx:QpEGa-huiDrLqSj7H7Pnn2kfyxGJkXEsbBGww71WxMHp-hdVe0SU6vAE>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id EE80032A0099; Wed, 25 Nov 2026 02:41:48 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=l6+j2PCJ;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=A1mje2ia
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795592582; x=1827128582;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=H4jh2dHZJ2PCTPwex00LNkZn8oD/uK8li8jRTdUM+B0=;
+  b=l6+j2PCJ43la2dEuRS8cgBs4vccurqjAX9Rmqk/EFHoF88JVgGYrnX/e
+   l67fEPyoH4yfN2EB8yMAHTJMh/i0xJO73/g/gez6mVIGTvGKFLoBpCbep
+   cTw3NzKvWNk73H9hmzGnO7DQ4QiE6Z4bKomK7exIr3Y9Br+w7zFR72zIn
+   kNcWG1jVoMxGMf8Je5FabFbZ24H2zfjBasu7jvOsumwX2uWCL1AcztdAD
+   eI2xAt4NkEI1xGvBZXBfJ/XYDb+j+fIAB5xtje8ottFLpN8MfT/E8VsY9
+   0opGsOIwRnHra32zS64Xvdx/UPLNXqvZePKeOSiTzS7LBfONEymwBbhVb
+   g==;
+X-CSE-ConnectionGUID: DUT6nCjnTEitlXC75SY4cw==
+X-CSE-MsgGUID: rfZjmSAqSBS+5Htg9ie6qQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4435432"
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="4435432"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 23:42:45 -0800
+X-CSE-ConnectionGUID: lItwZTCURbGZvWqfcFUwgw==
+X-CSE-MsgGUID: 7EUcMzsRQVCeHXh33pikbw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="11779636"
+Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 23:42:31 -0800
+Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 23:42:30 -0800
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 23:42:30 -0800
+Received: from PH0PR06CU001.outbound.protection.outlook.com (40.107.208.54) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 23:42:30 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dqdfBVmpQ5sWvX2JgkVZ4u/mVg8MuJYlH7XQxpeA4ggY/s+JSvcxOGVX0p39gx/2vDe7SCQ468HSDjgRJw6Jy23oLXwaVu7EethGua+4EKyiX7Iy6v1UupfJIh9QjJ/6AqiwtH5aVljfnL9BOECeKpHqubCr2UeVVr8t3iAbcCqe4oy63jAyH/qC87OuD3XgrwxHrv3QlTG4X2uIIgEyRSmVMONh0ciac+7cRO2uvjL7aDar/8YAlvbufobXWX0j4bSuLOteeWp1TVJ5k/7n95DX2aItTcglSReoSrFLlAOSAUH+BCLPbh245zNiU6SXyB9+yI+EhYzQDel/QGmD3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OSAsyZ7K8AdVvx0IvgIwxxj7HkfzmAAYgzja0TA9l9M=;
+ b=zE1wGwu1vGAWRbHAtufmgSAX5msyuo0Bmpirj+t8cTdPzByeXSksfI9DxZiJJAczQYJly2REaa/FKTgbZ1PdlVH5wha1IMY9uI7kt2IGhO2e5YWvGDWjIr/CslaruA/isAALLyJ4m3iySNMONb680FQrSiFPmdT0SE0gpDWcSJ7e1FC8MeVD2uzw65aA4gKaF9tD2OiYjVQOngFs61kyEZ9+3/KxZfDccBOyyjUptX3aOG+ICRNZzDPGKgdQ6JvKnimaRsCdCJnpmTCjQtJCwaqLY2QsGaGv+sc9fx2LLbf84angaYBXV9rZeog99RbQ2a0NjJwLER+Tjd17o6BQpw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OSAsyZ7K8AdVvx0IvgIwxxj7HkfzmAAYgzja0TA9l9M=;
+ b=A1mje2iaqS6H/oGynetwgc8jkUn9sSJnnW4SuXPH5oujKcAZVPkxw2GlLHrvGPNNzSZBF/7gilZUAYXvEfixOrreKx1mgjxCLMTfvEb1r/6LXgjl3GO+7mqaNXo2S7JA2yYTSrenNu+mseRMzqFhVlww6Ng2ZhhsEJc/hDa/AFc=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ0PR11MB5630.namprd11.prod.outlook.com (2603:10b6:a03:3bb::6)
+ by DS2PR11MB230453.namprd11.prod.outlook.com (2603:10b6:8:3c1::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Wed, 25 Nov
+ 2026 07:42:27 +0000
+Received: from SJ0PR11MB5630.namprd11.prod.outlook.com
+ ([fe80::79de:af84:3b43:84e3]) by SJ0PR11MB5630.namprd11.prod.outlook.com
+ ([fe80::79de:af84:3b43:84e3%4]) with mapi id 15.21.0662.001; Wed, 25 Nov 2026
+ 07:42:27 +0000
+Message-ID: <087a9cf2-bd0a-4f57-8dcf-9b0962186fe1@intel.com>
+Date: Wed, 25 Nov 2026 09:42:20 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] e1000e: disable K1 by default on more MTL+ systems
+To: "Chia-Lin Kao (AceLan)" <acelan.kao@canonical.com>,
+	<intel-wired-lan@lists.osuosl.org>, Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>
+CC: Ye Shu <hello@shuye.dev>, Vitaly Lifshits <vitaly.lifshits@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, "Paolo
+ Abeni" <pabeni@redhat.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20261119001818.513503-1-acelan.kao@canonical.com>
+ <20261124022233.1234651-1-acelan.kao@canonical.com>
+Content-Language: en-US
+From: "Ruinskiy, Dima" <dima.ruinskiy@intel.com>
+In-Reply-To: <20261124022233.1234651-1-acelan.kao@canonical.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TL2P290CA0002.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:2::12) To SJ0PR11MB5630.namprd11.prod.outlook.com
+ (2603:10b6:a03:3bb::6)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,46 +147,234 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: Agd2DpBFo5o-
-Date: Wed, 25 Nov 2026 08:41:28 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Brad Hawthorne" <brad@sim.vu>, "Russell King" <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org
-Cc: "Vladimir Murzin" <vladimir.murzin@arm.com>,
- "Linus Walleij" <linusw@kernel.org>, envzhu@gmail.com,
- linux-kernel@vger.kernel.org
-Message-Id: <a1b6d899-b392-45c2-85f2-67bb07fcaf5d@app.fastmail.com>
-In-Reply-To: <20261125025852.1160075-2-brad@sim.vu>
-References: <20261125025852.1160075-1-brad@sim.vu>
- <20261125025852.1160075-2-brad@sim.vu>
-Subject: Re: [PATCH 1/2] ARM: v7m: clear CONTROL.FPCA before the boot SVC
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR11MB5630:EE_|DS2PR11MB230453:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0c7b87b1-be86-4dcf-b732-08df4ac7a719
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|10067099003|11063799006|56012099006|4143699003|261021123027099003|261022105027099003|261022113327099003|261026121527099003|261021135927099003|261022075727099003|261021121427099003|261102123227099003|261028144727099003|261026140227099003|261009223027099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: rJL5d5cB+fqJJtz3plIBaYwhP3Y+p6oInihGV3PM63NzdkwyM3f2AU5lgpAAWl6E6lnARuAKCG6gd4cq69/YrgmhSRD6m+tnDGwp1FICEEiL+dx2WqLYtcM3QMqrmbbqXyr7BaetMeg4gp6nIl8ZKIP1TWiB0JtgBpoSta7iWhIHC9U6sTyNwwGdjeGL1XDq8h0/H6ZyoApgnnk5Ap05Gyl9uSW6pbS17+bUeGa+7PrFtoFyjbkEpIQMSnaxeeZ71I6CeKFz+BN00c5XhfvsJ1zllEAkY2tMdZsNvaiXewG54UXUr+3t3LkOzf4UGBgW3DCqyy2o60dpci7f469BPY53JOH89aeVkIHkVTXajvoQkRaNyRE/NeeJ9AOAuAUC5G3or9LAquDLfBPoCTF9ig8gWMUTIkQJ/eKhFDLcS+sES5GCk4WUZ2KQQlG3YAIbnJhQ/rgUi4hOQcs02aqYXkJaiyf4Hxv/76qRs55QxAoxM22x8niuv9yzHa4PY7+h84RnDXkhxB2ClZPFhsUklJNtiUZY1HL39+atMi0D6Td6CabFqvzrbuzGeQ6UY4haq7ISLZGHNvKOKAyZlyKuirhBqgP6rXKnUVP6zHEqBxNj/VAJLD577xWt19rmGh13GRyj02SWWZ4gUnpu0pjPXDV8ZxH3sEfac8MATxNuNI4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR11MB5630.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(10067099003)(11063799006)(56012099006)(4143699003)(261021123027099003)(261022105027099003)(261022113327099003)(261026121527099003)(261021135927099003)(261022075727099003)(261021121427099003)(261102123227099003)(261028144727099003)(261026140227099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UStzQStmRVFJdGNyMWIxb1NYc0xtTXRBM1pJRzhTcy9qcTBMOVREdFQ2NnEw?=
+ =?utf-8?B?MlZHVFpkcFJPNUk0blR4SzFzTVlBSDFPSlR0N3M2M0oxcmZYNm1mR0VjVkdp?=
+ =?utf-8?B?S21sKzUvSFplOUQ0WElrNU5FaVNOMi9SeWp1ejd0NitaNUxlVzFpNGZMRnMy?=
+ =?utf-8?B?NHhpWEM5anAzMXpJemhBUi8va1FEZDZ3UTJTYUJqR24xV0YwWFdmbUVMN0dS?=
+ =?utf-8?B?OTlpM1lZY2YwOHlRc1Z5VXpTdHk4a2tvdys2QjBBUTFYUWQ4ZWRub0d6dkww?=
+ =?utf-8?B?QkhVSkVWeStScHNKaThSLzdXbTRzUVJ6bGJLcm9WQnNYZEcyeFJBU0lzZElB?=
+ =?utf-8?B?VzJvY09ta0JxbmhVUVA2d2tXZkVHbUVxclZPdVF4QXZ2T1FlQmo5QTVkanh2?=
+ =?utf-8?B?QU54cVZhbTZpTGR1WGN0YWI2R3djREVPbWt3NVZUMTg0bEJ0d3g0SlkwQUU3?=
+ =?utf-8?B?K2ZNejk5NnlxZW9LNnFYUy9HVkx3T2lMNzN2cGpoNll5OWU0TE9LWUVvQ2pw?=
+ =?utf-8?B?UmtvT21HbTFmZ1V2VmlyQXpSQmx6bVV2T3FZVTVibVdFRk5wYjZrVnp4UDRE?=
+ =?utf-8?B?ZHkzWjJkQy9zcUNySlhjNVJqWHBOTDAxa1VqaEVUZ1kyZkI5Q2RUTHRyWDNR?=
+ =?utf-8?B?ejQzRWU0SDI5bUxtTlVKb0d4RzUyam9QMkhuVHFYZEhKd2wzbEpyYkluYmJK?=
+ =?utf-8?B?NnlKQ21WUENXUFIvc2NuRFMzN2ZZMFBpUG5nczU1S3l5cnlpL3NYQUNUR2hU?=
+ =?utf-8?B?dFNjRlFpTHdFSzFLR3JSamFRTHZLOVBaL241QXBRS0tCMk1IdlREaFZmY2t5?=
+ =?utf-8?B?aVgzR3VGNEtlZjdpZDJuaytCQUhKbWJHc2lDS0hyZitSYVZuY0RuZlBlNFlT?=
+ =?utf-8?B?ZFhVaTVTcVpwcVB5cEYrUHJzNldYejROdlY0S0dzLytlQWJoWFIxa2p2U1Z3?=
+ =?utf-8?B?aHBVMld6aFRPdzhsZGx1MzdXQWJhbWFKNXlJT0ZHRVkxSCt0elVTRWI5WmRM?=
+ =?utf-8?B?NE5XZDhtQ0s1eEdQQ3hwRUJzL1piTTlPcnZHZm55MHBUaGRqRVRMYitzV0x3?=
+ =?utf-8?B?NHBkWkxEZ09jYTVqNkpMT1l1c1ZwM0I3ZXcrbTNxT1puQWlkNGFOdFJlYWJm?=
+ =?utf-8?B?d21FVHZFZTdpNWZxQTQvdE5nbjBrVlBzVmZhOENERFpaNEFQaXFnYWk0MU1X?=
+ =?utf-8?B?czhmVk1KVmRhSTNnQXVVUEg1cW1ZYjhpTFlPNVlQTXpJUGtCa0JJSXNVOFJM?=
+ =?utf-8?B?ODFBTG1FWWRvUVJFU0w5SkMxdnlLcXN6WkNsbFhyMGRvTDl3aWttM09jRWpk?=
+ =?utf-8?B?ZUZHdWVPbnl3a2dtejEzaFl3T1ArUXFJWTRSTFZZelJQYWNWdlhrOTk2MnBS?=
+ =?utf-8?B?RVVZUkd5N0hXaVZ3V1JFZTdrWTdKdzFnT01zZzEzK0RtQmMwZjVUekZXZHdt?=
+ =?utf-8?B?WkkzTWFPdVN3S1R2S1d6eDVCalZqb1JPM1U0dm15blFTcm5WaTR3VzZaN2NL?=
+ =?utf-8?B?eGFvOWIrZUpQSDNucmVxKzQyakVvZEVoT3RwanRsRS9Za2pxYlhsQzJHWGNy?=
+ =?utf-8?B?L2lWU0lUVDVIaFZTVnFBakJUZ3UvMHQwUm4wSHBoUWlYT2owWnFGRW5xcE5R?=
+ =?utf-8?B?eFhYRFNtaGlaUEJBbEwxNGQ1dVZxemV6RVlkU2RQT0tvRzVVUnJvRmVEbFUw?=
+ =?utf-8?B?RHpDeVhyd29PMFk3Qmp4Y0FyRHYwQ2pCVmFhd0E5SlZQeS9DR0FETDBNSmFP?=
+ =?utf-8?B?dzNYOTB2UzFndjhrSlZuUjRGUG1hbERPRlJsMUxONWNoR3MzTHl6c1hwTFRN?=
+ =?utf-8?B?Q1lvSExZd2EyVFgzY3lXS1JpRXVHNGZoSXNUK0N5bTVOK3RZaGEyZW1CcXNq?=
+ =?utf-8?B?VGlzWW90a2ZhcW1MQWdZdTZtZXY1QlJvdFZac2I5eHUrMThhbGsyd0wybFJx?=
+ =?utf-8?B?NzY2QVJsWUtvcnNLQWxUN1BsZy9TMjF2UkhxQmwxR3B5aUMrbGpIZHptN2wx?=
+ =?utf-8?B?UngvNXljTVI1RXhuaTBhS01maGM4aDA2Yll0b0JpUHRwMDM4MWFpRW16WmFk?=
+ =?utf-8?B?YnRldndrZ3pkaVllU3hGWS93bGR5eTRLdkM0Qk1yeCtjODN6MHVkZHluNEhq?=
+ =?utf-8?B?MzV0cnROQ0w0WTRCUWZzdmwxb1VWNXcwdHZ0ZjJtTHdVMnJrVFpnRks0WW04?=
+ =?utf-8?B?QVpCeEJtUTZkMHhSd2s2eUNPV2oyeXZwMDllUnMvNFdaWmJsWXB2aHlQRk5x?=
+ =?utf-8?B?WnNsd1NoaXY2Ry90U3ZibGhHMzlORGorVHpZNkpMeWtaeVQ5eXNEQkNTcHNW?=
+ =?utf-8?B?bjZNNEEyVHF3Y1dnQjZHNG1BRzVESnppZ2hIR3JFaEQ3Vk56d1JnUT09?=
+X-Exchange-RoutingPolicyChecked: n+KpOlnxWYj3weJlJcY9AJVGFfMwtKh37jMzy2DbvkmbDQPQWPlOxVQJFhjNZjI81Z7fBW1eescJHPnjK4bMxBRr48mepHtVq0uno7g4jJeJPcPK7sneHxnKFV4Dy9zZPcFPvL2bdNLlNcJrUoD6lWM8ETsVHLfgyPtLagqnXPBVliSD/OhthTt4vgZVsaRK24839jDjdCvSYhH3BdEJ/zylthAeGQUM84ohtR5v5xax3WG4/gi/lSjgnlT+6RCk4MXCW7xud+loTClxh9pkq6BnlH0LD2Uq4MZY5dnbDTy/fNH3VmaAhaU0uqwA4eIMoL9yNilIgRjlI2dDzk6mtA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0c7b87b1-be86-4dcf-b732-08df4ac7a719
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR11MB5630.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 07:42:27.3461
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7C0ZJmSDoU6tNrMbC7o+NjKYQeElCS5vkq8FmnRexR8a2RPMa/0HiMtj1YQr26PLRZ0NFU5PYtXamJamULbKMQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR11MB230453
+X-OriginatorOrg: intel.com
 
-On Wed, Nov 25, 2026, at 03:58, Brad Hawthorne wrote:
-> __v7m_setup writes CONTROL only after the SVC it uses to enter Handler
-> mode. If the boot loader ran FP code, CONTROL.FPCA can still be set,
-> so the SVC stacks an extended frame, and its EXC_RETURN has FType
-> clear. Since commit 72cd4064fcca ("ARM: 8830/1: NOMMU: Toggle only
-> bits in EXC_RETURN we are really care of"), that EXC_RETURN is saved in
-> exc_ret, which every return to user space uses, so each return expects
-> an extended frame that ret_to_user never builds. init then starts with
-> a corrupted stack.
->
-> Write CONTROL to its reset value, 0, before the SVC. That clears FPCA,
-> and also selects the main stack, which the code after the SVC reads.
->
-> Tested under QEMU (mps2-an505) with a boot shim that runs a VMOV
-> before jumping to the kernel: without this patch init loses its
-> arguments; with it init starts with them. It also boots on an RP2350
-> board.
+On 24/11/2026 4:22, Chia-Lin Kao (AceLan) wrote:
+> Like the Dell Pro 5 Micro P5M1260 added by the previous patch, other
+> systems with an I219 on MTL or later no longer enter S0ix during
+> s2idle since commit 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake").
+> Every suspend ends with:
+> 
+>    intel_pmc_core INT33A1:00: CPU did not enter SLP_S0!!! (S0ix cnt=0)
+> 
+> Each unit ran 3 s2idle cycles on kernel 7.0 with the default K1
+> setting and, if all of them failed to reach SLP_S0, 3 more with
+> disable-k1 on. On the following systems the default cycles never
+> reached SLP_S0 and the disable-k1 cycles all did:
+> 
+>    Dell Pro 14 PC14250                       [8086:550a, 57a0]
+>    Dell Pro 3 14 P314260                     [8086:57b3]
+>    Dell Pro 3 16 P316260                     [8086:57b3]
+>    Dell Pro 5 14 P514260                     [8086:57b3]
+>    Dell Pro 5 16 P516260                     [8086:57b3]
+>    Dell Pro Max 14 MC14250                   [8086:57a0]
+>    Dell Pro Max 16 MC16250                   [8086:550a]
+>    Dell Pro Precision 5 14 PW514261          [8086:57b3]
+>    Dell Pro Precision 5 14S PW514260         [8086:57b3]
+>    Dell Pro Precision 5 16S PW516260         [8086:57b3]
+>    Dell Pro Rugged 10 Tablet RA00260         [8086:550e]
+>    HP ZBook 8 G1i (14/16 inch)               [8086:57a0, 57a1]
+>    HP EliteBook 6 G1i (13.3/14 inch)         [8086:57a0]
+>    HP EliteDesk 8 Mini G2i                   [8086:57b3]
+> 
+> Add these systems, matched by DMI vendor and product name, to
+> disable_k1_list so K1 is disabled by default. The HP entries match
+> the product family, which covers the screen size variants.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake")
+> Signed-off-by: Chia-Lin Kao (AceLan) <acelan.kao@canonical.com>
+> ---
+>   drivers/net/ethernet/intel/e1000e/netdev.c | 98 ++++++++++++++++++++++
+>   1 file changed, 98 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/intel/e1000e/netdev.c b/drivers/net/ethernet/intel/e1000e/netdev.c
+> index a8f0d3c0fd750..319c7a44f5a53 100644
+> --- a/drivers/net/ethernet/intel/e1000e/netdev.c
+> +++ b/drivers/net/ethernet/intel/e1000e/netdev.c
+> @@ -80,6 +80,104 @@ static const struct dmi_system_id disable_k1_list[] = {
+>   			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 5 Micro P5M1260"),
+>   		},
+>   	},
+> +	{
+> +		.ident = "Dell Pro 14 PC14250",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 14 PC14250"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "Dell Pro 3 14 P314260",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 3 14 P314260"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "Dell Pro 3 16 P316260",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 3 16 P316260"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "Dell Pro 5 14 P514260",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 5 14 P514260"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "Dell Pro 5 16 P516260",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 5 16 P516260"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "Dell Pro Max 14 MC14250",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Max 14 MC14250"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "Dell Pro Max 16 MC16250",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Max 16 MC16250"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "Dell Pro Precision 5 14 PW514261",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Precision 5 14 PW514261"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "Dell Pro Precision 5 14S PW514260",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Precision 5 14S PW514260"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "Dell Pro Precision 5 16S PW516260",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Precision 5 16S PW516260"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "Dell Pro Rugged 10 Tablet RA00260",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Rugged 10 Tablet RA00260"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "HP ZBook 8 G1i",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "HP ZBook 8 G1i"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "HP EliteBook 6 G1i",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "HP EliteBook 6 G1i"),
+> +		},
+> +	},
+> +	{
+> +		.ident = "HP EliteDesk 8 Mini G2i",
+> +		.matches = {
+> +			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
+> +			DMI_MATCH(DMI_PRODUCT_NAME, "HP EliteDesk 8 Mini G2i"),
+> +		},
+> +	},
+>   	{}
+>   };
+>   
+Hi AceLan,
+Thank you for this investigation.
 
-Should this perhaps be addressed by documenting the state of
-the CPU core in Documentation/arch/arm/booting.rst?
+With a list of systems this long, covering multiple generations, this 
+suggests a fundamental problem somewhere, probably not what this quirk 
+is intended to solve.
 
-We already have similar requirements for normal CPUs there, in
-particular about errata workarounds and the state of MMU, cache,
-privilege level, instruction set etc, so this seems like something
-that should be handled by the loader as well.
+Furthemore, as I said, I am not aware of the mechanism by which enabling 
+K1 can prevent SLP_S0, and the GBE_D3_STS as a blocker seems 
+particularly strange.
 
-     Arnd
+I have asked our internal validation team to investigate this, at 
+priority. First I want to understand if this is limited to Dell/HP 
+systems, and if so - why.
+
+I would rather hold this off for a bit, while we investigate. Though, if 
+the investigation turns out complex, we may apply this patch, at least 
+temporarily, until a better solution is found.
+
+--Dima
+
