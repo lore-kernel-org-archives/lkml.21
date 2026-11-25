@@ -1,80 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795565131;
-	b=2e5yy6Ylcw3tSn0VKwI+WjFNBtFTyj7glZ8XAvtkdCxnoSgD0iptpgmQx2wGs60BtQyL
-	 gwpZMatT1OGE/Kk3jGYT4WDdhOK7pbw2cZStMZYzwMJTRNKzvBmqlwk8y0nGfUVAxVHvs
-	 QadL0KGCnfZ11l2EDsnV89mA76XOEcIZphoXeaFbS3OAa3iO5LG69CPpkzzqbZclPto0u
-	 PJyoOFx+uliA2nrXSLoJ7POs/F79G4XESTv9reJPCOkL9fteM4bGMe4qFO9Xr2J8AhN7a
-	 DjokOjPUYADAhJLB+Kg9jXgo5Qwg33vH0Yzv2g//o//i2slhY6WST4/pliPy/0VX7RQ==
+	t=1795565171;
+	b=X/7A+wFdtBFaZOsVURDDZp9DtOAbkLYppXPxcVMCmqA2Ay5O7GEwUMPF56HTGwlvpmGQ
+	 +GsSXZeJB5guxYEDQ7no5CBQvFkMb8kqx6q20OrQFZigBraA0YhqMH22DvE8PLwA2zvXG
+	 G8uqPJ7aDmyeZZE5Mo7q3ZOjEVpE0ngM1g5YTDGshRF/6TU0e7MB5pOs3ELOH1+vr/S9g
+	 eZxGfIeaqS9oQ7D8ulCvr2vTY5+HAMBnKSOqImm3PKGL9onTVoPU3rLyzxC+DJT9GdtiB
+	 Y0bhzcSTjW/YR2w7V6pV59M+ODZzml32ji9ShKfYcPcOE8aw6uYY5GVYEoOYckeuJ1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795565131;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Mailer;
-	bh=b/B7CS5EpngxzTNkwgvNydEkfpSf+yi23gB/QC/0obU=;
-	b=VoC2EjQ4QT7NWKVl+D4r5wG/6P6AwJ/w1JdiGgtnn7c41T6kRqKS9Jy8lHAYxXxh6mEc
-	 p/m11YVYvzJQTlGYDTNS+EdEevsNgraJUPgQ1xTiMb7NMgTv6XUFw99ee/fGPZ6FvhVqM
-	 4GB8TmDmtcijAcx2TsjD4IucExZmxDQpAuF2OptopA2C7kkzOStNjLjtf3UjcmzYbdt/l
-	 AOmyzYmj5AW682isvhvVHjPx2yF0xgy5D4twASOoff7KAGtuwCcGVojA9J2qDaj6Rya6f
-	 tshxeQCcUHzseRvQ7rmM+Rsixkvi0mpiyQk33qv+ZXi02d7bmUhGoz0G5sRXam2oKQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795565171;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=5RD/LDrhJYV1tIXcx9iH98rmCrNKiWejyJ8h38BVvNg=;
+	b=mOfSNNCb+Lo8EcPR2LAHA58jNgrvy2O8Yrmf3g3I/V8Q81DRaH/FLi6DsYiG9jlNy7aY
+	 ChwnFMW0rKjkwO0MASHUVUkeotIQvrkdXIUD6FmaOWOCRUeMzuzwdpPrt0+w+oXNcl+fo
+	 CCZv8aHIj5wmct78UMeBwyYKm52jzcM6Ck0ZP3X5U8+1GFlqilYMT2FHb3Hrxbjhgfuf5
+	 nwYb6S03frgRtXXq6HidGPDQmaXUxM3MCeLomDwNr7jA6EMnRSF3Gn1GGso03XnS5aqpa
+	 NeUW8t0r6/m8BCOTa0XAJ0q4l7AOYtXlVP+HmeHCDrW0Rr9XEu9hn7WwWkOBKCfcKwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=FdDRBdiY;
-	arc=none smtp.remote-ip=66.163.184.199
-Received: from sonic301-30.consmr.mail.ne1.yahoo.com (sonic301-30.consmr.mail.ne1.yahoo.com [66.163.184.199])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UV+7t0Ek;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EB2D606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:05:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EB2D606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B26A606A31E;
+	Wed, 25 Nov 2026 00:06:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=FdDRBdiY
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795565130; bh=b/B7CS5EpngxzTNkwgvNydEkfpSf+yi23gB/QC/0obU=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=FdDRBdiY8hrMfXMO0hb+EBrtSXeE7s+1RhAraTwkF6+Ck70wkoHq/JUNJtu/c9DJvBBmUq7ah589Hl3PXtMO2Q2rWkJGlHHVVjbMhHF+ZfeJOyyJdE1A04Mxgxa7CTAHEhbWwdINTTGFSkXuN9rsZrbsfzs1stfunq41kfD19e+6g2bVG2HPzLWvhw9x7u2itrbawmDmIlaaoOnuwsvwDbwFrHUNS1P9f/AYBhya4wYbX5ldd9WOdiea0J9ATRO7vVd2+XNaEU4IGYMGXDizd851vvQBlWLPPhO1tvbEOIuC87OzDlNiv25wB8wm0tnCivg3KYZdJ0G8pFzT08NpPQ==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795565130; bh=vCMXI/Nai7lt7jzs5+EcDh/h6ksvKBntn5Me9BgZawz=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=gI+jxWKRD0NluvbLWsH5nc6o2U0UbBCyclf+Y11qsvLglWpiz9IbnBcYnbxfkiuy7MhYTWxxvaIQUWSHEVfZymnvm6EJwm7+F5IHiDiKQpCTkdGMdwkeRxLs7Y9Sdz6Fb3eh10zdGb+NZlTiqj9J8xmd1+k05G7KS6EL7tbergEmSFkoBLtc4mVQIcCqYLnpsfPciLm+clOE/1I990wbGLBtH1T4x4/D4WRaHOUHRYmMe8Y6E/mvbYdOenRORMDB3CKZBBOC/RXKHSUSeu7x77o7r8BVLqsqvuzjPZ8MTpM4Jqb+ZHdKIwbp2gW0D+rajDJHOi00MTNxzNjfmybOVQ==
-X-YMail-OSG: 3.PsBjcVM1me6UoS.frMBLtproG.2gFXfRyHe6_yhoRqI0Ia.BmabDdDu_Fpcqx
- T4DZnu03oMatR4H.mRcXkqbAkU8TcBDGdSOa2D477G3av91pXhfeWNPOg.4r4BnBpUfpsr6fY7aB
- QcTC_.QOiyb9GcwPrC9ieEhhBlsKPQ8STAyXSspUXTSpsZU.0tC5KOHFAVo66Il4pWgP8mBXYe4o
- uXZAbNlLkGei3fAtMKe4xCjZlmy5EhziNSSGTEfflGzj5YM6YivWvriuiyhQIVIJVdigMS1UKvv4
- 2iGWFttDCGQjb6fD70ySwI9yN8hMuwudGArQz4qm0vBrFJPoJ9Tautiv0EztTruzKMBec2kDTRyu
- 3muuK2ZYN2ZX2HzGyIi8ALicktjV1GWhSDj1vv_strvev2c9uB6gnUkKYupVY3ZzNgQUUL1Ib6Ul
- dItnx0xU.cyYDRzBVKdbBxX1N_uOumppGkB_wTTQ21IPjPXa.0SRgZWu2eGQJtCKhgsQuEzABGjR
- VNPgp7cL.aSeOHlJPNY3WUzA7RL3kX6tLYDc17kDBLsBReDUhyt9urNA2NzmbWR18B_IB34rAqgz
- YdKaoFLZxGhj8ugAvcWlYt7w_ZnSYsbLbiEhNTNCt8qNID2r5lwplhosNEXtxv.GUtu3ZbK2322F
- 0yAfmr5r27a5A_8uQkOBmvxdHNjZB8wKqakJjJJHR5IYK6NzsVj8lsWMuQ7WdkAlgeJDWxQTMRVP
- qsxDa9VbJI0DEIrcDtMC2fhbgMtOONI58ac1l8GiKdvpWw.HWgYV0O5yddcDvS8Azc28sa1XrYRU
- oX4zhqg5deKz8lzq9WuT_aMGokLAH37B4IsHhsjfeKhesDxobVElX3eYixKO6sXOaOFb4JK6oQYs
- iSSfvx7bGccvJzZYoE4LGXyCsCiSsfh0mQCIGBYytuJMxld1CJVBJyhYk6Jk7Eoe042RlOozt7bK
- hI7Nw91dqVPPOQu.1WElRYY_HCaPi9111wpRJhXDim2WO0U5nCCImPhdqcbnfBejocjsQf6dtlPs
- rqmNStilXRws9kMD.gJPMGUuqA8JBthaAeJWegK5fLQGzAzqzgGoLGY5ENA8pABG998HlYP1TSDV
- 3YzmDJG6pr8heYrsH3mEzLBnI8GAJwZg1Ydb.t3rqyc5BQ.ej23JfcF2S.G4xPkt0uVcpv6AlM36
- NzHL0WKVbB0k80bsKp41ZkLC0fMsCb.rS3oqOaExjmVmFHEEh3XvpKThDrX57V5OP7bL2ceVBMCf
- xj2OsAx0O7ljmLlWerulREbIgTE6QAFAiv66sPysB4hCZVeM2U8LZcT3wdc0u0br7.tFaL7PoXBD
- JBUZ5grJHUDLuY6XmBUqPDFkXeeap84b4Bzx0OKXvXSyrdi_5pi5m4cgVfir9GqClF2bqbjCKXlA
- DnLPb2NkrVjAkWUafEJz5Z_JtEkb.bjjgqeEl0ZQoM5UNeFiccaGaVuHIZwo28wE6Q8AqpT5qhzT
- 6NQNvYvijQr02XvxQYBT83M5YUBoKbMc9cWedZTN7g1to4qdcw848eXqEP52hQ_UmwGimpUAf3Vb
- qrnfo.AAmG9sHw.v.4yBjb.jElZ9kOsx8korGhUQIqQvqHCH0w2yvOyF_e5.pWmKxIjNDfGRPapb
- KXOHcnFcCki8U.WMpCYaFk7nRZgzD23ajWOWq05z6Zza3ChxOrGzsoXun927uV5Q4dqvDCE3COQQ
- XuIZUzGv8pg9uDYuR.9UIU39bNbx_fsc6TCZ529EWYJlBpq.twDQUcvGMCF2gkhQe7OZ2Fwthbpj
- C1xk_mIOWdPixZrIjfnOJSUTYx6_7fsJId8jF9FEkQ.tilqa_VkvkhXHoOq_joLL_u5Cetr8yF.5
- dvSGR_8azw3U2AOummZP_u0NNCRRvi18xnouspnzrVK5X5qzr3DrxIw.nCs9A6Ri.W_qhhPNe51J
- UsxE8XgRhggFzryEx2IF49U96D1vaZxg1t2VvhdC4i6CuhN4h_mkcxUTyfHJMvJDuiE0LQT0cX69
- MwgEZppHF7YyVQ4pWWPcoZPwiLMXn0ar9Zl.NeNc.Uyu5QsuM3FiJINrY4xvnD2I2nMWS0V.7uB6
- LSNP6qOH3tcnWnvgtN440bNEL3XFn5wnf7SffIrY_gM64uXWGFihsErRkfhESHii634mHYt3QSut
- zUvJfstGJiWbqNqDlgkvRlmFJElnq0GMcP41BuIDgLEFaNOT39prWSNBJg15eZymdxr5Tp.DvkOZ
- S5i_uZhbn9.gHIqvH18qcoh7lCxJCULm4mJ9wbPyB0waqxNGTRmbrpxtCqm2DUarq.mBYXXsX3tO
- 7vu76nxb1FrZtys2d6pUfc2L7XB.kX0rDHLLfRvMHAwFI.34-
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 21eb3a7d-cd6b-478a-8a16-6dda61d3d88b
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic301.consmr.mail.ne1.yahoo.com with HTTP; Wed, 25 Nov 2026 00:05:30 +0000
-Received: by hermes--production-ir2-7c4859dc89-4mhg8 (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 037f254a0c7d866f3cfd5fe02622389d;
-          Wed, 25 Nov 2026 00:05:26 +0000 (UTC)
-Message-ID: <5e2275c1-5bb8-473d-a000-5454817a50a9@yahoo.com>
-Date: Wed, 25 Nov 2026 01:05:23 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UV+7t0Ek
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB9941F000C4;
+	Wed, 25 Nov 2026 00:06:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795565170;
+	bh=5RD/LDrhJYV1tIXcx9iH98rmCrNKiWejyJ8h38BVvNg=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=UV+7t0EkEc0udrKXP/qDf9xWNGcWWunrIeaflI04+fDcCnh8I9Hs03aRyj1q70jdg
+	 jbi9J0yMzqwJgttLtzgglpf1Z6Cmu2F82CmkUMIBpqBxZ3x4Gz9sMQxq2Hu6rl2lPA
+	 GwoqOFsGedKnoAgxbs9WCdVPSTjhO5MsdaLXvM9s1GAobdHYFBOZ+jM375oZ3GdmUG
+	 4rJ5sJvrbtGct8L2VQzTrAFaT6NLWR4nDDUMKZrT2GGabHETMtTZC+H7Zs/IKck2n3
+	 Ba1uQw8STOz6BiFRtJx4xu35Csayi8T239QGTd1RJwKEvQsft/vNCoE3OKtEcXFcBc
+	 zg19nVIeceC4w==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,172 +49,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v14 06/15] net: dsa: realtek: rtl8365mb: refactor
- VLAN 4k handling
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
- o.rempel@pengutronix.de
-References: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
-Content-Language: pl
-In-Reply-To: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
+Subject: Re: [PATCH 2/2] media: qcom: camss: vfe-340: Skip the register
+ update when queuing a buffer
+From: bod@kernel.org
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Cc: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, linux-media@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, bod@kernel.org
+In-Reply-To: <20261124-tfe-fix-irq-v1-2-fd9840d952ae@oss.qualcomm.com>
+References: <20261124-tfe-fix-irq-v1-0-fd9840d952ae@oss.qualcomm.com>
+ <20261124-tfe-fix-irq-v1-2-fd9840d952ae@oss.qualcomm.com>
+Date: Wed, 25 Nov 2026 00:06:06 +0000
+Message-Id: <179556516603.3759718.511354966534459212.b4-reply@b4>
+X-Mailer: b4 0.17-dev-cdd92
+X-Developer-Signature: v=1; a=openpgp-sha256; l=778; i=bod@kernel.org;
+ h=from:subject:message-id; bh=dzYDuiK9hXq6k5DvdvgJjH+tK+AxsI6a3S1l5Z74qHw=;
+ b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBrBiZuO/AemmYrhuiqd5zc5IVgv5ZDXQr28LRIs
+ 2M9BrASqjeJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCawYmbgAKCRAicTuzoY3I
+ OohgEACxqE09HUr8oF7tR0Zc9KOfl9RAw79E4DOy2JSZ8Q0wZQjnM1GQ8bjyVAmTv/iO7Inki/6
+ S5YVMBtX1YcQKnmaLSJUirgswpp0cfgrjrfXjBELczPCLEC+49kkpPB/DLRyqKY6stOpejh30Fw
+ dXV5/MAp/p8ExudLk6vOcNS+U9ZO7ZVQFjti+SsLpAcakRk2JYgeqyd9/oyijtJDvyXLj+KJr3q
+ eUzaNcxq8JSav/aTOPLdoOLDUQ14md20SBSDNupNLbBqCIvksGSdOLUD9KlXseayDfX0d3vJPrL
+ nid3uvpiDTIsgZcZ/0xcTr4IRz6201++NgCaMnQkWnjuJkKug3eQ1NvwPT4SJgM62LsjRqu5lZu
+ zxXTvkQMLyjvtuhAA5PSfuDBFiX352cYAQNMsSUPHDtuIyPfLW+FSpIF1RTQx6M5LQttNXu2hXG
+ En0N/ntO879BvuigzvWALreOHr8Kql6fFiVwzQu3edBDamKLFz/88e2UTsgM8I8sFBy/N83iVOu
+ ZJucXfT7nL6moXE9eoV5o5CjOY/xAHzpjdVgqHFipmDD/JcmbpggB+WX0Lbnb+B2kYUC9uOUR8K
+ U1pMH2YC0+80jBPTGOarReVB+60KYK6jVeJRnp6DpV/bW8ZOQd973Yiwr0Mn+ObDZRImdjFkHxr
+ goV3m9Q9WJZoDcw==
+X-Developer-Key: i=bod@kernel.org; a=openpgp;
+ fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
 
-Move the family-specific VLAN 4k table accessors behind struct
-rtl8365mb_family_info, so that family D can provide its own versions
-without is_d() checks in the shared code. The existing code becomes the
-family C implementation and is otherwise unchanged: rename the
-functions to rtl8365mb_c_vlan_4k_read() and rtl8365mb_c_vlan_4k_write(),
-export them and call them through the family info.
+On 2026-11-24 17:47 +0100, Loic Poulain wrote:
+> The TFE bus image address register is a FIFO, not a shadow register, an
+> address pushed by vfe_wm_update() is picked up by the hardware on its
+> own, with no register update needed to latch it.
+> 
+> The register update issued for every queued buffer therefore costs an
+> extra RUP_DONE interrupt on top of the BUF_DONE one, for no effect.
+> 
+> Implement addr_update() as a no-op so that vfe_buf_addr_latch() stops
+> falling back to reg_update() for this generation. The register update
+> done at stream-on is unaffected, and streaming now takes a single
+> interrupt per frame.
+> 
+> Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
 
-No functional change.
-
-Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
-Tested-by: Oleg Gavrilov <gabonpivovich@gmail.com>
-Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 ---
- drivers/net/dsa/realtek/rtl8365mb.h      |  5 +++++
- drivers/net/dsa/realtek/rtl8365mb_main.c |  2 ++
- drivers/net/dsa/realtek/rtl8365mb_vlan.c | 21 ++++++++++++---------
- drivers/net/dsa/realtek/rtl8365mb_vlan.h |  7 +++++++
- 4 files changed, 26 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
-index a9bf4f2..be0f49e 100644
---- a/drivers/net/dsa/realtek/rtl8365mb.h
-+++ b/drivers/net/dsa/realtek/rtl8365mb.h
-@@ -10,6 +10,7 @@ enum rtl8365mb_family {
- };
- 
- struct rtl8365mb_jam_tbl_entry;
-+struct rtl8365mb_vlan4k;
- 
- struct rtl8365mb_family_info {
- 	enum rtl8365mb_family family;
-@@ -18,6 +19,10 @@ struct rtl8365mb_family_info {
- 	int (*ext_config_forcemode)(struct realtek_priv *priv, int port,
- 				    bool link, int speed, int duplex,
- 				    bool tx_pause, bool rx_pause);
-+	int (*vlan_4k_read)(struct realtek_priv *priv, u16 vid,
-+			    struct rtl8365mb_vlan4k *vlan4k);
-+	int (*vlan_4k_write)(struct realtek_priv *priv,
-+			     const struct rtl8365mb_vlan4k *vlan4k);
- };
- 
- const struct rtl8365mb_family_info *
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-index ae01cd4..687939d 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_main.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
-@@ -756,6 +756,8 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
- 	.jam_table = rtl8365mb_init_jam_8365mb_vc,
- 	.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
- 	.ext_config_forcemode = rtl8365mb_c_ext_config_forcemode,
-+	.vlan_4k_read = rtl8365mb_c_vlan_4k_read,
-+	.vlan_4k_write = rtl8365mb_c_vlan_4k_write,
- };
- 
- /**
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-index 8d49ffa..566c6bc 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-@@ -48,12 +48,13 @@
- 
- #include "rtl8365mb_vlan.h"
- #include "rtl8365mb_table.h"
-+#include "rtl8365mb.h"
- #include <linux/if_bridge.h>
- #include <linux/lockdep.h>
- #include <linux/regmap.h>
- 
- /* CVLAN (i.e. VLAN4k) table entry layout, u16[3] */
--#define RTL8365MB_CVLAN_ENTRY_SIZE			3 /* 48-bits */
-+#define RTL8365MB_C_CVLAN_ENTRY_SIZE			3 /* 48-bits */
- #define RTL8365MB_CVLAN_ENTRY_D0_MBR_MASK		GENMASK(7, 0)
- #define   RTL8365MB_CVLAN_MBR_LO_MASK			GENMASK(7, 0)
- #define RTL8365MB_CVLAN_ENTRY_D0_UNTAG_MASK		GENMASK(15, 8)
-@@ -182,10 +183,10 @@ struct rtl8365mb_vlanmc {
- 	u8 meteridx : 6;
- };
- 
--static int rtl8365mb_vlan_4k_read(struct realtek_priv *priv, u16 vid,
--				  struct rtl8365mb_vlan4k *vlan4k)
-+int rtl8365mb_c_vlan_4k_read(struct realtek_priv *priv, u16 vid,
-+			     struct rtl8365mb_vlan4k *vlan4k)
- {
--	u16 data[RTL8365MB_CVLAN_ENTRY_SIZE];
-+	u16 data[RTL8365MB_C_CVLAN_ENTRY_SIZE];
- 	int val;
- 	int ret;
- 
-@@ -230,10 +231,10 @@ static int rtl8365mb_vlan_4k_read(struct realtek_priv *priv, u16 vid,
- 	return 0;
- }
- 
--static int rtl8365mb_vlan_4k_write(struct realtek_priv *priv,
--				   const struct rtl8365mb_vlan4k *vlan4k)
-+int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
-+			      const struct rtl8365mb_vlan4k *vlan4k)
- {
--	u16 data[RTL8365MB_CVLAN_ENTRY_SIZE] = { 0 };
-+	u16 data[RTL8365MB_C_CVLAN_ENTRY_SIZE] = { 0 };
- 	u16 vid;
- 	int val;
- 
-@@ -282,6 +283,7 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
- 			   struct netlink_ext_ack *extack,
- 			   bool include)
- {
-+	const struct rtl8365mb_family_info *fi;
- 	struct realtek_priv *priv = ds->priv;
- 	struct rtl8365mb_vlan4k vlan4k = {0};
- 	int ret;
-@@ -296,7 +298,8 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
- 		return -EINVAL;
- 	}
- 
--	ret = rtl8365mb_vlan_4k_read(priv, vlan->vid, &vlan4k);
-+	fi = rtl8365mb_get_family_info(priv);
-+	ret = fi->vlan_4k_read(priv, vlan->vid, &vlan4k);
- 	if (ret) {
- 		dev_err(priv->dev, "Failed to read VLAN 4k table\n");
- 		return ret;
-@@ -313,7 +316,7 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
- 		vlan4k.untag &= ~BIT(port);
- 	vlan4k.ivl_en = true; /* always use Independent VLAN Learning */
- 
--	ret = rtl8365mb_vlan_4k_write(priv, &vlan4k);
-+	ret = fi->vlan_4k_write(priv, &vlan4k);
- 	if (ret) {
- 		dev_err(priv->dev, "Failed to write VLAN 4k table\n");
- 		return ret;
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.h b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-index 27a526b..009b127 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-+++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-@@ -18,6 +18,13 @@ enum rtl8365mb_frame_ingress {
- 	RTL8365MB_FRAME_TYPE_UNTAGGED_ONLY,
- };
- 
-+struct rtl8365mb_vlan4k;
-+
-+int rtl8365mb_c_vlan_4k_read(struct realtek_priv *priv, u16 vid,
-+			     struct rtl8365mb_vlan4k *vlan4k);
-+int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
-+			      const struct rtl8365mb_vlan4k *vlan4k);
-+
- int rtl8365mb_vlan_port_get_pvid(struct realtek_priv *priv, int port,
- 				 u16 *pvid);
- int
--- 
-2.53.0
+bod
 
