@@ -1,83 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795603425;
-	b=l8Pbdgjb2p1x+Dz2+/wyoPS/xgEzlQyu9MaeZKglqTCH5BPnkvSpi/pkGQITUDcTirkG
-	 wTL4OE2f/M0Dqzvo90tqBzluSxlhu6DKhSvNzkwRSzwo3OFTVi6OHJs8Z0uTJisvSScSI
-	 xd323tSai4Qffk3gdeDd/5dHy5XqQae4WUPbuoWHOq6wiYEhtNWVYlwmSPgCOdGT3cdua
-	 Xb0iBEmQxFzgL1L+9GJ2as9Sn3PUHXSmZVjpTfyoU2KgPnpq4xPBjJdYMpZbTdn+bq2PD
-	 vwRmy2F+v4F7TikEeZsgOMqH0aKI+kdNNpVdb9/GDooryQAAXScLqW0EtMY3A/8BX5w==
+	t=1795603487;
+	b=QPjePhIoi3SxFW4MZvKwqRZqRv8MMQWQ96Y8WEidx1J7HKaXwoxH3qkF1kUbiry45RaR
+	 OrAxv8eSaHQDmGq970HY2NRHpGD6wBDiql4gLtxjcyZDpSj5Ds8Nep5BFxVBzUDkrcJ+i
+	 xXyddiWZ0YbUilfufEJ5VHU5hLqhXSMGlCZfnc0rwhbJ3WRwwoq4h3Pr7qhtB7aqkWsl9
+	 bdNmkbHlJA0Ba4cENDl6Y0flUx8rJbKYP0T0uCvUhozvnsdqyyWQuzYp79OQVhSkRi5lm
+	 mc5QN/79e0P/TuYB0pwS67N/lVpnHtuYIPgHuKB1kCOu+yINTGRTAphncqAeCFvfUYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795603425;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 Organization;
-	bh=9QDqLSd6pFJm2iqcQeawtZNmBX0VjqXvKJwruEHJkpk=;
-	b=qBlYA2r81WqOtbRMfFcUv6bDHjaQ9fqKJfWEXmdiZMocxm/0U/yPUvxjkKDbH7dpb7Hm
-	 Hq0RzEUJuzvxvbrdSYE+1w6HnS76GWtyVRAOMhmkMmegqNKjjXRP4cA+KmjEs9fu/6aVl
-	 t9cCqqQTKQO32AryVT9cpvmeInHhwvRHnuRRoUtz4qko+TNAsXgQnX7K9KcoGm/Msl7jw
-	 SdTBZTxHJxhmDuNIoXmK7GXMQMnfVeGFFDdIA+YbIp8RD0shlclXbj9G1Byu3vJ8WqpbI
-	 pbTLKqPr7NCZ577Lwtk4Cof+BsQdV3wFf1Wd4EKsCHpM5bbWyt6oKIXN5FSCuZCW4Hw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795603487;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=CMyK6mMobUrcy0EM1NOvK36Vw9GZCvCYDQpUoqbxDoY=;
+	b=cu13aV8l37uqNkCWBcIaO7wqTc212iiu8+MJPFYEtQMrA+SlmdO9f3TZf51caZKkU84N
+	 43TkQ3IPiYUXM8B/YaOfzt816tbHzKHyRQFnJvaPqaM4c+7APEuRgW1gRotfqSZfdSQSm
+	 neZOmo1v8UkL0gFgeqC60OqF64t6Ns82ENw9IsLZMSnwNGSKWjnRaSTLHoM3RjD0hpQa6
+	 ZpLJQVKFxKKqafoQQnPggQEI6HAcX74VaQ7DkBinHjkuuNsVUAHuKK8b1D/GxwK7ZIWDL
+	 y9qWwarAEWF4fogAHeZuLuM5ZQc7mNKtnvRQ5F1Pb5i0dh/FzirkYZH4C6aSGaZkKWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=k6FoqpV2;
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ODecRjVN;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=ljn4WTxk;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AE36606A31E;
-	Wed, 25 Nov 2026 10:43:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AE36606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B481C606A31E;
+	Wed, 25 Nov 2026 10:44:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B481C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=k6FoqpV2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795603426; x=1827139426;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=cf+II+B3XkUCRJs9q5OPFzPSx+9NXKQDRCtkLaUO+vQ=;
-  b=k6FoqpV2k98kX3nOhVj38kuD5uma+baDoWmXC1Ky4SGw1f06irqwcjZg
-   oFbuAXOO88Dk6shND17v6WH+nF3vE9lAT+VIUlP2KPGwm77Ax840Ipx/0
-   ihmEz16Dl3ot8vWQ1Psz4Oaklr48W4eQVw13jSLTPuK57kyeirNfhUshE
-   i5wNixSor15mUmw3Sx1WACddWfKsU2hHwLfyXL/Xh/Nc0211sfgFqJdMi
-   ASkjrqyJJwY2QrfEzL+suW3ykjsZqxJOy8EiQAY3JxdpTcabjZMoHnTPn
-   vhSx81wHtkMwqTisKPe14gfvinTUOH8sV1JohOH3SoFYsf31BCRW8wT3y
-   Q==;
-X-CSE-ConnectionGUID: l8Qhgh5XTIKJ93weP4yNTQ==
-X-CSE-MsgGUID: +lB2exjlTJa0ZnPoQXaJXA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4480401"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4480401"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 02:43:45 -0800
-X-CSE-ConnectionGUID: 4EgpQ/b4S9OvLv1jw0AlkA==
-X-CSE-MsgGUID: tmONsi+DTruzdxs+jLD+Vw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="11622841"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.73])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 02:43:42 -0800
-Date: Wed, 25 Nov 2026 12:43:39 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux@analog.com,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH 6/6] iio: adc: ad7793: add firmware support and drop
- platform data
-Message-ID: <awa728YWKMfpwe8c@ashevche-desk.local>
-References: <20261125-iio-adi-legacy-platdata-v1-0-54e4c8830b57@analog.com>
- <20261125-iio-adi-legacy-platdata-v1-6-54e4c8830b57@analog.com>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ODecRjVN;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=ljn4WTxk
+Date: Wed, 25 Nov 2026 11:44:43 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795603484;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CMyK6mMobUrcy0EM1NOvK36Vw9GZCvCYDQpUoqbxDoY=;
+	b=ODecRjVNdI7BuGrM0sYA4qblRE3XKZlm+eV5380OTLybeDGlpWtV7aCPxK7Qm87gYwPD/B
+	S7OPRgWxE9BBMewGcbkGj+FcbR824dQOzsCiuTXaS2EklxC8+o+V8tQIk8rG9VqKCNWcK5
+	RajfIXx9arE0vcNx236Q6IwaiLG11ZPQPtQDgxhAGigyQBpchRnlh4bceHdvlbS7g6crHD
+	rS1Pqa8ii9S7GU/jU2hJmuxa5GLSgZRjYPZ3yBxeiPu2yIP1E98QcF5EYkPSmGxwXZD4D0
+	6fgJUguiB4WBxcrhCj5heXpABYa7i/gD3m5aPaFH/ErMtjpLGrMOUW8HMikkhA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795603484;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CMyK6mMobUrcy0EM1NOvK36Vw9GZCvCYDQpUoqbxDoY=;
+	b=ljn4WTxk2IVa51CmiQbV6bDPcpU5jnkhvsmfmn/M1cxv63RHcKQtiCWhXNcfTpq3qUSSEq
+	IpWOavTryMXMbyCw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Zixin Wang <w1355457260@gmail.com>, frederic@kernel.org
+Cc: linux-doc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	darwi@linutronix.de, john.ogness@linutronix.de,
+	clrkwllms@kernel.org, rostedt@goodmis.org, corbet@lwn.net,
+	wagi@monom.org, atomlin@atomlin.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6] Documentation: real-time: Add runtime tuning guide
+Message-ID: <20261125104443.X1l7Oy7s@linutronix.de>
+References: <20261125074658.33117-1-w1355457260@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,40 +73,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261125-iio-adi-legacy-platdata-v1-6-54e4c8830b57@analog.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20261125074658.33117-1-w1355457260@gmail.com>
 
-On Wed, Nov 25, 2026 at 10:19:22AM +0000, Nuno Sá wrote:
-> The driver refuses to probe without struct ad7793_platform_data, and
-> there are no in-tree users of it. That means the driver can not be used
-> at all on a modern system.
+On 2026-11-25 07:46:58 [+0000], Zixin Wang wrote:
+> Runtime tuning options such as C-state limits, EFI runtime services,
+> CPU isolation, RCU callback offloading, and interrupt affinity are not
+> kernel configuration options.  Move them out of the configuration guide
+> into a separate real-time runtime tuning guide, so the configuration
+> guide stays focused on Kconfig options.
 > 
-> Get the configuration from firmware properties instead, following the
-> new binding, and drop the platform data header:
+> Keep the existing configuration section anchors in place and link to the
+> new guide from the relevant configuration options.  This preserves the
+> documentation links generated by kconfig-checker.
 > 
-> - The reference is REFIN (REFIN1) if refin-supply is present, REFIN2 if
->   refin2-supply is present, and the internal 1.17 V reference otherwise.
->   Parts without an internal reference need refin-supply.
-> - An external clock on the CLK pin is used if given. A 128 kHz clock
->   is divided by 2 internally.
-> - The input buffer stays enabled (as it is at power-up) unless
->   adi,buffer-disable is set, and unipolar coding is used unless bipolar
->   is set.
-> - The bias voltage generator, the burnout currents and the excitation
->   current sources get their own properties.
-> 
-> While at it, also enable the AVDD and DVDD supplies, add an OF match
-> table and fold the platform data checks into the property parsing.
+> Link: https://bugzilla.kernel.org/show_bug.cgi?id=220633
+> Link: https://github.com/elisa-tech/wg-aerospace/issues/222
+> Signed-off-by: Zixin Wang <w1355457260@gmail.com>
 
-First of all, can this be split to a few smaller changes?
-I will look at the rest later on.
+This looks good. We don't have too many copies of the content anymore.
+Any objections from anyone?
 
--- 
-With Best Regards,
-Andy Shevchenko
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-
+Sebastian
