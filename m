@@ -1,100 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795648894;
-	b=spmkkxkpnBqwjs6RhLfYsaq/kqWyG0s202sQtLoVhq0ajNmvMEEo+sjw/mt6lowLmlfu
-	 GAF33gmJ/wggVHjlzBzquAXuDgvNu7lPWryY+N2A8RWkt0TPvsG6wZBxLXih9oOtHu4Qv
-	 p1MJ8EoZOwWOt4/UJ7/SJNWe1KVfTn6/Nu+9VUp3ATfp/zyX4a2LIMJoyXj6c3NDfmaPg
-	 13c/wl8XOXgkFm63TjcLEHBdjDs2WunSMy8+oV1kWa5qsqLSLjOzx2izk0Y4D5pXFkwVJ
-	 OmIfkKQK6hlJpagLUYH4WZgy5o4Iy1SmdRl1LmTwNaREgpIMWCKKLYlS/Ti2oyDrh+Q==
+	t=1795648940;
+	b=vPBgCPrGpuov+z8WspPX4aHpDPKi6Nr27vqxs4FvjCE6mA4IZkIOr4Jt1I6sk285Q1ff
+	 AfI/5xDYjcT1JKCEXTsqRBDTspjSJfvNvN+nsAGQkuXseVOFLmPeg1Jy5Bg/QRsgITE8W
+	 eMkr2jr2YCaaUAI5I5+myokpe3KWqlGgzMELj7gW6EJNN/g3JKF1BV+Dd4Ymbj+ZggYaZ
+	 zZydB9dRYM6Dm392nxu2KovNRnME4RswVrzJYNLYsS+atJthbWAtdwgCH2rRudqj3HP0Y
+	 u1lBpy7aJ2gdHqhRG6t0+3Gf78JGvqgbUEoDz8wtnh3FGDs2q+ZDct3JyvT+xECAV4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795648894;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795648940;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=pCW63ny83XiZTDhtRYPG7u2cPmHKUXsowEsKPqJdTRw=;
-	b=1P4Eu3+V/Inuv3K9nPE9RXgPG7IMZmSuYOQ5u5WmH4OOhufROTEgWkrUhMby0JIZ6ozn
-	 ykS1K0mgvdzMwvLZoNNnarOiI4JWUsfaXVIOmWSIzegwtsbtGLWE+n+Oi7Ivs2WC4RzxH
-	 D7QrvdkCVuYY/JgowhvCHiSkjn9poGGc0t+cuDgEnDmForwMH2XE8MvhDSDkhXBVSutkX
-	 iOy7RPxelrLvB9Oh7SvoOp691MDcEYFNBcRB7vsIskovaXQuRMH5fK1NHzVhIYGzmvCNX
-	 +zIFTc1JU0gtnnlEOmQ/02C+bSIY/po76mF+p2wUoISHTC8ZwIyg+nelLd32AflD8gw==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=XYTc/DcHZroRC4kTjFqOBmNj9WcBY99HUsdGTOAweDw=;
+	b=ax8VGKVF2nFrA9xHriPK6GD0PQQW5yJdw5h83bJm4snDyPqqhtgy7plVi714TDsJOatt
+	 1+sJyV5nKs+Lx9jnV9a4hX4N16wEgVs7yqSti8GdGvd1I0PWi4Mr4YyM2QKM2LnF0L1vG
+	 Ttja6yuf05+qpy5XXjB8raU68Ga7G3U6nDWTgIx5S/7SSrIi4EW1MpPUz9Cf3dMKuxzAk
+	 B/OwLVovPPEdPUldNM04X68qOgR0sUr2SuKaLhwLwppawEV/K38YDDSTH3LNF8FHTPrcj
+	 77tf/iAnRi9zcI0fDF00zErE+CZnkxJ4hJDkoTTYw0NT18k9AtcfH8RadN34V4l1FRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EduQ3it1;
-	arc=none smtp.remote-ip=209.85.210.174
-Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pBguUIoS;
+	arc=none smtp.remote-ip=74.125.231.131
+Received: from mail-oo2-f3.google.com (mail-oo2-f3.google.com [74.125.231.131])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EDB6606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:21:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EDB6606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A3DB606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:22:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A3DB606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EduQ3it1
-Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8a06e79e152so3193203b3a.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:21:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pBguUIoS
+Received: by mail-oo2-f3.google.com with SMTP id 46e09a7af769-8459f7bc7c0so2353145a34.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:22:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795648894; x=1796253694; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pCW63ny83XiZTDhtRYPG7u2cPmHKUXsowEsKPqJdTRw=;
-        b=EduQ3it10AvwcrGZFygvafX4/s08ajPrZ9AFWJASWXvAkNzzb6C0JwTNLauQAZEn57
-         8sbshVnuB/Bzlup5YhWPh4OyOTkWtrbgapT+9XioRGKoKAcSZrIIB/byvCoU8fz1Yv8M
-         0QADQwsC0vX7O0DKa1loHDk/wjHyrCBaMU/w6QggYVd/3eoZi0nmGJP+dyOZjoysWKdA
-         Z2U+OxVTDohfsxXfQ5g59D2w1+RWJx4Ao2LG0fnBHQn8yFkmRE21KMr/i7f6dF8oII3N
-         JVLrPACYEgQVor8fpl+BLLAKFX6U5yvuggCsm+/ulZgS2RPv6P6l/woNPtSFvs3sTj5I
-         XSOg==
+        d=gmail.com; s=20260707; t=1795648934; x=1796253734; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=XYTc/DcHZroRC4kTjFqOBmNj9WcBY99HUsdGTOAweDw=;
+        b=pBguUIoSOmYtV5+isK87dUacUghDlZPy5IPukpqbfIKOf/NWEaWJnuFiTBmkW+fQSN
+         VWGuxMkX2tYCUr1PvpHa0SWIMe3/k73/MTZ4BzCZphHIOdEM6qXCjsjFEs9t+5JvmP3M
+         9V/gF4VJQdwbpSX0+45omWyAlf1f0ZwvAg2ACDBNJbYbbg/c1+n/1KDpP70ePnnaKf6Y
+         5gAIr7Nq/1s5g51cikwcZdhwdcaQK1PJ+0UkMt0deF0rfO+TPbr6ocKmCLaubpvJSDWe
+         Gpv7awlkfMmfY9Y2/Bo2h5N93jJnswxIn9Vb2NR9FZYXgK+6t2qY6fkzakPffFGYMloV
+         E0NA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795648894; x=1796253694;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pCW63ny83XiZTDhtRYPG7u2cPmHKUXsowEsKPqJdTRw=;
-        b=tmhbAM8QsCg8gYQbW8H+PQ71uIn2XT596VpoWOBfmIMhZZSMXAnmP51RvK+MKfMclP
-         FWvRPldwYybv200YYvVgEgLqSwfQKt9+LM4kZgRuGZAEvFh10CPC5EwkEtn2YduH6VJv
-         TUcnqtYVtF3eVu8XiYJfN6WKSKhS5V9GaokaQzfRZKWkNUyifR917j12l4LaEBlZV44U
-         1oG3yWrd6A7n23GBZPOzSVt+KeHjB55lKTuQmbRHjh49uSkXN6ghRR2iwMtOhR8k+3Gt
-         Epkc32SbJNDYNhC9DU5lZt1vebnGyQDTXR3AnDqueLu+hoAjrLjuFKUWOgN/LRuAts6N
-         hZVw==
-X-Forwarded-Encrypted: i=1; AL+hErG/VMZ3gC8c4MuI/IViqCA2mX0ghEivE272uBVWULk5UXynF8rIx+DD+yta+VVS4wvgNpvqAj2WgULXy5I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ZhwmVhI27GRppRq6elhBOnHDlHj0o/Ss7kr23DXgwXByXjexw
-	KneJT95QLYZEQ5WD2yd0cQNm9G1gS2PJ7Aig5ruZvX1OIp8LRYizuiWc
-X-Gm-Gg: AZFdTZe55Mek7YpjDPwNrdw1DioXxbSe7RHZ3qpwKNkThv/33hCgg7gYZtahx4fPYdr
-	NVqkxi2dWw4s4c1hXiabc3KK8tViwvjeojHla8cgM9F3eoQswuLPSRe4wkHv7+MxvFU2ITinDjV
-	uxuGFpd0JfAKp9pqtGQPAgJqCnLINT60S2ZJ5CD+0pr07vzZZsLIvl9qWpIG/En9TDqxcJHC8QW
-	SmaQj09nfx3jxYJIwKgoSIQX7KrCTgVFpExgP6hvpYvkXy7e8NN13w88D6uVK8hxRgqWWqLzJZC
-	kb9cP70gaj2ojkZ7cyYSqQvg0N1RZl7Nk+zqAbT1MzD5ut3VGtWt9GxPl3uBU1YyiN4u2NJQlLd
-	vBkGIUWgbDp56+eGcbUn36zJwk3mCe7nYyDHMegUHmf3w4MXdSw/dIMrr4FRIjrNeTAbSOquNBO
-	QYje+kKuCyyTD2gbxSDdeFsZQmY2+YOtOoK0c/CJr07VOAY9xZsyHqySp88LsrPa2eVt6m/uLhd
-	Q2rDJbzgDFC0GaEUpUIEvhnyR4jX1CtUkcljr6JaQXK21Wup+K3m6nlZJz7R2x/MTOfvz1YM5mc
-	L0QNrkZ915RLeML8khEaTtFLYti2Y5D2LiRAd3XTlBOmN7TwiB/jIibRwNVdaFZsVNRuub3VVOO
-	oofgG1Ju9zAv7AVRmrw1v9IGZxJgdQj5TAIQuePDBRJJnUUhBoqCTLDZAnqdOHaFfkXbV+ka0Px
-	TETQe0i4RLvrh157uXzETs2H8=
-X-Received: by 2002:a05:6372:a748:b0:3e1:885f:b4ab with SMTP id adf61e73a8af0-4014a27e905mr15369180637.8.1795648894120;
-        Wed, 25 Nov 2026 15:21:34 -0800 (PST)
-Received: from ryzen.lan ([2601:644:8000:37f::e34])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c873b25bfasm9864471b3a.46.2026.11.25.15.21.33
+        d=1e100.net; s=20260707; t=1795648934; x=1796253734;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=XYTc/DcHZroRC4kTjFqOBmNj9WcBY99HUsdGTOAweDw=;
+        b=HZ3lbls/1zoElhlJp5bcZG/ldzSs32AWcQmhl9MgXrD5UbFYQFam9GIDkYUl8OXiJD
+         UG34lESL8DKNa3J/VLZDqduUX+xrruTh4roByhjO10k4LvDIxz00Pwg54QB24DlKZDSw
+         OgKbrAeUobUR4PMFOVV8cfk+HwjQmxEyZ5HqisFbT55tmGqrvR64m5og8EYIozgpaSgh
+         RTsslD2DTUIieRwzhk584pOiCp+ikDbOBM0jjPzVWoNsl8X23jVOPX1wefqNCEuOxvVz
+         xHsN5PQf6L9/pW5GKqGhR53mEnPTqG8XVsgRNWkBU2cxsV1hhg2LIDVnEQ4O/RR4+tMp
+         S9mQ==
+X-Forwarded-Encrypted: i=1; AL+hErHx1GsUHlNfNaTFd/W5btiTAgsJwUrcvlBAZbqH8KtjB9qs49JGDEt28tbcK2eE7V00nJb+ZXAXMudIuwY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+x4DKETr5K2htrAGSaOAm9yYH8iXRazLxCq8drXhD+4SMOBN61
+	hZenB5HavBlUtmwGVfu1lDS2KbRjRhBswOjgQBPjPogFyMrYHyyIXtRa
+X-Gm-Gg: AZFdTZcw1qcz2mHjuosiUN62kR2iRdx4uhSGEY09KAFn7OeAeZXGcGmLC8fQ2Gd/SPW
+	YH7cXYwT5W2RufQz/+IipX2kYghfqig8Tj1EUGsQlpMc/aLiRBw3KTokAha3plGJjHKdtkgrAIY
+	PFNm/iamf69rkUu74W60wZKVDyAryISCFNPLdioJnOegzmNfWbRFGFeQV3CaMsywhiTKlA6oYbk
+	ggFd3Ok3JOueVP4sWDRwEwEkPt0/6dYcwCMZnjPZqGciJ9/axBlmpyhzCKYBbwCfMbCOFY1IkB5
+	d9LwaFGWLfjoG2UYriMC2GPjEAEt6b05+O4aYKmIXWw1hI7eCFE16HQw97qSZLES55KwcNmhKPT
+	zMiiTS1w0TXEBu0xMgXvzMjAoTNmxGL8PpMVV43BaGwZyeEDIlo+Ikt5WJNcI1uabnzzFZcXtu3
+	2fYOijHLC1yTpQ0wvFxWXsQKfQ8rlsKL+MgXkt1fdRN6wIYaGJfOdPbROzijgYnoae8v7EFX5y2
+	vnw3gNVlKAHyYH3cpF8BMsfbJ038ejHX/pG2EEBA5kbN0gt9+aSqdoC0taZIgZZ0ileWnF7ci0q
+	NnipQvP19Zpji//sv8/J2LWQ1+KJobwL2hY=
+X-Received: by 2002:a05:6830:4490:b0:862:88c6:1843 with SMTP id 46e09a7af769-8631598542amr20958825a34.19.1795648934144;
+        Wed, 25 Nov 2026 15:22:14 -0800 (PST)
+Received: from [192.168.0.98] ([50.26.120.197])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8631692d9f7sm14895213a34.24.2026.11.25.15.22.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 15:21:33 -0800 (PST)
-From: Rosen Penev <rosenp@gmail.com>
-To: Matthew Garrett <mjg59@srcf.ucam.org>,
-	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
-	Hans de Goede <hansg@kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Darren Hart <dvhart@linux.intel.com>,
-	Gabriele Mazzotta <gabriele.mzt@gmail.com>
-Cc: platform-driver-x86@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 3/3] platform/x86: dell-laptop: Make the charge end threshold unsigned
-Date: Wed, 25 Nov 2026 15:21:09 -0800
-Message-ID: <d46ed46896f3712e8a5368f9c2d8ef1bbc36f815.1795648586.git.rosenp@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <cover.1795648586.git.rosenp@gmail.com>
-References: <cover.1795648586.git.rosenp@gmail.com>
+        Wed, 25 Nov 2026 15:22:12 -0800 (PST)
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+Date: Wed, 25 Nov 2026 17:22:11 -0600
+Subject: [PATCH RESEND] clocksource/drivers/timer-mediatek: Enable the GPT
+ irq before registering
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,45 +92,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-timer-mediatek-gpt-irq-order-v1-1-7e24640e82d4@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/43NsQ6CMBCA4VdpbuYMrQQKk4OsDjoahoYeeNFSb
+ BuiIby7CU/g/Cf/t0KkwBShESsEWjiyn6ARMhPQP8w0ErKFRoDKVSllfsTEjgI6smwSPXGcE3J
+ 4ow+WAhpdabK6rAddQCZgDjTwZ9/f4dre2ssZukzAg2Py4buri9zrf8AiUWJppbVDXVVKFafRG
+ X4deu+g27btB+wAC3rQAAAA
+X-Change-ID: 20261103-timer-mediatek-gpt-irq-order-a878ed869f84
+To: Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Cc: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Ryan Brue <ryanbrue.dev@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795648931; l=3241;
+ i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
+ bh=Z6bwbYGmDlV4q9VQg3ShvOBo1zqZq9E6xE6bSf63Eo8=;
+ b=ze5Kfc37HiJ33uhw5RVqcNwV0MgJgYbChCd5ePQU/CqzWvUHCPjZZNCW+BG7LC0ljYNZu0xr3
+ nezA6dNSplsCElHWsNlsqiUEtzGQAQD9zIp8FrdgrcMs3stihwbx7bd
+X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
+ pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 
-charge_control_end_threshold_store() passes a pointer to an int to
-kstrtouint(), which only builds because the kernel disables
--Wpointer-sign, and makes the following "end < 0" check dead code.
+Since the driver probes as a platform device, the GPT clock event is
+registered late in boot, when PSCI CPU idle may already have put CPUs
+into a state that stops their local timer. Those CPUs wait in the
+oneshot broadcast mask on the hrtimer broadcast, and
+tick_install_broadcast_device() arms the new broadcast device to expire
+at once so that it wakes them.
 
-Declare end as unsigned int to match kstrtouint() and drop the dead
-check. kstrtouint() already rejects negative input, so the accepted
-range is unchanged.
+mtk_gpt_init() sets the timer's bit in GPT_IRQ_EN only after
+clockevents_config_and_register(). The forced event fires while the bit
+is clear, nothing is latched in the status register, and the waiting
+CPUs are never woken. On an MT8173 tablet with the CPU_SLEEP_0 idle
+state in use, this hung the boot in 20 of 40 boots, and in none of 16
+with this change.
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Enable the interrupt before registering the clock event. The IRQ line
+stays disabled until enable_irq(), so the handler still can't run before
+the clock event is set up.
+
+Fixes: 7a097aba7255 ("clocksource/drivers/timer-mediatek: Convert to OF probing")
+Reviewed-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Tested-by: Luca Leonardo Scorcia <l.scorcia@gmail.com> # on mt8167
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Tested-by: Chen-Yu Tsai <wenst@chromium.org> # on Hana (Telesu)
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
 ---
-v3: make end unsigned int and drop the dead check instead of switching
-    to kstrtoint(); retitled (review feedback)
-v2: unchanged
+Since v7.4-rc1 the MediaTek timer probes as a platform device, and on
+MT8173 with PSCI CPU idle the boot then hangs about half the time: the
+broadcast device is armed at once to wake CPUs that are already idle,
+and that event is lost because the GPT's interrupt is enabled only after
+registration. Traced on the board with prints in
+tick_install_broadcast_device() and mtk_gpt_init().
 
- drivers/platform/x86/dell/dell-laptop.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+This is a resend of the 11-03 patch with the review and test tags from
+its thread folded in. The code is unchanged, and it still applies to
+v7.4-rc4 and tip timers/urgent. As a 7.4-rc1 regression, it would be
+good to have it in 7.4.
 
-diff --git a/drivers/platform/x86/dell/dell-laptop.c b/drivers/platform/x86/dell/dell-laptop.c
-index eca348497ac3..1e2867f182c8 100644
---- a/drivers/platform/x86/dell/dell-laptop.c
-+++ b/drivers/platform/x86/dell/dell-laptop.c
-@@ -2380,12 +2380,13 @@ static ssize_t charge_control_end_threshold_store(struct device *dev,
- 		struct device_attribute *attr,
- 		const char *buf, size_t size)
- {
--	int ret, end;
-+	unsigned int end;
-+	int ret;
+This patch was developed with the help of an LLM coding assistant.
+---
+Changes in RESEND:
+- Collected Reviewed-by and Tested-by tags from v1; no code change.
+- Cc Daniel's oss.qualcomm.com address and Chen-Yu.
+- Link to v1: https://lore.kernel.org/r/20261103-timer-mediatek-gpt-irq-order-v1-1-6d1ddf977224@gmail.com
+---
+ drivers/clocksource/timer-mediatek.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/clocksource/timer-mediatek.c b/drivers/clocksource/timer-mediatek.c
+index 842d6ee4259e..1b2cbcc2795a 100644
+--- a/drivers/clocksource/timer-mediatek.c
++++ b/drivers/clocksource/timer-mediatek.c
+@@ -339,10 +339,10 @@ static int mtk_gpt_init(struct platform_device *pdev)
  
- 	ret = kstrtouint(buf, 10, &end);
- 	if (ret)
- 		return ret;
--	if (end < 0 || end > 100)
-+	if (end > 100)
- 		return -EINVAL;
+ 	/* Configure clock event */
+ 	mtk_gpt_setup(&to, TIMER_CLK_EVT, GPT_CTRL_OP_REPEAT);
++	mtk_gpt_enable_irq(&to, TIMER_CLK_EVT);
+ 	clockevents_config_and_register(&to.clkevt, timer_of_rate(&to),
+ 					TIMER_SYNC_TICKS, 0xffffffff);
  
- 	ret = dell_battery_set_custom_charge_end(end);
+-	mtk_gpt_enable_irq(&to, TIMER_CLK_EVT);
+ 	enable_irq(timer_of_irq(&to));
+ 
+ 	return 0;
+
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261103-timer-mediatek-gpt-irq-order-a878ed869f84
+
+Best regards,
 -- 
-2.56.1
+Ryan Brue <ryanbrue.dev@gmail.com>
 
