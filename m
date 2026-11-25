@@ -1,32 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795624788;
-	b=gvnOU5oESRK1IJ6xZ1Z5NJuKptGknPD37MSOVKzKoggeQGGOxpJGM6NxnJwVRQRqpD7t
-	 VJ6JZwzvOdAz9VoAJe+UTlDvLQnmgoxEhTAxaywiWed4yEXm7IG7iBiJDa1+TLQ+Ti8Kf
-	 C4MDBMjeqmaRfhZ2e9WP8FAn0MpKP6sB8dhX4/YvdRZrBoDz0T3rjFSDhXrtKOBMoxRy5
-	 2j54YjHiyKkCLXNSRu4q05ZS2LreJl5fye5iBt/6Xq3cYOYQSRoQZkeSC4GwfHHbCJHJK
-	 4vCtgLLu6/5FhqrajM4kL1vTfD78sBsp/dt4To0P7hU771GNwkxggTjHtzkbUsMmKmw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795624788;
-	h=Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:
-	 From:To:Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=dIJ6wlWtuq+YDcSjgi8UCsWxVOAWAUMRdLTxJIBzpgw=;
-	b=Jg5W/11CIiwXXO5yqNVk0C7qxWcg6XFklvfmJqYa2ts9MubPRodfGz5MdNc4YLOHj2Mt
-	 CedMcpmHx6D1I42wZSFrGfwrDMp32Y6jJ4htJ02qAZPLCpzXTQAP3kTInE8Ta4y6uG9qH
-	 sqvnyxGV2Fdu0d8e8e28ZSAQ5OQoXB8e632xtReki/aVs3O5Q5yzlfb0FacXqUbEMm/jM
-	 xBxj40e7J3K1QPp7h7ANQyt1BOQBXOXG2noOHefcITEC3hJoD+E2qdjUaMHrNCKj9J4Mn
-	 jC3cVrhrngnz0oBNXX8PiLwI7FOuAAsa/9Li1z0ykd+cR4HWE6QYvOityQFlFUU3elw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.96.80
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795624787;
+	b=LRm0GMdfeE0ofyr52KBVdskhbCectlTZSxXrizhIFngyXtq6h6xsEZpMtBtTfjHBSxki
+	 bAxg8O3Zv3ob8Jc2n3OZdNWW9SNGDCLtAh8d5QzP1cguXXUPWfFd8riVkgovuTwjM3iYd
+	 LeKgBfyqe3XzGpPAFdLnmseygrNTRwmWxaVjjJnMJpZfivuovTHXd0nb/MZ0VtrTcX9Mv
+	 2lSs915HgtHt0Zrev3gUwSJOWrPYx9fuDx1D+wFfxJKWJ/2uyx9KL63DPKQLEzNMGf8wJ
+	 bmDeUTXjt9KhwsybZ8HFC98MLt8t/b9puaTs4FMs9sA14LpUlBrFm3tdyWFA4YV4ilw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795624787;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:To:Cc:Subject:
+	 From:X-Mailer:References:In-Reply-To:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=vjSh/XuGaG/4bjbawpBDsLwTmKGX6H8ELcrXGH1hncw=;
+	b=W31u+KExKboY5HkVajia2q2nOlHNba2LKZVZU4L9/Ef2QTfBIP8zFKa0kATZWNeBrXyz
+	 FpewW6Oix8GZwFhHCi6JkjitIzZmul69hvu3JoFv8+nCfn0iZcpiYbBhLmtYop5EEo2aT
+	 0dnXmrmf6pFzXNdVWWNmzmb6Wo4dgrkfV1yDpai99Tw9N9oLPtmNtVn+bHVJhT0hukH5M
+	 AayvtlZEEdI95W0dQdX8xQGwxvW6XPQSSrVESYjbUadyUcZuHg+snTEjf7FJYYkZFLt4v
+	 JAmS36lxXsUlx7p9uwUABwuHpHnRDVm+GOT1wqvgxZnfbGDn+DBjeYLsNiiojqk5IZg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=garyguo.net;
+	spf=pass smtp.mailfrom=garyguo.net;
+	dkim=pass header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=bpvnuCec;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.96.80
+Received: from LO0P265CU003.outbound.protection.outlook.com (mail-uksouthazon11022080.outbound.protection.outlook.com [52.101.96.80])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFCC8606A339;
-	Wed, 25 Nov 2026 16:39:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53BE01F000D4;
-	Wed, 25 Nov 2026 16:39:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83392606A680;
+	Wed, 25 Nov 2026 16:39:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83392606A680
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=garyguo.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=garyguo.net
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=garyguo.net header.i=@garyguo.net header.a=rsa-sha256 header.s=selector1 header.b=bpvnuCec
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bxXWwQrAeNP5OGMyIzHCjqozQhOq5BYJR3ZiRa+CUhaJ9jJx5YyxPQJ+bBWrGdek7kOdlzs5SmrK7ra/Gffr+zkDbUipsGDks+ADPY9n7KsbsoaqZi6osDulW+swdKEX3VI1Zfuo4XF7Y6GXw1lciNIGMZYydEsaOmaDj5VcesVKj5ArfuA4c+BhBEv/OQVTCMoZj+wDDKy9ZQRtAljRTg6hyootnSIC3DH4Pgqiqz9l0e0BUS+KlY1hTnOwVnwzB6PeTcZh+5AnHRuop/Ah+hAR4BvAdfaRMCfvQ4iBiA7DD2FDsKRz1Lm9wcUlqQBm+Vuj9tOd/3T3isvbbjtXEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vjSh/XuGaG/4bjbawpBDsLwTmKGX6H8ELcrXGH1hncw=;
+ b=qtftymRmSIOIbbpxDwvHWY9oJQYEV5rPb64f4s41jYFctifJ7CrQ2QoT7fvLqpxcfo4JOQgDu0Kg5oUagI6lz0cNX1pePygXNj0f8VSVftv3GQuTqV8UI+OAyG+cTbdPhVcfKk1NJpO7vmI7FK+w4q2m7QfnmIiVq67CxOlzRDfal2nNBqYkucrFRY3dIRdzmGIJDlPpaJ/2rBhpSQTtVyfh1IP5x0iy0ouwv33Z4m17ATCU/BVa+5diMZHPB+YDbvOw3JIy5Twj6chYUiSDj+aqUzz8p47QcoTHPHfm/6i7BFZIBEhNNOkwwDGsk7uk3Q+nPkgsgNFC3fHoO1OMqQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vjSh/XuGaG/4bjbawpBDsLwTmKGX6H8ELcrXGH1hncw=;
+ b=bpvnuCecr8MYIFMNbqBS2dhh6lDQUwnqQ1A682D1NKxzYg8iWFUr2U+yaVBYK7B58LYmw5YZem1BbxzGUjDtqF96TqzMq4wVIx1D4fskitCyjDeDqtKkiYW71ZOnsHiWwxHD3vEvSboHQ2DSHw6e6zb8QDuxP+zap2/OcJjBTK4=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1cb::9)
+ by CWLP265MB2386.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:66::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 16:39:41 +0000
+Received: from CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3]) by CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::55f6:f98b:7fad:c6e3%2]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 16:39:41 +0000
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 25 Nov 2026 16:39:41 +0000
+Message-Id: <DN4FV0JM8LYR.VJWXQ4AYC1Z9@garyguo.net>
+To: "Daniel Almeida" <daniel.almeida@collabora.com>, "Gary Guo"
+ <gary@garyguo.net>
+Cc: "Ivan Borovyk" <saref012@gmail.com>, <dakr@kernel.org>,
+ <ojeda@kernel.org>, <abdiel.janulgue@gmail.com>, <robin.murphy@arm.com>,
+ <a.hindborg@kernel.org>, <boqun@kernel.org>, <bjorn3_gh@protonmail.com>,
+ <lossin@kernel.org>, <aliceryhl@google.com>, <tmgross@umich.edu>,
+ <tamird@kernel.org>, <acourbot@nvidia.com>, <work@onurozkan.dev>,
+ <driver-core@lists.linux.dev>, <rust-for-linux@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] samples: rust_dma: add missing newline in dev_info!
+ call
+From: "Gary Guo" <gary@garyguo.net>
+X-Mailer: aerc 0.22.0
+References: <20261123010430.365536-1-saref012@gmail.com>
+ <20261123230618.375172-1-saref012@gmail.com>
+ <DN3II6MGM5KW.364GAZDJSKNMU@garyguo.net>
+ <6D2642C7-8293-4E9F-9DB4-3199A20B0CF2@collabora.com>
+In-Reply-To: <6D2642C7-8293-4E9F-9DB4-3199A20B0CF2@collabora.com>
+X-ClientProxiedBy: LO4P123CA0185.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:1a4::10) To CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:400:1cb::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -36,87 +106,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v7 02/14] PCI: rzg3s-host: Fix runtime PM handling in
- the NOIRQ suspend/resume phase
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: Claudiu Beznea <claudiu.beznea@kernel.org>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
- robh@kernel.org, bhelgaas@google.com, p.zabel@pengutronix.de, 
- geert+renesas@glider.be, magnus.damm@gmail.com, claudiu.beznea@tuxon.dev, 
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, 
- Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, stable@vger.kernel.org, 
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20261019065025.2146539-3-claudiu.beznea@kernel.org>
-References: <20261019065025.2146539-1-claudiu.beznea@kernel.org>
- <20261019065025.2146539-3-claudiu.beznea@kernel.org>
-Date: Wed, 25 Nov 2026 22:09:33 +0530
-Message-Id: <179562477303.5580.355686478965853081.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2541;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=5i7lydFJ+0F7rak/+bGf2JUiQghRnvZnvqM+p+ijHX4=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrBw9IGXEasvmJCvMTeSF1cGl80UbscjR37EHJj
- rc6/3QWGXyJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawcPSAAKCRBVnxHm/pHO
- 9akgB/915LEZv5ZJ1jtPXakAsYWwbs5Z+HOzgmhNqdPKIt6DJSWsVQHpOW7ThyyGQa78XI4bHRV
- 4hHwIIH3P5jPzzG+mDu7gYFQmiYowIwa0cAHw5q6rVHVHtvlT2yGO9nsGBofyug2TVIzWmwQ1Y9
- 0hJ/zde7b8m7zmEs7naUegIrMTpR5AqQ7fvfDkr8NuM/DyKS/q+pfRW8gWMsXuzyKdSgcHCrqtF
- fDrZCvrczaMWfLUMcXO5u049MQeAG3uatTi60Ib8EOjbQbKt4D3yQMd2xxO4dMV2RYa8jfnB0H1
- XAGQfmjhyq+l65Zgz4j3MUOvUJnduWeF4bx72CXxgkgMsl2E
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CWLP265MB6051:EE_|CWLP265MB2386:EE_
+X-MS-Office365-Filtering-Correlation-Id: a29f0c9d-1c3f-4331-66a7-08df4b12b44d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|10070799003|366016|4143699003|22082099003|261009223027099003|18002099003|10067099003|56012099006|261026140227099003|261026121527099003|261022105027099003|261021121427099003|261028144727099003|261102123227099003;
+X-Microsoft-Antispam-Message-Info:
+	gskSW81F+kEEDa7nC/1TayCQlw73e4pn028NoFrcEY99Thz61CZUidcZMvd9tyoTk2JowL0sE148bEPVhcuEdMc7CJ97r7a84SpMDUV1MsJ+XkvPzZ8CsW4x3/2Vd+NeZSyyOTcrSE6bUikdqoixy+BJ9iVP1bwAK8cX383IoR+LDM/UO4/bYbvvFMRgRvr3J8bEELxWZupg9VRAqhmd+dDLbfPJ8imlmQB3uaVnEcmAuesMyL3CmlpxcX5smC71ywwFNiArNiIvgn1Cf4KIuUjQroSRoTOLsyeiH2d4WkUgcod5QyOH2yQae/lx8C0scmIF0aFwUxpJQGuu4YJcAcXMebLAMAB73Zs1IsbHPRMoizQcAV5sbbp3GOoulxcYBTS/MxufYB953M/9iw6yRRJJl3pTqLYJyIoU5veho5NFPDsn9jWO2ZVkGMciDPDGrllzi9aB8y2T9ZShCiNieOCP0mxuq66bLZvxtRpPkdfHA78khtwH1UDT5IyordOLK38EZQ3OAW1QNglgOvt34Pfd1do+h9df2a6VSrPbFlqLnstQAPhPnb+5aOqcXB3IfaySNSg6oDgMGSrpQFULMTBgJslsJzcdxL7m8Ku+QWg2WPRz305SjTX4TP1LB9bh
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(10070799003)(366016)(4143699003)(22082099003)(261009223027099003)(18002099003)(10067099003)(56012099006)(261026140227099003)(261026121527099003)(261022105027099003)(261021121427099003)(261028144727099003)(261102123227099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?Q0JkSG9LNzJNdi9LUXJESjFBdW5kVGk3a080N20zbWFpYWs0d2ZLNWdFcVVp?=
+ =?utf-8?B?b2lORnJsVzlBckRhWDlCY3M2eHVUZkN5UFVrOVJuRFpqZHlvNXp6c3pMbmFi?=
+ =?utf-8?B?eWMwVkhnZVZpV1lDUitrYWg0OStGTmNSNXl6bFJNak5Za0ExWXRFd1hscDVW?=
+ =?utf-8?B?a0xEcDJ4M2tMYkgrN0QvL3VMRzJJcjBERFFhWnhCbkpGTERGK2VEcDlaakF3?=
+ =?utf-8?B?MmdqMWp4WEdsK21jN1VFZVRUUXVNQ3dBc3pBenJFanhDVnYzcUsvT0RIeTQr?=
+ =?utf-8?B?RDdHeVNFOXQ2dU82S3RkUUJhK0FncUg4YkRpbXVXYitrZjBvak1MRmpOc3Mr?=
+ =?utf-8?B?U1M5cEx0enc0L044Y3NHejhLWUc2d1JESzdja1NUTUMxK0IrSHNiQUxISTR2?=
+ =?utf-8?B?b2F3MlNlSXBPYmptKzd2bGNMQjd5clBxeEgxdlFKYi9WdllZV0Q1cTRXNHhp?=
+ =?utf-8?B?NUxMdlpPc3FkNU0xcEhSVU9pV0JLZFdEemZER3M0ODNRaWNydVllWlN0S3ZJ?=
+ =?utf-8?B?S1czMWVjY3Ftc3lTc0RYK1gzZjVaZ09zdldSdk9kSUNReUI1aStEdDRkOU0x?=
+ =?utf-8?B?QVIvQTRzakxhaDB4bkVXSDNZWE1HK3RscDVpbkhWdGtSdXZaTWpyd0pIend5?=
+ =?utf-8?B?Q2RTdkNvb09aVlNWbC9oaTMrZWMwRzc0cElMWENJTXBHZUl5OEt0NndLdGsx?=
+ =?utf-8?B?UlNsNk5TNUE3UDBwei9qb0lwTG9Dd1pHWkNHdUZ6WEtCVkJJTGQyb0JscGpV?=
+ =?utf-8?B?clF6ZzkxZXhwK21iamQzZjBMVyt6S0NjWkJEVlRoaWpBTVlxSWEvNEZUVmlq?=
+ =?utf-8?B?S3BseXpteUNUZGQ3N3hhWWFEdm55d3p4YW9wL2RDb2sra0lyZkw4KzR6SjQx?=
+ =?utf-8?B?VEJGdlh6aktmK2taUW1GMitwVGJZVytZaGdVbUdJUXpNeTBGbVYzMVk0d2Zv?=
+ =?utf-8?B?QVdaREt6Y3JGQVYwdDlTUWh4TjlyYm5Td3AyNTRVbUtCeDdnQ1BaZStJTWdt?=
+ =?utf-8?B?dE4xaEJVbUNBR3IyNTRKQnUwY1lhdEhhVHg2RXozclZyTVlHUC92cEt1a1Zx?=
+ =?utf-8?B?d3JIVEJad3paa0dPL2svd1k5OW5rdG9TVitDYndVbXBPRUNVQUpadDVmZWVn?=
+ =?utf-8?B?T3ZFYUFTRm8veC9oWTRFWWhMaUVDSFBKYk9kN0dhcU9rYkVWalljU2U5U3lY?=
+ =?utf-8?B?M3R2L24vZThYMkNrSXJjOW9SMkE3aU41dklRZS81MXpEN0JZNVFCVUMvcTBO?=
+ =?utf-8?B?Q3N2QUxEemZSdXBDM1RDVWVmbHJnMUVIcDhlU241cWJUT2hmdm9TZ1pHTUdQ?=
+ =?utf-8?B?ZWx6QVJqV2UzL0oyV2FDU2NzMm5OQXc2K1hVblFIWGIrZlQxdXdxZFU4RkhT?=
+ =?utf-8?B?WUthL3h5ZnJnek11bEc0bWh3Vm9RYitXVWE4VFZxcXVFWEpLUmFzR0NXVWxk?=
+ =?utf-8?B?VzFJaXFQRUpkMGdXdUhGN1U2M0tObFFBbjR1a2tYclNOeERYcnZld0NMem92?=
+ =?utf-8?B?RHpTa3d6YzJCUnhTcm13Q0FEbFFnb2o5OXJOTk0yTE9iNklENjJYRGlUbk51?=
+ =?utf-8?B?bE5WbVZ6SGtnbEU5TTNIanQrUTJGeDhxT3Q5azhFdHQ4ZlFVUmhrN1JYdktC?=
+ =?utf-8?B?Yk9WaGFNTkhlcjBibnMxK2VIVEhsajJtYmIrQ1hPT2libTVQeFIrSm9vYXFF?=
+ =?utf-8?B?YW9JMGVEbHdIRllMZWc5eFhtWDRoZlhwVEsrc3dVL0tJSUtQQzdQcWdCV1FK?=
+ =?utf-8?B?THp2V1Y2d2F6UDFVU0VaSkhXc0ZRQzZOaWhGSTlBTnhDcDhOOGVCMXk2NVE1?=
+ =?utf-8?B?Vk1vS2J0ckxWSzF1dHBvbHJLbjBkNS8rcFhvTW5yenJsQXRpV2VzbXl0S3FO?=
+ =?utf-8?B?WFVTMHZsR1VRRStaZU9URjF6T21yRitjWmdGTyt2N1RiMkZYZTRtRGRYUEtL?=
+ =?utf-8?B?VUZKR3prMHdIVFFRR2JSTFlNTE5GM3ZHSEdLUWdHMHhBZUMyTWVJWHpxWDVC?=
+ =?utf-8?B?ZjhkeTExV0l3aVZvcEpYYnhySXl2Tld0b3p6OWM1U3FsZFp1YTlSNGo1M2VF?=
+ =?utf-8?B?WGRrOVVKMTd1K252aWVwWm1Vb3lIaU9HYWhuWUdubFJYZnczNUtZenR2TlY1?=
+ =?utf-8?B?N21GYUtNSzc3alRIOVAvWDIvVXBYaXA1YWRjSjFmbjEwUW4xU1BPR3B5QVJa?=
+ =?utf-8?B?aFJRMjVrTHpjTjE0OFpDT2I5Tll2VmdTRVc1ZlFyY2NKaFVDaFZBbkZFN0g4?=
+ =?utf-8?B?YVJ0dkpjdzlpZHRYNkV0cHlCZUs1UU5iVHZaYU51ZTBQOSttSTNoZkEyZklY?=
+ =?utf-8?B?U2JaQ3JxanEyWUxWdXU1ZGV4U1BMa3NJZUhIWDc4azRVUzBmS1VDZz09?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: a29f0c9d-1c3f-4331-66a7-08df4b12b44d
+X-MS-Exchange-CrossTenant-AuthSource: CWLP265MB6051.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 16:39:41.7427
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6IWAYjmff15oGVYZuA8M6KXI2PfxgHPh8mN54hZPzBmuxnC466lpMR5ERJfBqo/t+T6YHoOgDmZJsAx38216+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CWLP265MB2386
 
-On 2026-10-19 09:50 +0300, Claudiu Beznea wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-> 
-> The runtime PM documentation states the following:
-> - During system suspend, pm_runtime_get_noresume() is called for every
->   device right before executing the subsystem-level .prepare() callback
->   (in device_prepare()). In addition, the PM core disables runtime PM for
->   every device right before executing the subsystem-level .suspend_late()
->   callback (in device_suspend_late()).
-> - During system resume, pm_runtime_enable() is called for every device
->   right after executing the subsystem-level .resume_early() callback (in
->   device_resume_early()), and pm_runtime_put() is called right after
->   executing the subsystem-level .complete() callback (in
->   device_complete()).
-> 
-> The driver's .suspend_noirq() callback is invoked after .suspend_late(),
-> while .resume_noirq() is invoked before .resume_early().
-> 
-> If:
-> - the device is not part of the wake-up path, and
-> - its runtime PM status is not RPM_SUSPENDED,
-> the generic power domain .suspend_noirq()/.resume_noirq() callbacks
-> (genpd_suspend_noirq()/genpd_resume_noirq()) invoke the driver's
-> .suspend_noirq()/.resume_noirq() callbacks and call
-> genpd_stop_dev()/genpd_start_dev() before and after them, respectively.
-> 
-> Calling genpd_stop_dev()/genpd_start_dev() allows devices whose power is
-> controlled by generic power domains to be powered off and on during
-> system suspend and resume, even though their runtime PM usage count does
-> not reach zero.
-> 
-> Since the runtime PM usage count is incremented in device_prepare() and
-> decremented in device_complete(), runtime PM operations performed from
-> the driver's .suspend_noirq()/.resume_noirq() callbacks are no-ops. The
-> actual power transitions are handled by the generic power domain
-> .suspend_noirq()/.resume_noirq() callbacks.
-> 
-> Moreover, attempting to runtime resume a device while runtime PM is
-> disabled may return -EACCES. This may cause system resume to fail when
-> resuming after a failed Root Port reset, as described in a subsequent
-> patch adding hot-plug support.
-> 
-> Remove the runtime PM calls from the driver's
-> .suspend_noirq()/.resume_noirq() callbacks and rely on the generic power
-> domain callbacks to power the device off and on.
-> 
+On Tue Nov 24, 2026 at 4:14 PM GMT, Daniel Almeida wrote:
+>
+>
+>> On 24 Nov 2026, at 11:31, Gary Guo <gary@garyguo.net> wrote:
+>>=20
+>> On Mon Nov 23, 2026 at 11:06 PM GMT, Ivan Borovyk wrote:
+>>> The dev_info! call in PinnedDrop::drop() lacks a trailing newline in it=
+s
+>>> format string, unlike the other dev_info!() calls in the file. End the
+>>> format string with '\n' for consistency with the dev_*!() and pr_*!()
+>>> macro conventions.
+>>>=20
+>>> Fixes: 5444799d701c ("samples: rust: dma: add sample code for SGTable")
+>>> Suggested-by: Miguel Ojeda <ojeda@kernel.org>
+>>> Link: https://github.com/Rust-for-Linux/linux/issues/1139
+>>> Signed-off-by: Ivan Borovyk <saref012@gmail.com>
+>>=20
+>> FWIW I have a series that would make trailing newline optional (although=
+ I've
+>> not got any feedbacks about whether people would like that):
+>>=20
+>> https://lore.kernel.org/rust-for-linux/20260728-printk-v1-5-855606634d70=
+@garyguo.net/
+>>=20
+>> Best,
+>> Gary
+>
+> IIRC, there were some discussions about this, where people asked the Rust=
+ side
+> to not deviate from the C side in this regard. It=E2=80=99s been a while =
+though, so take it
+> with a grain of salt.
 
-Going by this logic, do you really need the pm_runtime_resume_and_get() in
-probe()? Genpd should also enable the power domain before this driver's probe().
+I initially proposed requiring newline to be omitted, but people don't like=
+ it
+because they might have habit of writing "\n" if they write a lot of C kern=
+el
+code.
 
-- Mani
+On the other hand, people write a lot of Rust userspace code would have the
+habit of not writing "\n" because that's how `log` and `tracing` library wo=
+rk.
 
+So in that version I changed it to accept either and behave the same. The
+newlines are stripped by printk anyway and gets turned into a non-continuab=
+le
+marker and is not actually a newline, because printk keeps records as oppos=
+ed to
+plain texts.
+
+Best,
+Gary
