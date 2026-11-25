@@ -1,124 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.159
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795650257;
-	b=roeIz8Izlw2GUKX4QZsA4rJvAFDzpcDHtEs02vAwb6KXmlpXV1tFwvz/QDnrLsdw0vgi
-	 dMyD1nTxYhRuGG9Y8pNTNhaVD7ngBvAczR2VhDVGpK1rBX0EI0NT5bomQzqDDy9z10pdQ
-	 RzraaYntG06+/EGV89WDGu19bNgLVj0vzITJjiNkYSxFLz3/wX8OXU84DKW4SXTB2lhGV
-	 4ll50YUQtBayuuu98wbTyK0lquP093sn3fwaDsKKkEcZUOx91cMuFSG/aFoU0SkzkaHDG
-	 yhYViey0A01lrM0he08dbUUYiRoRpz81r86nXi0jxPTM4udphiRjJEsugCzwVlRN0dw==
+	t=1795650271;
+	b=3Z96jT8qunAPcSpjKtSSEhrjupZR0PcRSTVhMDB8C7XLymnWe9B2LxH2r7wNFt+rWYLE
+	 OwuXrqOQdY5QGFCrA8PXzKSs8g/iDoNux6RTOmiiKGcnDdBTbN+2rC8ak6m665XTPnAtg
+	 /hE7kHwZzj6hXgOtA0BJQ0LBjPUYRty72loTGp49Cc/8/dO/K79uqoVuFLA4EDAzsUvrO
+	 vZZvJZxVjf96tB9V+xu4Yv8dVngYWmQ8NC3KAFLo/TjI8EsoT2eglMhlqOxdrw51gesdo
+	 Uw57XyA8gIiPCZtrSKwUPs40djLmovA3KPQsuT7d/29q1O5WOGFmimxLltszQhpFpJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795650257;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=gWKFhFOVNUQkCwAeCX9zPleQTK8nCcAL4DJhcvfldJ4=;
-	b=pgbBJBAfaMHnhtX+J3HlgSL4Z97zQsSRYTlGzqTS7rwOgWXQvpDB+COvCVPAyZAtr2xo
-	 m2xE502V8gKBlY//K2LpbKxig2dJeUeDQ9Iv+UrOA2OfAWkdIq4NZ+1408vktTUg4eZ3Q
-	 52DkgZ8kSLVpgD8u6Ztt8Mm1Tm1OrlWc9a85uTu5UBOuBrXqzA07HuzajVcqbrf+NBdG9
-	 /ly/iRga8SFjzr9rmF4hABp6Qc58CjeBiMPNk0HZv5ye8nxseDu3WX4vdL+WsHdcJCyv6
-	 0NpRDUV+fI+uwIBc9ytK+HD/T/5M6egzLiONbeUM+IZlF3uIo8ToWa4wtJZgArOyybA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795650271;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=f/ATAjGGuvCnHn352ejN1uMtKhQ6IIrtwCiWm+JOgec=;
+	b=WVIP53xtIgPAe5MdXR/GfgISb1bvc7qvW1w3YHI/n8tsL5C+W3CVbCEFg4kq6qZc1H5h
+	 SLnsqqee3wW9rp7+VoVdJenkhBf06sIMEm5LcfRNm6K6rXksPf580AnT4uNJuFB+bv/Rk
+	 DVwbhoVlV7q1TJc6TznyTPRnDIK7bzoBhOBe4DfzBavfErkNQIu/p9lVbBnfyPNMkVesM
+	 cdvnsTMN7t3V4hBjyg3na8qke+8TJFg31AFPxb/EZKrH1Cko3gIo+wybDXLDwWLm6WUgy
+	 +5eyi8ZrgwQJ8RQCQ5YWEAgr4pSHjtDVDW2hSgcyMrRtI5FhTSZ8GR/6AkVOc1/If2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=jannau.net;
-	spf=pass smtp.mailfrom=jannau.net;
-	dkim=pass header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm2 header.b=ds6odARo;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=XSa9A3ES;
-	arc=none smtp.remote-ip=202.12.124.159
-Received: from fhigh-b8-smtp.messagingengine.com (fhigh-b8-smtp.messagingengine.com [202.12.124.159])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OfkTtSt2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92F76606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:44:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92F76606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jannau.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jannau.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF2A6606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:44:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm2 header.b=ds6odARo;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=XSa9A3ES
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 211017A0566
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:44:16 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Wed, 25 Nov 2026 18:44:16 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1795650254; x=1795736654; bh=gWKFhFOVNU
-	QkCwAeCX9zPleQTK8nCcAL4DJhcvfldJ4=; b=ds6odARoZobKA81khzKoKoDtWR
-	KNwKNsTrzpKDEIlD9ks8d4+Gn/fR7tW0JaHDawO+jsFSRZFdjApzGnLDeWc1BggO
-	IF+vfXoF7PhYPqBLg11rTPaq6aZylVm1fDQZff3OtmAHKuMnb/0tpUs7uTox3ub1
-	8iivJ1GHye5LbEAk+lejmaxnDWooLqQXuzuwrbiL6gGoH3Cu7xrOucRNxvwFVX5C
-	xMoRvP9uMmnJCHXePHwEUoj6ciNEHx/cq1PvMBQCxaT7nYr5UVe/syrxe3MO34Ji
-	YE5KeP98cxTQrVhGHxHdT9rSEsZYecmYSNJtcxjSe1L2aFatT6U4sHdQUVlw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795650254; x=1795736654; bh=gWKFhFOVNUQkCwAeCX9zPleQTK8nCcAL4DJ
-	hcvfldJ4=; b=XSa9A3ESv1U4ZcW/XRtZQBvSwAM4rTTr9WEv6GjoTy9rUruwrO3
-	DR09VsDLtSol//O4hk/FMZs1aL0bpRUJE6+YcY2omlqaN4lV+Cw39Hv9AOI3a5eY
-	T7SdmBYoXsGgEpmV+e6Mim1OIWaPkLm/YThD1CKqCW318fzzkoBsEv0Ge60rv6do
-	RzNdTRYMpspxowjrF5Co3QkzTeNETqz07E5VP6Kor4Y5z6DPp5A5yiUETJOusQ0D
-	irlvCWgXfBOpGWr7HON+zLLFKfsZz6pMJ4CFRzhowSl4Z0YISEUq4oVaOWoEAkZM
-	bdgFTzGl0IaGZpF+2BzPbC2a+kw2ngaQCsw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=jannau.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795650254; d=jannau.net;
-	mf=PGpAamFubmF1Lm5ldD4=;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:fWvg6YJYuqm4idpHmbVe49cAOGftJdy0UrRWSaCV6EjtqGI
-	FrXbySpN+jWC9yzTtEeRX2BH/AZAs3tZr/Om4saqZ6KGLsqz2C0xcx5c7hrMe5B7
-	e5p4fVbr9YvQo8eh0H8zOeR92Wgo1TQvfa1be9uymI3Do7MoZo0NDtG5L1r28PUG
-	rOYv7Wf+fpYRa7TsiaO1S9YP2Dy88dmG/G6PctcGTAVvcbFwD+d6Cgu2wkoVPZxR
-	aAmJZ99KN2jseqVdDvRfcsiJcfOTAk7Ph144t2vCpatAm/iHVSTMrY2kMZCXaApp
-	0Jpye3KyzXifDAxFSdAPekhs0RXFzz6UNdwoZ2g==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-disposition,content-type,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:9BkdY+LRpa1a4CLEazedbhqHL3hB5JfhgZTVWsRmtdM=:YQE1qOrkCrAjZVOPTlIxAkPWaxIbX2klxeQ+RmLrnhg=;
-X-ME-Sender: <xms:zXIHa-asTg-4TBpv9BSqJP4lBT17UjV3I0oVVM7OFqTcbMmXXC4JuQ>
-    <xme:zXIHa2mJXjzGCfzR5dPyE2iB-bi8YormgxMrUz8pRSZPo8MqncYBUwWi2rJXKnOnv
-    VH1ysbxytyKouXu0QdSNKJ63ApVH87cykmJ_4jYOBRXmjKn3oHyMKpE>
-X-ME-Received: <xmr:zXIHa8Vf630M-JLKPOaNjNqSuXSqz8jWYysKetfv_TlGwryq0wlMH9e66WJGCm838y821x5qgtvssexpHNXrRLRK0zsz9vKViwY>
-X-ME-Proxy-Cause: dmFkZTG1Ag0iR2dwkQsFua3Y2PlvL776Kj9hZumBUwCXUhpq84p5VwF85u2jZOoFTF2p/n
-    DWK+77HBIugwVI03ZNUFeAB8S6chqasWckA+xy3Bk8bS/Q+3d3IoEICOeBMiafT8YVPToL
-    3WQsCGhrzHU7rSOD1aSqKpUQBksP6ISXn9T1/V4dufCPqedqKRAe3OQ+pi7tWvPv9zGCAm
-    G9pdRaLEVtgHAlcsuKUx31/BbAkqSKUDNAFw29ZgGTr6nVcLI8VkeQG+wb82JcmDORC9m7
-    +6Ud31o8ZIzOIIxdHjMJ3jW23cz+P4lprNDSzCMyeOwOpcYuTR8lgw3wKK9Uf3hDb4wFim
-    iOZOa7GOLiip7o2aHyuYe01NhjPrx6Ays4or4yvA/ZAN7Pi1ldBoy9H/7Llyo9upfccgan
-    X6kHnvIIu35HWgq9hqAimtmlB5F26dlRrAhefMW4iORzgUV3TfJuN2txH0xD/cy3cVGcF8
-    76pB8R8n0gyQpeuFt13QNHISPUya1V7NsoOMo1iUPnscR6qq4FV6uETrAdyX+y45c4obDp
-    exBrHbNLJfKCHdZSA5Wq6JmefKh/R7RzK1fLlFo9uApZmrFx9MPspJu8J63mADX2oKbSat
-    Rfa5YFLybqnreTOFRaCdPsp6YclNb5UoVRWi06fCt+S30u8hxajqpCftpUtQ
-X-ME-Proxy: <xmx:zXIHawIE_dKE9j0p1gcstwAXW4lbNkxarpdQ0PBLne5ixRtLlZbPLg>
-    <xmx:zXIHa0sUqHeUDe4oc20lBGKvbZbPD8gJEV_zA01--dpabhgjF5k94Q>
-    <xmx:zXIHa92F0PQ91bBuOOBsMxcyvlvUvZtfYFq3pnGWI5AsMOiVUa4JlQ>
-    <xmx:zXIHa0MeheVkpXxG9rIGv_MUxIt4mJWIRYBQLaEVHGs5MdxHyh5YTg>
-    <xmx:znIHa3JPyLWJ0NprvdTT2xMwe_6RPSMhzuh9xBnWeW-ajWk2yyFgm3Aq>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 25 Nov 2026 18:44:12 -0500 (EST)
-Date: Thu, 26 Nov 2026 00:44:10 +0100
-From: Janne Grunau <j@jannau.net>
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: Sven Peter <sven@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/5] dt-bindings: phy: atcphy: Add M3 series
-Message-ID: <20261125234410.GC372978@robin.jannau.net>
-References: <20261125-t8122-phy-v3-0-196e20b3537e@chaosmail.tech>
- <20261125-t8122-phy-v3-1-196e20b3537e@chaosmail.tech>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OfkTtSt2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C41A1F000F2
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:44:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795650271;
+	bh=f/ATAjGGuvCnHn352ejN1uMtKhQ6IIrtwCiWm+JOgec=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=OfkTtSt2xtBQR9UeimfOoTw6v3sL+yc1TRUwElnClmYZrlwHdJanGTW6e4tH5HmCu
+	 /ssM52sxD1/MhEerP68lHHZ2OqaasROIYX1xjwuQ6HHzNYlUZjf64/GqfLW5GZdNey
+	 8NDu78Zrgxpy1RRRhqMjMcGGez/CPEcafU2I5r4u998bsnBDVTJNGADkdyqGonNP0d
+	 8rY0clo9rfZHjK/mgu4HsuJwHdYmocLmWHimVsjmnkejjtqbC/khs90dLfWPk3USLN
+	 Vg+PjAWb+XDt2QrKNk+9tb9bIH62ElwnS3HqSHnCpzgH0FC2MhIY/+Vz90ywivXVIA
+	 3iXjXHfmqz9wQ==
+Received: by mail-qk1-f170.google.com with SMTP id af79cd13be357-94959217274so659218785a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:44:31 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFtm9BOKKYnZVJdR7wnEooDdXgjW2JjCJITUz2HC90Xuk9vO3fqjy3AyQUv1ZCWQsTU3qZ839ja3HIV1GM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+GNFzzJwhw6It0h2iZW3RZHCnfvHR1HrlAdl5nY2DOAPzLqr9L
+	+Fcg00cffsrx6CdXyyuGwRqIhk1X27XksBHF2D6iCunNqTttzf4UThtv6GFJuAaZRQLgTFki2V8
+	p9MY8eiFm1xaBI7Ssbb3wk+ue5Wjb3SU=
+X-Received: by 2002:a05:620a:3188:b0:93e:869c:43e2 with SMTP id
+ af79cd13be357-949baa0d797mr3140085885a.50.1795650270349; Wed, 25 Nov 2026
+ 15:44:30 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,38 +59,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261125-t8122-phy-v3-1-196e20b3537e@chaosmail.tech>
+References: <20261125113518.1207280-1-hui.zhu@linux.dev>
+In-Reply-To: <20261125113518.1207280-1-hui.zhu@linux.dev>
+From: Barry Song <baohua@kernel.org>
+Date: Thu, 26 Nov 2026 07:44:17 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4yTx+vQUQ44iLg8MNA718dY9Z1gAdnz9vvJnZWzVZx-4A@mail.gmail.com>
+X-Gm-Features: Aa3M54qXmwUVwHqi93lcxb96GVJpfnkGS49EGx9GJPqC8qElTspz68Xy-8zCgLQ
+Message-ID: <CAGsJ_4yTx+vQUQ44iLg8MNA718dY9Z1gAdnz9vvJnZWzVZx-4A@mail.gmail.com>
+Subject: Re: [PATCH v3] mm: mglru: reset the mm iteration cursor in try_to_inc_max_seq_nowalk()
+To: Hui Zhu <hui.zhu@linux.dev>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Kairui Song <kasong@tencent.com>, 
+	Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+	Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Johannes Weiner <hannes@cmpxchg.org>, 
+	David Hildenbrand <david@kernel.org>, Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Harry Yoo <harry@kernel.org>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	Hui Zhu <zhuhui@kylinos.cn>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 25, 2026 at 02:11:45PM +0100, Sasha Finkelstein wrote:
-> M3 series SoCs have new phys that are different enough to need
-> a new compatible
-> 
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+On Wed, Nov 25, 2026 at 7:35=E2=80=AFPM Hui Zhu <hui.zhu@linux.dev> wrote:
+>
+> From: Hui Zhu <zhuhui@kylinos.cn>
+>
+> try_to_inc_max_seq_nowalk() advances mm_state->seq without walking the
+> mm_list, but unlike iterate_mm_list_nowalk() it leaves head and tail
+> alone. If it races with an ongoing page table walk, the cursor is left in
+> the middle of the fifo.
+>
+> The next walker reads that as "this generation already started": it skips
+> reset_bloom_filter() and resumes after the cursor. The mm it visits are
+> the ones the aborted walk never reached, so they have no bits in the
+> filter being read and walk_pmd_range() descends into none of their PMDs.
+> Those mm miss a generation of accessed-bit harvesting, so their aging is
+> less accurate and hot folios can be under-promoted. Eviction can still
+> detect their references via rmap and lru_gen_look_around(), so this
+> weakens aging rather than guaranteeing reclaim and refault.
+>
+> Reset head and tail with the seq increment, as iterate_mm_list_nowalk()
+> does. It is safe: get_next_mm() holds an mmgrab() reference and a
+> concurrent walker bails out at "walk->seq <=3D mm_state->seq" before
+> touching head again.
+>
+> Only reachable from memcg_reparent_objcgs() -> max_lru_gen_memcg(); not a
+> memory safety issue, since lru_gen_del_mm() repoints head and tail under
+> mm_list->lock.
+>
+> Fixes: f304652609ea ("mm: vmscan: prepare for reparenting MGLRU folios")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hui Zhu <zhuhui@kylinos.cn>
+> Reviewed-by: Baoquan He <baoquan.he@linux.dev>
 > ---
->  Documentation/devicetree/bindings/phy/apple,atcphy.yaml | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/apple,atcphy.yaml b/Documentation/devicetree/bindings/phy/apple,atcphy.yaml
-> index 0acac7e3ee67..4dfb3b68efcf 100644
-> --- a/Documentation/devicetree/bindings/phy/apple,atcphy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/apple,atcphy.yaml
-> @@ -54,7 +54,14 @@ properties:
->                - apple,t6020-atcphy
->                - apple,t8112-atcphy
->            - const: apple,t8103-atcphy
-> -      - const: apple,t8103-atcphy
-> +      - enum:
-> +          - apple,t8103-atcphy
-> +          - apple,t8122-atcphy
-> +      - items:
-> +          - enum:
-> +              - apple,t6030-atcphy
-> +              - apple,t6031-atcphy
-> +          - const: apple,t8122-atcphy
 
-I find this ordering confusing. I would list first both `items` lists
-and then the `enum` with the single compatibles.
-
-Janne
+Reviewed-by: Barry Song <baohua@kernel.org>
