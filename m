@@ -1,55 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=132.226.202.154
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795610593;
-	b=NeRe1KsiJacAo2Rn5/syFyE5uzjoZwfIOfpHUjo7TMI7woGlAshKTJhRtOWaQDsa0Nst
-	 Lvk3hj0ZRq8Hiw7G0F2botUWimYzLMiwZhCN5LJHZMrWQaJx484SBZPo4ngb86IZIaVFt
-	 DzkIEmuihAu6yussRZ50laN5bjd3lGNGVcyx8QtKYbX3eP4gIYmHllQfwPxzlhApz9REe
-	 ZeUXY6phEg3HZkc2457YubVgb71glrCFi1NzqN/4BWVs6+WWNslLCGKWu7rNVslVphp9n
-	 wClTDyxAcfz648vXz2Z4Fq8tr9hPdbhiVvo+hexvnhIODxPplDZG1AmYN69qhr2oIHQ==
+	t=1795610614;
+	b=OuZICK86qCqhXhXeormvGLScMQ+Y63KKoFRHerwHfID7NL536wjASDAPVJRZa6xWFFuS
+	 dbJ0E1eyVWAT0kPAoaEr+BK/g7SPNsTx5UfkvEYRHZJ1wr14GSln0SYvY3gfGI4BejBmT
+	 AOsr+60T73c/SBfgN/Nr8Fm+mMVNuJifx9nXtJN+m66JdSpnm9aOxQ7HwsitJrB6HYDRb
+	 xxwb+hdXhwbZrYgRRLLXileC3jr2t256LgcW9v/UX1FWhqKQxQYIgeFGeHYW2R4AOqUdX
+	 qJI4TP4E5llttjgQYKKTxsVVJ2XEBcDED9Qfp4DmyBM57HI2rJs77781h8kJKAXEhzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795610593;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Soe9AbyJje/CanHZy+BPUS7HyCw3W/h9mWpxWG3+h70=;
-	b=h8Ro1tQLhGjdLIeLpXbVv+r2kwVChZqAVbISbEXHcqMqo9DA2qugvc2TxmuaLP3RUcV/
-	 E1YdYYctDklIeoYjtJcFH9lraozTyO18DUqgeK6VaDKsPfpTk++SlLChaOiWs0As6nnal
-	 QXixy4vJzAhEX8DiPYIC1sbA7DSTj0AgdbAnMCcw+atugjFoy+r7oDG9IRZrDuotpFhHm
-	 rr2Rk2tmxpM3D12k/beMOHzAEQuFQgYonvJ+l/DPvIvvdf/BDy7Mi4j0FePEQc/KxUsYB
-	 98l1poLpAZeenBQRvZMdBuKgypC7SP1ODHGEK1Tu0SCyEzy8zFblViZ0yNuv7/006Fw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795610614;
+	h=DMARC-Filter:Received:X-Originating-IP:Date:X-CM-HeaderCharset:From:
+	 To:Cc:Subject:X-Priority:X-Mailer:In-Reply-To:References:
+	 X-CM-CTRLMSGS:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	 Message-ID:X-Coremail-Locale:X-CM-TRANSID:X-CM-SenderInfo:
+	 X-Coremail-Antispam;
+	bh=5+VrE36iK3rm/NyRlBfQKTTVyoNY7orAQB/U5dy5e7Q=;
+	b=VmagkJejNq8w0lDpvDNoB56WkTqqCWRAaQLuHopC/WzWvHfey+CAGmZbuEKdI4TtZOXw
+	 Q/mCUYNNYP5NtbhMmeJ10SW6KTGNmla2qM5xrpjS38CWph+LjI67dz+vQvb/mQUf9fv5I
+	 ALKhTAir9/ILFTM/xskRwTzEbEBX+fElhsDQTdhARM2ilIfEtKb3NJpTA7aGytwXkA0T4
+	 u1/jgRxwvnWDTHCrpJY5KWK7K5LMkF+KiPMWG7qATQBUSxJpEfPhUZISsWMvura8vYRFt
+	 ZQYDnmXOXS2qyEdpIOtvZZkpcQDL/SUI7GFB/l5jV2jqX1hHU6Xx0EUKZ94r53UkR3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IdfGlUQL;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEEB6606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:43:13 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IdfGlUQL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E0951F0156B
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:43:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795610593;
-	bh=Soe9AbyJje/CanHZy+BPUS7HyCw3W/h9mWpxWG3+h70=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=IdfGlUQLVdZd+HqGeJmpnmm6ZOvD2DCF88z9GcmsjUrKh5xMoOWAGEOagnXAmAYta
-	 k5dXwiF8fnMKU/56Us9yLAAPPjZbLDyyIyN4SJwaz6ZYK/x07tMrfYIXK6AieI6mSB
-	 d1AdCCTdQcqGyELTARAP/FzRjeNQGlDxqnuOgdfoKJ9MFiO7BSIcyxarVyn4QpJp5/
-	 Te6SJK2tPRq87NZfNEoUCKt9Lc9PfZf9imw1XgFkYesMHxgV5ZIhH3PFZPEcykyjTn
-	 BdRChy9Mk6ypZdqC9qPqHPRw/g6YkI8qu84PKcwRhIcA1Rxl6OclJCgqXskhY5I66W
-	 DQPweoAUVnWBw==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5c15956ce07so5378360e87.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:43:13 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHyQqzLK5TZXW84folVR5eANe/Otxj1RLK9uEQolZ1FZJzWCkzUJPgw8mUmrK8IVUDB2PdmGFxobQQOeKE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/h/Pfz4c8E9m5LcFKKZFxK/Ge+3Lee5A6PBm+2SxKkoXGA8AxL
-	jKlou0YiLIUkgA54H852PbwKN1sbbKHwFRvvcoXt0JvVJKAlHwaK1Qnm+mZRvpLoRlZBtCpLWrK
-	NYWlR1J/3ukMXauVeM5g1SQoS6bvqRec=
-X-Received: by 2002:a05:6512:3e1a:b0:5c1:4d49:cd84 with SMTP id
- 2adb3069b0e04-5c1bc89a84emr4500196e87.17.1795610592062; Wed, 25 Nov 2026
- 04:43:12 -0800 (PST)
+	dmarc=none header.from=hust.edu.cn;
+	spf=pass smtp.mailfrom=hust.edu.cn;
+	arc=none smtp.remote-ip=132.226.202.154
+Received: from fraori-sdnproxy-3.icoremail.net (fraori-sdnproxy-3.icoremail.net [132.226.202.154])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id D1A09606A31E;
+	Wed, 25 Nov 2026 12:43:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1A09606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=hust.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hust.edu.cn
+Received: from xuhx$hust.edu.cn ( [10.12.190.107] ) by ajax-webmail-app2
+ (Coremail) ; Wed, 25 Nov 2026 20:43:26 +0800 (GMT+08:00)
+Date: Wed, 25 Nov 2026 20:43:26 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5b6Q5pmX57+U?= <xuhx@hust.edu.cn>
+To: "Sreeraj S Kurup" <sreekuttan2156239@gmail.com>
+Cc: broonie@kernel.org, lgirdwood@gmail.com, linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org, perex@perex.cz, tiwai@suse.com
+Subject: Re: Re: sound: core: jack kcontrol is published before jack_kctl
+ allocation, and the failure path frees it without removing it from
+ card->controls (null-ptr-deref)
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2025.3-cmXT6 build
+ 20260810(6c94e3b5) Copyright (c) 2002-2026 www.mailtech.cn hust
+In-Reply-To: <20261124093942.2963-1-sreekuttan2156239@gmail.com>
+References: <28bb004a.2ad18.1a2023a6d95.Coremail.xuhx@hust.edu.cn>
+ <20261124093942.2963-1-sreekuttan2156239@gmail.com>
+X-CM-CTRLMSGS: =?B?rZF7uziH6nJ5xwDR7hwMki1N8jM=
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,114 +58,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261015142552.4128028-1-ryan.roberts@arm.com> <20261015142552.4128028-16-ryan.roberts@arm.com>
-In-Reply-To: <20261015142552.4128028-16-ryan.roberts@arm.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 25 Nov 2026 13:42:59 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=h8iMU1sxjopoGBuniv_vsi2uhggJNQiyoWaTsOV+-Tw@mail.gmail.com>
-X-Gm-Features: Aa3M54pGhuvz2evFxcjQ_z7LSxF4iu4SVrSPElv7BkwMOHJcq9BoFVwsp0UZH2I
-Message-ID: <CAD++jL=h8iMU1sxjopoGBuniv_vsi2uhggJNQiyoWaTsOV+-Tw@mail.gmail.com>
-Subject: Re: [RFC PATCH v2 15/15] misc/arm-cla: Add vfio-mdev user interface
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Alex Williamson <alex@shazbot.org>, Jason Gunthorpe <jgg@nvidia.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jean-Philippe Brucker <jpb@kernel.org>, Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Message-ID: <19953f99.563.1a212bb7d34.Coremail.xuhx@hust.edu.cn>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:IQEQrMAG7xHu1wZrLnUDAA--.4187W
+X-CM-SenderInfo: bgsqjkayqyjmo6kx23oohg3hdfq/1tbiAQICB2sGaXQ7IwADst
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 
-Hi Ryan, Jean-Philippe,
-
-this patch series now moves into the virtualization stratosphere where
-my knowledge doesn't even reach the level of "a little knowledge
-is dangerous", people versed with virtualization need to review this.
-
-A few general remarks though:
-
-On Thu, Oct 15, 2026 at 4:27=E2=80=AFPM Ryan Roberts <ryan.roberts@arm.com>=
- wrote:
-
-> From: Jean-Philippe Brucker <jpb@kernel.org>
->
-> Implement an interface to assign CLA devices to KVM guests. To creates a
-> CLA instance:
->
->     uuid=3D$(uuidgen)
->     echo $uuid > /sys/class/mdev_bus/<pdev>/mdev_supported_types/arm-cla-=
-pl1/create
->     cla_cpu=3D$(< /sys/bus/mdev/devices/$uuid/cpu)
->
-> This creates a user interface in /dev/vfio: a VFIO group in
-> /dev/vfio/<n>, discoverable by reading the symlink
-> /sys/bus/mdev/devices/$uuid/iommu_group. Although CLA does not use an
-> IOMMU, VFIO relies on IOMMU groups as an assignable unit. Here they
-> correspond to CLA domains, whose devices communicate through a private
-> bus.
->
-> The CLA device gets assigned exclusively to the first VMM that opens the
-> VFIO group and device. To launch a VM with a CLA attached to vCPU #4,
-> with kvmtool:
->
->     lkvm run -k Image --console virtio -c 8
->         --vfio-platform $uuid,type=3Darm-cla,vcpu=3D4
->         --vcpu-affinity 4=3D$cla_cpu      # Bind vCPU 4 to the CLA's CPU
->
-> Opens the group, gets the device fd, mmaps the frame, and launches the
-> guest. The given vCPU thread is pinned to the CLA's CPU.
->
-> Pinning vCPUs is not guaranteed. If the host decides to power off the
-> CPUs with assigned CLAs, the guest application can't access the assigned
-> device anymore. It would now access a RAZ/WI memory region.
->
-> For DMA, because the TLB entries tagged with VMID+ASID are shared
-> between CPU and accelerator, we pin the VMID. The stage 2 page tables
-> are shared between CPU and CLA. CLA reports DMA page faults directly to
-> the user, who performs the access from the CPU to handle both stage 1
-> and stage 2 faults.
->
-> Signed-off-by: Jean-Philippe Brucker <jpb@kernel.org>
-
-I understand the patch as this:
-
-The CLA register window of the CLA attached to one certain CPU
-can be exposed to a virtual machine by way of VFIO, that is, this
-virtual machine can see that memory as if was its own.
-
-This makes me ask the following questions:
-
-1. Is the intended user of that VFIO window a kernel driver or
-"some userspace mockery", i.e. a plain old userspace driver just
-using the hardware from userspace. This is something I have
-seen in code trees from the likes of SpaceX, where VFIO is
-used for antenna array hardware and handled with userspace
-drivers (and the userspace driver
-is run with realtime priorities for high responsivity usecases).
-The use case matters for the design of the VFIO exposure,
-because if in-kernel users of the same hardware from the
-host can be expected this could become less than elegant.
-I don't know for sure, it may make perfect sense if the user
-is some userspace process doing some computation I need
-not worry my head about.
-
-2.The affinity story again: certainly this VM must be pinned to
-the CPU exposing the CLA and the VM will see *one* CPU
-in its world, or this would never work, right? We are not doing
-any multicore virtualized machines because then you would
-need each to expose a different VFIO window for each CPU?
-(I think I saw the kvm usecase only allowing for one instance,
-no domains, so I guess yes.)
-
-I don't know how much VMs migrate on a running system.
-But if a "normal" VFIO window pertains to the "normal"
-physical address space I suppose this is not a problem, you
-can move the VM to another CPU and everything else
-remains the same. But not so with CLA! So how do you
-intend to impose this restriction?
-
-Yours,
-Linus Walleij
+VGhhdCBwYXRjaCBkb2VzIHdvcmssIHRoYW5rcy4KCgo+IC0tLS0t5Y6f5aeL6YKu5Lu2LS0tLS0K
+PiDlj5Hku7bkuro6ICJTcmVlcmFqIFMgS3VydXAiIDxzcmVla3V0dGFuMjE1NjIzOUBnbWFpbC5j
+b20+Cj4g5Y+R6YCB5pe26Ze0OjIwMjYtMTEtMjQgMTc6Mzk6NDIgKOaYn+acn+S6jCkKPiDmlLbk
+u7bkuro6IHh1aHhAaHVzdC5lZHUuY24KPiDmioTpgIE6IGJyb29uaWVAa2VybmVsLm9yZywgbGdp
+cmR3b29kQGdtYWlsLmNvbSwgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZywgbGludXgtc291
+bmRAdmdlci5rZXJuZWwub3JnLCBwZXJleEBwZXJleC5jeiwgdGl3YWlAc3VzZS5jb20KPiDkuLvp
+opg6IFJlOiBzb3VuZDogY29yZTogamFjayBrY29udHJvbCBpcyBwdWJsaXNoZWQgYmVmb3JlIGph
+Y2tfa2N0bCBhbGxvY2F0aW9uLCBhbmQgdGhlIGZhaWx1cmUgcGF0aCBmcmVlcyBpdCB3aXRob3V0
+IHJlbW92aW5nIGl0IGZyb20gY2FyZC0+Y29udHJvbHMgKG51bGwtcHRyLWRlcmVmKQo+IAo+IEhp
+IEhhbnhpYW5nLAo+IAo+IFRoYW5rcyBmb3IgdGhlIGRldGFpbGVkIHJlcG9ydCBhbmQgdGhlIEtB
+U0FOIHJlcHJvZHVjZXIuCj4gCj4gPiBUaGUgc2FtZSBmYWlsdXJlLXJvbGxiYWNrIGJ1ZyBoYXMg
+YSBkZXRlcm1pbmlzdGljIGNvbXBhbmlvbiBwYXRoOgo+ID4gc25kX2phY2tfbmV3KCkgY2FuIGZh
+aWwgYWZ0ZXIgc25kX2N0bF9hZGQoKSBoYXMgYWxyZWFkeSBwdWJsaXNoZWQgdGhlCj4gPiBrY29u
+dHJvbCAoZm9yIGV4YW1wbGUsIHdoZW4gaXRzIHN1YnNlcXVlbnQga3N0cmR1cCgpIG9mIHRoZSBq
+YWNrIGlkCj4gPiBmYWlscyksIGFuZCBpdCBhbHNvIGRvZXMgbm90IHVuZG8gdGhlIHB1YmxpY2F0
+aW9uLgo+IAo+IFRoZSBjb21wYW5pb24gZmFpbHVyZSBwYXRoIGluIHNuZF9qYWNrX25ldygpIHdh
+cyBhbHJlYWR5IGZpeGVkIGJ5IG15IHVwc3RyZWFtIGNvbW1pdDoKPiAKPiBjb21taXQgZWJjZTIw
+MTk2MzQ2OTA2Y2ZhMzNhODRhMDIxY2U4ZjliZDkxODgwYwo+IEFMU0E6IGphY2s6IEZpeCBqYWNr
+IGNvbnRyb2wgY2xlYW51cCBvbiBlcnJvciBwYXRocwo+IAo+IGh0dHBzOi8vZ2l0Lmtlcm5lbC5v
+cmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3Rpd2FpL3NvdW5kLmdpdC9jb21taXQvP2lkPWVi
+Y2UyMDE5NjM0NjkwNmNmYTMzYTg0YTAyMWNlOGY5YmQ5MTg4MGMKPiAKPiBUaGUgcGF0Y2ggaW5p
+dGlhbGl6ZXMgamFja19rY3RsLT5saXN0IGFuZCByb3V0ZXMgdGhlIGZhaWx1cmUgcGF0aHMgaW4g
+c25kX2phY2tfbmV3KCkgdGhyb3VnaCBjb21tb24KPiBjbGVhbnVwLCBlbnN1cmluZyB0aGF0IHRo
+ZSBwcmV2aW91c2x5IGNyZWF0ZWQga2NvbnRyb2wgaXMgcmVtb3ZlZCB1c2luZyBzbmRfY3RsX3Jl
+bW92ZSgpLgo+IAo+IENvdWxkIHlvdSBjaGVjayB3aGV0aGVyIHlvdXIgcmVwcm9kdWNlciBzdGls
+bCB0cmlnZ2VycyB0aGUgaXNzdWUgd2l0aCB0aGlzIGNvbW1pdCBhcHBsaWVkPwo+IAo+IFRoYW5r
+cyBmb3IgcmVwb3J0aW5nIHRoaXMuCj4gCj4gUmVnYXJkcywKPiBTcmVlcmFqCg==
