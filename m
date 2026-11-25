@@ -1,112 +1,128 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.159
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606171;
-	b=aTTkvvka6kHL4mlgyL4ybh92mCZ1HQCg5WIbQPQERZsgUVeswHMyyGQpDHgFahi55DUu
-	 FYt6VgeZWEH4u6nnxpzbQl0o6Bv/PYgqOiFu9OyTeT2S3qAxEH97/0QZFxT066xbFLbuG
-	 fVoypcz7qzY98PmBaP7/qoSYgfvEfYMA2bBNjnM2lF1vihatSWKgKfDKwPqToJFfy5B8r
-	 SDq9vwwVQMl3VSMWDsx3NefdvG838/Uzj2DD5DkHP54U7jBluBKWeQSOKP7yHYuf7SKdm
-	 lJyGZVYlqwjvOKkPQdLOWXbR20NNGK4/HFhvw1VEgLY5m79CyjjGbpKBIgtiMgobHqw==
+	t=1795606271;
+	b=I0JXDvE4lhI9Szo3Ft+izXSl10SE0FwVR7A5x00J+1thoPJVQjZo15ljOygYhOhVQ+nf
+	 RqX3yc0Z66xJhnLRinxLvfRMHSOIHlBThroq1CJzbkrX52Fzkz4QqRNGH+iPNNp6DBP5G
+	 orFYOryca/gPw0PYuPvqlvxM5Iuw3Ezu1ecwr1LF0HU61Q3ThcjtNS/mebV70O7vPuVpi
+	 LZyLNp4Vqtsj7e7cTlGY0XNgq2PwMIBo3eLJ6sglqqxHWWD8Gcf6OYZcy02F+8yOA2Tjg
+	 rf6moKijNYeGV9T/cmVZlfbnP/NNFINYaK+kdpVSrGVDEUHyCj+XvwVy9s1nK9MigYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606171;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=2Uy0XGyjRWeZduI+QemS8fnn6dEoZHmbYbaW4IWMums=;
-	b=P7Ia53t6opjB7z3WfkIyO7YKLLuAskE1xhJqWMn6kqz7A7/uU044lq2It23nPo4m1tPd
-	 ZKmmpr+US2LGw36CE27D6Xv+i59acqcchqMkIqYDP0L6SnKaUk3/apqxrUfXIK2HlPpJ7
-	 23u9HW9yH1ZBNHwZhnfJP1A8oD3q3FYII59/VgpCWxL2oayz2AHgvZNOSZR7TAb8AE4jO
-	 0rVNWVGTIgAJOluwv/lSPbMctk+BMuV+xenoYokAYyxi3RwPDRyIQNjtF8NMBxViGcEyW
-	 3FGAcG/gmnkvOey8WsloNGUsVtckm4xB02/Pfhh58cVKQasqcolFHpX/HpthQjSS8tA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606271;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=07CB2JdpTLRGg0uhkULyfmQ+l69QiH2n18DqTWiKyng=;
+	b=iBDh/p8EAj1k8lHwpm4gU590dKjzHwSl0Cn/c4gX5fIL+6Ufm7REPlGX2hoNhjgcGiVd
+	 ctPPdxIsMZDdM0VnqKiTGJQCz3lB7aCjy6EQ/0y+5P4FLhfTMUOkMjQttjZ7iNtXWFSi7
+	 nuwDBaIhfInvRM/09R9i/gwzwhgSL1gHlFWvvSESc9JMwWAeswhuLkyU4QOw0Ewy+6v4l
+	 5XhSRDlM2IAzYRM9pyfXu8FQ/610FetE6mFmDpi1AVH+yancjpIb0GM0x2guuZGige0b/
+	 kWhMr0JVaUva9By0KLkljv0YOWTelppzpEg/g3zkONYlkDaDUp46Qkr+A9icy4dqZqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=e6OegtaG;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BubfuO0H;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=pass header.from=ragnatech.se;
+	spf=pass smtp.mailfrom=ragnatech.se;
+	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=bGC6fXPG;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1kerWhiN;
+	arc=none smtp.remote-ip=202.12.124.159
+Received: from fhigh-b8-smtp.messagingengine.com (fhigh-b8-smtp.messagingengine.com [202.12.124.159])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B965F606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:29:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B965F606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E9EB606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:31:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E9EB606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=e6OegtaG;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=BubfuO0H
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9mtlp2359510
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:29:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2Uy0XGyjRWeZduI+QemS8fnn6dEoZHmbYbaW4IWMums=; b=e6OegtaGInFUPutr
-	xoB686l7E14sFW4/MDMG49y1YmlA1pE/4QYDw7c29MqYp/WNyb15lmmQXBly+F0+
-	jeyr/2c5RHVHe3GQL80Lp4u4PN9y8OFRz9uK3USNRWkxN+emW7FjZulurShPOsMC
-	9T049D1nh3FBmhMdEfOtksuWcDVl7vcb6+vze8l0wWJZ7AX+03UmWDEiIGoM3f0a
-	5kh30NGczVgeffrLsu+REb1t4lzOuXAcaVBw1gTS06mM6yZWAsQMXAYaz+3gnQUA
-	q1SwXHkK9LRyUqj8C+o7t2ONvooxUc3Q1Uaq+nSrJmzKzwj09gr+OBXda9uwMJxs
-	lWjwKw==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5nu6a9ub-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:29:30 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3adeba76cadso3842698a91.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:29:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795606168; x=1796210968; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2Uy0XGyjRWeZduI+QemS8fnn6dEoZHmbYbaW4IWMums=;
-        b=BubfuO0HNLJUom8gNGI0oen/HUXAkl854BZv9U5SHzMb/UrJvL34LOItyFb7u8qGN3
-         xgqMZHkiMbO/n3dwJ2/E0HKipSGclBpMX4Oex6I0ya5rLe6GFlKVgSQkYYZD3y/87j5X
-         YguMvgFI9wuCM0/QuCoPThnf6JfG5ohWgHgoSqB3LDnpt0/RwcVJKQ5PtRIHkj5ETvHf
-         4U+SSmZXP+Mz3QkIhmjChlHwbvIXgDaj7abD9ZHIFezj34/PauE2uxWwop7R4g2C6f9U
-         WMPRxjNqEuG3MBA+H5WrKp4N6hk7MIqsPrdHoDn0jO3/Nl9C6Kbi+2RRdQz2XdYDqoi6
-         VFqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795606168; x=1796210968;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2Uy0XGyjRWeZduI+QemS8fnn6dEoZHmbYbaW4IWMums=;
-        b=1klbI13LntfVuI6l3FLlDX1I3i6XDSsErLH0VKyuH3puWe1PSz6Sirf29x2aMAB7vH
-         ekuXEMdGSdwtJCBXgUeSTBGlC8dc95rzkK19jtjJ9LXBME0FTuKdoE5xSsyxNXgwHRrB
-         0tEH83kZGuNxZqYho/AqbLmRiAIFnjr73mo4zslnMPIFg5Fqx70ihovFEOD+3LAuI07A
-         W8scxIUtuNp87ecy3SWJoex6IXuOPGEIetMBR3bhrI+8itUQuRPGg5KCiIRlXKzz6ItF
-         Ru6LttcxGoAIT4BJQKWQCQpW36/rWR44WSoxkOVEemQy2lE3YB28oSLRCRL32xde9gBB
-         OqYw==
-X-Forwarded-Encrypted: i=1; AL+hErF8elC+HdxkHPWQTz4sYxzrXkRuxyQ20THxALFmaXi8FZqSxjuHJwIL61EQWzoFcyDTDUJEBnYPKq5iWug=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9YskvEpRYJuaWow+fg/oHm0Y3AbCQR74u+CV2LCBo7YN5DEf4i
-	4uzkKVjJ+wq3VJYSLdoMY0k/n/ybQWyge5LzrrVLOq6CBfPVR0d2PuEkPuNSIik4iHQT358DYIP
-	quK55KYLQDnecJCi1ezQ7iw6Nvrujr3XKiY4lad8hiiiKN9z//pRXP3FbsLF0obWYR3E=
-X-Gm-Gg: AZFdTZfAeGu0zCf+iUIwNuP4rbddiJqhRwWpGHyBNlRuf1Nw5pUuaENrNTjDk2gslKf
-	CnAYpbiFE4+upY3gnJJc4EeCgRdpd4nsSXnxAJx8VVLKVwaHrAqev8rixHQE+nur6AtqsWwW/4J
-	0h52pCHIgxm1/kPdlwFAiTU6h48suuqv/Kl0iEurJH5XXRDliM4XyzNakyVqB4Ni6xaS9AM29S7
-	Pd/3EJCHxVNQdPll0K+8icmWv4FRS+wTD5Yoh5E/jESydAH8/KtSsor4Y3tcJRw/XckAGXFoZao
-	HIawTnI0OGqSaSEvIbRJA5uoADWCPi1EDhnCdzxW83oW2HCX3LPjNHPg8Z9zMpt0Qcusarpefqy
-	O/jMKB91GZgzA2NHYQdXSeVPwNz04hMa+QP9eyGQMfgm+w5ogxhjlm6FoJ3EGxAh852UH/7tLzt
-	tI+/ywstXBobGDUV6neRpePY6znQL7wZDP66IixsQM5Io9jiOyXYgMyYeooCdnK5WF2g==
-X-Received: by 2002:a17:90a:e70c:b0:3b4:22d:e078 with SMTP id 98e67ed59e1d1-3b41c7c238fmr16206687a91.1.1795606168183;
-        Wed, 25 Nov 2026 03:29:28 -0800 (PST)
-X-Received: by 2002:a17:90a:e70c:b0:3b4:22d:e078 with SMTP id 98e67ed59e1d1-3b41c7c238fmr16206670a91.1.1795606167641;
-        Wed, 25 Nov 2026 03:29:27 -0800 (PST)
-Received: from [10.79.116.36] (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcafe0sm29497670a91.16.2026.11.25.03.29.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 03:29:27 -0800 (PST)
-Message-ID: <578f89a4-e905-453d-9ba8-f885b17f70cb@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 16:59:21 +0530
+	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=bGC6fXPG;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1kerWhiN
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id A687E7A0608
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:31:10 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Wed, 25 Nov 2026 06:31:10 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795606269;
+	 x=1795692669; bh=07CB2JdpTLRGg0uhkULyfmQ+l69QiH2n18DqTWiKyng=; b=
+	bGC6fXPGGbWnx/h7ckOm/Wf+GcGt1SuAMHdukor6aie33500Bgi3QizxNBVmSJIU
+	oNfJIHupIRItGgvFsnZrIYKR1o7cc3Zr92Svae/OiyQVcwk8tNtzp/X4UhhZbJtI
+	lLE6SC2mdsqWF9gTNCDGmAOU9458vm0so6O1UAoEC6Ar04tDPvrpXkletAn6+hqK
+	a4tsRpmToqXejrGdEEpEowjtxIUWnpJwaLChC3mzGhKoCM9czInvBAgA/OSQyVvL
+	Ey9PdhxqSMaWQ5z3QR5H2o6i1xwqhTi/A42liKL58Fr5lVp4vH8txAKr5ZQfDyfM
+	QeYjjn2uuFITL1q0RxcpMw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795606269; x=
+	1795692669; bh=07CB2JdpTLRGg0uhkULyfmQ+l69QiH2n18DqTWiKyng=; b=1
+	kerWhiNzkdfetpxL3Ulhe4ZcqAPeAH0VZLT/sstGDX14w0a+vd3IpSawawqYs9cN
+	Xj708kZwg9EOt8CUF8x6aXj1Vm7SVH7HY+MGkCX6qm5kuC09jHVTokyq/000yyzw
+	Z4vAWrB/Y3XDsbDFwfiPHREaZkBkYQXlHArv0Wk4gqGOkkZs+SaljdUZlGbYB7FI
+	EVwYn4dUUU5uJwzbRWk2HfafZJ4V8mz9Hao2k6c3WHB/VKFRzm6p5+sUW33FnmgN
+	SAaD8SY1vxle7ZdjVWCtzanx7qFQ2TJ+qP0bxm+DotIYdz2damf6JapJLO5R/a9D
+	uSwoIPftpUWuxjcW4i1Cw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ragnatech.se a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795606269; d=ragnatech.se;
+	mf=PG5pa2xhcy5zb2Rlcmx1bmRAcmFnbmF0ZWNoLnNlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:X6IiZOsog6BaC2NkNXzuRdIcPYWeyclswLgdhbDPZYuVY3o
+	FgSFilSD8HKPPQTAUVpMtJ3/OzP9XmDnfG596qbCO6SjpPOGMooopwb7a+Mu+EQr
+	BPXEsJr10bjVVgIVEJ5DIkRyK/SduW+yOkwhgXsEuIcu2ecelfvOhiX5XNWx1hz8
+	GcAJWZDK0rfPM5JwsODDug3nSID+qaiOM5YbjWYY8rzxy1iCmJ495Z21F1ZJiDU3
+	iNpmd+V1U9tvO+e3/CwLjelzdjEVIB7guwhaLqbnwmY31y6bXOWgkVtgmfTnZDCO
+	6FeSHoY5gwh4PCHsg0xhTLEwblFADtAH3A0Oe4g==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-disposition,content-transfer-encoding,
+	content-type,date,feedback-id,from,in-reply-to,message-id,
+	mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:ufM61RjvuqR1r5BUEPLZlryjW+cmxFM2FV1LvtCK5eI=:4WYlrs6VcY1qrwdfudkrtiUKHwcTjuWD3mfHDU/7I7I=;
+X-ME-Sender: <xms:_cYGa_rHVIZHLUtTt9LA1F9P_FjkWk45NsH4fHj4MvkqCFXuTwOYbg>
+    <xme:_cYGa6F33ZVFgJDCJXxnl5HDXxlo6F7oQjRsiGGUNB5ZfGr7cFNMKOqHPOdeK6nRk
+    u_UifkBYjGfT3SQgHj6kjzQSr1-29_Sg7JXwMBUrwk_m7Ggl5jHi2AC5w>
+X-ME-Received: <xmr:_cYGa86ROXjLgEAGioTv_xcbdJRFINet2Q_znqd0pqAA9LXCTe1jaSs7Hs9Hx0HQX-ScWnzsGfzfGv_uLQj3A-peAqrgk4w>
+X-ME-Proxy-Cause: dmFkZTFYIO1k+miz4jJ9B4TClE7SkH/GEU7+sz0HR7Lfzb+pMfdQPHogWYQRlB3X/KzKna
+    VGGt6bpybPog+30OxfnKZETDRcplBcv7Abac6MjdMtHXwc3n1DHt7Q8jUMqw7swYGLVb2R
+    VN8R5oRGRfjeZyi8LGnINAb1Hr3zsWrAb/4q/NcyX3K9EQy2GQ8CIgpJVplv2awK9HSoYJ
+    V1P8Ht0tPLOG+PcIyAImchcVgsSV2fuaYLAkVx5wysyHiy6sG8gMXk9CsovaTD0LSO71CI
+    7MIX2OamBJ/tcs0oHyy5WdoUTWf9coDW5lFrPFSFF8vnsyIOUEwg6vBpGpryr5N5lTCbZf
+    dUOjGml6OdRzzzkbxXSNbElpC8F7E1TuI5qTjU0+0KaFjv0RB+1Ijn9mfLiAmRALgWkcS/
+    6LbE5DRXuripm/yq1b9myEYptWUBFlTsAC/dga6kwGlNkM352mzoO/15iyiFaao6Zl8cU4
+    lNgEi7CyrrbKVnUExy4ymLpPRB/aLe10Zz+dIjj73wmHvCmXJNwp1DGkzeBJLr598yKHzL
+    tradNAmxlPvxou/ggdzJiy4rAWN58QbVHDb0MK+oY6z7YY3RKxLhjlpmzfcd6q5mdsYt0d
+    Jk3qgTdLObXJ9UaxdK2WVsmPf7aeJsxEdr4xhUQSUU+fvyPGp6oB6Z0mD5EQ
+X-ME-Proxy: <xmx:_cYGa6cPNm-0BZ3mn1tLBOXxry0NJ7vvR8wpd7of2IcPVwlYY8r5Lg>
+    <xmx:_cYGa_7srp8EAHHBtpc43N8wsgj1vKj7Q1wq2lzKHdY0DLM2O02vAQ>
+    <xmx:_cYGa38dBBW8aMqM0uJnWhFgGerFo-k8FlXDu_pG6cTRgM4Y3nmaUA>
+    <xmx:_cYGaxGBclQ_ENKKU2f5fzVknSve792W7OxSMeEj9qw8QKM1cDQmIQ>
+    <xmx:_cYGa-BPmAzkWpY3MRmTPjMzHBYdPqB1kKWbsJUySwr7PmX9ax-c_LBr>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 25 Nov 2026 06:31:08 -0500 (EST)
+Date: Wed, 25 Nov 2026 12:31:06 +0100
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+To: zhang san <shunsheng1218@gmail.com>
+Cc: rafael@kernel.org, daniel.lezcano@kernel.org, rui.zhang@intel.com,
+	lukasz.luba@arm.com, magnus.damm@gmail.com,
+	linux-renesas-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 2/3] thermal: rcar_gen3: release the interrupt
+ handlers from ->remove()
+Message-ID: <20261125113106.GM3898744@ragnatech.se>
+References: <20261124095110.131258-1-shunsheng1218@gmail.com>
+ <20261125030327.953450-1-shunsheng1218@gmail.com>
+ <20261125030327.953450-3-shunsheng1218@gmail.com>
+ <20261125073342.GL3898744@ragnatech.se>
+ <nh-17d10cf4-3201-426c-b9a7-95bcba2df381@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,202 +132,196 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] pinctrl: qcom: Add qcom,remote-owned pin
- configuration support
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Linus Walleij
- <linusw@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Prasad Sodagudi <quic_psodagud@quicinc.com>,
-        Rajendra Nayak <quic_rjendra@quicinc.com>,
-        linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261106-egpio_fix-v1-0-569d220a4748@oss.qualcomm.com>
- <20261106-egpio_fix-v1-2-569d220a4748@oss.qualcomm.com>
- <m3znhsvgj33ipd655d3nzjnx5q74kx4cn3jwoeuarov7j6mdhx@cj6qrl65ps2n>
-Content-Language: en-US
-From: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
-In-Reply-To: <m3znhsvgj33ipd655d3nzjnx5q74kx4cn3jwoeuarov7j6mdhx@cj6qrl65ps2n>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: H8FHqJu8v3-Z1SMsG1VEK4F7HH_TtJ_-
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA0NSBTYWx0ZWRfXwrHi3RvhUC/l
- NiHvRSakicOZlbR1DdTQhy2uqS98GLHFXbidVr8Ic870lvD5j4wXMCimdP86Cstzb6BngqCTaZU
- C59ThuWHydTLbPWEpxrGHziMFHDZ3ZE=
-X-Proofpoint-GUID: H8FHqJu8v3-Z1SMsG1VEK4F7HH_TtJ_-
-X-Authority-Analysis: v=2.4 cv=Vra2kO2n c=1 sm=1 tr=0 ts=6b06c69a cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=PjqW6EFSHK4lKDxzUDkA:9 a=QEXdDO2ut3YA:10 a=O8hF6Hzn-FEA:10
- a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA0NSBTYWx0ZWRfX3N1dEQ7hxiGX
- r6wkJaAS3/Qke+Em9Ap4heuliXubgyzR5KRU+uK1ggPLY5ZAZgxKTFIpCPxK9DPUXLSGfQcnPnz
- PfHuHxRgqydgmXklgT6E8RfeMo71XxHr65IwtJqcrOEyFD152ueVsmXrT8dVD+2e4fOo3+oi7Ph
- PgiDz3KA0lb7UA5/aNHy39cBFOOWLE7co9NY+GQ7h7daxn8oPczAgara8LaYNEwmUttmjqgiRnq
- 75YrpOEyVQi4oscpznLjigCFLepGG9r8nxdrZnzvk0NZH0XCAj13D/EamKUjEGosxOjt2ZmKOdK
- PN8/LnvoZlBv6s4/Ru7bM5WWmqYxmwSkoMahfrxdMOwGhtJqkK/zfZzDX/ORRQNCwLgIVtLJ+la
- gK+EHNiDdU5cyqKjjXuqeAYz4k6pVo0ATIDO1tJi88fwngYXF0G9um8J60EwBLeEWjJB0t8w1e5
- mJ4x/WFEA2s3F8IfMqw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 clxscore=1015 adultscore=0 phishscore=0
- bulkscore=0 spamscore=0 priorityscore=1501 impostorscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250045
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <nh-17d10cf4-3201-426c-b9a7-95bcba2df381@google.com>
 
-On 11/10/2026 4:57 PM, Bartosz Golaszewski wrote:
-> On Fri, Nov 06, 2026 at 01:29:42PM +0530, Pankaj Patil wrote:
->> The eGPIO support added was incomplete since pin ownership is independent
->> of the selected mux function: the eGPIO present bit only describes
->> whether a pin is capable of being owned remotely, and the enable bit
->> selects the owner - 1 sets the owner as APPS and 0 sets the owner as
->> remote io. At present it's a mux level decision by setting the function
->> as "egpio", APPS releases the ownership to remote io and in process
->> cannot use it for any other function.
->>
->> Add a driver specific pinconf parameter enabling the "qcom,remote-owned"
->> dt property support. pinconf-generic falls back to the default value of
->> 1 whenever the property carries no value, and an absent property is
->> skipped entirely. Since pinconf-generic emits the mux mapping ahead of
->> the config mapping, this is applied after msm_pinmux_set_mux() has
->> set the pin ownership, giving the intended result for a state that
->> specifies both a function and remote-owned.
->>
->> The hardware programming guide(hpg) explicitly mentions that the egpio
->> enable bit can be set independently of whatever the function select bits
->> are set to on targets which require shared ownership while the APPS
->> continues to use it as normal mux function.
->>
->> msm_gpio_dbg_show_one() printed "egpio" and returned early whenever the
->> enable bit was clear, which was sufficient while that state could only be
->> reached by muxing to the egpio function. Ownership is no longer tied to
->> the mux, so report it as a suffix on the regular line and keep the
->> direction, value, mux, drive strength and bias visible. Pins muxed to the
->> egpio function reach the same register state and so print the full line
->> too; their mux field reflects the previously selected function.
->>
->> Fixes: bebc49c1e5f6 ("pinctrl: qcom: Add egpio feature support")
->> Signed-off-by: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
->> ---
->>  drivers/pinctrl/qcom/pinctrl-msm.c | 81 ++++++++++++++++++++++++++++++++++----
->>  1 file changed, 73 insertions(+), 8 deletions(-)
->>
->> diff --git a/drivers/pinctrl/qcom/pinctrl-msm.c b/drivers/pinctrl/qcom/pinctrl-msm.c
->> index 32aa7b919e24..4d96260f9909 100644
->> --- a/drivers/pinctrl/qcom/pinctrl-msm.c
->> +++ b/drivers/pinctrl/qcom/pinctrl-msm.c
->> @@ -48,6 +48,31 @@ struct msm_pin_state {
->>  	bool saved;
->>  };
->>  
->> +/*
->> + * Driver specific pinconf parameter to hand a pin over to its eGPIO owner
->> + * without muxing the TLMM away to the virtual eGPIO function. The eGPIO
->> + * present bit only describes whether a pin is capable of being owned
->> + * remotely; ownership itself is independent of the selected mux function,
->> + * so a pin can keep its normal function selected while being owned by the
->> + * remote subsystem.
->> + *
->> + * The "remote-owned" property is a boolean flag: its mere presence releases
->> + * the pin to the remote owner. The default value below is what makes a
->> + * valueless property come out as "release", as pinconf-generic falls back to
->> + * it whenever the property carries no value.
->> + */
->> +#define PIN_CONFIG_REMOTE_OWNED	(PIN_CONFIG_END + 1)
->> +
->> +static const struct pinconf_generic_params msm_gpio_bindings[] = {
->> +	{ "qcom,remote-owned", PIN_CONFIG_REMOTE_OWNED, 1 },
->> +};
->> +
->> +#ifdef CONFIG_DEBUG_FS
->> +static const struct pin_config_item msm_conf_items[] = {
->> +	PCONFDUMP(PIN_CONFIG_REMOTE_OWNED, "qcom,remote-owned", NULL, false),
->> +};
->> +#endif
->> +
->>  /**
->>   * struct msm_pinctrl - state for a pinctrl-msm device
->>   * @dev:            device handle.
->> @@ -328,6 +353,10 @@ static int msm_config_reg(struct msm_pinctrl *pctrl,
->>  		*bit = g->oe_bit;
->>  		*mask = 1;
->>  		break;
->> +	case PIN_CONFIG_REMOTE_OWNED:
->> +		*bit = g->egpio_enable;
->> +		*mask = 1;
->> +		break;
->>  	default:
->>  		return -ENOTSUPP;
->>  	}
->> @@ -424,6 +453,17 @@ static int msm_config_group_get(struct pinctrl_dev *pctldev,
->>  		if (!arg)
->>  			return -EINVAL;
->>  		break;
->> +	case PIN_CONFIG_REMOTE_OWNED:
->> +		/* Pin is not eGPIO capable */
->> +		if (!pctrl->soc->egpio_func || !(val & BIT(g->egpio_present)))
->> +			return -ENOTSUPP;
->> +
->> +		/* The enable bit is cleared when the remote owns the pin */
->> +		if (arg)
->> +			return -EINVAL;
->> +
->> +		arg = 1;
->> +		break;
->>  	default:
->>  		return -ENOTSUPP;
->>  	}
->> @@ -536,6 +576,29 @@ static int msm_config_group_set(struct pinctrl_dev *pctldev,
->>  		case PIN_CONFIG_OUTPUT_ENABLE:
->>  			arg = !!arg;
->>  			break;
->> +		case PIN_CONFIG_REMOTE_OWNED:
->> +			if (!pctrl->soc->egpio_func)
->> +				return -ENOTSUPP;
->> +
->> +			/*
->> +			 * Ownership may only be handed over on eGPIO capable
->> +			 * pins and is released by clearing the enable bit, so
->> +			 * this is applied here rather than through the generic
->> +			 * read-modify-write below.
->> +			 */
->> +			raw_spin_lock_irqsave(&pctrl->lock, flags);
->> +			val = msm_readl_ctl(pctrl, g);
->> +			if (!(val & BIT(g->egpio_present))) {
->> +				raw_spin_unlock_irqrestore(&pctrl->lock, flags);
->> +				dev_err(pctrl->dev, "%s is not eGPIO capable\n",
->> +					g->grp.name);
->> +				return -ENOTSUPP;
->> +			}
->> +
->> +			val &= ~BIT(g->egpio_enable);
->> +			msm_writel_ctl(val, pctrl, g);
->> +			raw_spin_unlock_irqrestore(&pctrl->lock, flags);
->> +			continue;
->>  		default:
->>  			dev_err(pctrl->dev, "Unsupported config parameter: %x\n",
->>  				param);
-> 
-> Sashiko didn't spot it but eGPIO functions are now defined as
-> MSM_GPIO_PIN_FUNCTION() so pins configured as eGPIO can be used via GPIOLIB.
-> 
-> When you call:
->   gpiod_get()
->     msm_pinmux_request_gpio()
->       msm_pinmux_set_mux()
-> 
-> You'll end up clamining the pin again by setting the egpio_enable bit
-> unconditionally.
-> 
-> Bart
+Hi Yaohan,
 
-Understood,
-I'll post a v2 to handle this in msm_pinmux_set_mux()
+On 2026-11-25 05:18:20 -0600, zhang san wrote:
+> Hi Niklas,
+> 
+> Fair enough, and sorry for wasting your review time. Dropping
+> RCAR_GEN3_THERMAL_MAX_IRQ and your earlier style feedback across revisions
+> was my fault.
 
+I'm happy to keep reviewing your work. And I think the issue you are 
+working on is valid and worth fixing. I don't see it as wasted as at the 
+very least patch 1/3 is good code and more or less ready to go and fixes 
+a real issue.
+
+I was just, a bit blunt, asking for you to work thru the changes 
+yourself a bit more. From my side it reads as a copy-past from LLM and 
+having to point out the same thing in multiple iterations is what's 
+tedious as an LLM can't learn, but you can! And I'm happy to support you 
+if you want to.
+
+> 
+> I'm dropping patches 2/3 and 3/3 and won't send any further IRQ lifetime
+> changes here unless I've worked through the driver properly on my own.
+> I'll look at patch 1/3 separately on its own using your feedback.
+
+Thanks for breaking out 1/3 it is good and fixes a real issue. As stated 
+above if you want to keep working on 2/3 and 3/3 with more human power* 
+then LLM, I'm happy to keep reviewing it.
+
+* I don't care if you use an LLM or not, but you need to workthru the
+  LLM suggestions some more before posting it IMHO.
+
+> 
+> Thanks,
+> Yaohan
+> 
+> On Wed, 25 Nov 2026 08:33:42 +0100, "Niklas Söderlund"
+> <niklas.soderlund@ragnatech.se> wrote:
+> > Hi Yaohan,
+> >
+> > Thanks for your work.
+> >
+> > On 2026-11-25 11:03:26 +0800, Yaohan Li wrote:
+> > > The interrupt handlers are requested before the thermal zones, and
+> > > devres releases the managed resources in the reverse order, so the
+> > > handlers outlive the zones they report to. The handler walks every
+> > > sensor and calls thermal_zone_device_update() through tsc->zone, which
+> > > is not cleared when the zone is unregistered. Masking the interrupt
+> > > sources neither waits for a threaded handler that is already running
+> > > nor removes the action.
+> > >
+> > > Release the handlers from ->remove(), which runs before the runtime PM
+> > > reference is dropped and before devres unregisters the zones.
+> > > free_irq() also waits for a running handler, and after it returns the
+> > > handler cannot be invoked again.
+> > >
+> > > Record the interrupt numbers as they are requested, so that a partial
+> > > request is undone as well: if the second handler cannot be registered,
+> > > the first one is released and the driver falls back to polling, as
+> > > before.
+> > >
+> > > Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+> > >
+> > > ---
+> > > Prepared against v7.4-rc1-1969-g666539eecdf4.
+> > >
+> > > Compile tested only: arm64, aarch64-linux-gnu-gcc 11.4,
+> > > CONFIG_ARCH_RENESAS and CONFIG_RCAR_GEN3_THERMAL.
+> > >
+> > > AI assistance: prepared with Claude (Anthropic) as a coding assistant; the
+> > > author reviewed the reasoning and takes responsibility for the content.
+> > > ---
+> > > drivers/thermal/renesas/rcar_gen3_thermal.c | 38 ++++++++++++++++++---
+> > > 1 file changed, 33 insertions(+), 5 deletions(-)
+> > >
+> > > diff --git a/drivers/thermal/renesas/rcar_gen3_thermal.c b/drivers/thermal/renesas/rcar_gen3_thermal.c
+> > > index a96f02d4a8ad..37348f4413b6 100644
+> > > --- a/drivers/thermal/renesas/rcar_gen3_thermal.c
+> > > +++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
+> > > @@ -107,6 +107,8 @@ struct rcar_gen3_thermal_priv {
+> > > struct rcar_gen3_thermal_tsc *tscs[TSC_MAX_NUM];
+> > > struct thermal_zone_device_ops ops;
+> > > unsigned int num_tscs;
+> > > + int irqs[2];
+> >
+> > What happened to RCAR_GEN3_THERMAL_MAX_IRQ ?
+> >
+> > Please stop thorowing this code at an LLM it comes up with new code
+> > ignore past ideas.
+> >
+> > > + unsigned int num_irqs;
+> > > int ptat[3];
+> > > int tj_t;
+> > > const struct rcar_thermal_info *info;
+> > > @@ -466,9 +468,25 @@ static const struct of_device_id rcar_gen3_thermal_dt_ids[] = {
+> > > };
+> > > MODULE_DEVICE_TABLE(of, rcar_gen3_thermal_dt_ids);
+> > >
+> > > +static void rcar_gen3_thermal_free_irqs(struct device *dev,
+> > > + struct rcar_gen3_thermal_priv *priv)
+> > > +{
+> > > + while (priv->num_irqs)
+> >
+> > Please use a for loop not modifyig priv->num_irqs, this looks dangerous.
+> >
+> > > + devm_free_irq(dev, priv->irqs[--priv->num_irqs], priv);
+> > > +}
+> > > +
+> > > static void rcar_gen3_thermal_remove(struct platform_device *pdev)
+> > > {
+> > > + struct rcar_gen3_thermal_priv *priv = platform_get_drvdata(pdev);
+> > > struct device *dev = &pdev->dev;
+> > > + unsigned int i;
+> > > +
+> > > + for (i = 0; i < priv->num_tscs; i++) {
+> >
+> > Declare loop variable in for loop, where possible.
+> >
+> > > + rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQEN, 0);
+> > > + rcar_gen3_thermal_write(priv->tscs[i], REG_GEN3_IRQMSK, 0);
+> > > + }
+> > > +
+> > > + rcar_gen3_thermal_free_irqs(dev, priv);
+> > >
+> > > pm_runtime_put(dev);
+> > > pm_runtime_disable(dev);
+> > > @@ -491,22 +509,32 @@ static int rcar_gen3_thermal_request_irqs(struct rcar_gen3_thermal_priv *priv,
+> > >
+> > > for (i = 0; i < 2; i++) {
+> > > irq = platform_get_irq_optional(pdev, i);
+> > > - if (irq < 0)
+> > > - return irq;
+> > > + if (irq < 0) {
+> > > + ret = irq;
+> > > + goto release;
+> > > + }
+> >
+> > This changes the behavior of the driver...
+> >
+> > Please stop using an LLM to code this. As you don't have hardware to
+> > test with throwing LLM spaghetti over the wall and see if it sticks is
+> > getting tedious. Please read, understand and write the code yourself as
+> > coding for gear you can't test is hard.
+> >
+> > I will not review another set of LLM slop, especially as the good parts
+> > like RCAR_GEN3_THERMAL_MAX_IRQ are dropped between revisions.
+> >
+> > Nacked-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+> >
+> > >
+> > > irqname = devm_kasprintf(dev, GFP_KERNEL, "%s:ch%d",
+> > > dev_name(dev), i);
+> > > - if (!irqname)
+> > > - return -ENOMEM;
+> > > + if (!irqname) {
+> > > + ret = -ENOMEM;
+> > > + goto release;
+> > > + }
+> > >
+> > > ret = devm_request_threaded_irq(dev, irq, NULL,
+> > > rcar_gen3_thermal_irq,
+> > > IRQF_ONESHOT, irqname, priv);
+> > > if (ret)
+> > > - return ret;
+> > > + goto release;
+> > > +
+> > > + priv->irqs[priv->num_irqs++] = irq;
+> > > }
+> > >
+> > > return 0;
+> > > +
+> > > +release:
+> > > + rcar_gen3_thermal_free_irqs(dev, priv);
+> > > + return ret;
+> > > }
+> > >
+> > > static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+> > > --
+> > > 2.34.1
+> > >
+> >
+> > --
+> > Kind Regards,
+> > Niklas Söderlund
+
+-- 
+Kind Regards,
+Niklas Söderlund
