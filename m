@@ -1,101 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795573101;
-	b=LvlEBUJR7g9UJ/2313LdE4n+8zlEZws0hcrDOMxEu3IWVbxM2AHtVGb/yM3DetWcOPBJ
-	 EHZQAdGKCbhy63nMJPushVkzVWWliIzwaM5gNvVW7MriGEk6cZRJNnOiF6gWdajRogE0+
-	 87Zz9OEWJx9RpGxWF+8vU7RyDLqx37C+27zKPH/mFEwxgdlQ52F23/GhP57jmX669ftDQ
-	 7OjBdp8COJMLuta0PDovqP+/MLp+JvX8LEBpJTPH47COoP7emHY+DCIVyyKfIFlS0FfaL
-	 UKAX8ewaMN/IHOEzpTCW1l9QQkI2XnmiqIs42I01216TQ+ItKayQe/t2kthgjP6SNdA==
+	t=1795573148;
+	b=B3smEAOHdUz/BP0rmqWORd0+9E2PWx8lVx0aISg4lnuPFxsz5vs25rBFdgHtf2gLIR0V
+	 YpbcFe/oIQ0s7NBY47snN/MnGv+6H8Mn8hS33+6yWf/rbBPxwvJedcODLWKNutgjz9KeV
+	 auen/n/Gqg7/iFoeNQHuj+D18ekWJLtUp18WvTqzOhPyPSJv0NjiITMF7up+EK+OJM8By
+	 3ctpXUxzZlUUht9rrdYs5DAXsHZ2FIa2oozw5ixsAxicIaCvq0rpPexR2+HHP/PiMog7s
+	 uTN+Q+uwvSG6GRAERvyucww4OIIm1O7cbTKut+zJpqWmlgR1h3f883Jcrs6Zqa2w/CQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795573101;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=BfBc2nl/+x1jei32QWJml8gTyYfpGpADR+dK5QnbKzw=;
-	b=1ZArsh+mW0RwGRNE77HeJAXAGfj3rRtg2xrS99zo/+Cn42RiINqRpaes33kto86dIl6U
-	 pZdToIW4+9B+dc2CMhfXQIFu0wdcbXzo3PL0OKECSb+LPA8+NyUOM4S0y7UXcdMJYmzkS
-	 KnsBuBPTUs/zTaGfWOh6vqFrq0Lu8KzixmM5UBHkXMSOB2rcWCythISJPuqS/NkxK78/7
-	 7sZjB3a1kbGZa37hjpkF3MzDANE4R8/c8LU8El/lXjmMTPPkz6iFdOQ8gTzXykBg/JJv0
-	 Bv63oTiMeitZJsVjMlfFiBN42bhMyzFdTmnJzx9MRf7UEE2zQXj7hJcrk5K0RQgaCsg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795573148;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=GYoP/F22Ugc6lgcVzIqTK81cwwtgjlrxX6z9WpK5CTY=;
+	b=MrsjyD8ZJKvykq91IUDXIcxdALWY8PZlgZb7+UpUkOC1HUqASc+joefmVyJXOvS9i0P+
+	 s2QQxFjB6WH0ED8abKOQCj2zWWRRybjuwKeagSQGVpvmHk3nHEINIqCdi8tyApXXzU8Y1
+	 k0tjm64dKJ2w4uLJD5ngenPr8HtM0OZdBSWHtXnTk3ihed8EUAXkstNvNviUpsp1EF3vu
+	 3dZyZNAIPy3eYwitMczP699ZsIt+UYpwLkbFzJiQpLRSybnDc9Fr5QRJ6Qdi+kOhg11mO
+	 9IkZw2aj+/qngtFj1VbW4bFKtG3UxGdZj3wkVywd9wBVwJEoJILWiLKw+Y1iJzTAXqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mMUfAWXc;
-	arc=none smtp.remote-ip=209.85.210.182
-Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q6tjINWT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2B73606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:18:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2B73606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16489606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:19:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mMUfAWXc
-Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8b4c8b51b58so2998798b3a.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:18:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795573100; x=1796177900; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BfBc2nl/+x1jei32QWJml8gTyYfpGpADR+dK5QnbKzw=;
-        b=mMUfAWXcVM1xIZ/sjsn1fq08fH4cNvvV+oUQ3eA29ZMZ7A+eR49KLC6qpO8DNy1F2r
-         gkd92auy0Mt4Zky/nz7SbVEL/AGIvelnKaoFgD+J+iDepSfvxxqWY0+T0Z39kxdHTzTY
-         eMscrxm14uebLO9hUbvAA+qdI7KIr5bdpvPWPLiyqQe+mp5hQH4oZ5Ub3qD3qJ74mSua
-         sFJIhhKkRaV9B23MWw4rMZLzDyZ7CbJxvlRCJ6Qpqb1m64EzWOGlB1eu9cvA2wprbAwF
-         KXWhsJVnHVM8dnPdGTgKarfqJIVO7dc6UBO0xheja2CQ0m0G+8S0YM5Dy4YVRFWmMctE
-         dIxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795573100; x=1796177900;
-        h=content-transfer-encoding:mime-version:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BfBc2nl/+x1jei32QWJml8gTyYfpGpADR+dK5QnbKzw=;
-        b=huw0yoMk+eWsfNvXeSTnfeCYJ+Yo/ilmTPyotHcu2nMah4BjKh9nKxVWl4bq3C7jRR
-         QMNjV28AkMBQW2G1HpNttIIy8Sues/6hu8LmxlYn0XWX/1EoVhq0BX8uuD+Bn1Rk3sK/
-         fWKj1vsEFNAS3EOyyDN8ztlKELVCqTBRyN6sF905ea5tmXXlxULz2g6gXpq2PQWuAjTU
-         rkLHxqL6mfrHbHE2xRQlzahzpU2PQUgz3B3I3oiZ8KxcKXSJfXguaPyVKE1AxTf8ueNN
-         PRl+RjE46O46DTs89LYoPLw5K1NnDYJ7Mq447lFVxENmLOVsYn1APSdzUyts7k+hc+QB
-         ssvw==
-X-Gm-Message-State: APuU4Z9OnN16cTNXIrzCfhXGngfbUK3pQMHsiIR8CFUN62vvrT+GTujE
-	byUcPKxFcbiYiz3yCyEmcnc9dLBzvSIB/0JnC+PXoc1jwRPARrgERv1H
-X-Gm-Gg: AZFdTZfO8JCZSlNreVNScRRjp4sFh2Yu/snjRJed0qmWbS7tmpwKe7flwVnbFGQdnhi
-	SJHEqane22YIxaZWNqOLCjsF0GWstP6nLx49ObM+K/uN/L+qlQrcAWRcstrBePT+TAs/XwCMzVM
-	3QT5vZkUC18KkYJ9ewDhpY62SFf2UScn3CwTAmpbVUVo7r4zpHLsjulsx2/vJtZHJToY9WUArf2
-	gBSjuftZ6NpurbShP8g1u8D4n4wckpRWvIF3JGtncNBwZSa+5MRdD20MDv3JF3OQzetaMPHtym5
-	BNBTQxB0GpEUT4n7duhZu12RaTPXXUlcJp6X6mHGajCZnQwHSNh4VuR8I+2LraQS6v+H1b28wKh
-	ohEFwGZFiqr35jTIDWSSmt6IDcqb1BMvTVj8qECUtahyV5NubXHghYZdbKncmWt9z7SwUCi3/FF
-	dFYJjUViWDIsYw4iI1IeoiF52oYcJkFSrdd0JybuXY8HMY4DW2DXnF7WcRgwdJ9WKF0h96TnzR9
-	4CXqrotxXhdUjda1RjWVitXaYdnvzE/5RnrDsiySr3n0jAwTMWdmlFxFl2tAzQ3Onj7I8Onxm0i
-	dclwyevn0WeIDeNt6R3mTBpZx+DY8hqJRFwnP76ky86rUAoCngioFpUl8oCfoXuQdC/hwaWnTy8
-	HREvgyqCQjD8RR3nEYR4+8zEJvL5sUM7//FR46HZaor/vgwwE68qO4vQiZxbACEfu1A==
-X-Received: by 2002:aa7:88cf:0:b0:8b6:594d:7030 with SMTP id d2e1a72fcca58-8c87ca51fe7mr14842703b3a.42.1795573100263;
-        Tue, 24 Nov 2026 18:18:20 -0800 (PST)
-Received: from LDYT9Q2G2M.pvgl.sap.corp ([180.166.22.226])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e45eccsm8048734b3a.31.2026.11.24.18.18.17
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 18:18:19 -0800 (PST)
-From: Zhiqi Zhang <zhiqizhangg@gmail.com>
-To: akpm@linux-foundation.org
-Cc: linux-kernel@vger.kernel.org,
-	kunit-dev@googlegroups.com,
-	pablo@netfilter.org,
-	lfinke@student.ethz.ch,
-	netfilter-devel@vger.kernel.org,
-	jhs@mojatatu.com,
-	jiri@resnulli.us,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] lib/ts_fsm: preserve patterns across tc dump and restore
-Date: Wed, 25 Nov 2026 10:18:14 +0800
-Message-ID: <20261125101335.7868acd102b6-ts-fsm-ping-zhiqizhangg@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261109103454.50617-1-zhiqizhangg@gmail.com>
-References: <20261101081736.51803-1-zhiqizhangg@gmail.com> <20261109103454.50617-1-zhiqizhangg@gmail.com>
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q6tjINWT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A1311F000D0
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:19:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795573147;
+	bh=GYoP/F22Ugc6lgcVzIqTK81cwwtgjlrxX6z9WpK5CTY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Q6tjINWTxW5DThpKjro1fzdg/o1ZQU7XHnEVMC/4QUYLMOI2Meg66g7ftRrhYwjTh
+	 d+Xu9fqAC/A3CjrA+7ZzZ60h6GjixTHMDZkaNeTS32pcnmOBoh/Hc2jiV3L0PbKm/m
+	 /Zrn9zf4V9O+rRkE1vnrSUDaGsISuwAda9l6nF5ZOztf69jlX8OPNmV1pWIgifJS/s
+	 M03CI9JSazWQEcNnePW+hNmaNZv/yftrY+AJ45i+l/2FScRD3Ie96wuI4ddFpeKTUM
+	 SPfrdO3oHEUBHHT3bISFTUiI/IYOEv198dY0hfPrnyO5/0QIZGjZmmQ7itqAWNodHK
+	 H6uorOufadfag==
+Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-6b86fcbd647so8186485a12.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 18:19:07 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFuJSG5QiQ2PL+64lAjOtW3oP50nJO4IOJBTqwcEFjYFEPIxYlBllelUoNODHSCpsZ+8I+1+h+I3hty9YU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+PtlwYOLdbplMxIiIugivOeacOB7+bxB21qShmyOK/jJCazuEm
+	n7fN8XjVSxhosntRG2Robc2ZSmWoldleWYNq0mnFnudOojzF0WAhM36GU/HmQvB+EAYDa8RQlCs
+	ZMp9qGfouYn4DhmGC4h8fqgdHkBDHolA=
+X-Received: by 2002:a05:6402:a592:10b0:6ba:668c:ad92 with SMTP id
+ 4fb4d7f45d1cf-6ba668cb3e0mr6721321a12.21.1795573146069; Tue, 24 Nov 2026
+ 18:19:06 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,26 +59,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261124230746.850528-1-shaopei_1012@163.com>
+In-Reply-To: <20261124230746.850528-1-shaopei_1012@163.com>
+From: Namjae Jeon <linkinjeon@kernel.org>
+Date: Wed, 25 Nov 2026 11:18:53 +0900
+X-Gmail-Original-Message-ID: <CAKYAXd_ap120uprmarov-GuO0fb1eXEgw-U8G08L1xRJ9bv18A@mail.gmail.com>
+X-Gm-Features: Aa3M54phjn4LoQPu6VjS7F5RJeDya9zkDLhO5IKjGgnMkwG9AW2CqozN9PdyGC4
+Message-ID: <CAKYAXd_ap120uprmarov-GuO0fb1eXEgw-U8G08L1xRJ9bv18A@mail.gmail.com>
+Subject: Re: [PATCH v7] exfat: add EXFAT_IOC_COMBINE to append a file's
+ clusters to another
+To: Shaopei Zhu <shaopei_1012@163.com>
+Cc: Sungjong Seo <sj1557.seo@samsung.com>, Yuezhang Mo <yuezhang.mo@sony.com>, exfat@lists.linux.dev, 
+	linux-fsdevel@vger.kernel.org, linux-api@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Matthew Wilcox <willy@infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Andrew and all,
+On Wed, Nov 25, 2026 at 8:08=E2=80=AFAM Shaopei Zhu <shaopei_1012@163.com> =
+wrote:
+>
+> Cameras and dashcams recording to exFAT SD cards often write the video
+> stream and auxiliary data (e.g. IMU samples) to separate files and merge
+> them when recording stops.  Doing that with read()/write() or
+> copy_file_range() copies all the data of the source, which takes time
+> proportional to its size on such media, wears the flash and needs free
+> space for a second copy.
+Is there a specific device or product expected to use this feature, or
+is it being added as a potentially useful capability without a
+concrete use case? If there is a target device or workflow, could you
+share some details?
 
-A follow-up ping on this two-patch series, sent on November 1:
+>
+> Filesystems supporting reflink can already avoid the copy by cloning
+> the source to the end of the destination with FICLONERANGE and then
+> unlinking it.  exFAT cannot share clusters between files, so it needs
+> an operation that moves them instead.  Its semantics follow from the
+> exFAT on-disk format (cluster granularity, a single valid_size per
+> file), so it is added as an exfat ioctl rather than a VFS interface;
+> fallocate() does not fit either, as it only takes a single file.
+>
+> Add an ioctl that moves the cluster chain of a source file to the end
+> of a destination file and then unlinks the source, so that only
+> metadata changes: the FAT, the stream extension entry of the
+> destination and the entry set of the source:
+I suggest changing EXFAT_IOC_COMBINE to transfer only the source=E2=80=99s
+cluster chain to the destination, leaving the source linked as an
+empty file. Userspace can unlink it afterward if desired.
 
-https://lore.kernel.org/all/20261101081736.51803-1-zhiqizhangg@gmail.com/
-
-It fixes a userspace-visible issue where restoring a tc FSM text ematch
-from its dump can change which packets the filter matches, or fail with
-EINVAL.
-
-v2 describes that impact, splits the fix from the KUnit tests, adds the
-exported-pattern equality assertion, and includes Cc: stable on the fix.
-
-Could you please advise which tree should carry this series, and whether
-any further changes are needed before it can be picked up? I would also
-appreciate guidance on MAINTAINERS coverage for the new
-lib/tests/textsearch_fsm_kunit.c file. I can prepare a follow-up revision
-once the intended coverage is clear.
-
-Thanks for your time,
-Zhiqi
+Thanks for the patch.
