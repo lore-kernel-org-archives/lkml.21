@@ -1,81 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795642126;
-	b=w+xry4F5Ydd+ttylIN27if7gTgKL58kMn5QvngM6Ym2Qj9vM2YBhIu43dsU1x1y5tqZ8
-	 Ro6uzZUG6+VuJqdbEZg/VMZmzb7TJty51fR0NUmBHkmzSAFWCIuzVvZW9d1/wbtrM9YD2
-	 Zdnagl1bYoeUR1SPx5GE4YgGpZ9hyQ1e7CUFi1AhcD/lPRhvLne5odrFcxaWauD2Oblwy
-	 uOnSGSvwafmkT2Do9t8YZD9OCOKmOHE0GppoVIz2leAIdTI1cmffPtrDOadVrN2VNMJbJ
-	 V0iAKCIvlC5PDXvVEizor50YKUBwdro+v2j8A7uEb0X6ZiljFaprdtIi3uLBHMwiElg==
+	t=1795642132;
+	b=c0sNxm2AeuMt1TewiRUdYh7XyYLmBqdakBt43FQrD/UdTk3YNH7kgdeeSbhNDCNb4Jtd
+	 F1zvbpLKXX4wwvl/AoPWXto/K1xYwH2d0ev4KZysGWOWvZinu5oLdyI7dwFWbmL5F7MLf
+	 MCM8UL06BgGh2QlNm78Fa4OHJRNoiPkxhyrsBDIMaTwbDXSHNlTgskOg+Qylp39LzAXFQ
+	 voRUuZ91DypuOyFLEK64AKq6aZJQtUYIKLdzsc2kAToN6aSqo/Is7zUKGBr3oR5keNyNQ
+	 X+5E13P/bqIvj1vSPuHzsLCL4KWIXNE0VxWg6NZkvtBh+efqd5BTw7MsCDyLTG7aaYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795642126;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=UkuehG/5TT/D6FQ9os1MRdpr+7rTrdbnhuKF65CDUEc=;
-	b=nSWnHLsXQVrNmSmgRJEiRezk3UzJ3xwqP4LuS6+8uwlKO8qGRU2Pf0Q3OIQwqQwgfi9b
-	 /oO41I7rJh2Dq1VPHQWK0zuRVt975oQEnfhW9+MZVp7K1RfphvTkYYH30gHUxxLXI+S6i
-	 ZpO2Tf4rt7g7tahdgADJDu+Fb3tH31EqBWPVpjnLDa2wubawJHyYQ1cuQH5XYDJYQAGal
-	 4j6gxX9ZEmkACt0ke8TZIfEm/p2Mlo+qeyWAM2FDr7FA4yc3fVHgIoJf6GJuBCL3WGTc5
-	 VGpPa+xHGr2oCi86aiV6qrZqFDJ4OmgxjEcGRmsOpSEtTIMZrHBXOs+WPSnkdABxhvQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795642132;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=7Hmz5vySOboqHrESZPY+xq7qDyDg7gktFhkojo13Pz0=;
+	b=47K6ilzPN47yY8K8y1qBoJipAjw2ylcmE8evJHBX3wTDuGR+mCGgklSRPl1OPt2te7Bt
+	 5X9gNaQSv7tN4D8sdLN3wr7yD9rbN6yz96PyJpKGxPKfEWM+vjg6U3JHI4QqAxa2AyYO3
+	 ptUbz7TX4fOMP2IySdYL779k+CYAfhuSXcVKrrdMiB+BvX0y++BgL8HtDJFaHHI8Igbkg
+	 ue5CdQrc1KYRLtFVm9A+1GFtX8d/x5uxYOp6EgqPbbrxZohb5wdir3W3OWkcJboTbs4mq
+	 itajpaTA4TEzpgF7o7o1rLRP0lfnrv9Gju8GAXAcyfSohwG6KCLhgSYlDHZo9d4hBtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FZQIPYGD;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gdxN4x4l;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 66196606A32E;
-	Wed, 25 Nov 2026 21:28:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6798606A327;
+	Wed, 25 Nov 2026 21:28:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FZQIPYGD
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 09DCA1F000CA;
-	Wed, 25 Nov 2026 21:28:45 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gdxN4x4l
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11A321F0093C;
+	Wed, 25 Nov 2026 21:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795642125;
-	bh=UkuehG/5TT/D6FQ9os1MRdpr+7rTrdbnhuKF65CDUEc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FZQIPYGDb1o0kLORFON4oH4idnFolPzmggTC3M01X1BJQr6Qo4xV9kI6dtNDNlVAn
-	 /rRmop/gaX/iXEsvG0SmIgrT39XcS56ADn71JnR4oGy6n1D5tHaqt5sER1UecVGwxb
-	 z1fHwCbuHmWR37Lu0D9sG4FnACsL+J1Yv/Vht8qwRm9CZOKwj46/3CcFld0mjLaiiJ
-	 pxEydeg25q98X6zLisvAhsp4sVh+SIUyl3FQ4jgvufoPaJILBv6f7VmKAeoh9QRkRY
-	 u7iDN4K1pUE4238Lvb3/J0J8mBi3dDhSM5CO/ulCfKZYWHW587LZ9swvr4aRGuZK+y
-	 Dz6Z8TdKrLFDQ==
-Date: Wed, 25 Nov 2026 23:28:42 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: David Laight <david.laight.linux@gmail.com>
-Cc: keyrings@vger.kernel.org, dm-devel@lists.linux.dev,
-	linux-crypto@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Alasdair Kergon <agk@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Benjamin Marzinski <bmarzins@redhat.com>,
-	David Gstir <david@sigma-star.at>,
-	David Howells <dhowells@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Ignat Korchagin <ignat@linux.win>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	James Morris <jmorris@namei.org>,
-	James Prestwood <prestwoj@gmail.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>, Jonathan Corbet <corbet@lwn.net>,
-	Lukas Wunner <lukas@wunner.de>, Mike Snitzer <snitzer@kernel.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	Mimi Zohar <zohar@linux.ibm.com>, Paul Moore <paul@paul-moore.com>,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sumit Garg <sumit.garg@kernel.org>
-Subject: Re: [PATCH v2 1/9] KEYS: trusted: Allow ASN.1 TPM2 sealed data
- shorter than MIN_KEY_SIZE
-Message-ID: <awdTChkSGKVF48xL@kernel.org>
-References: <20261124194043.1651679-1-jarkko@kernel.org>
- <20261124194043.1651679-2-jarkko@kernel.org>
- <20261125090930.698d8f1b@pumpkin>
- <awcAeLUROL0l_g3X@kernel.org>
- <20261125212650.479bea7c@pumpkin>
+	s=k20260515; t=1795642132;
+	bh=7Hmz5vySOboqHrESZPY+xq7qDyDg7gktFhkojo13Pz0=;
+	h=From:To:Cc:Subject:Date;
+	b=gdxN4x4ltjSLrRUiu7ZX5bYI8i3yfR/GkYqDQns38mwjLhgtdajRjfrLxdixVYh87
+	 AdW/qQWMdkFd4bPupR2tpC86m7TQZtbGYNZzeHbZQa1KogsSj0ms0eHkWrotKk9qtz
+	 iFsir8l2hOhVIuQyJwFclbOPgEQR5+S/2bE56BMCxbjcFmNiZDI85FGpOwnf5NluIr
+	 dVCKZh2+7SOoyK2pw3TAP7y5YxWhLJEmoqcIsSjZ6xntdc14JoubLrJS1TjKbr+8AL
+	 wfzqhmMyW32F1xouP8KTH8keCLsxTrr00J6/8NAw8wFJV5dNsvp0kazea1RmYxOSXq
+	 wOXRV161DizCg==
+From: Namhyung Kim <namhyung@kernel.org>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Ian Rogers <irogers@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	linux-perf-users@vger.kernel.org
+Subject: [PATCH v4 00/11] perf tools: Enhance namespace and chroot handling
+Date: Wed, 25 Nov 2026 13:28:40 -0800
+Message-ID: <20261125212851.1792988-1-namhyung@kernel.org>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,58 +62,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125212650.479bea7c@pumpkin>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 09:26:50PM +0000, David Laight wrote:
-> On Wed, 25 Nov 2026 17:36:24 +0200
-> Jarkko Sakkinen <jarkko@kernel.org> wrote:
-> 
-> > On Wed, Nov 25, 2026 at 09:09:30AM +0000, David Laight wrote:
-> > > On Tue, 24 Nov 2026 21:40:35 +0200
-> > > Jarkko Sakkinen <jarkko@kernel.org> wrote:
-> > >   
-> > > > tpm2_unseal_cmd() rejects unsealed payloads shorter than MIN_KEY_SIZE (32
-> > > > bytes) with -EFAULT even when loading an ASN.1 TPMKey (OID_TPMSealedData,
-> > > > 2.23.133.10.1.5) blob.
-> > > > 
-> > > > While kernel-generated trusted keys ("new <keylen>") and legacy old_format
-> > > > blobs are at least 32 bytes long, external TPM2 tools allow sealing any
-> > > > non-empty payload up to 128 bytes.
-> > > > 
-> > > > Keep MIN_KEY_SIZE for legacy old_format blobs and accept 1..MAX_KEY_SIZE
-> > > > bytes for ASN.1 TPMKey sealed blobs.
-> > > > 
-> > > > Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
-> > > > ---
-> > > >  security/keys/trusted-keys/trusted_tpm2.c | 4 +++-
-> > > >  1 file changed, 3 insertions(+), 1 deletion(-)
-> > > > 
-> > > > diff --git a/security/keys/trusted-keys/trusted_tpm2.c b/security/keys/trusted-keys/trusted_tpm2.c
-> > > > index 30188a0ec676..d7336f25b514 100644
-> > > > --- a/security/keys/trusted-keys/trusted_tpm2.c
-> > > > +++ b/security/keys/trusted-keys/trusted_tpm2.c
-> > > > @@ -559,9 +559,11 @@ static int tpm2_unseal_cmd(struct tpm_chip *chip,
-> > > >  	rc = tpm_buf_check_hmac_response(chip, buf, rc);
-> > > >  
-> > > >  	if (!rc) {
-> > > > +		u16 min_len = payload->old_format ? MIN_KEY_SIZE : 1;  
-> > > 
-> > > There is no point using u16, just use unsigned int.
-> > > 
-> > > The same goes for data_len.  
-> > 
-> > Hmm... or just int?
-> 
-> Unsigned int can generate slightly better code - especially for
-> array indexes.
-> I sort of prefer it for values that can never be negative.
+Hello,
 
-Agreed and I changed it as unsigned int in v3 :-)
+This series improves namespace and chroot handling when perf accesses
+files from /proc.  It defers reading /proc until namespace info is
+actually needed, verifies thread liveness, matching boot IDs, and
+mount namespace inodes against PID/TID recycling, and avoids entering
+target mount namespaces for host-side files such as the build-id cache.
 
-> 
-> David
+It's assisted by LLM.
 
-Br, Jarkko
+v4 changes:
+
+ * Fix a potential struct thread reference leak on failure in
+   test__nsinfo_thread_liveness().
+ * Rebase onto the latest tmp.perf-tools-next (preserving chroot
+   tracking for --lazy-load-symbols in dso__load()).
+
+v3: https://lore.kernel.org/r/20261123232025.1406560-1-namhyung@kernel.org
+
+ * Guard evlist before calling evlist__session() in write_boot_id().
+ * Repipe PERF_RECORD_HEADER_FEATURE events in perf-inject pipe mode
+   and add a boot ID pipe-injection shell test and unit test.
+ * Pin a reference-counted host /proc descriptor across
+   nsinfo__mountns_enter()/exit(), access relative /proc paths via
+   stack-buffered nsinfo__proc_{open,stat,readlink}() helpers instead of
+   heap-allocating mntns_path, and handle ENOENT/ESRCH on ns/mnt stat.
+ * Skip filename_with_chroot() chroot resolution when
+   nsinfo__need_setns() is set.
+ * Add compiler context-analysis lock annotations (__guarded_by,
+   __must_hold, __returns_ctx_lock) for struct nsinfo, host_proc_lock,
+   thread->nsinfo, and __thread__reset_nsinfo(), plus locked accessors.
+ * Expand mount namespace tests to verify overmounted /proc during
+   nsinfo__mountns_enter() and own a private mount namespace in
+   enter_private_userns() for clean nsinfo__mountns_exit() restoration.
+
+v2: https://lore.kernel.org/r/20261116055731.707164-1-namhyung@kernel.org
+
+ * Keep dso__filename_with_chroot() (guarded by nsinfo__check_proc())
+   instead of calling chroot() inside nsinfo__mountns_enter().
+ * Add a mutex lock to struct nsinfo and replace thread->nsinfo safely on
+   exec/namespace events rather than mutating shared instances in place.
+ * Mark offline sessions explicitly, propagate exit on fork replacement
+   and perf_event__exit_del_thread(), and guard sub-thread fallback in
+   thread__e_machine_endian().
+ * Gate mount namespace entry for debuginfo/binary probing callers,
+   include distro debuginfo types, and handle build-id lookups in
+   symbol-minimal's dso__load_sym().
+ * Add unit and shell tests for namespace, nsinfo, chroot, and boot ID
+   handling.
+
+v1: https://lore.kernel.org/r/20261023071141.134149-1-namhyung@kernel.org
+
+Thanks,
+Namhyung
+
+
+Namhyung Kim (11):
+  perf tools: Add HEADER_BOOT_ID feature
+  perf tools: Add perf_env__is_same_boot()
+  perf tools: Add nsinfo__new_thread() to track tid
+  perf tools: Add lock to struct nsinfo
+  perf tools: Defer /proc lookup until nsinfo is used
+  perf tools: Verify thread status and mount namespace inode
+  perf tools: Check thread liveness when accessing /proc
+  perf tools: Export filename__read_build_id_ns()
+  perf tools: Only enter mount namespace if necessary
+  perf tools: Scope mount namespace entry in dso__load()
+  perf tests: Add namespace, nsinfo, and boot ID tests
+
+ .../Documentation/perf.data-file-format.txt   |    5 +
+ tools/perf/builtin-inject.c                   |   29 +-
+ tools/perf/builtin-trace.c                    |    2 +-
+ tools/perf/tests/Build                        |    1 +
+ tools/perf/tests/builtin-test.c               |    1 +
+ tools/perf/tests/namespaces.c                 | 1189 +++++++++++++++++
+ tools/perf/tests/shell/header.sh              |    9 +
+ tools/perf/tests/shell/pipe_test.sh           |   21 +
+ tools/perf/tests/tests.h                      |    1 +
+ tools/perf/util/build-id.c                    |   15 +-
+ tools/perf/util/capstone.c                    |    8 +-
+ tools/perf/util/debuginfo.c                   |   19 +-
+ tools/perf/util/disasm.c                      |    8 +-
+ tools/perf/util/dso.c                         |   58 +-
+ tools/perf/util/dso.h                         |   34 +
+ tools/perf/util/dsos.c                        |   17 +-
+ tools/perf/util/env.c                         |   69 +
+ tools/perf/util/env.h                         |    4 +
+ tools/perf/util/event.c                       |    1 +
+ tools/perf/util/header.c                      |   28 +
+ tools/perf/util/header.h                      |    1 +
+ tools/perf/util/jitdump.c                     |    2 +-
+ tools/perf/util/machine.c                     |   16 +-
+ tools/perf/util/map.c                         |    2 +-
+ tools/perf/util/namespaces.c                  |  439 +++++-
+ tools/perf/util/namespaces.h                  |   23 +-
+ tools/perf/util/session.c                     |    1 +
+ tools/perf/util/symbol-minimal.c              |    4 +-
+ tools/perf/util/symbol.c                      |   45 +-
+ tools/perf/util/symbol.h                      |    3 +
+ tools/perf/util/thread.c                      |   97 +-
+ tools/perf/util/thread.h                      |   15 +-
+ tools/perf/util/util.c                        |    7 +-
+ 33 files changed, 1999 insertions(+), 175 deletions(-)
+ create mode 100644 tools/perf/tests/namespaces.c
+
+-- 
+2.56.1.831.g720f3f5937-goog
 
