@@ -1,102 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795612436;
-	b=fCZDT0UF5YqhlL98wt/65c2v2ywkVv5sU4MHnbVi3u8YUsewFBfsjMwas2WsMKaXdNyL
-	 GfYSHACUAE+/DAgm86wN8SXjkQpiZPCM7mOZ/G6qvF5bNyKf23UII2kd+7GUnwlhA4chV
-	 pV5L1hFRNTF7X6FP/gKNWeowSzAd/ON9JKzfx6FYJLjlpsaDg4w7r5a9hf7bj/S0b9Nrw
-	 V6UQLUJsswZfaNVm6TMauY1M6lehAAcBTwfKgbH5VwfQAAwAzpwaOoRDUR76jd9fhLAxi
-	 r3ds1T6SZgXdEVR26t7EmJSJb4yPlzy86VrPZamPESQbk0NlJMQTI90aAFy2XNgRd4w==
+	t=1795612455;
+	b=lG+5Kmc+e4uGw3Fu4V6fydKrw2HO8GqRvKbMQxpA9YksdXQQJUh7kNE2A8r97UC2B/m7
+	 +c5AEIzUmgsW5nBgmqdEO/0gkPt6YDGcfv2jIkpzafTxUu0qCJJJPV2ac6iICxvjhvQ/R
+	 VBaXTgGccIdrKnlG8RFLl2Taztr2Zx/58740g65nV3zoBNiCTY9bliDtRUpIU4z6m+EgF
+	 rbCp8FmXDAmVA37xqvXgs8VanaUBgq8YESJiO0WwEfItk3JLvY+ryBE3TXyXIrdD2NddB
+	 nwSdn6Qsz5dxg/QkUdm5I2UVuXc3C6JaP+VrbTQ54C46CWvjtK2q9Bf4BWlpWP7DJeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795612436;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795612455;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=lLppeGy1XzHj80bZaYu9ud4jXSqvMG1N0izZuQqUo64=;
-	b=FH4+uhlC3YRYoO454oW2zYGKFgN4DVKgTwr/CyMa6pvMWrYJ3n72eyHrstPtagOi1bwu
-	 hbyc3VLAqXij5GFM+xuCxjIoPxuEFyBvTjRSbZMnMEzh6jW5y/cgS8QHzSeqvKlLWqogi
-	 Yd8O/gc2RONCW8yUtRo7BySKLJ02LrSj58CnH+8av2wNvhT0J9d7D13oDxkd2u1x576T7
-	 GG1gVi67dxsO7MdsORYn7G+NF3cthfxZgFTdndaEcBXCuM/LU4VyLQEld04Ks8TjDpPgG
-	 RvltISNEBX83qYy/bwcKtyYMqLcb3DfMW10cPzEDljcSxIhmTVVqHEaCd9cNQRZPGOg==
+	bh=5XfMe9sVBlH5h5dxZM8mrBTIhabGa5WtTp0Fjg5KM5g=;
+	b=RoamLBXGNinCEdh5xC1a/m1/O8ArC/0Q25EhWt3azeDi+ST3rDVHjXgnjpP1WKfkcYvU
+	 jwdsYAEtDb0ijgUkEa9okFPocVkGZ+GyeRxbpKq2W4BluDOlWIX352+0af8m99czTP6rm
+	 BJv1xayXWAkD1KF1yqIkX7LRXzCyaz6OaDF6zW2BumLhK6pc3DsqfSl1eR1zAfFocXdIh
+	 sFfzbiKT2vj+5cQ6vKQ81v7bH4TAOQ618DsUBxxXIZHruTKEUVyAFuBPfqISSj8iaTy/+
+	 Zd1PFz6ygqw5ruitsSUll/S5mT99MjnH3bXrYC0rpcvxbZjoDwisDXlO29rQB1BQMQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qnfkDB5m;
-	arc=none smtp.remote-ip=209.85.208.51
-Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jS1BkzYj;
+	arc=none smtp.remote-ip=209.85.218.43
+Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85470606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:13:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85470606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07D87606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:14:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07D87606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qnfkDB5m
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b87a1a2babso12102635a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:13:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jS1BkzYj
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so1060402566b.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:14:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795612435; x=1796217235; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795612453; x=1796217253; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=lLppeGy1XzHj80bZaYu9ud4jXSqvMG1N0izZuQqUo64=;
-        b=qnfkDB5m873iUDYkw6ioFpHj9RndIDgteuJVkHJF/8div4yRLdm8jlUfpE9DMrdJX1
-         k51M9Y3F/gPOMfeigvQh+PqOb/DyaamYL0s+so9E6bUl+eLPvMo6Qc8wvyhaU+da08D2
-         X5Bmip03gZNzf3MqA8QoqxLxZXvFj08v+WDdq0j5zIaV4i+OHkD29nL06q4+4f3HHzFH
-         xJRmcTkfT9nId/6T5avf/c4ZzuUG2KObMd8eGgDekUnEPWZ5tf6gZd8gVpUMp06fTr6j
-         Bdr10ysjSDc9bLl3rtyYN/qdmW6hSSEnSpFQCnFgweTMzYHvBm7NjCLhcoV5tm6pDMPV
-         5ZXQ==
+        bh=5XfMe9sVBlH5h5dxZM8mrBTIhabGa5WtTp0Fjg5KM5g=;
+        b=jS1BkzYjBkjNz8jvYZNS9iB6slXYZALrhZnVKf+Z95tqj5yGKsMqgUVemegnV3fdNC
+         91QdplPwR3M7J89n/zr2Jo3KW/DlD5wN7A4Waxp0PPcrPRMo+8ozM3e15KtQCO5YOxsh
+         kueWy0tCqkXz+TW8VahihAT5wGBmcTWKPUDOJmCcYoYWIkkaAIh9kP19OrTIinz3CxSm
+         eenhzxtNukOXTBGXp9+O1KzoztN3BBq0cr0yv8n7euFZxHrnJ1Cfm7xcrBCHUqirRCDX
+         6KNMTtsLA02CIdaiLVJMUETNwZVjCE4SEVLey2QjDx+PopDKow0U5SZOlUxRQCE0LFnV
+         hwHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795612435; x=1796217235;
+        d=1e100.net; s=20260707; t=1795612453; x=1796217253;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lLppeGy1XzHj80bZaYu9ud4jXSqvMG1N0izZuQqUo64=;
-        b=eOxAque0uxZRALE7uXEn2+NYcFpmrEsDJwlnX6NnskLDvIANs1Mmyn9HjMzKtCcICb
-         JDJ0PD34Nd5GvrGLyvZkPGNVotHz5ke8FLoXvW97U3Mfe7OcB9Nc+bXvBx28+G6YR9aQ
-         eDVwhmOpaFfbg7WdJliy1zD4k5fwtnXsHYbtivUXZ7PbE3QkfTmowq7n/6eWNDTEGLSU
-         fRi44nXxri03wrimbAiOlDvYegu+Q9pHbZ9Tbr7T0p+eiAez7D5rmjJ6V/vdHNWlEtCn
-         QRlYcrBDRf7VRnR8gZSYGvHUEu0rRFAnQApV8ii46N232P3Fgf232fFfVEafZVWZYwZo
-         md/A==
-X-Forwarded-Encrypted: i=1; AL+hErHHIZeEX+AN3YnIf11TjG0fHFZRTRuD2up2kZ8kH6crICproA+9l/leRC0aFpF738uh/VyUPVlBRjGzwdo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Kz4DXZA6iW51TlhkB6KXNpf0EG0w5JXaX+NmtLd6+MAEZ1/zc
-	CvK8oSIczqn5f+F/kJa2dUuD5nxbw9Qgud0v+Q6Ns1jZWxnI7lkDStN5
-X-Gm-Gg: AZFdTZczaaZR2gt3JDpp4SP1SpcVDKdjPIbKsic4D8htTlcHYqjOQYW4UgK0WEZU8sL
-	xYC32+iab0R4BlJr1rEhX0m2hCUUi+CS/DDxJ20phygL0L4t+HryqN4ZqOdPIQ8GrNgd6M/sKIE
-	fi5CzN/gjuoh5rUqcXNmhCf/M+nPa9vj7dmYWeAUGlgS3/0G6xbZcqfks8Ne9jLFLgbSATVvgDC
-	IOwCgv/dS3K8ZdBfudc3ByPjfkPK37CseeJcUYBgkyo76IO5yEYydn05v9IPeTDgqA4WV7Dc6r6
-	pVfxDyj3bRhnFqSkF20U/RH6M6lMYFwR7oR7BvzN2+aCh1rOwMv86XEi3FUnXYmo2ZJ5x++52XS
-	QFfMyNl+5HTgIBiMDQnRuMX9RKodqiEglCNOswgLjcvIN/J91UiZpqUZ9p6IFO5+4GS1Dfo6MOS
-	6/PlEhh2Az7208M6NA6f9XyKHsi76Cc1jOaonhRjyZTlf+R5+f2G1blxGMUcBwe2iapaHQDWlUj
-	XEg8a65W7yZ4EkCXTw4nwvZZe6lh8UldRAZU6VI8dUVOzSF3wqZCTgCCn1lRhXZ2/0TBuR5PcUS
-	7fpYI3ity8o2aCNFEnx2uwypws2q5oCpvkbxwmtebbWATpt/KhmroflOEkNaE1Fm3qj+JWsCwdf
-	qM10pEf36Krvrjt9GuwavEJTBhYRpO03xzLZJh2zsiq1bKNR7dFKxgsEMJ2ZYYqduL6nREdmtqh
-	cgyHWOqpa1iIeWnsuFZRoWKg==
-X-Received: by 2002:a05:6402:1f13:b0:6bb:1300:89fe with SMTP id 4fb4d7f45d1cf-6bb13009288mr2705854a12.11.1795612434766;
-        Wed, 25 Nov 2026 05:13:54 -0800 (PST)
+        bh=5XfMe9sVBlH5h5dxZM8mrBTIhabGa5WtTp0Fjg5KM5g=;
+        b=xj6YFKizaIApUeSLHEKa2pJtO8tJe37YnJKKFlVnnd0ciDpEGv9Tg/7J/SHn1Vrhvz
+         5UUoQnegGxeuArtpvkm1apxc4N7GAIj4PkoN+rFqvCJjkG14xNb6IdtTDHPNiLgowc1a
+         OjIsnDiDvjfZXVP59+ZbbvBFocYmdZB2IUBlrmrKx1Cz+nM3f1LSgobXmrvAcJ/amOvy
+         qUOVNwLauTHR6tTIeD5rJATqmwZlf8wUReujYzuuiVuLwgNjw0m/fchnrQNVR/RwxNJ2
+         zrA4JqPh2WF0L6AN8f+lcYKTPMzuzcH/TgcA6AOMqe7cdweb5QOZ6Sv4TLNMTiWp1GP6
+         9krg==
+X-Forwarded-Encrypted: i=1; AL+hErHv4MrV7nYSjqQB3k6oEfCuOr0tDOevaCdC+9rQPsOpM2lWJfpCgt8Aucz1F74iQRFt7QKwpMo0MO2WMaI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9yg3bZg9aiFwBMpwtYvHlMrsTMXHg8SfGA+ftn0ZfYdVVbCuhK
+	wABxtpzAvfGLgMs7oKkQ1fN4QQELOWbOAeNpLjGiSNydKGtJ+95wKMer
+X-Gm-Gg: AZFdTZe0DDcKRqsNL0m3x2vfZWw+nVJMhXRohNIkr+4lJevhsyxgYdl08pq7AX4PgNo
+	5k0O42Z7DukH9K6gf5XDdn8ZGgcyHTLCGAzW7A4e5H9ohSeE8IxQn7R2FmvdbuPcrQ7P0h0Dhsk
+	gLmdk7XY1KhnxoevZCVf+wXcr1ymEWXFZpA5lUnRbzFaMreeLQFKG9TPR5utianJ1ZFcyxWajtq
+	QH6RyFUjhYTtDxMRXeLyuMLQ6DmkxMpp6guZo5eg1kKVTlV4D7KzOhW7ZjZbmbqWkl5qTdB9hKC
+	I5RUAh7kg+hqQpfEvD8rRHcGP+0JCtBSaYADpP0/WRoizIBKHCP0sZA9K3AO9cAKhIyrXPrr9sc
+	30kwo+mN5+jxI5z+27Jsfwb3ec6njh0/et2DgrXgjaduBdt0Tp8w0QBFU1/CnpKuySM++bWEm//
+	cOVu8b/pDtrcWDj+Ny2WFg7uJI3ES7FXv9EC7zwNN9pN5Ex+WNXV/jHoIfcZO39/oJU5Gu5g10o
+	Gy4d2bga/v+WeGXSpWVmb4ubPW9FHsPQ56vbfsSbvVkxmPTJu1sQvQA36+9qt0SXJxPGT1TyHq/
+	GVaUHmyDXW2WhraTtUk7cmhSNPAbpjTDOPFrGW5C+6VfvYg5PDMV4hz9svR+PKFfnUL3KY/SRiS
+	lISi99FAN40DNToIfmNidsiNRty8XHGIw9Z1bBxvs3ok1WINCTS9OgaSKCe5AbLipwnMEMTM1OA
+	dYcH8W187cgue67SpXiqoXWg==
+X-Received: by 2002:a17:906:f8cf:b0:c50:bf14:8ec1 with SMTP id a640c23a62f3a-c513ab4d93emr1032726266b.33.1795612453112;
+        Wed, 25 Nov 2026 05:14:13 -0800 (PST)
 Received: from desktop.home.arpa (2a02-1810-1e16-ac80-898e-1938-27eb-b890.ip6.access.telenet.be. [2a02:1810:1e16:ac80:898e:1938:27eb:b890])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba37109c58sm8024647a12.33.2026.11.25.05.13.53
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae698ccsm634079466b.26.2026.11.25.05.14.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 05:13:54 -0800 (PST)
+        Wed, 25 Nov 2026 05:14:12 -0800 (PST)
 From: Stijn Cleynhens <stijncleynhens@gmail.com>
-To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+To: Luiz Angelo Daros de Luca <luizluca@gmail.com>
 Cc: netdev@vger.kernel.org,
 	Linus Walleij <linusw@kernel.org>,
-	Luiz Angelo Daros de Luca <luizluca@gmail.com>,
 	=?UTF-8?q?Alvin=20=C5=A0ipraga?= <alvin.sipraga@analog.com>,
 	Andrew Lunn <andrew@lunn.ch>,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
+	Mieczyslaw Nalewaj <namiltd@yahoo.com>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2 0/2] net: dsa: realtek: rtl8365mb: fix FDB lookups in VLAN-unaware bridges
-Date: Wed, 25 Nov 2026 14:13:39 +0100
-Message-ID: <20261125131339.908183-1-stijncleynhens@gmail.com>
+Subject: Re: [PATCH net v2 2/2] net: dsa: realtek: rtl8365mb: keep the neutral PVID in VLAN-unaware bridges
+Date: Wed, 25 Nov 2026 14:14:07 +0100
+Message-ID: <20261125131407.908739-1-stijncleynhens@gmail.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <c963f0ad-65fd-4d2e-823e-5c63251e2fe5@yahoo.com>
-References: <c963f0ad-65fd-4d2e-823e-5c63251e2fe5@yahoo.com>
+In-Reply-To: <CAJq09z7Jg1Y+R5xmLeE7CSUvp7dtFKi6vLifDxdL+nh8VL3FdQ@mail.gmail.com>
+References: <CAJq09z7Jg1Y+R5xmLeE7CSUvp7dtFKi6vLifDxdL+nh8VL3FdQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,74 +108,82 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Sun, 22 Nov 2026 15:04:47 +0100 Mieczyslaw Nalewaj wrote:
-> Since you have family D hardware and work on FDB lookups in VLAN-unaware
-> bridges, could you please take a look at two patches of it, and test them
-> if you have time:
+On Fri, 20 Nov 2026 16:29:35 -0300 Luiz Angelo Daros de Luca wrote:
+> >  - The port-based FID alone changes nothing while the VLAN4k entry of
+> >    the VLAN a frame is classified to has IVL set. The learned key
+> >    stays {MAC, VID}.
 >
-> - 7/14, which makes IVL_EN of the 4K VLAN entries follow the VLAN
->   filtering state on family D;
-> - 12/14, which handles the L2/LUT differences on family D: no EFID, so
->   an offloaded VLAN-unaware bridge is put in FID 1 with the port-based FID
->   registers while standalone ports stay in FID 0, plus the lookup-hit
->   isolation fallback (0x0A10 bit 0).
+> Wouldn't it be {EFID, MAC, VID}? Or, for standalone ports, {0, MAC, VID}?
 
-Hi Mieczyslaw,
+Yes, for unicast it is {EFID, MAC, VID}, I left the EFID out. Multicast
+entries have no EFID, so there it is {MAC, VID}.
 
-I tested v14, where these two are 7/15 and 12/15, on the RTL8367S-VB
-of a TP-Link Deco X50-PoE (IPQ5018, CPU port on HSGMII), on OpenWrt's
-6.18 with the rtl8365mb backports and the six DCB/QoS commits from
-net-next that v14 builds on.
+> >  - give each VLAN-unaware bridge its own FID and enable it on the
+> >    ports of the bridge while they do not filter,
+>
+> And how does EFID fit into this?
 
-The chip on this board reports version 0x0050, which v14 does not
-know, so I added an entry for it. Its port 7 also drives an RTL8221B
-over the second SerDes (SDS1); I carry that as a separate patch and
-can send it on top of your series once it is in.
+The FID of a port is kept equal to its EFID: 0 for a standalone port,
+the bridge number for a bridge port. A unicast entry in SVL then has
+the key {EFID, MAC, FID} with the same value twice, so for unicast the
+FID adds nothing and the EFID keeps the bridges apart as today. For
+multicast, which has no EFID, the FID does that. This also keeps the
+number of bridges at what the EFID allows (7); the FID is 4 bits on
+family C, so it does not lower it.
 
- - Boot: the CPU port came up and passed traffic on 6 of 6 boots,
-   without the re-latch work from your v8.
+> Here I wonder how the EFID would interact with that FID. I believe
+> each standalone port requires its own FID, as they share the same
+> EFID=0.
 
- - A station that moves from behind a user port to behind the CPU
-   port, 10 pings each, the learned entry replaced by the static CPU
-   one each time:
-     untagged, VLAN filtering off: 10/10
-     untagged, VLAN filtering on:  10/10
-     tagged in VLAN 20, filtering off: 10/10
+They share FID 0 in v3, as they share EFID 0 today. I do not think
+they need one each: a standalone port only forwards to the CPU port and
+has learning disabled, so the entries in FID 0 are the host addresses
+of the standalone ports, which all point at the CPU port. Two
+standalone ports with the same host address get the same entry, which
+is also the case with EFID 0 and VID 0 now.
 
- - With the bridge VLAN-unaware, 12/15 set PBFIDEN and FID 1 on both
-   user ports and left the CPU port out; with filtering back on, both
-   were cleared again. A host behind the RTL8221B port answered 10/10
-   through the other user port while unaware, so the hardware forwards
-   between the two in FID 1.
+> >  - A static unicast entry written as SVL with the port's FID replaces
+> >    the learned one in place. The roaming case from the commit message
+> >    passes, 10 of 10 pings, on both chips.
+>
+> Great. That's what I was expecting. And does that replacement happen
+> even if different VLANs are involved?
 
- - A second bridge falls back to software bridging, as max_num_bridges
-   is 1 on family D; a host behind it answered 5/5 and was no longer
-   reachable from the first bridge. A standalone port with the same
-   MAC address as the bridge worked next to it, 15/15 on both at once.
+Yes. In SVL the VID is not part of the key. In the tagged test the
+station was learned from frames in VLAN 20, and the entry that
+replaced it was the VID 0 one that DSA installs on the CPU port.
 
-I did not try to trigger the lookup-hit isolation fallback on purpose.
+> >  - as a separate patch, write a VLAN4k entry as IVL only while one of
+> >    its member ports filters, and as SVL otherwise, so that tagged
+> >    frames in a VLAN-unaware bridge are looked up by MAC as well.
+>
+> I'm not sure about that. We might need to avoid enabling the VLAN
+> filter if there is another VLAN-unaware bridge also using that same
+> VLAN (as well as avoiding adding a VLAN-unaware port to an IVL VLAN4k
+> entry).
 
-My v3 for the RTL8367S, not posted yet, touches the same things on
-family C:
+I would rather not refuse it, as that configuration works today and
+would start to fail. In v3 such a VLAN stays in IVL, so for that one
+VLAN the VLAN-unaware bridge behaves as it does now: unicast is still
+kept apart by the EFID, and only the roaming of a tagged station in
+that VLAN is not fixed. The commit message says so. If you prefer it
+visible, I can add an extack warning when a VLAN cannot go to SVL.
 
- - 12/15 and my 2/3 both use the port-based FID registers
-   0x07AC/0x07AD and write the VID 0 entries in SVL with the FID of the
-   port. You use the fixed FID 1 for the one offloaded bridge, as
-   family D has no EFID; I keep the FID of a port equal to its EFID, so
-   each bridge has its own FID. You leave port-based FID off on the
-   CPU port, I enable it on all ports, with FID 0 on standalone ports
-   and the CPU port.
+There is one more case I wrote down in v3: an FDB or MDB entry with a
+VID, in a VLAN that is in SVL. It stays in IVL and matches no lookup.
+That is what the bridge does as well, as it looks its FDB up with VID 0
+only while it does not filter. Writing it in SVL would give it the key
+of the VID 0 entry with the same MAC address, such as the one for the
+address of the bridge, and deleting one would delete the other.
 
- - 7/15 and my 3/3 both switch IVL_EN of the VLANs in use with the
-   filtering state and keep a bitmap of those VLANs. 7/15 does it for
-   the whole switch, IVL in all VLANs as soon as one user port filters;
-   my 3/3 does it per VLAN, IVL while one of the member ports of that
-   VLAN filters. Family C has the EFID, so per VLAN works there; I
-   have not tried it on family D.
+> The Fixes tag is appropriate since the code is broken in this specific
+> situation. Let's fix it in net-next and backport it to net.
 
-As both write the same registers and both keep a bitmap of the VLANs
-in use, I will base v3 on your series once it is in net-next: use your
-vlan_4k_used bitmap, and add the family C paths next to your family D
-ones in port_set_efid() and for IVL_EN, rather than a second copy.
+OK, v3 targets net-next and keeps the Fixes tag.
+
+Family D has no EFID, which is where Mieczyslaw's series puts a
+VLAN-unaware bridge in its own FID, with the same port-based FID
+registers. As his series is further along, I will base v3 on it once it
+is in net-next.
 
 Stijn
