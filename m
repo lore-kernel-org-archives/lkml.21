@@ -1,73 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795595059;
-	b=HgGtLDws6yv+TzfmGPRrkofwoLGmstpYf2IMs4z1wjTL/iKH+jQ2u7Ha4EKW9uf0mT3L
-	 hrl2SCCeu8tqDFXInrrX1k0PLLpFDkgh05voeA5RBM5E68vOOmDX9Mo4BtlL70VaQS17X
-	 hXC0t7ffJmgCJvqNLjWRCMApEf+vI7mupWvcCrT8QvoTchjpg0/9+h4YO4eyveelz3fRG
-	 RjjU5rTBYqpM/Ii7KCDJ68uSoSFqXOvbOc9T0cKQmnBMw9TXfihmbtELw5eHla87cIe11
-	 RkGrTO6vRKx5IEv0pDM7L9uxCFpp7V3TU7XIA6pGAcg1vEdVHKJxB+M1FD7kOlX3CNw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795595059;
-	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:X-CID-META:
-	 X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=tvASh848fJMA5vteecjZFmNY2W1voJmJDbb9Kyjqx6o=;
-	b=T61hzlLJUG0IwDAIbuhVRvPl3BL5i53yRRs36yptyxSyozYCTIdfhZn4TDRYpI8R+5+w
-	 V+66iAHXZqtSaEdHCJzVZWIxnuzKAo2xHQUpFBLjKQzN6N1IF9MpScVfooHpfKv3gwQxJ
-	 1oOGKgRDxIzGwTw1wfQDC24zGZWT5C/wsAVVKWGDQdw+8a28t+E98iylWK6fC8ZBnDeog
-	 OyfbRFRlKprzuk0dS0viYhnu6UbsV+O3q0tcROgsvetcqoT/tAgxW1rr9cTo0lGLzLsvB
-	 UOIjE29IHekhpqI08VV87RN5j2/MQsYJkdKYy/lBFOpbfig7LXsPtFhbA2zW5fc6dxQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795595080;
+	b=OB9s/dlx/Zaoz0QOyYmqWK+zKANXziSLRbtqdhq8qiNtIRCbXi1cER5wpAkdh/SYahUM
+	 4SuXU8J/gbdvk99g/VlEzscFWfa59k4Ysd0p0VcT5Wt8EylGjBezZ9Oikr4hICauynnZo
+	 eieu5a9Q3LM8PS8N+viMat7p0JdkyJPYKqeLO9l/TPbb8ClpQOTLyBueUGcK5ppTHDvzT
+	 Vda6Gu2s+pmaZvpZLnE1OwJL+yHtLVRh3TdvBTFUTQfOHsj7Ek9ft3DYXuhy0IKg/cXy2
+	 x+o8bWhM6dcMbq0hp0ee5ci+2pI9XzQtu2owL58oyz1qO+N47wmtK1RVMBbRBQfcqPg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795595080;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 In-Reply-To:References:MIME-Version:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Content-Type;
+	bh=+OgTYY8n6yc3qcbD3zimkqKD2AWn/72ixSa4WihkrKk=;
+	b=d8Z4I4iZTTOn8osvTBYH1f9m1kvSSM/kZ+yy/p/W22XvTYbwvSERlnCl4aJc8Th/jCOv
+	 OErE0rnQA+Iwt1a6EqBnRTvuwdKcTwogm6/EiAU8olPh1wIJSaprIME4jEHRp0/nejhsi
+	 eUAMklTsXwTicIoSQM3/NCcvBxSi+dEoFNVzAyqtPmtNQo2+Toon51vSApPJjxIojnWHn
+	 k5X1UwRL208CaZj4gG0EZImtn+MUwMZLmkFAxAJ+BuFV1iV2rDKMoTzBUmoOcZHoytTlI
+	 iXwZCc8eyurxZfZ1DkNkATf1b0fPUeicZyLzon5aRKS+9WDTGX/YfHxUiGoHYlkejsg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JYnBbibw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.51
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 968E4606A31E;
-	Wed, 25 Nov 2026 08:24:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 968E4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: 95d3b77ce8a911f19a56ed5b684f684d-20261125
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:7e9d3075-1ce8-49fb-bb03-8f262bf8c56c,IP:10,
-	URL:0,TC:0,Content:9,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:19
-X-CID-INFO: VERSION:1.3.19,REQID:7e9d3075-1ce8-49fb-bb03-8f262bf8c56c,IP:10,UR
-	L:0,TC:0,Content:9,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:19
-X-CID-META: VersionHash:7db8b62,CLOUDID:8c8c890b99896bbf54089eb9b950923c,BulkI
-	D:261125162411DDZ563PP,BulkQuantity:0,SF:17|19|64|66|78|80|81|82|83|102|12
-	7|153|841|850|865|898|915,TC:nil,Content:4|15|50|99,EDM:-3,IP:-2,URL:0,Fil
-	e:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,D
-	KR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 95d3b77ce8a911f19a56ed5b684f684d-20261125
-X-User: maguicai@kylinos.cn
-Received: from localhost.localdomain [(36.106.123.207)] by mailgw.kylinos.cn
-	(envelope-from <maguicai@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 2035325445; Wed, 25 Nov 2026 16:24:08 +0800
-From: Guicai Ma <maguicai@kylinos.cn>
-To: Ethan Ferguson <ethan.ferguson@zetier.com>
-Cc: Kees Cook <kees@kernel.org>,
-	Paul Moore <paul@paul-moore.com>,
-	James Morris <jmorris@namei.org>,
-	"Serge E . Hallyn" <serge@hallyn.com>,
-	linux-security-module@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND 1/1] yama: clean-up ptrace relations upon activating YAMA_SCOPE_NO_ATTACH
-Date: Wed, 25 Nov 2026 03:24:05 -0500
-Message-ID: <20261125082405.1505471-1-maguicai@kylinos.cn>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260526153542.105483-2-ethan.ferguson@zetier.com>
-References: <20260526153542.105483-2-ethan.ferguson@zetier.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC3B4606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:24:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC3B4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JYnBbibw
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c50aaad19fbso603904066b.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:24:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795595078; cv=none;
+        d=google.com; s=arc-20260327;
+        b=eJwFLgmSAAtaYkzfI1uNq4cqA56ACwHhIhLBkk8BbjAJS8c9dcG+iTxwS36BfN5xor
+         RbDOO9A81vzUbXZxntuQN2/RFyCCv7zQZLjBC6/c+eBEDQxBI8VFtd4Y1uqPaXCvO5Bi
+         hJUWBWeDWMyG1uTLr+qnfVY3e+G0bv00apnfT/1y6oS5InFnhTcp9LPDvMI3ed0qys+r
+         ws0HhzY46svwVEmxpQSC5r+HZpcE3tM8mcH/qahMNPUJcy0xFh89FEEu2UWqKuIJRnCt
+         ZfS5BDU05o9SdTq0JMkw6sp1QYRcCjLScg1ofVFRWmLGCY+2vSDLL9LFnBeEz0EKJhKu
+         Vy3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:mime-version:references:in-reply-to
+         :dkim-signature;
+        bh=+OgTYY8n6yc3qcbD3zimkqKD2AWn/72ixSa4WihkrKk=;
+        fh=OqB8MYqDrdA3sOrAFtgchRsoyr/nfNk9so60YzhdsDw=;
+        b=pjSE/L92L2MCZXxd3RrwMSs4SaE4VLhdcU9K2OHcZ4JQ/sIOiAyLMagfVALtxfZOnb
+         gASy6fEpmXjhF8hDwJZxl98AA3yER9J9NIOU1TKlTH0FXiFv0mVnOfxxFU9iL1vSa2Ug
+         rWrT+NrLR0/Tjc+MDxO9dunX7j2Vr2ymiVekP6ixuEmdL5twWZ0I3oTlDS6Cgu+mqDjj
+         Vv5mTLom+B4uQ2RqcCIoExfrzix7XzS80TJ5UgdTWH7pMhret9Hx/DWtkvS5IIftTl8t
+         B0egt9YnDrCl9iV6YEHQEzrApTYaZSYKS99zKa+BnFVR5TgXAR8yg4RKyPn13SDUdvfE
+         yVXQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795595078; x=1796199878; darn=vger.kernel.org;
+        h=content-type:to:subject:message-id:date:from:mime-version
+         :references:in-reply-to:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+OgTYY8n6yc3qcbD3zimkqKD2AWn/72ixSa4WihkrKk=;
+        b=JYnBbibwmphUIXBEAUa/kCRgqceDjAv/l0WaihxjyopfKawc6bFPMZ7cTmF1eUTr+L
+         TTTNgbOLg/4QD020Cx7XQt8dIw/AjE7UoUpmYOgEe+tNmFWjvyo9bA/bvacvwqZmcTyq
+         K1ML8TTAed1Ce7U87SlAAPCyU/VCU9Dy7KoXVTVlFqCPjY4yFZUWcvCvHc/PgjuldAwX
+         JPgWJ6HbXqGHBqXuaqCtwdvgJ1326sNr4ew0JiCNoeLtluQUnE2Ri5S5hnGSNlCRp9La
+         T3ZJquk487Xd8+GyuVbvi7Gqkn1rVwCQQZRLf0u/upQ5wKeu6zZ3GeQcGzgIa5481Xfq
+         gSGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795595078; x=1796199878;
+        h=content-type:to:subject:message-id:date:from:mime-version
+         :references:in-reply-to:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+OgTYY8n6yc3qcbD3zimkqKD2AWn/72ixSa4WihkrKk=;
+        b=2z7YnnS5HqSmd0/wDtG512HEXe0yjsj+NbETqrpFz1qO2P6Z4NplYuBxP7aQxIYQ1s
+         yeepAnnTwJUK51/Uj98fWw86ms2SoVhdMV8OmMDm3JUmlY0VJZ2LwqjJ/azFRmF2JkD3
+         PfNoA9HQGx6uZW61z5c6HuQL/6VPZJkqcm/tCTzMvMBLwMB3q2u4IWIRVhE0WsDpz0NJ
+         SY2hfF8AOUN5Cs7t45PedzNkrFcFXFdFWxUp7nXhbou/v1aEyybsJEhZq4jxjpDEsHf5
+         zbXvOyzwoMLVGNtyRtLQ0qmfEfwxi8nZNGEbFg4dMO31G/ytwVUp0dLGbsZh2TOgWW4e
+         Oc+w==
+X-Forwarded-Encrypted: i=1; AL+hErHiSZsYHrx+Id9bII+bXs0KTZ1bLXf6N0+lRZfbyuYn4rTR7wlkjI2FYIahb4jLuzZiUtkRImm/AlI4Keo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8c+Fjv1/bsoZ7acG6pFRV1EE2RYrH98eD4+cCdMqGJQTnZpM/A
+	EUzEz6XHaDRDdZRnqz4nZX0fo7FPVgPhbF3NAsFKHc6DMn4ZyofFFkLevPPvXFCMw6d4m0LFHdf
+	GaXGtCWt6jK5rgPCMguWMUblErLW7+pXjJ3nn
+X-Gm-Gg: AZFdTZfdcAv9zDugtxZ3N9+MU8xGKa/Rag5oYD/q7nrx+ymYKm5HZzzGVVwZa1x8s8o
+	23Z8yt7hZ7Nd3OopMZQ6TzdGg2ZRG1LaNfXqdDE7srXnZsZxBzl+09eilX3lc/l0db3iGAjt1B2
+	0IX9PPMLTLgorH9eQChOOkL47sf+FBRo0MvqRdn8WkOwDW/oRfPvK+FzPyGhSMEiSULa9sX+kbC
+	nhrr/VEgPUjPO2f6SEKZhOCZozuWNpneTFm7++a6tcEk/tWUpx1lGBW/gFgLQlvnJ4ju+TkdZ8R
+	EL0d/BdFqa15D0TNOIB3yskebc7PuungjZJ40DARVqj6qdDKOBDQ11rlnyksBOwembibgHkXpNT
+	yPuHEglAcpRwLyk10BjS3Jeix4Y49BrZmK46WDw==
+X-Received: by 2002:a17:907:fd15:b0:c40:9e84:942a with SMTP id
+ a640c23a62f3a-c513aade153mr1426627166b.48.1795595077992; Wed, 25 Nov 2026
+ 00:24:37 -0800 (PST)
+Received: from 1087654160852 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 25 Nov 2026 08:24:37 +0000
+In-Reply-To: <20261125-ymc-82yl-v2-0-624bdcb3c50e@rong.moe>
+References: <20261125-ymc-82yl-v2-0-624bdcb3c50e@rong.moe>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,45 +107,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+From: Eduard Aliman <edialiman20@gmail.com>
+Date: Wed, 25 Nov 2026 08:24:37 +0000
+X-Gm-Features: Aa3M54o67SCsnlpq9AQJICAL3atDqUTbJibGMy_iK-r2wySf-JoH44j30Oevkfs
+Message-ID: <CAA4HgY+tuBiz06+uq0nfBVfzmVCVPatb+9LGdFN8L3jOPSNfqg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/7] platform/x86: ideapad-laptop: Trigger the EC on
+ YMC events following Windows behavior
+To: Rong Zhang <i@rong.moe>, Mark Pearson <mpearson-lenovo@squebb.ca>, 
+	"Derek J. Clark" <derekjohn.clark@gmail.com>, Hans de Goede <hansg@kernel.org>, 
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Gergo Koteles <soyer@irl.hu>, Ike Panhc <ikepanhc@gmail.com>, 
+	Andrew Kallmeyer <kallmeyeras@gmail.com>, Eduard Aliman <edialiman20@gmail.com>, 
+	platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Mahir Faisal <mahirfaisalantiq33@gmail.com>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, 26 May 2026 11:35:42 -0400, Ethan Ferguson wrote:
-> @@ -224,6 +226,9 @@ static int yama_task_prctl(int option, unsigned long arg2, unsigned long arg3,
->  	int rc = -ENOSYS;
->  	struct task_struct *myself;
->  
-> +	if (ptrace_scope == max_scope)
-> +		return -EPERM;
-> +
->  	switch (option) {
+Hi Rong,
 
-This check sits above the switch, so it runs for every prctl() option,
-not just PR_SET_PTRACER. security_task_prctl() propagates any return
-value other than -ENOSYS straight back to userspace, so once
-ptrace_scope is set to 3 every prctl() in the system fails with -EPERM,
-including PR_SET_NAME, PR_SET_DUMPABLE and PR_SET_NO_NEW_PRIVS. The
-check needs to live inside `case PR_SET_PTRACER:`.
+I tested this v2 series (patches 1-7/7) on top of Linux 7.3.4 (Fedora 45)
+with ymc_ec_trigger=1 on a Lenovo Yoga 7 14ARP8, and it completely fixes
+the issue: folding into tablet mode now physically turns off the keyboard
+backlight, and unfolding restores it, matching Windows 11 behavior.
 
-> @@ -204,7 +205,8 @@ static void yama_ptracer_del(struct task_struct *tracer,
->   */
->  static void yama_task_free(struct task_struct *task)
->  {
-> -	yama_ptracer_del(task, task);
-> +	if (ptrace_scope <= max_scope)
-> +		yama_ptracer_del(task, task);
->  }
+Tested-by: Eduard Aliman <edialiman20@gmail.com>
 
-ptrace_scope is clamped to [0, max_scope] by the sysctl handler, so this
-condition is always true and the hunk is a no-op. Changing it to
-`< max_scope` would not be safe either: a prctl(PR_SET_PTRACER) that passes
-the scope check just before the sysctl raises it to 3 can insert a relation
-after yama_relation_cleanup() has already run, and since scope 3 is
-irreversible nothing would mark that entry invalid again. Walking the list
-in yama_ptracer_del() is cheap, so dropping this hunk looks safer.
+Could you also add a DMI quirk entry for this model (matching
+DMI_SYS_VENDOR / DMI_PRODUCT_VERSION as in patch 7/7) so it works out of
+the box without setting ymc_ec_trigger=1 manually?
 
-This is a static review against v7.4-rc3; I have not booted the patch.
-Are you still working on a respin? I can test one on arm64 with
-KASAN/lockdep if that helps.
+DMI info on this machine:
+  sys_vendor: LENOVO
+  product_name: 82YM
+  product_version: Yoga 7 14ARP8
 
-Thanks,
-Guicai
+Thanks a lot for tracking this down!
+
+Best regards,
+Eduard Aliman
