@@ -1,50 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795615701;
-	b=Iy47mtkgqbQD92qziifROEw6dyiizbmOqcpuU6gdoMPZPGQGrfzfpPRx+/dRUCbHI3to
-	 44wDQqXMXO5gK9zPiU+vuHpZxu2pDBPbyhpYXwIlYxHyAsAN8x44m4CCCYj4QFckzPYYJ
-	 KFXt5u6ASBcpCadmaBFxdV4JDzHqRw87I06bLkr6VI7gcNPHETEylhaBeiWAho35jx7XV
-	 htGE4vi5kxfEuGCrsJtkLHnls9aLLGfTG8WErqy1sEuJGZxDBVHA9FGs/nzynpy0/VeBS
-	 65D8hVsIcmn2vo3NVuzLmXT8gmDFrdBW4skpChCJw0Y2r80NWaCP0DUgDlsqesK4AvQ==
+	t=1795615707;
+	b=u5Hm1u0ZuTVo5taP+Rb5a5vWmJodb4WaVw3//sdkO4vQfMsW4q9DSHuzU2zbhnJPBzPa
+	 Kcqxuos5kn1hwbSf1U/LBWUOsp7aCnCg0o5aKJam3BGKH3ipqMbFJnpI3WMw860t4LJMm
+	 rgKGkItbXrwxHvSsRFqdTdzyNtQx3gOp/Cz38i2aNdREwX1EnQedMJtfSnqNS8NY505ul
+	 QxwQ+1MP+kvmTK78bOgBvokNiMYKO3C+N4ua56dgTZgalMl/CBtNpFhb5qIVHgkmFacdN
+	 xEhpWagTOZyCHPGTbZGPet3baxqEEdyqKyO3O0XklCj9ez8FhpW2hnPJZW34lnYdyvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795615701;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=mc2qLV5uNRVy5NpmO4vo8y6SB2m4HMCZXlTamdbRSJA=;
-	b=jXDBDJLOu/b3Wi+9BoVjqYDzOLn2LSwlzh5JuNGWWvpUF5MGsfxjmR2XNkmy4H1d6q4X
-	 giB99/hwtMxFmACCQ3DnQ33RSopEq9hkfppKFDg8K2lQTfU6AgMRq6uvl1V7H1XkhY+ej
-	 cgHPXShkNmAQPrLw+eYSKSYzgppNj84K9GlGU0NZDwczV8HFGYbAlfuRQ++oU88s+9+tu
-	 w2YwT7LpJU+O3jYDALQWInIZbZGKgIiR/CR+BysG1MmInqQDhwOiR0pLC5t7rjXHm9KcT
-	 XkU2FpYPbUfUCicFSU5/BAjcs5oV0PpKNnvElqyxOvzo6tA0O0ph2+eBh1LUIWBeRvQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795615707;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=WRZsidmdVV9MmuhVngxLRixfY4ChNMd3+703cMo+eqI=;
+	b=ADNWNACbmj6uVIsiSE0XX2e+PFBCn4Y6b+a73ovdMRP6FQ97yXoxwrFkHfq/f+IBEMPT
+	 8NIMyQHH8t2hcXCNmo24lxblJlUhqNrlh0Ba5QrFq7jTXBx81KodMUueNlrlTG1EwX09a
+	 GzgbFLjZScGMyUqxuWqadb5785jA2p1Qfd/Q/IQHkmX9KxN3QgrGcBdLYUjlz13pVGwUt
+	 1wpNF2G8rbZInFZ6XLYhaKPARpvfrnixDHnBYfg3REd8VSaxe/OP/rLm3wD5ZIweOJjFA
+	 KfV9rnq0FIxSwxRIlCm3WVuW6yvSzWJOK0r00IiJMK1wQzMMFMxPDpxM0pZG8F9YnDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=myuDVkUU;
-	arc=none smtp.remote-ip=220.197.31.4
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b="eWn/DV7A";
+	arc=none smtp.remote-ip=209.85.221.42
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13212606A33C;
-	Wed, 25 Nov 2026 14:08:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13212606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E980D60A260A
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:08:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E980D60A260A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=myuDVkUU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=mc2qLV5uNRVy5NpmO4vo8y6SB2m4HMCZXlTamdbRSJA=;
-	b=myuDVkUUtpl4tHNuV2UjMZapmbc41MB5aA+ootlavo5oV3WbMC3ukRHo39iU64
-	roczYEHId5L1Lhvk4eeYU1amrjZ8FsVpxvEv2oyy7SSXtoiytObP5PintckXAdO1
-	HcfuBlgTTVrkG+t2ZzuHs1hpvaf5dyFilIUmJegobRInM=
-Received: from [IPV6:2409:8900:1a90:8163:5fb3:f207:88ec:aa89] (unknown [])
-	by gzsmtp5 (Coremail) with SMTP id QCgvCgD3H7Gv6wZrX1tHIA--.12889S2;
-	Wed, 25 Nov 2026 22:07:44 +0800 (CST)
-Message-ID: <e291353e-7aa2-4c78-97e2-b5c8d2acbb93@163.com>
-Date: Wed, 25 Nov 2026 22:07:43 +0800
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=eWn/DV7A
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-49465892f7bso4228922f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:08:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795615705; x=1796220505; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WRZsidmdVV9MmuhVngxLRixfY4ChNMd3+703cMo+eqI=;
+        b=eWn/DV7AR77zL2mzC2/P5A8V5LNgOnAZ28wcdp8TgF6rPI7QlEJiC2ShzLgxMQpiFV
+         UN2+YxNsn/Wypm07k4w7LUrUwKdw8oHkecjbfYS2p+Um/lg2/5aGdWFS2GDnQxEzDCvC
+         E49NiOm6C4EGUuh6QF4pfvqxmux9Es1px1fVFyae6FLsbKACqmNNB0WThz9axuY/+080
+         uuOscyjSPDJCINyspDIhBuI1ngMnCKw2xbBTQEPhB2QpZM+2VpRRPjVNOcqUp8JeUbZW
+         B90YJghp3L2R3YZzYqX1NocO+YPX9B+S71C6VOHCKxELjq33TKlEX6Tr1VUAVOt/9reK
+         7YCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795615705; x=1796220505;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WRZsidmdVV9MmuhVngxLRixfY4ChNMd3+703cMo+eqI=;
+        b=Ju9GuwpBv+zGjGp2LtxM0d1hCl7mAgdD+h4d0HUBjADhCzrs3mI2VeyyptoJXDo0Sf
+         zUj4SVN8dpkVKEWnkHEjDhAFcC31B3G8H6ksyMoE5YfRXg4EVbBakW8iM4g+99mAart7
+         3T24u1P8oOmfK1h6LFeosuNN4vk/W7guYjVYVjtNoO3JDNHV4RxBX8/fpVTKvtDxanOe
+         DHFCkTYDqPeHPI9bAshus0mjiB1bE1qNh2h1YJkqpXi6CUL9HAOJ44p3u64FButiFxbL
+         Z4ZOpW06i4jl8BGC9yj+w31CoyNWAwQmeDV/SuGvEB71+MtsL2ofg01wOVn3qPtrFwVu
+         C5ZA==
+X-Forwarded-Encrypted: i=1; AL+hErEwoINV/dfJSAfej7E51YtkOUqVievT6oB3KrKlS7tXY/y3q69zJpl/3DgQ4RCTlKbtnzXA0cUVdzGbvUA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ZLtFm7d+gIg5IFPD9GQPEzKKJimXilWa51mUocp5eH+wz/MFY
+	8k0l55tZe48GNDv7g2hqi1+/sOM4FE9GZ/zT+Yg0+rI6VKKtQPwtzBHIIoijyx/JPuc=
+X-Gm-Gg: AZFdTZebftEXzdnqF6lc8N7xawoOEwLdjbECMJRYjDXu5aS3QcJahwJVvwOZ1mBHNlU
+	aHU68yNHOgvHE5qseaxxeoITWUNQKrAIO5L2vNrNDyPidWRAREucIk2EVRlxOoNixr2LV1p5CPa
+	7UDTGDml3MouZZo84R1YSyI/iXZaqRqTN24jD6serbJ/GVg4k3iJOnzVHaG9r2mhh8vdKRR434H
+	eedg1vtBHr0pMr26wxhw5f0VuJ3xJ7w5Xvke4yeGDmTdWlBOI9eBi/IM0Ur7R6WZ3E1hPnEInXV
+	KovU0Upi/xrltpqNRClYnewWagFbIqdrYeL0NTw6CWXfXZ4KrWATK/Avrf4yq5Z9loazqGif9G6
+	xYMCdgXCbComE0duN3PbcnxHlB6AOgs9NgQQMMPTPTEFdW+IYXlvUcKcdN62jph4mnN/Prc5Zte
+	FCh+3+ErQG2+Nj4XtwIptGSjL7ZJ036wVf94bHAtgQntsLBqwyHtIMIDCjRGDL9EX6Ow+Itq75G
+	tU15DRbkQZloLL8okV6HU3ThXcRkbq7eqdxqhHzMaAaLLdHnxKuOWS/Bztu2b8yKHtJ1huJhorU
+	SDpoJJ0TBRYsEdBToR6y10tkiLzCegnL8aRIAjIIiK3wNw==
+X-Received: by 2002:a05:6000:4704:b0:491:6a7:b4ac with SMTP id ffacd0b85a97d-4abb5eabd6bmr34992361f8f.56.1795615705236;
+        Wed, 25 Nov 2026 06:08:25 -0800 (PST)
+Received: from pathway.suse.cz (nat2.prg.suse.com. [195.250.132.146])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989b3sm34510403f8f.51.2026.11.25.06.08.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 06:08:24 -0800 (PST)
+Date: Wed, 25 Nov 2026 15:08:22 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Breno Leitao <leitao@debian.org>, printk@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH printk v4 5/8] printk: nbcon: Expand unsafe takeover
+ check for general unsafe
+Message-ID: <awbr1gCJTiLQB4he@pathway.suse.cz>
+References: <20261121163557.963029-1-john.ogness@linutronix.de>
+ <20261121163557.963029-6-john.ogness@linutronix.de>
+ <awa28PGg8L4rEDha@pathway.suse.cz>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,206 +102,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/6] ntfs: read initialized_size under size_lock in the
- iomap paths
-To: Hongling Zeng <zenghongling@kylinos.cn>, linkinjeon@kernel.org,
- hyc.lee@gmail.com
-Cc: ntfs@lists.linux.dev, linux-kernel@vger.kernel.org,
- zhongling0719@126.com, stable@vger.kernel.org
-References: <20261125073547.154150-1-zenghongling@kylinos.cn>
- <20261125073547.154150-4-zenghongling@kylinos.cn>
-Content-Language: en-US
-From: liubaolin <liubaolin12138@163.com>
-In-Reply-To: <20261125073547.154150-4-zenghongling@kylinos.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:QCgvCgD3H7Gv6wZrX1tHIA--.12889S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3JF43Cw4DCrWUKrW7tFyDAwb_yoWxuw4fpr
-	9F9FZ8KF43Zr92gw4rtwn8XayF9w18Kr1Uur1fGw1fA3s5Kr1vgF1Fka45uFWjqrZFyF1v
-	vF4Dtw48u3ZrAr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Ug4SwUUUUU=
-X-CM-SenderInfo: xolxutxrol0iasrtmqqrwthudrp/xtbC6hCDTmsG67D+LQAA3S
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awa28PGg8L4rEDha@pathway.suse.cz>
 
-
-
-在 2026/11/25 15:35, Hongling Zeng 写道:
-> The iomap read paths read ni->initialized_size without size_lock.
-> ntfs_read_iomap_begin_non_resident() reads it twice in the length
-> adjustment condition and once more in round_up(), so a concurrent
-> update in between lets the condition pass with one value while the
-> length is computed from another, which can yield a length matching
-> neither boundary.
+On Wed 2026-11-25 11:22:40, Petr Mladek wrote:
+> On Sat 2026-11-21 17:41:53, John Ogness wrote:
+> > Currently nbcon_allow_unsafe_takeover() is identifying if hostile
+> > takeovers are permitted.
+> > 
+> > In order to support unsafe flush policies for CON_NBCON_ATOMIC_UNSAFE,
+> > there needs to be a distinction between atomic flushing using an
+> > unsafe implementation or atomic flushing via hostile takeover. The
+> > former could be allowed in non-panic, whereas the latter is only
+> > allowed on the panic CPU.
+> > 
+> > Rename nbcon_allow_unsafe_takeover() to nbcon_allow_unsafe() and
+> > change its purpose to identify if unsafe console printing (in general)
+> > is allowed. If yes, hostile takeover can be allowed when on the panic
+> > CPU.
+> > 
+> > The comments for the WARN verifying no hostile takeover attempts
+> > during non-panic have been expanded. The detailed description will
+> > hopefully remind us of the necessity of restricting hostile takeovers
+> > to the panic CPU.
+> > 
 > 
-> Read initialized_size once under size_lock in the resident clamp,
-> the non-resident unwritten mapping, the length adjustment and
-> ntfs_iomap_put_folio_non_resident(), so each decision is made on one
-> value.
+> We should make this decision on a single place. I suggest to rename
+> nbcon_allow_unsafe_takeover() to nbcon_check_unsafe() and pass
+> *allow_unsafe_takeover as a parameter. I mean something like:
 > 
-> The buffered write and direct I/O paths read initialized_size
-> unlocked too, when deciding whether the head or the tail of a newly
-> allocated cluster has to be zeroed first. The mmap write fault path
-> can extend initialized_size while holding neither the inode lock nor
-> the MFT record lock, so snapshot the field under size_lock there as
-> well.
+> /**
+>  * nbcon_check_unsafe - Check if the console is safe or some unsafe handling
+>  *	is allowed for the given context and reason.
+>  *
+>  * @con:	The console to check
+>  * @reason:	The reason for the unsafe console printing
+>  * @allow_unsafe_takeover: Decision whether unsafe_takeover is allowed (output)
+>  *
+>  * The function decides when either an unsafe write_atomic() callback is
+>  * allowed or when all NBCON consoles are allowed to used the unsafe_takeover.
+>  *
+>  * Return:	True, when @con is either safe in all contexts or when it is
+>  *	allowed to perform unsafe console printing.
+>  *
+>  *	In addition. the @allow_unsafe_takeover variable is set to "true"
+>  *	when the console is allowed to perform the unsafe_takeover. Otherwise,
+>  *	the variable is set to "false".
+>  */
+> static bool nbcon_check_unsafe(struct console *con, enum pr_flush_reason reason,
+> 			       bool *allow_unsafe_takeover)
+> {
+> 	enum nbcon_prio prio = nbcon_get_default_prio();
+> 	bool ret = false;
 > 
-> Fixes: b041ca562526 ("ntfs: update iomap and address space operations")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
-> ---
->   fs/ntfs/iomap.c | 50 +++++++++++++++++++++++++++++++++++++++----------
->   1 file changed, 40 insertions(+), 10 deletions(-)
+> 	*allow_unsafe_takeover = false;
 > 
-> diff --git a/fs/ntfs/iomap.c b/fs/ntfs/iomap.c
-> index 8933f432aa68..afc4494822e1 100644
-> --- a/fs/ntfs/iomap.c
-> +++ b/fs/ntfs/iomap.c
-> @@ -17,11 +17,14 @@ static void ntfs_iomap_put_folio_non_resident(struct inode *inode, loff_t pos,
->   {
->   	struct ntfs_inode *ni = NTFS_I(inode);
->   	unsigned long sector_size = 1UL << inode->i_blkbits;
-> +	unsigned long flags;
->   	loff_t start_down, end_up, init;
->   
->   	start_down = round_down(pos, sector_size);
->   	end_up = (pos + len - 1) | (sector_size - 1);
-> +	read_lock_irqsave(&ni->size_lock, flags);
->   	init = ni->initialized_size;
-> +	read_unlock_irqrestore(&ni->size_lock, flags);
->   
->   	if (init >= start_down && init <= end_up) {
->   		if (init < pos) {
-> @@ -88,6 +91,7 @@ static int ntfs_read_iomap_begin_resident(struct inode *inode, loff_t offset, lo
->   	loff_t i_size;
->   	u32 attr_len;
->   	int err = 0;
-> +	unsigned long irqflags;
->   	char *kattr;
->   
->   	base_ni = ntfs_base_inode(ni);
-> @@ -106,8 +110,10 @@ static int ntfs_read_iomap_begin_resident(struct inode *inode, loff_t offset, lo
->   		goto out;
->   
->   	attr_len = le32_to_cpu(ctx->attr->data.resident.value_length);
-> +	read_lock_irqsave(&ni->size_lock, irqflags);
->   	if (unlikely(attr_len > ni->initialized_size))
->   		attr_len = ni->initialized_size;
-> +	read_unlock_irqrestore(&ni->size_lock, irqflags);
->   	i_size = i_size_read(inode);
->   
->   	if (unlikely(attr_len > i_size)) {
-> @@ -200,6 +206,7 @@ static int ntfs_read_iomap_begin_non_resident(struct inode *inode, loff_t offset
->   	struct ntfs_volume *vol = ni->vol;
->   	loff_t vcn_ofs;
->   	loff_t rl_length;
-> +	unsigned long irqflags;
->   
->   	vcn = ntfs_bytes_to_cluster(vol, offset);
->   	vcn_ofs = ntfs_bytes_to_cluster_off(vol, offset);
-> @@ -231,7 +238,12 @@ static int ntfs_read_iomap_begin_non_resident(struct inode *inode, loff_t offset
->   			iomap->type = IOMAP_HOLE;
->   		iomap->addr = IOMAP_NULL_ADDR;
->   	} else {
-> -		if (need_unwritten && offset >= ni->initialized_size)
-> +		loff_t initialized_size;
-> +
-> +		read_lock_irqsave(&ni->size_lock, irqflags);
-> +		initialized_size = ni->initialized_size;
-> +		read_unlock_irqrestore(&ni->size_lock, irqflags);
-> +		if (need_unwritten && offset >= initialized_size)
->   			iomap->type = IOMAP_UNWRITTEN;
->   		else
->   			iomap->type = IOMAP_MAPPED;
-> @@ -255,11 +267,17 @@ static int ntfs_read_iomap_begin_non_resident(struct inode *inode, loff_t offset
->   	up_write(&ni->runlist.lock);
->   
->   	if (!(flags & IOMAP_ZERO) &&
-> -			iomap->type == IOMAP_MAPPED &&
-> -			iomap->offset < ni->initialized_size &&
-> -			iomap->offset + iomap->length > ni->initialized_size) {
-> -		iomap->length = round_up(ni->initialized_size, 1 << inode->i_blkbits) -
-> -			iomap->offset;
-> +			iomap->type == IOMAP_MAPPED) {
-> +		loff_t initialized_size;
-> +
-> +		read_lock_irqsave(&ni->size_lock, irqflags);
-> +		initialized_size = ni->initialized_size;
-> +		read_unlock_irqrestore(&ni->size_lock, irqflags);
-> +		if (iomap->offset < initialized_size &&
-> +				iomap->offset + iomap->length > initialized_size) {
-> +			iomap->length = round_up(initialized_size, 1 << inode->i_blkbits) -
-> +				iomap->offset;
-> +		}
->   	}
->   	iomap->flags |= IOMAP_F_MERGED;
->   
-> @@ -383,6 +401,7 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
->   	struct runlist_element *rl, *rlc;
->   	bool is_retry = false;
->   	int err = 0, map_err = 0;
-> +	unsigned long flags;
->   	s64 vcn, lcn;
->   	s64 max_clu_count =
->   		ntfs_bytes_to_cluster(vol, round_up(length, vol->cluster_size));
-> @@ -511,9 +530,14 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
->   		iomap->flags = IOMAP_F_NEW;
->   		if (lcn <= LCN_HOLE) {
->   			loff_t end = offset + length;
-> +			loff_t initialized_size;
-> +
-> +			read_lock_irqsave(&ni->size_lock, flags);
-> +			initialized_size = ni->initialized_size;
-> +			read_unlock_irqrestore(&ni->size_lock, flags);
->   
->   			if (vcn_ofs || ((vol->cluster_size > iomap->length) &&
-> -					end < ni->initialized_size)) {
-> +					end < initialized_size)) {
->   				loff_t z_start, z_end;
->   
->   				z_start = vcn << vol->cluster_size_bits;
-> @@ -527,7 +551,7 @@ static int ntfs_write_simple_iomap_begin_non_resident(struct inode *inode, loff_
->   			if ((!err || err == -EPERM) &&
->   			    max_clu_count > 1 &&
->   			    (iomap->length & vol->cluster_size_mask &&
-> -			     end < ni->initialized_size)) {
-> +			     end < initialized_size)) {
->   				loff_t z_start, z_end;
->   
->   				z_start = (vcn + max_clu_count - 1) <<
-> @@ -581,6 +605,7 @@ static int ntfs_write_da_iomap_begin_non_resident(struct inode *inode,
->   	s64 vcn, start_lcn, lcn_count;
->   	bool balloc = false, update_mp;
->   	int err;
-> +	unsigned long irqflags;
->   	s64 max_clu_count =
->   		ntfs_bytes_to_cluster(vol, round_up(length, vol->cluster_size));
->   
-> @@ -622,16 +647,21 @@ static int ntfs_write_da_iomap_begin_non_resident(struct inode *inode,
->   		if (flags & IOMAP_DIRECT ||
->   		    ntfs_iomap_flags & NTFS_IOMAP_FLAGS_MKWRITE) {
->   			loff_t end = offset + length;
-> +			loff_t initialized_size;
-> +
-> +			read_lock_irqsave(&ni->size_lock, irqflags);
-> +			initialized_size = ni->initialized_size;
-> +			read_unlock_irqrestore(&ni->size_lock, irqflags);
->   
->   			if (vcn_ofs || ((vol->cluster_size > iomap->length) &&
-> -					end < ni->initialized_size))
-> +					end < initialized_size))
->   				err = ntfs_dio_zero_range(inode,
->   							  start_lcn <<
->   							  vol->cluster_size_bits,
->   							  vol->cluster_size);
->   			if (!err && lcn_count > 1 &&
->   			    (iomap->length & vol->cluster_size_mask &&
-> -			     end < ni->initialized_size))
-> +			     end < initialized_size))
->   				err = ntfs_dio_zero_range(inode,
->   							  (start_lcn + lcn_count - 1) <<
->   							  vol->cluster_size_bits,
+> 	switch (reason) {
+> 	case PR_FLUSH_RUNTIME:
+> 		/* Never unsafe flush during runtime. */
+> 		break;
+> 	case PR_FLUSH_HANG:
+> 		/* Always unsafe flush on panic hang. */
+> 		if ((prio == NBCON_PRIO_PANIC) && panic_on_this_cpu()) {
 
-Looks good to me.
+The panic_on_this_cpu() check actually is not needed because
+NBCON_PRIO_PANIC is used only on the panic_cpu.
 
-Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
+Best Regards,
+Petr
 
+
+> 			*allow_unsafe_takeover = true;
+> 			ret = true;
+> 		}
+> 		break;
+> 	}
+> 
+> 	return ret;
+> }
+> 
+> Then we could use the following in __nbcon_atomic_flush_pending():
+> 
+> 		if (!nbcon_check_unsafe(con, reason, &allow_unsafe_takeover))
+> 			continue;
+> 
+> Note 1: We might want to refactor the function when we add the checks
+> 	where to allow the unsafe write_atomic() callbacks.
+> 
+> Note 2: I thought about calling this directly in console_is_usable_unsafe().
+> 	But it would require passing the *allow_unsafe_takeover as a
+> 	parameter which is not needed in most situations when it is called
+> 	via the console_is_usable() wrapper. But it still might make
+> 	sense if we make the parameter optional (allow NULL).
+> 
+> > +
+> 
+> >  		nbcon_atomic_flush_pending_con(con, stop_seq, allow_unsafe_takeover);
+> >  	}
+> >  	console_srcu_read_unlock(cookie);
+> 
+> Best Regards,
+> Petr
