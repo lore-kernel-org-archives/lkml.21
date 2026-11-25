@@ -1,62 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597893;
-	b=X8KoDEknT+6lZA2KGN4P6qIp3dwBgGBytP7mdjknIUjENL6BIvoYcjP4VqlMuQnMyQHV
-	 TSfWI48HMzZP2QDTt16EHV+e0ePK04xH7J0b/bGK7Dbcg4Mktzp0BMVROUY2cij50gmVf
-	 jQH8Yx7BT16uz5ExRsapW+ddrgEeL44CEolXNdHZ8EyeCyeAQfzeCIVmu48qoxcCNxxZi
-	 QTcdrGicLJTFf4e07lNnU2MtRh0LSmDshNjHa3ROZ9sDzuMnNtUSAOgvlp8yjbVB+GBZS
-	 EI6sFYEETD/rB86E39+gN0CFO/0RB/CSWA3iqpLubudm1UX62fUP32bz4Mk7wlbKQWw==
+	t=1795597941;
+	b=VC4N5S5hbLSQwwVgjLAbyx0NG7EglCitey3xiVHyXEdDV3os51/xJMhvDySjlv4rKIJJ
+	 EEqrAlk/TsbPhbv0iOSY323ntSgnL3laF41nk6Mg2wZzyx7hFseepgyjzzrd8W9drw8Ll
+	 edey4P6FKy3LQ05YajeZHrV6laFN5ZD9w+8HDFSKh9XraRkrJo3ma82R48HifEknovqiN
+	 XC676AUxBQma/bHo4NkdwjU6JtnHGI9T69E3fwi1aj3B2pY5LbLEa1uU9F/+pj9g6a8kN
+	 0XZFJHBgS8jl79xHhi/90q3I+2XvdhRsF11MZPJYT/mN1kyEEoWIulLlFkPiq5CGsnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597893;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=/4Fc/qYpZBM1SqcroLRed+1NsBQqR3SYLdF5r+q5zq8=;
-	b=l9QSvpMep6uogppOzQ/dLlGgS4UTjurcVC3+ThGtor9FnuQRa+im2TF54KOZ5L/FocTv
-	 Txqi9mdBBTRfydMDVHmloaqCzeHlR30wOalB7X64t5QVEwIkgXIeY9uQjTjIMmNwkbO7b
-	 vCsxd1Lfhq3TmJxD1F0ERFoz4QyMpGxryKIs3yhLXcHUb5TxFw86YRgPbx8nTA9c17Pkp
-	 5TrT7BJryclT/vd61HWzccOqsSNDDT+zNj8pbRMFCfPjVlvblECTzfxBa8ze2XDMaQZvF
-	 buUD7LlNvpezoaiPQnHaeEaAvv4ILIeZ+cleSCIw2M4Fmy+glm5dmTzSVUXJGxhdclg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597941;
+	h=DMARC-Filter:Received:Received:Received:Received:From:To:CC:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-Originating-IP:X-ClientProxiedBy;
+	bh=PoDUmL89J9kwKXxxu04mqcDBvGz9q2h1SGMDm/ZaSOU=;
+	b=feuTia6SmchY9ZjsuNDQgxSY6xOKNZEAJsKzgxQ2jUmjKr+QWOFdC1FKy/3h9ytvqk4U
+	 TJf7Vyq3agqfiui1LcQ5cngNH0K5yIX22cWYU33kOgzfrwkCU/2UY8kR8pBU2AuwzGKPr
+	 8Ns6pVFjXrd3+r/dqeh09X37mQx1yjTZWiWqFIBzdbUXQCBWUkb2EuRZc0njQxiafMGSW
+	 i1u4XFvuRBOny0yt6H1lUJ1H2wCf8/QonYx7lxx/tEyEx4LruPdZT6x8N80/RWkuYeTg/
+	 DxNhZdtpIafIrGuYTCpFBljlMJW+LruWpu6Gh1Cfn6xQDjxzHrDH+ZIXqHO9C0n6rdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DETyO4fo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD0DB606A334
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:11:33 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DETyO4fo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27AA01F000C0;
-	Wed, 25 Nov 2026 09:11:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795597893;
-	bh=/4Fc/qYpZBM1SqcroLRed+1NsBQqR3SYLdF5r+q5zq8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DETyO4fo1hCypme8HL7zGtsfAXiIb/CM8iOzA7fI6pGw6OjqPcRuBKRssYOSdBtVx
-	 /8rtcv7wLt7CpsQwvoBQX1utw/qfx98ZUmODXhO9DdWH56CSrkTCPMCHtQ5Z1gRYMn
-	 RDbwjw0BWtpHuf57PigWuSL4KP4sTzZ//d3NTMSeKGO+CcGVqkHR79OlL2nuPKZh9Q
-	 j8WEZlcYH5Wy598u7SBqL35aFA4foGjIGPCYvUSpb44IP9bvgTAoC3992epbeRICyP
-	 CizFaDrviuL5wxmkUMZ0pX4usVWH7z6A3/QivoDVYRWSfF4HbdOaQh7DOED3mXuYOv
-	 ikK1rmqt8OTpw==
-Date: Wed, 25 Nov 2026 11:11:26 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "luto@kernel.org" <luto@kernel.org>, "x86@kernel.org" <x86@kernel.org>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"peterz@infradead.org" <peterz@infradead.org>,
-	"bp@alien8.de" <bp@alien8.de>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"tglx@kernel.org" <tglx@kernel.org>,
-	"hpa@zytor.com" <hpa@zytor.com>,
-	"thomas.lendacky@amd.com" <thomas.lendacky@amd.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 4/9] x86/mm/pat: don't BUG() on inconsistent page count
-Message-ID: <awamPtNjztFml17Z@kernel.org>
-References: <20261112-fixes-x86-v1-0-791adb8d6670@kernel.org>
- <20261112-fixes-x86-v1-4-791adb8d6670@kernel.org>
- <4edee4db91a92b3231644688afbc950bb880ff8c.camel@intel.com>
+	dmarc=pass header.from=hygon.cn;
+	spf=pass smtp.mailfrom=hygon.cn;
+	arc=none smtp.remote-ip=101.204.27.37
+Received: from spam01.hygon.cn (unknown [101.204.27.37])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2D10E606A31E;
+	Wed, 25 Nov 2026 09:12:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D10E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
+Received: from maildlp1.hygon.cn (unknown [127.0.0.1])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jZDTP28wtzVcB9;
+	Wed, 25 Nov 2026 17:12:09 +0800 (CST)
+Received: from maildlp1.hygon.cn (unknown [172.23.18.60])
+	by spam01.hygon.cn (Postfix) with ESMTP id 4jZDTM1JV8zVhfS;
+	Wed, 25 Nov 2026 17:12:07 +0800 (CST)
+Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
+	by maildlp1.hygon.cn (Postfix) with ESMTPS id 81A051662;
+	Wed, 25 Nov 2026 17:12:00 +0800 (CST)
+Received: from hsj-2U-Workstation.hygon.cn (172.19.24.226) by
+ cncheex04.Hygon.cn (172.23.18.114) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Wed, 25 Nov 2026 17:12:04 +0800
+From: Huang Shijie <huangsj@hygon.cn>
+To: <viro@zeniv.linux.org.uk>, <brauner@kernel.org>, <jack@suse.cz>,
+	<hch@infradead.org>, <agruenba@redhat.com>, <mic@digikod.net>,
+	<axboe@kernel.dk>
+CC: <gnoack@google.com>, <paul@paul-moore.com>, <jmorris@namei.org>,
+	<serge@hallyn.com>, <legion@kernel.org>, <aleksa@amutable.com>,
+	<libaokun@linux.alibaba.com>, <ebiggers@kernel.org>, <djwong@kernel.org>,
+	<sandeen@redhat.com>, <zhongyuan@hygon.cn>, <fangbaoshun@hygon.cn>,
+	<yingzhiwei@hygon.cn>, <wujianyong@hygon.cn>, <shijie8@gmail.com>,
+	<linux-fsdevel@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-block@vger.kernel.org>, <gfs2@lists.linux.dev>,
+	<linux-security-module@vger.kernel.org>, Huang Shijie <huangsj@hygon.cn>
+Subject: [PATCH v4 00/11] vfs: add inode iteration methods
+Date: Wed, 25 Nov 2026 17:11:46 +0800
+Message-ID: <20261125091157.1822521-1-huangsj@hygon.cn>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,53 +65,163 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <4edee4db91a92b3231644688afbc950bb880ff8c.camel@intel.com>
+Content-Type: text/plain
+X-ClientProxiedBy: cncheex05.Hygon.cn (172.23.18.115) To cncheex04.Hygon.cn
+ (172.23.18.114)
 
-On Tue, Nov 24, 2026 at 10:57:39PM +0000, Edgecombe, Rick P wrote:
-> On Thu, 2026-11-12 at 18:31 +0200, Mike Rapoport (Microsoft) wrote:
-> > If a step of __change_page_attr_set_clr() covers more pages than remain
-> > in the range, or no pages at all, that's a bug in CPA, but it does not
-> > justify crashing the kernel.
-> 
-> Agreed, but does it also justify special handling to try to return an error to
-> the caller about the bug in CPA? Why not just change the BUG_ON() to WARN?
+This series adds a superblock inode iterator and converts the open-coded
+sb->s_inodes walks in the VFS to it.  The design follows the cursor-based
+construct proposed by Christian Brauner:
 
-If we only replace BUG_ON() with WARN_ON(), either rempages wraps around
-and we keep changing pages past the end, or we loop forever.
+  https://lore.kernel.org/all/20261120-mitverantwortlich-drehbaren-kantholz-241300d20168@brauner/
 
-In any case we must break the loop and returning -EINVAL seems the most
-appropriate action there.
- 
-> > Warn and fail the request instead.
-> > 
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > ---
-> >  arch/x86/mm/pat/set_memory.c | 5 ++++-
-> >  1 file changed, 4 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-> > index aa7052d247e60..a1bea16a3c3bb 100644
-> > --- a/arch/x86/mm/pat/set_memory.c
-> > +++ b/arch/x86/mm/pat/set_memory.c
-> > @@ -2101,7 +2101,10 @@ static int __change_page_attr_set_clr(struct cpa_data *cpa, int primary)
-> >  		 * CPA operation. Either a large page has been
-> >  		 * preserved or a single page update happened.
-> >  		 */
-> > -		BUG_ON(cpa->numpages > rempages || !cpa->numpages);
-> > +		if (WARN_ON_ONCE(cpa->numpages > rempages || !cpa->numpages)) {
-> > +			ret = -EINVAL;
-> > +			goto out;
-> > +		}
-> >  		rempages -= cpa->numpages;
-> >  		cpa->curpage += cpa->numpages;
-> >  	}
-> > 
-> > --
-> 
+and is the same direction as Dave Chinner's patch set:
+
+  "vfs: improving inode cache iteration scalability"
+  https://lore.kernel.org/all/20241002014017.3801899-1-david@fromorbit.com/
+
+The caller owns the iterator state and drives the walk itself:
+
+  CLASS(sb_inode_iter, iter)(sb, eligible, priv, flags);
+  while ((inode = sb_inode_iter_next(&iter)))
+          /* do stuff */;
+
+The lock does not span iterations.  sb_inode_iter_next() takes
+sb->s_inode_list_lock, takes a reference on the next inode, drops the lock
+again and hands the inode out; the reference is what keeps the cursor on
+sb->s_inodes so that the next call can resume from it.  As the iterator
+is a cleanup class, a caller that breaks out early does not have to call
+sb_inode_iter_end() explicitly.
+
+Two optional channels let a caller keep its own state instead of filling in
+a shared context:
+
+  - iter->eligible is called with inode->i_lock held, so that a caller can
+    reject an inode before a reference is paid for.
+
+  - iter->status carries an error out of the walk.  Setting it to a
+    negative value makes sb_inode_iter_next() return NULL.
+
+Most callers just want a referenced inode and use no flags at all.  Three
+flags cover the walks that need something else:
+
+  - %INO_ITER_F_REFERENCED restricts the walk to inodes that still have a
+    reference, preserving the "only handle referenced inodes" rule of
+    landlock's sb-delete walk.
+
+  - %INO_ITER_F_NOREF hands out only inodes whose reference count has
+    already reached zero, and %INO_ITER_F_NOIGET suppresses the reference.
+    Neither keeps the inode alive, so the caller has to make the inode
+    unclaimable itself.
+
+A second, internal iterator covers the walks that must not take a
+reference at all:
+
+  static inline int sb_inode_iter_locked(struct super_block *sb,
+                                         int (*iter_fn)(struct inode *,
+                                                        void *),
+                                         void *priv);
+
+  - It keeps sb->s_inode_list_lock held for the whole walk and takes no
+    inode reference, so @iter_fn only has an existence guarantee: it must
+    not block, and it must do its own inode state checks and its own
+    reference handling.  A callback returns a negative value to stop the
+    walk with that error, and 0 to continue.
+
+  - It lives in fs/internal.h as a static inline rather than being
+    exported: it is a VFS internal facility, and the small callbacks
+    inline into their callers.
+
+  It serves the three walks that cannot use sb_inode_iter_next():
+
+  - nr_blockdev_pages() is reached from si_meminfo(), which kdb calls, and
+    the iput() that the referenced iterator would do can sleep.
+
+  - remove_dquot_ref() has to scan I_NEW inodes as well, which the
+    referenced iterator filters out; it only touches the quota pointers,
+    and those have their own locking in dq_data_lock.
+
+  - the generic_shutdown_super() poisoning loop has to touch every inode
+    still on the list, including the I_NEW, I_FREEING and I_WILL_FREE
+    ones that sb_inode_iter_next() filters out, and it must not bounce
+    them through __iget()/iput(): the loop overwrites i_sb with
+    VFS_PTR_POISON, and evict() dereferences i_sb->s_op on the way out.
+
+  Patch 1 adds sb_inode_iter_next().
+  Patch 2 adds sb_inode_iter_locked().
+  Patch 3-5 convert the callers which cannot use referenced inodes
+          (nr_blockdev_pages(), dquot removal and the
+          generic_shutdown_super() poisoning loop).
+  Patch 6-11 convert the remaining callers (inode eviction, sync_bdevs,
+          drop_pagecache_sb, add_dquot_ref, landlock's hook_sb_delete
+          and gfs2_evict_inodes()).
+
+
+BTW:
+  This series is based on v7.4-rc2, and applies on top of the last commit
+  of that base, which is the small patch this series depends on:
+
+      v7.4-rc2-22-ga02161f70fcf
+      commit a02161f70fcf ("fs/drop_caches: skip filesystems without page cache writeback")
+
+  That patch was posted as:
+      https://lore.kernel.org/all/20260923070116.3226846-1-huangsj@hygon.cn/
+
+v3-->v4:
+   -the interface is redone as a caller-owned cursor, following Christian's
+    sb_inode_iter construct: sb_inode_iter_next() returns a referenced
+    inode with sb->s_inode_list_lock dropped, and the reference keeps the
+    cursor on sb->s_inodes.  The callback-based interface of v3, with its
+    ino_iter_fn and INO_ITER_RET_* return values, is gone.
+
+   -the iterator is wrapped in a cleanup class, so a caller that breaks out
+    of the walk does not have to call sb_inode_iter_end().
+
+   -an inode can be rejected before a reference is paid for: @eligible is
+    called with inode->i_lock held.
+
+   -the error channel is now iter->status rather than a three-valued
+    callback return.
+
+   -super_iter_inodes() and super_iter_inodes_locked() are renamed to
+    sb_inode_iter_next() and sb_inode_iter_locked(), and the latter stays
+    in fs/internal.h for the three walks that must not take a reference.
+
+   -evict_inodes() uses INO_ITER_F_NOREF | INO_ITER_F_NOIGET: it only
+    takes inodes whose reference count has reached zero, pins each one by
+    setting I_FREEING and dropping it from the LRU, and runs dispose_list()
+    with the list lock dropped.
+
+   v3: https://lore.kernel.org/all/20261120031305.3561045-1-huangsj@hygon.cn/
+   v2: https://lore.kernel.org/all/20261113115702.586594-1-huangsj@hygon.cn/
+   v1: https://lore.kernel.org/all/20261015093854.2082600-1-huangsj@hygon.cn/
+
+Huang Shijie (11):
+  vfs: add sb_inode_iter_next()
+  vfs: add sb_inode_iter_locked()
+  block: convert nr_blockdev_pages() to sb_inode_iter_locked()
+  fs/quota: convert remove_dquot_ref() to sb_inode_iter_locked()
+  fs: convert generic_shutdown_super() poison loop
+  fs/inode: convert evict_inodes() to sb_inode_iter
+  block: convert sync_bdevs() to sb_inode_iter
+  fs/drop_caches: convert drop_pagecache_sb() to sb_inode_iter
+  fs/quota: convert add_dquot_ref() to sb_inode_iter
+  landlock: convert hook_sb_delete() to sb_inode_iter
+  gfs2: convert gfs2_evict_inodes() to sb_inode_iter
+
+ block/bdev.c                   |  58 ++++++----------
+ fs/drop_caches.c               |  36 ++++------
+ fs/gfs2/ops_fstype.c           |  26 ++-----
+ fs/inode.c                     |  33 +++------
+ fs/internal.h                  |  25 +++++++
+ fs/quota/dquot.c               | 120 +++++++++++++++-----------------
+ fs/super.c                     | 121 ++++++++++++++++++++++++++++++---
+ include/linux/fs/super_types.h |  40 +++++++++++
+ security/landlock/fs.c         |  67 +++++-------------
+ 9 files changed, 297 insertions(+), 229 deletions(-)
 
 -- 
-Sincerely yours,
-Mike.
+2.53.0
+
+
