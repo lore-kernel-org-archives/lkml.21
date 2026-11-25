@@ -1,65 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.132.180.163
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795607397;
-	b=t21sA4AfpDoCwuRvtArMe7wzNzwt1l8YwrtfaFaLKHZVypOT3V6jtMeOJPEhRfJY71Uc
-	 bzBAVZ/ACNzUtYCGl1enmAqhf38Sp22SURc5IRFG7cClDt1i/g4S5T+ZoxrrSXjGqmJdk
-	 l7Yy/yqoxYnqZGH61N9540xuoMw889slMyOajug1lf9cxO37laPb+cF31todLZXvyWucs
-	 VQzG3Ex8brrimottr2Fs5J42o8SdRP2V5Q142x12lxLre1Jm2g8LBkGS/okvOOedZlHjf
-	 9Zfc7pFaxJHmtJKpHVxCM3H9t1A2HIyTSOQq+RysBuINQmonWwyGQNfyuHgP28XarIA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795607397;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Originating-IP:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID;
-	bh=DT6kM67LeVqubhl/XQzUsjrbwfVvqg+O4AplUmwA+EM=;
-	b=n2bEcuDUY7sUq+a9ytjkgw5syGkoShnNpaKhoEYc/PGkG96hTx3pSPKC2B4gnMl2QGoq
-	 s3sOmRkVowXXauknew18nQnN8nOQoOIJTYwUc3Wb/dPdJxMXArE9iGPdzgot8L2JhannQ
-	 m0KnOnGy1zr049opogalEnNLwTkDFAmrFlDNYVcgCMZN93uDID66Osk/TSXeFxqcCbfV0
-	 7/5orpruUg7q4OTbWMIGsRkkxSADeE3sWTtjq8MkXaG2WY29uZO2ClvBs9Alsc4qY5szN
-	 urJgPcB4HaHp2dHx8ZIl2F7cUG1tem5eVLpX6nmhOUNDH8R+CPWyFD2+YTc/R+IbDEw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=imgtec.com;
-	spf=pass smtp.mailfrom=imgtec.com;
-	dkim=pass header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=DyztP2jM;
-	arc=none smtp.remote-ip=185.132.180.163
-Received: from mx07-00376f01.pphosted.com (mx07-00376f01.pphosted.com [185.132.180.163])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795607454;
+	b=iDroD1x+4f1wrzwWrJaU0TgeWAddBVWvCE+wQOJv8a5xLirpAQ4v8sFgz3SxjREgIddo
+	 ND5Gn+0T9GgKj97jQWgKk/A3GRT8RYlET6UpcfbkmyHXRbsYigH1XQpZ9TlOUxQzeGGyI
+	 /oQvpYeL5pbBVx2WjHpwBYOtaVMyA3jk5Wlt9CKi4IFskAdr+su29MZBZSaxik++lMaS0
+	 2OA2zlqjrDX9Chdnlfuv/trMTigD/jcAEE5fil4BVLXOWsK5BWZfXvbDqvTLHBUpZccut
+	 XIChCdS2cwNabwC682/WJqh4ZAx7YjW3Tytw/NRZjK0wS/tzd7+Auz+cPrnBHj4TFhg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795607454;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=AK/FrytH2tf+B+57Lq9wnH5wu00oxO/OQC1ZXkryskE=;
+	b=p6m9NVnmXMpguZcSO/Lx0vXJgUJhAsar3oYu/FVqw80p9WOyGDcYfuXjp9wlk3I9m9xa
+	 n1lH/dbeVmcPypfvz/zlCkVC1hIm3eYN1Oz7yRHYZhMVKU7361lvxvCKbxHmqFFzDclBt
+	 inGgaooELoXKvUpq9yRzS2sBLvzvaYQo5i+Zt208K0jA66LWyG8tu+D33FekqqvSfx2F5
+	 I803OLryswflAa4yNRkgJ1rVFL/9BU7KAO5b9Mvy/43xy8oIQUhrikXruv2BJRi9v4hUt
+	 y2jioQuewttAl04VhyHqMdkTspzuhB64cpD7Phji+0wje9vJosNrINzzINacmE11uvw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cCKrplZv;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B0BF606A69F;
-	Wed, 25 Nov 2026 11:49:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B0BF606A69F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=imgtec.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=imgtec.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B38F606A33E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:50:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B38F606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=DyztP2jM
-Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.12/8.18.1.12) with ESMTP id 6AP7prcw1962352;
-	Wed, 25 Nov 2026 11:48:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=D
-	T6kM67LeVqubhl/XQzUsjrbwfVvqg+O4AplUmwA+EM=; b=DyztP2jMvjhW2dAAn
-	0P4ZdcdZDl8rmt21/NTBoui+Tj+YFEvOyMGIZSK/+mOeNJvj0JMAoreYnaqSiZSh
-	HEiUZ6BSRaz4Z5soUsc/si9vGBsjIiPM5ynMJZOrhEHjexEZVzMwouJatv8pJElQ
-	azKd7spDeZ7C9rWMJlTSwaJUco1VSWPLv9v2Q4oLjHq2jdKdPwh6asiQ1XcCVuAd
-	sPRTz4t+ieKyh6KmMMyLdUCk4bqJxZ7sTDS60kqUyWVfk8EH500ql2BHLcNErrfQ
-	Ju50u/hrqxuL4u5MN9KXMLms/T6mmTotLwCyq+ue1baoqDv+7vwrICLo1I7LgZku
-	FbE1g==
-Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 4j3491kdye-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT key_exchange=secp384r1);
-	Wed, 25 Nov 2026 11:48:59 +0000 (GMT)
-Received: from [127.0.1.1] (172.25.10.203) by HHMAIL01.hh.imgtec.org
- (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 25 Nov
- 2026 11:48:57 +0000
-From: Alexandru Dadu <alexandru.dadu@imgtec.com>
-Date: Wed, 25 Nov 2026 13:48:30 +0200
-Subject: [PATCH 2/6] drm/imagination: Fix size of FW header members
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cCKrplZv
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c516a192844so514697966b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:50:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795607452; cv=none;
+        d=google.com; s=arc-20260327;
+        b=oPGu6dQ1KUBPh5rQbB80dc93iH8mR9jgkvrOwNKpKWQQIzY+kRN70Dma+sXvUhWqI8
+         zC9qYHydJI5+n1M8oBC30YQk75q8NeFjk4v0Me2PaSVE0hnuoP/kA00kIHcjy1Se/AED
+         Mp+2wKhHCrvicZKvNtGAzn8QugQnt7BLD8zOMw6cEdDc0/RZn7/FRlqTwKxsu7s2khA5
+         IQ5A2m6XBapADblxgqcE8uweUaZ7aTzWO9MTe3TNFwui39YHWzH+GLtx0YAjmFLcUEUT
+         xoeTt81eoSiihn9wCdw46rWO4DuE+rx3VxFS/nSLQKqX2nNdtGNVAam9QYHGsHLntmAQ
+         ij6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=AK/FrytH2tf+B+57Lq9wnH5wu00oxO/OQC1ZXkryskE=;
+        fh=uE3wx9bE1nVchJHOh5aezt09VmNanik/Ge3lXiI2Guo=;
+        b=WmBGaEgW2VqwgzX0dUOG2CYjfjtW1m5Q7GgZVtL3EMZj5mNcR7Qrvbjn+iVa0PyNWu
+         T5E69d1TrFXtpRHFMosF8XwzOps1QYmPRe+q0TZlBXHKtWVf/8Edy9o3EroetPUI/QRC
+         skLklryB2pHphMO01rDjexPICvXWqF1JsoPylibUU47oEnaKySKciKAfyZsh7B2S9L1O
+         soWejNIL+CHjT/G4jDf+VaKqVXaqshXiwxSocIY9T+FCdJ/LCCjXn0BG8w/LkRblgINW
+         NQMDz19M0S3CTcPWTEOzEGyxb6l5ZSd9mWQ5WjhylvdtbyfLM8e+xpEaXOwKe5eaeP/5
+         7qsw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795607452; x=1796212252; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=AK/FrytH2tf+B+57Lq9wnH5wu00oxO/OQC1ZXkryskE=;
+        b=cCKrplZvKmTmChiU/HWkkzSUlDXxoFNlvdQW5t4JT7LvZaH0zotWEszT5kKBJmcN0m
+         vPomZV2tFWvlHcSrTbIAZuo5IG+DDIIhkqdzaluUlsEaQbjEEHWkEha+8MbbvKJfHpNJ
+         bXl3xKAlMN3VvWpQbWEtysh7LbJqy03KCAvbBb4/lPCY56uKVSlnQ/rDAF0EPCdFR7da
+         whyxBm9WY9e0pNEXmVJmY3HAxKfEu64s8CS2jmMBv4BH0cWdBkWz2XGF5xzGEM5kJXEv
+         Equ5HQ0aYS3C+qnGSq1ascS5uzpxPVUWCGsWcVKOYAfoIori+vEAGi22Mpu0Ajet8D72
+         wlgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795607452; x=1796212252;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AK/FrytH2tf+B+57Lq9wnH5wu00oxO/OQC1ZXkryskE=;
+        b=SP5st4RfApfAR9iUlk60keKYUrlgA3FO+EZzTqRtVIyWiDld3+QzX58AI/jHw7bpgo
+         6zRWQ9dulvdNMPIC9A9J9NAuuiJNuS2XymY7g3SgO0K4e7/yqK7RvH1fZCFi4NfZ0VRH
+         HF/JqIsufxZllqpaERdCuz/XpMqOrYNQ0GrIhXqEuK8kRFxgA2BsF52nVkVOodxO4uTc
+         boNsvJz8Ri0+DwlLBNUXijwYKA4r32AUpU57XUErAxvcuEAsi1MpdH7ugQteG2EuqzEJ
+         LMh0Dd/LAvMBDm/Ov7I/kqbyJV+SIjhQu6rsq9hRO6PwLHUiCAgSnKrwtFJXr0l9/vqH
+         KTTQ==
+X-Forwarded-Encrypted: i=1; AL+hErGY2qHLV/A442aEgroI/gzs/e5J+dZIMOnPv4QJStvfOeafAmo0TP+1sSedxeJLtvLW6yBPKwB1QCmCqIE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/8GUjG8dXCnMuQ421rZjj0JOEtKxxeLPpz+LFDXcNOjHlCA430
+	fYuSuSjK4wp5+8cXZKXCGNUEuoCrTOYu/Tr3KYfrp6aLw1882j/7d08cjb6HZuM9Afv9CwCrVHR
+	kmjvecHayIq5EtsDBD0bqLR5cqbZY+Ig=
+X-Gm-Gg: AZFdTZdHNPm7mIV0L9xHukYpvfEn40g4O1PB6/HD5CG8UbqK3p1Ynp99quhptV4PYk+
+	tuv+gHDFjYcJ4+3SeKwbylv4zb1Euw/zzj08Ts8wvuY4dkElLPPCWeXuZqz1DWomNmw+WKonKsG
+	5OZ1ajqCm5htcFQThpcDQYz58/kXgqQE/CbQtWpQBeeuOfF2AIr0iljl9BCPTAGmqwp4Zk3ZKRs
+	UboJY0HQ1lLcGhSfKyomH0v4n3g5APsKrCK3FaJoWkORluQUc3wDnXEabqMod+oDdAUcx5k9Juk
+	phckL8yrgoAKd1pM0r1++Bh1FPo3oceSFUAPnrZ8X4x5LxqHHh2zwBNz4prvIXqQScFiLw7plP7
+	bzZm+PVxx9bebLsRZoEl2X3bGBxOMhYVwuZgvlLg=
+X-Received: by 2002:a17:907:ba01:b0:c50:521f:13de with SMTP id
+ a640c23a62f3a-c513a897601mr1361763166b.35.1795607451572; Wed, 25 Nov 2026
+ 03:50:51 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,99 +104,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261125-b4-commonize-fw-segment-loading-v1-2-69657fa52ac3@imgtec.com>
-References: <20261125-b4-commonize-fw-segment-loading-v1-0-69657fa52ac3@imgtec.com>
-In-Reply-To: <20261125-b4-commonize-fw-segment-loading-v1-0-69657fa52ac3@imgtec.com>
-To: Alessio Belle <alessio.belle@imgtec.com>,
-        Luigi Santivetti
-	<luigi.santivetti@imgtec.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Paul Walmsley <pjw@kernel.org>, "Palmer
- Dabbelt" <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>,
-        Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva"
-	<gustavoars@kernel.org>
-CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-        <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <linux-hardening@vger.kernel.org>,
-        Alexandru Dadu
-	<alexandru.dadu@imgtec.com>,
-        Matt Coster <opensource@mtcoster.net>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795607333; l=1243;
- i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
- bh=wSXEtBNYX4VW/9eHmVJwMwRIUWDpaPN0ooAORqioPRs=;
- b=m/LbOEwqR6ZJz4lj7z/qGx1EHXodqW9O1g1JhtAaOAG7WNnsXdu56uZUo3aSLZgbkycwOlsJv
- iLHYb2XJDw3BAEypWZdJesfYxtuFGKZdgD4RfFl3z1OwJLVO1JehIZ4
-X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
- pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA0NiBTYWx0ZWRfX7/K6c76/rDgo
- /p0jFeSetx3U4aOmlLmItmnUoQMCs3iaZMxrawSkkabW9zpL7alw6mUw9pRv5aqMnluyzbf12sq
- Bkkt57e14ljZcKxBbxPCVH1x0SBEfamcIpmQtugFeF7FgqudOcHlCIuAdAuizGKvWWvcYDGRE5V
- ha9NHco4eoqQEm00CxQv+WBhbOBRu1wXzsCaWt5NWA3ZXSi07O0S9dGC0hqSttPq/tX6g41QR+H
- XIjXRbbks9qOxkDI86LssLj4NiwiFkJUoQm+vO6IMQnioP5g6d6LVkQLFuBjEaIzOB/R3acifLQ
- Mb3EOZvWVUhgvYb9/zHsJIP2A807sy9aOu2zo5PpuE2t6olJ+HWAIERAvhN0pPxNQHDLj5LAWzW
- YYIWggnKFw95JqN6TzWZgSxTgSsVbFh6o05APF32NJpkQ2WIIHesFYP811MOJIL13ajMwnpJYrR
- kcTppoCtpJCMG6lj1pA==
-X-Authority-Analysis: v=2.4 cv=OaENnRTY c=1 sm=1 tr=0 ts=6b06cb2b cx=c_pps
- a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
- a=4EFqt8Tv61wA:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=7RYWX5rxfSByPNLylY2M:22
- a=r_1tXGB3AAAA:8 a=iNbrFeQbgqLfWq_HSDUA:9 a=QEXdDO2ut3YA:10
- a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA0NiBTYWx0ZWRfX1AlL2Ielwx2F
- RvuWjdcTwJxaahPoL8j2vTH6yfUzclYrk0Zo68ROxMbDVHmvs8p/N08FW8/zM+XBO0kHpINAKfV
- JZg5NV9ZTObWgn+XUv4ZoP4pjyTOebU=
-X-Proofpoint-GUID: QTRFWEKYns1hBUn_zlItTi6g9GARBSEH
-X-Proofpoint-ORIG-GUID: QTRFWEKYns1hBUn_zlItTi6g9GARBSEH
+References: <20261124094914.2993988-1-a.shimko.dev@gmail.com>
+ <20261124094914.2993988-4-a.shimko.dev@gmail.com> <977f8fec-4cae-4003-b878-a7eb5aeee48c@lunn.ch>
+In-Reply-To: <977f8fec-4cae-4003-b878-a7eb5aeee48c@lunn.ch>
+From: Artem Shimko <a.shimko.dev@gmail.com>
+Date: Wed, 25 Nov 2026 14:50:39 +0300
+X-Gm-Features: Aa3M54oKEgG2JL9N45FOQuqjvfRbhcjaW8XTghdzQJCbxKeIwx-6DyB-aMwShTI
+Message-ID: <CAOPX746TNm7m6d6G-WyUzDptEVRJR0AuUzKa_Hg=P7s8CchhHw@mail.gmail.com>
+Subject: Re: [PATCH net-next v5 3/3] net: phy: dap8211r: add PHY LED control support
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net, 
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, maxime.chevallier@bootlin.com, 
+	pavel@ucw.cz, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-leds@vger.kernel.org, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Matt Coster <matt.coster@imgtec.com>
+Hi Andrew,
 
-Don't use enum types directly in the FW header structures, since these
-are not guaranteed to be the required 32-bits.
+On Wed, Nov 25, 2026 at 12:47=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote=
+:
+>
+> On Tue, Nov 24, 2026 at 12:49:12PM +0300, Artem Shimko wrote:
+> > Add support for hardware-controlled LEDs and brightness on the DAP8211R
+> > PHY. The chip exposes three LEDs that can be programmed to react to lin=
+k,
+> > speed, duplex, and TX/RX activity or be driven via the force mode.
+> >
+> > Add the dap8211r_write_ext() helper to access extended registers via th=
+e
+> > PHY indirect access registers, and implement callbacks for:
+> > led_brightness_set(), led_hw_is_supported(), led_hw_control_set(),
+> > led_hw_control_get().
+> >
+> > Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
+>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+>
 
-Signed-off-by: Matt Coster <matt.coster@imgtec.com>
-Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
----
- drivers/gpu/drm/imagination/pvr_fw_info.h | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
+Thank you for the review!
 
-diff --git a/drivers/gpu/drm/imagination/pvr_fw_info.h b/drivers/gpu/drm/imagination/pvr_fw_info.h
-index c3639440610e..3ad79c59d5b1 100644
---- a/drivers/gpu/drm/imagination/pvr_fw_info.h
-+++ b/drivers/gpu/drm/imagination/pvr_fw_info.h
-@@ -104,10 +104,18 @@ struct pvr_fw_info_header {
-  *                              section of the firmware image
-  */
- struct pvr_fw_layout_entry {
--	/** @id: Section ID. */
--	enum pvr_fw_section_id id;
--	/** @type: Section type. */
--	enum pvr_fw_section_type type;
-+	/**
-+	 * @id: Section ID.
-+	 *
-+	 * Values are given by enum pvr_fw_section_id.
-+	 */
-+	u32 id;
-+	/**
-+	 * @type: Section type.
-+	 *
-+	 * Values are given by enum pvr_fw_section_type.
-+	 */
-+	u32 type;
- 	/** @base_addr: Base address of section in FW address space. */
- 	u32 base_addr;
- 	/** @max_size: Maximum size of section, in bytes. */
+Sashiko AI flagged a Medium issue in dap8211r_led_hw_control_get():
+the function returns 0 even when LED_x_CON holds a state that cannot
+be expressed as rules (TX/RX without ACT_BLINK, or ACT_BLINK without
+TX/RX). I'd like to send a v6 that adds:
 
--- 
-2.43.0
+if (!!(led_mode & DAP8211R_LED_ACT_BLINK) !=3D
+   !!(led_mode & (DAP8211R_LED_RX | DAP8211R_LED_TX)))
+return -EOPNOTSUPP;
 
+May i keep your Reviewed-by tag on
+v6, given that this is a small, targeted fix?
+
+--
+Best regards,
+artem
