@@ -1,89 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795600718;
-	b=Frpxpq5wHrzkztVnOyEKFg9sfb5LgR76CRlU3ggzhjtP2g3abvy6mXO2Hf0lCvpjwrjZ
-	 3IAkfLKEjv38dxkwGNs3viv6ROGXEnqooiGIb70+UYUlUHdA8jmfwvJxC3XmeZNtiTajT
-	 xLosdnlm0x0VO6eV0YMgiNxTSWvAidGO5uH8/E+0DKcfJ7sEhDhq79Ezbalr/AgmEdS5W
-	 JhmOyFr5EZdXoG+0VOelVNsBXnLv8gkFa18jXmVIr2AfPROtZUSr3v4NkANMuX/M+zTaD
-	 X4W+VdbzZ3vr9+4oOha67le7VrRPGfvP1ar1bs0hF01Wl7smbwM+UMDVvtQZRJXK7GQ==
+	t=1795600712;
+	b=ZD+/oQarYN9DOPQZXcegFLSwLKvhjw4V/QA+Iu4S831wU/BatDiSYNxUWujEBjbD5sv6
+	 Ny6RUlu9N5Bb9t976PBHCBukxwGBDUAPZWdzfQIXwJFY5+o7DHBlBGOQs8rFZgwnow33K
+	 j66ZlICbB60J6nILY4TJ7NmzunXeUYt1JqW9msvMWIyNr2z3rrmZA6atdvgU1iuE2mXPW
+	 mbXjTDz8sytDLYbUD0BOkhhsO/SEOwYD2itYxvhRSUmb0Uq+TjNSHE9MM89BMqbCcLWJM
+	 lO4J4z2zAZoJBFaQS5RcO/38/kk8wxikcxehNQlAChsrOAPe0qPCN3BFGIj5spTAQ6A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795600718;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References;
-	bh=1UD/fxzUT0tjfssdFOdd5M1pCrEUV3tIjK+qrLIpIpw=;
-	b=M2T5J+gmNaC5Yy23wFGteHsWfI0XkabPvnXNvwIutitv6vQkC9FhT8q3+NXIGNO+D9Tf
-	 gE/xLMOzx/qRtNKx8jU+QjS15YgOvXPcYqTLim358lzy6FsmAve0KeO3RyGcL7vJygMhU
-	 OGvDtGfXZLuVWu9juYX/ozqKQQADkVUmPap9Ti5k+z3gvpqWatbLmueLTd3whfSb3ntSP
-	 cYEa7zrPWgtDxFwNVAWyJbENdNi55844dFxPhPFq5DHnvodjEuTz8zR2/C6jBJnx7XWIC
-	 Y3Re4BzMekD2PZKTYF9RaEO6gfC//I5iYlkUiWD5X9zGB4Sv+qv5W5DCj1zA304ZfYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795600712;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=6w74sigzWEjnq/Iez96NvmzHs9qvS5TWdCAthb5DA+s=;
+	b=c4sCySOv8O20B3eDibFBkYV86CkArib1sE767Z3kx+W8TxhTT1W2qrGOwqgydL9GBO5P
+	 869GGG370ZyY3p9yNvNbEoPuWdCOMMG3A6q1iGi3JVCqUC3kBBStUr23HtCr1TGht+xqg
+	 YAb99lxvspGrtAZp9HYQlpQoRYJuqwJVBI9XEsiWlgErFP37YG9JTrRi+syKHFnJHXu3E
+	 s4JmZmf8EtPqT6pdXqaGGFvVjAG3op8L+3h8Jw1ni7Ai+dCWz3KySallEXxnuh0nB31tD
+	 spoLuJJY3NB2P33EbSYEgrvvuE/Fd7GjVkqlWPj+ls9q+4hljrQU8Z894hZA07WxA7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="fys/RInJ";
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bzt1AqPN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1684606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:58:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1684606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4E2C606A321;
+	Wed, 25 Nov 2026 09:58:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fys/RInJ
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-38431138772so7172728eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:58:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795600717; x=1796205517; darn=vger.kernel.org;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=1UD/fxzUT0tjfssdFOdd5M1pCrEUV3tIjK+qrLIpIpw=;
-        b=fys/RInJOM+KHowyp/0+bp6mIOdw17l/KGAP5Hu8FUU9jepLarKea785/2Unj5x2zX
-         PKfyXjkBIquOhWWotnJNPdSocuX5G+ajBq27L0xeZvW1xoZwiCDunhgwui+vT3Ko+xdf
-         2RChKewf23S27TRhHB86w9pUuXg0RVmEUOpFVHY1WPqwxKva8qIc/EwuDOH0PzPjavoz
-         pLzkl44Gr8M58NQ6EVZ9BK19KXOARF36lK8q7Xu126oWzJVMP9hfLMNmhM02W7Et+Ym1
-         /CK+3hx0rW+i2D+/rfPpARvlQI9b2hxoBGYUFhARasRTp5BJNKv/xuG/kbvsuo2upaw/
-         bVag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795600717; x=1796205517;
-        h=references:message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1UD/fxzUT0tjfssdFOdd5M1pCrEUV3tIjK+qrLIpIpw=;
-        b=knBc4Nxmrp/u1oCJLcRYKJBc9k/w4x0Xfp3/AYiySusuKFrHWXFxpGQukxdkKhNFeV
-         PXJoJCSSF9U+WDibDQlUeQOdkKeFCL2ieNyrThNeyw59qrpbm5NnGQHdVrlVjwq1dD1J
-         iSMkq8kpSYS4sCFD223pmLgEot4Ci9U51/itYEImYEGz45uQsax89CGhutv0t8ubokp2
-         msOosVlrlP8AkClxH7JK0ZzgU9WUwAY+0h84E13728E99pKmYwnXUjdorqihixbWtFvA
-         6EMZaFKztxX6T87Eb3nDFE3LkIPTC8zJTVQ4iUBrxjo33ST/Lmz+te6xhGaEtkJnOeCj
-         eGKg==
-X-Forwarded-Encrypted: i=1; AL+hErHBhmfN9FXH9LtpiV6Lwsjstl0nTkDkOKdo62o6xNzYRMzA2i+j+60QU2zRTB8nqaXf/WtDLvfBN9Q+3ow=@vger.kernel.org
-X-Gm-Message-State: APuU4Z98SQVm/NcPdaAJPiIIWrjMX26507x7D4wrNeToM7SJhQUy5oUq
-	stpGzezL9mn7WkH02W4A3DKhjdvMKaKDdLWZnBMGNceQcjpQ3L6277QG
-X-Gm-Gg: AZFdTZcnvaVPw+8MbkKZhwtzBqN/7Ix64if1kQ3Efw2m0PuhR7gGvUky7Aj0znKfaWV
-	6ddtI1HPWsE9AvxIzOlDAiApHmga+bLuVG2vzdcHpdh7ViJDP8ZdELiL4FB2gtNxSbqxQ7pI5AV
-	HmEL0vvcCmHldqQEqcKS8jZ37O4Zi8sgJfNUuxtIMkx4w6Khw4LlXr3J80rJLxSdhCBENXRvkHu
-	FToiYZpevw+L2f+3BQ6mvs4WxOlGCyBqKV/xJRGLEOroVBneZMbf6l3o8o0tKf7RIdo7ZvZMtnu
-	1yWjA0n06yRSiy5dKo1N9xO64Bu+jEkG2sjtYsDLR+MQq1tTJKwfLshixNPEauQA88T6q8qKXM/
-	Si97U9TKHLWl68wawsC7/LeOMv9k0CTZm6HohFPLuO3RxODV8H93H03lLCYtQaHyFi0cxsneDt4
-	rxzxyOTwqN1XBxsG/10elkpESAH3LltF+qQmRzBY/NGLmFLKVqazmLIGNtkYRJv3X7PR5n61QkL
-	CXRhdLh75FC3bxk2ndT3kje6pr6Aacx2gaDD88vjBKDHz8XLgf6TuWXr4DfEBIj0fs6bzJp9yZ0
-	K2s+08xkOOSnKO3kQkYZwq5lkKyl
-X-Received: by 2002:a05:7301:e103:b0:385:496e:80ac with SMTP id 5a478bee46e88-3856fe59334mr19973566eec.8.1795600716629;
-        Wed, 25 Nov 2026 01:58:36 -0800 (PST)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aaae4960sm26470301eec.18.2026.11.25.01.58.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 01:58:35 -0800 (PST)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
-Cc: linuxppc-dev@lists.ozlabs.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>, linux-kernel@vger.kernel.org, chleroy@kernel.org, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, stable@vger.kernel.org
-Subject: Re: [PATCHv3 4/4] powerpc/kvm-hv-pmu: Free hostwide stats buffers if perf_pmu_register() fails
-In-Reply-To: <awZ4ZhK1GFHKi9Tr@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
-Date: Wed, 25 Nov 2026 15:18:30 +0530
-Message-ID: <pkvtjl75.ritesh.list@gmail.com>
-References: <cover.1795441238.git.ritesh.list@gmail.com> <a9e4029d0e11b3c944f4b4cb781fc5ff1696709b.1795441238.git.ritesh.list@gmail.com> <awZ4ZhK1GFHKi9Tr@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bzt1AqPN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 941251F000CA;
+	Wed, 25 Nov 2026 09:58:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795600712;
+	bh=6w74sigzWEjnq/Iez96NvmzHs9qvS5TWdCAthb5DA+s=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=bzt1AqPNyDA9/kRdAN7LdrA5/I08EcsW7Wnfl6gR5MU8PK99NGPxyT/jSOqQ1vTb8
+	 eD90tzrPAwPgXS57iQDA5hIHGGzVdanxm3dinwgiqwm3xtpR2yeH4mX+xqqy6EeU2C
+	 4VsCqhvOsVuV6VvrPAVgC7Fx/EaJUy7Yb9LdCZ77r6imN66CAyk6g1mHmLF6syQ+NT
+	 Kxctxj5TMLwqhi7islNGVDjA/2Z2YTl88XeUjLBUw31ygOIjwnwG2iwA7NQjqUYbir
+	 dev7KKR137py3Sycf0g7EDanB2b6vz7bRNGH+qoKkpnaqRkkwJEpOxs1MLxzjBIjJU
+	 5TRBRcnQjB5kA==
+Subject: Re: [PATCH net v2] l2tp: require CAP_NET_ADMIN to join the l2tp
+ multicast group
+From: netdev-bot+sashiko@kernel.org
+To: shyckless@gmail.com
+Cc: pabeni@redhat.com, kuba@kernel.org, davem@davemloft.net,
+ edumazet@kernel.org, netdev@vger.kernel.org, maoyixie.tju@gmail.com,
+ anilkaushikwireless@gmail.com, stephen@networkplumber.org,
+ linux-kernel@vger.kernel.org, horms@kernel.org
+Date: Wed, 25 Nov 2026 09:58:31 +0000
+Message-ID: <179560071114.3135.2532610269837690017@kernel.org>
+In-Reply-To: <20261124-l2tp-mcast-perm-v2-1-416741ccb334@gmail.com>
+References: <20261124-l2tp-mcast-perm-v2-1-416741ccb334@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,60 +63,124 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
 
-Mukesh Kumar Chaurasiya <mkchauras@gmail.com> writes:
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-> On Mon, Nov 23, 2026 at 07:21:53PM +0530, Ritesh Harjani (IBM) wrote:
->> kvmppc_register_pmu() calls kvmppc_init_hostwide(), which allocates
->> gsm_l0_stats and gsb_l0_stats. It then registers the pmu. If
->> perf_pmu_register() fails we return without freeing them.
->> 
->> Call kvmppc_cleanup_hostwide() on that error path.
->> 
->> Fixes: f0c9c49c5067 ("powerpc/kvm-hv-pmu: Implement GSB message-ops for hostwide counters")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
->> ---
->>  arch/powerpc/perf/kvm-hv-pmu.c | 4 +++-
->>  1 file changed, 3 insertions(+), 1 deletion(-)
->> 
->> diff --git a/arch/powerpc/perf/kvm-hv-pmu.c b/arch/powerpc/perf/kvm-hv-pmu.c
->> index a58634f656e9..ec05b4855736 100644
->> --- a/arch/powerpc/perf/kvm-hv-pmu.c
->> +++ b/arch/powerpc/perf/kvm-hv-pmu.c
->> @@ -402,8 +402,10 @@ static int __init kvmppc_register_pmu(void)
->> 
->>  		/* Register the pmu */
->>  		rc = perf_pmu_register(&kvmppc_pmu, kvmppc_pmu.name, -1);
->> -		if (rc)
->> +		if (rc) {
->> +			kvmppc_cleanup_hostwide();
-> Just a question.
-> Inside this function, should we also take lock just to set the pointers
-> NULL rather than putting the whole logic(free also) inside the lock like
-> we did in previous patch?
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] On its own, this patch does not stop an unprivileged local
+  user from receiving l2tp tunnel and session notifications, including…
+
+--
+
+l2tp: require CAP_NET_ADMIN to join the l2tp multicast group
+
+This patch marks the l2tp generic netlink multicast group with
+GENL_MCAST_CAP_NET_ADMIN. After this, genl_bind() requires CAP_NET_ADMIN
+in the user namespace that owns the network namespace before a socket can
+join the group. Tunnel and session notifications, including L2TPv3
+cookies, then no longer reach unprivileged listeners that join after the
+family is registered.
+
+Link: https://lore.kernel.org/all/20261123155503.2497063-1-anilkaushikwireless@gmail.com/ [1]
+
+> diff --git a/net/l2tp/l2tp_netlink.c b/net/l2tp/l2tp_netlink.c
+> index a07009d4cb009..c442e953df66a 100644
+> --- a/net/l2tp/l2tp_netlink.c
+> +++ b/net/l2tp/l2tp_netlink.c
+> @@ -31,6 +31,7 @@ static struct genl_family l2tp_nl_family;
+>  static const struct genl_multicast_group l2tp_multicast_group[] = {
+>  	{
+>  		.name = L2TP_GENL_MCGROUP,
+> +		.flags = GENL_MCAST_CAP_NET_ADMIN,
+
+[Severity: Medium]
+The commit message says the pre-registration case remains open, and gives
+this example:
+
+  "A socket that joins the ID before the l2tp family is registered, for
+  example before l2tp_netlink is loaded, keeps getting the notifications."
+
+Can an unprivileged user also control when that registration happens? If
+so, the leak is still reachable as long as this patch is applied
+without [1].
+
+The new flag is only checked in genl_bind(), and only when a registered
+family owns the requested group ID:
+
+net/netlink/genetlink.c:genl_bind() {
+    ...
+		i = group - family->mcgrp_offset;
+		if (i < 0 || i >= family->n_mcgrps)
+			continue;
+    ...
+}
+
+For an ID that no family owns, ret stays 0 and the join succeeds.
+
+netlink_setsockopt(NETLINK_ADD_MEMBERSHIP) checks only
+NL_CFG_F_NONROOT_RECV, which genetlink sets, and that val - 1 is below
+nlk->ngroups. So any free bit in the genl group bitmap can be joined
+without a capability.
+
+When l2tp_netlink registers, genl_allocate_reserve_groups() picks a free
+bit with find_first_zero_bit(), and genl_validate_assign_mc_groups()
+assigns it:
+
+	family->mcgrp_offset = first_id;
+
+On this path __netlink_clear_multicast_users() is never called. It is
+only called from genl_unregister_mc_groups(), so existing subscribers
+keep their membership.
+
+CTRL_CMD_GETFAMILY has no admin permission flag. For an unknown name,
+ctrl_getfamily() loads the module:
+
+net/netlink/genetlink.c:ctrl_getfamily() {
+    ...
+		if (res == NULL) {
+			genl_unlock();
+			up_read(&cb_lock);
+			request_module("net-pf-%d-proto-%d-family-%s",
+				       PF_NETLINK, NETLINK_GENERIC, name);
+    ...
+}
+
+l2tp_netlink declares MODULE_ALIAS_GENL_FAMILY("l2tp"), so this sequence
+looks possible:
+
+  unprivileged user:
+    NETLINK_ADD_MEMBERSHIP on every free genl group ID
+      genl_bind() returns 0 (no owner)
+    CTRL_CMD_GETFAMILY name="l2tp"
+      ctrl_getfamily()->request_module()
+        l2tp_nl_init() registers the family on a bit already joined
+
+  root:
+    creates an L2TPv3 tunnel and session with cookies
+      l2tp_session_notify()->genlmsg_multicast_netns()
+
+The message is built by l2tp_nl_session_send(), which includes
+L2TP_ATTR_COOKIE and L2TP_ATTR_PEER_COOKIE. It reaches the unprivileged
+socket, and membership is never checked again.
+
+Since the case here can be triggered on demand on any system with module
+autoloading where l2tp_netlink is not loaded yet, should the commit
+message say that an unprivileged user can trigger the load? Should [1]
+also be merged with or before this patch, and be listed as a hard
+dependency for the stable backports?
+
+>  	},
+>  };
 >
 
-In the previous patch, we brought GFP_KERNEL (sleepable) allocation
-outside of atomic context. However, in here, there is no harm in keeping
-the lock to assign the null values to pointers. But I guess what you are
-suggesting is - Do we need to keep the lock around in the cleanup? Looks
-like no, we don't, since if the perf pmu register failed then we won't
-get a perf pmu update event for this - which is the only other user of
-this lock which can race.
-
-However, this patch is mostly an error handling fix (reported as a bug
-by Sashiko). One can pickup the cleanup of that path as a separate
-patch.  There is also a powerpc wide clang's context analysis work that
-is going on, so as part of that - we could maybe optimize away taking of
-the lock in kvmppc_cleanup_hostwide() as well. As for this patch series,
-I think let's go with this, as most of the patches in the series are
-with Fixes tag to be backported.
-
-
-> Apart from this, all looks good.
->
-> Reviewed-by: Mukesh Kumar Chaurasiya (IBM) <mkchauras@gmail.com>
-
-Thanks for the review!
-
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124-l2tp-mcast-perm-v2-1-416741ccb334%40gmail.com
