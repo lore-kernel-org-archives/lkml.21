@@ -1,208 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795621360;
-	b=JHSnsP5aj0z2kcf8SKl4laPOwEBjyBQ1F5thMc/Fn0e3F1IbXCfnpGDyvKR/TRsPqJN3
-	 6DZbGLE24MGUZv1JvjeXZeX5P/yOsULzog1UTkPuqy1mb2PUpPo4yRaNwbnuoVeen15r3
-	 0ZbuoJxGmmAmFqE3zvoF/BeEzTqy3kbrG9HavBD4liZ8FHG8gqiZ0ZnzlPVc8Rp+/Uf0M
-	 cswpjQHz6Lt8sR4c4kQYrZLgDDkJUY1G2MQswZbj8eZalP8bvY93lieHnl1jjsJeboVqV
-	 HefTxiXoVZbXRoSxZGjBacmxYdrxhjFN7P3dai1DukC+d1IWysTXiSpm4VP0qtz6Hdg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621360;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ld-processed:
-	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
-	 x-microsoft-antispam:x-microsoft-antispam-message-info:
-	 x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=sn3kcJh4xq8WLRXwgAefnSZyzIR9CxOdqzLQPXcIKC4=;
-	b=kTW5mlk1GR9yEj2F99lAiJjYgBt8CEhOLzCXdKndHtGR1q9bgKBWo9e8T+2MXW/ewSou
-	 1Euum2+Gs2DtuYJTdKs8DesO9hK0sUWzQzIAx2t8wAvb/NNHeVD+N2efHGUjfyV365BEi
-	 U/cN/QecmlcsEBmu9+r/7365D5jipI1iXFzCUKNNfYLR9Xo+zG8yzX2iN5wt+3cQuGWQa
-	 a1dCb3c/RZ7/xUFjsInOqeArMIS0iLYe7ffSZ2Wf+JJHLNiFVA5sUxlp7JogKdoZPrsBZ
-	 UURicJeyojfvrijyBv10LYAYDqa+8Gny/QGctKxnKtLe6sVRyVOVl4JOe90yWXYsTLw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U8L9kAIu;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=BTBhmrgA;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.11
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795621373;
+	b=Q+ug//cJ36QCdt91iWc6tbuN65KCaBWKvflXnjDNzHWmtvAOeyHUSSh+/T+GxzTCwWQt
+	 DBZiNNHNbfZiyxyZ9wg0csSszzW04oCnZ6Yglvaig/+O8MB+6aOKPKanYGoKqDmlT3oCI
+	 AAj01c2rFlE1MXBBfoZw+SDFBzvO9QoBWXLB/H2ltezjU5ufHzqohsXkmTCKYuDNaDE0K
+	 Hn2uYdAAIs6PFpgTMPA/NlO0GULCZs6E0aKpHgn3jxt8+ylH6rqE3tnI25octQvTvYZI1
+	 v4ZN2+N9R7tqr28NrkVMJXYqrFcECAFLfOmzDL1QFYjERzxPIJ5lBgpRv5Mjl6einiw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621373;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=hiHQ9P2Rh4c49bXhsBaKtyKYgRGqkouT9MBhcz1H/ms=;
+	b=P7uA7pcqAeAyTexyTG3V1XxyUJMyZqxjpwwn2tDvkX0MZSQmIWTmgEgMMYxwCN5godi0
+	 kKhSQiU77YjUJf0uUaZrfDvRW5iZL2bgaNjxntQUp56aboOUw4vDEoVSdum9Q/1epSYUs
+	 3ez1XeDQ6xCUpj9MVp5/NUmSQNf2iHEcs+kOh/YCW3JNxFCD3/5TnMLSmoUAErjx+1enB
+	 6U4SZWOdv1Ks4iovWBWZ5amCuRicEssAlKQ2yp6GgrAb0MpdK1Uoe0srVGAHe9VBR1Gz+
+	 k2a6qun54KBSll9mqZGgTLyyN6W+d/rBBPI+aqt6SShXpRHdZ8WT3Ez/5t8G/ZgQbmw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MIZx4SnM;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=B7aDAHhs;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A942C606B3A6;
-	Wed, 25 Nov 2026 15:42:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A942C606B3A6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 026CE606BF60
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:42:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 026CE606BF60
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U8L9kAIu;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=BTBhmrgA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795621360; x=1827157360;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=sn3kcJh4xq8WLRXwgAefnSZyzIR9CxOdqzLQPXcIKC4=;
-  b=U8L9kAIuTN7yc41l/3urjib/KdLHb2bpktXRbgC+CumOGsRO+oLW6sJ1
-   UEP1RRLSVZWmpszqVNw646Wi0j9WsZERmKZIJOF/vRkc7H+844L4QJP02
-   qqNFwod2dIf5qDPKKtxcBvOAsRfMaCWphkOFyQhhggQghkwHnhqrbHcqm
-   k0NxLqAGx8R4rpyb6GPuwGgjkM6ZZkrsSlJXf620nIsOblnxGRBBL7QJK
-   m5EwgaJGIbCGlaLYBq9DWNVurliyYi9mNIo/aoXRaJpRfz+q59BD7GBn3
-   bLYGCZwnQEJyWf+txdCpJhNfrcn2EpfP7gLAYSO5425CkuFITvunlnobm
-   Q==;
-X-CSE-ConnectionGUID: KL8hv6WtTuKYMcoRHc9W6A==
-X-CSE-MsgGUID: WrxMG4tWSfOugVu3IYYQeg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4419868"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4419868"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 07:36:43 -0800
-X-CSE-ConnectionGUID: KiZO4WwWQJOkVTWG57HUig==
-X-CSE-MsgGUID: +FQoeS1yTK+Lj0j0twVEGw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="11705780"
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 07:36:42 -0800
-Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 07:36:41 -0800
-Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
- FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Wed, 25 Nov 2026 07:36:41 -0800
-Received: from DM1PR04CU001.outbound.protection.outlook.com (52.101.61.43) by
- edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 07:36:40 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VLN6QWiBkbGCQFBOP8H1KKmsFbDoduoTmohtlUcaJxlLpLrg7KYmxeypHi0Y5duMQveegeQO/3z89Mbb27hOm2mVV23kcxmDLNdBBFrlhKJ/RMpPLx001nRXBPQo3bwCVqMr5VyJHeBVzNtVKm51McQ0jJM1sZXRXzbedB5pi7wQZHgYLa5+FCySAaYN9RVP3JK9PE8vc3NFvVpwcWoo6a4kXdLDTx8xyolSSZL1ZwrmG4yD0p4hDjisYi2uLQGcS7E74x09/bNnjT/e1mjlhEIUJ+dKMaMrNQDHlSgdsQ3s4KbWWsFxi0B/I5olIP57B0Zr3cH85yiHdHzr1Xtf8Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sn3kcJh4xq8WLRXwgAefnSZyzIR9CxOdqzLQPXcIKC4=;
- b=eGdxi7GNXcUmKbMrKeQ9lvdjMvuHv/D574qg9YBax4rGMNDHRWvFID9eDGrSF5rEF+24QrpHGOQVzng3pZ8l3WkvF1aaaSraBODe6PJ3myUo5D6Q+KJiPWFhhuBCr7lRYy7QDqliDtG5CZcRQQ0nLP5NhwBTU9/2SI1BKUX9Up9Hjdo9O0Po9xICWUeU/laIzgZ5nniDc+XP8I6di8I+GMcV+hazAakivccECYysgJRzftFnztoH/POjTUikFUiCkmQnKyJeneGX8iopfoVNIKcTAeZwnDfKRQDdo5lBXW/J7n/8FEimmWKm89LJpSU4D3eu21wXTCoBicugNDJmPw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sn3kcJh4xq8WLRXwgAefnSZyzIR9CxOdqzLQPXcIKC4=;
- b=BTBhmrgACxYp/JVeU9BvMutZbHN7VeTuLv263bFtSr+DyaJb7qLWMn5E6bwqYIQW8OOYXojdrfzwr5fNzrUVv6F6hWH28WZBlhOpBkwqiEVnRZRhOwmyjIhQ0RtJRPOdwTKeI9U5ogkvrhnIA2DgzsIb292+bpmkfsS4Ibz9gmA=
-Received: from MW4PR11MB6984.namprd11.prod.outlook.com (2603:10b6:303:22e::22)
- by SA9PR11MB772229.namprd11.prod.outlook.com (2603:10b6:806:a6::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Wed, 25 Nov
- 2026 15:36:37 +0000
-Received: from MW4PR11MB6984.namprd11.prod.outlook.com
- ([fe80::924e:9c6d:73ec:27f2]) by MW4PR11MB6984.namprd11.prod.outlook.com
- ([fe80::924e:9c6d:73ec:27f2%6]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
- 15:36:37 +0000
-From: "Kubalewski, Arkadiusz" <arkadiusz.kubalewski@intel.com>
-To: "Vecera, Ivan" <ivecera@redhat.com>, Jakub Kicinski <kuba@kernel.org>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>, Vadim Fedorenko
-	<vadim.fedorenko@linux.dev>, Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet
-	<corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
-	<rdunlap@infradead.org>, Min Li <min.li@microchip.com>, "Nguyen, Anthony L"
-	<anthony.l.nguyen@intel.com>, "Kitszel, Przemyslaw"
-	<przemyslaw.kitszel@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, "Paolo
- Abeni" <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"intel-wired-lan@lists.osuosl.org" <intel-wired-lan@lists.osuosl.org>,
-	"Nitka, Grzegorz" <grzegorz.nitka@intel.com>, Karol Kolacinski
-	<karol.kolacinski@intel.com>, Saeed Mahameed <saeedm@nvidia.com>, "Tariq
- Toukan" <tariqt@nvidia.com>, "Oros, Petr" <poros@redhat.com>
-Subject: RE: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-Thread-Topic: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-Thread-Index: AQHdcftsjeqnHCNYXUaGas67mVSOY7cxj0QAgAJv8oCAAKvVAIAAtCaAgAmgHCA=
-Date: Wed, 25 Nov 2026 15:36:37 +0000
-Message-ID: <MW4PR11MB6984FD51283AEF4F2B8E27E39B432@MW4PR11MB6984.namprd11.prod.outlook.com>
-References: <20261111164021.273409-1-ivecera@redhat.com>
- <20261116181612.107a4b57@kernel.org>
- <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
- <20261118174424.32e9f130@kernel.org>
- <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
-In-Reply-To: <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
-Accept-Language: en-US, pl-PL
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MW4PR11MB6984:EE_|SA9PR11MB772229:EE_
-x-ms-office365-filtering-correlation-id: 99114aeb-9b21-4afa-b707-08df4b09e4b1
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|6133799003|18002099003|22082099003|3023799007|5023799004|4143699003|11063799006|56012099006|10067099003|261102123227099003|261026140227099003|261028144727099003|261021135927099003|261022075727099003|261022105027099003|261026121527099003|261021121427099003|38070700021;
-x-microsoft-antispam-message-info: kixq7Ozx3PoHo9HShTG+dqve/zfttrAj9b3/4LfF+pGaOIpa5wtQEDAuTo3ZspdcPWMwmITnQg/7F0IPmHWKHdgShtoHsXxuqdNeXe2JQ8ssHnz1b6XPtlXGP+tV9f6bxuwezS74choqPHCbfga2V3T7fzZrnY4uVVB23rWcZUBXJehCGrxiDtBBdqqQ09Ez24mrGYJz6HWziMbJbcANHvmURV4a1U4HsYU2daXlLWbyAjUgkUZRCqj5HucOekujyBHZURhUvlinUaLw3I8h+5kdhpxRNS5ros+29Qc8KewML9IPdj0iATBV1pDpjeicoxCULEm8xl4uJZDgook4FdpduiFYgNB5pXbZsO0kEbc1fcnVXHlAM9jb1BzLLBgSKISZ3k/bUcPaZS4BSryENz42xr9dzdGmIE2rSFfhXjswomS0Hpa9IKFJyRqM28wOEvNpt94ls2DI6AidPfpdrNUmLSveLFPDHYzMa1H3pqJBhBvuGgYWilaWtrHiB+wTTKJv2gaMZx7pk7nhuM0Ip9RjCcz/aJ1kmPFAjNfLFGkJ2QljU/o6YUH8nWOm+iUbP30xfmHAzTCOvfcfn2QN/FBA71fkWA7yZiX5pyimEob2zZyL45o302yD8+HlrwUn31YW88Mmzc1m/08h+VkG5GISmz4KIGPZ0IPkQKjPPoN9oh5deTAUTFRbu+K7suQl9CidD7a0vITMVO2ggE5MyLXwv1LHBNC9HkB7d5JItus=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR11MB6984.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(6133799003)(18002099003)(22082099003)(3023799007)(5023799004)(4143699003)(11063799006)(56012099006)(10067099003)(261102123227099003)(261026140227099003)(261028144727099003)(261021135927099003)(261022075727099003)(261022105027099003)(261026121527099003)(261021121427099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Y2I4N0d1VGJQUTl0dnlXUWQ0QjAxL2NjaUV2MzZLTXQ3bko5REx1Z1FSbzNm?=
- =?utf-8?B?akFuNXhDVHVwcStCdzhJNUFmbHgva3A2dnRKaVRLNm9QRjFsUWRqZEhTRDk0?=
- =?utf-8?B?MnkyaEJoMWxVV0dpTDFuMlc5b2NHTkdEeXlTdmxlZW9NZmpJZUxlbUdXeisr?=
- =?utf-8?B?azFqQXhqWUNncEFiZ0dnZStVNnovR05KUVkxVDdBK085dUhaZC9lZ09acXFI?=
- =?utf-8?B?cHFYTDU0VWtmQnRQSFk1S3lZSW9DSTlONm1rRkNPR2VmUjNPOUVCM0U2YlZh?=
- =?utf-8?B?a3VDWFo4YU1hcEJ0WmhQczU4SHI4dTZVWlNYYUhWSFRzQzZ6QncwMy9COWo5?=
- =?utf-8?B?dGxpN0V3YTJxWDA2Tnd3TWltNW9IMFJqRGJMR0tWbUh6TGVxdnJta0RHMzNa?=
- =?utf-8?B?RHZwTHQzUjBGNjRiSWUwNmVWbEo1VFpXY05ZOUxLVDR5YnN6VWk1Y3JCVWI1?=
- =?utf-8?B?SlUzKy83RkI4aG5HTGNLUE8xSWJ0SEpoY3F0VVFRbytPTEIveXFFdWhnd2dQ?=
- =?utf-8?B?ZDhPSVBseEM5N2NsbWx2Zjh6c1hMeHo1eFYveVBhSTdmOGdLR2cyVlJFbzRk?=
- =?utf-8?B?YnRoay9UTDBTem14a0k2MmZIVmViRnREVzVXVEt6VERuWTFqaldGWE9hRFc2?=
- =?utf-8?B?Y0NjL2tncy8wR1Fmc20waVhBQnhxdTd3a0ZsaXdsNjZEc2ptTzdzbTV3bnAv?=
- =?utf-8?B?Z3F5Q0wxaXJDSG5mMGMyMXVIMy94TnhCYzlpTGpuYkNpcm5TcFBDK1BZdi8x?=
- =?utf-8?B?b1BxaGJCSTFzYnFta2Z4RkdxMzUwa0pBYUFCQzFLeDVtcWx5TFpSRlI5bm45?=
- =?utf-8?B?RFdrQ1AycVN0SENteWJZSlVCTjE5aGtLQ3hrNzhEbG53UmQ3KzA5YVdjYzZp?=
- =?utf-8?B?L0xkSlhCQW0vWnJTUjBpekVtazFZaGYyRUdmcko4bW9MSWhlcWtUTEhWZ1Vl?=
- =?utf-8?B?aGhqOVZYSldzRlZ2YTA0Rm5TNTd3bEtzRW5CNTA0aW0vUFZXYm5WYnQ0MW85?=
- =?utf-8?B?U0R6ZXZpNGUvbUdKMjVsNHEvTFNHSnRMK1IrVEJraEVhYW9xbTlnMnZqY0tM?=
- =?utf-8?B?M1ErL0d2T0ZPbHVaSnR5dnVTYUFLa2ZobDN4ZUhWckZqa09pdW1tWHorYlVF?=
- =?utf-8?B?VW45dWU1YkpsVG1CaGpwK2FFSy9mdVczKzY2THN5c1Jta0EzNkN5ZFgxaHMw?=
- =?utf-8?B?cEpTSHltZUtuYkVCQkJMV1NBTHFJbVlTdU1GN01PYkZGblE5Nld0UlNXQU5W?=
- =?utf-8?B?OTI5dVkxK1JScUt1Smt1NGZTT3FFRjZJUkcrVEc1MFlDUkVnbEpjQ2hEc2Ix?=
- =?utf-8?B?VnQwdDQzUlM4SkoyK1o4UWlUUjJBblFLZGRSalJxNXNUMUEyc0IwSCtKbHFM?=
- =?utf-8?B?WWVFYXFVeVdIeHNNK09sTXlYZytNZkZSN1RLaE9kNUtqODloSWhScEI2M3hl?=
- =?utf-8?B?dW9hMHVxRmsrWmZUSjVhTDVtSkF3Q08zbXJBN1ErVVc4UUlnWkpRaGNpT05n?=
- =?utf-8?B?YW5kL29xN2pzazAyNENNR2VGaDV3TVFTNmlQempUaTJuZlFMZzdSZ1dzNDlM?=
- =?utf-8?B?ME52S1FHWGRTRmVQVS9aL01FNnlzdGZrbFhpdUlHMnhKajMyVGNhYlBPVEJn?=
- =?utf-8?B?ckEwWElqZVBsck1HL01oRUFiS1lFb1F1amhFZGxPbnJvOXBudk1RKzIxN21D?=
- =?utf-8?B?b2NWY0R3THhleWEyUzNmdlFRSHVKYVFXejI0cHBycGRCaEk2Z25xTlpWYlQz?=
- =?utf-8?B?WTdzUDdyQ2xUeUlCaUNibjdNUzQrRGc0VitMdmNIVmVQRU90S0w2Z05XbWhT?=
- =?utf-8?B?RkR1TTY1bStUUTlSMEJRa3ZGWkh5L0xMc05IblVNTnlRQkVXL3JVTkJxVnlB?=
- =?utf-8?B?YitJWWdpWXExWjUzaVhkaHFxRDlXdmpmcnQwREhRRDJ4eVZaQ2R0WE84ZkxP?=
- =?utf-8?B?L1RPM1FLT2FjM0x1RU5WS25OUHJkZTBrZ3FYbTQ3dzJyT1NuOWdNazdRQnJT?=
- =?utf-8?B?Mk80bFFUbFVuUFJYaUN4YldaRGdwUkxLcTRWTGY5YURWQXpVY0owYWRjdWFH?=
- =?utf-8?B?cVQxdHFlVmgvZWkwcUlCYTFBUitraFEwRm9qc3lJQjhQWllMaVV4STBIOGM5?=
- =?utf-8?B?V0ZXM082bWNSRE0raGkvUFM4TW9PR3JleVZhT1JpbG9HU1dGb3dIYzRxMkJD?=
- =?utf-8?B?VVBoWFB3R2xBcHBrZlY3UW1QeEYxR3Y1czRza2ovMkw3VHZmcTNOdXBCaVVL?=
- =?utf-8?B?QzNkN0ZzSENJa1ZwQmp2d1ZTdVl5Z1M3UFMyN2Z0Q0Nud2owQ1V1eTFHMDh4?=
- =?utf-8?B?YmtTUzNmOEJiRDlVVHl6YlVCV3NnaGFTZkpHRUttTVVXM3hyMUlqaUlYV0Rk?=
- =?utf-8?Q?SH9db1+mF3AU32JI=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MIZx4SnM;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=B7aDAHhs
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795621371;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hiHQ9P2Rh4c49bXhsBaKtyKYgRGqkouT9MBhcz1H/ms=;
+	b=MIZx4SnM3AVAlSB/aE9VfIbY3mBbgq/fv9/VpUOOmxtPvhsvyIpUgcXa6WNup9P3W9dHpT
+	t6YR53I26BnmRt7nvlMIP1GgEHoDV9cio7X9xrlNWPkwdlV3D5qHCsDl1GGQ3CmWUJdCbh
+	qb/GEXlkNQUmUXzQ6jMo2hKpUCbRK8s=
+Received: from mail-lf1-f72.google.com (mail-lf1-f72.google.com
+ [209.85.167.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-284-NZIk-xUCOM2Jtnq-kRgcTQ-1; Wed, 25 Nov 2026 15:42:49 +0000
+X-MC-Unique: NZIk-xUCOM2Jtnq-kRgcTQ-1
+X-Mimecast-MFC-AGG-ID: NZIk-xUCOM2Jtnq-kRgcTQ_1795621368
+Received: by mail-lf1-f72.google.com with SMTP id 2adb3069b0e04-5c31c624c20so922084e87.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:42:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795621368; x=1796226168; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hiHQ9P2Rh4c49bXhsBaKtyKYgRGqkouT9MBhcz1H/ms=;
+        b=B7aDAHhsMO/6p1ZZIBHILAS+d5gQQ+351e+x5yBAPDyWSDg4ODXYN3e2iCAFgWkM4N
+         IQB8vJUdz9tEv53yeBMNquLMbecwG/4fSaROmMrLHQsswD1gDX+Kd/HUAeB7LrWPTUE8
+         ilgvc/OCFa/KHmB2Xyvv1Giis/5fdLYlTWLdB3qNwchOkVe0piP91TGi3OGWt2hW2KTY
+         Qwjtb+cgAmo74r2djzIh2sPIlVkPbaDetQsc5GgqPx8EzODRjKqbVw2Ur4YMTDl8W2js
+         tyaHERW1R4P4JXDowCHZvKf/36vww7TNbg0mIfAQ7FLaxc093xUJbwit0SkvZIItea+o
+         weOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795621368; x=1796226168;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hiHQ9P2Rh4c49bXhsBaKtyKYgRGqkouT9MBhcz1H/ms=;
+        b=xpZVEJtzNE//3pyXyLFvxq1b3pYFB78FZdoFCxprs3WD5lVHj6U1J2oc5R4FxIELSZ
+         Bj0gyblLwvVJK4gUBEfsK+AWpxNF0lbwJyChr2AGhiE8/mGhYE9ponGIEStE+v/G+9RJ
+         Tl7cA7utfOZVkXgseyJz3tFI/+cS+gqSggFU03nTb775u5ghntJWchRo4B3bLB1lFHgu
+         woip7QI+ps3YGHLjxTBo7xs8mMR0MzwXK9/C/jBnlMbQQusPit5FZXcagRHZUE+TEecB
+         pkUICPTYiNYr6+wK6bSpeJHHfUy+uWPxYcedm3wDmJ3Df58BqZpvN/7+dpQRUtdMOooc
+         iIRg==
+X-Forwarded-Encrypted: i=1; AL+hErH33OtqTrAKpNjmJuxgSK3CHbfsUD9OoeAY+SNGeUPqM1VwEAmcPFjkVjc7PquqNR7euPpSRzwfzkCUjgY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+d0hLCcfqncCZpluz4WJ8EYNc3lFubvJg+hf1ZOTXtKXtKe1g7
+	pld3swZpeaY6NhSe8SqXEfxmsenV25KrYVPY7J3Sh/sMaJPnMe63GawG6CNzPFxfm20O6mZ8sI2
+	hEMERoSno0Nz3vsqdCkBr1X+/gFo8V5QwguElgoim26gQRZEldQmzCALR0gnrU8E+
+X-Gm-Gg: AZFdTZdaJPeTcczVpjR9ZQr1/OqmWqU4oJcTAb6qTWLSYmjkSIuEw13h8l3m7Br/8Rn
+	Ti0UZPB7sSNNyD6QeQGuGAL873W+IqAQ3ap0vERPPzBHr985QaRux/rjN2CZ42iJFmidLk64QFL
+	Z8ccuivTtiTz60mkYbH/BWgG+jaYCdS71s2imXi0ngDC/kiQPIbgeA6Am56/8bPSoSWo7ecudl8
+	ruwhKwu5+LSzjDXebTCYQxblULVTyvn9/z+WuS7LBDwJwrp1awpxAQOv3TlRnxVAYK5i+AlH9C6
+	NIfTx7QUQvrvHKDlIONpbsmi9Q2SdCLiVFPIbV9nMwfSWdpkz1OnPrrI9bnH06iGoI2wt8FdS69
+	8j5g4KgKVxDCsOqOaKBveitMr1TrYJkV6z+kWr8PO2TVJ+QxyqhsVVkSltqiDGuFFDlyN3J1D8o
+	fPJWkB
+X-Received: by 2002:a05:6512:2308:b0:5bf:dc0f:5f07 with SMTP id 2adb3069b0e04-5c1bc7bd116mr5455126e87.20.1795621367698;
+        Wed, 25 Nov 2026 07:42:47 -0800 (PST)
+X-Received: by 2002:a05:6512:2308:b0:5bf:dc0f:5f07 with SMTP id 2adb3069b0e04-5c1bc7bd116mr5455101e87.20.1795621367006;
+        Wed, 25 Nov 2026 07:42:47 -0800 (PST)
+Received: from [192.168.1.86] (89-27-86-246.bb.dnainternet.fi. [89.27.86.246])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd04451csm4614701e87.59.2026.11.25.07.42.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 07:42:46 -0800 (PST)
+Message-ID: <e2da7591-a56f-4d58-afb7-d83267d946ac@redhat.com>
+Date: Wed, 25 Nov 2026 17:42:45 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -212,94 +112,516 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: CorhBixFzpouHZtWuWEBGdvj9/KtSc5WXwFAFOVtnAg5nQsEjfLAM+JynrvxnuAn854/V3tzpsBlnX3/jg6dVNU8MjWjIQ2ry7FDUp93g4+/bV/SB/K5AumFsPxq7JBP3V0b+kmizMhg5fS8idIpomioepzTNMvPT9PLHbdtwvSW9n2z5EQcJ5e5BYljwSmmd6HDNSnLNf5imNIrYXOTjG3/rxnAnTezTS922z80/BS0BOsk1O5aN/Au1kiQsx5tzNNDl025PNCehyv8ZbmCmOvc1y+ilCOnC37mqJecuLM5hCHMzJY6qa5HnbBtIx436Wv+ykSFrL0suFKlUzG0TQ==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR11MB6984.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 99114aeb-9b21-4afa-b707-08df4b09e4b1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2026 15:36:37.3029
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 61VYgD5Sn4JEvAZw4p3p/lZQYiRyzG9ADKvLnjYPlnuU8CAUbhv21B4TTw9sBFLW09OfppL6rODF2wE6vD9VkwSxDqETy4i8+lEQsEDFIIA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA9PR11MB772229
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v17 00/12] migrate on fault for device pages
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: linux-mm@kvack.org, dri-devel@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>,
+ Leon Romanovsky <leonro@nvidia.com>, Alistair Popple <apopple@nvidia.com>,
+ Balbir Singh <balbirs@nvidia.com>, Zi Yan <ziy@nvidia.com>,
+ Matthew Brost <matthew.brost@intel.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@suse.cz>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Lyude Paul <lyude@redhat.com>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20261103061629.972669-1-mpenttil@redhat.com>
+ <avWpWBl1nPcRVmpQ@raptor> <79f33ab0-2e43-4efb-94d0-addaf40745ec@redhat.com>
+ <avtBqGb4R2y9QJM8@raptor> <574af521-6b8e-41c6-bf68-1d14b78c4645@redhat.com>
+ <awbyKnmLcqdwWBKw@raptor>
+Content-Language: en-US
+From: =?UTF-8?Q?Mika_Penttil=C3=A4?= <mpenttil@redhat.com>
+In-Reply-To: <awbyKnmLcqdwWBKw@raptor>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-PkZyb206IEl2YW4gVmVjZXJhIDxpdmVjZXJhQHJlZGhhdC5jb20+DQo+U2VudDogVGh1cnNkYXks
-IE5vdmVtYmVyIDE5LCAyMDI2IDE6MjkgUE0NCj4NCj5PbiAxMS8xOS8yNiAwMjo0NCwgSmFrdWIg
-S2ljaW5za2kgd3JvdGU6DQo+PiBPbiBXZWQsIDE4IE5vdiAyMDI2IDE2OjI5OjIzICswMTAwIEl2
-YW4gVmVjZXJhIHdyb3RlOg0KPj4+IEEgc3RlcCBvZiB0aGUgemwzMDczeCBQSEMsIHdoaWNoIHB0
-cDRsIGFuZCB0czJwaGMgZG8gYXQgc3RhcnQgYW5kDQo+Pj4gYWZ0ZXIgYSBsYXJnZSBvZmZzZXQs
-IHdhaXRzIGZvciB0aGUgbmV4dCAxIFBQUyBlZGdlLCB1cCB0byAxIHMsIHdpdGgNCj4+PiB0aGUg
-Y2hhbm5lbCBsb2NrIGhlbGQuIEEgcGhhc2Ugc3RlcCBjYW4gaG9sZCBpdCBmb3IgdXAgdG8gMyBz
-IHdoaWxlDQo+Pj4gaXQgd2FpdHMgZm9yIHRoZSBwcmV2aW91cyBvbmUuIEEgZHBsbCBjYWxsYmFj
-ayBvZiB0aGF0IGNoYW5uZWwgd2FpdHMNCj4+PiBmb3IgdGhlIGxvY2sgdW5kZXIgZHBsbF9sb2Nr
-LCBhbmQgZXZlcnkgb3RoZXIgRFBMTCByZXF1ZXN0IGFuZA0KPj4+IG5vdGlmaWNhdGlvbiBpbiB0
-aGUgc3lzdGVtIHdhaXRzIGJlaGluZCBpdC4gV2l0aCBUb0Qgd3JpdGVzIHJ1bm5pbmcsDQo+Pj4g
-cmVxdWVzdHMgdG8gYW4gaWNlIERQTEwgdG9vayAxNDQ4IG1zIGluIG1lZGlhbiBhbmQgMy45IHMg
-YXQgbW9zdC4NCj4+PiBXaXRoIHRoZSBzZXJpZXMgdGhleSB0b29rIDAuMiBtcyBhbmQgMC4zIG1z
-LCB0aGUgc2FtZSBhcyBpZGxlLg0KPj4+DQo+Pj4gVGhlIGJpZ2dlciByZWFzb24gYXJlIHpsMzA3
-M3ggY2FsbGJhY2tzIHdlIGFyZSB3b3JraW5nIG9uLCB3aGljaCBoYXZlDQo+Pj4gdG8gd2FpdCBm
-b3IgdGhlIGhhcmR3YXJlIHRoZW1zZWx2ZXM6DQo+Pj4NCj4+PiAtIGEgZGV2aWNlIHJlc2V0IHdp
-dGggcmVzeW5jIHdhaXRzIGZvciB0aGUgZmFzdCBsb2NrLCB1cCB0byAxIHMgd2l0aCBhDQo+Pj4g
-ICAgIDEgUFBTIGlucHV0DQo+Pj4gLSBhIGdsaXRjaGxlc3Mgc3RvcCBvciBzdGFydCBvZiBhbiBv
-dXRwdXQgY29tcGxldGVzIG9uIGFuIG91dHB1dCBlZGdlLA0KPj4+ICAgICBzbyBpdCB0YWtlcyB1
-cCB0byBvbmUgcGVyaW9kLCAxIHMgZm9yIGEgMSBQUFMgb3V0cHV0DQo+Pj4NCj4+PiBIb2xkaW5n
-IHRoZSBnbG9iYWwgZHBsbF9sb2NrIGZvciB0aGF0IGxvbmcgd291bGQgc3RhbGwgZXZlcnkgRFBM
-TA0KPj4+IGRldmljZSBpbiB0aGUgc3lzdGVtLiBGb3IgdGhlIG91dHB1dCBzdGF0ZSB3ZSB0cmll
-ZCBhbiBhc3luY2hyb25vdXMNCj4+PiBpbXBsZW1lbnRhdGlvbiwgYnV0IHRoZW4gdGhlIGNhbGxi
-YWNrIHJldHVybnMgc3VjY2VzcyBiZWZvcmUgaXQga25vd3MNCj4+PiB0aGUgcmVzdWx0Lg0KPj4N
-Cj4+IFJpZ2h0LCBmb3IgdGhlc2UgbGV2ZWwgb2Ygd2FpdGluZyBhc3luYyBzZWVtcyBsaWtlIHRo
-ZSByaWdodA0KPj4gZGlyZWN0aW9uLCBhdCBsZWFzdCBuYWl2ZWx5L3dpdGhvdXQga25vd2luZyB0
-aGUgSFcuICBXaHkgZG9lcyB0aGUNCj4+IGRldmljZSB3YWl0IHVudGlsIFBQUyB0byBhcHBseSB0
-aGUgc3RlcCBjaGFuZ2U/IElzIHRoZSBwcm9ncmFtbWVkIHRpbWUNCj4+IHN1cHBvc2VkIHRvIGNv
-cnJlc3BvbmQgdG8gdGhlIHB1bHNlPw0KPg0KPlllcy4gVGhlIGRldmljZSBoYXMgbm8gaW1tZWRp
-YXRlIFRvRCB3cml0ZSwgaXQgY2FuIG9ubHkgd3JpdGUgdGhlIFRvRCBvbg0KPnRoZSBuZXh0IGlu
-dGVybmFsIDEgSHogZWRnZSwgdGhlIG5leHQgaW5wdXQgc3luYyBlZGdlIG9yIHRoZSBuZXh0IGlu
-dGVybmFsDQo+MC41IEh6IGVkZ2UuIFRoZSB3cml0dGVuIHZhbHVlIGlzIHRoZSB0aW1lIGF0IHRo
-YXQgZWRnZSwgc28gdGhlIHNlY29uZHMNCj5zdGF5IGFsaWduZWQgd2l0aCB0aGUgMSBQUFMgb3V0
-cHV0cy4NCj4NCj5Mb29raW5nIGF0IGl0IGFnYWluLCB0aGUgemwzMDczeCBob2xkcyB0aGUgY2hh
-bm5lbCBsb2NrIHdoaWxlIGl0IHdhaXRzIGZvcg0KPnRoZSBlZGdlLCBhbHRob3VnaCB0aGUgZHBs
-bCBjYWxsYmFja3MgZG8gbm90IHRvdWNoIHRoZSBUb0QsIFRJRSBvciBwaGFzZQ0KPnN0ZXAgcmVn
-aXN0ZXJzLCBhbmQgdGhleSBhbHJlYWR5IHJ1biB3aGlsZSB0aGUgZGV2aWNlIGFwcGxpZXMgc3Vj
-aCBhbg0KPm9wZXJhdGlvbiwgYmVjYXVzZSB0aGUgUFRQIG9wcyByZXR1cm4gcmlnaHQgYWZ0ZXIg
-aXNzdWluZyBpdC4NCj5JIHdpbGwgbG9vayBhdCBuYXJyb3dpbmcgdGhlIGxvY2sgaW4gdGhlIGRy
-aXZlci4NCj4NCj5Gb3IgdGhlIHJlc3luYywgYXN5bmMgaXMgbm90IG9ubHkgYWJvdXQgcmVwb3J0
-aW5nIHRoZSByZXN1bHQuIEZhc3QgbG9jayBpcw0KPmEgc2V0dGluZyBvZiB0aGUgRFBMTCwgbm90
-IG9mIGEgcmVmZXJlbmNlLCBhbmQgZm9yY2luZyBpdCBtYWtlcyB0aGUgRFBMTA0KPmlnbm9yZSBp
-dHMgZnJlcXVlbmN5IGFuZCBwaGFzZSBlcnJvciBtb25pdG9ycy4gV2hpbGUgYW4gYXN5bmNocm9u
-b3VzDQo+cmVzeW5jIGlzIHBlbmRpbmcsIGV2ZXJ5dGhpbmcgZWxzZSBkb25lIHRvIHRoZSBEUExM
-IHJ1bnMgaW4gZm9yY2VkIGZhc3QNCj5sb2NrLiBBIHJlZmVyZW5jZSBzd2l0Y2gsIHdoZXRoZXIg
-ZnJvbSBhIHByaW9yaXR5IG9yIHN0YXRlIGNoYW5nZSwgYQ0KPm1hbnVhbCByZWZlcmVuY2Ugb3Ig
-dGhlIGRldmljZSBpdHNlbGYgaW4gYXV0b21hdGljIG1vZGUsIHdvdWxkIGZvbGxvdyB0aGUNCj5m
-YXN0IGxvY2sgcGhhc2UgcmF0ZSBpbnN0ZWFkIG9mIHRoZSBjb25maWd1cmVkIHBoYXNlIHNsb3Bl
-IGxpbWl0LCBhbmQgdGhlDQo+cmVzeW5jIHdvdWxkIHRoZW4gcmVwb3J0IHN1Y2Nlc3Mgb24gYW5v
-dGhlciByZWZlcmVuY2UuIEEgc3dpdGNoIHRvIE5DTw0KPndvdWxkIGtlZXAgdGhlIGZvcmNlIGJp
-dCBzZXQgdW50aWwgdGhlIHdvcmsgY2xlYXJzIGl0LiBTbyBldmVyeSByZXF1ZXN0DQo+Y2hhbmdp
-bmcgdGhlIERQTEwgY29uZmlndXJhdGlvbiB3b3VsZCBoYXZlIHRvIGZhaWwgd2l0aCAtRUJVU1ks
-IGNhbmNlbCB0aGUNCj5yZXN5bmMsIG9yIHdhaXQgZm9yIGl0LiBXaXRoIGEgbG9jayBwZXIgY2hp
-cCB0aGV5IHNpbXBseSB3YWl0LCBmb3IgYXQgbW9zdA0KPjEgcy4NCj4NCj4+PiBBIGZhaWx1cmUg
-Y2FuIG9ubHkgYmUgcmVwb3J0ZWQgYnkgYSBsYXRlciBub3RpZmljYXRpb24sIGFuZCB0aGUgbmV4
-dA0KPj4+IHJlcXVlc3QgZ2V0cyAtRUJVU1kgdW50aWwgdGhlIGNoYW5nZSBjb21wbGV0ZXMuIFdp
-dGggYSBsb2NrIHBlciBjaGlwDQo+Pj4gdGhlIGNhbGxiYWNrIGNhbiBzaW1wbHkgd2FpdCwgYW5k
-IG9uZSBjaGlwIGNhbm5vdCBkbyB0aGVzZSBvcGVyYXRpb25zDQo+Pj4gaW4gcGFyYWxsZWwgYW55
-d2F5Lg0KPj4NCj4+IERvIHRoZSBmYWlsdXJlcyBvbmx5IGhhcHBlbiBiZWNhdXNlIG9mICJ1bmZv
-cmVzZWVuIGNpcmN1bXN0YW5jZXMiIC8NCj4+IEVJTywgb3IgdGhlcmUgbWF5IGJlIG1vcmUgY29t
-bW9uIGVycm9ycyByZXBvcnRlZD8gSWYgaXQncyBqdXN0IHRoZQ0KPj4gZm9ybWVyIGEgZGV2bGlu
-ayBoZWFsdGggcmVwb3J0ZXIgY291bGQgYmUgYW4gb3B0aW9uLg0KPg0KPkZvciB0aGUgb3V0cHV0
-IHN0YXJ0IGFuZCBzdG9wLCBvbmx5IEVJTy4gVGhlIGRldmljZSBkb2VzIG5vdCByZXBvcnQgYQ0K
-PnN0b3BwZWQgb3V0cHV0IGFuZCB0aGUgZHJpdmVyIGNhbiBvbmx5IHdhaXQgZm9yIG9uZSBwZXJp
-b2QsIHNvIGEgaGVhbHRoDQo+cmVwb3J0ZXIgd291bGQgd29yayB0aGVyZS4NCj4NCj4NCj5Gb3Ig
-dGhlIHJlc3luYywgbm8uIFRoZSB3YWl0IGVuZHMgd2l0aCAtRVRJTUVET1VUIHdoZW4gdGhlIERQ
-TEwgZG9lcyBub3QNCj5lbnRlciBmYXN0IGxvY2ssIGZvciBleGFtcGxlIGJlY2F1c2UgdGhlIHNl
-bGVjdGVkIHJlZmVyZW5jZSBsb3N0IGl0cw0KPnF1YWxpZmljYXRpb24gaW4gdGhlIG1lYW50aW1l
-LiBUaGF0IGlzIGEgcmVzdWx0IG9mIHRoZSBpbnB1dCBzaWduYWwgdGhlDQo+dXNlciBuZWVkcyBp
-biB0aGUgcmVwbHksIG5vdCBhIGRldmljZSBmYXVsdC4NCg0KTmV2ZXJ0aGVsZXNzIHdlIG5lZWQg
-bWVjaGFuaWMgdG8gZG8gaXQgYXN5bmM/IE9yIGFkZCBhIHRpbWVvdXQgZm9yIGNhbGxiYWNrDQpv
-biBkcGxsIHNpZGU/IFRoaXMgZ2xvYmFsIGxvY2sgd2FzIG5ldmVyIGludGVuZGVkIHRvIHdhaXQg
-YSBzZWNvbmQgKG9yIGJlbG93DQpwb2ludGVkIDYwIHNlY29uZHMpIGZvciB0aGUgSFcgdG8gcmVz
-cG9uZC4NCg0KVGhhbmtzLA0KQXJrYWRpdXN6DQogDQo+DQo+QmV5b25kIHRoZSB6bDMwNzN4LCB3
-aXRoIHRoZSBnbG9iYWwgbG9jayBhbnkgY2FsbGJhY2sgdGhhdCB3YWl0cyBmb3IgaXRzDQo+ZGV2
-aWNlLCBmb3IgZXhhbXBsZSBhbiBtbHg1IGZpcm13YXJlIGNvbW1hbmQgd2l0aCBpdHMgNjAgcyB0
-aW1lb3V0LCBzdGFsbHMNCj50aGUgRFBMTCBkZXZpY2VzIG9mIGV2ZXJ5IG90aGVyIGRyaXZlciBp
-biB0aGUgc3lzdGVtLg0KPg0KPlRoYW5rcywNCj5JdmFuDQo=
+Hi!
+
+On 11/25/26 16:35, Alexandru Elisei wrote:
+> Hi Mika,
+> 
+> On Mon, Nov 16, 2026 at 09:12:38PM +0200, Mika Penttilä wrote:
+>> Hi,
+>>
+>> On 11/16/26 19:47, Alexandru Elisei wrote:
+>>> Hi Mika,
+>>>
+>>> On Thu, Nov 12, 2026 at 04:00:09PM +0200, Mika Penttilä wrote:
+>>>> Hi Alexandru!
+>>>>
+>>>> On 11/12/26 13:56, Alexandru Elisei wrote:
+>>>>> Hi Mika,
+>>>>>
+>>>>> I want to help getting this series merged, and I've been familiarizing myself
+>>>>> with hmm and device migration, please bare with me if the questions I'm asking
+>>>>> are obvious or downright silly.
+>>>> Thanks for the interest and willing to help! I am preparing a v18 of the
+>>>> series and plan to post it early next week.
+>>>>
+>>>> I try to answer your questions, there are quite a bunch of them!
+>>>>
+>>>>> On Tue, Nov 03, 2026 at 08:16:17AM +0200, mpenttil@redhat.com wrote:
+>>>>>> From: Mika Penttilä <mpenttil@redhat.com>
+>>>>>>
+>>>>>> Currently, the way device page faulting and migration works
+>>>>>> is not optimal, if you want to do both fault handling and
+>>>>>> migration at once.
+>>>>>>
+>>>>>> Being able to migrate not present pages (or pages mapped with incorrect
+>>>>>> permissions, eg. COW) to the GPU requires doing either of the
+>>>>>> following sequences:
+>>>>>>
+>>>>>> 1. hmm_range_fault() - fault in non-present pages with correct permissions, etc.
+>>>>>> 2. migrate_vma_*() - migrate the pages
+>>>>>>
+>>>>>> Or:
+>>>>>>
+>>>>>> 1. migrate_vma_*() - migrate present pages
+>>>>>> 2. If non-present pages detected by migrate_vma_*():
+>>>>>>    a) call hmm_range_fault() to fault pages in
+>>>>>>    b) call migrate_vma_*() again to migrate now present pages
+>>>>> Regarding both sequences, I'm trying to get a better understanding of what
+>>>>> the issue is. I assume the caller wants to fault in system memory, and then
+>>>>> migrate it to the device. Is that correct?
+>>>> Yes that's the common thing to do.
+>>> Gotcha, thanks.
+>>>
+>>>>
+>>>>> In my analysis I'm also not going to refer to THPs, since that would make
+>>>>> things even more complicated than they are. I think we can come back to
+>>>>> THPs later if we think it would be useful.
+>>>>>
+>>>>> For the !pte_present() case:
+>>>>>
+>>>>> Sequence 1: hmm_range_fault() -> .. -> hmm_vma_handle_pte() handles
+>>>>> !pte_present() pages in two ways: faults in swap pages and device private
+>>>>> pages belonging to a different device, and waits on migration entries. Then
+>>>>> the migrate_vma_*() flow is used to migrate the range.
+>>>>>
+>>>>> Sequence 2: migrate_vma_setup() ignores !pte_present() page table entries
+>>>>> After this, the caller follows the same steps as in sequence 1 -
+>>>>> hmm_range_fault() faults in !pte_present() pages, and migrate_vma_*() is
+>>>>> called again to migrate the pages that were faulted in/waited on by
+>>>>> hmm_range_fault().
+>>>>>
+>>>>> Now, for the CoW case that you mentioned, I'm going to assume that the
+>>>>> caller wants write permissions otherwise nothing needs to be done:
+>>>>>
+>>>>> Sequence 1: hmm_range_fault() -> hmm_vma_handle_pte() records a fault
+>>>>> (hmm_pte_need_fault() returns HMM_NEED_FAULT | HMM_NEED_WRITE_FAULT),
+>>>>> handle_mm_fault() -> .. -> do_wp_page() breaks CoW and maps an exclusive
+>>>>> folio with write permissions, then the migrate_vma_* flow will take care of
+>>>>>
+>>>>> Sequence 2, migrate_vma_setup() installs migration entries for the page,
+>>>>> then migrate_vma_finalize() replaces the migration entries with device
+>>>>> private entries.
+>>>>>
+>>>>> Looks to me that for CoW pages, all that's needed is migrate_vma_*(), and
+>>>>> the subsequent calls to hmm_range_fault() and migrate_vma_*() are not
+>>>>> necessary. Is that your conclusion too?
+>>>> For  a device fault: the driver want the data in device memory with the
+>>>> permissions the device asked for. Your !pte_present() analysis matches;
+>>>> note that pte_none() in anonymous vmas and the zero page don't need
+>>>> hmm_range_fault() at all, migrate_vma_*() populates them directly.
+>>>> That's why the common case is cheap with sequence 2, and only swap
+>>>> entries, other devices private pages and migration entries need the
+>>>> extra walks.
+>>> Yes.
+>>>
+>>>> For cow with write intent migrate_vma_*() alone is enough.
+>>>> migrate_vma_setup() doesnt break cow: it collects the shared page
+>>>> through its read-only pte, so there's no MIGRATE_PFN_WRITE, and
+>>>> try_to_migrate() unmaps all its mappings, so finalize installs a
+>>>> read-only device private entry. 
+>>>>
+>>>> The device still cant write; a write then has to go through
+>>>> migrate_to_ram() and break cow in system memory, and migrate again. To
+>>>> get an exclusive writable copy on the device, cow has to be broken
+>>>> before collectin, i.e. hmm_range_fault() with HMM_PFN_REQ_WRITE first,
+>>>> then migrate: two walks.
+>>> Makes sense, something did seem fishy with my analysis of the CoW case.
+>>>
+>>>> With this series that's one walk,
+>>>> HMM_PFN_REQ_FAULT | HMM_PFN_REQ_WRITE | HMM_PFN_REQ_MIGRATE (or
+>>>> MIGRATE_VMA_WRITE for migrate_vma_setup() users), and only the
+>>>> now-exclusive page is migrated.
+>>>>
+>>>>>> The problem with the first sequence is that you always have to do two
+>>>>>> page walks even when most of the time the pages are present or zero page
+>>>>>> mappings so the common case takes a performance hit.
+>>>>> This is the first mention of the zero page. Is the caller specifying
+>>>>> HMM_PFN_REQ_WRITE? That makes a difference, because it triggers fault
+>>>>> handling for the zero page, and that's an extra walk. Can you give more
+>>>>> details here?
+>>>> Good question on the zero page. With a read request it need no fault:
+>>>> migrate_vma_*() populates it like pte_none(), and the HMM walk collects
+>>>> it the same way. With HMM_PFN_REQ_WRITE it's write-faulted first, in
+>>>> sequence 1 and with this series alike; the difference is that the series
+>>>> faults and collects in the same walk.
+>>>>
+>>>>
+>>>>> Let's count page table walks when a page is mapped with a valid entry, and
+>>>>> with the required permissions. Let's say N is the number of mappings for
+>>>>> the page (equivalent to the number of VMAs that map the page):
+>>>>>
+>>>>> hmm_range_fault() -> .. -> hmm_vma_handle_pte() does one page table walk,
+>>>>> migrate_vma_setup() does N page tables walks, to replace all valid mappings
+>>>>> of the page with migration entries, migrate_vma_finalize() does N page
+>>>>> table walks, to replace the migration entries with device entries.
+>>>>>
+>>>>> In total 1 + 2*N walks. Best case scenario, N == 1 (PageAnonExclusive()),
+>>>>> that's three walks.
+>>>>>
+>>>>> Do you have any data regarding how often the best case scenario happens?
+>>>>> That's what you seem to be referring to in your comment.
+>>>>>
+>>>>> Now let's count the number of walks for a !pte_present() page mapped in P
+>>>>> VMAs, where P != N: one from hmm_range_fault(), if the entry is not a
+>>>>> migration entry, another walk in the fault handler, then 2*P walks from the
+>>>>> migrate_vma_*() flow.
+>>>>>
+>>>>> If it's a migration entry, it requires 1 + 2*P walks, PLUS waiting on
+>>>>> migration to complete, which cannot be skipped.
+>>>>>
+>>>>> If it's a swap entry, it requires 2 + 2*P walks, PLUS waiting on swap.
+>>>>>
+>>>>> If it's a device private entry belonging to a different device, it requires
+>>>>> 2 + 2*P walks, plus waiting on the device to sync the memory with the
+>>>>> device in migrate_to_ram().
+>>>>>
+>>>>> To summarize:
+>>>>>
+>>>>> pte_present()	1 + 2*N walks
+>>>>> migration entry	1 + 2*P walks + waiting on migration
+>>>>> swap entry	2 + 2*P walks + waiting on swap
+>>>>> device private	2 + 2*P walks + waiting on device->memory sync
+>>>> On counting: the 2N (or 2P) rmap walks that replace the mappings with
+>>>> migration entries and then device entries are inherent to migrating the
+>>>> page and are the same in all variants. What differs is the number of
+>>>> page table walks over the range: sequence 1 allways does two
+>>>> (hmm_range_fault(), then migrate_vma_setup()), sequence 2 one if
+>>>> everything is present and three otherwise, and the HMM walk one, with
+>>>> faults handled in place and the walk resuming from the faulting
+>>>> address.  The saving is per range walk, so it scales with the range.
+>>> I think we might need to define what you mean by 'saving'. Normally, I
+>>> would assume that you mean that 'the total time of migration is decreased',
+>>> but the fact that the benchmark that you offered doesn't show this makes me
+>>> wonder.
+>>>
+>>> The more !pte_present() pages are in the range, the smaller the amortized
+>>> cost of a walk per page in the range. For example, using sequence one, for
+>>> 512 !pte_present() pages, the current code does an extra 1/512 page table
+>>> walks per page (for sequence two, an extra 1/512 * 2 walks). At the same
+>>> time, for each page it needs to do a fault, or swap in, or wait on
+>>> migration, or break CoW, or put migration+device entries in each VMA that
+>>> maps the page.
+>>>
+>>> I think the worst case scenario is the device wanting to fault in one page
+>>> from system memory. Is that what usually happens?
+>>
+>> Well that's what the nouveau does currently, but as I write in the
+>> commit log, a better policy would be nice... Otoh, that works as a good
+>> stress test on the code when pages migrate back and forth on demand.
+>>
+>>
+>>>
+>>>> I don't have data on how often the best case happens. The motivation
+>>>> came from earlier prototyping of migrate on fault on the current
+>>>> interfaces, where the extra walks showed up in perf traces. For the
+>>>> typical SVM case of private anonymous memory without fork the pages are
+>>>> exclusive (N == 1) or not yet populated, but I haven't measured a
+>>>> distribution.
+>>> Got it, that's what I wanted to know, the typical case is exclusive memory.
+>>>
+>>>>>> The second sequence is better for the common case, but far worse if
+>>>>>> pages aren't present because now you have to walk the page tables three
+>>>>>> times (once to find the page is not present, once so hmm_range_fault()
+>>>>>> can find a non-present page to fault in and once again to setup the
+>>>>>> migration). It is also tricky to code correctly. One page table walk
+>>>>> Valid entry, the page is mapped in N VMAs: migrate_vma_*() does 2*N walks,
+>>>>> best case scenario (PageAnonExclusive) two walks.
+>>>>>
+>>>>> !pte_present, the page is mapped in P VMAs:
+>>>>>
+>>>>> migrate_vma_setup() -> migrate_vma_collect() will always do one page table
+>>>>> walk, regardless of what it finds, valid or invalid entries.
+>>>>> migrate_vma_collect() ignores !pte_present() entries, and they will not
+>>>>> trigger new walks in the next steps in the migrate_vma_* flow. Worst case
+>>>>> is that all the pages are !pte_present(), that's one walk to find them all
+>>>>> which I would say it translates to zero extra walks for an individual page.
+>>>>>
+>>>>> For hmm_range_fault(), it's the same situation as above: 1 + 2*P or 2 + 2*P
+>>>>> walks.
+>>>>>
+>>>>> To summarize:
+>>>>>
+>>>>> pte_present()	2*N walks
+>>>>> migration_entry	1 + 2*P walks + waiting on migration
+>>>>> swap entry	2 + 2*P walks + waiting on migration
+>>>>> device private	2 + 2*P walks + waiting on device memory->memory sync
+>>>>>
+>>>>> I agree with you, this second sequence is better for the common case.
+>>>>>
+>>>>> I think it would interesting to know:
+>>>>>
+>>>>> 1. Is there a relationship between N and P, and if there is, what is it?
+>>>>> Are they equal, on average? I doubt it. Is a !pte_present() page likely to
+>>>>> be mapped in more VMAs than a pte_present() page, or fewer?
+>>>>>
+>>>>> 2. What is the likelyhood of P being equal to 1 (PageAnonExclusive)? That
+>>>>> would be interesting to know because the larger P is, the contribution of
+>>>>> that extra walk (or two walks) to the total time becomes less and less
+>>>>> significant.
+>>>>>
+>>>>> 3. How does the time to do the walk compare to the time spent waiting on
+>>>>> migration, or waiting on swap, or waiting on device to memory sync? How
+>>>>> often each of them happen? I have a hunch that these will tend to dominate
+>>>>> the total time.
+>>>> Yes, when a page needs swap-in, a migration wait or a device sync, that
+>>>> wait dominates..
+>>>> The walk saving matters on the common device fault path, with small
+>>>> ranges (one page per fault in the nouveau patch) and present or
+>>>> unpopulated pages: one walk instead of two, and without sequence 2's
+>>>> three when part of the range isn't present. But the main point is one
+>>>> call that faults and collects consistently, instead of two with a window
+>>>> in between where the range can change.
+>>> This is introducing another variable into the mix. It's not just the number
+>>> of page table walks, it's also the fact that in between walks the mapping
+>>> might have changed. I think this is why it's good to have a representative
+>>> benchmarks :)
+>> ack
+>>>> I don't have data on N and P. For private anonymous memory without fork
+>>>> or KSM both are normally 1, but I haven't measured it.
+>>>>>> could costs over 1000 cpu cycles on X86-64, which is a significant hit.
+>>>>>>
+>>>>>> We should be able to walk the page table once, faulting
+>>>>>> pages in as required and replacing them with migration entries if
+>>>>>> requested.
+>>>>>>
+>>>>>> Add a new flag to HMM APIs, HMM_PFN_REQ_MIGRATE,
+>>>>>> which tells to prepare for migration also during fault handling.
+>>>>>> For the migrate_vma_setup() call paths, new flags, MIGRATE_VMA_FAULT,
+>>>>>> and MIGRATE_VMA_WRITE are added to tell to add fault handling to migrate.
+>>>>>>
+>>>>>> An extra benefit of migrating with hmm_range_fault() path
+>>>>>> is the migrate_vma.vma gets populated, so no need to
+>>>>>> retrieve that separataly.
+>>>>>>
+>>>>>> This series avoids the problems in current collecting implementation,
+>>>>>> where racing MADV_DONTNEED could make the collecting arrays overflow.
+>>>>> Can you provide more details here? How does it happen?
+>>>> migrate_vma_collect_pmd() drops the pte lock to split a large folio and
+>>>> restarts with [start, addr) already appended to src[]/dst[]. If a racing
+>>>> MADV_DONTNEED zaps the range and frees the pte table meanwhile, the re
+>>>> start takes the hole path from start and append [start, addr) again,
+>>>> writing past the arrays. "mm/migrate_device: don't collect a range
+>>>> twice" in Lorenzo's batch fixes that instance; this series collects into
+>>>> the address-indexed hmm_pfns and fills src[] only lastly, so re-walking
+>>>> cant overrun. Also, the correct pages are collected with the re-walk
+>>>> with this series(rollback takes care of the old ones).
+>>> That can be accomplished with the upstream code too, this series isn't
+>>> required (just off the top of my head, keep a local counter for the total
+>>> number of pages collected by migrate_vma_collect_pmd(), use it as an offset
+>>> into migrate->src and migrate->dst, and reset the counter on the 'again'
+>>> label).
+>>
+>> It's not that simple.. you have to rollback (unlock + unref) the so far
+>> collected pages. And to collect then the right pages from the start you
+>> have to rewalk and collect those again (and possibly a PMD as huge). Of
+>> course something like that can be done to current code, but address
+>> based indexing is more robust, and you end up with something like the
+>> HMM based collector :)
+> 
+> Okay.
+> 
+>>
+>>
+>>>
+>>>> There are couple other defects the series fixed along the way.
+>>> Hmm... the size of this series might put off some people who are interested
+>>> only in the fixes. Have you considered splitting them into standalone
+>>> patches/series?
+>>
+>> I might, but they don't apply directly to current collector.
+> 
+> Okay, so the fixes require your patches and they cannot be adapted to the
+> upstream code, have I understood correctly?
+
+Sure can be adapted with some effort. I haven't yet gone into the details though.
+
+> 
+>>
+>>
+>>>
+>>>>>> This is achieved mainly by having a rollback mechanism and
+>>>>>> populating the collecting array as the last step.
+>>>>>>
+>>>>>> Tested in X86-64 VM with HMM test device, passing the selftests.
+>>>>> Have you tested that this series doesn't regress other architectures?
+>>>> Only tested on x86-64 (VM with test_hmm, and nouveau on a GP102). The
+>>>> code is arch-independent, but it isn't tested elsewhere.
+>>> Sorry, I'm a bit confused - what do you mean by it isn't tested elsewhere?
+>>> x86-64 specific code is the only user for the arch-independent code?
+>>
+>> I haven't personally tested on other arches the selftest (though I don't
+>> see why there would be problems to do so).
+> 
+> Okay, but you might be surprised. The selftests I can run myself an arm64
+> machine.
+
+Yes good to check!
+
+> 
+>>
+>>
+>>>
+>>>>
+>>>>>> The main goal of this patchset is to provide a new feature,
+>>>>>> migrate efficiently on fault, and not directly improve performance
+>>>>>> of current migrate_vma_setup() (which is now routed thru
+>>>>> I'm a bit confused by what 'on fault' means in this context? Userspace
+>>>>> accesses a device entry, access that causes a fault, or using
+>>>>> hmm_range_fault()? I assume the latter, but it pays to make sure.
+>>>>>
+>>>>> Also, can you define efficiently? Usually that's related in some way to
+>>>>> performance, but immediately you say that the series doesn't aim to improve
+>>>>> performance.
+>>>> "On fault" means a device fault: the driver services a GPU fault with
+>>>> hmm_range_fault(HMM_PFN_REQ_FAULT | HMM_PFN_REQ_MIGRATE) and migrates
+>>> Got it, thanks.
+>>>
+>>>> the page while handling it. "Efficiently" was the wrong word: I meant
+>>>> faulting and collecting in a single walk, instead of two or three calls
+>>>> with a window in between. I'll reword the cover letter.
+>>> Ok, gotcha.
+>>>
+>>>>>> hmm_range_fault()) callers. That said, the migrate throughput tests
+>>>>>> from the selftests show that there is at least no regression for
+>>>>>> current migrate_vma_setup() callers.
+>>>>> If the premise of the series is to reduce the number of page table walks in
+>>>>> the !pte_present() case, then I think benchmarks that show a performance
+>>>>> improvement would make a compelling case for this approach.
+>>>>>
+>>>>> Some thoughts, if I may:
+>>>>>
+>>>>> - Perhaps the existing test is not the right test to highlight the
+>>>>>   performance gains?
+>>>>>
+>>>>> - Perhaps there are other parts of the migration process that dominate the
+>>>>>   walks? If so, maybe we should be focusing our attention on those?
+>>>>>
+>>>>> - Perhaps the series adds overhead that reduces or cancels the gains from
+>>>>>   reducing the number of walks?
+>>>> I don't have a benchmark showing a gain: nouveau had no migrate on fault
+>>>> to compare against, and the selfftest throughput tests use
+>>>> migrate_vma_setup() on present pages, so they can only show there's no
+>>>> regression, including from the extra work in the HMM walk. Also, any
+>>>> help with new tests is greatly welcome :). My primary focus atm is
+>>>> getting the final corner case details sorted out in the core and
+>>>> addressing sashiko; with v18  i hope being there. 
+>>> This is how I see this series, please correct me if I got something wrong.
+>>> The aim is to reduce the total number of page table walks over the range by
+>>> one or two (depending on the sequence of functions used) when
+>>> !pte_present(), or when pte_present(), but without write permissions.
+>>>
+>>> From our discussion so far it seems to me that the total migration time in
+>>> the above cases depends on a number of things:
+>>>
+>>> - In how many other VMAs these pages are mapped, as each mapping needs to
+>>>   be replaced with migration entries, and then with device special entries.
+>>> - How long it takes to swap in the page, if the page is mapped using a swap
+>>>   entry.
+>>> - How long it takes to complete a concurrent migration, if the page is
+>>>   mapped using a migration entry.
+>>> - How long it takes to migrate a device entry back to system memory, if the
+>>>   page belongs to a different device.
+>>> - If the page is CoW, how long it takes to break CoW.
+>>> - What happens in between walks.
+>>>
+>>> The code touches 2,600+ lines of code, with almost 1,300 lines added.  It
+>>> removes those extra page table walks, of course, but it also offers plenty
+>>> of scope to add new inefficiencies (or bugs), and if that's the case, we
+>>> don't gain anything other than complexity. 
+>>
+>> The saving isn't only for !pte_present() or read-only ptes. Migrating on
+>> device fault today takes two separate steps: hmm_range_fault() to fault
+>> the range in, then migrate_vma_setup() to collect it. That's two walks
+>> even when every page is already present and writeable, and the range can
+> 
+> If all the pages are present and with the required permissions, why isn't
+> migrate_vma_*() enough?
+
+It is enough in that case, but the driver handling the device fault doesn't know that in advance.
+A fault handler has to cover the general case, so it does hmm_range_fault() first and 
+migrate_vma_setup() after it, which is two walks even when nothing needed faulting. 
+Checking first whether everything is present is itself a walk.
+
+> 
+>> change in between, which is your "what happens in between walks". The
+>> driver then has to detect that and retry, error prone and nasty task...
+> 
+> Yeah, that 'what happens in between' looks very unpredictable.
+> 
+>> With HMM_PFN_REQ_MIGRATE, faulting and collecting happen in one walk, so
+>> there's no window to recheck. I think migrate-on-fault fills an
+>> important gap in the Linux SVM toolbox by integrating page fault
+>> handling and memory migration into a unified operation.
+>>
+>> The costs you list (other mappings, swap-in, waitting for a concurrent
+>> migration, migrating another device's page back, breaking cow) are
+>> inherent to migrating those pages. They're the same with or without this
+>> series. 
+> 
+> Indeed, and my point was that those costs dominate the cost of the two
+> walks. And because of that, it is entirely possible that removing the
+> two walks does not reduce the time to do migration in any meaningful way.
+
+It could be far more than two walks, and incomplete with races. Look all the
+trouble Xe driver sees doing migrate on fault, which is consequences of
+the missing MM primitive.
+
+Sure you can find a case where HMM_PFN_REQ_MIGRATE doesn't make much difference.
+There are cases where it does. It unifies the walks, you choose if want a faulting
+behavior or not. The new code covering both behaviors will also be AI checked
+from the start.
+
+> 
+>>
+>> On size: in mm/ and include/ it's +1378/-602. Most of the removval is
+>> the old migrate_vma_collect*() walker, since migrate_vma_setup() now
+>> collects through the same hmm_range_fault() walk. Existing
+>> migrate_vma_setup() users get that path without driver changes. The rest
+>> is nouveau as a user (+561, including two independent dmem fixes split
+>> out as separate patches), test_hmm and the selftest (+283), and
+>> documentation (+121). These are my current numbers.
+> 
+> Of course.
+> 
+>>
+>>> I think having a benchmark
+>>> representative of a real workload, or a real workload, that shows a
+>>> decrease in the total migration time will be great to demonstrate that we
+>>> are on the right track :)
+>>
+>> Absolutely - cool if you could work on that side perhaps :) ?
+> 
+> Sorry, but I don't think I'm the right person to do that. I'm don't know
+> what a representative workload would be,
+
+That's okay :)
+
+ and I'm not entirely convinced
+> that these changes actually make things faster.
+
+I believe it's the right approach to do migrate on fault. I have brought up
+other aspects above also that speak for the series.
+
+> 
+> Thanks,
+> Alex
+> 
+
+--Mika
+
+
