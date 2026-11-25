@@ -1,62 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.120.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795618698;
-	b=VQ4azZTceQzgWXmzg49ECMaI51lylNg8pjsZhPPuwmuptpu1vkZB9o0lsYJqOhO/H4+n
-	 NZmpowIv3VfzaEw6EGURfosSxFIEToVIroSV0BUpw6rWO5JJcnEyM/OULb+1ZRKkl1dMW
-	 xZoITXRB0AAVfSVpFVhtJ482E6UtdB+jWpTjx5a8xzxmPwRifmZC3XbCCrj8+/T5kn1Cb
-	 uZjQpeGSbAglfz5XkePmiei9FOE3SB7ZqvKvMjgaZF01TdZHAytAIFYIu+XWO/YRd+qdd
-	 /HV7OTqlicSFJBwx5+0sGk6mhSMvmY0hqxkZALlufJuVrHRxbZqU9DfIDyTNPPH1F+g==
+	t=1795618718;
+	b=4d79bDBPv7xcddZ9rfScskgfRuudwdxoNBfArwntl7XNrX9oQIEyY5tQA91o+U6VNhue
+	 t6RJ/fdk4kMuYgz2zJsMLDPC7nQf9avSLp2iw3H//l74zJyRxMdRUP63nJyGNqtCmHZud
+	 Y851J5gXMXErCdy3qj+qOstvMvegMkZQc0DPL23bZ3yUbOf8HW0PXh1GCWjWi1zQqZvtr
+	 wXE9IT/zVaK4RtTZ2FSRoB5l5TISelhbkgGuCOH4XdtGA/ZaMDjhWVGMO9LBcm/odoJDF
+	 SkrTRdlM/zZI4HeYgoemb1l9kWOmWuOM7gdE2AHgRJ6dgWPHP/JuePh8Fsrhkrdd8ZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795618698;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-Id:In-Reply-To:References:X-Mailer:Mime-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Spam_score:X-Spam_bar;
-	bh=JzEDs0KztFR/dKb5P5JwPgBVJcYPax3Qtw4csTNntXI=;
-	b=I96jHk9aPyDCscrB8B+NGum0mImQhrhEnARp6YkhSJkolXIY9h87k90VUpqEepKCBXzi
-	 85h5HTy0Pu19dnkUMy2ivS1wy4PK9zs3xvQUicsO5E8UjUd67TKVPfl924C7wGK6pOoRV
-	 mkQ2beeAwEoc0lkQGJ91qBrkx1dJo76dnCHggt6Lrjz0s6nddWNN0biC5RlvPdHZJ852T
-	 bRczr9tvNmJ3ZXN0OJmaABHHraYAhdJ/aZ7FpG4WKqYyw73+4gGydq2ujKjONqSkdGpdV
-	 DDdgUO6dU2ouQh58D7rQFLxCGnJbQY89ModkWJy7Y8/4iRC1RUIVOs0vzVpr+RGd5Aw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795618718;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=X3zNXgFcgKkRvrebQOQS0iqgUmCxBf+Rl6iIn0IF0a4=;
+	b=sdW1sRnAFoP8Y5Yvaf5ej5UsF+iIsVpMRJMtFwZ7UuiVvTf0AAwWWsyZWohfR51wVbuZ
+	 jR3LNkOhJerZxNe9GDcOILRu3mvGUcHMJSIfgSXkcTC7uOCfYdg8uFRJQXyj2ncqIe143
+	 srkDylVbVZBrfDWSsokZJsb8oZ6YWss2MF9TgF2FLrkGCbUkJTiVhcU3EzjI88TNtw54k
+	 W9Ey3i0JeduciE1k7A+CfnsveCMs+9b4INQgIOLQwsJ8Xe1FI0GyxaaJz4wQPZjHrMKtz
+	 YYoWgARYyzHHR95V1yUNxTxPx0X1ki7RgsKBJWGlOnEpe+OLDTVOt6U8P8oOlhWijdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hugovil.com;
-	spf=pass smtp.mailfrom=hugovil.com;
-	dkim=pass header.d=hugovil.com header.i=@hugovil.com header.a=rsa-sha256 header.s=default header.b=wAZvJBWO;
-	arc=none smtp.remote-ip=162.243.120.170
-Received: from mail.hugovil.com (mail.hugovil.com [162.243.120.170])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42BF5606A326;
-	Wed, 25 Nov 2026 14:58:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42BF5606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hugovil.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hugovil.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ZoJs1Pdu;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 353AA606A321;
+	Wed, 25 Nov 2026 14:58:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 353AA606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=hugovil.com header.i=@hugovil.com header.a=rsa-sha256 header.s=default header.b=wAZvJBWO
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hugovil.com
-	; s=default; h=Content-Transfer-Encoding:Mime-Version:Message-Id:Subject:Cc:
-	To:From:Date:subject:date:message-id:reply-to;
-	bh=JzEDs0KztFR/dKb5P5JwPgBVJcYPax3Qtw4csTNntXI=; b=wAZvJBWO3Qeia89I7OFd6jWVKi
-	IXxVRszox3Am1a4Tj7nqerFw17uxC2p298VDHrYPzrOgXXMqS8gguCQ0W9IDuPQ3YHB12O2BZXdni
-	sskaCPC4b8PpjeqDkJ772wVBXL2/Q6byh4C25AJ2nXHDOGOUBLFGjeqQ4GnEo5Ezh8bo=;
-Received: from modemcable168.174-80-70.mc.videotron.ca ([70.80.174.168] helo=pettiford.lan)
-	by mail.hugovil.com with esmtpa (Exim 4.98.2)
-	(envelope-from <hugo@hugovil.com>)
-	id 1xWERl-000000006md-352o;
-	Wed, 25 Nov 2026 09:58:10 -0500
-Date: Wed, 25 Nov 2026 09:58:09 -0500
-From: Hugo Villeneuve <hugo@hugovil.com>
-To: Akshat Rawat <akshatrawat095@gmail.com>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>,
- linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Hugo Villeneuve <hvilleneuve@dimonoff.com>, Elena
- Popa <elena.popa@nxp.com>
-Subject: Re: [PATCH] rtc: pcf2127: use const per-variant regmap_config
- tables
-Message-Id: <20261125095809.02514aca6423f071c6a51b58@hugovil.com>
-In-Reply-To: <20261125124416.468-1-akshatrawat095@gmail.com>
-References: <20261125124416.468-1-akshatrawat095@gmail.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=ZoJs1Pdu
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E0592F;
+	Wed, 25 Nov 2026 06:58:33 -0800 (PST)
+Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2ECBB3F632;
+	Wed, 25 Nov 2026 06:58:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795618716; bh=D/n+P8rGctWCPmcRxey9aK7QCr6PlKd7Fo3q+ESxtX8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZoJs1PduoU0ULUyP6YVRCRXGnlHrzR4tGX0ZOcuxgF6JCfnSb+OxspbajzsG32Dkt
+	 1Z730FRcVZHXhbCFzLBFONsxqLNfCmyWjC9hIcdqTHJqPbmaKso6xMf1aEIsjGw9Wq
+	 eAw3xOv2uegtqNUIFjfCGzV9mXZb+s9Cr4kaU0jc=
+Message-ID: <e4108d4f-e84c-444c-aa7a-18e823816eae@arm.com>
+Date: Wed, 25 Nov 2026 14:58:31 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,190 +52,230 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 09/11] KVM: arm64: CCA: Prevent memslot modifications
+ after Realm creation
+To: Ackerley Tng <ackerleytng@google.com>, Steven Price
+ <steven.price@arm.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Kohei Enju <enju.kohei@fujitsu.com>
+References: <20261123104233.95710-1-steven.price@arm.com>
+ <20261123104233.95710-10-steven.price@arm.com>
+ <CAEvNRgFQ5BXqU3KfPFT8bfZTW=RyvBw25z3GZtr3JA=Wv3Yqfw@mail.gmail.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <CAEvNRgFQ5BXqU3KfPFT8bfZTW=RyvBw25z3GZtr3JA=Wv3Yqfw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Spam_score: -2.0
-X-Spam_bar: --
 
-Hi Akshat,
+Hi Ackerley
 
-On Wed, 25 Nov 2026 12:44:15 +0000
-Akshat Rawat <akshatrawat095@gmail.com> wrote:
+On 25/11/2026 00:09, Ackerley Tng wrote:
+> Steven Price <steven.price@arm.com> writes:
+> 
+>> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>
+>> Once the Realm is created, prevent changes to guest_memfd backed
+>> memslots, which can provide private memory. Validate these changes
+>> before KVM invalidates the old memslot, so a rejected deletion leaves
+>> its stage-2 mappings intact. Realm stage-2 faults will also validate
+>> the private memory backing in a later commit.
+>>
+>> Require Realm memslots to lie in the lower half of the IPA space, as the
+>> upper, shared half aliases the lower, protected half.
+>>
+>> Define kvm_arch_has_private_mem() so generic KVM recognizes Realm VMs
+>> as supporting private memory. Defining the macro also makes
+>> gmem_in_place_conversion true for every arm64 VM, so guest_memfd
+>> memslots are marked gmem-only even for non-Realm VMs. A well-formed
+>> KVM_SET_MEMORY_ATTRIBUTES2 request on a non-Realm guest_memfd now
+>> reaches the VM check and returns -EINVAL instead of -ENOTTY.
+>>
+>> Additionally, similar to pKVM, do not support dirty logging or
+>> read-only memslots.
+>>
+> 
+> Imo this could be split into a few patches
+> 
+> 1. Add the constraints wrt realm memslots and being in the lower half of
+>     the IPA space
+> 2. Defining arm's support for private mem
+> 3. Imposing rules on memslot changes
+> 4. Maybe some others, maybe I'm misunderstanding the patch
 
-> [You don't often get email from akshatrawat095@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
-> 
-
-Your commit title message should indicate why you do it, not how. If
-you fix a bug, it should say so.
-
-
-> Both pcf2127_i2c_probe() and pcf2127_spi_probe() declare config as a
-> static struct regmap_config and update it in place based on the chip
-> variant.
-
-Your entire patch can be simplified by simply removing the static
-qualifier from structs in pcf2127_i2c_probe() and pcf2127_spi_probe().
-
- 
-> In pcf2127_spi_probe(), if a PCF2131 probes first, read_flag_mask and
-> write_flag_mask are overwritten to 0 and never restored. Any PCF2127 or
-> PCF2129 probed later reuses those zeroed masks instead of 0xa0/0x20,
-> breaking SPI register access. Modifying static max_register and flag
-> masks also races if multiple instances probe concurrently.
-> 
-> Replace the shared mutable config structs in both probe paths with
-> per-variant static const struct regmap_config tables, and drop the
-> now-unused max_register field from struct pcf21xx_config.
-> 
-> Fixes: fd28ceb4603f ("rtc: pcf2127: add variant-specific configuration structure")
-> Fixes: fa78e9b606a4 ("rtc: pcf2127: fix SPI command byte for PCF2131")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Akshat Rawat <akshatrawat095@gmail.com>
-> ---
-> Compile-tested (x86_64 gcc 15.2.0, W=1, CONFIG_WERROR=y) with
-> I2C+SPI, I2C-only, and SPI-only configs; not tested on hardware.
-> 
->  drivers/rtc/rtc-pcf2127.c | 65 +++++++++++++++++++++++++--------------
->  1 file changed, 42 insertions(+), 23 deletions(-)
-> 
-> diff --git a/drivers/rtc/rtc-pcf2127.c b/drivers/rtc/rtc-pcf2127.c
-> index 27c5fb9b2aaa..b665728c6c1d 100644
-> --- a/drivers/rtc/rtc-pcf2127.c
-> +++ b/drivers/rtc/rtc-pcf2127.c
-> @@ -186,7 +186,6 @@ struct pcf21xx_ts_config {
-> 
->  struct pcf21xx_config {
->         int type; /* IC variant */
-> -       int max_register;
->         unsigned int has_nvmem:1;
->         unsigned int has_bit_wd_ctl_cd0:1;
->         unsigned int wd_val_reg_readable:1; /* If watchdog value register can be read. */
-> @@ -1020,7 +1019,6 @@ static struct attribute *pcf2131_attrs[] = {
->  static struct pcf21xx_config pcf21xx_cfg[] = {
->         [PCF2127] = {
->                 .type = PCF2127,
-> -               .max_register = 0x1d,
->                 .has_nvmem = 1,
->                 .has_bit_wd_ctl_cd0 = 1,
->                 .wd_val_reg_readable = 1,
-> @@ -1048,7 +1046,6 @@ static struct pcf21xx_config pcf21xx_cfg[] = {
->         },
->         [PCF2129] = {
->                 .type = PCF2129,
-> -               .max_register = 0x19,
->                 .has_nvmem = 0,
->                 .has_bit_wd_ctl_cd0 = 0,
->                 .wd_val_reg_readable = 1,
-> @@ -1076,7 +1073,6 @@ static struct pcf21xx_config pcf21xx_cfg[] = {
->         },
->         [PCF2131] = {
->                 .type = PCF2131,
-> -               .max_register = 0x36,
->                 .has_nvmem = 0,
->                 .has_bit_wd_ctl_cd0 = 0,
->                 .wd_val_reg_readable = 0,
-> @@ -1452,13 +1448,27 @@ static const struct i2c_device_id pcf2127_i2c_id[] = {
->  };
->  MODULE_DEVICE_TABLE(i2c, pcf2127_i2c_id);
-> 
-> +static const struct regmap_config pcf2127_i2c_regmap_config[PCF21XX_LAST_ID] = {
-> +       [PCF2127] = {
-> +               .reg_bits = 8,
-> +               .val_bits = 8,
-> +               .max_register = 0x1d,
-> +       },
-> +       [PCF2129] = {
-> +               .reg_bits = 8,
-> +               .val_bits = 8,
-> +               .max_register = 0x19,
-> +       },
-> +       [PCF2131] = {
-> +               .reg_bits = 8,
-> +               .val_bits = 8,
-> +               .max_register = 0x36,
-> +       },
-> +};
-> +
->  static int pcf2127_i2c_probe(struct i2c_client *client)
->  {
->         struct regmap *regmap;
-> -       static struct regmap_config config = {
-> -               .reg_bits = 8,
-> -               .val_bits = 8,
-> -       };
->         const struct pcf21xx_config *variant;
-> 
->         if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C))
-> @@ -1468,10 +1478,9 @@ static int pcf2127_i2c_probe(struct i2c_client *client)
->         if (!variant)
->                 return -ENODEV;
-> 
-> -       config.max_register = variant->max_register,
-> -
->         regmap = devm_regmap_init(&client->dev, &pcf2127_i2c_regmap,
-> -                                       &client->dev, &config);
-> +                                 &client->dev,
-> +                                 &pcf2127_i2c_regmap_config[variant->type]);
->         if (IS_ERR(regmap)) {
->                 dev_err(&client->dev, "%s: regmap allocation failed: %ld\n",
->                         __func__, PTR_ERR(regmap));
-> @@ -1518,14 +1527,30 @@ static void pcf2127_i2c_unregister_driver(void)
->  static struct spi_driver pcf2127_spi_driver;
->  static const struct spi_device_id pcf2127_spi_id[];
-> 
-> -static int pcf2127_spi_probe(struct spi_device *spi)
-> -{
-> -       static struct regmap_config config = {
-> +static const struct regmap_config pcf2127_spi_regmap_config[PCF21XX_LAST_ID] = {
-> +       [PCF2127] = {
-> +               .reg_bits = 8,
-> +               .val_bits = 8,
-> +               .read_flag_mask = 0xa0,
-> +               .write_flag_mask = 0x20,
-> +               .max_register = 0x1d,
-> +       },
-> +       [PCF2129] = {
->                 .reg_bits = 8,
->                 .val_bits = 8,
->                 .read_flag_mask = 0xa0,
->                 .write_flag_mask = 0x20,
-> -       };
-> +               .max_register = 0x19,
-> +       },
-> +       [PCF2131] = {
-> +               .reg_bits = 8,
-> +               .val_bits = 8,
-> +               .max_register = 0x36,
-> +       },
-> +};
-> +
-> +static int pcf2127_spi_probe(struct spi_device *spi)
-> +{
->         struct regmap *regmap;
->         const struct pcf21xx_config *variant;
-> 
-> @@ -1541,14 +1566,8 @@ static int pcf2127_spi_probe(struct spi_device *spi)
->                 variant = &pcf21xx_cfg[type];
->         }
-> 
-> -       if (variant->type == PCF2131) {
-> -               config.read_flag_mask = 0x0;
-> -               config.write_flag_mask = 0x0;
-> -       }
-> -
-> -       config.max_register = variant->max_register;
-> -
-> -       regmap = devm_regmap_init_spi(spi, &config);
-> +       regmap = devm_regmap_init_spi(spi,
-> +                                     &pcf2127_spi_regmap_config[variant->type]);
->         if (IS_ERR(regmap)) {
->                 dev_err(&spi->dev, "%s: regmap allocation failed: %ld\n",
->                         __func__, PTR_ERR(regmap));
-> --
-> 2.56.1.windows.1
-> 
+Agree
 
 
--- 
-Hugo Villeneuve
+> 
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>
+>> ---
+>> Changes since v3:
+>> - Explain the arm64-wide in-place conversion effect and keep the
+>>    general IPA limit comment.
+>>
+>> Changes since v1:
+>> - Preserve private mappings if KVM invalidates a Realm guest_memfd
+>>    slot before the prepare hook rejects its deletion.
+>> ---
+>>   arch/arm64/include/asm/kvm_host.h |  2 ++
+>>   arch/arm64/kvm/mmu.c              | 37 ++++++++++++++++++++++++-------
+>>   2 files changed, 31 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+>> index 3ddeddfacd06..55673d08e3eb 100644
+>> --- a/arch/arm64/include/asm/kvm_host.h
+>> +++ b/arch/arm64/include/asm/kvm_host.h
+>> @@ -1607,6 +1607,8 @@ struct kvm *kvm_arch_alloc_vm(void);
+>>
+>>   #define kvm_vm_is_realm(kvm)		((kvm)->arch.vm_flavor == VM_REALM)
+>>
+>> +#define kvm_arch_has_private_mem(kvm) kvm_vm_is_realm(kvm)
+>> +
+>>   #define kvm_has_mte(kvm)					\
+>>   	(system_supports_mte() &&				\
+>>   	 test_bit(KVM_ARCH_FLAG_MTE_ENABLED, &(kvm)->arch.flags))
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index 800333a345cd..9af5fe6d87f0 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -2861,17 +2861,32 @@ int kvm_arch_validate_memory_region(struct kvm *kvm,
+>>   {
+>>   	lockdep_assert_held(&kvm->slots_lock);
+>>
+>> -	if (kvm_vm_is_protected(kvm)) {
+>> +	if (kvm_vm_is_protected(kvm) && new &&
+>> +	    (new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)))
+>> +		return -EPERM;
+> 
+> gmem is already generically mutually exclusive with
+> KVM_MEM_LOG_DIRTY_PAGES and KVM_MEM_READONLY, so before this change,
+> pKVM is saying no to KVM_MEM_LOG_DIRTY_PAGES and KVM_MEM_READONLY for
+> all memslots, gmem or not, so this check makes sense.
+> 
+>> +
+>> +	switch (kvm->arch.vm_flavor) {
+>> +	case VM_PROTECTED_PKVM:
+>>   		/* Cannot modify memslots once a pVM has run. */
+>>   		if (pkvm_hyp_vm_is_created(kvm) &&
+>> -		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE)) {
+>> +		    (change == KVM_MR_DELETE || change == KVM_MR_MOVE))
+>>   			return -EPERM;
+>> -		}
+>> +		break;
+> 
+> Not sure why pKVM doesn't allow deleting a memslot after the vm is
+> created, but this is no change from before this patch, the removal of {}
+> here is mixed in with the other changes in this patch.
+
+IIRC, pKVM relies on pinning the stage2 until the teardown ?
+ed
+from the Stage2 unless we d
+
+> 
+>> +	case VM_REALM:
+>> +		/*
+>> +		 * Once the Realm is created, we cannot modify any slots that
+>> +		 * could be providing private memory. i.e., guest_memfd backed
+>> +		 * slots.
+>> +		 * TODO: Handle trusted device private memory slots
+>> +		 */
+>> +		if (!kvm_realm_is_created(kvm))
+>> +			break;
+>>
+>> -		if (new &&
+>> -		    new->flags & (KVM_MEM_LOG_DIRTY_PAGES | KVM_MEM_READONLY)) {
+>> +		if (kvm_slot_has_gmem(old) || kvm_slot_has_gmem(new))
+>>   			return -EPERM;
+>> -		}
+>> +		break;
+> 
+> Imo this should be written the same way as the pKVM branch for clarity,
+> like
+> 
+> if (kvm_realm_is_created() &&
+>      (kvm_slot_has_gmem(old) || kvm_slot_has_gmem(new)))
+>          return -EPERM;
+> 
+> but that aside,
+> 
+> 1. Why block creating memslots after realm is created?
+> 
+> Does ARM CCA have no way to add pages after a VM starts? This isn't
+> blocked for TDX and SNP so I think this constraint seems unnecessary.
+
+This and (2) was triggered by the following thread, raised by Catalin.
+
+https://lore.kernel.org/all/aqrGPK0lFBFXL2qY@arm.com
+
+But having said that, since then, we now have :
+
+1) All private faults must be serviced by realm_gmem_abort(), which 
+mandates Guest memfd slot. (See Patch 11, realm_mem_abort())
+
+2) realm_gmem_abort() matches the "private" attribute for a "protected"
+fault, failing which causes a memory fault exit.
+
+So I think we can remove these memslot restrictions.
+
+> 
+> 2. Why block deleting memslots after realm is created?
+> 
+> This also seems like an artificial constraint, and it constrains the way
+> the userspace VMM operates when stopping a VM, like the memslots can't
+> be removed ever, the VM just has to be closed? (something like that)
+
+As mentioned above, I think we are good to remove the restrictions.
+
+Suzuki
+
+
+> 
+>> +	default:
+>> +		break;
+>>   	}
+>>
+>>   	return 0;
+>> @@ -2883,6 +2898,7 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+>>   				   enum kvm_mr_change change)
+>>   {
+>>   	hva_t hva, reg_end;
+>> +	gfn_t ipa_limit;
+>>   	int ret = 0;
+>>
+>>   	if (change != KVM_MR_CREATE && change != KVM_MR_MOVE &&
+>> @@ -2891,9 +2907,14 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+>>
+>>   	/*
+>>   	 * Prevent userspace from creating a memory region outside of the IPA
+>> -	 * space addressable by the KVM guest IPA space.
+>> +	 * space addressable by the KVM guest IPA space. Realm shared IPAs alias
+>> +	 * the corresponding private IPAs, so Realm memslots must reside entirely
+>> +	 * in the lower half of that space.
+>>   	 */
+>> -	if ((new->base_gfn + new->npages) > (kvm_phys_size(&kvm->arch.mmu) >> PAGE_SHIFT))
+>> +	ipa_limit = kvm_phys_size(&kvm->arch.mmu) >> PAGE_SHIFT;
+>> +	if (kvm_vm_is_realm(kvm))
+>> +		ipa_limit >>= 1;
+>> +	if (new->base_gfn + new->npages > ipa_limit)
+>>   		return -EFAULT;
+>>
+>>   	/*
+>> --
+>> 2.43.0
+
