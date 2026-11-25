@@ -1,60 +1,152 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795599586;
-	b=gWNdSgld9WwTcSmIRy6+hlsShyC1B9QW53fLlZoVZH1863b/vIhwBR6zEygOCm8ahBf0
-	 eNHCrpD94Zw34YGRKNKRsRr0hPkFH1490V+wp1lCxhyTeg5zt6ZlOQuXkY2BB87OCUjiY
-	 Xcpw7+MQtEC2WsHXl+hwQix33r2V+4bRCwUCfhP14QULKzZdnP40exP3Uhn1XP+hHB4Th
-	 QImQmD4p0wMCd8jhVZftZgb/cPJmby+C/TnG5cmLkO7522gy0IMsry3dIYH8atwI+d2B4
-	 mtW8CJlMyUs9wxesfQSFS70eQCo3K/do3QBMNTeT5JxadWFqIn1UQDHVsgB+U2+k/Kg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599586;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=LCE8uK0iceaz5poqdJmms/QNQG9qvIM5XrNWtKcuCDA=;
-	b=sAgc2uYVyozzpDXUfvVrhFvxhuJfG2/Xcf39ARyOAheFczt0Pey0rUXRTv7wAhXUgyzR
-	 YyHlN1+He3OWOA+DNhD1xUpCxGE7dQkJu+G3swknlu5sYTxu9G5ArfFgOjUgdqHE2TBqr
-	 XQ3Nbluvb5A0MUEBYV5b6sCa7RHHLVF6hlJTBBxqMygRquECQN1gkz+qz+EhQZ299kq6N
-	 NhNXQzDwjops7i1+U+C1+5ijng8pvBe9aZk34W6DBVzOoUUzuYzEH3PqvGFe3Hi/31GQ3
-	 4ikY6HdoXKNUWQNvulD8dSyWherPjXzockHI11tzTjJIYoiCYCLvGpamRPlhq/RE1qA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JuXjMaQA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=2 smtp.remote-ip=52.101.69.67
+ARC-Seal: i=3; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795599594;
+	b=al0sA7u5e1OW7PwLDL4P29W85WjmL/cUQ0zi8QPiqrtuLlqkp0ii+X+9cmKaBzxVMJag
+	 iGm2TYzpvrVZO6qxX3ivIyKiOBa6/Wd8/l/mIpvKtBbLWOylrZJDvGSduhrz6MkFjy3rs
+	 A5xbC0kgn+tLVrJaGCSlFIX1BpFQ/6WAEKGpZN/eYDYLEkOHAR3dVw2+QD281opfDrqXy
+	 nQOmczlOajTxcb/CdocGSON+kvKNLa6ZUANIsbmnjcZXGt7he6IOjQvxlpuFfa4fx2mmz
+	 4C3VslpxqK8PEzFkIOdSH8vynaAvOa+ukR1KNq6PpjI70B5+oQxY0ATh+HVOF8eeFlg==
+ARC-Message-Signature: i=3; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599594;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:
+	 DKIM-Signature:Authentication-Results-Original:Received:Received:
+	 Message-ID:Date:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-ClientProxiedBy:MIME-Version:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:x-checkrecipientrouted:
+	 NoDisclaimer:X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam-Untrusted:
+	 X-Microsoft-Antispam-Message-Info-Original:
+	 X-Forefront-Antispam-Report-Untrusted:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
+	 X-EOPAttributedMessage:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+	 X-MS-PublicTrafficType:X-MS-Office365-Filtering-Correlation-Id-Prvs:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=/IoKp3p2fNWfiEhsj1mrgYTfa4Qr9k5HRicIBJVa//s=;
+	b=qk6wXwK2SO5N1sc/ffKmbhtXHPTaXpET1jInc+CqR/OALIvzPBJ85mbT9wxUrcQH/Rsz
+	 Lt9h2QCPseGeI+BKtVOr459jYac2sWwxssBPPQCYWVrD0sijiMwvEMyQ973PitphpbJVg
+	 pZeL9x6AyPM35orOVGCkL2s5oat7d9Rf7LrLjWqZhOPFgtugTQnwi7P/eBZulLsVEJKXY
+	 fycW2ACeD5vlX1pLz1BreAdXMIb726QWnJFdQ7PJjcK3ltwtohIwskpQrKKNjW3U+m43v
+	 oLVHklme6FukmWiKhLqXGWx1q6nnMly4abPXqdVN4CP1Q00PQJDps4DKyX38vIW8cGw==
+ARC-Authentication-Results: i=3; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=dlNKRSCz;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=dlNKRSCz;
+	arc=pass header.oldest-pass=2 smtp.remote-ip=52.101.69.67
+Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010067.outbound.protection.outlook.com [52.101.69.67])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F9C4606A31E;
-	Wed, 25 Nov 2026 09:39:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F20FC606A321;
+	Wed, 25 Nov 2026 09:39:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F20FC606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JuXjMaQA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C0ED1F00A00;
-	Wed, 25 Nov 2026 09:39:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795599586;
-	bh=LCE8uK0iceaz5poqdJmms/QNQG9qvIM5XrNWtKcuCDA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=JuXjMaQAgtW+23ndec+YBpf9mustSxcIDFqa8NqigCYVVbmoc++Lq4fUc3AdT+2kO
-	 4BOAUb2pFVRIQOayDWscCE6qPe8jcEyUVDG161ZU1xvJ2fXSoUpQvrRxa3XDp3zspe
-	 e6W2bEnCPPdXUK3f77Fzl6ncH4k4h7yc/cTlz+z9ycs47by3NAYIXEr3Kf1Znjd93Q
-	 7Wdk0d8TGSFVLnyOfUyeNtIPktugER+LnmDcQPpgA0vz3TJgwex/InyAaZLAwNPMt/
-	 /y/2wyBtHI35x6GrXoNt+mxeLo6RqpYThI/OQ4htJjSsvq1RuAGoStpL+fUgQLkY7f
-	 q1kY6hWSN06OQ==
-Subject: Re: [PATCH net-next v2] net: mdio: handle broken-turn-around for
- non-PHY MDIO devices
-From: netdev-bot+sashiko@kernel.org
-To: bage@debian.org
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux@armlinux.org.uk, olteanv@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Wed, 25 Nov 2026 09:39:45 +0000
-Message-ID: <179559958516.3135.11607042178143215952@kernel.org>
-In-Reply-To: <20261121092933.186731-1-bage@debian.org>
-References: <20261121092933.186731-1-bage@debian.org>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=dlNKRSCz;
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=selector1 header.b=dlNKRSCz
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=KrN/N635dcNol3PzgFTNVyGklmI4vZsX0of94NNC5ek43tISj+7buo2/8AmakFfz48wTtLP9IFZdn/6xmb0MIqtIdQ7D2dCdnI+jHEzpODCnZkubY7RMc48q8SCuyhQdOMov5a7DLO/Z4DEMnzmeG2XaRYhCJNYF+ZtMZv8fgsqfFxLRZ0b3tLSfaZTQlMO94Y7Gb2ihE9DfJXaFbCmRqEBf1SWutrtdp0vBMuQyVwqvbuKPASH0HZotAhQDWvR9IYq5fpmuJWXxWzIHRH/L7cL0Gz2DOoC2UfEhEc/NYXWLgt9WBJgmU4M8AoxyBckC+0nqvgpDzfgkST4DIibx7w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/IoKp3p2fNWfiEhsj1mrgYTfa4Qr9k5HRicIBJVa//s=;
+ b=nRY3re9p1v68IPWI2mmU9kBMDGktkbK5kgknAuYtvpZzpJYE4Zl80+DbLjlBRZaGwKTpuUZyK51pYpnCKzmuTZlg0tAkGFJnrPuxNTgErlA0rac+vga5vJ64t1dO61WKQ5lGUBFReEVDdCJE76Y/XWr7LapMYWwA1BUTRFBjm8eZJo2GSACCBFaWszXPB8UAIZ1S3tTASnBPN00SeJLxCq1UgkmtR8EtniK9M8VoUa4AvFEDdp+Y28Ihd1KHDzJ8wQzoYzCTEQ1ypNU73cG6l+K3sLmXn0GnpHMGkT96SeQ/LqRJec5swe1OEsYsrK7b1MN7d/4pofjYc43jp0koRQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/IoKp3p2fNWfiEhsj1mrgYTfa4Qr9k5HRicIBJVa//s=;
+ b=dlNKRSCz4jm0mVlHn3kHOwQ2BEjk0d9vropoClj7FwGIPPWvWXX2cl2Id/LcTX8Bhi5uuJHHBansof9aB3XFrhRU2bUsN7Mypr2j2WzpM3ZMfk20OPq9Nq8YqrYi8zBIZZBSVp4Dat447BvDIwkuk42o6Eu5HuK+mFxe0XyQHrk=
+Received: from PR1P264CA0126.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:2cd::20)
+ by AS8PR08MB6310.eurprd08.prod.outlook.com (2603:10a6:20b:292::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 09:39:48 +0000
+Received: from MI3PEPF00008494.eurprd03.prod.outlook.com
+ (2603:10a6:102:2cd:cafe::39) by PR1P264CA0126.outlook.office365.com
+ (2603:10a6:102:2cd::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Wed, 25
+ Nov 2026 09:39:48 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 4.158.2.129) smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ MI3PEPF00008494.mail.protection.outlook.com (10.167.240.155) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.3
+ via Frontend Transport; Wed, 25 Nov 2026 09:39:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=esrsQfJ8IzMhRYzt38msvr7ZySzbt8wVxK34vxPAd9FGXyXQqAVwnxaDeQd/sHvKK7NJxzw0mFWNoSUqBgEUFEfUfFxatC5rZ/siq9MjJP1zPyoVqlJScVChMzxUbJt6LCiZt57eT99mTfRsg2H+fSLPBjYcNNRDXVvPBAGBhGz58maXMpO420Q6ipzbwftioA/W5F2Telng+cJgB5fKnojRNqAqSqNP6+2/iYRtoYRGTt4Cv5KaNo+sRTs4oQURvXmlgG2FNKu9OdGaAUpEWw1FoTsvJ7yovFzdtCFCmbA/X6eGDPtTM2ZQQAT2Yvy94moapT9Ly3Zh9dfSobqSZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/IoKp3p2fNWfiEhsj1mrgYTfa4Qr9k5HRicIBJVa//s=;
+ b=bqmD6ZrqdoSi2v9k6rqx22KwZcJZXmp3xKmfmUxsT7sMlo555gCkUTFUf4iId8gzXkDk7YLVgnKSB9JEIobG29pjjqsKqDaGPplGyG9Blz/v0LvQPjTg2QB784IjAhVpSaQCG971mo7yNRKF01coGgbpb0q60g09SuW91N3byKouwoXJw1L9oqJXShIlmIgo87w4u+GWbA8bBEgTsvlFGH6mi1j1PB6MlVbhYFHYCIB9VLmCLImxdevmNZiJscduEL2NwRl5MwG/6GrTT+0U3IakpZXlmCWMdBQW+Humg4xRFEnS/nKpYSc7vU+jc5tZuidGEMNqc4hN4tp/nNg+nQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/IoKp3p2fNWfiEhsj1mrgYTfa4Qr9k5HRicIBJVa//s=;
+ b=dlNKRSCz4jm0mVlHn3kHOwQ2BEjk0d9vropoClj7FwGIPPWvWXX2cl2Id/LcTX8Bhi5uuJHHBansof9aB3XFrhRU2bUsN7Mypr2j2WzpM3ZMfk20OPq9Nq8YqrYi8zBIZZBSVp4Dat447BvDIwkuk42o6Eu5HuK+mFxe0XyQHrk=
+Authentication-Results-Original: mx.microsoft.com 1; dkim=none (message not
+ signed) header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from PAWPR08MB8959.eurprd08.prod.outlook.com (2603:10a6:102:33f::15)
+ by MI3PR08MB147672.eurprd08.prod.outlook.com (2603:10a6:290:96::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Wed, 25 Nov
+ 2026 09:37:03 +0000
+Received: from PAWPR08MB8959.eurprd08.prod.outlook.com
+ ([fe80::71d3:7b21:3594:e33f]) by PAWPR08MB8959.eurprd08.prod.outlook.com
+ ([fe80::71d3:7b21:3594:e33f%7]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
+ 09:37:03 +0000
+Message-ID: <f0cc8236-d06a-4f2d-a9fd-e60977017979@arm.com>
+Date: Wed, 25 Nov 2026 09:37:02 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 11/16] iommu/arm-smmu-v3: Add CMDQ_PROD_STOP_FLAG to
+ gate CMDQ submissions
+To: Pranjal Shrivastava <praan@google.com>
+Cc: iommu@lists.linux.dev, Will Deacon <will@kernel.org>,
+ Joerg Roedel <joro@8bytes.org>, Robin Murphy <robin.murphy@arm.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+ Nicolin Chen <nicolinc@nvidia.com>, Daniel Mentz <danielmentz@google.com>,
+ Ashish Mhetre <amhetre@nvidia.com>, linux-arm-kernel@lists.infradead.org,
+ Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+ Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, rafael@kernel.org,
+ Danilo Krummrich <dakr@kernel.org>, driver-core@lists.linux.dev
+References: <20260929034510.2023173-1-praan@google.com>
+ <20260929034510.2023173-12-praan@google.com>
+ <0fe0d909-a01b-4f4f-9faa-c533b8925f25@arm.com> <awRDwxkrZjouy9b9@google.com>
+Content-Language: en-US
+From: John Garry <john.garry@arm.com>
+In-Reply-To: <awRDwxkrZjouy9b9@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PA7P264CA0516.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:3da::9) To PAWPR08MB8959.eurprd08.prod.outlook.com
+ (2603:10a6:102:33f::15)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,221 +156,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic:
+	PAWPR08MB8959:EE_|MI3PR08MB147672:EE_|MI3PEPF00008494:EE_|AS8PR08MB6310:EE_
+X-MS-Office365-Filtering-Correlation-Id: bf39f02c-a05b-4bef-aaf4-08df4ad80bb2
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted:
+ BCL:0;ARA:13230040|366016|23010399003|7416014|376014|1800799024|4143699003|261028144727099003|10067099003|261026121527099003|261021135927099003|261009223027099003|56012099006|11063799006|261021121427099003|261102123227099003|261022105027099003|261026140227099003|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info-Original:
+ IrfJRIacXhRx+zzuhQZhmpamSkGxk9ttVwwKvD/PhzWdn38x1786Rv54N+i/yAQFxE1zQPPbbaVJfQwVFnhE++EqHmKjvlxRXwgNmhBqCB4gvfguGkxZ/XVcsVWmPOcGAgErJUP62pkJmDE35dOWwoHt9Yn7gKj+5BPVYMfhFlERglJ+2afkjDyjTZzWYAkf07fKloGvaceWuP5cfv6b7Sd56rX9hG7GkqrWZtBYwttp5hjHDgQi8dEZQ0LKyqukC+hL5K+978u2LhksNwx7HtzEGVyYhpBtxIAJ8i72b9YA/gO/PregrizRf4JqwH7o3aYQi6Hoz+qFyL9+Bo6704HzH6k9Cpqv9CLtAgNHFsEbJd0QEZaSdSYCU0ZYnIjvds+wSWR/RBC72cfdy+hSZ27ANbtibfHzlUfIy6ZIeP1EsVe8lnd/gEoE2o+mTDUIEhYU8vJLyp57Bcs/YrWiVRPrwjE3qIx1cwGIx342v57vvToNOvGzUtAgRGtnvFRcNrxR6l3yk2mCNcS3W/zWzEcq0cP5EJcirKISqgWwINv0uwcIUvrlx7jluMbcaEwiJQqOp5Zbfbu7dQvmtib5gP+WVbKMMpaRvOHI8ICH+NB1n8roN579kW78QpydnUIbBO7t6qB6YfMYh6Lyt4v1fXIUs7t882sU+BJW2VP5ELg=
+X-Forefront-Antispam-Report-Untrusted:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR08MB8959.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(1800799024)(4143699003)(261028144727099003)(10067099003)(261026121527099003)(261021135927099003)(261009223027099003)(56012099006)(11063799006)(261021121427099003)(261102123227099003)(261022105027099003)(261026140227099003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked:
+ ZVXnYG4VCGa32OcZg15/uJomKuwyUbMIhEswmHMUEUkh9p8CxRlLNIM6ANAWX++H48hBhQpswpE1IBQ9sOjIYCHZ0Li7ugMol2P0RyphwgZfacKDlKBiYyPqynV6nk5L5aQmPf0IX1Ya4/GnyAWQJck+1CP0RpH1j26gl2Jbi9apwe2lqg/E23rACBLastzGQfZ8oGTkWjZdDH61RkYAh7IkBFEavNjCNT7wCG7tp/IPzB+hust7pEHeDz3va7VAKEaj2KlV4hnSDLkYUzKkQjA2H0FXNdk7p9XFkNyrsM8/Fjds3pVvf+7f1e1HIF70c2jHD9xu2B2+EE81/SdxcA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI3PR08MB147672
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped:
+ MI3PEPF00008494.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs:
+	133423be-c1e8-4abe-4b62-08df4ad7a97c
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|14060799003|376014|7416014|35042699022|23010399003|1800799024|82310400026|10067099003|56012099006|11063799006|261022105027099003|261028144727099003|261026121527099003|261026140227099003|261021121427099003|261021135927099003|261102123227099003|261009223027099003|4143699003|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	D/j4ROPSh8FxHKg6GyZZBoEhJyKYRJg0skeCSB0k9CI7766px4p2p9KdurLOQcxqR1x6Tmb/PFBj/m0MteaLqQioaSZdHuqcERLFiIY6X4xv0nQ0L5+e/0UDcuHoqLSx6ShC+KpSLgzEU2t/4vIHEQenTgujRB/KTgHf6Z+mv1zVK/dmzRxzO+bl+HU7lmVAEUGvkkTFVX7KCkElGvLVQ0FhL1Qdwy8iST1SJyLi060m/N42SGv2kMjWrnfa76nsxmQw57qybyS7a/3cA8U/Id1489rrS4tC1QZBMAXniq+Q+DQv4Za8K1jEAM5HI4BPB38n+pnPdXzzOPjWXM6fUm7yMHqpeIN3UF4PyZtO7+zMzPLelgRZhxwYZ5XtEjXOhN50Cw7juKDkI2qQfBz0NXkm8WFeq7QOJxlz4kA5W0WLp2LTWlUlH3sxXsoi6N1EwI4aGGuHODu5VuVk+iTzBptTeNESv7sF2L9dyv4Ps9Ps3O/RCeswBpwPDq9xH+cXmrdzO7O24QmMsfKG42TvWX56uXv+0k8ltaREJ8QH3GOkHHNdwzcyhau4/BmApxaTw4Utl/JImN60sgD5FnXWWDWNXOMfvc9LQ46ttnMz214O9TPeo2J+cxla6g5JjLD+NzIc4vzc3ta0CjtZMtyNUuJyQq9fWRSxq6BMd9PF3fFUmsox2WkQPxXJND7SFBqcqlckZRXjPuhYsme6K47Mtw==
+X-Forefront-Antispam-Report:
+	CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(14060799003)(376014)(7416014)(35042699022)(23010399003)(1800799024)(82310400026)(10067099003)(56012099006)(11063799006)(261022105027099003)(261028144727099003)(261026121527099003)(261026140227099003)(261021121427099003)(261021135927099003)(261102123227099003)(261009223027099003)(4143699003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	C0BVN4NM6NuS6NmvS9TwFWwz2yDs7dEZfageqFUv8hIVl6/XRLsXRvmv0mlBKsnE2u77E+y4tFZAwRaZAnwNSHTiRtsoMinYyYrjul+QLYZoWGMLjGsScUDfR1LmfgTvR0kflTEckk1vbDL3JRosA7zZv8TqGSZPrrWwncQ07Rg+hB+Yehc8Tz4hrb5h4Wa3hGBXUx/eNH5xacJon+HkUt3ZShqdFimHMVy80cOEBVmIzoSROWoMUwyUSAm7hf3WHITfLygZQ5ckJdBrG6AJqJJ575hXs+g+U2jy48w9uSgSa/f6ft18MJ5OgFr5CZlpM8EsVFdkxePuIfT848klw0RQG5eHU2d6E7kOf8miYW8Gmau/S0XOOfxELdN2jUMcNUFvUAyHQ9dVpBN9dt0BXVCiuobjK+/x+AKOK4T+MoGrjw1Kno8dEDsEiXFNEGdb
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 09:39:47.7787
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bf39f02c-a05b-4bef-aaf4-08df4ad80bb2
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MI3PEPF00008494.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6310
 
-Thank you for your contribution! Sashiko AI review found 5 potential
-issue(s) to consider.
+On 11/23/26 13:46, Pranjal Shrivastava wrote:
+>>>    		u64 old;
+>>> +		/*
+>>> +		 * If the SMMU is suspended/suspending, any new CMDs are elided.
+>>> +		 * This loop is the Point of Commitment. If we haven't cmpxchg'd
+>>> +		 * our new indices yet, we can safely bail. Once the indices are
+>>> +		 * committed, we MUST write valid commands to those slots to
+>>> +		 * avoid indefinite polling in the drain function.
+>>> +		 */
+>>> +		if (Q_STOP(llq.prod)) {
+>> I know that there has already been other comments on this "stop" flag and
+>> whether to use it in this way... but, if CONFIG_PM is unset, could Q_STOP()
+>> ever return true?
+>>
+> No, the flag is only ever set from the suspend path. Since I'm moving
+> the PM bits under CONFIG_PM in v12 anyway (per Will's comment), I'll
+> make Q_STOP() evaluate to false at compile time when CONFIG_PM is unset,
+> i.e. IS_ENABLED(CONFIG_PM) && (p & CMDQ_PROD_STOP_FLAG), so all of these
+> checks (including the one in queue_inc_prod_n()) just compile away. Does
+> that sound good?
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 2
+That should be fine.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+> 
+>> And it would be nice to not add extra logic in this loop. It is very timing
+>> sensitive, and adding extra checks can increase the chance that the cmpxchg
+>> fails (bad for performance).
+>>
+> That's a fair concern. A couple of things here:
+> 
+>       - The check is on our local llq copy, which we've already loaded, so
+>         it's a bit test + a (not-taken) branch, with no extra memory access
+>         before the cmpxchg.
+> 
+>       - Per Will's suggestion, I'm making arm_smmu_cmdq_poll_until_not_full()
+>         bail out on the STOP flag, which lets me drop the check at the top of
+>         the loop and the extra READ_ONCE(), leaving a single unlikely() check
+>         right before the cmpxchg.
+> 
+> It does need to stay in the loop though, since the cmpxchg is the only
+> point where checking the flag and reserving the slots is atomic.. a
+> check any earlier (e.g. in arm_smmu_get_cmdq()) could race with the
+> suspend path setting it.
 
-- [Medium] Regression in an exported API: PHYs registered through
-  of_mdiobus_phy_device_register() no longer honour "broken-turn-around".
-- [Medium] of_mdiobus_register_phy() now sets BIT(addr) in
-  mdio->phy_ignore_ta_mask unconditionally, before…
-- [Medium] The fix only partly covers DSA switches, which the commit
-  message names as the motivating case.
-- [Low] The commit message frames the change as a bug fix: mdio.yaml
-  documents broken-turn-around for any '@[0-9a-f]+$' MDIO child, but…
-- [Low] net: mdio: duplicated broken-turn-around parsing in of_mdio.c
+I just find it odd that we try to elide commands here (at the point of 
+command submission). I would assume that any commands would not get this 
+far - or even be submitted to the queue - if at the point of entering sleep.
 
---
-
-net: mdio: handle broken-turn-around for non-PHY MDIO devices
-
-The commit moves parsing of the "broken-turn-around" DT property out of
-fwnode_mdiobus_phy_device_register() and into the static helpers
-of_mdiobus_register_phy() and of_mdiobus_register_device(). The aim is to
-also honour the property for non-PHY MDIO devices such as DSA switches.
-
-> Non-PHY devices, such as DSA
-> switches, are registered through of_mdiobus_register_device(), where the
-> property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
-> still treat the turn-around/read failure as an error.
-
-[Severity: Low]
-This describes broken behaviour that users can see, but there is no Fixes:
-tag and nothing says whether this is meant for net or net-next.
-
-Should a Fixes: tag be added for the commit that introduced non-PHY
-registration through of_mdiobus_register_device() (or the binding change)?
-If not, should the commit message say this is new functionality for
-net-next?
-
-> diff --git a/drivers/net/mdio/fwnode_mdio.c b/drivers/net/mdio/fwnode_mdio.c
-> index ba70915182654..129481e8a910a 100644
-> --- a/drivers/net/mdio/fwnode_mdio.c
-> +++ b/drivers/net/mdio/fwnode_mdio.c
-> @@ -89,9 +89,6 @@ int fwnode_mdiobus_phy_device_register(struct mii_bus *mdio,
->  		phy->irq = mdio->irq[addr];
->  	}
->  
-> -	if (fwnode_property_read_bool(child, "broken-turn-around"))
-> -		mdio->phy_ignore_ta_mask |= 1 << addr;
-> -
-
-[Severity: Medium]
-With the parse removed here, what happens to PHYs registered through the
-exported of_mdiobus_phy_device_register()?
-
-drivers/net/mdio/of_mdio.c:of_mdiobus_phy_device_register() {
-	return fwnode_mdiobus_phy_device_register(mdio, phy,
-						  of_fwnode_handle(child),
-						  addr);
-}
-
-This wrapper never goes through of_mdiobus_register_phy(), so it never
-reaches the new parse.
-
-Its in-tree caller, tja1102_p1_register() in drivers/net/phy/nxp-tja11xx.c,
-registers the port 1 PHY from a DT child node:
-
-		ret = of_mdiobus_phy_device_register(bus, phy, child, addr);
-
-and does not set phy_ignore_ta_mask itself.
-
-ethernet-phy.yaml documents broken-turn-around for every PHY node. Would
-the property on a port 1 node now be ignored without any warning? On a bus
-that checks the mask (mdio-bcm-unimac, mdio-pic64hpsc, mdio-bitbang), reads
-from that PHY would then return -EIO or 0xffff.
-
-This also means the two exported OF PHY registration paths now disagree on
-whether the property is honoured.
-
->  	/* Associate the fwnode with the device structure so it
->  	 * can be looked up later
->  	 */
-> diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
-> index b8d298c04d3ff..c03fcf34b3a62 100644
-> --- a/drivers/net/mdio/of_mdio.c
-> +++ b/drivers/net/mdio/of_mdio.c
-> @@ -46,6 +46,9 @@ EXPORT_SYMBOL(of_mdiobus_phy_device_register);
->  static int of_mdiobus_register_phy(struct mii_bus *mdio,
->  				    struct device_node *child, u32 addr)
->  {
-> +	if (of_property_read_bool(child, "broken-turn-around"))
-> +		mdio->phy_ignore_ta_mask |= BIT(addr);
-> +
->  	return fwnode_mdiobus_register_phy(mdio, of_fwnode_handle(child), addr);
->  }
-
-[Severity: Medium]
-The bit is now set before fwnode_mdiobus_register_phy()->get_phy_device()
-checks whether anything answers at addr. Is it intended that nothing clears
-it when registration fails?
-
-For PHY nodes without a reg property, the auto-scan loop in
-__of_mdiobus_register() calls this helper for every unregistered address
-and expects -ENODEV for most of them:
-
-			if (of_mdiobus_child_is_phy(child)) {
-				...
-				rc = of_mdiobus_register_phy(mdio, child, addr);
-				if (!rc)
-					break;
-				if (rc != -ENODEV)
-					goto put_unregister;
-			}
-
-If such a node has broken-turn-around, every empty address scanned before
-the real PHY keeps the ignore-TA bit for good. If no PHY is found, every
-unregistered address keeps it.
-
-Before this patch, the bit was set in fwnode_mdiobus_phy_device_register().
-That only runs after get_phy_device() or phy_device_create() has succeeded.
-
-With those stale bits, unimac_mdio_read() returns the latched data instead
-of -EIO:
-
-	if (!(bus->phy_ignore_ta_mask & 1 << phy_id) && (cmd & MDIO_READ_FAIL)) {
-		ret = -EIO;
-
-pic64hpsc_mdio_c22_read() behaves the same way. get_phy_c22_id() used to
-map -EIO to -ENODEV and skip the address. Now any latched value that does
-not match the (*phy_id & 0x1fffffff) == 0x1fffffff check counts as a valid
-ID.
-
-Could this register a phantom PHY at the lowest empty address? The loop
-breaks on the first success, so the real PHY would never be found.
-
-It would also hide real read errors at those addresses from later users of
-the bus. That conflicts with the phy.h description of phy_ignore_ta_mask:
-"PHY addresses to ignore the TA/read failure".
-
-The same applies, more narrowly, to the reg-based paths. When
-of_mdiobus_register_phy() fails, the bit stays set. The same is true when
-of_mdiobus_register_device() fails, either on the IS_ERR() return after
-mdio_device_create() or on the mdio_device_free() error path. In both cases
-no device was registered.
-
->  
-> @@ -56,6 +59,9 @@ static int of_mdiobus_register_device(struct mii_bus *mdio,
->  	struct mdio_device *mdiodev;
->  	int rc;
->  
-> +	if (fwnode_property_read_bool(fwnode, "broken-turn-around"))
-> +		mdio->phy_ignore_ta_mask |= BIT(addr);
-> +
-
-[Severity: Low]
-The commit message says the property is now parsed "in one place for
-both PHYs and other MDIO devices". The patch actually adds two copies
-of the same check in of_mdio.c. One is in of_mdiobus_register_phy() and
-the other is in of_mdiobus_register_device().
-
-The two copies also read the same DT node with different accessors.
-The PHY helper uses of_property_read_bool(child, ...). The device helper
-uses fwnode_property_read_bool(fwnode, ...). For an OF node they should
-give the same answer today. A reader cannot tell why the two paths
-differ, though, and the copies can drift apart later.
-
-Could this be handled once in a shared place instead? One option is a
-small static helper in of_mdio.c that both functions call. Another is
-to handle it where the MDIO core already deals with per-device firmware
-properties, for example in mdiobus_register_device() once the fwnode is
-attached to mdiodev->dev. If the ordering works out, that would also
-cover callers of the exported of_mdiobus_phy_device_register(). It
-would also set the bit only after a device really exists at the
-address. Would that work for the cases you have in mind?
-
-If you prefer to keep the two call sites, please reword the commit
-message so it no longer says the property is handled in one place.
-
-[Severity: Medium]
-The commit message gives DSA switches as the motivating case. Is the DT reg
-address alone enough to cover the bus addresses such a switch actually
-uses?
-
-Broadcom b53 switches include the BCM53125, which mdio-bcm-unimac names as
-not releasing the line during turn-around. For these, b53_mdio_probe()
-accepts either address 0 or 30:
-
-	if (mdiodev->addr != BRCM_PSEUDO_PHY_ADDR && mdiodev->addr != 0) {
-
-However, all switch register traffic in b53_mdio_op() and the
-b53_mdio_read*/write* helpers goes to BRCM_PSEUDO_PHY_ADDR (30), whatever
-mdiodev->addr is. b53_mdio_probe() also reads the ID from address 0:
-
-	phy_id = mdiobus_read(mdiodev->bus, 0, 2) << 16;
-
-bcm47094-linksys-panamera.dts describes a BCM53125 as switch@0. If that
-node had broken-turn-around, only BIT(0) would be set. Reads at address 30
-would still fail the TA check (-EIO on unimac/pic64hpsc, 0xffff on
-bitbang), and b53 would store those values as register contents.
-
-The reverse is also true. With reg = <30>, the ID read at address 0 during
-probe is not covered.
-
-Does this leave the b53 case that the commit message describes still
-broken?
-
->  	mdiodev = mdio_device_create(mdio, addr);
->  	if (IS_ERR(mdiodev))
->  		return PTR_ERR(mdiodev);
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121092933.186731-1-bage%40debian.org
+Thanks,
+John
