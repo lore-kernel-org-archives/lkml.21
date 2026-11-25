@@ -1,64 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795584110;
-	b=o1EqLWEB8a3hZ8elPl3AcZDgrQGpywqqm1w56jUCtWRzRAYznTRGF/O1rqTpnJB0w4ED
-	 SOhhSbYEtQnCmp60JqSLepWwG7MzBgPDozgg9ZLDYNzQgOmLeZ2CmAzqN3aJ02thzJC1t
-	 OJHO+wq7Ezd/qhBNMY5M8XBACFe9//6uHwOreWcCNZ/6WUCICV7IXYSNZTUl1sq408TAc
-	 3wrWiaN2YslvB2ezxIGAh+zp93d2QOvy8wWtad8qpSePAQSjf+QWvO23hPLWCmfcF8cny
-	 icjDHqNsrRcKGzRhH0hguK/Okt/H57U3U7Djz+ZdMoOyF6LrTJF4d517skypQSUNukg==
+	t=1795584111;
+	b=K0m4QouiGQx7VjUEmyGJQu1IIljWycTz6/V9OKf018BY5EISLYNtyhNtHlTkXRdaCA12
+	 Y2SU5BM19pgwG56RNf9MGAZCKJEX58lwYoCakCVQd/G5KuP8svkV+uTZo68y57pYbHsGe
+	 FraHzWYpBSCR1XQUzi1yJxZn7yCMdNqZ3jnb1dKuaDJxtqAcMoErmRjertk+d0SD9eW1z
+	 f6uPUztx+idOTKwRed2QKmD3pL4wHXNLRUIIpopGsSR7IhS5I/+9zhhsOCbvHNQ8Q1Y0a
+	 SRxH7L/UZF86eRcmOSclXJYZYIziKrG272jZY+z9omAhnnnQ1b03j1SKBIimwkPlnRA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795584110;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795584111;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:Content-Type:MIME-Version:Content-Transfer-Encoding:
-	 X-Scanned-By;
-	bh=3TMTiM4NpnbsQQ/yUXTAeoD0HMT0I+KEeRosmIFH5Go=;
-	b=ZxOMyj43UCzZHKvmds88NuM91DueUsajj+RNHgrZ66FGf/9keyGGWBgP3uG8h/idmpsf
-	 aVWS0FfSEeoStLu9j9s+oNALkArKQVBxr4JyrbVU7YChijxbItUz66FuQ2nYPQQ7s2qaD
-	 bIEp48s9t/9+LOVNBxF/SV2fjKOri89e34KL+scK/T1JE6ntA81bXI992ewf78hITnZYW
-	 CjfQk0ONfE1FRqzp1zOIqzTxK8szKXqRkYUygnwyGPfnlUU1jA7H1D0Smr5o1mqIvPErw
-	 A9Hetv5Yx8f23Zh0jYstUJocImX153QsrTmxKa59cuSiOi6ErrrM+V3VekRAsrqMklQ==
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=h52cnjKMjgPAHUO3cUiYoHAJatsTrBmwFnsr03rrh2c=;
+	b=tHEmwB4U6+HMCo9guVwAcp/72MqS96mE53BNgSFOZq55cAQRV/Th2Z4+gGfJJpxBhMGA
+	 MHEVhKVzpkM1AyMgtMVZMmnSIxO7IiZvofeJRZGHwoWweGXRVk5S4iW0icAAqmx4GkFAG
+	 DQ0pSjfqsyZX6Y0P8ykxv5KE5r1UHSp7MeLirINSIl944fUqOltzVAGoGnux/xwomzHfn
+	 JROkpqE7MGsIJlBxCZDUwTRspf/5AYhXbYX0LxZdHav3dmiTlbvULYa3rBgQ0ex8/cs0u
+	 GyBN8mzmH4iZp8xtxCSaxe8jl+IlPDD2JzuwmKMT1X3NOjBYW0smt+liK5J7e0dVVEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=RAr8BiUo;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=LO12qSt2;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CED4A606A685
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:21:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CED4A606A685
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4906606A695
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:21:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4906606A695
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=RAr8BiUo
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=LO12qSt2
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795584109;
+	s=mimecast20190719; t=1795584110;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=3TMTiM4NpnbsQQ/yUXTAeoD0HMT0I+KEeRosmIFH5Go=;
-	b=RAr8BiUo0Dw99PBc7A4KoKO+221PCdY+IaYV9dTIIXxh5ullP16IYO40w7kBn1kZDAQ76h
-	XEBf/5wNud7icUXSAbwYqXPc0D1ujcEqil0KW4ldhFkSLjxXU+EqRDZDn+W2Jxx7KE1ngE
-	+edIlRrMXuaMndHdKcY4r4gOcxEeWpg=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=h52cnjKMjgPAHUO3cUiYoHAJatsTrBmwFnsr03rrh2c=;
+	b=LO12qSt2RamtTpSMUI71zrj03GylEbBuqUGHMqrA8SToI5NJBMI739YpMsGviZa/HPw5/s
+	2ZutTc4HSL3IVmEgDPcO8d+FXB8Dkt+6EECbaBQecrS6YCoKMplHfyYuCoG4viz1PirKYA
+	fUE/kqC08VCnB8S9a5dqQc647RDc9WA=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-581--FaJcU6JOeC6jfE_aePHRw-1; Wed,
- 25 Nov 2026 05:21:42 +0000
-X-MC-Unique: -FaJcU6JOeC6jfE_aePHRw-1
-X-Mimecast-MFC-AGG-ID: -FaJcU6JOeC6jfE_aePHRw_1795584101
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-690-RWA_RKzoMPKWZrT7DL8fjw-1; Wed,
+ 25 Nov 2026 05:21:45 +0000
+X-MC-Unique: RWA_RKzoMPKWZrT7DL8fjw-1
+X-Mimecast-MFC-AGG-ID: RWA_RKzoMPKWZrT7DL8fjw_1795584104
 Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9ACF5197758B;
-	Wed, 25 Nov 2026 05:21:41 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 15874180055A;
+	Wed, 25 Nov 2026 05:21:44 +0000 (UTC)
 Received: from mlevitsk-thinkpadt14gen3.ibmmarkh.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 74C1E1956088;
-	Wed, 25 Nov 2026 05:21:40 +0000 (UTC)
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 16754195608C;
+	Wed, 25 Nov 2026 05:21:42 +0000 (UTC)
 From: Maxim Levitsky <mlevitsk@redhat.com>
 To: kvm@vger.kernel.org
 Cc: Sean Christopherson <seanjc@google.com>,
@@ -66,10 +67,11 @@ Cc: Sean Christopherson <seanjc@google.com>,
 	Paolo Bonzini <pbonzini@redhat.com>,
 	x86@kernel.org,
 	Maxim Levitsky <mlevitsk@redhat.com>
-Subject: [PATCH v4 0/5] KVM: nVMX: fix nested APICv emulation for windows guests
-Date: Wed, 25 Nov 2026 00:21:34 -0500
-Message-ID: <20261125052139.362046-1-mlevitsk@redhat.com>
-Content-Type: text/plain; charset="utf-8"
+Subject: [PATCH v4 2/5] KVM: x86: split vcpu->arch.hflags into nested_guest_state and smm_mode
+Date: Wed, 25 Nov 2026 00:21:36 -0500
+Message-ID: <20261125052139.362046-3-mlevitsk@redhat.com>
+In-Reply-To: <20261125052139.362046-1-mlevitsk@redhat.com>
+References: <20261125052139.362046-1-mlevitsk@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,49 +81,194 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-Fix two problems that were recently discovered that cause nested APICv=0D
-to malfunction on windows with hyperv enabled.=0D
-=0D
-The first problem is that unlike KVM, windows doesn't set PIR.ON when=0D
-sending posted interrupts. X86 spec actually allows this.=0D
-=0D
-The second problem is that unlilke KVM, which mostly ignores them,=0D
-windows depends on accurate delivery of the posted notification=0D
-interrupts, and currently it is possible for a posted notification=0D
-to get lost it it arrives at the same time as the nested VM exit.=0D
-=0D
-V2: to avoid spurious notification in L1, process the posted=0D
-notification in L2, just before VM exit.=0D
-=0D
-V3: rework the patch series following the pseudocode that Paolo suggested=0D
-(Thanks!!)=0D
-=0D
-V4: random fixes, including sashiko feedback.=0D
-=0D
-Best regards,=0D
-	Maxim Levitsky=0D
-=0D
-Maxim Levitsky (5):=0D
-  KVM: nVMX: don't check PID.ON when processing nested posted interrupts=0D
-  KVM: x86: split vcpu->arch.hflags into nested_guest_state and smm_mode=0D
-  KVM: x86: convert nested_guest_state into an atomic variable=0D
-  KVM: x86: nVMX: move nested APICv state to nested_guest_state=0D
-  KVM: x86: nVMX: fix races in delivery of nested posted interrupts=0D
-=0D
- arch/x86/include/asm/kvm_host.h | 21 +++++---=0D
- arch/x86/kvm/regs.h             | 10 ++--=0D
- arch/x86/kvm/smm.c              |  8 +--=0D
- arch/x86/kvm/smm.h              |  2 +-=0D
- arch/x86/kvm/vmx/nested.c       | 93 +++++++++++++++++++++++----------=0D
- arch/x86/kvm/vmx/vmx.c          | 61 +++++++++++----------=0D
- arch/x86/kvm/vmx/vmx.h          |  2 -=0D
- arch/x86/kvm/x86.c              | 13 +++--=0D
- 8 files changed, 127 insertions(+), 83 deletions(-)=0D
-=0D
--- =0D
-2.56.1=0D
-=0D
+Split vcpu->arch.hflags into nested_guest_mode and smm_mode to prepare
+for converting nested_guest_mode into an atomic variable that will contain
+nested guest state that is exposed locklessly for other vCPUs.
+
+No functional change expected.
+
+Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
+Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
+---
+ arch/x86/include/asm/kvm_host.h | 18 +++++++++++-------
+ arch/x86/kvm/regs.h             |  6 +++---
+ arch/x86/kvm/smm.c              |  8 ++++----
+ arch/x86/kvm/smm.h              |  2 +-
+ arch/x86/kvm/x86.c              | 13 ++++++++-----
+ 5 files changed, 27 insertions(+), 20 deletions(-)
+
+diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+index ab30f418e526..226091feb44a 100644
+--- a/arch/x86/include/asm/kvm_host.h
++++ b/arch/x86/include/asm/kvm_host.h
+@@ -738,7 +738,6 @@ struct kvm_vcpu_arch {
+ 	unsigned long cr8;
+ 	u32 host_pkru;
+ 	u32 pkru;
+-	u32 hflags;
+ 	u64 efer;
+ 	u64 host_debugctl;
+ 	u64 apic_base;
+@@ -758,6 +757,16 @@ struct kvm_vcpu_arch {
+ 	u64 arch_capabilities;
+ 	u64 perf_capabilities;
+ 
++#define KVM_NESTED_IN_GUEST	BIT(8)
++	/* Non zero when the guest is executing a nested guest */
++	u16 nested_guest_state;
++
++#ifdef CONFIG_KVM_SMM
++#define SMM_MASK		BIT(0)
++#define SMM_INSIDE_NMI_MASK	BIT(1)
++	/* Non zero when the guest is in SMM */
++	u16 smm_mode;
++#endif
+ 	/*
+ 	 * Paging state of the vcpu
+ 	 *
+@@ -1875,16 +1884,11 @@ static inline unsigned long read_msr(unsigned long msr)
+ }
+ #endif
+ 
+-#define HF_GUEST_MASK		(1 << 0) /* VCPU is in guest-mode */
+-
+ #ifdef CONFIG_KVM_SMM
+-#define HF_SMM_MASK		(1 << 1)
+-#define HF_SMM_INSIDE_NMI_MASK	(1 << 2)
+-
+ # define KVM_MAX_NR_ADDRESS_SPACES	2
+ /* SMM is currently unsupported for guests with private memory. */
+ # define kvm_arch_nr_memslot_as_ids(kvm) (kvm_arch_has_private_mem(kvm) ? 1 : 2)
+-# define kvm_arch_vcpu_memslots_id(vcpu) ((vcpu)->arch.hflags & HF_SMM_MASK ? 1 : 0)
++# define kvm_arch_vcpu_memslots_id(vcpu) ((vcpu)->arch.smm_mode & SMM_MASK ?  1 : 0)
+ # define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, (role).smm)
+ #else
+ # define kvm_memslots_for_spte_role(kvm, role) __kvm_memslots(kvm, 0)
+diff --git a/arch/x86/kvm/regs.h b/arch/x86/kvm/regs.h
+index 447f0ec3e63e..ec9d4a8fbe15 100644
+--- a/arch/x86/kvm/regs.h
++++ b/arch/x86/kvm/regs.h
+@@ -457,13 +457,13 @@ static inline unsigned long kvm_get_effective_dr7(struct kvm_vcpu *vcpu)
+ 
+ static inline void enter_guest_mode(struct kvm_vcpu *vcpu)
+ {
+-	vcpu->arch.hflags |= HF_GUEST_MASK;
++	vcpu->arch.nested_guest_state = KVM_NESTED_IN_GUEST;
+ 	vcpu->stat.guest_mode = 1;
+ }
+ 
+ static inline void leave_guest_mode(struct kvm_vcpu *vcpu)
+ {
+-	vcpu->arch.hflags &= ~HF_GUEST_MASK;
++	vcpu->arch.nested_guest_state = 0;
+ 
+ 	if (vcpu->arch.load_eoi_exitmap_pending) {
+ 		vcpu->arch.load_eoi_exitmap_pending = false;
+@@ -475,7 +475,7 @@ static inline void leave_guest_mode(struct kvm_vcpu *vcpu)
+ 
+ static inline bool is_guest_mode(struct kvm_vcpu *vcpu)
+ {
+-	return vcpu->arch.hflags & HF_GUEST_MASK;
++	return vcpu->arch.nested_guest_state & KVM_NESTED_IN_GUEST;
+ }
+ 
+ static inline unsigned long kvm_get_segment_base(struct kvm_vcpu *vcpu, int seg)
+diff --git a/arch/x86/kvm/smm.c b/arch/x86/kvm/smm.c
+index 656a38dad7e7..60af64a6209f 100644
+--- a/arch/x86/kvm/smm.c
++++ b/arch/x86/kvm/smm.c
+@@ -114,9 +114,9 @@ void kvm_smm_changed(struct kvm_vcpu *vcpu, bool entering_smm)
+ 	trace_kvm_smm_transition(vcpu->vcpu_id, vcpu->arch.smbase, entering_smm);
+ 
+ 	if (entering_smm) {
+-		vcpu->arch.hflags |= HF_SMM_MASK;
++		vcpu->arch.smm_mode |= SMM_MASK;
+ 	} else {
+-		vcpu->arch.hflags &= ~(HF_SMM_MASK | HF_SMM_INSIDE_NMI_MASK);
++		vcpu->arch.smm_mode &= ~(SMM_MASK | SMM_INSIDE_NMI_MASK);
+ 
+ 		/* Process a latched INIT or SMI, if any.  */
+ 		kvm_make_request(KVM_REQ_EVENT, vcpu);
+@@ -311,7 +311,7 @@ void enter_smm(struct kvm_vcpu *vcpu)
+ 		goto error;
+ 
+ 	if (kvm_x86_call(get_nmi_mask)(vcpu))
+-		vcpu->arch.hflags |= HF_SMM_INSIDE_NMI_MASK;
++		vcpu->arch.smm_mode |= SMM_INSIDE_NMI_MASK;
+ 	else
+ 		kvm_x86_call(set_nmi_mask)(vcpu, true);
+ 
+@@ -584,7 +584,7 @@ int emulator_leave_smm(struct x86_emulate_ctxt *ctxt)
+ 	if (ret < 0)
+ 		return X86EMUL_UNHANDLEABLE;
+ 
+-	if ((vcpu->arch.hflags & HF_SMM_INSIDE_NMI_MASK) == 0)
++	if ((vcpu->arch.smm_mode & SMM_INSIDE_NMI_MASK) == 0)
+ 		kvm_x86_call(set_nmi_mask)(vcpu, false);
+ 
+ 	kvm_smm_changed(vcpu, false);
+diff --git a/arch/x86/kvm/smm.h b/arch/x86/kvm/smm.h
+index db3c88f16138..323c03827d28 100644
+--- a/arch/x86/kvm/smm.h
++++ b/arch/x86/kvm/smm.h
+@@ -151,7 +151,7 @@ static inline int kvm_inject_smi(struct kvm_vcpu *vcpu)
+ 
+ static inline bool is_smm(struct kvm_vcpu *vcpu)
+ {
+-	return vcpu->arch.hflags & HF_SMM_MASK;
++	return vcpu->arch.smm_mode & SMM_MASK;
+ }
+ 
+ void kvm_smm_changed(struct kvm_vcpu *vcpu, bool in_smm);
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 79468ddfe473..0d8854bcbc4f 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -3013,7 +3013,7 @@ static void kvm_vcpu_ioctl_x86_get_vcpu_events(struct kvm_vcpu *vcpu,
+ 	events->smi.smm = is_smm(vcpu);
+ 	events->smi.pending = vcpu->arch.smi_pending;
+ 	events->smi.smm_inside_nmi =
+-		!!(vcpu->arch.hflags & HF_SMM_INSIDE_NMI_MASK);
++		!!(vcpu->arch.smm_mode & SMM_INSIDE_NMI_MASK);
+ #endif
+ 	events->smi.latched_init = kvm_lapic_latched_init(vcpu);
+ 
+@@ -3099,7 +3099,7 @@ static int kvm_vcpu_ioctl_x86_set_vcpu_events(struct kvm_vcpu *vcpu,
+ 
+ 	if (events->flags & KVM_VCPUEVENT_VALID_SMM) {
+ #ifdef CONFIG_KVM_SMM
+-		if (!!(vcpu->arch.hflags & HF_SMM_MASK) != events->smi.smm) {
++		if (!!(vcpu->arch.smm_mode & SMM_MASK) != events->smi.smm) {
+ 			kvm_leave_nested(vcpu);
+ 			kvm_smm_changed(vcpu, events->smi.smm);
+ 		}
+@@ -3108,9 +3108,9 @@ static int kvm_vcpu_ioctl_x86_set_vcpu_events(struct kvm_vcpu *vcpu,
+ 
+ 		if (events->smi.smm) {
+ 			if (events->smi.smm_inside_nmi)
+-				vcpu->arch.hflags |= HF_SMM_INSIDE_NMI_MASK;
++				vcpu->arch.smm_mode |= SMM_INSIDE_NMI_MASK;
+ 			else
+-				vcpu->arch.hflags &= ~HF_SMM_INSIDE_NMI_MASK;
++				vcpu->arch.smm_mode &= ~SMM_INSIDE_NMI_MASK;
+ 		}
+ 
+ #else
+@@ -9554,7 +9554,10 @@ void kvm_vcpu_reset(struct kvm_vcpu *vcpu, bool init_event)
+ 	kvm_lapic_reset(vcpu, init_event);
+ 
+ 	WARN_ON_ONCE(is_guest_mode(vcpu) || is_smm(vcpu));
+-	vcpu->arch.hflags = 0;
++#ifdef CONFIG_KVM_SMM
++	vcpu->arch.smm_mode = 0;
++#endif
++	vcpu->arch.nested_guest_state = 0;
+ 
+ 	vcpu->arch.smi_pending = 0;
+ 	vcpu->arch.smi_count = 0;
+-- 
+2.56.1
 
