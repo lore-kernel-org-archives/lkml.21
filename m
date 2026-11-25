@@ -1,64 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588532;
-	b=L1vg/GauVkkNzV8QmeRF+aYHKNkmfRdO0/pPLo2D4FJQJrbw3GOUd+2LXCsZ4aegFf/v
-	 PKlbrf7gijSFwXvWfFfvszOlMXcpIw55MyxdmulXGWLVfF43CAWVu8FGBD3F/elkDFqqk
-	 uS629xEYHZHMxqe/HsWgQ7OHiLKQ5+hAj18zxLQgRpKwzISFEyg+BuEGaqhcwofPM63od
-	 ZE02/huRVa0MC6abguqpK31iXg2tt31V+nb/ub3YYj2sGflc5XH37Eo0q2GjzBxVyGe2r
-	 ovfgE+Il4U7fKLsKhoQ3bPvd2Kydq+LH8RnotSC6aQrR5dnYhnmepVUJZkaXnrkwWfw==
+	t=1795588563;
+	b=OENIhmkDY+xk+N18mvaHdkIvj8zMd0BNp3fVf1m6Jo5UyA8cIRJ/jpOEwFYeLW5ySViG
+	 KjCH/EpPRn26LSaExkmTFGiAXuzZQrhKyiRFOoG266paPFIkvycsIHBETgg65G/MfiU6u
+	 d4xdtULyEcA4JgyM+ULFQ9pbhHaBY0LGzuExwLw+mGNiy45MTh+LP/1QNCMtGJWwkZHWI
+	 X424WHl3ugAwtM2eJTPj9VXclrbC7uQ36gj6dfciIexlQBOOTvYPsguVkfCVj3Dj/2kCN
+	 MQ/uiVfD45zCLflP+K4LKYS3uaX6umxmvWESZ5hSViYKk97/6ljqmWDu9NMSg3bGoDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588532;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=I6+kzu5wlP2gNqaFOLzY8J/HA+tCbkwiTb+BR4uUO2I=;
-	b=fkrm9+7eLaKpGCsw4qJaapEl6PTzsslS6DGBlozdXlWDu+L3hsZ0piuCCMc9UwhG4rPL
-	 viTTfAMW2S/LWm5kWYt60m4sH3DKWZrxtQw1lEBDzIAru+lsomdBvqUcwAHZqIoIhfZcJ
-	 Mk3cqOF12uDS/3hevq5w5dFdUD/9dfgO+GFUqW/s8nrf7j0YPd1T2VjTFy1tm4p89oY6B
-	 zJ2KVfgzJ0DIGPp0FvoaKqbccC8sLczRLx67oeZw8vXbt2+s8bOQT6SFnv+n2Luk7ShH9
-	 DrTfvqpySzmYYnaMAZaHvMoSR7Y7tjex/hhigDAz8z77yLE3auu7MkbjAtWVUOofmlw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588563;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=gqIokuDmw+C8EIieLfWo36U5fTUYAqRMChwxSzD8YUE=;
+	b=jQtr1/WV5HviToL4tjvW8sR0drESP88WTehWvPf0OlJrxmCcRZItIJFA1Zb1SB3berp/
+	 72mnydPodcVaOcz5Ql7fzBHpLOVHaacCY8EhbL6FxpCn4JTJ67wa4+jEwnty0JdNWPXsd
+	 X0F/214iOJHwocJ1O99p4RNlpmLEhq4g+7gN22/T3LzAqv6lCQBAZQgSwTsZ4aKEV4tUF
+	 LthISxVbPav1IvmPwhEYJcP7nLjw9FpHlQrqfI2T8Noi2KZgm7ebZWCgWs2WganV0RO2y
+	 90M8enMLalE8F1jmkM3e502R45jL+hMwyelaM6RzxAPh7mKPVoB6rSfnD1b+TI6u6cA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=iHqOCSvg;
-	arc=none smtp.remote-ip=115.124.30.118
-Received: from out30-118.freemail.mail.aliyun.com (out30-118.freemail.mail.aliyun.com [115.124.30.118])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iT7hMpxv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACCB9606A321;
-	Wed, 25 Nov 2026 06:35:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACCB9606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C8CF606A31E;
+	Wed, 25 Nov 2026 06:36:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=iHqOCSvg
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795588528; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=I6+kzu5wlP2gNqaFOLzY8J/HA+tCbkwiTb+BR4uUO2I=;
-	b=iHqOCSvgZIBUMTOo4cuC2CMO0SJJgwLdRYTUDv+Z3R4iaWFdl8DKIRySpKtBj61MxHggj4jM+gCmf0t0R3ADv2+hlfv8jwo9rPzdoiZokTgGKAY9If/BYcAXQ9jE1lS0/ziacUizleZzO1hRqAsGcwH8Q/h2Cs+bkKJKwsMOpmM=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=yadong.qi@linux.alibaba.com;NM=1;PH=DS;RN=12;SR=0;TI=SMTPD_---0XFQjoFf_1795588525;
-Received: from L-G4162440-1116.localdomain(mailfrom:yadong.qi@linux.alibaba.com fp:SMTPD_---0XFQjoFf_1795588525 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 25 Nov 2026 14:35:27 +0800
-From: Yadong Qi <yadong.qi@linux.alibaba.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	ying.huang@linux.alibaba.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	ryan.roberts@arm.com,
-	robh@kernel.org,
-	gregkh@linuxfoundation.org,
-	ptg-linux-kernel@linux.alibaba.com,
-	yadong.qi@linux.alibaba.com,
-	stable@vger.kernel.org
-Subject: [PATCH v2] arm64: fixmap: fix missing break-before-make in __set_fixmap()
-Date: Wed, 25 Nov 2026 14:32:24 +0800
-Message-Id: <20261125063224.553-1-yadong.qi@linux.alibaba.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iT7hMpxv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C7811F000C4;
+	Wed, 25 Nov 2026 06:36:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795588563;
+	bh=gqIokuDmw+C8EIieLfWo36U5fTUYAqRMChwxSzD8YUE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=iT7hMpxvyQHNG7u0z2j+8h+4bj1jxjA64zMwxYfkddD2kNCZx6Wq9hzuVpOEAbhts
+	 o9yEe8Vjqpur94e1fAvtJgVIcGg7/VBzZ+Cqz3yjkuRn0fGdPzW8dHomvwGIKIdc5G
+	 XftwFU5RgeY4b0jsbOoagi+dbIAlOrPOgB5jNyWugdGsXjYpotovf77Q3XL6K8wuYB
+	 dDEpu4o9R1PHlT+PgkAl+96UU0jeCZfNPugdkYjqIq8daTY+IVlKY2kfpsQB2O2nch
+	 KjJcHJwSKDl+zqn/NA+0jn5lEE7PyEi8bZdx8revJi88NmHd7o/hIUPHYht3ZmS89j
+	 yPKb/fqzOddbA==
+Subject:
+ Re: [PATCH net-next v3 2/5] net: rnpgbe: Report link settings through ethtool
+From: netdev-bot+sashiko@kernel.org
+To: dong100@mucse.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org, yaojun@mucse.com
+Date: Wed, 25 Nov 2026 06:36:01 +0000
+Message-ID: <179558856190.3135.8838947348700309121@kernel.org>
+In-Reply-To: <32E4A50B05876D23+20261124060546.411262-1-dong100@mucse.com>
+References: <32E4A50B05876D23+20261124060546.411262-1-dong100@mucse.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,123 +63,198 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-__set_fixmap() installs a new PTE with __set_pte() but never invalidates
-the TLB; only the clear path calls flush_tlb_kernel_range(). The
-dsb(ishst)/isb that __set_pte() emits makes the new PTE visible to the
-table walker but does not invalidate stale TLB entries. Overwriting a
-still-valid slot therefore leaves the old translation cached and
-violates break-before-make: accesses may keep hitting the old output
-address, and changing the attributes of a cached entry can trigger TLB
-conflict aborts or CONSTRAINED UNPREDICTABLE behaviour.
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-Two in-tree callers overwrite a valid FIX_EARLYCON_MEM_BASE slot:
+Critical: 0 · High: 0 · Medium: 2 · Low: 2
 
- - earlycon: earlycon_map() maps the UART before match->setup() runs.
-   If setup fails, con->write is unset, or the DT reg-io-width is
-   unsupported, the slot stays valid but no console is registered. The
-   console_is_registered() guard only blocks successful registrations,
-   so a later attempt (e.g. a failed DT earlycon followed by earlycon=
-   on the command line) remaps the slot to a different UART.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
- - samsung_tty: apple_s5l_early_console_setup() overrides the
-   just-installed entry from PROT_DEVICE_nGnRE (FIXMAP_PAGE_IO) to
-   PROT_DEVICE_nGnRnE on the normal successful boot path.
+- [Medium] rnpgbe_setup_default_link() builds the PHY_LINK_SET
+  advertisement as hw->link_config.supported & RNPGBE_DEFAULT_ADV, where…
+- [Medium] rnpgbe_add_adapter() now calls rnpgbe_init_link_config(),
+  which sends GET_LANE_STATUS (0x0610) through mucse_mbx_get_link() and…
+- [Low] The commit message leaves out some changes in the patch.
+- [Low] ST_STATUS_MDIX_MASK is GENMASK(11, 10), a 2-bit field that can
+  hold 0-3.
 
-Both are valid-to-valid changes (different output address or memory
-type), which arm64 requires to be break-before-make.
+--
 
-Fix this in __set_fixmap() by invalidating any existing valid mapping
-up front: clear the old PTE and flush the TLB, then install the new PTE
-only when setting. The old translation is gone before the new one is
-created, so the two can never coexist in the TLB. A first-time mapping
-(old entry invalid) skips the invalidation and pays no extra cost, and
-clearing a slot is handled by the same step.
+net: rnpgbe: Report link settings through ethtool
 
-A clear (!flags) always clears and flushes, even when the PTE is already
-invalid. An invalid PTE does not imply an invalid TLB: another CPU may
-have cleared the PTE but not yet completed its TLB flush, leaving a stale
-entry cached locally. The unconditional flush preserves clear_fixmap()'s
-TLB shootdown guarantee, which callers such as the KVM VNCR unmap path
-rely on when racing with a remote invalidation.
+This commit adds get_link_ksettings support. It reports supported and
+advertised link modes, autoneg, port type and PHY address, all taken
+from a new GET_LANE_STATUS firmware query made at probe time. It also
+changes the default link setup: TP ports now autonegotiate, and fibre
+and backplane ports are forced to 1 Gb/s full duplex.
 
-This belongs in the callee, as on x86: __set_fixmap() there calls
-set_pte_vaddr(), which flushes the TLB unconditionally after writing the
-PTE. x86 can flush after the write because it has no break-before-make
-requirement; arm64 must invalidate and flush before installing the new
-valid entry to avoid TLB conflict aborts.
+> Add get_link_ksettings support to report supported and advertised
+> link modes, autonegotiation, port type and PHY address. Report copper,
+> fibre and backplane link modes from firmware, with autonegotiation
+> support on copper ports.
 
-Fixes: 9aac5887595b ("tty/serial: add generic serial earlycon")
-Cc: stable@vger.kernel.org
-Reported-by: Huang Ying <ying.huang@linux.alibaba.com>
-Signed-off-by: Yadong Qi <yadong.qi@linux.alibaba.com>
----
-v2:
-- Rebase to arm64 for-next/fixes
-- Fix comments from sashiko: always clear and flush on the clear path
-  (!flags), even when the PTE is already invalid.
----
- arch/arm64/mm/fixmap.c | 42 +++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 39 insertions(+), 3 deletions(-)
+[Severity: Low]
+This isn't a bug, but could the commit message also mention a few
+changes it doesn't describe?
 
-diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-index 951004ad700c..5da49e201b6f 100644
---- a/arch/arm64/mm/fixmap.c
-+++ b/arch/arm64/mm/fixmap.c
-@@ -126,13 +126,49 @@ void __set_fixmap(enum fixed_addresses idx,
- 
- 	ptep = fixmap_pte(addr);
- 
-+	/*
-+	 * Break-before-make: when the slot still holds a valid mapping
-+	 * (e.g. earlycon re-mapping FIX_EARLYCON_MEM_BASE), invalidate the
-+	 * old entry and flush the TLB entries caching it before a new
-+	 * mapping is installed, so old and new translations never coexist.
-+	 *
-+	 * A clear (!flags) always flushes even if the PTE is already invalid:
-+	 * a remote CPU may have cleared the PTE but not yet completed its TLB
-+	 * flush, leaving a stale entry cached locally. Take KVM VNCR unmap as
-+	 * example:
-+	 * When CPU1 wins atomic_xchg_relaxed(&vt->cpu, -1) in unmap_l1_vncr(),
-+	 * CPU0 calls clear_fixmap() on its own slot so it cannot finish
-+	 * vcpu_put() before the local TLB entry is invalidated:
-+	 *      CPU0                                  CPU1
-+	 *                                 invalidate_vncr()
-+	 *                                 unmap_l1_vncr()
-+	 *                                   atomic_xchg_relaxed(&vt->cpu, -1)
-+	 *                                   clear_fixmap(vncr_fixmap(0))
-+	 *                                     __pte_clear(..., ptep)
-+	 *                                     <delayed before TLB flush>
-+	 * kvm_vcpu_put_hw_mmu()
-+	 * this_cpu_reset_vncr_fixmap()
-+	 *   unmap_l1_vncr() == -1
-+	 *   clear_fixmap(vncr_fixmap(0))
-+	 *     !pte_valid(__ptep_get(ptep))
-+	 *     <skips flush_tlb_kernel_range()>
-+	 *                    <stale TLB entry still live on CPU0>
-+	 * If another nested vCPU then schedules on CPU0 and calls
-+	 * kvm_map_l1_vncr() before CPU1 finishes flush_tlb_kernel_range(),
-+	 * __set_fixmap() also sees !pte_valid(__ptep_get(ptep)) and installs
-+	 * the new PTE while the old translation is still cached in CPU0's TLB.
-+	 * Unconditionally clearing and flushing when !pgprot_val(flags)
-+	 * preserves clear_fixmap()'s TLB shootdown guarantee.
-+	 */
-+	if (pte_valid(__ptep_get(ptep)) || !pgprot_val(flags)) {
-+		__pte_clear(&init_mm, addr, ptep);
-+		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-+	}
-+
- 	if (pgprot_val(flags)) {
- 		/* The slot must be usable on return, even in lazy MMU mode. */
- 		__set_pte_nosync(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
- 		emit_pte_barriers();
--	} else {
--		__pte_clear(&init_mm, addr, ptep);
--		flush_tlb_kernel_range(addr, addr+PAGE_SIZE);
- 	}
- }
- 
+Probe now sends the new GET_LANE_STATUS command, and probe fails if that
+command returns an error.
+
+mucse_mbx_fw_req_handler() now decodes ST_STATUS_MDIX_MASK from
+LINK_CHANGE_EVT. get_link_ksettings reports eth_tp_mdix and
+eth_tp_mdix_ctrl.
+
+In rnpgbe_setup_default_link(), the TP default advertisement is no
+longer the fixed RNPGBE_DEFAULT_ADV mask. It is now
+supported & RNPGBE_DEFAULT_ADV.
+
+> diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
+> index dcc8233e024e1..3a2f62f0630da 100644
+> --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
+> +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
+> @@ -64,12 +64,42 @@ int rnpgbe_reset_hw(struct mucse_hw *hw)
+>   * rnpgbe_setup_default_link - Configure the default link settings
+>   * @hw: hardware information structure
+>   *
+> + * The default configuration relies on GET_LANE_STATUS reporting at least
+> + * one mode in RNPGBE_DEFAULT_ADV for TP ports and RNPGBE_FW_ADV_1000_FULL
+> + * for fibre and backplane ports. TP ports use the supported subset of the
+> + * default mask for autonegotiation. Fibre and backplane use fixed 1 Gb/s
+> + * full duplex.
+> + *
+>   * Return: 0 on success, negative errno on failure
+>   **/
+>  int rnpgbe_setup_default_link(struct mucse_hw *hw)
+>  {
+> -	return mucse_mbx_set_link(hw, RNPGBE_DEFAULT_ADV, true, 0, 0,
+> -				  ETH_TP_MDI_AUTO);
+> +	u32 advertising = hw->link_config.supported & RNPGBE_DEFAULT_ADV;
+> +	bool autoneg = hw->link_config.status & MUCSE_LINK_TP;
+> +	u8 duplex = DUPLEX_UNKNOWN;
+> +	u32 speed = SPEED_UNKNOWN;
+> +	int err;
+> +
+> +	if (!autoneg) {
+> +		advertising &= RNPGBE_FW_ADV_1000_FULL;
+> +		speed = SPEED_1000;
+> +		duplex = DUPLEX_FULL;
+> +	}
+> +
+> +	err = mucse_mbx_set_link(hw, advertising, autoneg,
+> +				 autoneg ? 0 : speed, autoneg ? 0 : duplex,
+> +				 ETH_TP_MDI_AUTO);
+
+[Severity: Medium]
+What happens if advertising is 0 at this point?
+
+The kernel-doc above states the assumption, but nothing checks it. Take
+a TP port where firmware reports none of the RNPGBE_DEFAULT_ADV modes.
+Autoneg is requested with advertising == 0. On ACK,
+MUCSE_LINK_AUTONEG and advertising = 0 are cached, and probe still
+succeeds.
+
+Could the link then stay down forever, with nothing logged?
+
+Now take a fibre or backplane port whose supported mask lacks
+RNPGBE_FW_ADV_1000_FULL. 1000/Full is still forced and cached. Then in
+rnpgbe_get_link_ksettings():
+
+	if (supported & RNPGBE_FW_ADV_1000_FULL)
+		linkmode_set_bit(mode, cmd->link_modes.supported);
+	...
+	if (cmd->base.autoneg == AUTONEG_DISABLE) {
+		cmd->base.speed = hw->link_config.speed;
+		cmd->base.duplex = hw->link_config.duplex;
+	}
+
+Would ethtool then show speed 1000 without listing 1000baseX or
+1000baseKX as a supported mode?
+
+The old code always advertised the full RNPGBE_DEFAULT_ADV mask,
+whatever firmware reported. The later patch "net: rnpgbe: Support copper
+link configuration" rejects an empty autoneg advertisement in
+set_link_ksettings. This default path still has no such check.
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c
+> index 46981ef2542ad..31871b244882d 100644
+> --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c
+> +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c
+
+[ ... ]
+
+> @@ -258,6 +260,11 @@ static int rnpgbe_add_adapter(struct pci_dev *pdev,
+>  		dev_err(&pdev->dev, "Hw reset failed %d\n", err);
+>  		goto err_powerdown;
+>  	}
+> +	err = rnpgbe_init_link_config(hw);
+> +	if (err) {
+> +		dev_err(&pdev->dev, "Get link capabilities failed %d\n", err);
+> +		goto err_powerdown;
+> +	}
+
+[Severity: Medium]
+Will the device still probe if its firmware doesn't implement
+GET_LANE_STATUS (0x0610), or rejects it?
+
+The call chain is:
+
+rnpgbe_init_link_config()
+  mucse_mbx_get_link()
+    mucse_fw_send_cmd_wait_resp()
+
+This returns -ETIMEDOUT if no reply with a matching opcode arrives. It
+returns -EIO if the reply has a non-zero error_code. Either error jumps
+to err_powerdown, so no netdev is registered.
+
+There is no fallback to the old defaults, and the commit message doesn't
+give a minimum firmware version.
+
+Does every firmware version this driver binds to support
+GET_LANE_STATUS?
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
+> index 4a18937927514..469818b83d70f 100644
+> --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
+> +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
+
+[ ... ]
+
+> @@ -435,6 +462,8 @@ static void mucse_mbx_fw_req_handler(struct mucse_hw *hw,
+>  
+>  		hw->speed = le16_to_cpu(req->link_stat.st.speed);
+>  		hw->duplex = req->link_stat.st.flags & DUPLEX_BIT;
+> +		hw->mdix = FIELD_GET(ST_STATUS_MDIX_MASK,
+> +				     le16_to_cpu(req->link_stat.st.status));
+
+[Severity: Low]
+ST_STATUS_MDIX_MASK is GENMASK(11, 10), so the field can hold 0 to 3.
+The comment in rnpgbe_mbx_fw.h lists only three values:
+
+/* MDI-X status uses ETH_TP_MDI_* encoding: 0 on link down, 1 MDI, 2 MDI-X. */
+
+The raw value is stored here without a range check.
+rnpgbe_get_link_ksettings() then copies it into cmd->base.eth_tp_mdix:
+
+		if (status & MUCSE_LINK_TP)
+			cmd->base.eth_tp_mdix = hw->mdix;
+
+If firmware ever reported 3, ETH_TP_MDI_AUTO would show up in the
+resolved MDI-X status field. That value is only meant for
+eth_tp_mdix_ctrl.
+
+Should values other than ETH_TP_MDI and ETH_TP_MDI_X be reported as
+ETH_TP_MDI_INVALID instead?
+
+[ ... ]
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/6C54E9FB2E95869E%2B20261124060436.410989-1-dong100%40mucse.com
