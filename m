@@ -1,95 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592399;
-	b=kZBT060SuVe1SKOLChwYAHRUnGo9kGEFBoPWOPH5KjB9gfywbKjfkknPKICtXB9lyne+
-	 /h8Q7p14ryLq2AJcuB+qKXQZbs+9dvYmVfppxxDcA4WuHXSTGEGvbhMQvoSPhnks9EPo1
-	 szbojxKFpbPB47gm4+Xr5xRCbtoQnu7zOs9Pr2UY5y0HGlZ2Agzg9v67UcnZEWjgZj3nt
-	 /aB7u2LTXljzOhWKb29NYX+QP9qCrnuO7PqJZNyNT2Y2zqmj4xDMXIgqfD2CGRv7shmPx
-	 r34Y1uLiAhS5Hl0eumb58zuGqDH9bUO8clGkthFtHfl0oDExIklmLN6lveHhn2LxMpA==
+	t=1795592403;
+	b=XlqF0CeOwNtNAT0NRZwAIPHEjmtqWWRKd2RZlisIDJhb9P48Mkq6QvNOYCkeHg+XE/3k
+	 phZmjHl9CXgdkYIyPRt9MD61AwI8y3v1yi1O+GOou2+LdDAqnTwhcIaKJwb2tT9EdGnRv
+	 bXSR9ZNTDNt8j4jS/ClhM6CQ9kW0VMW9F31EoAaKa+vq5RtmgtGoiacAJ1Phx1/PQkbNV
+	 Vm0CVWxKwx25MIGzmZKOL2MpewP0beE94m+AO4pVtvSndROd3khCOHBmo917BykMp+UEk
+	 hrgBffQYm29OqvfwrKEiP6tDlWViapYTRpRJ7YG4/8k9f9rxpp9ABd/xVrQwKF1ZueA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592399;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592403;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Fic+huB0IdoHR3E/p8bmW1S+ux+MyhR7gu/qGNu0uOA=;
-	b=oSU4fDUR2gGYJw8PnjvIPqa1x8IISdwJjhilEgiSFS8DFIeoUl7eRfrl/FMPlmUPQrxe
-	 uesWl4uXNIwkHj1P1SYaRfmq1R/iQjstpQiOUdQj4PQvXaMYw8kmqNBa9LqaLd1T3VdV2
-	 mE5Oy/cOyjmGtxRFP6YKNszuL7bcYyimFr587jb6EmDFDJqxB4lQqvToGbz80N4SWdwYi
-	 MKfyb8haXbGXOFZdzFJXRRnFy8LVFGD3VKo85vI7u+hrwAqu5TFlJCYxZss1WQDvCH7hN
-	 PwwAmLYWrfbbqPQ3MIq/7JldwdU2ilsO8plyMMHCIeLty72dqLaq1qbeu4UgJlDBbpQ==
+	bh=ibF4F7cNLXhO57E2X85h4/Efme6fANRGzvwJmw8UpCU=;
+	b=FD/NBbANrJcsZqcbIKgql0lCl3ZctBFoESyqx2u7/cm27Bnhv4HwtNXyeAzqJILUrrL1
+	 mIBVbY8L3hdSAP1GEJwGrwKIcohRxCXVurqphjF2Qj42XiFjKok3AQHcfT3r/ZWhfI69n
+	 VZlGxByQ1ir1iVdSQcdPWFSZVJVZWvI+6x0rWtRDSjqZ5j9FnGktiSoGdZoim5zdQhlvm
+	 3HXfFGaSIJ6HpnGRGAvE5jyFBGx5Xaqo+XTowXN43ahgEyB9owYMqAWunuAgQ2WjvdFB/
+	 ZZnvsqanHOeUXjGbiaZtapa54y9tWguXsuG53PUN4l/qhEdTwUVLvKjwoi4Y87WBxAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cjjSHTcS;
-	arc=none smtp.remote-ip=209.85.221.49
-Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yn8zhuGE;
+	arc=none smtp.remote-ip=209.85.215.171
+Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com [209.85.215.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8C84606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:39:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8C84606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 344BD606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:40:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 344BD606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cjjSHTcS
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-4a9be758734so3369980f8f.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:39:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yn8zhuGE
+Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-cde84cb8803so1328286a12.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:40:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795592397; x=1796197197; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795592402; x=1796197202; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Fic+huB0IdoHR3E/p8bmW1S+ux+MyhR7gu/qGNu0uOA=;
-        b=cjjSHTcSrHrh4Uxp8wVViuT4smzPfmMkjlhfaP9Ka1QzEjRMy9zDbQziVzv1TaBRYW
-         aF7+sjCV5MT4p0r3q7WYpiYe+k4+PwcPC5W4mR+cGDYkLrsQkmRmKPVTi0zkrzSv69d5
-         n9A/5nrEsV9exQCHsIhMgOlj4UrbORTRRk4QlZ8a1Th9Hl4b6Kos3hLAXjRCUHDh/FMo
-         TFSg1y6DPd+TlFQj9EzNCMjXYHzYJUJsSzhhrlIUjkw2Bt2n7UVUHmrd0e4UtLeyLZXm
-         CsNq69+hQCp/Zj13orM1N/2tzNO/LUjU3+7CEiDkxR9Vnmnd9zC/s4ysZbQyZkvz5u0S
-         JeFA==
+        bh=ibF4F7cNLXhO57E2X85h4/Efme6fANRGzvwJmw8UpCU=;
+        b=yn8zhuGEiYOBs+G0CA5akukskDI+rIipDX81IBJVIiJLqm0RB5JOepNYCAY3KD1Cia
+         4fBN0zx0wekfGGSTEW+QKdDKGXtSi9ti/u0TkXEi4BrQwY8Fkm6yqe3oi3rqEMqCO/Rw
+         MQIt+Vz3OwRhDUZe52DAd1wuGOxrfr/Wsi2Av70x8mRMNN73LwV8Lc0zesjj1jNWiF4q
+         rf4Eiyvx7ygsJNMYRdZmoK1xrBaqSsNrl60JXhPFOwIFkdG31ZJjAYSjkLaz/Ha41HLQ
+         E2EQayf7WDcBxoVHWIo2w3VyKfzoosATZcqanM7XcXrYs7mZsM3lirIG40K/X+WiwFEr
+         Z3RQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795592397; x=1796197197;
+        d=1e100.net; s=20260707; t=1795592402; x=1796197202;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Fic+huB0IdoHR3E/p8bmW1S+ux+MyhR7gu/qGNu0uOA=;
-        b=RbZR3/rr8unaDhCMk+Rhl+Bz0b/WZkwkUhLqDijSs0rnBUaCRyOna2JDFxc9xsHI8q
-         7pDQGZrH4SlAkOIn/IFwhlzuqnSEqA01wjoSUrX1wRqSdhz9wEAIRESvyZbjjOCB1DaF
-         k7QCw1uFnjC3rd9jx3QSZBtHSZaoSqHi/JfYwxbQ9+6jX5/6VjXVcVtcoWiK0XrGJDAE
-         ot6x7l5MRkAKgRznS1sLmDg7FatIsZiy+hQqCzm+gpRcks5idtTbr8AhXWBowgRvNdy9
-         jSwplipH0dASfPwK9nHwvJRbQYSue1vGO8WhDzHkdFTKIRMUUN6dTt9eV6pv2fNDgDus
-         b6GA==
-X-Forwarded-Encrypted: i=1; AL+hErGsETR7Qh5T4PqFYca0VayQxkVK9UEOeaNlVHVK5EpjERrjTTRMfGPkq50Wuo5WeOS3Bhnw7cKIfs/XFoI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/pQnUPFSc71VAcQ4i2FQL1mPFjdTIWW220EKMpxv3ezxDdZXVW
-	8n30oZtJfSHzZP0NdL2Fwg1iFc9upaaQdOVELbzXOon5xXgpbAhAaTlA
-X-Gm-Gg: AZFdTZeo3/BQ+8/7Y8IjE36a+2VICaLfTPr/SeSQ2Owirfsc8nsltZbMRf0pUF5n4Dp
-	ccq25baaaxQmErwMaH+WrnSTV1qRwZPkDT02hTYffMnxZh8v4x6swKkIbrg4CM92v6N7zYjXP7c
-	XgdzyqR1OzzYbJKQRlPdObEKA9FGvkq+U+c+eE3FQavwB303Shb/769lrorr0J1FZMkU1tj9vcj
-	NBcKh6wxhvt585IvAmYP/BVwnWlBrAc5LMfn0p2mNzzQHPam1enzsrPsx0RONbgGcpvTQAEJ4aK
-	R+eg4D1Uz747Mg/2pjorf+vvKCGZRLIofUSYy9IlsKHQQeeWff0ckafhqXHOycEt9T5T3awqWwj
-	hchP6O1ShPB4YC1ShfBezyzoe79SnjI5V4UQJ3CbGjWxBPiAOib79TY9SNs0HyeXdYQUDeYpQeo
-	yTfe3C9vGXRtWoEXOBXhibMrLrLbTJSONZOGpmTEzyjPogcOle9YWfsqhJ08NZxEx4P6ciXN6rb
-	WuRKOBc6BpHuDXijpJKZQxmEgZDrbdgo/6R8JOZdPIMOyrST45TQUGKEVNLtScXb9mbxmYtrAlT
-	+cWavP9aLa88wd9YGjXBvrdMEhSEy6T2pF50tdrVammPB1yy5liRBWdow4QY5TG2hesedeX9uSv
-	Jt5GbDQawqU6g2nsVWFaaO44OkMNuFw9k9GvZniQwrDCXElQ+wukCgQiON6htkHkOpf3B0oPqWH
-	32GprWLN7gv0sthx97FajeS7MgIsxYtR5Hnn+rwWa9lT4Zrx+Gim5ODem8WFAg36hwslRZUJUsX
-	C1v5kYtsHtvjyKQOA==
-X-Received: by 2002:a05:6000:2b8a:b0:4a7:b365:19dd with SMTP id ffacd0b85a97d-4abb4b85bcbmr21938249f8f.53.1795592396978;
-        Tue, 24 Nov 2026 23:39:56 -0800 (PST)
-Received: from longitude (2a02-8434-fda5-4201-fb56-7a23-de2e-e3d4.rev.sfr.net. [2a02:8434:fda5:4201:fb56:7a23:de2e:e3d4])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bc8ce06sm31725489f8f.47.2026.11.24.23.39.56
+        bh=ibF4F7cNLXhO57E2X85h4/Efme6fANRGzvwJmw8UpCU=;
+        b=YioqnteFfiiaInCMU1lcED962etUNvp01Bms+xYWCw6Xsq1tDRM5TWBS/XP7j5jJuM
+         Wm7Px8N/iNihjQiO5DLB/P2PG8gyA3WUJ2k1TYhOs3bYMN/ACYqjn7vpZNqCoeW4giP2
+         hMYIhrXZRTqzaP8uNc/MP8Y+ndopZDMkMQMEaEA8dv2cj6tHYTT1sGDrKIzkyOd1VPYR
+         5lD88uqwTW2vy1Yo+Zi7SYvsGHDF/89pxmtlynEyA09RxZI54wQ2mobvMdk/iNDNf4kG
+         5td4sMuT53PnT5nkBeqIp38bwp1znrEKPKVHp8lRbhUmQTxzmW4uX+eCJzpXpBnVcoxG
+         E5WA==
+X-Forwarded-Encrypted: i=1; AL+hErHTbYUgN8yZwmMGgnMcWg0kr/qeEyMFOAPIOsyeZRvGmYotAgOm1DWeuP6mVzlnf8+l+NFJBxAF0C3f3is=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8t5jPlnRCySIdXudLX/2S8/X9KxZwjiynbBjNjf6RkXUtr2avk
+	EFw5cDOEMR/wnGVo5k0KnHwJcsWcEa1vfMKx3YsRlHt7Xd5VZls3nxV8
+X-Gm-Gg: AZFdTZd5wS4EMkQzxHJGKUSrzKNq6TxghU7zrDKCrykR7Zfe3huY6uI5/ZF6pDk1OUA
+	y75MBLgLFcl6j6lKkGjQcJG3sg4cWEM/TKuyQYIjD67DhE5tUv3RzxPlq+5cBqszO3ylqlKm9y7
+	9ZOVzKmqNiGlgpvCJgevnDlJt5ipm845q8u6RgraKWcQ1Ock/jz/yCFTGO+NX9KXEcHJg7TSdra
+	ohkpidVHySIkKvL7aqXossv0GugPMwouHCZaEpD/qtDk9WPv4vQzLnVJHLhjeAnbQMaFXgtwwAT
+	7HAtJh3IyB1h2Bra7O6etEhMfcEO3My1ahVi95pb0ARgmR3eOBDfT/9Lsp5ar8f9Gz+qZ/Aqnfl
+	J4L9DGs0JBxmTPRmoDFeAJOEPowiGq/+/pbwgwiy71+pq1ytmv9HnyPaq6aTku7z+W1LiE58G29
+	uBU4OsOFyOrRbbO8TOXQj45mu9urQeZ35Tt9uLDMLEVB8+/XRy+2HTIj/jeDBS+doDcmiKv0N0A
+	1TpHkZcy4aCAsxEuHU3jw9jC/y3a6BIAFaq8b1tjS5rzFETFnC6LiGvZ91Fcao6wj0nx1h8y/pH
+	aTQB5Jx/K3Ix2igfJcVVVrvLRP36jK6IKIkAMrb7I5m7Kg==
+X-Received: by 2002:a17:90b:48d0:b0:3a7:b260:9ced with SMTP id 98e67ed59e1d1-3b41c96cef8mr16857502a91.58.1795592402400;
+        Tue, 24 Nov 2026 23:40:02 -0800 (PST)
+Received: from osman.mioffice.cn ([43.224.245.178])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb2076sm26773960a91.2.2026.11.24.23.39.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 23:39:56 -0800 (PST)
-From: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
-To: mhiramat@kernel.org
-Cc: corbet@lwn.net,
-	linux-doc@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] Documentation: bootconfig: Document the current config limits
-Date: Wed, 25 Nov 2026 08:39:41 +0100
-Message-ID: <8b11df1def359a2b28cd4bb6c42606e25ab9d6d7.1795592381.git.edumucelli@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        Tue, 24 Nov 2026 23:40:01 -0800 (PST)
+From: Zhan Xusheng <zhanxusheng1024@gmail.com>
+To: jaegeuk@kernel.org,
+	chao@kernel.org
+Cc: yangguikun19@qq.com,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	zhanxusheng@xiaomi.com,
+	stable@vger.kernel.org
+Subject: [PATCH] f2fs: don't BUG_ON an inconsistent node ino in roll-forward recovery
+Date: Wed, 25 Nov 2026 15:39:56 +0800
+Message-ID: <20261125073956.2927907-1-zhanxusheng1024@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,62 +100,64 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Bootconfig has accepted 8192 nodes since the node limit was raised for
-DCC support. The admin guide still describes the old 1024-node limit and
-derives example entry counts from it.
+From: Zhan Xusheng <zhanxusheng@xiaomi.com>
 
-Describe the current node budget and how keys and values consume nodes.
-Document the 32767-byte limit for initrd attachments, including the
-terminating NUL byte and excluding alignment padding.
+do_recover_data() asserts that the ino in the NAT entry of the node it
+recovers into matches the ino in the footer of the fsynced node block.
+Both are read from disk and nothing checks one against the other
+before, so mounting an image with a wrong ino in that NAT entry hits
+the f2fs_bug_on(): a kernel BUG with CONFIG_F2FS_CHECK_FS, and without
+it a warning, after which the NAT ino is written into the footer of the
+recovered node.
 
-Fixes: 6c40624930c5 ("bootconfig: Increase max nodes of bootconfig from 1024 to 8192 for DCC support")
-Signed-off-by: Eduardo Mucelli Rezende Oliveira <edumucelli@gmail.com>
+To reproduce, create a file, sync, write and fsync it, crash, and change
+the ino of the file's entry in the NAT journal of the checkpoint pack.
+The next mount gives:
+
+  kernel BUG at fs/f2fs/recovery.c:698!
+
+Fail the recovery with -EFSCORRUPTED instead, as the ofs_of_node check
+right after it does.
+
+Reported-by: Guikun Yang <yangguikun19@qq.com>
+Closes: https://lore.kernel.org/all/tencent_5CEF90115E2715D386A8349FCA28D7D4D607@qq.com/
+Cc: stable@vger.kernel.org
+Signed-off-by: Zhan Xusheng <zhanxusheng@xiaomi.com>
 ---
-Hi Masami,
+Tested on f2fs/dev b61a029304bb with CONFIG_F2FS_CHECK_FS and KASAN.
+With the ino of the victim's NAT journal entry changed from 4 to 5:
 
-Thanks again for the reviews. The guide still lists the old 1024-node
-limit. I checked the 8192-node limit on my Ubuntu machine and tested a
-maximum-size config with all four initrd alignment paddings on top of
-your padding fix.
+  unfixed  kernel BUG at fs/f2fs/recovery.c:698
+  fixed    "Inconsistent ino_of_node, nid:4, ino:5, 4", recovery fails
+           with -EFSCORRUPTED, the mount is retried without
+           roll-forward and succeeds, and fsck.f2fs reports the same
+           mismatch for nid 4
 
-Thanks,
-Eduardo
+The unmodified image recovers the same way with and without the patch.
 
- Documentation/admin-guide/bootconfig.rst | 19 +++++++------------
- 1 file changed, 7 insertions(+), 12 deletions(-)
+ fs/f2fs/recovery.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/admin-guide/bootconfig.rst b/Documentation/admin-guide/bootconfig.rst
-index 3d6412458c8b6..30bf89cf0f67a 100644
---- a/Documentation/admin-guide/bootconfig.rst
-+++ b/Documentation/admin-guide/bootconfig.rst
-@@ -354,18 +354,13 @@ The final kernel cmdline will be the following::
- Config File Limitation
- ======================
+diff --git a/fs/f2fs/recovery.c b/fs/f2fs/recovery.c
+index 54b5246609de..c92da18f553f 100644
+--- a/fs/f2fs/recovery.c
++++ b/fs/f2fs/recovery.c
+@@ -695,7 +695,14 @@ static int do_recover_data(struct f2fs_sb_info *sbi, struct inode *inode,
+ 	if (err)
+ 		goto err;
  
--Currently the maximum config size is 32KB and the total key-words (not
--key-value entries) must be under 1024 nodes.
--Note: this is not the number of entries but nodes, an entry must consume
--more than 2 nodes (a key-word and a value). So theoretically, it will be
--up to 512 key-value pairs. If keys contains 3 words in average, it can
--contain 256 key-value pairs. In most cases, the number of config items
--will be under 100 entries and smaller than 8KB, so it would be enough.
--If the node number exceeds 1024, parser returns an error even if the file
--size is smaller than 32KB. (Note that this maximum size is not including
--the padding null characters.)
--Anyway, since bootconfig command verifies it when appending a boot config
--to initrd image, user can notice it before boot.
-+A bootconfig can contain up to 8192 nodes. Each component of a key and
-+each value, including each element of an array, consumes one node. Keys
-+with a common prefix share the nodes for that prefix.
-+
-+The data is limited to 32767 bytes, independently of the node count.
-+For a bootconfig attached to an initrd, the limit includes the
-+terminating NUL byte. Alignment padding is excluded.
+-	f2fs_bug_on(sbi, ni.ino != ino_of_node(sbi, entry));
++	if (ni.ino != ino_of_node(sbi, entry)) {
++		f2fs_warn(sbi, "Inconsistent ino_of_node, nid:%u, ino:%u, %u",
++			  dn.nid, ni.ino, ino_of_node(sbi, entry));
++		err = -EFSCORRUPTED;
++		f2fs_handle_error(sbi, ERROR_INCONSISTENT_FOOTER);
++		fserror_report_file_metadata(dn.inode, err, GFP_NOFS);
++		goto err;
++	}
  
- 
- Bootconfig APIs
-
-base-commit: 56bb11fe6aacc7666938e8e6765b44aa0cf1fcdd
+ 	if (ofs_of_node(sbi, dn.node_entry) != ofs_of_node(sbi, entry)) {
+ 		f2fs_warn(sbi, "Inconsistent ofs_of_node, ino:%llu, ofs:%u, %u",
 -- 
-2.53.0
+2.43.0
 
