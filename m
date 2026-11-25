@@ -1,75 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617511;
-	b=IpI5+yTX6uIhvXpWM7uprj6L+3dsMwHKgnm8QyakpuDeGJN7i61Tv3EvtOxJn8aYrRdb
-	 +2zVtfxzgkbCA8lz6hgS6l9dTbycuVUJfbkm+GmfEYSyBi7czVO8REi5rCDqZFHAXerjS
-	 tVIvLkdFi2uwshlahlKoCXjEvpkVUXvGYcZzrNRsZ4g1er7ODn/m4fI0W2nFvs2dktNUy
-	 qJiJg36ClSDEs7Z1zLu7muwC84LjVFMdyP2mbQkATMauaGD+i8mpOhQXN8xHBrZUyznkS
-	 yA6woesmyXXPK77LYdhbwBElDKsRwOLJf0QC5IfOoz0grCZ8ceGnIm2wWexdUks7S2g==
+	t=1795617515;
+	b=uclEExIriPtDTQC7TfK5OR3zzQ4ylRVJA9WAy0IMUz9xUw7TI4cmFlX5m7pS2YP+0Jg6
+	 KpafkniBNeU5KB4Qt46EMq/V1INDc2PovsIEAaxI8DLaDhNvz8F3cBDQZbYBoYohaNSG5
+	 50pepI5zlRHEWk/bpvXuw+9fVz1tbQHWiqEVjQUdpJ4B7UqD7wymaYn2qpBlNvXLCHJgl
+	 BvPOcCQQsiCoIAr4EyID/TS9Ph8/SQZsAgX+wgtYPsj9+Lqpefbl/NGR5aoLVlCU1X3Pq
+	 um3rjBc5/9Q/Q21OCtiL1Xvcerwu6CAWtH9D7or7TrkebHzNYtnW0PESFClm+NlZkWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617511;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:To:
-	 Cc:References:Subject:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=V+SWYMrsgQDDOyJAzdmFdi2RZ/LBOyWTLZc7ss8N4j8=;
-	b=b6t7baxlWVuiLyIMfyOu1IzEju6nbNVTYmh65bHcRI6KWvw0eOHmr8ub0TfaSUt1eHiC
-	 LzDF4wyyKPpOsiGv1QEs968mBItvbPzxFObFBbjbDdnRJUCA43hU6kaSKhIemOQs98Oza
-	 KkTQczLMmXUZH4O1xoB6XQUkOKDf9gE/AwA3q8D2OIk500KvK3hG7JMPOzgXq37LuCcGs
-	 9144UgUCHZu1ukFTH+YXFBfb5DAitZD+SDp5HRWPaVpEgY72G1NcxLFjmo1WR0+cAHGwX
-	 3K7xcjGFuv8Yi0pa1paTf4V3qx7+IYyRCHsScn2mCV7cNavKuPS8f9YHLAmD4asyGWA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617515;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=0Gc9tYtRb19MW0h+QBmLaneRf2CSlYjfdbqau2neOto=;
+	b=FFLh5sYB/o8p0RKHgSRTrvupRxxmDV7iwDspdokVtVG7jRed8GvSLjV9c+4kebbSiWDU
+	 rr2kmquXxeQOOhpVpTMnC4xfAVV9AmWvu0quGpLo2ENtIRCvoSTDqYlf576Paa3xe5GSz
+	 j4K5Ezg7vZ53KuvKEWh1/qHv0On16qxJ4HKasZhF09quvJ/Ng3F1j1Z/cpx/8Fi3tp8Zz
+	 uqXomBSYKxq4XiYop97Kn3R72vNy+Fb4UMcAAiSofUa5vWzhcPCwOvPQsW9SajwRN73+k
+	 HLY4AQj3WFkLhLOaRTdyjuwpNaL34F4C/cpP19Y5dXJ8H15S21f3h8yPYBi+sSXFmYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=p0ervYHU;
-	arc=none smtp.remote-ip=212.227.17.12
-Received: from mout.web.de (mout.web.de [212.227.17.12])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ho2gnp0X;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D67B606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:38:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D67B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B6E6606A330;
+	Wed, 25 Nov 2026 14:38:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=p0ervYHU
-DKIM2-Signature:  i=1; m=1; t=1795617501;
- mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:KKq5T9fklkYv7dNbQ9Sv0EltXV5t
-   KteVs2ZcnetMqRWiCiwUAYiYFfOAKvP/ARdMPzOI9ZHJVJTcRMeWCGhiihffty2bXaZOEtgALEp
-   QDKaz12c6Uu1tHX9LstBlsK5zck7/3UcWJXv0QBFzmohOOqlAHVva30BxIW9/AmULXiKspqCxvS
-   xFDIXZTU3lBAUFtBw9vRs9UwkAmgWhuF4dvkoNYk6BvzhPx+rkWhdWz1Z0dVHrYexIolu6qBtuP
-   uXmSqZcxPDk0fQyfWIjQJp58IA9Zel0FyIvam0rpk2XzYbtEOj8s4dbZfYKBMen9SlH7nLYAcl0
-   5RsuH3iBD+2E0w==;
-Message-Instance:  m=1;
- h=sha256:
-   fF/XZeyUxy8FHjCHBzXgXM1gwwBvjTgNwVFzDafx8C8=:
-   KvYEXE+cubTibDFFZRlF86cMR9D9ms2+WRSgzpVl4G8=,
-  sha512:
-   yHE8dCB/5Zh4cEawczJzWHi1XBZG+o3PAoD+FXir22ti75+Y0BYo/9xNRVcLVJ/RjCHH+DM1xSUy+6UwC/dkIg==:
-   IK6FEubpsiP9RyqNSC2HG3YKUhQNJfYdklEHC5T081CpoLHOK0sGzv+Q2odalZU3BsZlZQbKwuuFYhPyGLKn7A==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795617483; x=1796222283; i=markus.elfring@web.de;
-	bh=V+SWYMrsgQDDOyJAzdmFdi2RZ/LBOyWTLZc7ss8N4j8=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=p0ervYHUQiczczlgIiMcfDphWzspc2hHWZPrhbRhvbVxV5JXG0g0HfelD1tf1dhd
-	 qQUwZp6eWgiVFu8suVfZBn6dw8vjKCkhbwdF83E88iCtL9GPDimEjInZKYRAJFUFv
-	 a0AtrI66MjoP5xF0kzDdL7D9cGQ88JMKPsE5Dm05sPxb8SZfwp5he/gUs3MUikYbw
-	 aNk8s8QRx7XxUW5vgc4Tppm+1a8prW5bOil0jnM8f3Cyslhb3YMYc4iVZwRgq4C2s
-	 37Nvgrbr79en43fzaAuME6/taAm49K3ujWyJImFQy9IpF974/XWkNEf/LMaqa5/VV
-	 MDrOVrduYyIyeljEXQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MzkSZ-1yRTWU0a13-00yduM; Wed, 25
- Nov 2026 15:38:03 +0100
-Message-ID: <5ff7af23-de12-40cc-a8a9-29d787873837@web.de>
-Date: Wed, 25 Nov 2026 15:38:01 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ho2gnp0X
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98E641F000EF;
+	Wed, 25 Nov 2026 14:38:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795617514;
+	bh=0Gc9tYtRb19MW0h+QBmLaneRf2CSlYjfdbqau2neOto=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Ho2gnp0XzfNdjWNXAJI/Axure0NT2HpjLyaJjBNjOip3PlqKh+gXsp7of7DnVaO0p
+	 GOCi8+D1NytiFBxi27DxpjC7f4cwkMslXpl8XUY45OzXh5u4s8lqNaYHeAKfZI2nOj
+	 WaM7Df1ddsZa3MAbU9KVGatNjlldVIGokNkhYsNKNkzCOwT2a1ARQEq6Ui0+FRPFsU
+	 NQmktrraq8ErCoiF0ewL5Z1S4bd+x0dm9cwLycMZnNLw5nVVA3NiLhTdwBNXfTYKgT
+	 QwukmWm3KAr0EwvuyQbk+qfNWTUR3a9SWkIMy+sDhDRknuZQtFEfUkPqAZk3Zkf4RV
+	 mXqdHam9FB1dw==
+Message-ID: <5387130c-df43-41d7-9ff8-8ee549e6e97f@kernel.org>
+Date: Wed, 25 Nov 2026 15:38:30 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,156 +51,133 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Matthew Laux <matthew.laux@gmail.com>, linux-media@vger.kernel.org,
- Hans Verkuil <hverkuil@kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Mehdi Djait <mehdi.djait@bootlin.com>
-Cc: LKML <linux-kernel@vger.kernel.org>
-References: <20261121035523.26764-11-matthew.laux@gmail.com>
-Subject: Re: [PATCH v7 10/12] media: tw9900: add S-Video input and progressive
- source detection
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20261121035523.26764-11-matthew.laux@gmail.com>
+Subject: Re: [PATCH v3 1/2] PM: runtime: add additional suspend/resume metrics
+To: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Cc: Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
+ Samuel Wu <wusamuel@google.com>, linux-pm@vger.kernel.org,
+ driver-core@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20261123-pm-runtime-summary-v3-0-81a966953a81@kernel.org>
+ <20261123-pm-runtime-summary-v3-1-81a966953a81@kernel.org>
+ <CAJZ5v0hpnoGw89WHyofLr3SxnrJNs99LnhndeOv245y_LgGWXQ@mail.gmail.com>
+Content-Language: en-US
+From: Joshua Crofts <crofts@kernel.org>
+In-Reply-To: <CAJZ5v0hpnoGw89WHyofLr3SxnrJNs99LnhndeOv245y_LgGWXQ@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:r7M3hiurwiZ498JuLbLD040PvBBtMSuao+pfsYh0EEyKcz2fm8E
- /lA5sbD2RtAY7nXRrm16p1mHglhHFjEV/0BinCOHDWIenxmwSYZyKBhVGDrlRw1JBstldsB
- bYETdLQPxgro/HjZpPp1+vyKky6ixJA5+cUQzjSlH6PMRzOAFJ4vR4VwMVKGrC7V/ZfvX1n
- Tp3EEhNB+25jf5/ItlMvQ==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:KhjKszN8ApM=;/5XVeEYZgrvX2T/21NR3Nv78s0Z
- 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
+Content-Transfer-Encoding: 8bit
 
-=E2=80=A6
-> +++ b/drivers/media/i2c/tw9900.c
-=E2=80=A6
-> +static int tw9900_s_routing(struct v4l2_subdev *sd, u32 input, u32 outp=
-ut,
-> +			    u32 config)
-> +{
-=E2=80=A6
-> +	mutex_lock(&tw9900->mutex);
-> +	ret =3D tw9900_apply_input(tw9900);
-> +	mutex_unlock(&tw9900->mutex);
-> +
-> +	pm_runtime_put_autosuspend(&tw9900->client->dev);
-> +
-> +	return ret;
-> +}
-=E2=80=A6
+On 25-Nov-26 13:54, Rafael J. Wysocki (Intel) wrote:
+> On Mon, Nov 23, 2026 at 10:07 AM Joshua Crofts <crofts@kernel.org> wrote:
+>>
+>> The current implementation only logs the total accumulated time a device
+>> spends in suspended or active states.
+>>
+>> Add tracking for:
+>> - resume_count : number of successful transitions to active
+>> - suspend_count: number of successful transitions to suspended
+>> - last_suspended_time: duration of the most recent sleep cycle (ns)
+>> - min_suspended_time / max_suspended_time: shortest and longest sleep
+>>   cycle durations to help detect power thrashing (ns)
+> 
+> I would mention that they would be only reachable through a debugfs interface.
+> 
+>> Signed-off-by: Joshua Crofts <crofts@kernel.org>
+>> ---
+>>  drivers/base/power/runtime.c | 93 +++++++++++++++++++++++++++++++++++++++++---
+>>  include/linux/pm.h           | 16 +++++++-
+>>  2 files changed, 103 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.c
+>> index 4e9c23059a40..17aee68366cf 100644
+>> --- a/drivers/base/power/runtime.c
+>> +++ b/drivers/base/power/runtime.c
+>> @@ -5,6 +5,8 @@
+>>   * Copyright (c) 2009 Rafael J. Wysocki <rjw@sisk.pl>, Novell Inc.
+>>   * Copyright (C) 2010 Alan Stern <stern@rowland.harvard.edu>
+>>   */
+>> +#include <linux/pm.h>
+>> +#include <linux/timekeeping.h>
+>>  #include <linux/sched/mm.h>
+>>  #include <linux/ktime.h>
+>>  #include <linux/hrtimer.h>
+>> @@ -103,11 +105,70 @@ static void update_pm_runtime_accounting(struct device *dev)
+>>                 dev->power.active_time += delta;
+>>  }
+>>
+>> +#ifdef CONFIG_DEBUG_FS
+>> +static void rpm_account_suspend(struct device *dev)
+>> +{
+>> +       dev->power.suspend_time = dev->power.accounting_timestamp;
+>> +       dev->power.suspend_count++;
+>> +}
+>> +
+>> +static void rpm_account_sleep_end(struct device *dev)
+>> +{
+>> +       u64 duration;
+>> +
+>> +       if (!dev->power.suspend_time)
+>> +               return;
+>> +
+>> +       if (dev->power.accounting_timestamp <= dev->power.suspend_time)
+>> +               return;
+>> +
+>> +       duration = dev->power.accounting_timestamp - dev->power.suspend_time;
+>> +       dev->power.last_suspended_time = duration;
+>> +
+>> +       /* Update min/max extrema at the exact same moment as last_suspended_time */
+>> +       if (!dev->power.min_suspended_time || duration < dev->power.min_suspended_time)
+>> +               dev->power.min_suspended_time = duration;
+>> +
+>> +       if (duration > dev->power.max_suspended_time)
+>> +               dev->power.max_suspended_time = duration;
+>> +}
+>> +
+>> +static void rpm_account_resume_complete(struct device *dev)
+>> +{
+>> +       dev->power.resume_count++;
+>> +       dev->power.suspend_time = 0;
+>> +}
+>> +#endif /* CONFIG_DEBUG_FS */
+>> +
+>>  static void __update_runtime_status(struct device *dev, enum rpm_status status)
+>>  {
+>> +#ifdef CONFIG_DEBUG_FS
+>> +       enum rpm_status old_status = dev->power.runtime_status;
+>> +#endif /* CONFIG_DEBUG_FS */
+>> +
+>>         update_pm_runtime_accounting(dev);
+>>         trace_rpm_status(dev, status);
+>>         dev->power.runtime_status = status;
+>> +
+>> +#ifdef CONFIG_DEBUG_FS
+>> +       if (dev->power.disable_depth > 0) {
+>> +               if (status == RPM_ACTIVE)
+>> +                       dev->power.suspend_time = 0;
+>> +               return;
+>> +       }
+>> +
+>> +       if ((old_status == RPM_SUSPENDING || old_status == RPM_ACTIVE) &&
+>> +           status == RPM_SUSPENDED)
+>> +               rpm_account_suspend(dev);
+>> +       else if (old_status == RPM_RESUMING && status == RPM_SUSPENDED)
+>> +               dev->power.suspend_time = dev->power.accounting_timestamp;
+>> +       else if (old_status == RPM_SUSPENDED && status != RPM_SUSPENDED)
+>> +               rpm_account_sleep_end(dev);
+>> +
+>> +       if ((old_status == RPM_RESUMING || old_status == RPM_SUSPENDED) &&
+>> +           status == RPM_ACTIVE)
+>> +               rpm_account_resume_complete(dev);
+>> +#endif /* CONFIG_DEBUG_FS */
+> 
+> Please move the code under CONFIG_DEBUG_FS in this function to a
+> separate function called by it and defined as an empty stub if
+> CONFIG_DEBUG_FS is unset.
 
-Under which circumstances would you become interested to apply a macro cal=
-l
-like =E2=80=9Cscoped_guard(mutex, &tw9900->mutex)=E2=80=9D?
-https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/cleanup.h#L=
-325-L328
+Ack, this patch is messy...
 
-Regards,
-Markus
+Also Sashiko still isn't happy with the way I calculate these metrics.
+
+-- 
+Kind regards,
+Joshua Crofts
