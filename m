@@ -1,54 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795628242;
-	b=RdcQlgyU4zzPFLjcL9kdUW8SBmTWPxt/gADfPeKN5BPMht+b9B84pEZxO7e1QrMBqV2A
-	 dmy4JmTsznYdAo1CR9Q+rm0XSY7hsjbRMMzh1/HayPUZsjDnzWVLCvOUD9eqsxv7Ce0W7
-	 4mARAGYa3RyGLOCXK9ZCX9frhidndNMIlqLJWyMXL7PdFm/eoo70QYYa2Fhh/naQ3iPa5
-	 7O+DKEXPoyUkopUOowrPQPVCFMpCBSdJwJAArQUxEVAj2bDBkWsyoKb7E3uICyS1+ZNa8
-	 3pZh5vxGiNy0F608vX7YwNxf0P/DNutJs8stBtAtAbxKJ5ljd4AjqCB6IXmbwCXv+hg==
+	t=1795628280;
+	b=KiX2PG+ptkI3MxnoHTvVNG3IIlaq2IxoO6WE7Gn4u7eeGU/u29dGgQRwdkAxaG6cmQpE
+	 OAKnalbTuieM+eZnFrqarNnJxvN2AsrQzdcMO4Fiwpct+s6tsqYkMbynIvhcbiAzPviJ+
+	 Flf9WYe1xM7akKa9WAmbY8wBllL2Jy4EMTGPss7q+p3K3hPV4jWGUvyYlCp+ay/M2FFLw
+	 K+Gvhjy7ZfbhkPsYrXzKQ29UKl3c56SsMbvbYalgpy+iujnIlnRBFHNwuUalK56DXSeDS
+	 vdLhQzF0VUVK1LZYTsDGJpDpmnl6t4BmsWNl+rgDclVTEGjuCjoUOjZUKg2+eWbQz0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795628242;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795628280;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=eUjleOgflz/ScxaPG+1fyZoxmF8lmCs5aDsYINdEiyc=;
-	b=ZeEe+xii8FcrIB37QXSz3Qt9BFKNfiLrESq5rDkaN6NgDQXn0mfoWv4iUNIm2ZLks/xc
-	 nFrHLz9CXbXGxsQdSnV2/for11gQBQZTcgUKaOlYmLoiRIUv4V2o/jM5E6yjrV86Ms9to
-	 o++ChK0JP5SQws61dmzNuWevLuF7zaC2TXYlCTZF1IkYs5eqB29d1L/lDycKtEOZ5hKpO
-	 rULi7lYCbkvADZdYrwNwmJxeaCzpxnw5m8OKy1SO4OXayQIk1ujP9ApmJKUzOPTKnav2I
-	 wMQ3vZgYo2cLtJfSdL1ZVdjHRkRJ9/JGvHUdz0qEnqDQxHEk+z6Q4T+R1V3JtZY4MkA==
+	bh=bqtEuywigRCiQu572g7c/rDN1ly7jVe/6vIHEB00xIU=;
+	b=wnRgQfwnVocb/XiiTFHuaoAM0bgDXpzHEySiD/9Ul3jPyYMsHKcsGnjxSFTbHDAiwa7S
+	 QqlR3x4k4c/CdcU4CLe2JOMCULjSF/Pnc5YWZaSLiOc/JGv2QmHOflAeJtYfCUk7Qfx/P
+	 +FgINa4BEt8YbmataWv2KqYmkEHNWja8k7trX/bG7oWrWppvSxQesIKTrjStEj+Q2Bxj2
+	 xpgA5BW9NEaE5Ff8RYapK1ECzPpdUedd9zJjw+F71pZUZc2AXfKZIPn8XddAQ3BYtpSsF
+	 TIpkl4tI0R1Zci62VU7FM3XMNH4HjRlWF9bUWAD37se5JBBenMLgDQkgRIS48GLgaMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ozwLdpOy;
-	arc=none smtp.remote-ip=91.218.175.174
-Received: from mta0.migadu.com (out-174.mta0.migadu.com [91.218.175.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=RJrzaeMN;
+	arc=none smtp.remote-ip=79.135.106.101
+Received: from mail-106101.protonmail.ch (mail-106101.protonmail.ch [79.135.106.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7246D606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:37:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7246D606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4CD9606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:37:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4CD9606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ozwLdpOy
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=SmxBiFQPGWVl7pVf8yZNdnfsf5ZI1BrL6QFbajuc6Mo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795628238; v=1; x=1796233038;
- b=ozwLdpOyruHqXV5oLW8yx0fOMZ2MqLP9HUr7yafMJ0FlLIP0eJQF1d1a/Cs9tAYVEKYzslYb
- aO+qRSacdHHnZYub3k2fEo9osQga0zjVtM4J0Pi76Z82FK8T7Vc89/8zJvsvB46g/uVEaYIwG9h
- Qm2RM19Q/UytCGuYJJFppObg=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id dd5769ca4d57c53f;
-	Wed, 25 Nov 2026 17:37:18 +0000
-X-Mizu-Trace-ID: dd5769ca4d57c53f
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <0e4be7f5-8704-4d2c-8e63-d578fad13774@linux.dev>
-Date: Thu, 26 Nov 2026 01:37:12 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=RJrzaeMN
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795628272; x=1795887472;
+	bh=bqtEuywigRCiQu572g7c/rDN1ly7jVe/6vIHEB00xIU=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=RJrzaeMNLC1SGalS/6cNPbO+mp3DASs2lNmMOU9VETU9FT8TNXHVwAPWr9zknfDPF
+	 Nl6/nLaPcKKs2z4T+3Zfxh0+wy2IANfIpfGaUtvb3uGv69Oc2Lsh/yJfzzTQLgslYw
+	 4g0J6u07s5KOC3+plxGZVbz54lwHmL0FS9vRkOPP8UClgB6I+miq6cfx/zOT6yobFZ
+	 CzJQu9e+cpSQGo7+ek9RmD/wFsGAWNrJmuWJrUk7ygKsJjUFZyvOcvOQySJhut5HWR
+	 LQwt+K66hRuoFKRgkto72ywSKK/PPVW9QzBF4qRILKfkgrvGMWGYlf+5S0gKl1uF1p
+	 +NhSkrzaW8oDw==
+Date: Wed, 25 Nov 2026 17:37:47 +0000
+To: Christoph Hellwig <hch@lst.de>
+From: Ernest Borowski <ernest.borowski.git@proton.me>
+Cc: ernest.borowski.git@proton.me, Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>, Baolin Liu <liubaolin12138@163.com>, Christian Brauner <brauner@kernel.org>, "Darrick J. Wong" <djwong@kernel.org>, ntfs@lists.linux.dev, linux-fsdevel@vger.kernel.org, linux-xfs@vger.kernel.org, linux-kernel@vger.kernel.org, Zhan Xusheng <zhanxusheng1024@gmail.com>, stable@vger.kernel.org
+Subject: Re: [PATCH v2 01/11] iomap: punch out a run of clean blocks in one call
+Message-ID: <179562825956.336440.5071696785639646225.b4-reply@b4>
+In-Reply-To: <20261125054814.GA20604@lst.de>
+References: <20261124-b4-ntfs-delalloc-fixes-v2-0-f394c800ec03@proton.me> <20261124-b4-ntfs-delalloc-fixes-v2-1-f394c800ec03@proton.me> <20261125054814.GA20604@lst.de>
+Feedback-ID: 236360163:user:proton
+X-Pm-Message-ID: b32a1413ba774602f3725cc28f6d0b8c64ad1c5e
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,115 +64,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 0/6] sysctl: replace overloaded extra pointers with
- typed bounds and core stride
-To: Joel Granados <joel.granados@kernel.org>
-Cc: David Laight <david.laight.linux@gmail.com>, Kees Cook <kees@kernel.org>,
- linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <cover.1794844686.git.wen.yang@linux.dev>
- <awV04op6IxD2NWQA@hobbes>
-Content-Language: en-US
-From: Wen Yang <wen.yang@linux.dev>
-In-Reply-To: <awV04op6IxD2NWQA@hobbes>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
+On Wed, Nov 25, 2026 at 06:48:14AM +0100, Christoph Hellwig wrote:
+> On Tue, Nov 24, 2026 at 11:49:35PM +0100, Ernest Borowski via B4 Relay wr=
+ote:
+> > +=09=09unsigned int next_blk =3D ifs_next_dirty_block(folio,
+> > +=09=09=09=09first_blk + 1, last_blk);
+> > +
+> >  =09=09punch(inode, folio_pos(folio) + (first_blk << blkbits),
+> > -=09=09=09=091 << blkbits, iomap);
+> > -=09=09first_blk++;
+> > +=09=09=09=09(loff_t)(next_blk - first_blk) << blkbits, iomap);
+>
+> Overly long line.
 
+Fixed for v3, with the position in a local variable:
 
-On 11/24/26 21:26, Joel Granados wrote:
-> On Tue, Nov 17, 2026 at 12:07:32AM +0800, wen.yang@linux.dev wrote:
->> From: Wen Yang <wen.yang@linux.dev>
-> Thx for taking the time to put this out. This gives perspective and adds
-> to the discussion of how best to move forward with "struct ctl_table".
-> 
->>
->> struct ctl_table has long relied on extra1 and extra2 pointers to serve
->> multiple unrelated duties, including range limits and caller-specific
->> context.  This series addresses both:
->>
->> 1. Replace bound pointers with plain unsigned long min and max fields
->>     directly in struct ctl_table.
->>
->> 2. Replace per-entry context pointers with a core stride mechanism,
->>     allowing callers to register arrays of structures embedding struct
->>     ctl_table and recover enclosing context via standard container_of().
-> I think having these two at the same time is not the way to go. We need
-> to figure out where to put the non-bound context pointers first. And
-> after that is settled, we address the bound pointers.
-> 
-> Yes, we are doing the first to get to the later, but mixing them just
-> adds to the confusion. One thing at a time!
-> 
->>
->> This RFC focuses on the core stride infrastructure and two representative
->> complex users (netfilter nf_log and IPv4 devinet), as suggested by Joel
->> Granados.  The remaining treewide callers are converted in a single
-> My suggestion was **not** for this implementation specifically. I
-> suggested you create an RFC to clearly understand your idea. Apologies
-> if that was not clear.
-> 
->> squashed commit to ensure the tree builds and tests pass cleanly.
->>
->> Changes from v1:
->> =================
->> v1: https://lore.kernel.org/all/cover.1793204511.git.wen.yang@linux.dev/
->>
->> 1. Abandoned per-entry 'void *priv' (David Laight):
-> Though not adding yet another entry in ctl_table is commendable, I
-> prefer adding a priv entry over the stride mechanism in this series.
-> Here are my thoughts:
-> 
-> 1. The type should set the stride in sysctl core. The situation where
->     the stride of a type might be different from its size should be avoided.
->     In these cases I would prefer a whole new type.
-> 
-> 2. Having ctl_table as the grounding entry inside another struct and, at
->     the same time, it be a regular (non-grounding) entry is asking for
->     trouble.
->     - A proc_handler assumes there is a containing entry around only to
->       realize that it was passed just a pointer.
->     - The core might start overlaying clt_table entries to deal with
->       namespaces [1], [2], [3]
-> 
->>     - v1 added 'priv' to struct ctl_table, incurring 8 bytes on 64-bit and
->>       4 bytes on 32-bit for all ~1,000 entries across thousands of dynamic
->>       instances, even though <7% of entries need context.
-> Just a quick comment here: If you want to get rid of 8/4 bytes with the
-> ctl_table struct, you might want to look at struct ctl_table_poll, which
-> (to my knowledge) is only used in one ctl_table array. Finding a way to
-> service utsname while at the same time removing that entry is much more
-> of a low hanging fruit IMO.
-> 
+=09=09loff_t pos =3D folio_pos(folio) + (first_blk << blkbits);
+=09=09unsigned int next_blk;
 
-Hi Joel,
+=09=09next_blk =3D ifs_next_dirty_block(folio, first_blk + 1, last_blk);
+=09=09punch(inode, pos, (loff_t)(next_blk - first_blk) << blkbits,
+=09=09      iomap);
+=09=09first_blk =3D next_blk;
 
-Thanks for the detailed feedback and the namespace overlay pointers.
+> Otherwise this looks fine, but did you test this on ext4 and XFS?
 
-Our main motivation for prototyping the stride approach (and the v3 we
-have been testing) was to avoid growing struct ctl_table while still
-eliminating the per-entry wrapper functions. However, the upcoming
-namespace table overlay work is a compelling reason to keep ctl_table
-arrays homogeneous and  self-contained.
+I have now: fstests on ntfs-next with and without patches 1 and 2, on
+XFS and on ext4 (mounted with buffered_iomap), each with 1k and 4k
+blocks. The list was the quick tests in the rw, punch, prealloc, enospc,
+mmap, quota, zero, collapse and insert groups, plus the fsx tests
+generic/{075,091,112,127,263,469}.
 
-Following your advice, we will set the stride series aside and split the
-work into focused steps:
+Every test gave the same result on both kernels:
 
-1, first, prepare a small, standalone series (based on the lastest -rc)
-    focused on migrating the non-bound context callers of extra1/extar2
-    to a dedicated void *priv, field in struct ctl_table, without
-    touching any min/max bounds yet.
+  section   pass  fail  not run
+  xfs 1k     156     0       69
+  xfs 4k     158     0       67
+  ext4 1k     97     1       49
+  ext4 4k     99     1       47
 
-2, Once the context pointer migration is settled, follow up with the
-    typed min/max bound conversion as a separate series.
-
-Regarding struct ctl_table_poll in utsname: is someone already working
-on removing it from struct ctl_table, or would you like us to look into
-that as a separate cleanup as well?
-
-We expect to have the context-pointer series ready in about 1 week.
-Please let me know if you have any preferences or suggestions on this plan.
-
-Thanks,
-Wen
+The ext4 failure is generic/223 ("Start block 33153 not multiple of
+sunit 2"), which fails without the patches too. The test kernel did not
+have CONFIG_XFS_DEBUG, so the XFS error injection tests did not run.
 
