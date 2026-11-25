@@ -1,48 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795646135;
-	b=SYnDKhUcxuTypmHdGlOeRE2HF05GCE+r61mHfbQtkpfblRYuEPbTXB5fzIG/3x5Mp7/5
-	 Rd5XkW87J7Jr4s9AOujXcUnapd6WIhTDIJIyetfnTaKdAn3zX8Nu6uYihd+PknBHlolmr
-	 mzcOsBD4XRJ8fNluMUPJdTsHiu7RYe2atz8wplzAwHscJeRT+SscVVluJkplDZyfHk6DO
-	 4ntbLepR0362S+DTNGjCVXtif35Hw01J6S0rnOaguhdU1bP5yKpeSX3o3NvlS4bV1ezkF
-	 IU5+iHKQRaXw+SXOsVPT+oh+v7/phxPyZj6GGctM0y3P/VoZ2zr3276F8tp9dMIiOLA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795646135;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=/X9EnMBb1EpL9DRptGLIFWJ8P5QIzwUUyryHlQqYQoE=;
-	b=US+2CcTCrrsIMCS3Za8AUxxbGHHNpE7Rc/sJPLEOZL00uDanYkIoca5ix0eHCydLy2j2
-	 ZhS7xHBTngNXg4cVBlf2ddnoJu7VIvuX9LFXzeruJWyFBymqx1OyYFzTV4V/6M0u5up9P
-	 b7NV56sFLB13yq4vU4gj+jw1lyoXNZHi6BUWGNvRKdpyfIgSnNeJpjcOxQm4euy/tUJ6r
-	 cc3DJK/oSwKhqXliMKJJcUAdUht2rUgKmt1n7XYbWws+lEhAyZRfdqNtFQqCChTsNmeZ4
-	 idex3sgl/zoqe+sfhFv52oPKJBNisYWVulQwMJENW5L1st94M50zzpAK7w1PYehFsrQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LaSW6y+e;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795646152;
+	b=fC5nAVu85fXA75T9wzkJdb0lLzTp+D4yWR/2Nbs2a3GqeupCl8MHtnxbJX+mZyOXfxII
+	 AFA6Yt4USeMOMKWKWPF1GC7Ae2O9C7itAJ3rbB3zwuYo1/yU62JfGHoe44uKvZPbgsltk
+	 s1CS1TDcv7hfyt/nw3TyGMNMuECmK75MTpMNJ6wt2qWfSaQEyIMszW06skQjdfMcjRQ2E
+	 hI5dxVG/IaNuMlv0uoZ3bWVdcv0TBX2tpST7/YM/NvaA0g2MmnIMnzR4B4WC7sDzuuZOb
+	 VfgXXpQKRjcyBKHagNzxPTdqlO9+x1Nwh83btaZL0btizW9yJD4QRwgvGGtckDECNgQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795646152;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=RpMDODz1MVE0LFcr6VGr3hyHGta61wR5Cn1AYrSNYGY=;
+	b=1Rfie3wGEPqQGB2kpK6tP4VEQvmC+Ufpq0Isx3Va3+XMtxk7y/RchlRnm0bvAnFSypdz
+	 ynHoUhTFb/34UeIlAzA5MasEdhAfLMhvo00d+4Gk54bHOp6/+3TEAqCojpTn5GXrmsUwq
+	 YQqN8QXTU41jAD6GbMJtM4Pt0dZHWmy5sVH8W3SI8YZqGKwEM916rdP+uqqZJtUhi5CBW
+	 c22annaYIaF1lUGRkqYZekaR+2iShoyYlIlLhiQ9dXvHF3hCKttXVopIN4fdQJ8x0PWyC
+	 Umyp6JEp1MKTa7+TEss0WAFcgdag6VC7BmrwuIo7b7+IZcbMKzUGH7bm1Y4O0nBzG5g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=b109WJE1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF62E606A321;
-	Wed, 25 Nov 2026 22:35:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA75F606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:35:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA75F606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LaSW6y+e
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1F9E1F000EB;
-	Wed, 25 Nov 2026 22:35:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795646134;
-	bh=/X9EnMBb1EpL9DRptGLIFWJ8P5QIzwUUyryHlQqYQoE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=LaSW6y+e/DzXfPl86UGKdoQPv9ftcRE1mSP6BQi2mTPKSfOzGzG5UKB0kjB1xLF3K
-	 X5Z9gc+1vRMEyWO3ipTaFE/9r7jRJTQT+zdYCM7yGMmMHs/0/tGpDc8WHY144pLAeW
-	 cf+e9mPaJdVobJqlLRXe/xexriXSyw9YprFEWKznN9vGLwDqqLvT2BWje5FMauRun0
-	 CsymNizBrf9nYxFare6A9yymIDcTa+Cw1DrGLon+DPGQioOKDFmH7YhgLm/8ZlhPpD
-	 Z9RkXImdGSDRgcRIq4qT0RB3IU1cDMGK1mPyLcI8NMCQnfxZR7Co9kI1hkS0qG7mlo
-	 wjqJJ5BVwvEvw==
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Wed, 25 Nov 2026 23:33:06 +0100
-Subject: [PATCH 08/21] hugetlbfs: recheck the vma range after the lock wait
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=b109WJE1
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-498f5fa4f70so5184082f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:35:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795646150; cv=none;
+        d=google.com; s=arc-20260327;
+        b=dGsR5cV7DdbKjnyc6eax668vSNS+lilsfFsw34Qn0wSX/elNM1G8HwbJmeSkS/Srcl
+         yX1vwl5Hsgc5B4c0VEMOkCZ2QNAYrAyuPS/StzGP3OP6NdVSELsb4MCpJJeBtaXETDPW
+         n11ID26XKrFYeonC51chSz0oikGM6Al/mHNn11IPUN6n/x5gIMSW7GLaNrUVgUjo/6/6
+         wN+fZGXLL9sAMh9AV9DdoPdYenZdVso4nFA/XPxu8j8rQPAmIOkz1QAQPR8Fy1VvG0Ou
+         Jb83yTavdrS/Gart8yy1leYslhg9MBjlpt30/oosn/V7sjh87RKrj+pU1QOKrF7zQaJs
+         jKHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=RpMDODz1MVE0LFcr6VGr3hyHGta61wR5Cn1AYrSNYGY=;
+        fh=IwvQJPV0A5Cr5e73hZOFfJoLZDXe+DIdi/MfsG7zb2o=;
+        b=E6NZxjde+X1scVMURHXDrqWFoIy6ekaQestdERIzj/EiY1eSTP2RUbppcKCT5M4uzj
+         43EMf6R7KKAK13c+yNRqcdFImu6LX8S0R4/Y8goiMOQZyNx72iefHSNHiBEQYQyjxowc
+         MF/6iu1l+UMKYRFW6PmRUqeYfVmIqwTFJcKuidh9w8go6rKjeQLpAR0nHvzockRL7kYk
+         m4bF+wUsr9mdHBB7ixyj4L9szJpG4/xX6hQIOOnktJEHdB6QanjXWE/eVKqRcTnWhJnN
+         1et0arAbHW9CG7cY9VxlEUYTD/QxHKtwV95/pbRDHdP2v55K2/mvF3MePruNZIxCAYtG
+         X7Vg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795646150; x=1796250950; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=RpMDODz1MVE0LFcr6VGr3hyHGta61wR5Cn1AYrSNYGY=;
+        b=b109WJE1fmRv+NDpf9Hu+4ltJLqCNu+W55GAVTLhgtsAHJoYX2gTWzCUNI9V7m+dYI
+         xg9IBDyBTrVcDNSOvmQvCxoy2mDDPhZwjc3cNA5F032Lm3hRgUOgsyXQrNO7CgFhlsY8
+         1mhUtdZu67tbWZAfGLNXR6ipk/FPFSA/PYpRs9lctlbBYGBmoldoQbJK+MlDhnih63QG
+         e5eIUV1euspUKbllTzVze9KqXq/cuIbwvbMYu7FDkdcti1uDIUk8Qp3Xn9y52TcRX3/W
+         qSM3apU6SEqXVUTJ7NYGDqON512HCJXp/4fwKTyir3oRUIOMMKrPD5MB2wYhBe7VcqsL
+         /igg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795646150; x=1796250950;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RpMDODz1MVE0LFcr6VGr3hyHGta61wR5Cn1AYrSNYGY=;
+        b=CcoiD8QBr5KgRDiV8/e4OMmnWlYM59Dka3QlSr8VXJrueZSp1oI/5ZVVd4RSGDPxLP
+         R76vlMlry5xmlutK68WIp//iEbV4tCHOJoktxau7e8z+xIY77JWoovTFSqXRoSsyxGS3
+         M5i9PFIsYdmsW4+9W7FheR3LYmYLVe1vKebFInb83sP5vR5E68rDtCIh4h8S8wlq1dII
+         4SamOiTQ8HDuE4fQmzWD1pt5I74C7ucHGJmyWZfKFn75DklhY+MYD8G3AD5roZRBH1ml
+         XKXfIAnsJRw+eb/j8HI3YJqMOPTVwti3XDqYjcIoFFY66punz7KyQeVGNqEwn6u3w2sp
+         ZCLQ==
+X-Gm-Message-State: APuU4Z9/lCEMan1jbspe37k62BYgecrTVroeyXAfHmfNw0jn4CiOZGmY
+	aPnc7d7/V2Vu77S56y1z4W/FudsoenMUXxNtnGs0t+av/eMwWjQbNNfdknHH+xJ11SUYO/07yBB
+	w2hqsP4y1bp1Qd8Nwln0992IYh+5OmL4HwYs88zUmaXLsPdfq0tHF
+X-Gm-Gg: AZFdTZda49v5IQhKHBkjO9ewToZU0d3C46ZtjWiGQ0TUHRONJmhlp7Gv95eVo0gpMU1
+	4iq84A9Etpx8BMMIfSnhhltw1K+DwtRszSeqz/k9iXIrB4cvIOXY4c34CjUEfMr02+T2FlfK216
+	aoFw+53XLfW3XM2nUOpilho7tpMptx81t4Z4Ln4Np12aV68PUO/yt/GEZMj/6nzZrXtgEkg9qlC
+	qdtwZn6+hUxzqSLfxF/zTBFVGsT5yKsLL+3P2wk5c3K9+jHOlWeNe5+FfM/zGWudSafyiy2pqCD
+	vI9aE3OG0aAPPgn47b5V3J8ZiFlvIR0WTKFjRTAAyJUNBKpDHbbwL0OaC24wdrQL929FRMrMrkf
+	JpXResq5QYso5hZyJlmUBbJeCKAaFtTpJitvIThFpwEQAQ92a5DcHEAcY+N2Gv+3nEY4pRjhuYY
+	12pzkdosHtj7XmaruDgDh70yNECtLhZdBsrZPT8GdBakKysvnomMGONyAjEu88N5XFXlAKLQmjC
+	gGUwyR3y+GVpuJ8k50cnxPTJTZ0naEsqjyGk96+cmcjaJwcTaXu3Q==
+X-Received: by 2002:a5d:5f4f:0:b0:4a7:35af:c83c with SMTP id
+ ffacd0b85a97d-4abb3e21218mr37214985f8f.43.1795646149678; Wed, 25 Nov 2026
+ 14:35:49 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,143 +105,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-hugetlb_fixes_2-v1-8-db27fd2f71a8@kernel.org>
-References: <20261125-hugetlb_fixes_2-v1-0-db27fd2f71a8@kernel.org>
-In-Reply-To: <20261125-hugetlb_fixes_2-v1-0-db27fd2f71a8@kernel.org>
-To: Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Jinmeng Zhou <jinmengzhou22@gmail.com>, Hongfu Li <lihongfu@kylinos.cn>, 
- Andrea Arcangeli <aarcange@redhat.com>, 
- Mike Kravetz <mike.kravetz@oracle.com>, 
- Naoya Horiguchi <nao.horiguchi@gmail.com>, Hugh Dickins <hughd@google.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Dave Airlie <airlied@redhat.com>, 
- Vivek Kasireddy <vivek.kasireddy@intel.com>, 
- Gerd Hoffmann <kraxel@redhat.com>, Mike Rapoport <rppt@kernel.org>, 
- Mel Gorman <mel@csn.ul.ie>, Dave McCracken <dave.mccracken@oracle.com>, 
- Andy Whitcroft <apw@shadowen.org>, Adam Litke <agl@us.ibm.com>, 
- Lorenzo Stoakes <ljs@kernel.org>, Rik van Riel <riel@surriel.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Harry Yoo <harry@kernel.org>, Jann Horn <jannh@google.com>, 
- Lance Yang <lance.yang@linux.dev>, James Houghton <jthoughton@google.com>, 
- Yang Shi <shy828301@gmail.com>, Suren Baghdasaryan <surenb@google.com>, 
- Shakeel Butt <shakeel.butt@linux.dev>, Pedro Falcato <pfalcato@suse.de>, 
- Gregory Price <gourry@gourry.net>, Zi Yan <ziy@nvidia.com>, 
- Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, 
- Ying Huang <ying.huang@linux.alibaba.com>, 
- Matthew Brost <matthew.brost@intel.com>, Byungchul Park <byungchul@sk.com>, 
- Alistair Popple <apopple@nvidia.com>, 
- Wanpeng Li <liwanp@linux.vnet.ibm.com>, Andi Kleen <ak@linux.intel.com>, 
- Kenneth W Chen <kenneth.w.chen@intel.com>, Hugh Dickins <hugh@veritas.com>, 
- Michal Hocko <mhocko@suse.com>, David Rientjes <rientjes@google.com>, 
- Joern Engel <joern@logfs.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Michal Hocko <mhocko@suse.cz>, 
- "Aneesh Kumar K.V" <aneesh.kumar@linux.vnet.ibm.com>, 
- KAMEZAWA Hiroyuki <kamezawa.hiroyu@jp.fujitsu.com>, 
- "Kirill A. Shutemov" <kirill@shutemov.name>, 
- Sasha Levin <sasha.levin@oracle.com>, 
- Guillaume Morin <guillaume@morinfr.org>, Wanpeng Li <liwp.linux@gmail.com>
-Cc: linux-mm@kvack.org, Jason Gunthorpe <jgg@ziepe.ca>, 
- linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
- Andrew Morton <akpm@osdl.org>, linux-doc@vger.kernel.org, 
- "David Hildenbrand (Arm)" <david@kernel.org>, 
- Chris Mason <mason@kernel.org>, stable@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3507; i=david@kernel.org;
- h=from:subject:message-id; bh=rw8ESenx8D20BApyF+9LorlGrtKZwWBIIKOWjIuUihM=;
- b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLLZk1TW1krnXZg7+9hUgZ8sKi19nDUTWMu21RzfPoN3W
- 9L64hiPjlIWBjEOBlkxRZag4PsGL1+uq61242OGmcPKBDKEgYtTACZi8I2R4XmsbGub1+WExQVB
- S4Jyt8a+fGclrCG9z8E68covtWNCfxkZpnye+OjPuw1cixY87LavL+6TKRVl/u93avbRTRxnppx
- UYgEA
-X-Developer-Key: i=david@kernel.org; a=openpgp;
- fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
+References: <20261023220431.1106611-1-jstultz@google.com> <20261023220431.1106611-4-jstultz@google.com>
+ <atxtWdx0nqTRAAYw@gpd4>
+In-Reply-To: <atxtWdx0nqTRAAYw@gpd4>
+From: John Stultz <jstultz@google.com>
+Date: Wed, 25 Nov 2026 14:35:35 -0800
+X-Gm-Features: Aa3M54reh0Oovc-xdhLaC0dVgJgZktHmgMVnNSaHGVsxaFq6wCTpeL3-dT5kXNc
+Message-ID: <CANDhNCpb3pt=9SwKXSFegYHwLBURv1nm_0fF3kYmev_zroneAw@mail.gmail.com>
+Subject: Re: [PATCH v33 3/7] sched/core: Activate blocked donor when no owner
+ is found
+To: Andrea Righi <arighi@nvidia.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Juri Lelli <juri.lelli@redhat.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Valentin Schneider <vschneid@redhat.com>, 
+	Suleiman Souhlal <suleiman@google.com>, Metin Kaya <Metin.Kaya@arm.com>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Zimuzo Ezeozue <zezeozue@google.com>, Waiman Long <longman@redhat.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Joel Fernandes <joelagnelf@nvidia.com>, Qais Yousef <qyousef@layalina.io>, 
+	Xuewen Yan <xuewen.yan94@gmail.com>, kuyo chang <kuyo.chang@mediatek.com>, 
+	hupu <hupu.gm@gmail.com>, Zhan Xusheng <zhanxusheng@xiaomi.com>, 
+	"zhidao su (Xiaomi)" <soolaugust@gmail.com>, Hui Su <sh_def@163.com>, 
+	"Shubhang Kaushik (Ampere)" <sh@gentwo.org>, kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Chris Mason <mason@kernel.org>
+On Sat, Oct 24, 2026 at 1:33=E2=80=AFAM Andrea Righi <arighi@nvidia.com> wr=
+ote:
+> On Fri, Oct 23, 2026 at 10:04:14PM +0000, John Stultz wrote:
+> > @@ -7013,11 +7026,11 @@ find_proxy_task(struct rq *rq, struct task_stru=
+ct *donor, struct rq_flags *rf)
+> >               struct mutex *mutex =3D p->blocked_on;
+> >               if (!mutex) {
+> >                       clear_task_blocked_on(p, mutex);
+> > -                     if (task_current(rq, p)) {
+> > +                     if (task_current(rq, p) || p->wake_cpu =3D=3D tas=
+k_cpu(p)) {
+> >                               p->is_blocked =3D 0;
+> >                               return p;
+> >                       }
+> > -                     goto deactivate;
+> > +                     goto activate;
+> >               }
+>
+> IIUC, p here isn't necessarily the donor, after the first iteration it
+> can be an intermediate owner that is queued on this rq and blocked
+> itself. If its blocked_on was cleared by a handoff (or its mutex has no
+> owner, below), we now return it when p->wake_cpu =3D=3D task_cpu(p),
+> skipping the sched_cpu_cookie_match() check at the end of the function.
+>
+> So with CONFIG_SCHED_CORE enabled, are we running a task that was never
+> cookie-checked by the core-wide pick?
 
-A hole punch or a truncation of a hugetlb file that races with a split
-of a shared vma can lead to a use-after-free read of a page table, and
-to an MMU notifier range with end <= start, which trips a WARN_ON_ONCE()
-in KVM.
+Thanks for reviewing and raising this!  (Sorry for the slow response)
 
-hugetlb_unmap_file_folio() computes the address of the folio in a vma
-and walks the page tables to unmap the folio. As free_pgtables() unlinks
-a vma from the rmap tree before it frees its page tables, i_mmap_rwsem
-does not protect page tables outside of the vma, so walking them can
-result in a use-after-free read.
+Yeah. Looking at this more, I'm thinking we should just drop the early
+return conditional and just always call goto activate, as the shortcut
+potentially skips maybe too much logic, and duplicating it all will
+just get messy.
 
-The rmap tree walk guarantees that a found vma spans our folio. However,
-when we have to fall back to locking the vma lock first and drop the
-i_mmap_rwsem, we don't check whether that is still the case after we
-acquired the vma lock and the i_mmap_rwsem. The following is then
-possible:
-
-    hugetlb_unmap_file_folio()          __split_vma(), new_below == 0
-    ==========================          =============================
-    hugetlb_vma_trylock_write() fails
-    i_mmap_unlock_write()
-    down_write(&vma_lock->rw_sema)
-                                        vma_prepare()
-                                          i_mmap_lock_write()
-                                        vma->vm_end = addr
-                                        vma_complete()
-                                          i_mmap_unlock_write()
-    i_mmap_lock_write()
-    vma_lock->vma is not NULL
-    vma_offset_start() >= vma->vm_end
-    vma_offset_end() == vma->vm_end
-    hugetlb_vma_maps_pfn(vma, v_start)
-    unmap_hugepage_range(vma, v_start, v_end)
-
-Similarly, a split with new_below == 1, where the vma keeps the upper
-part and vm_start and vm_pgoff move up, or shrinking the vma with
-mremap() can leave the vma not covering our folio.
-
-Let's fix it by checking whether the possibly split vma still spans our
-folio. Add a VM_WARN_ON_ONCE() to highlight the problem that was
-previously missed.
-
-This has medium urgency, as this is triggerable by unprivileged users.
-
-Fixes: 40549ba8f8e0 ("hugetlb: use new vma_lock for pmd sharing synchronization")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Chris Mason <mason@kernel.org>
-[ david: adjust comment and description ]
-Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
----
- fs/hugetlbfs/inode.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
-
-diff --git a/fs/hugetlbfs/inode.c b/fs/hugetlbfs/inode.c
-index 5437a55d14f1c..0b96fdc3ad9d8 100644
---- a/fs/hugetlbfs/inode.c
-+++ b/fs/hugetlbfs/inode.c
-@@ -442,10 +442,11 @@ static void hugetlb_unmap_file_folio(struct hstate *h,
- 		i_mmap_lock_write(mapping);
- 
- 		vma = vma_lock->vma;
--		if (!vma) {
-+		if (!vma || vma_start_pgoff(vma) >= end || vma_end_pgoff(vma) <= start) {
- 			/*
--			 * If lock is no longer attached to vma, then just
--			 * unlock, drop our reference and retry looking for
-+			 * If the lock is no longer attached to this vma, or if
-+			 * the vma changed and no longer covers the folio, then
-+			 * just unlock, drop our reference and retry looking for
- 			 * other vmas.
- 			 */
- 			up_write(&vma_lock->rw_sema);
-@@ -459,6 +460,7 @@ static void hugetlb_unmap_file_folio(struct hstate *h,
- 		 */
- 		v_start = vma_offset_start(vma, start);
- 		v_end = vma_offset_end(vma, end);
-+		VM_WARN_ON_ONCE(v_start >= v_end);
- 		if (hugetlb_vma_maps_pfn(vma, v_start, pfn))
- 			unmap_hugepage_range(vma, v_start, v_end, NULL,
- 					     ZAP_FLAG_DROP_MARKER);
-
--- 
-2.56.1
-
+thanks
+-john
