@@ -1,100 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.70.192
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795598192;
-	b=3RiFPn5AdF0fXRBkbFzHmsyNe4CoY/GIK+u20p0ePMVsnqFwCfNs9UkyKtgp4FPEe/xg
-	 L/QYQwbMKkmj7CtmIRtKwmnWndYxd/wBCPXqSt5bBlH0Y+fQiPujV3Y5Lkuuv/FO7QDMs
-	 KHStoUOHaLeeB7VBKZANtDxGwnN5j5CrBZehyIfpITu2sZJwAYjjt27zirIzMejXrk+41
-	 SQgOFQm8jCFqve5UJSGz3F/g2jylVphvGe4jknYnFujk8lRhmhwBu4SVmoCJrJBgo9hKY
-	 WNq7wVm3BkTLYObNlrp4mGr1Dh48+5/Ks/PtE869ON/CYGtxA+dQTcVBB3rYNtRoY/Q==
+	t=1795598282;
+	b=qCrbiXs3+IppniMsoJ5J7E3+Lk0oTY5/p5qvnrFW5G7W6J2dkWp5nve4TpfYT21WZT08
+	 4nN1w9/ZfgWg+eqQkmSfC7IK2AMYiXy4Fu09yZk1fJs8FIE8TqK1KQA5TMsmFrl7IgviJ
+	 43P5JYrvbFPyM2hkk/Z1lDkJQxTLebLR+jcgyWfMIYvYPNVAXi/G6YasviZo9y+pqQWv0
+	 oW3O68E0ZpIK1gzAiPnKFTcIdwmhNZQVVRxk3npD2MEoymTNvZLZ10PKzm4uFrrf/z4Nc
+	 C7iKPXT2ojJTS+6Sx+9qxw/HoLtIL2wbvvLwd0qQLBAlCJDy3HSgH8rAlKmhWNEvlMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598192;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=dtSXApRzNRZOAIEEk0PFvzNQj92bqLpekrXOKMNLB6U=;
-	b=YgF3ARojeVRHIOLh5lXQNmFdQEohC6MRgG1eeydLX5Ni8++P4EW8to3POD8FDQh/SjtC
-	 lp2qFauGqOVnYp9FBw59R6PEuZL8ice3+FKovfu9R8xUQrUL/S4N2wNjwWITDxwYm1P1b
-	 1bsD7eovKDp+9UXtQu8x8/kugqNoObgQVd+nOgOl140+KFh+yn8jc6XCybatP2slVIPsY
-	 xtx/d15aq3+GSycHQE68rMoWp8t2YaR7dQhDCeRiC2g1C/I2cMsGiE9Fw6GeFk50sNTfX
-	 VWpGKajOvYvWPmFuwWMqlgUig8wpYyCU/knyHXTonycE/3iP2PbtWWR6CkMjIyEcTtQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598282;
+	h=DMARC-Filter:Received:Received:X-ICL-RepId:X-Suspected-Spam:
+	 Dkim-Signature:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Authority-Info-Out:X-JNJ;
+	bh=RE4nSzhPu6nNuyJJSMGMQ9YMNE34TPzHguxazmS11yg=;
+	b=1rDbn0GzmdD21y+xtmNLHPzy57mlrumg70xp7uleIeFmG1mS3rDJgRj3FmteMTKWZZAO
+	 uUmdgUsWSI9OU4xe+UsMEShqyoFkXNOSgBP3BqFXqcj8kXpqrEqL773sqdlej1yBgQNY3
+	 PcOaFS6ya0OqkA5cruS31JsS0FNcCQ2PAqEQEx4M7b5b3JOdFfIG7KTym5aJ5EI75kFfH
+	 3MfubIwFZl5KjLAckmNdEoXKxsP9udXt73SZw0N4qnp2bB4XFKo8mcXJNQB2Pp/ZfkZs1
+	 Z7TdztjlLYk1ZLJLXgrUjEDdF9OwAoa4zQ78o1dsw+95qfw4vj7lJ/T/59wui/LXaWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O7mdlKEc;
-	arc=none smtp.remote-ip=209.85.208.177
-Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com [209.85.208.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=icloud.com;
+	spf=pass smtp.mailfrom=icloud.com;
+	dkim=pass header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=R+g2sAN+;
+	arc=none smtp.remote-ip=57.103.70.192
+Received: from outbound.ms.icloud.com (npq-west2-cluster1-host3-snip4-1.eps.apple.com [57.103.70.192])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 292FC606A68E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:16:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 292FC606A68E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1098C606A68C
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:17:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1098C606A68C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=icloud.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=icloud.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=O7mdlKEc
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3ae2fb3fe2fso49586881fa.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:16:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795598190; x=1796202990; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dtSXApRzNRZOAIEEk0PFvzNQj92bqLpekrXOKMNLB6U=;
-        b=O7mdlKEcxUoSuWx0Bx0zYAuwKq1/6Dba4zzP6J1Q4OrO22h/vNkmSvCbcByMeR3eG2
-         vHcYl1rPNSIe9Hzz+/xaLEUj++SPl5TWt/8vQrT5JEendwFMwU0uktOF4pDUM0s/033W
-         b9Hlyu1xivQnbS967W1aBbar7zJ5O1gfP+XCtd3ulTkYuYhXXqklzyVl+7DOGcHdIu2a
-         WQO8K7ihUlkHTYZzJ/QlF+3HZFLOqEPk7qVUalT0NWcS+XXm2yDV/IVN9WfXNtnD45iC
-         6nI4lZbwLe04O8oy7K25Y7bkpO813hKh5axeBSCUxVO//5bp/Vglf5Z9AjpbpIll7k36
-         qk+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795598190; x=1796202990;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dtSXApRzNRZOAIEEk0PFvzNQj92bqLpekrXOKMNLB6U=;
-        b=kCXHhwywBS3zGA4DG7CbkZpSVJ5428CsHJdhVCSUbFtf6ur1sFLhGmQUkuavS/vQlu
-         p1baDl45GTl+5U3Ji/2CNDts/jHAiheeg+1SLqnf6w+54DXueylxhBpnfsWYU+RtjS/i
-         gYkbdkG3cMKMvS7Q1efVxt8nYGar531hyySK7hZmJXK8j6dwYciykNeRRLHHFhiDyjVm
-         qmhasCIbechQU+OsnbRdVXsLdF3k9XGgtSysvAqkkuLYBAT5HKhczAGSoMymzKrI9W1w
-         F4foC9Rtx1OgK+CBTgsds+n6F0nS95HPpwSPh8a6khyrm0/7wo542l2nJ5/wZeKbboGo
-         sekw==
-X-Forwarded-Encrypted: i=1; AL+hErEkj0IVDb28YOPpInmq5nZNrEPMxpTrCAL/13kOhux11FslgShyyNFKAmjyithhffV8SBy2SF4qLcy1uvY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+bYtjJ5R2PdRGivPwkf1KiIyzzMS9eGzwOVORP7mse+S4zXqZY
-	5Q1tag/ll+WzNhy8hWIJoN67vqlwquHHDLGHw7oKhyGKgaqjjC93AvnA
-X-Gm-Gg: AZFdTZcSq+x+pOAnXLvWTOG+BQGCLHM6jrzi+6jgcdC1VVNDIUaL9F3S4Gd34nDsqt4
-	4IfzNKJDPGbYnK1cVKLnAqUWmcOv2QM4h5XnYzO+XqJ4b2PuQXHZECiMMVdXKOgGQfi7MJMBBoY
-	VHCWk7VvOrUE98FAB+HG8g9XHH7k2EFmUDWAG8e6bPPIVfRrOB9e1zkayR0c+CF4W0Vzn2hOvx6
-	cSh1Qo5DNxmQbX9PGIGcP9e6U2wn/hHjriOUKKQJWA1yOWd+gVhjsMQ7YIFQO45371F/UGq5i1x
-	DKnszgTbwwu1xDx8fkWl/JUT5NGRvVkZ8gultHSozhxXWysLfaM4bjH4EeDJlypXYFAWBBznr8N
-	P6jr1zB6woJvodJtTe5iS9r5ZeMLu+KJQKJaGsrDUK8U5C7fKOwa8mw4TJa/PgCrgE8jB1HZWbB
-	Mt3YCGpVeQRXSTJ2YwEjmgjP2s8tvTAluT6FXLWkt24lwA0+iS1vM1nvAuXH55N2JdLqrYgjgWl
-	kucAO+vdDKfiE2ENU9tzDCb/OjfprmARRmSSBTKPUAUhWRiV9Jn+FZPDwXgh8SU9KnVPf/dlhUF
-	0nptX73e0CHIq6aCZlVdOSeSVxp/sIP9AKkcGG4ZwXno5GtM5u4aLkCAxziEdwSIFjNTqGyTxxM
-	Hq2AuU4uSOpYpvP0vyFMCQk3FOLI6+U8drin56PRD953X6px8/CHNba3M+es=
-X-Received: by 2002:ac2:4c4d:0:b0:5c1:4cb1:f5b with SMTP id 2adb3069b0e04-5c1bc66329emr5991855e87.1.1795598190134;
-        Wed, 25 Nov 2026 01:16:30 -0800 (PST)
-Received: from yantra.. (nekmmqvppk9cj8danf8-1.v6.elisa-laajakaista.fi. [2001:99a:d7d:c300:f131:5b16:1fac:1214])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd0195a6sm4528963e87.40.2026.11.25.01.16.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 01:16:29 -0800 (PST)
-From: Rupesh Majhi <zoone.rupert@gmail.com>
-To: crofts@kernel.org
-Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Eddie James <eajames@linux.ibm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 7/7] iio: pressure: dps310: include what the driver uses
-Date: Wed, 25 Nov 2026 11:16:26 +0200
-Message-ID: <20261125091626.55286-1-zoone.rupert@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <f71cfc2e-9e74-482c-a56b-8b0507eb9a69@kernel.org>
-References: <20261123220649.36887-1-zoone.rupert@gmail.com> <20261123220649.36887-8-zoone.rupert@gmail.com> <awU0bh5ChdbAsArK@monoceros> <20261125075043.37440-1-zoone.rupert@gmail.com> <f71cfc2e-9e74-482c-a56b-8b0507eb9a69@kernel.org>
+	dkim=pass (2048-bit key) header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=R+g2sAN+
+Received: from outbound.ms.icloud.com (unknown [100.84.204.149])
+	by p00-icloudmta-junk-forwarder-us-west-3d-0 (Postfix) with ESMTPS id 5C421180009A;
+	Wed, 25 Nov 2026 09:17:57 +0000 (UTC)
+Received: from outbound.ms.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-west-3a-60-percent-1 (Postfix) with ESMTPS id E998A1800126;
+	Wed, 25 Nov 2026 09:17:54 +0000 (UTC)
+X-ICL-RepId: 01a211ff-5133-705e-a341-6f0496d6e762
+X-Suspected-Spam: true
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1795598277; x=1827134277; bh=RE4nSzhPu6nNuyJJSMGMQ9YMNE34TPzHguxazmS11yg=; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type:x-icloud-hme; b=R+g2sAN+dX9ZQzhX0AsjOBTVxobIJJVbgjIELwrmupiccO8iMYq3cHwkRX0nE+2W/HuoBSVNkYnf24cCHr+tyPGIjAD6ZPvQY/oj4peQBXNT//LDpKJkARo+TLHMfUlS8HJsrFntpMoo7nTIOwce8Jf+4NVPWPp63IaPIBwZyw15+MIR0CJ4b2MekLU2p5BJsClg0ThuP4CZ9VRiiUpX6YAev2NCspXARDbdaL2gecKS6cmruwcTzsBpGr28pf8wOEJJSFmYpCa6VLJ0vAJT7xSreLzjGhnC6OgmZldYfJCtsDSXJwglTRlrcEa+loNQMVIEDDzpw6MkgxowPsEwvg==
+Received: from m3 (unknown [17.156.208.39])
+	by p00-icloudmta-asmtp-us-west-3a-60-percent-1 (Postfix) with ESMTPSA id 01BD4180011A;
+	Wed, 25 Nov 2026 09:17:50 +0000 (UTC)
+Date: Wed, 25 Nov 2026 10:17:46 +0100
+From: Sofus Forstreuter <sofus.c@icloud.com>
+To: Nicolas Dufresne <nicolas@ndufresne.ca>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Heiko Stuebner <heiko@sntech.de>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v3 05/17] media: v4l2-ctrls: validate vp9 tile_rows_log2
+Message-ID: <awanusdfmrjYpdHT@m3>
+References: <20261020-avd-v3-0-85cbaa2125d8@icloud.com>
+ <20261020-avd-v3-5-85cbaa2125d8@icloud.com>
+ <4c54e652e8fb714600852a3028b892c6a292c6cd.camel@ndufresne.ca>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,16 +76,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <4c54e652e8fb714600852a3028b892c6a292c6cd.camel@ndufresne.ca>
+X-Proofpoint-ORIG-GUID: 7L-1DbM7PFVkvAA3Ve1k7TBSWwo3SVaA
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzNiBTYWx0ZWRfX29jAdByKWjWC
+ MNQIzTlmJrKNzVWV54m2//FbR2nhduOrYoFf4zjYOzjVek/OANeigkcGew+NNcfHysAca1ezJ4B
+ Bbh+Ryd+eKnwz1vny6jmPBSGUMbb8VU=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzNiBTYWx0ZWRfX1ew1RDQihZ4U
+ gqzd9wpFsKesraYPQpkpbJFUUWr4MInreF89q9QWG2aGtO5Vk2mOAXlZWsKUgiKuMJBPOxxkaCv
+ ep7ZuOICgu4lxbHoX3hPd32qe9BYOvNPKzP0ox/mOBTRv8LBVP06a+G6uJmxDg+LJex4zRhfF64
+ VlwNOqGLRNbgfRNypDje5q8juEFk9tyQ6I03hpyKNul/xeKsqJ6cNfCEuRl8CG4bKVy/uFzVxO/
+ yyOk4WrTjWwdpk0MYvWewMUSxNSZSpkrRZc1e8ttGRKX/S9iTWGfyMrh1THuaFbhebXOAWy0+7g
+ 2v3LP1cX27qGbcfXZlWIcLsqjHCZeiFWQhS0TSKOe0r9v29l/hdgbGGr3toy7Q=
+X-Proofpoint-GUID: 7L-1DbM7PFVkvAA3Ve1k7TBSWwo3SVaA
+X-Authority-Info-Out: v=2.4 cv=W4GtxhWk c=1 sm=1 tr=0 ts=6b06a7c4
+ cx=c_apl:c_pps:t_out a=kRaGL2Q7qLiahLf3O6OaIA==:117
+ a=kRaGL2Q7qLiahLf3O6OaIA==:17 a=8nJEP1OIZ-IA:10 a=zJRp6_cAMcgA:10
+ a=x7bEGLp0ZPQA:10 a=kLM9Tyy99jAA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=HxOO8S7qDNDRVQTpMkN7:22 a=Da-wPGOzCPo0rgK0bsWi:22 a=v3ZZPjhaAAAA:8
+ a=LAvkwPmW8R6kQSckoZUA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
+X-JNJ: AAAAAAABC8pesed8V/geFCW1TZj2dJcUbicq2KvDcOZ9YrjKbx3sY7Ya8S3qw3RhF2FYCF
+ Wj9Jn4ryX6e+jO/Q19iIPcfeg57ZI75FynxP/ofNbtRs47aaEayS9jO+6hlhqeXrZnGdEm
+ IKMb88Q+eU20dkCih9U9S4DURvAeiDp7qEwxxCjPjVkvFZCWWYUm3KjidPxqviR3/xVSZU
+ oIatsaGkkESdfZiVm+ZcLbbObwqgwb6kbZH8+p1n+Xl77iAiGnPuKj0ZQjB9kZNYVdB/Wn
+ VvvHHH0kXQYyiknz2FTnCgWYWD9x53HOkCu1ITiXg92iv6nVpv2SQaWI2Zoiyum6vmh4Mb
+ 1KThVeuKNHMzbFZKX8FWjHyTepdVvoTA8gSwSUVihYaGRN8sDdgDoaVth3X3w19pQlp22b
+ WHqz95BucgpkEwPlbd2pGIIijs6kOdufEgwJE3BVAxSGGbx/jZ64Mw35Vfz7NE1xD9FWVl
+ M5eJOhUETZ/VSOs8MtU3ABK9JUlqFv3mclEsFPJoHb6K/jeMKPg4Gqf98WEvCBfnwAi0kV
+ KpDlD3XJFC0nH4BzTTje2tVRNSyFL1tRAMtZlxy1czc9HmoYEq4jPf2pCoShKk8WK1adyx
+ SUomRl4hUiNSvUuIhGXYJAspwTDJWZM+mgWzq8BQXqE+VBil7QOnBWsCNd4d7kmih7M9L0
+ 9g1FStN7225K4qeDpRETWWlQnL9NzeArOnWpxcBw23o+ppYXncnXEg/g/kY940PhBaU1mo
+ UYogYhVwbfsofxd3CcLadpAK+fzfrNLbKT6bH6i3Cg8wjaoZdLA6TcArjBzlwGDRVCstZw
+ HAf8uKzRxnBMxA0Mkx4rWfskcT1L3GVUZu1RjwVMa8fv2W3NTCTYGdfUOq8YfzQ/CC7AaW
+ e0+rgmEcyRi1NZwMTvPNmCYCu2DaTYBV6BtJ9foOLkLzoOFqLLJVmgx/3eaTCf82/av42P
+ PbgSFtv+vW+xY5QSeKE9Q8oMTB+BCZKu3D5YeolV2CAu79zJ88K6EpUUN7qr7vWq0L1FbS
+ 2dlUeeooCl2tvXyJk1oueUjXQZmlhd2VURiIfpAcElFZR1lt1T54svOfeLlFrd6mUZqLAt
+ 6abvPX8acEf6qm0N3JsFNhBw9gQ3qRkKXyZwBTOVYRgUyGV/fFWjOVYRMR3iqZ2b3gsza/
+ n2tkwaMTMOMwPstG6ifC6c0V1AoC5BMM4rK/OO7U0xlLk7SdHGYrd553+cnAIUb5cPvFvj
+ DmYg6CFFMV6hDEmFFF/iIc4yE6Gn8JAbMHkwOpqsAWGnZ3aiWkmzv7P43uekQkQTGLSbqm
+ ZZI5aLtlC0wzoxLZY6o/LMlf/ZAbjG4OZYC02wj1N7g7eTf+uVgvk9yh5QhpEhIYvhQ8TV
+ ZvCmUD+6EHH1sNEpTxhwJw6Tcu0FJgMkg+hExXpUwFOghj7TUmNHW6MG1oCWtlgDynLGQC
+ 1r4A==
 
-On Wed, Nov 25, 2026 at 09:01:14AM +0100, Joshua Crofts wrote:
-> > It was for the of_device_id and acpi_device_id tables. v2 will include
-> > linux/device-id/of.h and linux/device-id/acpi.h for those instead.
-> You don't need to include these (unless you're going for full IWYU).
-> They will be pulled by the respective bus headers.
+On Tue, Nov 24, 2026 at 05:16:47PM -0500, Nicolas Dufresne wrote:
+> Le mardi 20 octobre 2026 à 11:37 +0200, Sofus Forstreuter a écrit :
+> > Reviewed-by: Neal Gompa <neal@gompa.dev>
+> > Signed-off-by: Sofus Forstreuter <sofus.c@icloud.com>
+> > ---
+> >  drivers/media/v4l2-core/v4l2-ctrls-core.c | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> > index 922cf74c4eb8..384ff77771ea 100644
+> > --- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> > +++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
+> > @@ -638,7 +638,7 @@ validate_vp9_frame(struct v4l2_ctrl_vp9_frame *frame)
+> >  	 * According to the spec, tile_cols_log2 shall be less than or equal
+> >  	 * to 6.
+> >  	 */
+> > -	if (frame->tile_cols_log2 > 6)
+> > +	if (frame->tile_cols_log2 > 6 || frame->tile_rows_log2 > 2)
+>
+> Shouldn't this be 6 too? (log2(64)).
+>
 
-ok, will drop both in v2, so no mod_devicetable.h and nothing in its
-place.
+The max for tile_rows_log2 is derived from the spec (6.2.13 Tile info syntax):
 
-Thanks,
-Rupesh
+tile_rows_log2 = f(1)
+if (tile_rows_log2 == 1)
+  tile_rows_log2 += f(1)
+
+This is also what eg. gstreamer does. I will add that to the commit message.
+
+Best regards,
+Sofus
