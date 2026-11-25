@@ -1,47 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590487;
-	b=4KEKHN7yT//ZRtn09vJFyDq31LZbA6S5/9zRDluh5oKBTTxo873w5o6esuZHoqwnONFG
-	 pClExuOrUQzfBNGoOWdx1EmcFXPNpEqMFH5haV4kYEOqXdJA0X0DQUKDtzRu2mHKcqbVm
-	 PB70+vBE37CveVsAm6lAIq1cpLYlwoUjpojTn+AKUr41kx1FkeoX3YJx057074z8sdyif
-	 IfmAjNl+bje1upjyY+F4YL2O+4Yr0TAqzH0Y+S0sTd72/pVbUon+TbNgPgM/RBqnyeAN8
-	 yMMcgnlfZVkHTJpeR5+w3QEXrWd3cHWaYfNq4KhsnyhJ4QVqltEK+NY7R2OrpWDwxNw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590487;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=tmUcgq7m+W9QYzw0HuFeUjdIhKs2YAeRPnQeoTFJcp4=;
-	b=BKweXI42b3kdOwxALL/Zf76eEGlqOu9qLvA4JP5E8ci9B/EO2kneGOANjdm0KWGLDOD5
-	 ICps7zFp3kcv/Nsg/t5jDXsQLxFraFY3RbdsG1mdQhkJcBGQfpzcd/evp+zIHqnpxXP2X
-	 rEqzYyAl3cZVsgH2ydjmIifYtWbMdTn/Buw2nLIuy5UevX6Db5vgVlUUeiv0faqBpkP6b
-	 0LNtmAdLbvVZulhM+hRfT1BYA5BfMd9jQpfJlr+7rZYHyvf8G/XfJtkCqSnbzOB0yl7Tw
-	 u2i22gprWtn3re8k14aW28APXX2nGLPZIV1n4OnW+wHj85LZ6SjWq1RVlGI12s1BJHg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S3+ZbNEb;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.66.22
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795590533;
+	b=Ac+BkkkFhgmxTd/whK86W3gRovH/bBNg1SfOpTbfWa2vCwwnViDtIw+wL0llLli9LnL0
+	 KfoP/FpRd3ZuRKs7qI6qozcoqo3jCDjdWOYdU3e5gzplfOjfs4MKZCg92rD+kw0C0mrgI
+	 V/y/eA49i7ohZc/1YRclevgfKR+gLSQ9fKQ3Bo50V9ZaDBNT1lkQBnjdp5aU7veBChYtH
+	 k4oFLmZAwLp1ASOkoowf1DwlofTIsN61EDNrU4ZWCSJZXl4eX8r5f7RkSnfAD99HEHeVE
+	 tLOYVOBEuAgX4NrjmU/7BhSbLvl4th9zdtbH2DLqvfM+hOSSCAGWchsm3lFkgP7dwuA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590533;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:References:Content-Language:From:Cc:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:
+	 X-Microsoft-Original-Message-ID:MIME-Version:
+	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=TTGkgqVGq65gkbnsjtbOkjWAYreGpgNwIkoZKblVKDo=;
+	b=IqmDy3gy9hxj9fLtQ18moEKlarh+tKpjVPDYwooFo7M3Jv6VOlis7vi1saW+5WyZO0qP
+	 x514ds0ayfGkd6qBUabK4k2g9Iw4a/RaY+GNSMIA7Boq6YSliVDQP1DAA6GRA4st87mUd
+	 apAXaY9CNaSgZ9cfTJu7nCZ+ksKAVHYudzTQQGr0FV59k6ZPeqaXiAmvdYI4unvD5M61G
+	 2MLyJjG01KQaRw9vQLJFVsflvBaly8tIrcyfKjle/8EFa4NeBW7FXmTR9hadZsKgoUM+S
+	 vB1AhB/WTRaAyqpb5LpyC8k2kXKJh1CAgD7RUf6DWeVv/Oc58h5zff9j5k22mZbe1qA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=outlook.kr;
+	spf=pass smtp.mailfrom=outlook.kr;
+	dkim=pass header.d=OUTLOOK.KR header.i=@OUTLOOK.KR header.a=rsa-sha256 header.s=selector1 header.b=vFd0gxv6;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.66.22
+Received: from OS0P286CU011.outbound.protection.outlook.com (mail-japanwestazolkn19010022.outbound.protection.outlook.com [52.103.66.22])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B8D7606A69B;
-	Wed, 25 Nov 2026 07:08:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CD18606A69B
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:08:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CD18606A69B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S3+ZbNEb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EBB21F000CA;
-	Wed, 25 Nov 2026 07:07:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795590486;
-	bh=tmUcgq7m+W9QYzw0HuFeUjdIhKs2YAeRPnQeoTFJcp4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=S3+ZbNEbOdMqdPoDJevxhvINROtm1T+z2QF6gyVXULAHPYnWgnzQ+HCYDlHl4W4ki
-	 tsWyRQygR7/hIHxrX8i23/0n442IIlvIj042ahf6UTqQWrrQrtsjr9ha2vBYHYw8sD
-	 1JoXs2kcN7qLZloILPvn8pTulENH2LU1MlKM0rNRNH5kJeKOZ35cHKEIy6xtG17L7V
-	 2eD/cgFykREnCv4lY/I/C0qV+kv3tUbR2R6Pw0I1raj0P7BsZrAShg+HWEDhL37toA
-	 xlb2+sB4p7miEUa1UKMsjgUuC2J30og0lyx6MMhLSurXYUgOWfCG2+B8nISr0/+9aU
-	 Sn+OEgObJMrzw==
-Message-ID: <72ef7ef8-acc8-4ad5-9c09-76d9e944bf5c@kernel.org>
-Date: Wed, 25 Nov 2026 08:07:57 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=OUTLOOK.KR header.i=@OUTLOOK.KR header.a=rsa-sha256 header.s=selector1 header.b=vFd0gxv6
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cqX3uA3sD+aSl0pK/jWF0QncgLv3NX6d+XPNhlLV/yPLHrI5ORLX1GPgRrtf6kePm96fJ14fRuaifzLV9S5/IRSAXhW7ahldGQSqZtTTUiNki8Jq2YGbYYMkI1nJaerg13/p4N5yzF57bb+kk0kMwA+XqQ4myMHfMvObBGvX+79JrEAG+pDmS3JHqnchAqoGiSFMrRHtHGe3wiXPX/01tlz8MICNan+Hs49fjbKQ98DkEB48MnnKwsg3z25NvjV1IHUG9DC2n6HEuN0kNMCHgclM+UL7uiEaB87zHmpbgv8ClaYb72w4GrSrIXxE4nfOn7o9P/k9lM3JbUWdeVVSgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TTGkgqVGq65gkbnsjtbOkjWAYreGpgNwIkoZKblVKDo=;
+ b=IV48f5T09Lo88lrwBHWUlvqQW6+uFmiESEMvyNiMwbKt1sn5DpFeJq1hoZ7fUqzt9SN6OuCKu2NkMBmWwZBTjzFphFu2sX+4hb9OT++hPQU/senL+8VD8G7nbfM7XBrWT4cq7OVHORNUof/5a8IY0GhU8OwNyhFGC97/VlZh0syf6m0lcSEYMRkrscFUw3qtOxGSe/ViI/H8cZJ3Wfon+XJBY7TUz3opPwYC4uX0AuqOIIIJphf6tWkZ/bZUuLTSjxeOxetLklpqcgjxizUYrxL2to4WeXLj3Chkoho0c4jdOc43j+EJHk5ufILWB9PuI9U2d6FQvwxfdKfb22WxDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=OUTLOOK.KR;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TTGkgqVGq65gkbnsjtbOkjWAYreGpgNwIkoZKblVKDo=;
+ b=vFd0gxv6hepo5MlOTVjYTIcVSOSpxQoP/FkZ6mLh5VotzZb6mjJvyVbghb0J8IQ9taUHhiUfq/pg6m3MEis9h1YG820UJvZ1MHXQA8q+KEyacwVgfnIUdK6SGOyaghNpST9u6iD2RUsqIzoOkExWbznzOioi4Y/zdDNYw/mfjCM0q+ONnKRetbMOsA2qfMD4vIJaUgW6H4Wf7IXdB1epgc06idhzMV/NwPFDDmYg71cg2SFd+gQHQmaZ0FKEugjQPokUF3ta3efGCv1aj3qnKGGa9J5Udak22bKtemB8KwDWF7GcPQHf1UHanzOqXfPbpkXgJnTVGMLYEUPOGXVanw==
+Received: from OS7PR01MB13914.jpnprd01.prod.outlook.com
+ (2603:1096:604:36b::13) by TYRPR01MB13233.jpnprd01.prod.outlook.com
+ (2603:1096:405:116::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.5; Wed, 25 Nov
+ 2026 07:08:47 +0000
+Received: from OS7PR01MB13914.jpnprd01.prod.outlook.com
+ ([fe80::641e:83cf:743b:85bc]) by OS7PR01MB13914.jpnprd01.prod.outlook.com
+ ([fe80::641e:83cf:743b:85bc%7]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 07:08:47 +0000
+Message-ID:
+ <OS7PR01MB13914328949FC969309913E1796432@OS7PR01MB13914.jpnprd01.prod.outlook.com>
+Date: Wed, 25 Nov 2026 16:08:45 +0900
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] drm/nouveau: NULL pointer dereference in
+ drm_atomic_commit during GP107 initialization
+To: Thorsten Leemhuis <regressions@leemhuis.info>
+References: <OS7PR01MB1391484D564CF93DFBB4C1DCE966A2@OS7PR01MB13914.jpnprd01.prod.outlook.com>
+ <b89c176a-922e-4628-b549-a6d4b7520ec7@leemhuis.info>
+ <b89b83ee3de3ab113820ad94cf09be6b98ec3585.camel@redhat.com>
+ <b2c5e6b7-d579-449c-b894-ee162230e328@leemhuis.info>
+Content-Language: en-US
+From: Eric Kim <seohyun.kim@outlook.kr>
+Cc: dakr@kernel.org, "regressions@lists.linux.dev"
+ <regressions@lists.linux.dev>, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ nouveau@lists.freedesktop.org, linux-kernel@vger.kernel.org
+In-Reply-To: <b2c5e6b7-d579-449c-b894-ee162230e328@leemhuis.info>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SEWP216CA0016.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2b6::10) To OS7PR01MB13914.jpnprd01.prod.outlook.com
+ (2603:1096:604:36b::13)
+X-Microsoft-Original-Message-ID:
+ <b8260d8b-b451-4831-a162-7549f7b419f1@outlook.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,211 +103,232 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/9] dt-bindings: soc: google: Add Google Tensor CPM
- binding
-To: Brian Norris <briannorris@chromium.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>, Thomas Gleixner <tglx@kernel.org>,
- Ulf Hansson <ulfh@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Peter Griffin <peter.griffin@linaro.org>, devicetree@vger.kernel.org,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, Radu Rendec <radu@rendec.net>,
- linux-arm-kernel@lists.infradead.org,
- Mariano Marciello <mmarciello@google.com>,
- Douglas Anderson <dianders@chromium.org>, linux-clk@vger.kernel.org,
- =?UTF-8?Q?Jakub_G=C5=82owacki?= <jglow@google.com>
-References: <20261026214359.3122870-1-briannorris@chromium.org>
- <20261026144346.2.Ib692ddd35c1dbea1757d9b1db6c1c7e938fc4ea6@changeid>
- <20261028-rapid-daffodil-rat-0adc6a@quoll> <aulIoq2oVjJ3DVzL@google.com>
- <d4a430de-715a-4936-8adb-35ff57a52b5f@kernel.org>
- <avZkfg6WMlMzOxpn@google.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <avZkfg6WMlMzOxpn@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OS7PR01MB13914:EE_|TYRPR01MB13233:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1a5c0b81-b5e6-460b-6a0a-08df4ac2f301
+X-Microsoft-Antispam:
+	BCL:0;ARA:14566002|25010399006|51005399006|24021099003|19110799012|8060799015|25031999004|5072599009|15080799012|6090799003|23021999003|12121999013|41001999006|1602099012|10035399007|40105399003|3412199025|4302099013|440099028;
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?Z3I3SWVlQzczYVc3aU1PT2gyWDlPRW9oczRNbFFpTmYvendWdEJMMFBuV0Zz?=
+ =?utf-8?B?RW9USTZxd2xnTXl5MFFwbzlIcE9FT0NKVm15cnhUT2VleEh5empsS3ZZRHNh?=
+ =?utf-8?B?U0U1Kzg0YUVLQkt1K0xMWVRPSTRiUW8wQVVVRGxxeHZyN3FKcTM3R2JVNmk4?=
+ =?utf-8?B?TStxUkw4Sk4yVHJWeVZ3WDlhV1hRQzkvSHJTL3NuRVZ0RmFqcWJtalV4SXU0?=
+ =?utf-8?B?RWJMdEJMUnFwRVAxN2NMcUxYeCtLclVwS2lkcGxuSHAxay9aUURmdnQ1K3dV?=
+ =?utf-8?B?RTF6bTRTM1hNbFo4eWJmLzN2T1ZwZkhvOFNtWDJLc2YrRW9oZFd4NzNQVkdO?=
+ =?utf-8?B?VFdsY2xpSkhORldXSlhLZmhScXIwOHV1SWhRdHluYXBhTUVoWnBQc3BSbmgw?=
+ =?utf-8?B?QXNTYVlsOW0wcmNXajJzZndIbmt6NTZkL2dsNGZNNmFuNDVDZDZpWnpDcVlj?=
+ =?utf-8?B?bFZqdFFBQ3RqOGw1N3QxTjQzYlRVaXJTYWVuTVpRVkNtSUhaay9lbHAxSS9B?=
+ =?utf-8?B?SDY1WVFiVytJNm1MTG5lUVR2bWFoQ0hUSHhwNk05YUlxNVppNkl5NzBCclIr?=
+ =?utf-8?B?RGxYcFMyY1pnMzBvVTRCd3pBL1V5eXllaVpGVHBtZStPY0xyWjVkcXZpaGxT?=
+ =?utf-8?B?Rno3OVhxT0VRNXd4U1JZQ2ZWWGhUejBNWEczdE5heDlCdHZ1Z3E3eEI4TDNL?=
+ =?utf-8?B?QnRieWhucmMzM21xTkxCd3QwYUY2eUdlOUVJem1LbUNOOGZsV3BScEs4ZzJj?=
+ =?utf-8?B?TUcyWXlhQXJia0VpcDd1b1VnZzQ4SittL1NJYTVodkp3VXpmNUo4NmVHSUFk?=
+ =?utf-8?B?eENQb2w5UmdWbUlTQVNqbzdacVNNelZnanR6YXlxSXc2ekZXVUg4bXhuYzRk?=
+ =?utf-8?B?WFdLN0lkS0J5Mmd6S2V5R2FycVd6UDhUQjlRZEJsVGUvelRzNHVROFNqcWN5?=
+ =?utf-8?B?WHVlejZMeFNWOGZTdVJjOFBpS2Rzcm5ISTJicTJ1TG1YV3lVOGxiVUpYY0pD?=
+ =?utf-8?B?Szk2MGQ2aVVlVXBXTnVyeHlkZU95WjR5cGk5Zk5HMFlvaGJ3dDV4cHpvcmQv?=
+ =?utf-8?B?Qk5Yb3I5UEJPc0FhUHQ1QTRScVVkcDdZTElrUzVDTWIzQnMxTGhPOXhMOGJy?=
+ =?utf-8?B?NlhaMVB1OWN6RDdaM0tsSzdpTVhnTXM4dmtHWDhKdEwvYlU3bTNKWThqUVlW?=
+ =?utf-8?B?WGxPUTVlVFpndXJXQ2NzTkgzaVMrZFgxUGxIU2hxUGxsVzMvOS9EM052NlJZ?=
+ =?utf-8?B?QWNlNFl2elRKRHYvcVR2MXZCeE9paUE5cHEyMGwzQTMzSWY0SzNRdEVyTUsy?=
+ =?utf-8?B?bS9lL055amFRRjVUa25xNGR1RUE5TzRyOUMxM1hmVU91NTE2VFNlaGNhUnU1?=
+ =?utf-8?B?ZXBpUzNRVjJYa2FNRXVoaWpMZ05DeUlEM3NYTXh6bDF5ZjBRZ2llZWhZWVNX?=
+ =?utf-8?B?b2k0QTA0d05wQUVkQURGemxPZUZnRUJUS1hzWXVpaDlIQWkvSFljNVVZbW1L?=
+ =?utf-8?Q?MF/zig=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?T2kza1pNdy8xdkdpb2htUEE0c09wUEM1WEJOYmlqOWVIVjZnRVdsVGZrcHht?=
+ =?utf-8?B?aHNtT3hCT3J3VEhaTnk5aFNEQUh3d05Iai92T1VRMzRaaU9hNk1ycTdGd1Zs?=
+ =?utf-8?B?VzJpcTlGNWQwQ3ZwdVJXZWttdFlOSkY1MEZka0M5Vy8zVEQ4TzBad0s3UWE4?=
+ =?utf-8?B?eDc5M09pTnZOclpudGE2YU11QUw1TFN6bnQ4NHJhMzJJSi9WMW00Yjd0MjZF?=
+ =?utf-8?B?SXFIdlhUOU9Gck90V2FSdkZCbURuK0E1Y1NQeHVRanl0TWtaZmRReXd2b3pQ?=
+ =?utf-8?B?SkxpOVFjVzI5MW9zaVFNWU9xY0h0bzlVNW9jNStOT3I2aG4vVERFV2ZwYmtK?=
+ =?utf-8?B?dGJHY2NIUkdFYlhZMTV3RFU0SzcvcWhkVmhVNzJENCttcTJKNUNWSUYvUFcz?=
+ =?utf-8?B?SkZFVmZqdDcwR1dkSUl1K1FmRXRYSlhkUDVLZVkrME5NQnJPSTlxWGZzNmZo?=
+ =?utf-8?B?TUVqZGwvZFUrdXR1ZlBCKzRmVWYxRE5SQVBvU09zMlhUOWVPcWMrVUd0Qng0?=
+ =?utf-8?B?M3ZhODR3a1l5VmFKc08yS24xRm5sZkZnWFUyMG5hL0hCVG1pS05MalFjTkd1?=
+ =?utf-8?B?NGdqMjFiYnJ1MVN5dGN6aENHR1k0dlBoTVRZaU8rVHNhWTJaeWJwZ1Y1ajF6?=
+ =?utf-8?B?S2hTdG5oaWt1dElkc0lDMVlaMythVVkwWFBBTFphM2VTOTdVc3hTWXFLY2lZ?=
+ =?utf-8?B?enJvYnJXRE5oemlMTGhMVE9ncjYvc0lZbndRNjhyR2svTEpFN3NQZnl3Mk5T?=
+ =?utf-8?B?UE1QZlRrazl4SEw1cm95Zi84SmFkd0xhVUo1dFFJOFNmR2lSZWJ4Mmo3Qmdi?=
+ =?utf-8?B?a00wUGpZMFdFTnRlVWJIVjgreWZzTXVKbVB0Y3Q2WW1naHBGS2Y4TGJQcmc4?=
+ =?utf-8?B?S2x3YVRXR0tuMXBiRVlrdUVGWFRQcS9QRHRRK2VZOE9FZE5EYlUyM0ZOajV1?=
+ =?utf-8?B?cWZ5TFRjbXdNUjIvdjVOMVhBemwrcmk1NTVFWDZ1b1kyWUhyTGdtOVZPRjR3?=
+ =?utf-8?B?SVpPc2tualpPKzJ1ZUI4UFIrdlVrL1BUZEVNa0VBMzQyL2krRzdmV2EvNlRE?=
+ =?utf-8?B?dTdzM0g0Q2xlSkRpYzNmNWhlMkpDTjI1NHoxM05qL00wYzQvTi9xTlNxUzVa?=
+ =?utf-8?B?QjBIVmNmUW56cEQ4THdHVVFNRWR2dHZFM2Y5RE9PSTRxK1JLaXZNRjhjbzd3?=
+ =?utf-8?B?V3JSZTFDeU1nZzBXK0pFVDkxOXg3TUtiTll2dUk1Q2hEOGJ2eU1qSUEyUFJG?=
+ =?utf-8?B?YzhPZnZXZFh4dDdJaDJFbjF2OWNsV2M2RmZpa2xsbWM5bkJsU09GcVk2ZEdL?=
+ =?utf-8?B?ZERHYzg4bEZTTHg2Y0dndFBRSlJYRHVtN2dvZzFWcTVuMEVzK3VUYkZDR3F5?=
+ =?utf-8?B?WDUzZTVrQ2x5dm1OcFp6OXVsY0s1cHE5cTFJV3dHbCtZM1N1UXpBVWJDRVA4?=
+ =?utf-8?B?SDY4NGJRdWptYXNVaVNWWEN6YktVcGVhWW1FbTM3WG11ZXI0NzBaSWRsU0E1?=
+ =?utf-8?B?Q2pkQk1abTFxU0Fzc2ZoYXJGU0NJSEhQTXVERGIycTNBUDNGbWN5LzBGTzRx?=
+ =?utf-8?B?UHlBL1JHZTd6N3dEMVRXQ0s4MlgwUjJmVWhobHFIL3Vxem5DcEdKckhJVUJt?=
+ =?utf-8?B?QVV3L0tWcXkwRENNUUg0MlRscEFPcFRNbTN2d3BFZmZSSUkzZDZWeFJJNHJQ?=
+ =?utf-8?B?OHF1VVlwbEVmbEY4WjJzM0F6YjZiQ0Z0S09RRXJSRVN3alFmU2FFM0NMSEN6?=
+ =?utf-8?B?L3VzRTBVdGs4ZENyejBmZzNEZDM3UTA4anRoaDVpcWpNc0hSVmNLb1hmTklx?=
+ =?utf-8?B?OE03TkhhaGlCVjNySDVPSzZBcGdoTTFFQW5IZGhScElVdnVaa2ladlhySnJ0?=
+ =?utf-8?Q?8FE2qOYg4gqfq?=
+X-OriginatorOrg: sct-15-20-9412-3-msonline-outlook-b83fc.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1a5c0b81-b5e6-460b-6a0a-08df4ac2f301
+X-MS-Exchange-CrossTenant-AuthSource: OS7PR01MB13914.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 07:08:47.3516
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYRPR01MB13233
 
-On 13/11/2026 02:14, Brian Norris wrote:
-> Hi Krzysztof,
-> 
-> On Thu, Nov 05, 2026 at 07:54:22PM +0100, Krzysztof Kozlowski wrote:
->> On 03/11/2026 03:36, Brian Norris wrote:
->>> On Wed, Oct 28, 2026 at 02:19:23PM +0100, Krzysztof Kozlowski wrote:
->>>> On Mon, Oct 26, 2026 at 02:43:40PM -0700, Brian Norris wrote:
->>>
->>>>> --- /dev/null
->>>>> +++ b/include/dt-bindings/interrupt-controller/irq-cpm-google.h
->>>>> @@ -0,0 +1,16 @@
->>>>> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
->>>>> +/*
->>>>> + * This header provides constants for CPM IRQ.
->>>>> + *
->>>>> + * Copyright 2025-2026 Google LLC
->>>>> + *
->>>>> + */
->>>>> +#ifndef _DT_BINDINGS_INTERRUPT_CONTROLLER_IRQ_CPM_H
->>>>> +#define _DT_BINDINGS_INTERRUPT_CONTROLLER_IRQ_CPM_H
->>>>> +
->>>>> +#define CPM_IRQ_RTC_ALARM_NO			0
->>>>
->>>> Keep naming consistent. Clocks has _CLK suffix, so this should not use
->>>> prefix.
->>>>
->>>>
->>>>> +#define CPM_IRQ_AOC_MIN				7
->>>>
->>>> Anyway, ABI constants should be indexed from 0 and incremented by 1.
->>>
->>> What do you mean by this? Do I need to make up names for the
->>> unused IDs between 0 and 7? On an initial search, I don't believe they
->>> have any meaning at all. Does that mean I should make up some kind of
->>> "RESERVED_<N>" naming here?
->>
->> No, I meant CPM_IRQ_AOC_MIN is 1.
->>
->>>
->>> Between 7 and 156, these are just ... 150 different "service numbers"
->>> within the AOC (Always On Connectivity) subsystem. I can name them
->>> AOC_0, AOC_1, ... AOC_149 if that helps.
->>>
->>> Or are you suggesting that I pack the actual use cases (so, 0 and 7-157)
->>> into 0-151? I thought it was valuable to directly use the firmware
->>> indexing where possible; if I change those, then the indexing loses its
->>> inherent meaning, and we also have to add another layer of translation.
->>
->> We do not use hardware numbers as bindings and ABI, because that's
->> pointless - no benefits, only risks. Similarly you do not define GIC
->> interrupt numbers, pinctrl pin numbers, MMIO addresses as bindings. None
->> of these bind anything between DTS and software, so not a binding.
-> 
-> OK, I see your point about the distinction between hardware numbers and
-> bindings. So are firmware-protocol-defined numbers more like hardware
-> numbers or bindings?
-> 
->> There are some exceptions like SCMI firmware, but that's not the case here.
-> 
-> It's funny you mention that, because that's exactly what Jerome compared
-> this to in the clk, reset, and pmdomain portions.
-> 
-> These values are used literally in the firmware interface, so I'd
-> consider them very similar to SCMI firmware protocol IDs (and, not that
+On 11/23/26 7:55 PM, Thorsten Leemhuis wrote:
 
-Sure, where is the source code of the firmware then?
+> On 11/10/26 01:54, lyude@redhat.com wrote:
+>> Hi - I'm back! Sorry about this, I've been busy moving and only just
+>> got my machine setup. I will take a look at this tomorrow
+> Any progress on this? Looks like nothing happened, but it's easy to miss
+> something from the outside.
 
-> different to hardware IDs, if you consider the "firmware" as essentially
-> unchangeable). And if I change this to *not* be literal firmware IDs,
-> then Jerome's suggestions on patch 5 (to imitate SCMI, and to defer more
-> control to the firmware) become more difficult.
-> 
-> If I do keep these as literal firmware IDs: does that mean you'd prefer
-> these not be in dt-bindings/? Many of them (especially the IRQ IDs
-> you're pointing at) are not needed at all in the kernel side; they serve
-> more as naming documentation than anything else. I can just inline them
-> into the DTS. But I'd prefer having macro names for LPCM IDs and
-> similar, as it vastly helps DTS readability.
-> 
+I found other reports that display the same behavior on NV50 and up platforms
+regarding the same issue.
+
+Link: https://lore.kernel.org/all/96444f8e0155d34c7a07fd5cc67ed87784bedd38.camel@gmx.de/
+Link: https://lore.kernel.org/all/629c8bdedca971d38b08ffd32acec1a804ff7d7d.camel@aol.com/
+
+It seems like it causes problems in systems using hybrid graphics, combination
+of iGPU and external GPU.
+
+> Just wondering: should we maybe just revert the culprit for now and
+> retry in a later cycle?
+
+I was considering to revert the commit, but it seems like Dave already fixed
+The problem.
+Link: https://lore.kernel.org/all/20261111-nouveau-atomic-fix-v1-1-118e65d3a2f5@redhat.com/
+
+> Ciao, Thorsten
+>> On Mon, 2026-11-09 at 08:45 +0100, Thorsten Leemhuis wrote:
+>>> On 11/2/26 13:47, Eric Kim wrote:
+>>>> On my laptop, which has GP107 GPU with intel graphics and uses
+>>>> nouveau
+>>>> driver, booting kernels after commit
+>>>> 2652aca460dcfdd0d169bbfa358aa15804dc736b causes NULL pointer
+>>>> dereference
+>>>> at initialization.
+>>> Thx for your report. Hmm, no reply yet afaics. Wondering if it would
+>>> have been better to report it at the dedicated place for nouveau
+>>> kernel
+>>> bugs: https://gitlab.freedesktop.org/drm/nouveau/-/work_items/
 >>>
->>>>> +#define CPM_IRQ_AOC_MAX				156
->>>>> +#define CPM_IRQ_AP_GDMC_WAKE			157
->>>>> +
->>>>> +#endif  /* _DT_BINDINGS_INTERRUPT_CONTROLLER_IRQ_CPM_H */
+>>> You thus might want to at least check if any similar reports are
+>>> found
+>>> there.
 >>>
+>>> Would also be good to know if reverting 2652aca460dc ontop of latest
+>>> mainline fixes this.
 >>>
->>>>> --- /dev/null
->>>>> +++ b/include/dt-bindings/soc/google,lga-lpcm.h
->>>>> @@ -0,0 +1,54 @@
->>>>> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
->>>>> +
->>>>> +#ifndef __DT_BINDINGS_SOC_GOOGLE_LGA_LPCM_H
->>>>> +#define __DT_BINDINGS_SOC_GOOGLE_LGA_LPCM_H
->>>>> +
->>>>> +/*
->>>>> + * LPCM IDs of each SSWRP.
->>>>> + */
->>>>> +#define LGA_LPCM_CPM			0
+>>> Ciao, Thorsten
+>>>> [   17.556328] [drm] Initialized nouveau 1.4.3 for 0000:01:00.0 on
+>>>> minor 0
+>>>> [   17.556364] nouveau 0000:01:00.0: [drm] No compatible format
+>>>> found
+>>>> [   17.556792] nouveau 0000:01:00.0: [drm] Cannot find any crtc or
+>>>> sizes
+>>>> [   17.557237] BUG: kernel NULL pointer dereference, address:
+>>>> 0000000000000000
+>>>> [   17.583880] #PF: supervisor instruction fetch in kernel mode
+>>>> [   17.598078] #PF: error_code(0x0010) - not-present page
+>>>> [   17.601475] PGD 0 P4D 0 [   17.608839] Oops: Oops: 0010 [#1] SMP
+>>>> PTI
+>>>> [   17.608914] CPU: 6 UID: 0 PID: 1443 Comm: modprobe Not tainted
+>>>> 7.3.0+
+>>>> #1 PREEMPT(lazy) [   17.608954] Hardware name: SAMSUNG ELECTRONICS
+>>>> CO.,
+>>>> LTD. 800G5M/800G5W/NT800G5M-X78W, BIOS P11RDV.075.170829.XJ
+>>>> 08/29/2017
+>>>> [   17.608990] RIP: 0010:0x0
+>>>> [   17.609090] Code: Unable to access opcode bytes at
+>>>> 0xffffffffffffffd6.
+>>>> [   17.610081] RSP: 0018:ffffca4d86537828 EFLAGS: 00010246
+>>>> [   17.610135] RAX: 0000000000000000 RBX: ffff89b74dcf1180 RCX:
+>>>> ffffffffa97d8091
+>>>> [   17.610172] RDX: 0000000000000000 RSI: ffff89b74dcf1180 RDI:
+>>>> ffff89b74c466800
+>>>> [   17.610207] RBP: ffff89b74c466800 R08: ffff89b74dcf1180 R09:
+>>>> 0000000000000000
+>>>> [   17.610245] R10: 0000000000000010 R11: ffffffffa9b65410 R12:
+>>>> ffff89b74c466800
+>>>> [   17.610283] R13: 0000000000000001 R14: ffff89b74c466800 R15:
+>>>> ffff89b77f1a2400
+>>>> [   17.610320] FS:  00007fc4a888d780(0000)
+>>>> GS:ffff89bac4364000(0000)
+>>>> knlGS:0000000000000000
+>>>> [   17.610357] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+>>>> [   17.610414] CR2: ffffffffffffffd6 CR3: 0000000144b20004 CR4:
+>>>> 00000000003726f0
+>>>> [   17.610448] Call Trace:
+>>>> [   17.610483]  <TASK>
+>>>> [   17.610521]  drm_atomic_commit+0xb1/0xe0
+>>>> [   17.610558]  ? __pfx___drm_printfn_info+0x10/0x10
+>>>> [   17.610590]  drm_client_modeset_commit_atomic+0x25c/0x2d0
+>>>> [   17.610618]  drm_client_modeset_commit_locked+0x5a/0x170
+>>>> [   17.610647]  ? drm_master_internal_acquire+0x1d/0x40
+>>>> [   17.610675]  drm_client_modeset_commit+0x25/0x40
+>>>> [   17.610700]  drm_fb_helper_single_fb_probe+0x1aa/0x1c0
+>>>> [   17.610729]
+>>>> __drm_fb_helper_initial_config_and_unlock+0xa8/0x1b0
+>>>> [   17.610754]  drm_fbdev_client_hotplug+0x79/0xb0
+>>>> [   17.610782]  ? drm_client_init+0x13e/0x180
+>>>> [   17.610811]  drm_client_register+0x79/0xc0
+>>>> [   17.610839]  drm_fbdev_client_setup+0xc9/0x1c0
+>>>> [   17.610867]  drm_client_setup+0x6a/0x90
+>>>> [   17.610893]  nouveau_drm_probe+0x15b/0x1e0 [nouveau]
+>>>> [   17.610922]  local_pci_probe+0x4a/0x90
+>>>> [   17.610951]  ? cpu_hotplug_disable+0x15/0x30
+>>>> [   17.610977]  pci_call_probe+0x5a/0x1a0
+>>>> [   17.611009]  pci_device_probe+0xdb/0x180
+>>>> [   17.611060]  call_driver_probe+0x23/0x100
+>>>> [   17.611104]  ? driver_sysfs_add+0x55/0xc0
+>>>> [   17.611137]  really_probe+0xd7/0x2d0
+>>>> [   17.611171]  ? __pm_runtime_resume+0x50/0x60
+>>>> [   17.611220]  __driver_probe_device+0x9c/0x1b0
+>>>> [   17.611261]  driver_probe_device+0x1f/0x80
+>>>> [   17.611297]  ? __pfx___driver_attach+0x10/0x10
+>>>> [   17.611335]  __driver_attach+0xcc/0x200
+>>>> [   17.611373]  ? __pfx___driver_attach+0x10/0x10
+>>>> [   17.611409]  bus_for_each_dev+0x97/0x100
+>>>> [   17.611451]  bus_add_driver+0x1d0/0x280
+>>>> [   17.611493]  ? __pfx_init_module+0x10/0x10 [nouveau]
+>>>> [   17.611530]  ? __pfx_init_module+0x10/0x10 [nouveau]
+>>>> [   17.611567]  driver_register+0x75/0xe0
+>>>> [   17.611602]  nouveau_drm_init+0x60/0xff0 [nouveau]
+>>>> [   17.611633]  do_one_initcall+0x89/0x3d0
+>>>> [   17.611667]  do_init_module+0x8e/0x290
+>>>> [   17.611703]  init_module_from_file+0xc8/0x180
+>>>> [   17.611736]  idempotent_init_module+0x23e/0x360
+>>>> [   17.611773]  __x64_sys_finit_module+0x7f/0x110
+>>>> [   17.611805]  do_syscall_64+0xbe/0x470
+>>>> [   17.611844]  ? do_syscall_64+0x37/0x470
+>>>> [   17.611883]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
 >>>>
->>>> What are all these?
->>>
->>> The binding doc says:
->>>
->>>       Each reset is specified by an LPCM ID (cell 1) and a reset ID (cell 2).
->>>       See <dt-bindings/soc/google,lga-lpcm.h> for LPCM IDs and
->>>       <dt-bindings/reset/google,lga-cpm-reset.h> for reset IDs.
->>>
->>> and
->>>
->>>       Each clock is specified by an LPCM ID (cell 1) and a clock ID (cell
->>>       2). See <dt-bindings/soc/google,lga-lpcm.h> for LPCM IDs and
->>>       <dt-bindings/clock/google,lga-cpm.h> for clock IDs.
->>>
->>> These are the IDs used in the firmware interface to talk about these
->>> things, as many of the SoC resources involved (clocks, resets, power
->>> domains) are grouped in this way (by subsystem (SSWRP / LPCM), and then
->>> with indexing within each subsystem).
->>>
->>> In reading again, I see that the definitions and explanation of these
->>> terms and the SoC organization are split a bit between the pmdomain
->>> commit message and the binding doc. Where would you prefer I elaborate
->>> more? In the binding doc, the comments here, or both?
->>
->> I just try to understand their placement. Bindings should not be in the
->> soc directory, except a few things without clear subsystem owner. If
->> this applies for both clocks and resets, maybe this could be firmware,
-> 
-> Maybe firmware, maybe power? LPCM is "Local Power and Clock Manager",
-> and I believe there's essentially 1 LPCM (microcontroller) within each
-> top-level power domain.
-
-How does it help you to have LPCM ID in the DTS? It's derivative from
-the clock (or could be made derivative)?
-
-Best regards,
-Krzysztof
+>>>> It boots without this problem when booting with nouveau.atomic=0
+>>>> kernel parameter.
+>>>>
+>>>> My guess is that atomic_(commit|check) operation is not present in
+>>>> nouveau_mode_config_funcs, and commit
+>>>> 2652aca460dcfdd0d169bbfa358aa15804dc736b enabled
+>>>> atomic modesetting by default for NV50+ gpus caused
+>>>> the problem.
+>>>>
+>>>> Also, drm_helper_(commit|check) was added to
+>>>> nouveau_mode_config_funcs
+>>>> at commit 604826acb3f53c6648a7ee99a3914ead680ab7fb, but it was
+>>>> reverted at commit 6c65db809796717f0a96cf22f80405dbc1a31a4b due to
+>>>> unreliability.
+>>>>
+>>>> I hope this problem can be fixed at one of the next releases.
+>>>>
+>>>> Thanks,
+>>>> Eric Kim
+>>>>
+>>>> #regzbot introduced: 2652aca460dc
