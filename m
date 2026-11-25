@@ -1,58 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.216
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596571;
-	b=dmE+rR1q5UvkXWIXyFzKMORQyiWPSx7LmKdG8DGZ6GTksZHulFItX941KVLcvD/j+GC3
-	 RKsvH56Kso+byDs0mScCEd2fcYA631Tih7NQFiL7Fmd7nDj3SqX2uO0PVbKunWjjw7u1X
-	 sGvku6Vl4o5r7odyqdbyUHQfP0M4zf6JfCUVqHJLz2TdeYTle6jUa1hFk8p2QLmu72JsG
-	 RzanJlgVyDeXD8qQCaZJgJJE7SNaWdbG8plKiLSuLv9agD/UoQaCJqDPgBmKKvUtTRTVW
-	 4MyMtRCBznHq3oR8znwWrd/XirRCMYOLAubjkXvJMDuTXg79barEO5DDXSJJTBd6HjA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596571;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=06PO7r5fywxUcb1upikYj195xr8JzyPRVP1dBZO2gWM=;
-	b=fwJnUZ8rJklD1/73oD2ThFNf++Mff1iKUQiSXuDT++LZ1QlG001Ff5o2y5EXvNiClVW/
-	 /hrcQiJhdPPVoS0NsjPKAiNdvcUfDzMfUNM+1+5h+O50SdDMDDkOt3UkjrTylvobMHcdp
-	 ieGEWRDvvwUvGt+oEWG7k48GnpWqdnKWkYhoWHJ3qhC62Vjm+5Z6WwvGAE4cu1AYHIici
-	 0WaY69ElbjRYv882Px0ZBqc/4B4SN8+vRxIuP76EnQG4Mw4CCqs6+oz5NiaJfXaFLhC8f
-	 HL56tQ6uI+YbFfNz8Mv1L5d/WQF00pG3f/UAResWCT0HifQ4yza5fZzlnfoRICI2aYQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=JO6GoKUr;
-	arc=none smtp.remote-ip=113.46.200.216
-Received: from canpmsgout01.his.huawei.com (canpmsgout01.his.huawei.com [113.46.200.216])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.41
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795596611;
+	b=fvDshsQFoNpZc5sHWTi+pGDkpwEvTf0VX6d9VyF2E+NigTvABQ06ZSqWaUUNtwU1Tpe0
+	 DpFTVnMOpEtGco2uSmnWfFaHKS+gF7Zmp0DYV9+qzfAh4vPttaykhhyoY2gRUoSYWEbDC
+	 Li7psvJqGXkx4hGagY5dtp7uT9sv8LTB3hL3fPlZX5Jw59OzTB97bfpqJD1p5uLlUQu7F
+	 earKB2fXGcwdg6ups0qEAmWKiuBhSXipGhPqCAL2n7K4Tgs5cFNf5+J+AJ/7jAYWb7yw7
+	 ZCF8wBYfc0swUk28eDHiugc4YJClIZZiNa52GQ0K+5Vu4c0IDFKe6c1eN5IXKFKjwaQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596611;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=huaeUnA8VNpUuIejnx/kUAs+Y2K0T8LOpxzNwKLu1uU=;
+	b=ahexR1FnEu9wNs2MovQpVGEDgKsURYJA7NdyFZrTRZMzi6a50dCzBN62zn9E0dM5qxMM
+	 0r8lZtQaqrJSrAuBJ41pqfCHnlyUGhcCUz5NY1BpgoGKGZ6rLRPPTL4HB/yJmrh+oylO9
+	 nZ9xAeZ9KB/FQVrXNm+QhLN7k3GJWh3530gQ4FJAo5IHzK7cOy5iXzPYXYp09tGoWXgdQ
+	 JrM8GwQ1tIn0T6VnHbKX1snszAWTCuWgTyeR7q9rwDfkXyrD/PiL9Wr7RXIL5ke8OBcto
+	 QhuvBdyD/N1n5qq9dZZUezQ69pNW4rPKxqLrfUr3hUPWXhYPFKkWdXeIsQgFJ4qGUuw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RbtwmHkm;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.41
+Received: from mail-qv1-f41.google.com (mail-qv1-f41.google.com [209.85.219.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 307CD606A326;
-	Wed, 25 Nov 2026 08:49:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 307CD606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 408D4606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:50:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 408D4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=JO6GoKUr
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=06PO7r5fywxUcb1upikYj195xr8JzyPRVP1dBZO2gWM=;
-	b=JO6GoKUrYIQ1Q/CtomcPhUsGSMJNu09OP53TAY4OZ8LFILvTKj0c2EVoGl1PyxEefItW6XMFm
-	gXXRBQz912EBRwKwl/EJPKZR0G9imlYG8ylzqbtp3wTOkLRNNuYUFoqwcxg23bv45VFb8Ri2htX
-	MEE/k1BPuGN7EbJIahNz43A=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jZCy70pPpz1T4Gk;
-	Wed, 25 Nov 2026 16:48:31 +0800 (CST)
-Received: from kwepemk300018.china.huawei.com (unknown [7.202.194.246])
-	by mail.maildlp.com (Postfix) with ESMTPS id C6AE64057D;
-	Wed, 25 Nov 2026 16:49:20 +0800 (CST)
-Received: from [10.34.206.67] (10.34.206.67) by kwepemk300018.china.huawei.com
- (7.202.194.246) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 25 Nov
- 2026 16:49:20 +0800
-Message-ID: <dfb1128d-feef-4729-b31c-a52f937dd92b@huawei.com>
-Date: Wed, 25 Nov 2026 16:49:19 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RbtwmHkm
+Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-921276742e3so51423226d6.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:50:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795596610; cv=none;
+        d=google.com; s=arc-20260327;
+        b=UMoptxNOtt/9S0ysR76L8YBwD2Cq5wnfUAMlupzUyO2WgVYc9y5ozbHpPfd/lFdhMx
+         IecQldP+DZDebuRejPOj/D5yuwO2nKIu4RVYcABjoBj3pLkwrn8vTg2rnc258KEomcOC
+         wF3u4J4naBxFe6SNmkRUCPRESq85KzXX6f8Nct9j0LaL6T34a0yJPb8tX4WF69lzHi2K
+         XIjOtfoy/NikK+JEOAzToxO21tHwrk0NhtbJAfid6jyE+/KmGitrqusS5nWALx2zlD9R
+         vjZRp6f+ZeEtxwSW+DU9WVf/DCyRrjYli9APyg2zXTDz0YEHI+CKXnqZsmXFS01Ysam4
+         C04w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=huaeUnA8VNpUuIejnx/kUAs+Y2K0T8LOpxzNwKLu1uU=;
+        fh=x6dAqbAGjRXMrSKknBbZDNVw72eQUrGMD8HdGK/7MDc=;
+        b=oXhQ2GHvRYoCsfRBVL/X5ol4PjvATAaZv3FmcIaDoR2OZV4pd9e1xrQDSh4zVSHZgJ
+         ZQjzwRpAEV/TA1TG6uvuTKPB4kzDjb1OhqmVSR9MtbCGnLKZv9QBM2gLDIltoP6itVef
+         eC0jjGFleMePVfjt2OK5BFV5AptiIb3XmbEocRk5/zdBnZNL8mQMCJ1kzcJ9Y6LADoU/
+         e/amzorjdWy/3WbdWyvy57w28/57nQtX9F9I+r4kqq5FrSXMVO4EzpHoRAJKCQJsj85C
+         9hhtSSXNIec5uq+lQSMZxQ4zS/TM+G4EipMMcLGi/QVz+U2eQIiW27oS1/njEm+xCM+S
+         E/uQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795596610; x=1796201410; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=huaeUnA8VNpUuIejnx/kUAs+Y2K0T8LOpxzNwKLu1uU=;
+        b=RbtwmHkmTsmyfAKcggWTMLdqqFGXsdOC8ivNLMZIaAPMC3V6ywVQvsZHoChnnOrRiB
+         PxuxVADtPCpMvJYzzZU1L9Rc6VtKzsbSfyOkeTr1WlmBPb20jjFMQWk5y6RRbohAc7x3
+         egyx+hfvsVVkTLVMIHtIghL9uixOzwITELfYOW92sQW+1L3Ju8PFpxggXW2r52UqVNHa
+         t53saIRH+nsFBQbb7P5vxjrxAcClz7vRbGXC0vHx+VtBR64EHNkg3xBWBQADpzECB/kQ
+         aSHi1G/RgKC/ebvGnjslsvtlI728NGwzRjWMbsrH3FhbdN+1pBXehaOdFiRDpzxatWlB
+         AJEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795596610; x=1796201410;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=huaeUnA8VNpUuIejnx/kUAs+Y2K0T8LOpxzNwKLu1uU=;
+        b=PkILh4Nb2Nm7JQ6QBIMvGbsw0k/e1tabcd1mAGrR74alXOx6FOgCpClT+Vne2K8vf/
+         SpLAXq4QoskJJ6RZ7sZaFn5HJYhVgz5ev7b4RGGe6FM2XEs+hnFVeDJzrz+f1Lwddi+1
+         RoxI0UOBn+f4ilz05L1JYu505JwOj9iCYLpJqKrGsT1Y5Jh/HFPXJ5LKaM6lUBhRHlLA
+         YuloU4aSz/Rd303Focwsi3YLMcQnmXir/afgZW0LcUfvz8p/dNsiO6JBJUbCq9udsGe6
+         to2Fg/Cdqo4SYThBzRKR7i5O6BK5Wbi8r5h01OWTHbKhNQI6R3Ktbje1dUKFUZ1u59pK
+         TbPA==
+X-Forwarded-Encrypted: i=1; AL+hErGrtVuuBLVlwt7Y/NMLiAM6/Qb1HYJAKkdNysdsxNxw6D+uDfhnQLCf7dD6pa0j3vc6xNDhRBZZa4pFNcA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8r8M81lutwQQrA8ZqK0Y+gyCPQsJx19dlfK8BWfgwZtETNCE6e
+	FAuY31owWp/qeBju4WrtshCWT+01NFJ6SHnp6nunnleUEYDgNqC+1sItiz6yone/778NPUzYbdy
+	Ly9gUuleQEHCz78LI0wTEnpeVV0TuVrw=
+X-Gm-Gg: AZFdTZf5PHNghQxne8N+/Xy0o2r98AVonJ3xU2sL5NISQ6KA7/sfglBVEzTS3CEQeah
+	Or9Evuf/mETShPSGwtOnZZelKOErcMpqOMdJr1nwedtkcYUya03OlUA/+cDiOppcnzS0kz0o7Yq
+	9oov4C7DPpnjS3P+tmAnp4ncxYD1vyvpcaWH7nWYnnuqHewIZfJ9CCn+eUNoUkrqhDykX5F2dyb
+	XDXQB0aU1Q43IUqYtOSsEyBEn96yJVUVAW0QEOoRbsKAGDpILoyUBpdzTt0IQ3b3pletujmNe6t
+	PYCIqbUGG+X/nlCB4nPGUHeEy7zcXc6UpEMumuh60guVKdjpzN3Un4gjX/oaKjO9CI3MHq0JbyK
+	VpDI/vlKbQbxv/GZnyRv9IzNjAXGb0KNk0uXi9+IyiTQxLUdk71ntfvlldQ8=
+X-Received: by 2002:a05:6214:124c:b0:921:161a:b17e with SMTP id
+ 6a1803df08f44-9213498856dmr319005746d6.3.1795596610191; Wed, 25 Nov 2026
+ 00:50:10 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,51 +104,112 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -next -v2 2/8] lockdown: remove useless decrement
- operation
-To: Cai Xinchen <caixinchen1@huawei.com>,
-	<nicolas.bouchinet@oss.cyber.gouv.fr>, <xiujianfeng@huawei.com>,
-	<paul@paul-moore.com>, <jmorris@namei.org>, <serge@hallyn.com>,
-	<shuah@kernel.org>, <kalevi@kolttonen.fi>
-CC: <linux-security-module@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <bpf@vger.kernel.org>,
-	<lujialin4@huawei.com>
-References: <20261110132818.2231593-1-caixinchen1@huawei.com>
- <20261110132818.2231593-3-caixinchen1@huawei.com>
-From: Xiu Jianfeng <xiujianfeng@huawei.com>
-In-Reply-To: <20261110132818.2231593-3-caixinchen1@huawei.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk300018.china.huawei.com (7.202.194.246)
+References: <7732873.EvYhyI6sBW@fw-rgant> <20261125075716.2262174-1-zxyan0222@gmail.com>
+ <d515df02-0cb7-4641-a6ed-d73f2220f5c5@bootlin.com>
+In-Reply-To: <d515df02-0cb7-4641-a6ed-d73f2220f5c5@bootlin.com>
+From: zhu xin <zxyan0222@gmail.com>
+Date: Wed, 25 Nov 2026 16:49:58 +0800
+X-Gm-Features: Aa3M54qogCRfGRjMdhXVV7JZ70rq5pMVX6XB8mYHty8P7davZNgqCbSK2atTVWU
+Message-ID: <CAP7veTJnJEmqAr4pfzSwLPNHCFc=yuzzAbkeLEvAMjZf71-dcQ@mail.gmail.com>
+Subject: Re: [RFC PATCH] net: stmmac: Fix the problem about interrupt storm
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: romain.gantois@bootlin.com, cathycai0714@gmail.com, avifishman70@gmail.com, 
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com, alexandre.torgue@foss.st.com, 
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/10/2026 9:28 PM, Cai Xinchen wrote:
-> From: Kalevi Kolttonen <kalevi@kolttonen.fi>
-> 
-> Signed-off-by: Kalevi Kolttonen <kalevi@kolttonen.fi>
+Hi Maxime,
 
-Nit: checkpatch.pl warns on this patch, it's better to have a commit 
-description.
+On Wed, Nov 25, 2026 at 4:10=E2=80=AFPM Maxime Chevallier
+<maxime.chevallier@bootlin.com> wrote:
+>
+> Hi,
+>
+> On 11/25/26 08:57, Zxyan Zhu wrote:
+> > Hello Romain, Cathy, Avi,
+> >
+> > We hit exactly the interrupt-storm scenario you discussed, on a local b=
+oard
+> > running a PREEMPT_RT kernel, and I'd like to ask whether this series is
+> > still being worked on.
+> >
+> > Our setup and trigger:
+> > - stmmac with dwxgmac2 (xgmac) and dwmac4 (gmac) MACs, kernel 6.18.34+
+> >   with PREEMPT_RT and panic_on_rcu_stall.
+> > - Trigger: fault-injection of an uncorrectable MAC safety error, which
+> >   makes stmmac_global_err() schedule stmmac_reset_subtask(), i.e.
+> >   dev_close()/dev_open().
+> >
+> > Symptom:
+> > About 30 seconds after the injected error the board panics with an RCU
+> > stall (rcu_preempt detected stalls, rcuc starved).
+> >
+> > Root cause (confirmed on-board):
+> > - The main level-triggered IRQ storms at roughly 820k irqs/sec during t=
+he
+> >   reset window (irq count jumps from ~220k to ~23M in ~28s).
+> > - stmmac_interrupt() returns IRQ_HANDLED without clearing any status wh=
+ile
+> >   STMMAC_DOWN is set -- exactly the "unconditionally returning without
+> >   clearing any interrupt flags" behaviour you flagged as dangerous.
+> > - The level IRQ stays asserted -> infinite storm -> starves rcuc -> RCU
+> >   grace period never converges -> panic.
+> >
+> > This matches Romain's point: the unconditional early-return in the
+> > STMMAC_DOWN state is the actual storm source, not the TMOUTEN/safety
+> > watchdog.
+>
+> Taking a step back, I wonder if the right move is not to just get rid
+> of STMMAC_DOWN entirely.
+>
+> It seems to me that it does not protect stuff that much, reading the
+> different sites in the code where it's used... It just seems to cause
+> more problems than it solves. All of them work without STMMAC_DOWN
+> if I'm not mistaken.
+>
+> It's even misleading, as it's only set during a reset from the service
+> reset subtask, while most of the callsites seem to assume this really
+> means 'interface is down'.
+>
+> I think this is the better lead to follow there.
 
-> ---
->   security/lockdown/lockdown.c | 4 +---
->   1 file changed, 1 insertion(+), 3 deletions(-)
-> 
-> diff --git a/security/lockdown/lockdown.c b/security/lockdown/lockdown.c
-> index 263dcc80d839..8648508d49b2 100644
-> --- a/security/lockdown/lockdown.c
-> +++ b/security/lockdown/lockdown.c
-> @@ -130,10 +130,8 @@ static ssize_t lockdown_write(struct file *file, const char __user *buf,
->   		return PTR_ERR(state);
->   
->   	len = strlen(state);
-> -	if (len && state[len-1] == '\n') {
-> +	if (len && state[len-1] == '\n')
->   		state[len-1] = '\0';
-> -		len--;
-> -	}
->   
->   	for (i = 0; i < ARRAY_SIZE(lockdown_levels); i++) {
->   		enum lockdown_reason level = lockdown_levels[i];
 
+Thanks for the feedback. Agreed -- removing STMMAC_DOWN entirely is indeed
+a cleaner fix than the interrupt-masking approach.
+
+We'll try going in that direction, and report back if we make progress or
+run into questions.
+
+Best regards,
+Zxyan Zhu
+
+
+>
+> Maxime
+>
+> >
+> > Fix we validated:
+> > disable_irq(priv->dev->irq) right after set_bit(STMMAC_DOWN, &priv->sta=
+te)
+> > in stmmac_reset_subtask(), before dev_close(). This masks the level IRQ
+> > during the synchronize_net() window.
+> >
+> > Results: irq count peaks at ~724 instead of ~23M.
+> >
+> > Questions:
+> > 1. Is anyone still working on this series, or should we revive Cathy's =
+RFC
+> >    with the evidence above?
+> > 2. Would a patch along the lines of "disable_irq around the STMMAC_DOWN
+> >    window" be acceptable, or do you prefer the more general approach yo=
+u
+> >    suggested -- wrapping the STMMAC_DOWN set/clear in a handler that al=
+so
+> >    disables all interrupts?
+> >
+> > Best regards,
+> > Zxyan Zhu
+>
