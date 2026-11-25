@@ -1,75 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.121.94.184
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795602544;
-	b=zeMhFjxCcNRD6SC8i1Jwdb7xJvvD1pw6jYosUQzBPXKZBMRRiNHUzMLnil+7BdoZZ2CW
-	 HqfwU33sw6G4rJ5KOXi6j3swTLcdcLcI1JhW7WFl409pJYmMh7laci8IiVHwmM4r6hFIj
-	 3dQbPyeeIgUrCpIecO0zRmH2dbhdP2fgaCKRdajbDs1e5CReymdNJBc4+fTpq/M6e30GK
-	 ZHCcY1UGVJgHV17B0eYyJyCdjcF2Lu+zfn/VLQ2uR+AiMgpOkYBIMIkKt54rzwGyzmKHh
-	 eMAQqBnHWwC2Gcstbxm6/jdmA3KH0yqgFSdP4k+sOZbu/0PwR2NM8XNa/fZUKyP0sIA==
+	t=1795602571;
+	b=h8C3aY5c8fYp7n5HUkA7pDDNurPal18puWbiFtT/+fld047b1burMaDwxi8cu26VIASr
+	 xJre8cFbt/d1fSKu4ldL7Q8FFykXXa61kNSQcqrYzopHowkDJjVYNEui5NpBMNt8jKhhe
+	 NVjzH+1rVKMG8tl68GNNnvMLJGxAQr8uF4d5s4Wa/U+tCjLur8HyexL+dklPIyUrsZjPg
+	 21VyUxCZ6ZzesJetBnTJ6OZ/OROF3pDXfsEL14aq5SLBzdEb/ozfjy4ARtthS1sgTl1Hy
+	 2J0OzL4ZRGvsB97AQw8OidP6bhpNaX2G12liBtdqu3kX3CvnITwtMH11q8V79uuA/vQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795602544;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Received:Received:Date:From:To:Cc:Subject:Message-ID:MIME-Version:
-	 In-Reply-To:X-CMS-MailID:X-Msg-Generator:Content-Type:
-	 X-Sendblock-Type:CMS-TYPE:cpgsPolicy:X-CFilter-Loop:X-CMS-RootMailID:
-	 References;
-	bh=xFlN4rclmJ3cTwSoXr8Ud2HB/tsk3Wve0CUo7sMxAvo=;
-	b=2J56pexpVez0e4U8HcCjPgKYnTqSqM332sB7CDRv4DMVtAPL8HawAhU3B1MNbRoxzHuW
-	 u2nSVJ61ocIVu/0ZUaCVRbkxrAw9YIJi0e8i7IBizUuYyN7Wa2OxhA0qVGfy4TFvW4aqB
-	 YXSRow3cZBHCuh3pCcVvMmXxh4ZNyTuwYM064it8CW4ayIeI1H+Qrzm3c/Hhczr3reXMx
-	 6UhfP198TgY47B1YzyGYjbzcw+6MEVJeez9KqZOyRTcRhkWwNaXEJEsTpBGObMEwH5+tH
-	 5ShyJNj1/u7JPyDWBrhhUuRzQv5mwR1QVH0HvKf5Dp/waYiveHxKlMRi03R6hRY6n5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795602571;
+	h=DMARC-Filter:X-KPN-MessageId:Received:Received:DKIM-Signature:
+	 X-KPN-MID:X-CMASSUN:X-KPN-VerifiedSender:Received:Date:From:To:Cc:
+	 Message-ID:In-Reply-To:References:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Priority:Importance:X-Originating-IP;
+	bh=5lWskPpxSpVBM0554F5pOSMgYG3IHJbd4zdoMwkKnx8=;
+	b=q64HUUXs/4voUrhA0GRsHvWVS4nwWkLWHGkF+bDbaTN69TnnTE8O6TtLCTgGMpw7RD+q
+	 MwjRnmpg7uDCoLexk+8B07/SWAbFBe4omiA6onMID1QG4hKVbdgQJeqXxsNppZhtsdRku
+	 MOx+PYEVeJeB06eU4GZ7P8Q6XlVV6rpRvdoyvrvNgZBrEvEHmvAnC02lqFzXYYL2vVkJ2
+	 Z3l2cYNjTB2Uy65m5RZnMRlL1tcFHYXm03Eh+R+2DtJj7meKrvKiw7wpCh1KjeKznJIkK
+	 WXsXZQXklwxNg1gyOyQ3lTyBjbRdaWtX5B+v/bOcl6VAcr8fz1ilcbcNK2X5jgothuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=IaPqJDfY;
-	arc=none smtp.remote-ip=203.254.224.33
-Received: from mailout3.samsung.com (mailout3.samsung.com [203.254.224.33])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=xs4all.nl;
+	spf=pass smtp.mailfrom=xs4all.nl;
+	dkim=pass header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b="SV0tuq3/";
+	arc=none smtp.remote-ip=195.121.94.184
+Received: from ewsoutbound.kpnmail.nl (ewsoutbound.kpnmail.nl [195.121.94.184])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD730606A684
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:29:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD730606A684
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A42AF606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:29:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A42AF606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=xs4all.nl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xs4all.nl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=IaPqJDfY
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20261125102859epoutp03963aa567ffce8027d228849d00d8eaa6~rQv8bS5OE2630126301epoutp03k
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:28:59 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20261125102859epoutp03963aa567ffce8027d228849d00d8eaa6~rQv8bS5OE2630126301epoutp03k
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795602539;
-	bh=xFlN4rclmJ3cTwSoXr8Ud2HB/tsk3Wve0CUo7sMxAvo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=IaPqJDfY2Ezy3MpR8ljLSiOz0O+P0b4vFneuttWJk9xIn+lvSFVBnb5S9oipbTo7A
-	 qCeXi+y4jAXosBQshuTtS3aK+0r3lf2JwN4hFt1aAl9UOPqmRw2ne0wPobijbiakaY
-	 GerV6MP3kYoBrjaVl4e5z3EKZZVfh4Hwk9mSunuM=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20261125102859epcas5p1f5a9e8472cf6d472e27e339ec3b48683~rQv8EdnHT0425104251epcas5p1e;
-	Wed, 25 Nov 2026 10:28:59 +0000 (GMT)
-Received: from epcas5p2.samsung.com (unknown [182.195.38.91]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4jZGB233Vnz3hhT4; Wed, 25 Nov
-	2026 10:28:58 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261125102729epcas5p13bde0e5ffba2e9660726500efb20ab59~rQuoqdnWa0487904879epcas5p1u;
-	Wed, 25 Nov 2026 10:27:29 +0000 (GMT)
-Received: from green245.gost (unknown [107.99.41.245]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261125102728epsmtip1facce2ecf66c1f2173177a007f33f963~rQunpYMbD2682226822epsmtip1S;
-	Wed, 25 Nov 2026 10:27:28 +0000 (GMT)
-Date: Wed, 25 Nov 2026 15:56:39 +0530
-From: Nitesh Shetty <nj.shetty@samsung.com>
-To: Andrew Stellman <astellman@stellman-greene.com>
-Cc: Keith Busch <kbusch@kernel.org>, Christoph Hellwig <hch@lst.de>, Sagi
-	Grimberg <sagi@grimberg.me>, Jens Axboe <axboe@kernel.dk>, Steve Wise
-	<larrystevenwise@gmail.com>, linux-nvme@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] nvme-fabrics: limit nr_write_queues and nr_poll_queues
- when parsing
-Message-ID: <20261125102639.ikftz2pvdwjuuagd@green245.gost>
+	dkim=pass (2048-bit key) header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=SV0tuq3/
+X-KPN-MessageId: 16c790c5-e8bb-11f1-98a9-005056994fde
+Received: from mta.kpnmail.nl (unknown [10.31.161.189])
+	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
+	id 16c790c5-e8bb-11f1-98a9-005056994fde;
+	Wed, 25 Nov 2026 11:29:26 +0100 (CET)
+Received: from mtaoutbound.kpnmail.nl (unknown [10.128.135.190])
+	by mta.kpnmail.nl (Halon) with ESMTP
+	id 16c649de-e8bb-11f1-b790-0050569981f5;
+	Wed, 25 Nov 2026 11:29:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xs4all.nl; s=xs4all01;
+	h=content-type:mime-version:subject:message-id:to:from:date;
+	bh=5lWskPpxSpVBM0554F5pOSMgYG3IHJbd4zdoMwkKnx8=;
+	b=SV0tuq3/iY9XRnC+vVoYya735NtiSTNQN/wVmfBKVY4splmjcRMXDR8MoO4nI9qp6q+Qt1zSWnClY
+	 wxH8ljoJKSIXOoNE2Teo6KblKlKHtyQrdD1MiJ88VA3/WYA7q9rjSzQFSNrjQPkT/7YuwgDLrbhR49
+	 sV4ra55XjXQ+8bUodSOmKPvxG7JJ5PZ5koky2bZkZJl08/PkUOV0tg0B2WAy7BBhc76W9PmNRyhfr9
+	 P6PXOS5kmoXHXITPEzD4Xafla+0i/niB1hQTo7fwIQApSHJgd83UiuLd1athY6grnnKSpEzdpT5Bub
+	 oZvMviyij7e4UIL0PXV7ZOJDX58FzYA==
+X-KPN-MID: 33|abuoIPfUh3YDIVibj50uBK0NhQsvAnjouC1eafIocI2xFVzX4ozsyhxPVRFEoWz
+ LZMHTp2LUufuqtX8zeucRpqeOfejvk49SLjIuHwBBrUA=
+X-CMASSUN: 33|hhJwsfS/sAWL6fRjrpSZIKKBBUJkfKcer9nfdw4faiI6b9jYTRd83LZ+aHzHFsx
+ 2auc/avy5F2ZnlDhj+kDAXw==
+X-KPN-VerifiedSender: Yes
+Received: from cpxoxapps-mh01 (cpxoxapps-mh01.personalcloud.so.kpn.org [10.128.135.207])
+	by mtaoutbound.kpnmail.nl (Halon) with ESMTPSA
+	id 16bc5e5e-e8bb-11f1-94bb-005056995d6c;
+	Wed, 25 Nov 2026 11:29:26 +0100 (CET)
+Date: Wed, 25 Nov 2026 11:29:26 +0100 (CET)
+From: Jori Koolstra <jkoolstra@xs4all.nl>
+To: NeilBrown <neil@brown.name>, NeilBrown <neilb@ownmail.net>
+Cc: Askar Safin <safinaskar@gmail.com>, amir73il@gmail.com,
+	brauner@kernel.org, cyphar@cyphar.com, gregkh@linuxfoundation.org,
+	jack@suse.cz, jlayton@kernel.org, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org, shakeel.butt@linux.dev, tj@kernel.org,
+	viro@zeniv.linux.org.uk
+Message-ID: <1119017860.2578021.1795602566314@kpc.webmail.kpnmail.nl>
+In-Reply-To: <179559977412.1728055.14071803405199089608@noble.neil.brown.name>
+References: <20261024213539.1307600-8-jkoolstra@xs4all.nl>
+ <20261125062146.940336-1-safinaskar@gmail.com>
+ <1709003566.2632299.1795599064030@kpc.webmail.kpnmail.nl>
+ <179559977412.1728055.14071803405199089608@noble.neil.brown.name>
+Subject: Re: [PATCH v8 07/12] vfs: short-circuit MAY_WRITE access for
+ O_DIRECTORY opens
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,40 +86,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-In-Reply-To: <20261122233951.8912-1-astellman@stellman-greene.com>
-X-CMS-MailID: 20261125102729epcas5p13bde0e5ffba2e9660726500efb20ab59
-X-Msg-Generator: CA
-Content-Type: multipart/mixed;
-	boundary="----oDladO6Vwt0H_RtjxHNT8.74ezodDQj_tEbGsjA-MAFMp74Y=_5226_"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261125102729epcas5p13bde0e5ffba2e9660726500efb20ab59
-References: <20261122233951.8912-1-astellman@stellman-greene.com>
-	<CGME20261125102729epcas5p13bde0e5ffba2e9660726500efb20ab59@epcas5p1.samsung.com>
-
-------oDladO6Vwt0H_RtjxHNT8.74ezodDQj_tEbGsjA-MAFMp74Y=_5226_
-Content-Type: text/plain; charset="utf-8"; format="flowed"
-Content-Disposition: inline
-
-On 22/11/26 06:39PM, Andrew Stellman wrote:
->nr_io_queues is limited to num_online_cpus() when the options are
->parsed, but nr_write_queues and nr_poll_queues are stored as given.
->nvme-tcp and nvme-rdma size the queue array with the unsigned int sum
->nr_io_queues + nr_write_queues + nr_poll_queues + 1, which wraps for
->large values, while nvmf_nr_io_queues() limits each term to the online
->CPUs and so asks for more I/O queues than were allocated.
->
->With 4 CPUs and nr_write_queues=2147483647 nr_poll_queues=2147483647 on
->nvme-tcp, the sum wraps to 3, three queues are allocated and 12 I/O
->queues are created:
->
-
-Reviewed-by: Nitesh Shetty <nj.shetty@samsung.com>
-
-------oDladO6Vwt0H_RtjxHNT8.74ezodDQj_tEbGsjA-MAFMp74Y=_5226_
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Priority: 3
+Importance: Normal
 
 
-------oDladO6Vwt0H_RtjxHNT8.74ezodDQj_tEbGsjA-MAFMp74Y=_5226_--
+> Op 25-11-2026 04:42 EST schreef NeilBrown <neilb@ownmail.net>:
+> 
+>  
+> On Wed, 25 Nov 2026, Jori Koolstra wrote:
+> > > Op 25-11-2026 01:21 EST schreef Askar Safin <safinaskar@gmail.com>:
+> > > 
+> > >  
+> > > Jori Koolstra <jkoolstra@xs4all.nl>:
+> > > > Requesting write access on a directory can never succeed. Rather
+> > > > than performing a path-walk to determine whether the target is
+> > > > actually a directory (-EISDIR) or not (-ENOTDIR), or does not exist
+> > > > (-ENOENT), etc., we short-circuit to -ENOTDIR.
+> > > > 
+> > > > Currently O_WRONLY for directories is only blocked in may_open(),
+> > > > which happens after we have the inode for the target, so after any
+> > > > create via O_CREAT|O_DIRECTORY.
+> > > > 
+> > > > The advantage of short-circuiting is that we don't have to add even more
+> > > > logic to lookup_open() to differentiate -EISDIR/-ENOTDIR. Also, for
+> > > > filesystems that define ->atomic_open, handling this cannot even be done
+> > > > at the VFS level, as we can't know ahead what the result of the lookup
+> > > > will be.
+> > > > 
+> > > > Suggested-by: Christian Brauner (Amutable) <brauner@kernel.org>
+> > > > Reviewed-by: NeilBrown <neil@brown.name>
+> > > > Signed-off-by: Jori Koolstra <jkoolstra@xs4all.nl>
+> > > > ---
+> > > >  fs/open.c | 9 +++++++++
+> > > >  1 file changed, 9 insertions(+)
+> > > > 
+> > > > diff --git a/fs/open.c b/fs/open.c
+> > > > index e43f02ff64ac..4334f30bb7ff 100644
+> > > > --- a/fs/open.c
+> > > > +++ b/fs/open.c
+> > > > @@ -1343,6 +1343,15 @@ inline int build_open_flags(const struct open_how *how, struct open_flags *op)
+> > > >  
+> > > >  	op->intent = flags & O_PATH ? 0 : LOOKUP_OPEN;
+> > > >  
+> > > > +	/*
+> > > > +	 * Requesting write access on a directory can never succeed. Rather
+> > > > +	 * than performing a path-walk to determine whether the target is
+> > > > +	 * actually a directory (-EISDIR) or not (-ENOTDIR), we short-circuit
+> > > > +	 * to -ENOTDIR.
+> > > > +	 */
+> > > > +	if ((flags & O_DIRECTORY) && !(flags & __O_TMPFILE) && (acc_mode & MAY_WRITE))
+> > > > +		return -ENOTDIR;
+> > > > +
+> > > 
+> > > Please, do -EISDIR here, not -ENOTDIR. You returning error here, **because** user attempts to write to **directory**. EISDIR is natural here, ENOTDIR is not.
+> > > 
+> > 
+> > That's a fair point, and I have thought about this. The downside is that
+> > if we return -EISDIR there, that will also be returned if you open(O_DIRECTORY)
+> > what turns out to be a regular file. So you may then get -EISDIR for something not
+> > a directory.
+> > 
+> > The semantics of -ENOTDIR here that I had in my mind is something like "the thing
+> > you are trying to do can NOT be done _with_ a DIRectory." It made a bit more sense
+> > to me (but only a bit.) Really it should be -ENOTWITHDIR or something...
+> 
+> The problem is that "flags" contains an invalid value.  The correct
+> error for that (according to open.2 man page) is EINVAL.
+> 
+
+This is best probably. The counter is that I wanted to change errnos as little
+as possible. Now you get at least something that could already happen when
+you did a normal open(O_DIRECTORY). Were this designed from the start -EINVAL
+is obviously what is needed here.
+
+I dunno, not sure what other people think.
+
+Best,
+Jori.
