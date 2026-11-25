@@ -1,68 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795604653;
-	b=UTtWXz4RTiD64g+ENkvpswLNGqnUK13ASTsmpgEqu6r6hOHEo++EayvTqQkFxHeN80Xw
-	 vrNaLKxJy0fwj+UnzUFDw1Fd43i8z3XflOOTm0xArb5ckU+BXEgAerpCZGUQ3SwStlw3J
-	 n4zCG60BLPEU9PMOb8pVMJzRpff8ElFyp9Q6qy6HtG2PnLXxU/H5JDOZCfwmARjs1kJXr
-	 YJU26yKLLF7+5EzClujDhTH5fvgqCFVc8/3Yg4yikO7XlHevZnQ+X5ni14Lnz/HksUY0N
-	 rA76wwUbjJh31vxgiRgMWTyDa+xtRrIt+bDzSYdF7DhuKMiNvwdGyMGW6CdojfBZTXw==
+	t=1795604662;
+	b=2l89zdO2AOUjoT/h3zSz36oB8avE7OsHD7qVk5QwQ3i7n94HK2KnqNb87feNmIy6HBWR
+	 AhsleQ+tzz9iPRuPiJylo5jIcDzYyChN2IIK+lZ7AdoF81BHjZRbuykhcBx2tkWXcbXnX
+	 4+dZS+H1waXbMXUImewgSNTff6Km8gNWE7lPlnhN6eMxh5WoUfZiNo0KXwCQxfAASLPIS
+	 JoyOWIjhXL7snNUwJd1jv/UGeD99vd9bXQ8uv2ff4PVhYtUU0SXpuSU8+oBUB/FB6hajF
+	 rsJQumNXMyrhvbRyTH+SJM7RDCBtJAYD7i0yl2+SmokbniKGEcLS4CLV2iS+s02vzqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795604653;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=3Ed/dwsYEtwCWH9KjuZt1ohLbpuZvRwKKfK5cvZH8Hs=;
-	b=OWJApgaTZyIL0fXINOIz0mmfGNevKjeSFDV9K9pAz+MteKfNASiuaQO9vy3ioafk6WDE
-	 x7IUWuRuUQoh4WZOtIA1ywffkJPwp0qXr3uaa48Wl26oQZDWvucf74Yg8cqQ+5j0+h39F
-	 iFZ+yYoBHZax+Z4hMGgHdhaTzyctvzd4Nnbxm3h00lD2Jqnmz6H9FBwhdptVYnIMnuRgu
-	 3y2qK+zijtqkgitkVPZvSO7r+pNTGrf41N3Ht/UMpTgVlcbl2ItH97AMIQRruhrvQJGJ7
-	 oW559ExG1xFz8UA668+BBJvvBonLtjwkw20lJGWiqceg9+hPftRWTFqMHgKCuIhPYqA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795604662;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=bUA/rTYvpBA7QiSm2QIxyI9jS2aZK3LguZKch6uReEA=;
+	b=ConuNuys7cQkInB8xCai3h0SAgDI1Pe1BKK+Dj1s60KK/2odw26phKHfG3+zh+MjueWS
+	 t5oQWOPgBLWs8o39vt6MT9ufbXUrbtVg0Kfhqlg/c23A4cxKZ5aC+tQZpeu8D0V3RadvR
+	 AIHNBFRRJU4MIcZjua7qu8/tdk5HAcgQywPepDAJAOXf/nhtyc6po/98UWo0KUUKmey2D
+	 9JSQtjjHkBxeAnKBvL5CAItpJ2JwIWwKCOXMOX9MxS8sIlz8CAwDP6uVuG9TmeHJI0WhH
+	 rIHLxbHNkuP+5iMmI7qle53UAIQSp5je6UUfBIXjhDj+sB2nLTBPwjldtyDkyFS0kNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=w7TuWmIZ;
-	arc=none smtp.remote-ip=111.22.67.137
-Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2DEB5606A32A;
-	Wed, 25 Nov 2026 11:04:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DEB5606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="E/u5PWkt";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F99B606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:04:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=w7TuWmIZ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=w7TuWmIZi9CEgr3hX7ejxjWTpnz5EjVSaZSyLxdk1dkcvgyPOAUImfSiCOvRWKzOsBoSjREZEp1az
-	 bAIszhVj4oJ6GXTy31b46dX4PUoYwTjATYZC1opVgdXCTohawZ8FYJpzYDYoJkB+CqWcTz3rbsIRM1
-	 oPeWtxk/0pqT41u8=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app04-12004 (RichMail) with SMTP id 2ee46b06c0a3b3e-f23db;
-	Wed, 25 Nov 2026 19:04:06 +0800 (CST)
-X-RM-TRANSID:2ee46b06c0a3b3e-f23db
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from localhost.localdomain (unknown[10.55.1.72])
-	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee96b06c0a3c87-442e4;
-	Wed, 25 Nov 2026 19:04:06 +0800 (CST)
-X-RM-TRANSID:2ee96b06c0a3c87-442e4
-From: tongzhiwei <tongzhiwei@cmss.chinamobile.com>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: tongzhiwei@cmss.chinamobile.com,
-	linux-block@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E/u5PWkt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B0131F000D0;
+	Wed, 25 Nov 2026 11:04:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795604661;
+	bh=bUA/rTYvpBA7QiSm2QIxyI9jS2aZK3LguZKch6uReEA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=E/u5PWktp5kUyRuHcHkzj7sus+CpW2DeTbpNjtCetpIBLPYILSCpknyVhQtRr/DQt
+	 aR38ubzw67fB+4RezvtuWdE/zgzAATh1emQrSrjFGeo3cinGGBMUPHaQs/DR01O2/o
+	 C65jl9qlrrOcqGL02Tml+K/yS1E9kS3r/qDFRsQ6yx3aECBA5KFA+eeeXte2XXXT8P
+	 RcI+5bK3PCFM5k4gig/bFtgdcnCCTTCUVrYzBCyr+DKoNvTnyjsTf/T36oT54BPSue
+	 37usOl3yRSyKlP3ho4RxisxiECRsr4ydlSMegvN5j4y64D4aD+/lhzEa/b9yijPxFy
+	 QhlOAO6sLV34A==
+From: Mike Rapoport <rppt@kernel.org>
+To: Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Pratyush Yadav <pratyush@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>,
+	kexec@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	dm-devel@lists.linux.dev,
-	syzkaller-bugs@googlegroups.com
-Subject: Re: [PATCH] block: fix divide by zero in queue_limit_discard_alignment()
-Date: Wed, 25 Nov 2026 19:03:51 +0800
-Message-ID: <20261125110353.366-1-tongzhiwei@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.45.0.windows.1
-In-Reply-To: <20261120103040.610-1-tongzhiwei@cmss.chinamobile.com>
-References: <20261120103040.610-1-tongzhiwei@cmss.chinamobile.com>
+	linux-mm@kvack.org
+Subject: Re: [PATCH v4] mm/memfd_luo: don't use memfd_pin_folios()
+Date: Wed, 25 Nov 2026 13:04:15 +0200
+Message-ID: <179560454433.2878567.12692470017046498393.b4-ty@b4>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261124184042.1823277-1-pratyush@kernel.org>
+References: <20261124184042.1823277-1-pratyush@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,14 +63,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
-Hi Christoph,
+From: Mike Rapoport (Microsoft) <rppt@kernel.org>
 
-thanks for the review.  Please withdraw this patch.
+On Tue, 24 Nov 2026 18:40:41 +0000, Pratyush Yadav wrote:
+> memfd_luo takes a snapshot of the folios in the file's mapping. To make
+> sure the snapshot does not go out of sync, it pins the folios in the
+> file via memfd_pin_folios(). The pinning also migrates the folios out of
+> MIGRATE_MOVABLE to make sure doesn't land in KHO boot memory or in a CMA
+> region.
+> 
+> memfd_pin_folios() does not lock the folios. So it can race with
+> shmem_writeout(). A folio returned by memfd_pin_folios() might already
+> be in swap cache. This happens to work but is fragile. memfd_luo looks
+> at folio flags and index on a folio that isn't in the memfd's page
+> cache.
+> 
+> [...]
 
-I do agree with the design to fix it on setup.
+Applied to liveupdate-7.5 branch of liveupdate/linux.git tree, thanks!
 
-Sorry for the noise, and thanks for the quick review.
+[1/1] mm/memfd_luo: don't use memfd_pin_folios()
+      commit: da08a6d97880dcda906bce04539ab25c98b0fb73
 
+tree: https://git.kernel.org/pub/scm/linux/kernel/git/liveupdate/linux
+branch: liveupdate-7.5
+
+--
+Sincerely yours,
+Mike.
 
