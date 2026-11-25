@@ -1,58 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621823;
-	b=tI7c1Uyw5vdtuQ9hh/cymutuhyYcj7IGB7jHzOBkUL0eiMvayjP+Py2tnZ/+LLgikUSe
-	 G9NXgKK2subYjoAQbPeWdrKRtpUAfLyXy7Je2lBUnjqQWi3Jbr6U8txR25gHtFFkpkeBJ
-	 fIRaQ2FcIODiwphU6hGATUYkhIlIrbgA3nOMcio4lsv18vqSfjQTal5IUqlIEpBJTepjs
-	 Fh61xoFMCQFRLVhUE17CB2/+vXCSQjF/mnSgy0uSYrrkkTXmMwqE7osrkg3yrJHMmzX5/
-	 5YsvUYD9AIxjVfJEJ7vUjRD7DpMX6JQOmK+T7h+V9YZTW2OrJm0Idbw/jTXN81UmN1A==
+	t=1795621836;
+	b=UTKEjM7+KU69th4X6dEqTfnJx3M5TP4yYwAyTkFRDoWgvyviNOZ4vVqXGz2bk8Jp1coc
+	 GgdD9ANzi6Y3yl46X2TcZfXAikixzragC0e8PwJ0zzEtliXfDAmq+eoiKT4XGy/2PWX0y
+	 tI8vLeTPSp+5vVE8WadmaPNc5Z/GWmdIg02YokVj1CNRljq/88iuRNA+tjkg/NRAmLqh+
+	 KTwJPRIJWJrJYDDfvl0lwX9rWpQnM6VDMNZNvKOQXO8F1mgu84yIJr/zt3/zMBVdhNiex
+	 c7gw4VSTalTz4azydXUCNCS6oPjndeLLJ0Fq2XYMnfREJRU8bQ2vPOSajItUCxfA8Ug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621823;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=i66x6SulCuugAeQE9LzOp5zVoMaKrTk11/eSNR3HO2I=;
-	b=bYCHwlXx6Yb+MFE6iPJWW26YGkApCR2yxTFlwwV0IMANiuYHAAJnmXXE5tzeY4QOUYWh
-	 3NkiZTP7bqJBL+HQL0Rt934efGaAUhxU3WOoZ+G7PKCepzBW0LkadKRifzdbrGUk1TSCS
-	 PLScwiilouucAsy7ek0Zh4UEAYPRKFjlCF+dZhNQuZlEAf9ZedL6e/jikWGFB9sbl5T+Y
-	 D6RKJMdTVCnpeJkN43ISv8rFPMx3u2Xn5F+OM+a+96A+E8PVVNXrrwv8/solDgKLU24G6
-	 XDRPN55M2MxO7xK5L2rIRkRTu7FIa013fpwzxutEaODWO8+/Eu6J9xXtiJ7pdDZq3xA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621836;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=XLwCuf7M2Ga/clCF7XSJZKgDh7EqOrTLwYVq4lWZ5K4=;
+	b=yiGa2jBP8rTqZi6bXz+29j5rA0dx6uoOV9NwPXxcadTEtfowvr0gP5g4G4xQks0KaHiV
+	 /H/rBcHcmtPD0uYOgN6C1rk5fxLn0otNWUCo1ngCOJYC8lkhiAio3guxDgv98HjeFOysw
+	 gQiEDTOCWu6czDquVuUBjNZQb8Gf9ixnr4ufl+2CgtE8ojAguMVpQGoRQziFGIGBMJVI3
+	 CJgp11Re0BdaatNMSSGvtLgJhAx0ysHen1/kThrNFKs0GUYUpEbbjaalSJHPGav/egl2c
+	 itBMba1Dk34nzuWGyo0yvngfksoRVUxWOAnyRVjgehXoEu1nvukoMZJ5glRDLCZiQ0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=JRg8LcAJ;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fd9tvuie;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDF98606A33E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:50:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDF98606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E59B606A330;
+	Wed, 25 Nov 2026 15:50:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E59B606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=JRg8LcAJ
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 74C07C62219;
-	Wed, 25 Nov 2026 15:50:27 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 872D560480;
-	Wed, 25 Nov 2026 15:50:19 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9F00211E6A17F;
-	Wed, 25 Nov 2026 16:50:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795621814; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=i66x6SulCuugAeQE9LzOp5zVoMaKrTk11/eSNR3HO2I=;
-	b=JRg8LcAJgi/KjbL6IwLz60whI3amVQ1fV3T1HKKlo7PMD/hoE/1nJMkfhMRsqU1XkINeSg
-	nMHaIGfq4deXYzBKmAXhGzn3jpIKOGsktbDANvnDxPTOydp5VX/5PmI2z5irfwx9PbqdFW
-	xqSuMgCfMoShohmKnxGluilivwCWmkk8loCM8+gfzXhZ+Tiz9Dss4BVV1vyPThzRFD7bXP
-	IS7ASOqH1iPmaIDp3Yx06LJDNOgDy2nR3JF3x35HVeJRQGudSCkq6zpHUTQMQed0eBbwBC
-	oTChZh81dOoviid9Lw936MheMesPzE91ufmk4AkdwfsWWJ3sqM0/j8KI2w7hcQ==
-Message-ID: <d979ca00-a6c6-4297-8186-92c50c95bd63@bootlin.com>
-Date: Wed, 25 Nov 2026 16:50:10 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fd9tvuie
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795621836; x=1827157836;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=sHPGjlZBOvzDEu84WUTKFdQM2Q6afKWCCaXdHKe2KLA=;
+  b=fd9tvuies1xic8b1kWwGvmqOO6Zbk98Q5umwWakA5j5k5yTn5xYedmco
+   wlidoxtDJaMmLsBMfUAo/3cXlBs34FZhxhsuYzxi2y+qAbG5lGVPG+pH4
+   VqgQabtcR4aVhE3O+T6b5jhTHP8T5D2iuMTt0PKi+eBdLa/m7KGXUYvlJ
+   5fWl54M3jmotEPsoE8qkHCCCDRHLhPG6rTKUAdkBaORcQ+e9NovMNdMBI
+   Dc4Mc8DvKmKdQBLwVlzn/KukiydO+yPv+dXGjkK+N4vSUcXd7Z1y6TLel
+   x2J5epWlATvU6tcKrR97EEHZHeDbhPFbA7AVgiFtJIVhmTgvtPNa0dpqM
+   g==;
+X-CSE-ConnectionGUID: s80Nd/azRuCjcwi80i8Dfw==
+X-CSE-MsgGUID: SiO4flDOQzWVueZ4xkQd1A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4561658"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4561658"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 07:28:46 -0800
+X-CSE-ConnectionGUID: 6vQBSlZgTmK3wDns/adbww==
+X-CSE-MsgGUID: 8ulM3UDES1SpBzypkbNKpA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="11779883"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO pujfalus-desk.intel.com) ([10.245.244.1])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 07:25:44 -0800
+From: Peter Ujfalusi <peter.ujfalusi@linux.intel.com>
+To: stable@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	kai.vehmanen@linux.intel.com,
+	yung-chuan.liao@linux.intel.com,
+	broonie@kernel.org
+Subject: [PATCH stable 6.12.y backport] ASoC: SOF: Intel: lnl: Enable offload for UAOL link
+Date: Wed, 25 Nov 2026 17:26:23 +0200
+Message-ID: <20261125152623.22645-1-peter.ujfalusi@linux.intel.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,38 +79,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/12] drm/vkms: replace uniform sRGB LUT and its
- inverse with optimal ones
-To: Leandro Ribeiro <leandro.ribeiro@collabora.com>
-Cc: airlied@gmail.com, alex.hung@amd.com, daniel@fooishbar.org,
- hamohammed.sa@gmail.com, harry.wentland@amd.com,
- maarten.lankhorst@linux.intel.com, melissa.srw@gmail.com,
- mripard@kernel.org, pekka.paalanen@collabora.com,
- robert.mader@collabora.com, simona@ffwll.ch, tzimmermann@suse.de,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-References: <20261106201813.129911-1-leandro.ribeiro@collabora.com>
- <20261106201813.129911-13-leandro.ribeiro@collabora.com>
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261106201813.129911-13-leandro.ribeiro@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
+commit fdfbd9ff86a145f09978ab49305ed7acfad66a1d upstream.
 
+The handling of UAOL (USB Audio Offload Link) is similar to SSP and DMIC,
+it is handled by the DSP firmware.
+Set the offload enable for it similar to SSP and DMIC.
 
-On 11/6/26 21:18, Leandro Ribeiro wrote:
-> This uses the script added in "drm/vkms: add script to create optimized
-> LUTs for color curves" to produce optimized LUTs for sRGB and its
-> inverse.
-> 
-> The LUTs are non-uniform and have more taps where it matters (areas with
-> high slope), decreasing the error they produce.
-> vkms_color_srgb_inv_srgb() error tolerance dropped from 122/65535 to
-> 11/65535.
-> 
-> Reviewed-by: Robert Mader <robert.mader@collabora.com>
-> Tested-by: Robert Mader <robert.mader@collabora.com>
-> Signed-off-by: Leandro Ribeiro <leandro.ribeiro@collabora.com>
-Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: <stable@vger.kernel.org> # 6.12.x
+Signed-off-by: Peter Ujfalusi <peter.ujfalusi@linux.intel.com>
+Reviewed-by: Bard Liao <yung-chuan.liao@linux.intel.com>
+Reviewed-by: Kai Vehmanen <kai.vehmanen@linux.intel.com>
+Link: https://patch.msgid.link/20260520150639.25301-3-peter.ujfalusi@linux.intel.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
+[ Peter: Adjusted to the int returning hdac_bus_eml_enable_offload() as
+  commit 978152b2cab5 ("ASoC: SOF: Intel: hda-mlink/lnl: Convert offload
+  enable functions to void") is not backported. The helper is renamed from
+  hdac_bus_offload_dmic_ssp() to hdac_bus_set_dsp_offload() to match
+  upstream, since it now also handles UAOL.
+  Firmware built with UAOL support reads the UAOL registers and crashes if
+  the host has not granted the DSP access to them. ]
+---
+ sound/soc/sof/intel/lnl.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
+
+diff --git a/sound/soc/sof/intel/lnl.c b/sound/soc/sof/intel/lnl.c
+index 3d5a1f8b17e5..48202b4d8069 100644
+--- a/sound/soc/sof/intel/lnl.c
++++ b/sound/soc/sof/intel/lnl.c
+@@ -31,8 +31,8 @@ static const struct snd_sof_debugfs_map lnl_dsp_debugfs[] = {
+ 	{"fw_regs", HDA_DSP_BAR,  MTL_SRAM_WINDOW_OFFSET(0), 0x1000, SOF_DEBUGFS_ACCESS_D0_ONLY},
+ };
+ 
+-/* this helps allows the DSP to setup DMIC/SSP */
+-static int hdac_bus_offload_dmic_ssp(struct hdac_bus *bus, bool enable)
++/* Configure DSP offload for DMIC/SSP/UAOL */
++static int hdac_bus_set_dsp_offload(struct hdac_bus *bus, bool enable)
+ {
+ 	int ret;
+ 
+@@ -46,7 +46,8 @@ static int hdac_bus_offload_dmic_ssp(struct hdac_bus *bus, bool enable)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	return 0;
++	return hdac_bus_eml_enable_offload(bus, true,
++					   AZX_REG_ML_LEPTR_ID_INTEL_UAOL, enable);
+ }
+ 
+ static int lnl_hda_dsp_probe(struct snd_sof_dev *sdev)
+@@ -57,17 +58,17 @@ static int lnl_hda_dsp_probe(struct snd_sof_dev *sdev)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	return hdac_bus_offload_dmic_ssp(sof_to_bus(sdev), true);
++	return hdac_bus_set_dsp_offload(sof_to_bus(sdev), true);
+ }
+ 
+ static void lnl_hda_dsp_remove(struct snd_sof_dev *sdev)
+ {
+ 	int ret;
+ 
+-	ret = hdac_bus_offload_dmic_ssp(sof_to_bus(sdev), false);
++	ret = hdac_bus_set_dsp_offload(sof_to_bus(sdev), false);
+ 	if (ret < 0)
+ 		dev_warn(sdev->dev,
+-			 "Failed to disable offload for DMIC/SSP: %d\n", ret);
++			 "Failed to disable offload for DMIC/SSP/UAOL: %d\n", ret);
+ 
+ 	hda_dsp_remove(sdev);
+ }
+@@ -80,7 +81,7 @@ static int lnl_hda_dsp_resume(struct snd_sof_dev *sdev)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	return hdac_bus_offload_dmic_ssp(sof_to_bus(sdev), true);
++	return hdac_bus_set_dsp_offload(sof_to_bus(sdev), true);
+ }
+ 
+ static int lnl_hda_dsp_runtime_resume(struct snd_sof_dev *sdev)
+@@ -91,7 +92,7 @@ static int lnl_hda_dsp_runtime_resume(struct snd_sof_dev *sdev)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	return hdac_bus_offload_dmic_ssp(sof_to_bus(sdev), true);
++	return hdac_bus_set_dsp_offload(sof_to_bus(sdev), true);
+ }
+ 
+ static int lnl_dsp_post_fw_run(struct snd_sof_dev *sdev)
+-- 
+2.56.1
+
