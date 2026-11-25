@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617640;
-	b=gUCbhcmsJC7NVwmgMXtEngGgmVjEbWxHYHPu/grYPXscVlsEpr+LWAaxG8UuWlfXTzgD
-	 4TUPx22NwRBAhg6jzQ1Q1CipFx7KGiIQQyBswp1e60Kcgf4QoDiwkc1aurPJ/criVJxbH
-	 DD8mF8fc+wiWmoM7urSqzB1WJIpumE/TV9NcRqZB0PT/r7Hd57M+dX+H162t9HUewhbgf
-	 K/n5dl8xVWORsZHbYht3UxOXpNtWY2k4PPAlMyjZgCe0cVG6Th7ZmyftfXuxbXaP/uNWj
-	 4zdj5QUcSGMlHcniexVBBlS3QAmFKV2PQuB/C0OIpf9LPMtvf651pONFjt6YcSovwUg==
+	t=1795617642;
+	b=IZUy6Rkph98nhIe7O5wZm/NIM17W5XR2JplFlLG91V1a0hQ5f6bN9HOlJeSYWUGnX54l
+	 rUGnjd8mBfSYrt6rXdTofFqC7Sf9rYJeZu0bITHkJ3x+1IG+2e/7/MruHGYcIwWMN3NcR
+	 0T5VAm3gJNCo0Dh2R+/jxdkGeq6dLVBrAvx08ZTThXroaamMSWa5mGszDPEfytXhUr4sm
+	 hxZFidTBN1Gu8j24DTG2XaUz+yC+KFsk7N89Z2AByJ7kuJUDyis7ZEqawbRiiOQ+wmH90
+	 ThldaBMRXK/4a9eR3NXOe/F9NVaOSxmP45UqUIK1b/YBWGOJKmQeWstWsRpMVgqZy7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617640;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617642;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:From:Date:Subject:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
 	 References:In-Reply-To:To:Cc:X-Mailer;
-	bh=w2l8tTDWKsN+KPHckUzCtW+qxkz+JRI1JGbZLU5NSyE=;
-	b=xo5glb4xtIEpD7aIFtOFsdS40vGaXONX/HdBAFiV4ozrVAQ6pvIJhXiyPnDMr2WqymYj
-	 TIxNtu8fZ1aTiZqXFJxzrXbK9aDOIJxjw0vqAZ3DTd8OFBUhVhJ85pf/2elu8uY6EUYnt
-	 rOM//ktCdEheKdDEb77e/93v4wYsMlCKWiqwFjkCeJCzExWBkSKtvDC+QNaE+0r3N23SK
-	 Z69yjG8sy6bP4FmluRQJDarnnTTmirAfbGDAQjBaAbXLzPasflVtNWndk+AGs8p+nwzz+
-	 XLgCalCmdEagqAAH8hd3NNw8bMiVJatIfQkqDzeJQOQ7BCYEx9VYZSJ01Q5544VToXA==
+	bh=/GANqmntd68P9lT6D3dbJ7EW1jyae4sFpw8dyIWsye8=;
+	b=YJHsffMC7b4gUHea+qORVBKk9lvS4jtTfuRdJBOo26u16mHhSqFbzu9XLKiSoI5QGx9s
+	 MLPSUB6mt/9Ga2Pky7Nep905NUqYuP85xN+Zy3cBtQdlIdOfd1Dy+MVfKlmevSGT0SPpf
+	 TbhHd/eEnznxhaz7Fuk6T984a7EuesWbkOj9PayIeKpNY9FwHc/FtIJERv9jkWusPQOF6
+	 XHzPKClJyHcMPunXqE0eP1FZfI/g5knvZxNXGULHrnm76rQNNjw+ecDNHKDkV+iWGHPwJ
+	 bakJXp3Xd6qZblCT12DOak/XxLg3lgYZS5miyjCP4hLeTQz4Z5CGmxg7KUCgxbk7ZkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=PAzTF6LF;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HoWOOWuL;
 	arc=none smtp.remote-ip=217.140.110.172
 Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 262DA606A68B
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:40:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 262DA606A68B
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id AB608606A32D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:40:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB608606A32D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=PAzTF6LF
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=HoWOOWuL
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A1B37175A;
-	Wed, 25 Nov 2026 06:40:36 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 620211762;
+	Wed, 25 Nov 2026 06:40:38 -0800 (PST)
 Received: from e133894.arm.com (e133894.arm.com [10.2.80.62])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 11ED33F632;
-	Wed, 25 Nov 2026 06:40:37 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C690E3F632;
+	Wed, 25 Nov 2026 06:40:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795617639; bh=DoK6KfKgDjGBzPoHGFLfwWz6Bito/DsccSC2zR/huNQ=;
+	t=1795617641; bh=ebzFg5Tw/7vhKH7rfg1W+Qv8NkWZ3cdeJqFbn94l4ps=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=PAzTF6LFMugTbdvZCGWHnrBRLz7xgzeEAtLMjBmgojmgij20TQgpCV12X+aOFLRqL
-	 zzBxysrWXWYpZtlNC+zjUngryIeDkHVCdoc8Qd8EiMzACmlsvjSgeGzPRgempWxvJa
-	 RDA9q5Zjjw7g0McWVdOelsUjfsfa9gleG390h6zo=
+	b=HoWOOWuLwFTbZIq11Rh5WvDp5C/Mivob5bD7k2iNmJPm6z8QhOqtjfuZq7VLNAQYS
+	 mbJF12wtob/lNONxHkB0s+Y48bUTIs38e6QjZZZCHXa9covzg16gjRwjfmYY0Plthl
+	 R2B7t0jNIERCjIm7m8Co3rGPzXqFfHJDmNkXJcps=
 From: Sascha Bischoff <sascha.bischoff@arm.com>
-Date: Wed, 25 Nov 2026 14:40:24 +0000
-Subject: [PATCH v4 02/13] irqchip/gic-v5: Only set IRS DPS when 1ofN
- routing is supported
+Date: Wed, 25 Nov 2026 14:40:25 +0000
+Subject: [PATCH v4 03/13] irqchip/gic-v5: Serialise IRS synchronisation
+ requests
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,7 +57,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-host_gicv5_fixes-v4-2-0469743c47d8@arm.com>
+Message-Id: <20261125-host_gicv5_fixes-v4-3-0469743c47d8@arm.com>
 References: <20261125-host_gicv5_fixes-v4-0-0469743c47d8@arm.com>
 In-Reply-To: <20261125-host_gicv5_fixes-v4-0-0469743c47d8@arm.com>
 To: Marc Zyngier <maz@kernel.org>, 
@@ -72,64 +72,58 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Sascha Bischoff <sascha.bischoff@arm.com>
 X-Mailer: b4 0.15.2
 
-IRS_PE_CR0.DPS is RES0 when the IRS does not support 1ofN routing.
-Read the capability from IRS_IDR0 and skip programming DPS on systems
-without support for 1ofN routing, rather than blindly writing it.
+IRS_SYNCR writes are ignored while IRS_SYNC_STATUSR.IDLE is clear.
+Concurrent calls to gicv5_irs_syncr() can overlap, causing a request
+to be dropped. A caller can then observe the earlier request
+completing and assume that its own events have been processed.
 
-Fixes: 5cb1b6dab2def ("irqchip/gic-v5: Add GICv5 IRS/SPI support")
+The existing host caller is serialised by the LPI irqdomain mutex.
+Upcoming KVM callers will not share that serialisation and may run
+in atomic context. Serialise the request and completion poll with a
+raw spinlock, and use atomic polling.
+
 Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Acked-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 ---
- drivers/irqchip/irq-gic-v5-irs.c   | 14 +++++++++-----
- include/linux/irqchip/arm-gic-v5.h |  1 +
- 2 files changed, 10 insertions(+), 5 deletions(-)
+ drivers/irqchip/irq-gic-v5-irs.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-index 9d60f474aa4f..4edf787f3f97 100644
+index 4edf787f3f97..ead76560ea08 100644
 --- a/drivers/irqchip/irq-gic-v5-irs.c
 +++ b/drivers/irqchip/irq-gic-v5-irs.c
-@@ -541,12 +541,15 @@ int gicv5_irs_register_cpu(int cpuid)
- 		return -ENXIO;
- 	}
+@@ -10,6 +10,7 @@
+ #include <linux/log2.h>
+ #include <linux/of.h>
+ #include <linux/of_address.h>
++#include <linux/spinlock.h>
  
--	cr0 = FIELD_PREP(GICV5_IRS_PE_CR0_DPS, 0x1);
--	irs_writel_relaxed(irs_data, cr0, GICV5_IRS_PE_CR0);
-+	/* IRS_PE_CR0.DPS is RES0 when 1ofN routing is unsupported. */
-+	if (gicv5_global_data.one_of_n) {
-+		cr0 = FIELD_PREP(GICV5_IRS_PE_CR0_DPS, 0x1);
-+		irs_writel_relaxed(irs_data, cr0, GICV5_IRS_PE_CR0);
+ #include <linux/irqchip.h>
+ #include <linux/irqchip/arm-gic-v5.h>
+@@ -22,6 +23,8 @@
+ #define LPI_ID_BITS_LINEAR		12
  
--	ret = gicv5_irs_wait_for_pe_cr0(irs_data);
--	if (ret)
--		return ret;
-+		ret = gicv5_irs_wait_for_pe_cr0(irs_data);
-+		if (ret)
-+			return ret;
-+	}
+ static DEFINE_PER_CPU_READ_MOSTLY(struct gicv5_irs_chip_data *, per_cpu_irs_data);
++/* Synchronization requests must not overlap in an IRS Domain. */
++static DEFINE_RAW_SPINLOCK(irs_sync_lock);
+ static LIST_HEAD(irs_nodes);
  
- 	pr_debug("CPU %d enabled PE IAFFID 0x%x\n", cpuid, iaffid);
+ static u32 irs_readl_relaxed(struct gicv5_irs_chip_data *irs_data,
+@@ -507,10 +510,11 @@ void gicv5_irs_syncr(void)
+ 		return;
  
-@@ -725,6 +728,7 @@ static int __init gicv5_irs_init(struct gicv5_irs_chip_data *irs_data)
- 	if (list_empty(&irs_nodes)) {
- 		idr = irs_readl_relaxed(irs_data, GICV5_IRS_IDR0);
- 		gicv5_global_data.virt_capable = !!FIELD_GET(GICV5_IRS_IDR0_VIRT, idr);
-+		gicv5_global_data.one_of_n = !!FIELD_GET(GICV5_IRS_IDR0_ONE_N, idr);
+ 	syncr = FIELD_PREP(GICV5_IRS_SYNCR_SYNC, 1);
++	guard(raw_spinlock_irqsave)(&irs_sync_lock);
+ 	irs_writel_relaxed(irs_data, syncr, GICV5_IRS_SYNCR);
  
- 		idr = irs_readl_relaxed(irs_data, GICV5_IRS_IDR1);
- 		irs_setup_pri_bits(idr);
-diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
-index 299e75bc9525..34e22e7d4a4c 100644
---- a/include/linux/irqchip/arm-gic-v5.h
-+++ b/include/linux/irqchip/arm-gic-v5.h
-@@ -532,6 +532,7 @@ struct gicv5_chip_data {
- 	u8			cpuif_id_bits;
- 	u8			irs_pri_bits;
- 	bool			virt_capable;
-+	bool			one_of_n;
- 	struct {
- 		__le64 *l1ist_addr;
- 		u32 l2_size;
+-	gicv5_wait_for_op(irs_data->irs_base, GICV5_IRS_SYNC_STATUSR,
+-			  GICV5_IRS_SYNC_STATUSR_IDLE);
++	gicv5_wait_for_op_atomic(irs_data->irs_base, GICV5_IRS_SYNC_STATUSR,
++				 GICV5_IRS_SYNC_STATUSR_IDLE, NULL);
+ }
+ 
+ int gicv5_irs_register_cpu(int cpuid)
 
 -- 
 2.34.1
