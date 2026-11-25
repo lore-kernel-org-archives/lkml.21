@@ -1,97 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590372;
-	b=bBHUt4Yr8PccvYfeAJgwwyjiAr1gL7higTRjPAPF2q/DO1DUtvF808lyTqNjXlVZVlEn
-	 31lVJ+/eMEnB2n3pIUAWQlx+IDFHwixH7FZjy7/u8lDm1u6ovfYKyRLOEMtrO2mvmm3Gm
-	 Di1hEMVCoSckZE5941mEIvn4rQMHw9pYsdCwQX4DZv11N6ANpB9Bpu4010zdPbw/OEz7B
-	 KvxZkCD9N2BIK41vLrD7q6Ya5qSmoPswY6CwEGq+hw/142bxSEbBHG3qsbYSsFisUBW9c
-	 qao97zCjajc0nbFTf6tS5GctfFHijCO0bLiUuhzIvoN2vDtP/wTEXvc6nytvjbll1sw==
+	t=1795590373;
+	b=j7k/5CRyYGumiPpg+QLYSGa9wLHpOF0n5OyoMG2IsmuQiuFH8znjcFI7Ot2NMKpbdxFy
+	 ZlwsozZgAABiGslvE7WLd3+GEBR/PSkRY/f6N3vHVMMKElsjymKGWdji4ICQ8H0n7rwEL
+	 GevcmVdaqVZ5zrg5C9PzCpBuXE1MkbcLET6CbFMLAfw+ckdrcfyvAJdVTWbtOY5Vuwl84
+	 GztqcHvV3O/+fKwd6JB1hJTJdiekR0HR+v3T5bYR0ySOkLrTuyNdIdU+7GECG1gw52+zI
+	 f1TdWAXYXD/RuA1fpD55Q1zuG7FpNwgEYqLMkFl7RUAVWAEz+/8bp3rKYFiuxvQzNfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590372;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=aJPhEyG57IouNR/chtFBozYSYgr3OK8Rm98T6dNYaMk=;
-	b=zS31VQ0u4u3OQ14cJZEOU/96ymZKX1SIlkEFfRfCmKUVZOSoDnyapvIJ7z4eeVw/zgBN
-	 +DiUJK98hI8gk3gnm3Kk/VWp0CCyO/Gqsgxqjz0NLPo7KAwt4tbDRv35gspE0XtLYr0Gr
-	 npFD4TbA94uaQ+2xSG89tL6jW+QW+H/UeWTrTIFvEWFsrGAGQWd+G+LKhOGCj4JXBtqcD
-	 TcaTrT3GjIkL4qf2IUycrx0osu3RSxaRmTokxKaADOnVvyhhgliKdMjNnDVctv5BXewKj
-	 QfuxkQRUhv8qtKvPWN9nFjWVH8Srw4cnYJ0svEC1h6WsAiWNndYcTSb0E7b7Vpb24oA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590373;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=K/q9nzsqStoipM5sT6ZTuum3AE/ZNSxJh2qnRm/7r7g=;
+	b=ONTdmj5EAJq+3dCCrSjYMdsot/T4FXJbl/XETLRkFvg/y5WKWKJ2GPCjqAyG6UsP3upo
+	 Cp7/TFKsACMglnoJAtyeLeAZ5pYYnOrTIs/Rd2LTLq8BrxiU3dpA+lRYLTJ9bC+2COS1S
+	 zxNlHo43MeAwHlWoA2/QvU2zd51VRjavK/OwGRhfJ05hpxxxAlatWVJr2l+KaZuqpK+zB
+	 VGYewbS9+JBX3aGRft7UeLnBPrF+82hA3sDvtsJ9lEBnuDemp7iAc8ChRYF7pRFKHEGKY
+	 Yem77oEfL5KO62eYhhtvj4Ec+Gv/FvmGJG3ouXEy+Jsjyyk2GZVG5Qruvmaz4ZVS0Pw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zy0kG2li;
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=fail reason="signature verification failed" header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="duLO0Th/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39A2A60A2611
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:06:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39A2A60A2611
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF74360A260C;
+	Wed, 25 Nov 2026 07:06:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zy0kG2li
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b3a42a4bcdso2269500a91.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:06:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795590371; x=1796195171; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aJPhEyG57IouNR/chtFBozYSYgr3OK8Rm98T6dNYaMk=;
-        b=zy0kG2li6wqOrnA6DyZGdlDJjXIYzH4nKAnN+0yv4Dou+pwaNqPyFd+B/0srum2CiV
-         mHxhRXM/XCZoUr+UavjjldIfIVvOeOTn9ucsuJPVZpMnc5X+lpHGtabQWgWbEhOCC4cN
-         nvMWNs733XJIUhwepCB/mPJ4tnOTx8i4wIUkgWNfgW2INuY7nYll++zsw2XepyT+we+K
-         ab8pJF6W9iohH7aniZcEgt5ymlQlVs/yMgVXcObqmlxNNLNgbmYOiyTANgCkYj9F83hx
-         zwEUJKy7xdoOIr5dpBsCdZ01obqYfEc7NJP4hIYyy+8vnM4g/9fn0SC8B7TpN2opJIjP
-         qmGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795590371; x=1796195171;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aJPhEyG57IouNR/chtFBozYSYgr3OK8Rm98T6dNYaMk=;
-        b=AODDN/SeHp7/qOQ/4LMmz2eVTWuRMw24urbT5uXoPomdPyfxox3V1JEDpLbIMK5wJ8
-         MxEEH0rwq5cC3pu8zwIb7kjZhsiQectQ74ZFI0IUSrzlhRjcKerErskwPOAijCNGJ1QH
-         mtoDCLCapSi6H221keYjG848fbxUHBzosDIgj93ACptRuL+bdfU1F4eYX71ZontFIGX+
-         yEMojutZFncg7NAKq74AvFXKIcjv1dPSNHEgHYDn6RElAmKAiFwvd+8wNCOyHaCoYhml
-         nzmeBeDzDpFVKVGPXhnNKBHrARMPA9KH/1ynvzbgYgEPSJ/xDWNGGotHRnJQfBeE9qL0
-         wS7Q==
-X-Forwarded-Encrypted: i=1; AL+hErG6FuN22NVlT7RaWxqMASEEwvC9S3glTevCQ/AmLMRCIkemzMFpJLQXV++uUhQ3z96a8JdVVwUNhMXZ60o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/sEaF3gdNJ8m76tvMD5NU15ZNdwu1RkE2k39XDOWVTcRWeg9Lm
-	69Onr/HT633pC9sTIiq53BuulO3VPbl+3g7RF7rXsG8ACyA1lSbRsOQ0
-X-Gm-Gg: AZFdTZe9CUyGbRuxuWBGHB94v66Q61KXY+pd6X3kcxfilH+i/NH0sYmJ7tg1rM+gbEq
-	uBiwN2O400j2gV2b8Qo7mRuiJDfkJNq3WJoz+G1FTmibsBxCMN15dVwuXSURPygrd7Cbnku1dqB
-	wFGRarVAF46fX3360VvL2Eq0myjFcr+UtdUmQu82AHh6OkIi8TjGX2LmOaFoqPXfV0cgJ8uYIS7
-	naIcbNeyOhzRepdAm0+D5W200vr9hJuaWyjgNkW+UXpVbsAT9UmvXKC8crWuKkwj50s2rqntrQ1
-	Me0ZZ6J+5dQ5v0UWl0Jt/mNgZ/V78jPSjbtOzzGMbMfSnuF13lGgahZvouhgXd2uOT3zDtX9p0e
-	j6uy2z5p8MBe1L2CajmnHlGs9IFef6Cu5k4Y5PZh+lCympk6hJUaPjvze7OJ30j6s9ViWZOKKbL
-	yfut8JyvTAIlUAVPpxdYAy9gRvsB1jUJe9TEJ9blDgK09BUPagt5nbUyj5bWl66Mvn79pGxw/PC
-	U1nv7XCLUQu4ewr051oVLg2uR7qy40Ceu7Ivrus5ueSR+WyhaPSLA3Kna8lz2nlBwd98cDUoSJH
-	u/Fixsi1MjmjBPC4B/IPjIRlt3h5971yWr3b1yOumCPKjV3wthsPmF8azP3GOk4=
-X-Received: by 2002:a17:90b:39a7:b0:3ac:8897:7baa with SMTP id 98e67ed59e1d1-3b41c9638b9mr14865389a91.40.1795590371429;
-        Tue, 24 Nov 2026 23:06:11 -0800 (PST)
-Received: from a-VirtualBox ([168.188.125.88])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a34asm25898247a91.3.2026.11.24.23.06.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 23:06:11 -0800 (PST)
-From: Minseo Park <hiyoukou@gmail.com>
-To: clabbe@baylibre.com,
-	mchehab@kernel.org,
-	hverkuil@kernel.org,
-	linux-media@vger.kernel.org
-Cc: mjpeg-users@lists.sourceforge.net,
-	linux-kernel@vger.kernel.org,
-	Minseo Park <hiyoukou@gmail.com>
-Subject: [PATCH 4/4] media: zoran: add KUnit tests for capture format negotiation
-Date: Wed, 25 Nov 2026 16:05:48 +0900
-Message-ID: <20261125070548.28989-5-hiyoukou@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261125070548.28989-1-hiyoukou@gmail.com>
-References: <20261125070548.28989-1-hiyoukou@gmail.com>
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=duLO0Th/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3C2C1F0281F;
+	Wed, 25 Nov 2026 07:06:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795590373;
+	bh=K/q9nzsqStoipM5sT6ZTuum3AE/ZNSxJh2qnRm/7r7g=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=duLO0Th/pmEW6BN6ZR8s5sDooJ28xxC8dPQ31BIo3oi+5i5YTuHpQPi8sYx+k5JGD
+	 T2FnDZibpqF3AdGleFRajL9gi1WyykPkja3VUvrQImQiM4drULWbiQ8djoGlqE0tEh
+	 UQawTQwvy68XlUmytoAM/8K87/Pk79CDHE72HJA3Evy37lq19UgmjH9uKhf92JJvOA
+	 9jkqzLKhi5AJB/2vDAHH9qNaos+lR71jmC4ryRxvo0qS7ni/BPIJu++u22lEz9AlGP
+	 fyduRg9pzZysRfaceVYF9QzTCWDhhJg5QLhHch8GV7DX+Kryskluvso19BS8pySXSa
+	 zC4A2lRBgTRsw==
+Content-Type: multipart/mixed; boundary="===============5830286129240094792=="
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,195 +49,147 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Message-Id: <136ad6946f19e98a0c37189368cca4b26e036e29b242d21b61f9925d9925f896@mail.kernel.org>
+In-Reply-To: <20261125061523.1540234-29-irogers@google.com>
+References: <20261125061523.1540234-29-irogers@google.com>
+Subject: Re: [RFC PATCH v2 28/30] tools/unwind: Add CFG instruction abstract execution oracle to verify_cfi
+From: bot+bpf-ci@kernel.org
+To: irogers@google.com,linux-kernel@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arch@vger.kernel.org
+Cc: jpoimboe@kernel.org,rostedt@goodmis.org,peterz@infradead.org,mingo@redhat.com,tglx@kernel.org,bp@alien8.de,dave.hansen@linux.intel.com,x86@kernel.org,catalin.marinas@arm.com,will@kernel.org,mark.rutland@arm.com,linux-arm-kernel@lists.infradead.org,pjw@kernel.org,palmer@dabbelt.com,aou@eecs.berkeley.edu,alex@ghiti.fr,linux-riscv@lists.infradead.org,acme@kernel.org,namhyung@kernel.org,linux-perf-users@vger.kernel.org,mhiramat@kernel.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,bpf@vger.kernel.org,nathan@kernel.org,llvm@lists.linux.dev,nsc@kernel.org,linux-kbuild@vger.kernel.org,ojeda@kernel.org,rust-for-linux@vger.kernel.org,ardb@kernel.org,linux-efi@vger.kernel.org,maz@kernel.org,oupton@kernel.org,kvmarm@lists.linux.dev,shuah@kernel.org,linux-kselftest@vger.kernel.org,indu.bhagat@oracle.com,jremus@linux.ibm.com,wnliu@google.com,dylanbhatch@google.com,irogers@google.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yongho
+ ng.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Wed, 25 Nov 2026 07:06:08 +0000 (UTC)
 
-Check that zoran_v4l_set_format() leaves zr->buffer_size and
-zr->v4l_settings describing the last accepted format when a format is
-rejected, and that an accepted format leaves the two consistent with
-each other.
+--===============5830286129240094792==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-zr_vb2_queue_setup() sizes the capture buffers from zr->buffer_size
-while zr36057_set_memgrab() and zr_set_buf() program the chip from
-zr->v4l_settings, so a disagreement between them makes the chip DMA a
-frame that does not fit the buffers it was given.
+> tools/unwind: Add CFG instruction abstract execution oracle to verify_cfi
 
-The tests are included into zoran_driver.c because the function under
-test is static.
+TL;DR:
+- verify_cfi may skip code after returning calls or syscall/svc/ecall, and
+  silently skips past 4096 instructions, yet still counts functions clean, so
+  --strict may miss CFI mismatches
+- noreturn name list may be wrong
 
-Signed-off-by: Minseo Park <hiyoukou@gmail.com>
+> diff --git a/tools/unwind/verify_insn.cpp b/tools/unwind/verify_insn.cpp
+> --- /dev/null
+> +++ b/tools/unwind/verify_insn.cpp
+
+[ ... ]
+
+> +bool isKnownNoreturnName(StringRef Name)
+> +{
+> +	static const char *const Exact[] = {
+> +		"panic", "do_exit", "make_task_dead", "__stack_chk_fail",
+> +		"__stack_chk_fail_local", "fortify_panic", "usercopy_abort",
+> +		"__bug", "bug_at", "do_group_exit", "complete_and_exit",
+
+[ ... ]
+
+> +	if (Name.starts_with("__throw_") || Name.starts_with("_ZSt7__throw") ||
+> +	    Name.starts_with("_ZSt9__throw") || Name.contains("panicking") ||
+> +	    Name.starts_with("rust_begin_unwind") || Name.contains("noreturn") ||
+> +	    Name.starts_with("__bad_"))
+> +		return true;
+> +	return false;
+> +}
+
+The kernel-doc says this returns true only when calls to @Name never return.
+Can Name.starts_with("__bad_") match functions that do return?
+
+__bad_area() and __bad_area_nosemaphore() in arch/x86/mm/fault.c are
+ordinary static void functions, and bad_area_nosemaphore() returns after
+calling __bad_area_nosemaphore().  Similarly, Name.contains("panicking")
+also matches returning Rust std helpers such as
+std::panicking::panic_count::is_zero_slow_path() -> bool.
+
+verifyFile() puts the address of every such symbol into noreturn_addrs, and
+verifyOracle2Instructions() then does:
+
+	if (has_target &&
+	    noreturn_addrs.count(CallTarget))
+		continue;
+
+so the fallthrough PC is never enqueued.  Instructions only reachable past
+such a call (e.g. the epilogue after call __bad_area_nosemaphore) are never
+checked, yet the function is still counted in funcs_clean.  Could these two
+rules be narrowed to exact names (or core::panicking only)?
+
+The kernel names in Exact[] also differ from tools/objtool/noreturns.h:
+complete_and_exit and bug_at do not exist in this tree, and fortify_panic
+is a macro (the symbol is __fortify_panic).  __fortify_panic,
+kthread_complete_and_exit, vpanic and do_task_dead are not recognized.
+Could the kernel names come from tools/objtool/noreturns.h instead of a
+separate hand-kept list?
+
+The prefixes _ZSt7__throw and _ZSt9__throw can only match a 7- or
+9-character std:: identifier starting with __throw, so helpers like
+_ZSt16__throw_bad_castv or _ZSt28__throw_bad_array_new_lengthv are missed.
+
+[ ... ]
+
+> +		bool func_ok = true;
+> +		unsigned steps = 0;
+> +		while (!worklist.empty() && steps < 4096) {
+> +			uint64_t pc = worklist.front();
+> +			worklist.pop();
+> +			steps++;
+
+Each PC enters the worklist at most once, so steps counts distinct checked
+instructions.  When a function has more than 4096 reachable instructions,
+the loop exits with the worklist still non-empty.  Is it intended that the
+function is then still counted by:
+
+> +		if (func_ok)
+> +			st.funcs_clean++;
+
+func_ok is only cleared by an fde_eval_error or an evalRowAgainstAbs()
+failure on one of the first 4096 PCs.  Nothing records the truncation, so
+the function is listed as "Functions 100% instruction-clean", and a
+CFA/RA/FP mismatch after the cutoff is not counted in insns_*_mismatch, so
+--strict still exits 0.  Large functions such as sqlite3VdbeExec exceed this
+easily.
+
+The decode-failure path behaves the same way:
+`if (DStat != MCDisassembler::Success || InsnSize == 0) continue;` drops all
+successors of an undecodable instruction and the function can still be
+counted clean.  This also seems to contradict the commit message's
+"verifying at every reachable instruction".  Could a truncated or abandoned
+walk clear func_ok, or be recorded with recordIssue() (for example as
+"step_limit")?
+
+[ ... ]
+
+> +			if (is_ret_or_ind_jump || Desc.isTrap() ||
+> +			    OpName == "UD2" || OpName == "BRK" ||
+> +			    OpName == "EBREAK" || OpName == "C_EBREAK" ||
+> +			    OpName == "SVC" || OpName == "ECALL" ||
+> +			    OpName == "SYSCALL" || OpName == "IRET64" ||
+> +			    OpName == "SYSRET64" || OpName == "ERET" ||
+> +			    OpName == "SRET" || OpName == "MRET")
+> +				continue;
+
+SVC, ECALL and SYSCALL return to the next instruction, but here they end the
+path and next_pc is never enqueued.  Everything after them on that path is
+unchecked, and the function can still be counted in funcs_clean.
+
+Examples are the arm64 vDSO fallbacks in
+arch/arm64/include/asm/vdso/gettimeofday.h (svc #0 followed by the return
+and the caller's epilogue), RISC-V sbi_ecall(), and user-space syscall
+wrappers (syscall; cmp $-4095,%rax; ...; ret).  The address after a syscall
+instruction is also the user PC that dwarf_cfi_unwind_user_eh_frame_hdr()
+starts from for a task that entered the kernel through a syscall.
+
+sigreturn trampolines are already excluded by the earlier
+`if (fr->signal) continue;`, and HVC/SMC are not in the list and fall
+through.  Should SVC/ECALL/SYSCALL be dropped from this terminator list so
+the fallthrough is verified, with stepInstruction() clobbering their defs?
+
+
 ---
- drivers/media/pci/zoran/Kconfig             |  14 +++
- drivers/media/pci/zoran/zoran_driver.c      |   4 +
- drivers/media/pci/zoran/zoran_driver_test.c | 123 ++++++++++++++++++++
- 3 files changed, 141 insertions(+)
- create mode 100644 drivers/media/pci/zoran/zoran_driver_test.c
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
-diff --git a/drivers/media/pci/zoran/Kconfig b/drivers/media/pci/zoran/Kconfig
-index 3fb3e27e04a8..fd3d3c2e5ff5 100644
---- a/drivers/media/pci/zoran/Kconfig
-+++ b/drivers/media/pci/zoran/Kconfig
-@@ -24,6 +24,20 @@ config VIDEO_ZORAN
- 	  To compile this driver as a module, choose M here: the
- 	  module will be called zr36067.
- 
-+config VIDEO_ZORAN_KUNIT_TEST
-+	bool "KUnit tests for the Zoran driver" if !KUNIT_ALL_TESTS
-+	depends on VIDEO_ZORAN && KUNIT
-+	default KUNIT_ALL_TESTS
-+	help
-+	  Enable the KUnit tests for the Zoran capture format negotiation.
-+	  They check that a format which fails validation leaves the buffer
-+	  size and the capture geometry describing the previously accepted
-+	  format.
-+
-+	  For more information on KUnit see Documentation/dev-tools/kunit.
-+
-+	  If you are unsure, say N.
-+
- config VIDEO_ZORAN_DC30
- 	bool "Pinnacle/Miro DC30(+) support"
- 	depends on VIDEO_ZORAN
-diff --git a/drivers/media/pci/zoran/zoran_driver.c b/drivers/media/pci/zoran/zoran_driver.c
-index ec8ed5601f50..894653a97fb0 100644
---- a/drivers/media/pci/zoran/zoran_driver.c
-+++ b/drivers/media/pci/zoran/zoran_driver.c
-@@ -976,3 +976,7 @@ void zoran_queue_exit(struct zoran *zr)
- {
- 	vb2_queue_release(zr->video_dev->queue);
- }
-+
-+#if IS_ENABLED(CONFIG_VIDEO_ZORAN_KUNIT_TEST)
-+#include "zoran_driver_test.c"
-+#endif
-diff --git a/drivers/media/pci/zoran/zoran_driver_test.c b/drivers/media/pci/zoran/zoran_driver_test.c
-new file mode 100644
-index 000000000000..424b2fd065c8
---- /dev/null
-+++ b/drivers/media/pci/zoran/zoran_driver_test.c
-@@ -0,0 +1,123 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * KUnit tests for the Zoran capture format negotiation.
-+ *
-+ * This file is included at the end of zoran_driver.c so that the tests can
-+ * reach zoran_v4l_set_format(), which is static.
-+ */
-+
-+#include <kunit/test.h>
-+
-+/* zoran_card.c: PAL square pixel timings, the largest supported geometry. */
-+static const struct tvnorm zoran_test_pal = { 944, 768, 83, 880, 625, 576, 16 };
-+
-+static const struct zoran_format *zoran_test_format(u32 fourcc)
-+{
-+	unsigned int i;
-+
-+	for (i = 0; i < NUM_FORMATS; i++)
-+		if (zoran_formats[i].fourcc == fourcc)
-+			return &zoran_formats[i];
-+
-+	return NULL;
-+}
-+
-+static struct zoran *zoran_test_alloc(struct kunit *test)
-+{
-+	struct zoran *zr;
-+
-+	zr = kunit_kzalloc(test, sizeof(*zr), GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, zr);
-+
-+	/*
-+	 * zoran_v4l_set_format() only reads zr->timing and only reports
-+	 * through pci_dbg(), so a zeroed struct pci_dev is enough.
-+	 */
-+	zr->pci_dev = kunit_kzalloc(test, sizeof(*zr->pci_dev), GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, zr->pci_dev);
-+	zr->timing = &zoran_test_pal;
-+
-+	return zr;
-+}
-+
-+/*
-+ * A format that fails validation must leave the device state describing the
-+ * last format that was accepted.  zr_vb2_queue_setup() sizes the capture
-+ * buffers from zr->buffer_size while zr36057_set_memgrab() and zr_set_buf()
-+ * program the chip from zr->v4l_settings, so the two must never disagree.
-+ */
-+static void zoran_set_format_rejected_keeps_state(struct kunit *test)
-+{
-+	const struct zoran_format *bgr32, *rgb555, *bgr24;
-+	struct zoran *zr = zoran_test_alloc(test);
-+
-+	bgr32 = zoran_test_format(V4L2_PIX_FMT_BGR32);
-+	rgb555 = zoran_test_format(V4L2_PIX_FMT_RGB555);
-+	bgr24 = zoran_test_format(V4L2_PIX_FMT_BGR24);
-+	KUNIT_ASSERT_NOT_NULL(test, bgr32);
-+	KUNIT_ASSERT_NOT_NULL(test, rgb555);
-+	KUNIT_ASSERT_NOT_NULL(test, bgr24);
-+
-+	/* 4 bytes per pixel, so the line alignment check cannot trigger. */
-+	KUNIT_ASSERT_EQ(test, 0, zoran_v4l_set_format(zr, 768, 576, bgr32));
-+	KUNIT_EXPECT_EQ(test, 768u * 576 * 4, zr->buffer_size);
-+	KUNIT_EXPECT_EQ(test, 768, zr->v4l_settings.width);
-+	KUNIT_EXPECT_EQ(test, 576, zr->v4l_settings.height);
-+	KUNIT_EXPECT_EQ(test, 768 * 4, zr->v4l_settings.bytesperline);
-+
-+	/* 2 bytes per pixel and an odd width: rejected by the alignment check. */
-+	KUNIT_EXPECT_EQ(test, -EINVAL, zoran_v4l_set_format(zr, 33, 24, rgb555));
-+	KUNIT_EXPECT_EQ(test, 768u * 576 * 4, zr->buffer_size);
-+	KUNIT_EXPECT_EQ(test, 768, zr->v4l_settings.width);
-+	KUNIT_EXPECT_EQ(test, 576, zr->v4l_settings.height);
-+	KUNIT_EXPECT_EQ(test, 768 * 4, zr->v4l_settings.bytesperline);
-+
-+	/* 3 bytes per pixel and a width that is not a multiple of four. */
-+	KUNIT_EXPECT_EQ(test, -EINVAL, zoran_v4l_set_format(zr, 33, 24, bgr24));
-+	KUNIT_EXPECT_EQ(test, 768u * 576 * 4, zr->buffer_size);
-+	KUNIT_EXPECT_EQ(test, 768 * 4, zr->v4l_settings.bytesperline);
-+}
-+
-+/* An accepted format must describe the same frame through both fields. */
-+static void zoran_set_format_accepted_is_consistent(struct kunit *test)
-+{
-+	const struct zoran_format *fmt = zoran_test_format(V4L2_PIX_FMT_YUYV);
-+	struct zoran *zr = zoran_test_alloc(test);
-+
-+	KUNIT_ASSERT_NOT_NULL(test, fmt);
-+
-+	KUNIT_ASSERT_EQ(test, 0, zoran_v4l_set_format(zr, 704, 576, fmt));
-+	KUNIT_EXPECT_EQ(test, (unsigned int)(zr->v4l_settings.bytesperline *
-+					     zr->v4l_settings.height),
-+			zr->buffer_size);
-+}
-+
-+/* Geometry outside the active area is rejected before anything is stored. */
-+static void zoran_set_format_out_of_range(struct kunit *test)
-+{
-+	const struct zoran_format *fmt = zoran_test_format(V4L2_PIX_FMT_BGR32);
-+	struct zoran *zr = zoran_test_alloc(test);
-+
-+	KUNIT_ASSERT_NOT_NULL(test, fmt);
-+
-+	KUNIT_EXPECT_EQ(test, -EINVAL, zoran_v4l_set_format(zr, 769, 576, fmt));
-+	KUNIT_EXPECT_EQ(test, 0u, zr->buffer_size);
-+	KUNIT_EXPECT_EQ(test, -EINVAL, zoran_v4l_set_format(zr, 768, 577, fmt));
-+	KUNIT_EXPECT_EQ(test, 0u, zr->buffer_size);
-+	KUNIT_EXPECT_EQ(test, -EINVAL, zoran_v4l_set_format(zr, 31, 24, fmt));
-+	KUNIT_EXPECT_EQ(test, 0u, zr->buffer_size);
-+}
-+
-+static struct kunit_case zoran_test_cases[] = {
-+	KUNIT_CASE(zoran_set_format_rejected_keeps_state),
-+	KUNIT_CASE(zoran_set_format_accepted_is_consistent),
-+	KUNIT_CASE(zoran_set_format_out_of_range),
-+	{}
-+};
-+
-+static struct kunit_suite zoran_test_suite = {
-+	.name = "zoran",
-+	.test_cases = zoran_test_cases,
-+};
-+
-+kunit_test_suite(zoran_test_suite);
--- 
-2.43.0
-
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/45561209846
+--===============5830286129240094792==--
