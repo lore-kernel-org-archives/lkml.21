@@ -1,60 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795608941;
-	b=djTbQn3xxUYJdZq5qMVpGZYSTaTtjtrE3MtcPPFaBWUSHGsG4y8s8gxtz2KJOKOdX07+
-	 KO01eNwWpNYv1f2uX+fZqQDTJ1+e0JokYWULseUEGTSErbBeqaJOMCIPdLEN3snLTU0E+
-	 XKtHcrUfN+ySVZiopeEWzZTSY9kLePNzOHY8TUUtIcg1kR/koOKgmA/yPlczrBZJ20adD
-	 +vCuXtQ1r6CzDEgvM4ZaQ31MDX/p51ydOkxplj6nmpe2qZyPuaf4i8kxdG2Hp+UH52uMc
-	 718MLpVhnw+cuK15vFDMTaCrHquoUkyF+flRuPmqujgwTeL+Zewv7fPvLh3UvV8FC1w==
+	t=1795608955;
+	b=NBeRr3z0qYmdAn5d53aWDuxE1FhgY/sNiI4tVZnxGqPJDR8Vd7r+wPsAcPzZTI4QiqS9
+	 ik3dEMIlh9GpAlhhgWgNioO24E816KZtnOako7vuLLSzUqRB76LNIN2D6XwV3UNqG7k5P
+	 6+8Y4UBSfVB5O6oyUQqkWCAA0c8Jn6EMjJds3btBvrfVj/8HMjYaXEgmK0nyH1nyrPQIs
+	 Y+u5vrc71ErRVGNk5pVHTC9vTSAz/B3L+3zsJH4vuSSeATFnmHfsC1EcUTdjOCMnwERYH
+	 0BneQbrTmtYmgvJjk+1HMdomcr+5d1nSpoXIrqTqctcNuxGN0gVONEJyT3Ggz+EqgKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795608941;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=peYm9echGqI9fSUtN/Ty4opke/Oi26S7M6+5AcbWpKI=;
-	b=wghvqcagGTqYaVucnwANYSMGoxwjtO+OnuvrXGpKdEv7rnm3gOf9w8ysyA9daPEJSfyF
-	 iqfsKl8HSJC80Tp2TQsWchmE+gUdOJ9zdI7NyFbAA5ha4j0l8atIXdGj+Pp6EORGexF+V
-	 QwRfcHg4GYkzfg7NBAk9QieU+I2pwf0UHBWyny5P7Nwb0lfOXtiXqS2DmKVTYG1ddIzYo
-	 g/EVwcdt9hDudEG26deM1FVsvqJFQ5EdWf0WrOcnA2M/hsfDpaV6Ya+4ThicDjnLiYBmg
-	 uWQIzoIXJmjzfSWwaH3ASbter6LTZyr7dfnZ7y+AHIm3Lb3oKePsRoDm1gN8vrXzxNg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795608955;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Scanned-By;
+	bh=zoN7I0BDPbXDDeNenHos3vHXfJ3u5ltkjoBOqq3KTgU=;
+	b=Tn3cXFm/TZA/wlj7rw+4B/WkLPdF+k4EshUP5Y/B0681j+XhlhFNbvO8Dq1lMskQ18gX
+	 uNClC7fKSHU5jD6ZDI62heMNj3LMw8QahC+1jx8pc8ourYNQen2qwsvIHEpqtnIhKrj6O
+	 a1b1PciZvzRFOwRmCQFDxKf/PibTV00ob/8iNiYj2kz1HlcqL+f9Btt8/Clw8ZdKP7Ikl
+	 5bKQgnNnYplqL4vj+Y7ngVkcJzbEYFgpz/BD7l5eA9mA2sXAI6cLq6sXRjQsxA4OaWttd
+	 TpFQyr8o0TuzNmtYGGcCysPScbAvB3wMUKIXAxnwrEapLPsnfPqIF2JhKwDa3LPSD7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=raidlab.org;
-	spf=pass smtp.mailfrom=raidlab.org;
-	dkim=pass header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=y6NTEAjo;
-	arc=none smtp.remote-ip=185.70.43.17
-Received: from mail-4317.protonmail.ch (mail-4317.protonmail.ch [185.70.43.17])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iRK8F7fl;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C11C606A323;
-	Wed, 25 Nov 2026 12:15:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C11C606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=raidlab.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=raidlab.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 689BB606A32A
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:15:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 689BB606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=raidlab.org header.i=@raidlab.org header.a=rsa-sha256 header.s=protonmail header.b=y6NTEAjo
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=raidlab.org;
-	s=protonmail; t=1795608939; x=1795868139;
-	bh=peYm9echGqI9fSUtN/Ty4opke/Oi26S7M6+5AcbWpKI=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=y6NTEAjoVMoQJDeY4ydEGMfuYgTKaCV9NCz4ER/7a3+ImqEsfI+tQrDVO+kJ1+x4R
-	 pjNUS2XEQIj4nSK3M2Wqw/zYyYIrLckOvp3ldQBZxuJMuc5X6F6fV1L7BsJJGEWbHZ
-	 BqhxDy47SkEMK+yNqcgbU54d2jZntkMMqrmqaK48WAxiZmobJe9HBiLZ4sMNnTtWpR
-	 avxrwSMxeEt8z85FONCXORyDmhC1e7W1tpEeTDgNgX61bkxOdSi0GYJmsECGfCvNeF
-	 wSwCriV/Xi9Xsqlio7l4tkQh4fW4t7qecmhs9NfCHmU9Pdqgyf3iAk23vqOqxhuD1q
-	 MhBIZ8qjSZ/qw==
-Date: Wed, 25 Nov 2026 12:15:27 +0000
-To: Johannes Thumshirn <johannes.thumshirn@wdc.com>
-From: Miroslav Cimerman <mc@raidlab.org>
-Cc: linux-btrfs@vger.kernel.org, David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, Naohiro Aota <naohiro.aota@wdc.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] btrfs: wait for block group relocation on remount read-only
-Message-ID: <pI5FVmDFvSeAAyaxWboIkNPc198E5Z5EGAqfTPDCrM71yOz1erD7SPXwGAazy2mXn0D7LgzmAnLdvZR2SiladzpCwoHvknvma1nAW5mmGfM=@raidlab.org>
-In-Reply-To: <8c893023-3647-40f9-90dc-63ce977fe710@wdc.com>
-References: <20261118125816.6878-1-mc@raidlab.org> <20261118202548.82001-1-mc@raidlab.org> <8c893023-3647-40f9-90dc-63ce977fe710@wdc.com>
-Feedback-ID: 232820807:user:proton
-X-Pm-Message-ID: 47eaacb7bccaa97b5aece4471fe526b39ad33d8b
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iRK8F7fl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795608953;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zoN7I0BDPbXDDeNenHos3vHXfJ3u5ltkjoBOqq3KTgU=;
+	b=iRK8F7flY0dgF6OY8oqBT/h9T6d7owNYH9HqBTklMnGPjdzXXc7NdFkkL9MuCxsvaxxEUj
+	LYZVNYIExY5/rGtrFkooJyPNTHcc48l9APQX/nx0i5E5FOXFKrSQttwst6Gi5ta82/4miZ
+	lETRqolbxiIz0AKLg2oOMmiAJnhxicw=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-586-GDTU3zJxMsaXpCLmoG1DuQ-1; Wed,
+ 25 Nov 2026 12:15:47 +0000
+X-MC-Unique: GDTU3zJxMsaXpCLmoG1DuQ-1
+X-Mimecast-MFC-AGG-ID: GDTU3zJxMsaXpCLmoG1DuQ_1795608945
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 344C119560B1;
+	Wed, 25 Nov 2026 12:15:45 +0000 (UTC)
+Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id D9B8C18004FC;
+	Wed, 25 Nov 2026 12:15:41 +0000 (UTC)
+Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
+	oleg@redhat.com; Wed, 25 Nov 2026 13:15:44 +0100 (CET)
+Date: Wed, 25 Nov 2026 13:15:40 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: mt4022@columbia.edu, Jens Axboe <axboe@kernel.dk>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Michal Nazarewicz <mina86@mina86.com>,
+	Wen Yang <wen.yang@linux.dev>, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org, tz2294@columbia.edu,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 2/7] sched/wait: add WQ_FLAG_POLL_EXCLUSIVE for user
+ space waiters
+Message-ID: <awbRbH35xP3KEEOF@redhat.com>
+References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
+ <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
+ <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
+ <awWSwmvaTwBxfU-r@redhat.com>
+ <CAHk-=wj3GCXZohdFWWPAOkC_LHno4X0oQW+0sQFJzRMvjpODUg@mail.gmail.com>
+ <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
+ <CAHk-=wjbK0xyhwvWP1uNiYR6i-X9MpCn8bnm_akxq0MsrYOL+w@mail.gmail.com>
+ <awbJz9stwx_JzZFX@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,21 +92,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awbJz9stwx_JzZFX@redhat.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 
-Johannes Thumshirn <johannes.thumshirn@wdc.com> wrote:
-> The bug looks real to me, but Sashiko has another complaint, that looks
-> vaild:
->=20
-> https://sashiko.dev/#/patchset/20261118202548.82001-1-mc%40raidlab.org
+On 11/25, Oleg Nesterov wrote:
+>
+> On 11/24, Linus Torvalds wrote:
+> >
+> > @@ -105,10 +111,16 @@ static int __wake_up_common(struct
+> > wait_queue_head *wq_head, unsigned int mode,
+> >  		unsigned flags = curr->flags;
+> >  		int ret;
+> >
+> > +		if ((flags & WQ_FLAG_POLL_EXCLUSIVE) && poll_woken)
+> > +			continue;
+> >  		ret = curr->func(curr, mode, wake_flags, key);
+> >  		if (ret < 0)
+> >  			break;
+> > -		if (ret && (flags & WQ_FLAG_EXCLUSIVE) && !--nr_exclusive)
+> > +		if (!ret)
+> > +			continue;
+> > +		if (flags & WQ_FLAG_POLL_EXCLUSIVE)
+> > +			poll_woken = nr_exclusive > 0;
+> > +		else if ((flags & WQ_FLAG_EXCLUSIVE) && !--nr_exclusive)
+> >  			break;
+>
+> I obviously like this change, but note that wake_up_all*() helpers
+> use nr_exclusive == 0, so
+>
+> 		poll_woken = nr_exclusive > 0;
+>
+> doesn't look correct.
 
-"btrfs: zoned: fix deadlock between freeze and RECLAIM_ZONES" removes
-that dependency. With it, btrfs_reclaim_block_groups() only tries
-sb_start_write(). In my lockdep runs, the reclaim works no longer depend
-on sb_writers with that patch:
-https://lore.kernel.org/linux-btrfs/20261123012459.436826-1-mc@raidlab.org/
+Yes, but ...
 
-Your v8 15/27 contains the same change.
+> I think this patch should also change them to
+> use nr_exclusive = -1.
 
-Miroslav
+No, this won't help. It seems that __wake_up_common() needs
+"bool all = !nr_exclusive" before the main loop.
+
+Oleg.
+
