@@ -1,116 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.100
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795607694;
-	b=m6ZIMqpXi67OK/scZnZZWoHLwipcxoew/8E1mw5usarzXl3wBaLhUQo+F7cob9htEl5w
-	 7oKdelrdXvsHTRg4Nv8c1HTM63dYef9ikXglxwwr/EOJu4Lw9sa+9WyvMwpLCO0U0XNOL
-	 nSyGjTruChTc5matyOLu+dR3aUW4OMUy2tVHYdH7edUFUWJV3/kYJsEUzaD4AnZZ7Yg23
-	 tFzc9JmJaeeAo4hXkJv9Am2MSkz3KxW2/KJWW0ZenzgWoDsj8PGb/UleeKD6FEmmdSKwN
-	 G/RmmWkYmFQInqtWZC4C3CgOww6EGfMM82PiJsXPq5EF7vrl57eeZ3hhMIEWuQXgtSA==
+	t=1795607692;
+	b=OzA59/m183z2hqNIKEDweM4WiZ6t+3LDBFkVv1COt4OjdJGu/+x7I/0MYEChkvJCJGQr
+	 YRvnPCmyVuIu8buSKzExiN28cRaT0d66ugTvtcnWxwWfkG2LgSWQMsZClBxNzLu3xFdRu
+	 3VTUlSP4JPM8od2Du2PeWogl5gEpLtlPOJTkXVgiqmrWZEmkldFNW0hONivxVKj0WhAfx
+	 ouoycRZpCFaMVxeLyzk0tLSam28c8JlKSeW+EYPJZdPtpDglFvXcgCsperb0ywBCe5LUb
+	 mpmtk2r5opZLqLUOMc1z+RVomvwi7umHdLHxdyd7LJQmIneG1AfutO5MFyiY+tqDIow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795607694;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=j1lK+KL8jsRcbhgEh1ZN2hINijxdBHiLPsRycSS2iUo=;
-	b=eDa1KZBxojWDre2AzXMPFgp9vDdhubNrnIPQfRNLA/XO1AC/deCx6HXQ679ephlszhuE
-	 gPCl9yU/i2yfh1hmN/MUJXqVvfNNretg3wUOKdWciRVqQFkE8a43lOjm0crfqy3AEpxtb
-	 BX2fl2IPsmuhvBkBZWWKXjSQXMEa5/ZEIHVNtBgRIDdzc396OUIXgoPcaeWo9122RXDJB
-	 X2E4UOOB4HS2o6jWRyVST8RJmIszEwNdNRdSYtAMwONlbQCeIqNbjbm8YE7MYW5tdALfc
-	 fJlZ+EP6Oa/3CYQrMngc8b5hXyo48Gat2/bxifs0u/vpdnTDcrA3lezKr1wMdb/FCtA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795607692;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=hrdNgf41OVOvk7Q8wssfV4Th9fs8mNrOwxABB5Eu2AY=;
+	b=HdNRyGjlTbqKlBgSkHC3UYZ17XezzJzxaiGcDZDTUsIJhxfLzVD6o6/56AaaK2o8rwZ2
+	 /I66DFbkXYlqziWLIbEN3HhpupCvLMW6NHwcE7rwHF1ymSIhoyHVRPqvGBgE7qzDZJ7PA
+	 IZDfXfIZZlSVU/iR1XRI4oAUkFTeeRppnwydHMuL6SDr1TYlj4FVw74QKw7hqVSKbirzD
+	 RVLif4M03xFan5Ey8u4tv60D4E8xT1KRreCPGUurrGJwiC9mC4IKt6lsoKH4ZkcxrFXS0
+	 nRFmVreQe3i7QtVyS2ovqsMC8Rhh8No+4ESm2XElNpqCHz0xT6qf9GgFvkCpb5pk5hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b="LbQ/GscB";
-	arc=none smtp.remote-ip=209.85.216.100
-Received: from mail-pj1-f100.google.com (mail-pj1-f100.google.com [209.85.216.100])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4504606A684
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:54:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4504606A684
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=MYu8Ffnc;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6B222606A321;
+	Wed, 25 Nov 2026 11:54:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B222606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=LbQ/GscB
-Received: by mail-pj1-f100.google.com with SMTP id 98e67ed59e1d1-3b0e0e65adbso2564250a91.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:54:53 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795607693; x=1796212493;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=j1lK+KL8jsRcbhgEh1ZN2hINijxdBHiLPsRycSS2iUo=;
-        b=qb25vMqGXgV9ofNr6EpTz7MxVZzIPgmPG1kcBNEhGHBh78lIASvOw7qLBgzskb7cne
-         jiGK5/4r3bXbgK4aVqjmkMOHlFenk3wRRCHNDB556nPxy64lkNXvh3hTZOMYc5IU8iC2
-         zFF2Navtsb+y9CDO3u7o79g/tW9D/fOM0t8WCNSYHzGR+/Sbf9gezVvGBMbgH2Zb09RP
-         zAeapXFfk7LKHuAu3t8vEZxPeSOuRU+wCnac2GT0qGtWI9V6BV9Cy3yERULLeTbNOCCK
-         GUPzAIwm4wuTiMqB74td7oz+9o7AjbbCuFOZuXXkq5K0yz7p+rUSdr5dNdVrCYTG/m/d
-         axNQ==
-X-Forwarded-Encrypted: i=1; AL+hErE6P11Odxtn4eUHcS9Eww3hqaErDB6kKu6ivzm44UHz2eqBt2DCCrk5hwcffq7j2wDDmzs5+x4j29MYSLY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+IG9KFHQTkYFH4wPtXTX0DzFMxQTB7hAsZhv7amSV3jiKSzPMs
-	D213T9fsT9Axx+uOK0FOYdNhJUd2hzcLlChS92GJvmu70BNUzVQZtk4CxntCzHKsk82vEHI5nss
-	Zo0ilM9Y5a0gt+I/s5EbI36LW5drzNzvUbScX/3DESe1u6klrrddRV5i1admCWCdOgqDSjcWeoL
-	ItiVkZJJQWYy/h77NdM42zSpOrIPhAaobHWruxwxwf9otHP1rjlmQve/qhdrF6Eg9e/jMgiBRN7
-	tUsOJFmqHNTJiYm/A==
-X-Gm-Gg: AZFdTZf47umkQf1GDRdsrscLtau/Zsk2je2dytH/K+HnX++zAcwi6jbzcbC8f8rrFPA
-	QovoxT76I7jahNfKnkuGx9azl+3pF88GHdPIp7m8BwJXh5EwxW+S2wkIAB1aOYbK6REsCF96xAP
-	Lf3YMjh1MsmpXZYuhsFgK0clOrLXgjElSDlvOQGcY9qp2O+E8t7W9xJUgP7JjAIqKQ+TcptHV00
-	tusSEzc6wia6sv69f3RZONOSuQJpCFIUFnevPCG1ZL5PpFjjPnTO/RrKpgWTOCKEo7XmGziwKot
-	bzAaP8C0tgpg4tffAbhs1FMU4MpsaA05/+HjHhuuO+h5JvlM5M0otyxpuAAP3SOcvQZ1LUbki/S
-	yKFiBEWGRw2zGB+eWCM18AaTx6ejLETHdjkyZdunO2/u4U7PdED4fPLLadhH/8agt0yxQYZ0qCV
-	oPNzxQXEBEIURlTcFlja7cAGskFqbVLyOtx698
-X-Received: by 2002:a17:90a:d2cf:b0:3ac:9772:8da3 with SMTP id 98e67ed59e1d1-3b41c8fed4bmr14791189a91.31.1795607693124;
-        Wed, 25 Nov 2026 03:54:53 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b42005a1a1sm12430256a91.0.2026.11.25.03.54.52
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 25 Nov 2026 03:54:53 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-3854627c1c8so8089652eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:54:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795607691; x=1796212491; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=j1lK+KL8jsRcbhgEh1ZN2hINijxdBHiLPsRycSS2iUo=;
-        b=LbQ/GscBZW03uEFVwxEmtF5TL7kc0O/4yYuH9y3XXIC8pYuMVgBsiUcm7enoZdqgGm
-         q703WFe30CHd5Lm4CJ7BCrcz9mCb+EuA6mMJkBgJPVP1Qp+P/CO4LpOGOKw3GNVgpkKJ
-         IqaseVwv5mrkOPs+ywob3xtsidoNtdenD1if0=
-X-Forwarded-Encrypted: i=1; AL+hErF3ML5Toma1IqaMbQLa7BRJKAxmvFLyr46YkEoVAffHDgFtEJnWYckPnTXrRJgVmo+PKnDZzqmCKLrynOk=@vger.kernel.org
-X-Received: by 2002:a05:7301:714:b0:36a:7b3c:4e0a with SMTP id 5a478bee46e88-3856fd5e4a4mr18499560eec.24.1795607691451;
-        Wed, 25 Nov 2026 03:54:51 -0800 (PST)
-X-Received: by 2002:a05:7301:714:b0:36a:7b3c:4e0a with SMTP id 5a478bee46e88-3856fd5e4a4mr18499531eec.24.1795607690750;
-        Wed, 25 Nov 2026 03:54:50 -0800 (PST)
-Received: from H5-S1 ([192.19.203.250])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c349csm56693813eec.22.2026.11.25.03.54.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 03:54:50 -0800 (PST)
-From: Vikas Gupta <vikas.gupta@broadcom.com>
-To: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	horms@kernel.org
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bhargava.marreddy@broadcom.com,
-	rahul-rg.gupta@broadcom.com,
-	vsrama-krishna.nemani@broadcom.com,
-	rajashekar.hudumula@broadcom.com,
-	dharmender.garg@broadcom.com,
-	ajit.khaparde@broadcom.com,
-	Vikas Gupta <vikas.gupta@broadcom.com>
-Subject: [PATCH net-next v10 00/10] add features to bnge
-Date: Wed, 25 Nov 2026 17:24:24 +0530
-Message-ID: <20261125115434.2080590-1-vikas.gupta@broadcom.com>
-X-Mailer: git-send-email 2.52.0
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=MYu8Ffnc
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D288F2F;
+	Wed, 25 Nov 2026 03:54:47 -0800 (PST)
+Received: from [10.57.32.107] (unknown [10.57.32.107])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 98C6B3F86F;
+	Wed, 25 Nov 2026 03:54:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795607690; bh=FdD752s2MbSn6Ah8b6CmNxJRAfCF8aNL4kgILGt8wZA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=MYu8Ffnc3RGgD74p37RZXJvnnXfG5ts2YdgdjMBhWpnabINb8oEcmFb7ELLqTmRIW
+	 eNJ7Td43l6iZ9cO4MJBNv2gqBN+Mv2DNWHDa8x6+6qJM7KSnp1iMNNWty8iFEK6uKW
+	 xTiuOraJkQ9+2AjE8dY/X/GInMjx2xB4moNQrAi4=
+Message-ID: <8b3c107f-9f33-40e0-82ae-7d0373465acb@arm.com>
+Date: Wed, 25 Nov 2026 11:54:43 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,120 +53,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 00/11] KVM: arm64: CCA: Prepare Realm memory management
+To: Kohei Enju <enju.kohei@fujitsu.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20261123104233.95710-1-steven.price@arm.com>
+ <awVZ0UrEKN9gLHIZ@FCCLS0092175.localdomain>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <awVZ0UrEKN9gLHIZ@FCCLS0092175.localdomain>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi,
+On 24/11/2026 09:47, Kohei Enju wrote:
+> On 11/23 10:42, Steven Price wrote:
+>> This series adds the memory management plumbing for CCA, building on the
+>> basic RMM support [1]. Thanks to everyone who reviewed and tested the
+>> earlier versions.
+>>
+>> The patches introduce internal Realm VM state, prepare Realm stage-2
+>> setup and teardown, and provide RTT mapping and invalidation helpers.
+>> Realm memslots are restricted to the lower half of the IPA space because
+>> the protected and shared halves alias each other. The final patch
+>> connects the helpers to KVM's stage-2 MMU operations.
+>>
+>> This is the memory management portion of the larger Realm host series.
+>> Realm descriptor creation, REC entry and exit, activation, and the new
+>> uAPI follow in the integration stack. This series alone does not enable
+>> Realm creation.
+>>
+>> The integration branch [2] includes Realm creation, REC entry and exit,
+>> and the remaining host support on top of this series. The MM branch [3]
+>> contains just this series.
+> 
+> Hi Steve,
 
-This series adds ntuple filter, RSS context, and flow steering
-support to bnge driver.
-Patch 1 is a pure refactor (no functional change) that relocates the
-filter and VNIC related code into the appropriate files. Patch 7 drops
-the refcount usage from L2 filters, also with no functional change.
-The subsequent patches then add the ethtool commands for configuring 
-ntuple flows and RSS contexts.
+Hi Kohei,
 
-Thanks,
-Vikas
+> I tested the v4 integration branch in the same way as described in the
+> following thread, and I haven't seen any issues so far:
+>   https://lore.kernel.org/all/avV-P2_fOkFWQVnM@FCCLS0092175.localdomain/
+> 
+> For the series:
+> Tested-by: Kohei Enju <enju.kohei@fujitsu.com>
 
-v9-v10:
-    - Addressed valid comments from Sashiko
-      https://sashiko.dev/#/patchset/20261123100746.1975030-1-vikas.gupta%40broadcom.com
-      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123100746.1975030-1-vikas.gupta%40broadcom.com
+Thanks as always for the testing!
 
-v8-v9:
-    - Addressed valid comments from Sashiko
-      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116140653.1685797-1-vikas.gupta%40broadcom.com
-      https://sashiko.dev/#/patchset/20261116140653.1685797-1-vikas.gupta%40broadcom.com
+Regards,
+Steve
 
-v7-v8:
-    - Addressed valid comments from Sashiko
-      https://sashiko.dev/#/patchset/20261114074742.1484603-1-vikas.gupta%40broadcom.com	
-
-v6-v7:
-    - Addressed valid comments from Sashiko
-      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261106093524.838341-1-vikas.gupta%40broadcom.com
-      https://sashiko.dev/#/patchset/20261106093524.838341-1-vikas.gupta%40broadcom.com
-
-v5->v6:
-    - Addressed comments from Sashiko
-      https://sashiko.dev/#/patchset/20261103123651.442893-1-vikas.gupta%40broadcom.com
-    - Fix inline keyword use in C file.
-
-v4->v5:
-    - Addressed comments from Sashiko
-      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260928061307.1172344-1-vikas.gupta%40broadcom.com
-
-v3->v4:
-    - Addressed comments from Sashiko
-      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917064548.773334-1-vikas.gupta%40broadcom.com
-      https://sashiko.dev/#/patchset/20260917064548.773334-1-vikas.gupta%40broadcom.com
-    - The patch count drops to 10 now that the HSI patches have been merged.
-
-v2->v3:
-   - Build fix.
-   - Addressed comments from Sashiko
-    https://sashiko.dev/#/patchset/20260908093053.2596020-1-vikas.gupta%40broadcom.com
-    Below Sashiko comments are not valid:
-     Patch-8: 
-                Comment under bnge_toeplitz().
-                 Explanation: bnge_toeplitz() is not used for aRFS.
-     Patch-9:
-                Comment regarding bnge_clear_usr_fltrs().
-                 Explanation:
-                  Both bnge_clear_usr_fltrs() (only invoked while the
-                  interface is down) and bnge_grxclsrule() execute
-                  under the netdev instance lock, so they are
-                  serialized and never touch the filter list at the 
-                  same time.
-      Patch-10: 
-                Comment "Does this direct dereference of the MAC
-                header need a linearization ...".
-                 Explanation: ndo_rx_flow_steer runs on the RX path
-                after eth_type_trans(), which already accesses and
-                pulls the Ethernet header.
-
-                Comment Related to bnge_cfg_ntp_filters().
-                 Explanation:
-                   bnge_cfg_ntp_filters() runs from bnge_sp_task(),
-                   which holds the netdev instance lock while executing.
-v1->v2:
-   - Build fixes.
-   - Addressed comments from Sashiko
-   https://sashiko.dev/#/patchset/20260814011435.194631-1-vikas.gupta%40broadcom.com
-
-
-Vikas Gupta (10):
-  bnge: restructure VNIC and filter code
-  bnge: add NTUPLE/ARFS VNIC
-  bnge: add helper functions for multi RSS contexts
-  bnge: add RXFH ethtool support
-  bnge: add ethtool support to manage RSS contexts
-  bnge: remove refcount from L2 filter
-  bnge: add NTUPLE filter infrastructure
-  bnge: add NTUPLE filter support in ethtool
-  bnge: add aRFS flow steering ndo support
-  bnge: add cpu_rmap support for IRQ affinity
-
- drivers/net/ethernet/broadcom/bnge/Makefile   |    4 +-
- drivers/net/ethernet/broadcom/bnge/bnge.h     |   28 +-
- .../net/ethernet/broadcom/bnge/bnge_ethtool.c | 1140 +++++++++++++++++
- .../net/ethernet/broadcom/bnge/bnge_filter.c  |  839 ++++++++++++
- .../net/ethernet/broadcom/bnge/bnge_filter.h  |  137 ++
- .../ethernet/broadcom/bnge/bnge_hwrm_lib.c    |  192 ++-
- .../ethernet/broadcom/bnge/bnge_hwrm_lib.h    |    9 +-
- .../net/ethernet/broadcom/bnge/bnge_netdev.c  |  574 ++++++---
- .../net/ethernet/broadcom/bnge/bnge_netdev.h  |   94 +-
- .../net/ethernet/broadcom/bnge/bnge_resc.c    |  164 ++-
- .../net/ethernet/broadcom/bnge/bnge_resc.h    |    3 +-
- .../net/ethernet/broadcom/bnge/bnge_vnic.c    |  379 ++++++
- .../net/ethernet/broadcom/bnge/bnge_vnic.h    |   96 ++
- 13 files changed, 3294 insertions(+), 365 deletions(-)
- create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_filter.c
- create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_filter.h
- create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
- create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
-
--- 
-2.52.0
+> Thanks,
+> Kohei
 
