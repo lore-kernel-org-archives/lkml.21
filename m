@@ -1,75 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.180.195.6
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795623233;
-	b=cK8JjdG04G3SxoV2avxmxr1dbeSCM8RxwQFQfJ5ctPwcLbTegI8Z2bSa5ZKPnzZELWHR
-	 pp8K5d5oSSASG2LoyxqQyr4Yo7LLfakOyUaNzRRz63whEFc81uknXbe0Z/KtQLbgq/tLq
-	 VwfPQupPc7BGNsfpCVmm9RhxbHkRy4EZdE1jhxt1EpC+UhjFcnmZKVIccr8UlxrEYfsJn
-	 UQcoJZXDHwLxuvUMCEhyHwcQH1V4iZpK2fQztfSXv2P8AcL2xzJcRayhGTROiOmeYmY8j
-	 mUlXHgZGsBrXfI+0/2YpkwbxL5d5uGjHvUSwVSarWGwnXj5c8SYKyEEGm+61B/og6ow==
+	t=1795623236;
+	b=BU5eLgrKY9C17Wl/w+qUHpX74yMSG4Jttay3Op73cHimyjj31/Y3a7k+RADLkMIP50T+
+	 +s47E9SRwr07xQiAlAa3zb4TknnaDDEXa7Y52p8pHFvjY2TUzVqSN2BZc5cQeQLngeu5o
+	 MZjqX5/hURp4zgOqlFvyAFrFsLzSPIxPKffIfl4qkdknIJwc6uE6DLiUAXw4TtoeaqNq5
+	 fYPPODn4Dp+nEs5laRU8RLcc6xUyMzD6wTOFRwUVA60WSY0r9Ykmxo01S+HRqMby+8GaH
+	 JEYkn94j8oOpj1mBphDlaM6vDmeIZj1d5y8KB70HAhwrx1iepuC0/VhdjOxecyWzxWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795623233;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-Get-Message-Sender-Via:
-	 X-Authenticated-Sender:X-Source:X-Source-Args:X-Source-Dir;
-	bh=fKiB7MDV6K7Y+SUfBzfSXx7nhfpSuibLuHtz+aDsyHw=;
-	b=dPnfxwIXPYI6Au9XiwSy8o90ShJLuoXYbVgK2dXk40ZilWH9B29wXbCKnTh/iuXTum+v
-	 Sb17O0T7/sve6wlCcnECKVmK5NHSPO8KAejcVRlQVh143hmUCEZp0h7gNoWqSwJLav3Hm
-	 0ePo8eWGYS9DCIq6n9ZoepVhRWg0OfTSGmwbMdu/NMzbF4/swYqx/ArTj4reZLUo9Wg6f
-	 7FgweDhqqpFU+moAshGOGc0k13FHtDGqzfuwVWPBe3t6Y1eb65+0uC+Jh6a2GQ3jqRRxt
-	 xi47qwKtx3cSXydT6uyFm6lAuU7KU7bIyKKkbY3K1HuGM4KPqpZ5NJRBmjDjtWd+3Mw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795623236;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=5qOmkXmsHsTBu6Rq8XKMQEDqKT3TuEpd8aaHF0KI42Y=;
+	b=owO/pnSjVWuyD6SUL5TIMFEk8thrnxQxNNTm3m3+XOHRX7IbTvoszg10nQAFut+uz9rL
+	 gYXOnZlIAvVxDrwySbRHtKG31yB8zqACb1oO8UyHtnXYK7hI+Fk1Pt5YbqRr1rE5jLoY6
+	 PPrxk1/gZuny9/tielkcyjnPn49TLVERHud+cnwxeed8W4b1J6aCJWFOm/8bt0M5YL+C7
+	 /3VH1fpW0V6XJ7jXulEBgbN+hHCr27HZFnK/Ru78FvxVsmabqmDMAdWIF5B48a0DyEd3/
+	 lRnQy42N9FemGXxHZpyHlIijeaJsKLkCeQLEl5KL1b777KVGrufxetCY/AOFVmYA7uA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mkio.de;
-	spf=pass smtp.mailfrom=mkio.de;
-	dkim=pass header.d=mkio.de header.i=@mkio.de header.a=rsa-sha256 header.s=default header.b=X7lHcZcK;
-	arc=none smtp.remote-ip=207.180.195.6
-Received: from mail-relay.contabo.net (mail-relay.contabo.net [207.180.195.6])
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=JC03b3+N;
+	arc=none smtp.remote-ip=90.155.50.34
+Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D0C8606A31E;
-	Wed, 25 Nov 2026 16:13:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D0C8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mkio.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mkio.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61244606A329;
+	Wed, 25 Nov 2026 16:13:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61244606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mkio.de header.i=@mkio.de header.a=rsa-sha256 header.s=default header.b=X7lHcZcK
-Received: from pxmg2.contabo.net (localhost.localdomain [127.0.0.1])
-	by mail-relay.contabo.net (Proxmox) with ESMTP id AECFD7C1861;
-	Wed, 25 Nov 2026 17:13:43 +0100 (CET)
-Received: from m2731.contabo.net (m2731.contabo.net [193.34.145.203])
-	by mail-relay.contabo.net (Proxmox) with ESMTPS id 594247C1854;
-	Wed, 25 Nov 2026 17:13:43 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mkio.de;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=fKiB7MDV6K7Y+SUfBzfSXx7nhfpSuibLuHtz+aDsyHw=; b=X7lHcZcKEiNSISWcZYoOhSsVO0
-	1BayDYDIOUM5iuY9j29Ku95s6BgKPaddCh1IDxeKtiHjdE5MvIKjeABwRYiAcA07V3mNwbbsvaQOk
-	Az3NPJ+/z9bYPnWzXx6yZ99+moz1JZvJ1AnJVd5MvwwbvkHxfPUrtRlNyV+dVt58DrbLRitZBNzMo
-	9YAW4W1p+ux7cxoeD2wBc1Ud1YjahOf3zIwWxppLNlWsE9jyhZaYyzDGvqnestXwl2Np0Nhjk9yXM
-	ZthmN37PWbYrYz/oeP3CBFqEmj/obxjoKeaoO61X2NoxgKIksehCNi1qfWyY8kgPmCUjWwRDriIbu
-	YVhyiW4A==;
-Received: from ip-078-042-120-089.um17.pools.vodafone-ip.de ([78.42.120.89]:61715 helo=p14s.int.kistler.com)
-	by m2731.contabo.net with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <mk@mkio.de>)
-	id 1xWFct-00000005rgs-2UOI;
-	Wed, 25 Nov 2026 17:13:42 +0100
-From: Markus Klotzbuecher <mk@mkio.de>
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	Sahaj Chaudhari <sahaj123.sc@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] spi: omap2-mcspi: lock the DMA request bit updates
-Date: Wed, 25 Nov 2026 17:13:40 +0100
-Message-ID: <20261125161340.1218564-1-mk@mkio.de>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=JC03b3+N
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=5qOmkXmsHsTBu6Rq8XKMQEDqKT3TuEpd8aaHF0KI42Y=; b=JC03b3+NYzhOLtIaTA9GOklkcg
+	Qoq0pn9cihDklRrvmEjX0QRSnF9tZUYTJx58/jCUhDQudUrm2HR6KeRQAfxDujjrtqQ7JOg7APY2o
+	d/bFWWPGapcoFeq6PqvrIhT2c5Qcuwn4ASrWN6ygn5kFTCLjcGuj+6sRCWV6zk9ISw2l6BTHbNFL+
+	gD8eZJzUKlj6mydW+2HDk4oZUndmm+euCDrW+R9+mD/CBFsU0rQ/yHt5MkuCQI04lRfMEimQBp7Lv
+	oYEpiuwrLwHvB9F1d6uHX1BC3rG888KeBveTjEf7CYKRENfbKlvKs++ith0+qwR0F31LEkJgl29Or
+	umb2jZHA==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xWFct-00000000EHg-2q1m;
+	Wed, 25 Nov 2026 16:13:44 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 72DCB302186; Wed, 25 Nov 2026 17:13:42 +0100 (CET)
+Date: Wed, 25 Nov 2026 17:13:42 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Tengda Wu <wutengda@huaweicloud.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] perf/core: Disable context fast-swap for sigtrap
+ events
+Message-ID: <20261125161342.GP2669272@noisy.programming.kicks-ass.net>
+References: <20261120173706.GC2668564@noisy.programming.kicks-ass.net>
+ <20261120174606.GM2669272@noisy.programming.kicks-ass.net>
+ <5507e48c-4e98-4e76-8d3f-4630a2655085@huaweicloud.com>
+ <c9ff579b-a7eb-481f-bb8d-489a4469c397@huaweicloud.com>
+ <20261125090809.GW2668804@noisy.programming.kicks-ass.net>
+ <4d17dd3b-df73-45c0-8113-f4ca259d549b@huaweicloud.com>
+ <20261125093836.GX2668804@noisy.programming.kicks-ass.net>
+ <c9c2c4df-a748-4787-b686-1fe6bc6564db@huaweicloud.com>
+ <6493eae2-9b36-4574-83ca-a139f4fbfb25@huaweicloud.com>
+ <20261125133601.GC2668804@noisy.programming.kicks-ass.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,95 +84,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - m2731.contabo.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - mkio.de
-X-Get-Message-Sender-Via: m2731.contabo.net: authenticated_id: mk@mkio.de
-X-Authenticated-Sender: m2731.contabo.net: mk@mkio.de
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125133601.GC2668804@noisy.programming.kicks-ass.net>
 
-omap2_mcspi_set_dma_req() does an unlocked read-modify-write of the
-cached CHCONF value to set or clear DMAR/DMAW. On full-duplex DMA
-transfers the RX and TX completion callbacks both call it to clear
-their own bit. The callbacks are invoked from the per-channel dmaengine
-tasklets, which can run concurrently on different CPUs. One of them
-can then write back a stale copy that still has the other's bit set.
+On Wed, Nov 25, 2026 at 02:36:01PM +0100, Peter Zijlstra wrote:
+> On Wed, Nov 25, 2026 at 06:09:04PM +0800, Tengda Wu wrote:
+> 
+> > >> Ah, I'm currently running it on an SPR Xeon; do I need to use
+> > >> non-default arguments or just run the thing in a loop and drink tea
+> > >> until it goes pop?
+> > > 
+> > > No need to pass any other arguments; running it as follows should be enough:
+> > > 
+> > >   for i {1..100}; do ./fast_swap ; done
+> > > 
+> > 
+> > Correction: for i in {1..100}
+> 
+> I used: while :; do ./perf-sigtrap-switch-poc; done
+> 
+> > One more detail: I also specified a boot parameter (which might make it
+> > easier to reproduce?):
+> >   
+> >   preempt=none
+> 
+> That option is no longer available.
+> 
+> Anyway, I've had it running for a few hours now; but no joy :-( -- this
+> is an unmodified tip/master kernel since I wanted to make sure I could
+> reproduce before trying to fix.
+> 
+> I'll just leave it running ...
 
-DMAR or DMAW then stays set in the cached value and is written back by
-every later CHCONF update. With a stale DMAR, the next PIO transfer
-times out waiting for RXS and the next RX DMA completes early.
+7 hours and nothing :-(
 
-Protect the read-modify-write in omap2_mcspi_set_dma_req() with a
-spinlock. All other CHCONF updates run in the transfer thread while no
-DMA callback is pending, so only this helper needs the lock.
+I'm going to have to ask you to try and reproduce I'm afraid. 
 
-Tested on a TI AM625 with linux-stable 6.18 PREEMPT_RT, a device on
-McSPI2 CS1 at 50 MHz and four spidev transfers per cycle, the larger
-ones via DMA. An instrumented kernel that flags stale DMAR/DMAW on PIO
-entry reported more than 720 stale bit events and DMA transfer errors
-in 15 minutes without this change, and none over an 11.5 hour soak
-with it.
-
-Fixes: 53741ed8f0a3 ("spi: omap2-mcspi: add DMA engine support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Markus Klotzbuecher <mk@mkio.de>
----
-Tested on 6.18.y with commit c126e07bde21 ("spi: omap2-mcspi: handle
-DMA setup failures"); omap2_mcspi_set_dma_req() and the DMA callbacks
-are the same on spi for-next. Compile-tested on spi for-next.
-
- drivers/spi/spi-omap2-mcspi.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/drivers/spi/spi-omap2-mcspi.c b/drivers/spi/spi-omap2-mcspi.c
-index 061d50c65dfd..b1d3b8447d0b 100644
---- a/drivers/spi/spi-omap2-mcspi.c
-+++ b/drivers/spi/spi-omap2-mcspi.c
-@@ -118,6 +118,8 @@ struct omap2_mcspi_regs {
- 
- struct omap2_mcspi {
- 	struct completion	txdone;
-+	/* serializes the DMAR/DMAW read-modify-write of the cached chconf */
-+	spinlock_t		chconf_lock;
- 	struct spi_controller	*ctlr;
- 	/* Virtual base address of the controller */
- 	void __iomem		*base;
-@@ -205,8 +207,11 @@ static inline int mcspi_bytes_per_word(int word_len)
- static void omap2_mcspi_set_dma_req(const struct spi_device *spi,
- 		int is_read, int enable)
- {
-+	struct omap2_mcspi *mcspi = spi_controller_get_devdata(spi->controller);
-+	unsigned long flags;
- 	u32 l, rw;
- 
-+	spin_lock_irqsave(&mcspi->chconf_lock, flags);
- 	l = mcspi_cached_chconf0(spi);
- 
- 	if (is_read) /* 1 is read, 0 write */
-@@ -220,6 +225,7 @@ static void omap2_mcspi_set_dma_req(const struct spi_device *spi,
- 		l &= ~rw;
- 
- 	mcspi_write_chconf0(spi, l);
-+	spin_unlock_irqrestore(&mcspi->chconf_lock, flags);
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -1236,6 +1236,7 @@ extern const struct perf_event_attr *per
+ extern void perf_event_print_debug(void);
+ extern void perf_pmu_disable(struct pmu *pmu);
+ extern void perf_pmu_enable(struct pmu *pmu);
++extern bool perf_pmu_enabled(struct pmu *pmu);
+ extern void perf_sched_cb_dec(struct pmu *pmu);
+ extern void perf_sched_cb_inc(struct pmu *pmu);
+ extern int perf_event_task_disable(void);
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -1366,6 +1366,12 @@ void perf_pmu_enable(struct pmu *pmu)
+ 		pmu->pmu_enable(pmu);
  }
  
- static void omap2_mcspi_set_enable(const struct spi_device *spi, int enable)
-@@ -1630,6 +1636,7 @@ static int omap2_mcspi_probe(struct platform_device *pdev)
- 	mcspi->base += regs_offset;
++bool perf_pmu_enabled(struct pmu *pmu)
++{
++	int *count = &this_cpc(pmu)->pmu_disable_count;
++	return *count == 0;
++}
++
+ static void perf_assert_pmu_disabled(struct pmu *pmu)
+ {
+ 	int *count = &this_cpc(pmu)->pmu_disable_count;
+@@ -10955,7 +10961,7 @@ static int __perf_event_overflow(struct
+ 		 * claim the pending_work before task_work_add() recurses.
+ 		 */
+ 		if (cmpxchg_local(&event->pending_work, 0, 1) == 0) {
+-			if (!task_work_add(current, &event->pending_task, notify_mode)) {
++			if (!task_work_add(event->ctx->task, &event->pending_task, notify_mode)) {
+ 				event->pending_work = pending_id;
+ 				local_inc(&event->ctx->nr_no_switch_fast);
+ 				WARN_ON_ONCE(!atomic_long_inc_not_zero(&event->refcount));
+@@ -11151,6 +11157,9 @@ static int perf_swevent_match(struct per
+ 				struct perf_sample_data *data,
+ 				struct pt_regs *regs)
+ {
++	if (!perf_pmu_enabled(event->pmu))
++		return 0;
++
+ 	if (event->attr.type != type)
+ 		return 0;
  
- 	mcspi->dev = &pdev->dev;
-+	spin_lock_init(&mcspi->chconf_lock);
- 
- 	INIT_LIST_HEAD(&mcspi->ctx.cs);
- 
-
-base-commit: 266ae6df1980a5a5c58735ae114ae62a2acad8db
--- 
-2.53.0
-
-
+@@ -11531,6 +11540,9 @@ static int perf_tp_event_match(struct pe
+ 				struct perf_raw_record *raw,
+ 				struct pt_regs *regs)
+ {
++	if (!perf_pmu_enabled(event->pmu))
++		return 0;
++
+ 	if (event->hw.state & PERF_HES_STOPPED)
+ 		return 0;
+ 	/*
