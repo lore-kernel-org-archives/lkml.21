@@ -1,66 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795609303;
-	b=O1Dxym2ivegPCSpxycPnp3MoAugMb4ukcxZEzC9iH7S/MsUUq92UfO/0f+88ihTSl73M
-	 u+8TOzBLpznsrO/VouLFrXr5FBMBN8Ek1b78XgqX+YIpNWEPuh9Gnq8BRMdKKGeHydUmG
-	 R9sjPR84rjTF/oiko7YECN19gsbxJ8R40kTwC3KWScfJgbbRYh6E2dNSnxbr0mMo+YEJF
-	 eEhgqI5a2OtNUwtjrx52V1z/I1DLJI5GcGWe0+MmVLtDTuaRBKXcuRrwD+zpipQ8lOWrc
-	 FfVmFU1XQFWtZbXFu8Xqblb/ED7B7mZJH6y92pK4VBhLbMWknztPEc6DPiSQPCd9Byg==
+	t=1795609306;
+	b=jSSb7KvjdRxpSDY1w4l4igB5j7cqgvMPTUEkAIQLfE6CwLB2Obhys65StTXT9XNrYiCy
+	 EEQZDl/3lYjq8jO36tPPzuCozB4pp7g8Xxn6KiXqWlEb9FcwgB9dSZ/lAdNL7UpZCeAdo
+	 Ks7zUL6Usi9Jlbjl0pdXjj2GVTgVowTS79bs4eBviS7rxbedqQy0KyHI1u/EOAWe1noe5
+	 ETFmMVTNmN/7C+6FHG64YRyVi6OSM8oSavdLp5O1RbBTOnMfFhziMqdHQ79krEzLZw8c+
+	 8yKfG+LSVczMZrz9IKbScVgUFr4509al14ET0bUk8lF2MXrfmFurnt2YiQdYoqSdZOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795609303;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=KSKY5AkoNR4cfmVgakjrHEibPfbCAPJXXfo87x2Z9iY=;
-	b=FVKT1uRRAHxMzqcZxkcK5ccUHZMDjfa2mLvYgTnaPNBJQvGWyLEmXg5VFi6zPK2FEgQc
-	 eSZE2YXqSkp/q26YgGbdF1i9muj0fnPNWBCVk83iVokSXOVxJZBkH6/aA5QW76WYApWF7
-	 Pti2+ozrec6cnVv0VgKCqFD0o81S9DP+FdOo0Ril6zL6W25RV7LqriD672BKmd1kmiWlU
-	 CSKSdOFwiUaCjVwao/X4UoGmJzWKzB8RP8W+H8zZUainobfkcllLvMSJ333cnZdvN6J63
-	 n9IHP1rTVe3N+sshvsEAIoCLjMP4St2N0UhdVg3IWqCS83LGIdZPw7YHu79B4HRMK2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795609306;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=MA+Kx+uKQP6OM3muhrQQ7gMLzt5UOS5UjDB/PUfvv7E=;
+	b=RSjpElyWIBs7Px2CB9/14jmT6oLnHFYq89btjuldO0+4KA7jdAPwgaa4mJxzJleNeeNZ
+	 fiBqMz3r5dXQlhcXkZ+K1WSdhK9O+ZpLYR3f5O5AzmtNlBQSCJVd4YGnGGPDS6paUe4Sl
+	 eDzuc+cL2/4UW6ypWnaGTtUK1kPQRfqwni5A0gCgVRalbG8pWq7XSga0OwQL/mdLafbLG
+	 NK97smCPdmcYHeLnfDQdk2yNrQeZJe4Gr/83qvLWwxeyexURKWkVTTuvFM3O1GFSJ56on
+	 Kvg13W4gt9jb7FeinTWXs8b6QQWwNFdSEzcPCwM/IBRQGjwZNrX1Oep4bGXOWHcdx+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IiW8cgEc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SQ7tVrvg;
+	arc=none smtp.remote-ip=209.85.210.172
+Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A56D4606A33B
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:21:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08623606A335
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:21:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08623606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IiW8cgEc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C670E1F00A3D;
-	Wed, 25 Nov 2026 12:21:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795609303;
-	bh=KSKY5AkoNR4cfmVgakjrHEibPfbCAPJXXfo87x2Z9iY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IiW8cgEcqMLprbYNxuhE1DkEneRyqQ81OLolA7y7YATEmk/9TO+8jpvHmheL0cqXn
-	 3YsNjDObA0JqOuutJijhj4vCTa/r31Y0q7JvtlbaJvqKFziImi1UddfiWJpaZPhTbG
-	 kCDNaSTdbJHD7v/68RunIHLdyr/+thdx2Q9fVvW1zmyKBHZMFZJBok5Uld8FCF0FJQ
-	 xQ272eoBvR86+51j/fUSIhqV0mKCnlYZWpCeYiX1p2Khp0I07uuGj1I2We9qjx00KU
-	 BWUulGBh0FhRtW3YYwnqye6cWZwVb57NrlBkCHUjGUToCt15Q2Uc1LYCvBcNHlcvpa
-	 zWUT05x8nAx+Q==
-Date: Wed, 25 Nov 2026 13:21:40 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: =?utf-8?B?TcOgeGlt?= Pedraza Padilla <maximpedraza@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	Jyri Sarha <jyri.sarha@iki.fi>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
-Message-ID: <awbOkmmNIp2ng97n@houat>
-References: <20261116142707.1299360-1-maximpedraza@gmail.com>
- <20261116142707.1299360-4-maximpedraza@gmail.com>
- <avs2dagfmQkv00H0@houat>
- <20261118212114.150992-1-maximpedraza@gmail.com>
- <20261124141119.441163-1-maximpedraza@gmail.com>
- <e58a5ff5-9c1b-40cc-a65d-c7fbfdaf18d1@ideasonboard.com>
- <awazkzDVZtpUsdQb@houat>
- <d9a10f1f-7550-49ee-9085-6ad4c662080d@ideasonboard.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SQ7tVrvg
+Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8a070755c8cso2742524b3a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:21:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795609305; x=1796214105; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MA+Kx+uKQP6OM3muhrQQ7gMLzt5UOS5UjDB/PUfvv7E=;
+        b=SQ7tVrvgLwEpKg/dLncg5k3nm1AW6DlK3MzIRxWHfEFYxIUSgU+pEFVBWmLtSqhRAf
+         cDNcL04vHuB2g4ruka7p3ZhQZ9RSTR13frc8ReyxZsKXO5hWNlkhMXqcTHgvEujwvDXE
+         B+IKebgDnatZc7R7okaBERbKSJ6Vm9G4tI0cRTRdcHKjFFI0BBcpPiU7Dv4YI/ybjRRH
+         xtvhYCNbjxhjup6G4BXDyWdIH5FuOqWdD+a1m4q4BUkw0FhQQWifbf4BYI2by48nO1K0
+         LIHoQ83IteO873Hcc+QgxDxjOu4s1a5qds2nmum2eQDph5GQHsZvmEN4yQXYliprzMq5
+         g+5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795609305; x=1796214105;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MA+Kx+uKQP6OM3muhrQQ7gMLzt5UOS5UjDB/PUfvv7E=;
+        b=imEclcwx5pMEG9vqSmyFAP5Lr57SPeGbSI0mj/moB8NyFlr/ffpzLSdP3XhbXAgjiG
+         5sGi27+o0aSDbG1hhSlTmCnVdTbKz3pdr2o/gcgPR6V4DTCHqM7vhikMnp4TEkrFGozX
+         FDLXB7/C7p+HKKNHentgH663lzzoPwyiBgOXGRO5PjKj7LYS02WyfFIbh+ojgyXqYFIy
+         JfQvzcdW7ClyznVQ3K8DNpk0kREAdb7BGaVg9mutua/CuOgZXT8mdUBLMDgtjOrmAV5z
+         mB/Y+AoIQvmvCHK86ue2gGGJLwGPOpw86AlqVkFysXxxMQxIs/w1A83Mcj4h2MEoXzAE
+         EOHw==
+X-Forwarded-Encrypted: i=1; AL+hErGZ6wJF0g7AorOvbCmg1/vsppgtf5lX5exFxssU3jA9DaKQq+OTABlYdJ+mRY/9FoWBvtQIRAjPPnaTYuU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8w/u+zTfyVKeeRvgzCEy4mJYTZD2HJkq3ExZre2ULsPG4kX+TH
+	uRL73K/uj7AkK5cM2U55rIICJT4a+4OzBnPmxz/Y6sYY0mNVYSXgAgGJ
+X-Gm-Gg: AZFdTZfuPJoTwczBl8xnZSa+u+/klvvcqntVA9ctFwQEg1mRZ0V7TBU+RyMQbCLlxq1
+	Ki6gCQyHLiLsVOE/oj13heN9GyXj68MxUtnLVPuEhKtGa0FDVuc1fGzfR1PTefs8o3iUggJ9PQr
+	1hG3WnKuxPY4zQqLt24c1KGCVxi7IQAtCzlb4tWXLi95QKEAEvVpB648NO+xlIvdX6ttHqWu7aF
+	J2yCij0WMkwcGMrib213DXVVbpwuDu+QHC57LBqLLx8bvPgLJBud8rAypQQuzT/OXAh3xPSULfC
+	src18iVd0QZSz92hbyl0LgrHfiVz02q+IVWgRzLEhlc0bND7gPCbacC/UO/u2YmwFb3SyDZrpxu
+	avHXHK35taDgOiZT7CJIGiaDC/jcO64rkQMxMoxmxWeTAPY4e6qHQGg0kOqQWOfOv2XtqDbVcCY
+	St1nQSiXw96BWv9VvlSQBj2feNWsGUBmwckp1urfVQgyM0UjMGWZSX+z38AOWhLoAi5K/C4OQdJ
+	4Ref7Y6LNu3DVD7gmWuFeEKhcgvjNEzRV+eUCqAH34e8d3qORcln6H+3qYRjePYv6jPWXBEWBHZ
+	uN1X/156t7DrgmCJal2mrMFhnk87Y5nJQg==
+X-Received: by 2002:a05:6a00:2d8e:b0:869:9298:ba59 with SMTP id d2e1a72fcca58-8c876741225mr17478088b3a.0.1795609305329;
+        Wed, 25 Nov 2026 04:21:45 -0800 (PST)
+Received: from server225.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c89dsm8688656b3a.13.2026.11.25.04.21.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 04:21:44 -0800 (PST)
+From: Ping Li <leeonion.muyu@gmail.com>
+To: miquel.raynal@bootlin.com,
+	richard@nod.at,
+	vigneshr@ti.com
+Cc: linux-mtd@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ping Li <leeonion.muyu@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v5 1/3] mtd: rawnand: intel: declare NAND_USES_DMA
+Date: Wed, 25 Nov 2026 20:21:33 +0800
+Message-Id: <20261125122135.44696-2-leeonion.muyu@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261125122135.44696-1-leeonion.muyu@gmail.com>
+References: <20261125115108.4147741-1-leeonion.muyu@gmail.com>
+ <20261125122135.44696-1-leeonion.muyu@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,154 +102,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="o7u5ewptzas4feh6"
-Content-Disposition: inline
-In-Reply-To: <d9a10f1f-7550-49ee-9085-6ad4c662080d@ideasonboard.com>
+Content-Transfer-Encoding: 8bit
 
+ebu_nand_read_page_hwecc()/ebu_nand_write_page_hwecc() feed the
+page buffers provided by the NAND core straight to the DMA
+engine, but the driver never declares NAND_USES_DMA.  Because of
+this, nand_base cannot know the controller DMAs these buffers and
+never bounces non-linear-map ones (see the use_bounce_buf logic
+in nand_do_read_ops()/nand_do_write_ops()).
 
---o7u5ewptzas4feh6
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
-MIME-Version: 1.0
+Non-linear-map buffers are not hypothetical here: mtdblock's
+write cache is vmalloc'ed and UBIFS passes vmalloc'ed LPT buffers,
+so such buffers can reach the controller's DMA engine, for which
+they are not a valid dma_map_single() input.
 
-On Wed, Nov 25, 2026 at 01:43:55PM +0200, Tomi Valkeinen wrote:
-> Hi,
->=20
-> On 25/11/2026 12:11, Maxime Ripard wrote:
-> > On Tue, Nov 24, 2026 at 04:38:43PM +0200, Tomi Valkeinen wrote:
-> > > Hi,
-> > >=20
-> > > On 24/11/2026 16:11, M=E0xim Pedraza Padilla wrote:
-> > > > On Wed, Nov 18, 2026 at 10:21:14PM +0100, M=E0xim Pedraza Padilla w=
-rote:
-> > > > > Makes sense, I'll use the same approach in tilcdc, and see if it =
-can be
-> > > > > turned into a common helper along the way.
-> > > >=20
-> > > > A follow-up on this one, now that I've rebased on v9. I ended up do=
-ing
-> > > > it differently, so I'd rather explain why before sending the next
-> > > > version.
-> > > >=20
-> > > > The tidss approach rounds the clock to the closest standard refresh=
- rate.
-> > > > Panels driven by tilcdc often don't use one: with the timings from =
-its
-> > > > datasheet, the panel on this board runs at 56.8 Hz (33.3 MHz), whic=
-h would
-> > > > be read back as 60 Hz and 35.19 MHz. The adopted mode would then ne=
-ver
-> > > > match the panel mode, even with U-Boot programming exactly the same=
- one.
-> > >=20
-> > > I felt that approach was a bit odd (and if I recall right, failed wit=
-h my
-> > > OLDI panel), and in my tidss version I just used the clock rate direc=
-tly
-> > > from the clk_get_rate() (see dispc_vp_readout_mode):
-> >=20
-> > The problem is that you're losing information when setting the clock.
-> > Especially for panels where you don't really have an established set of
-> > pixel clocks, the clock is very likely to not be able to give the exact
-> > frequency you asked for.
-> >=20
-> > So when you're reading the clock frequency, the mode you're reading and
-> > the one you'd set at first modeset will not necessarily match, so you
-> > need to take that difference into account and try to get back on your
-> > feet.
->
-> If I understand correctly, your code in tidss is trying to guess the pclk
-> rate in (say) the simple-panel driver via assuming the refresh rate is one
-> of the standard ones?
+Declare NAND_USES_DMA so that nand_base bounces non-linear-map
+buffers through chip->data_buf, as the other DMA-capable
+controllers (arasan, denali, meson, mtk, nuvoton...) already do.
 
-Yes, and I have yet to see a panel that would have a refresh rate that
-isn't one of the standard ones.
+Fixes: 0b1039f016e8a ("mtd: rawnand: Add NAND controller support on Intel LGM SoC")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
+---
+ drivers/mtd/nand/raw/intel-nand-controller.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-> I don't think that works... Even if the target refresh rate in the panel
-> driver is close to (or exactly) those standard ones, it won't be the same
-> clock rate except by luck. And u-boot may have a different PLL calculatio=
-n,
-> or different pclk in its dtso.
->=20
-> I think the u-boot part should be fixed just by "fix your bootloader": if
-> you want SRO to work, make your bootloader use the same videomode (includ=
-ing
-> pclk) as the kernel.
->=20
-> But even then it won't work. If the simple panel states pclk as 150.274 M=
-Hz,
-> it will cause the HW to set 150.0 MHz, and the SRO in this series will
-> calculate 150.124675 MHz. This will cause a full modeset, and also the SRO
-> check will given an error.
+diff --git a/drivers/mtd/nand/raw/intel-nand-controller.c b/drivers/mtd/nand/raw/intel-nand-controller.c
+index cfb4b231e067..1f493fb426d6 100644
+--- a/drivers/mtd/nand/raw/intel-nand-controller.c
++++ b/drivers/mtd/nand/raw/intel-nand-controller.c
+@@ -688,6 +688,7 @@ static int ebu_nand_probe(struct platform_device *pdev)
+ 	nand = &ebu_host->chip;
+ 	nand->controller = &ebu_host->controller;
+ 	nand->controller->ops = &ebu_nand_controller_ops;
++	nand->options |= NAND_USES_DMA;
+ 
+ 	/* Scan to find existence of the device */
+ 	ret = nand_scan(&ebu_host->chip, 1);
+-- 
+2.34.1
 
-Not really, because it will try to match the closest, and then try to
-keep that within a defined tolerance. So, in your example, if the
-expected pclk is 150.274MHz, and what's programmed in hardware is 150MHz
-(which also is the closest pick we can find), then it will be happy with
-150MHz.
-
-And let's turn this around: what happens if your expected pclk is
-150.274MHz, and the actual rate programmed by u-boot is, say, 124MHz?
-
-Should we do a modeset then?
-
-It's also a matter of consistency within the framework. The framework
-expects the "ideal" mode everywhere. How is the pclk actually programmed
-isn't tracked anywhere. So, if you have a regular modeset, we'd have
-mode and adjusted_mode have the "ideal" pclk, but in the case of SRO
-we'd have the actual one, possibly forever?
-
-> So... First, I think at least in the adjusted_mode we should have the real
-> pclk.
-
-You can't have that. The closest you'd have would be calling
-clk_round_rate() at atomic_check, but you have no guarantee that it's
-actually going to be the same rate by the time you call clk_set_rate().
-
-Either way, assuming we would do that, it would give you adjusted_mode.
-You'd still need mode, and mode is what is shown to userspace.
-
-> The SRO check should pass only an equals check there. For mode's pclk,
-> I think setting the actual pclk makes sense, at least more than guessing =
-it.
-> Or could we, at that stage, see what modes the connector advertises, and
-> pick a clock from there?
-
-It's difficult, because then you assume that A) the bootloader will have
-used a mode reported by the monitor and B) crtcs need to be readout
-before connectors.
-
-> If we can't get the pclks from the connector, the mode->clock won't match,
-> and we should either skip checking that in the SRO checks, or have plenty=
- of
-> tolerance.
-
-tidss has 5% of tolerance when most of the drivers have .5%. How much do
-you need?
-
-> I think it still leads to a full modeset, but can the driver check if
-> setting the mode->clock would results in the current pclk, and somehow
-> abort the full modeset?
-
-I'd rather discuss an actual bug here. Do you have a case you can share
-where the logic we currently have doesn't work and is not an instance of
-poor panel timings?
-
-Maxime
-
---o7u5ewptzas4feh6
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCawbSzQAKCRAnX84Zoj2+
-dndcAYDbWbAAcKwkfi9LpkQKn+I67UpFNCRiOr+uPDQ7WaGqupVIE54Tsbj0L2Ir
-QnUaRyIBgOQz88Ztz1Xq3pnQ28mrgqaWL0qkeny23Kk9FoYnx0oLQ1tRhmdBWaUW
-UnFH+yCugg==
-=f+EW
------END PGP SIGNATURE-----
-
---o7u5ewptzas4feh6--
