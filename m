@@ -1,100 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.46
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795599645;
-	b=4etuH4dFKfHV9vqcVMe8Ua2Xpb4Sd4iYaNQ5CPjEI341EbkcrENvNzQUdYEVl2VBXvvN
-	 aDyv3RCK9qOomosIn8nf89B8W9UTZOOpDdxE3ZFjGKDy+FI7tjdTJGWuTqLqf1YgdducA
-	 EtkDuYe7iTKnGD5z+lk6fXW7PUkt0U6RTEOQwqhi5l3AScuZzcsA/RHx5bG31+sAtY8X0
-	 IbopDJjW2wnqlLBbZ6a0+fWLOdofiC6erMr0RsXT1krmz3A7tj637ctS09vQYrBZ4GZOF
-	 0p+25Ui+MxxPSgoVlRKKpqJUvdyWambGcELjOZTZrbewlCPaFT6zHp2LOjhYep5jQcg==
+	t=1795599662;
+	b=0meIrmEBc7O6sbRs40ix7FYH5oXNHO0ynbJfwxHesDd3hzcbJQB3YOmqALiunWFduLG+
+	 jLQxoDCPxNDheNNh5t+g3iGuhJ2Xc5SwEl9t2gCy/1IKVkGx/OmPOSszOP3X8F/F+M7xz
+	 3tT54CDp0wskq01Vt/COS8+U7D+lX7UzwjrsMI8jFiMmbn1IDBA/0KdLB9lTYKciP+2nL
+	 BesrC3JO/pOw3Lrg0UsVj2bhZMqX4cka2cofUPPYr6BFeMmFhAL7g6wzOZ4PWmSeHfgB2
+	 oxbyngdhrFbiE3jLfyzrJTmQ17/8pcOopSLK7ghgj2OzE2tYj6USefTyAqSPdrP0eVg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599645;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=pQwGXJSXqljBjagDccQ7L1MMOs3fUlkutet967RTyHA=;
-	b=deGoxPiipMcO2qD1+zvaTVZoTbCm5xAo6uyDjBZsRnVEUDh+ClIaGqEXIv78xzNEEsOT
-	 WLTamuEkMmDWFt/fld7q77ntmQ+W6bLTJv+qRuReq/DHm4kuWmsLSpkj+EmbjrZX875pq
-	 hgxnCGhcNNfhzj04Y/1y19prh70bsSu8GpUa2lDk4vOkj+wtbzun+6Neu00Ubpu6FkEED
-	 5krYFKNqJ7lIQQMAzVKHnlBw3Zkgan8UtmWSR3DZ67oEFLttX391Omot3kLxfiquRVNlr
-	 pEUcArhwiGYqlNzSRkBeZSQ0U8ko3hB+Im0CJ6912zBZfSDNdLlL5pPeiuFIaLZzvEg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599662;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received;
+	bh=Go5NsoyuppAMWbSfZV52X8FSvYZuBcD031bthogNrOg=;
+	b=GRKiT0/qKcstNL/nh6oPTSGWW7vy+a73NLrzAkYxlV2w5kvC6yU/KBBJwoMEr6kpl9Tk
+	 cSG2lVsscnFXOfcDglLL1ldoVfQ2oXZFbfM/Xbslo7S4EiZcE5VpkI6vQXl/NSnAxo43u
+	 4EbCpVaRqb4OYxLXNO/gkh2ioUymQ2mkZoMt+Rth+sL61XakmBFn0biYaPe25jPkjS+oQ
+	 NfY1CE+Pkk0GCYaCQik/wXvR5HXlBQfk5fU0sZ2ZFUxm9sm3sIuyrYmbF/DD6lriSb7EL
+	 nb2Y85CwMI+Ec5P3/bw1PJlc0fqpyS7fUn5yK4Y79zMnTIvkV2zG771yaNPs3QcXNEg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=USogZ0T7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.46
-Received: from mail-oo1-f46.google.com (mail-oo1-f46.google.com [209.85.161.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U5bwkYk2;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8A98606A321;
+	Wed, 25 Nov 2026 09:41:02 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U5bwkYk2
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795599661;
+	b=JPfLE9NDzOVjTdBjsc6tG7EdQjHYskFmWSnugC7CNHjjWQNHQRpssAHozxjpzrBQw2/b
+	 ugmdCvnQSu9OpOkI74NKirUFYLxALo8g0ZJwoJ+edAEL2UDWsRS+jlcqEbYwCknnN2E3g
+	 5k9hVRBOdQ49gjRqWlgJRZuEs3pikt4EfW8v3TD+xvwA0QJdNXcyLXP7qN9gk9kgs0WLS
+	 EWVN+RAlP4+MZJvQSo/OnQK1osnjFq+qlykugDcflIGPAUa95KR2Wi9CEzuvUhNz0kW71
+	 FGhREuJmGV6v8YT8o3ryaL9wImyLe3abDVo5/SQm92zjJE3Sdt6hum0RUqpSHT1UcWw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795599661;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received;
+	bh=Go5NsoyuppAMWbSfZV52X8FSvYZuBcD031bthogNrOg=;
+	b=Z97bCUH424gxUusAStbgqfyNjO+EPXHMCNYNRxU/HTjAq09VZOXOQ5+GQj/RrAHtyAnv
+	 8imbo6s2+x2vCfG5hbDEWj30e4VFeMALBCC108QID2GKeCSmKSZyWBu0Lon+x8+eQmw6H
+	 WLV7wN5HJXYhr+0xxzzFIOkHkThy+uvPP892o1kKmEaI4sEp04+UUnNDEdCeiBXOEhayx
+	 /O3Eg0iuArcy7+FmZFC9q64bruM3Efc4vFQ9ZvCCt6vyxSC/g78oD5wf1Lcl1mLInCsp5
+	 W8jdirKGJMAJI/H1/HAal4KXAJpVbaHt2QcGPD46XTU7yMdIPJ0YxgGil3I2kF6X96Q==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DED98606A32D
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:40:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DED98606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=USogZ0T7
-Received: by mail-oo1-f46.google.com with SMTP id 006d021491bc7-6e560e00a86so3635411eaf.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:40:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795599644; cv=none;
-        d=google.com; s=arc-20260327;
-        b=jGLeM2Y8FLpafLsBT0Ds0A8BwC/LeEed3aw7btxl1L1mCCbL/XBiILhMHh/xhEXK1/
-         Mz5zINmKLOVKeICL23mCDVaLA7GHb+r3iE17jRhl8vRZUs75wq3Q5SqTrqXoQ3VeG8Hj
-         Dx6GBsMQDcSKG2MVma/peclcDVPZYyqiDviIGZEPtjIoZAqkjUBsJusM+4jV4DyLrutk
-         xb7m8GFSAQp4BxhIa8MkRvOScC7TWC987oxyiC1LS6yA4dfaaME3FdozKlch3HZSSY+Q
-         WazhHPGKzzCCLQnZwwA4iu7eLjqZHulaMQHe9UxOSMWq33zumA0jejdjNhr+Rrw2zNGh
-         dN+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=pQwGXJSXqljBjagDccQ7L1MMOs3fUlkutet967RTyHA=;
-        fh=Ts9RNigEYSQkzON93+57IAyd/+l7ejDYk47AnkJHWSk=;
-        b=HvftjIKpG/nupAD3/Qq9Wk/pgKtolvTmpNwEW5KS5hRWIz+qqH5gA7sB+MRMiwXND/
-         FFjWVdvMbBZWxvh2wyO3/h85NUOMzg3e5IjbGrqyCEQejr5WEE0IpSKHtP0htx/9uB81
-         9fMUljQDN/WG6SRAgVUPYu1hR4vmDNPWnhQwAaUKy2sXU0gT2hGWVD2uU2g5exx+TK5x
-         1lNwWC7yVpv54Anj5fZ4HDhmXLmNfKsVDM0f7igqCSbqPmaVqJAE/n7NI3yPE1ZCKte/
-         klbdKncOI/1K0L52+LOzPn6UVS0w19JY+skWg98vXPKPwuap+wQaLIccNsn56CJ/qejt
-         g9MA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795599644; x=1796204444; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pQwGXJSXqljBjagDccQ7L1MMOs3fUlkutet967RTyHA=;
-        b=USogZ0T7/+oVKbbiq10JBY6QO9BLjWfuL//cJGrm69dZzwe3xcxXYfejWFRKMykHAk
-         JLbCM7dWn1b62yVI8kDtdjJ9tarlF05DXeEiA2BQyimghQfJ3fuol6EWB2R5Eoa6bUzM
-         C9i36emuQHVamCvtmNtmFGKA8PGlc0pCFIHgvGVazJO0/a1o9s8WiLhfpIn3J7wWSQsc
-         aew+7tayon+TGltP3Ort73UMToKHA/YL1b3IIuT/dXMd68X5mCt3ATymsx8R+q4YMvMR
-         BCvRazhZYOuJ+MBQmEsw05DReJlUv3y8mSfzpgzDpJBVLz74ZGhYl55Xks0vpitxlOw9
-         G2TQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795599644; x=1796204444;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=pQwGXJSXqljBjagDccQ7L1MMOs3fUlkutet967RTyHA=;
-        b=feXWPTBb0qHvoqiS7tgnUnZJk9Ze+XXJecfEUaZyPy+ColdIGCQSzqUz0bKXaymZtl
-         BRtGwlE7o9l4ktg7fhJqrz/uDgPc4kzjd5Ab62+iH4BbOXh1WMOFvCHqW1Z7niB+EoQ9
-         p3Zl+Z3k3PokJIGo9n7Iq/UqCFAkbRWDWCD53GM3jWjyZiqZtSQn636F1XUSUMEh8Kgl
-         nmRjLowirM2GRiMdgpH2Lg3b6Vh3iTra/0R8S9Wh2UvKbryP43RZm8OD0ZB61sNTTmtl
-         k3jMFLt6ls42RSXVCPsWBq00PzjFp3vQoRsdTKXLa5gpzKf0L4L7TSGLHWj4EqtAcmzJ
-         i4Fg==
-X-Forwarded-Encrypted: i=1; AL+hErHIAlYUPXKsOKV7VshpLsEMdRsU8feSJytLOi++RGiSGuTwIoDjQdfV97QxsbnjYaKxnFbsOha80H3Ddr8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8+iHgoZIUay+lGn0eZ+Gp+fPX2+qUoQ/fHPqLBiZRudkI7rbbt
-	WVpKPeERHR9kXd4SpITu9dIfflis9UmxNzBAhC5M+VbFbYFowKq8EUmwq2yv32wzDe6q1GIC1eV
-	uuXMH+xYXI87hdGBMKISooHodKppYpxk=
-X-Gm-Gg: AZFdTZe+TnVL4cehddZpXbUEsec3c/V6gjGtU/C1yx5+7qfKOKLIjp5n5iCzpS6EyV0
-	/DJ0dxSzvK7pZVIy9VmkS4V+6CFSagtOvemG0EL85ax8PIZr8Bgv0D3cAEYDMMzOf2LHmKXlZ8q
-	aY8MZcBEr/VIidr+7bFQioibhpRUA3JB2mecWOGGTYf7dDJqc9CiqmKKPSyfdDljUHX3IeF4gE/
-	JPXvwDLy+eqcOik4jVc2TMwgJdNQFSYtI1CYoEGecH7hHwtl9d8YyuOdUErqQhh2oyMRNBoV/El
-	er/AExWGVB1y5gxwfqzwKqqv+sj12EbgpOzWWvYZb0F8eRemVubUpcelWMP4VIjxPozDahskDHZ
-	RoEyZil6ecpOPOMMPbIFx/flUN6M0q9FbQCbN1l7oU+RrfWhdr/BUxyus32HRCUSib8xTsPyvg2
-	gPaG0fVwef0Tq3awGDCDw2kKsa2Tp0XyquLTm9UcB06fUrfYgg710Xf365
-X-Received: by 2002:a05:6820:740b:b0:71a:ff98:1734 with SMTP id
- 006d021491bc7-71b395674efmr12396945eaf.45.1795599643823; Wed, 25 Nov 2026
- 01:40:43 -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id 33F321F000C4;
+	Wed, 25 Nov 2026 09:40:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795599661;
+	bh=Go5NsoyuppAMWbSfZV52X8FSvYZuBcD031bthogNrOg=;
+	h=From:Date:Subject:To:Cc;
+	b=U5bwkYk29EPa66nNb/UD3FT0LSil5i2cyls9NfllzFytyL3TZosV1gJIsdfxZ26q5
+	 bZJ5qeSwj5FtQkINKFFuEhQ24oMiu2muu7K3eCfKmxbuIeLep9wztwXmRxuIaaMlRx
+	 71CoeAOi/nOs0g0NKci0qWe/kOq48Adt4B1hhNYR+ulxvIU2bXDtWHLW/FQHM3cmWg
+	 GXyIQ/5hFGqboI3VfuppKNfTUNwf4lbERVjTyWICvLLs59kBn+C/dIwZ+yMs5velJR
+	 ay3FKhZleNQ85E+gQKeL43km2b/TfDYdJY9XRfoIG+nL6/XAYheT1aoH4av5XwFXz6
+	 Wlc6Yq1O1OCIA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 8CBC74CDF2;
+	Wed, 25 Nov 2026 09:40:53 +0000 (UTC)
+From: Joel Granados <joel.granados@kernel.org>
+Date: Wed, 25 Nov 2026 10:40:51 +0100
+Subject: [PATCH] sysctl: Test rounding behaviour in jiffy-ms transformation
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,60 +81,170 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-exp-phy-rs-maybelocked-v3-0-4e183a7366a7@gmail.com> <20261124.215747.1090155063373507910.tomo@flapping.org>
-In-Reply-To: <20261124.215747.1090155063373507910.tomo@flapping.org>
-From: SeungJong Ha <engineer.jjhama@gmail.com>
-Date: Wed, 25 Nov 2026 18:40:32 +0900
-X-Gm-Features: Aa3M54pIN7Z7-kOVJu80h62SthWObgtP2wcxlpS5G_JuF9aGWICvZzW1W-c0JhI
-Message-ID: <CAGAB666qnAjFnf41PQmG5kWWSb+Au01OgspPhvREotLGXTYwXQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v3 0/3] rust: net: phy: suspend may run without phy_device->lock
-To: FUJITA Tomonori <tomo@flapping.org>
-Cc: andrew@lunn.ch, fujita.tomonori@gmail.com, tmgross@umich.edu, 
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
-	horms@kernel.org, ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net, 
-	bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org, 
-	aliceryhl@google.com, dakr@kernel.org, daniel.almeida@collabora.com, 
-	tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev, 
-	hkallweit1@gmail.com, linux@armlinux.org.uk, netdev@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-lklm-jiffy_rounding-v1-1-ccf2ddf7bd3a@kernel.org>
+X-B4-Tracking: v=1; b=H4sIACKtBmsC/x3MTQ5AMBBA4avIrDXRoSSuIiLolPFT0oYQcXeN5
+ bd47wFPjslDGT3g6GTPmw2QcQT92NqBBOtgwARzKVGJZV5WMbExd+O2w2q2g+iyHAulO0WYQih
+ 3R4av/1rV7/sBEgGHdmUAAAA=
+X-Change-ID: 20261125-lklm-jiffy_rounding-b46275db5e23
+To: Kees Cook <kees@kernel.org>, Avi Weiss <thnkslprpt@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, Joel Granados <joel.granados@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4128;
+ i=joel.granados@kernel.org; h=from:subject:message-id;
+ bh=RpJAkbVCo3PiYqOJBu0qHd458RHdZ3KqXhVVUhOgvQ4=;
+ b=owJ4nAHtARL+kA0DAAoBupfNUreWQU8ByyZiAGsGrSQ6ZjTQW/We47+1WsXkCJbRiidHpMEGS
+ lr2z3gOOCCzTIkBswQAAQoAHRYhBK5HCVcl5jElzssnkLqXzVK3lkFPBQJrBq0kAAoJELqXzVK3
+ lkFP+jYL/is73B+3x3Osc7NEipbbmNU9I5mXOvA209ipSqD1KBtjF7DGJMiIGvZ6d+KMOFqKXe5
+ 3mbamOYNw0Pud0yvxoMRYzV6hH0fw1q7a2Ld9ZSwd5Dc63kfTpfZCfcWlsb7nFi8TB2F8ktCatX
+ 70m5sHYTAU80Vg+AruwwQMG10TPQZSDUDdbZxTotXlot4V4Sd6bwcgEy15wG9HGD3UzLB9tOh4Z
+ 4EdrSVAMTlzajZootfipaLg3dhy93Y9QLQTebbZqddtkyyLUqwuUg1wmcCsl9SrZKILnFe5VN1D
+ 7OsaVtC+4GmrJCRF4zqch9jUl1HRdJA8McAWUWwxxSyCRQ03kqwy1+9QJ7U7+f40uNIHv75mqa0
+ JUwVzht7FhMsQhbOhweq7aeQZ4VmwQQUGxFRLli4GdWhkV8d2VfX9b0/M0Ar2S4KSfwI/1KFLye
+ HLjn+AfsKqWTo10e9we7E0+lH8SEh4V6HqKShfB4jPGIQI4TA07MdLX4OTbFtrcflrjGOd49bT7
+ JA=
+X-Developer-Key: i=joel.granados@kernel.org; a=openpgp;
+ fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
+X-Endpoint-Received: by B4 Relay for joel.granados@kernel.org/default with
+ auth_id=239
 
-On Tue, 24 Nov 2026 21:57:47 +0900 (JST), FUJITA Tomonori wrote:
->
-> On Tue, 17 Nov 2026 19:36:18 +0900
-> SeungJong Ha <engineer.jjhama@gmail.com> wrote:
->
-> > Patch 1 drops `read_mmd`, `write_mmd` and `match_phy_device`, which make
-> > the same claim but are called under other conditions, and have no users.
-> > Patch 2 makes `Device` generic over a lock context and documents when
-> > the `Locked` callbacks run without the lock, and patch 3 gives `suspend`
-> > the `MaybeLocked` one.
->
-> Can we use &Device and &mut Device instead of the new context types?
-[...]
+Add two tests over int_ms_jiffies and ulong_ms_jiffies:
 
-Yes, that is simpler. I will do that in v4. Two things to check first:
+1. roundup_on_write writes 1 ms and requires the read to be at least 1.
+   One millisecond is exact at HZ=1000 and rounds up to one jiffy below
+   that, reading back as 10, 4 and 3 ms at HZ=100, 250 and 300.
+2. stable_rewrite writes a random ms value, writes back what it reads,
+   and requires the second read to match the first.
 
-- genphy_soft_reset() reads autoneg and writes suspended, so I would keep
-  it on &mut self. soft_reset gets &mut Device, and the SAFETY comment
-  says that the phy_mii_ioctl() path is outside the guarantee.
+Signed-off-by: Joel Granados <joel.granados@kernel.org>
+---
+These tests make sure that the fix that was recently merged [1], stays
+fixed.
 
-- read() and write() take the MDIO bus lock, and &Device cannot say
-  more than that the phy_device->lock state is off limits.
+[1] https://lore.kernel.org/all/awH4Fh-XofdwwRqZ@hobbes
+---
+ lib/test_sysctl.c                        | 13 ++++++++-
+ tools/testing/selftests/sysctl/sysctl.sh | 50 ++++++++++++++++++++++++++++++++
+ 2 files changed, 62 insertions(+), 1 deletion(-)
 
-  In read_mmd and write_mmd the bus lock is already held, so they
-  deadlock. A test driver whose read_mmd calls dev.read() hangs as soon
-  as the PHY binds, and lockdep reports recursive locking on
-  bus->mdio_lock. The path is phy_probe() -> genphy_read_abilities() ->
-  genphy_c45_read_eee_abilities() -> phy_read_mmd().
+diff --git a/lib/test_sysctl.c b/lib/test_sysctl.c
+index 65ce423461707170367a5df14999b571705251d0..40da8748c2ad283a8ac9fa9b859e8556e2dc3564 100644
+--- a/lib/test_sysctl.c
++++ b/lib/test_sysctl.c
+@@ -29,6 +29,7 @@
+ 
+ static int i_zero;
+ static int i_one_hundred = 100;
++static unsigned long ul_one = 1;
+ static int match_int_ok = 1;
+ 
+ enum {
+@@ -52,6 +53,7 @@ struct test_sysctl_data {
+ 	int int_jiffies;
+ 	int int_ms_jiffies;
+ 	int int_userhz_jiffies;
++	ulong ulong_ms_jiffies;
+ 
+ 	unsigned int uint_0001;
+ 
+@@ -72,10 +74,11 @@ static struct test_sysctl_data test_data = {
+ 
+ 	.boot_int = 0,
+ 
+-	/* One second in each converter's unit; all three store HZ jiffies. */
++	/* One second in each converter's unit; all four store HZ jiffies. */
+ 	.int_jiffies = HZ,
+ 	.int_ms_jiffies = HZ,
+ 	.int_userhz_jiffies = HZ,
++	.ulong_ms_jiffies = HZ,
+ 
+ 	.uint_0001 = 314,
+ 
+@@ -144,6 +147,14 @@ static const struct ctl_table test_table[] = {
+ 		.mode		= 0644,
+ 		.proc_handler	= proc_dointvec_userhz_jiffies,
+ 	},
++	{
++		.procname	= "ulong_ms_jiffies",
++		.data		= &test_data.ulong_ms_jiffies,
++		.maxlen		= sizeof(ulong),
++		.mode		= 0644,
++		.proc_handler	= proc_doulongvec_ms_jiffies_minmax,
++		.extra1		= &ul_one,
++	},
+ 	{
+ 		.procname	= "uint_0001",
+ 		.data		= &test_data.uint_0001,
+diff --git a/tools/testing/selftests/sysctl/sysctl.sh b/tools/testing/selftests/sysctl/sysctl.sh
+index ad1ee0fccd7cefb066caf23d8aad42abfa046ba0..d24ac6c5a027248afbad4ee0331800fb00aa8978 100755
+--- a/tools/testing/selftests/sysctl/sysctl.sh
++++ b/tools/testing/selftests/sysctl/sysctl.sh
+@@ -351,6 +351,56 @@ test_int_jiffies_negative()
+ 	assert_content "$t" "1" || RET=$KSFT_FAIL
+ }
+ 
++# Writing 1 ms reads back 10, 4, 3 and 1 ms at HZ=100, 250, 300 and 1000
++# respectively. Here we make sure that it is >= to 1.
++test_jiffies_conv_roundup_on_write()
++{
++	local m="${SYSCTL}/int_ms_jiffies"
++	local l="${SYSCTL}/ulong_ms_jiffies"
++	local f got
++
++	[[ -f "$m" && -f "$l" ]] || { RET=$KSFT_SKIP; return; }
++
++	for f in "$m" "$l"; do
++		if ! printf '%s' "1" > "$f" 2>/dev/null; then
++			ktap_print_msg "$f: write of 1 rejected"
++			RET=$KSFT_FAIL
++			continue
++		fi
++		got=$(cat "$f")
++		if [[ ! "$got" =~ ^[0-9]+$ ]] || (( got < 1 )); then
++			ktap_print_msg "$f: wrote 1, got '$got', want >= 1"
++			RET=$KSFT_FAIL
++		fi
++	done
++}
++
++# Check that writing back what was just read does not change it again.
++test_jiffies_conv_stable_rewrite()
++{
++	local m="${SYSCTL}/int_ms_jiffies"
++	local l="${SYSCTL}/ulong_ms_jiffies"
++	local orig=$RANDOM
++	local f first
++
++	[[ -f "$m" && -f "$l" ]] || { RET=$KSFT_SKIP; return; }
++
++	for f in "$m" "$l"; do
++		if ! printf '%s' "$orig" > "$f" 2>/dev/null; then
++			ktap_print_msg "$f: write of $orig rejected"
++			RET=$KSFT_FAIL
++			continue
++		fi
++		first=$(cat "$f")
++		if ! printf '%s' "$first" > "$f" 2>/dev/null; then
++			ktap_print_msg "$f: rewrite of '$first' rejected"
++			RET=$KSFT_FAIL
++			continue
++		fi
++		assert_content "$f" "$first" || RET=$KSFT_FAIL
++	done
++}
++
+ test_uint_plain()
+ {
+ 	local t="${SYSCTL}/uint_0001"
 
-  In match_phy_device they reach a device that may be bound to another
-  driver, which the netdev AI review pointed out on v1  [1].
-
-  Do you still want to keep these callbacks with &Device and document
-  this, or wait until they can get accessors that fit their context?
+---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+change-id: 20261125-lklm-jiffy_rounding-b46275db5e23
 
 Best regards,
-SeungJong
+-- 
+Joel Granados <joel.granados@kernel.org>
 
-[1] https://lore.kernel.org/r/179454612500.2199510.688554972467066283@kernel.org
+
