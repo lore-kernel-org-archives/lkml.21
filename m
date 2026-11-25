@@ -1,49 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795646214;
-	b=4ehabIsAoKRIItk82P+fhI8bFVqcvsCFYv/K1aL+rlQ9JYuQUyV3q/mZDvwzT2DvEzGz
-	 kd8R2BR7lPIYaW1f9QTPa8MiAFGQEsCOcnTQgVmnzvajQ5Jp2OESLAi0nwDqtLsfWPVRd
-	 4lNrTaYM42m8oixny/27C4RYm+eUAWp4IIyx0/ymTMS7Dv4yq5f3fj01msf3ldGL4YabQ
-	 Q5Ri6kPiMfc4IOEICKfh4u3O7OopimGPLyHv7fxeLtBzib8RdTQzu0Jsgk5ccolWKpe6E
-	 QG7n3sOT6t+WuN/+W2fzGPelUYlCNo1OBNjDq0ULJ59JSD3xZrjT10v+01ex3OYZHMg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795646214;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=9a4+ol4fW9w7mVe+P7Yw2e1ikrG/Wpcw8NzLXYIPUMo=;
-	b=m6e+oG3yqjvU1K0kgFLbt34mL9yFPapzlcyGfqZVq+UEHHk98QOc1+CT5nxWCwCdPVBP
-	 RZ1ypO9wvAglnQIE58iIsnsr8euKuJr8mMHVW+SyXWS4IxxCGZ0k7wFIQ1z/dnU99vgzb
-	 XmmRttpPna9yC44N9YscCXho0iM93rss7sXtcHpC4v1Xh7ZLVBRg2F3WfxF1qGDSRU/l5
-	 7GOtA97Q9zRNiBrEx9Lyem2MDx7yeAIZN2bbN+EshbLLuO4MctKuDSwNh3RLdFoS+MPvS
-	 E7xVyW+rFi5VqPR871i7/NbF0neCZw8J+Rlvm5Jt0xvSdNLMUDIeO/XpqNMFZR3l+FA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZB7LieBF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.3
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795646218;
+	b=cFAtNazxaUGWfL5DkUh24ePxjZum4G5FV/xCj6eHdpqIUcF8SsmKPwR6WC4zg3sB926P
+	 /x9zkd+mGMgosCSeD+RvRRdkeoLpzuFSuFDOHpLtqiaiNXffnLw3+F/NWg9PWM3rxmOKx
+	 fdpgcd+na8aDWNIWQuYmgWWZc+myTOQD3Xx7vPQAwvW7p6eMxEunIqugWChA5p67oq+67
+	 FBd9aNob6WBduxzWXKYT/p0dhg21dK/7RszHneR/WcDxwrt8VDV7cMYn1Fci4oK4LFQ5w
+	 13zS7TMwqC/uFKoNinT9lWkFqF4q0FaF06psVdnvbnL537td5yon1Hn7Qj9R+mYgRqA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795646218;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=5lG6hjWpaomtDK0cBZVisErvnCecq5m9FWgBUcR09l8=;
+	b=BH4jfVf2VW52yPE4xif3ky5gmv7p/Ov82DNlGmZMEp76C9GJ+LQ0j5VrAlHDMANAFq0u
+	 Lire/AUwzDJoYv1PrmMKBwj10pSu1yIbnUChGX+4FejIi36ko1m03it2cLDAcKEwe6zV7
+	 e1pv2Ln1p1a30Coe3mIkHRoXYDIHgC5VWJoJ9fmQdeV1yzxnz3KT9KLv/vdPV2VRHX4OF
+	 5NJkoG++BnKaiV5hYLhj7VGSOCGPUH5WjnTvsbzXKH3+QhZKb5dBQLEb0X/SKfsGayPEq
+	 xtubG9L2c+ve8Ls8xUBK/tgMBm3z0335F/SqMrHIK+yeOSb1LP2FPerQC7vQEqqTacg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=WjEd3r5k;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.3
+Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011003.outbound.protection.outlook.com [52.101.57.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 761D7606A31E;
-	Wed, 25 Nov 2026 22:36:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B88F8606A333
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:36:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B88F8606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZB7LieBF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA00E1F000D0;
-	Wed, 25 Nov 2026 22:36:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795646213;
-	bh=9a4+ol4fW9w7mVe+P7Yw2e1ikrG/Wpcw8NzLXYIPUMo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ZB7LieBFBaTInE7q8GBF/FhD4n/O5DvDFl+AY/qCTN5uSEixJvYjP5O5fchcmBX0U
-	 renXHHDkdnXZf7XJwlRQU6MqSY7gk2GbkvFonTHAIS7n/ZOlHmZpO45+8Tv3pwXERS
-	 iFA+3PTwZIMyxkoVuyyj1TE9UpL/DAxHKpxfvH9x12A5qzJZwVt059z63Kf8EE1CiL
-	 5oRMz9GPt+iPKmMGFQoGznW1OgtkViAzgo0WOJ8DtRf75uG2x5ILSHRGtrVo1S6tyf
-	 fF9lefAj/pGvfVarO0RpD9Qex/Nx9JcUb4xODag2KjwLygx0gB9K3trTL7+ItnsnQJ
-	 dhHkGO+zu5J7Q==
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Wed, 25 Nov 2026 23:33:11 +0100
-Subject: [PATCH 13/21] mm/hugetlb: unshare PMDs of a split VMA if
- allocating its lock fails
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=WjEd3r5k
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yTn9iaAPyUCMNS+F6SfANNaB4vyln5Y0TRF347I0TB6neWHb+LAofFchWk9BdT8p8ZQ6S/1kRmCAh4wiejgcrdyTwJhoRnbsYud2kYew4ihgHrbIySdf1vV2XSbHT2AP9U+UAzwfGxXaRsS0ETlq0iApxGY4TRHMb9o2jWw2SLUO6+m7GGjoa9ZzGikUZmObxiDixNz52O10IMD/KN+z9vngfBWeoKbn1qp5RBqtMv3bXSKnXHSXXI1l+Yr+Tb+YgOCFSMRYcizNYPKNj+AbVtL6APz0b3x2vFJp0/YY8sGSx77utjOwJWMd1Xz/nqJV2i/PX4C9DEdwg44l6LRqJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5lG6hjWpaomtDK0cBZVisErvnCecq5m9FWgBUcR09l8=;
+ b=PFY1Vs2t8zxa8QHN9i1aTUXeC3ZOEZoh4kKJtUO1mrUtXcbAUJ/pkVl758SjephE0XRrTWbvy8Hyqo7zC3CYm79mQP5Z2qDgAR1IUZqa9EdBODJCNzKGYw0W+9U4sn43va6hFjjiEM6mbcRhX77xNzU8W3UEPzq5iC4ph/g5pGRzNJEwPaH8mylenUd+N1R1uPOiNC6LSU/qMz5eSEfJLpjVk0Ps2497mc8ipM0p3txoEGlUfA20RmtUk+c/3mi3L93TiiaJRMmVgmTT2VRC7x3lKV8TkN3T8Z7WxMtxt2KQ25fTHti0cBZUb12cawKjJUeKAiFuvAgREYjpr1BY4A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5lG6hjWpaomtDK0cBZVisErvnCecq5m9FWgBUcR09l8=;
+ b=WjEd3r5k2GGUAmGinfIy7sEck7FBO/+Z7gDGFFS6Z9VPL4+3HBl6KY0sdJ8cVhJKLi5y35B1Jd7sePEsiSSL5acl+H9dbH8xVsK9E4AzFY6y5fZbcFEwvuHbiFm1cSmRpl9mgEgM2+0VYVubIlWP7zTqD/+Cnzau3cagX/DGUr4IysgYZgBrdJR6BPdsUCABbTOhoYrd3lDTcF2Z8Jh1e6T8M51PKXvv5582538RqArTR/BRUvjyYDPM8hAThTOOBYYYLOEmtkyA6NRkEQ4HUiXvb8bVbcFy8YNyuoGS3XI5Kd8aBwwaMlNn0E9AlyVrgAkzNkzghAJ98zhXW7O6Nw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM4PR12MB5390.namprd12.prod.outlook.com (2603:10b6:5:389::15)
+ by DS0PR12MB7629.namprd12.prod.outlook.com (2603:10b6:8:13e::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 22:36:52 +0000
+Received: from DM4PR12MB5390.namprd12.prod.outlook.com
+ ([fe80::2815:c27e:a0a:2720]) by DM4PR12MB5390.namprd12.prod.outlook.com
+ ([fe80::2815:c27e:a0a:2720%3]) with mapi id 15.21.0662.001; Wed, 25 Nov 2026
+ 22:36:52 +0000
+Message-ID: <6bed8c59-476b-442d-a8a5-158fa0d9d978@nvidia.com>
+Date: Wed, 25 Nov 2026 14:36:49 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 0/6] KVM: arm64: nv: Grow the shadow S2 MMU pool on
+ demand
+To: Oliver Upton <oupton@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
+ Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Zenghui Yu <yuzenghui@huawei.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
+ Joey Gouly <joey.gouly@arm.com>, Fuad Tabba <fuad.tabba@linux.dev>,
+ Marc Zyngier <maz@kernel.org>, Tom Matthias <tmatthias@nvidia.com>,
+ Shameer Kolothum Thodi <skolothumtho@nvidia.com>,
+ Jason Gunthorpe <jgg@nvidia.com>, Julian Miller <julianmiller@nvidia.com>
+References: <20261124211218.2751086-1-nathanc@nvidia.com>
+ <awYPtXVeY1NYeTla@kernel.org>
+Content-Language: en-US
+From: Nathan Chen <nathanc@nvidia.com>
+In-Reply-To: <awYPtXVeY1NYeTla@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR05CA0003.namprd05.prod.outlook.com
+ (2603:10b6:a03:33b::8) To DM4PR12MB5390.namprd12.prod.outlook.com
+ (2603:10b6:5:389::15)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,216 +106,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-hugetlb_fixes_2-v1-13-db27fd2f71a8@kernel.org>
-References: <20261125-hugetlb_fixes_2-v1-0-db27fd2f71a8@kernel.org>
-In-Reply-To: <20261125-hugetlb_fixes_2-v1-0-db27fd2f71a8@kernel.org>
-To: Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Jinmeng Zhou <jinmengzhou22@gmail.com>, Hongfu Li <lihongfu@kylinos.cn>, 
- Andrea Arcangeli <aarcange@redhat.com>, 
- Mike Kravetz <mike.kravetz@oracle.com>, 
- Naoya Horiguchi <nao.horiguchi@gmail.com>, Hugh Dickins <hughd@google.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Dave Airlie <airlied@redhat.com>, 
- Vivek Kasireddy <vivek.kasireddy@intel.com>, 
- Gerd Hoffmann <kraxel@redhat.com>, Mike Rapoport <rppt@kernel.org>, 
- Mel Gorman <mel@csn.ul.ie>, Dave McCracken <dave.mccracken@oracle.com>, 
- Andy Whitcroft <apw@shadowen.org>, Adam Litke <agl@us.ibm.com>, 
- Lorenzo Stoakes <ljs@kernel.org>, Rik van Riel <riel@surriel.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Harry Yoo <harry@kernel.org>, Jann Horn <jannh@google.com>, 
- Lance Yang <lance.yang@linux.dev>, James Houghton <jthoughton@google.com>, 
- Yang Shi <shy828301@gmail.com>, Suren Baghdasaryan <surenb@google.com>, 
- Shakeel Butt <shakeel.butt@linux.dev>, Pedro Falcato <pfalcato@suse.de>, 
- Gregory Price <gourry@gourry.net>, Zi Yan <ziy@nvidia.com>, 
- Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>, 
- Ying Huang <ying.huang@linux.alibaba.com>, 
- Matthew Brost <matthew.brost@intel.com>, Byungchul Park <byungchul@sk.com>, 
- Alistair Popple <apopple@nvidia.com>, 
- Wanpeng Li <liwanp@linux.vnet.ibm.com>, Andi Kleen <ak@linux.intel.com>, 
- Kenneth W Chen <kenneth.w.chen@intel.com>, Hugh Dickins <hugh@veritas.com>, 
- Michal Hocko <mhocko@suse.com>, David Rientjes <rientjes@google.com>, 
- Joern Engel <joern@logfs.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Michal Hocko <mhocko@suse.cz>, 
- "Aneesh Kumar K.V" <aneesh.kumar@linux.vnet.ibm.com>, 
- KAMEZAWA Hiroyuki <kamezawa.hiroyu@jp.fujitsu.com>, 
- "Kirill A. Shutemov" <kirill@shutemov.name>, 
- Sasha Levin <sasha.levin@oracle.com>, 
- Guillaume Morin <guillaume@morinfr.org>, Wanpeng Li <liwp.linux@gmail.com>
-Cc: linux-mm@kvack.org, Jason Gunthorpe <jgg@ziepe.ca>, 
- linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
- Andrew Morton <akpm@osdl.org>, linux-doc@vger.kernel.org, 
- "David Hildenbrand (Arm)" <david@kernel.org>, 
- Chris Mason <mason@kernel.org>, stable@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6125; i=david@kernel.org;
- h=from:subject:message-id; bh=7MsnuWJ1skmmesv5nHIUCHqiHHC5JHXJq+5r6rKajHA=;
- b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLLZk1TvuT64VCrxJV+g61tcvf36leVnVvkFnE+bJ5nIN
- +ux9C72jlIWBjEOBlkxRZag4PsGL1+uq61242OGmcPKBDKEgYtTACZy+zkjQ3/NZOb7a+OneoVW
- 685nT/hbnSrBmGTzKYY5aq7b6UXKexkZfi87HbemlsNj1325PsXQv8e/brrj/dtARqv63L+6Br6
- 5XAA=
-X-Developer-Key: i=david@kernel.org; a=openpgp;
- fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR12MB5390:EE_|DS0PR12MB7629:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8ef06fd8-49a5-4840-0245-08df4b4499c0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|18002099003|22082099003|56012099006|4143699003|5023799004|11063799006|261102123227099003|10067099003|261026140227099003|261022105027099003|261022075727099003|261026121527099003|261021121427099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info:
+	BZgaWtuuACH3QWU2uBnyY1QSUpYJdp8XgGrxrAFCjPe3WkSmsk73jmJcEhLV19QZcwNgcjZC9v9SOCkXtUvYYdILm+2rSp/N/Ovz2f1jy32h38EACPui2GrHYX77OdLzDlwqeGAY+O+PQie4YqE/9MZK+SkTRlL8ykwyX/MQd8XSbcqA7UD3VhU1bgQjszVClr/PbzaIF/QmGb3Vid/7Mh4u2R3bSGT6ZhfIx2IQ8hr25iBGvSdXqMIzFahTPM1kFFIqt8AB8ZhpVALzk3uCesTHP8UuQV5v9fTOWkEpXT4fuSkKf1pZbHPIJS9+QZLSQ+8gRtcZCvCCe6GgBA924QhfPA9rQ8tnhrasLziYO+P8AAI+4gXaY0uqHi/Ji33u6DPq3GOoL0MoGo5mqeETDJSutEAg0e+0zLXlG5BM0RHqTPqs1sWQy3F6aSDbWKNyq7GzKs075iuNKPnyeQtyAXqTYNquS0Qc0ElsmsRHL7p3gOE9Wn+Bu8zFLpIOM38iZOLoZXzskPTAB65Qs6+8Cgl/GFM0QpizMmjq5grg6DzBvyDgQ4jHH39dehnYcG5el1SxN4TDTkme5V6LUb4eT5Po5chkoH3rd7ZFTrxjMMAGPQ3gt6AQWyaNQiZWta7qTh5GEQqXzqdTKftTa8fTo4AqSUuQ/0nLCpCI02XDTyY=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR12MB5390.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(18002099003)(22082099003)(56012099006)(4143699003)(5023799004)(11063799006)(261102123227099003)(10067099003)(261026140227099003)(261022105027099003)(261022075727099003)(261026121527099003)(261021121427099003)(261028144727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?ZnZtaENEckpRZkJSNit2bVBqYTRjYjZsY2ZnazBaNG5XaUphTTFwUFdxNDJW?=
+ =?utf-8?B?WERLRFY2OHZFNXdkYnI5eldSTndjTmFscjdrSU1LdUFQa05rekhJL3hKK3Zn?=
+ =?utf-8?B?cHgzUThkQjJKUE10bjNHcGVabFFvUk0zcktDaXArQTlacjVpN0piTzd5ZUI3?=
+ =?utf-8?B?V29RVjRiZjdNdTVQSm04OVFaWExzbDAwdzdsVVlwYmdlRFZBd0FkemYxcnpn?=
+ =?utf-8?B?S0s2RGlpWi9XUDIwSldVY3FmVk5kNy9VdWJkUk4yck1WbHA0M1dtczdISXdm?=
+ =?utf-8?B?L2V1UXYvamZkR2tmNkRUSzRpV1UwREpJb3U5T2FFQzkraU0wT2JOYnpXM2Ry?=
+ =?utf-8?B?TVdUZ3FTWWdSMUx5RUwzNHRyTVNyNHpnQlBYYkZGSjBYZkt6VGwxRElUUmVo?=
+ =?utf-8?B?cW5SL3FSMTkybC9qeG5aZ1NBWUE3RlJ4UUNMUmwzZzcwc0VqMDJUcnZsZS8r?=
+ =?utf-8?B?akFHN3lLczBPbFVYZFRmeStsalFzRGI4TVRRTCtXVzhrSmswOXJUTHplNk1G?=
+ =?utf-8?B?anRodUQveTkrNU1idE03VEZGRnJaT0tYSnE2UWVxUU5BaWRiaDVLMWFSQUl5?=
+ =?utf-8?B?Y2kxaEJmNWpMRjBtMmU1RmZ6QTJjV3ZpRWVyRGYzQ2pxSk5ycVFUTVBaNllm?=
+ =?utf-8?B?Ulk1SjVlQXNiSjFFa2FtRW9FdWg1OStBRXVBa1hrMUczOXc4UkJiV0k3WTMr?=
+ =?utf-8?B?NnMwaWQ0SFU3dUMxQlU4TDFYZGNPcVZYSk1FT0R0Y0V1bXhhVW4yUmxCTEdP?=
+ =?utf-8?B?YzFtZTVGT2xtWjNZVk1RRitDVDBQbllsVXZvbnZXMlNNTDFUSHFZdjJ5Rk5j?=
+ =?utf-8?B?SEpiSHBoeSs2YUg5R3BKTzdMTFVzYjlrMEY5YXIweU1UMlY3LzBHMHlDL1lQ?=
+ =?utf-8?B?RlFuSmUxUm15c3FPUmdTSFJnTEl2ZmtXRVAwRThPZS9lZk15SUs2NWhGZHlN?=
+ =?utf-8?B?ekc1UzBzZVByZXZUeEwvbHZ0cFhnU2RtOGdVMUppWE44QVZtVmdQaXJmTHNt?=
+ =?utf-8?B?Nk1IVmxrZEx6clhDUm8wVTNKZE9UNTh5dHdKbGJ1MGVGSmJoaEtwUkpnTFhZ?=
+ =?utf-8?B?ejM0TnF6SEIxN2lYSUQyclBpcm8wWDFSdVBRR1pBeWUwVlBmVGw5dTBsNWRm?=
+ =?utf-8?B?U2ZlMW5sS0ZuMGVaWmFJVUNkc2p5M0ozT3FsU0J5VFRiNjF3eXZWWklrd3Bu?=
+ =?utf-8?B?c3BFOWt2WGR0Mlk3NXUrM090UVpIb0RWMTcrZ3hvSWRxcFo5emdqQ3FaRFV5?=
+ =?utf-8?B?eWp4dEpPcFVvNkEzTC9KUzZqRHZvcnY0ekRDQlZ4T29ncU9uNUJlam9IdGxJ?=
+ =?utf-8?B?eXNCT2FtQXhiU2FmT3lHdlV0amdBbkxrdSs2aHFNN3RnTHpKcGZXQkU4WFJL?=
+ =?utf-8?B?ZkpTM1V4a0l4U096S2JlMzJKeWFwQ2xQN0FIZmdzSDB2RVp0R0FLeTYzUm1V?=
+ =?utf-8?B?eWI4SmRKc2xhVXYxSzRQZ2pTMjRRSjdMOUZ4ZlpBNHZybmtQdzVXMFNQZ2E2?=
+ =?utf-8?B?WnB0aDVOMGpTOWZIbFE3eTNxZTNvbUxLY3hOSTNubVRucWJRS1Nnd01say9v?=
+ =?utf-8?B?cXRvVktqWGRJZ29kOE4zYUhzUmFTRnMvRGtPQ3pNc3JxOWxiaDdIM1FKL3hr?=
+ =?utf-8?B?V0hBa2dxMVpRMlh2MTJFNXFUOE91MnNIOUtLZkYzUGVXajFEVzF5aWhyNUpX?=
+ =?utf-8?B?U09vUWZCZHRORGx5WFFmTTgyTEdHTEFEamJUWThTaDFFZzF4Q2llQ0RPSU12?=
+ =?utf-8?B?eGpmNUFZL2x4cUNnZ1BQTDNvcmQzb0lpS3lIR2RPSzZ5Ykl4dUZPamdpbXpT?=
+ =?utf-8?B?V2tOZlNyZDU3QjJGdWIwUUNHWVpFRi8zcUdTejhUbXJNWFhwaDNUK1IwZTBM?=
+ =?utf-8?B?bmxBZkRJeThTdnFjYVA0R0lNdGQzU0w4QXM0Y3FxTk9nVmx4WjhFUm80Zm5p?=
+ =?utf-8?B?V2tpOVZrTll0bmhvYUdHbEJvZWt5ZkhjckZnNTBsYVMycEUwVUdEWDlxWmVX?=
+ =?utf-8?B?OFk5UEZ3ZSs4R0RZSTNERFZZTFUzZ00wblFndXVrdENVNlRvbExpdU9XUXc4?=
+ =?utf-8?B?WGJEdFlPOFo1bnZLVW84RmZjS0dmMHlZeGRyazRvWmtYRmh6ZUZBVnRBNGFq?=
+ =?utf-8?B?bU84MUlPWDZ5V2l4TU0wNVRDOUtoU1hkSzhPWEpZMC95Z3podjZ0N25FUS9V?=
+ =?utf-8?B?WWJseU01bGpLRnkraE9HTVR5WEU3NEpvNUFrdkUrU0Y3cFRBeHdGeG1qajRn?=
+ =?utf-8?B?Z0VlUWpUUEdkZ3liQnJEK1NwNXY2STFlaHVwdnpzeWdSTDN2SEwzR1IyOFUx?=
+ =?utf-8?B?VWUxb3lTaFBPdWJMZ1BvVURqSktGNzBEMk1xVTF5WDdQQ0taSFRzdz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8ef06fd8-49a5-4840-0245-08df4b4499c0
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR12MB5390.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 22:36:52.0653
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XBZSCjvWjHi95DAlv3c7QjKQhZ8q5BHinr79RDWKwO2byzRL1uZKEp3RxhFit/a6kloRtV/F9HYsjYY6VC6QPQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7629
 
-From: Chris Mason <mason@kernel.org>
+Hi Oliver,
 
-If we split a VMA that has shared PMD page tables mapped, and allocating
-the hugetlb VMA lock for the new VMA fails, a fault in the new VMA can
-race with a hole punch and access page tables that were already freed.
+On 11/24/2026 2:29 PM, Oliver Upton wrote:
+> On Tue, Nov 24, 2026 at 01:12:12PM -0800, Nathan Chen wrote:
+>> A nested-capable VM gets 2 shadow stage-2 MMUs per vcpu. Once the guest
+>> hypervisor runs more nested VMs than that, nearly every nested context
+>> switch recycles a live MMU and spikes host CPU usage.
+>>
+>> This series lets KVM grow the shadow MMU pool on demand when the pool
+>> is too small, up to a host-wide VMID budget. It also parks grown MMUs
+>> on a guest TLBI ALLE1 and when a guest range invalidation leaves them
+>> empty, in order to return unused capacity.
+> Thanks for taking a look at the problem. There's no argument that we
+> need to do something, the existing MMU allocation policy was good enough
+> for doing nested development and would get replaced eventually.
+> 
+> With that said, I feel rather strongly that we should not invest further
+> in the MMU array because it is quite inflexible. On top of that we need
+> an actual eviction policy that selects cold MMUs as victims instead of
+> the current round robin approach. I don't think you need to do anything
+> special on the invalidation side with a good eviction policy.
+> 
+> I think this is what we need:
+> 
+>   - A VM-wide hashtable for storing stage-2 MMUs, keyed off of
+>     {VTCR_EL2, VTTBR_EL2, HCR_EL2.VM} to align with how we handle TLB
+>     match at stage-2. The hashtable can be dimensioned based on a
+>     configurable VM limit for shadow stage-2 MMUs.
+> 
+>   - A state tracking mechanism for victim selection. An LRU list seems
+>     like a reasonable starting point.
+> 
+>   - RCU replacement of the evicted MMU. I need to think about it a bit
+>     more but you should be able to reuse the PGD in the new MMU context
+>     as well since we know that no vCPU holds a reference on the victim.
+>     That ought to be the goal anyway.
+> 
+> That should allow us to dynamically allocate MMUs while also improving
+> upon the current behavior for constrained MMU allocations.
 
-__split_vma() calls hugetlb_vm_op_open() for the new VMA, which
-allocates its hugetlb VMA lock in hugetlb_vma_lock_alloc(). If that
-allocation fails, the new VMA is left without a lock.
+Thanks for the detailed direction, that makes sense. I'll drop the
+array-based approach, including the invalidation-side parking, and
+rework the series around the approach you mentioned above.
 
-A VMA that has shared PMD page tables needs the hugetlb VMA lock, since
-the lock synchronizes huge_pmd_unshare() with concurrent page table
-walks, including faults.
+For the per-VM limit, should we keep it capped at
+S2_MMU_PER_VCPU * nr_vcpus by default? And should it be overridable
+via a module parameter or per-VM capability, or would you prefer no
+per-VM cap at all, with the pool growing on demand and only evicting
+when allocation fails?
 
-want_pmd_share() and page_table_shareable() prevent new sharing without
-the lock, but a split leaves previously shared page tables in place for
-the new VMA, and hugetlb_vm_op_open() can't currently return an error if
-the allocation fails.
-
-This can, for example, happen for an OOM victim. Then, nothing prevents
-a hole punch from unsharing the page table of the new VMA while a fault
-in the new VMA is still using it, and the last other sharer from freeing
-it:
-
-    fault in the new VMA             hole punch, then munmap()
-    ====================             =========================
-    hugetlb_vma_lock_read()
-      no lock, does nothing
-    huge_pte_alloc()
-      pointer into shared table
-    folio_zero_user()
-                                     hugetlb_vma_trylock_write()
-                                       no lock, returns 1
-                                     huge_pmd_unshare(new VMA)
-                                       pud_clear()
-                                     last sharer frees the table
-    huge_pte_lock()
-    set_huge_pte_at()
-
-Let's fix it by unsharing the PMD page tables of a new VMA that has no
-lock. Also, exit hugetlb_split() early if the original VMA has no lock,
-as it cannot have shared PMD page tables then.
-
-This has low urgency, as it requires allocating the hugetlb VMA lock to
-fail during a split, which is practically only possible for OOM victims,
-and a race with a hole punch.
-
-Fixes: 131a79b474e9 ("hugetlb: fix vma lock handling during split vma and range unmapping")
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Chris Mason <mason@kernel.org>
-[ david: return early if the original VMA has no lock, adjust comment
-  and description ]
-Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
----
- include/linux/hugetlb.h           |  6 ++++--
- mm/hugetlb.c                      | 17 ++++++++++++++++-
- mm/vma.c                          |  2 +-
- tools/testing/vma/include/stubs.h |  3 ++-
- 4 files changed, 23 insertions(+), 5 deletions(-)
-
-diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
-index 49dad5ae57512..aea18895e1459 100644
---- a/include/linux/hugetlb.h
-+++ b/include/linux/hugetlb.h
-@@ -274,7 +274,8 @@ long hugetlb_change_protection(struct vm_area_struct *vma,
- 		unsigned long cp_flags);
- void hugetlb_unshare_all_pmds(struct vm_area_struct *vma);
- void fixup_hugetlb_reservations(struct vm_area_struct *vma);
--void hugetlb_split(struct vm_area_struct *vma, unsigned long addr);
-+void hugetlb_split(struct vm_area_struct *vma, struct vm_area_struct *new,
-+		unsigned long addr);
- 
- unsigned int arch_hugetlb_cma_order(void);
- 
-@@ -457,7 +458,8 @@ static inline void fixup_hugetlb_reservations(struct vm_area_struct *vma)
- {
- }
- 
--static inline void hugetlb_split(struct vm_area_struct *vma, unsigned long addr) {}
-+static inline void hugetlb_split(struct vm_area_struct *vma,
-+		struct vm_area_struct *new, unsigned long addr) {}
- 
- #endif /* !CONFIG_HUGETLB_PAGE */
- 
-diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-index 0b0f6e17b8b06..2bba0940a40d5 100644
---- a/mm/hugetlb.c
-+++ b/mm/hugetlb.c
-@@ -4887,7 +4887,8 @@ static int hugetlb_vm_op_split(struct vm_area_struct *vma, unsigned long addr)
- 	return 0;
- }
- 
--void hugetlb_split(struct vm_area_struct *vma, unsigned long addr)
-+void hugetlb_split(struct vm_area_struct *vma, struct vm_area_struct *new,
-+		unsigned long addr)
- {
- 	/*
- 	 * PMD sharing is only possible for PUD_SIZE-aligned address ranges
-@@ -4898,8 +4899,13 @@ void hugetlb_split(struct vm_area_struct *vma, unsigned long addr)
- 	 * walks (except hardware and gup_fast()).
- 	 */
- 	vma_assert_write_locked(vma);
-+	vma_assert_write_locked(new);
- 	i_mmap_assert_write_locked(vma->vm_file->f_mapping);
- 
-+	/* Shared PMDs require a hugetlb VMA lock. */
-+	if (!__vma_shareable_lock(vma))
-+		return;
-+
- 	if (addr & ~PUD_MASK) {
- 		unsigned long floor = addr & PUD_MASK;
- 		unsigned long ceil = floor + PUD_SIZE;
-@@ -4918,6 +4924,15 @@ void hugetlb_split(struct vm_area_struct *vma, unsigned long addr)
- 			hugetlb_unshare_pmds(vma, floor, ceil, /* take_locks = */ false);
- 		}
- 	}
-+
-+	/*
-+	 * If we failed to allocate the hugetlb VMA lock, unshare everything
-+	 * that the new VMA covers.
-+	 */
-+	if (!__vma_shareable_lock(new))
-+		hugetlb_unshare_pmds(new, ALIGN(new->vm_start, PUD_SIZE),
-+				     ALIGN_DOWN(new->vm_end, PUD_SIZE),
-+				     /* take_locks = */ false);
- }
- 
- static unsigned long hugetlb_vm_op_pagesize(struct vm_area_struct *vma)
-diff --git a/mm/vma.c b/mm/vma.c
-index c82e9306b11ac..183bfb8ba4703 100644
---- a/mm/vma.c
-+++ b/mm/vma.c
-@@ -590,7 +590,7 @@ __split_vma(struct vma_iterator *vmi, struct vm_area_struct *vma,
- 	 */
- 	vma_adjust_trans_huge(vma, vma->vm_start, addr, NULL);
- 	if (vma_is_hugetlb(vma))
--		hugetlb_split(vma, addr);
-+		hugetlb_split(vma, new, addr);
- 
- 	if (new_below) {
- 		vma->vm_start = addr;
-diff --git a/tools/testing/vma/include/stubs.h b/tools/testing/vma/include/stubs.h
-index 9f5b8e996abf6..6ddecf587d9be 100644
---- a/tools/testing/vma/include/stubs.h
-+++ b/tools/testing/vma/include/stubs.h
-@@ -466,7 +466,8 @@ static inline void vma_adjust_trans_huge(struct vm_area_struct *vma,
- {
- }
- 
--static inline void hugetlb_split(struct vm_area_struct *, unsigned long) {}
-+static inline void hugetlb_split(struct vm_area_struct *,
-+		struct vm_area_struct *, unsigned long) {}
- 
- static inline bool vma_supports_mlock(const struct vm_area_struct *vma)
- {
-
--- 
-2.56.1
-
+Thanks,
+Nathan
