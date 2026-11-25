@@ -1,63 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.114
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588610;
-	b=buGadqxnBCy3DcOdftfqV548QIisxlimxbq8+0Pj94YBPh2/geK5BGu/7U5o6CW51EUo
-	 Y/4vKbZIl8vArXPIrZOSkcswCp2OeyNxYjp6x2oalV0TvjeAL6gINH1nlfDesglVmyIiL
-	 5ON4/CdDC6dWfFCdoMTmaKQwsgE9PMdKtYLjBfqNGMSEfLzTGnUuTIQyhDNf8hHz6I8Hq
-	 G/7NJ5tamIh9DqveeMj6cQJpNHEpDg5X6tp/J1R5fEO2hVjH+ddNLbwJ54jsR54qWv9vZ
-	 klGhaU02w5B21ZtOMDnmHiSk9RQQSG8UmZ2ud5sY9eta1mqxQcKg0WE+tH//spQACWw==
+	t=1795588641;
+	b=b9LYTxCdffG5/AGLP5+YM0r4vXLvHUonifJw1K9QybfKNyoy8GRQbgiF0dZfnNQ21KU3
+	 6S4eT/lDq41bXeHuMYy1XkRskOZrIay2+f5k3GrGW6vr8/7//D0aN2FedOsLbmSPwzFnT
+	 Hk2gZaV7AOREDSwnuTUCmJDYaX7OsPmfMKlJ/L0mXOtJ0RzR7PgV3MoqWnPecgx7LXNaW
+	 d+GG8B0mFyQPNKO8qCtTkC9Wl/f2CkJrZv6+qwceIX3272+kRnn62ZO2wrZ6cJ/5n0X8f
+	 Dl7NMooxa724IuyFEdLehT8r/a52SlhZIT3UdBKtmS2sPdG0QEhUnPLNYLaC935eGag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588610;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:In-Reply-To:References:Date:Message-ID:User-Agent:
-	 MIME-Version:Content-Type;
-	bh=cdqxXzF0nK7QzWfPYBzfNXGgW3hBDjtbpSIe6sOp4qA=;
-	b=aesiFz0uXh5BPxxlHSkJHWuUqJxbJzHlVsE1pexh1wGHvwJiajai1gT3ngmSPFKTTDhI
-	 4hIFK6XcRuCBuBeYyirp2PnNTIKixCapSQ5K4KB167HWejm9EdsfluSPpZBomkHfvgn6G
-	 hmyQEtX+QrmVLdOmbvSPvZYQNVX+GLZSa2IUv5LNnH6O2fMpk4fhZ+/BRCZqMXvOukbT+
-	 zzjiiTxDwl5ljm2WHK3OKGRXkNpUn1nG9vMTs8+8qjmaeSTfrA+GT/H+dgl8428Soapg8
-	 DxIDNXtAokOcGarOmAhEAxdmVTvXoHZ2isODfZnavF5k6dx8uW+vOsFR5yNsYZ5tT9A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588641;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=q/Rj58SaH5amWTyNmer9CsZ6IqXDXPNCk/zSC3unopI=;
+	b=MhvSA3JdT9/V1yRb5Yez7k+3NGHHSPBsOSy//BrnkLQDcllkjwSvyfHGd2frQwU7L7v1
+	 6dweWwwn1H+SMmhZKmYzv+7nX7HdVU+U0EQ0ATm5rT/lrrg6c8Z0qTf3VdQMncM3VtxUp
+	 gGPL8cfX1jK05ckO+3pkszVgiazfbNyXEb7UFW50bPUq+eA4OZc9+kyoPWdP0sVMEYqQg
+	 UKDB01XjgtO01AugWtzxCVNEHdNmuViB5SNoEqOu6fjmHZ3i7DkqtP7+KeQKEfsC3W36+
+	 lJBN0akcfx51msoK9E3HwKV3nQr/D3wxwpg4l+uNr/PkJ4or0YQdAdw3mmkg/kBfI5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=MvP4Qd0D;
-	arc=none smtp.remote-ip=115.124.30.101
-Received: from out30-101.freemail.mail.aliyun.com (out30-101.freemail.mail.aliyun.com [115.124.30.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q5d6DVJR;
+	arc=none smtp.remote-ip=91.218.175.114
+Received: from mta0.migadu.com (out-114.mta0.migadu.com [91.218.175.114])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48575606A321;
-	Wed, 25 Nov 2026 06:36:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48575606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A52C606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:37:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A52C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=MvP4Qd0D
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795588598; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=cdqxXzF0nK7QzWfPYBzfNXGgW3hBDjtbpSIe6sOp4qA=;
-	b=MvP4Qd0DU1yNYOpMAw5xmIkoEddP12YV8pFdD7zSYk1WaCIL/C5upix8UMOZL2Y5CfY98sTX13eN8wlXUj228F+Fn31Pd0Ze3HQh2f5BWrCyeddp37hlibAuW4j8AjRIObUQ6xxI0o7i3iPjNIUmIKmKYBbYRfRYdZIEF5ICKH0=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R491e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=ying.huang@linux.alibaba.com;NM=1;PH=DS;RN=11;SR=0;TI=SMTPD_---0XFQbIt-_1795588597;
-Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0XFQbIt-_1795588597 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 25 Nov 2026 14:36:38 +0800
-From: "Huang, Ying" <ying.huang@linux.alibaba.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Yadong Qi
- <yadong.qi@linux.alibaba.com>
-Cc: will@kernel.org,  mark.rutland@arm.com,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  ryan.roberts@arm.com,  robh@kernel.org,  gregkh@linuxfoundation.org,
-  ptg-linux-kernel@linux.alibaba.com,  stable@vger.kernel.org
-Subject: Re: [PATCH] arm64: fixmap: fix missing break-before-make in
- __set_fixmap()
-In-Reply-To: <awW3Dw743-rw_-cf@arm.com> (Catalin Marinas's message of "Tue, 24
-	Nov 2026 16:10:55 +0000")
-References: <20261123093505.974-1-yadong.qi@linux.alibaba.com>
-	<awW3Dw743-rw_-cf@arm.com>
-Date: Wed, 25 Nov 2026 14:36:36 +0800
-Message-ID: <87mrqxto23.fsf@DESKTOP-5N7EMDA>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q5d6DVJR
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Rue6WWUDqbUiDGZQOImbpN9tuORsHUiNUGcW6y17oMA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795588638; v=1; x=1796193438;
+ b=q5d6DVJRa8oAnf8vyrkzerITtkrT4wiX6G9nDh5BbJ4elSbjbcPOb0p1hagSUsbbtuAP9WWg
+ +UxdMf+FdxYmKXg94zEJq2QJAiTTQdQ9Pzo3JqHN9hEZdkmjAu3uIzjd3UJWINIXtyEKktd3pqJ
+ qQg7xqQdikA3H7se/iDAORhE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 52e2bc64e5274c4c;
+	Wed, 25 Nov 2026 06:37:17 +0000
+X-Mizu-Trace-ID: 52e2bc64e5274c4c
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <663c0be8-60c8-45d6-baf6-5bc4ac0ae173@linux.dev>
+Date: Wed, 25 Nov 2026 14:37:10 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,49 +58,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ascii
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] tcp: fix CA module refcount underflow in
+ tcp_v4_syn_recv_sock()
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, edumazet@kernel.org, ncardwell@google.com,
+ kuniyu@google.com, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, fw@strlen.de, daniel@iogearbox.net,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+References: <20261124062625.264148-1-jiayuan.chen@linux.dev>
+ <179558800299.3135.4905748131998876050@kernel.org>
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+In-Reply-To: <179558800299.3135.4905748131998876050@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Catalin Marinas <catalin.marinas@arm.com> writes:
 
-> On Mon, Nov 23, 2026 at 05:35:05PM +0800, Yadong Qi wrote:
->> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
->> index f66a0016dd02..5593d7e0d523 100644
->> --- a/arch/arm64/mm/fixmap.c
->> +++ b/arch/arm64/mm/fixmap.c
->> @@ -126,12 +126,19 @@ void __set_fixmap(enum fixed_addresses idx,
+
+On 11/25/26 2:26 PM, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] The new error path in tcp_v4_syn_recv_sock()
+>   (net/ipv4/tcp_ipv4.c) jumps to clear_ca_and_exit when…
+> - [Low] The commit message presents the bug as a module refcount
+>   underflow that shows up as a module_put() WARNING.
+> 
+> --
+> 
+> tcp: fix CA module refcount underflow in tcp_v4_syn_recv_sock()
+> 
+> The child socket inherits icsk_ca_ops from the listener without taking a
+> reference. If inet_csk_route_child_sock() fails, the child then puts the
+> listener's reference. This patch clears icsk_ca_ops on that error path and
+> makes tcp_cleanup_congestion_control() skip a socket that has no CA.
+> 
+>> If inet_csk_route_child_sock() fails in between, we go to put_and_exit
+>> and tcp_done() ends up in tcp_cleanup_congestion_control(), which puts
+>> the reference unconditionally. The one dropped belongs to the listener.
+> 
+> [Severity: Low]
+> 
+> Is the impact larger than a refcount underflow warning?
+> 
+
+> module_put() uses atomic_dec_if_positive() and only warns when the count
+> would go negative:
+> 
+> kernel/module/main.c:module_put() {
+>     ...
+> 		ret = atomic_dec_if_positive(&module->refcnt);
+> 		WARN_ON(ret < 0);	/* Failed to put refcount */
+>     ...
+> }
+> 
+> While the listener still holds its reference, the child's put in
+> tcp_cleanup_congestion_control() succeeds silently and uses up the
+> listener's reference. The quoted WARN only fires after earlier occurrences
+> have already drained that reference.
+> 
+> Once that has happened, try_release_module_ref() lets rmmod of tcp_bbr
+> succeed while the listener's icsk_ca_ops still points into the module.
+> Later children read icsk_ca_ops->owner through bpf_try_module_get() in
+> tcp_ca_openreq_child(), and closing the listener calls ->release() on it.
+> Could either of these be a use-after-free?
+> 
+> If the count has dropped below the base instead, rmmod would hit
+> BUG_ON(ret < 0) in try_release_module_ref().
+> 
+> For BPF struct_ops congestion control, bpf_module_put() goes through
+> bpf_struct_ops_put() -> bpf_map_put():
+> 
+> include/linux/bpf.h:bpf_module_put() {
+> 	if (owner == BPF_MODULE_OWNER)
+> 		bpf_struct_ops_put(data);
+> 	else
+> 		module_put(owner);
+> }
+> 
+> In that case the extra put drops a struct_ops map reference while the
+> listener is still using the map.
+> 
+> Could the commit message describe this impact, for the benefit of stable
+> maintainers?
+> 
+
+It's meanless, we can't enumerate all cases‌ into commit message.
+
+
+>> diff --git a/net/ipv4/tcp_cong.c b/net/ipv4/tcp_cong.c
+>> index e3f462f161dd6..0f99405a78b11 100644
+>> --- a/net/ipv4/tcp_cong.c
+>> +++ b/net/ipv4/tcp_cong.c
+>> @@ -271,6 +271,9 @@ void tcp_cleanup_congestion_control(struct sock *sk)
+>>  {
+>>  	struct inet_connection_sock *icsk = inet_csk(sk);
 >>  
->>  	ptep = fixmap_pte(addr);
->>  
->> -	if (pgprot_val(flags)) {
->> -		__set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
->> -	} else {
->> +	/*
->> +	 * Break-before-make: when the slot still holds a valid mapping
->> +	 * (e.g. earlycon re-mapping FIX_EARLYCON_MEM_BASE), invalidate the
->> +	 * old entry and flush the TLB entries caching it before a new
->> +	 * mapping is installed, so old and new translations never coexist.
->> +	 */
->> +	if (pte_valid(__ptep_get(ptep))) {
->>  		__pte_clear(&init_mm, addr, ptep);
->> -		flush_tlb_kernel_range(addr, addr+PAGE_SIZE);
->> +		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
->>  	}
+>> +	if (!icsk->icsk_ca_ops)
+>> +		return;
 >> +
->> +	if (pgprot_val(flags))
->> +		__set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
->>  }
->
-> I guess that's easier than getting the driver or earlycon code to do
-> clear_fixmap().
+>>  	if (icsk->icsk_ca_initialized && icsk->icsk_ca_ops->release)
+>>  		icsk->icsk_ca_ops->release(sk);
+>>  	icsk->icsk_ca_initialized = 0;
+>> diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
+>> index 2fc92a7884fc8..8aa52376cf0aa 100644
+>> --- a/net/ipv4/tcp_ipv4.c
+>> +++ b/net/ipv4/tcp_ipv4.c
+>> @@ -1732,7 +1732,7 @@ struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,
+>>  	if (!dst) {
+>>  		dst = inet_csk_route_child_sock(sk, newsk, req);
+>>  		if (!dst)
+>> -			goto put_and_exit;
+>> +			goto clear_ca_and_exit;
+>>  	} else {
+>>  		/* syncookie case : see end of cookie_v4_check() */
+>>  	}
+>> @@ -1789,6 +1789,9 @@ struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,
+>>  exit:
+>>  	tcp_listendrop(sk);
+>>  	return NULL;
+>> +clear_ca_and_exit:
+>> +	/* newsk holds no reference on the inherited CA yet. */
+>> +	inet_csk(newsk)->icsk_ca_ops = NULL;
+> 
+> [Severity: Medium]
+> 
+> Does this comment hold in all cases?
+> 
 
-Yes.  And because set_fixmap() flushes the tlb on x86, IMHO, it's a
-little hard to justify the driver modification.
 
-However, set_fixmap() only flushes the tlb on the local CPU instead of
-broadcasting the flush, because fixmap is either per-CPU or used during
-early boot.  In theory, we could follow that approach and perform a
-local flush instead though the benefit may be marginal.
 
----
-Best Regards,
-Huang, Ying
+> tcp_create_openreq_child() calls inet_csk_clone_lock(). That function moves
+> the child to TCP_SYN_RECV and then calls security_inet_csk_clone(), all
+> before the route lookup above:
+> 
+> net/ipv4/inet_connection_sock.c:inet_csk_clone_lock() {
+>     ...
+> 	inet_sk_set_state(newsk, TCP_SYN_RECV);
+> 
+> 	inet_clone_ulp(req, newsk, priority);
+> 
+> 	security_inet_csk_clone(newsk, req);
+>     ...
+> }
+> 
+> bpf_lsm_inet_csk_clone is listed in bpf_lsm_locked_sockopt_hooks in
+> kernel/bpf/bpf_lsm.c. A BPF_LSM_CGROUP program attached there can
+> therefore call bpf_setsockopt(TCP_CONGESTION) on the child:
+> 
+> sol_tcp_sockopt_congestion()
+>   do_tcp_setsockopt()
+>     tcp_set_congestion_control()
+>       bpf_try_module_get(ca, ca->owner)  <- takes a reference on the new CA
+>       tcp_reinit_congestion_control()
+>         tcp_init_congestion_control()    <- ca->init(),
+>                                             icsk_ca_initialized = 1
+> 
+
+It's not for net tree and I have already sent a fix to bpf tree. 
+
+I also intentionally mentioned it under diff stat to suppress this review
+but I think I failed:
+
+'''
+   ...
+   Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+   ---
+   security_inet_csk_clone() -> bpf_setsockopt(TCP_CONGESTION) from a
+   lsm_cgroup prog has a similar problem, the child puts a reference it
+   never took. That one is being fixed in the bpf tree.
+   ...
+'''
+
