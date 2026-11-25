@@ -1,128 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.154
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795565461;
-	b=dUDto8gGa/Rvohj+Evp7/nylSEhFyiTR4uwgeXyq+AHrj3fFRz5FQzz/DZZK4N9HZF5i
-	 nr/LfDWvJV5bXG74Pgz8s99y1u6pmBOUnFPpTQZmmBFtfcBdjXb3QyrTgVV1jg8IJ66nk
-	 QARkuORp/GkrK/d2igiA70lQCNy1GhhdLZNlhxF5bo7V+0eNZOXuOhT5xAEOWfAd0CqBV
-	 8ZaYlc/r0tiScOtlAv7maHJsYloOM1I26UG29etu0N83MFPRMC0N8TJ1UXWIogFQ9rDWE
-	 EcJoCl9keTD0eZp0FkDBfnZOlYL2aY/5+Vz+5Cu6bvHmCdgDkEyeaYwXk7/zowC2NMg==
+	t=1795565466;
+	b=K6INtqXbg/WTNHrgEl9jLzJl9RLu6sRWIuYOKe09R0ArHNzLxbFKNym1wl2aqSfGZKbp
+	 LDLH0gcxJN9lIlvx4vRj6Sg2YbGVosXPP6iVfKjgIdo96c4G8zJSG1pxaiFu+qDT0ZmzE
+	 6LqCBB9GspYwxdeSS9jzU9NXO+8BTeqA4vTNJnOO2NnKWrOwISgdB4yiEdppVht3EXENE
+	 mc6oIQAtd5GZDoKujFuH/ILtkaGr2Glnv3vX0wEs9WrT5DEBmFq5s0jk6sdeXks3V8OeY
+	 FfMiyMvTS94KIHBAh9mv6jMAUZZbL4R3dFGG/Vj2p34XB77HnS4v/4t7IWdqduda/yA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795565461;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:Reply-To:MIME-Version:Content-Transfer-Encoding;
-	bh=uioSYn87Nwu964MRdhy17kxRhlbaWB4jHTofR0aGax8=;
-	b=QhLXmB6cRnPCwGTKOUyF5eOwZAfUPQupGo8eZD31NWGSYo0KdY0vGGjZZrXovqFkstfb
-	 Z002cKcopTSr+IhdI0vt69/A/zvz0xa6HQBztI+YG666KHrkKxSSCXPBMuPeqMgIBUvMS
-	 JzcOwTBgCWtynGY6F1SSPtsvBKhR2qMsldTusryO1B4qkGJusZDq0CSzO2VxH2vyHr8a0
-	 jvYdHWFZQyCLjsUIs5ARgMojjEmQ4pIC+ZPPqJ/kbPQ8fV1xLGJYwVaZrXlYq7Il2sYAp
-	 o/x5Cbro3nMtMzKxwJp3H7mTyiy9ppw9wRS9DWuO/G3LvmIz6Ozg7zjIt4BhafKPuAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795565466;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Spam-Status:X-Spam-Checker-Version;
+	bh=fEXiIbGziMDZaIaDHSXNfhVUEKOMbotG4nCsPF9NimI=;
+	b=tzD/aLSuIcQeV6DTIt4DZOTAgnpsP/cZXJQVMYdLg5g/Xb6eU9Yqsf8lzC4O60p+CONi
+	 nX6feynmynY+jqXJ0gPAARgFfohAiuEtgCZg84EYgMx3erDja8M3IMEeFUTz2YA32WYKm
+	 yns9zH7qDmnRRV7ovS3Jq9LHebIzS7YWz1Cwfqa5g+8V+XHbqyMN6FAiWR9LaZ3J3ME+o
+	 MHutSeW3QY7gk6WO1r7l/50h9n0rOlev0EcVkILjEd8lnQM5McM/05Hsb0U4csPoksDQp
+	 66yYt/qt2IpqDt0RoryiTOe2ORv/wozr+zkAZ9Cp6tVwQEm+JCGjSlaM6E1JA0GT15A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ownmail.net;
-	spf=pass smtp.mailfrom=ownmail.net;
-	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=Aj8+NvNO;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=t37PigzO;
-	arc=none smtp.remote-ip=103.168.172.154
-Received: from fhigh-a3-smtp.messagingengine.com (fhigh-a3-smtp.messagingengine.com [103.168.172.154])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 197C0606A338
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:11:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 197C0606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=RTVXn7Zk;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5E48C606A321;
+	Wed, 25 Nov 2026 00:11:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E48C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=Aj8+NvNO;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=t37PigzO
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 7057A1400340
-	for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:11:00 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Tue, 24 Nov 2026 19:11:00 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:reply-to:subject:subject:to:to; s=fm3; t=1795565460;
-	 x=1795651860; bh=uioSYn87Nwu964MRdhy17kxRhlbaWB4jHTofR0aGax8=; b=
-	Aj8+NvNOompNykhbrQ+h+f3kK/njylV/+YVFd+uzFDOjICK1XsOafyRsSJLcJ26y
-	doqtq7HVP2JH+TXcC9kBeLXwOXJsaMFswqzuyre1Xu/WcLWqygleYh0nrmSf41eF
-	O9JiVnXTrugMteJAC/etJhlVdgETRuQ9Hsq21aIG4Fs/LANmruOdp17ttvfg48nE
-	YyXIJPP4PcPqhXgKbkNsM7H74HruOimzxoRNrKOYH/ARRFXzaPYuqvHdAd0Y+L1x
-	iw5yA0YC4TIpY3Xzqz1FSs8wkBHfVhrCVe8jigm7eqzUhT3U3Duf/pf0qBNgdSfQ
-	38e08prGTTTDUVysYoJguA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1795565460; x=1795651860; bh=u
-	ioSYn87Nwu964MRdhy17kxRhlbaWB4jHTofR0aGax8=; b=t37PigzO2mJmWBtWb
-	NHF7RZYV7iOO8YOcKd0Pj4RC/Riv5BE8W6RMdX0rok4Aw8JE2bD9UmRszmHjTNp7
-	tPtmnjvpAkZxMzFbrmpN1LH37zoVRYSKJ5cnhUHkvS/bUXT5tmSLvuCnGE0u3L8N
-	6AIAfWdwyED4VZx/jg7eIByuzYf72U7g/bgbti0/R0mFrTphqPF4lFcPzdL+vJWh
-	3xafA5aRx+/o38fXSVGUMAIZgXoIpCjas0rFNRuG5eI0cYsx93cqTZZCEav5EUs5
-	KtqQ2RBzJRQUjz3faHr6IQbAqBUcf2T4TeZkX86K3mFhsuBzkPloMSkcpRIzRSuc
-	UZBbw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ownmail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795565460; d=ownmail.net;
-	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:fwexqpAZHlnGPSQkCLiGb0I0j4tdWoDc56kR+TdhoJ9dXML
-	+ht+FWK274O/FbUx+xxLHaW6lFDvPe42NzoKmgAecHZviY7bztl64iRfgX1HZRio
-	ZrFXvu1agzWFkNk9si8roaFcMpzFgLQfjt9KiuU3aPHQdoKc102mDoPoqRCJdyRB
-	X2EhLtzgF3qjuUmxTMtEM3IpTf4v6CNeD0QD221lfrJYCE1qm2sNQJEI00VXzGdV
-	SIxG6WbztytSrfash/lj2Tc3VuvZzQE0ms8L/pEQ+YEfc6sqZH952qmV8Jue0nYq
-	tbzGXfp9gaMMeeWlbv7p7dy2Lj2xlm9KHHe7WTg==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,reply-to,subject,
-	to;
-Message-Instance: m=1; h=sha256:CrhfUEZGKUUWytQVoo24ghuDvGQdq/GibXNfq/pP7yc=:X7ukKsjJIXFMuI91IoiiiZnSkK0ICIzo6l15py9eUig=;
-X-ME-Sender: <xms:lCcGay5iY4ZkmRIhy_84m3CnH_lk7hEF9fxv582H_ckCsDZ6w58mPQ>
-    <xme:lCcGa4z2C3AHb583tdjHvLUgJpZ277i299eLw-DfRoTJewHujvWE08xsCTCLmh4G3
-    d-fTTzH7aoyaBlFYbKySvSDhTPqeK4iaLqqFz0-Ks04jK7TG70>
-X-ME-Received: <xmr:lCcGaxN3NjNXhFg9THya4mqOu7e44bmSfimD5XknrCSnnLo9015Bx57PpbzuQRx4DnirkttcX8gSY3pYVepjs1bDkA38RwY>
-X-ME-Proxy-Cause: dmFkZTFtvvtjo3TiqnwievywHT6UMcqs4LNW0jtUBl4WBqV/m7gd8GJpLHqrSgN8SWLSUZ
-    VJzM9Mehgr8GzWto4KXYhuPfb2KYnCUl5uLncNNiprl4L2/H+RTJ/fuYTB9lhxGbbLKMYD
-    M/6CxXIb3E/XyzdymtH1FBzd5e8L2Po01VMPRPLL5C3Io0AwFZ8dbU3XydszypkkZokBqR
-    /jGhZrNqXiUxGkRCo3/x2DTJGeMaThLWGacM5+cfNvEWgcAm40zlBt5kA6JjfFB6gF3nMg
-    YcWsKjzsifnV88vQpUOFazoiPMwVgCfmSGKauqcf58vaHaqH0uQcfMVcybu2xlmAKlOrrd
-    c8oiC6QV+0dihQEaZZo8hG0Y/Wu8Yab8LwE3qWIGPB21bA+NY2hF7lUDocczSlMZwzzlvQ
-    nJnMkXCrjkgqg+Eci0FT79RYIg6g9I7ypUYFU77NdZMdlmbkre9MWu2GK5TnLQ7sqH8m6J
-    SSdXxk8qUjSlzkPMwaOmFLTSF7BH4ha+GDHm97kgfTI4CcM70Gn5dDzA3a8G/aEBaHmbo+
-    SuYTLUwOiMYWA8cgStRCMQ0Tykv8z+IefprrESIT+SONtMfppZNbWCgrY3HUNYYHQg01JZ
-    dLs0qA7eBo2NqpzyrDghgFqO8AnDdtKIV35TY6PM86mV4ck5p/J6oARm7Qfg
-X-ME-Proxy: <xmx:lCcGa-n0L36YFDOQckVsr3tds2ePcQaOZc84pD9XG6uZ3EOdoi7ECA>
-    <xmx:lCcGa2RT4rZ56HQ-5LFIPMWv2DxOB9xTZ6SKfk_Hi2dEvakUT87FgA>
-    <xmx:lCcGa9VVgJakMEAJSLPBlICowceiDeyZvNJ_cCyABO1OAwxf6I7ZYA>
-    <xmx:lCcGa6LQ6a8uiJGeB0s8xxWtPMnYVLIe9YBQ8FJsHaFdm59k8ehZEg>
-    <xmx:lCcGayusiZpw-w9gJefXEjY11gmUo7qanN7oC01VGE6-rHO6HbMm6qyE>
-Feedback-ID: i9d664b8f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 19:10:57 -0500 (EST)
-From: NeilBrown <neilb@ownmail.net>
-To: Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	Amir Goldstein <amir73il@gmail.com>
-Cc: linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Ian Kent <raven@themaw.net>,
-	Jake Edge <jake@lwn.net>
-Subject: [PATCH v7 2/5] fsnotify: update children flags only when parent starts watching children
-Date: Wed, 25 Nov 2026 11:03:39 +1100
-Message-ID: <20261125000836.3984402-3-neilb@ownmail.net>
-X-Mailer: git-send-email 2.50.0.107.gf914562f5916.dirty
-In-Reply-To: <20261125000836.3984402-1-neilb@ownmail.net>
-References: <20261125000836.3984402-1-neilb@ownmail.net>
-Reply-To: NeilBrown <neil@brown.name>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=RTVXn7Zk
+Received: from mrdev.corp.microsoft.com (192-184-212-33.fiber.dynamic.sonic.net [192.184.212.33])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 15CA420B7166;
+	Tue, 24 Nov 2026 16:11:01 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 15CA420B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795565461;
+	bh=fEXiIbGziMDZaIaDHSXNfhVUEKOMbotG4nCsPF9NimI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=RTVXn7ZkqOZbQ3H630xkuJPXTO3FOH6Q9O8oxu3lWvwzSCXFninFtyB9BUSyPQNXY
+	 QU588Pv5ZJFQhud9u9SftPeWP8bsOEal6XEglPyOI9Xy/gYfRfX2WmeBybRoZEX6c6
+	 EYMwI3RwunvIL2JhMxn6wMTVFFHmxkqQy4TEd38U=
+From: Mukesh R <mrathor@linux.microsoft.com>
+To: linux-hyperv@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	mhkelley58@gmail.com
+Subject: [PATCH v1] mshv: Do pre-commit before mapping a guest VM GPA
+Date: Tue, 24 Nov 2026 16:10:54 -0800
+Message-ID: <20261125001054.1057035-1-mrathor@linux.microsoft.com>
+X-Mailer: git-send-email 2.51.2.vfs.0.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -134,290 +63,184 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Amir Goldstein <amir73il@gmail.com>
+Pre commit reduces TLB flush overheads in the hypervisor. On systems
+with large number of CPUs, there is signficant advantage to doing
+this. Pre-commit allows the hypervisor to build all data structs needed
+in anticipation of the map gpa hypercall, thus reducing or eliminating
+deposit page returns from the map gpa hypercall, and as a result reducing
+TLB flushes. In some performance benchmarks, it made the maps of large
+ranges almost 30% faster.
 
-We only need to set the PARENT_WATCHED flag on children when the parent
-inode starts watching children.  When the parent stops watching, false
-positive PARENT_WATCHED flags are cleared lazily in __fsnotify_parent().
+Please note, the memory requirement is same whether the follow up map
+gpa calls use large page flag or not. The flags field in the  input
+parameter in the pre-commit hypercall does not have any large 
+page options/bits.
 
-The recalc that observes the parent starting to watch children is not
-necessarily the recalc of the mark that added the watch.  It may be the
-recalc of a concurrent remover in another group, or a recalc in a context
-that cannot walk the children, such as dnotify event handling.
-
-Record the need to update children flags in a connector flag when the
-recalc observes the transition and let callers that are allowed to walk
-the children consume the flag via fsnotify_conn_set_children_dentry_flags()
-after mask recalc.  This way, the caller that added the watch is
-guaranteed to either update the children flags or find that another
-caller has committed to doing so.
-
-Also avoid the update children walk with mark spinlock held.  This was
-only done by dnotify and can be easily avoided.
-
-Note there is still a race that this patch does not attempt to address.
-If some other caller has committed to updating PARENT_WATCHED, it may
-not complete that task until after this thread returns to user-space, so
-some notifications might be missed.  Before this patch, PARENT_WATCHED
-might not get set at all in the case of a race.  With this patch it
-will be set, but possibly not before a syscall completes.
-
-Fixes: 172e422ffea20 ("fsnotify: clear PARENT_WATCHED flags lazily")
-Reviewed-by: Jan Kara <jack@suse.cz>
-Signed-off-by: Amir Goldstein <amir73il@gmail.com>
-Signed-off-by: NeilBrown <neil@brown.name>
+Signed-off-by: Mukesh R <mrathor@linux.microsoft.com>
 ---
- fs/notify/dnotify/dnotify.c        |  6 +++
- fs/notify/fanotify/fanotify_user.c |  4 +-
- fs/notify/inotify/inotify_user.c   |  2 +-
- fs/notify/mark.c                   | 86 +++++++++++++++++++++---------
- include/linux/fsnotify_backend.h   |  6 +++
- 5 files changed, 77 insertions(+), 27 deletions(-)
 
-diff --git a/fs/notify/dnotify/dnotify.c b/fs/notify/dnotify/dnotify.c
-index 9fb73bafd41d..0afd2b039333 100644
---- a/fs/notify/dnotify/dnotify.c
-+++ b/fs/notify/dnotify/dnotify.c
-@@ -181,6 +181,11 @@ void dnotify_flush(struct file *filp, fl_owner_t id)
- 	}
+Changes in v1:
+ o Don't call pre-commit from hv_do_map_gpa_hcall(), that results in
+   multiple calls: first during entire NO_ACCESS map of the ram range,
+   then again when the range is actually mapped. Move calls up closer 
+   to where the regions are created.
+
+
+ drivers/hv/mshv_regions.c      |  6 +++++
+ drivers/hv/mshv_root.h         |  1 +
+ drivers/hv/mshv_root_hv_call.c | 48 ++++++++++++++++++++++++++++++++++
+ drivers/hv/mshv_root_main.c    |  5 ++++
+ include/asm-generic/mshyperv.h |  3 +++
+ include/hyperv/hvgdk_mini.h    |  1 +
+ include/hyperv/hvhdk.h         |  7 +++++
+ 7 files changed, 71 insertions(+)
+
+diff --git a/drivers/hv/mshv_regions.c b/drivers/hv/mshv_regions.c
+index dddaade31b5d..fc091405b041 100644
+--- a/drivers/hv/mshv_regions.c
++++ b/drivers/hv/mshv_regions.c
+@@ -266,6 +266,12 @@ static int mshv_region_remap_pages(struct mshv_mem_region *region,
+ int mshv_region_map(struct mshv_mem_region *region)
+ {
+ 	u32 map_flags = region->hv_map_flags;
++	int ret;
++
++	ret = hv_pre_commit_gpa(region->partition->pt_id,
++				region->start_gfn, region->nr_pages);
++	if (ret)
++		return ret;
  
- 	spin_unlock(&fsn_mark->lock);
-+	/*
-+	 * We only remove mask bits here, but our recalc may be the first to
-+	 * observe another group starting to watch children.
-+	 */
-+	fsnotify_conn_set_children_dentry_flags(fsn_mark->connector);
- 
- 	/* nothing else could have found us thanks to the dnotify_groups
- 	   mark_mutex */
-@@ -380,6 +385,7 @@ int fcntl_dirnotify(int fd, struct file *filp, unsigned int arg)
- 	dnotify_recalc_inode_mask(fsn_mark);
- out:
- 	spin_unlock(&fsn_mark->lock);
-+	fsnotify_conn_set_children_dentry_flags(fsn_mark->connector);
- 
- 	if (destroy)
- 		fsnotify_detach_mark(fsn_mark);
-diff --git a/fs/notify/fanotify/fanotify_user.c b/fs/notify/fanotify/fanotify_user.c
-index 63c9759fc3b0..c064b0070c51 100644
---- a/fs/notify/fanotify/fanotify_user.c
-+++ b/fs/notify/fanotify/fanotify_user.c
-@@ -1264,7 +1264,7 @@ static int fanotify_remove_mark(struct fsnotify_group *group,
- 	removed = fanotify_mark_remove_from_mask(fsn_mark, mask, flags,
- 						 umask, &destroy_mark);
- 	if (removed & fsnotify_conn_mask(fsn_mark->connector))
--		fsnotify_recalc_mask(fsn_mark->connector);
-+		fsnotify_recalc_mask_and_update_children(fsn_mark->connector);
- 	if (destroy_mark)
- 		fsnotify_detach_mark(fsn_mark);
- 	fsnotify_group_unlock(group);
-@@ -1538,7 +1538,7 @@ static int fanotify_add_mark(struct fsnotify_group *group,
- 
- 	recalc = fanotify_mark_add_to_mask(fsn_mark, mask, fan_flags);
- 	if (recalc)
--		fsnotify_recalc_mask(fsn_mark->connector);
-+		fsnotify_recalc_mask_and_update_children(fsn_mark->connector);
- 
- out:
- 	fsnotify_group_unlock(group);
-diff --git a/fs/notify/inotify/inotify_user.c b/fs/notify/inotify/inotify_user.c
-index 5f19c24ec187..6018c2d717ac 100644
---- a/fs/notify/inotify/inotify_user.c
-+++ b/fs/notify/inotify/inotify_user.c
-@@ -562,7 +562,7 @@ static int inotify_update_existing_watch(struct fsnotify_group *group,
- 	fsn_mark->flags |= inotify_arg_to_flags(arg);
- 	spin_unlock(&fsn_mark->lock);
- 
--	fsnotify_recalc_mask(fsn_mark->connector);
-+	fsnotify_recalc_mask_and_update_children(fsn_mark->connector);
- 
- 	/* return the wd */
- 	ret = i_mark->wd;
-diff --git a/fs/notify/mark.c b/fs/notify/mark.c
-index cb07f42d3422..1658fbef61df 100644
---- a/fs/notify/mark.c
-+++ b/fs/notify/mark.c
-@@ -238,21 +238,37 @@ static struct inode *fsnotify_update_iref(struct fsnotify_mark_connector *conn,
- 	return inode;
+ 	return mshv_region_remap_pages(region, map_flags,
+ 				       0, region->nr_pages);
+diff --git a/drivers/hv/mshv_root.h b/drivers/hv/mshv_root.h
+index 1f086dcb7aa1..bfc11f57d1d8 100644
+--- a/drivers/hv/mshv_root.h
++++ b/drivers/hv/mshv_root.h
+@@ -282,6 +282,7 @@ int hv_call_initialize_partition(u64 partition_id);
+ int hv_call_finalize_partition(u64 partition_id);
+ int hv_call_delete_partition(u64 partition_id);
+ int hv_call_map_mmio_pages(u64 partition_id, u64 gfn, u64 mmio_spa, u64 numpgs);
++int hv_pre_commit_gpa(u64 pt_id, u64 gfn, u64 num_pages);
+ int hv_call_map_gpa_pages(u64 partition_id, u64 gpa_target, u64 page_count,
+ 			  u32 flags, struct page **pages);
+ int hv_call_unmap_gpa_pages(u64 partition_id, u64 gpa_target, u64 page_count,
+diff --git a/drivers/hv/mshv_root_hv_call.c b/drivers/hv/mshv_root_hv_call.c
+index 6261686c3638..a7168eea34d2 100644
+--- a/drivers/hv/mshv_root_hv_call.c
++++ b/drivers/hv/mshv_root_hv_call.c
+@@ -181,6 +181,54 @@ int hv_call_delete_partition(u64 partition_id)
+ 	return hv_result_to_errno(status);
  }
  
-+static bool fsnotify_conn_watches_children(
-+					struct fsnotify_mark_connector *conn)
++/*
++ * Pre commit to reduce TLB flush overheads in the hypervisor. On systems with
++ * large CPUs, there is signficant advantage to doing this. Pre-commit allows
++ * the hypervisor to build all data structs needed in anticipation of the map
++ * gpa hypercall, thus reducing or eliminating deposit page returns from the
++ * map gpa hypercall, and as a result reducing TLB flushes.
++ */
++int hv_pre_commit_gpa(u64 pt_id, u64 gfn, u64 num_pages)
 +{
-+	if (conn->type != FSNOTIFY_OBJ_TYPE_INODE)
-+		return false;
++	ulong irq_flags;
++	struct hv_input_precommit_gpa_pages *input_page;
++	int rc = 0;
++	u64 status, done = 0;
 +
-+	return fsnotify_inode_watches_children(fsnotify_conn_inode(conn));
-+}
++	while (done < num_pages) {
++		u16 rep_count = min(num_pages - done, HV_REP_COUNT_MAX);
 +
- /*
-  * Calculate mask of events for a list of marks.
-  *
-+ * If the connector started watching children, flag it so that the next call
-+ * to fsnotify_conn_set_children_dentry_flags() updates the children dentry
-+ * flags.  The caller that observes the transition may not be allowed to walk
-+ * the children, so the update may be done by another caller.
-+ *
-  * Return true if any of the attached marks want to hold an inode reference.
-  */
- static bool __fsnotify_recalc_mask(struct fsnotify_mark_connector *conn)
- {
- 	u32 new_mask = 0;
- 	bool want_iref = false;
-+	bool watched_children;
- 	struct fsnotify_mark *mark;
- 
- 	assert_spin_locked(&conn->lock);
- 	/* We can get detached connector here when inode is getting unlinked. */
- 	if (!fsnotify_valid_obj_type(conn->type))
- 		return NULL;
-+	watched_children = fsnotify_conn_watches_children(conn);
- 	hlist_for_each_entry(mark, &conn->list, obj_list) {
- 		if (!(mark->flags & FSNOTIFY_MARK_FLAG_ATTACHED))
- 			continue;
-@@ -267,6 +283,13 @@ static bool __fsnotify_recalc_mask(struct fsnotify_mark_connector *conn)
- 	 */
- 	WRITE_ONCE(*fsnotify_conn_mask_p(conn), new_mask);
- 
-+	if (fsnotify_conn_watches_children(conn) != watched_children) {
-+		if (watched_children)
-+			conn->flags &= ~FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN;
-+		else
-+			conn->flags |= FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN;
++		local_irq_save(irq_flags);
++		input_page = *this_cpu_ptr(hyperv_pcpu_input_arg);
++		memset(input_page, 0, sizeof(*input_page));
++
++		input_page->partition_id = pt_id;
++		input_page->target_gpa_base = gfn;
++
++		status = hv_do_rep_hypercall(HVCALL_PRECOMMIT_GPA_PAGES,
++					     rep_count, 0, input_page, NULL);
++		local_irq_restore(irq_flags);
++
++		done += hv_repcomp(status);
++		gfn += hv_repcomp(status);
++
++		if (hv_result_needs_memory(status)) {
++			rc = hv_deposit_memory(pt_id, status);
++			if (rc)
++				break;
++
++		} else if (!hv_result_success(status)) {
++			pr_err("%s: failed to pre commit for gfn %#llx done %llu/%llu, status=%#llx (%s)\n",
++			       __func__, gfn, done, num_pages, status,
++			       hv_result_to_string(hv_result(status)));
++			rc = hv_result_to_errno(status);
++			break;
++		}
 +	}
 +
- 	return want_iref;
- }
- 
-@@ -298,22 +321,30 @@ static void *fsnotify_recalc_mask_clear_iref(struct fsnotify_mark_connector *con
- 	return fsnotify_update_iref(conn, want_iref);
- }
- 
--static bool fsnotify_conn_watches_children(
-+/*
-+ * Update children dentry PARENT_WATCHED flags if the connector started
-+ * watching children since the last update.  When parent stops watching, we
-+ * clear false positive PARENT_WATCHED flags lazily in __fsnotify_parent().
-+ *
-+ * The caller must make sure connector and connector->obj cannot disappear
-+ * under us.  This is achieved by holding mark->group->mark_mutex for a
-+ * mark on this list.  mark->lock must not be held by the caller.
-+ */
-+void fsnotify_conn_set_children_dentry_flags(
- 					struct fsnotify_mark_connector *conn)
- {
--	if (conn->type != FSNOTIFY_OBJ_TYPE_INODE)
--		return false;
--
--	return fsnotify_inode_watches_children(fsnotify_conn_inode(conn));
--}
-+	bool update_children;
- 
--static void fsnotify_conn_set_children_dentry_flags(
--					struct fsnotify_mark_connector *conn)
--{
--	if (conn->type != FSNOTIFY_OBJ_TYPE_INODE)
-+	if (!conn || conn->type != FSNOTIFY_OBJ_TYPE_INODE)
- 		return;
- 
--	fsnotify_set_children_dentry_flags(fsnotify_conn_inode(conn));
-+	spin_lock(&conn->lock);
-+	update_children = conn->flags & FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN;
-+	conn->flags &= ~FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN;
-+	spin_unlock(&conn->lock);
-+
-+	if (update_children)
-+		fsnotify_set_children_dentry_flags(fsnotify_conn_inode(conn));
- }
- 
- /*
-@@ -321,26 +352,33 @@ static void fsnotify_conn_set_children_dentry_flags(
-  * connector and connector->obj cannot disappear under us.  Callers achieve
-  * this by holding a mark->lock or mark->group->mark_mutex for a mark on this
-  * list.
-+ *
-+ * Callers that may sleep should use fsnotify_recalc_mask_and_update_children()
-+ * or call fsnotify_conn_set_children_dentry_flags() after dropping mark->lock.
-  */
- void fsnotify_recalc_mask(struct fsnotify_mark_connector *conn)
- {
--	bool update_children;
--
- 	if (!conn)
- 		return;
- 
- 	spin_lock(&conn->lock);
--	update_children = !fsnotify_conn_watches_children(conn);
- 	fsnotify_recalc_mask_set_iref(conn);
--	update_children &= fsnotify_conn_watches_children(conn);
- 	spin_unlock(&conn->lock);
--	/*
--	 * Set children's PARENT_WATCHED flags only if parent started watching.
--	 * When parent stops watching, we clear false positive PARENT_WATCHED
--	 * flags lazily in __fsnotify_parent().
--	 */
--	if (update_children)
--		fsnotify_conn_set_children_dentry_flags(conn);
++	return rc;
 +}
 +
-+/*
-+ * Recalculate mask and update children dentry PARENT_WATCHED flags if the
-+ * connector started watching children.
-+ *
-+ * The caller must make sure connector and connector->obj cannot disappear
-+ * under us.  This is achieved by holding mark->group->mark_mutex for a
-+ * mark on this list.  mark->lock must not be held by the caller.
-+ */
-+void fsnotify_recalc_mask_and_update_children(
-+					struct fsnotify_mark_connector *conn)
-+{
-+	fsnotify_recalc_mask(conn);
-+	fsnotify_conn_set_children_dentry_flags(conn);
- }
+ /* Ask the hypervisor to map guest ram pages or the guest mmio space */
+ static int hv_do_map_gpa_hcall(u64 partition_id, u64 gfn, u64 page_struct_count,
+ 			       u32 flags, struct page **pages, u64 mmio_spa)
+diff --git a/drivers/hv/mshv_root_main.c b/drivers/hv/mshv_root_main.c
+index cc2cfce2aefd..befa2b4e3e34 100644
+--- a/drivers/hv/mshv_root_main.c
++++ b/drivers/hv/mshv_root_main.c
+@@ -1394,6 +1394,11 @@ mshv_map_user_memory(struct mshv_partition *partition,
+ 		 * the hypervisor track dirty pages, enabling pre-copy live
+ 		 * migration.
+ 		 */
++		ret = hv_pre_commit_gpa(region->partition->pt_id,
++					region->start_gfn, region->nr_pages);
++		if (ret)
++			break;
++
+ 		ret = hv_call_map_gpa_pages(partition->pt_id,
+ 					    region->start_gfn,
+ 					    region->nr_pages,
+diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+index 4c9f3353074a..a3d497d99b0b 100644
+--- a/include/asm-generic/mshyperv.h
++++ b/include/asm-generic/mshyperv.h
+@@ -28,6 +28,9 @@
  
- /**
-@@ -368,7 +406,7 @@ void fsnotify_modify_mark_mask(struct fsnotify_mark *mark, u32 set, u32 clear)
- 	spin_unlock(&mark->lock);
+ #define VTPM_BASE_ADDRESS 0xfed40000
  
- 	if (recalc)
--		fsnotify_recalc_mask(mark->connector);
-+		fsnotify_recalc_mask_and_update_children(mark->connector);
- }
- EXPORT_SYMBOL_GPL(fsnotify_modify_mark_mask);
++#define HV_REP_COUNT_MAX        \
++	(HV_HYPERCALL_REP_COMP_MASK >> HV_HYPERCALL_REP_COMP_OFFSET)
++
+ enum hv_partition_type {
+ 	HV_PARTITION_TYPE_GUEST,
+ 	HV_PARTITION_TYPE_ROOT,
+diff --git a/include/hyperv/hvgdk_mini.h b/include/hyperv/hvgdk_mini.h
+index 966945f0504f..16c41ee5079a 100644
+--- a/include/hyperv/hvgdk_mini.h
++++ b/include/hyperv/hvgdk_mini.h
+@@ -489,6 +489,7 @@ union hv_vp_assist_msr_contents {	 /* HV_REGISTER_VP_ASSIST_PAGE */
+ #define HVCALL_FLUSH_GUEST_PHYSICAL_ADDRESS_LIST	0x00b0
+ #define HVCALL_CREATE_DEVICE_DOMAIN			0x00b1
+ #define HVCALL_ATTACH_DEVICE_DOMAIN			0x00b2
++#define HVCALL_PRECOMMIT_GPA_PAGES			0x00be
+ #define HVCALL_SIGNAL_EVENT_DIRECT			0x00c0
+ #define HVCALL_POST_MESSAGE_DIRECT			0x00c1
+ #define HVCALL_DISPATCH_VP				0x00c2
+diff --git a/include/hyperv/hvhdk.h b/include/hyperv/hvhdk.h
+index 0c89c62c9706..3944e51d0a2d 100644
+--- a/include/hyperv/hvhdk.h
++++ b/include/hyperv/hvhdk.h
+@@ -953,4 +953,11 @@ struct hv_input_modify_sparse_spa_page_host_access {
+ #define HV_MODIFY_SPA_PAGE_HOST_ACCESS_LARGE_PAGE      0x4
+ #define HV_MODIFY_SPA_PAGE_HOST_ACCESS_HUGE_PAGE       0x8
  
-@@ -1007,7 +1045,7 @@ int fsnotify_add_mark_locked(struct fsnotify_mark *mark,
- 	if (ret)
- 		goto err;
- 
--	fsnotify_recalc_mask(mark->connector);
-+	fsnotify_recalc_mask_and_update_children(mark->connector);
- 
- 	return ret;
- err:
-diff --git a/include/linux/fsnotify_backend.h b/include/linux/fsnotify_backend.h
-index faf21564380d..052d8674ad89 100644
---- a/include/linux/fsnotify_backend.h
-+++ b/include/linux/fsnotify_backend.h
-@@ -567,6 +567,7 @@ struct fsnotify_mark_connector {
- #define FSNOTIFY_CONN_FLAG_IS_WATCHED	0x01
- #define FSNOTIFY_CONN_FLAG_HAS_IREF	0x02
- #define FSNOTIFY_CONN_FLAG_DESTROYING	0x04
-+#define FSNOTIFY_CONN_FLAG_UPDATE_CHILDREN	0x08
- 	unsigned short flags;	/* flags [lock] */
- 	union {
- 		/* Object pointer [lock] */
-@@ -888,6 +889,11 @@ static inline __u32 fsnotify_calc_mask(struct fsnotify_mark *mark)
- extern __u32 fsnotify_conn_mask(struct fsnotify_mark_connector *conn);
- /* Calculate mask of events for a list of marks */
- extern void fsnotify_recalc_mask(struct fsnotify_mark_connector *conn);
-+/* Recalculate mask and update children dentry flags if needed */
-+extern void fsnotify_recalc_mask_and_update_children(
-+					struct fsnotify_mark_connector *conn);
-+extern void fsnotify_conn_set_children_dentry_flags(
-+					struct fsnotify_mark_connector *conn);
- extern void fsnotify_init_mark(struct fsnotify_mark *mark,
- 			       struct fsnotify_group *group);
- /* Find mark belonging to given group in the list of marks */
++struct hv_input_precommit_gpa_pages {	/* HV_INPUT_PRECOMMIT_GPA_PAGES */
++	u64 partition_id;
++	u32 flags;
++	u32 reserved;
++	u64 target_gpa_base;
++} __packed;
++
+ #endif /* _HV_HVHDK_H */
 -- 
-2.50.0.107.gf914562f5916.dirty
+2.51.2.vfs.0.1
 
