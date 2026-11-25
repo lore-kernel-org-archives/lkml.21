@@ -1,77 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596439;
-	b=KvFXWkHiEu77XqOh0FofpqKu7CKI9lQi8nVSGzViXdtwZ83ocg0K6bghPh0+aEZ5uMNB
-	 BBxIpwDn57KGxrVPaQqrbmMvY9bJDnL68z2V8gL04ACLXjPgHndm5o9XSsEqCV2c54Ezn
-	 TYlIL+089rzyD5mXbxnxzB3LLH3mNwn3sg2RtbnbgYZ9BUSUYT02Jke2NoWjnUljNtINN
-	 siKMkdke6EQZij7P3lL82WmTto5yi3B6j3WcDb7qMFlGKspZWiN9yliDE3QSCEeuXVIPc
-	 0Y74lz/ej88NooaBcyFUuC7Ic1hGjZi6n0y26ziGM5ObUhvcZzea7WpmN3mM3K1ptoQ==
+	t=1795596453;
+	b=ccq9Tp9fnatEEz1nISPiU6pOBAoyrR0bjFPlYj9BT2vfj8O+nm1smFfbGYG20MbnUeMH
+	 XEmjIM9FMiPI4jctxRK/bEOWzWmlg3ZZ+gQ2xmBlNMD4K8HHwXsEGSJm+hvNr+OvKKfIR
+	 lKr1p6RMYBkkZWhsM5TeU4jUcjk04vqFgZZYkDdm+2ccbCAXBqMt9SS1KqDue6PpzOJay
+	 PeeWSzEESvF/TiLvvCL+hGbTs/S/ry/2AWh3zH9CGUZ+UpTZ+oWId/PFhC5/kQ/rPm9bF
+	 3g1RrwhtzKducPPrS01cz7j0iSginGFEQjWwlZS+bV1cMDm6faifA2eRMT17v4Qw+ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596439;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type;
-	bh=ngj4AIlH6GXFpZK68KhDSNsilmIQH6kAEjc2H/2wfBw=;
-	b=DacOm4wp0j/i9VIwUIgdbVxZYfoI1uuXumrU3y0h9tBK861C+he0OSymZ5ca0agxssAg
-	 cpJ9GmWGD5Tq7bKSmmg5SdpvZ018LtRE1CxvWnhYeBY9406+t/h4dPlNaucyFwZufEqQg
-	 5ozxLNsuZJx+/FgnzBzpVn3Jp9GDu+b3yj4ieEMLcHuDz8SIwForLiCczzBonlaz9IprU
-	 jMcrn751Uo4R2Ye6+Czzu3zuTDiUaakQIv9OKJAhQPkXWCTYSFrsbUT6iuyzFcdEw4r04
-	 Ns+YSOK75dsSuIvZTlBwAANBfC5jPTflzi+wIbptHwnhBYVU8EXXV5wC5kfdCSQmEoA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596453;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
+	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=g2VZTRXJhfP019ydeKL5YFHq+Ono4E72cezNWVIlDDs=;
+	b=oIIIgPk4EQlk74rD4rTwDbCciOKGtT974u2UEkcDqn/3JdfnYcG12QqCxAaP4DzjwdfO
+	 mPk5dkZJ6W8SMXEV6DOra9q3aCd5Jyuaf6ekCvDL+ujVTLs82ZThsLABpHSFTJ+q51u5m
+	 cm0rfiKa2RnxdOIo0CJ0GrT9Fg3/S8gkk8KoorDnjLi+0ctbbXVUIHZvsGGX1DNQpCEsK
+	 7bbGBFyIR3LNYTiW7HTuaJ7Lr0Q/G4MMjwAo2byInm2v2JwB6MV42rrHHzx2PcT5eqK3G
+	 5xQWZQMgXE4i5ytZH0bZ282w4Tkwgd7EjcXKiePTLScu0fAzjYjhoijVEH32IBzqWvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=M03wvwz0;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=linux-m68k.org;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=209.85.221.171
+Received: from mail-vk1-f171.google.com (mail-vk1-f171.google.com [209.85.221.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2BBD606A333;
-	Wed, 25 Nov 2026 08:47:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2BBD606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=M03wvwz0
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AP8l5NG13323410, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795596425; bh=ngj4AIlH6GXFpZK68KhDSNsilmIQH6kAEjc2H/2wfBw=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=M03wvwz0sezP2NdgcHJyGpptmAbOvAhmc8RfWQ6gGwyGKsE9DO1UwOu0qgElV3aaE
-	 II+pnwOL4OT+izNZkHpUqpN+2T6cUF16EPtg0xWav0Jd1HB7lxrEXZWE9WdaisOXLx
-	 ZL7UVtJsWFr+EZ6cbIPoTjiY5MPMqFxd8AjsQsMKy4rlrDZyEINw6N3GynJoaNtfFd
-	 q5NKw+UwW0NdbFTfPwsgV9JCO3PiZGSePsKJ/mY4mwPNReVOx4d75XyRHs2E8MBlNw
-	 27qCd3t5be7lu4HWOq/3frC+btO2cAtFy62Aoa2vFMu10F6rIJ+ou32DQf1M+wJzzW
-	 IyGPJ+6pxtu6Q==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AP8l5NG13323410
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 25 Nov 2026 16:47:05 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 25 Nov 2026 16:47:05 +0800
-Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 25 Nov 2026 16:47:05 +0800
-Received: from localhost.localhost (172.24.54.48) by
- RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server id
- 15.2.2562.56 via Frontend Transport; Wed, 25 Nov 2026 16:47:05 +0800
-From: Hilda Wu <hildawu@realtek.com>
-To: <marcel@holtmann.org>
-CC: <luiz.dentz@gmail.com>, <linux-bluetooth@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <alex_lu@realsil.com.cn>,
-	<jason_mao@realsil.com.cn>, <zoey_zhou@realsil.com.cn>,
-	<max.chou@realtek.com>, <kidman@realtek.com>, <arunr@valvesoftware.com>
-Subject: [PATCH v11 2/2] Bluetooth: btrtl: Add the support for RTL8922D
-Date: Wed, 25 Nov 2026 16:47:03 +0800
-Message-ID: <20261125084703.1578601-3-hildawu@realtek.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261125084703.1578601-1-hildawu@realtek.com>
-References: <20261125084703.1578601-1-hildawu@realtek.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11F40606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:47:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11F40606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-5ea969fafeeso1888074e0c.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:47:32 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795596452; x=1796201252;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=g2VZTRXJhfP019ydeKL5YFHq+Ono4E72cezNWVIlDDs=;
+        b=sEPd4AftXLZgn28r3ktNXYckLhuaGS3sP5PyE5p465EJLE0SdLL40DEB+GgZfGe8F2
+         SsfNgovDP7soIo8RMoprdjuc5i43axR1epP4aIVPsJRHOToijHpjl95AZPlXvrsbv+10
+         +LX5lgJd9v8QceAANhTHe7fBmHx00vsJ6OJAV7yhPaZkADE/IU6cbdhsZE2CSBb0QTzi
+         15GwUqPNMJA0Nij4e7PIAVi9VqLAJUlw1WpPS3Z8FANRcnLmWewpzyor3k8nn7Kk+YSz
+         nctd6D1WlJCrkZitpbYTBk1F9ga20uWSXXw7dEVWfPgyUZ8eDqjB6bpgxXrjG9JaTLpQ
+         aJiA==
+X-Forwarded-Encrypted: i=1; AL+hErHGoHX9SgIGFfJVw2hqNS/Ov4zyARWne+6tn+LoJiPkkZ9gik8r+/ZRhfMdikpQm9Qp/n6Xz22T4zNTLz0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/s3pvbcdrHeKJ34rewz2CXMa2C+Kxv4c+q+4v4feUnPqXmeH0t
+	/gfFMCVZSUx5SGe4Icpf5AFZ/DcGDNntEmRRHP0bCBBV3/X34rBtzQ+b0VLSn5EE
+X-Gm-Gg: AZFdTZdzsnY1fpuaRuLesZEAHD/s8/Jlz09dMqkehKmh9necKDwrmx2LKzHHHhBYhjv
+	ytXkdZoBDLfeFfAFFZVwliy+ABH1dRJ2xCb5BeqEYR5plRb8n98Q8cBa2UBqgM2jVikbMrWfTtD
+	IMDRN9iLNKR53zQUlDjxG7RUegrMJ6y5n8KB+uIr2iKgHYDbeYl6RVoKxyJwy/qj9nau89DoXzK
+	2fZnodF882pH+77XRb9wHpUziqP5sJ0Vi8yZZPlf2SrrJuaJ3AfZcLxiPKVXjRzD2FMyeAyKdCj
+	B/gPWHvS2sKulA3yc2GT3qQTkVVOGcY5L/stlXLXheyQTiMZMIakSICG5nX8pwUGhbn2PMkmEgM
+	W7HjyP1bVYcou/bM7bsDVAx5Rab7lzW4QGZyVZlvzP26Y9+Q7tv+l/ZGqoOsCOUeZ13FtVHTMqR
+	ZtBX2KGQL67fF3DVG4R5vJej7GXv1XKMOT/ENxVfdcZeGPzIEzkyzbRXFW2xVLwXAUf9JXeJH2q
+	H/W1K0XW/wve1IaGJsk09ikudwY6Eih+jWoK32C7/fcEYWm2wGagaNbseD5gW/VuOIWIkRAOxKw
+	2mhOJ8KZnTEIn5rYmtPXSEaAHqc63yhluHBCB/4MBr3kUlDF8921k95rmrj1cjFjiHPj/poOf6g
+	RXcgt1FMg8KPz
+X-Received: by 2002:a05:6122:1d8e:b0:5ea:e7aa:acb9 with SMTP id 71dfb90a1353d-5ee8aeaa9aamr8773439e0c.6.1795596451949;
+        Wed, 25 Nov 2026 00:47:31 -0800 (PST)
+Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com. [209.85.217.51])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ee8b555147sm16451553e0c.6.2026.11.25.00.47.30
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 00:47:31 -0800 (PST)
+Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-7d88baba78dso1410583137.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:47:30 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFwWAeGDTjYNryQ1YodJVjpUaKJCE9RMYnKC7+527+X8sUrMivva9dWKyr2Rgn6FaXzEQNKa03acSlcwpc=@vger.kernel.org
+X-Received: by 2002:a05:6102:cd3:b0:7cc:56a:58da with SMTP id
+ ada2fe7eead31-7d7395d630fmr7124513137.23.1795596450466; Wed, 25 Nov 2026
+ 00:47:30 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,140 +81,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+References: <20261103-prep-meta-fw-arch-independent-v4-0-513d1c51f458@imgtec.com>
+ <20261103-prep-meta-fw-arch-independent-v4-2-513d1c51f458@imgtec.com>
+In-Reply-To: <20261103-prep-meta-fw-arch-independent-v4-2-513d1c51f458@imgtec.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 25 Nov 2026 09:47:19 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVqGEZckVZMnmKfwpJZ-sT6Jisj7JkL31uS0S_XABCbGg@mail.gmail.com>
+X-Gm-Features: Aa3M54oYWwJ4QX4LtZBAQOtixmcWW5HWWBj8NKw1oLcuyKzIqPAFolEjnn9UcmQ
+Message-ID: <CAMuHMdVqGEZckVZMnmKfwpJZ-sT6Jisj7JkL31uS0S_XABCbGg@mail.gmail.com>
+Subject: Re: [PATCH v4 2/5] drm/imagination: Limit access to the RISC-V
+ firmware interface
+To: Alexandru Dadu <alexandru.dadu@imgtec.com>
+Cc: Alessio Belle <alessio.belle@imgtec.com>, 
+	Luigi Santivetti <luigi.santivetti@imgtec.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, imagination@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Add the support for RTL8922D BT controller on USB interface.
-The necessary firmware will be submitted to linux-firmware project.
+Hi Alexandru,
 
-The device info from /sys/kernel/debug/usb/devices as below.
+On Tue, 3 Nov 2026 at 10:01, Alexandru Dadu <alexandru.dadu@imgtec.com> wrote:
+> From: Alessio Belle <alessio.belle@imgtec.com>
+>
+> - Rename the RISC-V firmware processor header adding an "internal"
+>   suffix.
+> - Add guard to the RISC-V firmware processor header to prevent
+>   accidental inclusion outside of the RISC-V firmware specific logic.
+>
+> Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
+> Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
 
-T:  Bus=01 Lev=01 Prnt=01 Port=03 Cnt=01 Dev#=  2 Spd=480  MxCh= 0
-D:  Ver= 2.00 Cls=ef(misc ) Sub=02 Prot=01 MxPS=64 #Cfgs=  1
-P:  Vendor=0bda ProdID=a82d Rev= 0.00
-S:  Manufacturer=Realtek
-S:  Product=802.11be WLAN NIC
-S:  SerialNumber=00e04c000001
-C:* #Ifs= 4 Cfg#= 1 Atr=e0 MxPwr=500mA
-A:  FirstIf#= 0 IfCount= 2 Cls=e0(wlcon) Sub=01 Prot=01
-I:* If#= 0 Alt= 0 #EPs= 3 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=81(I) Atr=03(Int.) MxPS=  64 Ivl=125us
-E:  Ad=02(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=82(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-I:* If#= 1 Alt= 0 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=03(O) Atr=01(Isoc) MxPS=   0 Ivl=1ms
-E:  Ad=83(I) Atr=01(Isoc) MxPS=   0 Ivl=1ms
-I:  If#= 1 Alt= 1 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=03(O) Atr=01(Isoc) MxPS=   9 Ivl=1ms
-E:  Ad=83(I) Atr=01(Isoc) MxPS=   9 Ivl=1ms
-I:  If#= 1 Alt= 2 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  17 Ivl=1ms
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  17 Ivl=1ms
-I:  If#= 1 Alt= 3 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  25 Ivl=1ms
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  25 Ivl=1ms
-I:  If#= 1 Alt= 4 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  33 Ivl=1ms
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  33 Ivl=1ms
-I:  If#= 1 Alt= 5 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  49 Ivl=1ms
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  49 Ivl=1ms
-I:  If#= 1 Alt= 6 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  63 Ivl=1ms
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  63 Ivl=1ms
-I:* If#= 2 Alt= 0 #EPs= 9 Cls=ff(vend.) Sub=ff Prot=ff Driver=(none)
-E:  Ad=84(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=05(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=06(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=07(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=88(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=09(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=0a(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=0b(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=0c(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-I:* If#= 3 Alt= 0 #EPs= 3 Cls=ff(vend.) Sub=ff Prot=ff Driver=(none)
-E:  Ad=8d(I) Atr=03(Int.) MxPS=  16 Ivl=125us
-E:  Ad=0e(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=8e(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
+Thanks for your patch, which is now commit 2f42457ad97a6d32
+("drm/imagination: Limit access to the RISC-V firmware interface")
+in drm-misc/for-linux-next.
 
-Signed-off-by: Zoey Zhou <zoey_zhou@realsil.com.cn>
-Signed-off-by: Hilda Wu <hildawu@realtek.com>
----
-V10 -> V11:
-- Read the 8922A key id register only on hci_rev 0xa, and fail setup
-  when the chip id cannot be read on 8922D (Sashiko)
----
- drivers/bluetooth/btrtl_main.c | 25 ++++++++++++++++++++++++-
- 1 file changed, 24 insertions(+), 1 deletion(-)
+> --- a/drivers/gpu/drm/imagination/pvr_fw_riscv.c
+> +++ b/drivers/gpu/drm/imagination/pvr_fw_riscv.c
+> @@ -7,7 +7,9 @@
+>  #include "pvr_fw_mips.h"
+>  #include "pvr_gem.h"
+>  #include "pvr_rogue_cr_defs.h"
+> -#include "pvr_rogue_riscv.h"
+> +#define PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
+> +#include "pvr_rogue_riscv_internal.h"
+> +#undef PVR_ROGUE_RISCV_INTERNAL_H_EXPLICIT_INCLUDE
 
-diff --git a/drivers/bluetooth/btrtl_main.c b/drivers/bluetooth/btrtl_main.c
-index 470032fae8a8..fa871c22e650 100644
---- a/drivers/bluetooth/btrtl_main.c
-+++ b/drivers/bluetooth/btrtl_main.c
-@@ -73,6 +73,7 @@ enum btrtl_chip_id {
- 	CHIP_ID_8922A = 44,
- 	CHIP_ID_8852BT = 47,
- 	CHIP_ID_8761C = 51,
-+	CHIP_ID_8922D = 55,
- };
- 
- static const struct id_table ic_id_table[] = {
-@@ -310,6 +311,15 @@ static const struct id_table ic_id_table[] = {
- 	  .cfg_name = "rtl_bt/rtl8852btu_config",
- 	  .hw_info  = "rtl8852btu" },
- 
-+	/* 8922DU */
-+	{ IC_INFO(RTL_ROM_LMP_8922A, 0xd, 0xe, HCI_USB),
-+	  .config_needed = false,
-+	  .has_rom_version = true,
-+	  .has_msft_ext = true,
-+	  .fw_name  = "rtl_bt/rtl8922du_fw",
-+	  .cfg_name = "rtl_bt/rtl8922du_config",
-+	  .hw_info  = "rtl8922du" },
-+
- 	};
- 
- static const struct id_table *btrtl_match_ic(u16 lmp_subver, u16 hci_rev,
-@@ -1211,6 +1221,16 @@ struct btrtl_device_info *btrtl_initialize(struct hci_dev *hdev,
- 		return btrtl_dev;
- 	}
- 
-+	/* 8922D always reports its chip id; without it the key id and the
-+	 * v3 images cannot be selected.
-+	 */
-+	if (lmp_subver == RTL_ROM_LMP_8922A && hci_rev == 0x000d &&
-+	    !btrtl_dev->project_id) {
-+		rtl_dev_err(hdev, "failed to read chip id");
-+		ret = -EIO;
-+		goto err_free;
-+	}
-+
- 	if (btrtl_dev->ic_info->has_rom_version) {
- 		ret = rtl_read_rom_version(hdev, &btrtl_dev->rom_version);
- 		if (ret)
-@@ -1230,7 +1250,7 @@ struct btrtl_device_info *btrtl_initialize(struct hci_dev *hdev,
- 		if (ret < 0)
- 			goto err_free;
- 		key_id = reg_val[0];
--	} else if (lmp_subver == RTL_ROM_LMP_8922A ||
-+	} else if ((lmp_subver == RTL_ROM_LMP_8922A && hci_rev == 0x000a) ||
- 		   (lmp_subver == RTL_ROM_LMP_8852A && hci_rev == 0x000b)) {
- 		ret = btrtl_vendor_read_reg16(hdev, RTL_SEC_PROJ_V2, reg_val);
- 		if (ret < 0)
-@@ -1367,6 +1387,7 @@ void btrtl_set_quirks(struct hci_dev *hdev, struct btrtl_device_info *btrtl_dev)
- 	case CHIP_ID_8922A:
- 	case CHIP_ID_8852BT:
- 	case CHIP_ID_8761C:
-+	case CHIP_ID_8922D:
- 		hci_set_quirk(hdev, HCI_QUIRK_WIDEBAND_SPEECH_SUPPORTED);
- 
- 		/* RTL8852C needs to transmit mSBC data continuously without
-@@ -1643,3 +1664,5 @@ MODULE_FIRMWARE("rtl_bt/rtl8852cu_fw_v2.bin");
- MODULE_FIRMWARE("rtl_bt/rtl8852cu_config.bin");
- MODULE_FIRMWARE("rtl_bt/rtl8922au_fw.bin");
- MODULE_FIRMWARE("rtl_bt/rtl8922au_config.bin");
-+MODULE_FIRMWARE("rtl_bt/rtl8922du_fw.bin");
-+MODULE_FIRMWARE("rtl_bt/rtl8922du_config.bin");
+Really? IMHO that is very ugly.
+
+>  #include "pvr_vm.h"
+>
+>  #include <linux/compiler.h>
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-2.34.1
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
