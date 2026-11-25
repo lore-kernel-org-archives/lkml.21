@@ -1,110 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.10
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795607356;
-	b=2440QAHLkhHX/1akUVxz0UO4uNwOribnOuzmc/Rj5hqmqTRTxndLl8ZA/JFmIbFbEXRI
-	 6QTRIZGdIIfIQOkdLEbykLBS+lNzXeUz7NypCkykdw6a8rzgApS6Gw1udXgJ1BLT+ZO+g
-	 5d2wvnZo0r6/Faf1lWyF1F+cYEwTgdxJJVXAsr6rU52HVkLltwuYgc5dL7UY09Ddjxk0E
-	 az/gzgI9sCSPKhIas+FNrxx2qrxgFYE0iSdiVMBz/lSupkr4uOwn+y3EozWBqwZcS9nGJ
-	 pmxjNfh4SZikefnVhYQHvWZmgyfpbsn1+9s9L5RV+hu+a4YCi9VWsRCXtsr0A6NROWw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795607356;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=dxctmJflRuL9zAMiAR3q+0VjVS8neVLlMXccxHlJrzs=;
-	b=bQucLUjagdKcAogmZTBTjLlk7twNDoMIOZIGUj1uElk+I54KNsMaU/+2+BGMn8QlUD5N
-	 ADf7Gq+wWaK5yjf/fN9obaszEhjpvK77wmI4E1Z8NMtyV4QO9fkAbi6iQj01Je4VQhk7u
-	 jNKCME3Pq+rheAKpco1Aj9dLCT75rliEWmi4Yeuma+AFJH2puMLDQtAiyu34yhuFssQKt
-	 DkfHbsKNhGmJLbzzOVp5UEMTIa8W2y/0e3mnHmk0TJuiuDAwyb3lIPV5wFccMXFljtOb8
-	 NNp64kQ755xDlC0aQPZKw2Moqa7dKznQhBUb0WLutmfHTTCpcbIThv5uYdFMeYZis1g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="wb0d/hd+";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.10
-Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012010.outbound.protection.outlook.com [52.101.53.10])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.207.212.86
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795607378;
+	b=UKVN+VkvkxqsMv7mB/87vKWvZgVcths23PPiUaQLSU76PxnRwxIuHPX2CwsEdbeSplTm
+	 zebYGpjG5m4HehlOUEIA5AC2gzAGjOZ0s7r0SwLnl01Jm8CYRno+MhyXCjyGcLZBlTqBb
+	 ECvy8gIKWlDmenOES4m6voYYCZAGRchh5g+ocjAqzcG5z5iV1vYOpBIj5QtUxmjarXk+P
+	 8nMJ7b2yBt8yxUaBOgybTAKFpo5NZ2Gmr13/qeobaS/up1cjh9XFm/huIW69hbgzLJz1a
+	 SwVP+C1pVHA+8CtbFgGLsTuJxCoqK4xeQ1F6CkRn1Hxd/ZHVXN7fo8hanybpRYYXYww==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795607378;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-ID:References:In-Reply-To:To:CC:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Originating-IP:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID;
+	bh=ce5JvCWjxkbLgLwIua+N1v3pyOdandUPeaQMGVLon3o=;
+	b=viqWXyVS7KCgVSL7c2uLrNHo7Fj8RdfxM2QEsimjZ5FgGferTxwsvyHqxASOYQCQ7Zop
+	 VkH7ur+QnX3VeIQn/sQi/OqpJAkYWpq7JgG9qWXppSc+ApcfJU1QCi63WAYzDdViY/CR7
+	 d/iH7tii5RRQCu/B22q2HRSSmW0yZSqA+OOZ3E+TvEPuBok8tbfMsiE7zu7gyopKHjj0v
+	 cjvdE9dFLuAurcUVHxLb3+1i6AAYCtinSa0PSl94KQyfBKuPadHVhS4x48kEcDgv+I2nB
+	 5srqMczBweTcTKpZwR1t31EFRIimGbe6T1Fqvr6iq9blnRH14HMOUXrDo8UTZ2yJ0bA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=imgtec.com;
+	spf=pass smtp.mailfrom=imgtec.com;
+	dkim=pass header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=kbC85YzK;
+	arc=none smtp.remote-ip=91.207.212.86
+Received: from mx08-00376f01.pphosted.com (mx08-00376f01.pphosted.com [91.207.212.86])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F07D606A680;
-	Wed, 25 Nov 2026 11:49:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F07D606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0D32606A692;
+	Wed, 25 Nov 2026 11:49:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0D32606A692
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=imgtec.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=imgtec.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=wb0d/hd+
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=d+PCgK/LJkXOiHwR8v6efZEpM8UiAO9kuyr0pMXidwGRtviZIytxf9nZr/omPr5eMjtd7dvIuotoaEMD7nvOIhiHOpMueZvXIsVq/IU6r0PU9t7zwfIwgkSYNdh2Y6lycPVY2V8/g6NlfHH2sElPSDDohdlMqiPVLSEQnf+qJSYF676+7R6XLsvdm5W6bwA23RTJBy3tp0lhhdH4taWzltY95evLJVPTcC+zRWzr9O+BuP9XCWopkYJbc2nmdrPnOZYy1a/la7hdntUcGiip89NHJUsMerVZfbu8k3BH8W5iH4qDriAUlafPxzKIDGcSERWW1GcqZuakifAUCVNmSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dxctmJflRuL9zAMiAR3q+0VjVS8neVLlMXccxHlJrzs=;
- b=qNzqsoiyTvc6ls06ynva0NE0sU6Bb7gJD6LIznoCQnPesOlVTk2oKucEBMt0ZVXz8E9lh2grXZO5aS++E1UK4nwj9l02jhb7h/GdHilPfzCSgVJrdGdfwZNqmhFe94ELLRrTLwtW6+DCa9jPQBMD8LUe1q2pt+6UBasgS9fYAMhr4sKOQiHjWtXPTG3yIXbidWc9ZnNDKgARkj4F48248KfwgjPi550vpbyrocY1c1y6Bs1yUgTy/l0fOHVGfH3QIPEIoZGifZKes7D5V9k4vcLzYaldEJOJJ6LudaESwVjHQ03t5MVqiK8PTzaDvuNLuvAdOyCLLR6mxiz262WUQQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dxctmJflRuL9zAMiAR3q+0VjVS8neVLlMXccxHlJrzs=;
- b=wb0d/hd+TnEGmvr7qh+EPcYOpCEzk45slXd07jR0W6uxcepRcSL8e1wQg5ecQqp7lkWkTB/G7PVp3SoE6d/MkVoRwKKaUoSATpHhIzvUvHXlgpIabklaFsk3Q1kvLGLlnJhN1NjSNROs5VaAU5FVeSl5S19RTJGMgjjHvhdPoqo=
-Received: from BN0PR04CA0053.namprd04.prod.outlook.com (2603:10b6:408:e8::28)
- by DS6PR12MB349270.namprd12.prod.outlook.com (2603:10b6:8:52b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Wed, 25 Nov
- 2026 11:49:12 +0000
-Received: from BL2PEPF000352CB.namprd02.prod.outlook.com
- (2603:10b6:408:e8:cafe::41) by BN0PR04CA0053.outlook.office365.com
- (2603:10b6:408:e8::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Wed, 25
- Nov 2026 11:49:11 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BL2PEPF000352CB.mail.protection.outlook.com (10.167.249.133) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 11:49:11 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 25 Nov
- 2026 05:49:07 -0600
-Received: from xhdrdevl202.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Wed, 25 Nov 2026 05:49:04 -0600
-From: Dhanunjanrao Katta <katta.dhanunjanrao@amd.com>
-To: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Michal Simek
-	<michal.simek@amd.com>
-CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<naveen.gaddipati@amd.com>, Dhanunjanrao Katta <katta.dhanunjanrao@amd.com>
-Subject: [PATCH 4/4] ASoC: xlnx: formatter: advertise up to eight channels
-Date: Wed, 25 Nov 2026 17:18:39 +0530
-Message-ID: <20261125114839.3642735-5-katta.dhanunjanrao@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261125114839.3642735-1-katta.dhanunjanrao@amd.com>
-References: <20261125114839.3642735-1-katta.dhanunjanrao@amd.com>
+	dkim=pass (2048-bit key) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=kbC85YzK
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.12/8.18.1.12) with ESMTP id 6AP79Js51860080;
+	Wed, 25 Nov 2026 11:48:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=c
+	e5JvCWjxkbLgLwIua+N1v3pyOdandUPeaQMGVLon3o=; b=kbC85YzKOQxmNyzWj
+	s/Uhoeq9zF5k5wIaLt/ppbiuP1sl6lLeF/YDkPOXZRRPjP1itopWWahDJztxwkMH
+	I59ToNLnpeND95Qsa0IddolBiDpI7LjvkUmSCo2qTdZdjKkSdDApdhDxV6Vi9ltY
+	WYQsQro1gzBIXLgeoMWQ6YPmCJ9bgQDJ1tM5tqisW7xIwaOBSgu5P6boUw3vjuEE
+	kIfuP2+ej9wYL+lqMzv+jP/6dBgHbKFUSLH1LAC1ldfF+RsLjV+TLCoK8KlGqX/1
+	DlMGfLklYddB4G6/02doCYu5IxxM1n6C5WhK5LEYUJ4ZennYXByPBZBPZ0ZAxmKH
+	ZsyuQ==
+Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 4j32ev31p4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT key_exchange=secp384r1);
+	Wed, 25 Nov 2026 11:48:57 +0000 (GMT)
+Received: from [127.0.1.1] (172.25.10.203) by HHMAIL01.hh.imgtec.org
+ (10.100.10.19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Wed, 25 Nov
+ 2026 11:48:55 +0000
+From: Alexandru Dadu <alexandru.dadu@imgtec.com>
+Date: Wed, 25 Nov 2026 13:48:29 +0200
+Subject: [PATCH 1/6] drm/imagination: Remove get_fw_obj_gpu_addr()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,62 +69,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL2PEPF000352CB:EE_|DS6PR12MB349270:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6cfa01d7-da23-4f94-0e38-08df4aea1f68
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|1800799024|7416014|376014|23010399003|36860700016|6133799003|261009223027099003|18002099003|22082099003|56012099006|11063799006|261028144727099003|261102123227099003|261021121427099003|261022075727099003|261022105027099003|261026140227099003|261021123027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	5nJMA/n18zvORyrKuSxivzH2ACDoo53iPQAepAseh2vunheBosC3ABoA0P9Bp7kiA45reOO5ALLCTQGosCQRB9PwNi7PMHVhY5avsKuYkyx2TXiWJhYf0UoZUF88l4VpXktcWFJKwijtPGoR+zrHdUkQhVRlp28sP6Dy9VD+ufw8EL2dDUUpXJtBemnJYd+kYfwy+vI2O5kvXkyKAav8Fidb2W3U9wSPo5Ht3F3srBLH25P6xJzjAFTTjQHOmQ/pynjdPO2P0bGn8pTACkCJUptX1oTPTORlci+ZbnqfmF33NRwdm9WJVkAr1Mv7lm2G6UXyFO0/kMrjzOoxd4OI8uG0XXlEdgJVaqZxdzXzPCxSXC+NBShvq5gvlODDtGPYJ12LRL1JwTFTWBE37oBtzqFiP/1Ror0/Dp24JdcgsuI7RHKTFPJwB0tM3T8QEEOZLq/Wr/m6rcjn3a/v9XfbTF/yKd9B2enCKuXm7qXtzrhT9HmJAKoIepI7RW5Xe2Hxt5q8WLDWn3iqwzfIRKvwG/aBEqAdLm2maWDWYtfhs+vq6ciDlGH8hG9pGyuUfsknjlFlPXlug1n3xa/0650KPj+y2sgkuy/QhzuavX02R2K4MxnUGNE5AndR66YETNH2Dhlq4FvDq7iQU6nrIZhSLuH+0DNym2HN2AIdejpH3V+PIW/miB75uk7VKIqTQV5i
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(376014)(23010399003)(36860700016)(6133799003)(261009223027099003)(18002099003)(22082099003)(56012099006)(11063799006)(261028144727099003)(261102123227099003)(261021121427099003)(261022075727099003)(261022105027099003)(261026140227099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	agENXkjJci49Z/uasldl6sz9yODvfBbr32FaUXQc+0Jg3Fs7R5U2sgM/fQxg3kVoQOtW4+6IV+61hvkxqupzePA/UkJ7Bb5Wjzto6aFHqJlSgOvtwlUNvWGFqg8OyTXScLjbkFq4NLKCnCH0IpbBQ1VF68GWpsNC0+lGMZKwlbsDqsAPdVU3h7tEkSspPjRYREjGpKsFafW8YOWzDNRtN2NqfxeSuODGwhY5IifRzqCI2rInA+uxsq6tOGk9KuQTUHrhMwwy4dPL7X50FgrdmxCQxCyWpuEe6CYNUs8U4SDpjertIsz5k+UKPF69CsheZJjZnLGz5U5R7NOc+c/O4bV0Ff7HejttbS/oxs+4GwPimKcK69nufhi0odLC1mvq51zgPpzxufF7Kh2uyP4bxfp0NVT+bdmafV3pxWHJ6B9hdDvCaCEVKu4IAB2KXq41
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 11:49:11.9264
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6cfa01d7-da23-4f94-0e38-08df4aea1f68
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BL2PEPF000352CB.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS6PR12MB349270
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261125-b4-commonize-fw-segment-loading-v1-1-69657fa52ac3@imgtec.com>
+References: <20261125-b4-commonize-fw-segment-loading-v1-0-69657fa52ac3@imgtec.com>
+In-Reply-To: <20261125-b4-commonize-fw-segment-loading-v1-0-69657fa52ac3@imgtec.com>
+To: Alessio Belle <alessio.belle@imgtec.com>,
+        Luigi Santivetti
+	<luigi.santivetti@imgtec.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Paul Walmsley <pjw@kernel.org>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>,
+        Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva"
+	<gustavoars@kernel.org>
+CC: <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-hardening@vger.kernel.org>,
+        Alexandru Dadu
+	<alexandru.dadu@imgtec.com>,
+        Matt Coster <opensource@mtcoster.net>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795607333; l=1492;
+ i=alexandru.dadu@imgtec.com; s=20260304; h=from:subject:message-id;
+ bh=8iH000nnA3gLzcQQjDaJ6UCxN6ehPOwjRAQyE4EjKEM=;
+ b=mN7vFwAc21jQWae0s5+z1O4jGGuMlVKt5NwFqkeK9ZHApPa9JFMMcAKeePTGRH5u/R5wRwEYK
+ TQ+n+so7yXwD3YNMEkw8ngStgPlwfWIdzHUJWujgZfiapBQ/620s8Ch
+X-Developer-Key: i=alexandru.dadu@imgtec.com; a=ed25519;
+ pk=FU07SyNrYGwhahqSxbWEuzyXlUh47xBXvLvOR7UA6+U=
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA0NiBTYWx0ZWRfX54cMBOOVrI8e
+ w1CJj87benYV9u8dXO1NZ1mdTtZT3mVbGbXlld6hHny7LsBY+BokGuT0Rt8McPyMOK0221myw2f
+ acHza4qNABulS2hVRHKhxLd+KFiO9Bw=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA0NiBTYWx0ZWRfX3Rceip49RCjb
+ S6ZTVZDGOHWy62jX/FqCY6qxdJPv5RHcJQgTPHo4svOcVRfHWg81kWwyBVMQN0fkRv4kYgkUII1
+ t8Zle5pld0TxZrCDeBAM2jfptk2GEGqcEj+QuN64HjlmWTZdKGF6cTDLDfaejKkxx/85ifaOMDe
+ z1CYrcQ0u2Qj0b2mInP77NhEFb2wor7pNI9WRssrv2whk+vFR8x/SVYpMa0nyqy1RB1sCrwNQId
+ TOyvFS2H2KiCUSnAOhTMmOA7fVbYS3WDXUin7pz9VEuJa/+vH9hRJLEcgUX6yKxwDbVFyRSs+ck
+ oBf/MGaLxw0svgbd5IIbVWzqXOHDA7gvmHJj9adH0lDGWpAN5aOsjMdJPniWU/Oykoyrvoj62+2
+ vuSdfXl7xbyiYvCMRV/Z1mHmx2b0E2qAInQSbSli/bLJtzGghe84UE9FE5Hpkl2+gEjRgaSVjvF
+ VfvUV2MsM5r01DpbyHQ==
+X-Authority-Analysis: v=2.4 cv=T7AZ3PKQ c=1 sm=1 tr=0 ts=6b06cb2a cx=c_pps
+ a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
+ a=4EFqt8Tv61wA:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=qZQ2PDNLMSdLoqI-hfl9:22
+ a=r_1tXGB3AAAA:8 a=IP9JAmHCEJnWvg-4tKgA:9 a=QEXdDO2ut3YA:10
+ a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: e7lErjGrTsDUT1TlRKWJoI0uaFBTMbd6
+X-Proofpoint-ORIG-GUID: e7lErjGrTsDUT1TlRKWJoI0uaFBTMbd6
 
-channels_max is two, so a design synthesised for more than a stereo
-stream cannot be used for all of its channels.
+From: Matt Coster <matt.coster@imgtec.com>
 
-The active channel field in the control register is four bits wide,
-and hw_params already rejects a request above the channel count it
-reads out of the core configuration register. The advertised maximum
-only has to cover the widest configuration, so raise it to eight. A
-two channel design still refuses more than two.
+This is just a duplicate of pvr_fw_obj_get_gpu_addr(); use that instead.
 
-Signed-off-by: Dhanunjanrao Katta <katta.dhanunjanrao@amd.com>
+Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+Signed-off-by: Alexandru Dadu <alexandru.dadu@imgtec.com>
 ---
- sound/soc/xilinx/xlnx_formatter_pcm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/imagination/pvr_fw_meta.c | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
 
-diff --git a/sound/soc/xilinx/xlnx_formatter_pcm.c b/sound/soc/xilinx/xlnx_formatter_pcm.c
-index 57901c9466a0..d64b27a84177 100644
---- a/sound/soc/xilinx/xlnx_formatter_pcm.c
-+++ b/sound/soc/xilinx/xlnx_formatter_pcm.c
-@@ -109,7 +109,7 @@ static const struct snd_pcm_hardware xlnx_pcm_hardware = {
- 	.formats = SNDRV_PCM_FMTBIT_S8 | SNDRV_PCM_FMTBIT_S16_LE |
- 		   SNDRV_PCM_FMTBIT_S24_LE,
- 	.channels_min = 2,
--	.channels_max = 2,
-+	.channels_max = 8,
- 	.rates = SNDRV_PCM_RATE_8000_192000,
- 	.rate_min = 8000,
- 	.rate_max = 192000,
+diff --git a/drivers/gpu/drm/imagination/pvr_fw_meta.c b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+index 38a91dcb66cb..74a0e4d255c3 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw_meta.c
++++ b/drivers/gpu/drm/imagination/pvr_fw_meta.c
+@@ -357,14 +357,6 @@ configure_seg_id(u64 seg_out_addr, u32 seg_base, u32 seg_limit, u32 seg_id,
+ 	*boot_conf_ptr = boot_conf;
+ }
+ 
+-static u64 get_fw_obj_gpu_addr(struct pvr_fw_object *fw_obj)
+-{
+-	struct pvr_device *pvr_dev = to_pvr_device(gem_from_pvr_gem(fw_obj->gem)->dev);
+-	struct pvr_fw_device *fw_dev = &pvr_dev->fw_dev;
+-
+-	return fw_obj->fw_addr_offset + fw_dev->fw_heap_info.gpu_addr;
+-}
+-
+ static void
+ configure_seg_mmu(struct pvr_device *pvr_dev, u32 **boot_conf_ptr)
+ {
+@@ -384,7 +376,7 @@ configure_seg_mmu(struct pvr_device *pvr_dev, u32 **boot_conf_ptr)
+ 		 */
+ 		if (layout_entries[i].type == FW_DATA) {
+ 			u32 seg_id = ROGUE_FW_SEGMMU_DATA_ID;
+-			u64 seg_out_addr = get_fw_obj_gpu_addr(pvr_dev->fw_dev.mem.data_obj);
++			u64 seg_out_addr = pvr_fw_obj_get_gpu_addr(pvr_dev->fw_dev.mem.data_obj);
+ 
+ 			seg_out_addr += layout_entries[i].alloc_offset;
+ 			seg_out_addr |= seg_out_addr_top;
+
 -- 
-2.34.1
+2.43.0
 
