@@ -1,74 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795630726;
-	b=O3OX0zxw0etKjASgvVx/8dK2p0eWlv1Vs2Ux5ZyZWSqCHjYjg2wzngixFpKwuTJWhfBy
-	 y3if3BnlSrqFuJ9WX2sVolZmY2VQPAQZDZaSU9xHrIYxtFAMji1TYfBZ2B2cPmdCCCvLY
-	 a0oDSLfWsKRhoGEBQdXc7bZq40h2R76uQ8YHO7n89Gs/itzqkEoqGqjtGxCqapD2u0zzQ
-	 ybRR0wsYeL1r379vLnOrFawA2sF3DFIV0MK0jc8tU6yxXS1z3tJlzgaWJDb1tRMyrxLhc
-	 bmrpoR+CFdR05BaKpO6KpMg7llNOgpYmw9oukx3dhDnoh0j5PMtkoa6RiWSXqCLfOJg==
+	t=1795630824;
+	b=Rf12XQxmsilzoEfNvjQNTKxhNM1oMkmYiy98ky3PEvAmShxX4r1gTMoWMPEBuup5OF52
+	 CXTGiNMcUsElODPWmurs4tZUBS7wPon563DPEIRfRWZyE0KoUZ26vUaAsQ94iHH/bRrul
+	 J5paGfu9vTCvZzkzEy9kBqQpCe7o9ZpWKsJ+tEHMqmnB3BvfopefHiWZqmDvzBLsb+DH+
+	 wJDKZ+OtQkTIj+dTf86z5uPBC19KXQ4yoiCade2tAljKP8LKHlsYUm6txQcv/kTtY7mZj
+	 HY9yVfKG3+VJLg1xLyYh3TzAttO7WwNb1CPFAAMLzPaKG9aipOvgKESApwuGWf+ZNkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630726;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
-	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
-	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=x3WSnsP5AxDRxKwOCfFO0nP9LreEdCm3GuzfAMzwUNw=;
-	b=uMtjbXI5WuQY50iRgJ9C/f/eFDzXWascF1+vtoCojIUGvphhCDoaazv2GX11TBjgts93
-	 7v28S8fsTfXtAcYC7TXPI9NHk19hlW8mzTQNwF5a8Rwb+zyo40Npuav2WI3AhWkUYf19p
-	 iQByc3PdV49Je9W9gpWwuMCAZGSvq4WchlMDkUsxo4LILEFGnjSD2WzonpNIh33AJBIc8
-	 Z86JuZjQm9arJbNBECRdzJ5W2AihRBJgc+K2eLiv53bmhYAltPAKxKMWI8oraOz48h/UU
-	 v89mxFbnDpjkCDThvQhnRgvQrKt/q5sq9HQMBctIs/wNhrHn1rfZ1fh6yj+KuilU+UA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630824;
+	h=Received:DKIM-Signature:Received:Message-ID:User-Agent:Date:From:To:
+	 Cc:Subject:References:MIME-Version:Content-Type;
+	bh=BObnfMahGVcWak3SBR30KELL9gKjExrcR+q1nb84qH8=;
+	b=g/pP06gxAl9pgX2HLkBmRRynXuraqRdoo62rk7SEnnQurHFUvWDRpnAqjUGU2N42sDsu
+	 VZ18spBvDTuZFpDfudtkHIuJlLsjELrDqy+Bd2FbCRQdBc86OdO5+wgLKXslBc9w86k3D
+	 aIY9fbq9IFrh6mgUPwLrwM3nif84err5IALz7VkvFUlXuHYqr6fi0VElyksFHAhTVH8pp
+	 ysnCXnnhCuF5ij4SiUnpuWEt8gEuA1Y4W3ZyZX89601IQd6vItN2YG4iXImAUpZNcuZH+
+	 lJhKaYEoFNqy2mP0WpZdsZ52YbkLinvmD+DD35qqlF8zAKRJ1XjXiv8kj5Wsc1NbGSw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=JV9dzOBl;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="xX/Zq85I";
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MfW8EmZr;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13C6B606A6A6
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:18:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13C6B606A6A6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E153606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:20:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=JV9dzOBl;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=xX/Zq85I
-Date: Wed, 25 Nov 2026 18:18:42 -0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795630724;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=x3WSnsP5AxDRxKwOCfFO0nP9LreEdCm3GuzfAMzwUNw=;
-	b=JV9dzOBlUX/sDyRUkT+3ZuZUcWemOfRf3nD/mRkLvCSTfOlTMVzaJLbueg+Uxy8dDNZcS/
-	aaY54E6e66kN/hh57Ke2VTUPxgoNrergUT3V74tDxqMIOAxF5h2uCKmYX3Q6gOcg/Gmii3
-	HDJ9Tw9sLXTiOW3nzgiBjxv69C6YW0M3gjjRFrKfiTBmp/ZPQZd7tl78hJBttOaJMRf517
-	cR2+9YolUQXbmUt4a/QKbWnm/FGiD+A/sKAR/JDZY5j4quSE4pSf7Jty4cDr5NdqYRxPBW
-	/0FKF855VVEF+FGmPCB77hQBcECm5dcF2V3vPLREvL4VFUlXc0icmesx8ERL5g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795630724;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=x3WSnsP5AxDRxKwOCfFO0nP9LreEdCm3GuzfAMzwUNw=;
-	b=xX/Zq85IpAlSEEZpSooQyjtNej5tgk7G8KO/WzwGEJfqPA5aO/WOz6DJbVKh6BHlo+TXlP
-	kLKxrwF1LeF09VDQ==
-From: "clocksource-bot for Zhiqi Zhang" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MfW8EmZr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06DD01F000CA;
+	Wed, 25 Nov 2026 18:20:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795630824;
+	bh=BObnfMahGVcWak3SBR30KELL9gKjExrcR+q1nb84qH8=;
+	h=Date:From:To:Cc:Subject:References;
+	b=MfW8EmZr1ITTj1w2HCtI2OwdZzTHKTtCiEMR2kGo18e4LMVQLxgayJmHPtfYit0yJ
+	 hD+/7FqaJdI661WsJ1wAqdUiBhG3CITDKu57Owe6ktO0HK6NyL1SoEbKzX15dokoKG
+	 qIrG4TQLHNMWwB/je7bRrlE0i8j6uV+UtnrSKqecKegQ3mU8PhgJYht3PjC7v84HnZ
+	 32n9nIou8T53iaE3AE+Y3xaiSudNWVYfDtrf9qb49nMJJL+csLf8BmMKJGezjmv6Ba
+	 qdjMw3btYrjWB16biK7adyhCb+CEK1V08lBm+OBne5XQy38XgcovlAglBs9KYL7PXb
+	 jpzIRclZZXi/w==
+Received: from rostedt by gandalf with local (Exim 4.100.1)
+	(envelope-from <rostedt@kernel.org>)
+	id 1xWHbT-00000007E6g-0bOz;
+	Wed, 25 Nov 2026 13:20:23 -0500
+Message-ID: <20261125182022.946937059@kernel.org>
+User-Agent: quilt/0.69
+Date: Wed, 25 Nov 2026 13:19:53 -0500
+From: Steven Rostedt <rostedt@kernel.org>
 To: linux-kernel@vger.kernel.org
-Subject: [clocksource: timers/drivers/next] clocksource/drivers/exynos_mct:
- Reject malformed local-timers property
-Cc: Zhiqi Zhang <zhiqizhangg@gmail.com>,
- Daniel Lezcano <daniel.lezcano@kernel.org>
-In-Reply-To: <20261125050323.83620-1-zhiqizhangg@gmail.com>
-References: <20261125050323.83620-1-zhiqizhangg@gmail.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ pengdonglin <pengdonglin@xiaomi.com>
+Subject: [for-next][PATCH 1/2] fgraph: Format error pointers as signed errno values
+References: <20261125181952.861853319@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,74 +64,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <179563072232.92412.14087876588230941825.tip-bot2@tip-bot2>
-Robot-ID: <tip-bot2@linutronix.de>
-Robot-Unsubscribe:
- Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
-Precedence: bulk
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-The following commit has been merged into the timers/drivers/next branch of c=
-locksource:
+From: pengdonglin <pengdonglin@xiaomi.com>
 
-Commit-ID:     745b13752d86ef3b86f40ed767b00504e1ce21c5
-Gitweb:        https://git.kernel.org/pub/scm/linux/kernel/git/daniel.lezcano=
-/linux.git//745b13752d86ef3b86f40ed767b00504e1ce21c5
-Author:        Zhiqi Zhang <zhiqizhangg@gmail.com>
-AuthorDate:    Wed, 25 Nov 2026 13:03:23 +08:00
-Committer:     Daniel Lezcano <daniel.lezcano@kernel.org>
-CommitterDate: Wed, 25 Nov 2026 17:42:14 +01:00
+The BTF-aware funcgraph-retval formatter currently treats all pointer
+returns as hexadecimal values. Error pointers returned with ERR_PTR()
+therefore appear as high unsigned addresses in smart mode, obscuring the
+underlying errno.
 
-clocksource/drivers/exynos_mct: Reject malformed local-timers property
+Recognize error-pointer values for pointer return types in
+btf_trim_retval() and select signed decimal formatting.
 
-The samsung,local-timers property is optional. When it is not present,
-mct_init_dt() should keep using the default local timer indices.
+Before:
+  trim_retval_ptr_error(); /* ret=0xffffffffffffffea */
 
-of_property_count_u32_elems() returns a negative error both when the
-property is absent and when it is present but malformed. The current
-code handles any negative value as if the property were absent, so a
-bad samsung,local-timers property is silently ignored instead of being
-rejected.
+After:
+  trim_retval_ptr_error(); /* ret=-22 */
 
-Check for the property first. If it is present, propagate the parser
-error or reject an empty array before programming the explicit local
-timer indices. This preserves the default path for device trees that
-omit the optional property.
+Users who need to inspect the raw encoded value can enable
+funcgraph-retval-hex, which produces:
 
-I found this issue and reviewed the code change that OpenAI Codex
-helped draft.
+  trim_retval_ptr_error(); /* ret=0xffffffffffffffea */
 
-Fixes: 47dbe4eb9822 ("clocksource/drivers/exynos_mct: Support local-timers pr=
-operty")
-Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
-Signed-off-by: Daniel Lezcano <daniel.lezcano@kernel.org>
-Link: https://patch.msgid.link/20261125050323.83620-1-zhiqizhangg@gmail.com
+Link: https://patch.msgid.link/20261020104710.2366146-1-dolinux.peng@gmail.com
+Signed-off-by: pengdonglin <pengdonglin@xiaomi.com>
+Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
 ---
- drivers/clocksource/exynos_mct.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ kernel/trace/trace_btf.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mc=
-t.c
-index da09f46..aee3d88 100644
---- a/drivers/clocksource/exynos_mct.c
-+++ b/drivers/clocksource/exynos_mct.c
-@@ -645,10 +645,13 @@ static int __init mct_init_dt(struct device_node *np, u=
-nsigned int int_type)
- 	int nr_local;
- 	int ret;
-=20
--	nr_local =3D of_property_count_u32_elems(np, "samsung,local-timers");
--	if (nr_local =3D=3D 0)
--		return -EINVAL;
--	if (nr_local > 0) {
-+	if (of_property_present(np, "samsung,local-timers")) {
-+		nr_local =3D of_property_count_u32_elems(np, "samsung,local-timers");
-+		if (nr_local < 0)
-+			return nr_local;
-+		if (!nr_local)
-+			return -EINVAL;
-+
- 		if (nr_local > ARRAY_SIZE(local_idx))
- 			return -EINVAL;
-=20
+diff --git a/kernel/trace/trace_btf.c b/kernel/trace/trace_btf.c
+index f0e0c04d58d9..301024d3f2e9 100644
+--- a/kernel/trace/trace_btf.c
++++ b/kernel/trace/trace_btf.c
+@@ -1,5 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include <linux/btf.h>
++#include <linux/err.h>
+ #include <linux/kernel.h>
+ #include <linux/slab.h>
+ #include <linux/kallsyms.h>
+@@ -214,6 +215,12 @@ void btf_trim_retval(unsigned long func, unsigned long *retval, bool *print_retv
+ 		if (signed_type && !hex)
+ 			*retval = sign_extend64(*retval, msb);
+ 		break;
++	case BTF_KIND_PTR:
++		if (!hex && IS_ERR_VALUE(*retval))
++			*fmt = RETVAL_FMT_DEC;
++		else
++			*fmt = RETVAL_FMT_HEX;
++		break;
+ 	default:
+ 		*fmt = RETVAL_FMT_HEX;
+ 		break;
+-- 
+2.53.0
