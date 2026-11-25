@@ -1,99 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=106.10.242.140
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625580;
-	b=DbkbNbIi9rG0igGqWZlbQ3Ua3niz1vteGhqxtQ7wHH2j+w7tQ5sHXl4q3FgrSGv8/5J5
-	 Wei+FIrmTqfb8QjrmXymFFDMEWjF5J4pWy1Rivdj6DqlaKAcT1cXhxl6SSXm+mJk35gmc
-	 2sJYC5Ukq4Q52EofKlWbRH1A/kfInjdDyBfhuHpUo9hFDF9Kr8s5fLEkvgthaxCledxUJ
-	 W3uGvHo9PXuDkUzMgAgeNVU4isq6IlnPybS/St9Nfq1efrn0HXmZ6lmfJ2RbGpbgdIohf
-	 zhAS7eDtdsSZYyJ6tvA7oJiUxlAwYfa7nb0qCyZBGzv0x6K38NhiIs6p4bJN9bblaiw==
+	t=1795625604;
+	b=BmIcg4tuiJ62GUlXQjlvDZQbEjI4M7b8/SSKMOMwIy4tiTXjhx+8DcyFjlGXijnqzogX
+	 /7yyrt7Yhh8mN8TOTvTWScnV9jFwFcWKV6tV0Yh5PqAG/VLlyOdeXwu1QvaQGR3L+yUDA
+	 eWml6S5F8cpY3c4jIb39+QZ2v9W+IbIXY+RhSF9i4XpG9YM5a575N+jCp8PMYgmBcnLoO
+	 sR8iv/IHOprAHjO7p0XZLYuoGUSd4TjF4HxvC/XB/3lNVq/VSdM/kaVOR5QAYo4u4Wx8T
+	 9NSix8lLNAAzz2DgI2GRnH2vwDtVt9zfnGnzfGOPjQV+az451/ofkpw81zCtW1+VPdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625580;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Oz7Jwrl1fyQvd1SM32ZV4uHhbma6E080yta+7JCPzik=;
-	b=goM9OV7eqiNDLJy61t/KrEVNq80+Rqj/6zTYnFtGNWeDrUlQfsubhS6Z9CzJXwwTs5uY
-	 pQ42g7GaVFn6GXV4+fRL8dcoJqHktlCjSBacoZQpFmCTk58PBvBEiuBc7ncEumal4+LkZ
-	 WiTohFhi481e4M2nKRSRfQVClCFTmQJutQfpoaXaAhTuuKMNK9mdn4k0HOsxyGVcSw1id
-	 jUlo/Mz6Bs72zPOgaGhO+2KGylBRDi15zB1w/sIZSciESnBEB456TQR1ySxPnxLRL9YxM
-	 fHi/JbgZGLNfJbJr24chPpvOzIXRC1RJFGNuYzZ/N8gW/XHgtNySWnifWgc6s/HJYog==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625604;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=cORDD26qxIDDO7OrkN6/X50Dh9JdrNNXXKg+j/17MBQ=;
+	b=q163YomqPqvJe9Zgr1MXkBmNByot1dDDaZ6g3WdstSIjm/olOHlrCvMfWrt1dJ9cEdeA
+	 hXbb1hXfilUeGILapcHSYTyHcPNsgtYKLi3XJpJxqetwOvzVKb9iD2fIgrtP8Ce2xniLL
+	 6kUjvgwbJGZLTpstJ8RgNLc+Mc9Aj2zek1A8H1NNdqHBmlPKbF6+14xgxcudA301gd/ML
+	 3qbggcvlr0/uLW1VtVtzbkNHdamN8VagzREsefc48blDp5tE5DZ6I8Q5OPk7d8bAvGEJ1
+	 izk37VUJbSSA7Tc5WkSiuhkm7a53lwH+8u1ZBjJtc8rbtTx6uRfD5RBJibYf+hTTrsg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ehjdj6rt;
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=LRUG962T;
+	arc=none smtp.remote-ip=106.10.242.140
+Received: from sonic302-20.consmr.mail.sg3.yahoo.com (sonic302-20.consmr.mail.sg3.yahoo.com [106.10.242.140])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BF58606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:53:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BF58606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ACAC606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:53:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6ACAC606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ehjdj6rt
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-3863db981d4so8421003eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:53:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795625579; x=1796230379; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Oz7Jwrl1fyQvd1SM32ZV4uHhbma6E080yta+7JCPzik=;
-        b=Ehjdj6rte7v/iNas+NZlGjGUicWf7SuhxqTdDnwrFf97S7k93E7xDaK0M529oq1N32
-         7kJ7itU80xUslTT6u2POsqhfYolQDSHV3NJMtn+EPE/G9ppEQud9epKSgk7rHBzq3Ij4
-         TCsnYJxnoQvG+YJqpDjby2shfV6P2B56E94U6869xF8LWn8Ez4u4h09HmaBuJWDEBDmk
-         +IR+UWn8WyJkvHm0BKDAJ5rb0bmYe7DNuz1HL2agwT4pApILHV8aTkweZkapn8rWQmfV
-         YAmcUE9JCwp8na7QbiFAJiKdJgRp0mcRQTDo4j6eDZxbUceo/wnYvDD42GRVJu63sdwk
-         2qZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795625579; x=1796230379;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Oz7Jwrl1fyQvd1SM32ZV4uHhbma6E080yta+7JCPzik=;
-        b=LlVCz15AKKYmlgePY6x7G5o1u6ofiVxgt1Q6zoQ1C52g5FQ07Cqf3viVzFdLazeBYC
-         6wCoQvEAXb/C7OzK4YWdVYOVWbQdlCzXbLqiRQNmWYisynfd2/bMQJbKBQoFGEf5hv/n
-         EYaLh8cWgXTCBLFb3aJlECQkzDwOaakzcRWzPsdmG/HbwisLXtjRmcA2NgM40dERi/y2
-         q4zTpWAwPkWs8m4tMyyTRZ2PUdy0yG/RXPPMmVMeLF6OmMLGS+N6Q8X4MgWSeHKUdywP
-         +O7yxRStuPXQdE620aei0Amstw6sThV+s1Llt/xtEhigFS7lrKg5+5xBEWdsV/k2BpL1
-         sGIg==
-X-Forwarded-Encrypted: i=1; AL+hErGVY5O/axBiXEzHmoAJZRmuIQgSc/gAL10isNeGiNpFbYcQ+Z1CpMxvOOnHOohp0dsD8hb+qfxugq6+AAA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9oHRYjSqz7trpg5vVMSGRXfHFCOYOoPny5fZMrfyjNIK27DCFP
-	n9f9Ys+9XLUi/ZU1CoFAexQXXMt2e/86aCVXQzgZjeo47xbPoPWyzFaj
-X-Gm-Gg: AZFdTZdFh+0TtME+1fuxb/AXtHzdm+W+OYZsSjuTYd/xi6yt1nOB3U+bDcDj44IsaqE
-	CDJbt3s+xn6I+OH/5L2P8ksr4Kug6reEXI2NGvRu68cndr5coJSLouwPhOTunUrnUUOGjFO0qNV
-	OOv1TCn1T5arF0xmkVpeSLDZ0xkFlIc+XX1n/waKAfgYxGghsXWODnEHZ6NwE/PdnaEFPubM3jT
-	hY3wDuDjUCwFerH1L/4agMcLX2w/6e+k/Sv4/iB3RsY2IJ63uEvSqgd9OMwtTRhdId6xmARlDLk
-	1dBLzaxUU0xqcDonrkMaWg8qDBBvWCaSn6JWi+M29IJni6M/0E0/9IZmcoDL8NH9d3MwDsXyEvH
-	GIOVvzXn9NDXOM++IdT8hyDoiKBLjgFLTdGazrT3sMrxVb8zPxjv+/hiUR45DxYGvRpiVBbDtVY
-	qvNMHliAxyPjy+KB4ciOYjPWgnYyG+7rymPUFUSSn9mxj7eil1LOiz/0fp2KsXXA/ZUZS4QYC64
-	e8rcNruvhsNhvv59uJR1z5/TJQ4YpQcZ0FeDnylMHq6Ys0X8sPNcMP388xueSxk3YnPhXd1P7Q0
-	DbJZlCPDeYPXrgJkYDqmwyLwtmBWSdBDRQ==
-X-Received: by 2002:a05:693c:41c3:10b0:386:acf5:b4b5 with SMTP id 5a478bee46e88-386acf5b7c7mr10136296eec.23.1795625579483;
-        Wed, 25 Nov 2026 08:52:59 -0800 (PST)
-Received: from pve-server.rlab ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm98545358eec.3.2026.11.25.08.52.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 08:52:58 -0800 (PST)
-From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-To: linuxppc-dev@lists.ozlabs.org
-Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
-	linux-kernel@vger.kernel.org,
-	chleroy@kernel.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Subject: [PATCHv3 4/4] powerpc/mm: Drop PAGE_KERNEL_EXEC
-Date: Wed, 25 Nov 2026 22:22:33 +0530
-Message-Id: <96692b22febc2c4ee366de072cebb57abd8ffb18.1795625038.git.ritesh.list@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1795625038.git.ritesh.list@gmail.com>
-References: <cover.1795625038.git.ritesh.list@gmail.com>
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=LRUG962T
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795625601; bh=cORDD26qxIDDO7OrkN6/X50Dh9JdrNNXXKg+j/17MBQ=; h=From:To:Cc:Subject:Date:In-Reply-To:References:Content-Type:From:Subject:Reply-To:Content-Type; b=LRUG962Ts9EqIuEYzQhy92Lqhzw6pyq4htncAAGPooeMI/Yhbm2DYW97oPhcZCrU7doYPIn2CcJS/ViXXo9U/H4+qGqZ/Ct/bXiKUfZFftQiccATshUJoWv+To+pgplfVqtteKwbw7lvwbV/rXISWljrEVbUo8aZUXzdrIlNlEOLyswekpLri+flfROUoFyNEH+Iv9+/C2Kq1eHNwNEnLVQu0D55joByokfde/TfIwlcs+yveloDJJsjzyDUNenCOJXwHKmV3jjX1WIsoKMaDvV77dUTF/5og+4N+85LnSvbApZCK6UybPJlUWftu8cdBCsOQxia3hcBENyxF+x13Q==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795625601; bh=zf6oefWhu2ozSG4ZL2siPJ2ibqTO3RQgRq18eO1LCBf=; h=X-Sonic-MF:From:To:Subject:Date:From:Subject; b=fQNx8ciXKaMPuY5pLOvYmFy5BjaCJBC5Au3p7aTH97U0qIC4/ZLvlJLPkMk40RmDPoTsyEoqnl71PVG8qX5ADO2p9JLEtwLkM35b+6g3DKZTTDeccZkfJ8tcgLCiv9HIQmHBwTpuArlZwlLWpDyWfIV07WCxogVJ4jJEOQB4vbFy3n/Rxbe4/PKNgn44dJL/H0uUJscBPpAADjULAg51JwoUh+0QTxYjew1Qil7qofl39I/uYxGo2GzQf3Jrp5G9ppyIvbUbReZI0GttGbEui4JSYdX1j4oYTrJBcvmySF3XSAnmu36qw57MGgRpBliLUnTeONqzkF0GX0i3qnOsJQ==
+X-YMail-OSG: rZM918UVM1n5g8ioN2E3NEfhd0mtcqyOi1f2RXjdYr0jg3UD0yrucf2Aqkm0VHO
+ HIFo5DiA7tyEmStxstz0Ql9Oob2oUVIBZUpWGkhvvzRTLkKRMz4beB6B9dbSQ6Nx7Yt8cFXDmudo
+ ArD73I5Cu2VRPwXt8QoU7M0DvREJvnl.jltKMdKGbYrck2hdRrikc9J2cgb_GGAItVQzF1SiAQEU
+ 1y4aA4Kcs6XQ2Tqx1gteRbcHXwIIEWbHJ1crm4S2.S7pmUhyviaPycxS7EaYGvZoEC5_1iQRuA2p
+ abRRKmmwQF37iqHAxFlGU5ZYGTOxOoTKBy6GofOn9E3QqFGzmyzgMBZ9N8qphSTLsyg.YAln_raU
+ ZIOHHYd8RFODx52s4IK2_x7lL5inzlbSKi0qO6vjhnY0V7l.7Td75ElDbJssdXnTBjqg.Ql56qPG
+ _lVaKhvf6eUMOWjgG0Xx7k8BbeEzfw9SkqvD551seaDlEzqgalQtkb4BscG05E0QAP47ifufBw4g
+ PKKPOhgv3dIDSyEhHqEPkSFnCU1z2XgKMbpROd6L02JHlVqfl8P3ajPtCAa.S.9oSoVhg04blb2v
+ 8M9WJ9VvbBhSucrRMCVnjnk5PElY73v7U7wHC1wlV4rhEuRfu1NiGqsOD4wvywpavIixiyWvdeAr
+ 8UrVO_GEYY8rjDVVErReMSiNzVkN.P8Z0hB_1qnXcVi_SISWQlZ42YB53f5UdCP4Ob8OotMmU84F
+ oY8OPHd.aYmxQLjuUP2ROry9PZ3caxGesQu4DGWpy7MHzKQxzcAY4Uk2jgY7SnQ.OPK1xGQTmwy.
+ ker2iOxu1gY0XPBv4Y5i40DBIHxH5PdnoUFw0cnZ1at7HorQjL3B8wc4anWixx3PHWNCl4j.Mr2c
+ ok7.D4Pr3JiYuhmiiizk4uunmL0Bu.3xW9umq62BAH7ul2XfEqWS82DmGjQjAl2dqm.4IIYfszkS
+ IKQ9AUPu1yg1GGufBvglGlIhdMcL2xur9_sZ4wmQg6c__6yQhtlPJ2LYArFuL_a2K_0GUm7uULZy
+ _U0UTKSUlOzTnqRg_Xv_HwEW135eD49zxb53t5S5fa8J7PyS0FFeZ_aJo4acaQOTe9BOHE4YK0QO
+ 8IwMc79Z.RCV05O9yJ5ro1yVGnTqNOqQ4RwwI1wecLTRaOLVE_b.pZM5wLiJJwK2grUvrjY4t19H
+ ZcmHCme4EUO5k8PZ6zTDoRgtEp9NGOL2JQeEYegCUbD90IIuMkTFyMZpLCsoTxgPq1zSlk4aUKye
+ 8VH3RUf5XydBt6oIcgZ4SMYftKKzebfS.PIXPYQLScX59xKQliBcSHtPWvx_dJN8uSUjVdY8Wjk8
+ SVUIQo0rD.aRcox6Ls4odW7u8qjC02idUQeNwgBPHHVXr_NWQDMvC16CYWZGtKWzpKgAUaKhujEy
+ rEQJ5.u9uhR_N2pLBH7J8K.xsetjfga4RZRme6eLa.6SbYymWE9IQX6GHCo38x985mlRSQPl40bk
+ q02ZCLOY_0GbXM71QGAeTpbf_dOxA66Ut_atqvvtBrT2WfMAlaGT5zS170JVL0mA0i8YL.Ma9Aso
+ .9ZPr7kGly11TA2JNvoJ7fEZpblR85RRv4t7FfT126zw1ddptao9x9pDGOn0eSEZcRZWT9iCU5Gt
+ nbO367F2ripIX0CVb9MwBHMDuIgOL96QMGGiS5V_6bnbqxPmX_uMOS.U6Rz1eokIhVXpcxvVj0Xf
+ 1KbYO2FbSF4FgoviQk_ZVQZahVuy6p05s8CibqF7nK45MHeXsOoyez7iIIjATfZl.GljSeP6RcXc
+ hjbvG7V8MWi_5MFVUkpqxrEAv6OMa.6mMIgzi16m3sUNqddskJW_BzAlQ3cvozhnSwZPnPrvnalH
+ pJWbKBn8yNmCponszz3M1IvhTnrdXowzpl3UJ2dXzmhdh4DLHw3XR0ZueZ8yzsuFmDMVAGZZGtYd
+ 0UrDkCphQ74a4DVWXSYtQNAC86TzyDQXne189ajWpO40b1LwQ6q.liHkr2HCQyzvmHyX3lVGe_3D
+ _.LW3OyRRcVe0BES1.TDLLLbgWiE06jjN60XWet0Q5jdU7ceaJWVM.hHMS17HSiWIS210edTu.kt
+ FSnk_HH6ntbRsHhJGkWUZL_PgB0ONu2IZQESiQdr9lt7I0Oz6X0Qc0LXlzTCmsqfzeCnpX0Xyfqa
+ k9JLucJc44hk_Otfqu13Y7fdtBUUhWq1E35.TAdubzCoAKVFfBriuTHcmICFLJKTNRUho81.wPAr
+ yq_KEcx4AYDQk.t5JTj7LRCte6l739QPhH0f2kuDZAfFiVw--
+X-Sonic-MF: <venkat.yadlapati@yahoo.com>
+X-Sonic-ID: bc66c019-719e-45fb-9873-4e73ac6cf6e1
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic302.consmr.mail.sg3.yahoo.com with HTTP; Wed, 25 Nov 2026 16:53:21 +0000
+Received: by hermes--production-sg3-5ff9d6888d-mt5tc (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 4d5a9904d5e5043914c879cb1da06d3f;
+          Wed, 25 Nov 2026 16:53:17 +0000 (UTC)
+From: Venkat Yadlapati <venkat.yadlapati@yahoo.com>
+To: konrad.dybcio@oss.qualcomm.com
+Cc: Georgi Djakov <djakov@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	linux-arm-msm@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] interconnect: qcom: Don't read back BCMs without an RPMh address
+Date: Wed, 25 Nov 2026 22:23:10 +0530
+Message-ID: <20261125165310.1409251-1-venkat.yadlapati@yahoo.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <68573981-f9a0-480c-806a-0980cfbb6242@oss.qualcomm.com>
+References: <20261116-icc-bcm-readback-v1-1-36b533d66a69@yahoo.com> <68573981-f9a0-480c-806a-0980cfbb6242@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,57 +95,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
 
-On powerpc PAGE_KERNEL_EXEC is just an alias to PAGE_KERNEL_X.
+On Wed, Nov 25, 2026 at 10:45:29AM +0100, Konrad Dybcio wrote:
+> Fix the driver instead, please.
 
-The comment above it's definition saying
-	("Make modules code happy. We don't set RO yet"), is stale.
-Since commit 4fcc636615b1 ("powerpc/modules: Make module_alloc() Strict Module
-RWX aware") module text is allocated with PAGE_KERNEL when STRICT_MODULE_RWX is
-enabled and only made executable later, so there is no longer a reason for
-a separate name.
+You mean a separate Molokai icc driver instead of reusing the
+Kaanapali one? Molokai also lacks QUP4, splits aggre_noc into
+aggre1/aggre2 and has different QoS offsets, so that would be a new
+binding + driver rather than just dropping QPC0.
 
-Convert the remaining users to PAGE_KERNEL_X and remove the definition.
+Or should qcom_icc_rpmh_probe() fail when qcom_icc_bcm_init() fails?
 
-No functional change intended.
-
-Suggested-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
----
- arch/powerpc/include/asm/pgtable.h | 3 ---
- arch/powerpc/mm/mem.c              | 4 ++--
- 2 files changed, 2 insertions(+), 5 deletions(-)
-
-diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
-index d20ff2ae02f5..ea06a85f0fa8 100644
---- a/arch/powerpc/include/asm/pgtable.h
-+++ b/arch/powerpc/include/asm/pgtable.h
-@@ -20,9 +20,6 @@ struct mm_struct;
- #include <asm/nohash/pgtable.h>
- #endif /* !CONFIG_PPC_BOOK3S */
-
--/* Make modules code happy. We don't set RO yet */
--#define PAGE_KERNEL_EXEC	PAGE_KERNEL_X
--
- /* Advertise special mapping type for AGP */
- #define PAGE_AGP		(PAGE_KERNEL_NC)
- #define HAVE_PAGE_AGP
-diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-index 8a0fdfd028dd..bc83e45b7ae9 100644
---- a/arch/powerpc/mm/mem.c
-+++ b/arch/powerpc/mm/mem.c
-@@ -388,8 +388,8 @@ static void prealloc_execmem_pgtable(void) { }
-
- struct execmem_info __init *execmem_arch_setup(void)
- {
--	pgprot_t kprobes_prot = strict_kernel_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
--	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
-+	pgprot_t kprobes_prot = strict_kernel_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_X;
-+	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_X;
- 	unsigned long fallback_start = 0, fallback_end = 0;
- 	unsigned long kprobes_start, kprobes_end;
- 	unsigned long start, end;
---
-2.39.5
-
+Thanks,
+Venkat
