@@ -1,32 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795624856;
-	b=zf2PqcfLr9Lhel19/SQG/YEl80FooU/vM9KyHAbDWoQwR3BIwYx1QxnUYC97irOyCycz
-	 aFANol+yfTx0AVcp9B2Uw0MjdtvnM13ULxRIdCGGoT4GN0SDvgQ/TZu0O06EesNnQXFCB
-	 jGPmbYV+JdiSXb5pKLIfk6vR16bj8V50jEfEAJ+1Ros38Df2lJW3AI4k6RBNHC+ACMw7d
-	 jtoVF67drzvYIw6StLlAgJOlavNwa+DwkNJRLDY757cEvfHZB+AIiv4ewcLhp2d2vLWrH
-	 Qzg6j+fOtFyzjwGK5sufY/J2cUXAtxzuE/RYxWyCjJUhAZwZTjq27JD4pzpgsmyl63w==
+	t=1795624904;
+	b=sR19nLRYe+WIMcp53c7rjCtNko7o4JT+ukd5uq/4NybqrewF8qPQUfB7O8zgn/xRJVNq
+	 rh0BcCYT60OflWabbqnZ6+zcmDMXXlgbVnQNzRde7/tW/NIdeqmtrUmMSAorygudXPk+1
+	 S3MBeZALvhobdrHVVvbJAn7Riul3b0MGNBChQ4hx8ZgRffyHzQoVg+BffzElA1HkWeaHN
+	 Ooo3fOrA7zs5Rd82lbAhS2YXA+9rNSrOhW1MdIg5tvLmHajMb4zE2YN6RB+p9odhe2yF9
+	 G9pJoWHq9mqqFJ95xkK9HJ5ymjvgcBCvabthkjLWPjUjRztNKFOLdJDj/ZZ6aYDU6Iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795624856;
-	h=Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:
-	 From:To:Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=D6KrOaTLNvlRqd0aclSX+7hpHIhRvkGmOOdaa4m06XY=;
-	b=oFUbm+LxQ+6Ukf3TyIr704r1HNibpfxL54rwJ6yWJxTrLPoVMf2ptMrH9OJ9WkElo1dk
-	 GARgCiDYxEy2aFkxYUX02ewvpEpNgmRc1eKYMGvm6/2tX8kbKB/bHhBOZW7G97RrGW0TT
-	 cXB6fUL/vOGfBFIKKyYvIC3OUDr7aB/bThMlfpf+IsiYno+JZ2plOUsXTKVPofdeDoDRK
-	 1usjsja1YnGottlkZlynvs+zZ6nEewb11Rcw9QsAM2wCK0znoVeyN+CuXDXj8MRB338bC
-	 ZG99UUbsrKvetQjoLt0Y8lZTZK4y7nKq42bmnil2C+GYEMVnS6FAMReBn6Yzs2Qk4pA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795624904;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=IdjfLdJimPGqv/1f4+QLlSY9sA6ngGvkbX0Nb5aeWp0=;
+	b=p1vYTp8UPBQIvvcN/KH4blkF3yosIM6M1kJl7I8FEiWOaabmfte5FDiundCxY4fOrO/w
+	 ry7Ux0dshnBzh/MT/X6yIsMR2G7CkK6l7vi0iWjSjeXOeYPGxQByONIxN35S4/ZN9qAr2
+	 tuhDpCaqACPpqUJ9NXWtD1gABxFgtoRxeSBNZpY1FsIaax/GedUrsVIfxD5G2gnKFxpV3
+	 LRA7ZkuIpEfSqhM7GE85i7lQouZv1Z1qxSkmMyHq++tYzuTvU/f1VsNHbExaYAFMeQfrr
+	 yYMB7Sjrw/6iL35NxJ//xTloa0pulKRhnhiVt8sCiZV05zbTD6dWlckUMb+8COgNFOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XWKUFudI;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FD22606A31E;
-	Wed, 25 Nov 2026 16:40:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CB051F000D3;
-	Wed, 25 Nov 2026 16:40:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08890606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:41:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08890606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XWKUFudI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795624903;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IdjfLdJimPGqv/1f4+QLlSY9sA6ngGvkbX0Nb5aeWp0=;
+	b=XWKUFudIadF/bSyJGXo5KPdurlWHwiKgH/H3DG0YGcF7WQpn7XsmzOE1jzOuUazOwy/NCe
+	9MYqq+10nuXQjZmAdWoAuBV+/9GZOjN5bnnY4Lt0nkf9kOMrOednKVt9pELaB4Az2tgiWV
+	zO7LDbXaTG/i1vMqWXnbW5AAkTnJ8wY=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-433-hNXcFcPmN7qy9bm9EoFn4g-1; Wed,
+ 25 Nov 2026 16:41:36 +0000
+X-MC-Unique: hNXcFcPmN7qy9bm9EoFn4g-1
+X-Mimecast-MFC-AGG-ID: hNXcFcPmN7qy9bm9EoFn4g_1795624893
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 221811955E96;
+	Wed, 25 Nov 2026 16:41:33 +0000 (UTC)
+Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E3CA63001DB3;
+	Wed, 25 Nov 2026 16:41:26 +0000 (UTC)
+Message-ID: <cbb7e8b0-1418-4120-abf3-f2b2f35cf585@redhat.com>
+Date: Wed, 25 Nov 2026 17:41:25 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -36,52 +71,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
+ under global dpll_lock
+To: "Kubalewski, Arkadiusz" <arkadiusz.kubalewski@intel.com>,
+ Jiri Pirko <jiri@resnulli.us>, Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Cc: Jakub Kicinski <kuba@kernel.org>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Randy Dunlap <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
+ "Nguyen, Anthony L" <anthony.l.nguyen@intel.com>,
+ "Kitszel, Przemyslaw" <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "intel-wired-lan@lists.osuosl.org" <intel-wired-lan@lists.osuosl.org>,
+ "Nitka, Grzegorz" <grzegorz.nitka@intel.com>,
+ Karol Kolacinski <karol.kolacinski@intel.com>,
+ Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
+ "Oros, Petr" <poros@redhat.com>
+References: <20261111164021.273409-1-ivecera@redhat.com>
+ <20261116181612.107a4b57@kernel.org>
+ <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
+ <20261118174424.32e9f130@kernel.org>
+ <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
+ <20261119133851.3f25074c@kernel.org>
+ <bdfa88fe-13bb-4050-b750-962586b1d846@redhat.com>
+ <ff8b63b7-b943-444a-bd37-b6fb493b5d9f@linux.dev>
+ <awMP9Gj3Xhia0ZeI@FV6GYCPJ69>
+ <8dc4f480-a875-4118-b5ee-2c4716ee53bc@redhat.com>
+ <MW4PR11MB69845212A048D72C99D3AE079B432@MW4PR11MB6984.namprd11.prod.outlook.com>
+Content-Language: en-US
+From: Ivan Vecera <ivecera@redhat.com>
+In-Reply-To: <MW4PR11MB69845212A048D72C99D3AE079B432@MW4PR11MB6984.namprd11.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v7 03/14] PCI: rzg3s-host: Don't mix goto-based
- unwinding and cleanup helpers
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: Claudiu Beznea <claudiu.beznea@kernel.org>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
- robh@kernel.org, bhelgaas@google.com, p.zabel@pengutronix.de, 
- geert+renesas@glider.be, magnus.damm@gmail.com, claudiu.beznea@tuxon.dev, 
- linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, 
- Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, stable@vger.kernel.org
-In-Reply-To: <20261019065025.2146539-4-claudiu.beznea@kernel.org>
-References: <20261019065025.2146539-1-claudiu.beznea@kernel.org>
- <20261019065025.2146539-4-claudiu.beznea@kernel.org>
-Date: Wed, 25 Nov 2026 22:10:46 +0530
-Message-Id: <179562484639.5580.736218629244331876.b4-reply@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=650;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=/ppm36g8Hvf8+xIWiQuysux8dzhzQcWlGoQ7E6h4NrM=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrBw+SbB/iYDBkFNnXhavwt0C/gX0ErNMa3Aujc
- bLvStrYgqSJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawcPkgAKCRBVnxHm/pHO
- 9TZqCACM3Ij2O76ufYmuGLZh6Xt7wNO8G9iggKy1aTvvDQ+40DogVPmezGKNfeOdPdW0fbbrLCW
- bsqb+XY2Aj8/3+uYaDnMiQXpXI2RqJCO62GNdfYV9nRzrnZvrlktSQb2mnV3MlYYWKhu3VwA5xl
- FZ0+dz0L0o6cxtolj23rvWqjR24ZXBFYsv6lR6/a3/j87B8zGyxIJIOuIeCvAjK7J9IX/nUShoI
- 0Scfj9c9k04DhU2307c7qRp3sfRKxnpjHoaYP+nzIKgMU1NvkliOUbfz9Jdy20UBjMogcTZgjed
- 0vWc460AovIEHn1X8FCCP4YZkpMvUp2mkaUvWl9x4RBwxTM1
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 
-On 2026-10-19 09:50 +0300, Claudiu Beznea wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+On 11/25/26 16:56, Kubalewski, Arkadiusz wrote:
+>> From: Ivan Vecera <ivecera@redhat.com>
+>> Sent: Wednesday, November 25, 2026 3:32 PM
+>>
+>> [...]
+>>
+>> I fully agree with you guys... I also don't like the way how the ice
+>> implemented pin sharing
 > 
-> rzg3s_pcie_probe() releases the sysc_np OF node through the
-> __free(device_node) annotation, while the rest of the function uses
-> goto-based unwinding. According to cleanup.h, the two styles should
-> not be mixed within a function, as this makes the ownership semantics
-> hard to follow. Drop the annotation and call of_node_put() explicitly
-> on the exit paths instead.
+> Could you elaborate on that?
 > 
-> Fixes: 7ef502fb35b2 ("PCI: Add Renesas RZ/G3S host controller driver")
-> Cc: stable@vger.kernel.org
+> Thank you!
+> Arkadiusz
 
-Is this really a stable candidate?
+Sure. ice uses the API as it was designed, so this is more about the
+model than about the driver. To support E825, two series extended the
+core so that ice can plug into the objects of another driver:
 
-- Mani
+- "dpll: Core improvements and ice E825-C SyncE support", which I
+   posted myself together with your ice patch, added fwnode
+   associations, the notifier chain and the MUX pin type in zl3073x,
+   so that ice can register its RCLK pins under a zl3073x input pin.
+- "dpll/ice: Add generic DPLL type and full TX reference clock control
+   for E825" allowed registering a pin found by fwnode with a DPLL of
+   another driver, added the notification source ID and let fwnode
+   pins attempt a state change without the capability bit, so that ice
+   can register zl3073x output pins with its TXC and TSPLL DPLLs. The
+   same series also carried five fixes for the on-pin and notification
+   paths.
 
+On GNR-D this leads to:
+
+- A pin-get of a zl3073x output pin runs zl3073x callbacks for the pin
+   attributes and ice callbacks for the TXC or TSPLL registration, and
+   a notification that ice sends for the SyncE pin runs zl3073x
+   callbacks from ice context.
+- The zl3073x input has to be of type MUX, although the mux is the CGU
+   in the E825. The RCLK pins are registered with the zl3073x DPLLs as
+   well, and the ice callbacks get the private data of the zl3073x
+   parent pin.
+- The same pin reports direction output on the zl3073x DPLLs and input
+   on the ice DPLLs, and the properties ice fills for it are never
+   used, because the zl3073x pin is.
+- ice follows the lifetime of the zl3073x pins with references, the
+   notifier and a work item that waits for the ice init and drops the
+   ice notifications by the source ID.
+
+The RFC keeps every pin with the driver that created it and describes
+the board wiring as a static link between two pins, found through the
+same fwnode references. ice gets its own pins for the TXC and TSPLL
+inputs, and the CGU RCLK muxes become ice DPLL devices with the port
+RCLK pins as inputs, whose outputs are linked to the zl3073x inputs.
+No callback then sees an object of another driver, and the special
+cases above go away.
+
+Thanks,
+Ivan
 
