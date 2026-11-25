@@ -1,45 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596722;
-	b=isXiRlmnWx91iEEhYwnviGl2jMcg2v10Zfb0Jj7P6kLFxQCj/NU9ynMZPjukL4YA24xa
-	 3ByEPMYKzVkpd6ulpWYyWGJ3ss/S2QKgo7HQW9aJdxZ7/axPgZFnddq9aEX/34CCeedzG
-	 zqycHN1RwMdLzOkd8cXoBrzJMImEKp2dcNRsnMIvII/TvDm7Y+a4ahLIMt2EAvwDJL8rI
-	 4Syr9M7v40U1/GBQ3yY3jwYlDPitw2sazvistjTLte6DfRvUw4OLIZ3bRNicBb3G73rR+
-	 B7xY51v9r7CC7Nm58yR4/Lb4R/PTZC+HPQ7vmJ6BgxFf0vFwX0w8oIzrs+ZMZnSdAOA==
+	t=1795596751;
+	b=NH3DS218UUQrgyKCMXEk5El5s5Xdtm1oVYPtcgYH72k1FByL0HAc7AuXiJi2Uy+M9Xq6
+	 OOlKhhSH/QyrSa8WfXfusloCvuL0AHn8ed/JSzzMSHQsk2Z7YiJVN2YxGHHZqf3CPSN5K
+	 nPPeSOF7XSYCFRm0p77UpjmM2KylQGoyc1QVVCjpD5BoAPYPjg4mY0bij+vtrQnmO4mPI
+	 69cpoC6cljVwHr6VIPcpQLYQG++96qC/ZAbOQlGcJk63VQOKLDh9f0NdJ+CSHEJw1dR5A
+	 faTAXZzkp5xdt9t1J46zMjL6HNTu/8ZTjtr4k5lK6+7+pT7StOl/cWlbT/SGu1dcgZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596722;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer;
-	bh=nAo3k7IN6MFlua5noogKuUzTuJs2qKHfA/Yw66Nd6Ng=;
-	b=TQ1qygaBoMdhuKCxsGvvpoYkrzB3j395buwxTH6D6pbuJSOfOyT0wAQt9cDqWDwYtPgv
-	 wd+m9mRcP1qmpcJhCzCbWtflCCyj3N/d7DIREFGEB4yCo8YE2O4PnjiqBY4kReto1dhbg
-	 lCcqo7ERNXU8zl9WlLN5HM1gw5P9nX33CnnthYrEpSoFUUa70A9u0hI6GnoiqwhSha8AV
-	 dIW/owgoJ13lU8tWzIUXJqDP0qTgFlyDYRQXj9CYPtaYFd6m+7uzx3sQ8bLnXmykE1RYW
-	 cSDIRa/sMGqgMJwymPOyM9eKbEsSKn8c4nefYH+jIPbCMGrTC7pTdvHXwaVpYdyI2sQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596751;
+	h=DMARC-Filter:Received:Received:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Rspamd-Pre-Result:X-Rspamd-Server:
+	 X-Spamd-Result:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
+	 X-Rspamd-Queue-Id:X-Rspamd-Pre-Result:X-Rspamd-Action;
+	bh=p9vbL0ysv91ckHuds7ouuXNkYWInSQU+tytOp4PqZGg=;
+	b=wrHSNT/NDji8jUc2xswpvtMnC699RckMj5Q83LS+XmTcW82oVVmRKJRJx6SML6RdwwsB
+	 P9YMIH2N1vdzNrVLBiLZvtLunomhsO0eqLQ9eqXEG9ET5cnHzn1alc9IDnmukTo2JL/1O
+	 LpYQYnPfrQyPNUNeo4ex2kr9T5egPj0mtrOH0ZQ2d6Ll8DFV12SFp6bPT0+62vbaAjA5O
+	 uCz9SIGkJjw/MyEnIT3Fm5cVO63t6iqGhj9h6t9RRzBu4K3F4N5+noJPtVuOqJDLs/7t/
+	 shh7UWbWfH7J3OOAmVYZcQs1gHIoLE8pPTD7E0/TXAS3pj+7dp+ehsY1nYUJ4BuPhWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WIu5xo20;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1784B606A689;
-	Wed, 25 Nov 2026 08:52:01 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WIu5xo20
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DDA21F000C6;
-	Wed, 25 Nov 2026 08:52:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795596721;
-	bh=nAo3k7IN6MFlua5noogKuUzTuJs2qKHfA/Yw66Nd6Ng=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=WIu5xo20Zcvt/DHS9FcFcsBfvdprdo1bbZDD05a7A5V9ZkHSt9VJ7u0UlRr+4OnwU
-	 Uxebq7l1HxT/jCJqiR3vj7qilZS/AAoqVdLhxozKb3Vi+kqHWORNF7Wj6qBjh+VFEO
-	 HhbnVBsnFblLNY8qUc7rf72vT28J0s9tLlozBT2De1MNmfHgZNH6LAqIaXSFDK73gE
-	 SNAu9yAnaeKzhDcoAV+44FwfoKy57EHNyFs+3ltXknRqGENcTQVWrb1t2ZBe8d1ve8
-	 s70GmeHR38PnIVMbjBALc+a5S4eUliwLI9cvhq5zcIDeDWnZLjGlzP8mSIAaIvRt3z
-	 nuyqvTYKZRThg==
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8CCA606A323;
+	Wed, 25 Nov 2026 08:52:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8CCA606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id D09491F456;
+	Wed, 25 Nov 2026 08:52:28 +0000 (UTC)
+Authentication-Results: smtp-out2.suse.de;
+	none
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A6C51134CA;
+	Wed, 25 Nov 2026 08:52:28 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 88BVIMyhBmubAwAAD6G6ig
+	(envelope-from <jack@suse.cz>); Wed, 25 Nov 2026 08:52:28 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 36C7D27BC4; Wed, 25 Nov 2026 09:52:24 +0100 (CET)
+Date: Wed, 25 Nov 2026 09:52:24 +0100
+From: Jan Kara <jack@suse.cz>
+To: Pedro Falcato <pfalcato@suse.de>
+Cc: David Hildenbrand <david@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Lorenzo Stoakes <ljs@kernel.org>, 
+	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
+	Johannes Weiner <hannes@cmpxchg.org>, linux-ext4@vger.kernel.org, linux-nfs@vger.kernel.org, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, 
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
+	Michal Hocko <mhocko@kernel.org>, linux-fsdevel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH RFC 5/5] mm/filemap: refuse releasing maybe_dma_pinned
+ folios
+Message-ID: <ioqon6b2fg3ycdxztdfgxc6x2dkc4f6ysep6bpornycbkrj7ax@5rlqupekoyl2>
+References: <20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de>
+ <20261119-gup-dirty-what-v1-5-236d69f25c24@suse.de>
+ <fsmnfotflgrddrlak24cve7vkcjkellsgb3xbei5ysxvmqnul6@byvxblm4dtqm>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,184 +85,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 02/24] dt-bindings: media: Add bindings for Arm
- Mali-C720
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Anthony McGivern <anthony.mcgivern@arm.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Nayden Kanchev <nayden.kanchev@arm.com>, 
- Konstantin Babin <konstantin.babin@arm.com>, 
- Linus Walleij <linusw@kernel.org>, jacopo.mondi@ideasonboard.com, 
- kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com, 
- dan.scally@ideasonboard.com, Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Rob Herring <robh@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Hans Verkuil <hverkuil@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
-In-Reply-To: <20261124-b4-initial-upstream-candidate-v1-2-0cb9bde1bd30@arm.com>
-References: <20261124-b4-initial-upstream-candidate-v1-0-0cb9bde1bd30@arm.com>
- <20261124-b4-initial-upstream-candidate-v1-2-0cb9bde1bd30@arm.com>
-Date: Wed, 25 Nov 2026 09:51:57 +0100
-Message-Id: <179559671799.14607.10622707622371448283.b4-reply@b4>
-X-Mailer: b4 0.17-dev
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fsmnfotflgrddrlak24cve7vkcjkellsgb3xbei5ysxvmqnul6@byvxblm4dtqm>
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-4.00 / 50.00];
+	REPLY(-4.00)[]
+X-Spam-Flag: NO
+X-Spam-Score: -4.00
+X-Spam-Level: 
+X-Rspamd-Queue-Id: D09491F456
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Rspamd-Action: no action
 
-On 2026-11-24 17:07 +0000, Anthony McGivern wrote:
-> From: Anthony McGivern <Anthony.McGivern@arm.com>
+On Wed 25-11-26 09:47:39, Jan Kara wrote:
+> On Thu 19-11-26 20:10:48, Pedro Falcato wrote:
+> > Some callers, like folio_unmap_invalidate(), call filemap_release_folio()
+> > without any care for folio refcounts. This is on purpose. As
+> > folio_unmap_invalidate() states, invalidate_inode_pages2() needs stronger
+> > guarantees, and "can't afford to leave folios behind because
+> > shrink_folio_list() has a temp ref on them". Ok.
+> > 
+> > Use folio_maybe_dma_pinned() universally, in filemap_release_folio(). This
+> > has a much lower false positive rate, and should be ok enough for most
+> > serious cases.
+> > 
+> > While here, properly assert that no folio passed to release_folio is
+> > mapped.
+> > 
+> > Cc: stable@vger.kernel.org
+> > Fixes: d824ec2a1546 ("mm: do not reclaim private data from pinned page")
+> > Signed-off-by: Pedro Falcato <pfalcato@suse.de>
 > 
-> Add the device tree binding for the Arm Mali-C720 Image Signal
-> Processor.
+> Looks good to me. Feel free to add:
 > 
-
-A nit, subject: drop second/last, redundant "bindings". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
-
-> Signed-off-by: Anthony McGivern <Anthony.McGivern@arm.com>
-> ---
->  .../devicetree/bindings/media/arm,mali-c720.yaml   | 134 +++++++++++++++++++++
->  1 file changed, 134 insertions(+)
+> Reviewed-by: Jan Kara <jack@suse.cz>
 > 
-> diff --git a/Documentation/devicetree/bindings/media/arm,mali-c720.yaml b/Documentation/devicetree/bindings/media/arm,mali-c720.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..3bd261bcefbe371b7b4610afdde8e556b2a2ae22
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/arm,mali-c720.yaml
-> @@ -0,0 +1,134 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/arm,mali-c720.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ARM Mali-C720 Image Signal Processor
-> +
-> +maintainers:
-> +  - Anthony McGivern <anthony.mcgivern@arm.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: arm,mali-c720
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    minItems: 1
+> and we'll see whether there's some path which actually required private
+> data on pinned page to be freed in some cornercase :)
 
-Why is this flexible?
+Oh, now I can see Sashiko already found some :).
 
-> +    items:
-> +      - description: ISP main interrupt
-> +      - description: ISP fault interrupt
-> +
-> +  interrupt-names:
-> +    minItems: 1
-> +    items:
-> +      - const: isp
-> +      - const: fault
-> +
-> +  iommus:
-> +    minItems: 1
-> +    maxItems: 3
-
-Same question. List items with description instead.
-
-> +
-> +  clocks:
-> +    items:
-> +      - description: ISP main processing clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: vclk
-> +
-> +  resets:
-> +    items:
-> +      - description: ISP main processing clock domain reset
-> +
-> +  reset-names:
-> +    items:
-> +      - const: reset
-
-Drop names
-
-> +
-> +  memory-region:
-> +    maxItems: 1
-> +    description: Reserved memory pool for ISP DMA allocations.
-> +
-> +  power-domains:
-> +    description: Power domain containing the ISP.
-
-Drop description
-
-> +    maxItems: 1
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +    description: Parallel video input ports.
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Input port 0
-> +
-> +        properties:
-> +          reg:
-> +            const: 0
-
-Drop properties, should not be needed, same in places below.
-
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Input port 1
-> +
-> +        properties:
-> +          reg:
-> +            const: 1
-> +
-> +      port@2:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Input port 2
-> +
-> +        properties:
-> +          reg:
-> +            const: 2
-> +
-> +      port@3:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Input port 3
-> +
-> +        properties:
-> +          reg:
-> +            const: 3
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - interrupt-names
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - reset-names
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    mali_c720: isp@400000 {
-
-Drop unused label
-
-Best regards,
-Krzysztof
-
+								Honza
 -- 
-Krzysztof Kozlowski <krzk@kernel.org>
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
