@@ -1,67 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795600138;
-	b=Wo3/efjJrfxclOIFWFy8C8DNJsoTZFET7qQ+WvqCjPmeHS8FhZSgPkq37f+1i8ScBT5Y
-	 1Q42TRjyy0KYIrSjoiaT9PTsYQ1pb3fNk7QNAN8vAiReX2Xj7yrRuooXqpXYLtmKQeJWR
-	 9tjAn7jLILzBvYhZIkAYec32xks8u76LfQ7CU5dcsG2sLOgiQfTWeDoldnaefBgkmxVUe
-	 dxhgdmRny3YlEfjf7EUKwUhfldeSteiD3vn2ergrt37UlaSNpip0MzRCu8igKEmjqarlr
-	 xquUMOPRRU2uE1SOWqqDUL2goZ1qpSwQj4fSHFtyKIpKDHG4HqYhDCHUR78bWMuMLEQ==
+	t=1795600157;
+	b=jDNlmbai7PccZW2xjP43+NJuSZRVAqoLTIBEtBvM4zn5A+f8Tr5k1f420ZXZScZnrX7r
+	 ac7Q5ovxyupszNvAwH6KgtLkBsenekQoqXnbP7tT6Ej4TCxzLYMRPpcsZRYHVRFI7eDBI
+	 DFWa5a/ZGKYbWSNhDvCdtj10LggFxBBh+q+eRHmNX/zcUAgVnD/7boZHuyd1XC7keIkQx
+	 QevG6OLXq9Q0GSJFpg/bd3EkfO7k6C+4y+FyMv+nxYzOgZ8BGvuAPJAiC0XkUqMg5faNu
+	 iie4dvl4E+URWIE7sLGG0Lm7QxhC5zdeWmQU84hTLJaha11kU7ZVXQqeLnT6D4FbYSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795600138;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:X-Last-TLS-Session-Version;
-	bh=hSrZ7TU1SA/f7pgNCA+lRSXARyll9PDrfkSwUDqb5bQ=;
-	b=1vEDXWFL+3cdN3cAj5UVCbV+cfdIp18rZC5cKdhMITbsApeG/YP8nHPc7VnJq+oOOKtQ
-	 7NFzoZ5rHQF1LDPCXAy0KeIG4404iNivao58yyzMliTFTXkX50E/6ar7ypS/oPAPli3+r
-	 +ujIS9XMNSu5oGOLCYuswDJgI9eEFk1trmGJX+EnLZ/OTHRYEhJ23zbasDA+j7tl2F0Mu
-	 2LvcxgKDa2FdpPMJU93ibnGFlHKm+l30cTJ8BFrtbapz+5qh2PykUUMhyw33gZtjmZNEb
-	 ZjAlwLgX5JBNjv/ZSJQKvSbfuQJhRgyOTrv8V7lXtR6/ntDFgnj1DSq1mqQMfDcaF6w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795600157;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer;
+	bh=7Yn6sJORWGIsC1ZVUYbbL7nWfxqpI4W2q6kyK2Foowk=;
+	b=0//EKGNE6jBZq2KYRvmzO2M/tCcd0dus40gf9RIINAai1h4UHm1MDOwRRzcP/mXhRLwG
+	 KXEVKXVfJy3I6Zq/z6QdDMC1VDdAZEtW02ME+NkG8+B/WQULGFF2qCrEf5skon/NK6gQt
+	 C7mmQOrMwDDQ496jn8cePt6cswA8DBSz0y8jnTkSBKmRmuzd4fZGK8cmp7JE8YARgKZIk
+	 x9M5xCciToKuZk6106EgmMVB5udgCOEmcBZTIkNr29kMtSUN0v5psG4XFexGXg8krEWH1
+	 KrLwciDU4ktRxVGPce3xJOPmgS9CyiOJKFxYLigjRpY0IreqBn+YxDC/fQuHKp8mx6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=TOy6dma9;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XRTFH2Zu;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50E22606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:48:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50E22606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B66D606A31E;
+	Wed, 25 Nov 2026 09:49:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=TOy6dma9
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id A7074C2F4E0;
-	Wed, 25 Nov 2026 09:48:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CDBA860480;
-	Wed, 25 Nov 2026 09:48:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0511711E68BFA;
-	Wed, 25 Nov 2026 10:48:45 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795600128; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=hSrZ7TU1SA/f7pgNCA+lRSXARyll9PDrfkSwUDqb5bQ=;
-	b=TOy6dma9VN72lEIA2mOsMYgGMAErfdIoRSZWSmuR3sNQ/r++AKHH05xX7wZHyXoTzYrP0d
-	MJgyYXafYAVyeXfaszWG3DVaRCGADyJJ+4TLGN6ruQ85uytHsqBsKcwLYeTxGBG3VAOsZL
-	LS6Xi9SMbtpuqisidOW7XHsETfWUbdIhgHf4bS9/y5e1+DgUY9TYE5o21jFdhrSfDT7M13
-	Wvbupi7nG4/gHDEBgd8w1CIMPdIi/DNe1K8Wl6JVfEDweAcvti+VkCjnPPcOZm0b86y8WY
-	mELRLcph9h+AgI5+T0RBPy5C2rL4s4x0GkJaRRRzNsMzevrdT+evzz8ty6xB3w==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Ping Li <leeonion.muyu@gmail.com>
-Cc: richard@nod.at,  vigneshr@ti.com,  linux-mtd@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] mtd: rawnand: r852: declare NAND_USES_DMA
-In-Reply-To: <20261125092538.1938516-4-leeonion.muyu@gmail.com> (Ping Li's
-	message of "Wed, 25 Nov 2026 17:25:38 +0800")
-References: <20261123070440.3060882-1-leeonion.muyu@gmail.com>
-	<20261125092538.1938516-1-leeonion.muyu@gmail.com>
-	<20261125092538.1938516-4-leeonion.muyu@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Wed, 25 Nov 2026 10:48:45 +0100
-Message-ID: <87o6bdz1fm.fsf@bootlin.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XRTFH2Zu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1A611F000C6;
+	Wed, 25 Nov 2026 09:49:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795600157;
+	bh=7Yn6sJORWGIsC1ZVUYbbL7nWfxqpI4W2q6kyK2Foowk=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=XRTFH2ZucxZHM83JzPFiSdcmPPT3wcsWjCHJjJCG7H97kVOPEDiRJ5ebLUh+FKM98
+	 r8xsy4XCVGdoOBt22UG2v6+Q5DWOiTA8TK0x2eVyXtLNTvS1YtqAt5AmyJC7HM1Qcl
+	 wvUXO+ltUiRqptPfnPw+yETuEsuW/UZGaYpZh+weR0DJVntSlc1t265KJC6pftEx1r
+	 I/lCtAR0UwIL90pBS9WndZ/GYj/6mczD8DF6Hsv4X2mpmST1smHoiRRPb/rl2BNzBU
+	 R4JIrTmg7KAdMju3X6/SWw5O76LllhCJVTWZ2iWCmAlXlTnPQzZ0h4NFgmN0NjBvhM
+	 bpFNDvAe/QBkQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,26 +49,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v2 1/8] dt-bindings: soc: rockchip: grf: Add RK3506
+ compatibles
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>
+In-Reply-To: <20261122060114.773624-2-jonas@kwiboo.se>
+References: <20261122060114.773624-1-jonas@kwiboo.se>
+ <20261122060114.773624-2-jonas@kwiboo.se>
+Date: Wed, 25 Nov 2026 10:49:13 +0100
+Message-Id: <179560015396.14607.9966958712968902485.b4-reply@b4>
+X-Mailer: b4 0.17-dev
 
+On 2026-11-22 06:01 +0000, Jonas Karlman wrote:
+> Add the GRF and IOC compatible strings for the Rockchip RK3506 SoC.
+> 
+> Table 1-1 RK3506 Address Mapping in TRM for RK3506 contains following
+> related entries:
+> 
+>   Module		Address		Size
+>   GRF			0xFF288000	16KB
+>   GPIO2/3/4_IOC		0xFF4D8000	32KB
+>   GPIO1_IOC		0xFF660000	64KB
+>   GRF_CORE		0xFF840000	16KB
+>   GRF_PMU/RMIO		0xFF910000	16KB
+>   GPIO0_IOC		0xFF950000	64KB
+> 
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> ---
 
-> +	/*
-> +	 * r852_do_dma() feeds the buffers provided by the NAND core
-> +	 * straight to dma_map_single(), so ask nand_base to bounce
-> +	 * non-linear-map buffers.  The local bounce in r852_do_dma()
-> +	 * is still needed for the hardware's 512-byte alignment
-> +	 * requirement, which the core condition (chip->buf_align,
-> +	 * default 1) does not cover.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Can't we change the default for this chip then?
+Best regards,
+Krzysztof
 
-Please drop this comment after fixing that, it is not useful, this is
-information that should belong in the commit log.
-
-> +	 */
-> +	dev->chip->options |= NAND_USES_DMA;
-> +
->  	r852_engine_enable(dev);
->  
->  	if (sm_register_device(mtd, dev->sm))
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
