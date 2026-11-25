@@ -1,83 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.76.78.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795610678;
-	b=reIRLHx3CuxMyEHRGJb7F7fzl7IC3fhgJ20Ihu+96Hrv1aUKIiOQ0SzKC5fTcA6NrIJM
-	 YKVpHQiQea+vk/uAnC+kCrpNoGFlsH/4aaTKID3rjDFl8/lw1PRnQtzaWcWot6DIeoNqS
-	 KRVFDVueemLLWnKkUhnhJXO56IarzlYg3Mhivu+eaDZNV/9DNsaNJyUQOAiu/QEGShcvI
-	 sqw8EABvEur8dGtorc4eZFm4pfdszMT2H5hUl/jdNGL7oSUjvJKP7Wojd6uIIkJ9GPOvH
-	 U5XS1B+iMODj49aGGB1e3t7mhPbWAaqQmS6Lrw2aLKKYsMyN25ft0tDA5uLdlMqO8Ug==
+	t=1795610715;
+	b=lnRnbmmQhq7sGURW4Fdm1KZcYtaAL5rduKD8fXHfPy2LhssaXF3mvKr1OdycuF/rMFqR
+	 BZZrXM5N2gz/idln5LZhiNytM/kE3T6w0IssO5iroqoRwf4yEao8yVs75uszOfjXEEHMr
+	 GxtiHS5P8SEJ4LbWU9fqw68xjo4+Tdi4bMqBuWWedoY0ftCg6bTr71N/rV4jXI4WGXLBw
+	 MRCLj2598oNQJlFX6LTpoThCH9NQVHxBGR8J4mP5XgKgelXVW7aUbbF72lOoJhVgme8+m
+	 1Vi9SV70OkWC9At39xOo8KCv6vr9WP/CjMMmm9MWffjJ7qMmXsloGEQPnDFFp9ocnEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795610678;
-	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=gBqX6yAsAhkiQmaGSMtP1wrzGS5nrxUEsmCkAPx5BqQ=;
-	b=x2p80F876k/DIMN8wFGYTI9kpbtJUa/Nzm6j+U/URzfWoe7JtxwkAq72eW5E1wLkhlkZ
-	 yRlyELVenmav4h04933HoQr70Mo/oVn/GyRfeh6uOalWrkXTUmHMzHv1TSx5rWnR3Yn33
-	 MKZlRGgNC+f/Mk1DOEDqGEL6Qg/nTKYV7n9HedSXcjev9CCiLTgTXS4kZQuEryEjzjJpo
-	 KUZX8c96wMkc5F95KJVVJVRd6jakWuUxRv6hzgaBP5wuZBQ45IzckU4xvqzB53rZPt6eL
-	 HqCpOWAZJQozkIc/Q/VC7eaWSUIVeCDi08QZBCD8dQC+SWTZCDF3y04VwETIzFhtJCw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795610715;
+	h=DMARC-Filter:Received:X-Originating-IP:Date:X-CM-HeaderCharset:From:
+	 To:Cc:Subject:X-Priority:X-Mailer:In-Reply-To:References:
+	 X-CM-CTRLMSGS:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	 Message-ID:X-Coremail-Locale:X-CM-TRANSID:X-CM-SenderInfo:
+	 X-Coremail-Antispam;
+	bh=V7xN3kGjzOoJpivieberv8Ssk3fqFuRchzlyOq0S4mM=;
+	b=3R7pBGMUJTn88YCeBt4vnPS7fB/sG30h6t2XeJvXTa59byzACmopuuCWO2S1Bd/YNj3x
+	 zTNzAlKRgBuwOilUCtPzX1FTOUrMPaP9i08f+CZOA3LSCkj2hRu49Hcd15mqi6m5Bj8Uk
+	 0YaGmjWF/RSsHr8loetUik9TY0szXJM6JOvzjebV4mxuGRHBWeWZ40fqIP6XqxD/APXyU
+	 Ydjva3MXx+CEw9yLFYyw/gOpVsHp85twvt6q8rK5YHpbug2mcHm5XRpC6eW/xsOjDRjC6
+	 BYsIZMD0+CWK7JR0mnl9p/eQziwMFtS5jMeqcTq0p9TIw5nTmf4HP58kB4+rfCmYjvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=d-silva.org;
-	spf=pass smtp.mailfrom=d-silva.org;
-	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b="gce3z7o/";
-	arc=none smtp.remote-ip=119.15.109.137
-Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF477606A32E;
-	Wed, 25 Nov 2026 12:44:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF477606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=gce3z7o/
-Received: from Hawking.lan (hawking.lan [10.0.1.4])
-	by www.nmnhosting.com (Postfix) with ESMTP id EB2CE4C951;
-	Wed, 25 Nov 2026 23:44:28 +1100 (AEDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1795610669;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gBqX6yAsAhkiQmaGSMtP1wrzGS5nrxUEsmCkAPx5BqQ=;
-	b=gce3z7o/vzOrqWUarJO2N9XYR2CfugtaYk28Foo1LHEWpKFUPKcUmYVQHjxnVpukeGMHtj
-	gPrSkEcgN39OZxEuIN3EokaMWDR4lRXucBqG1sdFlck2/hAJaxssdfA6y9o83kEC9HWuai
-	2VxlKoHSu2OvAXaVeHjnCg57Rm5gO5Hp6kLx3yuJ4nABID9Jx1wchxsUIs2d4WgkgH3RTa
-	83rtHJAI21yG0fjTSkvptD6CIE4vTTvq7XY4jmMjbKOQxBwbLnajSg1INjPCmqDPKXC8wc
-	r6XSYbb4rvIseHvQ85BB3uKeclE7Ykgg24AoY9/cLuSYZhPm+MjeguPB73uM/Q==
-X-GPT-Reason: This is a legitimate technical communication related
-	to software development and kernel patches. The message is classified
-	as personal/professional correspondence because the sender
-	(alastair@d-silva.org) matches the intended recipient (alastair@d-silva.org),
-	the subject line follows standard Linux kernel mailing list formatting
-	for a device tree patch, and there are no phishing indicators, malicious
-	links, or unsolicited marketing elements present.
-From: Alastair D'Silva <alastair@d-silva.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	Andi Shyti <andi.shyti@kernel.org>
-Cc: Maxime Ripard <mripard@kernel.org>,
-	Enzo Adriano <enzo.adriano.code@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Alastair D'Silva <alastair@d-silva.org>
-Subject: [PATCH 3/3] arm64: dts: allwinner: Add Xunlong OrangePi 4 Pro board
-Date: Wed, 25 Nov 2026 23:44:07 +1100
-Message-ID: <20261125124407.4098345-4-alastair@d-silva.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261125124407.4098345-1-alastair@d-silva.org>
-References: <20261125124407.4098345-1-alastair@d-silva.org>
+	dmarc=none header.from=hust.edu.cn;
+	spf=pass smtp.mailfrom=hust.edu.cn;
+	arc=none smtp.remote-ip=13.76.78.106
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.76.78.106])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 519B5606A327;
+	Wed, 25 Nov 2026 12:45:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 519B5606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=hust.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hust.edu.cn
+Received: from xuhx$hust.edu.cn ( [10.12.190.107] ) by ajax-webmail-app2
+ (Coremail) ; Wed, 25 Nov 2026 20:45:08 +0800 (GMT+08:00)
+Date: Wed, 25 Nov 2026 20:45:08 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5b6Q5pmX57+U?= <xuhx@hust.edu.cn>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>
+Cc: perex@perex.cz, tiwai@suse.com, linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] Re: Re: sound: core: rawmidi input close can re-queue
+ event_work after cancel_work_sync() (UAF)
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2025.3-cmXT6 build
+ 20260810(6c94e3b5) Copyright (c) 2002-2026 www.mailtech.cn hust
+In-Reply-To: <c53ccf5f-7973-4b11-b7ea-7972bc87df97@kernel.org>
+References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
+ <2026102727-data-sequel-ce41@gregkh>
+ <2033d529.2ad1b.1a2023ca712.Coremail.xuhx@hust.edu.cn>
+ <c53ccf5f-7973-4b11-b7ea-7972bc87df97@kernel.org>
+X-CM-CTRLMSGS: =?B?01UXaDiH6nJ5xwDR7hwMki1N8jM=
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,111 +59,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Message-ID: <5a5b96e3.569.1a212bd09ac.Coremail.xuhx@hust.edu.cn>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:IQEQrMAG7xFU2AZr0nUDAA--.4194W
+X-CM-SenderInfo: bgsqjkayqyjmo6kx23oohg3hdfq/1tbiAQICB2sGaXQ7IwAFsr
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 
-Add the initial devicetree for the Xunlong OrangePi 4 Pro board.
-
-Enable UART0 console, SD card (MMC0), and the AXP318W PMIC on R-I2C0.
-Omit audio, WiFi, USB, and Ethernet for follow-on series.
-
-Assisted-by: LLM
-Signed-off-by: Alastair D'Silva <alastair@d-silva.org>
----
- arch/arm64/boot/dts/allwinner/Makefile        |  1 +
- .../allwinner/sun60i-a733-orangepi-4-pro.dts  | 75 +++++++++++++++++++
- 2 files changed, 76 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-orangepi-4-pro.dts
-
-diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
-index 38a2c539e794..db6ffa5f8b4f 100644
---- a/arch/arm64/boot/dts/allwinner/Makefile
-+++ b/arch/arm64/boot/dts/allwinner/Makefile
-@@ -68,3 +68,4 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun55i-h728-x96qpro+.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-avaota-a1.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-orangepi-4a.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun60i-a733-cubie-a7s.dtb
-+dtb-$(CONFIG_ARCH_SUNXI) += sun60i-a733-orangepi-4-pro.dtb
-diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733-orangepi-4-pro.dts b/arch/arm64/boot/dts/allwinner/sun60i-a733-orangepi-4-pro.dts
-new file mode 100644
-index 000000000000..b681e4458153
---- /dev/null
-+++ b/arch/arm64/boot/dts/allwinner/sun60i-a733-orangepi-4-pro.dts
-@@ -0,0 +1,75 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-+/*
-+ * Copyright (C) 2026 Alastair D'Silva <alastair@d-silva.org>
-+ */
-+
-+/dts-v1/;
-+
-+#include "sun60i-a733.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+
-+/ {
-+	model = "Xunlong OrangePi 4 Pro";
-+	compatible = "xunlong,orangepi-4-pro", "allwinner,sun60i-a733";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+};
-+
-+&hosc {
-+	clock-frequency = <24000000>;
-+};
-+
-+&mmc0 {
-+	bus-width = <4>;
-+	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
-+	disable-wp;
-+	no-1-8-v;
-+	vmmc-supply = <&reg_dldo1>;
-+	status = "okay";
-+};
-+
-+&r_i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&r_i2c0_pl_pins>;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	axp318w: pmic@36 {
-+		compatible = "x-powers,axp318w";
-+		reg = <0x36>;
-+		interrupt-parent = <&nmi_intc>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+		interrupt-controller;
-+		#interrupt-cells = <1>;
-+
-+		regulators {
-+			reg_dcdc2: dcdc2 {
-+				regulator-name = "vdd-cpu";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1400000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_dldo1: dldo1 {
-+				regulator-name = "vcc-sd";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pb_pins>;
-+	status = "okay";
-+};
--- 
-2.53.0
-
+Y2xvc2Vfc3Vic3RyZWFtKCkgY2FuY2VsbGVkIHRoZSBpbnB1dCBldmVudCB3b3JrIGJlZm9yZSBj
+bGVhcmluZwpzdWJzdHJlYW0tPm9wZW5lZCwgYnV0IHNuZF9yYXdtaWRpX3JlY2VpdmUoKSBzZXJp
+YWxpemVzIG9ubHkgYWdhaW5zdAp0aGUgb3BlbmVkIHN0b3JlOiBhIGRyaXZlciB0aGF0IGRlbGl2
+ZXJzIGlucHV0IGluIHRoYXQgd2luZG93CnJlLXF1ZXVlZCBldmVudF93b3JrIGFmdGVyIHRoZSBj
+YW5jZWxsYXRpb24sIGFuZCB0aGUgd29yayB0aGVuIHJhbgpvbiB0aGUgcnVudGltZSBmcmVlZCBi
+eSBzbmRfcmF3bWlkaV9ydW50aW1lX2ZyZWUoKSAoS0FTQU4gVUFGIGluCnNuZF9yYXdtaWRpX2lu
+cHV0X2V2ZW50X3dvcmsoKSkuCgpDYW5jZWwgdGhlIHdvcmsgYSBzZWNvbmQgdGltZSBhZnRlciBv
+cGVuZWQgaXMgY2xlYXJlZCBhbmQgYmVmb3JlCnRoZSBydW50aW1lIGlzIGZyZWVkLiAgQWxzbyBy
+ZXN0b3JlIHRoZSBwZXItc3Vic3RyZWFtIGRpc2Nvbm5lY3RlZApmbGFnOiBzbmRfcmF3bWlkaV9k
+ZXZfZGlzY29ubmVjdCgpIG1hcmtzIGlucHV0IHN1YnN0cmVhbXMKZGlzY29ubmVjdGVkIHVuZGVy
+IHN1YnN0cmVhbS0+bG9jayBhbmQgZHJhaW5zIHRoZSBldmVudCB3b3JrLCBzbyBhCmRyaXZlciB0
+aGF0IGtlZXBzIGNhbGxpbmcgc25kX3Jhd21pZGlfcmVjZWl2ZSgpIGFmdGVyIHRoZQpkaXNjb25u
+ZWN0IGNhbm5vdCByZS1xdWV1ZSB0aGUgd29yayBlaXRoZXIgKHNuZF9yYXdtaWRpX3JlY2VpdmUo
+KQphbmQgc25kX3Jhd21pZGlfaW5wdXRfdHJpZ2dlcigpIGNoZWNrIHRoZSBmbGFnKS4KLS0tCiBz
+b3VuZC9jb3JlL3Jhd21pZGkuYyAgICB8IDIzICsrKysrKysrKysrKysrKysrKysrKy0tCiBpbmNs
+dWRlL3NvdW5kL3Jhd21pZGkuaCB8ICAxICsKIDIgZmlsZXMgY2hhbmdlZCwgMjIgaW5zZXJ0aW9u
+cygrKSwgMiBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9zb3VuZC9jb3JlL3Jhd21pZGkuYyBi
+L3NvdW5kL2NvcmUvcmF3bWlkaS5jCi0tLSBhL3NvdW5kL2NvcmUvcmF3bWlkaS5jCisrKyBiL3Nv
+dW5kL2NvcmUvcmF3bWlkaS5jCkBAIC0yMTUsNyArMjE1LDcgQEAKIAogc3RhdGljIHZvaWQgc25k
+X3Jhd21pZGlfaW5wdXRfdHJpZ2dlcihzdHJ1Y3Qgc25kX3Jhd21pZGlfc3Vic3RyZWFtICpzdWJz
+dHJlYW0sIGludCB1cCkKIHsKLQlpZiAoIXN1YnN0cmVhbS0+b3BlbmVkKQorCWlmICghc3Vic3Ry
+ZWFtLT5vcGVuZWQgfHwgc3Vic3RyZWFtLT5kaXNjb25uZWN0ZWQpCiAJCXJldHVybjsKIAlzdWJz
+dHJlYW0tPm9wcy0+dHJpZ2dlcihzdWJzdHJlYW0sIHVwKTsKIAlpZiAoIXVwKQpAQCAtNTU3LDYg
+KzU1NywxNCBAQAogCQlzdWJzdHJlYW0tPm9wZW5lZCA9IDA7CiAJCXN1YnN0cmVhbS0+YXBwZW5k
+ID0gMDsKIAl9CisJLyogRHJhaW4gdGhlIGlucHV0IGV2ZW50IHdvcmsgdGhhdCBhIHJhY2luZyBz
+bmRfcmF3bWlkaV9yZWNlaXZlKCkKKwkgKiBtYXkgaGF2ZSBxdWV1ZWQgYWZ0ZXIgdGhlIGVhcmxp
+ZXIgY2FuY2VsbGF0aW9uIGluCisJICogc25kX3Jhd21pZGlfaW5wdXRfdHJpZ2dlcigpOiByZWNl
+aXZlKCkgc2VyaWFsaXplcyBvbmx5IGFnYWluc3QKKwkgKiB0aGUgb3BlbmVkPTAgc3RvcmUgYWJv
+dmUsIG5vdCBhZ2FpbnN0IHRoZSBlYXJsaWVyIGNhbmNlbCwgc28gdGhlCisJICogd29yayBjYW4g
+YmUgcGVuZGluZyBhZ2FpbiBoZXJlLiAgSXQgbXVzdCBub3Qgb3V0bGl2ZSB0aGUgcnVudGltZQor
+CSAqIGZyZWUgYmVsb3cuICovCisJaWYgKHN1YnN0cmVhbS0+c3RyZWFtID09IFNORFJWX1JBV01J
+RElfU1RSRUFNX0lOUFVUKQorCQljYW5jZWxfd29ya19zeW5jKCZzdWJzdHJlYW0tPnJ1bnRpbWUt
+PmV2ZW50X3dvcmspOwogCXN1YnN0cmVhbS0+b3BzLT5jbG9zZShzdWJzdHJlYW0pOwogCWlmIChz
+dWJzdHJlYW0tPnJ1bnRpbWUtPnByaXZhdGVfZnJlZSkKIAkJc3Vic3RyZWFtLT5ydW50aW1lLT5w
+cml2YXRlX2ZyZWUoc3Vic3RyZWFtKTsKQEAgLTExNTEsNyArMTE1OSw3IEBACiAJc3RydWN0IHNu
+ZF9yYXdtaWRpX3J1bnRpbWUgKnJ1bnRpbWU7CiAKIAlndWFyZChzcGlubG9ja19pcnFzYXZlKSgm
+c3Vic3RyZWFtLT5sb2NrKTsKLQlpZiAoIXN1YnN0cmVhbS0+b3BlbmVkKQorCWlmICghc3Vic3Ry
+ZWFtLT5vcGVuZWQgfHwgc3Vic3RyZWFtLT5kaXNjb25uZWN0ZWQpCiAJCXJldHVybiAtRUJBREZE
+OwogCXJ1bnRpbWUgPSBzdWJzdHJlYW0tPnJ1bnRpbWU7CiAJaWYgKCFydW50aW1lIHx8ICFydW50
+aW1lLT5idWZmZXIpIHsKQEAgLTIwNjUsNiArMjA3MywxNyBAQAogCQlsaXN0X2Zvcl9lYWNoX2Vu
+dHJ5KHMsICZybWlkaS0+c3RyZWFtc1tkaXJdLnN1YnN0cmVhbXMsIGxpc3QpIHsKIAkJCWlmIChz
+LT5ydW50aW1lKQogCQkJCXdha2VfdXAoJnMtPnJ1bnRpbWUtPnNsZWVwKTsKKwkJCS8qIG1hcmsg
+aW5wdXQgc3Vic3RyZWFtcyBkaXNjb25uZWN0ZWQgYW5kIGRyYWluIHRoZQorCQkJICogZXZlbnQg
+d29yazogYSBkcml2ZXIgdGhhdCBrZWVwcyBjYWxsaW5nCisJCQkgKiBzbmRfcmF3bWlkaV9yZWNl
+aXZlKCkgYWZ0ZXIgdGhlIGRpc2Nvbm5lY3QgbXVzdAorCQkJICogbm90IHJlLXF1ZXVlIHRoZSB3
+b3JrIG9uIGEgcnVudGltZSB0aGF0IHRoZSBjbG9zZQorCQkJICogcGF0aCBpcyBhYm91dCB0byBm
+cmVlICovCisJCQlpZiAocy0+c3RyZWFtID09IFNORFJWX1JBV01JRElfU1RSRUFNX0lOUFVUKSB7
+CisJCQkJc2NvcGVkX2d1YXJkKHNwaW5sb2NrX2lycXNhdmUsICZzLT5sb2NrKQorCQkJCQlzLT5k
+aXNjb25uZWN0ZWQgPSB0cnVlOworCQkJCWlmIChzLT5ydW50aW1lKQorCQkJCQljYW5jZWxfd29y
+a19zeW5jKCZzLT5ydW50aW1lLT5ldmVudF93b3JrKTsKKwkJCX0KIAkJfQogCX0KIApkaWZmIC0t
+Z2l0IGEvaW5jbHVkZS9zb3VuZC9yYXdtaWRpLmggYi9pbmNsdWRlL3NvdW5kL3Jhd21pZGkuaAot
+LS0gYS9pbmNsdWRlL3NvdW5kL3Jhd21pZGkuaAorKysgYi9pbmNsdWRlL3NvdW5kL3Jhd21pZGku
+aApAQCAtODQsNiArODQsNyBAQAogCWludCBzdHJlYW07CQkJLyogZGlyZWN0aW9uICovCiAJaW50
+IG51bWJlcjsJCQkvKiBzdWJzdHJlYW0gbnVtYmVyICovCiAJYm9vbCBvcGVuZWQ7CQkJLyogb3Bl
+biBmbGFnICovCisJYm9vbCBkaXNjb25uZWN0ZWQ7CQkvKiBkZXZpY2UgZGlzY29ubmVjdGVkIGZs
+YWcgKi8KIAlib29sIGFwcGVuZDsJCQkvKiBhcHBlbmQgZmxhZyAobWVyZ2UgbW9yZSBzdHJlYW1z
+KSAqLwogCWJvb2wgYWN0aXZlX3NlbnNpbmc7CQkvKiBzZW5kIGFjdGl2ZSBzZW5zaW5nIHdoZW4g
+Y2xvc2UgKi8KIAl1bnNpZ25lZCBpbnQgZnJhbWluZzsJCS8qIHdoZXRoZXIgdG8gZnJhbWUgaW5w
+dXQgZGF0YSAqLwotLSAKCgo+IC0tLS0t5Y6f5aeL6YKu5Lu2LS0tLS0KPiDlj5Hku7bkuro6ICJL
+cnp5c3p0b2YgS296bG93c2tpIiA8a3J6a0BrZXJuZWwub3JnPgo+IOWPkemAgeaXtumXtDoyMDI2
+LTExLTI0IDIyOjUyOjU4ICjmmJ/mnJ/kuowpCj4g5pS25Lu25Lq6OiDlvpDmmZfnv5QgPHh1aHhA
+aHVzdC5lZHUuY24+LCBwZXJleEBwZXJleC5jeiwgdGl3YWlAc3VzZS5jb20KPiDmioTpgIE6IGxp
+bnV4LXNvdW5kQHZnZXIua2VybmVsLm9yZywgbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZwo+
+IOS4u+mimDogUmU6IHNvdW5kOiBjb3JlOiByYXdtaWRpIGlucHV0IGNsb3NlIGNhbiByZS1xdWV1
+ZSBldmVudF93b3JrIGFmdGVyIGNhbmNlbF93b3JrX3N5bmMoKSAoVUFGKQo+IAo+IE9uIDIyLzEx
+LzIwMjYgMDg6NTAsIOW+kOaZl+e/lCB3cm90ZToKPiA+IAo+ID4gICBQbGVhc2Uga2VlcCBtZSBp
+biBDYzsgSSBhbSBub3Qgc3Vic2NyaWJlZCB0byB0aGUgbGlzdHMuCj4gCj4gCj4gV2h5PyBZb3Ug
+bmV2ZXIgcmVzcG9uZGVkIHRvIGFueSBvdGhlciBxdWVyeSB3ZSBhc2tlZCBmb3IgdGhlIGxhc3Qg
+bW9udGghCj4gCj4gCj4gQmVzdCByZWdhcmRzLAo+IEtyenlzenRvZgo=
