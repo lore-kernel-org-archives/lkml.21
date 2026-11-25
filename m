@@ -1,69 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.223
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570588;
-	b=O8dboAOv8kIMX0BqYqaC1JSwuiRE+OlY7nNzE7dDJzp+UpL79YDPwYJ1BKgH1ulzC5yX
-	 WV4qCf4k8IBJclq/GuZGVQxAHKte2HNad6a+xIiYhzmvcGFAwC7IOs6XzLLryuKtrYXiM
-	 FjNOsi9VmG3R+9511kUYZl/wjWe4zJ0cPi47CA0IcaGKmHMkSLzm2FLxA52rm1Ork0qUQ
-	 GEmLn8+/Kt46YI5rnMmQjEXwPz3S9j0xvfc9ldfsLmakYnVeQpXHC2SqtHXKg/KMgQqfV
-	 Und6xyatfbpmXGnJTr2W3xFwFdblU2cWyo3IhLFffW/7f+uyuFFqvc57MuLEA0PZf5w==
+	t=1795570713;
+	b=qwiTUCv3Knb6zqlXJByKnTnJIDov/Hh+tBNcFW4O9u0gGlMd4GRSncDyL6TF3tL76ojG
+	 VrOHy35jVaomrW2UG0J2r6S6X6z28nG3qwPkpnAKcYP/WKC3nbd8BYXTI60WtAwawBUfN
+	 JpF1J8vpZKJ9tqzAfZWkJvRXeT01QBa7TgtLejLy/CctsGsQyEx9gPvo8U9Y92szEeSUR
+	 owbO3lIw0MuuiqXqtLvcA2ADK6VkN/T86/rXo8huckB4muQpiDMUe/SskuVN1d+3OifkX
+	 9A8sEhh5kCSMMT7MOvJ3yAVaQPeTo8gdjBtdkex4oE/TrgppSaZ7zgI58YXV5/AjfyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570588;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=CoDH69e6XzIOtyxojAs/Hua9h2l7rwpIoBGHHmKkX/0=;
-	b=XPcBx0mz5cyis01khxIsp/VGtHzgLQw7NVmz5pTOZr2ThwAwvkot9PkY8erRKUjKc19m
-	 IZ7ZJTTYVdoYVpWF0gLbHzE3acgOAC7C8QnWstixARJ7Sv6qAiKleL2MAE0zHvNBkGKpI
-	 sQf+DLAsV7ZHx+R0DKTDgBeJfdoMsgNNJ7REkeZPmn7n+aJHOUCaye9WgUXCB2U2RUFLn
-	 qTA0ClcAIB20VJM9raYj0KN91zJ9tr2gldokWH+fKs8MME7yXiFBBH9yLqxh/3Z/hIUSC
-	 P3GymIlmIPr5gyjXv50wdBDU+blRLr1q3tRa1w/ZId6Soi5JN/4Vs8L4Bxg/F2nGb9A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570713;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=8Vv99MPpkslfI31+Mx5b7uT41xxx/LrADAwFgaN3tlY=;
+	b=wL1FqdQkg3I4ymTgcyx2HIECkvcG1XYaBwsJK7R5W+6tjDCRkLaIaiTT9ykfuM61U3+9
+	 1CsiMnFpXdqEZZGkaLdUOXKpY+VlOkfpwmdAgwYrgzJ0CENzOJ1ap9sBacUEaFM+oeAcK
+	 tF1rhT/mF6hFyPIltmlniQz4qyH2uTIUaIhuIAp4cwTZxo3su9VLoIH0GgvBNmsgBzYmU
+	 k8EwIe027r5jlwoLnk0qc6oSGuXmvdWCfGG7HZIduUFW1iDGxu74gtXnxlu+9omAnDnYe
+	 J90qyt9xBT2XSJWeV8rb8EefSPRLn3gzTErhLXTZyFt5t3ui5qc6TfNczj9Z+/mEVsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=AJzm+MRn;
-	arc=none smtp.remote-ip=113.46.200.223
-Received: from canpmsgout08.his.huawei.com (canpmsgout08.his.huawei.com [113.46.200.223])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GFuy7yXk;
+	arc=none smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E14D4606A321;
-	Wed, 25 Nov 2026 01:36:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E14D4606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6672A606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:38:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6672A606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=AJzm+MRn
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=CoDH69e6XzIOtyxojAs/Hua9h2l7rwpIoBGHHmKkX/0=;
-	b=AJzm+MRn1kIlxfFbZWUb3cfgNUmek2GqBNhHqigRQR025B6jY0e8r+99HpWLGK442Q8ZphyXA
-	JiUtke7ZEpnOGfX8cb6EbnGzNf9t1PU0KQ+WVpUFlWPBVZfamdxDURNKiYMOOH9EUlZMwJNUW4v
-	3IrPdCwyI5CzYsze9KE9Sy0=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4jZ2M52YhZzmV6H;
-	Wed, 25 Nov 2026 09:36:01 +0800 (CST)
-Received: from whupemk300003.china.huawei.com (unknown [7.152.185.49])
-	by mail.maildlp.com (Postfix) with ESMTPS id E542B40563;
-	Wed, 25 Nov 2026 09:36:24 +0800 (CST)
-Received: from huawei.com (10.50.87.204) by whupemk300003.china.huawei.com
- (7.152.185.49) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 25 Nov
- 2026 09:36:23 +0800
-From: Zhang Yuwei <zhangyuwei20@huawei.com>
-To: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
-	<mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Joerg Roedel <joro@8bytes.org>, Will
- Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-trace-kernel@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<chenjun102@huawei.com>, <zhangyuwei20@huawei.com>
-Subject: [PATCH] iommu: Trace I/O page fault response latency
-Date: Wed, 25 Nov 2026 09:34:30 +0800
-Message-ID: <20261125013430.2144822-1-zhangyuwei20@huawei.com>
-X-Mailer: git-send-email 2.22.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GFuy7yXk
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-33fb4680717so13410251eec.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:38:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795570711; x=1796175511; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8Vv99MPpkslfI31+Mx5b7uT41xxx/LrADAwFgaN3tlY=;
+        b=GFuy7yXk0uHaGiYhxMTpDBkZnfZ6B0cUDHX8fkhSMzvEehYUvNjgajp95CqTsUWDHF
+         0D9qWi2e2hIudkXWKpfoAw/Nfvr16ceeRPyRD2/46wRaVjwYgLkthc62YL9vJdEXPMuW
+         iNpsk4bJ9Cd3MYxXHwsEDsjtIp5YbXtYiT72LTMGLFHKpQ0p86Rm9OwPJsiFla3MKZ14
+         we8d1myisgP+wicTxgSps5hybh/1aQPmdFBxmdV8Vm2yRp5+i8TDcjHR8NszJPTIZ4oi
+         4HtoWh3ibmxzJnM1gUMvyE8qrQ0yuJwQsTFzL73tbCjY1par8QHn6U0wor465cskQdqU
+         /X6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795570711; x=1796175511;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8Vv99MPpkslfI31+Mx5b7uT41xxx/LrADAwFgaN3tlY=;
+        b=E44MZH6SSm+jE50kXgdOOOqNYSmEAPcZ+QIeYnDwFGK2QpElNSNXcGLZjmtNGYiMgO
+         MCDewFzGYlbJY/SkDWDXyIA3kNS3PB31WOpyc6pfw49/ZLrpbl8oi4T+2GOw2z5zSOfN
+         g9qhuBxpjk0LC9JGj7s8X3bLiRCAYym/a/Biur9PpCM30GQIn4J65PioD6ryYBd6mYOJ
+         xSxPvqSF8/YVE+x9y1nu9xNVjfiVxghDKSpVhIHCUSEL1lvmoNOCsg+AoPen7urW2UAf
+         lCjVoD0r2tvyg+XXsmvkD3Y6eyyE6sBJzdbPJ38nn63ajX4rXhYK6JNavFQKfHV2ypLJ
+         ZhSQ==
+X-Forwarded-Encrypted: i=1; AL+hErESfF2ZLbTBLsVQwpJzPqWqtPiILOFq3mdrYM/Eh+onoIJ8fh3vlN9CRgOiosyHky9UFotczrZXWn4hasY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/htTJsz/iqibANuM1fGYWFKZvd/ey/m7QJvEtJpk3ThtgsjtBe
+	EtflZWNxE1fe6MOarwvqhBcGHOUqQTx3lWU+XmkZZa/2QFBqosIDMe4X
+X-Gm-Gg: AZFdTZf24OU8BTD7BVzCsryZPCLOdG0l173AakCz2a7O0tW6uNHmrTrsw2yzlH7/kuM
+	P063OIAIqMJlqAnCzfXPE2sLQEHMd+4ngpddo5wqS8sKQaNEyRElb37E/HmzsAfG8NeMbQXC3et
+	gmL2H3BgNiBE4DgxoxM3AXWy0nXcn/U/TsRsEhtceMy0dOn+VBETwXBpwOx8QP0vKg/T5OORwxZ
+	lXq+ZVfAaMZr+jZ7EWX4l07wwNDjvoz9k9gY8hlnnqvEbeWwVuwS5ZEGonBDd8DAmjU01BqUoMn
+	sLQp6tCoNSrfkc5LIgogj3lehAkXC1ebMjnHT8F66t+3bYxMAQjw1Mfrr0nDNCv8zckXW5HIdgK
+	IXf6PBHD32wnJ2JxreByJjVOqC8yWpKhg5jWsY/1H7hylDAWaqAi51U8kfbxJlI/baxR/kAtI4v
+	0vUMBxVGtm1he/D/ckjJ5kP1hU7HxVqKlzMAHSZ5TCE/2Oi2MPNzqlDwGZP12OJFcmhpKmqmhnr
+	nho9zHXdyNsyFmjc/ePVtuEINLRonL+EAy116dnXsVoF2sqsdth1U09E2nHxetyzQ4z5QVald3H
+	oQDBExoIBOgJdzXJZhsF
+X-Received: by 2002:a05:7301:9a82:b0:369:4c3f:8a5 with SMTP id 5a478bee46e88-3856ef45385mr17875756eec.14.1795570710976;
+        Tue, 24 Nov 2026 17:38:30 -0800 (PST)
+Received: from a1-free ([161.33.196.121])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm47889173eec.23.2026.11.24.17.38.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 17:38:30 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: linux-perf-users@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>
+Cc: Ian Rogers <irogers@google.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Hang Zhengyang <hang.zhengyang1010@gmail.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-kernel@vger.kernel.org,
+	TAKANO Mitsuhiro <takano32@gmail.com>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH v6] perf stat: Refuse a group mixing tool and kernel events
+Date: Wed, 25 Nov 2026 01:38:26 +0000
+Message-ID: <20261125013826.1495729-1-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261124135630.1027716-1-takano32@gmail.com>
+References: <20261124135630.1027716-1-takano32@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,273 +110,528 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- whupemk300003.china.huawei.com (7.152.185.49)
 
-From: Chen Jun <chenjun102@huawei.com>
+A tool event has no kernel counterpart: user_time and system_time read
+/proc/stat, or /proc/<pid>/stat for a workload, and duration_time keeps
+its value in perf itself.  perf-list(1) says events from different PMUs
+cannot be grouped except for some software events, and the tool PMU counts
+as software, so a tool event stays in the group the user wrote.
 
-Carry an optional monotonic timestamp with each IOPF and preserve it
-across group construction, including allocation error paths. Sample it
-at the common report entry point and record latency after the driver's
-page_response callback returns.
+The parser splits it from another software PMU's event, such as cpu-clock,
+and evlist__check_cpu_maps() removes members whose CPUs do not match the
+leader under -a or -C.  What is left is a group that cannot be counted.
 
-Cover asynchronous group responses and synchronous error responses. For
-grouped requests, measure from reporting the last fault in the group.
-Use existing tracing configuration and record fault identity, response
-code and elapsed nanoseconds without command submission return values.
-Print PASID validity inline as pasid(v) or pasid(i), retaining the raw
-validity field for programmatic consumers.
+Before this change, with user_time or system_time as the leader,
+get_group_fd() handed the procfs descriptor to the members and the kernel
+rejected each with EBADF.  With duration_time as the leader there was no
+descriptor, so the members got -2 and failed with EINVAL, "broken group
+leader" appearing only in the debug log.  Either way perf stat printed the
+tool event and "<not supported>" for the rest of the group:
 
-Document the software timing boundaries and tracefs interface.
+  $ perf stat -e '{user_time,cycles}' -- sleep 0.05
+                   0      user_time
+     <not supported>      cycles
 
-The implementation was validated with x86_64 builds with tracing
-enabled and tracing disabled.
+Before this change too, with a kernel event as the leader, the members did
+open, but the group read failed with ENOSPC.  perf sized the buffer for
+leader->core.nr_members entries, which included the tool event, while the
+kernel filled in one entry fewer; readn() then asked for the remainder
+with a count below the kernel's read_size, so the rest of the group came
+out as "<not counted>".  That was the shape of
+-e '{cycles,instructions,duration_time}', which had not been counted since
+commit 6828d6929b76 ("perf evsel: Refactor tool events").
 
-Signed-off-by: Chen Jun <chenjun102@huawei.com>
-Signed-off-by: Zhang Yuwei <zhangyuwei20@huawei.com>
+Counting such a group means moving the leader to a kernel event and
+letting the group read skip the tool members; that is left to a separate
+series.  Splitting the tool event out and warning, as
+evlist__check_cpu_maps() does, would let the kernel events count, but the
+tool event would lose the group's window and the warning is easy to miss
+in a script.  The braces are the user's explicit request, so perf stat
+should not quietly reinterpret them.  Ian's "perf pmu: Don't treat tool
+PMU as a kernel software PMU for event grouping" splits it in the parser
+and this check then has nothing to refuse; Hang's patch opens the members
+with group_fd = -1 instead, which this check preempts.  Only one of the
+three should be applied.
+
+Refuse the group before the workload is started:
+
+  A tool event cannot be grouped with kernel events: user_time
+
+That is followed by "Put it outside the braces", as in
+-e '{cycles,instructions},duration_time'.  perf stat used to leave the rest
+of the group uncounted and exit 0; it now exits 22.  Namhyung Kim preferred
+the refusal to counting the events one by one.  get_group_fd() no longer
+trips its BUG_ON() for a tool event with no descriptor, which is normal for
+duration_time; the BUG_ON() only fired in a DEBUG=1 build.
+
+A group of tool events only is accepted, as before.  A weak group led by a
+tool event is left to the weak group handling, which splits it in the open
+loop: get_group_fd() reports that no kernel group can hang off a tool
+event, and the loop splits on EINVAL before any member is enabled.  Any
+other weak group that mixes them is refused like a strong one.
+
+Sashiko's review of v5 found that the split was skipped for a leader that
+is a tool event but still has an fd.  user_time and system_time do have
+one, a procfs descriptor, so fd == -1 was false and that descriptor was
+handed to perf_event_open() as group_fd.  Under -a with
+perf_event_paranoid > 1 the member cycles:k failed with EACCES, which is
+not a split condition, so it stayed in the group while its fd array was
+freed; enabling the group then dereferenced NULL:
+
+  $ perf stat -a -e '{user_time,cycles:k}:W' -- true
+  Segmentation fault
+
+get_group_fd() now returns -2 for a tool leader with or without an fd.  The
+fd it may have is a procfs one and cannot be a group_fd for the members.
+
+The test no longer requires cycles to be printed when no hardware cycles
+event can be counted: the evsel falls back to task-clock or is renamed,
+and the group output is still checked.  A weak group led by a tool event
+under -a is now run as well, so the crash above stays fixed.
+
+Where the core PMU covers only part of the CPUs (hybrid x86, big.LITTLE
+arm64), evlist__check_cpu_maps() takes the tool event out first under -a,
+so no mixed group is left to refuse.  Sashiko's review of v4 raised this
+and the NULL dereference that the get_group_fd() change above prevents.
+
+The code, the test, the man page and this message were written with
+Hermes Agent (deepseek-v4.1-flash); I reviewed the result, built perf, and
+ran tools/perf/tests/shell/stat+tool_group.sh and checkpatch.pl --strict.
+The -a segmentation fault above was reproduced here.  The EBADF and the
+group-read failure were not re-observed: kernel events cannot be opened
+here (perf_event_paranoid=4).
+
+Fixes: 6828d6929b76 ("perf evsel: Refactor tool events")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Link: https://lore.kernel.org/all/sashiko-outbox-227849@kernel.org/
+Link: https://lore.kernel.org/all/sashiko-outbox-231330@kernel.org/
+Reported-by: Hang Zhengyang <hang.zhengyang1010@gmail.com>
+Link: https://lore.kernel.org/all/20261111-tool-pmu-leader-v2-1-3faa0fb98c51@gmail.com/
+Suggested-by: Namhyung Kim <namhyung@kernel.org>
+Link: https://lore.kernel.org/all/awC_aZXD5FBGu4mO@google.com/
+Link: https://lore.kernel.org/all/awTXdgY38s2bijW5@google.com/
+Cc: Ian Rogers <irogers@google.com>
+Link: https://lore.kernel.org/all/20261123071913.653315-7-irogers@google.com/
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
 ---
- Documentation/trace/index.rst      |  1 +
- Documentation/trace/iommu-iopf.rst | 52 ++++++++++++++++++++++++++++++
- MAINTAINERS                        |  2 ++
- drivers/iommu/io-pgfault.c         | 17 ++++++++++
- drivers/iommu/iommu-traces.c       |  1 +
- include/linux/iommu.h              |  2 ++
- include/trace/events/iommu.h       | 36 +++++++++++++++++++++
- 7 files changed, 111 insertions(+)
- create mode 100644 Documentation/trace/iommu-iopf.rst
+v6: Sashiko's review of v5 found that a tool leader with a procfs
+    descriptor skipped the weak group split: user_time and system_time
+    do have an fd, so fd == -1 was false, the procfs fd went to
+    perf_event_open() as group_fd, and under -a with
+    perf_event_paranoid > 1 the member failed with EACCES, which is not
+    a split condition.  Its fd array was freed and enabling the group
+    dereferenced NULL.  Reproduced here:
 
-diff --git a/Documentation/trace/index.rst b/Documentation/trace/index.rst
-index f4058e8e92e3..e61e428ecd68 100644
---- a/Documentation/trace/index.rst
-+++ b/Documentation/trace/index.rst
-@@ -57,6 +57,7 @@ applications.
-    events-landlock
-    events-pci
-    events-pci-controller
-+   iommu-iopf
-    boottime-trace
-    histogram
-    histogram-design
-diff --git a/Documentation/trace/iommu-iopf.rst b/Documentation/trace/iommu-iopf.rst
-new file mode 100644
-index 000000000000..259cf23c6899
---- /dev/null
-+++ b/Documentation/trace/iommu-iopf.rst
-@@ -0,0 +1,52 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+IOMMU I/O page fault response latency
-+====================================
-+
-+The event uses the existing IOMMU I/O page fault handling and event tracing
-+configuration; no additional configuration option is needed. For example,
-+``CONFIG_ARM_SMMU_V3_SVA`` selects the I/O page fault handling infrastructure
-+for ARM SMMUv3.
-+
-+The ``iommu:iopf_latency`` event measures software response latency from
-+entry to ``iommu_report_device_fault()`` until the IOMMU driver's
-+``page_response()`` callback returns. Both asynchronous group responses
-+and synchronous error responses are covered. It includes software queueing
-+and fault handling, but excludes time in hardware queues before reporting.
-+The meaning of callback completion depends on the driver; for ARM SMMUv3
-+it is after RESUME command submission returns, not after transaction
-+recovery. No additional command synchronization is issued.
-+
-+For grouped requests, one sample measures the interval from reporting the
-+last fault in the group to responding to that group. Earlier partial
-+requests do not each receive a separate latency event when assembled into
-+a group. The address and PASID fields identify the last fault. A
-+synchronous error response instead identifies the fault being rejected.
-+For ARM SMMUv3 EVTQ stall faults, each reported event is marked as the last
-+fault of its group.
-+
-+For example, with tracefs mounted at ``/sys/kernel/tracing``::
-+
-+    echo 1 > /sys/kernel/tracing/events/iommu/iopf_latency/enable
-+    cat /sys/kernel/tracing/trace_pipe
-+    echo 0 > /sys/kernel/tracing/events/iommu/iopf_latency/enable
-+
-+Each response records the device name, PASID and its validity, group ID
-+(stall tag on ARM SMMUv3), fault address, response code, and ``duration_ns``
-+in nanoseconds.
-+Response codes are
-+``IOMMU_PAGE_RESP_SUCCESS`` (0), ``IOMMU_PAGE_RESP_INVALID`` (1), and
-+``IOMMU_PAGE_RESP_FAILURE`` (2). The event does not report whether command
-+submission succeeded.
-+
-+Timestamps are taken only while the tracepoint has an enabled consumer.
-+A response without a sampled start time produces no latency event. A
-+sampled request may span disabling and re-enabling the event, in which case
-+the full interval is reported if the tracepoint is enabled at response
-+time. Enable transitions are best effort with respect to concurrent faults.
-+Trace filters and ring buffer overruns can discard records as usual.
-+
-+``tracing_on=0`` stops trace buffer recording but does not necessarily
-+disable the tracepoint. Other consumers, including perf and BPF, can also
-+keep it enabled. Events that never reach the response callback have no
-+completed interval to report.
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 782389bd5cd3..82217afd67e2 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -13704,10 +13704,12 @@ L:	iommu@lists.linux.dev
- S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
- F:	Documentation/devicetree/bindings/iommu/
-+F:	Documentation/trace/iommu-iopf.rst
- F:	drivers/iommu/
- F:	include/linux/iommu.h
- F:	include/linux/iova.h
- F:	include/linux/of_iommu.h
-+F:	include/trace/events/iommu.h
- F:	rust/kernel/iommu/
+      $ perf stat -a -e '{user_time,cycles:k}:W' -- true
+      Segmentation fault
+
+    get_group_fd() now returns -2 for any tool leader, with or without
+    an fd; the fd it may have is a procfs one and cannot be a group_fd.
+    The -a cases no longer crash and the refusal is unchanged.  The test
+    runs one of them, so the crash stays fixed.
+
+    The test no longer requires cycles to be printed when no hardware
+    cycles event can be counted: the evsel falls back to task-clock or
+    is renamed.  That was Sashiko's Low finding.
+
+    Two comments in builtin-stat.c that described the EBADF route
+    were updated to the EINVAL route that get_group_fd() returns for a
+    tool leader.
+
+    v5: Namhyung Kim confirmed on 2026-11-24 00:16 UTC
+    (https://lore.kernel.org/all/awTXdgY38s2bijW5@google.com/)
+    that the group should be rejected rather than counted event by event,
+    so this keeps the refusal and drops the question from the message.
+
+    Rebased onto v7.4-rc4.  The perf-tools-next branch fetched here is still
+    at 2026-10-27 and does not carry tools/include/linux/stddef.h.
+
+ tools/perf/Documentation/perf-stat.txt    |  14 ++
+ tools/perf/builtin-stat.c                 |  69 +++++++
+ tools/perf/tests/shell/stat+tool_group.sh | 237 ++++++++++++++++++++++
+ tools/perf/util/evsel.c                   |  11 +
+ 4 files changed, 331 insertions(+)
+ create mode 100755 tools/perf/tests/shell/stat+tool_group.sh
+
+diff --git a/tools/perf/Documentation/perf-stat.txt b/tools/perf/Documentation/perf-stat.txt
+index 8ea17da89976..e52925ff776b 100644
+--- a/tools/perf/Documentation/perf-stat.txt
++++ b/tools/perf/Documentation/perf-stat.txt
+@@ -65,6 +65,20 @@ report::
+ 	Multiple PMU instances are typical for uncore PMUs, so the prefix
+ 	'uncore_' is also ignored when performing this match.
  
- IOMMUFD
-diff --git a/drivers/iommu/io-pgfault.c b/drivers/iommu/io-pgfault.c
-index c16ff1fc4b95..72e654ea5ffe 100644
---- a/drivers/iommu/io-pgfault.c
-+++ b/drivers/iommu/io-pgfault.c
-@@ -6,11 +6,14 @@
-  */
++	Tool events such as duration_time and user_time are read by perf
++	itself and have no event in the kernel.  A group of a tool event and
++	an event from a different software PMU, such as cpu-clock, is split by
++	the parser, which warns that events were regrouped; -a and -C split
++	a group whose members do not share the CPUs of the leader in the
++	same way.  A group that is not split and mixes a tool event with an
++	event the kernel opens is refused, as in -e '{user_time,cycles}',
++	instead of printing the tool event and leaving the rest of the group
++	uncounted.  Put the tool event outside the braces instead, as in
++	-e '{cycles,instructions},duration_time'.  A group of tool events
++	only is accepted.  A weak group (:W) led by a tool event is left to
++	the weak group handling, which splits it when a member fails to
++	open; any other weak group that mixes them is refused
++	like a strong group.
  
- #include <linux/iommu.h>
-+#include <linux/ktime.h>
- #include <linux/list.h>
- #include <linux/sched/mm.h>
- #include <linux/slab.h>
- #include <linux/workqueue.h>
- 
-+#include <trace/events/iommu.h>
-+
- #include "iommu-priv.h"
- 
- /*
-@@ -96,6 +99,7 @@ static struct iopf_group *iopf_group_alloc(struct iommu_fault_param *iopf_param,
- 
- 	group->fault_param = iopf_param;
- 	group->last_fault.fault = evt->fault;
-+	group->last_fault.report_time_ns = evt->report_time_ns;
- 	INIT_LIST_HEAD(&group->faults);
- 	INIT_LIST_HEAD(&group->pending_node);
- 	list_add(&group->last_fault.list, &group->faults);
-@@ -155,6 +159,14 @@ static struct iommu_attach_handle *find_fault_handler(struct device *dev,
- 	return attach_handle;
+ -i::
+ --no-inherit::
+diff --git a/tools/perf/builtin-stat.c b/tools/perf/builtin-stat.c
+index 37752d6bfef4..21cf17d3dcca 100644
+--- a/tools/perf/builtin-stat.c
++++ b/tools/perf/builtin-stat.c
+@@ -2469,6 +2469,70 @@ static int parse_tpebs_mode(const struct option *opt, const char *str,
  }
+ #endif // HAVE_ARCH_X86_64_SUPPORT
  
-+static void iopf_trace_response(struct device *dev, const struct iopf_fault *evt,
-+				const struct iommu_page_response *resp)
++/*
++ * A tool event like user_time has no event in the kernel: perf reads it
++ * from a file such as /proc/stat, or computes it in perf itself.  A group
++ * that mixes one with an event the kernel opens cannot be counted.
++ * get_group_fd() has no group fd to hand to the members when the leader is
++ * a tool event, so the members cannot be in a kernel group with it; with
++ * a kernel event as the leader the members do open, but the group read is
++ * rejected as the kernel knows only the members it opened.  perf stat used
++ * to leave the rest of the group uncounted in both cases, when the CPU maps
++ * had not split the group first; refuse the group instead.  A group with no
++ * event the kernel opens is left alone, as perf reads each event in it.  A
++ * weak group led by a tool event is left to the weak group handling in the
++ * open loop, which splits it when a member fails to open; any other weak
++ * group is refused like a strong one.
++ */
++static int check_tool_groups(struct evlist *evlist)
 +{
-+	if (trace_iopf_latency_enabled() && evt->report_time_ns)
-+		trace_iopf_latency(dev, evt, resp,
-+				   ktime_get_ns() - evt->report_time_ns);
++	struct evsel *leader, *evsel;
++
++	evlist__for_each_entry(evlist, leader) {
++		struct evsel *tool = NULL;
++		bool has_kernel = false, weak = false;
++
++		if (!evsel__is_group_leader(leader) || leader->core.nr_members < 2)
++			continue;
++
++		/*
++		 * The members of a group are not necessarily adjacent in the
++		 * evlist: evlist__check_cpu_maps() makes a removed member a
++		 * leader of its own without moving it.
++		 */
++		evlist__for_each_entry(evlist, evsel) {
++			if (!evsel__has_leader(evsel, leader))
++				continue;
++			if (evsel__is_tool(evsel)) {
++				if (!tool)
++					tool = evsel;
++			} else if (!evsel__is_non_perf_event_open_pmu(evsel)) {
++				has_kernel = true;
++			}
++			weak |= evsel->weak_group;
++		}
++
++		if (!tool || !has_kernel)
++			continue;
++
++		/*
++		 * A weak group led by a tool event is left to the weak group
++		 * handling in the open loop: get_group_fd() returns -2 for a
++		 * tool leader, the open fails with EINVAL, and that is what
++		 * splits the group.  Any other weak group does not get that
++		 * far, so it is refused like a strong group.
++		 */
++		if (weak && evsel__is_tool(leader))
++			continue;
++
++		pr_err("A tool event cannot be grouped with kernel events: %s\n",
++		       evsel__name(tool));
++		pr_err("Put it outside the braces, as in -e '{cycles,instructions},duration_time'.\n");
++		return -EINVAL;
++	}
++	return 0;
 +}
 +
- static void iopf_error_response(struct device *dev, struct iopf_fault *evt)
+ int cmd_stat(int argc, const char **argv)
  {
- 	const struct iommu_ops *ops = dev_iommu_ops(dev);
-@@ -166,6 +178,7 @@ static void iopf_error_response(struct device *dev, struct iopf_fault *evt)
- 	};
+ 	struct opt_aggr_mode opt_mode = {};
+@@ -2947,6 +3011,11 @@ int cmd_stat(int argc, const char **argv)
  
- 	ops->page_response(dev, evt, &resp);
-+	iopf_trace_response(dev, evt, &resp);
- }
+ 	evlist__check_cpu_maps(evsel_list);
  
- /**
-@@ -219,6 +232,9 @@ int iommu_report_device_fault(struct device *dev, struct iopf_fault *evt)
- 	struct iopf_group abort_group = {};
- 	struct iopf_group *group;
- 
-+	/* Error paths may respond synchronously before reporting returns. */
-+	evt->report_time_ns = trace_iopf_latency_enabled() ? ktime_get_ns() : 0;
++	if (check_tool_groups(evsel_list)) {
++		status = -EINVAL;
++		goto out;
++	}
 +
- 	attach_handle = find_fault_handler(dev, evt);
- 	if (!attach_handle)
- 		goto err_bad_iopf;
-@@ -334,6 +350,7 @@ void iopf_group_response(struct iopf_group *group,
- 
- 	mutex_lock(&fault_param->lock);
- 	ops->page_response(dev, &group->last_fault, &resp);
-+	iopf_trace_response(dev, iopf, &resp);
- 	list_del_init(&group->pending_node);
- 	mutex_unlock(&fault_param->lock);
- }
-diff --git a/drivers/iommu/iommu-traces.c b/drivers/iommu/iommu-traces.c
-index 23416bf76df9..ce2ab3277b5f 100644
---- a/drivers/iommu/iommu-traces.c
-+++ b/drivers/iommu/iommu-traces.c
-@@ -25,3 +25,4 @@ EXPORT_TRACEPOINT_SYMBOL_GPL(unmap);
- 
- /* iommu_error */
- EXPORT_TRACEPOINT_SYMBOL_GPL(io_page_fault);
-+EXPORT_TRACEPOINT_SYMBOL_GPL(iopf_latency);
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index ac43b8b93f14..d797b42fdb20 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -125,6 +125,8 @@ struct iopf_fault {
- 	struct iommu_fault fault;
- 	/* node for pending lists */
- 	struct list_head list;
-+	/* Fault report timestamp in ns, or zero if not sampled. */
-+	u64 report_time_ns;
- };
- 
- struct iopf_group {
-diff --git a/include/trace/events/iommu.h b/include/trace/events/iommu.h
-index 373007e567cb..cfcc29a792b2 100644
---- a/include/trace/events/iommu.h
-+++ b/include/trace/events/iommu.h
-@@ -11,6 +11,8 @@
- #if !defined(_TRACE_IOMMU_H) || defined(TRACE_HEADER_MULTI_READ)
- #define _TRACE_IOMMU_H
- 
-+#include <linux/device.h>
-+#include <linux/iommu.h>
- #include <linux/tracepoint.h>
- 
- struct device;
-@@ -156,6 +158,40 @@ DEFINE_EVENT(iommu_error, io_page_fault,
- 
- 	TP_ARGS(dev, iova, flags)
- );
+ 	/*
+ 	 * Initialize thread_map with comm names,
+ 	 * so we could print it out on output.
+diff --git a/tools/perf/tests/shell/stat+tool_group.sh b/tools/perf/tests/shell/stat+tool_group.sh
+new file mode 100755
+index 000000000000..ff7142977979
+--- /dev/null
++++ b/tools/perf/tests/shell/stat+tool_group.sh
+@@ -0,0 +1,237 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0
++# perf stat tool events in an event group (no_mlock)
 +
-+TRACE_EVENT(iopf_latency,
++set -e
 +
-+	TP_PROTO(struct device *dev, const struct iopf_fault *evt,
-+		 const struct iommu_page_response *resp, u64 duration_ns),
++out=$(mktemp /tmp/__perf_test.stat_tool_group.XXXXXX)
++stderr=$(mktemp /tmp/__perf_test.stat_tool_group.XXXXXX)
++err=0
++skipped=0
 +
-+	TP_ARGS(dev, evt, resp, duration_ns),
++cleanup() {
++  rm -f "${out}" "${stderr}"
 +
-+	TP_STRUCT__entry(
-+		__string(device, dev_name(dev))
-+		__field(u32, pasid)
-+		__field(bool, pasid_valid)
-+		__field(u32, grpid)
-+		__field(u64, addr)
-+		__field(u32, response)
-+		__field(u64, duration_ns)
-+	),
++  trap - EXIT TERM INT
++}
 +
-+	TP_fast_assign(
-+		__assign_str(device);
-+		__entry->pasid = evt->fault.prm.pasid;
-+		__entry->pasid_valid = evt->fault.prm.flags &
-+			IOMMU_FAULT_PAGE_REQUEST_PASID_VALID;
-+		__entry->grpid = resp->grpid;
-+		__entry->addr = evt->fault.prm.addr;
-+		__entry->response = resp->code;
-+		__entry->duration_ns = duration_ns;
-+	),
++trap_cleanup() {
++  echo "Unexpected signal in ${FUNCNAME[1]}"
++  cleanup
++  exit 1
++}
++trap trap_cleanup EXIT TERM INT
 +
-+	TP_printk("device=%s pasid(%c)=%u grpid=%u addr=0x%llx response=%u duration_ns=%llu",
-+		  __get_str(device), __entry->pasid_valid ? 'v' : 'i', __entry->pasid,
-+		  __entry->grpid, __entry->addr, __entry->response,
-+		  __entry->duration_ns)
-+);
- #endif /* _TRACE_IOMMU_H */
++# A tool event has no event in the kernel: perf reads it from a file such
++# as /proc/stat, or computes it in perf itself, so it cannot be counted in
++# a group that is opened with perf_event_open().  Such a group used to
++# print the tool event and leave the rest of the group uncounted, so perf
++# stat has to say what is wrong instead.
++
++# Whether this kernel lets the user open a hardware event decides whether
++# the accepted cases can show a measured value at all.  An event that is
++# not supported prints a "<not supported>" line even when perf stat exits 0.
++kernel_events=1
++if ! perf stat -e cycles -o "${out}" -- true 2> /dev/null ||
++   grep -q "<not supported>" "${out}" ||
++   ! grep -q "cycles" "${out}"; then
++  kernel_events=0
++fi
++
++# CPU-wide events need root or perf_event_paranoid <= 0, so -a can fail even
++# when a per-thread event works.
++syswide=1
++if ! perf stat -a -e cycles -o /dev/null -- true 2> /dev/null; then
++  syswide=0
++fi
++
++refused() {
++  local group="$1" tool="$2" rc=0
++  shift 2
++
++  echo "Testing that perf stat refuses ${group} $*"
++  perf stat "$@" -e "${group}" -o "${out}" -- true 2> "${stderr}" || rc=$?
++
++  if [ "${rc}" = 0 ]; then
++    echo "perf stat accepted ${group}  [Failed]"
++    err=1
++    return
++  fi
++  if [ "${rc}" != 22 ]; then
++    echo "perf stat failed with ${rc}, expected 22  [Failed]"
++    cat "${stderr}"
++    err=1
++  fi
++  if ! grep -qE "A tool event cannot be grouped with kernel events: (${tool})" \
++      "${stderr}"; then
++    echo "perf stat failed without naming ${tool}  [Failed]"
++    cat "${stderr}"
++    err=1
++  fi
++  if ! grep -q "Put it outside the braces" "${stderr}"; then
++    echo "perf stat failed without saying how to write it  [Failed]"
++    cat "${stderr}"
++    err=1
++  fi
++}
++
++# The events named after the group have to show up in the output.
++accepted() {
++  local group="$1" name rc=0
++
++  shift
++  echo "Testing that perf stat accepts ${group}"
++  perf stat -e "${group}" -o "${out}" -- true 2> "${stderr}" || rc=$?
++
++  if [ "${rc}" != 0 ]; then
++    cat "${stderr}"
++    echo "perf stat failed for ${group} (${rc})  [Failed]"
++    err=1
++    return
++  fi
++  if grep -q "cannot be grouped with kernel events" "${stderr}"; then
++    cat "${stderr}"
++    echo "perf stat refused ${group}  [Failed]"
++    err=1
++    return
++  fi
++  for name in "$@"; do
++    # When no hardware cycles event can be counted, cycles falls back to
++    # task-clock and the evsel is renamed, so it need not appear.
++    case "${name}" in
++      cycles|cycles:*)
++        [ "${kernel_events}" = 0 ] && continue ;;
++    esac
++    if ! grep -q -- "${name}" "${out}"; then
++      echo "perf stat did not print ${name}  [Failed]"
++      cat "${out}"
++      err=1
++    fi
++  done
++  if grep -q "<not counted>" "${out}"; then
++    echo "perf stat did not count an event in ${group}  [Failed]"
++    cat "${out}"
++    err=1
++  elif grep -q "<not supported>" "${out}"; then
++    if [ "${kernel_events}" = 1 ]; then
++      echo "perf stat could not open an event in ${group}  [Failed]"
++      cat "${out}"
++      err=1
++    else
++      echo "perf stat could not open an event in ${group}  [Skipped]"
++      skipped=$((skipped + 1))
++    fi
++  fi
++}
++
++# The tool event as the leader and as a member, a common group that puts
++# the tool event last, and a weak group led by a kernel event, which is
++# refused the same way.
++refused '{user_time,cycles}' user_time
++refused '{cycles,user_time}' user_time
++refused '{duration_time,instructions}' duration_time
++refused '{cycles,instructions,duration_time}' duration_time
++refused '{cycles,user_time}:W' user_time
++
++# The tool event in the middle of a group, and the first of two tool
++# events, which is the one the message names.
++refused '{cycles,user_time,instructions}' user_time
++refused '{user_time,system_time,cycles}' user_time
++
++# evlist__check_cpu_maps() takes duration_time out of this group (it is
++# read on one CPU only), which leaves cycles and user_time apart in the
++# evlist; the tool event has to be found anyway.  On a machine with one
++# CPU there is nothing to split, so either tool event can be the first.
++# When a core PMU covers only part of the CPUs (hybrid x86, big.LITTLE
++# arm64), -a gives the leader a subset of the CPUs and takes the tool
++# event out of the group as well, which leaves no group to refuse.  The
++# command is then counted instead of refused, and either way it must not
++# reach the tool event through a member with no descriptor.
++rc=0
++perf stat -a -e '{cycles,duration_time,user_time}' -o "${out}" -- true \
++  2> "${stderr}" || rc=$?
++if [ "${rc}" -ge 128 ]; then
++  echo "perf stat crashed on -a  [Failed]"
++  err=1
++elif [ "${rc}" -eq 0 ]; then
++  if [ "${syswide}" = 1 ] && [ "${kernel_events}" = 1 ]; then
++    if grep -qE "<not supported>|<not counted>" "${out}"; then
++      echo "perf stat left an event uncounted on -a  [Failed]"
++      cat "${out}"
++      err=1
++    fi
++  else
++    echo "perf stat counted -a without full access  [Skipped]"
++    skipped=$((skipped + 1))
++  fi
++elif [ "${rc}" -eq 22 ]; then
++  if ! grep -qE "A tool event cannot be grouped with kernel events: (user_time|duration_time)" \
++      "${stderr}" ||
++     ! grep -q "Put it outside the braces" "${stderr}"; then
++    echo "perf stat refused -a without the full message  [Failed]"
++    cat "${stderr}"
++    err=1
++  fi
++elif [ "${rc}" -ne 0 ]; then
++  echo "perf stat left -a with ${rc}  [Failed]"
++  cat "${stderr}"
++  err=1
++fi
++
++# A group of tool events only is read by perf itself, a single event in
++# braces is not a group, a tool event outside the braces is not a member,
++# and a weak group led by a tool event is split by the weak group
++# handling.  The member of such a group must never be enabled through a
++# descriptor that was freed; that used to crash under -a when the open of
++# the member failed outside the split conditions.
++rc=0
++perf stat -a -e '{user_time,cycles:k}:W' -o "${out}" -- true \
++  2> "${stderr}" || rc=$?
++if [ "${rc}" -ge 128 ]; then
++  echo "perf stat crashed on a weak tool group under -a  [Failed]"
++  err=1
++elif [ "${rc}" -ne 0 ]; then
++  echo "perf stat left a weak tool group under -a with ${rc}  [Failed]"
++  cat "${stderr}"
++  err=1
++elif ! grep -q -- "user_time" "${out}"; then
++  echo "perf stat dropped user_time from a weak tool group under -a  [Failed]"
++  cat "${out}"
++  err=1
++fi
++
++accepted '{user_time,system_time}' user_time system_time
++accepted '{duration_time,user_time}' duration_time user_time
++accepted '{user_time}' user_time
++accepted '{cycles,instructions},duration_time' duration_time
++accepted '{user_time,cycles}:W' user_time cycles
++accepted '{system_time,cycles}:W' system_time cycles
++accepted '{duration_time,cycles}:W' duration_time cycles
++
++echo "Testing that a tool event on its own is accepted"
++if ! perf stat -e user_time -o "${out}" -- true; then
++  echo "perf stat rejected a tool event on its own  [Failed]"
++  err=1
++elif ! grep -q "user_time" "${out}"; then
++  echo "perf stat did not print user_time  [Failed]"
++  cat "${out}"
++  err=1
++fi
++
++echo "Testing that the default events still work"
++if ! perf stat -o "${out}" -- true; then
++  echo "perf stat without -e failed  [Failed]"
++  err=1
++fi
++
++cleanup
++
++if [ "${err}" = 0 ] && [ "${skipped}" -gt 0 ]; then
++  echo "perf stat tool event group test [Success] (${skipped} skipped)"
++elif [ "${err}" = 0 ]; then
++  echo "perf stat tool event group test [Success]"
++else
++  echo "perf stat tool event group test [Failed]"
++fi
++
++exit "${err}"
+diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+index d060fca8090f..d4cc705f3379 100644
+--- a/tools/perf/util/evsel.c
++++ b/tools/perf/util/evsel.c
+@@ -2381,6 +2381,17 @@ static int get_group_fd(struct evsel *evsel, int cpu_map_idx, int thread)
+ 		return -1;
  
- /* This part must be outside protection */
+ 	fd = FD(leader, cpu_map_idx, thread);
++	if (evsel__is_tool(leader)) {
++		/*
++		 * A tool event has no perf_event_open() descriptor, or has
++		 * only a procfs one (user_time, system_time).  Either way the
++		 * members cannot be in a kernel group with it, and its fd
++		 * must not be passed to perf_event_open() as group_fd.
++		 * builtin-stat.c decides on the weak group split from errno.
++		 */
++		errno = EINVAL;
++		return -2;
++	}
+ 	BUG_ON(fd == -1 && leader->supported);
+ 
+ 	/*
+
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
 -- 
-2.22.0
+2.53.0
 
