@@ -1,79 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616033;
-	b=i8o8UBsEyPplMGZlzn3FDEmPIG0hmCEuoOMz9XWFRTG6phErw7siewuOzhT3AibFJnBU
-	 SelYZ4GSEyDIN4hOy8EiNQMY2pr7knywPCL95mZUAo7Ajp9ysSmoU38mStgENYkdXwGVy
-	 NzotxccBVPoz7hwP5iOlg6kxJXz3Zmu31CCqMSK2zbxfQJ3oWR4afdydadrYkIAqYSU5l
-	 g3cDQVp08kpc8ZKvVsjvClMZj9I9mvvI6idL/7XkDmr7ADV94kjMctBI6Wvwvahr7Aajl
-	 QrCojEImbvDW8t1iqi0JJS73SrBNZJrmnQyq2/etUPj5QH4ErQ/nTcdKQJq6k7LJ4Tw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616033;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:User-Agent;
-	bh=B+Z5tpkcaj1+zJnq2qpGqkLsXGb+NGD+G0czFiODwTU=;
-	b=m/TRC6A7+kk2OYl58P9mmN9L00/dkU/q2FN9Exs8HyxiBz6muNm/zEAtrowT7wFsZKgU
-	 vscA2tLu5XV2FT9Bq1sKkaVj7kPJsEJCTGxLHGYbnIoOevs6ckANzJV+WisILgdJfJhIm
-	 v/fQ7BbCjTzNnNmyUegUYG5bCMeXGZmf02drCayaabz4/qn2gXV7+6ZIzNrLXIz2cLElO
-	 WgsG5947JxX3/ALihKuUjtw97XvTolLXwxVaBv04tyRibOp7ieDINeMMzHOK/udnDTmbc
-	 9PU9XPdF7LhkS9He3AVMAg2SGrLox5+EaM4caL3LDJSsTB0nGruYF+EWpAvjJjySr7w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Esx4VvgJ;
-	arc=none smtp.remote-ip=192.198.163.7
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=52.101.125.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795616049;
+	b=MZpu3V0ztADwNcKQN5l6podZIURGVmVxpKBnNi/JAel4+jDrZrCjnsknkNtoiAqdQkRH
+	 Moj+NpukTPI6/F1ZIrZHT2/p6EQH2RkU33USm/IUnymKIADip7Pcp9h/IQdiaCmXynyWT
+	 NLVCmSIa2G3HxAGSAV9775n/AEbPBXYBEZe09qF1FKuDTOLzzBY6jC640RQK1yYngSPU+
+	 kvBlM47W7N55445CXAzL4BikX4nC8TWVIHDD+Eu3VuZfTtybWosY2UBLa1qHehsbRJvFa
+	 MPguIyQJZuV42GvN00hwvs6JTdNfQc9LlfaZ3tX9ThLvURuXWT1uA5R3HPFIeUFEnqg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795616049;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=dJWjVUSlmENc7t2WBtanGpfbcyQC/At6qQR6aIfR06s=;
+	b=j72qT1uogvD0w1ukwg6L6L5DqxEkUtLuWN+TnPcnqpUKwmZZVx0+swTDIfu+zBwa3c4W
+	 ZhNdPUxjYUWKuzdE6hgzgVdjbY1CfmDv5igZXsf8xb4KBPXCCJ5jzKBZBN29AJF3N9GfT
+	 FFF6sXM4lRq/dwgXNPfmiBoxb9kDMrQhKfN0yXKkgEym6nTbOmbia7dI5lAj4y4nZPQoc
+	 jNW/cCA6FzaEHzlTZUYhsY1f0mAgE7or8v4npHAA97rB0FaiH7/fsQl/TzaiR4Iah64ap
+	 x0iGqwNOkk9K6CLQ4CUrCggJ1+wf1pR65/CtRI28ef4T/JipBjYLA9h2Z80BWfNbL2w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bp.renesas.com;
+	spf=pass smtp.mailfrom=bp.renesas.com;
+	dkim=fail reason="signature verification failed" header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=Czb+06O8;
+	arc=fail smtp.remote-ip=52.101.125.49
+Received: from TYVP286CU001.outbound.protection.outlook.com (mail-japaneastazon11011049.outbound.protection.outlook.com [52.101.125.49])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D58FB606A332
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:13:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D58FB606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6EB8606A31E;
+	Wed, 25 Nov 2026 14:14:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6EB8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bp.renesas.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bp.renesas.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Esx4VvgJ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795616033; x=1827152033;
-  h=date:from:to:cc:subject:message-id;
-  bh=B6IZ8/omBquni5BpxTAXqzhy+D1Tc7w9Ou4meQeXK+Q=;
-  b=Esx4VvgJBTaZE73ZtK5239gV2dX+iZkYyxveTpd37TeWpupp+mT1MLh2
-   2Z7Muc75fBSC8LXusaTAb5+5J53goTYbHdxbMPwlpMmESIRwqov6SXPZO
-   CY3tJ8AXAfB45zONKs+AsVYIs/X8GSk5M22pwcNgsQ/O53OJDAMMqDPAG
-   GSJqOfD7EMvOntIocTjWYqAuEugmPMWi66r1XMelS152YjsC0JuF9nZiq
-   qQ6i++sOwM3TM6ze3/JlQgHItC7aJQTA+kNC6VSa706cuMx1FDobwYKdy
-   oTBZtLGxX6QgNVqv4y3MX4blFIX4W7zyiNbn2+8OtLgjYADXrsFxw1zDN
-   g==;
-X-CSE-ConnectionGUID: sRn6zHkeSYSomX9FlF1xnw==
-X-CSE-MsgGUID: lQG/ezigTs+GncWC1R8rdQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4354702"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4354702"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 06:13:52 -0800
-X-CSE-ConnectionGUID: Pf7Q2JN+TqegicPq4g6TXA==
-X-CSE-MsgGUID: AVeibcgrSWmI8BjZkicxnQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="12017222"
-Received: from igk-lkp-server01.igk.intel.com (HELO 99c479ab0aeb) ([10.211.93.152])
-  by orviesa001.jf.intel.com with ESMTP; 25 Nov 2026 06:13:49 -0800
-Received: from kbuild by 99c479ab0aeb with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWDkp-0000000008t-2h5U;
-	Wed, 25 Nov 2026 14:13:47 +0000
-Date: Wed, 25 Nov 2026 15:13:11 +0100
-From: kernel test robot <lkp@intel.com>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Ilya Leoshkevich <iii@linux.ibm.com>
-Subject: include/linux/compiler_types.h:702:38: error: call to
- '__compiletime_assert_80' declared with attribute error: FIELD_PREP: value
- too large for the field
-Message-ID: <20261125151202.OUuYjG2H-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=bp.renesas.com header.i=@bp.renesas.com header.a=rsa-sha256 header.s=selector1 header.b=Czb+06O8
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JZuHygCEsUlLgpjft9a/oj8jKV17bohmWJkhaBNVIq24JlpwEJrzkocy9rv0Bv+jyJTl2xY7S+E9BaUfB06GOLf5e5ESvxgnO81HIJRA4cfQTCXDV6uuMtzHRKiw/kPAuEau+A00h/s25cV4//BSznrq9o5GxPCin1wV6cWp864Zcp9orWXkRd+QAWe1gOk59sYISuYx5nG26pFpB0lKnie5J9FO01oByrywBQaio6zyrttvpKC8rXBeiPkkKj4c+QyDSAHxwS6cpNuGuJwecgqr63W10vg3MRgNdhEfwGKbY504KeH2c4HNG2STmfvJL3krw/AoLEdaX/mb/jY23g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6sNwLQO8gieO/OxCrjEULpHsGcaeURtY2PJ76wUMQHA=;
+ b=m3boyhwIFjewnDy5ubwbr6xSq3rGtSRzXY/2405/tWdMpZamMhNWC5qveJwIkuw4yi8evysjiaFfN2y+dUh/MZNSTDijEHXukbgLRAm1u0RrkAEsiHt/9nzMyaBdqjypdfzXrxUAACiEuqtgUXpa8ANmX8dBEmxO0vcqkOlfSRzpgIkLKsgcZQ3QwGmmKgVRSo3E0CkcPDXG902e/+n9tsI/1SqxSfTsCtN1hC83LBbWoY1zYEk5KdAtkAOR9fRl309Vybk0v0+p+Zbn0wnVsljgj0GcCnXk/x2oLDYkOj//W6G32OXaeoMjQs5rkcPcr+JLsIfvtXzVMF47J20rkA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6sNwLQO8gieO/OxCrjEULpHsGcaeURtY2PJ76wUMQHA=;
+ b=Czb+06O8+ZlctQCQ3tOy1w9WRGppfH7KksUgI10Hc7DcqOWGw4a6I8LLagVaH4f/lztgamn34BesTeWtuJLwzQzdWOO8wGU3q24VY8aojyiY6udEQl0/TfOUqooZip/Ds/rQBzbxl+NWrhGq+eMfoYvIs252aLlnB54KyUhITWM=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+Received: from OSOPR01MB295138.jpnprd01.prod.outlook.com
+ (2603:1096:604:521::15) by OSZPR01MB8815.jpnprd01.prod.outlook.com
+ (2603:1096:604:159::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 14:14:05 +0000
+Received: from OSOPR01MB295138.jpnprd01.prod.outlook.com
+ ([fe80::4f0e:fd0e:ff2b:b180]) by OSOPR01MB295138.jpnprd01.prod.outlook.com
+ ([fe80::4f0e:fd0e:ff2b:b180%7]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 14:14:05 +0000
+Date: Wed, 25 Nov 2026 15:13:46 +0100
+From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+To: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Tommaso Merciai <tomm.merciai@gmail.com>,
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	"magnus.damm" <magnus.damm@gmail.com>,
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v10 10/12] drm: renesas: rz-du: Support several DU
+ instances in one DRM device
+Message-ID: <awbtGl7FghBWsW2C@tom-desktop>
+References: <e22a176720a38df652c7f7eabe27219da50f217d.1794502191.git.tommaso.merciai.xr@bp.renesas.com>
+ <TYYPR01MB660397C3B66F6EED53656B2086442@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+ <awV6pAtcSz8e9Q74@tom-desktop>
+ <TYYPR01MB660334463EC01FCF06F7A9E586442@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+ <awWXLFAbDd_35Q-l@tom-desktop>
+ <TYYPR01MB6603D650B839F808ACBA811F86442@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+ <awWkwJTxdJV1owf-@tom-desktop>
+ <TYYPR01MB66037146324486059A62A60486432@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+ <awbkUiagA_n9z521@tom-desktop>
+ <OS3PR01MB65961475F4B3C1D5D781E7C486432@OS3PR01MB6596.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <OS3PR01MB65961475F4B3C1D5D781E7C486432@OS3PR01MB6596.jpnprd01.prod.outlook.com>
+X-ClientProxiedBy: FR2P281CA0064.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:93::12) To OSOPR01MB295138.jpnprd01.prod.outlook.com
+ (2603:1096:604:521::15)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,216 +119,451 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSOPR01MB295138:EE_|OSZPR01MB8815:EE_
+X-MS-Office365-Filtering-Correlation-Id: 51f121f0-355d-44bf-2691-08df4afe5d2e
+X-LD-Processed: 53d82571-da19-47e4-9cb4-625a166a4a2a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|52116014|376014|7416014|366016|23010399003|1800799024|38350700014|10067099003|56012099006|11063799006|4143699003|261022105027099003|261022075727099003|261021121427099003|261021123027099003|261026140227099003|261028144727099003|261026121527099003|261102123227099003|261009221227099003|261009223027099003|261009223327099003|261009220027099003|261009221727099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	ihiYsFkUtmsK8SNRUtMuqZey5JAc99FSfdoPDI9GJYMoME359ASafLToc2TJp07JdYMdLwK5B4hrd9J4Bv6Xhy0KFx4WDuOMOUvCY6G3KlHqkGyo58BqfSwAEH3+HRizdGuiFo75cIx8fxHkEKOdeZTVNbQSHADr1Mvdtx4NwXlGGLyCIdU7v0MRA7YLWdtCD1l2W5mfMUDM92QfP3lxOHY96mtR9G8m+nYilJcO3/+0CE5SNhAhT2XlarHuWl+lcJLbaBUJs0tGaJfFLMs1ub7rOFUTy+9VKOGCx/0vDAEh/bnRn9u6YT8nJFIJnOuroaJd4EiD32sEQth84987PhAaUKv7mei3sMnbI2BmcZvbSIOwh51fYmaoTV7Z5/W2n7g+05NQ9vDr807sRxkSoWNgYtNlNEAiAUNbrWiqtN+BnB8MNm7bXBVSD38afbGTmtCJYPZOsI2cmAtMkJc7uMO/1lPQWGSsFpiceTLOMW/X1eCqE2MR5LecBSEA+zVNzv4ui+zTM0MT+QDLUsvpsZ+RjGhjXrKwfHVSyp4ND4I384To/uEr0QSUgPsJ9/9DqANpuxWqQdF4UicGUYbbxiZtOjelgIifrhHhxC3PPqKQA/Ce9PwA3RQe9ivPmP/iujfI7YP1zY0abBm53+7Uz0y+em1/eRJFc44iFESQ1Cw=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSOPR01MB295138.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(23010399003)(1800799024)(38350700014)(10067099003)(56012099006)(11063799006)(4143699003)(261022105027099003)(261022075727099003)(261021121427099003)(261021123027099003)(261026140227099003)(261028144727099003)(261026121527099003)(261102123227099003)(261009221227099003)(261009223027099003)(261009223327099003)(261009220027099003)(261009221727099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?iso-8859-1?Q?MTjjLXLyOKRe8Viwq0nRg7YwbF2xj+uEIZ+YKwA7zt8zemeaJy/mJev9kj?=
+ =?iso-8859-1?Q?1yPrl/Q04yGfucpvsSGqBsDPpJe4NBAowOt3vAfvhdSiU8L3n2hR4cfkzN?=
+ =?iso-8859-1?Q?9EGe7ncqlk7I5DQH/0CXY2csALMWaBPah+5WMx84Zr22OafAjZzfe7bTT8?=
+ =?iso-8859-1?Q?xLBQ5VlizAU6nljo/rZ3Ggy64hbuk0pPdaQf+8Y5HJluUDN0y6roepJG3s?=
+ =?iso-8859-1?Q?CDwcx7p1GRa79Dr5Ai2Jvpqi++jjf0a4bUq021HjnZiXhm9Jlad6GLBzei?=
+ =?iso-8859-1?Q?bGaWmrdF3ZiPEa2lj7xOcwqoOlFLB7bz7W9qAKpI58uUhFRK8kO0jyxBFA?=
+ =?iso-8859-1?Q?M1hBoacc8582lb/aiB3C7iA0iZBfm2h89Kdq8ck6xG1r1TFOuyYV3eZ8/Y?=
+ =?iso-8859-1?Q?h9dD0KHY+YBRzi0P7qAzLmmbx1cwlPxpIoLRUbqqCsRkXp6Tw1huiMG15O?=
+ =?iso-8859-1?Q?9DeLRiySxb+zzSWgDagjeS0Qni8DeRuMZ4HKC8YBsYPirhdV1rYyiB1I/b?=
+ =?iso-8859-1?Q?CycWxitZYCzHFfu9wcOmRxfGrItT+FR1pn/2mwxsRPt1JpheZesfkjPBiN?=
+ =?iso-8859-1?Q?xx89H0UM0iw02r1ipz7OgI1ZO5LIJjfJcmm4Kfo1PVCr4DcYLgb4EtLy7W?=
+ =?iso-8859-1?Q?FuIAvPMdQtZBNlhTqLjQQFh7G/VTSzIepHR1NLV+8kvKEn0O9Nb/aMbYNm?=
+ =?iso-8859-1?Q?czeQ6Di3lTM+IMhi/O1V9eiR+ekWBfF+cptMKo0GeJkxF1RNLmeHHnrguD?=
+ =?iso-8859-1?Q?HTc0rL+evwx1/YneadbZZWO62nLTavmKkK1KkeNBBeQWlBvbCq4vDfKtU1?=
+ =?iso-8859-1?Q?SD8UzmORGqDePvj3ldyPJDouzRG4xnrSMoFeOJRqo2c4sDcPTKDSZQUA2Y?=
+ =?iso-8859-1?Q?aV5etW843X7/SJ9chb4V7ddlD3nMmRtrzbbN8cFQLzZjfsZYEafwtOZBOH?=
+ =?iso-8859-1?Q?ciSysyUJKM5JxxQKqoYcL4B7qv/94QzljNl6PRCK4NHExT4UoEFsBvDbBR?=
+ =?iso-8859-1?Q?17B9/9dfsjESNebiPO5jkOzIjA4MyCy6/A0m0y5pzoMv4+P0wd67rk92Q8?=
+ =?iso-8859-1?Q?JVz++ReAOi239Ui5kv91VJTuYNc70m0PxISwp7E7vVxUrK60NI+jz+abWh?=
+ =?iso-8859-1?Q?YQoWlNCNmJkP69bmG/ewIpocZGK3NSSySXh+Fz9d92h/e6y5dHhh57x2h1?=
+ =?iso-8859-1?Q?9Y3TRe47eYdC2PUWnKOh/2NfZLEjY8+fNKcB04RS8rZDYWwq0FGG9Vzs+m?=
+ =?iso-8859-1?Q?oEwKnEvvsWHk0YwhVFiNBIfvFZdnfojxCcPsth+j7hIDxIbh2+TBE9Jd6s?=
+ =?iso-8859-1?Q?+NEUIoiRON6ot3wlUMMf91t6kWhaW6pVuYMsrj4u5owReOardC+l2mGy+b?=
+ =?iso-8859-1?Q?QP6pN7C2NknyRVKvie9ilgsyJwOPX6LvxkaTBBWnCkhZ67NHyxTSth2AC2?=
+ =?iso-8859-1?Q?5MmU3yQ+1DrmU+pgF4fA8rezwop6nG61zpM4n6701fEZHwYDZiLwoEN+yH?=
+ =?iso-8859-1?Q?+UOh7HDzSPFguQnYTIRZlpI7JJiNaU/5Z2cBT07SQ2JpmrdjdpCuK0jUgS?=
+ =?iso-8859-1?Q?RDspttrI2tPnEM1DGb0bogbRg/VoZNbCnfeElg/aKF9o12WxmP6acgkJTK?=
+ =?iso-8859-1?Q?9KSBY9BSSh+sRM94zRp+xDpXhbILbkY8tY0sDBzkP+GjyCsc+y4JTdIZtK?=
+ =?iso-8859-1?Q?QEzfZqx4FiEewUM7lXd1FUvE2RZ2I1RID5aI9MboMpyhFZ3HIyZHRENNUd?=
+ =?iso-8859-1?Q?SKvoi/8cHadeWiCdRRYr3OjCW/PVpya8l/l9T1L+KW2Ifg5A236RiXI1b6?=
+ =?iso-8859-1?Q?V0NsU/Rqk0+vPAeUt4C8rkYtZYqK36HtkdrfpIv6eJs4n/G6Fkuy?=
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 51f121f0-355d-44bf-2691-08df4afe5d2e
+X-MS-Exchange-CrossTenant-AuthSource: OSOPR01MB295138.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 14:14:05.6580
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7dsPwqwFgSx0XxH8bPPK/Kk8AXGoJR9Uz0XTaefDX6WiUBnxTMPIlKbC1SxRlBFKOwDJlDGkS0TtZHF2mOSsjJ9PlkIfjYMR+cn3a7g3HbHjNFQ+B7eCTUxLmkqI89Ca
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSZPR01MB8815
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-head:   4dce97c6c265544342e716e62fd24bbb232590c5
-commit: b290b5bff8505b0eafa04684b10c50cccfc64013 s390/Kconfig: remove PCI dependency from HAS_IOMEM
-date:   6 weeks ago
-config: s390-randconfig-r2102-20261125 (https://download.01.org/0day-ci/archive/20261125/20261125151202.OUuYjG2H-lkp@intel.com/config)
-compiler: s390-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261125/20261125151202.OUuYjG2H-lkp@intel.com/reproduce)
+Hi Biju,
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Fixes: b290b5bff850 ("s390/Kconfig: remove PCI dependency from HAS_IOMEM")
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261125151202.OUuYjG2H-lkp@intel.com/
+On Wed, Nov 25, 2026 at 01:45:46PM +0000, Biju Das wrote:
+> Hi Tommaso,
+> 
+> > -----Original Message-----
+> > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > Sent: 25 November 2026 13:36
+> > Subject: Re: [PATCH v10 10/12] drm: renesas: rz-du: Support several DU instances in one DRM device
+> > 
+> > Hi Biju,
+> > 
+> > On Wed, Nov 25, 2026 at 07:28:17AM +0000, Biju Das wrote:
+> > > Hi Tommaso,
+> > >
+> > > > -----Original Message-----
+> > > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > > > Sent: 24 November 2026 14:53
+> > > > Subject: Re: [PATCH v10 10/12] drm: renesas: rz-du: Support several
+> > > > DU instances in one DRM device
+> > > >
+> > > > Hi Biju,
+> > > >
+> > > > On Tue, Nov 24, 2026 at 02:11:16PM +0000, Biju Das wrote:
+> > > > > Hi Tommaso,
+> > > > >
+> > > > > > -----Original Message-----
+> > > > > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > Sent: 24 November 2026 13:59
+> > > > > > Subject: Re: [PATCH v10 10/12] drm: renesas: rz-du: Support
+> > > > > > several DU instances in one DRM device
+> > > > > >
+> > > > > > Hi Biju,
+> > > > > >
+> > > > > > On Tue, Nov 24, 2026 at 01:18:43PM +0000, Biju Das wrote:
+> > > > > > > Hi Tommaso,
+> > > > > > >
+> > > > > > > > -----Original Message-----
+> > > > > > > > From: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > > > Sent: 24 November 2026 11:53
+> > > > > > > > Subject: Re: [PATCH v10 10/12] drm: renesas: rz-du: Support
+> > > > > > > > several DU instances in one DRM device
+> > > > > > > >
+> > > > > > > > Hi Biju,
+> > > > > > > > Thanks for your review.
+> > > > > > > >
+> > > > > > > > On Tue, Nov 24, 2026 at 07:47:04AM +0000, Biju Das wrote:
+> > > > > > > > > Hi Tommaso,
+> > > > > > > > >
+> > > > > > > > > > -----Original Message-----
+> > > > > > > > > > From: Tommaso Merciai
+> > > > > > > > > > <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > > > > > Sent: 13 November 2026 12:20
+> > > > > > > > > > Subject: [PATCH v10 10/12] drm: renesas: rz-du: Support
+> > > > > > > > > > several DU instances in one DRM device
+> > > > > > > > > >
+> > > > > > > > > > RZ/G3E has two DU instances that share a single DRM device.
+> > > > > > > > > >
+> > > > > > > > > > Add an RZG2L_DU_FEATURE_COMPONENT flag and use the
+> > > > > > > > > > component framework for it. The first available
+> > > > > > > > DU
+> > > > > > > > > > instance is the master and creates the DRM device, the
+> > > > > > > > > > other one binds to it as a
+> > > > component.
+> > > > > > > > > >
+> > > > > > > > > > If only one DU instance is available, it creates the DRM
+> > > > > > > > > > device directly at probe time, as on SoCs without the flag.
+> > > > > > > > > >
+> > > > > > > > > > Set the index of each instance to the number of CRTCs already created.
+> > > > > > > > > >
+> > > > > > > > > > Signed-off-by: Tommaso Merciai
+> > > > > > > > > > <tommaso.merciai.xr@bp.renesas.com>
+> > > > > > > > > > ---
+> > > > > > > > > > v9->v10:
+> > > > > > > > > >  - New patch.
+> > > > > > > > > >
+> > > > > > > > > >  drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c | 118 ++++++++++++++++++-
+> > > > > > > > > >  drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.h |   2 +
+> > > > > > > > > >  2 files changed, 115 insertions(+), 5 deletions(-)
+> > > > > > > > > >
+> > > > > > > > > > diff --git
+> > > > > > > > > > a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > > > > > > > > > b/drivers/gpu/drm/renesas/rz- du/rzg2l_du_drv.c index
+> > > > > > > > > > 93d59e2cf8a4..873586f2ef28 100644
+> > > > > > > > > > --- a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > > > > > > > > > +++ b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_drv.c
+> > > > > > > > > > @@ -7,6 +7,7 @@
+> > > > > > > > > >   * Based on rcar_du_drv.c
+> > > > > > > > > >   */
+> > > > > > > > > >
+> > > > > > > > > > +#include <linux/component.h>
+> > > > > > > > > >  #include <linux/dma-mapping.h>  #include
+> > > > > > > > > > <linux/module.h> #include <linux/of.h> @@ -14,10 +15,12
+> > > > > > > > > > @@
+> > > > > > > > > >
+> > > > > > > > > >  #include <drm/clients/drm_client_setup.h>  #include
+> > > > > > > > > > <drm/drm_atomic_helper.h>
+> > > > > > > > > > +#include <drm/drm_crtc.h>
+> > > > > > > > > >  #include <drm/drm_drv.h>  #include
+> > > > > > > > > > <drm/drm_fbdev_dma.h>  #include
+> > > > > > > > > > <drm/drm_gem_dma_helper.h>  #include <drm/drm_managed.h>
+> > > > > > > > > > +#include <drm/drm_of.h>
+> > > > > > > > > >  #include <drm/drm_print.h>  #include
+> > > > > > > > > > <drm/drm_probe_helper.h>
+> > > > > > > > > >
+> > > > > > > > > > @@ -170,6 +173,7 @@ static int rzg2l_du_instance_init(struct rzg2l_du_device *du,
+> > > > > > > > > >  				  struct drm_device *ddev)  {
+> > > > > > > > > >  	struct rzg2l_du_device *rcdu;
+> > > > > > > > > > +	int ret;
+> > > > > > > > > >
+> > > > > > > > > >  	rcdu = drmm_kzalloc(ddev, sizeof(*rcdu), GFP_KERNEL);
+> > > > > > > > > >  	if (!rcdu)
+> > > > > > > > > > @@ -180,9 +184,28 @@ static int rzg2l_du_instance_init(struct rzg2l_du_device *du,
+> > > > > > > > > >  	rcdu->mmio = du->mmio;
+> > > > > > > > > >  	rcdu->ddev = ddev;
+> > > > > > > > > >
+> > > > > > > > > > -	return rzg2l_du_modeset_init_du(rcdu);
+> > > > > > > > > > +	rcdu->index = ddev->mode_config.num_crtc;
+> > > > > > > > > > +
+> > > > > > > > > > +	ret = rzg2l_du_modeset_init_du(rcdu);
+> > > > > > > > > > +	if (ret < 0)
+> > > > > > > > > > +		return ret;
+> > > > > > > > > > +
+> > > > > > > > > > +	if (WARN_ON(drm_crtc_index(&rcdu->crtcs[0].crtc) != rcdu->index))
+> > > > > > > > > > +		return -EINVAL;
+> > > > > > > > > > +
+> > > > > > > > > > +	return 0;
+> > > > > > > > > >  }
+> > > > > > > > > >
+> > > > > > > > > > +static int rzg2l_du_instance_bind(struct device *dev, struct device *master,
+> > > > > > > > > > +				  void *data)
+> > > > > > > > > > +{
+> > > > > > > > > > +	return rzg2l_du_instance_init(dev_get_drvdata(dev),
+> > > > > > > > > > +data); }
+> > > > > > > > > > +
+> > > > > > > > > > +static const struct component_ops rzg2l_du_instance_ops = {
+> > > > > > > > > > +	.bind = rzg2l_du_instance_bind, };
+> > > > > > > > > > +
+> > > > > > > > > >  /* -----------------------------------------------------------------------------
+> > > > > > > > > >   * DRM device
+> > > > > > > > > >   */
+> > > > > > > > > > @@ -191,7 +214,7 @@ struct rzg2l_du_drm {
+> > > > > > > > > >  	struct drm_device ddev;  };
+> > > > > > > > > >
+> > > > > > > > > > -static int rzg2l_du_drm_init(struct device *dev)
+> > > > > > > > > > +static int rzg2l_du_drm_init(struct device *dev, bool
+> > > > > > > > > > +has_components)
+> > > > > > > > > >  {
+> > > > > > > > > >  	struct rzg2l_du_device *du = dev_get_drvdata(dev);
+> > > > > > > > > >  	struct rzg2l_du_drm *rzgdrm; @@ -213,6 +236,12 @@
+> > > > > > > > > > static int rzg2l_du_drm_init(struct device *dev)
+> > > > > > > > > >  	if (ret < 0)
+> > > > > > > > > >  		goto error;
+> > > > > > > > > >
+> > > > > > > > > > +	if (has_components) {
+> > > > > > > > > > +		ret = component_bind_all(dev, ddev);
+> > > > > > > > > > +		if (ret < 0)
+> > > > > > > > > > +			goto error;
+> > > > > > > > > > +	}
+> > > > > > > > > > +
+> > > > > > > > > >  	ret = rzg2l_du_modeset_init_finish(ddev);
+> > > > > > > > > >  	if (ret < 0)
+> > > > > > > > > >  		goto error_fini;
+> > > > > > > > > > @@ -235,6 +264,8 @@ static int rzg2l_du_drm_init(struct
+> > > > > > > > > > device
+> > > > > > > > > > *dev)
+> > > > > > > > > >
+> > > > > > > > > >  error_fini:
+> > > > > > > > > >  	drm_kms_helper_poll_fini(ddev);
+> > > > > > > > > > +	if (has_components)
+> > > > > > > > > > +		component_unbind_all(dev, ddev);
+> > > > > > > > > >  error:
+> > > > > > > > > >  	/*
+> > > > > > > > > >  	 * Don't use dev_err_probe(), as it would overwrite
+> > > > > > > > > > the probe deferral @@ -246,7 +277,7 @@ static int rzg2l_du_drm_init(struct device
+> > *dev)
+> > > > > > > > > >  	return ret;
+> > > > > > > > > >  }
+> > > > > > > > > >
+> > > > > > > > > > -static void rzg2l_du_drm_fini(struct device *dev)
+> > > > > > > > > > +static void rzg2l_du_drm_fini(struct device *dev, bool
+> > > > > > > > > > +has_components)
+> > > > > > > > > >  {
+> > > > > > > > > >  	struct rzg2l_du_device *du = dev_get_drvdata(dev);
+> > > > > > > > > >  	struct drm_device *ddev = du->ddev; @@ -254,6 +285,83
+> > > > > > > > > > @@ static void rzg2l_du_drm_fini(struct device *dev)
+> > > > > > > > > >  	drm_dev_unregister(ddev);
+> > > > > > > > > >  	drm_atomic_helper_shutdown(ddev);
+> > > > > > > > > >  	drm_kms_helper_poll_fini(ddev);
+> > > > > > > > > > +
+> > > > > > > > > > +	if (has_components)
+> > > > > > > > > > +		component_unbind_all(dev, ddev);
+> > > > > > > > > > +
+> > > > > > > > > > +	du->ddev = NULL;
+> > > > > > > > > > +}
+> > > > > > > > > > +
+> > > > > > > > > > +/*
+> > > > > > > > > > +-------------------------------------------------------
+> > > > > > > > > > +--------
+> > > > > > > > > > +--------
+> > > > > > > > > > +------
+> > > > > > > > > > + * Component master
+> > > > > > > > > > + */
+> > > > > > > > > > +
+> > > > > > > > > > +static int rzg2l_du_master_bind(struct device *dev) {
+> > > > > > > > > > +	return rzg2l_du_drm_init(dev, true); }
+> > > > > > > > > > +
+> > > > > > > > > > +static void rzg2l_du_master_unbind(struct device *dev) {
+> > > > > > > > > > +	rzg2l_du_drm_fini(dev, true); }
+> > > > > > > > > > +
+> > > > > > > > > > +static const struct component_master_ops rzg2l_du_master_ops = {
+> > > > > > > > > > +	.bind = rzg2l_du_master_bind,
+> > > > > > > > > > +	.unbind = rzg2l_du_master_unbind, };
+> > > > > > > > > > +
+> > > > > > > > > > +static int rzg2l_du_instance_probe(struct rzg2l_du_device *du) {
+> > > > > > > > > > +	struct component_match *match = NULL;
+> > > > > > > > > > +	const struct of_device_id *of_id;
+> > > > > > > > > > +	struct device *dev = du->dev;
+> > > > > > > > > > +
+> > > > > > > > > > +	if (!rzg2l_du_has(du, RZG2L_DU_FEATURE_COMPONENT))
+> > > > > > > > > > +		return rzg2l_du_drm_init(dev, false);
+> > > > > > > > > > +
+> > > > > > > > > > +	for_each_available_child_of_node_scoped(dev->of_node->parent, np) {
+> > > > > > > > > > +		of_id = of_match_node(dev->driver->of_match_table, np);
+> > > > > > > > > > +		if (!of_id || of_id->data != du->info)
+> > > > > > > > > > +			continue;
+> > > > > > > > > > +
+> > > > > > > > > > +		/* The first available DU instance is the component master. */
+> > > > > > > > > > +		if (!du->is_master) {
+> > > > > > > > > > +			if (np != dev->of_node)
+> > > > > > > > > > +				return component_add(dev, &rzg2l_du_instance_ops);
+> > > > > > > > > > +
+> > > > > > > > > > +			du->is_master = true;
+> > > > > > > > > > +			continue;
+> > > > > > > > > > +		}
+> > > > > > > > > > +
+> > > > > > > > > > +		drm_of_component_match_add(dev, &match,
+> > > > > > > > > > +component_compare_of, np);
+> > > > > > > > >
+> > > > > > > > >
+> > > > > > > > > The master is chosen purely by DT order. If the first
+> > > > > > > > > available DU never probes, the second never gets a DRM device. How do you handle this
+> > case?
+> > > > > > > >
+> > > > > > > > All available instances are part of the component match, so
+> > > > > > > > the DRM device is only created once all of them have probed,
+> > > > > > > > whichever one is the master.
+> > > > > > > >
+> > > > > > > > This is how the component framework works.
+> > > > > > > >
+> > > > > > > > To use a single DU, the other one can be disabled in DT, in
+> > > > > > > > this case the remaining instance becomes the master and
+> > > > > > > > initializes the DRM device on its own.
+> > > > > > >
+> > > > > > >
+> > > > > > > Assume both DU's available and run time
+> > > > > > >
+> > > > > > > second DU is probed first and master never probed at all.
+> > > > > > > What is the state of second DU as bind never calls?
+> > > > > >
+> > > > > >
+> > > > > > The second DU probes, registers itself with component_add() and
+> > > > > > stays idle, without touching the hardware.
+> > > > > >
+> > > > > > When the master probes, both instances are bound and the DRM device is created.
+> > > > > >
+> > > > > > If the master never probes, there is no DRM device, because the
+> > > > > > bind is only triggered once the
+> > > > master
+> > > > > > has registered the aggregate device with
+> > > > > > component_master_add_with_match()
+> > > > >
+> > > > > Not sure is it the normal use case? DU0 and DU1 are independent
+> > > > > devices
+> > > > >
+> > > > > 1) DU0 or DU1 should work independently irrespective of the probe failure of
+> > > > >    other device
+> > > > >
+> > > > > 2) When both DU's are probed, then we need to aggregate the device using component
+> > > > >    framework so that use case like dynamically switching DSI0 to DSI1 can be achieved.
+> > > >
+> > > > IMHO 1) and 2) can't be achieved together.
+> > > >
+> > >
+> > > I guess we can achieve both use cases, if we define a companion property in the second device.
+> > > This is a static design choice left to the DT user to choose between either 1 or 2.
+> > >
+> > > Krystof/Rob/Conor: Is it ok to add optional companion property to
+> > > support both
+> > > 1 and 2? Otherwise, we plan to stick with use case 2.
+> > >
+> > > Use case 1: 1 DRM device per DU
+> > 
+> > Some clarification:
+> > 
+> > For 1)
+> > 
+> > Just FYI, the series already supports this when only one DU is enabled in DT. If only DU0 (or only
+> > DU1) is enabled, it creates its own DRM device directly, without the component framework, and we will
+> > get 1 DRM device with 1 CRTC.
+> > 
+> > 
+> > # r9a09g047e57-smarc-du0-dsi.dtso
+> > 
+> > &du0 {
+> > 	status = "okay";
+> > };
+> > 
+> > &du1 {
+> > 	status = "disabled";
+> > };
+> > 
+> > > Use case 2: 1 DRM device for 2 DU's
+> > 
+> > For 2)
+> > 
+> > When both DU0 and DU1 are enabled, DU0 registers the aggregate device with
+> > component_master_add_with_match() and DU1 registers itself with component_add(). Both are driven by
+> > the same DRM device, with 2 CRTCs.
+> > 
+> > 
+> > &du0 {
+> > 	status = "okay";
+> > };
+> > 
+> > &du1 {
+> > 	status = "okay";
+> > };
+> 
+> DU0 and DU1 are independent devices.
+> Currently if DU0 fails to probe, DU1 won't work.
+> So, there is a limitation in the current design.
 
-All errors (new ones prefixed by >>):
+Mmmm, checking better the others vendor drivers I can see the same behaviour:
+if one member of the aggregate fails to probe, the others won't work either.
 
-   In file included from <command-line>:
-   In function 'amdv1pt_install_leaf_entry',
-       inlined from '__do_map_single_page' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:757:3,
-       inlined from '__map_single_page0.constprop' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:768:1:
->> include/linux/compiler_types.h:702:38: error: call to '__compiletime_assert_80' declared with attribute error: FIELD_PREP: value too large for the field
-     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-                                         ^
-   include/linux/compiler_types.h:683:4: note: in definition of macro '__compiletime_assert'
-       prefix ## suffix();    \
-       ^~~~~~
-   include/linux/compiler_types.h:702:2: note: in expansion of macro '_compiletime_assert'
-     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-     ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:40:37: note: in expansion of macro 'compiletime_assert'
-    #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-                                        ^~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:70:3: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?  \
-      ^~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:91:3: note: in expansion of macro '__BF_FIELD_CHECK_MASK'
-      __BF_FIELD_CHECK_MASK(mask, val, pfx);   \
-      ^~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:138:3: note: in expansion of macro '__FIELD_PREP'
-      __FIELD_PREP(_mask, _val, "FIELD_PREP: ");  \
-      ^~~~~~~~~~~~
-   drivers/iommu/generic_pt/fmt/amdv1.h:220:5: note: in expansion of macro 'FIELD_PREP'
-        FIELD_PREP(AMDV1PT_FMT_OA,
-        ^~~~~~~~~~
-   In function 'amdv1pt_install_leaf_entry',
-       inlined from '__do_map_single_page' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:757:3,
-       inlined from '__map_single_page1.constprop' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:768:1:
->> include/linux/compiler_types.h:702:38: error: call to '__compiletime_assert_80' declared with attribute error: FIELD_PREP: value too large for the field
-     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-                                         ^
-   include/linux/compiler_types.h:683:4: note: in definition of macro '__compiletime_assert'
-       prefix ## suffix();    \
-       ^~~~~~
-   include/linux/compiler_types.h:702:2: note: in expansion of macro '_compiletime_assert'
-     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-     ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:40:37: note: in expansion of macro 'compiletime_assert'
-    #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-                                        ^~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:70:3: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?  \
-      ^~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:91:3: note: in expansion of macro '__BF_FIELD_CHECK_MASK'
-      __BF_FIELD_CHECK_MASK(mask, val, pfx);   \
-      ^~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:138:3: note: in expansion of macro '__FIELD_PREP'
-      __FIELD_PREP(_mask, _val, "FIELD_PREP: ");  \
-      ^~~~~~~~~~~~
-   drivers/iommu/generic_pt/fmt/amdv1.h:220:5: note: in expansion of macro 'FIELD_PREP'
-        FIELD_PREP(AMDV1PT_FMT_OA,
-        ^~~~~~~~~~
-   In function 'amdv1pt_install_leaf_entry',
-       inlined from '__do_map_single_page' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:757:3,
-       inlined from '__map_single_page2.constprop' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:768:1:
->> include/linux/compiler_types.h:702:38: error: call to '__compiletime_assert_80' declared with attribute error: FIELD_PREP: value too large for the field
-     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-                                         ^
-   include/linux/compiler_types.h:683:4: note: in definition of macro '__compiletime_assert'
-       prefix ## suffix();    \
-       ^~~~~~
-   include/linux/compiler_types.h:702:2: note: in expansion of macro '_compiletime_assert'
-     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-     ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:40:37: note: in expansion of macro 'compiletime_assert'
-    #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-                                        ^~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:70:3: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?  \
-      ^~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:91:3: note: in expansion of macro '__BF_FIELD_CHECK_MASK'
-      __BF_FIELD_CHECK_MASK(mask, val, pfx);   \
-      ^~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:138:3: note: in expansion of macro '__FIELD_PREP'
-      __FIELD_PREP(_mask, _val, "FIELD_PREP: ");  \
-      ^~~~~~~~~~~~
-   drivers/iommu/generic_pt/fmt/amdv1.h:220:5: note: in expansion of macro 'FIELD_PREP'
-        FIELD_PREP(AMDV1PT_FMT_OA,
-        ^~~~~~~~~~
-   In function 'amdv1pt_install_leaf_entry',
-       inlined from '__do_map_single_page' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:757:3,
-       inlined from '__map_single_page3.constprop' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:768:1:
->> include/linux/compiler_types.h:702:38: error: call to '__compiletime_assert_80' declared with attribute error: FIELD_PREP: value too large for the field
-     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-                                         ^
-   include/linux/compiler_types.h:683:4: note: in definition of macro '__compiletime_assert'
-       prefix ## suffix();    \
-       ^~~~~~
-   include/linux/compiler_types.h:702:2: note: in expansion of macro '_compiletime_assert'
-     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-     ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:40:37: note: in expansion of macro 'compiletime_assert'
-    #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-                                        ^~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:70:3: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?  \
-      ^~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:91:3: note: in expansion of macro '__BF_FIELD_CHECK_MASK'
-      __BF_FIELD_CHECK_MASK(mask, val, pfx);   \
-      ^~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:138:3: note: in expansion of macro '__FIELD_PREP'
-      __FIELD_PREP(_mask, _val, "FIELD_PREP: ");  \
-      ^~~~~~~~~~~~
-   drivers/iommu/generic_pt/fmt/amdv1.h:220:5: note: in expansion of macro 'FIELD_PREP'
-        FIELD_PREP(AMDV1PT_FMT_OA,
-        ^~~~~~~~~~
-   In function 'amdv1pt_install_leaf_entry',
-       inlined from '__do_map_single_page' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:757:3,
-       inlined from '__map_single_page4.constprop' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:768:1:
->> include/linux/compiler_types.h:702:38: error: call to '__compiletime_assert_80' declared with attribute error: FIELD_PREP: value too large for the field
-     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-                                         ^
-   include/linux/compiler_types.h:683:4: note: in definition of macro '__compiletime_assert'
-       prefix ## suffix();    \
-       ^~~~~~
-   include/linux/compiler_types.h:702:2: note: in expansion of macro '_compiletime_assert'
-     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-     ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:40:37: note: in expansion of macro 'compiletime_assert'
-    #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-                                        ^~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:70:3: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?  \
-      ^~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:91:3: note: in expansion of macro '__BF_FIELD_CHECK_MASK'
-      __BF_FIELD_CHECK_MASK(mask, val, pfx);   \
-      ^~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:138:3: note: in expansion of macro '__FIELD_PREP'
-      __FIELD_PREP(_mask, _val, "FIELD_PREP: ");  \
-      ^~~~~~~~~~~~
-   drivers/iommu/generic_pt/fmt/amdv1.h:220:5: note: in expansion of macro 'FIELD_PREP'
-        FIELD_PREP(AMDV1PT_FMT_OA,
-        ^~~~~~~~~~
-   In function 'amdv1pt_install_leaf_entry',
-       inlined from '__do_map_single_page' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:757:3,
-       inlined from '__map_single_page5.isra.12' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:768:1,
-       inlined from '__map_single_page' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:768:1,
-       inlined from 'pt_walk_range' at drivers/iommu/generic_pt/fmt/../pt_iter.h:408:9,
-       inlined from 'do_map.isra.16' at drivers/iommu/generic_pt/fmt/../iommu_pt.h:915:9:
->> include/linux/compiler_types.h:702:38: error: call to '__compiletime_assert_80' declared with attribute error: FIELD_PREP: value too large for the field
-     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-                                         ^
-   include/linux/compiler_types.h:683:4: note: in definition of macro '__compiletime_assert'
-       prefix ## suffix();    \
-       ^~~~~~
-   include/linux/compiler_types.h:702:2: note: in expansion of macro '_compiletime_assert'
-     _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-     ^~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:40:37: note: in expansion of macro 'compiletime_assert'
-    #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-                                        ^~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:70:3: note: in expansion of macro 'BUILD_BUG_ON_MSG'
-      BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?  \
-      ^~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:91:3: note: in expansion of macro '__BF_FIELD_CHECK_MASK'
-      __BF_FIELD_CHECK_MASK(mask, val, pfx);   \
-      ^~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:138:3: note: in expansion of macro '__FIELD_PREP'
-      __FIELD_PREP(_mask, _val, "FIELD_PREP: ");  \
-      ^~~~~~~~~~~~
-   drivers/iommu/generic_pt/fmt/amdv1.h:220:5: note: in expansion of macro 'FIELD_PREP'
-        FIELD_PREP(AMDV1PT_FMT_OA,
-        ^~~~~~~~~~
+mtk_drm_drv.c driver where we have vdosys0 and vdosys1 [1] that are
+sharing the same drm device. And also in this case if one fails to probe
+there is no drm device.
+
+Same for rk3399-base.dtsi where we have vopl_out and vopb_out [2]
+Same for imx6q.dtsi with ipu1_di0, ipu1_di1, ipu2_di0, ipu2_di1 [3]
+Same for sun7i-a20.dtsi where we have fe0, fe1 [4]
+
+Please correct me if I'm wrong.
+
+[1] https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/gpu/drm/mediatek/mtk_drm_drv.c#L374
+[2] https://elixir.bootlin.com/linux/v7.4-rc1/source/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi#L245
+[3] https://elixir.bootlin.com/linux/v7.4-rc1/source/arch/arm/boot/dts/nxp/imx/imx6q.dtsi#L304
+[4] https://elixir.bootlin.com/linux/v7.4-rc1/source/arch/arm/boot/dts/allwinner/sun7i-a20.dtsi#L254
 
 
-vim +/__compiletime_assert_80 +702 include/linux/compiler_types.h
+Kind regards,
+Tommaso
 
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  688  
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  689  #define _compiletime_assert(condition, msg, prefix, suffix) \
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  690  	__compiletime_assert(condition, msg, prefix, suffix)
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  691  
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  692  /**
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  693   * compiletime_assert - break build and emit msg if condition is false
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  694   * @condition: a compile-time constant condition to check
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  695   * @msg:       a message to emit if condition is false
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  696   *
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  697   * In tradition of POSIX assert, this macro will break the build if the
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  698   * supplied condition is *false*, emitting the supplied error message if the
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  699   * compiler has support to do so.
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  700   */
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  701  #define compiletime_assert(condition, msg) \
-eb5c2d4b45e3d2d Will Deacon 2020-07-21 @702  	_compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-eb5c2d4b45e3d2d Will Deacon 2020-07-21  703  
-
-:::::: The code at line 702 was first introduced by commit
-:::::: eb5c2d4b45e3d2d5d052ea6b8f1463976b1020d5 compiler.h: Move compiletime_assert() macros into compiler_types.h
-
-:::::: TO: Will Deacon <will@kernel.org>
-:::::: CC: Will Deacon <will@kernel.org>
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> 
+> The proposal is
+> 
+> Usecase 1)
+> 
+> &du0 {
+> 	status = "okay";
+> };
+> 
+> &du1 {
+> 	status = "okay";
+> };
+> 
+> Usecase 2)
+> &du0 {
+> 	status = "okay";
+>       companion = <&du1>
+> };
+> 
+> &du1 {
+> 	status = "okay";
+> };
+> 
+> In this design,
+> 
+> Based on DT design, 
+> 
+> User can have 1 DRM device per DU
+> 
+> Or
+> 
+> 1 DRM device for 2DU's
+> 
+> Cheers,
+> Biju
