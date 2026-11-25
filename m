@@ -1,102 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.39
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795639857;
-	b=kvD6o6jSL1Z4qYVt5rfDvlnU6TGC2kd1AXXb0W4nDM0FLHZ4P5c+KP1pH1qK/jAOx0/I
-	 6RhLG7ZydgKZ39OkHbHO4a5+S7cmkK0ynIs9PV9hr/6OG6Tm/m2RpFeOcIo6UTl9FkzbF
-	 EjWLo8VMNkQFV9nSSee0dq7iTRMB0/4Q/Ph0nXEVdPonp0eFa92YbMhoddgIAbdklmtUH
-	 KB8NnBgmAT4cixDiuqNADdVZYtt5mPrNCPr0rg6X6pUHwqYE7HpsOeNXAhS2vAyK/4Ixy
-	 ZzOII0GLuNMTHXo+bovAD3dg2oMtrYKLWItkdJhVfv8NTP9+pALyXhu81BFA83JZ07g==
+	t=1795639853;
+	b=49b+M4YOht+H7+KsMSZ7zaoh4RO0q8iVgYZSIlDZpUEt4Wf6Cvuj7+OhU43PbX4yzwKe
+	 xGPZpkHNDlf0+XC3+Q9YWkJQf6xDeB0ztZTI2CbEUr7Olp7lTuJTFYCj9Php/qzrTrSeR
+	 gpylfA/FuwGdxLT0rSc2qw9FidqvNCsRW3d9glVAqlTUWP0Xp6GOkk60eRMThTxUzFtUn
+	 GoPsHSStwpdSI5nveoL5LlIgrMXPbREmVR0CpueC47K1bvIbm24LY4Vtx16IBsf3cVPR9
+	 fp6kKPHzTNzsIXj5hbn5n1MKvS3Mc00CeAWAHtODCB8Y2cHuCasSBLGKyUFx1V/eUdg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795639857;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Xire52QG+Z4Dxek2DjTFiau6n2r3C17ArUQPujNt2ig=;
-	b=xMpwnIAqDTa3ombQcvPAR5k0K5ZmNaLV8vCUk0hz2M6CzSLVmlK2yBa16kE++KxL1LSE
-	 k7saaBFU1C5w4gCiFx2gYQ0qzjAy78kG7lMowvixIPId4I3pailAtp91KcDOjeFJ51eeM
-	 LEhkt0BrzjxlUUmvF7ejIg7euhImyo/+ZsXoiRWPso/E5Ox38CblGxcnsEfe1CI4zLqxN
-	 pBbDaIVuInitWf/euIxCyN7dITGehVW80EPb0SFmMRLaBPvH/7xHmX8y8+1Gtht6uwHzQ
-	 jp3zRYielVUh3+RMM9G6xRu2QWy98bDlQTf4QUgqle13kGOhXKh0HkTvVw17mbk5fPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795639853;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=GlmkAcGc9AnZ4frKpmXLn7fY55yufhFGgXFPly53mF8=;
+	b=VDXxGHnHGXGQxinNR3iCYDblqwF+we80aqHwAefkEFWiOg6AfWQ5r4JB94HoSxrrNDDc
+	 0MgJnCNBpT/WYw9Qq9wdxlEt/RtCH1mYFH5/zvUdrFeYc1xqDRGTmPgtyzeOiW1vsYhyc
+	 aj6FYGHQwNewHvqVP4r0Sx0Zx3XeUbFHiZfS9O0Pw/vsJExsMsolNCM4r8Ap+RMlCa2HV
+	 5mNEYiBbzmgm//27Y2tcKN2j5CuNcfS/JaKOcehZpYpgOmT/TnhUjHgU1k8uaCFzD44L4
+	 7kdRKpGJNhj4qd5Ula3rJJPbT7HXueETHKu6hgz5ggXf1KBR6r4S74dAEroXeR4LvcA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=vk8WYjBM;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.84.39
-Received: from DB3PR0202CU003.outbound.protection.outlook.com (mail-northeuropeazon11010039.outbound.protection.outlook.com [52.101.84.39])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lCCE2Pg0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6E7D606A32C;
-	Wed, 25 Nov 2026 20:50:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6E7D606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72E2C606A335;
+	Wed, 25 Nov 2026 20:50:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=vk8WYjBM
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ps8K4GOlxM5S/DxTj8AbichXGzwwlZR/idj4WAI3ZL9IoKnYGz7isasdhFu8/0ONp06NxilYjTiyr+mlXDjD1RJoL9MYx2nshSxCXtjt6hOItGQKaQjOsEZcNocNputQd0e+l6AURCHU98ElT9iHZvbua8zFl4SzSL4piNHrO8DooZnqIuT4AMG+dO7O/nsDVida/oYHSictgxLHJZydcW3WrodU0A0qW9aSYrJyYmAq9XmViv/b9S1kg7/csCYVb2CoVF/31x5EA/VKQnFY6Xl98BUc4SYQD1OsVb/gXFvypU4kwKo+meebGk4DbmBE8h5DcIsxbXVoBz7RQ8+D6Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Xire52QG+Z4Dxek2DjTFiau6n2r3C17ArUQPujNt2ig=;
- b=SCmFCmUI/33wFfUHCKbViZ8lMQ1hBk7wUpmS3+a06av/YgPTvYGI2YjerLVv0O2jRkaz4BJgdaUpv32WSGc9MK+/rGDgdQxfCdiLt+IgexG/uxRx1VW9Uyu+uYlEobHHtZMhZ+X89V+qsEWAWLaD+NBHbNCmy9c1ER1BTZvxrsaKTLlOsXREJ2P75a+0Na7aVfiZiQu/QrHkXPP34v30HGQhE/ch1eUVPfDZSlXuR3jkLi7GKBmedXqZPr/cwCXKQsaZYjatFr3uD7yds8QWuIEUq8hrLRoaMAEPYM1rvPkgsw76O7OdKdh+eUIOfFpM7CAGcCGrD/5NDm50F2CRNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Xire52QG+Z4Dxek2DjTFiau6n2r3C17ArUQPujNt2ig=;
- b=vk8WYjBMC4GY8GKCw7GMPR9Uxfw9k5kZxvLf7mOac+g2gpzIr7rr1KjGEMJAngT/tjEbAMKCS957+7JSJDibP5ruE+IVJmfjilqPCpQdMdzP6cCFwCfbQvQ3Qu/O+oFR0/2tJNnEl3eteUwGkAhR1W5lTYGc/bAY5VqWBnAOVWimJ+lyug50YhxA8gc+xpdfi7J0wJY8xpnLUTmbrkf5l6PTasX6liO3B+umqJaWm100+Y3rKtFpofbP94mflNYnKxT4B4PveBQdlDzHdJ1+JCTuYBsU9U7w+q/gMIHyObb4C/DU0buDPZUBgbwD8DjXGE029o9BUFe2SpRHMzCOaQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by AS5PR04MB10019.eurprd04.prod.outlook.com (2603:10a6:20b:67f::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
- 2026 20:50:53 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 20:50:53 +0000
-Date: Wed, 25 Nov 2026 14:50:40 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Viresh Kumar <vireshk@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Dan Williams <djbw@kernel.org>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	dmaengine@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>
-Subject: Re: [PATCH v12 5/7] dmaengine: dw: extract hardware-LLP residue
- calculation
-Message-ID: <awdKII0K0WKbj7po@SMW015318>
-References: <20261121-submit-dw-dma-synchronize-v1-v12-0-f51eb635209d@gmail.com>
- <20261121-submit-dw-dma-synchronize-v1-v12-5-f51eb635209d@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121-submit-dw-dma-synchronize-v1-v12-5-f51eb635209d@gmail.com>
-X-ClientProxiedBy: PH7PR17CA0053.namprd17.prod.outlook.com
- (2603:10b6:510:325::8) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lCCE2Pg0
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795639853;
+	b=e9k391MsYAWXGBZ5En9ir/PoBhpY+TNXc67sKAWvx+iRTYZynX5mnkOA7Z2QZyA3FFkE
+	 x62YzTKAE6GRsNOSomNoawYw+s+nU2RuHiDVsGXniBMR787tey505auVn5x3oDwgnxpVs
+	 JLHBGvKzrPmugFYUk3/EXoM6e0wdK8LfmDwzkdsrq0RSW+c5wOquXWbdrW73yi+abBPrf
+	 ecugQ0RqSCjFL/5kmBCTKA+Q6YFW7EjQZ+wlXGKoxGVgsB43ZuJzXhHOJIq0klJlzni8T
+	 hDQ3M621/WqPimT/g6RQt/Jz5zgD47rBoLD0xOteiOlMgtRbFqLftlBnP2QWTgpIOTg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795639853;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=GlmkAcGc9AnZ4frKpmXLn7fY55yufhFGgXFPly53mF8=;
+	b=e7Eko5gzA1xoLamrIbgMWr1pferPHzp946ql/5ZV1/PopOBOgI5YUcrdTQJR9Nt7cz5J
+	 jOOwNbKe3JOM8NZwL+1TFlL/FZlCV4WRXTusaNQTfilADCJ1p79WdeLG8VtHy1f+5CaGR
+	 NAuSw4u/Jgo/Kmf/pfXCafwlPWhcd3wkP7UPuy3yhXLUQ3bayX3y/UpsDp05NtDy+1tFF
+	 u341CmlBdOjHHFgud3+58ySkrflDQoQR7s512w0vmVT84LULLHeBtNUjqPhHOt1MQxNng
+	 nN+jUfuWF/xYYNyyUVH0Guq4BCuMIuIe+njh6774RPjMrg7OLwCUnFwqh1KzqP1pE2g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 5275A1F000CF;
+	Wed, 25 Nov 2026 20:50:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795639852;
+	bh=GlmkAcGc9AnZ4frKpmXLn7fY55yufhFGgXFPly53mF8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=lCCE2Pg0EojyawFKtqz7v33Chh6n9Z0siIfqM2nL8nd9lkGt2EhNn+/IuZTiVjvtb
+	 pzsF8kRxMyd7WDChD0o/iAh393p4eHNtYyEJeOqYZ4RDg+I3peZ5oddv23SZU31WjZ
+	 UWKNApYS87m7l61rvpzDHkOwXATwhva0Vc4WZK3aJqpYl+iO1eKiiiFCiU3di28PvC
+	 yiVa2Y8sw9CF4bJ45Buz/fpA+5dhuBqv3XAke7+hzJzL040vAY5+vah8t0u6PeMehH
+	 dUct+s8e5M7ZfGEP5+REXB2QDrEmdfXAJJxLOaQH1kKkjsB7jda6APhg3r4OBIe41C
+	 fixIO//QTT0Cw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 2D0FE4D05B;
+	Wed, 25 Nov 2026 20:50:32 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Date: Wed, 25 Nov 2026 23:50:35 +0300
+Subject: [PATCH RFC net-next 7/7] docs: networking: describe the CS7542
+ flowtable RFC limits
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,143 +83,192 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AS5PR04MB10019:EE_
-X-MS-Office365-Filtering-Correlation-Id: 29e5c2d6-9448-4ab7-c3c4-08df4b35cb73
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|19092799006|56012099006|10067099003|11063799006|261022105027099003|261022075727099003|261028144727099003|261021123027099003|261021121427099003|261102123227099003|261026140227099003|261009223027099003|6133799003|18002099003|4143699003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	z3WNHIPZ/FIl50GvhKQr69/FaKPq6zqhnhua/yDhl99dEqUlAFO+gtkGqc6J26r0sbh0ZK4FRGPDGrYs5cWLSzuvbnlxwPIf/VGZr+dANkjiubXN+IDL4+ie82Pd8wBlPlQpKx2yKpVdC/qw4jtDcq4gYPDxNz05FK8hQ4o8d19Sihfaq423TK02VAjBuoY6YqaKPOwbvtN7z7LdhIrt8egyHh4Afg4IGUhzEAARWsV3EAhARTY5oaDgzuNFSatmUswPzD+sT9AgDnT5weqnI1fEPiXEKPshV/4U9KJXhZ9GKaOkepFv47CJx3zdLPdxv8axrQhKvPaCepe3nLaCljgv4UZJWdc2RaKkhBHDCvKz9NDzOf+ENgkjD4A3GEYapCAnwou2gnoc8L9Ia1kFpFs/UooBQy3y46GaQggNF5UHTb24b6izH/4GvDQn9emkJ4B1tP5FAypySBrOGk1zgllB+JjUJyzlzHUy4MEC5yR0Lwmv756vUShWeWmJeheTki67gjEix3hWV+cjlDXyUKkIAYdVRcPILR0F+29owbS3Z6ZZE8efjxd0fbu/IS/RqumbTfUWgBWXRywvTJzw6YnvdNea41yblsnlIUUO4+nsuJZlCjqptLhMbBWCSs2qTb9j+T9tDhUtCVXGN8oP3YiQ0CYVXo7Kz/vTiVPbh6A=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(19092799006)(56012099006)(10067099003)(11063799006)(261022105027099003)(261022075727099003)(261028144727099003)(261021123027099003)(261021121427099003)(261102123227099003)(261026140227099003)(261009223027099003)(6133799003)(18002099003)(4143699003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?lfzmz8lvEHfITQvWUFJbItgbcNWXK5aoknEk/TvFPvRmTG/Iz30a6Lh64lts?=
- =?us-ascii?Q?DRp0wml21Ser6BYJalKpJVeXm+fNQgx+Ty1pX2OJiBg43m7B/3HI1lkzUh2m?=
- =?us-ascii?Q?VOfEqJBR2/RU489nEhTkt0/eWpCSHueIOIVQSl1fc/NJZe46hdr9Ra5vZ83t?=
- =?us-ascii?Q?tyctXpBWGAN9ppKV3VFQS0IIEvIiIVxoBPL9k/ZUPekt+iLh51mnYPpGcn92?=
- =?us-ascii?Q?3lHJ+Mw4RYtbqYDuadZKlSiX38CYC9GAGaRLxsmIMPrbX/PJWRRMuekAm+Y6?=
- =?us-ascii?Q?jOHwsryOD/xrY7uabBI+qE2e0sdXq8JorNo8dB4Nv0ybjx5cTJrtEAm5BL9h?=
- =?us-ascii?Q?C/UF/m+xO3obiS6IgaZRtwRFz+eF8cTXIqGKrO4IH8zWsqriHPiBPUc/AC1N?=
- =?us-ascii?Q?mbcMaNMw9KgBFwsEvCI67cFayykzKGSWE0OdklGqZGc6TKhGjRjfdFBvoTbt?=
- =?us-ascii?Q?P/eoGWvua99cRA05iTzMhIKHqIZGplHWpmzxrkXOWy746xPVOrB/8q4ABThz?=
- =?us-ascii?Q?C0X/FjYJt5bx/YmE6NBjNHrgt4ozTL4KxM9oCAPiLgbILrZN1PkxqTE0nSkJ?=
- =?us-ascii?Q?/WTdb//2A/YQN6qDJc5+che7zwTeFu8Uo5a45hQeA2HYVwHpy6/dMRnosv+v?=
- =?us-ascii?Q?+Za28AtoHkcZ85avypAufhQmmwXloi40jlWJwMZOzsY2KZBY2RiSZAgb3sR9?=
- =?us-ascii?Q?OVvvCqZFkuIQmbdHKSyfVkTwhBuAJBGQ9IstaNExAGjfEeIIJnz6IN1lrNgV?=
- =?us-ascii?Q?gl9JWjKRNQcY9AKT5bwa6gC3Rqmyq0Va9RVxQD5oI0njoarOYVVayZeqC3b+?=
- =?us-ascii?Q?D5icgNcPEkSU/2cUCZlTiDXJD256wcirZzqVLYeHFiEH3jL1H/fwC6Wty0BW?=
- =?us-ascii?Q?jCKUiVQ3MAeAEfTT+Qi6sKY679At0n+A/5eEpjGUpIdpodJ3GmtdDAGBW6xX?=
- =?us-ascii?Q?QEjgqpFKqKWDPmMkPivPzacjUEXJWQ66j+bWYpA6/qpVag6O0pEnUEOInEtw?=
- =?us-ascii?Q?j2mbgj3yJWo4HAsnijPvgYU4f3Zlpm4PIh5GFj7EbKvpCcSBO+GlL4XktBFN?=
- =?us-ascii?Q?NkItpbtdmBKvpCYPd5QABilU6buCRyGllSOxoTp3A7FD2PYGdrpl00K+kOLw?=
- =?us-ascii?Q?yTFQE9KJj2+LR8hx5wVWq8sirPyN9Jl48Ji5bO2URwuYOTcZ6Vis/kmTIGVw?=
- =?us-ascii?Q?6L5B7nAoWcrLEa0WX2Z58qQUmvnMCoXK0BTkh34YxjAfMx75MbBWMS+kr3/k?=
- =?us-ascii?Q?8rjlez4lY73iboqFN/FQvouw0NP17qBXcg6+yGlfLKx/8Aj7Om6L1OnqbdeC?=
- =?us-ascii?Q?Od0Ys87yq8oQ212Qrez6RrQnAFi8BppQd7uB70Da+5FKmRFiYcUIYrjpnCq9?=
- =?us-ascii?Q?9CMn/I/PDZ4r0Qxv/RTG+an5loyGkrf0Hewdnq8WnLKT/WW3dMUWBihF3erE?=
- =?us-ascii?Q?iSfwtDpPW4/7ds0gSH6IceXl/tscNniv5hlUvzRO4pVuSTaeul5TjW6Wf5dd?=
- =?us-ascii?Q?prtAEuk+0k5iBNqQ68Y3L9LpQZxkG0GndwHFVxOeIf1YNOKGtvV3BVrWFMny?=
- =?us-ascii?Q?rSrajyCTsF9vwW33tpAhhlukufGH3PwTuRL5DcCdh1XFwtNHxhrrCGOOCENg?=
- =?us-ascii?Q?Zj6E7JHAzdyyogVK+jMyLLnf/4EnKd+05gRWER9FR1ECWzwsc2BhS6GR7ZdT?=
- =?us-ascii?Q?458DYrWRfeQhBEYw2HGo6zMO1pTMtIbapzJ48VQVQ+8P5jFEyV1MK7ACJv/9?=
- =?us-ascii?Q?IlNaxANuBVzNYYQ80+jG7DYIwmemMi04f//P3Nyqmr3CPuM5+Por?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 29e5c2d6-9448-4ab7-c3c4-08df4b35cb73
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 20:50:53.0653
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kd2jz7ni/YS+few1DkzyUJK4oVFuLmdpYPCEXFAHRDPBaaqB36hWVv+OnRZT9S/TzeJAou4foTZ/Sw1fMeBwGb72KHCiDyES4tY0+avlaHfAubCcEGGbAFSQQlIAKPs7
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB10019
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261125-almondplus-offload-rfc-v1-7-703175c6340c@gmail.com>
+References: <20261125-almondplus-offload-rfc-v1-0-703175c6340c@gmail.com>
+In-Reply-To: <20261125-almondplus-offload-rfc-v1-0-703175c6340c@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <f.fainelli@gmail.com>, 
+ Simon Horman <horms@kernel.org>, Pablo Neira Ayuso <pablo@netfilter.org>, 
+ Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>, 
+ Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
+ Linus Walleij <linusw@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Christian Marangi <ansuelsmth@gmail.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org, 
+ coreteam@netfilter.org, linux-arm-kernel@lists.infradead.org, 
+ linux-doc@vger.kernel.org, Fil Dunsky <filipp.dunsky@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795639829; l=7601;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=/LLBgDu2W64JTNlAWpTpKMSB1T1Pf4WK5w8P8fK4qoU=;
+ b=9pT84902ZU5MxLm8C/bMqb5Cm0U++CiHuoAF76UHN91JHgQgLR/IMTXkCWNXvt1L4mLae6csy
+ DazXsyjCU5YDNQBsNdWPGV0pjCCA+Nqo8t5/3Yy9VrfP/TnRuIqBN1T
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026 at 02:03:20PM -0700, James Hilliard wrote:
-> From: Serge Semin <fancer.lancer@gmail.com>
->
-> Move the hardware-LLP residue calculation into
-> dwc_get_hard_llp_desc_residue() so it can be reused independently of
-> completion handling.
->
-> Keep the scanner's LLP snapshot, descriptor updates and early returns
-> unchanged. Only one transaction is active, so the helper updates its
-> cached residue directly without reporting a completion indication.
->
-> Signed-off-by: Serge Semin <fancer.lancer@gmail.com>
-> [james: extract the calculation for the single active virt-dma transaction]
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
+From: Fil Dunsky <filipp.dunsky@gmail.com>
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Record the real LAN/WAN NAT qualification and its precise limits:
+immutable result capacity, conservative sticky-HIT aging, module
+lifetime restrictions and software fallback. Distinguish precursor
+hardware results from execution of the new Linux composition. Extend the
+existing network-engine file patterns.
 
->  drivers/dma/dw/core.c | 42 +++++++++++++++++++++++++-----------------
->  1 file changed, 25 insertions(+), 17 deletions(-)
->
-> diff --git a/drivers/dma/dw/core.c b/drivers/dma/dw/core.c
-> index d00d0d53f6ba..150823544f40 100644
-> --- a/drivers/dma/dw/core.c
-> +++ b/drivers/dma/dw/core.c
-> @@ -281,6 +281,30 @@ static inline u32 dwc_get_sent(struct dw_dma_chan *dwc)
->  	return dw->block2bytes(dwc, ctlhi, ctllo >> 4 & 7);
->  }
->
-> +static void dwc_get_hard_llp_desc_residue(struct dw_dma_chan *dwc,
-> +					  struct dw_desc *desc, dma_addr_t llp)
-> +{
-> +	struct dw_desc *child;
-> +
-> +	desc->residue = desc->total_len;
-> +	if (desc->vd.tx.phys == DWC_LLP_LOC(llp))
-> +		return;
-> +
-> +	if (lli_read(desc, llp) == llp) {
-> +		desc->residue -= dwc_get_sent(dwc);
-> +		return;
-> +	}
-> +
-> +	desc->residue -= desc->len;
-> +	list_for_each_entry(child, &desc->tx_list, vd.node) {
-> +		if (lli_read(child, llp) == llp) {
-> +			desc->residue -= dwc_get_sent(dwc);
-> +			return;
-> +		}
-> +		desc->residue -= child->len;
-> +	}
-> +}
-> +
->  static void dwc_scan_descriptors(struct dw_dma *dw, struct dw_dma_chan *dwc)
->  {
->  	struct dw_desc *desc;
-> @@ -338,23 +362,7 @@ static void dwc_scan_descriptors(struct dw_dma *dw, struct dw_dma_chan *dwc)
->  	if (!desc || test_bit(DW_DMA_IS_SOFT_LLP, &dwc->flags))
->  		return;
->
-> -	desc->residue = desc->total_len;
-> -	if (desc->vd.tx.phys == DWC_LLP_LOC(llp))
-> -		return;
-> -
-> -	if (lli_read(desc, llp) == llp) {
-> -		desc->residue -= dwc_get_sent(dwc);
-> -		return;
-> -	}
-> -
-> -	desc->residue -= desc->len;
-> -	list_for_each_entry(child, &desc->tx_list, vd.node) {
-> -		if (lli_read(child, llp) == llp) {
-> -			desc->residue -= dwc_get_sent(dwc);
-> -			return;
-> -		}
-> -		desc->residue -= child->len;
-> -	}
-> +	dwc_get_hard_llp_desc_residue(dwc, desc, llp);
->  }
->
->  static inline void dwc_dump_lli(struct dw_dma_chan *dwc, struct dw_desc *desc)
->
-> --
-> 2.53.0
->
+Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+---
+ .../ethernet/cortina/cs7542-flowtable.rst          | 112 +++++++++++++++++++++
+ MAINTAINERS                                        |   5 +
+ 2 files changed, 117 insertions(+)
+
+diff --git a/Documentation/networking/device_drivers/ethernet/cortina/cs7542-flowtable.rst b/Documentation/networking/device_drivers/ethernet/cortina/cs7542-flowtable.rst
+new file mode 100644
+index 000000000..bedb825b6
+--- /dev/null
++++ b/Documentation/networking/device_drivers/ethernet/cortina/cs7542-flowtable.rst
+@@ -0,0 +1,112 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++CS7542 hardware flowtable RFC
++============================
++
++This RFC connects the CS7542 forwarding engine to nftables hardware
++flowtables. The Ethernet driver remains the sole owner of packet DMA,
++indirect tables and network-engine reset. The forwarding algorithm and
++flowtable frontend are replaceable modules in this development version.
++They do not map hardware registers themselves.
++
++Supported path
++--------------
++
++The current path is wired IPv4 TCP/UDP NAT through a QCA8337 switch on the
++CS7542. It accepts physical user ports 1 through 5 on CPU port 0/GMAC1.
++Both ingress and egress must resolve to that conduit and to the initial
++network namespace. It checks the route, neighbor, bridge FDB, observed
++original Ethernet header, tag format and directional route MTU before
++publishing a lookup. Unsupported requests return to software processing.
++Wi-Fi and IPv6 are not accelerated.
++
++TCP admission additionally requires an established conntrack state. The
++flowtable supplies that state together with the route MTU. SYN, FIN,
++fragments, IP options, low TTL and packets outside the admitted length
++range remain on the CPU path. The driver does not infer a route MTU or an
++established connection from flower rewrite actions.
++
++The QCA four-byte CPU header puts an identifier ahead of the ordinary
++two-byte QCA metadata. This lets the CS7542 parser recognize the inner
++IPv4 header. CPU-port ``dsa-tag-protocol = "qca4"`` selects the format.
++Both configured CPU ports must agree. The default remains the ordinary
++two-byte QCA format. Ethernet management frames are not usable with this
++four-byte tagger, so switch register access stays on MDIO.
++
++Resource lifetime
++-----------------
++
++There are 16 admitted direction selectors and eight immutable result
++records in this implementation. A result includes every hardware-visible
++forwarding dependency. Identical results may be shared by independent
++selectors. A retired selector may be rebound only after invalidation and
++complete readback, with the original immutable result still present.
++Removing one selector does not retire another selector sharing its result.
++
++This is not general result reclamation. An incompatible result consumes
++another record. Eight different retained results exhaust this small
++allocation pool until a verified complete network-engine reset. Further
++flows fall back to software. A successful lookup withdrawal is not treated
++as proof that all in-flight hardware references have drained.
++
++Failed or ambiguous hardware transactions close admission and retain the
++state needed for isolation and recovery. The current replaceable modules
++remain pinned until the built-in manager completes checked detachment.
++Ordinary arbitrary module removal and suspend are not supported by this
++RFC. The Ethernet owner, switch and MDIO must be built in; forced module
++removal and power management are excluded by Kconfig. Consolidating this
++development interface into the Ethernet driver is an open design item.
++
++Activity accounting
++-------------------
++
++The hardware HIT bit is sticky. The driver only treats an observed
++zero-to-one transition as evidence of recent activity. It neither clears
++the bitmap without a proven drain protocol nor fabricates packet counters
++or fresh timestamps from repeated reads of the same set bit.
++
++Consequently an active connection can expire from the hardware flowtable
++at the normal Linux timeout and be learned again in software. On the
++tested OpenWrt configuration this produced one CPU packet in each direction
++at about 30-second intervals. This conservative refresh is a known limit,
++not evidence of uninterrupted hardware residency or accurate packet counts.
++
++Validation and provenance
++-------------------------
++
++The precursor on Almond+ OpenWrt 6.18.64 was tested with the standard LuCI
++hardware flow-offloading option and ordinary firewall4 NAT. LAN and WAN
++were separate physical switch ports. The client was 192.168.1.2; the WAN
++server was 10.42.0.1 and observed the translated router address 10.42.0.139.
++
++Byte-exact UDP exchanges covered IP lengths 512, 1400 and 1500 with DF
++set and clear. Both directions arrived with TTL 63. With flow offload
++disabled, the CPU capture contained all 72 marked packets. With hardware
++offload enabled it contained four of 212 packets: the two refresh pairs
++at 30 and 60 seconds. Capture reported no kernel drops. TCP exchanged
++2,293,760 verified bytes over 70 seconds; TCP and UDP conntrack entries
++retained HW_OFFLOAD at the 3, 35 and 69 second observations. TCP endpoints
++accepted the data; this is not an independent capture-based checksum
++audit of every accelerated TCP segment.
++
++A separate eight-connection test exercised 16 selectors sharing one result.
++Seven connections kept their original selectors and continued forwarding
++after the first connection was removed. These were correctness tests at a
++controlled rate, not throughput or maximum-capacity benchmarks.
++
++The Linux RFC changes the DSA selection interface, removes laboratory
++controls and adapts to current kernel APIs. Measurements of the precursor
++must not be represented as an execution of these exact Linux source bytes.
++Build and software-test results are recorded separately in the cover letter.
++
++Review questions
++----------------
++
++* Should directional route MTU and established TCP state be carried in the
++  flowtable's classifier request, or through a different common interface?
++* Is the standard DSA tag-selection property appropriate for this CPU
++  parser constraint and the two-conduit switch setup?
++* What hardware evidence would be sufficient to permit reclamation of
++  different result records and clearing the sticky HIT state safely?
++* Should the built-in owner and replaceable algorithm be consolidated
++  before a non-RFC submission?
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d17acadaa..a70086354 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2966,7 +2966,12 @@ M:	Fil Dunsky <filipp.dunsky@gmail.com>
+ L:	netdev@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/net/cortina,cs7542-ethernet.yaml
++F:	Documentation/networking/device_drivers/ethernet/cortina/cs7542-flowtable.rst
+ F:	drivers/net/ethernet/cortina/cs752x_*
++F:	drivers/net/ethernet/cortina/cs7542*
++F:	drivers/net/ethernet/cortina/cs_fe_*
++F:	drivers/net/ethernet/cortina/flowtable/
++F:	include/linux/cs7542_*
+ 
+ ARM/CORTINA SYSTEMS GEMINI ARM ARCHITECTURE
+ M:	Hans Ulli Kroll <ulli.kroll@googlemail.com>
+
+-- 
+2.53.0
+
+
