@@ -1,60 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597201;
-	b=HEAKLPcnY8ifDFUPf3eM7RPT1KQO6YqXGe7fZZDsAUm9SUSSXSEhsOugUyv4hSkhdkU/
-	 PtRqxlgdPssQ9kpmBQsURLDdwIDoD18N+qZh/C7kIzybeZZMb7/rVNH9B9rir3WToo9M/
-	 KzVTEPuXyq138V16y8cIoxBE+uDOJQb4Vqeo3qKUppx4T0PBGdEmKrbV/zBhKOuDug4Nr
-	 JYJvQM8ED1ZIOt4o9DGIQ6ikv7tWTzA8s/sXSMiJRgX8J/KmM5NJ7HwhlS1tPAda8XAE1
-	 wnFVbBh8IX34qb3oAbs5688Z+0u+RQfiRNfCN+6N2MIw9cTWX9v5dRYoPwf9QTjCpCg==
+	t=1795597206;
+	b=s8bgQtjKoVISI9TDiRstKTakS0NnryjxgKKgenJqJWxFTjs2UmjJAo9grJbEpx1fIfOs
+	 SovWgZdjm/CCNSKwL3vpmyu+gW8m+qmlb/yE+tDXzXo/im0e3eQRIvCRsr5BgwQl8IS88
+	 5Y0Q9sqIViG57vKXT8FuCgGWetGbZojpW+mFtglgUijqebhdh9VTiy0Wc/RSPKb2E3IQq
+	 7dsBStaEK563t/GaEQ24qKvmE8mwzvkOrwLF0R2dsklQ3dscgCASyo5v86q5GGySnIphk
+	 UqAm2294m1lIpHZJVk2ANXbLh44cd+XiaUbI8QUjsY2Jc+Er+gRhbxgzC6MVvpqAQnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597201;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
-	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
-	 X-CMS-RootMailID:References;
-	bh=fmE63y5GbvGD8xqUFsMKla9Wy+0GhyWaclGZeGjPSXs=;
-	b=BMpdzpgHC1XqMkC8UC/8EPYh6sGcVX63wLVCpkEY73TjugYZ3Ac/qGMCm3g/x1rh1wm4
-	 omoWqoDwqHtITJAY+++jbfJA/gLpbYwjwx07jy2t+uznnfdAISHkJ+YLxl8YAypqULG0l
-	 Ap218t5Gcd6YaNtjB8WUbuOqPes8hgWn8dsQ/JoCoO8qzvSBJssQOOkijUELZeGfo1bN5
-	 hcYiwZN/yZQX1aEDh1eOv5N6JFKnYu2IHBtXAC13H1LUKRP4i71o7b+t0buRrf18yvIwy
-	 yADs4AVbG4RePUFZfGdt8q3Js5NvncjjcRDXWBTVvqXTftENBMKcY3dxxbC0fR/AxCw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597206;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=xkYQlTjTpR+Tckgmur2SBpexpKA9T0u+v2Bvs9xCavA=;
+	b=5pUFIAJN8zPEtWPieU7wuL5KU4l+OYUkEVEaEHNu2KVXQEPu2sUi8X5Z4v4aAzWY5M7A
+	 hwzTp0nYhpUQzJZV7BhGIOnRi10j6eaZEZhzVjYX6vc07EtCctogtMmL5a2Ot+EN27h9x
+	 DAhzcbmIWBb87/eohljdBLNwfLBsyKgQNzu6tBqsIMXvb6oaLrRCPDRu0uZiV20eh+noh
+	 He5ALjMIf0VyTh0ILqgwo0DpZdf3iLtN/2QTfxSYfltzXAVmmcTV33jtmKkK1ZnZ/LKut
+	 XYEeIv5OvVACf3/9WfDcEX4I5TajcZWH7EErjVIq6QjAlULjmLiaHqPZR9xdyiV5i4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=t6IpWgNP;
-	arc=none smtp.remote-ip=210.118.77.11
-Received: from mailout1.w1.samsung.com (mailout1.w1.samsung.com [210.118.77.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GOWJ6p50;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E083606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:59:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E083606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45B5D606A32C
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:00:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=t6IpWgNP
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261125085958euoutp01abad63b0cceef1ddc71617af1bc1e73c~rPiNnveIN0063600636euoutp01M
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:59:58 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261125085958euoutp01abad63b0cceef1ddc71617af1bc1e73c~rPiNnveIN0063600636euoutp01M
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795597198;
-	bh=fmE63y5GbvGD8xqUFsMKla9Wy+0GhyWaclGZeGjPSXs=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=t6IpWgNPp3LldJKuqPzJKYc5SnTiDVN2/4qCyWxmKNwhV9rbb1crQM4I5oVoJWSbZ
-	 Htnp511kw9IvVegsKjEbttHuS4Q2088AOxT82nlKfxr4aP0t3kvV5KIHlAuK2oqaZD
-	 7mLFDiBdL1j7PIQga1QROH1oBax67B89njoJ5svA=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261125085957eucas1p25af1d716812754c32457b6bf7eba2913~rPiNR1Ahl1208612086eucas1p2B;
-	Wed, 25 Nov 2026 08:59:57 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261125085957eusmtip1aecd70be8475f54e95bb1974d4ec22e6~rPiMxn-GO1659816598eusmtip1d;
-	Wed, 25 Nov 2026 08:59:57 +0000 (GMT)
-Message-ID: <513ec8b0-406f-41b2-98e7-7d0a6b45865e@samsung.com>
-Date: Wed, 25 Nov 2026 09:59:56 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GOWJ6p50
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B16251F000CA;
+	Wed, 25 Nov 2026 09:00:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795597205;
+	bh=xkYQlTjTpR+Tckgmur2SBpexpKA9T0u+v2Bvs9xCavA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GOWJ6p500oxIY0fNCTQ95TKAJlCegS/KWKLzA78YzhG6MfdF8zwaGLps3lYol4jsJ
+	 jMwiG+jFu5pulTdXruC9K98deGk5H8zjf6zbstB4Fq42gxVROK0MrGuxzGmdrtq7Ji
+	 MTfuIdeB8/3UufYvHJ8SuRl2w0k0uunrFpZmFGxw2XIsqRgoZufV2wDXuy+jVG8IW+
+	 r/bFOeHU907sJ+x5KDgsTB+l5D3uxTq+NL8ADHXgNjBYeuX+hPboIX7xBxlXfgdA91
+	 TdgVaY4jkJbRJomCJiXoGGV2QbatDQSoKxS5FVxkon6NUACPli3KdVbzd53lHdJ13b
+	 Wl9mRO7VkaFdA==
+Date: Wed, 25 Nov 2026 10:59:56 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "luto@kernel.org" <luto@kernel.org>, "x86@kernel.org" <x86@kernel.org>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"peterz@infradead.org" <peterz@infradead.org>,
+	"bp@alien8.de" <bp@alien8.de>,
+	"mingo@redhat.com" <mingo@redhat.com>,
+	"tglx@kernel.org" <tglx@kernel.org>,
+	"hpa@zytor.com" <hpa@zytor.com>,
+	"thomas.lendacky@amd.com" <thomas.lendacky@amd.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/9] x86/mm/pat: flush the TLB when only an alias mapping
+ changed
+Message-ID: <awajjPwS-dKPnsKT@kernel.org>
+References: <20261112-fixes-x86-v1-0-791adb8d6670@kernel.org>
+ <20261112-fixes-x86-v1-1-791adb8d6670@kernel.org>
+ <b7bd4a18c420fe65728f4d50b69e2be0d1d39aaa.camel@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,38 +66,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v2 0/2] dma-debug: Avoid uninitialized mapping dumps
-To: Avi Weiss <thnkslprpt@gmail.com>, robin.murphy@arm.com
-Cc: ailiop@suse.com, iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	x86@kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <cover.1795093513.git.thnkslprpt@gmail.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20261125085957eucas1p25af1d716812754c32457b6bf7eba2913
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261119131338eucas1p27f9133a1cd8163693686c18713518313
-X-EPHeader: CA
-X-CMS-RootMailID: 20261119131338eucas1p27f9133a1cd8163693686c18713518313
-References: <CGME20261119131338eucas1p27f9133a1cd8163693686c18713518313@eucas1p2.samsung.com>
-	<cover.1795093513.git.thnkslprpt@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b7bd4a18c420fe65728f4d50b69e2be0d1d39aaa.camel@intel.com>
 
-On 19.11.2026 14:13, Avi Weiss wrote:
-> Booting with dma_debug=off leaves the DMA-debug hash buckets
-> uninitialized, but the debugfs mapping dump is still registered.
-> Reading dma-api/dump then traverses an uninitialized list and
-> causes a NULL pointer dereference in dump_show().
->
-> Patch 1 skips debugfs registration when DMA debugging was not
-> initialized. Patch 2 removes the obsolete debug_dma_dump_mappings()
-> helper and its only caller in the legacy AMD GART IOMMU code.
+On Tue, Nov 24, 2026 at 10:49:28PM +0000, Edgecombe, Rick P wrote:
+> On Thu, 2026-11-12 at 18:31 +0200, Mike Rapoport (Microsoft) wrote:
+> > CPA flushes the TLB only when CPA_FLUSHTLB is set. cpa_process_alias()
+> > sets the flag only in alias_cpa and never in the original request.
+> > 
+> > When the requested range already has the new protection and only its
+> > alias changes, the alias keeps stale TLB entries. For example:
+> > 
+> > 	/* the vmalloc mapping is created read-only */
+> > 	p = vmap(pages, nr, VM_MAP, PAGE_KERNEL_RO);
+> > 
+> > 	/* only the direct map changes and nothing is flushed */
+> > 	set_memory_ro((unsigned long)p, nr);
+> > 
+> > Setting ->force_flush_all in cpa_process_alias() does not help: it only
+> > chooses how the TLB is flushed, and cpa_flush() is skipped entirely
+> > without CPA_FLUSHTLB.
+> > 
+> > Worse, when the alias wasn't changed at all, for example when the primary
+> > mapping changes from ROX to RO or vice versa, ->force_flush_all in
+> > cpa_process_alias() causes an unnecessary flush of all TLBs.
+> > 
+> > Propagate CPA_FLUSHTLB from the alias update to the original request, and
+> > flush the entire TLB only when an alias actually changed.
+> > 
+> > Fixes: ab5130186d74 ("x86/mm/cpa: Flush direct map alias during cpa")
+> 
+> I think this^ only added a flush where there wasn't one before, fixing a
+> different issue. I don't think it is the origination of this behavior for the
+> case of when the primary target already has the right permission, but not the
+> alias.
 
-Applied to dma-mapping-for-next, thanks!
+Right, it was c31c7d4844ea ("x86: CPA, fix alias checks") that moved the
+alias update into a copy and from thenn the alias's flag never got back to
+the primary request.
 
-Best regards
+ab5130186d74 only adds the unnecessary flush when alias does not change.
+ 
+> BTW does this type of permission change happen anywhere in the kernel, where the
+> primary and alias start mismatched? How frequently does it happen?
+
+Like the cover letter said it's "unlikely to happen in practice" :)
+
+Currently there are no callers in the tree that could trigger that.
+
+I'm working the generic set_memory_core [1] and the bots keep yelling at me
+whenever I touch anything around.
+
+So while is a defense against potential future issues, the change is simple
+and I think it's better to have it. 
+
+Might also save us from reviewing several LLM generated reports that would
+find the same thing ;-)
+
+[1] https://lore.kernel.org/all/20260721-generic-set-memory-v0-1-v1-0-2c1fc62306b3@kernel.org
+ 
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
+Sincerely yours,
+Mike.
