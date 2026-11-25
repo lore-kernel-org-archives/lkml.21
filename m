@@ -1,73 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593617;
-	b=kbAXf29K9HJZLQdZ8hSmAM+BVj8aQ2LGtG9kjzU53EUs3p2qQdsYtTCB07fZGdELLg1U
-	 kBKsEeRzahl6Hnx/aDrs8aZl1XXkx4ssUWbtElsniU3cB+zQXk06kyQGOrwJ82ilsNOH9
-	 XYWzY3zcyqlvUkPUVAVEWCNUvt3LYwiLLNcGlbHBIQdx0yTbUC/D1C9a62ViANQZL18uj
-	 f+m5Yo0hb/DnQO6vbFTSuiL/xoYcJVb37k0wcns9IXcZW1wR48x8o0/XZM3pQnjJmP9w8
-	 6ot/A4dgQ9fSTlgU49pv+gcKU9W5VrIsMGhP3ouRj25a9wuu58l9GLaxLLZWENrkyog==
+	t=1795593623;
+	b=H5cHSP1nDgPjUVDNtyh24mvy9UrhajucX69nDF0fNt4yrVHQ6Xhj5T3CWvkKQr0D4kQT
+	 K3Z975yF65jTfw8hflcee2XOigNdEm1HOEmSZ3sKHAara3WhrNSf42xQY9vVjFDQSZtn7
+	 fgK33v1dv9ElTPSlRSyfqLWCuqA0KH7bqWu0mXcEG6HKwlxQC1wfdeZIDdmPP+Ddc3104
+	 syoHcld7do64aZP/9PmZKxBJuJCcdLC8n/JGFA1YXw4zf4OLi/k09MXCVVyNCW+E3K0TO
+	 exJQ0wioPd1HmU6++BP041vKvCHTGOR6XTwHL7Sl7NeL3AT7+f+EIsLffPr5qOl0D0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593617;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=3JXKHxrVmfq0TiEVcdvg17Zz9dDLxpeu9nQ6Vk0bf9U=;
-	b=pxr3AIkOQuG15AYRjbEf0CgmkA+MB26X6RO5v+VrCcMYvVhDUWDUYrb8X0OhrTVlmy0d
-	 wC+lG/4xMWUPrlbLscz5NgNFNWZ2Xz0AcAyILDB2xK0BvcGHl3GS8b5zI3uyveuPNH/Ud
-	 kAxbT3Xu9vcGYsL4BD+U9EyJ6hMN/wlchiBBIV6kVuuY/FgxbBISs6GvZuARtmmW/tb2N
-	 kilQUiFsjOrgpUX4QamtCsQt/+WIO70+FBV5ISVEDFD9sCHgaL2qrwJdP5hjIrQPN16gX
-	 Y+AJU8+BOJaf05SuREMHVVMuAoy+0XTBfAFx/KBPTukvO+J189t728IGHM2FxIyCs8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593623;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=yCyt8QuKQSzfVTIM3Gt81h9YIy3R5vaw0IDEwLD54kg=;
+	b=ijTRxDUdgIBGcipoKamWpUrnq1UrytK+oPiApVrStjJhze1RMTpS7gdgTsq6tzqmDOYf
+	 ZVry4hu3MKReJnCDVvdabujGEknXydaucVed5YGuTTcxqQmg3WTSdKfioL1ww8jlsBWPG
+	 A0ZbfMmGpj0U7Oas5xP1+v56p40c8C/SyQqgS9+zhqwfFEQeO2bMRLvkhyTb77iGOszx3
+	 8fTRKzdRKrYHxord4/aYYEeaOTpPSRs/ZNvYjMV1pt6kzkTdbXvgIgAslG+rOlD5yHtwL
+	 e0qEOzDcisYbUTjw1Its3erQRPy8rGDUUebRRl/LyM4nkutzAP+W/66JMYqFSyYnLjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVZLEuUu;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=fail reason="signature verification failed" header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GClp8dkT;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC62D60A2610;
-	Wed, 25 Nov 2026 08:00:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCC3E606A338
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:00:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCC3E606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVZLEuUu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91DA11F000C0;
-	Wed, 25 Nov 2026 08:00:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795593616;
-	bh=3JXKHxrVmfq0TiEVcdvg17Zz9dDLxpeu9nQ6Vk0bf9U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dVZLEuUu30Bp0Mh++rmExNRXqzfiexWadppURIK/+VKrCSdKwgsrU5sSKafqAoMVX
-	 RtpJk1zM4M8Ozkq3n2tUfIqN+dazbRh0Uk7tMt4ZKtCp7Ik1X2ra2vvZj3cHCkYNkX
-	 zuXHvYHAOKfV4dqS/c9v6ph+IVGU+V0EM3zsIhN334mSVLff8iGgpVz0EnVdps9F9v
-	 lvttxclF3v13FajsFkdWXUAd9uDcBXebqbW8913/zEe90DATxMaaeCz18gzbwRYCac
-	 3vztu/ALwxVnGZRTyZ/1AgydZcZmYQzBw8Vsp4D0WPSLc0s4EKB6yJgnt7x2ZIftB3
-	 QdvdlQRkUaauA==
-Date: Wed, 25 Nov 2026 00:00:15 -0800
-From: Oliver Upton <oupton@kernel.org>
-To: Dan Carpenter <dan@pereq.eu>
-Cc: Marc Zyngier <maz@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Christoffer Dall <c.dall@virtualopensystems.com>,
-	Rusty Russell <rusty@rustcorp.com.au>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Sebastian Ott <sebott@redhat.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	James Morse <james.morse@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Shuah Khan <shuah@kernel.org>, Karthik Bhargavan <karthik@pereq.eu>,
-	=?iso-8859-1?Q?Cl=E9ment?= Blaudeau <clement@cryspen.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 5/8] KVM: arm64: nv: Replace a pending SError when
- injecting a new one
-Message-ID: <awaVj0Aa6dMSksxX@kernel.org>
-References: <20261125-double_exception-v2-0-224689d8a764@pereq.eu>
- <20261125-double_exception-v2-5-224689d8a764@pereq.eu>
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GClp8dkT
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68ZLN3142811
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:00:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=yCyt8QuKQSz
+	fVTIM3Gt81h9YIy3R5vaw0IDEwLD54kg=; b=GClp8dkTaBY5wRgsk/L3HvvvCWT
+	wSFNdHL+Pb/So2Ayx0xeGl8m8hDfh2J+FmvatPtNYQIP6N47bhKYiwlpD80S+igV
+	a4SxLkV8x9p+AJ6kHzzJL1YvqrMM7gMJlQMEdfm8xXmp/C8aFKGzGEQ+4Tldy3ds
+	x7gGpOdBACaI4ZLfv7Kt/wqC9Lqpv3DSJ1ZVftS6diQVAUDCqpdctriQnTigVSz3
+	byxYCqvDvHpfPlbaBQ3NDd2HpGPgladObe37jBaeAH8nVQ9vM4kizbq5GhYClrlS
+	MftSx+Q8jZGhtwQYE+oP7ri+qH7QBQ2lc0upwfG9OjJnoMfR+x7vZ8YytSA==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5mc29m0f-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:00:21 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-94961511b61so908806985a.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:00:21 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795593621; x=1796198421;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yCyt8QuKQSzfVTIM3Gt81h9YIy3R5vaw0IDEwLD54kg=;
+        b=2qlEYE4nFLz+esRLpkbnBZO2kHm+TVJJXDOSjX/yR+CIZkZoobSjd+UOtz6ODCaKiU
+         R3DoG+hbd34dCR00XRdJUMXY5OdfkAB+8LxkK4PlkL+jfFKkQpIPr4rR3ZO+h3DNLGH4
+         s5vl8UtAnYUuS/rw9B3vxDsI+0z/nq40SY/iwlDskOf8QxaljJWb2xdDY2AQPsryRBmZ
+         QZuzcklf2JqJIp4XJ+OLQG/5QIzMavKjXimW7lT6vmaJjYVMh2f5Z97z9iDFI888CYP7
+         QaAA/GkzX4HzjJyJbm4fa9Boa0yUgmX/tlxOyAcQdtRdGesx/ioVxtkr5Py5vc+cfwIe
+         dfjQ==
+X-Forwarded-Encrypted: i=1; AL+hErEY/fe7vv57lARWpqbxvskHh/T2sAK+GSjKuCNL//VBdnAgKbxg/qfLNqAEXDENXhRVLlwEgr2Cwnb0+9E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/0GomrKNodOqVWZZrQ0uhV10dJ2p9FFHz5f7gTLQov5zWs6luO
+	2SeTSLdFwt70hxZb8RoTPhgg9KsDx9uz/XyX5CDrVdpmOW8WvL5mSTXadH+FJlxIx8e5D93ELRd
+	5g8DcIx//GCBHB/TK79hti0MA1URu1XcYAEFJQPsHyaBrDvRwHs9bLtSnIqRY62Dfgbw=
+X-Gm-Gg: AZFdTZcWg7TvBLpYy1f2Bc8kGv6mAZmPj+JWeZVTEHrUr2rCjM4sGdymFRUUwjh883K
+	6ZYpNZUUcJcMJvQ6Ntcje7mkwZLEE6ekymKwGiMVre4LfAywP8TqpmMyXVacwCiovYzOq8zIX38
+	lxlERifinwchTDIq0dS0TUV1d/ZvBdj3cI+vXZUHkuikyrNbnM4ORiiz/3LfFph4TW7paM1mlT9
+	9Q1HVnO3M/JOafgkp9J/fXhHPUC/wfpyGTLw91Gt8oE/B9sex9DULBM4XQniXgXHJbUEj+9sSLx
+	NaD1Em22JxD8PVhuggC0HqZ2nE8QYIdmXnHGLFkROjjlQyIlAt8X//tLtm1YsO8y8WECihds7aS
+	CHMILXP7z2A0rtIxCkw==
+X-Received: by 2002:a05:620a:1728:b0:949:8aca:f44f with SMTP id af79cd13be357-949ba7cbbedmr3167320985a.4.1795593616313;
+        Wed, 25 Nov 2026 00:00:16 -0800 (PST)
+X-Received: by 2002:a05:620a:1728:b0:949:8aca:f44f with SMTP id af79cd13be357-949ba7cbbedmr3167306185a.4.1795593615312;
+        Wed, 25 Nov 2026 00:00:15 -0800 (PST)
+Received: from lin-0843.qualcomm.com ([212.136.9.4])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm585912015e9.11.2026.11.25.00.00.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 00:00:14 -0800 (PST)
+From: Gjorgji.Rosikopulos.gjorgji.rosikopulos@oss.qualcomm.com
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Cc: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        linux-kernel@vger.kernel.org, Hitesh Patel <hitesh@ebytelogic.com>,
+        Atanas Filipov <atanas.filipov@oss.qualcomm.com>,
+        Jigarkumar Zala <jigarkumar.zala@oss.qualcomm.com>,
+        Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
+Subject: [PATCH v2 05/12] media: qcom: camss: Add per-port config to CSID configure_stream
+Date: Wed, 25 Nov 2026 09:59:54 +0200
+Message-Id: <20261125080001.2540101-6-gjorgji.rosikopulos@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261125080001.2540101-1-gjorgji.rosikopulos@oss.qualcomm.com>
+References: <20261125080001.2540101-1-gjorgji.rosikopulos@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,67 +111,375 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125-double_exception-v2-5-224689d8a764@pereq.eu>
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=aPJlOr9m c=1 sm=1 tr=0 ts=6b069595 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=dNlqnMcrdpbb+gQrTujlOQ==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8 a=LTdo2yCfIfbF-FAaOukA:9
+ a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-GUID: e1437trDhsNrcuM44a4rI50QwZfTAV7I
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzMSBTYWx0ZWRfX6gT4Bj8Zi7V0
+ I20kUV9Mdcc3CVg5ZNcxFBkAWjtty3xky792DF79pLgCeBQd0lLxZ5p4Ivb+k3YdvFUeNxneEjO
+ rEgdlsGpFqrR2+VEblS+qI+JnKvouWEesz6/qNuU2HEp4v5trj4ev0G2TJPrkISE8JLL+X9rBtL
+ qUavF1vrIiTI6MDVbn6maP5Vlm3vuyMdcjP/jp3dWQDjNGpJkmEXyrQh2npM+Gq4c/6uZSp9DRY
+ 2a/n4PkwTlv2U/o5p0DOzXVrzmjZMZ0+wkcTnn6G5oewEFzzThhgxPcIEEf1gWWWbdqAy267u7R
+ jkr0H1KgAvPNWwG2YZ1eHuqbNGElq6w3tHepw2mjIOwH003irAEgLZcCL4zWieqF1ZTe1yo6SEX
+ 5ZGgIzB77+9qus/Q6dRIE6HIBs/t5oROTgWygc4OAXWF/ebTOQ2QgrsRr/kxK4akHcVrdU72Rhb
+ 8Dey+3V6xw4kQnJbKAg==
+X-Proofpoint-ORIG-GUID: e1437trDhsNrcuM44a4rI50QwZfTAV7I
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzMSBTYWx0ZWRfX/wOwLK4lN+rp
+ jelOLnODD7lh/aQv8gc8i3U/tzXMWy7S++8dVjWEDqCscNdl60/lFDTaqAJpFsh027Ny7bWUVv/
+ R6UJBaDQWwd+9hJv8Bmg0dSaD2o7rtw=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
+ adultscore=0 spamscore=0 clxscore=1015 malwarescore=0 bulkscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611250031
 
-Hi Dan,
+From: Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
 
-On Wed, Nov 25, 2026 at 09:56:20AM +0300, Dan Carpenter wrote:
-> The kvm_inject_serror_esr() function injects SErrors as the name
-> implies.  The bug is that it doesn't handle already pending errors
-> correctly in nested virtualization.
-> 
-> In vanilla KVM the kvm_inject_serror_esr() function always sets
-> the SError to pending.  However with nested KVM, it might set it
-> to pending or it might deliver the SError directly.  We can only
-> have one pending error at a time.  Imagine we enter the function
-> with an SError pending already.  In the current code if we decide
-> to pend the new error that's fine, everything works.  However if
-> we decide to deliver it directly then the pend flags should be
-> cleared but they are not.  So we deliver the SError directly and
-> then the SError that was pending on the next exit or entry.
+Add struct csid_port_config {vc, dt} and change csid_hw_ops's
+configure_stream() to take a port_mask and a port_cfg array, replacing
+the old single enable-only entry point. Bit(i) of port_mask selects
+port i (pad - MSM_CSID_PAD_FIRST_SRC). The VC/DT to program for each
+such port comes from csid->port_cfg[port], which the csid subdev
+is guaranteed to populate for every port set in
+port_mask.
 
-I could use a bit more color on how we got here. From what I can tell
-this state is only possible if userspace changed the routing / masking
-of the SError outside the context of a KVM_RUN. Otherwise, if the SError
-is deliverable on guest exit we perform the injection prior to exiting
-to userspace.
+configure_stream() remains the single entry point for configuring
+CSID input streams, used by both the legacy (non-streams-API) path
+and the future streams API, selected by streams_enable. The legacy
+caller in csid subdevice populates csid->port_cfg[] from the
+negotiated format (VC 0) before calling configure_stream(),
+matching prior behaviour exactly.
 
-Thanks,
-Oliver
+configure_stream() is a single function pointer in struct
+csid_hw_ops, shared by all six CSID backends (gen2, gen3, 340, 4-1,
+4-7, 680), so its signature is updated for all of them in this same
+commit. camss-csid-340.c and camss-csid-680.c replace their internal
+csid->phy.en_vc loop condition with port_mask; camss-csid-4-1.c and
+camss-csid-4-7.c are legacy-only, single-port backends and get a
+purely mechanical signature update, with port_mask and port_cfg
+unused.
 
-> Clear the pend flags unconditionally at the start of the function.
-> 
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/all/sashiko-outbox-229065@kernel.org/
-> Fixes: ce66109cec86 ("KVM: arm64: nv: Take "masked" aborts to EL2 when HCRX_EL2.TMEA is set")
-> Fixes: 77ee70a07357 ("KVM: arm64: nv: Honor SError exception routing / masking")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Dan Carpenter <dan@pereq.eu>
-> ---
-> v2: New patch
-> ---
->  arch/arm64/kvm/inject_fault.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-> index aa2011cc0d5a..0f6a89b65074 100644
-> --- a/arch/arm64/kvm/inject_fault.c
-> +++ b/arch/arm64/kvm/inject_fault.c
-> @@ -361,6 +361,10 @@ int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr)
->  {
->  	lockdep_assert_held(&vcpu->mutex);
->  
-> +	/* A new SError replaces any that is already pending. */
-> +	vcpu_clear_flag(vcpu, NESTED_SERROR_PENDING);
-> +	*vcpu_hcr(vcpu) &= ~HCR_EL2_VSE;
-> +
->  	if (is_nested_ctxt(vcpu) && kvm_serror_target_is_el2(vcpu))
->  		return kvm_inject_nested_serror(vcpu, esr);
->  
-> 
-> -- 
-> 2.53.0
-> 
-> 
+Signed-off-by: Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
+---
+ .../platform/qcom/camss/camss-csid-340.c      |  5 +-
+ .../platform/qcom/camss/camss-csid-4-1.c      |  3 +-
+ .../platform/qcom/camss/camss-csid-4-7.c      |  3 +-
+ .../platform/qcom/camss/camss-csid-680.c      |  7 +--
+ .../platform/qcom/camss/camss-csid-gen2.c     | 54 +++++++++++++------
+ .../platform/qcom/camss/camss-csid-gen3.c     | 34 ++++++------
+ .../media/platform/qcom/camss/camss-csid.c    | 18 ++++++-
+ .../media/platform/qcom/camss/camss-csid.h    | 21 +++++++-
+ 8 files changed, 103 insertions(+), 42 deletions(-)
+
+diff --git a/drivers/media/platform/qcom/camss/camss-csid-340.c b/drivers/media/platform/qcom/camss/camss-csid-340.c
+index 42ff629ce410..46fbc46102e4 100644
+--- a/drivers/media/platform/qcom/camss/camss-csid-340.c
++++ b/drivers/media/platform/qcom/camss/camss-csid-340.c
+@@ -146,14 +146,15 @@ static void __csid_configure_stream(struct csid_device *csid, u8 enable, u8 port
+ 	writel_relaxed(enable, csid->base + CSID_CTRL(iface));
+ }
+ 
+-static void csid_configure_streams(struct csid_device *csid, u8 enable)
++static void csid_configure_streams(struct csid_device *csid, u32 port_mask,
++				   const struct csid_port_config *port_cfg, u8 enable)
+ {
+ 	int i;
+ 
+ 	__csid_configure_rx(csid, &csid->phy);
+ 
+ 	for (i = 0; i < MSM_CSID_MAX_SRC_STREAMS; i++) {
+-		if (csid->phy.en_vc & BIT(i))
++		if (port_mask & BIT(i))
+ 			__csid_configure_stream(csid, !!enable, i, 0);
+ 	}
+ }
+diff --git a/drivers/media/platform/qcom/camss/camss-csid-4-1.c b/drivers/media/platform/qcom/camss/camss-csid-4-1.c
+index 6998e1c52895..c3e00de326aa 100644
+--- a/drivers/media/platform/qcom/camss/camss-csid-4-1.c
++++ b/drivers/media/platform/qcom/camss/camss-csid-4-1.c
+@@ -44,7 +44,8 @@
+ #define CAMSS_CSID_TG_DT_n_CGG_1(n)	(0x0b0 + 0xc * (n))
+ #define CAMSS_CSID_TG_DT_n_CGG_2(n)	(0x0b4 + 0xc * (n))
+ 
+-static void csid_configure_stream(struct csid_device *csid, u8 enable)
++static void csid_configure_stream(struct csid_device *csid, u32 port_mask,
++				  const struct csid_port_config *port_cfg, u8 enable)
+ {
+ 	struct csid_testgen_config *tg = &csid->testgen;
+ 	u32 val;
+diff --git a/drivers/media/platform/qcom/camss/camss-csid-4-7.c b/drivers/media/platform/qcom/camss/camss-csid-4-7.c
+index 66054d4872e6..2e8aea3ee545 100644
+--- a/drivers/media/platform/qcom/camss/camss-csid-4-7.c
++++ b/drivers/media/platform/qcom/camss/camss-csid-4-7.c
+@@ -43,7 +43,8 @@
+ #define CAMSS_CSID_TG_DT_n_CGG_1(n)	(0x0b8 + 0xc * (n))
+ #define CAMSS_CSID_TG_DT_n_CGG_2(n)	(0x0bc + 0xc * (n))
+ 
+-static void csid_configure_stream(struct csid_device *csid, u8 enable)
++static void csid_configure_stream(struct csid_device *csid, u32 port_mask,
++				  const struct csid_port_config *port_cfg, u8 enable)
+ {
+ 	struct csid_testgen_config *tg = &csid->testgen;
+ 	u32 sink_code = csid->fmt[MSM_CSID_PAD_SINK].code;
+diff --git a/drivers/media/platform/qcom/camss/camss-csid-680.c b/drivers/media/platform/qcom/camss/camss-csid-680.c
+index 452640e72f6d..a864dcf7a1e8 100644
+--- a/drivers/media/platform/qcom/camss/camss-csid-680.c
++++ b/drivers/media/platform/qcom/camss/camss-csid-680.c
+@@ -310,15 +310,16 @@ static void __csid_configure_rdi_irq(struct csid_device *csid, u8 enable, u8 rdi
+ 	writel(val, csid->base + CSID_CSI2_RDIN_IRQ_MASK(rdi));
+ }
+ 
+-static void csid_configure_stream(struct csid_device *csid, u8 enable)
++static void csid_configure_stream(struct csid_device *csid, u32 port_mask,
++				  const struct csid_port_config *port_cfg, u8 enable)
+ {
+ 	int i;
+ 
+ 	__csid_configure_top(csid);
+ 
+-	/* Loop through all enabled ports and configure a stream for each */
++	/* Loop through all ports set in port_mask and configure a stream for each */
+ 	for (i = 0; i < MSM_CSID_MAX_SRC_STREAMS; i++) {
+-		if (csid->phy.en_vc & BIT(i)) {
++		if (port_mask & BIT(i)) {
+ 			__csid_configure_rdi_stream(csid, enable, i, 0);
+ 			__csid_configure_rx(csid, &csid->phy, 0);
+ 			__csid_configure_rdi_irq(csid, enable, i);
+diff --git a/drivers/media/platform/qcom/camss/camss-csid-gen2.c b/drivers/media/platform/qcom/camss/camss-csid-gen2.c
+index a351ac4b9172..1ed7ca63907b 100644
+--- a/drivers/media/platform/qcom/camss/camss-csid-gen2.c
++++ b/drivers/media/platform/qcom/camss/camss-csid-gen2.c
+@@ -255,13 +255,8 @@ static void __csid_configure_testgen(struct csid_device *csid, u8 enable, u8 por
+ 	writel_relaxed(val, csid->base + CSID_TPG_CTRL);
+ }
+ 
+-static void __csid_configure_rdi_stream(struct csid_device *csid, u8 enable, u8 port, u8 vc)
++static void __csid_configure_rdi_stream(struct csid_device *csid, u8 enable, u8 port, u8 vc, u8 dt)
+ {
+-	/* Source pads matching RDI channels on hardware. Pad 1 -> RDI0, Pad 2 -> RDI1, etc. */
+-	struct v4l2_mbus_framefmt *input_format = &csid->fmt[MSM_CSID_PAD_FIRST_SRC + port];
+-	const struct csid_format_info *format = csid_get_fmt_entry(csid->res->formats->formats,
+-								   csid->res->formats->nformats,
+-								   input_format->code);
+ 	u32 val;
+ 
+ 	/*
+@@ -283,7 +278,7 @@ static void __csid_configure_rdi_stream(struct csid_device *csid, u8 enable, u8
+ 	val |= 1 << RDI_CFG0_TIMESTAMP_EN;
+ 	/* note: for non-RDI path, this should be format->decode_format */
+ 	val |= DECODE_FORMAT_PAYLOAD_ONLY << RDI_CFG0_DECODE_FORMAT;
+-	val |= format->data_type << RDI_CFG0_DATA_TYPE;
++	val |= dt << RDI_CFG0_DATA_TYPE;
+ 	val |= vc << RDI_CFG0_VIRTUAL_CHANNEL;
+ 	val |= dt_id << RDI_CFG0_DT_ID;
+ 	writel_relaxed(val, csid->base + CSID_RDI_CFG0(port));
+@@ -334,22 +329,47 @@ static void __csid_configure_rdi_irq(struct csid_device *csid, u8 enable, u8 rdi
+ 	writel_relaxed(val, csid->base + CSID_CSI2_RDIN_IRQ_MASK(rdi));
+ }
+ 
+-static void csid_configure_stream(struct csid_device *csid, u8 enable)
++static void csid_configure_stream(struct csid_device *csid, u32 port_mask,
++				  const struct csid_port_config *port_cfg, u8 enable)
+ {
+ 	struct csid_testgen_config *tg = &csid->testgen;
++	unsigned long mask = port_mask;
++	bool config_testgen = false;
+ 	u8 i;
+ 
+-	/* Loop through all enabled ports and configure a stream for each */
+-	for (i = 0; i < MSM_CSID_MAX_SRC_STREAMS; i++)
+-		if (csid->phy.en_vc & BIT(i)) {
+-			if (tg->enabled)
+-				__csid_configure_testgen(csid, enable, i, 0);
+-
+-			__csid_configure_rdi_stream(csid, enable, i, 0);
++	/*
++	 * Testgen has only one configuration for all ports.
++	 * The csid guarantees that the enabled_ports is set/cleared
++	 * after configure stream. !csid->enabled_ports is
++	 * on first enable, (port_mask == csid->enabled_ports) is
++	 * on last disable.
++	 */
++	if (!csid->enabled_ports || port_mask == csid->enabled_ports)
++		config_testgen = true;
++
++	for_each_set_bit(i, &mask, MSM_CSID_MAX_SRC_STREAMS) {
++		if (enable) {
++			if (tg->enabled && config_testgen) {
++				__csid_configure_testgen(csid, 1, i, port_cfg[i].vc);
++				config_testgen = false;
++			}
++			__csid_configure_rdi_stream(csid, 1, i, port_cfg[i].vc,
++						    port_cfg[i].dt);
+ 			__csid_configure_rx(csid, &csid->phy, 0);
+-			__csid_configure_rdi_irq(csid, enable, i);
+-			__csid_ctrl_rdi(csid, enable, i);
++			__csid_configure_rdi_irq(csid, 1, i);
++			__csid_ctrl_rdi(csid, 1, i);
++		} else {
++			__csid_ctrl_rdi(csid, 0, i);
++			__csid_configure_rdi_irq(csid, 0, i);
++
++			if (tg->enabled && config_testgen) {
++				__csid_configure_testgen(csid, 0, i, 0);
++				config_testgen = false;
++			}
++
++			__csid_configure_rdi_stream(csid, 0, i, 0, 0);
+ 		}
++	}
+ }
+ 
+ static int csid_configure_testgen_pattern(struct csid_device *csid, s32 val)
+diff --git a/drivers/media/platform/qcom/camss/camss-csid-gen3.c b/drivers/media/platform/qcom/camss/camss-csid-gen3.c
+index 231b53d3e44e..f270c17d041e 100644
+--- a/drivers/media/platform/qcom/camss/camss-csid-gen3.c
++++ b/drivers/media/platform/qcom/camss/camss-csid-gen3.c
+@@ -161,15 +161,11 @@ static void __csid_configure_wrapper(struct csid_device *csid)
+ 	writel(val, csid->camss->csid_wrapper_base + CSID_IO_PATH_CFG0(csid->id));
+ }
+ 
+-static void __csid_configure_rdi_stream(struct csid_device *csid, u8 enable, u8 port, u8 vc)
++static void __csid_configure_rdi_stream(struct csid_device *csid, u8 enable,
++					u8 port, u8 vc, u8 dt)
+ {
+ 	u32 val;
+ 	u8 lane_cnt = csid->phy.lane_cnt;
+-	/* Source pads matching RDI channels on hardware. Pad 1 -> RDI0, Pad 2 -> RDI1, etc. */
+-	struct v4l2_mbus_framefmt *input_format = &csid->fmt[MSM_CSID_PAD_FIRST_SRC + port];
+-	const struct csid_format_info *format = csid_get_fmt_entry(csid->res->formats->formats,
+-								   csid->res->formats->nformats,
+-								   input_format->code);
+ 
+ 	if (!lane_cnt)
+ 		lane_cnt = 4;
+@@ -193,7 +189,7 @@ static void __csid_configure_rdi_stream(struct csid_device *csid, u8 enable, u8
+ 	/* note: for non-RDI path, this should be format->decode_format */
+ 	val |= DECODE_FORMAT_PAYLOAD_ONLY << RDI_CFG0_DECODE_FORMAT;
+ 	val |= vc << RDI_CFG0_VC;
+-	val |= format->data_type << RDI_CFG0_DT;
++	val |= dt << RDI_CFG0_DT;
+ 	val |= dt_id << RDI_CFG0_DT_ID;
+ 
+ 	writel(val, csid->base + CSID_RDI_CFG0(port));
+@@ -242,20 +238,28 @@ static void __csid_configure_rdi_irq(struct csid_device *csid, u8 enable, u8 rdi
+ 	writel(val, csid->base + CSID_TOP_IRQ_MASK);
+ }
+ 
+-static void csid_configure_stream(struct csid_device *csid, u8 enable)
++static void csid_configure_stream(struct csid_device *csid, u32 port_mask,
++				  const struct csid_port_config *port_cfg, u8 enable)
+ {
++	unsigned long mask = port_mask;
+ 	u8 i;
+ 
+ 	__csid_configure_wrapper(csid);
+ 
+-	/* Loop through all enabled ports and configure a stream for each */
+-	for (i = 0; i < MSM_CSID_MAX_SRC_STREAMS; i++)
+-		if (csid->phy.en_vc & BIT(i)) {
+-			__csid_configure_rdi_stream(csid, enable, i, 0);
+-			__csid_configure_rx(csid, &csid->phy, 0);
+-			__csid_configure_rdi_irq(csid, enable, i);
+-			__csid_ctrl_rdi(csid, enable, i);
++	/* Loop through all ports set in port_mask and configure a stream for each */
++	for_each_set_bit(i, &mask, MSM_CSID_MAX_SRC_STREAMS) {
++		u8 vc = 0, dt = 0;
++
++		if (enable) {
++			vc = port_cfg[i].vc;
++			dt = port_cfg[i].dt;
+ 		}
++
++		__csid_configure_rdi_stream(csid, enable, i, vc, dt);
++		__csid_configure_rx(csid, &csid->phy, 0);
++		__csid_configure_rdi_irq(csid, enable, i);
++		__csid_ctrl_rdi(csid, enable, i);
++	}
+ }
+ 
+ static int csid_configure_testgen_pattern(struct csid_device *csid, s32 val)
+diff --git a/drivers/media/platform/qcom/camss/camss-csid.c b/drivers/media/platform/qcom/camss/camss-csid.c
+index 0f819c34e760..2efaeef83606 100644
+--- a/drivers/media/platform/qcom/camss/camss-csid.c
++++ b/drivers/media/platform/qcom/camss/camss-csid.c
+@@ -783,7 +783,23 @@ static int csid_set_stream(struct v4l2_subdev *sd, int enable)
+ 		for (i = 0; i < MSM_CSID_MAX_SRC_STREAMS; i++)
+ 			atomic_set(&csid->sof_seq[i], -1);
+ 
+-		csid->res->hw_ops->configure_stream(csid, enable);
++		for (i = 0; i < MSM_CSID_MAX_SRC_STREAMS; i++) {
++			if (csid->phy.en_vc & BIT(i)) {
++				struct v4l2_mbus_framefmt *input_format =
++					&csid->fmt[MSM_CSID_PAD_FIRST_SRC + i];
++				const struct csid_format_info *format =
++					csid_get_fmt_entry(csid->res->formats->formats,
++							   csid->res->formats->nformats,
++							   input_format->code);
++
++				csid->port_cfg[i].vc = 0;
++				csid->port_cfg[i].dt = format->data_type;
++			}
++		}
++
++		csid->res->hw_ops->configure_stream(csid, csid->phy.en_vc, csid->port_cfg, enable);
++		csid->enabled_ports = enable ? csid->phy.en_vc : 0;
++
+ 		csid->phy.need_vc_update = false;
+ 	}
+ 
+diff --git a/drivers/media/platform/qcom/camss/camss-csid.h b/drivers/media/platform/qcom/camss/camss-csid.h
+index 8edb258b0ae5..5f09beffa5f5 100644
+--- a/drivers/media/platform/qcom/camss/camss-csid.h
++++ b/drivers/media/platform/qcom/camss/camss-csid.h
+@@ -72,14 +72,29 @@ struct csid_phy_config {
+ 	u8 need_vc_update;
+ };
+ 
++/*
++ * struct csid_port_config - Per-port CSI-2 virtual channel/data type
++ * @vc: Virtual channel
++ * @dt: Data type
++ */
++struct csid_port_config {
++	u8 vc;
++	u8 dt;
++};
++
+ struct csid_device;
+ 
+ struct csid_hw_ops {
+ 	/*
+-	 * configure_stream - Configures and starts CSID input stream
++	 * configure_stream - Configure and start/stop CSID input streams
+ 	 * @csid: CSID device
++	 * @port_mask: bitmask of ports (bit i = port i) to configure
++	 * @port_cfg: per-port VC/DT, valid at every port position set in
++	 *	@port_mask. If @enable is 0, @port_cfg can be NULL.
++	 * @enable: 1 to enable the ports in @port_mask, 0 to disable them
+ 	 */
+-	void (*configure_stream)(struct csid_device *csid, u8 enable);
++	void (*configure_stream)(struct csid_device *csid, u32 port_mask,
++				 const struct csid_port_config *port_cfg, u8 enable);
+ 
+ 	/*
+ 	 * configure_testgen_pattern - Validates and configures output pattern mode
+@@ -170,6 +185,8 @@ struct csid_device {
+ 	const struct csid_subdev_resources *res;
+ 	atomic_t frame_sync_users;
+ 	atomic_t sof_seq[MSM_CSID_MAX_SRC_STREAMS];
++	struct csid_port_config port_cfg[MSM_CSID_MAX_SRC_STREAMS];
++	u32 enabled_ports;
+ };
+ 
+ struct camss_subdev_resources;
+-- 
+2.34.1
+
