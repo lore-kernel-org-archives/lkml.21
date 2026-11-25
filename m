@@ -1,107 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.12
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795612779;
-	b=3Et3hcHV4na+D0/AFb0VQYgxf/TJTWH5KeGoaF2VOVBA1O86HH9HbS3t6xpZRiBdEFk1
-	 dvRrdfADLDf5uuFP/jV4JFww0OfoBzHihIBjvjNvji9m6XyWEdhLjnggFYR+FXoaciCZ1
-	 K02v6ld1R6VCgd1DZ0EA9/42cXxyViM2mAqAiHFzPWIxpUVnztmjgxfmpTFW0FskpsO63
-	 MWz2PqcrfIn+vVLu4hMguLp/Ox5J2MriitbI2pDie/1LQTDKEWamzcYJdWUM0twLssDtz
-	 4SX4/CkCGY1t48df446J+e+Neh6n5vhn0D+//cqOsKtgSZZzJ/nDiPLabHs3SajekDA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795612779;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=VH5N10M3pbGME5hcwz+unBCDD2i1BtNna/1CUHLysFE=;
-	b=HrEkcly1au6g2alp6rADhtOgoMMqYI9FlmtHTxfQDoIJu4SRUD9wtTvlI4/UMwnE+4a/
-	 8E7fue7//ShIFeLvlTEFZ2PdWgwfXPDpYTpul8Cd6JbfDjywgJ2PPPxvyKk01YkYbS5x/
-	 f7ofDFIr/Zo5n4x6DzklTj4iNOFX8TAgfklrkp0+GHx99tNxkAJfdpjK9MJV8L/BITuRt
-	 XtRZUfDfqIiLeMmaC1TgtGPPPactW+9a9IEaMJRsgFEeQxbO6VpejwV4PsVKuDhUHFnmw
-	 pFf2UZv53LR1+IOc3PkdrrdYUTguZrGACp4Kp9GOVBrM1KFUEZ84ALLnx9oK7m19Xrw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=r5Nxx71S;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.12
-Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012012.outbound.protection.outlook.com [52.101.48.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795612793;
+	b=xu5l5g4/7QLRcC1SGhujhayGlr9LnqKjZbaZWh2gkmV8mvFpzuG826cXFpF0NjEPK49Q
+	 27AqKKeGTm0nK8t70SQ6+GCBXNDW5MMstEj1zOYF2fM/jBCLZ9mApnMehtxvQTDDMNGgY
+	 /gLgJuMWpd8kK+SfQPmgkNHdczHzEbt418hVuTI/zsaSsIEErOa9gJVKj+xuXj30hP3vR
+	 uI+fFuP8GRJEp82qAYJwzEFuCbo0up1qsJ+EPvK/X4py51r3xo8wDQk22bFhqwozQBwnR
+	 AXAF9ycEUTIH2U+CcC+Z2xMsK7G1aHfSGST/ps/GDW1DsPu2hfL0Zg/CUKYUFu/GWAA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795612793;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=Fl956CFnusiWXQc3uAwBS9T3Hg6fgxOgNH0XW3/nmQA=;
+	b=WpieXPrB51Hco5FMiHbt/cETxp9zyYuyCQJ0bzUo8GuPrwKRC/MV+1n59FmGAXyo6owG
+	 qrVCvF7eQElRro+iE0kHOH3qMCr+fC0FyyrFjvcLDhbwABoB8f9x9dfeiZVaaLjm+nF02
+	 03q06WkAVpBVKRtL86CO21mUhUz4of+hPtMCFGgPWFv+1hPOwJSTRheryU4dVevrDDxAg
+	 lzJShL2r2YBvY9Feb6wvMhkj5ye7lXmYlifrMOO8Wnl0MQ1XEwZnCxIdx2MnKsgalGJ8m
+	 IyVM3NDloTeH5nyQGkCrRnRshnF05UQUfFTB09V8UwrrdUDnPy34Q03ze/y2+4j/YEA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ILuQghNM;
+	arc=none smtp.remote-ip=209.85.167.53
+Received: from mail-lf1-f53.google.com (mail-lf1-f53.google.com [209.85.167.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5E88606A326;
-	Wed, 25 Nov 2026 13:19:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5E88606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FC21606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:19:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FC21606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=r5Nxx71S
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P0rWHHrnQTBbE1OZrzJkKsZfoKHFgTojtiaSmbYiDcgBzEtAFic5GU/1dOp8aoxn5Ntx5tyM/Olp9D68tb1/5X0su4loUjip2int4qVGh3NaKz90JnBOUygzOQzXx96sqXv0ihcXsUY1nif5SKYofvCg5fPlx/55qktdPjYJ+qr7I4y3BscVTeJtjxsbySjqHN7bu+Lv7b7hiRPZ/0mOd7F57zJkhU5sXWmG4FGURmpEAdEhz56i+pPG4zdUgRxtTH2qJm7EM6evbAiyAOHkqCV36D4jIL1Ryu80xkpvjAyM6NpmCluM4F3pw12b84fg5W4QqM+XM2we+aVsHcEBDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VH5N10M3pbGME5hcwz+unBCDD2i1BtNna/1CUHLysFE=;
- b=rhONucqjAtxdf6P5WnxnBQ0qmnvcaFF5J98rJaXZaz5Am3l+73kbqAgZKyEVbX+CYUV2Qvzc7JAguHKoKUO150FrPU3TlpNL1caOm+eFwQqG6hHkye3A5IvBuqcpkkFmleVsVjlZShNQ63it2KpGPrv5xcqKQtp0KcftJ5lnYREPyhCIzDzgazciipknAPcQlSRu/78u7tD3h/JL4XT0W++boBD+ljRHn72fRhenokxn34EmiHZMm6q6np4/Y2Cj7a5QwxQ6fANj21qGnTTNQ6WVXqHnb81XwkLJ1iu1g/llo+bd/AjTLRkNv5Qi1WjZvWxh1jjvA+xJtUuT3xJpsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VH5N10M3pbGME5hcwz+unBCDD2i1BtNna/1CUHLysFE=;
- b=r5Nxx71SvCtkBbkSsE6DliP7d/AHsGihywyOeAxKzW3euQV6X3ox8KTYyHZshTeZN1I5xH090nhZ0lyFiamJM5u6o/87b9+LV0OKgWiY2krYktRngg09I3Htexa5MTH/LG+F0kBbY/9NhN3p8UHreKuP330eNIVnFeSqqYa9lDldvrA8iaEbHW2IlypPTBt5MTbIiwHKaIWNZNqpyfbOLi4NcTu7uNo/LTfHsyBgyNt3r4PvupYV9NiZgFUU3Xr2wfByRsF/A2/3GYu/QKP1CtXLQgdaqxGxsi+tgxjb7b1Xv+JGmMbgdoul4MTcACRi8xeI7k95F5y3kclUKL3JcA==
-Received: from PH5P222CA0001.NAMP222.PROD.OUTLOOK.COM (2603:10b6:510:34b::12)
- by IA1PR12MB6257.namprd12.prod.outlook.com (2603:10b6:208:3e7::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Wed, 25 Nov
- 2026 13:19:30 +0000
-Received: from SJ5PEPF000001CD.namprd05.prod.outlook.com
- (2603:10b6:510:34b:cafe::41) by PH5P222CA0001.outlook.office365.com
- (2603:10b6:510:34b::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Wed, 25
- Nov 2026 13:19:28 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SJ5PEPF000001CD.mail.protection.outlook.com (10.167.242.42) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 13:19:28 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 25 Nov
- 2026 05:19:08 -0800
-Received: from 82875d6-lcedt.nvidia.com (10.126.231.37) by
- rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 05:19:07 -0800
-From: Nirmoy Das <nirmoyd@nvidia.com>
-To: Bjorn Helgaas <bhelgaas@google.com>
-CC: <linux-pci@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, JC Chen
-	<jc_chen@diodes.com>, Simon Cheng <simon_cheng@diodes.com>, Nirmoy Das
-	<nirmoyd@nvidia.com>
-Subject: [PATCH v3] PCI: Work around Pericom PI7C9X3G606GPC Port 4 BAR erratum
-Date: Wed, 25 Nov 2026 05:18:38 -0800
-Message-ID: <20261125131838.1272907-1-nirmoyd@nvidia.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ILuQghNM
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5c0ea47f5b8so591078e87.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:19:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795612792; x=1796217592; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Fl956CFnusiWXQc3uAwBS9T3Hg6fgxOgNH0XW3/nmQA=;
+        b=ILuQghNMwvkL0bm9aeT569/Ym7SzQa4pqK08RYBZT4EzBUF2+k8lhxS/smdjZKhSRF
+         JBy6h/wKV8UV4DUaR/eJqD4yozp3+S/GMh2WTs0aM1OXCyQ8KGS1MDCorERJ3bq133Hb
+         jM01FDGQGFBWbrkxjCqI1geFLIiVRGznW5blhrWgcqluY9mjPoJ3gl5PrKe2pCdlSRXL
+         K/+VqRmkWzjBKf6WJvM0ateaBp//iCaZVvpp3S8iK5xqH+Y9mmMYpXlgk1pm2D/cKUnC
+         0TSfBL6fE6kGdixXJk8f710+rW4pyXpxPko7Fyi3naHt1zaynDac1j6LsrnJFYZD53hu
+         Fk/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795612792; x=1796217592;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Fl956CFnusiWXQc3uAwBS9T3Hg6fgxOgNH0XW3/nmQA=;
+        b=dJKug5Qd65LDUiR1/3OqcVM8HHSytMk9qtTHBTh0RC9hwsZP3fNN/6r/B8nzGOzASw
+         MEYyaJcepsI/a8dnR+DZBoiS2unhpNjqZQtF/3a7M3sgPFfFPXlVpR6T58K8NPKYVLK0
+         cnNBzYDqj/OhnmVqpCvK7BIVAlnV+Weqqzuflco8js9XXZtPJ8xGAqGcrHpbx8EoFCsc
+         Z+e0+P6v4JpPLx4uPKj31E8O1bQZ7RPhJCOmkU13NZBUJW61Y++lkLbt+EaXVEulz23S
+         Yn0xU/UBKDzDwxkKgn2uspAvktDP8e2MOo7VWOq5qjRvpa0CrLEi3BuDVdP9xJ55G7lH
+         cxxA==
+X-Forwarded-Encrypted: i=1; AL+hErGaON6yv+3pe9O/kccWvonMXTTPyJ+cspY9HppfwM/I42dds83MYsmp4KDvs4bALWSRAR5h0C+TPtoroEo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+qORKku53J3y/Yc0I5RaOczvAKnV28k1iLlqDqpB/e6i1mBwEs
+	njCpp9OPcjBC5KLz9r37kxwlO3i19gMSekifwn2BmpfkTq29Omw/q28ermgNKlA/m34=
+X-Gm-Gg: AZFdTZdcoWD+OMZUTRePyWFivg0stVMy1MpoXq+mUwxP/reBHi+jg2cb9YoaL1ubjj0
+	UUpFBnVTspRXKrey5UocSWmX8oT9IOwbEn2h8gO+47b/YXNP6BhE6+L9/86iiMfUFpgUhS/ZR1C
+	apWVOMGYJ6nK0vbhJjD4QuzF7+P8yDFrxrZrW+cY3x8IsqERQiWfWeuHcAR16IhhgebZAClLaG7
+	eRn1JBDRSglbJXX9pwcc0MjTUEeruH2CVnXMIwDc9++iJlqNPWGQfmemgQS/9lPgQuz8Aw4tNar
+	2MGBM4x1f0sP5ULTEzlL3Y9ZfBYN54O35Z/o3wjtXe1c5EG/IzJdH3uiMkMFrZhN0dqrQGT9yXm
+	DeIAgY0rdBotdPB+axGCDakC3heyG7lIgTl1Olgqm3xHaU+XlLPYstDoQt2o8OxCjFTQWpya+Mj
+	LX7mCrLvP5a2lGUoXxGv6JIajLOTO0wwtjitVHJuLr5FBgk9tYfiLC0Q5yJP4y+Hi+4o1qrE14a
+	vqKLEJ5e53qRbaUP14USZ31FT9LU5WBD5D1WqDkbFJA/qFV3Xx/7el+yWC5oycXqQ55bMSrtDr0
+	umMFpkk0E7REk9NWZEAUglgFz+1w6taNyKVfWWrXPLmQ03VcyYk+J7I1lPmYfyA6Suti8ZupUT9
+	qrzZ0K5WPUjDlhJYDS2sx2D54uZAV
+X-Received: by 2002:a05:6512:31c3:b0:5bf:e6a1:3115 with SMTP id 2adb3069b0e04-5c1bc76a33fmr7069607e87.2.1795612791602;
+        Wed, 25 Nov 2026 05:19:51 -0800 (PST)
+Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd0177f7sm4448777e87.33.2026.11.25.05.19.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 05:19:51 -0800 (PST)
+Message-ID: <c4c72389-2a8e-4278-8667-cdd4d8f72225@linaro.org>
+Date: Wed, 25 Nov 2026 15:19:50 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,192 +91,148 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001CD:EE_|IA1PR12MB6257:EE_
-X-MS-Office365-Filtering-Correlation-Id: aa5d7474-b92f-4399-2e74-08df4af6bbe5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|36860700016|376014|82310400026|1800799024|10067099003|11063799006|261026140227099003|56012099006|261022105027099003|261021121427099003|261022075727099003|261026121527099003|261102123227099003|261028144727099003|261009223027099003|6133799003|18002099003|13003099007;
-X-Microsoft-Antispam-Message-Info:
-	Y/oQvh1iq+5XXBPJnuGnkrggqmTxZFsFAMb2rldP/ihf8+EgFk9CpbkWXy0u3guixiEg08q9jznDQNdFiBxhNH7lzOBnZvGVQR/ryszejMqeO/Rjcx6c1upPcE48dpxpgajDimPDAFpjETOWdFBEddiYwUXINRTv1kTwLQhHwAv+PWGiSdYuHgmx3KnKjkVE7evZrqvtS9RW7/LBu3saCM2jTuuKr0vt6a/wJxhHvkjh6cQ76sUj9Ra3NmoDhs/XVXYyo6neOt32vtp0MflRoVm0OQaAR+32ON+G/X4HpNFL5Xw75HCWD4pra82W/1t4dce7RCoAJJw+/vepgJG+vyuoVp8XdirkjDFn/8h7FL5zRlolo/zqeCMDbLcx8vE40bLmXcOusnJS2/CwzPiulYqq6oe+v8w7q5WluzLje/lGmaOedW8tfBkz0KulT5gkJJt5+Itomquxc6+lWkOLTwRJL0hIlgUeVidOTCPlD6myosOcldP+PYi3trVMZn3a7DuQWTiDOBo+bSDLyNOeqmXM2FGQ8ywKHpjTgLwhvAPI8fl1eIBw/iD4lRz51I+9NFRow949hRVPocnH9D2JxotRoaOlcy6Tyey8vEja3QGF90GbC50wWEG2aVw2m+Z6lmX1Vct+ZqxptEMASszjY939cr4j3+mCaEyS9jikLhTdPUiA+IjG6QByK6QklTXcJaFhyd7pAwFn2jfJfN6MKA==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(82310400026)(1800799024)(10067099003)(11063799006)(261026140227099003)(56012099006)(261022105027099003)(261021121427099003)(261022075727099003)(261026121527099003)(261102123227099003)(261028144727099003)(261009223027099003)(6133799003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	97eeM+WzgLSpiJzZBgBgQ2CJ4Ocb/bgSZLdTHEZPLCZhKsM7580AP+KSWx4KWeTovgJywdaL+V/dQPS7wQuRa0WVVinBkcDZ5EjW9kyfLcpd8fHusdDPj75BFIbY1D7ifKtR2xazL/sMzQlcfZjToMMWJohhwGsdqUyAL8Npb3daMuFMLGyeqjBMwyPlWEw6OrGo3KMXhNaBE7Swzy9rxkaDjH2IbAnxkf3KvjXGHHyBY5YSSd/5OfwGDLPunsGUjbR+Ccwwt9Ezd/rEcqpNl4ep4giNJCNptlw0uoFYqGnkebmG2DFTbAcLwkvn8e8IFT0MccQqc4ec6SdVewUC10Zzk+Ckiscp/OIrWzq6h1DsUsD9VJIb4tXnRDRVLCLK1zdfyZrIhklt2Ns4Ot+oADTCsCy6154PYRYKvs8tJibY1aqm3N9+p3/2thECkM51
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 13:19:28.4422
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: aa5d7474-b92f-4399-2e74-08df4af6bbe5
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	SJ5PEPF000001CD.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6257
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 17/23] arm64: dts: qcom: sm8750-qrd: Enable S5KJN1
+ camera sensor
+To: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>,
+ Bryan O'Donoghue <bod@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Hangxiang Ma <hangxiang.ma@oss.qualcomm.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>, Robert Foss
+ <rfoss@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Frank Li <Frank.Li@nxp.com>
+Cc: linux-phy@lists.infradead.org, linux-media@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
+References: <20261114-add-support-for-camss-on-sm8750-v7-0-8ff2a11835f6@oss.qualcomm.com>
+ <20261114-add-support-for-camss-on-sm8750-v7-17-8ff2a11835f6@oss.qualcomm.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <20261114-add-support-for-camss-on-sm8750-v7-17-8ff2a11835f6@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-When the Cross-Domain End-Point (CDEP) function is disabled on the
-Pericom PI7C9X3G606GPC, Port 4 exposes neither a BAR resource nor an
-MSI-X capability. It still checks memory requests against
-BAR 0 + 0x7f000 and BAR 0 + 0x7f080, the MSI-X Table and PBA addresses.
-With the internal BAR value at zero, reads reaching Port 4 at these
-addresses receive Unsupported Request (UR) Completions.
+Hi Wenmeng.
 
-The affected system has this topology:
+On 11/14/26 13:29, Wenmeng Liu wrote:
+> Enable CAMSS, CCI1 and CSIPHY3 on the SM8750 QRD board. The S5KJN1
+> camera sensor is connected to CCI1 I2C bus 0, uses MCLK3 at 24 MHz and
+> connects to CSIPHY3 over a 4-lane D-PHY link.
+> 
+> Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+> ---
+>   arch/arm64/boot/dts/qcom/sm8750-qrd.dts | 72 +++++++++++++++++++++++++++++++++
+>   1 file changed, 72 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/sm8750-qrd.dts b/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
+> index 75927e1f7b9ab0316781c64dbcc82d3394c414f6..c92a1f3c47bd5cbae26854614682c3bc7daa0398 100644
+> --- a/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
+> +++ b/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
+> @@ -7,6 +7,7 @@
+>   
+>   #include <dt-bindings/gpio/gpio.h>
+>   #include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/media/video-interfaces.h>
+>   #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+>   #include "sm8750.dtsi"
+>   #include "pm8010.dtsi"
+> @@ -858,6 +859,70 @@ vreg_l7n_3p3: ldo7 {
+>   	};
+>   };
+>   
+> +&camss {
+> +	status = "okay";
+> +};
+> +
+> +&camss_csiphy3_in_port {
+> +	camss_csiphy3_inep: endpoint {
+> +		data-lanes = <1 2 3 4>;
+> +		remote-endpoint = <&csiphy3_out_ep>;
+> +	};
+> +};
+> +
+> +&cci1 {
+> +	status = "okay";
+> +};
+> +
+> +&cci1_i2c0 {
+> +	camera@56 {
+> +		compatible = "samsung,s5kjn1";
+> +		reg = <0x56>;
+> +
+> +		reset-gpios = <&tlmm 109 GPIO_ACTIVE_LOW>;
+> +		pinctrl-0 = <&cam_mclk3_default &cam3_reset_default>;
+> +		pinctrl-names = "default";
+> +
+> +		clocks = <&cambistmclkcc CAM_BIST_MCLK_CC_MCLK3_CLK>;
+> +		assigned-clocks = <&cambistmclkcc CAM_BIST_MCLK_CC_MCLK3_CLK>;
+> +		assigned-clock-rates = <24000000>;
+> +
+> +		vdda-supply = <&vreg_l4m_2p8>;
+> +		vddd-supply = <&vreg_l2m_1p056>;
+> +		vddio-supply = <&vreg_l5m_1p8>;
+> +
+> +		port {
+> +			s5kjn1_out_ep: endpoint {
+> +				data-lanes = <1 2 3 4>;
 
-  0002:a1:00.0  PI7C9X3G606GPC upstream port [12d8:c008]
-    +-0002:a2:04.0  PI7C9X3G606GPC Port 4 [12d8:c008]
-        +-0002:a3:00.0  Micron 7450 PRO NVMe SSD [1344:51c3]
+'data-lanes' property can be removed from here.
 
-Diodes' workaround is to copy the upstream port's BAR 0 into Port 4.
-This places the Table and PBA addresses within MMIO space already
-allocated to the switch. Port 4 accepts the write but still returns
-zero on config-space reads, so readback cannot verify the mirror.
+> +				link-frequencies = /bits/ 64 <700000000>;
+> +				remote-endpoint = <&csiphy3_in_ep>;
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&csiphy3 {
+> +	vdda-0p9-supply = <&vreg_l1f_0p88>;
+> +	vdda-1p2-supply = <&vreg_l3g_1p2>;
+> +
+> +	status = "okay";
+> +};
+> +
+> +&csiphy3_in_port {
+> +	csiphy3_in_ep: endpoint {
+> +		bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
+> +		clock-lanes = <0>;
+> +		data-lanes = <1 2 3 4>;
+> +		remote-endpoint = <&s5kjn1_out_ep>;
+> +	};
+> +};
+> +
+> +&csiphy3_out_port {
+> +	csiphy3_out_ep: endpoint {
+> +		remote-endpoint = <&camss_csiphy3_inep>;
+> +	};
+> +};
+> +
+>   &gpu {
+>   	status = "okay";
+>   };
+> @@ -1081,6 +1146,13 @@ &tlmm {
+>   	/* reserved for secure world */
+>   	gpio-reserved-ranges = <36 4>, <74 1>;
+>   
+> +	cam3_reset_default: cam3-reset-default-state {
+> +		pins = "gpio109";
+> +		function = "gpio";
+> +		drive-strength = <2>;
+> +		bias-disable;
+> +	};
+> +
+>   	sdc2_card_det_n: sd-card-det-n-state {
+>   		pins = "gpio55";
+>   		function = "gpio";
+> 
 
-Firmware can apply the workaround during boot, but Linux BAR sizing
-reads zero from Port 4 and writes that zero back after probing.
-Resource assignment can also move the upstream BAR 0, leaving the
-firmware mirror stale.
+Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
 
-Reapply the mirror after resource assignment and again after PCI
-configuration state is restored during early resume. If the upstream
-BAR is 64-bit, also copy BAR 1 and disable memory decoding while
-updating both halves, unless mmio_always_on is set.
-
-Acked-by: Simon Cheng <simon_cheng@diodes.com>
-Signed-off-by: Nirmoy Das <nirmoyd@nvidia.com>
----
-Changes in v3:
-- Drop RFC.
-- Rebase on pci/main (v7.4-rc1); no code change.
-- Add Acked-by from Simon Cheng (Diodes).
-
-Changes in v2:
-- Explain the CDEP-disabled address check and how BAR sizing can undo
-  the firmware workaround.
-- Clarify that Port 4 accepts BAR writes but still reads back as zero.
-- Include the affected PCI topology in the commit message.
-
-The unpatched boot log shows Linux moving the upstream BAR 0:
-
-  [    6.440107] pci 0002:a1:00.0: BAR 0 [mem 0x10300000-0x1037ffff]
-  [    6.445353] pci 0002:a1:00.0: BAR 0 [mem 0x10c00000-0x10c7ffff]: assigned
-
-v2: https://lore.kernel.org/r/20260917103814.1985144-1-nirmoyd@nvidia.com
-v1: https://lore.kernel.org/r/20260723161010.2638956-1-nirmoyd@nvidia.com
-
- drivers/pci/quirks.c | 89 ++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 89 insertions(+)
-
-diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-index 7f1f47ea2ee415..2d3f677d0d4d20 100644
---- a/drivers/pci/quirks.c
-+++ b/drivers/pci/quirks.c
-@@ -6443,6 +6443,95 @@ DECLARE_PCI_FIXUP_ENABLE(PCI_VENDOR_ID_PERICOM, 0x2608,
- DECLARE_PCI_FIXUP_RESUME(PCI_VENDOR_ID_PERICOM, 0x2608,
- 			 pci_fixup_pericom_acs_store_forward);
- 
-+#define PCI_DEVICE_ID_PERICOM_PI7C9X3G606GPC	0xc008
-+
-+/*
-+ * With CDEP disabled, Port 4 exposes no BAR or MSI-X capability, but its
-+ * internal MSI-X Table/PBA address check remains active. Mirror the
-+ * upstream BAR 0 to keep these addresses in MMIO space assigned to the
-+ * switch.
-+ *
-+ * Port 4 is device 4, function 0 below the upstream port. Its BAR 0
-+ * accepts writes but reads as zero, so BAR sizing clears the mirror.
-+ * Reapply it after resource assignment and during early resume, after
-+ * PCI state restoration.
-+ */
-+static void pci_fixup_pericom_pi7c9x3g606gpc_bar0_mirror(struct pci_dev *pdev)
-+{
-+	struct pci_dev *upstream;
-+	bool bar0_64, disable_mem;
-+	u16 cmd = 0;
-+	u32 bar = 0, bar1 = 0, upstream_bar = 0, upstream_bar1 = 0;
-+
-+	if (pci_pcie_type(pdev) != PCI_EXP_TYPE_DOWNSTREAM)
-+		return;
-+
-+	if (PCI_SLOT(pdev->devfn) != 4 || PCI_FUNC(pdev->devfn))
-+		return;
-+
-+	upstream = pci_upstream_bridge(pdev);
-+	if (!upstream || upstream->vendor != PCI_VENDOR_ID_PERICOM ||
-+	    upstream->device != PCI_DEVICE_ID_PERICOM_PI7C9X3G606GPC ||
-+	    pci_pcie_type(upstream) != PCI_EXP_TYPE_UPSTREAM)
-+		return;
-+
-+	pci_read_config_dword(upstream, PCI_BASE_ADDRESS_0, &upstream_bar);
-+	if (upstream_bar & PCI_BASE_ADDRESS_SPACE_IO)
-+		return;
-+
-+	bar0_64 = (upstream_bar & PCI_BASE_ADDRESS_MEM_TYPE_MASK) ==
-+		  PCI_BASE_ADDRESS_MEM_TYPE_64;
-+	if (bar0_64)
-+		pci_read_config_dword(upstream, PCI_BASE_ADDRESS_1,
-+				      &upstream_bar1);
-+
-+	if (!(upstream_bar & PCI_BASE_ADDRESS_MEM_MASK) &&
-+	    (!bar0_64 || !upstream_bar1)) {
-+		pci_warn(pdev, "skipping PI7C9X3G606GPC BAR 0 mirror workaround because upstream BAR 0 is unassigned\n");
-+		return;
-+	}
-+
-+	pci_read_config_dword(pdev, PCI_BASE_ADDRESS_0, &bar);
-+	if (bar0_64) {
-+		pci_read_config_dword(pdev, PCI_BASE_ADDRESS_1, &bar1);
-+		if (bar == upstream_bar && bar1 == upstream_bar1)
-+			return;
-+	} else {
-+		if (bar == upstream_bar)
-+			return;
-+	}
-+
-+	/*
-+	 * Disable memory decoding while updating a 64-bit BAR, unless
-+	 * mmio_always_on is set, as pci_std_update_resource() does.
-+	 */
-+	disable_mem = bar0_64 && !pdev->mmio_always_on;
-+	if (disable_mem) {
-+		pci_read_config_word(pdev, PCI_COMMAND, &cmd);
-+		pci_write_config_word(pdev, PCI_COMMAND,
-+				      cmd & ~PCI_COMMAND_MEMORY);
-+	}
-+
-+	pci_write_config_dword(pdev, PCI_BASE_ADDRESS_0, upstream_bar);
-+	if (bar0_64)
-+		pci_write_config_dword(pdev, PCI_BASE_ADDRESS_1, upstream_bar1);
-+	if (disable_mem)
-+		pci_write_config_word(pdev, PCI_COMMAND, cmd);
-+
-+	if (bar0_64)
-+		pci_info(pdev, "wrote upstream BAR 0/1 %#x/%#x to Port 4 BAR 0/1 for PI7C9X3G606GPC BAR 0 mirror workaround\n",
-+			 upstream_bar, upstream_bar1);
-+	else
-+		pci_info(pdev, "wrote upstream BAR 0 %#x to Port 4 BAR 0 for PI7C9X3G606GPC BAR 0 mirror workaround\n",
-+			 upstream_bar);
-+}
-+DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_PERICOM,
-+			PCI_DEVICE_ID_PERICOM_PI7C9X3G606GPC,
-+			pci_fixup_pericom_pi7c9x3g606gpc_bar0_mirror);
-+DECLARE_PCI_FIXUP_RESUME_EARLY(PCI_VENDOR_ID_PERICOM,
-+			       PCI_DEVICE_ID_PERICOM_PI7C9X3G606GPC,
-+			       pci_fixup_pericom_pi7c9x3g606gpc_bar0_mirror);
-+
- static void nvidia_ion_ahci_fixup(struct pci_dev *pdev)
- {
- 	pdev->dev_flags |= PCI_DEV_FLAGS_HAS_MSI_MASKING;
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 -- 
-2.43.0
-
+Best wishes,
+Vladimir
