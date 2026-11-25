@@ -1,99 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795593564;
-	b=0RreFEqajHFjIQ/2YRYLtnF5PPjtYrTl/SGIBTkHiO/So+N1EGK7pVL0cLXw5HfES8PP
-	 o6AwneTzCrgsEm9f4P2L/XChVbVaiFDrnXN1V99fDFSeRLxjxhfIELQnT+C5tZPZKEIOJ
-	 /IUtswyAez7jn59YPx6RHJegtv3EoP4VYS0T0Wwz7oJfkhZeRvErpwVmaiOaSQbSamip+
-	 pIrcqG2Q6U4oOKVVN+LhnXas45fXYu2vxewKyzB75W6s7oewJv5ltQYRwWLHDK9JoM1W/
-	 hUeP5nJP78UbRnK+bSdes3gxAk3PeQAZF2Qs3qBLBhk/1y88cofWBAGAaO0zz9Kg/Pw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593564;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=lPt1APWAuM+EKrwwPM+5moxwmnQPMXvp+cSe81HAQX0=;
-	b=kxHncdFa9X4CP0GDZaEb4u7QOVimbhWrURnpkYJesh5SC6+Mv7IzwlLj7+EbUZY8nKY9
-	 SJBQIDhy1pvkjQu4uD35/gTeew65rbf0sUdg5Xl70bX1krMwFZFz1OYOkSO7t2Mu31vw2
-	 cdlFt0rRtUkUjF4W8EaWFmOgcDilV9MSS8zNp1OvPDQXuNz9WWH52gDRgjFBblgUbERWL
-	 utWJOzxlTCQ0E+wiLEwackKApq7iSGXKYewnAmBc33I4S+b6yKQutEC2RjWKMBysjD2+V
-	 gHmJtEwFisJIq0aumHs4EtwgiYQE3zgBxkosu7txKhdEseiKSOsMtdS65CYopWLrO8w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=pc7WeAg3;
-	arc=fail smtp.remote-ip=209.85.208.52
-Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795593611;
+	b=bywTMerNNGamg45nGYa23XY/0haWJWlK/mu663hfCy3H2NtBXduhs2TNrEzwTa/3voi3
+	 4zj3O5higGUrsw+HN8cFpNDra/qkjea9EuXcH86oJJbBeYFZgr9PDLRNtiVI7W7khsoos
+	 HgX96PCAwTUCuBpww3TWeQf90qyMhrm5OYYD+InIEOCwqlXqxASEUUZl2roa0YbTK87SV
+	 0jc8k7JaxiGgfo1JipMm+lu7ZL1DPvs9Ni1n52fo0Ib1jYpsKi/0AZnEFPCBZUTLddDAy
+	 6AjRrhU4iKw5paF8O2OwiqL1zEJMbAWQRjINXk8YIMEl6fUAPyHmMs1aXO8uCC9qtmg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593611;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=yli3tMIg8YYgE4ChJEz71AeTG3CR/r7eofkCH8Sg/jc=;
+	b=hFcFFgSPttNu9Pp/BI73ylJvLvH+I31X/txwch83UjmyRtReyhiMKedERsgpCCTfiNQ8
+	 ihUGD6j037Cc7BxmX7XaJMlJKHM1zu8kkRD5Ndj6T3l/XZrb8NFev9oWpos0A/W33AJwb
+	 HS9eMDttDFp4QxqdZO6Fmgku65WBvA2xbIx+H8ekb+k1vaVmISZ7o9sb0qk/XmbY74NIV
+	 v/s8Ad40Ha7nz+hvkinhLhFMsghfUCcYhfMvQj44Mumd5iTZr+BLQNAhwt4AL/vWIZYLL
+	 D2l5pE1va5n2m2rvkdZjUw84eswjNkqBKCCGx6agi0tgQOXGSKmVY3I2uYdKGPGhcNA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=fail reason="signature verification failed" header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=RTMwH1lY;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 804AC606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:59:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 804AC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C961C606A333
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:00:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C961C606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=pc7WeAg3
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6b87408c797so7396105a12.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:59:24 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795593563; cv=none;
-        d=google.com; s=arc-20260327;
-        b=AGq3TMZLYyBKDkmLaKCcYpHebJd8zbl5hKawMxi7RGWJSXPFyMZ1xzq4hNl5KM+v2B
-         PMa+u/nyIyvQ001YOGOwyxTw1s+KUdZIOuVHfng1xAvAYRf+Es7W5qiN6fsm9Zr3fTn4
-         MPCayDTiNiD5STm+YEsXv667pNbaPDNdQO56dY27z8tF8IrAyvPFDq3EqzBfP9uqihTr
-         CZmorDR353hueBsANOrY7MwPlJW/DfbIK709MFwSmf6DW38FStFts0TItLuij2EFq27O
-         Wl3hDA/EyW3A+V+XyTOuCGCR/iZNoVsB9B/b7SmnAudfczc1RFVtCnNnNnZNT3ALmrHs
-         57tQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=lPt1APWAuM+EKrwwPM+5moxwmnQPMXvp+cSe81HAQX0=;
-        fh=gpBa+Jxjifrju2N0rZ54NhgOcJTKFZZlYnoUCs7TJGI=;
-        b=MtozIEOto+DCIMMvTT9IlXz9Glrt5yjIT2/oj2ZnHuweNtvwBSt3KlU65HSG7aSHO2
-         i+egQ+iCUx3gr511fgzK2rO2ykZ/E3AjqVi4PJq7tdHdKmjFm2U6Av9Rd2aEVKFd20mr
-         GCMALwAWVFhgUAfiOQjtZDIWEZTj9AVD/pnRtnL/nCOj3nFCWQbElVt2A9J1Eytx8ubo
-         cE4L+0UGoq5B1yTKMlP95CjAIoyaBW9rRTjESuK8O+0YfR6ix97pD6+Y1z46yqLrX8RE
-         DwMlCBKgbzc4AkgNgTrxb+pPLfHr7Txdk27ccp95VnEK9dQ/qXDXHIX3TSbigmuiuyTo
-         ZbMg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795593563; x=1796198363; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lPt1APWAuM+EKrwwPM+5moxwmnQPMXvp+cSe81HAQX0=;
-        b=pc7WeAg3PFpolsGeh7V8GC2dhbxFBLdAcrs7u6ZPkIeaUJf1R6Fw3I/CyF+FdKcBWk
-         2D138Ya8HiMVieQLfnW3JVJ692QehF7L8UAguWp8cjsVxzcggC/FYDrIN+CvVsyXc8iS
-         hQmcWHvqy4QoR9DFn50U7SbhAUWOLNmTtiaB1yyjAW0+X4mDK5SY1nFGpeFPIy7g//7T
-         RhxJDU5e8wPQBYjdyFVFY7yir1OEosiVnYUV0FHMaqbH4OQrEYF//B9PL2hEuaTLfYq+
-         W/vHLCDVfH0ZyMViirkpyNhNVwKkmsPVWYYLjVkOhgBjXwTW5c50jsezU2pivEuzd1hF
-         POrQ==
+	dkim=fail reason="signature verification failed" (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=RTMwH1lY
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68jWK3113968
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:00:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=yli3tMIg8YY
+	gE4ChJEz71AeTG3CR/r7eofkCH8Sg/jc=; b=RTMwH1lY9MsoGdN2QnMSuTv2bcw
+	L8q6DRmrYYJVtKTGsFVNE65QE1u8aji7Fc91nS/6uRWK4CrUtQEk+8XwQ5foatnW
+	GeNdUPY4fZS9Wxj8V5aEVLRTDdkF0WhWsCXSz8QZ67kpu4Xrd7aCqLwLCnXjqTmO
+	JdkMvy5LowrYMbP3zcDcKAUkZYd2EclJRwWei12UtN6fqBlHvS+VaoLLctq0C8tv
+	zING0c6N5UnJBfEOs5bEytpTtYhulJspfTKK46vXOCXOn7GA/sI26Xyqb/TXOv2O
+	j5/nVyyz6CrPbA/CCw9h13Njmuw6Sn2YVZR8M3CsQjCQoNrvS0zhJmd/Evg==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5gnsadhr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:00:09 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93f20addba1so851968585a.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:00:09 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795593563; x=1796198363;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=lPt1APWAuM+EKrwwPM+5moxwmnQPMXvp+cSe81HAQX0=;
-        b=ujFhXcUYSmMc/5HO7g+PdDp3/Xa13NQJbuCO4kiJNNDSuGtTZa3wDyD1wbes6aeGFa
-         PCI8zbk4VhnIKIXH2L6HQ/qho6i3vlB/X2gk6wt82zF0dEIzBRFBnYFUTo8aEs2PYpku
-         hzZ6yJFIri6nz8woCXmx9ondrIGmQTvViJoiCHpradP44OTi521RdvCDryz40Tf5PrW9
-         plRfNN5ROr5SyzTYAgKowax4rgIh82SNcG2F4CuFJIxFhuAdmwA+YiAGZt3QGLTEgkUx
-         mXhywzB0M0Z4SQoiSsRun65S2xsqpfQE1BiT0W1bKoKus8vwioMflbbjEwUamUTk6Msa
-         2F7w==
-X-Forwarded-Encrypted: i=1; AL+hErG1tQxDWPF2Et647LumBm/Ck3sHScZFIutXQhjsNcHw5xV9ib7sIQbPJwe0avmnnz4BcU7tFNRmB08qmaY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z95H1riLSr3BDGTCF1421vtWVau6h3NbztDCVTsM8gKmX3sogBX
-	OQWTMn8QAo2zy84zVTmrRRJnh4hazf6+f6CEUbfdFlRd2WCJogmi0ClmaFmeb6LDjjGcTb6G9Q4
-	cDFaOym5GHLuW5+9zLH73odmfyB9EXIkJetTr7mq+pA==
-X-Gm-Gg: AZFdTZcWIxlrZ+M0xxi74ji3cEoNnx6tA771ec9bI36/PK0wfZsLn2EBaIJBYOOzMoS
-	DAV+rfkNmRmlA4eLOCruqVwztkQMJIGVPTx3+VdcI5i+Mx8eloycYP1S4SENAcZOTbO0Q+/XIq9
-	5Fk5gucPaTQS4I6pMC8qGDaNujvs7oOTUvlbaTIKRBz8TSLJiuLpLy/OK+90eoU928j15vforEr
-	EqPvoAMtz4BoZvR88lqBZ/BwidAGqh1bCZizcGa8JJeiUJCOoHE5c2FBTgQo7RViUG8gqEtni85
-	f9og4liZKtgOgb5zzECxSHeNz2aHKv4G/RZQmQQuRfrTSC4D6zgk7VQGoh7KqqIZkxoJVOfTTg6
-	eb9psngr7IeeVujiaGaBVhmi9n7kUUQbVwJZvOjG7LlsKVn8Ku+Yikb2udMoRelOS1Jk=
-X-Received: by 2002:aa7:d94a:0:b0:6b4:2960:d38e with SMTP id
- 4fb4d7f45d1cf-6ba37e874dcmr9501044a12.26.1795593562901; Tue, 24 Nov 2026
- 23:59:22 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795593609; x=1796198409;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yli3tMIg8YYgE4ChJEz71AeTG3CR/r7eofkCH8Sg/jc=;
+        b=WgKQuoa0PECpfTI0d/cOdrSNLEJyfsXzJuqJKsUOyBBu7RHMmRDoluWokrzRKWTHP3
+         fOninMelChZF9hi33kVpj8OHIzWtY3DTIIcFTP3yIF1SiyxbXdCdXRNwXHH4LsxT2P7D
+         jMH6Zx3X9e8vtGg5lR3e3Ut/SBA8TwmtmAKZ+160IULT8/cHRm120ENiRl8NO8Rj1NZb
+         tPmEX1VzpuBBTTpy83MjoyqqwZbF3YTGRDLABEeq+lGzblNSthzx6tJHZdaDaASnOoO8
+         ZK6qPd5zOPa93X3UPpF1GXUG8Pstglk6m+d6zxdqiyFC96AYPVU69nj8aoLPmLwUV+3g
+         Ol+g==
+X-Forwarded-Encrypted: i=1; AL+hErFs1POWm2n7EFe7/cSYQcZcXGLRaLZYrGfJkCtwUM9j1r6yhQ2h1nXQgUH0kcBcSYb9xNrc+WcWMRWrJ7w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9zGR7+ztcuwKHGEfydNcGEqcNr2nJ67T9weWWPIU9icOWHCb+X
+	9QjQH1R3EJX0C4lIIbTJlXMhQUYFjZSvr3uIhXCtyJkYrFR8Q+d/zU2K/+J4h3K2b+8YDab8l0p
+	HoPMD6KZ93Y5VhzFwsE5+r42ErJ5IZ0ggZhXpHfoSRsxNq6kroSwZYlWLaGVrkrWTbpY=
+X-Gm-Gg: AZFdTZdzLk+B3FAwv2wcg16CiQuAUyiWl+n/EOJNc0nQksUBs/tgWPyehEMTequ/aW5
+	xwddvHQfwbM9isFaTG9JLGqLEQ+C0qQwi2X4dg0QyxRAyJBmKlhZVPH68oKYUTadpjgJAmmq29q
+	tlUVuJVsJ4ii/+qr9im8B8lOwW+zZIRMpW6T7KAZTaSdrxmYsXHQ0lbrebkjDQLILkVLKlYA+2V
+	A9EYBZG8GEJxRfxL0zGMHs9JbPLCZa+45igZqbQRNEQFri8zdPNnBs47y/w25pbIv2RyWZJBpMD
+	iYQi2mCxVshHRDS0UPkB62WHYC9RdI15C+1ONBOv+ih2ohERDdcShlCNkeTJERyXF+pqHscbcC7
+	31TziBXSaft4hdSWp4Mp+KXn06XyyLteo
+X-Received: by 2002:a05:620a:31a3:b0:947:7f9b:f841 with SMTP id af79cd13be357-949ba9864e1mr3058993785a.31.1795593608856;
+        Wed, 25 Nov 2026 00:00:08 -0800 (PST)
+X-Received: by 2002:a05:620a:31a3:b0:947:7f9b:f841 with SMTP id af79cd13be357-949ba9864e1mr3058990885a.31.1795593608386;
+        Wed, 25 Nov 2026 00:00:08 -0800 (PST)
+Received: from lin-0843.qualcomm.com ([212.136.9.4])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm585912015e9.11.2026.11.25.00.00.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 00:00:07 -0800 (PST)
+From: Gjorgji.Rosikopulos.gjorgji.rosikopulos@oss.qualcomm.com
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Cc: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        linux-kernel@vger.kernel.org, Hitesh Patel <hitesh@ebytelogic.com>,
+        Atanas Filipov <atanas.filipov@oss.qualcomm.com>,
+        Jigarkumar Zala <jigarkumar.zala@oss.qualcomm.com>,
+        Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
+Subject: [PATCH v2 01/12] media: qcom: camss: csid_gen3: Fix multi-VC buf-done IRQ mask
+Date: Wed, 25 Nov 2026 09:59:50 +0200
+Message-Id: <20261125080001.2540101-2-gjorgji.rosikopulos@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261125080001.2540101-1-gjorgji.rosikopulos@oss.qualcomm.com>
+References: <20261125080001.2540101-1-gjorgji.rosikopulos@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,73 +111,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261106151947.3991524-1-vincent.guittot@linaro.org> <20261123140513.849567-1-qiliang.yuan@linux.dev>
-In-Reply-To: <20261123140513.849567-1-qiliang.yuan@linux.dev>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Wed, 25 Nov 2026 08:59:10 +0100
-X-Gm-Features: Aa3M54p2o-4OXRV5MRF0nedJcIovnM36DUkkwJL8BE3h8cyZzFyeML394K6ItNU
-Message-ID: <CAKfTPtAN0K0Ly1tM-2R=-9qLx=Nh5p9+GHeqRLHy-nbeAxZU0Q@mail.gmail.com>
-Subject: Re: [PATCH 00/18 v3] Improving latency of short slice tasks
-To: Qiliang Yuan <qiliang.yuan@linux.dev>
-Cc: mingo@redhat.com, peterz@infradead.org, juri.lelli@redhat.com, 
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com, 
-	mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com, 
-	linux-kernel@vger.kernel.org, lukasz.luba@arm.com, rafael@kernel.org, 
-	linux-pm@vger.kernel.org, tj@kernel.org, void@manifault.com, 
-	arighi@nvidia.com, changwoo@igalia.com, sched-ext@lists.linux.dev, 
-	qyousef@layalina.io, christian.loehle@arm.com, pierre.gondois@arm.com, 
-	sshegde@linux.ibm.com, kayracizmeci@gmail.com, tim.c.chen@linux.intel.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: XOJDc36rRYuEzA8QvDAnaAoQj41LV947
+X-Authority-Analysis: v=2.4 cv=G+SJgNk5 c=1 sm=1 tr=0 ts=6b069589 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=dNlqnMcrdpbb+gQrTujlOQ==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8 a=XpAv_gt5rlBVVRiKzi8A:9
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzMSBTYWx0ZWRfX8YkijBi0xbki
+ /Zv7tm3qZMmcSg3t39H1Zbdropq5sPfGQ5y76IORo7nzFdg7KLURju4C6YccEw0cdj3/V8HyAfd
+ LR5CM6LQc8MgQJ2fWfOOhkG3mqL4nZ8=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzMSBTYWx0ZWRfX9OlH6eExypBo
+ mCG1dwdo7LV1Bxazl8gj/TTKwh2Qi5vyd3LiyMtRUjzubZtr0uBdj4EizpD857ZETr9lMe/Jyoo
+ vnmhr+o9d8qlulYv0GFlXfXTndJDCfNW1/739ZQRdXq5BSQgEAiiIU76A82b5nIDVNqdWsnaDPH
+ jGF3ZHp0I1BqfyaKK8kclIm8EPH+0kgR149jQdtBsAi23R9gITtPR3jQHNvvFBVM9GI9mNLsRRv
+ PFFQLlRRXns0QIwsN117+Q0sik25527wqXuwODlRe+5zHCdR3wDAsOjg0w1F+GeePP5hzkSOAVr
+ FAZcB5AyAEyaOilPaLtRB3WYGivvXLP/oqjE1vUrso0w/u4eUppY6nDermmr8R8M6FXe4XZdqRG
+ RYRnDQk4vA9mca82n5shFlVAi13ixEzsCKLBAT6xd4isA3ri0CzJVI/fEG1nghxoswnMkWx5/VM
+ OA+pGddovOOU6b7SFXw==
+X-Proofpoint-ORIG-GUID: XOJDc36rRYuEzA8QvDAnaAoQj41LV947
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 clxscore=1015 bulkscore=0 phishscore=0 malwarescore=0
+ lowpriorityscore=0 adultscore=0 priorityscore=1501 spamscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250031
 
-Hi Qiliang,
+From: Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
 
-On Mon, 23 Nov 2026 at 15:05, Qiliang Yuan <qiliang.yuan@linux.dev> wrote:
->
-> Hi Vincent,
->
-> On Fri, Nov 06, 2026 at 04:19:27PM +0100, Vincent Guittot wrote:
-> > The 99.9th percentile are a bit worse mainly because of the decay/reset of
-> > positive lag. Eternal positive lag was beneficial for cyclictest which
-> > doesn't do anything while running and slowly decrease its large positive
-> > lag.
-> [...]
-> > The test were run with the default 2.8ms slice to check for some
-> > performance regressions
->
-> I ran the series on a fully loaded and an overloaded server-style
-> topology, to see whether the push path costs anything when every CPU is
-> busy. Guest with 32 vCPUs on an EPYC 9654 host, set up as 2 sockets x
-> 8 cores x 2 threads so that it gets SMT, MC and PKG domains, on
+Csid reset programs CSID_BUF_DONE_IRQ_MASK with a separate write
+per enabled VC instead of accumulating the bits.
+This change removes the not needed for cycle and write regs
+in one pass.
 
-Thanks for testing
+Confirmed on RB8/SA8775P hardware during TPG multi-VC capture
+testing.
 
-> tip/sched/core bfee16fd01d4d (patch 10 needed task_tick_scx() to take
-> the new rq_flags argument to apply there). The four kernels were booted
-> in turn, 3 rounds of 3 runs of schbench -m 2 -r 20 each, median of 9:
->
->   workers  metric              base   +01-04   +01-15   +01-20
->        32  wakeup p99 (us)     3116     4648     4648     4632
->        32  request p99 (us)   34368    25568    25952    24992
->        32  rps                 4327     4907     4898     4919
->        64  wakeup p99 (us)     5656     7736     7640     7688
->        64  request p99 (us)  194304   162048   161536   163584
->        64  rps                 2507     2532     2529     2532
->
-> The wakeup p99 increase, +49% at 32 workers and +36% at 64, comes
-> entirely with patches 1-4; adding the push patches does not move it,
-> while request p99 improves by 16-27% and throughput is the same or
-> better. So with every CPU busy I see no cost from the push mechanism
-> itself, only the lag decay effect you describe above, which here also
-> shows at p99. hackbench (4 to 32 groups) and tbench (32 to 128 clients)
-> with the whole series are within -5%..+3% of the base.
+Fixes: d96fe1808dcc ("media: qcom: camss: Add CSID 780 support")
+Signed-off-by: Gjorgji Rosikopulos <gjorgji.rosikopulos@oss.qualcomm.com>
+---
+ .../media/platform/qcom/camss/camss-csid-gen3.c | 17 ++++++++---------
+ 1 file changed, 8 insertions(+), 9 deletions(-)
 
-Yes, clearing or decaying positive lag softens the capacity of a
-sleeping task to preempt at wakeup; that's why you see an increase in
-wakeup p99 but an improvement in request p99 and rps.
+diff --git a/drivers/media/platform/qcom/camss/camss-csid-gen3.c b/drivers/media/platform/qcom/camss/camss-csid-gen3.c
+index 6a538d825f78..231b53d3e44e 100644
+--- a/drivers/media/platform/qcom/camss/camss-csid-gen3.c
++++ b/drivers/media/platform/qcom/camss/camss-csid-gen3.c
+@@ -339,7 +339,6 @@ static int csid_reset(struct csid_device *csid)
+ {
+ 	unsigned long time;
+ 	u32 val;
+-	int i;
+ 
+ 	reinit_completion(&csid->reset_complete);
+ 
+@@ -347,14 +346,14 @@ static int csid_reset(struct csid_device *csid)
+ 	writel(1, csid->base + CSID_IRQ_CMD);
+ 	writel(1, csid->base + CSID_TOP_IRQ_MASK);
+ 
+-	for (i = 0; i < MSM_CSID_MAX_SRC_STREAMS; i++)
+-		if (csid->phy.en_vc & BIT(i)) {
+-			writel(BIT(BUF_DONE_IRQ_STATUS_RDI_OFFSET + i),
+-			       csid->base + CSID_BUF_DONE_IRQ_CLEAR);
+-			writel(IRQ_CMD_CLEAR, csid->base + CSID_IRQ_CMD);
+-			writel(BIT(BUF_DONE_IRQ_STATUS_RDI_OFFSET + i),
+-			       csid->base + CSID_BUF_DONE_IRQ_MASK);
+-		}
++	if (csid->phy.en_vc) {
++		u32 vc_mask = GENMASK(MSM_CSID_MAX_SRC_STREAMS - 1, 0);
++
++		val = (csid->phy.en_vc & vc_mask) << BUF_DONE_IRQ_STATUS_RDI_OFFSET;
++		writel(val, csid->base + CSID_BUF_DONE_IRQ_CLEAR);
++		writel(IRQ_CMD_CLEAR, csid->base + CSID_IRQ_CMD);
++		writel(val, csid->base + CSID_BUF_DONE_IRQ_MASK);
++	}
+ 
+ 	/* preserve registers */
+ 	val = RST_LOCATION | RST_MODE;
+-- 
+2.34.1
 
-The push feature doesn't impact your figures if you keep using the
-same slice for all threads.
-
->
-> Thanks,
-> Qiliang
