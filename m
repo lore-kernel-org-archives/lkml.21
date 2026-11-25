@@ -1,50 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795615747;
-	b=nH9bTPFyMQV3gsCxEh84T5jzEnvuui6jRbt2UPfolSq/JUEP9Wompbrs+ueJBYUY6/sB
-	 S9AaDokfF68bZiWGABjjRSHCwFP1dSXn67sf1GQnUcsRRpqHDHd4bgdgeyt6jPoQAtquK
-	 2HohEDIbmoEtRMBuacUXEjdLqToHtwHDTNoEg14VkXMaAgWPuOGTzCKmoX2bhrG10F7ui
-	 nboY+5UYPFzCBooVbYU1eDi3hKmNFAPLMzTdegbubWu1ChlRx3tEXcdhMx67OVGpoRaNT
-	 NdgoOFy8HihytpVfrqKiiFEpCwFg/GMnBJkCSG2yEcNS29GwxZ9zA5/npPACgjXzHEg==
+	t=1795615750;
+	b=dHI2mtE3NrBgqu52jEtDuhpqVojMQz87svzzIpsxzjtzgezE/QSanDZXFvClKesqRMBX
+	 hAqpwiU3UnRMyo6q2edfsrtV/YFsJNECqz/vUN3lHWoJmbgipgEc4SmNLqPsfKnU/EJGW
+	 h8y7lDA6NXrKkcrt/F1rtBO23HcBvLNhw3FWLzKAox2doJr6zV2kupqs0N6jl2MIpUzaI
+	 tccBgbEj2CTHk5SAhJH564IzL9G/D7HvaYAMPo01KX4EvMPWdywCvVR0CnS9y91fPlcFi
+	 f+n5OpiMpq71fymaZhDgYxWaE8R0xb0LiwqwJ9C8/fCWNmTTO489XAVqp7JMDB45e2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795615747;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=jz2sHRDsgOMXF3loU1YmxXnucHr35J5ATz4a4wdGZ3Q=;
-	b=CC52NQv5ZslcV3sukZrids2IBLjqKZKbMrK68P77mzb0s2hxfeperus1IWkoYePtqv3R
-	 hx66k9IS/Sl4xpPPAlOsxRweCK2rhAyuBJ/qVY57C6P0fp5ekM1ndbvYQDVhHaKmgfFxL
-	 RlDKyRHESt4qZT/uMd+/5bCSHNrJFytSYt1XMY3ClSVMf5k1LZwguNvfMAauC9W58Gq52
-	 EHMf2pX65RNrmlpemjLUGr0lNmNSkZ+ZZXSpueyZAEo6C2QIjw3GABgvXIbw6o34hwzXD
-	 M1sf0S5WpAB2a9g/5AsSc8R2vuXoqe8frfJ+ICvk5V9ppRAXsL0v2/fEoJF3vdM/d2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795615750;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=OJfj0NWZLxmiap02Jgv9y6mBQfosM9khI8VQAwhpY5c=;
+	b=fqtacTEG3wxjcLvdcQ4xt08RXgKDFGADRA1LCbEA9mt8dhMA5oOqX4bcq+W3VXmOkW7s
+	 n2avDIY+88OXUpUFbs1m2mEBiZeOS7MH2ci9nB4k/4Hl2Xr5PvmLLlpKHQNi79f+TnqHi
+	 LVA0RHTdBiVmqWi0hnB7WF5iwwUHBcUBXRTxI1mPrwfmvufDl7/+hQeTQ0aXfL+IspFe/
+	 4oixkHrHsk6PqTrrIcILfo29rmUtDX7eRTbegycTagFA0PfEeYJ4rx29pWewxuVyf9kJI
+	 4xLpJRFeV5aRcEALIA1CKeqDxhVfnOzNMzdAeAW+awrYnOp5Ti9r1N2I4jBPw2xebfg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Rmv+X3om;
-	arc=none smtp.remote-ip=117.135.210.2
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=HLOmayJZ;
+	arc=none smtp.remote-ip=90.155.92.199
+Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD6D2606A684;
-	Wed, 25 Nov 2026 14:09:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD6D2606A684
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3A0D606A6BD;
+	Wed, 25 Nov 2026 14:09:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3A0D606A6BD
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=Rmv+X3om
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=jz2sHRDsgOMXF3loU1YmxXnucHr35J5ATz4a4wdGZ3Q=;
-	b=Rmv+X3om2pJLZjbViec4YOfYOp4GbVL63Eb/wDZqzErmWmqTDWX9J+kEKR2brz
-	3vhmCdP1hNl/V80V28SfFC9yPwQ/e/2T5GJp6my8w2eHhfwpYQQcuncJTvA/414p
-	xhUIIn8OcznrrJY1hj9Pc0L9r/BOY3IHYOCFJmovMtL8Q=
-Received: from [IPV6:2409:8900:1a90:8163:5fb3:f207:88ec:aa89] (unknown [])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wD3NzLk6wZrijuIJw--.25119S2;
-	Wed, 25 Nov 2026 22:08:37 +0800 (CST)
-Message-ID: <29998421-6c86-4130-a3b9-57aec80bc327@163.com>
-Date: Wed, 25 Nov 2026 22:08:36 +0800
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=HLOmayJZ
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=OJfj0NWZLxmiap02Jgv9y6mBQfosM9khI8VQAwhpY5c=; b=HLOmayJZkdjmUcSo04fNYiJZ+F
+	iuOcY/vbBOs7dUr1USwUAgETw2iJRkCXAb4zbYLJWrHC3WdrMh0hRKm6cbzkctZ33FtIMF3UbqamV
+	lfulBT3qwftheBZI9jUuNiHYSb/CAexRFMIcHIHIePn/PM2FGT2Xzfm8Ex9gbwZ3577im9HaOCuQp
+	EO6f8P1MAwM2LMF7+4K7DdbOh3BJG58TXUNqO2FWUdFV8PzNHKMuGvIPM9gAtb4Q+PEVJ3+a+MkRD
+	lY9sYRYO7EkLhaHmTL+YpkUgZ7yNNP/ohxd6aFksxkzhoeN2Z63iEYrIVQSfWtTmEswM2oOxhh4an
+	Bd/m2EIA==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xWDgG-00000005O70-0o3R;
+	Wed, 25 Nov 2026 14:09:04 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id B818F302186; Wed, 25 Nov 2026 15:09:02 +0100 (CET)
+Date: Wed, 25 Nov 2026 15:09:02 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Harry Yoo <harry@kernel.org>
+Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+	Emil Tsalapatis <emil@etsalapatis.com>, bpf@vger.kernel.org,
+	andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+	daniel@iogearbox.net,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-rt-devel@lists.linux.dev, Vlastimil Babka <vbabka@kernel.org>,
+	Hao Li <hao.li@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>,
+	linux-mm@kvack.org, David Hildenbrand <david@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+	Boqun Feng <boqun@kernel.org>, Waiman Long <longman@redhat.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH bpf-next v1 1/4] bpf: Add call for selecting kmalloc or
+ kmalloc_nolock at call time
+Message-ID: <20261125140902.GE2668804@noisy.programming.kicks-ass.net>
+References: <20261124060357.11700-1-emil@etsalapatis.com>
+ <20261124060357.11700-2-emil@etsalapatis.com>
+ <DN38HGVL8JHQ.2ZVZQCKFXVA9T@gmail.com>
+ <awWRZ9xCzWLnj_R6@thinkstation>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,76 +86,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/6] ntfs: read initialized_size under size_lock in the
- mmap prepare path
-To: Hongling Zeng <zenghongling@kylinos.cn>, linkinjeon@kernel.org,
- hyc.lee@gmail.com
-Cc: ntfs@lists.linux.dev, linux-kernel@vger.kernel.org,
- zhongling0719@126.com, stable@vger.kernel.org
-References: <20261125073547.154150-1-zenghongling@kylinos.cn>
- <20261125073547.154150-7-zenghongling@kylinos.cn>
-Content-Language: en-US
-From: liubaolin <liubaolin12138@163.com>
-In-Reply-To: <20261125073547.154150-7-zenghongling@kylinos.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3NzLk6wZrijuIJw--.25119S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7KryfZFW8uFWfZw1kXr1UZFb_yoW8Cr4xpr
-	nIg3W5C395Zryjkwn3Kw45XFWFg3WxGw4UWw13uw17ArZ5Grn0gF15trWrWF48trsavw40
-	vr1DJw1xu3WDJFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Ugo7_UUUUU=
-X-CM-SenderInfo: xolxutxrol0iasrtmqqrwthudrp/xtbC6gWQW2sG6+UIlwAA3Y
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awWRZ9xCzWLnj_R6@thinkstation>
 
-
-
-在 2026/11/25 15:35, Hongling Zeng 写道:
-> ntfs_file_mmap_prepare() reads ni->initialized_size without the
-> size lock when deciding whether a shared writable mapping needs
-> its initialized size extended before the faults start. The field
-> is published under size_lock, so the read is a data race on the
-> protocol the other readers follow: a stale low value causes a
-> redundant call that __ntfs_extend_initialized_size() re-checks
-> under the lock, and a stale high value skips the extension and
-> leaves it to the write faults.
+On Tue, Nov 24, 2026 at 01:59:31PM +0000, Harry Yoo wrote:
+> [+Cc Relevant folks]
 > 
-> Take the snapshot under size_lock like the other readers.
+> And a bit of context on the underlying problem.
 > 
-> Fixes: 9c87959601e8 ("ntfs: update file operations")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
-> ---
->   fs/ntfs/file.c | 8 +++++++-
->   1 file changed, 7 insertions(+), 1 deletion(-)
+> kmalloc_nolock() could fail when there is a contention on locks
+> shared across CPUs (e.g., n->list_lock in slab, zone->lock in buddy),
+> or there is a decent amount of memory pressure. It's more restrictive
+> than GFP_ATOMIC.
 > 
-> diff --git a/fs/ntfs/file.c b/fs/ntfs/file.c
-> index 70a86d6fee6b..1f08fe679a86 100644
-> --- a/fs/ntfs/file.c
-> +++ b/fs/ntfs/file.c
-> @@ -1044,14 +1044,20 @@ int ntfs_file_mmap_prepare(struct vm_area_desc *desc)
->   
->   	if (vma_desc_test_all(desc, VMA_SHARED_BIT, VMA_MAYWRITE_BIT)) {
->   		struct inode *inode = file_inode(file);
-> +		struct ntfs_inode *ni = NTFS_I(inode);
->   		loff_t from, to;
-> +		loff_t initialized_size;
-> +		unsigned long flags;
->   		int err;
->   
->   		from = ((loff_t)desc->pgoff << PAGE_SHIFT);
->   		to = min_t(loff_t, i_size_read(inode),
->   			   from + desc->end - desc->start);
->   
-> -		if (NTFS_I(inode)->initialized_size < to) {
-> +		read_lock_irqsave(&ni->size_lock, flags);
-> +		initialized_size = ni->initialized_size;
-> +		read_unlock_irqrestore(&ni->size_lock, flags);
-> +		if (initialized_size < to) {
->   			err = ntfs_extend_initialized_size(inode, to, to);
->   			if (err)
->   				return err;
+> Unconditionally using kmalloc_nolock() in BPF local storage is
+> unnecessarily restrictive when the program can sleep or spin, and
+> Emil's patchset teaches the local storage whether the BPF program
+> accessing the local storage could sleep or spin on a lock.
+> 
+> Answering the question "Does this context allow sleeping, or spinning
+> on a lock" is extremely tricky in the Linux kernel as BPF programs
+> could run and call kfuncs almost at any point in the kernel code and
+> the "context" is usually encoded in the GFP flags or the process flags.
+> 
+> Tracking whether certain locks are taken by current context is not
+> ideal either as it adds unnecessary overhead for everybody.
+> 
+> On Tue, Nov 24, 2026 at 06:40:11AM +0000, Alexei Starovoitov wrote:
+> > On Mon, Nov 23, 2026 at 10:03 PM Emil Tsalapatis <emil@etsalapatis.com> wrote:
+> > > +	/* Only try the spinning allocation when preemption disables are tracked. */
+> > > +	if (IS_ENABLED(CONFIG_PREEMPT_COUNT) && can_spin_in_alloc() &&
+> > > +	    size <= KMALLOC_MAX_CACHE_SIZE && !(flags & ~nolock_flags))
+> > > +		ptr = kmalloc(size, flags | GFP_NOWAIT | __GFP_NOMEMALLOC);
+> > 
+> > It works, but I after a bit of brainstorming the following
+> > might be a better fix, since it will address the root cause:
+> > Pls run it by Vlastimil, Harry, Sebastian.
+> >
+> > diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+> > index 2fef409..4368ab5 100644
+> > --- a/mm/page_alloc.c
+> > +++ b/mm/page_alloc.c
+> > @@ -2536,6 +2536,24 @@ __rmqueue(struct zone *zone, unsigned int order, int migratetype,
+> >  	return NULL;
+> >  }
+> >  
+> > +static DEFINE_WAIT_OVERRIDE_MAP(zone_nolock_map, LD_WAIT_CONFIG);
+> > +
+> > +/*
+> > + * zone->lock is always held with IRQs disabled. A caller that runs with IRQs
+> > + * enabled is not nested inside of it, so it can wait for the owner.
+> > + */
+> > +static bool zone_lock_nolock(struct zone *zone, unsigned long *flags)
+> > +{
+> > +	if (IS_ENABLED(CONFIG_PREEMPT_RT) || irqs_disabled() || in_nmi())
+> > +		return spin_trylock_irqsave(&zone->lock, *flags);
+> > +
+> > +	/* The caller may hold a raw_spinlock_t. */
+> > +	lock_map_acquire_try(&zone_nolock_map);
+> > +	spin_lock_irqsave(&zone->lock, *flags);
+> > +	lock_map_release(&zone_nolock_map);
+> > +	return true;
+> > +}
+> 
+> I'm not sure this is a better solution unless this could be generalized
+> or abstracted further.
 
-Looks good to me.
+This is absolute atrocious shite. You cannot attempt a spin_trylock from
+NMI context. That thing might be a mutex.
 
-Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
-
+This should not work; if it does, that is an accident we need to fix.
