@@ -1,78 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795588060;
-	b=OtCl1ndrx0FhbG6HvDJswsIVZJcZSeC+E+/wSuxX7Yl6hO5UNTo3fUV4i5OsFFDLwivL
-	 lq4Ba9vxnpOEg7NjvGTpRabSphTPQcaq8H5EgW3/yC6lJXqfTDRcAhgie2w9HWJG/oyxV
-	 zHe32ukDvhfLXmw1k+qC6P7m6BdMDus/zuJeWxvk5VCapUr+COFmN7Y3IZ4YPDGF69ecX
-	 XKqsVN7R63vb8k/krZbYJm0RLWB3P93/+mbMEg0bo83DmRDjckKXdLsQABPueuaFvYvav
-	 di4VUwB43cpdR7XxQxqIO0TPau36eG+BSbk5nlutW2Zf06nrlVYpB/BV/wYMKb4RXjQ==
+	t=1795588056;
+	b=4B2iiwXDKru/PGZ9f2FR6TVMS7MFbOYsaeqJJAtVtZgKdP1JiZoq+WVjoHd7EXT1AdUd
+	 Nns1n4gLKTbB6V2oyeTxl8hhxxNh/0fKYi8TKnjmclGxtxVsIjLYpc326XdXokqZZqD5c
+	 X/hvtK0DtJ6Lr1JhcqcwImPrdmMPX440VL4o0pQNVFhMfEsc1R+1pCSb95KxVWU3Pj08C
+	 u2Z9yIjhvAJQCjI+dyPtrc71StDYkJNRnMGx8ndJwpvFMrE+5Ou2BWgqW2TxTZlS6aS9F
+	 C0h9A0DUExAKV6oqqoJuMkNQdmo6NRaeqx0GOSISYVIu/bvSUXy2dXYrcLxBMXqqXYA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588060;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588056;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=VtC7nKbWJU6hqub0+1U1dUZlYe/krpSchtIZbvVVG+g=;
-	b=TUNG86HCfl/XqiCtdZRqbAmUTR3aTN8c8NJ1RrKEryR8B3qGgg606N5rB6ZQ//M1s5cM
-	 LHSvX80UAp8WcXrMcBi0P0650szPaCNvKsBu/IuGNZalJH+OmPpAKjcdfvlsi0N41ADob
-	 mmMQOCDfuLH5kGmBMvgZsk7PtuUBalkxcdHjS7WLjX8fwgNM5Um2Nt18hwmSZRWRKUbbt
-	 hAtCmC1z73ypV9P6VtGvAiKS3YBIqDY0YA20tEkhBESe11qpV0jkUYixMxK5/ZK3q0S7n
-	 XnexrFC4kmkcjdqNsoKZ7ZjuxTEFF29o/RCtZ/ax7LQCaAtAhwN679r6Q8vZ+skSclA==
+	bh=q47QohjLXirxuTqtVKyx7oZef2/w2Rnc5WbvsqDczxE=;
+	b=4HUB9LUQ/Uy0SzwEKVuyifKNuFG4H2nl40acCJAM230WLZFmF4l9Qnny0xSW8j4T1uC1
+	 KDQFZA55ZE+2W99Y8PmxCaJNs/u+95BKUhNOra2+Nn3D2vAlctZt+m52bxGGiJJ5eEMu5
+	 x/Okd20txGuLdc6sQCHZ1mi+FG5ar2bl7wKa+kUi07U+K/UvDcagv/wfKMxROre6+/9sq
+	 PMX9WlviCOTl7+ktwsO6QT8hx9RwUtZj5zYgC7LO7eBElpP4ZYGRu4/rOuXOKwY2QqZ6D
+	 CvtIacnW+n1zSktu20kSrdvQaWJibpIwjtLLBZi2vvoPRrUIequwq+Ls8xX60Ex49Pg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nLlEKnLC;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aiDRo+49;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9AF7606A687;
-	Wed, 25 Nov 2026 06:27:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56326606A688;
+	Wed, 25 Nov 2026 06:27:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nLlEKnLC
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aiDRo+49
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795588060;
-	b=NiU7kK1I50KW/oc+MNwVLZkSCI8PHIr7NtouMDRv5IuB8jQFs42B3gkcwDClwx0VUcin
-	 OApgn9ZoySPhIzG+7Ps4lGh+/40Mh5DvFrGQDinWGBvNInl6AzYVX8a2KGk6D1tlJZBdB
-	 bu9IYQU5vQFVTrhQvVU7kJigKd8tedxBXfXIx5fbUcEwjPbcs8GPlv99C8A37zvsdKmXZ
-	 cw+AnAHF5vkOvZFPspEHibS9ezTbagnjDWHigJ41JBS/S/NmVGI5ZkkkCeqfeAoSTCWS+
-	 jdNM1cs9BcdfX3MuVbFfXvs3KFD/yi82QplOcpDj0ZcbtoHHEQPuAVJ+ZfcplWcyg5A==
+	t=1795588056;
+	b=bW2bRhPSI6yUm6IOYmWFjwDL074GcpEt+N8Lpa2Z1Jn5L87Z35cL7Pelo0sNbm4yB1G3
+	 9iHa/rlP0RBNrWex9sjM3It1hQVr1QXmfCiL+XKhqrWBlBqsYGQzAro9lx/EGFUL6pESf
+	 OG0OVlNk3nIlDy+UADp3MTJht7OpDdgn/+GQo93LHIGI+qYfOKi4b/Xqrf6zedBId5bfd
+	 Gnc3BalF39ysEwyV9396I9YBavSEk1mlNLarLlKEZOKKXcU8MXmXo/wEQQuqN0lB9Hggx
+	 MfXJ2KWXjmBGrh9YvpMURJD4Yo9gVoIP6G5Tz8nBGB8NsG9JPtbFFINVGcLywN+9x5w==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795588060;
+	c=relaxed/relaxed; t=1795588056;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=VtC7nKbWJU6hqub0+1U1dUZlYe/krpSchtIZbvVVG+g=;
-	b=VbVlfWnUNM0lDaTvb3NwJ/Qiok+TTZWiYXu5vp6apyeBxDIfpB/ZNWEUTbVIi8FgVsPt
-	 QbeGde17ITcrPtX4pMG3R32mSAMdUlkgR+MAOJ4qjwvZaTFOkYqAAligX56Wtnhlkdb+l
-	 w/tXDcYbdGEzPvkk9VraP0QGnUyZzGUw5U6NPhEDMwGyPCqXWKIVu34vVMzx4Pj1gBMT3
-	 gMmE7xTa7kP65XFKerutBiwQXltYxMCK/b8el03sLVxDVH8YLNtW5MJrXwNHPmVa+9wep
-	 F3mFTPtR9jhbUFu7WtcARX+pKOA56o20G48928iL/QxzFW57r/CiyK/8MoF6TMPX7CQ==
+	bh=q47QohjLXirxuTqtVKyx7oZef2/w2Rnc5WbvsqDczxE=;
+	b=ixF/rfLBr2POahUCTasbF8dshnKsrfrYpDY4wD86m9NL7LnSEGaUHRiE6bZMArcQAA0f
+	 Wkhv0flsMtU8FpmzxTA9j4/QjEVNzcPl7j6augEcxNBfX4e/s3q4zvPeBc+qjqPRmhG/B
+	 A0ddPv/hhBXldizCBQiccoKzI5U3FS8eNkE47QTIg5l/Xo5Ddiq5ysTRyuvImZdF7Jtrk
+	 zvKJLSo4V34/gQd167bTjyRv+T+uNV7OIxb2Vu5lXAM5QRYbhiqIs/PpJZHyKyhs82RM5
+	 ewkHaT+M9BJZs9un1CsOu420Ho9ayUCXWlfDN96/tfMIIrlh+rbZobUFFiCH5GQ7tzw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id DE0B81F000EB;
-	Wed, 25 Nov 2026 06:27:29 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 162F51F000D8;
+	Wed, 25 Nov 2026 06:27:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795588060;
-	bh=VtC7nKbWJU6hqub0+1U1dUZlYe/krpSchtIZbvVVG+g=;
+	s=k20260515; t=1795588056;
+	bh=q47QohjLXirxuTqtVKyx7oZef2/w2Rnc5WbvsqDczxE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=nLlEKnLCfo84uX3fykTQDJD0YhfzDJOPQ58pyit8/RErVX2vFmKTf/XnLIGPDUpjf
-	 YsGW5r2ja+S+OKBzZp8JIVwAcHk3KS0xgVMcN0uhrg5cUf7tWW3wpYREAnmbe+Ii84
-	 D+g6l6aRQsfYRCZsMkEupEb4DS/Py4zrxM6pNeyrE1SgXQpW2sTKcRWxsrxaEAARLI
-	 wyEQqyWyhns13OwHtCILPKylwFO3om5GTmmo1VpTOiVDnhTwd3fS02d+srAB3y9Dmf
-	 ugNEMznKmqHYnzxUhi45tb4/uSz9KtzWt0D/pfPAtlWfBOnqDT0UOLP1O10KDqUX9B
-	 eo3NS5kmojEpg==
+	b=aiDRo+491Rrymk5xjGl98xDouYA2HIX/24m6M5lixba3HTF/KxnMlV4gNFUZO7ECa
+	 4Mhqbo77hW5XtUmac7Y/ptHeUDV6qzBEn+MDygcHiEEGvseTejVjKdUeQ5o9j1wsqZ
+	 wvgFkzfxNbqb3225Slbhv4jmvTq7gC5gmHX1U4kLmQCb2Qicp+i+T+13WieUnCeCY8
+	 vzXz1O5J/UEibzklgeXjZQ21yyFkH2Qx/k5YJ/FngyxWMrzsOOb5TP7hFl590AJINO
+	 KqZDFvnP+7F+CLGMWSMPpmBw0NZQ3R2q/T10Tv6VPSlwYHy+K6VuuNSx2mEnG2aenK
+	 tIaQvYO7QYJHg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D8C7E4CD68;
+	by lkml.kernel.org (Postfix) with ESMTP id 989484CD60;
 	Wed, 25 Nov 2026 06:27:20 +0000 (UTC)
 From: Jack Wu via B4 Relay <devnull+jackbb_wu.compal.com@kernel.org>
-Date: Wed, 25 Nov 2026 14:27:19 +0800
-Subject: [PATCH net-next v13 6/6] net: wwan: t9xx: Add AT & MBIM WWAN ports
+Date: Wed, 25 Nov 2026 14:27:17 +0800
+Subject: [PATCH net-next v13 4/6] net: wwan: t9xx: Add control port
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,7 +83,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261125-t9xx_driver_v1-v13-6-92d9be5fb51e@compal.com>
+Message-Id: <20261125-t9xx_driver_v1-v13-4-92d9be5fb51e@compal.com>
 References: <20261125-t9xx_driver_v1-v13-0-92d9be5fb51e@compal.com>
 In-Reply-To: <20261125-t9xx_driver_v1-v13-0-92d9be5fb51e@compal.com>
 To: Loic Poulain <loic.poulain@oss.qualcomm.com>, 
@@ -105,11 +105,11 @@ Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  linux-doc@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795588037; l=23019;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795588037; l=38961;
  i=jackbb_wu@compal.com; s=20260526; h=from:subject:message-id;
- bh=0rUIJ6jG/3ltNOZRyQCGsrRrdUBtSez/VgGfA6TbYRY=;
- b=IYPFFXpDR2vXLFMqf5W5p7h7N7QXTqV7DIISaE4/APYECMhbgmu8UCqsmUAyQZwj/xnEdwJ3o
- /5SUrc80D7TDoQy+ucKGSgacx7ycNQlxHZczvXuSMRLtc8JDXmPjWTt
+ bh=mls0WkTXw3lG3cxExul8ih/8KKqXw49lY1Sb2WNemTE=;
+ b=rUFo4T6zbgVujeijdT7EGkirlk45DNBH2x0ty4hz0Bjx7XKPYTiuL03b317Vu06EdBudnG6ev
+ jDWMIwBtnO/BguyY8/3F3vtb6eGOULqP7CZDMSoC9PtKKI3gtpHNQLx
 X-Developer-Key: i=jackbb_wu@compal.com; a=ed25519;
  pk=VH1prTWixNl8OEUPPSfII3p46MzJpQN8J3+ecE1tZXg=
 X-Endpoint-Received: by B4 Relay for jackbb_wu@compal.com/20260526 with
@@ -120,518 +120,997 @@ Content-Transfer-Encoding: 7bit
 
 From: Jack Wu <jackbb_wu@compal.com>
 
-Add AT & MBIM ports to the port infrastructure.
+The control port consists of port I/O and port manager.
+Port I/O provides a common operation as defined by
+"struct mtk_port_ops", and the operation is managed by the
+"port manager". It provides interfaces to internal users, the
+implemented internal interfaces are open, close, write and
+recv_register.
 
-mtk_port_wwan_init() only prepares the port object; wwan_create_port()
-is called from mtk_port_wwan_enable(). enable() runs on FSM_STATE_READY
-through the new mtk_port_enable_by_type(PORT_TBL_MD) hook, which enables
-every MD-table port the device marked enabled, internal ports included.
-CCCI_UART2 and CCCI_MBIM get CLDMA1 TXQ(5)/RXQ(5) and TXQ(2)/RXQ(2) in
-mtk_queue_info[].
+The port manager defines and implements port management interfaces and
+structures. It is responsible for port creation, destroying, and managing
+port states. It sends data from port I/O to CLDMA via TRB ( Transaction
+Request Block ), and dispatches received data from CLDMA to port I/O.
 
-The implemented WWAN port operations are start, stop, tx and
-tx_blocking. The tx path copies with skb_copy_bits(), handling the
-non-linear skb the WWAN core supplies for writes larger than one
-fragment. One write() is capped at MTK_PORT_MAX_TX_PKT CCCI packets
-(SKB_LIST_MAX_LEN, the HIF queue depth) and anything larger is rejected
-with -EMSGSIZE: every packet after the first is submitted with
-force_send, which bypasses the depth check, so without a cap a single
-write could queue an unbounded number of skbs. The same cap bounds the
-second copy of the message the tx path holds and the number of times
-skb_copy_bits() re-walks the source fragment chain.
+A TRB lives in the control buffer of the skb it describes, so it is
+freed together with that skb. This patch therefore gives struct trb a
+kref: the port layer initialises it in mtk_port_trb_init() and owns the
+release function mtk_port_trb_free(). mtk_ctrl_trb_handler() holds a
+reference for the duration of a dispatch, including on the -EAGAIN
+early return, so a completion running concurrently cannot free the skb
+underneath the handler.
 
-The first packet of every write() is depth checked. A blocking write
-waits on the port's trb wait queue for the HIF queue to drop below its
-depth before it submits anything, rather than bypassing the check, so
-blocking writers whose waits are cut short by signals cannot grow the
-queue either. Like the t7xx .tx path, this wait sleeps interruptibly
-under the WWAN core's ops_lock, with no timeout. A blocking write then
-also waits, the same way, for each of its packets to complete, so that
-it returns the modem's TX status.
+The TX sequence number is written into the header when the trb thread
+hands the packet to CLDMA, and only advanced once CLDMA has put it on
+the ring, so a packet refused before that takes no number.  A packet
+already on the ring keeps its number even if the queue then fails to
+start or is flushed: it may have reached the modem by then, so the
+number is not reused.
 
-start() publishes the wwan_port under w_priv.w_lock together with
-PORT_S_OPEN, so the receive path can never see an open port with a NULL
-wwan_port and drop the reply to a command that open made possible.
-
-TX back-pressure is reported through wwan_port_txon()/txoff() rather
-than a .tx_poll operation: a queue-full submit failure pauses the port
-and a per-port tx_complete hook resumes it from TRB completion, so
-poll() sleeps on the WWAN core's own waitqueue - whose lifetime is
-pinned by the open file - instead of a driver waitqueue that
-wwan_remove_port() can outlive. The pause path drops w_lock before
-querying the HIF for queue occupancy, because HIF teardown holds
-trans->submit_lock while the TRB completions it flushes call back into
-the port under w_lock.
+At this commit probe and remove only build and tear down the port
+table: ->init() runs for each port, and ->disable() and ->exit() find
+no port enabled.  Nothing calls ->enable(), ->recv() or the internal
+port interface yet, and no TRB is processed: the port-state, RX
+dispatch and TRB kref paths become live with "Add FSM thread". That
+patch also provides the teardown order these paths rely on - the CLDMA
+queues are quiesced and the trb services stopped before the port
+manager frees the ports - so neither a TRB completion nor an armed RX
+queue outlives the port it points to.
 
 Signed-off-by: Jack Wu <jackbb_wu@compal.com>
 ---
- drivers/net/wwan/t9xx/mtk_ctrl_plane.h      |   4 +
- drivers/net/wwan/t9xx/mtk_port.c            |  22 ++
- drivers/net/wwan/t9xx/mtk_port.h            |  21 +-
- drivers/net/wwan/t9xx/mtk_port_io.c         | 427 ++++++++++++++++++++++++++++
- drivers/net/wwan/t9xx/mtk_port_io.h         |   5 +
- drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c |   8 +
- 6 files changed, 485 insertions(+), 2 deletions(-)
+ drivers/net/wwan/t9xx/Makefile              |   2 +
+ drivers/net/wwan/t9xx/mtk_ctrl_plane.c      |  24 +-
+ drivers/net/wwan/t9xx/mtk_ctrl_plane.h      |  12 +-
+ drivers/net/wwan/t9xx/mtk_port.c            | 641 ++++++++++++++++++++++++++++
+ drivers/net/wwan/t9xx/mtk_port.h            | 125 ++++++
+ drivers/net/wwan/t9xx/mtk_port_io.c         | 236 ++++++++++
+ drivers/net/wwan/t9xx/mtk_port_io.h         |  32 ++
+ drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c |  27 +-
+ 8 files changed, 1092 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/net/wwan/t9xx/mtk_ctrl_plane.h b/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
-index 0bfec975846d..d4ac4627a219 100644
---- a/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
-+++ b/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
-@@ -21,6 +21,10 @@ enum mtk_ccci_ch {
- 	/* to MD */
- 	CCCI_CONTROL_RX = 0x2000,
- 	CCCI_CONTROL_TX = 0x2001,
-+	CCCI_UART2_RX = 0x200A,
-+	CCCI_UART2_TX = 0x200C,
-+	CCCI_MBIM_RX = 0x20D0,
-+	CCCI_MBIM_TX = 0x20D1,
- };
+diff --git a/drivers/net/wwan/t9xx/Makefile b/drivers/net/wwan/t9xx/Makefile
+index 3a1f7d46e8ba..fa373758282e 100644
+--- a/drivers/net/wwan/t9xx/Makefile
++++ b/drivers/net/wwan/t9xx/Makefile
+@@ -4,6 +4,8 @@ obj-$(CONFIG_MTK_T9XX) += mtk_t9xx.o
  
- enum mtk_trb_cmd_type {
-diff --git a/drivers/net/wwan/t9xx/mtk_port.c b/drivers/net/wwan/t9xx/mtk_port.c
-index 3a2a85905797..c2d59f47688e 100644
---- a/drivers/net/wwan/t9xx/mtk_port.c
-+++ b/drivers/net/wwan/t9xx/mtk_port.c
-@@ -267,6 +267,10 @@ static int mtk_port_tx_complete(struct sk_buff *skb)
- 				     "Failed to send data: status:%d, port:%s\n",
- 				     trb->status, port->info.name);
- 
-+	/* Locking rule: see struct mtk_port_ops. */
-+	if (mtk_port_get_ops(port->info.type)->tx_complete)
-+		mtk_port_get_ops(port->info.type)->tx_complete(port);
-+
- 	return mtk_port_ch_trb_complete(skb);
- }
- 
-@@ -612,6 +616,21 @@ int mtk_port_ch_disable(struct mtk_port *port)
- 	return ret;
- }
- 
-+static void mtk_port_enable_by_type(struct mtk_port_mngr *port_mngr, int tbl_type)
-+{
-+	struct mtk_port *port;
-+	unsigned long index;
-+
-+	/* READY is reached at most once per bind and FSM_STATE_OFF is
-+	 * terminal, so port->enable never carries over from an earlier port
-+	 * enumeration.
-+	 */
-+	xa_for_each(&port_mngr->port_tbl[tbl_type], index, port) {
-+		if (port->enable)
-+			mtk_port_get_ops(port->info.type)->enable(port);
-+	}
-+}
-+
- void mtk_port_mngr_fsm_state_handler(struct mtk_fsm_param *fsm_param, void *arg)
- {
- 	struct mtk_port_mngr *port_mngr;
-@@ -625,6 +644,9 @@ void mtk_port_mngr_fsm_state_handler(struct mtk_fsm_param *fsm_param, void *arg)
- 	case FSM_STATE_OFF:
- 		mtk_port_disable(port_mngr);
- 		break;
-+	case FSM_STATE_READY:
-+		mtk_port_enable_by_type(port_mngr, PORT_TBL_MD);
-+		break;
- 	default:
- 		break;
- 	}
-diff --git a/drivers/net/wwan/t9xx/mtk_port.h b/drivers/net/wwan/t9xx/mtk_port.h
-index e687f786f303..113326daaedc 100644
---- a/drivers/net/wwan/t9xx/mtk_port.h
-+++ b/drivers/net/wwan/t9xx/mtk_port.h
-@@ -9,6 +9,7 @@
- #include <linux/bits.h>
- #include <linux/skbuff.h>
- #include <linux/types.h>
-+#include <linux/wwan.h>
- #include <linux/xarray.h>
+ mtk_t9xx-y := \
+ 	mtk_ctrl_plane.o \
++	mtk_port.o \
++	mtk_port_io.o \
+ 	pcie/mtk_pci.o \
+ 	pcie/mtk_trans_ctrl.o \
+ 	pcie/mtk_cldma.o \
+diff --git a/drivers/net/wwan/t9xx/mtk_ctrl_plane.c b/drivers/net/wwan/t9xx/mtk_ctrl_plane.c
+index b755b6f03a72..abd0e5d94e0d 100644
+--- a/drivers/net/wwan/t9xx/mtk_ctrl_plane.c
++++ b/drivers/net/wwan/t9xx/mtk_ctrl_plane.c
+@@ -6,21 +6,24 @@
+ #include <linux/device.h>
  
  #include "mtk_ctrl_plane.h"
-@@ -34,8 +35,10 @@
- #define MTK_INFO_FLD_EN		((u16)BIT(15))
- #define MTK_INFO_FLD_CHID	GENMASK(14, 0)
++#include "mtk_port.h"
  
--/* State bits, not locks: callers serialise ->enable(), ->disable() and
-- * open of a port.  The atomic bitops only make a repeated call a no-op.
-+/* State bits, not locks: callers serialise ->enable(), ->disable() and the
-+ * open of an internal port.  A WWAN open comes from userspace: its node
-+ * exists only after ->enable(), and w_priv.w_lock orders it against
-+ * ->disable().  The atomic bitops only make a repeated call a no-op.
+ /**
+  * mtk_ctrl_init() - Initialize the control plane block.
+  * @mdev: Pointer to the MTK modem device.
++ * @port_layer_cfg: Port layer configuration.
+  *
+  * Allocates and initializes the control plane block
+  * associated with @mdev.  Runs once per bind; the allocation is
+  * devres managed and is released at unbind, not by
+  * mtk_ctrl_exit().
+  *
+- * Return: 0 on success, -ENOMEM on allocation failure.
++ * Return: 0 on success, negative error code on failure.
   */
- enum mtk_port_status {
- 	PORT_S_ENABLE,
-@@ -57,6 +60,7 @@ enum mtk_port_tbl {
- 
- enum mtk_port_type {
- 	PORT_TYPE_INTERNAL,
-+	PORT_TYPE_WWAN,
- 	PORT_TYPE_MAX
- };
- 
-@@ -65,6 +69,18 @@ struct mtk_internal_port {
- 	int (*recv_cb)(void *arg, struct sk_buff *skb);
- };
- 
-+struct mtk_wwan_port {
-+	/* w_lock serialises w_port and PORT_S_OPEN against the receive path,
-+	 * and txoff/txon against TX completion.  It is a leaf: the receive
-+	 * path and TX completion can both take it with trans->submit_lock
-+	 * held, during HIF teardown, so it is never held across a call into
-+	 * the HIF.
-+	 */
-+	struct mutex w_lock;
-+	enum wwan_port_type w_type;
-+	struct wwan_port *w_port;
-+};
-+
- struct mtk_port_cfg {
- 	enum mtk_ccci_ch tx_ch;
- 	enum mtk_ccci_ch rx_ch;
-@@ -89,6 +105,7 @@ struct mtk_port {
- 	wait_queue_head_t trb_wq;
- 	struct mtk_port_mngr *port_mngr;
- 	struct mtk_internal_port i_priv;
-+	struct mtk_wwan_port w_priv;
- };
- 
- struct mtk_port_mngr {
-diff --git a/drivers/net/wwan/t9xx/mtk_port_io.c b/drivers/net/wwan/t9xx/mtk_port_io.c
-index 912b04c24784..81b403884e9a 100644
---- a/drivers/net/wwan/t9xx/mtk_port_io.c
-+++ b/drivers/net/wwan/t9xx/mtk_port_io.c
-@@ -3,8 +3,12 @@
-  * Copyright (c) 2022, MediaTek Inc.
-  */
- #include <linux/netdevice.h>
-+#include <linux/sched/signal.h>
-+#include <linux/wait.h>
-+#include <linux/wwan.h>
- 
- #include "mtk_port_io.h"
-+#include "pcie/mtk_trans_ctrl.h"
- 
- static void mtk_port_put_locked(struct mtk_port *port)
+-int mtk_ctrl_init(struct mtk_md_dev *mdev)
++int mtk_ctrl_init(struct mtk_md_dev *mdev, struct mtk_port_layer_cfg *port_layer_cfg)
  {
-@@ -20,6 +24,130 @@ static void mtk_port_struct_init(struct mtk_port *port)
- 	init_waitqueue_head(&port->trb_wq);
+ 	struct mtk_ctrl_blk *ctrl_blk;
++	int err;
+ 
+ 	ctrl_blk = devm_kzalloc_obj(mdev->dev, *ctrl_blk);
+ 	if (!ctrl_blk)
+@@ -29,6 +32,13 @@ int mtk_ctrl_init(struct mtk_md_dev *mdev)
+ 	ctrl_blk->mdev = mdev;
+ 	mdev->ctrl_blk = ctrl_blk;
+ 
++	err = mtk_port_mngr_init(ctrl_blk, port_layer_cfg->port_cfg,
++				 port_layer_cfg->port_cnt);
++	if (err) {
++		mdev->ctrl_blk = NULL;
++		return err;
++	}
++
+ 	return 0;
  }
  
-+/* Packets after the first carry force_send, which bypasses the HIF depth
-+ * check, so one write() must not exceed one queue depth.  AT commands and
-+ * MBIM control messages are far smaller than that.
-+ */
-+#define MTK_PORT_MAX_TX_PKT	SKB_LIST_MAX_LEN
-+
-+/* A blocking write waits here rather than have its first packet refused by
-+ * the depth check: a refused packet is freed with its trb and cannot be
-+ * submitted again.  TX completions and port state changes wake trb_wq.
-+ */
-+static int mtk_port_wait_tx_space(struct mtk_port *port)
-+{
-+	union ctrl_hif_cmd_data hif_cmd = { .rx_ch = port->info.rx_ch };
-+	struct mtk_md_dev *mdev = port->port_mngr->ctrl_blk->mdev;
-+	DEFINE_WAIT_FUNC(wait, woken_wake_function);
-+	int ret = 0;
-+
-+	add_wait_queue(&port->trb_wq, &wait);
-+	/* The check takes submit_lock, so it cannot be a wait_event()
-+	 * condition.  An error from it is left to the submit to report.
-+	 */
-+	while (mtk_pcie_hif_cmd_func(mdev, HIF_CTRL_CMD_CHECK_TX_FULL, &hif_cmd) > 0 &&
-+	       !test_bit(PORT_S_FLUSH, &port->status) &&
-+	       test_bit(PORT_S_WR, &port->status)) {
-+		if (signal_pending(current)) {
-+			ret = -ERESTARTSYS;
-+			break;
-+		}
-+		wait_woken(&wait, TASK_INTERRUPTIBLE, MAX_SCHEDULE_TIMEOUT);
-+	}
-+	remove_wait_queue(&port->trb_wq, &wait);
-+
-+	return ret;
-+}
-+
-+/* Every packet is built before any is submitted: the WWAN core turns a
-+ * partial write into a whole-write failure and userspace re-sends the whole
-+ * message, so a submit that fails midway leaves a prefix on the wire.  It
-+ * cannot be retried here - the skb is freed with its trb - so it is logged.
+@@ -36,10 +46,16 @@ int mtk_ctrl_init(struct mtk_md_dev *mdev)
+  * mtk_ctrl_exit() - Clean up the control plane block.
+  * @mdev: Pointer to the MTK modem device.
+  *
+- * Clears the control plane block pointer. The allocation
+- * itself is managed by devres and freed on driver detach.
++ * Tears down what mtk_ctrl_init() set up and clears the control plane
++ * block pointer.  The allocation itself is managed by devres and freed
++ * on driver detach.
 + *
-+ * -EINTR means the skb was already submitted, so that packet counts as
-+ * accepted and the remaining ones are still sent.
-+ *
-+ * A non-blocking write is done once its packets are queued: a TX error
-+ * reported later for one of them is only logged by the completion.
-+ */
-+static int mtk_port_common_write(struct mtk_port *port, struct sk_buff *src, bool blocking)
-+{
-+	u32 packet_size, left_cnt = src->len, cur_pos;
-+	u32 sent_len = 0;
-+	struct sk_buff_head list;
-+	bool force_send = false;
-+	struct sk_buff *skb;
-+	int ret;
-+
-+	ret = mtk_port_status_check(port);
-+	if (ret)
-+		return ret;
-+
-+	if (src->len > MTK_PORT_MAX_TX_PKT * port->tx_mtu)
-+		return -EMSGSIZE;
-+
-+	if (blocking) {
-+		ret = mtk_port_wait_tx_space(port);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	__skb_queue_head_init(&list);
-+
-+	while (left_cnt) {
-+		packet_size = min_t(u32, left_cnt, port->tx_mtu);
-+		skb = __dev_alloc_skb(packet_size + sizeof(struct mtk_ccci_header),
-+				      GFP_KERNEL);
-+		if (!skb) {
-+			ret = -ENOMEM;
-+			goto err_purge;
-+		}
-+
-+		skb_reserve(skb, sizeof(struct mtk_ccci_header));
-+
-+		/* The payload is copied into the driver's own skbs: the core
-+		 * frees its chain as soon as ->tx() fails, and a packet already
-+		 * queued to the HIF must outlive that.
-+		 */
-+		cur_pos = src->len - left_cnt;
-+		ret = skb_copy_bits(src, cur_pos, skb_put(skb, packet_size), packet_size);
-+		if (ret) {
-+			dev_err(port->port_mngr->ctrl_blk->mdev->dev,
-+				"Failed to copy data for port(%s)\n", port->info.name);
-+			dev_kfree_skb_any(skb);
-+			goto err_purge;
-+		}
-+
-+		__skb_queue_tail(&list, skb);
-+		left_cnt -= packet_size;
-+	}
-+
-+	while ((skb = __skb_dequeue(&list))) {
-+		/* mtk_port_send_data() may free the skb, so sample its length
-+		 * while it is still valid.
-+		 */
-+		packet_size = skb->len;
-+
-+		ret = mtk_port_send_data(port, skb, blocking, force_send);
-+		if (ret < 0 && ret != -EINTR)
-+			goto err_submit;
-+
-+		sent_len += packet_size;
-+		force_send = true;
-+	}
-+
-+	return 0;
-+
-+err_submit:
-+	if (sent_len)
-+		dev_err_ratelimited(port->port_mngr->ctrl_blk->mdev->dev,
-+				    "Partial write on port(%s): %u of %u bytes sent, error:%d\n",
-+				    port->info.name, sent_len, src->len, ret);
-+err_purge:
-+	__skb_queue_purge(&list);
-+	return ret;
-+}
-+
- static int mtk_port_internal_init(struct mtk_port *port)
++ * Context: Process context; may sleep.
+  */
+ void mtk_ctrl_exit(struct mtk_md_dev *mdev)
  {
- 	mtk_port_struct_init(port);
-@@ -226,8 +354,307 @@ static const struct mtk_port_ops port_internal_ops = {
- 	.recv = mtk_port_internal_recv,
++	struct mtk_ctrl_blk *ctrl_blk = mdev->ctrl_blk;
++
++	mtk_port_mngr_exit(ctrl_blk);
+ 	mdev->ctrl_blk = NULL;
+ }
+diff --git a/drivers/net/wwan/t9xx/mtk_ctrl_plane.h b/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
+index a2e60fbe32d4..152c0c83f715 100644
+--- a/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
++++ b/drivers/net/wwan/t9xx/mtk_ctrl_plane.h
+@@ -6,6 +6,7 @@
+ #ifndef __MTK_CTRL_PLANE_H__
+ #define __MTK_CTRL_PLANE_H__
+ 
++#include <linux/kref.h>
+ #include <linux/skbuff.h>
+ 
+ #include "mtk_dev.h"
+@@ -47,6 +48,11 @@ struct trb {
+ 	u32 channel_id;
+ 	enum mtk_trb_cmd_type cmd;
+ 	int status;
++	/* Store-release by the completion callback, load-acquire by the
++	 * waiter: seeing it set means seeing everything the callback wrote.
++	 */
++	bool done;
++	struct kref kref;
+ 	void *priv;
+ 	int (*trb_complete)(struct sk_buff *skb);
+ };
+@@ -57,12 +63,16 @@ union ctrl_hif_cmd_data {
+ 	u32 rx_ch;
  };
  
-+static void mtk_port_get_locked(struct mtk_port *port)
++struct mtk_port_layer_cfg;
++struct mtk_port_mngr;
++
+ struct mtk_ctrl_blk {
+ 	struct mtk_md_dev *mdev;
++	struct mtk_port_mngr *port_mngr;
+ 	void *ctrl_hw_priv;
+ };
+ 
+-int mtk_ctrl_init(struct mtk_md_dev *mdev);
++int mtk_ctrl_init(struct mtk_md_dev *mdev, struct mtk_port_layer_cfg *port_layer_cfg);
+ void mtk_ctrl_exit(struct mtk_md_dev *mdev);
+ 
+ #endif /* __MTK_CTRL_PLANE_H__ */
+diff --git a/drivers/net/wwan/t9xx/mtk_port.c b/drivers/net/wwan/t9xx/mtk_port.c
+new file mode 100644
+index 000000000000..410bd4d506a7
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/mtk_port.c
+@@ -0,0 +1,641 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2022, MediaTek Inc.
++ */
++
++#include <linux/bitfield.h>
++#include <linux/device.h>
++#include <linux/err.h>
++#include <linux/kernel.h>
++#include <linux/netdevice.h>
++#include <linux/slab.h>
++#include <linux/wait.h>
++
++#include "mtk_port.h"
++#include "mtk_port_io.h"
++#include "pcie/mtk_trans_ctrl.h"
++
++#define MTK_DFLT_TRB_TIMEOUT		(5 * HZ)
++#define MTK_DFLT_TRB_STATUS		(0x1)
++#define MTK_CHECK_RX_SEQ_MASK		(0x7fff)
++#define MTK_INVALID_RX_SEQ		(0xffff)
++
++#define MTK_PORT_ENUM_VER		(0)
++#define MTK_PORT_ENUM_HEAD_PATTERN	(0x5a5a5a5a)
++#define MTK_PORT_ENUM_TAIL_PATTERN	(0xa5a5a5a5)
++
++struct mtk_port_info {
++	__le16 channel;
++	__le16 reserved;
++} __packed;
++
++struct mtk_port_enum_msg {
++	__le32 head_pattern;
++	__le16 port_cnt;
++	__le16 version;
++	__le32 tail_pattern;
++	u8 data[];
++} __packed;
++
++/* Serialises a lookup and its kref_get() against the removal of the port
++ * from the table and the kref_put() that may free it.
++ */
++DEFINE_MUTEX(mtk_port_mngr_grp_mtx);
++
++/* Called with mtk_port_mngr_grp_mtx held. */
++void mtk_port_release(struct kref *port_kref)
++{
++	struct mtk_port *port;
++
++	port = container_of(port_kref, struct mtk_port, kref);
++	mtk_port_get_ops(port->info.type)->exit(port);
++	kfree(port);
++}
++
++static int mtk_port_tbl_add(struct mtk_port_mngr *port_mngr, struct mtk_port *port)
++{
++	int ret;
++
++	ret = xa_insert(&port_mngr->port_tbl[MTK_PORT_TBL_TYPE(port->info.rx_ch)],
++			MTK_CH_ID(port->info.rx_ch), port, GFP_KERNEL);
++
++	if (ret)
++		dev_err(port_mngr->ctrl_blk->mdev->dev,
++			"port(%s) add to port_tbl failed, return %d\n",
++			port->info.name, ret);
++
++	return ret;
++}
++
++static void mtk_port_tbl_del(struct mtk_port_mngr *port_mngr, struct mtk_port *port)
++{
++	xa_erase(&port_mngr->port_tbl[MTK_PORT_TBL_TYPE(port->info.rx_ch)],
++		 MTK_CH_ID(port->info.rx_ch));
++}
++
++static struct mtk_port *mtk_port_alloc_and_add(struct mtk_port_mngr *port_mngr,
++					       const struct mtk_port_cfg *dflt_info)
++{
++	struct mtk_port *port;
++	int ret;
++
++	port = kzalloc_obj(*port, GFP_KERNEL);
++	if (!port) {
++		ret = -ENOMEM;
++		goto err_alloc_port;
++	}
++	memcpy(&port->info, dflt_info, sizeof(*dflt_info));
++
++	ret = mtk_port_tbl_add(port_mngr, port);
++	if (ret < 0) {
++		dev_err(port_mngr->ctrl_blk->mdev->dev,
++			"Failed to add port(%s) to port tbl\n", dflt_info->name);
++		goto err_free_port;
++	}
++
++	port->port_mngr = port_mngr;
++	ret = mtk_port_get_ops(port->info.type)->init(port);
++	if (ret < 0) {
++		mtk_port_tbl_del(port_mngr, port);
++		goto err_free_port;
++	}
++
++	return port;
++
++err_free_port:
++	kfree(port);
++err_alloc_port:
++	return ERR_PTR(ret);
++}
++
++static void mtk_port_free(struct mtk_port_mngr *port_mngr, struct mtk_port *port)
 +{
 +	mutex_lock(&mtk_port_mngr_grp_mtx);
-+	kref_get(&port->kref);
++	mtk_port_tbl_del(port_mngr, port);
++	kref_put(&port->kref, mtk_port_release);
 +	mutex_unlock(&mtk_port_mngr_grp_mtx);
 +}
 +
-+static int mtk_port_wwan_open(struct wwan_port *w_port)
++/* No lock: every caller runs in a context that is stopped before the control
++ * plane destroys the port table.  A caller without that guarantee must use
++ * mtk_port_get_by_name() instead.
++ */
++static struct mtk_port *mtk_port_search_by_id(struct mtk_port_mngr *port_mngr, int rx_ch)
++{
++	int tbl_type = MTK_PORT_TBL_TYPE(rx_ch);
++
++	if (tbl_type < PORT_TBL_SAP || tbl_type >= PORT_TBL_MAX)
++		return NULL;
++
++	return xa_load(&port_mngr->port_tbl[tbl_type], MTK_CH_ID(rx_ch));
++}
++
++static struct mtk_port *mtk_port_search_by_name(struct mtk_port_mngr *port_mngr,
++						const char *name)
++{
++	int tbl_type = PORT_TBL_SAP;
++	struct mtk_port *port;
++	unsigned long index;
++
++	lockdep_assert_held(&mtk_port_mngr_grp_mtx);
++
++	do {
++		xa_for_each(&port_mngr->port_tbl[tbl_type], index, port) {
++			if (!strncmp(port->info.name, name, MTK_DFLT_PORT_NAME_LEN))
++				return port;
++		}
++		tbl_type++;
++	} while (tbl_type < PORT_TBL_MAX);
++
++	return NULL;
++}
++
++struct mtk_port *mtk_port_get_by_name(struct mtk_port_mngr *port_mngr, const char *name,
++				      enum mtk_port_type type)
 +{
 +	struct mtk_port *port;
++
++	mutex_lock(&mtk_port_mngr_grp_mtx);
++	port = mtk_port_search_by_name(port_mngr, name);
++	if (port && port->info.type == type)
++		kref_get(&port->kref);
++	else
++		port = NULL;
++	mutex_unlock(&mtk_port_mngr_grp_mtx);
++
++	return port;
++}
++
++static int mtk_port_tbl_create(struct mtk_port_mngr *port_mngr, const struct mtk_port_cfg *cfg,
++			       const int port_cnt)
++{
++	const struct mtk_port_cfg *dflt_port;
++	struct mtk_port *port;
++	int i;
++
++	xa_init(&port_mngr->port_tbl[PORT_TBL_SAP]);
++	xa_init(&port_mngr->port_tbl[PORT_TBL_MD]);
++
++	/* copy ports from static port cfg table */
++	for (i = 0; i < port_cnt; i++) {
++		dflt_port = cfg + i;
++		if (!mtk_port_search_by_id(port_mngr, dflt_port->rx_ch)) {
++			port = mtk_port_alloc_and_add(port_mngr, dflt_port);
++			if (IS_ERR(port))
++				return PTR_ERR(port);
++		}
++	}
++
++	return 0;
++}
++
++static void mtk_port_tbl_destroy(struct mtk_port_mngr *port_mngr)
++{
++	struct mtk_port *port;
++	unsigned long index;
++	int tbl_type;
++
++	tbl_type = PORT_TBL_SAP;
++	do {
++		xa_for_each(&port_mngr->port_tbl[tbl_type], index, port)
++			mtk_port_get_ops(port->info.type)->disable(port);
++
++		xa_for_each(&port_mngr->port_tbl[tbl_type], index, port)
++			mtk_port_free(port_mngr, port);
++	} while (++tbl_type < PORT_TBL_MAX);
++}
++
++static void mtk_port_trb_init(struct mtk_port *port, struct trb *trb, enum mtk_trb_cmd_type cmd,
++			      int (*trb_complete)(struct sk_buff *skb))
++{
++	kref_init(&trb->kref);
++	trb->channel_id = port->info.rx_ch;
++	trb->status = MTK_DFLT_TRB_STATUS;
++	trb->done = false;
++	/* No reference is taken: the port must outlive every trb that names
++	 * it and every RX queue armed with this pointer as rxq->arg.
++	 */
++	trb->priv = port;
++	trb->cmd = cmd;
++	trb->trb_complete = trb_complete;
++}
++
++static bool mtk_port_trb_done(struct trb *trb)
++{
++	/* Pairs with the smp_store_release() in the completion callbacks. */
++	return smp_load_acquire(&trb->done);
++}
++
++void mtk_port_trb_free(struct kref *trb_kref)
++{
++	struct trb *trb = container_of(trb_kref, struct trb, kref);
++
++	dev_kfree_skb_any(container_of((char *)trb, struct sk_buff, cb[0]));
++}
++
++static int mtk_port_ch_trb_complete(struct sk_buff *skb)
++{
++	struct trb *trb = (struct trb *)skb->cb;
++	struct mtk_port *port = trb->priv;
++
++	/* Pairs with the smp_load_acquire() of trb->done in the waiters. */
++	smp_store_release(&trb->done, true);
++	wake_up_all(&port->trb_wq);
++	kref_put(&trb->kref, mtk_port_trb_free);
++
++	return 0;
++}
++
++static int mtk_port_tx_complete(struct sk_buff *skb)
++{
++	struct trb *trb = (struct trb *)skb->cb;
++	struct mtk_port *port = trb->priv;
++
++	if (trb->status < 0)
++		dev_warn_ratelimited(port->port_mngr->ctrl_blk->mdev->dev,
++				     "Failed to send data: status:%d, port:%s\n",
++				     trb->status, port->info.name);
++
++	return mtk_port_ch_trb_complete(skb);
++}
++
++int mtk_port_status_check(struct mtk_port *port)
++{
++	if (!test_bit(PORT_S_ENABLE, &port->status))
++		return -ENODEV;
++
++	if (!test_bit(PORT_S_OPEN, &port->status) || test_bit(PORT_S_FLUSH, &port->status) ||
++	    !test_bit(PORT_S_WR, &port->status))
++		return -EBADF;
++
++	return 0;
++}
++
++static int mtk_port_add_header(struct sk_buff *skb)
++{
++	struct mtk_ccci_header *ccci_h;
++	struct mtk_port *port;
++	struct trb *trb;
 +	int ret;
 +
-+	port = wwan_port_get_drvdata(w_port);
-+	mtk_port_get_locked(port);
++	trb = (struct trb *)skb->cb;
++	port = trb->priv;
++	if (!port)
++		return -EINVAL;
 +
-+	/* mtk_port_common_open() is what sets PORT_S_OPEN, and the RX path
-+	 * tests it together with w_port, so both are published under w_lock.
-+	 */
-+	mutex_lock(&port->w_priv.w_lock);
-+	ret = mtk_port_common_open(port);
++	ret = skb_cow_head(skb, sizeof(*ccci_h));
++	if (ret)
++		return ret;
++
++	ccci_h = skb_push(skb, sizeof(*ccci_h));
++
++	ccci_h->packet_header = cpu_to_le32(0);
++	ccci_h->packet_len = cpu_to_le32(skb->len);
++	ccci_h->ex_msg = cpu_to_le32(0);
++	/* SEQ is stamped at hand-off, see mtk_port_tx_seq_stamp() */
++	ccci_h->status = cpu_to_le32(FIELD_PREP(MTK_HDR_FLD_CHN, port->info.tx_ch) |
++				     FIELD_PREP(MTK_HDR_FLD_AST, 1));
++
++	return 0;
++}
++
++static struct mtk_ccci_header *mtk_port_strip_header(struct sk_buff *skb)
++{
++	struct mtk_ccci_header *ccci_h;
++
++	if (!pskb_may_pull(skb, sizeof(*ccci_h)))
++		return NULL;
++
++	ccci_h = (struct mtk_ccci_header *)skb->data;
++	skb_pull(skb, sizeof(*ccci_h));
++
++	return ccci_h;
++}
++
++int mtk_port_send_data(struct mtk_port *port, void *data, bool blocking, bool force_send)
++{
++	struct mtk_port_mngr *port_mngr;
++	struct sk_buff *skb = data;
++	struct trb *trb;
++	int ret, len;
++
++	port_mngr = port->port_mngr;
++
++	trb = (struct trb *)skb->cb;
++	mtk_port_trb_init(port, trb, TRB_CMD_TX, mtk_port_tx_complete);
++	len = skb->len;
++	kref_get(&trb->kref); /* kref count 1->2 */
++
++	/* add ccci header */
++	ret = mtk_port_add_header(skb);
 +	if (!ret)
-+		port->w_priv.w_port = w_port;
-+	mutex_unlock(&port->w_priv.w_lock);
-+	if (ret) {
-+		mtk_port_put_locked(port);
-+		return ret;
-+	}
++		ret = mtk_port_status_check(port);
++	if (!ret)
++		ret = mtk_pcie_hif_submit_skb(port_mngr->ctrl_blk->mdev, skb,
++					      force_send);
 +
-+	/* WWAN_PORT_TX_OFF persists on the wwan_port across close/open
-+	 * cycles; start every session writable.
-+	 */
-+	wwan_port_txon(w_port);
-+
-+	return 0;
-+}
-+
-+static void mtk_port_wwan_close(struct wwan_port *w_port)
-+{
-+	struct mtk_port *port = wwan_port_get_drvdata(w_port);
-+
-+	/* Clear PORT_S_OPEN under the same lock mtk_port_wwan_recv() holds, so
-+	 * a receive that saw the port open has finished its wwan_port_rx()
-+	 * before stop() returns and the core purges its rx queue.
-+	 */
-+	mutex_lock(&port->w_priv.w_lock);
-+	mtk_port_common_close(port);
-+	mutex_unlock(&port->w_priv.w_lock);
-+
-+	mtk_port_put_locked(port);
-+}
-+
-+/* Called for every TX completion: wwan_port_txon() on a port that is not
-+ * paused only wakes waiters that re-check and sleep again, and a driver
-+ * "paused" flag would duplicate the core's TX_OFF bit.
-+ */
-+static void mtk_port_wwan_tx_complete(struct mtk_port *port)
-+{
-+	mutex_lock(&port->w_priv.w_lock);
-+	if (port->w_priv.w_port)
-+		wwan_port_txon(port->w_priv.w_port);
-+	mutex_unlock(&port->w_priv.w_lock);
-+}
-+
-+/* Pause TX after a queue-full submit failure.  The queue may have drained
-+ * between that failure and the txoff below, and that tx_complete is lost, so
-+ * recheck and undo the txoff if the queue is no longer full.
-+ *
-+ * w_lock is dropped for the recheck to keep it a leaf with respect to
-+ * trans->submit_lock.  A tx_complete landing in the gap can only add a txon,
-+ * so TX is never left off with nothing to wake it.
-+ */
-+static void mtk_port_wwan_tx_pause(struct mtk_port *port)
-+{
-+	union ctrl_hif_cmd_data hif_cmd;
-+	struct mtk_ctrl_blk *ctrl_blk;
-+	int ret;
-+
-+	ctrl_blk = port->port_mngr->ctrl_blk;
-+
-+	mutex_lock(&port->w_priv.w_lock);
-+	if (!port->w_priv.w_port) {
-+		mutex_unlock(&port->w_priv.w_lock);
-+		return;
-+	}
-+
-+	wwan_port_txoff(port->w_priv.w_port);
-+	mutex_unlock(&port->w_priv.w_lock);
-+
-+	hif_cmd.rx_ch = port->info.rx_ch;
-+	ret = mtk_pcie_hif_cmd_func(ctrl_blk->mdev, HIF_CTRL_CMD_CHECK_TX_FULL,
-+				    &hif_cmd);
-+	if (ret <= 0)
-+		mtk_port_wwan_tx_complete(port);
-+}
-+
-+static int mtk_port_wwan_tx(struct wwan_port *w_port, struct sk_buff *skb, bool blocking)
-+{
-+	struct mtk_port *port = wwan_port_get_drvdata(w_port);
-+	int ret;
-+
-+	if (unlikely(!skb->len)) {
-+		consume_skb(skb);
-+		return 0;
-+	}
-+
-+	ret = mtk_port_common_write(port, skb, blocking);
 +	if (ret < 0) {
-+		/* A teardown DISABLE is force-sent and can fill the queue after
-+		 * the blocking wait saw room: report the port state instead.
-+		 */
-+		if (ret == -EAGAIN && blocking)
-+			ret = mtk_port_status_check(port) ? : ret;
-+		if (ret == -EAGAIN)
-+			mtk_port_wwan_tx_pause(port);
-+		return ret;
++		kref_put(&trb->kref, mtk_port_trb_free); /* kref count 2->1 */
++		kref_put(&trb->kref, mtk_port_trb_free); /* kref count 1->0 */
++		goto out;
 +	}
 +
-+	consume_skb(skb);
++	if (!blocking) {
++		kref_put(&trb->kref, mtk_port_trb_free);
++		ret = len;
++		goto out;
++	}
++
++	/* no timeout in tx blocking mode */
++	ret = wait_event_interruptible(port->trb_wq,
++				       mtk_port_trb_done(trb) ||
++				       test_bit(PORT_S_FLUSH, &port->status) ||
++				       !test_bit(PORT_S_WR, &port->status));
++	/* Only a completed trb has a meaningful status; any other wake is
++	 * a write failure.
++	 */
++	if (ret)
++		ret = -EINTR;
++	else if (mtk_port_trb_done(trb))
++		ret = trb->status ? trb->status : len;
++	else
++		ret = -EBADF;
++	kref_put(&trb->kref, mtk_port_trb_free);
++
++out:
++	return ret;
++}
++
++/* A gap only means an earlier packet was lost; this one is still delivered. */
++static void mtk_port_check_rx_seq(struct mtk_port *port, struct mtk_ccci_header *ccci_h)
++{
++	u16 seq_num, assert_bit, channel;
++	struct mtk_md_dev *mdev;
++
++	seq_num = FIELD_GET(MTK_HDR_FLD_SEQ, le32_to_cpu(ccci_h->status));
++	assert_bit = FIELD_GET(MTK_HDR_FLD_AST, le32_to_cpu(ccci_h->status));
++	if (assert_bit && port->rx_seq != MTK_INVALID_RX_SEQ &&
++	    ((seq_num - port->rx_seq) & MTK_CHECK_RX_SEQ_MASK) != 1) {
++		mdev = port->port_mngr->ctrl_blk->mdev;
++		channel = FIELD_GET(MTK_HDR_FLD_CHN, le32_to_cpu(ccci_h->status));
++		dev_warn_ratelimited(mdev->dev,
++				     "<ch: %04x> seq num out-of-order %d->%d, len(%u)\n",
++				     channel, port->rx_seq, seq_num,
++				     le32_to_cpu(ccci_h->packet_len));
++	}
++}
++
++static int mtk_port_rx_dispatch(struct sk_buff *skb, void *priv)
++{
++	struct mtk_port_mngr *port_mngr;
++	struct mtk_ccci_header *ccci_h;
++	struct mtk_port *port = priv;
++	int ret = -EPROTO;
++	u16 channel;
++
++	if (!skb || !priv) {
++		pr_err("Invalid input value in rx dispatch\n");
++		return -EINVAL;
++	}
++
++	port_mngr = port->port_mngr;
++
++	ccci_h = mtk_port_strip_header(skb);
++	if (unlikely(!ccci_h)) {
++		dev_warn_ratelimited(port_mngr->ctrl_blk->mdev->dev,
++				     "Unsupported: skb length(%u) is less than ccci header\n",
++				     skb->len);
++		goto drop_data;
++	}
++
++	channel = FIELD_GET(MTK_HDR_FLD_CHN, le32_to_cpu(ccci_h->status));
++	/* A CLDMA instance carries the channels of one peer only (sAP or MD),
++	 * the peer of the port that armed this queue.
++	 */
++	if (MTK_PEER_ID(channel) == MTK_PEER_ID(port->info.rx_ch))
++		port = mtk_port_search_by_id(port_mngr, channel);
++	else
++		port = NULL;
++	if (unlikely(!port)) {
++		dev_warn_ratelimited(port_mngr->ctrl_blk->mdev->dev,
++				     "Failed to find port by channel:%d\n", channel);
++		goto drop_data;
++	}
++
++	mtk_port_check_rx_seq(port, ccci_h);
++	port->rx_seq = FIELD_GET(MTK_HDR_FLD_SEQ, le32_to_cpu(ccci_h->status));
++
++	ret = mtk_port_get_ops(port->info.type)->recv(port, skb);
++	if (ret < 0)
++		goto drop_data;
++
++	return ret;
++
++drop_data:
++	dev_kfree_skb_any(skb);
++	return ret;
++}
++
++/* Called around the hardware hand-off of a TX TRB, so a packet that
++ * fails before it reaches the ring does not consume a number.
++ */
++void mtk_port_tx_seq_stamp(struct sk_buff *skb)
++{
++	struct mtk_ccci_header *ccci_h = (struct mtk_ccci_header *)skb->data;
++	struct mtk_port *port = ((struct trb *)skb->cb)->priv;
++	u32 status = le32_to_cpu(ccci_h->status) & ~MTK_HDR_FLD_SEQ;
++
++	ccci_h->status = cpu_to_le32(status |
++				     FIELD_PREP(MTK_HDR_FLD_SEQ, port->tx_seq));
++}
++
++void mtk_port_tx_seq_advance(struct sk_buff *skb)
++{
++	struct mtk_port *port = ((struct trb *)skb->cb)->priv;
++
++	port->tx_seq++;
++}
++
++int mtk_port_status_update(struct mtk_md_dev *mdev, void *data, u32 data_len)
++{
++	struct mtk_port_enum_msg *msg = data;
++	struct mtk_port_info *port_info;
++	struct mtk_port_mngr *port_mngr;
++	struct mtk_ctrl_blk *ctrl_blk;
++	struct mtk_port *port;
++	int port_id;
++	u16 ch_id;
++
++	if (unlikely(!mdev || !msg))
++		return -EINVAL;
++
++	if (data_len < sizeof(*msg))
++		return -EPROTO;
++
++	ctrl_blk = mdev->ctrl_blk;
++	port_mngr = ctrl_blk->port_mngr;
++	if (le16_to_cpu(msg->version) != MTK_PORT_ENUM_VER ||
++	    le32_to_cpu(msg->head_pattern) != MTK_PORT_ENUM_HEAD_PATTERN ||
++	    le32_to_cpu(msg->tail_pattern) != MTK_PORT_ENUM_TAIL_PATTERN)
++		return -EPROTO;
++
++	if (data_len < sizeof(*msg) +
++	    le16_to_cpu(msg->port_cnt) * sizeof(*port_info))
++		return -EPROTO;
++
++	for (port_id = 0; port_id < le16_to_cpu(msg->port_cnt); port_id++) {
++		port_info = (struct mtk_port_info *)(msg->data +
++						   (sizeof(*port_info) * port_id));
++		ch_id = FIELD_GET(MTK_INFO_FLD_CHID, le16_to_cpu(port_info->channel));
++		port = mtk_port_search_by_id(port_mngr, ch_id);
++		if (!port)
++			continue;
++		port->enable = FIELD_GET(MTK_INFO_FLD_EN, le16_to_cpu(port_info->channel));
++	}
++
 +	return 0;
 +}
 +
-+static int mtk_port_wwan_write(struct wwan_port *w_port, struct sk_buff *skb)
++int mtk_port_ch_enable(struct mtk_port *port)
 +{
-+	return mtk_port_wwan_tx(w_port, skb, false);
++	struct mtk_port_mngr *port_mngr = port->port_mngr;
++	struct trb_open_priv *trb_open_priv;
++	struct sk_buff *skb;
++	struct trb *trb;
++	int ret;
++
++	/* The modem restarts its sequence numbering with the channel, and
++	 * the first packet after it is not checked.
++	 */
++	port->tx_seq = 0;
++	port->rx_seq = MTK_INVALID_RX_SEQ;
++
++	skb = __dev_alloc_skb(sizeof(*trb_open_priv), GFP_KERNEL);
++	if (!skb)
++		return -ENOMEM;
++
++	trb_open_priv = (struct trb_open_priv *)skb->data;
++	trb_open_priv->rx_done = mtk_port_rx_dispatch;
++
++	skb_put(skb, sizeof(struct trb_open_priv));
++	trb = (struct trb *)skb->cb;
++	mtk_port_trb_init(port, trb, TRB_CMD_ENABLE, mtk_port_ch_trb_complete);
++	kref_get(&trb->kref);
++
++	ret = mtk_pcie_hif_submit_skb(port_mngr->ctrl_blk->mdev, skb, true);
++	if (ret) {
++		dev_err(port_mngr->ctrl_blk->mdev->dev,
++			"Failed to submit trb for port(%s), ret=%d\n",
++			port->info.name, ret);
++		kref_put(&trb->kref, mtk_port_trb_free);
++		kref_put(&trb->kref, mtk_port_trb_free);
++		return ret;
++	}
++
++	ret = wait_event_timeout(port->trb_wq, mtk_port_trb_done(trb),
++				 MTK_DFLT_TRB_TIMEOUT);
++	if (!ret) {
++		ret = -ETIMEDOUT;
++	} else {
++		/* The trb->done acquire in mtk_port_trb_done() orders the
++		 * geometry read below, on the -EBUSY completion too.  Pairs
++		 * with the smp_store_release() of trb->status in mtk_cldma_open().
++		 */
++		ret = smp_load_acquire(&trb->status);
++
++		/* -EBUSY means the queue is already open, and the geometry
++		 * it reports is that queue's - also valid here.
++		 */
++		if (!ret || ret == -EBUSY)
++			port->tx_mtu = trb_open_priv->tx_mtu - MTK_CCCI_H_ELEN;
++	}
++
++	kref_put(&trb->kref, mtk_port_trb_free);
++
++	if (ret && ret != -EBUSY)
++		dev_err(port_mngr->ctrl_blk->mdev->dev,
++			"Failed to enable port(%s), ret=%d\n", port->info.name, ret);
++
++	return ret;
 +}
 +
-+/* Called with the WWAN core's ops_lock held and sleeps interruptibly.  Port
-+ * disable clears PORT_S_WR and wakes trb_wq before wwan_remove_port() takes
-+ * that lock, so removal ends the wait.
++/* Not folded into a helper shared with mtk_port_ch_enable(): that one
++ * reads tx_mtu from the skb after the wait, so the helper would have to
++ * drop the trb reference itself on submit failure but leave it to the
++ * caller otherwise.
 + */
-+static int mtk_port_wwan_write_blocking(struct wwan_port *w_port, struct sk_buff *skb)
++int mtk_port_ch_disable(struct mtk_port *port)
 +{
-+	return mtk_port_wwan_tx(w_port, skb, true);
++	struct mtk_port_mngr *port_mngr = port->port_mngr;
++	struct sk_buff *skb;
++	struct trb *trb;
++	int ret;
++
++	skb = __dev_alloc_skb(0, GFP_KERNEL);
++	if (!skb)
++		return -ENOMEM;
++
++	trb = (struct trb *)skb->cb;
++	mtk_port_trb_init(port, trb, TRB_CMD_DISABLE, mtk_port_ch_trb_complete);
++	kref_get(&trb->kref);
++
++	ret = mtk_pcie_hif_submit_skb(port_mngr->ctrl_blk->mdev, skb, true);
++	if (ret) {
++		dev_warn(port_mngr->ctrl_blk->mdev->dev,
++			 "Failed to submit trb for port(%s), ret=%d\n",
++			 port->info.name, ret);
++		kref_put(&trb->kref, mtk_port_trb_free);
++		kref_put(&trb->kref, mtk_port_trb_free);
++		return ret;
++	}
++
++	ret = wait_event_timeout(port->trb_wq, mtk_port_trb_done(trb),
++				 MTK_DFLT_TRB_TIMEOUT);
++	if (!ret)
++		ret = -ETIMEDOUT;
++	else
++		ret = trb->status;
++
++	kref_put(&trb->kref, mtk_port_trb_free);
++
++	return ret;
 +}
 +
-+/* No .tx_poll: it would poll_wait() on port->trb_wq, which lives in a
-+ * mtk_port that wwan_remove_port() lets go of while the file stays open,
-+ * and wake_up_pollfree() is not available to modules.  TX back-pressure
-+ * reaches poll() through wwan_port_txon()/txoff() on the core's own
-+ * waitqueue instead, whose lifetime is pinned by the open file.
++int mtk_port_mngr_init(struct mtk_ctrl_blk *ctrl_blk, const struct mtk_port_cfg *port_cfg,
++		       int port_cnt)
++{
++	struct mtk_port_mngr *port_mngr;
++	int ret = -ENOMEM;
++
++	port_mngr = devm_kzalloc_obj(ctrl_blk->mdev->dev, *port_mngr);
++	if (unlikely(!port_mngr)) {
++		dev_err((ctrl_blk->mdev)->dev, "Failed to alloc memory for port_mngr\n");
++		goto err_out;
++	}
++
++	port_mngr->ctrl_blk = ctrl_blk;
++
++	ret = mtk_port_tbl_create(port_mngr, port_cfg, port_cnt);
++	if (unlikely(ret)) {
++		dev_err((ctrl_blk->mdev)->dev, "Failed to create port_tbl\n");
++		goto err_destroy_tbl;
++	}
++
++	ctrl_blk->port_mngr = port_mngr;
++
++	return ret;
++
++err_destroy_tbl:
++	mtk_port_tbl_destroy(port_mngr);
++err_out:
++	return ret;
++}
++
++void mtk_port_mngr_exit(struct mtk_ctrl_blk *ctrl_blk)
++{
++	struct mtk_port_mngr *port_mngr = ctrl_blk->port_mngr;
++
++	mtk_port_tbl_destroy(port_mngr);
++
++	ctrl_blk->port_mngr = NULL;
++}
+diff --git a/drivers/net/wwan/t9xx/mtk_port.h b/drivers/net/wwan/t9xx/mtk_port.h
+new file mode 100644
+index 000000000000..63324a7c6167
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/mtk_port.h
+@@ -0,0 +1,125 @@
++/* SPDX-License-Identifier: GPL-2.0-only
++ *
++ * Copyright (c) 2022, MediaTek Inc.
 + */
-+static const struct wwan_port_ops wwan_ops = {
-+	.start = mtk_port_wwan_open,
-+	.stop = mtk_port_wwan_close,
-+	.tx = mtk_port_wwan_write,
-+	.tx_blocking = mtk_port_wwan_write_blocking,
++
++#ifndef __MTK_PORT_H__
++#define __MTK_PORT_H__
++
++#include <linux/bits.h>
++#include <linux/skbuff.h>
++#include <linux/types.h>
++#include <linux/xarray.h>
++
++#include "mtk_ctrl_plane.h"
++#include "mtk_dev.h"
++
++#define MTK_PEER_ID_MASK			(0xF000)
++#define MTK_PEER_ID_SHIFT			(12)
++#define MTK_PEER_ID(ch)				(((ch) & MTK_PEER_ID_MASK) >> MTK_PEER_ID_SHIFT)
++#define MTK_CH_ID_MASK				(0x0FFF)
++#define MTK_CH_ID(ch)				((ch) & MTK_CH_ID_MASK)
++#define MTK_DFLT_PORT_NAME_LEN			(20)
++
++/* Mapping MTK_PEER_ID and mtk_port_tbl index */
++#define MTK_PORT_TBL_TYPE(ch)			(MTK_PEER_ID(ch) - 1)
++
++/* ccci header length + reserved space that is used in exception flow */
++#define MTK_CCCI_H_ELEN		(128)
++
++#define MTK_HDR_FLD_AST		((u32)BIT(31))
++#define MTK_HDR_FLD_SEQ		GENMASK(30, 16)
++#define MTK_HDR_FLD_CHN		GENMASK(15, 0)
++
++#define MTK_INFO_FLD_EN		((u16)BIT(15))
++#define MTK_INFO_FLD_CHID	GENMASK(14, 0)
++
++/* State bits, not locks: callers serialise ->enable(), ->disable() and
++ * open of a port.  The atomic bitops only make a repeated call a no-op.
++ */
++enum mtk_port_status {
++	PORT_S_ENABLE,
++	PORT_S_OPEN,
++	PORT_S_WR,
++	PORT_S_FLUSH,
 +};
 +
-+static int mtk_port_wwan_init(struct mtk_port *port)
++enum mtk_port_flag {
++	PORT_F_DFLT = 0,
++	PORT_F_BLOCKING = BIT(1),
++};
++
++enum mtk_port_tbl {
++	PORT_TBL_SAP,
++	PORT_TBL_MD,
++	PORT_TBL_MAX
++};
++
++enum mtk_port_type {
++	PORT_TYPE_INTERNAL,
++	PORT_TYPE_MAX
++};
++
++struct mtk_internal_port {
++	void *arg;
++	int (*recv_cb)(void *arg, struct sk_buff *skb);
++};
++
++struct mtk_port_cfg {
++	enum mtk_ccci_ch tx_ch;
++	enum mtk_ccci_ch rx_ch;
++	enum mtk_port_type type;
++	char name[MTK_DFLT_PORT_NAME_LEN];
++	unsigned char flags;
++};
++
++struct mtk_port {
++	struct mtk_port_cfg info;
++	struct kref kref;
++	bool enable;
++	unsigned long status;
++	/* tx_seq is stamped and advanced only at hardware hand-off, by the one
++	 * thread serving this port's TX queue.  rx_seq is the number of the
++	 * last packet received on this channel and only feeds the out-of-order
++	 * warning.
++	 */
++	unsigned short tx_seq;
++	unsigned short rx_seq;
++	unsigned int tx_mtu;
++	wait_queue_head_t trb_wq;
++	struct mtk_port_mngr *port_mngr;
++	struct mtk_internal_port i_priv;
++};
++
++struct mtk_port_mngr {
++	struct mtk_ctrl_blk *ctrl_blk;
++	struct xarray port_tbl[PORT_TBL_MAX];
++};
++
++struct mtk_ccci_header {
++	__le32 packet_header;
++	__le32 packet_len;
++	__le32 status;
++	__le32 ex_msg;
++};
++
++struct mtk_port_layer_cfg {
++	const struct mtk_port_cfg *port_cfg;
++	int port_cnt;
++};
++
++void mtk_port_release(struct kref *port_kref);
++void mtk_port_trb_free(struct kref *trb_kref);
++struct mtk_port *mtk_port_get_by_name(struct mtk_port_mngr *port_mngr, const char *name,
++				      enum mtk_port_type type);
++void mtk_port_tx_seq_stamp(struct sk_buff *skb);
++void mtk_port_tx_seq_advance(struct sk_buff *skb);
++int mtk_port_status_check(struct mtk_port *port);
++int mtk_port_send_data(struct mtk_port *port, void *data, bool blocking, bool force_send);
++int mtk_port_status_update(struct mtk_md_dev *mdev, void *data, u32 data_len);
++int mtk_port_ch_enable(struct mtk_port *port);
++int mtk_port_ch_disable(struct mtk_port *port);
++int mtk_port_mngr_init(struct mtk_ctrl_blk *ctrl_blk, const struct mtk_port_cfg *port_cfg,
++		       int port_cnt);
++void mtk_port_mngr_exit(struct mtk_ctrl_blk *ctrl_blk);
++#endif /* __MTK_PORT_H__ */
+diff --git a/drivers/net/wwan/t9xx/mtk_port_io.c b/drivers/net/wwan/t9xx/mtk_port_io.c
+new file mode 100644
+index 000000000000..912b04c24784
+--- /dev/null
++++ b/drivers/net/wwan/t9xx/mtk_port_io.c
+@@ -0,0 +1,236 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2022, MediaTek Inc.
++ */
++#include <linux/netdevice.h>
++
++#include "mtk_port_io.h"
++
++static void mtk_port_put_locked(struct mtk_port *port)
++{
++	mutex_lock(&mtk_port_mngr_grp_mtx);
++	kref_put(&port->kref, mtk_port_release);
++	mutex_unlock(&mtk_port_mngr_grp_mtx);
++}
++
++static void mtk_port_struct_init(struct mtk_port *port)
++{
++	clear_bit(PORT_S_ENABLE, &port->status);
++	kref_init(&port->kref);
++	init_waitqueue_head(&port->trb_wq);
++}
++
++static int mtk_port_internal_init(struct mtk_port *port)
 +{
 +	mtk_port_struct_init(port);
 +	port->enable = false;
 +
-+	mutex_init(&port->w_priv.w_lock);
-+
-+	switch (port->info.rx_ch) {
-+	case CCCI_MBIM_RX:
-+		port->w_priv.w_type = WWAN_PORT_MBIM;
-+		break;
-+	case CCCI_UART2_RX:
-+		port->w_priv.w_type = WWAN_PORT_AT;
-+		break;
-+	default:
-+		port->w_priv.w_type = WWAN_PORT_UNKNOWN;
-+		break;
-+	}
-+
 +	return 0;
 +}
 +
-+static void mtk_port_wwan_exit(struct mtk_port *port)
++static void mtk_port_internal_exit(struct mtk_port *port)
 +{
 +	if (test_bit(PORT_S_ENABLE, &port->status))
 +		mtk_port_get_ops(port->info.type)->disable(port);
-+	mutex_destroy(&port->w_priv.w_lock);
 +}
 +
-+static void mtk_port_wwan_enable(struct mtk_port *port)
++static void mtk_port_internal_enable(struct mtk_port *port)
 +{
-+	struct mtk_port_mngr *port_mngr;
-+	struct wwan_port_caps caps = {};
-+	struct wwan_port *wp;
 +	int ret;
-+
-+	port_mngr = port->port_mngr;
 +
 +	if (test_bit(PORT_S_ENABLE, &port->status))
 +		return;
@@ -647,47 +1126,12 @@ index 912b04c24784..81b403884e9a 100644
 +		return;
 +	}
 +
-+	/* A zero frag_len would make wwan_port_fops_write() loop forever. */
-+	if (!port->tx_mtu) {
-+		dev_err(port_mngr->ctrl_blk->mdev->dev,
-+			"Invalid tx_mtu for port(%s)\n", port->info.name);
-+		mtk_port_ch_disable(port);
-+		return;
-+	}
-+
-+	/* One core fragment is exactly one CCCI packet's payload. */
-+	caps.frag_len = port->tx_mtu;
-+
-+	/* These bits must be set before wwan_create_port(): the device node
-+	 * becomes openable inside it and mtk_port_common_open() rejects a
-+	 * port without PORT_S_ENABLE.
-+	 */
 +	set_bit(PORT_S_WR, &port->status);
 +	set_bit(PORT_S_ENABLE, &port->status);
-+
-+	wp = wwan_create_port(port_mngr->ctrl_blk->mdev->dev,
-+			      port->w_priv.w_type,
-+			      &wwan_ops, &caps, port);
-+	if (IS_ERR(wp)) {
-+		dev_warn(port_mngr->ctrl_blk->mdev->dev,
-+			 "Failed to create wwan port for (%s): %pe\n", port->info.name, wp);
-+		clear_bit(PORT_S_ENABLE, &port->status);
-+		clear_bit(PORT_S_WR, &port->status);
-+		mtk_port_ch_disable(port);
-+		return;
-+	}
-+
-+	/* .start publishes w_port for an opened node; this covers the node
-+	 * nobody opened, which still needs w_port to be removed.
-+	 */
-+	mutex_lock(&port->w_priv.w_lock);
-+	port->w_priv.w_port = wp;
-+	mutex_unlock(&port->w_priv.w_lock);
 +}
 +
-+static void mtk_port_wwan_disable(struct mtk_port *port)
++static void mtk_port_internal_disable(struct mtk_port *port)
 +{
-+	struct wwan_port *w_port;
 +	int ret;
 +
 +	if (!test_and_clear_bit(PORT_S_ENABLE, &port->status))
@@ -697,103 +1141,305 @@ index 912b04c24784..81b403884e9a 100644
 +	clear_bit(PORT_S_WR, &port->status);
 +	wake_up_all(&port->trb_wq);
 +
-+	/* w_lock must be dropped before wwan_remove_port(): that takes the
-+	 * core's ops_lock and forces stop(), which is close() taking w_lock.
++	/* Failure must not abort teardown or keep PORT_S_ENABLE set:
++	 * usr_cnt and the queues are rebuilt together by the next
++	 * mtk_pcie_hif_init(), and a port left with the bit set could never
++	 * be re-enabled (mtk_port_internal_enable() early-returns).
 +	 */
-+	mutex_lock(&port->w_priv.w_lock);
-+	w_port = port->w_priv.w_port;
-+	port->w_priv.w_port = NULL;
-+	mutex_unlock(&port->w_priv.w_lock);
-+
 +	ret = mtk_port_ch_disable(port);
++	/* -EBUSY is reported too: the DISABLE was refused and did not close
++	 * the queue.
++	 */
 +	if (ret)
 +		dev_warn(port->port_mngr->ctrl_blk->mdev->dev,
 +			 "Failed to disable channel for port(%s): %d\n",
 +			 port->info.name, ret);
-+
-+	wwan_remove_port(w_port);
 +}
 +
-+static int mtk_port_wwan_recv(struct mtk_port *port, struct sk_buff *skb)
++static int mtk_port_internal_recv(struct mtk_port *port, struct sk_buff *skb)
 +{
-+	/* Drop frames when nobody has the device open: wwan_port_rx() queues
-+	 * without bound and only a reader drains the queue, so accepting
-+	 * unsolicited traffic here would grow the rxq indefinitely.  Both
-+	 * conditions are read under w_lock, which mtk_port_wwan_close() also
-+	 * takes, so a frame accepted here cannot land on a queue the core is
-+	 * about to purge.
-+	 */
-+	mutex_lock(&port->w_priv.w_lock);
-+	if (!test_bit(PORT_S_OPEN, &port->status) || !port->w_priv.w_port) {
-+		mutex_unlock(&port->w_priv.w_lock);
-+		dev_dbg_ratelimited(port->port_mngr->ctrl_blk->mdev->dev,
-+				    "Drop RX for unopened port(%s)\n", port->info.name);
-+		return -ENXIO;
++	int (*recv_cb)(void *priv, struct sk_buff *skb);
++	struct mtk_internal_port *priv;
++	int ret = -ENXIO;
++
++	if (!test_bit(PORT_S_OPEN, &port->status))
++		goto drop_data;
++
++	priv = &port->i_priv;
++	/* Pairs with the smp_store_release() in mtk_port_internal_recv_register(). */
++	recv_cb = smp_load_acquire(&priv->recv_cb);
++	if (!recv_cb || !priv->arg)
++		goto drop_data;
++
++	ret = recv_cb(priv->arg, skb);
++	return ret;
++
++drop_data:
++	return ret;
++}
++
++static int mtk_port_common_open(struct mtk_port *port)
++{
++	int ret = 0;
++
++	if (!test_bit(PORT_S_ENABLE, &port->status))
++		return -ENODEV;
++
++	if (test_and_set_bit(PORT_S_OPEN, &port->status))
++		return -EBUSY;
++
++	clear_bit(PORT_S_FLUSH, &port->status);
++
++	return ret;
++}
++
++static void mtk_port_common_close(struct mtk_port *port)
++{
++	clear_bit(PORT_S_OPEN, &port->status);
++
++	set_bit(PORT_S_FLUSH, &port->status);
++	wake_up_all(&port->trb_wq);
++}
++
++void *mtk_port_internal_open(struct mtk_md_dev *mdev, char *name, int flag)
++{
++	struct mtk_port_mngr *port_mngr;
++	struct mtk_ctrl_blk *ctrl_blk;
++	struct mtk_port *port;
++	int ret;
++
++	ctrl_blk = mdev->ctrl_blk;
++	port_mngr = ctrl_blk->port_mngr;
++
++	port = mtk_port_get_by_name(port_mngr, name, PORT_TYPE_INTERNAL);
++	if (!port)
++		goto out;
++
++	ret = mtk_port_common_open(port);
++	if (ret) {
++		mtk_port_put_locked(port);
++		port = NULL;
++		goto out;
 +	}
 +
-+	wwan_port_rx(port->w_priv.w_port, skb);
-+	mutex_unlock(&port->w_priv.w_lock);
-+	return 0;
++	if (flag & O_NONBLOCK)
++		port->info.flags &= ~PORT_F_BLOCKING;
++	else
++		port->info.flags |= PORT_F_BLOCKING;
++out:
++	return port;
 +}
 +
-+static const struct mtk_port_ops port_wwan_ops = {
-+	.init = mtk_port_wwan_init,
-+	.exit = mtk_port_wwan_exit,
-+	.enable = mtk_port_wwan_enable,
-+	.disable = mtk_port_wwan_disable,
-+	.recv = mtk_port_wwan_recv,
-+	.tx_complete = mtk_port_wwan_tx_complete,
++int mtk_port_internal_close(void *i_port)
++{
++	struct mtk_port *port = i_port;
++	int ret = 0;
++
++	if (!port) {
++		ret = -EINVAL;
++		goto end;
++	}
++
++	/* Claim the close: a second caller must not drop the reference again.
++	 * mtk_port_common_close() clears the bit itself, for every port type.
++	 */
++	if (!test_and_clear_bit(PORT_S_OPEN, &port->status)) {
++		pr_err("Port(%s) has been closed\n", port->info.name);
++		ret = -EBADF;
++		goto end;
++	}
++
++	mtk_port_common_close(port);
++	mtk_port_put_locked(port);
++end:
++	return ret;
++}
++
++/* Consumes @skb, on failure too. */
++int mtk_port_internal_write(void *i_port, struct sk_buff *skb)
++{
++	struct mtk_port *port = i_port;
++	bool blocking;
++
++	if (!port || !skb) {
++		if (skb)
++			dev_kfree_skb_any(skb);
++		pr_err_ratelimited("Internal write: invalid input\n");
++		return -EINVAL;
++	}
++
++	blocking = !!(port->info.flags & PORT_F_BLOCKING);
++
++	return mtk_port_send_data(port, skb, blocking, blocking);
++}
++
++/* @cb and @arg must stay valid until the receive path has been drained:
++ * closing the port does not unregister them or wait for a callback that is
++ * already running, so close alone does not make freeing @arg safe.
++ * @cb owns the skb when it returns 0 or more; on a negative return the
++ * caller frees it, so @cb must not.
++ */
++void mtk_port_internal_recv_register(void *i_port,
++				     int (*cb)(void *priv, struct sk_buff *skb),
++				     void *arg)
++{
++	struct mtk_port *port = i_port;
++	struct mtk_internal_port *priv;
++
++	priv = &port->i_priv;
++	priv->arg = arg;
++	/* Pairs with the smp_load_acquire() in mtk_port_internal_recv(). */
++	smp_store_release(&priv->recv_cb, cb);
++}
++
++static const struct mtk_port_ops port_internal_ops = {
++	.init = mtk_port_internal_init,
++	.exit = mtk_port_internal_exit,
++	.enable = mtk_port_internal_enable,
++	.disable = mtk_port_internal_disable,
++	.recv = mtk_port_internal_recv,
 +};
 +
- static const struct mtk_port_ops *mtk_port_ops_tbl[PORT_TYPE_MAX] = {
- 	&port_internal_ops,
-+	&port_wwan_ops,
- };
- 
- const struct mtk_port_ops *mtk_port_get_ops(enum mtk_port_type type)
++static const struct mtk_port_ops *mtk_port_ops_tbl[PORT_TYPE_MAX] = {
++	&port_internal_ops,
++};
++
++const struct mtk_port_ops *mtk_port_get_ops(enum mtk_port_type type)
++{
++	return mtk_port_ops_tbl[type];
++}
 diff --git a/drivers/net/wwan/t9xx/mtk_port_io.h b/drivers/net/wwan/t9xx/mtk_port_io.h
-index db1d9ae52d9a..3e3acf93411c 100644
---- a/drivers/net/wwan/t9xx/mtk_port_io.h
+new file mode 100644
+index 000000000000..db1d9ae52d9a
+--- /dev/null
 +++ b/drivers/net/wwan/t9xx/mtk_port_io.h
-@@ -17,7 +17,12 @@ struct mtk_port_ops {
- 	void (*exit)(struct mtk_port *port);
- 	void (*enable)(struct mtk_port *port);
- 	void (*disable)(struct mtk_port *port);
-+	/* recv and tx_complete may sleep, but also run from HIF teardown with
-+	 * trans->submit_lock held: they must not take a lock that is ever held
-+	 * across a call into the HIF.
-+	 */
- 	int (*recv)(struct mtk_port *port, struct sk_buff *skb);
-+	void (*tx_complete)(struct mtk_port *port);
- };
- 
- const struct mtk_port_ops *mtk_port_get_ops(enum mtk_port_type type);
+@@ -0,0 +1,32 @@
++/* SPDX-License-Identifier: GPL-2.0-only
++ *
++ * Copyright (c) 2022, MediaTek Inc.
++ */
++
++#ifndef __MTK_PORT_IO_H__
++#define __MTK_PORT_IO_H__
++
++#include <linux/skbuff.h>
++
++#include "mtk_port.h"
++
++extern struct mutex mtk_port_mngr_grp_mtx;
++
++struct mtk_port_ops {
++	int (*init)(struct mtk_port *port);
++	void (*exit)(struct mtk_port *port);
++	void (*enable)(struct mtk_port *port);
++	void (*disable)(struct mtk_port *port);
++	int (*recv)(struct mtk_port *port, struct sk_buff *skb);
++};
++
++const struct mtk_port_ops *mtk_port_get_ops(enum mtk_port_type type);
++
++void *mtk_port_internal_open(struct mtk_md_dev *mdev, char *name, int flag);
++int mtk_port_internal_close(void *i_port);
++int mtk_port_internal_write(void *i_port, struct sk_buff *skb);
++void mtk_port_internal_recv_register(void *i_port,
++				     int (*cb)(void *priv, struct sk_buff *skb),
++				     void *arg);
++
++#endif /* __MTK_PORT_IO_H__ */
 diff --git a/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c b/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c
-index d9b7f5fbe190..aef84cf35b91 100644
+index 7843c68bff5e..d0c7ce620d9c 100644
 --- a/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c
 +++ b/drivers/net/wwan/t9xx/pcie/mtk_trans_ctrl.c
-@@ -21,6 +21,10 @@
+@@ -13,6 +13,7 @@
+ #include "../mtk_ctrl_plane.h"
+ #include "../mtk_dev.h"
+ #include "mtk_pci.h"
++#include "../mtk_port.h"
+ #include "mtk_trans_ctrl.h"
  
- /* the number of RX GPDs should be at least two */
- static const struct queue_info mtk_queue_info[] = {
-+	{CCCI_UART2_TX, CCCI_UART2_RX, CLDMA1, TXQ(5), RXQ(5),
-+	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, 0},
-+	{CCCI_MBIM_TX, CCCI_MBIM_RX, CLDMA1, TXQ(2), RXQ(2),
-+	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, 0},
- 	{CCCI_CONTROL_TX, CCCI_CONTROL_RX, CLDMA1, TXQ(0), RXQ(0),
+ #define QUEUE_CHL_MASK	0xFFFF
+@@ -26,6 +27,18 @@ static const struct queue_info mtk_queue_info[] = {
  	 Q_MTU_3_5K, Q_MTU_3_5K, TX_GPD_NUM, RX_GPD_NUM, 0},
- 	{CCCI_SAP_CONTROL_TX, CCCI_SAP_CONTROL_RX, CLDMA0, TXQ(0), RXQ(0),
-@@ -28,6 +32,10 @@ static const struct queue_info mtk_queue_info[] = {
  };
  
- static const struct mtk_port_cfg mtk_port_cfg_tbl[] = {
-+	{CCCI_UART2_TX, CCCI_UART2_RX, PORT_TYPE_WWAN, "AT",
++static const struct mtk_port_cfg mtk_port_cfg_tbl[] = {
++	{CCCI_CONTROL_TX, CCCI_CONTROL_RX, PORT_TYPE_INTERNAL, "MDCTRL",
 +		PORT_F_DFLT},
-+	{CCCI_MBIM_TX, CCCI_MBIM_RX, PORT_TYPE_WWAN, "MBIM",
++	{CCCI_SAP_CONTROL_TX, CCCI_SAP_CONTROL_RX, PORT_TYPE_INTERNAL, "SAPCTRL",
 +		PORT_F_DFLT},
- 	{CCCI_CONTROL_TX, CCCI_CONTROL_RX, PORT_TYPE_INTERNAL, "MDCTRL",
- 		PORT_F_DFLT},
- 	{CCCI_SAP_CONTROL_TX, CCCI_SAP_CONTROL_RX, PORT_TYPE_INTERNAL, "SAPCTRL",
++};
++
++static struct mtk_port_layer_cfg mtk_port_layer_cfg = {
++	.port_cfg = mtk_port_cfg_tbl,
++	.port_cnt = ARRAY_SIZE(mtk_port_cfg_tbl),
++};
++
+ static bool mtk_queue_list_is_full(struct mtk_ctrl_trans *trans, struct queue_info *que)
+ {
+ 	return skb_queue_len_lockless(&trans->trans_list[que->hif_id].skb_list[que->txqno]) >=
+@@ -170,6 +183,7 @@ static void mtk_ctrl_trb_handler(struct trb_srv *srv, struct trans_list *trans_l
+ 			break;
+ 		}
+ 		trb = (struct trb *)skb->cb;
++		kref_get(&trb->kref);
+ 
+ 		switch (trb->cmd) {
+ 		case TRB_CMD_ENABLE:
+@@ -185,14 +199,17 @@ static void mtk_ctrl_trb_handler(struct trb_srv *srv, struct trans_list *trans_l
+ 			break;
+ 		case TRB_CMD_TX:
+ 			spin_unlock_irqrestore(&skb_list->lock, flags);
++			mtk_port_tx_seq_stamp(skb);
+ 			err = mtk_cldma_submit_tx(trans->dev, skb);
+ 			if (err) {
+ 				if (trans_list->tx_burst_cnt[qno]) {
+ 					kick = true;
+ 					break;
+ 				}
+-				if (err == -EAGAIN)
++				if (err == -EAGAIN) {
++					kref_put(&trb->kref, mtk_port_trb_free);
+ 					return;
++				}
+ 
+ 				skb_unlink(skb, skb_list);
+ 				trb->status = err;
+@@ -200,6 +217,7 @@ static void mtk_ctrl_trb_handler(struct trb_srv *srv, struct trans_list *trans_l
+ 				break;
+ 			}
+ 
++			mtk_port_tx_seq_advance(skb);
+ 			trans_list->tx_burst_cnt[qno]++;
+ 			spin_lock_irqsave(&skb_list->lock, flags);
+ 			if (trans_list->tx_burst_cnt[qno] >= TX_BURST_MAX_CNT ||
+@@ -233,6 +251,8 @@ static void mtk_ctrl_trb_handler(struct trb_srv *srv, struct trans_list *trans_l
+ 			kick = false;
+ 		}
+ 
++		kref_put(&trb->kref, mtk_port_trb_free);
++
+ 		loop++;
+ 	} while (loop < TRB_NUM_PER_ROUND);
+ }
+@@ -476,6 +496,9 @@ int mtk_pcie_hif_exit(struct mtk_md_dev *mdev)
+ 	return 0;
+ }
+ 
++/* skb->cb holds a trb set up by mtk_port_trb_init(); a TX skb starts with
++ * its CCCI header and has the sending port as trb->priv.
++ */
+ int mtk_pcie_hif_submit_skb(struct mtk_md_dev *mdev, struct sk_buff *skb, bool force_send)
+ {
+ 	struct mtk_ctrl_blk *ctrl_blk = mdev->ctrl_blk;
+@@ -591,7 +614,7 @@ int mtk_trans_ctrl_init(struct mtk_md_dev *mdev)
+ 	trans->queue_info_num = ARRAY_SIZE(mtk_queue_info);
+ 	trans->trb_srv_num = TRB_SRV_NUM;
+ 
+-	err = mtk_ctrl_init(mdev);
++	err = mtk_ctrl_init(mdev, &mtk_port_layer_cfg);
+ 	if (err)
+ 		return err;
+ 
 
 -- 
 2.34.1
