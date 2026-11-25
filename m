@@ -1,96 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.171.160.6
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795583010;
-	b=TscKqLbB3PB3eSZzPllhx3WZZOBxsK0TbOrvwvkbOPksXZ0u/lp7yI5goCy/m+S2Cnis
-	 FFsUKyHbSBikhm7j3b97b4qaP3N6YZhe6ypKGz2xQoO9PJI93PiKo/7gdYQi3zC0ZPZbX
-	 q2/qbZVQBwnwEVsunaR80D/vG1s2+KXpP5x5sHWtQbJxs7MSbzoca7byJ+0zv/80boIQ/
-	 W0/1GgPpzCrxxUIJJsA2an8Pr66GldFIB131xci1OjUYdoKRKmc8mQWS5BSlnjQOP4rFQ
-	 OiKqlffWuaQdih/+v6TMjZsoeJLAOeuRfBEOU7ONrIv51hs/rEqOvjETkA1j3M8YirA==
+	t=1795583012;
+	b=uhw6j82jYiMI81E3HwUU6WngfGVCLOZ0cncOVPvEAT7LHN/P9FUvjgYDPRdAonmj0nrE
+	 waAws85kqr+0N0yETwXNTmWOqocU697ASBv7KrHpiPd7gGYcfAVjYKNdAXQgBsyUKTVM9
+	 ZMo5MQRs3CBWE5Tsk0zbw+gjNfG21hk6DFxSdaxZCgYcvfRF56UdPEs1waXesi+hU2OVr
+	 3sZVX4R+xxjpqQxNV36JpR03WTstySV1XDxgwQCKBvS9/wNSOiVPZCLHOAuXp6C8ZJwI4
+	 18br4DY2twuY5CiXOE+BbP+eioj8tRoyms4KwfwY5CiaeBFNWPlKk9ElFnRGVXLFr+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795583010;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=mmzsQ8yQcEKYwO9cJ8eT25DvK0anvv/VF+Yi20LWU3s=;
-	b=HNkrUJ4fQJMIJ4GplZd7fbCXit0tXQ7WRsw3kwoANAQsw+4ni5DsNTZW71JCfuVJFULA
-	 cEpAeiYvgitlFadfbAC/trHrhUutwcHLfV7r8uySqNcZGTec8QqQepmi5l2AYm5GOMP3/
-	 hofBU4RAtwcdt1/yV+4momffZJlrqA85tiSWbf7gLGaj4usbmnZMx1hxgrprueLpGG6MJ
-	 t3qd6YmCl+mlM0/XEKibxMQP3IvNRqN9m01wfniGZ9cNcJ5Xa6gutgpuGHLOkapKAa7kX
-	 S6+YKkh9ROnRezBFMJxuCzUZIJETctaIaNkYaoeUv8Wb+SSKAWFDgW8EVl170ePS/rg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795583012;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
+	 Received:From:To:Cc:Subject:In-Reply-To:References:Date:Message-ID:
+	 User-Agent:MIME-Version:Content-Type;
+	bh=APcG/N7SQFWvgSRX1joG4IcuEMwIlVbeH+N5fxhYYDI=;
+	b=YnHaaByy2K/W4yfmr+xadSpwMmBubHzDoMG0eRJe4xv+EgbNIYeStmy2CJpiy+Bkf31f
+	 jFmUp9lKq2i/SWsRpN+iTAvlyXplES3tSD14+NzyRVaTbkkA8/xB3DTtPdh4e2bInNZ1q
+	 ksq1A+/PgkTIjfBA28jWQaKWYar8dam6+3ABqDjYoel3pmoX0Rjr57cyK6Q50btIxKbft
+	 7fihZPgc8+H6IBIH1mSmC4cumMbV/231K4GTHRyMjO+LkFYWLVrTXwlM/P/4WHaQzadDP
+	 7kiNnWjbpUX4VKhuduqXYQJcRcaRnYfVgyBrQMySb7kNxG62DnK12OEDz1a5luoZoyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cBPeSCmQ;
-	arc=none smtp.remote-ip=209.85.210.176
-Received: from mail-pf1-f176.google.com (mail-pf1-f176.google.com [209.85.210.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=mail.parknet.co.jp;
+	spf=pass smtp.mailfrom=parknet.co.jp;
+	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=rsa-sha256 header.s=20250114 header.b=g9Vsapqi;
+	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=ed25519-sha256 header.s=20250114-ed25519 header.b=19fzrGKb;
+	arc=none smtp.remote-ip=210.171.160.6
+Received: from mail.parknet.co.jp (mail.parknet.co.jp [210.171.160.6])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC13C606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:03:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC13C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22FEC606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:03:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22FEC606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.parknet.co.jp
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=parknet.co.jp
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cBPeSCmQ
-Received: by mail-pf1-f176.google.com with SMTP id d2e1a72fcca58-8b5e5e64494so2752032b3a.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:03:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795583009; x=1796187809; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mmzsQ8yQcEKYwO9cJ8eT25DvK0anvv/VF+Yi20LWU3s=;
-        b=cBPeSCmQXaI/3E2+NAPOpz2aK1M7tN1WZemYq0lqZ7Ie76pICCMIJ/0QGCZG7Z7vfU
-         sH9BvxwqlkLWMOzauxVMKBx3lhRHCIZm8x+mkgxnbebfciHgw6DduRomlgkg2f6AgWsB
-         BcfDl6kbrKAVmcea6mN7sALkcEo9FywPyveYV46+ICCEBMflt4VDTS99potbJZyL2Hrr
-         6BSCbMeL3zuPuqshssJSCynpZN/8hmsQ4AaOf0FzBQkTOytY6lUk6cn3v3uQEp0wkCPe
-         Pi1h1V1gY0zbsFpNYkAX1TZT6WFScrUcExemyxU569CHovLtlMGJ5fhMTwLsxB/Sk60M
-         6F5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795583009; x=1796187809;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mmzsQ8yQcEKYwO9cJ8eT25DvK0anvv/VF+Yi20LWU3s=;
-        b=NQBivZ7g6n7vhB8PzoCe7gAQecWdZN0PfzOwHebb/g5uAd1mdqx6LnHRUvaCHa8Ctu
-         s8PSDza3BZsq5Tl/fqtm1x95V3fPbeMzEBR76dgWnIny+qE2+VZ5oaxcwoKURaHoipbE
-         UFG52yNZRv8vBC7EVU/AWnvQjtC+vc/5u8cVdt6l1YlC4NXLJvriJNXN2MPi6x+P8UD2
-         ZsO4MZ9BYK0Ie/SGeVux64v8zaSf0aVrkK/1s7C2nP0SSUc+M7ku0eThXcC7Ve5Mv93h
-         GwSc6h5dhfsS+Vvw9NWHWg9C8iPfa/9YEoC87UgX5KKB/msHocz4KRu2EMpDxA+2xVlM
-         XY5g==
-X-Forwarded-Encrypted: i=1; AL+hErF2q9UPAa73BVwQheDtTEn+vxxPqW+x2kIWH9PJVy9rHPCQhJOmoZENf6DFRVJepe5s0bftM/xojF/DD8c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8D/YRM7ka4oIdx45nkA5xtl+NcTjmNqk5/DvJTKx1nwbY/NXDm
-	Zu2NhNcswhCQeulgrmCmLZUSm4/qHHjCvsS7DqZZKgGloueDA8WcQfNI
-X-Gm-Gg: AZFdTZc0WQVwD24Ufv4KuVnI8OB/huVKKy++oLvsQaYo0KWm0buV1i/848nGgj7NCOC
-	3bGsh8+SaSo+J/sgtV/q3hZL9+I3JQ7Ry6w0jbSQ9YNacG21KaKY6BhtjtG7uj8VCjzpuNJ+5sP
-	82/jQlarJWa5OpzM1NvGD2HDooq/s4RogV9190ELE3mtJ80O86DmVstUfwIfoukL73S4uGpNrgq
-	4O8EB3MiZAniymRJGWEZK1OUP670kp5Uej+sbfgczlsGAK2t2JhVht8Q/1JAi9QkkwtxkV8UZd7
-	ThUknOELBpwPOWJ+5Ax7xBKev4Gkb7lZHVR6oXxuHctOe+gBIoEXAR7txi2UEYXEDMzjx8q1f/a
-	26y668JKlGql5H1OZ5DdbkU85ZasfIKYB2dlS7Yb9r3eyNUCmY/Ej1isV+8A4tYCNLKnO5gdyZw
-	dfTyNDDbBRXyAlWeg9IrUtbS59bEHVEV6xoLc5Ad1tySZ4y33kNMML3mmB8J2S+7OjvoZDXaAZX
-	lutPzv5qOqPbNqJTGqv0euHIg34lzsvQqC+OoHNdHUTPKvVNgv8O7/yyEhAFMWRTSqK/KnamO16
-	kv9x0cT4nosRFyDTrKhEM5Qt313BpOu32LK0JNML5nazepipvxb1JY/lsnWgr4cetRAGhX3Ws8z
-	CiDpb+mw7ykvTNUK4b4BHW3HpvmsLk4JLKSMYwrvO
-X-Received: by 2002:a05:6a20:7f8e:b0:3e2:9dee:42cd with SMTP id adf61e73a8af0-4014bc4e175mr17405476637.36.1795583008860;
-        Tue, 24 Nov 2026 21:03:28 -0800 (PST)
-Received: from LDYT9Q2G2M.pvgl.sap.corp ([2a09:bac5:cad3:119::1c:2e7])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c14fsm8180394b3a.15.2026.11.24.21.03.26
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 21:03:28 -0800 (PST)
-From: Zhiqi Zhang <zhiqizhangg@gmail.com>
-To: daniel.lezcano@kernel.org,
-	tglx@kernel.org
-Cc: krzk@kernel.org,
-	peter.griffin@linaro.org,
-	alim.akhtar@samsung.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: [PATCH] clocksource/drivers/exynos_mct: reject malformed local-timers property
-Date: Wed, 25 Nov 2026 13:03:23 +0800
-Message-ID: <20261125050323.83620-1-zhiqizhangg@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	dkim=pass (2048-bit key, unprotected) header.d=parknet.co.jp header.i=@parknet.co.jp header.a=rsa-sha256 header.s=20250114 header.b=g9Vsapqi;
+	dkim=pass header.d=parknet.co.jp header.i=@parknet.co.jp header.a=ed25519-sha256 header.s=20250114-ed25519 header.b=19fzrGKb
+Received: from ibmpc.myhome.or.jp (server.parknet.ne.jp [210.171.168.39])
+	by mail.parknet.co.jp (Postfix) with ESMTPSA id 23E2820BD280;
+	Wed, 25 Nov 2026 14:03:22 +0900 (JST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=parknet.co.jp;
+	s=20250114; t=1795583002;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=APcG/N7SQFWvgSRX1joG4IcuEMwIlVbeH+N5fxhYYDI=;
+	b=g9VsapqiSlNzQ+Uho3xKwX3kfek5JGli3f44ng8dgQBtkjwExMM+IStf1HJ1iP6yDtUnwv
+	fLn2/r1qSczYYRWCC77EEvHaedZEvXkOwesNsHkVHNhL/ruJIFDYu1vQlwYOZJNLzURsFJ
+	RqmXhwtc6lHwzlXgPzII9fgR+Bb88LvG082msInjyO1LhXZwPmac+3znJHz6urV0boC3np
+	oTs03WuEUkTuXSmb/86nCyyAPhAe+9mk7gU9r0j/w14NrMgB16OERIyxTsiVaOWMbEOR5K
+	c5CBQZ6I2WYygpIV+GUrUcEyzHCNATG0QFCOsRI+HV+5osCwbHt6iU+25qe9rg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=parknet.co.jp;
+	s=20250114-ed25519; t=1795583002;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=APcG/N7SQFWvgSRX1joG4IcuEMwIlVbeH+N5fxhYYDI=;
+	b=19fzrGKbehRv/3ULVS8jX0TS4cjwrzHH9lKDJ8ZrhIlFRNXfYY8IkzCiD6HS5NF/P+DXEh
+	wDAw5NTY5HniUPDQ==
+Received: from devron.myhome.or.jp (devron.myhome.or.jp [192.168.0.3])
+	by ibmpc.myhome.or.jp (Postfix) with ESMTPS id 97C4DE0008D;
+	Wed, 25 Nov 2026 14:03:21 +0900 (JST)
+Received: by devron.myhome.or.jp (Postfix, from userid 1000)
+	id 8761B22001A3; Wed, 25 Nov 2026 14:03:21 +0900 (JST)
+From: OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
+To: yanghaoming <yanghaoming@kaihong.com>
+Cc: linux-kernel@vger.kernel.org,
+  syzbot+c1b4f0f31099fb2324e2@syzkaller.appspotmail.com
+Subject: Re: [PATCH] fat: hold buffer lock while reading and writing FAT
+ table entries
+In-Reply-To: <20261125034336.3724504-1-yanghaoming@kaihong.com>
+References: <20261125034336.3724504-1-yanghaoming@kaihong.com>
+Date: Wed, 25 Nov 2026 14:03:21 +0900
+Message-ID: <87mrqxsdt2.fsf@mail.parknet.co.jp>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,55 +81,216 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 
-The samsung,local-timers property is optional. When it is not present,
-mct_init_dt() should keep using the default local timer indices.
+yanghaoming <yanghaoming@kaihong.com> writes:
 
-of_property_count_u32_elems() returns a negative error both when the
-property is absent and when it is present but malformed. The current
-code handles any negative value as if the property were absent, so a
-bad samsung,local-timers property is silently ignored instead of being
-rejected.
+> FAT metadata pages are ordinary buffer_heads on the block device
+> (often a loop device over shmem or a writable backing file).  When the
+> VFS updates the allocation table it goes through
+> fatent_operations->ent_put(), which writes directly into bh->b_data.
+> In parallel, the block layer writeback path may touch the same
+> buffer: __block_write_full_folio() only inspects and copies buffer
+> contents while the buffer is under lock_buffer(), then submits I/O.
+>
+> The failure mode reported by syzkaller (KCSAN) on FAT12 over loop
+> typically looks like this on two CPUs:
+>
+>   [CPU0, process] unlink / truncate / cluster free
+>            fat_free_clusters()
+>              fat_ent_read() -> fat12_ent_get()
+>              fat12_ent_put() stores into ent12_p[] in bhs[0]->b_data
+>              (and bhs[1] when needed) without BH_Lock
+>
+>   [CPU1, kworker] I/O on the block device under the FAT (e.g. loop)
+>            blkdev_writepages() -> __block_write_full_folio() uses
+>            lock_buffer() before touching b_data; with a loop-backed
+>            volume, submitting those pages can reach the backing file
+>            write path, where copy_folio_from_iter_atomic() reads the
+>            same buffer memory as in the syz report
+>
+> There was no happens-before relationship between those accesses, so
+> KCSAN reported a data race (write in fat12_ent_put vs read in the
+> writeback path).  The problem is not specific to FAT12's nibble
+> packing; fat16_ent_put and fat32_ent_put had the same pattern for
+> their le16/le32 stores.
+>
+> Historically FAT12 used a global spinlock (fat12_entry_lock) around
+> packing high/low nibbles.  That only serialized other ent_put callers
+> in process context; it does not synchronize with the block layer, which
+> relies on BH_Lock (see buffer.c: writers and writeback must coordinate
+> through lock_buffer() on the same buffer_head).  fat_mirror_bhs() and
+> several paths in dir.c already lock buffers before touching b_data;
+> ent_get/ent_put were the missing piece.
+>
+> Fix:
+>
+> - Add fat_lock_entry_bhs() / fat_unlock_entry_bhs(): for each fatent
+>   buffer, lock_buffer() in ascending index order and unlock in reverse
+>   (FAT12 may use two bhs when an entry spans a sector boundary).
+> - Wrap all fat12/fat16/fat32 ent_get() and ent_put() access to
+>   bh->b_data with these helpers; leave mmb_mark_buffer_dirty() after
+>   unlock, matching existing ent_put and dir.c behaviour.
+> - Drop fat12_entry_lock.
+>
+> After this change, any modification of FAT table contents in memory
+> holds BH_Lock for the duration of the read/write, the same lock
+> writeback takes before reading b_data for I/O.  The two sides cannot
+> access b_data concurrently, so the reported KCSAN race class cannot
+> recur on this path.  ent_get/ent_put remain on VFS/FAT process-context
+> call chains only; they do not run in interrupt context.
+>
+> No on-disk format or VFS-visible allocation semantics change; this
+> only serializes in-memory access to FAT table buffer_heads with the
+> block layer BH_Lock, consistent with blkdev_writepages and dir.c.
+>
+> Testing: qemu-x86-lab/repro-fat12-kcsan on parent fatent (KCSAN bzImage):
+> FAT12, loop over writable backing, 12 writers + sync pressure, 600s.
+>
+> - Pre-fix: KCSAN STRICT (fat12_ent_put vs copy_folio_from_iter_atomic); syz
+>   class; no production corruption case attached to the syz bug id.
+> - Pre-fix: host fsck.vfat -n -v on exported loop image: both FAT copies
+>   differ; several files show cluster chain longer than inode size; dirty
+>   bit set; no cross-link / invalid-FAT structural fsck failures.
+> - Post-fix (same repro, 240-600s): check-syz STRICT write+read same report
+>   count 0; log stacks omit fat12_ent_put; fsck.vfat -n -v clean on export.
 
-Check for the property first. If it is present, propagate the parser
-error or reject an empty array before programming the explicit local
-timer indices. This preserves the default path for device trees that
-omit the optional property.
+What does "exported" mean? If corruption without umount, it is expected
+one, and this issue should affect only type of stable pages.
 
-I found this issue and reviewed the code change that OpenAI Codex
-helped draft.
+Thanks.
 
-Fixes: 47dbe4eb9822 ("clocksource/drivers/exynos_mct: Support local-timers property")
-Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
----
- drivers/clocksource/exynos_mct.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+> Performance: FAT32 volume mounted vfat (fat32_ent_get/put path), QEMU/KVM
+> on 1 GiB test images (parent fatent.c vs this patch).  Median of 3 guest
+> runs on virtio (direct) and loop; loop is the backend relevant to syz.
+>
+> - dd 512 MiB + sync: ~170 MiB/s; loop -1.2%, virtio -0.8%.
+> - 3000x create/unlink: loop total time -1.1%.
+> - 512 MiB sequential file grow (1 MiB writes, FAT updates): loop -0.8%.
+> - 64x4 MiB files, 4 KiB rewrite (stresses fat_ent_put): loop throughput
+>   -0.2% (3 runs); per-4KiB latency +1.5% on loop.
+> - Same 4 KiB rewrite, 100 paired before/after boots: loop throughput
+>   median +0.02%; paired before-vs-after delta stdev 4.9% (isolated
+>   +/-16% swings are run-to-run jitter, not a stable loop regression).
+>
+> Fixes: 98283bb49c6c ("fat: Fix the race of read/write the FAT12 entry")
+> Reported-by: syzbot+c1b4f0f31099fb2324e2@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=c1b4f0f31099fb2324e2
+> Signed-off-by: yanghaoming <yanghaoming@kaihong.com>
+> ---
+>  fs/fat/fatent.c | 41 ++++++++++++++++++++++++++++++++++-------
+>  1 file changed, 34 insertions(+), 7 deletions(-)
+>
+> diff --git a/fs/fat/fatent.c b/fs/fat/fatent.c
+> index 2d10a815a579..be2c50ebcd77 100644
+> --- a/fs/fat/fatent.c
+> +++ b/fs/fat/fatent.c
+> @@ -18,7 +18,22 @@ struct fatent_operations {
+>  	int (*ent_next)(struct fat_entry *);
+>  };
+>  
+> -static DEFINE_SPINLOCK(fat12_entry_lock);
+> +/* Avoid race with blockdev writeback while accessing bh->b_data */
+> +static void fat_lock_entry_bhs(struct fat_entry *fatent)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < fatent->nr_bhs; i++)
+> +		lock_buffer(fatent->bhs[i]);
+> +}
+> +
+> +static void fat_unlock_entry_bhs(struct fat_entry *fatent)
+> +{
+> +	int i;
+> +
+> +	for (i = fatent->nr_bhs - 1; i >= 0; i--)
+> +		unlock_buffer(fatent->bhs[i]);
+> +}
+>  
+>  static void fat12_ent_blocknr(struct super_block *sb, int entry,
+>  			      int *offset, sector_t *blocknr)
+> @@ -122,12 +137,12 @@ static int fat12_ent_get(struct fat_entry *fatent)
+>  	u8 **ent12_p = fatent->u.ent12_p;
+>  	int next;
+>  
+> -	spin_lock(&fat12_entry_lock);
+> +	fat_lock_entry_bhs(fatent);
+>  	if (fatent->entry & 1)
+>  		next = (*ent12_p[0] >> 4) | (*ent12_p[1] << 4);
+>  	else
+>  		next = (*ent12_p[1] << 8) | *ent12_p[0];
+> -	spin_unlock(&fat12_entry_lock);
+> +	fat_unlock_entry_bhs(fatent);
+>  
+>  	next &= 0x0fff;
+>  	if (next >= BAD_FAT12)
+> @@ -137,8 +152,12 @@ static int fat12_ent_get(struct fat_entry *fatent)
+>  
+>  static int fat16_ent_get(struct fat_entry *fatent)
+>  {
+> -	int next = le16_to_cpu(*fatent->u.ent16_p);
+> +	int next;
+> +
+>  	WARN_ON((unsigned long)fatent->u.ent16_p & (2 - 1));
+> +	fat_lock_entry_bhs(fatent);
+> +	next = le16_to_cpu(*fatent->u.ent16_p);
+> +	fat_unlock_entry_bhs(fatent);
+>  	if (next >= BAD_FAT16)
+>  		next = FAT_ENT_EOF;
+>  	return next;
+> @@ -146,8 +165,12 @@ static int fat16_ent_get(struct fat_entry *fatent)
+>  
+>  static int fat32_ent_get(struct fat_entry *fatent)
+>  {
+> -	int next = le32_to_cpu(*fatent->u.ent32_p) & 0x0fffffff;
+> +	int next;
+> +
+>  	WARN_ON((unsigned long)fatent->u.ent32_p & (4 - 1));
+> +	fat_lock_entry_bhs(fatent);
+> +	next = le32_to_cpu(*fatent->u.ent32_p) & 0x0fffffff;
+> +	fat_unlock_entry_bhs(fatent);
+>  	if (next >= BAD_FAT32)
+>  		next = FAT_ENT_EOF;
+>  	return next;
+> @@ -160,7 +183,7 @@ static void fat12_ent_put(struct fat_entry *fatent, int new)
+>  	if (new == FAT_ENT_EOF)
+>  		new = EOF_FAT12;
+>  
+> -	spin_lock(&fat12_entry_lock);
+> +	fat_lock_entry_bhs(fatent);
+>  	if (fatent->entry & 1) {
+>  		*ent12_p[0] = (new << 4) | (*ent12_p[0] & 0x0f);
+>  		*ent12_p[1] = new >> 4;
+> @@ -168,7 +191,7 @@ static void fat12_ent_put(struct fat_entry *fatent, int new)
+>  		*ent12_p[0] = new & 0xff;
+>  		*ent12_p[1] = (*ent12_p[1] & 0xf0) | (new >> 8);
+>  	}
+> -	spin_unlock(&fat12_entry_lock);
+> +	fat_unlock_entry_bhs(fatent);
+>  
+>  	mmb_mark_buffer_dirty(fatent->bhs[0],
+>  			      &MSDOS_I(fatent->fat_inode)->i_metadata_bhs);
+> @@ -182,7 +205,9 @@ static void fat16_ent_put(struct fat_entry *fatent, int new)
+>  	if (new == FAT_ENT_EOF)
+>  		new = EOF_FAT16;
+>  
+> +	fat_lock_entry_bhs(fatent);
+>  	*fatent->u.ent16_p = cpu_to_le16(new);
+> +	fat_unlock_entry_bhs(fatent);
+>  	mmb_mark_buffer_dirty(fatent->bhs[0],
+>  			      &MSDOS_I(fatent->fat_inode)->i_metadata_bhs);
+>  }
+> @@ -190,8 +215,10 @@ static void fat16_ent_put(struct fat_entry *fatent, int new)
+>  static void fat32_ent_put(struct fat_entry *fatent, int new)
+>  {
+>  	WARN_ON(new & 0xf0000000);
+> +	fat_lock_entry_bhs(fatent);
+>  	new |= le32_to_cpu(*fatent->u.ent32_p) & ~0x0fffffff;
+>  	*fatent->u.ent32_p = cpu_to_le32(new);
+> +	fat_unlock_entry_bhs(fatent);
+>  	mmb_mark_buffer_dirty(fatent->bhs[0],
+>  			      &MSDOS_I(fatent->fat_inode)->i_metadata_bhs);
+>  }
 
-diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
-index da09f467a6..aee3d88ad3 100644
---- a/drivers/clocksource/exynos_mct.c
-+++ b/drivers/clocksource/exynos_mct.c
-@@ -645,10 +645,13 @@ static int __init mct_init_dt(struct device_node *np, unsigned int int_type)
- 	int nr_local;
- 	int ret;
- 
--	nr_local = of_property_count_u32_elems(np, "samsung,local-timers");
--	if (nr_local == 0)
--		return -EINVAL;
--	if (nr_local > 0) {
-+	if (of_property_present(np, "samsung,local-timers")) {
-+		nr_local = of_property_count_u32_elems(np, "samsung,local-timers");
-+		if (nr_local < 0)
-+			return nr_local;
-+		if (!nr_local)
-+			return -EINVAL;
-+
- 		if (nr_local > ARRAY_SIZE(local_idx))
- 			return -EINVAL;
- 
-
-base-commit: 7ccb044c27720d48175577080b851f047ddcfd1c
 -- 
-2.54.0 (Apple Git-157)
-
+OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
