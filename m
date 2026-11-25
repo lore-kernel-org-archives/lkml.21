@@ -1,38 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.47.186.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.201
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795611624;
-	b=Q48MDCu0Co3Ro7RZTOZ7JIHTrPqsH7kGO/lgynSp/gZQ9qqV4L6h2okw7A2keD0rrUkd
-	 5Sk9HXrYiIVBq7cvgoAgDUaWeB1ulR/57ydErGSm7dUXe5VGJ3If+JhiGxl0v/Q25whHM
-	 PNrZH+/kzMZtMXYadX+tVmjaF5q8QdKajILrOo0fnD9Vxg6hWdxqXxmwfz4zoWamKCWtR
-	 fQ4BQi4weAgpUyPB8rdBELFH4B6VCv0p5t8hHx7n9BdnDtTYZLNfVBsvq9aKZxO3owc/V
-	 ar2GebGQTSQUpu5tcqHtbeACRlQsdnAv7h3VP0izGjhnOpo+LbtxxH9ThfE1I6HfNAw==
+	t=1795611648;
+	b=o9+UYEHj0cpvNIW+TEV6Fb71xpAcMRYz8ddoWNoVEg/a4J4K5KSyGRJO2V8260PCMDSt
+	 166eZCrtLreWLZ310G3WO6ATp5gf002Yv9hdREuVdcFvUbOOLN4lJ6+41Wv95uDT2Wdoy
+	 sr1HzYc3PJy01bfUrAp7798bLMCZMBQfyE31aAzrqf05I7uizebLLqqlGNQUoAqNWwvYt
+	 348xgYJbzX3JEUvUAaR/FQx5l+sR4S5INN9AP9Y33N7NePc3GWHWsMemjt2XubP6/EGPi
+	 XGnwaOD7VuL1QqQ+MTVy6TEHs0p3KwkeYEL8DkdFZbWcRUcUdcYnzAoq0i4KrVTkONA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795611624;
-	h=DMARC-Filter:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=WOq40z2mfPPBwx9K47FgPiwzhc1b64jDfDS56IDqYLA=;
-	b=zm6D2Dn96DaDBENjhW7XrG3cYp809jBK/iW6NZT8et0RNn+CHZ0wqivgCvQKdYLGxkO6
-	 raGXTDmB6ddmvk/fPyIHv3qxCQZ6hopVbUZpXC0+3kNbzbC0n7plteIS1IPTLPsDbfhst
-	 +Z+j1aPrvD1Kcyqgl4vsauQpChubhxJL1JLeD2r+Tj4p11BSmmGRu6zCFTsvNcsFCTYm6
-	 OGw7hzdZyQATcdO4x+7cRPw4KQx/UatXTrBek7e7U+ioALKzLwgAyI5ZsgtL1sVduh8+F
-	 U36yQgLIdmWB0uUUyC09KoSL7DCJJ48U3WaqjnU3dA9HeptMn3d0H068R/P2VCzZE3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795611648;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=OFy3WviaYP7EOH8706hEhHzhb+EluVzWS5SXIUBm5Ig=;
+	b=GoRmbPAeimiLuEOQJlGklw8almEjbwah3Y35n1qcB5IWTf2JOqX4Av9CMYhevzmBMHwj
+	 02rQ7zRK6WFMcmmUoSEmVnfcZ+gGSqLZkLn7kWj4gcMIU5XWyQMn52AZ1VwoCamRgoi16
+	 osO24YeqznbhgzdfwKw6r6SiYv2xZI3upuhtmoEaO6bdCrdHT3eIQUpSLBW21VZOd6wt8
+	 f5/usAhvmd8xRbEcQjkyR0mwoX0I3kMa2+t8OGAAS0mYEPGXLlScj7E4wQV4ShwphKT1N
+	 Qh/3x/1D+eXvGT++jG0tTfT4Yv3Tvd2YuaPpS4otBzUjHBVPINP/K0IVLTBeUe0VCHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=krgm.moe;
-	spf=pass smtp.mailfrom=krgm.moe;
-	arc=none smtp.remote-ip=103.47.186.116
-Received: from krgm.moe (krgm.moe [103.47.186.116])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 64F16606A339;
-	Wed, 25 Nov 2026 13:00:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64F16606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=krgm.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=krgm.moe
-Received: from yuno-laptop.local (unknown [103.47.186.116])
-	by krgm.moe (Postfix) with ESMTPSA id F1499859;
-	Wed, 25 Nov 2026 18:30:17 +0530 (IST)
-From: SignKirigami <prcups@krgm.moe>
-Date: Wed, 25 Nov 2026 20:59:10 +0800
-Subject: [PATCH v3 4/4] clk: qcom: rpmh: Add Netrani clock resources
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Bb9yHVjF;
+	arc=none smtp.remote-ip=91.218.175.201
+Received: from mta0.migadu.com (out-201.mta0.migadu.com [91.218.175.201])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DE21606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 13:00:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1DE21606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Bb9yHVjF
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=v0ANhT+rIRKj1GNWz5h+Zv0aeoPAdiTKhvM8PO5u0YA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795611645; v=1; x=1796216445;
+ b=Bb9yHVjFdob6NcRMsFr+aWSkdkbZbkoAdqJgCtDJi5PMYv4ET95KFem2cc6huMXFMvcUt6YL
+ fBZvryYhp79hjDdvHpPFWgwzSBLr8AZRZEJ11R33eNflySgHn385prS3BH/JseXGvcfN14NiA3i
+ jFsVvWMGyeTo/laJgACgo3AQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 0f1b50c62d71d176;
+	Wed, 25 Nov 2026 13:00:40 +0000
+X-Mizu-Trace-ID: 0f1b50c62d71d176
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <3b42b905-ee4d-4c0d-a266-abf27bb10bf4@linux.dev>
+Date: Wed, 25 Nov 2026 21:00:29 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -42,83 +58,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 13/16] mm/mglru: Reduce LRU lock contention by
+ shrinking folio batches in inc_min_seq
+To: "Barry Song (Xiaomi)" <baohua@kernel.org>, akpm@linux-foundation.org,
+ linux-mm@kvack.org
+Cc: axelrasmussen@google.com, baolin.wang@linux.alibaba.com,
+ baoquan.he@linux.dev, hannes@cmpxchg.org, hui.zhu@linux.dev,
+ kasong@tencent.com, kunwu.chan@gmail.com, liam@infradead.org,
+ lianux.mm@gmail.com, linux-kernel@vger.kernel.org,
+ liuxiang.277@bytedance.com, lyugaofei@xiaomi.com, mhocko@kernel.org,
+ mhocko@suse.com, qi.zheng@linux.dev, rppt@kernel.org, ryncsn@gmail.com,
+ shakeel.butt@linux.dev, surenb@google.com, wangzicheng@honor.com,
+ weixugc@google.com, yuanchu@google.com, zhangbo56@xiaomi.com,
+ zhuhui@kylinos.cn, sidchintamaneni@gmail.com
+References: <20261114200803.23129-1-baohua@kernel.org>
+ <20261114200803.23129-14-baohua@kernel.org>
+From: Ridong Chen <ridong.chen@linux.dev>
+In-Reply-To: <20261114200803.23129-14-baohua@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-netrani-clock-v3-v3-4-9b19d320f422@krgm.moe>
-References: <20261125-netrani-clock-v3-v3-0-9b19d320f422@krgm.moe>
-In-Reply-To: <20261125-netrani-clock-v3-v3-0-9b19d320f422@krgm.moe>
-To: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, SignKirigami <prcups@krgm.moe>, 
- Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2100; i=prcups@krgm.moe;
- h=from:subject:message-id; bh=4D8eIU4ZKD7u+owhYxzQ0nsrH4GpkIfYoFrNiwMWGzI=;
- b=owEBCQL2/ZANAwAIAUNLJdlxtMKiAcsmYgBrBtvCy24TEPIWudt7yP0rbLm3dBDevWheiq8R9
- j46+gFFXviJAc8EAAEIADkWIQQKI/ZJLAWGn9r1JLZDSyXZcbTCogUCawbbwhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQQ0sl2XG0wqIqTgv/eQ+CNWxyYFAYsMiB6qwF8dSivJb/DWH
- oFCHVCwEBLm4xLH3EWjFDB9LiDMWlk8N5f5wt/a+iHzvZB2PWMgqYB6g1HJ46zbMLTuyoTkZztf
- DpuT6X0BZMaGRC/3Tm8H75lYz74hpOC5D3Aqg9HIgijaKBLdIb+S32d4sGrqWHiderDQ8Jzj1ky
- BC+++ejFfd9b6T27cNsnTFfX8O2fP6Ey5m766tEaCR70qWZf6ZpFjZiZDtIpRWAv16kqJx56eMm
- PBcH444HGTPJUTZ2YD9RAe8cywyRNTmsGFtlocwFGy5z6Rb/njY9J0Lmr9fT2wKnCm7pJ/Z8GuV
- ZRAr53obb236ALOqB8MRNcFzxSBQEbljX7V/EhZF5ow24sSD/VQfShALIr0V3Rmf+/oWpm3b3J2
- V7afu2xGDu5SDcOoE0T1lW+LqclCqzfmXx12DP8nP6da6G9NbrsMWAds7dQeRWln0Rs4EjOk/jD
- hSYG3r6xDWday6DpWrPlYcd5te7HZpB
-X-Developer-Key: i=prcups@krgm.moe; a=openpgp;
- fpr=0A23F6492C05869FDAF524B6434B25D971B4C2A2
 
-Describe the Netrani XO, line/broadband, RF and IPA resource clocks.
 
-Signed-off-by: SignKirigami <prcups@krgm.moe>
----
- drivers/clk/qcom/clk-rpmh.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
 
-diff --git a/drivers/clk/qcom/clk-rpmh.c b/drivers/clk/qcom/clk-rpmh.c
-index 68640e590..0dd6ea1c7 100644
---- a/drivers/clk/qcom/clk-rpmh.c
-+++ b/drivers/clk/qcom/clk-rpmh.c
-@@ -499,6 +499,27 @@ static const struct clk_rpmh_desc clk_rpmh_sdx55 = {
- 	.num_clks = ARRAY_SIZE(sdx55_rpmh_clocks),
- };
- 
-+static struct clk_hw *netrani_rpmh_clocks[] = {
-+	[RPMH_CXO_CLK]		= &clk_rpmh_bi_tcxo_div4.hw,
-+	[RPMH_CXO_CLK_A]	= &clk_rpmh_bi_tcxo_div4_ao.hw,
-+	[RPMH_LN_BB_CLK2]	= &clk_rpmh_ln_bb_clk2_a4.hw,
-+	[RPMH_LN_BB_CLK2_A]	= &clk_rpmh_ln_bb_clk2_a4_ao.hw,
-+	[RPMH_LN_BB_CLK3]	= &clk_rpmh_ln_bb_clk3_a2.hw,
-+	[RPMH_LN_BB_CLK3_A]	= &clk_rpmh_ln_bb_clk3_a2_ao.hw,
-+	[RPMH_RF_CLK1]		= &clk_rpmh_rf_clk1_a.hw,
-+	[RPMH_RF_CLK1_A]	= &clk_rpmh_rf_clk1_a_ao.hw,
-+	[RPMH_RF_CLK2]		= &clk_rpmh_rf_clk2_a.hw,
-+	[RPMH_RF_CLK2_A]	= &clk_rpmh_rf_clk2_a_ao.hw,
-+	[RPMH_RF_CLK5]		= &clk_rpmh_rf_clk5_a.hw,
-+	[RPMH_RF_CLK5_A]	= &clk_rpmh_rf_clk5_a_ao.hw,
-+	[RPMH_IPA_CLK]		= &clk_rpmh_ipa.hw,
-+};
-+
-+static const struct clk_rpmh_desc clk_rpmh_netrani = {
-+	.clks = netrani_rpmh_clocks,
-+	.num_clks = ARRAY_SIZE(netrani_rpmh_clocks),
-+};
-+
- static struct clk_hw *sm8150_rpmh_clocks[] = {
- 	[RPMH_CXO_CLK]		= &clk_rpmh_bi_tcxo_div2.hw,
- 	[RPMH_CXO_CLK_A]	= &clk_rpmh_bi_tcxo_div2_ao.hw,
-@@ -1141,6 +1162,7 @@ static const struct of_device_id clk_rpmh_match_table[] = {
- 	{ .compatible = "qcom,kaanapali-rpmh-clk", .data = &clk_rpmh_kaanapali},
- 	{ .compatible = "qcom,kuno-rpmh-clk", .data = &clk_rpmh_kuno},
- 	{ .compatible = "qcom,milos-rpmh-clk", .data = &clk_rpmh_milos},
-+	{ .compatible = "qcom,netrani-rpmh-clk", .data = &clk_rpmh_netrani},
- 	{ .compatible = "qcom,nord-rpmh-clk", .data = &clk_rpmh_nord},
- 	{ .compatible = "qcom,qcs615-rpmh-clk", .data = &clk_rpmh_qcs615},
- 	{ .compatible = "qcom,qdu1000-rpmh-clk", .data = &clk_rpmh_qdu1000},
+On 11/15/2026 4:08 AM, Barry Song (Xiaomi) wrote:
+> Reduce the number of folios moved from the oldest generation to the
+> second-oldest generation in each batch. This shortens the time the
+> lruvec lock is held, allowing concurrent LRU operations to make
+> progress and significantly reducing LRU lock contention.
+> 
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> ---
+>   mm/vmscan.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/mm/vmscan.c b/mm/vmscan.c
+> index c9e22a5cbb51..6cb905162cba 100644
+> --- a/mm/vmscan.c
+> +++ b/mm/vmscan.c
+> @@ -3914,7 +3914,7 @@ static inline void flush_lru_batch(struct list_head *head, struct list_head **ba
+>   static bool inc_min_seq(struct lruvec *lruvec, int type, int swappiness)
+>   {
+>   	int zone;
+> -	int remaining = MAX_LRU_BATCH;
+> +	int remaining = MIN_LRU_BATCH;
+>   	struct lru_gen_folio *lrugen = &lruvec->lrugen;
+>   	int hist = lru_hist_from_seq(lrugen->min_seq[type]);
+>   	int new_gen, old_gen = lru_gen_from_seq(lrugen->min_seq[type]);
+
+Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
+Thanks.
 
 -- 
-2.56.0
+Best regards
+Ridong
 
