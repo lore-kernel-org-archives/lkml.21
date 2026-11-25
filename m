@@ -1,102 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.28
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795604870;
-	b=PeFN07dc5hmmd5SrNJz8juhWH2N/I5LVXXOvkq7nh5rC4vDkugzEvvWjqxLIjqHPMgGH
-	 TuMdmnx2Nt849SnJhpY4zRnqpl70L96vTfjmrvm6kOh9e9gaS6Z0QoxVdQo3MRaWNz6a2
-	 dTDqF5Z/kcajJsnWgA3QihqDi7yCBUeU4GyoiBcl4tiArncFf8uDidZObAww+ZUTSURnf
-	 azHDpirg85X5kk5siqoQlWGpynKfTx4fpiu9qyw9C7/ykfIoXmYJmCr+SJRSa3W1cFAIX
-	 TPnZwy/LUbcnE9pGkUY5JiCaOo/S2a3cCcfFPB6lOnMGKkEkS2/z6PXl03oDtHTbU7g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795604870;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Q/YfNVXPnqN8pgnvRPkPuy3nc8kX1DYn5fcv77VYHFA=;
-	b=F1hrGI3d74sfNi/PbVP0k4CEKwHJxXx8kUjqvZlC4mm4ycKpwOl+tTK0DfTAcd6yjD7F
-	 DUcIHunrsCOY4k3FANpmi76wS+Fu992u/2y2Jd6UiJxg0sQUyrnIa5Js9N4TW2krAk0SH
-	 bB4d7/9Xh3S7rnGzh9EBt/OybtW2ONWsIaCNuPlZXIdRxaSF0eOd4u7arF2fvUTvGoSfV
-	 IplL86zCUECY9ul+FFjE4/MZ9t/wRHPcpbuJDgcF8WrZDVVtb2foFESSjuAOAGvRMmCUS
-	 txLDUwnOtvaT8iYVC+tt9AWGJz4Pr98M2OWxJ070TtJ7MIXQdiKJnawUPWU0/RWG0aw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=a5XMRQF9;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.28
-Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012028.outbound.protection.outlook.com [40.107.209.28])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795604901;
+	b=zxBCQ/BPkXH4aGjXd6UFNkqaYwzwBHpcpttLAMVnGzSCaie2ykCwLk3ZlOpE1W8SI7ll
+	 Cxg2DIHkoAzPLltJ4Vj3x6likoGHf2meo26pGJEpV8ZNbl4R2JIr3rDOPb9k6I8xxC7uN
+	 IONCS+GYg5oZz8k7KiriRudpH1S6Qvvp4M+BFYIXSQhXNUV7cvfNJYGA4u6bLCYY3FUhl
+	 iIxGTWEpI6MR+x8+9KjjkEAYW8dq/uITwZlc+/436Z7zwxBk1hkyc2uXMV4e2oSM+E2hb
+	 k1/OEvYL+k7vBRnMVbOFagnPmh5qjshCe9iA5ADU/WDfEWluZ6jvDITmwyFVi+fKaBA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795604901;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=Vim7sbndF1zYQuJCjFH9ennVNq+IgaxKfDCkwcZwj84=;
+	b=x1Vs9bL0T4U8ZUz8lUNIEzWHVV9waIZI/rgweQMOk3ez90tWypsOv+SeF5c6hzP1PFWx
+	 O5jGAJFQWfPR5voc8QlK/Ntm4/RDJNhP+Ajen+1Ja5jA0CW3B0wSQvQcjPTnJ/QGQRys1
+	 8XsF3YMYvVhwuEhv/uS5InAly345cDVlR0WMotgH7+GtR751lN6hJyjl+v7EjJbje5eUK
+	 GRWnB/1z/1+r2MnOykm6NTUSeIocOcS6sBSXxDAmO+P2zUc9+W8oCmIVvZTt2Us98julz
+	 JV6CRyPUPKZAKgaT7Ny189TEMDjFxfeCl6MchHEtyZdLx33P71srsa9vqVKSIMBwl5w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wFYeXBci;
+	arc=none smtp.remote-ip=209.85.218.41
+Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00C4A606A338;
-	Wed, 25 Nov 2026 11:07:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00C4A606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77569606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:08:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77569606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=a5XMRQF9
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rbjiDMR/EHtvFNrimShYqbNsXqWPFM5/mjEzAylKDxVFLk/gx/mdQrDNqr5rkM3foH37zBmcS1yYinBk+LisCk4qtQF7kipVBDSvD8NcX5dEmqsCcQgrsipJ/w0CybTeRht3BqNQBuDIFvtX4qawLpNgwMpvPwoGG9AbsqbRmvNiJj0lYlbSJ3k9JJOSjiaUlGr4JT3MRj2UVMlxPa13wfpbBOqTil/+wzY6XtODAAL2UIk36C0jN5CY8urqg/slReMM9YENSnOkWN2JNlUeInStoY0xX2ax45YRqR9UELpHf/3SE7vkbwmocmzieKIUJt7yKRA8rW3kMVJieNl6QA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q/YfNVXPnqN8pgnvRPkPuy3nc8kX1DYn5fcv77VYHFA=;
- b=G/5ve2X8m1JrmIL/z1WfoWpoj7jaD2ZEVYw7FrVL6pzSojd3kKRUgPYaRMTe5U1JsDbrq7NpzVdD1bFkD+iZjDwc1HZ4/rTTVkctXdgVnec+rKh0zU+6mlVk4wnYPhkBuOux4JLEeik2fy3YSMfTz77EWTfwj3+CW1KDk3PZ7XdnV+zTqcoTeTdn9Zm3k5gk5InNKOua940vGpm5nuk2l+UjUOnbzBZgtM/UO4wrk+lo4Nsa4YFRk93aLyznl92lyX/KRpoqLTtmGlfYSpDGcrKUxq4sIjDgYWmNm8LX0CreU2JbYF0OcDr9cv1UNPR5F9HwRjlbN7h5AcPB17S/ZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q/YfNVXPnqN8pgnvRPkPuy3nc8kX1DYn5fcv77VYHFA=;
- b=a5XMRQF9Fj89ShqhPErv3ftlWDWX/4ScC0RkR0P2OWyljnnCtZPnk5x6eMEayzW3iteyqwq6AjY/E2NolESxMpugYlrFlXAxmasqtjpirDvvk45PQaVMk5ZYcllf5rFo2CnZfNu7pfQjXbmOlsNRN7u8ECXKoEfZxb++Y9JDPGTgLDYFTKJQb+ArnZrvFmZ2lc9N7+oMjNVXYboxPQSI3eMi4Qhx/Moqhjwwss+8xUqTyNCL6fhLEk8n95okQ/cN3cf+GIofpGR9dfmD90oAzpPvCTqiu0VB7f9KwrwC0dozp3QsI+/JY6o+7MZCiyANLmS2xsHIgKilMLRRCamy8A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from PH7PR12MB5974.namprd12.prod.outlook.com (2603:10b6:510:1d9::19)
- by IA1PR12MB6553.namprd12.prod.outlook.com (2603:10b6:208:3a3::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Wed, 25 Nov
- 2026 11:07:44 +0000
-Received: from PH7PR12MB5974.namprd12.prod.outlook.com
- ([fe80::f5a5:bbc3:e9da:f8a0]) by PH7PR12MB5974.namprd12.prod.outlook.com
- ([fe80::f5a5:bbc3:e9da:f8a0%3]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 11:07:43 +0000
-From: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
-To: Saravana Kannan <saravanak@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Pavel Machek <pavel@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	driver-core@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-leds@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: fw_devlink: consumers are not linked again when a gpiochip is re-added
-Date: Wed, 25 Nov 2026 13:07:40 +0200
-Message-ID: <20261125110739.3760281-2-aambrozewicz@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: TL2P290CA0014.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:2::17) To PH7PR12MB5974.namprd12.prod.outlook.com
- (2603:10b6:510:1d9::19)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wFYeXBci
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c4d21051042so52980266b.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:08:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795604900; x=1796209700; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Vim7sbndF1zYQuJCjFH9ennVNq+IgaxKfDCkwcZwj84=;
+        b=wFYeXBcidB6bUPa0ITenvDyBv8wZDaQpp3EpsIXZkTsArAmVChIcxDvhUnBiCCb+/t
+         WeSNE2euEeWKnRuUgkFsRIVv0m8LgqAU3Sgf0JhoVqwC8MM0GyF4WPGToccLYGXCTMnR
+         FlhpL2nxRtspw50yKDr8EaLMru20w3BcngHhuD6GM4ftL16diaksn72/nZFPDjnbbxqm
+         fxL1lQpzHwe6f0Dk+Ub7dRZCD6aiVopqowh+UdXP5dfxzHeSaVurBDZo1Nxsd+cCyISq
+         1DUzMBxwOy779Q4vp3qKWS/Qfr4+pKSvDxFORflGFZNUQD8SpqEuboUqHSCMS7Dlq4Dc
+         r9+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795604900; x=1796209700;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Vim7sbndF1zYQuJCjFH9ennVNq+IgaxKfDCkwcZwj84=;
+        b=BR0Tk4kIQT6T4odeZJ0fy66kretH269OGi5TYPvLdGucIG1w/PVT77J6JP9n/3BB/a
+         rOmg3r2LGelboPFVki9nOqMRwWgdLrxD5U0VTVYVK2KFa2tfp6ZaH6hO6LdVTZ5fQgU2
+         CmhEMsE7l9iVbqosGsOldY1E1xlowASBBBd1dnxkbFQwJnrNo2B7A/yQXR5cWlnZdrBH
+         alGak3VqHIQyecv+b8+O/No3EsVqZZbiZnbSNo2Hs9yRJeEnGkgvxvOjvBSGE80qAL6t
+         z2f8IUJueZA4ThuaArz0TEtPfq9luNl+mffQOzOTNrjdWxTiCFnshHPlbYXzluXTJHjz
+         v5pA==
+X-Gm-Message-State: APuU4Z+J4KeVt3Jt067qeLh4GU8nM6SQmFtJkYM1Di85R2SDRp00wlJM
+	TiT+P3b91hQbx2PvX2SyOvRrLT+nJ1HJBM/93ANHmFFMER6bZLh/0jtg
+X-Gm-Gg: AZFdTZcJX8tXe6cN6ZH2iPsxIW/gFSggQboJ1abYYwJSSW89XMjytObNSYmO0O6N9Mt
+	wTkUuzbV/5UCOhCxKB2D8Cc+Xhmu6RHJrajJ+0M8JTacShOWidSqmxQVc176bGevB6sSAxcyeCj
+	S3LBIZCUnvdAKfA1Mq1+I9pUiEFJ05d6Cit2x395oNNNsZwO5GruMTsTuehcKWmu2Wsa2ULDHjG
+	/Zm4Ecq1hCtH5p/rFYq2jLlUUTOCZGuvnAAg//TVWU4wnkDirzwu3QTuFeh8w4LheEYyRTKLSoV
+	HFxUlVZnn/Oaaq9dQhg9QATlG0LKrib1z37WYyKjoN9Ax2Tsy2rzenHyE3Z4WwJGvkS3cQlT2IL
+	dj8CxqBkjwHddBd0no47CxXWskRFaV49x/LI5qj6eyE/H5K9mwKE4Hz97j2ULdeiNcKPD/gLCxY
+	VV1hObSJ0aE2y4JS1rXikgGD/ZOpnI6vyRFo0b5sfUIVRO47ij1NWDpVg/tNI29LVSGZqXigzXZ
+	AEyQ3dGoS40ZgG0S4xj+3MoM45rgFgxG6PMk47XoYV5WceaAlRosMEJTqwdKogsmcKENog3vPnM
+	faatdq2Iz2baBBrE9sPXWatUCEJct4wTYweFGR5a628EaAvvMb/LWZh6jtJN07+9kCEFiJ/PDrb
+	GvA86L9O7Dw==
+X-Received: by 2002:a17:907:1c9c:b0:c49:df95:fd0 with SMTP id a640c23a62f3a-c519ac70721mr350640166b.48.1795604899681;
+        Wed, 25 Nov 2026 03:08:19 -0800 (PST)
+Received: from xeon ([188.163.112.54])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acfeda1sm654562066b.6.2026.11.25.03.08.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 03:08:18 -0800 (PST)
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Sowjanya Komatineni <skomatineni@nvidia.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Svyatoslav Ryhel <clamor95@gmail.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Mikko Perttunen <mperttunen@nvidia.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	linux-staging@lists.linux.dev
+Subject: [PATCH v1 00/13] tegra-video: Convert to media-centric pipe
+Date: Wed, 25 Nov 2026 13:07:37 +0200
+Message-ID: <20261125110750.223628-1-clamor95@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,129 +103,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5974:EE_|IA1PR12MB6553:EE_
-X-MS-Office365-Filtering-Correlation-Id: 483526f8-ddcf-4a88-13a7-08df4ae4544c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|18002099003|261009223027099003|261026140227099003|261022075727099003|261026121527099003|261022105027099003|261028144727099003|261021121427099003|10067099003|56012099006|261102123227099003|11063799006|5023799004;
-X-Microsoft-Antispam-Message-Info:
-	IH9j0YLun8Lwr9vhfTkU3uqHRUs8fIySIuf1j1DfMLNwaw2RnNPrbaYdlcP/bJHwy6KxKJ/30U6MbVAJl00uT6u5vCSqDNjv09X4HJ/2JujEv+SI6wYYRx2frpwJLqsnJKDv5Ub3sj22YbNWzRLmdC5Hs5URQwOhVM/xZven42xvpI843LpHxKTG3myDPFrmrFrO7YW3DEtJmgb+cNEVb+ItY14IC53/phzl7roZH59WVf8eC8mh28Wq8GBC4zi7ywwqTQqgtUwS75+/WPP06qTg2VTZrVC6hGnrYM4bxJ/MJF8a92ey0LDpZXm3LUslAusW2RqNyCvd7lrftIYe9CA32cTTMEl/4heYErgEc6FkbO7PZyXh5mCpNBCaTJtB5zeMWPCDX3aTr5a40NKNejrHM8RcGMCUpj59p4GIZz7tvIAd1aHmLR6XQs2GlUQJIWysV6YVxHI+a5f5R+JzlsKO0XN/FtVUkYDecovHgYwwuxPpN6WeJQlD5h/9dJB5pvT/5p9+VvpcSVhFSLjEBUw8JaTloswH+R33qgBNs6hbfOo9spr/n8E/qlulxg4M3wdeSBTy6DJzQc1RNSdzxUoToy0nUErXbfbMQQIxmDp3FpcVxmBO2fc7s42kYORo4lYp+cScY5CSRmoLWRNs3hU3C0XP8XJ0tjTvhohPYtA=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5974.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(18002099003)(261009223027099003)(261026140227099003)(261022075727099003)(261026121527099003)(261022105027099003)(261028144727099003)(261021121427099003)(10067099003)(56012099006)(261102123227099003)(11063799006)(5023799004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?yWPvPyk4Q6l2nQuyUV8oVDetwb29JUYqfbcIweV81OnR0sPMq+gL4WGTdy6O?=
- =?us-ascii?Q?+UjenYqP3FVzHiAD1S4+TmvIVw4shMW7aeLVmRs4DnQKQPvw8ZbbNaHbrL5V?=
- =?us-ascii?Q?cs3gibyESsFJs1Xtr/oAQtyLykF31YVUJFeTAL6yrecPpFJVAu8co4V3dr35?=
- =?us-ascii?Q?GFkNg2tbWtBCX3MToR0rGsptVa79QA0ds/kn6Gys7XOcQYz11cysQoQdqnaV?=
- =?us-ascii?Q?+F8CvOVMmi+I2I9e20WO8zkOqRzMXRQQ6HlBexv7S+1963/ufWIh58cO7QJM?=
- =?us-ascii?Q?cgSeh+zlx93RPVHXjrDwdKdJqgZCIfDWKttRWFP+VPjvp1xpYh2r9VAA/N+F?=
- =?us-ascii?Q?xJE8FNlIVXI0aq5uO8fZaNVR0qQxF3vfNH6XQMGKRQyXvfkdxd5l+L/o2FAT?=
- =?us-ascii?Q?ONPpz3BlYNkEN34IRzc8h1Ax06vZ66f17ZGPm0EvfNepovLEA7PBKt1jirtp?=
- =?us-ascii?Q?uCslA51GSDHfRW5yRqlLkSaaYwU+WVnCze2JY1NXvR07UBZwr4n4iyzuDtEo?=
- =?us-ascii?Q?JZqgnFQ10UjwkXF3sQO949fp9bjtchqtONt7PPq/EF3bzB0aAT9h9IJKEWIC?=
- =?us-ascii?Q?MZhyL3v/T5UZHWuanPaViE+EYWpLA9yQSBPbL3UV03zgkvon0NF007h5tVlz?=
- =?us-ascii?Q?/YNbbchtN9eGQoL4RjRRbXJnuNTTbRM5R7BhMQrSuHQz37gvwYqhK2lyg/8o?=
- =?us-ascii?Q?7GpeqgLEoiEvwOMTBHlG12Eb6iAZ697//HkM18KTbPFh5M46MUAQiUL43KiG?=
- =?us-ascii?Q?B28NQv35L+HzQJAjSQ+eKReO1eytjOwnuXQcmXGohRjIwlrX4s/Bop8UXbCr?=
- =?us-ascii?Q?KnK4ZX74HIYggjpmFf921k3CeU3Lm4AbC9M4L4R/HIMD5n2WwV1DintRVNLy?=
- =?us-ascii?Q?GdjskGMpp/RfQx0YW1srJ0h5JVTcp7dtAVyP0o+dkw1EANdoKRlaacH0gwaM?=
- =?us-ascii?Q?k15XrzaQNGSaVZ9RuIE1M1N/t06smm25g9vGc54UZVO/Lo95iVMT0NRTkg/K?=
- =?us-ascii?Q?N89NJBkXfJGAuo2fLSuKZigiO/IfelKpCh1DoiuGIWA9Qqmx/Bj7Ut9a/oVR?=
- =?us-ascii?Q?qUzq4VmTT+CCGBuGiyMm3y4fnP/lFnm3pBmyvRxaR2kSzwacTkq2egtv46yc?=
- =?us-ascii?Q?pJ3R53EUfvdORXjdw9DKeXY+eKmvGpewp3p1BK5ql4aZxV1+JWgiIyzK0TFp?=
- =?us-ascii?Q?jLy0tX0HGowR4CNNS5gYMBAhvBbUczBC25CDs5YudbfBTjpdFfFN/Eyf6FCV?=
- =?us-ascii?Q?edgJT9OTi5fa9u4rFlPRS352QQiW4vxfV0i/5a3PF8LVqXRbIWaRgog4gh3a?=
- =?us-ascii?Q?f/uj+fN4X52XPt1/CziRd+N1i3/B5J9Akfz1U3F5HQFYbUGvL0GOVP4y98D3?=
- =?us-ascii?Q?QMdQNp8TS4Se+0s9B2VqnS1iXfLOw4Go4Bcxny/WwQ9krhxXKFJ2UhVpW6IC?=
- =?us-ascii?Q?DF9qzlHi0SD1HOOS5KnCyCaFXdOo+4vw7BY4ozWU5GNzDu12Mx2dlBlNkWkM?=
- =?us-ascii?Q?o7x+IUzptwib3u+34BAeoH8ztS0OlGhaPPTj0qnd4IqMM4LgYoFkt9rLRV48?=
- =?us-ascii?Q?Ilrsyrwk0SFlcR86XVDPO+pxeYC+lHav9RyHZMcdGj/FiD9TMmbChe69a8oL?=
- =?us-ascii?Q?g/PsiJdi7a6DowRlaOqxVU2mdkILuQwscABdMZsd3GffFF3KHapGBXR+2Wkn?=
- =?us-ascii?Q?7x0af66I3hUa0qVsTTsEbudu49GzDaUn4XBsDPl+KdCyliCWoHMYAM/golPg?=
- =?us-ascii?Q?XsUmNy4/+A=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 483526f8-ddcf-4a88-13a7-08df4ae4544c
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5974.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 11:07:43.8343
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +TE0M72C13Uo1z0Y2Sjp/mKWF9IVxukfdFhF5xGGS5vNuz/BIFnviBNDOuC2sr69a25SqwstmJh685K6Fi1Kzw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6553
+Content-Transfer-Encoding: 8bit
 
-Hi Saravana,
+A minimal set of changes required to convert video-centric pipe into
+media-centric. I know that moving to /media should be last commit,
+but it may be beneficial to keep this history in the /media subsystem,
+instead of leaving it in staging.
 
-When a gpiochip is removed and added again for the same DT node, its
-consumers do not follow it. We hit it with a USB GPIO expander in DT
-(emulated so far). gpio-sim shows it on v7.3-rc7 (arm64 QEMU virt):
+All changes were tested on:
 
-  gpio-sim {
-  	compatible = "gpio-simulator";
-  	sim: bank0 {
-  		gpio-controller;
-  		#gpio-cells = <2>;
-  		ngpios = <16>;
-  		gpio-sim,label = "sim-bank0";
-  	};
-  };
-  leds {
-  	compatible = "gpio-leds";
-  	power_led { gpios = <&sim 2 GPIO_ACTIVE_LOW>; };
-  	fault_led { gpios = <&sim 6 GPIO_ACTIVE_HIGH>; };
-  	uid_led { gpios = <&sim 9 GPIO_ACTIVE_HIGH>; };
-  };
-  regulator-own {
-  	compatible = "regulator-fixed";
-  	regulator-name = "own_node_consumer";
-  	gpio = <&sim 4 GPIO_ACTIVE_HIGH>;
-  	regulator-min-microvolt = <1800000>;
-  	regulator-max-microvolt = <1800000>;
-  	enable-active-high;
-  	regulator-always-on;
-  	regulator-boot-on;
-  };
+LG Optimus Vu (P895) Tegra30 device:
+ - MT9M114 front sensor with complex topology and irregular pad mapping
+ - IMX111 rear sensor which has simple pixel array and a single pad
 
-  # echo gpio-sim > /sys/bus/platform/drivers/gpio-sim/unbind
-  # echo gpio-sim > /sys/bus/platform/drivers/gpio-sim/bind
+ASUS Transformer TF701T Tegra114 device:
+ - same MT9M114 front sensor
+ - OV5693 rear sensor which has simple pixel array and a single pad
 
-regulator-own has a managed link to the gpiochip. It is unbound with
-gpio-sim and not probed again: nothing re-queues it, and its fwnode link
-went with the first device link (drivers/base/core.c:2331, :2373).
+Nvidia Tegra Note 7 (P1988) Tegra114 device:
+ - OV5693 rear sensor
 
-leds has no device link to the gpiochip even before the unbind. From the
-code, references in child nodes get SYNC_STATE_ONLY links (:2221), which
-are dropped when leds binds (:1440). It stays bound and holds no line on
-the new chip. Each new link is refused because leds has probed
-(:851-859):
+They all work and produce images.
 
-  leds-gpio leds: Failed to create device link (0x180) with supplier gpiochip2 for /leds/uid_led
+Svyatoslav Ryhel (13):
+  staging: media: tegra-video: Move driver to media/platform/nvidia
+  media: tegra-video: vi: Drop controls consolidation into VI device
+  media: tegra-video: vi: Expose all sub-devices in the pipeline
+  media: tegra-video: vi: Drop subdevice passthrough and input ioctls
+  media: tegra-video: vi: Implement link_validate for video entity
+  media: tegra-video: vi: Populate stepwise frame sizes via vi_fmt_align
+  media: tegra-video: vi: Report stepwise frame sizes instead of
+    querying subdev
+  media: tegra-video: vi: Enumerate supported formats instead of
+    building bitmap of compatible formats
+  media: tegra-video: vi: Configure capture format locally without
+    subdev calls
+  media: tegra-video: Remove remote source subdev helper
+  media: tegra-video: csi: Scope pad and state ops to TPG mode
+  media: tegra-video: csi: Add pad and media operations for own CSI
+    channels
+  media: tegra-video: vip: Add pad and media operations for VIP subdev
 
-The leds half does not need the device to go: with the same consumers on
-QEMU virt's PL061 GPIO controller and only its driver rebound,
-regulator-own is probed again, but leds holds no line on the new
-gpiochip. From the code, an I2C expander on a rebound I2C controller
-hits both halves.
+ MAINTAINERS                                   |   2 +-
+ drivers/media/platform/nvidia/Kconfig         |   2 +
+ drivers/media/platform/nvidia/Makefile        |   1 +
+ .../platform/nvidia}/tegra-video/Kconfig      |   0
+ .../platform/nvidia}/tegra-video/Makefile     |   0
+ .../platform/nvidia}/tegra-video/csi.c        | 298 ++++++--
+ .../platform/nvidia}/tegra-video/csi.h        |   0
+ .../platform/nvidia}/tegra-video/tegra20.c    |  18 +-
+ .../platform/nvidia}/tegra-video/tegra210.c   |  18 +-
+ .../platform/nvidia}/tegra-video/vi.c         | 643 ++----------------
+ .../platform/nvidia}/tegra-video/vi.h         |  19 +-
+ .../platform/nvidia}/tegra-video/video.c      |   0
+ .../platform/nvidia}/tegra-video/video.h      |   0
+ .../platform/nvidia}/tegra-video/vip.c        | 102 ++-
+ .../platform/nvidia}/tegra-video/vip.h        |   0
+ drivers/staging/media/Kconfig                 |   2 -
+ drivers/staging/media/Makefile                |   1 -
+ drivers/staging/media/tegra-video/TODO        |   5 -
+ 18 files changed, 433 insertions(+), 678 deletions(-)
+ rename drivers/{staging/media => media/platform/nvidia}/tegra-video/Kconfig (100%)
+ rename drivers/{staging/media => media/platform/nvidia}/tegra-video/Makefile (100%)
+ rename drivers/{staging/media => media/platform/nvidia}/tegra-video/csi.c (75%)
+ rename drivers/{staging/media => media/platform/nvidia}/tegra-video/csi.h (100%)
+ rename drivers/{staging/media => media/platform/nvidia}/tegra-video/tegra20.c (99%)
+ rename drivers/{staging/media => media/platform/nvidia}/tegra-video/tegra210.c (98%)
+ rename drivers/{staging/media => media/platform/nvidia}/tegra-video/vi.c (68%)
+ rename drivers/{staging/media => media/platform/nvidia}/tegra-video/vi.h (95%)
+ rename drivers/{staging/media => media/platform/nvidia}/tegra-video/video.c (100%)
+ rename drivers/{staging/media => media/platform/nvidia}/tegra-video/video.h (100%)
+ rename drivers/{staging/media => media/platform/nvidia}/tegra-video/vip.c (71%)
+ rename drivers/{staging/media => media/platform/nvidia}/tegra-video/vip.h (100%)
+ delete mode 100644 drivers/staging/media/tegra-video/TODO
 
-Herve reported the leds case in 2024 and you called it a generic gap for
-class devices [1]; in August you offered to write class device support
-for device links [2]. The regulator case matches your 2023 suggestion
-[3], though from the code a re-queued consumer would have no device link
-afterwards. I found no later series for either.
+-- 
+2.53.0
 
-Is the class device series still planned, and would it cover a gpiochip
-that is removed and added again? Herve's leds-gpio link, ported to
-v7.3-rc7, only gets leds unbound when the GPIO goes; nothing probes it
-again when the chip returns. Would that be acceptable meanwhile? I can
-test either with this reproducer.
-
-[1] https://lore.kernel.org/all/CAGETcx_=g1dCH=YMUkc7VquUmLs=bNZMspUxH+V49uhcV0Bx2w@mail.gmail.com/
-[2] https://lore.kernel.org/all/CACRMN=fEPoyEk1oi4QRMX0whMEF=xQv=kkd62bueKTKWtxDedA@mail.gmail.com/
-[3] https://lore.kernel.org/all/CAGETcx_fXa6Zt_gkTQKw8Wt11EmSt8ZQ6TxKi5P+5ii3EvwsdA@mail.gmail.com/
-
-Thanks,
-Adrian
