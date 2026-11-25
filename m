@@ -1,73 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588295;
-	b=skTiD603YaFf+pZFNbOSrmyAwZcG0q9oG2PbBvdqvHV9RMN19ZX0sQDRSl+YcDEsTYN4
-	 msRKqewYqMYS8N+EniQmbYp0wSQ1hjMvX5HP1vw+sRooeqLG6n2nYKPdjpv8/ghMETju4
-	 Cxk8SCUv1JYyDtsJ0IdXwiWrxYYsGXK2KsxvNx/Gr2dFfdJEX7Ah8Z7BP2V65M5uPCmgA
-	 zhYhWIOPF507xdyfvJss/CtzN5OB6DmyOinbl2a34HkvIX3tsTECi+tRA+L1vjBRFyDQ6
-	 BUjNCIzynpT1Xpteh4G4hToWUXBHeHioy+xsklfAqBIpQ09VLDQT/R7rRULjQszJ9iw==
+	t=1795588296;
+	b=Mar3v9NAabsqCcQEgRT/RMUlulaeqsrO1bCJRrplJkeh4TcfowDHRpVUwrT45ym4D5oa
+	 G1mefoXltFs7DWjNYK1NiK+tK0kymoFhdcxAMbColg8CP5XxghVecMBcEF0pRG3U/EBDa
+	 MygAjZvkPIrSEuc5ySNiKYTgZlZAnXzgu3bDosU8oBjy00NH5DTnAMKgPVk7eDD9nzBoo
+	 GIG2Eh8xYDe9EPquuX87IgwEQVUjw6+Bwt/o5bG5JfrUTgQFSyEhDyIICNowFRm8uvcQT
+	 OLLdQam0ArQhCy7AsjAb2Gsgjjj4mcBWBBHPsea0C17Avow6DgVqmF75xh4whIbvrYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588295;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588296;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-B4-Tracking:X-Change-Id:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=9E8HWuLfY3Nf/OQ9d6R8gO1UtYxqp2kDEADX+rOyoUE=;
-	b=EKt26IjaWzpQozsVCr7QwMHZ9yaAgxRwA+kDD1gyJPdga3TB75b9k/A1KNtgLwqOeP9D
-	 tdqHaf2vwLhu2qdvYPmbxts1H1hKBJknxPt3boeIkiAXY88MQvIkSbCugZgu6LlFc0FwE
-	 4MGh0W2DgD2tU9P9ByQDvqHh7VgWqrW1bYzf5aA4UKa6i8vdey73eEc3KYBFYTodxEHSs
-	 /cMdWbsN5Ur3JoQxQYSqGjEHCPn7E2MXMN4juFPjXq7TT0rt1ralnLOZlkOID/sPtPyK+
-	 /9X3d8JlwckAdqhJ2oSv3aOAsoY2+FlHVK6sV4UH/A1OHGFDrU4qis36NlBLaT0qvrw==
+	bh=u1fr5mEso5Out/u6VPlJulnXboKyZvfVi9rGBsfIp30=;
+	b=rZEdLK6vv8e8oYD9JOPP8XcWQMJlCDrENCPlTg7c/kGUpnBoA7vEG0g7nDJzhBZjfCO9
+	 VKMZjvkBpFSVPhsaaF5tsODGhw3cHEyQPJtGYO4pNHJLN2fgpaZVNFIEzJZ1Zam0IJ4MF
+	 wlX6A90EminzaMul2asPUEiVi3fcSpaWRqpog+uUXt0CZr0KjKevTN4W7yy4qJCdiBSOX
+	 Kx50k84E5I8r3Ki2qLjSKSkR3OULnhUpgnaeT115axHsiZVuxlyYqN62XhTu56QnzMZ6D
+	 1QDY+/cUNNNaIrsj7i2hcplohHmLJZGpQ8qadu/0TQIs7FTt6SvqTH4nm72F7SLezMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--rathodpriyank.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cep0HBaz;
-	arc=none smtp.remote-ip=209.85.214.197
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AUD4m5G1;
+	arc=none smtp.remote-ip=209.85.216.70
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEF0A606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:31:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEF0A606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AF43606A336
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:31:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AF43606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--rathodpriyank.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cep0HBaz
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2f05b674e3eso38671355ad.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:31:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AUD4m5G1
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b41f4ca1bfso4277009a91.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:31:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795588294; x=1796193094; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9E8HWuLfY3Nf/OQ9d6R8gO1UtYxqp2kDEADX+rOyoUE=;
-        b=cep0HBazVXzsf9PkAdljOv6G5MXFloV8WG81m90sSHMoYIcmRvOmjhm6oTMSkwpaun
-         pzHHaOTBFmdCmfJ+13KNqBO1FuQGVJum0GJqPzQl4QRFXgyQ8Hvo03jD0JgRHMDwk03B
-         DLYjQsoal4MKgLI3qsnjfCpZ7EBOaoM5ulBq44yBjz53rAkvTYBkVh4iKyNR0GfFRYgS
-         JZDvTwMCAPLeiZLLJGteHxxOc/KhBQrWGw3Ltw+QesLR53YU3Nou+jIfq5gwF/63+eZR
-         n79TEBDEkA8a/fP7k5LHPVjaZYz2yTEIZG3g6403wH3len5MNyLrRwm/4CDJncRMJ+h1
-         ePiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795588294; x=1796193094;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795588295; x=1796193095; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=9E8HWuLfY3Nf/OQ9d6R8gO1UtYxqp2kDEADX+rOyoUE=;
-        b=EIvZChT5ExiC/OVxj+M02TnRP7fAPTUteQ3OD/gFmwlBe9a9YZJwjHgqmFqdQDyed8
-         VhIuFtKSMl0tSGPXnoVsY8hd3Z+du5GYkH5uzQuLj1pyIYwRX4g6DyAv/X7c2SeH/0kz
-         CWTvwCYqrLRPrYheliPR36Pg2VC0FBAQW0CPrOue23yFiZoO09QNwATV0MQPIDt1DeXy
-         aSCIShWuSv6HtU4ltehv/jExlgWxLARv+eyDSY4bgOcGrTVLxPpoGlF79m1wJFnDoajC
-         HpVlAeZaWibPzpktRcqHicssk0G6RUiGvYFM2daAL9JCRxH7OnDo6JBFx5WaOEEJe6jE
-         nXRw==
-X-Forwarded-Encrypted: i=1; AL+hErFnTxh68PIIYfFkUS6u2CteecOMbmf4GwWqFMe5Yisu92fpBnYH/w6aRSlhrrT9urHFg8KluLgG21kF6cg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+5Q3h6Mi+yVJCjhG1fiQGqVwGjILIOwhZ3SSAJuV93+DXAzSEq
-	r3Gv08WD2B4/Yrw1YpcAs+r9su44fYV1v+Ktm8RjMj9mwUxxFy8sB7BHLxOPRNU1oJXH8fcqpKA
-	KKsg/RJg3SXiqihoCYes2mEAiTon0CDu2iw==
-X-Received: from plrd18.prod.google.com ([2002:a17:902:aa92:b0:2eb:50b1:b505])
+        bh=u1fr5mEso5Out/u6VPlJulnXboKyZvfVi9rGBsfIp30=;
+        b=AUD4m5G1JqgSQ7lciH2BuoyXb9niiqD73Lf8COEEMhhexIBKdOpERb4ytiE9CPA2+n
+         rA1swAMHqB3R25NBKJ5Q7hCaMY+RZXlPEJWPYfaiQuN4bla7Z4t2+ewR0isgpPJS7i5O
+         tMuhVG/uyZDYMtBIM7wWY0yaVKTdyiJdQzZwhJSVUcV0obxgkf2+wzFn/HlBxP4ens5I
+         Y3CZI3lECOoEelBTmUUkhGqS5gI7JOEZmGbQQ2ZKihsvYktxbIpb/NzAjS8WYX+YAywM
+         C04ESnPAoVIfWifh6P4dT15rozrOvnDtcLCuDdHYsQ9Qvl6oDuIBNQlx66FN70fOdGJd
+         sFOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795588296; x=1796193096;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=u1fr5mEso5Out/u6VPlJulnXboKyZvfVi9rGBsfIp30=;
+        b=cINReB5PcwAdIppA5DC0OxJ6LoKrgEZkPz/13xq98frhgIMaBAabd9+bl/CJTCD/kR
+         WZOeuXLRiVOb+4L61M3LXvDzrS8CSJ7xfzh0vQ6BFdGghYueYILifCHVsc1XHm0RrNYt
+         g+uK7sCzKmwt1oP1i4uJiE9XYKihwSPIh55y3e8xincqJLPvhdQVf/9VH3w/SMTLjSY6
+         wGGP9ATtV5lzVx7s2lCJjt6FaqWeAone5ysPedZSt7AdzImXUnD46D2w2oUZY1cUkXN+
+         cVQse+jupbefLawOaX4iiZtHYzXI+h4AD9gsGKO7YUuLlIcRV8Ux4iRq3w1dkHQ7C+lY
+         q7QA==
+X-Forwarded-Encrypted: i=1; AL+hErG5PSXIgFKJuyPa4kkMdWzbaBH5qCkYSGH7fQhv5WxnwNBBqEmXrE6a4uWF3xWVK0OkZJPViB5vbNK1zvI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ZXM4EF7DNAwHjgeD2x/eJRbaRbZRNClj9a2DO2nIqBbdSkYwM
+	3Qd59lDnFr6ToWuZkKBl9OCvsb9+nuwp4CnIdIonEkSWHMT/o0R8CH0Jmb2RUt7308zG0IVpbGY
+	QAwd/xqTfYLw/+12Rl+GstXeGaFGi6ZN7KA==
+X-Received: from pjor7.prod.google.com ([2002:a17:90a:9407:b0:3ab:d09d:a37a])
  (user=rathodpriyank job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:ecc4:b0:2f0:3c38:9133 with SMTP id d9443c01a7336-2f0c5f91aa0mr41199225ad.43.1795588293874;
- Tue, 24 Nov 2026 22:31:33 -0800 (PST)
-Date: Wed, 25 Nov 2026 06:31:32 +0000
+ 2002:a17:90b:3b86:b0:3b3:fe22:2739 with SMTP id 98e67ed59e1d1-3b41c9c34b5mr15412543a91.54.1795588295319;
+ Tue, 24 Nov 2026 22:31:35 -0800 (PST)
+Date: Wed, 25 Nov 2026 06:31:33 +0000
+In-Reply-To: <20261125-pcie-link-endpoints-v8-0-19d49c17c05f@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,14 +79,10 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAMSABmsC/43QSWrEMBAF0Ks0WkdBpdJgZZV7hCw0lN0iHcvYj
- UlofPfIvciATfDyF9T78G9sojHTxJ5ONzbSnKdc+hqahxOLZ993xHOqmUkhjWgQ+BAz8Uvu3zj
- 1aSi5v07c2YZAiKSTMKx+DiO1+eOuvrzWfM7TtYyf95IZ1uv/3gwcOMoo29Q4JEfPXSndhR5je
- WcrOMsfxAm1j0guOJg2BhTgkdQGwQMIVkQF5x2EpALqDaK+kbqA2UdURXzS6JqoalncIPoAois SgSxK1FaZsEHMAcSsm2iVLBhtE8oNYn8hIPcRWxE0PngXHbQg/iDLsnwBnEtit1UCAAA=
-X-Change-Id: 20260831-pcie-link-endpoints-978e100d5d06
+References: <20261125-pcie-link-endpoints-v8-0-19d49c17c05f@google.com>
 X-Mailer: b4 0.14.3
-Message-ID: <20261125-pcie-link-endpoints-v8-0-19d49c17c05f@google.com>
-Subject: [PATCH v8 0/3] PCI: Add Lane Margining at the Receiver debugfs interface
+Message-ID: <20261125-pcie-link-endpoints-v8-1-19d49c17c05f@google.com>
+Subject: [PATCH v8 1/3] PCI/ASPM: Add internal pcie_aspm_inhibit() helper
 From: Priyank Rathod <rathodpriyank@google.com>
 To: Bjorn Helgaas <helgaas@kernel.org>
 Cc: Bjorn Helgaas <bhelgaas@google.com>, 
@@ -95,160 +93,149 @@ Cc: Bjorn Helgaas <bhelgaas@google.com>,
 	linux-kernel@vger.kernel.org, Priyank Rathod <rathodpriyank@google.com>
 Content-Type: text/plain; charset="utf-8"
 
-Lane Margining at the Receiver lets software move the sampling point of
-a receiver in time or in voltage while the link stays up, and read back
-the errors the receiver sees, to find out how much margin a link running
-at 16.0 GT/s or faster has.  pcilmr in pciutils does this today by
-writing the capability registers directly from user space.
+Internal PCIe services such as Lane Margining at the Receiver need to
+temporarily keep ASPM disabled on a link and restore its prior policy
+afterward without clobbering link->aspm_disable, link->aspm_default,
+L1 PM Substates, or Clock PM state.
 
-This series adds a debugfs interface for it.  The kernel sets the link
-up for margining and puts it back afterwards:
+pci_disable_link_state() permanently sets link->aspm_disable, and
+pci_enable_link_state() intentionally refuses to clear it.  Introduce a
+PCI-internal, reference-counted pcie_aspm_inhibit() helper:
 
-  - ASPM is temporarily inhibited for the session with an internal
-    reference-counted helper in the ASPM driver, Hardware Autonomous
-    Width/Speed Disable are set on both ends, and both ends are kept
-    runtime resumed.  All of this is undone when the session ends or
-    either end of the link is removed.
-  - Before each margining command, the link is checked against the
-    state the session started in.
-  - User space selects the receiver and the steps; the kernel does not
-    run sweeps or interpret results.
-
-Patch 1 adds the internal pcie_aspm_inhibit() helper in
-drivers/pci/pcie/aspm.c, patch 2 adds the LMR debugfs interface and its
-documentation, and patch 3 adds a kselftest.
-
-The only PCI core changes outside drivers/pci/pcie/ are the init/exit
-hooks in probe.c and remove.c and internal declarations in
-drivers/pci/pci.h; drivers/pci/pci.c, drivers/pci/pci-driver.c, and
-include/linux/pci.h are not changed.
+- Track temporary inhibitors via aspm_inhibit_cnt on struct pcie_link_state
+  under pci_bus_sem and aspm_lock.
+- Force state = 0 in pcie_config_aspm_link() whenever aspm_inhibit_cnt is
+  non-zero, so concurrent policy or sysfs changes still update the saved
+  state cleanly and take effect once all inhibitors release.
+- Return -EPERM rather than overriding firmware-enabled ASPM when the OS
+  lacks ASPM control, and return 0 when ASPM support is disabled.
 
 Signed-off-by: Priyank Rathod <rathodpriyank@google.com>
 ---
-Note on the v4, v5, and v6 reposts on Oct 6:
-Apologies for posting v4, v5, and v6 within a four-hour window.  The
-root cause was reacting immediately to each incremental automated
-sashiko-bot report on the mailing list instead of running the full
-review pass locally first and batching feedback into a single revision:
+ drivers/pci/pci.h       |  6 +++++
+ drivers/pci/pcie/aspm.c | 70 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 76 insertions(+)
 
-  1. v4 (16:09 UTC) reworked the series into two patches, dropping
-     pcie_get_link_endpoints() and pci_aspm_inhibit() per Ilpo's review.
-  2. v5 (17:35 UTC) was sent after sashiko-bot flagged
-     'up=$([ "$rx" = 6 ] && echo "$dev" || echo "$partner")' in
-     pcie_lmr.sh, mistaking the PCIe Upstream Port (receiver 6, the
-     child device below the Downstream Port where aspm.c attaches the
-     sysfs 'link/' directory via pcie_aspm_get_link()) for the
-     Downstream Port.  Although the logic in v4 was right, v5 renamed
-     'up' to 'child' and added a comment so human reviewers would not
-     hit the same ambiguity.
-  3. v6 (20:59 UTC) was sent after sashiko-bot flagged on v5 that
-     pci_lmr_reboot_notify() used mutex_trylock(&port->lock) under
-     pci_lmr_mutex and could skip resetting a port if a debugfs command
-     was in flight during reboot/kexec.  v6 replaced that with a kref on
-     struct pci_lmr_port and pci_lmr_end_sessions() so reboot/kexec
-     waits for p->lock outside pci_lmr_mutex.
+diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+index 77efa4c5c960..e24a6dbf48ce 100644
+--- a/drivers/pci/pci.h
++++ b/drivers/pci/pci.h
+@@ -1150,6 +1150,7 @@ void pcie_aspm_powersave_config_link(struct pci_dev *pdev);
+ void pci_configure_ltr(struct pci_dev *pdev);
+ void pci_bridge_reconfigure_ltr(struct pci_dev *pdev);
+ void pcie_encode_t_power_on(u32 t_power_on_us, u8 *scale, u8 *value);
++int pcie_aspm_inhibit(struct pci_dev *pdev, bool inhibit);
+ #else
+ static inline void pcie_aspm_remove_cap(struct pci_dev *pdev, u32 lnkcap) { }
+ static inline void pcie_aspm_init_link_state(struct pci_dev *pdev) { }
+@@ -1163,6 +1164,11 @@ static inline void pcie_encode_t_power_on(u32 t_power_on_us, u8 *scale, u8 *valu
+ 	*scale = 0;
+ 	*value = 0;
+ }
++
++static inline int pcie_aspm_inhibit(struct pci_dev *pdev, bool inhibit)
++{
++	return 0;
++}
+ #endif
+ 
+ #ifdef CONFIG_PCIE_ECRC
+diff --git a/drivers/pci/pcie/aspm.c b/drivers/pci/pcie/aspm.c
+index b039b57f8466..0d43dc517098 100644
+--- a/drivers/pci/pcie/aspm.c
++++ b/drivers/pci/pcie/aspm.c
+@@ -245,6 +245,8 @@ struct pcie_link_state {
+ 	u32 clkpm_enabled:1;		/* Current Clock PM state */
+ 	u32 clkpm_default:1;		/* Default Clock PM state by BIOS */
+ 	u32 clkpm_disable:1;		/* Clock PM disabled */
++
++	unsigned int aspm_inhibit_cnt;	/* Reference count of inhibitors */
+ };
+ 
+ static bool aspm_disabled, aspm_force;
+@@ -1055,6 +1057,10 @@ static void pcie_config_aspm_link(struct pcie_link_state *link, u32 state)
+ 	/* Enable only the states that were not explicitly disabled */
+ 	state &= (link->aspm_capable & ~link->aspm_disable);
+ 
++	/* Temporary inhibition overrides configured policy without mutating it */
++	if (link->aspm_inhibit_cnt)
++		state = 0;
++
+ 	/* Can't enable any substates if L1 is not enabled */
+ 	if (!(state & PCIE_LINK_STATE_L1))
+ 		state &= ~PCIE_LINK_STATE_L1SS;
+@@ -1538,6 +1544,70 @@ static int __pci_disable_link_state(struct pci_dev *pdev, int state, bool locked
+ 	return 0;
+ }
+ 
++/**
++ * pcie_aspm_inhibit - Temporarily inhibit or re-allow ASPM on a link
++ * @pdev: PCI device below the link (Downstream component of the link)
++ * @inhibit: True to inhibit ASPM, false to release the inhibition
++ *
++ * Maintain a reference count of temporary ASPM inhibitions on @pdev's
++ * upstream link without altering link->aspm_disable, link->aspm_default,
++ * or Clock PM state.  On the first inhibitor, ASPM is disabled in LNKCTL
++ * (Downstream component before Upstream component per PCIe r6.0 sec 7.5.3.7).
++ * When the last inhibitor releases, the configured ASPM policy is restored.
++ *
++ * Return: 0 on success, -EINVAL if @pdev has no ASPM link state or on an
++ * unbalanced release, -EBUSY on counter overflow, or -EPERM if the OS
++ * lacks ASPM control while firmware has ASPM enabled on the link.
++ */
++int pcie_aspm_inhibit(struct pci_dev *pdev, bool inhibit)
++{
++	struct pcie_link_state *link;
++	int ret = 0;
++
++	if (!pdev)
++		return -EINVAL;
++
++	if (!aspm_support_enabled)
++		return 0;
++
++	down_read(&pci_bus_sem);
++	mutex_lock(&aspm_lock);
++
++	link = pcie_aspm_get_link(pdev);
++	if (!link) {
++		ret = -EINVAL;
++		goto unlock;
++	}
++
++	if (inhibit) {
++		if (aspm_disabled && link->aspm_enabled) {
++			pci_warn_once(pdev,
++				      "can't inhibit ASPM; OS doesn't have ASPM control\n");
++			ret = -EPERM;
++			goto unlock;
++		}
++		if (link->aspm_inhibit_cnt == UINT_MAX) {
++			ret = -EBUSY;
++			goto unlock;
++		}
++		if (++link->aspm_inhibit_cnt == 1)
++			pcie_config_aspm_link(link, 0);
++	} else {
++		if (WARN_ON_ONCE(!link->aspm_inhibit_cnt)) {
++			ret = -EINVAL;
++			goto unlock;
++		}
++		if (--link->aspm_inhibit_cnt == 0 && !aspm_disabled)
++			pcie_config_aspm_link(link, policy_to_aspm_state(link));
++	}
++
++unlock:
++	mutex_unlock(&aspm_lock);
++	up_read(&pci_bus_sem);
++
++	return ret;
++}
++
+ int pci_disable_link_state_locked(struct pci_dev *pdev, int state)
+ {
+ 	lockdep_assert_held_read(&pci_bus_sem);
 
-Changes in v8:
-- Rebase onto v7.4-rc1.
-- Replace pci_force_enable_link_state() and the bitmask return value of
-  pcie_aspm_enabled() (both deferred before v7.4-rc1) with an internal
-  reference-counted pcie_aspm_inhibit() helper in drivers/pci/pcie/aspm.c.
-- Hold port->lock continuously across claiming and activating a session
-  in pci_lmr_start(), recheck pci_lmr_rebooting under pci_lmr_mutex,
-  wait on starting sessions in pci_lmr_find_session(), and drop runtime
-  PM and partner references outside the device locks in pci_lmr_stop().
-- Preserve unread too_many_errors status in PCI_LMR_LANE_STS when
-  pci_lmr_sync_lane() resets software offsets for a lane.
-- Link to v7: https://lore.kernel.org/r/20261012-pcie-link-endpoints-v7-0-36aba9c91f10@google.com
-
-Changes in v7:
-- Match PCI_LMR_LANE_RX | PCI_LMR_LANE_TYPE | PCI_LMR_LANE_PAYLOAD in
-  pci_lmr_no_cmd() instead of U16_MAX, and format the error count in
-  status_show() with %u and an explicit unsigned int cast.
-- In pcie_lmr.sh, check all unreachable receiver numbers for the port
-  type and, on a Downstream Port, discover any retimers on the link
-  (receivers 2..5 via LNKSTA2), test caps and a timing step 1 -> 0
-  round-trip on each present retimer receiver, and verify that absent
-  retimer receivers are rejected with -EINVAL.
-- Link to v6: https://lore.kernel.org/r/20261006-pcie-link-endpoints-v6-0-154d71657d32@google.com
-
-Changes in v6:
-- Add a kref on struct pci_lmr_port and use pci_lmr_end_sessions() in
-  pci_lmr_reboot_notify() so reboot/kexec waits for in-flight commands
-  outside pci_lmr_mutex (preserving the port->lock -> pci_lmr_mutex lock
-  order) instead of skipping ports on mutex_trylock() failure.
-- Link to v5: https://lore.kernel.org/r/20261006-pcie-link-endpoints-v5-0-c1e73235746b@google.com
-
-Changes in v5:
-- Clarify in pcie_lmr.sh why the sysfs 'link/' check targets receiver 6
-  (and rename 'up' to 'child'): in PCIe terminology the Upstream Port
-  (receiver 6) is the child device below the Downstream Port, and in
-  drivers/pci/pcie/aspm.c aspm_ctrl_attrs_are_visible() looks up the
-  link via pcie_aspm_get_link(pdev) -> pci_upstream_bridge(pdev)->link_state,
-  so '/sys/bus/pci/devices/<dev>/link/' is attached to the child device
-  below the Downstream Port, not to the Downstream Port itself.
-- Link to v4: https://lore.kernel.org/r/20261006-pcie-link-endpoints-v4-0-ad5398c4260c@google.com
-
-Changes in v4:
-- Drop the exported pcie_get_link_endpoints(); the partner lookup is
-  private to margin.c (Ilpo).
-- Drop pci_aspm_inhibit() and all aspm.c changes.  Use
-  pcie_aspm_enabled(), pci_disable_link_state() and
-  pci_force_enable_link_state(), call neither when no ASPM state is
-  enabled, and restore Clock PM when CLKREQ# was enabled.  ASPM Control
-  is checked on both ends before each command.  The remaining
-  differences after a session are documented.
-- Remove the MSampleMultipleReceivers capability bit.
-- One receiver per session, selected with a port-level 'receiver'
-  file.  A session starts with receiver 1 on a Downstream Port and 6
-  below it, as pcilmr does; receiver 0 is not used for margining.
-- Add a per-lane 'status' file with the step response and error count,
-  and a per-port 'port' file with the Margining Port bits.  Stop writing
-  Margining Port Status.
-- Locking: take both device locks with pci_dev_trylock() only while a
-  session starts or stops, require both ends to be added, and make no
-  runtime PM calls under the LMR locks.
-- End sessions from pci_lmr_exit() for either end of the link.
-- Commands fail with -EIO after a system suspend.
-- Move debugfs to pcie_lmr_<device> at the debugfs root.
-- Keep per-device state in margin.c instead of struct pci_dev.
-- Split the selftest into its own patch, rename it pcie_lmr, use KTAP,
-  and only start a session on the port named by PCIE_LMR_DEV.
-- Refer to registers by name instead of specification section numbers.
-- Link to v3: https://lore.kernel.org/r/20260904-pcie-link-endpoints-v3-0-4b9a91bd4b35@google.com
-
-Changes in v3:
-- Link to v2: https://lore.kernel.org/r/20260904-pcie-link-endpoints-v2-0-16fcb301a3e4@google.com
-
-Changes in v2:
-- Link to v1: https://lore.kernel.org/r/20260831-pcie-link-endpoints-v1-1-32c2fd893e9e@google.com
-
----
-Priyank Rathod (3):
-      PCI/ASPM: Add internal pcie_aspm_inhibit() helper
-      PCI/LMR: Add Lane Margining at the Receiver debugfs interface
-      selftests/pcie_lmr: Add tests for the Lane Margining debugfs interface
-
- Documentation/PCI/index.rst                  |    1 +
- Documentation/PCI/pcie-lmr.rst               |  155 +++
- MAINTAINERS                                  |    8 +
- drivers/pci/pci.h                            |   14 +
- drivers/pci/pcie/Kconfig                     |   11 +
- drivers/pci/pcie/Makefile                    |    1 +
- drivers/pci/pcie/aspm.c                      |   70 ++
- drivers/pci/pcie/margin.c                    | 1596 ++++++++++++++++++++++++++
- drivers/pci/probe.c                          |    1 +
- drivers/pci/remove.c                         |    1 +
- include/uapi/linux/pci_regs.h                |   18 +
- tools/testing/selftests/Makefile             |    1 +
- tools/testing/selftests/pcie_lmr/Makefile    |    3 +
- tools/testing/selftests/pcie_lmr/pcie_lmr.sh |  387 +++++++
- 14 files changed, 2267 insertions(+)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20260831-pcie-link-endpoints-978e100d5d06
-
-Best regards,
 -- 
-Priyank Rathod <rathodpriyank@google.com>
+2.56.1.831.g720f3f5937-goog
 
