@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645086;
-	b=OXUwtgG72IPxvFh1d98PDxrYpL3b0B1ftFpNF08UFjtq8PwuZUVKR4Y9EtOVmQGzlyry
-	 rIoTJgWeqIRJLM/IGOBz9uLa4y2ZH3g2Uxal02LwahwAfsyJuJfRWXbZXbhoMoZfEPMlo
-	 iWAla6EniBZ6OVKAW3J+k5G264gobMQwemOXWxJaj8EqVcJLjb07Z/eAeUFjC1Lv3vv+7
-	 ToTHo2BiqvhtLeoMn0gM4SFcU82BO2xrnTN4RPo7rdYcNXTZ6TiEyxsJhc2A5cOwMhVZt
-	 663F2e85VspASPeUlSXibVXh6g0AMAiGyC6SwEe2730tiT8v6xOQlbHxHsKCsq5owvw==
+	t=1795645089;
+	b=j9+Ft+nQQpPIf4714mtTwywHEMejJBbUaI+m1pMGtGBGeiRENUmKHZ5ysT0VEDltyFU3
+	 n2uIfci2YtmlShHMAwk/g1//a5076eGk2BfgpOAcvI9Ani4PrkOdPc6+LLNt46351hlSu
+	 ptxgQIzUlxYeGQTvQK/5vtj0MUz6nzJ5xg973ScbplY66wjj+Vc81UqpbbAEn7eejw6SC
+	 cRtB3Zd1ik8tXwywJVYcXN0qgwHakk0Wns6oTFtRYkzBck2RFdQ0/VJ/Kjy0w9Bxaihfi
+	 dE0tu5GXGox8exUqe0kPtk1CpRkpBirGrB+cj7rA2V6ODGKDgzZ5G/IC2A8EjlhfYKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645086;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645089;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=0ipuY/GPGnzCJlnHWCO1S3xz7owRUdE8H+HL99PrQAY=;
-	b=E5GPmikrDDA0GqjMt0ac/GRctznUdDQfUK3ijcPdx80G1Fuo9r/EHkTFI6SNDTO/NU3W
-	 C788c4x1CYOrxsvHRNHQ17S5x94x0bfHETZHy1IEAXnqe82nVmcfsPXmGXzohAGY8H+w4
-	 x+p4vgkLI13Orf79c0mY/ZtF2EZMqRbR6orQIDxRAXp00XC5JClpEzDG7yS02fgdC4t6W
-	 c3ssgQlKaputBCu1Dszw+PJ4Fr01E+yMWZ7JdK7LkaoUBN+DEG8tvXEua/WOIStOAI7zf
-	 98qWTfvolFTrpBxcptwj6quwCZ7UxiaiZm+fa7wzdVcjTRA/I6kJ9Bs2TkMmbaMs+Hg==
+	bh=kKJiwYR+cu5mrPZf9A39ckCZmDdoMlP8HFoXJiTcA30=;
+	b=UhhPtGfEy/x6DoNRwgcIwiGUnOCxkzc5nCCenwcOUhAsr6PyiDzrtvclMuqdG7Ju8SiJ
+	 9kX81j0qP4rud28sJMukthK7nRN79Y0DDpZr9kHJrbZYGGy1rROyqraIsVTP8GpziAB2H
+	 wES/mYgTnsYbVDByPTCcfFyL4V+CJev7GejAVsLstkTAb8orsOjZiADOZDj50kqQVFo+T
+	 E1W2Q8/t8ccik4xde564JvTuimMsctOas2bXuAsFAW0BB1umHHYYQdpOENQsGQXK3bZth
+	 FQ+cEzR3ym6oi7cwbj860rr7qIUC5WbfHkn8jABDOigaU4GTCXVKGU7Dj3KfxT8czEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=d4C4hDru;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZVY8mCqs;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0425606A332
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:18:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0425606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C772606A33A
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:18:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C772606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=d4C4hDru
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-385d8a00598so9370844eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:18:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZVY8mCqs
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-38692f62b22so7636926eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:18:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795645085; x=1796249885; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795645088; x=1796249888; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0ipuY/GPGnzCJlnHWCO1S3xz7owRUdE8H+HL99PrQAY=;
-        b=d4C4hDruGezjryJjUXDGrcMNv91JTeaHoH02IBRRrhMTYsm+KdaIq8zPvV135GrEUc
-         cvTs7SLLqIRI3xDB36dHNrwLjadHZcmthjeYZBAcbMxsjuMh6oR1Xuj7J8OhSDZxXLWh
-         HRNsSiqMMhd1VVny4P3EaxuOdbqriGk/39ad7BTzpvIXsVMvfLzWWJ5nH4uow1MRDTeY
-         UhRPjh+jgIiUaw8Au4cOkmXtrbFuYujQGXJAvddaXTjGjbNpXX2RlpIR0po5hxehRSXu
-         Rl6cw/hPk0q9VfnwoiSJaYbhSkZwBtCc8ZoEGexB5piGnbQYaLNac+56G22AemftWcA+
-         dLcw==
+        bh=kKJiwYR+cu5mrPZf9A39ckCZmDdoMlP8HFoXJiTcA30=;
+        b=ZVY8mCqsBddZObOYIXIcss49XEgjhI0oEJgatBFM7cmxjhdOEXS0El9GvbTlT0WULY
+         9i2iWLH1dX0WdE5V15u8Y4JibImKiTs2g5oByUP+osAHP7L/fWW+xEOrLbgycTHKuGYN
+         FxCzpaN8287ZRGpFtnYy51KJ7IiSKqSMTab4JYPsyAQIjBNj3BJTCIYvSWKmN1OtGz0f
+         GMaPnJELkgByGFo2IQNiPGsRHGwMAE22xqRkfijG4eMPE4GTi0lu/k4RzAqDjxeYPS98
+         +TvkzDW9yo0zD66xDNH3QS9yE1fDmz6W/TAlYCxHkAkDWzR9Z96Cv+Y6AIwSODhHt6+/
+         G00w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645085; x=1796249885;
+        d=1e100.net; s=20260707; t=1795645088; x=1796249888;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0ipuY/GPGnzCJlnHWCO1S3xz7owRUdE8H+HL99PrQAY=;
-        b=r+TEq1g3NOOvNv0DKsbxK4A1SH3C/6OPLNh76B8J+LCa9WSxgNuO4p2uV+TW8cr7A8
-         arc/faH+Bb6zQU6ZHo8APSXH3IyNqqd5oA9qvSQmN2YGAjKgoYJgDPX+RzGTRTmwneDy
-         qOdwBdde7LryqirAjuL0wPBMmuTaMh7rf7+nxeXzpW6u+szTLDjosHOkACh0D3Aj6Kq0
-         ulDulNLBbqzFNDyx0XK0EEG9hD7G882ttDz2/RAmdG3AB7uz8H1VnzxOZ77/DrEv/20P
-         V7HH9r/AqpIe4m58IHBZRtW30p/QWBx0z18Je4WbXRKORFKInbY9kSkmUEsGENzPwk96
-         ml/Q==
-X-Forwarded-Encrypted: i=1; AL+hErGWgwoTu07b6uIyWiEI8Qadt7cOo+qjVNSlupQEt7JC109OKv8ioua6Frg+rt31aLugN/cTBgfLwMGinq0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9pmY4e274mZtEYCbfBq/0H2e0mQcyfrBRD547X6ismx3VJMHIW
-	RhimX3oVfcGJWLmMjNuXoGUF8CvPWXn8z/UsXdGTkEaey79VpxKJ2Vmn
-X-Gm-Gg: AZFdTZch5Xb+LjelgyhDS8z7BP7n6k1mGlLSCzEjBygXHf4ldEhLZPghdg50kv98pAp
-	zrv/3nS+3IxFKtRdSY0hyLY1wKfVMZsfNWms503WU4USAsA9ld2Tq7J6Q+rw/GvpnmVJbigm1h+
-	0Xc1b1wbSjmbcyHvMAnp/WUPG/PKs0JM+EEqOMsVcQL9qkQf0+0YYqDXGYPAEpksl3iWEngHnBn
-	LcTX0kWQ7iucn71iUtFuRWv/O1EwXRyFYB7Roh4Mc3eO5L5oy1bk6sbqtrjHYVMdUM2igd+qBoY
-	kSv4fMjBwx++yQ//st7W/d1M00Q0XiwKLhov5bUyFaYY27ivn7ct24iGcNYi0A7GunTroNEAV60
-	7ENq8lzJKjnN1z4/Wpjhj33241g397+OJn/bIRhvLvepb4+EnyrqaF2pvSI/tOIt2BnMd2khzlq
-	2Fk5NQvOV7i4QU7LnIXcJHrefju8FWENFDRHkQTMyaraPcDvYe+SMEgTyPlGGdw2c3qJ0uOAwsm
-	5P3/D1PuNc9Khx3BNuShERPyhHfaZZAOlI8zPCgnicEbbRU2nPKPMWnESEiaJ5LyYhrkmXD4Rdj
-	NQwWwNd6bF2Vkndbpj1/eQ==
-X-Received: by 2002:a05:7300:ce93:b0:36c:a44c:1763 with SMTP id 5a478bee46e88-386bbfa6402mr7456394eec.32.1795645084664;
-        Wed, 25 Nov 2026 14:18:04 -0800 (PST)
+        bh=kKJiwYR+cu5mrPZf9A39ckCZmDdoMlP8HFoXJiTcA30=;
+        b=agBj1nxZloH2Hsbx3iCO05Fn7l3r8gmDZMY4Uw3/9kFkPt7tne571YG/r4eAh+YmoE
+         dmOWNQv3A8hnzE4d9zssN0HH3nlAORlv534ReTqgE1jmhum4RRAuX+Lb1c21DVBhHAhR
+         whf3nM4UNbvgL+y9IfSOVI8NWfnyn4hzRXOR1XcZ71nokZcXDKpQ3/y6Qf+DEQ/RwBF1
+         IS5EuzIk+/E7AwpyqfKMcJEYkaO9AbMPbuLKzE1vmxf+CiwNYlL0KuUWVxYMzHODiYyu
+         Jcf8Ab3Pi512NinEn3Yt0fxq6Gi9OJF138ZQdekb1XjXi3xIgXWppB4WeVhO5nOtVj+a
+         VsYQ==
+X-Forwarded-Encrypted: i=1; AL+hErHtu0i+9plExt+qDA1H3jjACqqGtPuyugCmIwSo7HbBmaJZ7hB1hmgSG+Z9X7IeBpUQL8e96UZGelnHjwY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/T69r7jcJYGLOE0Qo6/UhLK+UIbhDkqE/BCgsOTDt4STty0Ock
+	GEB0KJGU4CGxfzvmG8U3EQ9ixqTUEA8ePrpn3DErXM6Gp74sDGZQe+/q
+X-Gm-Gg: AZFdTZd/NIeGeuDJrGuL+965OKJrt8SCP9rZZ9apnqJ/liyfgGRJA07UooXeQxwCTuG
+	oJUisG3C9VZ7MkqutqoEIQqn4LOR6sCSUOHyohSN7s7bsX4sFGqfwsp+NRoT+PzZr5A2YMFLKUH
+	4JMpyMlNQyi4moDQjwaLjLtYVtPpBBN7hnmto5fitMgZJp9LfaR8Se0ffyF6vUAzk5DfDCZvkyd
+	AMSOhMxnSO/5IhGtnDzzT/hMOHK2lOQfr7V3duFt2K++ivtpz3M4EEFZjx2qEbe42opJXkaygq4
+	1iBFSq50TqPcmoR7hHFdgQuRjbbdEAvdVvTxdyumVO40lXhAq225K/b2VGDSupUZTsK9I9JVKHu
+	NohPunqNUvieAQ9aYW8xkk80EoCjCMwCZ0POg4RedR2wAMq3PR9S4h0APlAXbgYEx85CTTWqV+8
+	7nEnDfwPKqo0S8W9OvuCpFiTNEwLU5/Hmb2JoSJEe6ZGXG4dT/vkIWQ4e5+eghBdWeD2QxdpEEx
+	6j9ZU+Qgi9cqS0PIbprV+ULVRPZPJ5bJmIn6GfP1XDdK3mh9m82gwtUui7LM9fe8BAprb/TZTdm
+	i0i987osIJplIXNQXuDv
+X-Received: by 2002:a05:7301:3a82:b0:374:ea35:9069 with SMTP id 5a478bee46e88-3856fb67380mr18010876eec.39.1795645087464;
+        Wed, 25 Nov 2026 14:18:07 -0800 (PST)
 Received: from a1-free ([2603:c021:8021:f000:0:1865:8c38:18fc])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm69581357eec.5.2026.11.25.14.18.02
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm69581357eec.5.2026.11.25.14.18.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 14:18:04 -0800 (PST)
+        Wed, 25 Nov 2026 14:18:06 -0800 (PST)
 From: TAKANO Mitsuhiro <takano32@gmail.com>
 To: Jonathan Corbet <corbet@lwn.net>,
 	linux-doc@vger.kernel.org
@@ -93,9 +93,9 @@ Cc: Shuah Khan <skhan@linuxfoundation.org>,
 	platform-driver-x86@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: [PATCH v2 1/3] docs: ABI: mlxreg-io: Drop the second shutdown_unlock entry
-Date: Wed, 25 Nov 2026 22:17:56 +0000
-Message-ID: <20261125221758.2535044-2-takano32@gmail.com>
+Subject: [PATCH v2 2/3] docs: ABI: hid-lenovo-go: Point one entry at the top-level attribute
+Date: Wed, 25 Nov 2026 22:17:57 +0000
+Message-ID: <20261125221758.2535044-3-takano32@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261125221758.2535044-1-takano32@gmail.com>
 References: <20261125221758.2535044-1-takano32@gmail.com>
@@ -110,22 +110,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Commit 4e29dd3821df ("Documentation/ABI: Add new attribute for
-mlxreg-io sysfs interfaces") added shutdown_unlock as a new attribute,
-but sysfs-driver-mlxreg-io already described it in the October 2021
-block.  The tree ended up with two entries for the same file, and with
-two different defaults: the older one says "Default is 1", the newer
-one says "Default value is 0".
+The protocol_version entry at line 389 describes the internal MCU, but
+its path carries a right_handle/ prefix, which is the group the
+removable right controller lives in.  The entry at line 566 already
+uses right_handle/protocol_version for that controller's own attribute,
+so two entries claim the same file and abi_parser reports the symbol as
+repeated.
 
-Keep the entry that came first, which documents the behaviour in full
-and carries the kernel version the attribute appeared in, and drop the
-later copy.
+The internal MCU attribute is not under a group directory.
+LEGO_DEVICE_ATTR_RO() takes its fourth argument as the prefix of the
+_show() callback, not as a sysfs group name, and mcu_attr_group has no
+.name:
 
-Which default applies is a property of the board's CPLD, not of the
-driver: mlxreg_io_attr_show() returns the register bit as it is.
+  LEGO_DEVICE_ATTR_RO(version_protocol_mcu, "protocol_version",
+                      USB_MCU, version);
 
-Verification: get_abi.py --dir Documentation/ABI validate no longer
-reports shutdown_unlock twice.
+  static struct attribute *mcu_attrs[] = {
+          ...
+          &dev_attr_version_product_mcu.attr,
+          &dev_attr_version_protocol_mcu.attr,
+          NULL,
+  };
+
+  static const struct attribute_group mcu_attr_group = {
+          .attrs = mcu_attrs,
+  };
+
+So the attribute appears directly under the HID device, beside
+product_version, and the path loses the prefix.
 
 Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
 ---
@@ -138,32 +150,22 @@ Changes in v2:
 - The checker keeps its warning for an entry without a file, counts
   lines rather than occurrences, and drops an unused loop key.
 
- Documentation/ABI/stable/sysfs-driver-mlxreg-io | 12 ------------
- 1 file changed, 12 deletions(-)
+ Documentation/ABI/testing/sysfs-driver-hid-lenovo-go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/ABI/stable/sysfs-driver-mlxreg-io b/Documentation/ABI/stable/sysfs-driver-mlxreg-io
-index f59461111221..00cff8965b22 100644
---- a/Documentation/ABI/stable/sysfs-driver-mlxreg-io
-+++ b/Documentation/ABI/stable/sysfs-driver-mlxreg-io
-@@ -741,18 +741,6 @@ Description:	This file, when set 1, indicates that access to protected
+diff --git a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go b/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go
+index c8221373ef76..6ba874913c1e 100644
+--- a/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go
++++ b/Documentation/ABI/testing/sysfs-driver-hid-lenovo-go
+@@ -386,7 +386,7 @@ Description:	This displays the product version of the internal MCU.
  
- 		The file is read only.
+ 		Applies to Lenovo Legion Go and Go 2 line of handheld devices.
  
--What:		/sys/devices/platform/mlxplat/mlxreg-io/hwmon/hwmon*/shutdown_unlock
--Date:		May 2025
--KernelVersion:	6.16
--Contact:	Vadim Pasternak <vadimp@nvidia.com>
--Description:	When ASICs are getting overheated, system protection
--		hardware mechanism enforces system reboot. After system
--		reboot ASICs come up in locked state. To unlock ASICs,
--		this file should be written 1
--		Default value is 0.
--
--		The file is read/write.
--
- What:		/sys/devices/platform/mlxplat/i2c_mlxcpld.*/i2c-*/i2c-*/*-00**/mlxreg-io.*/hwmon/hwmon*/boot_progress
- Date:		May 2025
- KernelVersion:	6.16
+-What:		/sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/right_handle/protocol_version
++What:		/sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface num>/<hid-bus>:<vendor-id>:<product-id>.<num>/protocol_version
+ Date:		April 2026
+ Contact:	linux-input@vger.kernel.org
+ Description:	This displays the protocol version of the internal MCU.
 -- 
 2.53.0
 
