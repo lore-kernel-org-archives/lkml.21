@@ -1,67 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795611351;
-	b=dL4uExr8DsQ50jAQiHfCTIq6Zey54j4UmO/ch7MVC6kt/hTrGgpZ8LlS+PB8bIyyEbWz
-	 Ec1YZda7PEwNbFrCEZ/VoI1T4Rf9QHeH7nqq2UbEUy/SsIDKuYIUEseeXaFeQbBpCk9bf
-	 V71jySxPOpIh5Spj8XUMXUCGohJRxSeazWXRpsND2vRZWCv44tcfSLb/LiRCvsTvrQCZ2
-	 yUveMJ+Uz1B3uyQo2ithsFqFLw9S3YvTjjJ8o+AbTdUabRvvxO04XiDo6QH2paZ6fc0Xt
-	 85dOyUOgBtz0j1nigosxTgmI5pUjR38lwsjEoimOklgMA+OtZGHk/Sug2qUPIaKpv+w==
+	t=1795611446;
+	b=FaW0GRjWRwX9QVgD+HUTDwLZgANcUu2PzkGYeXjovBqvuPtya4Ap+8q4GKeBB4jvsuqJ
+	 okqjp1D2XoeSyhCGsFwPjaLImzfIs1dXuVhkzrCslxo6zN+7Qhu/roBI0HIQQ6zAGHn0j
+	 KP2a4WbkgJjBtdksg20N7t1l35XKcAxeARqrYuuEbFAZCivbto9O+gQhtd3Mx5LRlu7d5
+	 rI/AeWsocXZ6U9dIfUQZa2HP46aiezByTx8Cof86dyKZJiNzbIF+0ZfqU77GG0qMA0Hg1
+	 8ihO51KCCXvPHA5xiurj8k/SEabP59DUuvH8pIiNRPkwJ4AYEAl/MyxOjsFKtoX9/3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795611351;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:X-Last-TLS-Session-Version;
-	bh=Zz8pRVPj1m/x6K4VKaV8LSIz7Bt1hMO6SMJiNKydZSY=;
-	b=OcczCGvrar6ouVjkzCnZUrM36uiyn9i3NFWtfa6Du74HSQrmcIelZ5Eg3zWQE8zyyqHl
-	 0eUR0/BKWCMDbkASb2U8hV8uo89yh3XUZ14k4WFmZHRGQ/gRX0n67jABJ/NAaSVRZnR2B
-	 zkizmRIfb7R5tvnlAaXrg0cdh8GTbhZUWLNU4R5gRJy5va3FsqGvmBwsXZyEd+f7vimuW
-	 d83yLTJ21Un2Yh00bcUps6uY8ni/FApucAs/s8LTjoy3895bbIK3OOU26rfCt6Wn6dP5y
-	 6gurgpe+PSn/fbjldvsNdjnVlzG6Hez2YRAP/IiUG39Go5iNYI8Bt8AFc1QqYjNZYeQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795611446;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=mfltfNq/ZPnpD4OYvm+F8Ne+9+ic89UiJvGsMBg0vdc=;
+	b=2V4vj+iQY8dwGr1Ti6h8QZvyBuJTefYkCuVhkXea2xGoyqpRGRZEiiZOv+GErlFDzQVC
+	 Hgt12JwiLnHNMPoPmtygSbAgQ+MsA8xVdcl3ydcgnpWa0aUyaO4gYKX1t52DMYJ5rWOxt
+	 luRj48hFBbVyAHajFxqAsA0Pn/gNrxfUWPuL02BDuLapfJ0XjeI++68e7ieAT4b5YA+w0
+	 w2UBoIeNGW6uQI0o9POm9FTOXkEIJDaydoBplUG//OcfMM130fP5BUzhT2Br8jgIMitOu
+	 EnygLFQjeiiLE5+eJhobNYRONoEd+DvRa+p913dLZgaXSs6WlVVq2Dbs2eKPV2aMmrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=aT2Zur7O;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tTJuGvhu;
+	arc=none smtp.remote-ip=74.125.82.43
+Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9CB1606A33E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:55:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9CB1606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FA0C606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:57:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FA0C606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=aT2Zur7O
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 03B93C62219;
-	Wed, 25 Nov 2026 12:55:53 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1CE5260480;
-	Wed, 25 Nov 2026 12:55:45 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7D2D011E6962C;
-	Wed, 25 Nov 2026 13:55:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795611344; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=Zz8pRVPj1m/x6K4VKaV8LSIz7Bt1hMO6SMJiNKydZSY=;
-	b=aT2Zur7O4lBtxYQYfwKuAvhcn1SgPWKsRujduPByUAXeP7cKx2bXz2rl25hJECg1c9PDCg
-	n+jnwNyzkzWLHec2eToEEeqCDvglMfIN/J4VrrSIh2DV23apCc23WBose8SXWZLvxawhzk
-	q1oqb+8JaZkeC+qb3qv4XrxIpbkU2yZYAjnZFeDfjeeU3ILUhMgjxa9RGYLB1q1JbFtmjx
-	ZJiEPwJ0CxcMHQ9qSIqTuGtfys4S3K9M5OCrb9NMvOwGopqc5yNWLPguFsnVzHr24EwDTR
-	lha/uisEzrpIH7afHam8627TMN68SCVDBmGNl6O1Dl/2pJEZcttHFpXiIMcMZA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Ping Li <leeonion.muyu@gmail.com>
-Cc: richard@nod.at,  vigneshr@ti.com,  linux-mtd@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
-Subject: Re: [PATCH v5 3/3] mtd: rawnand: r852: declare NAND_USES_DMA
-In-Reply-To: <20261125122135.44696-4-leeonion.muyu@gmail.com> (Ping Li's
-	message of "Wed, 25 Nov 2026 20:21:35 +0800")
-References: <20261125115108.4147741-1-leeonion.muyu@gmail.com>
-	<20261125122135.44696-1-leeonion.muyu@gmail.com>
-	<20261125122135.44696-4-leeonion.muyu@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Wed, 25 Nov 2026 13:55:41 +0100
-Message-ID: <87cxrtyss2.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tTJuGvhu
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-15ea896ddc8so9529618c88.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:57:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795611446; x=1796216246; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mfltfNq/ZPnpD4OYvm+F8Ne+9+ic89UiJvGsMBg0vdc=;
+        b=tTJuGvhuVbfbDZwkwiZCCFSEqZTCM4VIkwck/4VX8pBV0n5Ui7iwE33MkXy/FKxwec
+         uQ2dtuJZzTajC3KNTqNZwfIpsUngEZFVpCzfVgg5e/OgUFt5OkXEuYXkafqBGRtCNID4
+         Fk3AVhvPdOherDXQw3uR2Tu/lOlt3YAr9bi8alP/PU6CZZq5vQafMqetHTSLKfgCMESV
+         SzP344mVC+pokZYHXUWN3XKOyP5o8D9ywjTVtc6Pc32jgVySDIi7RsVHFMonNSUvK7Vg
+         cM9H2UADvTbPboeJowCrMP4bpqsOolz7iOV/8NtDVnYHkmGaxkGWJFD7Nzhe9GI4GRbx
+         sl1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795611446; x=1796216246;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mfltfNq/ZPnpD4OYvm+F8Ne+9+ic89UiJvGsMBg0vdc=;
+        b=IdV+vBf+okoYSRkRE+N46bF2yNgkw+R7sr4OuMbq3J16jOWbKrJZslsL4KFGdacTFR
+         B4t4peo7PyNPUE9+ukp9G3GYP0xH0hH2+WvzNE0IwUbLCbw8+UQuHA7GagzRYDOwO+aP
+         ESiY8EY7AqSs1lEWVGH8Bofjs3YjOD+00/UpWcaK64YvtoGqFNvmgquKzq9PcrXkSDfv
+         R1DwA9oGwHgoWvKyhQmIO8rUf7gQC52G4mJ8u642FsIRSLVHA93RH62N4CRw5sJuUFzX
+         wIBNOmwqBngtf9GdTbe5xuMdbHBrTxbZHKmRQzmxLVmxwtAOQ9Q3ayNOdtlS36V5L1A/
+         ixuw==
+X-Forwarded-Encrypted: i=1; AL+hErGt/Ur7izmhAW86td/1glzEBqD0JqYdfVyFxKp9rj2suTVWLgtfgKke70tTfTAwD0xG7EbLxuXPXsVG028=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9TQj9pOrgWw1m3iPaRn6iRFP20I35fuytBhYvB9fpAn4nTuvvU
+	6t1ZpVD5+HHEBrh1AppTABwA0hulO2VJlx8g9najnxd5sm6BO/A/6Kwb
+X-Gm-Gg: AZFdTZdj0hqbm52yzIq1s39i8BURvW4c/u9j5WKtAqcXDtu2XH1qNdDmWGnZht7ACwE
+	Niz6ydbTaETl5uH04ZAGGpWnVUD34kLw6EHmxeRt08La4OnYwfPf9oRBOjql+aA/wG4KmBF8TZ2
+	TRs6X/2OTV88/uK2ymdSVWEBCfQnkKTyuvTNT6P7cb/HYLcZg6D/8xYQTCnw9hkFR5w0v30a7Rr
+	m3eSXFxJdLxZcv/fIvWiy/1maFMUFXrsXXQ4dJcEQx5vmZ5YqUx2LoXWFiZIUMNcq3Fvy7hdoCl
+	/zA74DW224PH434vNc5KixiCO69RdPLoXlnK+6E1QgSW0lepI5W1jw8K/PLunGLt7FtShLTZh9Q
+	VY/WTr6JS1SQvYqYIJ1u0xDzTXn8YPMl8hfYn/wkTDy1olBlPCFJZARzdanlB6memYzNEsEeDj4
+	Zx7KnwNMBx+g8bDUUf7teXDy+NWgdEuwcXsrFrvmSKbWxoJIagZ9uELpaoP3rdQ6/CPdoHz3JzY
+	S6v31tn39a3I5G7g/2Tk8RFl7m2+Y73N4FWvO2odiBR19OBKhLi+2zY80RLvFs29eXMoOQGgoXJ
+	OM5txOb+B/fioOTHGRGrxBS2JD/oXhsTUeIolIs+P7HxDwaJcp+Gjp/y9IfDNzq2am6j
+X-Received: by 2002:a05:701b:4354:b0:1b2:6cba:7f7c with SMTP id a92af1059eb24-1b5568fdafemr16762078c88.37.1795611445269;
+        Wed, 25 Nov 2026 04:57:25 -0800 (PST)
+Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm42379243c88.8.2026.11.25.04.57.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 04:57:24 -0800 (PST)
+From: Cong Nguyen <congnt264@gmail.com>
+To: Lee Jones <lee@kernel.org>,
+	Pavel Machek <pavel@kernel.org>
+Cc: =?UTF-8?q?Andr=C3=A9=20Apitzsch?= <git@apitzsch.eu>,
+	linux-leds@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] leds: rgb: ktd202x: allocate the LED array for the chip's LED count
+Date: Wed, 25 Nov 2026 19:57:19 +0700
+Message-Id: <20261125125719.2565828-1-congnt264@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,45 +96,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
-On 25/11/2026 at 20:21:35 +08, Ping Li <leeonion.muyu@gmail.com> wrote:
+ktd202x_probe() allocates chip->leds[] with one entry per LED child node.
+The allocation helper sets chip->num_leds to that count, but probe then
+overwrites it with the number of LEDs the chip supports (3 for KTD2026,
+4 for KTD2027).
 
-> r852_do_dma() feeds the buffers provided by the NAND core straight
-> to dma_map_single(), which is only valid for linear-map addresses,
-> but the driver never declares NAND_USES_DMA.  Because of this,
-> nand_base cannot know the controller DMAs these buffers and never
-> bounces non-linear-map ones.  Such buffers are not hypothetical:
-> mtdblock's write cache is vmalloc'ed and UBIFS passes vmalloc'ed
-> LPT buffers.
->
-> Declare NAND_USES_DMA so that nand_base bounces non-linear-map
-> buffers through chip->data_buf, and advertise the hardware's
-> 512-byte alignment requirement through chip->buf_align so that
-> misaligned linear buffers are bounced as well, like the other
-> DMA-capable controllers do.  Both only apply when the controller
-> actually uses DMA: the PIO fallback path does not care about
-> buffer addresses being linear-map or 512-byte aligned.
->
-> Fixes: 67e054e919248 ("mtd: nand: Add driver for Ricoh xD/SmartMedia reader")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
-> ---
->  drivers/mtd/nand/raw/r852.c | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/drivers/mtd/nand/raw/r852.c b/drivers/mtd/nand/raw/r852.c
-> index 92c47d351c27..c5a3622cddf6 100644
-> --- a/drivers/mtd/nand/raw/r852.c
-> +++ b/drivers/mtd/nand/raw/r852.c
-> @@ -640,6 +640,11 @@ static int r852_register_nand_device(struct r852_device *dev)
->  	if (dev->readonly)
->  		dev->chip->options |= NAND_ROM;
->  
-> +	if (dev->dma_usable) {
-> +		dev->chip->options |= NAND_USES_DMA;
-> +		dev->chip->buf_align = R852_DMA_LEN;
-> +	}
+If the firmware describes fewer LEDs than the chip supports,
+ktd202x_chip_in_use() reads entries past the end of the allocation each
+time a brightness is set.
 
-Wasn't in this driver a bounce buffering operation that is no longer needed?
+Allocate the array with the number of LEDs the chip supports, and set
+chip->num_leds right after the allocation, because the helper only sets
+the counter on compilers that support __builtin_counted_by_ref. Entries
+without a firmware node stay zeroed.
+
+Fixes: 0ebdb7210943 ("leds: Add ktd202x driver")
+Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+---
+Changes in v2:
+- Set chip->num_leds explicitly after the allocation. v1 relied on
+  devm_kzalloc_flex() to set it, but on compilers without a working
+  __builtin_counted_by_ref() the helper does not set the counter, so
+  num_leds stayed 0 and probe failed with -EINVAL.
+
+v1: https://lore.kernel.org/r/20261124095707.3852724-1-congnt264@gmail.com
+---
+ drivers/leds/rgb/leds-ktd202x.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/leds/rgb/leds-ktd202x.c b/drivers/leds/rgb/leds-ktd202x.c
+index f1822281c3e6..bfb28c38ba14 100644
+--- a/drivers/leds/rgb/leds-ktd202x.c
++++ b/drivers/leds/rgb/leds-ktd202x.c
+@@ -533,6 +533,7 @@ static int ktd202x_probe(struct i2c_client *client)
+ {
+ 	struct device *dev = &client->dev;
+ 	struct ktd202x *chip;
++	unsigned long num_leds;
+ 	int count;
+ 	int ret;
+ 
+@@ -540,10 +541,14 @@ static int ktd202x_probe(struct i2c_client *client)
+ 	if (!count || count > KTD202X_MAX_LEDS)
+ 		return dev_err_probe(dev, -EINVAL, "Incorrect number of leds (%d)", count);
+ 
+-	chip = devm_kzalloc_flex(dev, *chip, leds, count);
++	num_leds = (unsigned long)i2c_get_match_data(client);
++
++	chip = devm_kzalloc_flex(dev, *chip, leds, num_leds);
+ 	if (!chip)
+ 		return -ENOMEM;
+ 
++	chip->num_leds = num_leds;
++
+ 	chip->dev = dev;
+ 	i2c_set_clientdata(client, chip);
+ 
+@@ -558,8 +563,6 @@ static int ktd202x_probe(struct i2c_client *client)
+ 	if (ret)
+ 		return ret;
+ 
+-	chip->num_leds = (unsigned long)i2c_get_match_data(client);
+-
+ 	chip->regulators[0].supply = "vin";
+ 	chip->regulators[1].supply = "vio";
+ 	ret = devm_regulator_bulk_get(dev, ARRAY_SIZE(chip->regulators), chip->regulators);
+-- 
+2.25.1
+
