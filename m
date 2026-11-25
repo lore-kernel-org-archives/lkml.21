@@ -1,58 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795632311;
-	b=k/ybrFUvqO4JMm7ksgrcJEtdvUMfKPiBFhJ9ejuOuWBGQFJ6M36CCs+IqKSvHuepyjY3
-	 Sf0C8kFHdoo8KUfJVb7S+dplWtsA4Kxzot88QWTZEOBw01dbf19ZuXgXDriXgx4MsVQ+b
-	 cJXeasqGSLw82WAhFykM4U9VG1O+T0qCPqUB+8EPM3FzYl6dA5dRb1n5KJkHpvpqUiXWV
-	 9J0FyzvkEPHK/hEpeSupqMpRra8C1iouBoT/SXe7SW8iFPX5tlpZOYigvtefMaQ/T5yZE
-	 KrLrkbztqIGw+SnWyQNv9ZWFi8x3vhvHU0I/A6unNxrQOfvZjGfFlsp8QTiTGwGsklg==
+	t=1795632406;
+	b=c/My/hvRokJnoNKu3JC/v2oC3SJ0SRK2WSftAab2huAnT9iRUiq8jQnxPcp6ijbxtZYm
+	 yF3SJEDHUHCJ4kHApGBy4DciCLSo54+5Yb5Wf6mNhOVW2Xam85TPehY/BDSF++P7ekZGu
+	 yzeLAohbWoRjGuEMFw4cXeDQ25u35F9j7WICpDHqWZyf6894Fj0QklfSCilhbZMaeFJdH
+	 jTMSdX5rg5H7xcAuOBIT6HoZ7zn+GpMlvA1rUwbfx3q6NyZwjU5ULLiwYWUy7np8SXMYw
+	 YFI8roKIm6OKRdBspVt1qFqTA/3jnz7YKZHQJMqeshuAZdln2s3/qnWj3eriL19CcJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795632311;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer;
-	bh=irgmmItnIcv+NCSLi3q2cVon1bQLXokEs1Jc5hW5B18=;
-	b=GfIlIqsxAsXUYZbAva8Mr7wKa9g3syX3ZF/JyIOoNx4r20F32zNq18SPCTRIwGbXeHBe
-	 KudHVHAlMJXmEWbxw8W/iQSOSXvQDjVBCxeQJarAJspAEuGYethX6X/DZ4vIlMxdVRVVU
-	 y9evYhl3gy4LGWXm4PPGN27cN1fHMsxOSY0zFD/hdj2LnEpsPQzmBwUm8XVQbWM4dBSqt
-	 p014+JpQo6zi/X3Tr3UVsoLQnlleIjLVV7iCbynUecYki7cfPZCcoNxRd7DCVplbSbRrA
-	 +w3mzXywMxoyelvI9z3BuUNE69Qms/B0Vo/OeQROdQUm3Dmxxamgr86hV3oe+VSo4XQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795632406;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=nlXgo9XIqJkHCFxu94kRbXHgwwOM/0hHr2hEt1w28IQ=;
+	b=mob0dDWDfTB1HV1i4VOZHuTAyuci56E2kVuUDivWXamMXSZfm1uLq4RNeDVyWVVcZE0V
+	 ui3gOTvIkc1SomQcTj5NGuouEiel1nvdBIo2rufFppnzNMuFDfntwTQz2fdk2OAmG99el
+	 xn1yT9rneGZEsBU1NuceHtCCFYPMY654iQttwrBTaE/zQXI3Rhbs+x+EVtT2PIjAacCS5
+	 nI0nXDkaQJIE/80XzoTLPQTlQ+ySDS+Y+8EPiFIJnZFvhqGwqDJfDm4ooSq2h2eZdzRrm
+	 pqjPOt5qY8hYPxgEVH7MFVD40SUnepe4EdgsAtE1yrtVqOhh475aMfVwoVm6a/f7KOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b="H/wn2Dhh";
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r1SqUFdg;
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD15A606A6B7;
-	Wed, 25 Nov 2026 18:45:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD15A606A6B7
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21C6A606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:46:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21C6A606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=H/wn2Dhh
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795632309;
-	bh=AJIfwVf8wdiuFci8fQLP2oVwA2zvoSeP1nF8x4T09X4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=H/wn2Dhh7v7Zb17P2TTy/8mcQyEHOVK/FYK4NmRuM8awgHMaqD7nfML42vzHB5Bc/
-	 4pY98nQZy1cgrga6G4aq/uqYsQEOEtb4G/CdBWegNybN2lxR5jRu0XoVkMJ8C73AVd
-	 HFnN0on24crH2BuFPOxKjJ1+yjQ5cm4Vg4Vf7COQ1DjEh89Qm9Nz+NqhgpN2XC3Zil
-	 GmbrGY73QVb2DGd8I9rKV7oiPfblL6yyXjEaSGIQ7TMLJKr8cKxy+CQefQBKX6b6Yd
-	 mCTrIRA95U1eMxEFz8zhHP23cheJI06XgWTpQkShfvMSoRvDs+gbKpLuJNLj5DYlco
-	 KL+nwYGploW5g==
-Received: from [192.168.0.15] (unknown [100.64.0.170])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6090917E0311;
-	Wed, 25 Nov 2026 19:45:07 +0100 (CET)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-Date: Wed, 25 Nov 2026 13:33:31 -0500
-Subject: [PATCH v3 9/9] media: hantro: Add v4l2_hw run/done traces
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r1SqUFdg
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-385c497bf94so3531350eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:46:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795632404; x=1796237204; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=nlXgo9XIqJkHCFxu94kRbXHgwwOM/0hHr2hEt1w28IQ=;
+        b=r1SqUFdgtywlp6NtGK87jQIKzVZWl4F4rhmtw2lFuyqtW5LN80z0HdqMFC4lFxtzfc
+         sPv4eFs6n8T7bTK/Y9uNNqWqxK1mnqOMLd1ofQxA88TSPdSpJqY5atzRQPqsV3Cnu0Kz
+         xdMkDPd65NMvuX/yI/s9lxRKvbzxjxrz7nCG67nKPjfnov/so2vKenfxWXzXJV41RrRa
+         /UQeQ5Fv0/CXsdcVZmci8NcFbJ1Q7asEHy8hTzkq+/+C8o+U3P2KSgycADkqraemK6x/
+         eYiiJmsP4dj36xpRNEgKFxe3w2joSwKqW128/Cmjv43sSkRH0jqUBIVyHKkny1z9/9Xw
+         qG5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795632404; x=1796237204;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=nlXgo9XIqJkHCFxu94kRbXHgwwOM/0hHr2hEt1w28IQ=;
+        b=ZwouZF9zkht6o4r4jAh7IVmU0o2elChPaMwWGT+ZNUKVJPrsOSLt6TxZMRcsIn0Uso
+         OdkfMPtuURxkD4ELA8unVdaRE3dG5Y+iQAWEoqYS50xq1WXhqR9lO0fX0mvK2QkHmph7
+         L+MG0GPJK7bDTBm9VXbC+5gnc1sYNk5DnrTkZ1uSSbb8MQmT3aGJLYiN6lYS5ZoEEdpK
+         WSDsNqT8aXYv9gAz2OIfAHFs0nnE6V4EF1zHlHTRdb+3osK+EUySLLKcDRfH3uYSgYVz
+         sPsCwWjI1i/edmOF1s1L8pYPTlOO1hquRKo5XrJAE4W1nb2XyJjcfJwrfghxIGu24odk
+         czUw==
+X-Forwarded-Encrypted: i=1; AL+hErHvgPo19sCyHjZRTnUTwR2VbVaUVeH49RZVwvvjD9d6LjUfHPFp+WpKpbu3ncM23JgZd2HqZMneAI/rwGI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/q7F0T7iHJiHpelShZNw8VNNXLM0779BawemSofPLS6i6jEhtJ
+	QAgvj5y9pKM9UXgJFu/oFbXa4hdZ/GSXsbqbltuSxd1vq2NvW6BevK3w
+X-Gm-Gg: AZFdTZdWTV+rM9YbFiX5CAT2YxjM/QE1qx0LDV3ywBhQNigPlRuUSqwj39PLhh5S+wN
+	aHTwGS5D0Ocl53WLtApBdRJwbL5hDzFK7VeK3Ec/I1bCzyA87cF4AUwHvkkSG/H43Am3iEad17a
+	t0Alk657/bY60Gi+4XNvpO+lqWw1ARBnyjq2tsqxEJ18B+dFPtAaIM7wC5J8sE25CXIyPNXbYc8
+	F3diW3w4p2i4zhIxQkw/GQ4gog08CTZ9L6ytDGt5FN/qmYmMe3eIShnl1p2PSA14A6JKCzKPnKQ
+	ppqgN+35gsG61vMd8yng/dKRSsZhq7kZLV2AIoZlpZDTXV6TiOVujrNNB6CYmt5msLvBIfPLtWp
+	8gMlxxumX0jQk31XJoIqgbAkhaYBDTd/3M0a5hKPSCe0DKUmUWunImVBNcx3tJWtWCUv/UGi7YY
+	5WV090tFDmqR0t6FxQ0SvvoNSrOtfOS1DF+LGJWufKmlFnBgOs0h6cDYnqvbL+Tz3usQA34ZqKr
+	RxAvNbekxV3mGKoJ0f7WkxYuNOHvDL/lTWoAh+IJOKRylFs7kakl217aj5zX+xR56xO4Z3Bd0R7
+	XQUAFfuK3rjzHkzE9jOMV0IJXBKwlOqNBQ+EmO2/rQ==
+X-Received: by 2002:a05:7300:fe4c:b0:386:9b1e:dcd2 with SMTP id 5a478bee46e88-3869b1edd57mr16448894eec.20.1795632404041;
+        Wed, 25 Nov 2026 10:46:44 -0800 (PST)
+Received: from a1-free ([2603:c021:8021:f000:0:1865:8c38:18fc])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd4efesm57691480eec.12.2026.11.25.10.46.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 10:46:43 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: Jesper Dangaard Brouer <hawk@kernel.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	netdev@vger.kernel.org
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	TAKANO Mitsuhiro <takano32@gmail.com>
+Subject: [PATCH] net: page_pool: Drop fast and slow from the params kernel-doc
+Date: Wed, 25 Nov 2026 18:46:40 +0000
+Message-ID: <20261125184640.2407270-1-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,130 +100,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-v4l2-add-ftrace-v3-9-1d1db48372ed@collabora.com>
-References: <20261125-v4l2-add-ftrace-v3-0-1d1db48372ed@collabora.com>
-In-Reply-To: <20261125-v4l2-add-ftrace-v3-0-1d1db48372ed@collabora.com>
-To: Daniel Almeida <daniel.almeida@collabora.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
- Detlev Casanova <detlev.casanova@collabora.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 
-Add the trace calls as well as retrieving the number of clock cycles for
-the rockchip_vpu core.
+struct page_pool_params groups its members with struct_group_tagged(),
+so fast and slow are group names, not members.  kernel-doc does not
+expand the group, and reports both as excess:
 
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+  Warning: include/net/page_pool/types.h:105 Excess struct member 'fast'
+  description in 'page_pool_params' (did you mean one of: 'flags',
+  'offset')
+  Warning: include/net/page_pool/types.h:105 Excess struct member 'slow'
+  description in 'page_pool_params'
+
+Each one is reported twice.  Drop the two @-lines and say in the
+description which members are read on the hotpath, where a reader of
+the rendered page looks for it.
+
+Verification: kernel-doc -none include/net/page_pool/types.h prints the
+four warnings before the change and nothing after it.
+
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
 ---
- drivers/media/platform/verisilicon/hantro.h               |  1 +
- drivers/media/platform/verisilicon/hantro_drv.c           | 14 +++++++++++++-
- drivers/media/platform/verisilicon/rockchip_vpu981_regs.h |  1 +
- drivers/media/platform/verisilicon/rockchip_vpu_hw.c      |  4 ++++
- 4 files changed, 19 insertions(+), 1 deletion(-)
+ include/net/page_pool/types.h | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
-index 0353de154a1e..d5cddc783688 100644
---- a/drivers/media/platform/verisilicon/hantro.h
-+++ b/drivers/media/platform/verisilicon/hantro.h
-@@ -253,6 +253,7 @@ struct hantro_ctx {
+diff --git a/include/net/page_pool/types.h b/include/net/page_pool/types.h
+index 6d543076a0c0..5306e34105eb 100644
+--- a/include/net/page_pool/types.h
++++ b/include/net/page_pool/types.h
+@@ -69,7 +69,10 @@ struct pp_alloc_cache {
  
- 	u32 sequence_cap;
- 	u32 sequence_out;
-+	u32 hw_cycles;
- 
- 	const struct hantro_fmt *vpu_src_fmt;
- 	struct v4l2_pix_format_mplane src_fmt;
-diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-index 3734ea701145..54a078ac14e4 100644
---- a/drivers/media/platform/verisilicon/hantro_drv.c
-+++ b/drivers/media/platform/verisilicon/hantro_drv.c
-@@ -25,6 +25,8 @@
- #include <media/videobuf2-core.h>
- #include <media/videobuf2-vmalloc.h>
- 
-+#include <trace/events/v4l2.h>
-+
- #include "hantro_v4l2.h"
- #include "hantro.h"
- #include "hantro_hw.h"
-@@ -100,6 +102,9 @@ void hantro_irq_done(struct hantro_dev *vpu,
- 	struct hantro_ctx *ctx =
- 		v4l2_m2m_get_curr_priv(vpu->m2m_dev);
- 
-+	if (ctx)
-+		trace_v4l2_hw_done(ctx->fh.tgid, ctx->fh.fd, ctx->hw_cycles);
-+
- 	/*
- 	 * If cancel_delayed_work returns false
- 	 * the timeout expired. The watchdog is running,
-@@ -122,6 +127,9 @@ void hantro_watchdog(struct work_struct *work)
- 	ctx = v4l2_m2m_get_curr_priv(vpu->m2m_dev);
- 	if (ctx) {
- 		vpu_err("frame processing timed out!\n");
-+
-+		trace_v4l2_hw_done(ctx->fh.tgid, ctx->fh.fd, ctx->hw_cycles);
-+
- 		if (ctx->codec_ops->reset)
- 			ctx->codec_ops->reset(ctx);
- 		hantro_job_finish(ctx, VB2_BUF_STATE_ERROR);
-@@ -183,8 +191,12 @@ static void device_run(void *priv)
- 	v4l2_m2m_buf_copy_metadata(src, dst);
- 
- 	ret = ctx->codec_ops->run(ctx);
--	if (ret)
-+	if (ret) {
- 		hantro_job_finish(ctx, VB2_BUF_STATE_ERROR);
-+		return;
-+	}
-+
-+	trace_v4l2_hw_run(ctx->fh.tgid, ctx->fh.fd);
- }
- 
- static const struct v4l2_m2m_ops vpu_m2m_ops = {
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_regs.h b/drivers/media/platform/verisilicon/rockchip_vpu981_regs.h
-index e4008da64f19..96b85470208b 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu981_regs.h
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu981_regs.h
-@@ -451,6 +451,7 @@
- #define av1_pp0_dup_ver			AV1_DEC_REG(394, 16, 0xff)
- #define av1_pp0_dup_hor			AV1_DEC_REG(394, 24, 0xff)
- 
-+#define AV1_CYCLE_COUNT			(AV1_SWREG(63))
- #define AV1_TILE_OUT_LU			(AV1_SWREG(65))
- #define AV1_REFERENCE_Y(i)		(AV1_SWREG(67) + ((i) * 0x8))
- #define AV1_SEGMENTATION		(AV1_SWREG(81))
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-index 02673be9878e..f959151b6645 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-@@ -424,6 +424,8 @@ static irqreturn_t rk3588_vpu981_irq(int irq, void *dev_id)
- {
- 	struct hantro_dev *vpu = dev_id;
- 	enum vb2_buffer_state state;
-+	struct hantro_ctx *ctx =
-+		v4l2_m2m_get_curr_priv(vpu->m2m_dev);
- 	u32 status;
- 
- 	status = vdpu_read(vpu, AV1_REG_INTERRUPT);
-@@ -433,6 +435,8 @@ static irqreturn_t rk3588_vpu981_irq(int irq, void *dev_id)
- 	vdpu_write(vpu, 0, AV1_REG_INTERRUPT);
- 	vdpu_write(vpu, AV1_REG_CONFIG_DEC_CLK_GATE_E, AV1_REG_CONFIG);
- 
-+	ctx->hw_cycles = vdpu_read(vpu, AV1_CYCLE_COUNT);
-+
- 	hantro_irq_done(vpu, state);
- 
- 	return IRQ_HANDLED;
+ /**
+  * struct page_pool_params - page pool parameters
+- * @fast:	params accessed frequently on hotpath
++ *
++ * The members in the fast group are read on the hotpath; the ones in the
++ * slow group are read during initialization and by Netlink only.
++ *
+  * @order:	2^order pages on allocation
+  * @pool_size:	size of the ptr_ring
+  * @nid:	NUMA node id to allocate from pages from
+@@ -78,7 +81,6 @@ struct pp_alloc_cache {
+  * @dma_dir:	DMA mapping direction
+  * @max_len:	max DMA sync memory size for PP_FLAG_DMA_SYNC_DEV
+  * @offset:	DMA sync address offset for PP_FLAG_DMA_SYNC_DEV
+- * @slow:	params with slowpath access only (initialization and Netlink)
+  * @netdev:	netdev this pool will serve (leave as NULL if none or multiple)
+  * @queue_idx:	queue idx this page_pool is being created for.
+  * @flags:	PP_FLAG_DMA_MAP, PP_FLAG_DMA_SYNC_DEV, PP_FLAG_SYSTEM_POOL,
 
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
 -- 
-2.56.1
+2.53.0
 
