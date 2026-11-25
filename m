@@ -1,60 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.121
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617192;
-	b=YIs6HKs1Q5nuRgiqhDMmGAKW2LiIYqWRn05RfLTY9+w2Zh1f/VaReapKIs5xpaSS3f6n
-	 cFFl38p8L36pRE1RW3AU85cDv3PptJwaCjuAEcz0Ox/ZP87HHWGoYIvAFmSx/1Mbzd+et
-	 MayENVBkHYjXyv/nKZfxH5c+6jYatkY0ZSpuOSG+kQCVArUqvPbk2RTzBACAEXstMFMuM
-	 Ewji3HUlSFVsJEine9T8d+qKVqMMKTWIkTruM/mcAkxNe17LT3r23IDayxMMMtlslx4tN
-	 cxI5LnnuUMy6x7rGlGzeMweYREdgkvaBLEEUcljd9pHJ8bjx7not9CDUN2fbSUP/R0A==
+	t=1795617194;
+	b=qZir2Vi/bzn/cOcLctWbITRHObJ92577UiqCalKia55ZddFgjYDr3pbKsdlaWnOEHd5+
+	 4dB7FH2YlbBBGlzKfSlsuQmHW7N1XQZunGBMrko1Tc8DqvfbRqa7PPuTosNpf/ic9hWX9
+	 ij+dwAnvRju7XQ4TdtjJtfH8yuh729rAdqH3ZBC32YPyvRULRHLgzpTma8lgeFvo+Kb89
+	 E5xo5tLOJWyx0tgEe2YhRYo+obF/F/wLnimyXc0U4ozEhRGg+9UJeUaNPpk3RF1hdUhSd
+	 yxtiB3tIVs6QlEpq1NnvvFFC9ILqaO+V3nq1vN587LK/DiGVZTJLv/s4DdGErv/n4ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617192;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=JTuzeFXaJ0CrgwY+VJsh1Zrm4GF5RUj+OFjSqoSpq5M=;
-	b=GlUhZulZREvxoNn1x4kZYVDcv6DO6fmFgHvwj4Gd89sifSLVYoV9ymu8Tpk4015DWU5L
-	 yBH20E6/PcR0NTnbPXoAwqtaMxqisIw0YBIQ5VyiVTAVVorvi/4diz2PrxpPKbJ0GunA7
-	 XmULvs49Vxd/SG1/5sCsDmyOFkxwF1U/CvCIuEe454zxfKFD/wpNKH3sNd4umvKK7Wugg
-	 NFdGB+ASBtk/falsjul45ahgDUmuT8P1RuYN7S2t6cJG8ALytWA/Fz8bOKKT5zF9aymw2
-	 1YNGf1z6BGXUQKuSRfbiVLSvyPpGbPbzodyU6Gl6ISPrPStJWv3JNzMUydwiukzPSHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617194;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=jhqnK9Ccmh8mSstnOmIF+Njmn3b/KS/9Xl+9w0xtSuI=;
+	b=e80HyofmoWBOHbat7eGP3cSx0oxLtioGGv/6fr3KMB7vgRM95GrO+Ddcz09jrd9M7P03
+	 z/KoBf9qhbQj40cKukodXYgJFejajaPd1dhjg+PtLMESYtiFTa+pAqYhnvKncX04Xu3yZ
+	 107Oj8gamPoNDjXQgc/5R3CUon8hhpU/gF6pg+iORBK2HAiQxKSzcgmJxUGjLtUTX2MHS
+	 6UAc4wTF+IAXZdGRI+dMpj6RaMVHTz6gf7KP6ThMfKM260rqPqp3MdM3zwxwIizRJOPSM
+	 +HnQzplJOgGdoMG/KHpLTCYwxqtSBatvnGmH8ILcNSOaB2ceBy7+I6IA5b1URX3CVrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.ch;
-	spf=pass smtp.mailfrom=protonmail.ch;
-	dkim=pass header.d=protonmail.ch header.i=@protonmail.ch header.a=rsa-sha256 header.s=protonmail3 header.b=F5CiVjeQ;
-	arc=none smtp.remote-ip=109.224.244.121
-Received: from mail-244121.protonmail.ch (mail-244121.protonmail.ch [109.224.244.121])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="xK/xnXqB";
+	arc=none smtp.remote-ip=95.215.58.41
+Received: from mta1.migadu.com (out-41.mta1.migadu.com [95.215.58.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7155F606A323;
-	Wed, 25 Nov 2026 14:33:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7155F606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECE8F606A33B
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:33:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECE8F606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=protonmail.ch header.i=@protonmail.ch header.a=rsa-sha256 header.s=protonmail3 header.b=F5CiVjeQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.ch;
-	s=protonmail3; t=1795617186; x=1795876386;
-	bh=JTuzeFXaJ0CrgwY+VJsh1Zrm4GF5RUj+OFjSqoSpq5M=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=F5CiVjeQhxUKomP2szkCl3AxCjmzQtv8kCXXwoN1vs1eV4d1vs8dP9Kui19EugwoB
-	 eQrBWS51mV/XqcTAy0Dfhv3/Br3tnt+ZGb6EwanqMtbonx6/+bMkQyoBYq1YlxqMV1
-	 gFSsJST0bakzUG2SiEdX5dpx0o1b36AL/7yChSu5kP9IGOQvoKqiujybGqYImuEke2
-	 EhM+SxWntECLOcC5a5OogdEdNUkhXhpiG/GHgfaaQr8AnWmtY4+NjpdrA33P3DGQro
-	 WgIWWy7jTNCPC0n0U75GUI0cbSVhffJEzZTVUVAmesWJIZ5pY+DoYljmTDuuyw8EmM
-	 OKZdlsj/WcsKA==
-Date: Wed, 25 Nov 2026 14:32:54 +0000
-To: Echo Zhang <echo.zhang@mediatek.com>
-From: Ben Grisdale <bengris32@protonmail.ch>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, MMDVFS Team <linux-mediatek@lists.infradead.org>, kyrie.wu@mediatek.com, ming-fan.chen@mediatek.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH 4/7] soc: mediatek: mmdvfs: add VCP backend
-Message-ID: <20261125143248.237422bc@ben-desktop>
-In-Reply-To: <20261125060037.649659-5-echo.zhang@mediatek.com>
-References: <20261125060037.649659-1-echo.zhang@mediatek.com> <20261125060037.649659-5-echo.zhang@mediatek.com>
-Feedback-ID: 27291966:user:proton
-X-Pm-Message-ID: 57888eaf1331de2550f94de46d07d4368ce17893
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xK/xnXqB
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ybK+ytYb/K1xG5uLFMNljDPRrGSwyg0hDB8H+Jw9Iis=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795617191; v=1; x=1796221991;
+ b=xK/xnXqBskMPl1bKIegjTlInSyAigQX+Ya/VxGviKEomZQ9FuEYXjx81v/BxRTNJU7PhIi6N
+ S5ZA3uYar9mCC4KaP7MwaD3WYyOGn9n8xr5iR3fjk/BdVqcR2Xz6NUWXQ7IbLP56Y/CfSgsTtxP
+ JDExdDa04oNfU6FbLCmkH4lk=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id ea7f02afe93770ae;
+	Wed, 25 Nov 2026 14:33:11 +0000
+X-Mizu-Trace-ID: ea7f02afe93770ae
+X-Migadu-Flow: FLOW_OUT
+From: Leon Hwang <leon.hwang@linux.dev>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Matt Bobrowski <matt@bobrowski.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Leon Hwang <leon.hwang@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH bpf-next v4 6/6] selftests/bpf: Test tracing and cgroup link creation logs
+Date: Wed, 25 Nov 2026 22:31:38 +0800
+Message-ID: <20261125143138.47174-7-leon.hwang@linux.dev>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261125143138.47174-1-leon.hwang@linux.dev>
+References: <20261125143138.47174-1-leon.hwang@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,114 +87,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Wed, 25 Nov 2026 14:00:09 +0800 "Echo Zhang" <echo.zhang@mediatek.com> w=
-rote:
+Check the errno, diagnostic text and reported log size for one failed
+attachment each for tracing, tracing_multi, iter and cgroup links.
 
-> Add the VCP transport used by MMDVFS to map AP and firmware shared
-> memory, manage feature power references and send IPI commands.
->=20
-> Wait for VCP readiness and handle the selected MMUP or VCP READY
-> notification to initialize firmware after boot and resume. Serialize
-> IPI transactions while shared memory and acknowledgment state are in
-> use.
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+---
+ .../selftests/bpf/prog_tests/link_log.c       | 85 +++++++++++++++++++
+ 1 file changed, 85 insertions(+)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/link_log.c
 
-[...]
-
-> +static void mmdvfs_get_bootmode(void)
-> +{
-> +=09struct device_node *np_chosen;
-> +=09struct tag_bootmode {
-> +=09=09u32 size;
-> +=09=09u32 tag;
-> +=09=09u32 bootmode;
-> +=09=09u32 boottype;
-> +=09} *tag;
-> +
-> +=09if (bootmode < UNKNOWN_BOOT)
-> +=09=09return;
-> +
-> +=09np_chosen =3D of_find_node_by_path("/chosen");
-> +=09if (!np_chosen) {
-> +=09=09bootmode =3D NORMAL_BOOT;
-> +=09=09return;
-> +=09}
-> +
-> +=09tag =3D (struct tag_bootmode *)of_get_property(np_chosen, "atag,boot"=
-, NULL);
-> +=09of_node_put(np_chosen);
-> +
-> +=09if (tag)
-> +=09=09bootmode =3D tag->bootmode;
-> +=09else
-> +=09=09bootmode =3D NORMAL_BOOT;
-> +}
-> +
-
-[...]
-
-> +static int
-> +mmdvfs_vcp_send_ipi_impl(struct mmdvfs_device *mmdvfs, void *data, u32 l=
-en,
-> +=09=09=09 const bool vcp)
-> +{
-[...]
-> +=09mmdvfs_get_bootmode();
-> +=09if (bootmode =3D=3D RECOVERY_BOOT) {
-> +=09=09mmdvfs_err(mmdvfs->dev, "IPI skipped: bootmode=3D%d\n", bootmode);
-> +=09=09return -EACCES;
-> +=09}
-> +
-
-Allow me to give my two cents here, even if I am a nobody :)
-
-Android bootmodes. Whilst I do respect the reason for Android bootmodes
-existing, what I do not like to see is people checking for the *Android*
-bootmode in their drivers.
-
-Android kernels these days are *modular* thanks to GKI. I *do not*
-understand why people still check for bootmodes in their drivers when
-there is a much better option of *not loading them* if they are not
-wanted in the current bootmode.
-
-Having your driver depend on the behaviour of one specific userspace is
-terrible. And tracking it in firmware (given that this code is checking
-for an "atag,boot" property presumably added by the bootloader) is even
-worse.
-
-Aside from enabling these questionable bootmode checks in the drivers,
-I have no idea why the bootloader needs to get involved with putting
-non-standard state / boot info inside of /chosen (i.e. that "atag,boot"
-property), when Android solved this problem by using bootargs, and more
-recently, bootconfig.
-
-I will acknowledge that "just not loading modules" does get a bit more
-nuanced if you bring something like udev / Android init into the mix,
-but there are still better solutions to this problem: either gracefully
-handling the state where the hardware isn't ready in your driver, making
-your bootloader set status =3D "disabled"; on the relavent DT node, or
-blocklisting the module from userspace in boot modes where it can't
-work.
-
-Inter-driver dependencies are not a good excuse either (e.g. a core
-clock driver depending on some DVFS driver that is a no-op in recovery,
-forcing you to load it ANYWAY, even if the bootloader doesn't start the
-required firmware on recovery boot). If that is the case, then there is
-some serious refactoring work to do.
-
-First I began seeing these sorts of checks in vendor touch screen
-drivers, but now it seems to be infecting SoC side drivers as well.
-
-*Kernel* drivers should work the same regardless of what *userspace*
-environment is running (with the only real exception being the absence
-of firmware or explicit configurations from userspace). And in situations
-where they genuinely can't work, they should not be loaded at all.
-
-There should be no such thing as "kernel drivers designed for Android",
-only "kernel drivers designed for Linux".
-
-Best regards,
-Ben Grisdale
+diff --git a/tools/testing/selftests/bpf/prog_tests/link_log.c b/tools/testing/selftests/bpf/prog_tests/link_log.c
+new file mode 100644
+index 000000000000..8a05d6c48d9b
+--- /dev/null
++++ b/tools/testing/selftests/bpf/prog_tests/link_log.c
+@@ -0,0 +1,85 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <test_progs.h>
++
++static const struct link_log_case {
++	const char *name;
++	enum bpf_prog_type type;
++	enum bpf_attach_type attach_type;
++	const char *func;
++	struct bpf_link_create_opts opts;
++	int err;
++	const char *msg;
++} tests[] = {
++	{ "tracing", BPF_PROG_TYPE_TRACING, BPF_TRACE_FENTRY, "bpf_fentry_test1",
++	  { .target_btf_id = 1 }, -EINVAL, "target_btf_id" },
++#ifdef __x86_64__
++	{ "tracing_multi", BPF_PROG_TYPE_TRACING, BPF_TRACE_FENTRY_MULTI, NULL,
++	  { .tracing_multi = { .ids = (const __u32[]){ ~0U }, .cnt = 1 } },
++	  -EINVAL, "4294967295" },
++#endif
++	{ "iter", BPF_PROG_TYPE_TRACING, BPF_TRACE_ITER, "bpf_map",
++	  { .iter.len = sizeof(union bpf_iter_link_info) }, -EINVAL, "iter_info_len" },
++	{ "cgroup", BPF_PROG_TYPE_CGROUP_SKB, BPF_CGROUP_INET_EGRESS, NULL,
++	  { .cgroup.expected_revision = 2 }, -ESTALE, "revision" },
++};
++
++static void run_test(const struct link_log_case *test)
++{
++	const struct bpf_insn insns[] = {
++		BPF_MOV64_IMM(BPF_REG_0, 0),
++		BPF_EXIT_INSN(),
++	};
++	struct bpf_link_create_opts opts = test->opts;
++	int prog_fd, fd, btf_id, cg = -1;
++	LIBBPF_OPTS(bpf_prog_load_opts, load_opts,
++		    .expected_attach_type = test->attach_type,
++	);
++	char buf[128] = {};
++	LIBBPF_OPTS(bpf_log_opts, log_opts,
++		    .buf = buf,
++		    .size = sizeof(buf),
++		    .level = 1,
++	);
++
++	if (test->func) {
++		btf_id = libbpf_find_vmlinux_btf_id(test->func, test->attach_type);
++		if (!ASSERT_GT(btf_id, 0, "attach_btf_id"))
++			return;
++
++		load_opts.attach_btf_id = btf_id;
++	}
++
++	prog_fd = bpf_prog_load(test->type, NULL, "GPL", insns, ARRAY_SIZE(insns), &load_opts);
++	if (!ASSERT_OK_FD(prog_fd, "bpf_prog_load"))
++		return;
++
++	if (test->type == BPF_PROG_TYPE_CGROUP_SKB) {
++		cg = test__join_cgroup("/link_log");
++		if (!ASSERT_OK_FD(cg, "join_cgroup"))
++			goto out;
++	}
++
++	opts.sz = sizeof(opts);
++	opts.log_opts = &log_opts;
++	fd = bpf_link_create(prog_fd, cg < 0 ? 0 : cg, test->attach_type, &opts);
++	if (fd >= 0)
++		close(fd);
++
++	ASSERT_EQ(fd, test->err, "err");
++	ASSERT_HAS_SUBSTR(buf, test->msg, "log");
++	ASSERT_EQ(log_opts.true_size, strlen(buf) + 1, "true_size");
++
++	if (cg >= 0)
++		close(cg);
++out:
++	close(prog_fd);
++}
++
++void test_link_log(void)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(tests); i++)
++		if (test__start_subtest(tests[i].name))
++			run_test(&tests[i]);
++}
+-- 
+2.55.0
 
