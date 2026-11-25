@@ -1,114 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617876;
-	b=Ffxt+2NjEmxLh42sjqqxoKOa2nqfNP/GxH884e83ZO3zVmXX0QrjrzSvpBWl66plBwIF
-	 htJK5HDDJUSsEy5GRP/B0sofOxgFdYPwc+xfj1EZ1AMwu7IyBkflVds+9bzT96EcmwW6s
-	 px9YLKnOjtWo1PSjCjr/080N210h4XTd6KBOaxLzrzf4i/h4IFbrlNJ9BBdJW8G2Pn1S8
-	 cWIkgd43J+VJtfvpPQJvmYJvPBKKzgHHZJpNx3aLroZzSSAEybIi74eNoY8iyJoWTmSBX
-	 3yC9QgNlpz4Jtb/8VizRsLvjB/GHH+JswmUV8emEryXksYVrVPak8oswOgz7eI3LVcg==
+	t=1795617896;
+	b=b/f+GOFU6zzYWJ3mZfE5P4+1ZHOxeXx1tvq4x7WyYjX7x2pxLMQFEUQOSsN6SYHT6wg2
+	 TZHAeul9jMoHTDhGLa5kQ8jk3WmTCjoYqAapPuVLF8ZSeo9CJYyNfReBw7JOCrttI32Gk
+	 tYwV9hNMR4o0IHRjqdeg0wFZ+3xmzO2WRgn3ta2aWRz8ZEMFWuzaQjXzIiaVRro3avPk6
+	 yb8/akKdZrbGtwmeRIYvtCxvK/RMTn3LZ066tlPijY9PQCs542bqB9C4iKyni1QB88OuB
+	 T0WB2zeCgYR3f7Vw60atd5w0qaPXRg3eFnKOOLODscTrF/uakkKh7RK2CleQMLs1W4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617876;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=8ll/7pjiu26j2DN45BTUViH87j7UCm3E+vVLd5MHWxI=;
-	b=reGZE51pwcNfadxeimJw8iSxuhRmnT1sdVRdMO308n45EER6fUcd9KpT5mKioCngM1iP
-	 517sZWqx8klkMoAh/G3/+QSshJN/+IvGzEkr5WdBwQ4AUJGd1xXws8aMKoQgOeW4wUiRH
-	 q3VqMebnSIaasvIeMdPoeUWtAGpm51YL7nfqF1cjlM+rjDjpmCfm3YR0+BL8h3uvERvmy
-	 wxjAgbmof33rsKRbbBgIkmoNW/fYbN8AKRMWtqMfWvwrsJZYi7fHWQs7SCJB1quyPIePa
-	 OpiVCjHoJ9Ee/7Ts2Tb7MtsRx/vlNBAmwCrfCVg6dZ5Y36WEfiWUmFqZy+nNc61a0Gw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617896;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:User-Agent;
+	bh=kAaLPPsQOaueor0xfIiuL6YBfAxmmLMrN100IbJMdeU=;
+	b=Q7CZk5Qx5xtHW+wrdxTCWZyCXYCnM6k7S2H//PHClL5YMoxDRvpm/kjDP4MrubUkbaVl
+	 mkHEjzZoXClzZdSU0FasHXe0SIYNi0nHtbij7w2x80HnpsT3ODZOT2Oov5qqMAXrsf8x+
+	 fPmCY194sZ5eaOWy1/pC9TtITUr42p7gbhrsnrFg6wSnXvRLkrToWsFLvZVp4Q7Tan2FG
+	 OBCPTKdk69QbvklkmsnrqJPg/guZmnF0vgNYjzZsbw7WyUNpHdqBzn1rSfCCAJXeY7xK3
+	 CCUfpc9wuf5TgJGrBgYdaiTP45AVIzMuigwi4Zmsuw1WC5fEeUYqSlUsDZ2hsUGbETQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JJz8OA1E;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=O31WhqPT;
+	arc=none smtp.remote-ip=192.198.163.10
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0C02606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:44:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0C02606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 816B4606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:44:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 816B4606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JJz8OA1E
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a56e05568aso13311295e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:44:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795617874; x=1796222674; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8ll/7pjiu26j2DN45BTUViH87j7UCm3E+vVLd5MHWxI=;
-        b=JJz8OA1EX5JjC4bTAmY1z4tgzBcYDWsAGttWpwvLVZTnYuyKjKWKXVZLQAuKKWWOUD
-         OsbiqnlgZVBoHqQcNbUmmnGGiM9aN8x/5lmqNA6CoLaHaAgqI3Nuxn6m7RK4mm7NRHTs
-         qAn0Iyzdz6gAJJhr6ankYT25Fuvx45uCSCJraPFjmfOefb1wmjIcysiu2/kogHxTZQEP
-         u3qdVCypnFA7+KFuApaPnk1yIGEvzxk+ETJZJbSkhrf4h1Chzr97zkSKVFU5dru+TbCb
-         krkngx1mIiIKsDCLfzU6AxzOVLcV7XoP1nm1CkjXCr1MeYobFyXumDcouQBatquU6sbC
-         n9oA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795617874; x=1796222674;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8ll/7pjiu26j2DN45BTUViH87j7UCm3E+vVLd5MHWxI=;
-        b=TKNRyXtP4rvdsBf17j6GzY1n0qU54QWeI4YKy1A8GpdIB5YQl2cRDsEr9B6455G7kp
-         sPHULEmkEmvjH9sSMCEFK8Pb1+5qtnUD6SDQDujOxsdcOS8qSrQnx9JaDgwQeR6cvF4k
-         pGrxcYOQqawWFvEZRcfi9P/KhsWZ4QR42OhURrf1BPrkE8yTgc1l2Q4cSHH6mcA+ClZ7
-         Cslne6dVlO8gnVJ4oeJAf0DvXe8/i43yYHO7R+qE2W94RakzpDvQNG5Gf5Iq12ADjjZL
-         B93IxVF32iCIrZUYlmkyp79kPPdrLIHKgSPn9+S1eHqcmODBqtO0dAAvt9ltzFNxMLWw
-         TVLw==
-X-Forwarded-Encrypted: i=1; AL+hErGhpDK0FqVRqcUuCG+AMITim2izO7iEG8AUvmIgO1j+xBvcfQDiQU2vNnjSi2qpKtqXGBw2Fm7nO1Y5xsI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+HCnvTUjZeKMGt02LyhmfVPt0Zqi1ju8N/an48QqAcElFWupuz
-	3oMux0I27yY9h6uuVW1y/V+04R6yqy2jnlSkYeic6QFDgl3i5nEeLUkB
-X-Gm-Gg: AZFdTZeBlolYKEQtzTHTMllZMddTGjrJHVJrCnP1t96JmF23BS0hLQKndHtipB3Mp83
-	9vdKS2+WDuzqGaLODB9cncZKZLjd7C5/qJB6RfvP9j//kFiOtFfLeOVNnQoJKm5Sgoaaw+Qm3fe
-	MJvs3cPKIkawNHb30gjtbpjmlbXgWvHxc1mDcTEJEIPQnXcYDPJXwqAcTd9rFvyL/wqqkDDMEx4
-	qCxBFcASN5ziA65Npc8SfcaUnYNBxiq5VxFbTN6yXEJpgg+f2KV1aEppJs495Ei0L/iuczWC+tu
-	sXv599aX+CU4K0UgCLyoMnYbVo8ig+isH6cPAhd/czkEYOSDTKBD24qvQLurhowFQIgZhJZAK24
-	UKgPObuPAV1Kt2R2UB6+P2Olvg3XHnCR7PD94on+3Fphd91/Ysaih4P7dLuYKb5AMKrfV5MQvwt
-	O7otJDlLE5a9wmnd8kPROITwcncHRNIiXFe6Z8kdog8av8byqN1kV9wZSi/qPK4rwIR1j1YDQm1
-	3Pu0KT4okwsU0k4lIAszH5BNmDiqCujPtJYmnewPKdmfIlGrm32RCos5SDHDSCpbJ2sDvEqYFgv
-	sOJ/tah60X95RPTzt0+N1w==
-X-Received: by 2002:a05:600c:1088:b0:4a2:417:7db5 with SMTP id 5b1f17b1804b1-4bb887f43cdmr285531595e9.2.1795617873970;
-        Wed, 25 Nov 2026 06:44:33 -0800 (PST)
-Received: from skbuf ([2a02:2f04:d401:2601:d3cc:6bc:a861:f9da])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906e4ce6sm303747515e9.4.2026.11.25.06.44.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 06:44:32 -0800 (PST)
-Date: Wed, 25 Nov 2026 16:44:28 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: jan.petrous@oss.nxp.com
-Cc: Vincent Guittot <vincent.guittot@linaro.org>, 
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>, 
-	NXP S32 Linux Team <s32@nxp.com>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Bogdan Hamciuc <bogdan.hamciuc@nxp.com>, 
-	Ionut Vicovan <ionut.vicovan@nxp.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Richard Cochran <richardcochran@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-phy@lists.infradead.org, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-pci@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>, 
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Bogdan Roman <bogdan-gabriel.roman@nxp.com>
-Subject: Re: [PATCH RFC v4 09/15] phy: freescale: s32g: Add SerDes subsystem
- PHY
-Message-ID: <awbmvSYZ9RJ6agIu@skbuf>
-References: <20261125-s32g_serdes-v4-0-3bfe0589be8d@oss.nxp.com>
- <20261125-s32g_serdes-v4-9-3bfe0589be8d@oss.nxp.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=O31WhqPT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795617895; x=1827153895;
+  h=date:from:to:cc:subject:message-id;
+  bh=n0kkWzB412WhG1XMAiu+x2YVXHd00biHVZkow5vucmA=;
+  b=O31WhqPT5LQvfLWdhzTsOSTvsCxTxd92hT1oBdWXM3xKPq18Xxs0t4b4
+   Gk7jRsEAp9yBpDlQCfug0oQlK+NLoFh+cGZRKD/NfWGZEDCqInFRdivHz
+   GJuaMjvoSJPHa2hdbYr5tWcze/LkrjpZ+n5UKyDAVPhLPe1dVPIY/sVtC
+   hmyTvjlaHn0iRO8PIOaw19WYMH6j623yabGCw9sAijSsdhnnahNnwSZLl
+   7bbIqk9Ux8cV9SQzYERdfZ1x9xCPmvC83/lp+EzFqsg1ef1e9WhHvXtTT
+   FhUOlmPVjYen6CaUEkpDFtJvuFgP8XaLC1PtpAbwVaj9YRa+uoI4bzddX
+   w==;
+X-CSE-ConnectionGUID: BPKwSGCBSuupURImRniy7w==
+X-CSE-MsgGUID: 7KUdskAyQoiZj2IdDiL7Tg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4386599"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4386599"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 06:44:55 -0800
+X-CSE-ConnectionGUID: kcOTT9NzRpWEMLCqJr+5DA==
+X-CSE-MsgGUID: Y+gvkGzgSgCjexWwPFdoug==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="12476179"
+Received: from igk-lkp-server01.igk.intel.com (HELO 99c479ab0aeb) ([10.211.93.152])
+  by fmviesa010.fm.intel.com with ESMTP; 25 Nov 2026 06:44:52 -0800
+Received: from kbuild by 99c479ab0aeb with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xWEEr-0000000009D-2KHb;
+	Wed, 25 Nov 2026 14:44:49 +0000
+Date: Wed, 25 Nov 2026 15:44:32 +0100
+From: kernel test robot <lkp@intel.com>
+To: Harsh Kumar Bijlani <quic_hbijlani@quicinc.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+ Ripan Deuri <quic_rdeuri@quicinc.com>,
+ Vasanthakumar Thiagarajan <vasanthakumar.thiagarajan@oss.qualcomm.com>,
+ Baochen Qiang <baochen.qiang@oss.qualcomm.com>
+Subject: drivers/net/wireless/ath/ath12k/wifi7/hw.c:127:21-23:
+ WARNING !A || A && B is equivalent to !A || B
+Message-ID: <20261125153656.0ye4b8d7-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,71 +83,67 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125-s32g_serdes-v4-9-3bfe0589be8d@oss.nxp.com>
 
-Hi Jan,
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+head:   4dce97c6c265544342e716e62fd24bbb232590c5
+commit: ee16dcf573d5e3283fda601dd4bca6bc52251017 wifi: ath12k: Define ath12k_dp_peer structure & APIs for create & delete
+date:   1 year, 1 month ago
+config: x86_64-randconfig-2103-20261124 (https://download.01.org/0day-ci/archive/20261125/20261125153656.0ye4b8d7-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
 
-On Wed, Nov 25, 2026 at 10:33:51AM +0100, Jan Petrous via B4 Relay wrote:
-> From: Vincent Guittot <vincent.guittot@linaro.org>
-> 
-> Each S32G SerDes subsystem is made of one PCIe controller, two XPCS and
-> a shared 2-lane combo PHY. The lanes carry PCIe and/or SGMII.
-> 
-> Add the SerDes subsystem driver: the PCIe PHY, the combo PHY bring-up
-> and the setup of the XPCS instances. A MAC gets its phylink PCS through
-> s32g_serdes_pcs_create(), which also creates a device link, so that the
-> MAC is unbound and suspended before the SerDes.
-> 
-> SS_RW_REG_0[SUBSYS_MODE] is derived at probe from the consumers' phys
-> references to the SerDes node, <lane type instance max-speed>: a PCIe
-> root port names its lanes, a MAC names its lane, the XPCS instance it
-> is wired to and the highest speed the lane is wired for, 1000 in this
-> series. The driver walks the tree for them, as the mux is programmed before
-> the reset is released, long before the consumers probe. Each supported
-> mode has a unique lane mux; a lane nobody references takes the function
-> it has in the first matching mode. The reference clock rate is
-> validated against the derived mode.
-> 
-> The SerDes provides one PHY for the PCIe link, whatever its width, and
-> one PHY per XPCS instance in use. The XPCS lane PHY has no operations:
-> the lane is brought up with the SerDes, and the MAC drives it through
-> the PCS, which it gets from s32g_serdes_pcs_create() with its own node.
-> 
-> After the subsystem reset is released, the PHY needs up to 5.2 ms to
-> become operational (MPLL_STATE). Poll it before any further PHY or XPCS
-> PMA access, in every mode.
-> 
-> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> Co-developed-by: Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>
-> Signed-off-by: Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>
-> Co-developed-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Co-developed-by: Bogdan Roman <bogdan-gabriel.roman@nxp.com>
-> Signed-off-by: Bogdan Roman <bogdan-gabriel.roman@nxp.com>
-> Co-developed-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> ---
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Fixes: ee16dcf573d5 ("wifi: ath12k: Define ath12k_dp_peer structure & APIs for create & delete")
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261125153656.0ye4b8d7-lkp@intel.com/
 
-I am trying to spend some time to understand this design. I have a few
-basic questions:
+cocci warnings: (new ones prefixed by >>)
+>> drivers/net/wireless/ath/ath12k/wifi7/hw.c:127:21-23: WARNING !A || A && B is equivalent to !A || B
 
-- Simply explained, what do you gain by integrating with the Generic PHY framework?
-  The XPCS has a dummy phy_ops. Clearly this means phy_init(), phy_power_on(),
-  phy_set_mode_ext() etc will do nothing for it. Who and why is better
-  off if it exists?
+vim +127 drivers/net/wireless/ath/ath12k/wifi7/hw.c
 
-- If you have 2 physical lanes, why do you have 3 Generic PHY objects?
-  Why not a Generic PHY object per lane?
+   111	
+   112	static bool
+   113	ath12k_wifi7_is_frame_link_agnostic_wcn7850(struct ath12k_link_vif *arvif,
+   114						    struct ieee80211_mgmt *mgmt)
+   115	{
+   116		struct ieee80211_vif *vif = ath12k_ahvif_to_vif(arvif->ahvif);
+   117		struct ath12k_hw *ah = ath12k_ar_to_ah(arvif->ar);
+   118		struct ath12k_base *ab = arvif->ar->ab;
+   119		struct ath12k_dp *dp = ath12k_ab_to_dp(ab);
+   120		struct ath12k_dp_peer *peer;
+   121		__le16 fc = mgmt->frame_control;
+   122	
+   123		spin_lock_bh(&dp->dp_lock);
+   124		if (!ath12k_dp_link_peer_find_by_addr(dp, mgmt->da)) {
+   125			spin_lock_bh(&ah->dp_hw.peer_lock);
+   126			peer = ath12k_dp_peer_find_by_addr(&ah->dp_hw, mgmt->da);
+ > 127			if (!peer || (peer && !peer->is_mlo)) {
+   128				spin_unlock_bh(&ah->dp_hw.peer_lock);
+   129				spin_unlock_bh(&dp->dp_lock);
+   130				return false;
+   131			}
+   132			spin_unlock_bh(&ah->dp_hw.peer_lock);
+   133		}
+   134		spin_unlock_bh(&dp->dp_lock);
+   135	
+   136		if (vif->type == NL80211_IFTYPE_STATION)
+   137			return arvif->is_up &&
+   138			       (vif->valid_links == vif->active_links) &&
+   139			       !ieee80211_is_probe_req(fc) &&
+   140			       !ieee80211_is_auth(fc) &&
+   141			       !ieee80211_is_deauth(fc) &&
+   142			       !ath12k_is_addba_resp_action_code(mgmt);
+   143	
+   144		if (vif->type == NL80211_IFTYPE_AP)
+   145			return !(ieee80211_is_probe_resp(fc) || ieee80211_is_auth(fc) ||
+   146				 ieee80211_is_assoc_resp(fc) || ieee80211_is_reassoc_resp(fc) ||
+   147				 ath12k_is_addba_resp_action_code(mgmt));
+   148	
+   149		return false;
+   150	}
+   151	
 
-- Does the lane mux need to be programmed by the kernel driver? Does it
-  ever need to change at runtime? How do previous boot layers use the
-  SerDes? If you leave the lane mux set by a previous boot layer, and
-  make the device tree describe that configuration as read-only, what
-  doesn't work for your use cases?
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
