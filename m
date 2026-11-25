@@ -1,76 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616487;
-	b=Qg/7D4qYabtmR78VFoTDg774kn4UAZYbxYBLMMpuJ5OGE/IOsex4IRBgflYPY7X+eOqk
-	 sFOgJOnRmFFv87/3lPn8pCDPqUlwYkp23vJgwt0hp2aj04VfLnZyJTeJD+f8Bzn936TDc
-	 IvWFo/cUDvArtNrmUxJXk/qslwoRT5DHZ9cO/k8Fl1r6dDDWs/HyaG7Ij1VM0JH+vW2yk
-	 hsFIMTj788az5PGppQIc+t6VxR0E8RSc/GnvJc1WoTC1HEg5M/BjILPHXcJqDkdIo8Bn2
-	 vgKjfuOQcChKSD2pNpA4dbpVFWVXqqokrWGH2VLi+lspXRlecibrj5tD2g/E3rD/MRQ==
+	t=1795616547;
+	b=5emMctMUTesHsFG4PEky0W3MpookOSzc/vBjc5mA8NIjnv2cLL3pKREdWVhka8EupFX7
+	 pe1rrRxuoBntiQ0nV1yRzycnLo4WHL9tjqaQ2PLL5hiTKc+nwQ+hn3jQBIBWeoFXxpXAC
+	 kgEjeoy677a97Rp7Y8Af3CdwE9ExOFOUlzaTUe2vQSxL1sfLRUk6EHE7oSU1L1zYD3Xnh
+	 yyjuJfj96Tl6trA0SVkOWs1H0Yy8NeqR4F99q8qu7AyTmVDLXs+dFZIj+fft1+Yy1m+Sj
+	 feKvYRnX9ugL9IjhsOfa81Qkpz6mt+EWHMAF0Z9XYaP/wwuphscmgdlFv/FdDq+4xRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616487;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=Z8rkgdmWzQ5tc6mLgq08LFXko5v7opLhcj8Wj763hEQ=;
-	b=Qgjiy5p3ugNnBAsXawgySiE2+Y0UV9jW8sZR5kZRa1eMjDvYBaWgPTyWfnZPDFUPKguF
-	 CsOIcDeboHnBWVSuoRQLip3noK2jw8G89WRmzblNtRbq3Xfr99MJIGXb54LxPkeOfKCer
-	 fU6QLxhXZUv43aOQfNiVFJaGWvFqqVFCFX37fVoOcmICELjEMfW3fIANaSV/76mFeqto+
-	 ezKkuJ2SmLpolV1nN6ATdA0IxO4jj74ofyEPI0fRcpylrqooGFqQli+YNf2q3wcgEUf9A
-	 SPQ/VwUAmiRNZFDijOOEf//o+z+mB+8OpfmsJZvqhIGVCkUBBqe3yMwDBX9Vyo7KG/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795616547;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=8pAN+cMNDAKpI0U2TXKKPxCHGtnx0QjdYb7WetjOVfA=;
+	b=HQuMl5AKiX6N0IMflrOQZPH2BHGDQX46tVkn2olAm2A1mbHaYn1MieLBig3QNISJ84f2
+	 3z9dpZ8bkvKG25TY2RlQEQQLAUy26B7iHOZSP3Szf3+SXCy6Y/AeNkfFQAnI1YbCCG2MX
+	 W4QUFBRUjTwy4fxj2i6KCYXAt4mSOJCDVxsrEPIRBCJSAAnCdJ80a91XD2bkOwdEnT4hl
+	 DdCLuXjVfdlWr8etF6Mt5Pq6kzSYUaMj65S+V7A4W/7H1p0yNefGk6z1o1arXbgIZYHU1
+	 TqawM11hvtv7Yh2tEcSWJZCkdeeQw3pGNZtaoR2D1jcKIrEZYie/Zq4/3C7nKDduCRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=iqVcN25q;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB8F9606A33C;
-	Wed, 25 Nov 2026 14:21:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB8F9606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QQNt7T0i;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 33F42606A321;
+	Wed, 25 Nov 2026 14:22:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33F42606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=iqVcN25q
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Z8rkgdmWzQ5tc6mLgq08LFXko5v7opLhcj8Wj763hEQ=; b=iqVcN25qb1t7uOLUUJoVtFnFeF
-	f/dsKXucFRBKUrWMKJBnTeCZ93gJS/I3sBjxDlEXA0x8wX3Ft59H/UONxxu5uLKSjNcoWkwLtpb0j
-	7X1sQiTann5p6yuAp2duoNKCK024ENeLS8FBX9Omjv5UA0IAzOj7utOhPFRj6KHxBcnw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xWDro-001KiR-HS; Wed, 25 Nov 2026 15:21:00 +0100
-Date: Wed, 25 Nov 2026 15:21:00 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Ryan Leung <untilscour@protonmail.com>
-Cc: Alexey Charkov <alchark@flipper.net>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Ricardo Pardini <ricardo@pardini.net>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 3/5] nvmem: rockchip-otp: Derive MAC addresses from
- the CPU ID
-Message-ID: <2f8da604-36af-4944-8168-02b046e97699@lunn.ch>
-References: <20261124-rk3576-otp-cpuid-mac-v4-0-d403b8a25113@flipper.net>
- <20261124-rk3576-otp-cpuid-mac-v4-3-d403b8a25113@flipper.net>
- <0aH4P5VH9HNiTXpCUTaTlvGaoUDQBnvv-0cSXtipSDkLOGjzGy96jDqsVtU0DJTWrocgoMcGFEgd0JUlF5mljVvCzGKVz4yUgDQ0s6HaDLg=@protonmail.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=QQNt7T0i
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6AF482F;
+	Wed, 25 Nov 2026 06:22:23 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BFBB03F763;
+	Wed, 25 Nov 2026 06:22:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795616546; bh=JMMVosT4VTiw7rOBFumnNRwKpJxvpO3L1Ux34kDKMME=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QQNt7T0iVQmM94OhDwbo2jUVxlWiS0B4lQHGscliOaWAXcteupZw1IqicwsEEAxPv
+	 Az1K1rtUc5oVZuCBWnXAtCgLeG1Xmy9zNmEFL9WTaZkqF0l66mkQezTkvCyZ1a1wGO
+	 5E/Dul/2PTdpPER5DMjUevgq8g4Af4GBsV3ogi2g=
+Date: Wed, 25 Nov 2026 14:22:21 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Huang, Ying" <ying.huang@linux.alibaba.com>
+Cc: Yadong Qi <yadong.qi@linux.alibaba.com>, will@kernel.org,
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, ryan.roberts@arm.com, robh@kernel.org,
+	gregkh@linuxfoundation.org, ptg-linux-kernel@linux.alibaba.com,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: fixmap: fix missing break-before-make in
+ __set_fixmap()
+Message-ID: <awbvHVSX7sB8jzYA@arm.com>
+References: <20261123093505.974-1-yadong.qi@linux.alibaba.com>
+ <awW3Dw743-rw_-cf@arm.com>
+ <87mrqxto23.fsf@DESKTOP-5N7EMDA>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,23 +67,52 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <0aH4P5VH9HNiTXpCUTaTlvGaoUDQBnvv-0cSXtipSDkLOGjzGy96jDqsVtU0DJTWrocgoMcGFEgd0JUlF5mljVvCzGKVz4yUgDQ0s6HaDLg=@protonmail.com>
+In-Reply-To: <87mrqxto23.fsf@DESKTOP-5N7EMDA>
 
-> > +static int rockchip_otp_cpuid_pp(void *priv, const char *id, int index,
-> > +				 unsigned int offset, void *buf, size_t bytes)
-> > +{
-> > +	char cpuid[ROCKCHIP_CPUID_LEN * 2];
-> > +	u8 digest[SHA256_DIGEST_SIZE];
-> > +	u8 *mac = buf;
-> > +
-> > +	if (!id || strcmp(id, "mac-address"))
-> > +		return 0;
+On Wed, Nov 25, 2026 at 02:36:36PM +0800, Huang, Ying wrote:
+> Catalin Marinas <catalin.marinas@arm.com> writes:
+> 
+> > On Mon, Nov 23, 2026 at 05:35:05PM +0800, Yadong Qi wrote:
+> >> diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
+> >> index f66a0016dd02..5593d7e0d523 100644
+> >> --- a/arch/arm64/mm/fixmap.c
+> >> +++ b/arch/arm64/mm/fixmap.c
+> >> @@ -126,12 +126,19 @@ void __set_fixmap(enum fixed_addresses idx,
+> >>  
+> >>  	ptep = fixmap_pte(addr);
+> >>  
+> >> -	if (pgprot_val(flags)) {
+> >> -		__set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
+> >> -	} else {
+> >> +	/*
+> >> +	 * Break-before-make: when the slot still holds a valid mapping
+> >> +	 * (e.g. earlycon re-mapping FIX_EARLYCON_MEM_BASE), invalidate the
+> >> +	 * old entry and flush the TLB entries caching it before a new
+> >> +	 * mapping is installed, so old and new translations never coexist.
+> >> +	 */
+> >> +	if (pte_valid(__ptep_get(ptep))) {
+> >>  		__pte_clear(&init_mm, addr, ptep);
+> >> -		flush_tlb_kernel_range(addr, addr+PAGE_SIZE);
+> >> +		flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
+> >>  	}
+> >> +
+> >> +	if (pgprot_val(flags))
+> >> +		__set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
+> >>  }
+> >
+> > I guess that's easier than getting the driver or earlycon code to do
+> > clear_fixmap().
+> 
+> Yes.  And because set_fixmap() flushes the tlb on x86, IMHO, it's a
+> little hard to justify the driver modification.
+> 
+> However, set_fixmap() only flushes the tlb on the local CPU instead of
+> broadcasting the flush, because fixmap is either per-CPU or used during
+> early boot.  In theory, we could follow that approach and perform a
+> local flush instead though the benefit may be marginal.
 
-I don't know OTP drivers. But to me, a function called
-rockchip_otp_cpuid_pp() which does not actually return the CPU ID is
-architecturally wrong.
+Local TLBI won't work on arm64 since the page tables are shared (any CPU
+can speculatively load the TLB) and only FIX_VNCR has per-CPU entries.
 
-I would probably not mangle the CPU ID in the OTP driver, but in the
-MAC driver. The MAC driver should ask for the CPU ID and then hash it.
-
-    Andrew
+-- 
+Catalin
