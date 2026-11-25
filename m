@@ -1,103 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.94.104
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795601042;
-	b=gbwtcuh75TgPcpR9Y9lAYJB+0vONbPa30xWgdEWbkU5AopjLZfifer8yarvyRchhIaNb
-	 /x1YDC9EzGQmtMjNIVDK5sCBSoM43iUv5toLvWaTQrE/D47q3txKL8BkTMsc2ce7w5VcG
-	 TZpu8ondStV1AnwcxIwI/4G0HI5ab+kJxVlJ1Nm/hIBuD37vg7D6is2mFtGUqYaIJkVvz
-	 5hFqnxY99FGjBK4KlobkBuFNIeLoLYNQRjtoSB8lV4NmWZ4HItwDlGm26iPUmqeqqYVKL
-	 fhikp7vR3/k6YMisXNsZz0IVi3JivMAOL2+6MEaEAsc95ngznO75PiDz3oKfnaOxBMg==
+	t=1795601041;
+	b=dX6AnEYt9wHu+hRBfyMexCpBQ1wvzEXRJRRe7QD6f2/Jx1x7V/C++2ij2/3YZ5eOhSzu
+	 qKrvCu/0VE0QDLaAjAfrNn5ZdCw8w3d/QBQFV59szyCVc908S6OTdmhr9vDEk95qLklkt
+	 M+BC2OTtT2l+AtfUV1GlkKfd1PL92tP6tjGKsWiDbPKu/v4pvLU2n9AHg6dmWyZWkuZ2t
+	 K7NBrLyFIN3T/VAFI6QMnhBwKTNx77dE7Q5RyqFn3LoZYRq4LhVOqvQ48BDLuZlm/4MXs
+	 bAO0iGz6BIx9qOuTKSJCah4X0X8ty0vzs3XH1Q+VvdXI5iX3oBgrJP2xTENj+3Pr4oQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795601042;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=jY9qOc0xWy86TYB23oPhSaWC0qCicnAeytX8EZDNghU=;
-	b=pXCo/zhtZi13UOAM0I0nC1vA1YQiwhbbi4ssHyPm7ldEsR2iEOnDlRyigCiuk+3y8VRq
-	 0I1b/1AxESG2s/639UaVZGITnFlQhKQiAfH01PKF8IS8r5PldYaccn4J7EgGyyFflli6t
-	 wmGDQpbj2qikNCQqZ57kIRsAMIxxGy2xwL0/+XJE+yTHogQ0nK7ZkO901K4ncBUGGGoXV
-	 pFeLCOUFeUtqd6WrrYH1jVxhfj+yqsdAH7Eayjx4opmdfHhXsQJb6n69gU+hVxczG4NIJ
-	 Y13hx9EAwX3p9wtYUMXqWqsiMkUXPN3LRDSZ3inwYTu4Pp5hrk3xfHJmBNLf+YR/VgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795601041;
+	h=DMARC-Filter:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=aKp9ulANN8ZsCem3hOzSiHB1VBEpB1+IrEIaum/OfA4=;
+	b=AkqHrymB5T5tsuGrmwhtkYSyXCZQdN2ZLtXT9zsKVy6XlM7RTUzh/gyBJh+2QJpalcgN
+	 1T7gpjUX1ictJ7zBa/EsKsgt9n6tdVIg/cEL3U9mU5NkuuKj4VF2U4c1DHWDu6fSUnDhW
+	 mRbUU23UApIwNM6T7DxuIpHxwex+Do+/02Usji9CLWygqnFFIQGYedOpzDiActHy4ar+c
+	 JgqKY64lXmILJnehquxbo1CS+visjWPaawWR8y6/f0twu/0K893BFDv3oWFyuojy7AvJ5
+	 9TmPvdcjmj/hIh8t2HIlmFi/Vxlz7DTI2SGbVnSlY+gr4uqbuKq245uY6Yk/lNKbgPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z6O+preA;
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=huaweicloud.com;
+	spf=pass smtp.mailfrom=huaweicloud.com;
+	arc=none smtp.remote-ip=124.71.94.104
+Received: from dggmsgout13.his.huawei.com (dggmsgout13.his.huawei.com [124.71.94.104])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56543606A329
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:04:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56543606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z6O+preA
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b546061d58so12595105c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:04:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795601041; x=1796205841; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jY9qOc0xWy86TYB23oPhSaWC0qCicnAeytX8EZDNghU=;
-        b=z6O+preAdIolvfuN+jX8kUQlDus4PRUpHLxLCJAFY6MqqPHg24PvRv5TNlbtYCjx3N
-         l3dmDoHhKMexzrvmzvuONr90yOMj5ZbfQiUWKo5DkAT+o042s71GFCmIpGjNWCFggoPR
-         9+LgyLUxOuS0Cmf50jtYFv9aT/jDFyevtyT/RklgIujtUrnnPFjMwAwKSBTTwxYln5WI
-         CvJNysUa4auHWQr7KGhzKSxmSGX+wyvYgtJYVcdh9SosiIywyR14z2+wkJGUuJyY3Odw
-         OgEQod33oicHWnQpYvA3pb9rg/q3kWc7Fdh29haqAyhh0eIGM8O2o1eFEqE7lYhhUp4K
-         0UWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795601041; x=1796205841;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jY9qOc0xWy86TYB23oPhSaWC0qCicnAeytX8EZDNghU=;
-        b=yeuVJTzIRohi4cBWvdkhTzuUi9BpY/HR3PEelrBlBpc2B37OCjsPjL9j8inre4YkXV
-         ku/01JEOfs7VAOgHFAp+iEHwebcwgRfXCEujM3g5QQTDFxRz27V3vBdWFM/rtYckAiS6
-         DdssHBaqmUEJv5FUnSnuInVrh+MCWf+Gi3ZMg1WdmvuL5XmJLdj8CHD6cI0oEV8t+9kd
-         YtMayAp+Egy6wUQPloCr2bC4IXvKQlJAIUfeNovwPNcu2X+rkxtWymXc0BVJwkFTQjdz
-         7G4VJTwbQRNd3HYv2Os1usDOLRkB6j4w6+W7/woMBza3KSs0P003svj+IRkpZeFo60Y/
-         YR4Q==
-X-Forwarded-Encrypted: i=1; AL+hErFoiRpm5FAfCD+E6bzkPMUV7rLx1TLnkKeQP+Y9viy9/TXxpxuImgJOVIJhoPvatX3h3e1/dfBXKmwK9KY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/yWHzLI66g+8DwbyHpziSyBxqsCXD45zWuMSpJLSxqCYJf2fqD
-	ITPU3YdPH4rjOX3WlhuXG74uzKDBQukEdXjK9cTymZO6znffueYyHXrY
-X-Gm-Gg: AZFdTZfZdQd9izAotbRaxwVUrjQElWiyz9Z5PHdVpvzSXvaJ7pFbcmmS/Tqh0INuCAR
-	h49uDECj3bFR95cCFMJtDFO/1pbcWfv2WyUs5gi1EHY/qnLJkAGLz/wzgaOGUVUpRyQGhkj809h
-	v5ILyxOuoK8A8ECjye97D3BqWz/tLgxEoo4d5r8odpiovdHN0pV6zJUK6+74h0FCDVpUV7zECaD
-	qO7pfzNhf5EUBIvEOWUf6CpgMzgwZk9/v7liAETK1G05w8WgzzIQapnEb/iPlcHNE4y8RGjlYWq
-	bj0qAg5/HseK/wsDpZSIbq3PdvA2127t7/xjnsQTHDbVBhsXpLzjPFLMnjCpQ+aIKqAd6Pv/RL/
-	59rOda7uebKohlL1Qf8NmiBTQnrpHNk+1itkPHkGGxHB24RGhP2l2UJ7vtKuudv44u3p3k6ElAN
-	utKpavdYMFxJ5eNPVeD6MVCvL1hLU7bEiERMhirwrAGayF0NUF3Kc/xiPVb3UE+qrPwD+vQTM4A
-	y1DTz7pBD14AKY7UO6Anlt+Ln8iIoZ9p8s01Ye99TbEQ4g8dKv19CjAX5bglNgyKeyH5tu5y3Xy
-	3Bol2mI01omBqtdKvWek
-X-Received: by 2002:a05:701b:2704:b0:1b5:4f6d:8277 with SMTP id a92af1059eb24-1b5568e78b1mr16762572c88.26.1795601041141;
-        Wed, 25 Nov 2026 02:04:01 -0800 (PST)
-Received: from a1-free ([2603:c021:8021:f000:0:1865:8c38:18fc])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55ff0e4e6sm33863045c88.11.2026.11.25.02.03.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 02:04:00 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: [PATCH v4] arm64: perf: Drop the example the userspace counter section points at
-Date: Wed, 25 Nov 2026 10:03:57 +0000
-Message-ID: <20261125100357.1937729-1-takano32@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261111034432.2020955-1-takano32@gmail.com>
-References: <20261111034432.2020955-1-takano32@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07814606A321;
+	Wed, 25 Nov 2026 10:03:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07814606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huaweicloud.com
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggmsgout13.his.huawei.com (SkyGuard) with ESMTP id 4jZFcz3sfkz1rr0b;
+	Wed, 25 Nov 2026 18:03:47 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 9E9E640561;
+	Wed, 25 Nov 2026 18:03:50 +0800 (CST)
+Received: from [10.67.110.36] (unknown [10.67.110.36])
+	by APP1 (Coremail) with UTF8SMTPA id cCh0CgDnOtCFsgZr_eaeFg--.57557S2;
+	Wed, 25 Nov 2026 18:03:50 +0800 (CST)
+Message-ID: <c9c2c4df-a748-4787-b686-1fe6bc6564db@huaweicloud.com>
+Date: Wed, 25 Nov 2026 18:03:49 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,87 +51,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 2/2] perf/core: Disable context fast-swap for sigtrap
+ events
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, James Clark
+ <james.clark@linaro.org>, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <55b1a2845b0ad34a874a7653644e34af9eb068d3.1795053619.git.wutengda@huaweicloud.com>
+ <20261120173706.GC2668564@noisy.programming.kicks-ass.net>
+ <20261120174606.GM2669272@noisy.programming.kicks-ass.net>
+ <5507e48c-4e98-4e76-8d3f-4630a2655085@huaweicloud.com>
+ <c9ff579b-a7eb-481f-bb8d-489a4469c397@huaweicloud.com>
+ <20261125090809.GW2668804@noisy.programming.kicks-ass.net>
+ <4d17dd3b-df73-45c0-8113-f4ca259d549b@huaweicloud.com>
+ <20261125093836.GX2668804@noisy.programming.kicks-ass.net>
+Content-Language: en-US
+From: Tengda Wu <wutengda@huaweicloud.com>
+In-Reply-To: <20261125093836.GX2668804@noisy.programming.kicks-ass.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID:cCh0CgDnOtCFsgZr_eaeFg--.57557S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJr4UAw1fZFWDGF4kWrW7Arb_yoW5JF4Dpr
+	Z3CF45trWDtrW7Wwsxt3WDZFy5trW7trs8Wr1kGayxArn0vry7XF48JrW5CF9Ivw18JFW3
+	tr4jga47W34jva7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AF
+	wI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4
+	xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43
+	MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I
+	0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWU
+	JVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUF1
+	v3UUUUU
+X-CM-SenderInfo: pzxwv0hjgdqx5xdzvxpfor3voofrz/
 
-Documentation/arch/arm64/perf.rst points at
-tools/perf/arch/arm64/tests/user-events.c, in the text and in the link
-target, but that file is not in the tree and no commit in the history
-leading to this base has added one.
 
-The section already describes how to use the libperf helpers and points at
-tools/lib/perf/tests/test-evsel.c as the example, so the sentence that
-sends the reader elsewhere is redundant.  Remove it and the link target
-rather than pointing at another test, and give the commands to build and
-run that example in the How-to section, next to the reference it belongs
-to.
 
-The edit and this changelog were written with the help of an LLM
-assistant (Hermes Agent).  I reviewed the diff and the reasoning, and I
-am responsible for the submission.
+On 2026/11/25 17:38, Peter Zijlstra wrote:
+> On Wed, Nov 25, 2026 at 05:29:38PM +0800, Tengda Wu wrote:
+>>
+>>
+>> On 2026/11/25 17:08, Peter Zijlstra wrote:
+>>> On Tue, Nov 24, 2026 at 04:42:34PM +0800, Tengda Wu wrote:
+>>>
+>>>> From the stack, we can see:
+>>>>
+>>>> perf_event_context_sched_out
+>>>>         // fast path
+>>>>         perf_ctx_enable(ctx, 0);
+>>>>                 perf_pmu_enable
+>>>>                         if (!--(*count))  // equals 0
+>>>>                                 pmu->pmu_enable(pmu);
+>>>>                                         __intel_pmu_enable_all.constprop
+>>>>                                                 do_trace_write_msr
+>>>>                                                         perf_tp_event
+>>>>
+>>>> In perf_tp_event():
+>>>>         if (perf_tp_event_match(event, &raw, regs)) {
+>>>>                 if (!perf_pmu_enabled(event->pmu)) return 0; // not satisfied, continue downward
+>>>>                 perf_swevent_event
+>>>>                         __perf_event_overflow
+>>>>                                 task_work_add  // event->ctx->task mismatches 'current'
+>>>>         }
+>>>>
+>>>> Because pmu_disable_count is already 0, the subsequent perf_tp_event_match()
+>>>> cannot block it via perf_pmu_enabled(), so the problem can be reproduced.
+>>>
+>>> Right, but at this point there isn't really a problem, all the pointers
+>>> have been swapped already and state should be consistent again.
+>>>
+>>> I *think* the problem is that task_work_add() is using current while it
+>>> should be using ctx->task. In that case the above will enqueue on the
+>>> next task, which is correct.
+>>>
+>>
+>> I considered this before, but it involves the issue of whether the count
+>> overflow in the sched_out stage should be attributed to the current or next
+>> task, and I wasn't very confident about it, so I didn't adopt it.
+> 
+> All of switch_fast suffers that problem. Mostly we've ignored it since
+> kernel events around a context switch are hard to attribute to any one
+> particular task, so a little fuzz left or right of the switch doesn't
+> matter too much, as long as its consistent.
+> 
 
-Fixes: aa1005d15d2a ("Documentation: arm64: Document PMU counters access from userspace")
-Reviewed-by: James Clark <james.clark@linaro.org>
-Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
----
-v2: drop the reference instead of pointing it at another file, and give
-    the libperf build and run commands in the How-to section.  The
-    perf test -v user step is not moved; it is gone.
-v3: drop the v1 review history so the commit log is the change alone.  The
-    missing file is stated once.  Raised by Sashiko:
-    https://lore.kernel.org/all/sashiko-outbox-208137@kernel.org/
-v4: rebased onto v7.4-rc4, with the Fixes tag and the note about the tool
-    that wrote this changelog back.  The diff is unchanged from v3:
-    https://lore.kernel.org/all/20261111034432.2020955-1-takano32@gmail.com/
-    v2 and v3 did not go to linux-arm-kernel; v1 did, and James Clark
-    answered it there.
+Thanks for the clarification.
 
- Documentation/arch/arm64/perf.rst | 17 ++++++-----------
- 1 file changed, 6 insertions(+), 11 deletions(-)
+>>> Disabling switch_fast really hurts performance; doing that should be a
+>>> last resort. I think I can fix this. Let me try and see if the
+>>> reproducer works for me so I can more easily poke at this.
+>>>
+>>
+>> OK. Just a reminder that the PoC I provided needs to be run in an Intel
+>> environment, so that the tracepoint can be hit when pmu_enable is executed.
+> 
+> Ah, I'm currently running it on an SPR Xeon; do I need to use
+> non-default arguments or just run the thing in a loop and drink tea
+> until it goes pop?
 
-diff --git a/Documentation/arch/arm64/perf.rst b/Documentation/arch/arm64/perf.rst
-index 997fd716b82f..5b9cc2aeb642 100644
---- a/Documentation/arch/arm64/perf.rst
-+++ b/Documentation/arch/arm64/perf.rst
-@@ -131,7 +131,12 @@ changed.
- 
- The userspace access is supported in libperf using the perf_evsel__mmap()
- and perf_evsel__read() functions. See `tools/lib/perf/tests/test-evsel.c`_ for
--an example.
-+an example, which can be built and run from the source tree:
-+
-+.. code-block:: sh
-+
-+  make -C tools/lib/perf make-tests
-+  tools/lib/perf/tests-static
- 
- About heterogeneous systems
- ---------------------------
-@@ -140,14 +145,6 @@ only be enabled when the tasks are pinned to a homogeneous subset of cores and
- the corresponding PMU instance is opened by specifying the 'type' attribute.
- The use of generic event types is not supported in this case.
- 
--Have a look at `tools/perf/arch/arm64/tests/user-events.c`_ for an example. It
--can be run using the perf tool to check that the access to the registers works
--correctly from userspace:
--
--.. code-block:: sh
--
--  perf test -v user
--
- About chained events and counter sizes
- --------------------------------------
- The user can request either a 32-bit (config1:0 == 0) or 64-bit (config1:0 == 1)
-@@ -160,8 +157,6 @@ userspace must treat the upper 32-bits read from the counter as UNKNOWN. The
- and should be used to mask the upper bits as needed.
- 
- .. Links
--.. _tools/perf/arch/arm64/tests/user-events.c:
--   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/perf/arch/arm64/tests/user-events.c
- .. _tools/lib/perf/tests/test-evsel.c:
-    https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/tools/lib/perf/tests/test-evsel.c
- 
+No need to pass any other arguments; running it as follows should be enough:
 
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
--- 
-2.53.0
+  for i {1..100}; do ./fast_swap ; done
+
+Thanks,
+Tengda
 
