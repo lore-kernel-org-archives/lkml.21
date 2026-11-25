@@ -1,47 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.143
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617144;
-	b=mQUiyT97A7j07jrKCf41fGQNnmUZmSVqWYuhUU9ALQg/ONNBOEUF3ZMhaobyAoBcq5tF
-	 E0SzMeSfu59wFXgZgr6y1PAW/sHwAZCexUhDcPl5YTYvHprSALV2Nmay5dh2a3Jotr5XF
-	 BW+Y/7a5RFvELX+8LEIqql9KCycvu7mv7hIHcoou0NNy+HU+4q2EESJaGQF9r31Vletkm
-	 dVJzFCEyIg7tq43NWJI4zIv+4/8qvR1ltEEpAMaMic0Whl0IEkqRjl0GYzt+6PI0IeVs8
-	 q3nVK5g2JS1Mn5Dg9W9B0H88AGsFdn3qbhtD3MF8AbaN0aZXzhA9nyeu08a8ArLWjsg==
+	t=1795617148;
+	b=5nV0HmGW+RKInPvo/Li8/ocriYBfvbpTq351bZdCIQrYdT2d8/BT3BXG55wTr8MN4Ly+
+	 9GyB3IoRy8gFDPg5WNhklCYxTc+1rg7lS5GQbzeUH/vO5x0iA1Qq+Je9/jfW4Ig/5BwU4
+	 6bTqo0eEjni8coDJfOM7hnRxXOJMmpnJvuHXpmq2QmNM4jONUzex7Il2/o2ATPGZSFDJn
+	 Nusnfj25Pu8odKh78Ote8fUHnYl1BgzqMvMp7LIDzfbKPonr9zVxepGdY+ctoKGHQKqji
+	 qIo7hSmPt3hdGIzss0HrMj82gTquE5vIB/usVqvPTWT37RxD/DPeJi86lFITWSDhGKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617144;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=iqIBYKdAwsyESmO2lR9a06vZxhGrpB8ZFTJay9yz+LU=;
-	b=Ym48Vhvqm5eXXTP6pV6i/3V2bAxiro+pz5zhfvNdv5knR01FEBg6chiDcIHe5Fo0mVwR
-	 +fmmm05fhUBfJts7uQVsZRgKu0xHOHKyB0t7peKhOP4IU+bgRKWqn3vZDfR0V97NOCMMT
-	 aN32/hVdT0XDknaDEdOUTFRkFlOHFSQT1C7JjqdRpImQ3ajG2VFKcra004keIFS+Yua+l
-	 kTTKAiQn1FdACFzxaQ0riy4vD1urBjP0xxiK0Qu1/d0b7lsXfPk+F2Vb6tq8+aghwRkkL
-	 AsYTg/Ggl7nMgdHZyAPtreHXhRcdSDzzAt9aBpM20NzDkmfTAhW8TSWeSv4g9pMiKEg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617148;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=RQX+ppZZfcmV824/mFlm3KPx60mb4hcUamQ0Yqxodrc=;
+	b=i81E9C5DYECYDzXZ75BvDqbAltFPMVmkndC1w04ECjG7dXadpIJF6sgzsxUidQ2tJKcp
+	 b+naEri4KN6C7BVtcxvd/EfjdBv1u8Dq4NKop8rExHRtmT/OIVnbmCl9XBZgvtG5Vx4yo
+	 JS/s9lx8+77M+nw+IlmuIy7KtwbZrlfqnTSaa6R9CckOgL75NyopIZ6X0xgX4WtqjpQZo
+	 3UkksP0hO8P6FEn4soLyNQNfVv1r9v+uHy6w0/+7xF4hadCSwNRmE9kzRdNYoFuhesgmp
+	 Yq9rGnm7fM+8/YoiLeyZuAo98o3gqyDxe6l5qUjE8GSQbgFDtdHgpaelz/PB+/jahNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nDdCGWcV;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nAAO6NyJ;
+	arc=none smtp.remote-ip=91.218.175.143
+Received: from mta0.migadu.com (out-143.mta0.migadu.com [91.218.175.143])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0648B606A33F;
-	Wed, 25 Nov 2026 14:32:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13F91606A337
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:32:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13F91606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nDdCGWcV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 749081F000C4;
-	Wed, 25 Nov 2026 14:32:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795617143;
-	bh=iqIBYKdAwsyESmO2lR9a06vZxhGrpB8ZFTJay9yz+LU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=nDdCGWcVlg/Qg/5rHJtRVXgh/YB1pU8C/TW2fK8r1CTPgJZeZ6ERDtQfwcRSKvpLD
-	 DIVBETx8i+t5F0Wk9B4rx3J2QSRLIC8MKd93mGOcCitxa3egVjLtIeqaM2DgXshM5c
-	 xKLLXoSVocnalQp45slqlRYL4jGeFPkEARwTvS8xVfqeUIigzv5mNZ1SrKR7BI1cDw
-	 Ii48Gda723bb+S8LsP8m/l05yOPigGFD2rIXTjkOY1LGT5XWTLWFi6mjp8AYkrgOPJ
-	 Zi1RdGAWEpqIybWWdjyr4UqWHOMcDm08+rJ9/RKr/jyA5VEGJgZP6i6RE0Cm5P1ga1
-	 HAF0uECA33fmQ==
-Message-ID: <a2683841-a169-4cba-81fa-823553f37159@kernel.org>
-Date: Wed, 25 Nov 2026 15:32:17 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nAAO6NyJ
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=yo1nqfzHRnjqnvfWhlqvlI+TKrtvzOnZK0RwePkvb9c=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795617146; v=1; x=1796221946;
+ b=nAAO6NyJ7/mp0YdRzcyXpouKzBVSQvwj9CU5SaKkN1Hz9ud84c4JTUZOWsZTqTxrQEC6JheG
+ LhUAHlzBp9fgFHS076eAVrmfoaj+brww15Gxl/985O8fwoSSY8fILrzkntkijaGPFYHgwcxyoqw
+ m6JotOL+We9F+7HkY88T+TGE=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 97a1434f9dad7303;
+	Wed, 25 Nov 2026 14:32:25 +0000
+X-Mizu-Trace-ID: 97a1434f9dad7303
+X-Migadu-Flow: FLOW_OUT
+From: Leon Hwang <leon.hwang@linux.dev>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Matt Bobrowski <matt@bobrowski.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Leon Hwang <leon.hwang@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH bpf-next v4 3/6] bpf: Add log support for iter link_create
+Date: Wed, 25 Nov 2026 22:31:35 +0800
+Message-ID: <20261125143138.47174-4-leon.hwang@linux.dev>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261125143138.47174-1-leon.hwang@linux.dev>
+References: <20261125143138.47174-1-leon.hwang@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,104 +87,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: pinctrl: qcom: Add qcom,remote-owned for
- ownership update
-To: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Prasad Sodagudi <quic_psodagud@quicinc.com>,
- Rajendra Nayak <quic_rjendra@quicinc.com>, linux-arm-msm@vger.kernel.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261106-egpio_fix-v1-0-569d220a4748@oss.qualcomm.com>
- <20261106-egpio_fix-v1-1-569d220a4748@oss.qualcomm.com>
- <20261110-modest-significant-ostrich-8dd408@quoll>
- <396403af-1505-44b7-bf21-8c656c64c936@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <396403af-1505-44b7-bf21-8c656c64c936@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 25/11/2026 12:35, Pankaj Patil wrote:
-> On 11/10/2026 6:58 PM, Krzysztof Kozlowski wrote:
->> On Fri, Nov 06, 2026 at 01:29:41PM +0530, Pankaj Patil wrote:
->>> Add "qcom,remote-owned" boolean flag for egpio capable pins since they can
->>> be owned by remote island io independently of the selected mux function
->>> even if function is non-egpio.
->>>
->>> Presently egpio is treated as a mux function level decision where as
->>> hardware programming guide(hpg) specifies it as pin conf level decision
->>> i.e setting egpio bit is independent of selected mux function, the
->>> driver/apps claims the ownership of the pin if it's egpio capable in
->>> case of mux function being specified as anything other than egpio.
->>
->> I don't understand this. If the pin is not owned by Linux, then simply
->> do not list it. What is the point of listing a pin configuration which
->> should be skipped?
->>
->> Best regards,
->> Krzysztof
->>
-> 
-> The pin is not owned by linux but is still being used and driven by
+iter BPF_LINK_CREATE returns an error without explaining invalid target
+FDs, flags, or iterator information, or an unsupported program.
 
-If it is not used and driven by Linux, then it also CANNOT be configured
-by Linux. Otherwise how do you imagine for example that remote island
-operating on unconfigured pin, before Linux boots?
+Pass the BPF_LINK_CREATE log to the iter attach path and report these
+failures.
 
-> linux for it's intended function specified via function= property, which
-> would mean the required mux config for the function selection has to be
-> executed in Linux
-> This property simply allows a second driver/peripheral to use the same
-> gpio since it's allowed by hardware
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+---
+ include/linux/bpf.h   |  3 ++-
+ kernel/bpf/bpf_iter.c | 27 +++++++++++++++++++++------
+ kernel/bpf/syscall.c  |  2 +-
+ 3 files changed, 24 insertions(+), 8 deletions(-)
 
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index a1ba3f54ba6a..e6d6a34a2818 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -3272,7 +3272,8 @@ void bpf_iter_unreg_target(const struct bpf_iter_reg *reg_info);
+ int bpf_iter_prog_supported(struct bpf_prog *prog);
+ const struct bpf_func_proto *
+ bpf_iter_get_func_proto(enum bpf_func_id func_id, const struct bpf_prog *prog);
+-int bpf_iter_link_attach(const union bpf_attr *attr, bpfptr_t uattr, struct bpf_prog *prog);
++int bpf_iter_link_attach(const union bpf_attr *attr, bpfptr_t uattr, struct bpf_prog *prog,
++			 struct bpf_verifier_log *log);
+ int bpf_iter_new_fd(struct bpf_link *link);
+ bool bpf_link_is_iter(struct bpf_link *link);
+ struct bpf_prog *bpf_iter_get_info(struct bpf_iter_meta *meta, bool in_stop);
+diff --git a/kernel/bpf/bpf_iter.c b/kernel/bpf/bpf_iter.c
+index f0b29a170935..2bb110e0867d 100644
+--- a/kernel/bpf/bpf_iter.c
++++ b/kernel/bpf/bpf_iter.c
+@@ -5,6 +5,7 @@
+ #include <linux/anon_inodes.h>
+ #include <linux/filter.h>
+ #include <linux/bpf.h>
++#include <linux/bpf_verifier.h>
+ #include <linux/rcupdate_trace.h>
+ 
+ struct bpf_iter_target_info {
+@@ -528,7 +529,7 @@ bool bpf_link_is_iter(struct bpf_link *link)
+ }
+ 
+ int bpf_iter_link_attach(const union bpf_attr *attr, bpfptr_t uattr,
+-			 struct bpf_prog *prog)
++			 struct bpf_prog *prog, struct bpf_verifier_log *log)
+ {
+ 	struct bpf_iter_target_info *tinfo = NULL, *iter;
+ 	struct bpf_link_primer link_primer;
+@@ -538,24 +539,36 @@ int bpf_iter_link_attach(const union bpf_attr *attr, bpfptr_t uattr,
+ 	bpfptr_t ulinfo;
+ 	int err;
+ 
+-	if (attr->link_create.target_fd || attr->link_create.flags)
++	if (attr->link_create.target_fd) {
++		bpf_log(log, "target_fd must be zero.\n");
++		return -EINVAL;
++	}
++	if (attr->link_create.flags) {
++		bpf_log(log, "flags must be zero.\n");
+ 		return -EINVAL;
++	}
+ 
+ 	memset(&linfo, 0, sizeof(union bpf_iter_link_info));
+ 
+ 	ulinfo = make_bpfptr(attr->link_create.iter_info, uattr.is_kernel);
+ 	linfo_len = attr->link_create.iter_info_len;
+-	if (bpfptr_is_null(ulinfo) ^ !linfo_len)
++	if (bpfptr_is_null(ulinfo) ^ !linfo_len) {
++		bpf_log(log, "iter_info and iter_info_len must be both set or both unset.\n");
+ 		return -EINVAL;
++	}
+ 
+ 	if (!bpfptr_is_null(ulinfo)) {
+ 		err = bpf_check_uarg_tail_zero(ulinfo, sizeof(linfo),
+ 					       linfo_len);
+-		if (err)
++		if (err) {
++			bpf_log(log, "Invalid iter_info_len.\n");
+ 			return err;
++		}
+ 		linfo_len = min_t(u32, linfo_len, sizeof(linfo));
+-		if (copy_from_bpfptr(&linfo, ulinfo, linfo_len))
++		if (copy_from_bpfptr(&linfo, ulinfo, linfo_len)) {
++			bpf_log(log, "Invalid iter_info.\n");
+ 			return -EFAULT;
++		}
+ 	}
+ 
+ 	prog_btf_id = prog->aux->attach_btf_id;
+@@ -570,8 +583,10 @@ int bpf_iter_link_attach(const union bpf_attr *attr, bpfptr_t uattr,
+ 	if (!tinfo)
+ 		return -ENOENT;
+ 
+-	if (!bpf_iter_target_support_prog(tinfo, prog))
++	if (!bpf_iter_target_support_prog(tinfo, prog)) {
++		bpf_log(log, "The iter target does not support the bpf prog.\n");
+ 		return -EINVAL;
++	}
+ 
+ 	link = kzalloc_obj(*link, GFP_USER | __GFP_NOWARN);
+ 	if (!link)
+diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
+index e53df528b09d..96ac3360d623 100644
+--- a/kernel/bpf/syscall.c
++++ b/kernel/bpf/syscall.c
+@@ -5950,7 +5950,7 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
+ 			ret = bpf_raw_tp_link_attach(prog, NULL, attr->link_create.tracing.cookie,
+ 						     attr->link_create.attach_type);
+ 		else if (prog->expected_attach_type == BPF_TRACE_ITER)
+-			ret = bpf_iter_link_attach(attr, uattr, prog);
++			ret = bpf_iter_link_attach(attr, uattr, prog, log);
+ 		else if (prog->expected_attach_type == BPF_LSM_CGROUP)
+ 			ret = cgroup_bpf_link_attach(attr, prog);
+ 		else if (is_tracing_multi(prog->expected_attach_type))
+-- 
+2.55.0
 
-Best regards,
-Krzysztof
