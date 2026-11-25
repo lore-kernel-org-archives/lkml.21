@@ -1,79 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795625741;
-	b=gn8UBBnsNV6k/piTjSCTSyLKUIqiVGLgd70zQDl8otCTlCfftnhGzyzLPILuACsAUV+C
-	 Vq/jtCy9cPQoJYY+93CWuAbroqwNij/A/SjQN7ijFk4flaTChYLJDH0hcaHdlnzFL4HQp
-	 xXEuKJDouyox2pZx4/vLzzat2/tafRrADXn8g5fyeBJ23VyxzmHxKAxZhpMdeLVEDbBzY
-	 w/SXT+ZKacPJx7PDydenvMIpX2mHgPU96IbPBkJrH7WF29Fay3QQ/XQiSXykMdHa+bqpE
-	 WLbhSPZZ7jXDYL4yyzyRtJcDYp3gSFOWa6VnzZfz3zy+oXY8yXk3L9PoX6ObY31i8Sw==
+	b=lnBUslBYgIM/2NBpENczp+AkYQ+TKhnx3vW1bt81O271F1xnX1BULC/H5XU1qURm1KAR
+	 JI9WNYvm3Q8fBpuX3QuHzHh/2IWHK8dcOvsFT5GKxgRGZuCqPdcLNHPBvtxXd9K014x95
+	 iND174ZBojixNiOTvuM7yDclGLgEIKkRWYBtDMY/saDArvF9i1SuB40qYC6ekXeew3uOv
+	 nPqq61pL83Wlkg87HVAFB030yktzif7aTeqZrV7gskVnWmb0ZEJGmFn8BnsXupJRIRvHa
+	 zJUy9L14U8kpjDz3aINQJXZsWWNllAPZ7cRYGNLbcQdIJcwM/oi0Yn9zUahxiBOdqSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795625741;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=C3ZMDSrx8g0JCNi5Ej21a6Hjs+LnLXlFTuwwUzff5rM=;
-	b=mBwKHmS9oyeetXTro75HkXTrSezQqkDXPOu3spLSm2lA0dy9XAoS3uOZ5BAXRCDnchsu
-	 Ez5SspxyEM9KbAMoBDw5EAZ8wTsMIGPcFFwN/d4gmqPqZAN73tvVepFsBk5aJ8uoQ5GOV
-	 JO4hLE88E8DWDxBQ3OgpynFxkHPEFS76OyXHS21rk1KEmKQrRfKFb7oH3FJa6X1wpIO91
-	 +D5dyguQe5mXBqbT/PyROM07wpAFd+XNCwjL6suPGrZRGWbXd+Z8R3uEaboHSCAa0/eii
-	 qC2jkJCcWU3qryrO9ZaPZL/lzcoqWrPKLXzJnNP39XADVlniDg3Dg5+C6y5qairBjQQ==
+	 Content-Transfer-Encoding;
+	bh=QjYkjPPHfQVUwaQ5dEuT5Luo4ZATk/cbnCMkj82XflI=;
+	b=MjKGlAtjCX/sd4StY/qHY4m/JdnIJufpscqxDUbQboMWZkEZD3Gy7WV0IEM9anFBYHVr
+	 XeLSzARAg8hanL9PUnj0DWJw9wbDsaLlmoXi05+Zjp0Vp5Ci/dLyIRTeX8yYIh/pstxfB
+	 MkKTf8G2Mngsr+otueM+TyZE6FGxuHfVXAnkBErM78zsN2y/x03CSXpfYwu07vy53bqU6
+	 OKE0+XXLVj2yXNdXc/FkCwse59Es5AwzCKZjdXaydOUNfM5nTwqMrbQRJ+swQ/rR8Eybf
+	 iZiw2AqC5TF3jFHg21jjCZdz1p2HizuHGM8zmIOZRBHZdT8GH/1/byvWWNDc1o4SV6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FEIGhgiX;
-	arc=none smtp.remote-ip=209.85.128.177
-Received: from mail-yw1-f177.google.com (mail-yw1-f177.google.com [209.85.128.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=omZc+7Oe;
+	arc=none smtp.remote-ip=209.85.128.176
+Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com [209.85.128.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7C80606A336
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:55:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7C80606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26B37606A690
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:55:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26B37606A690
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FEIGhgiX
-Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-8b4e246acc2so43380947b3.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:55:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=omZc+7Oe
+Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-8b360828905so55898587b3.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:55:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20260707; t=1795625740; x=1796230540; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=C3ZMDSrx8g0JCNi5Ej21a6Hjs+LnLXlFTuwwUzff5rM=;
-        b=FEIGhgiXkTxMnyIjEhW8qtAK9qKr1hrK16C27sw6KyNhjfFf0Fiadu63at96RsdbZP
-         da3W4bNQFfHCXIX5Q4iCsF6gLWX5nY/fpB1PCxjbFfzw6vH+5O02kkl3pYY0BsplKPR2
-         DOQP7fQv1aR2Om0g42bJBAk0au/laDJ2KrRQ+4go6ipi7+rhoScyv8nQORg2tNxQ3otj
-         NlHcn/lQSC0Sy3imp7SQaD+FMFWU7/1HxIqvaYiFWoToJXSVQu2acsdjf5jgcmf3ixTV
-         B84lEbLf4y/WzsaoC4z6tmeG8yx0qsjtDCAzgIVuD/K1nFfUiunWs2aFW+mpcNcUigXE
-         uAHg==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QjYkjPPHfQVUwaQ5dEuT5Luo4ZATk/cbnCMkj82XflI=;
+        b=omZc+7Oe0bKJrLjQ/e+T7DDbb/AoZ76rD0F19yv3PM/Ril4CA1T5xCEAO0f4fR3IZd
+         dCBm3rPWPTjEKOyS5YXnMuzLFtiJZyg/Bxy/ag+qnKqgUKPHPoIyZD3LDSH5uECU66HP
+         5Muy3o9fY9JRx80ev8UejrVo4VLW0TPE/DEQ0qcUB2hCaL6xtKQgDYfkZ9ehELJUrutx
+         eKgEe6uqrYly07d6r92GxZy87p9WuP9gmPrIn1hGMofe3Od7pOQCeIya9ShHcDbjBBpM
+         wbDq80lXTRUMo1rReFeJlxaogSVfEsh55qBU2EdoCvgjv9KD0D7JNiti1RNikHuXP4Ov
+         /QPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795625740; x=1796230540;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=C3ZMDSrx8g0JCNi5Ej21a6Hjs+LnLXlFTuwwUzff5rM=;
-        b=MBopfi3v4oQTH+bkMsoPcoPFVH62wD2CXV7As4pTdp6wl3HAReQZlHvuCirXMOEcuE
-         I+9eC3ZK5U8iHPt3iUGkWi+Y0f+Mu0CjvMXgELxYXNr2907eAVak0wAAnU7/m76a8aT0
-         f0A+weAXRsAY1x4Bqb2M0ZoPedWgMkTryM5oOIUhyRjdVXuF/SeGZIX3mDbEFowu4RAO
-         8NqVaecMTP45qrbcAzsXRd+OXbEu4EmMr4nDhPNlB7Fg7uJZFnFynkWIodzrUJbf5VxQ
-         tB3qfRxrFZedSWtxQ3aTOYn3uyE2/q/M24og4rXgrw7Sc+UVoQJl4vDZl4PJX/iYwdj2
-         qabg==
-X-Gm-Message-State: APuU4Z+Qw4SaDRFaxv6JTU4BBFavmmZg3/VE9+kkrcDz8UTA6Y+6qK01
-	lluKYQIovYdvQZEwUpXWijqSA3ulq+I1Ct8xK60b4egzaBrZ1+jS7cLXCCFetNE=
-X-Gm-Gg: AZFdTZc0wuie9SAvei2t47lJ9HfJFBcKC/ufaF/JRRkqS+ZeSxdDpewUYW0RsCQA7Wd
-	8rXrOs49PXEVic9LTeU/dqPbJPzUeIRUhIRdFn2jLcEUtWLVnVzIfRvmwVkB+e5k6gevvs16igC
-	St/h8OKQWGyWaawRPLMhYgPydmwKF17bP/UpsY8LywrMYtVeLHnGhY++6AQWewsO0CkOpgGvZ6B
-	wUn72a6GaQMp7FLrsuB+TEkq0lfce4my0XYapnkVZkP62XrlxDI+x3ZnzZD90dQSn27gojHeYtL
-	T3jfXW5olHT+BU2C0iA8AkBUqSOVjHXD6+II91F0j4OqxETRnY7+QN8A5AXCveZjxZSv3CTcCEu
-	kMxFlBUw9JDfYRzXxwFVTIwzpUaUJvrnl7Lah8E4TsUB5cOHIQ8CK6ZjErhaUNuYSKOvuuUPK4e
-	erHTl6u7x+moOjrwZUaHh8jJap+nsj3O4xIcJZMHTfmngacvOhSb2MNaiHwCbDQx68MFff2h0jF
-	TzhgPFrY5KNNxKLN771OtTH7YkR+2+G0tmgb9UozhQOQM7E/SHCgSzIuYvwQ+EEf2T0kyFCHRau
-	i4yyS17QMIDFsg==
-X-Received: by 2002:a05:690c:680e:b0:8b4:dc54:1d37 with SMTP id 00721157ae682-8b52042e7d0mr76699877b3.19.1795625739538;
-        Wed, 25 Nov 2026 08:55:39 -0800 (PST)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QjYkjPPHfQVUwaQ5dEuT5Luo4ZATk/cbnCMkj82XflI=;
+        b=UUXdZ53pM/XqUR1c1eYgzR/+l+AsZoShbkbmUaFTUAEf9nmeB/YhXjJBCCW/jaWC7Y
+         upqQBve6QE8q5On7Q1z3eo6IgIePD6D3PQMFHEquaI8LN91zQ11eXDaNn3z8a9nrERwp
+         YOIGlRhnLjCO1E3E1xNvGfC1kE00vxffhfgmVsI/CBK71ngHEgfitoF47WghimRSsxVG
+         vylQlkbpM8BzCWld+PU/qtfagFUacCnzicDPdShPjX6XLwNOLgynSFBgLps4VYXvrA/3
+         S07lEVv+T7rhgJEfA2fbygQi0XhzpZnK+etu05HpwmxyDD5MrBRqP5RABTHWHsorPqOo
+         6NEw==
+X-Gm-Message-State: APuU4Z9D3O8Y0OWrPJmTdBhlzV9UdMTUGZFQyDNq0gL2viHLj1ejof+J
+	D439cszqm26aKs4iZu2DJwm8Rdu3/ko5oZMd77guaNUyF/XGU7U4OyQ=
+X-Gm-Gg: AZFdTZcB2EJ4RkbK5NnL1TUNjGc9d+37tfw8hecTJcE8f8EIEzZy/jNxZi4temnd4XY
+	1b1b5bNB6MD76K/M6NrQAWVqvkXEVOjj6UF6BAof/TteBeOLiGMGKTa3Q7rCb29WtaO8p9yfk/Q
+	JE3AqLtjeiUKLZ+k6FtZ4liiKeBu+eJYU+s7kBy1CY9QRtLVkCg+Ij5TIT5uyKxScOQYM+tbHDh
+	QKXqfrzNo35QAQBaP12aOE2KNfh2vb20YC/pjsooFfa3K9Lj8J0q/sbKTr+7YPYK7UzF8vR2b/N
+	8gxd3jfiLWxqv6P2aZO6OuVb6NtIBQxjThW9Ea2s9+Ba9c0cdBVXeOC1U88kfWmXNHtFnFdveJk
+	drrtcj0MXiDYJmzOT19fCfmbJfpxv4WzNtLf70nYzBSqbzxYzuHvu1n2Qacy/yX+7xQn/o40Zxq
+	+6tYgVpjvn+lgrDwDqyXAbriRCjoAjRALRUjszg5HbzbRhdcNh3zlbAIOCQw/oUTuxiek6E8bxm
+	uzWd0gzQrXl9FSisvVCJSIkkWpYtRQ6M5lVuFqcvkJuNm8HnvVKDslRHVTcZQHbQgRbrEREknyf
+	I2swdlgUAQo0NX6fCjSo9/h76Hq66M7JvWk3
+X-Received: by 2002:a05:690c:9c02:b0:8b4:d584:6178 with SMTP id 00721157ae682-8b5204b2f94mr73504307b3.63.1795625740034;
+        Wed, 25 Nov 2026 08:55:40 -0800 (PST)
 Received: from 3511.attlocal.net ([2600:1702:7a3e:17b0::c])
         by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5202bf474sm74766167b3.21.2026.11.25.08.55.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
@@ -81,9 +80,9 @@ Received: from 3511.attlocal.net ([2600:1702:7a3e:17b0::c])
 From: Arav Verma <svav2021@gmail.com>
 To: akpm@linux-foundation.org
 Cc: linux-kernel@vger.kernel.org
-Subject: [PATCH 5/9] MAINTAINERS: Move DELAY, SLEEP, TIMEKEEPING, TIMERS [RUST] entry to sorted position
-Date: Wed, 25 Nov 2026 10:55:32 -0600
-Message-ID: <20261125165536.792563-6-svav2021@gmail.com>
+Subject: [PATCH 6/9] MAINTAINERS: Move TASK DELAY MONITORING TOOLS entry to sorted position
+Date: Wed, 25 Nov 2026 10:55:33 -0600
+Message-ID: <20261125165536.792563-7-svav2021@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261125165536.792563-1-svav2021@gmail.com>
 References: <20261125165536.792563-1-svav2021@gmail.com>
@@ -96,72 +95,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-The DELAY, SLEEP, TIMEKEEPING, TIMERS [RUST] entry is out of
-alphabetical order. Move it between DEINTERLACE DRIVERS FOR ALLWINNER H3
-and DELL LAPTOP DRIVER.
+The TASK DELAY MONITORING TOOLS entry is out of alphabetical order. Move
+it between SYSTEM76 ACPI DRIVER and TASKSTATS STATISTICS INTERFACE.
 
 Signed-off-by: Arav Verma <svav2021@gmail.com>
 ---
- MAINTAINERS | 36 ++++++++++++++++++------------------
- 1 file changed, 18 insertions(+), 18 deletions(-)
+ MAINTAINERS | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 37087eb6e40a0..f2468dde0d754 100644
+index f2468dde0d754..c48179f973b06 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -7431,6 +7431,24 @@ T:	git git://linuxtv.org/media.git
- F:	Documentation/devicetree/bindings/media/allwinner,sun8i-h3-deinterlace.yaml
- F:	drivers/media/platform/sunxi/sun8i-di/
+@@ -21934,16 +21934,6 @@ S:	Maintained
+ F:	include/linux/delayacct.h
+ F:	kernel/delayacct.c
  
-+DELAY, SLEEP, TIMEKEEPING, TIMERS [RUST]
-+M:	Andreas Hindborg <a.hindborg@kernel.org>
-+R:	Boqun Feng <boqun@kernel.org>
-+R:	FUJITA Tomonori <fujita.tomonori@gmail.com>
-+R:	Frederic Weisbecker <frederic@kernel.org>
-+R:	Lyude Paul <lyude@redhat.com>
-+R:	Thomas Gleixner <tglx@kernel.org>
-+R:	Anna-Maria Behnsen <anna-maria@linutronix.de>
-+R:	John Stultz <jstultz@google.com>
-+R:	Stephen Boyd <sboyd@kernel.org>
-+L:	rust-for-linux@vger.kernel.org
-+S:	Supported
-+W:	https://rust-for-linux.com
-+B:	https://github.com/Rust-for-Linux/linux/issues
-+T:	git https://github.com/Rust-for-Linux/linux.git timekeeping-next
-+F:	rust/kernel/time.rs
-+F:	rust/kernel/time/
-+
- DELL LAPTOP DRIVER
- M:	Matthew Garrett <mjg59@srcf.ucam.org>
- M:	Pali Rohár <pali@kernel.org>
-@@ -11959,24 +11977,6 @@ S:	Maintained
- F:	Documentation/hwmon/hac300s.rst
- F:	drivers/hwmon/pmbus/hac300s.c
- 
--DELAY, SLEEP, TIMEKEEPING, TIMERS [RUST]
--M:	Andreas Hindborg <a.hindborg@kernel.org>
--R:	Boqun Feng <boqun@kernel.org>
--R:	FUJITA Tomonori <fujita.tomonori@gmail.com>
--R:	Frederic Weisbecker <frederic@kernel.org>
--R:	Lyude Paul <lyude@redhat.com>
--R:	Thomas Gleixner <tglx@kernel.org>
--R:	Anna-Maria Behnsen <anna-maria@linutronix.de>
--R:	John Stultz <jstultz@google.com>
--R:	Stephen Boyd <sboyd@kernel.org>
--L:	rust-for-linux@vger.kernel.org
--S:	Supported
--W:	https://rust-for-linux.com
--B:	https://github.com/Rust-for-Linux/linux/issues
--T:	git https://github.com/Rust-for-Linux/linux.git timekeeping-next
--F:	rust/kernel/time.rs
--F:	rust/kernel/time/
+-TASK DELAY MONITORING TOOLS
+-M:	Andrew Morton <akpm@linux-foundation.org>
+-M:	Wang Yaxin <wang.yaxin@zte.com.cn>
+-M:	Fan Yu <fan.yu9@zte.com.cn>
+-L:	linux-kernel@vger.kernel.org
+-S:	Maintained
+-F:	Documentation/accounting/delay-accounting.rst
+-F:	tools/accounting/delaytop.c
+-F:	tools/accounting/getdelays.c
 -
- HIGHPOINT ROCKETRAID 3xxx RAID DRIVER
- M:	HighPoint Linux Team <linux@highpoint-tech.com>
- S:	Supported
+ PERFORMANCE EVENTS SUBSYSTEM
+ M:	Peter Zijlstra <peterz@infradead.org>
+ M:	Ingo Molnar <mingo@redhat.com>
+@@ -27384,6 +27374,16 @@ L:	platform-driver-x86@vger.kernel.org
+ S:	Maintained
+ F:	drivers/platform/x86/system76_acpi.c
+ 
++TASK DELAY MONITORING TOOLS
++M:	Andrew Morton <akpm@linux-foundation.org>
++M:	Wang Yaxin <wang.yaxin@zte.com.cn>
++M:	Fan Yu <fan.yu9@zte.com.cn>
++L:	linux-kernel@vger.kernel.org
++S:	Maintained
++F:	Documentation/accounting/delay-accounting.rst
++F:	tools/accounting/delaytop.c
++F:	tools/accounting/getdelays.c
++
+ TASKSTATS STATISTICS INTERFACE
+ M:	Balbir Singh <bsingharora@gmail.com>
+ S:	Maintained
 -- 
 2.47.3
 
