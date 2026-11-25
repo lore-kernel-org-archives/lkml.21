@@ -1,52 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=65.109.113.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795633506;
-	b=TNlYV0zo0ifHKbrs80zEh5WqlzcOtf9w0CMUEp1R+NeIZuYZetMtW0cS9dwqBXOdk9iA
-	 pldXCTq7UJV73ws/V59+Pb5q37CyAjAsGGkJGzhJ2FBd/APauHgh6TI5YccGZ6wmXA4W+
-	 OYUwmnFfBUFZurcJN6+P4UIG33orGuxqG3YsEG7asKFoF/kdgXdPGgSum3rsgWHUWrZQG
-	 GuQudXb4w3CqGa2aEVbL/nP7qPd3EEkGsfOVG9nqUjuH8tKtX/T3+TJ2Z981C+gGDSJly
-	 FAiL5Feno1xf+gd5/4reGB9orVlS3eQMG+AJcgLJrTYdgNW5SIfbdQyW4Ovv/AE376Q==
+	t=1795633525;
+	b=Nu28LDOmtXdTngPr7j9gxyI7PnG9E9Tk6jbfg39t7tGmZDeTnuFTWZe143r/femtyRVq
+	 6Q54ZZo/XFmodWY1PLmHBRLNTrcsMYJUsL7d/GaAq5PGVi+OJXQf1NWobS4aXWNc1hqJW
+	 jm22E7IKb78qam8asnlJhG3OM3k4gMEt7qxiOLVmUftZUP+mHa3p5XgjyetKth7482phl
+	 x0nHpwY9AWphaAz4glBrnvway72y6IHEwlSXc4nP38Ji+Erho9C2NGFALvy4wZpIByfpB
+	 Hh1E80lCiYr2LCwHfO42LvULEqjWe238jw99NyQD5dbNBpOkw2RS6kTE4gK4+PmTmqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795633506;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=fEwhwhVRUf5o2AYTrWuvwkskWBT1xDOfq9VSZ0+a7SY=;
-	b=WB2Z7Z8ZqTauEkkxxRhFJYa7jFBTvbjP93G+VVb3GxtCxzv5bCAcxnfeAhLOBX5OKrb5
-	 cTuSl5YweRYVYmF4Mgox53rjGr9dUlExCaKZuKTK9WuWyrBimVsyfY49jYCFUg/Xv/5l8
-	 gRA5+jgStUDGWD65cR3CcTp3NW6iGqfB1SQG83ywMAgg6hb+mS6ufmpfKQs9MRMeEXnTK
-	 /lO1FOD5Frq9HIZJoV3AyFIS1bvOHtawI8UUCbVkN2lwXuRIfHU80WQaMmcrVVHzQFiS3
-	 +L5acRPYcYt0fr7MVyDoNghGACyzdsq6Z4Aej8YdWs0GQjgAekRrtuPKemuIY5YjFXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795633525;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:DKIM-Signature:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=+K9z+JLzMrfJPntuF9FvApZEWHZe8MV7bNkm04mbyAU=;
+	b=uOtkFHh+m22Aepl0B19OApb+Kha7X0GFQxZUJMCvXkGtNh5YIluhlA/XnKc8dbf7iPyO
+	 dd/2ggvsUpf/Jx3b+jtVJtqdZJ1h3rA3KpAhSWf0A2cAHRkwNA+rOYg6g+c/3NhohacmG
+	 iJTSfFNwnYJrwZHBYj7HDrqHmZ0FSWymtvCubdeDMQwxmonJLVmNRBhDKGR3E6z1BduFC
+	 8SS7EQVGqCvt7YQ9zZWiEZjzBwl7u5yYplgM260WZdegBVMgzDQC2OE51NCWO+nrYBgLS
+	 iyJdLO2SecABFRMXrXor0borEsVxOaovPmz03ZlNh6J4FG3yfeg7aG3BLoL6JPuCz+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NnCn9ZyR;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=alien8.de;
+	spf=pass smtp.mailfrom=alien8.de;
+	dkim=pass header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=Gs8p8NnI;
+	arc=none smtp.remote-ip=65.109.113.108
+Received: from mail.alien8.de (mail.alien8.de [65.109.113.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 8D4FB606A31E;
-	Wed, 25 Nov 2026 19:05:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49D17606A321;
+	Wed, 25 Nov 2026 19:05:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49D17606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=alien8.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=alien8.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NnCn9ZyR
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id A3EF21F000C4;
+	dkim=pass (4096-bit key) header.d=alien8.de header.i=@alien8.de header.a=rsa-sha256 header.s=alien8 header.b=Gs8p8NnI
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id ECE1D40E01F2;
+	Wed, 25 Nov 2026 19:05:21 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id 9Rd5jfsoAnea; Wed, 25 Nov 2026 19:05:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1795633518; bh=+K9z+JLzMrfJPntuF9FvApZEWHZe8MV7bNkm04mbyAU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Gs8p8NnIOoUNQGGEcSK+AK8vteglu9zK3wte1b9wPzfFLPP5M4/bpZv89cTyiUP1f
+	 iV3/6be0UoTr5XPAztUNbh8a5mc+ERwx5ddwnB//7rGhJ0FwLnXQ7xiUrFJF4DGEp8
+	 BS8JOQXgscDSlR4GLHZ9g8jVxtoiIvvDF+H05cDlkQ/zmWVSFx12F4uAl63bOuK88A
+	 1m9oacuoRwonE5xYt+LZfg+yfuN4DuVUXXSRaf0ClzbLf952Lkfv4XvxGPXlO4ZWdi
+	 AebQ7ZlacDL/IOt86gcwyilDxJHj4WlDTAquiMrQU4BCPpI5rJ6JzQUk606KXuXP3k
+	 3rqifzysOURGn0Vhzk8bPImaQW29ePEQ4O9KDtHpCwvFTg6HqlvTj/U68iCGSj8r9u
+	 k7JSEOn9R2p3L1HQj/cUo5NQjPkuCYolgLW/HTqpAi03Brb1HrBzSDvl5NgvEgoOgQ
+	 H0MGShoUFZ/OD/YAZz/nmCu5XLjPmgIqvQ13UBazNf57jPjFweqWo/TrTVmvUdGhMc
+	 /8hKsBEvUK366ZCmfflFJ0gGwnx1PHn+aLeaKNMVgJt55AWC6ZrtHBkHQoet7eTexl
+	 /WlYc+Y6KkqETmEhn/OMO7mKETqGrRrFaUIbWwU5fmBWqS6fDCJvo2RFvtOGMnPPGD
+	 PLh00cQnrWAK+CcB21UWO7eE=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00::2b])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 32D9340E01E1;
 	Wed, 25 Nov 2026 19:05:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795633506;
-	bh=fEwhwhVRUf5o2AYTrWuvwkskWBT1xDOfq9VSZ0+a7SY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NnCn9ZyRzICvPw0LKxbz/+Lo1oXCw1l0KlpykWbQjPhifQH1tqZQLl1a6JM7HSzKP
-	 GJzAm//VMBnFebX+e1i6mOYJw7M7QHz8Fe3JJaHM3R12TR3KpVbVJyjSjIdrEpUATX
-	 NI9ojulxysbu2r6Xh/CtS4zk5QOWM7SeCJMB8bNdvCMmji+oLvTxMKjafrsUEqB8Pa
-	 W8934BKLWJ/2ZX3nX8XjL6Tajew1NUI+R1Iihpv8Cup9GEqwyB8Im9MBcamHCwETvD
-	 8OGp5hI2NHgb7jIaB62NyVe0EYpTxklMOwB7x6cXfkkswgqyg/5KBV1SOyDED8G28p
-	 m75h69bXyhrDA==
-Date: Wed, 25 Nov 2026 21:05:02 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Surendran Kanagaraj <surenkj@amazon.com>
-Cc: peterhuewe@gmx.de, jgg@ziepe.ca, linux-integrity@vger.kernel.org,
-	linux-kernel@vger.kernel.org, nh-open-source@amazon.com
-Subject: Re: [PATCH] tpm: Raise the TPM2_SelfTest duration to 4000 ms
-Message-ID: <awcxXkPRPv3CDlcq@kernel.org>
-References: <20261125182251.19360-1-surenkj@amazon.com>
+Date: Wed, 25 Nov 2026 11:05:02 -0800
+From: Borislav Petkov <bp@alien8.de>
+To: Thorsten Blum <blum@kernel.org>
+Cc: Dave Hansen <dave.hansen@intel.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Jesse Barnes <jbarnes@hobbes.lan>,
+	Lukas Wunner <lukas@wunner.de>, Ingo Molnar <mingo@elte.hu>,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND v2] x86/early-quirks: Scan all functions in
+ early_pci_scan_bus()
+Message-ID: <20261125190502.GAawcxXra35JYHDvmv@fat_crate.local>
+References: <20261106004343.457087-2-blum@kernel.org>
+ <av3v7KY64vjxDCk1@kernel.org>
+ <be480966-3b68-44f5-9afa-f88b3c203092@intel.com>
+ <av4bS1QEZpniwlb3@kernel.org>
+ <20261118222141.GBav4k9eZ5-QMjOem4@fat_crate.local>
+ <awJLsDWI0OgdWhph@kernel.org>
+ <20261122191512.GAawM_QHC5IxcZywvs@fat_crate.local>
+ <awbj4V167BPw0Er-@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,48 +92,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261125182251.19360-1-surenkj@amazon.com>
+In-Reply-To: <awbj4V167BPw0Er-@kernel.org>
 
-On Wed, Nov 25, 2026 at 06:22:51PM +0000, Surendran Kanagaraj wrote:
-> TPM2_SelfTest duration is currently 3000 ms, following PTP version 1.06.
-> Version 1.07 [1] has since raised the full self-test timeout from
-> 3000 ms to 4000 ms (Table 26, Command Timing). Raise the TPM2_SelfTest
-> duration to 4000 ms to match PTP version 1.07.
-> 
-> [1] https://medias.cdn.trustedcomputinggroup.org/production/PC_Client_Specific_Platform_TPM_Profile_for_TPM_2p0_v1p07_Pub_5643562943.pdf
-> 
-> Signed-off-by: Surendran Kanagaraj <surenkj@amazon.com>
-> ---
-> Found while working on the RFC series "tpm: Rework timeout and
-> duration handling":
-> https://lore.kernel.org/linux-integrity/20261118073852.81107-1-surenkj@amazon.com/
-> 
->  drivers/char/tpm/tpm2-cmd.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/char/tpm/tpm2-cmd.c b/drivers/char/tpm/tpm2-cmd.c
-> index 65928ae85b49..d58c306f7d93 100644
-> --- a/drivers/char/tpm/tpm2-cmd.c
-> +++ b/drivers/char/tpm/tpm2-cmd.c
-> @@ -59,7 +59,7 @@ static const struct {
->  	unsigned long duration;
->  } tpm2_ordinal_duration_map[] = {
->  	{TPM2_CC_STARTUP, 750},
-> -	{TPM2_CC_SELF_TEST, 3000},
-> +	{TPM2_CC_SELF_TEST, 4000},
->  	{TPM2_CC_GET_RANDOM, 2000},
->  	{TPM2_CC_SEQUENCE_UPDATE, 750},
->  	{TPM2_CC_SEQUENCE_COMPLETE, 750},
-> 
-> base-commit: 003906ddd61cac2b89aefaf001fc19a6cb5d541a
-> -- 
-> 2.47.3
-> 
+On Wed, Nov 25, 2026 at 02:34:25PM +0100, Thorsten Blum wrote:
+> I never suggested an immediate stable backport either.
 
-Thanks.
+A patch which has CC:stable, means it will be picked up for stable.
 
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+Yours needs a whole cycle of testing and more and *then* it can go to stable
+after doing a careful backport and testing it there too.
 
-Br, Jarkko
+> And I agree that the patch needs wider testing before it can be
+> backported to stable or merged upstream. That's precisely why I'd like
+> to see it in tip and linux-next.
+
+It is on my todo list after -rc1.
+
+-- 
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
