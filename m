@@ -1,62 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597563;
-	b=dpU7HW4DeGxE79sFMnLmTvZg3yCAVupJaJbpr7tn97RNlMca6WtNNm+iO/c/p8H4GkvO
-	 HC+QR55psOKNesCjpfbKaKKZnKjR/HGuvZ+lD2B+TNLIWmaTfhJSuXF8QSPbl6QQ/B24l
-	 EW/tmvGUq3fnF6L/r4A1SFAt+cWpnEnmmCD58dI8131ejjsi0YpEeFKCifGcKEiPJ7lIE
-	 E2e7pY7EKrL4tQP03+eQPNAQcjee4Ozq3NSqDXtDY6SXnVg5MMa41m3/tDVLfT95DerYH
-	 KIuF+A6MD1fPkFo3M6p8koE36AAsfY3qriWxjDQERyCndb9qNUHHF9I1ZR8XkO483tg==
+	t=1795597586;
+	b=xJxJJWk3Vu8cAQpoIuD9jh2O3thbftx56vNDVUHM49lgtOI6h0tAcPl2yEga9UNwLn2V
+	 faT1g411I/kI9vj2iK8IfYDfdUG+Nn/sIYFtj8yq1DQFL7paELG7xO/gqsxcJ3uJ7QWlf
+	 jDDs78dEv/knsLygbCy1gg6Qurnwkb02ZZNs3RV+f29kWf4FrfZz5SjsUaWD9f5B1UBMV
+	 OvRd1SJQmcbeZrDBWyhwX5m9B+JmxGVwz35DnZt8ZYYup1ccaW6oYF8F6Lt69KXzwXQa0
+	 BE/Em3lumJQcapu8GaJ6XfNKKBvkCVSqLGDHdfmEUlW1kkmjX3nmNwMGVEYwYCk3IrQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597563;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=2R+ptACluYa/01MSznZHoJj0o1fxIPmKw66p6dBKggI=;
-	b=SlxQoXOmG+8MJODa1WaUblK99cyzrS/NSfdgN6Mp99+3I/4eCt8rRjTgwfPv9JRyGQB5
-	 mj9TKQ3BUH/sxs6A+EXvXwHJqAzDv4D8GsLlx+feBscmssk8pHwYzFVkj5T8fkSlkRDld
-	 d/MHrcAncUvg/5mymmC+slh5f12Fre973eHVIlHadxX4WntWkD2GRJFI1eTJa8GsU4QEc
-	 HHIQ3UF7H+QS3mIPvvoNO7Agu3nhTeRyc6oiutqiXna3E9qiGS3CCQoP+DgPw8i72Ad+V
-	 Oi4di4fdYPWvKEK67yVdOqrsuNEKTmO61TkBXr18/oOswe0Verz8byXS9ZPsVuMJHzA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597586;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=4LMXwRmfFOK9uVD3FtaSaYbnUZEWWNH1s5i6mBQwiM8=;
+	b=XXpxXv5ygpyvw+NlWwHqJlQxnwLsXECaR7C9eQMg8LS+fV3xh7ECus/Y9A4wJeL3Gl+A
+	 Hc1v57fxH5dWx39cRjW5MxSzeAd/DQp3SI1g9El1V0UyVIO7ULKyxH/Gr/y/ED6ZBv2l7
+	 JrR75EYnfhUnvkOPjJ8zlDo8kSsabzvg5anFzE0J7myd/fyWyEMeifAvUBGA/3acD/PgF
+	 lu8Z3VRexlz3PIhAiTMEYKlhavM8XhX5Cf/XYXtS0GAlCM/lcQPQdvgqSLn8xvimrVmSn
+	 6RyL4sF8K//JqBb1IjEQ77w9thv4iswGpEnhMEGGy8gtekbFwJE/NGb9N2OvGadOqmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PL5jRQyT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s6AHOlWg;
+	arc=none smtp.remote-ip=209.85.210.172
+Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83FB0606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:06:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E8F4606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:06:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E8F4606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PL5jRQyT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BD201F0089F;
-	Wed, 25 Nov 2026 09:05:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795597562;
-	bh=2R+ptACluYa/01MSznZHoJj0o1fxIPmKw66p6dBKggI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PL5jRQyTyVyrXpi/UQCp0SAZ5Rchq22JsMf8JtkfUEclVT/HrpzW+NhkTwOu38wSV
-	 hlxnljqJMWSjkXM3ToJ5iInI5nybl4G/SwBWi72IRYsbwfyggoCibrRkCkRAGWTlqx
-	 Wdyg8uHlgPSQnZGokMlzAQG1L5QCycFjlgRroHxy/FbGtni24f2tZ0vWX6MfTWwvGc
-	 qIGpy23cMtrGBpzUCARq6Iryt7Yl20wTLEIESrFcsN3HYPlcIOaemt0ROf5skxJ+Br
-	 sWU2g4vG94mVOQ17r5QCw2SDrzsPnCEZTIoGLBZJgxNAWgaRr/ZFzTWuyAQ69USbUJ
-	 WBX9t55Zbeq0A==
-Date: Wed, 25 Nov 2026 11:05:55 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "luto@kernel.org" <luto@kernel.org>, "x86@kernel.org" <x86@kernel.org>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"peterz@infradead.org" <peterz@infradead.org>,
-	"bp@alien8.de" <bp@alien8.de>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"tglx@kernel.org" <tglx@kernel.org>,
-	"hpa@zytor.com" <hpa@zytor.com>,
-	"thomas.lendacky@amd.com" <thomas.lendacky@amd.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/9] x86/mm: don't set kernel_set_to_readonly when write
- protecting fails
-Message-ID: <awak8ysyQqt6jQ06@kernel.org>
-References: <20261112-fixes-x86-v1-0-791adb8d6670@kernel.org>
- <20261112-fixes-x86-v1-2-791adb8d6670@kernel.org>
- <afbc0c7a79e880947962fec09885a9a8937ba7df.camel@intel.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s6AHOlWg
+Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8b68e59ab33so3991251b3a.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:06:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795597584; x=1796202384; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4LMXwRmfFOK9uVD3FtaSaYbnUZEWWNH1s5i6mBQwiM8=;
+        b=s6AHOlWg2deWPUzAakdw2WBvpzEOnyC6kV1RVAXCpfRiplizozLW0AemyEbz2q87Px
+         K3ZJbR8X+UVugfncmx7+v3bQZb0458Ma0CokgggfClzEQdZ5F36+KZvnv6jO8RtLB79q
+         05EI6CvXj/KWNnYm7BbjriU7sbs/ebB9UglBFMBK9YNnjIzNFTsoHWfzDjQhcsEsOmiA
+         vZhBijjCrT/dNni8aHWh/9K1iZ2kIspcGPev+0yVLUd47Sw2kbP9ODjzTMvXqs0sMB9t
+         BxSsyJ5UHOgSrtcf4TnLbf/WGXOELhN7a42y7fVKfG2rQ2qHY7OfjPkH4E48lpkycLu8
+         rKPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795597584; x=1796202384;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4LMXwRmfFOK9uVD3FtaSaYbnUZEWWNH1s5i6mBQwiM8=;
+        b=0+xK8ErAIILcAJLsgToOHGsPlHWDnWOaSXX3Ch/vXCmWf+Q7eNqC3iAJd6k5uoGSj9
+         eAV72thzAzIVvpT69mG+Ta1pPxxoVRdXjChq0eTn8RgsbudYtxKWo3Th4cDO3yjxcuEC
+         5Nq2b2qavkGI7YEJUNa5RWB/ol1xXkrjL2B16inJoH4Vs55+nf0LllRLnnmgry3qQus2
+         CkP3Wn8IDxVHNJArfN793y37Bo1mstBllKj+B9AyQcybOZyIZIQiQiVAFsYuQhK3Wz6M
+         aJw+gEUXaKvfOrBlPHTEjICMg5m8I9dFuiJxMKKFXTpIahxLHkGxz0A7YBvqL6URWiE4
+         t7KQ==
+X-Forwarded-Encrypted: i=1; AL+hErFHJ2r5nIlIsKeTR6OJ0M4fe4SVoAeycQhrBAVjmvRRQjumPhx60fm8pKntCUL6mKIBcuFwtEZkEHBketY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+gK0DOjk/A83rnXZUmHJCKWPBfMUvR58+TLKYrPuAaV13BzzyW
+	dGOJRwRUZvW/+Apv2vqia0EopbWR7SSTMqlOh/BdHhnoXL6+ho6w36Q=
+X-Gm-Gg: AZFdTZeiP85DXznE6LwzOY5z9NO/IH783+opaYiOl5nv2BQt5XSkcjR3NXMj2J4ru+9
+	zL0yw7lz2cgpYCFAt1U3HR7+S/tdq08LacEWeffBtdEg5tSBGkod4dT47s0cImZQKeOal0SBKo+
+	lm5NC7qQXk7QNdL+el2f+4KCVnlUKC27/Ez5URKtFWo7/5x+MV+Fq0KjtX3xL4ipSRXrAYjJ2+f
+	KXZDkoY/NoAFtaRLSjRNb7ZCzi/375BTY4TvXA1I+mCzKVjUXXCOwPIk29E7qhkTz8dhvR/S1C0
+	U0XUoMsXREUzwEVBPV1Cx6bRFpwsI9jzIyr5WRf3MyoDyTBKnWTjh5F0+9OWaQbG8Dpp12220+w
+	07Ufy7ZIjjz4TJM1fEiPqEVtRIM0lakRzhfc57/4jgY+HSceXRZxTCo6vmpKEDlFJgR8xc22+L2
+	rIOCOrQM0pKmnyEe1XA+RNJCogthXtpJQNK1Y+JMMO8OFEeByKi+K2McJxBNMHwGMQp5dCpPyP6
+	GdsLm+2AxBPGkb7OmF15YKfLdgwaYlsGB8hRYsBVbKPt720dDBmFsrFiQRYuWMSvAm7OhBOxFcZ
+	4IWvtKDYyQtG2KK3gtO0YjE5t+zOSWQPdg4JwCs8HS3EaozlHf996dSh3/kIYBaHwLYE
+X-Received: by 2002:a05:6a00:2295:b0:881:b7d0:8dd5 with SMTP id d2e1a72fcca58-8c87bfa5502mr14791566b3a.32.1795597584300;
+        Wed, 25 Nov 2026 01:06:24 -0800 (PST)
+Received: from localhost.localdomain ([2406:3003:2002:639c:44a2:4377:d176:9ad1])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c228sm8468090b3a.10.2026.11.25.01.06.22
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 25 Nov 2026 01:06:23 -0800 (PST)
+From: Yige Jiang <yigejiang86@gmail.com>
+To: linux-wireless@vger.kernel.org
+Cc: Yige Jiang <yigejiang86@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] wifi: wil6210: fix BSS reference leak on unsupported EDMG config
+Date: Wed, 25 Nov 2026 17:06:18 +0800
+Message-ID: <rc-b1-20261110-vc-35-5e6ef2ea7917@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,45 +95,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <afbc0c7a79e880947962fec09885a9a8937ba7df.camel@intel.com>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 11:01:06PM +0000, Edgecombe, Rick P wrote:
-> On Thu, 2026-11-12 at 18:31 +0200, Mike Rapoport (Microsoft) wrote:
-> > mark_rodata_ro() ignores the result of write protecting the kernel text
-> > and rodata. It can fail when CPA cannot allocate a page table to split a
-> > large page, and then a part of the text and rodata stays writable.
-> 
-> Seems like something very unlikely to happen before the kernel has even finished
-> booting. Probably other worse problems are coming in that case.
+wil_cfg80211_connect() takes a reference on the target BSS with
+cfg80211_get_bss() and drops it with cfg80211_put_bss() at the out
+label. Every error path after the lookup jumps there, except the one
+for wil_get_wmi_edmg_channel(): when the requested EDMG bandwidth
+configuration or channel bitmap is not supported, the function returns
+directly and the BSS reference is never dropped.
 
-Yeah, most probably we'll crash a few cycles later :)
+Each such connect request leaks one reference, so the BSS entry is
+never freed, even after it expires from the scan list.
+
+Jump to the out label instead, like the other error paths.
+
+Fixes: 9abe3e306ecc ("wil6210: Add EDMG channel support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+---
+Based on linux-next next-20261109 (630059a5a632).
+Compile-tested: arm64, GCC 14.2.0, W=1, CONFIG_WIL6210=m, CONFIG_CFG80211=m, CONFIG_COMPILE_TEST=y; baseline and patched cfg80211.o, no new warnings.
+No hardware or runtime test was performed.
+AI assistance was used for analysis and patch preparation.
+
+The path needs a connect request (CAP_NET_ADMIN) with an EDMG config the driver rejects, to a BSS already in the scan table.
+
+ drivers/net/wireless/ath/wil6210/cfg80211.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/wireless/ath/wil6210/cfg80211.c b/drivers/net/wireless/ath/wil6210/cfg80211.c
+index bf060281c9a2..0d256f313511 100644
+--- a/drivers/net/wireless/ath/wil6210/cfg80211.c
++++ b/drivers/net/wireless/ath/wil6210/cfg80211.c
+@@ -1356,7 +1356,7 @@ static int wil_cfg80211_connect(struct wiphy *wiphy,
+ 	rc = wil_get_wmi_edmg_channel(wil, sme->edmg.bw_config,
+ 				      sme->edmg.channels, &conn.edmg_channel);
+ 	if (rc < 0)
+-		return rc;
++		goto out;
  
-> > kernel_set_to_readonly is set anyway, and CPA enforces the static
-> > protections of rodata from then on. On 64-bit the next call,
-> > set_memory_nx() for the data, may find the writable rodata and warn
-> > about a conflict with the static protections, which does not say what
-> > actually went wrong.
+ 	ether_addr_copy(conn.bssid, bss->bssid);
+ 	ether_addr_copy(conn.dst_mac, bss->bssid);
 
-But here we'll see the failure where it happened rather than a
-static_protection's WARN a bit later.
-
-Another thing is that hopefully we'll be able to make set_memory_*()
-__must_check everywhere Really Soon.
-
-s390 are already doing it:
-
-https://lore.kernel.org/linux-s390/20261118144709.202520-1-hca@linux.ibm.com/
-
-> > 
-> > Report the failure and set kernel_set_to_readonly only when write
-> > protecting succeeds.
-> > 
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> 
-> 
-
+base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
 -- 
-Sincerely yours,
-Mike.
+2.50.1 (Apple Git-155)
+
