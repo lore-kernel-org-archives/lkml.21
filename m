@@ -1,125 +1,112 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795598339;
-	b=ZLuZw/BzKNqcQZalmLRoZ8+SnOdVnx4WFqxRKrtFcHEPfl9DEryQoOqLnKCdtuQd1F0V
-	 Y37DmC088obYOsxeZSEJ7S9XLLDj+2x1Pj+xG1u3yv9b8izOE5du+uXqs04VQxeT5N2Wk
-	 mD/yEc1Xq4+6bcD2d2F4vke2e7HV/ldMr0zRZUP1Jp5Eje0THa8TXesWbgWDt1mpm0uqu
-	 ftallwJo8sP2neWNHcNguHe6nusBz1M2xuIFfMKEIB6/yP/dMgYWf+ltC/KKDvDESMW+/
-	 StTcL38VLc22xbrwx8PPibIRxcswiwbVCZETGIHFpdrgAKPkxQcz97NRVwZ1Kgka0gQ==
+	t=1795598349;
+	b=mUpS+AxytvVO0cocHM6dznkf1vHysTOq60bmQAQVWPx0LObis059nTAl9OidmjiaCC8C
+	 5ghQkZStw6MQG0nHyWs0YCW4UcekpGX+bdcEVUB3OIHUPSjW6uqTMNzpwZNxxwndNQYRc
+	 1xwQgnPAT+FgBwPsG0NQAq1W1vohJ3BISCVg4zMtHFdkCCBJjsKORqY4vYoFf0FkpDbyn
+	 QLPcKEkjjnKd1zn5LGgKh7Fse1nDutj2BK6mRe7j8MEO/ydEEbOFVvpo6+t+ZRkIu2dm0
+	 zv4WCZrzWaTBlW6Vj6NxaLUiD3P36s5xJYDHUXiPpSYv7cWK5PMTfDYnuMwpjK/EvKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598339;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598349;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=jMbaKJz9g3EncUc8DUtHl36zo+oWHqVd7GDKw3y5cJs=;
-	b=2rdQ9+el5L0OkaWMcMzsklq+q2tukiI3cKTrgD8aIbmanjSK5msONm7l5XQJk8H5JhXg
-	 glfc9mqK75gxlY4eoBsgiHRgZHLox5cWleYCCyeguVDNIs9DgMp3Ckm54i6/ZsupYIXBT
-	 Py05DYL8nbNKNIRWhXSiy8E4KFJCDKd/70rkjuE/VhRMlU0ursFQX5gq4CzArDFFyCack
-	 57VGJRQ6HoLvTcQYhjAuImwn2wpB//TGLyDrDld7s4Z4b63Q2r4C3v2HPIzhvctXi19aT
-	 Qfh9PZ3LTMZCWNmTsa3ZPTWrmj50X8O9FOoyl8Wf1ymOXmxtJfYh9s6gqGdQhIPpn9g==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=OtvrSzwIyco6jpsIwimAIqe06gN3VxO2fsWAhXUFqpA=;
+	b=IF0iywXzdUz7nLZBhC+VXVqKdW7YpWOgdFjgsHfLc1U45oJ+Cdiqv8bp8qvippJlek8m
+	 FbD5Jl1j7rIrxbo3mahCGORX9AurOfrSHW4kJP/HrDeKzcXA8Idynxdt6KrlADMvgE23A
+	 gmJSneoI23NtjJqgwopsa8MfcZuY7m2J97uwl6nMdnCCbNXBDLKXJ0+tBJ69INaSXjEip
+	 rOufggOEYndQQSLz8RferrAT7P53klfsXr/azLV+Tz4uC+ZfNX7TsErz6znSpwJ8YdhOW
+	 jhbB3lp9bqdDic/duB1hQB39eBswbYTKtfzXxHNNI1Don4wPagzzUuTKx42XLnUvsfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GWgbSZ4T;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=VRXEA7fw;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IHuBQB1R;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="HNvN//OY";
 	arc=none smtp.remote-ip=205.220.168.131
 Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62C7D606A696
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:18:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62C7D606A696
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A3B1606A691
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:19:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A3B1606A691
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=GWgbSZ4T;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=VRXEA7fw
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68ZPq300019
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:18:58 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IHuBQB1R;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HNvN//OY
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68SCj3534084
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:19:08 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	jMbaKJz9g3EncUc8DUtHl36zo+oWHqVd7GDKw3y5cJs=; b=GWgbSZ4TNz9+5qMl
-	QkTo3W4EpXrRntBZDKsTi93htfjF1ObcWORNOizPjsspuh5silkP+R8pvJFUmcLk
-	KDDNGlRc6aDby0XHutQ2sMzeD38f6AcIvjeTNbDrMd6EaJ9EAgzDsBBaUepaothL
-	/6gLbWIWflflACvnfszeW1yZwp8nKJrqxmykGhh5LMP4Irh0Bxj7YdZKwmqUa9AL
-	hERoiizUvEr73p20tFBn572LC/Mmte2oRR9/l+0bwvg3McT9e0SOFpmOLZ3avStZ
-	gTHyeOZ+Dh+kuOZKXZnuzh28fgKhdsFM694WIRew4MevQU8d2UJ7DFPLB1aVnKWY
-	DhUVLw==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5n6rsvyn-1
+	OtvrSzwIyco6jpsIwimAIqe06gN3VxO2fsWAhXUFqpA=; b=IHuBQB1RdFZ6CQJu
+	kq0J6lrvWNI/y0wLQ3p/3IOlbbqaQAIlP9Y0S8vifyRvlgV6slC8MzHagTLZ+Fm4
+	7iK/RGXzqoZlcf/5NVZtDmmMvnVed4ZawZE0dHNAMw+Tb2CySw2gxdObEYGN1ce8
+	jFPpe9EbHvo9eznKLEYofC4Bu6ArrbUXd/6o0fqIMic89IcJddBfB02u+x56j3vW
+	YPeau7NdQa8nnXZYOeznqAKtiaKvtXMT/WFBccGbdUHLz6b3oKchHXiFhTQvMZd1
+	e+KXL9Um3GQTA8OWr0988fhW4yWuwfc9b6HqCU0vHx3svWHSTq/hd/IVCEs8mnMd
+	2u8uuA==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5mqbhymh-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:18:58 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b3fd219d07so4476582a91.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:18:58 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:19:08 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-947a607ec40so542631785a.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:19:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795598336; x=1796203136; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jMbaKJz9g3EncUc8DUtHl36zo+oWHqVd7GDKw3y5cJs=;
-        b=VRXEA7fwf+fBmdgY4/fleky8uFnW9VeuM1Rjp7nEti2NYI3/07V/N1UjDjFlPGC4/8
-         Uogn4h+Tx5oIzxcQZ/q9E5oZud/YkNkFITzKVU8l8U9g/LdBNhEa8eRlrqpcmoUI0L5A
-         eKi9cO4QZ2ti2NyiIYDSMEvs6EACG3uIJ3/cjTaw4Wl/6qEec7yZoT5vnkLG/we0LGhj
-         3tNJASX6r77Pizmb+EeZB+Nc6jTi2pYcG99ZF0adLfdqSs2XQJhblNfxQk2SgHWrjdfI
-         F8qvCGhhBdJsRzuybkP9bgrnvj6a695ShFlfZJ6y77LPs4/d3T/yD72j12l4P/UVm7po
-         o+gw==
+        d=oss.qualcomm.com; s=google; t=1795598347; x=1796203147; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OtvrSzwIyco6jpsIwimAIqe06gN3VxO2fsWAhXUFqpA=;
+        b=HNvN//OYoN45FODC8GeksfufmhGobcOad/5dHjDGvO+xqYVMLa7RxUs3BmJf9miSHr
+         NRNLl8RfuiwZW1biQzgJ7RDRKB+PFk/1qUb4jPtZps7bKL+bQuqbawc40Ywr/1yVTuA9
+         MQM/8bWwyZCa8W3ryMRfMf7OKeu3Mmf/tK5Z07KFRC1IShpRAfNOmm9NMPIjhpVwbNyk
+         MlRo5c5HFlRKw8ghX78lwRsFdDX+Tx+MLRl479D63NFuc56WktO2KJTHOLeYjga01SoC
+         5Cl2lWpHgw4+6E/cjHrWaB2s9vVRM5u1XWWya+NKhYkQB2PZHPYMpdwdI+iVuDX/xA6n
+         SL7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795598336; x=1796203136;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=jMbaKJz9g3EncUc8DUtHl36zo+oWHqVd7GDKw3y5cJs=;
-        b=p+VP9fVB+SdTCGlGOlzRtDmxKKnJq1Cte4FEcQPFrGA/E2JQAfOo+gfghThKZAdLfL
-         pAJQZDmwvgAA633xpZPxRB0PpkfeV6b0oIx3hgBkx5IFUi1nP3w6PNimaa8x1mJUn2z4
-         h5gexIJuVsW53kOwqHwTBbbEMjtmHogq/wbfw+7TkQ4Lw43+jzt/yGGYXgYgGrWJ/v4j
-         OKNkri+QEyGAtPIYDrGyaUhe+8PC8xAwZMiKt6szCzjArk1X6kScDemTwlKrGdaAoiLO
-         +sLmCdFlBV7sl3JLGWINdRxV32ruNNwf1tEXKEQaodpL2YhZ639ilBr+GgZhcDD+grNF
-         A6tg==
-X-Forwarded-Encrypted: i=1; AL+hErFguOdtWZFpcfpkRds53kTXoJC2778Z+pVzJ3Nu4u+qPPDzJfFcneLC5MnNPcvET/LuzOK/Yug/2VwAl6E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9UQMfG8X489lNjjqF20Aolvg0BlMdEwz8ivsoGTK6iUUWpsPT/
-	RpKZA6WRBrvvh1fc1P3sG/Em9RySI1qwa9ZwZ51zzUjA6ozvIuTaJ1OB1OsUXU0d93/YrVs3JgE
-	v4D6bmn6n0TLRkRCPLLOq/XH2Fokr+ao3ekdxl+5QfALTBRU4fg8cz4Q5WWaWfimf7Zc=
-X-Gm-Gg: AZFdTZflQQ9ELl4gLWiIZJQDGncSjrNb1smNylP8qNWy09uMPnmTfzcCTSNvMnSFdx1
-	7P8POT+uEze+Gt91gANXakDoIETt0mijV9XKarGB0J2u9xIbCndhZyIaffsOXxrhAS4b+M100FX
-	0teuDoUTjmv5CFIyQUu96cbPCHeI8NwAGvqwXbXqaTZCKwqQ9omF5HWmux6rUn7v+EwRM6RDQ6Q
-	zpdGuBRzBc8bmyyHcelHYxOw3oVqZHTUB6EkJ1sjQp4tFiVP6vZJjaUVITMZbIs4YyfXUZ9D/rV
-	qL3XWzudncqkGedPp9VQL30bD1JPGIjDQhbpef1B42I0f7z1vCyEGKiXCN6vGOrPAcMuSVjndzR
-	5CFfm6Pj7hjlRELfvbO/ODtQh56w2Dyw8ODGPHvu7C+RF/wnylEFuRIwSezdXdaM+ra2hG0NNCX
-	M=
-X-Received: by 2002:a17:90b:48d0:b0:3ae:521e:767f with SMTP id 98e67ed59e1d1-3b41c95fa1amr15029383a91.36.1795598335907;
-        Wed, 25 Nov 2026 01:18:55 -0800 (PST)
-X-Received: by 2002:a17:90b:48d0:b0:3ae:521e:767f with SMTP id 98e67ed59e1d1-3b41c95fa1amr15029358a91.36.1795598335425;
-        Wed, 25 Nov 2026 01:18:55 -0800 (PST)
-Received: from hu-raryan-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde7f91c6f5sm6290687a12.27.2026.11.25.01.18.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 01:18:55 -0800 (PST)
-Date: Wed, 25 Nov 2026 14:48:49 +0530
-From: Raj Aryan <raj.aryan@oss.qualcomm.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Casey Connolly <casey.connolly@linaro.org>,
-        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-        linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        Rakesh Kota <rakesh.kota@oss.qualcomm.com>
-Subject: Re: [PATCH 1/2] dt-bindings: power: supply: Add qcom,pm4125-charger
- binding
-Message-ID: <awan+SRMtZs6c9jQ@hu-raryan-hyd.qualcomm.com>
-References: <20261124-smblite-charger-for-pm4125-v1-0-2132c9f0601f@oss.qualcomm.com>
- <20261124-smblite-charger-for-pm4125-v1-1-2132c9f0601f@oss.qualcomm.com>
- <a5f859c1-0779-4ae1-88f0-bfa12268e09c@kernel.org>
+        d=1e100.net; s=20260707; t=1795598347; x=1796203147;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=OtvrSzwIyco6jpsIwimAIqe06gN3VxO2fsWAhXUFqpA=;
+        b=ukLi8n4jyxb7h68Ia5MT6jeg/LAJ39hV5u0ZtuTM9k8XWxIfA9jEINjEVPkqbL3+c3
+         3ApMD/SBTH1/FSylSemVYMS3d4ixj2EbvWiOi1IoPXFiy3XlPWTbBjrHc0Gh9qkdMUwW
+         XlIb7yuSHYrNVMEgYy8BsQYfhGZJL+IrsOg/r3ELh/UIn9ewmUYA4l9F4g3DXsIgES+5
+         qepmIbaa9+ET0B/XTYRz5Ni+41bKHyFXoJ9hQKHrv0VMLHL4TcEb47NMlszBp9WN/uO9
+         5nxlvdLWnz+FUgPIiljlTfjOWwBb+frUNgrh3RXqHNnbkLWz9OD0RRq40PerBbejYbE1
+         VPSA==
+X-Forwarded-Encrypted: i=1; AL+hErErar3WVJWA80Brs4sLdRnU5EkF9LR3I0oBG8Nh+Bev31RiCBklQCIfWRl/tWuuz2a6mNfmdffVXtz3xSQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9QFkDdHFXpSIobs0A/utXD2bv1NFQFm/VN2SuM50mrL5eHLF56
+	JWimPpWpsDUwwtTxhzTGyjFK5UX0vlD+UqWetZ/dHvyqVpKbO3cm+gevF/pF/f6O7VWUAwz7KkP
+	bniQobLk4wVE9d2Cr4zCMEd82AfvwPXor94AkeG2PSYb1OsI1qsrwtF1qKDrBmell/nQ=
+X-Gm-Gg: AZFdTZeWeP1eIu7WoFfWBN/7+GM26ycioEG7VOlYu4fy8ZXXBytKw7ZHnBCzyOiECYN
+	JvgXVyJ943gPf1tRkN6sbEePoN/7vd7FDAWUyMrHDNKgDDF9lOrpMh060PNnBdWxc7aO09kC+SS
+	Ufu7tE8c/n5U62V0MrherionnPXhlgKjGk9kjBQhQP1GBojw+ABak1L4GIzVWx614LyvLV6ztZ0
+	d0rWu4WEZzlxdq5KLvOcNKHn038nRhGE/R21jywdACu4qVZThJsDobUFDCXrqDB/c2nwQN1SurP
+	yy/6Kn7xclK32vnjuNe67X7BZIvgMIde9N2CPQ6Ii9q2v5RxH+1mnYor4UYSzfDQnbgTjtGuUl7
+	yHUSwRlRrJMaG6S0CVHobW85MNNh98hU+/g9uM6D//yKC6v8lbskZgOW3+9EGnr0o1OOmaaMoJd
+	zYZNBoQmQMnWmGSw==
+X-Received: by 2002:a05:620a:46a8:b0:93f:34c9:9252 with SMTP id af79cd13be357-949bab31d07mr3021657285a.55.1795598347258;
+        Wed, 25 Nov 2026 01:19:07 -0800 (PST)
+X-Received: by 2002:a05:620a:46a8:b0:93f:34c9:9252 with SMTP id af79cd13be357-949bab31d07mr3021653985a.55.1795598346734;
+        Wed, 25 Nov 2026 01:19:06 -0800 (PST)
+Received: from [192.168.25.64] ([94.155.124.210])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb905f1489sm308121615e9.0.2026.11.25.01.19.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 01:19:06 -0800 (PST)
+Message-ID: <3ebaf10a-47bc-488c-a794-48a95029cb2c@oss.qualcomm.com>
+Date: Wed, 25 Nov 2026 11:19:04 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -129,172 +116,131 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/6] media: qcom: camss: Report the hardware SOF timestamp
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org
+References: <20261123-camss-hw-ts-v1-0-7b62dda6d7a9@oss.qualcomm.com>
+ <0c0b3af6-4fea-422a-a7dc-76e36a3f5db4@oss.qualcomm.com>
+ <CAFEp6-0XqOVFjQU0-P8oiDGG6amW5Akj7TVBf=P_S7Hz80EYaw@mail.gmail.com>
+Content-Language: en-US
+From: "Gjorgji Rosikopulos (Consultant)"
+ <gjorgji.rosikopulos@oss.qualcomm.com>
+In-Reply-To: <CAFEp6-0XqOVFjQU0-P8oiDGG6amW5Akj7TVBf=P_S7Hz80EYaw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <a5f859c1-0779-4ae1-88f0-bfa12268e09c@kernel.org>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzNiBTYWx0ZWRfX/TuK5xLAp7FM
- YpS8XSQ/oJqH0xu2cRyoKbW3HPbqRpPeiuSN7EkyNyL2Nozn+3vuelTcfQ27XbcuO96DyOZmTNo
- hxv+0SAFBoBsxczj272SoIlWVK2sC7KQo/lxt1FXIGS+daUAYG9pAML5u/N9elFo3R8r89Bt1KZ
- PQ6O772isfvjoyDgeyGcJKYqPaE5tXySemSavASNI6vWSiIPqprcDG9RNstemCoP4Foa9JNNxb1
- Yqo7Ss/u7wmPzGNgbd7pQUT8oP/Bra7+HOMfxfMyACjrfeWst7D2oXqF4V8KeWhaarJQG+iv8Lc
- /ExdAIIcD9SNP3EIjDFSXDrrOaBIwlD0kRl/DDRc17kPiiAoqkNPQQw5CnTQcYKDTivbI/hYZUZ
- HILNHpjPVQz9sH9tVgwS64jWHaZ9SQtCowXrK5yopgCliPveehPHk4CQN3JiP+yfcdU8IlJE05B
- sWBoURLRETQ7HYd1ZMQ==
-X-Authority-Analysis: v=2.4 cv=Voa2kO2n c=1 sm=1 tr=0 ts=6b06a802 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzNiBTYWx0ZWRfX4QK+eZ+3hafN
+ RHUG4/Ph094R+kmJpKI5LrSzrIbeGZ0MTGTKpZfR34NSEW/FYCWBafJ0VuZ0sZcMM4Zs6KsflXy
+ UTuA495IAQMtw6AdRCex045x0LJU4JQ=
+X-Authority-Analysis: v=2.4 cv=Bb9NQbt2 c=1 sm=1 tr=0 ts=6b06a80c cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=eGCDHFSXubCXFTSSGhjuOA==:17
  a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=P-IC7800AAAA:8 a=EUspDBNiAAAA:8 a=gAAQxgIGOAtfHdDX1gUA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22 a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-GUID: JcNaI7_aRT-gQo-ye29QccZDA9UFpLK-
-X-Proofpoint-ORIG-GUID: JcNaI7_aRT-gQo-ye29QccZDA9UFpLK-
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzNiBTYWx0ZWRfX+ajjqr35lXgF
- w4b5XoF83jpunvoEabfMMf7rA+VdrjSCAjAQE4g9IbJfTLFD6cyj3LIq2GhoJmEEcjSIsZO/Lu9
- 4O5ObsM87uuNFTuIJP9jsTwFPw0F+FE=
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=EUspDBNiAAAA:8 a=7rKP2P-ej08A6i2KGrkA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzNiBTYWx0ZWRfXwSG+HUXaXLF0
+ /Z4qpGniSxlycqAT8O98HC98wlx6kEDUtIx5K3f2P95t4TcgzA6oqnSkuv9zXCmOTwns05a4sIZ
+ F2Vzj7aKmgGCSPyVMNHSjpzh3gNm7G/+m46pgwBi8az3PbGKWhEjKPcXL6+YCwgzoaw6VX66VwB
+ uN4TrydI3jkY4OxsSt+0DIaOvNo87OwWXaY+VQjerSglvrd2aRdxXyRNruWfphrAVmL7DBDn4ad
+ FGzCTzwVEvMSEFGbox9uym3mzFI6Qe46GJhwN94gXUaO1t5IXNNmtsh4Jca2ueqiHHERKqsOShx
+ GlDfZ+hCuUCP3R+ImckZXtp5uTCGBxatNdJV8+kODduCIvHG7soJBSbvzidup3RM6vWxkHcW5KX
+ bNZ0OOtUflZAWDfaG/nKC/cxvGcGjVQhY1sEAfJU0vW8pV66SZ1LUNyIOlvEjbBesmnda3yw4uA
+ 5JIiG0R2L0+vGtAScwg==
+X-Proofpoint-ORIG-GUID: M0YSb2-hC6NvBA94rI1VwKnt875kkPGc
+X-Proofpoint-GUID: M0YSb2-hC6NvBA94rI1VwKnt875kkPGc
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0
- adultscore=0 spamscore=0 priorityscore=1501 suspectscore=0 phishscore=0
+ spamscore=0 adultscore=0 clxscore=1015 priorityscore=1501 impostorscore=0
+ malwarescore=0 lowpriorityscore=0 bulkscore=0 phishscore=0 suspectscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250036
 
-On Tue, Nov 24, 2026 at 10:55:57AM +0100, Krzysztof Kozlowski wrote:
-> On 24/11/2026 10:15, Raj Aryan wrote:
-> > Add YAML devicetree binding for the Qualcomm SMBLite switch-mode
+Hi Loic,
+
+On 11/25/2026 11:12 AM, Loic Poulain wrote:
+> On Wed, Nov 25, 2026 at 10:01 AM Gjorgji Rosikopulos (Consultant)
+> <gjorgji.rosikopulos@oss.qualcomm.com> wrote:
+>>
+>> Hi Loic,
+>>
+>> On 11/23/2026 7:16 PM, Loic Poulain wrote:
+>>> The CAMSS CSID latches the ARM architected counter on every start of
+>>> frame. This series exposes that time to userspace, both through the
+>>> V4L2_EVENT_FRAME_SYNC event and as the buffer timestamp.
+>>>
+>>> Until now both were taken when the interrupt was handled, or worse, when
+>>> the frame had finished being written out to memory, which is about a
+>>> frame period late. The hardware value is free of interrupt latency and
+>>> is directly comparable with CLOCK_MONOTONIC, so it can be correlated
+>>> with other timestamped data such as IMU samples.
+>>
+>>
+>> Directly comparable with CLOCK_MONOTONIC, does this means
+>> that csid timestamp is in monotonic time domain?
+>> In camss video the flag V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC so either we need
+>> to provide timestamp in that domain or convert in the driver.
 > 
-> YAML devicetree binding, you hit combo... Drop YAML.
->
+> Both the CSI timestamp counter and the kernel timekeeping code are
+> driven by the architectural timer, so they share the same timer
+> source. So, if we know the difference between the current
+> architectural timer tick value (snap.cycles) and the captured SOF
+> timer tick value, we can derive the SOF timestamp by applying the same
+> delta to the current CLOCK_MONOTONIC time value.
 
-ACK.
-
-> A nit, subject: drop second/last, redundant "bindings". The
-> "dt-bindings" prefix is already stating that these are bindings.
-> See also:
-> https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
-> 
-
-ACK.
-
-> > battery charger found on the PM4125 PMIC.
-> > 
-> > SMBLite is a reduced-feature charger IP sharing a common SPMI
-> > interface with the SMB2 family (PMI8998, PM660) but using separate
-> > SPMI peripheral bases for CHGR, DCDC, USB, MISC and BATIF blocks.
-> > 
-> > The binding covers:
-> 
-> Do not explain what the patch is doing. We can read the diff. Please
-> read submitting patches or look at other commits to learn what is
-> supposed to be here.
-> 
-
-I apologise sincerly. I will correct this in V2.
-
-> > 
-> >   - compatible string: qcom,pm4125-charger
-> >   - reg property for the CHGR peripheral base address
-> >   - Four interrupts: usb-plugin, bat-ov, wdog-bark and
-> >     usbin-icl-change
-> >   - Two IIO channels: usbin_v (USB input voltage via ADC5_USB_IN_V_16)
-> >     and usbin_i (USB input current via ADC5_USB_IN_I)
-> >   - Optional JEITA soft and hard threshold configuration as raw
-> >     16-bit ADC comparator values written to BATIF ADC comparator
-> >     registers
-> >   - Optional monitored-battery phandle for battery parameters such
-> >     as float voltage and charge termination current
-> 
-> ...
-> 
-> > +
-> > +maintainers:
-> > +  - Raj Aryan <raj.aryan@oss.qualcomm.com>
-> > +  - Rakesh Kota <rakesh.kota@oss.qualcomm.com>
-> > +
-> > +description: |
-> > +  The Qualcomm SMBLite is a switch-mode battery charger IP found on
-> > +  the entry-level Qualcomm PM4125 PMIC. It exposes five separate
-> > +  SPMI peripheral bases for CHGR, DCDC, USB, MISC and BATIF blocks and
-> > +  supports USB input current limiting, JEITA temperature protection,
-> > +  battery overvoltage detection and a hardware watchdog.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: qcom,pm4125-charger
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +    description: Base address of the CHGR SPMI peripheral (e.g. 0x1000).
-> 
-> Drop description.
-> 
-
-ACK.
-
-> > +
-> > +  interrupts:
-> > +    maxItems: 4
-> > +
-> > +  interrupt-names:
-> > +    items:
-> > +      - const: usb-plugin
-> > +      - const: bat-ov
-> > +      - const: wdog-bark
-> > +      - const: usbin-icl-change
-> > +
-> > +  io-channels:
-> > +    minItems: 1
-> > +    maxItems: 2
-> 
-> Why is this flexible?
->
-
-I  made io-channels flexible to allow an optional usbin_i channel. The
-shared driver requires that channel for SMB2, but PM4125 uses SMBLite,
-which doesn’t request it. Since this binding is PM4125-specific, I will drop it.
-
-> > +    description: |
-> > +      IIO ADC channels used by the charger. usbin_v is the USB input
-> > +      voltage channel (ADC5_USB_IN_V_16). usbin_i is the USB input
-> > +      current channel (ADC5_USB_IN_I).
-> > +
-> > +  io-channel-names:
-> > +    minItems: 1
-> > +    items:
-> > +      - const: usbin_v
-> > +      - const: usbin_i
-> > +
-> > +  monitored-battery: true
-> > +
-> > +  qcom,jeita-soft-thresholds:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> > +    minItems: 2
-> > +    maxItems: 2
-> > +    description: |
-> > +      JEITA soft temperature thresholds (COOL, WARM) as raw 16-bit ADC
-> > +      comparator values written to the BATIF ADC comparator registers.
-> > +      Example: <0x5314 0x25e3> for COOL=15°C, WARM=45°C.
-> > +
-> > +  qcom,jeita-hard-thresholds:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> > +    minItems: 2
-> > +    maxItems: 2
-> > +    description: |
-> > +      JEITA hard temperature thresholds (COLD, HOT) as raw 16-bit ADC
-> > +      comparator values written to the BATIF ADC comparator registers.
-> > +      Example: <0x58cd 0x20b8> for COLD=0°C, HOT=60°C.
-> 
-> Express temperatures with proper units.
->
-
-ACK.
+Thanks for the explanation, that was my understanding as well, but 
+it seems that the delta shall be added in this patchset.
 
 > 
-> 
-> Best regards,
-> Krzysztof
+>>
+>> ~Gjorgji
+>>
+>>>
+>>> Patch 1 lets a driver fill in the timestamp of a V4L2 event instead of
+>>> having the core take it. Patch 2 passes the SOF time down to the common
+>>> CSID event helper and adds the counter to CLOCK_MONOTONIC conversion.
+>>> Patches 3 to 5 read the registers on csid-340 and csid-gen2. Patch 6
+>>> uses the same time to stamp the captured buffers.
+>>>
+>>> Patches 4 and 5 are picked from the timestamp support Bryan shared
+>>> earlier, with patch 5 adapted to use the conversion helper added in
+>>> patch 2 rather than its own.
+>>>
+>>> Tested on QCM2290 (Arduino UNO Q) with an IMX219 sensor.
+>>>
+>>> Signed-off-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+>>> ---
+>>> Bryan O'Donoghue (2):
+>>>       media: camss: Define timestamp registers for csid-gen2
+>>>       media: camss: csid-gen2: Report the hardware SOF timestamp
+>>>
+>>> Loic Poulain (4):
+>>>       media: v4l2-event: Allow drivers to provide the event timestamp
+>>>       media: qcom: camss: csid: Pass the SOF time to csid_sof_event()
+>>>       media: qcom: camss: csid-340: Report the hardware SOF timestamp
+>>>       media: qcom: camss: Timestamp buffers at start of frame
+>>>
+>>>  drivers/media/platform/qcom/camss/camss-csid-340.c | 37 ++++++++--
+>>>  drivers/media/platform/qcom/camss/camss-csid-680.c |  2 +-
+>>>  .../media/platform/qcom/camss/camss-csid-gen2.c    | 32 ++++++++-
+>>>  .../media/platform/qcom/camss/camss-csid-gen3.c    |  2 +-
+>>>  drivers/media/platform/qcom/camss/camss-csid.c     | 81 +++++++++++++++++++++-
+>>>  drivers/media/platform/qcom/camss/camss-csid.h     | 25 ++++++-
+>>>  drivers/media/platform/qcom/camss/camss-vfe-17x.c  |  7 +-
+>>>  drivers/media/platform/qcom/camss/camss-vfe.c      |  8 ++-
+>>>  drivers/media/platform/qcom/camss/camss-vfe.h      |  1 +
+>>>  drivers/media/v4l2-core/v4l2-event.c               | 20 +++++-
+>>>  include/media/v4l2-event.h                         |  9 ++-
+>>>  11 files changed, 205 insertions(+), 19 deletions(-)
+>>> ---
+>>> base-commit: 2ad58ca589da80990b7afbcff018777851577f89
+>>> change-id: 20261123-camss-hw-ts-e0297adb69d9
+>>>
+>>> Best regards,
+>>
 
-Thanks & Regards
-Raj Aryan
