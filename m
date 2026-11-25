@@ -1,58 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795569839;
-	b=fBZQxMv//d5slDHLlBCFNup3rzcKPqb5bYSzdCA1FOlGQEtouzBuAz4oCtrY32M+er5n
-	 b4T+GqsDSsYmuAfLUfMf8XIcRzB6ohFr5hmuYgItz6y9aVHlp6iTDTFuBn6bxVIyBthRJ
-	 +YugdNS7DeAr1l5azdNxz9yG3vCUaDnPZgRViD48J6svPB4cIXNmP0EZ0KvBh41krlKi7
-	 YqQwlVEZ0g3xNVltXapo5JeJQ/aPdyBAZ7gX9zBt5OSw83bWzxt9F0WzPbAML6uS3IOgX
-	 fg/fvbyvgQa3VRp3ks0owQaM+V/n+B8r1WE91QjnKWm+q8YDelzwq2qpZSBgHzRR3lg==
+	t=1795569910;
+	b=R21uwEDMV4c54Is6kGGLEsKJgKNaB1e4V2jVn/Ocb1khFELhwPB9BVqq5/5vtWty6ZR9
+	 cSJv9LjznVU9zzWNEcrj8JVud40T8AfHN/F5AUlmjufh2QhhcdB5WyYq4o1q7advgvNMK
+	 FHgbrqwSN+7ahkLzempOiPYpH8QwJ8NzawDfYJeJDKXML27HawaA6f8Ci+yGOzh77ABSk
+	 MFPM5arP5+dnuutnfUB/j6YoXDR37xICxXYNMldUG+SmYhr12/h1zWCAHqg/XnnL3P/Jy
+	 kKQBdVtPGSswKH6Zu7a3r0Ot7ZzplecEUtfJPqpELWusHb7p7GJjVMLMahW8h26RVOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795569839;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=d1QAiGAHhWT+sXznAZYe7m6A0ojC4Tbz1ncmAmz+vKE=;
-	b=MGR3OpHzUKELFsnWCS7vFyZ/gF4zL0uUstw7JuPvsa2tIHLoATAmu7qJcjvDqPuOtimJ
-	 y9higzmIqlqIM2Fj1lqph9kzfAUzsazF4jKMfJBusrM+JYWoW0G7GFw1qCSNgo5n82zAT
-	 Vt2TlTXwysEDut1SidfLFTnl7JYA8Cml9s+qR8Bn/t3RJYtIwdSBHrXU8cJcKn9P5seaj
-	 ZpFGokdEQqQuTUyz+XLLyKW8TwlV3a5YP/m3c1tQBBxMGCGhg6DFFmUEhmgN0LwvcUK6t
-	 OwUSgAZsszqzRqywCdjhwq6QmK47qQkfZgKTSq07KKBa1uDjTPq4RT/pXghgw1g89Cw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795569910;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=MahiC7D0ZIOhMz97xWmjX00QeVr1A1IECgnuiT+EXIk=;
+	b=rVJcNiiGCCK5JtFW6pm+HvfdZ6VKi0k8VfBDPBH/BI+3iEZYmak6XoLZOlwStudOZlMQ
+	 RkTkPq3JU6ZbpG/OlkYyYHlGT3Rsv3aDqi92zB54IgjXL5KNIarZkHVTkfC9puSuy1McL
+	 71tNZwaARa2oOpMEgP5Sejwm1KwRwvvsImdiGO1PoM22PIfByTq2/SJDIxbKbfBUQTW0A
+	 LSlejYiT6wZfqqHbpe3e4q+gL0fUH8X/aH9mGvGd3MGVSTx/iFblZSCaedufdvGvwn+Hk
+	 k/QNpQ3xMZYD3WyV3tAbddqbeU3yc7WJVVbybSQ8dZZ3F4J3cTrTTH2fr+qyj7ALH1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 23899606A31E;
-	Wed, 25 Nov 2026 01:23:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23899606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kgvYsuQ2;
+	arc=none smtp.remote-ip=209.85.222.42
+Received: from mail-ua1-f42.google.com (mail-ua1-f42.google.com [209.85.222.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41435606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:25:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41435606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kgvYsuQ2
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-99e0b1ee864so1942578241.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:25:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding; bh=d1QAiGAHhWT+sXznAZYe7m6A0ojC4Tbz1n
-	cmAmz+vKE=; b=vkSutyYhF9s7YPMoqfTYw5+u+nVE1aXgYxGkqBGPLpX+b0CNLn
-	7th/5biaal9ByEBX+ewmX3Zg0ZI6VPw495eC8QeBxwngiHzi/MDJGLk7SXVIgqXl
-	j9yVz/Bw61o53UfvQWjG2wlZHEAVevcBJ0uuYsosRy8d7dljxjbpZBRpk=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.70])
-	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkA2PP+VOAZrp30uAg--.48700S2;
-	Wed, 25 Nov 2026 09:23:33 +0800 (CST)
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-To: Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol@kernel.org>
-Cc: Oliver Hartkopp <socketcan@hartkopp.net>,
-	linux-can@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: [PATCH net v5] can: dev: reject unusable bit-timing constants
-Date: Wed, 25 Nov 2026 09:23:32 +0800
-Message-Id: <20261125012332.6945-1-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261123-loon-of-wondrous-aurora-cb3d93-mkl@pengutronix.de>
-References: <20261123-loon-of-wondrous-aurora-cb3d93-mkl@pengutronix.de>
+        d=gmail.com; s=20260707; t=1795569909; x=1796174709; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MahiC7D0ZIOhMz97xWmjX00QeVr1A1IECgnuiT+EXIk=;
+        b=kgvYsuQ2Y1nixBlcyPnIyAQh3I9ZSoM6dKjIOvDumigk/uw1wooptga00DkPz89q4L
+         VdJy1S/+GSfiMFTafI2KgPha+2nHdQdFutbp3qWZowXir/kAiuMV4cyphjN4Bv+NCvfo
+         etJDQGAgwowYscTJX52Qbgv0psIniZFw4yD31wq0aDQRAQ09fIcg/+PmO62LlYOc2yrW
+         lli41aEY9Vmk5Js5f7QQnJKNxA96isKb58gxQYxeXeasjOekOduE5ADWWY/GT257GFjQ
+         FU7lnJfRZtPux0mXci3Umfo/+MONcMjROdaPyIc72AkHPKbW9lFe8BaeV3DTAf+pqE9f
+         ZJ3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795569909; x=1796174709;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MahiC7D0ZIOhMz97xWmjX00QeVr1A1IECgnuiT+EXIk=;
+        b=aHds5D/0FDelDepUglfMXmEO2vdpCKyp4Blo1mJqIpaPqdXZxeSbGsZeOFGVRBBONp
+         1x5cJF7uI+iUN7zPFlp/P9wOppukcp3HiO0NcbcRW/5eVbzQaf/TVK3CLIa0cm908spr
+         Zk8u3i+vjXbT3H1RQXl+G7jYxnjihqNUb/VYkGTLL3SWg4EGrDeL7cJT1olFoNR7yxMN
+         TfuqHdi+a8OHloAyAYW8Izrga8RI4qvHh43Nn84d85whSnibBEyQvFLCUCGJH8fkxbXc
+         ghQNW6AHrPn2TMcc3hOc1n0vHVk1TKB3T1TrignQwU9hfZZK9YayechGqORsifSsTepE
+         JoDg==
+X-Forwarded-Encrypted: i=1; AL+hErE6FZJLXsSj7mVrQQvMOXhhvsnGkMx2dY2kt7LJUSddAf3rubNNm4bEr4ytwyKmqrTGqUFdW5ECPo5XcIk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z96oBseE8oYHLvkl4PdWlAfFHex5qXm6k49i3GlfT0U7jJwEKMn
+	pUxNVzqcUVa9JLkdXr7hKax7mpgAOoh95cR+1mF0DoegdW9QYQFv7p32
+X-Gm-Gg: AZFdTZf8zcJ48/Th66sYuQl7t/NHNMeVqSWbeLx04hQPg6fUTbkWI2nDgLSa2VlEKb9
+	05XnoizT070nyEz/0Bue6P88RJzk2UWfNw9UJt50GngtStlZXT/dO7Rpfqkm8ypqd80vuCkcWk7
+	peI4eN82bI2UfYqjTrU6m1ZuEVaPydqk/xihgbbE8Dw7GyAOHhjuNXh15WbbB//+vNqIGdW8RGq
+	rVvDH9tLyP3aLtXJm5maru659zotD7Z27rHld2DMRXC1ydyS5EkI0J6E2d4GovQ63489PPAYy/A
+	IrEoWH4ULMwyJ81Aaz0qkjHQmZmpGap/aX4Ft5pEVkwIBrIBz8b59dEsjHdAsySrI18yUOaQsMg
+	547mJGa1LbkGyFUxGTy9rrTLotqIm38583BI8P699zn0iM72ctc5TOuw7fkMECGfapVn/m4gPir
+	JjhsCm5+vhdQleDzuBTtncyBtenc6v0IfXjL6Q3xbj0ELKGY8LZKWoXtzdM4mHLviZR3gIB5C4N
+	25MZuwd3O6YJ4pjyPGvILrcK7oEx1jPI66PUz/OLbAHqWIF6RTKor6kA8xSR06E69sKJzxeP/sg
+	BlNdyahAryyTzeTnn0x4ynH1imjYyqcKn6SYrcEddw/UiW3mLODfBLD4b9+FCThvvNgeOB6iDcM
+	EVE/HO8VL0xZJloX8sHC3YAYkFamoiRnSgiuvW5GzJ0yeFfOCibf3DQjPxYh/rVmvRtlRUcQzB8
+	Rkz0pgSvnneqo=
+X-Received: by 2002:a05:6102:4245:b0:7ab:af4a:f2f3 with SMTP id ada2fe7eead31-7d739628997mr9588366137.26.1795569908929;
+        Tue, 24 Nov 2026 17:25:08 -0800 (PST)
+Received: from omarchy-jonathan.taildd0689.ts.net ([2800:40:33:a58e:d6f4:f4fd:c31f:7b1e])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7d784b3sm16838329137.2.2026.11.24.17.25.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 17:25:07 -0800 (PST)
+From: Jonathan Goyvaerts <jonathan.goyvaerts@gmail.com>
+To: Ivan Shapovalov <intelfx@intelfx.name>,
+	Namhyung Kim <namhyung@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Nick Terrell <terrelln@fb.com>,
+	David Sterba <dsterba@suse.com>,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/4] perf: support zstd-compressed kernel modules
+Date: Tue, 24 Nov 2026 22:24:39 -0300
+Message-ID: <20261125012441.391214-1-jonathan.goyvaerts@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <auwQRrlxzuTg4dDN@z2>
+References: <20261014-perf-zstd-v1-0-9652727886fa@intelfx.name> <auwQRrlxzuTg4dDN@z2>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,208 +112,329 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BbQMCkA2PP+VOAZrp30uAg--.48700S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxtryUJr48KF4kZry5GFW5GFg_yoW3Jr15pr
-	4DJr45Kr90qr42qayxtwn7AF95WwnYqF4Ykr98Xwnay39rXFW0yrW7GF45Z3W3GrnrCry8
-	t3yjqF47Wws8CaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU92b7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVW8JVWxJwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x2
-	0xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18Mc
-	Ij6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l
-	c7CjxVAaw2AFwI0_JF0_Jw1lc2xSY4AK67AK6w4l42xK82IYc2Ij64vIr41l4I8I3I0E4I
-	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
-	WwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
-	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYx
-	BIdaVFxhVjvjDU0xZFpf9x07bYCJdUUUUU=
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUHD2sFqFk9XAABsz
 
-can_bittiming_const_valid() is the hook register_candev() uses to verify
-the constants a driver registers, but it only looks at sjw_max.  The
-values can_calc_bittiming() and can_calc_pwm() depend on are not
-checked.
+On Wed, Nov 04, 2026 at 09:12:38PM -0800, Namhyung Kim wrote:
+> Can you please address comments from Sashiko and the bot?
 
-gs_usb builds its struct can_bittiming_const and its clock frequency from
-the response of the GS_USB_BREQ_BT_CONST control request, so both come
-from the USB device.  A device that reports brp_inc = 0 crashes the
-kernel with a division by zero as soon as a user with CAP_NET_ADMIN
-configures a bitrate:
+Ivan, in case it saves you time: the diff below goes on top of v1 and
+addresses those comments, plus a few more things I ran into. Please
+fold it into v2 as you see fit; if you take it as is, a
+Co-developed-by: with my Signed-off-by: is fine with me.
 
-  Oops: divide error: 0000 [#1] SMP KASAN
-  RIP: 0010:can_calc_bittiming+0x3dd/0xcd0
-  Call Trace:
-   can_get_bittiming (drivers/net/can/dev/bittiming.c:146)
-   can_changelink (drivers/net/can/dev/netlink.c:594)
-   rtnetlink_rcv_msg (net/core/rtnetlink.c:7137)
+For the Sashiko and LKP reports:
 
-Controllers may read the bit timing constants via USB, check the
-minimum/maximum values and avoid divide by zero in the calculation.
+- 4/4: step back by 3 (".ko") again, so .ko.gz and .ko.xz are modules
+  again. This is also the LKP kmod_path__parse failure.
+- 2/4: zstd_decompress_buffer() returns 0, not SIZE_MAX, when the
+  stream can't be set up.
+- 3/4: zstd_is_compressed() returns false when open() fails, and
+  compares the magic as bytes, like gzip_is_compressed() does, so it
+  needs no htole32() or <endian.h>.
+- 1/4: the comment in perf_session__process_compressed_event() names
+  zstd_decompress_buffer().
 
-Also limit the bit time to CAN_MAX_BIT_TIME_TQ.  The loop in
-can_calc_bittiming() walks all time segment candidates from the maxima
-down to the minima; with a bit time near U32_MAX its bounds wrap around
-and the loop does not terminate while RTNL is held.  The bit times of
-the currently supported controllers stay well below the limit.
+Not in those reports:
 
-can_calc_bittiming() also divides by the clock frequency, gs_usb and ucan
-take it from the device as well, so reject a zero frequency while the
-device is registered.  The data bit timing builds on the nominal bit
-timing: CAN-FD requires CAN-CC, CAN XL requires CAN-FD, and the XL PWM
-constants require CAN XL, validate the constants along the chain.
+- 3/4: the !HAVE_ZSTD_SUPPORT stubs need __maybe_unused, or the
+  make_minimal build (NO_LIBZSTD=1) fails with
+  -Werror=unused-parameter.
+- 3/4: the ZSTD_DStream{In,Out}Size() buffers are 256 KiB of VLAs on
+  the stack. perf top decompresses modules on process_thread, which
+  gets the default thread stack: 128 KiB on musl. With the stack
+  limited by "ulimit -s 256", "perf buildid-cache -a asahi.ko.zst"
+  segfaults with v1. With fixed 16 KiB buffers it works down to
+  "ulimit -s 128".
+- Tests: .ko.zst cases for kmod_path__parse, and a .ko.zst case in
+  the build id cache shell test. The latter fails without the series
+  and also feeds it a truncated file.
+- Makefile.perf: the NO_LIBZSTD comment mentions modules.
 
-The 32 bit overflows of the prescaler and of tsegall * bt->bitrate are
-not caused by the constants and are fixed separately.
+Tested on arm64 (Arch Linux ARM, glibc, libzstd 1.5.7), where every
+module is .ko.zst, with tools/perf as at v1's base-commit
+0fcb05b72344f plus v1 and this diff:
 
-Reject unusable values during registration, so that a device or driver
-handing out such values fails to probe instead of taking the kernel down
-later.
+- "perf buildid-cache -a asahi.ko.zst" adds the module.
+- A "perf record -a -g" stores the .ko.zst paths and the module build
+  ids, and perf script resolves all 3054 frames in the asahi module,
+  also with an empty build id cache. Without the series all of them
+  are [unknown].
+- perf test: DSO data, kmod_path__parse, Symbols, build id cache
+  operations and both Zstd tests pass.
+- The default build and the make_minimal flag set from tests/make
+  build.
 
-Fixes: d58ac89d0d38 ("can: dev: register_candev(): ensure that bittiming const are valid")
-Cc: stable@vger.kernel.org
-Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+Not done:
+
+- Only arm64: no x86, 32-bit or big-endian build.
+- Not tried on current perf-tools-next.
+- .ko.gz and .ko.xz only through kmod_path__parse, not at runtime.
+- Not the full perf test suite.
+- The musl stack overflow is shown with ulimit on glibc, not on musl.
+- On a truncated .ko.zst the loop ends with libzstd's "no progress"
+  error; only libzstd 1.5.7 was tried.
+
+An LLM coding assistant wrote this diff and drafted this mail. I asked
+it to make perf read the .ko.zst modules on my machine. It found v1 on
+lore, applied it, worked through the Sashiko and LKP reports, found
+the rest with checkpatch.pl, perf's own tests and a live profile, and
+wrote the fixes and tests. I have reviewed the diff and the test
+results.
+
+Thanks for the series,
+Jonathan
+
+Assisted-by: LLM
+Signed-off-by: Jonathan Goyvaerts <jonathan.goyvaerts@gmail.com>
 ---
-v5: https://lore.kernel.org/all/20261123093809.5154-1-25031212351@stu.xidian.edu.cn/
-- describe the bit time limit and the non-terminating loop it prevents
-- CAN XL bittiming requires CAN-FD bittiming, the XL PWM constants
-  require CAN XL bittiming
-- the AI review of v4 found a divide error with a large brp_max, the
-  0 % 0 in can_calc_pwm() and the tsegall * bt->bitrate overflow.  The
-  brp_max * bit time limit stays out as requested in
-  https://lore.kernel.org/all/20261123-loon-of-wondrous-aurora-cb3d93-mkl@pengutronix.de/
-  (a separate fix moves that multiplication to 64 bits); the other two
-  are pre-existing and do not depend on the constants.
-v4: https://lore.kernel.org/all/20261123062614.7811-1-25031212351@stu.xidian.edu.cn/
-- move the clock frequency check to register_candev(), CAN-FD data bit
-  timing requires CAN-CC bit timing
-- re-order the checks to the order of struct can_bittiming_const
-- replace the comments with a short summary
-- drop the brp_max * bit time limit, the multiplication is fixed separately
-- use check_add_overflow() for the shortest PWM symbol
-v3: https://lore.kernel.org/all/20261121094534.5221-1-25031212351@stu.xidian.edu.cn/
-- validate the XL data bit-timing and the XL PWM constants, too
-- reject a zero clock frequency at the point of use
-- describe the checks as rejecting unusable values instead of
-  predicting crashes
-v2: https://lore.kernel.org/all/20261121064449.9706-1-25031212351@stu.xidian.edu.cn/
-- reject constants with an inconsistent minimum/maximum range
-- bound the maximum bit time and the brp_max * bit time product
----
- drivers/net/can/dev/dev.c | 74 ++++++++++++++++++++++++++++++++++++---
- 1 file changed, 70 insertions(+), 4 deletions(-)
+ tools/perf/Makefile.perf          |  4 ++--
+ tools/perf/tests/kmod-path.c      | 21 ++++++++++++++++
+ tools/perf/tests/shell/buildid.sh | 40 +++++++++++++++++++++++++++++++
+ tools/perf/util/compress.h        |  9 ++++---
+ tools/perf/util/dso.c             |  2 +-
+ tools/perf/util/tool.c            |  2 +-
+ tools/perf/util/zstd.c            | 31 ++++++++++++++----------
+ 7 files changed, 89 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
-index 769745e22a3c..01d74321f330 100644
---- a/drivers/net/can/dev/dev.c
-+++ b/drivers/net/can/dev/dev.c
-@@ -13,6 +13,7 @@
- #include <linux/kernel.h>
- #include <linux/netdevice.h>
- #include <linux/of.h>
-+#include <linux/overflow.h>
- #include <linux/slab.h>
- #include <linux/workqueue.h>
+diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+index 29cfd44c427f3..0d77f1aa0731e 100644
+--- a/tools/perf/Makefile.perf
++++ b/tools/perf/Makefile.perf
+@@ -106,8 +106,8 @@ include ../scripts/utilities.mak
+ # streaming for record mode. Currently Posix AIO trace streaming is
+ # supported only when linking with glibc.
+ #
+-# Define NO_LIBZSTD if you do not want support of Zstandard based runtime
+-# trace compression in record mode.
++# Define NO_LIBZSTD if you do not want support of Zstandard based kernel
++# module decompression and runtime trace compression in record mode.
+ #
+ # Define TCMALLOC to enable tcmalloc heap profiling.
+ #
+diff --git a/tools/perf/tests/kmod-path.c b/tools/perf/tests/kmod-path.c
+index dfe1bd5dabaa8..aacb49fbc9e4a 100644
+--- a/tools/perf/tests/kmod-path.c
++++ b/tools/perf/tests/kmod-path.c
+@@ -96,6 +96,27 @@ static int test__kmod_path__parse(struct test_suite *t __maybe_unused, int subte
+ 	M("x.ko.gz", PERF_RECORD_MISC_USER, false);
+ #endif
  
-@@ -595,15 +596,54 @@ static int can_get_termination(struct net_device *ndev)
++#ifdef HAVE_ZSTD_SUPPORT
++	/* The zst id is its index in compressions[], after gz and xz */
++#if defined(HAVE_ZLIB_SUPPORT) && defined(HAVE_LZMA_SUPPORT)
++#define ZST_COMP 3
++#elif defined(HAVE_ZLIB_SUPPORT) || defined(HAVE_LZMA_SUPPORT)
++#define ZST_COMP 2
++#else
++#define ZST_COMP 1
++#endif
++	/* path                    alloc_name kmod   comp      name */
++	T("/xxxx/xxxx/x-x.ko.zst", true,      true,  ZST_COMP, "[x_x]");
++	T("/xxxx/xxxx/x-x.ko.zst", false,     true,  ZST_COMP, NULL);
++	M("/xxxx/xxxx/x-x.ko.zst", PERF_RECORD_MISC_CPUMODE_UNKNOWN, true);
++	M("/xxxx/xxxx/x-x.ko.zst", PERF_RECORD_MISC_KERNEL, true);
++	M("/xxxx/xxxx/x-x.ko.zst", PERF_RECORD_MISC_USER, false);
++
++	T("/xxxx/xxxx/x.zst",      true,      false, ZST_COMP, "x.zst");
++	T("/xxxx/xxxx/x.zst",      false,     false, ZST_COMP, NULL);
++	M("/xxxx/xxxx/x.zst",      PERF_RECORD_MISC_KERNEL, false);
++#endif
++
+ 	/* path            alloc_name  kmod  comp   name           */
+ 	T("[test_module]", true      , true, false, "[test_module]");
+ 	T("[test_module]", false     , true, false, NULL           );
+diff --git a/tools/perf/tests/shell/buildid.sh b/tools/perf/tests/shell/buildid.sh
+index 102808cca9db3..2aca6dfc11b6f 100755
+--- a/tools/perf/tests/shell/buildid.sh
++++ b/tools/perf/tests/shell/buildid.sh
+@@ -44,9 +44,11 @@ ex_pe=$(dirname $0)/../pe-file.exe
+ data=$(mktemp /tmp/perf_buildid_test.data.XXX)
+ log_out=$(mktemp /tmp/perf_buildid_test.log.out.XXX)
+ log_err=$(mktemp /tmp/perf_buildid_test.log.err.XXX)
++kmod_dir=$(mktemp -d /tmp/perf_buildid_test.kmod.XXX)
+ 
+ cleanup() {
+ 	rm -f ${ex_source} ${ex_md5} ${ex_sha1} ${data} ${log_out} ${log_err}
++	rm -rf ${kmod_dir}
+ 	if [ ${run_pe} -eq 1 ]; then
+ 		rm -r ${wineprefix}
+ 	fi
+@@ -198,6 +200,43 @@ test_add()
+ 	rm -rf ${build_id_dir}
+ }
+ 
++# perf has to decompress a .ko.zst module to read its build id
++test_add_zst()
++{
++	if ! perf version --build-options | grep -q 'zstd: .* on '; then
++		echo "WARNING: perf not built with zstd. .ko.zst modules will not be tested."
++		return
++	fi
++	if ! [ -x "$(command -v zstd)" ]; then
++		echo "WARNING: zstd not found. .ko.zst modules will not be tested."
++		return
++	fi
++
++	build_id_dir=$(mktemp -d /tmp/perf_buildid_test.debug.XXX)
++	perf="perf --buildid-dir ${build_id_dir}"
++
++	# any ELF file with a build id will do as the module
++	zstd -q -c ${ex_sha1} > ${kmod_dir}/ex.ko.zst
++	head -c 100 ${kmod_dir}/ex.ko.zst > ${kmod_dir}/truncated.ko.zst
++
++	id=$(get_build_id ${ex_sha1})
++	${perf} buildid-cache -v -a ${kmod_dir}/ex.ko.zst
++	if ! ${perf} buildid-cache -l | grep -q ${id}; then
++		echo "failed: ${id} of ${kmod_dir}/ex.ko.zst not in cache"
++		exit 1
++	fi
++
++	# must fail without hanging; buildid-cache -a only warns on failure
++	${perf} buildid-cache -v -a ${kmod_dir}/truncated.ko.zst
++	if [ "$(${perf} buildid-cache -l | wc -l)" -ne 1 ]; then
++		echo "failed: truncated ${kmod_dir}/truncated.ko.zst was added"
++		exit 1
++	fi
++
++	echo "add .ko.zst: OK"
++	rm -rf ${build_id_dir}
++}
++
+ test_remove()
+ {
+ 	build_id_dir=$(mktemp -d /tmp/perf_buildid_test.debug.XXX)
+@@ -304,6 +343,7 @@ test_add ${ex_md5}
+ if [ ${add_pe} -eq 1 ]; then
+ 	test_add ${ex_pe}
+ fi
++test_add_zst
+ 
+ # add binaries via perf record post processing
+ test_record ${ex_sha1}
+diff --git a/tools/perf/util/compress.h b/tools/perf/util/compress.h
+index fd6b541358bb6..c455686653907 100644
+--- a/tools/perf/util/compress.h
++++ b/tools/perf/util/compress.h
+@@ -92,17 +92,20 @@ static inline size_t zstd_decompress_buffer(struct zstd_data *data __maybe_unuse
  	return 0;
  }
  
-+/* Upper bound for the bit time in time quanta. The bit times of the
-+ * currently supported CAN controllers are well below it, the limit keeps the
-+ * time segment scan in can_calc_bittiming() bounded.
-+ */
-+#define CAN_MAX_BIT_TIME_TQ 1024
-+
- static bool
- can_bittiming_const_valid(const struct can_bittiming_const *btc)
+-static inline int zstd_decompress_stream(struct zstd_data *data, int input_fd, int output_fd)
++static inline int zstd_decompress_stream(struct zstd_data *data __maybe_unused,
++					 int input_fd __maybe_unused,
++					 int output_fd __maybe_unused)
  {
--	if (!btc)
--		return true;
-+	u64 bit_time;
-+
-+	/* Controllers may read the bit timing constants via USB, check the
-+	 * minimum/maximum values and avoid divide by zero in the calculation.
-+	 */
-+	if (!btc->tseg1_min || btc->tseg1_min > btc->tseg1_max)
-+		return false;
-+
-+	if (!btc->tseg2_min || btc->tseg2_min > btc->tseg2_max)
-+		return false;
- 
- 	if (!btc->sjw_max)
- 		return false;
- 
-+	if (!btc->brp_min || btc->brp_min > btc->brp_max || !btc->brp_inc)
-+		return false;
-+
-+	bit_time = (u64)btc->tseg1_max + btc->tseg2_max + CAN_SYNC_SEG;
-+	if (bit_time > CAN_MAX_BIT_TIME_TQ)
-+		return false;
-+
-+	return true;
-+}
-+
-+static bool
-+can_pwm_const_valid(const struct can_pwm_const *pwm_const)
-+{
-+	u32 shortest_symbol;
-+
-+	if (pwm_const->pwms_min > pwm_const->pwms_max ||
-+	    pwm_const->pwml_min > pwm_const->pwml_max ||
-+	    pwm_const->pwmo_min > pwm_const->pwmo_max)
-+		return false;
-+
-+	/* can_calc_pwm() divides by the shortest PWM symbol. */
-+	if (check_add_overflow(pwm_const->pwms_min, pwm_const->pwml_min,
-+			       &shortest_symbol) || !shortest_symbol)
-+		return false;
-+
- 	return true;
+ 	return -1;
  }
  
-@@ -632,8 +672,34 @@ int register_candev(struct net_device *dev)
- 	    (priv->bittiming_const || priv->fd.data_bittiming_const))
- 		return -EINVAL;
+-static inline int zstd_decompress_to_fd(const char *input, int output_fd)
++static inline int zstd_decompress_to_fd(const char *input __maybe_unused,
++					int output_fd __maybe_unused)
+ {
+ 	return -1;
+ }
  
--	if (!can_bittiming_const_valid(priv->bittiming_const) ||
--	    !can_bittiming_const_valid(priv->fd.data_bittiming_const))
-+	/* Validate CAN clock and CAN-CC bittiming */
-+	if (priv->bittiming_const &&
-+	    (!priv->clock.freq ||
-+	     !can_bittiming_const_valid(priv->bittiming_const)))
-+		return -EINVAL;
-+
-+	/* For CAN-FD:
-+	 * Ensure CAN-CC bittiming and validate CAN-FD bittiming
-+	 */
-+	if (priv->fd.data_bittiming_const &&
-+	    (!priv->bittiming_const ||
-+	     !can_bittiming_const_valid(priv->fd.data_bittiming_const)))
-+		return -EINVAL;
-+
-+	/* For CAN XL:
-+	 * Ensure CAN-FD bittiming and validate CAN XL bittiming
-+	 */
-+	if (priv->xl.data_bittiming_const &&
-+	    (!priv->fd.data_bittiming_const ||
-+	     !can_bittiming_const_valid(priv->xl.data_bittiming_const)))
-+		return -EINVAL;
-+
-+	/* For CAN XL PWM:
-+	 * Ensure CAN XL bittiming and validate CAN XL PWM constants
-+	 */
-+	if (priv->xl.pwm_const &&
-+	    (!priv->xl.data_bittiming_const ||
-+	     !can_pwm_const_valid(priv->xl.pwm_const)))
- 		return -EINVAL;
+-static inline bool zstd_is_compressed(const char *input)
++static inline bool zstd_is_compressed(const char *input __maybe_unused)
+ {
+ 	return false;
+ }
+diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
+index 0e8886172e239..fbc58283ef658 100644
+--- a/tools/perf/util/dso.c
++++ b/tools/perf/util/dso.c
+@@ -463,7 +463,7 @@ int __kmod_path__parse(struct kmod_path *m, const char *path,
  
- 	if (!priv->termination_const) {
--- 
-2.34.1
-
+ 	m->comp = is_supported_compression(ext + 1);
+ 	if (m->comp > COMP_ID__NONE)
+-		ext -= strlen(compressions[m->comp].fmt);
++		ext -= 3;
+ 
+ 	/* Check .ko extension only if there's enough name left. */
+ 	if (ext > name)
+diff --git a/tools/perf/util/tool.c b/tools/perf/util/tool.c
+index d7956cd75c26d..dd8be27f57209 100644
+--- a/tools/perf/util/tool.c
++++ b/tools/perf/util/tool.c
+@@ -93,7 +93,7 @@ static int perf_session__process_compressed_event(const struct perf_tool *tool _
+ 		 * data_size is independent of header.size (which
+ 		 * includes padding); verify it doesn't exceed the
+ 		 * actual payload to prevent out-of-bounds reads in
+-		 * zstd_decompress_stream().
++		 * zstd_decompress_buffer().
+ 		 */
+ 		if (src_size > event->header.size - sizeof(struct perf_record_compressed2))
+ 			goto err_decomp;
+diff --git a/tools/perf/util/zstd.c b/tools/perf/util/zstd.c
+index 982655a1f1a51..a063a680518cd 100644
+--- a/tools/perf/util/zstd.c
++++ b/tools/perf/util/zstd.c
+@@ -2,6 +2,7 @@
+ 
+ #include <errno.h>
+ #include <fcntl.h>
++#include <stdint.h>
+ #include <string.h>
+ #include <unistd.h>
+ #include <linux/perf_event.h>
+@@ -143,13 +144,12 @@ ssize_t zstd_compress_stream_to_records(struct zstd_data *data, void *dst, size_
+ size_t zstd_decompress_buffer(struct zstd_data *data, void *src, size_t src_size,
+ 			      void *dst, size_t dst_size)
+ {
+-	ssize_t ret;
++	size_t ret;
+ 	ZSTD_inBuffer input = { src, src_size, 0 };
+ 	ZSTD_outBuffer output = { dst, dst_size, 0 };
+ 
+-	ret = zstd_init_dstream(data);
+-	if (ret < 0)
+-		return ret;
++	if (zstd_init_dstream(data) < 0)
++		return 0;
+ 
+ 	while (input.pos < input.size) {
+ 		size_t prev_in = input.pos;
+@@ -177,12 +177,18 @@ size_t zstd_decompress_buffer(struct zstd_data *data, void *src, size_t src_size
+ 	return output.pos;
+ }
+ 
++/*
++ * Not ZSTD_DStream{In,Out}Size(): 256 KiB of stack is more than a musl
++ * thread gets, and perf top decompresses modules on a thread.
++ */
++#define CHUNK_SIZE 16384
++
+ int zstd_decompress_stream(struct zstd_data *data, int input_fd, int output_fd)
+ {
+ 	ssize_t ret;
+ 	bool unflushed = false;
+-	char buf_in[ZSTD_DStreamInSize()];
+-	char buf_out[ZSTD_DStreamOutSize()];
++	char buf_in[CHUNK_SIZE];
++	char buf_out[CHUNK_SIZE];
+ 	ZSTD_inBuffer in = {};
+ 	ZSTD_outBuffer out = {};
+ 
+@@ -262,17 +268,16 @@ int zstd_decompress_to_fd(const char *input, int output_fd)
+ bool zstd_is_compressed(const char *file)
+ {
+ 	int fd = open(file, O_RDONLY);
+-	const uint32_t magic_le = htole32(ZSTD_MAGICNUMBER);
+-	char buf[4];
++	/* ZSTD_MAGICNUMBER as stored in the file (little-endian) */
++	const uint8_t magic[4] = { 0x28, 0xb5, 0x2f, 0xfd };
++	char buf[4] = { 0 };
+ 	ssize_t rc;
+ 
+-	if (fd < 0) {
+-		pr_err("zstd: failed to open(%s): %s\n", file, strerror(errno));
+-		return -1;
+-	}
++	if (fd < 0)
++		return false;
+ 
+ 	rc = read(fd, buf, sizeof(buf));
+ 	close(fd);
+ 	return rc == sizeof(buf) ?
+-	       memcmp(buf, (const char *) &magic_le, sizeof(buf)) == 0 : false;
++	       memcmp(buf, magic, sizeof(buf)) == 0 : false;
+ }
