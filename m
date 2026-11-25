@@ -1,79 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795602860;
-	b=HQCUJ7WAs/cA4/5TTi9bdMCfcSJK1FZY80m5dytxXsYiRqxCR3wx8u0ISyLrnU7yd//J
-	 LpqU565NHAAn2ifIkaqmbwB6szykOyq6H0YkXtXeBUeC9xD+u27DE/KCwxc3zy9xIh6db
-	 SqdsB2XXPT1uDMlhYEQ9LiV+slyXi7uLW8Cw311Sx/zq71B8EWGL4ZFin2cq6x5QBI514
-	 wh1ygZ0inzVkCGLARe+Ag8YapKWZYL6IZvWJX92aFvdC70mCRqRvV9clBx/CFF6SDx6b9
-	 HxJzBJBx8BX+2yV4nIVv/UtIFyY8x1NIrjZPxwaAS6B0a9dqZURkrVM+pm/Ld18tCOA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795602860;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=aCqK1uXLPdCs4Ldkr3opqdXBdv0PuoNLOgXFHdY57+E=;
-	b=5pHuhh/1mxg71vEHUVmgh6fGRyMa4lojasijOoll8HpYcZ2+BnqtJdLYY0uYBhM3rT4k
-	 /It9HpyOsLcUfB0t+SglD641Xp+Dps6+Uq0jhoIs5E8AwwCAlP2wMfhJd/aRLhnn/mdXD
-	 tiQx3icGoVrP2MppkxjS9yopDbXowl9aiABYnJBRMqNZiKTzjuVws/8zATl/pgGMkiAQc
-	 B4GtU7PjjW26DGiJgOs3HAjfQRV3c+Ej3NEbFkIHKYPZCn8lcnDJ8JkGZi5XVIr7fJIZj
-	 mBB/ysE0BpavsKKpwIT6/bsQxwOya4cdq2bWWjCEpdaj0d8M3RbHxRfF9gblykB6tQA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lV4i1GjC;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795602861;
+	b=ztyh7HfBHyws8qQnSRDgZz63dE9c2rUY5ZawYrTolkDh5soE1XHdFSgLm2CKqAz5V9qo
+	 Nu0uErJ9INL8XMXfOTI+KmMLz6lADO5nEx60DmfbcU/2v3tU/XkzjO3g/hO4UzL6mFM/P
+	 KV0A57MYn7HyW8rkjLVk/D3D+bll0Zemt50422pcw8YUzJyL8ZeiZ2Xf+8c5tv22/KEzV
+	 tYZ6/a19p2EfvIr9yz9o2UZOlTgyljobg4tL92AYxz6l2PUM4IVqnfgofYhBlLetXP+vC
+	 Nt5/XhK8RJDeYoGlZ8MswR+uIyIQ5qTdLBHtvwFwkVbjLRRFNLAbsnzIRmyWTZOYHSg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795602861;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=fcsJFJcknRlZ/8YDPikO/bwZDWpsgo0DLELzH4UzPU0=;
+	b=0TnHPdoPp90HYCtfUHGQtYGX3xaJwTBF5qBK2p/amsTOsnnrHhnKypqEtY/BtdFaanm2
+	 SB20SfKxh7l+N1Nxmfrv6eknHslUa1SAMyQfY1aXAQYT/PwhNZtouAG0zYqg2cn2I8M9X
+	 WYTnwRQdS3SlYTyAHnnHxPWsouQE7sk84vNCmyCqCS3DbWZ4J2J4/EqeWciKWeWVnsEnt
+	 jJWBk2Pj36Gv4yER/UvvpfRbssoIe0wDlVmo/EnS1VMFKIbw4G+dJpAuGGTCYBtedGlOi
+	 YCAzmwVfSiq2sN5WxKfaNcZBF9dA4oGrhNhf/OpCgxCoZUctkad8D1y9cDSWAzXmtZw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ngon4NJX;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71918606A32C;
-	Wed, 25 Nov 2026 10:34:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97418606A32A;
+	Wed, 25 Nov 2026 10:34:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lV4i1GjC
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795602860;
-	b=QmorhgdhUJq+HxjOrX6+ro6UH809pGsL934LliEJJ05rXrHleLWmvx/LbSIbU3tWivEg
-	 zh+caRGnk4UgND5awqrcVkrZZatNcwhokCbLUBkxDpsOTlqexWi7Gdh0dO8Nt9ZncHHqf
-	 jAjvoLlDLoW4tLx1fd1YUnbfizxKLYS5f4Nt4vAifQ2Z12xUfR2MJvjMXMYzLOcFSRIlJ
-	 jyPsbgS5dyHEUHCXye76r44WQWROFF/BSCnjKd2mDTATpdYK+yYoFu5ROMT17s7aJVl2+
-	 szaZfuF2NRLRZfDccBn5ue4dqlrWJ4Af1bC5mwdFHsrxMTw1cIAtLc6AE2Y/XZdXruQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795602860;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=aCqK1uXLPdCs4Ldkr3opqdXBdv0PuoNLOgXFHdY57+E=;
-	b=L7IV/Ke0EuSZo2TkalsM4Y7ckaFEJPYmjagrn5eu3oK5aXLTxbvC5NYveiNzWZzuKpth
-	 hHygkG60pps9YcwqV918hkKGzMWGYyYkETLzDxgigk1qf5PWleOPV7pOksAqv+HhhW+XD
-	 g59SSAXBAz/Ygf89j1FZnjW+6rfiz4qhRE5C7fsajBM38LpSmSP1EXzTj5LI9p42rSzvn
-	 Nm8HGap4Fr90SB/J7R/ZRSw5TtSenddZ5vtKi87o07goxC2IflC73MCDI4Mykfcmq8Mu7
-	 VuESHvAzCNpL/ptOmqDUW1XByENpeTEP2QgtdjgU1h7LFOPud4PjSOWRb9WhvWIIL1Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 47D9F1F008B2;
-	Wed, 25 Nov 2026 10:34:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ngon4NJX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A58B1F0156E;
+	Wed, 25 Nov 2026 10:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795602860;
-	bh=aCqK1uXLPdCs4Ldkr3opqdXBdv0PuoNLOgXFHdY57+E=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=lV4i1GjCT7MVEeZP9EKvEKwENMcSxmXaxIL7oX6NTKHU7JPBaNW+rarO5wnZWTBOb
-	 lGGBXbqLsSIkjqP5dClO8OqRsok18vrI5f842QQVPq3Z6QKj7ksdau5a+tPeoX7Ss+
-	 FW1jXDhZxBBrfAH4szLYxNXHXW25tuxMgqU89kJulTCcr99ucB88uosUN64i8jU52r
-	 2t19TZu7Q8GHxHwFI9jSQe1mX6/0QK36PZvxc0tFjmeQv+y31ZgB8plKZ+XjyFKVGs
-	 8YLs8VManh7WD9jg17w7+TDafGg1GJCBFSdQT8o2mat1kBMsLZAT8ycq6h8R7qtg4S
-	 x+BiNOWXh6C4w==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id C6F404CE50;
-	Wed, 25 Nov 2026 10:34:09 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Wed, 25 Nov 2026 13:34:10 +0300
-Subject: [PATCH v4 2/6] dt-bindings: pinctrl: Add Cortina Systems CS7542
- pin mux
+	s=k20260515; t=1795602861;
+	bh=fcsJFJcknRlZ/8YDPikO/bwZDWpsgo0DLELzH4UzPU0=;
+	h=From:To:Cc:Subject:Date;
+	b=Ngon4NJX3MUGRgLCnMvHJ7qWwKx/+k4qqIgY/SzWrK5W1UTjs3fG/Bj9l8bcZp0sz
+	 vLui9WG+U+32MZxR73iYV3soymomox9VJ6dLE66agXAgYkXKfnN2y1NhI810hLUwnO
+	 poMucdP08hKm+616FURO1SQzW0VssYAs02NOI6NykGKqJGZ+JbfEgxxe2D9jHBDxIa
+	 xbHH/DIPuQE1c6zDhcgqlGxKAmdUzOCwU8HcdqX89wGHADNl6PIa3POnLj/C1n6w+v
+	 gwqTx1dvVafYP69FaQ/bmVHr3MFvSacc64sg+liDMipaLeSKFwbT7ERgTKMbuJKkBL
+	 VmZcXeouk15Pw==
+From: Tejun Heo <tj@kernel.org>
+To: sched-ext@lists.linux.dev
+Cc: David Vernet <void@manifault.com>,
+	Andrea Righi <arighi@nvidia.com>,
+	Changwoo Min <changwoo@igalia.com>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	David Dai <david.dai@linux.dev>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Hang Zhengyang <hang.zhengyang1010@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	Tejun Heo <tj@kernel.org>
+Subject: [PATCHSET sched_ext/for-7.5] sched_ext: Start ext_server from the tick
+Date: Wed, 25 Nov 2026 00:34:18 -1000
+Message-ID: <20261125103420.2785659-1-tj@kernel.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,150 +73,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261125-cs7542-syscon-v4-2-3337bb0d3b48@gmail.com>
-References: <20261125-cs7542-syscon-v4-0-3337bb0d3b48@gmail.com>
-In-Reply-To: <20261125-cs7542-syscon-v4-0-3337bb0d3b48@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- linux-gpio@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795602848; l=3414;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=GXF3eV4Di05M7txSyaOSbXKuZUwi57EYWkuShSLxJwk=;
- b=pAWFBWv4AImGwJ4AUClltaW/LmOcv8n8fPdvAKH7T07b5F02HYkqOM/eiyHX/CqsaatHb/T20
- OjpwlcGQkgkDrmSTRi0HIPBha1tVzOsQn52mVBb7r9Pu1sFeaIqQU4z
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Reply-To: filipp.dunsky@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Hello,
 
-Describe the GPIO and UART mux functions and reference the child
-schema from the global control block.
+ext_server starts when the first task is enqueued on a CPU's rq and stops
+when its pick finds no task. As the BPF scheduler can run a task on any CPU
+whichever rq it is queued on, tasks can wait for a CPU whose ext_server has
+stopped with no enqueue to start it again, and a higher class task which
+keeps the CPU starves them until the watchdog fires. scx_central with a
+SCHED_FIFO task spinning on a CPU shows it.
 
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
- .../bindings/pinctrl/cortina,cs7542-pinctrl.yaml   | 84 ++++++++++++++++++++++
- .../soc/cortina/cortina,cs7542-syscon.yaml         |  4 ++
- 2 files changed, 88 insertions(+)
+Peter pointed out the problem when ext_server was being added [1]. Hang's
+recent patch which starts ext_server on every enqueue [2] helps but leaves
+cases like the above.
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/cortina,cs7542-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/cortina,cs7542-pinctrl.yaml
-new file mode 100644
-index 000000000..cd5c81a0d
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/cortina,cs7542-pinctrl.yaml
-@@ -0,0 +1,84 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/cortina,cs7542-pinctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Cortina Systems CS7542 pin multiplexer
-+
-+maintainers:
-+  - Fil Dunsky <filipp.dunsky@gmail.com>
-+
-+description:
-+  The pin multiplexer is a child of the CS7542 global control syscon.
-+  Five 32-bit registers select GPIO mode when a pin's bit is set, or the
-+  peripheral signal when it is clear. Pin numbers match the five GPIO
-+  banks, from gpio0 to gpio159. Initially only GPIO mode and the UART
-+  signals on gpio72 through gpio77 are supported. Other peripheral
-+  routes and electrical configuration are not described here.
-+
-+allOf:
-+  - $ref: pinctrl.yaml#
-+
-+properties:
-+  compatible:
-+    const: cortina,cs7542-pinctrl
-+
-+patternProperties:
-+  '-pins$':
-+    type: object
-+    $ref: pinmux-node.yaml#
-+    additionalProperties: false
-+
-+    properties:
-+      function:
-+        enum: [gpio, uart]
-+
-+      pins:
-+        items:
-+          pattern: '^gpio([0-9]|[1-9][0-9]|1[0-5][0-9])$'
-+        minItems: 1
-+        maxItems: 160
-+
-+    required:
-+      - function
-+      - pins
-+
-+    allOf:
-+      - if:
-+          properties:
-+            function:
-+              const: uart
-+        then:
-+          properties:
-+            pins:
-+              items:
-+                enum: [gpio72, gpio73, gpio74, gpio75, gpio76, gpio77]
-+
-+required:
-+  - compatible
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    syscon@f0000000 {
-+        compatible = "cortina,cs7542-syscon", "syscon", "simple-mfd";
-+        reg = <0xf0000000 0x100>;
-+        #clock-cells = <1>;
-+
-+        pinctrl {
-+            compatible = "cortina,cs7542-pinctrl";
-+
-+            reset-pins {
-+                function = "gpio";
-+                pins = "gpio37";
-+            };
-+
-+            aux-uarts-pins {
-+                function = "uart";
-+                pins = "gpio72", "gpio73", "gpio74", "gpio75",
-+                       "gpio76", "gpio77";
-+            };
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/soc/cortina/cortina,cs7542-syscon.yaml b/Documentation/devicetree/bindings/soc/cortina/cortina,cs7542-syscon.yaml
-index 561bb7b63..fe839e46e 100644
---- a/Documentation/devicetree/bindings/soc/cortina/cortina,cs7542-syscon.yaml
-+++ b/Documentation/devicetree/bindings/soc/cortina/cortina,cs7542-syscon.yaml
-@@ -38,6 +38,10 @@ properties:
-   "#reset-cells":
-     const: 1
- 
-+  pinctrl:
-+    type: object
-+    $ref: /schemas/pinctrl/cortina,cs7542-pinctrl.yaml#
-+
- required:
-   - compatible
-   - reg
+This patchset also starts ext_server from the tick, while a higher class
+task is running on the CPU:
 
--- 
-2.53.0
+- If the local DSQ has a task, right away. This covers a task which another
+  CPU inserts after the pick came up empty.
 
+- Otherwise, if any task is runnable on SCX, at most once a server period.
+  Only ops.dispatch() can tell whether the BPF scheduler has a task for the
+  CPU, and the server's pick calls it.
 
+Whether any task is runnable comes from per-node counts of rqs which have
+tasks, which a per-node timer lowers lazily, and a global count of such
+nodes, which is all the tick reads.
+
+This is a departure from how dl servers are usually driven and there may be
+better ways to go about it, but it does seem to solve the problem properly
+without adding much overhead.
+
+With the patchset, a SCHED_EXT task sharing a CPU with a SCHED_FIFO hog gets
+the server's share under both scx_simple and scx_central. The second patch
+does the same from the remote tick for nohz_full CPUs.
+
+Based on sched_ext/for-7.5 (cb31a095aab1).
+
+This patchset contains the following 2 patches.
+
+ 0001 sched_ext: Start ext_server from the tick while a higher class holds the CPU
+ 0002 sched_ext: Start ext_server from the remote tick on nohz_full CPUs
+
+The patchset is also available in the following git branch:
+
+ git://git.kernel.org/pub/scm/linux/kernel/git/tj/sched_ext.git ext-server-tick
+
+diffstat follows. Thanks.
+
+ kernel/sched/core.c      |   5 +-
+ kernel/sched/ext/ext.c   | 174 ++++++++++++++++++++++++++++++++++++++++++++++-
+ kernel/sched/ext/ext.h   |   4 ++
+ kernel/sched/ext/types.h |   1 +
+ kernel/sched/sched.h     |   2 +
+ 5 files changed, 182 insertions(+), 4 deletions(-)
+
+[1] https://lore.kernel.org/r/20260202195035.GG1282955@noisy.programming.kicks-ass.net
+[2] https://lore.kernel.org/r/20261123-scx-dlsrv-v1-2-87c342d8246e@gmail.com
+
+--
+tejun
