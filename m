@@ -1,203 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.9
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795628922;
-	b=iw3EVPcGRcWuUkDrqnmjb9+YIaMgCDoah8wHSqR38W9Mlmgf8mbIRvVUPtQWks3IXG4V
-	 9hBLxEILyTvFF2SudMY6WFEo0HnDh+HshqVBAe/kmjiA14qPvj26Z/XXsmpWPmhvhLzCr
-	 FVDiso/mBVs1EOotvCnMXxEQOpVtI2lm9dHO2S/K0LlZBpp8+XbzM4kXnNT73o3jWfiSn
-	 EqV+KBwrR2MjRAZlo/A1ZqEtNqwLi8h+2yS1EeuC4fOujR4bIga71cCNllxVKh4HsUCjB
-	 N6HqQ5Wln5F5CNE0oS7jE9zXnpCceoCblo6ffReuJa01tdMRR9D33UdaIaSC4XcTNdQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795628922;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.12
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795628963;
+	b=Wknq321N10+efd70pJin5lWKLUB94MQrWemufImumS1ohIZ+cR7oMmz6DkP0RDad9pPU
+	 9fVXYy+RpoMJuMKjxiP1Q8qs+LMZLc/hr0gCq7Ujdx+u5x0mv0NwERlT+DVEL5AW7YOPn
+	 MdrXmAv1sXmepdhHH/0LdhASgxp5hi5OI5govjJ09Z+YVTHMfhTwUWMYd0zpEuNf3HrU7
+	 K/O9oX3ZRrxugG4lkF4Sj9BKT6BFED0LU/gVSJARsCPtE503+btxuq0sIpvk4cTm2h1UP
+	 aBUd2yyK5pQoZOim1XNq4/TMQ1Cyo4LggyzeO7qdnY/46LlByOrG9vQzI6NV6hqTphQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795628963;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 user-agent:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=X3SkEKFLRU0Kjcqw1BMzbBuv1AyjSNeTW+h+XpA2HaU=;
-	b=3Yjao9+w2MPlIbm81oKCJkagHvlciWZY4RlcauOELt6JKd4J/GJjJKN/PAp+FOLFPsyl
-	 zHIKLOlOSat6nX+RmrVnfI3fn6GvaHw1jEzsb5k2oZn2fg1NDYv4I/hFNANxgKn1Oa9CY
-	 8hADojBLdIY0pIx9STNmm6ChiGkYO091+q8BHTzoZsXeOeQE3AWDFHJm/C2rg0/Gj3uqh
-	 66xa2TDaMJVmV2Prid6mK5t3KyEeZvZu6mkgQURxPesS4SnfsgWo4tblSMLwEltiU/CZC
-	 qq7H0XqPy1UmhxNov7KV0lWJOUmlbzZrkTUD+566tDDlT6991IVePqo+ozeRQo2/mYA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ft4s9DgR;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=iQEPvjCR;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.9
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Subject:
+	 From:To:Cc:Date:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=VSrdhCV78Kqq7+HZq7TSgeUaWdvzaWenMwAyVDxuYJw=;
+	b=doxQkBWcKK4KxxnMIJSQosiBARD1bPGlsY6fh/56lZARkvQw8jBtM/8Cig5Ql5PDiTkA
+	 Eg1XmojBVaQy/skvD2XmC0YMYAmJdiNWjAxedUBcqwHfBDdojfDnBIsrv+mdSpUyTt5Pi
+	 brTv3Xl5UEuFR7jQBlb+1j4YgqTjL8/CSVwN3iymssxQC/Ve1ExnC9e5rXdt1EPmoz5VH
+	 g3/DyLgBYApAeghaf6ww2/cLlt7L88AXO4xKPMKmHohuUOOCYNH4GEke3m3W8JTl7X0OF
+	 wun9o5gePlpg1QjIgn/PoGz+bFzvivIr9PfWJ50q6rBcdbHVnHlSkmqo+cfAuLcTKtA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gmXpwMT8;
+	arc=none smtp.remote-ip=192.198.163.12
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3556A606A323;
-	Wed, 25 Nov 2026 17:48:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3556A606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86EE6606A33A;
+	Wed, 25 Nov 2026 17:49:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86EE6606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ft4s9DgR;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=iQEPvjCR
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gmXpwMT8
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795628922; x=1827164922;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=X3SkEKFLRU0Kjcqw1BMzbBuv1AyjSNeTW+h+XpA2HaU=;
-  b=ft4s9DgRL97+Nw1JsEFPgLIN3hmjg5iRlHzA2vE9J8x7Kj4cnoYLcPJd
-   xpDA4CaorcZR6YqOzAEGbPmByx1mAnOXJ9E8hj7uTIGwQnMIa9UlpANj4
-   pinFrXBgWqr7oK3MA/6ykCjp6UWEj6olc0cHH+JfdYoyUjxW4X4E2kk+S
-   TZNMf20OIxbeVq2gFUFZeKN3sek1F74fjW2m/pWoVOKlhGoakU0NOWLAr
-   oPNFYwRR6T+rGWbGGF29PEAkFdgpJyYCyyZGg5sx738sJU0oTlFXUwow2
-   IB8iWw63sp61UR6We9Dzgzx3CNIMOzkKNreQ9uYFYXgJcuzH4ZLivH2oC
+  t=1795628963; x=1827164963;
+  h=message-id:subject:from:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=K9Pyi1PyzMu36Fq+bvuCkDzpoXpuwUc9Lc0EQ63cwbw=;
+  b=gmXpwMT8bRxhVuotVeXxCvje86+KLhwQ7FFRogXLeXOYqPgKhEnyJnoe
+   4aw2ypdFqpo3FB4NEi54ZNaL/52aqgqIIfLctEUFImISeBeGJDGqLL/Tb
+   4fMa/nskbY6kAyJzKI5qVEvBdTCBB5TkGIunGzyL1YBj1q0GCnCJMsKTN
+   Wd99G4Q1F6ogtqgsNUKxFvVnbFc4G1KkoXr3j/MdXmPeKNwb4BzThNDv+
+   mRfhIRYQyHCXOl2Fu4sv3Zx/R2e8d7RZULg/7jLf3pMJfxMe19vKJu/eY
+   zci9Smu0l5j0SR8maRgALnRHPCX6RidX9P5xrFoMFXmIgdxWX3LSket05
    A==;
-X-CSE-ConnectionGUID: A5X2a4NWSCiPTHldvqf99Q==
-X-CSE-MsgGUID: aMU56pEYQHW7SLKcdNs2MA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4410733"
+X-CSE-ConnectionGUID: xsLR8qKdSgKl2TQAEopMaw==
+X-CSE-MsgGUID: +0QAVA2ISMOuEv8v/HVUow==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4409236"
 X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4410733"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 09:48:42 -0800
-X-CSE-ConnectionGUID: z4kbwi6RTpK8W73GRg7ZQg==
-X-CSE-MsgGUID: eAI+qCJlS1KykSjIfmpWFA==
+   d="scan'208";a="4409236"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 09:49:22 -0800
+X-CSE-ConnectionGUID: ENU4monsQTWyfOq7WMbOiw==
+X-CSE-MsgGUID: TM64G7RVQ96QHve/gDrDyQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="12048330"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 09:48:42 -0800
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 09:48:41 -0800
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Wed, 25 Nov 2026 09:48:41 -0800
-Received: from MW6PR02CU001.outbound.protection.outlook.com (52.101.48.3) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 09:48:41 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LYcBipt83MPOC/NyGtibMfbFZqoPMH8bjioxknSeJa+aqr1fMpc/VDUXu7ZEcj9Pe0OSnS8X73oFWEa58RiKms2Lbddt+eKYQD0rhLDmnj+RXha8E/FRsBv/NnTmiMz99KSZqkK2fcq1T/4k0+NlmPSLEP94YkzAOOKUgoueiXa2+puPFoomKHp9qjx4uQg4jO3hjvWmHNF2UkljEWuKN2HblFLPtFot1HzG/4W+ptRgihI1cXnJWtV81aR1oZOedf3/Wg/n+qCgzBGCcKs2Pg2I/VNq+a/FwdPxigANZ4tSYhzxABMyF1TSIOR9vSvMD+CYmo0Pvb7cyldccpdJxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=X3SkEKFLRU0Kjcqw1BMzbBuv1AyjSNeTW+h+XpA2HaU=;
- b=s5GbHFVrsUPd5IuOZ6KVthb/c12s60K5GrhUWSdBJrnWcQ8gwSric04Prpb1/1I1eOsYPFeG8gfrr5kwO9Ztwuj+1jXKDnc6SR5aRLElpDnuvyOFDFYPFaCpxj/alnbBf7FCUoFXVNfjVAZADNFDENNU9yhY+rnYZQHH7xYGLIXB0xMCRhFOhG3lqXYAap+tEQm/SqGXWUKPt5dfegxEWYJ9bSB0zFLbFUS9x8pxx2D2k5mAeOujT+1yULjgaGCAz4vTQuYjP0b/JDa2Z5dwYgTTmW29nSNn2kebjdna0l2y2eATn2AzSGyI3wlqhGI6KLkrrfOl1Z6eEDewGuN1Qg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=X3SkEKFLRU0Kjcqw1BMzbBuv1AyjSNeTW+h+XpA2HaU=;
- b=iQEPvjCRkL85UdQX8g3lRlpLrb/Yt5diE5DNgaNi26hU3wNh2hDDl2q0xuLlAJbPvpINlnHyR0N7riuFDdkaupZ0GGMER+xX8JhwghcLCNWhoNEJPhf1vTvNi+paCtH7P4idPc7VrnLf8He04ImJ0Mco0l1vdaKXPFxAO9M6scI=
-Received: from IA3PR11MB634048.namprd11.prod.outlook.com
- (2603:10b6:208:549::23) by DS0PR11MB8134.namprd11.prod.outlook.com
- (2603:10b6:8:15a::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
- 2026 17:48:36 +0000
-Received: from IA3PR11MB634048.namprd11.prod.outlook.com
- ([fe80::760f:f0a4:7417:6e57]) by IA3PR11MB634048.namprd11.prod.outlook.com
- ([fe80::760f:f0a4:7417:6e57%5]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 17:48:36 +0000
-From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-To: "Gao, Chao" <chao.gao@intel.com>
-CC: "Xu, Yilun" <yilun.xu@intel.com>, "dave.hansen@linux.intel.com"
-	<dave.hansen@linux.intel.com>, "kas@kernel.org" <kas@kernel.org>, "Peng, Chao
- P" <chao.p.peng@intel.com>, "x86@kernel.org" <x86@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, "Tian, Kevin"
-	<kevin.tian@intel.com>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>, "baolu.lu@linux.intel.com"
-	<baolu.lu@linux.intel.com>
-Subject: Re: [RFC PATCH 3/7] coco/tdx-host: Exchange SPDM messages through DOE
-Thread-Topic: [RFC PATCH 3/7] coco/tdx-host: Exchange SPDM messages through
- DOE
-Thread-Index: AQHddbsG4n2S6MqLX0m4Tb4pbEPdr7c8YqCAgADH/ICAAKjLgIAA7ZMAgABd9AA=
-Date: Wed, 25 Nov 2026 17:48:36 +0000
-Message-ID: <d4783f8c5df1823aabb4b0a1510f52cd1a731892.camel@intel.com>
-References: <20261116111037.3478844-1-chao.gao@intel.com>
-	 <20261116111037.3478844-4-chao.gao@intel.com>
-	 <4f832b3a73bfd4d9b74e5e68a08f0de5659e1b6a.camel@intel.com>
-	 <awV7wYVv4D_Egns8@intel.com>
-	 <00efbba7a1b2c6e61cc36bf709718da978eec85c.camel@intel.com>
-	 <awbQpM4QlKTVQ0f8@intel.com>
-In-Reply-To: <awbQpM4QlKTVQ0f8@intel.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-user-agent: Evolution 3.52.3-0ubuntu1.1 
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: IA3PR11MB634048:EE_|DS0PR11MB8134:EE_
-x-ms-office365-filtering-correlation-id: 58769a21-bd34-4f0e-3040-08df4b1c54fc
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|22082099003|18002099003|4143699003|56012099006|11063799006|261022105027099003|261026140227099003|261028144727099003|261026121527099003|38070700021|10067099003;
-x-microsoft-antispam-message-info: hnXVRqy2KE4omheikJVYPAwKsyc7bqg9G71v4ynVYceA0VGFPXtjKVYA+Qbo4B4Noy4GilEsZS8jiFjtiLJ8afljjwKu7hJTb/rul/bOrui4mrcRJPIIF3RznE/5m5Q/qTYGH2oSTCC/CIO73UGhvr6jC7qln0l7jyiXn1YaEQDnnNOlpy1Cu5DKVHSXFTt5R/aP1mW1puwp6Sjrq8pNvWX/9ei/qC/HJFjZGjYhg6aZ0wec7Hr/n8JTut4TNqMDIZTtFC/6AYc3NvxSh2Ljd7tkz+AWUQOEEU6TeC6Qggk5czfG745Ld+nQ16c/r4DrfliZngDiufONH7Wt0djX+FCLnJJM8E/Ob0cZM1N17d3QXYNXC6oN6tJUvdDcYupz8GJwIWiaKkG0iQ3vGFB6fDBmnWPRO6+a7BSnXfLd8t7L6WRA5/nApeLDMD1fp4L4CQglpsOAhabvwYqjr2jeInXcn4DKCR6J4ZUKLCYRuovQubh2mYXw+tWzrBVr52WCNiD7TeukYId2Y5aVT2JnxJi+HKobqZPes+Sz2ESLN4tLTo8sJtz/CKdQEAOHrvQM6TbIgqwVTRk/bb872vle+pl98uPolwfhLzjmZbmFEWOxJu0Scmj2v8Y80iMLegs3e9NA/1PoccjwXFFzZCveMdRcVpAMi8n2blGHBwFnUvSgF1JTHjKkyRUp1deubbPMupm3CZbdaCVsYytpkBHp7uRodyJ8sE7wMxRee1yD7G0=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA3PR11MB634048.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(22082099003)(18002099003)(4143699003)(56012099006)(11063799006)(261022105027099003)(261026140227099003)(261028144727099003)(261026121527099003)(38070700021)(10067099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Yy9xWEVEaThIcDZSK0g4UktMS3NGY052N0RWRXVGaUFOWWdSaGpncFRVazE4?=
- =?utf-8?B?OGdvK1JJSUJyWFBQWVZNRWpMTXdqRWdXZkpDbVN5NDBrejc0RmZ2YUVlb3U2?=
- =?utf-8?B?cFBvS1poZytEVUpaSlRCTS9FcnA5cmVpdDl5c2lveSs4WFJGOHdFdWlQWXNn?=
- =?utf-8?B?NzJsSWN6UUxzejJJaW1OWWRYTDE4SWhKbW9LWTArN2FxRStaaVNSckJ4cURM?=
- =?utf-8?B?NEh0VHdlT25RaVpyWXc4dFpRYktDbVNrMkNoTzYwWGpoeEdnai9Vb1BhWGhl?=
- =?utf-8?B?c1kwbmk4STVSeDlodWxoTXVWOSt5MzF4WmVsKzhqSlZ2emV6QkJOQXFzdjZV?=
- =?utf-8?B?VEtEQzZRem5Fc0J0bzM2aXVjSVlJcUVQY1NwWHlqKzA3U2ZNOVlpYVdlOVJK?=
- =?utf-8?B?YTlvKzN6NjE2Q25VL1V1WGZGY0ZsMDE2REdWeC81eXdRTmxQYjdLVGdmU1Np?=
- =?utf-8?B?cUNYMythQkRmaTV3Rm9UNUhVZGZMbzRycnZ4eDcvd0V4cVZYVW9DMmROV3Yz?=
- =?utf-8?B?SEFZQ25EZldlSTJKWU5DU0d3R1FUK3pEZFJSV3VCOXEwVlhVUGxkUGRaN2gx?=
- =?utf-8?B?T3hKNytHQnRGNXIzWndNcFZJSk5EN2szNXg5RGtwQWYvc001cmc2enJhbFJh?=
- =?utf-8?B?R1pqZkd6VW1GQVROZ0ZacTB3UGFmcEpDcEZMclJpdjlCOTY0QkRDME12YVVR?=
- =?utf-8?B?MkI4YTc0UHlmaUlKVzlTWDdIM1dsczVxaXY5ZzZjSWNUZFJsTXlNTEJFSlhQ?=
- =?utf-8?B?VjZOTkcxUVFFWkZUVlA5cjhxVExYVkRqUGJWQmhOL2VXOUdrZkc5TnNWUGEr?=
- =?utf-8?B?N0VBcXRCbVIxUzVIV2Rab29QczNtOHRXNWdRYzhrVTJQMlRsK3BLZTdWRFFp?=
- =?utf-8?B?elREeFpTUHYvZDQ0TjBvellDV3BGZXhPOGUxaTBmOW01TXVqUDd1MDJNQ1hl?=
- =?utf-8?B?ek5UYVlwc1l0TmFXY2tROEdmM0FwanpibWR5a3JXZ05Vb3prbDZQZDdZeCtC?=
- =?utf-8?B?di9lb3RQaHM3bGpETXRFZnhFRm0yay9zYlFqQVdjMzJaVUpVSTRaN0FOMlls?=
- =?utf-8?B?MnlMTGRKNnBqT3FEWXlaN2lyQ1FZQ2Z4MFRIdSs4VDcvRGNhcjNpTEFKRkJB?=
- =?utf-8?B?NkVjaEdURU9QdGFRR0tzTzBjY1llK051ZS93UjE1OE1XSnF6WWV1RkJwWG5s?=
- =?utf-8?B?VEgrRS9sS1BvSGhNYTBXQTZGNmFqS3NybGtDUDhhQUJ0SVpOZXpBUFNHN3E4?=
- =?utf-8?B?dmI2TGhJdDV4WGptTkxrUUk1YThoMEZkd0FnU2xpa3AwVUJEU2JsRms1Zm1B?=
- =?utf-8?B?R3o2bHRCUXZhMTh2UlFNTmxhNDdJTGx1a0kzMFdVU3VtTnpEejR2c3ZIRTBB?=
- =?utf-8?B?M1BzNE1vdVVVU08rOVE0NjVPMXB2SVVUYkEzUnhwcmhLK1ZucW1GS1BYUHU3?=
- =?utf-8?B?amJZcUdRSDBYYVpzRWFqdjFxMFpnNTBVanpXaXIxdkg0K2hYRDFscHFzUVBE?=
- =?utf-8?B?dUg1T2M4Y2lBRnJ0Z3hwbFBSNUQ5UE4wQ3Y5Sy9WWGFyVklkTWJMTVFweks0?=
- =?utf-8?B?aXZwSGtGeXY4M2M2OXFRbTRRQUJlbVRTcm10dnZIU3RTN0RxQ1c4cXU3Ny8z?=
- =?utf-8?B?U2tsNDJqSWIzMTNSNjEzeVJySnI5TXlrT1A2OGVyUy8relRLQ1RucjRhcUNv?=
- =?utf-8?B?eTh6aVhpVjRuZGZYK3BVVU1TdzgzMEFrYStqQ04yZ3RoWlBmOEgzejBHMXV1?=
- =?utf-8?B?a3RUYUNRZnBHUVp4Vm5wSXNJcmM0ZmZkUyt5RGhyY1hNVzNYbEZ2c3M0RkU2?=
- =?utf-8?B?WlFVamR0aVNKTkh4NWNwVlIwUndLa3BHSHp5TG9vVStPdmN4VW5jRG12dVVx?=
- =?utf-8?B?bTkrcVJlUCs3WlpRMlFCaU1zV05RZW02bWE1Yng1ZGY3ci9kOVBqeHNxUUdB?=
- =?utf-8?B?TEN4Q2xiMFdZcGhRdGNvVlVFQ3BkbHZmR050YzRoNkZLU2NCV3RXYzJsUVZO?=
- =?utf-8?B?WDBTYmxkYzJZWGJoN25jYUxQTm5zdUZjQW9scTNCTElRakVGYTRManVCUTV1?=
- =?utf-8?B?SEdUeE5TN1ZvNStPMm5ZZ3dUMEVBL2VHbHVyZ0dLMXBRUDNSSmNiSmtHMzQ1?=
- =?utf-8?B?aERteWZBb0c2eFdFSmFTYUMzcTViakFta09qMUg2TXIycTJ6dS9NSnpGOG5G?=
- =?utf-8?B?ejZoa1hBNjlUVEE4NHNaWnBGUTdhd0hPZFYydGMvYUduYklpTzNkL1hDSFM5?=
- =?utf-8?B?dm9SclZIODlJVUk5ZGIveW94ajZUVndQRUZsREQxSzhaSVFUZ0ExNzdnTXVy?=
- =?utf-8?B?am9jK3dEa3lJNFYwTFpLVEFCL2F6U3hSbTEzVWIwdldsYkJIWjdsNitmUkhy?=
- =?utf-8?Q?vHirKRX8kFPADOSg=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <6DF2C88C108D0246A053400CEEB5E260@namprd11.prod.outlook.com>
-Content-Transfer-Encoding: base64
+   d="scan'208";a="11911000"
+Received: from spandruv-mobl5.amr.corp.intel.com (HELO [10.124.220.229]) ([10.124.220.229])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 09:49:21 -0800
+Message-ID: <39da5f7295537024b97eeca6b567720c117ee002.camel@linux.intel.com>
+Subject: Re: [PATCH] platform/x86/intel/tpmi/plr: Fix CPU selection on
+ partitioned systems
+From: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+To: Qinyun Tan <qinyuntan@linux.alibaba.com>, Ilpo
+ =?ISO-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>, Hans de Goede
+ <hansg@kernel.org>
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	xlpang@linux.alibaba.com
+Date: Wed, 25 Nov 2026 09:49:19 -0800
+In-Reply-To: <20261125092244.3641945-1-qinyuntan@linux.alibaba.com>
+References: <20261125092244.3641945-1-qinyuntan@linux.alibaba.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -207,26 +85,186 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: E9p3Sd7dDGTbIzDC8TUvqN2YW0TQGwi6XPtTgVi8o1Q2jOJjTmVAUWeK/fHfrgDFmXdhWdpc1eqAFdgLfMo2eLCs8G78A2jZoLtdgaW47beYojMbrq7b7bY2R0EFJHqkdzUkcz3fMrg5lzXipmmlolA9etIOm3HZjek+ERADfCMb/kuyqKgJrxxRnN7Ns1NbcQxXISjQ7+bn2jphkNK9iLKu34qpNk19tp5zeI5g+JjSR5egodTQ4fQm6fYKg4iyYJlesXtmNmvTwjot8b2RslUQsYUipZnc0pmxD4JqVz203N9N2+01SjLKcr25xICuwqqpQw60gLWOUkFGCFzrMg==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: IA3PR11MB634048.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58769a21-bd34-4f0e-3040-08df4b1c54fc
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2026 17:48:36.6374
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: WSqmu0NmGnK6wI3AZu7Oaaq2ZZfW+V0kaxqrOOobfAi118opIJ2+C0nJSNQ4bZTEbrnadWK5PQQ3xiU1nhz9qMq8EC8H8zgEUo2iilO+hk8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB8134
-X-OriginatorOrg: intel.com
 
-T24gV2VkLCAyMDI2LTExLTI1IGF0IDIwOjEyICswODAwLCBDaGFvIEdhbyB3cm90ZToNCj4gc3Rh
-dGljIGludCB0ZHhfc3BkbV9tc2dfZXhjaGFuZ2Uoc3RydWN0IHRkeF90c21fbGluayAqdGxpbmsp
-DQo+IHsNCj4gCXN0cnVjdCBwY2lfZGV2ICpwZGV2ID0gdGxpbmstPnBjaS5iYXNlX3RzbS5wZGV2
-Ow0KPiAJaW50IHJldDsNCj4gDQo+IAlyZXQgPSBwY2lfZG9lX3Jhdyh0bGluay0+cGNpLmRvZV9t
-YiwNCj4gCQkJwqAgcGFnZV9hZGRyZXNzKHRsaW5rLT5vdXRfbXNnKSwgUEFHRV9TSVpFLA0KPiAJ
-CQnCoCBwYWdlX2FkZHJlc3ModGxpbmstPmluX21zZyksIFBBR0VfU0laRSk7DQo+IAlpZiAocmV0
-IDwgMCkgew0KPiAJCXBjaV9lcnIocGRldiwgInNwZG0gbXNnIGV4Y2hhbmdlIGZhaWwgJWRcbiIs
-IHJldCk7DQo+IAkJcmV0dXJuIHJldDsNCj4gCX0NCj4gDQo+IAlyZXR1cm4gMDsNCj4gfQ0KDQpJ
-ZiB0aGUgRE9FIHBlb3BsZSBhcmUgb2sgd2l0aCB0aGlzLCBpdCBkb2VzIHNlZW0gbXVjaCBiZXR0
-ZXIgdG8gbWUgb24gb3VyIHNpZGUuDQo=
+On Wed, 2026-11-25 at 17:22 +0800, Qinyun Tan wrote:
+> When a package has multiple TPMI partitions, PLR can report the same
+> CPUs in more than one partition. For example, on a single-package
+> system with 72 logical CPUs and two TPMI partitions, both partitions
+> list CPUs 0-35 in their PLR status files. CPUs 36-71 are missing.
+>=20
+> Each partition numbers its PLR resources from zero. The driver
+> compares
+> that index with the CPU's power domain ID from MSR_PM_LOGICAL_ID,
+> which
+> is unique within the package. As a result, both partitions select the
+> same CPUs. A mailbox read or clear on the second partition then uses
+> a
+> module ID taken from a CPU in the first partition.
+>=20
+> Use the partition's cdie_mask to map each PLR resource to its package
+> power domain. For compatibility with older platforms, keep using the
+> resource index for partition 0 when no mask is available. Skip per-
+> CPU
+> mailbox accesses if the resource has no valid CPU mapping.
+>=20
+> Fixes: 9e9397a41b7b ("platform/x86/intel/tpmi/plr: Add support for
+> the plr mailbox")
+> Signed-off-by: Qinyun Tan <qinyuntan@linux.alibaba.com>
+
+Hi Tan,
+
+Thank you for submitting this change, similar change was in our queue
+waiting to test.
+
+You have moved definition of MAX_POWER_DOMAINS to header file, but this
+there is no description of that in the commit description.
+If you happen to post update, add that.
+
+
+Acked-by: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+
+
+
+> ---
+>=20
+> Notes:
+> =C2=A0=C2=A0=C2=A0 Tested on a single-package system with 72 logical CPUs=
+ and two
+> TPMI
+> =C2=A0=C2=A0=C2=A0 partitions. The PLR status files now list the CPUs bel=
+onging to
+> each
+> =C2=A0=C2=A0=C2=A0 partition.
+>=20
+> =C2=A0drivers/platform/x86/intel/plr_tpmi.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 | 31 ++++++++++++++++-
+> --
+> =C2=A0.../platform/x86/intel/tpmi_power_domains.c=C2=A0=C2=A0 |=C2=A0 2 -=
+-
+> =C2=A0.../platform/x86/intel/tpmi_power_domains.h=C2=A0=C2=A0 |=C2=A0 2 +=
++
+> =C2=A03 files changed, 29 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/platform/x86/intel/plr_tpmi.c
+> b/drivers/platform/x86/intel/plr_tpmi.c
+> index 785c279b4540..33066f4763ef 100644
+> --- a/drivers/platform/x86/intel/plr_tpmi.c
+> +++ b/drivers/platform/x86/intel/plr_tpmi.c
+> @@ -51,7 +51,7 @@ struct tpmi_plr_die {
+> =C2=A0	void __iomem *base;
+> =C2=A0	struct mutex lock; /* Protect access to PLR mailbox */
+> =C2=A0	int package_id;
+> -	int die_id;
+> +	int power_domain_id;
+> =C2=A0	struct tpmi_plr *plr;
+> =C2=A0};
+> =C2=A0
+> @@ -201,10 +201,13 @@ static int plr_status_show(struct seq_file *s,
+> void *unused)
+> =C2=A0	seq_puts(s, "cpus");
+> =C2=A0	plr_print_bits(s, val, 32);
+> =C2=A0
+> +	if (plr_die->power_domain_id < 0)
+> +		return 0;
+> +
+> =C2=A0	guard(mutex)(&plr_die->lock);
+> =C2=A0
+> =C2=A0	for (int cpu =3D 0; cpu < nr_cpu_ids; cpu++) {
+> -		if (plr_die->die_id !=3D
+> tpmi_get_power_domain_id(cpu))
+> +		if (plr_die->power_domain_id !=3D
+> tpmi_get_power_domain_id(cpu))
+> =C2=A0			continue;
+> =C2=A0
+> =C2=A0		if (plr_die->package_id !=3D
+> topology_physical_package_id(cpu))
+> @@ -241,10 +244,13 @@ static ssize_t plr_status_write(struct file
+> *filp, const char __user *ubuf,
+> =C2=A0
+> =C2=A0	plr_write(0, plr_die, PLR_DIE_LEVEL);
+> =C2=A0
+> +	if (plr_die->power_domain_id < 0)
+> +		return count;
+> +
+> =C2=A0	guard(mutex)(&plr_die->lock);
+> =C2=A0
+> =C2=A0	for (int cpu =3D 0; cpu < nr_cpu_ids; cpu++) {
+> -		if (plr_die->die_id !=3D
+> tpmi_get_power_domain_id(cpu))
+> +		if (plr_die->power_domain_id !=3D
+> tpmi_get_power_domain_id(cpu))
+> =C2=A0			continue;
+> =C2=A0
+> =C2=A0		if (plr_die->package_id !=3D
+> topology_physical_package_id(cpu))
+> @@ -281,6 +287,23 @@ static void intel_plr_unregister_notifier(struct
+> notifier_block *nb)
+> =C2=A0	tpmi_unregister_notifier(nb);
+> =C2=A0}
+> =C2=A0
+> +static int plr_power_domain_id(const struct oobmsm_plat_info
+> *plat_info, int index)
+> +{
+> +	u16 mask =3D plat_info->cdie_mask;
+> +	int id =3D index;
+> +
+> +	/* Resource indices are relative to the partition's first
+> compute die. */
+> +	if (mask)
+> +		id +=3D __ffs(mask);
+> +	else if (plat_info->partition)
+> +		return -ENODEV;
+> +
+> +	if (id >=3D MAX_POWER_DOMAINS || (mask && !(mask & BIT(id))))
+> +		return -ENODEV;
+> +
+> +	return id;
+> +}
+> +
+> =C2=A0static int intel_plr_probe(struct auxiliary_device *auxdev, const
+> struct auxiliary_device_id *id)
+> =C2=A0{
+> =C2=A0	struct oobmsm_plat_info *plat_info;
+> @@ -340,7 +363,7 @@ static int intel_plr_probe(struct
+> auxiliary_device *auxdev, const struct auxilia
+> =C2=A0
+> =C2=A0		plr->die_info[i].base =3D base;
+> =C2=A0		plr->die_info[i].package_id =3D plat_info->package_id;
+> -		plr->die_info[i].die_id =3D i;
+> +		plr->die_info[i].power_domain_id =3D
+> plr_power_domain_id(plat_info, i);
+> =C2=A0		plr->die_info[i].plr =3D plr;
+> =C2=A0		mutex_init(&plr->die_info[i].lock);
+> =C2=A0
+> diff --git a/drivers/platform/x86/intel/tpmi_power_domains.c
+> b/drivers/platform/x86/intel/tpmi_power_domains.c
+> index ebe052c3bbe4..f6a46b4571ec 100644
+> --- a/drivers/platform/x86/intel/tpmi_power_domains.c
+> +++ b/drivers/platform/x86/intel/tpmi_power_domains.c
+> @@ -70,8 +70,6 @@ static DEFINE_PER_CPU(struct tpmi_cpu_info,
+> tpmi_cpu_info);
+> =C2=A0/* The dynamically assigned cpu hotplug state to free later */
+> =C2=A0static enum cpuhp_state tpmi_hp_state __read_mostly;
+> =C2=A0
+> -#define MAX_POWER_DOMAINS	8
+> -
+> =C2=A0static cpumask_t *tpmi_power_domain_mask;
+> =C2=A0
+> =C2=A0static u16 *domain_die_map;
+> diff --git a/drivers/platform/x86/intel/tpmi_power_domains.h
+> b/drivers/platform/x86/intel/tpmi_power_domains.h
+> index 2fd0dd7afbd2..43a80b526133 100644
+> --- a/drivers/platform/x86/intel/tpmi_power_domains.h
+> +++ b/drivers/platform/x86/intel/tpmi_power_domains.h
+> @@ -10,6 +10,8 @@
+> =C2=A0
+> =C2=A0#include <linux/cpumask.h>
+> =C2=A0
+> +#define MAX_POWER_DOMAINS	8
+> +
+> =C2=A0int tpmi_get_linux_cpu_number(int package_id, int die_id, int
+> punit_core_id);
+> =C2=A0int tpmi_get_punit_core_number(int cpu_no);
+> =C2=A0int tpmi_get_power_domain_id(int cpu_no);
+>=20
+> base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
