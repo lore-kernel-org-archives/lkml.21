@@ -1,95 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795626849;
-	b=qqOZQqmLvDXmojghZklAb0HRqEphQVzNffiTTztEFL7O7KMUcbSxFQnitBV/RIkzUBF5
-	 CcSBFZOpjMua86IfHhQ0QvgFtn44CRht++WTlTiu2la+UxLjxr66TKJl2X2rtLg3TZ2CN
-	 UnbSyzbjf/22itb9VCwUqRfB0KrUaJPgH3bmkEve+IBiSDSTr2Z/S6qVpmsC2Q6z0lVGb
-	 XdV+AndrjzGuGzKATEvA9EqP0dh5dLa9UiZ2/IEqvPk5H+Ll0fViq3Yhiq072VtEl1XRz
-	 pGku9t5896xywDX+N2K2RdDK19Xpa0OWU4ls7GEBxwkGkJknudHB97ENuPmTr9ok/kA==
+	t=1795626869;
+	b=1DEku6D7JA66tii1DnlJcCB/ZlZu+Dq5OTfmcAeA3zXeJRg1A4/iK6FYo1CBVSGpkyF/
+	 gQZL3AtSaIfCU42HCKl15OTWOSu0MAQyx9ggOa7VcrgyZoThkKWBOS0BnqvZUTyCWhiVt
+	 70nvL6RvLaVhJq1YaVBlVSLZYtoO/us/aKyUcY3AhWy+rDdz2ua+rqVgeXUg+GdNx+QyJ
+	 BVEw1qw+WROh5Rq5EIiSJQUIP+BsvEtEQqr+frq2kc5LO6Sdu73nOwB5BiWq4ZllitXA0
+	 YfyGTkcH9H5PAkG4ZuIFKqG8CAYIZTBSS7p6jnGS0xO994Zx0JjkhWoOakL+58eYcxQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795626849;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795626869;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vi7Ga8AzaOEpzqmIG0jTgw8eJ4TgVhlTduBxELRLKlk=;
-	b=SBy2cgfCWFVu79eF/FfFe+xs2m2OGDqv/UqrYr60MI4+ug4hTodH/yrflhU9T43IpJVt
-	 Hp8c95wR1KEfY3yA1cXBNsVJIYng7uhhJdiSK8qFJbhZCnPHT9TnqYVfjHnP9bZJ22MTg
-	 sMTWz6onKnFXt/HKIgQSZjonMuLli9Hc2V1FnpApq0O/HZCwp13M6dTU/QdLUpPf9oM61
-	 tMiriaSN1c5RW/GkpQro323rVBtcPsVmi/03J6qAyI9YiN0inFWkMFztu9ng9sWaAXfKG
-	 mwUhv38RC0FK+dVttqpq9XZIxPWJWsCJxwEzsWaEvUDuMnQWO67hpA97IRTtklnhBrw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=e41widtp5DMmdFFeX2AWf3mpay/8eXwXnXNPU/S4dOI=;
+	b=zJCu2YvV+PhF7SVTrBoOFxkGKvElxNJQ4KYZmZGeJPbD4unE7peE3hMYQvjyzMAg18GH
+	 Eq0TBu7XTDVyXyy0qUlTl09LLD65n0NsptysP/8mU+XK955pMPFgRwIeuEO16P/N36SCp
+	 XiLKMCwfvpAFwqPvSTO0mbpS//6sxGY5lwkx644P7+QWbhayrULl26xArgOXnNHIeu17J
+	 WAcHjNvVzKqmxutTJo7PurLN6+ZmkBh30a5VZeVu2il0i3WOMGMSuU97dKgZh+ua+JI4G
+	 C+a2R/EqS9BjdDkQ9Y/oGdYZtuCdPlYdZf/XEnuShqCIWlc8KYf91t+hnD5gz+bA1KA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oTkpIRp6;
-	arc=none smtp.remote-ip=209.85.215.173
-Received: from mail-pg1-f173.google.com (mail-pg1-f173.google.com [209.85.215.173])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cpqd1Fhd;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2184A606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:14:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2184A606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89D8D606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:14:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89D8D606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oTkpIRp6
-Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-cdb1199bfd8so2825689a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:14:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cpqd1Fhd
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so47195595e9.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:14:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795626848; x=1796231648; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vi7Ga8AzaOEpzqmIG0jTgw8eJ4TgVhlTduBxELRLKlk=;
-        b=oTkpIRp6ca4AvCwdWImpn3mA0hDMjNB5LJqCpg/VPu2Dn2kn/JgZ5wqO7f4l04C7Ob
-         qYahaX8BB8CkoORfW3RbeoYWwBu2K8dlwk2ma8ltBhRH7OBqA9BU2yoYQqPQG6w8MnSY
-         d+wPwfU3o+TYJ3sCzwA8sAxzzUlg74UnTAwZt5SSr1MOBJaGt025TFdPgWLIELwQEnG4
-         WJ36OttRxq2E0KsE1Cd2qOp7VzlGfEGt8CODbpYY8IH0j+lb4X+xTqtoyj85pBTIUl5o
-         4TftDPObNSly8PNPmxDlv90cZ26khwRe+rVP6qBXtZMiX6RjQCLjQDYpbctv5WW4aaWc
-         khxA==
+        d=gmail.com; s=20260707; t=1795626868; x=1796231668; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=e41widtp5DMmdFFeX2AWf3mpay/8eXwXnXNPU/S4dOI=;
+        b=cpqd1Fhd0iLCuRWp2NcwkdW35Hhyb67oS243Wo5CL+D7EpVLQNMjTkNxQZzEzD+mWc
+         t/H1D9bV/+SjDhFI/hdSBf9hZ6XtVl3VFpxHamiCuqVr0wmQuVtRP/9Ax957AQG36KFs
+         W7d3qnEaTM5YYYkezQmB8cToYOZYmKxTie43HXmZYxwryHaZnQy0taHjGkQZ5D4onGnf
+         N7PB41DuniDrU+Xr3mlYL2Wob1Qzj2G/vjf94pfHiEpTCDQSf/2dsOb79T0DPABT2ZLl
+         9+aKmRFABSdtLriWYnIJWw3L2+14iE8L73rJ4g2+Bbrd2UtQtf6wNjgV/CKEPhcQHlg7
+         XbOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795626848; x=1796231648;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vi7Ga8AzaOEpzqmIG0jTgw8eJ4TgVhlTduBxELRLKlk=;
-        b=CXjdBEokrGxnoGjT9Jcpg6juAJBrPdUqwiah7h/KALDmmOdR4XGyJBrFcdbC4PUWvv
-         JHA5fy6XJseNOx8qzaj2Ixj8GLNKlKQG29ZhijJgXU1KXSIIsTbRiIla3dWXN6j+4m0o
-         5Gzyxwrrrbga1MtwIkXtbikLs79/xHllmkvm8OHSt2gjOPargUmnIRFieU2il1IETmrV
-         MJZS6sV3DMf4wNftZrmv5bxCVhe9YBMCDVpGYI7NBHOkQWXrNZC5huRj3dgag1aChPKc
-         vwAUHaOZBoScJvAb9sFyizf8o4mJNSz2oQJY6XuQiA8NTl/pga7eD6mA0g0fpdpsIIW5
-         Dbzg==
-X-Forwarded-Encrypted: i=1; AL+hErGVweWvTZroV01q/zN/UoRISCejJXZ+OC0jbiUOycO/kEXfX2SRy976W5nSgpFK7PHhCRg1E7ecOWOHFp0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/82yvzksmCF8bGRrn5Z2Pitoi65o379Q8AKNLm8GF07cwXhPZG
-	NRuaZFRJCb3R607x9LRl6iSLhNx1Ho6cWUlRZgt3H9pYC0SJ3EqvK8NO
-X-Gm-Gg: AZFdTZd0PYuMHgvhEWmF0Cbv8pOTwmGLN5jP7UZNZliJTZH4Pq2NEKNGjOaMorpSd9n
-	0R7Gtm8ONOis77K0clSfPb/StUDoLJ3xVrIV2UQPrzUQyNUgiehjIE3z9jWUa8QtNdVkVoYmgzR
-	YpXqYaFNWPHpe9qBS5g/jWK4S7mhyn+hiqg7rq4pBRCZ6doXREnzzruTAiQOvnuyvTPwJ4s8CfG
-	w2is9LOd16sNnCLrxiTxglDGOPIKGmS7raQY5LwMVjTGEL6EqsXlSfsJ2DOWludeYzwHkFscI6X
-	UUeiEk5mxx3oYpIh8HlenuMKU830Yy9NsvtM1tvA5mzMtVKXR0bmINPHzi1zMEWTr3Jl8Xja/xo
-	2xLXqsA+VKUU8qGp9BQ+uUXKtNVmrIFdsdA30dZB9nKHMAj8lo2EFjgsLrcw/M/QMHYJjq6Dw28
-	Y6QfpFQcLBbLzoxlcV2bXS43Gd14rpmvlVBe82KNNixc9Shvf0X/8GEICpWCFhyaHTmlMLM88LM
-	oYnWaG/ZlASANHpn9EveSqGkqMWnuMkw4M8m/hwr1kgavyDqMtvskIAzi20DJv0no1uB8yZRCm1
-	a4V7J0p2FViLONFq3Peks43CDA==
-X-Received: by 2002:a17:90b:2cce:b0:3b0:aaed:48d0 with SMTP id 98e67ed59e1d1-3b41c94ff49mr18412826a91.37.1795626848400;
-        Wed, 25 Nov 2026 09:14:08 -0800 (PST)
-Received: from localhost.localdomain ([2404:c140:2100:6::1b:9648])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad92c07sm28925368a91.13.2026.11.25.09.14.04
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 09:14:08 -0800 (PST)
-From: Ding Feng <dingf3ng@gmail.com>
-To: Christian Brauner <brauner@kernel.org>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
-	Jan Kara <jack@suse.cz>,
-	Ian Kent <raven@themaw.net>,
-	Jeff Layton <jlayton@kernel.org>,
-	Kyuwon Cho <kyuwoncho18@gmail.com>,
-	linux-fsdevel@vger.kernel.org,
+        d=1e100.net; s=20260707; t=1795626868; x=1796231668;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=e41widtp5DMmdFFeX2AWf3mpay/8eXwXnXNPU/S4dOI=;
+        b=Zz9yYSdEr/qPXacfxjqxcMXOxeRHUv22ycfDvlM/N2tbEUoJcAxTcuekffmtHZ91Of
+         bzbwOhZzMvZgWYpD4ZtPGrQYGaeofGdsUEC7bDcBCcydMI7pW1D0SlNDM4QprOzQqCda
+         fjZi6G+U5WlAn9ewj0JV6QC3H1TqRROP8lEBDwmgflJ9pALsFFblmJ62F15N4X6RVifk
+         D47cIbZg1lOnn+PUfnFpTYotrkGXF6TssX4hXJeZckz3Il2arRvh7yCTdZACHha4HNgu
+         BCbZzYucqhGdQnmARxPkizdVvvOBTI2YmMWgN63BVm4AVBTOITuSBoUxaSqnPp3niDcA
+         Hvpg==
+X-Forwarded-Encrypted: i=1; AL+hErHoIKfQfcQsHvLc28OEWhvD+gHCNS7Q/SVvnnKOBW+ZHr5q3HaBiOGzPIztUPls1grNO7mnJ35SB3qiMS8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z807TRfpoWl9acsCS2CQM64KOV6ilWfqaDCGX/1Q5bPwMKRx1lU
+	Lf4RH9cZdGSUZcGJc9FRR+oX3svNOta2C8wYg4yNr2692n2QIz+QZicA
+X-Gm-Gg: AZFdTZdgQutsH56zA0Oato4Gth//qdNPJ/uNPjyOFy/uhXZ+gGHD97uRwuzRqafeWmh
+	PKIkkDU2Wll0YzBJr7VaMEALPhbbsowvwrFChEZLmJ50YySasNMgVYENAsncXDdEk1oQW1U7QRb
+	sShcxLwyVve5Tizm8uyjl6pNcF0B90l43Pgj0QgsH+gAZGNwD8EpRX0rcbZYZEs4DVdu3FGLQ82
+	685jJrnjUNN1kz1IUvcbfH5Q6YmN3CGv7BH2JZ4OLHC7HzEVL8y4TtfTM/wQwayoiJLDIrp6Mur
+	4BUSqB79r7ZSjCVVPZdhAw36gVOqOem5gMWg8/+CtTCV+JXQqPtNuLsXh7Pauiejpsrpi6xHYIf
+	bfhTbtYhYvScVT2Cp1EYHZ7qsCp9FCJqP8Q4KGRb314hmaKOPJmHpjpd11V9A8ApQYNwNVvjuOB
+	rMSY63dxkFGHohtGORbG95hodmE7SEAdikajkI5FTmneBEr89dAxX6M4MWgK34wPMNYFwQVz4hQ
+	MjyRtf+nPJ16Ox8lI2Y3UTRjWyXlyuN6vVOH2NkZ82btHff+GDjCbbW+OyxYvnlrrcAmLFfW8Dx
+	5dx1ATp6NUACO1z5B6S8BJsFe7pdUUOF6FgTuOw=
+X-Received: by 2002:a05:600c:a085:b0:4bb:7bee:5496 with SMTP id 5b1f17b1804b1-4bb8880f04dmr398107485e9.13.1795626867730;
+        Wed, 25 Nov 2026 09:14:27 -0800 (PST)
+Received: from unknown.m0rf30.ray ([2a02:b027:11:8cbf:d366:a6fc:52dc:af7a])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb9066f6e6sm244377725e9.3.2026.11.25.09.14.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 09:14:27 -0800 (PST)
+From: Gianluca Boiano <morf3089@gmail.com>
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Cc: jjohnson@kernel.org,
+	linux-wireless@vger.kernel.org,
+	ath10k@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] statmount: retry an overflowed seq buffer before any other check
-Date: Thu, 26 Nov 2026 01:13:48 +0800
-Message-ID: <20261125-statmount-retry-v2-1-dingf3ng@gmail.com>
-X-Mailer: git-send-email 2.55.0
+Subject: Re: [PATCH 1/3] wifi: ath10k: add firmware feature bit to skip channel stats events
+Date: Wed, 25 Nov 2026 18:13:29 +0100
+Message-ID: <20261125171411.96431-1-morf3089@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <CAFEp6-3cQBaC1Ob1B8v8ZmQcMd_KfyABXxV81M9u0RkBY=Z0Ng@mail.gmail.com>
+References: <20261121194939.3647400-1-morf3089@gmail.com> <20261121194939.3647400-2-morf3089@gmail.com> <CAFEp6-3cQBaC1Ob1B8v8ZmQcMd_KfyABXxV81M9u0RkBY=Z0Ng@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,94 +100,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-statmount_string() checks whether the seq_file overflowed only after
-two earlier returns, and both can hide the overflow.
+Hi Loic,
 
-The size check runs first. After an overflow, seq->count equals
-seq->size, so every buffer of up to sizeof(struct statmount) +
-seq->size bytes gets -EOVERFLOW, and the retry with a larger seq buffer
-never runs. The result can still fit in such a buffer.
-statmount_mnt_root() and statmount_sb_source() write escaped strings
-and unescape them in place, so the escaped form can overflow the
-3 * PATH_MAX seq buffer while the final string is much shorter. A bind
-mount whose root is a 3765-byte path of spaces needs a 4.3 KiB buffer,
-but STATMOUNT_MNT_ROOT fails with -EOVERFLOW for every buffer up to
-12800 bytes and succeeds from 12801.
+On Wed, Nov 25, 2026 Loic Poulain wrote:
+> Are we handling or using the CHAN_STAT_EVENT data in the driver? If
+> so, which event handler or function currently consumes it?
 
-The early return for a string that emits nothing runs before both. The
-NUL written after a string that ends one byte before the end of the seq
-buffer leaves seq->count == seq->size. The next string then emits
-nothing, and the early return drops it with no error and no retry. With
-a tmpfs mounted on a 12278-byte path, statmount() for
-STATMOUNT_FS_TYPE | STATMOUNT_MNT_ROOT | STATMOUNT_MNT_POINT |
-STATMOUNT_SB_SOURCE returns 0 without STATMOUNT_SB_SOURCE.
+Yes. With WMI_SCAN_CHAN_STAT_EVENT set, the firmware sends
+WMI_TLV_CHAN_INFO_EVENTID for each scanned channel.
+ath10k_wmi_event_chan_info() handles it and parses it with
+ath10k_wmi_tlv_op_pull_ch_info_ev(). The default WCN3990
+firmware-5.bin doesn't set single-chan-info-per-channel, so on SDM660
+the event goes through ath10k_wmi_event_chan_info_paired(). That fills
+ar->survey[] with noise floor, active time and busy time.
 
-Check for the overflow before both, so the string is regenerated in a
-larger seq buffer.
+ath10k_get_survey() reports ar->survey[] to mac80211 for survey dump
+and ACS.
 
-Fixes: 68385d77c05b ("statmount: simplify string option retrieval")
-Fixes: 75ead69a7173 ("fs: don't let statmount return empty strings")
-Reported-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-Closes: https://lore.kernel.org/all/179552693473.1490262.10477620788152048784@gmail.com/
-Suggested-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-Assisted-by: Claude:claude-opus-5-5 Frama-C
-Signed-off-by: Ding Feng <dingf3ng@gmail.com>
----
+With the bit set, survey data for scanned channels isn't populated on
+these devices. I accept that to avoid the firmware crash on every scan.
 
-Notes:
-    v2: move the check above the "seq->count == start" return as well,
-    which also fixes the dropped string Kyuwon found.
-    
-    v1: https://lore.kernel.org/all/20261120033644.99834-1-dingf3ng@gmail.com/
-    
-    Tested on v7.4-rc3 (65e4fd942), arm64 tinyconfig in QEMU:
-    
-      case                                          v7.4-rc3   v1         v2
-      STATMOUNT_MNT_ROOT, 3765-byte root of spaces,
-        bufsize 8192 or 12800                       EOVERFLOW  ok         ok
-        bufsize 4096                                EOVERFLOW  EOVERFLOW  EOVERFLOW
-      tmpfs on a 12278-byte path, SB_SOURCE         missing    missing    tmpfs
-      tmpfs on a 12276, 12277, 12279 or 12280-byte
-        path, SB_SOURCE                             tmpfs      tmpfs      tmpfs
-    
-    A plain bind mount gives the same results on all three (1024 ok, 512
-    EOVERFLOW).
-    
-    A string that legitimately emits nothing after a full seq buffer now
-    costs one retry, and a buffer too small for a string longer than the
-    seq buffer costs one or more retries before -EOVERFLOW.
-
- fs/namespace.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/fs/namespace.c b/fs/namespace.c
-index aecd05ac0..3c41fd42c 100644
---- a/fs/namespace.c
-+++ b/fs/namespace.c
-@@ -5807,6 +5807,10 @@ static int statmount_string(struct kstatmount *s, u64 flag)
- 		return -EINVAL;
- 	}
- 
-+	/* signal a retry */
-+	if (unlikely(seq_has_overflowed(seq)))
-+		return -EAGAIN;
-+
- 	/*
- 	 * If nothing was emitted, return to avoid setting the flag
- 	 * and terminating the buffer.
-@@ -5818,10 +5822,6 @@ static int statmount_string(struct kstatmount *s, u64 flag)
- 	if (kbufsize >= s->bufsize)
- 		return -EOVERFLOW;
- 
--	/* signal a retry */
--	if (unlikely(seq_has_overflowed(seq)))
--		return -EAGAIN;
--
- 	if (ret)
- 		return ret;
- 
--- 
-2.47.3
-
+Regards,
+Gianluca
