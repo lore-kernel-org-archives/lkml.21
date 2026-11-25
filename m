@@ -1,88 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645581;
-	b=M7+b/C3DcQmWOfM/Vi6SziSO04QWBzsecUCjMOiKBeW3/K/RAuzwkFi0Zy16gUc8712Y
-	 nW8vKCPubzz8PQ4Y/WKuNtVO6kE6CuuF763hBTrt49fibLdBr/47y480KbHMUKkuBv3Lu
-	 PfmiT6zoi7dfXMaYmYyaiqEqxD5sWxZPperzjNGXUqp4V0WaiFsTNa+HBPiXUh54Q94x8
-	 nXvVdm9xOuSLq5vckqQ4NvXFpBD2eAu+JxrytDqieewyp7ucFVyY4A4ldEyGmnFz83wdC
-	 R90ZhwI9fEi8WI/skwgiacQg0sCSDux5Mz/fI2pVV9hGeYTuo033zODRQE3Hc89gP8Q==
+	t=1795645635;
+	b=Du8XmQfEua/4aTBmMfWASYXqej5yZ9Re0rbzdjYGi+YGN/X8xXdRVvJ7DbM0km5vP6iy
+	 ejcDuUwuut4GkrujBYJ2j5mjT9Z4lBzaeUOjINawICFhl4ChCXSuBha1p0bS1pAyR4c8j
+	 7uT59uGR4G7VAqZqigo4DRYiQoswnkXhT72Ef0tHiNb4JVLEoi3spruZTExzBiCGVugr5
+	 4DKM/pAkXZzw8HoeBObki5OLO98PRGCSLGjKGHXj42laARnAlogW6UT/4Mp8XbIy37Exc
+	 4LJFaTJ/LXdK7NtYpjAg+lcI+vwL0QwXn2XJVoCpzpO9s2JOPAg1CTx5mzifcKrEcOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645581;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645635;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
-	 Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Wuez8r9Gu63w2n4PILNMjVIjqJqefCtyrZMp62dMrng=;
-	b=kTpGe4LUToi1LnBZvYGtFT9KntPtwZGTK6YFtaz3gym5Nup7tCR9xMJMO3PjCnTZelbP
-	 RaGXzqYbNBFRDCYMhX+J795y72LzrcebfOAaFKE4KXjg7wyd6m6RY+VHwMc88RbTzdqwl
-	 qMi1zlVtCH650kfV8EpsS/Ao/BrwDBPWuB9PuKhyvuHuSpJiVYhsh1wSBr7Q8/9W9a+A7
-	 91RF4CFF9PmlrjzahNz4g7C9eRC4tyBdJjzh2qy4w5298YjnYUm2N++ErUJR824g9ThtF
-	 owonwhc6gL9QiikYIdKkc2VYBB6oBjfMAu8x64wRiPgfGlUm10bMylTKpMQ23P5+zJg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=0tzFeKCwOoFb6bvhWfk3Oe+1P7rt3PYjl4BuN72k99w=;
+	b=rtiFG6ySASy3jr6ConOByH+d1jCdGxLLDUt9doexz76ttAq7bCyk4vZ+zVZQlN5WTmhx
+	 ibFOP+Dhp9ljWu6Xqx3/alP9u09nKWY1V+NsjoJIS4nQBk//NDBm+gzkAsbDJUaT5a0oi
+	 fFvSneWsf0Zdo330LrSRIxNxhp0B9lBBkhnJ/9aIX5Toy40o2x0WMyUDLH9qk3bEhSC6K
+	 dip73eBNv0Ow6wd3tNumhBsERZpZjWG6HLmZpYWjvSdmeTlzzg8w3N2yndxN2QZkSGyDd
+	 WroNoD0Dstzn1yeN3D0bjQoIEXv8SJBOXZqxKVAnC5FhLQDUYsvl/YxKv1EAfFOykkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=fQ8M0RhK;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jaO0HsqW;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FC6A606A69E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:26:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FC6A606A69E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32587606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:27:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32587606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=fQ8M0RhK
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4a42b34e930so5509678f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:26:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jaO0HsqW
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-3846d5f54c1so7337165eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:27:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795645579; x=1796250379; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Wuez8r9Gu63w2n4PILNMjVIjqJqefCtyrZMp62dMrng=;
-        b=fQ8M0RhKyNOOnGhbnCuZJSsdvS2ywplR+VJH77h36xzfLAoT3Sb1fcj39NGzdN7SOz
-         sHINKC+II5V6KVhG5xSsQJ+Q8cQ0XKfaWd2nsThoPDyslc8HBUSckEQtbdCd/PwLHJ3Z
-         eoY4Ake1MX3eat1bX1YMIQouIi5ote4mChiP52hP9yjC+4/zKuXTCiFvosNAwEzpKd1I
-         2SLuDdt8vTCG0NePsvFu/VNnU7BI9lO2NHQwIh5qixP9Smnv7rWosZSCrIcBVpOXS6rc
-         NHCTmFN+St5noQPvtCFeT7chk3Lwp8CMF4+QvhFsJ+CKCJbwaLZ72oft7IRQZdbdsBry
-         CXjQ==
+        d=google.com; s=20260707; t=1795645633; x=1796250433; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0tzFeKCwOoFb6bvhWfk3Oe+1P7rt3PYjl4BuN72k99w=;
+        b=jaO0HsqWvDhXsTL1z+rc8IVo2zErMi5qnH0mxcNXuYgGSIoTvcURxSkEvGyO8BDJJw
+         qV98AOrRAJWrtKb5oLghEpNFo8apBTwVmEmzevW2vcRKRBWcU8gIMAQDn605jljUqWP6
+         FbqroJaQuCM3sliHhtog+jxQu6OAYnhDw6sobLPQi6E3lcis7Rn8bXyHQN6hteCM4AUN
+         I27w1VIQ8mf5gDdYvPVrgCcYWgbFbi7cq+taOdfcEmqOuSPKWlebJFrJm0m1YOs/bUvR
+         3Zk09iO/MZHyWEWTxk6Qamk/eav8FlBPZarvGNAnoqrkXHbAN1aGev9Re/ijSqAFK9zy
+         gbtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645579; x=1796250379;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Wuez8r9Gu63w2n4PILNMjVIjqJqefCtyrZMp62dMrng=;
-        b=Uz6NIGf8WawVEwiH7DLcUnsP+uuENsvvLT7AApk0t+Yxkw/C60To15GU3Ykr0bcToY
-         ND/Q8WcR1IwFxbM3et7Ogzl7+dBPK10PyVfmknY83Unzj2um+3IrYNM+ChfT9bDN0KWk
-         +bJh4bQ1sTbGshOI2kWykbptNon3UVnkCKu77wGmCALSKEj9H3UxBOPbS3tC0Y2wHTnP
-         NchJynYz0UUIehZazpO0kxv2cXsiNObU9RrXfng2ymW9ZJIPVD58vOIFP/EsMVwyuCF/
-         mVx0b8Z5PnjqvmnWwnktCC/I/ZLFLwpnKOsbCiY+dfMvCYfbQ7mpqo3XR/asHqxIULz9
-         JAiA==
-X-Forwarded-Encrypted: i=1; AL+hErGg/XBhMASJQ1Wa7Z9qrsbD+rojCht6n6ONzIT2ZI7iLyVqJnHES/8pNCtywRqrjSrsgoJaLpPl24CiVuk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8AYGqjVcnKA0SIGK8Nn5SMv3bw1YvN3k+34yRogGrxuG+hRZ5C
-	sjY2yfxMWCy7L4vZeaDct7PfsxpQKxZK+4yjOaVv+dXUqszRupqNBlE/cCffkOstHM0Q9NfpRMv
-	pWhmiCe4=
-X-Gm-Gg: AZFdTZc7fkC2P+wVNzN2WBOqKR3P9Ch48lzaGCcNtCJs51WCWpBQi4xphfv6LMoOGmC
-	f7SYZbfGZuDdVmL0JzQ2Q9oRCNc43o/y1wu9XWq9K3xHlgByn9o9T47Mgba4YfOzm7tJp/WDveK
-	AwUdQuWSWUFI7w1D5+gU8gb44gZAABFiRp3pN92XL5jhDp2ue1S3309C+oJrUM6iPbbis0tbM9n
-	peR5mlKdzB9nZliXSwS+n5n4bqV86dog0S+zQU0xWEvZlouanu58noWPTxIEIPMpqW4q1I3kISG
-	77DX6jMIh+kkyinhLiId0DploRY8NVwA2P37jJi2bUd1QVCnQb0u+adXwo5YhzDWJUS3MzkPyPa
-	KKjqH/2nNGfDHxD2T1Q/QDK+bMOdL7eTBZkb3dUyJjm8MXrDDDtgyKrQHxWUBzKBn9uwuRDiLC2
-	NstIXhU1nvf7pxbSkZzcHeBOvj9Jwy8VUmElx5YyPEn+z3uobhywajul7f/qsCZjA5QjXoUSpRm
-	95dyrypqqX/dvBApobE0zrh42UgqBT1EDJcP+GFDmtz709QpGJPQ3Lho4TDXNCF5OzO8QWwtmi7
-	x01NhV4PRM0UFeukLcD4UcENEy1O5nA=
-X-Received: by 2002:a05:6000:4616:b0:4a8:714:7ae2 with SMTP id ffacd0b85a97d-4abb32a3f61mr37314572f8f.29.1795645578997;
-        Wed, 25 Nov 2026 14:26:18 -0800 (PST)
-Received: from [192.168.3.100] ([151.42.79.162])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110d56sm35684687f8f.40.2026.11.25.14.26.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 14:26:18 -0800 (PST)
-Message-ID: <baef27e7-93fb-4e6c-8df0-8cd74b9aa533@baylibre.com>
-Date: Wed, 25 Nov 2026 23:26:17 +0100
+        d=1e100.net; s=20260707; t=1795645633; x=1796250433;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0tzFeKCwOoFb6bvhWfk3Oe+1P7rt3PYjl4BuN72k99w=;
+        b=BBFASLNs6Sf1tZo67bHYjR3gOnRQw0Ai2/kUs5owRO2eIHeOurxVajqEKRt4/2fOeY
+         HmgZlUId4AkiPIsp1nT0NRlhV4qTuBHJZe/5n2TrevSOuoiEiz3bxIiZ0ZouQOxdgi5r
+         70VXpvsDCrbSpvLpMow1h9g4bs476fcrDhiaZXM91PWBY8o5sY8sjqPMf2BL1qalERRL
+         dcLz1aU/LRSTHJd7CJNg5C6m/Sntz0d3uMlW3Z3ZiYqEh4FP0XGB7MSkMfwxdgwMFN2Q
+         ncqFvMY5m4F1X41DSfJy9RWqrkSzyNO3HRwIfisCFlsHhHBkpVnm+eNVm6/B6b7NmS6c
+         Z+Pw==
+X-Forwarded-Encrypted: i=1; AL+hErHoBs/Z8hVLL6XWvbvL5jVtzcZswmAre+3gCVYOC4LT60B2GNtei5GitNK2MRv5AP3dAUb3Mg6poe/8Iyw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9wYc9MtWF+BWdoHUOb5Ppqt2opc/ZW171Gv66UbO9Uk2uOpoST
+	HAE56vRBx1sJUJIdhaDLJsMWr05hDmwiMCzqOBgkqqgHyqs7BalQ2aT1UMwuRfOSodBffkOlduH
+	3iQ==
+X-Received: from dycnb22.prod.google.com ([2002:a05:7301:b16:b0:386:af9c:96b6])
+ (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:d81c:b0:386:b7d2:a279
+ with SMTP id 5a478bee46e88-386b7d2aba6mr8835631eec.34.1795645633028; Wed, 25
+ Nov 2026 14:27:13 -0800 (PST)
+Date: Wed, 25 Nov 2026 22:26:06 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,80 +75,91 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 6/7] ASoC: meson: gx-card: add support for audin FIFO
-Content-Language: en-US
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261018-audin-v5-0-4b8cc13a1b22@baylibre.com>
- <20261018-audin-v5-6-4b8cc13a1b22@baylibre.com>
- <CAFBinCA12FvOi=9gB1xj3MDvNWstx1N4TtyyrrndJ_JT5eLX=Q@mail.gmail.com>
- <0949591a-63cb-4bb3-a7de-cf59ddbaafb7@baylibre.com>
- <CAFBinCAjFb7yS4VQp+BqLw2dG61To+iU4aiBvaVE9B9bWe=oUQ@mail.gmail.com>
-From: Valerio Setti <vsetti@baylibre.com>
-In-Reply-To: <CAFBinCAjFb7yS4VQp+BqLw2dG61To+iU4aiBvaVE9B9bWe=oUQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261125222606.1448637-1-elkin@google.com>
+Subject: [PATCH] pinctrl: nomadik: validate DT pin config property read and range
+From: Elkin Cruz <elkin@google.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, irogers@google.com, 
+	Elkin Cruz <elkin@google.com>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On 11/24/26 10:21 PM, Martin Blumenstingl wrote:
-> On Tue, Nov 17, 2026 at 12:06 AM Valerio Setti <vsetti@baylibre.com> wrote:
->>
->> On 11/15/26 10:28 PM, Martin Blumenstingl wrote:
->>> On Sun, Oct 18, 2026 at 12:18 PM Valerio Setti <vsetti@baylibre.com> wrote:
->>> [...]
->>>> +       if (gx_card_cpu_identify(dai_link->cpus, DT_PREFIX "gxbb-audin", "FIFO"))
->>>> +               return meson_card_set_fe_link(card, dai_link, np, false);
->>> I suggest using the "audin" prefix. AIU / audin seem close enough on
->>> all supported SoCs that we don't need a SoC generation prefix  in
->>> there to handle this differently.
->>
->> Do you mean using "meson,audin" instead of "meson,gxbb-audin" for the
->> compatible?
->> If so I'm not sure this is allowed nowadays. As far as I understood
->> "meson,aiu" is a sort of legacy naming. 'writing-binidings.rst' says
->>
->>     "DO use a SoC-specific compatible for all SoC devices [...]"
-> Let me use an example as I realize that I wasn't very clear:
->    compatible = "amlogic,gxbb-audin", "amlogic,audin";
-> Does fulfill the criteria (as far as I understand it).
-> What doesn't work is "amlogic,audin" alone.
+In nmk_pinctrl_dt_get_config(), of_property_read_u32() is only checked
+for (ret != -EINVAL), passing an uninitialized val to
+nmk_dt_pin_config() on other error returns. In addition, val is signed
+and nmk_dt_pin_config() returns 0 even when val is out of bounds for
+nmk_cfg_params[index].choice.
 
-This is the thing I'm not sure about: "amlogic,audin" does not seem to 
-include SoC-specific details (in my opinion).
+Check (!ret) after of_property_read_u32(), make val unsigned (u32), and
+return -EINVAL when val >= nmk_cfg_params[index].size.
 
-> 
-> The GXL example then would be:
->    compatible = "amlogic,gxl-audin", "amlogic,gxbb-audin", "amlogic,audin";
-> 
-> And for Meson8/8b (sorry, I didn't get around to testing) I would then use:
->    compatible = "amlogic,meson8-audin", "amlogic,audin";
->    compatible = "amlogic,meson8b-audin", "amlogic,meson8-audin", "amlogic,audin";
-> 
+Fixes: e32af8894588 ("pinctrl/nomadik: add device tree support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Elkin Cruz <elkin@google.com>
+---
 
-Ok, so if I understand correctly you would like "amlogic,audin" to 
-become a sort of alternative fallback so that:
-- meson8 and meson8b do not need to have an "amlogic,gxbb..." compatible 
-as fallback
-- the change in 'gx-card.c' is more aligned with what's currently being 
-done for AIU.
+I am trying out new Clang static analysis checks for kernel bug
+classes, and they flagged this code as possibly buggy. The findings
+were triaged/fixed and commit descriptions were drafted with help of AI,
+then checked against linux-next (not runtime-tested on hardware).
 
-Is my understanding correct?
+Thanks,
+Elkin
 
-Krzysztof, since you already approved the dt-bindings change in this 
-series (1st commit), what do you think about Martin proposal?
-If you don't have anything against it, I will add it.
+ drivers/pinctrl/nomadik/pinctrl-nomadik.c | 24 +++++++++++++----------
+ 1 file changed, 14 insertions(+), 10 deletions(-)
 
-Best regards,
-
+diff --git a/drivers/pinctrl/nomadik/pinctrl-nomadik.c b/drivers/pinctrl/nomadik/pinctrl-nomadik.c
+index 617ad259f62c..400009929dbd 100644
+--- a/drivers/pinctrl/nomadik/pinctrl-nomadik.c
++++ b/drivers/pinctrl/nomadik/pinctrl-nomadik.c
+@@ -693,18 +693,21 @@ static const struct nmk_cfg_param nmk_cfg_params[] = {
+ 	NMK_CONFIG_PIN_ARRAY("ste,sleep-pull-disable",	nmk_pin_sleep_pdis_modes),
+ };
+ 
+-static int nmk_dt_pin_config(int index, int val, unsigned long *config)
++static int nmk_dt_pin_config(int index, u32 val, unsigned long *config)
+ {
+ 	if (!nmk_cfg_params[index].choice) {
+ 		*config = nmk_cfg_params[index].config;
+-	} else {
+-		/* test if out of range */
+-		if  (val < nmk_cfg_params[index].size) {
+-			*config = nmk_cfg_params[index].config |
+-				nmk_cfg_params[index].choice[val];
+-		}
++		return 0;
+ 	}
+-	return 0;
++
++	/* test if out of range */
++	if (val < nmk_cfg_params[index].size) {
++		*config = nmk_cfg_params[index].config |
++			nmk_cfg_params[index].choice[val];
++		return 0;
++	}
++
++	return -EINVAL;
+ }
+ 
+ static const char *nmk_find_pin_name(struct pinctrl_dev *pctldev, const char *pin_name)
+@@ -724,11 +727,12 @@ static bool nmk_pinctrl_dt_get_config(struct device_node *np,
+ {
+ 	bool has_config = 0;
+ 	unsigned long cfg = 0;
+-	int i, val, ret;
++	int i, ret;
++	u32 val;
+ 
+ 	for (i = 0; i < ARRAY_SIZE(nmk_cfg_params); i++) {
+ 		ret = of_property_read_u32(np, nmk_cfg_params[i].property, &val);
+-		if (ret != -EINVAL) {
++		if (!ret) {
+ 			if (nmk_dt_pin_config(i, val, &cfg) == 0) {
+ 				*configs |= cfg;
+ 				has_config = 1;
 -- 
-Valerio
+2.56.1.839.g22a8290db9-goog
 
