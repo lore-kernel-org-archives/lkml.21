@@ -1,87 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616481;
-	b=CqMQgWX7iAWxQdXc0wBR3J8dBoHzfP2g1EqwC5KX0yGb1XYoiQMoB4euzQLD023I5Ju5
-	 bwS72V7CxPiLkVovHzz2qk7QX84zHvHnwIEErr4+3vUnmg1QrRFoS3mhwX6pZCQEUWATN
-	 wT4qgXga3jE7bvhiCtWzayVZnvvBX0sOHHIm0oRp39wLesBtjLEKhvmazFr5k4qaRNr1U
-	 CCLCKwePKtVcKalvSCisNTpvn5I0OMcN1FZG8TK0gqQUDc3KatcTCOFnzxaEZjXRXpshx
-	 P6dKBcnUCDcNCrEUX/XgCKTVcF3E8C041YuBIhvcgjQyG59jd4AEyMM6RRzUF2LzDkg==
+	t=1795616485;
+	b=xeX6n4b4IcSlYx2w5ndOgY3m/aY3BYL8aCblfH0cY4ri19ohuHjwwKe+rlbJ5qa22E9X
+	 cNyFt0VcIY/hiFcLhaE8jyzGdSIzwFhrnGa5jdF1IGT8CAdWIGoLRuIXj/uuSZ+/venu6
+	 oeXQlsTCZD1UCZkC30aPB4ZNm0rIFlt2ZfRDf6tmsyNskgYXJ9iOvHUpTRBNI45OaBdZr
+	 g19jA2uPbWiv90birOPbEqo2BQqFFslceo+zHIw1HpPEISnNPyRgms5t2HpqWsF05PO2l
+	 siqUcoh6kz5Qq4Fio6I5Qvefme+BRVei4UnHkc8qZn4qlSChQLaDK7o2gupQuCShawQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616481;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=aIFur0b6JQXrtfZ5k2pqTwRixw1NNXm+TnSCUVUWtkg=;
-	b=i059sTHYNtTY7yvrSMTTlFF0MDJEeR/u72ufI+jIVe6R1OcWD8S0muqCdRMXQlwwyu1x
-	 H/YOMMc4hurUgKndFOUJ+2l7TevT7LkBQbKNmWjbB2qUMD0uLcZ4JTMDzcjzn6euOhFpB
-	 v/mXcuCf4v4nEP+CdR8OXk/cAHh0W2c8WnOC8cRTBLjV+cVKBdkjoH9fVNa0g9mlEiMPt
-	 zYiGuX5Wsr3G7v1NmiMgODiiYIyIikghO65REdQIjf7Pl85eHrnMfeGqppcZI/XWdJqLD
-	 G1Sv0WKlvzCYkrPMYXTNy5BDzwVW6AWpVEmWlNULUqh6OCLyTwDpnG4EmSdRk32C6/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795616485;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=U+xnevs0V4p93jojRdwNAhj1e+8w16LoaDM5qUqFnh0=;
+	b=W6rdl+2iDtWSSqFEQP6NrsSeV6SOwKG1PuPd3T34jZDvJsJaKPX+qqtzUsASWs93lbDz
+	 vmDPqNPY7/aKxFwEoLfjSuw4VtwBUceAf4id+ge5nmToabmQEm6YfrE6UUvJxEROjxAcX
+	 QsB7wVtuI9vRDqdSr2F6uXSkjjIdt1y+TTtgT9s32v8UhLfpuMZhEAFaLW9V4PphAvUAX
+	 2/aCbPuz6poInx18GbHy7/2tdl1rt9egIc8UdLtzUVqDVXk/qRzjRVILPyBIDs+PQuV8m
+	 RLDWdFgyr/J8Apddc4U6neaqdLdU+ihEiHn04z3rMWV3OAfzxCez1s5yfhS1ksUjFmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ZP4cszJX;
-	arc=none smtp.remote-ip=209.85.208.169
-Received: from mail-lj1-f169.google.com (mail-lj1-f169.google.com [209.85.208.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OEA59VMe;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47154606A33B
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:21:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47154606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E31C8606A326;
+	Wed, 25 Nov 2026 14:21:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=ZP4cszJX
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3adfb0c9e3cso4802741fa.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:21:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795616479; x=1796221279; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=aIFur0b6JQXrtfZ5k2pqTwRixw1NNXm+TnSCUVUWtkg=;
-        b=ZP4cszJXmUZlMGJtbZ8PlmAsjUZ6rzmMVf8KPM3mYZ3Ns9WTxIMJQFQ7gtv10yYVG4
-         0CgaUMFucTfAEE1Z4x4SfeIuKqa+CwB0FrnIcJXHvuoyNam+aUvUnr0KvwPsaVr6jMon
-         Vlj2PwIRSIOSXGX8j4rWov2YJUxkCnEz5ccDZGiL5SIXVD0qq8U0mX2CFCaGlMRXYiGn
-         FsxDARH41XcEj/7c1tAsIlU4D+CpX0lyDuht4nfDjc+6TDwfa1eAazA+yBsoEIMjPdNg
-         bQAZYuKxqdpjQJpGRMg5n/uJIGq3fKGuH5GgqD7KJEyg9c/meRTlLh+beVP0lZQ+8LC8
-         fzZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795616479; x=1796221279;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aIFur0b6JQXrtfZ5k2pqTwRixw1NNXm+TnSCUVUWtkg=;
-        b=RKPtb64xwqKm4O+2H+sIIy8Rh7lFlI3ZraqztSBwXltQ1qQcn0vC9ls8zaGTD+P4JA
-         d7vrnUmoCaW2uYCiz7yZwgJRbmYHpmSrLsKLPPJrdZOMDtSc0ZRGfxoW4AzvMJLF94E5
-         XbWERXhG+ovDLVuKem8bUDHYwIUa8j1XwWKhnwU79FIhLWPJh+oYgB44c9ER86BBVFKM
-         wFpQx3kuHDtYeFlHggUtZfBD2Fv8grqcT+OGMHJvgTJ0cid9XFpHok9IuUaPq6q8sM8z
-         PPzrCdnPhb42h1goTWVtIb0APJdlt52xqZiH/weLrQ/sjL9siAdQCRVcuRo8hPYG380t
-         gdPw==
-X-Forwarded-Encrypted: i=1; AL+hErGPaqdCih6XvPzErRAtCmn4Xrceis8fKMALE/XpeKmUoCrVPtllUcNTfG2yGGRpOkIjBfuZwucSRL8v/Gw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9TY1OaLv4ucVb5rGjXy5APqWzoXSQrrgWCMO2/+he/1pRvxxQw
-	NPbijeyaPUQDl0rBV8G7tDi4W8OhNNjkFeCOcs9SCBwxtZ6vyF2RV/U7LMgqS7FSxEI=
-X-Gm-Gg: AZFdTZcHhDpTQcJrXhzuJt6T3zFBEuTxIO+pibGl97cZLVNcuCQsjRh0uEmPuulpSSl
-	oaN39EDhZGpr5qzGKjppFXPFcJlcyAHs6XQeu5/fVBfOlavtOHW7L2hBHgUaBmAMwJVpH58kxcO
-	GZyTfiVAsSsJgQinzggGWwVyhu9ivuFMxZ7ELJhardsO2JKiRM6k7iq3KyiMsbZFUJyb7S4ZQTH
-	M7VEK6x9vD3pp2C26eY8V0VQF7I9c7orcT99HEF4Nj/xalui6kGIZsKwwXFKkdBQbP0E0Vf1Efm
-	5wOuj87BRvCi2U67vYuOvErIWxHInO0jhx9NwKCyaD6/lDj5GjcKx0YAEdWgOd3o3Pfr5gIozx9
-	5IIJrksxb2qkzrkhlO4NC+C06dW8VYHgliUMxLpgH/tcUDkGwhZDZUSo1rMN19NslijjQjp9Zcp
-	hvTcjnDTwSwBGFLPIVsgwi0WUFecg6xUOyWt7C929InQDsDkcxAOQX6ps4ovKvgm2hgN0CmXZlM
-	rzDJcE0L49BoEEfiJvLz+PSHtEFUGE0C1+YnjOhx1kDuvvO3YnOwc1iENt8GkL+ADXkRETkD5sb
-	7FB/NUGxJ+m03cKuvD2nIgw4T56eWnoqvo/+OHjIiMVuTcf1sWZ2CSWG9QMWDG4Es6qRmwi/z24
-	zbTx5uI2JQRyFlKjTtDy3WFFWv3Xp
-X-Received: by 2002:a05:6512:31d5:b0:5bf:f87e:3d25 with SMTP id 2adb3069b0e04-5c1bc6b22b3mr6618657e87.2.1795616479393;
-        Wed, 25 Nov 2026 06:21:19 -0800 (PST)
-Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd0171c7sm4541303e87.31.2026.11.25.06.21.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 06:21:18 -0800 (PST)
-Message-ID: <aa0a99e8-1c49-4417-9a1a-8653cfb3585f@linaro.org>
-Date: Wed, 25 Nov 2026 16:21:18 +0200
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OEA59VMe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CF0A1F00A19;
+	Wed, 25 Nov 2026 14:21:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795616484;
+	bh=U+xnevs0V4p93jojRdwNAhj1e+8w16LoaDM5qUqFnh0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=OEA59VMep+ap3nxbsFbvOyuf1k3jMtdBKbJmCWGNpbynBOQBfkAHt16RGL5Ui9azl
+	 k7zUTVV4smtxoihdf5pD0EtgsUWvx+dRLi6Hx3CZF9rVrM2Q9PdJHLERkn7jYr15DD
+	 dXGqK6CbJKuxPPRX+iChzjLLZRTDIls+mCPegdlrfUHKFQDvFfhHzV0tmZgiC0HX1z
+	 LthrTRS9OfCWC15NlUrWR0OtwXjEMsCR/VvAaxYFQVZvpJs7tzkIcjeAopr5vQ0XRW
+	 8k14nLiXOO51UxIGxl0Xwdmwjin/GYfgYBOhA4U6MDVObWYLDY+qSLyIBWu3D8bPf+
+	 YZ+09X5q1Pk0Q==
+From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+To: Jiri Olsa <olsajiri@gmail.com>
+Cc: Naveen N Rao <naveen@kernel.org>, "David S. Miller" <davem@davemloft.net>, Peter Zijlstra <peterz@infradead.org>, Steven Rostedt <rostedt@goodmis.org>, Ingo Molnar <mingo@redhat.com>, x86@kernel.org, linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+Subject: Re: [PATCHv2 1/2] kprobes: Increase the kprobe hash table size
+Date: Wed, 25 Nov 2026 23:21:20 +0900
+Message-ID: <undine-1795616480318619368-1be7e961905611b5@undined.local>
+X-Mailer: UndineD 0.1
+In-Reply-To: <awWdDfj1fknA8fuF@krava>
+References: <20261122200239.1481088-1-jolsa@kernel.org> <20261122200239.1481088-2-jolsa@kernel.org> <undine-1795477745290490698-99e2fcc5c9b45beb@undined.local> <awWdDfj1fknA8fuF@krava>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,60 +58,180 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] dt-bindings: phy: qcom,x1e80100-csi2-phy: Add
- Glymur compatible
-To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
- Bryan O'Donoghue <bod@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- Loic Poulain <loic.poulain@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, Suresh Vankadara <svankada@qti.qualcomm.com>,
- Vikram Sharma <vikram.sharma@oss.qualcomm.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260925-glymur_camss-v4-0-d7c2983d6d7b@oss.qualcomm.com>
- <20260925-glymur_camss-v4-1-d7c2983d6d7b@oss.qualcomm.com>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <20260925-glymur_camss-v4-1-d7c2983d6d7b@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-On 9/25/26 08:48, Nihal Kumar Gupta wrote:
-> Glymur integrates the same CSI2 PHY IP as X1E80100. Add
-> qcom,glymur-csi2-phy falling back to qcom,x1e80100-csi2-phy.
+On Tue, 24 Nov 2026 15:19:57 +0100, Jiri Olsa <olsajiri@gmail.com> wrote:
+> On Tue, Nov 24, 2026 at 08:49:05AM +0900, Masami Hiramatsu (Google) wrote:
+> > On Sun, 22 Nov 2026 21:02:38 +0100, Jiri Olsa <jolsa@kernel.org> wrote:
+> > > The kprobe hash table has 64 buckets, so with many probes registered
+> > > each get_kprobe() call walks a long chain. With 20000 probes that is
+> > > more than 300 entries per bucket on average, and every entry is a
+> > > separate struct kprobe, so the walk is mostly cache misses.
+> > > 
+> > > get_kprobe() is not called just once per registered probe. On x86 the
+> > > registration path calls it for each address it has to check around
+> > > the new probe: get_optimized_kprobe(), __recover_probed_insn(),
+> > > __recover_optprobed_insn() and arch_check_optimized_kprobe() all do
+> > > one lookup per byte or per decoded instruction, and most of these
+> > > lookups miss, which means walking the whole chain. It is also called
+> > > from the breakpoint and ftrace handlers on every probe hit.
+> > > 
+> > > Increase KPROBE_HASH_BITS from 6 to 12, which gives 4096 buckets and
+> > > cuts the chains to about 5 entries for 20000 probes and about 12
+> > > entries for 50000 probes.
+> > > 
+> > > Time to register the probes with the kprobe_many_example sample
+> > > module [1] (insmod with nr_functions=20000 and nr_functions=50000)
+> > > in a KVM guest, mean of 5 runs, for different KPROBE_HASH_BITS
+> > > values. The table memory is the size of the static kprobe_table on
+> > > 64-bit:
+> > > 
+> > >   bits   buckets   table memory   20000 probes   50000 probes
+> > >      6        64          512 B         4.71 s        29.99 s
+> > >      8       256           2 KB         2.05 s         9.90 s
+> > >     10      1024           8 KB         1.39 s         4.63 s
+> > >     12      4096          32 KB         1.30 s         3.64 s
+> > >     14     16384         128 KB         1.28 s         3.41 s
+> > >     16     65536         512 KB         1.28 s         3.38 s
+> > > 
+> > 
+> > Thank you for conducting the testing and evaluation. The results show
+> > a trend similar to that of a study I previously carried out[1].
+> > 
+> > [1] https://qiita.com/mhiramat/items/1bbeb309ee5dfbc979ce (Japanese
+> > article)
+> > 
+> > > With 12 bits the registration of 20000 probes is 3.6 times faster
+> > > and the registration of 50000 probes is 8.2 times faster than with
+> > > the current 6 bits. 12 bits is where the curve flattens: compared
+> > > to 10 bits it is still 21% faster for 50000 probes (6% for 20000),
+> > > while going further to 16 bits gains only 1.5% for 20000 probes and
+> > > 7% for 50000 probes, for a table 16 times bigger (512KB vs 32KB).
+> > > 
+> > 
+> > I personally think 6 bits is too small, maybe up until 9 bits (4KB)
+> > will be OK.
+> > 
+> > > The cost is the size of the static table, which grows from 64 to
+> > > 4096 hlist heads, that is from 512 bytes to 32KB on 64-bit. The
+> > > functions that walk the whole table (module notifier, arming or
+> > > optimizing all probes, the debugfs list) are slow paths that take
+> > > kprobe_mutex and now scan 4096 buckets.
+> > 
+> > What I still fail to understand is the use case for employing such a large
+> > number of Kprobes simultaneously. If the goal is to trace individual
+> > functions, Fprobes are already available and offer better scalability.
+> > Personally, while I might occasionally deploy around 100 probes, I cannot
+> > conceive of a scenario requiring 1,000 or more. Would you have actual
+> > usecase maybe from eBPF?
 > 
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-> ---
->   Documentation/devicetree/bindings/phy/qcom,x1e80100-csi2-phy.yaml | 6 +++++-
->   1 file changed, 5 insertions(+), 1 deletion(-)
+> the use case is the kprobe multi link support for inlined functions,
+> which I have in this branch:
 > 
-> diff --git a/Documentation/devicetree/bindings/phy/qcom,x1e80100-csi2-phy.yaml b/Documentation/devicetree/bindings/phy/qcom,x1e80100-csi2-phy.yaml
-> index dc64af97da6c659628729a758316353798aa98db..1f1e2a4993b2aff9a1519640bc4e04ca98fa4baa 100644
-> --- a/Documentation/devicetree/bindings/phy/qcom,x1e80100-csi2-phy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/qcom,x1e80100-csi2-phy.yaml
-> @@ -16,7 +16,11 @@ description:
->   
->   properties:
->     compatible:
-> -    const: qcom,x1e80100-csi2-phy
-> +    oneOf:
-> +      - const: qcom,x1e80100-csi2-phy
-> +      - items:
-> +          - const: qcom,glymur-csi2-phy
-> +          - const: qcom,x1e80100-csi2-phy
->   
->     reg:
->       maxItems: 1
-> 
+>   https://github.com/olsajiri/bpf/commits/inlined/
 
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+Ahh, got it.
+
+> 
+> inlined instances are not function entries, so they can't be attached
+> through fprobe/ftrace and each instance needs a standard kprobe
+
+Yeah, for inlined functions, we need kprobes.
+
+> 
+> number of instances gets big quickly, even for a single function, some
+> examples of functions that have both an out-of-line copy and inlined
+> instances in my x86_64 build:
+> 
+>   function                inlined instances
+>   __list_del_entry                     4144
+>   list_add_tail                        1196
+>   folio_put                             629
+>   put_task_struct                       373
+>   percpu_ref_put_many                   273
+>   kmemdup_noprof                        207
+>   fdput                                 189
+>   sock_put                              161
+>   migrate_enable                        131
+>   migrate_disable                       123
+> 
+> attaching to the list functions is not necessarily a good idea,
+> but other functions have a high number of inlined instances too
+
+Hmm, that's the reason why perf-probe -F skips the inline function by
+default...
+
+> 
+> the goal is not to attach 20k functions, but to make the inline
+> attachment fast.. user specifies just a few functions by name and
+> has no control over the number of their inlined instances, so even
+> a small set of functions can end up with thousands of kprobes,
+> and the attach time should stay reasonable for that
+> 
+> > 
+> > If this change is intended solely to improve performance for an extremely
+> > unlikely use case, I would, at the very least, make the size configurable
+> > via Kconfig.
+> > 
+> > Since this change affects all architectures, those working with small,
+> > embedded-system chips might be reluctant to "pay" 32 KB for a use case
+> > that is highly unlikely to ever occur.
+> 
+> I can add CONFIG_KPROBE_HASH_BITS with range 6-16. I'd keep 6 for
+> CONFIG_BASE_SMALL, so small systems don't pay anything, and use
+> 10 (8KB on 64-bit) as the default otherwise, which gets most of the
+> speedup from the table in the changelog
+
+That is good. If you introduce the inline function support which is
+enabled by some kconfig, that kconfig can increase the hash bits. That
+should be more reasonable.
+
+Thank you!
+
+> 
+> thanks,
+> jirka
+> 
+> 
+> > 
+> > Thank you,
+> > 
+> > > 
+> > > The sample module was posted as the last patch of the kprobes
+> > > lookup cost series [1] only to demonstrate the testing, it is not
+> > > merged and is not going to be.
+> > > 
+> > > [1] https://lore.kernel.org/bpf/20261109195827.1091410-1-jolsa@kernel.org/
+> > > 
+> > > Suggested-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> > > Signed-off-by: Jiri Olsa <jolsa@kernel.org>
+> > > ---
+> > >  kernel/kprobes.c | 2 +-
+> > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > 
+> > > diff --git a/kernel/kprobes.c b/kernel/kprobes.c
+> > > index f14f7ff45961..47ce0bfb7298 100644
+> > > --- a/kernel/kprobes.c
+> > > +++ b/kernel/kprobes.c
+> > > @@ -50,7 +50,7 @@
+> > >  #include <asm/errno.h>
+> > >  #include <linux/uaccess.h>
+> > >  
+> > > -#define KPROBE_HASH_BITS 6
+> > > +#define KPROBE_HASH_BITS 12
+> > >  #define KPROBE_TABLE_SIZE (1 << KPROBE_HASH_BITS)
+> > >  
+> > >  #if !defined(CONFIG_OPTPROBES) || !defined(CONFIG_SYSCTL)
+> > > -- 
+> > > 2.56.1
+> > > 
+> > >
+> > 
+> > -- 
+> > Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> 
+>
 
 -- 
-Best wishes,
-Vladimir
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
