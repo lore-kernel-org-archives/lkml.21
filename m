@@ -1,61 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593209;
-	b=eLps+hM4UJ8cFolgYSXQLKy59xKAheIlh/drOUX0+p4jnbn2YtEIHSjIslvxWh6DM2Bi
-	 zoFWBbs785VYCvP7Hpbtr6qCLdapBZzW0sRVudH0THnMMuVmM18SNTiUOA1ItUXT6C1IP
-	 2dkgXtsdbfTM0ZDiGEvahXipfeb20lfETxE7Fo/myfSskg2Pz4lK5wXXbdIPn6uz6NQm7
-	 9WyjIIeYDMDg+Qh57XOsIh6U5/BUduLg+YaBCA59a/IVY6ASSPExoxk4+7QyWo1DgCYUo
-	 O4vIgUH80/vb4wJkc8rA53c1gVefOOIiX7n817wwCSevHlInHvIuZW8nqbloGqm6oGw==
+	t=1795593232;
+	b=IAXqztW6yxN+G473WxrfduyHFIHyX+EdA0ETUduCddxZyJOiwOlBlcwL0PakNf7aAPRN
+	 YlVwDe30HczhHUq+zdoGah4/bZBmGX/RoDvc4dhLedWd/W+D7btmoHJrHKbtuP2OpbJNb
+	 KDAR2WMwFGJSKe5PmsuQiuNbXAEWArXJQfsZaMUJR9T4RM7R1ZLe/t8+tBiybDxVB972X
+	 hQjmo9sQ6aVkTr/uinUtS/JZ77uRHhlhPAKdyyCl1kcPtUKP0nKqdChfPesMTH653fJAK
+	 D7vaw49tBOEX0hkuZ/7ORQAZgn1RA3bhA5cQNJXmo3gexCnXYf+v/L6O5Q7joRN8KWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593209;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=asAIkoqL4rWRijwrcZTmejrceLoeC5xA34MCJHZUYsY=;
-	b=O/soh0EYgq7MJInzZHCfToCKaVtkH3bbp4hEYA/dTTqiuHynHMEWKXi0lxuY1gGb7u4u
-	 lgXAtdcSlN982dwgTIyLQRkeKZDq3C/8u6trhcunmOdxiocNI2qZcJOd6OMmASqI7tBfs
-	 eImrJ4Ax/YMCZ/XkwbiAaXFfWcOjUhKR/LZSXAm9kM/jxaKwHk7Pp50T2TvOL8DqX+8ey
-	 jrEx9SZaxsvZ/eZzQgIRjHYOybeQZYic6PwjRMONEZOr6bFaT1ZhNeAvuIBBaPKmKT4PE
-	 j6eHWTpuqmaH/5ybOyvn59tezwquagqOnl4JfYIOzhGG/4Jdh0VYfRABTgemkyhsduw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593232;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=U0564f1/wQ5vpUisl1vWxnDQHDxUALBKjxGcDAa3Zv0=;
+	b=cEjMtF1Q3941DyMsBEyZL7xAbqxmD8MnA2st9+H325YCm+V2MtNiM/NqO855YT75b52n
+	 ulfAhSSXlqR36JDwlePwUsYSD+yCdA3z0Nno/fqzcEdPbBnoNqmNYdU5E066a/dOaZ5lY
+	 F7BJV38vkwpY8qoZcs5h9xrvStzg+d+FMtzGb4vT/Wvl6aW+mTiuQK4iiNgZj+ynXHNAk
+	 PofAfxdNTKQBuNDVv0bCTIMJy6x5J8r6fs5z2a+BbXzVyYwPeFVdOlVCK2j45eF6u2Ppj
+	 ohRij6sZhDYt3LMxcmhJzHBnHd2YrLoS6Z4XUyzsiZbASHMTP9M5XlkW6ZuwdbCNi4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bkYtNNeX;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="GL2G/tVj";
+	arc=none smtp.remote-ip=209.85.216.44
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E169606A321;
-	Wed, 25 Nov 2026 07:53:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B9BD606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:53:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B9BD606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bkYtNNeX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24F5F1F000E1;
-	Wed, 25 Nov 2026 07:53:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795593208;
-	bh=asAIkoqL4rWRijwrcZTmejrceLoeC5xA34MCJHZUYsY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bkYtNNeXnbcRSV1hUxf42xU6Ba9CPJEBbGlyH3DbeNlfe9Caz59rNZxIhKSHaRgb6
-	 B2kmw+qxnTlAZWVtnAxmXzwQXs4wDgxaLwMM13ONtXuLAjqxP1839ac/NPTS/njthS
-	 ge7BGDVDcJEBtr2/v9vOJoRRHUaYBfOGkfx3BkIzja+RsUjOoVGK9u7rlsFt3Z8wQq
-	 Ktgt5cQWoeS4efAkx1qh3BVzF2Nkui0/OgOY+1qnjpx+1JoJARqSirNwQ5eKInYMUK
-	 zLKGS7a39N2wTHaNu77td4dduWIIzd7SyPqB1vrh+H78tK+YCokTH2vUUZFX9G+fJO
-	 Zlk3bIUwKVGiA==
-Subject:
- Re: [PATCH net v2] r8169: clear RxOverflow before unmasking interrupts
-From: netdev-bot+sashiko@kernel.org
-To: jure.rebernik@luxonis.com
-Cc: hkallweit1@gmail.com, nic_swsd@realtek.com, netdev@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, sgoutham@marvell.com,
- jacob.e.keller@intel.com, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Date: Wed, 25 Nov 2026 07:53:27 +0000
-Message-ID: <179559320769.3135.10021676764558133789@kernel.org>
-In-Reply-To: <20261121073652.410916-1-jure.rebernik@luxonis.com>
-References: <20261121073652.410916-1-jure.rebernik@luxonis.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GL2G/tVj
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b487f44ee0so1912455a91.0
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:53:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795593231; x=1796198031; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=U0564f1/wQ5vpUisl1vWxnDQHDxUALBKjxGcDAa3Zv0=;
+        b=GL2G/tVjeRFiOoBQv+pcXwPzzo6knoBZR2QDzEuKIxXmpwCCnmgrHCp/dQEKS2RqgE
+         pf5a7x0kHMOj2lpNTl4Sq7tNJlseTjSpxB+z1PqM0g+ZQmy4/o1rHqNn2HSYXfcoCLwI
+         apJT8oGNx4yWJ+nCKErLHbVoC2dhUFZRXFPWSpkctcoW9XM5sgHmw3is4b5ZIKs/s/cz
+         sit3qoQTAmUjGuejlKJxR2T+lowFqm1gJ0TA5JxAVRlO7SJNpSvXNbxsT1+ERbnBJlcr
+         ktHApYxXYDm7izbhh4EAnKcFvwJgAMrP9UNQCOqCLQlPMY9Km4JOmqJ166XrLe1aJolZ
+         zYOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795593231; x=1796198031;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=U0564f1/wQ5vpUisl1vWxnDQHDxUALBKjxGcDAa3Zv0=;
+        b=ShJoTURhnUQ5B29+u5DdiU9e6xkNAgOYdt2OM49IY7lhOb/I48QoxscmVBIPw7U3DT
+         1Y+XGa1KHhzZ7CRIjOPNuyg18Yed4hKgCUo4k5GzbtULCG/l90B8p7+60fHsZ/ujPrQF
+         3Y+8zZQYEL/hVbDtkT4xb4ElaMRkp4apxK3kZhOwH3ZJJm+YEy/LEBOhopM3/8eU4cOO
+         8iMCitBpEEZP0rkAXnuvkxEF28Xy6F9FUbJIxmKuFD3A0dSnQ5lVbNXTEZ68tz8kv8Vc
+         Sm0rwlg9SbvUhPekSQ83BH+gPMydIRYQZ4qa7r/k2B0keuDN9RE0l4pMNkxB8Wn36S7J
+         syCA==
+X-Forwarded-Encrypted: i=1; AL+hErHO5sXYNLjjZnCkRwSH0L7gmn5tggZ7/vQPX/ABFleHw+eDyQRgAYtmwWM9wBgAuGNZ5tXM8CpGjxzXspo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9fnej8PDzux2T/IDCg7epAuk9EE3Pl39YyL9L4bMkecKzMLHa9
+	2/8jnD5mIWOi8vOtkJVNmM6pBpa0fGlSKF+CIZPOb/SSVI1gMChTHK8mS6m23JA=
+X-Gm-Gg: AZFdTZfU3hOEetwkLyKj84Ey3RHEDYmWw5FwlSJVkMFEXKZ3UQHien3qmBCi9Ri1+ks
+	8f0Qlc2oU7vMfyQSb6ImFX4chDblnoVqeoHW6kkONb2eseu3N6iPx1inV9BxG4IAoCR8STjqDF/
+	dBv4HJTDqMK/J0v7JaGcY+gISydZnQARaIcOusLO8v75RN7gjUTrqAbad2qrYbHoX4Wac/BOJQe
+	Si3XOjSRlslWk0AYqHLlWiwHld12mp+o83rDpbbflTjAB4LcvzPJLi7NEGN5lqBrixVwXtb3rF3
+	7xAZxoI2dCrm34Xk1LKVw0J43r73RkDu8SOBjvaOpPIFezN38LSfe/MIiCW7PwXzsEbcbWjMNs/
+	alRTwMbyv95bhBuQ297rSNRfE0lT29NEFjVYiDyQNe61+dO0tO/yIWXwIi52OPDQ1a8MXcSHxwB
+	ucOVMZHSIVhDZlHQhZXBOURgNwJhRhyB+ezsA9/vJpcFDOyowwgLD6IzYHcfaxA1Q0MEvf2xagk
+	a6zd+t5bctIfIJFECFJofv3L71//udfclARh5s2ISNaQC6SI/vBOIiuPYPMQh3Xho0m0InD4EY2
+	v9EKQth7X3YqYTthQzBmxqIpCmWqjmKeMr1O5GObonUhbe2R18SXFeIr7GA+t+QnUWNLKA==
+X-Received: by 2002:a17:90b:35d1:b0:3b0:9317:5842 with SMTP id 98e67ed59e1d1-3b41cb04e15mr16222267a91.48.1795593231485;
+        Tue, 24 Nov 2026 23:53:51 -0800 (PST)
+Received: from localhost.localdomain ([2406:3003:2002:639c:44a2:4377:d176:9ad1])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b7c6513sm12347433a91.4.2026.11.24.23.53.49
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 23:53:50 -0800 (PST)
+From: Yige Jiang <yigejiang86@gmail.com>
+To: =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>
+Cc: Yige Jiang <yigejiang86@gmail.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] bcma: Put the OF node of a core when the core is released
+Date: Wed, 25 Nov 2026 15:53:45 +0800
+Message-ID: <rc-b1-20261110-vc-179-09535b897585@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,169 +95,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+bcma_of_find_child_device() returns the matching child from inside
+for_each_child_of_node(), so it hands a counted reference to its
+caller. bcma_of_fill_device() stores that node in core->dev.of_node,
+but bcma_release_core_dev() never puts it, so each core matched to a
+DT node leaks one device_node reference when it is released.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 2
+The node normally comes from the base device tree, and base-DT nodes
+are never freed: of_node_release() frees only detached OF_DYNAMIC
+nodes, i.e. overlay or changeset nodes. On a normal DT system the leak
+therefore has no memory effect.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Drop the reference in the release callback, where the lifetime of
+the core ends. The node is still assigned before device_add() and is
+not changed afterwards.
 
-- [High] In rtl8169_poll()
-  (drivers/net/ethernet/realtek/r8169_main.c:5673-5680), RxOverflow is…
-- [Low] The changelog says "On this tree the patch was only built, not
-  run; rtl8169_poll() is the same here as in v7.2." That is wrong.
-- [Low] r8169_init_napi() registers rtl8169_poll() for every device with
-  irq_nvecs <= 1.
+Fixes: 2101e533f41a ("bcma: register bcma as device tree driver")
+Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+---
+Based on linux-next next-20261109 (630059a5a632).
+Compile-tested: arm64, aarch64-linux-gnu-gcc 14.2.0, W=1, COMPILE_TEST=y, BCMA=m, BCMA_HOST_PCI=y, BCMA_HOST_SOC=y, OF_DYNAMIC=y; drivers/bcma/{main,scan}.o built before and after, no new warnings.
+No hardware or runtime test was performed.
+An AI assistant traced the OF node reference and helped draft the fix.
 
---
+The leak needs a DT-described bcma bus (a "brcm,bus-axi" SoC host such as BCM4708/BCM53xx, or a DT node under a bcma PCI host) and happens when a matched core is released (bus unbind, module unload).
 
-r8169: clear RxOverflow before unmasking interrupts
+ drivers/bcma/main.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-The patch clears RxOverflow in rtl8169_poll() once NAPI completes, just
-before interrupts are re-enabled. Without this, the RTL8125B stays stopped
-after it runs out of RX descriptors. That stall comes from 6994520a3328,
-which removed RxOverflow from the interrupt sources.
+diff --git a/drivers/bcma/main.c b/drivers/bcma/main.c
+index 72f045e6ed51..58d72580f09f 100644
+--- a/drivers/bcma/main.c
++++ b/drivers/bcma/main.c
+@@ -123,6 +123,7 @@ static void bcma_release_core_dev(struct device *dev)
+ 		iounmap(core->io_addr);
+ 	if (core->io_wrap)
+ 		iounmap(core->io_wrap);
++	of_node_put(dev->of_node);
+ 	kfree(core);
+ }
+ 
 
-> On this tree the patch was only built, not run; rtl8169_poll() is the
-> same here as in v7.2.
-
-[Severity: Low]
-
-Is this statement accurate? In this tree, parts of rtl8169_poll() come
-from the multi-queue rework:
-
-36af5aac9545 ("r8169: prepare for multi irqs and napi")
-5df447aee076 ("r8169: refactor RX path to prepare for multi-queue")
-
-For example, rtl_rx() now takes a pointer to a single RX ring:
-
-	/* rtl8169_poll() is used only when there is a single RX ring. */
-	work_done = rtl_rx(dev, tp, &tp->rx_ring[0], budget, napi);
-
-Also, rtl_ack_events() now has an irq_nvecs > 1 branch that writes
-ISR_VEC_MAP_REG.
-
-The single-vector path still writes IntrStatus_8125/IntrStatus as before,
-so the logic looks functionally equivalent. However, the A/B results were
-measured on different code than what is submitted.
-
-With Cc: stable and Fixes: 6994520a3328, the context line above does not
-exist in any stable tree, so each backport will need to be adapted by
-hand.
-
-Could the changelog say that the code that was tested differs from the
-code submitted here?
-
-> diff --git a/drivers/net/ethernet/realtek/r8169_main.c b/drivers/net/ethernet/realtek/r8169_main.c
-> index f151ab6813932..99b0a410f58e4 100644
-> --- a/drivers/net/ethernet/realtek/r8169_main.c
-> +++ b/drivers/net/ethernet/realtek/r8169_main.c
-> @@ -5670,8 +5670,14 @@ static int rtl8169_poll(struct napi_struct *napi, int budget)
->  	/* rtl8169_poll() is used only when there is a single RX ring. */
->  	work_done = rtl_rx(dev, tp, &tp->rx_ring[0], budget, napi);
->  
-> -	if (work_done < budget && napi_complete_done(napi, work_done))
-> +	if (work_done < budget && napi_complete_done(napi, work_done)) {
-
-[Severity: High]
-
-Should the RxOverflow ack depend on napi_complete_done() returning true?
-
-napi_complete_done() returns false early while busy polling:
-
-net/core/dev.c:napi_complete_done() {
-	if (unlikely(n->state & (NAPIF_STATE_NPSVC |
-				 NAPIF_STATE_IN_BUSY_POLL)))
-		return false;
-    ...
-}
-
-It also returns false while defer_hard_irqs_count > 0 and a
-gro_flush_timeout is set.
-
-With threaded busy-poll enabled on the NAPI instance, napi_threaded_poll()
-keeps NAPI_STATE_IN_BUSY_POLL set while the kthread polls:
-
-net/core/dev.c:napi_threaded_poll() {
-    ...
-		want_busy_poll = val & NAPIF_STATE_THREADED_BUSY_POLL;
-		in_busy_poll = val & NAPIF_STATE_IN_BUSY_POLL;
-    ...
-		if (want_busy_poll != in_busy_poll)
-			assign_bit(NAPI_STATE_IN_BUSY_POLL, &napi->state,
-				   want_busy_poll);
-    ...
-}
-
-In that mode, rtl8169_poll() is called in a loop and never reaches
-rtl_ack_events(tp, RxOverflow) or rtl_irq_enable().
-
-The first interrupt has already masked interrupts:
-
-rtl8169_interrupt() {
-    ...
-	rtl_irq_disable(tp);
-	napi_schedule(napi);
-out:
-	rtl_ack_events(tp, status);
-    ...
-}
-
-So the interrupt handler, the only other code that acks status bits, does
-not run again.
-
-If the 256-entry ring overruns in this mode, does the RTL8125B latch
-RxOverflow and stay stopped until busy-poll is turned off or the interface
-is reset? Every incoming frame would be counted in rx_missed.
-
-Socket busy polling (napi_busy_loop()), defer_hard_irqs/gro_flush_timeout
-and irq-suspend look like they cause the same stall. In those cases it
-only lasts until the busy-poll or deferral window ends.
-
-The descriptors are already back with the NIC whenever rtl_rx() stops at
-a NIC-owned descriptor (work_done < budget), whether or not NAPI completes.
-
-Could the ack be tied to work_done < budget and moved out of the
-napi_complete_done() condition?
-
-> +		/* After running out of RX descriptors the chip does not
-> +		 * receive again until RxOverflow is cleared. The ring is
-> +		 * empty now, so clear it before unmasking.
-> +		 */
-> +		rtl_ack_events(tp, RxOverflow);
-
-[Severity: Low]
-
-This isn't a bug, but the comment presents this as general chip behavior.
-The changelog only describes and tests RTL8125B.
-
-r8169_init_napi() registers rtl8169_poll() for every single-vector device:
-
-	} else {
-		netif_napi_add(tp->dev, &tp->rtl8169_napi[0], rtl8169_poll);
-
-get_max_irq_nvecs() only allows more than one vector for
-RTL_GIGA_MAC_VER_80. So this extra IntrStatus write now happens on every
-NAPI completion for RTL8169/8168/8101/8125/8126 as well.
-
-6994520a3328 was tested on RTL8168h, on the premise that running out of
-descriptors needs no special handling.
-
-Could the changelog and the comment say whether this RxOverflow behavior
-is specific to RTL8125B or also applies to older chips? Could they also
-say that the change affects all chip generations but was tested only on
-RTL8125B?
-
->  		rtl_irq_enable(tp);
-> +	}
->  
->  	return work_done;
->  }
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121073652.410916-1-jure.rebernik%40luxonis.com
+base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
