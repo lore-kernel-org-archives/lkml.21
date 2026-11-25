@@ -1,87 +1,154 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795603331;
-	b=kKkLtAPJy8Dxo3h+/xv3fi+1L9fSN9AfhfZw5UYidryXV5jrOf2wRfnmBVJTullXSp1K
-	 rUt95uOZNtmu9SufoELlm5tGQk0MVTmcRQFzOWWZggmbwLIrH62xGtunriypbcQulFyyE
-	 CevfUW351n6UwbIwiaZYRSzWVlC+gPEtqsGHj15v5HWkezf2H9piq2ZbiRMpw6f+/PEW+
-	 wNcnZAjiMHhJc7rXEt/r3hcDxxcpZ1+/31KtzMcDnPfZsCXNEMEuA7qYJgoE7LLx/qbXA
-	 BD2MUI2ma1vxErtkJt+IELGZ1P/PzhLgQjLJKE1bZifUXURhHPRrWUJK/rkkfhTJivg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795603331;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=NZCkT3QPCssoP75UH8gUTGSqdqvX1+5iVKl2qUY4uRo=;
-	b=EsJ4kzDWr6gt7egVFRxLHbuez1Nnakpe3gz2CF1q3F4gumSvdxPx7kzBF+nBFZKdJWWV
-	 WUQI8UXeVr2VFKc8sszR3lncANO4kgSspwZR2Q42S4tOtcYkVUtizKBHBsltVYMFi4S0A
-	 EhfBSltbtb+JquRkLev4MrVc/OF2RyCpO8eEnSZC+Q/pAKyuHy7N5ykuPjXB/iybHa3Y0
-	 msOWLiRdiGc7Tb1iLDrOWaHw/T7K880wRCUwu1Q8IIHygTgx0B27WAtXP7GCQ3NyEXhOz
-	 c6SOdKTFz9L0hpep4iVaZIIgNTh6rmtKpKQPL3TFZ+qJNQjzWtpcef2mrfiyzl+tTbQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hk7riewj;
-	arc=none smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.74.61
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795603347;
+	b=JsSDK21aaAXqDC8r35H9OTqUlmKQMaQbnCGX2BebVexR21Mgk0ul3HY1ZJH2qiMSAjKL
+	 IC55EYXQu4ft64Nt2dM+WMW/2CRUQfI/f14QB9I9dxjd/5MNxoIV4r8/l0pcFk14Dgst+
+	 fzfSrYIGZGBytiwJIdE8NAcK9kNIt7DHfuVK1O1LvuldpZHyq+moi0NumGP/g4KHNqC5n
+	 JyqaVGpvtpU0dfzDn7SZRt/zlF/QrWV4ZZCIxDK9CrCyEviJ3Xt1AFHDHX78HiHO4B6UP
+	 9wKV+rSr4ahJZ+24EWBmEHVAZYWfyklE9LzPuGx/4MNbIxsTo/OTGCOaQKUwHYqv/dg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795603347;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 user-agent:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
+	 Content-Transfer-Encoding:MIME-Version:
+	 X-Exchange-RoutingPolicyChecked:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=i6OxgQL05VezwgjSAKudnNjJ0VyJLjM20WaR9QrMG2s=;
+	b=HJmuzAXrh+9dRtibVek+mhOWn97kcHCerUe29w2hesGhQSJEdu70SKEEl6FswOAn9xQ0
+	 fEce1+2NFQU1ddx1qvGs4fb6nZrDtoukvLvN9dxvKNkECCGEPNGgUHXpeZOvtaDuNn9Ik
+	 +mkQ4IvZ3z//GmE1bUskEs9biHdisJHYhW4k2rxJaMaL50FEymrFF74sawfFrFUIzrRAt
+	 zu7ubXoy5YcL0dhWHAIGgBrU9eEiIp3bTcBVyDRPShQ4A1pMXWa9uxW8DvkrUe5IziUA0
+	 HeBZRDJWRe49hJqGc54jKs5KTR4Z4FN+M0c+mk1qFcUoB2pAgS1XVVJhDLHKbpG8yxA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=fujitsu.com;
+	spf=pass smtp.mailfrom=fujitsu.com;
+	dkim=pass header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=selector1 header.b=cWDiCUhO;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.74.61
+Received: from OS0P286CU010.outbound.protection.outlook.com (mail-japanwestazon11011061.outbound.protection.outlook.com [40.107.74.61])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 740DA606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:42:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 740DA606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CEF8606A329;
+	Wed, 25 Nov 2026 10:42:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CEF8606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=fujitsu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fujitsu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hk7riewj
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c5127c7abd5so871257866b.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 02:42:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795603329; x=1796208129; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=NZCkT3QPCssoP75UH8gUTGSqdqvX1+5iVKl2qUY4uRo=;
-        b=Hk7riewjkVmO9qiIdnv0R+hHHqqrlukGLdBPvzQjxPrRAY6f3JhWitX0qs0rkULp9H
-         4/o0VPC+rN5uhPqtiM2y9XGHPIpOGJ+hdnF21jz1fH+d5Jb+w/iLW9B2MohGj6RAdldZ
-         pdEDJFfyZgSpdoiumEO2S2bMfK7HYt6nAt5TjfCNUag9ylR4mQXbwVUL+K9e3D+P4WzH
-         RD5xiS5PwQDU/W5lzw//tn/d0/f6SHCFVr2Qk489n3XUZOuDajcaVHpj8LHVu2dUkxiG
-         Z83Hi8fRoU76w8+reRuMdieDH5faLZXbP3oQpK40PY19PKo09kURQWFXJi6RiWG+RVo8
-         wcCQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795603329; x=1796208129;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=NZCkT3QPCssoP75UH8gUTGSqdqvX1+5iVKl2qUY4uRo=;
-        b=lxdmDOpxNrZ1KFuAUWw7z2un3DpNAs5bTxHMlN9gpVEloakmI7ySOzllaakU/0X4dz
-         VwB3UykkqsWsp5PxUAKCb3lrTyA/JX3+lbIHXNE46vnKnXQEEY9sA2FGba8opNTdGW2m
-         hFNQ9qC9OA1i5ACfVw0BGhpP2Jwe6n/u/WcOwQGP0VtlEix5zeY6OeRqz7t1oP0juOM8
-         y9YM4HHs6M4kUukFOGm2v+Ie2BS1xH3ShEObGF3WI/AqMdGqoRwkez78QRCF2o7mtNzw
-         y3iFyc/YYsEMy7MZKrk6pfbDwZuxRFH6bQSShR0oQjgnIRNp0WhyiY5do1SIB0/STGZd
-         0Y3A==
-X-Forwarded-Encrypted: i=1; AL+hErEx5TF/aGcKO24u9sJSU7AVc763DGosudfoopjKywb9Qd57I8/g4VCF10ZLDuFPDPY/Nl36m5ke45rype4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9DpdI6D2hYrEu1dy0BLgzgCZPUAEBxq+PtIeuBsWBWf/C6IMJ1
-	hahB8TY+TJUOTGYijYYMUgLopx7Y3ILJk1TECB3loBtqP5fbbtcVApb9
-X-Gm-Gg: AZFdTZeOEhmcTcxa0SOoWZGzwNRD7qe6LNuCF4K2nENBIdscLiB2ziypmsfqqqysib/
-	YBFb7F8A+PmcAz1QZeaTs0YXotPfUjwHcU9OH8L2BIEYKvk1/Q/NC0PLNGJk26G0EfRsf3srYwg
-	bppjUFs3MCzuxVcXhJlouBXJo5v7rffoQpYs6QEd3E4gHgZD9ZKaP36JYuP+5uFE10oew/cXQss
-	G/nupSzFoIPP5UO/dolu4mRiwVX9DNa+DWJg51g3MsejxHnK1DCSD5q8Z0aI/dCFQykHGlpHM93
-	l6nE4z5MfMmyLQZolUSibix4uQn4DkaWtqLmUXhrIb99AP3IS1BQ9NCJihLP3DSi3mzV0AvLjv8
-	PCMEL4yppBeVLeR0M9ie3h6wofz+jHCx82OidSlDbcSNLWxjkJhOVRfFirZLPolTnBx59U6JkD7
-	xt7Yoil2ErxseMBzLP1F8SGWyjJl+q2Sp7YdoQLJ2rOA6GVWF00qysmf/7Rr5ubPKnJ2OOXnay2
-	9DgyopBjWc5yQj43gOnCm3Qg/n8h0Xd0m8RMBhfA5ySa9eRAx69t8txGppxtNPvs9XVhJBq9mtg
-	BIA5dodVGe3Vv/0bfuTNgdfF4QZHu83VwBe9gHGM7dbOa2UQy0tCbSFFz/eV8UGvRSMbi1xxgdM
-	CgR2yEJ52
-X-Received: by 2002:a17:907:1905:b0:c3e:34fa:611d with SMTP id a640c23a62f3a-c514501961cmr1284029166b.35.1795603328497;
-        Wed, 25 Nov 2026 02:42:08 -0800 (PST)
-Received: from [127.0.1.1] (89-65-152-218.dynamic.play.pl. [89.65.152.218])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc5396sm613601266b.58.2026.11.25.02.42.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 02:42:07 -0800 (PST)
-From: Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-Date: Wed, 25 Nov 2026 11:41:52 +0100
-Subject: [PATCH v8] riscv: mm: Trace TLB flush requests
+	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=selector1 header.b=cWDiCUhO
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GZh21xMQgYSJUfEoOP/7P/49OB66DptoHWSqRv5MvtOcj0PkmJnD/K0iYI2pJ0j0ZqagxXkSHxVGyEsjCZ2PhQuqHmcPrGrITjgIcEmale9xR8BQ4MwtumvlfLJ9G62BdBEsQaVyqF+Aa5v+1Qi2Z9Tr2PiN0qPSY0ASLxYE1TtvC7JlxU5uaypoUfvWs0QY9S3Xbsj7BaTt6yKKQVMY+piL2TAiz9LiVQH92b8A6JfLQMGb+07FrpEE1MkCSF6U4wTaiqsQCKObJ5Yl72HfQ2jqymgGpHYSRo+NsvGazcvMhF5gYaEAJDLR1aMfFKrT9cOlEypif6eBVJ841SqzTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i6OxgQL05VezwgjSAKudnNjJ0VyJLjM20WaR9QrMG2s=;
+ b=o2WlIj7A0FOoqYHob3DTKT3YHQSCB03yoOGR7lAbTRrdr7AfQ8jPRnbVcgLVXm755d553cRIZk9HHvtahde1aKPOgxu7WShn4U+xtcHP+GLgGE9Q9nRHO6OJ5dKtEuUOXzDLZnU1KJqLliAFOzjHE0qNtYd3ckjb5nR9xaX24Q7rvgViqrGR3a94bbPRZb6yWGg8KP5tW/7LzYo9Fh+EJ7auF7D4tNJkahUd3pE4Q0ysucHIjWoBOLDnC5nt85JIMRAtyN4YXDIKd6tf8D+OlhGSbja8EUPYtxMDRlJBBEuXFDzGeoMg/oK95CVlAlpia5BF+s8moZfpsTVWf+pwrw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=i6OxgQL05VezwgjSAKudnNjJ0VyJLjM20WaR9QrMG2s=;
+ b=cWDiCUhOVWknRrWH6Ug09P5c/FpfX4LYejy6UlVGPAmXzaUrtGvhn9mO8m6NMd16Hh0zr4xtkGoV3Xf8YH8but+QhIM7br+6Lh551SoK/jTxP7V7FEuHd3FuDOxeNV2VyACcRUK9vtHk/iPVsxHSha1LjehFrfghVHY/rkDj7qvOs+rE6NitOXA87F4nsnIIIJoNHbh18CvaWavdXE5Fs8O+ymn5dIa1cuFVL6guP8Km+k0oNKnzECrWP/aYv/TiAW7XS/wZPcRb09SFbMXaceZa6eFW0K8tlE4wRgYXu5xHGcCpcRXg2JKtFuU7eu++Kx+tj4bxJoDiU/g1cs9GlA==
+Received: from OS9PR01MB12148.jpnprd01.prod.outlook.com (2603:1096:604:2e6::7)
+ by TYWPR01MB10243.jpnprd01.prod.outlook.com (2603:1096:400:1d5::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Wed, 25 Nov
+ 2026 10:42:24 +0000
+Received: from OS9PR01MB12148.jpnprd01.prod.outlook.com
+ ([fe80::7a9a:2706:6589:5131]) by OS9PR01MB12148.jpnprd01.prod.outlook.com
+ ([fe80::7a9a:2706:6589:5131%5]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 10:42:24 +0000
+From: "Zhijian Li (Fujitsu)" <lizhijian@fujitsu.com>
+To: Qiliang Yuan <qiliang.yuan@linux.dev>, Zhu Yanjun <zyjzyj2000@gmail.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>
+CC: "linux-rdma@vger.kernel.org" <linux-rdma@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Zhu Yanjun
+	<yanjun.zhu@linux.dev>, "stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: Re: [PATCH for-rc] RDMA/rxe: Allocate the MR page array with
+ kvzalloc()
+Thread-Topic: [PATCH for-rc] RDMA/rxe: Allocate the MR page array with
+ kvzalloc()
+Thread-Index: AQHdeyzGlhEL4dSCw0uFSdmoUOSCfbc+nPEA
+Date: Wed, 25 Nov 2026 10:42:23 +0000
+Message-ID: <275f5ca8-0ffe-41f7-bd24-c819fac6d595@fujitsu.com>
+References: <20261123-bug-rdma-rxe-large-mr-v1-1-8d0748ac4a3f@linux.dev>
+In-Reply-To: <20261123-bug-rdma-rxe-large-mr-v1-1-8d0748ac4a3f@linux.dev>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+user-agent: Mozilla Thunderbird
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OS9PR01MB12148:EE_|TYWPR01MB10243:EE_
+x-ms-office365-filtering-correlation-id: 285cd6c4-713e-4b03-7036-08df4ae0ca86
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|1800799024|23010399003|376014|366016|261009223027099003|18002099003|22082099003|1580799027|38070700021|56012099006|11063799006|261028144727099003|261102123227099003|261021123027099003|261026140227099003|261021121427099003|261022105027099003|10067099003;
+x-microsoft-antispam-message-info:
+ v/MehJAu3IVXtVysowoI9SK/Xfr1ZRPOKH7RujPojxRL+DFOaSMNOo2aHNPL07lXOrN4+z9APE1oFXYoLdZtCHRmeJ22lMheHoOylp3QO0xUZM8cX82gZgaxKhXcS0yTbF6NOYvBsY5PMHS3tGw9WRwUPvSz11Y+Es8tTNMMbd4S61cg3tg7iY4eEj22NGI7cdX3VeVuuKKi+DlExYyauwSJhA7hdjubXnUp/UeH3C2R3GLBzHgWt7gaStyGEfEANIXY+3zQYaLAoVxd1qL/c5Jr2j7dVBLWziPC+JcrNYxg8lSL2CoKLOJ9r9/FA8HgKJx+7SsMJdFhpCH/2HwQntd1GN3GpTemXZn1E84WyDiIfxJ7IrZcpvOAleopbfRAGOpKYKC6z19UA9OJuMu9jIVHmRlcnek1xlu+IWeEhqOYXgT4rjfnFeGp3xP+8r3H4ETIXOl6/cvfgCt5BmQosoaAhhlAuTkVqC7ZfLT02ktHxro61gr+v5MLwXDiNbAa4ihLiTbXKDHXSEUmKqnhhIpa7tDnWwYKVXUcNpT8teOv1DFjni/EtRvHqf9zj0wlIWk1IKp4VhIOwB94lqe5iyi0CY+CxZCAbKKPSlPc0zYWfzm2x+yQuDavjiQVq/mAQW2L46eINVDTwH2M8GykPkHyjeIJQtskpqz4gL3n+Ft5dJagQTLg1hVsr5qhRRi8qgFtDkO2dqYDSM+gTvqqjsNezSG4+V/SQzf0fn3NM/6zJPA/EdC2DXR9uYW+1lou
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS9PR01MB12148.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(366016)(261009223027099003)(18002099003)(22082099003)(1580799027)(38070700021)(56012099006)(11063799006)(261028144727099003)(261102123227099003)(261021123027099003)(261026140227099003)(261021121427099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?OEdwRjlVcEJSZzZYL0ZITExjS1E5Qzl6QjBvc0pTVXpXSjdEQXBNTDI4WEo2?=
+ =?utf-8?B?YVJvcW5xRkZYaHRDa0FITFhnVEtaczRXbndUbkRObnpLell4djhJSWdyS1pQ?=
+ =?utf-8?B?TVJacm4zTUNwRVdlNG9laU9IMFBVZWI5NjArWi9pZDNzWTlEeVZUUVA0ZUI4?=
+ =?utf-8?B?cGpDdTUzZWkybWU4MlZMTDVqSWVKM1lTZ2t2L0N1K0I2andHZVNOUjh1RVVi?=
+ =?utf-8?B?aXhWMzFrSXVDVTIvQzBTN0xCTEZMK0VianpOK3BTVjYvTW5UdnIxTy91emcw?=
+ =?utf-8?B?YkhiRC9GZklhM1Z5R1RHVjl0QjYxVkVCNXhqdUNoakJ1ODQ5aTY1d3pRR0FI?=
+ =?utf-8?B?SDFkQlhJY29lQ3hINGR2cTAyVTljak95WEZUMWxJZHlGSnJHUHUvUWp1TUtk?=
+ =?utf-8?B?YWFaK2pwcjYrUFUwejJOM0RMdStDeDVZWkJObGU0RE5LL2QzRzI3TzlWbFRN?=
+ =?utf-8?B?OUp3Y0srcVhSKyt1L2kzeWVZUUJ5T1NQMGR1c2FXNDVCZ09Id1hJc2s4T3pk?=
+ =?utf-8?B?WFZKTTBmYUxBSFRQS0VSTmRMM092QUpzYTNQOEFsS011ME9ZR2o5VEhJaTRK?=
+ =?utf-8?B?My9lZ05YdVZOb2dNMytUYnZKdVVGazhpRXAyNitMSkZtcE0zNDhWYUJTNXBL?=
+ =?utf-8?B?dFFBS1BRV0lYKzBDSmlFcFA1Z09Dc1FVTWJSR2lWRzV2blROZDRwRHgrWG5s?=
+ =?utf-8?B?MVdZWmtjc0VZdElyWTh4Q052aWhGbmV0RHZEWDZiTi9rYUZyZkV3RGdxRUYv?=
+ =?utf-8?B?SGZnNWhTaTdpUG1jWWEydEdrVCt6cm9QV1VaTEg4UXF3cXVFVXNlQmtUbkE0?=
+ =?utf-8?B?U2U1dytaTzBTV21RdmRjUStieHhsQzJ4dTM5a3MrUmNJY3VmMTl3aklVV2sr?=
+ =?utf-8?B?U1dNKzlsbEI3N2lhLzlWWDhEYktMdmlMVGVyZ2JjdHNaSkxmdml0elpReUpM?=
+ =?utf-8?B?dXE5VGliWjFzNWROYWFEQndzTVdabTdGVEVoU2pvSXlVU3VlQnJ4RjJTY3ps?=
+ =?utf-8?B?Z3BIT3h2ZkFZZzQ2RGFNMFN5dnlHTThUeHhuVm1xQUF1cHBpU2pWZTVyYVUz?=
+ =?utf-8?B?enJGa2swSFN3VHFzRlhBMGFEZkZUQ28vQXNCWmIvbDcya0VjUXQxaHFCVlhw?=
+ =?utf-8?B?cmFUUEhzSXdGVGVqa01Ya2xPeXNVT2tPZmY3ZW4rMnZISndZZ2RPaUJXdE5M?=
+ =?utf-8?B?MTdabks1Z3ZIcysxeFBXcmpHMkFORWlaMGhFMGtkQzFmYVA2TG13SzljQUlw?=
+ =?utf-8?B?TGNZdHRUeGU2MU1pZ1UzZW1nMDlGVEYxdzc0RFBPbGcyNXdhMnNNaWhhR2d4?=
+ =?utf-8?B?QVJLMmltQXl1S3dNMUhBd2g0aHJHTjcza0xKSWdvdnlSKytleERIUjJBdURZ?=
+ =?utf-8?B?SHVmL0c2Yy85V1dtajg0N0RBdEVBK2VkVi9zTEt1RGdxQ2Q2b2tiY2lFY0Zy?=
+ =?utf-8?B?dmdkUDBaK1F1YjkvNEVkQUJqRE14K0FIVzc0Y3YzQlVENWsrdlRPTEgzVzBi?=
+ =?utf-8?B?NjBPQjhkdzBGNzR5eTVLV3pZbk1LVGs3LzlFNnVPSnBxczVRSjNFYkhpc2FR?=
+ =?utf-8?B?TVpXaEtUbUpZWmRoUFVPT0N4NkVnbi80ZmppWTVIcmpPbDdaZUtvT2tDZkF4?=
+ =?utf-8?B?WW56cks1ekN0WXpRek5CRmozd2VQTlhJZVNQUEx3QTBXVm5ZTDl5dm05QWFa?=
+ =?utf-8?B?ZnNNMWY5czd2QkxVR05JUnpETUw5Vm5ZM3gwWU1WR21Vc25ubVZUM0pGVURQ?=
+ =?utf-8?B?azZycTFjL08vR21wdGlZYzZYNldNc0g5MUxuNUZJakIxMW9FaGhnODJnS0x1?=
+ =?utf-8?B?K3Fsb3k5S2VIbWhuQ3V4QXc0dlZDbGgrOThDUjV1UkZGcVFnVWlXY0toVkll?=
+ =?utf-8?B?SDJ1Rk12Sko0TjA0bDZpdDRCWUFTL3h3ZDRDWTJPc3Q4ekRoM1JQWDhXejRB?=
+ =?utf-8?B?bUVnV1hSY3pLamFBMjJoQmpSSThvOHNkcUR0UHIwcWhFWEh2K21JeUxTbTM1?=
+ =?utf-8?B?a1lBU1hWZ2NmeHFhcThrZmpHM0Nzb01JYkNpWUhGcUEwZXVmbC9nVW1DR3V1?=
+ =?utf-8?B?eFM0cEcwbi9NY3I4emltLzk4dm5mYlFNV2cxbFhEQnYwYlpTS0xuTkw3bmp4?=
+ =?utf-8?B?Rk5ZUFA2SWp3NE9KUFo5QitSVkdENU56WHRSR3NseXZJY0VZOGlCWHluSzM0?=
+ =?utf-8?B?dnNSM09tUmVneTJiMzRaV05kV2JpOXpOaUY4VGxuTnNsZWVUaUhPdTZ2QmRY?=
+ =?utf-8?B?L25YbEJwU2gva0lYU1p6QWlKWGNtYkc0bEFMb1l0SUxnUzVKTGdqaVA0YXpp?=
+ =?utf-8?B?cjFlTkdmR1FHRjdxYVJydWd1YTV5TkZmTWJ4dDFTRVdlQ1ljOEtzQT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <1E9558B0BB28AB4B8031139F844B762D@jpnprd01.prod.outlook.com>
+Content-Transfer-Encoding: base64
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,529 +158,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-tlb_tracepoint-v8-1-18abde32ef0a@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33QTWrDMBCG4asEresiaSSNnFXvUULRzygRJHawj
- UkJvnvlLIqxaJef4Hlh9GQjDZlGdjw82UBzHnPflWHfDixcXHemJseymeTScCvbZrr6r2lwge5
- 97qbGKiW4dl7zVrKC7gOl/HgFP09lX/I49cP3qz+L9fXP1Cwa0cQUHUVCQiU+zjeXr++hv7E1N
- csNB15xWThBsDZIFZP2ew6/XHChKw4rpwTlGvDewJ6r/7kqPEmwTvpoE9Ke6y3HiuvCpTbJa2j
- BYdpzs+W24qZwoRQaJdEirzhuef3zWLgKAahtI1h0W74syw+cfbU0JgIAAA==
-X-Change-ID: 20260829-tlb_tracepoint-844105ab5092
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>
-Cc: Jisheng Zhang <jszhang@kernel.org>, 
- =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-X-Mailer: b4 0.14.3
+X-Exchange-RoutingPolicyChecked:
+	m54i+7rlVbxxTVqUIvZd3xn+c+vO/jjlDQVW6W4Q2S2TNstBBr2JKNEXRO/8FknW52TFN9wAswkc0dP/j8/QZASsznWOaM6SjOFB/oWmmtLw+QgHVclbO93gLnMmgQQ3K0If4Ye9S134gS0GWEIvBlX+cPJh8Uny2F4DW1eqlpySoGIbpJK/jtisiL9rN4XzldEC8xCYcXA9U6aX0PEDZosFInKIN367Kj1emVQ0wrclZyG8lM/jzmLRtjXl/MoZL0rSc20OldMXTZyC+mGQr+DJGQ9Hjn5CZr9P2EvhXaNeFNHqsiinro7bKRJKHnjtEupcGMgngm6J8aBXn1sreQ==
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OS9PR01MB12148.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 285cd6c4-713e-4b03-7036-08df4ae0ca86
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2026 10:42:23.9734
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: K6PHkxXW32/QqukRbrqd9eIQwEkaDqtjqLGG1EARDWbQ/6ef5+AWSRJEo3doAac2uNaHfAg86FHO7hjknVxU+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYWPR01MB10243
 
-Make RISC-V TLB flush requests observable together with the
-architecture-specific context available when the request reaches
-the RISC-V implementation.
-
-The generic tlb:tlb_flush event provides reason and page-count
-information. At the RISC-V implementation level, additional
-context is available, including the invalidation range and stride,
-ASID, target CPU mask, and invalidation scope.
-
-This context is useful for debugging and workload analysis. The
-target CPU mask shows the address-space CPU footprint involved in
-an invalidation, while range and stride distinguish requests at
-different mapping granularities. The ASID and scope help correlate
-requests with MM, scheduler, IPI, and firmware activity.
-
-Add riscv_tlb:riscv_tlb_flush_request in flush_tlb_all() and
-__flush_tlb_range(). Record start, size, stride, ASID (or the
-no-ASID sentinel), whether an mm is associated with the request,
-the target CPU mask and its weight, and the derived scope.
-
-Record the complete target mask because CPU identity cannot be
-reconstructed from a count. Calculate its weight from the recorded
-bitmap so both fields agree even if mm_cpumask() changes during
-recording.
-
-The event describes an invalidation request before dispatch. It
-does not report whether a remote flush uses SBI RFENCE or Linux
-cross-CPU coordination, since that choice is effectively established
-during initialization rather than made for each request.
-
-The address field (start) may contain kernel virtual addresses
-for flushes involving kernel mappings. Require perf tracepoint
-permissions even for counting-only events, since perf filters
-could otherwise reveal address information through event counts.
-
-Tested on QEMU virt with OpenSBI using local and shared-mm
-mprotect()/munmap() workloads, exercising single, range, and
-address-space invalidations. A MADV_PAGEOUT reclaim workload
-exercised global flushes. All four scope values were observed.
-
-Confirmed that trace-cmd records the event and that perf can count
-it with sufficient privileges. With perf_event_paranoid=0,
-unprivileged attempts to count the event using perf were denied,
-as intended.
-
-Document the event fields, request semantics, limitations, and
-usage through tracefs and userspace tracing tools.
-
-Tested local and shared-mm invalidations with
-CONFIG_UBSAN_ALIGNMENT=y on QEMU virt without tracepoint-related
-alignment warnings.
-
-Built with and without CONFIG_PERF_EVENTS.
-
-Built and verified the RISC-V HTML documentation.
-
-Signed-off-by: Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
----
-Add a RISC-V tracepoint for observing TLB invalidation requests
-before they are dispatched by the architecture-specific
-implementation.
-
-The generic tlb:tlb_flush event describes TLB flush activity using
-reason and page-count information. The RISC-V event records
-additional context, including the invalidation range and stride,
-ASID, target CPU mask and its weight, and derived request scope.
-
-This context helps correlate TLB invalidation activity with MM,
-scheduler, IPI, and firmware activity. The event describes the
-request rather than the execution backend. SBI RFENCE versus Linux
-cross-CPU coordination is effectively determined at initialization
-rather than selected independently for each request.
-
-The target CPU mask weight is derived from the recorded bitmap to
-keep both fields consistent under concurrent mm_cpumask() updates.
-Since the address field (start) may contain kernel virtual
-addresses, the event requires perf tracepoint permissions even
-for counting-only access.
-
-Tested on QEMU virt with OpenSBI using local and shared-mm
-mprotect()/munmap() workloads. A MADV_PAGEOUT reclaim workload
-on QEMU virt with APLIC+IMSIC exercised global flushes. All four
-scope values -- single, range, address-space, and all -- were
-observed.
-
-Confirmed trace-cmd recording and privileged perf counting.
-With perf_event_paranoid=0, unprivileged attempts to count the
-event using perf were denied, as intended. The kernel was built
-with and without CONFIG_PERF_EVENTS.
-
-Tested local and shared-mm invalidations with
-CONFIG_UBSAN_ALIGNMENT=y on QEMU virt without tracepoint-related
-alignment warnings.
----
-Changes in v8:
-- Rebase on the current RISC-V for-next branch (c9b3feb61e61)
-- Add documentation describing the trace event fields, request
-  semantics, limitations, and usage.
-- Link to v7: https://lore.kernel.org/r/20261019-tlb_tracepoint-v7-1-4cc3e99d387a@gmail.com
-
-Changes in v7:
-- Rename the tracepoint header to asm/tlb_trace.h to make its
-  purpose explicit, as suggested by Steven Rostedt.
-- Link to v6: https://lore.kernel.org/r/20261018-tlb_tracepoint-v6-1-14476427870f@gmail.com
-
-Changes in v6:
-- Change the scope field from u8 to u32 to ensure the dynamic
-  CPU mask is properly aligned for bitmap operations.
-- Verify local and shared-mm TLB flush tracing with
-  CONFIG_UBSAN_ALIGNMENT=y on QEMU virt.
-- Link to v5: https://lore.kernel.org/r/20261017-tlb_tracepoint-v5-1-256fb5393a7f@gmail.com
-
-Changes in v5:
-- Move the architecture-specific trace event definition under
-  arch/riscv/, as requested by Steven Rostedt.
-- Calculate target_mask_weight from the recorded CPU mask to
-  keep both fields consistent under concurrent updates.
-- Require perf tracepoint permissions for counting-only access,
-  since the event may expose kernel virtual addresses.
-- Link to v4: https://lore.kernel.org/r/20261015-tlb_tracepoint-v4-1-f238a2bd8f7e@gmail.com
-
-Changes in v4:
-- Drop unrelated whitespace-only changes in arch/riscv/mm/tlbflush.c.
-- Link to v3: https://lore.kernel.org/all/20261015-tlb_tracepoint-v3-1-eef305a3bb63@gmail.com/
-
-Changes in v3:
-- Rebase on current RISC-V for-next.
-- Thanks to Jisheng Zhang for pointing out that SBI RFENCE versus Linux
-  cross-CPU coordination is effectively a system-wide choice established
-  during initialization rather than a per-request decision.
-- Drop the local/SBI RFENCE/cross-CPU path field.
-- Rename the event from riscv_tlb_flush_path to
-  riscv_tlb_flush_request and refocus it on the semantic TLB
-  invalidation request.
-- Emit one request event independently of the mechanism subsequently
-  used to perform the invalidation.
-- Address checkpatch.pl --strict alignment issues.
-- Link to v2: https://lore.kernel.org/r/20260830-tlb_tracepoint-v2-1-e3c88c24df5b@gmail.com
-
-Changes in v2:
-- Use trace_call__riscv_tlb_flush_path() after the explicit
-  trace_riscv_tlb_flush_path_enabled() check to avoid a second
-  tracepoint static-key test, as suggested by Steven Rostedt.
-- Link to v1: https://lore.kernel.org/r/20260829-tlb_tracepoint-v1-1-dfdaede7e741@gmail.com
----
- Documentation/arch/riscv/index.rst     |   1 +
- Documentation/arch/riscv/tlb-trace.rst | 137 +++++++++++++++++++++++++++++++++
- arch/riscv/include/asm/tlb_trace.h     | 103 +++++++++++++++++++++++++
- arch/riscv/mm/tlbflush.c               |  45 ++++++++++-
- 4 files changed, 282 insertions(+), 4 deletions(-)
-
-diff --git a/Documentation/arch/riscv/index.rst b/Documentation/arch/riscv/index.rst
-index ac535c52d509..a5450811e4af 100644
---- a/Documentation/arch/riscv/index.rst
-+++ b/Documentation/arch/riscv/index.rst
-@@ -9,6 +9,7 @@ RISC-V architecture
-     boot
-     boot-image-header
-     vm-layout
-+    tlb-trace
-     hwprobe
-     patch-acceptance
-     uabi
-diff --git a/Documentation/arch/riscv/tlb-trace.rst b/Documentation/arch/riscv/tlb-trace.rst
-new file mode 100644
-index 000000000000..c664df20d7ef
---- /dev/null
-+++ b/Documentation/arch/riscv/tlb-trace.rst
-@@ -0,0 +1,137 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+========================
-+RISC-V TLB Flush Tracing
-+========================
-+
-+Overview
-+========
-+
-+The RISC-V Linux kernel provides the
-+``riscv_tlb:riscv_tlb_flush_request`` trace event to observe TLB
-+invalidation requests at the architecture-specific implementation.
-+The event records the virtual address range, stride, ASID, target CPU
-+mask, and derived request scope.
-+
-+This information can help correlate TLB invalidation requests with
-+memory management, scheduler, IPI, and firmware activity. The event
-+reports the request before dispatch; it does not identify the mechanism
-+used to carry it out or confirm that a particular hart invalidated its
-+TLB. In particular, it does not distinguish SBI RFENCE from Linux
-+cross-CPU coordination.
-+
-+Event fields
-+============
-+
-+``start``
-+    Starting virtual address supplied with the invalidation request.
-+    It is not a meaningful range boundary for a full global flush.
-+    Requests involving kernel mappings may contain kernel virtual
-+    addresses.
-+
-+``size``
-+    Size of the requested range in bytes. ``FLUSH_TLB_MAX_SIZE``
-+    denotes a full-range invalidation.
-+
-+``stride``
-+    Invalidation granularity supplied to the RISC-V implementation.
-+    It may be zero for a full global flush.
-+
-+``asid``
-+    Address-space identifier, or ``FLUSH_TLB_NO_ASID`` when no ASID
-+    is specified. ASIDs can be reused and must not be treated as
-+    persistent identifiers of address spaces.
-+
-+``has_mm``
-+    Whether the request is associated with an ``mm_struct``.
-+
-+``target_cpus``
-+    CPU mask associated with the request. For an mm-associated
-+    request, it reflects the relevant address-space CPU mask;
-+    for a global request, it reflects the online CPU mask supplied
-+    at the tracepoint. It does not prove which CPUs or harts
-+    actually performed an invalidation.
-+
-+``target_mask_weight``
-+    Number of CPUs in the recorded ``target_cpus`` bitmap.
-+
-+``scope``
-+    Derived invalidation scope:
-+
-+    * ``single``: a range no larger than one stride.
-+    * ``range``: a range larger than one stride.
-+    * ``address-space``: a full-range request with an associated
-+      ``mm_struct``.
-+    * ``all``: a full-range request without an associated
-+      ``mm_struct``.
-+
-+Using the event
-+===============
-+
-+The event is available through tracefs when kernel event tracing is
-+configured. The commands below assume tracefs is mounted at
-+``/sys/kernel/tracing`` and are run with sufficient privileges.
-+
-+Inspect the available event fields::
-+
-+    # cat /sys/kernel/tracing/events/riscv_tlb/riscv_tlb_flush_request/format
-+
-+To record requests, clear the current trace buffer and enable the event::
-+
-+    # cd /sys/kernel/tracing
-+    # echo > trace
-+    # echo 1 > events/riscv_tlb/riscv_tlb_flush_request/enable
-+
-+Run a workload that changes memory mappings or permissions, for example
-+one using ``munmap()`` or ``mprotect()``. Then disable the event and
-+read the buffer::
-+
-+    # echo 0 > events/riscv_tlb/riscv_tlb_flush_request/enable
-+    # cat trace
-+
-+``trace_pipe`` can be used instead of ``trace`` to consume events as
-+they occur. Clearing ``trace`` affects the current tracing instance;
-+avoid doing so while another tracing session is using it.
-+
-+Example output
-+==============
-+
-+The following lines were captured in separate QEMU ``virt`` test runs.
-+Addresses, ASIDs, CPU masks, and timestamps depend on the workload and
-+system configuration::
-+
-+    tlb_workload-ri-290 [000] ...5. 748.436198: riscv_tlb_flush_request: start=0xfffffffffff000 size=0x1000 stride=0x1000 asid=0x158 has_mm=1 target_mask_weight=1 target_cpus=00000000,00000001 scope=single
-+    tlb_workload-ri-290 [000] ...1. 748.580051: riscv_tlb_flush_request: start=0x7fff891e2000 size=0x20000 stride=0x1000 asid=0x158 has_mm=1 target_mask_weight=2 target_cpus=00000000,00000003 scope=range
-+    tlb_scope_all-r-309 [000] ...1. 986.214468: riscv_tlb_flush_request: start=0 size=0xffffffffffffffff stride=0x1000 asid=0xffffffffffffffff has_mm=0 target_mask_weight=3 target_cpus=0-2 scope=all
-+
-+The first request covers one 4 KiB stride. The second covers a 128 KiB
-+range and records two target CPUs (mask ``0x3``). The last is an
-+mm-independent full-range request; its target mask includes CPUs 0-2.
-+The different CPU-mask representations reflect tracing output options.
-+
-+Userspace tools
-+---------------
-+
-+The event may also be recorded with the external ``trace-cmd`` tool::
-+
-+    # trace-cmd record -e riscv_tlb:riscv_tlb_flush_request ./workload
-+    # trace-cmd report
-+
-+It is also accessible to perf and other tools supporting kernel trace
-+events, subject to access permissions. For general tracefs usage and
-+event filtering, see ``Documentation/trace/events.rst``.
-+
-+Limitations
-+===========
-+
-+This event describes a Linux TLB invalidation request, not hardware TLB
-+state, the execution path within firmware, or completion of remote
-+invalidation operations.
-+
-+The recorded CPU mask and its weight agree, but copying a concurrently
-+changing mask does not provide an atomic snapshot of all CPU or
-+address-space state.
-+
-+Since the event can contain kernel virtual addresses, access to its
-+trace data must be appropriately restricted. Perf access permissions
-+also apply to counting-only use of this event.
-diff --git a/arch/riscv/include/asm/tlb_trace.h b/arch/riscv/include/asm/tlb_trace.h
-new file mode 100644
-index 000000000000..60b48eb0d355
---- /dev/null
-+++ b/arch/riscv/include/asm/tlb_trace.h
-@@ -0,0 +1,103 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#undef TRACE_SYSTEM
-+#define TRACE_SYSTEM riscv_tlb
-+
-+#if !defined(_TRACE_RISCV_TLB_TRACE_H) || defined(TRACE_HEADER_MULTI_READ)
-+#define _TRACE_RISCV_TLB_TRACE_H
-+
-+#include <linux/cpumask.h>
-+#include <linux/tracepoint.h>
-+#include <linux/perf_event.h>
-+
-+#ifndef _TRACE_RISCV_TLB_ENUMS
-+#define _TRACE_RISCV_TLB_ENUMS
-+
-+enum riscv_tlb_flush_scope {
-+	RISCV_TLB_FLUSH_SCOPE_SINGLE,
-+	RISCV_TLB_FLUSH_SCOPE_RANGE,
-+	RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE,
-+	RISCV_TLB_FLUSH_SCOPE_ALL,
-+};
-+
-+#endif /* _TRACE_RISCV_TLB_ENUMS */
-+
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_SINGLE);
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_RANGE);
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE);
-+TRACE_DEFINE_ENUM(RISCV_TLB_FLUSH_SCOPE_ALL);
-+
-+#define show_riscv_tlb_flush_scope(scope) \
-+	__print_symbolic(scope, \
-+		{ RISCV_TLB_FLUSH_SCOPE_SINGLE,        "single" }, \
-+		{ RISCV_TLB_FLUSH_SCOPE_RANGE,         "range" }, \
-+		{ RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE, "address-space" }, \
-+		{ RISCV_TLB_FLUSH_SCOPE_ALL,           "all" })
-+
-+/*
-+ * Record the invalidation request received by the RISC-V architecture code
-+ *
-+ * The target CPU mask represents the CPUs Linux intends to cover for the
-+ * request. It can be correlated with per-CPU activity, but does not describe
-+ * which harts ultimately performed an invalidation.
-+ *
-+ * The ASID is hardware-visible and may be reused. It must not be treated as a
-+ * persistent identifier for an mm.
-+ *
-+ * The stride describes the invalidation granularity supplied to the RISC-V
-+ * implementation.
-+ *
-+ * The event records the invalidation request before it is dispatched. It does
-+ * not describe the mechanism used to execute the request.
-+ *
-+ */
-+TRACE_EVENT(riscv_tlb_flush_request,
-+	    TP_PROTO(unsigned long start, unsigned long size,
-+		     unsigned long stride, unsigned long asid, bool has_mm,
-+		     const struct cpumask *cmask,
-+		     enum riscv_tlb_flush_scope scope),
-+
-+	TP_ARGS(start, size, stride, asid, has_mm, cmask, scope),
-+
-+	TP_STRUCT__entry(__field(unsigned long, start)
-+		__field(unsigned long, size)
-+		__field(unsigned long, stride)
-+		__field(unsigned long, asid)
-+		__field(bool, has_mm)
-+		__field(unsigned int, target_mask_weight)
-+		__cpumask(target_cpus)
-+		__field(u32, scope)
-+	),
-+
-+	TP_fast_assign(__entry->start = start;
-+		__entry->size = size;
-+		__entry->stride = stride;
-+		__entry->asid = asid;
-+		__entry->has_mm = has_mm;
-+		__assign_cpumask(target_cpus, cpumask_bits(cmask));
-+		__entry->target_mask_weight = cpumask_weight((const struct cpumask *)
-+						     __get_cpumask(target_cpus));
-+		__entry->scope = scope;
-+	),
-+
-+	TP_printk("start=%#lx size=%#lx stride=%#lx asid=%#lx has_mm=%d target_mask_weight=%u target_cpus=%s scope=%s",
-+		  __entry->start, __entry->size, __entry->stride,
-+		  __entry->asid, __entry->has_mm,
-+		  __entry->target_mask_weight, __get_cpumask(target_cpus),
-+		  show_riscv_tlb_flush_scope(__entry->scope))
-+);
-+
-+#ifdef CONFIG_PERF_EVENTS
-+TRACE_EVENT_PERF_PERM(riscv_tlb_flush_request,
-+		      perf_allow_tracepoint());
-+#endif
-+
-+#endif /* _TRACE_RISCV_TLB_TRACE_H */
-+
-+#undef TRACE_INCLUDE_PATH
-+#undef TRACE_INCLUDE_FILE
-+
-+#define TRACE_INCLUDE_PATH asm
-+#define TRACE_INCLUDE_FILE tlb_trace
-+
-+/* This part must be outside protection. */
-+#include <trace/define_trace.h>
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index a74a7d5258aa..815867c34e18 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -9,6 +9,9 @@
- #include <asm/mmu_context.h>
- #include <asm/cpufeature.h>
- 
-+#define CREATE_TRACE_POINTS
-+#include <asm/tlb_trace.h>
-+
- #define has_svinval()	riscv_has_extension_unlikely(RISCV_ISA_EXT_SVINVAL)
- 
- /*
-@@ -63,6 +66,32 @@ void local_flush_tlb_kernel_range(unsigned long start, unsigned long end)
- 	local_flush_tlb_range_asid(start, end - start, PAGE_SIZE, FLUSH_TLB_NO_ASID);
- }
- 
-+static enum riscv_tlb_flush_scope
-+riscv_tlb_get_flush_scope(unsigned long size, unsigned long stride, bool has_mm)
-+{
-+	if (size == FLUSH_TLB_MAX_SIZE)
-+		return has_mm ? RISCV_TLB_FLUSH_SCOPE_ADDRESS_SPACE :
-+			RISCV_TLB_FLUSH_SCOPE_ALL;
-+
-+	return size <= stride ? RISCV_TLB_FLUSH_SCOPE_SINGLE :
-+		RISCV_TLB_FLUSH_SCOPE_RANGE;
-+}
-+
-+static __always_inline void
-+riscv_tlb_trace_flush_request(const struct cpumask *cmask, unsigned long start,
-+			      unsigned long size, unsigned long stride,
-+			      unsigned long asid, bool has_mm)
-+{
-+	enum riscv_tlb_flush_scope scope;
-+
-+	if (!trace_riscv_tlb_flush_request_enabled())
-+		return;
-+
-+	scope = riscv_tlb_get_flush_scope(size, stride, has_mm);
-+	trace_call__riscv_tlb_flush_request(start, size, stride, asid, has_mm,
-+					    cmask, scope);
-+}
-+
- static void __ipi_flush_tlb_all(void *info)
- {
- 	local_flush_tlb_all();
-@@ -70,12 +99,18 @@ static void __ipi_flush_tlb_all(void *info)
- 
- void flush_tlb_all(void)
- {
--	if (num_online_cpus() < 2)
-+	riscv_tlb_trace_flush_request(cpu_online_mask, 0,
-+				      FLUSH_TLB_MAX_SIZE, 0,
-+				      FLUSH_TLB_NO_ASID, false);
-+
-+	if (num_online_cpus() < 2) {
- 		local_flush_tlb_all();
--	else if (riscv_use_sbi_for_rfence())
--		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE, FLUSH_TLB_NO_ASID);
--	else
-+	} else if (riscv_use_sbi_for_rfence()) {
-+		sbi_remote_sfence_vma_asid(NULL, 0, FLUSH_TLB_MAX_SIZE,
-+					   FLUSH_TLB_NO_ASID);
-+	} else {
- 		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
-+	}
- }
- 
- struct flush_tlb_range_data {
-@@ -105,6 +140,8 @@ static void __flush_tlb_range(struct mm_struct *mm,
- 
- 	cpu = get_cpu();
- 
-+	riscv_tlb_trace_flush_request(cmask, start, size, stride, asid, !!mm);
-+
- 	/* Check if the TLB flush needs to be sent to other CPUs. */
- 	if (cpumask_any_but(cmask, cpu) >= nr_cpu_ids) {
- 		local_flush_tlb_range_asid(start, size, stride, asid);
-
----
-base-commit: c9b3feb61e6134d61656e5ec2516de82ea0d0f27
-change-id: 20260829-tlb_tracepoint-844105ab5092
-
-Best regards,
--- 
-Roman 'Hedin' Storozhenko <romeusmeister@gmail.com>
-
+DQoNCk9uIDIzLzExLzIwMjYgMTc6MjYsIFFpbGlhbmcgWXVhbiB3cm90ZToNCj4gQSB1c2VyIE1S
+IGtlZXBzIGEgc3RydWN0IHJ4ZV9tcl9wYWdlLCAxNiBieXRlcyBvbiA2NC1iaXQsIGZvciBldmVy
+eQ0KPiBQQUdFX1NJWkUgcGFnZSBpdCBjb3ZlcnMsIGluIG9uZSBhcnJheSBhbGxvY2F0ZWQgd2l0
+aCBremFsbG9jKCkgd2hlbiB0aGUNCj4gTVIgaXMgcmVnaXN0ZXJlZC4gQmVmb3JlIHRoZSBhcnJh
+eSwgdGhlIHBhZ2VzIHdlcmUga2VwdCBpbiBhbiB4YXJyYXkuDQo+IA0KPiBXaXRoIDQgS2lCIHBh
+Z2VzLCB0aGUgYXJyYXkgb2YgYW4gTVIgbGFyZ2VyIHRoYW4gMSBHaUIgZXhjZWVkcw0KPiBLTUFM
+TE9DX01BWF9TSVpFLCBzbyByZWdpc3RlcmluZyBpdCBmYWlscyB3aXRoIC1FTk9NRU0sIGFuZCB0
+aGUgZmlyc3QNCj4gYXR0ZW1wdCB3YXJuczoNCj4gDQo+ICAgIFdBUk5JTkc6IG1tL3NsdWIuYzo1
+NDU5IGF0IF9fX2ttYWxsb2NfbGFyZ2Vfbm9kZSsweGU5LzB4MTMwDQo+ICAgIENhbGwgVHJhY2U6
+DQo+ICAgICBfX2ttYWxsb2NfbGFyZ2Vfbm9kZV9ub3Byb2YNCj4gICAgIF9fa21hbGxvY19ub3By
+b2YNCj4gICAgIF9fYWxsb2NfbXJfcGFnZV9pbmZvDQo+ICAgICByeGVfbXJfaW5pdF91c2VyDQo+
+ICAgICByeGVfcmVnX3VzZXJfbXINCj4gDQo+IEFsbG9jYXRlIHRoZSBhcnJheSB3aXRoIGt2emFs
+bG9jX29ianMoKSBhbmQgZnJlZSBpdCB3aXRoIGt2ZnJlZSgpLCBzbw0KPiB0aGF0IE1ScyBvZiBh
+bnkgc2l6ZSBjYW4gYmUgcmVnaXN0ZXJlZCBhZ2Fpbi4NCj4gDQo+IFJlZ2lzdGVyaW5nIGFuIE1S
+IG92ZXIgVEhQLWJhY2tlZCBtZW1vcnksIG1lZGlhbiBvZiAzOg0KPiANCj4gICAgc2l6ZSAgICAg
+YmVmb3JlIChtcykgICBhZnRlciAobXMpICAgY2hhbmdlDQo+ICAgIDEgR2lCICAgICAgICAgICAg
+NS4zICAgICAgICAgIDUuMiAgICAgIC0yJQ0KPiAgICAyIEdpQiAgICAgICAgLUVOT01FTSAgICAg
+ICAgIDEwLjggICAgICBuL2ENCj4gICAgNCBHaUIgICAgICAgIC1FTk9NRU0gICAgICAgICAyMS4x
+ICAgICAgbi9hDQo+ICAgIDE2IEdpQiAgICAgICAtRU5PTUVNICAgICAgICAgODUuOSAgICAgIG4v
+YQ0KPiANCj4gRml4ZXM6IDEyOTg1ZTU5MTVhMGIgKCJSRE1BL3J4ZTogRml4IGlvdmEtdG8tdmEg
+Y29udmVyc2lvbiBmb3IgTVIgcGFnZSBzaXplcyAhPSBQQUdFX1NJWkUiKQ0KPiBDYzogc3RhYmxl
+QHZnZXIua2VybmVsLm9yZw0KPiBTaWduZWQtb2ZmLWJ5OiBRaWxpYW5nIFl1YW4gPHFpbGlhbmcu
+eXVhbkBsaW51eC5kZXY+DQoNCg0KUmV2aWV3ZWQtYnk6IExpIFpoaWppYW4gPGxpemhpamlhbkBm
+dWppdHN1LmNvbT4NCg0KDQo+IC0tLQ0KPiAgIGRyaXZlcnMvaW5maW5pYmFuZC9zdy9yeGUvcnhl
+X21yLmMgfCA0ICsrLS0NCj4gICAxIGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCAyIGRl
+bGV0aW9ucygtKQ0KPiANCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaW5maW5pYmFuZC9zdy9yeGUv
+cnhlX21yLmMgYi9kcml2ZXJzL2luZmluaWJhbmQvc3cvcnhlL3J4ZV9tci5jDQo+IGluZGV4IDEz
+Y2IyOGQzOTE2ZjYuLmZiZjRkODk5NDczODMgMTAwNjQ0DQo+IC0tLSBhL2RyaXZlcnMvaW5maW5p
+YmFuZC9zdy9yeGUvcnhlX21yLmMNCj4gKysrIGIvZHJpdmVycy9pbmZpbmliYW5kL3N3L3J4ZS9y
+eGVfbXIuYw0KPiBAQCAtMTU3LDcgKzE1Nyw3IEBAIHN0YXRpYyBpbnQgcnhlX21yX2ZpbGxfcGFn
+ZXNfZnJvbV9zZ3Qoc3RydWN0IHJ4ZV9tciAqbXIsIHN0cnVjdCBzZ190YWJsZSAqc2d0KQ0KPiAg
+IA0KPiAgIHN0YXRpYyBpbnQgX19hbGxvY19tcl9wYWdlX2luZm8oc3RydWN0IHJ4ZV9tciAqbXIs
+IGludCBudW1fcGFnZXMpDQo+ICAgew0KPiAtCW1yLT5wYWdlX2luZm8gPSBremFsbG9jX29ianMo
+c3RydWN0IHJ4ZV9tcl9wYWdlLCBudW1fcGFnZXMpOw0KPiArCW1yLT5wYWdlX2luZm8gPSBrdnph
+bGxvY19vYmpzKHN0cnVjdCByeGVfbXJfcGFnZSwgbnVtX3BhZ2VzKTsNCj4gICAJaWYgKCFtci0+
+cGFnZV9pbmZvKQ0KPiAgIAkJcmV0dXJuIC1FTk9NRU07DQo+ICAgDQo+IEBAIC0xODYsNyArMTg2
+LDcgQEAgc3RhdGljIHZvaWQgZnJlZV9tcl9wYWdlX2luZm8oc3RydWN0IHJ4ZV9tciAqbXIpDQo+
+ICAgCWlmICghbXItPnBhZ2VfaW5mbykNCj4gICAJCXJldHVybjsNCj4gICANCj4gLQlrZnJlZSht
+ci0+cGFnZV9pbmZvKTsNCj4gKwlrdmZyZWUobXItPnBhZ2VfaW5mbyk7DQo+ICAgCW1yLT5wYWdl
+X2luZm8gPSBOVUxMOw0KPiAgIH0NCj4gICANCj4gDQo+IC0tLQ0KPiBiYXNlLWNvbW1pdDogZTc3
+MzJlYzEzNWI1MDFlODdhYjA2MGQ5OTJiM2I1ZjJlYzQzOTZjOQ0KPiBjaGFuZ2UtaWQ6IDIwMjYx
+MTIzLWJ1Zy1yZG1hLXJ4ZS1sYXJnZS1tci1mNzUyYTQ5ZDgzNjUNCj4gDQo+IEJlc3QgcmVnYXJk
+cywNCg==
