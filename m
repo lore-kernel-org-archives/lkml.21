@@ -1,108 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621373;
-	b=Q+ug//cJ36QCdt91iWc6tbuN65KCaBWKvflXnjDNzHWmtvAOeyHUSSh+/T+GxzTCwWQt
-	 DBZiNNHNbfZiyxyZ9wg0csSszzW04oCnZ6Yglvaig/+O8MB+6aOKPKanYGoKqDmlT3oCI
-	 AAj01c2rFlE1MXBBfoZw+SDFBzvO9QoBWXLB/H2ltezjU5ufHzqohsXkmTCKYuDNaDE0K
-	 Hn2uYdAAIs6PFpgTMPA/NlO0GULCZs6E0aKpHgn3jxt8+ylH6rqE3tnI25octQvTvYZI1
-	 v4ZN2+N9R7tqr28NrkVMJXYqrFcECAFLfOmzDL1QFYjERzxPIJ5lBgpRv5Mjl6einiw==
+	t=1795621384;
+	b=4ivFoTeMSlYZHSrPiQczgC13XuMbgrLWLKsZkHesqsxiPFhApjArEs2QjFvXfMAaFG3y
+	 zB+KlzHmFBVhlpNseAv2PW8Rg6B9xTkiSkZciWkeNLeOcYOxeZo8DDrl5ku08SFUm1W9K
+	 CQ3NObctgP0C8EWVZ7llqJE8zZ+xqzfbdUGRZybAltg7I0tVhQzc4EmA3liOu8B4xCyr+
+	 J0uyJqo8shZ7P4MkaRR4hqBiqqyY3Gk8X69PDE69RE9JhrAyC+NUkp3stLcizjZv79kkN
+	 lOH5dzTSHWvrzlZjBBONr3jx0O+1XBDk04b9tT68jXI8x9EddX/UkaYHrnmT0rVFmwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621373;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621384;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=hiHQ9P2Rh4c49bXhsBaKtyKYgRGqkouT9MBhcz1H/ms=;
-	b=P7uA7pcqAeAyTexyTG3V1XxyUJMyZqxjpwwn2tDvkX0MZSQmIWTmgEgMMYxwCN5godi0
-	 kKhSQiU77YjUJf0uUaZrfDvRW5iZL2bgaNjxntQUp56aboOUw4vDEoVSdum9Q/1epSYUs
-	 3ez1XeDQ6xCUpj9MVp5/NUmSQNf2iHEcs+kOh/YCW3JNxFCD3/5TnMLSmoUAErjx+1enB
-	 6U4SZWOdv1Ks4iovWBWZ5amCuRicEssAlKQ2yp6GgrAb0MpdK1Uoe0srVGAHe9VBR1Gz+
-	 k2a6qun54KBSll9mqZGgTLyyN6W+d/rBBPI+aqt6SShXpRHdZ8WT3Ez/5t8G/ZgQbmw==
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
+	bh=WZPSE+/aPUgUkU5d51JstPYKeYOzV9gOp4cllrxEEKA=;
+	b=28AV1KPmQiSg35cBkZf/FExR6pX/K1dB/Km5F1yfMEfYr2Pt4t+/bf177FR96xrzL9rv
+	 6GMDnn1OPNpshbxx0kW3q2/EC9dnOZXsElJzsIMGZLW9Gd9h4GlEN2A9QD0lXyK31r1K9
+	 Ren64AOVVddi/T/ImZnF4D1N8lyIndwS4Hs246SCXOYUlToyC8IIMqMMeynA2RjU9mXgD
+	 Mt/M58l/DqXLzVzd/cYF8l7T07AmH7XE3lj366soLhDBUQNqZZAf9MNOIbrBwQyYXPzUw
+	 dA4gEN48bsOW+mRdSy781ppU0Faz5LsSkQMSeleubPMMD/mupT79Zj+r6V21zALbnVA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MIZx4SnM;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=B7aDAHhs;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=aXW9kDnh;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 026CE606BF60
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:42:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 026CE606BF60
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CD64607DE8A
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:43:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CD64607DE8A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MIZx4SnM;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=B7aDAHhs
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=aXW9kDnh
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795621371;
+	s=mimecast20190719; t=1795621382;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hiHQ9P2Rh4c49bXhsBaKtyKYgRGqkouT9MBhcz1H/ms=;
-	b=MIZx4SnM3AVAlSB/aE9VfIbY3mBbgq/fv9/VpUOOmxtPvhsvyIpUgcXa6WNup9P3W9dHpT
-	t6YR53I26BnmRt7nvlMIP1GgEHoDV9cio7X9xrlNWPkwdlV3D5qHCsDl1GGQ3CmWUJdCbh
-	qb/GEXlkNQUmUXzQ6jMo2hKpUCbRK8s=
-Received: from mail-lf1-f72.google.com (mail-lf1-f72.google.com
- [209.85.167.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-284-NZIk-xUCOM2Jtnq-kRgcTQ-1; Wed, 25 Nov 2026 15:42:49 +0000
-X-MC-Unique: NZIk-xUCOM2Jtnq-kRgcTQ-1
-X-Mimecast-MFC-AGG-ID: NZIk-xUCOM2Jtnq-kRgcTQ_1795621368
-Received: by mail-lf1-f72.google.com with SMTP id 2adb3069b0e04-5c31c624c20so922084e87.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:42:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795621368; x=1796226168; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hiHQ9P2Rh4c49bXhsBaKtyKYgRGqkouT9MBhcz1H/ms=;
-        b=B7aDAHhsMO/6p1ZZIBHILAS+d5gQQ+351e+x5yBAPDyWSDg4ODXYN3e2iCAFgWkM4N
-         IQB8vJUdz9tEv53yeBMNquLMbecwG/4fSaROmMrLHQsswD1gDX+Kd/HUAeB7LrWPTUE8
-         ilgvc/OCFa/KHmB2Xyvv1Giis/5fdLYlTWLdB3qNwchOkVe0piP91TGi3OGWt2hW2KTY
-         Qwjtb+cgAmo74r2djzIh2sPIlVkPbaDetQsc5GgqPx8EzODRjKqbVw2Ur4YMTDl8W2js
-         tyaHERW1R4P4JXDowCHZvKf/36vww7TNbg0mIfAQ7FLaxc093xUJbwit0SkvZIItea+o
-         weOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795621368; x=1796226168;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hiHQ9P2Rh4c49bXhsBaKtyKYgRGqkouT9MBhcz1H/ms=;
-        b=xpZVEJtzNE//3pyXyLFvxq1b3pYFB78FZdoFCxprs3WD5lVHj6U1J2oc5R4FxIELSZ
-         Bj0gyblLwvVJK4gUBEfsK+AWpxNF0lbwJyChr2AGhiE8/mGhYE9ponGIEStE+v/G+9RJ
-         Tl7cA7utfOZVkXgseyJz3tFI/+cS+gqSggFU03nTb775u5ghntJWchRo4B3bLB1lFHgu
-         woip7QI+ps3YGHLjxTBo7xs8mMR0MzwXK9/C/jBnlMbQQusPit5FZXcagRHZUE+TEecB
-         pkUICPTYiNYr6+wK6bSpeJHHfUy+uWPxYcedm3wDmJ3Df58BqZpvN/7+dpQRUtdMOooc
-         iIRg==
-X-Forwarded-Encrypted: i=1; AL+hErH33OtqTrAKpNjmJuxgSK3CHbfsUD9OoeAY+SNGeUPqM1VwEAmcPFjkVjc7PquqNR7euPpSRzwfzkCUjgY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+d0hLCcfqncCZpluz4WJ8EYNc3lFubvJg+hf1ZOTXtKXtKe1g7
-	pld3swZpeaY6NhSe8SqXEfxmsenV25KrYVPY7J3Sh/sMaJPnMe63GawG6CNzPFxfm20O6mZ8sI2
-	hEMERoSno0Nz3vsqdCkBr1X+/gFo8V5QwguElgoim26gQRZEldQmzCALR0gnrU8E+
-X-Gm-Gg: AZFdTZdaJPeTcczVpjR9ZQr1/OqmWqU4oJcTAb6qTWLSYmjkSIuEw13h8l3m7Br/8Rn
-	Ti0UZPB7sSNNyD6QeQGuGAL873W+IqAQ3ap0vERPPzBHr985QaRux/rjN2CZ42iJFmidLk64QFL
-	Z8ccuivTtiTz60mkYbH/BWgG+jaYCdS71s2imXi0ngDC/kiQPIbgeA6Am56/8bPSoSWo7ecudl8
-	ruwhKwu5+LSzjDXebTCYQxblULVTyvn9/z+WuS7LBDwJwrp1awpxAQOv3TlRnxVAYK5i+AlH9C6
-	NIfTx7QUQvrvHKDlIONpbsmi9Q2SdCLiVFPIbV9nMwfSWdpkz1OnPrrI9bnH06iGoI2wt8FdS69
-	8j5g4KgKVxDCsOqOaKBveitMr1TrYJkV6z+kWr8PO2TVJ+QxyqhsVVkSltqiDGuFFDlyN3J1D8o
-	fPJWkB
-X-Received: by 2002:a05:6512:2308:b0:5bf:dc0f:5f07 with SMTP id 2adb3069b0e04-5c1bc7bd116mr5455126e87.20.1795621367698;
-        Wed, 25 Nov 2026 07:42:47 -0800 (PST)
-X-Received: by 2002:a05:6512:2308:b0:5bf:dc0f:5f07 with SMTP id 2adb3069b0e04-5c1bc7bd116mr5455101e87.20.1795621367006;
-        Wed, 25 Nov 2026 07:42:47 -0800 (PST)
-Received: from [192.168.1.86] (89-27-86-246.bb.dnainternet.fi. [89.27.86.246])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd04451csm4614701e87.59.2026.11.25.07.42.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 07:42:46 -0800 (PST)
-Message-ID: <e2da7591-a56f-4d58-afb7-d83267d946ac@redhat.com>
-Date: Wed, 25 Nov 2026 17:42:45 +0200
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=WZPSE+/aPUgUkU5d51JstPYKeYOzV9gOp4cllrxEEKA=;
+	b=aXW9kDnhpwnY+O3c1Y0HT8o915eJd1iIvbd+4j6xhQ225kIs1JeE5XrtZrXssp7MYTEBeg
+	3ksyUA2k6GUrQg8ERTMraDBaN8EqHV0dpeiZ60HEUZlhNTkgZtg3KDVXxz0hnvTa75eCuy
+	hVAGvHOHypvYVScWKOvbCgKCh+69q7g=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-539-qZB1CWkgOLKgBYtHZpmc2Q-1; Wed,
+ 25 Nov 2026 15:42:54 +0000
+X-MC-Unique: qZB1CWkgOLKgBYtHZpmc2Q-1
+X-Mimecast-MFC-AGG-ID: qZB1CWkgOLKgBYtHZpmc2Q_1795621371
+Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 71FA919540E3;
+	Wed, 25 Nov 2026 15:42:50 +0000 (UTC)
+Received: from ivecera-thinkpadp16vgen1.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C0276436;
+	Wed, 25 Nov 2026 15:42:46 +0000 (UTC)
+From: Ivan Vecera <ivecera@redhat.com>
+To: netdev@vger.kernel.org
+Cc: Min Li <min.li@microchip.com>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Petr Oros <poros@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v2] dpll: zl3073x: do not block DPLL callbacks while PTP ops wait
+Date: Wed, 25 Nov 2026 16:42:45 +0100
+Message-ID: <20261125154245.205758-1-ivecera@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,516 +84,507 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 00/12] migrate on fault for device pages
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: linux-mm@kvack.org, dri-devel@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- David Hildenbrand <david@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>,
- Leon Romanovsky <leonro@nvidia.com>, Alistair Popple <apopple@nvidia.com>,
- Balbir Singh <balbirs@nvidia.com>, Zi Yan <ziy@nvidia.com>,
- Matthew Brost <matthew.brost@intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@suse.cz>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Lyude Paul <lyude@redhat.com>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20261103061629.972669-1-mpenttil@redhat.com>
- <avWpWBl1nPcRVmpQ@raptor> <79f33ab0-2e43-4efb-94d0-addaf40745ec@redhat.com>
- <avtBqGb4R2y9QJM8@raptor> <574af521-6b8e-41c6-bf68-1d14b78c4645@redhat.com>
- <awbyKnmLcqdwWBKw@raptor>
-Content-Language: en-US
-From: =?UTF-8?Q?Mika_Penttil=C3=A4?= <mpenttil@redhat.com>
-In-Reply-To: <awbyKnmLcqdwWBKw@raptor>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-Hi!
+The PTP clock operations hold the channel lock while they wait for the
+device: up to 1 s for a pending ToD write to be applied on the next
+1 Hz edge, up to 1 s for a previous TIE write and up to 3 s for a
+previous output phase step. The DPLL callbacks and the periodic state
+check of the channel take the same lock, so they wait as well. The DPLL
+callbacks wait under the global dpll_lock, which stalls the requests
+for all DPLL devices in the system.
 
-On 11/25/26 16:35, Alexandru Elisei wrote:
-> Hi Mika,
-> 
-> On Mon, Nov 16, 2026 at 09:12:38PM +0200, Mika Penttilä wrote:
->> Hi,
->>
->> On 11/16/26 19:47, Alexandru Elisei wrote:
->>> Hi Mika,
->>>
->>> On Thu, Nov 12, 2026 at 04:00:09PM +0200, Mika Penttilä wrote:
->>>> Hi Alexandru!
->>>>
->>>> On 11/12/26 13:56, Alexandru Elisei wrote:
->>>>> Hi Mika,
->>>>>
->>>>> I want to help getting this series merged, and I've been familiarizing myself
->>>>> with hmm and device migration, please bare with me if the questions I'm asking
->>>>> are obvious or downright silly.
->>>> Thanks for the interest and willing to help! I am preparing a v18 of the
->>>> series and plan to post it early next week.
->>>>
->>>> I try to answer your questions, there are quite a bunch of them!
->>>>
->>>>> On Tue, Nov 03, 2026 at 08:16:17AM +0200, mpenttil@redhat.com wrote:
->>>>>> From: Mika Penttilä <mpenttil@redhat.com>
->>>>>>
->>>>>> Currently, the way device page faulting and migration works
->>>>>> is not optimal, if you want to do both fault handling and
->>>>>> migration at once.
->>>>>>
->>>>>> Being able to migrate not present pages (or pages mapped with incorrect
->>>>>> permissions, eg. COW) to the GPU requires doing either of the
->>>>>> following sequences:
->>>>>>
->>>>>> 1. hmm_range_fault() - fault in non-present pages with correct permissions, etc.
->>>>>> 2. migrate_vma_*() - migrate the pages
->>>>>>
->>>>>> Or:
->>>>>>
->>>>>> 1. migrate_vma_*() - migrate present pages
->>>>>> 2. If non-present pages detected by migrate_vma_*():
->>>>>>    a) call hmm_range_fault() to fault pages in
->>>>>>    b) call migrate_vma_*() again to migrate now present pages
->>>>> Regarding both sequences, I'm trying to get a better understanding of what
->>>>> the issue is. I assume the caller wants to fault in system memory, and then
->>>>> migrate it to the device. Is that correct?
->>>> Yes that's the common thing to do.
->>> Gotcha, thanks.
->>>
->>>>
->>>>> In my analysis I'm also not going to refer to THPs, since that would make
->>>>> things even more complicated than they are. I think we can come back to
->>>>> THPs later if we think it would be useful.
->>>>>
->>>>> For the !pte_present() case:
->>>>>
->>>>> Sequence 1: hmm_range_fault() -> .. -> hmm_vma_handle_pte() handles
->>>>> !pte_present() pages in two ways: faults in swap pages and device private
->>>>> pages belonging to a different device, and waits on migration entries. Then
->>>>> the migrate_vma_*() flow is used to migrate the range.
->>>>>
->>>>> Sequence 2: migrate_vma_setup() ignores !pte_present() page table entries
->>>>> After this, the caller follows the same steps as in sequence 1 -
->>>>> hmm_range_fault() faults in !pte_present() pages, and migrate_vma_*() is
->>>>> called again to migrate the pages that were faulted in/waited on by
->>>>> hmm_range_fault().
->>>>>
->>>>> Now, for the CoW case that you mentioned, I'm going to assume that the
->>>>> caller wants write permissions otherwise nothing needs to be done:
->>>>>
->>>>> Sequence 1: hmm_range_fault() -> hmm_vma_handle_pte() records a fault
->>>>> (hmm_pte_need_fault() returns HMM_NEED_FAULT | HMM_NEED_WRITE_FAULT),
->>>>> handle_mm_fault() -> .. -> do_wp_page() breaks CoW and maps an exclusive
->>>>> folio with write permissions, then the migrate_vma_* flow will take care of
->>>>>
->>>>> Sequence 2, migrate_vma_setup() installs migration entries for the page,
->>>>> then migrate_vma_finalize() replaces the migration entries with device
->>>>> private entries.
->>>>>
->>>>> Looks to me that for CoW pages, all that's needed is migrate_vma_*(), and
->>>>> the subsequent calls to hmm_range_fault() and migrate_vma_*() are not
->>>>> necessary. Is that your conclusion too?
->>>> For  a device fault: the driver want the data in device memory with the
->>>> permissions the device asked for. Your !pte_present() analysis matches;
->>>> note that pte_none() in anonymous vmas and the zero page don't need
->>>> hmm_range_fault() at all, migrate_vma_*() populates them directly.
->>>> That's why the common case is cheap with sequence 2, and only swap
->>>> entries, other devices private pages and migration entries need the
->>>> extra walks.
->>> Yes.
->>>
->>>> For cow with write intent migrate_vma_*() alone is enough.
->>>> migrate_vma_setup() doesnt break cow: it collects the shared page
->>>> through its read-only pte, so there's no MIGRATE_PFN_WRITE, and
->>>> try_to_migrate() unmaps all its mappings, so finalize installs a
->>>> read-only device private entry. 
->>>>
->>>> The device still cant write; a write then has to go through
->>>> migrate_to_ram() and break cow in system memory, and migrate again. To
->>>> get an exclusive writable copy on the device, cow has to be broken
->>>> before collectin, i.e. hmm_range_fault() with HMM_PFN_REQ_WRITE first,
->>>> then migrate: two walks.
->>> Makes sense, something did seem fishy with my analysis of the CoW case.
->>>
->>>> With this series that's one walk,
->>>> HMM_PFN_REQ_FAULT | HMM_PFN_REQ_WRITE | HMM_PFN_REQ_MIGRATE (or
->>>> MIGRATE_VMA_WRITE for migrate_vma_setup() users), and only the
->>>> now-exclusive page is migrated.
->>>>
->>>>>> The problem with the first sequence is that you always have to do two
->>>>>> page walks even when most of the time the pages are present or zero page
->>>>>> mappings so the common case takes a performance hit.
->>>>> This is the first mention of the zero page. Is the caller specifying
->>>>> HMM_PFN_REQ_WRITE? That makes a difference, because it triggers fault
->>>>> handling for the zero page, and that's an extra walk. Can you give more
->>>>> details here?
->>>> Good question on the zero page. With a read request it need no fault:
->>>> migrate_vma_*() populates it like pte_none(), and the HMM walk collects
->>>> it the same way. With HMM_PFN_REQ_WRITE it's write-faulted first, in
->>>> sequence 1 and with this series alike; the difference is that the series
->>>> faults and collects in the same walk.
->>>>
->>>>
->>>>> Let's count page table walks when a page is mapped with a valid entry, and
->>>>> with the required permissions. Let's say N is the number of mappings for
->>>>> the page (equivalent to the number of VMAs that map the page):
->>>>>
->>>>> hmm_range_fault() -> .. -> hmm_vma_handle_pte() does one page table walk,
->>>>> migrate_vma_setup() does N page tables walks, to replace all valid mappings
->>>>> of the page with migration entries, migrate_vma_finalize() does N page
->>>>> table walks, to replace the migration entries with device entries.
->>>>>
->>>>> In total 1 + 2*N walks. Best case scenario, N == 1 (PageAnonExclusive()),
->>>>> that's three walks.
->>>>>
->>>>> Do you have any data regarding how often the best case scenario happens?
->>>>> That's what you seem to be referring to in your comment.
->>>>>
->>>>> Now let's count the number of walks for a !pte_present() page mapped in P
->>>>> VMAs, where P != N: one from hmm_range_fault(), if the entry is not a
->>>>> migration entry, another walk in the fault handler, then 2*P walks from the
->>>>> migrate_vma_*() flow.
->>>>>
->>>>> If it's a migration entry, it requires 1 + 2*P walks, PLUS waiting on
->>>>> migration to complete, which cannot be skipped.
->>>>>
->>>>> If it's a swap entry, it requires 2 + 2*P walks, PLUS waiting on swap.
->>>>>
->>>>> If it's a device private entry belonging to a different device, it requires
->>>>> 2 + 2*P walks, plus waiting on the device to sync the memory with the
->>>>> device in migrate_to_ram().
->>>>>
->>>>> To summarize:
->>>>>
->>>>> pte_present()	1 + 2*N walks
->>>>> migration entry	1 + 2*P walks + waiting on migration
->>>>> swap entry	2 + 2*P walks + waiting on swap
->>>>> device private	2 + 2*P walks + waiting on device->memory sync
->>>> On counting: the 2N (or 2P) rmap walks that replace the mappings with
->>>> migration entries and then device entries are inherent to migrating the
->>>> page and are the same in all variants. What differs is the number of
->>>> page table walks over the range: sequence 1 allways does two
->>>> (hmm_range_fault(), then migrate_vma_setup()), sequence 2 one if
->>>> everything is present and three otherwise, and the HMM walk one, with
->>>> faults handled in place and the walk resuming from the faulting
->>>> address.  The saving is per range walk, so it scales with the range.
->>> I think we might need to define what you mean by 'saving'. Normally, I
->>> would assume that you mean that 'the total time of migration is decreased',
->>> but the fact that the benchmark that you offered doesn't show this makes me
->>> wonder.
->>>
->>> The more !pte_present() pages are in the range, the smaller the amortized
->>> cost of a walk per page in the range. For example, using sequence one, for
->>> 512 !pte_present() pages, the current code does an extra 1/512 page table
->>> walks per page (for sequence two, an extra 1/512 * 2 walks). At the same
->>> time, for each page it needs to do a fault, or swap in, or wait on
->>> migration, or break CoW, or put migration+device entries in each VMA that
->>> maps the page.
->>>
->>> I think the worst case scenario is the device wanting to fault in one page
->>> from system memory. Is that what usually happens?
->>
->> Well that's what the nouveau does currently, but as I write in the
->> commit log, a better policy would be nice... Otoh, that works as a good
->> stress test on the code when pages migrate back and forth on demand.
->>
->>
->>>
->>>> I don't have data on how often the best case happens. The motivation
->>>> came from earlier prototyping of migrate on fault on the current
->>>> interfaces, where the extra walks showed up in perf traces. For the
->>>> typical SVM case of private anonymous memory without fork the pages are
->>>> exclusive (N == 1) or not yet populated, but I haven't measured a
->>>> distribution.
->>> Got it, that's what I wanted to know, the typical case is exclusive memory.
->>>
->>>>>> The second sequence is better for the common case, but far worse if
->>>>>> pages aren't present because now you have to walk the page tables three
->>>>>> times (once to find the page is not present, once so hmm_range_fault()
->>>>>> can find a non-present page to fault in and once again to setup the
->>>>>> migration). It is also tricky to code correctly. One page table walk
->>>>> Valid entry, the page is mapped in N VMAs: migrate_vma_*() does 2*N walks,
->>>>> best case scenario (PageAnonExclusive) two walks.
->>>>>
->>>>> !pte_present, the page is mapped in P VMAs:
->>>>>
->>>>> migrate_vma_setup() -> migrate_vma_collect() will always do one page table
->>>>> walk, regardless of what it finds, valid or invalid entries.
->>>>> migrate_vma_collect() ignores !pte_present() entries, and they will not
->>>>> trigger new walks in the next steps in the migrate_vma_* flow. Worst case
->>>>> is that all the pages are !pte_present(), that's one walk to find them all
->>>>> which I would say it translates to zero extra walks for an individual page.
->>>>>
->>>>> For hmm_range_fault(), it's the same situation as above: 1 + 2*P or 2 + 2*P
->>>>> walks.
->>>>>
->>>>> To summarize:
->>>>>
->>>>> pte_present()	2*N walks
->>>>> migration_entry	1 + 2*P walks + waiting on migration
->>>>> swap entry	2 + 2*P walks + waiting on migration
->>>>> device private	2 + 2*P walks + waiting on device memory->memory sync
->>>>>
->>>>> I agree with you, this second sequence is better for the common case.
->>>>>
->>>>> I think it would interesting to know:
->>>>>
->>>>> 1. Is there a relationship between N and P, and if there is, what is it?
->>>>> Are they equal, on average? I doubt it. Is a !pte_present() page likely to
->>>>> be mapped in more VMAs than a pte_present() page, or fewer?
->>>>>
->>>>> 2. What is the likelyhood of P being equal to 1 (PageAnonExclusive)? That
->>>>> would be interesting to know because the larger P is, the contribution of
->>>>> that extra walk (or two walks) to the total time becomes less and less
->>>>> significant.
->>>>>
->>>>> 3. How does the time to do the walk compare to the time spent waiting on
->>>>> migration, or waiting on swap, or waiting on device to memory sync? How
->>>>> often each of them happen? I have a hunch that these will tend to dominate
->>>>> the total time.
->>>> Yes, when a page needs swap-in, a migration wait or a device sync, that
->>>> wait dominates..
->>>> The walk saving matters on the common device fault path, with small
->>>> ranges (one page per fault in the nouveau patch) and present or
->>>> unpopulated pages: one walk instead of two, and without sequence 2's
->>>> three when part of the range isn't present. But the main point is one
->>>> call that faults and collects consistently, instead of two with a window
->>>> in between where the range can change.
->>> This is introducing another variable into the mix. It's not just the number
->>> of page table walks, it's also the fact that in between walks the mapping
->>> might have changed. I think this is why it's good to have a representative
->>> benchmarks :)
->> ack
->>>> I don't have data on N and P. For private anonymous memory without fork
->>>> or KSM both are normally 1, but I haven't measured it.
->>>>>> could costs over 1000 cpu cycles on X86-64, which is a significant hit.
->>>>>>
->>>>>> We should be able to walk the page table once, faulting
->>>>>> pages in as required and replacing them with migration entries if
->>>>>> requested.
->>>>>>
->>>>>> Add a new flag to HMM APIs, HMM_PFN_REQ_MIGRATE,
->>>>>> which tells to prepare for migration also during fault handling.
->>>>>> For the migrate_vma_setup() call paths, new flags, MIGRATE_VMA_FAULT,
->>>>>> and MIGRATE_VMA_WRITE are added to tell to add fault handling to migrate.
->>>>>>
->>>>>> An extra benefit of migrating with hmm_range_fault() path
->>>>>> is the migrate_vma.vma gets populated, so no need to
->>>>>> retrieve that separataly.
->>>>>>
->>>>>> This series avoids the problems in current collecting implementation,
->>>>>> where racing MADV_DONTNEED could make the collecting arrays overflow.
->>>>> Can you provide more details here? How does it happen?
->>>> migrate_vma_collect_pmd() drops the pte lock to split a large folio and
->>>> restarts with [start, addr) already appended to src[]/dst[]. If a racing
->>>> MADV_DONTNEED zaps the range and frees the pte table meanwhile, the re
->>>> start takes the hole path from start and append [start, addr) again,
->>>> writing past the arrays. "mm/migrate_device: don't collect a range
->>>> twice" in Lorenzo's batch fixes that instance; this series collects into
->>>> the address-indexed hmm_pfns and fills src[] only lastly, so re-walking
->>>> cant overrun. Also, the correct pages are collected with the re-walk
->>>> with this series(rollback takes care of the old ones).
->>> That can be accomplished with the upstream code too, this series isn't
->>> required (just off the top of my head, keep a local counter for the total
->>> number of pages collected by migrate_vma_collect_pmd(), use it as an offset
->>> into migrate->src and migrate->dst, and reset the counter on the 'again'
->>> label).
->>
->> It's not that simple.. you have to rollback (unlock + unref) the so far
->> collected pages. And to collect then the right pages from the start you
->> have to rewalk and collect those again (and possibly a PMD as huge). Of
->> course something like that can be done to current code, but address
->> based indexing is more robust, and you end up with something like the
->> HMM based collector :)
-> 
-> Okay.
-> 
->>
->>
->>>
->>>> There are couple other defects the series fixed along the way.
->>> Hmm... the size of this series might put off some people who are interested
->>> only in the fixes. Have you considered splitting them into standalone
->>> patches/series?
->>
->> I might, but they don't apply directly to current collector.
-> 
-> Okay, so the fixes require your patches and they cannot be adapted to the
-> upstream code, have I understood correctly?
+On a GNR-D system with a ZL30732, device-get requests for both DPLL
+channels and for a DPLL device of ice took 950 ms in median while
+settime() ran in a loop on the PTP clock of channel 0, and 2955 ms
+while adjtime() did output phase steps in NCO mode. With this change
+they take 2 ms in both cases.
 
-Sure can be adapted with some effort. I haven't yet gone into the details though.
+Only the PTP clock operations use the ToD, TIE and phase step
+registers. They need the channel lock only for the channel mode and
+the list of output pins.
 
-> 
->>
->>
->>>
->>>>>> This is achieved mainly by having a rollback mechanism and
->>>>>> populating the collecting array as the last step.
->>>>>>
->>>>>> Tested in X86-64 VM with HMM test device, passing the selftests.
->>>>> Have you tested that this series doesn't regress other architectures?
->>>> Only tested on x86-64 (VM with test_hmm, and nouveau on a GP102). The
->>>> code is arch-independent, but it isn't tested elsewhere.
->>> Sorry, I'm a bit confused - what do you mean by it isn't tested elsewhere?
->>> x86-64 specific code is the only user for the arch-independent code?
->>
->> I haven't personally tested on other arches the selftest (though I don't
->> see why there would be problems to do so).
-> 
-> Okay, but you might be surprised. The selftests I can run myself an arm64
-> machine.
+Serialize the PTP clock operations with a new per-channel ptp_lock and
+take the channel lock only to read the mode and the output pins and to
+issue a TIE write or the first phase step of an adjustment, which also
+steps the ToD. Wait for the previous TIE write or phase step before
+taking the channel lock, with tie_lock or phase_step_lock held, and
+check the mode again under it, so they are issued only in a mode that
+supports them. The phase steps for the other synthesizers move only
+the outputs and are issued in any mode, so all outputs get the same
+step even if the channel leaves NCO mode meanwhile. The lock order is
+ptp_lock, then tie_lock or phase_step_lock, then the channel lock.
 
-Yes good to check!
+Fixes: 1db73ce01856 ("dpll: zl3073x: add PTP clock support")
+Signed-off-by: Ivan Vecera <ivecera@redhat.com>
+---
+Changes in v2:
+- issue the phase steps for the other synthesizers even if the channel
+  left NCO mode while waiting, so the outputs are not stepped partially
+  (Sashiko)
+- adjphase: check the mode before waiting for the device (Sashiko)
+- @ptp_lock kernel-doc: mention the pins list (Sashiko)
 
-> 
->>
->>
->>>
->>>>
->>>>>> The main goal of this patchset is to provide a new feature,
->>>>>> migrate efficiently on fault, and not directly improve performance
->>>>>> of current migrate_vma_setup() (which is now routed thru
->>>>> I'm a bit confused by what 'on fault' means in this context? Userspace
->>>>> accesses a device entry, access that causes a fault, or using
->>>>> hmm_range_fault()? I assume the latter, but it pays to make sure.
->>>>>
->>>>> Also, can you define efficiently? Usually that's related in some way to
->>>>> performance, but immediately you say that the series doesn't aim to improve
->>>>> performance.
->>>> "On fault" means a device fault: the driver services a GPU fault with
->>>> hmm_range_fault(HMM_PFN_REQ_FAULT | HMM_PFN_REQ_MIGRATE) and migrates
->>> Got it, thanks.
->>>
->>>> the page while handling it. "Efficiently" was the wrong word: I meant
->>>> faulting and collecting in a single walk, instead of two or three calls
->>>> with a window in between. I'll reword the cover letter.
->>> Ok, gotcha.
->>>
->>>>>> hmm_range_fault()) callers. That said, the migrate throughput tests
->>>>>> from the selftests show that there is at least no regression for
->>>>>> current migrate_vma_setup() callers.
->>>>> If the premise of the series is to reduce the number of page table walks in
->>>>> the !pte_present() case, then I think benchmarks that show a performance
->>>>> improvement would make a compelling case for this approach.
->>>>>
->>>>> Some thoughts, if I may:
->>>>>
->>>>> - Perhaps the existing test is not the right test to highlight the
->>>>>   performance gains?
->>>>>
->>>>> - Perhaps there are other parts of the migration process that dominate the
->>>>>   walks? If so, maybe we should be focusing our attention on those?
->>>>>
->>>>> - Perhaps the series adds overhead that reduces or cancels the gains from
->>>>>   reducing the number of walks?
->>>> I don't have a benchmark showing a gain: nouveau had no migrate on fault
->>>> to compare against, and the selfftest throughput tests use
->>>> migrate_vma_setup() on present pages, so they can only show there's no
->>>> regression, including from the extra work in the HMM walk. Also, any
->>>> help with new tests is greatly welcome :). My primary focus atm is
->>>> getting the final corner case details sorted out in the core and
->>>> addressing sashiko; with v18  i hope being there. 
->>> This is how I see this series, please correct me if I got something wrong.
->>> The aim is to reduce the total number of page table walks over the range by
->>> one or two (depending on the sequence of functions used) when
->>> !pte_present(), or when pte_present(), but without write permissions.
->>>
->>> From our discussion so far it seems to me that the total migration time in
->>> the above cases depends on a number of things:
->>>
->>> - In how many other VMAs these pages are mapped, as each mapping needs to
->>>   be replaced with migration entries, and then with device special entries.
->>> - How long it takes to swap in the page, if the page is mapped using a swap
->>>   entry.
->>> - How long it takes to complete a concurrent migration, if the page is
->>>   mapped using a migration entry.
->>> - How long it takes to migrate a device entry back to system memory, if the
->>>   page belongs to a different device.
->>> - If the page is CoW, how long it takes to break CoW.
->>> - What happens in between walks.
->>>
->>> The code touches 2,600+ lines of code, with almost 1,300 lines added.  It
->>> removes those extra page table walks, of course, but it also offers plenty
->>> of scope to add new inefficiencies (or bugs), and if that's the case, we
->>> don't gain anything other than complexity. 
->>
->> The saving isn't only for !pte_present() or read-only ptes. Migrating on
->> device fault today takes two separate steps: hmm_range_fault() to fault
->> the range in, then migrate_vma_setup() to collect it. That's two walks
->> even when every page is already present and writeable, and the range can
-> 
-> If all the pages are present and with the required permissions, why isn't
-> migrate_vma_*() enough?
+v1: https://lore.kernel.org/r/20261120171800.327855-1-ivecera@redhat.com
+---
+ drivers/dpll/zl3073x/chan.c |  60 +++++++++----
+ drivers/dpll/zl3073x/chan.h |   2 +
+ drivers/dpll/zl3073x/dpll.c | 165 ++++++++++++++++++++++++++++++------
+ drivers/dpll/zl3073x/dpll.h |   6 +-
+ 4 files changed, 190 insertions(+), 43 deletions(-)
 
-It is enough in that case, but the driver handling the device fault doesn't know that in advance.
-A fault handler has to cover the general case, so it does hmm_range_fault() first and 
-migrate_vma_setup() after it, which is two walks even when nothing needed faulting. 
-Checking first whether everything is present is itself a walk.
+diff --git a/drivers/dpll/zl3073x/chan.c b/drivers/dpll/zl3073x/chan.c
+index ba4d303d41b47d..3d0388f28e7bcc 100644
+--- a/drivers/dpll/zl3073x/chan.c
++++ b/drivers/dpll/zl3073x/chan.c
+@@ -460,6 +460,25 @@ int zl3073x_chan_df_offset_set(struct zl3073x_dev *zldev, u8 ch, s64 offset)
+ 	return rc;
+ }
+ 
++/**
++ * zl3073x_chan_tie_ready_wait - wait for the previous TIE write to complete
++ * @zldev: pointer to zl3073x device
++ *
++ * The TIE write operation is shared by all channels, and the device can take
++ * up to one second to complete it.
++ *
++ * Context: Caller must hold zldev->tie_lock.
++ * Return: 0 on success, <0 on error
++ */
++int zl3073x_chan_tie_ready_wait(struct zl3073x_dev *zldev)
++{
++	lockdep_assert_held(&zldev->tie_lock);
++
++	return zl3073x_poll_zero_u8(zldev, ZL_REG_DPLL_TIE_CTRL,
++				    ZL_DPLL_TIE_CTRL_OP,
++				    ZL_POLL_TIE_WR_TIMEOUT_US);
++}
++
+ /**
+  * zl3073x_chan_tie_write - adjust DPLL phase using TIE write
+  * @zldev: pointer to zl3073x device
+@@ -469,6 +488,8 @@ int zl3073x_chan_df_offset_set(struct zl3073x_dev *zldev, u8 ch, s64 offset)
+  * Converts nanoseconds to TIE units (0.01 ps) and writes TIE data
+  * to the specified channel.
+  *
++ * Context: Caller must hold zldev->tie_lock and must have waited for the
++ * previous TIE write with zl3073x_chan_tie_ready_wait().
+  * Return: 0 on success, <0 on error
+  */
+ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
+@@ -476,14 +497,7 @@ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
+ 	s64 tie_data;
+ 	int rc;
+ 
+-	guard(mutex)(&zldev->tie_lock);
+-
+-	/* Wait for any previous TIE operation to complete */
+-	rc = zl3073x_poll_zero_u8(zldev, ZL_REG_DPLL_TIE_CTRL,
+-				  ZL_DPLL_TIE_CTRL_OP,
+-				  ZL_POLL_TIE_WR_TIMEOUT_US);
+-	if (rc)
+-		return rc;
++	lockdep_assert_held(&zldev->tie_lock);
+ 
+ 	/* Convert ns to TIE units (0.01 ps = 10^-14 s) */
+ 	tie_data = delta_ns * 100000LL;
+@@ -500,6 +514,25 @@ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
+ 				ZL_DPLL_TIE_CTRL_OP_WR);
+ }
+ 
++/**
++ * zl3073x_chan_phase_step_ready_wait - wait for the previous phase step
++ * @zldev: pointer to zl3073x device
++ *
++ * The output phase step operation is shared by all channels, and the device
++ * can take seconds to complete it.
++ *
++ * Context: Caller must hold zldev->phase_step_lock.
++ * Return: 0 on success, <0 on error
++ */
++int zl3073x_chan_phase_step_ready_wait(struct zl3073x_dev *zldev)
++{
++	lockdep_assert_held(&zldev->phase_step_lock);
++
++	return zl3073x_poll_zero_u8(zldev, ZL_REG_OUTPUT_PHASE_STEP_CTRL,
++				    ZL_OUTPUT_PHASE_STEP_CTRL_OP,
++				    ZL_POLL_PHASE_STEP_TIMEOUT_US);
++}
++
+ /**
+  * zl3073x_chan_phase_step - execute one output phase step operation
+  * @zldev: pointer to zl3073x device
+@@ -511,6 +544,8 @@ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
+  * All masked outputs must use synthesizers of the same frequency since
+  * the step value is in synthesizer clock cycles.
+  *
++ * Context: Caller must hold zldev->phase_step_lock and must have waited for
++ * the previous phase step with zl3073x_chan_phase_step_ready_wait().
+  * Return: 0 on success, <0 on error
+  */
+ int zl3073x_chan_phase_step(struct zl3073x_dev *zldev, u8 ch,
+@@ -520,14 +555,7 @@ int zl3073x_chan_phase_step(struct zl3073x_dev *zldev, u8 ch,
+ 	u8 ctrl;
+ 	int rc;
+ 
+-	guard(mutex)(&zldev->phase_step_lock);
+-
+-	/* Wait for any previous phase step operation to complete */
+-	rc = zl3073x_poll_zero_u8(zldev, ZL_REG_OUTPUT_PHASE_STEP_CTRL,
+-				  ZL_OUTPUT_PHASE_STEP_CTRL_OP,
+-				  ZL_POLL_PHASE_STEP_TIMEOUT_US);
+-	if (rc)
+-		return rc;
++	lockdep_assert_held(&zldev->phase_step_lock);
+ 
+ 	rc = zl3073x_write_u32(zldev, ZL_REG_OUTPUT_PHASE_STEP_DATA,
+ 			       step_cycles);
+diff --git a/drivers/dpll/zl3073x/chan.h b/drivers/dpll/zl3073x/chan.h
+index 99c3b7088f678f..55932e950e7e6e 100644
+--- a/drivers/dpll/zl3073x/chan.h
++++ b/drivers/dpll/zl3073x/chan.h
+@@ -52,11 +52,13 @@ int zl3073x_chan_tod_write(struct zl3073x_dev *zldev, u8 ch,
+ 			   struct timespec64 ts);
+ int zl3073x_chan_tod_adjust(struct zl3073x_dev *zldev, u8 ch,
+ 			    struct timespec64 delta);
++int zl3073x_chan_phase_step_ready_wait(struct zl3073x_dev *zldev);
+ int zl3073x_chan_phase_step(struct zl3073x_dev *zldev, u8 ch,
+ 			    u16 out_mask, s32 step_cycles, bool tod_step);
+ 
+ int zl3073x_chan_df_offset_set(struct zl3073x_dev *zldev, u8 ch, s64 offset);
+ 
++int zl3073x_chan_tie_ready_wait(struct zl3073x_dev *zldev);
+ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns);
+ 
+ /**
+diff --git a/drivers/dpll/zl3073x/dpll.c b/drivers/dpll/zl3073x/dpll.c
+index 1cdadb8e46fb2d..e8bdba4b44d82f 100644
+--- a/drivers/dpll/zl3073x/dpll.c
++++ b/drivers/dpll/zl3073x/dpll.c
+@@ -2460,7 +2460,7 @@ static int zl3073x_dpll_ptp_gettimex64(struct ptp_clock_info *info,
+ 	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
+ 						   ptp_info);
+ 
+-	guard(mutex)(&zldpll->lock);
++	guard(mutex)(&zldpll->ptp_lock);
+ 
+ 	return zl3073x_chan_tod_read(zldpll->dev, zldpll->id, false, ts, sts);
+ }
+@@ -2478,11 +2478,59 @@ static int zl3073x_dpll_ptp_settime64(struct ptp_clock_info *info,
+ 	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
+ 						   ptp_info);
+ 
+-	guard(mutex)(&zldpll->lock);
++	guard(mutex)(&zldpll->ptp_lock);
+ 
+ 	return zl3073x_chan_tod_write(zldpll->dev, zldpll->id, *ts);
+ }
+ 
++/**
++ * zl3073x_dpll_ptp_phase_step - execute one output phase step
++ * @zldpll: DPLL channel
++ * @out_mask: bitmask of outputs to step
++ * @step_cycles: phase step in synthesizer clock cycles
++ * @tod_step: also step the ToD counter
++ *
++ * Waits for the previous phase step without the channel lock, as the device
++ * can take up to three seconds to complete it. A step with @tod_step is then
++ * issued under the channel lock and only in NCO mode, the only mode where the
++ * device expects a ToD step. A step of outputs only follows a ToD step of the
++ * same adjustment and is issued in any mode, so all outputs get the same step
++ * even if the channel has left NCO mode in the meantime.
++ *
++ * Context: Caller must hold zldev->phase_step_lock.
++ * Return:
++ * * %0			- success
++ * * %-EOPNOTSUPP	- @tod_step is set and channel is not in NCO mode
++ * * negative		- other error
++ */
++static int zl3073x_dpll_ptp_phase_step(struct zl3073x_dpll *zldpll,
++				       u16 out_mask, s32 step_cycles,
++				       bool tod_step)
++{
++	struct zl3073x_dev *zldev = zldpll->dev;
++	const struct zl3073x_chan *chan;
++	int rc;
++
++	rc = zl3073x_chan_phase_step_ready_wait(zldev);
++	if (rc)
++		return rc;
++
++	if (!tod_step)
++		return zl3073x_chan_phase_step(zldev, zldpll->id, out_mask,
++					       step_cycles, false);
++
++	mutex_lock(&zldpll->lock);
++	chan = zl3073x_chan_state_get(zldev, zldpll->id);
++	if (zl3073x_chan_mode_is_nco(chan))
++		rc = zl3073x_chan_phase_step(zldev, zldpll->id, out_mask,
++					     step_cycles, true);
++	else
++		rc = -EOPNOTSUPP;
++	mutex_unlock(&zldpll->lock);
++
++	return rc;
++}
++
+ /**
+  * zl3073x_dpll_ptp_adjtime_phase_step - adjust sub-second time via phase step
+  * @zldpll: DPLL channel
+@@ -2503,7 +2551,7 @@ static int zl3073x_dpll_ptp_settime64(struct ptp_clock_info *info,
+  * Return:
+  * * %0			- success (or partial success if a later synth group
+  *			  failed after the first was already stepped)
+- * * %-EOPNOTSUPP	- no synths available
++ * * %-EOPNOTSUPP	- no synths available or channel is not in NCO mode
+  * * negative		- error
+  */
+ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
+@@ -2517,10 +2565,13 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
+ 	bool tod_stepped = false;
+ 	s32 step_cycles;
+ 	u32 synth_freq;
+-	int rc;
++	int rc = 0;
+ 	u8 i;
+ 
++	mutex_lock(&zldev->phase_step_lock);
++
+ 	/* Build per-synth output masks from registered output pins */
++	mutex_lock(&zldpll->lock);
+ 	list_for_each_entry(pin, &zldpll->pins, list) {
+ 		u8 out_id, synth_id;
+ 
+@@ -2540,8 +2591,11 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
+ 		}
+ 		synth_mask[synth_id] |= BIT(out_id);
+ 	}
++	mutex_unlock(&zldpll->lock);
+ 
+-	/* Process each synth group */
++	/* Process each synth group. The synth state is read before the PTP
++	 * clock is registered and does not change while it is.
++	 */
+ 	for (i = 0; i < ZL3073X_NUM_SYNTHS; i++) {
+ 		synth = zl3073x_synth_state_get(zldev, i);
+ 		if (!zl3073x_synth_is_enabled(synth) ||
+@@ -2560,33 +2614,74 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
+ 		/* Safe for s32: max synth freq is 750 MHz */
+ 		step_cycles = div_s64(delta * synth_freq, NSEC_PER_SEC);
+ 
+-		rc = zl3073x_chan_phase_step(zldev, zldpll->id,
+-					     synth_mask[i], step_cycles,
+-					     !tod_stepped);
++		rc = zl3073x_dpll_ptp_phase_step(zldpll, synth_mask[i],
++						 step_cycles, !tod_stepped);
+ 		if (rc) {
+ 			if (tod_stepped) {
+ 				dev_warn(zldev->dev,
+ 					 "Partial phase step failure\n");
+-				return 0;
++				rc = 0;
+ 			}
+-			return rc;
++			goto unlock;
+ 		}
+ 		tod_stepped = true;
+ 	}
+ 
+-	if (!first_synth_freq)
+-		return -EOPNOTSUPP;
++	if (!first_synth_freq) {
++		rc = -EOPNOTSUPP;
++		goto unlock;
++	}
+ 
+ 	/* No enabled outputs found; step ToD counter only using the
+ 	 * first enabled synth's period (empty output mask).
+ 	 */
+ 	if (!tod_stepped) {
+ 		step_cycles = div_s64(delta * first_synth_freq, NSEC_PER_SEC);
+-		return zl3073x_chan_phase_step(zldev, zldpll->id, 0,
+-					       step_cycles, true);
++		rc = zl3073x_dpll_ptp_phase_step(zldpll, 0, step_cycles, true);
+ 	}
+ 
+-	return 0;
++unlock:
++	mutex_unlock(&zldev->phase_step_lock);
++
++	return rc;
++}
++
++/**
++ * zl3073x_dpll_ptp_tie_write - adjust DPLL phase using TIE write
++ * @zldpll: DPLL channel
++ * @delta: phase adjustment in nanoseconds (must be in (-1s, 1s))
++ *
++ * Waits for the previous TIE write without the channel lock, as the device
++ * can take up to one second to complete it. The write is then issued under
++ * the channel lock, so it is issued only in a mode that supports TIE.
++ *
++ * Return:
++ * * %0			- success
++ * * %-EOPNOTSUPP	- channel mode does not support TIE
++ * * negative		- other error
++ */
++static int zl3073x_dpll_ptp_tie_write(struct zl3073x_dpll *zldpll, s64 delta)
++{
++	struct zl3073x_dev *zldev = zldpll->dev;
++	const struct zl3073x_chan *chan;
++	int rc;
++
++	mutex_lock(&zldev->tie_lock);
++	rc = zl3073x_chan_tie_ready_wait(zldev);
++	if (rc)
++		goto unlock_tie;
++
++	mutex_lock(&zldpll->lock);
++	chan = zl3073x_chan_state_get(zldev, zldpll->id);
++	if (zl3073x_chan_mode_supports_tie(chan))
++		rc = zl3073x_chan_tie_write(zldev, zldpll->id, delta);
++	else
++		rc = -EOPNOTSUPP;
++	mutex_unlock(&zldpll->lock);
++unlock_tie:
++	mutex_unlock(&zldev->tie_lock);
++
++	return rc;
+ }
+ 
+ /**
+@@ -2616,17 +2711,26 @@ static int zl3073x_dpll_ptp_adjtime(struct ptp_clock_info *info, s64 delta)
+ 	const struct zl3073x_chan *chan;
+ 	bool sec_adjusted = false;
+ 	struct timespec64 ts;
++	bool is_nco, is_tie;
+ 	int rc;
+ 
+ 	if (!delta)
+ 		return 0;
+ 
+-	guard(mutex)(&zldpll->lock);
++	guard(mutex)(&zldpll->ptp_lock);
+ 
+-	/* Modes without phase step or TIE use plain ToD adjust */
++	/* Hold the channel lock only to read the mode. The ToD, TIE and phase
++	 * step operations below can wait for up to seconds and they do not
++	 * have to block the DPLL callbacks for that long.
++	 */
++	mutex_lock(&zldpll->lock);
+ 	chan = zl3073x_chan_state_get(zldev, zldpll->id);
+-	if (!zl3073x_chan_mode_is_nco(chan) &&
+-	    !zl3073x_chan_mode_supports_tie(chan))
++	is_nco = zl3073x_chan_mode_is_nco(chan);
++	is_tie = zl3073x_chan_mode_supports_tie(chan);
++	mutex_unlock(&zldpll->lock);
++
++	/* Modes without phase step or TIE use plain ToD adjust */
++	if (!is_nco && !is_tie)
+ 		return zl3073x_chan_tod_adjust(zldev, zldpll->id,
+ 					       ns_to_timespec64(delta));
+ 
+@@ -2661,12 +2765,12 @@ static int zl3073x_dpll_ptp_adjtime(struct ptp_clock_info *info, s64 delta)
+ 	}
+ 
+ 	/* Apply sub-second delta via phase step (NCO) or TIE write */
+-	if (zl3073x_chan_mode_is_nco(chan)) {
++	if (is_nco) {
+ 		rc = zl3073x_dpll_ptp_adjtime_phase_step(zldpll, delta);
+ 		if (!rc)
+ 			return 0;
+ 	} else {
+-		rc = zl3073x_chan_tie_write(zldev, zldpll->id, delta);
++		rc = zl3073x_dpll_ptp_tie_write(zldpll, delta);
+ 		if (!rc)
+ 			return 0;
+ 	}
+@@ -2719,6 +2823,7 @@ zl3073x_dpll_ptp_adjfine(struct ptp_clock_info *info, long scaled_ppm)
+ 	 */
+ 	offset = -div_s64((s64)scaled_ppm * 67108864LL, 15625);
+ 
++	guard(mutex)(&zldpll->ptp_lock);
+ 	guard(mutex)(&zldpll->lock);
+ 
+ 	chan = zl3073x_chan_state_get(zldpll->dev, zldpll->id);
+@@ -2747,20 +2852,26 @@ static int zl3073x_dpll_ptp_adjphase(struct ptp_clock_info *info, s32 delta)
+ {
+ 	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
+ 						   ptp_info);
+-	struct zl3073x_dev *zldev = zldpll->dev;
+ 	const struct zl3073x_chan *chan;
++	bool is_tie;
+ 
+ 	if (!delta)
+ 		return 0;
+ 
+-	guard(mutex)(&zldpll->lock);
++	guard(mutex)(&zldpll->ptp_lock);
+ 
+-	chan = zl3073x_chan_state_get(zldev, zldpll->id);
++	/* Check the mode first, so a mode without TIE does not wait for
++	 * the TIE write of another channel.
++	 */
++	mutex_lock(&zldpll->lock);
++	chan = zl3073x_chan_state_get(zldpll->dev, zldpll->id);
++	is_tie = zl3073x_chan_mode_supports_tie(chan);
++	mutex_unlock(&zldpll->lock);
+ 
+-	if (!zl3073x_chan_mode_supports_tie(chan))
++	if (!is_tie)
+ 		return -EOPNOTSUPP;
+ 
+-	return zl3073x_chan_tie_write(zldev, zldpll->id, delta);
++	return zl3073x_dpll_ptp_tie_write(zldpll, delta);
+ }
+ 
+ static s32
+@@ -2926,6 +3037,7 @@ zl3073x_dpll_alloc(struct zl3073x_dev *zldev, u8 ch)
+ 	zldpll->id = ch;
+ 	mutex_init(&zldpll->lock);
+ 	INIT_LIST_HEAD(&zldpll->pins);
++	mutex_init(&zldpll->ptp_lock);
+ 
+ 	return zldpll;
+ }
+@@ -2941,6 +3053,7 @@ zl3073x_dpll_free(struct zl3073x_dpll *zldpll)
+ {
+ 	WARN(zldpll->dpll_dev, "DPLL device is still registered\n");
+ 
++	mutex_destroy(&zldpll->ptp_lock);
+ 	mutex_destroy(&zldpll->lock);
+ 	kfree(zldpll);
+ }
+diff --git a/drivers/dpll/zl3073x/dpll.h b/drivers/dpll/zl3073x/dpll.h
+index 993221dc63249d..1f51875007e253 100644
+--- a/drivers/dpll/zl3073x/dpll.h
++++ b/drivers/dpll/zl3073x/dpll.h
+@@ -19,10 +19,12 @@
+  * @ops: DPLL device operations for this instance
+  * @dpll_dev: pointer to registered DPLL device
+  * @tracker: tracking object for the acquired reference
+- * @lock: per-DPLL mutex serializing all operations
++ * @lock: per-DPLL mutex serializing DPLL operations and channel state access
+  * @type: DPLL type (PPS or EEC)
+  * @lock_status: last saved DPLL lock status
+  * @pins: list of pins
++ * @ptp_lock: serializes PTP clock operations, taken before @lock, which they
++ *	      hold only while they use the channel state or the pins list
+  * @ptp_info: PTP clock info
+  * @ptp_clock: registered PTP clock (or NULL)
+  */
+@@ -39,6 +41,8 @@ struct zl3073x_dpll {
+ 	enum dpll_type			type;
+ 	enum dpll_lock_status		lock_status;
+ 	struct list_head		pins;
++	/* Serializes PTP clock operations */
++	struct mutex			ptp_lock;
+ 	struct ptp_clock_info		ptp_info;
+ 	struct ptp_clock		*ptp_clock;
+ };
 
-> 
->> change in between, which is your "what happens in between walks". The
->> driver then has to detect that and retry, error prone and nasty task...
-> 
-> Yeah, that 'what happens in between' looks very unpredictable.
-> 
->> With HMM_PFN_REQ_MIGRATE, faulting and collecting happen in one walk, so
->> there's no window to recheck. I think migrate-on-fault fills an
->> important gap in the Linux SVM toolbox by integrating page fault
->> handling and memory migration into a unified operation.
->>
->> The costs you list (other mappings, swap-in, waitting for a concurrent
->> migration, migrating another device's page back, breaking cow) are
->> inherent to migrating those pages. They're the same with or without this
->> series. 
-> 
-> Indeed, and my point was that those costs dominate the cost of the two
-> walks. And because of that, it is entirely possible that removing the
-> two walks does not reduce the time to do migration in any meaningful way.
-
-It could be far more than two walks, and incomplete with races. Look all the
-trouble Xe driver sees doing migrate on fault, which is consequences of
-the missing MM primitive.
-
-Sure you can find a case where HMM_PFN_REQ_MIGRATE doesn't make much difference.
-There are cases where it does. It unifies the walks, you choose if want a faulting
-behavior or not. The new code covering both behaviors will also be AI checked
-from the start.
-
-> 
->>
->> On size: in mm/ and include/ it's +1378/-602. Most of the removval is
->> the old migrate_vma_collect*() walker, since migrate_vma_setup() now
->> collects through the same hmm_range_fault() walk. Existing
->> migrate_vma_setup() users get that path without driver changes. The rest
->> is nouveau as a user (+561, including two independent dmem fixes split
->> out as separate patches), test_hmm and the selftest (+283), and
->> documentation (+121). These are my current numbers.
-> 
-> Of course.
-> 
->>
->>> I think having a benchmark
->>> representative of a real workload, or a real workload, that shows a
->>> decrease in the total migration time will be great to demonstrate that we
->>> are on the right track :)
->>
->> Absolutely - cool if you could work on that side perhaps :) ?
-> 
-> Sorry, but I don't think I'm the right person to do that. I'm don't know
-> what a representative workload would be,
-
-That's okay :)
-
- and I'm not entirely convinced
-> that these changes actually make things faster.
-
-I believe it's the right approach to do migrate on fault. I have brought up
-other aspects above also that speak for the series.
-
-> 
-> Thanks,
-> Alex
-> 
-
---Mika
-
+base-commit: 4d67cf2fd2352f130c42494a933ba9158b925c65
+-- 
+2.56.1
 
