@@ -1,57 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625862;
-	b=MIDi3NDvuZI8xFGBD/gB54xgJvcuRadyve2jV711hX+Nr4kFkmh32NvgVwP4DtxPDw9t
-	 jUVOtLbrjSDhJ4NFTUlqIvVMVfTDj0PYOmqpmcGFyKjVE7hRdA/O//FKIgwWu5z+OJkP9
-	 fZBj6R8uhVK5WMK4zY3gMiZkqmxDGYbXPu8myFS27DcMaKKlEHbmM6l79Ga5u7aC3nPiC
-	 TR2zoD08IkpjdUiJzmt6SMfat5WU0RkTo5HRWMB/VAk539vqt4iO5D4Jy9vWNus4ppcED
-	 yNJdwlKN6BGVWNaveHrB1wMGbOtN4nsPUbfj3UzE2ZJbgoPnBxBJ+Q4mnQVTLZXLK8g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625862;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=sbmVapqlaLf7FPEIOBjD6utjm5DhLXMyca/stvkWTEE=;
-	b=3mFPuO+YqxTGTvveEi+M6yQd2XeBnfevKH1zHxwA1iBn6UfxZucH6QuVtentc1ZaigZj
-	 wti9lnQggGCxkKm3uBnZkWed+VRCAq5RyE5A0PUSeaFJGT+w4xwoN8iQ/5ccta7kh4K8x
-	 rOGNnXUzDHgU8+uzYlhdCU1rmvStP52uW4YoaGdTI65pDYkjc+DPsxnXZHXqlI1g/uFLK
-	 hmR2yEXXIS8W69S29CjSDFT8XBQZrTGhOIvH4fTxSN8PhJOmFVUHPTKXLV1VSfbWoPlvR
-	 ONjTB/uWoaEASaIzR+CMOYbTYw6DtKklyu7CdCvConWLPVHx0E+fp68HWOI6FO55aJg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WdD+toJr;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.9
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795625905;
+	b=rIdB9Q01L9Kb1HsgCCt48sxmpJPbzKuLf3TdvSpSt7zp0tGRJdhrdnWYtXnngRBofYKE
+	 36yPcZ9SwcTDqkBkQR6nJR34Y5ZNaBjZukBmkdngA5xzccI1vOy0uFm9PChK4tGAZIGno
+	 fSfC5tFm1DI5v2GON6t79hBlF5EaC5yzUz5yFKzLGgds78zJZddSXkeqTfiIUVLc0VmX4
+	 +RvrqEWKjt09ncX6U/XQmzZ+/YIEn8QrSbck35CiDyZpSPgELZPf2rITKvLac27kbZhbo
+	 YwJ4WYayIy2JXy9dZEwsfkinCTUlC+bOTqcfeGm7UDYiJDGulFJe0QAT6vbChI2rCgg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625905;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=yw8X0xsCD/nVoc0Ako6fX3haYJYsGyI1Pr+OPG88vnY=;
+	b=uVQDaoZ4n/fk03pUcPW+O2znZbs+ytdKvfqdaGKVgh8zNiHyL385zfxVvMzKQ+we1SBp
+	 /ny2nJp61t1NPD0CdKNBy2ZuT7209RCGTfc4sDzDSLRAA+VHXFqTjuT9oHsbCljqKEz15
+	 I1oaaPCgwTThGov6viQEWYWH9/nmipQZks3FWZg5jAIhidJFdVK76Uousy7+r9Bl0RKok
+	 JjCipepCIjzpFTH2Vt3yoWVd1C7bZHXc62+yuq0tBGS9LVtQ9+JbXgLWqqTUoNdh1PS2u
+	 QvLaMrlF/WMm8c5unv6b4z/m7WrHFyBfI9DhVD8V++wYpNdmddvYDDzSatU2U4TYiAg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=KOf4iWaY;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.9
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012009.outbound.protection.outlook.com [52.101.53.9])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 1F9BA606A332;
-	Wed, 25 Nov 2026 16:57:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCF57606A323;
+	Wed, 25 Nov 2026 16:58:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCF57606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WdD+toJr
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 4AF711F000C0;
-	Wed, 25 Nov 2026 16:57:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795625861;
-	bh=sbmVapqlaLf7FPEIOBjD6utjm5DhLXMyca/stvkWTEE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WdD+toJrw307eZBwzVlajrIbH75AkOsaifWjxjM+seN2ZuHZp3gUrTKHEknu4R5jI
-	 /u5bUgMxPKh6y7O4JQDvQ+kFNCuyE3Fsae6ZH6BLj0QsIncbhAqTnVd762hq13xHU4
-	 thz8FsNG9m3bcqFzPEGdpPqrqerKaCe88DYABCewilB1bfhyBIwSBX7Onxx66UM5To
-	 PIr2Bxk12KOz0+cZ3hOyp4rJOIFLoUHa2M5zx4Qy496ZFr0m03L6BXqKLKK8EWbdsR
-	 PCqNTqyUfEPxWqUP/wi0gC7NM/EHArjMIFtfBiFdERNk60Fe81qb9t1L5BhsRwg8Jc
-	 NM5KpooKiQRSg==
-Date: Wed, 25 Nov 2026 18:57:31 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Rustam Mustafin <rmustafin@cloudlinux.com>
-Cc: Peter Huewe <peterhuewe@gmx.de>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Shuah Khan <shuah@kernel.org>, Jaewon Yang <yong010301@gmail.com>,
-	linux-integrity@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] selftests: tpm2: test that io_uring reads are
- rejected
-Message-ID: <awcTe-W5J-Q-oK9m@kernel.org>
-References: <awXHzblUfp05jZSQ@kernel.org>
- <20261125065429.1483868-1-rmustafin@cloudlinux.com>
- <20261125065429.1483868-2-rmustafin@cloudlinux.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=KOf4iWaY
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZNxmbn2qc3WARXrWf48qmJZzKzg2pyQhxpcTGsddbwDxATC/bRYe+T3qdZAtddqWcQkZeHwUcSdg/ubwtdQQwVuJxmNvhgMIQnvi7c2Ls02YUpXCr3BCkEkL5Qi6rXlCTXbl56hW56FsFlNTU2/KMgyMBy6hu330dl+mDIHPJrEZPP2ViZtBCmTf40WSor8R4+iiupVMtaz9AXFcymfiRKECM+/TOFL2we169e2DfMC/9Mg5kwKbVgy2mIfK+M51lQvFcrz7CLyfv6W/o+S1KdunelIO50mEtcNaP9m4pJDmLlOH3xLdhq0w2ILDpgY+YEvOrG7OmEqIr+Lee9WyiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yw8X0xsCD/nVoc0Ako6fX3haYJYsGyI1Pr+OPG88vnY=;
+ b=ydckxXz6h8vT8/qkdM/dc4mb9p8s8NzNg0+WgUYJqXdNot7f4oMUCK77RcIuVTSsSqSouyVP0Q8W1FW3vrZLyLHvg9gSaurvmqDiPefbhD/X1sx8DPMFd6GQM2to+vX+JE8NhcvwR6CpGEnFYITMaEhhFW+F3kMu+GTy3lyK78xVhRMc8Lje5gJoBKXcXE0o7Xo7ChmQKdr75zyMZ18Ks5T8l9FwnVa6qwVDxIHokuFX2tR4qMykYdipVdTJMnwdMZ4T43ZDoq7IygryHL8qXnhgvX8TD+/O53kyiFf8sIuEYvrnQhoSsXO+gC+LW8zERnR0k8zvF9CMuVAkrOdtAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yw8X0xsCD/nVoc0Ako6fX3haYJYsGyI1Pr+OPG88vnY=;
+ b=KOf4iWaYiXdkeGDnDbV2dSUCfuoxEvxWgDL78/YO3nvfUnXkNvHw28R5076pAtwJ9qljXbj7b+sKLQehkeji4fB4uf/Nzw6ix8ibGEnbyJ+1FKAOS8j1cbkEPJ93/x4xhO/eF47l6RZ+vuk0pm437Xog9Ni29aqRIjCFycBOLcc=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from EAYPR12MB923140.namprd12.prod.outlook.com
+ (2603:10b6:303:2fd::15) by CH3PR12MB9218.namprd12.prod.outlook.com
+ (2603:10b6:610:19f::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 16:58:12 +0000
+Received: from EAYPR12MB923140.namprd12.prod.outlook.com
+ ([fe80::b986:8b81:beda:c167]) by EAYPR12MB923140.namprd12.prod.outlook.com
+ ([fe80::b986:8b81:beda:c167%4]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
+ 16:58:12 +0000
+Date: Wed, 25 Nov 2026 11:58:06 -0500
+From: Yazen Ghannam <yazen.ghannam@amd.com>
+To: Pierre Gondois <pierre.gondois@arm.com>
+Cc: linux-kernel@vger.kernel.org, Ashok Raj <ashok.raj@oss.qualcomm.com>,
+	James Morse <james.morse@arm.com>, Mark Brown <broonie@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	Borislav Petkov <bp@alien8.de>, Hanjun Guo <guohanjun@huawei.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shuai Xue <xueshuai@linux.alibaba.com>,
+	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+	Pawel Chmielewski <pawel.chmielewski@intel.com>,
+	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
+	Dave Jiang <dave.jiang@intel.com>, Breno Leitao <leitao@debian.org>,
+	"Fabio M. De Francesco" <fabio.m.de.francesco@linux.intel.com>,
+	Terry Bowman <terry.bowman@amd.com>, Dan Williams <djbw@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Morduan Zang <zhangdandan@uniontech.com>,
+	linux-acpi@vger.kernel.org, linux-edac@vger.kernel.org,
+	acpica-devel@lists.linux.dev
+Subject: Re: [PATCH v4 00/12] CPER: Add Memory Error Section 2 support
+Message-ID: <20261125165806.GJ2156781@yaz-khff2.amd.com>
+References: <20261113132600.3355836-1-pierre.gondois@arm.com>
+ <20261124151417.GB2156781@yaz-khff2.amd.com>
+ <7288ecda-6a1b-4b3d-9e2f-8bdbf935efc4@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7288ecda-6a1b-4b3d-9e2f-8bdbf935efc4@arm.com>
+X-ClientProxiedBy: BN0PR10CA0013.namprd10.prod.outlook.com
+ (2603:10b6:408:143::17) To EAYPR12MB923140.namprd12.prod.outlook.com
+ (2603:10b6:303:2fd::15)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,149 +111,163 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125065429.1483868-2-rmustafin@cloudlinux.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: EAYPR12MB923140:EE_|CH3PR12MB9218:EE_
+X-MS-Office365-Filtering-Correlation-Id: dfeae5b3-76c0-47dc-2508-08df4b154a83
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|18002099003|22082099003|56012099006|4143699003|11063799006|5023799004|261009223027099003|261102123227099003|261021121427099003|261022113327099003|10067099003|261026140227099003|261022105027099003|261022075727099003|261026121527099003|261028144727099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	DHUKXZwYfUzeIKMGvzX09LlbzDpp+0ctV3VkXVfsffNZB2vn3gftTulZsy0xkHCbAiU1KR5IRKz3Md8UeLNaU4fxRQ44AFYEEQbmjMp0scCIu27NNzTPveDhGDy7aOyTXOgxEIpiS0yZpCX6NpqQvrjqejI0UHCkQZ266KN/TaqevLidZxV8jKJndj3zGeiCAeaDHPGe3iKGleU3ou81awNb/LKvJ5RV7ZhPyJngyr/s0w5Lj4Bv6w4t7x1PyXq3KHjNWkW8WjSMvyDaos+ei3bEEev+mShKQ4okgR2PkyWxtGj2MireddnsovjErMws+cP/h4n3e3kyQ/Rlvnn3PFKZemUsY3qfeMAZV+a+2lMe1YDYFtUCZvIcPlf0Ghafko5tTuvqeObfYl9rq0QzJ1uTdyT0te5Fm4k6OGA642P1zx1ImaIZ9dvfPybJPcJpWF4M3Y/nRnrO3t+3CqRC+8j/rtqHAFn0GnocOJPLNKH2TQHcYzTt3BNKgWSwoWmcmit4v8XFZ/W1uHXtSW1JcdGmGJ6sRXaCek2kymWbOYjZJWyEqmIlGn+XjRXiT6zoSUmSWpg+OT3ktnrHy8lCSEyrist/uJxYC7zHFTvdOyv1pMlft5+g5Zk9zzYYY0KN
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:EAYPR12MB923140.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(18002099003)(22082099003)(56012099006)(4143699003)(11063799006)(5023799004)(261009223027099003)(261102123227099003)(261021121427099003)(261022113327099003)(10067099003)(261026140227099003)(261022105027099003)(261022075727099003)(261026121527099003)(261028144727099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?ltH/hjZ/azNPVNtyyl8B7Oj/zCfcPSVn/vrtY935MCPjzPCj7Y0xj5Gkihr/?=
+ =?us-ascii?Q?cpdVJlhjAWsNaqMWSPiJDNT6prklwX8tHg42kNYZa0S02n3S4HBvfxB0ERvZ?=
+ =?us-ascii?Q?vFx1JL52jUNNDvUmjAjJpk97MWkqSoglC4I+URhVtiSVHuWOtw6ytttCQywg?=
+ =?us-ascii?Q?FrBqFzeRUpnUXMjsXpHsa/n1sQfF9Tho9P3zKAPGAjM1MwlohUHm3cNCIcaS?=
+ =?us-ascii?Q?TowooUvXf//F+IagZMrTP5KmmKjJhdCW1S4Qg4bUKPnUT2wpe2q75EHZsTBc?=
+ =?us-ascii?Q?kzyia9FLLace7aoF0uLKp9T1dSBBSaQxoncDr2GdIWm7WIT1d4m0n2W+CbRb?=
+ =?us-ascii?Q?0RGcnOyr0FM2Y02R6/MxP2lBgMyCCDtyBgta3JJAwCTqs8kEFvsvaZtfZfuN?=
+ =?us-ascii?Q?XQri8AWwk0/AsexVh7CT8HIJGicD6TfEgLWGZyRBhSTuB9sTZgynkh6EExYe?=
+ =?us-ascii?Q?+d9rd8wqEdPNFrXcA29Q5gO0cCCkQPRkURrZUr0YqNFGLZwevfhDbR7E8SrZ?=
+ =?us-ascii?Q?IrvDXpMIdZNgUVhyjrUrz2d7sCZoZI0Ec8bejqDduhXKPOBnq5uj9KO90N4i?=
+ =?us-ascii?Q?RsJoBzVeYKHCkKUZvOyHQ2n+wPz/hUqH0ycC8VhtI4cLwp0KBr0QCRv0nzxn?=
+ =?us-ascii?Q?LMIumvA3TtEvNvMrrjjlHX5aZJObymJsKcjDR6w9mSOYqjpvq2wJw5id8/hf?=
+ =?us-ascii?Q?BpcMNogTdOk1ES/H442sAc32USv9r3mAZwacKy1XmmFyQ1CM2dxRFl3HRtUi?=
+ =?us-ascii?Q?uoH1JwGGFxTIuoDtOvjTHJGb9eaylSuE7ddjkhuSs1XEAFbV5mFxc9SaX3UE?=
+ =?us-ascii?Q?nvdemN+ZbzQUs2A8K2pSXnTHjJN3QaDQEfKhCMNfkSAaHINoglVsIJbEBAXO?=
+ =?us-ascii?Q?JA2Qp4+Nw0qNQyavxgtpEOwCmLcPssoiD+3OGECkOkvx9FeLosdXJ/IbujYC?=
+ =?us-ascii?Q?ork24jGITjMe6CLFDMMPPW1XPb6dQpg7BNSlo2QVX/dvlZmM5wY731ERsiCM?=
+ =?us-ascii?Q?OlLad2ZVKXI+dCsY9RJPt4XCkZgayXf18RWrFwmNusiYi0XQvqJRlT6gD1lb?=
+ =?us-ascii?Q?57O+bkHRGpeUZtoZf9GsSdkNXTHcem5EX9vAhidkJ4CYOTtIMMFe3orIT68A?=
+ =?us-ascii?Q?paIhf4HKPsOzKa6SuWg9Q2f/rvAaRk5PHFzeAfQyFI24nM/zxEJPHo74kvjU?=
+ =?us-ascii?Q?rbSBVLW6HOAh+EH+fU8hA//Z6dEuTZAUa3oP/EGvHVVX0lt6YFt46oOGbvtg?=
+ =?us-ascii?Q?3JqxBpxujmxIjxEOxrRO2oKcGl51cOiQCPMn+qrIAoHNg00U2Af86/Y53aMy?=
+ =?us-ascii?Q?WJabg1FtvuWIzrdC7LVYb2XQiFGNxyKtmitavsduKS9kTJaDl0sIl9YzBnKq?=
+ =?us-ascii?Q?N6iJkz1kFVdLqg8YJDT5vIXEmGlt4WLShf6SRxsW0u7gMuvg0VxT7z6EOzgo?=
+ =?us-ascii?Q?xNmS110BpG1T3lkqPI9/WTwnfWRyN69mUcY36LilaKbKuJgcUrE2Ov/Ilrnb?=
+ =?us-ascii?Q?BAJlc7oNze6yZpqoW5KWK8dpygCCnr5yVKzJVWo7DHivQ5l8ihWUrb2gYCUJ?=
+ =?us-ascii?Q?bV0CvrZdJPVmd1Pc2j3kBUjI92ujx1zQSTuGOSl3hhRx4irnGm9FIUm+JkCf?=
+ =?us-ascii?Q?3hXJ2fUR9KTpPuIa4VQEFlOuKIjz9RP2S+D+rUwvIlEEpoQXuWv9etZ/RsIH?=
+ =?us-ascii?Q?sCIrlSa7ZqFt2NI/B/7wdmi1gyq8MBMPJ178w4Uq+0r/f+wl?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dfeae5b3-76c0-47dc-2508-08df4b154a83
+X-MS-Exchange-CrossTenant-AuthSource: EAYPR12MB923140.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 16:58:12.7539
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +XDODMetp/BOOJp05rW/5MgrsymLYk2TTOErJEQXPXFAqvIXl/qP+Z7hYJKwrAPSfxnbeTSW6A9ykv/a0+MG2Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9218
 
-On Wed, Nov 25, 2026 at 01:54:29PM +0700, Rustam Mustafin wrote:
-> Test that IORING_OP_READ on /dev/tpm0 and /dev/tpmrm0 fails with -EIO and
-> that the following read() returns the whole response. The test needs
-> liburing-ffi (liburing 2.4+) and is skipped without it.
+On Wed, Nov 25, 2026 at 05:30:18PM +0100, Pierre Gondois wrote:
+> Hello Yazen,
 > 
-> Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
-> ---
+> On 11/24/26 16:14, Yazen Ghannam wrote:
+> > On Fri, Nov 13, 2026 at 02:24:42PM +0100, Pierre Gondois wrote:
+> > > The support is mostly duplicated from Memory Error Section handling.
+> > > Other than differences coming from the content of  Memory Error
+> > > Section 1 and 2, differences in the support are:
+> > > 
+> > > - v2 do not rely on a compact "struct cper_mem_err_compact" struct.
+> > > This structure was used to support older versions of the Memory
+> > > Error Section (1). This is not needed for the new structure.
+> > > 
+> > > - The compact version is also used by the tracing framework.
+> > > To avoid relying and propagating a non-standard record format,
+> > > through trace event (cf. extlog_mem event) the new trace event
+> > > prints each field individually.
+> > > 
+> > > The last patch of the serie was only build-tested due to the
+> > > absence of relevant hardware. apei_mce_report_mem_error() and
+> > > arch_apei_report_mem_error() implementations were also removed since
+> > > last version.
+> > > 
+> > > It will also require a proper handling from the rasdaemon. Applying
+> > > this last patch without rasdaemon support will silent the reports of
+> > > Memory Error Section 2 error, cf. ras_userspace_consumers() check.
+> > > 
+> > > Future:
+> > > - _OSC support (if agreed)
+> > > - Addition of arm64 tracepoints
+> > > https://lore.kernel.org/lkml/20261023170405.000060b8@oss.qualcomm.com/
+> > > - Emission of lossy CPER Mem error v1 tracepoints for legacy userspace
+> > >    tools
+> > > https://lore.kernel.org/lkml/at0rs4parlHFGI7k@hu-ashoraj-lv.qualcomm.com/
+> > > 
+> > > 
+> > > RFC:https://lore.kernel.org/all/20260929074659.2587216-1-pierre.gondois@arm.com/#t
+> > > V1:https://lore.kernel.org/all/20261019145643.1877246-1-pierre.gondois@arm.com/
+> > > - Corrections from Jonathan's review
+> > > - New patch:
+> > >      [PATCH v2 4/6] EDAC/ghes: Extract error report initialization
+> > > - Last patch not in RFC as it has been reviewed by Jonathan@
+> > >      [PATCH v2 6/6] ACPI: extlog: add Memory Error Section 2 trace event
+> > > V2:
+> > > - Updated ghes_edac_init_error() to ghes_edac_init_error_desc(),
+> > >    which now only acts on the input "struct edac_raw_error_desc"
+> > >    + added lockdep_assert_held() to ghes_edac_init_error_desc()
+> > > - Accumulate failures with "queued |=" in ghes_do_proc()
+> > > - New PATCH:
+> > >    [PATCH v3 5/7] ACPI: APEI: Extract common memory failure handling
+> > > 
+> > > V3:
+> > > - Added <linux/bits.h> include
+> > > - Used pr_warn_rate_limited()
+> > > - Removed one warn for smbios handle overflow
+> > > - Replaced __string() -> __string_len() in trace event
+> > > 
+> > > Added patch to us scnprintf():
+> > > - cper: Return actual bytes written by DIMM location helpers
+> > > Added patches to increase buffer size and prevent overflows:
+> > > - EDAC/ghes: Small buffer fixes for mem other_detail helpers
+> > > - efi/cper: Pass buffer length to memory location helpers
+> > > - efi/cper: Pass buffer length to DIMM location helpers
+> > > 
+> > > Pierre Gondois (12):
+> > >    cper: use BIT_ULL() for processor and memory validation bits
+> > >    cper: add Memory Error Section 2 structures
+> > >    cper: add helpers to handle Memory Error Section 2
+> > >    cper: Return actual bytes written by DIMM location helpers
+> > Why not use 'efi/cper' for these ^^^ ?
+> > 
+> Right, I'll update it
 > 
->  tools/testing/selftests/tpm2/Makefile      |  2 +-
->  tools/testing/selftests/tpm2/test_uring.sh | 15 +++++
->  tools/testing/selftests/tpm2/tpm2_tests.py | 72 ++++++++++++++++++++++
->  3 files changed, 88 insertions(+), 1 deletion(-)
->  create mode 100755 tools/testing/selftests/tpm2/test_uring.sh
 > 
-> diff --git a/tools/testing/selftests/tpm2/Makefile b/tools/testing/selftests/tpm2/Makefile
-> index a9bf9459fb25..44630fb980fa 100644
-> --- a/tools/testing/selftests/tpm2/Makefile
-> +++ b/tools/testing/selftests/tpm2/Makefile
-> @@ -1,5 +1,5 @@
->  # SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
->  include ../lib.mk
->  
-> -TEST_PROGS := test_smoke.sh test_space.sh test_async.sh
-> +TEST_PROGS := test_smoke.sh test_space.sh test_async.sh test_uring.sh
->  TEST_PROGS_EXTENDED := tpm2.py tpm2_tests.py
-> diff --git a/tools/testing/selftests/tpm2/test_uring.sh b/tools/testing/selftests/tpm2/test_uring.sh
-> new file mode 100755
-> index 000000000000..516985ef20af
-> --- /dev/null
-> +++ b/tools/testing/selftests/tpm2/test_uring.sh
-> @@ -0,0 +1,15 @@
-> +#!/bin/sh
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +
-> +# Kselftest framework requirement - SKIP code is 4.
-> +ksft_skip=4
-> +
-> +[ -e /dev/tpm0 ] || exit $ksft_skip
-> +[ -e /dev/tpmrm0 ] || exit $ksft_skip
-> +read tpm_version < /sys/class/tpm/tpm0/tpm_version_major
-> +[ "$tpm_version" = 2 ] || exit $ksft_skip
-> +
-> +python3 -c 'import sys, tpm2_tests
-> +sys.exit(not tpm2_tests.uring_available())' || exit $ksft_skip
-> +
-> +python3 -m unittest -v tpm2_tests.UringTest 2>&1
-> diff --git a/tools/testing/selftests/tpm2/tpm2_tests.py b/tools/testing/selftests/tpm2/tpm2_tests.py
-> index ffe98b5c8d22..6fe60e00ff06 100644
-> --- a/tools/testing/selftests/tpm2/tpm2_tests.py
-> +++ b/tools/testing/selftests/tpm2/tpm2_tests.py
-> @@ -9,6 +9,7 @@ from tpm2 import ProtocolError
->  import unittest
->  import logging
->  import struct
-> +import errno
->  
->  class SmokeTest(unittest.TestCase):
->      def setUp(self):
-> @@ -331,3 +332,74 @@ class AsyncTest(unittest.TestCase):
->  
->          self.assertEqual(rc, 22)
->          async_client.close()
-> +
-> +def uring_available():
-> +    import ctypes.util
-> +
-> +    name = ctypes.util.find_library('uring-ffi')
-> +    if not name:
-> +        return False
-> +    lib = ctypes.CDLL(name)
-> +    ring = ctypes.create_string_buffer(1024)
-> +    if lib.io_uring_queue_init(1, ring, 0) < 0:
-> +        return False
-> +    lib.io_uring_queue_exit(ring)
-> +    return True
-> +
-> +def uring_read(fd, size):
-> +    import ctypes.util
-> +
-> +    lib = ctypes.CDLL(ctypes.util.find_library('uring-ffi'))
-> +    lib.io_uring_get_sqe.restype = ctypes.c_void_p
-> +    lib.io_uring_prep_read.argtypes = [ctypes.c_void_p, ctypes.c_int,
-> +                                       ctypes.c_void_p, ctypes.c_uint,
-> +                                       ctypes.c_uint64]
-> +    ring = ctypes.create_string_buffer(1024)
-> +    ret = lib.io_uring_queue_init(1, ring, 0)
-> +    if ret < 0:
-> +        raise OSError(-ret, 'io_uring_queue_init')
-> +    try:
-> +        buf = ctypes.create_string_buffer(size)
-> +        lib.io_uring_prep_read(lib.io_uring_get_sqe(ring), fd, buf, size, 0)
-> +        ret = lib.io_uring_submit(ring)
-> +        if ret < 0:
-> +            raise OSError(-ret, 'io_uring_submit')
-> +        cqe = ctypes.c_void_p()
-> +        ret = lib.io_uring_wait_cqe(ring, ctypes.byref(cqe))
-> +        if ret < 0:
-> +            raise OSError(-ret, 'io_uring_wait_cqe')
-> +        # cqe->res follows the 64-bit user_data
-> +        res = ctypes.c_int.from_address(cqe.value + 8).value
-> +    finally:
-> +        lib.io_uring_queue_exit(ring)
-> +
-> +    return res
-> +
-> +class UringTest(unittest.TestCase):
-> +    def read_response(self, flags):
-> +        client = tpm2.Client(flags)
-> +        fmt = '>HII III'
-> +        cmd = struct.pack(fmt,
-> +                          tpm2.TPM2_ST_NO_SESSIONS,
-> +                          struct.calcsize(fmt),
-> +                          tpm2.TPM2_CC_GET_CAPABILITY,
-> +                          tpm2.TPM2_CAP_TPM_PROPERTIES,
-> +                          tpm2.TPM2_PT_FIXED, 1)
-> +        try:
-> +            client.tpm.write(cmd)
-> +            res = uring_read(client.tpm.fileno(), 4096)
-> +            # The rejected read must leave the whole response in place
-> +            rsp = client.tpm.read(4096)
-> +        finally:
-> +            client.close()
-> +
-> +        self.assertEqual(res, -errno.EIO)
-> +        sz, rc = struct.unpack('>II', rsp[2:10])
-> +        self.assertEqual(sz, len(rsp))
-> +        self.assertEqual(rc, 0)
-> +
-> +    def test_read_tpm(self):
-> +        self.read_response(0)
-> +
-> +    def test_read_tpmrm(self):
-> +        self.read_response(tpm2.Client.FLAG_SPACE)
-> -- 
-> 2.52.0
+> > >    EDAC/ghes: Extract error report initialization
+> > >    ACPI: APEI: Extract common memory failure handling
+> > >    ACPI: APEI: add separate Memory Error Section 2 handlers
+> > >    ACPI: extlog: add Memory Error Section 2 trace event
+> > >    efi/cper: Pass buffer length to DIMM location helpers
+> > >    efi/cper: Pass buffer length to memory location helpers
+> > >    EDAC/ghes: Small buffer fixes for mem other_detail helpers
+> > >    efi/cper: Increase memory error location and detail buffer sizes
+> > > 
+> > Boris already mentioned having fixes go first. I think the common
+> > convention is to have "fixes > refactoring > new feature" order. I asked
+> > an LLM assistant to propose a new patch order (copied at the end). Some
+> > patches would need to be split/reworked, so it's not a strict 1-to-1
+> > reordering. I hope this helps.
+> 
+> I thought sending fixes/refactor/new features separately would
+> make it more difficult to understand where the patchset wanted
+> to go, as the refactoring part is usually preparing for the new
+> feature. E.g. B2 +B3 only make sense if v4.7 ("ACPI: APEI: add separate
+> Memory Error Section 2 handlers") is applied.
+> 
+> But if you both prefer it in split series I can do it sure.
 > 
 
-Thanks this much better.
+I didn't mean to split the series necessarily. Though you could do that.
+That may make more sense for any independent fixes.
 
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+I meant that some of the individual patches may need to be broken up and
+rearranged into new patches.
 
-Br, Jarkko
+Thanks,
+Yazen
