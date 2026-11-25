@@ -1,99 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.7
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.45
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795580237;
-	b=rs8BqMKtJCsaEke10cF1XRSzXa7XunEqYhhHY67eRrfjAoxv/ZnGMv91SKzkbrcQs3c2
-	 Y+u1m9iLk3BQG8X01rABGq4kaulR7ruL9U72UMGj6IfeeyczH1bQQQdwxPashwLlaGVYP
-	 AqC/IxeTEnL+7P8hXLp7n5kWm0wnS2E7ShWGr9hy7sEdtMFftNFuBSXql6RwFfJiadrnU
-	 t2rJSwrL2/zfzFFvlFHtAXjSBdsqrvznibn+RZBY3Z0AX06AsdWzd9+w3Qo9yLtK7JRR/
-	 juodsOyu8Ga0/9tFAHPUaLWaCpQEmROJEBI9NAw7AqQ/VACW1L8e33rSn/yRExGgciw==
+	t=1795580297;
+	b=TNPf2z7SiFHIBXXU/+k3uLMX5/Lx2ZtwEZwTAOiGBvYTnXmEPnKybcdQr7PnZm2xr1N4
+	 PNGYTdcaS6HFQBLXMl02fLplZGTocZYPPml9pOSM2IMgxKNHi90iQg8+4gFGQOvgEs8oG
+	 T2IICosopyQM150MiM1gvOr5bx9Ocrjej7Q/fL9YbvMYf7qRc8W/cOBINns7Vg1vdJcxs
+	 NxDFe2HF7LWmp5O3nW3kGXCAy2KsPjdkmbJ9czORiI7c45McJovspYl4h6F1H84zc3Vjw
+	 9ySr54jlGOxqOcEAQv1PrQHfWOmL5rZCZp+lRExieBAtjQqWJjEDGEGrB8aX+aXRWAA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795580237;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=xQJvNsmoeyJEEGHuUnA0U97X7fCCS8ogZORvR0u+Tww=;
-	b=C41vaVEHaLQftElKN+1kk1zNwugs8lpcU5SugE1lfJlgLUrf1Sjg669T2k9eZ1eh/C9P
-	 1sDPLIf+lyaSIwLSlGbl4bToWrN1848rD9f5N71OIYSCnUMNU3PanBzrMJ9JumpG6Reh2
-	 wVAspUTnIxjx6NBnAQmNGDgJUYlRaIfceDdYzaUh2FBmrOaBTqchA+2uebZ0bgN3OXvfC
-	 gsPh/bHtLUZAPmV4HmeTjZ+EdNZk+0iHz6l7GSrNy8e+Yq6i66E0Vc8RIdwvQn16X8QTu
-	 X3+95mNAeDuLxpbFJ5TXp2bu0cjGPujNGiBrWNZq+ustZjRSVJ/X2HWRfvoCXj9lh0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795580297;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=kLeHDG2VnEXhT3JsLotiTiwhgWFVUUN1QQojkOZhb2I=;
+	b=ubeEOBGdWdQkvEnhOSa9dzR18rQhXzk2GxULp+4WjWAwXsUR3X4OB0AUnk0x8f8KSrnP
+	 e41HSVp1xeZAl+6sdWQQdtdbMh/5zWEJ4dQ1JcN/DG+beK5diVsnTotkoXXc+sPRd6Bke
+	 r1qehTcIcUQSLf1LeuO+qA+1WtignLQTkZ9vsIimywDw5AgLWq+tPjrB3BchiNT0hH2Ps
+	 VzVKqQQFZuCfjI7XyMqCY8dRtoeNlkAA6sGlo+0eRLw9qe1m1nDD0Br4vu9Caiv5C0g02
+	 WhIdg7n1UDRjGD+wFqfryUdW1+aeMjfnZEfz/ZBQYVxx4OJ439fgIQ/tfxNV+dCoBaQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gK8Dd1Hs;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.7
-Received: from PH0PR06CU001.outbound.protection.outlook.com (mail-westus3azon11011007.outbound.protection.outlook.com [40.107.208.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Gr4V25J5;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.45
+Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com [209.85.222.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA25F606A31E;
-	Wed, 25 Nov 2026 04:17:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA25F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F25C606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:18:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F25C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gK8Dd1Hs
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VU8oNL8bDEEu4ydAkisZtGHSEjGFLJZfYbsZvmIgRmHcQoWIp4pmDH06hywqI3M06Yvxl/sHUIPMVcBvdrgsRTBs05EcrhrGihbD2TyVjsQpC/+pdTPScb3EmCZ+vJp4lGp1AsBzVUVqf8Di/qlu8jLI0PcAQcIuooXGHA+SIbVq85uVsTSRNXlm0rZRmoNg6qSYGXloFnkk6GhoyxX8wea2H2EvHbbxGmLnraU9uLluvpFmPWZigr7lPxJdV2jUtA5eEJMrpPmEguvJ5jYivpr7984e2Eaxb9UHSB+QTQwvFSHuG5N/1UO/aIlmc4JKk7homk0ZGTYdW7k9WerMEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xQJvNsmoeyJEEGHuUnA0U97X7fCCS8ogZORvR0u+Tww=;
- b=MR3t23c7sNPxbc8z4iYW4TZDeC/eRUL9SAdolQUjBES47ZVETTkgPH/eTgD+2Vh1JAhWvn8MX+vadVi0XiMxGJH2DtUKPfj9vrTyRJI8DPIqdIWylGIDwKm4wdj6vsJ+JnEoYJiI+WdSQ3msXNfLOsDKsLGfcsabHgJ1Q/WignoyXckO2dQ7zYkX9lhq5+c6qcfyqjvl3smxdqP3wYjix3j6OqpJT4z9+m2H9Gg5arjWMDt+5DCzjrBQyjIBKWzYMmy4LN08xBtYBJM+eBVXhVD8DXeDuWPaZ9ZiTEU+aPuyyW9ciF+xQqE2ELj2VdBrFlaUqrRRPiYE/h0/1tnM6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xQJvNsmoeyJEEGHuUnA0U97X7fCCS8ogZORvR0u+Tww=;
- b=gK8Dd1HsSYwlB5SU6MTCl4bycJkjVs83yTC7SJnXchHw9IDn7fDbRheCXoXFL9RL3nZezwsiRxlS7NkPZ4z1UiOzt27Yd3aoOoICSXCaIj37HX69QrkNva9CbDH+oqpXPBrEDjgHQ8C+bcwhSKO1CkIA7c4UG92hwcdkgpev8L8=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SJ0PR12MB6942.namprd12.prod.outlook.com (2603:10b6:a03:449::13)
- by LV2PR12MB5822.namprd12.prod.outlook.com (2603:10b6:408:179::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Wed, 25 Nov
- 2026 04:17:11 +0000
-Received: from SJ0PR12MB6942.namprd12.prod.outlook.com
- ([fe80::20d8:2aab:1836:8d69]) by SJ0PR12MB6942.namprd12.prod.outlook.com
- ([fe80::20d8:2aab:1836:8d69%4]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
- 04:17:11 +0000
-Message-ID: <6cf871c7-d269-42d3-af40-4dc69f4a99ee@amd.com>
-Date: Wed, 25 Nov 2026 09:47:04 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] net: mctp i3c: clamp transfer lengths to the
- controller limits
-To: Jeremy Kerr <jk@codeconstruct.com.au>
-Cc: Matt Johnston <matt@codeconstruct.com.au>, linux-i3c@lists.infradead.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- meaganlloyd@linux.microsoft.com, git@amd.com, Frank Li <Frank.Li@nxp.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Shubham Patil <shubhamsanjay.patil@amd.com>
-References: <20261124060651.1987454-1-shubhamsanjay.patil@amd.com>
- <20261124060651.1987454-4-shubhamsanjay.patil@amd.com>
- <554f3a558a73c9984ec7d3395aa53aefc91d8a36.camel@codeconstruct.com.au>
-Content-Language: en-US
-From: "Patil, Shubham Sanjay" <shubpati@amd.com>
-In-Reply-To: <554f3a558a73c9984ec7d3395aa53aefc91d8a36.camel@codeconstruct.com.au>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA1PR01CA0170.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:d::20) To SJ0PR12MB6942.namprd12.prod.outlook.com
- (2603:10b6:a03:449::13)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Gr4V25J5
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-9912c47367cso3438411241.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:18:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795580296; cv=none;
+        d=google.com; s=arc-20260327;
+        b=aqNnndsAbwXkZydHifHDaXMmPz3Wgkl1b8vUYog9ErAovbZWsv2anQ33uOVF2oArQc
+         w3HkmotjKScafFKhgRt80utTKHz3TwR5zpP2sPQjYXJ96EEpDlUCUNjcB1Y7LUNzcP+a
+         IXnA0nXr6deIPdQIAphUah2r0TXbpEtI5Xy1O7gdfBnScA7mAYRJzHWMiFl9ixxewWP2
+         eJEge3YtXENBJdYf4T4EWgOqWZ7V1Ci/pKc3iww3lMPE8PGwItu9jn6RrSb1TkjS7XM5
+         1yiGqpEe6CPIChmiIe7n1OsL7rH8QJgXTfzDmKtrVxn+0un2fP6yY5ufYFXYa+17UNS3
+         7e5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=kLeHDG2VnEXhT3JsLotiTiwhgWFVUUN1QQojkOZhb2I=;
+        fh=TP5FoAIwA6WXjXUAvzNGR+vxV8gLiNXAUEi6B+YYaJk=;
+        b=GIHbfL2ws6rqNZQSOq8IIn3pNOWcaecsOKlS696a4fTbU2VI4w2gqN8Z9KMtzmqJJV
+         pXRle7SD0/7T7YV9HgGmbWoH7l4Tca/CZPdjuUPOyxPZHKIKXC6QWuKB9NA4XdOUo08r
+         sJLGawWkwTa+mwm2LLRCxN8QCKLsL48cTE/5F7+ia0C/FGlw5aVb8o4FoX3ec6Sufd+Y
+         Eovys4iVIjbjljncymkV3Dohr1YdKRTW6zX1ZNymF4oOgRj5WFWqUvpY6k2Jtw6VgkJ9
+         6L55Z2dlGldNb0DsYaZnplAEmAY8qtnyZ1PHyW9N6y1SiwYCfbIczfCI8h7pjkPgon0Q
+         a8/w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795580296; x=1796185096; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kLeHDG2VnEXhT3JsLotiTiwhgWFVUUN1QQojkOZhb2I=;
+        b=Gr4V25J5P7BKBn0hrLKwdOaxCKfi33xlDSKABVG9b3SBg7R49I/LmFG/rHdDo+/IDj
+         8ABDwK3CAw+gRQE7tMTvB/me+goYNKDSPf/+CXTiO4lsY4mdOSgJsUYeFwKxy7tKNkcn
+         N8qi46Fw3QR151tdVh3lddwqDAv2gPij7WkmvoLz8Lirw4fjJvx5OZemRS1kTSkZXLTa
+         kfo1Lm+wSMhAtdWExiTl9EsbBYmC+J8d/1dfUSmExuybUJmGpKmfhYSzQU7VfqjIAz95
+         pmjSXmMMZ28kMPG69JhJltRejSQFGg5AMgKnOKhgRX2ShFWSfenhoeYPOmRYbQQisxhA
+         oYgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795580296; x=1796185096;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kLeHDG2VnEXhT3JsLotiTiwhgWFVUUN1QQojkOZhb2I=;
+        b=xKaiZIkynLfiYRqEY36A0elOVA1MpzI/M0XN/xEhaZoXZ32cGicHVB+9fNWpmC13UF
+         LgnMkXLpr69Y/E5KCAJhZ5PH3WmU4hQuksSAp3nvTrWLAstb7V1ejIEdfaHihMhqUvPh
+         IYSESZ9O7pqBaNYZ6NDV/I6h0cT1cH8mDJEdBXR5FqvpPy9VEpMQyb1sXcs3geJc/iUy
+         3o313taMC+a3PSGSDjarUUVjWu/voVcJFYlX/6IZSaPNVvt5xkSEwqDG1OAufi0UKV1+
+         Nv3ODWFDjO9ehBLxrEzfgDzjPYsHCHprG0DpMAd0tfss4bNTvhhuZvnLJY61ok8YtGWu
+         Q6zw==
+X-Forwarded-Encrypted: i=1; AL+hErG9tWLJib1obTAJV7bns0hdm+LzfdpDE/jlcNOyZMVJ+QA4OzCZczrilce8X2VNyf7mqFnKQfOpPI48BCE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z96xj78n9MnsQZHE3I9pBllTPO39ce6ex6e4aJeS5BgoHGmr+jY
+	D/lmgHZF9W0Q4Ed2S/lbce4342fcIUufwsk3iDP7ateJJarJRgBDXr05xE0k7PWh6yHBJouHkRn
+	jTgf4/b9nZQSK58t/JpNv+15pHb/D8+t970gRwwKP
+X-Gm-Gg: AZFdTZcFgSGCmWO+kpHpFvRWQyAjU/AajaVOyZx5XbXrIpkk38gkrpZXdjBODQk4Vo+
+	rPuktkdXJMVfZk/ZUrH2IWIyh1DrjysCnQ66POkaicHm53zYQLPvEGT8iZHxb50O9OYsebLVhxi
+	c7BImAxQJrU5uwHOemiljFrTEHNAxu9nN7/JFpm+A5J8TffhMioKtFwEUiYtPZUHI+5uyviKqC9
+	nRAMGa/8dmyob4i5rBi03oLguRSQDkogGKwDQpD036I8LJYg/KbEVn2wEEa1j1Q1X0HzyJKwos/
+	NnBZB/lCsfdF2+ONWHDJIchgGckHqC7ndtKpl1diZvwtcXKktL9fWxDA/veEsOhuPMvgYqnH06T
+	QLU8LA2irFCwOuXsWhlDkZsNnx0g8DmMetJmbj3wPXkYCYtb4WG0qJH7dmw==
+X-Received: by 2002:a05:6102:41a3:b0:7a3:b2c2:2e70 with SMTP id
+ ada2fe7eead31-7d7395e32c3mr5734305137.11.1795580295324; Tue, 24 Nov 2026
+ 20:18:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,115 +104,212 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR12MB6942:EE_|LV2PR12MB5822:EE_
-X-MS-Office365-Filtering-Correlation-Id: aced4034-87e7-4894-3389-08df4aaaf9bf
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|18002099003|4143699003|22082099003|261009223027099003|11063799006|10067099003|56012099006|5023799004|261102123227099003|261028144727099003|261022105027099003|261026121527099003|261026140227099003|261021121427099003|261021123027099003;
-X-Microsoft-Antispam-Message-Info:
-	cgt9MNmF8ou1J+EdBvzoAsiBF4bptlMbvZ+yEFDKCdNIgvT7inqVr/mm2GGqzH8rDyoXuOTiIHSy0fmrninIz3eAbCCfWztgWbBbLtmYSLIXBafo+ERfCGtTAr5toeRc2xli7GrkSdwu+044P8n6RukslssSKo2ZWUZLBMtUx1k+iqifE95pziDbVHcfPbzkcnNEWMyh0Oqf5iahFtdMMn354FX4qbtWYiTDW9B3pj64Zrc+ERDvBdCF+/KGXs8mQMO12ytq1C5khu3tejQ+Py2D3msta8EhOP7E6ib7s0yxjZf+3Mg3UtXVYEP1BjvNeKKt4qjaJPPt/udYjms05y558Qmq+v7e9hx4fII+v62tMJ9L/Jy5CwK/a1+URW9bkVJFa7trnFBYHXm4ppmaOdwRCAXY9znCgNtS/LXVFyVldkbHyBGavejepfUaH925lXmvGc7IE/+ikCzyaIvWxaIqEkKUKAa32MdOGwiel9bm6kZHBte7FrdFYE+0Q9NK1RgpK3sirZmUB8gAF2qdUGkCLtSoBOgF7gdCW+zsbXE+zkDDYzXPttnH2xi4J3BA3cZ+0NxzoLoXMMw2s/G9lLQZ9rAqZOjdamAnZPgsqxW849i1NoLXMInlAsZOkJ+1kCH0Q+Hkxy6ohzgS3UTSW4iDyPbgQHjs5Nd9VIKxO2w=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR12MB6942.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(18002099003)(4143699003)(22082099003)(261009223027099003)(11063799006)(10067099003)(56012099006)(5023799004)(261102123227099003)(261028144727099003)(261022105027099003)(261026121527099003)(261026140227099003)(261021121427099003)(261021123027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?QkdnblNjTGZsZzNZVnpacEVqalcrMUFYMGhOc2JXcXVBZUprbmJwR2x4UE9E?=
- =?utf-8?B?azBLVDRYR05pRUVJNXJOTGVyaWo1NXJGeCtYdnRDRFJxN1ZRcThldHcyUkhL?=
- =?utf-8?B?VzE0V1hlTk4zUVg5SGJTQU5CZHpIaDIrSGMxNGxzSHQxdERraUxSNVU0aE8x?=
- =?utf-8?B?YzFmc0drOGRoSmFLVFErVGx2eWxsQTBqWXFXZE1Qelo5YUladmtsMG1MYTlq?=
- =?utf-8?B?ZFY1c2ZtRXozb1ZtKyswa0pPWjdPT010bFJkZC9zNTdZT0lNdXc2RVF3SUhT?=
- =?utf-8?B?bXNEdm10MWlwN0V5dWhyakYwSS9wejdzYmhsTlpjWG1LczduSzUxZStDbEx2?=
- =?utf-8?B?bDdhWHBUSVJKSzZyeHIyZUt4RFR0ZTZDd2NGZGROWEl6c2JmTTQwTVk0bURw?=
- =?utf-8?B?b0V2MWZWN3grUTh4eGJKeEdpMXF1cEJOa1NWVzJqRXBub0lMZjIvZnNPcFFu?=
- =?utf-8?B?K20wOERYWFZrbnVZZlVDR3o3eUlFSDl4SEFTdzNoZ29jaVNZQ0YvdTZNQXkr?=
- =?utf-8?B?RTdKTi9KQ2xlazk1VGpYM0xiYXFmOE5qeTZaWEw5RjFvUjRmTHRlWXFSRXBK?=
- =?utf-8?B?YXUxWW5pSWtjeG1WOGx3cUVoejFDU09NeUt2WmxheFJJS2dkbXBlVWE4R21L?=
- =?utf-8?B?QXdHa0Foajh6ZkFuaHkvdk5oK3JDeE9DTXBJSmlMVyt2V29wNFA1eEx2MTdt?=
- =?utf-8?B?Mkdic3J0MmxQY3BSc1JmZk1TMmVMRldSRk1iVmhoS0J0YUtqQW1Wb01hOEZ6?=
- =?utf-8?B?RGZTdGRucFBEQVNZZS9pNm5yTmtMMElwU0l5TUcxTWp2dUxZWlhFVFAvd2Fr?=
- =?utf-8?B?aTgzQXByWmZ5MytqQ1BHMFBIY0s5b1A3VmlMeDhBTktTYy9MazIzNEVQOWRE?=
- =?utf-8?B?ODRYdGlwdk1QVnVyMEdqSEY2MHRNOVRaV0xFK1FSS3VabmZabjl2VjJ6alRs?=
- =?utf-8?B?WkUwVVJPelN5bkhhaWdPaHJGSXk2YzlKMVlIUDlzdVpLS21MVjdVVEd5UVFE?=
- =?utf-8?B?LzVJS1VGdVNyVU9wZzRXc2RySkxoSXltNS96ZHRRZi9ML2xTTnQwZ096QmlK?=
- =?utf-8?B?NDI1ZGFoN1Evc2xIWXRmZ2lWUGt1R2xVWGNnM2w1eEU3REFmS1kxVkxpelNx?=
- =?utf-8?B?dzU4ZHZRVGVzR3h4Zi9aOThiRTdycU1lYXB2RGF2QVFrMFJGUzROV1FLaXQz?=
- =?utf-8?B?a3JmR2ZKLzhPczhlazJETVBpR05rQllwMko5VzF4VmNwckZvWGJXU2NsSEJI?=
- =?utf-8?B?TnFZZ2JKSzRXeTdNVzE1b0tsQS9FN1c4UjgvWEVjbDdOUkFRUFVmSEZSTk5F?=
- =?utf-8?B?WS9nNkVpSHFTb3dhc3hnWUNJbkVOV2VJdS9qSjBma0ZvbFY1QzBVV2MvdWxo?=
- =?utf-8?B?ZTRwR2szOFlXekE0Q2FOenFFZVdXUVZPME9vUXNxTHRQS0F1MnlUNkJvMmJQ?=
- =?utf-8?B?VUhvZkxvYWNZblg3cm1OR2ltOEJBaXprV3htUGZ6bDRCL0N4ZU5DQ3JpOWJq?=
- =?utf-8?B?clV1VnQvZm5PYWF3OGFabTNNYks5STlrTlhVV0xkSFlwbzZ5WFZGMXU0aW1h?=
- =?utf-8?B?RTQwOWhISEpnM2tON3JIaHcvMVptRGVpeDZvMExKaFFKUjh0ZGpwRnliREl0?=
- =?utf-8?B?NlRrSDJYd1FXdWZSQWN3cFhRVnpQTUVZUXZNTWFCT0o1aDduZFV5RHBGYjU5?=
- =?utf-8?B?T0x1VmhXRWxuVTJhRlFMakxseFo4Ni9LanMvREx3VkhOR2RMSytBZFEzV0Zt?=
- =?utf-8?B?L2xEKzZjaitIdHJ6RGRUcTZrSEtDQVpRZTdOMHpyVG02ZGFhV2NLNXVnazla?=
- =?utf-8?B?WlhMWnZPRUpibjEzVStibUhYY09PZTdKRUFqUUhPTWxobzNCMERkcnVFUzFk?=
- =?utf-8?B?dVE1cG0zejRza00xb0RzUHpJalE4NDErZm5WK25yUENqelozdCtuTUoxTkxm?=
- =?utf-8?B?TmMwZWhYbURKZmZUOW40aFZYcFQ5TkNKVEZZQThVbFE3MTBZR3V6SlJFL3ZT?=
- =?utf-8?B?MSs2QWxNV0NKaFVIWnFHT0l0RERNM0xvRHNIY2ZyUXpwTHdqcWdQWUNIdlVT?=
- =?utf-8?B?SXJqeXhMV0h1VktRRENnZkZjOFVhYVc3d2JsZzI1enRWcE1EN1hXNFZjdE92?=
- =?utf-8?B?SWwvcGp0VlpQRVR0K2hFNDdKdVptellnQ3l2THhWb3BkeGYvT0wvc2o0Wml3?=
- =?utf-8?B?RmVqZ1VNSXl6clpoMG93K1ltMnp6bTdaNGRFN2RzMDZxSXJvZ3hjNVJ6Ry9D?=
- =?utf-8?B?UnduL0hZVDdNWnlBbllSMW0vVUgvQUVRK01Yb1ZPKzRhaW9hMGYrSStoNWhN?=
- =?utf-8?B?YmlhSEltd3VGT1RnZ0tiSlJyNDMyUjNhS1hBM2w5QTJQd2craVdoUT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aced4034-87e7-4894-3389-08df4aaaf9bf
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR12MB6942.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 04:17:11.2768
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YZqfK/e8BtN2LoeDcVD1AxAYuxD6lDwm6MQQ4esrMu9pprBuKFdGqlI3nYFb8LrWUZy1QlQcY1lT1QFlLtB3cQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5822
+References: <20261117045254.1048298-1-dylanbhatch@google.com>
+ <20261117045254.1048298-2-dylanbhatch@google.com> <awIMltMpXzhXiDpU@jpoimboe>
+In-Reply-To: <awIMltMpXzhXiDpU@jpoimboe>
+From: Dylan Hatch <dylanbhatch@google.com>
+Date: Tue, 24 Nov 2026 20:18:04 -0800
+X-Gm-Features: Aa3M54pyIniNB_vn7eg13DbCLk1cWp5ylttVhb4AKr3piHRNkIg2PU3xZVlnsAY
+Message-ID: <CADBMgpzifnY=3wF2vt01UTaqPE68N2e9oe5WoSMDUrdgBSWgvA@mail.gmail.com>
+Subject: Re: [PATCH 1/2] sched, livepatch: Fix transition stall for CPU-bound tasks
+To: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, 
+	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Shuah Khan <shuah@kernel.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Thomas Gleixner <tglx@kernel.org>, live-patching@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Jeremy,
+Hi Josh,
 
-On 11/25/2026 6:09 AM, Jeremy Kerr wrote:
-> Caution: This message originated from an External Source. Use proper caution when opening attachments, clicking links, or responding.
-> 
-> 
-> Hi Shubham,
-> 
->> mctp_i3c_setup() takes the maximum read and write lengths straight from
->> GETMRL and GETMWL. Those describe the endpoint alone, so on a controller
->> with a smaller limit every read can be built too large and rejected.
->> Transmit packets can similarly reach the controller even when they are
->> larger than its transmit buffer. The receive path also allocates an skb
->> for data the hardware can never deliver.
->>
->> Use i3c_device_get_max_read_xfer_bytes() and
->> i3c_device_get_max_write_xfer_bytes() instead, which return the smaller
->> of the endpoint and controller limits.
->>
->> Behaviour is unchanged when neither reports a limit, as the helpers
->> return 0 exactly as the GETMRL and GETMWL fields do today.
->>
->> Signed-off-by: Shubham Patil <shubhamsanjay.patil@amd.com>
-> 
-> Looks good, thanks!
-> 
-> For the MCTP side of things:
-> 
-> Reviewed-by: Jeremy Kerr <jk@codeconstruct.com.au>
-> 
-> Since this depends on the new i3c helpers, which (I assume) would be
-> going through the i3c tree, I assume the whole series should stay
-> together?
+On Sat, Nov 21, 2026 at 1:55=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org=
+> wrote:
+>
+> On Tue, Nov 17, 2026 at 04:52:53AM +0000, Dylan Hatch wrote:
+> > Commit 676e8cf70cb0 ("sched,livepatch: Untangle cond_resched() and
+> > live-patching") moved klp_sched_try_switch() from cond_resched() into
+> > __schedule() and gated it on READ_ONCE(curr->__state) & TASK_FREEZABLE.
+> > This causes livepatch transitions to stall when a CPU-bound kthread or
+> > PF_USER_WORKER thread (such as vhost-<pid>) spins in a kernel loop with
+> > cond_resched() for two reasons:
+> >
+> > 1. A sole runnable task on a CPU (cfs_rq->nr_queued =3D=3D 1) never has
+> >    TIF_NEED_RESCHED set during sched_tick(), and wake_up_state(task,
+> >    TASK_INTERRUPTIBLE) in klp_send_signals() is a no-op for a
+> >    TASK_RUNNING kthread. Because _cond_resched() is a no-op under
+> >    CONFIG_PREEMPTION=3Dy, the task only enters __schedule(SM_PREEMPT) o=
+n
+> >    return from interrupts via irqentry_exit_cond_resched() when
+> >    TIF_NEED_RESCHED is set.
+> > 2. Even when __schedule() is entered via preemption or an unfreezable
+> >    sleep (such as PF_NOFREEZE kthreads or PF_USER_WORKER threads
+> >    sleeping in TASK_INTERRUPTIBLE), curr->__state does not have
+> >    TASK_FREEZABLE set, so klp_sched_try_switch() skips the task.
+> >    Livepatch safety in __schedule() is already guaranteed by
+> >    stack_trace_save_tsk_reliable() inside klp_check_stack().
+> >
+> > Fix both issues by:
+> > - Removing the TASK_FREEZABLE check from klp_sched_try_switch() and
+> >   checking TIF_PATCH_PENDING inline via klp_sched_need_resched().
+> > - Calling resched_curr(rq) in sched_tick() when klp_sched_need_resched(=
+)
+> >   is true for the current task, ensuring CPU-bound tasks with a pending
+> >   livepatch enter __schedule() at the next timer tick.
+> >
+> > Note that when a CPU-bound task is the sole runnable task on its CPU,
+> > entering __schedule(SM_PREEMPT) from preempt_schedule_irq() leaves an
+> > in-kernel interrupt pt_regs frame on the stack during
+> > klp_sched_try_switch(). Completing the transition in that context
+> > requires arch_stack_walk_reliable() to support unwinding across
+> > in-kernel exception frames (as CONFIG_UNWINDER_ORC=3Dy does on x86_64);
+> > configs and architectures whose reliable unwinder rejects in-kernel
+> > exception frames (x86 with CONFIG_FRAME_POINTER=3Dy, arm64, powerpc, an=
+d
+> > s390) still require another runnable task to context-switch the spinnin=
+g
+> > task out until exception-boundary reliable unwinding (e.g. via SFrame)
+> > is available.
+> >
+> > Fixes: 676e8cf70cb0 ("sched,livepatch: Untangle cond_resched() and live=
+-patching")
+>
+> Oof, so Peter's patch broke all non-ORC for this case :-(
+>
+> Not sure what we can do about that other than get kernel sframe/eh_frame
+> working for exception boundary unwinding, as you mention.
+>
+> > Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+> > ---
+> >  include/linux/livepatch_sched.h | 13 +++++++++++--
+> >  kernel/sched/core.c             |  3 ++-
+> >  2 files changed, 13 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/include/linux/livepatch_sched.h b/include/linux/livepatch_=
+sched.h
+> > index 065c185f27638..748b6012e2e06 100644
+> > --- a/include/linux/livepatch_sched.h
+> > +++ b/include/linux/livepatch_sched.h
+> > @@ -11,15 +11,24 @@ void __klp_sched_try_switch(void);
+> >
+> >  DECLARE_STATIC_KEY_FALSE(klp_sched_try_switch_key);
+> >
+> > +static __always_inline bool klp_sched_need_resched(struct task_struct =
+*curr)
+> > +{
+> > +     return static_branch_unlikely(&klp_sched_try_switch_key) &&
+> > +            unlikely(test_tsk_thread_flag(curr, TIF_PATCH_PENDING));
+> > +}
+> > +
+> >  static __always_inline void klp_sched_try_switch(struct task_struct *c=
+urr)
+> >  {
+> > -     if (static_branch_unlikely(&klp_sched_try_switch_key) &&
+> > -         READ_ONCE(curr->__state) & TASK_FREEZABLE)
+> > +     if (klp_sched_need_resched(curr))
+> >               __klp_sched_try_switch();
+> >  }
+> >
+> >  #else /* !CONFIG_LIVEPATCH */
+> >  static inline void klp_sched_try_switch(struct task_struct *curr) {}
+> > +static inline bool klp_sched_need_resched(struct task_struct *curr)
+> > +{
+> > +     return false;
+> > +}
+> >  #endif /* CONFIG_LIVEPATCH */
+> >
+> >  #endif /* _LINUX_LIVEPATCH_SCHED_H_ */
+> > diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+> > index 04b62c16fa8ca..fcea9cea3edf1 100644
+> > --- a/kernel/sched/core.c
+> > +++ b/kernel/sched/core.c
+> > @@ -5854,7 +5854,8 @@ void sched_tick(void)
+> >       hw_pressure =3D arch_scale_hw_pressure(cpu_of(rq));
+> >       update_hw_load_avg(rq_clock_task(rq), rq, hw_pressure);
+> >
+> > -     if (dynamic_preempt_lazy() && tif_test_bit(TIF_NEED_RESCHED_LAZY)=
+)
+> > +     if ((dynamic_preempt_lazy() && tif_test_bit(TIF_NEED_RESCHED_LAZY=
+)) ||
+> > +         klp_sched_need_resched(curr))
+> >               resched_curr(rq);
+>
+> Hm, so for unpatched tasks this forces a full preemption and stack walk
+> on every scheduler tick?
+>
+> Instead can we just kick the thread in the existing klp_send_signals()
+> escalation path like below (untested)?
 
-Yes, MCTP changes will go along with new I3C API's, whole series will 
-stay together.
+Sounds good to me, moving to klp_send_signals() for v2. I encountered
+two issues with your suggested diff as-is:
 
+1. Based on kernel/trace/rv/monitors/opid/opid.c it looks like we
+can't call set_tsk_need_resched from here:
 
-Thanks,
-Shubham
+rv: monitor opid does not allow event sched_need_resched on state any
+with env irq_off=3D0,preempt_off=3D1
 
-> 
-> Cheers,
-> 
-> 
-> Jeremy
+It looks like resched_cpu() works (suggested by my AI tool), so
+sending v2 calling this instead.
 
+2. I think this also misses user tasks stuck in the kernel with the
+same behavior, so I moved the resched logic out of the (PF_KTHREAD |
+PF_USER_WORKER) block. I also added coverage in the selftest, so the
+same cond_resched situation is also created from a user task.
+
+>
+> diff --git a/include/linux/livepatch_sched.h b/include/linux/livepatch_sc=
+hed.h
+> index 065c185f27638..77161f5725dcc 100644
+> --- a/include/linux/livepatch_sched.h
+> +++ b/include/linux/livepatch_sched.h
+> @@ -13,8 +13,7 @@ DECLARE_STATIC_KEY_FALSE(klp_sched_try_switch_key);
+>
+>  static __always_inline void klp_sched_try_switch(struct task_struct *cur=
+r)
+>  {
+> -       if (static_branch_unlikely(&klp_sched_try_switch_key) &&
+> -           READ_ONCE(curr->__state) & TASK_FREEZABLE)
+> +       if (static_branch_unlikely(&klp_sched_try_switch_key))
+>                 __klp_sched_try_switch();
+>  }
+>
+> diff --git a/kernel/livepatch/transition.c b/kernel/livepatch/transition.=
+c
+> index e058d21d84b75..1ccbae2051c72 100644
+> --- a/kernel/livepatch/transition.c
+> +++ b/kernel/livepatch/transition.c
+> @@ -402,12 +402,22 @@ static void klp_send_signals(void)
+>                  * Meanwhile the task could migrate itself and the action
+>                  * would be meaningless. It is not serious though.
+>                  */
+> -               if (task->flags & PF_KTHREAD) {
+> +               if (task->flags & (PF_KTHREAD | PF_USER_WORKER)) {
+>                         /*
+>                          * Wake up a kthread which sleeps interruptedly a=
+nd
+>                          * still has not been migrated.
+>                          */
+> -                       wake_up_state(task, TASK_INTERRUPTIBLE);
+> +                       if (wake_up_state(task, TASK_INTERRUPTIBLE))
+> +                               continue;
+> +
+> +                       /*
+> +                        * If it's running, force it through __schedule()=
+ so
+> +                        * it can switch itself in klp_sched_try_switch()=
+.
+> +                        */
+> +                       if (task_curr(task)) {
+> +                               set_tsk_need_resched(task);
+> +                               kick_process(task);
+> +                       }
+>                 } else {
+>                         /*
+>                          * Send fake signal to all non-kthread tasks whic=
+h are
+>
