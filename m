@@ -1,61 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597304;
-	b=0GpUIgNhOw3xb5TfBBozUQut/t+U3oDbHm1X8ENJ5S/Pc5fKMxwikAtOoe2M9opLkF7w
-	 iey74EbhEIEfpf5PQn2TpdjfMzkjmVVRleLKWdP8YAMhJgglo5AbzH/42T0x1aO4kkuDb
-	 B0q2E/UbR/XjiMZynnIHeM+94ZtJQtmTzRYp3v7MR/+3WdTa7Ho4BB2x3G7y4YLmYrqlY
-	 Bqpe+bThS2XtdBb+3frLFwuBhFihocOZjoZ+eIlvxKl4twv+64fgJR4QuOVC6jWmsVGXI
-	 PPZ5nFeYorpmVcVN05a2ljtEVHGJJ133/R8R40LbXiNtFBDCeWkZV7JEq/wZd7JQTsQ==
+	t=1795597338;
+	b=suGRGh5S2Ozf4LzHOhCE+Y9Wfzb2yaxaTkYf7V1jHxuJIPhdD5pBRlWBCqdGfcRXAiHn
+	 lxl02icazgT3UzCW6F8DG5JRmEMFVw1vbmdqkREpuCLx+7Uusgn/eIUscZlv5Fu58K/Vb
+	 zIDkuaBgM6fmBlMafusJUuOaN4REhNK4k/FRwWcJrqoDvgejRKxKiMLWa75ipbvDh/mxz
+	 XLOCPcyxEy+be6uP+a5TGKcK42lavDDMC32dbaR0K3VUSTvpNts30JX1bcQf5Fj+UMZvJ
+	 bXuTKz6huKj3bG0dshZ2w3CuAkqyXLQW4ZzuelrNdMZ4RXSuTuaYgQzKUXDMPfqnYOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597304;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=vEv5PK1YgztGxhv9CM6ODI0CCL2xh4mHLk5IohQ0LIA=;
-	b=GW6hR43H06pjSQTBHlE8v6nSozTPOQttE4CH3h89HwuxDah0Q/ZH7F5GDc57JEMBNxl4
-	 p24xrcBdHzR38YnjHK7oLA4QO9I4STswDdHQ2ZoUkhy2Pd3j6g1wolHRU+rcVVeXM8fRo
-	 j70tercyfjavHFNgzjXR2Qcn9DdgBFzvzBkFt1hkDtzMJaTRgc2CmEaBCzbB8sOM4nr+F
-	 QBBTQz3L9QaasEuufoo0YpLcUJfOEKbL1z7V2IXmzUiksdUF4g47TxcpaG4XXWrm7VGen
-	 o2zmQ+xKZ74Xk383IiavRTFYqjnaa2tlazsVzr5/dxq2PA6Obo4SmrK/IuA8b0RcfYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597338;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spamd-Result:X-Rspamd-Server:X-Rspamd-Action:
+	 X-Spam-Flag:X-Spam-Score:X-Spam-Level:X-Rspamd-Queue-Id;
+	bh=UYnqcGU/Ec09I0M3fo+Qm2+xWCsLA12pBs2w+1NsMtM=;
+	b=tDsj8CgEm02fnruP2G7RGvUdAulaohW6iY4XDWG7Y9PPKFUFnpSnEYGCqZzAejGQQGGq
+	 r40dJLo8uIXSe8EgrjMPTtZ8bG1TSq31sRYQOylT+nnMLJcELWjeiydlhoc1w71T4MMY3
+	 br/8C25FVPqgmxAUS9gz+Jdz0T96jnHq/5XKxk4v2kojMS7FNrn8X3wESYxhr/GepyfKK
+	 pvgy5PGW+++uIwSAS2DEvoYR5Mo8LSS3St2gS3qrBHXSniMwuJZC6jdGv2rgPFe6Q4J4P
+	 HEojTyTl+/KI5mNHGCzUXsQXAsuKGWf97gxHzzDRgw4n8shbSoV82+VDc+W1rbtvf5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AD+H7ysN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=cCbC7Jqd;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="9Yxh/UTZ";
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=cCbC7Jqd;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="9Yxh/UTZ";
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7209B606A32A;
-	Wed, 25 Nov 2026 09:01:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81894606A31E;
+	Wed, 25 Nov 2026 09:02:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81894606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AD+H7ysN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C8961F000C0;
-	Wed, 25 Nov 2026 09:01:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795597304;
-	bh=vEv5PK1YgztGxhv9CM6ODI0CCL2xh4mHLk5IohQ0LIA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=AD+H7ysNiD4jMXv2MA2R8NTCoPAMNE6NY51I+PxOGsbcdYRpOy0GxIeY58QpRKsdo
-	 9c3TFx/8Uan5wiXyFslu5vlPiobv5QWxbJeO/hHPBuMvIANlCbnv4yNVnBfjxEbx1j
-	 yqeazJgZjz3vMt8P0sL89QdBr2m5QXsLxgQ3srvla6NzHmDnzOwNkNhkj5f2jDI6UG
-	 cUfVX8vtVkA0Jj10k4DdGA6ppktCxEQTNubCjPik5h9UOMKCJ1V6K+TBA6dgcbua84
-	 gTdHNBhAZqcuTSrpr8GcluWhWs8UK7+pIpRIPIhd7m8Ru4fiyGVMEN+qAgeP3LdFT9
-	 mm975lr7XbdWg==
-Subject:
- Re: [PATCH net v3] net: ibm: emac: attach and start the fixed-link PHY
-From: netdev-bot+sashiko@kernel.org
-To: xiaolinkui@126.com
-Cc: andrew+netdev@lunn.ch, netdev@vger.kernel.org, andrew@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- rosenp@gmail.com, chunkeey@gmail.com, jacob.e.keller@intel.com,
- kees+treewide@kernel.org, daniel.machon@microchip.com, hkallweit1@gmail.com,
- linux-kernel@vger.kernel.org, xiaolinkui@kylinos.cn
-Date: Wed, 25 Nov 2026 09:01:42 +0000
-Message-ID: <179559730279.3135.7318334257799287238@kernel.org>
-In-Reply-To: <20261124083941.2480237-1-xiaolinkui@126.com>
-References: <20261124083941.2480237-1-xiaolinkui@126.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=cCbC7Jqd;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=9Yxh/UTZ;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=cCbC7Jqd;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=9Yxh/UTZ
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 736DA1F456;
+	Wed, 25 Nov 2026 09:02:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795597335; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UYnqcGU/Ec09I0M3fo+Qm2+xWCsLA12pBs2w+1NsMtM=;
+	b=cCbC7Jqde/PXOkb1jfvZj4LxjJZioBJG4WIlxTwwod4mrKhvLBR1Ml+phVG9hDI48ZONdU
+	4RKUY2/le6VBQuUSnpz/djMv29ORbW1c22eO/ojCvMpS/scqmvzykQn37yM7CkyIe7uKyF
+	iSgX4jkBiF3UKhJqLbsJut4usuK43Ck=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795597335;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UYnqcGU/Ec09I0M3fo+Qm2+xWCsLA12pBs2w+1NsMtM=;
+	b=9Yxh/UTZ+V3BlOnp48RMbcR6Ph40Xj/lpCz6F610l4h33frHwmdyiBwsvjwL0RBQ1W6Yxa
+	xrRI0fW1784AmMBQ==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=cCbC7Jqd;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b="9Yxh/UTZ"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795597335; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UYnqcGU/Ec09I0M3fo+Qm2+xWCsLA12pBs2w+1NsMtM=;
+	b=cCbC7Jqde/PXOkb1jfvZj4LxjJZioBJG4WIlxTwwod4mrKhvLBR1Ml+phVG9hDI48ZONdU
+	4RKUY2/le6VBQuUSnpz/djMv29ORbW1c22eO/ojCvMpS/scqmvzykQn37yM7CkyIe7uKyF
+	iSgX4jkBiF3UKhJqLbsJut4usuK43Ck=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795597335;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UYnqcGU/Ec09I0M3fo+Qm2+xWCsLA12pBs2w+1NsMtM=;
+	b=9Yxh/UTZ+V3BlOnp48RMbcR6Ph40Xj/lpCz6F610l4h33frHwmdyiBwsvjwL0RBQ1W6Yxa
+	xrRI0fW1784AmMBQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4B2B3134CA;
+	Wed, 25 Nov 2026 09:02:15 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id UVguChekBmvVDQAAD6G6ig
+	(envelope-from <jack@suse.cz>); Wed, 25 Nov 2026 09:02:15 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id D267827BCD; Wed, 25 Nov 2026 10:02:14 +0100 (CET)
+Date: Wed, 25 Nov 2026 10:02:14 +0100
+From: Jan Kara <jack@suse.cz>
+To: Alexander Mikhalitsyn <alex@amutable.com>
+Cc: code@tyhicks.com, brauner@kernel.org, ecryptfs@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, Jan Kara <jack@suse.cz>, Seth Forshee <sforshee@kernel.org>, 
+	Paul Moore <paul@paul-moore.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ecryptfs: release inode on error path in
+ ecryptfs_lookup_interpose
+Message-ID: <ykuz2hhjgnfhwnh7srst3ev4yqetv5jrs3vn5idwr5jfynszax@zrbrypi5phon>
+References: <20261124195430.105522-1-alex@amutable.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,225 +113,132 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124195430.105522-1-alex@amutable.com>
+X-Spamd-Result: default: False [-13.01 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.com:email];
+	MISSING_XM_UA(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	DWL_DNSWL_BLOCKED(0.00)[suse.cz:dkim];
+	RCVD_COUNT_THREE(0.00)[3];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	RCVD_TLS_LAST(0.00)[];
+	TO_DN_SOME(0.00)[];
+	DKIM_TRACE(0.00)[suse.cz:+]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -13.01
+X-Spam-Level: 
+X-Rspamd-Queue-Id: 736DA1F456
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Tue 24-11-26 20:54:29, Alexander Mikhalitsyn wrote:
+> Currently, when ecryptfs_i_size_read() fails we only do make_bad_inode()
+> which only removes the inode from a hash. So it's not getting released
+> and on umount we get "VFS: Busy inodes after unmount of ecryptfs" (see below).
+> 
+> Let's fix it by using iget_failed() when inode is I_NEW and iput() when it's not.
+> 
+> This was accidentally found while working on SB_I_PSEUDO fix.
+> 
+> ------------[ cut here ]------------
+> VFS: Busy inodes after unmount of ecryptfs (ecryptfs)
+> WARNING: fs/super.c:731 at generic_shutdown_super+0x117/0x1a0, CPU#11: umount/402
+> Modules linked in:
+> CPU: 11 UID: 0 PID: 402 Comm: umount Not tainted 7.4.0-rc1-virtme #9 PREEMPT(lazy)
+> Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+> RIP: 0010:generic_shutdown_super+0x125/0x1a0
+> Code: 5d 5d c3 cc cc cc cc e8 19 d0 f3 ff 48 8b bb 18 01 00 00 eb d7 48 8d 3d a9 93 d1 01 48 8b 43 50 48 8d b3 d8 03 00 00 48 8b 10 <67> 48 0f b9 3a 4c 8d ab 40 05 00 00 4c 89 ef e8 17 6c b0 00 48 8b
+> RSP: 0018:ffffccc0406bbcf8 EFLAGS: 00010283
+> RAX: ffffffff87d54a20 RBX: ffff8a7bc2358800 RCX: 00000000000000b5
+> RDX: ffffffff873e7853 RSI: ffff8a7bc2358bd8 RDI: ffffffff87e52550
+> RBP: ffffccc0406bbd10 R08: ffff8a7bc235d408 R09: fffff12a00000000
+> R10: ffffccc0406bbcf0 R11: ffffffff87d209d8 R12: ffff8a7bc2358d48
+> R13: ffff8a7bc2388824 R14: 0000000000000000 R15: 0000000000000000
+> FS:  00007fd846e02840(0000) GS:ffff8a7c76af9000(0000) knlGS:0000000000000000
+> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> CR2: 00007fd84716e8e0 CR3: 00000000037d8000 CR4: 0000000000350eb0
+> Call Trace:
+>  <TASK>
+>  kill_anon_super+0x1c/0x80
+>  ecryptfs_kill_block_super+0x1a/0x50
+>  deactivate_locked_super+0x39/0xc0
+>  deactivate_super+0x47/0x60
+>  cleanup_mnt+0x3b/0x80
+>  __cleanup_mnt+0x16/0x20
+>  task_work_run+0x64/0x90
+>  exit_to_user_mode_loop+0x177/0x570
+>  do_syscall_64+0x352/0x410
+>  ? up_read+0x1f/0xe0
+>  ? schedule+0x27/0xb0
+>  ? schedule+0x27/0xb0
+>  ? schedule+0x27/0xb0
+>  ? trace_preempt_on+0x28/0x80
+>  ? schedule+0x38/0xb0
+>  ? preempt_count_sub+0x4d/0x70
+>  ? irqentry_exit+0x2e1/0x700
+>  ? exc_page_fault+0x8d/0x170
+>  ? do_syscall_64+0x33/0x410
+>  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> RIP: 0033:0x7fd84705c1d7
+> Code: 0d 00 f7 d8 64 89 02 b8 ff ff ff ff c3 66 0f 1f 44 00 00 31 f6 e9 09 00 00 00 66 0f 1f 84 00 00 00 00 00 b8 a6 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 01 c3 48 8b 15 09 3c 0d 00 f7 d8 64 89 02 b8
+> RSP: 002b:00007ffd3839fae8 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+> RAX: 0000000000000000 RBX: 000055b7f819dbf8 RCX: 00007fd84705c1d7
+> RDX: 0000000000000000 RSI: 0000000000000000 RDI: 000055b7f819df30
+> RBP: 0000000000000000 R08: 00007ffd3839e8d0 R09: 00000000ffffffff
+> R10: 0000000000000103 R11: 0000000000000246 R12: 00007fd8471ba26c
+> R13: 000055b7f819df30 R14: 0000000000000000 R15: 000055b7f819daf0
+>  </TASK>
+> ---[ end trace 0000000000000000 ]---
+> 
+> Fixes: 3b06b3ebf441 ("eCryptfs: Fix new inode race condition")
+> Signed-off-by: Alexander Mikhalitsyn <alex@amutable.com>
 
-Critical: 0 · High: 1 (1) · Medium: 1 · Low: 1
+I can see this fix already in vfs.git as b793b0bfa631 ("ecryptfs: don't
+leak the inode when a lookup can't open the lower file").
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+								Honza
 
-- [High] Unbind can leave a freed net_device queued on the global
-  linkwatch list.
-- [Medium] After the patch, the fixed-link speed, duplex and pause reach
-  dev->phy only through phylib's asynchronous state machine.
-- [Low] The commit message presents the new phy_disconnect() in
-  emac_remove() as fixing the fixed-link attach, and notes in passing…
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but it affects
-  every PHY-less configuration this patch touches, fixed-link included,…
-
---
-
-net: ibm: emac: attach and start the fixed-link PHY
-
-This patch attaches the fixed-link PHY in emac_init_phy() with
-of_phy_connect() and starts it with phy_start(). phylib then fills in
-dev->phy through emac_adjust_link(). It also adds phy_disconnect() and
-of_phy_deregister_fixed_link() to the emac_probe() error path and to
-emac_remove().
-
-> Attaching also means detaching. Without phy_disconnect(), unbind leaves
-> phydev->attached_dev pointing at a freed netdev, and the next probe fails
-> with -EBUSY from phy_attach_direct(). The disconnect also stops the
-> phy-handle path, which calls phy_start() but never phy_stop(). The fixed
-> PHY is deregistered on the same paths.
-
-[Severity: Low]
-This isn't a bug, but could the commit message say that baab9de385a8
-("net: ibm: emac: use netdev's phydev directly") is the commit that
-removed this from emac_remove():
-
-	if (dev->phy_dev)
-		phy_disconnect(dev->phy_dev);
-
-Since then, the phy-handle path has connected with of_phy_connect() and
-started the PHY in emac_mdio_init_phy(), but it never detaches. So the
-stale phydev->attached_dev problem described here has existed on that
-path since baab9de385a8.
-
-Saying that the emac_remove() hunk restores teardown removed by that
-commit would make the backport scope clearer.
-
-> diff --git a/drivers/net/ethernet/ibm/emac/core.c b/drivers/net/ethernet/ibm/emac/core.c
-> index 1b95b4d5deff5..ddf33c0293348 100644
-> --- a/drivers/net/ethernet/ibm/emac/core.c
-> +++ b/drivers/net/ethernet/ibm/emac/core.c
-> @@ -2673,11 +2673,14 @@ static int emac_init_phy(struct emac_instance *dev)
->  				return res;
->  
->  			res = of_phy_register_fixed_link(np);
-> -			ndev->phydev = of_phy_find_device(np);
-> -			if (res || !ndev->phydev)
-> -				return res ? res : -EINVAL;
-> -			emac_adjust_link(dev->ndev);
-> -			put_device(&ndev->phydev->mdio.dev);
-> +			if (res)
-> +				return res;
-> +
-> +			if (!of_phy_connect(ndev, np, &emac_adjust_link, 0,
-> +					    dev->phy_mode))
-> +				return -EINVAL;
-> +
-> +			phy_start(ndev->phydev);
-
-[Severity: Medium]
-The old code called emac_adjust_link() synchronously in probe.
-phy_start() only queues phydev->state_queue, so dev->phy gets filled in
-later from a kworker.
-
-emac_adjust_link() only copies the values into dev->phy:
-
-	dev->phy.autoneg = phy->autoneg;
-	dev->phy.speed = phy->speed;
-	dev->phy.duplex = phy->duplex;
-	dev->phy.pause = phy->pause;
-	dev->phy.asym_pause = phy->asym_pause;
-
-It never calls emac_configure() and never schedules a reset. When
-dev->phy.address == -1, emac_open() forces carrier on, does not schedule
-link_work, and calls emac_configure() only once.
-
-Suppose emac_open() runs before the first state machine pass. Would MR1
-then be programmed from the probe defaults (SPEED_100, DUPLEX_FULL,
-pause = 1) and stay that way after emac_adjust_link() reports the
-fixed-link values? A fixed link does not change state again, so
-adjust_link would not be called again either.
-
-The writer and the readers also share no lock. emac_adjust_link() runs
-under phydev->lock. emac_configure() runs under dev->link_lock from
-emac_open() and reset_work. A concurrent run could program a mix of old
-and new speed and duplex.
-
-Taking link_lock inside the callback is not simple, because the ethtool
-paths take link_lock before they call into phylib.
-
-Could the PHY state be read synchronously under link_lock before
-emac_configure()? Alternatively, emac_adjust_link() could trigger a
-reconfiguration (for example via reset_work) when the device is open.
-
+> ---
+>  fs/ecryptfs/inode.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/fs/ecryptfs/inode.c b/fs/ecryptfs/inode.c
+> index 48e520960d66..3a966348a578 100644
+> --- a/fs/ecryptfs/inode.c
+> +++ b/fs/ecryptfs/inode.c
+> @@ -362,7 +362,10 @@ static struct dentry *ecryptfs_lookup_interpose(struct dentry *dentry,
+>  	if (S_ISREG(inode->i_mode)) {
+>  		rc = ecryptfs_i_size_read(dentry, inode);
+>  		if (rc) {
+> -			make_bad_inode(inode);
+> +			if (inode_state_read_once(inode) & I_NEW)
+> +				iget_failed(inode);
+> +			else
+> +				iput(inode);
+>  			return ERR_PTR(rc);
 >  		}
->  		return 0;
-
-[Severity: High]
-This is a pre-existing issue and was not introduced by this patch. It
-dates back to commit 9e3cb29497561c, but it affects every PHY-less
-configuration this branch handles, fixed-link included.
-
-The PHY-less branch returns before emac_init_phy() sets these:
-
-	dev->phy.mdio_read = emac_mdio_read;
-	dev->phy.mdio_write = emac_mdio_write;
-	...
-	dev->phy.gpcs_address = dev->gpcs_address;
-
-emac_instance lives in zeroed netdev_priv, so mdio_read is NULL and
-gpcs_address is 0. With phy-mode sgmii, tbi or rtbi, emac_configure()
-does this on every open and reset:
-
-	if (emac_phy_gpcs(dev->phy.mode)) {
-		if (dev->phy.gpcs_address != 0xffffffff)
-			emac_mii_reset_gpcs(&dev->phy);
-		else
-			emac_mii_reset_phy(&dev->phy);
-	}
-
-Can emac_mii_reset_gpcs()->gpcs_phy_read() then call through the NULL
-phy->mdio_read? The else branch would also reach the NULL mdio_read,
-through phy_read().
-
-EMAC0 in arch/powerpc/boot/dts/arches.dts looks like it matches this
-case (phy-mode = "sgmii", phy-map = <0xffffffff>, no phy-address). So
-would any fixed-link node with an SGMII, TBI or RTBI phy-mode.
-
-The 1000 Mbit/s path is now reached for fixed links. On that path MR1
-would also get IPPA(0) instead of the DT gpcs-address.
-
 >  	}
-
-[ ... ]
-
-> @@ -3223,6 +3230,11 @@ static void emac_remove(struct platform_device *ofdev)
->  
->  	cancel_work_sync(&dev->reset_work);
->  
-> +	if (dev->ndev->phydev)
-> +		phy_disconnect(dev->ndev->phydev);
-
-[Severity: High]
-Can this leave a freed net_device queued on the global linkwatch list?
-
-emac_init_phy() now calls phy_start() at probe time. The fixed link
-comes up on the first state machine pass, and phy_link_change() calls
-netif_carrier_on(). Probe called netif_carrier_off() earlier, but that
-does not stop it.
-
-The phy-handle path already does the same through emac_mdio_init_phy().
-If the interface is never opened, carrier is still on at unbind. The
-call chain at unbind is then:
-
-emac_remove()
-  unregister_netdev()          /* reg_state = NETREG_UNREGISTERED */
-  phy_disconnect()
-    phy_stop()
-      _phy_state_machine()     /* PHY_HALTED, phydev->link == 1 */
-        phy_link_down()
-          phy_link_change(false)
-            netif_carrier_off()
-              linkwatch_fire_event()
-                linkwatch_add_event()   /* netdev_hold(), list_add */
-devres -> free_netdev()
-
-netif_carrier_off() only returns early for NETREG_UNINITIALIZED:
-
-net/sched/sch_generic.c:netif_carrier_off() {
-	if (!test_and_set_bit(__LINK_STATE_NOCARRIER, &dev->state)) {
-		if (dev->reg_state == NETREG_UNINITIALIZED)
-			return;
-		atomic_inc(&dev->carrier_down_count);
-		linkwatch_fire_event(dev);
-	}
-}
-
-linkwatch_add_event() does not check reg_state either.
-
-ndev comes from devm_alloc_etherdev(), so free_netdev() runs right after
-emac_remove() returns. free_netdev() does not take dev->link_watch_list
-off lweventlist.
-
-The device is not running, so the linkwatch work is not urgent and runs
-up to HZ later. __linkwatch_run_queue() would then walk the freed device
-and call __dev_put() on the freed pcpu_refcnt.
-
-The err_detach_tah path in emac_probe() has the same ordering. It is hit
-if register_netdev() fails after reg_state has become
-NETREG_UNREGISTERED, for example when netdev_register_kobject() fails.
-
-Would it work to move phy_start() and phy_stop() into emac_open() and
-emac_close()? The PHY would then already be halted when
-unregister_netdev() runs. Another option is to stop the PHY before
-unregister_netdev().
-
-> +	if (of_phy_is_fixed_link(ofdev->dev.of_node))
-> +		of_phy_deregister_fixed_link(ofdev->dev.of_node);
-> +
-
-[ ... ]
-
+> -- 
+> 2.47.3
+> 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124083941.2480237-1-xiaolinkui%40126.com
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
