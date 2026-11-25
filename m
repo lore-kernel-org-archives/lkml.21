@@ -1,97 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596187;
-	b=4u3Zea+Gcxdmp82y6bmeiLc0qLSq+kw1/hgC6WLhv8FIkYoDpuLbRhVNeRCKf+CmWErM
-	 vLQRgrOW5ivwHgaCsTR/alXK/prz50vQBvLXtrqRGq1PBoStOvAsksUpcYuCAopZDWdrH
-	 tksYHf7HeoqzYYg9zzchCi5kScDYIUHL/JHLhn7xob975CULQkmLwrVi4+yoGhHqO/5am
-	 ym9biRjFVXlxBuXMLc+rHfBIHTQpwG3N8ic1sUrQSBvy5Ksj00Rl+3BDIpkILoFz6WVCT
-	 JkkYDZrznu8BsPKXziLWaRzpP84XB1gjSglEZtkVJNbu0TYpxVTAMJvFXbs7d8iGFtA==
+	t=1795596194;
+	b=o9ac8WB1CNiGcldbUti2+b7Of7AmEsM6ny28JxKQ5D19Z9N0iDYjFBDhl4heSIMcaVY7
+	 g6J1NjAolLUWWbI5+qSTyq4m8zZt6NeAsKAfrvoeq8DzfInCbxKJBXWtYc378tcsTmXmT
+	 NOW3MigwWHTXcDSKE2waP94h63M52z9idQKrxCYqhfL8RIJeYC2X9cNbXXgXsBWQ3E6tf
+	 u5dgdThSYCkbMz9zEWs7renYJWlsMnDVPexkiysXgBsYN6sHbURC5tHZb3cDKagCx2tQm
+	 4FwJ1EQ8/idl7EhsjwsY7y/dnaC/0J3rD747NqxXWDeJ/wjX1X7It2822stRLTWYz8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596187;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=hUNPEXc2yaJDfkZm6JnwWfLvwUjJNXbmItS1SRelE8w=;
-	b=xnNe9bdr0mS/X97xB6nL+Vv3DbzSj/J2WnOn8bPIH4pYbm4Aq0hrfHmH+6WrYgPoXPTN
-	 YHan5JdvT+ejQSoLqNrueiKZdktlMx8Woxgwyy4a8XPNYoVU0BB1e4wA9GVu5qzzEn2Ps
-	 YMzz2fE4cJGSELSGM7FNNoZVxWMFDlLX6AzpwQMgvgQK9JC84y4xwn/vXWcE3tF9Xi+Iw
-	 o6wnZ3pw49zLKlzIvbIJ1KWQstlpHiF0geug+G+eXRje3xB1attFuwRemBZsexv6twyds
-	 lEo6iM8Sj+5JSJFFwJnYXrCP0ygQY7APT6c9bnRIXcv7etuD7FVWmkeCIjszUl3By/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596194;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
+	 Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=mkMPx5pZu0MJCT37mBs5hDdYCQOlPFYux99EQPGEygU=;
+	b=pCUB9TEVLfsNn9TLhlinY2sQUU5LfZoP4odfgd41vfpUqH3RchU5/c6MpeyLf1xhzeTI
+	 qjXEeFz/C4xiSbiIhpgykLtBF/tpL4ei3szLEJzEUI8zSeK2oCX0zjYX1SeVma/xjpBjW
+	 Yw5/3EF31hgnnHvceoJAYbN1drd0ykKkSLK6/8JQjMOVmVwa3MawFCV5MNGoy7EoEveYe
+	 1pyX5cyFWrj9RYJeRzASQFWOS2Dfa4lYLaTNRsNY1UXhmerwhiWWPyHck4tDDsV7dBaoi
+	 zeAKrbgZPUi2Nx99emXZzDOl0t3t2pUOcLDBqvdexU1kWWuAoEwK9Yen8u9CfCfhN6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oDRZFmm+;
-	arc=none smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hHn4WBpT;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="QCXB/524";
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF911606A32D
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:43:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF911606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 721B8606A323
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:43:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 721B8606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oDRZFmm+
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c4cac7a7d3cso804216366b.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:43:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hHn4WBpT;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QCXB/524
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP68Zq6300022
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:43:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=mkMPx5pZu0MJCT37mBs5hD
+	dYCQOlPFYux99EQPGEygU=; b=hHn4WBpTKIYyhJrG83QykBmEsm5R4JykuSSIOy
+	GjV+jc7cAzz34j0Ays+Ze+k2HQdNssCFnPw8Dhp7lsIedL9EDcnAthVFlYlm0wyz
+	TEo+5sZQteBlxukagmeZ2wo3K2IBR0s6xlB+Vh3ceqfCmE+3yEK5yA8dVJOffFwT
+	kimRc8hg/Ih+tBggC/KglL53Q7SDyJj+bmzkDKPIcxhFf+cv1SUqZtktuTS4xJPO
+	pqSCea6KFHqpEHKzESnrSt52Z9rUeHpQSFiBVBSynIDlseix7s7zXPRPxzozk+/8
+	gMX4gpo1U2Kug5Sc3r1doKnBOjyIw9w+GRz77jl86gHN9yHA==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5n6rsq39-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:43:12 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-38355b03cb8so5387911eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:43:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795596185; x=1796200985; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hUNPEXc2yaJDfkZm6JnwWfLvwUjJNXbmItS1SRelE8w=;
-        b=oDRZFmm+IGlYMxKZqISBi94orPylDlrScg0llpeDu3frBG1BRuMNrEaW3d7q4R5XeV
-         +GepH2ninPqJisJcxCv9qWp6zjM4W5yTvk5I+knedG5PVUGffb1pnUq2IP3sSSs2XPpO
-         09m59erlsswq7qRFcDX327zOTLzDPiFAgefTnHF4E3sAhH7b21mBABL1eJYmNdBgQplJ
-         KxLFFQJX24klvDEGzIcyzLdRClKlJ48e3gpQJ3RG4CqYLYJnQKco5ejSUXYbI00qaawD
-         hL+/9vmnqJURyoHI3NyQBgH0YiRI1Yn9+qR2F5Fzyu/FjtGNLsMjuO/zQR0QuNF62Fg0
-         W/ww==
+        d=oss.qualcomm.com; s=google; t=1795596191; x=1796200991; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=mkMPx5pZu0MJCT37mBs5hDdYCQOlPFYux99EQPGEygU=;
+        b=QCXB/524mIuA+e0qJQUHYvyZj7N2qfDYte8T5uvFOxjNGoOV0IjY7yegaCmW38hrnv
+         lyv+tY4dQ8Wes+X5TRiHiAKSH5WumHIzFEmNdJfn9HAn2NyXKTtTnvOgiAjAOe3cw9UG
+         eM+INvOwr4sRNbbAph2XUfZKGK1XjeLUHr6lemFKPhVm83jfUvuypJPrAOckqDTXHY9O
+         XURiOaa5TRMXSf7ck4AMK/G9uEb6otUxrpRcijpK2If79vfGFg2LuFDxfBqUXN8T51Fl
+         TzPz51j6dhQ6tAiz1ARlkDQzqWVANAaIA5ZreFfJAjqyOubvHgRo3GebxKIcJbLdmX8z
+         jTuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795596185; x=1796200985;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hUNPEXc2yaJDfkZm6JnwWfLvwUjJNXbmItS1SRelE8w=;
-        b=rmDOjNbEX5i44wxdgUqHvlqby0Cu9nMIyqKCx0+YA9k16yyU+RkVv3Z8jv4RmGNwO1
-         lJWyd5ffgfDJqVwaofwSrpgOzM1KkrxQtLvVfMQcM0MZt+F3tFo3ZIxUjE0f87vEKh0P
-         2TOkhWOwElY0mU4w/WCT7UARfIykdzYLjHQCM6rc5Vl/OoYUhb1w4tLzV9D6yo1kTWX3
-         UimdTRJP2XBqsHGv7hHu3oitOeyREm7jSbajLhI5J+CiwnPzGYgNuBpDHB4RdQtjRiAm
-         wzI7PY9vRNhFUuvwHOUy8fDUaUkY/9NtBhEeiNN1e4FD/W6cSeAK2SD+KBRGeNnPky7c
-         siXQ==
-X-Forwarded-Encrypted: i=1; AL+hErGcVwO2Bf8d50Om3lr4K1fcSnlOoYIZACXXv4pkVFu8cFkRxFDZFGwpaixkC7dhxRTiJzgzFYFutXQVQvA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Nl5I2HYkwEKeYqOE8E7UIlPuqspzrYO4AOxNlRp0bbQni4hjV
-	9IbNJws7Y3ptkrR2eqafF8kcl3wOY1eHhpio3R6LPCmPbR56den3C42c
-X-Gm-Gg: AZFdTZfrIVwwwQnjaN0aZrxsta/DVED0jcp/9eS5cZZzWkz5y5zkIWiJAFzZbCkV4Uq
-	6buZg/f5ycRxy+E4qc/VzTFRD+h79RIBgpIOpXpgueKWS2Ur+2OYkMFLyxFYQDfMfSNMu5d5DHq
-	oJkMJzKS/+4BIYfMYmMaUHgbEYBSlHOORvY1WYxNIZlpdMacoZVgemizr1qNyISttdQ5DWXvDTI
-	71QfffQU3YG0S4B+FDoVu/qkmgWeLtlce6R6pkxLvmoDqDBgqS9U1IhH04xTBBV6Y6K6R3tsEM7
-	+PkA7hXqJ5ifTI3ujAJWCVEzlid51TJpzzd7fcQR/f8fTukRWSDq/5y5LG18p6kJ1d/dq5RzQD9
-	yHOXQxw+Ekj5w3df87PGnChAA35KOwSSUtz/ao5oztaiwfJqHPNMCkxc31B7LhhGmDhLJ55iwu2
-	yxhGzkJ2IqKYi2uZZpG2xBLho2OD3/YfgR6fT2mtoXLu4ZVhRqItFVUC1Vo/VFD115qySw3SzX/
-	DWNWPNnDtsOTIQ0dO3eIun6UZYAWj3xCPi/ZeFwT6yj1LbDrIAJq+W80GiM4WVVf+CPOUnhaxt8
-	8YeJ0zKy6eoaE5mTt48KoO884OEfv6ZY7K6AY/0r/2mtObRLpBmhGOwvzi2g9LTHmYmm1MuMkh2
-	ll3CvmO6KPKzO
-X-Received: by 2002:a17:906:b009:b0:c29:4fcb:2886 with SMTP id a640c23a62f3a-c513ab47ff7mr994909866b.39.1795596184766;
-        Wed, 25 Nov 2026 00:43:04 -0800 (PST)
-Received: from localhost (178-84-201-199.dynamic.upc.nl. [178.84.201.199])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdf022sm606367166b.67.2026.11.25.00.43.04
+        d=1e100.net; s=20260707; t=1795596191; x=1796200991;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=mkMPx5pZu0MJCT37mBs5hDdYCQOlPFYux99EQPGEygU=;
+        b=nG/ACpv2IGJX91hLXuaORBNWNF3T/vOvR47QkcrOJ+KhYjwDrfubHVm92fcjNylmQD
+         u0ZB9ynIwXq8zOEMq/PLOzo+2X0UiIKuPiNg9APqw2iKJolAazNkX6dQImEHcSFdULYk
+         0pHRvfmU93ltUKKmNjuEP/b+AZxg/LTq6XX/Q4qx+tY/QRcEDj7ZwjsYhqEdXM4QigFS
+         XSenkrBICKYBX4c/NH3VNXYgCG4F2wNZ9HOoCv5sPYJAgNxe+oJG+5hkD1rzlAsjPmmk
+         mpwG4YZnJ1Y+Fyny3or8oOjPC0zKnLb9dvplUMCHwpvgdWp9q8HKuMttBKdXb1jQf9Gc
+         hiDw==
+X-Forwarded-Encrypted: i=1; AL+hErGAH97oksvk38ITWGy0LZRHiyyf2Zz2R6kk1xWrRcPEWSSmPMkT7lJRsxvcmRi0p+y+pkFOkPusOXw1kzw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/iVeSPY04YYOrxCxhMxppsB+PYFV/zBI83JqlRjwtj5h7feyUj
+	I2dUXBPXFoQPISFWbU18TdP5URVSGCaZtHYC/bhOkvH8245eyPxgfHttOXNHSG7MW3S7lFLF+Qo
+	1wTKiYCE6KFRH3xfHDeuZ7iBtTKx4rhVvbBkt5wEmykjJsDQOU4sbOLPks1I5KWAT/eg=
+X-Gm-Gg: AZFdTZepp1yKQim0OIqoI8Eef6ciaKDUvLiqqiowjeHuZ1ugo9iEPxc35cqgZsSEyI0
+	6GiEOI9Jh65HnkrT/Ae18XOP4IT1vcXL0DW4202qz0bf4VrdVXD7G0Rp2kHhgtTh/dVRTPDXHTS
+	38MK4M915o5DPEqfUsr9jOXYzRX4H8b89OZmswWpeMX9GOjulfn+liTSGTyS3mvyd2xmXVhb1eE
+	lVuNcZmJGh1kwSLF7IrRH5BnE4wZREaShdXEzne5JZcAmkiLDnXLx9qH3uGLn9OaR9jg7XyWyZa
+	6H3OQmPQXKLjkVOLMsUbKL3C7xw0d7aDSe3iDkM+jDSy4jqxuqduqSvKO04/45/n2WcqJn9eEk7
+	Pk4aPSKPOjZ5VNkWklhPqLEDNzx09AfM01MFnwhKen05qvi854Zzyvu8DEhBsXrNKVOXVYCHNTE
+	qYbXeT
+X-Received: by 2002:a05:701b:21cd:b0:1b2:4871:b1f7 with SMTP id a92af1059eb24-1b5568fbfcbmr15129857c88.39.1795596191376;
+        Wed, 25 Nov 2026 00:43:11 -0800 (PST)
+X-Received: by 2002:a05:701b:21cd:b0:1b2:4871:b1f7 with SMTP id a92af1059eb24-1b5568fbfcbmr15129829c88.39.1795596190763;
+        Wed, 25 Nov 2026 00:43:10 -0800 (PST)
+Received: from hu-nihalkum-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55684c85fsm60290694c88.14.2026.11.25.00.43.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 00:43:04 -0800 (PST)
-Date: Wed, 25 Nov 2026 09:43:03 +0100
-From: Amir Goldstein <amir73il@gmail.com>
-To: syzbot <syzbot+ecf337bf2c6f75c1ddd8@syzkaller.appspotmail.com>
-Cc: a.hindborg@kernel.org, leitao@debian.org, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-unionfs@vger.kernel.org,
-	miklos@szeredi.hu, syzkaller-bugs@googlegroups.com,
-	zohar@linux.ibm.com, ngocthang2710.1999@gmail.com,
-	roberto.sassu@huawei.com
-Subject: Re: [syzbot] [overlayfs?] possible deadlock in ima_path_truncate
-Message-ID: <awafl-xj-fpufqI7@gmail.com>
-References: <6a8e6f78.dbb3a75c.7844.0033.GAE@google.com>
- <6b064809.e1ffc79a.44bf.0003.GAE@google.com>
+        Wed, 25 Nov 2026 00:43:10 -0800 (PST)
+From: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+Subject: [PATCH v5 0/3] Add CAMSS support for Qualcomm Hawi and Maili
+Date: Wed, 25 Nov 2026 14:12:59 +0530
+Message-Id: <20261125-hawi-camss-v5-0-d48c4feb1c2e@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,201 +115,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6b064809.e1ffc79a.44bf.0003.GAE@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJOfBmsC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyTHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyNT3YzE8kzd5MTc4mLdFAsDQwsT42RLsyRDJaCGgqLUtMwKsGHRsbW
+ 1AGkVK7dcAAAA
+X-Change-ID: 20261125-hawi-camss-d801843c96b1
+To: Bryan O'Donoghue <bod@kernel.org>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Hangxiang Ma <hangxiang.ma@oss.qualcomm.com>,
+        Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Cc: Suresh Vankadara <svankada@qti.qualcomm.com>,
+        Vikram Sharma <vikram.sharma@oss.qualcomm.com>,
+        linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795596185; l=3216;
+ i=nihal.gupta@oss.qualcomm.com; s=20260608; h=from:subject:message-id;
+ bh=LCKglgHmOSMp0gqQvoaScETsQ1eifl2GUqlrW/x1Vx8=;
+ b=tLcDx46uoLSaMJ8XkdOrASfldBEIHBZ+IrJhE6+MpYoXiTCp7sKc1nUbWZ/Lj2EA/DGNUHN16
+ NJQHWbJMdfPD9eYZx+P0owYssq1LnmYwbSxG0w96H/s8FMugrjp1iRl
+X-Developer-Key: i=nihal.gupta@oss.qualcomm.com; a=ed25519;
+ pk=DIbyFMNwqU/iMvU/0pCQp2wmRVgtHFBT3PcSu+A+Ncw=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDAzNCBTYWx0ZWRfX07/z+XBUEsiJ
+ RN/fwcsuKmjtdXTdEZF4AAcHP8qaybk4qMshaDWDjCv+SiAAl2O/0tqXHw+YmB9v37gAKkL+36j
+ 8Ly5ndPvgJKMccmGEwqcx2po36fFHsGMP9Ska155yPuJmmDkkeQFL+j42AZ8kXy6jYK0oZgwEcC
+ 0sl3usBgtc2hN442wUVgqWrM8YXjrr2k0ALsAJwl4P6zB1WSB7atW+zJkFfq/zZH/Za3b0SzDEy
+ fKopX2RFQupeUNEKq58KD8HO0a2qQ/bS4Aj2VuK0nMeOcCENyzQT4+P72tKxHXmU3VMbyF8wh1a
+ beLJ9nSBMkXfLm6KEqud/62cCZGgTsbpwo+CHuizp9KwSZByCqJnP881TziDNIOnj12XB38c9y4
+ rxyJcmn/DD++A+MyBQwX8ZPPkLLCVF8zwS6qFuuMHJHMso1VUv4Ciwyo33GHiyMDJ+6Hkhmjehu
+ 4F0xGqNfJM6fPpvl0fQ==
+X-Authority-Analysis: v=2.4 cv=Voa2kO2n c=1 sm=1 tr=0 ts=6b069fa0 cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=e5mUnYsNAAAA:8 a=PSXh-a3-1L_3D_hhYzAA:9
+ a=QEXdDO2ut3YA:10 a=scEy_gLbYbu1JhEsrz4S:22 a=Vxmtnl_E_bksehYqCbjh:22
+X-Proofpoint-GUID: CZf2CzBr39P0U_0uvM128YIQb4C-ViGb
+X-Proofpoint-ORIG-GUID: CZf2CzBr39P0U_0uvM128YIQb4C-ViGb
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDAzNCBTYWx0ZWRfX9NEaMbHDEZUX
+ ady85OnIyYL9TFvg/kpS/QWV9drGgWT8cVQ798FiCHyzIFICzL/J1+Yh5lcHA/7LS6Zw/LdpwC2
+ PK7Inv/wTo2R2U7QS1AV+XJUXus1w7A=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_02,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0
+ adultscore=0 spamscore=0 priorityscore=1501 suspectscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250034
 
-On Tue, Nov 24, 2026 at 06:29:29PM -0800, syzbot wrote:
-> syzbot has found a reproducer for the following issue on:
-> 
-> HEAD commit:    8d7fe9885c62 Merge tag 'hid-for-linus-2026112301' of git:/..
-> git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-> console output: https://syzkaller.appspot.com/x/log.txt?x=12615bbe580000
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=462e918ed4cc6d73
-> dashboard link: https://syzkaller.appspot.com/bug?extid=ecf337bf2c6f75c1ddd8
-> compiler:       Debian clang version 22.1.8 (1~deb13u5), Debian LLD 22.1.8
-> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=112be823580000
-> 
-> IMPORTANT: if you fix the issue, please add the following tag to the commit:
-> Reported-by: syzbot+ecf337bf2c6f75c1ddd8@syzkaller.appspotmail.com
-> 
+Hawi and Maili are recently announced Qualcomm Snapdragon SoCs [1].
+This series adds Camera Subsystem (CAMSS) support for the Qualcomm
+Hawi and Maili SoC's.
 
+[1] https://www.qualcomm.com/smartphones/products/8-series/snapdragon-8-elite-gen-6-mobile-platform
 
-#syz dup: possible deadlock in vfs_iocb_iter_write
+This is the CAMSS/media part split from the previous combined v4 series.
+The I2C CCI and CSI-2 PHY patches were posted separately as v5 because
+they do not depend on the Kaanapali/KNP CAMSS media patches.
 
-This looks like the same lockdep false positive as syzbot+deb8af81d91415fabac1,
-fixed by "ima: key iint mutex lockdep class per filesystem type":
-https://lore.kernel.org/r/20261123111452.237422-1-ngocthang2710.1999@gmail.com/
+This series carries the CAMSS/media patches from the previous combined v4
+series: patch 3/6 (CAMSS binding), patch 5/6 (CSID clock scaling) and
+patch 6/6 (Hawi CAMSS support).
 
+Link to combined v4:
+https://lore.kernel.org/r/20261106-hawi-maili-camss-v4-0-d528c7a797b4@oss.qualcomm.com
 
-> ======================================================
-> WARNING: possible circular locking dependency detected
-> syzkaller #0 Not tainted
-> ------------------------------------------------------
-> syz-executor272/5659 is trying to acquire lock:
-> ffff88801359bed0 (&ima_iint_mutex_key[depth]){+.+.}-{4:4}, at: ima_reset_action_flags security/integrity/ima/ima_main.c:709 [inline]
-> ffff88801359bed0 (&ima_iint_mutex_key[depth]){+.+.}-{4:4}, at: ima_path_truncate+0xd3/0x190 security/integrity/ima/ima_main.c:718
-> 
-> but task is already holding lock:
-> ffff888051144478 (sb_writers#4){.+.+}-{0:0}, at: mnt_want_write+0x41/0x90 fs/namespace.c:531
-> 
-> which lock already depends on the new lock.
-> 
-> 
-> the existing dependency chain (in reverse order) is:
-> 
-> -> #3 (sb_writers#4){.+.+}-{0:0}:
->        percpu_down_read_internal include/linux/percpu-rwsem.h:53 [inline]
->        percpu_down_read_freezable include/linux/percpu-rwsem.h:83 [inline]
->        __sb_start_write include/linux/fs/super.h:19 [inline]
->        sb_start_write+0x48/0x1c0 include/linux/fs/super.h:125
->        mnt_want_write+0x41/0x90 fs/namespace.c:531
->        ovl_xattr_set+0x15c/0x5e0 fs/overlayfs/xattrs.c:61
->        __vfs_setxattr+0x442/0x480 fs/xattr.c:223
->        __vfs_setxattr_noperm+0x12a/0x660 fs/xattr.c:257
->        vfs_setxattr+0x151/0x370 fs/xattr.c:344
->        cachefiles_preset_object_xattr+0x142/0x3e0 fs/cachefiles/xattr.c:58
->        cachefiles_create_tmpfile+0x3e7/0x790 fs/cachefiles/namei.c:455
->        cachefiles_create_file+0x78/0x140 fs/cachefiles/namei.c:487
->        cachefiles_look_up_object+0x38c/0x7b0 fs/cachefiles/namei.c:622
->        cachefiles_lookup_cookie+0x374/0x750 fs/cachefiles/interface.c:125
->        fscache_perform_lookup fs/netfs/fscache_cookie.c:518 [inline]
->        fscache_cookie_state_machine fs/netfs/fscache_cookie.c:729 [inline]
->        fscache_cookie_worker+0xa77/0x1170 fs/netfs/fscache_cookie.c:835
->        process_one_work kernel/workqueue.c:3495 [inline]
->        process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3578
->        worker_thread+0xa47/0xfb0 kernel/workqueue.c:3659
->        kthread+0x38b/0x480 kernel/kthread.c:436
->        ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
->        ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-> 
-> -> #2 (&ovl_i_mutex_key[depth]){+.+.}-{4:4}:
->        down_write+0x91/0x200 kernel/locking/rwsem.c:1631
->        inode_lock include/linux/fs.h:1027 [inline]
->        ovl_write_iter+0x1fb/0x3b0 fs/overlayfs/file.c:358
->        vfs_iocb_iter_write+0x245/0x5e0 fs/read_write.c:930
->        __cachefiles_write+0x6c9/0xbd0 fs/cachefiles/io.c:355
->        netfs_issue_write fs/netfs/write_issue.c:290 [inline]
->        netfs_advance_write+0x328/0x4b0 fs/netfs/write_issue.c:331
->        netfs_write_folio fs/netfs/write_issue.c:510 [inline]
->        netfs_writepages+0x12d3/0x22b0 fs/netfs/write_issue.c:600
->        do_writepages+0x338/0x560 mm/page-writeback.c:2562
->        filemap_writeback mm/filemap.c:386 [inline]
->        filemap_fdatawrite_range mm/filemap.c:411 [inline]
->        filemap_fdatawrite+0x1e9/0x2f0 mm/filemap.c:417
->        v9fs_vfs_setattr_dotl+0x4dc/0xab0 fs/9p/vfs_inode_dotl.c:585
->        notify_change+0xbba/0xea0 fs/attr.c:556
->        do_truncate+0x1c2/0x250 fs/open.c:68
->        handle_truncate fs/namei.c:4306 [inline]
->        do_open fs/namei.c:4855 [inline]
->        path_openat+0x18a6/0x20f0 fs/namei.c:5016
->        do_file_open+0x23e/0x4a0 fs/namei.c:5045
->        do_sys_openat2+0x115/0x200 fs/open.c:1443
->        do_sys_open fs/open.c:1449 [inline]
->        __do_sys_openat fs/open.c:1465 [inline]
->        __se_sys_openat fs/open.c:1460 [inline]
->        __x64_sys_openat+0x138/0x170 fs/open.c:1460
->        do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
->        do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
->        entry_SYSCALL_64_after_hwframe+0x77/0x7f
-> 
-> -> #1 (&sb->s_type->i_mutex_key#25){++++}-{4:4}:
->        down_read_interruptible+0x4b/0x3b0 kernel/locking/rwsem.c:1584
->        netfs_start_io_read+0x25/0x180 fs/netfs/locking.c:67
->        netfs_buffered_read_iter+0xd6/0x160 fs/netfs/buffered_read.c:940
->        __kernel_read+0x4ca/0x960 fs/read_write.c:512
->        integrity_kernel_read+0x89/0xd0 security/integrity/iint.c:28
->        ima_calc_file_hash_tfm security/integrity/ima/ima_crypto.c:222 [inline]
->        ima_calc_file_hash+0x451/0x890 security/integrity/ima/ima_crypto.c:280
->        ima_collect_measurement+0x51b/0xa00 security/integrity/ima/ima_api.c:300
->        process_measurement+0x1272/0x1c10 security/integrity/ima/ima_main.c:425
->        ima_file_check+0xdc/0x130 security/integrity/ima/ima_main.c:686
->        security_file_post_open+0xb3/0x260 security/security.c:2777
->        do_open fs/namei.c:4853 [inline]
->        path_openat+0x1748/0x20f0 fs/namei.c:5016
->        do_file_open+0x23e/0x4a0 fs/namei.c:5045
->        do_sys_openat2+0x115/0x200 fs/open.c:1443
->        do_sys_open fs/open.c:1449 [inline]
->        __do_sys_openat fs/open.c:1465 [inline]
->        __se_sys_openat fs/open.c:1460 [inline]
->        __x64_sys_openat+0x138/0x170 fs/open.c:1460
->        do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
->        do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
->        entry_SYSCALL_64_after_hwframe+0x77/0x7f
-> 
-> -> #0 (&ima_iint_mutex_key[depth]){+.+.}-{4:4}:
->        check_prev_add kernel/locking/lockdep.c:3209 [inline]
->        check_prevs_add kernel/locking/lockdep.c:3328 [inline]
->        validate_chain kernel/locking/lockdep.c:3952 [inline]
->        __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
->        lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
->        __mutex_lock_common kernel/locking/mutex.c:646 [inline]
->        __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
->        ima_reset_action_flags security/integrity/ima/ima_main.c:709 [inline]
->        ima_path_truncate+0xd3/0x190 security/integrity/ima/ima_main.c:718
->        security_path_truncate+0x1d0/0x310 security/security.c:1578
->        vfs_truncate+0x46e/0x540 fs/open.c:116
->        ksys_truncate+0xf3/0x1c0 fs/open.c:142
->        __do_sys_truncate fs/open.c:154 [inline]
->        __se_sys_truncate fs/open.c:152 [inline]
->        __x64_sys_truncate+0x5b/0x70 fs/open.c:152
->        do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
->        do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
->        entry_SYSCALL_64_after_hwframe+0x77/0x7f
-> 
-> other info that might help us debug this:
-> 
-> Chain exists of:
->   &ima_iint_mutex_key[depth] --> &ovl_i_mutex_key[depth] --> sb_writers#4
-> 
->  Possible unsafe locking scenario:
-> 
->        CPU0                    CPU1
->        ----                    ----
->   rlock(sb_writers#4);
->                                lock(&ovl_i_mutex_key[depth]);
->                                lock(sb_writers#4);
->   lock(&ima_iint_mutex_key[depth]);
-> 
->  *** DEADLOCK ***
-> 
-> locks held by syz-executor272/5659: 1, on CPU#0:
->  #0: ffff888051144478 (sb_writers#4){.+.+}-{0:0}, at: mnt_want_write+0x41/0x90 fs/namespace.c:531
-> 
-> stack backtrace:
-> CPU: 0 UID: 0 PID: 5659 Comm: syz-executor272 Not tainted syzkaller #0 PREEMPT(full) 
-> Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-> Call Trace:
->  <TASK>
->  dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
->  print_circular_bug+0x2e2/0x300 kernel/locking/lockdep.c:2087
->  check_noncircular+0x12f/0x150 kernel/locking/lockdep.c:2219
->  check_prev_add kernel/locking/lockdep.c:3209 [inline]
->  check_prevs_add kernel/locking/lockdep.c:3328 [inline]
->  validate_chain kernel/locking/lockdep.c:3952 [inline]
->  __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
->  lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
->  __mutex_lock_common kernel/locking/mutex.c:646 [inline]
->  __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
->  ima_reset_action_flags security/integrity/ima/ima_main.c:709 [inline]
->  ima_path_truncate+0xd3/0x190 security/integrity/ima/ima_main.c:718
->  security_path_truncate+0x1d0/0x310 security/security.c:1578
->  vfs_truncate+0x46e/0x540 fs/open.c:116
->  ksys_truncate+0xf3/0x1c0 fs/open.c:142
->  __do_sys_truncate fs/open.c:154 [inline]
->  __se_sys_truncate fs/open.c:152 [inline]
->  __x64_sys_truncate+0x5b/0x70 fs/open.c:152
->  do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
->  do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
->  entry_SYSCALL_64_after_hwframe+0x77/0x7f
-> RIP: 0033:0x7f0e2c62c7c7
-> Code: 44 00 00 31 ff e8 89 f7 ff ff 48 8b 2d f2 81 2a 00 85 c0 79 93 eb d5 48 8d 7c 1d 00 eb 99 0f 1f 44 00 00 b8 4c 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 01 c3 48 c7 c2 d0 ff ff ff f7 d8 64 89 02 b8
-> RSP: 002b:00007ffe754e2898 EFLAGS: 00000246 ORIG_RAX: 000000000000004c
-> RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f0e2c62c7c7
-> RDX: 0000000000000001 RSI: 0000000000000000 RDI: 00007f0e2c69ea92
-> RBP: 00007ffe754e2940 R08: 0000000000000000 R09: 0000000000000000
-> R10: 0000000000000000 R11: 0000000000000246 R12: 00007f0e2c69eab0
-> R13: 00007ffe754e28c0 R14: 00007ffe754e2980 R15: 00007f0e2c69e8cf
->  </TASK>
-> CacheFiles: File cache on CacheFiles unregistering
-> netfs: Withdrawing cache "CacheFiles" (6 objs)
+Link to split I2C/PHY v5:
+https://lore.kernel.org/all/20261125-hawi-maili-camss-v5-0-1483b7f68dce@oss.qualcomm.com/
+
+This series continues the CAMSS/media portion and applies against the
+camss-next branch staging to linux-media/next.
+Base Link: https://gitlab.freedesktop.org/linux-media/users/bodonoghue/-/tree/camss-next
+
+Hawi's camera hardware topology:
+- 6x CSIPHY (CSI Physical Layer)
+- 3x TPG (Test Pattern Generator)
+- 3x CSID (CSI Decoder)
+- 2x CSID Lite
+- 3x VFE (Video Front End), 5 RDI per VFE
+- 2x VFE Lite, 4 RDI per VFE Lite
+
+Maili shares the same IP as Hawi. The only difference is Hawi has 6 CSIPHY
+while Maili has 5.
+
+Used following tools for the sanity check of these changes.
+- make -j32 W=1
+- checkpatch.pl
+- make DT_CHECKER_FLAGS=-m DT_SCHEMA_FILES=media/qcom,hawi-camss.yaml dt_binding_check W=1
+- make CHECK_DTBS=y W=1 dtbs
+
+---
+Changes in v5:
+- Split out CAMSS/media patches 3/6, 5/6 and 6/6 from the previous combined v4 series.
+- Drop the I2C/PHY patches; they were posted separately for I2C/PHY pickup.
+- Base on Bryan's media tree where the required KNP CAMSS patches are picked.
+- Link to v4: https://lore.kernel.org/r/20261106-hawi-maili-camss-v4-0-d528c7a797b4@oss.qualcomm.com
+
+Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+
+---
+Hangxiang Ma (2):
+      dt-bindings: media: Add CAMSS device for Hawi and Maili
+      media: qcom: camss: Add support for Hawi
+
+Loic Poulain (1):
+      media: qcom: camss: csid: Scale the clocks with the CSI-2 link rate
+
+ .../devicetree/bindings/media/qcom,hawi-camss.yaml | 317 ++++++++++++++++
+ drivers/media/platform/qcom/camss/Makefile         |   2 +
+ .../media/platform/qcom/camss/camss-csid-1190.c    | 417 +++++++++++++++++++++
+ drivers/media/platform/qcom/camss/camss-csid.c     | 208 ++++++++--
+ drivers/media/platform/qcom/camss/camss-csid.h     |   1 +
+ drivers/media/platform/qcom/camss/camss-vfe-1190.c | 217 +++++++++++
+ drivers/media/platform/qcom/camss/camss-vfe.c      |   1 +
+ drivers/media/platform/qcom/camss/camss-vfe.h      |   1 +
+ drivers/media/platform/qcom/camss/camss.c          | 228 +++++++++++
+ drivers/media/platform/qcom/camss/camss.h          |   1 +
+ 10 files changed, 1354 insertions(+), 39 deletions(-)
+---
+base-commit: 2fe1b6509825b39a090d7ec055d094155af4e0cc
+change-id: 20261125-hawi-camss-d801843c96b1
+
+Best regards,
+-- 
+Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+
