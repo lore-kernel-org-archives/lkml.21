@@ -1,95 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795607600;
-	b=B2Z3S7/siwC41EQIRADzmdcfFAa1KBFaQd92En8hotH0+DWRymMJCS5x2BWfHTi0QRI1
-	 MTJM25Zvoiw6mctizSUraWX0W5Kc4rU48152eKr6A48iobJTQLO9q9xRLuaFXusjKc4tT
-	 rmJt9pDgLHXZYpeV5IeRKM+BaxIX/sHV3QC4BHg/iLZE3zvRkLV0qWjPNji8y+cvtc89+
-	 QWH10xycLdMChf9apFI648GstB9bKUgzxqTlDXmDulvqiQjWHwzn3vQGyJJAyxvzx7dNf
-	 4CszsuvYRhH3b/dgnkJNBIv+mf8GezhJWc250dAwuOOJb72fVzQSs7i47KIRZRShkcw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795607600;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=nZYqcXr2GdukwpFTErUn0OmrkaYloPVQ2+2wDZ49QlA=;
-	b=rdm1Wl154qMmNlbL4/3NQcvA45mB6YhA67e7DQPbWxbLkKvUROYvWKXkDiCqVMNGLVC1
-	 7Gwp4Rxf+Gish9sMMbXkU1pNjP6hSp+qrQWW/3p3tCx7catFQIP+y/sj6DLKFhyU8nMSG
-	 eKmu1Wz07thWh50urdeYhOroSjYSQQX/w0jkR0o1LA4euqRiTXj7l+xa91BSuSxM1tRJR
-	 dTNTNZDcXzqomwxAOHGQNYZ3BEm2Ps0Z3q/F8PwDn0x6zdGO1uaTFSP3ezYuGShSXU6Yt
-	 Ej9xkQM4MrW5AiUBf4gjgJao78NwO2XjQMPDrKir1tud20WnuVDxSaTBbktEo/LqQnw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=PbHBDqbp;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795607608;
+	b=eceH+dIRXThuXsvBtMcetcwf/QG/XxXDo+0SNxReK1ARuhlp1IdQzdZTLC30SJtaTW3S
+	 U+uFOKqPXaeZNKc561vwESMwObcsI+3RcsL8+qDQEzO0cJGku4Jzmkyg6f8OPNjUSJrsb
+	 h0LHdVZ7Xvhc8/Oi/TOj/0RgJ5TfVF5fRxlG1sn+qNN3JPoCqbhLsPKqj6MasNTmQrx/J
+	 wCSL36xx67uBhZ1BBDKdOU7OLDDe1WKSNEtTUkWPty78NO/r273yBwa5wMYP1kKfWa5eH
+	 tfy2w4FBLrKHVpeOg34bKn2ThtGB+yWa3l4a0P1BVdM+UmthtRJv4Q6lhye7u/LRtMg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795607608;
+	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=mlkDCg9kprZ62DwlXQd8yd+ADgwJpdD1CpbOrg8ZjiY=;
+	b=OqR+FwsHHF7Ifbz848AF4pOjSuosND+F0YJzOXktLRtxXh3EuDbXqxTLyB3fIGCFMGSs
+	 rpGTYxXfZgehqGgoqD3wWf6tO3d9G9n1v5/iadwNR7+m1OCAAUwXaNHe9JGiSo38WE2bS
+	 0FRMtUc4B0jhKBOTaDK69hFzsoFfpl5gvB3LXBs0xHY03ABjEgs6ArED07x2xP5ywO436
+	 m15ncaTF5inFvz58x4vg+dRbemA8wTa7LyVe6F0Vx3AvrXCTY4RXlb8/RWGStbxnLViLh
+	 9B/c4DLko32oCZS2OFUgl+H/i2WGTrT7QwJfcjc2eBD3ILacERVzv9rR0FPhRlTDkvA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=d-silva.org;
+	spf=pass smtp.mailfrom=d-silva.org;
+	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=C8qj2Rj+;
+	arc=none smtp.remote-ip=119.15.109.137
+Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5604E606A326;
-	Wed, 25 Nov 2026 11:53:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5604E606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE6FC606A332;
+	Wed, 25 Nov 2026 11:53:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE6FC606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=PbHBDqbp
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 709292001A0;
-	Wed, 25 Nov 2026 12:53:17 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795607597;
+	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=C8qj2Rj+
+Received: from Hawking.lan (hawking.lan [10.0.1.4])
+	by www.nmnhosting.com (Postfix) with ESMTP id 32D4E45844;
+	Wed, 25 Nov 2026 22:53:20 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795607600;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=nZYqcXr2GdukwpFTErUn0OmrkaYloPVQ2+2wDZ49QlA=;
-	b=PbHBDqbpyGECAjnBhCSKie8KEBk6a64mLAmKCjN9MhceQnQLcrCHIv1lWy4dsHMLH7XhCE
-	i7TA6RhFLtxLEYbEcwf2HFA7Wj6CaJArkV2lWfdP7+mK3TnTwq1S492/LHQcYz6WFJfcEz
-	md1WEtrCvehRoL5KdmhAT2MVjrjHEAeI4cw6ZbS689B+l2BuHRBFpNNGc+NiSCYtQRlhwL
-	j9UGlcSG4SAdQW921O5UwKs9uJDhEHmWyrIJ7Vl7YDRTGdqSgxpd98m6+B2ZxtWN8Pvkdc
-	O3LLlXqK2U0/6XEkJvWj1XM0g8rOe270BkncmUe3DVie5FNUD0fVaWDv50EBwQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795607597;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nZYqcXr2GdukwpFTErUn0OmrkaYloPVQ2+2wDZ49QlA=;
-	b=ZhsFPfuflVaq19jR2oqz2SK81or7T0A+XwZ885vj4fQnX06TrUCuu9viC+91pNH6aZ9aEv
-	2dmw2g7OkMPZtoX7RKV3h5LUyUZNehorlLp2NK/Fh/UXKGvyYxxHU2nwTQxkU+WkyL7cqg
-	t30DTWkVXMmeZ0jVrCCjiylTlJxhl3y+2kAWKVSaKvqqdx8XViS8Bn35snJOjfbK3YyA1y
-	Yy5CJMn2OzkLeosZkGYLyc288kswAWlpVN/doYIeKms8D4aCPzqySQJG+yK4BsDgtNIirm
-	3mKg4+XezcAMutGh2r8v3GC1+521es9LvbJCj9q/eNluFzykQUfSGIU4R5kpaQ==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795607597; a=rsa-sha256;
-	cv=none;
-	b=MHanYjsJA6XhzZw6heWfVaTzUOjh7E20PH1/UuZqp4HPoLzaCZg1z7NsXKK1B/evAW8uhN
-	2zseWkcyNBN4sCXpUi8n8CempZWiJ3UYvL8DYeukJdzD//9IHUbKdOI465jvu1tRBeg1S/
-	kZ+BCVqfozR0dUkbR02T+KZEMq/AFTVuS1KlQ/TFpA+b+6ukmpP2ZDSZkTFw2ZrLbdtPwd
-	CKzJZaS7s3aGxHFt2MZS9n6YtMK/R+n8bXgan/wwzKnHSDDfTqlo1rghERn+LGRHva9tf+
-	g9g/aTsiUWczsocRZfHA77NFkH2rTJ2kEvOnFEZH+aL6a3uSehBH1E6nnO85yA==
-Message-ID: <508510a91e4b23d5d78f2844edaa0176a0a0d7d2.camel@pengutronix.de>
-Subject: Re: Re: [PATCH] media: coda: Fix potential use-after-free after
- VDOA removal
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: =?UTF-8?Q?=E6=9D=8E=E5=B9=BF=E7=A1=95?= <liguangshuo@mail.sdu.edu.cn>, 
- Frank Li <Frank.li@oss.nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-  Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam	 <festevam@gmail.com>,
- linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Date: Wed, 25 Nov 2026 12:53:17 +0100
-In-Reply-To: <AFIAnACwLNbQUd1pcUL4gqo0.3.1795528942002.Hmail.202321181@mail.sdu.edu.cn>
-References: <20261107-0d0c29e10a-media-coda-1@mail.sdu.edu.cn>
-	 <av9mwwAmlRoDdU0d@lizhi-Precision-Tower-5810>
-	 <AFIAnACwLNbQUd1pcUL4gqo0.3.1795528942002.Hmail.202321181@mail.sdu.edu.cn>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	bh=mlkDCg9kprZ62DwlXQd8yd+ADgwJpdD1CpbOrg8ZjiY=;
+	b=C8qj2Rj+fzKog24buY1PaEC/j3+RQMketNzOBNyqLPWLhq3UVkUmXjPujBBBfT32+Ki+0s
+	2Y6k9BKv4Xh6Cgdk4eNvSDniSQhzK5oRY5aaw8V03U/XkGaHoA8oZcgvXvXzrrwIhtpckP
+	D7e+5pVv+l6s9ImcAxTvntnCi3d2XynmKc4m8EmxMU3tg72jdrGMswbwvB8ygFYJyyf1aJ
+	HUapdsxbhWcfElKIXpTDoNlNeqEAEO3kDjc6dUakyf3z4+fSNGVWbQdDDxumfm/rnqxnz7
+	PKxPPKekc+UHvNn7g/4bNwrBoIOeaE/YpnGdebkwT26eR7KAiLcsSJcNrm1rdw==
+X-GPT-Reason: The email is classified as personal/professional
+	correspondence because it appears to be a direct reply to a technical
+	discussion. The sender domain (d-silva.org) matches the recipient's
+	known personal mailbox (alastair@d-silva.org), the subject line
+	refers to a specific technical patch (clk: sunxi-ng: a733), and
+	there are no phishing indicators, urgency tactics, or external URLs
+	present.
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Junhui Liu <junhui.liu@pigmoral.tech>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	netdev@vger.kernel.org,
+	Alastair D'Silva <alastair@d-silva.org>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Enzo Adriano <enzo.adriano.code@gmail.com>,
+	Norman Herms <dockseed@proton.me>,
+	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
+Subject: Re: [PATCH v7 7/8] clk: sunxi-ng: a733: Add bus clock gates
+Date: Wed, 25 Nov 2026 22:53:20 +1100
+Message-ID: <20261125115320.3692954-1-alastair@d-silva.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261112-a733-clk-v7-7-db7c5451ffa2@pigmoral.tech>
+References: <20261112-a733-clk-v7-7-db7c5451ffa2@pigmoral.tech>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,418 +100,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Di, 2026-11-24 at 22:02 +0800, =E6=9D=8E=E5=B9=BF=E7=A1=95 wrote:
-> Hi Frank,
->=20
-> Thanks for the review.
->=20
-> From: Frank Li <Frank.li@oss.nxp.com>
-> Date: 2026-11-20 05:14:43
-> To:  Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-> Cc:  Philipp Zabel <p.zabel@pengutronix.de>,Mauro Carvalho Chehab <mcheha=
-b@kernel.org>,Frank Li <Frank.Li@nxp.com>,Sascha Hauer <s.hauer@pengutronix=
-.de>,Pengutronix Kernel Team <kernel@pengutronix.de>,Fabio Estevam <festeva=
-m@gmail.com>,linux-media@vger.kernel.org,linux-kernel@vger.kernel.org,imx@l=
-ists.linux.dev,linux-arm-kernel@lists.infradead.org
-> Subject: Re: [PATCH] media: coda: Fix potential use-after-free after VDOA=
- removal>On Sat, Nov 07, 2026 at 02:54:30PM +0800, Guangshuo Li wrote:
-> > > VDOA can be unbound while CODA still holds its driver data and open
-> > > contexts. Their next transfer or close then accesses released state
-> > > and device-managed resources.
-> > >=20
-> > > Retain the VDOA state for its consumers and contexts. Serialize hardw=
-are
-> > > access with removal, stop outstanding transfers and balance the clock
-> > > references before disconnecting the retained contexts. Also release a
-> > > VDOA context when opening CODA fails.
-> > >=20
-> > > This issue was found by our static analysis tool under development.
-> > >=20
-> > > Fixes: e7f3c5481035 ("[media] coda: use VDOA for un-tiling custom mac=
-roblock format")
-> > > Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-> > > ---
-> > > Validation: x86-64 GCC W=3D1 changed-object compilation passed. An
-> > > extracted-code test with mocked services reports an ASan failure befo=
-re
-> > > the fix and passes after it; this is not a kernel reproducer. No
-> > > hardware test, ARM64 build or full linked-kernel build.
-> > > OpenAI Codex assisted with source review, patch implementation and
-> > > commit-message drafting. The submitter has reviewed the changes.
-> > >=20
-> > >  .../platform/chips-media/coda/coda-common.c   |  14 +-
-> > >  .../platform/chips-media/coda/imx-vdoa.c      | 133 ++++++++++++++++=
---
-> > >  .../platform/chips-media/coda/imx-vdoa.h      |   8 ++
-> > >  3 files changed, 134 insertions(+), 21 deletions(-)
-> > >=20
-> > > diff --git a/drivers/media/platform/chips-media/coda/coda-common.c b/=
-drivers/media/platform/chips-media/coda/coda-common.c
-> > > index be37ea568bfe..b519cf8541de 100644
-> > > --- a/drivers/media/platform/chips-media/coda/coda-common.c
-> > > +++ b/drivers/media/platform/chips-media/coda/coda-common.c
-> > > @@ -396,7 +396,7 @@ const char *coda_product_name(int product)
-> > >  	}
-> > >  }
-> > >=20
-> > > -static struct vdoa_data *coda_get_vdoa_data(void)
-> > > +static struct vdoa_data *coda_get_vdoa_data(struct device *dev)
-> > >  {
-> > >  	struct device_node *vdoa_node;
-> > >  	struct platform_device *vdoa_pdev;
-> > > @@ -410,9 +410,7 @@ static struct vdoa_data *coda_get_vdoa_data(void)
-> > >  	if (!vdoa_pdev)
-> > >  		goto out;
-> > >=20
-> > > -	vdoa_data =3D platform_get_drvdata(vdoa_pdev);
-> > > -	if (!vdoa_data)
-> > > -		vdoa_data =3D ERR_PTR(-EPROBE_DEFER);
-> > > +	vdoa_data =3D devm_vdoa_get(dev, &vdoa_pdev->dev);
-> > >=20
-> > >  	put_device(&vdoa_pdev->dev);
-> > >  out:
-> > > @@ -2721,6 +2719,8 @@ static int coda_open(struct file *file)
-> > >  err_clk_enable:
-> > >  	pm_runtime_put_sync(dev->dev);
-> > >  err_pm_get:
-> > > +	if (ctx->vdoa)
-> > > +		vdoa_context_destroy(ctx->vdoa);
-> > >  	v4l2_fh_del(&ctx->fh, file);
-> > >  	v4l2_fh_exit(&ctx->fh);
-> > >  err_coda_name_init:
-> > > @@ -3220,9 +3220,9 @@ static int coda_probe(struct platform_device *p=
-dev)
-> > >  	dev->iram_pool =3D pool;
-> > >=20
-> > >  	/* Get vdoa_data if supported by the platform */
-> > > -	dev->vdoa =3D coda_get_vdoa_data();
-> > > -	if (PTR_ERR(dev->vdoa) =3D=3D -EPROBE_DEFER)
-> > > -		return -EPROBE_DEFER;
-> > > +	dev->vdoa =3D coda_get_vdoa_data(&pdev->dev);
-> > > +	if (IS_ERR(dev->vdoa))
-> > > +		return PTR_ERR(dev->vdoa);
-> > >=20
-> > >  	ret =3D v4l2_device_register(&pdev->dev, &dev->v4l2_dev);
-> > >  	if (ret)
-> > > diff --git a/drivers/media/platform/chips-media/coda/imx-vdoa.c b/dri=
-vers/media/platform/chips-media/coda/imx-vdoa.c
-> > > index cd085c1c73f4..d9249c943dfa 100644
-> > > --- a/drivers/media/platform/chips-media/coda/imx-vdoa.c
-> > > +++ b/drivers/media/platform/chips-media/coda/imx-vdoa.c
-> > > @@ -9,7 +9,9 @@
-> > >  #include <linux/clk.h>
-> > >  #include <linux/device.h>
-> > >  #include <linux/interrupt.h>
-> > > +#include <linux/kref.h>
-> > >  #include <linux/module.h>
-> > > +#include <linux/mutex.h>
-> > >  #include <linux/dma-mapping.h>
-> > >  #include <linux/platform_device.h>
-> > >  #include <linux/videodev2.h>
-> > > @@ -74,6 +76,12 @@ enum {
-> > >  };
-> > >=20
-> > >  struct vdoa_data {
-> > > +	struct kref		ref;
-> > > +	/* Serializes context hardware access with removal. */
-> > > +	struct mutex		lock;
-> > > +	unsigned int		num_contexts;
-> > > +	bool			removed;
-> > > +	int			irq;
-> > >  	struct vdoa_ctx		*curr_ctx;
-> > >  	struct device		*dev;
-> > >  	struct clk		*vdoa_clk;
-> > > @@ -126,7 +134,7 @@ static irqreturn_t vdoa_irq_handler(int irq, void=
- *data)
-> > >  	return IRQ_HANDLED;
-> > >  }
-> > >=20
-> > > -int vdoa_wait_for_completion(struct vdoa_ctx *ctx)
-> > > +static int vdoa_wait(struct vdoa_ctx *ctx)
-> > >  {
-> > >  	struct vdoa_data *vdoa =3D ctx->vdoa;
-> > >=20
-> > > @@ -142,17 +150,43 @@ int vdoa_wait_for_completion(struct vdoa_ctx *c=
-tx)
-> > >=20
-> > >  	return 0;
-> > >  }
-> > > +
-> > > +int vdoa_wait_for_completion(struct vdoa_ctx *ctx)
-> > > +{
-> > > +	struct vdoa_data *vdoa =3D ctx->vdoa;
-> > > +	int ret;
-> > > +
-> > > +	mutex_lock(&vdoa->lock);
-> > > +	ret =3D vdoa->removed ? -ENODEV : vdoa_wait(ctx);
-> > > +	mutex_unlock(&vdoa->lock);
-> > > +
-> > > +	return ret;
-> > > +}
-> > >  EXPORT_SYMBOL(vdoa_wait_for_completion);
-> > >=20
-> > > +static void vdoa_stop(struct vdoa_data *vdoa)
-> > > +{
-> > > +	if (!vdoa->curr_ctx)
-> > > +		return;
-> > > +
-> > > +	if (vdoa_wait(vdoa->curr_ctx))
-> > > +		writel(VDOASRR_SWRST, vdoa->regs + VDOASRR);
-> > > +	writel(0, vdoa->regs + VDOAIE);
-> > > +	synchronize_irq(vdoa->irq);
-> > > +	vdoa->curr_ctx =3D NULL;
-> > > +}
-> > > +
-> > >  void vdoa_device_run(struct vdoa_ctx *ctx, dma_addr_t dst, dma_addr_=
-t src)
-> > >  {
-> > >  	struct vdoa_q_data *src_q_data, *dst_q_data;
-> > >  	struct vdoa_data *vdoa =3D ctx->vdoa;
-> > >  	u32 val;
-> > >=20
-> > > -	if (vdoa->curr_ctx)
-> > > -		vdoa_wait_for_completion(vdoa->curr_ctx);
-> > > +	mutex_lock(&vdoa->lock);
-> >=20
-> > use cleanup guard()
-> >=20
-> > > +	if (vdoa->removed)
-> > > +		goto out_unlock;
-> > >=20
-> > > +	vdoa_stop(vdoa);
-> > >  	vdoa->curr_ctx =3D ctx;
-> > >=20
-> > >  	reinit_completion(&ctx->completion);
-> > > @@ -192,9 +226,44 @@ void vdoa_device_run(struct vdoa_ctx *ctx, dma_a=
-ddr_t dst, dma_addr_t src)
-> > >  	/* Enable interrupts and start transfer */
-> > >  	writel(VDOAIE_EITERR | VDOAIE_EIEOT, vdoa->regs + VDOAIE);
-> > >  	writel(VDOASRR_START, vdoa->regs + VDOASRR);
-> > > +out_unlock:
-> > > +	mutex_unlock(&vdoa->lock);
-> > >  }
-> > >  EXPORT_SYMBOL(vdoa_device_run);
-> > >=20
-> > > +static void vdoa_release(struct kref *ref)
-> > > +{
-> > > +	struct vdoa_data *vdoa =3D container_of(ref, struct vdoa_data, ref)=
-;
-> > > +
-> > > +	put_device(vdoa->dev);
-> > > +	kfree(vdoa);
-> > > +}
-> > > +
-> > > +static void vdoa_put(void *data)
-> > > +{
-> > > +	struct vdoa_data *vdoa =3D data;
-> > > +
-> > > +	kref_put(&vdoa->ref, vdoa_release);
-> > > +}
-> > > +
-> > > +struct vdoa_data *devm_vdoa_get(struct device *dev, struct device *s=
-upplier)
-> > > +{
-> > > +	struct vdoa_data *vdoa;
-> > > +	int ret;
-> > > +
-> > > +	device_lock(supplier);
-> >=20
-> > why not use device link ?
-> >=20
-> > > +	vdoa =3D dev_get_drvdata(supplier);
-> > > +	if (vdoa)
-> > > +		kref_get(&vdoa->ref);
-> > > +	device_unlock(supplier);
-> > > +	if (!vdoa)
-> > > +		return ERR_PTR(-EPROBE_DEFER);
-> > > +
-> > > +	ret =3D devm_add_action_or_reset(dev, vdoa_put, vdoa);
-> > > +	return ret ? ERR_PTR(ret) : vdoa;
-> > > +}
-> > > +EXPORT_SYMBOL(devm_vdoa_get);
-> > > +
-> > >  struct vdoa_ctx *vdoa_context_create(struct vdoa_data *vdoa)
-> > >  {
-> > >  	struct vdoa_ctx *ctx;
-> > > @@ -204,16 +273,26 @@ struct vdoa_ctx *vdoa_context_create(struct vdo=
-a_data *vdoa)
-> > >  	if (!ctx)
-> > >  		return NULL;
-> > >=20
-> > > +	mutex_lock(&vdoa->lock);
-> > > +	if (vdoa->removed)
-> > > +		goto err_unlock;
-> > > +
-> > >  	err =3D clk_prepare_enable(vdoa->vdoa_clk);
-> > > -	if (err) {
-> > > -		kfree(ctx);
-> > > -		return NULL;
-> > > -	}
-> > > +	if (err)
-> > > +		goto err_unlock;
-> > >=20
-> > > +	kref_get(&vdoa->ref);
-> > > +	vdoa->num_contexts++;
-> > >  	init_completion(&ctx->completion);
-> > >  	ctx->vdoa =3D vdoa;
-> > > +	mutex_unlock(&vdoa->lock);
-> > >=20
-> > >  	return ctx;
-> > > +
-> > > +err_unlock:
-> > > +	mutex_unlock(&vdoa->lock);
-> > > +	kfree(ctx);
-> > > +	return NULL;
-> > >  }
-> > >  EXPORT_SYMBOL(vdoa_context_create);
-> > >=20
-> > > @@ -221,12 +300,15 @@ void vdoa_context_destroy(struct vdoa_ctx *ctx)
-> > >  {
-> > >  	struct vdoa_data *vdoa =3D ctx->vdoa;
-> > >=20
-> > > -	if (vdoa->curr_ctx =3D=3D ctx) {
-> > > -		vdoa_wait_for_completion(vdoa->curr_ctx);
-> > > -		vdoa->curr_ctx =3D NULL;
-> > > +	mutex_lock(&vdoa->lock);
-> > > +	if (!vdoa->removed) {
-> > > +		if (vdoa->curr_ctx =3D=3D ctx)
-> > > +			vdoa_stop(vdoa);
-> > > +		clk_disable_unprepare(vdoa->vdoa_clk);
-> > > +		vdoa->num_contexts--;
-> > >  	}
-> > > -
-> > > -	clk_disable_unprepare(vdoa->vdoa_clk);
-> > > +	mutex_unlock(&vdoa->lock);
-> > > +	vdoa_put(vdoa);
-> > >  	kfree(ctx);
-> > >  }
-> > >  EXPORT_SYMBOL(vdoa_context_destroy);
-> > > @@ -291,11 +373,16 @@ static int vdoa_probe(struct platform_device *p=
-dev)
-> > >  		return ret;
-> > >  	}
-> > >=20
-> > > -	vdoa =3D devm_kzalloc(&pdev->dev, sizeof(*vdoa), GFP_KERNEL);
-> > > +	vdoa =3D kzalloc_obj(*vdoa);
-> > >  	if (!vdoa)
-> > >  		return -ENOMEM;
-> > >=20
-> > > -	vdoa->dev =3D &pdev->dev;
-> > > +	vdoa->dev =3D get_device(&pdev->dev);
-> > > +	kref_init(&vdoa->ref);
-> > > +	mutex_init(&vdoa->lock);
-> >=20
-> > devm_mutex_init();
-> >=20
-> > Frank
-> > > +	ret =3D devm_add_action_or_reset(&pdev->dev, vdoa_put, vdoa);
-> > > +	if (ret)
-> > > +		return ret;
-> > >=20
-> > >  	vdoa->vdoa_clk =3D devm_clk_get(vdoa->dev, NULL);
-> > >  	if (IS_ERR(vdoa->vdoa_clk)) {
-> > > @@ -310,6 +397,7 @@ static int vdoa_probe(struct platform_device *pde=
-v)
-> > >  	ret =3D platform_get_irq(pdev, 0);
-> > >  	if (ret < 0)
-> > >  		return ret;
-> > > +	vdoa->irq =3D ret;
-> > >  	ret =3D devm_request_threaded_irq(&pdev->dev, ret, NULL,
-> > >  					vdoa_irq_handler, IRQF_ONESHOT,
-> > >  					"vdoa", vdoa);
-> > > @@ -323,6 +411,22 @@ static int vdoa_probe(struct platform_device *pd=
-ev)
-> > >  	return 0;
-> > >  }
-> > >=20
-> > > +static void vdoa_remove(struct platform_device *pdev)
-> > > +{
-> > > +	struct vdoa_data *vdoa =3D platform_get_drvdata(pdev);
-> > > +
-> > > +	platform_set_drvdata(pdev, NULL);
-> > > +	mutex_lock(&vdoa->lock);
-> > > +	vdoa_stop(vdoa);
-> > > +	disable_irq(vdoa->irq);
-> > > +	while (vdoa->num_contexts) {
-> > > +		clk_disable_unprepare(vdoa->vdoa_clk);
-> > > +		vdoa->num_contexts--;
-> > > +	}
-> > > +	vdoa->removed =3D true;
-> > > +	mutex_unlock(&vdoa->lock);
-> > > +}
-> > > +
-> > >  static const struct of_device_id vdoa_dt_ids[] =3D {
-> > >  	{ .compatible =3D "fsl,imx6q-vdoa" },
-> > >  	{}
-> > > @@ -331,6 +435,7 @@ MODULE_DEVICE_TABLE(of, vdoa_dt_ids);
-> > >=20
-> > >  static struct platform_driver vdoa_driver =3D {
-> > >  	.probe		=3D vdoa_probe,
-> > > +	.remove		=3D vdoa_remove,
-> > >  	.driver		=3D {
-> > >  		.name	=3D VDOA_NAME,
-> > >  		.of_match_table =3D vdoa_dt_ids,
-> > > diff --git a/drivers/media/platform/chips-media/coda/imx-vdoa.h b/dri=
-vers/media/platform/chips-media/coda/imx-vdoa.h
-> > > index a62eab476d58..e0ab414ddf5a 100644
-> > > --- a/drivers/media/platform/chips-media/coda/imx-vdoa.h
-> > > +++ b/drivers/media/platform/chips-media/coda/imx-vdoa.h
-> > > @@ -6,11 +6,13 @@
-> > >  #ifndef IMX_VDOA_H
-> > >  #define IMX_VDOA_H
-> > >=20
-> > > +struct device;
-> > >  struct vdoa_data;
-> > >  struct vdoa_ctx;
-> > >=20
-> > >  #if (defined CONFIG_VIDEO_IMX_VDOA || defined CONFIG_VIDEO_IMX_VDOA_=
-MODULE)
-> > >=20
-> > > +struct vdoa_data *devm_vdoa_get(struct device *dev, struct device *s=
-upplier);
-> > >  struct vdoa_ctx *vdoa_context_create(struct vdoa_data *vdoa);
-> > >  int vdoa_context_configure(struct vdoa_ctx *ctx,
-> > >  			   unsigned int width, unsigned int height,
-> > > @@ -22,6 +24,12 @@ int vdoa_wait_for_completion(struct vdoa_ctx *ctx)=
-;
-> > >=20
-> > >  #else
-> > >=20
-> > > +static inline struct vdoa_data *devm_vdoa_get(struct device *dev,
-> > > +					      struct device *supplier)
-> > > +{
-> > > +	return NULL;
-> > > +}
-> > > +
-> > >  static inline struct vdoa_ctx *vdoa_context_create(struct vdoa_data =
-*vdoa)
-> > >  {
-> > >  	return NULL;
-> > >=20
-> > > base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
-> >=20
->=20
->=20
-> A device link would unbind CODA before VDOA.
+Hi Junhui,
 
-That would be correct, I think. Without it, we suddenly have
-unsupported formats when VDOA is unbound.
+On Thu, 12 Nov 2026, Junhui Liu wrote:
+> static SUNXI_CCU_GATE_HWS(ahb_msi_lite0_clk, "ahb-msi-lite0", ahb_hws,
+> 			  0x5c0, BIT(16), 0);
+> ...
+> static SUNXI_CCU_GATE_HWS(mbus_msi_lite0_clk, "mbus-msi-lite0", mbus_hws,
+> 			  0x5e0, BIT(29), 0);
 
-> However, coda_remove() does
-> not drain open file handles, so their VDOA contexts can outlive that
-> unbind. Those contexts still need the retained VDOA state and its lock;
-> a devm mutex would be destroyed too early.
->=20
-> Would it be reasonable to keep that lifetime handling, use guard() for
-> locking, and destroy the mutex with the last VDOA reference in v2?
+While bringing up GMAC0 on the OrangePi 4 Pro with this v7 CCU series,
+link-up and DMA broke as soon as clk_disable_unused() ran.
 
-I don't think extending vdoa_data lifetime with reference counting is
-the right solution.
+ahb-msi-lite0 (0x5c0, BIT(16)) and mbus-msi-lite0 (0x5e0, BIT(29)) gate
+the shared MSI-Lite0 bus fabric used by GMAC0 and other masters, whereas
+bus-msi-lite0 is only its register configuration clock. Referencing
+ahb-msi-lite0 and mbus-msi-lite0 only in gmac0 does not model the
+shared fabric, and gating them off breaks GMAC0 DMA.
 
-vdoa_ctx lifetime is already controlled by the caller (coda), so
-couldn't we just detach them from vdoa_data by clearing their vdoa_ctx-
->vdoa pointer on vdoa_remove()?
+Could you please mark ahb_msi_lite0_clk and mbus_msi_lite0_clk with
+CLK_IS_CRITICAL, matching ahb_store_clk and mbus_store_clk in this
+driver?
 
-regards
-Philipp
+Tested on OrangePi 4 Pro (Allwinner A733).
+
+Thanks,
+Alastair
