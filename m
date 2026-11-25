@@ -1,77 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795609301;
-	b=zeJ7L0UFhLxos7n5ePWa3q+3AjzCwafU/H4PYLYZ569ID/tiv3NugrHbL4r2hEpOA5E9
-	 /uuM6ciwDUmpgbyaH5zOSbGPhNPOqkYHD2xae9kA57/s8kJo6mZZrNKgdXISmEv2+RRTh
-	 a/+zDC518Dz9WTGXUZy/LfSXxhR3MRLo85Pfs5rKigPxHTBBvVpJ0hMxLcy62fg2hWJyO
-	 RI+R/KbKnNFhiXWA45vfYQI8Vbj9TDwJ8BDyyDR2hJLuEg3KdD3NsdbHWTWtRia1o9Ebu
-	 VtQKGPT8fMAtvxAfsx71ChNGml8b6cgdZNZZIiY9bma9Ya55Ff9vWoQr0GfEdvCHpQg==
+	t=1795609302;
+	b=R7LYJCylrh5CNV9FYkelzkHjHrbN0qzUw6ZSdmYXX5etR+d4jUDxgShTuUmf88EyXztd
+	 ZRdCZPF0rO7LE+oPVgdZ38de4DO4OjID1mw83Xap9QMAZHwiT/TqmRm54CKwgkSaiRIvq
+	 fCudcLFPPZODywsHdUcn/wqasIIvnAQhqtek/yXDYTwpZHe/EV6O84XyC2ozc+iND+v/v
+	 RJwAVJGsM7HCcWfjE4n23XZ4uSnIG5PN/jAdJU7YbtUbRot4mb61q4G1n859AWEDXaHgs
+	 xNf363I47qLPelM7ukM2hLu7rvakdQTDXMMvSVGKG2gaGd6Fj4iyow6DPSJfII8i2yw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795609301;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Date:From:To:
-	 Cc:Subject:Message-ID:In-Reply-To:References:Organization:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=TnIv1Y4yd4Mhc945y7QfQ2on6nqrz7qZxWUanwGbrnU=;
-	b=mKr5BmCDFxzSAb1IpnTyYUH6Qbl/5zwIFeBC8zkQGOEeNzjgKbXALxwwWOe9DtFMF9/S
-	 kbcvzwsyoCUl2xYxz5RtUdPhsu/EGzySb7It1aouxVJl44JDFZJL4zuLEp+BbiTdDmyyq
-	 q7RUo/3YSzm7MTY8U+htSl8ARqmd+cqDVRhaQMBndLvolThfm8YDszJlBRVQb1c6tdlrd
-	 YIjfjDTiO9p20dJWFMY7+flP7c3mYCPMzvQ63Gx15Jx8gZLUzFtE//1nHUrDT7wHMDI0w
-	 5cBozpdiRurR72gGxV8H5HiLowdM6cZgJk0/R6nbOfBfFcxjvwCzFtI8dBwfYAdDb9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795609302;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=sAM2PmX/DJ4eJQYYdKNpygFCiHeH25kCFURdOxc9Vgk=;
+	b=HtEKQ6xpXLtWmHLJ38EwezhJjWMAChxme+wkST5Iwe1c7gKbbCuxdvt8poS6+SNzJwzH
+	 esTsQElu9qM6H3OS2QSEYYiTbMnl4PIo0xKxiWRE6CPNP9uY6sBprLhB3FXzAv1LXJdex
+	 os9CU7SVoKShrEyR8gLVZZBjG35jsqJ+5PS8Ba/RlOeSHaTqQP2jrIkmAIARFf+fLNfV0
+	 Lkt2AK5Z3BoBfGXxxgvFw7krCJWz60u8h2reja1FoMA+oT5FVd8OmRL4ZydtQUg6/kRpl
+	 PsuRIodlifbI1iyFmE+gv1u7dqRns+MxRkN5D1uDVLrrArfxyHy4QaMnQ+xTh8AyjBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vr6Amkan;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WmaEWdKH;
+	arc=none smtp.remote-ip=209.85.210.173
+Received: from mail-pf1-f173.google.com (mail-pf1-f173.google.com [209.85.210.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC6B7606A32C;
-	Wed, 25 Nov 2026 12:21:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC6B7606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CD50606A332
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:21:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CD50606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vr6Amkan
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 6F4414E41776;
-	Wed, 25 Nov 2026 12:21:39 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3D07E60480;
-	Wed, 25 Nov 2026 12:21:39 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A081411E69019;
-	Wed, 25 Nov 2026 13:21:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795609298; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=TnIv1Y4yd4Mhc945y7QfQ2on6nqrz7qZxWUanwGbrnU=;
-	b=vr6AmkantyhAjjGl6cQQ8JlCZQEeL54d7CiK+WU5+srMe0BYCqVTCBsC1aaWiz9StW9/c6
-	MhMkh8G04wTSHrG8/G+ky+nEMzoT5ZOM7K5CWwph9g3oHSN0vL4D9E5hiPFlhDmxonQRkS
-	coU0UpLK5uXXOz+GtgOWA1VOi8fjW3HO8KnU746B4sDLDRlkldpJg+detvg/Lpcj3jEuIY
-	ApZH1qz7SdxgBJEagfZiaNJlmjNPmJgYx+oND9DlycxbmiMV1qMFa3JqaZXipw6O9E3DLE
-	DSrD6hBUCnR93AhTtHomej7qO3qX6q0Ycgw34+EKZ9Spph6HYune7M6fF92oXQ==
-Date: Wed, 25 Nov 2026 13:21:29 +0100
-From: Herve Codina <herve.codina@bootlin.com>
-To: David Gibson <david@gibson.dropbear.id.au>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>, David Lechner <dlechner@baylibre.com>,
- Ayush Singh <ayush@beagleboard.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, devicetree-compiler@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree-spec@vger.kernel.org, Hui Pu <hui.pu@gehealthcare.com>, Ian Ray
- <ian.ray@gehealthcare.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [RFC PATCH v2 35/74] checks: Get 'chosen' node using
- get_subnode()
-Message-ID: <20261125132129.4f4695ac@bootlin.com>
-In-Reply-To: <awan_SrUGC7OEMIL@gractus.seuss>
-References: <20260826094950.1088288-1-herve.codina@bootlin.com>
-	<20260826094950.1088288-36-herve.codina@bootlin.com>
-	<awan_SrUGC7OEMIL@gractus.seuss>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WmaEWdKH
+Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-8c5ebbc5150so3927939b3a.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:21:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795609302; x=1796214102; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sAM2PmX/DJ4eJQYYdKNpygFCiHeH25kCFURdOxc9Vgk=;
+        b=WmaEWdKHlFY1Zq4YHfyuTbVw30a6SVngCS7z2maduTPqob/e+PFqmDZZpjqZnyKQfd
+         gdvoQ57jBgqjMadR/daEI05+qtLJWuGcjZtRjZMNlkA3ptEiccrbd9b9ugXp6W4wpig7
+         ORDq2fP0fP750QOyrP0SVLtTUiEjJ68NO5tuBDQdpAXLvpsDYyUtIgVgnEi0rII7KmAe
+         m13Vys+fXXKWpK7gg/kMSBoVTRdsK1LpfWJ60dtc/LcWk/vfHDwKGiwHQtxQuA8xGeXY
+         SB9OtERbMKCW9tAiQqH7ADcR+dYrZZEZIqCD0KsRpqrrti3vzAZztoD2dm5bs+ul1wKr
+         XLhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795609302; x=1796214102;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sAM2PmX/DJ4eJQYYdKNpygFCiHeH25kCFURdOxc9Vgk=;
+        b=CPQEPKYDW/nPCqkSLd6Ubs6NvuQHr+T++5PlzBoZ56K15RkNRiDD/JGIfMrzVwKgfX
+         YQmWT+mbWAaCNSeoW3StrFfMDX020vVvlDZinlEE0CjcDX7FBoTy2IJ/97l6VxBu3giE
+         adHxNrsLio2A/pd3stAISCtjEktgQglmaubY3QTBZXOGiHrmi7XweddI10V/jg6oZGbJ
+         45LqVVT5EfIgl3n7RTai4kYmrwCqRU5/vZcXzbvoRz/a9MxCRHUcKheRCQ7iFneJSjcK
+         /ax+TTbuVl/NtjuiL9vCuoSFmcFl1BUhiqS1b/Pv3RKQsGrmvITpEGIUMExf91JJkCkH
+         UyhQ==
+X-Forwarded-Encrypted: i=1; AL+hErE0wBvaTccogf0441qROLcOT/ma/FhuQfBwGNmIadZkKzRnj8AA1QLpgJc5ypv1g/Brq3Dvs40OZKrfoX4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+QrWIYRFbTQPMqPSOWKgIDF3P8IBcazibOAPOMKMn725jGJeR7
+	HkcHkd9Bn2xeXGKt7LCZ4rIqsJLLyNz7gwjaqz9Kxhm+W3tOVzhRLtdm
+X-Gm-Gg: AZFdTZfvt8R0pKCnvX234vvKEip/5axErWuDVwOLuAvsvyjUjcn71hTrjolnt7d7B4y
+	kMUnah/H4dn8kVXMZS3/0NyGDwBtPSnHdJKvgJoJtF9sdGIfb56f8yBdf5eSs3B5QbPPbP/0R4D
+	t7AoaPrUmAgvy7eNQ3m/JaIjHeYxrPyi0BeSbhGqSh9t5XBuJAfK5KL5dMJeldr7DyOlwtnyINK
+	emrL96sTwkWuDmFbhcpKKyO1gPOMQDY+2iTN6lue6srcKaz9as3ycjUdDjuD+qM1x00CttAi78L
+	G3NiIIV/1f7+V9g0b4sg0uAliDm+ErFhDLxccVHJsJ2aPUp1LUWhqNDIhZmVF60sSRqE3qzkbaL
+	6ZXv13QeX4dmGRQ82kn7GjLcd9N1qxe22QNMxGHSZktPtnbCkt5rVPIHoZCQ2uHWu+IOzdXXGmg
+	QFYHGqyFkVg3OPh3EbuYPBvNFvhOqJZK63IYzXbQMf+kw8JoucE5dW2iF0C00UY2TX5IdCv8AwR
+	vDoSkFiAy4LffQx/WJCIT3J8b4vcsQU6/i6ZzDhzSOAurq/SsW8riLWSy6e5La8KIQFR+Ur4pYF
+	Esj+bpKmgHPFSHh5vRshJvm6+gIrTGcHvA==
+X-Received: by 2002:a05:6a00:2389:b0:89d:7f51:6492 with SMTP id d2e1a72fcca58-8c87c38b44bmr17379665b3a.32.1795609301756;
+        Wed, 25 Nov 2026 04:21:41 -0800 (PST)
+Received: from server225.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c89dsm8688656b3a.13.2026.11.25.04.21.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 04:21:40 -0800 (PST)
+From: Ping Li <leeonion.muyu@gmail.com>
+To: miquel.raynal@bootlin.com,
+	richard@nod.at,
+	vigneshr@ti.com
+Cc: linux-mtd@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ping Li <leeonion.muyu@gmail.com>
+Subject: [PATCH v5 0/3] mtd: rawnand: protect DMA engines from vmalloc'd buffers
+Date: Wed, 25 Nov 2026 20:21:32 +0800
+Message-Id: <20261125122135.44696-1-leeonion.muyu@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261125115108.4147741-1-leeonion.muyu@gmail.com>
+References: <20261125115108.4147741-1-leeonion.muyu@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,74 +100,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-hi David,
+While discussing a proposal to also allocate the mtdchar read/write
+bounce buffers with kvmalloc() [1], an audit showed that raw NAND
+controllers may DMA the buffers handed by the NAND core without
+declaring NAND_USES_DMA, so nand_base never bounces non-linear-map
+buffers for them (see the use_bounce_buf logic in
+nand_do_read_ops()/nand_do_write_ops()).
 
-On Wed, 25 Nov 2026 20:19:04 +1100
-David Gibson <david@gibson.dropbear.id.au> wrote:
+Non-linear-map buffers are not hypothetical: mtdblock's write cache
+is vmalloc'ed and UBIFS passes vmalloc'ed LPT buffers to
+mtd_write().
 
-> On Wed, Aug 26, 2026 at 11:49:04AM +0200, Herve Codina wrote:
-> > get_node_by_path() is going to be updated in order to handle orphan node
-> > support for addon device-tree.
-> > 
-> > The 'chosen' node is a subnode of the root node and can perfectly be
-> > retrieved using get_subnode().  
-> 
-> The change certainly shouldn't break anything, but I don't really
-> understand the rationale for it.  AIUI, get_node_by_path() should
-> still work, even if it's (trivially) more expensive.
+intel and r852 have no protection at all; declaring NAND_USES_DMA
+lets nand_base bounce through chip->data_buf as the other
+DMA-capable controllers (arasan, denali, meson, mtk, nuvoton...)
+already do.  r852 also advertises its 512-byte alignment
+requirement through chip->buf_align, so misaligned linear buffers
+are bounced by the core as well.
 
-Removing the get_node_by_path() call here avoid a later modification when
-get_node_by_path() is changed.
+While at it, a leak in intel's ebu_dma_start() (mapping never
+unmapped on success, wrong device used on the error path) found
+during the audit is fixed as well.
 
-The code can use get_subnode() here. I thought that using it was more relevant
-here (getting the 'choosen' sub-node from the root node) than using the more
-generic get_node_by_path() function.
+Changes in v5 (following the AI review [2]):
+- r852: gate NAND_USES_DMA and chip->buf_align on dev->dma_usable,
+  as the PIO fallback path does not care about buffer addresses
+  being linear-map or 512-byte aligned.
 
-Well, if you prefer the get_node_by_path() call here, no problem, I can
-revert this change.
+Changes in v4 (following Miquel's review [3]):
+- r852: advertise the 512-byte alignment requirement through
+  chip->buf_align instead of keeping a local justification; drop
+  the code comment.
 
-Best regards,
-Hervé
+Changes in v3 (following Miquel's review [4]):
+- r852: use the core bounce through NAND_USES_DMA instead of
+  extending the local condition.
+- Add Cc: stable to the three patches.
 
-> 
-> 
-> > In preparation of the future change related to get_node_by_path(),
-> > replace its usage to get the 'chosen' node by a call to get_subnode().
-> > 
-> > The modification doesn't introduce any functional changes.
-> > 
-> > Signed-off-by: Herve Codina <herve.codina@bootlin.com>
-> > ---
-> >  checks.c | 3 +--
-> >  1 file changed, 1 insertion(+), 2 deletions(-)
-> > 
-> > diff --git a/checks.c b/checks.c
-> > index 13e8b121..1332acc4 100644
-> > --- a/checks.c
-> > +++ b/checks.c
-> > @@ -1349,8 +1349,7 @@ static void check_obsolete_chosen_interrupt_controller(struct check *c,
-> >  	if (node != dt)
-> >  		return;
-> >  
-> > -
-> > -	chosen = get_node_by_path(dt, "/chosen");
-> > +	chosen = get_subnode(dt, "chosen");
-> >  	if (!chosen)
-> >  		return;
-> >  
-> > -- 
-> > 2.55.0
-> > 
-> >   
-> 
+Changes in v2 (following the AI review of v1):
+- Drop the fsmc patch: nothing has set host->mode since
+  a1b1e1d5bdfe ("mtd: nand: fsmc: finally remove
+  fsmc_nand_platform_data"), so the DMA paths are dead code and
+  fsmc_exec_op() always takes the PIO branch.
+- Fix the Fixes: tags.
+- Add a fix for the ebu_dma_start() unmap problems.
+
+[1] https://lore.kernel.org/linux-mtd/20261119090055.1255028-1-ping.li@horizon.auto/
+[2] https://lore.kernel.org/all/sashiko-outbox-233336@kernel.org/
+[3] https://lore.kernel.org/all/87o6bdz1fm.fsf@bootlin.com/
+[4] https://lore.kernel.org/all/875wxl1ea6.fsf@bootlin.com/
+
+Ping Li (3):
+  mtd: rawnand: intel: declare NAND_USES_DMA
+  mtd: rawnand: intel: unmap the DMA buffer in ebu_dma_start()
+  mtd: rawnand: r852: declare NAND_USES_DMA
+
+ drivers/mtd/nand/raw/intel-nand-controller.c | 8 +++++---
+ drivers/mtd/nand/raw/r852.c                  | 5 +++++
+ 2 files changed, 10 insertions(+), 3 deletions(-)
 
 
-
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
 -- 
-Hervé Codina, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.34.1
+
