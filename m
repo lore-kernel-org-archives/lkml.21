@@ -1,88 +1,132 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795622159;
-	b=OaoZVdjpLPOc2YxIXrxnr8DymIc9iDuc+GRoxQXSullIuXeLGYHrY+NLQTZkNM3Daj7G
-	 sYGvNeQZYn1aETAXhFjA2lSGUKukFtiqcvK1g+HJxhu99pXFrNhUFph0UmLq7ajPRnCRI
-	 /fWnh772Aly1KGD/rgENmrRTp2UT69RmjZziE+Uc9e1WZ6s1NP8cRnW/nlx/bINYlWRMr
-	 b4SJYxfaqr2dD3arXhEN7jyuVFPxUysmqvhfokdej217+dhZ+r1CGwcpHYZRehMRDcovm
-	 h4wrEk0EP783lDFSHQMPnDSLT1MB2dFNsG71NHrzNgZzmlkylDsRpYF0zOI9H3b9deA==
+	t=1795622162;
+	b=ykUe3tETgzgJlRTMj8UYi+QxQK1YRICcPNSV0VWZH7O0JJzNC1qLO8V303MatXN8rGc2
+	 4pHvE/LLFWtSyTCmXuluA9ypEFUIt4AC3hbX65osgYq6s7SCJVCl4vYBE19MWegqRyegu
+	 /CQ5qDS+WAKqSGnA/xBxJWu3c4s3HnpdAYhma6z0cagFdH6FLKroPOFQPGRX6s5hDdRzj
+	 eyoEHD5a8wkFU7aD7F3f0D9KvGYhzkQ9EsLtrPG6y9UVpYaEeFLn0rVzAsg0+9tpR6p3u
+	 e92tXWdBJYq44JNm5u+sUcyHYSWgObAkqh8y4+LPezQVPqi2vCR5MyUVKPlYL474+NA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795622159;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795622162;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:
-	 References:To:Cc:From:In-Reply-To:X-Forwarded-Message-Id:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ilZkP46cGSi8xAEGGltwn2YY6bly9+EZHVBMEUvniWk=;
-	b=34Lxoh3vplJplKr9MDxjO/fqlnIAKMyXwtEMWODEvUEpV0u6jz3pg09WSObpQUmCC0cF
-	 WI9r3+OxaBI+FdoZKWutFg7r8XN9NtVoIwEVY2xGrS3JUDA49OLU2kAv4Cr4TujlrLtq/
-	 0+zOTV8mcpr5R4m41VytucULkRfNx2AXfTgHlqcKEE/oOU/63CeVS0LeJohsSkz6AZ0Re
-	 lugj9jdjlbnTLM8WbmXLcjv6XN1QhsMqazdequXpJS3bv4tEGsIdf6JiDrWqcTdByIOEO
-	 ilKNQlpLSS/1Wg8RaNdgYdjrY36dxNqNkdYBwefqUZyxiPZjm/NYLXGFjRURkPBN+dQ==
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=EFVYxWaHZcfOFQ3BpTu3S3Fo2WDIpYYjIvIe38jWEXE=;
+	b=Rg9Hv/OcgoFCTdm3JjUENAy1CTK07NKC+UzyRkHdXkJjflcDgIlw3g05uBYbvsWqZmG5
+	 +89CHsBugCXZdXK4tp3EXXj+ch9BV4ymqeVwprqyvN/PxI23gDzKz1nTVzJOKq80Grkeu
+	 0O3gJSNcLZO5CUNC+hZe6iO4TVXzczmuJc24mqDmOu36CgbDfPDHbQQ4Q1XIRX0C0S9CT
+	 Xt8tZ/UmOYqYRt42R1koR/sAxE4GwbT9Qy/6k0rW7/ZtoPzbIg5swv5C6ILPD6TKBMOKp
+	 RY6KcTnamtBVrxhMatJvl/+Tw/bvF3pMDxGw9+g8YYNNL1NVhq6GdqmQkJEmVki1DQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uSlRORf8;
-	arc=none smtp.remote-ip=209.85.167.49
-Received: from mail-lf1-f49.google.com (mail-lf1-f49.google.com [209.85.167.49])
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=AunkM8Nd;
+	arc=none smtp.remote-ip=209.85.160.178
+Received: from mail-qt1-f178.google.com (mail-qt1-f178.google.com [209.85.160.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C000606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:55:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C000606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB6D1606A32E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:56:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB6D1606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uSlRORf8
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5c15ccd7fb5so3661854e87.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:55:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=AunkM8Nd
+Received: by mail-qt1-f178.google.com with SMTP id d75a77b69052e-536c8f958d7so45575171cf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:56:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795622157; x=1796226957; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:cc:to
-         :references:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ilZkP46cGSi8xAEGGltwn2YY6bly9+EZHVBMEUvniWk=;
-        b=uSlRORf8ExuxpyJIwcUhsRRH5J6QPUEbQQ99xTAREpbN0KtRfRaOaGC4PUDA7uHNBF
-         S+M/De1+cqVSH0Ow0+7Ah+VOMRDUihHp6N4e+cUYVqyN+lxbixIzLo03PTkOCxsIXrPC
-         1ODK12opotIo2lKXXoYVXvn4I+WDlh0UbEl/MOMQ1qRbQi4InMvOgCQ/1o4Q5uf5DzEU
-         XWmun47m3RmqVCgqz8eFoW0sD6qE8Q3sIsRIfUZ+ofIqOpLYywBIBxb8VoY4V8jOgD8f
-         uqqI3A7w/A/FZdJlLp2MP+z1ys3xbqcRO8lIx1r0Up0FFGE/IUdAGoJsuPG8F7HN2lGx
-         msNA==
+        d=ziepe.ca; s=google; t=1795622160; x=1796226960; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=EFVYxWaHZcfOFQ3BpTu3S3Fo2WDIpYYjIvIe38jWEXE=;
+        b=AunkM8NdkleqIXitLeobLCQ3Tftf6jih38/IsUVKvscsn0eom/XU3ykRho0PpQ0az0
+         rYvStTeGGeX8RzqZvSmkfQ8PnfZTaau/BD81gD8jksR79zy0OeqgvvaJ5S12A8sDTRmI
+         nDzgUpEThFfPpbYyy92hrIWUBiAH5NujeTowTbmHDJbrcMjsoGpU9TLndiIxQJscM2JS
+         KPSmuaAUUkGT+shzqkoybwk6wagC24/6Jh+eTluckgbUG1rf3BSFzpgbcmXYy6TNs3mH
+         xxseDQrWCjodnpd9Wzsmsn4TFh6ZehNtFTOJb0+srU8fXJGYJAlBbpVfqIml+61lRgAa
+         8/Zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795622157; x=1796226957;
-        h=content-transfer-encoding:content-type:in-reply-to:from:cc:to
-         :references:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ilZkP46cGSi8xAEGGltwn2YY6bly9+EZHVBMEUvniWk=;
-        b=em0x9vrRxcc+eEtKO0ta97yvWkZt1Ut+OjQ2sVNZy2Wp9HJlDOOCuWfXiGchYsEx+W
-         dsLjFDV/yUQoDorgChsQJlYPwVEZjkoCnxe0uArUJp9OLlBAN3dOzhSYvswqJL4CzUID
-         36gZfjegMkfbxbXwG7vi7HAm/w6IKgeK6TycZeQf1qKiKJoQSIxbWYuXIPWnfK2+qwsq
-         ljkoh/IwYqO8XU+/U3Em8sReeTgLQBnqdPTUlZDDrimbrLVZPmBvhruVuc1aUpyFoHqA
-         MgabN6YYERzGCIl3Y4/HJJJY+xFRH4kd8BsTmWCedpleyoZpgrjBnj+oWlDHwM9RQNnA
-         r/xQ==
-X-Forwarded-Encrypted: i=1; AL+hErFTt6/fezc1nUuryE3TKhoXLGzBMgjQp2oFSd0iTCHj20ZFxq8fwYhSDOO1mzQgV5mNBCf7Hl7nOlgbmIc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+KERLqyG1BJc29XsBByw5BQeL9pBc8R2A0iwrHVu66/8gkciqe
-	P89o2RX9auI90wg0ZO0eHIsiqjLDGNy87lZNwfGKhbrHYBkbF3HiG3hI
-X-Gm-Gg: AZFdTZcVDze6QJD5un55yZjptNnCuKOqTq3STke3Ig4+SN9psDAZpycwHZR3RPdOSDU
-	mQGD6OewDIwHjcoMKtFTaLe7TVSgcLLpPboTGguVTOs0rzaKL+tBZ7YVWoya+Crl+NaIVtwsFuk
-	doYfDYxVC5HVrDFnoST6Pwi6axwWWuoqphU2MH7QYsWsUdg824s+HtmXpcG6FGsEAk9sauxWnfJ
-	GWgHdk7jL1QmtRryFHHrIU67bZkwTbQvGhXpUk7XVd6/pTlYZ253qlYWoSsoAbRkFG1U2Io83aF
-	J0gRfP6OYdHanv19yK5VTgDcASOZZdhVXd7eUd+4CGiF8895xeWWL8aVK/tGdztgI6SPqDCA5u6
-	+ssfuADT10H286wRY/bxWEMdQcEwmXyjNEvrxO8Mh8HyqbyA4wB/qqhR6cWIH4vMxLSInd4AgMH
-	WwiJO69DarrIYz+gB6D/z/o5CYZFWZ3oOhnGGgGLoGqwl7gWIiusC8sS2w8n+G0AqI8CLLkCvCf
-	Dl9oJo9hoI0sXqoeTjsVZiKWGYQ5bgZPSzAJBjbBPVBnbi2VMglrkfUcWMgbEw0hLHuKB77MbXp
-	zimzjbVE//v6KVhBOb/B5feE31vg7v8sUZxebJr8/zFvi0DEunGRuyH7DfQnW35Onqnh0DZN+8z
-	I4KNSDAU=
-X-Received: by 2002:a05:6512:3b08:b0:5c1:b29a:1ba3 with SMTP id 2adb3069b0e04-5c1bc7d5ce5mr7526450e87.29.1795622156730;
-        Wed, 25 Nov 2026 07:55:56 -0800 (PST)
-Received: from [192.168.0.103] ([46.8.6.187])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd0776edsm4838279e87.73.2026.11.25.07.55.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 07:55:56 -0800 (PST)
-Message-ID: <6c943754-05b5-4017-9145-0d145766909a@gmail.com>
-Date: Wed, 25 Nov 2026 18:55:55 +0300
+        d=1e100.net; s=20260707; t=1795622160; x=1796226960;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=EFVYxWaHZcfOFQ3BpTu3S3Fo2WDIpYYjIvIe38jWEXE=;
+        b=YZPeCa1fxeoL9v8Fnn3GZXguraOCo2t1HpXbw1aU0gRLegEeEcifsu/5kGRTmDGAMy
+         0+jpW/IYKpBZu0WPMWOSqkUFpJIKz9QMsjzN2E1uXyA47k1a/BCgjYtBpA8vFudZXcPd
+         Hms7XDhqqpXTaIEH0aEs9vsTabaYogPd9FhtcJxcG86qghR7V8R79RbpxjZ04j9VI59U
+         mFaKN914WnV5HtzqINEsQz2HKMMdQ3Vtbwx7JeSdj+HY4SqcF0fqUyvN/jahbmgIvDV8
+         afL7prjxx867JgAceMp5u3ChKQn1xdvuAbvVhDLGk5FY31meqy7Iw23B9giHJa7TJLvA
+         gZXg==
+X-Forwarded-Encrypted: i=1; AL+hErFznHKLKAixZsG3dtZZ8Yjkr4lboQWTfv9oHpF+LkhIeT+fSvVycZ6SR3c5np6cz0hKrG9MfyW5oqQITkQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+mFZp6hWDVRyOk6oH+TK74misKWsclB5OlOMpfi3J/rP6VCU6E
+	GJPJWs/0+5BE8dztPFiogErci4BeU4yoSn8Rakhdhdave1IoLKMEVdymgBlIz3iCXhI=
+X-Gm-Gg: AZFdTZcSlesoQ698AXCEG6qOFvkDf7txptLn0P+pA0pKuJ3u4kx4NQlszFm7zBtHIyg
+	lKzRk9oSKvpW1tyijkzk/cVn8p/IT5Vha+amRTeLUU/AsAtgMOGnl2YtwoqHxBhgx0orJtnDpHo
+	lukiK0sHCnzEwEQA6hKvG2y8a/eXjKzucrkfwTxdw3yCOmjsJ0iKptB5D0LSOvI4XuTjTAOpc8T
+	bwvXSLufi4ULpKxoPhLJY4v/SvvLi2ocZ5G4vB8zEjrZyM5q9/heCmJ56h+9c9vc8po6xxF1MYK
+	LYugHskILnN8Aa6kjAZGsaekBiXNmkhI/IDoEqIlt/DTbOJTj15vYiozgss42+QXNQskM1I66uL
+	ZG3i+1C5wuKDhSTcprYgZuOr3jorz3gYYC+OecveAO9xtCMLeBgRtcm5o5qxWGR51w38gqAJoQ9
+	XXlbmZwcCGI01poGN2nuHw9sXg8aPJFe+gllThfG8LDWwmtiqsP69xyVPHpC4bEOrZd6Wo+i3K9
+	SLoZk+hY43VQmgDvUBazmYbiWbvJgWbU/e+wtJOrVZo7WkO6ujJLGw49xKShuv9gWmrGYDInfhW
+	MOdk6Wbvyk8KDBheYWyGQ1qa+7Q=
+X-Received: by 2002:ac8:5d89:0:b0:536:5696:e8c8 with SMTP id d75a77b69052e-55d769e4561mr347501161cf.28.1795622160509;
+        Wed, 25 Nov 2026 07:56:00 -0800 (PST)
+Received: from ziepe.ca ([142.177.118.84])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7882bf70sm160274901cf.11.2026.11.25.07.55.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 07:55:59 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xWFLj-00000001uyg-0aUM;
+	Wed, 25 Nov 2026 11:55:59 -0400
+Date: Wed, 25 Nov 2026 11:55:59 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
+Cc: Alistair Popple <apopple@nvidia.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Thomas =?utf-8?Q?Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Matthew Brost <matthew.brost@intel.com>,
+	Vivek Kasireddy <vivek.kasireddy@intel.com>,
+	Dongwon Kim <dongwon.kim@intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	Baolu Lu <baolu.lu@linux.intel.com>,
+	Felix Kuehling <felix.kuehling@amd.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+	linux-rdma@vger.kernel.org, iommu@lists.linux.dev,
+	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
+	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
+	linux-nvme@lists.infradead.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org,
+	Alexey Kardashevskiy <aik@amd.com>, zhipingz@meta.com,
+	treding@nvidia.com, jhubbard@nvidia.com, chaitanyak@nvidia.com,
+	Leon Romanovsky <leon@kernel.org>
+Subject: Re: [PATCH v3 03/24] dma-buf: Add the SGT DMA mapping type
+Message-ID: <20261125155559.GL246011@ziepe.ca>
+References: <ad46d60a-189d-4dd5-9ad8-ecfd3c90f9d9@amd.com>
+ <20261123165716.GM179082@ziepe.ca>
+ <7ac7edd0-5c38-440a-b26a-21bcbb6f4702@amd.com>
+ <awT8prWsj11TBdmP@nvdebian.thelocal>
+ <63eb7b6e-e0a8-4443-a434-0301ed59beae@amd.com>
+ <20261124142032.GN9566@ziepe.ca>
+ <7a5a2d3a-e42e-4dc0-8d22-8dd1bd249501@amd.com>
+ <20261124194618.GC114530@ziepe.ca>
+ <awZ_Os1pXelOGaFP@nvdebian.thelocal>
+ <fb9a6b12-c134-4e40-86a5-dbcb59c0b91b@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,212 +136,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: [PATCH] percpu_ref: make percpu_ref_switch_lock per percpu_ref
-Content-Language: en-US
-References: <01612865-faa0-4fe5-8184-a177f104843f@gmail.com>
-To: linux-mm@kvack.org
-Cc: dennis@kernel.org, tj@kernel.org, cl@gentwo.org,
- akpm@linux-foundation.org, zhengqi.arch@bytedance.com,
- linux-kernel@vger.kernel.org
-From: Egor Shalashnov <shalasheg@gmail.com>
-In-Reply-To: <01612865-faa0-4fe5-8184-a177f104843f@gmail.com>
-X-Forwarded-Message-Id: <01612865-faa0-4fe5-8184-a177f104843f@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <fb9a6b12-c134-4e40-86a5-dbcb59c0b91b@amd.com>
 
-From: Qi Zheng <zhengqi.arch@bytedance.com>
+On Wed, Nov 25, 2026 at 12:19:08PM +0100, Christian König wrote:
+> The low level API which talks for example to the IOMMU driver for
+> creating the information how to access the buffer is simply not the
+> task at hand for that framework. The stuff we already handle is more
+> than complicated enough.
 
-Currently, percpu_ref uses the global percpu_ref_switch_lock to
-protect the mode switching operation. When multiple percpu_ref
-perform mode switching at the same time, the lock may become a
-performance bottleneck.
+No matter what name you give it we need something in the middle that
+can see the phys_addr_t and the iommu_domain..
 
-This patch introduces per percpu_ref percpu_ref_switch_lock to
-fixes this situation.
+If you don't want DMABUF to be that thing, then I'm not sure what you
+have in mind.
 
-Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
-Signed-off-by: Egor Shalashnov <shalasheg@gmail.com>
----
-I would like to revive Qi Zheng's per-reference switch lock patch
-from 2022 as a standalone change.
+> > If I drop the type/placement negotiation for now and focus on SGT removal I can
+> > simplify things a lot. Plan would be something like:
+> > 
+> > 1) Introduce a new C data type (dma_phys_list?) for exporters to pass physical
+> >    location info and context for mapping.
+> 
+> Something like this maybe?
+> 
+> struct {
+> 	u32	mapping_type;
+> 	u32	num_entries;
+> 	union {
+> 		dma_addr_t	*dma_addr;
+> 		u64		*generic_64bit_addr;
+> 		...
+> 	};
+> }
+> ....
 
-Our workload maintains many independent percpu_ref instances and
-repeatedly performs kill, waits for references to drain, and reinitializes
-them. Multiple CPUs execute these cycles concurrently on different
-instances.
+"phsyical location info" means phys_addr_t and related, not
+dma_addr_t. Step #3 has it as the *input* to dma_phys_list_to_sgt().
 
-All these transitions compete for the same global switch lock.
-Reinitialization also clears the per-CPU counters while holding it.
-As the number of concurrent transitions grows, this shared lock
-becomes a significant bottleneck.
+The flow today has the exporter get a phys_addr_t (ie a struct page),
+build a scatterlist and directly invoke the DMA API.
 
-With a module-local adaptation of Qi's per-reference locking change,
-we observed approximately 2.8x to 6.5x lower operation completion times
-in the measured workload. This motivates using a lock per instance
-so that independent transitions can proceed concurrently.
+The primary issue here is the exporter *direct* call to the DMA API!
 
-Original posting:
-https://lore.kernel.org/linux-mm/20220429133552.33768-4-zhengqi.arch@bytedance.com/
+We cannot disconnect this from the DMA API, ie to use an iommu domain
+or ualink, if exporting drivers are hardwiring calls into it.
 
-Rebased onto v7.4-rc4 with an explicit spinlock_types.h include.
+Fundamentally the need is for the driver to get the phys_addr list,
+exactly like today, and then pass it to an op which formats that into
+the right data structure for the importer. Be it dma_addr[],
+iommu_domain, or some ualink_addr[] - or whatever.
 
- include/linux/percpu-refcount.h |  3 +++
- lib/percpu-refcount.c           | 30 +++++++++++++++---------------
- 2 files changed, 18 insertions(+), 15 deletions(-)
+This is the main issue here, disconnecting the exporters from being
+hardwired to the DMA API.
 
-diff --git a/include/linux/percpu-refcount.h b/include/linux/percpu-refcount.h
-index 1e3212e..4582e79 100644
---- a/include/linux/percpu-refcount.h
-+++ b/include/linux/percpu-refcount.h
-@@ -53,6 +53,7 @@
- #include <linux/atomic.h>
- #include <linux/percpu.h>
- #include <linux/rcupdate.h>
-+#include <linux/spinlock_types.h>
- #include <linux/types.h>
- #include <linux/gfp.h>
- 
-@@ -109,6 +110,8 @@ struct percpu_ref {
- 	 */
- 	unsigned long		percpu_count_ptr;
- 
-+	spinlock_t percpu_ref_switch_lock;
-+
- 	/*
- 	 * 'percpu_ref' is often embedded into user structure, and only
- 	 * 'percpu_count_ptr' is required in fast path, move other fields
-diff --git a/lib/percpu-refcount.c b/lib/percpu-refcount.c
-index f8d9068..5d46602 100644
---- a/lib/percpu-refcount.c
-+++ b/lib/percpu-refcount.c
-@@ -36,7 +36,6 @@
- 
- #define PERCPU_COUNT_BIAS	(1LU << (BITS_PER_LONG - 1))
- 
--static DEFINE_SPINLOCK(percpu_ref_switch_lock);
- static DECLARE_WAIT_QUEUE_HEAD(percpu_ref_switch_waitq);
- 
- static unsigned long __percpu *percpu_count_ptr(struct percpu_ref *ref)
-@@ -96,6 +95,7 @@ int percpu_ref_init(struct percpu_ref *ref, percpu_ref_func_t *release,
- 		start_count++;
- 
- 	atomic_long_set(&data->count, start_count);
-+	spin_lock_init(&ref->percpu_ref_switch_lock);
- 
- 	data->release = release;
- 	data->confirm_switch = NULL;
-@@ -137,11 +137,11 @@ void percpu_ref_exit(struct percpu_ref *ref)
- 	if (!data)
- 		return;
- 
--	spin_lock_irqsave(&percpu_ref_switch_lock, flags);
-+	spin_lock_irqsave(&ref->percpu_ref_switch_lock, flags);
- 	ref->percpu_count_ptr |= atomic_long_read(&ref->data->count) <<
- 		__PERCPU_REF_FLAG_BITS;
- 	ref->data = NULL;
--	spin_unlock_irqrestore(&percpu_ref_switch_lock, flags);
-+	spin_unlock_irqrestore(&ref->percpu_ref_switch_lock, flags);
- 
- 	kfree(data);
- }
-@@ -267,7 +267,7 @@ static void __percpu_ref_switch_mode(struct percpu_ref *ref,
- {
- 	struct percpu_ref_data *data = ref->data;
- 
--	lockdep_assert_held(&percpu_ref_switch_lock);
-+	lockdep_assert_held(&ref->percpu_ref_switch_lock);
- 
- 	/*
- 	 * If the previous ATOMIC switching hasn't finished yet, wait for
-@@ -275,7 +275,7 @@ static void __percpu_ref_switch_mode(struct percpu_ref *ref,
- 	 * isn't in progress, this function can be called from any context.
- 	 */
- 	wait_event_lock_irq(percpu_ref_switch_waitq, !data->confirm_switch,
--			    percpu_ref_switch_lock);
-+			    ref->percpu_ref_switch_lock);
- 
- 	if (data->force_atomic || percpu_ref_is_dying(ref))
- 		__percpu_ref_switch_to_atomic(ref, confirm_switch);
-@@ -308,12 +308,12 @@ void percpu_ref_switch_to_atomic(struct percpu_ref *ref,
- {
- 	unsigned long flags;
- 
--	spin_lock_irqsave(&percpu_ref_switch_lock, flags);
-+	spin_lock_irqsave(&ref->percpu_ref_switch_lock, flags);
- 
- 	ref->data->force_atomic = true;
- 	__percpu_ref_switch_mode(ref, confirm_switch);
- 
--	spin_unlock_irqrestore(&percpu_ref_switch_lock, flags);
-+	spin_unlock_irqrestore(&ref->percpu_ref_switch_lock, flags);
- }
- EXPORT_SYMBOL_GPL(percpu_ref_switch_to_atomic);
- 
-@@ -354,12 +354,12 @@ void percpu_ref_switch_to_percpu(struct percpu_ref *ref)
- {
- 	unsigned long flags;
- 
--	spin_lock_irqsave(&percpu_ref_switch_lock, flags);
-+	spin_lock_irqsave(&ref->percpu_ref_switch_lock, flags);
- 
- 	ref->data->force_atomic = false;
- 	__percpu_ref_switch_mode(ref, NULL);
- 
--	spin_unlock_irqrestore(&percpu_ref_switch_lock, flags);
-+	spin_unlock_irqrestore(&ref->percpu_ref_switch_lock, flags);
- }
- EXPORT_SYMBOL_GPL(percpu_ref_switch_to_percpu);
- 
-@@ -385,7 +385,7 @@ void percpu_ref_kill_and_confirm(struct percpu_ref *ref,
- {
- 	unsigned long flags;
- 
--	spin_lock_irqsave(&percpu_ref_switch_lock, flags);
-+	spin_lock_irqsave(&ref->percpu_ref_switch_lock, flags);
- 
- 	WARN_ONCE(percpu_ref_is_dying(ref),
- 		  "%s called more than once on %ps!", __func__,
-@@ -395,7 +395,7 @@ void percpu_ref_kill_and_confirm(struct percpu_ref *ref,
- 	__percpu_ref_switch_mode(ref, confirm_kill);
- 	percpu_ref_put(ref);
- 
--	spin_unlock_irqrestore(&percpu_ref_switch_lock, flags);
-+	spin_unlock_irqrestore(&ref->percpu_ref_switch_lock, flags);
- }
- EXPORT_SYMBOL_GPL(percpu_ref_kill_and_confirm);
- 
-@@ -416,12 +416,12 @@ bool percpu_ref_is_zero(struct percpu_ref *ref)
- 		return false;
- 
- 	/* protect us from being destroyed */
--	spin_lock_irqsave(&percpu_ref_switch_lock, flags);
-+	spin_lock_irqsave(&ref->percpu_ref_switch_lock, flags);
- 	if (ref->data)
- 		count = atomic_long_read(&ref->data->count);
- 	else
- 		count = ref->percpu_count_ptr >> __PERCPU_REF_FLAG_BITS;
--	spin_unlock_irqrestore(&percpu_ref_switch_lock, flags);
-+	spin_unlock_irqrestore(&ref->percpu_ref_switch_lock, flags);
- 
- 	return count == 0;
- }
-@@ -465,7 +465,7 @@ void percpu_ref_resurrect(struct percpu_ref *ref)
- 	unsigned long __percpu *percpu_count;
- 	unsigned long flags;
- 
--	spin_lock_irqsave(&percpu_ref_switch_lock, flags);
-+	spin_lock_irqsave(&ref->percpu_ref_switch_lock, flags);
- 
- 	WARN_ON_ONCE(!percpu_ref_is_dying(ref));
- 	WARN_ON_ONCE(__ref_is_percpu(ref, &percpu_count));
-@@ -474,6 +474,6 @@ void percpu_ref_resurrect(struct percpu_ref *ref)
- 	percpu_ref_get(ref);
- 	__percpu_ref_switch_mode(ref, NULL);
- 
--	spin_unlock_irqrestore(&percpu_ref_switch_lock, flags);
-+	spin_unlock_irqrestore(&ref->percpu_ref_switch_lock, flags);
- }
- EXPORT_SYMBOL_GPL(percpu_ref_resurrect);
+That's what Alistair is explaining. This sequence:
 
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+> > 2) Introduce two new dma_buf_ops - map_dma_phys_list() and unmap_dma_phys_list()
+> >    - which are replacements for {un}map_dma_buf that converted exporters use to
+> >    return a dma_phys_list instead of returning a sg_table.
+> >
+> > 3) Move dma_buf_phys_vec_to_sgt() somewhere other than drivers/dma-buf and
+> >    rename it dma_phys_list_to_sgt().
+
+> > 4) Update dma_buf_{un}map_sgt() to call the new map_dma_phys_list() ops and
+> >    dma_phys_list_to_sgt() to create an sg_table for unconverted importers
+> >    importing from a converted exporter.
+
+Effectively converts all the exporters to produce a phys_addr_t, and
+then moves the DMA mapping action into one single place in common
+code.
+
+With one single place we can figure out how to replace it with a call
+that does an iommu_domain:
+
+> > 5) Add dma_buf_iommu_map() taking a IOMMU domain/iova/offset/size to be called
+> >    from iommufd for mapping an attachment into an IOMMU domain.
+
+But that relies on iommu_map having access to the dma_phys_list *which
+is true physical*
+
+> I think a whole bunch of other drivers would be really happy to use
+> that interface as well, yes.
+
+Right, that is clear now, that it is not just iommufd that wants a
+dma_buf_iommu_map()
+
+But I don't understand at all how you imagine to implement
+dma_buf_iommu_map() if you don't want this in the DMABUF core code.
+
+> That totally sounds like a plan to me.
+
+I'm confused if you agreed to what Alistair said :(
+
+Jason
