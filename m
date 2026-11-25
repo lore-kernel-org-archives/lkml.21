@@ -1,86 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795629993;
-	b=tAE6OKAZTGNgj17j320zyXlFx+0lhVpI9SgpPpr17cJBtRL8g2d6GS53IwZay4haDvft
-	 i5X9GsFkDqwVV1Kcs2ijJOEL8r0rLs0AucJHa2Q3lX7uBPWKEHykCag7bKaejKM7aFHXJ
-	 nbrVyKxTknSZCWY3kPYVuMbH4/j112ly0cSYqr0Iz2kQ8HahkdnVMw3wiMQPDA6EKsLzE
-	 g9XDymtHPMOePykMdt6Huqtg/A+Lm3USbIa5cf036O6v2Lv4fKiY58WhnVjLrPYu++NcI
-	 ZhWXyPEHOTCYw7PZvj5FbVKPva7vBVRxA7/dSTJhrLb2rwBW3B6ukJcZHTGgqqLoJXg==
+	b=1BUnQ5KaKHpjVtpJCWMWOEUHki5yMxw+zeF/LiSFQAKfiBBj8mJPKdMQRp96bWfXqoeM
+	 S4QVvTgKtOyJBDov4s2CH991hOSwbKf83l4hGVrpBJYl4x5kaDvozIkaqDdmUvkQSynVs
+	 tT567l3oZL3D5s2I/xOzRTkvPl25cs0DArm1K4SqjEWvHSV8F9v2ia+OHoYIdsW70UJA6
+	 1TKvbWUtym2lohkqn44mNlIUhLRV8jus3ytDhB2atfXQATKrYSfgi15eBFeV//7Smyfjl
+	 uCnK+UxmxFH2GodZNjBVmiRN9ddbosMtYIl9m+ZGM0wQcu4O6RnMwilU58k4WubQqGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795629993;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=U00yWHIo8HhrdyFuKMDRdBiL8d54KG7YlSUEsh2C5MM=;
-	b=WHP+fzdJNolBS8vSq4ONiFfx/bt8UOKBBrbNQi5C0gzJqYknaEHoUtCupaG3KmI2aacn
-	 MAIM2bsmOgQ61ZsQFjMBx3dpxgvjpfnkDPt25HR6t2fiwsVhbiAMjnqU5l7oF0A/4fpyT
-	 1GxNd0s9s6tkxLq9ZE9AdLjSpg4yNrWtps7a9Fc9vDvOEk5JUYPpPzYhigMXtlfa6cE0s
-	 vNhahNtekGK2dURCAdW+6o5XzwIL1TNdh/XVcDgeMgRLPUMVhTV/P37p7azhun1xa8kCB
-	 0mrq4NB6Y4g+HJRk79h65mkgx4IcC2C9s2vGLcTieibICZ2n1Pnqxktxo7G9faYQFnw==
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=D5XbwBFll67YZe8Aeb4/L1Vh5a1XCowJmsBP1YYfyKs=;
+	b=wCsHmBbdPzCpR9HXcEemoVeWedXKrYHMNdsM+EwzFnV8p8NYFqpynd4HD8T1Nurk3tZA
+	 657A3TUzXI71nj/d1ZonK3IlswgXBC6Ish8XqwU95/QDmWtVc2AZyoMlaSU2utVT7B40f
+	 dudmUoYkUMH7N0DFSMERtsG9Nvw1574lpn6fbslrqIsCTsMFjISiSsnxPPoJtF+WfAjV2
+	 Kv+bel0KPNZTaonRorUNtfnlX4NeQML22tMvBzw0BVroPohIghEzbGv++7L1ATzNgNVHB
+	 Gvt9XYue7GnM92Rv5FNbJCj26jDgmbIEPOMfFZSOhVOYjR+QlX8bE/1vzwwacIEjvvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SzJaPlqJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sm27QWLM;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 1FCE2606A31E;
-	Wed, 25 Nov 2026 18:06:33 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SzJaPlqJ
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 3E3F71F00A3E;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 481A7606A693;
 	Wed, 25 Nov 2026 18:06:32 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sm27QWLM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AC411F00A01;
+	Wed, 25 Nov 2026 18:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795629993;
-	bh=U00yWHIo8HhrdyFuKMDRdBiL8d54KG7YlSUEsh2C5MM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SzJaPlqJ0DMwNK1s6wL3Pkh568FjgSIq0691VFOmewOFIDORl9wUV04BtlYS60a7/
-	 mWivwg/9pA0xq+MoYzyaP24iHOAlXE1/YRbpPdwrybKyV8GH5rlvGV5gjSO/4TVDNF
-	 fVaF75ksLGuVHnE9HTUX1h1e5QzxWuummGvaAUg6F6GzW8AE5z7PcPxxNN7pA0G4Yi
-	 ShgfC8FAAWnbUV951C7RX1xr8Ch56ZwZKnqdHGApP4YOs2TZqSZvgIHGWvT8WzYAMO
-	 /AcZrqpO8pOqm/n/XmVTjftPrfWeb87YAJv0Z4JZJjcrxIKsg8Kk+EaY24F7mXBlRh
-	 xkaEfCG6QHcxA==
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: keyrings@vger.kernel.org
-Cc: Jarkko Sakkinen <jarkko@kernel.org>,
-	dm-devel@lists.linux.dev,
-	linux-crypto@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Alasdair Kergon <agk@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Benjamin Marzinski <bmarzins@redhat.com>,
-	David Gstir <david@sigma-star.at>,
-	David Howells <dhowells@redhat.com>,
-	David Laight <david.laight.linux@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Ignat Korchagin <ignat@linux.win>,
-	James Bottomley <James.Bottomley@HansenPartnership.com>,
-	James Morris <jmorris@namei.org>,
-	James Prestwood <prestwoj@gmail.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Lukas Wunner <lukas@wunner.de>,
-	Mike Snitzer <snitzer@kernel.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	Mimi Zohar <zohar@linux.ibm.com>,
-	Paul Moore <paul@paul-moore.com>,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sumit Garg <sumit.garg@kernel.org>
-Subject: [PATCH v3 1/9] KEYS: Factor out opt-in KEYCTL_PKEY
-Date: Wed, 25 Nov 2026 20:06:07 +0200
-Message-ID: <20261125180616.1854753-2-jarkko@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261125180616.1854753-1-jarkko@kernel.org>
-References: <20261125180616.1854753-1-jarkko@kernel.org>
+	s=k20260515; t=1795629992;
+	bh=D5XbwBFll67YZe8Aeb4/L1Vh5a1XCowJmsBP1YYfyKs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Sm27QWLMo77o4X0LRAYLJSKN9Uv7DC0hm3FXm0MQkDe4CqW+7xDDOhKZoIjp8GbvS
+	 2U6qqMXDaG9LhA/M73SSxpczn0yjgMLX4kadRY5AUKRldJ4wru77H0pVV63I6ZTLhg
+	 TkzN55VGPU3ff4u+lSvNzBjVVSSOs5m+Ug2comc5EX6FyEMjacogwcXPhvZ6oiATfK
+	 ZYqGRkEp7lQK4ch50G0jZAYxaowVcPXh+HmZKJCKTbPGduqHOr9CusRvlKt+oNKj+F
+	 rbFV9xzd5qwfjeLCBp33OBCyKF+kRwk8FqZSmVunxOqObpV2bj1NjAAWkdklznGGQD
+	 rkrJXThI5ay1Q==
+Date: Wed, 25 Nov 2026 18:06:29 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Mason Huo <mason.huo@starfivetech.com>
+Cc: Corey Minyard <corey@minyard.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"openipmi-developer@lists.sourceforge.net" <openipmi-developer@lists.sourceforge.net>
+Subject: Re: [PATCH v1 1/2] dt-bindings: ipmi: Convert starfive,kcs-bmc to DT
+ schema
+Message-ID: <20261125-outbid-ritzy-705bdb883059@spud>
+References: <20261118062526.1436893-1-mason.huo@starfivetech.com>
+ <20261118062526.1436893-2-mason.huo@starfivetech.com>
+ <20261118-repackage-backlight-1bdc5955a8d2@spud>
+ <BJSPR01MB0577DD87B6BE14E93640FD3A85432@BJSPR01MB0577.CHNPR01.prod.partner.outlook.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,82 +64,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RwHjz7y9O6zqBr58"
+Content-Disposition: inline
+In-Reply-To: <BJSPR01MB0577DD87B6BE14E93640FD3A85432@BJSPR01MB0577.CHNPR01.prod.partner.outlook.cn>
 
-Factor out CONFIG_KEYCTL_PKEY from CONFIG_ASYMMETRIC_KEY_TYPE as an
-off-by-default option so that systems that only need asymmetric keys for
-in-kernel signature verification can choose not expose KEYCTL_PKEY_*
-operations, and other key types can use them without pulling in
-crypto/asymmetric_keys.
+--RwHjz7y9O6zqBr58
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Suggested-by: Eric Biggers <ebiggers@kernel.org>
-Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
----
- security/keys/Kconfig    | 9 +++++++++
- security/keys/Makefile   | 2 +-
- security/keys/internal.h | 2 +-
- security/keys/keyctl.c   | 2 +-
- 4 files changed, 12 insertions(+), 3 deletions(-)
+On Wed, Nov 25, 2026 at 01:07:46AM +0000, Mason Huo wrote:
+> > From: Conor Dooley <conor@kernel.org>
+> > Sent: 2026=E5=B9=B411=E6=9C=8819=E6=97=A5 1:58
+> > To: Mason Huo <mason.huo@starfivetech.com>
+> > Cc: Corey Minyard <corey@minyard.net>; Rob Herring <robh@kernel.org>;
+> > Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+> > <conor+dt@kernel.org>; linux-kernel@vger.kernel.org;
+> > devicetree@vger.kernel.org; openipmi-developer@lists.sourceforge.net
+> > Subject: Re: [PATCH v1 1/2] dt-bindings: ipmi: Convert starfive,kcs-bmc=
+ to DT
+> > schema
+> >=20
+> > On Wed, Nov 18, 2026 at 02:25:25PM +0800, Mason Huo wrote:
+> > > Convert the starfive,kcs-bmc binding to DT schema format.
+> >=20
+> > This is not a conversion since you are not deleting anything?
+> >=20
+> Thanks for the correction, will update the commit message in v2.
+>=20
+> > >
+> > > Signed-off-by: Mason Huo <mason.huo@starfivetech.com>
+> > > ---
+> > >  .../bindings/ipmi/starfive,kcs-bmc.yaml       | 53 +++++++++++++++++=
+++
+> > >  1 file changed, 53 insertions(+)
+> > >  create mode 100644
+> > Documentation/devicetree/bindings/ipmi/starfive,kcs-bmc.yaml
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/ipmi/starfive,kcs-
+> > bmc.yaml b/Documentation/devicetree/bindings/ipmi/starfive,kcs-
+> > bmc.yaml
+> > > new file mode 100644
+> > > index 000000000000..2cb91d321a32
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/ipmi/starfive,kcs-bmc.yaml
+> > > @@ -0,0 +1,53 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/ipmi/starfive,kcs-bmc.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: StarFive BMC KCS Devices
+> > > +
+> > > +maintainers:
+> > > +  - Mason Huo <mason.huo@starfivetech.com>
+> > > +
+> > > +description:
+> > > +  The StarFive BMC SoCs use Keyboard-Controller-Style (KCS) interfac=
+es
+> > on
+> > > +  the eSPI bus for in-band IPMI communication with their host. The K=
+CS
+> > > +  channels are part of a Super I/O (SIO) block and each channel occu=
+pies a
+> > > +  0x100 byte register window, starting at offset 0x200 of the SIO re=
+gister
+> > > +  space. A channel is identified by its register offset and the
+> > > +  "starfive,sio-id" of the parent SIO node.
+> >=20
+> > Where is the binding for the parent SIO node? Hard to review this
+> > without that I think.
+> >=20
+> Sorry for missing the SIO node commit, will add it next version, and it l=
+ooks like:
+> +        superio@10582000 {
+> +            compatible =3D "starfive,jhb100-sio", "simple-mfd", "syscon";
+> +            reg =3D <0x0 0x10582000 0x0 0x1000>;
+> +            #address-cells =3D <2>;
+> +            #size-cells =3D <2>;
+> +            ranges =3D <0x0 0x0 0x0 0x10582000 0x0 0x1000>;
+> +            starfive,sio-id =3D <0>;
+> +
+> +            kcs@200 {
+> +                compatible =3D "starfive,jhb100-kcs-bmc";
+> +                reg =3D <0x0 0x200 0x0 0x100>;
+> +                interrupts =3D <282>, <57>;
+> +                interrupt-names =3D "kcs", "espi_rst";
+> +            };
+> +        };
 
-diff --git a/security/keys/Kconfig b/security/keys/Kconfig
-index 3f64d60d0f8a..75cc4043ca64 100644
---- a/security/keys/Kconfig
-+++ b/security/keys/Kconfig
-@@ -22,6 +22,15 @@ menuconfig KEYS
- 
- if KEYS
- 
-+config KEYCTL_PKEY
-+	bool "Public-key operations on retained keys"
-+	help
-+	  This option provides support for querying, encrypting, decrypting,
-+	  signing, and verifying signatures via keyctl using public or
-+	  asymmetric keys retained in the kernel.
-+
-+	  If you are unsure as to whether this is required, answer N.
-+
- config KEYS_REQUEST_CACHE
- 	bool "Enable temporary caching of the last request_key() result"
- 	help
-diff --git a/security/keys/Makefile b/security/keys/Makefile
-index 5f40807f05b3..aafd28f7ee2f 100644
---- a/security/keys/Makefile
-+++ b/security/keys/Makefile
-@@ -22,7 +22,7 @@ obj-$(CONFIG_PROC_FS) += proc.o
- obj-$(CONFIG_SYSCTL) += sysctl.o
- obj-$(CONFIG_PERSISTENT_KEYRINGS) += persistent.o
- obj-$(CONFIG_KEY_DH_OPERATIONS) += dh.o
--obj-$(CONFIG_ASYMMETRIC_KEY_TYPE) += keyctl_pkey.o
-+obj-$(CONFIG_KEYCTL_PKEY) += keyctl_pkey.o
- 
- #
- # Key types
-diff --git a/security/keys/internal.h b/security/keys/internal.h
-index c452d71cce03..28c6cd942c59 100644
---- a/security/keys/internal.h
-+++ b/security/keys/internal.h
-@@ -314,7 +314,7 @@ static inline long compat_keyctl_dh_compute(
- #endif
- #endif
- 
--#ifdef CONFIG_ASYMMETRIC_KEY_TYPE
-+#ifdef CONFIG_KEYCTL_PKEY
- extern long keyctl_pkey_query(key_serial_t,
- 			      const char __user *,
- 			      struct keyctl_pkey_query __user *);
-diff --git a/security/keys/keyctl.c b/security/keys/keyctl.c
-index d6b10fd67627..417bba539bb1 100644
---- a/security/keys/keyctl.c
-+++ b/security/keys/keyctl.c
-@@ -28,7 +28,7 @@ static const unsigned char keyrings_capabilities[2] = {
- 	[0] = (KEYCTL_CAPS0_CAPABILITIES |
- 	       (IS_ENABLED(CONFIG_PERSISTENT_KEYRINGS)	? KEYCTL_CAPS0_PERSISTENT_KEYRINGS : 0) |
- 	       (IS_ENABLED(CONFIG_KEY_DH_OPERATIONS)	? KEYCTL_CAPS0_DIFFIE_HELLMAN : 0) |
--	       (IS_ENABLED(CONFIG_ASYMMETRIC_KEY_TYPE)	? KEYCTL_CAPS0_PUBLIC_KEY : 0) |
-+	       (IS_ENABLED(CONFIG_KEYCTL_PKEY)		? KEYCTL_CAPS0_PUBLIC_KEY : 0) |
- 	       (IS_ENABLED(CONFIG_BIG_KEYS)		? KEYCTL_CAPS0_BIG_KEY : 0) |
- 	       KEYCTL_CAPS0_INVALIDATE |
- 	       KEYCTL_CAPS0_RESTRICT_KEYRING |
--- 
-2.47.3
+Why can this ipmi device not just be part of the parent node?
 
+--RwHjz7y9O6zqBr58
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawcjpQAKCRB4tDGHoIJi
+0nBLAP9RwUwiZwQ6dquOrw1OA9DuPS0z7Xh62O3XVtrlg6vheAD5AQAAO138w07c
+4VSIjM6xrYcYkrHDFnKeQkE4UjQi7QI=
+=4ZnL
+-----END PGP SIGNATURE-----
+
+--RwHjz7y9O6zqBr58--
