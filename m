@@ -1,75 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621836;
-	b=UTKEjM7+KU69th4X6dEqTfnJx3M5TP4yYwAyTkFRDoWgvyviNOZ4vVqXGz2bk8Jp1coc
-	 GgdD9ANzi6Y3yl46X2TcZfXAikixzragC0e8PwJ0zzEtliXfDAmq+eoiKT4XGy/2PWX0y
-	 tI8vLeTPSp+5vVE8WadmaPNc5Z/GWmdIg02YokVj1CNRljq/88iuRNA+tjkg/NRAmLqh+
-	 KTwJPRIJWJrJYDDfvl0lwX9rWpQnM6VDMNZNvKOQXO8F1mgu84yIJr/zt3/zMBVdhNiex
-	 c7gw4VSTalTz4azydXUCNCS6oPjndeLLJ0Fq2XYMnfREJRU8bQ2vPOSajItUCxfA8Ug==
+	t=1795621884;
+	b=HnTdMHgiiYIY67xhP4zIIDfjLo3xRP9q+qGX2c8Yvq/RBcauJugvwufJTFMq/zLvozxk
+	 yG2R62Fwoc5MahXViXbPANapP839Dcng6BsctSGsBDKG7BKF28btjObLHHTodletYWirP
+	 Qk/fgv1Z3IH7Yx71ZPP1H8agLY49uU8GQyslE2vPVF1LwEEEOI7a/ZW4RISa6kNuXs/xf
+	 KZ9fjRTnXB0B9iCgJMcdQcR5o4c7Hd+oIyaboebFlwdvFgRQ2Zju1/srOtBxFmZ/x+UsJ
+	 nYLYKrJAf5AsJfzuRolCHBTIaX/WqybIhJPtBkTWi7GZ8jzqhJK1JBgdT60dALblwew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621836;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=XLwCuf7M2Ga/clCF7XSJZKgDh7EqOrTLwYVq4lWZ5K4=;
-	b=yiGa2jBP8rTqZi6bXz+29j5rA0dx6uoOV9NwPXxcadTEtfowvr0gP5g4G4xQks0KaHiV
-	 /H/rBcHcmtPD0uYOgN6C1rk5fxLn0otNWUCo1ngCOJYC8lkhiAio3guxDgv98HjeFOysw
-	 gQiEDTOCWu6czDquVuUBjNZQb8Gf9ixnr4ufl+2CgtE8ojAguMVpQGoRQziFGIGBMJVI3
-	 CJgp11Re0BdaatNMSSGvtLgJhAx0ysHen1/kThrNFKs0GUYUpEbbjaalSJHPGav/egl2c
-	 itBMba1Dk34nzuWGyo0yvngfksoRVUxWOAnyRVjgehXoEu1nvukoMZJ5glRDLCZiQ0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621884;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=VHe5Uw67z1Y8nTKWeloBeO0r936iChXIFhmIiPgc1Jk=;
+	b=wMveTyZm6kEvNb8EEZyzYEQNg+UGpnEV7gfwwJ7Kn8KdCkbewsRDRiqb+mHFkRrwbgMf
+	 R8BzrUPVZQKm6NQEwY+tFyjQBr6KLUajsvCksicSox2xbtC/gBUU55wo98sNkVzhfzwbA
+	 mo48dH7BgeP17nl+Wh/PH5SwsbvgP6k93Dde5gn97NtMarhzE9tBzksI3rfBvZ3W5UCHb
+	 DvVdYQZZeqZZAHy/JXqjlPRkMA2o51nMUmhbkVmXrI7SmgwK/QqiB2UXfcC1I+SeyJNEf
+	 L/XcFTvTcdsGNyYM5qx9dKV75/P+bhKESRmw9ec5tM0LAXqIlxDBAcZ4QWcXnRJPx3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fd9tvuie;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e2lCVdIu;
+	arc=none smtp.remote-ip=209.85.215.175
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E59B606A330;
-	Wed, 25 Nov 2026 15:50:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E59B606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EBE1606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:51:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3EBE1606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fd9tvuie
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795621836; x=1827157836;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=sHPGjlZBOvzDEu84WUTKFdQM2Q6afKWCCaXdHKe2KLA=;
-  b=fd9tvuies1xic8b1kWwGvmqOO6Zbk98Q5umwWakA5j5k5yTn5xYedmco
-   wlidoxtDJaMmLsBMfUAo/3cXlBs34FZhxhsuYzxi2y+qAbG5lGVPG+pH4
-   VqgQabtcR4aVhE3O+T6b5jhTHP8T5D2iuMTt0PKi+eBdLa/m7KGXUYvlJ
-   5fWl54M3jmotEPsoE8qkHCCCDRHLhPG6rTKUAdkBaORcQ+e9NovMNdMBI
-   Dc4Mc8DvKmKdQBLwVlzn/KukiydO+yPv+dXGjkK+N4vSUcXd7Z1y6TLel
-   x2J5epWlATvU6tcKrR97EEHZHeDbhPFbA7AVgiFtJIVhmTgvtPNa0dpqM
-   g==;
-X-CSE-ConnectionGUID: s80Nd/azRuCjcwi80i8Dfw==
-X-CSE-MsgGUID: SiO4flDOQzWVueZ4xkQd1A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4561658"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4561658"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 07:28:46 -0800
-X-CSE-ConnectionGUID: 6vQBSlZgTmK3wDns/adbww==
-X-CSE-MsgGUID: 8ulM3UDES1SpBzypkbNKpA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="11779883"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO pujfalus-desk.intel.com) ([10.245.244.1])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 07:25:44 -0800
-From: Peter Ujfalusi <peter.ujfalusi@linux.intel.com>
-To: stable@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	kai.vehmanen@linux.intel.com,
-	yung-chuan.liao@linux.intel.com,
-	broonie@kernel.org
-Subject: [PATCH stable 6.12.y backport] ASoC: SOF: Intel: lnl: Enable offload for UAOL link
-Date: Wed, 25 Nov 2026 17:26:23 +0200
-Message-ID: <20261125152623.22645-1-peter.ujfalusi@linux.intel.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e2lCVdIu
+Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cdb75699c7cso2322714a12.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:51:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795621883; x=1796226683; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VHe5Uw67z1Y8nTKWeloBeO0r936iChXIFhmIiPgc1Jk=;
+        b=e2lCVdIuqvkmEDMYhcpIp9zqr5gaxZfqktPjSx+DVQZUnEKVz414FztQv4uwpgUCX/
+         sqB2crJH2SBrrsnAPm/dRJlI2de9u9a3pwmBeTFjF0+WY7u8ceO6sjGeOCwHV+2WMett
+         5UW4otjYZXC+kD2JmledeZlS5HRP+9UlFgO7EcNjTlAlH/jFFoF1j0uYLFAoa67N/BhO
+         LFjTrl7tTXDVYOst+fT9pqOUBTHDf48axh3jKCZ+lrnC1Y21/G+hJmSzWMJChIQ6JsIS
+         kooL3ZpqjI8p6CJctYIF5DfswbDvfJopi9aDSeJCZsFdgwShIgDwa7bMYpxOs1Rczt+j
+         9S0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795621883; x=1796226683;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VHe5Uw67z1Y8nTKWeloBeO0r936iChXIFhmIiPgc1Jk=;
+        b=HnY06cTiPwAIRyQ5psaLzv1B2M+e3O9KqgioowrR78KLvFN8DWJVq6tJdlLP2jVfu5
+         QhziuFRAOjzLBu1cN3o8qR7NRyIvtoFt0U1xl3T4P+b1aaN4irpVeF1ravx4ZSjhCw8a
+         BT/UA2u7KEAAqwQ4J40iPbRruAl/vtpgihXTdLT/n70v/zRxqrKT/uwNHvju15ifF5Mk
+         pXsQYWWcGCfTyPSWK3KvMAyMOgSP1v8U5bM92vlQh2+N8sOpFSvo4dwUYbstaJlajNdj
+         we4rck83aoFFsa4TX7npCUoZxsHM5X2GtuiFkHjb36AyW4ytpl1Y61DFtxqdsH1zADi9
+         Dy8w==
+X-Forwarded-Encrypted: i=1; AL+hErE841AsXpFBw0TG1/92rEDAcYzqCVEa04h+39pDbaOCbfSlVMXC2kjbI4+BO3+TuHDtbtBWD/oos/5NPhM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+DPANon+SxrPXyw/j44Cca2rMm+SulZcZixt4DrtG7QFrMtQj8
+	1enBpmuZGqOLkq4d8eVpmIWtuBH4ZYFiS5V/1n85t1SxeEK9u70IOibg
+X-Gm-Gg: AZFdTZfXGwTeDEkMWRkvTjOws0nNIu0+TVTxcHOlQJJti4TP5DaAImSwuPqIVQcZniG
+	eIQHFD7UZusJnlEO2HuVMotBp4eXY9dCxBfzJlQpHvsl1nWuwdbHfAv+iJwqwmAxn83AZuPNY0f
+	/IvCuCdkc89VG8Gh4eU9dSQKTAfM8gIHAID4F+ZR/tnGJm7kPgW1ByJ6Xf8i4oZasoMEDOgAbJX
+	3mH70sL/Ult8Hd6g7XLobtWkr5l4XLtZKMibNxiQ0AHOouf5VTkB+Oa+lzM/HDUcsMHV9SEgDm0
+	091351Icxa5W2qH4/B5iDxs7/UQzketDkqAP7ubDBnVJAyiSy2OfMvCuTvvMn3M9pIWc09OuLVJ
+	Nmt9KxNkmF7x0k0mLCWYEBtZKbKoQ9fSYTfwY59NPovZV6ebYXE1YQWEp8D1Qtq2c1I4uImXqQO
+	xe0rDTOHHWjfmidicQhmdRvmz0vQ8BHZW07GL6nVqtdWANm3cx8yV2COd+IIDYDzPXbYs73FgK8
+	6KAR15JOPKro/6EXNFKayXTQFezEKhfQIGY8oVQI2NppgUH0Was8+IccO5SMOOrbyvko2T5Lo0t
+	6/ysSs3TOYrx56UmABIcG0VuX33psi0BnqNBfphx5n1a8g1SBrMR
+X-Received: by 2002:a05:6a21:8201:b0:3f5:ef59:3aaa with SMTP id adf61e73a8af0-4014ae81ebbmr19762858637.16.1795621883355;
+        Wed, 25 Nov 2026 07:51:23 -0800 (PST)
+Received: from ubuntu ([110.9.142.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d0818c1sm9058205a12.30.2026.11.25.07.51.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 07:51:22 -0800 (PST)
+From: Sang-Heon Jeon <ekffu200098@gmail.com>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>
+Cc: "Liam R. Howlett" <liam@infradead.org>,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	Michal Hocko <mhocko@suse.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	Frank van der Linden <fvdl@google.com>,
+	Kiryl Shutsemau <kas@kernel.org>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Jiri Bohac <jbohac@suse.cz>,
+	kexec@lists.infradead.org
+Subject: [PATCH] mm/cma: reject long-term pins of HugeTLB folios overlapping crashkernel CMA
+Date: Thu, 26 Nov 2026 00:51:06 +0900
+Message-ID: <20261125155108.24098-1-ekffu200098@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,93 +112,77 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-commit fdfbd9ff86a145f09978ab49305ed7acfad66a1d upstream.
+crashkernel=size,cma uses existing hugetlb_cma memory, so
+crashk_cma_ranges[] may contain HugeTLB folios. HugeTLB folios allocated
+from hugetlb_cma can be long-term pinned without being migrated.
 
-The handling of UAOL (USB Audio Offload Link) is similar to SSP and DMIC,
-it is handled by the DSP firmware.
-Set the offload enable for it similar to SSP and DMIC.
+After a crash, the crash kernel uses the memory in crashk_cma_ranges[],
+but a device can still write to a long-term pinned folio.
 
-Cc: <stable@vger.kernel.org> # 6.12.x
-Signed-off-by: Peter Ujfalusi <peter.ujfalusi@linux.intel.com>
-Reviewed-by: Bard Liao <yung-chuan.liao@linux.intel.com>
-Reviewed-by: Kai Vehmanen <kai.vehmanen@linux.intel.com>
-Link: https://patch.msgid.link/20260520150639.25301-3-peter.ujfalusi@linux.intel.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
-[ Peter: Adjusted to the int returning hdac_bus_eml_enable_offload() as
-  commit 978152b2cab5 ("ASoC: SOF: Intel: hda-mlink/lnl: Convert offload
-  enable functions to void") is not backported. The helper is renamed from
-  hdac_bus_offload_dmic_ssp() to hdac_bus_set_dsp_offload() to match
-  upstream, since it now also handles UAOL.
-  Firmware built with UAOL support reads the UAOL registers and crashes if
-  the host has not granted the DSP access to them. ]
+So reject long-term pins of HugeTLB folios overlapping
+crashk_cma_ranges[].
+
+Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
 ---
- sound/soc/sof/intel/lnl.c | 17 +++++++++--------
- 1 file changed, 9 insertions(+), 8 deletions(-)
+The above scenario is only possible with the two patches below applied.
+Currently only linux-next, which is targeting v7.5, has both of them.
 
-diff --git a/sound/soc/sof/intel/lnl.c b/sound/soc/sof/intel/lnl.c
-index 3d5a1f8b17e5..48202b4d8069 100644
---- a/sound/soc/sof/intel/lnl.c
-+++ b/sound/soc/sof/intel/lnl.c
-@@ -31,8 +31,8 @@ static const struct snd_sof_debugfs_map lnl_dsp_debugfs[] = {
- 	{"fw_regs", HDA_DSP_BAR,  MTL_SRAM_WINDOW_OFFSET(0), 0x1000, SOF_DEBUGFS_ACCESS_D0_ONLY},
- };
+  "mm/hugetlb: allow crashkernel to reuse hugetlb CMA memory" (kexec-next)
+  "mm: gup: allow long-term pins of CMA-allocated HugeTLB folios" (mm-unstable)
+---
+ mm/cma.c | 25 ++++++++++++++++++++++++-
+ 1 file changed, 24 insertions(+), 1 deletion(-)
+
+diff --git a/mm/cma.c b/mm/cma.c
+index 0c97aadcfea4..cb4a92e2b9f5 100644
+--- a/mm/cma.c
++++ b/mm/cma.c
+@@ -32,6 +32,8 @@
+ #include <linux/hugetlb.h>
+ #include <trace/events/cma.h>
+ #include <linux/page-isolation.h>
++#include <linux/crash_reserve.h>
++#include <linux/range.h>
  
--/* this helps allows the DSP to setup DMIC/SSP */
--static int hdac_bus_offload_dmic_ssp(struct hdac_bus *bus, bool enable)
-+/* Configure DSP offload for DMIC/SSP/UAOL */
-+static int hdac_bus_set_dsp_offload(struct hdac_bus *bus, bool enable)
+ #include "internal.h"
+ #include "cma.h"
+@@ -42,12 +44,33 @@ unsigned int cma_area_count;
+ 
+ bool cma_folio_is_longterm_pinnable(struct folio *folio)
  {
- 	int ret;
- 
-@@ -46,7 +46,8 @@ static int hdac_bus_offload_dmic_ssp(struct hdac_bus *bus, bool enable)
- 	if (ret < 0)
- 		return ret;
- 
--	return 0;
-+	return hdac_bus_eml_enable_offload(bus, true,
-+					   AZX_REG_ML_LEPTR_ID_INTEL_UAOL, enable);
++	struct range r;
++	int i;
++
+ 	/*
+ 	 * Explicitly allocated CMA folios own their CMA memory and can be
+ 	 * pinned even in ZONE_MOVABLE, as CMA memory cannot be offlined.
+ 	 * For now, only HugeTLB tracks these allocations with a folio flag.
+ 	 */
+-	return folio_test_hugetlb(folio) && folio_test_hugetlb_cma(folio);
++	if (!folio_test_hugetlb(folio) || !folio_test_hugetlb_cma(folio))
++		return false;
++
++	/*
++	 * The crash kernel uses the memory in crashk_cma_ranges[], but a
++	 * device can still write to a long-term pinned folio after a crash.
++	 */
++	if (!crashk_cma_cnt)
++		return true;
++
++	r.start = PFN_PHYS(folio_pfn(folio));
++	r.end = r.start + folio_size(folio) - 1;
++
++	for (i = 0; i < crashk_cma_cnt; i++) {
++		if (range_overlaps(&crashk_cma_ranges[i], &r))
++			return false;
++	}
++
++	return true;
  }
  
- static int lnl_hda_dsp_probe(struct snd_sof_dev *sdev)
-@@ -57,17 +58,17 @@ static int lnl_hda_dsp_probe(struct snd_sof_dev *sdev)
- 	if (ret < 0)
- 		return ret;
- 
--	return hdac_bus_offload_dmic_ssp(sof_to_bus(sdev), true);
-+	return hdac_bus_set_dsp_offload(sof_to_bus(sdev), true);
- }
- 
- static void lnl_hda_dsp_remove(struct snd_sof_dev *sdev)
- {
- 	int ret;
- 
--	ret = hdac_bus_offload_dmic_ssp(sof_to_bus(sdev), false);
-+	ret = hdac_bus_set_dsp_offload(sof_to_bus(sdev), false);
- 	if (ret < 0)
- 		dev_warn(sdev->dev,
--			 "Failed to disable offload for DMIC/SSP: %d\n", ret);
-+			 "Failed to disable offload for DMIC/SSP/UAOL: %d\n", ret);
- 
- 	hda_dsp_remove(sdev);
- }
-@@ -80,7 +81,7 @@ static int lnl_hda_dsp_resume(struct snd_sof_dev *sdev)
- 	if (ret < 0)
- 		return ret;
- 
--	return hdac_bus_offload_dmic_ssp(sof_to_bus(sdev), true);
-+	return hdac_bus_set_dsp_offload(sof_to_bus(sdev), true);
- }
- 
- static int lnl_hda_dsp_runtime_resume(struct snd_sof_dev *sdev)
-@@ -91,7 +92,7 @@ static int lnl_hda_dsp_runtime_resume(struct snd_sof_dev *sdev)
- 	if (ret < 0)
- 		return ret;
- 
--	return hdac_bus_offload_dmic_ssp(sof_to_bus(sdev), true);
-+	return hdac_bus_set_dsp_offload(sof_to_bus(sdev), true);
- }
- 
- static int lnl_dsp_post_fw_run(struct snd_sof_dev *sdev)
+ phys_addr_t cma_get_base(const struct cma *cma)
+
+base-commit: a036649714c3446abfdc36d0ae483046432b16c5
 -- 
-2.56.1
+2.53.0
 
