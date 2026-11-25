@@ -1,57 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.117
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570858;
-	b=BAjofodTUFg58kM0QcTJflEPupwk81pM9VUzC0Tm9tt0J77P5c4jR/wmpLuxsU2jLnna
-	 VgrTlLTgRVHFQlip3iO4/hHTjL3UoBj2VvJ4yWU5JB9t26GpzBy7uLbAp98+eGO/QXMDZ
-	 speqemuRxCD4mcgHAhp/eZpbHdYvLaudb9jGLLXpK6tfce/8CsMLjOYXjsJpjudwrQjox
-	 eZqrTjvozo5ujCU2H7O1lwZQC4SY4rgfljrzqoQ7AfPSMmmnaQprwd2sPm8ziXTyz4FPL
-	 IpiRrNbYURbTjraEL4bgg5XDBdQ4aG56Wwvf2uUjRxIys2QZgb3LhId4o6UD3gon+4w==
+	t=1795570905;
+	b=Yyg/Hjx6KiIccGBBLUD295mA/XTeE0CivzFX1OatjrWuU2L+4YZXII8iQ2gJhhUNqJc9
+	 xOXixi356Ou4XsYsWszxltIKdciscqrBBkcbeTt83TiMIO3RbPgFDUjupGAEiGKpKnSiV
+	 a7jT0B7EQB9CAOny0NUjMzIlpapyYAk+nWDYvGkDrBd+3584jokV+6d/z6QR2syzJ/Pr/
+	 lGRH6+ZyCBLplZoOFDEWvis5W5QfKrPn56PNSODmef/9rtnK4sNuuv7w3G/EwIfb+ZldH
+	 lT+LY4X1WRiQOKjVyeAOWiHseyIJRua1MV7vZnoCKxKx/3Dqkah4NhdCmr7EvR0cN1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570858;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Nr8AhD/JTXYY4nRgKW9w8rOfFqSdm8MOb29z4lUlrQU=;
-	b=zsu8EfA6//to9l2XbqPGM9BREZBVgOhMfomiCLOSwnL0K8R22tE2l6odX17QpzmzWWC/
-	 CiDyn6oCQUoljWJlN216syJpf9z59oeEIdcXhTaylajD6YNaPZ9unk2hB1j39WPtUvaU/
-	 BMhg8qFka4kPtG72bOozg3EOPma/E3SAdGDOmGngs+CcVrA6gCJY0RAv5+DsfW6E/bw6w
-	 2mBSaDZvl8znqt0wgo6eomjk0xl3rPWRsvHI0o2l6BUKkdOpKzLg/FNRFRNMk0o43INqW
-	 /33Xeqv/y4ORy/w3OX81C0eU+k7eOM2OeU+77NdUK5owVpZin8XU4G5ep/bEHp2pHzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570905;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=0uALuexdmM829eAKCCxuAtcwAcX/KrdDY7PYwPZUEDc=;
+	b=R0sPUV8MCQ02gpc1AcYDCltEEvnAo+fCcPyNd1gCjliL+GdHCkai3smoLntj0Xm85NEy
+	 qjK/Jk09Wpmkg1ajlnIAz/tIsWQ6UKppFOBgI8q6Yowi3HoIUIApCW6iM3b/uthP+YmSi
+	 GND102UaK9nqTeEj7hnMt1hMi+WkjWDwBPpWGUrGg8uB1/M2afQaHOn0SlZy8SDCRM5tD
+	 UVfFTFe1H8KXPToRW277oKx/fpTtoJpCPNArOueBkofTeZj2/nzIJvPsIRrG6rq5M0QE1
+	 9NlZqfmIhwLJPJHhTvtlPIj4an0YnlwU48vgGPZ2n4rm/ExMMo5EGxhnXwvCM+a7isw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=empyreal.works;
-	spf=pass smtp.mailfrom=empyreal.works;
-	dkim=pass header.d=empyreal.works header.i=@empyreal.works header.a=rsa-sha256 header.s=protonmail2 header.b=BCPnZTlN;
-	arc=none smtp.remote-ip=79.135.106.117
-Received: from mail-106117.protonmail.ch (mail-106117.protonmail.ch [79.135.106.117])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WizpStaM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE2DE606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:40:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE2DE606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=empyreal.works
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=empyreal.works
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3312606A323;
+	Wed, 25 Nov 2026 01:41:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=empyreal.works header.i=@empyreal.works header.a=rsa-sha256 header.s=protonmail2 header.b=BCPnZTlN
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=empyreal.works;
-	s=protonmail2; t=1795570854; x=1795830054;
-	bh=Nr8AhD/JTXYY4nRgKW9w8rOfFqSdm8MOb29z4lUlrQU=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=BCPnZTlNkRnWBhS17tF34xhMehKjFjO1oN2blzAwsnORVQOt0tr8Sk02/fG3wnBrv
-	 3MLTLF9xuvrrzjVtSoXRZNAv/oF62zFjR/LlysHHuKxk/R3F17dT7TMwy3mnuwpsnW
-	 0tZEituom5ID4o/FIyzzCUzBjsTV3CIpdJCi6d20LXcO94fOFK/I1TZFca0piOB9Fa
-	 HUQ1d/FRn6Tc5vbWjHrPKyGjXOXGYgVe//BqyoI8VZ16aQjRg+6u1ydlQpWirakmoP
-	 rhNZQuriD0qvVeDTAEWQ47yGfgz+gqoFCpQItjvSvM7QEvDhUU+4/4pNisWawyJVa/
-	 P6Lx9Kzq+9zeA==
-Date: Wed, 25 Nov 2026 01:40:49 +0000
-To: Min Ma <mamin506@gmail.com>, Lizhi Hou <lizhi.hou@amd.com>
-From: Andrei Rusu de Castro <arc@empyreal.works>
-Cc: Oded Gabbay <ogabbay@kernel.org>, "Mario Limonciello (AMD)" <superm1@kernel.org>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: [BUG] accel/amdxdna: Phoenix NPU unusable after a TDR, and unbinding it then deadlocks on dev_lock
-Message-ID: <20261125-amdxdna-tdr-dev-lock-report-3b8e51c2@empyreal.works>
-Feedback-ID: 182420409:user:proton
-X-Pm-Message-ID: fabd76ec0ec40cd28e9acd98cda0a11ed6d21bcf
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WizpStaM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BD771F000CF;
+	Wed, 25 Nov 2026 01:41:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795570905;
+	bh=0uALuexdmM829eAKCCxuAtcwAcX/KrdDY7PYwPZUEDc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=WizpStaM3pGyZ6aLPTA550frhN/LMtmfDktlk+ZzOz3iB/9QelKkTsH5MLGmLaUyP
+	 itQsUN01OJ9EVXPsKFeHuxpI5NnkAeYhBtSez1PS1p7Z1NX7XTCCaakFGK4NSA08tY
+	 haGL3bYL4fcmhiMEC+HRMV81GPTlCSor6X8StVGmwxfgythZ08KTWin9PirR7hhgiP
+	 B2y6WpUhkadSTyg+rx2gedv/bEQQl+PpRpG7HF5KRmxbSbqUmQV4CliTMBMbZFrU0W
+	 /84p1tYb2cgSHsqFS+vPiDXu+86RBRidyrB1S3LMydHmZdLi/C3eUyycB0ue/bZzEX
+	 cGp0LT/HvtDFA==
+From: SJ Park <sj@kernel.org>
+To: Kairui Song <kasong@tencent.com>
+Cc: SJ Park <sj@kernel.org>,
+	linux-mm@kvack.org,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Muchun Song <muchun.song@linux.dev>,
+	Qi Zheng <qi.zheng@linux.dev>,
+	Ying Huang <ying.huang@linux.alibaba.com>,
+	Chris Li <chrisl@kernel.org>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Nico Pache <nico.pache@linux.dev>,
+	Usama Arif <usama.arif@linux.dev>,
+	Michal Hocko <mhocko@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Barry Song <baohua@kernel.org>,
+	Axel Rasmussen <axelrasmussen@google.com>,
+	Yuanchu Xie <yuanchu@google.com>,
+	Wei Xu <weixugc@google.com>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Nhat Pham <nphamcs@gmail.com>,
+	Youngjun Park <youngjun.park@lge.com>,
+	Zi Yan <ziy@nvidia.com>,
+	Gregory Price <gourry@gourry.net>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Lance Yang <lance.yang@linux.dev>,
+	Hugh Dickins <hughd@google.com>,
+	David Rientjes <rientjes@google.com>,
+	Yu Zhao <yuzhao@google.com>,
+	Vernon Yang <vernon2gm@gmail.com>,
+	Zicheng Wang <wangzicheng@honor.com>,
+	Tal Zussman <tz2294@columbia.edu>,
+	Kairui Song <ryncsn@gmail.com>,
+	Xiang Liu <liuxiang.277@bytedance.com>,
+	Ehab Ababneh <ehab.ababneh@intel.com>,
+	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
+	Lian Wang <lianux.mm@gmail.com>,
+	Joanne Koong <joannelkoong@gmail.com>,
+	Kunwu Chan <kunwu.chan@gmail.com>,
+	Hui Zhu <hui.zhu@linux.dev>,
+	Maxim Muzafarov <maxmuzaf@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	cgroups@vger.kernel.org,
+	damon@lists.linux.dev,
+	linux-doc@vger.kernel.org,
+	Tianyi Chen <hi@tychen.cc>,
+	Ridong Chen <ridong.chen@linux.dev>
+Subject: Re: [PATCH v6 03/18] mm/memcontrol: avoid potential counter leak when reparenting local stats
+Date: Tue, 24 Nov 2026 17:41:36 -0800
+Message-ID: <20261125014136.98425-1-sj@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261124-mglru-fg-v6-3-8ffea39934a6@tencent.com>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,87 +108,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hi,
+On Tue, 24 Nov 2026 02:52:55 +0800 Kairui Song <kasong@tencent.com> wrote:
 
-On 7.4-rc3 with a Ryzen 7 PRO 7840U (Phoenix NPU, 1022:1502, firmware
-1502_00/npu_7.sbin), one command that ran past the 2 s TDR left the NPU
-unusable until reboot, and unbinding the driver afterwards deadlocked.
+> lruvec_page_state_local() clamps negative values to zero on SMP.  That
+> is right for readers reporting page counts, but can be wrong for
+> reparenting once MGLRU updates the counters without the lruvec lock.
+> 
+> Reparenting runs after the forced stats flush, so a negative is a real
+> balance that has to move to the parent, not be discarded. We will
+> introduce lockless MGLRU promotion which may cause following problem:
+> 
+>  1. A refs CAS on a folio on the child's lruvec moves it from
+>     inactive to active, and its active/inactive counter update follows
+>     as a separate step.
+> 
+>  2. A concurrent isolation of the folio reads the folio as active,
+>     debits the child's NR_ACTIVE_* by delta before CSS_DYING is visible
+>     to it.
+> 
+>  3. The child is killed, and the two __update_lru_size() calls from
+>     step 1 land on the parent: NR_INACTIVE_* -delta, then NR_ACTIVE_*
+>     +delta.
+> 
+> The child is left with NR_ACTIVE_* -delta while the parent holds the
+> matching +delta, and reparenting the child's raw value is what cancels
+> the parent's credit.  However, if the child happens to hold few enough
+> folios for that counter to be negative, lruvec_page_state_local() clamps
+> the child's negative to zero, which drops the debit instead, so the
+> parent keeps NR_ACTIVE_* overcounted by delta, and its active + inactive
+> total overcounted as well, permanently: the child's local counters are
+> gone once reparenting is done.
+> 
+> So use a raw signed helper and reparent with that.  Ordinary readers
+> still keep the clamp.
 
-The command's shim DMA waited on a FIFO that never filled. At the
-timeout:
+Makes sense to me.
 
-  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_tdr_detect: TDR timeout detected
-  amdxdna 0000:65:00.1: [drm] *ERROR* xdna_send_msg_wait: Wait for completi=
-on timeout
-  amdxdna 0000:65:00.1: [drm] aie2_destroy_context_req: Destroy context fai=
-led, ret -62
-  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_hwctx_restart: Create hwctx fail=
-ed, ret -19
-  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_set_runtime_cfg: Failed to set r=
-untime config, ret -19
-  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_runtime_cfg: Set type 1 value 1 =
-failed
-  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_suspend_fw: Failed to suspend fw=
-, ret -19
-  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_mgmt_fw_fini: Suspend_fw failed
-  amdxdna 0000:65:00.1: [drm] *ERROR* smu cmd 4 failed, 0xff
-  amdxdna 0000:65:00.1: [drm] *ERROR* Power off failed, ret -22
+> 
+> Reported-by: Kunwu Chan <kunwu.chan@gmail.com>
+> Closes: https://lore.kernel.org/linux-mm/CAN_Opa-+nb0vxQ+HsENCG2fEEMZoxG9Sy_DBC4CLkWjNLzDWKw@mail.gmail.com/
+> Signed-off-by: Kairui Song <kasong@tencent.com>
 
-After that, every DRM_IOCTL_AMDXDNA_CREATE_HWCTX and GET_INFO fails in
-the runtime resume:
+Reviewed-by: SJ Park <sj@kernel.org>
 
-  amdxdna 0000:65:00.1: [drm] *ERROR* smu cmd 4 failed, 0xff
-  amdxdna 0000:65:00.1: [drm] *ERROR* Access power failed, ret -22
-  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_hw_start: failed to init smu, re=
-t -22
-  amdxdna 0000:65:00.1: [drm] *ERROR* aie2_hw_resume: Start hardware failed=
-, -22
-  amdxdna 0000:65:00.1: [drm] *ERROR* amdxdna_pm_resume_get: Resume failed:=
- -22
-
-From the code, the destroy-context timeout makes aie_send_mgmt_msg_wait()
-destroy the management channel, so SUSPEND_FW and every later message
-fail with -ENODEV, and aie2_hw_stop() asks the SMU to power off with the
-firmware still running. The SMU answers 0xff, and since every resume
-starts with that same power-off in aie_smu_init(), the device stays
-dead until a reboot. Is a power-off with the firmware still running
-expected to be refused, and is there an intended way back short of a
-reboot?
-
-Then "modprobe -r amdxdna" hung in D state (over 40 minutes) with:
-
-  amdxdna_pm_resume+0x20/0x80 [amdxdna]
-  __rpm_callback+0x9b/0x330
-  rpm_resume+0x49b/0x680
-  pm_runtime_forbid+0x49/0x60
-  aie2_fini+0x12/0x30 [amdxdna]
-  amdxdna_remove+0xc4/0xf0 [amdxdna]
-  pci_device_remove+0x45/0xb0
-  device_release_driver_internal+0x18c/0x2e0
-  driver_detach+0x8f/0xd0
-  bus_remove_driver+0x102/0x190
-  pci_unregister_driver+0x1e/0xa0
-  __se_sys_delete_module+0x294/0x450
-
-pci_device_remove() tries to resume the device before .remove(), which
-fails as above and leaves it suspended. amdxdna_remove() then takes
-dev_lock and reaches pm_runtime_forbid() through aie2_fini() and
-amdxdna_pm_fini(); forbid resumes the suspended device synchronously,
-and amdxdna_pm_resume() blocks on the dev_lock its own task holds. The
-resume callback has taken dev_lock since commit 1aa82181a3c2
-("accel/amdxdna: Fix dead lock for suspend and resume"). Because the
-task also holds the device lock, a reboot afterwards hung in
-device_shutdown() and the machine needed a hard power-off.
-
-The same lock order is in linux-next (20261120) and drm-misc-next,
-where aie4_classic_fini() calls amdxdna_pm_fini() the same way. I
-haven't tested whether commit 8e2afcd2b579 ("accel/amdxdna: Fix SMU
-command execution on platforms without interrupt trigger") changes the
-first part.
 
 Thanks,
-Andrei
+SJ
 
+[...]
