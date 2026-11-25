@@ -1,102 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795631852;
-	b=QCpV0gQfMaPjpXKJZ6I3wLfQU9a4QrYH95MWGZqrRBBFzUE0i7hRnbe48NzYMghjrbJ5
-	 ycM7w2+2eRdF3YeFSxVsF/a3y+MywhG4NHZDImtoohkvr32SPXFP5ZyHTJjp35V8rdPGE
-	 7cVRyj1ISigrV52/0c7y3oDmb1Y6QlJR9/h2dRfv1ncJBr/JpdoX8wZ1OgCBER/lLqppK
-	 aDyyVf9f1f4m9jLGraNjCMSpzGspxsjS4dwqpvlBcHnhEvk2kbUNUfGuuG2+lUIgizqpX
-	 j52PvxP5V4pGpaBFdJWdITIgrDMk21YGkAZd9JYP0oKuy0YczsQ9y+cB1STiKF8ntjg==
+	t=1795631869;
+	b=Uy7xbXalrPiM4k3uu59Mtm540C9iu8LGfcCvVtb3D96lG2UCt7juo2D4k4uknpeLuIt/
+	 hjLtFA7TIkWRpDrK938C9laTxoAkSkYJo09XWRzWdEE02vSdIFVhJjnQ8ELsnA5MT/2R7
+	 X6Yut8Ey+wiZtmG33sI70XB322BVI9tQq0KWTZ5M4O6YgtcpGZBTWZKa7HuSq8HF0pdBN
+	 d3ZiptcIqIzMZba7p4oEpELUb83ne740dqGFV+w6G1w228EM5E0toAaX3u4tiSb468QVJ
+	 kHmSPbSm+7/QGVvrFx+S8rbXX3vExc92IIj30AoP5QriI4N4i4H2CxIlMFgQewwmuxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795631852;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795631869;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Kek6FDZpLqcH0HSvQN9yDKp87EpQtRAbPNHn0j20kgA=;
-	b=JBao3+A8NrIyqB8a/TYjIFo3K1LyFpPi99n74+2N1+2nKJFquyrVonGXMs0m51+C9ZbY
-	 G9P4BRCjiu+FnNN3PbeGeNlAEo7vlHokNrEYseGaJWnFAYpkSeao29I5jp3GXiL2TtRpg
-	 i7+x6w9E74TGY2v8OT1tBShZ2w+q+piabugF39ilRHPyNwt0/aSTU9sVDtPcLp5hrk/Yd
-	 SQeWTnqo1QNUcja0ICMlNSNc/nDyO0Kul+lOC6CUqD/8MDnpH7TF7lxmHCQdSP4tbNKGV
-	 cclKMpDpLSnFEypgbWiiUOEVvjkjgNZuXAky09n5Ye6L4JeWF8jD648QdOCjsJjpFfA==
+	bh=xksOV9aqopJGkGV2R/R/SK9xwhAwgR81ELO68UFIWf4=;
+	b=tbYi6V6jEnaQPNA0hsRCAoWAc+pWhXUf8BRLN0RPyvFURYnLPSqf0D/CUl5WYEriT1oa
+	 xpjQ2GmUgLVs6rnmeycfed4/kA9YeDlQyKelb1Wr/in0yDpSDCDr3uMPG/BpgyHyqI78Y
+	 R9clc1y9CHm2zsXYKCOI0O8hDCXTjeCj04xGjjuYUJ/UjKAHVXNgxBjee5V9sUx6UCqGO
+	 zvm2I//H0COkTPtgQ6Ugga8yxM6Apxp50Y4J2UNsrKEHC5jBr7NUZUP7gLRxUJ6zW/Pqk
+	 NKt+/Bev5wk5znL8J+BsP/niRcR4pj2AcUyAI11+9e5QzX4DkNF6udkbnc5niFW4//g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NwaW9uHL;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PB5MIJGF;
+	arc=none smtp.remote-ip=209.85.208.181
+Received: from mail-lj1-f181.google.com (mail-lj1-f181.google.com [209.85.208.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF7B3606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:37:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF7B3606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90094606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:37:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90094606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NwaW9uHL
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso33337465e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:37:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PB5MIJGF
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-3adfed9a887so56213001fa.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:37:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795631850; x=1796236650; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795631867; x=1796236667; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Kek6FDZpLqcH0HSvQN9yDKp87EpQtRAbPNHn0j20kgA=;
-        b=NwaW9uHLhWDz1JQvFv1IoKf+QK7th0438JBfB6b5Jik8GN/zO/xJ+nEvvKuNrdtrqB
-         RR6nofnnAOr3IgswVFRX0rEgBLgBnqxI/a5U4xKLHH7LfsWuZk6249L1jexDWFmgeeLc
-         ytBbeYkm70OAs7Hbq5eQdFf1hQibJCo4+fEZQyMzb4/QbUIcv1UXeteUdyC4NitCbFIM
-         BNj1P/OGAsAriCzgyyTLGSn1Ghaft1uiBmomA5hwUZDED0+gkuaVcwQcmpBmyCyts7gR
-         CU8EocwDmH/8a5D5qne1KevXtlJ9uQim6yjDMNCm7cHUxVTtoWcaEmfg2EvAS2aS00Wp
-         KhhA==
+        bh=xksOV9aqopJGkGV2R/R/SK9xwhAwgR81ELO68UFIWf4=;
+        b=PB5MIJGFsSGsLnz/41wkgUtlP2knNJBhBc4t3c30++a/pzxcSozvH6zFtS0WbcTzx4
+         miR6zzP9eKDqvOGNPLKqMKyhsXIyF7PtfEVS61tELJ9fWv7+oY4VZdoxOtYQsocOkzhC
+         tCD6DhrsCOJf+c69+3iDF3O2awLsxADq9iwbqzk1p91A8GTqp20mI9zYjJMLAT27JQv/
+         W9LJkUpvQ/mRfWRIlNkzfa/xWdFU6rbNk9m+xOzh6OuKLqXlJk/ibOEnOVmmpdhQYYMp
+         ts6X2S/KulVHQhGtaBNcmudaglk9aHsSDxlVBSw8r2wJNH5ODXb6sFZ51+YDB7NiGAsi
+         scCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795631850; x=1796236650;
+        d=1e100.net; s=20260707; t=1795631867; x=1796236667;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Kek6FDZpLqcH0HSvQN9yDKp87EpQtRAbPNHn0j20kgA=;
-        b=pLxTyXBSbPHMlPwttDCcZ8PU2wZMJCQo9MYc6CVfvdnI1XjOxxgArk8dZnrRuXqotL
-         dWyACi3gn+opNwxdVXi5+mN7D+wDPdHsPI0SM3pF4Wq5H+HajUs1GeQjV3hrFcOO4YIB
-         5GbsTCq3LAXFhQKCjYkvCujuReLXQctEwX47chaeCsCWdtMRw8qPR8j1kzjdlOsIWcNM
-         fBQJh2H0mor7KLGgsLoQAhdtRlWMUtZidVVyPFTLrzaPL+nSUYkfIQ+RG6ayky0dq0t5
-         2x1CyB4Z1POEI9/tMdo3pMIloqa3T5VC6ffMX+PmMhwbrpnWmbdyJD6Ftt4PEaN1g9/w
-         OP7g==
-X-Forwarded-Encrypted: i=1; AL+hErG5iWkMDW5n1W0HqFgR1ebV9W+j7ojAlFas0rYaWZqTu56MjdgSbyvuzi6BVXQ0BrEIMhVjZZ/v3Fv+k4Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8OBlOijbu8xOkPtzVO4L0L/H2Mg0WE0LTd0/pUHlTMZdThLbDM
-	etpUJeRp8kA1QOTvkYjlTAR9X2IVuGMPMzkQxk/JBRr1V4dv/H+U1UYKpctLZorU
-X-Gm-Gg: AZFdTZfzJapRfK3Ynq3dziFCOhWy3fBA90oFwmAvJasL3YCc25hXnM5bIU6Kz8eZii9
-	dJY1NXf3+KA2ZmnOyYDn0ENfzmsG92FgeSppOFI9LH0x/0j8cCOwQ5iTC8XkNihUwHabJkj6OXF
-	SMCq3GktHW2Tmx68U54jtg6OJgSzWeFLvkHhIOVUE3Cs3vSGxAGSjABtTGe0YJRlMU0U/sYlrVj
-	y4PXQ5y6i8TYAltusBYRTTA0dCaUM7uEQep67X3IiGZEUweDQ36BZo86SGEuRnTK1boVT4UG0Cc
-	iAX/pkREkYovH1183Uw6AhPIYu7gGpWvCHBCm2fMyuPFsIHTMpY3j0n+tHPztOlkoMSfMEQME4o
-	0LMsXfusrdYhTGDSAoreatoPf3K4It/79QI5OYqtnX9RMkYebLBqD1D4utDvnUZbt9htMQUU8LA
-	Z+OoWbzCPMbkJciJqUWmqdHCGmYarWGYq9zPsNrA1t5YJ/AlhXlSB10sytAsldboR21Qwj6PhKG
-	wxztU/E4lGBF9AV1b9lKFqH2YNVT+w9YB7IT+glNdp4XLsXVC1zobnVPL/ot8PnVWcc/8eDq8TO
-	sOKT2PO0/QPIrITycDhYJHtBcP2aLcL+syUvmMc8NJjqxHhwf8+GEKHQaRSNdEQBEYBB/a7D0qs
-	MKQ==
-X-Received: by 2002:a05:600c:5487:b0:4bb:5de1:e92c with SMTP id 5b1f17b1804b1-4bb88813157mr384863025e9.26.1795631850007;
-        Wed, 25 Nov 2026 10:37:30 -0800 (PST)
-Received: from kreach.multipass (nat44-21-238.net.ruhr-uni-bochum.de. [134.147.21.238])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bba6a0d65fsm68397895e9.3.2026.11.25.10.37.29
+        bh=xksOV9aqopJGkGV2R/R/SK9xwhAwgR81ELO68UFIWf4=;
+        b=T8oZy/0LDbE+pbcIcmnWbAzaGwu3jv5XsmIEH4hQkv0mbC6EX99RXrPPCT3u9QLz2f
+         fQSCi324rFPUV9cqLt4W+3W1TaqJIEmRaKKXyPCa4DvySMvKdhQydQyvz4B6dnCPZ4gg
+         7rVkZPe/sfcZywQdvtWe4+bH/OxNjOkidBJcCK0DiEL4twmbUaofjUm4n4TBHXvQih6h
+         Hv3arkejuGQp0iVm1vgYpHiPSE87axY0shoswTT9+wKD4JqlsnGsrHbUe7doGbcUGp/z
+         +X9Vx8VdBkZbO7grv+8xhbNq54LBF8KAbrKptd8wtBqedIcd8s/grwYim7Vh6gh5gBsM
+         pKEg==
+X-Forwarded-Encrypted: i=1; AL+hErFV3/oYRPo3cfjCfhjcFI6zHNNsCyBzb332lgNT1ZtEoI9Z7nYyG3DgxMAMEQ3bFhE5iKt7fIm2Gkg58gg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+KVTZjgyF1INoIX24Uhi32P7CRHux9udYlW/Icwe8ZYXPA5AYs
+	/YbgrLrLGTyDua+GLBG7JJdo6y5OrYG8xsZr+I7NPugiNJyKmeO1vZFl
+X-Gm-Gg: AZFdTZclDV81mqS7xFhGvyyztOr+cRYl+qXl4vKYHmtesAl8IN8DRL9cO6xD86HOnHt
+	1tkvR0koPpQFdWgt9V4NtnGkbT2D0HQEGq93HN9th8pej9xjWzaLV47PlfRfPgMZxcF3aFhDoeF
+	CvdUHMEPsZSw07VQsupxJMk6JNOHr03ItHwW70CHmZyNbKVnQLLVAr4Tm3G787PG9B+07utM7NH
+	ZGIz49jOIlObQ1LUN0RwWPZWP64yE8mnxYHzZKzAR06ovRxuv7FDA4JGW96nrRVLv5h1rs/xT4e
+	KBxq2Jlbjj2/ntY3/1VkQn4s4i+7GTRB0gB6fDQbZw8UEGR14fouIXnnpfd+Zjafaq9CYT6tWKD
+	Pnff/xNfrw+TZRYR8QB9KyPf6h6aCt4BCz2tQ2avtGFogikCP6DPi1J3BabwgVDgyuZS4N6tAwU
+	pyWP2jowBhLQQG1KP8NM/8ts3lLDKVgG83otfovTbFxum8ic2aVqd8aV4A7nTWDlpEYTHfXCvV+
+	0bsR/8mnMUdqN+YnSsKCGl5m84wvxIrnwthU3yMitNW7GC98zk3p5Qcm/zwA9449a6spyUqBwIf
+	ikKDvrVQRAXeayvyBsuTLpE2hkejLSmHCkGO8YaQe02xbn8=
+X-Received: by 2002:a05:6512:1393:b0:5c0:b5c:4044 with SMTP id 2adb3069b0e04-5c1bc690966mr5240993e87.1.1795631866318;
+        Wed, 25 Nov 2026 10:37:46 -0800 (PST)
+Received: from NB-6746.corp.yadro.com ([188.243.183.76])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd05051bsm4650755e87.62.2026.11.25.10.37.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 10:37:29 -0800 (PST)
-From: Jude Gyimah <jude.gyimah87@gmail.com>
-To: lgirdwood@gmail.com,
-	peter.ujfalusi@linux.intel.com,
-	yung-chuan.liao@linux.intel.com,
-	daniel.baluta@nxp.com,
-	kai.vehmanen@linux.intel.com,
-	pierre-louis.bossart@linux.dev,
-	Vijendar.Mukunda@amd.com
-Cc: broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	arnd@arndb.de,
-	sound-open-firmware@alsa-project.org,
-	linux-sound@vger.kernel.org,
+        Wed, 25 Nov 2026 10:37:46 -0800 (PST)
+From: Artem Shimko <a.shimko.dev@gmail.com>
+To: andrew@lunn.ch,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	maxime.chevallier@bootlin.com,
+	pavel@ucw.cz
+Cc: Artem Shimko <a.shimko.dev@gmail.com>,
 	linux-kernel@vger.kernel.org,
-	Jude Gyimah <jude.gyimah87@gmail.com>
-Subject: [PATCH] ASoC: SOF: ipc4-topology: fix link failure with SND_INTEL_DSP_CONFIG=m
-Date: Wed, 25 Nov 2026 19:37:06 +0100
-Message-ID: <20261125183706.53331-1-jude.gyimah87@gmail.com>
+	devicetree@vger.kernel.org,
+	linux-leds@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH net-next v6 0/3] net: phy: dap8211r: add LED control support
+Date: Wed, 25 Nov 2026 21:37:35 +0300
+Message-ID: <20261125183742.3039752-1-a.shimko.dev@gmail.com>
 X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -109,67 +110,124 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi everyone,
+Hello,
 
-Just to bring this to your attention.
+This series adds support for LEDs on the DAP8211R
+Gigabit Ethernet PHY.
 
-snd-sof can be built into vmlinux while the Intel NHLT code that
-ipc4-topology.c calls is in a module, and then the link fails:
+The first patch fixes mistakes in function comments about locking mdio.
+The second patch documents the optional "leds" node in the Device Tree
+binding. 
+The third patch introduces a small helper to write extended
+registers, since the LED registers are accessed indirectly via
+EXT_ADD/EXT_DATA and implements the three LED callbacks
+required by the PHY library.
 
-  ipc4-topology.c:(.text+0x22bc): undefined reference to
-    `intel_nhlt_get_endpoint_blob'
-  ipc4-topology.c:(.text+0x2424): undefined reference to
-    `intel_nhlt_ssp_device_type'
+$ make dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/net/dptel,dap8211r.yaml 
+  SCHEMA  Documentation/devicetree/bindings/processed-schema.json
+  CHKDT   ./Documentation/devicetree/bindings
+  LINT    ./Documentation/devicetree/bindings
+  STYLE   ./Documentation/devicetree/bindings
+  DTEX    Documentation/devicetree/bindings/net/dptel,dap8211r.example.dts
+  DTC [C] Documentation/devicetree/bindings/net/dptel,dap8211r.example.dtb
+$ yamllint Documentation/devicetree/bindings/net/dptel,dap8211r.yaml
+$ grep -i "dap8211r" Documentation/devicetree/bindings/processed-schema.json
+    "http://devicetree.org/schemas/net/dptel,dap8211r.yaml": {
+        "$filename": "/home/a-shimko/patchwork/linux/Documentation/devicetree/bindings/net/dptel,dap8211r.yaml",
+        "$id": "http://devicetree.org/schemas/net/dptel,dap8211r.yaml#",
+        "title": "DAPU Telecom DAP8211R(I) Gigabit Ethernet PHY",
 
-This happens with a non-Intel SOF platform built in and the Intel option
-modular, for example SND_SOC_SOF_IMX_COMMON=y selecting SND_SOC_SOF while
-SND_SOC_SOF_INTEL_COMMON=m selects SND_INTEL_DSP_CONFIG=m.
+Required:
+CONFIG_NEW_LEDS=y
+    CONFIG_LEDS_CLASS=y
+    CONFIG_LEDS_TRIGGERS=y
+        CONFIG_LEDS_TRIGGER_NETDEV=y
 
-The existing guard cannot prevent it.  intel-nhlt.o is shipped by
-SND_INTEL_DSP_CONFIG, but the guard tests SND_INTEL_NHLT, a bool that
-SND_INTEL_DSP_CONFIG selects "if ACPI", and a select from an m-valued
-symbol sets a bool to y.  So SND_INTEL_NHLT is y whenever the provider is
-y or m, and the condition can only tell "NHLT present somewhere" from
-"absent", never built-in from modular.  The static inline fallbacks in
-include/sound/intel-nhlt.h are keyed on the same condition and are
-therefore unreachable too.
+Testing:
+$ ip link set eth1 up
+$ ls /sys/class/leds/
+stmmac-1:01:amber:lan  stmmac-1:01:green:lan
+$ echo netdev > /sys/class/leds/stmmac-1:01:green:lan/trigger
+$ echo eth1 > /sys/class/leds/stmmac-1:01:green:lan/device_name
+$ echo 1 > /sys/class/leds/stmmac-1:01:green:lan/link_1000
+$ cat /sys/class/leds/stmmac-1:01:green:lan/offloaded
+$ ip addr add 192.168.5.100/24 dev eth1
+$ ping -I eth1 192.168.5.1
 
-Test reachability of the option that actually ships the code instead.  No
-header change is needed: the file already stubs
-snd_sof_get_nhlt_endpoint_data() in its own #else branch, and wherever
-IS_REACHABLE is true with ACPI=y, SND_INTEL_NHLT is y as well, so the real
-declarations are in scope.
+$ echo netdev > /sys/class/leds/stmmac-1:01:amber:lan/trigger
+$ echo eth1 > /sys/class/leds/stmmac-1:01:amber:lan/device_name
+$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/tx
+$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/rx
+$ cat /sys/class/leds/stmmac-1:01:amber:lan/offloaded
 
-This is the same remedy as commit 8a3fea95fab1 ("ASoC: SOF:
-SND_INTEL_DSP_CONFIG dependency") applied for snd_intel_dsp_driver_probe in
-sof-pci-dev.c, which commit 194fe0fc3422 ("ASoC: SOF: pci: move DSP_CONFIG
-use to platform-specific drivers") later resolved by moving that call to
-Intel-specific code.  Moving these calls likewise would be the complete
-fix so this is the one-line one.
+$ echo none > /sys/class/leds/stmmac-1:01:amber:lan/trigger
+$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/brightness
 
-Found with kreach, a static check that compares what Kconfig allows
-against the symbols the compiled objects actually reference.
+$ echo netdev > /sys/class/leds/stmmac-1:01:amber:lan/trigger
+$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/tx
+$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/rx
+$ ip addr add 192.168.5.100/24 dev eth1
+$ ping -I eth1 192.168.5.1
 
-Fixes: aa84ffb72158 ("ASoC: SOF: ipc4-topology: Add support for SSP/DMIC DAI's")
-Link: https://lore.kernel.org/r/20261107114944.561731-1-jude.gyimah87@gmail.com
-Signed-off-by: Jude Gyimah <jude.gyimah87@gmail.com>
----
- sound/soc/sof/ipc4-topology.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--
+Best regards,
+artem
 
-diff --git a/sound/soc/sof/ipc4-topology.c b/sound/soc/sof/ipc4-topology.c
-index 22c15fbb93f2..3ad27c57564b 100644
---- a/sound/soc/sof/ipc4-topology.c
-+++ b/sound/soc/sof/ipc4-topology.c
-@@ -1790,7 +1790,7 @@ static void sof_ipc4_unprepare_copier_module(struct snd_sof_widget *swidget)
- 	}
- }
- 
--#if IS_ENABLED(CONFIG_ACPI) && IS_ENABLED(CONFIG_SND_INTEL_NHLT)
-+#if IS_ENABLED(CONFIG_ACPI) && IS_REACHABLE(CONFIG_SND_INTEL_DSP_CONFIG)
- static int snd_sof_get_hw_config_params(struct snd_sof_dev *sdev, struct snd_sof_dai *dai,
- 					int *sample_rate, int *channel_count, int *bit_depth)
- {
+ChangeLog:
+  v6:
+    - Return -EOPNOTSUPP in dap8211r_led_hw_control_get() if DAP8211R_LED_ACT_BLINK
+    does not match the presence of DAP8211R_LED_RX or DAP8211R_LED_TX,
+    preventing incomplete rule reporting and register clobbering.
+  v5:
+    - Drop redundant $ref to common.yaml and inner unevaluatedProperties: false
+    from the led@[0-2] subnode, as they are already inherited from
+    ethernet-phy.yaml.
+    - Move write of LED_x_CON first and clear FORCE_EN afterwards in
+    dap8211r_led_hw_control_set().
+    - Report TRIGGER_NETDEV_LINK instead of individual speed flags in
+    dap8211r_led_hw_control_get() when all three link speed bits are set, as
+    netdev trigger rejects reporting them together. Based on [1].
+    - Add checking of DAP8211R_LED_ACT_BLINK alongside TX/RX bits in
+    dap8211r_led_hw_control_get().
+    - Add -EOPNOTSUPP in dap8211r_led_hw_control_get() if unsupported
+    hardware bits are set in LED_x_CON.
+    - Link: [1] https://lists.infradead.org/pipermail/linux-arm-kernel/2026-September/1172246.html
+    - Link: https://lore.kernel.org/all/179560033613.3135.13122318439070700886@kernel.org/T/#u
+  v4:
+    - squash extended register write helper into the LED control patch to
+    fix netdev/build_32bit, netdev/build_allmodconfig_warn, netdev/build_clang
+    fails (patchwork.kernel.org)
+    - add andrew+netdev@lunn.ch to Cc of dt-bindings patch to fix
+    netdev/cc_maintainers warning (patchwork.kernel.org)
+  v3:
+    - fix kernel-doc comment for DAP8211R_LED_FORCE_MODE_ON and
+    DAP8211R_LED_FORCE_MODE_MASK
+    - use FIELD_PREP() for DAP8211R_LED_FORCE_MODE_ON 
+    - Link: https://lore.kernel.org/all/20261120081106.2919010-1-a.shimko.dev@gmail.com/T/#t
+  v2:
+    - add a commit fixing kernel-doc comments for dap8211r_read_ext() and dap8211r_modify_ext()
+    - move LED child node down below tx-internal-delay-ps in dptel,dap8211r.yaml
+    - add blank lines in dptel,dap8211r.yaml
+    - restrict LED reg index to 0..2 and fix schema properties in dptel,dap8211r.yaml
+    - fix kernel-doc comment for dap8211r_write_ext()
+    - add LED brightness (force mode) support to driver
+    - remove rules == 0 statement
+    - add TRIGGER_NETDEV_LINK to DAP8211R_LED_SUPPORTED_TRG for dap8211r_led_hw_is_supported()
+    - clean up switch (index) statements
+    - Link: https://lore.kernel.org/all/CAOPX74709XiLXLoioDJStTSzzhstC2sHpM4GieAO=3-37E18pw@mail.gmail.com/T/#u
+  v1:
+    - Link: https://lore.kernel.org/all/20261113110546.173624-1-a.shimko.dev@gmail.com/T/#t
+
+Artem Shimko (3):
+  net: phy: dap8211r: fix kernel-doc comments for extended register
+    helpers
+  dt-bindings: net: dptel,dap8211r: add LED nodes
+  net: phy: dap8211r: add PHY LED control support
+
+ .../bindings/net/dptel,dap8211r.yaml          |  41 +++
+ drivers/net/phy/dap8211r.c                    | 265 +++++++++++++++++-
+ 2 files changed, 304 insertions(+), 2 deletions(-)
+
 -- 
 2.43.0
 
