@@ -1,66 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795649265;
-	b=oZct0GTWDZiJFmnl73Eg9AnpqB4zyVWnRViPJdACRPgzQ+e+4ZfA3R66qaAtHTQ200+u
-	 AmLY1RB2dP5IwR3hV0pWR3seHeVNndUt+5FAC1OpEe/x1rS5vkjq0eNeC3yg4/98BCt9O
-	 f3ji7a8SFTWYa4lAZTHhJpXUd1vRqbNZuZC9azD8QWldEftir7UFLJmUufsnQbdFzXNf1
-	 gCCBcVApEd7aib/4wfpKQOdX9QuD2HE7yettw9dhTgwqiZRo0VDg0nvSngdNegz4DHraO
-	 sEGm4mrIixzpIMARTTiD2bJAQyfj+M6E9BDuVPnsG8/N/dLSVaJoYpmlGHm8x//JL2w==
+	t=1795649266;
+	b=zUY55A9uCNOtnM2CqlTCQZhu5e9pDpv1LFZe9FQvDuK3HjR/00qBDI6Mr/gtEfeKfa7t
+	 2RkpE3R0xmVko9kEYrmEcMkQEDZDKrmLetpHRUompGd1REV5x+JOr7LHZGAGS/qoPUSOC
+	 JneGpLooQI9uJqVy1aSeVlYqL274hr4qG42j1oDTKaNU5Q9aED//v11JjftFxzZjgr/1a
+	 ZTD0aqhNRkJ3YvdWL4kL6+8mxYOBtpz6w2EvFtNw4sqKBhgsDZVbvNdSVcK5F8PogIy7t
+	 LH/FN7AdOmDhPO4D+Ux11OaVGGTC+2AYRMiQi9SYBjm1R41QUbWI+3ts0LhyQEOQTrA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795649265;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=pzjyGmZZ2mfKFwIvgz7xu0SROw+6FToALTMc9Gn5dzg=;
-	b=zYpb6eJssDYCL3xICJTmfBcbKaua5J4BgQF0uIw81s+TGRmEqwN1SJMy4YMT/4Q20hUw
-	 J7vInWLf1EvgLY52pRntDro9rIbaxbtAvsiswA57ubh1Hy5DsRKtH4ZDQZoQ7qLO2SQh4
-	 8Q54BLxxNAtLkldvaFE/Re2Yi67H0FmXdyTAchoOUSc8i0ezuADrS1QgC2PiuKNCluGnb
-	 ez5qBixeQ/NvrJSVx8gPDPlLH4YLlypOX8/r10CpD318ZB13G6N+3ViuaRD6jgB1w8L6Y
-	 aDqyUva5bRLf1MggkwQP50in6m9FyDPoJQKJOljXONSkXn/p7ITD7qRT9JyWK52wrpg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795649266;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:
+	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=/HJbIW3FFEpjlmr0Csa/1n7NSYs1JLeGp72ySMLJNak=;
+	b=puyYQz5s7R54cXzhwknBtJiLlCxPOOWnY3Qv/wg9IxkVSdmYayeHZbnEL4gNiS9If0vx
+	 /ZHThyK1HMARJ+1h4GOv028ozDXd9gsk4+LDnkS0pQRi4XlbXI2IcUHuDXMzhbQN+l7Wb
+	 wa9ubZwo1MkeUywN4TfJzv9/mXVr9HBgX4BzClzs7HVXuhaiDDnJGTJxwg1Ki2Fw6rpS1
+	 oR9GygUKBzkKHVOXORP3VJxAsNA4oPSEDeKQngcAeKToGSWTnknu0Pl7Ht8eubTFHJEtb
+	 FxC9NdZghH7Q64t9kzSl20zEptFDBh/rdEJuUun+vB+a5JXStmY6e8mlzG1yFtWQDFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=acm.org;
-	spf=pass smtp.mailfrom=acm.org;
-	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=gPnllvaQ;
-	arc=none smtp.remote-ip=199.89.1.14
-Received: from 011.lax.mailroute.net (011.lax.mailroute.net [199.89.1.14])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aQFQcI4i;
+	arc=none smtp.remote-ip=192.198.163.13
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12ACC606A327;
-	Wed, 25 Nov 2026 23:27:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12ACC606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BFF8606A336;
+	Wed, 25 Nov 2026 23:27:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BFF8606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=gPnllvaQ
-Received: from localhost (localhost [127.0.0.1])
-	by 011.lax.mailroute.net (Postfix) with ESMTP id 4jZbSV44Hqz1XM6JG;
-	Wed, 25 Nov 2026 23:27:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1795649253; x=1798241254; bh=pzjyGmZZ2mfKFwIvgz7xu0SR
-	Ow+6FToALTMc9Gn5dzg=; b=gPnllvaQem7qSZpDqnmOE63QftMGzquLwF+QaY0r
-	salGmSB2zP8C/wjUkmk6DFKVDjz2trunYUOpMkrgsAEMhAfJgLTOZLqW2ZuDidm0
-	uRzqw4+VtN+EYunO+uTw3T84mP9EWsNnlJQNbjyyOQ4fS/kAosySDxGBf87E313b
-	4wx+K/0Xr1llkEqP6a7XixWcSCpyZnHl+qrPRoP+v+9ncgxkkEh4MxIrLUSOECnC
-	HKN36CKV4FVyohOtrhUBO7vmxCo8nL+e8cgLdW3KMWjC8tSOfC7YpiTkSCGrHLD0
-	X0YtJcHbdF7QykvG17dJaBTad7msKVCfhnS9x8RuIBcWHA==
-X-Virus-Scanned: by MailRoute
-Received: from 011.lax.mailroute.net ([127.0.0.1])
- by localhost (011.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id WpI1dKdOLk4G; Wed, 25 Nov 2026 23:27:33 +0000 (UTC)
-Received: from [192.168.0.215] (c-24-6-239-25.hsd1.ca.comcast.net [24.6.239.25])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 011.lax.mailroute.net (Postfix) with ESMTPSA id 4jZbSN73yTz1XM30h;
-	Wed, 25 Nov 2026 23:27:32 +0000 (UTC)
-Message-ID: <0edb9525-5068-42e6-b6c3-a1dcebcbcea7@acm.org>
-Date: Wed, 25 Nov 2026 15:27:31 -0800
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=aQFQcI4i
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795649267; x=1827185267;
+  h=from:to:cc:in-reply-to:references:subject:message-id:
+   date:mime-version:content-transfer-encoding;
+  bh=yZAAVIM7FG3p9BJfJBak4PZ9n5tN1aTiiHTd1IpUTBA=;
+  b=aQFQcI4impGk7GQCtC+opVgaVQZRyIUKcUZTj736oYzbAlyoNgnda4kF
+   3e3pXcsaAYRYt9eg1QcrjRgm81aNNQ9HUzu4ghlFJE8waRL8I7HDkT7wa
+   ZeSegYdFasVmI/GZPifrzO0oZtvc1CYpYGYoXc0rH7huPaWxX3Q3gUKpv
+   3zEJxvT39xwWLHxxWcchi0Rt1gAPqDHhVEoZIR/whBXdDDzmh3sQAsvzd
+   PHENBahBgZibl8Lt8vX+uNw58pnxZOn2X1qviuO/kDJjqC6P8HqwUhh5X
+   xvSP1Ibg0KwIrTlW/dQA8Qk0j2HnYhq3u4kl5ZOhCoB9PpZWevnkTbP9r
+   w==;
+X-CSE-ConnectionGUID: eF/JnZykTzWKTG2hsLij5w==
+X-CSE-MsgGUID: bfouAa3kSrm7sJrRs96hpg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4516783"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4516783"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:27:46 -0800
+X-CSE-ConnectionGUID: NEpsVNPoTnmqKCHEkxxY/g==
+X-CSE-MsgGUID: hvzSTjGeSbO0JxJmR86OBw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="12324206"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.96])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:27:43 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+To: Werner Sembach <wse@tuxedocomputers.com>, 
+ Hans de Goede <hansg@kernel.org>, Aaron Erhardt <aer@tuxedocomputers.com>
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261123-nb04-fixes-v2-1-973e569381ba@tuxedocomputers.com>
+References: <20261123-nb04-fixes-v2-1-973e569381ba@tuxedocomputers.com>
+Subject: Re: [PATCH v2] platform/x86/tuxedo: Handle LampUpdateFlags in
+ LampRangeUpdateReport
+Message-Id: <179564925880.9828.3153081146517231447.b4-ty@b4>
+Date: Thu, 26 Nov 2026 01:27:38 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,56 +80,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] DMAR fault by Intel H97 SATA controller since
- "block: Increase BLK_DEF_MAX_SECTORS_CAP" (6.17-rc1)
-To: Lu Baolu <baolu.lu@linux.intel.com>, Jason Gunthorpe <jgg@ziepe.ca>,
- Joerg Roedel <joro@8bytes.org>
-Cc: 70sp <70sp@protonmail.com>, Laurence Oberman <loberman@redhat.com>,
- Thorsten Leemhuis <regressions@leemhuis.info>,
- Tobias Laas <tobias.laas@posteo.de>, Damien Le Moal <dlemoal@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, regressions@lists.linux.dev,
- linux-block@vger.kernel.org, linux-ide@vger.kernel.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Niklas Cassel <cassel@kernel.org>
-References: <5ad27a97aafbc08a8702d5b90d09cd59@posteo.de>
- <awSs5Cw3hFkf4O4T@ryzen> <ec36d13e-e4c2-4bfb-8b50-69d4a1628839@leemhuis.info>
- <87b1bbd8-8113-4890-8623-738b19a9cc7b@leemhuis.info>
- <a0ff3156-add0-4f7d-8373-09f95bd7036b@acm.org>
- <2adaf0ef9e1a2fa18590f7d8dbf203c0f7de2be7.camel@redhat.com>
- <uJluFNYGCCrdvnYT3MatN_4Om8UczTJX_dzxumJxyCAC7F-Ubrekb7LPwlRxhCW0J91UBf-TqeRoJQfgYIYBRvMsPmE-Qs1eAg5zbDP0s58=@protonmail.com>
-Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <uJluFNYGCCrdvnYT3MatN_4Om8UczTJX_dzxumJxyCAC7F-Ubrekb7LPwlRxhCW0J91UBf-TqeRoJQfgYIYBRvMsPmE-Qs1eAg5zbDP0s58=@protonmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 
-On 11/25/26 2:51 PM, 70sp wrote:
-> as I mentioned in the referenced regression thread I reported, the
-> patch I sent out was basically an example to show that it works for
-> my use case. I wrote that I don't think the patch is ideal (in fact,
-> I think it's an absolutely terrible solution to fix this). This is
-> also the reason, why I just sent it as a snippet of code.
+On Mon, 23 Nov 2026 15:05:10 +0100, Aaron Erhardt wrote:
+
+> According to HID Usage Tables v1.7 "Lighting And Illumination Page", the
+> LampUpdateComplete flag marks an update report as the last of a batch. A
+> device must apply all prior changes at once when it receives a report
+> with this flag set.
 > 
-> Please take a look at the code before the regression started to
-> occur. It was implemented universally. These vibe coded patches are
-> horrible compared to the original code. We are literally making an
-> exemption for a specific CPU in a place where it shouldn't be. The
-> actual correct solution would be to make a patch which works
-> similarly to the pre-regression state.
+> The handler for LampMultiUpdateReport already honors LampUpdateFlags,
+> but the handler for LampRangeUpdateReport did not. It always set
+> LampUpdateComplete on the final chunk, so every range update flushed the
+> internal color state regardless of what the host requested. This reduced
+> efficiency and caused unwanted intermediate states for software that
+> batches updates using the flag.
 > 
-> If we are going to merge something that is made by a LLM we should
-> at least make it good. Ideally made by an actual human.
-(+Lu, Jason and Joerg, signers/reviewers of the patch mentioned in the
-Fixes: tag)
+> [...]
 
-Is a better solution possible than the patch "iommu/vt-d: Disable
-superpages on Haswell with integrated graphics" I posted here:
-https://lore.kernel.org/linux-block/uJluFNYGCCrdvnYT3MatN_4Om8UczTJX_dzxumJxyCAC7F-Ubrekb7LPwlRxhCW0J91UBf-TqeRoJQfgYIYBRvMsPmE-Qs1eAg5zbDP0s58=@protonmail.com/T/#mc147f250c5356e3742ab3d30ccf6b4a3a8c4196b 
-?
+Thank you for your contribution, it has been applied to my local
+review-ilpo-next branch. Note it will show up in the public
+platform-drivers-x86/review-ilpo-next branch only once I've pushed my
+local branch there, which might take a while.
 
-Thanks,
+FYI [if applicable to your patch], as per Linus' policy change, also
+fixes are mostly routed through for-next unless the fix is for a
+commit introduced in the most recent cycle or is clearly a regression
+fix.
 
-Bart.
+The list of commits applied:
+[1/1] platform/x86/tuxedo: Handle LampUpdateFlags in LampRangeUpdateReport
+      commit: 918846d92173e49fb4f1f75324b51927e7456c01
+
+--
+ i.
+
