@@ -1,58 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.198.224.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795601165;
-	b=Bvom14JvUIkzRYT9oBz14dvPS/ImMUiyLXx1THtQghpnGiUsVF5vGXPKyw6Wrj+5zLAF
-	 O5ZXnrFZX90kdGMgpCf/CLuzXOcszBwV20bwKZZCaoG/DIKKjP6it9w7YkvGoZ0uzPG7m
-	 vyrp4kHhOKhzaFfFv1n2LmoNH/Q9F68GPyd74dVdUVLz5kkMEyj+ax96AEoT0ES5/U7Ow
-	 eXfNBJ6Oj5z3lyEx0jvhi8dblNAjNPveeichc2F4J3NfLJG4Zd3T8NMoOcRKphLbEsVYb
-	 /XpF8CCF7GxoWYX0cP0st9W/eKgJCGuSxRENVjUhYRqo44ezSSWtSpbluOf2/fLqTVA==
+	t=1795601208;
+	b=KHZvz6VqEyPtA0L+LnUntftRmBMRKtyxw3sddui91t/5+7Ayw7giU8Gzxxx/e1XTBqzp
+	 XlRDS7UQTzRsYQXpTuh+sDO5SOqEQqlZzgBvaryWXo4dnmcOC0hpUOgGuIM5i7F+jfPaP
+	 Y9fBL1URxPgy9t1/whAr+0wl+x3jjP68aC3SDL+JKHGRRXQVuCi01sfWOftjrOICSKmNb
+	 JTFJpLRxRc9/tPa1GmdrK5x7xTRyVmOCkses9Qr8TairjSw5ErDzIspzuW8GkNjKdkoyq
+	 8bQUCgqFVqRFa2VWt/kwVnDEHPKK/KSoW+QufagVLkoIalS9QxHvwQ+yiDTx0y1xc0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795601165;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=h3UMk1rW3fjxSyF4tH74Yzi8ILA/+mi78plO5dTp5sM=;
-	b=QIiUTWfavKz56c3XSKGea5UpIMl8d9Gs32E+icOD2Xy3f19t4lpRuCOTcATpGUUhXtBg
-	 1j4+Ky/K1QB6nKcYM6BcVkOTI+cPtd+qLLkDBenAkRlyzNPRSoTOSrMYlTXnYNAA/OeaS
-	 Z8hEpettUhgywdTNnDqwwtOkCR2ZHG5F15wFDZxfn7+78pIjtM0fVgX/C74bW39OVayyX
-	 0Ue0uKyYZx/375z6Qi8pu9R+Z22rLgzbB6qJ7Lfv3xDZwhhxZfh8epN9tQHbL8G5poadO
-	 juwiPaO3t9xHY1qQoguZmRaXz+agBuouBnCv14IvHledAp3p5av6tvMc5yExPW9rcNA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795601208;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
+	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
+	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:X-purgate-ID:
+	 X-purgate-type:X-purgate;
+	bh=Nb9j7n4VMoBo0nPcTqnB3tMTmYPQkVLcITR8atKeMWY=;
+	b=DzehCU6oRm+EzqV8NP4G6IQjrBoL+BSj/1cQfnJ1qfqVSCh1Xnem/ROuKbhJRWEFGbPg
+	 6gyv1jVw1rK6MX5rVxhjnlmRP5FiORSXDN1YqoEhSm1RQcWfkLEgPynSR1C3sP9tLC/oq
+	 A7H6yepJbAZpgox/2WkQ1lWx08pup1Qo9e/jk3TdEVzukC6cdDKOb37cfSxuROTi75I8t
+	 wkEbCoeHV1lNZ1/DUISrvZpgfwJ7/fc3OIhHXQl3/Tx8jlLGi1IosSKNMoKJODlof4ct5
+	 xwEZnzfQy2XTnrlwvrIUDPi9CqdFI0oR18lKPaBPfNyZQYu9hRePhIw02ni5CP1FZMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LXZP5evJ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=dev.tdt.de;
+	spf=pass smtp.mailfrom=dev.tdt.de;
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=HYuSPXnR;
+	arc=none smtp.remote-ip=91.198.224.70
+Received: from mxout70.expurgate.net (mxout70.expurgate.net [91.198.224.70])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCD68606A326;
-	Wed, 25 Nov 2026 10:06:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD4B6606A31E;
+	Wed, 25 Nov 2026 10:06:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD4B6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LXZP5evJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B2E71F000C4;
-	Wed, 25 Nov 2026 10:06:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795601165;
-	bh=h3UMk1rW3fjxSyF4tH74Yzi8ILA/+mi78plO5dTp5sM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LXZP5evJM5IiOOyGcNkPoboa2RKGtwXTVmZw1F3C/r85voShs2H90kVfozUHpJxmi
-	 lgc5PZK2WkLE/U/NgWijWotmdKQQivEoge0gRU9U9XcenNR2RVOYG5zf8kOYh8NU/W
-	 gVxQCMpxmZfoi6F+hteFXjf0iRhQ1OPxpTU0wl2QW0Moj7xyn1VOhmgPq/MlbIDcE5
-	 /bpjKiuBiTnqG2oEF46MSvIpckzR+PfgzqYuLTA4aVOnOBgwRQaH2Z/B7/HCthHGQR
-	 ivpmAIA9X7IvnxsvuIWQU3rbCmJN9ZQK7Yrq5XrNDUgns2VOw1kSYcQaT72+l43l2m
-	 WwEr8gpXUWaCA==
-Date: Wed, 25 Nov 2026 11:06:00 +0100
-From: Ingo Molnar <mingo@kernel.org>
-To: Sasha Levin <sashal@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>, Jez Ng <jez@sfcompute.com>,
-	Ricardo Neri <ricardo.neri-calderon@linux.intel.com>,
-	Juergen Gross <jgross@suse.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>, x86@kernel.org,
-	linux-pm@vger.kernel.org,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: Re: linux-next: semantic conflict between the pm and tip trees
-Message-ID: <awazCCauTdRXg_-i@gmail.com>
-References: <20261124145646.3655959-1-sashal@kernel.org>
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=HYuSPXnR
+Received: from [194.37.255.9] (helo=mxout.expurgate.net)
+	by relay.expurgate.net with smtp (Exim 4.92)
+	(envelope-from <prvs=6803393a3a=ms@dev.tdt.de>)
+	id 1xW9th-008TMU-TY; Wed, 25 Nov 2026 11:06:41 +0100
+Received: from [195.243.126.94] (helo=securemail.tdt.de)
+	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ms@dev.tdt.de>)
+	id 1xW9tg-0051nP-S0; Wed, 25 Nov 2026 11:06:40 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
+	s=z1-selector1; t=1795601200;
+	bh=Nb9j7n4VMoBo0nPcTqnB3tMTmYPQkVLcITR8atKeMWY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HYuSPXnRM2CBM1IbXAuD4yqDicVHktqHnTxWIqONZujCvug2JTbudY/7FCGhYoaxf
+	 8AHixpF80OjtZEaiNB67/NDtbsSSVW0vxg3+srEWvZxvobVc8T/tBBcgmlvMwf1Tax
+	 v3EpCJeK6gHvYH2s+NYZIxtRj9WIEVavRLlDMGUw1E2K5WcJkC/JCRvPQ3Ymk/KuMg
+	 CeOX6z7FD/DuB1fzrveDdd/phhl4immNgF/mhT7QY7sEp+Py+5ek9e1MC5oWz+DMho
+	 WswOmAOirkKDYMBpVJNgGrKr5yetSYfpWuVcP7teMP12+q1i6rDc6UINTbO0v4OAfX
+	 NI52QcRmQqWDQ==
+Received: from securemail.tdt.de (localhost [127.0.0.1])
+	by securemail.tdt.de (Postfix) with ESMTP id 26CF0240041;
+	Wed, 25 Nov 2026 11:06:40 +0100 (CET)
+Received: from mail.dev.tdt.de (unknown [10.2.4.42])
+	by securemail.tdt.de (Postfix) with ESMTP id 0E24A240036;
+	Wed, 25 Nov 2026 11:06:40 +0100 (CET)
+Received: from mail.dev.tdt.de (localhost [IPv6:::1])
+	by mail.dev.tdt.de (Postfix) with ESMTP id DA2E929D20;
+	Wed, 25 Nov 2026 11:06:39 +0100 (CET)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,40 +71,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124145646.3655959-1-sashal@kernel.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Date: Wed, 25 Nov 2026 11:06:39 +0100 (CET)
+From: Martin Schiller <ms@dev.tdt.de>
+To: f3lix.dev@gmx.de
+Cc: linux-x25@vger.kernel.org, netdev@vger.kernel.org, davem@davemloft.net,
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+	horms@kernel.org, linux-kernel@vger.kernel.org, willemb@google.com,
+	netdev-bot+sashiko@kernel.org
+Subject: Re: [PATCH net v2] net: x25: shut down T20 timer before freeing
+ neighbour
+Organization: TDT AG
+In-Reply-To: <179559958721.3135.5593816176235018299@kernel.org>
+References: <20261124093922.39573-1-f3lix.dev@gmx.de>
+ <179559958721.3135.5593816176235018299@kernel.org>
+Message-ID: <e9d12b5647f149f2133068c2b254afdd@dev.tdt.de>
+X-Sender: ms@dev.tdt.de
+User-Agent: Roundcube Webmail/1.3.17
+X-purgate-ID: 151534::1795601201-18C34C46-2EC5333E/0/0
+X-purgate-type: clean
+X-purgate: clean
 
+On Wed, 25 Nov 2026 10:39:47 +0100, netdev-bot wrote:
+> Would it be more robust to purge nb->queue in x25_neigh_put() before
+> kfree()? At that point nobody else can add to the queue, and
+> skb_queue_purge() is safe in atomic context.
 
-* Sasha Levin <sashal@kernel.org> wrote:
+I agree. A socket that takes the neighbour in the window before
+x25_route_device_down() can still queue frames after the list
+reference is gone, so the purge belongs where the neighbour is freed.
+The timer shutdown is fine where it is, as nothing can rearm a timer
+after timer_shutdown_sync().
 
-> Hi Mark,
-> 
-> The current pm tree has a semantic conflict with the tip tree that
-> breaks the x86 build:
-> 
->   drivers/thermal/intel/intel_hfi.c:407:38: error: too many arguments to function call, expected single argument 'msr', have 2 arguments
-> 
-> 437ce3015e51 ("thermal: intel: hfi: Disable HFI on shutdown and kexec")
-> in the pm tree uses rdmsrq(MSR_IA32_HW_FEEDBACK_CONFIG, msr_val), and
-> e7f9f17e0013 ("treewide: Convert rdmsrq() from a macro to an inline
-> function") in the tip tree makes rdmsrq() take only the MSR and return
-> the value.
-> 
-> The fix for the merge:
-> 
-> diff --git a/drivers/thermal/intel/intel_hfi.c b/drivers/thermal/intel/intel_hfi.c
-> --- a/drivers/thermal/intel/intel_hfi.c
-> +++ b/drivers/thermal/intel/intel_hfi.c
-> @@ -404,7 +404,7 @@ static bool hfi_disable_if_enabled(void)
->  {
->  	u64 msr_val;
-> 
-> -	rdmsrq(MSR_IA32_HW_FEEDBACK_CONFIG, msr_val);
-> +	msr_val = rdmsrq(MSR_IA32_HW_FEEDBACK_CONFIG);
->  	if (!(msr_val & HW_FEEDBACK_CONFIG_HFI_ENABLE_BIT))
->  		return false;
+Felix, could you send a v3 that moves the purge into x25_neigh_put()
+and documents the timer shutdown in the comment above
+__x25_remove_neigh()? As the netdev bot asked, please also say in the
+commit message how you found the issue and how you reproduced it.
+Please drop my Acked-by for it, I'll look at the v3 again.
 
-LGTM, thank you!
-
-	Ingo
+pw-bot: changes-requested
