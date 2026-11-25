@@ -1,105 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795649101;
-	b=CRpMyzbb6uanZ4Ln8hT1plJOM51F2s7Or+qo+rs5hvHJPKfdK7Tt3c7MAEMobwxlZSF+
-	 yEwPqLBv2y/k9NZq3TXAYTKpftqlEWCcOhzEtCyRvEG9GNwl3TEvY1FMjyN9h9qrPd4/6
-	 lNRnoKgwgnjT3Bp4gRn5hlILDaK+Y1e4jA4IpECRQAYy0Fgb8KqFxZ4I//kESr+BUSaOk
-	 1wmLzjS3jwswg9c48FAbGIVOf6kNpOGFEGNKClvRj4W5oHcn80ZVMTm/0xiukr/nEUYEX
-	 uEZPl1CeFtWX6fWxtpqwC8gg3m7pjCimcxBPLKwpUvlQSdXTuddScJbJziNs60djRnA==
+	t=1795649202;
+	b=ecVsUFdRR7R+PtK2CtGAihXs8AKxIxIUbk2t2paGi4+86V08jfArrRciBN+hlb+BwMaR
+	 u/GHDkYGObfUCq0Uxyyc0K28rZn3zgphNz+e7vMfSOVFzTBInUQdHPjazv0qKsse599y6
+	 gQavxcK6/zq8YeIPtQGht25zBBT+LtYawFK6cmkgr32SF2NM/ODYOTn3eEQw9xpiv4FFe
+	 ClslxjBdpyhh7v4rNfMVGsPpDGIGCLBaOYtyQgZP25/H1se4eD527IhoiYnUR2WeWDUsA
+	 pfYZA1xc6bF9r7AoFHcJIW0D2LyJdyHsHW3chA1PdB+U6JHbaN7x/9aBYeEcvqlxgEA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795649101;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795649202;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=L6X4hxg9g2a4Kk54pYVDsh+6JPYXZP17k3uQAGcEC60=;
-	b=lBeSNj+wdvZdhT84PGTOlYu1xNUBtoxNfetIYNGp4w0zA64OZWul2mFrkeBlPOaj1T3t
-	 7LZgImnU6BhYC/0WtctjF0s2MK32WLiVGd3LqNfyWn+lIZxgDvCwZYbukQqzxWbtS6kHi
-	 WVFMG00N68Ea4dzcgrBnhqHx1PEKtIspe1h8XUTZiSz8bbrIxx9cMhddfrrpOKDxd96ea
-	 vBecBo2by9lR5VYioI7A//L2bobaMzmvzy2jQ5DbS9indbpt6/kJY5/xvnd98AkOK4nMD
-	 R7Ps1f7nTpY1bWWtHZzu/fmD4z2q1sOeybBUQZBJ5SPhX18xYk3oYAsZ+DCb/qzGJLw==
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=z0QB7Z5jkpv7pdrIgKYxDo+vWMbTwUMEbHjEmTz2knQ=;
+	b=OiEM3GMmya5f4/1fQXFx2JwDO5pKlHFK4sd9IrTWDDFxJUP4xPi8E9SbnY584IRjsWPn
+	 tCLmi6hQuBvzWnjZxkRKUGUQOJkTcVY42l7hE2oYFpSeVDrfxYnH+g/ISm7ZvUA0Ar55B
+	 XvrvYBl3LZsWJZBaFnmWnIlL1zyC13QVaD434ImRXfOuSFomTVHGoV4q71MbEtsMOVqk6
+	 g08XVsAQG7SbM696BDyhKCOx2K+2esfWQNqi9FudNUP09+86C6844LJ87QUHAWpkyUsBM
+	 TXXPNBDjKiWjw5nFHyCJbj+YJJ9sLKLOlDStxMAnVOaZyFmxIVG3kh7GzaLN6k2mP8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nU0bcAb9;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hdz6knWk;
+	arc=none smtp.remote-ip=74.125.231.138
+Received: from mail-oo2-f10.google.com (mail-oo2-f10.google.com [74.125.231.138])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19B22606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:25:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19B22606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CDB7606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:26:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CDB7606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nU0bcAb9
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so43584645e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:25:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Hdz6knWk
+Received: by mail-oo2-f10.google.com with SMTP id 006d021491bc7-6f9b24c99b6so1972177eaf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:26:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795649099; x=1796253899; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=L6X4hxg9g2a4Kk54pYVDsh+6JPYXZP17k3uQAGcEC60=;
-        b=nU0bcAb9fsTujKO4firFKvcUAuPT8aUbcufiUqVA9gF9kqLjgdWOABKvoMX+ru2K1V
-         3e8RwqIIWi61/pcvQhafPPco4CBat41WCNtkAuMYkxjEUdAjHBLNtzYUUVwpV/FUCnbh
-         BHOIJuQBZsGZ/cIv+Vbxqaj+QQ9CFScpBX1ZT0nQgCB6WGVzTQpTsXRUGX/EdG+HGgwY
-         4ODQb/aMG8QwSCAZMg8ZPqIVZvWzrJqs3CXk4O+BehrNOMqATQF2zXztMoJI93Ko1hK5
-         V8P1t1xYvRVwKWo/aFeV+XyXkJTQ0BJglH9FO4F3l6U+pq+VyGfDiqZqZ/TUbQyQ6PrV
-         ypMA==
+        d=gmail.com; s=20260707; t=1795649201; x=1796254001; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=z0QB7Z5jkpv7pdrIgKYxDo+vWMbTwUMEbHjEmTz2knQ=;
+        b=Hdz6knWk21icsjnTVVv8cpoc4iCPqDDJCxes/iAMadgb8z3vzojcgRuHDHZ9LHE6au
+         YnXbZYmXeLnrGyMugNwNickS75nDbdOjXcQZ3KONM9GPZg34kaadOw68kWXgcYLR554D
+         VALnp4+DrhKJVqjZgsSL2qPvuaPsPUijgkKtCHaiBxuS5HTimbD9ug0rmhl+xOxJpDnN
+         wC5nzaTqZqhcRBydDubOLStogoEiNqRbc4dY2Y7pNOTgRhILXpM6QpTwBk5Y6mwXopaE
+         5eKCWZm9KOZtgc/uZd6oDhKvQAdjys7bFG4m85NpTRms5oGP2qBPgwVMPlGqUSt5twUI
+         obsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795649099; x=1796253899;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=L6X4hxg9g2a4Kk54pYVDsh+6JPYXZP17k3uQAGcEC60=;
-        b=ceqqKrozpSOMHOq0milCi2f01MS+Oer3+68/4tYrPq9Yv1+fmY/rSl9lR+C0o5/nFo
-         pkESC23NYu2KUL0V2TatpcPZgoZMK3hsqHLbXDlvtYXqDtpZpngluK+yLxUhjUrWk+EC
-         O8+LRv5VJ0KpyVz73YhkQLBekIG1Uip3FowCzngtpv4xP5GCo/0XHlydLpvODXdgpTsb
-         72MrkpqSBUJ2vq7hGAzMn69jG5LVN4mgZmTO6B++UvE4PElEs60mSQmrJU4dEOHS3Xx+
-         QYFp65DQt+Rqb4gZoNkfoO+5KIUsevjpErya5KRxzLu7p0iAyu9ODQf7C9B0STRsIRmH
-         40kQ==
-X-Forwarded-Encrypted: i=1; AL+hErFtbBmvxdHgLTifoPCsDnzp9QIHpECFKfBSesDp68eQu0cPR0EhBdxMRi0HGzztgieu2dH4KV7BXzB90oo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8C3t3mOMCFjd3m+Mu3a7efzS3Cfkzo0vpNk5FeadL/QhR8Ok+K
-	T6J+8qGyXySDU1MBU3gXVkOdMbG5XlznGVQZfSQArYMGx0w156gGNrsXrhGMFlZV
-X-Gm-Gg: AZFdTZdWv7W8JoJabYOzvL/18ClsmEcjO73LSLW/GI+L7Lnxn2Zlpvpki+8mu91Bx+J
-	+I7ucg+v6ni1PjOoLjHvkIZ4cITEbmEfO3dIO/gMnzIJ/EFgJzEUwLyGU7N3u/DNmb3mzRmYD1S
-	DHG6+FDSk4yVl9uKaPb9+BW6T7mJ+yJG4sGCawVOf641QT0nCy0a1AbHKYXozZDVH/VsStNPLnU
-	sP2xYi0MCiQ8zeRrt2CKTBlOHMuMzDLkrngaQzyke6ZFfLWfO5tuuRbFu7Eco6OsCmecf5ut4jz
-	GccoQw+3daTG2ddN6C+q3az7+ihAUQnVqLLOxzF37882/VYG9AA8+0brURSKKkIClRlcU2DgOzv
-	qjUCu1JB0n5c7Yf73UsfiD+q/37CD95RuDAmoKCLualqX7+Coxp8KA26N/wIHR45G+xxcTDeDCR
-	l51YIzXcDTboLo2angXx9yrzQGZPWk4g5RZhlK7sDTpXIXEWVypt0LPK3LcSJTX6w0jcnz3I9P5
-	4tF0BpwQZYv6nE5Dzb+dBU+zNwgg5Zp7ox+k9oGQLJqdLlv+pAnGn3tY1cKY+vw/c+6jtaW6+jg
-	dMP6eqgg7gEBqqMjIpRH0/Gc3VUTTy4R/YLVfDk99AEgcYA=
-X-Received: by 2002:a05:600c:154c:b0:4a2:729:f7ce with SMTP id 5b1f17b1804b1-4bb8881c378mr396837705e9.8.1795649099232;
-        Wed, 25 Nov 2026 15:24:59 -0800 (PST)
-Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4b34e9c3ffesm20957965f8f.19.2026.11.25.15.24.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 15:24:58 -0800 (PST)
-From: Askar Safin <safinaskar@gmail.com>
-To: jkoolstra@xs4all.nl
-Cc: amir73il@gmail.com,
-	brauner@kernel.org,
-	cyphar@cyphar.com,
-	gregkh@linuxfoundation.org,
-	jack@suse.cz,
-	jlayton@kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	neil@brown.name,
-	neilb@ownmail.net,
-	safinaskar@gmail.com,
-	shakeel.butt@linux.dev,
-	tj@kernel.org,
-	viro@zeniv.linux.org.uk
-Subject: Re: [PATCH v8 07/12] vfs: short-circuit MAY_WRITE access for O_DIRECTORY opens
-Date: Thu, 26 Nov 2026 02:24:43 +0300
-Message-ID: <20261125232443.1897836-1-safinaskar@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <1119017860.2578021.1795602566314@kpc.webmail.kpnmail.nl>
-References: <1119017860.2578021.1795602566314@kpc.webmail.kpnmail.nl>
+        d=1e100.net; s=20260707; t=1795649201; x=1796254001;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=z0QB7Z5jkpv7pdrIgKYxDo+vWMbTwUMEbHjEmTz2knQ=;
+        b=JRbU/lqXv01ObhYo0w76OpTsm40m3goHta04u9wpD8NqB2t+wfe8tqp8bjyexOPzCZ
+         RvP2AbfyTbqWimZyUGvW3Z/UghZI0jKBfv06XA9aAWgfdVwTHjq8k52OsG0WLesVkK3w
+         BGpOjrMkabtHo1Dnc2doIvhChlgU4h8Z5CiEmnf+TB+YXyCdNmamA6B4eIdrP5M4oYsh
+         pviLlhslzOKlvubdbfJWi5iuIYMcgtayZMFVorGTbhKnCmEYcw0ULo929lIQJsV0ql4e
+         tHJTKqwi/YjBX30O7Mk4Y0vUv2VphqD1rtXpEoe8S7HbywGArDr+wHFWZuS9r9MKcWeZ
+         aLIw==
+X-Forwarded-Encrypted: i=1; AL+hErH+snLjVSkrhorDzeCbNaWdxosGWs2tCZBmTUduD8vZjeD/J/vnRN90F3lkCAyZ2Tu5Rd8YiWaWtJHByE8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+vVuyyFwLEaSiYlaz3SbiAu8ay3EMawTqkxK1ppon7QzC+09D/
+	efNQzSB2q5xfL9iN2YYw0kjv1ifT1je+Q7aKJvcUZ+pDdWtbXHjeENm+
+X-Gm-Gg: AZFdTZcq/g0zS3LBg3a/CVo11S/K7iHKHCX1sxRnPJi6JHOlMsnJRHqU8kSECiUYSxw
+	7EDNYnxvcWgcEtNHVDWtPJ/kqTtbReI3rIE3FDfusTQ31/fCtWzsVqSxa2DvRKFRO4uIL/kKC6x
+	uX75NtejEssGPkKjCv0+FPnuyYZK8tVMLRA0kxDZ4l03UhM1CfG7TvhJdcrKx1akmpmwy2wWUWa
+	o6CbS8TwstgNyYHo0KJ4Q71dIlG8E5C19/j3NFmWfNFrfPhvjWAN7zRPTehjW5plvHEcJIlkRtR
+	uenuY+GRKwyJfo0Rd47pJyE3dhX2KsKoUjSK4o8rYZU6z6adeXPBtlJ1zqy2vi5xsB7iPAPpYGi
+	ryKZD2b/49/8YJWbZvM3DaEcJM8l0VhQ8wdwAoGl6zXhs2JasIV082qlEs8DnQqpG/9P5+a9toM
+	JT3CT7HKIRuIObsDLWkAn2yH/Sxjg4z+YWGPRqtIVxuVyje70xLwASRQEycwofsRivFugXEE6Cg
+	1w/Qiu1fSaE8Z2Zx308ziWqS1dRVPIoLvwtDPpOIFh2tTiX8V7Y6sfLMxVhIggPm6vjFoaX+xtp
+	7/S5AZ2xQm5wMNble9FNrcWNryDPyWvJUlmA4b9U/4NETxyTqKV1YHEv
+X-Received: by 2002:a05:6820:4a19:b0:71a:ea6a:4f64 with SMTP id 006d021491bc7-71b394eff5cmr13989163eaf.50.1795649201237;
+        Wed, 25 Nov 2026 15:26:41 -0800 (PST)
+Received: from [192.168.0.98] ([50.26.120.197])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8631692f049sm14304892a34.25.2026.11.25.15.26.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 15:26:39 -0800 (PST)
+From: Ryan Brue <ryanbrue.dev@gmail.com>
+Subject: [PATCH 0/2] drm/imagination: Hard reset fixes for META firmware
+ cores
+Date: Wed, 25 Nov 2026 17:26:05 -0600
+Message-Id: <20261125-rbrue-suez-pvr-reset-recovery-v1-0-2cea8b163e7e@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,21 +93,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MQQrCQAwF0KuErBtwCtYwVxEXnfFXs2lLYge19
+ O6C7wBv54AbgjPt7GgWtsycKXXE9TnOD4jdORP3p35IKal48Q0SG76yNhdH4CWOujT4R8o46KW
+ qlknP3BGvjsne//96O44foHpfG28AAAA=
+X-Change-ID: 20261118-rbrue-suez-pvr-reset-recovery-ba687c88bf85
+To: Alessio Belle <alessio.belle@imgtec.com>, 
+ Luigi Santivetti <luigi.santivetti@imgtec.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Donald Robson <donald.robson@imgtec.com>, 
+ Sarah Walker <sarah.walker@imgtec.com>
+Cc: imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, Ryan Brue <ryanbrue.dev@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795649198; l=2234;
+ i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
+ bh=lkEeogA18QR5ZUQab4hqwxSvIcO221SDwijc6qoyQnk=;
+ b=JDtsFvDvlwWCk6Tsxcp50PSYzaNzHOuoyL9IpilsW3rOapT46GqCpUu7ptjf4eUxNexFo9Pa6
+ Kykh/ogXyvTA6WrZar1k+v6Lmlnj5ckxeMJwqEdaCaBericGI8U/cBp
+X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
+ pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 
-Jori Koolstra <jkoolstra@xs4all.nl>:
-> > The problem is that "flags" contains an invalid value.  The correct
-> > error for that (according to open.2 man page) is EINVAL.
-> > 
-> 
-> This is best probably. The counter is that I wanted to change errnos as little
-> as possible. Now you get at least something that could already happen when
-> you did a normal open(O_DIRECTORY). Were this designed from the start -EINVAL
-> is obviously what is needed here.
-> 
-> I dunno, not sure what other people think.
+Two fixes found while chasing GPU freezes on an MT8173 tablet (GX6250,
+BVNC 4.40.2.51, META firmware processor).
 
-Now I think it should be changed to EINVAL, too.
+The firmware reports page faults of its own with FWCCB command 112,
+which the driver logs as unknown and drops; patch 1 logs the address.
 
+Patch 2: every hard reset on this core ended with "GPU device lost".
+pvr_fw_stop() waits for the Garten wrapper to go idle, and a META that
+was not asked to idle first keeps it busy; all the other idle polls
+pass. Skipping that one wait on a hard reset, as the driver already does
+when a debugger has halted META, lets the soft reset that follows stop
+the core. Other firmware processors, and the other polls, are
+unchanged.
+
+On the board, with lockdep and a local debug hook that forces a hard
+reset from the watchdog under glmark2, every hard reset recovered
+without losing the device: 13 forced and 8 that the watchdog started on
+its own, on this series over drm-misc-next. New GPU work ran correctly
+afterwards. Contexts that had jobs in flight at the reset are flagged
+guilty as before, and the clients using them (here KWin, through zink)
+stop rendering.
+
+I do not have Imagination's documentation for the META stop sequence. If
+halting the META threads through the slave port first is the right
+shape, I am happy to test that instead.
+
+This series was developed with the help of an LLM.
+
+Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+---
+Ryan Brue (2):
+      drm/imagination: Report firmware page faults
+      drm/imagination: Don't wait for a running META to idle on a hard reset
+
+ drivers/gpu/drm/imagination/pvr_ccb.c          |  5 +++++
+ drivers/gpu/drm/imagination/pvr_fw.c           |  2 +-
+ drivers/gpu/drm/imagination/pvr_fw.h           |  3 ++-
+ drivers/gpu/drm/imagination/pvr_fw_meta.c      |  6 ++++--
+ drivers/gpu/drm/imagination/pvr_fw_startstop.c | 10 ++++++----
+ drivers/gpu/drm/imagination/pvr_fw_startstop.h |  4 +++-
+ drivers/gpu/drm/imagination/pvr_power.c        |  4 ++--
+ 7 files changed, 23 insertions(+), 11 deletions(-)
+---
+base-commit: 479e381e77dcde0dfcc9d51e89ff3273da199804
+change-id: 20261118-rbrue-suez-pvr-reset-recovery-ba687c88bf85
+
+Best regards,
 -- 
-Askar Safin
+Ryan Brue <ryanbrue.dev@gmail.com>
+
