@@ -1,91 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795581499;
-	b=Lg6Wprn0dH4FKsF3CGwNP0m95ToqcO+l+9rb5+5D82tTcayuHtrSCUJSBA7O1yWxwhI2
-	 fe/sjau+7sayN+PXdfkuLQnZyo8mt7V8tohgPf3apOIYAugSMAN4l2Subws1fGxfJz+CA
-	 mie7IPxetbEqWlKKgn3Q9lxIr08KT6prVpe9zYITzHdRW8+hnnV3AO5iwJryVl1e+4cej
-	 Ik04m1q3dyAUuKdlfyyyjQgeGqVLvBCx7P4rEz+XJd5T57xtGm3DKgaw5JcTMPkJd5jSj
-	 3Yu6iaSZ59+my9Rtj7YkwGgIlpBw93HeHXhYIcK4ImRR2XONnYeNceAmmW8n0e3rtdw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795581499;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=UstZVkNfG9M8ON4DvEUF4Bp0cm0chz64PPbrwu3nxEg=;
-	b=lF9doU0BRfxNLKp+WiTJeMekdnV4n1aI/V39hstplyByHakOuIujG0SLPMxckgcw67mM
-	 +W8NXlEA3mOFg7+gQCxCyKYQj8SpL4XUcpjfy8+xqhLMDwYBYZma1HsjdCJHQGTUqYVeK
-	 KNPVLr1dDaU/DbIHQ7ihGrt2M8A0LP6bqtLseuuVK7wJNGGLDQQidCnO9LyfCytPL2fj+
-	 WYQHNbhpukUZUHx7GoZ5knD27eJVwblFkk2xclCl9vW2ysJxapJxxPoJjORYwJtxR+DCK
-	 NTGbtgCQ1826p8/5Kq1pWJyZ6fBm3IzXiJPbMVovgYv39HXgDLFRgp/nQNsWEQPISKw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Op4m8DPe;
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.61
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795581504;
+	b=EXzaPuh/7QQ1CfSLAxS3DxdW19W+6zSWU64HSkhzixT8aaw3w8CPbyerNKKZvZayL4VF
+	 S8eDxGkWJ4z6o31lzTpIabpapT16uVuuS1mZpeJYVnWP4LTFZSFVNJdlzr7805uydDt3C
+	 ZQPkXRdvlCPlzp3A/qSmdgmzULY6SeRHa1a0yRXmpIL/SNNOnLJobQ7q/wk5OlKCN36K1
+	 QAlZUuXDLG3zDL6ubIdYc5tGCaGys6kzE2FsM/FA/VjGeRtO+Q6bcUI4N52FCokttA7d9
+	 HNkEwDK9nkCCCLzWYDUXMvf352DtsPvuO+OeN3nQ7BPptjpAOJX8mlOdQa8NJEbMeww==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795581504;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=k3R/i0bBzhQ29hM8QkKfuq42LOHH+EwyuNTFYrHipw8=;
+	b=uHTPonQGYEuo/NF+ovPu9MoqNYkmsxG4puPO11qYRByDIP2e1HZPDCuR8cWjl5SVbPg5
+	 3ov4ySkdU4nEP5iQVZK77Ucin4F2ICCmUO/LTe5evmzYRCDxZ4kC6roJ3nOLkmbtqN/Lc
+	 6uVOzvDsTCByFTqBRHVZE4gdDdOHJrhgnolh+/ItwQ+XA7or79do2zMTKNTXNDWjYGk38
+	 LS9E11sDbN0jAi5knqHE/MfynJ5BJRU5CUjPGbmSBDtqQHkono3C5Ds3gUS2j+g8lGPnT
+	 wMj5Yd2ZlvIrJssBE53/V0Rl8vM1SvVB5noONQO+oJxtQRn81oB4rGNV8fzYFo+dJFg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=VEL0FUkc;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.61
+Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11013061.outbound.protection.outlook.com [40.107.162.61])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4ACC1606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:38:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4ACC1606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A1F1606A31E;
+	Wed, 25 Nov 2026 04:38:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A1F1606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Op4m8DPe
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f0481b35c9so30582015ad.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:38:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795581491; x=1796186291; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UstZVkNfG9M8ON4DvEUF4Bp0cm0chz64PPbrwu3nxEg=;
-        b=Op4m8DPe/Y1pt97LAG3LtYi/WEkx9jRIBBIzCSWuxxkYCUfqlDvme15EoeEAb+inqT
-         UWN4qJRHo4NtlsIsR0oABmKPRwiuNUAOKCOvvSEUmBUYGzY8A94odTtZxKBm4wo9UUpI
-         j1TF/w3mbNta3KXQ3vojbWKCUyjBOGfNK8XMo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795581491; x=1796186291;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UstZVkNfG9M8ON4DvEUF4Bp0cm0chz64PPbrwu3nxEg=;
-        b=Ebs8j0kBM7EUs5VrM7Mumkqa2hr+9Kp+N3ie43+rDY8q6l2tJDSfiuPZ73WnUYuzKI
-         m5bPzg7kxkFDwtEMtWI6Vs3cR2pGpVewu80GWp5H5YZNesbXD/aFjLE/9tYZeWKB+ZC9
-         cJ1DCO3ogzkAIFBgRv6tuQXdk0N6JuffcUdDFMSLxq96Ar5Z0hThQrpTKKzglA2PB4R8
-         Dj4x32LOuvD6hsNQh1koPTcXxRx6yHTCuLtGF+KnfrI2nPlc7Wkr904qZEsh+jvohk9k
-         +jk+oMscqQ3zQ0A+D+fH2S7gxARZ4QZIfhSmsjLHtrhd6AzoY4Zy8cOxbG51/fGgXlEl
-         RpPg==
-X-Forwarded-Encrypted: i=1; AL+hErHaSJCe2RE4rAG85PkaVibW+q/5egopeu2gT/knAoN0f7RQByl4JbtAomDYkcPtLT85dlLHuyxeqOcFhWo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9CdIq8yWbjmS85dd0x6amRVkspjF2LQiaHz/Uxwcq2Q2TJTSWe
-	5kNuudclbZzyB8aswHBoC5pcIyfTd2JMFEGM/zp0eDZe2gs5ZnTwOYimRzfIgMKa3b8=
-X-Gm-Gg: AZFdTZfKowXo2ca+UV2zksLyfEw8syewbd+//diIvhKzQ+Jr7OBGilgllfrcWOhuHGX
-	dUhPACvThHhC+GB8DFbxJ0sUPVtKzAj7Jn4VavuQF9TWr+yfeYeAFvmmHPIPZ5sBfSEIXDYVvPA
-	mlUdlc1ad0SB4sDTmKuQ718scEBjtbOeSsi7EnpC0w1fKVCRfeJFnKwO4g+Wo/rrIxcBjPvzhY/
-	8W2nOKSVrOreWPIRuCLvupdZAzZiXDztAm5e79vzWFs6Hxo3sqC5pyK+JeS8UgtsoGfAACCRsz7
-	PeDCNeB7lrSX/ibHzKi8BQpiEYQ/0zdUHbNhddcGTeJ1cTVHP8usRfe2CQ7Xnn791gHLkV6Z2X5
-	D8LoF9VMPuIFO/9a8VIZW7XeHY9h/kdenMNvgK1nfuDvYji5iJOhIn9AENWNpwG5b/cSFDs7bye
-	fBqkBMxfdeI63eVScoXvhK4/icGAa2adN+xxtz4f/k+ddPU6xTRdAzhnBh+wFvU5HoMRfDQyNxi
-	NMyKs5xjV28EyTIWUqrQfUAfiI9F5XpRK/VXGl/GL53BDxr5wVuY3sc/tnfJ5rEuOkYBce4ov1Z
-	d1YmuFGPKabop2fXuyXV34XkklcB8ZDPne/hfPbrV8Ywy1B5KbWGznFilBpGV4bIhol4sIf2hZC
-	Y6T2glJlqDimJy9ItLLfurOAJGAHFLX26dXHhccMLx9l5p+FSsrxNijogNuWX5dmw
-X-Received: by 2002:a17:902:e802:b0:2ef:d9b8:469 with SMTP id d9443c01a7336-2f03f21e8b9mr153010385ad.43.1795581490808;
-        Tue, 24 Nov 2026 20:38:10 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120016sm78706445ad.58.2026.11.24.20.38.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 20:38:10 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: Johannes Berg <johannes@sipsolutions.net>,
-	linux-wireless@vger.kernel.org
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Kapil Vaswani <kapil@presceralabs.ai>,
-	stable@vger.kernel.org
-Subject: [PATCH wireless v2] wifi: mac80211: do not copy the mesh RSN IE twice into the beacon
-Date: Wed, 25 Nov 2026 10:08:05 +0530
-Message-Id: <20261125043805.883952-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=VEL0FUkc
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V+Bh1a+areJLDERi3ci0B37b2xcBD795Rh+/URSiOUeWT6ibRh7wojWx5QWoTxA96s+6OhDFLDwBDN+fbFfYTirBKpPhpwmJfFMLRX7MVuuHzZESaDB4yLsxB0opOlsiqMaeclgXc2lnMgeMYQIViSf7jMVmigsRB+24+fkyX/ATZBbFsLsAkG8JEzG7AZe4YznNtHM4NfUjb1FV/VMqxoKZ5Rw6HYCg1qII1WWjZnEZL1EnkYLROf94p/vQTtKsHpVgw3/as6tOwsMa/LyN67UuuuSgQ9XNHoQXWvP9b2jqddBb/8IaZeEePlniaFMsMD1uAg2bobpmj/QHqHm7Tw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k3R/i0bBzhQ29hM8QkKfuq42LOHH+EwyuNTFYrHipw8=;
+ b=pWLlBO9Nlc3xKksrQdhntlVXC8JLTnZmEVpk/h/G2/wOFB+Zz3+ChKuLsvYWQ3y11cWu4icAEhDpAfWM5hSOrCHPO18jsAto49V4bU1/S9ZHxC0hrqzY84DSC63LuZSdMzEkXSFovSiBF0xtObJvfm519hGZFMQz9a9/ziDNlohoiLA/yUF6Z8qcdaqEsXJfCnbjQThca64gfr7rhzMs4xxst+3faQLAi/ZlmjWCJPVvvac4psvuOxd95zNTRaVEd05mXxlWS3KgALjJIPXvPFTi6szuI+UI+hF7t4fknCmjTwx5kavtTp8sdwTvwaW7BifPouSJlTrD/w6AT/OwXg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k3R/i0bBzhQ29hM8QkKfuq42LOHH+EwyuNTFYrHipw8=;
+ b=VEL0FUkcwbEMMWCXQKRWcITrX3swKsnMPRhfMft3aemoygIV6ElLuVnvfuOobnNKfC8kcrXiIWcb9Sd3MzCS2OLG0IHCrb6uLa24yTL6RZUSKZfmHT11uwwFDZfe9OKDJLYh16nRM4ek+k+Ad9g7ETWrwfTdZMi24eySouEqHJrFJZfa9z92C766qRJCqDGRW8FLVB9Un0keKlrj0tFK1u51r2FtVuJvVzbwQUnhVusp6RsqJqaLme7OmZ6Z7gDzOAV4aq6wZAJFfYI2QlgJVMttRC3p03CeCF7cr1LKXtPdbGL2y46k5c50gk7td3BqhqGy55DO0u0LAAUFqzKG2A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB9422.eurprd04.prod.outlook.com (2603:10a6:102:2b4::21)
+ by PA4PR04MB7550.eurprd04.prod.outlook.com (2603:10a6:102:f0::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 04:38:18 +0000
+Received: from PAXPR04MB9422.eurprd04.prod.outlook.com
+ ([fe80::54e:28bf:aa85:d25d]) by PAXPR04MB9422.eurprd04.prod.outlook.com
+ ([fe80::54e:28bf:aa85:d25d%3]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 04:38:18 +0000
+Date: Wed, 25 Nov 2026 12:35:09 +0800
+From: Xu Yang <xu.yang_2@oss.nxp.com>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>, 
+	"Frank.Li@nxp.com" <Frank.Li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"jun.li@nxp.com" <jun.li@nxp.com>
+Subject: Re: [PATCH 1/2] usb: dwc3: wait for the port to leave RxDetect
+ before xHCI reset
+Message-ID: <edd44rlzbofuaxxczhh4d3jx2knwpaaxat6mx5zz37vyxl2ucl@5tjovqane2uc>
+References: <20261106111943.2868733-1-xu.yang_2@oss.nxp.com>
+ <20261106111943.2868733-2-xu.yang_2@oss.nxp.com>
+ <awYspGsimvWjR4JY@vbox>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awYspGsimvWjR4JY@vbox>
+X-ClientProxiedBy: SI2PR04CA0017.apcprd04.prod.outlook.com
+ (2603:1096:4:197::15) To PAXPR04MB9422.eurprd04.prod.outlook.com
+ (2603:10a6:102:2b4::21)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,181 +102,131 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9422:EE_|PA4PR04MB7550:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0c0a75c3-611f-4f19-cdad-08df4aaded85
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|19092799006|366016|1800799024|23010399003|376014|261022105027099003|261026121527099003|10067099003|261026140227099003|261022075727099003|261028144727099003|261021123027099003|261102123227099003|261021121427099003|18002099003|22082099003|56012099006|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info:
+	vsOc/EX2XWWmE+Qw8Jer+rzBQxztAzCn8XTo4lETNMvlDWyBbD1/bK4QTg3vRU4Q1wKGUimDH8tEOMHBYy5/jDoSNvrxAAo5PHKDF03HNwMfNaHfRh2QRc0ctjXKrIpdBRTz+kcV5BOicxqr/B/d/DcX3FXUwveLhSIxwPh46WF4cHZyEdJw///5Z/f4SSxl2ZHmYKZjtUxUQQHJTTGUDUZUrXhbrDHu8ErwJmQTxh8C90/0m0Xo/Wcpj3RcDW87DyOyS4cQJabPgQjIYVZ7cCI2bqUvyTQRtGyOl8bRHMs8UUZ8OK2Hn9+8UeBD3CPpY4S4Q6Y04ttwwIgLZSCP36cyLMCyR2WdR4shmDUb/HM47dpqV1CXkPrlYHF0SI8AaFGKIBniToE8BQZ2EAZncgJac4G4pV4LzaDL6lXrvapLspp99/Nt/5NzWKpi+SzVZPKmee6VdZb2X4Yq8kO86l5H05yiF8lScMwRDWr/jsleZzhv6cREZ1O/umZ0z4ASOrCm9Bq4w1ejlQqlFEjb//0Y9VB6/nyZFUEwEbyfl3idkA3jUSv+01KHH7NAkTpGArrSh4AbUAELEEMxaqwG8+HmmgbLAF3HnX4k/JxK2OQcCnhNFYtCU706iF6KIG2Jrv+i2V4rOWuQvYtFWAiZ3eUBKZeWk3suqiY7oTZ7S0c=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(23010399003)(376014)(261022105027099003)(261026121527099003)(10067099003)(261026140227099003)(261022075727099003)(261028144727099003)(261021123027099003)(261102123227099003)(261021121427099003)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?bAAe6HHsHxRl6TFbcniNWv/7ruymz/6NF+mdThO+DxiwF/V9ifHJVtXm8UcN?=
+ =?us-ascii?Q?84/OucLUX9A4x0qN6PyZCdgFTQSDncrjWiAqNtqichGeIxwXmhFnW/GwkiWs?=
+ =?us-ascii?Q?oQ7NDNb+J59fcnwxjKII10pdwCZYy1tUyjU1VE0aAMHY20MsSrfeDUyZsbxe?=
+ =?us-ascii?Q?bC3h9UDr91rpUFkDX1e6ft/tivVVzsEVo3LU1tWglt7e7dS+2U0CdplrSjA2?=
+ =?us-ascii?Q?ntwJRJBUK+JERvMLeh8JLRTX+3ojK1Bq8Mtpxcitr6wxdX0kDcK79rpVYHVP?=
+ =?us-ascii?Q?01Ep3i++G8kvM3TpBZbTZtRvUaM65RHrwJ127xyfU41tiXovjbLk87vA8/rS?=
+ =?us-ascii?Q?a6IpuXK0xYr9JOxzea5v38yi1ZeopJfn+RLWN5CXcJQIk0xudgjFh1Vv9hDx?=
+ =?us-ascii?Q?5nQPEN6yeVQwa0mYLO7bM0xf5CvhL3W2cP7CsJoQXKKytsIoq5UzmhsN0pXm?=
+ =?us-ascii?Q?/z27GG1TrdbxfHHAuCf7vkgB0NMf9y28/tKc6GhHHmIzKNJwpWDU/QvKSPX0?=
+ =?us-ascii?Q?9UbvgeAJXZmOOly6rHWsU1OamE+9F7j8IXOUof0cx/RJENakLdyJp0CyBF48?=
+ =?us-ascii?Q?j8/yecKF8QajG+NwzYBc8Y7tWMqtIDz1A2DUiYiMQoKn2a8XP0xbOAZEEIBr?=
+ =?us-ascii?Q?BFreaE2d0Osnw2tG60gm2fB8eUK3bbF2mJl5NO61HuaUmt/w0vJs5u64LGUu?=
+ =?us-ascii?Q?jEX586RwsCtx0onDtFWhig84a54Ienq6YI0PkHMwsUoM04vxUlNliZ46qJi6?=
+ =?us-ascii?Q?ZLHA/yxJNJenG7cKdANhBTyAfaI62DJnZKP0qF1Ad7SwXm4QXrzw/hd11oTt?=
+ =?us-ascii?Q?7yYU10RcPqCEwZqtFYPziuEOb9pg3lezVMYJ5G0FsmPo3BFONmqdCktA1UBU?=
+ =?us-ascii?Q?AMK6wPI7xIPkB/xdOf7SB3CVyc3vVlxn83Jb+D1FUg5qVDsMAWAnMTM5QEF4?=
+ =?us-ascii?Q?joniA2G0foYeTgcNaP0bZ4Grkb1Hg/3gpGU0kmD+ELNejo0WcZUcWFkBx6zg?=
+ =?us-ascii?Q?wdnVbjzyAOAfGzeuFJFD7GZsmjfVzJvgsTaPbdgipNGpLKEcbBRq7PWejFBa?=
+ =?us-ascii?Q?3/M3krw0i/a1RTFXTYH2OyZ+X/XzPGNAF8YaO7nkyWVnxhFt81Q9/CWCTGoZ?=
+ =?us-ascii?Q?0gNbczdoUfYhKQZzcwBYHMZpaGTN96DdEfnFziGUPHkUMgc0kTFEgVm8+daH?=
+ =?us-ascii?Q?A4OrSx+5FoL5g8CkpIJxweE5zP5G3g/wXQgWUnY8ne8thsHTd9nGtI63wkKH?=
+ =?us-ascii?Q?Ccepneu9u2R0poEfbxxzZ1tvlYmj/+1hRFAEg/9ZjKfKcsl/D5U39kR1vZCt?=
+ =?us-ascii?Q?lTyuNljAWUXs74v5lod94b6Xk2i67YP4nlXCxABpigB8bUBozepLo3T6CGrt?=
+ =?us-ascii?Q?W3k9t0lUbnHLnbtPwPduPurVCs906Xomm74j0Q6H4S31B7409O2T1hJbJurR?=
+ =?us-ascii?Q?CATmvRDYOvpoEE/Hi6JG5C66dEufbkLRPni2kWuMQidM2dU/1zKx2mBT6RQW?=
+ =?us-ascii?Q?PbLUmf/UWPTx5r46ZasZhbo6UFPfdVcFYxuc8ZKccgi2NnRpCKLsA8TME1bx?=
+ =?us-ascii?Q?Cu6gFnB3e1wVRQLGGCsq55bg9YPeiwEbyFqJgmLW61X1+Cc78ySlUH4+mtUy?=
+ =?us-ascii?Q?jlE4uDSz18m24neSR+6kgoaDJO34mNm0+kVQvJVsmIdNZ08l/zT/rolbZuIQ?=
+ =?us-ascii?Q?9ecv/VejXuGn+3yfeJQMDyVb9HjiAiyqLblOtyE9sjzxB/sjmqMrizmIaYSm?=
+ =?us-ascii?Q?74XI9Zu2mP6IBnaPu1CKixEDcduAfzTasBEbOsC9VogHo2uyJukX?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0c0a75c3-611f-4f19-cdad-08df4aaded85
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9422.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 04:38:18.6555
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IgfEhWaVQYiyUX0ItqG/ZyDAieeAq98NYh4wkzLnB2YieYjybLRosB+5hN5zzPVxwKIK6J5CfIWogXf5dl645F4ToqDIC9LRTtyHuiZMIt7gK25tfhSop9hdfNssMCbN
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7550
 
-mesh_add_rsn_ie() searches the whole of the user's mesh IE blob for an RSN
-element, and mesh_add_vendor_ies() copies everything from the first vendor
-element to the end of that blob verbatim:
+On Wed, Nov 25, 2026 at 01:03:08AM +0000, Thinh Nguyen wrote:
+> On Fri, Nov 06, 2026, Xu Yang wrote:
+> > From: Xu Yang <xu.yang_2@nxp.com>
+> > 
+> > When the host controller loses power during system suspend, the port
+> > state is not retained. After power is restored, the port starts in the
+> > Disconnected (RxDetect) state instead of its previous Enabled (U3)
+> > state.
+> > 
+> > After the controller is switched back to host mode, testing on an i.MX8/9
+> > SoC shows that it takes about 2 ms for the port to leave RxDetect and
+> > enter Polling. If xHCI is reset while the port is still in RxDetect, the
+> > port does not issue a Warm Reset.
+> > 
+> > This prevents the link from recovering because the USB3 device may
+> > still be in U3. Once the port enters Polling, it sends LFPS.Polling, but
+> > the device does not respond as expected. After three Polling attempts,
+> > each taking about 360 ms (tPollingLFPSTimeout), the controller reports
+> > the device as disconnected.
+> > 
+> > If xHCI is reset after the port has entered Polling, the port issues a
+> > Warm Reset and the link recovers quickly after the device responds.
+> > 
+> > Add a 2 ms delay through the xHCI resume quirk before resetting xHCI.
+> > This allows the port to leave RxDetect so that a Warm Reset can be
+> > issued, avoiding an unnecessary device disconnect during system
+> > resume.
+> > 
+> > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> > ---
+> >  drivers/usb/dwc3/host.c | 21 +++++++++++++++++++++
+> >  1 file changed, 21 insertions(+)
+> > 
+> > diff --git a/drivers/usb/dwc3/host.c b/drivers/usb/dwc3/host.c
+> > index c5674161b2b0..465c170df12c 100644
+> > --- a/drivers/usb/dwc3/host.c
+> > +++ b/drivers/usb/dwc3/host.c
+> > @@ -78,8 +78,29 @@ static void dwc3_xhci_plat_start(struct usb_hcd *hcd)
+> >  	dwc3_enable_susphy(dwc, true);
+> >  }
+> >  
+> > +static int dwc3_xhci_resume_quirk(struct usb_hcd *hcd)
+> > +{
+> > +	struct platform_device *pdev;
+> > +	struct dwc3 *dwc;
+> > +
+> > +	pdev = to_platform_device(hcd->self.controller);
+> > +	dwc = dev_get_drvdata(pdev->dev.parent);
+> > +
+> > +	if (dwc->needs_full_reinit) {
+> 
+> The core is also re-initialized on system resume when wakeup is disabled
+> (see dwc3_resume_common()). Shouldn't this be like below:
+> 
+> 	if (!device_may_wakeup(dwc->dev) || dwc->needs_full_reinit)
 
-	data = cfg80211_find_ie(WLAN_EID_RSN, ifmsh->ie, ifmsh->ie_len);
-	...
-	skb_put_data(skb, data, len);
+OK.
 
-	offset = ieee80211_ie_split_vendor(ifmsh->ie, ifmsh->ie_len, 0);
-	...
-	skb_put_data(skb, ifmsh->ie + offset, len);
+> 
+> > +		/*
+> > +		 * The port needs some time to leave RxDetect after host mode
+> > +		 * is restored. Delay the xHCI reset until the port can enter
+> > +		 * Polling, allowing a Warm Reset to recover the USB3 link.
+> > +		 */
+> > +		usleep_range(2000, 2500);
+> 
+> Can we add a comment that this value is tested with i.MX8/9 rather than
+> a common value for all platforms?
 
-So an RSN element placed BEHIND a vendor element is copied by both, while
-ieee80211_mesh_build_beacon() reserved room for one copy:
+Sure, will do.
 
-	tail_len = ... + ifmsh->ie_len;
-	bcn = kzalloc(sizeof(*bcn) + head_len + tail_len, GFP_KERNEL);
-	...
-	bcn->tail_len = skb->len;
-	memcpy(bcn->tail, skb->data, bcn->tail_len);
-
-The builder skb is allocated separately and rounds up to a kmalloc bucket,
-so the skb_tailroom() checks pass; bcn->tail_len is then taken from what
-was actually assembled, and the memcpy writes the excess past the end of
-the kzalloc()ed block.  KASAN reports a slab-out-of-bounds write in
-ieee80211_mesh_build_beacon().
-
-The blob is NL80211_MESH_SETUP_IE, nested inside NL80211_ATTR_MESH_SETUP,
-which nl80211_parse_mesh_setup() stores and copy_mesh_setup() kmemdup()s.
-One NL80211_CMD_JOIN_MESH carrying a vendor element followed by an RSN
-element is enough.
-
-Search only the part of the blob that comes before the first vendor
-element, so the two emitters cover disjoint ranges and their combined
-output fits the budget.  An RSN element behind a vendor element is still
-emitted, as part of that verbatim vendor range.
-
-The bound is clamped to ifmsh->ie_len, which matters and is not belt and
-braces: ieee80211_ie_split_vendor() advances one whole element at a time,
-
-	while (pos < ielen && ies[pos] != WLAN_EID_VENDOR_SPECIFIC)
-		pos += 2 + ies[pos + 1];
-
-so it returns a position past ielen whenever ielen ends inside an element.
-That is reachable, because ifmsh->ie_len is a u8 in struct
-ieee80211_if_mesh while NL80211_MESH_SETUP_IE is policy-capped at
-IEEE80211_MAX_DATA_LEN, and copy_mesh_setup() assigns the size_t length to
-it:
-
-	ifmsh->ie_len = setup->ie_len;
-
-A 257-byte blob holding a 255-byte RSN element then leaves ifmsh->ie_len
-at 1, and an unclamped search bound of 255 would copy 255 bytes into a
-one-byte budget - the same overrun by another route.  With the clamp the
-bound is never wider than the one this search had before it was narrowed,
-and cfg80211_find_ie() returns only an element lying wholly inside its
-bound (for_each_element() requires 2 + datalen to fit), so the copy fits.
-The truncating assignment itself is a separate pre-existing problem.
-
-This also changes Mesh Peering Open/Confirm frames, which
-mesh_plink_frame_tx() builds with the same two helpers - mesh_add_rsn_ie()
-after the extended supported rates, mesh_add_vendor_ies() at the end.  An
-RSN element behind a vendor element used to appear twice there as well,
-once in order and once in the trailing vendor block; now it appears once,
-in the trailing block, after the Mesh ID, Mesh Config, MPM, HT, VHT, HE
-and EHT elements.  Element order in a management frame is not something a
-receiver may rely on - 802.11 parsers walk elements by id - and the
-alternative is emitting the element twice, which is the bug.  A
-configuration that puts its RSN element before its vendor elements, which
-is what the ordering in these frames was built around, is unaffected.
-
-Found by AI-driven fuzzing built on top of syzkaller, and reproduced on
-mainline 7.4-rc3 and 7.3.1 with a 72-line program: one interface in mesh
-point mode, one JOIN_MESH whose NL80211_MESH_SETUP_IE holds a vendor
-element followed by an RSN element.
-
-Fixes: 2b5e19677592 ("mac80211: cache mesh beacon")
-Cc: stable@vger.kernel.org
-Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
-Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
----
-Link: https://lore.kernel.org/all/20261124003526.78471-2-piyus@iiitd.ac.in/
-
-This respins 1/2 of the v1 series only - the one this review covered.  2/2
-("wifi: mac80211: widen the mesh IE offsets a u8 cannot hold") drew its own
-review and is answered in its own thread.
-
-Changes in v2, all from the review of v1 1/2:
-
- - THE CLAMP, which is the reason for this respin.  The review found that
-   v1 added a second route to the very overrun it was fixing:
-   ieee80211_ie_split_vendor() walks one whole element at a time, so it
-   returns a position past the length it was given whenever that length ends
-   inside an element, and ifmsh->ie_len being a u8 assigned from the size_t
-   that NL80211_MESH_SETUP_IE carries makes that reachable.  A 257-byte blob
-   holding a 255-byte RSN element leaves ifmsh->ie_len at 1 while the search
-   bound became 255, so 255 bytes were copied into a one-byte budget - no
-   vendor element needed.  v1's claim that "the split returns an element
-   boundary that is not past ifmsh->ie_len" was simply wrong.  v2 clamps the
-   bound to ifmsh->ie_len, which restores the bound the search had before it
-   was narrowed, and the commit message now says why that is sufficient:
-   cfg80211_find_ie() returns only an element that fits wholly inside its
-   bound, because for_each_element() requires 2 + datalen to fit.
-
- - The right netlink attribute.  v1 said NL80211_ATTR_IE; nl80211_join_mesh()
-   does not read that attribute at all.  The blob is NL80211_MESH_SETUP_IE,
-   nested inside NL80211_ATTR_MESH_SETUP, parsed by nl80211_parse_mesh_setup()
-   and copied by copy_mesh_setup().  That matters beyond pedantry: it is the
-   NL80211_MESH_SETUP_IE policy that allows IEEE80211_MAX_DATA_LEN bytes,
-   which is what the u8 truncates.
-
- - The peering frames.  v1 did not mention that mesh_plink_frame_tx() builds
-   Mesh Peering Open/Confirm with the same two helpers, so this patch moves
-   an RSN element behind a vendor element out of its usual position there
-   too.  The commit message now describes that and says why it is acceptable:
-   a receiver walks elements by id, and the alternative is emitting the
-   element twice, which is the bug.
-
-Not changed here: the truncating "ifmsh->ie_len = setup->ie_len" itself.  The
-review is right that the follow-up patch does not fix it either - it widens
-local variables in mesh.c, and its commit message's claim that ifmsh->ie_len
-is a size_t is wrong; the field is still a u8.  That is answered in that
-patch's own thread.  This patch is safe without it: the clamp makes the bound
-no wider than ifmsh->ie_len whatever ifmsh->ie_len happens to be.
-
-Measured, and not: the original overrun was reproduced on mainline 7.4-rc3
-and on 7.3.1, and KASAN reports a slab-out-of-bounds write in
-ieee80211_mesh_build_beacon().  The route the review found - the truncated
-length with no vendor element at all - has NOT been run here; it comes from
-reading the code, as the review's does.  mesh.o builds clean and checkpatch
---strict reports nothing.
----
- net/mac80211/mesh.c | 20 +++++++++++++++++++-
- 1 file changed, 19 insertions(+), 1 deletion(-)
-
-diff --git a/net/mac80211/mesh.c b/net/mac80211/mesh.c
-index 8f8814125375..c86be97bc921 100644
---- a/net/mac80211/mesh.c
-+++ b/net/mac80211/mesh.c
-@@ -377,14 +377,32 @@ int mesh_add_vendor_ies(struct ieee80211_sub_if_data *sdata,
- int mesh_add_rsn_ie(struct ieee80211_sub_if_data *sdata, struct sk_buff *skb)
- {
- 	struct ieee80211_if_mesh *ifmsh = &sdata->u.mesh;
-+	size_t prefix;
- 	u8 len = 0;
- 	const u8 *data;
- 
- 	if (!ifmsh->ie || !ifmsh->ie_len)
- 		return 0;
- 
-+	/* Only the part before the first vendor element: mesh_add_vendor_ies()
-+	 * emits everything from there to the end verbatim, so searching the
-+	 * whole blob here makes an RSN element behind a vendor element be
-+	 * copied by both, and ieee80211_mesh_build_beacon() reserved room for
-+	 * one copy.
-+	 *
-+	 * CLAMPED, because ieee80211_ie_split_vendor() walks one whole element
-+	 * at a time and returns a value past ifmsh->ie_len when the length
-+	 * ends inside an element - which ifmsh->ie_len being a u8 truncated
-+	 * from the size_t the netlink attribute carries makes reachable.  With
-+	 * the clamp the bound is never wider than it was before this search
-+	 * was narrowed, and cfg80211_find_ie() only returns an element lying
-+	 * wholly inside its bound, so the copy below still fits the budget.
-+	 */
-+	prefix = ieee80211_ie_split_vendor(ifmsh->ie, ifmsh->ie_len, 0);
-+	prefix = min_t(size_t, prefix, ifmsh->ie_len);
-+
- 	/* find RSN IE */
--	data = cfg80211_find_ie(WLAN_EID_RSN, ifmsh->ie, ifmsh->ie_len);
-+	data = cfg80211_find_ie(WLAN_EID_RSN, ifmsh->ie, prefix);
- 	if (!data)
- 		return 0;
- 
--- 
-2.34.1
-
+Thanks,
+Xu Yang
