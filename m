@@ -1,105 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795589102;
-	b=yAxpPTyYJ+ezdbnYCwulGAtPGQl0YFBpTg8qM/vS7X90DJY7xzmGG9tGJCM6sEftSqD1
-	 vZwveXS+V5SOUqgd57V6O97i5yCJyVztslRC+uN9J6BDMpWM866pKowFyahgKXmqwDJ0H
-	 lFjxu9Elx1vyWajIHbp4MLK+3PCiXhGhGpp+t2LVumxKV38SlNb/lVMfWoDZEn0defOwW
-	 HgNXS7Y0CamHptoSvyVnSzd1+eoDITp9coPkiz7MOSh5OaYCXvmXebf0rFY3SfP2K4gc1
-	 2acm0AgTUWfYKkYl6T3O9jV7Nz61foot26TojmKTQBD0LiL4TQj9nLtT91WYpxeGPfg==
+	t=1795589110;
+	b=vbpcpTIGJsV7Ka2LQnY63BzVxHOHB+3xLbelh3TOXUlaLBRDbPrySlq7OR8/5Uz2XEdU
+	 EpL/7cAwDDcPLOSJDE0npCDLtaLdTHEVG/Uq5Kcvq5eBuRKn1meMcXg+Mcl+00PYO1EJ+
+	 O5ZoodHXK0S09CJs0vAMkwQh/nMQOwkgNReEYg/7gLWsKqKbKyY5Rfd+YEn6vmtDvaEIA
+	 JQ+7gNEaJQG8bNegLwLIu7cR93XV/JnBG+sx+/uhxqFIUOjsYdyDQIkLdmKbt4DFX4CX5
+	 3c3Kda8nGYO0lgeRuGHj5/sY1CWOR9V+Jc6edAwAYFFYXbd3pgNOm+Gvc32NFOTuTmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795589102;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=R3sbzhOnYUrS8wYvSIhWCG5ex9jxl9wVxRyhTnmBIp8=;
-	b=mqFOP9GPCJmaoeW2SoMmppABNea7t+zVcZCQO7DTfREXn2b2fUIL3bLiqwXardmen81a
-	 rAZpG2hTsdp9Xd3lQ19Ei7fDZqMYs5gwVIUiWNJKARq2DDvVUGUHK8m8U8XrMqZBF9Svf
-	 kDoQHHniS+S5Ao6EQl2NtX8zprUg0B5ChJQBHlT3Irb/wy1E72VSdwLP8yQ4vHO6AclbH
-	 VS6OlC+Z3mFgYPi75MOS+lqBFN1TwbTl/kGcMPiYQFzvjWbGoSvu+oaoZmEHy9vnf8Kr1
-	 WK1Pug+4BsuRii0W3zZ+OJDfibnNWAMUslkbdbNx/FCehl0H8jwh0BrvFwYkgnfzoxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795589110;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=GFTYIeKrWqXVecVR0t1STSSGWzXRjqisXCQNAyDZlaQ=;
+	b=hJNlhVoVt5Jl6JsxNnJC8j27dIZ+pAPMnBENwgPj0/cIkJ2A7UomagKCFhKor2GUd4Mj
+	 077OFIMZFJ3e9zQqTvQD5/OfcU0WmOP+PMBaakDNXXDatlHdIHnuY6npuVL1RX7xf82pZ
+	 KIJ03bbfLXOQQH4pzPq+Kyqvk3vyJtyZ8aGxOHE+wv/OrQI6FxMBEWLf4BptgYinJNI4f
+	 Vp60bRnQl/awJ7XWjs4eMYtThiv11vyBpXsPjA1JHiLa86WldBnEPqYWue3uyv8LxNIa6
+	 NxLaxYFw0ar+j38DSjo+8x9fWw6n0R1iWSNLIe/CKiLPEfyG84ZFUl2ttgtbnBAulnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=d5dyiyT1;
-	arc=none smtp.remote-ip=209.85.216.44
-Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b="XE//2Tfe";
+	arc=none smtp.remote-ip=113.46.200.219
+Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEC4B606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:45:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEC4B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79E96606A329;
+	Wed, 25 Nov 2026 06:45:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79E96606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=d5dyiyT1
-Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b439e37813so2630094a91.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:45:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795589101; x=1796193901; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=R3sbzhOnYUrS8wYvSIhWCG5ex9jxl9wVxRyhTnmBIp8=;
-        b=d5dyiyT19Km7tDmbpxJjL4rEnANFAC86v3EYHetyWOXfRhF8nqTd1zj3BIgDx3qhR3
-         Otfrb/bMHdn/BzzA2hn4O8iQ8rCUMUo5W4QakiPooXQ5Q3ftn3MxeYEy1Hj4Clx9pPzq
-         6zxqQkKGx18KdULbG8PpcWWJHDQORxn+D9AZtMYg5AkJvOaq27sApC9cOwzgmJcQ5+8e
-         FzVqdhPMdbb/LCv1i9hsjVrKHje9UQq2gZYH8geza2XNhS4XLpqnaCrtDJnExFAhPVHJ
-         PklcmdBQqSgLJ5VGJFFXC66xij/lzTqgjLa6bkNrx7Vv/zG5xGwGotjjb7FdXpnCVFN2
-         /zzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795589101; x=1796193901;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=R3sbzhOnYUrS8wYvSIhWCG5ex9jxl9wVxRyhTnmBIp8=;
-        b=Ne3VQ8E6sfNg1jjAZrUa8aIJDBRC7up4XAyriSPZDV81TlZ3rejzHX9n31XkOosYLF
-         Jz4n5bTYgulIeNRx4PrHH+B0J+98uYpwOIFE0/B6qAkS4FHPLV1x8eqxbInqvDG1c6vB
-         cvabDyS787yZeBByt6nylrGhwLnXTz6tSOnRqnTi3++rXZA+T2XSSzKPwcezoYd2Lowq
-         aL5/08uqYd/R6UPv7KfhHi3lEAzT1fQgsQW74C6FXtjoBM2rbqBwq47Vls5tYUJD/85F
-         6BHP7puu7PKfYgayBwT4r5cd1NF5YgiU0JXFoclYCvnwfjtwprlANUo9MlkQcV3mApfc
-         laQg==
-X-Forwarded-Encrypted: i=1; AL+hErHxMnPq6oiJjBePfQnYrc5Fl9J6JmSnVXSrfSIQzwODIgFq9HIS++r3DYaLEBkxrQ+j6gr6fkIuvhvIDyI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/RHw0eMCBzVKyQntFr42sSuLB9b1Dnnj2d7iA+SnvGJA+f5s+W
-	TDcuFemf2d1f9Jpy9ijTswHRrvJ2P9DCigejhL8wHwIrFoR/7yBzRdXL
-X-Gm-Gg: AZFdTZdS6LcwJIE332sN+/3objpB7PQNzUUJU2pCgo7pMi+DqwwbObSX+BlIo2bbZqi
-	stjQlUdpZEFHC/qd0VCXl+s3y0OqYgZQdnOO6pNiwcWw9InzlIOH504kkQuhCP9wjabg2yRW3vT
-	OUp/+W3obVhUXEJqico+iXUzk3quSfeqSybRu/iRPQyPgEUzLjrQ5AHfxZo3XGYiCyYWq8HyOEo
-	vs1Dz/RIcZbL7EqcIP+HzIMZYR3AfWH1k0jKj6lXUS5ThqAQ5SawN6udi2OBen9oqp2NBLtVf9w
-	0+lRfr/Gp3V6a6wdj8LEHtUSEQ4eLmVhiQqzAWTajy94GxrXazvyFZT5A8YHnTZ8LAZHJyDyTFg
-	pNITt+/+DaSJX4MYtQ6QYCqdsPZ8yAIbCoG7qeItJ361xNPCssw8JQYyOfDYh0/CWWztXn0UKsD
-	60d50gwddPMrBOBsoRRLVwmYdGPnSRDBBRTna6w7/adspirilPPtwGAyfFYFpfR744JzeoiB3Im
-	x/yFer1kcvU2uFUWbDYZQc1DKjoHqiNKer1Rit8X7pMO+ygsbfDTQRK27gTRKsCylXVeJr/ny62
-	nZxfJU3ZvmCfCLsOSyofhG6u9WDMWLiuYLoG6I60keyNyGhaeBKNWzAQTSJ4M+LdzjZd4HTbfnu
-	4/GF665UaAHafJ93TxEZh7CSjfIvBFLUQ5Q==
-X-Received: by 2002:a17:90b:1b09:b0:3b4:d6a6:e5b with SMTP id 98e67ed59e1d1-3b4d6a60f6dmr3827042a91.33.1795589101097;
-        Tue, 24 Nov 2026 22:45:01 -0800 (PST)
-Received: from localhost ([153.61.198.249])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm28789109a91.16.2026.11.24.22.45.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 22:45:00 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 25 Nov 2026 06:45:00 +0000
-Message-Id: <DN437OYZ5FGP.20VLV7ZEXQ5YY@gmail.com>
-Cc: "Puranjay Mohan" <puranjay@kernel.org>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Eduard
- Zingerman" <eddyz87@gmail.com>, "Emil Tsalapatis" <emil@etsalapatis.com>,
- "Ihor Solodrai" <ihor.solodrai@linux.dev>, "Dave Hansen"
- <dave.hansen@linux.intel.com>, "Peter Zijlstra (Intel)"
- <peterz@infradead.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar"
- <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, <kkd@meta.com>,
- <kernel-team@meta.com>, "the arch/x86 maintainers" <x86@kernel.org>, "Linux
- Kernel Mailing List" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups
- for user address faults under SMAP
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Andy Lutomirski" <luto@kernel.org>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>, <bpf@vger.kernel.org>
-In-Reply-To: <df69ab5d-bc97-4651-8668-a2b3e4bb272a@app.fastmail.com>
-References: <20261009024925.3169077-1-memxor@gmail.com> <20261009024925.3169077-2-memxor@gmail.com> <df69ab5d-bc97-4651-8668-a2b3e4bb272a@app.fastmail.com>
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=XE//2Tfe
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=GFTYIeKrWqXVecVR0t1STSSGWzXRjqisXCQNAyDZlaQ=;
+	b=XE//2TfeSY30evkGzLAgZzYv6WTlzbAq4cYt+/vdIx1ExkqAD0Yftz0N/OyTQQFZNOeA06fGw
+	Tdx/1aEcJ9/uQVEZQhoQdiIM1DfigAUOG5pnMbI/jNF5BdWn7YvoCux/vifyKk84E3AI8HVJQhK
+	JhFO055hBW4lMR7gD6lr6G8=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jZ9CM2QS1z1prLQ;
+	Wed, 25 Nov 2026 14:44:47 +0800 (CST)
+Received: from whupemk300003.china.huawei.com (unknown [7.152.185.49])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4B41140561;
+	Wed, 25 Nov 2026 14:45:04 +0800 (CST)
+Received: from huawei.com (10.50.87.204) by whupemk300003.china.huawei.com
+ (7.152.185.49) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 25 Nov
+ 2026 14:45:02 +0800
+From: Zhang Yuwei <zhangyuwei20@huawei.com>
+To: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
+	<mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Joerg Roedel <joro@8bytes.org>, Will
+ Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-trace-kernel@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<chenjun102@huawei.com>, <zhangyuwei20@huawei.com>
+Subject: [PATCH v2] iommu: Trace I/O page fault response latency
+Date: Wed, 25 Nov 2026 14:43:10 +0800
+Message-ID: <20261125064310.2383969-1-zhangyuwei20@huawei.com>
+X-Mailer: git-send-email 2.22.0
+In-Reply-To: <20261125013430.2144822-1-zhangyuwei20@huawei.com>
+References: <20261125013430.2144822-1-zhangyuwei20@huawei.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,58 +75,289 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ whupemk300003.china.huawei.com (7.152.185.49)
 
-On Tue, Nov 24, 2026 at 08:22 PM Andy Lutomirski <luto@kernel.org> wrote:
-> Didn't we hash this out a decade ago or so?
+From: Chen Jun <chenjun102@huawei.com>
 
-Twice. Feb 2019 for probe_kernel_read() and Jan 2021 for PROBE_MEM:
-https://lore.kernel.org/all/300C4516-A093-43AE-8707-1C42486807A4@amacapital.net/
-https://lore.kernel.org/bpf/CALCETrVZRiG+qQFrf_7NaCZ9o9f2-aUTgLNJgCzBfsswpG7kTA@mail.gmail.com/
+Carry an optional monotonic timestamp with each IOPF and preserve it
+across group construction, including allocation error paths. Sample it
+at the common report entry point and record latency after the driver's
+page_response callback returns.
 
-The problem in 2021 was a CPU without SMAP. There the fault handler
-can't tell a PROBE_MEM load of a user address from a valid uaccess.
-That part stays. Without SMAP the JIT emits the range check.
-With SMAP and AC clear a fault on a user address is never a valid uaccess.
+Cover asynchronous group responses, synchronous error responses, and
+pending groups completed by iopf_queue_remove_device(). For grouped
+requests, measure from reporting the last fault in the group. Use
+existing tracing configuration and record fault identity, response code
+and elapsed nanoseconds without command submission return values.
+Print PASID validity inline as pasid(v) or pasid(i), retaining the raw
+validity field for programmatic consumers.
 
-In the 2019 thread Linus proposed the same for __probe_kernel_read():
-no uaccess_begin(), SMAP refuses a user address, extable returns -EFAULT.
-https://lore.kernel.org/all/CAHk-=whNf_n1WXWW+ugAVeL5ZK0GcEP3cTYocju1nS85VtMjjQ@mail.gmail.com/
+Use the trace_call__ variant after the enabled check to avoid a second
+static branch. Document the software timing boundaries and tracefs
+interface.
 
-> Can you at least explain how a non-range-checked pointer read of a non-verifiable pointer doesn't have a problem with, say, MMIO?
+The implementation was validated with x86_64 builds with tracepoints
+enabled and disabled.
 
-The range check doesn't know about MMIO. It refuses user addresses, the
-guard page, and VSYSCALL_ADDR and above.
-ioremap() space is in the vmalloc range, so it passes the check today.
-It passes copy_from_kernel_nofault_allowed() too.
-"compare" and "CPU" refuse the address, "load" reads it:
+Suggested-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+Link: https://lore.kernel.org/all/20261125013430.2144822-1-zhangyuwei20@huawei.com/
+Signed-off-by: Chen Jun <chenjun102@huawei.com>
+Signed-off-by: Zhang Yuwei <zhangyuwei20@huawei.com>
+---
+ Documentation/trace/index.rst      |  1 +
+ Documentation/trace/iommu-iopf.rst | 54 ++++++++++++++++++++++++++++++
+ MAINTAINERS                        |  2 ++
+ drivers/iommu/io-pgfault.c         | 18 ++++++++++
+ drivers/iommu/iommu-traces.c       |  1 +
+ include/linux/iommu.h              |  2 ++
+ include/trace/events/iommu.h       | 36 ++++++++++++++++++++
+ 7 files changed, 114 insertions(+)
+ create mode 100644 Documentation/trace/iommu-iopf.rst
 
-                              user address,  kernel address
-                              RAM or a BAR   RAM     ioremap()
-  --------------------------  -------------  ------  ---------
-  copy_from_kernel_nofault()  compare        load    load
-  PROBE_MEM today             compare        load    load
-  PROBE_MEM, patch 2, SMAP    CPU            load    load
+diff --git a/Documentation/trace/index.rst b/Documentation/trace/index.rst
+index f4058e8e92e3..e61e428ecd68 100644
+--- a/Documentation/trace/index.rst
++++ b/Documentation/trace/index.rst
+@@ -57,6 +57,7 @@ applications.
+    events-landlock
+    events-pci
+    events-pci-controller
++   iommu-iopf
+    boottime-trace
+    histogram
+    histogram-design
+diff --git a/Documentation/trace/iommu-iopf.rst b/Documentation/trace/iommu-iopf.rst
+new file mode 100644
+index 000000000000..d2c8ae320526
+--- /dev/null
++++ b/Documentation/trace/iommu-iopf.rst
+@@ -0,0 +1,54 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++IOMMU I/O page fault response latency
++=====================================
++
++The event uses the existing IOMMU I/O page fault handling and event tracing
++configuration; no additional configuration option is needed. For example,
++``CONFIG_ARM_SMMU_V3_SVA`` selects the I/O page fault handling infrastructure
++for ARM SMMUv3.
++
++The ``iommu:iopf_latency`` event measures software response latency from
++entry to ``iommu_report_device_fault()`` until the IOMMU driver's
++``page_response()`` callback returns. Asynchronous group responses,
++synchronous error responses, and pending groups completed with
++``IOMMU_PAGE_RESP_INVALID`` by ``iopf_queue_remove_device()`` are covered.
++It includes software queueing
++and fault handling, but excludes time in hardware queues before reporting.
++The meaning of callback completion depends on the driver; for ARM SMMUv3
++it is after RESUME command submission returns, not after transaction
++recovery. No additional command synchronization is issued.
++
++For grouped requests, one sample measures the interval from reporting the
++last fault in the group to responding to that group. Earlier partial
++requests do not each receive a separate latency event when assembled into
++a group. The address and PASID fields identify the last fault. A
++synchronous error response instead identifies the fault being rejected.
++For ARM SMMUv3 EVTQ stall faults, each reported event is marked as the last
++fault of its group.
++
++For example, with tracefs mounted at ``/sys/kernel/tracing``::
++
++    echo 1 > /sys/kernel/tracing/events/iommu/iopf_latency/enable
++    cat /sys/kernel/tracing/trace_pipe
++    echo 0 > /sys/kernel/tracing/events/iommu/iopf_latency/enable
++
++Each response records the device name, PASID and its validity, group ID
++(stall tag on ARM SMMUv3), fault address, response code, and ``duration_ns``
++in nanoseconds.
++Response codes are
++``IOMMU_PAGE_RESP_SUCCESS`` (0), ``IOMMU_PAGE_RESP_INVALID`` (1), and
++``IOMMU_PAGE_RESP_FAILURE`` (2). The event does not report whether command
++submission succeeded.
++
++Timestamps are taken only while the tracepoint has an enabled consumer.
++A response without a sampled start time produces no latency event. A
++sampled request may span disabling and re-enabling the event, in which case
++the full interval is reported if the tracepoint is enabled at response
++time. Enable transitions are best effort with respect to concurrent faults.
++Trace filters and ring buffer overruns can discard records as usual.
++
++``tracing_on=0`` stops trace buffer recording but does not necessarily
++disable the tracepoint. Other consumers, including perf and BPF, can also
++keep it enabled. Events that never reach the response callback have no
++completed interval to report.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 742c4e6b291f..8eed908d6c24 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -14019,10 +14019,12 @@ L:	iommu@lists.linux.dev
+ S:	Maintained
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
+ F:	Documentation/devicetree/bindings/iommu/
++F:	Documentation/trace/iommu-iopf.rst
+ F:	drivers/iommu/
+ F:	include/linux/iommu.h
+ F:	include/linux/iova.h
+ F:	include/linux/of_iommu.h
++F:	include/trace/events/iommu.h
+ F:	rust/kernel/iommu/
+ 
+ IOMMUFD
+diff --git a/drivers/iommu/io-pgfault.c b/drivers/iommu/io-pgfault.c
+index c16ff1fc4b95..ccf806528f6b 100644
+--- a/drivers/iommu/io-pgfault.c
++++ b/drivers/iommu/io-pgfault.c
+@@ -6,11 +6,14 @@
+  */
+ 
+ #include <linux/iommu.h>
++#include <linux/ktime.h>
+ #include <linux/list.h>
+ #include <linux/sched/mm.h>
+ #include <linux/slab.h>
+ #include <linux/workqueue.h>
+ 
++#include <trace/events/iommu.h>
++
+ #include "iommu-priv.h"
+ 
+ /*
+@@ -96,6 +99,7 @@ static struct iopf_group *iopf_group_alloc(struct iommu_fault_param *iopf_param,
+ 
+ 	group->fault_param = iopf_param;
+ 	group->last_fault.fault = evt->fault;
++	group->last_fault.report_time_ns = evt->report_time_ns;
+ 	INIT_LIST_HEAD(&group->faults);
+ 	INIT_LIST_HEAD(&group->pending_node);
+ 	list_add(&group->last_fault.list, &group->faults);
+@@ -155,6 +159,14 @@ static struct iommu_attach_handle *find_fault_handler(struct device *dev,
+ 	return attach_handle;
+ }
+ 
++static void iopf_trace_response(struct device *dev, const struct iopf_fault *evt,
++				const struct iommu_page_response *resp)
++{
++	if (trace_iopf_latency_enabled() && evt->report_time_ns)
++		trace_call__iopf_latency(dev, evt, resp,
++					 ktime_get_ns() - evt->report_time_ns);
++}
++
+ static void iopf_error_response(struct device *dev, struct iopf_fault *evt)
+ {
+ 	const struct iommu_ops *ops = dev_iommu_ops(dev);
+@@ -166,6 +178,7 @@ static void iopf_error_response(struct device *dev, struct iopf_fault *evt)
+ 	};
+ 
+ 	ops->page_response(dev, evt, &resp);
++	iopf_trace_response(dev, evt, &resp);
+ }
+ 
+ /**
+@@ -219,6 +232,9 @@ int iommu_report_device_fault(struct device *dev, struct iopf_fault *evt)
+ 	struct iopf_group abort_group = {};
+ 	struct iopf_group *group;
+ 
++	/* Error paths may respond synchronously before reporting returns. */
++	evt->report_time_ns = trace_iopf_latency_enabled() ? ktime_get_ns() : 0;
++
+ 	attach_handle = find_fault_handler(dev, evt);
+ 	if (!attach_handle)
+ 		goto err_bad_iopf;
+@@ -334,6 +350,7 @@ void iopf_group_response(struct iopf_group *group,
+ 
+ 	mutex_lock(&fault_param->lock);
+ 	ops->page_response(dev, &group->last_fault, &resp);
++	iopf_trace_response(dev, iopf, &resp);
+ 	list_del_init(&group->pending_node);
+ 	mutex_unlock(&fault_param->lock);
+ }
+@@ -491,6 +508,7 @@ void iopf_queue_remove_device(struct iopf_queue *queue, struct device *dev)
+ 		};
+ 
+ 		ops->page_response(dev, iopf, &resp);
++		iopf_trace_response(dev, iopf, &resp);
+ 		list_del_init(&group->pending_node);
+ 		iopf_free_group(group);
+ 	}
+diff --git a/drivers/iommu/iommu-traces.c b/drivers/iommu/iommu-traces.c
+index 23416bf76df9..ce2ab3277b5f 100644
+--- a/drivers/iommu/iommu-traces.c
++++ b/drivers/iommu/iommu-traces.c
+@@ -25,3 +25,4 @@ EXPORT_TRACEPOINT_SYMBOL_GPL(unmap);
+ 
+ /* iommu_error */
+ EXPORT_TRACEPOINT_SYMBOL_GPL(io_page_fault);
++EXPORT_TRACEPOINT_SYMBOL_GPL(iopf_latency);
+diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+index ef5043752a36..199681a8841c 100644
+--- a/include/linux/iommu.h
++++ b/include/linux/iommu.h
+@@ -125,6 +125,8 @@ struct iopf_fault {
+ 	struct iommu_fault fault;
+ 	/* node for pending lists */
+ 	struct list_head list;
++	/* Fault report timestamp in ns, or zero if not sampled. */
++	u64 report_time_ns;
+ };
+ 
+ struct iopf_group {
+diff --git a/include/trace/events/iommu.h b/include/trace/events/iommu.h
+index 373007e567cb..cfcc29a792b2 100644
+--- a/include/trace/events/iommu.h
++++ b/include/trace/events/iommu.h
+@@ -11,6 +11,8 @@
+ #if !defined(_TRACE_IOMMU_H) || defined(TRACE_HEADER_MULTI_READ)
+ #define _TRACE_IOMMU_H
+ 
++#include <linux/device.h>
++#include <linux/iommu.h>
+ #include <linux/tracepoint.h>
+ 
+ struct device;
+@@ -156,6 +158,40 @@ DEFINE_EVENT(iommu_error, io_page_fault,
+ 
+ 	TP_ARGS(dev, iova, flags)
+ );
++
++TRACE_EVENT(iopf_latency,
++
++	TP_PROTO(struct device *dev, const struct iopf_fault *evt,
++		 const struct iommu_page_response *resp, u64 duration_ns),
++
++	TP_ARGS(dev, evt, resp, duration_ns),
++
++	TP_STRUCT__entry(
++		__string(device, dev_name(dev))
++		__field(u32, pasid)
++		__field(bool, pasid_valid)
++		__field(u32, grpid)
++		__field(u64, addr)
++		__field(u32, response)
++		__field(u64, duration_ns)
++	),
++
++	TP_fast_assign(
++		__assign_str(device);
++		__entry->pasid = evt->fault.prm.pasid;
++		__entry->pasid_valid = evt->fault.prm.flags &
++			IOMMU_FAULT_PAGE_REQUEST_PASID_VALID;
++		__entry->grpid = resp->grpid;
++		__entry->addr = evt->fault.prm.addr;
++		__entry->response = resp->code;
++		__entry->duration_ns = duration_ns;
++	),
++
++	TP_printk("device=%s pasid(%c)=%u grpid=%u addr=0x%llx response=%u duration_ns=%llu",
++		  __get_str(device), __entry->pasid_valid ? 'v' : 'i', __entry->pasid,
++		  __entry->grpid, __entry->addr, __entry->response,
++		  __entry->duration_ns)
++);
+ #endif /* _TRACE_IOMMU_H */
+ 
+ /* This part must be outside protection */
+-- 
+2.22.0
 
-A BAR that is mapped into user space is a user address.
-The device sees no read in all three rows.
-
-> Does anyone have a compelling argument as to why the vsyscall page is any different from a PCIe (virtual or otherwise) BAR other than the fact that the x86 arch code will OOPS you when you accidentally read the vsyscall page but you will just possibly deadlock or otherwise screw up more subtlely when hitting a different inappropriate page?
-
-It's not different. The oops is the only reason for that check.
-syzbot hit the oops through bpf_probe_read_kernel(). Then 32019c659ecf
-added the vsyscall page to copy_from_kernel_nofault_allowed() and
-b599d7d26d6a added it to the JIT.
-
-> If not, then I think this series primarily serves to make x86 complicit in papering over a problem with eBPF: right now eBPF has a heuristic that is wrong, but with the patch set applied, eBPF can make the heuristic even more wrong and x86 will paper over the cases that it happens to be able to detect.
-
-The range check is not a heuristic for "safe to read". It's the user
-address part of get_kernel_nofault(), inlined. You asked for that in 2021.
-Its job is to keep user addresses away from the load. SMAP does the same
-job. With patch 2 PROBE_MEM reads the same addresses as
-copy_from_kernel_nofault().
-
-In both threads you wanted probe_kernel_read() / get_kernel_nofault() to
-tell MMIO from RAM. arch/x86/mm/maccess.c has no such check.
-bpf_probe_read_kernel(), kprobe event args and kdb pass any address to it.
-So MMIO is a problem of every nofault reader, not of bpf and not of this
-series.
