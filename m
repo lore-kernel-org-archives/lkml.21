@@ -1,97 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.9
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795602717;
-	b=sXlhi6z/xGZlhUtsg/LxHWZCx2StlsuBlGBQGDZfFBkuuj8gKrWQNd4zWAMQqXTzsWdr
-	 XUl7FpME+fhPl7Ru5jpy/Y4oJKgTMeUoX/Kz1BW4rc6PSFN7a+SH4bQyovB6pOZadIbMr
-	 omp2DpC+ms/LbGrq5F5GJZxXkE0J84G+OF9xBMHrXZYC94Fop7o4C3ROXCTvX5W14U9Li
-	 esoTMLVjg2wlUwYBPAjD61XmU6idMFMBHj2D4bQE3/kT2/PB38UeGq9ZQlpUM0YTFBw2A
-	 /VyQyke7p989xrJXpVoJJtDHw5M/aJisadounZK1Dd0SLun/m6mijI59Z/T5qcT6+Og==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795602717;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=ZvPUAXdkhIuoB9fy6yuXJcO8AC9MFx9ZQYHQJygB8oo=;
-	b=5jb61RxnspuqUZrQWD2FNWSsqdE4fkwlCftbu+QApj4Qp6447ngvJldTSNvnqz1Rc8hC
-	 W4RQjPuTFYAcJQwW5KSRpHjwVC1m72gxtnCBW2L2Tpo/noJ/UgEx6t5j6ooXBYaHnvGAQ
-	 SZvp7E220ch2rJjeFPe/4U9Ynk5RduFBz2VnaW8pl9bSq7GmrmD6wDhL3uryz82I1bHG3
-	 8kj+JqeV3HvDfWiV1IW9U2dGH2aFMmRumuhBHPZYw7x7TcwYbBiBTkZYnhEZ7Bu3lLlVr
-	 Dum/m1kQr0HcwzWr6azsD6BU+SBCh+qoeoKjmB4P8dZSrMbOw2+/3TQyWkAJ1hbakxA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=dGOwjLzB;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.9
-Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010009.outbound.protection.outlook.com [52.101.61.9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.8
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795602726;
+	b=23/jFlZoDeZZ37GRb+zRYWIVWV1WYtw/H0WkIZnqF9fojBSLc4fPApI6BPwBG6V1L/jR
+	 WQxHRXIfgWXiOuwAqivCz+DTsnPeFRT3ffrcihS4TDRLtK8JxIvCJcHCoMuXd5iXFOn+N
+	 o0cj1D0oDLRSsqjNqy7toZOq6mn0Uh4Q6Itpt5K+6txrg4ePdvnRM6GqMET++d78JWw2F
+	 vRLJwcfrCQeo4X45rBvGYm2h2qdqOYc5zkKh4hJrphNVcPqEebHm4TOrWbL06taBMhrB/
+	 Ng4mZ6/MjlYRIqT4j19gXTUUqL/7xJF83CoHabOMhX5L7Wakvez7ZkIMNflmCvIGjFw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795602726;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=1b3G6GxbiZBbU/8AlyiVp74+qJPE/yScLNVQh+n2gvE=;
+	b=nqSU2o0jXiJvHoDTQNcV2PvcK6sNgbJQDygkUy7/mXMQLA7ZYipSvvoaxK4NCbFypSXw
+	 tAqNdBIjDNdqlB2BSRbR3+zmuVoVDM9aQdMwk4GZ0XqlrOrEMb9UzBXfS95qwDK4Ydb1g
+	 EyVFOMa0fddH5hNJkJQHDNSPqTefb5p2NlVRX8IkOoJe3FLrLSR/F6h1bJEdmzjOT/5s6
+	 XNuKtDNdjMnO6Mch7jSrEvKDDhv9TAaEyPS4qOZ+im6Dq68zZTnK/B6/fh8QlcyB+ot0M
+	 RvF2Ny42O7ususIPr1B+oZJM0YgEQkUdT6EiIwR9UofKDGQVin/FSA65oXo/d/MQcnQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Fse3XTiF;
+	arc=none smtp.remote-ip=192.198.163.8
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.8])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86707606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:31:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86707606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05C45606A331;
+	Wed, 25 Nov 2026 10:32:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05C45606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=dGOwjLzB
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UeErkcpRVzhPmsE2yldQA8J3WB6T7um/W9YsSjIXw654alFFVpctW3X39/hVDIbc8KE0MHx03ZBvuxjln1ZOC0Oh7VrJPKquS8JKBCHPB8OfV5+Bmn4NBuK/evkSnvsCRmSnH/WHzyXhBT59TRyoe/eJryFaNoXOQ9XgvnKAyjV+jSmGiAUEAalHVF7sPXy3R5ZkZMqVLidmI500kZWR8K94esYlYT9WrKBI2aHBkbyZ3avWXsjwF1SdP6qNJE/B4+A5f8JXwQcZ5OO1aaooVzrYP+X6MXexh2QGjr1/aPlq+IvLf6zLarGuCXNoIrZqGoFM+Rbf4ya5qvBMbqysxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZvPUAXdkhIuoB9fy6yuXJcO8AC9MFx9ZQYHQJygB8oo=;
- b=Vxlm0ngUvW8OZOPA9y3+wd1bYNfr62V8FBSk5EImcA1oGnKgtYzhzkccg37feu7GPhCEePj4C3cq7QJCxm0AYREykitVz1kRtf72sX4/u1OU8zRmGyVnp2gF5kmfZQBfni1gwqKSWus3pfp2WdEoPSsAmLaC8EioTpD87NzdAabzZ3IPfK6d2b8aFn9BrgwpWst6tnI+pDbsnFmxYl32ZuGvpuogrLoVL5Jg4rLyRz7Td57TOI0CcUVIJZ3ELM0rdCQr7W6nVzSB19pA+cTGBltIaRsZwmlSD+bCV950afRU26gd9Rui5o54yffYVO50PaBgH50Q/8tsbQ5euSAqHA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZvPUAXdkhIuoB9fy6yuXJcO8AC9MFx9ZQYHQJygB8oo=;
- b=dGOwjLzBGyQA4X9BJyLWBuK7A1ulvXGpmNI+nRDtL62/5caQWLfsHwMX3GEVsiCITUzMKbkcTgEpZWO9UA/qEagWaENYAFnTZsaHf8gQbNXvdA2iNtFm5Twsh8thOh8ktUP9kQnq8qB2gKmTX4ocWvd00h7XJoSA2UcxNJZzGW0=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CY5PR12MB6132.namprd12.prod.outlook.com (2603:10b6:930:24::8)
- by CH2PR12MB4053.namprd12.prod.outlook.com (2603:10b6:610:7c::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Wed, 25 Nov
- 2026 10:31:24 +0000
-Received: from CY5PR12MB6132.namprd12.prod.outlook.com
- ([fe80::d9ab:4258:a9ef:b8cd]) by CY5PR12MB6132.namprd12.prod.outlook.com
- ([fe80::d9ab:4258:a9ef:b8cd%6]) with mapi id 15.21.0662.001; Wed, 25 Nov 2026
- 10:31:23 +0000
-Message-ID: <85438483-9843-4b14-b3eb-57a074275911@amd.com>
-Date: Wed, 25 Nov 2026 18:31:17 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/amd/display: Fix pdev lifetime in
- dm_test_conn_init_ctx_alloc()
-To: Tao Liu <ltao@redhat.com>, harry.wentland@amd.com, sunpeng.li@amd.com,
- siqueira@igalia.com, alexander.deucher@amd.com, christian.koenig@amd.com,
- airlied@gmail.com, simona@ffwll.ch, alex.hung@amd.com,
- bhawanpreet.lakha@amd.com, ivan.lipski@amd.com, george.zhang@amd.com,
- adrian.betschart@cinemaone.ch, rodrigo.vivi@intel.com
-Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org
-References: <20261119054917.184758-2-ltao@redhat.com>
-Content-Language: en-US
-From: "Chen, Chen-Yu" <Chen-Yu.Chen@amd.com>
-In-Reply-To: <20261119054917.184758-2-ltao@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TPYP295CA0059.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:7d0:8::20) To CY5PR12MB6132.namprd12.prod.outlook.com
- (2603:10b6:930:24::8)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Fse3XTiF
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795602725; x=1827138725;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=EoNcVBVL5/XOcwz7JDHzf2htc/6N/yGvuDF99xINDTg=;
+  b=Fse3XTiFUmNXYt8pq/eIt+Ab6JhDziBipqKQv/9m1+dtUuNzpC4YnGXG
+   kTzHZ42Iq0j7610yysxPdMLtAuyHp3S1nV+8VHdQ8lpTk4a5Z8GniN0s3
+   b1dHc/e/WW1WrZPihCn5Zws6cktk5dB9cQiYYmof8ZSqNPSOdeFzbUvBP
+   g/VKTHd7lnRF58bbenrCQKOujrpGPvWr/AXx676zX53bAIu2wCaWG00iY
+   mJfBdnCTyh7fE1GYorH2LsGZwLQ1RDq6AtUKnnCzURqauuw5xVXCGRuws
+   nrXN0mWj3OVIdoINXw0iy/LetQpahfMS5DPjB/0yIqQNpCAHNzUUvzfBj
+   Q==;
+X-CSE-ConnectionGUID: hCjWB3uVSgu9IfUA75lAUg==
+X-CSE-MsgGUID: sU3II4YVQ4Cctwm4OfJ2bg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4361437"
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="4361437"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 02:28:52 -0800
+X-CSE-ConnectionGUID: veLQEaJWSYSx6BSeQffMzQ==
+X-CSE-MsgGUID: 44uh7AAhR5ifkPZKQY/sUw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="12048813"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.73])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 02:28:50 -0800
+Date: Wed, 25 Nov 2026 12:28:48 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Ondrej Zary <linux@zary.sk>
+Cc: linux-kernel@vger.kernel.org, Hans de Goede <hansg@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	platform-driver-x86@vger.kernel.org
+Subject: Re: [PATCH v3] Introduce Synology x86 NAS LEDs driver
+Message-ID: <awa4YJkwVaoqaF0L@ashevche-desk.local>
+References: <20261124125616.1168560-1-linux@zary.sk>
+ <202611241954.47791.linux@zary.sk>
+ <awXv4b3cjVlOc0NT@ashevche-desk.local>
+ <202611250911.51673.linux@zary.sk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,89 +82,140 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY5PR12MB6132:EE_|CH2PR12MB4053:EE_
-X-MS-Office365-Filtering-Correlation-Id: acc864ae-9da1-4def-057c-08df4adf4088
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|921020|10067099003|11063799006|56012099006|261009223027099003|261022075727099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	0daeVmlgCgI9eQtBrt+CGP69vnpczr8qnlzyAL/WSlhHrx2x29RNB78PjdA85vX7UhYJW7HrpCpQSXt8IYrRFQtZWn9FeFdIgMydFe7UscHSdA6rBINOdZVlgOoZR4UkeYizWQSjaHSTlfEzrk3UY4vEMbftOP7+PSR6cRIh35P82G7w42OLS6WsXt9n5ZWafSeOoaknechFTFe+6Q8LjBnWBVTG5PQDZ1LKVyjedDFoKV8eGs4BiqR9lIwulcQYH1k0462QYlw+QXhc1o2TbTyXqGbl13mmh1Vg3RMqA4qTv2C3vkAtMLk9N2qcjy3zxvCm5kKx6fW364ZUq2d4d6qwb0zy1gobwBQ3YbqiZe/JW8SwqgUS5gXPxJRvLUYAiRdmhCDJLgSbhxmkA9wVrgC2LTH0FqQWIrJubrfMOF44dRKEds9g/guuPLeMypjzL3co39kx7c4rqtWrapdO2z+zBUhOUiMrVoFC01HvafzegyNW3m+by3ofzle1NOudanlpgaCOoB0d26mzPhRoyV5NAEhxn4i8mzStL+fkxiOfYyepzAhbgWwISOJmXD0kqlcx4n0Fx4TCh8hEw2OUovXJL7kkScPVdmZqB7b5XGmHAo+5Yq3c25OVTjoyI2dEbWfCkuKY84FhT4SNenUSJe1f4RuEL14+Qf9AF6r3FPyvH3H9iP8G6VU3NA2CxOnsB+Q3DQb20//SwqfWd06OBw==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY5PR12MB6132.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(921020)(10067099003)(11063799006)(56012099006)(261009223027099003)(261022075727099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?QXJ4OGVROGlpZ1FxWXlmV2xXbk9DcVpqR2grcm4rT2QyZjZjRFJNN2srSHNq?=
- =?utf-8?B?NUtsTEpWc0hYS0pSajdDRlU1b1BlcjBsaFdMcGhQcXNXZmdWemxycE1WNi9Z?=
- =?utf-8?B?SkNFS0MwL2p6cU9WWTFvQVV6SFhuMjg5dS9SOUJ0U1NMYk8xU0FrVzgxSHdU?=
- =?utf-8?B?bXhhUFIzZ09JOXpsdEcyTFUveTdSYTlzSFNFWnVWODJ2Q2tsYlAxanJvWlg5?=
- =?utf-8?B?bzZBWElXd3N5UGdoZ3ZEdTVuV1hrYTR0MGJLczgxS21ndDR5dEFVVzhKNDNW?=
- =?utf-8?B?QlFUdDJFK2FidXZQZjRvNTN3eXN1aWtVUDhhWVptdmZRZFhvRmdENGtsZHBB?=
- =?utf-8?B?cnNkUDBXRys4R29aekwxOUZ2RGZ1dVQrOTFhcHFWeFpnaFJrckpCTDdpMjV1?=
- =?utf-8?B?bjl0Z244KzZ1QXd0UytMU2VZMTIrMkYySHdBSEtNc0ZsdHU2bVZGNm9NNzMw?=
- =?utf-8?B?UzRCcVpRZEZrbDZBZW1ycUFKR0kvQ1Q0Y0owOTRNQm0xTUtFeUZQZ1liUkF1?=
- =?utf-8?B?RnJ0UTg4Vk50cCtnQzJXaThWNnhrd2xubWNpM01vODlvZjV3WlhmU09ieUNs?=
- =?utf-8?B?RE00bTNRS1Y4anFVc3N0SDJKVDlEeWR5Ym1EaW5oTmxybE56eWlTQUJaSmk5?=
- =?utf-8?B?WGw3b3FuaDFkTytJckFnaUF1VlF2UktERHE3aHBuZkU2MU94TXNQSi81Z1dU?=
- =?utf-8?B?cXNNNko3T0RoMWkvN1dVaHBEUU56M2JvQmt4RnJlUGxyRThvV1J2Qnl0MmZ5?=
- =?utf-8?B?dlBHMHdLVkxZQlhGWUFCQUU0K052TEJKcE1LWS9aODBWckt5dGZKVko0dTdC?=
- =?utf-8?B?VXBVUGwyNjZBaUlnc0c5ZGc5SXArY1JjY0VuQVVaRUtlZU1CckRrZTNOT1Mw?=
- =?utf-8?B?b01aTkpXeUEzbmthNlhxL3Q4eklGa29Ja1VnZ2dvbmJrS29nQlJwSDlHaHVK?=
- =?utf-8?B?NzJqOUJvTVNKTXh0T3o3SDIvZW5Dd0dYME4xV1JpdzdNbXdjWEJKdjBOd2Ew?=
- =?utf-8?B?azd2OThlWWF0WHZJSi9nUEhjd0duanFQciswMVZVaVRVSFlKQUkvcjBhRzBo?=
- =?utf-8?B?OU4zK2FZbEZyRmdlSmpCSUJsbE02RWxaSkNUVUJOYlhLL1Vna2dJVVhlU0VT?=
- =?utf-8?B?bEc1dEFtMFRuMWtIRlBuMUtYbDFCL2NVZ3llTkVLVGFZZ05oa2M3ckVDd0pk?=
- =?utf-8?B?RVVTRDdMaUZZRmRZNk9qcFRnY0pHd0JHb1NJbzEzWUxydEd6SUNqNi9kSUF6?=
- =?utf-8?B?RjgxdzA2UkNJd3pLWm9sYWRrTzdKVWFuMVg1OUhnSWFXYUxnUnIvSjkyalVC?=
- =?utf-8?B?dGJwVDFSZmJKakdwRjQ4RTNEMHhoZ1BqUDY5ZXRoTnBEUFJONDB0eUpzbjRs?=
- =?utf-8?B?a3dsem9xM2ZSU0pmZ1FGaHIxRHRDUzFDQ0VpcHdQNzFVLzNlbzY0V0R6Zkdw?=
- =?utf-8?B?bTk4bWpOZWFQL1ZHbDB0bGU2ajhJbVlhTmpxTkxBaVlGZHQxZzZqRHhUMkRE?=
- =?utf-8?B?WWhCQmpNZStVeHZGdnBEWnQ1YW5ZSnZqWWhkdHFOQThuVXhUaFY2Mk1UY3Az?=
- =?utf-8?B?bG0zMnZZUituTWxBd3p2UUFLRnVlL0FkOGFINURhSjF5ZElrWnowOU1HeVVM?=
- =?utf-8?B?aXR6SXo3Si9vc2UwWkkyWkRQcnBQbVhRMktpMU5NeHlXSllSWndpTWwwUHg2?=
- =?utf-8?B?RU9IQmRUSUp3dTFYblB0Tm1ucjE3SUpQdWFERkVMdUlNL0s2R2JaU2pzQ2xZ?=
- =?utf-8?B?aHFWR1lYNlpSL0Z4bmFQbHE1ay9xL3dCZWQxTkNwdUdiQ2RUYlhzWDEwMXpI?=
- =?utf-8?B?TTVzMnl1ME5wRW4yYUZjYUNYS3VqaUsreElZQUQwNUE4cCsvL20vd3lWK2h3?=
- =?utf-8?B?NnU0V1RNVmorTThTZktnSlNqeThDQVFxZVRsTE94RFp5Tm1tdHNNaXlvR3FO?=
- =?utf-8?B?b2hHK1lNNEJENnR2S2xFRGF2T3BORkRzL0hrUFQydnMzcE1lQVFxckJac0Jp?=
- =?utf-8?B?ZlZUUHU0S0pqaDVjZ25ONkFOYWRKblJFaWxiQVNTYTBibVprNkF2S1o5UzdT?=
- =?utf-8?B?N0tuQ1NWR01CUnRYendwMGhmeVptU1VGTkdQaGlzUCt4QUFHQmZSOSt1bHhi?=
- =?utf-8?B?Y0F0NG5aSGFOU3U0WktoSStadTA4ODdHbVc0YjNnLzUyUkZpVHBST21GUHJv?=
- =?utf-8?B?dW55WkJWNk9rUk9ocngxUllWc3JJeHBnRzFOSXdGM0wzVkE5TmtnRUF3Nm4r?=
- =?utf-8?B?Y1h2YnQxRDNtb1pJNmpYTDdwaVJ4RjNPemJIdDB0T2tIdGtmeGo3Vjh3UDNP?=
- =?utf-8?B?QXcvVnFLSEY3UzU0cHpiRFdlSlV5WXE4cW1WOUNoMVFCRFJiaHhnZz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: acc864ae-9da1-4def-057c-08df4adf4088
-X-MS-Exchange-CrossTenant-AuthSource: CY5PR12MB6132.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 10:31:23.4447
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U+hwTVTRYmqn2x/VMSsPUplDvbck5+XvF8zf+Xyvmy1coRdw8zdrCUihJjlVxyiuqbR+KK+9rbxedI3x5uxK2g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4053
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <202611250911.51673.linux@zary.sk>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+
+On Wed, Nov 25, 2026 at 09:11:51AM +0100, Ondrej Zary wrote:
+> On Tuesday 24 November 2026, Andy Shevchenko wrote:
+> > On Tue, Nov 24, 2026 at 07:54:47PM +0100, Ondrej Zary wrote:
+> > > On Tuesday 24 November 2026 18:03:00 Andy Shevchenko wrote:
+> > > > On Tue, Nov 24, 2026 at 01:45:46PM +0100, Ondrej Zary wrote:
+
+...
+
+> > > > > +struct synology_pci_dev {
+> > > > > +	unsigned int bus;
+> > > > > +	unsigned int devfn;
+> > > > > +	struct pci_device_id id;
+> > > > > +};
+> > > > > +
+> > > > > +/* onboard PCI devices found in DS411+ to confirm the machine type (after DMI match) */
+> > > > > +static const struct synology_pci_dev ds411plus_pci_devices[] __initconst = {
+> > > > > +	/* 00:00.0 Host bridge: Intel Corporation Atom Processor D4xx/D5xx/N4xx/N5xx DMI Bridge */
+> > > > > +	{ 0, PCI_DEVFN(0, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0xa000,
+> > > > > +					       PCI_VENDOR_ID_INTEL, 0xa000) } },
+> > > > > +	/* 00:1f.0 ISA bridge: Intel Corporation 82801IR (ICH9R) LPC Interface Controller */
+> > > > > +	{ 0, PCI_DEVFN(0x1f, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x2916,
+> > > > > +						  PCI_VENDOR_ID_INTEL, 0x2916) } },
+> > > > 
+> > > > > +	/* 02:00.0 Mass storage controller: Silicon Image, Inc. SiI 3531 Serial ATA Controller */
+> > > > > +	{ 2, PCI_DEVFN(0x00, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_CMD, 0x3531,
+> > > > > +						  PCI_VENDOR_ID_CMD, 0x3531) } },
+> > > > > +	/* 03:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection */
+> > > > > +	{ 3, PCI_DEVFN(0x00, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x10d3,
+> > > > > +						  PCI_VENDOR_ID_INTEL, 0x0000) } },
+> > > > > +	{}
+> > > > 
+> > > > > +};
+> > > > 
+> > > > > +/* check if all PCI devices in the list are present at specified locations */
+> > > > > +static bool __init synology_pci_devices_present(const struct synology_pci_dev *list)
+> > > > > +{
+> > > > > +	const struct synology_pci_dev *d;
+> > > > > +
+> > > > > +	for (d = list; d->id.vendor; d++) {
+> > > > > +		struct pci_dev *pdev = pci_get_domain_bus_and_slot(0, d->bus, d->devfn);
+> > > > > +
+> > > > > +		if (!pdev)
+> > > > > +			return false;
+> > > > 
+> > > > > +		bool matched = d->id.vendor == pdev->vendor &&
+> > > > > +			       d->id.device == pdev->device &&
+> > > > > +			       d->id.subvendor == pdev->subsystem_vendor &&
+> > > > > +			       d->id.subdevice == pdev->subsystem_device;
+> > > > 
+> > > > Don't mix variable definitions with the code (it's exceptionally possible
+> > > > for a couple of cases, none of which is this one). Can't it use
+> > > > pci_match_id() approach with driver_data? (If we ever need this check.)
+> > > 
+> > > I don't see how can pci_match_id() be used here. I can merge pci bus and
+> > > devfun into driver_data to fit into pci_device_id table but there's no
+> > > pci_dev which could be matched against that table (and walking all PCI
+> > > devices does not seem to be an improvement).
+> > 
+> > _After_ DMI match the walk over all PCI devices is not a big deal. The code
+> > will be nicer. But maybe there is a better choice? Like checking CPUID? Or
+> > maybe something interesting is present in the ACPI tables?
+> > 
+> 
+> I don't know much about ACPI but can't find any Synology traces.
+> 
+> # acpidump -s
+> Firmware Warning (ACPI): Incorrect checksum in table [GSCI] - 0x83, should be 0x34 (20250404/utcksum-100)
+> ACPI: GSCI 0x0000000000000000 002024 (v01 052112 GMCHSCI  20120521 MSFT 00000097)
+> ACPI: MCFG 0x0000000000000000 00003C (v01 052112 OEMMCFG  20120521 MSFT 00000097)
+> ACPI: APIC 0x0000000000000000 00006C (v01 052112 APIC1409 20120521 MSFT 00000097)
+> Firmware Warning (ACPI): Incorrect checksum in table [OEMB] - 0x6F, should be 0x03 (20250404/utcksum-100)
+> ACPI: OEMB 0x0000000000000000 000082 (v01 052112 OEMB1409 20120521 MSFT 00000097)
+> ACPI: DSDT 0x0000000000000000 006B21 (v01 1AAAA  1AAAA005 00000005 INTL 20051117)
+> ACPI: FACP 0x0000000000000000 000084 (v01 052112 FACP1409 20120521 MSFT 00000097)
+> ACPI: HPET 0x0000000000000000 000038 (v01 052112 OEMHPET  20120521 MSFT 00000097)
+> ACPI: FACS 0x0000000000000000 000040
+> 
+> 
+> ACPI devices look very generic:
+> AWY0001:00
+> INT0800:00
+> INTC0102:00
+> ITE8704:00
+> LNXCPU:00
+> LNXCPU:01
+> LNXCPU:02
+> LNXCPU:03
+> LNXPWRBN:00
+> LNXSYBUS:00
+> LNXSYBUS:01
+> LNXSYSTM:00
+> PNP0000:00
+> PNP0100:00
+> PNP0103:00
+> PNP0200:00
+> PNP0303:00
+> PNP0401:00
+> PNP0501:00
+> PNP0501:01
+> PNP0700:00
+> PNP0800:00
+> PNP0A08:00
+> PNP0B00:00
+> PNP0C01:00
+> PNP0C01:01
+> PNP0C02:00
+> PNP0C02:01
+> PNP0C02:02
+> PNP0C02:03
+> PNP0C02:04
+> PNP0C04:00
+> PNP0C0C:00
+> PNP0C0E:00
+> PNP0C0F:00
+> PNP0C0F:01
+> PNP0C0F:02
+> PNP0C0F:03
+> PNP0C0F:04
+> PNP0C0F:05
+> PNP0C0F:06
+> PNP0C0F:07
+> PNP0C31:00
+> PNP0F03:00
+
+Can you add the platform to https://linux-hardware.org/?view=howto ?
+
+-- 
+With Best Regards,
+Andy Shevchenko
 
 
-> Fix this by allocating pdev with kzalloc() and freeing it through
-> the device release callback. This ensures pdev's lifetime is managed
-> solely by the kobject.
-
-Hi Tao,
-
-Thanks for the report.
-
-The lifetime problem in dm_test_conn_init_ctx_alloc() is real, but it has
-already been addressed in amd-staging-drm-next by commit 370bab028b38
-("drm/amd/display: Add more connector KUnit tests"). That commit allocates
-pdev with devm_kzalloc() on the device and registers the unregister action
-with devm_add_action_or_reset(), so devres releases the i2c adapter before
-pdev is freed.
-
-Your patch no longer applies to the current tree for that reason. Could you
-please rebase it onto the latest amd-staging-drm-next and confirm whether the
-issue still reproduces?
-
-Thanks,
-Chenyu
