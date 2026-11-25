@@ -1,100 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.48
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795629716;
-	b=lEf/KiAbbaxElemDWDjD/4UuRVXAEsics+azD7pcE1aimTwARpZfUarPK+YCpWe+wUrG
-	 vVgPAzpRJ5iF7ibXDcSS1XCrUPOnIIkcWvxmkXhFg33LABx4FP/BQzmXgKl0QEZeJ8tuu
-	 Tp5tODkQv3zcy7wJJqDSfmjkOYTho32gne3j1tGfDj96UpNY6iEFJO63ZrwZYiI+xB2Rp
-	 7dmMOE418N3vKry6F6rAEXycn3LSA1YgmLJbkA+ih4O5Q+T1Yby6gihWeeZgU2n5vV6eZ
-	 hvyDyeguPnM1V6f09sifdN2nVq914FY/SINTE+7zhuTCYk0uUuNCMt3qmZgjn8hwdCg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629716;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=PpDc8pLBtpg0emxjGkZmwsobsd8c7YGJx/bCDbNiMik=;
-	b=mCUWIskS+EUU+V4fNah1is5VglI3YdP/+YaZVjca0weZrDT2wxcpVH+6rkBg6eUmHOfg
-	 0hdt4R90qnH7R35QjM5lueK6p5FTxkmS5Uf2x+95tB9aRr5i6qgadSo72P9mpTqtLJfVc
-	 CIIoQ6wX+N9VSYm6F6v6QGCmkp7r6v643gpfF6kUZ2RR8szpxvmNh3YCjP1iox356Tzci
-	 vXooDyKAFL4qFbhTLRbWD3CcTiEMaoiZIByFWgz/y8w5s3V2q2wNbDp0A7sXG16Z5d+dD
-	 oT1HzUmQBmEg6noe7FFV1GYztDLKJ3xzaeGxhWeTJDPrmCoFZFwcdyp3GR6U9J4EVLQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=flipper.net;
-	spf=pass smtp.mailfrom=flipper.net;
-	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=1AqyQGAv;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.48
-Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com [209.85.218.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795629740;
+	b=rKbkUEq0o+pWXQE39ab06hdKzkZ+KF4ZPPI13vOYNX1l3ErwWk9IJ99KHdchLV5IRfF8
+	 0BKAFZLwtEqshixDUjVbVfmI7J78iDmXR/M0p8/OR9UZ2cT05RzxJIxrEfmDE2Yn0MthE
+	 eIn+0Mnylj3dlg/EWbYkXPKUVymbDYLxKmOljArUDK1IdD38uPAnQr6vQBOBCaXBajfiw
+	 zu+iH57x47mptjJdUEhPaeqcKBhfcxDToEkg4tcvCQREv1PAZKPKQNw7XE3k2nhW6bIOT
+	 NwuXBAAcI7+DFZ9BuZNHzNDjoll/HcGJlA8J0/EBEQgBoqeqqUZ2d+DsoufUK3kS56g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629740;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
+	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=tCuIzxl3yS7yER97h03fbHyTUvRxC3cOGhv0cQ+k4KI=;
+	b=aeXj4+37S6kxxuDVO70QXxlxLrzNmEvCgHJjlCFPwAyS/02Put4XTkTwy6nh11cSMC3a
+	 Gchm3Wg0n5g/g2dtNQ5NHpuX7OlZ6nOpjTrZSVAsUiT1NuEoWEwuDtz/xh4zDbkt11F51
+	 Ps6rFRYAZaAZioKcpCbETCqHmrui2fK20JLNxo2dRNEFL+rYgcY3PCj28/QKxO6fhyDvO
+	 dHB9Usv6EnoUsTu8thg20tWVFPF5bokSumnm3FPhR6iWzk0kOwr+m2CPXCr3GJXzE3qfv
+	 9TCrgfbb93WxZTemEFbfuBrDIWQYjGvctbjfPFTY9bHq0cB6wKhJXgIF3qiTnWI56zg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Oxhv49Is;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E667606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:01:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E667606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A767606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:02:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A767606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=1AqyQGAv
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c51a14bd405so193099766b.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:01:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795629715; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MNkuyXXFtOj6PWMJncSPSiLXL68sDiU71YSs8Nap76CwuzqKlmx93aR9asDnqC0fM7
-         t5ywRrY5HJ0+omsJQrVJ+z90Rs9D8bDnTsiEdUv6JUb6zNU9CJpoAzfOVZxAUHPtPISj
-         LuAbu3O+NEBGnKCnw8/Cksxcccih1hp3vY1T01IK+uO53mcHlebSKcJISMXTMXDRMBdb
-         W19huGM0HZKU2q80QcpDn84nv+gXiFWnRFm5Mil/NK8N+kGwru5Bc2Ew7bRKSTNdvZrI
-         UnbviQwnqtvQpkBWqABzeIf58tajZcsS6ZF8DSCgC7G7HswpYA9I59WVrgllfHvsBxeG
-         kqjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=PpDc8pLBtpg0emxjGkZmwsobsd8c7YGJx/bCDbNiMik=;
-        fh=2uXX74qriN/lau7iar9y3HfA66l2PrhNVYA1Wcpvdfo=;
-        b=Y5UIIpG/M1sJMK6tkeVV/Yd/OihK9Nxzwbya66t7LnNY1WiABJNiuDWn8FG1llteCe
-         NpQmk9y6nBpC3Zux0Wa2S7FNjP2NQVUTdbokltzKj2dPTOuRM5iKbrmzkIPnfs9axaD9
-         5QPorU9wLyM5HHItkfy6uASwskeXp71fIv9HbTb+JpCJfbuMD4cS0ZHfCk6LyUDa+XR3
-         jdjApfEcxcha4R3/gdhG6QZw4SVvWvGWnaD6J+97ADRN91aPmIa/mMcgMgyXPwQHxPug
-         6BpNcUQUWsJzpOibpnIMRJWcMdwyKL5THYeqjBMbHX9k6qzpMWYuQae2cDvNKaBiOEqi
-         F1UQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1795629715; x=1796234515; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PpDc8pLBtpg0emxjGkZmwsobsd8c7YGJx/bCDbNiMik=;
-        b=1AqyQGAv6vzNOGgyTFy57snW4o9MHPbh6PVD20GCOIDqqla4H5Xj8jdM6bYO1leusE
-         2mp+XMhR/FKdsAuBX0p/3OHWwu7RNsfkfIzdMpFiDHK595hc//oXEYUIrpvvqL5WpUVO
-         jAyhWBT8DyonHOSVtxH/BlFAXUHwx5/D639tu7i9xAMGKzj2w43x9OEJLSxenJTlRUKn
-         MUr/6UR5LpXcQ6gLYSbTiEtXiu/ubRrYEmAKVXs4URYv7JkSehXOuC8/L+pEqAxzzkaV
-         W/I+oX9Ww2JLF8g9gJOmscxkLb3ckyB6CdR09xndpPt3j/vbKQwpJ58eQYfmBMB+LVB9
-         ARwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795629715; x=1796234515;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PpDc8pLBtpg0emxjGkZmwsobsd8c7YGJx/bCDbNiMik=;
-        b=AWTO6Oefn0DquSBxtZAYd3u9yT1sr4W/+J3/ho0ZD/KGvyN/YLqN1zomg0Qmwqcc/8
-         unDacRgJEwLML6ZFW4OMmn0ZWFmnctehSO/vhqGjXNdDwcQMeZiilkTBTVNa7ZHYTgI1
-         pE9zSdGo5QW/8LJd3DnTacBhg4cW4YJm9xTCQpJGZe9rWEO+VEgbkNqc0vGyRIUMOCWe
-         3NwZWqxzWqZyYZMwvxVo5bdLH0DQaVTjRnaUBthqVb8WbEIUzD31iUBsrhIrqCqstFq/
-         J1k2xkQKf1OHVwoCKZssg7YbioBjZ7LWxKb0nIMmB00j+RceV3+wJMGeqc5c2Tde7Jo5
-         axTA==
-X-Forwarded-Encrypted: i=1; AL+hErFE1U3LyCXaORXA8UA6AyCe88l3cAqDA2h+p/7XmlJVd5vO5HqYq9NrC215CfTCXJ7f6Wp7Iwz+3frkxfU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8diA70fSGDILREWgrS9KSCKD5a21hXhFbuu4PSKnCi4ueKWLhX
-	Vkv44PolrNdNNTeveg7RsLSTwEn4t+PSwmA5coQxGK5eM5eFkn3F1+vhfYAe8PRdN6TDD1avi8N
-	7FmQHIatRBVAo9hucoiSWypvEMWWoUpxxzY9su8fL+Q==
-X-Gm-Gg: AZFdTZdVFZGILfetj3YqWEeZ2460cRv7w6fs+6LKvPyZiNWcw0AgXH0EajUgOZZpc43
-	x5ePX166TkmevpkHeam7mpbcuw+xw1vgT/L1TtXFro+slhpCl/2h06pUePfcJfl/RbweKtuOLgL
-	zjwZUAYLwpCYhPB7yG4VTDf1yTY5h4wiM0LuME68rL1sw/IpqbFMKAUzaMhgGtYhpnHULxQ+KAm
-	mKTL+OuirbZWQCPF6GMJDiYm6gTP4iT3TwpoF/TUtpP6y7qdRlgabwLUDGBa0Ie8laHc+qgAez7
-	KBjY/jpUPjabMgUzNtDpN3UnjhcnjMFZxaD0XbIZMt3sTFVyvLMA8gbk7xBnbzKi6uBE7J2RT1Q
-	BzWz3p2QRpUKp9JE7FVxPLPirVhwMn3XFAriXdumB3SeushxagQSslVqFFoEv9QBfsKhS
-X-Received: by 2002:a17:906:af85:b0:c3f:dce3:20c5 with SMTP id
- a640c23a62f3a-c513ac496d8mr1123543566b.44.1795629714600; Wed, 25 Nov 2026
- 10:01:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Oxhv49Is
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 170A8C6221E;
+	Wed, 25 Nov 2026 18:02:26 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0EAC360480;
+	Wed, 25 Nov 2026 18:02:18 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1A9E111E6B0DE;
+	Wed, 25 Nov 2026 19:02:09 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795629733; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=tCuIzxl3yS7yER97h03fbHyTUvRxC3cOGhv0cQ+k4KI=;
+	b=Oxhv49Isr1blQ1tRXrq61D4mu/qNgs9Aw4FD1PlbFUy67HK/EUPfrYSriu05myDYKM+FSR
+	VZpA8hSk5VE0mWJ8mhF2CzaazmvhjO/7tatFROW8XpIh4XIJpkLszxo9x2aknyXbiu16ki
+	Y07pQC2YY79X5UZ1NosZagGRNGE5i9fmkKJ+34lOeSVrA4Wwr5HFgT9mny3tP3wWufvSdZ
+	0Ulcjk+oafCAONiVlcf4yBcrYmVr7Tyl6BtXgKo7VHiy/RnYahLNpMvYRQDWAU+W/e3Pnp
+	uKdCVLyafJE4zissHm7bjm2aMeUhn6RKzYeJpdPfR/TxAU/RjcKJTeQnWBK2fA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: [PATCH 0/4] mtd: spi-nor: macronix: Improve general support
+Date: Wed, 25 Nov 2026 19:01:33 +0100
+Message-Id: <20261125-macronix-upstreaming-spi-nor-cleanup-v1-0-0d1ab783fd8b@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,75 +62,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261124-rk3576-otp-cpuid-mac-v4-0-d403b8a25113@flipper.net>
- <20261124-rk3576-otp-cpuid-mac-v4-3-d403b8a25113@flipper.net>
- <0aH4P5VH9HNiTXpCUTaTlvGaoUDQBnvv-0cSXtipSDkLOGjzGy96jDqsVtU0DJTWrocgoMcGFEgd0JUlF5mljVvCzGKVz4yUgDQ0s6HaDLg=@protonmail.com>
- <2f8da604-36af-4944-8168-02b046e97699@lunn.ch> <CAKTNdwG1sSBVKcKpHBj24nFCdc6WVKabV5=K4sJFucWpTLqRQQ@mail.gmail.com>
- <1defc5c8-ba61-40d2-99f3-6654f1743af1@lunn.ch> <CAKTNdwFktkMtdLW2GzqzLH+LO4kF0uY0jWpnvO5vbWmd-e4iWw@mail.gmail.com>
- <789d3358-81cf-4276-9f8e-4787df120059@lunn.ch>
-In-Reply-To: <789d3358-81cf-4276-9f8e-4787df120059@lunn.ch>
-From: Alexey Charkov <alchark@flipper.net>
-Date: Wed, 25 Nov 2026 22:01:39 +0400
-X-Gm-Features: Aa3M54rXKAuPqQg_Ygp0o8wODv5WUBqheLR9BXAdmhPLGte_-jSen4aa0CPalg8
-Message-ID: <CAKTNdwHugVHb7hBzKHdorrCNmBanZ+k21GdMJieD7=_Z7446bg@mail.gmail.com>
-Subject: Re: [PATCH v4 3/5] nvmem: rockchip-otp: Derive MAC addresses from the
- CPU ID
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Ryan Leung <untilscour@protonmail.com>, Srinivas Kandagatla <srini@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
-	Ricardo Pardini <ricardo@pardini.net>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNyw6CMBCF4Vchs3YMBRHDqxgWbRlxEntxSgkJ4
+ d1tZPmdxfl3SCRMCYZqB6GVEwdfoC4V2Lf2MyFPxdDUzV2ppkOnrQTPG+aYFiHt2M+YIqMPgvZ
+ D2ueIun60nTKGejVBuYpCL97+med4WuibS205RzA6EdrgHC9DtfbXG4ptYTyOH9iogCmiAAAA
+X-Change-ID: 20261125-macronix-upstreaming-spi-nor-cleanup-a08351bbe71d
+To: Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Alvin Zhou <alvinzhou@mxic.com.tw>, 
+ Cheng Ming Lin <chengminglin@mxic.com.tw>, linux-mtd@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Miquel Raynal <miquel.raynal@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Wed, Nov 25, 2026 at 8:41=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> > > That way of_get_mac_address_nvmem() just works, so the MAC driver jus=
-t
-> > > needs to call of_get_mac_address() or of_get_ethdev_address().
-> >
-> > They still need to relax the size check as done by patch 2/5 in this
-> > series, because the CPUID cell is 16 bytes long. Srinivas rejected a
-> > prior version of this series that attempted to return cell contents of
-> > different sizes depending on the use case. Currently any cell size !=3D
-> > ETH_ALEN gets rejected by the net core, not just < ETH_ALEN.
->
-> Ah! I had not looked at the whole series.
->
-> Having to change the core like this is an argument for doing it in the
-> MAC driver. It asked for a MAC address. What it got back is not a MAC
-> address if it does not have 6 octets.
->
-> Please throw this all away and do it in the MAC driver. If there are
-> multiple RealTek MAC drivers involved, you can put it into a little
-> library and share it across the drivers.
->
-> It is actually an interesting idea. Maybe it should be placed in
-> of_net.c, so other drivers can use it. How generic is it having a CPU
-> ID in the OTP? Are there other vendors doing it?
+There are multiple ongoing issues with the current state of the Macronix
+vendor driver:
+- wrong RDCR opcode in general
+- erroneous QER handling
+- issues with locking
 
-From a quick overview, Allwinner does a similar thing [1] by reading a
-"SID" from its eFuses, and Amlogic [2] by reading its secure-monitor
-serial number - so it's a reasonably common pattern. Everyone uses
-their own derivation functions though.
+This series aims at fixing all those open points. One reason they have
+stayed for so long, is because there was no easy way to define a clean
+per-vendor RDCR opcode nor to easily hook fixups to JEDEC IDs *and*
+extra conditions. This is all possible now thanks to the recently merged
+heavy QER handling rework, so let's use these capabilities.
 
-I think I could try and add another branch in of_net.c to parse an
-NVMEM cell called e.g. "unique-id" with platform-specified derivation
-functions selected by the cell's compatible string. Then derive the
-MAC index from the OF alias, so that the phandle argument can go away,
-and the numbering cannot drift apart. Will send a v5 with that
-approach if it works out.
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+Miquel Raynal (4):
+      mtd: spi-nor: macronix: Clear the default RDCR opcode
+      mtd: spi-nor: macronix: Clear the RDCR opcode on MX25L3255E
+      mtd: spi-nor: macronix: Enable RDCR for the parts that support it
+      mtd: spi-nor: macronix: Describe locking support for MX25L51245G
 
-[1] https://elixir.bootlin.com/u-boot/v2027.01-rc2/source/board/sunxi/board=
-.c#L783-L828
-[2] https://elixir.bootlin.com/u-boot/v2027.01-rc2/source/arch/arm/mach-mes=
-on/board-common.c#L79-L107
+ drivers/mtd/spi-nor/macronix.c | 91 +++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 85 insertions(+), 6 deletions(-)
+---
+base-commit: 19d1b4de6d37bccecc3ad9144d279f1baa405eb1
+change-id: 20261125-macronix-upstreaming-spi-nor-cleanup-a08351bbe71d
 
 Best regards,
-Alexey
+-- 
+Miquel Raynal <miquel.raynal@bootlin.com>
+
