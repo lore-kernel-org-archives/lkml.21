@@ -1,60 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629247;
-	b=5Y5Joi6Iwu+V3C94o9PhBMXgMGemsCL5OwznX+MU/ojpVxyJSTR3ziA5fxXo2km+/DzE
-	 Er5mjMeC5LF/A2UNXGJxILwwiqdzb/L7bil6UefN8Em7nUnnCCMh23TJvNf+TXn0Sa4ur
-	 JN3AdQC2J1yjB0WnYeIgA8NOJtKarhVndGurUPVoPHXTts6CrsXkF2Tv+Q5jGY/8OwAZ6
-	 lWjel21k5rUaxsCvhe3h+c8Y6/mb+j9zmIg5F01xm39GyB3mOgViNL6gJT6ix+kEPdz7t
-	 yvXQXYS1qwPBIJNLh1Fk5o2g85DkqXpS5ciXJdfusx8FQqsk3NGo2DVjpWAxPCYhGiA==
+	t=1795629252;
+	b=ys/orMHhu12B32fvvEW+jYs06LMaqWLMSu/RaaJDy0qciyyo7XT+mrauCqxk8xdt+Dht
+	 L/eKtI7khgJdKAXb2lRL9QJixzY2NflQniHCXXjqSKJjN/UrEkEcLcVcUF5a40YXmoAX+
+	 7wokkZWCOvpaR0fncAJjX+pHpK37JbTxh/Z37U6u3aZgzTYnxg7DsY+P61L/G1h8P3Rbh
+	 d88tuCh66TizwcEd3MbOurK8gvc1hgOFzL485WI/Lf8mBC6TO31msIRFZmBL8+izjHRxX
+	 fM4LqAD+deum3qyzIyeeP+R75ZYFtYuaQ4+Gxn0AQK5XXYa8y1UuCSeNxQVrhV0VrDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629247;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629252;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Last-TLS-Session-Version;
-	bh=utdasQYRvDkNeySeJoOR7BHLdC3SmZiu0oAuKRibaD0=;
-	b=DTpQoMietLMaautnOVqev5KKC3rDvvVr1EW2DtxcK/af/Na9cf8zqoRMJl91k3uWhlh2
-	 iON1jurcgm1bnuwAF3Gm6UEHcf7ltAazxLFSJgq88Ufu+3Ce2uTPONDEVVl8cAkCKje0f
-	 xYJAAtrtyP0jwdH5fwGbS8ekEzS7ClJoFoSA19nrF5iuQ1g+NAeCgjBcdaqcpHiYqCpDh
-	 JBI7MpI0ydc8Q+HR1Z1vQMeh/O8b+A9s/Zgg/oAdju4eWsErH0HOebVYD0boEUh842fc+
-	 Q89OFZN3TlfOTeDfjxGy/vtNboQ6mQ5Xf4bRNY/R9g2rlRzKLbQbyqmjArmfIym72Sw==
+	bh=uVOZcTNesWkxQue4smQ34ukC/TjgYibdayPA5A159MA=;
+	b=FV6z5ach7Rcuxdjrf0UREFClSYH6bFt2dOSP2s2MH+vICv+bd5rjAtVcZDwVABLRPTGh
+	 cCovc99DQ8aWDl+7Qv6PBc2j+5EnIjjMRYIq9zYzeP6W9HnPxTskZFJ0ldOVfFRQWyg/3
+	 g7bEuQ4wdM3bZdQ2ErCHr2CGo5VZJcqzZSA9CiIuiO9fpMJF9gGd82CE4nUiKaco24JM0
+	 TU7QCIrCQ+IUcPq6mmueu7+muKkmD0hdELMzS5WKrDq/c3lR6lIVg3tuEQy12r3aYUgvn
+	 QNg04AOnO1JlZRICwuiF+pKhtIk1vL1sO/g82559knjATjq92CGYUJvw5twDKC/99xw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Sj1AvK8B;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=nGhmE+SH;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 856BC606A689
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:54:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 856BC606A689
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E394B606A683
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:54:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E394B606A683
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Sj1AvK8B
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=nGhmE+SH
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 38EC6C2B9C2;
-	Wed, 25 Nov 2026 17:54:13 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 8C17F1A1803;
+	Wed, 25 Nov 2026 17:54:10 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 40D0B60480;
-	Wed, 25 Nov 2026 17:54:05 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9622211E6B0C5;
-	Wed, 25 Nov 2026 18:53:58 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6109360480;
+	Wed, 25 Nov 2026 17:54:10 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0CEFA11E6B0AE;
+	Wed, 25 Nov 2026 18:54:03 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795629243; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795629248; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=utdasQYRvDkNeySeJoOR7BHLdC3SmZiu0oAuKRibaD0=;
-	b=Sj1AvK8BgUEvfwlaQ/xrJblnUYR89D8CFBmtrEa6fYKsN5ZyVVt8uPgWRzNchDvJwpG2ZB
-	WtcyORoRb0lLLgNhriuPtvOv5eTD5ZCkeAIHqwyN+4lRKfyng8i6j5tXHdM0gtS3o2+BPw
-	VjzSPE/wOXToYO0vjQnjaIIOu6TLgETL8KN7hmR+hw7XKRi9wfBaCsE0u2y8ax5Mj191NN
-	mFDz0y0PTXnwEBjC9UEDTb1LvCDbfz08YQAqxuXFvwvRGQu/L4jeHRKimwVUjAQ7mjh+E8
-	BgREgH/zeVSeJonjO2YQFQkYjy8LkjpqFinsW9FYaql/xOQjSPMNgRKJFRgc0g==
+	bh=uVOZcTNesWkxQue4smQ34ukC/TjgYibdayPA5A159MA=;
+	b=nGhmE+SHu6Q6Yt6/Cq67MPgFEVQCPrG5iVyfi0K+Izo1bSo6FZVQKFWDro9im1XRLi8hkk
+	jcpo35BEFslgmciJ0IPO+k/Qobg3K+W2ua5BtqtsCBKIrO6yVuHmTe7PvVgPuRygwcs8g0
+	lgZrWdygCcCoBbI0bjRBtqr8j/f9L/+M+M6UYjagzIz9AOwRHLKDvoaaVjNAxgmdqOotkf
+	v5uWMKmgwYzkdCPPgUZGSQOQ5uo+z49OjNQU6mPorVNBjb/AnEx8W4SBCO5jZu4Oxmz1/W
+	0GwTUDc3q2dXB2VTMHoAvNZ6ZwKU1lXeDYjy52EnnfK6HbUdH7ylqy8OqIyF5w==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 25 Nov 2026 18:50:41 +0100
-Subject: [PATCH v4 28/32] drm/tests: atomic: add tests for
- drm_atomic_shutdown_encoder()
+Date: Wed, 25 Nov 2026 18:50:42 +0100
+Subject: [PATCH v4 29/32] drm/bridge: clear bridge->encoder on detach
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,7 +65,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-drm-bridge-hotplug-v4-28-822722850492@bootlin.com>
+Message-Id: <20261125-drm-bridge-hotplug-v4-29-822722850492@bootlin.com>
 References: <20261125-drm-bridge-hotplug-v4-0-822722850492@bootlin.com>
 In-Reply-To: <20261125-drm-bridge-hotplug-v4-0-822722850492@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -94,251 +93,39 @@ Cc: Javier Martinez Canillas <javierm@redhat.com>,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 
-Add KUnit tests to exercise the newly added drm_atomic_shutdown_encoder(),
-including in the case of a card with multiple CRTCs.
+Attaching a bridge to an encoder rightfully sets bridge->encoder to point
+to the encoder. It also sets it to NULL in the error management path.
+
+However drm_bridge_detach() does not set bridge->encoder to NULL.
+
+This will create a potential NULL pointer dereference in a following commit
+(part of when introducing DRM bridge hotplug) because drm_bridge_remove()
+will have to detach bridges attached to an encoder, so it needs to use 'if
+(bridge->encoder)' to know whether the bridge is attached to an
+encoder. For this to work, the bridge->encoder pointer must NULL whenever
+the bridge is not attached to an encoder.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-New patch in v3
+Issue found by sashiko:
+https://lore.kernel.org/all/20261001131425.A001E1F000FF@smtp.kernel.org/
 ---
- drivers/gpu/drm/tests/drm_bridge_test.c | 209 ++++++++++++++++++++++++++++++++
- 1 file changed, 209 insertions(+)
+ drivers/gpu/drm/drm_bridge.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/tests/drm_bridge_test.c b/drivers/gpu/drm/tests/drm_bridge_test.c
-index f56209c0ab1c..06d08d1316ae 100644
---- a/drivers/gpu/drm/tests/drm_bridge_test.c
-+++ b/drivers/gpu/drm/tests/drm_bridge_test.c
-@@ -5,6 +5,7 @@
- #include <linux/cleanup.h>
- #include <linux/media-bus-format.h>
+diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+index c00d5276e55b..d82e81b26ace 100644
+--- a/drivers/gpu/drm/drm_bridge.c
++++ b/drivers/gpu/drm/drm_bridge.c
+@@ -751,6 +751,7 @@ void drm_bridge_detach(struct drm_bridge *bridge)
+ 	drm_hotplug_event_notifier_notify(DRM_BRIDGE_DETACHED, bridge);
  
-+#include <drm/drm_atomic.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_atomic_state_helper.h>
- #include <drm/drm_atomic_uapi.h>
-@@ -951,6 +952,213 @@ static struct kunit_suite drm_bridge_alloc_test_suite = {
- 	.test_cases = drm_bridge_alloc_tests,
- };
- 
-+/*
-+ * Two CRTC/encoder/bridge/connector pipelines on the same DRM device, to
-+ * check that drm_atomic_shutdown_encoder() only stops one.
-+ */
-+struct drm_bridge_two_priv {
-+	struct drm_device drm;
-+	struct drm_plane *plane[2];
-+	struct drm_crtc *crtc[2];
-+	struct drm_encoder encoder[2];
-+	struct drm_bridge_priv *bridge[2];
-+	struct drm_connector *connector[2];
-+};
-+
-+static const struct drm_bridge_funcs drm_test_bridge_atomic_no_destroy_funcs = {
-+	.atomic_enable		= drm_test_bridge_atomic_enable,
-+	.atomic_disable		= drm_test_bridge_atomic_disable,
-+	.atomic_destroy_state	= drm_atomic_helper_bridge_destroy_state,
-+	.atomic_duplicate_state	= drm_atomic_helper_bridge_duplicate_state,
-+	.atomic_create_state	= drm_atomic_helper_bridge_create_state,
-+};
-+
-+static struct drm_bridge_two_priv *
-+drm_test_bridge_two_init(struct kunit *test)
-+{
-+	struct drm_bridge_two_priv *priv;
-+	struct drm_device *drm;
-+	struct device *dev;
-+	int i, ret;
-+
-+	dev = drm_kunit_helper_alloc_device(test);
-+	if (IS_ERR(dev))
-+		return ERR_CAST(dev);
-+
-+	priv = drm_kunit_helper_alloc_drm_device(test, dev, struct drm_bridge_two_priv,
-+						 drm, DRIVER_MODESET | DRIVER_ATOMIC);
-+	if (IS_ERR(priv))
-+		return priv;
-+
-+	drm = &priv->drm;
-+
-+	for (i = 0; i < 2; i++) {
-+		priv->bridge[i] = devm_drm_bridge_alloc(dev, struct drm_bridge_priv, bridge,
-+							&drm_test_bridge_atomic_no_destroy_funcs);
-+		if (IS_ERR(priv->bridge[i]))
-+			return ERR_CAST(priv->bridge[i]);
-+
-+		priv->plane[i] = drm_kunit_helper_create_primary_plane(test, drm,
-+								       NULL, NULL, NULL, 0, NULL);
-+		if (IS_ERR(priv->plane[i]))
-+			return ERR_CAST(priv->plane[i]);
-+
-+		priv->crtc[i] = drm_kunit_helper_create_crtc(test, drm,
-+							     priv->plane[i], NULL, NULL, NULL);
-+		if (IS_ERR(priv->crtc[i]))
-+			return ERR_CAST(priv->crtc[i]);
-+
-+		ret = drmm_encoder_init(drm, &priv->encoder[i], NULL, DRM_MODE_ENCODER_TMDS, NULL);
-+		if (ret)
-+			return ERR_PTR(ret);
-+
-+		priv->encoder[i].possible_crtcs = drm_crtc_mask(priv->crtc[i]);
-+
-+		priv->bridge[i]->bridge.type = DRM_MODE_CONNECTOR_VIRTUAL;
-+
-+		ret = drm_kunit_bridge_add(test, &priv->bridge[i]->bridge);
-+		if (ret)
-+			return ERR_PTR(ret);
-+
-+		ret = drm_bridge_attach(&priv->encoder[i], &priv->bridge[i]->bridge, NULL, 0);
-+		if (ret)
-+			return ERR_PTR(ret);
-+
-+		priv->connector[i] = drm_bridge_connector_init(drm, &priv->encoder[i]);
-+		if (IS_ERR(priv->connector[i]))
-+			return ERR_CAST(priv->connector[i]);
-+	}
-+
-+	drm_mode_config_reset(drm);
-+
-+	return priv;
-+}
-+
-+static int drm_test_enable_pipeline(struct kunit *test,
-+				    struct drm_device *drm,
-+				    struct drm_crtc *crtc,
-+				    struct drm_connector *connector,
-+				    const struct drm_display_mode *mode)
-+{
-+	struct drm_modeset_acquire_ctx ctx;
-+	int ret;
-+
-+	drm_modeset_acquire_init(&ctx, 0);
-+
-+retry:
-+	ret = drm_kunit_helper_enable_crtc_connector(test, drm, crtc, connector, mode, &ctx);
-+	if (ret == -EDEADLK) {
-+		drm_modeset_backoff(&ctx);
-+		goto retry;
-+	}
-+
-+	drm_modeset_drop_locks(&ctx);
-+	drm_modeset_acquire_fini(&ctx);
-+
-+	return ret;
-+}
-+
-+/*
-+ * Test that drm_atomic_shutdown_encoder() disables the CRTC feeding the
-+ * encoder and detaches its connector.
-+ */
-+static void drm_test_drm_atomic_shutdown_encoder(struct kunit *test)
-+{
-+	struct drm_bridge_init_priv *priv;
-+	struct drm_display_mode *mode;
-+	struct drm_bridge_priv *bridge_priv;
-+	int ret;
-+
-+	priv = drm_test_bridge_init(test, &drm_test_bridge_atomic_funcs);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
-+
-+	mode = drm_kunit_display_mode_from_cea_vic(test, &priv->drm, 16);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, mode);
-+
-+	ret = drm_test_enable_pipeline(test, &priv->drm, priv->crtc, priv->connector, mode);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	bridge_priv = priv->test_bridge;
-+	KUNIT_ASSERT_EQ(test, bridge_priv->enable_count, 1);
-+	KUNIT_ASSERT_EQ(test, bridge_priv->disable_count, 0);
-+	KUNIT_ASSERT_PTR_EQ(test, priv->connector->state->crtc, priv->crtc);
-+
-+	drm_atomic_shutdown_encoder(&priv->encoder);
-+
-+	KUNIT_EXPECT_EQ(test, bridge_priv->disable_count, 1);
-+	KUNIT_EXPECT_NULL(test, priv->connector->state->crtc);
-+	KUNIT_EXPECT_FALSE(test, priv->crtc->state->active);
-+}
-+
-+/*
-+ * Test that drm_atomic_shutdown_encoder() is a no-op when the encoder is not
-+ * driving any output.
-+ */
-+static void drm_test_drm_atomic_shutdown_encoder_disabled(struct kunit *test)
-+{
-+	struct drm_bridge_init_priv *priv;
-+	struct drm_bridge_priv *bridge_priv;
-+
-+	priv = drm_test_bridge_init(test, &drm_test_bridge_atomic_funcs);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
-+
-+	bridge_priv = priv->test_bridge;
-+
-+	drm_atomic_shutdown_encoder(&priv->encoder);
-+
-+	KUNIT_EXPECT_EQ(test, bridge_priv->enable_count, 0);
-+	KUNIT_EXPECT_EQ(test, bridge_priv->disable_count, 0);
-+	KUNIT_EXPECT_NULL(test, priv->connector->state->crtc);
-+}
-+
-+/*
-+ * Test that drm_atomic_shutdown_encoder() only stops the pipeline of the
-+ * given encoder and leaves the other CRTC untouched.
-+ */
-+static void drm_test_drm_atomic_shutdown_encoder_two_crtcs(struct kunit *test)
-+{
-+	struct drm_bridge_two_priv *priv;
-+	struct drm_display_mode *mode;
-+	int ret;
-+
-+	priv = drm_test_bridge_two_init(test);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, priv);
-+
-+	mode = drm_kunit_display_mode_from_cea_vic(test, &priv->drm, 16);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, mode);
-+
-+	ret = drm_test_enable_pipeline(test, &priv->drm, priv->crtc[0], priv->connector[0], mode);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	ret = drm_test_enable_pipeline(test, &priv->drm, priv->crtc[1], priv->connector[1], mode);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	KUNIT_ASSERT_EQ(test, priv->bridge[0]->enable_count, 1);
-+	KUNIT_ASSERT_EQ(test, priv->bridge[1]->enable_count, 1);
-+
-+	drm_atomic_shutdown_encoder(&priv->encoder[0]);
-+
-+	KUNIT_EXPECT_EQ(test, priv->bridge[0]->disable_count, 1);
-+	KUNIT_EXPECT_NULL(test, priv->connector[0]->state->crtc);
-+	KUNIT_EXPECT_FALSE(test, priv->crtc[0]->state->active);
-+
-+	KUNIT_EXPECT_EQ(test, priv->bridge[1]->disable_count, 0);
-+	KUNIT_EXPECT_PTR_EQ(test, priv->connector[1]->state->crtc, priv->crtc[1]);
-+	KUNIT_EXPECT_TRUE(test, priv->crtc[1]->state->active);
-+}
-+
-+static struct kunit_case drm_atomic_shutdown_encoder_tests[] = {
-+	KUNIT_CASE(drm_test_drm_atomic_shutdown_encoder),
-+	KUNIT_CASE(drm_test_drm_atomic_shutdown_encoder_disabled),
-+	KUNIT_CASE(drm_test_drm_atomic_shutdown_encoder_two_crtcs),
-+	{ }
-+};
-+
-+static struct kunit_suite drm_atomic_shutdown_encoder_test_suite = {
-+	.name = "drm_atomic_shutdown_encoder",
-+	.test_cases = drm_atomic_shutdown_encoder_tests,
-+};
-+
- /**
-  * drm_test_bridge_chain_verify_fmt - Verify bridge chain format selection
-  * @test: pointer to KUnit test object
-@@ -1381,6 +1589,7 @@ kunit_test_suites(
- 	&drm_bridge_get_current_state_test_suite,
- 	&drm_bridge_helper_reset_crtc_test_suite,
- 	&drm_bridge_alloc_test_suite,
-+	&drm_atomic_shutdown_encoder_test_suite,
- 	&drm_bridge_bus_fmt_test_suite,
- );
+ 	bridge->dev = NULL;
++	bridge->encoder = NULL;
+ 	drm_bridge_put(bridge);
+ }
  
 
 -- 
