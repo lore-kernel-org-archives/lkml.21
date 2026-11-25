@@ -1,54 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.73
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795642957;
-	b=0pO9KU6IUsqw06cnBNUr3dWIYXMlGYDcgii+gS28RFKBgufV+ksqHLEHNUmObyOYuDQk
-	 znjGolXbfakE3Zd7TlyqnOd+nAxPZlM/nKw1LqVe8Und5fTkHUQwQPYixEtifv8X8L1xw
-	 qHM6kimVTA7SgJZeXzRIaCkrs2KGUEdtbfl1/ygP96GBZp80PLOBRGSvnKGFTnHKSp847
-	 m0urxec49+APdEnZnTozvGOOeqlWeyWyIKODScjQ7UcCNPgNFnB6q3x0bsYdISSaLFR40
-	 ocSCbvxSmsyJj00PLB971su5iPsNWz1u+J4I9eyiI3aN+/Cski1fO1b62U9Mn2Z/fjA==
+	t=1795643079;
+	b=rXt5/41JumfMOQiB2NV0fdn72/T00pCKabZJowflpx/NMFFfXo+Xq05wgRpNGs2G63Gn
+	 ybzoQZEOzcKk+MYyi7GrykWJ+WCtLErDQTJlDN72D7sjASZOE100pNBoAh0jhxTyk/MNa
+	 DJz8S5cWRP5+enkuE71xHPeI9KhUEkfSOgKwl7fkDMQT2TR58jGwlU9FrPHGyuVUVx1E4
+	 udrq1JQOcsJ1gZq5XGwNEGwbL9OHrBWG7P7dRQkYV/axdsvj1dF5730Qu3Sf+Bn6nKXWo
+	 cQ5J7Zqs25inwy7pfxDsdqaN9652zR+W/8YgtHZCb5zZ8fIKeb1hYha12+4P/XqLOvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795642957;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=4MKFbkxC3o9ap8WbY2v8opmAiDT98EVFbNmAsPwQeDQ=;
-	b=KdMJ1aESQdbou4rzNwBs/P9KeTvqxYcP4COJrT2RXqvD3GAXQyz5k2AmbCNQUZ9O2Py2
-	 3brqI17Cm3qj8gn2Aq2Dkl1X5+HBTjtMIF6RkSHMLRyvy/LaxMDX09ADWdr0iOPM2E+5z
-	 voJn9Bv9fIBQchEMp/rIrw1dYke8cJ6X7FhzUaf1mO1Hw5EqqghtjB82gBk4Xem8V/F2g
-	 m2vhfIsGhZYOvoJtkEZDlNyoX3ieDxb3MtPpJ0YH2nwlE6XAx4m6MvH+gvcU70Ct90f61
-	 nQd7+hoSNG8JddnxvVKhzckRX9YSHayAtfXXcNupTghVHJS7iE5NvLSfEeRiarEUUfw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795643079;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
+	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
+	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
+	 X-Report-Abuse:X-Report-Abuse-To:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=4j/XQhOlH2ab0JMIuNjO9RvRaPgAJ0A16BCloj2ZjhA=;
+	b=U2qFaVL7vul0JtErX0xOfdJallAp6r7gNqvkhsEqyPul5tsavhT9+caZnBHgzpEjnqAL
+	 k6K+FOZp1N5RQeTS+J8xICYIyKGAIQ5Z+zW+NJ+fZ4dh/vrgU1aBnvTcRnaSHc6NyqkNE
+	 oMxiEdmWWLtwBZOLO1BF2sL9DH3gpm5KFw1kBI6h2hFkf9LIvlFQN4jTqzrFtNQFr+s1Y
+	 LguSx8BTWBnT1lenocu3bUq+5mubsLKlEUS2oMyfRE0lSmYQWeex1GGO1se+PuC55PgR0
+	 rLv9e+m7mQVoTbGXCdHErXJn+hk13vYb3g8pomGnatoF3GP5tCUs6Rod1U1ajrYxIRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EUSlFVk1;
-	arc=none smtp.remote-ip=95.215.58.131
-Received: from mta1.migadu.com (out-131.mta1.migadu.com [95.215.58.131])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=kwiboo.se;
+	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
+	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=Mi3v09Is;
+	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=W6aayl0y;
+	arc=none smtp.remote-ip=121.127.44.73
+Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.73])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C90FD606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:42:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C90FD606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A004606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:44:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A004606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EUSlFVk1
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=MXfyCZanVHHCByeJQ6CMCayWNQ7e8Mkpkpks7k/5FEA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795642953; v=1; x=1796247753;
- b=EUSlFVk11/jFZQCE60eM5UFcEs/hiJpL9I7fHfA16wnKSXYeu4Hnr3U+p2gUt6hxjgRSiltd
- 0MJ6ZKVXVeC72xthTTl/WEPhEg67LGzkqXA1IE2P8L2Wwhc5/hJ9W0Z73KmZiTwcPmAcAmMlM1Z
- KNV2GZXUnYkwyi0H2mmJ1T1M=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 77a1ac44524ef322;
-	Wed, 25 Nov 2026 21:42:33 +0000
-X-Mizu-Trace-ID: 77a1ac44524ef322
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <e7bdcfa9-bbd8-4649-8318-2f6dc236db15@linux.dev>
-Date: Wed, 25 Nov 2026 21:42:33 +0000
+	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=Mi3v09Is;
+	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=W6aayl0y
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-e1b5cab7be;
+ t=1795643071; bh=4j/XQhOlH2ab0JMIuNjO9RvRaPgAJ0A16BCloj2ZjhA=;
+ b=Mi3v09IsNtNnS3bkhI+MnzQwl7vRmLCG0cnOwdykyIJM9yQa8VGFByhQ5grjx8uaMn9++VWrR
+ Nq5V0GfFra1Yg/3nQHh0wEekjsAueakCxPPX5duF3LeNQ+BrtnuytINvfQEqxURvLnLeai/OK02
+ 1macQXDI4gmtMLEqlvqpWVbgH1s27XfZ1EaeFPw2NR4yZdrQCcYAL8epo7zszL9NzJiTM4UT9wI
+ ytghFu0EthkqOZnFnpCP9OgqDJTMCE/eDO/blcQhaap9ZPcv13OAtorP7imwFiDZgtdAsTxKbC8
+ HGPYBp1P9vKZtmX3PA33dcETc+fygUOCIDXqHbBBCFSw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
+ t=1795643071; bh=4j/XQhOlH2ab0JMIuNjO9RvRaPgAJ0A16BCloj2ZjhA=;
+ b=W6aayl0yB2MXslwLxlVCfBcFJIIs9qHPCH3kRzkJG2aLyFXrfb+QkUlCkoqwXEvhbQv1Mg2B7
+ +K6ri2XhfeGfvaxyvq2+pQT1YnSRae+f7YMaGZ1JbmZc+WysIrrOXnvp882vYxK3R8OiAhvo2oe
+ 46YhbzU9u5AH+4ABHW2ALss=
+CFBL-Feedback-ID: 6b0756bdf930f38bf754f931:8054e09cb6735f7376d55581c80b2ed5
+CFBL-Address: abuse@forwardemail.net; report=arf
+X-Forward-Email-ID: 6b0756bdf930f38bf754f931
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 2.19.39
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH v3 0/6] ARM: dts: rockchip: Add Luckfox Lyra boards
+Date: Wed, 25 Nov 2026 21:44:12 +0000
+Message-ID: <20261125214421.1580359-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,237 +86,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, maz@kernel.org, oupton@kernel.org,
- fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com,
- suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
- will@kernel.org, mark.rutland@arm.com, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- riel@surriel.com, shakeel.butt@linux.dev, kernel-team@meta.com,
- rkeilty@meta.com, atish.patra@linux.dev, dgreid@meta.com
-References: <20261124152842.2634495-1-usama.arif@linux.dev>
- <awcXhk885lqDRAHy@LeoBrasDK> <06a69a4f-59bb-49b8-9ed0-f4cfe0ecad37@linux.dev>
- <awcoCklLOKeuXPhh@LeoBrasDK>
-Content-Language: en-US
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <awcoCklLOKeuXPhh@LeoBrasDK>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
+This series adds initial devicetree for Rockchip RK3506 SoC and initial
+support for Luckfox Lyra board family [1].
 
+The Luckfox Lyra board family use different RK3506 SoC variants, i.e. Lyra
+and Lyra Plus both use RK3506G2 and Lyra Ultra and Lyra Zero W both use the
+RK3506B variant.
 
-On 25/11/2026 10:25, Leonardo Bras wrote:
-> On Wed, Nov 25, 2026 at 05:55:29PM +0000, Usama Arif wrote:
->>
->>
->> On 25/11/2026 09:14, Leonardo Bras wrote:
->>> On Tue, Nov 24, 2026 at 07:28:42AM -0800, Usama Arif wrote:
->>>> When a stage-2 fault may need new page tables, KVM first tops up the
->>>> vCPU's page cache: if it holds fewer pages than the fault might need, it
->>>> is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
->>>> 40. Unused pages stay in the cache until the vCPU is destroyed.
->>>>
->>>> With 64 KiB pages, that is 2.5 MiB per vCPU, and most of it is never
->>>> used. Stage-2 has at most three levels and the root is preallocated, so
->>>> a fault needs at most two new table pages (kvm_mmu_cache_min_pages()).
->>>> As every last-level table covers 512 MiB, an 8 GiB guest needs just 17
->>>> table pages to map all of its memory, while its four vCPU caches get
->>>> filled with 160.
->>>>
->>>> On a production host with 64 KiB pages running 101 VMs with four vCPUs
->>>> each, the caches were still 86% full. The memory used:
->>>>
->>>>                         before      after
->>>>   per-vCPU capacity     2.5 MB     512 KB
->>>>   all 404 vCPUs         869 MB     <= 202 MB
->>>>
->>>> Let's lower the capacity to 8 with 64 KiB pages, In the production
->>>> usecase above, it frees at least 667 MB. That still covers the two-page
->>>> minimum and leaves room for several table allocations per refill. 4 KB
->>>> and 16 KB pages keep 40.
->>>>
->>>> The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
->>>> but it is topped up before every page it maps, so 8 is sufficient there
->>>> as well. The pKVM hypervisor memcache and the eager split cache don't
->>>> use this capacity.
->>>>
->>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
->>>> ---
->>>>  arch/arm64/include/asm/kvm_types.h | 5 +++++
->>>>  1 file changed, 5 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
->>>> index 9a126b9e2d7c99..28568da9ea4a7b 100644
->>>> --- a/arch/arm64/include/asm/kvm_types.h
->>>> +++ b/arch/arm64/include/asm/kvm_types.h
->>>> @@ -2,7 +2,12 @@
->>>>  #ifndef _ASM_ARM64_KVM_TYPES_H
->>>>  #define _ASM_ARM64_KVM_TYPES_H
->>>>  
->>>> +/* Must cover kvm_mmu_cache_min_pages(), at most 2 with 64 KiB pages. */
->>>> +#ifdef CONFIG_ARM64_64K_PAGES
->>>> +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 8
->>>> +#else
->>>>  #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
->>>> +#endif
->>>>  
->>>>  #endif /* _ASM_ARM64_KVM_TYPES_H */
->>>>  
->>>> -- 
->>>> 2.53.1-Meta
->>>>
->>>
->>> Hi Usama,
->>>
->>
->> Hello Leonardo,
->>
->>> Have you tried to reproduce this issue in v7.4-rc1 or newer?
->>
->> Yes. The patch is against kvmarm/next (v7.4-rc3), which includes
->> Lorenzo's pre-fault series, and I A/B tested it there.
->>
->> On unpatched v7.4-rc3 with 64 KiB pages, a VM whose 16 vCPUs each fault
->> in one page needs a single stage-2 table page, yet the vCPU caches hold
->> 640 pages (40 MiB). With the patch they hold 127 pages.
->>
->>>
->>> IIUC Lorenzo Stoakes introduced a change that would cause the memcache to 
->>> skip topup if the cache contains a minimum of ~4 pages, so it can possibly 
->>> improve that issue.
->>
->> I don't think that part is new. __kvm_mmu_topup_memory_cache() has
->> returned early when mc->nobjs >= min since commit 6926f95accee ("KVM:
->> Move x86's MMU memory cache helpers to common KVM code"). Lorenzo's
->> commit d27acc152c62 ("KVM: arm64: Size the stage-2 memcache from the
->> fault MMU") takes min from s2fd->mmu instead of vcpu->arch.hw_mmu. For a
->> guest abort that is the same MMU, so nothing changes here.
->>
->> With 64 KiB pages, min is kvm_mmu_cache_min_pages(), which is at most 2.
->>
->>>
->>> Although I can see that when it's below that minimum it fills the whole 
->>> capacity (40) of the cache.
->>>
->>
->> Right, and that is the problem. Skipping the top-up avoids refilling
->> the cache, but nothing ever drains it. A vCPU's first fault fills its
->> cache to 40. Each last-level table covers 512 MiB, so a guest needs very
->> few table pages, and most vCPUs never drop below min. The remaining
->> pages stay allocated until the vCPU is destroyed, which is why the
->> production caches were still 86% full.
->>
->> The patch keeps the early return and only lowers how far a refill goes.
-> 
-> Right,
-> 
-> I took a look in the cache workings, and it does not seem to receive freed 
-> pages back in. It gets filled by topup and used by map, so IIUC it is used 
-> only to avoid failing an allocation during the mapping walk.
-> 
-> Maybe it could be the case to simplify this cache to have the capacity 
-> about the same as the minimum (since it always topup before mapping) and 
-> avoid the waste altogether.
-> 
-> Maymbe having something like this should be enough?
->  
-> #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE (KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL)
-> 
+The RK3506G2 SoC variant has 128 MiB integrated DDR3 memory and the
+RK3506B SoC variant supports external DDR2/DDR3 memory.
 
-That sounds good to me. I tested and it works (and releases even more memory :))
+The pinctrl driver for RK3506 will not work as-is using the SoC DT from
+this series. The already merged driver depends on a rockchip,ioc1 phandle
+prop that never was described in dt-bindings. The SoC DT in this series
+instead uses rockchip,grf in GPIO controller node to reference correct IOC
+for GPIO0 and GPIO1. A patch to fix the pinctrl driver can be found at [2].
 
-I had to move #defines around to make it work, the current patch sits
-like below. If this seems acceptable, I can send it as v2 for review.
+The branch at [3] also contains follow-up patches that e.g. fixes pinctrl
+driver and adds USB support.
 
+Mainline U-Boot support can be tested using a branch at [4], it contains
+board support using same devicetree files extended with USB support.
 
-From 9b044379f470625adb031a0ee7529e054d9ec219 Mon Sep 17 00:00:00 2001
-From: Usama Arif <usama.arif@linux.dev>
-Date: Wed, 25 Nov 2026 12:55:15 -0800
-Subject: [PATCH] KVM: arm64: Shrink the stage-2 memcache to the page-table
- depth
+Changes in v3:
+- Squash board compatible patches
+- Add spi_nand label to flash@0 node
+- Drop unnecessary /omit-if-no-ref/ on led1
+- Collect a-b and r-b tags
+Link to v2: https://patch.msgid.link/20261122060114.773624-1-jonas@kwiboo.se/
 
-When a stage-2 fault may need new page tables, KVM first tops up the
-vCPU's memcache: if it holds fewer pages than the fault might need, it
-is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
-40. Pages never return to the cache, and unused ones stay there until
-the vCPU is destroyed.
+Changes in v2:
+- Add default pinctrl to fspi node
+- Add display_subsystem, vop, dsi and dsi_dphy nodes
+- Add osc_clk_out and ref_clk0_out to pinctrl
+Link to v1: https://patch.msgid.link/20261119152055.556266-1-jonas@kwiboo.se/
 
-The cache only has to cover a single map: every fault that can allocate
-tables tops it up first, and a map allocates at most one table per
-level below the preallocated root (kvm_mmu_cache_min_pages()). That is
-at most three pages with 4 KiB and 16 KiB pages, and two with 64 KiB
-pages.
+[1] https://wiki.luckfox.com/Luckfox-Lyra
+[2] https://patch.msgid.link/20261120201540.672016-1-jonas@kwiboo.se/
+[3] https://github.com/Kwiboo/linux-rockchip/commits/next-20261116-rk3506
+[4] https://git.u-boot-project.org/u-boot/contributors/kwiboo/u-boot/-/commits/rk3506
 
-With 64 KiB pages, the 40-page cache is 2.5 MiB per vCPU. As every
-last-level table covers 512 MiB, an 8 GiB guest needs just 17 table
-pages to map all of its memory, while its four vCPU caches get filled
-with 160. On a production host with 64 KiB pages running 101 VMs with
-four vCPUs each, the caches were still 86% full. The memory used:
+Jonas Karlman (6):
+  dt-bindings: soc: rockchip: grf: Add RK3506 compatibles
+  ARM: dts: rockchip: Add support for RK3506
+  dt-bindings: arm: rockchip: Add Luckfox Lyra boards
+  ARM: dts: rockchip: Add Luckfox Lyra and Lyra Plus boards
+  ARM: dts: rockchip: Add Luckfox Lyra Ultra board
+  ARM: dts: rockchip: Add Luckfox Lyra Zero W board
 
-                        before      after
-  per-vCPU capacity     2.5 MiB     256 KiB
-  all 404 vCPUs         869 MiB     <= 101 MiB
-
-Let's size the cache to KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL,
-which is 4 pages and covers the deepest walk with one page to spare. On
-the host above, it frees at least 768 MiB. Refills get more frequent,
-but no more than four pages per vCPU ever sit unused. With 4 KiB pages,
-the cache shrinks from 160 KiB to 16 KiB per vCPU.
-
-Move the two level definitions to asm/kvm_types.h, so that the generic
-top-up code in kvm_main.c can see them. kvm_pgtable.h still gets them
-through linux/kvm_types.h.
-
-The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
-but it is topped up before every page it maps. The pKVM hypervisor
-memcache and the eager split cache don't use this capacity.
-
-Suggested-by: Leonardo Bras <leo.bras@arm.com>
-Signed-off-by: Usama Arif <usama.arif@linux.dev>
+ .../devicetree/bindings/arm/rockchip.yaml     |   9 +
+ .../devicetree/bindings/soc/rockchip/grf.yaml |   6 +
+ arch/arm/boot/dts/rockchip/Makefile           |   6 +-
+ .../dts/rockchip/rk3506-luckfox-lyra-plus.dts |  31 +
+ .../boot/dts/rockchip/rk3506-luckfox-lyra.dts |   9 +
+ .../dts/rockchip/rk3506-luckfox-lyra.dtsi     | 123 ++++
+ .../arm/boot/dts/rockchip/rk3506-pinctrl.dtsi | 594 +++++++++++++++++
+ arch/arm/boot/dts/rockchip/rk3506.dtsi        | 614 ++++++++++++++++++
+ .../rockchip/rk3506b-luckfox-lyra-ultra.dts   |  31 +
+ .../rockchip/rk3506b-luckfox-lyra-zero-w.dts  |  23 +
+ .../dts/rockchip/rk3506b-luckfox-lyra.dtsi    |  99 +++
+ 11 files changed, 1544 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra-plus.dts
+ create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra.dts
+ create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra.dtsi
+ create mode 100644 arch/arm/boot/dts/rockchip/rk3506-pinctrl.dtsi
+ create mode 100644 arch/arm/boot/dts/rockchip/rk3506.dtsi
+ create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-ultra.dts
+ create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-zero-w.dts
+ create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra.dtsi
 ---
- arch/arm64/include/asm/kvm_pgtable.h | 3 ---
- arch/arm64/include/asm/kvm_types.h   | 7 ++++++-
- 2 files changed, 6 insertions(+), 4 deletions(-)
+Based-on: <20261121155810.706866-1-jonas@kwiboo.se>
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index eda440354a55ec..691e2eb63939f5 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -19,9 +19,6 @@
- 
- struct kvm_s2_mmu;
- 
--#define KVM_PGTABLE_FIRST_LEVEL		-1
--#define KVM_PGTABLE_LAST_LEVEL		3
--
- /*
-  * The largest supported block sizes for KVM (no 52-bit PA support):
-  *  - 4K (level 1):	1GB
-diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
-index 9a126b9e2d7c99..5b61285d317e28 100644
---- a/arch/arm64/include/asm/kvm_types.h
-+++ b/arch/arm64/include/asm/kvm_types.h
-@@ -2,7 +2,12 @@
- #ifndef _ASM_ARM64_KVM_TYPES_H
- #define _ASM_ARM64_KVM_TYPES_H
- 
--#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
-+#define KVM_PGTABLE_FIRST_LEVEL		-1
-+#define KVM_PGTABLE_LAST_LEVEL		3
-+
-+/* One page per level below the root covers kvm_mmu_cache_min_pages(). */
-+#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE	\
-+	(KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL)
- 
- #endif /* _ASM_ARM64_KVM_TYPES_H */
- 
 -- 
-2.53.1-Meta
-
-
-
-> Thanks!
-> Leo
+2.56.1
 
