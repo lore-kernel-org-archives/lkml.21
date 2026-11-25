@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645566;
-	b=D05QAjVgkgBzVueokf2Sxb9+bQ6ieiXY7qWqCO3xGC5dHa6Q3SF8Iwz+puevtQChnTVx
-	 LohzmAsH/TG+9don1PGi5mm9V837akRL31xrFh6qiVrz8ujupATvGz+KcZx3IIayFVFsq
-	 E81pvshr1M+P211R6vNgOXWT8D29TpSDRcoLKPFXnEum1dzy1tAC25wJNJtuvjjy5EsC0
-	 1ffLvSdrNwuFUJ2VsHstIDJbHSLG4UYkHKP77AvSKxpW9hfKsvNbLpSVJBFuXqmu4p0Ro
-	 u/IHDZg0OFYcW9HNgI+dz51FoUtpVef+AgjwqK2slecSPRDvJp49FpyTvb5nQhq24/A==
+	t=1795645567;
+	b=xsSSVgr0Nhk3Uvb4RJVNCzMbmZj3pip20aFZOgfOR+NrU1yvOi2Tgv2E0m3a8zg7ZaER
+	 VB2Bqg2w31zo+sxKULhNo4jSDAC19wQO+VxsuqI5hlV0ks8QH3mKYe8ySxG7T9m+qafk9
+	 i/uQtMkTXuzq/yoaFNwDV2TbCNc9ni9EvtGpX7lRJ8gRrQJjkrOjHtewac3kctKxacuCg
+	 z8EUKBpEhm98qswonRP3Ads6+WV0ZTZjy+3xkK4ap1bMkGRQT0GXmiZeGmjKFZZwdkvFS
+	 0FUFG8xRSOkUjKsQE+9d9cw1BQ3TBfznDbokDB71rO9DPO1aevdhDHiFS9dvUd0kgEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645566;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645567;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=e0tXNRDTjLlVxYmJMtKFA5nP+8zQU0S7H6FRQbO3y44=;
-	b=ZTYaZtvxbCR4UtbIbdtzsI9BLt4gYqLMILyUu3mC1ukig+xpGO7WctOy1VUJ0RkewXuf
-	 Z0j8B9YRt385gLPYPYUP+qesTUG2/kqAhSTA4mds5KZV7FA837d1hEl4qzB/vQEYaBsuz
-	 qJLVfuaoEJcK0nGPkA2wRbKmfU3ZOtCZEfSZV3PiYrSIZ6sLdaQ/r+2QtiKlS1qtnpvWw
-	 ZhFrDEdvXQfiJiRYZJhiE/WOjpPZXoBDoJI26Dilq2wGpCMKi0mJj0co+M2CAmQdTn0I3
-	 qRBHs2hwYeL5Jt1B+6mfeub7UWzEEP+mqa1InHNOY+3SS8RwWno17zav6TEBsEgmTTg==
+	bh=0rVVzmzY0lwgJTS0cbzP8cvMbI4YDQ41g7jiphGM+4E=;
+	b=YStMZUOHWWKCP/W71UFioNM8zdkTqar0ItPnPICiFdGaLzlN0R0cH9mHtgD5OqCGnOYE
+	 f9KI4ZDZthQLkcg1oTxbpO+6Qj6/6zn8tIs9BnOsDMK2MkMMCulVqHzWQl9WTj3J6jlKg
+	 ft3nmeWFvmROutBqwYdPlho8cd9z5ZsqZ6nax+vQL2pP8CwMpTbXyrGK9Sk64Ctg6o9yn
+	 L+41HFq/Sm1pCMoB+C5H20/Wch9uFzjsDTSqm9LnLUVjK+LK2nCwZe5Tudqa9nkI68qik
+	 uZuT3qq2dElxAbY2Zplep12+KGoXdt4hO3ZpU6GeS1nqicXKpnrXuKP7LXXUXuQwtxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QHoChKqL;
-	arc=none smtp.remote-ip=74.125.82.197
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=V75xTU1m;
+	arc=none smtp.remote-ip=74.125.82.70
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0830606A6A8
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:26:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0830606A6A8
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5170F60A260B
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:26:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5170F60A260B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QHoChKqL
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-375bac6bd21so6454214eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:26:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=V75xTU1m
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1b29df78132so5563769c88.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:26:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795645565; x=1796250365; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795645566; x=1796250366; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=e0tXNRDTjLlVxYmJMtKFA5nP+8zQU0S7H6FRQbO3y44=;
-        b=QHoChKqLR3pA5jJHnuuBFlvTiZfnL/g3xs7L8NawHBWJ0IPwHFycE9atDzm1E8pUyX
-         CQwLTmfZ5hFFVz+4kj/O5//BHofwcVhwjDUL3qUEFdooYTbdug855fV9sJkfezl/WSPI
-         T8SSTDyxY5W4nnjsGuOCUtUuvqNV4QTWAahpieX/uzwaZ9jIcVzhTpcLilhXgT4vg/Wu
-         CWJXBGFi1Z6JrSzR8+1TWHfvpReSnJZ3G36vJiPh0xHvJyT0pku74Hr8391CTPaFBsGV
-         IVMWGR+WTduC0nmMsjKHH5v1T7qfnSUa7kkv/xLjW495/lpWlwMdBUN0wE0zfySgQsZd
-         PIcw==
+        bh=0rVVzmzY0lwgJTS0cbzP8cvMbI4YDQ41g7jiphGM+4E=;
+        b=V75xTU1m3lnS5onyxb+SDoQfZ1LXFsmQgIijAhHx3PkCC09PGzSSgV+mpScmu6ntm5
+         JUq/s3EYwdwNPM/KD61zb+DgJeiyTeoC/DjuBpqYxV7eCBjyBSYbns754DMXtMx39oqS
+         BXqv4EPRN/NeQbdmiTPNTX2/uB2E8gVT3X2NMdvMVCDUrAFpE4z7ycOvafy2D+NgkEig
+         vgMA+X84R08xFS9IBr/9sOesR+gaB13GU4r0gBkfMSeBlclqqYeh/3pBH8T1v/dovtzL
+         YXWoLcoTJ6JTkDMHVCNJOXCdTLvEVdALRxvvDsVN4jdfW+gTRRbCYZ0C9GRxhj2dyN0p
+         /niQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645565; x=1796250365;
+        d=1e100.net; s=20260707; t=1795645566; x=1796250366;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=e0tXNRDTjLlVxYmJMtKFA5nP+8zQU0S7H6FRQbO3y44=;
-        b=Z0Cv/QeELssf2BP15Hw9287NHmYPyyyPX7RkjzWyKdvrIhHZ3XBfhPQJ/MmOFLiAm+
-         VFcMKhRiGcO8gqWSJ6l2PiHGklgaEN2W/nrMO1wGCKzLJelBPqFn3/QRfKGwvjpFU42q
-         nvb2+6/fPjTZnwhV+L4hDDE23srvZDiHDxSor8i9VmErDRmOkb6JQzzE4Ew5VY03c6wA
-         cwMjBniFpMlspM4vxOVhc24sMyi9jQVCf0x001Xot/2Nz8b/pNg4GGLnrki+3cf5JJeb
-         itHoWYfY8hkBS7oWFuMjhaoV8ZFqtocvLvnWwPQcXADnRk7tgyhzVRTjMYtb5n22Hqpm
-         L/6g==
-X-Forwarded-Encrypted: i=1; AL+hErFDmijbowK7zD3RBtJRB/YwNcLaRK0hHh/7Z+CTbFFyo5GwRE8ZEMaNpEi/4mpXdYMPuXKwHtMQKgalVSo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z87zpabbAkxoUv2xxp65tmxFdWB2rdC3Qti2NLcMHK5EwaHmtZt
-	jR9mVx/SmMAyF4p1+LTX6h6jtsg8DaXGPIQZpxWssbxiE6Rq+YnXvPhmxFOYbnMjccRhSeC1EBe
-	UoQ==
-X-Received: from dlbpv6.prod.google.com ([2002:a05:7023:906:b0:195:d59a:94bc])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:e80a:b0:1b3:a8ee:a0e5
- with SMTP id a92af1059eb24-1b5567e6419mr20231094c88.2.1795645564512; Wed, 25
- Nov 2026 14:26:04 -0800 (PST)
-Date: Wed, 25 Nov 2026 22:25:48 +0000
+        bh=0rVVzmzY0lwgJTS0cbzP8cvMbI4YDQ41g7jiphGM+4E=;
+        b=JDZwwWea0Dyv356FZqdw2d6NchrDmr7kOMtrK9soI/6cKqGRiSHnkKH+4oml035A7w
+         TGiKs4tiI8WI10byaSa/T7DqqZ9hRefxPr9Yf8E+zoVc+aI013A7UvqYbj8Vn9wL2ifT
+         HUMO5LQgEUCwhqxe0g8MTMmOz/+Wfr79YzKLw99HN3buQlfT1F0Jr4tml0NtHX8uWAHw
+         KH6RP4apxpMNgfsVLs5tBYIhJ5ikUTPKOD5iud4hmZ0hEcjCNsnb63MMErCd4u3n/pZf
+         gQjG/mekZNBnoRMzLvGlNPfBRvWvxkMm3U5nRmjqsE+a5vn6v6h4K13nsFPpF+gK3glr
+         geqg==
+X-Forwarded-Encrypted: i=1; AL+hErHw+XfEf0WHZxIa1eK3XEYlIR/CxlHutVhfPw5KoRZmFXu/jnL2xTKn2kT9cJ5I0lPXJtUcnD7xQWE8DW8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Z4G24eqvvomz5U5dcL4GhIDnx7ReAYb+B5QnGDrtz8+GxTgsE
+	4Jv1n55UewFlHJQeXAuagpjkugDzhBfNUTaJUSZAWmGyd2dOT9xXLTFAF0rsgIUCL+7unvcNVXn
+	yMw==
+X-Received: from dlbtp3.prod.google.com ([2002:a05:7022:3b83:b0:17d:5c89:d119])
+ (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:f10f:b0:1b3:abd2:2eb2
+ with SMTP id a92af1059eb24-1b55689ed61mr23336815c88.10.1795645566067; Wed, 25
+ Nov 2026 14:26:06 -0800 (PST)
+Date: Wed, 25 Nov 2026 22:25:49 +0000
 In-Reply-To: <20261125222549.1447825-1-elkin@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,145 +81,57 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261125222549.1447825-1-elkin@google.com>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125222549.1447825-2-elkin@google.com>
-Subject: [PATCH 1/2] pinctrl: tegra186: Fix register bank for AON drive pin groups
+Message-ID: <20261125222549.1447825-3-elkin@google.com>
+Subject: [PATCH 2/2] pinctrl: tegra: Add register bank bounds checks
 From: Elkin Cruz <elkin@google.com>
 To: Linus Walleij <linusw@kernel.org>, Thierry Reding <thierry.reding@kernel.org>, 
 	Jonathan Hunter <jonathanh@nvidia.com>
 Cc: linux-gpio@vger.kernel.org, linux-tegra@vger.kernel.org, 
 	Aaron Kling <webgeek1234@gmail.com>, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	irogers@google.com, Elkin Cruz <elkin@google.com>, stable@vger.kernel.org
+	irogers@google.com, Elkin Cruz <elkin@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-The Tegra186 AON pinmux device defines only a single register bank
-(bank 0). However, the AON drive pin groups were configured with
-bank index 1 in DRV_PINGROUP_ENTRY_Y macros. When querying or setting
-pinconf properties for these groups, tegra_pinconf_group_get() or
-tegra_pinconf_group_set() accesses pmx->regs[bank], causing an
-out-of-bounds array access.
+Add defensive bounds checks on the register bank index in
+tegra_pinconf_reg(), pmx_readl(), and pmx_writel() (using
+WARN_ON_ONCE()) so misconfigured pin group tables cannot index past
+pmx->regs[pmx->nbanks].
 
-Fix the bank index in the AON drive pingroup definitions from 1 to 0.
-
-Fixes: 542baf77f092 ("pinctrl: tegra: Add Tegra186 pinmux driver")
-Cc: stable@vger.kernel.org
 Signed-off-by: Elkin Cruz <elkin@google.com>
 ---
- drivers/pinctrl/tegra/pinctrl-tegra186.c | 102 +++++++++++------------
- 1 file changed, 51 insertions(+), 51 deletions(-)
+ drivers/pinctrl/tegra/pinctrl-tegra.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/pinctrl/tegra/pinctrl-tegra186.c b/drivers/pinctrl/tegra/pinctrl-tegra186.c
-index 4a1d6476af9b..3bf1814dbd24 100644
---- a/drivers/pinctrl/tegra/pinctrl-tegra186.c
-+++ b/drivers/pinctrl/tegra/pinctrl-tegra186.c
-@@ -1585,57 +1585,57 @@ static const char * const tegra186_functions[] = {
- #define drive_qspi_comp                 DRV_PINGROUP_ENTRY_N(no_entry)
+diff --git a/drivers/pinctrl/tegra/pinctrl-tegra.c b/drivers/pinctrl/tegra/pinctrl-tegra.c
+index 51684c5dda34..c0b584d37a8e 100644
+--- a/drivers/pinctrl/tegra/pinctrl-tegra.c
++++ b/drivers/pinctrl/tegra/pinctrl-tegra.c
+@@ -30,11 +30,17 @@
  
- /* AON drive pin groups */
--#define drive_touch_clk_pee2            DRV_PINGROUP_ENTRY_Y(0x2004,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_uart3_cts_pw5             DRV_PINGROUP_ENTRY_Y(0x200c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_uart3_rts_pw4             DRV_PINGROUP_ENTRY_Y(0x2014,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_uart3_rx_pw3              DRV_PINGROUP_ENTRY_Y(0x201c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_uart3_tx_pw2              DRV_PINGROUP_ENTRY_Y(0x2024,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gen8_i2c_sda_pw1          DRV_PINGROUP_ENTRY_Y(0x202c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gen8_i2c_scl_pw0          DRV_PINGROUP_ENTRY_Y(0x2034,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_uart7_rx_pw7              DRV_PINGROUP_ENTRY_Y(0x203c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_uart7_tx_pw6              DRV_PINGROUP_ENTRY_Y(0x2044,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sen0_pv0             DRV_PINGROUP_ENTRY_Y(0x204c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sen1_pv1             DRV_PINGROUP_ENTRY_Y(0x2054,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sen2_pv2             DRV_PINGROUP_ENTRY_Y(0x205c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sen3_pv3             DRV_PINGROUP_ENTRY_Y(0x2064,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sen4_pv4             DRV_PINGROUP_ENTRY_Y(0x206c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sen5_pv5             DRV_PINGROUP_ENTRY_Y(0x2074,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sen6_pv6             DRV_PINGROUP_ENTRY_Y(0x207c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sen7_pv7             DRV_PINGROUP_ENTRY_Y(0x2084,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sen8_pee0            DRV_PINGROUP_ENTRY_Y(0x208c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sen9_pee1            DRV_PINGROUP_ENTRY_Y(0x2094,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_can_gpio7_paa7            DRV_PINGROUP_ENTRY_Y(0x3004,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	1)
--#define drive_can1_dout_pz0             DRV_PINGROUP_ENTRY_Y(0x300C,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	1)
--#define drive_can1_din_pz1              DRV_PINGROUP_ENTRY_Y(0x3014,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	1)
--#define drive_can0_dout_pz2             DRV_PINGROUP_ENTRY_Y(0x301c,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	1)
--#define drive_can0_din_pz3              DRV_PINGROUP_ENTRY_Y(0x3024,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	1)
--#define drive_can_gpio0_paa0            DRV_PINGROUP_ENTRY_Y(0x302c,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	1)
--#define drive_can_gpio1_paa1            DRV_PINGROUP_ENTRY_Y(0x3034,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	1)
--#define drive_can_gpio2_paa2            DRV_PINGROUP_ENTRY_Y(0x303c,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	1)
--#define drive_can_gpio3_paa3            DRV_PINGROUP_ENTRY_Y(0x3044,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	1)
--#define drive_can_gpio4_paa4            DRV_PINGROUP_ENTRY_Y(0x304c,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	1)
--#define drive_can_gpio5_paa5            DRV_PINGROUP_ENTRY_Y(0x3054,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	1)
--#define drive_can_gpio6_paa6            DRV_PINGROUP_ENTRY_Y(0x305c,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	1)
--#define drive_gpio_sw1_pff1             DRV_PINGROUP_ENTRY_Y(0x1004,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sw2_pff2             DRV_PINGROUP_ENTRY_Y(0x100c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sw3_pff3             DRV_PINGROUP_ENTRY_Y(0x1014,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_sw4_pff4             DRV_PINGROUP_ENTRY_Y(0x101c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_shutdown                  DRV_PINGROUP_ENTRY_Y(0x1024,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_pmu_int                   DRV_PINGROUP_ENTRY_Y(0x102C,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_safe_state_ps3            DRV_PINGROUP_ENTRY_Y(0x1034,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_vcomp_alert_ps4           DRV_PINGROUP_ENTRY_Y(0x103c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_soc_pwr_req               DRV_PINGROUP_ENTRY_Y(0x1044,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_batt_oc_ps2               DRV_PINGROUP_ENTRY_Y(0x104c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_clk_32k_in                DRV_PINGROUP_ENTRY_Y(0x1054,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_power_on_pff0             DRV_PINGROUP_ENTRY_Y(0x105c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_pwr_i2c_scl_ps0           DRV_PINGROUP_ENTRY_Y(0x1064,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_pwr_i2c_sda_ps1           DRV_PINGROUP_ENTRY_Y(0x106c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_dis0_pu0             DRV_PINGROUP_ENTRY_Y(0x1084,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_dis1_pu1             DRV_PINGROUP_ENTRY_Y(0x108c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_dis2_pu2             DRV_PINGROUP_ENTRY_Y(0x1094,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_dis3_pu3             DRV_PINGROUP_ENTRY_Y(0x109c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_dis4_pu4             DRV_PINGROUP_ENTRY_Y(0x10a4,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
--#define drive_gpio_dis5_pu5             DRV_PINGROUP_ENTRY_Y(0x10ac,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	1)
-+#define drive_touch_clk_pee2            DRV_PINGROUP_ENTRY_Y(0x2004,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_uart3_cts_pw5             DRV_PINGROUP_ENTRY_Y(0x200c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_uart3_rts_pw4             DRV_PINGROUP_ENTRY_Y(0x2014,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_uart3_rx_pw3              DRV_PINGROUP_ENTRY_Y(0x201c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_uart3_tx_pw2              DRV_PINGROUP_ENTRY_Y(0x2024,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gen8_i2c_sda_pw1          DRV_PINGROUP_ENTRY_Y(0x202c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gen8_i2c_scl_pw0          DRV_PINGROUP_ENTRY_Y(0x2034,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_uart7_rx_pw7              DRV_PINGROUP_ENTRY_Y(0x203c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_uart7_tx_pw6              DRV_PINGROUP_ENTRY_Y(0x2044,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sen0_pv0             DRV_PINGROUP_ENTRY_Y(0x204c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sen1_pv1             DRV_PINGROUP_ENTRY_Y(0x2054,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sen2_pv2             DRV_PINGROUP_ENTRY_Y(0x205c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sen3_pv3             DRV_PINGROUP_ENTRY_Y(0x2064,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sen4_pv4             DRV_PINGROUP_ENTRY_Y(0x206c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sen5_pv5             DRV_PINGROUP_ENTRY_Y(0x2074,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sen6_pv6             DRV_PINGROUP_ENTRY_Y(0x207c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sen7_pv7             DRV_PINGROUP_ENTRY_Y(0x2084,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sen8_pee0            DRV_PINGROUP_ENTRY_Y(0x208c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sen9_pee1            DRV_PINGROUP_ENTRY_Y(0x2094,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_can_gpio7_paa7            DRV_PINGROUP_ENTRY_Y(0x3004,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	0)
-+#define drive_can1_dout_pz0             DRV_PINGROUP_ENTRY_Y(0x300C,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	0)
-+#define drive_can1_din_pz1              DRV_PINGROUP_ENTRY_Y(0x3014,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	0)
-+#define drive_can0_dout_pz2             DRV_PINGROUP_ENTRY_Y(0x301c,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	0)
-+#define drive_can0_din_pz3              DRV_PINGROUP_ENTRY_Y(0x3024,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	0)
-+#define drive_can_gpio0_paa0            DRV_PINGROUP_ENTRY_Y(0x302c,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	0)
-+#define drive_can_gpio1_paa1            DRV_PINGROUP_ENTRY_Y(0x3034,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	0)
-+#define drive_can_gpio2_paa2            DRV_PINGROUP_ENTRY_Y(0x303c,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	0)
-+#define drive_can_gpio3_paa3            DRV_PINGROUP_ENTRY_Y(0x3044,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	0)
-+#define drive_can_gpio4_paa4            DRV_PINGROUP_ENTRY_Y(0x304c,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	0)
-+#define drive_can_gpio5_paa5            DRV_PINGROUP_ENTRY_Y(0x3054,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	0)
-+#define drive_can_gpio6_paa6            DRV_PINGROUP_ENTRY_Y(0x305c,	-1,	-1,	-1,	-1,	28,	2,	30,	2,	0)
-+#define drive_gpio_sw1_pff1             DRV_PINGROUP_ENTRY_Y(0x1004,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sw2_pff2             DRV_PINGROUP_ENTRY_Y(0x100c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sw3_pff3             DRV_PINGROUP_ENTRY_Y(0x1014,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_sw4_pff4             DRV_PINGROUP_ENTRY_Y(0x101c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_shutdown                  DRV_PINGROUP_ENTRY_Y(0x1024,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_pmu_int                   DRV_PINGROUP_ENTRY_Y(0x102C,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_safe_state_ps3            DRV_PINGROUP_ENTRY_Y(0x1034,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_vcomp_alert_ps4           DRV_PINGROUP_ENTRY_Y(0x103c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_soc_pwr_req               DRV_PINGROUP_ENTRY_Y(0x1044,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_batt_oc_ps2               DRV_PINGROUP_ENTRY_Y(0x104c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_clk_32k_in                DRV_PINGROUP_ENTRY_Y(0x1054,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_power_on_pff0             DRV_PINGROUP_ENTRY_Y(0x105c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_pwr_i2c_scl_ps0           DRV_PINGROUP_ENTRY_Y(0x1064,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_pwr_i2c_sda_ps1           DRV_PINGROUP_ENTRY_Y(0x106c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_dis0_pu0             DRV_PINGROUP_ENTRY_Y(0x1084,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_dis1_pu1             DRV_PINGROUP_ENTRY_Y(0x108c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_dis2_pu2             DRV_PINGROUP_ENTRY_Y(0x1094,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_dis3_pu3             DRV_PINGROUP_ENTRY_Y(0x109c,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_dis4_pu4             DRV_PINGROUP_ENTRY_Y(0x10a4,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
-+#define drive_gpio_dis5_pu5             DRV_PINGROUP_ENTRY_Y(0x10ac,	12,	5,	20,	5,	-1,	-1,	-1,	-1,	0)
+ static inline u32 pmx_readl(struct tegra_pmx *pmx, u32 bank, u32 reg)
+ {
++	if (WARN_ON_ONCE(bank >= pmx->nbanks))
++		return 0;
++
+ 	return readl(pmx->regs[bank] + reg);
+ }
  
- #define PINGROUP(pg_name, f0, f1, f2, f3, r, bank, pupd, e_io_hv, e_lpbk, e_input, e_lpdr, e_pbias_buf, \
- 			gpio_sfio_sel, e_od, schmitt_b, drvtype, epreemp, io_reset, rfu_in)		\
+ static inline void pmx_writel(struct tegra_pmx *pmx, u32 val, u32 bank, u32 reg)
+ {
++	if (WARN_ON_ONCE(bank >= pmx->nbanks))
++		return;
++
+ 	writel_relaxed(val, pmx->regs[bank] + reg);
+ 	/* make sure pinmux register write completed */
+ 	pmx_readl(pmx, bank, reg);
+@@ -525,7 +531,7 @@ static int tegra_pinconf_reg(struct tegra_pmx *pmx,
+ 		return -ENOTSUPP;
+ 	}
+ 
+-	if (*reg < 0 || *bit < 0)  {
++	if (*reg < 0 || *bit < 0 || *bank < 0 || *bank >= pmx->nbanks)  {
+ 		if (report_err) {
+ 			const char *prop = "unknown";
+ 			int i;
 -- 
 2.56.1.839.g22a8290db9-goog
 
