@@ -1,61 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645469;
-	b=W67wyN28xv/vqoWbC+zERF8g9n8eX0IjbbhITuthK98vxpO6t3HnBrDpWPv0jpX0h+cv
-	 iH2YpDKkvW7NOYaBsn2zcoLVtX5Ix1yBEZn9PrYALRFDH3LG60ZKUWUFeMs+dIWWN7cQI
-	 ktCMOslUSNsVYVoM53rb0JfO4NGPCvW+vbgPKdZrjh+9zrkj5pyTrt94YNUQwQCKL6hgf
-	 YikajIODgOw/yHaU1/NxZvAVhg3gi8GVWWYSCQYPQfjK4cTTECfQgMaV1p7AGb/j37mxv
-	 etB4H6Ia+vWji8oYRQ6JIuqehsAM+NWxdjjGDaobNO5MN5PyxYfW+bj8UBRiMMaNOuw==
+	t=1795645471;
+	b=e5OEBRf3hNfCQnfLs1d9kTAaGtDTGxVHl/PJ5hPK3/Ckcpvn/n9fV040DTOTHVUQnXFI
+	 ibAo8T/+ySskXkHR9IAr4p1Va1whuA+U5n62/LlXQQo1hfy0s2js41+mGVEz5vMr2blve
+	 ifsGu2zDkQKKbOf5pHxW3xXlvGlvlYoZCKHnxuOLThYXRf7t2MnbRuQLpNmDbXs8ZZiBS
+	 /R4G9Z0ztxWYqvecBpT2gzDHLn9SSjdnRD1OSYoWdSV+J4E9NCH3xrbt0hwO/wJYka7r4
+	 mADEtgtmeZM6jzx0w2qBEN6uXvUEjtZ5przpkv726hBcHqzIFTSf0BtJ6i8qHMpxh2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645469;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=iaW2C/6a9gEmQUzjSFQuquRQsPl0OSOXZWSXZTmJfwY=;
-	b=wMf7KWWfWWhcRpB5HEy+2ELCKTgfjBn9f0GFZGHp8Xa5ghD7rg6vVeflqPWDmOoxm60F
-	 d32L2ckembtNq0IkIbaS+dgCDDlBAczDVpzsktG15FfoYr06Yad7eSionQRU5n4dWWuVh
-	 2hh9GWpLZqySuMJEy/09TLtuupnT4odh0lpiKmR0Av4zr8U4iXMa9JTHnnn+xaT6KHvkT
-	 fmn9pkkLN+0OZ1gEpKvykiVcUy7oHVZgSzpLzcWMzdGy/fi+PRvisrX4WNUhJZEp2oyxq
-	 L+2O7zukcyMTrCIk7Ck62ZJOjXq4xFWNR4mRfjOH0ZLCX4kqbEctVnQBtOLJYX3PvqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645471;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=YDYS9n9lT5gSkIV69W1btVTMHd2XxfQrN36gTu5mxFk=;
+	b=NJxQG4bx276wvYfDItctK7nLJO4YFtgjH76LgMXapwN2Gn/ScwpsBnA4wjA+6+FwW0ki
+	 yQZ6M5S0/izKcN36/mHJ46L6ovfELPfe5GHLT4HZrQpQZj5XifyRRF+hcmohRVWUsBU9o
+	 uOY7jh8KMRbp7bAkl0YyEJfSmv/Nxrwy/DCKFBEYDRTQaAjkc+v+W6238LKAZIogy42Nz
+	 WSpGZneYCnLvrBK9F7IKR4aNfXMaKu4VTTFupBtc/1be7ImqVKQjLEz3piOtGQ9Duwfbq
+	 Rb4XgupmPG/ZswXmhCguyVgoGurHj4h/4d9HJ6/mfwn7r2yb3/sXgF+KBji2JTxAyyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CH6ybdO7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="AQi/BAGm";
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3AAD606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:24:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53A37606A680
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:24:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53A37606A680
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CH6ybdO7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EA401F0089F;
-	Wed, 25 Nov 2026 22:24:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795645468;
-	bh=iaW2C/6a9gEmQUzjSFQuquRQsPl0OSOXZWSXZTmJfwY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CH6ybdO7ZFoOtrb2ySQzP5I3XQfDJpeZhsMe7aUZCArsGCEf4N6fmKa3bmfslh6Y4
-	 /SVnm8lUSEN/GJu8oc17Ndkqs0xEu0xnDTaYge39/tk6LtvcTYUN/JQIjwXzWmeD/k
-	 odtVaYi9rn/LGfjlZ8UsfPhbgCyxV1kziXfzdPkbqnIGUvrWWEdVAy5bXZqFt7AMKD
-	 V2dN7jJLWcbiJZ86C4z0nmRb1gFsn5/pBjgvJuHaeWbKmw/EAxzWX+R+Swu1/ZobwZ
-	 AX0R/qcr9TU+t8YrGsmHobEuj6mkFq6LOddYmBd739QL93LYQaBZzgQf6HkA+J483P
-	 hEd/22GwtychQ==
-From: Frederic Weisbecker <frederic@kernel.org>
-To: LKML <linux-kernel@vger.kernel.org>
-Cc: Frederic Weisbecker <frederic@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Phil Auld <pauld@redhat.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Waiman Long <longman@redhat.com>,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: [PATCH 30/47] clocksource/drivers/armada: Move CPUHP_AP_ARMADA_TIMER_STARTING post stop_machine()
-Date: Wed, 25 Nov 2026 23:22:13 +0100
-Message-ID: <20261125222230.22508-31-frederic@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261125222230.22508-1-frederic@kernel.org>
-References: <20261125222230.22508-1-frederic@kernel.org>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=AQi/BAGm
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-382af5cfc58so1802328eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:24:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795645469; x=1796250269; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YDYS9n9lT5gSkIV69W1btVTMHd2XxfQrN36gTu5mxFk=;
+        b=AQi/BAGm/FBDxK1JuvZwHCN9jd6iLLvy7R4f3LaQFVdqk2JorHdSzDL4/s4KXOtnIN
+         Mh/30a2fPOp6L3s/Gip2ij41HL/nUqQRWpt4ZSHY/tfeNO7X+d7tTHCKIUYZyRZ6/MMP
+         Voo1U7V3PcK05+f1jU19/P85Cy9DaKY6MJu0ZORkqeuHykTbkLy+U91bEeSPBs5ckBjY
+         xDqEuMQTXH87E+skTO0Qyns5fCg+G9aVepRWHsImdJcWI8yHKIvFw+fTjROD5uJVCPO4
+         QlSJne0VEJcciDIlp1BT5kBNcaHze4yXxncbM6WbhBX+O1NpVTmTFoCYINq4RHGTBic0
+         m1Tw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795645469; x=1796250269;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YDYS9n9lT5gSkIV69W1btVTMHd2XxfQrN36gTu5mxFk=;
+        b=LHs6/VzH1JIMT2nbwj6EawYsSf4OPYyfcFxb22CwTBqz+rq1a1Xc7qXEBA0tokrRQW
+         w3omkYkSgYjqi0JyDB1SF6Wa4mboy1t9EczLnDFUwRVjnUScr+gPZe6h9luDg4goazdY
+         OsG4y5Tyx1i1baqBXX7QSW/nsRPe1hd62BRCk+ZCcmlKT6BcX3kLDMcbicPUgd76S2IB
+         dLREYzcmipowyPvcCXKBDMxBQMHfXHMR/yUTSzzy1vQ0fI5filnUCdzOg5tzkbnjTfTb
+         bW5hfO6paHFdKQziGn4LxWpEQ30HifWeGifOP0Hbw9zxtXYuDZip5m3sGhb7/EcsYPlo
+         BVDg==
+X-Forwarded-Encrypted: i=1; AL+hErH+0yPJ5hukTL9rV4+sudahLG6I9lLIbxGHPjwvObXgmU4NwxQEXq1Tr+xWN1frLAJ1YTbFs+8ZN7yT1vo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/NUcoZGC5HCIkOAe36tuxQdhXmMSmnZyG/ia8ScXX+vWfbeWiY
+	MZkk4Qs1MhW5QWoRu5HN/OL6WPj+snyvKUJpzixn5puBhhg9mZ4WZxTXSzryqWR336a8a0G5uKG
+	l4Q==
+X-Received: from dybsl8.prod.google.com ([2002:a05:7301:7308:b0:379:1aaf:7a27])
+ (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:460f:b0:386:c850:1f25
+ with SMTP id 5a478bee46e88-386c8502211mr5715418eec.21.1795645468936; Wed, 25
+ Nov 2026 14:24:28 -0800 (PST)
+Date: Wed, 25 Nov 2026 22:22:57 +0000
+In-Reply-To: <20261125222300.1438398-1-elkin@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,52 +78,213 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <20261125222300.1438398-1-elkin@google.com>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261125222300.1438398-3-elkin@google.com>
+Subject: [PATCH net 2/4] nfc: st95hf: use DMA-safe buffers for SPI transfers
+From: Elkin Cruz <elkin@google.com>
+To: David Heidelberg <david@ixit.cz>, Nathan Chancellor <nathan@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, oe-linux-nfc@lists.linux.dev, llvm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, irogers@google.com, 
+	Elkin Cruz <elkin@google.com>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Between CPUHP_TEARDOWN_CPU and CPUHP_AP_OFFLINE, stop_machine executes
-all the teardown callbacks while temporarily stopping/pausing all CPUs
-in the system. This doesn't mix well with running RT or isolated tasks.
+st95hf_spi_send(), st95hf_spi_recv_response(), and
+st95hf_spi_recv_echo_res() pass stack-allocated buffers from core.c and
+spi.c directly to spi_sync(), violating kernel DMA safety requirements
+on DMA-capable SPI controllers and CONFIG_VMAP_STACK kernels.
 
-In order to transition smoothly from global stop_machine to finer
-grained synchronization between teardown callbacks and the other CPUs,
-a new stop machine post function has been introduced to be executed
-after the main one with IRQs still disabled while other CPUs can exit
-stop_machine().
+Use kmemdup() in st95hf_spi_send(), spi_write_then_read() in
+st95hf_spi_recv_echo_res(), and DMA-cacheline-isolated cmd_buf and
+rx_buf members (via __dma_from_device_group_begin/end) in
+struct st95hf_spi_context for st95hf_spi_recv_response().
 
-The teardown callback here simply performs IRQ disablement, which can
-run concurrently with other CPUs.
+This issue was found while trying out new Clang static analysis checks for
+kernel bug classes. The finding was triaged and fixed, and this commit
+description was drafted with the help of AI, then verified by code
+inspection and compile-tested against linux-next (not reproduced and not
+runtime-tested on hardware).
 
-Move it to post stop_machine() accordingly.
-
-Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-Tested-by: Michael Kelley <mhklinux@outlook.com>
+Fixes: cab47333f0f7 ("NFC: Add STMicroelectronics ST95HF driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Elkin Cruz <elkin@google.com>
 ---
- kernel/cpu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/nfc/st95hf/spi.c | 52 +++++++++++++++++++++-------------------
+ drivers/nfc/st95hf/spi.h | 10 ++++++++
+ 2 files changed, 37 insertions(+), 25 deletions(-)
 
-diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 27acdd9800cf..8a563de99dc1 100644
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -1275,7 +1275,7 @@ void clear_tasks_mm_cpumask(int cpu)
- static int take_cpu_down(void *_param)
+diff --git a/drivers/nfc/st95hf/spi.c b/drivers/nfc/st95hf/spi.c
+index a6599d65a3bf..8bd7eccc34d3 100644
+--- a/drivers/nfc/st95hf/spi.c
++++ b/drivers/nfc/st95hf/spi.c
+@@ -14,13 +14,18 @@ int st95hf_spi_send(struct st95hf_spi_context *spicontext,
+ 		    int datalen,
+ 		    enum req_type reqtype)
  {
- 	struct cpuhp_cpu_state *st = this_cpu_ptr(&cpuhp_state);
--	enum cpuhp_state target = max((int)st->target, CPUHP_AP_TEGRA_TIMER_STARTING);
-+	enum cpuhp_state target = max((int)st->target, CPUHP_AP_ARMADA_TIMER_STARTING);
- 	int err, cpu = smp_processor_id();
+-	struct spi_message m;
+-	int result = 0;
+ 	struct spi_device *spidev = spicontext->spidev;
+ 	struct spi_transfer tx_transfer = {
+-		.tx_buf = buffertx,
+ 		.len = datalen,
+ 	};
++	unsigned char *tx_buf;
++	struct spi_message m;
++	int result = 0;
++
++	tx_buf = kmemdup(buffertx, datalen, GFP_KERNEL);
++	if (!tx_buf)
++		return -ENOMEM;
++	tx_transfer.tx_buf = tx_buf;
  
- 	/* Ensure this CPU doesn't handle any more interrupts. */
-@@ -1303,7 +1303,7 @@ static int take_cpu_down_post(void *_param)
- 	enum cpuhp_state target = max((int)st->target, CPUHP_AP_OFFLINE);
- 	int cpu = smp_processor_id();
+ 	mutex_lock(&spicontext->spi_lock);
  
--	WARN_ON(st->state != CPUHP_AP_TEGRA_TIMER_STARTING);
-+	WARN_ON(st->state != CPUHP_AP_ARMADA_TIMER_STARTING);
- 	/*
- 	 * Invoke the former CPU_DYING callbacks. DYING must not fail!
- 	 */
+@@ -35,6 +40,7 @@ int st95hf_spi_send(struct st95hf_spi_context *spicontext,
+ 	spi_message_add_tail(&tx_transfer, &m);
+ 
+ 	result = spi_sync(spidev, &m);
++	kfree(tx_buf);
+ 	if (result) {
+ 		dev_err(&spidev->dev, "error: sending cmd to st95hf using SPI = %d\n",
+ 			result);
+@@ -69,12 +75,11 @@ int st95hf_spi_recv_response(struct st95hf_spi_context *spicontext,
+ 			     unsigned char *receivebuff,
+ 			     size_t max_len)
+ {
+-	unsigned char readdata_cmd = ST95HF_COMMAND_RECEIVE;
+ 	struct spi_device *spidev = spicontext->spidev;
+ 	struct spi_transfer tx_takedata;
+ 	struct spi_transfer t[2] = {
+-		{ .tx_buf = &readdata_cmd, .len = 1 },
+-		{ .rx_buf = receivebuff, .len = 2, .cs_change = 1 },
++		{ .len = 1 },
++		{ .len = 2, .cs_change = 1 },
+ 	};
+ 	struct spi_message m;
+ 	int len = 0;
+@@ -85,6 +90,10 @@ int st95hf_spi_recv_response(struct st95hf_spi_context *spicontext,
+ 
+ 	mutex_lock(&spicontext->spi_lock);
+ 
++	spicontext->cmd_buf = ST95HF_COMMAND_RECEIVE;
++	t[0].tx_buf = &spicontext->cmd_buf;
++	t[1].rx_buf = spicontext->rx_buf;
++
+ 	/* First spi transfer to know the length of valid data */
+ 	spi_message_init(&m);
+ 	spi_message_add_tail(&t[0], &m);
+@@ -102,12 +111,13 @@ int st95hf_spi_recv_response(struct st95hf_spi_context *spicontext,
+ 	len = 2;
+ 
+ 	/* Support of long frame */
+-	if (receivebuff[0] & 0x60)
+-		len += (((receivebuff[0] & 0x60) >> 5) << 8) | receivebuff[1];
++	if (spicontext->rx_buf[0] & 0x60)
++		len += (((spicontext->rx_buf[0] & 0x60) >> 5) << 8) |
++		       spicontext->rx_buf[1];
+ 	else
+-		len += receivebuff[1];
++		len += spicontext->rx_buf[1];
+ 
+-	if (len > max_len) {
++	if (len > max_len || len > ST95HF_MAX_RESPONSE_BUFFER_SIZE) {
+ 		dev_err(&spidev->dev, "spi_recv_resp, invalid response len = %d\n",
+ 			len);
+ 		memset(&tx_takedata, 0x0, sizeof(struct spi_transfer));
+@@ -120,21 +130,23 @@ int st95hf_spi_recv_response(struct st95hf_spi_context *spicontext,
+ 
+ 	/* Now make a transfer to read only relevant bytes */
+ 	memset(&tx_takedata, 0x0, sizeof(struct spi_transfer));
+-	tx_takedata.rx_buf = &receivebuff[2];
++	tx_takedata.rx_buf = &spicontext->rx_buf[2];
+ 	tx_takedata.len = len - 2;
+ 
+ 	spi_message_init(&m);
+ 	spi_message_add_tail(&tx_takedata, &m);
+ 
+ 	ret = spi_sync(spidev, &m);
+-
+-	mutex_unlock(&spicontext->spi_lock);
+ 	if (ret) {
+ 		dev_err(&spidev->dev, "spi_recv_resp, data read error = %d\n",
+ 			ret);
++		mutex_unlock(&spicontext->spi_lock);
+ 		return ret;
+ 	}
+ 
++	memcpy(receivebuff, spicontext->rx_buf, len);
++	mutex_unlock(&spicontext->spi_lock);
++
+ 	return len;
+ }
+ EXPORT_SYMBOL_GPL(st95hf_spi_recv_response);
+@@ -143,21 +155,11 @@ int st95hf_spi_recv_echo_res(struct st95hf_spi_context *spicontext,
+ 			     unsigned char *receivebuff)
+ {
+ 	unsigned char readdata_cmd = ST95HF_COMMAND_RECEIVE;
+-	struct spi_transfer t[2] = {
+-		{.tx_buf = &readdata_cmd, .len = 1,},
+-		{.rx_buf = receivebuff, .len = 1,},
+-	};
+-	struct spi_message m;
+ 	struct spi_device *spidev = spicontext->spidev;
+-	int ret = 0;
++	int ret;
+ 
+ 	mutex_lock(&spicontext->spi_lock);
+-
+-	spi_message_init(&m);
+-	spi_message_add_tail(&t[0], &m);
+-	spi_message_add_tail(&t[1], &m);
+-	ret = spi_sync(spidev, &m);
+-
++	ret = spi_write_then_read(spidev, &readdata_cmd, 1, receivebuff, 1);
+ 	mutex_unlock(&spicontext->spi_lock);
+ 
+ 	if (ret)
+diff --git a/drivers/nfc/st95hf/spi.h b/drivers/nfc/st95hf/spi.h
+index 840f55f82899..6fbace4412d9 100644
+--- a/drivers/nfc/st95hf/spi.h
++++ b/drivers/nfc/st95hf/spi.h
+@@ -9,6 +9,7 @@
+ #ifndef __LINUX_ST95HF_SPI_H
+ #define __LINUX_ST95HF_SPI_H
+ 
++#include <linux/dma-mapping.h>
+ #include <linux/spi/spi.h>
+ 
+ /* Basic ST95HF SPI CMDs */
+@@ -17,6 +18,7 @@
+ #define ST95HF_COMMAND_RECEIVE	0x2
+ 
+ #define ST95HF_RESET_CMD_LEN	0x1
++#define ST95HF_MAX_RESPONSE_BUFFER_SIZE	280
+ 
+ /*
+  * structure to contain st95hf spi communication specific information.
+@@ -25,12 +27,20 @@
+  * @done: completion structure to wait for st95hf response
+  *	for synchronous calls.
+  * @spi_lock: mutex to allow only one spi transfer at a time.
++ * @cmd_buf: DMA-safe buffer for command byte.
++ * @rx_buf: DMA-safe buffer for response transfers.
+  */
+ struct st95hf_spi_context {
+ 	bool req_issync;
+ 	struct spi_device *spidev;
+ 	struct completion done;
+ 	struct mutex spi_lock;
++	__dma_from_device_group_begin(cmd);
++	u8 cmd_buf;
++	__dma_from_device_group_end(cmd);
++	__dma_from_device_group_begin(rx);
++	u8 rx_buf[ST95HF_MAX_RESPONSE_BUFFER_SIZE];
++	__dma_from_device_group_end(rx);
+ };
+ 
+ /* flag to differentiate synchronous & asynchronous spi request */
 -- 
-2.56.1
+2.56.1.839.g22a8290db9-goog
 
