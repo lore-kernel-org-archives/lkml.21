@@ -1,88 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.136
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795609135;
-	b=0VgMKbKsUEY/nT/0f1Clqu+gTp2j2GOL+rYUYQCa5F9QIeTqfvY0Pm6qZOV04npfcBSk
-	 3wb+WxEwJeePNTzmf2yEUbP8qrzcE1f8HV1NEDQ90m4E5GpOtcx/LYnPKY3wQNU8LHeWn
-	 9+N4BTxkFm5Eqs95ilrEBF3PT9OkOe9eiLp4c4FHHrShQKMAfhb2NcFHMcu55mDTSqScq
-	 1GfQ3lG0t2hOY6nodaiVufkVBxfm6YQWDbfBFAVVL/PfPEGOQvQ8DtbYNQC3GXqOoJCng
-	 D7nHX4Ha3mXwm9O7DC8Qm8w6RB6MExAOSHvM6+AKBPsTkGboRrMA4/uVCrwbt7Ocs+g==
+	t=1795609301;
+	b=zeJ7L0UFhLxos7n5ePWa3q+3AjzCwafU/H4PYLYZ569ID/tiv3NugrHbL4r2hEpOA5E9
+	 /uuM6ciwDUmpgbyaH5zOSbGPhNPOqkYHD2xae9kA57/s8kJo6mZZrNKgdXISmEv2+RRTh
+	 a/+zDC518Dz9WTGXUZy/LfSXxhR3MRLo85Pfs5rKigPxHTBBvVpJ0hMxLcy62fg2hWJyO
+	 RI+R/KbKnNFhiXWA45vfYQI8Vbj9TDwJ8BDyyDR2hJLuEg3KdD3NsdbHWTWtRia1o9Ebu
+	 VtQKGPT8fMAtvxAfsx71ChNGml8b6cgdZNZZIiY9bma9Ya55Ff9vWoQr0GfEdvCHpQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795609135;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=EipLtkhh3uSERmjoF+5iUVrp459pGW6lqIvnKgJ36K4=;
-	b=qed/iy8f+l8DN06pHs/7VvVKDOyuSzif2qd9eq9qRonXOuctRsCYGKXYY1uUmeaMlLq9
-	 YqPqRF2+lsHiyLVYylato+4P59fAMeEVdxtEhUPoUluzq27l653Qlr1K5kw/nID+SdY98
-	 Ke4NV1PqDTSeB7Ito/vgs0BkpviSDpqA9MeHqVTguRQ5G/bdFSZ9w3/8GG47t4gQged8F
-	 cpYGMfu3czIZfz/EMqSeqXjcfPDYi07gyzJecmF0FgVTOCx5AnkU9YS4SAYpRlJIlkNCx
-	 TzlfNEijF3NbultiPLsIc7EM7+Djr0g3Zv1pKUvmv6HDrsbqUkzuI2vuHJbobsXDuCw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795609301;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Date:From:To:
+	 Cc:Subject:Message-ID:In-Reply-To:References:Organization:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=TnIv1Y4yd4Mhc945y7QfQ2on6nqrz7qZxWUanwGbrnU=;
+	b=mKr5BmCDFxzSAb1IpnTyYUH6Qbl/5zwIFeBC8zkQGOEeNzjgKbXALxwwWOe9DtFMF9/S
+	 kbcvzwsyoCUl2xYxz5RtUdPhsu/EGzySb7It1aouxVJl44JDFZJL4zuLEp+BbiTdDmyyq
+	 q7RUo/3YSzm7MTY8U+htSl8ARqmd+cqDVRhaQMBndLvolThfm8YDszJlBRVQb1c6tdlrd
+	 YIjfjDTiO9p20dJWFMY7+flP7c3mYCPMzvQ63Gx15Jx8gZLUzFtE//1nHUrDT7wHMDI0w
+	 5cBozpdiRurR72gGxV8H5HiLowdM6cZgJk0/R6nbOfBfFcxjvwCzFtI8dBwfYAdDb9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jzZq5tRm;
-	arc=none smtp.remote-ip=74.125.224.136
-Received: from mail-yx2-f8.google.com (mail-yx2-f8.google.com [74.125.224.136])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vr6Amkan;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDEE8606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:18:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDEE8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC6B7606A32C;
+	Wed, 25 Nov 2026 12:21:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC6B7606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jzZq5tRm
-Received: by mail-yx2-f8.google.com with SMTP id 00721157ae682-8b35e6f613dso11615017b3.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:18:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795609134; x=1796213934; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EipLtkhh3uSERmjoF+5iUVrp459pGW6lqIvnKgJ36K4=;
-        b=jzZq5tRmC+1AmCi2cqdA7tvizyeSmyiH4VGF02a+e6qFRIZZl2Z2yNkYJADWApHtNz
-         25RNrhrndPHEoWZbI3BjlSTjK6gnrgayPHp/FFTDuWG+Io58ot0hsM0OmgXIm6/9TZDM
-         2av90NcIm40kvdM44XLq3aRT4z1XkIhJqGEzcg9vmh8C83gSW5t3BexKlNnnQ3TNTRh2
-         3p3PSRKW7PNVrZq6Ee/6hTuF2eDtHBioM3SKhYooPlsYg9ao7mDIseFQZ5+sFArwkmlU
-         GC1wnRDsCsMU0d5hTkWzaMvqbMGbaTZWeNmJzzh/1vJMLhNg4uQ9TPzSZFDBJk7IWd0C
-         MaIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795609134; x=1796213934;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EipLtkhh3uSERmjoF+5iUVrp459pGW6lqIvnKgJ36K4=;
-        b=odvqV8vp5q3o64sHbgdGHshpFqrAtZuCgk0gCDV6dRVa+5GjYJgG4EG6fS406aojUX
-         a5xE5BYMtvvzlPDcPg7nl8LMLLufo0R2FRJ4B7XVXDjURSOpAmu3XRzkJSbvH1UZ0RW/
-         GHsvPCby+eIqfqhAfH5K0IAIUdKHUuXwDr76ructJyQUqV+2xQ406O0QsV1WCFTE2j8k
-         4KYteNVteBO2kUUP1J3Gr9lMO+idvSNV4c/0YX8WZO5JZwb2i3wAoifciBxQIIdcID1K
-         wLPZstgYPo4YBmKPmdD5W+hrA5lclwsCLmOAOxVsCG15k6ML4n4379wqQuQ1a1XHjiZU
-         RQFg==
-X-Forwarded-Encrypted: i=1; AL+hErESQdTuy5geGTCtVnnTzwYoeyXmDIh9EtrzmKPjl3vSMfWaOHFU8dFmL+t7mXKOkEWNLh1UYJJ8NOzzPhM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+TLw5HrC28PfGAsFvFOLyO45NWPOsoiIfBLCO0modAWZRdAYul
-	dVIE/mzUxfNA2XESU9EXJkuz2Ubf6UX46JZlvzkY190e41UQKSNSdOmH
-X-Gm-Gg: AZFdTZcbEjr5M9uIAfbiT8mlKuK1ajZUdx4MZ9Eka7rlbsxdcsmS5ET4k/Zib/lEZHr
-	nhSiWxBTIb0EVy9mi3vizlnr1neJLTFaLkWtlAO0WroGZ5nPP2z4GMSx3Tedt3rtWTMxEt+Xw84
-	LvAvzqh279rUWM+fqDuedhmzb7T+WKdS4Wv2EnrGMUGnZ4lYuUFogPF18dgf2ZK67bK2Vv3yR0x
-	UGT12Tq1xGMHm13JOpAhHjw6EulnWiCC1HABNAds8LQrzQeddutf9IDzn35Eig4w0DppR1yHu0x
-	PGd1b7zfW3juarhcPvEzwQXhgZ649C5tHRNs7wBUwNqBe3Dg2e0CSAKCzc9R8Rq1uDtSgotn6Ey
-	ZrI4mM/pgRSR55SPzzD836oGq6qkkdLWf1G8eTina5mKdPE2NY+fRoe0kNX4VIiIkzCkr+p2Ckk
-	H4CkFVghf4FzxiVBo2iOGVspeK7WOn81R1qH6N7fEG7cHAdI+LbWac/BW+vgeOGmV6IxWQsvpkH
-	GaBXyHNO1r1LLDS7vdYhUfkcAAwccmTmJJbvCBhyTMlYWqqWCd1KoSWmxcb36zQLqTIIQF5yqOM
-	P3SfejEKnmM4u+oV5PBMdJZBTzjnerIGVgM=
-X-Received: by 2002:a05:690c:905:b0:8b4:dfc2:bea3 with SMTP id 00721157ae682-8b5204e9094mr85848277b3.50.1795609133907;
-        Wed, 25 Nov 2026 04:18:53 -0800 (PST)
-Received: from [10.0.0.48] ([71.69.222.122])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5202b09c6sm72601307b3.17.2026.11.25.04.18.52
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 04:18:53 -0800 (PST)
-Message-ID: <a71a3d9f-0f19-45f4-bc98-a5663ad537b2@gmail.com>
-Date: Wed, 25 Nov 2026 07:18:52 -0500
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vr6Amkan
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 6F4414E41776;
+	Wed, 25 Nov 2026 12:21:39 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3D07E60480;
+	Wed, 25 Nov 2026 12:21:39 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A081411E69019;
+	Wed, 25 Nov 2026 13:21:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795609298; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=TnIv1Y4yd4Mhc945y7QfQ2on6nqrz7qZxWUanwGbrnU=;
+	b=vr6AmkantyhAjjGl6cQQ8JlCZQEeL54d7CiK+WU5+srMe0BYCqVTCBsC1aaWiz9StW9/c6
+	MhMkh8G04wTSHrG8/G+ky+nEMzoT5ZOM7K5CWwph9g3oHSN0vL4D9E5hiPFlhDmxonQRkS
+	coU0UpLK5uXXOz+GtgOWA1VOi8fjW3HO8KnU746B4sDLDRlkldpJg+detvg/Lpcj3jEuIY
+	ApZH1qz7SdxgBJEagfZiaNJlmjNPmJgYx+oND9DlycxbmiMV1qMFa3JqaZXipw6O9E3DLE
+	DSrD6hBUCnR93AhTtHomej7qO3qX6q0Ycgw34+EKZ9Spph6HYune7M6fF92oXQ==
+Date: Wed, 25 Nov 2026 13:21:29 +0100
+From: Herve Codina <herve.codina@bootlin.com>
+To: David Gibson <david@gibson.dropbear.id.au>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Laurent Pinchart
+ <laurent.pinchart@ideasonboard.com>, David Lechner <dlechner@baylibre.com>,
+ Ayush Singh <ayush@beagleboard.org>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, devicetree-compiler@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree-spec@vger.kernel.org, Hui Pu <hui.pu@gehealthcare.com>, Ian Ray
+ <ian.ray@gehealthcare.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [RFC PATCH v2 35/74] checks: Get 'chosen' node using
+ get_subnode()
+Message-ID: <20261125132129.4f4695ac@bootlin.com>
+In-Reply-To: <awan_SrUGC7OEMIL@gractus.seuss>
+References: <20260826094950.1088288-1-herve.codina@bootlin.com>
+	<20260826094950.1088288-36-herve.codina@bootlin.com>
+	<awan_SrUGC7OEMIL@gractus.seuss>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,80 +81,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/9] nvme-auth: switch to use the kernel keyring
-To: Hannes Reinecke <hare@suse.de>, Eric Biggers <ebiggers@kernel.org>
-Cc: Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
- Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>,
- linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
- keyrings@vger.kernel.org
-References: <20261123-dhchap-keyring-v4-v6-0-5082a49715ab@kernel.org>
- <20261123212105.GA18468@google.com>
- <692e91cc-e2ea-47cc-926f-6639952fb195@suse.de>
- <20261124201152.GA2227373@google.com>
- <851e3fa5-ad88-4470-877f-e977bb1a6ad9@gmail.com>
- <20261124213222.GD2227373@google.com>
- <c2163003-948c-49fa-815e-b1f91814a80a@gmail.com>
- <561e1abd-2430-4808-af99-cbdd3fd86d31@suse.de>
-Content-Language: en-US
-From: Martin Belanger <martin.nvme.dev@gmail.com>
-In-Reply-To: <561e1abd-2430-4808-af99-cbdd3fd86d31@suse.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+
+hi David,
+
+On Wed, 25 Nov 2026 20:19:04 +1100
+David Gibson <david@gibson.dropbear.id.au> wrote:
+
+> On Wed, Aug 26, 2026 at 11:49:04AM +0200, Herve Codina wrote:
+> > get_node_by_path() is going to be updated in order to handle orphan node
+> > support for addon device-tree.
+> > 
+> > The 'chosen' node is a subnode of the root node and can perfectly be
+> > retrieved using get_subnode().  
+> 
+> The change certainly shouldn't break anything, but I don't really
+> understand the rationale for it.  AIUI, get_node_by_path() should
+> still work, even if it's (trivially) more expensive.
+
+Removing the get_node_by_path() call here avoid a later modification when
+get_node_by_path() is changed.
+
+The code can use get_subnode() here. I thought that using it was more relevant
+here (getting the 'choosen' sub-node from the root node) than using the more
+generic get_node_by_path() function.
+
+Well, if you prefer the get_node_by_path() call here, no problem, I can
+revert this change.
+
+Best regards,
+Hervé
+
+> 
+> 
+> > In preparation of the future change related to get_node_by_path(),
+> > replace its usage to get the 'chosen' node by a call to get_subnode().
+> > 
+> > The modification doesn't introduce any functional changes.
+> > 
+> > Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+> > ---
+> >  checks.c | 3 +--
+> >  1 file changed, 1 insertion(+), 2 deletions(-)
+> > 
+> > diff --git a/checks.c b/checks.c
+> > index 13e8b121..1332acc4 100644
+> > --- a/checks.c
+> > +++ b/checks.c
+> > @@ -1349,8 +1349,7 @@ static void check_obsolete_chosen_interrupt_controller(struct check *c,
+> >  	if (node != dt)
+> >  		return;
+> >  
+> > -
+> > -	chosen = get_node_by_path(dt, "/chosen");
+> > +	chosen = get_subnode(dt, "chosen");
+> >  	if (!chosen)
+> >  		return;
+> >  
+> > -- 
+> > 2.55.0
+> > 
+> >   
+> 
 
 
 
-On 11/25/26 02:26, Hannes Reinecke wrote:
-> And the other problem with your approach is that DH-CHAP
-> key don't actually have 'names'; they are just binary blobs.
-> If we want to refer to them by name we first would need to
-> agree on what the name actually _is_.
->
-> What we could do is to store the key serial in struct
-> nvmf_ctrl_options; that would allow keysd to provision
-> the keys and rotate them via 'keyctl update' (or whatever
-> it's doing internally). And would get away from the
-> business of having to come up with a name for the key.
-
-Yes, a key serial works for me. The kernel then needs no name for
-the key. The key description stays a userspace matter:
-
-- The admin names each secret in the configuration: the connection
-  configuration of nvme-cli or nvme-discoverd refers to the secret by
-  that name, and nvme-keysd's configuration (or the KMIP server) holds
-  the secret under the same name.
-- At boot, nvme-keysd adds each secret to the keyring with
-  add_key("dhchap", <name>, ...). The name becomes the key
-  description.
-- At connect, libnvme takes the name from the connection
-  configuration, looks up the serial with keyctl_search() and passes
-  the serial to the kernel, as tls_key= does for TLS. libnvme already
-  does this lookup today, to check that the key exists before the
-  connect.
-
-For rotation, the serial must stay the same when the secret changes,
-so that a connected controller uses the new secret at its next
-authentication. For this, v7 needs an .update operation in the
-dhchap key type (user_update() should do). nvme-keysd then rotates a
-secret with add_key() under the same description, which replaces the
-payload of the existing key. nvme-keysd does not need to know which
-controllers use the key, and no sysfs or configfs write is needed.
-
-For the sysfs and configfs attributes:
-
-- For a key from the keyring, a read returns the key serial, as
-  tls_key and tls_configured_key do. The serial names the key the
-  controller uses. The description is available with keyctl describe.
-- A write of a serial is rejected. The serial is set at connect, and
-  after that the keyring is the only way to change the secret. I do
-  not want a second way to change a key: a writable serial would be
-  one, and it would let a write point the controller at any dhchap
-  key on the system.
-- A write of a raw secret (DHHC-1:...) keeps the current behavior,
-  because existing tools use it.
-
-The same applies to dhchap_key and dhchap_ctrl_key in nvmet configfs.
-
-Martin
-
+-- 
+Hervé Codina, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
