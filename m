@@ -1,57 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795624070;
-	b=NpwSz1X4eANog29Zj0Y65rejObRhzGnb8Fl+c7sWKzTgg7/igavrBWIg9ei6+rEdDMdR
-	 nc4yPzkcMvD6nps/xH1CEOEMJALJg2Xe75Zat4giNIunOYTdP2FNit3kR3CX/+MdeC9LV
-	 ehKB5oYGqT3hgd2K7umq9tscLUrvYIt2hApj+RjjMeqQBschpl2tmfoIdeahvAxGQdnVC
-	 /ffHKkYwKUzaPuo+3cjmefMhIdqKua0SNH4vsOeEDQS55t+qI9/L9C9RRr9O7EJaw84q/
-	 vJ5AOQgchLo6/n0+dsN/YHZ0xA3OLPoFHmCjp9GOzsrvbBzZMWxi9YtxjhkRVqyH7ww==
+	t=1795624078;
+	b=QyAOED+l90OIfYirDgZElfDyoN2D6xeWIZs53Uome60yEaSqvFtaYgkeZzV9mIE1Bd4B
+	 om+ijNt9YovcvD3+MHLQrT41Q5kQyEOJ20csu+Iy/YvjJsAlBbzZ9BBHz4vEdNnSVeFrL
+	 FdQW1toXOGQ26fjv4kkL06rmWsNoNJY/cwRhC3gpniQ/mREk/FxjNVICHVTNU4Y0RKddD
+	 +erp/LgwzEA7la/Regd48QxGX4pN+JMuO6w8Op2C9mp5ydj9t/NGCS2QztitnIFrclMBe
+	 MRi073Alw24HQYAWaHmDKLsytAuY1E3xLx0aJ3tYcOhdrL9nE2tE5pk4qdX7rG1p+Cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795624070;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=6Xq8OeDOZHssKoiCadVgvlbF6CHN6aUwkH9nd/7x/mQ=;
-	b=4uAQ0v5fojfTf8jSZxKXHY7BJLnLq/1fOCwS41O9tlW6z1eAKVai1nQjbVemFFmmQaqN
-	 wKWWnj110nRQgtIgXKjNFUobNf1X/x8bKgkx3p2HcoCyAU3s/lJWuSC8HoaO2Six2iWXZ
-	 9IQ4M8fBBTAaTSwr1UZE2LJPaVQrBpsLDU8iM3spomV/K2sFBq5YBBRPeVUUWLP2emVWl
-	 imdKVcSlhDt6k2goj05MBUWHc97VFf+0zGOJInbog2APdvw9B/cJA+IU/jn1/0OPLxvL2
-	 nfvNyV8H4VpfxqBm8kp70hR/vMSbn7WLb6nNWn/mLNegLO2GojRrpV9U3kzxLkCKjoQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795624078;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=0ccuMba5+2cV+cajIEgRXiyY/D31cnRahwOAYJCpOuM=;
+	b=Mv5LHSSOUkaYJL9qHRIz9PM6jubHg2SRiTumd4urOJzxNk1s7LwnL55hI604DGZDRVnZ
+	 OLcCFp/pyQVIj+LmIDSP/0laMP7tnb2D/Ya4o+ZICfbObINx8TXYAhbOW2DhV1gVOFoX/
+	 ryt9b4HROJjKyyVS0dM5k8qijMJbbTxFyf66xiAcoICv+3UOUiPL5vU2+Og6l/uoOAUtJ
+	 mk8oNyGZqmzszTkJdDOe/HVdrbSsWgU6bI1/jvC5ubPyINlFtJ3gzYwYsR9W2tKmZaFPU
+	 FLN4aW+evMsPeN0cNE3VWJPHfQf4gjc9Ix72Aedl2FxBvOmBDV8NUDIaIEwSZf35uhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="HLKC/G75";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=M0VNmRim;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30446606A31E;
-	Wed, 25 Nov 2026 16:27:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA3C2606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:27:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA3C2606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HLKC/G75
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D432E1F000C6;
-	Wed, 25 Nov 2026 16:27:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795624070;
-	bh=6Xq8OeDOZHssKoiCadVgvlbF6CHN6aUwkH9nd/7x/mQ=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=HLKC/G75fi9sy0J6WPDfd1XuHL+jH5hQ864LYO8hJxRKsP9itojTpV+DomEB+ziOL
-	 AG6Oz9gZpyd+TThtXLRWvrUcz+HR6Suy1cgyDe0bhZmXKQZQjZg7AXK02i0JR4SKC1
-	 yQuRiE09olqXbbovD1ae6pIyID2ibNt26E8w1rKS2C8lMbJLM9gwdJSwZ3RJ5n7LF+
-	 ONDT/EcHgKDankLsMjRA7bgELL8ZBsEdlP53tsy4ezqK+KzaeLqVd+piwgACZVPnMn
-	 bAoA9THmx5raQv3LuOrLrMCyNdKz+gIMCq3rexG6c7tnz1LPrQY1Qpbx0iuflVjxz0
-	 lX08+8vmILrDQ==
-Message-ID: <sashiko-outbox-233749@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH net-next v5 4/4] ipv6: validate dsts against the state
- their lookup found
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Ralf Lici" <ralf@mandelbit.com>
-Cc: linux-rt-devel@lists.linux.dev, linux-kernel@vger.kernel.org
-In-Reply-To: <4b2bf5de6c9837fee8db88d639db0e27e6d687b9.1795537128.git.ralf@mandelbit.com>
-References: <cover.1795537128.git.ralf@mandelbit.com>
- <4b2bf5de6c9837fee8db88d639db0e27e6d687b9.1795537128.git.ralf@mandelbit.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 25 Nov 2026 16:27:49 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=M0VNmRim
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795624076;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0ccuMba5+2cV+cajIEgRXiyY/D31cnRahwOAYJCpOuM=;
+	b=M0VNmRim8hypENDvRq//ejRWJR2THRcOo1Bzhrt2+3mg6j7ukMPYPTc0C1qB2ojl1c94Gs
+	qzSRs5GAslQlFlOID6wRLEWssomAr2MzwQApBnjm93yjC6sPGT445nENgPNAbzzBFsjgJ3
+	XDgRCDMFblQCphjBcAbrFPNW8ASGCfI=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-86-BHb8WixNOA-VPEU3mcQ1XQ-1; Wed,
+ 25 Nov 2026 16:27:53 +0000
+X-MC-Unique: BHb8WixNOA-VPEU3mcQ1XQ-1
+X-Mimecast-MFC-AGG-ID: BHb8WixNOA-VPEU3mcQ1XQ_1795624070
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 30D401955E89;
+	Wed, 25 Nov 2026 16:27:50 +0000 (UTC)
+Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id EC5291801A62;
+	Wed, 25 Nov 2026 16:27:43 +0000 (UTC)
+Message-ID: <7cf84726-961a-4339-adb9-36ce342c911e@redhat.com>
+Date: Wed, 25 Nov 2026 17:27:42 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,207 +70,162 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
+ under global dpll_lock
+To: "Kubalewski, Arkadiusz" <arkadiusz.kubalewski@intel.com>,
+ Jakub Kicinski <kuba@kernel.org>
+Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>, Jiri Pirko <jiri@resnulli.us>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Randy Dunlap <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
+ "Nguyen, Anthony L" <anthony.l.nguyen@intel.com>,
+ "Kitszel, Przemyslaw" <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "intel-wired-lan@lists.osuosl.org" <intel-wired-lan@lists.osuosl.org>,
+ "Nitka, Grzegorz" <grzegorz.nitka@intel.com>,
+ Karol Kolacinski <karol.kolacinski@intel.com>,
+ Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
+ "Oros, Petr" <poros@redhat.com>
+References: <20261111164021.273409-1-ivecera@redhat.com>
+ <20261116181612.107a4b57@kernel.org>
+ <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
+ <20261118174424.32e9f130@kernel.org>
+ <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
+ <MW4PR11MB6984FD51283AEF4F2B8E27E39B432@MW4PR11MB6984.namprd11.prod.outlook.com>
+Content-Language: en-US
+From: Ivan Vecera <ivecera@redhat.com>
+In-Reply-To: <MW4PR11MB6984FD51283AEF4F2B8E27E39B432@MW4PR11MB6984.namprd11.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issues to consider:
-- [High] ipv6: deleted nexthop-object pcpu dsts stay valid in
-  ip6_dst_check()
-- [Medium] ipv6: PREEMPT_RT race killing or returning dead pcpu dsts in
-  route.c
---
+On 11/25/26 16:36, Kubalewski, Arkadiusz wrote:
+>> From: Ivan Vecera <ivecera@redhat.com>
+>> Sent: Thursday, November 19, 2026 1:29 PM
+>>
+>> On 11/19/26 02:44, Jakub Kicinski wrote:
+>>> On Wed, 18 Nov 2026 16:29:23 +0100 Ivan Vecera wrote:
+>>>> A step of the zl3073x PHC, which ptp4l and ts2phc do at start and
+>>>> after a large offset, waits for the next 1 PPS edge, up to 1 s, with
+>>>> the channel lock held. A phase step can hold it for up to 3 s while
+>>>> it waits for the previous one. A dpll callback of that channel waits
+>>>> for the lock under dpll_lock, and every other DPLL request and
+>>>> notification in the system waits behind it. With ToD writes running,
+>>>> requests to an ice DPLL took 1448 ms in median and 3.9 s at most.
+>>>> With the series they took 0.2 ms and 0.3 ms, the same as idle.
+>>>>
+>>>> The bigger reason are zl3073x callbacks we are working on, which have
+>>>> to wait for the hardware themselves:
+>>>>
+>>>> - a device reset with resync waits for the fast lock, up to 1 s with a
+>>>>      1 PPS input
+>>>> - a glitchless stop or start of an output completes on an output edge,
+>>>>      so it takes up to one period, 1 s for a 1 PPS output
+>>>>
+>>>> Holding the global dpll_lock for that long would stall every DPLL
+>>>> device in the system. For the output state we tried an asynchronous
+>>>> implementation, but then the callback returns success before it knows
+>>>> the result.
+>>>
+>>> Right, for these level of waiting async seems like the right
+>>> direction, at least naively/without knowing the HW.  Why does the
+>>> device wait until PPS to apply the step change? Is the programmed time
+>>> supposed to correspond to the pulse?
+>>
+>> Yes. The device has no immediate ToD write, it can only write the ToD on
+>> the next internal 1 Hz edge, the next input sync edge or the next internal
+>> 0.5 Hz edge. The written value is the time at that edge, so the seconds
+>> stay aligned with the 1 PPS outputs.
+>>
+>> Looking at it again, the zl3073x holds the channel lock while it waits for
+>> the edge, although the dpll callbacks do not touch the ToD, TIE or phase
+>> step registers, and they already run while the device applies such an
+>> operation, because the PTP ops return right after issuing it.
+>> I will look at narrowing the lock in the driver.
+>>
+>> For the resync, async is not only about reporting the result. Fast lock is
+>> a setting of the DPLL, not of a reference, and forcing it makes the DPLL
+>> ignore its frequency and phase error monitors. While an asynchronous
+>> resync is pending, everything else done to the DPLL runs in forced fast
+>> lock. A reference switch, whether from a priority or state change, a
+>> manual reference or the device itself in automatic mode, would follow the
+>> fast lock phase rate instead of the configured phase slope limit, and the
+>> resync would then report success on another reference. A switch to NCO
+>> would keep the force bit set until the work clears it. So every request
+>> changing the DPLL configuration would have to fail with -EBUSY, cancel the
+>> resync, or wait for it. With a lock per chip they simply wait, for at most
+>> 1 s.
+>>
+>>>> A failure can only be reported by a later notification, and the next
+>>>> request gets -EBUSY until the change completes. With a lock per chip
+>>>> the callback can simply wait, and one chip cannot do these operations
+>>>> in parallel anyway.
+>>>
+>>> Do the failures only happen because of "unforeseen circumstances" /
+>>> EIO, or there may be more common errors reported? If it's just the
+>>> former a devlink health reporter could be an option.
+>>
+>> For the output start and stop, only EIO. The device does not report a
+>> stopped output and the driver can only wait for one period, so a health
+>> reporter would work there.
+>>
+>>
+>> For the resync, no. The wait ends with -ETIMEDOUT when the DPLL does not
+>> enter fast lock, for example because the selected reference lost its
+>> qualification in the meantime. That is a result of the input signal the
+>> user needs in the reply, not a device fault.
+> 
+> Nevertheless we need mechanic to do it async? Or add a timeout for callback
+> on dpll side? This global lock was never intended to wait a second (or below
+> pointed 60 seconds) for the HW to respond.
+> 
+A timeout would not help. The core cannot abort a callback that waits
+for the hardware, it could only stop waiting for the lock, so the
+stall would turn into errors of the other requests. An async
+mechanism fits the output state, but not the resync, for the reasons
+above.
 
-commit 4fc9718ac0ef513c19b112ac560ff9d40fa15b7c
-Author: Ralf Lici <ralf@mandelbit.com>
+I would rather do what posix clocks and PTP do. A posix clock has an
+rwsem that only protects its lifetime: every operation takes it for
+read and posix_clock_unregister() takes it for write. The PTP core
+calls settime64, adjtime and the other ops without a lock of its own,
+only ->enable() and the pin configuration run under the per clock
+pincfg_mux. Each PTP driver serializes its ops itself, and a slow
+clock never blocks another one.
 
-ipv6: validate dsts against the state their lookup found
+For DPLL this would mean:
 
-This commit validates IPv6 dst entries in ip6_dst_check() and reuses or
-replaces cached per-CPU dsts based on the lookup stamp recorded when the
-dst was built rather than the cookie passed by the holder.
+- dpll_lock becomes an rwsem that only protects the topology and the
+   lifetime of devices and pins. Registration takes it for write,
+   netlink requests and notifications take it for read.
+- The core does not serialize driver callbacks. Each driver protects
+   its own state with its own lock, as PTP drivers already do.
+- The other rules for drivers stay as they are today: a callback must
+   not call a function that takes dpll_lock, and a driver must not
+   notify while holding a lock that its callbacks take.
 
-> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-> index 8b98ee945c583..be9bf7a4e7808 100644
-> --- a/net/ipv6/route.c
-> +++ b/net/ipv6/route.c
-> @@ -1501,7 +1501,7 @@ static struct rt6_info *ip6_rt_pcpu_alloc(const str=
-uct fib6_result *res)
->  	pcpu_rt->rt6i_flags |=3D RTF_PCPU;
-> =20
->  	if (f6i->nh)
-> -		pcpu_rt->sernum =3D rt_genid_ipv6(dev_net(dev));
-> +		pcpu_rt->sernum =3D res->gen;
-> =20
->  	return pcpu_rt;
->  }
-> @@ -1511,6 +1511,33 @@ static bool rt6_is_valid(const struct rt6_info *rt=
-6)
->  	return rt6->sernum =3D=3D rt_genid_ipv6(dev_net(rt6->dst.dev));
->  }
-> =20
-> +static bool rt6_stamp_matches(const struct rt6_info *rt,
-> +			      const struct fib6_result *res)
-> +{
-> +	if (rt->sernum || res->f6i->nh)
-> +		return res->gen && rt->sernum =3D=3D res->gen;
-> +
-> +	return res->cookie && rt->cookie =3D=3D res->cookie;
-> +}
-> +
-> +static void rt6_pcpu_release_rcu(struct rcu_head *head)
-> +{
-> +	struct dst_entry *dst =3D container_of(head, struct dst_entry, rcu_head=
-);
-> +
-> +	dst_release(dst);
-> +}
-> +
-> +/* Release a pcpu dst taken out of its slot. Lookups may have read the s=
-lot
-> + * without taking a reference, so drop the slot's own only after a grace
-> + * period: an xfrm bundle holding the dst as its child releases its
-> + * reference without waiting for one.
-> + */
-> +static void rt6_pcpu_release(struct rt6_info *rt)
-> +{
-> +	dst_dev_put(&rt->dst);
-> +	call_rcu(&rt->dst.rcu_head, rt6_pcpu_release_rcu);
-> +}
-> +
->  /* It should be called with rcu_read_lock() acquired */
->  static struct rt6_info *rt6_get_pcpu_route(const struct fib6_result *res)
->  {
-> @@ -1518,16 +1545,19 @@ static struct rt6_info *rt6_get_pcpu_route(const =
-struct fib6_result *res)
-> =20
->  	pcpu_rt =3D this_cpu_read(*res->nh->rt6i_pcpu);
-> =20
-> -	if (pcpu_rt && pcpu_rt->sernum && !rt6_is_valid(pcpu_rt)) {
-> +	/* A pcpu dst is shared by all its holders, so it is never re-stamped.
-> +	 * Reuse it only if it was built under the state this lookup found,
-> +	 * otherwise replace it: a dst rebuilt by another lookup after a FIB
-> +	 * change must not be returned to a lookup that selected before it.
-> +	 */
-> +	if (pcpu_rt && !rt6_stamp_matches(pcpu_rt, res)) {
->  		struct rt6_info *prev, **p;
-> =20
->  		p =3D this_cpu_ptr(res->nh->rt6i_pcpu);
->  		/* Paired with READ_ONCE() in __fib6_drop_pcpu_from() */
->  		prev =3D xchg(p, NULL);
-> -		if (prev) {
-> -			dst_dev_put(&prev->dst);
-> -			dst_release(&prev->dst);
-> -		}
-> +		if (prev)
-> +			rt6_pcpu_release(prev);
-> =20
->  		pcpu_rt =3D NULL;
->  	}
-> @@ -1550,13 +1580,21 @@ static struct rt6_info *rt6_make_pcpu_route(struc=
-t net *net,
->  		/*
->  		 * Another task on this CPU already installed a pcpu_rt.
->  		 * This can happen on PREEMPT_RT where preemption is possible.
-> -		 * Free our allocation and return the existing one.
-> +		 * Free our allocation and return the existing one if it was
-> +		 * built under the state this lookup found, otherwise replace
-> +		 * it as rt6_get_pcpu_route does.
->  		 */
->  		WARN_ON_ONCE(!IS_ENABLED(CONFIG_PREEMPT_RT));
-> =20
-> -		dst_dev_put(&pcpu_rt->dst);
-> -		dst_release(&pcpu_rt->dst);
-> -		return prev;
-> +		if (rt6_stamp_matches(prev, res)) {
-> +			dst_dev_put(&pcpu_rt->dst);
-> +			dst_release(&pcpu_rt->dst);
-> +			return prev;
-> +		}
-> +
-> +		prev =3D xchg(p, pcpu_rt);
-> +		if (prev)
-> +			rt6_pcpu_release(prev);
->  	}
+A pin registered by another driver is then no special case, because
+each driver protects only its own state, whoever registered the pin.
+The core only has to keep the notifications of one object in order,
+with a lock per object held while the message is built and sent. The
+cost is that a message about an object that changes while it is built
+can mix old and new values, and the notification sent after the
+change carries the new state.
 
-[Severity: Medium]
-On CONFIG_PREEMPT_RT, can concurrent lookups on the same CPU kill a live
-pcpu_rt or return one that has already been released?
+ice already serializes its callbacks with pf->dplls.lock. zl3073x
+relies on dpll_lock for the state shared by its channels and would
+need a lock per chip, and mlx5 and ptp_ocp would need to be checked.
 
-local_bh_disable() in ip6_pol_route() pins the task to the CPU, but tasks
-on the same CPU can still preempt one another inside rt6_get_pcpu_route()
-and rt6_make_pcpu_route():
+This does not depend on the RFC I mentioned in the other reply.
 
-rt6_get_pcpu_route() [task A]
-  pcpu_rt =3D this_cpu_read(*p)
-  !rt6_stamp_matches(pcpu_rt, res)
-  <preempted by task B on same CPU>
-    rt6_get_pcpu_route()
-      xchg(p, NULL)
-    rt6_make_pcpu_route()
-      cmpxchg(p, NULL, new_rt)
-    return new_rt
-  <task A resumes>
-  prev =3D xchg(p, NULL)
-  rt6_pcpu_release(prev)
-    dst_dev_put(&new_rt->dst)  <-- kills live new_rt held by task B
+Would that work for you?
 
-The same unconditional xchg(p, pcpu_rt) overwrite exists in
-rt6_make_pcpu_route() when !rt6_stamp_matches(prev, res).  Conversely, if
-task A gets prev from cmpxchg(p, NULL, pcpu_rt) in rt6_make_pcpu_route()
-and is preempted before returning it, task B can replace prev and call
-rt6_pcpu_release(prev).  Because rt6_pcpu_release() leaves prev->cookie
-and prev->sernum intact and defers dst_release() via call_rcu(), task A
-resumes, sees rt6_stamp_matches(prev, res), and returns the dead dst
-(which still passes ip6_hold_safe() before the grace period elapses).
+Thanks,
+Ivan
 
-> @@ -2864,11 +2902,16 @@ INDIRECT_CALLABLE_SCOPE struct dst_entry *ip6_dst=
-_check(struct dst_entry *dst,
->  	struct dst_entry *dst_ret;
->  	struct fib6_info *from;
->  	struct rt6_info *rt;
-> +	bool exception;
-> =20
->  	rt =3D dst_rt6_info(dst);
-> =20
-> +	/* a nexthop-object pcpu dst replaced by another lookup has been
-> +	 * released with dst_dev_put and must fail even if its stamp is current
-> +	 */
->  	if (rt->sernum)
-> -		return rt6_is_valid(rt) ? dst : NULL;
-> +		return (READ_ONCE(rt->dst.obsolete) =3D=3D DST_OBSOLETE_FORCE_CHK &&
-> +			rt6_is_valid(rt)) ? dst : NULL;
-
-[Severity: High]
-Does a nexthop-object pcpu dst stay valid in ip6_dst_check() and
-rt6_stamp_matches() after its route is deleted?
-
-Deleting a route via fib6_del() -> fib6_del_route() -> fib6_purge_rt()
-does not call fib6_new_sernum(), so rt_genid_ipv6() is unchanged.
-Instead, __fib6_drop_pcpu_from() (and the fib6_destroying path in
-rt6_make_pcpu_route()) invalidates the cached per-CPU dst only by
-clearing pcpu_rt->from to NULL, leaving pcpu_rt in res->nh->rt6i_pcpu
-with dst.obsolete =3D=3D DST_OBSOLETE_FORCE_CHK and its non-zero sernum:
-
-net/ipv6/ip6_fib.c:__fib6_drop_pcpu_from() {
-	...
-		if (pcpu_rt && rcu_access_pointer(pcpu_rt->from) =3D=3D match) {
-			struct fib6_info *from;
-
-			from =3D unrcu_pointer(xchg(&pcpu_rt->from, NULL));
-			fib6_info_release(from);
-		}
-	...
-}
-
-Because ip6_dst_check() returns early when rt->sernum is non-zero before
-checking rcu_dereference(rt->from), holders keep validating and sending
-through the deleted route's dst.  In addition, because rt6_stamp_matches()
-checks rt->sernum =3D=3D res->gen without checking rcu_access_pointer(rt->f=
-rom),
-later lookups on the same CPU matching another route that shares the
-nexthop object reuse the pcpu_rt whose from is NULL, causing
-inet6_rtm_getroute() to fail with -ENETUNREACH and PMTU updates in
-__ip6_rt_update_pmtu() to silently abort.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795537128.gi=
-t.ralf@mandelbit.com?part=3D4
