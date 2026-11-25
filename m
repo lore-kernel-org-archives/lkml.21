@@ -1,61 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=116.202.128.144
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795567633;
-	b=EFiddY8lckg8mV11XoAc0BxVfTQPGeNLfBn01DqfeUEO+1XN2ttYWwk1r3OxuO8h7ng5
-	 GXQUlMFaWbKEAvjs8xNtZy5zyGCqEcMzhzAdAknj/HkcBYXnMIW3OSz5UCDDZRl7fLXm3
-	 6KKyUcq7px9GR2dNQIR3rk7LnUhABiwJyKCTp8mn/eyngb55+d2Y/+uyjxoDlyPgb2oHa
-	 MVOKhtwdZFzaBJg1L+gVNHdmyGbyYEnUOk4RxDGmHNVMPHaJkhmNTxYoHZl9wivcGS9YE
-	 wTt4us1MccaeCkYMlOPDEG+0oOEok5P1cFK5B3HPoe75pIZ0m+fvRVKoP9FokgK3Ixg==
+	t=1795567824;
+	b=A93h1CKyOuc2F9lAS9wxZkUoJIh94R8JJrb30p4QWDUPi0Ey6ycwkpMDKt87UNRaGNgX
+	 fVP8VMEJg8wjKTaW75rDZM4UY3iYM60K17YNtPISLEk0DbtPYiAxziiQXMzbAMEhuVFh2
+	 Y9RZV6Ok9u9thlkbXGJpkA63+WeBJ7faC/4vZp797dm/CFCMDPwYN8gsuZ6ToxWxHPZ3o
+	 D9YJ8Te87DvaYowRFDOQxF1+vQChN829bZwGYuaYvIEraqcV4y8BQsbQhwWKvi5UJ2LuM
+	 9VTe1mnM5iKRVHN2vr5yfr0IjR3b4y+GbpxOKm3jvKREKrRh3laL6nLVhz/aNvoIRFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795567633;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=x3Tb5wGvPFsOLbf9O2zMutrp6rf2pvaXOEHNMdWmm6U=;
-	b=sURQaF91S0J69csNkTC9LhDdZn/0PkilKj6Zy/HHigedNpC9A1yEQZih9DLJKA+AVHft
-	 6AObBUuGSKDJK8jAMo7q49mSMNOjSL4aZ4AkQ5de0haPSX9FdBV9F61duKRIjNjfPBVn/
-	 MG76WXWM6Qj2V2+CvG5R6Av86uwVfo2b5WkZHG5qhQISZQaiobGh1b4pFRSTxRkNYgmxU
-	 fGxyxw1Fb1hVAz+AjTh81rAdHrZCQOH/LACSQsm1yl5XQsTRiAyb2XJGk0xnk1baCEuTY
-	 YLo33G4JMI+MT0kAEvll8dYCjb66ymK2BYSffXQkcXKWIO6pvIW9oHv40gEsLXqVgvA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795567824;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=JuUwzHWhZZaMYBjv7XG6XqaquyoaNPEepSOTGWcwgfM=;
+	b=Wt/16dqzLxEpFRFYfLw00hA0DZjoOzIGZw/9ICU71yD+WbCQBb5mvBlnKxoHhmcVsZ8s
+	 k87ybpWC+MFLH6qwkxvqyNC9ltZOooYepx8jBHmLTW3eWdn9yf7L+wMw/gDWQJtcn2/IA
+	 FUsBGfiJPy7ncTJPsLMJmLNX2T8ZdRZTt885mXhM9BBGxgQqk/ZKAxs1kct5omEzsjryy
+	 fbaQUoZgKU6ySVVyRtmOPoKmjfqRuWOSgM0iji3pPRDrOAyELOe2/lnENN/M0rVsCIuom
+	 Duo8akv5kyu3cHIfwdQSwdKJO/2rqV2gAXQVc6MrA+Sqi0gdHAFnFatV9BwnOXu+bJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WF2i9eGW;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=freeshell.de;
+	spf=pass smtp.mailfrom=freeshell.de;
+	dkim=pass header.d=freeshell.de header.i=@freeshell.de header.a=rsa-sha256 header.s=s2025 header.b=g3+MPGUM;
+	arc=none smtp.remote-ip=116.202.128.144
+Received: from freeshell.de (freeshell.de [116.202.128.144])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D111606A31E;
-	Wed, 25 Nov 2026 00:47:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CCFB606A31E;
+	Wed, 25 Nov 2026 00:50:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CCFB606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=freeshell.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=freeshell.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WF2i9eGW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67FD31F000CA;
-	Wed, 25 Nov 2026 00:47:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795567632;
-	bh=x3Tb5wGvPFsOLbf9O2zMutrp6rf2pvaXOEHNMdWmm6U=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=WF2i9eGWMpChy12GvKFv2XzhlDqcX1nk78LLUoOzK9Fa5sZ7QogneatQj727yuaA1
-	 mrAyJGMiJrUqDePX1pGiisLxoKmwYrGSqREFf4cn86lSJAUt+WCORCmsv2tf/pI7YA
-	 WWdKRnw94alFPTukBeJ8f1i037hbCzTjx8ILmuZxqRya1cD9kZV5/jvkBy1f/MEyJ3
-	 jqj6jfmgwXaq7xaHh9i3wkCIkh1YWmyDKFJjH7E3HpsQ+RS2XeT+j2waY0x/Rl+yKX
-	 Z5sYQCd4OWlc41nW2NUUv+CSDB8SZKejjJCal4hCOaEgtwRVAKTfqXcTdzwai99pWl
-	 wKNBMDhox5NOA==
-Date: Tue, 24 Nov 2026 18:47:09 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Richard Cheng <icheng@nvidia.com>
-Cc: dave@stgolabs.net, jic23@kernel.org, dave.jiang@intel.com,
-	alison.schofield@intel.com, vishal.l.verma@intel.com,
-	helgaas@google.com, iweiny@kernel.org, ming.li@zohomail.com,
-	linux-cxl@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, tglx@kernel.org, wangruikang@iscas.ac.cn,
-	alifm@linux.ibm.com, shawn.lin@rock-chips.com,
-	lihaoxiang@isrc.iscas.ac.cn, 18255117159@163.com,
-	xiangzao@linux.alibaba.com, vidyas@nvidia.com, kaihengf@nvidia.com,
-	kobak@nvidia.com, newtonl@nvidia.com, kristinc@nvidia.com,
-	Benjamin Cheatham <benjamin.cheatham@amd.com>,
-	Alex Williamson <alex@shazbot.org>
-Subject: Re: [PATCH v3 1/2] PCI/MSI: Skip MSI/MSI-X restoration when config
- space is inaccessible
-Message-ID: <20261125004709.GA1202732@bhelgaas>
+	dkim=pass (2048-bit key) header.d=freeshell.de header.i=@freeshell.de header.a=rsa-sha256 header.s=s2025 header.b=g3+MPGUM
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=freeshell.de;
+	s=s2025; t=1795567765;
+	bh=JuUwzHWhZZaMYBjv7XG6XqaquyoaNPEepSOTGWcwgfM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=g3+MPGUMqcE0pyupobLlvRPp5zb6Ms/XBPfIcuRfmmP7LWJTRk+LMu6bIQWCHbbNw
+	 0vDeuPs09oionSBocXBZKwXpxzs0Cz9aNw0QeEmqH+5Lhnpb52GhCnlv840DDmbGbM
+	 4VIbEFXLtZwsMmKFC7xXW/yVvnDgFYQVfo5dCoOzmrRvvMfcznQECjx9edTvDTvUDr
+	 391/O69rjbk8gKGDcUwtjtwFQy917q4QvPZtNiBDvtzj5+8HE9EhjTySEuRAD1fvfw
+	 w9JQYe4VEDtQPsVLSAiYCgYp5iDMBGZn9XdsAlf5DnQJF/LIDhl7OP9jlYlvDmhaSl
+	 6rYkvr2lkvr4w==
+Received: from [IPV6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc] (unknown [IPv6:2605:59ca:364f:d400:1b91:6b30:22c2:fffc])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id 93A9EB22081B;
+	Wed, 25 Nov 2026 01:49:22 +0100 (CET)
+Message-ID: <311a1481-0849-4865-88f4-636f13c2c6dc@freeshell.de>
+Date: Tue, 24 Nov 2026 16:49:14 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,210 +58,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awQJGfWYyqYCmL09@MWDK4CY14F>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/2] riscv: dts: spacemit: mark K1 boot nodes
+ bootph-pre-ram
+To: Yixun Lan <dlan@kernel.org>, Hung-Chun Tseng <alan.tseng.cs@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20261024092558.143621-1-alan.tseng.cs@gmail.com>
+ <20261124231909-GKB245721@kernel.org>
+Content-Language: en-US
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <20261124231909-GKB245721@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Mon, Nov 23, 2026 at 05:52:25PM +0800, Richard Cheng wrote:
-> On Fri, Nov 20, 2026 at 10:39:09AM +0800, Bjorn Helgaas wrote:
-> > [+cc Ben, Alex]
-> > 
-> > On Fri, Nov 20, 2026 at 04:09:13PM +0800, Richard Cheng wrote:
-> > > On Mon, Nov 16, 2026 at 01:09:39PM +0800, Bjorn Helgaas wrote:
-> > > > On Mon, Nov 16, 2026 at 02:52:28PM +0800, Richard Cheng wrote:
-> > > > > PCI state restoration runs even when a reset fails. If the device's
-> > > > > config space remains inaccessible, MSI-X restoration still writes the
-> > > > > MSI-X table. The table lives in device memory space, and these MMIO
-> > > > > accesses can trigger additional errors, including DPC.
-> > > > > 
-> > > > > MSI is programmed entirely through config space, so it doesn't issue
-> > > > > such MMIO accesses. Restoring it is still pointless when config space is
-> > > > > inaccessible: reads return all ones and the restore path writes back
-> > > > > values derived from them.
-> > > > > 
-> > > > > Check whether config space of pci device is accessible or not at the
-> > > > > start of both MSI and MSI-X path, after msi_enabled/msix_enabled test
-> > > > > and before any config access, and skip the restoration if the device is
-> > > > > inaccessible.
-> > > > > Make the helper non-static and declare it in pci.h so the MSI code can
-> > > > > use it, too.
-> > > > > 
-> > > > > Signed-off-by: Richard Cheng <icheng@nvidia.com>
-> > > > > ---
-> > > > > Changelog:
-> > > > > 
-> > > > > v2 -> v3:
-> > > > > - Cover MSI restoration path as well (Farhan)
-> > > > > - Use pci_dev_config_accessible() instead of open-coding the check, and
-> > > > >   make it non-static (Farhan)
-> > > > > - Move the check before any config space access in the restore
-> > > > >   functions (Farhan)
-> > > > > - The return value of the PCI Command read is no longer checked, since
-> > > > >   the helper only tests for an all-ones value.
-> > > > > - Update the subject and commit message accordingly
-> > > > > ---
-> > > > >  drivers/pci/msi/msi.c | 6 ++++++
-> > > > >  drivers/pci/pci.c     | 2 +-
-> > > > >  drivers/pci/pci.h     | 1 +
-> > > > >  3 files changed, 8 insertions(+), 1 deletion(-)
-> > > > > 
-> > > > > diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
-> > > > > index 8a0133a6a286..2865f73f5ead 100644
-> > > > > --- a/drivers/pci/msi/msi.c
-> > > > > +++ b/drivers/pci/msi/msi.c
-> > > > > @@ -524,6 +524,9 @@ void __pci_restore_msi_state(struct pci_dev *dev)
-> > > > >  	if (!dev->msi_enabled)
-> > > > >  		return;
-> > > > >  
-> > > > > +	if (!pci_dev_config_accessible(dev, "restore MSI state"))
-> > > > > +		return;
-> > > > 
-> > > > Sigh.  I hate the fact that pci_dev_config_accessible() is
-> > > > proliferating even though it's obviously racy.  Maybe it's the best we
-> > > > can do, but I just feel like we're digging this hole deeper.
-> > > >
-> > > Hmm I agree this is racy even though we're holding the device lock
-> > > throughout the reset/restore process.
-> > > 
-> > > I assume you mean something like a separate sources DPC happened and
-> > > make the device inaccessible , some scenario like that ?
-> > 
-> > Yes.  A PCI device can stop responding at any time, e.g., it got
-> > physically removed from a slot, a cable was removed, its internal
-> > firmware crashed, power failed, etc.
-> > 
-> > > > Also, this is called in the pci_restore_state() path, which is full of
-> > > > other things that also write to config space and will also fail in
-> > > > this situation.
-> > > 
-> > > Actually I was trying to cover the whole pci_restore_state() in v1 [1],
-> > > and Benjamin raise the concern about the drivers may depen on PCI state
-> > > having been restored by the time reset_done() runs.
-> > 
-> > I think you're referring specifically to Ben's comment [2] that driver
-> > .reset_done() handlers expect that pci_restore_state() has already
-> > been completed, and your "[PATCH 3/4] PCI: Skip state restoration when
-> > configuration is inaccessible" patch calls .reset_done() without any
-> > restoration if the device was inaccessible:
-> > 
-> >   static void pci_dev_restore(struct pci_dev *dev)
-> >   {
-> >         const struct pci_error_handlers *err_handler =
-> >                         dev->driver ? dev->driver->err_handler : NULL;
-> > 
-> >  -      pci_restore_state(dev);
-> >  +      /* MSI-X restoration may access device MMIO. */
-> >  +      if (pci_dev_config_accessible(dev, "restore state"))
-> >  +              pci_restore_state(dev);
-> > 
-> >         /*
-> >          * dev->driver->err_handler->reset_done() is protected against
-> >          * races with ->remove() by the device lock, which must be held by
-> >          * the caller.
-> >          */
-> >         if (err_handler && err_handler->reset_done)
-> >                 err_handler->reset_done(dev);
-> > 
-> > I think Ben is absolutely right that .reset_done() handlers expect the
-> > device to be accessible and config state to have been restored, and I
-> > don't think it's reasonable to expect every driver's .reset_done() to
-> > handle that generic problem.
-> > 
-> > I think pci_restore_state() needs to return failure and callers need
-> > to figure out how to deal with that.  There are a lot of callers, so
-> > it's messy, but we should recognize that it can fail.
-> 
-> Hi Bjorn,
-> 
-> Thanks for the suggestion, that makes sense.
-> I'm thinking the following for v4 since I got a clearer picture now.
-> 
-> - Drop MSI/MSI-X specific check and make pci_restore_state() return errno,
->   check whether the device is accessible at the top so we can cover all
->   capabilities
+Hi Yixun,
 
-Well, pci_dev_config_accessible() is *always* racy no matter where you
-call it, because the device may stop responding at the next
-instruction after pci_dev_config_accessible() returns "true".
+On 11/24/26 15:19, Yixun Lan wrote:
+> Hi Hung-Chun, 
+> 
+> On 17:25 Sat 24 Oct     , Hung-Chun Tseng wrote:
+>> On the SpacemiT K1 the BootROM loads the next boot stage into SRAM, and
+>> that stage sets up DRAM. This series marks the nodes it needs for that
+>> bootph-pre-ram: the SoC clocks, UART, boot media and the two I2C buses
+>> in k1.dtsi, and the board EEPROM (which holds the DRAM configuration),
+>> the PMIC rails and the SPI NOR in the board files.
+>>
+>> The vendor confirmed that the BootROM itself does not access the
+>> EEPROM [1]. It is tagged because bootph-pre-ram covers the phase that
+>> sets up SDRAM, and DRAM cannot be trained without it.
+>>
+>> Testing: all K1 DTBs build, and dtbs_check is clean for them with and
+>> without this series.
+>>
+>> I used Claude to help read the U-Boot SPL and the device trees. I
+>> checked the changes and ran dtbs_check myself.
+>>
+>> Changes in v3:
+>> - Reword both commit messages to describe the hardware instead of what
+>>   an SPL does, and drop the U-Boot paragraph from patch 1 (E)
+>> - Tag i2c2 in k1.dtsi too, as every K1 board has the EEPROM there
+>> - Tag eeprom@50 on the OrangePi RV2 and R2S, missed in v2 (Sashiko)
+>> - Drop the Assisted-by tags, see commit 1e035297ffda
+>> - Keep E's Reviewed-by on both patches, as the changes are the ones
+>>   discussed on v2
+>> - Link to v2: https://lore.kernel.org/all/20261017180141.3477743-1-alan.tseng.cs@gmail.com/
+>>
+>> Changes in v2:
+>> - Tag i2c8 in k1.dtsi instead of in every board file (Yixun)
+>> - Rebase onto the spacemit dt-for-next branch
+>> - Link to v1: https://lore.kernel.org/all/20261012235624.77993-1-alan.tseng.cs@gmail.com/
+>>
+>> [1] https://lore.kernel.org/all/20261021083425-GKA125937@kernel.org/
+>>
+>> Hung-Chun Tseng (2):
+>>   riscv: dts: spacemit: k1: mark boot-critical SoC nodes bootph-pre-ram
+>>   riscv: dts: spacemit: mark K1 board boot devices bootph-pre-ram
+>>
+> I'd not put this series on hold, we generally could address other
+> remains of issue/improvement later. so with
+> 
+> Reviewed-by: Yixun Lan <dlan@kernel.org>
 
-Checking at the beginning and the end of pci_restore_state() would
-cover most cases.
+With regard to mainline U-Boot use of devicetree-rebasing there is a
+robust method in U-Boot build system for overrides such that we may
+adopt these proposed changes there before they are accepted in Linux.
 
-> - Keep calling .reset_done(), and return the restore failure from
->   pci_reset_function(), etc. Driver that touch the device in .reset_done()
->   need their own check
+With changes-requested all addressed for v4 I expect the shape of this
+will be good and it is not holding back anything in Linux kernel. The
+hold is only due having to ask for what the closed-source BootROM is
+doing and waiting for this confirmation now instead of having access to
+see its code directly. There are intellectual property warnings
+published by SpacemiT prohibiting reverse-engineering the BootROM so it
+cannot be expected to proceed any more quickly than asking and waiting
+for a reply.
 
-If pci_restore_state() fails, I'm not sure we should call
-.reset_done().  What would that mean?  If the device isn't accessible
-after a reset, I don't know what else we can do.  Maybe we just unbind
-the driver and software-remove the device?
+If you would like to abandon the approach I suggest of considering the
+effects of BootROM peripheral configuration as a hardware environment
+needing device tree description and bootph-pre-ram hints for
+constrained-memory SPL, then that topic can also be discussed. Please be
+clear what your expectations are, thanks!
 
-> I am thinking about for .reset_done(), since the core can't just skip it,
-> like you said the drivers part can be messy, maybe changing signature to
-> 
-> void (*reset_done)(struct pci_dev *dev, int status);
-> 
-> Passing the status from driver side to PCI core and let the core handle it
-> generically will be more elegant ?
-> 
-> Once we decide the approach I can send v4.
-> 
-> Best regards,
-> Richard Cheng.
-> 
->  
-> > > What my bug actually hit was MSI-X table write triggered DPC, I can't
-> > > justify for all kinds of driver, so I limited the scope.
-> > > 
-> > > If you think a broader check in pci_dev_restore() is a better place to
-> > > handle this, I'm happy to give a deeper research and revisit it.
-> > > 
-> > > Best regards,
-> > > Richard Cheng.
-> > > 
-> > > [1]: https://lore.kernel.org/all/20260929020405.9724-1-icheng@nvidia.com/
-> > 
-> > [2] https://lore.kernel.org/all/8a19d63c-db9a-40ab-a811-5d761252638f@amd.com/
-> > 
-> > > > >  	entry = irq_get_msi_desc(dev->irq);
-> > > > >  
-> > > > >  	pci_intx_for_msi(dev, 0);
-> > > > > @@ -877,6 +880,9 @@ void __pci_restore_msix_state(struct pci_dev *dev)
-> > > > >  	if (!dev->msix_enabled)
-> > > > >  		return;
-> > > > >  
-> > > > > +	if (!pci_dev_config_accessible(dev, "restore MSI-X state"))
-> > > > > +		return;
-> > > > > +
-> > > > >  	/* route the table */
-> > > > >  	pci_intx_for_msi(dev, 0);
-> > > > >  	pci_msix_clear_and_set_ctrl(dev, 0,
-> > > > > diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-> > > > > index 7c6f2aba8144..671ffe4da1c8 100644
-> > > > > --- a/drivers/pci/pci.c
-> > > > > +++ b/drivers/pci/pci.c
-> > > > > @@ -714,7 +714,7 @@ u16 pci_find_dvsec_capability(struct pci_dev *dev, u16 vendor, u16 dvsec)
-> > > > >  }
-> > > > >  EXPORT_SYMBOL_GPL(pci_find_dvsec_capability);
-> > > > >  
-> > > > > -static bool pci_dev_config_accessible(struct pci_dev *dev, char *msg)
-> > > > > +bool pci_dev_config_accessible(struct pci_dev *dev, char *msg)
-> > > > >  {
-> > > > >  	u32 val;
-> > > > >  
-> > > > > diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-> > > > > index 77efa4c5c960..98dd3dbd5edb 100644
-> > > > > --- a/drivers/pci/pci.h
-> > > > > +++ b/drivers/pci/pci.h
-> > > > > @@ -240,6 +240,7 @@ enum pci_mmap_api {
-> > > > >  int pci_mmap_fits(struct pci_dev *pdev, int resno, struct vm_area_struct *vmai,
-> > > > >  		  enum pci_mmap_api mmap_api);
-> > > > >  
-> > > > > +bool pci_dev_config_accessible(struct pci_dev *dev, char *msg);
-> > > > >  bool pci_reset_supported(struct pci_dev *dev);
-> > > > >  void pci_init_reset_methods(struct pci_dev *dev);
-> > > > >  int pci_bridge_secondary_bus_reset(struct pci_dev *dev);
-> > > > > -- 
-> > > > > 2.43.0
-> > > > > 
-> > > > 
+-E
+
+[...]
