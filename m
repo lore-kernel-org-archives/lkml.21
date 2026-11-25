@@ -1,82 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795638271;
-	b=UP1R4grrZNYj1PaCSqF6pyRzkClKmPGT/KoXQg6kTa1rvmRKO04aDenzyhOdglnXAYc6
-	 J406/Wvkeh09zRBeKsthavutPL8p6wdqDBG6rpHGOui7ZVFZGM5HIhUN761QTSu50ut4F
-	 WrmaPv/HgTOzc0aZ82XnPpjwsOnuydJZ3jg+TsVbzqStdHLxN8k4G/sovNqIzYiXut25E
-	 ACGNlDDy6bcp4v5h9/qm7cLqJC6oIY54+RwBauhdApFIA5SqV7dKavwiNhZK/6ZZj6Rlz
-	 ueXtgLJOvEI4nY5NWfjyMmDFM3yuJdx6e/bx06puVFAQy2+J3bho/jEtX4BZ+p4nRxg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795638271;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=W6kSkTrweSQ0wcU2dbEyxHrUIkg5Sek2FnfGWXLCYjc=;
-	b=LYk5XA1MkfCfkp4XFsSm/wyQvvJn0QgeAPb5d2EQnhKqpMu78LH3aMNITzmEOF5bMqdq
-	 w0aZlCkmQ2uwW+E9NE6SS4+VktsdQxO6IM7Gj9l/uTwqnxtZgw1UueM0MLAkRFwaBT6KE
-	 ep8RE0dZNh7TvAyWmbnjHAD23BnLfrlm9vKZtZLDIgnZIFEYJJtsldtREqCyX94ZFM5T7
-	 yQSfvLxnpKIijHnOWLzEB68JH8t37WF/EmAeQyP8oFkppEwN0uthvAKTeQwy5RrgF8G1X
-	 rvE9rUgr83mBMexWhcTFnE63Gf0r2HDk4pFc875oXoOtQGTgAiwgIFsufuVgfGwu9Uw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SQFDt3z5;
-	arc=none smtp.remote-ip=192.198.163.10
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795638307;
+	b=qp4VjNCB9xuSze0gkoqHNS154YtKl7ZKLLxgbKhKo2em1gZrA6qcPVoaCp5pdfly4oWn
+	 klO4rj17YAd7aw+OLwstKobdUyF1aE7iZAoemsqGpzAv8RvzOuvrH5sLK/TbMv7EeTX1l
+	 +oT6xD1E70df/87QMX39br3Yj53Wt7H3rH5x3haUz3CONBsBaqjd2Okb/CtyUJzz3gcOx
+	 p9NA0VlQHlXextbvCtnxGiCBO1tgswHkaHfbFqHPFOBMTrWAkFEIMTJshDCu0r9ACVupK
+	 Oy5u8d21YU/7AjLkSo0y41954f5OdnJkWvGsNRI582Bt3ks8eeqf9MOsKTsMjbBYz4g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795638307;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=kj54KKqus3DpCyZNB5aVCoc87sy3Q+Ne+YOlrdr6juM=;
+	b=OTrZxN5F6wRfFCqbaprFGNloWcux2wjdwQ7oAadQE8SM+du+k+K1o3aUtOI8rcU877sT
+	 MaAoDV4oQi2V2+07T4YUMOIHGU9ZldvbMex5I/Xvbwzlekts5h12A2R2ulZuKhg4bJ8Yu
+	 PsclxYdb8mfXN1mV1JaIFB/3YD6euI8ChmjTVJ9cLihX8GIsQMqqJ8Ee2Q4bPPDWOQoDp
+	 qPKML1uY+VAFbf8DrSWrcmYf2kW4dqe2nNMjxaZ39r/lBIItO/y1wehSBoW54z0Ie/Ohm
+	 iR5UKJEE5/FFd25Gh2osUTGV+Omerw654K/HHanqjpCLIaD9j3JuFj9vDWXErFZZSgg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H3JCjDeQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A24E606A31E;
-	Wed, 25 Nov 2026 20:24:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A24E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FE33606A321;
+	Wed, 25 Nov 2026 20:25:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SQFDt3z5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795638271; x=1827174271;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=opOUzu9CI5VspuCJ7TqUH2I8StJt23oLfhcFKQY18Qk=;
-  b=SQFDt3z5WA4IKyGJB5hlp239vQ5NmWzBWzffMV3Ab6v3pkZc/L23tsCi
-   /7Ob2izsFjov8j5st606HAR8fMJXpqwBr6vuUbKDiOE4tKvvW2sdrtY4P
-   yy6oHBOhpUIYAu5sdHbblFJo+F1bXIVGVLKozJjLy/M9bR2kWr0wJ6shE
-   uRiCwnEW5aH40SlpgW/MH+efxJ9h/Ql08+2S0OW4cXzJJjjGeVpdYjyvv
-   tJWZMKU1SMhAbXJQMbDAgq4HnlHNlxmRZgUC2lbCm/r7lyWZnYYwlhxgT
-   YDnCiV5LOSkGgIxGVgIUbqveYiDOLojt2kTEvOLcXT7SREwcr3DigmXNy
-   w==;
-X-CSE-ConnectionGUID: bVxKu0ORRdWzZt4xE9MoDQ==
-X-CSE-MsgGUID: nIT1qk85Qbq9EurS8R2sCQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4419666"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4419666"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 12:24:30 -0800
-X-CSE-ConnectionGUID: fnaUMappR4mcIFMGaoFcEg==
-X-CSE-MsgGUID: DG4ecEMZS5Sj2YHpzK1moQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="11835676"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 25 Nov 2026 12:24:28 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWJXV-00000001SXe-2kch;
-	Wed, 25 Nov 2026 20:24:25 +0000
-Date: Thu, 26 Nov 2026 04:23:37 +0800
-From: kernel test robot <lkp@intel.com>
-To: Christoph =?iso-8859-1?Q?B=F6hmwalder?= <christoph.boehmwalder@linbit.com>,
-	Jens Axboe <axboe@kernel.dk>
-Cc: oe-kbuild-all@lists.linux.dev, drbd-dev@lists.linux.dev,
-	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Philipp Reisner <philipp.reisner@linbit.com>,
-	Lars Ellenberg <lars.ellenberg@linbit.com>,
-	Christoph =?iso-8859-1?Q?B=F6hmwalder?= <christoph.boehmwalder@linbit.com>
-Subject: Re: [PATCH v4 21/21] drbd: remove BROKEN for DRBD
-Message-ID: <20261126041726.kXD9a5hZ-lkp@intel.com>
-References: <20261125153511.3060599-22-christoph.boehmwalder@linbit.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H3JCjDeQ
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795638307;
+	b=S2sDywW5EHbKBrUVXNQHqz7JYv53f6h+zt9XhnWob0vp0f77PSLuLWaNvpdgbc8tdabo
+	 1eMZJZl0a3z6gjE0FHZJksdChf5javZfBRgswYmItQWgFCQNRg8SRk2Wnhp6YWP9Hw8um
+	 cXF+mz7SZKKRVQeELBMfUkRIKqc5iyss8QwF46n9zqZvno2+2vWHHNoZS8G4X8RdKqnM4
+	 knh02aVICqGeG0XyErKDXRvryvLUPhEsTnXRMTflFWpg+MWiRXbqxFcINTYN6xCSNwTHW
+	 EcugujkPdQg2udgIFa/WLD6SacuSVtFXWGAv8KROEeIClcL7bMFFN1DMsIJ4iiS3oYA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795638307;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=kj54KKqus3DpCyZNB5aVCoc87sy3Q+Ne+YOlrdr6juM=;
+	b=gFncyNstazOqA9LsKD+nxIpt/LXqE+Rs9BhTRw9TXvWbr3P+ULOh8VYZnOpaH3P9ejf3
+	 TSzGH4u7fkzZ2ml+3VEy8Q512gXbfczswFfqZQ0TZlf1P6SJMEXo0ZTmWOh79tBY2+2TR
+	 6zyDaDhQang4lOwc56y6ZfJqy0VOYGZRMvip+N7AsFqhRGq4Q7y2uMRdQyWGuS+1q26f5
+	 61tFsZVTSyJupI5d2e3GfdpcPFflO48+C4nSu686I2/PleF0HPr7xr3VussmfYGk9YFiV
+	 u6Pem2Z+RlJLVHVgSKuBPJEwtRw9L8Er1S5P0TyM+OroFxMGYj2D2HLcNFjKMy7gABQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id D5D6F1F000CA;
+	Wed, 25 Nov 2026 20:24:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795638307;
+	bh=kj54KKqus3DpCyZNB5aVCoc87sy3Q+Ne+YOlrdr6juM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=H3JCjDeQy8qz57GAn0wZcJ6uigR7MFkPkWkIkOcX6hjhTyCnYQUeKJV/fxWpawnc1
+	 dT7cFTDfJqYDp3ASJDCiNXgJSustfPvT9lRGId8jjC4gnNpGzMOv1psVTBoxUx2TnU
+	 FFjaIYYsBupMmocB2YV/OnbOwLeTNMAqqPNLZ5hKzPF6G7P+ECE0+hdBYrwZbSZRRd
+	 q0EHDYf0hqoRY81Ku+oCUGYwV9KGEXDOLrsDWjjQL0cGZssSqJbQi04kOmqTc8dssd
+	 MZ4Tw5nSCeDFA7kI/14JfLqz4+xitZ/sF/Gi3dVAGeyidDELEIndpXu+1yJW2X1P4a
+	 k6ic6jc34CCIQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 632CC4D025;
+	Wed, 25 Nov 2026 20:24:55 +0000 (UTC)
+From: Joseph Telaak via B4 Relay <devnull+joseph.telaak.dev@kernel.org>
+Date: Wed, 25 Nov 2026 15:24:49 -0500
+Subject: [PATCH v6 2/6] dt-bindings: clock: Add Siflower SF19A2890 clock
+ manager
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,35 +83,172 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125153511.3060599-22-christoph.boehmwalder@linbit.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261125-sf19a2890-sysm-v6-2-181875c10682@telaak.dev>
+References: <20261125-sf19a2890-sysm-v6-0-181875c10682@telaak.dev>
+In-Reply-To: <20261125-sf19a2890-sysm-v6-0-181875c10682@telaak.dev>
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: Paul Burton <paulburton@kernel.org>, 
+ Jiaxun Yang <jiaxun.yang@flygoat.com>, Chuanhong Guo <gch981213@gmail.com>, 
+ Yao Zi <me@ziyao.cc>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Joseph Telaak <joseph@telaak.dev>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795638294; l=4233;
+ i=joseph@telaak.dev; s=20261104; h=from:subject:message-id;
+ bh=1hE1zhMG0OtBg9FcIR+gI4NTYVaU3Uop5FjyhLMYHqg=;
+ b=mq2jyvl3kdXvY6Ino4A+5nTYpuCoL+gpP4OL02cjWS+0kzuhKPnYRs7OKDhWhDQPToE6RGAZs
+ rcNCgj/RCvzCpjwxuAkaom3xp5b7yguURQc/UGK5P92VB5O/7eahxvq
+X-Developer-Key: i=joseph@telaak.dev; a=ed25519;
+ pk=oQI+UfddlZ0wK2ac4WKOGNjUl1ZEN8j9ZVFSqEDoNP0=
+X-Endpoint-Received: by B4 Relay for joseph@telaak.dev/20261104 with
+ auth_id=1404
+X-Original-From: Joseph Telaak <joseph@telaak.dev>
+Reply-To: joseph@telaak.dev
+Content-Transfer-Encoding: 7bit
 
-Hi Christoph,
+From: Joseph Telaak <joseph@telaak.dev>
 
-kernel test robot noticed the following build warnings:
+The clock manager of the Siflower SF19A2890 holds the SoC's PLLs and
+the muxes and dividers that derive the bus, CPU and peripheral clocks
+from them. The peripherals' own gates and resets are in separate
+blocks.
 
-[auto build test WARNING on aa7014f8d7565cfea117eac36a5de0a05eba65a4]
+The header is Chuanhong Guo's, from his SF19A2890 branch, and keeps his
+license. It drops the count at its end, and names the NPU clock
+CLK_MUXDIV_NPU_PE, without the _CLK suffix that no other clock has.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Christoph-B-hmwalder/drbd-mark-as-BROKEN-during-DRBD-9-rework/20261125-163451
-base:   aa7014f8d7565cfea117eac36a5de0a05eba65a4
-patch link:    https://lore.kernel.org/r/20261125153511.3060599-22-christoph.boehmwalder%40linbit.com
-patch subject: [PATCH v4 21/21] drbd: remove BROKEN for DRBD
-config: m68k-defconfig (https://download.01.org/0day-ci/archive/20261126/20261126041726.kXD9a5hZ-lkp@intel.com/config)
-compiler: m68k-linux-gcc (GCC) 16.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261126/20261126041726.kXD9a5hZ-lkp@intel.com/reproduce)
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Joseph Telaak <joseph@telaak.dev>
+---
+ .../bindings/clock/siflower,sf19a2890-clk.yaml     | 57 ++++++++++++++++++++++
+ MAINTAINERS                                        |  7 +++
+ include/dt-bindings/clock/siflower,sf19a2890-clk.h | 27 ++++++++++
+ 3 files changed, 91 insertions(+)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261126041726.kXD9a5hZ-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> Warning: drivers/block/drbd/drbd_receiver.c:407 function parameter 'connection' not described in 'alloc_pages_throttled'
->> Warning: drivers/block/drbd/drbd_receiver.c:407 function parameter 'throttle' not described in 'alloc_pages_throttled'
->> Warning: drivers/block/drbd/drbd_receiver.c:407 expecting prototype for drbd_alloc_pages(). Prototype was for alloc_pages_throttled() instead
+diff --git a/Documentation/devicetree/bindings/clock/siflower,sf19a2890-clk.yaml b/Documentation/devicetree/bindings/clock/siflower,sf19a2890-clk.yaml
+new file mode 100644
+index 000000000000..9b72f14c2bd9
+--- /dev/null
++++ b/Documentation/devicetree/bindings/clock/siflower,sf19a2890-clk.yaml
+@@ -0,0 +1,57 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/clock/siflower,sf19a2890-clk.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Siflower SF19A2890 clock manager
++
++maintainers:
++  - Joseph Telaak <joseph@telaak.dev>
++
++description: |
++  The clock manager of the Siflower SF19A2890 holds the SoC's three PLLs
++  (CPU, DDR and common) and the clock muxes with dividers that derive the
++  bus, CPU and peripheral clocks from them. The peripherals' own clock
++  gates and resets are in separate peripheral clock and reset managers.
++
++  The clocks are defined in include/dt-bindings/clock/siflower,sf19a2890-clk.h.
++
++properties:
++  compatible:
++    const: siflower,sf19a2890-clk
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: 12 MHz oscillator
++      - description: 40 MHz oscillator
++
++  clock-names:
++    items:
++      - const: osc12m
++      - const: osc40m
++
++  "#clock-cells":
++    const: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - "#clock-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    clock-controller@19e01000 {
++        compatible = "siflower,sf19a2890-clk";
++        reg = <0x19e01000 0x800>;
++        clocks = <&osc12m>, <&osc40m>;
++        clock-names = "osc12m", "osc40m";
++        #clock-cells = <1>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 93abbb315065..ce8d0596939c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -25698,6 +25698,13 @@ N:	sifive
+ K:	fu[57]40
+ K:	[^@]sifive
+ 
++SIFLOWER SF19A2890 CLOCK DRIVERS
++M:	Joseph Telaak <joseph@telaak.dev>
++L:	linux-clk@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/clock/siflower,sf19a2890-clk.yaml
++F:	include/dt-bindings/clock/siflower,sf19a2890-clk.h
++
+ SILEAD TOUCHSCREEN DRIVER
+ M:	Hans de Goede <hansg@kernel.org>
+ L:	linux-input@vger.kernel.org
+diff --git a/include/dt-bindings/clock/siflower,sf19a2890-clk.h b/include/dt-bindings/clock/siflower,sf19a2890-clk.h
+new file mode 100644
+index 000000000000..94bbebd0c1cc
+--- /dev/null
++++ b/include/dt-bindings/clock/siflower,sf19a2890-clk.h
+@@ -0,0 +1,27 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++#ifndef __DT_BINDINGS_CLOCK_SIFLOWER_SF19A2890_CLK_H
++#define __DT_BINDINGS_CLOCK_SIFLOWER_SF19A2890_CLK_H
++
++#define CLK_PLL_CPU		0
++#define CLK_PLL_DDR		1
++#define CLK_PLL_CMN		2
++#define CLK_MUXDIV_BUS1		3
++#define CLK_MUXDIV_BUS2		4
++#define CLK_MUXDIV_BUS3		5
++#define CLK_MUXDIV_CPU		6
++#define CLK_MUXDIV_PBUS		7
++#define CLK_MUXDIV_MEM_PHY	8
++#define CLK_MUXDIV_UART		9
++#define CLK_MUXDIV_ETH_REF	10
++#define CLK_MUXDIV_ETH_BYP_REF	11
++#define CLK_MUXDIV_ETH_TSU	12
++#define CLK_MUXDIV_GMAC_BYP_REF	13
++#define CLK_MUXDIV_M6250_0	14
++#define CLK_MUXDIV_M6250_1	15
++#define CLK_MUXDIV_WLAN24_PLF	16
++#define CLK_MUXDIV_WLAN5_PLF	17
++#define CLK_MUXDIV_USBPHY_REF	18
++#define CLK_MUXDIV_TCLK		19
++#define CLK_MUXDIV_NPU_PE	20
++
++#endif /* __DT_BINDINGS_CLOCK_SIFLOWER_SF19A2890_CLK_H */
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Git-155)
+
+
