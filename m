@@ -1,58 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621801;
-	b=j/Qclo56iuo1SPHTF3XjgLUbFSZdJRp1fqZ+zwoHTPOD7IBAq2tQJUeZhDm4AHvUMMJt
-	 sPM2k9DgVKDvdmX/eTNmQ2EakmPoIvm13JzEo2wTL0jZOhqyo1IxTc93LKMHUci0gCu5T
-	 6CPMpUhTA/UkbU/zufW91iHX9fHfCSDEf+Dx3/wR1yc0eE6MUOcdHS3L10nQcoi1/bZBM
-	 0pz+87oj4emCMe2wDkfrESBxbZ7TrkMIW4D6ypcZ1J7hok3ykFYEpdrl9gCedjSZMkxMK
-	 XExufCkmxAleFFCwQx2G1Cn0rVyK+cDm50bD5rYiR+RujWXS/OTP40gl85+c6/AUtPg==
+	t=1795621815;
+	b=itFeVoWx4OOk5TWwvO/hb5ez+dap++oUrxLy+dJXSXgVgx32p2cVnwE5wNllX98o0psf
+	 brO71kquzrP2Fe2s/EMtRrgglypfrCcMiKF0EbH34DtYtA8OzIOcVr6DiQNHBvPTqIJW7
+	 6RCtAIqiTVKXQ4nruA900MQsHfPpSypckioWehWNG/eMwZThHdSUqfE1E+ULflSPeitye
+	 NEzoLGMcbEksBy10UXL/JWAthtjJDUIkm58+/0W33xZtL06U7nX2DPON3Ncq+v8O/RYdD
+	 J8TF3iZis6ccUMEiy4cHIjHo1wP8XX2m73h2vuy4encBnY4/F9+aPE55PGqOAPrjefw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621801;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=e76EZuVdk/zJavZpKu/IrkQBob1XPJ451/OfmCEgZd4=;
-	b=VLthbf+TFMMxSaMOKqdzMVkEDLv5+G7jYyyd+AD0oPH3krN5nBNOHFXPFoijwjF3JWZ+
-	 qVJOXfbOvPmEgXasVXJyIAmA0f+Txn6duM405rkNSHoT62CpjJ/Ey4t8q9Qss2PLZREqk
-	 He92HE967bEkivnIlNlyUePOFIexAlVEENe/I24nr6zCTSDhZQff8Y1uXB90RDTvZ7oJh
-	 QRZKPDQ0cI/OWUG1qKEQmHjVJrzTsQV2nBZXiAYMkO/cCxuSsHSK/m8ShFzRZejuBQffj
-	 ij0GptG3Yqa45Za3bVs9NbJctcfOdWqhzBQkqH/wiRDxbjPD6lROvq1euvebrcReooQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621815;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Md1mn1cIcgLEFlOztbYbIzniAp4k7PMSGrOvyrhLyw0=;
+	b=AiVhitWRD34CPFMJWIy8IL59vjeRGJr6skowPmZn3sWISOvkVo7nHrL46oYxF7OjlS9o
+	 J+qVme5Ukmj2F7F3OwlZSOzBD63fiZ/VYSwE7QEQRlW8cD4vNzkdO9kBwzuBkKUNPLtiM
+	 FLl11CLp7Gq9wJjJdG9ARK0tLZ408b3VrpF6niWrvF2zpFzRVxB7q+33jHxgvWy/WU/qi
+	 y/6x/fzlhNX0DIt01io4zTCkH2b6yWlVsIoPircc5dM2D4sjfCfY033mKjFRiBp27QzYn
+	 Hnr9/xSJ+GLE3d1SZlIBO9TTRxNQE7AWwAvqcEjjt/EfAFSLoqWiJ7TLyinmDZWT2Vw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=D3VTcu+m;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dmarc=pass header.from=igalia.com;
+	spf=pass smtp.mailfrom=igalia.com;
+	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=cjjy9ByC;
+	arc=none smtp.remote-ip=213.97.179.56
+Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DD4C606A331
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:50:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DD4C606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFBA8606A683;
+	Wed, 25 Nov 2026 15:50:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFBA8606A683
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=D3VTcu+m
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 3962AC62219;
-	Wed, 25 Nov 2026 15:50:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2C4D660480;
-	Wed, 25 Nov 2026 15:49:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 92A4511E6A175;
-	Wed, 25 Nov 2026 16:49:51 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795621796; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=e76EZuVdk/zJavZpKu/IrkQBob1XPJ451/OfmCEgZd4=;
-	b=D3VTcu+m4wLag1usrlpRaoceWYMUfAq5PwHhGBJiWy2vDDrmZll2RplmdIeak/KnCeb0bM
-	KKLAx/yQ0VgUJ6FDL6egz4jdZlxQnMV9NWG1Dlqgem7Agc2voTAB7sV6kJGltt8Z+eYNGP
-	hScxABceZnP/8sVIFaHm7KkaqSb9zNTYE8QMCxWZtMtLq+RzfuIlmwL6W7pkSo3YM/+XAb
-	7fkEAeg5XMi/hD73MaGF2gdEBjgLB+ppBnadBw80imPovsluLsv/fe+IPJDb5TYvT+yi4O
-	xWOXsjD/nWwafWGtX0aOZQ+WIlzgBSwbPX2yrrEJUJ6z10829CLqDYkLkc4hLQ==
-Message-ID: <ec16a467-5d4a-4c39-876a-4d108c16598b@bootlin.com>
-Date: Wed, 25 Nov 2026 16:49:51 +0100
+	dkim=pass (2048-bit key) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=cjjy9ByC
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
+	Date:Subject:Cc:To:From:From:Reply-To;
+	bh=Md1mn1cIcgLEFlOztbYbIzniAp4k7PMSGrOvyrhLyw0=; t=1795621814; x=2110981814; 
+	b=cjjy9ByCnCYqzWb/X/BnSzuL01+C0AblcllSZtNueB0KSGj8ZP5u5VhH/WFIK0RvPJcOx3gHMa0
+	47GhDp6YBEhkgEYGpACa3wBQF4wnZrQWBXhIII1WdDvF8yPaEwFzZD0B70IX4S3TwQFHFsr3RNLu1
+	Rn52KGzYU+95+OCZLqmHEy9VfnCriDJCCzoadK5JZQExORPbKVQ29OLKkSpcizHAtzj/60rZ0aER5
+	mK7ItSwnXY2LbNvAMqG/hsXTNGpTtHp4MtwIBWrYPqGFRo+hH/uYXCmXHRNjYMQdxhhAjRxlg3cVN
+	W1eSPyQTKY+HAYPrEj1dFGA4CKV+V9wINjwQ==;
+Received: from [179.105.94.163] (helo=prince)
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1xWFFv-000000041TL-1gi4;
+	Wed, 25 Nov 2026 16:49:59 +0100
+From: =?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>
+To: mwen@igalia.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	tvrtko.ursulin@igalia.com,
+	Xiaolei Wang <wangxiaolei01@kaihong.com>
+Cc: =?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	itoral@igalia.com
+Subject: Re: [PATCH v3] drm/v3d: Fix double free of query arrays on parse failure
+Date: Wed, 25 Nov 2026 12:49:21 -0300
+Message-ID: <179562174767.111946.7948063471631555838.b4-ty@igalia.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261124113723.3055530-1-wangxiaolei01@kaihong.com>
+References: <20261124113723.3055530-1-wangxiaolei01@kaihong.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,44 +76,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 11/12] drm/vkms: add script to create optimized LUTs
- for color curves
-To: Leandro Ribeiro <leandro.ribeiro@collabora.com>
-Cc: airlied@gmail.com, alex.hung@amd.com, daniel@fooishbar.org,
- hamohammed.sa@gmail.com, harry.wentland@amd.com,
- maarten.lankhorst@linux.intel.com, melissa.srw@gmail.com,
- mripard@kernel.org, pekka.paalanen@collabora.com,
- robert.mader@collabora.com, simona@ffwll.ch, tzimmermann@suse.de,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-References: <20261106201813.129911-1-leandro.ribeiro@collabora.com>
- <20261106201813.129911-12-leandro.ribeiro@collabora.com>
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261106201813.129911-12-leandro.ribeiro@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
 
+On Tue, 24 Nov 2026 11:37:23 +0000, Xiaolei Wang wrote:
+> On a parse error the timestamp and performance parsers free the query
+> array, and the job release path then frees it again: query_info->count
+> had not been set yet, so no syncobj was put twice, but the stale array
+> was handed to kvfree() a second time.
+> 
+> Make the job the only owner: the parsers just fill the array and record
+> how far they got. count is set before the parse loop, the arrays are
+> zero allocated, and the free helpers stop at the first entry that was
+> never set up, which keeps put-count equal to find-count. That also
+> removes the inline kvfree() of kperfmon_ids and the count arguments of
+> the free helpers.
+> 
+> [...]
 
-On 11/6/26 21:18, Leandro Ribeiro wrote:
-> Add a Python script to generate u16 LUTs for VKMS color transfer
-> functions while minimizing interpolation and quantization errors.
-> 
-> The script compares different LUT generation strategies and uses greedy
-> subdivision to generate optimized LUTs for the supported transfer
-> functions.
-> 
-> It also outputs the generated LUTs in a format ready to be added to
-> vkms_luts.c.
-> 
-> v2:
-> - Address feedback from Sashiko bot: conditionally plot, to avoid issues
->    on headless systems.
-> https://sashiko.dev/#/patchset/20260804203351.148521-1-leandro.ribeiro@collabora.com?part=10
-> 
-> Reviewed-by: Robert Mader <robert.mader@collabora.com>
-> Tested-by: Robert Mader <robert.mader@collabora.com>
-> Signed-off-by: Leandro Ribeiro <leandro.ribeiro@collabora.com>
-Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
+Applied to drm-misc-fixes with correct Fixes tags, thanks!
+
+[1/1] drm/v3d: Fix double free of query arrays on parse failure
+      commit: 1c986bc5918cbbb438eb57211c9d0b3de2878cd0
+
+Best regards,
+- Maíra
