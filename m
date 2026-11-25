@@ -1,101 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.49
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795638327;
-	b=13cnipzvSptRuk9rvQu2QBkjQL1wUYsu5MhSP6P6bv2MB0QDpbFI/uVOcp/8qWioLBOw
-	 4cZe+cZCZfGZv3Y0Y9BPrpid0AzmId2/urdbf7mQfvyB3vV26zZ42qK+lVexoqyEntmR5
-	 EIsIFaO8t5sWdKVnjR1WJTlFquaeHrXg/BdaDutDzvN+7OXjDFVmDL2EZ3nd7l8HZI+9P
-	 uj+D8iytOXC1nq5WPuTRtSpq/bszlNWIOKxdtmG3HhOlA1i9SZYU7XGxQjkTeuEMuCios
-	 Y6Aprov9eP6BFNgqvsyAdePK8L7e7nD+EkYjfI05U+mnrB5gERdZg3Mx16fvj4YAY5w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795638327;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=iLkN+MWQxnheW7WlW33tdTgTSE87b9Cd5EByIUSUt0Y=;
-	b=OBtTG+GxvSZl0mQ8LWXy32+jgjaIoR6ZhhdyoCdaIUYqsEKfuc6C0hmZ+6cfqPJlwh1L
-	 efFFpmuzDuSkZW2IJHmsNFkKfkbXNCtNrmA1mCEg5GJR44tDBGhEHq+ay0oG+GQC1ynpi
-	 1gKMU14mu3bVfgg4Wy45uYYk55l0cLP9XtCKw4hquHAQkEWtu60HDT4jwKSCjbzyw8+pD
-	 56bIRa2ntSSPG6SkBiTk7Yh5qXdMTWajEF5v+V4qhvO/dynOrPTv9NYt2fGe1siM382/W
-	 H1VvvSXNvLgws3o85Buv+uNtJxZ0u9zyFCzk+YCqRDod3ihMZdotGey0aXsJIrC3Yvw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VGTkEe60;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.49
-Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.226.149.38
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795638345;
+	b=KyVoc4ZfZMF0h+mao5YswTk8GQSe3lEXJCgXhpU/seTeVcvyt5V0/6nXBv6+cTrrSIWg
+	 4+fq7veRARHoR+2GGRI0vIZlklvd+UKlsm8DsUfYRUujhBWt1FSTVKI0Dly0TyKIsLsGf
+	 Qy4i7ZWOAyYR5IUIA1tkY7adjwzdFErDVK5dGjjSJU//OBakMivFRxM1a2XbSd30u+QY5
+	 GAsUDpxM431/0xLU0xtNcWSe7xcnplQR4KSA0L4sXbFJ4x5nqc539kx/EtbOExjMNE9Ye
+	 UivCyvSgVIVg86rsMevMjkGdzAD0zy5uSArha4GwYQLUybj925iBB/aNIzb+edJovaQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795638345;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:From:Subject:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=lS099HNDB2vWaVw456YMi/ugemrk/bhKCaW9qXISvfo=;
+	b=5FsBRQGtX9TTSHeAidIekJJ/RYJXOwJzBVEOVyNnyEF+VxAg5xxHF59QBdo/ngxdvzUE
+	 /NBQ2/+R8jFZHdnXZzI71QjztEoMeRvl3Xcvb6L9AdeiKhfyWaJZsLU+A4WtT12UZwLXC
+	 kNLF0be9hYtGtBf+Bbly79IgQqKfqgFvzGHyPDCjKg3fYfNILGvJGgJ7kvoO/2zip6NSH
+	 akaKVFDn3qnZh0m1tRkXF/no7eaYiLLq3Qa1DluJRR2lSagIFiVRThV9/1hH6/6/7iR5F
+	 VQij7uHkxRZlCCEP5axqsP2OzQ5MTUzmESXMfaBEkUorjSH2Cte91/vYlfNINlg616w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rbox.co;
+	spf=pass smtp.mailfrom=rbox.co;
+	dkim=pass header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b="piR1+C/K";
+	arc=none smtp.remote-ip=185.226.149.38
+Received: from mailtransmit05.runbox.com (mailtransmit05.runbox.com [185.226.149.38])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7AD9606A33F
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:25:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7AD9606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E87D606A31E;
+	Wed, 25 Nov 2026 20:25:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E87D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rbox.co
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rbox.co
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VGTkEe60
-Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-49412eb1474so4049092f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:25:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795638325; cv=none;
-        d=google.com; s=arc-20260327;
-        b=l5qw87NFjQ8Zd8BQUfb5AwEmpcusr9cLhD+XdrB2lmyFUaE0yO0hkPCfvyANFRPyoy
-         mjPNKDwzl3IPWPr6kccRrXYTAJvwyrkpS+yK8vb1e1cg9ZkKdieNkM8vlxIYj7xrhacR
-         acOhR8A6Ck1NADyD6hyl6ZyjE/HG3i+PKwBI9dDjfo3W90KX6HOKxdDq6o1FEIMkN5PZ
-         b4pjYkVi0JXboQrnY9NixSUq4XL36uEwk+su7tU7eAvRCwfiWqjeChWdPc8iz7kihScr
-         bcU5eZGPsKRqyJcywOJcahTH4Ssb95MDh2Ce0nva/GGY7psu7TO0rz/TpIbE/gt7g8rv
-         EnYQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=iLkN+MWQxnheW7WlW33tdTgTSE87b9Cd5EByIUSUt0Y=;
-        fh=m1MkNeAACuMr1lJBrllOE2blNFI3sUIJTiIwyE6XjD4=;
-        b=J0zfsMU+UUqZ2ryntW3scL2kDapUEpMIn+PfRZVTrCOLXNrMwgBzjtX6hMqZEsqRfg
-         mX+MPyr+k1RqrebqpQDNBcnmUXdsrFgQHZWPioPjGNdEDp9L3JheLQjRQrp5n4/yAGxE
-         nni2GnxUbBXKei4t8R80mqYarVLf0lm/iOzJpl9wbRj6N/hTlxrSYV8JZ3fM+0k44pad
-         tRtoIlnURNH2wjLeuZri/rCKrB30iYURdjuS9Q+nMaJJB+gC5cmqxjryAfGC4uK4szQa
-         KcckQVKw4oA6o3rHnNzqDz6dQ/nIUVHf3dC5yvISid24MhiatZuA0o4swhaabmCI+FRh
-         JjSw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795638325; x=1796243125; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=iLkN+MWQxnheW7WlW33tdTgTSE87b9Cd5EByIUSUt0Y=;
-        b=VGTkEe60t+uBwP6aPNkx43z8z6QVDU++15cRElqDwWfUU1e3fenr6BMJd5yqV3dDA9
-         eA8oe5NrXkEHwUBl11jkg8wDy9tp6iawyGZI+I0+8a2wm/AuGn7WAhBNnP2di4ncRBvi
-         GP3YhRSf4B9UmdV7WIelY3jLTHdu0tTd4bRuWc/VAf3Fh8E191oj8H4DZfnmEdqvuSvf
-         lvk5witmPseoMyw5ddMdhJcD0iLXJtwNtHf9gbVkgQ0gxiXToJG0KG+IUwwsY4py2sxa
-         ccRb9lzGiloOKwBt5gcRe4juUs/njCMJygqqqKLSHmyPKP/n+m05YI4EMSm+xl9SMO+n
-         fT7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795638325; x=1796243125;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iLkN+MWQxnheW7WlW33tdTgTSE87b9Cd5EByIUSUt0Y=;
-        b=DYIiJ2oVIg1Ym3SfYpXVgIDXyIuBMwczq/MTTY65/ENe+HKMPVH7fTas4j4BU9fAKn
-         E+TdkD3uT21CwfHA9Js0vNLkDW85PvQyLxtG+UnIAaMLn5Ce10p0xSofe/3ssfV6z9av
-         KOl4GooNFWLDqxk2TDXOn0gDML4lPtxYGWhJlsQQzhFUZy9/n+QhfNPxcHLHn50GczeP
-         DBfbciTScwVLhrWYUpw9CIqc7tiDZap/paAJYykV7orUbm6RLqg7wZy3cwXD+25wHOGj
-         I3KizdkQbPNUfbAFx6odxOao4Nde/YPYnZI3tmJ4N6N3Ev/kT4fvgdQBKHAJ/qH/Fyd6
-         7Liw==
-X-Forwarded-Encrypted: i=1; AL+hErGZD886Sr+UUG/B1a6ZdN0GmkbaSaB/FuNv6ATwptaFfMmmJVOfGZo8DDQmUu7rvtsP6jNJa3ethz1erlc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+/x/YMrOzF5tt5mZZCwALaPGr9g6/Ix84nnw1Le3r4I3+++UVQ
-	STEsVzKnaHOy8E+2jx+ZYAeCRZl6O/w5qTlohgqFmXE/SEQQnQOuOA2MWJzslXCe6kliRk/69hj
-	H/UJTRK225HdCu5U+v7/VymRbMa1pkiw=
-X-Gm-Gg: AZFdTZdTgW0sb54XEJaSTK480isSwA3ehKAZ4qJ/TFbwoVkQXrnZShshVVrr58eHwwa
-	9R7KfesCU4lRfMwhwLKZtD1ck40J1HqyhKFV02U+ia17R1sCfTXoC7+FLgz3K9lRqv8rPx8kvne
-	4l4p0TRqQS3Orl8ILI9DYWDDd9dfMYFL79FXE9/ZfWVq4YN6M/7rTVWXnG5OWhMBnl0Msipa/zk
-	YYWUsNUffdOYy1xR0KV2Wp4mVc6AiO6wJmLZpHcUijaHdAeU8icE2B0iO3SFWskmiudcBVHnd19
-	191XfiyJo+Z6Elxoo+jpF4bCD17VggCTZaLh0yt/1vgIbFBPM2QJe5U6yG0yQX8Q3wzs0H8ne+H
-	7iLCFkDpirQWMLS5g08FcRYaNdel25UehheN9zstJ2UcVNcQAbWzDrE1llngPq0C1TeCnsh2JYF
-	qshPcT6hyT+YSHWCiIQQ8GLdLWfs0XmI73/2B2DaY=
-X-Received: by 2002:a05:600c:46cc:b0:4bb:6f41:399f with SMTP id
- 5b1f17b1804b1-4bb888236a3mr398384805e9.24.1795638325248; Wed, 25 Nov 2026
- 12:25:25 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=piR1+C/K
+Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
+	by mailtransmit05.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.93)
+	(envelope-from <mhal@rbox.co>)
+	id 1xWJYI-00Bcqg-7s; Wed, 25 Nov 2026 21:25:14 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=rbox.co;
+	s=selector1; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:
+	Cc:To:Subject:From:MIME-Version:Date:Message-ID;
+	bh=lS099HNDB2vWaVw456YMi/ugemrk/bhKCaW9qXISvfo=; b=piR1+C/KYT1cZdTtb7eW0pAebK
+	WJyloRhlVYKQW8DPCtOok6tcTDUiIIep9bK4ou5HR7BN28fTJ8FVAvRqH6TpyNsIO8lXMDBdwPCac
+	NAEK69BWJV3Jo7KYRc07ADmJkLx/AjEOeFDOibNm08VDUCT9khfoBoflhheCrtNwxAXu13PMA3bzb
+	RS7MVwTDlZ5GyWvk2GNSNlNdb7j7XoDwuvXGVJh7IxA4T4RJMjaz3KPRSRpKxyaKhYeXt+QoaAXAg
+	8UcuzyQ84mpb4Dt9vaUEn42oGUxgSUKJmDyRgLaGZ4pMi3hCnG+6w+0OpFW3bHAzyR7PsR0pX5Jhz
+	WqTnchow==;
+Received: from [10.9.9.74] (helo=submission03.runbox)
+	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
+	(envelope-from <mhal@rbox.co>)
+	id 1xWJYC-0006Ku-Dr; Wed, 25 Nov 2026 21:25:08 +0100
+Received: by submission03.runbox with esmtpsa  [Authenticated ID (604044)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.95)
+	id 1xWJY5-00D6Li-1U;
+	Wed, 25 Nov 2026 21:25:01 +0100
+Message-ID: <f8a1d452-3557-421e-9429-1d6eadf0ad30@rbox.co>
+Date: Wed, 25 Nov 2026 21:25:00 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,199 +66,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113221248.3535369-11-wusamuel@google.com> <20261113221248.3535369-19-wusamuel@google.com>
-In-Reply-To: <20261113221248.3535369-19-wusamuel@google.com>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Wed, 25 Nov 2026 12:25:13 -0800
-X-Gm-Features: Aa3M54rCmMPBEx135c6vF9MhBqdEKKVbA2tVr-knpTqUbo_Og9Fm0v--QDk1gek
-Message-ID: <CAEf4Bza48tGhcUhFRhSSv3qijV0uF8YrAQcLM6Qv9az-8zvK_Q@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 8/9] libbpf: Resolve typeless ksyms via
- KALLSYMS_QUERY_BY_NAME ioctl
-To: Samuel Wu <wusamuel@google.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Petr Pavlu <petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, 
-	Sami Tolvanen <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Ihor Solodrai <ihor.solodrai@linux.dev>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	Emil Tsalapatis <emil@etsalapatis.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Petr Mladek <pmladek@suse.com>, David Laight <david.laight.linux@gmail.com>, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-modules@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+From: Michal Luczaj <mhal@rbox.co>
+Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
+ fails
+To: Bobby Eshleman <bobbyeshleman@meta.com>
+Cc: Stefano Garzarella <sgarzare@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, George Zhang <georgezhang@vmware.com>,
+ Andy King <acking@vmware.com>, Dmitry Torokhov <dtor@vmware.com>,
+ virtualization@lists.linux.dev, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Kyle Zeng <kylebot@openai.com>
+References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
+ <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
+ <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
+ <ca274ecf-3525-4bf0-a525-0460b5ea2d28@rbox.co>
+ <awX2oDI/Mbt+z6J2@devvm29614.prn0.facebook.com>
+Content-Language: pl-PL, en-GB
+In-Reply-To: <awX2oDI/Mbt+z6J2@devvm29614.prn0.facebook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 13, 2026 at 2:14=E2=80=AFPM Samuel Wu <wusamuel@google.com> wro=
-te:
->
-> libbpf parses all of /proc/kallsyms to resolve typeless ksyms.
->
-> Use KALLSYMS_QUERY_BY_NAME instead: exact names, plus "<name>.llvm."
-> prefix matches. Ambiguous matches at different addresses fail the load.
-> A missing strong extern still fails and a missing weak extern is 0,
-> without a text scan.
->
-> On any other error (e.g. -ENOTTY on older kernels, or -EPERM), fall back
-> to the text parser.
->
-> Signed-off-by: Samuel Wu <wusamuel@google.com>
-> ---
->  tools/lib/bpf/libbpf.c | 99 +++++++++++++++++++++++++++++++++++++++++-
->  1 file changed, 97 insertions(+), 2 deletions(-)
->
-> diff --git a/tools/lib/bpf/libbpf.c b/tools/lib/bpf/libbpf.c
-> index 44134421bd7d..f3f3475a64d3 100644
-> --- a/tools/lib/bpf/libbpf.c
-> +++ b/tools/lib/bpf/libbpf.c
-> @@ -59,6 +59,34 @@
->  #define BPF_FS_MAGIC           0xcafe4a11
->  #endif
->
-> +#ifndef KALLSYMS_QUERY_BY_NAME
-> +/* 'f' is PROCFS_IOCTL_MAGIC */
-> +#define KALLSYMS_QUERY_BY_NAME _IOC(_IOC_READ | _IOC_WRITE, 'f', 48, 0)
-> +
-> +enum kallsyms_query_flags {
-> +       KALLSYMS_QUERY_NAME_PREFIX =3D 0x01,
-> +};
-> +
-> +struct kallsyms_query_sym {
-> +       __u64 sym_addr;
-> +       __u64 sym_size;
-> +       __u64 sym_name;
-> +       __u64 sym_name_len;
-> +       __u64 sym_module;
-> +       __u64 sym_module_len;
-> +};
-> +
-> +struct kallsyms_query_by_name {
-> +       __u64 size;
-> +       __u64 query_flags;
-> +       __u64 query_name;
-> +       __u64 module_filter;
-> +       __u64 pos;
-> +       __u64 sym;
-> +       __u64 sym_struct_size;
-> +};
-> +#endif
-> +
+On 11/24/26 21:42, Bobby Eshleman wrote:
+> On Tue, Nov 24, 2026 at 05:17:56PM +0100, Michal Luczaj wrote:
+>> On 11/24/26 00:19, Bobby Eshleman wrote:
+>>> On Sat, Nov 21, 2026 at 07:32:15PM +0100, Michal Luczaj wrote:
+> 
+> [...]
+> 
+>>> So the attempt never times out, and a late OP_RESPONSE connects a
+>>> socket the user already shut down, overwriting SS_DISCONNECTING with
+>>> SS_CONNECTED. I think that's a separate bug for a separate patch,
+>>> though.
+>>
+>> Great, I'm all in favour of consolidation. So in the scenario above,
+>> invoking vsock_connect_close() on vsock_connect_timeout() (with sk_shutdown
+>> check dropped) would result in CLOSE/DISCONNECTING, and no more late
+>> virtio_transport_recv_connecting(), right?
+> 
+> Right, that late response will fall through and get an RST back.  I'm
+> not 100% sure yet about how to rework the sk_shutdown check yet
+> though. I mention TCP's approach to shutdowns in my reply to Paolo and
+> I'm thinking thats probably the right way to go about it, but not 100%
+> sure yet...
 
-there is no need for this, libbpf in kernel can use kernels' most up
-to date UAPI headers directly, and on Github we sync necessary UAPI
-headers into include/ directory, so libbpf source code can be built
-with latest definitions of kernel UAPI. So you can drop this part
-
->  #define MAX_EVENT_NAME_LEN     64
->
->  #define BPF_FS_DEFAULT_PATH "/sys/fs/bpf"
-> @@ -9421,8 +9449,75 @@ static int kallsyms_cb(unsigned long long sym_addr=
-, char sym_type,
->         return 0;
->  }
->
-> -static int bpf_object__read_kallsyms_file(struct bpf_object *obj)
-> +static int query_ksym_by_name(int fd, struct extern_desc *ext, bool lto_=
-prefix)
-> +{
-> +       struct kallsyms_query_sym sym =3D {};
-> +       struct kallsyms_query_by_name q =3D {
-> +               .size =3D sizeof(q),
-> +               .query_flags =3D lto_prefix ? KALLSYMS_QUERY_NAME_PREFIX =
-: 0,
-> +               .query_name =3D ptr_to_u64(ext->name),
-> +               .sym =3D ptr_to_u64(&sym),
-> +               .sym_struct_size =3D sizeof(sym),
-> +       };
-> +       char prefix_buf[512];
-> +       int n;
-> +
-> +       if (lto_prefix) {
-> +               n =3D snprintf(prefix_buf, sizeof(prefix_buf), "%s.llvm."=
-, ext->name);
-> +               if (n < 0 || n >=3D sizeof(prefix_buf))
-> +                       return 0;
-> +               q.query_name =3D ptr_to_u64(prefix_buf);
-> +       }
-> +
-> +       while (!ioctl(fd, KALLSYMS_QUERY_BY_NAME, &q)) {
-> +               if (!ext->is_set) {
-> +                       ext->is_set =3D true;
-> +                       ext->ksym.addr =3D sym.sym_addr;
-> +                       pr_debug("extern (ksym) '%s': set to 0x%llx\n",
-> +                                ext->name, ext->ksym.addr);
-> +               } else if (sym.sym_addr !=3D ext->ksym.addr) {
-> +                       pr_warn("extern (ksym) '%s': resolution is ambigu=
-ous: 0x%llx or 0x%llx\n",
-> +                               ext->name, ext->ksym.addr,
-> +                               (unsigned long long)sym.sym_addr);
-> +                       return -EADDRNOTAVAIL;
-
-I think there is ENOTUNIQ which we can utilize here
-
-> +               }
-> +               q.pos++;
-> +       }
-> +
-> +       return errno =3D=3D ENOENT ? 0 : -errno;
-> +}
-> +
-> +static int bpf_object__resolve_typeless_ksyms(struct bpf_object *obj)
->  {
-> +       struct extern_desc *ext;
-> +       int err =3D 0;
-> +       int fd;
-> +       int i;
-> +
-> +       fd =3D open("/proc/kallsyms", O_RDONLY | O_CLOEXEC);
-> +       if (fd < 0) {
-> +               err =3D -errno;
-> +               pr_warn("failed to open /proc/kallsyms: %s\n", errstr(err=
-));
-> +               return err;
-> +       }
-> +
-> +       for (i =3D 0; i < obj->nr_extern && !err; i++) {
-> +               ext =3D &obj->externs[i];
-> +               if (ext->type !=3D EXT_KSYM || ext->ksym.type_id)
-> +                       continue;
-> +
-> +               /* Check exact name and then LTO .llvm.<hash> prefix */
-> +               err =3D query_ksym_by_name(fd, ext, false);
-> +               if (!err)
-> +                       err =3D query_ksym_by_name(fd, ext, true);
-
-err =3D err ?: query_ksym_by_name(fd, ext, true /* lto_prefix */);
-
-
-> +       }
-> +       close(fd);
-> +       if (!err || err =3D=3D -EADDRNOTAVAIL)
-> +               return err;
-> +
-> +       /* Other errors (e.g. -ENOTTY, -EPERM): parse the text file */
-> +       pr_debug("KALLSYMS_QUERY_BY_NAME failed (%s), falling back to /pr=
-oc/kallsyms\n",
-> +                errstr(err));
->         return libbpf_kallsyms_parse(kallsyms_cb, obj);
->  }
->
-> @@ -9699,7 +9794,7 @@ static int bpf_object__resolve_externs(struct bpf_o=
-bject *obj,
->                         return -EINVAL;
->         }
->         if (need_kallsyms) {
-> -               err =3D bpf_object__read_kallsyms_file(obj);
-> +               err =3D bpf_object__resolve_typeless_ksyms(obj);
->                 if (err)
->                         return -EINVAL;
->         }
-> --
-> 2.56.0.679.gc527c65306-goog
->
+I just wanted to admit that simply dropping the sk_shutdown check was a bad
+idea: vsock_connect_timeout() may outlive vsock_release(), and that check
+guards against bad things happening.
