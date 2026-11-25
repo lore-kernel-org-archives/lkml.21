@@ -1,72 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795600011;
-	b=JpBX6EgmL/zXBigkOZVLMq6qMn834/aDdMMvFkPJ1vqYxjHX4inR929e/u0g/SX+lPWo
-	 8NeMguaI5XqB6qv0uQwq2hgYn61zxnJRW/wBrm2kIlqU8Vx6TiW1JhG5jP0oMreUSxxnl
-	 Av4RkzWnNlcVJGnX+tJd26WKhpWnWwazvhhZjF0V8NAd40xafr4Q4PRtO2xQLpx+pfZEy
-	 8R96JjG45rvb7iX/PaXuxzSb1mw4M+O2pdf3PRI2EUaYR4owbV90P5eIyiHrNOR2eQCs+
-	 eTDiAh15uqnhkC8wAI7gUpKb9R4qrfneESdbjOYSbD77vXKU1HLexNONS4vNrczCvRw==
+	t=1795600045;
+	b=5B9l3+rsJ4hKc/Oj6Otx1kMIw10ek+taA2bxsmriwfCKNbbEiapc5t97GWRVm99oXlwW
+	 hB9JN7RHX8ClHumiIy+yOM31BM8yTAnm/4fv/seR8JcTeUuGSgLJmSuuLf3PmT694mWNZ
+	 DRHOboalmJylnB2xmpB091d6eVRbE+RubM4m+yyuhZLJvSOrYLA09R5dl8QFYIIlp+BNk
+	 9+HUnCfSdL0PMVZXn5Nb5D8xregwvy4yBLJqNAdp7v7rcqUbHy4ZR3vgho68/YCmbADu3
+	 un/z88w9MyZNjCrBU9zrRD7GMMQwiG+VZi0bGDHcIYPNmICpKOqmnMUV4WkTeTi3aQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795600011;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=8sTc2bCjctzlaRsbys2WSDh+IM60pvW2yIGOU2jAXq0=;
-	b=TSsLHR9F49Iki8S+ZBRR3acYSMX2Y75GNL+rDXK+lnkeL1ZoR5Fq3B4+f6js9iNzje1M
-	 +t09zAu7D1y45iewNd09VOeMqoCLpZzkiLQAsoNBSTTZk0r46c+bA7bD4jfmBI6tV366L
-	 g/M2bxj2io3HPGdAWQj580RQ6e1+mRJnU/2BV5tMYr5aa2NV4fxzX8hLhpT+Fa9kUuVzj
-	 dC+TCAKlqCXK9gPLj4Zr1w3dhjhj7XzbiAn7XI6z49UE6G2OjkLask8AER/rfPI52SZKN
-	 smZEoRMvqEjDE2ClkoKuH6aTzHRAKwK/h9C+oN+Fiydv9zdxHAbP4GEvwNmpJgE/jPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795600045;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=WkQtg4o+HEohpzTCn9QEYPwbpcKVcB7YKdwlB0VCIcs=;
+	b=o54lBAVylfUNgouwwKyEyebUVWlNrAkUzgZ9/vIEK2yos+GZ0ZmSmIyd44suw2ieUZsO
+	 VSH4GWnH2HOUMAwxFgxMsSrXuNQ6FkrVEGvqR5A0NN2sw/e5bJy8De2k5c2R9zgCOzTLH
+	 pB+uSIQ3GUFXmfRK9wWGDRvEQEolA46yivf5fJTzzNg8Pntxcx+/DQQIw+iHXynyuJRj/
+	 Nuc0e9XE0frWoOZlH/AhgfEtnD187OzrtW5m+bqkeugiQC4e6VgHTYeUKhOZrw729ODUL
+	 3jxzz8krL0JThJkgIvhct+0g54HdxzbbIe9xe9nImMxiU5k+miDAlQutqK0NfE4SFig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=LVJHJRJD;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Z5qpcrjy;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=SbV+VjzN;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCD94606A337;
-	Wed, 25 Nov 2026 09:46:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BCD94606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D70AE606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:47:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D70AE606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=LVJHJRJD
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=8sTc2bCjctzlaRsbys2WSDh+IM60pvW2yIGOU2jAXq0=; b=LVJHJRJDGjJaw8cvgz0hSzdYba
-	k8XwHqFV9Q/pHOVyFLJTWjUit2DxPbr1VDps7/EtA2FqOGGkPEaPRsBI7GfiQmn0cFj8jLDlsDpAH
-	1qPVqpPyLeAaQ2ttIFNqjiYu41DFnKwJZRmoeckouK/CjTX44j+pRvaxrNBHHY6olIhnDCWexjo8X
-	IdNpyinCjTfncIOliFucyuV9WF6yNwVGwNE0qpeOi26s2sPYve1GiElj+XOyx0XCcEpihFpz8HTcT
-	PoIhP8ePVTi8ownYMkKw5fiJx+jRwNHbE0iHX9GauYM74Mnf2wMOjq5F7PKSbAYpVIdKL6DOrZbEJ
-	14Z1lk4Q==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW9aO-0000000A1BX-2R6t;
-	Wed, 25 Nov 2026 09:46:45 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 7A3E9302186; Wed, 25 Nov 2026 10:46:43 +0100 (CET)
-Date: Wed, 25 Nov 2026 10:46:43 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH v3] sched/topology: Avoid unsequenced accesses to jiffies
- in sd_init()
-Message-ID: <20261125094643.GY2668804@noisy.programming.kicks-ass.net>
-References: <20261125-topology-wunsequenced-v3-1-efa3db7e0bf8@kernel.org>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Z5qpcrjy;
+	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=SbV+VjzN
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795600044;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WkQtg4o+HEohpzTCn9QEYPwbpcKVcB7YKdwlB0VCIcs=;
+	b=Z5qpcrjy4vNSY2GGB568YNneQzNKrrPCb6fAF5YqwQ5udfNoI9hLryFirVPe2rAbIKlmR3
+	yYiaVzHcV9hOpY9JXOdSPrYP6fopeBKaKlOokid5PrJCSyyKdhIjwFbS1JdQ1W7p+BegeR
+	MXm6oeDUjvQBKN6/jUiQmhePsFlU0kI=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-63-BL33V4UdNVeFeA53N4x_Wg-1; Wed, 25 Nov 2026 09:47:21 +0000
+X-MC-Unique: BL33V4UdNVeFeA53N4x_Wg-1
+X-Mimecast-MFC-AGG-ID: BL33V4UdNVeFeA53N4x_Wg_1795600041
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-49090fde23aso3413473f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:47:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795600040; x=1796204840; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WkQtg4o+HEohpzTCn9QEYPwbpcKVcB7YKdwlB0VCIcs=;
+        b=SbV+VjzNyPZ7gYbuTVl5EMIW/ZYyAW0LO3nHpvbnYlnPlYbZCZ7FoBbrc8v4fZ1LNy
+         w6SIg5rKpiZgjz0EulivS6ZSMHRpwlmULB7yjmV5qgoIVneCjM67fuER2QgVllKbKgzz
+         YEq4nj07m+SutXXKm11TPB5PGymKiK6ydZ3JmIbijDk3IkvLvfRjX/FQ6LERsiGbQ5z3
+         vXjg7FmQ3BUM3ICySAkC9PvUz7fWTFLccJ/HLrf6C1+5CB4YnGGr/XRoqodkNy9co2H/
+         ah0bw/x9LIxSZaFudklZF3MWcvlazTumu8HGGposVKkEPFy0BcNfrllpxfc5hHh8QC9r
+         GuGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795600040; x=1796204840;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=WkQtg4o+HEohpzTCn9QEYPwbpcKVcB7YKdwlB0VCIcs=;
+        b=gKkzNdxr/2ELTcs0rrZKzO25IPr0CitNGsnC8nsuH5YFVNpOizX82vX3hs9S1tiZYp
+         usBA9htC3vKv7FU1TIqe0LLXYmp7In7ThwViknV033qQW7LzN+hIcDOH0TpewmHymUoU
+         M1BbUgq94+5bB47sdzHop5B/5fx4mKGQZYOyBD/s59acb5A/w+QAFOcyT0AzJ9BMBmK3
+         fbsDQHxZmWbS4/Wfzsq8svzrbG5ZWWOAnH7na4bzlfwKOuzv3NBlUg7d6qPF0d2GxWhN
+         YDXsmoKOZgqNaCRGRL/AcylFsKHr2oxZk2Salb2YM7svd5/kTrae5EZPRlOrVEEZMShn
+         whbQ==
+X-Forwarded-Encrypted: i=1; AL+hErGYwJM/mQj9uUE6SUKP2yC6MBM4jq0iX0zj2umTOxe83qcPmwUwbxik2LW198FB5px3U0al9KmtzsusPYU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/a3QoeKC+CaxZB9V19clmekDIXkX5AfoulES0t60aWBRNHk3y6
+	3xlMdAesKf648gnX13PHIXOp2nPriGSyy2XOk319QHdXiQ7O71vDrSmeFW808pPWIzGGBkFq3Bb
+	8AqCfqe8i1hyUtDA4jwX3+JX5/Kbqsmt9Tfxvw9+8eYxtUJFD1PW7BAN3vhf2xY5IZQ==
+X-Gm-Gg: AZFdTZdQvt/M486FB04vjqmKv46OBM8XVlfBtJ0m8W++wFGBzEJAFGvr6PBbjN6JCqt
+	uCwQBWoo7reLAnYf0tz/ZS0vafh3yQ8kCbT0rIdmZ8qCBHt8ZDPQgtdsf0pKvi2LNiOSajcv/Cd
+	2syCCnA8FzrawwfKQcniS/srfAqKfXoFgQAUF2Jx5pXmWERbkLogiP1Ycbs+8NGCLa1nz05zNgE
+	IjkAA8XuVRrqkUGIx8sRvYl0aMsJxmdUSg/HO/DDPmYB1uuQm9Quhzmlf+Di9wmUWtCKhabnM3t
+	1aE62zUmp+vWVL5BTR4dhhYvbVCbQ5clEHNLccJA8OsfSiLYlbb+DIIgt3yymDzxkOaXTiL2GBr
+	XepBOytfhWYwsw/OlTKrA8aaYRxdRE4XkbGd7bcv/SJiPlIo/lTR/SnENCGDL7xrYurX1E+Zr07
+	of6qbvR+K5OsUkQi+L3v6+QN0twCrGQm0jJ7EsFk/gQL5E
+X-Received: by 2002:a05:6000:29d6:b0:491:fd47:5e02 with SMTP id ffacd0b85a97d-4abb2ce4db9mr21688031f8f.22.1795600040533;
+        Wed, 25 Nov 2026 01:47:20 -0800 (PST)
+X-Received: by 2002:a05:6000:29d6:b0:491:fd47:5e02 with SMTP id ffacd0b85a97d-4abb2ce4db9mr21687997f8f.22.1795600039986;
+        Wed, 25 Nov 2026 01:47:19 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110c3csm32143693f8f.36.2026.11.25.01.47.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 01:47:19 -0800 (PST)
+Message-ID: <3e2585ec-00dc-4884-84be-51162a4d782a@redhat.com>
+Date: Wed, 25 Nov 2026 10:47:17 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,49 +112,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125-topology-wunsequenced-v3-1-efa3db7e0bf8@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v4 0/2] ipv6: Honor suppress_prefixlength in
+ fib6_lookup()
+To: Ido Schimmel <idosch@nvidia.com>, Leonard Lausen <leonard@lausen.nl>,
+ kuba@kernel.org
+Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Simon Horman <horms@kernel.org>, Pablo Neira Ayuso <pablo@netfilter.org>,
+ Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
+ Shuah Khan <shuah@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261117110813.9894-2-leonard@lausen.nl>
+ <20261124162628.GA3992049@shredder>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261124162628.GA3992049@shredder>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 25, 2026 at 12:23:35AM -0700, Nathan Chancellor wrote:
-> After a recent improvement in clang to warn on unsequenced accesses to
-> volatile variables [1], an instance appears in sd_init(), which can
-> break the build with CONFIG_WERROR=y / W=e:
+On 11/24/26 17:26, Ido Schimmel wrote:
+> On Tue, Nov 17, 2026 at 11:08:10AM +0000, Leonard Lausen wrote:
+>> This revision removes the cached-exception patch and its PMTU test, as
+>> requested. The series fixes the nftables regression introduced by
+>> 1c32b24c234b and leaves dst-based prefix suppression unchanged. The
+>> cached-exception work is deferred to net-next after the fib6_lookup()
+>> fix is present there. Interface-group suppression also remains deferred.
+>>
+>> Patch 1 makes fib6_lookup() honor suppress_prefixlength while preserving
+>> terminal reject results, including blackhole nexthop objects. Patch 2
+>> adds six checks to nft_fib.sh using its existing fixture.
 > 
->   In file included from kernel/sched/build_utility.c:86:
->   kernel/sched/topology.c:2008:29: error: unsequenced accesses to volatile qualified 'jiffies' [-Werror,-Wunsequenced]
->    1998 |                 .last_balance           = jiffies,
->         |                                           ~~~~~~~
->    1999 |                 .balance_interval       = sd_weight,
->    2000 |
->    2001 |                 /* 50% success rate */
->    2002 |                 .newidle_call           = 512,
->    2003 |                 .newidle_success        = 256,
->    2004 |                 .newidle_ratio          = 512,
->    2005 |                 .newidle_stamp          = now,
->    2006 |
->    2007 |                 .max_newidle_lb_cost    = 0,
->    2008 |                 .last_decay_max_lb_cost = jiffies,
->         |                                           ^
-> 
-> Per C11 5.1.2.3.2, accessing a volatile object is a side effect. Per C11
-> 6.5.2, unsequenced side effects on the same scalar object are undefined
-> behavior. Per C11 6.7.9.23, the evaluation of the initialization list
-> expressions in a designated initializer is indeterminately sequenced
-> relative to each other, meaning any side effects in the initialization
-> list are unsequenced.
-> 
-> Clang's warning is ultimately pointing out that jiffies may have two
-> separate values in this initializer because it is volatile and accessed
-> twice and the order of these accesses is not specified. This could
-> result in unexpected or inconsistent behavior depending on the code
-> author's intent and whether they realized the variable was volatile or
-> not.
-> 
-> As two separate accesses is not necessary here, add a local variable to
-> hold the value of jiffies before the designated initializer so that a
-> consistent value is used for initializing both members, clearing up the
-> warning.
+> Paolo / Jakub, do you know why this is marked as "Rejected" in
+> patchwork? What changes are requested?
+Thanks for the head-up.
 
-None of this tells me why we should not just disable that warning and
-get on with life.
+I think Jakub changed the state, I'm unsure why. I'll re-evaluate
+this series ASAP (nowadays can't be very soon).
+
+/P
