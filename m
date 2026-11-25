@@ -1,49 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795622407;
-	b=ggAWWsBTgd+udDkZXcYhDRMiIrryH8KvLhnRnvCpBvUePUvrkc9a3magQ0PKswtbF4q1
-	 A4y9Uy5CBUMk8Z6M3veasV1ieFk3vvD6oOq7PbJkYDE9mreQL9ZbBoaJjufSbBFqHa2Yk
-	 q9xiegN/tMjRm2LC3PRGj/Q5T9HE/QF3co7GBHZd3IkjLcO5+Yc52mUZbhs8mAvX9g6Fr
-	 nZXeL4ncPa9+sxqEbrKvCNP9CK7vg+EfXDt+hv4VXJk7PXk1fZqHJNBuSlIkWSvuwlrYd
-	 giz095UQs9cFnVV4lmHkGc06t+mmfULKuIL07xYEIolO4nz5Iktq7Mkj4TDPkrLGLHA==
+	t=1795622460;
+	b=4DyedXIabQsHsQkHMntyJLQEPl+MvyrVn62ToX5jqksO15u6qjXQ1ehWYXjOpED+vqpQ
+	 RzGjzyQVnaRYwNsd3LdMv3C0ilauT8R18cexGR49/CTuThlst1QOYwDeizRCFRMRIdCiF
+	 93w2oI9XMER1AplbYhCRUcF0zrWCEDmfjMfLjEoyRyKu7zuW41siR5Bu7gcp76KZhMjil
+	 xUqDAd+T/Dbgi6+QIz8keivdOUdz4kcXvLxIqTxXhdcOhI1GR8HotEohvBLqoXX/kt0Cp
+	 WBCwt0yV2OTzrDTpNyuKXH2BIwqgoJ5pfrFrQGolRypKadSE0ODJ0jW6D2HrHbRULsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795622407;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=QAaHSZ7sMw5VUlTsCKc7k41y1p2NOueXz2lrjbHzvGo=;
-	b=Px4OhSeuYOWTLaO9p4sTPFYfelH48+sZJ2zT4BCv03/GvgOFuaEHpz2YAMLmEjH0mAvk
-	 iv0hbpy/MNclmD4qnHhQhZRHmSTuP8gfS/HjqUQwZ/WRDiuOPtIPPyyVEXCoKBN8LbLsF
-	 b8ZElJEutHMnVDrRKM29+5QOmSup3o0rCXsw8TE6gYMeVa1D+OxNknr32Jsnx0RD6k0J4
-	 PAYGHjCXvlxQsGserxGijs6ZU7WdgsTq/2WNLf7EnW3xhn0LYK1Mp4CR9FpifIGNJ7GJR
-	 06o1cHpIBfXt5q17FB1XCBBH7j6DpCPWpVrmZ/mocnpaXJCN0WWAOqSgCdasaUDNhug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795622460;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 In-Reply-To:References:Subject:Message-Id:Date:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=O2FhQ28BkwHMz0BlMN0lhmQRX/4NW+TVcvstggEiWjo=;
+	b=LB7hvyzs09Nbqedt9dUgZpZgXbgeKfQm+3OiVgM3M59kl78ta2xBi/MVMRBIS/+rZwnR
+	 1PThAul0N7Rx4Rchr5AxqrG0PuB8KC57HW7rvfJQi7W+FMAawbsk6BKEHKpHOcFaBv3rU
+	 I0wl+a8BNCOzl/8NYbQaH3wRRzAwF26UFHalkmgVtYuZgKSxJ+rJMmCWjVvi2xpR51OfK
+	 SJuxi0YMNUvISsTbfaJ3YfHFeI06IbHNc1AgYibfAQyDzI4wTyZ7uvC7fnDuMovhcW859
+	 3AnadhQhiqk3uiyiDrhG36NBaoue+hjtbzH+D3wwby4/77/XI2xbwrJ/OvAs053WYSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gVD7JS00;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BhSsgMOI;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53814606A32A;
-	Wed, 25 Nov 2026 16:00:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 236EE606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:00:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 236EE606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gVD7JS00
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8086B1F000C6;
-	Wed, 25 Nov 2026 16:00:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795622406;
-	bh=QAaHSZ7sMw5VUlTsCKc7k41y1p2NOueXz2lrjbHzvGo=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=gVD7JS00ZFP1Kv/R8gr3EKQWnODMrTPWuer6Rh+p5A0QFvINzAuRQhip2b3MgE7o3
-	 2FZryKHYsgXVEd460sTW/r6OP0dfKEfST6f5eWlCqru4eTlMjYgxhbwwrKV5nDehsP
-	 cDPL2MoH+es0b1VC2fozucNxM87Ti5fU0V4MzuIzDGnTj+IOZPFymerwe9wp5kp26l
-	 xc+rn5zZgzVRuXpHNPgshLjb2zoMLwZ6jHuKqb+kcfE9eAVvLgnLMTfp0g1rE7zmji
-	 FexHXwvVh23gfuTTyC3ftKZAaGI5bAoVG52xn/FkZiUki7T1ATA1nmd4xmPv+VG+Ek
-	 xHhW5go2vfn9A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773CA3808209;
-	Wed, 25 Nov 2026 16:00:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BhSsgMOI
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id DE84AC6221E;
+	Wed, 25 Nov 2026 16:01:04 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E6ECA60480;
+	Wed, 25 Nov 2026 16:00:56 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CF85C11E6A266;
+	Wed, 25 Nov 2026 17:00:51 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795622455; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=O2FhQ28BkwHMz0BlMN0lhmQRX/4NW+TVcvstggEiWjo=;
+	b=BhSsgMOId9ds5R/JtaFW1SS+E0dKG0E6FYPhlLPf50JYFu4iZ2Z5cYMU3ZZHDd+dOJ+bFY
+	A9ycPnjGWiHkUg5AiUc7/tKeUZLyOK05PQX7MSlYUqUeVp2gRnCZe/co1LZvSscga2XRab
+	/6AV8PD/32kEIlWCXV/PLNQANhQvEo/f0yXzOOk0VRZdHMD27KSrkDjVAOzuhBwuGzSex/
+	WiEIvNixDYuzwERPq0PsrVPOGChFrVEBaWs9NrYRaa1CDpbomEebFVB3klxnd8P055fe/Q
+	kc+pzQVOVgp2TjMmflMbA6f1FU0vVhnxAobtGJJN00LpaS8efa1D9gJzMErB/g==
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+To: Leandro Ribeiro <leandro.ribeiro@collabora.com>
+Cc: airlied@gmail.com, alex.hung@amd.com, daniel@fooishbar.org, 
+ hamohammed.sa@gmail.com, harry.wentland@amd.com, 
+ maarten.lankhorst@linux.intel.com, melissa.srw@gmail.com, 
+ mripard@kernel.org, pekka.paalanen@collabora.com, 
+ robert.mader@collabora.com, simona@ffwll.ch, tzimmermann@suse.de, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261106201813.129911-1-leandro.ribeiro@collabora.com>
+References: <20261106201813.129911-1-leandro.ribeiro@collabora.com>
+Subject: Re: [PATCH v2 00/12] drm/vkms: improve color curve LUTs precision
+Message-Id: <179562245064.2664231.526335218759807383.b4-ty@b4>
+Date: Wed, 25 Nov 2026 17:00:50 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,43 +73,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] ncsi: Initialize vid in set_one_vid() to handle
- concurrent VLAN removal
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179562240502.773214.12173450041451654164.git-patchwork-notify@kernel.org>
-Date: Wed, 25 Nov 2026 16:00:05 +0000
-References: <20261119171009.1534335-1-irogers@google.com>
-In-Reply-To: <20261119171009.1534335-1-irogers@google.com>
-To: Ian Rogers <irogers@google.com>
-Cc: sam@mendozajonas.com, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, fercerpav@gmail.com, horms@kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
- elkin@google.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hello:
 
-This patch was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Thu, 19 Nov 2026 09:10:09 -0800 you wrote:
-> set_one_vid() checks list_empty(&ndp->vlan_vids) before acquiring
-> nc->lock and rcu_read_lock(). If ncsi_vlan_rx_kill_vid() removes the
-> last VLAN entry in that window, list_for_each_entry_rcu() executes
-> zero iterations and leaves vid uninitialized on the stack. The
-> subsequent 'if (!vid)' check can then proceed and program stack
-> garbage into ncf->vids[index] and an NCSI_PKT_CMD_SVF command packet.
+On Fri, 06 Nov 2026 17:18:01 -0300, Leandro Ribeiro wrote:
+> Currently VKMS only supports uniform LUTs. Besides the userspace
+> provided LUTs, it also represents color curves with LUTs, as it can't
+> simply implement the continuous curve formulas (floating-point would be
+> required).
+> 
+> This adds support to represent color curves with non-uniform LUTs,
+> improving the precision significantly. It also provides a script
+> that can be used to create these LUTs.
 > 
 > [...]
 
-Here is the summary with links:
-  - [net] ncsi: Initialize vid in set_one_vid() to handle concurrent VLAN removal
-    https://git.kernel.org/netdev/net-next/c/e20f88c4f08b
+Applied, thanks!
 
-You are awesome, thank you!
+[01/12] drm/vkms: rename VKMS_LUT_SIZE to VKMS_GAMMA_LUT_SIZE
+        commit: 41b1a8294e3696a219e74cf47cb6e135f0b83fbf
+[02/12] vkms: properly compute gamma LUT size in vkms_atomic_check()
+        commit: 812c119f486c91f5bcf2944cd4228f468e292fac
+[03/12] drm/vkms: allow color curve LUTs to have different sizes
+        commit: df3941f15e96a0f5f34d3b7ef8516f51be256e4d
+[04/12] drm/vkms: remove TEST_LUT_SIZE
+        commit: 16a9f629d75545541ba37f1f86b8c006e950f28a
+[05/12] drm/vkms: remove linear_eotf
+        commit: 3d4ec3afd6e1ecb494d886ac4aecf4ce7f6d17fa
+[06/12] drm/vkms: improve the way in which we access LUT member
+        commit: 801fe02d8d2a29c624804f6dec0bd880567af4f1
+[07/12] drm/vkms: rename struct vkms_color_lut::base to y
+        commit: 094024f659091ca8a3c5958b68533f179498b2ee
+[08/12] drm/vkms: rename get_lut_index() to get_uniform_lut_index()
+        commit: 27174eb6b985694913d188792d5f6f315f2c4b03
+[09/12] drm/vkms: add support to non-uniform LUT for internal color curves
+        commit: 978864c62a34b7057912b27221bdf1e2fedf4f56
+[10/12] drm/vkms: test sRGB and inverse sRGB LUTs using more samples
+        commit: 8564a537fc0391825c4827adb5be8618662c0778
+[11/12] drm/vkms: add script to create optimized LUTs for color curves
+        commit: e64f6256cd12388ce0ecc72ce78686fe2cc01191
+[12/12] drm/vkms: replace uniform sRGB LUT and its inverse with optimal ones
+        commit: 3c7c3c12dfc7704ca614abbfa266ca00a2b5a994
+
+Best regards,
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+Louis Chauvet <louis.chauvet@bootlin.com>
 
