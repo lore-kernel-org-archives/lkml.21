@@ -1,60 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588205;
-	b=RGWYITLlxhnnikSLsWBMW48xuB2Ezsc3gjso9zYOeU2kXWUgBPwHCqvPOVhqsmVe8fA6
-	 KqueE6OES1xRQ65ELg7xquYyr4d3/+ARl6GaLPnDjsKecjEATegAXHDAF4gLxAQ0dr9gL
-	 VvYgxoedcXnbhCtVbGouHq5gXCrFjuuxs+dSlPhz0D7PU+27TDIT8s84gbB31Hhhh8oVH
-	 CvLJaQJiSw1BNHyznkN0TpLB3SM6W1RCeb1yjFWMWNfd63HEVUrhNIdq6Vw2mXCdP1w1q
-	 aozcJ+obLidtIIZXbbz/CxuJKDkLkonn7mE/eYAS2hylXlkWnNlp7CgMW+kuR6ZJF8A==
+	t=1795588221;
+	b=mpVGoewfFlIl5ExKC73QOYQ9o5wuR08062fz05uBkBdOSy3MWU0VWSVz4H7r6LIS1Uas
+	 iOCy3YvcasUqfEhSKuhY5O/baAQn7A0Tb7L2pYNPUyEcEWtTlWsJfAwKJUgUgq9f75oi1
+	 g0tpsVyKrSegExmUTCzXu9XRY180H3Eu94cDJmVK1wQnzhG09CpytznZdy3UB1YSh5XB8
+	 tYwXVZNBw0212XL3cL+sE5FVlJTRrIndJ0T07UbxO7hqMkCzIQKX0qktszWs7FApf2aMj
+	 b6JbF+BOkbugyRuhFQopV4O1KalRRcG4OV6PH7F6vUWxAFqLFhK+eRFfxuxVy4HxADw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588205;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588221;
 	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=0R4ASB7SjKyeA0M33Yk9VA1tZHdpbIHAE/YA5+B9MfA=;
-	b=v2lHne65HFStst5FfisIQ74+VG7BXj/t9wCTn2wbY4wDsVyMDt1/Rjnaem5KJ8yUnGyb
-	 MZEs8G9hKFihr7Wh6Pg7PMiQOkeQEcNZVI0q5TQhJkLPW4Y3iRARhUArYDZNwXYOTeVpG
-	 j14tq1n7SIEW+2ctjXrO0GBBUudCxouH0zZB1h51eR7B8yOMo0H4e6XmF+3LwmkqExY52
-	 u5hssF0f90np3l/4WPSP+bh0eiRwUILvlrlxiPswPpDEkOQx9FMjeQfSHWVwRlEPXe7hn
-	 mWRcjGyzkBJbCVqU9NLuCbHyxWUiB/l+IZg8DBfcc6mxp7xEMBShT37aWeqyL14xQ+g==
+	bh=bZtvMP9+H7m4O3MSFK4QXTitx+cgmtzv97eFmZZGwz0=;
+	b=vNS5KZRtQ49fzlJ6yP9P5vEWV11prRxaQ2zmLI5szl7mwo9Fq6XfmiKqfDg0dvJsXp3s
+	 q4KyBZsBd/Fs3ckS/AB3IkXURL9MZ976biDB4I1YoF8Mo7nTtDle4HdZ8rttruYedfHHx
+	 878PzyRkoUKPE5k+BD+NCyO55ivYVp0r8jonx5xswtoC9D0BMqcK1oNWreI4mMkbb413K
+	 QiIFbldeKXuzTRP5VG77z9qNzZ4OCaXgpeAmS2mPZM8xhXiqdZxnn3oXPYnNORKe2/R0v
+	 Z96CUMy5MRjQLKdCT0omJ8eAU8VjMlworag94ekg5EzX0bkKRYRsCw4IVyv6ucteL+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=d-silva.org;
 	spf=pass smtp.mailfrom=d-silva.org;
-	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b="XzGArB9/";
+	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=S1aa31r3;
 	arc=none smtp.remote-ip=119.15.109.137
 Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A24E606A326;
-	Wed, 25 Nov 2026 06:30:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A24E606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05630606A33C;
+	Wed, 25 Nov 2026 06:30:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05630606A33C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=XzGArB9/
+	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=S1aa31r3
 Received: from Hawking.lan (hawking.lan [10.0.1.4])
-	by www.nmnhosting.com (Postfix) with ESMTP id 6C61B4C940;
-	Wed, 25 Nov 2026 17:29:56 +1100 (AEDT)
+	by www.nmnhosting.com (Postfix) with ESMTP id 2FBCE4C949;
+	Wed, 25 Nov 2026 17:30:09 +1100 (AEDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1795588196;
+	t=1795588209;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=0R4ASB7SjKyeA0M33Yk9VA1tZHdpbIHAE/YA5+B9MfA=;
-	b=XzGArB9/Y1KL5VmP4qd+YqweVeWV6JohoamDplXmk7uFU+uasBCMtbG0JsInuTXxIPAhBD
-	UQA5G+VKt8m2YzyEGCdxh7UI7cadLdNMX1zyGtdA6go5p2ug6c0W86nNc8XwbcczTNPbXw
-	2/XEA4VH1T/YlCmWYu6rDVS4l6e6mVlAqOU3aZ+uzMKYfUbunsAH9P1LSz7q5QUYmZF98/
-	XaDp1vC04xHw0zmr9t+zjfTe66WZtUcI2y1THKBZCyCie3P8uvJ1MKBZdw0ezn0QE9idma
-	yKWDS7d9sM95B3haG5LfT62+nZFwKdH8CI8+WFsJO2gkU9Fn/qA73O+1FASufg==
-X-GPT-Reason: legitimate; the email is a technical patch submission
-	for a Linux kernel-related project (devicetree.org) which aligns
-	perfectly with the personal mailbox of alastair@d-silva.org; the
-	From domain (d-silva.org) matches the sender identity and the
-	personal mailbox context; there are no marketing signals, scare
-	tactics, or suspicious links, and the content is a standard, professional
-	technical contribution.
+	bh=bZtvMP9+H7m4O3MSFK4QXTitx+cgmtzv97eFmZZGwz0=;
+	b=S1aa31r3AtnJ5RxxiHVQNyc4aBA95Zcvr4TV+PThDlbqsU+leQ/pRjfo+r+RR/NSiDbVDM
+	z2v+UkgaJSslZQDjZEyO931qrh/x1kP4kNOTLdYK9dpr9HQQXBnCM2cqdnkoaJLwNEKE7T
+	/52ljJixzd3ZNU5g+7+Zbnm1tv9a/zUaBnf96snsmstIL046KgrWzWHYDvH71OADlt71Td
+	/06R1qjJzNrWSGj89iJCJhComKQYrZSpBicsHovplUrCn4RgbMKZ9VwVeJVVPvw6AaSJdM
+	I1liq9CzVI3xwCzIkP2hOmjCUDk5pLZJwpI9dGFkpQK4L89MIIR4kb3+kHyTlQ==
+X-GPT-Reason: legitimate_personal_business_communication. The
+	sender domain (d-silva.org) perfectly matches the recipient mailbox
+	(alastair@d-silva.org), indicating a personal or professional correspondence.
+	The content is a technical patch for a Linux kernel/device tree
+	binding, which is consistent with a developer's workflow rather
+	than marketing or a scam. The message lacks any urgency, fear tactics,
+	or suspicious links, and the subject line is highly specific to
+	a technical project.
 From: Alastair D'Silva <alastair@d-silva.org>
 To: Lee Jones <lee@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -78,9 +79,9 @@ Cc: mfd@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Enzo Adriano <enzo.adriano.code@gmail.com>,
 	Junhui Liu <junhui.liu@pigmoral.tech>
-Subject: [PATCH 1/5] dt-bindings: phy: allwinner,sun60i-a733-combophy: Add binding
-Date: Wed, 25 Nov 2026 17:29:44 +1100
-Message-ID: <20261125062948.1234677-2-alastair@d-silva.org>
+Subject: [PATCH 3/5] dt-bindings: PCI: allwinner,sun60i-a733-pcie: Add binding
+Date: Wed, 25 Nov 2026 17:29:46 +1100
+Message-ID: <20261125062948.1234677-4-alastair@d-silva.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261125062948.1234677-1-alastair@d-silva.org>
 References: <20261125062948.1234677-1-alastair@d-silva.org>
@@ -95,42 +96,29 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add Devicetree binding for the Allwinner A733 (sun60i) Cadence Combo PHY
-and register the SerDes subsystem syscon compatible in syscon.yaml.
+Add Devicetree binding for the Allwinner A733 (sun60i) DesignWare PCIe
+Root Complex controller.
 
 Assisted-by: LLM
 Signed-off-by: Alastair D'Silva <alastair@d-silva.org>
 ---
- .../devicetree/bindings/mfd/syscon.yaml       |  1 +
- .../phy/allwinner,sun60i-a733-combophy.yaml   | 84 +++++++++++++++++++
- 2 files changed, 85 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/phy/allwinner,sun60i-a733-combophy.yaml
+ .../pci/allwinner,sun60i-a733-pcie.yaml       | 187 ++++++++++++++++++
+ 1 file changed, 187 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/allwinner,sun60i-a733-pcie.yaml
 
-diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-index 945a168b613db..e58f5004c8cda 100644
---- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-+++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-@@ -30,6 +30,7 @@ properties:
-               - allwinner,sun8i-h3-system-controller
-               - allwinner,sun8i-v3s-system-controller
-               - allwinner,sun50i-a64-system-controller
-+              - allwinner,sun60i-a733-serdes-syscon
-               - altr,l3regs
-               - altr,sdr-ctl
-               - amd,pensando-elba-syscon
-diff --git a/Documentation/devicetree/bindings/phy/allwinner,sun60i-a733-combophy.yaml b/Documentation/devicetree/bindings/phy/allwinner,sun60i-a733-combophy.yaml
+diff --git a/Documentation/devicetree/bindings/pci/allwinner,sun60i-a733-pcie.yaml b/Documentation/devicetree/bindings/pci/allwinner,sun60i-a733-pcie.yaml
 new file mode 100644
-index 0000000000000..5e6727acb832a
+index 0000000000000..71ff657d15c59
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/allwinner,sun60i-a733-combophy.yaml
-@@ -0,0 +1,84 @@
++++ b/Documentation/devicetree/bindings/pci/allwinner,sun60i-a733-pcie.yaml
+@@ -0,0 +1,187 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/phy/allwinner,sun60i-a733-combophy.yaml#
++$id: http://devicetree.org/schemas/pci/allwinner,sun60i-a733-pcie.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Allwinner A733 (sun60i) Cadence Combo PHY
++title: Allwinner A733 (sun60i) DesignWare PCIe Root Complex controller
 +
 +maintainers:
 +  - Alastair D'Silva <alastair@d-silva.org>
@@ -138,75 +126,178 @@ index 0000000000000..5e6727acb832a
 +  - Jernej Skrabec <jernej.skrabec@gmail.com>
 +
 +description: |
-+  The Allwinner A733 (sun60i) SoC integrates a Cadence Combo PHY within its
-+  SerDes subsystem, supporting PCIe Gen3 (up to 8.0 GT/s).
++  The Allwinner A733 (sun60i) PCIe Root Complex controller is based on the
++  Synopsys DesignWare PCIe IP and inherits all common properties defined in
++  snps,dw-pcie.yaml.
++
++allOf:
++  - $ref: /schemas/pci/snps,dw-pcie.yaml#
 +
 +properties:
 +  compatible:
-+    const: allwinner,sun60i-a733-combophy1
++    const: allwinner,sun60i-a733-pcie
 +
 +  reg:
-+    maxItems: 1
-+    description: Cadence Combo PHY PMA/PCS analog registers
++    items:
++      - description: Data Bus Interface (DBI) registers
++      - description: iATU registers
++      - description: Allwinner application registers
++      - description: PCIe configuration space
++
++  reg-names:
++    items:
++      - const: dbi
++      - const: atu
++      - const: app
++      - const: config
++
++  clocks:
++    items:
++      - description: PCIe auxiliary clock
++      - description: PCIe AXI slave clock
++      - description: PCIe ITS/master AXI bridge clock
++
++  clock-names:
++    items:
++      - const: aux
++      - const: slv
++      - const: mstr
++
++  resets:
++    items:
++      - description: PCIe controller reset
++      - description: PCIe power-up reset
++      - description: PCIe ITS/master AXI bridge reset
++
++  reset-names:
++    items:
++      - const: core
++      - const: pwr
++      - const: mstr
++
++  interrupts:
++    minItems: 1
++    items:
++      - description: Application / SII legacy interrupt
++      - description: MSI interrupt (when msi-map is not used)
++
++  interrupt-names:
++    minItems: 1
++    items:
++      - const: app
++      - const: msi
 +
 +  allwinner,serdes-syscon:
 +    $ref: /schemas/types.yaml#/definitions/phandle
 +    description: Phandle to the Allwinner A733 SerDes subsystem syscon
 +
-+  clocks:
-+    items:
-+      - description: SerDes PHY clock (100 MHz)
-+      - description: SerDes AHB bus clock
-+      - description: SerDes MBUS clock
-+      - description: Reference oscillator / DCXO clock
-+
-+  clock-names:
-+    items:
-+      - const: serdes
-+      - const: ahb
-+      - const: mbus
-+      - const: ref
-+
-+  resets:
++  phys:
 +    maxItems: 1
++
++  phy-names:
++    const: pcie0
 +
 +  power-domains:
 +    maxItems: 1
 +
-+  phy-supply:
-+    description: 1.8V SerDes PHY power supply
++  vpcie3v3-supply:
++    description: 3.3V PCIe slot or M.2 power supply
 +
-+  "#phy-cells":
-+    const: 1
-+    description: PHY type (e.g. PHY_TYPE_PCIE from dt-bindings/phy/phy.h)
++  ranges:
++    minItems: 2
++    maxItems: 3
++
++  dma-ranges:
++    maxItems: 1
++
++  legacy-interrupt-controller:
++    description: Interrupt controller node for handling legacy PCI INTx interrupts.
++    type: object
++    additionalProperties: false
++    properties:
++      "#address-cells":
++        const: 0
++
++      "#interrupt-cells":
++        const: 1
++
++      interrupt-controller: true
++
++    required:
++      - "#address-cells"
++      - "#interrupt-cells"
++      - interrupt-controller
 +
 +required:
 +  - compatible
 +  - reg
-+  - allwinner,serdes-syscon
++  - reg-names
 +  - clocks
 +  - clock-names
 +  - resets
++  - reset-names
++  - interrupts
++  - interrupt-names
++  - phys
++  - phy-names
 +  - power-domains
-+  - "#phy-cells"
++  - ranges
 +
-+additionalProperties: false
++unevaluatedProperties: false
 +
 +examples:
 +  - |
-+    #include <dt-bindings/clock/sun6i-rtc.h>
++    #include <dt-bindings/gpio/gpio.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/phy/phy.h>
 +    #include <dt-bindings/power/allwinner,sun60i-a733-pck-600.h>
 +
-+    phy@6ca0000 {
-+        compatible = "allwinner,sun60i-a733-combophy1";
-+        reg = <0x06ca0000 0x20000>;
-+        clocks = <&ccu 226>, <&ccu 68>, <&ccu 81>, <&rtc CLK_HOSC_SERDES1>;
-+        clock-names = "serdes", "ahb", "mbus", "ref";
-+        resets = <&ccu 92>;
-+        power-domains = <&pck600 PD_PCIE>;
-+        phy-supply = <&reg_serdes1v8>;
-+        allwinner,serdes-syscon = <&serdes>;
-+        #phy-cells = <1>;
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pcie@6000000 {
++            compatible = "allwinner,sun60i-a733-pcie";
++            reg = <0x0 0x06000000 0x0 0x00010000>,
++                  <0x0 0x06300000 0x0 0x00100000>,
++                  <0x0 0x06400000 0x0 0x00080000>,
++                  <0x0 0x20000000 0x0 0x01000000>;
++            reg-names = "dbi", "atu", "app", "config";
++            #address-cells = <3>;
++            #size-cells = <2>;
++            bus-range = <0x00 0xff>;
++            device_type = "pci";
++            ranges = <0x81000000 0x0 0x21000000 0x0 0x21000000 0x0 0x00010000>,
++                     <0x82000000 0x0 0x22000000 0x0 0x22000000 0x0 0x06000000>;
++            dma-ranges = <0x03000000 0x0 0x40000000 0x0 0x40000000 0x3 0xc0000000>;
++            clocks = <&ccu 224>, <&ccu 225>, <&ccu 49>;
++            clock-names = "aux", "slv", "mstr";
++            resets = <&ccu 91>, <&ccu 90>, <&ccu 0>;
++            reset-names = "core", "pwr", "mstr";
++            interrupts = <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH 0>,
++                         <GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH 0>;
++            interrupt-names = "app", "msi";
++            #interrupt-cells = <1>;
++            interrupt-map-mask = <0 0 0 7>;
++            interrupt-map = <0 0 0 1 &pcie_intc 0>,
++                            <0 0 0 2 &pcie_intc 1>,
++                            <0 0 0 3 &pcie_intc 2>,
++                            <0 0 0 4 &pcie_intc 3>;
++            max-link-speed = <3>;
++            num-lanes = <1>;
++            phys = <&combophy1 PHY_TYPE_PCIE>;
++            phy-names = "pcie0";
++            power-domains = <&pck600 PD_PCIE>;
++            allwinner,serdes-syscon = <&serdes>;
++            reset-gpios = <&pio 3 22 GPIO_ACTIVE_LOW>;
++            vpcie3v3-supply = <&reg_vcc_3v3>;
++
++            pcie_intc: legacy-interrupt-controller {
++                interrupt-controller;
++                #address-cells = <0>;
++                #interrupt-cells = <1>;
++            };
++        };
 +    };
 -- 
 2.53.0
