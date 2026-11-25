@@ -1,80 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.188.148
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=34.202.193.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795565298;
-	b=Vx2uB/YfgqTPnTwL/NMT3UlthWcdBfbSq19Df4WzLA/7ev0Cv4LC+rmwVHWZgMX2vKPl
-	 7eI7o+wCuARtIVFridNBhTxHfJqn/OcTnOoTFqrsvnuQC2BcjAvN5raAo1FCWf/ZWsCj6
-	 7xBXHIAQTcG1t6ENzx2o3wbCfChFpiq2TzjeiHUtJk06NZLyZ8XQG0AUlEL4EETaEh5ri
-	 tSHJUMcGaKsiY4uchjL9wDy7r+F4o9ClFVrlyyJ96Cr4fNZfnyOn6ZxK/WAgWmwGRYRQq
-	 uraZpO9/PabH8xCcwgBJRddw1wlLTpBnrwsCuA7FoUCGlujER6w71FuYaWILkBHMmQw==
+	t=1795565310;
+	b=qq+oWdcfJL1SfMoEqW/cVagiptVQSEG5aDNrO+394VWo6NIU4wnZFLqK8XhoLHJTTMWJ
+	 EHbE4r0VRq9nO1SaLSaLpJqoHn1O1PyDTjq/zViHj0YV03/th3NVyh/0WNsR1BRF7jM1N
+	 u+o+L9i3Nf0I7wqFvwUkfEdXPiw9YAzTYN2TvpgWmLIyzHVAeZZEhNkjg+vfnGws3aWak
+	 VbmpYPnszyQeKFJswR7SqAYmx89z/f2ZHxOomU4QVHCQvDEsdjQVjDLlLTT5x9AGVip/z
+	 Ry5/zJDvThTeau44vGVnvlh8fYAmUn6/i9eOpeJA6wlR/7gnjOzChPGaM32F9gY+tEw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795565298;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Mailer;
-	bh=iz6bL176dhDAyWP5Je5QkYXb+FS0AxL90OnpL4yreII=;
-	b=pN423gM7WIGItvNTyxAUJg8taG/OEl6ljKRGiZDYBmFyoJGMh59RIW1gwv/AYIPhiZk1
-	 c/vgARtbg6g4LSD37a5BRdl7PJrklDYurBD3Mrpl+t2MIJw+kqFP+mGJDgV2p4qbEjeb8
-	 E7HM7icG/ceevfx4te8xLVhD9w70lGzT7DeG+dA2S/YSSIH1kz/VVz70pWNDWgGUtTTPs
-	 hCjVYAOWnHoMjTdG94W4wZp+rSP3DmizZYCEKTW+SmTK/fNgC0vpEk+T1d6AUuGy3Pwa2
-	 BxleJgrc2TIiuJsdYtlURP1PNyaBBOdxwQ2mf/15x3Qv7UwuH8TZDaaeOY3m7BiP4cA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795565310;
+	h=DMARC-Filter:DKIM-Signature:Feedback-ID:X-Pm-Original-To:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=JWO5eOPOWxAZPbt93E7PWjAf1XN4ASjz7QmgH9tcpEc=;
+	b=I7UTHyW7PmWeItrBa3c8nVEBvVvjHfPddHqBuei/SgvKsGoHPm3KcqT/H10JBCu26LoQ
+	 AkzBptm78l3VMd1upC0w0/Urp79mVP4PZXjvBBybzLtbJTRYXVIM0kTmrrvcXTM4HopxT
+	 /SSBUePFERCr8aRG/NwVUR/dTuftOgwPDNe6+5lHbRi8oU3onN8F+pXLfm3ZnW4aBAR9Z
+	 j+yshxm7H6w7+YUesL/blmfEDICIfldvFBnVAVfTJY6yLdvpzbbTX0dEOnJpmXJ2/PHIv
+	 m8KrWdNOnrChvl5xbvm5bJcfMt7VcYSQQ+mh3wZYugC4QFeupwkgLLWljZFCW+KeAIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=cO5Xfuqa;
-	arc=none smtp.remote-ip=66.163.188.148
-Received: from sonic303-22.consmr.mail.ne1.yahoo.com (sonic303-22.consmr.mail.ne1.yahoo.com [66.163.188.148])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=mentallysanemainliners.org;
+	spf=pass smtp.mailfrom=mentallysanemainliners.org;
+	dkim=pass header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail2 header.b=RN0C6Ro7;
+	arc=none smtp.remote-ip=34.202.193.197
+Received: from sendmail.purelymail.com (sendmail.purelymail.com [34.202.193.197])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D71B606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:08:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D71B606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1747F606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:08:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1747F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mentallysanemainliners.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mentallysanemainliners.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=cO5Xfuqa
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795565297; bh=iz6bL176dhDAyWP5Je5QkYXb+FS0AxL90OnpL4yreII=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=cO5Xfuqac7nKqEhImVZWwTP9hwUhXum1ru7BLVVi3PwPAFT5j6j4geI3gKRgSDM6nP4+GZcwz5jZW5zpZHGGrWFkcmJnPlPdEUIvlWDF5syWzeJs6MiUr6nu+sXt3/FFXA9nyUZXVPLgtbPwwIZ3E9EAp2T4A5I33RWLjSA5xkdP+1B+0tBbhfCGlzdCTKkb9QLT6HaYGNIgpUQaCWrFXSeA+j7RkLx53d6w7lkcAdrTg6vtUtEz8OetOoDTgFDT7p2aEELWv3M5raw9n55BFM/vigi8zKFJsaE1soHAOH96lZPdJdZFOuPyRhPQNwpE5QGVC3rUIn7WmiiiQ2Mu+w==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795565297; bh=bq1+FBTdBsvv+qkW65247NCPIwMK8lhkl7GB9P4Ho4N=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=HXBKSbHLZHrw+RYh81hMePpYh4Mot3ALrcKerskcvkIIXTjNq/Y8QpNU184ATqcqJjERW9Ce2w3ECM9AykKN/78eOaDN+HqL00mZHPwWeEQ5+WMFD5Obo1u2BL6Kp+3YJagFsoKLA0y9AOoZYqtjtp3sPnpju/QJoWV6Ixjs3D/sWOjZ74KoVcmyA6yGyZhnplKzrroVVs+itURWzbNgMpdMkLHAuzRqsbSTRDUwGEWG53AhG178VzRlJcWG1IhYy7CgVaqw+9slofpE46+bpzNga9UX368YeGi8dDjfXI/il1zaMVx9frOWRqEh55+yd3UW9ODtrSyG2equOnZsMA==
-X-YMail-OSG: SV_vVfAVM1mzD9VEUoavEcXUwdEwueRQ9tPOO9EzwpRvhENy9L7FfPB1piIrXZa
- UT4JoL3A.5uHW679c5KsCemgYr4K_ZVkU8pIxq_CX5jLcVkZaksTeDtcJ6y7AEMRtnuAchKPTBOU
- PkIieWHjah3PdkjU0j3a_i.4aT8nvPsHqKUVT708wBG1wZQwGvaOShMRauYLuKOQIFrl1Wr4OaNa
- BeIpbWcvHN.Yb8_dGplNux8do8_VwOJiNn6OGdTIY04Fq35JAImjxbIaSVOKXo.0QK1cj_5e6rv4
- u.Fgzf9KwyaKttZxByBL1saLWzgPPhp3QeKqdNkqJlJDbsIAWgWNqG1qSn9s9h5O05g2dVxKIBhF
- onpfE.tGu3c8yOpjUg2AYhMk7yLqmk8kWuHjRDNehYtwXEjzyCuuCJWP7aUE7m_E2IVJ4BJqtyDp
- YUyR.KLCIrm4daVCm..UcAKXOA5qtONdIMT4j0D0t5vbOw2bQ.d4lPw.cg4G.0CySur1xcbKj1H0
- msFg1L9qTaVl.WzDZVXhLWQTjjJXwxYyejo_iAMKCrdAWW6B4I3oRpnCLFGV1u_xtZ5uotxjCmcy
- k8eYlHG_3Wvr8QNQLUwmQbiBUzRmD20eAv1wggFgRi_Nq4C.jQ_2PBlsXE8yPWI4gJPEdx14OoHQ
- efO_XPD4K4FuCdx3ZjgdLw7aW9hlmLY4pVgZBHmzZb7Pnwb66qZcK9NLltAN8y_YDVAJund_q8hI
- 9JbIT_fWj5Nucp1azjqkhyCgoYyrsQq.tnr8zQk97TemTKxE3mEjtdLwi70IjgbJhFm8tAu.rjPK
- vOtaWP._bE921D4zboGqyLZbJm0LCtnA8pRKkUX3gOWCQ9KbjeCs3BI43.lWp9eAYmeZIYnqwKme
- FFVe1zBbhUH0cdAwJbD49NeHQA704aqRdok4cpaqiCn.WOFWG.lmEGdzB.zQWAK5NZ8KBHuH2rbk
- leV74wJS0ymtX3Vtpr9EAsFcgyPA_eLrYRC7qjSIfl0OVkzf6y08jB5iUYOzf7HDrdTEJO1Qz.Jl
- ZeoM7LCd3Or7BYLq0pa4f.w5hH7rc0GwdFpswTA2DGG88u5ZPSnYF4wV76TUIrCuMzw1z1WZ9ev6
- zkZryM380IiUKat23KIzffkAeT5m5RVUsz.qSwdzHDM6c7svF1uCDzZZXfHCLSApC2_uaIVaC_0B
- 5vfMhtcKF6Ph08Ginn5HwwOTiOPG4yg48ir7jD041ShcMIsrti2zYDzYksgEfXwWNrXYXAH8IJE5
- heqRpAabvVvq0bCqumILkzIUvCrL1VnISG.M2wxZTk8q3skJexl.04wK_JSr.IKyCxcj1iC_tWKy
- 6uyJYpzp.fgxi8dyFgfhGuj.rErHbjEskXgWupGkHz1AYCbejgsGngWRkLm9tlLnkRtydZwlSQtw
- kq1qGECsCuwqHhleywJvC9kBh3Acyx_9.NIz4exkM8ucdpqiEzorQcC1D54H1F3eYgxwjpiq.oog
- iUJxMuEGXCRP7YteRG0jXP.sfBIrAPGPe2bJB10hbxIYqOcmSmRR4Ai6sA36Tfc1fvnKdwKIKU1E
- U0oWNl5X69MHEC.6c2fyYrKO_J2CtrTEIecv8SDDk3wRzwWvaTW.DQSs1zoiZ9e8Bi4bXkV0o4W6
- CrdiSsi4R_ULklM61qUxhwaSIcbF1b9FjWdtEksU4VPas7uOI8o_roo47zzjR5RgbXNoUHwr6OIW
- vW6kBG2YaxlqY5iMqBO5InqcCVumLDbEFfMBa3ebwu2Semrw_8T9dKXw6XLm1dqdeYccVpdofuIC
- Qw6RR7KMNhp584tAqNPXy6GVmCLlKEJB1sxhZB_3d9FCe5cXXmXrI9Tfhs5Ly8AUfcYcMdXNji.R
- O9DdA2C1ARrKyfN2Ms_R3OMO61SQdD2I_tPAkL6fDw88uu1ff1Cl9T_33YwPLLlK.m0t9oGUSbWg
- G3x7Ue..MxVYRp5.UnuzzSTtxLXXjwBO_rXaDGlSzlpmpDqShyqHSFxM2Z2DOc.iWdRyTVh.XuRJ
- rLMWW5Rxzxls6N5KPaRtOlWZOxC9Ka0HSZmPtIyOydbDTty_KN1YElntqJwRuVQyKU08n.cBKF9.
- aoAqBbX.b22XBybBHZizGZ1zVFmQ54wX_L6XeK7ertWfOvou_QwuBPBKFVD9DTlO2FEDW8Uf07_B
- xJfjVt1mccBDVugErS1I0gM7ZCcsGSjmCpwIBBbZo28H6lUZy0Jtd7c4NP3PyZ5WodbVQEdsEdf3
- CrnjLAZ0mUTt8MTZdhzMEG47lvWBadVLTi1KoQpD.cITfelmeu.zgInSR.WXoFC6r7Q2d_l87bkT
- EEn_b29Eo1MfyiebJX5YnyDtJjJNKDJAiqvM1JqjhsgyX3mc-
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 97871773-53c2-4a6e-b312-6f1ac7b3544f
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic303.consmr.mail.ne1.yahoo.com with HTTP; Wed, 25 Nov 2026 00:08:17 +0000
-Received: by hermes--production-ir2-7c4859dc89-v5pln (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 0b5dab70e2990a4869da0875f255aa77;
-          Wed, 25 Nov 2026 00:08:14 +0000 (UTC)
-Message-ID: <f5d6e665-9e94-416f-ab5a-acc01a7de65d@yahoo.com>
-Date: Wed, 25 Nov 2026 01:08:11 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=purelymail.com header.i=@purelymail.com header.a=rsa-sha256 header.s=purelymail2 header.b=RN0C6Ro7
+DKIM-Signature: a=rsa-sha256; b=RN0C6Ro7mR3xUBlTXWHMW8JzTNvfK1fed5xacdf71IeJEJwD3NWiUDgYMAhQp03XnNzPUO8oIKZAE3DwICH3FqBFfIMReUZPT/8RlV/qw8UBDW+4p/6iu/cxDyMK/21KDinJKBDaXxUEnuRXbL2GJ/+pJ62PvN5j3+1am3bJJpyWnOSe7UsfUlGuEErYZE1gI2GIWP/9J9+nuC4PrwKgGO1UU0Cdoy1TjbCN/13uMwHsNfTwoauw+t4u1EQoxgZMYdH4l0IdFQ2kc+C0dL3rGcb3EvvMUq6lyN7gIne+5lSu5TDMAK5EpABZ3GfHW3KOk41jJKMu9AKT/SIdxqu4Pw==; s=purelymail2; d=purelymail.com; v=1; bh=Z5AUULqU4STKqrKUgodGKeg+HOQYh1gNqO/mS1n3Tic=; h=Feedback-ID:Received:Message-ID:Date:Subject:To:From;
+Feedback-ID: 68229:10037:null:purelymail
+X-Pm-Original-To: linux-kernel@vger.kernel.org
+Authentication-Results: purelymail.com; auth=pass
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1592599783;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Wed, 25 Nov 2026 00:06:31 +0000 (UTC)
+Message-ID: <9bc95b2c-9b63-4b2a-b692-287e9cbe7d67@mentallysanemainliners.org>
+Date: Wed, 25 Nov 2026 00:06:27 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,337 +53,82 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v14 09/15] net: dsa: realtek: rtl8365mb: use raw VID
- for PVID on family D
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
- o.rempel@pengutronix.de
-References: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
-Content-Language: pl
-In-Reply-To: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v2 0/5] Add USB support to Exynos7885
+To: David Virag <virag.david003@gmail.com>, Vinod Koul <vkoul@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>
+Cc: linux-kernel@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Krzysztof Kozlowski
+ <krzk@kernel.org>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+References: <20261123092244.1792040-1-virag.david003@gmail.com>
+Content-Language: en-US
+From: Umer Uddin <umer.uddin@mentallysanemainliners.org>
+In-Reply-To: <20261123092244.1792040-1-virag.david003@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-Family D has no working VLAN member config (MC) table. Its PVID is a raw
-12-bit VID in a per-port register at 0x0700 + port, whereas family C
-stores a 5-bit MC table index, two ports per register, at
-0x0700 + (port >> 1).
 
-Running the family C code on family D therefore reads an MC table that
-does not exist, and writes an MC index into the VID register of port
-(port >> 1) instead of the one of the port being configured.
+On 23/11/2026 09:22, David Virag wrote:
+> This set of patches adds support for USB on the Exynos7885 SoC.
+>   
+> The Exynos7885 has a DWC3 compatible USB controller and an Exynos USB
+> PHY that theoretically supports USB3 SuperSpeed, but is not implemented
+> in any known device. The vendor kernel also stubs out USB3 functions, so
+> we do not support it.
+>
+> This is a v2 of a previous set [1], which was split into a clk patchset
+> I did submit back in 2024 and eventually it got applied, and this set,
+> which I never ended up submitting until now.
+>
+> This version fixes some things noted by Krzysztof Kozlowski, and also
+> contains a change made by Umer Uddin, as he recently tried to resubmit
+> my old patches from github [2], fixing some things up, but missing the
+> previous remarks.
+>
+> [1] https://lore.kernel.org/linux-samsung-soc/20240804215458.404085-1-virag.david003@gmail.com/
+> [2] https://lore.kernel.org/linux-samsung-soc/20261119-gta3xllte-usb-battery-v1-0-0cf5f763522e@mentallysanemainliners.org/
+>
+> Changes in v2:
+> - Clk changes not included as they are already applied
+> - Add Reviewed-by: tags where appropriate
+> - Use samsung,exynos850-dwusb3 fallback compatible for dwusb3
+> - Use unsigned long for set_ref_clk_rate
+> - (from Umer Uddin:) Error-check clk_set_rate, and fail if returns an
+>    error.
+> - Keep dt nodes ordered by unit address.
+>
+> David Virag (5):
+>    dt-bindings: phy: samsung,usb3-drd-phy: Add Exynos7885 support
+>    dt-bindings: usb: samsung,exynos-dwc3: Add Exynos7885 support
+>    phy: exynos5-usbdrd: support Exynos7885 USB PHY
+>    arm64: dts: exynos: Enable USB in Exynos7885
+>    arm64: dts: exynos: exynos7885-jackpotlte: Enable USB support
+>
+>   .../bindings/phy/samsung,usb3-drd-phy.yaml    |  2 ++
+>   .../bindings/usb/samsung,exynos-dwc3.yaml     |  3 ++
+>   .../boot/dts/exynos/exynos7885-jackpotlte.dts | 20 +++++++++++
+>   arch/arm64/boot/dts/exynos/exynos7885.dtsi    | 36 +++++++++++++++++++
+>   drivers/phy/samsung/phy-exynos5-usbdrd.c      | 26 ++++++++++++++
+>   include/linux/soc/samsung/exynos-regs-pmu.h   |  3 ++
+>   6 files changed, 90 insertions(+)
+>
+>
+> base-commit: 5d7b9f865597a74b323d512619c42f3e07ae043a
 
-Add the family D implementations of the PVID helpers,
-rtl8365mb_d_vlan_port_get_pvid(), rtl8365mb_d_vlan_pvid_port_set() and
-rtl8365mb_d_vlan_pvid_port_clear(), which skip the MC table. They keep the
-family C frame filter handling and rollback on error. The shared code
-reaches them through the vlan_port_get_pvid, vlan_pvid_port_set and
-vlan_pvid_port_clear pointers in struct rtl8365mb_family_info, so it
-needs no is_d() check.
+Thank you for submitting the fixed work. All works on gta3xllte.
 
-Also clear the family D PVID registers when the VLAN support is set up.
-Unlike on family C, where VLANMC index 0 is the neutral PVID, the
-register holds a raw VID, and after a reset it keeps its hardware (or
-EEPROM) default. Without clearing it an unconfigured port could report
-a stale PVID from rtl8365mb_vlan_port_get_pvid(), and
-rtl8365mb_port_vlan_filtering() would accept untagged frames into it.
-rtl8365mb_c_vlan_port_reset_pvid() does nothing on family C.
 
-No functional change for family C.
+Tested-by: Umer Uddin <umer.uddin@mentallysanemainliners.org>
 
-Nothing points to the new functions until the family D info is added
-together with the chip table entry in the last patch. Until then they are
-not static and are declared in rtl8365mb_vlan.h, so that the build does
-not warn about unused functions.
 
-Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
-Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
----
- drivers/net/dsa/realtek/rtl8365mb_main.c |  11 ++
- drivers/net/dsa/realtek/rtl8365mb_vlan.c | 201 ++++++++++++++++++++++-
- drivers/net/dsa/realtek/rtl8365mb_vlan.h |   6 +
- 3 files changed, 217 insertions(+), 1 deletion(-)
+Best regards,
 
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-index 1848847..3f45ff4 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_main.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
-@@ -2450,11 +2450,22 @@ out_unlock:
-  */
- static int rtl8365mb_vlan_setup(struct dsa_switch *ds)
- {
-+	const struct rtl8365mb_family_info *fi;
- 	struct realtek_priv *priv = ds->priv;
- 	struct dsa_port *dp;
- 	int ret;
- 
-+	fi = rtl8365mb_get_family_info(priv);
- 	dsa_switch_for_each_available_port(dp, ds) {
-+		/* Put the PVID in its neutral state, if the chip needs it */
-+		ret = fi->vlan_port_reset_pvid(priv, dp->index);
-+		if (ret) {
-+			dev_err(priv->dev,
-+				"Failed to reset PVID on port %d\n",
-+				dp->index);
-+			return ret;
-+		}
-+
- 		/* Disable vlan-filtering for all ports */
- 		ret = rtl8365mb_port_vlan_filtering(ds, dp->index, false, NULL);
- 		if (ret) {
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-index 7627b75..aec11ea 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-@@ -44,6 +44,10 @@
-  *
-  * VLANMC index 0 is reserved as a neutral PVID, used for standalone ports.
-  *
-+ * Everything above describes chips that have a VLAN membership configuration
-+ * table. RTL8365MB_FAMILY_D chips do not have one: their PVID is a raw 12-bit
-+ * VID in a per-port register, and no VLANMC entries are allocated.
-+ *
-  */
- 
- #include "rtl8365mb_vlan.h"
-@@ -122,6 +126,12 @@
- #define   RTL8365MB_VLAN_PVID_CTRL_PORT_MCIDX_MASK(_p) \
- 		(0x1F << RTL8365MB_VLAN_PVID_CTRL_PORT_MCIDX_OFFSET(_p))
- 
-+/* Family D: the PVID is a raw VID, one register per port */
-+#define RTL8365MB_D_VLAN_PVID_CTRL_BASE			0x0700
-+#define RTL8365MB_D_VLAN_PVID_CTRL_REG(port) \
-+	(RTL8365MB_D_VLAN_PVID_CTRL_BASE + (port))
-+#define RTL8365MB_D_VLAN_PVID_CTRL_MASK			GENMASK(11, 0)
-+
- /* Frame type filtering registers */
- #define RTL8365MB_VLAN_ACCEPT_FRAME_TYPE_BASE	0x07aa
- #define RTL8365MB_VLAN_ACCEPT_FRAME_TYPE_REG(port) \
-@@ -173,7 +183,7 @@ struct rtl8365mb_vlan4k {
-  * This structure is used to get/set entries in the VLAN membership
-  * configuration database. This feature is largely vestigial, but
-  * still needed for at least the following features:
-- *   - PVID configuration
-+ *   - PVID configuration (family C only, family D has no VLAN MC table)
-  *   - ACL configuration
-  *   - selection of VLAN by the CPU tag when VSEL=1, although the switch
-  *     can also select VLAN based on the VLAN tag if VSEL=0
-@@ -1211,3 +1221,192 @@ int rtl8365mb_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid)
- 
- 	return fi->vlan_pvid_port_clear(ds, port, vid);
- }
-+
-+/**
-+ * rtl8365mb_d_vlan_port_reset_pvid() - Put a port's PVID in its neutral state
-+ * (family D)
-+ * @priv: realtek_priv pointer
-+ * @port: the port number
-+ *
-+ * On family D the PVID is a raw VID in a per-port register whose value after
-+ * reset is not defined by the driver (it may come from the hardware default or
-+ * from an EEPROM), so clear it to 0.
-+ *
-+ * Context: Can sleep. Takes and releases &priv->map_lock.
-+ * Return: 0 on success, or a negative error code on failure.
-+ */
-+int rtl8365mb_d_vlan_port_reset_pvid(struct realtek_priv *priv, int port)
-+{
-+	return regmap_update_bits(priv->map,
-+				  RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+				  RTL8365MB_D_VLAN_PVID_CTRL_MASK, 0);
-+}
-+
-+/**
-+ * rtl8365mb_d_vlan_port_get_pvid() - Retrieve the port PVID (family D)
-+ * @priv: realtek_priv pointer
-+ * @port: port index
-+ * @pvid: pointer to store the retrieved VLAN ID
-+ *
-+ * Family D has no VLAN MC table: the PVID is read straight from the per-port
-+ * register.
-+ *
-+ * Context: Can sleep. Takes and releases &priv->map_lock.
-+ * Return: 0 on success or a negative error code on failure.
-+ */
-+int rtl8365mb_d_vlan_port_get_pvid(struct realtek_priv *priv, int port,
-+				   u16 *pvid)
-+{
-+	u32 data;
-+	int ret;
-+
-+	ret = regmap_read(priv->map, RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+			  &data);
-+	if (ret)
-+		return ret;
-+
-+	*pvid = data & RTL8365MB_D_VLAN_PVID_CTRL_MASK;
-+	return 0;
-+}
-+
-+/**
-+ * rtl8365mb_d_vlan_pvid_port_set() - Configure a port's PVID as a raw VID
-+ * written to its dedicated register (family D)
-+ * @ds: DSA switch instance
-+ * @port: port index
-+ * @vid: target VID
-+ * @extack: netlink extended ACK for error reporting
-+ *
-+ * Reads back the previous PVID and frame filter first so both can be
-+ * restored if enabling the new PVID fails partway through, matching the
-+ * rollback behavior of the family C implementation.
-+ *
-+ * Context: Can sleep. Must be called with &priv->vlan_lock held.
-+ * Return: 0 on success, or a negative error code on failure.
-+ */
-+int rtl8365mb_d_vlan_pvid_port_set(struct dsa_switch *ds, int port, u16 vid,
-+				   struct netlink_ext_ack *extack)
-+{
-+	enum rtl8365mb_frame_ingress prev_accepted_frame;
-+	struct realtek_priv *priv = ds->priv;
-+	u32 prev_pvid;
-+	int ret;
-+
-+	lockdep_assert_held(&priv->vlan_lock);
-+
-+	ret = regmap_read(priv->map, RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+			  &prev_pvid);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to read current PVID\n");
-+		return ret;
-+	}
-+	prev_pvid &= RTL8365MB_D_VLAN_PVID_CTRL_MASK;
-+
-+	ret = rtl8365mb_vlan_port_get_framefilter(priv, port,
-+						  &prev_accepted_frame);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to get current framefilter\n");
-+		return ret;
-+	}
-+
-+	ret = regmap_update_bits(priv->map,
-+				 RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+				 RTL8365MB_D_VLAN_PVID_CTRL_MASK,
-+				 vid & RTL8365MB_D_VLAN_PVID_CTRL_MASK);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to set port PVID\n");
-+		return ret;
-+	}
-+
-+	/* Changing accept frame is what enables PVID (if not enabled before) */
-+	ret = rtl8365mb_vlan_port_set_framefilter(priv, port,
-+						  RTL8365MB_FRAME_TYPE_ANY_FRAME);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to set port frame filter\n");
-+		goto undo_pvid_write;
-+	}
-+
-+	return 0;
-+
-+undo_pvid_write:
-+	(void)regmap_update_bits(priv->map,
-+				 RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+				 RTL8365MB_D_VLAN_PVID_CTRL_MASK, prev_pvid);
-+	(void)rtl8365mb_vlan_port_set_framefilter(priv, port,
-+						  prev_accepted_frame);
-+	return ret;
-+}
-+
-+/**
-+ * rtl8365mb_d_vlan_pvid_port_clear() - Remove a port's raw-VID PVID
-+ * configuration (family D)
-+ * @ds: DSA switch instance
-+ * @port: port index
-+ * @vid: VLAN VID for PVID
-+ *
-+ * Reads back the previous frame filter first so it can be restored if
-+ * clearing the PVID register fails.
-+ *
-+ * Context: Can sleep. Must be called with &priv->vlan_lock held.
-+ * Return: 0 on success, or a negative error code on failure.
-+ */
-+int rtl8365mb_d_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid)
-+{
-+	enum rtl8365mb_frame_ingress prev_accepted_frame =
-+		RTL8365MB_FRAME_TYPE_ANY_FRAME;
-+	struct realtek_priv *priv = ds->priv;
-+	bool filtering;
-+	u32 cur_pvid;
-+	int ret;
-+
-+	lockdep_assert_held(&priv->vlan_lock);
-+
-+	ret = regmap_read(priv->map, RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+			  &cur_pvid);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to read current PVID\n");
-+		return ret;
-+	}
-+
-+	/* Port is not using this VID as PVID. Nothing to remove. */
-+	if ((cur_pvid & RTL8365MB_D_VLAN_PVID_CTRL_MASK) != vid)
-+		return 0;
-+
-+	filtering = dsa_port_is_vlan_filtering(dsa_to_port(ds, port));
-+
-+	/* Changing accept frame is what really removes PVID. But only do
-+	 * that if VLAN filtering is enabled.
-+	 */
-+	if (filtering) {
-+		ret = rtl8365mb_vlan_port_get_framefilter(priv, port,
-+							  &prev_accepted_frame);
-+		if (ret) {
-+			dev_err(priv->dev,
-+				"Failed to get current framefilter\n");
-+			return ret;
-+		}
-+
-+		ret = rtl8365mb_vlan_port_set_framefilter(
-+			priv, port, RTL8365MB_FRAME_TYPE_TAGGED_ONLY);
-+		if (ret) {
-+			dev_err(priv->dev, "Failed to set port frame filter\n");
-+			return ret;
-+		}
-+	}
-+
-+	ret = regmap_update_bits(priv->map,
-+				 RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+				 RTL8365MB_D_VLAN_PVID_CTRL_MASK, 0);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to set port PVID to 0\n");
-+		goto undo_set_framefilter;
-+	}
-+
-+	return 0;
-+
-+undo_set_framefilter:
-+	if (filtering)
-+		(void)rtl8365mb_vlan_port_set_framefilter(priv, port,
-+							  prev_accepted_frame);
-+	return ret;
-+}
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.h b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-index b5b56ae..270f88b 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-+++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-@@ -34,6 +34,12 @@ int rtl8365mb_c_vlan_port_reset_pvid(struct realtek_priv *priv, int port);
- int rtl8365mb_c_vlan_pvid_port_set(struct dsa_switch *ds, int port, u16 vid,
- 				   struct netlink_ext_ack *extack);
- int rtl8365mb_c_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid);
-+int rtl8365mb_d_vlan_port_get_pvid(struct realtek_priv *priv, int port,
-+				   u16 *pvid);
-+int rtl8365mb_d_vlan_port_reset_pvid(struct realtek_priv *priv, int port);
-+int rtl8365mb_d_vlan_pvid_port_set(struct dsa_switch *ds, int port, u16 vid,
-+				   struct netlink_ext_ack *extack);
-+int rtl8365mb_d_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid);
- 
- int rtl8365mb_vlan_port_get_pvid(struct realtek_priv *priv, int port,
- 				 u16 *pvid);
--- 
-2.53.0
+Umer
 
