@@ -1,101 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.49
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795599663;
-	b=oXmSyJBv+0RGFzrXZ/UyhHB/68VVP40ryGhkkEb9skeEZZCqMUqogJFvYvbIAzI3jlBT
-	 KvG9r+Sd1RWPoX/a4lylPu0/1k5rGQhlN4KT6CKYnqG6FIAwf66oWqK8XjEdLrYXdeIsA
-	 M+s/sx0uRVCCO3DitSNwWjlKPYqpKGgqhEBepEiNiXWK1/c5bGHF6+zsNw+vB3ugal1tj
-	 DS4fzFJPs3sJbSSert2XxC5fin6bA9dsm+m1Ih3z9OEcmOUMVK8GYP4fjHh+I3cEJFYAe
-	 +X3CzQYWRJQLVxkKuXa7Rmj9Orr0FWn1zpH1ixb7+cFfVtX/XUw4HgCxrwp9+DbX+tQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599663;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=a+QvvX1J/45GVD+nOsmA65+xntAc6mMZyDzh90koLlc=;
-	b=kxDF944lu+F83CqT2wLAqGwuBMBlmvBTeMqZYRhJu68eBUZmuj1OPn2YIH+/WtvEtq5k
-	 wP4cFueMKekK0qyyOjNGwlt5HlN9VYPjXTG0Wmkbh6pGerYXP6TTptC/denR+rwbw/f8M
-	 OLYDD8uD42I9T1Kk9YDNQ1Cyz0MRx8tZtskNRVphsRr+Hh4HuDzDKJYcc8Bp1thlYDiY+
-	 9xvv+wfWV+d7nnOvvVuNk5UDC9voB2WcFF/v06NJz7hDzCpBmDbh8Km+TO3Vh3wOZDHod
-	 3Haox1gif7phWYIAjOOJPSBrDodTQZorqe89ui3N68XuihtaRLIelfVwOZXCcXkHg9g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GJ1QD+oF;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.147
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795599785;
+	b=RRSlGMjAP8yzDNMr0bgUnm5DAoJG55maKiAK/QVhh+TbyMLRyG1NV8rOR7NVCPVp+aw1
+	 qobb8bsX2af7+/+7sYJ5KuGrzNb1kPAS6Lwj0SngudHdwyvyJ5gNzNtqWEWSth8v2P5/s
+	 V2v8K8kEyvtzE/Plm1e9bu/TQw/URW2NDIxHPSxKiy2g+U+6IcFLRSdOqqwLVBuSWp+4s
+	 /7KbWHqbxgcL9sQMQsVuJNwaJwZ02YXA+Wlgc9Plfh803ZgftMlg8V7FL09C+kNmB/muJ
+	 b8dZbuWUGNjtLtggsZkHevfhNE/YQlfZfaye5/mJ9No5KMmDs9hHaqxDSfdmci+UerQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599785;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Content-Type:Content-Transfer-Encoding:MIME-Version:From:To:
+	 Cc:Subject:In-reply-to:References:Date:Message-id:Reply-To;
+	bh=q481VDhZEcw4c6WIDWUz65RfwNEc4JNVc4TqgIZ6vPM=;
+	b=3kqF2a4fxrchlgOeIPfb3TuwfjwhnPxpD0L38cthAORtRF96uddE+6NjkX7Miu0n3NFu
+	 0v+plMeAVjJ7xx9u8FJrnUtuvz9y9hl4M9QFdL3XDjWPdYfofWlrrb8ETGLfZI6hhGY6A
+	 3sw5ysShP17FXliMCNtKL/cx/MUfrF23bx/zISazpkwOhhvUMXaRkTVqjraXtRYvg8FGt
+	 swK5yAx5NK9U9lFzWlXhrLDFgO+YwFGs9zyBge24tmKwuB8Gkncpx1TYo9QEeQ6HwxKk4
+	 tLIMkf+TqJ0i4YlyD4nam8BMF90Kjmhd+7JZmLbj1CoV9xUKNtnD+GpZ9JA1Uz0Z9aQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ownmail.net;
+	spf=pass smtp.mailfrom=ownmail.net;
+	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=enZ0Swn5;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=zrHnSnO6;
+	arc=none smtp.remote-ip=103.168.172.147
+Received: from fout-a4-smtp.messagingengine.com (fout-a4-smtp.messagingengine.com [103.168.172.147])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BB5A606A32D
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:41:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BB5A606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88691606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:43:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88691606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GJ1QD+oF
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso43614045e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:41:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795599661; cv=none;
-        d=google.com; s=arc-20260327;
-        b=BFmBMW+ByJAL3UFvRkM2GaPCTGo1cs5R3FyyCE8g2yt2cYtf0HMXJvTX39Smv+UvZX
-         6UXb3an2BD5sKPf588jEWkoDV8M2yskiuHPvI/lTwJR2ksnic1gTmDBSo0tI8djmnAGZ
-         KhaqWDwJOFs9boYNCyNMfsq4RWL0Dj+RTkDljwVoe5GwxBY619IFt98Pf/rFy5sXBZkL
-         k0Fb80ViOg0XtkRPIRqRq1IhvnMikIbMjyQltr4oqM9lvceprcBS7m3n8zna2SJUKKqH
-         UIQZ4X4QNlRV0KGVt7wQsEvpx3BdgIq7FCZTr6K5UgQHsyfoxmaIO44SmUznUTx73DWt
-         tL9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=a+QvvX1J/45GVD+nOsmA65+xntAc6mMZyDzh90koLlc=;
-        fh=bRophFC02EEuzfO+X4tfPUhNKLlD6Gq91/+1wcJxDr4=;
-        b=HHGYE5JGCwU8kDANsitWIoAo+4RYmoUTyz84XPeh99LMtO35GXzN7GY8PWI8IVMKV0
-         08lkHYML/omnixkT1UN5zw6NxjGr8thh+7rxtQ5U531PhFB2dSLsT6a9NqkG1M3vDMrp
-         qH9iqAiotSwliwKqUqpapjpSPaueU2k6efEjZ1UVccsqo18ha9BAaeHRIFD/K07HFCpE
-         ZjzHLPcSrCSPYsXL8+9k7ahD1xpRSRKJIW4YiGfZPNcd8NZCSvIP7g1vC6DGuQvebN7U
-         1HB5tjPWuQk6qZuw6UyqFO/iMtWFo5z2/YyNDqT4Y0b0yh8sNtfeBmQcal7WZzlYmZiL
-         LAYg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795599661; x=1796204461; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=a+QvvX1J/45GVD+nOsmA65+xntAc6mMZyDzh90koLlc=;
-        b=GJ1QD+oFh8SkRWfo+pbs/f9JnMVUt+HdqnKSkFRyIzWSczlekD3SaAbGo7PxJtz2Zw
-         0zBG98WZKe3bglm2YxEz6NCauA607kV+qhgjcQJFsswK3Hy6A+7gaOYUp5AwwpROsdZC
-         KD9cXtu69YEr16otz5uxYwX01E5QMuZNmC1iey3momSm4cGJI5lPn9Z65P+Vca314Z4Z
-         5K4anX9tuiYqEYe7sUd/BIhipvDK3rzqevSKjheTko8ZIQf7ETsbBL+LCV8kWJY6wiwc
-         /K2YWBuAQ6DawVVZhDpqkfiKXre5+EcUP2W+HsWf9YSp6qHrSF/cBvAJWQgF4MhY0RSw
-         bf0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795599661; x=1796204461;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=a+QvvX1J/45GVD+nOsmA65+xntAc6mMZyDzh90koLlc=;
-        b=UzsDL2N0N9ghZN4AAERuJyo9+4z5oBXiGd2dOvCXZT/KVDUjCwsGTQKz4dOuD8g8Oh
-         z2qvxc2oKh2p/vdj8lIvb2Wxqr+rvFiVYE544yUHptSTejn8RMMEFu3m/SOEdVoTu4FS
-         5xj10jknKsqpoIQ2oglUdio5M0zcZXeH93ynNdLlevi919BpMaQVrWf6Hx9zLTRBppN4
-         cNfjU5CQo7rcgpVrhHSa3/m9rRuLxIRSWrzPjoWlWMaC11lQvP/OdPLRMJMJto7KKQ4S
-         QTc+0yJWh6GdOaldvkjgzS7s7I+83/v4uLTtC4rdto2S+Pmbz07sHBb7icv4MS7+j0tP
-         Bp5A==
-X-Forwarded-Encrypted: i=1; AL+hErGuhEX0MZ4ACct+nC0JA83hcqVQNZAb7uBzfLhIYOFo+ZLL5S5hZzUsl6qepWbb8mMaTWrEswTxLKSZ4Rs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z93ztTdQ9GZgO3COtFaGIenoDWOX9zKVaqKZ9vSxmizsD+DtM3A
-	7+564OyB7mwPNoFjtfmDpTZ80yB5bY/zQyWijVx8vPzHWnv5ce7RCFq8mhkUhuIxf6u7G0z9RwZ
-	StNbHxPZ+f0KcVwRmKBmYAhW+rjOK+us=
-X-Gm-Gg: AZFdTZc0dI5tbgWvfLGJkYJT2Z/rajw30nDx9ZHFe/XLxOGyaEtedhx5KXH5zVUI8HH
-	rYNOlO9CqiaJ6KWJTWNoYZXBobD/ISLjBCF3vv3O+H8CHU+4qkcbAGQHRUwekye5qHXL6xqBmxx
-	jEvWJAh08YuyGhppMGuhsPgdDIsPXs7a94hC8Bmf+vrSQqx3gWkaCzyU9cNG8LSpRd+pRLAwGmt
-	lrcfysPFXWosf1f0Fu7vKcrMrAuiruB8MFFQd9r/9+v07eRd9WMjJPBh4Rc/QtmKGuOKOf4r/pm
-	fHrsTe/3gcnZuDvvwcsbxCGc9OSRFStThnGWIvLyWVZq+6L910cOsFEtat4LFzh0CVDtC3Ah8Km
-	NyOgC74vRlPFh8LGDwQEgjmWh9leLn3FlipNds8bAxedqEShBR1I71l8jFEeXriD3UoKiL0TPcd
-	sADt0WsFBdaZ//B1Y=
-X-Received: by 2002:a05:600c:4584:b0:4bb:6c71:b269 with SMTP id
- 5b1f17b1804b1-4bb8881fbd2mr341861005e9.28.1795599660916; Wed, 25 Nov 2026
- 01:41:00 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=enZ0Swn5;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=zrHnSnO6
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfout.phl.internal (Postfix) with ESMTP id 4EE97EC0BC6
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:43:03 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Wed, 25 Nov 2026 04:43:03 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:reply-to:subject:subject:to:to; s=fm3; t=
+	1795599783; x=1795686183; bh=q481VDhZEcw4c6WIDWUz65RfwNEc4JNVc4T
+	qgIZ6vPM=; b=enZ0Swn5ojZvj/hk0iEuOtaZoIL3oyUIK2pdQ8RX+fqpHiMMeSp
+	CQ1QCjZvRIXY7pxjZdorEpJ11hNDQdFilDnGAmHWXbFDm6qUTyB7S968C8dBB9ND
+	93A+I75Ake7jdwPLwDoReWZ57ikjY/vy355h8Ox1zUKiojCdSz+ay4vRB1vKp/qJ
+	SSaCTybAYr4fiEfWoRt+vipY/WkfVu9E/Ju/ey1bSOHSMVXbp7V+b6c7W+ZXztga
+	n+dSDDpsSbvPlb5y2zMdlYflCjXaDozIGoP+xCGCK9ktMRwq5aBGOQhglW3575z1
+	hC3x71l0nc4LF7JXP+AR82w7sMpaMk42j5w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795599783; x=
+	1795686183; bh=q481VDhZEcw4c6WIDWUz65RfwNEc4JNVc4TqgIZ6vPM=; b=z
+	rHnSnO6eiA/wZ7BeZ/LBOkjgo+YhbfCpUJ305+ACCeFSAJqXwn5bpqEV1l8GwWCw
+	a9eKVHMjDYS1orZK+9cThCe6flTH7TPWOXaG2HxUjBnmShtSVcge0K0GvYGaA9bk
+	kD9HbmbOI9sNTh0gJd6Ok5DczSBWKLqRnXGzfzilvXnEUA3DJPWgh5OOIPiiutXk
+	cK0R2MkIwnn53GUppU4e8v5zP7PFGALoho2ioDljJ02FQ7Lr1q2KTlHhvodoGW6k
+	G7yvNnWQeiKzXtXcGAKrcmGDu6+Am7sSfISsenLFN76PKpVtXGzvshxMV+AREp0g
+	v+/jHyOQtB7LNTf9U5mdw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ownmail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795599783; d=ownmail.net;
+	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:qN9qRoeesd6sWgTsj1hS5Q35Ywdr26MDojuE5Gg8nqz1Qh4
+	R7LIbkwaIrGrEpJPmoPe7P2b415IhzGnO3F48o2qTwF+KZpbyq/xMKZZMT5bHgmD
+	VWGPifMDWnhrfcTk1yMvRgOjisZwPWpOPZ5bKGyMtYOo4kQXmZchK++bLHPWSM0j
+	kN7JuUnimHld6CCee4lmq7Merq6ur7MVYzt3dqw+2pPwpC37ZfN1/JwVFT9YWbj/
+	ZnsvPmHkmpzALIhsnPA/icgI952epDen0V3uZpPDAfYSY4MC17GgoND1eIpJ0GBg
+	+QT3gwsX/pGYkAfSbF66eWsC99pHXkpeTp90dlg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,reply-to,
+	subject,to;
+Message-Instance: m=1; h=sha256:1FZ2L6wcNHT10q1BDTmPA0+4/lCEdeaK4RrjjsqiU94=:P9Y0zxjMw3n++5NuGF9acER1t2vANIhfNr02E/IAfOA=;
+X-ME-Sender: <xms:pq0Ga0gvnMjsPNn7hFxM9tm5ZSh_uk6tKvOr1ZKk7TV4adAT9wR2-Q>
+    <xme:pq0GawvFIGGEr3kRpgl8S4ThN5_YGsTm3fmVLdRG3CyG9DDC9q6wprmUQElRN3sV6
+    KSQOfWE6m0E27aKpivNnXiosnBf6S4lavscjqrW3n8cWHBTWg>
+X-ME-Received: <xmr:pq0Ga0sVl8O5o7v4aPBLT8589BnZUPe-h-vDKzMr6gAIhEoG083UerUinHm_oumKH-odmv_xvw1ND0hfHip92beX_oE_Sy0>
+X-ME-Proxy-Cause: dmFkZTFyuWDnb16KytKZXuWsHKw3qfQNPsUWbn9XFgZbAZXVvLcXDxvEW/qdDl+iETJmtK
+    9FJLxVLCuQpO6dVhqnNzyV8JdgbNsEtdGMW7A8ec7gwh2leOOnOIAs9x2csr/W5VdqnchR
+    7Eac9XLEkhajGCQE4qLIAGLBjELBdEiKylaQfvxElFLAeatxAgtbPssOqODSrCcf5Qen4i
+    aPBHufUrP2HcIeque251pHcAkZJlMVwjJOXA4HZkULmtwhQnHop5Xql5SrbDk16M4iErl0
+    20l53cnEhdSpwfyZ3UcqAUZPiTKH+eoPl68cK8WgpIB4EQG2bXkhVeC692zDftk3kQU0Au
+    Dosq+Qw5polpcy+1uX1XIoDjJXP3iEVFq3yV1FQSYed8KwelLB+HSxSZ9RSHAHNubULuWe
+    ZGPLEunk1LYbsviMTDJFcphOylrVj5X/y2s9fpUCWF6jHuT7mkr/zZaJqSNyDNqiMKBaDl
+    +9I4zNcwTZb85mf4VlbrFsc6QediR4xjzQj+ivXeKH8YC7hMUjC9RxO7DkwuZRW4VRD/GP
+    AmCY5EGXl7RYqoZQm3Yo3+FGEqKVoRNaLZ6jkr3qazZQZDy2cEpNimrFCUhNk87ePTY+5O
+    VfLH5AYhZ47qkhVoJLDfi803oVQ5b3QR+zJSm8tRouwLhauCXwyl2QRsPLIw
+X-ME-Proxy: <xmx:pq0Ga2q6GeDNe-CkLwNhGOtslys55g1A9mJbMqdwWVQxh6LqJuzCOA>
+    <xmx:pq0GazIjkm3awJrDZaYHjOHlVBScZFMElKA1KYJv2XMDl-uI3rEeRg>
+    <xmx:pq0Ga2snDl9LNPBLG7P4nkcEz0XP1SACK_K-tuLpN03zGUkDjVpQpg>
+    <xmx:pq0GawB-kDNfxdV_cRgiJa7XNB9v-kxwa9ykhNdzYYi4BgA9Ck8Nlg>
+    <xmx:p60Ga2qvuDqYzCaTO-yvtMuSIbrDOeLZ0HNv1jxJycbihqLepmHX6C3g>
+Feedback-ID: i9d664b8f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 25 Nov 2026 04:42:59 -0500 (EST)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,117 +118,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123135148.1146372-1-elver@google.com> <CAN_Opa_TKjDAWz8EQaw6ro=joymwurpcy-k_x=q4E6TLt6ZpUQ@mail.gmail.com>
- <CANpmjNNOVD3KVrau5KD4WzqxoMkZZoJCfdPzvjLmZsGy9zXBug@mail.gmail.com>
-In-Reply-To: <CANpmjNNOVD3KVrau5KD4WzqxoMkZZoJCfdPzvjLmZsGy9zXBug@mail.gmail.com>
-From: KunWu Chan <kunwu.chan@gmail.com>
-Date: Wed, 25 Nov 2026 17:40:49 +0800
-X-Gm-Features: Aa3M54oTDKYDq6kmOJwEfEHGGc7qMp6rlREKg1yxsT880KhszTaPaWfsNoxdMeI
-Message-ID: <CAN_Opa9zKzSptpNOnCzaW_EK0oT=HDDVoJxy5Q0crM+6b9bR_g@mail.gmail.com>
-Subject: Re: [PATCH] kcsan: Detect cross-CPU races on {READ,WRITE}_ONCE_THIS_CPU()
-To: Marco Elver <elver@google.com>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, Alexander Potapenko <glider@google.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, kasan-dev@googlegroups.com, 
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
-	Dmitry Vyukov <dvyukov@google.com>, linux-arch@vger.kernel.org, 
-	Thomas Gleixner <tglx@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+From: NeilBrown <neilb@ownmail.net>
+To: "Jori Koolstra" <jkoolstra@xs4all.nl>
+Cc: "Askar Safin" <safinaskar@gmail.com>, amir73il@gmail.com,
+ brauner@kernel.org, cyphar@cyphar.com, gregkh@linuxfoundation.org,
+ jack@suse.cz, jlayton@kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, shakeel.butt@linux.dev, tj@kernel.org,
+ viro@zeniv.linux.org.uk
+Subject: Re: [PATCH v8 07/12] vfs: short-circuit MAY_WRITE access for
+ O_DIRECTORY opens
+In-reply-to: <1709003566.2632299.1795599064030@kpc.webmail.kpnmail.nl>
+References: <20261024213539.1307600-8-jkoolstra@xs4all.nl>
+  <20261125062146.940336-1-safinaskar@gmail.com>
+  <1709003566.2632299.1795599064030@kpc.webmail.kpnmail.nl>
+Date: Wed, 25 Nov 2026 20:42:54 +1100
+Message-id: <179559977412.1728055.14071803405199089608@noble.neil.brown.name>
+Reply-To: NeilBrown <neil@brown.name>
 
-On Tue, Nov 24, 2026 at 6:24=E2=80=AFPM Marco Elver <elver@google.com> wrot=
-e:
->
-> On Tue, 24 Nov 2026 at 10:54, KunWu Chan <kunwu.chan@gmail.com> wrote:
-> >
-> > On Mon, Nov 23, 2026 at 9:51=E2=80=AFPM Marco Elver <elver@google.com> =
-wrote:
-> > >
-> > > READ_ONCE_THIS_CPU() and WRITE_ONCE_THIS_CPU() identify accesses to
-> > > per-CPU data that are intended to race only with other contexts on th=
-e
-> > > same CPU. So far they are plain READ_ONCE() and WRITE_ONCE(): no mark=
-ed
-> > > accesses involving them are reported, incl. from other CPUs.
-> > >
-> > > Make the new accessors assert exclusivity but ignore same-CPU accesse=
-s:
-> > > READ_ONCE_THIS_CPU() asserts no concurrent writers,
-> > > WRITE_ONCE_THIS_CPU() asserts no concurrent accesses.
-> > >
-> > > For KCSAN to ignore racing accesses from other contexts on the same C=
-PU,
-> > > introduce KCSAN_ACCESS_THIS_CPU, which makes KCSAN keep interrupts
-> > > disabled while the watchpoint is set up.
-> > >
-> > > With that, any racing accesses (incl. marked ones) from other CPUs
-> > > involving READ_ONCE_THIS_CPU() and WRITE_ONCE_THIS_CPU() will be
-> > > reported as "KCSAN: assert: race ...".
-> > >
-> > > Suggested-by: KunWu Chan <kunwu.chan@gmail.com>
-> > > Cc: Thomas Gleixner <tglx@kernel.org>
-> > > Cc: Paul E. McKenney <paulmck@kernel.org>
-> > > Signed-off-by: Marco Elver <elver@google.com>
+On Wed, 25 Nov 2026, Jori Koolstra wrote:
+> > Op 25-11-2026 01:21 EST schreef Askar Safin <safinaskar@gmail.com>:
+> >=20
+> > =20
+> > Jori Koolstra <jkoolstra@xs4all.nl>:
+> > > Requesting write access on a directory can never succeed. Rather
+> > > than performing a path-walk to determine whether the target is
+> > > actually a directory (-EISDIR) or not (-ENOTDIR), or does not exist
+> > > (-ENOENT), etc., we short-circuit to -ENOTDIR.
+> > >=20
+> > > Currently O_WRONLY for directories is only blocked in may_open(),
+> > > which happens after we have the inode for the target, so after any
+> > > create via O_CREAT|O_DIRECTORY.
+> > >=20
+> > > The advantage of short-circuiting is that we don't have to add even more
+> > > logic to lookup_open() to differentiate -EISDIR/-ENOTDIR. Also, for
+> > > filesystems that define ->atomic_open, handling this cannot even be done
+> > > at the VFS level, as we can't know ahead what the result of the lookup
+> > > will be.
+> > >=20
+> > > Suggested-by: Christian Brauner (Amutable) <brauner@kernel.org>
+> > > Reviewed-by: NeilBrown <neil@brown.name>
+> > > Signed-off-by: Jori Koolstra <jkoolstra@xs4all.nl>
 > > > ---
-> > >  include/asm-generic/rwonce.h | 22 +++++++--
-> > >  include/linux/kcsan-checks.h |  1 +
-> > >  kernel/kcsan/core.c          |  6 ++-
-> > >  kernel/kcsan/kcsan_test.c    | 90 ++++++++++++++++++++++++++++++++++=
-++
-> > >  4 files changed, 114 insertions(+), 5 deletions(-)
-> [...]
-> > I tested the patch on next-20261123. A 60-second rcutorture run
-> > with strict KCSAN and interruptible watchers completed successfully.
-> > I saw no reports involving got_idle_tick or tick_nohz_handler.
-> > There was one report involving move_linked_works / queue_work_on.
-> >
-> > The latest KUnit run with kunit.filter_glob=3Dkcsan.test_this_cpu_* gav=
-e:
-> >
-> >   local_noreport: 7/7 passed
-> >   remote_write:   6/7 passed; threads=3D2 failed setup with -EBUSY
-> >                   ("rcu running")
-> >   remote_read:    5/7 passed; threads=3D16 and 32 failed
-> >
-> > The -EBUSY log shows that rcutorture was already running. The
-> > remote_read failure at 32 threads occurred in both runs. I'll
-> > rerun the KUnit cases with rcutorture disabled and check the
-> > console for the failed cases.
->
-> Thanks!
->
-> > One test question: should local_noreport skip when interruptible
-> > watchers are disabled? In that setup the ordinary watchpoint
-> > path already masks local IRQs, so a pass wouldn't exercise the
-> > new THIS_CPU behavior.
->
-> The test will pass in both configurations, so a regression in either
-> would be caught. Disabling is not necessary. More coverage is always
-> better, even if it may not seem useful today.
->
-> Thanks,
-> -- Marco
+> > >  fs/open.c | 9 +++++++++
+> > >  1 file changed, 9 insertions(+)
+> > >=20
+> > > diff --git a/fs/open.c b/fs/open.c
+> > > index e43f02ff64ac..4334f30bb7ff 100644
+> > > --- a/fs/open.c
+> > > +++ b/fs/open.c
+> > > @@ -1343,6 +1343,15 @@ inline int build_open_flags(const struct open_ho=
+w *how, struct open_flags *op)
+> > > =20
+> > >  	op->intent =3D flags & O_PATH ? 0 : LOOKUP_OPEN;
+> > > =20
+> > > +	/*
+> > > +	 * Requesting write access on a directory can never succeed. Rather
+> > > +	 * than performing a path-walk to determine whether the target is
+> > > +	 * actually a directory (-EISDIR) or not (-ENOTDIR), we short-circuit
+> > > +	 * to -ENOTDIR.
+> > > +	 */
+> > > +	if ((flags & O_DIRECTORY) && !(flags & __O_TMPFILE) && (acc_mode & MA=
+Y_WRITE))
+> > > +		return -ENOTDIR;
+> > > +
+> >=20
+> > Please, do -EISDIR here, not -ENOTDIR. You returning error here, **becaus=
+e** user attempts to write to **directory**. EISDIR is natural here, ENOTDIR =
+is not.
+> >=20
+>=20
+> That's a fair point, and I have thought about this. The downside is that
+> if we return -EISDIR there, that will also be returned if you open(O_DIRECT=
+ORY)
+> what turns out to be a regular file. So you may then get -EISDIR for someth=
+ing not
+> a directory.
+>=20
+> The semantics of -ENOTDIR here that I had in my mind is something like "the=
+ thing
+> you are trying to do can NOT be done _with_ a DIRectory." It made a bit mor=
+e sense
+> to me (but only a bit.) Really it should be -ENOTWITHDIR or something...
 
-Hi Marco,
+The problem is that "flags" contains an invalid value.  The correct
+error for that (according to open.2 man page) is EINVAL.
 
-Makes sense to keep the test in both configurations.
+NeilBrown
 
-I reran the three new KUnit cases on next-20261123 with rcutorture
-disabled, using the same image with interruptible watchers on and
-off.  Both runs passed all three cases at all seven thread counts
-(21/21 per run, no skips).
 
-With watchers on, I checked the console reports for both remote
-cases.  The two accesses were on different CPUs in each report.
-The earlier -EBUSY and remote_read failures did not reproduce.
-The separate 60-second rcutorture run also completed without any
-reports involving got_idle_tick or tick_nohz_handler.
+>=20
+> > (I'm human, not LLM.)
+> >=20
+>=20
+> Glad :)
+>=20
+> Best,
+> Jori.
+>=20
+> > --=20
+> > Askar Safin
+>=20
 
-One question about the IRQ-off path.  A local NMI can still write
-to the watched address while its KCSAN checks are disabled.  If
-that changes the sampled value and no other access hits the
-watchpoint, is an unknown-origin report expected for THIS_CPU?
-
-Tested-by: Kunwu Chan <kunwu.chan@gmail.com>
-
-Thanks,
-Kunwu
