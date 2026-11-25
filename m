@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795598746;
-	b=wU5/v9tyC6zt2ELuDf7nP8proplu8snMHb3iOYA6xeFpPOFJ/o3SsjQCnBMQQv4VEQj9
-	 Ta7E5DA8u9Rj8kpMoDfxVVgj7DgWDCnQbVFWKJ0PBq1LkA7hHWrOB8vXS0BulCGLGWys0
-	 1P2PUGFJaRRCNtmkX5K2hU/uVessSK2vZxdTlkNmAVJK1t4dRPveI366+FP///cCsri9/
-	 N8bqXO8rI5qTnHuKjMxS9Qc4Eskrb7klVyoevCKAMFkvTVCkOb04JRZ5gQUdkzuhml9Xd
-	 AqeZhRb6WOgpHJhWy/F4uZNZbhlqIB3Zl98iIbUXmI9PVfsDd53nuJWSPA3WbeOVmFQ==
+	t=1795598752;
+	b=IYphyEDnozoK//DX+K9u2n8sYQaufOxILxQ2Ctr+5pVrDfr2Ed462YZhiGLWEfbKP8cV
+	 pKiBdpdF1uI0MS29UBuei3bRkoWK7qio+oomWtpt+NtopaIREA0knA4HBocqqIf0O//rr
+	 IIKUiFs251CeL32Mf8c+TsEHkIxtVnC5+EwyjeKyL+zSexZboHr1xSK5m6H9H5ewSjeDp
+	 fxtEfMjTHxorRyTE/2dlOgqB3x2d/IfPFiQMkkdIoS1Td2S7O1jLDoL17TKgQTIdXx5wT
+	 EPkpTmBA77WebaGSoaH1eWkwJ4fbQyQWhHHfhtsrdNn/Og7ObTCMWm85IRwUU5ZWK3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598746;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598752;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=MA+Kx+uKQP6OM3muhrQQ7gMLzt5UOS5UjDB/PUfvv7E=;
-	b=VS8Q23HB0/RJAvL2fMDSOBjJD6H1hKLh3Ex4xGDueug7MuShGpf2q6FFffuXL0GSCUa2
-	 g/g/j7h3XImyg5DIahX+NmFNlPIyzZrg/OYvWyHl/WwxFQDGEcU5HzbpzJQ64BdzE3DaN
-	 UpF8l/H8h6tfdcYRKg1tO7hsUlSL9mfRQila0rztJqMz6nAaiSuT0fxtMaU2iopPdtKR8
-	 7PViz5Ou9ihhanpMQASMfd2mSJQCnb0bklYjJiH6Z1P2wQ3J0ElQaxFXTmy1+eEZbn83T
-	 mz5p0jzz7TbGTeWhmok1urgvMsXNnmR4yP7c54rXErgqINfZz1WToOp7xTthywLD4tQ==
+	bh=X58yRtM32801RbbTP1Ym4v2U/VBocOatJPea1zyP738=;
+	b=bhKwjj4m4Peg5v9xnXxAWRvS/9QWOEiKq6lFHOmo7NHshDkdR70oFoNG1eQp1xHrEZRy
+	 J8JGruL2LgxmZS8Cgels44d0sEf8SVLDkG1gw7TZMezYiznu0CeGfrRkAzvNPwxVGXxF0
+	 odKH+gY5TM9O+Wdt8f0TuTIFHVd3Mg5Ml04+l/3KEzuETf9jqjFRd8oeCey+Eqkj0SBsb
+	 LVEknpWezdgWvnCkwWwDu2EtT+XjBtZyNriBL45e7l6qumKNk73twt6m4v89Gglgp0t7v
+	 SJk6cU15rv9UW6cdcJY3Qm1/SjWNM4SHZg3fmAmRxDR4ovlBAdNDNrHWjBYduPKEBYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sBMrm9gd;
-	arc=none smtp.remote-ip=209.85.215.177
-Received: from mail-pg1-f177.google.com (mail-pg1-f177.google.com [209.85.215.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hsZvZPJb;
+	arc=none smtp.remote-ip=209.85.214.180
+Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 085C5606A33D
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:25:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 085C5606A33D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A08AD606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:25:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A08AD606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sBMrm9gd
-Received: by mail-pg1-f177.google.com with SMTP id 41be03b00d2f7-cde5a7d7849so2382760a12.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:25:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hsZvZPJb
+Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f037bc348dso44499245ad.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:25:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795598745; x=1796203545; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795598751; x=1796203551; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=MA+Kx+uKQP6OM3muhrQQ7gMLzt5UOS5UjDB/PUfvv7E=;
-        b=sBMrm9gdnqus0HEyZ36TPEXC7ztphsOoxttRcx58PwveXj4ts+/sEZ3Pm/8yQLq+4m
-         pqiE1cUtwgmMxjyyEqI/KrkAg5MG3TWGdH1LxO4BdY/iAHEFgmy3yQVg7I29/MTVqMIs
-         I7fOxdpjjiMPL/u1w1D8E79viUZD/8ZcSvyAugxA1Up/CqFm2BPlG6vnCrKj8pEmnvxg
-         TCHaA4e7Au0f6q81Zfvsg3nmHG6KG+MBtr7qqQeqWbELDMi0GOwaRuqH2uMfCe8Nwz4N
-         SrKiuqSmRcdurwl9gZHN9kpTjVe8v8WuFtJaYgZUo2tJuVdg1d6+3QH2DXtXegEpyZfP
-         cW3Q==
+        bh=X58yRtM32801RbbTP1Ym4v2U/VBocOatJPea1zyP738=;
+        b=hsZvZPJb3NT4UDJ0b4V8Kr/96kKPVBcBqTFr27/wnRwqcHCMOHxQDXlvpc25xjNMLC
+         egvTft9ijtp3Ya9chXTMNBstVwIjcYAaGI6IAFOOBW9QwHZ9U41zX94t0jqLvUcDbqFS
+         2EwZE4KmYTVyD5CSsNeO+MeAL8lpSebZJahoNvWVfvmOMrz7Kmkv3bdLQ8gBPq3OFFg1
+         Oc7J5Ts8p7MCaSnRWkWBXZnkBwvqI/Qv62z3ibl6qPBqKYwso+FsSuJRefrcHSIenEwp
+         A/3lo130dlAT24vgP6hyJyVeyjChqDMY6x89It2W+gU5pkU7dqBOlVCVmWOrpirr7tft
+         3ZJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795598745; x=1796203545;
+        d=1e100.net; s=20260707; t=1795598751; x=1796203551;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MA+Kx+uKQP6OM3muhrQQ7gMLzt5UOS5UjDB/PUfvv7E=;
-        b=QGL3EdGyukuILnUqbMWbUA5/SOTWBpcKAGszlLot+oKx1Tg9Chb8lT/OjUPaBHssUG
-         77WGfdsVdv1sgxkUbdjmpjKflctCZ0o6wDUtKcGqDZvYgCwHF9IHStZxrEbUrcf/A7Wf
-         ffyH06NPCYZaJElMf4yBs0G249+w48NeXH/Gr567W5bIbgA7a4v0KAdhmI5QgNs+wNZ/
-         xsSaYhk4sTPP7mSepXEvKjjcCsuGKBcqpirQduD5WpyEBrGVFfaYhPr27CKHfYxf/agA
-         l6ihbHQtaIFSJD7i21E+DHCyGzM5ci2TO+TQMho8tKAi9bQreNvkcO6WoYeIt6nROYK1
-         842g==
-X-Forwarded-Encrypted: i=1; AL+hErEV8yTbsLa1jS8jiDPbs2gQCb8g/4vkDdMm6C39ya0XtWyX0OC6FfCVJ3SBUDSoNZUBxD2H2w4RYyyEJ/o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8IKBCqWT2zhVsx9gY34bgnuk2RIJA9STZsbs0RZOmbGxpn6xSL
-	m2aTEDOg48D4o1kWql3dii4DETv6EBKMhw++pq4jnjqXAZWKCWclfL34
-X-Gm-Gg: AZFdTZdTrg69Zrv5uPfjikL3zU+kQL2BJEEkrzArIUkAm8PojVQ0trQ834k0tEQPiAm
-	ZVvaqr9klGcEzQbk48yeq8EzL9TsPEdxRlljp9j0y1Cw7u6mkzPe4h9LWYwSxZ3PVO8n5FgEkra
-	HdO3FeB3a0YDccp9r+xraIKq92Svjrh5tJqPP5c75TAXHwjvAbd+DJ36NrcHtyOlV1EyLYPBi0r
-	/lefXBHroNNRNQGz5VWp7s8J+P9HyeLhWVblMlWBmMwDV9I5BFoTAeOgSf7FYzAGI+gHg1Z6VE3
-	Zmdb2KgduBll0yxpUV9nBedN06XhZXX+b8yifaWZ8e18+IwsWFeM8OcmDIh2iSt3fXcXiyR9KmQ
-	KILtzeZDlE7mCUlQTvDjF72BrWzGYO3zRrHq4FJyox0HCo45BWI7Td9BC1XYeuzmbFJlqTuiZXu
-	lOBNLIjPnS172eMnQFjy9FXhvUSa1+fcpTmXxZNyaLQRUAzjODIPjxeXuFOupFBt5SynqOKiX+W
-	Heu4UfniP8OcmiEsuZIhfBYNsEdtJSSWnRV4b82pKE7l0tDOTsMGIOsg9/oBuXO/w7YCo6YG5yC
-	P+mNg2YNpSMA5f1HSeulrqMJUIC6qo1CLw==
-X-Received: by 2002:a17:90b:2f0e:b0:3b4:fd89:5f97 with SMTP id 98e67ed59e1d1-3b4fd8969ffmr544920a91.33.1795598745341;
-        Wed, 25 Nov 2026 01:25:45 -0800 (PST)
+        bh=X58yRtM32801RbbTP1Ym4v2U/VBocOatJPea1zyP738=;
+        b=w32yuwRTn6LeRI/6ae/ozVxrrZuf5/HYNZNl6SR2+GYVnEiMS83JsuVMLmTueyArSZ
+         OX8ncPbJS92b4iqARptocDjfXJR0Aj9YbSjSkbtZx8k6AfpRYvtDIWLrnyTnEH5XeXlU
+         HYQCN1QiP4mezJ28yDSJq7wThdxi2VNfcnxmVRUHxxKkPe8w+0PcJAEc8ZgFQ9MAY7/F
+         24RZwo96U9A/tZZsYBlFma/xnSfSfrsCUGf1Tajtqbq1oW2W36y59VeCq43qHy1DjVLs
+         bsjN4E6Ye6FCmKdVMPikA4pNM/0m0E88r3MG9GB1EdjQZMY3Ruy7fnUgWsSwxjagD0S0
+         JTNQ==
+X-Forwarded-Encrypted: i=1; AL+hErEzzIBlw1eKRAcglszz6FYL2woPpcO/t5fS7k4ekmSku+m9mt8ReaKAck3hMj6I6kFIXPL1PCoT2Kta+f8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8VwZdeWtw1YerKvS7BsBGVkgA/bSEdwW6Uh3vDDNEint6EEJxR
+	Kc2Hsg9D6IgfnaKSe9WB3fZeiBR9Vq61ADnPfndlonkz6oXMYBhWDEMh
+X-Gm-Gg: AZFdTZdfb6dmUgWqK3MrC6nI9J0oa+3Ohen2iPdaQ5T32ooPMB6KxY9ef1YLZqhpyUa
+	P7WjgKcSHAIiiobwF+QD2WV4Y+120zmLhluFSU3KUosXmpTuByyfMdKqUV8LIQsN8n2B/ikaDzd
+	LLmlSGD2e2rEnflD/TW15wYZtQShXgseJV9+jy7RyZwjQhp/Xlpd89Fp01hSAjdA+oB5Ug+7810
+	xxuX91R9DnQVeHgJtoQyQn7zrN+Ce0gN8oLr/bP4zIBDGjbm/WjnM3UUMxJQgmD0re3jz3IKQZM
+	pTQhFAtvInnkw5TrnPXLDZ+D+5CIvS1RuDXXjsmJ1Aj187AAvE7KFo3/yJ7TSwUqKbyQA9esw/5
+	Ak3LFOEMLRFsH45svYpOAegB+avB1vRulnH0j9oPjeQKmBc4T6n3sN+ksX4CAp7bW/cDya4pemx
+	QFpb2y4+wWezFVTSfXvl962CuedDBY+igJKMnDyzTcpsKPcjY2zata/O1x8vd6n4hlY0ieSYYIp
+	HzwCoapHFwy+eqBYy8pt6IrY3mZmLTxkyjsl7lEQrnkZeEWINr22Q5x69vYW7+5GBuHgsaCaI0b
+	56OiIim1tFoOAhE4SRoGFLDpJkz4GPOB+g==
+X-Received: by 2002:a17:902:ce82:b0:2ef:e9df:2422 with SMTP id d9443c01a7336-2f03f1cf4e6mr174997205ad.16.1795598750820;
+        Wed, 25 Nov 2026 01:25:50 -0800 (PST)
 Received: from server225.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f142b8bsm80883155ad.70.2026.11.25.01.25.42
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f142b8bsm80883155ad.70.2026.11.25.01.25.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 01:25:45 -0800 (PST)
+        Wed, 25 Nov 2026 01:25:50 -0800 (PST)
 From: Ping Li <leeonion.muyu@gmail.com>
 To: miquel.raynal@bootlin.com,
 	richard@nod.at,
@@ -86,9 +86,9 @@ Cc: linux-mtd@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Ping Li <leeonion.muyu@gmail.com>,
 	stable@vger.kernel.org
-Subject: [PATCH v3 1/3] mtd: rawnand: intel: declare NAND_USES_DMA
-Date: Wed, 25 Nov 2026 17:25:36 +0800
-Message-Id: <20261125092538.1938516-2-leeonion.muyu@gmail.com>
+Subject: [PATCH v3 3/3] mtd: rawnand: r852: declare NAND_USES_DMA
+Date: Wed, 25 Nov 2026 17:25:38 +0800
+Message-Id: <20261125092538.1938516-4-leeonion.muyu@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261125092538.1938516-1-leeonion.muyu@gmail.com>
 References: <20261123070440.3060882-1-leeonion.muyu@gmail.com>
@@ -104,41 +104,49 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ebu_nand_read_page_hwecc()/ebu_nand_write_page_hwecc() feed the
-page buffers provided by the NAND core straight to the DMA
-engine, but the driver never declares NAND_USES_DMA.  Because of
-this, nand_base cannot know the controller DMAs these buffers and
-never bounces non-linear-map ones (see the use_bounce_buf logic
-in nand_do_read_ops()/nand_do_write_ops()).
-
-Non-linear-map buffers are not hypothetical here: mtdblock's
-write cache is vmalloc'ed and UBIFS passes vmalloc'ed LPT buffers,
-so such buffers can reach the controller's DMA engine, for which
-they are not a valid dma_map_single() input.
+r852_do_dma() feeds the buffers provided by the NAND core straight
+to dma_map_single(), which is only valid for linear-map addresses,
+but the driver never declares NAND_USES_DMA.  Because of this,
+nand_base cannot know the controller DMAs these buffers and never
+bounces non-linear-map ones.  Such buffers are not hypothetical:
+mtdblock's write cache is vmalloc'ed and UBIFS passes vmalloc'ed
+LPT buffers.
 
 Declare NAND_USES_DMA so that nand_base bounces non-linear-map
 buffers through chip->data_buf, as the other DMA-capable
-controllers (arasan, denali, meson, mtk, nuvoton...) already do.
+controllers do.  The existing local bounce in r852_do_dma() is
+still needed for the hardware's 512-byte alignment requirement,
+which the core condition (chip->buf_align, default 1) does not
+cover.
 
-Fixes: 0b1039f016e8a ("mtd: rawnand: Add NAND controller support on Intel LGM SoC")
+Fixes: 67e054e919248 ("mtd: nand: Add driver for Ricoh xD/SmartMedia reader")
 Cc: stable@vger.kernel.org
 Signed-off-by: Ping Li <leeonion.muyu@gmail.com>
 ---
- drivers/mtd/nand/raw/intel-nand-controller.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/mtd/nand/raw/r852.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/mtd/nand/raw/intel-nand-controller.c b/drivers/mtd/nand/raw/intel-nand-controller.c
-index cfb4b231e067..1f493fb426d6 100644
---- a/drivers/mtd/nand/raw/intel-nand-controller.c
-+++ b/drivers/mtd/nand/raw/intel-nand-controller.c
-@@ -688,6 +688,7 @@ static int ebu_nand_probe(struct platform_device *pdev)
- 	nand = &ebu_host->chip;
- 	nand->controller = &ebu_host->controller;
- 	nand->controller->ops = &ebu_nand_controller_ops;
-+	nand->options |= NAND_USES_DMA;
+diff --git a/drivers/mtd/nand/raw/r852.c b/drivers/mtd/nand/raw/r852.c
+index 92c47d351c27..f930e8cc80e6 100644
+--- a/drivers/mtd/nand/raw/r852.c
++++ b/drivers/mtd/nand/raw/r852.c
+@@ -640,6 +640,16 @@ static int r852_register_nand_device(struct r852_device *dev)
+ 	if (dev->readonly)
+ 		dev->chip->options |= NAND_ROM;
  
- 	/* Scan to find existence of the device */
- 	ret = nand_scan(&ebu_host->chip, 1);
++	/*
++	 * r852_do_dma() feeds the buffers provided by the NAND core
++	 * straight to dma_map_single(), so ask nand_base to bounce
++	 * non-linear-map buffers.  The local bounce in r852_do_dma()
++	 * is still needed for the hardware's 512-byte alignment
++	 * requirement, which the core condition (chip->buf_align,
++	 * default 1) does not cover.
++	 */
++	dev->chip->options |= NAND_USES_DMA;
++
+ 	r852_engine_enable(dev);
+ 
+ 	if (sm_register_device(mtd, dev->sm))
 -- 
 2.34.1
 
