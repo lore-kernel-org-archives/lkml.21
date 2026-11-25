@@ -1,99 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.66.22
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795590533;
-	b=Ac+BkkkFhgmxTd/whK86W3gRovH/bBNg1SfOpTbfWa2vCwwnViDtIw+wL0llLli9LnL0
-	 KfoP/FpRd3ZuRKs7qI6qozcoqo3jCDjdWOYdU3e5gzplfOjfs4MKZCg92rD+kw0C0mrgI
-	 V/y/eA49i7ohZc/1YRclevgfKR+gLSQ9fKQ3Bo50V9ZaDBNT1lkQBnjdp5aU7veBChYtH
-	 k4oFLmZAwLp1ASOkoowf1DwlofTIsN61EDNrU4ZWCSJZXl4eX8r5f7RkSnfAD99HEHeVE
-	 tLOYVOBEuAgX4NrjmU/7BhSbLvl4th9zdtbH2DLqvfM+hOSSCAGWchsm3lFkgP7dwuA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590533;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:References:Content-Language:From:Cc:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:
-	 X-Microsoft-Original-Message-ID:MIME-Version:
-	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=TTGkgqVGq65gkbnsjtbOkjWAYreGpgNwIkoZKblVKDo=;
-	b=IqmDy3gy9hxj9fLtQ18moEKlarh+tKpjVPDYwooFo7M3Jv6VOlis7vi1saW+5WyZO0qP
-	 x514ds0ayfGkd6qBUabK4k2g9Iw4a/RaY+GNSMIA7Boq6YSliVDQP1DAA6GRA4st87mUd
-	 apAXaY9CNaSgZ9cfTJu7nCZ+ksKAVHYudzTQQGr0FV59k6ZPeqaXiAmvdYI4unvD5M61G
-	 2MLyJjG01KQaRw9vQLJFVsflvBaly8tIrcyfKjle/8EFa4NeBW7FXmTR9hadZsKgoUM+S
-	 vB1AhB/WTRaAyqpb5LpyC8k2kXKJh1CAgD7RUf6DWeVv/Oc58h5zff9j5k22mZbe1qA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=outlook.kr;
-	spf=pass smtp.mailfrom=outlook.kr;
-	dkim=pass header.d=OUTLOOK.KR header.i=@OUTLOOK.KR header.a=rsa-sha256 header.s=selector1 header.b=vFd0gxv6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.66.22
-Received: from OS0P286CU011.outbound.protection.outlook.com (mail-japanwestazolkn19010022.outbound.protection.outlook.com [52.103.66.22])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.254.200.92
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795590622;
+	b=eBEL/rwSgDe5CWnTJ4bKpmPb8minGSkDEShGVe29lemNxO+7GOSAoSg5qoKiweTyYJGI
+	 AJM0WLeq+BR5fLEBeoTKn4Q/xAv4aLY4H36n3wmoonBeLOWmLDo73moRuC+A4WjwNpu0m
+	 Svb1ciIYmnsP32IlrNx8ZP6A6neo0SUmIrY414zxkWxhRFxdTHoYylmGqDLs7om/0FNkA
+	 8hVWut+kq0HDYwZpaWuGNDwZDV2wHAQhJ2BME1JtsCAs1yX0daqvFoiJCdqTjpDHv4m8W
+	 MLNmnoUo8WKFcq5GH97bceA+ZNZIwKkY81mYV9Q3MNbp9qDbY727lpcMUSQtTkKM7cQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590622;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=57eU++s1Zc1LNJTTX7oA3GpgYaPKwVTViPoFYxLudKE=;
+	b=1dVDDoGEM5lBFibedTMqnuD3/D5BCizp8piTgpS+qMToBchVeSvmEtPeS2EIF6LNeXQJ
+	 Oi9gjO40Gbov4TKl4gvlXga6y+seethd2vOuiWz78dA9brDS04tNeS+6d++UglqGMH+Up
+	 C5oYRMG9lXzD/LQ5C53fKi06Nw3rNLYvBsb6PmN7jt+OOfRAjCSbcdgIzUlqEejlLnqSA
+	 PxPupPsIh2LGDMbssR7RQFYszlgOVK2KgRUfq2xxxP6oWt7eS5Q6f2RUplmZ5mvmUKbs6
+	 9teLGQ62KHpIJ+NKBx9iKtbXVwVZa+Dr0jtRo/N6I4jEjrHOp9H2YB6mtSdYyjY/X7Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mucse.com;
+	spf=pass smtp.mailfrom=mucse.com;
+	arc=none smtp.remote-ip=54.254.200.92
+Received: from smtpbgsg1.qq.com (smtpbgsg1.qq.com [54.254.200.92])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CD18606A69B
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:08:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3CD18606A69B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.kr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.kr
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=OUTLOOK.KR header.i=@OUTLOOK.KR header.a=rsa-sha256 header.s=selector1 header.b=vFd0gxv6
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cqX3uA3sD+aSl0pK/jWF0QncgLv3NX6d+XPNhlLV/yPLHrI5ORLX1GPgRrtf6kePm96fJ14fRuaifzLV9S5/IRSAXhW7ahldGQSqZtTTUiNki8Jq2YGbYYMkI1nJaerg13/p4N5yzF57bb+kk0kMwA+XqQ4myMHfMvObBGvX+79JrEAG+pDmS3JHqnchAqoGiSFMrRHtHGe3wiXPX/01tlz8MICNan+Hs49fjbKQ98DkEB48MnnKwsg3z25NvjV1IHUG9DC2n6HEuN0kNMCHgclM+UL7uiEaB87zHmpbgv8ClaYb72w4GrSrIXxE4nfOn7o9P/k9lM3JbUWdeVVSgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TTGkgqVGq65gkbnsjtbOkjWAYreGpgNwIkoZKblVKDo=;
- b=IV48f5T09Lo88lrwBHWUlvqQW6+uFmiESEMvyNiMwbKt1sn5DpFeJq1hoZ7fUqzt9SN6OuCKu2NkMBmWwZBTjzFphFu2sX+4hb9OT++hPQU/senL+8VD8G7nbfM7XBrWT4cq7OVHORNUof/5a8IY0GhU8OwNyhFGC97/VlZh0syf6m0lcSEYMRkrscFUw3qtOxGSe/ViI/H8cZJ3Wfon+XJBY7TUz3opPwYC4uX0AuqOIIIJphf6tWkZ/bZUuLTSjxeOxetLklpqcgjxizUYrxL2to4WeXLj3Chkoho0c4jdOc43j+EJHk5ufILWB9PuI9U2d6FQvwxfdKfb22WxDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=OUTLOOK.KR;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TTGkgqVGq65gkbnsjtbOkjWAYreGpgNwIkoZKblVKDo=;
- b=vFd0gxv6hepo5MlOTVjYTIcVSOSpxQoP/FkZ6mLh5VotzZb6mjJvyVbghb0J8IQ9taUHhiUfq/pg6m3MEis9h1YG820UJvZ1MHXQA8q+KEyacwVgfnIUdK6SGOyaghNpST9u6iD2RUsqIzoOkExWbznzOioi4Y/zdDNYw/mfjCM0q+ONnKRetbMOsA2qfMD4vIJaUgW6H4Wf7IXdB1epgc06idhzMV/NwPFDDmYg71cg2SFd+gQHQmaZ0FKEugjQPokUF3ta3efGCv1aj3qnKGGa9J5Udak22bKtemB8KwDWF7GcPQHf1UHanzOqXfPbpkXgJnTVGMLYEUPOGXVanw==
-Received: from OS7PR01MB13914.jpnprd01.prod.outlook.com
- (2603:1096:604:36b::13) by TYRPR01MB13233.jpnprd01.prod.outlook.com
- (2603:1096:405:116::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.5; Wed, 25 Nov
- 2026 07:08:47 +0000
-Received: from OS7PR01MB13914.jpnprd01.prod.outlook.com
- ([fe80::641e:83cf:743b:85bc]) by OS7PR01MB13914.jpnprd01.prod.outlook.com
- ([fe80::641e:83cf:743b:85bc%7]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 07:08:47 +0000
-Message-ID:
- <OS7PR01MB13914328949FC969309913E1796432@OS7PR01MB13914.jpnprd01.prod.outlook.com>
-Date: Wed, 25 Nov 2026 16:08:45 +0900
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] drm/nouveau: NULL pointer dereference in
- drm_atomic_commit during GP107 initialization
-To: Thorsten Leemhuis <regressions@leemhuis.info>
-References: <OS7PR01MB1391484D564CF93DFBB4C1DCE966A2@OS7PR01MB13914.jpnprd01.prod.outlook.com>
- <b89c176a-922e-4628-b549-a6d4b7520ec7@leemhuis.info>
- <b89b83ee3de3ab113820ad94cf09be6b98ec3585.camel@redhat.com>
- <b2c5e6b7-d579-449c-b894-ee162230e328@leemhuis.info>
-Content-Language: en-US
-From: Eric Kim <seohyun.kim@outlook.kr>
-Cc: dakr@kernel.org, "regressions@lists.linux.dev"
- <regressions@lists.linux.dev>, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- nouveau@lists.freedesktop.org, linux-kernel@vger.kernel.org
-In-Reply-To: <b2c5e6b7-d579-449c-b894-ee162230e328@leemhuis.info>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SEWP216CA0016.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2b6::10) To OS7PR01MB13914.jpnprd01.prod.outlook.com
- (2603:1096:604:36b::13)
-X-Microsoft-Original-Message-ID:
- <b8260d8b-b451-4831-a162-7549f7b419f1@outlook.kr>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8079A606A6A9;
+	Wed, 25 Nov 2026 07:10:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8079A606A6A9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
+X-QQ-mid: zesmtpsz3t1795590563t9fca723d
+X-QQ-Originating-IP: N4DRq9rhFGiwKy3DeQ3eB5ukbvLcOUjmAT0waaSE3iQ=
+Received: from localhost ( [203.174.112.180])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 25 Nov 2026 15:09:20 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 5348563464092667721
+EX-QQ-RecipientCnt: 10
+Date: Wed, 25 Nov 2026 15:09:20 +0800
+From: Yibo Dong <dong100@mucse.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	yaojun@mucse.com
+Subject: Re: [PATCH net-next v3 2/5] net: rnpgbe: Report link settings
+ through ethtool
+Message-ID: <EFD2CC62756603D7+20261125070920.GA752553@nic-Precision-5820-Tower>
+References: <32E4A50B05876D23+20261124060546.411262-1-dong100@mucse.com>
+ <179558856190.3135.8838947348700309121@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,232 +61,219 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OS7PR01MB13914:EE_|TYRPR01MB13233:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1a5c0b81-b5e6-460b-6a0a-08df4ac2f301
-X-Microsoft-Antispam:
-	BCL:0;ARA:14566002|25010399006|51005399006|24021099003|19110799012|8060799015|25031999004|5072599009|15080799012|6090799003|23021999003|12121999013|41001999006|1602099012|10035399007|40105399003|3412199025|4302099013|440099028;
-X-Microsoft-Antispam-Message-Info:
-	=?utf-8?B?Z3I3SWVlQzczYVc3aU1PT2gyWDlPRW9oczRNbFFpTmYvendWdEJMMFBuV0Zz?=
- =?utf-8?B?RW9USTZxd2xnTXl5MFFwbzlIcE9FT0NKVm15cnhUT2VleEh5empsS3ZZRHNh?=
- =?utf-8?B?U0U1Kzg0YUVLQkt1K0xMWVRPSTRiUW8wQVVVRGxxeHZyN3FKcTM3R2JVNmk4?=
- =?utf-8?B?TStxUkw4Sk4yVHJWeVZ3WDlhV1hRQzkvSHJTL3NuRVZ0RmFqcWJtalV4SXU0?=
- =?utf-8?B?RWJMdEJMUnFwRVAxN2NMcUxYeCtLclVwS2lkcGxuSHAxay9aUURmdnQ1K3dV?=
- =?utf-8?B?RTF6bTRTM1hNbFo4eWJmLzN2T1ZwZkhvOFNtWDJLc2YrRW9oZFd4NzNQVkdO?=
- =?utf-8?B?VFdsY2xpSkhORldXSlhLZmhScXIwOHV1SWhRdHluYXBhTUVoWnBQc3BSbmgw?=
- =?utf-8?B?QXNTYVlsOW0wcmNXajJzZndIbmt6NTZkL2dsNGZNNmFuNDVDZDZpWnpDcVlj?=
- =?utf-8?B?bFZqdFFBQ3RqOGw1N3QxTjQzYlRVaXJTYWVuTVpRVkNtSUhaay9lbHAxSS9B?=
- =?utf-8?B?SDY1WVFiVytJNm1MTG5lUVR2bWFoQ0hUSHhwNk05YUlxNVppNkl5NzBCclIr?=
- =?utf-8?B?RGxYcFMyY1pnMzBvVTRCd3pBL1V5eXllaVpGVHBtZStPY0xyWjVkcXZpaGxT?=
- =?utf-8?B?Rno3OVhxT0VRNXd4U1JZQ2ZWWGhUejBNWEczdE5heDlCdHZ1Z3E3eEI4TDNL?=
- =?utf-8?B?QnRieWhucmMzM21xTkxCd3QwYUY2eUdlOUVJem1LbUNOOGZsV3BScEs4ZzJj?=
- =?utf-8?B?TUcyWXlhQXJia0VpcDd1b1VnZzQ4SittL1NJYTVodkp3VXpmNUo4NmVHSUFk?=
- =?utf-8?B?eENQb2w5UmdWbUlTQVNqbzdacVNNelZnanR6YXlxSXc2ekZXVUg4bXhuYzRk?=
- =?utf-8?B?WFdLN0lkS0J5Mmd6S2V5R2FycVd6UDhUQjlRZEJsVGUvelRzNHVROFNqcWN5?=
- =?utf-8?B?WHVlejZMeFNWOGZTdVJjOFBpS2Rzcm5ISTJicTJ1TG1YV3lVOGxiVUpYY0pD?=
- =?utf-8?B?Szk2MGQ2aVVlVXBXTnVyeHlkZU95WjR5cGk5Zk5HMFlvaGJ3dDV4cHpvcmQv?=
- =?utf-8?B?Qk5Yb3I5UEJPc0FhUHQ1QTRScVVkcDdZTElrUzVDTWIzQnMxTGhPOXhMOGJy?=
- =?utf-8?B?NlhaMVB1OWN6RDdaM0tsSzdpTVhnTXM4dmtHWDhKdEwvYlU3bTNKWThqUVlW?=
- =?utf-8?B?WGxPUTVlVFpndXJXQ2NzTkgzaVMrZFgxUGxIU2hxUGxsVzMvOS9EM052NlJZ?=
- =?utf-8?B?QWNlNFl2elRKRHYvcVR2MXZCeE9paUE5cHEyMGwzQTMzSWY0SzNRdEVyTUsy?=
- =?utf-8?B?bS9lL055amFRRjVUa25xNGR1RUE5TzRyOUMxM1hmVU91NTE2VFNlaGNhUnU1?=
- =?utf-8?B?ZXBpUzNRVjJYa2FNRXVoaWpMZ05DeUlEM3NYTXh6bDF5ZjBRZ2llZWhZWVNX?=
- =?utf-8?B?b2k0QTA0d05wQUVkQURGemxPZUZnRUJUS1hzWXVpaDlIQWkvSFljNVVZbW1L?=
- =?utf-8?Q?MF/zig=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?T2kza1pNdy8xdkdpb2htUEE0c09wUEM1WEJOYmlqOWVIVjZnRVdsVGZrcHht?=
- =?utf-8?B?aHNtT3hCT3J3VEhaTnk5aFNEQUh3d05Iai92T1VRMzRaaU9hNk1ycTdGd1Zs?=
- =?utf-8?B?VzJpcTlGNWQwQ3ZwdVJXZWttdFlOSkY1MEZka0M5Vy8zVEQ4TzBad0s3UWE4?=
- =?utf-8?B?eDc5M09pTnZOclpudGE2YU11QUw1TFN6bnQ4NHJhMzJJSi9WMW00Yjd0MjZF?=
- =?utf-8?B?SXFIdlhUOU9Gck90V2FSdkZCbURuK0E1Y1NQeHVRanl0TWtaZmRReXd2b3pQ?=
- =?utf-8?B?SkxpOVFjVzI5MW9zaVFNWU9xY0h0bzlVNW9jNStOT3I2aG4vVERFV2ZwYmtK?=
- =?utf-8?B?dGJHY2NIUkdFYlhZMTV3RFU0SzcvcWhkVmhVNzJENCttcTJKNUNWSUYvUFcz?=
- =?utf-8?B?SkZFVmZqdDcwR1dkSUl1K1FmRXRYSlhkUDVLZVkrME5NQnJPSTlxWGZzNmZo?=
- =?utf-8?B?TUVqZGwvZFUrdXR1ZlBCKzRmVWYxRE5SQVBvU09zMlhUOWVPcWMrVUd0Qng0?=
- =?utf-8?B?M3ZhODR3a1l5VmFKc08yS24xRm5sZkZnWFUyMG5hL0hCVG1pS05MalFjTkd1?=
- =?utf-8?B?NGdqMjFiYnJ1MVN5dGN6aENHR1k0dlBoTVRZaU8rVHNhWTJaeWJwZ1Y1ajF6?=
- =?utf-8?B?S2hTdG5oaWt1dElkc0lDMVlaMythVVkwWFBBTFphM2VTOTdVc3hTWXFLY2lZ?=
- =?utf-8?B?enJvYnJXRE5oemlMTGhMVE9ncjYvc0lZbndRNjhyR2svTEpFN3NQZnl3Mk5T?=
- =?utf-8?B?UE1QZlRrazl4SEw1cm95Zi84SmFkd0xhVUo1dFFJOFNmR2lSZWJ4Mmo3Qmdi?=
- =?utf-8?B?a00wUGpZMFdFTnRlVWJIVjgreWZzTXVKbVB0Y3Q2WW1naHBGS2Y4TGJQcmc4?=
- =?utf-8?B?S2x3YVRXR0tuMXBiRVlrdUVGWFRQcS9QRHRRK2VZOE9FZE5EYlUyM0ZOajV1?=
- =?utf-8?B?cWZ5TFRjbXdNUjIvdjVOMVhBemwrcmk1NTVFWDZ1b1kyWUhyTGdtOVZPRjR3?=
- =?utf-8?B?SVpPc2tualpPKzJ1ZUI4UFIrdlVrL1BUZEVNa0VBMzQyL2krRzdmV2EvNlRE?=
- =?utf-8?B?dTdzM0g0Q2xlSkRpYzNmNWhlMkpDTjI1NHoxM05qL00wYzQvTi9xTlNxUzVa?=
- =?utf-8?B?QjBIVmNmUW56cEQ4THdHVVFNRWR2dHZFM2Y5RE9PSTRxK1JLaXZNRjhjbzd3?=
- =?utf-8?B?V3JSZTFDeU1nZzBXK0pFVDkxOXg3TUtiTll2dUk1Q2hEOGJ2eU1qSUEyUFJG?=
- =?utf-8?B?YzhPZnZXZFh4dDdJaDJFbjF2OWNsV2M2RmZpa2xsbWM5bkJsU09GcVk2ZEdL?=
- =?utf-8?B?ZERHYzg4bEZTTHg2Y0dndFBRSlJYRHVtN2dvZzFWcTVuMEVzK3VUYkZDR3F5?=
- =?utf-8?B?WDUzZTVrQ2x5dm1OcFp6OXVsY0s1cHE5cTFJV3dHbCtZM1N1UXpBVWJDRVA4?=
- =?utf-8?B?SDY4NGJRdWptYXNVaVNWWEN6YktVcGVhWW1FbTM3WG11ZXI0NzBaSWRsU0E1?=
- =?utf-8?B?Q2pkQk1abTFxU0Fzc2ZoYXJGU0NJSEhQTXVERGIycTNBUDNGbWN5LzBGTzRx?=
- =?utf-8?B?UHlBL1JHZTd6N3dEMVRXQ0s4MlgwUjJmVWhobHFIL3Vxem5DcEdKckhJVUJt?=
- =?utf-8?B?QVV3L0tWcXkwRENNUUg0MlRscEFPcFRNbTN2d3BFZmZSSUkzZDZWeFJJNHJQ?=
- =?utf-8?B?OHF1VVlwbEVmbEY4WjJzM0F6YjZiQ0Z0S09RRXJSRVN3alFmU2FFM0NMSEN6?=
- =?utf-8?B?L3VzRTBVdGs4ZENyejBmZzNEZDM3UTA4anRoaDVpcWpNc0hSVmNLb1hmTklx?=
- =?utf-8?B?OE03TkhhaGlCVjNySDVPSzZBcGdoTTFFQW5IZGhScElVdnVaa2ladlhySnJ0?=
- =?utf-8?Q?8FE2qOYg4gqfq?=
-X-OriginatorOrg: sct-15-20-9412-3-msonline-outlook-b83fc.templateTenant
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1a5c0b81-b5e6-460b-6a0a-08df4ac2f301
-X-MS-Exchange-CrossTenant-AuthSource: OS7PR01MB13914.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 07:08:47.3516
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYRPR01MB13233
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <179558856190.3135.8838947348700309121@kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
+X-QQ-XMAILINFO: NP3iUBCWMtGbdwSNcvJpfBeeuPILOJ0v1m3HWn2bHbzHKWC+HAhdQjdr
+	KtOZT3pB7b3347rE0BQ45vggMe506kRf8trCsLYVx2/sLJvV4+J3GG3Oq8vN/AZeAqY4mIS
+	yyk0DdtUBQPuK6w4cC2be93qB/rag3v4qqXH4oTgh9Yv6tqxK3lGkeosttG+obIfEAjgAo9
+	JA7MPa6iTOgoQyezkVbYhe/EmxkcOvyldnbOnKTUHHVDNNvgvkGctWVYMmeNrJdkDWEv3vo
+	snethxOzkDqJT+5mDNegUbqMBEIaOpH5LJ8BHk1Zm1N2z67K58GY4rTD0BolEcWXYctv8oG
+	sIXecupwZqHjTX07tpyji9eVLqN3i44O9InTOK3gdPuisgBVqtlzpx/03AwYu9ETuDVQN0/
+	id3WOw7+5yVwzufIp5EEfrBkqj2e0EbQ5Oqw3GjKRsTuUO3j6ijBEha2LvgjbjShDWc5Eb0
+	kcfMWZTkNDAKQJsU5VcEjvPosoXeFMhRSJQxR59nU3RCQZ168M+CNA71k/6qEfbN3LwTH8R
+	8+CFZkyVoTi0hBd/0oO+mqSpGj86PO+OuUIfNA/IWjOMLJ7Y8tndtFEzBTroP823TLf3hQg
+	trLElpF+YRN+HHLCKsLZhwUiCZzn6zYKcinIHDD+3Tpt1trUJcggcMr+aqfD4KzA3tOniTj
+	czeTL/wUCmnBPzkVv+68PQCHsL+DdT7Oont572DGQu8wzwgijvnC3P+AzGmfIIKdYegoqLe
+	b1DXN8IiUb3dLN2gC6IMtB4A+F8Yaz9nmRfXBwd1y5AjXMmValTb9x78aGaTxyKzodvgWvd
+	/8hFg7uqMvOz5DcJmHavhexUCPgiFKN7G0qXxjbnz0sRKNIuY+SKLh6TEWPklR77+vzahKm
+	QUJCacqY/zMF/L42s2pUKsnotqYgo4IujDjOuExO5X85Il+1wQx8v0Roi9n81pJYLMStW7r
+	F7pQasvwLYKP9bmx0fEJAImtcoK1xcgtR0wRszSb5ZF3DS/EXZD9XvqaTw0Izr77Wi9PSKJ
+	cjKkXbU4gyIxT/mI8uk3VqgLhJkypiFB8H7A2IAb6hxnYMmE3B4voGfg/4DF2v7h2JaMWuy
+	mQWoeo0aWepM/YELJiBuZLVytoBgz/+cw==
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-RECHKSPAM: 0
 
-On 11/23/26 7:55 PM, Thorsten Leemhuis wrote:
+On Wed, Nov 25, 2026 at 06:36:01AM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 4 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 2 · Low: 2
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] rnpgbe_setup_default_link() builds the PHY_LINK_SET
+>   advertisement as hw->link_config.supported & RNPGBE_DEFAULT_ADV, where…
+> - [Medium] rnpgbe_add_adapter() now calls rnpgbe_init_link_config(),
+>   which sends GET_LANE_STATUS (0x0610) through mucse_mbx_get_link() and…
+> - [Low] The commit message leaves out some changes in the patch.
+> - [Low] ST_STATUS_MDIX_MASK is GENMASK(11, 10), a 2-bit field that can
+>   hold 0-3.
+> 
+> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
+> > index dcc8233e024e1..3a2f62f0630da 100644
+> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
+> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
+> > @@ -64,12 +64,42 @@ int rnpgbe_reset_hw(struct mucse_hw *hw)
+> >   * rnpgbe_setup_default_link - Configure the default link settings
+> >   * @hw: hardware information structure
+> >   *
+> > + * The default configuration relies on GET_LANE_STATUS reporting at least
+> > + * one mode in RNPGBE_DEFAULT_ADV for TP ports and RNPGBE_FW_ADV_1000_FULL
+> > + * for fibre and backplane ports. TP ports use the supported subset of the
+> > + * default mask for autonegotiation. Fibre and backplane use fixed 1 Gb/s
+> > + * full duplex.
+> > + *
+> >   * Return: 0 on success, negative errno on failure
+> >   **/
+> >  int rnpgbe_setup_default_link(struct mucse_hw *hw)
+> >  {
+> > -	return mucse_mbx_set_link(hw, RNPGBE_DEFAULT_ADV, true, 0, 0,
+> > -				  ETH_TP_MDI_AUTO);
+> > +	u32 advertising = hw->link_config.supported & RNPGBE_DEFAULT_ADV;
+> > +	bool autoneg = hw->link_config.status & MUCSE_LINK_TP;
+> > +	u8 duplex = DUPLEX_UNKNOWN;
+> > +	u32 speed = SPEED_UNKNOWN;
+> > +	int err;
+> > +
+> > +	if (!autoneg) {
+> > +		advertising &= RNPGBE_FW_ADV_1000_FULL;
+> > +		speed = SPEED_1000;
+> > +		duplex = DUPLEX_FULL;
+> > +	}
+> > +
+> > +	err = mucse_mbx_set_link(hw, advertising, autoneg,
+> > +				 autoneg ? 0 : speed, autoneg ? 0 : duplex,
+> > +				 ETH_TP_MDI_AUTO);
+> 
+> [Severity: Medium]
+> What happens if advertising is 0 at this point?
+> 
+> The kernel-doc above states the assumption, but nothing checks it. Take
+> a TP port where firmware reports none of the RNPGBE_DEFAULT_ADV modes.
+> Autoneg is requested with advertising == 0. On ACK,
+> MUCSE_LINK_AUTONEG and advertising = 0 are cached, and probe still
+> succeeds.
+> 
+> Could the link then stay down forever, with nothing logged?
+> 
+> Now take a fibre or backplane port whose supported mask lacks
+> RNPGBE_FW_ADV_1000_FULL. 1000/Full is still forced and cached. Then in
+> rnpgbe_get_link_ksettings():
+> 
+> 	if (supported & RNPGBE_FW_ADV_1000_FULL)
+> 		linkmode_set_bit(mode, cmd->link_modes.supported);
+> 	...
+> 	if (cmd->base.autoneg == AUTONEG_DISABLE) {
+> 		cmd->base.speed = hw->link_config.speed;
+> 		cmd->base.duplex = hw->link_config.duplex;
+> 	}
+> 
+> Would ethtool then show speed 1000 without listing 1000baseX or
+> 1000baseKX as a supported mode?
+> 
+> The old code always advertised the full RNPGBE_DEFAULT_ADV mask,
+> whatever firmware reported. The later patch "net: rnpgbe: Support copper
+> link configuration" rejects an empty autoneg advertisement in
+> set_link_ksettings. This default path still has no such check.
+> 
+> [ ... ]
+> 
+The firmware interface guarantees at least one usable TP mode, or
+1 Gb/s full duplex for fibre and backplane ports, as documented above
+the function.
 
-> On 11/10/26 01:54, lyude@redhat.com wrote:
->> Hi - I'm back! Sorry about this, I've been busy moving and only just
->> got my machine setup. I will take a look at this tomorrow
-> Any progress on this? Looks like nothing happened, but it's easy to miss
-> something from the outside.
+An empty usable capability mask would violate this firmware contract.
+Given that guarantee, I think it is reasonable for the driver to rely
+on it without adding an explicit check here.
+> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c
+> > index 46981ef2542ad..31871b244882d 100644
+> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c
+> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c
+> 
+> [ ... ]
+> 
+> > @@ -258,6 +260,11 @@ static int rnpgbe_add_adapter(struct pci_dev *pdev,
+> >  		dev_err(&pdev->dev, "Hw reset failed %d\n", err);
+> >  		goto err_powerdown;
+> >  	}
+> > +	err = rnpgbe_init_link_config(hw);
+> > +	if (err) {
+> > +		dev_err(&pdev->dev, "Get link capabilities failed %d\n", err);
+> > +		goto err_powerdown;
+> > +	}
+> 
+> [Severity: Medium]
+> Will the device still probe if its firmware doesn't implement
+> GET_LANE_STATUS (0x0610), or rejects it?
+> 
+> The call chain is:
+> 
+> rnpgbe_init_link_config()
+>   mucse_mbx_get_link()
+>     mucse_fw_send_cmd_wait_resp()
+> 
+> This returns -ETIMEDOUT if no reply with a matching opcode arrives. It
+> returns -EIO if the reply has a non-zero error_code. Either error jumps
+> to err_powerdown, so no netdev is registered.
+> 
+> There is no fallback to the old defaults, and the commit message doesn't
+> give a minimum firmware version.
+> 
+> Does every firmware version this driver binds to support
+> GET_LANE_STATUS?
+> 
+Yes. GET_LANE_STATUS is part of the baseline firmware interface and is
+supported by all firmware versions for these devices.
 
-I found other reports that display the same behavior on NV50 and up platforms
-regarding the same issue.
+The previous driver sent a common default advertisement mask without
+first querying the port capabilities. Firmware handles settings that do
+not apply to the port. For example, on fibre ports it ignores the
+autonegotiation request and the 10/100 Mb/s advertisement bits, and uses
+fixed 1 Gb/s full duplex.
 
-Link: https://lore.kernel.org/all/96444f8e0155d34c7a07fd5cc67ed87784bedd38.camel@gmx.de/
-Link: https://lore.kernel.org/all/629c8bdedca971d38b08ffd32acec1a804ff7d7d.camel@aol.com/
-
-It seems like it causes problems in systems using hybrid graphics, combination
-of iGPU and external GPU.
-
-> Just wondering: should we maybe just revert the culprit for now and
-> retry in a later cycle?
-
-I was considering to revert the commit, but it seems like Dave already fixed
-The problem.
-Link: https://lore.kernel.org/all/20261111-nouveau-atomic-fix-v1-1-118e65d3a2f5@redhat.com/
-
-> Ciao, Thorsten
->> On Mon, 2026-11-09 at 08:45 +0100, Thorsten Leemhuis wrote:
->>> On 11/2/26 13:47, Eric Kim wrote:
->>>> On my laptop, which has GP107 GPU with intel graphics and uses
->>>> nouveau
->>>> driver, booting kernels after commit
->>>> 2652aca460dcfdd0d169bbfa358aa15804dc736b causes NULL pointer
->>>> dereference
->>>> at initialization.
->>> Thx for your report. Hmm, no reply yet afaics. Wondering if it would
->>> have been better to report it at the dedicated place for nouveau
->>> kernel
->>> bugs: https://gitlab.freedesktop.org/drm/nouveau/-/work_items/
->>>
->>> You thus might want to at least check if any similar reports are
->>> found
->>> there.
->>>
->>> Would also be good to know if reverting 2652aca460dc ontop of latest
->>> mainline fixes this.
->>>
->>> Ciao, Thorsten
->>>> [   17.556328] [drm] Initialized nouveau 1.4.3 for 0000:01:00.0 on
->>>> minor 0
->>>> [   17.556364] nouveau 0000:01:00.0: [drm] No compatible format
->>>> found
->>>> [   17.556792] nouveau 0000:01:00.0: [drm] Cannot find any crtc or
->>>> sizes
->>>> [   17.557237] BUG: kernel NULL pointer dereference, address:
->>>> 0000000000000000
->>>> [   17.583880] #PF: supervisor instruction fetch in kernel mode
->>>> [   17.598078] #PF: error_code(0x0010) - not-present page
->>>> [   17.601475] PGD 0 P4D 0 [   17.608839] Oops: Oops: 0010 [#1] SMP
->>>> PTI
->>>> [   17.608914] CPU: 6 UID: 0 PID: 1443 Comm: modprobe Not tainted
->>>> 7.3.0+
->>>> #1 PREEMPT(lazy) [   17.608954] Hardware name: SAMSUNG ELECTRONICS
->>>> CO.,
->>>> LTD. 800G5M/800G5W/NT800G5M-X78W, BIOS P11RDV.075.170829.XJ
->>>> 08/29/2017
->>>> [   17.608990] RIP: 0010:0x0
->>>> [   17.609090] Code: Unable to access opcode bytes at
->>>> 0xffffffffffffffd6.
->>>> [   17.610081] RSP: 0018:ffffca4d86537828 EFLAGS: 00010246
->>>> [   17.610135] RAX: 0000000000000000 RBX: ffff89b74dcf1180 RCX:
->>>> ffffffffa97d8091
->>>> [   17.610172] RDX: 0000000000000000 RSI: ffff89b74dcf1180 RDI:
->>>> ffff89b74c466800
->>>> [   17.610207] RBP: ffff89b74c466800 R08: ffff89b74dcf1180 R09:
->>>> 0000000000000000
->>>> [   17.610245] R10: 0000000000000010 R11: ffffffffa9b65410 R12:
->>>> ffff89b74c466800
->>>> [   17.610283] R13: 0000000000000001 R14: ffff89b74c466800 R15:
->>>> ffff89b77f1a2400
->>>> [   17.610320] FS:  00007fc4a888d780(0000)
->>>> GS:ffff89bac4364000(0000)
->>>> knlGS:0000000000000000
->>>> [   17.610357] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->>>> [   17.610414] CR2: ffffffffffffffd6 CR3: 0000000144b20004 CR4:
->>>> 00000000003726f0
->>>> [   17.610448] Call Trace:
->>>> [   17.610483]  <TASK>
->>>> [   17.610521]  drm_atomic_commit+0xb1/0xe0
->>>> [   17.610558]  ? __pfx___drm_printfn_info+0x10/0x10
->>>> [   17.610590]  drm_client_modeset_commit_atomic+0x25c/0x2d0
->>>> [   17.610618]  drm_client_modeset_commit_locked+0x5a/0x170
->>>> [   17.610647]  ? drm_master_internal_acquire+0x1d/0x40
->>>> [   17.610675]  drm_client_modeset_commit+0x25/0x40
->>>> [   17.610700]  drm_fb_helper_single_fb_probe+0x1aa/0x1c0
->>>> [   17.610729]
->>>> __drm_fb_helper_initial_config_and_unlock+0xa8/0x1b0
->>>> [   17.610754]  drm_fbdev_client_hotplug+0x79/0xb0
->>>> [   17.610782]  ? drm_client_init+0x13e/0x180
->>>> [   17.610811]  drm_client_register+0x79/0xc0
->>>> [   17.610839]  drm_fbdev_client_setup+0xc9/0x1c0
->>>> [   17.610867]  drm_client_setup+0x6a/0x90
->>>> [   17.610893]  nouveau_drm_probe+0x15b/0x1e0 [nouveau]
->>>> [   17.610922]  local_pci_probe+0x4a/0x90
->>>> [   17.610951]  ? cpu_hotplug_disable+0x15/0x30
->>>> [   17.610977]  pci_call_probe+0x5a/0x1a0
->>>> [   17.611009]  pci_device_probe+0xdb/0x180
->>>> [   17.611060]  call_driver_probe+0x23/0x100
->>>> [   17.611104]  ? driver_sysfs_add+0x55/0xc0
->>>> [   17.611137]  really_probe+0xd7/0x2d0
->>>> [   17.611171]  ? __pm_runtime_resume+0x50/0x60
->>>> [   17.611220]  __driver_probe_device+0x9c/0x1b0
->>>> [   17.611261]  driver_probe_device+0x1f/0x80
->>>> [   17.611297]  ? __pfx___driver_attach+0x10/0x10
->>>> [   17.611335]  __driver_attach+0xcc/0x200
->>>> [   17.611373]  ? __pfx___driver_attach+0x10/0x10
->>>> [   17.611409]  bus_for_each_dev+0x97/0x100
->>>> [   17.611451]  bus_add_driver+0x1d0/0x280
->>>> [   17.611493]  ? __pfx_init_module+0x10/0x10 [nouveau]
->>>> [   17.611530]  ? __pfx_init_module+0x10/0x10 [nouveau]
->>>> [   17.611567]  driver_register+0x75/0xe0
->>>> [   17.611602]  nouveau_drm_init+0x60/0xff0 [nouveau]
->>>> [   17.611633]  do_one_initcall+0x89/0x3d0
->>>> [   17.611667]  do_init_module+0x8e/0x290
->>>> [   17.611703]  init_module_from_file+0xc8/0x180
->>>> [   17.611736]  idempotent_init_module+0x23e/0x360
->>>> [   17.611773]  __x64_sys_finit_module+0x7f/0x110
->>>> [   17.611805]  do_syscall_64+0xbe/0x470
->>>> [   17.611844]  ? do_syscall_64+0x37/0x470
->>>> [   17.611883]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
->>>>
->>>> It boots without this problem when booting with nouveau.atomic=0
->>>> kernel parameter.
->>>>
->>>> My guess is that atomic_(commit|check) operation is not present in
->>>> nouveau_mode_config_funcs, and commit
->>>> 2652aca460dcfdd0d169bbfa358aa15804dc736b enabled
->>>> atomic modesetting by default for NV50+ gpus caused
->>>> the problem.
->>>>
->>>> Also, drm_helper_(commit|check) was added to
->>>> nouveau_mode_config_funcs
->>>> at commit 604826acb3f53c6648a7ee99a3914ead680ab7fb, but it was
->>>> reverted at commit 6c65db809796717f0a96cf22f80405dbc1a31a4b due to
->>>> unreliability.
->>>>
->>>> I hope this problem can be fixed at one of the next releases.
->>>>
->>>> Thanks,
->>>> Eric Kim
->>>>
->>>> #regzbot introduced: 2652aca460dc
+This patch queries GET_LANE_STATUS to obtain the actual port type and
+capabilities, select the corresponding defaults explicitly, and report
+them through ethtool. The command is supported by all firmware versions
+for these devices; its absence from the previous driver was not due to
+a firmware compatibility limitation.
+> [ ... ]
+> 
+> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
+> > index 4a18937927514..469818b83d70f 100644
+> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
+> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
+> 
+> [ ... ]
+> 
+> > @@ -435,6 +462,8 @@ static void mucse_mbx_fw_req_handler(struct mucse_hw *hw,
+> >  
+> >  		hw->speed = le16_to_cpu(req->link_stat.st.speed);
+> >  		hw->duplex = req->link_stat.st.flags & DUPLEX_BIT;
+> > +		hw->mdix = FIELD_GET(ST_STATUS_MDIX_MASK,
+> > +				     le16_to_cpu(req->link_stat.st.status));
+> 
+> [Severity: Low]
+> ST_STATUS_MDIX_MASK is GENMASK(11, 10), so the field can hold 0 to 3.
+> The comment in rnpgbe_mbx_fw.h lists only three values:
+> 
+> /* MDI-X status uses ETH_TP_MDI_* encoding: 0 on link down, 1 MDI, 2 MDI-X. */
+> 
+> The raw value is stored here without a range check.
+> rnpgbe_get_link_ksettings() then copies it into cmd->base.eth_tp_mdix:
+> 
+> 		if (status & MUCSE_LINK_TP)
+> 			cmd->base.eth_tp_mdix = hw->mdix;
+> 
+> If firmware ever reported 3, ETH_TP_MDI_AUTO would show up in the
+> resolved MDI-X status field. That value is only meant for
+> eth_tp_mdix_ctrl.
+> 
+> Should values other than ETH_TP_MDI and ETH_TP_MDI_X be reported as
+> ETH_TP_MDI_INVALID instead?
+The direct assignment therefore follows the firmware protocol.
+0 when the link is down, 1 for MDI, and 2 for MDI-X. It does not Report
+3 as a resolved MDI-X status.
+> 
+> [ ... ]
+> 
+> -- 
+> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/6C54E9FB2E95869E%2B20261124060436.410989-1-dong100%40mucse.com
+> 
