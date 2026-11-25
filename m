@@ -1,75 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645092;
-	b=tBAYJDYtpxaIMIeRJhwG/n31tG7fKsEJb4fbdZYnuQiV1/f5iQcU4mYyhgGTsl7KtNav
-	 ItQG73rJKCkp1Tvp0oeaCGd9bwmB0Kv5tN6exbZ55tcE9G/Yy1jTyu3mvJmfVI3s7NcWZ
-	 EacXokojXuNt1p5Jxp1pYwt/N8fELmMLscUmr+lgojHRvttyKyYCVvwvs5Z5O1FHWxkdL
-	 K43AVAlqPU7ajXWOULAUwtECuaFUfc910vXP6Pe0ZtEiHwfxfrkUHrv9ANFTZzQJm5UEx
-	 8dqYlKx48WA0Xo7qX1X221WuZyJi+YSEa2z8+RZMlrpvA1YGzq/BKvymSsLWeWuf2OA==
+	t=1795645104;
+	b=Ihkdg6a4sie7ICNqzG/SJL+tqDqcVvnpj5M0k1x5OKEp5tJs3bfpfQdvl/wSxrHEbVC9
+	 FYPWG2kILa/5vACif5j2XQ5QTJ3CE3m+OnHFiQtB/6vF4ZeqOKzA3KjigLoLGVNlGvNmZ
+	 TUbut6GBzHGJBTcF0x/saV/2ioJeNsfQcNAzvCP/vS3LjP+vVnDOFndqiz+7/4D9Ujeue
+	 X/rixKhig0mhamNQzl+zmXDpIkgJSL92ZAHEZ+rEj5QRrG+hxkUT3pPh06ESC9ReKRgdp
+	 hrEavHhlQc9AJ8B/BNwKSJWSUWqOuusrCEQLXPTxxsFIrl0OjgfECFgSOzqg0CrFcRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645092;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=tpmpzrLhm7pX+D8pjkEqrRIYRLx4SQ9n+QD2Zw1yZYQ=;
-	b=ubUDd2wU9O2ZzNeQ6LTOYgkS+DaIVofsvmTSKpJyQb8B/tL9CAGYL63F6qEUtKzzTioJ
-	 hiTCj1rRVBnaS6qLKksf9j7+MA5SzxrBYRZGzml4otHdhbF9h5smm233N/9Q84firbsaM
-	 f/XwIvoFyc+mCOVRQjXdNNMpqOSBMxxKRm8wHjO21Mpc7XtYLHVfepAKitwaZ+8HkPxL7
-	 CQCOJd3Z89Crrwog6EheC9tpwZ6cRAxE3P5d2r4blCA8lc/17a8aUKLszy3bV18/E1/74
-	 pV08xjbXbt4XtE3eKLp/g7THWuNKEq1+3J14xYetTCaiChKc71A+0vr2HqMoW211TKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645104;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=xtBf/yWLHGPRxddLFR7vrkNg0MkmjCSVdxTFGDzFQgM=;
+	b=0vMP9b8Kh8b22BCW0wNWYyOodY2wO3lKXtPBJGEjL9CkKjdDFM2A5nkfOgLQFcKsgKai
+	 o2+HeW1zxP8CKzJp6UR31fgWZp3MK8T/Z03+GuoaZh0uK7IkIHrFIPfOYg/MLQossiTXL
+	 qAVQkBOQ4qQ9k+45jNMqyNnYFSyV+BMHRhMwh+40VXmmSz26YLtUVRHM0oGjXLW6ANGcy
+	 insW4OyurJNyzcQHMzaTnqpgZMUzhBo+RT+OGsG5+y4hQAwfeiUnUo2J3tVl912Y4YrUP
+	 rZSfBw4Tj0A8jv8ll8Ckb39qDA23PVFzIWR7HpwOMbisL3MpjQzwCemWBUM3LyOQz2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="X6QD4/CL";
-	arc=none smtp.remote-ip=74.125.82.71
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CLH5G0oM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A97BB606A695
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:18:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A97BB606A695
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDF26606A323;
+	Wed, 25 Nov 2026 22:18:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=X6QD4/CL
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1af203073e0so6801369c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:18:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795645091; x=1796249891; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tpmpzrLhm7pX+D8pjkEqrRIYRLx4SQ9n+QD2Zw1yZYQ=;
-        b=X6QD4/CL+hI4s1wJiONzEtOeYCVAXuEN7VBttyB7xsPV2WC12JlUn4wdwlTKHGEfY9
-         kEJ/tkYvtwmuCHs4NkVt4Dv/eb3ryhoO1lE8wyFAkVO/Ja0PpcXjXPDscFmlhKQGtAMF
-         Zr6rpbkLIdM04F0UW5OuJjYXSLeqx0q6+JULocbmR+m3nbeb7LLNyLsJfTCiFaDn+Z/5
-         SeahyERlx9DxteptQRD92CSuaG3NDyjhWLHI2LQbfrCSldRXOgH1YBoCQ2vvQl3tH4dP
-         iy484IyZvfF7s/rORaxoj4ABgaQAlzC4imeL4KAZP28k44ET03v6nXLfLoEWZmW8/FH8
-         8H3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645091; x=1796249891;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tpmpzrLhm7pX+D8pjkEqrRIYRLx4SQ9n+QD2Zw1yZYQ=;
-        b=Hefd9eudYiufWjQi/Rjl2A8jr+2DvshuL8g1C+nLqZBiUOxdxGPMge93R5oPC/0CtL
-         hhCqah+4Fv5WCY0nL9nyQhWCLv51jXThdnZmxp7cWgtlXfZ/u2MXTlfHaRsiqApNQo+V
-         Gom2g+dpnWj4KvpVfvfz4DeE6C4D+mlGq8M/N18VNMlF3cFSWvn998vFYMZdUZB2CAnb
-         thW6TvJX/Opo8Kgmw++Renp9SIfl3Jg0w3ECTy6VMTaL17p+3aTEEGewfRR94aNEBMwO
-         OpP4PMPEPMTbu/BjuAVatKB/IRne4bCmoojPECgJqQ9Ia5NgSyzc+d1tIQBw9L7QD+1b
-         CnPg==
-X-Forwarded-Encrypted: i=1; AL+hErH0/oH8k/dDuM2YMcsJEtqsUTnGMoSRqBdw7SYGjG5cSYRZV/4Vge1tvp81D94KSsx2imlXiyp6k90mtSs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8FlZZLsczypl25ehsuqeihgRiVZMJGf+Kwo6FbbC9elUkNeROq
-	uRziUIZF85CfORnG7F3AJ1J6W0r7lm2JWOPTq1Btor2YwskFlJlwTBt4K+bMACyNwnCvKaB8ymP
-	vbw==
-X-Received: from dleb17-n1.prod.google.com ([2002:a05:701b:4251:10b0:1a7:f7dd:f258])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6988:b0:156:6676:d0e2
- with SMTP id a92af1059eb24-1b55689f5dbmr25363930c88.10.1795645090492; Wed, 25
- Nov 2026 14:18:10 -0800 (PST)
-Date: Wed, 25 Nov 2026 22:17:29 +0000
-In-Reply-To: <20261125221730.1421806-1-elkin@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CLH5G0oM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F5B51F000CF;
+	Wed, 25 Nov 2026 22:18:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795645104;
+	bh=xtBf/yWLHGPRxddLFR7vrkNg0MkmjCSVdxTFGDzFQgM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CLH5G0oM2JLxV/KchDGhSFf/Fq5APGHb9tbSqagYg6FBqtQjMrkOah46W7W0stvww
+	 IqvBmvN03Uz+8K8ZBD0ZUzgToREH6mftcH8vUhMBHajoIY7F0IiplTwt4Q3Oq/XYSy
+	 uLtq40uN1LwxlgfAXtIDRIV2MvbUoRTmkQ7SAd9P5FpQZAX6/YQGDATkBioYmrvoLj
+	 aQpucgH0Qakl0Dx9pg+jyg6Haklkj5UMU5U2O+/DELsV/abDAe6F/6rY/g8ayzSpNx
+	 pFaZp4VAZtuy0J8TCDoU/am1/zj8kTI/CwgWZ63rOsYEunBziTRmV5135hf+d16nUr
+	 r2XRmeu69lwgg==
+Date: Wed, 25 Nov 2026 23:18:16 +0100
+From: Alejandro Colomar <alx+linux-hardening@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Alejandro Colomar <alx@kernel.org>, linux-hardening@vger.kernel.org, 
+	Krzysztof Kozlowski <krzk@kernel.org>, "Maciej W. Rozycki" <macro@orcam.me.uk>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Andreas Schwab <schwab@linux-m68k.org>, 
+	Andy Shevchenko <andy@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Daniel Scally <djrscally@gmail.com>, Danilo Krummrich <dakr@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Hans Verkuil <hverkuil-cisco@xs4all.nl>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Joe Perches <joe@perches.com>, Johan Hovold <johan@kernel.org>, 
+	Kees Cook <kees@kernel.org>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Len Brown <lenb@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Linus Walleij <linusw@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Saravana Kannan <saravanak@kernel.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Tom Zanussi <zanussi@kernel.org>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v7 4/4] device property: Fix fwnode_name_eq() for empty
+ node names
+Message-ID: <awddHt_xvc-lIygA@devuan>
+References: <cover.1795639368.git.alx@kernel.org>
+ <396395e1d02ca080da67cfd91a1c49058b2676b6.1795639368.git.alx@kernel.org>
+ <awdaYz9NNVv5fHv9@ashevche-desk.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,62 +71,120 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261125221730.1421806-1-elkin@google.com>
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125221730.1421806-2-elkin@google.com>
-Subject: [PATCH 1/2] afs: Guard NULL alist on restart in afs_select_vlserver()
-From: Elkin Cruz <elkin@google.com>
-To: David Howells <dhowells@redhat.com>, Marc Dionne <marc.dionne@auristor.com>
-Cc: linux-afs@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, irogers@google.com, Elkin Cruz <elkin@google.com>, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7ejnb7qdmhqer45z"
+Content-Disposition: inline
+In-Reply-To: <awdaYz9NNVv5fHv9@ashevche-desk.local>
 
-In afs_select_vlserver(), restart_from_beginning: is reached from
-no_more_servers: after pick_server:, where alist and vc->alist have
-already been cleared to NULL at next_server:. If an earlier VL call
-received a response (vc->call_responded == true) before failing with
--ECONNRESET (setting AFS_VL_CURSOR_RETRY), vc->call_responded remains
-true until another server address is selected, causing
-restart_from_beginning: to dereference a NULL vc->alist.
 
-Guard the preferred-address update and afs_put_addrlist() at
-restart_from_beginning: with if (alist), matching the failed: path.
+--7ejnb7qdmhqer45z
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+From: Alejandro Colomar <alx+linux-hardening@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Alejandro Colomar <alx@kernel.org>, linux-hardening@vger.kernel.org, 
+	Krzysztof Kozlowski <krzk@kernel.org>, "Maciej W. Rozycki" <macro@orcam.me.uk>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Andreas Schwab <schwab@linux-m68k.org>, 
+	Andy Shevchenko <andy@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Daniel Scally <djrscally@gmail.com>, Danilo Krummrich <dakr@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Hans Verkuil <hverkuil-cisco@xs4all.nl>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Joe Perches <joe@perches.com>, Johan Hovold <johan@kernel.org>, 
+	Kees Cook <kees@kernel.org>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Len Brown <lenb@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Linus Walleij <linusw@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Saravana Kannan <saravanak@kernel.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Tom Zanussi <zanussi@kernel.org>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v7 4/4] device property: Fix fwnode_name_eq() for empty
+ node names
+Message-ID: <awddHt_xvc-lIygA@devuan>
+References: <cover.1795639368.git.alx@kernel.org>
+ <396395e1d02ca080da67cfd91a1c49058b2676b6.1795639368.git.alx@kernel.org>
+ <awdaYz9NNVv5fHv9@ashevche-desk.local>
+MIME-Version: 1.0
+In-Reply-To: <awdaYz9NNVv5fHv9@ashevche-desk.local>
 
-Fixes: 98f9fda2057b ("afs: Fold the afs_addr_cursor struct in")
-Cc: stable@vger.kernel.org
-Signed-off-by: Elkin Cruz <elkin@google.com>
----
- fs/afs/vl_rotate.c | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
+Hi Andy,
 
-diff --git a/fs/afs/vl_rotate.c b/fs/afs/vl_rotate.c
-index 6ad9688d8f4b..8381d6a35d3e 100644
---- a/fs/afs/vl_rotate.c
-+++ b/fs/afs/vl_rotate.c
-@@ -171,12 +171,15 @@ bool afs_select_vlserver(struct afs_vl_cursor *vc)
- 
- restart_from_beginning:
- 	_debug("restart");
--	if (vc->call_responded &&
--	    vc->addr_index != vc->alist->preferred &&
--	    test_bit(alist->preferred, &vc->addr_tried))
--		WRITE_ONCE(alist->preferred, vc->addr_index);
--	afs_put_addrlist(alist, afs_alist_trace_put_vlrotate_restart);
--	alist = vc->alist = NULL;
-+	if (alist) {
-+		if (vc->call_responded &&
-+		    vc->addr_index != alist->preferred &&
-+		    test_bit(alist->preferred, &vc->addr_tried))
-+			WRITE_ONCE(alist->preferred, vc->addr_index);
-+		afs_put_addrlist(alist, afs_alist_trace_put_vlrotate_restart);
-+		vc->alist = NULL;
-+		alist = NULL;
-+	}
- 
- 	afs_put_vlserverlist(vc->cell->net, vc->server_list);
- 	vc->server_list = NULL;
--- 
-2.56.1.839.g22a8290db9-goog
+> Date: 2026-11-26 00:00:03+0200
+> From: Andy Shevchenko <andriy.shevchenko@intel.com>
+>
+> On Wed, Nov 25, 2026 at 10:03:55PM +0100, Alejandro Colomar wrote:
+> > str_has_prefix() returns the prefix length on match and 0 on mismatch,
+> > so the mistmatch case can't be told from "empty prefix matched an empty
+> > string".
+> >=20
+> > For instance: the OF root node's name as returned by
+> > fwnode_get_name() is "" and will return 0 for any name matched against
+> > it and since len is 0 too, fwnode_name_eq() will return true.
+> >=20
+> > Let's use strprefix() instead, which also makes this function simpler.
+>=20
+> ...
+>=20
+> > Message-ID: <avrSUUM3HMgxTNpl@kekkonen.localdomain>
+> > Message-ID: <nat4ilqmzzpuyrjbuahl367ip22tfnmjorydlppuwqiscxaujo@kf63j4l=
+b3flk>
+> > Message-ID: <nat4ilqmzzpuyrjbuahl367ip22tfnmjorydlppuwqiscxaujo@kf63j4l=
+b3flk>
+>=20
+> What is this?
 
+git-am(1) has --message-id and the corresponding am.messageId, which
+stores the Message-ID from the email header field from which the patch
+is taken, to document where the patch was taken from.  It is stored by
+git-am(1) right below the last trailer tag from the patch (which should
+be the 'Signed-off-by' of the author), and before the 'Signed-off-by'
+appended by git-am(1) itself.
+
+	$ MANWIDTH=3D64 man git-am | grep -A5 messageId
+	     am.messageId
+		 Add a Message-ID trailer based on the email header to
+		 the commit when using git=E2=80=90am(1) (see git=E2=80=90interpret=E2=80=
+=90
+		 trailers(1)). See also the --message-id and
+		 --no-message-id options.
+
+It's useful to document where those tags come from, in case it's
+historically useful.
+
+I've extended its use to other tags I take from emails.
+
+> Is it documented tag nowadays?
+
+It is not documented in the kernel, AFAIK.  It is documented in
+git-am(1).  I included it, because I find it useful.  Feel free to drop
+it if it's not wanted (I can remove in in v8 if it's not wanted).
+
+
+Have a lovely night!
+Alex
+
+--=20
+<https://www.alejandro-colomar.es>
+
+--7ejnb7qdmhqer45z
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEES7Jt9u9GbmlWADAi64mZXMKQwqkFAmsHXqIACgkQ64mZXMKQ
+wqlH4Q/+K4tq4+xqA+hdgLFU9RuoGu9qlZ9RqtFtH9W87MQooPrhhUG7AbFMBC9u
+ucTzbnIgGovA2AO7MQsbTJL5+N9firrgftdeDosezvTNFc5p/znYPlW3P5bcrESz
+cS2Auvzbd6s5aqhWgHVxeUNGf5fwQ9QOdkz0Am3ULMnNUXfr/c9KvASfJPO0Qlcj
+NfJTuGv98uzzIeQN54tNftEOnbzqjM+hTGyc0LNUSyh3Fo8pIomM/hL6y36ViS2v
+xgSGxJ+VDq86TbKtvZMgh/JuA2zJ9Mr8SCIGcUWKQMSz0eksGP/MdtDN/q89yUoI
+4u5E7iDcPR/OvgA6MvDIQMlS+LXrSSKAJKrKO+uYO7ee8y0VcmhkSmb6hXnPDpd4
+t89hd/ds+h+MHWdbJhxQCnoEbvWPUnS5bvM5Ez17vLt0LaH0P9WeWNnDsbLRAjvn
+Vr5cSqAHwvQuFCxgoaGhiRhVNtVj6oLf2EqGCSYpXlyjfirNxp+Mhi2x7/xC/szg
+r7LECWvqGXnMh8nZ4b7Ha8dAnETqGLFKwp8X4+3fo/8k0ldmu4VHKhmPWd5FqtsQ
+WgN091lpGuSXNAzGUZLcr1u5FcJG2dTc97jSOk+n9nFnjHHSagJ/S0yhOLywhFok
+BHSOGIKbY88h/xhKT+v6p2wCllPZO4wmjNUaLiQCx3IAcTYt5pg=
+=huBL
+-----END PGP SIGNATURE-----
+
+--7ejnb7qdmhqer45z--
