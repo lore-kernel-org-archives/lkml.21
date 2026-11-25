@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795632551;
-	b=HrYp3Xy1lde/CzxoDw0yalk8KPwMIEfXFum0eMk72yTPifcemO39Qs5YL3OPWXfJQehp
-	 5+sHu5Pfc21LaKNeMmuRAvRMa9eNcUjrj2teWN7H5jZ5r3jXV4zxwYntQI/O9FuUBnrrP
-	 hW1eF8c4Wpu60sZNHS5PYN/Iyw+gHOID3uFh1l5dOeSwLj9gyD5No1VdInZ88TSIJWQdU
-	 8qjQlMhxuNv65Z0jpCO3nRik31HIbO4L3yP4WOMoZLOVPmpRFJPG7qjSq9mo1HoypKTzC
-	 fN+A7MpmwnLptOTxwlnRWY9dh+CBtqfveweIstTVcSGTq/2zSPBuTJivlMtuBpD/ssQ==
+	t=1795632590;
+	b=KeK4L3tbDUHvZp30i37QmxE2zUEZzBFoNV3cdLsKBwuZ0EpJQEUNw1t7fgAFKrpX2Bf6
+	 utBfCvcGKJW9o+/xSMk+Pa+kygF1rNTaMeZi1q+FygNKTjOAV78BOTWsj8beFHUPsAuqC
+	 po+qnMe3DxjzCOcVjD+pFag9LVtNkGq2v4rbIBITC8XqpoPYbzHwKTMLWRUUd2lZ14UI9
+	 j9HdgmWPCuV+5xB6shw1OXmybCQ/91KpJiQcmQ9NWlYvk4AZGFOXmEk1EN+rhtJ9WLT65
+	 YfDTAZq47erA6X+Hkt7Ufp/nx911EfZAbSl1tcvWglkjaVxVpcZux1MCoJVc5IZasdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795632551;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795632590;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=IcBbbIZ4kprYihX6PWRB+1nNTwBXZH4y418KmCgh2Ow=;
-	b=KyxKpz9IhmRIn3cr2jEF1UeQXdrTfqDoX6tc5Rx/8Cwzyfp56u/hEbzSADDOldbpRzuU
-	 lG+E75FJ0zfeGtEp7qfQ+Zr5vUqwNVqoS1I/n+YLCl7oilgBwYhc4njnedNo8Wi5R0wVP
-	 v3XshLXPbc+I6J9gHneHJJKLMgz6pm4aM6XMZV/lwx3sR17ykfMNqyQQrElr/LZBQENJx
-	 rdw2prKaPYuf5F43uyQlmW/JcOX3O7AL+jKXwtlAZDzFneD5YmM5gwnbIIjyWqNMZzXoX
-	 u2F7DR67QYNQbzUlf7gjO+CaoBB/npj/ZWCv56hHgPf28p8Fpku6tih5zuKzCy9Xy0A==
+	bh=PM8SzO2FNT5QYTl7e2L6CPSCvxzNzPmQG5xnJtLl3nA=;
+	b=4yWkNk8MSv8/FYZXNdaSAmwPFaukbamE3Rs+G9R6J0g5PnoidwZP4JV9S6yswukXgl+3
+	 QDJQK9qVajqXuC6UCX6c2U3g+rV09ZVdJWafX/PKNUr4RjLQ5KXP2/tBwNSwXngjmHlFx
+	 fIvACk1feuEhMdnDWKLC5oesfrNRX2S2uwS7an+8RjZl4uOuntMSuYRQXdW9rgxuZVTvs
+	 pc9yB/bbEftqoAeSZ6yQjXegR1fWLUP3FvAQ6I8hDRbqWis2V3Q1Oxc6NRTrIQLOl4dk+
+	 2zvg20YHaeWQ90y36zVaaO8teweBbQMSx0CTQTVQexm+HYZpwlpbW3/ZoCf10beCEtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XSNE5M0H;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OHJ2BmO0;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4398606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:49:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69450606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:49:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XSNE5M0H
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 291931F000C0;
-	Wed, 25 Nov 2026 18:49:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OHJ2BmO0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 155C11F000C4;
+	Wed, 25 Nov 2026 18:49:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795632551;
-	bh=IcBbbIZ4kprYihX6PWRB+1nNTwBXZH4y418KmCgh2Ow=;
+	s=k20260515; t=1795632590;
+	bh=PM8SzO2FNT5QYTl7e2L6CPSCvxzNzPmQG5xnJtLl3nA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=XSNE5M0HumztNXfXGCi2vR/TB3+dmoswmYgZi21Jywix4Zzi0lrXkb9vBy6/he/9B
-	 w4O7r9k8Rq0mx9J9/VkHMld+FysHlAPMu7mZ0s7am76HtbEKk709aSkErEfftS8bVE
-	 g9fo1B3zjNUvG8vLLp3ylhmChgyt2r8xQ4LaP6je6BqueysmXUBXdMnFQnQlDubQUa
-	 QbRfkExnIk91QYQb4hRFvE9o/BxBLHl4XWc9bDNezZ+4fO2U6umDyyCA6COyHv2d5i
-	 xLKSIO5lfScAJbQIQrQKSxqPFA/ZGHn4Esq3YEsCW0YPG4xlcB7VRXFjIvResVq4Tb
-	 edyJlxmz5knog==
-Message-ID: <e6876775-fe6a-45d2-aab5-995b30c43971@kernel.org>
-Date: Wed, 25 Nov 2026 19:49:06 +0100
+	b=OHJ2BmO0t26BbIkdocGQD9nE3A3OnHYcLXXVl3aaKYh+ftS4n0BE66Ac1a8LInUBI
+	 FdMbdKSxEl5b/l+MrQ48QNJYD1pbeCzOcYo0xW37AXVOAjJ759443kXbYTgs1xDoTS
+	 SYElSvDFlmmnNnvyi6WKrSdrXmdvTh270kn0RN4RVcR7wyiNKLKmsF/vKh/dOcpHUZ
+	 jmBs+uJpdaNHb3ngBn/j65iiGdvZWzQ3XzdjXL+6g1W+Xr6IGVd+qh/3k/v7eK2cmz
+	 yJ3kZpF3U3fmtkq+vCMzzm3MkdCyDmCQ46RpCoxRUa95UlZMC32Wnm/egUjwXqJYmG
+	 JGzQpF3KxjK6A==
+Message-ID: <777b808e-19e3-4dc1-80f7-6d75cb0362af@kernel.org>
+Date: Wed, 25 Nov 2026 19:49:45 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,8 +52,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv3 1/4] powerpc/execmem: Don't leave kprobes insn pages W+X
- when CONFIG_MODULES=n
+Subject: Re: [PATCHv3 4/4] powerpc/mm: Drop PAGE_KERNEL_EXEC
 To: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
  linuxppc-dev@lists.ozlabs.org
 Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
@@ -61,68 +60,67 @@ Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
  Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
  Shrikanth Hegde <sshegde@linux.ibm.com>
 References: <cover.1795625038.git.ritesh.list@gmail.com>
- <5f5185b80df2a3a4e85ca711b5071096f36a7892.1795625038.git.ritesh.list@gmail.com>
+ <96692b22febc2c4ee366de072cebb57abd8ffb18.1795625038.git.ritesh.list@gmail.com>
 Content-Language: fr-FR
 From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <5f5185b80df2a3a4e85ca711b5071096f36a7892.1795625038.git.ritesh.list@gmail.com>
+In-Reply-To: <96692b22febc2c4ee366de072cebb57abd8ffb18.1795625038.git.ritesh.list@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
 
 
 Le 25/11/2026 à 17:52, Ritesh Harjani (IBM) a écrit :
-> commit 2e83e2ce34ff ("arch, mm: promote DEBUG_WX to CHECK_WX"), made
-> CHECK_WX default STRICT_KERNEL_RWX.
+> On powerpc PAGE_KERNEL_EXEC is just an alias to PAGE_KERNEL_X.
 > 
-> Now on powerpc, when we boot with CONFIG_KPROBES=y and CONFIG_MODULES=n,
-> we can see the following warning splat at boot:
+> The comment above it's definition saying
+> 	("Make modules code happy. We don't set RO yet"), is stale.
+> Since commit 4fcc636615b1 ("powerpc/modules: Make module_alloc() Strict Module
+> RWX aware") module text is allocated with PAGE_KERNEL when STRICT_MODULE_RWX is
+> enabled and only made executable later, so there is no longer a reason for
+> a separate name.
 > 
->      powerpc/mm: Found insecure W+X mapping at address 000000002ea08992/0xc008000000000000
->      WARNING: arch/powerpc/mm/ptdump/ptdump.c:194 at note_page+0x4dc/0x4fc, CPU#0: swapper/0/1
->      NIP [c0000000000ac204] note_page+0x4dc/0x4fc
->      LR [c0000000000ac200] note_page+0x4d8/0x4fc
->      Call Trace:
->       note_page+0x4d8/0x4fc (unreliable)
->       ptdump_pte_entry+0x70/0x94
->       walk_pte_range_inner+0x15c/0x260
->       walk_pgd_range+0x6d8/0xd5c
->       walk_page_range_debug+0xa4/0xf0
->       ptdump_walk_pgd+0xec/0x304
->       ptdump_check_wx+0xd8/0x154
->       kernel_init+0x94/0x26c
->       ret_from_kernel_user_thread+0x14/0x1c
->      Checked W+X mappings: FAILED, 1 W+X pages found
+> Convert the remaining users to PAGE_KERNEL_X and remove the definition.
 > 
-> This happens because CHECK_WX noted a writeable + executable mapping.
+> No functional change intended.
 > 
-> This happens because execmem_arch_setup(), checks for
-> struct_modules_rwx_enabled(), while kprobes depenency on modules was earlier
-> removed via commit 7582b7be16d0 ("kprobes: remove dependency on CONFIG_MODULES")
-> Since the insn slots are only written with patch_instruction(), which does not
-> need this mapping to be writable. This patch fixes it by checking for
-> strict_kernel_rwx_enabled() instead.
-> 
-> Fixes: 7582b7be16d0 ("kprobes: remove dependency on CONFIG_MODULES")
+> Suggested-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
 > Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 
 Reviewed-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
 
 > ---
->   arch/powerpc/mm/mem.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+>   arch/powerpc/include/asm/pgtable.h | 3 ---
+>   arch/powerpc/mm/mem.c              | 4 ++--
+>   2 files changed, 2 insertions(+), 5 deletions(-)
 > 
+> diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
+> index d20ff2ae02f5..ea06a85f0fa8 100644
+> --- a/arch/powerpc/include/asm/pgtable.h
+> +++ b/arch/powerpc/include/asm/pgtable.h
+> @@ -20,9 +20,6 @@ struct mm_struct;
+>   #include <asm/nohash/pgtable.h>
+>   #endif /* !CONFIG_PPC_BOOK3S */
+> 
+> -/* Make modules code happy. We don't set RO yet */
+> -#define PAGE_KERNEL_EXEC	PAGE_KERNEL_X
+> -
+>   /* Advertise special mapping type for AGP */
+>   #define PAGE_AGP		(PAGE_KERNEL_NC)
+>   #define HAVE_PAGE_AGP
 > diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-> index b617b69452cd..77b63b52d8f2 100644
+> index 8a0fdfd028dd..bc83e45b7ae9 100644
 > --- a/arch/powerpc/mm/mem.c
 > +++ b/arch/powerpc/mm/mem.c
-> @@ -388,7 +388,7 @@ static void prealloc_execmem_pgtable(void) { }
+> @@ -388,8 +388,8 @@ static void prealloc_execmem_pgtable(void) { }
 > 
 >   struct execmem_info __init *execmem_arch_setup(void)
 >   {
-> -	pgprot_t kprobes_prot = strict_module_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
-> +	pgprot_t kprobes_prot = strict_kernel_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
->   	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
+> -	pgprot_t kprobes_prot = strict_kernel_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
+> -	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
+> +	pgprot_t kprobes_prot = strict_kernel_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_X;
+> +	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_X;
 >   	unsigned long fallback_start = 0, fallback_end = 0;
+>   	unsigned long kprobes_start, kprobes_end;
 >   	unsigned long start, end;
 > --
 > 2.39.5
