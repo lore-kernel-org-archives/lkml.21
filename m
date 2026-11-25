@@ -1,61 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795605771;
-	b=gdXmn/qt8xjnk+GdAg9TvpAAHgOcDX5U1YAp9J3KYHHION9PI5YYT/OauimMXxvk1u7C
-	 rMlZWuRgwNqCIe58u9M8Qi8mGmM9ocmjhRLF1gOwcSbZfxT18RA0spft5H/QusQRopr91
-	 7bjkjVEaGc1WF3zfqsVBn3Sm4+KhKbgDt5z8Oznbfz/eVfurLiZpb7/5gemX/mrZS1igJ
-	 rffHYVMcY9aveXVfA4CNMX2wrGXAyMGStmyHhdDruyCHntHOAVFGvJslSJcFApuFNYdsa
-	 /OpBAvvlBgC6m43TvjMrBdge96LdUbwr7bb6bmQcphKk/MZ8fOXMKEe9vnY/YNOgwxA==
+	t=1795605839;
+	b=U/pUj8Cq8nuW1wKJER+VlHfHyhPNY0RfPTt3Fe9nqF4zwTpAlMG9qT4hRTCvPURBlyqO
+	 2zIksG58iQw9NRRqAkfFqNHEN/1UQ7g+i78J+pg9Evpy2VJOcbxDGoyjdmdkEU5475LvW
+	 0qcC8CvfSSv2tiRlD4ykzHwgjW33GUm1oevbpHd7z/S2Gz7mYb+7YgBY10+AhneWAkn2d
+	 8QXWdvZ86+umdZ/EcqWWTy/dxCXMtpFWmkyhoHYv8/nKw0gN8/K1fS0uJfOYJ5705CV0r
+	 V9TZGUODqBgZdfXSvkTvmpI69bKoJm3B1+7KrWvWjOfMqjOAysElUmJDl+m8DGd4RrA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795605771;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ykzuj/zaY6gslsjzhbJvcRZzYsnVjN0GyJsjC47/W18=;
-	b=NUgRQn1OOC1mQeaf61AGAfIGFysAtCnQyLnmToqOObGk0apEdClXVMYvKWozqse0p0Po
-	 V0x7BJd+PdOz8ubgQLY/Urw9RX0HHADkI2yj6zAiY7kXIBgpASoAy3EewUtudNruZOw7I
-	 caBgwz70kL6VGN2Dka1Nc6g2x8/3qwHFPU/xu6xZPUXLdD4Hp202q20KcrDuqgntROLid
-	 bA9Zav/3yuzqV/kI5PjIaaJXKXXhOiq2YXLr+X2fBPlQRSb17Pm9GQRUUAUE6E44GJM0l
-	 gSJKtZzQNShcsujZGfL3VJJ0CUN47czfbkrLZvwnYTBXsRhEF3PWt9nopyHpFhZIVaA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795605839;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=ZqyE+XGTWOgC2A3mi7+hrJBzXMkQ44TzEigxTeE2xT8=;
+	b=IHyRS9h1TMTG28v23JJCnjSciX9BmpWE4CcJ+2Q9M4ZmyYruKxL6C5NFMxr1ZC0RRFSb
+	 3zNwaT7OvO2N60AaGvqKQqwTi1kqRc15dQyq7kk4jCZcooyripPpKik09OC6qvggcEzAZ
+	 GUHdJMqffOoGMFIo/5QjWueuL7hJWWvmw+tjc29xoEVyOyCeVIc+7q1vh+Fl5YvX0vXQi
+	 9ScKmOS0ycnKTUczokJEPrUeVWpG/5r8J2/s1FsAyhLj60ZyR9rKxDVeEDAnHhBCzpemS
+	 DUBnSV0dUcoertg4Mth55c7FGXdPohFNU26YzMJ256N3Hz+2P39N925b2hi+BXom0PA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aqUl1elz;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=nL4ewuhA;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ia+BShyl;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0BDE606A31E;
-	Wed, 25 Nov 2026 11:22:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC0F0606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:23:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC0F0606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aqUl1elz
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC92B1F000CF;
-	Wed, 25 Nov 2026 11:22:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795605771;
-	bh=Ykzuj/zaY6gslsjzhbJvcRZzYsnVjN0GyJsjC47/W18=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=aqUl1elz3yTedvagE4ap1hYKrnCKuXMvv2B2OTA9F6VtfGiKNq52APuaqULyb2L9d
-	 DT+JIWg2RE4X3/El8P+TEtWW4FlEb9hpoEDNZ2uDdTt9g9SEyDx9wZuP85epKfxiE8
-	 xSlGLRLfoGRkazc1SvAc23csHe6kkA96Rcv+gBue4LcHF3XmgJqgc3nGLCvGQzOMeQ
-	 ci0Ihaa5zUWgggMPuq1yYv3VApjic7gNVgm3GWtIqmByxRLLlRzWDGwnHwkenYvma3
-	 JPQh9MJv7i7SWveyk14fef2oLss5xwpP14pLSQ7SqJ8AT5SRsyJiltFJocOcxDCutw
-	 +QdtOIqHxiH5Q==
-Subject:
- Re: [PATCH net v2] netdevsim: fix rate node leak during reload and removal
-From: netdev-bot+sashiko@kernel.org
-To: xietangxin@h-partners.com
-Cc: kuba@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, pabeni@redhat.com, dlinkin@nvidia.com, vladbu@nvidia.com,
- jiri@resnulli.us, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com,
- gaoxingwang1@huawei.com, huyizhen2@huawei.com, xuanqiang.luo@linux.dev
-Date: Wed, 25 Nov 2026 11:22:50 +0000
-Message-ID: <179560577028.3135.18386607599971206035@kernel.org>
-In-Reply-To: <20261121110858.1337003-1-xietangxin@h-partners.com>
-References: <20261121110858.1337003-1-xietangxin@h-partners.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=nL4ewuhA;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ia+BShyl
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9mAU7115101
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:23:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ZqyE+XGTWOgC2A3mi7+hrJBzXMkQ44TzEigxTeE2xT8=; b=nL4ewuhAv9oyScHu
+	e+ClnbT2414Iwn52QoUbnT9u3D32UAd3+XVCe7sMMh3E9BzW+1yWdSu8tiDiLWmv
+	uWG1EbsKKI8BR8XwdHpEXv7Jw5v//8kau8jr070/U8W2A7Y51dGPcg4ZuMVvfpxf
+	j4r0mfzBhizlcq3EVt7ZgupJQxCwmORBLrvEDVBnI0PppaiFLcQgGQ4d6eX3VQN8
+	1hTKMShfesk98FYX0kkpmQt8YEhW/Cx2ormbw6NjFHpGfWRVAy4rgDZRPp/bMiMV
+	/I2HNIkL+EYjujndRxemOMqUajJZrdkWp/CUsYBlctWD6/1IamvhDsurGokb80JQ
+	cFzugg==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5cxkcjt9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:23:57 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cdb91e288d7so4432151a12.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:23:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795605837; x=1796210637; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZqyE+XGTWOgC2A3mi7+hrJBzXMkQ44TzEigxTeE2xT8=;
+        b=ia+BShylIKbIPCrYOM1gtCiA7ht57v6tLSiguVvK21cFPrItLN6NulzPhovkB8RLu0
+         D6PXlgze7CgGYsCyjjxuzAvMgBZAXnjcxtmU57q/Jlo7cO5ElY9QzIxXqn+zbuyTSqUz
+         XLlLGjfmPTrOPTlm7sT4mNUWLCNAPNAbqyaBuFjNjKCKe5UqOa6EFiM9UBod6/CVUXeU
+         ToYMcaa0QDZuC/uJIMkCGH+YAd89XP57mm3ZoaaKh6oGU9tcLUl3a7ZszKkO77Z0KU75
+         1y17DuKnlWfiwwZvZjJv4j6t81VxEwhLJx1HXrasxrjZaaAjtrmymlF0EhypttiZsmdc
+         VA4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795605837; x=1796210637;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZqyE+XGTWOgC2A3mi7+hrJBzXMkQ44TzEigxTeE2xT8=;
+        b=w+XWjbZj5QJ24f/wXS9x0b/oJsOvUKzmO+3vypNWdMwE9otI+z4wQrfbeUQiCyc3AE
+         UyhcHMNtUtc3UzkvyUD3ofoRLpDkEL0Q3WyJnZ+gw5tEiPXnW/SZvpNyVJ0SKIVzMwFQ
+         CNMK7qtLvKVl6UDBV3bcAqwEmSUn27nPLFH/u00mPbbGM4CTZh+jgdf/QrUpSpLHQcXA
+         5xrtRS4FzFRPX0UG/TClhPloHz4aLnKL+6y7O6nah1puYs0D7UhILxv3eEvEk8Q1Bo1J
+         0YUq9lzzo8mN6zpUbUjaiNalJ0e27CbusxpG6TI9DazOrEM/9/d52ahf1JgN873EPev2
+         +CMA==
+X-Forwarded-Encrypted: i=1; AL+hErGOdOAR29SOqWXIo6LDXpOucTwCP6QfgaBUJqM2WtH+vJD8RhHIgRXSiWi2vt0/C0um7nRPHp1VhUV8wog=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9aP2Gu+AORhcL1kN1VAQoVlHgrPlqEDk+xMbxsnGGttT0spV0l
+	lDdapinDFFlRyqg6qDLu1QwgB/5B41NeE90oF3v5PlH5IsKWyrA6Di/MYYAmivKNukwkW5hXYAH
+	tXVg0W0ToHxL2BYXP0pwz8EaeOHZY5ciC0fnPjTX0e5V7PLK42dizSc1rUhLiupHDM9I=
+X-Gm-Gg: AZFdTZdtB99S3cuGUknOZ/yjhHDvFTdVoLPBPHUrQ2GrjqyMy50Jy22Cv7dIx2mNfNw
+	0cHMZvL3wFgJjh3GfeVcgVHpZwO8rZWaULZYXVCSsSzKPZP8WR1t6gO+DJs9fi7wWzxc01Bj+zi
+	kzc7WwYktFN25RANER3+SGg2TraKK0+yzb0EgI+zmYeg6FBTvey9UMSkveos6d3Ck4XnqzdaW6e
+	/ifmeZ1yu1Y3cZD4l2iEKJI/b6NPnvjNShjX+VGAcTJoJegM5RF6LRcJka2u5aIa6dqUUV9LZuI
+	IPlSi4f0gSJDqvQHc+m8kyAKGRxOvfE63AiYBBVsTkx2vs4oYmp1wH6HYiDsa9pzNTm0pa6LNcL
+	zB1db6HfL13P9q+Mo0sD7jL98R+HyQocF91Q8PjF7+Bx58wjhz6Poa++/rl1JUxcGxbYwHmNey8
+	vR/qJftQdwMDXUJr+zdh9aBeB/26Fe7W15sAVHag/X7aXDeet4nO4dcGHfFm7ZrgkM0w==
+X-Received: by 2002:a17:90b:388c:b0:3ac:e6a:1b2b with SMTP id 98e67ed59e1d1-3b41c5585femr17326638a91.0.1795605837196;
+        Wed, 25 Nov 2026 03:23:57 -0800 (PST)
+X-Received: by 2002:a17:90b:388c:b0:3ac:e6a:1b2b with SMTP id 98e67ed59e1d1-3b41c5585femr17326617a91.0.1795605836738;
+        Wed, 25 Nov 2026 03:23:56 -0800 (PST)
+Received: from [10.79.116.36] (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a34asm26985027a91.3.2026.11.25.03.23.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 03:23:56 -0800 (PST)
+Message-ID: <6493f02a-5880-4245-86f4-1e1bf00da017@oss.qualcomm.com>
+Date: Wed, 25 Nov 2026 16:53:50 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,111 +116,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: pinctrl: qcom: Add qcom,remote-owned for
+ ownership update
+To: Linus Walleij <linusw@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Prasad Sodagudi <quic_psodagud@quicinc.com>,
+        Rajendra Nayak <quic_rjendra@quicinc.com>,
+        linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261106-egpio_fix-v1-0-569d220a4748@oss.qualcomm.com>
+ <20261106-egpio_fix-v1-1-569d220a4748@oss.qualcomm.com>
+ <20261110-modest-significant-ostrich-8dd408@quoll>
+ <CAD++jLkpFWWSV55LkhAa4YfckDvzB6PrHWugX0Mth=cQRYkMDg@mail.gmail.com>
+Content-Language: en-US
+From: Pankaj Patil <pankaj.patil@oss.qualcomm.com>
+In-Reply-To: <CAD++jLkpFWWSV55LkhAa4YfckDvzB6PrHWugX0Mth=cQRYkMDg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA0NSBTYWx0ZWRfX/sdTgpgLXdY7
+ SrB2DS7/rdwxyFjhzi6BIpen7pe3F9PK++m3JueeMdNrikTS90N/GlpLHv9Wj8IWy5/9Z1l4vuG
+ XZLkBipuHLP9yd46En2H9U6LEy4KfJ7IjcaxcwctLK0IvZJyPfT7i2jAstBgLQITA+kPWX78ChX
+ IlsPHda5hwz3qQEkeKQ4c37qN9s19psk9V1fb6gQo7WdE+3a0i17TaIeDuUjZWwZX8AQSs/whPE
+ dfyZG2JLiM3Tpr0owTTMJeMaFdjVWkLNkHkNPeRkrKUPxj/8BaPnH7MJXeFIRpNZM197oKD362N
+ Dm2Gw0ljcWHMh8gQg0fJh0hzPnUR441thABdExtYfFp9RqJW8pXyyWVCvetK0h9yq+FuXcpVQzf
+ MMY0cW1w9G5vGnYuolG8culz6vH2ER4crKXss9620a5/58p2vrg4zNONgYLJ6jnrx/C2aEXE7SC
+ SAZvxnK9SFwu1mukwiQ==
+X-Proofpoint-GUID: bPlrTRqED_VKtYGwu4X0nftrfOm8r0AI
+X-Proofpoint-ORIG-GUID: bPlrTRqED_VKtYGwu4X0nftrfOm8r0AI
+X-Authority-Analysis: v=2.4 cv=TLbQ2Fla c=1 sm=1 tr=0 ts=6b06c54d cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=VwQbUJbxAAAA:8 a=oGwIKRxBBWau_mrDdCwA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=bFCP_H2QrGi7Okbo017w:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA0NSBTYWx0ZWRfX2Q7q34fxwyAl
+ EH3cP3t2l/ghqTRMmnbjP7Sxb4AWjvzZB1Te00nVi0zteAtuNbS6bsdfrcshaVFKE9Av60IJv3+
+ 04Hoj4e1VMri33r6Zj0lRymbgzdWg4Y=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 impostorscore=0 spamscore=0 clxscore=1015 suspectscore=0
+ malwarescore=0 priorityscore=1501 lowpriorityscore=0 adultscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250045
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On 11/22/2026 2:16 AM, Linus Walleij wrote:
+> On Tue, Nov 10, 2026 at 2:28 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>> On Fri, Nov 06, 2026 at 01:29:41PM +0530, Pankaj Patil wrote:
+> 
+>>> Add "qcom,remote-owned" boolean flag for egpio capable pins since they can
+>>> be owned by remote island io independently of the selected mux function
+>>> even if function is non-egpio.
+>>>
+>>> Presently egpio is treated as a mux function level decision where as
+>>> hardware programming guide(hpg) specifies it as pin conf level decision
+>>> i.e setting egpio bit is independent of selected mux function, the
+>>> driver/apps claims the ownership of the pin if it's egpio capable in
+>>> case of mux function being specified as anything other than egpio.
+>>
+>> I don't understand this. If the pin is not owned by Linux, then simply
+>> do not list it. What is the point of listing a pin configuration which
+>> should be skipped?
+> 
+> We have instances of device trees which are maintained in Linux
+> being used by e.g. secure world, U-Boot...
+> So something else is using it perhaps?
+> 
+> But I don't think the device tree should decide system partitioning
+> like that. I think the boot loader should set gpio-reserved-ranges = ...
+> before passing the devicetree to Linux instead, then pass
+> other reserved ranges to other operating systems in the
+> same physical system etc.
+> 
+> Yours,
+> Linus Walleij
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+It's being used by a downstream driver which cannot update the pin
+muxing in any way and starts accessing the gpio's assuming the
+configuration to be as expected and the property is set in the dt node
+in overlay. More dt nodes will start using this property as the
+upstreaming of those drivers begins.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+TLMM is a reconfigurable block and the bootloader is common across
+multiple soc's hence it can't be responsible for platform dependent
+peripherals enabled in kernel device tree.
 
-- [Medium] The fix is incomplete: rate nodes still leak, and the same
-  WARNs still fire, when the device has been left in the devlink…
-
---
-
-netdevsim: fix rate node leak during reload and removal
-
-nsim_dev_reload_destroy() now checks the eswitch mode unconditionally.
-Rate nodes created on a zero-VF switchdev device are then destroyed via
-nsim_esw_legacy_enable() -> devl_rate_nodes_destroy() on both reload and
-removal, which avoids the devlink_free() and
-devlink_reload_reinit_sanity_check() WARNs.
-
-Link: https://lore.kernel.org/all/17cc4251-04ae-41a7-a872-fc5cf525b58f@linux.dev/
-
-> diff --git a/drivers/net/netdevsim/dev.c b/drivers/net/netdevsim/dev.c
-> index c6b17b3873271..b483c25dfecdd 100644
-> --- a/drivers/net/netdevsim/dev.c
-> +++ b/drivers/net/netdevsim/dev.c
-> @@ -1700,11 +1700,10 @@ static void nsim_dev_reload_destroy(struct nsim_dev *nsim_dev)
->  		return;
->  	debugfs_remove(nsim_dev->take_snapshot);
->  
-> -	if (nsim_dev_get_vfs(nsim_dev)) {
-> +	if (nsim_dev_get_vfs(nsim_dev))
->  		nsim_bus_dev_set_vfs(nsim_dev->nsim_bus_dev, 0);
-> -		if (nsim_esw_mode_is_switchdev(nsim_dev))
-> -			nsim_esw_legacy_enable(nsim_dev, NULL);
-> -	}
-> +	if (nsim_esw_mode_is_switchdev(nsim_dev))
-> +		nsim_esw_legacy_enable(nsim_dev, NULL);
-
-[Severity: Medium]
-Can rate nodes still leak when the device is in the reload_failed state?
-
-The new unconditional check sits after the early return at the top of
-nsim_dev_reload_destroy():
-
-drivers/net/netdevsim/dev.c:nsim_dev_reload_destroy() {
-    ...
-	if (devlink_is_reload_failed(devlink))
-		return;
-    ...
-}
-
-When reload_failed is set, devl_rate_nodes_destroy() is never reached.
-
-Nothing seems to stop rate nodes from being created while reload_failed
-is set. One possible sequence:
-
-1) devlink dev reload runs nsim_dev_reload_down(), which resets
-   esw_mode to legacy. nsim_dev_reload_up() then fails, either through
-   the fail_reload debugfs knob (returns -EINVAL) or through an error in
-   nsim_dev_reload_create(). devlink_reload() then calls:
-
-	devlink_reload_failed_set(devlink, !!err);
-
-2) devlink dev eswitch set ... mode switchdev still succeeds. With zero
-   VFs, nsim_esw_switchdev_enable() only does:
-
-	nsim_dev->esw_mode = DEVLINK_ESWITCH_MODE_SWITCHDEV;
-
-   No devlink command in net/devlink/ checks reload_failed.
-
-3) devlink port function rate add .../n1 also succeeds.
-   devlink_nl_rate_new_doit() has no reload_failed check, and
-   nsim_rate_node_new() only checks nsim_esw_mode_is_switchdev(). The
-   node is added to devlink->rate_list.
-
-4) del_device leads to nsim_drv_remove() -> nsim_dev_reload_destroy(),
-   which returns early. nsim_drv_remove() has no other rate cleanup, so
-   devlink_free() hits:
-
-	WARN_ON(devlink_rates_check(devlink, NULL, NULL));
-
-   The devlink_rate and nsim_rate_node allocations and their debugfs
-   directories are leaked.
-
-If step 4 is a second devlink dev reload instead,
-nsim_dev_reload_down() -> nsim_dev_reload_destroy() returns early again,
-and the WARN in devlink_reload_reinit_sanity_check() fires.
-
-These are the same two WARNs the commit message describes. The early
-return is older than this patch. However, the subject promises to fix the
-rate node leak during reload and removal, and this case is still
-reachable.
-
-Would it make sense to also destroy the rate nodes before the
-reload_failed early return, or in nsim_drv_remove()?
-
->  
->  	nsim_dev_port_del_all(nsim_dev);
->  	nsim_dev_hwstats_exit(nsim_dev);
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121110858.1337003-1-xietangxin%40h-partners.com
