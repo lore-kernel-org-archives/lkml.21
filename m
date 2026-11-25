@@ -1,96 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795632406;
-	b=c/My/hvRokJnoNKu3JC/v2oC3SJ0SRK2WSftAab2huAnT9iRUiq8jQnxPcp6ijbxtZYm
-	 yF3SJEDHUHCJ4kHApGBy4DciCLSo54+5Yb5Wf6mNhOVW2Xam85TPehY/BDSF++P7ekZGu
-	 yzeLAohbWoRjGuEMFw4cXeDQ25u35F9j7WICpDHqWZyf6894Fj0QklfSCilhbZMaeFJdH
-	 jTMSdX5rg5H7xcAuOBIT6HoZ7zn+GpMlvA1rUwbfx3q6NyZwjU5ULLiwYWUy7np8SXMYw
-	 YFI8roKIm6OKRdBspVt1qFqTA/3jnz7YKZHQJMqeshuAZdln2s3/qnWj3eriL19CcJA==
+	t=1795632403;
+	b=pHYD5D8Tg1WjcneN48dHpc0tNfCDXw60YWVfTXbx1dYWN6sYigL7IMJ/qXpXgt/VmZpD
+	 yS2CFF7TOTHVRl1UxCzPTWeiZHyxlQfIonUd3YU04wVCtmlK1EShVlYnkCrcnNMymonoI
+	 5R/B0hObT1SzPqYIJzmyCfsCPi6wiysHN6GFFSWC0SYoan6oR/vyBhke2QsqGxQSVuXOX
+	 5Ez4LAzbQ5CNBKTo06BJxMQEv2MNiOdKWunKsHfA2fIFBeUvO24VSNduft3gPNPqrOM02
+	 PPZjQmLSbqTid2aOc4qjazdk5iwXwnhODNw6JPi3Bh4vUmUvORqu8MBjrerJU+EPpYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795632406;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795632403;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=nlXgo9XIqJkHCFxu94kRbXHgwwOM/0hHr2hEt1w28IQ=;
-	b=mob0dDWDfTB1HV1i4VOZHuTAyuci56E2kVuUDivWXamMXSZfm1uLq4RNeDVyWVVcZE0V
-	 ui3gOTvIkc1SomQcTj5NGuouEiel1nvdBIo2rufFppnzNMuFDfntwTQz2fdk2OAmG99el
-	 xn1yT9rneGZEsBU1NuceHtCCFYPMY654iQttwrBTaE/zQXI3Rhbs+x+EVtT2PIjAacCS5
-	 nI0nXDkaQJIE/80XzoTLPQTlQ+ySDS+Y+8EPiFIJnZFvhqGwqDJfDm4ooSq2h2eZdzRrm
-	 pqjPOt5qY8hYPxgEVH7MFVD40SUnepe4EdgsAtE1yrtVqOhh475aMfVwoVm6a/f7KOg==
+	 From:To:Cc:In-Reply-To:References:Subject:Message-Id:Date:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=mjng7Grfi+u3FVsnhecehgfZVWYTQAiCxYEYWdDHAjg=;
+	b=0ieYXWDDzj5OJT8pdAHVwfYrwMHiIBItfDps/nCcx6eGZlN4rSkmSgUwxzuSuNlayGnM
+	 3z9CaVKyreoToq+I0gfbGVxL+braV6qTevcZpkF9BM38iwUtRqwYqwZVjHqTseSsJcALm
+	 XB6UEMa/xxbjO564BRWUdTVSTG6OvBt2yB6BVDMtNuKcrLOBcjEfppxbuMYB7cBHAfT5x
+	 MX6UOFayj0IVMH9UuamiJ3opWWWxQXhnkzGy/0s+UCBmFnTxlvVdMtwMjQ78GO6gxRE+a
+	 z4aZEqr5teV7+bkxNboz8Ok1ws9VX7Ry0loUVbJxOBekxSo9rqazF9j2Bnwx7mfjEbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r1SqUFdg;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	dmarc=pass header.from=kernel.dk;
+	spf=pass smtp.mailfrom=kernel.dk;
+	dkim=pass header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=FCVWvL3A;
+	arc=none smtp.remote-ip=209.85.160.46
+Received: from mail-oa1-f46.google.com (mail-oa1-f46.google.com [209.85.160.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21C6A606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:46:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21C6A606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 591F4606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:46:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 591F4606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kernel.dk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernel.dk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r1SqUFdg
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-385c497bf94so3531350eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:46:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=FCVWvL3A
+Received: by mail-oa1-f46.google.com with SMTP id 586e51a60fabf-48ed188ee81so3382196fac.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:46:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795632404; x=1796237204; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nlXgo9XIqJkHCFxu94kRbXHgwwOM/0hHr2hEt1w28IQ=;
-        b=r1SqUFdgtywlp6NtGK87jQIKzVZWl4F4rhmtw2lFuyqtW5LN80z0HdqMFC4lFxtzfc
-         sPv4eFs6n8T7bTK/Y9uNNqWqxK1mnqOMLd1ofQxA88TSPdSpJqY5atzRQPqsV3Cnu0Kz
-         xdMkDPd65NMvuX/yI/s9lxRKvbzxjxrz7nCG67nKPjfnov/so2vKenfxWXzXJV41RrRa
-         /UQeQ5Fv0/CXsdcVZmci8NcFbJ1Q7asEHy8hTzkq+/+C8o+U3P2KSgycADkqraemK6x/
-         eYiiJmsP4dj36xpRNEgKFxe3w2joSwKqW128/Cmjv43sSkRH0jqUBIVyHKkny1z9/9Xw
-         qG5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795632404; x=1796237204;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=kernel.dk; s=google; t=1795632402; x=1796237202; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=nlXgo9XIqJkHCFxu94kRbXHgwwOM/0hHr2hEt1w28IQ=;
-        b=ZwouZF9zkht6o4r4jAh7IVmU0o2elChPaMwWGT+ZNUKVJPrsOSLt6TxZMRcsIn0Uso
-         OdkfMPtuURxkD4ELA8unVdaRE3dG5Y+iQAWEoqYS50xq1WXhqR9lO0fX0mvK2QkHmph7
-         L+MG0GPJK7bDTBm9VXbC+5gnc1sYNk5DnrTkZ1uSSbb8MQmT3aGJLYiN6lYS5ZoEEdpK
-         WSDsNqT8aXYv9gAz2OIfAHFs0nnE6V4EF1zHlHTRdb+3osK+EUySLLKcDRfH3uYSgYVz
-         sPsCwWjI1i/edmOF1s1L8pYPTlOO1hquRKo5XrJAE4W1nb2XyJjcfJwrfghxIGu24odk
-         czUw==
-X-Forwarded-Encrypted: i=1; AL+hErHvgPo19sCyHjZRTnUTwR2VbVaUVeH49RZVwvvjD9d6LjUfHPFp+WpKpbu3ncM23JgZd2HqZMneAI/rwGI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/q7F0T7iHJiHpelShZNw8VNNXLM0779BawemSofPLS6i6jEhtJ
-	QAgvj5y9pKM9UXgJFu/oFbXa4hdZ/GSXsbqbltuSxd1vq2NvW6BevK3w
-X-Gm-Gg: AZFdTZdWTV+rM9YbFiX5CAT2YxjM/QE1qx0LDV3ywBhQNigPlRuUSqwj39PLhh5S+wN
-	aHTwGS5D0Ocl53WLtApBdRJwbL5hDzFK7VeK3Ec/I1bCzyA87cF4AUwHvkkSG/H43Am3iEad17a
-	t0Alk657/bY60Gi+4XNvpO+lqWw1ARBnyjq2tsqxEJ18B+dFPtAaIM7wC5J8sE25CXIyPNXbYc8
-	F3diW3w4p2i4zhIxQkw/GQ4gog08CTZ9L6ytDGt5FN/qmYmMe3eIShnl1p2PSA14A6JKCzKPnKQ
-	ppqgN+35gsG61vMd8yng/dKRSsZhq7kZLV2AIoZlpZDTXV6TiOVujrNNB6CYmt5msLvBIfPLtWp
-	8gMlxxumX0jQk31XJoIqgbAkhaYBDTd/3M0a5hKPSCe0DKUmUWunImVBNcx3tJWtWCUv/UGi7YY
-	5WV090tFDmqR0t6FxQ0SvvoNSrOtfOS1DF+LGJWufKmlFnBgOs0h6cDYnqvbL+Tz3usQA34ZqKr
-	RxAvNbekxV3mGKoJ0f7WkxYuNOHvDL/lTWoAh+IJOKRylFs7kakl217aj5zX+xR56xO4Z3Bd0R7
-	XQUAFfuK3rjzHkzE9jOMV0IJXBKwlOqNBQ+EmO2/rQ==
-X-Received: by 2002:a05:7300:fe4c:b0:386:9b1e:dcd2 with SMTP id 5a478bee46e88-3869b1edd57mr16448894eec.20.1795632404041;
-        Wed, 25 Nov 2026 10:46:44 -0800 (PST)
-Received: from a1-free ([2603:c021:8021:f000:0:1865:8c38:18fc])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd4efesm57691480eec.12.2026.11.25.10.46.42
+        bh=mjng7Grfi+u3FVsnhecehgfZVWYTQAiCxYEYWdDHAjg=;
+        b=FCVWvL3A9pPajRsorw5xKgFeZtg8bNqB9d5z48BRmkv/RN0ksV7mW8feJ1FdHXkX7D
+         M5MhCMa6fP8Jo/YZIxdt3QdFhae3xdx70I2xdYN3OcrY7j8Vex1PQlRxc5WuFNxckaRY
+         sgJQGpIJ6gc3jCCPLiRW70LNGrZW2+wfGQb4P+Gh0kXnCng4AP9SSLgQlCk5CdpJ+6Mg
+         9ZeyYGwMPMtfJy7L3vA7kf2Lh/3D+XQXq5YvwgfaCXThcgJSor1qc8v4bVjNJq/CugrF
+         1gIA5oqKYDMc3d2PPtJvFVXJPWM9FFpPZEHjxawHbALUzFf4qVIWEEWsI1OLfhH8kg+s
+         lzLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795632402; x=1796237202;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mjng7Grfi+u3FVsnhecehgfZVWYTQAiCxYEYWdDHAjg=;
+        b=KhANpS19gp0doORtjnVxlin46t0CgQABDpamTPYGnid7szCFSMlO0lLP9FFzzz6Lik
+         2zMbzsk8C/kZ6RSIainnksgpsRUvSslaPVAA+pulLCpYFetrrK9lmJtp3PnYDyWh1lKh
+         XXh1JyYnAWAdYvZnrQ/OmaC6yyflxlBWTF7aQvH/GgSa0NlS8hk7Q8uJyMpxr/XC/jzu
+         wLeE9k+s+Ge05oMov3YrvBekLqPK4F7tRZvfXZd6vHUw+I+ON+0FCTR+u+bDt2X30phx
+         3WlKlO7ZAGOoxpf0cHqok/uUrUgY1jjIlCyb85HBl6YmPID8p2ooIywsuG6sawy1WuIn
+         cLVw==
+X-Forwarded-Encrypted: i=1; AL+hErHs4vnT8HBUg+4HpqT0CBeHe4OzW54RGrm7zXCPrUZ3PyCppDTfKqOEGS2X7HvuXUC5MopVrDDwXIYdv5A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9TItnLu7/mWZUz48GtWf1alyi9n18jdnuGm3UXef16wZcpQXWD
+	g7zWUYEG79op0c2TyggvNPKOTe7na6T9bDlgDcozWyiRRmnNNynHG1YdjMLbep154/KA6LR3ubF
+	46ntvLw0=
+X-Gm-Gg: AZFdTZcWK/BtMLwuByIPh9wT9eezyfHZf8fb5w+//lRKS1yEbjbR6WhYAhl2Yqt8VXa
+	2pwopMGDvxfDGkd4OoODIl8+4ougQEASsuUpB7oUm6xvSK5HFY70YV2lNrrgXjO7NvKygEMQOgC
+	qSwcXnNz6O67p8hljimu2FJ1g4DIt6sAW8NrY4WiLbe44NMEPmLBTsTf4S7af8GEu4PE3xAFo6H
+	q+v4xgUhV9oyaRluLYVMTh1o9lZtBuCpxlYX5X9QiypeYkjbJDS/pWwtAc3hkC8UKvVbFGMc12d
+	jfhza4+oPQ/50+mUgI5cTAMB9vb+AXHPsn3ZcF8omAP4FaTlm9543JcflHfvuxxWETGMHGA19SP
+	U3v57jcMYY5PQ4Oq8LH9p1AeIQDhLsKRYubICMiCfIEA4m2oGHgLbt9zU6vy2J6zc/zCeXbqp1Z
+	4CpXpM0FakHZmcGMT/SJTDfjWx2eGYNqCBVnKxqA53bKu89+U67n+yGqdaa3eh34/XcGgvKBM4T
+	TOPNUooQFiFdOOM/5XemKXLpcigkItgH+oy97iiBYKnNSgjHz7ho4c3ara8AQZZ63JkWYoofxDz
+	Bo43JtEJDxd0nYYBLVVb6sPREtvYpHEaLOf+mLN00xqWe8vt0vfDW5FBA6D9ganx8XHumVfaL30
+	+rsGgT8kyy9A7ULDCPdab0j6D8JXOIIz8qAr9sfwB+0LGBa0=
+X-Received: by 2002:a05:6870:9f06:b0:447:a816:9328 with SMTP id 586e51a60fabf-4bc7d27004dmr15233245fac.6.1795632402212;
+        Wed, 25 Nov 2026 10:46:42 -0800 (PST)
+Received: from [192.168.0.102] ([96.43.243.2])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc5ebdbb4fsm16100211fac.5.2026.11.25.10.46.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 10:46:43 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: Jesper Dangaard Brouer <hawk@kernel.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	netdev@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: [PATCH] net: page_pool: Drop fast and slow from the params kernel-doc
-Date: Wed, 25 Nov 2026 18:46:40 +0000
-Message-ID: <20261125184640.2407270-1-takano32@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        Wed, 25 Nov 2026 10:46:41 -0800 (PST)
+From: Jens Axboe <axboe@kernel.dk>
+To: Hengyu Liang <hengyul@cs.unc.edu>
+Cc: Jori Koolstra <jkoolstra@xs4all.nl>, 
+ Christian Brauner <brauner@kernel.org>, Aleksa Sarai <cyphar@cyphar.com>, 
+ io-uring@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261125180817.3682397-1-hengyul@cs.unc.edu>
+References: <20261125180817.3682397-1-hengyul@cs.unc.edu>
+Subject: Re: [PATCH] io_uring/openclose: allow an empty path with
+ O_EMPTYPATH
+Message-Id: <179563239982.59738.3885070855102608736.b4-ty@b4>
+Date: Wed, 25 Nov 2026 11:46:39 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,56 +102,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 
-struct page_pool_params groups its members with struct_group_tagged(),
-so fast and slow are group names, not members.  kernel-doc does not
-expand the group, and reports both as excess:
 
-  Warning: include/net/page_pool/types.h:105 Excess struct member 'fast'
-  description in 'page_pool_params' (did you mean one of: 'flags',
-  'offset')
-  Warning: include/net/page_pool/types.h:105 Excess struct member 'slow'
-  description in 'page_pool_params'
+On Wed, 25 Nov 2026 13:08:17 -0500, Hengyu Liang wrote:
+> Commit 31cf44efa6df ("vfs: add O_EMPTYPATH to openat(2)/openat2(2)")
+> made build_open_flags() accept O_EMPTYPATH and turn it into
+> LOOKUP_EMPTY, so that openat(fd, "", O_EMPTYPATH) reopens the file
+> behind fd.
+> 
+> However, io_uring also uses build_open_flags(), but __io_openat_prep()
+> still copies the name with delayed_getname(), which rejects an empty
+> name with -ENOENT. As of now, IORING_OP_OPENAT and IORING_OP_OPENAT2
+> accept O_EMPTYPATH, but fail on the empty path this flag is meant for.
+> 
+> [...]
 
-Each one is reported twice.  Drop the two @-lines and say in the
-description which members are read on the hotpath, where a reader of
-the rendered page looks for it.
+Applied, thanks!
 
-Verification: kernel-doc -none include/net/page_pool/types.h prints the
-four warnings before the change and nothing after it.
+[1/1] io_uring/openclose: allow an empty path with O_EMPTYPATH
+      commit: 15ca993634424898cc0c055ef84dfbe29ae0370c
 
-Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
----
- include/net/page_pool/types.h | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-diff --git a/include/net/page_pool/types.h b/include/net/page_pool/types.h
-index 6d543076a0c0..5306e34105eb 100644
---- a/include/net/page_pool/types.h
-+++ b/include/net/page_pool/types.h
-@@ -69,7 +69,10 @@ struct pp_alloc_cache {
- 
- /**
-  * struct page_pool_params - page pool parameters
-- * @fast:	params accessed frequently on hotpath
-+ *
-+ * The members in the fast group are read on the hotpath; the ones in the
-+ * slow group are read during initialization and by Netlink only.
-+ *
-  * @order:	2^order pages on allocation
-  * @pool_size:	size of the ptr_ring
-  * @nid:	NUMA node id to allocate from pages from
-@@ -78,7 +81,6 @@ struct pp_alloc_cache {
-  * @dma_dir:	DMA mapping direction
-  * @max_len:	max DMA sync memory size for PP_FLAG_DMA_SYNC_DEV
-  * @offset:	DMA sync address offset for PP_FLAG_DMA_SYNC_DEV
-- * @slow:	params with slowpath access only (initialization and Netlink)
-  * @netdev:	netdev this pool will serve (leave as NULL if none or multiple)
-  * @queue_idx:	queue idx this page_pool is being created for.
-  * @flags:	PP_FLAG_DMA_MAP, PP_FLAG_DMA_SYNC_DEV, PP_FLAG_SYSTEM_POOL,
-
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+Best regards,
 -- 
-2.53.0
+Jens Axboe
+
+
 
