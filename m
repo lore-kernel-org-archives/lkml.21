@@ -1,80 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795623489;
-	b=CBVLZ5qEWdRE5964jiQVQrfwOpQyEbckLk85yrM/1Szci6cdMMKM5aCeoE/5HFwHAqx8
-	 Gai0W9XxK42NX2b2GAgIVsJUDWLmaIyFoopKMkwzHpiHsXRirZMfIQcIM2yQkPEEMgoeK
-	 zoNUdG6Ic2OOhGlSdZIGjvxeKx0F10qbAaXyN3E2rtNeT1xZsIGD6DoZBC0ph/0CtukJN
-	 nalT6A2CHT2fDLKX4ZnYcSZ1A+UEl/eD3e1BIanZ0PmhwoY6MN+xbhGXcFERsD0KGElbx
-	 6TwKcydA0zfK0obBcTtUI5L2l0/7+Qc/rkKBxjwf2eeBfG55x+izAczr1ULyzXUzuqA==
+	t=1795623530;
+	b=RhASXM/tvEU0KGdGlUqA8AjuW24HbGk54WHcHfqWKmdk34ny6ofGD8JvaOcgsoixW3h8
+	 9Gazgo/yXgDMKYD4dohgY1Lj7pkUZr3oHoZ8rM4Ih+47qhZJGRpi8ULclfI6DklOJlEC+
+	 qKYbMns7dwV7U4gJ88x40mJ++9OhPGYZmVvSZ2vFPlnjvii/aFCLoO8UYQ2BsRF9G+c8E
+	 uSDlv1Ul6f5D53v0pogZXFwnNOsN3p5+8+tV0Fy3myX9W2equDov7IoAbY5czIz5zQYG8
+	 h7I1hKKExSqy1CrGbOLlukO0CLlVhr4W6xNuLQAC1c1/+TlxnvdD6EP4xg2BoTft4SA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795623489;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=WwWsoSs2J5qpWhNs56AVQmBfYke5YnSSuODOR4ultkM=;
-	b=MRFYhvTFIMnQxVFY+wjgnTlCN5KOjP5EEoAc6UjzQhnmM/iftDnNBgNYfP4pMwgr4DBY
-	 WHKKqaAwPyKZrzeE0hRQdK1DC/WN1rw2kxFGfxlwOqtxkt0yxQYn3yYgeCAkzjlwJHYy4
-	 VPlaxrcW0sWcjpoCNaJtlhE43B1zYVMG2A/1sRnuRzFMK5388krk/jjvPWwUS9f2e11B0
-	 wX31fsowpENnBdsadADWvqZvHHGlTxCdiPA2w7Kbg5sCTULqxsDkhc7DtFee312Ox6X+T
-	 rJzLXo2QiQQduntFEEC3OmKlVu85LSAMmUYuXNdNhXnTw6L/nYHnkbh0+fGJ4qebcXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795623530;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=kp7aoDMN/GoFS5U/6xhElS6ooi9rTiHMp7sSoEa6F1U=;
+	b=tpOyzrTeGevgikAbmhJPV4/BH1k/YKrVJ2dcd+RvdkPx2+cjyx55iUB+eVKpaT1a8MtD
+	 Lw9fRSGWz+pK7tUni9DtFT1BfcN0LzfMCfW3lW03Au6EnhzEpkAQMaO2L2k0ognE+GcHV
+	 UXx+yVLJrC50KKfexy9b8hggLbXC/1qQTn5HQgkKiXHfPgqPxhvmOnMftYjvqB6mI5AuJ
+	 jeZJAL3r8zQkllp6l0oO+4hl0J1WkO+RKvETdocHyNXEN6ncwpEpMS4wQojJ0qaFCKyv1
+	 UrYWfx+lZN59sDp+6CXQUOVbyJKqNGZRMvplrY9xC/LQZMou6aaRsF+Morwg+U+VFdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=c8vX9bEe;
-	arc=none smtp.remote-ip=192.198.163.17
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BC17606A321;
-	Wed, 25 Nov 2026 16:18:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BC17606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=BEKInvup;
+	arc=none smtp.remote-ip=111.22.67.137
+Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8E477606A321;
+	Wed, 25 Nov 2026 16:18:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E477606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=c8vX9bEe
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795623489; x=1827159489;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9+tiGBNKlGAcbgLvr/9pQGLti36ZdFJyzGzi5HXaUoE=;
-  b=c8vX9bEeLTML4tMpf8utLXlQtQCgMO3xiimgmpiezaNd8IrXXJ1P12dj
-   qFATB0OFAU+yAEQqT3mjtspPec83HnaenJPf/8RqmwPS9yHItqPqeEW3/
-   QLlYgMky46LwX+hW9ynshf32EdRRF6p4XKuvE6BPTchdmJgvTyee1thkm
-   0ngw4A+PQR/wIgPdgPvteOVlJ1lFF3vugcWhS5EQAkRQlwGaCBoxisQHr
-   exNLkDOeiNHJl2t2u58rot+8vVoPxHatRhJhmxeo79dygH0xEj1tfQOcQ
-   NCIheQ2zlnRKOclJvxGmZ90ad21ELVXcd2jLncm7RmjO6I6uT5qSL2Qb+
-   w==;
-X-CSE-ConnectionGUID: 2Ebr634hQd6ffelAiVwd6Q==
-X-CSE-MsgGUID: 3wariWPMSamUX0l4+6/p0Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4498982"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4498982"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 08:07:03 -0800
-X-CSE-ConnectionGUID: rs80A/RtRHmkmjDfIQjjAQ==
-X-CSE-MsgGUID: DiFJ+MTDSaW9EKAtEObxag==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="12375211"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 25 Nov 2026 08:03:58 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWFTP-00000001S0s-3iSt;
-	Wed, 25 Nov 2026 16:03:55 +0000
-Date: Thu, 26 Nov 2026 00:03:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: Hefei <3066883572@qq.com>, dri-devel@lists.freedesktop.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-input@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, robh@kernel.org, conor@kernel.org,
-	Hefei <3066883572@qq.com>
-Subject: Re: [PATCH v3 4/6] drm/panel: add VIEWE JD9365TX 7 inch DSI panel
-Message-ID: <20261125235231.H9Nhpv9l-lkp@intel.com>
-References: <tencent_3D3EC29E27E9DF37D4C9F1A60F2F2BA3EF07@qq.com>
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=BEKInvup
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=BEKInvup8WeyMs0uuTUcwhlUmfkOvqtoXn+4Ry1/qDwvLPdqSm/SBQAlK10NZLmcexQJBO8QR2qtf
+	 bNhIjuVfv4hFN7F71N8HtzvcY+zVVCJBd9SpATl/lwMBRe6H3KihvIeOOJpxJg0hH4rZcqxSzBbhZ+
+	 YJbDsOhJyO2ZFJGg=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app04-12004 (RichMail) with SMTP id 2ee46b070a5dca2-f3541;
+	Thu, 26 Nov 2026 00:18:40 +0800 (CST)
+X-RM-TRANSID:2ee46b070a5dca2-f3541
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from openEuler-24.03.03 (unknown[104.224.130.48])
+	by rmsmtp-syy-appsvr10-12010 (RichMail) with SMTP id 2eea6b070a3f71a-4ae02;
+	Thu, 26 Nov 2026 00:18:40 +0800 (CST)
+X-RM-TRANSID:2eea6b070a3f71a-4ae02
+From: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
+To: Alice Mikityanska <alice.kernel@fastmail.im>
+Cc: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>,
+	netdev@vger.kernel.org,
+	dsahern@kernel.org,
+	idosch@nvidia.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	shuah@kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 0/6] ip tunnels: Enable BIG TCP packets
+Date: Wed, 25 Nov 2026 08:18:04 -0800
+Message-ID: <20261125161807.88675-1-yanhaishuang@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <274a4204-8a35-4550-a6e2-dff96aaee55a@app.fastmail.com>
+References: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com> <274a4204-8a35-4550-a6e2-dff96aaee55a@app.fastmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,100 +79,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <tencent_3D3EC29E27E9DF37D4C9F1A60F2F2BA3EF07@qq.com>
+Content-Transfer-Encoding: 8bit
 
-Hi Hefei,
+On Tue, Nov 24, 2026, Alice Mikityanska wrote:
+> Do you know why GRO doesn't aggregate >64K with sit?
 
-kernel test robot noticed the following build errors:
+Thanks for the review. My explanation was wrong: by default nothing is
+aggregated at all. ipip6_rcv() calls netif_rx(), while ipip and gre go
+through gro_cells_receive(). With veth tx csum off and veth GRO off, all
+packets on the sit device are at most 1500 bytes, and gre and ipip get
+more than 64K.
 
-[auto build test ERROR on drm-misc/drm-misc-next]
-[also build test ERROR on dtor-input/next dtor-input/for-linus lee-backlight/for-backlight-next lee-backlight/for-backlight-fixes linus/master v7.4-rc4 next-20261124]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+With GRO enabled on veth, sit is aggregated there, but only up to 64K,
+like ipip. I think that is the p->encapsulation check in
+skb_gro_receive().
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Hefei/dt-bindings-input-add-Jadard-JD9365TX-touchscreen-binding/20261125-101123
-base:   https://gitlab.freedesktop.org/drm/misc/kernel.git drm-misc-next
-patch link:    https://lore.kernel.org/r/tencent_3D3EC29E27E9DF37D4C9F1A60F2F2BA3EF07%40qq.com
-patch subject: [PATCH v3 4/6] drm/panel: add VIEWE JD9365TX 7 inch DSI panel
-config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20261125/20261125235231.H9Nhpv9l-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 2012344e5da8e03ea4b8283ecd6fad6e13f09d64)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261125/20261125235231.H9Nhpv9l-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261125235231.H9Nhpv9l-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   drivers/gpu/drm/panel/panel-viewe-jd9365tx.c:304:8: error: call to undeclared function 'of_drm_get_panel_orientation'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     304 |         ret = of_drm_get_panel_orientation(dev->of_node, &ctx->orientation);
-         |               ^
->> drivers/gpu/drm/panel/panel-viewe-jd9365tx.c:308:2: error: call to undeclared function 'drm_panel_init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     308 |         drm_panel_init(&ctx->panel, dev, &jd9365tx_funcs, DRM_MODE_CONNECTOR_DSI);
-         |         ^
-   2 errors generated.
+So using gro_cells in sit might lift it; I haven't tried that. I will
+fix the explanation in v2.
 
 
-vim +/drm_panel_init +308 drivers/gpu/drm/panel/panel-viewe-jd9365tx.c
-
-   273	
-   274	static int jd9365tx_probe(struct mipi_dsi_device *dsi)
-   275	{
-   276		struct device *dev = &dsi->dev;
-   277		struct jd9365tx_panel *ctx;
-   278		int ret;
-   279	
-   280		ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
-   281		if (!ctx)
-   282			return -ENOMEM;
-   283	
-   284		ctx->dsi = dsi;
-   285		mipi_dsi_set_drvdata(dsi, ctx);
-   286	
-   287		dsi->lanes = 2;
-   288		dsi->format = MIPI_DSI_FMT_RGB888;
-   289		dsi->mode_flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_BURST |
-   290				  MIPI_DSI_MODE_LPM;
-   291	
-   292		ctx->reset = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-   293		if (IS_ERR(ctx->reset))
-   294			return PTR_ERR(ctx->reset);
-   295	
-   296		ctx->vdd = devm_regulator_get(dev, "vdd");
-   297		if (IS_ERR(ctx->vdd))
-   298			return PTR_ERR(ctx->vdd);
-   299	
-   300		ctx->iovcc = devm_regulator_get(dev, "iovcc");
-   301		if (IS_ERR(ctx->iovcc))
-   302			return PTR_ERR(ctx->iovcc);
-   303	
-   304		ret = of_drm_get_panel_orientation(dev->of_node, &ctx->orientation);
-   305		if (ret)
-   306			return ret;
-   307	
- > 308		drm_panel_init(&ctx->panel, dev, &jd9365tx_funcs, DRM_MODE_CONNECTOR_DSI);
-   309		ctx->panel.prepare_prev_first = true;
-   310	
-   311		ret = drm_panel_of_backlight(&ctx->panel);
-   312		if (ret)
-   313			return ret;
-   314	
-   315		drm_panel_add(&ctx->panel);
-   316	
-   317		ret = mipi_dsi_attach(dsi);
-   318		if (ret < 0) {
-   319			drm_panel_remove(&ctx->panel);
-   320			return ret;
-   321		}
-   322	
-   323		return 0;
-   324	}
-   325	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
