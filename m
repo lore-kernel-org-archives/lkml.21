@@ -1,72 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795612646;
-	b=1yDM1Z+wZK3qlnFJ2ZBsoj/ihT9/aFp4H4V6UnSaJkJRZRRHjVscbbgniLjJdr8yGxOx
-	 S3QyXb316Hu4uPYHIQJllvjsn6W8mC4n3tgAfgGi1qPuxom/oVbJ1evH1tzPiNi+fuOwb
-	 5B5AKkwG8FnaGaQAwW/qKxrpb17eXQNTmZi1gwnX3pv4H4RRRSxp+jYDamgDJzbJ/NQGI
-	 OGDH0yEig+3GX8rpV5SKVME3rGhwuINJZiNeCG3jTB37wAmmXkGwULk5W2f29fsQHyktY
-	 BX4IJfQfoplQlQk9os1PIQT0q8FiMbAWPj+XUpf7X6D+iyDchiTXUazE1GplyRzL6QQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795612646;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date:
-	 MIME-Version:User-Agent:X-ZohoMailClient;
-	bh=n2qfnFgcRML/6LFgZHWe+yR+2O7d7zoHts7Ya454zxY=;
-	b=kWj0qIonWjuphf4qQKqS9UJdDgEOS7o1vEgwNwDTPJAdrYxCFu0LBDFKJ8WsGSo3ukwB
-	 8jXuTckYRP0fRUeiemKOd8YSz2wKTbuRp1JxvfUeRyZfkpsx+Thw/pdxwkkDp0+tU0ccH
-	 SGFAPhgqFd1e+G5ccdaIY8/BId9VVXnfqXafxMFyLF3Ky5BvbQDEuNWJnj7zOEs2hzIxZ
-	 4YMhz+prHbTh3RRHuaHFA0Is9s6jJBlXhCpxi9srHYnkeoVSZtlxmmB9qiwECLwaq/hcD
-	 8X34NmLzt++SacLirjlU9KTqUp2DiLyKpXgww8lLqO3rbBq7ZWOZ7poF1fYNlKONxPw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rong.moe;
-	spf=pass smtp.mailfrom=rong.moe;
-	dkim=pass header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=edI1mFWG;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.112
-Received: from sender6-pp-f112.zoho.com (sender6-pp-f112.zoho.com [165.173.180.112])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795612689;
+	b=hNvqm1JavYlou5M3Xpp9JUPj5eb4Lmd4971zXB9lipMJGCs/iiftqQNccfdFNIhAeH/Z
+	 h44igNY59hdzEefyd554yCn/l9APFG9z7cdPYsBvXGrx7kN8fQJntrfIwPBeuZdBnO05R
+	 KNTKpa6IV8LexagbIoNtySCMhLvlrTSHhtu2IX+TP+Tzrq805eMuOvgGtnAoHSqZvgZJB
+	 ZBa//IdgPkzjWsC4t4AY1Cy+a3/YHi6qNj0paBHR+sqSqs9J7A07Z25Pkh43jTf5lOzuJ
+	 J4aNYMQErk5iXv28d8+O33OmyZ7b8X3e/icdeoJpw20+7MZdkNjki7LQZQ1oTvGpWug==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795612689;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=xBXsBRhD1j5TvqTbFEE8hpWV7kwgnehOiL5fSy8bkrM=;
+	b=rvPFd1foMlbtJS759Ttt175LWEI3NxpFd51qx1tOEPpQkAMcw9xXBi8IlRWnntbMlWTb
+	 WSQU5EmsIdW49rM7fl2qMCGsU6rVKrnArrJ+WU1QTlADRRO0DWiZU21NVQgpKRr23XzAa
+	 us/1vcnjl8r7mayO1XssxHuZKCFGGBljYQdODKIgKGGFTnY8x+5HzBxksOauzh5ZoKOR9
+	 yh/BEA6+I9Rx2bc1MaeUkzdqOexNBw3RmPdD3fPPqdj7DP3lZqYq2bu/hHMPb/1MgIuhb
+	 +xl4udKLQ9nUqw05DP/4p6xuH3AdpT6J97Hv8IeO2nBKIaWW9REiR+HmduwWDgsFN+Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=N6IXX+OV;
+	arc=none smtp.remote-ip=90.155.50.34
+Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E13A7606A32C;
-	Wed, 25 Nov 2026 13:17:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E13A7606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rong.moe
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rong.moe
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA314606A33B;
+	Wed, 25 Nov 2026 13:18:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA314606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=rong.moe header.i=@rong.moe header.a=rsa-sha256 header.s=zmail2048 header.b=edI1mFWG
-ARC-Seal: i=1; a=rsa-sha256; t=1795612613; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=oI/gx+xMVxFs1eS3Fs/zuTiGPYDVgecucp7XDo8MhQTfI3qQSuvg/O9jNEqzZaU+1RF9/1msXygCJX9vOIbnMg1w0xP4jk4hNj+HFsPw1mCXOt/ClFe+VAeYqyGcp3v7jIa+L6i+CY9SCM+eKa5vaHRnTsa0YQXjeQaTrr7kjFQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795612613; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=n2qfnFgcRML/6LFgZHWe+yR+2O7d7zoHts7Ya454zxY=; 
-	b=O07PmW2TXrq0862b+swlgzCYepRgF5b9aWpUu9f1kxGtUMTp576NWB9KELUBDJFrf1lrZ1tXOCIsbWEg6nOvaK4Ex1ZLAbUTHMfgCXhveFR6DfUVcfCDmrdejsr0wfjwlrcTW7X1cofP6l/xtsonRFpftLhDgHsv6cywJLNdJwM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: a=rsa-sha256; b=edI1mFWGytB6KEFV+N7lOh/NSgdsvwDzz/EM9KRpLVZSgv1HWQAyTcSsmuDe0KqWfcvqqAiFojmk/MFT0p1grZZszcB3PaqIzxtTA1u96fusL1HL48xBJMWHOFojO7e4b79Ij3AzYsJNREt95zzvpDzO5T27op9Gr9erEYu3EAVZFDz7bWuATXboOFb1Bm8vs7mhh0Ag1qtXpzVUdWNCofHIX8Pf7E8vGKFqSGalw/sILeWw+YbqNIkQriDC11GX26UVRWNTl0HvBS+WAHeikzEsUDT3aiT34bTvj1OqTIHwyHgE0t5jJdp2XPDnp/lb8H4janyHQMtCZNKBIBQVpg==; c=relaxed/relaxed; s=zmail2048; d=rong.moe; v=1; bh=n2qfnFgcRML/6LFgZHWe+yR+2O7d7zoHts7Ya454zxY=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 17956126103241020.4936667106859;
-	Wed, 25 Nov 2026 05:16:50 -0800 (PST)
-Message-ID: <a365235036093cb3e96ba66808afbb1c0a52a0e2.camel@rong.moe>
-Subject: Re: [PATCH v4 3/6] platform/x86: thinkpad_acpi: Don't poke
- keyboard backlight's LED core brightness
-From: Rong Zhang <i@rong.moe>
-To: Qiling Zhu <kmatzkaczor244@gmail.com>, Mark Pearson	
- <mpearson-lenovo@squebb.ca>, "Derek J. Clark" <derekjohn.clark@gmail.com>, 
- Hans de Goede <hansg@kernel.org>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=
- <ilpo.jarvinen@linux.intel.com>,  Henrique de Moraes Holschuh	
- <hmh@hmh.eng.br>
-Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	ibm-acpi-devel@lists.sourceforge.net, Lee Jones <lee@kernel.org>, Pavel
- Machek	 <pavel@kernel.org>, Griffin Kroah-Hartman <griffin@kroah.com>, 
-	linux-leds@vger.kernel.org, vishnuocv@gmail.com, vsankar@lenovo.com, Andrea
- Rabbaglietti <rabbagliettiandrea@gmail.com>
-In-Reply-To: <20261125084644.137506-4-kmatzkaczor244@gmail.com>
-References: <20261125084644.137506-1-kmatzkaczor244@gmail.com>
-	 <20261125084644.137506-4-kmatzkaczor244@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Date: Wed, 25 Nov 2026 21:11:44 +0800
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=N6IXX+OV
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=xBXsBRhD1j5TvqTbFEE8hpWV7kwgnehOiL5fSy8bkrM=; b=N6IXX+OVbg9xNoqRNL9faZ3Pzb
+	AO1ZVpGgtUGuwmVwnIOghJEBgMdaSh5zxb7I+fHd/LKn0skNYOBFq8BODfxyq7vBqkxoXd5DClU77
+	YYyDf6es6vwC+M7DB4GMDNQaPnpHugyqrnrDux9vDslnwePFkI73bMeaP9APnW0CzXIxOQ7XD+FUR
+	f11Djo56WIhpUw8XsLWuKOhGWRAnH86SZeM4o9az9RAESmvhrWUTtzgohIJY0g/axyi1iLvOE+9Kh
+	Y8CedNiNIRtAbmIKNFuNorSbMWP3K8x296MGE6KR4krcN0rNJIm6134ElYa2UlP7hVkLc9zRz4UVb
+	zQd7kbSQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xWCsm-0000000EVzF-47dO;
+	Wed, 25 Nov 2026 13:17:58 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id DF793300446; Wed, 25 Nov 2026 14:17:55 +0100 (CET)
+Date: Wed, 25 Nov 2026 14:17:55 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Athira Rajeev <atrajeev@linux.ibm.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Leo Yan <leo.yan@linux.dev>, Dmitry Vyukov <dvyukov@google.com>,
+	"Steinar H . Gunderson" <sesse@google.com>,
+	Stephen Brennan <stephen.s.brennan@oracle.com>,
+	Thomas Falcon <thomas.falcon@intel.com>,
+	linux-perf-users@vger.kernel.org, bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 02/19] perf/uapi: Factor perf_build_id out into its
+ own top-level struct
+Message-ID: <20261125131755.GA2668804@noisy.programming.kicks-ass.net>
+References: <20261125005108.1020003-1-irogers@google.com>
+ <20261125005108.1020003-3-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,138 +88,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Evolution 3.62.1-4 
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125005108.1020003-3-irogers@google.com>
 
-Hi Qiling,
-
-On Wed, 2026-11-25 at 16:46 +0800, Qiling Zhu wrote:
-> A write to /proc/acpi/ibm/kbdlight writes the EC level and updates the
-> cached level under kbdlight_mutex, but then assigns led_cdev->brightness
-> directly after releasing the lock, without telling the LED core.
-> Commit 06da5325d02e ("platform/x86: thinkpad_acpi: Stop setting
-> led_classdev brightness directly") already removed this pattern from the
-> sysfs path but had to keep it for the proc interface, which has no LED
-> core path of its own.
->=20
-> Stop writing to that cache.  kbdlight_set_level_and_update() now only
-> writes the EC level and updates the cached level, under kbdlight_mutex;
-> the sysfs path uses it, as a write that already goes through the LED core
-> does not need to be reported back to it.  The proc write path instead
-> calls kbdlight_notify_level(), which updates the cached level and reports
-> the new one through brightness_hw_changed, like commit 07f48f668fac
-> ("platform/x86: ideapad-laptop: add FnLock LED class device") did for
-> the ideapad FnLock LED.
->=20
-> Signed-off-by: Qiling Zhu <kmatzkaczor244@gmail.com>
-
-Reviewed-by: Rong Zhang <i@rong.moe>
-
-Thanks,
-Rong
-
->=20
+On Tue, Nov 24, 2026 at 04:50:51PM -0800, Ian Rogers wrote:
+> Document struct perf_build_id as a top-level structure in the perf_event
+> UAPI comment and add it to the PERF_RECORD_MMAP2 union comment so future
+> sample types can reference struct perf_build_id directly.
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
 > ---
-> After a procfs write, led_cdev->brightness can retain its previous
-> value.  This is acceptable:
->=20
-> - Reading the brightness attribute calls brightness_get(), which reads
->   the level back from the EC and refreshes the cache.
-> - At this point in the series, kbdlight_suspend() also refreshes the
->   cache before suspend, so led_classdev_resume() does not write a stale
->   value back.
-> - Software blinking may pick up the old value as its "on" level, as it
->   can after a Fn+Space change.
-> ---
->  drivers/platform/x86/lenovo/thinkpad_acpi.c | 44 ++++++++++++---------
->  1 file changed, 26 insertions(+), 18 deletions(-)
->=20
-> diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c b/drivers/platfo=
-rm/x86/lenovo/thinkpad_acpi.c
-> index b4b3d7dcc..16bf2267d 100644
-> --- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> +++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-> @@ -5113,12 +5113,11 @@ static int kbdlight_set_level(int level)
->  =09if (!hkey_handle)
->  =09=09return -ENXIO;
-> =20
-> -=09guard(mutex)(&kbdlight_mutex);
-> +=09lockdep_assert_held(&kbdlight_mutex);
-> =20
->  =09if (!acpi_evalf(hkey_handle, NULL, "MLCS", "dd", level))
->  =09=09return -EIO;
-> =20
-> -=09kbdlight_brightness =3D level;
->  =09return 0;
->  }
-> =20
-> @@ -5147,6 +5146,21 @@ static int kbdlight_level_to_brightness(int level)
->  =09return level;
->  }
-> =20
-> +static int kbdlight_set_level_and_update(int level)
-> +{
-> +=09int ret;
+>  include/uapi/linux/perf_event.h | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
+> index c49fc76292f7..deb7c42d109b 100644
+> --- a/include/uapi/linux/perf_event.h
+> +++ b/include/uapi/linux/perf_event.h
+> @@ -1099,6 +1099,18 @@ enum perf_event_type {
+>  	 */
+>  	PERF_RECORD_SAMPLE			= 9,
+>  
+> +	/*
+> +	 * Build IDs may be present in a number of events. They have a
+> +	 * consistent encoding of:
+> +	 *
+> +	 * struct perf_build_id {
+> +	 *	u8		size;
+> +	 *	u8		__reserved_1;
+> +	 *	u16		__reserved_2;
+> +	 *	u8		data[20];
+> +	 * };
+> +	 */
 > +
-> +=09guard(mutex)(&kbdlight_mutex);
-> +
-> +=09ret =3D kbdlight_set_level(level);
-> +=09if (ret)
-> +=09=09return ret;
-> +
-> +=09kbdlight_brightness =3D level;
-> +
-> +=09return 0;
-> +}
-> +
->  static bool kbdlight_is_supported(void)
->  {
->  =09int status =3D 0;
-> @@ -5195,7 +5209,7 @@ static bool kbdlight_is_supported(void)
->  static int kbdlight_sysfs_set(struct led_classdev *led_cdev,
->  =09=09=09enum led_brightness brightness)
->  {
-> -=09return kbdlight_set_level(brightness);
-> +=09return kbdlight_set_level_and_update(brightness);
->  }
-> =20
->  static enum led_brightness kbdlight_sysfs_get(struct led_classdev *led_c=
-dev)
-> @@ -5253,20 +5267,6 @@ static void kbdlight_exit(void)
->  =09led_classdev_unregister(&tpacpi_led_kbdlight.led_classdev);
->  }
-> =20
-> -static int kbdlight_set_level_and_update(int level)
-> -{
-> -=09int ret;
-> -=09struct led_classdev *led_cdev;
-> -
-> -=09ret =3D kbdlight_set_level(level);
-> -=09led_cdev =3D &tpacpi_led_kbdlight.led_classdev;
-> -
-> -=09if (ret =3D=3D 0 && !(led_cdev->flags & LED_SUSPENDED))
-> -=09=09led_cdev->brightness =3D level;
-> -
-> -=09return ret;
-> -}
-> -
->  static void kbdlight_notify_level(int level)
->  {
->  =09struct led_classdev *led_cdev =3D &tpacpi_led_kbdlight.led_classdev;
-> @@ -5326,7 +5326,15 @@ static int kbdlight_write(char *buf)
->  =09if (level >=3D 3 || level < 0)
->  =09=09return -EINVAL;
-> =20
-> -=09return kbdlight_set_level_and_update(level);
-> +=09guard(mutex)(&kbdlight_mutex);
-> +
-> +=09res =3D kbdlight_set_level(level);
-> +=09if (res)
-> +=09=09return res;
-> +
-> +=09kbdlight_notify_level(level);
-> +
-> +=09return 0;
->  }
-> =20
->  static void kbdlight_suspend(void)
+>  	/*
+>  	 * The MMAP2 records are an augmented version of MMAP, they add
+>  	 * maj, min, ino numbers to be used to uniquely identify each mapping
+> @@ -1123,6 +1135,7 @@ enum perf_event_type {
+>  	 *			u16		__reserved_2;
+>  	 *			u8		build_id[20];
+>  	 *		};
+> +	 *		struct perf_build_id	bid;
+
+Why not remove the anonymous version?
+
+>  	 *	};
+>  	 *	u32				prot, flags;
+>  	 *	char				filename[];
+> -- 
+> 2.56.1.831.g720f3f5937-goog
+> 
