@@ -1,60 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795632082;
-	b=K2kXL6PgvJiRSKoEqGvs1kfQnwa3EQw7bxDvUXMT+FcbC9KLjug8FAJkCFLqpMj7ms9P
-	 bJKRXScjxhRLJQQm3VDjNY2U2f7+ttKHUnBnfaknCNrpf+iQJZdxgtEcC66hBXHrxBbYr
-	 cPLldYS0s4skFTYWNLmEgwZAMZc9rdhuakVNALoMjbKFbCTuBRTazUW0ihBtSe9HOzW0M
-	 n3yvJCoF+u4itHWuw+BHw5+iJxQp4JWt++OzdIcCp8zW+P5ggWRI8bnepCyGyC2afrUyU
-	 iwhjRHzmadrepcWvqozfbxoy2A6IlIAXlZxOjnqpA3BUOUOFDQbszFXZ0bBT5eIfBlg==
+	t=1795632096;
+	b=0uTbUvH4Oawygdhki6YwJpI1O6kbBo3vyA70q2WlkeeAuOnYxOoauLEghfUG4Qp2xI0z
+	 tFkv9KpG38qz2EPlBMGBnqpdSr1ggSYy5x4HB4kyGhRhBw5DLEbCIcHN4F2uq8Y+Rws9J
+	 +tlI6YOtYEDfSJo8FxfOPI3LrXSZS+lLHR5MIaLhc5az2XXjZY8tswVdLk5oB0PORvq/W
+	 FDp0fTt2RH4rytJLSFqZJhbwr0/szqjTI1cfG+j1lSYIcQFYZgMXoGmVKe+BXB5NolKej
+	 tIpEUD4ACRPhhSl8R/cAS1eUNK4jv0QpkqfBJJdXYabrf4mIiJA8HWGUsMFC8IQKQ6A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795632082;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ZJ02y3Z30VnfaB4wxrfHVkrt7dhk7m57ns1frXinnz4=;
-	b=CYwe7MYhsfdA3xnR+jHAv+SHET3LJJB29NjBwNpn/jf67PfX3/nsNAm807YOTXSj8/We
-	 J3nA5nD1sewtJq/KMwAxfS2Oa40bJWMH+e5U8dB/4vxtg1LDIEYRo/9q7KeIm7I8WRk56
-	 I7fIOuNzFHbwCUAmVefWvl6zdCfLyA3z2cGH+8euJb+uPUOsCnpIka7+yUypjofpg3uCE
-	 JgyF3Gps4QxWL3r0B6seofqEGkU8GRmtJr8fW53jzHmy0e0pZeFPHkEtdXzlJx48BHCDK
-	 mdSk5+qH4L4YmtO1AoSrCgOHNAeqZmeFrSqTaea+5xOSzSbELoIH+aRF64lXpzoTmxw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795632096;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=LrB37YjSIPn8trdCr4bJ6E7VraYEZnstQn8iE1gmVfc=;
+	b=VmNOV121RiAuNXraaRTj7UQfR6yt/umUjyK3GCWNwcYZZ3U1L+S7Udh1qBJpEUe2n2ZJ
+	 bbHmW6h29kshW0/7fB0hTt9A5Aih4ypZuD1Q0T+mVkgpxoKBlln7qnEIBy9iKuhQuyaqU
+	 Le4KwB5KsNMBYrfl+GBS+7OM271RDld9Tj0Z6MTaWqjF+nMI03dpkMgknBvSfKpKpAcrH
+	 GPLniahU2Ojm9djyEsW9gADfVDtRvWyX6MC4lnleDRBkm+NosYyP/r5wLFaFKAeBBaXMv
+	 2uT70aQDqkHIFi0EgdI02aow6rWbfGS2+TrDTXPffSI3kumAmqOQkmZjcYa+c3mGSeg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GK0HFFKE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ABE5606A321;
-	Wed, 25 Nov 2026 18:41:22 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=eh9ipDlL;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3AE47606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:41:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AE47606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GK0HFFKE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 750FB1F000C6;
-	Wed, 25 Nov 2026 18:41:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795632082;
-	bh=ZJ02y3Z30VnfaB4wxrfHVkrt7dhk7m57ns1frXinnz4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GK0HFFKE1HKitFjM8n3SlHQu6XByZ3pKm0R8a2UoEdaIlbDvu/si15UWYE7dgGDWs
-	 sGaViuj6jlRuBGKZ2Kj8k9ao2WGzeM21S/S/QwWYCDW4VTJixdWk6EHBGbkz/w6mtC
-	 vWP0RAUsaZM7pgBCAq8B1JYOxMQhIR14Gm3JMKttlCsXcJGTZvFnz4OL2lVEULNwPo
-	 dKbcBUWZlXSxz0i41czZCsGhusaqNoslt63Z6hvgR5jg7D5I6PZ63xh2GGN/gfBv5U
-	 7LcgWDhavlM1M1YhpQmvWXJLNgP1wH9P0wNkP9eAPWSOjxWepoSBCyuIWbhJPegO1V
-	 GTwrw5PtK7q2g==
-Date: Wed, 25 Nov 2026 15:41:19 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Clark Williams <williams@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: Re: [PATCH v12 03/19] perf annotate: Print the stats after the
- annotations
-Message-ID: <awcrz9GZgf78UYLA@phoenix2>
-References: <20261123220024.14891-1-acme@kernel.org>
- <20261123220024.14891-4-acme@kernel.org>
- <awYNhyPWLG0g_nDn@google.com>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=eh9ipDlL
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 412571596;
+	Wed, 25 Nov 2026 10:41:32 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F11C03F632;
+	Wed, 25 Nov 2026 10:41:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795632095; bh=52zSmMtLrL/2Cilb3mI8GAy27SW4K/XC4afsFkJikIs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eh9ipDlLCcMFGhBh5QibFlDUTE8oO+y7Tb3DQoLizW+1eTCXD02C0/+SWxoXVnOXx
+	 fF7bEQMJIq1/EGwhcPfCC4r/RWN8gS/Dnl5e/jsNQGIUS3pJYbcDL5dENsw3cOM1fC
+	 2yB2kcDBCKzLfNRIZnI75KHSFIzBZzMWDP0eMm9w=
+Date: Wed, 25 Nov 2026 18:41:27 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Lai Jiangshan <jiangshanlai@gmail.com>
+Cc: linux-kernel@vger.kernel.org,
+	Lai Jiangshan <jiangshan.ljs@antgroup.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Thomas Huth <thuth@redhat.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: mm: Stop using the previous ASID for init_mm
+Message-ID: <awcr1wwqmkr7ilXp@arm.com>
+References: <20261027100231.31184-1-jiangshanlai@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,52 +65,97 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <awYNhyPWLG0g_nDn@google.com>
+In-Reply-To: <20261027100231.31184-1-jiangshanlai@gmail.com>
 
-On Tue, Nov 24, 2026 at 02:19:51PM -0800, Namhyung Kim wrote:
-> On Mon, Nov 23, 2026 at 07:00:08PM -0300, Arnaldo Carvalho de Melo wrote:
-> > From: Arnaldo Carvalho de Melo <acme@redhat.com>
-> > 
-> > With --code-with-type the instruction stats are printed from
-> > hists__find_annotations() before that event is annotated: the first
-> > event reports zeros and later events can report stale counts.  The data
-> > type total is only counted in --data-type mode, so --type-stat without
-> > it is incomplete too.
+On Tue, Oct 27, 2026 at 06:02:27PM +0800, Lai Jiangshan wrote:
+> From: Lai Jiangshan <jiangshan.ljs@antgroup.com>
 > 
-> I prefer having type/insn stat before the result so that I can check the
-> quality easily.  But probably it makes sense to do it later when it's
-> used with --code-with-type.
+> Switching to init_mm should prevent further accesses through the
+> previous address space's translations.
+> 
+> Commit e53f21bce4d3 ("arm64: Use the reserved TTBR0 if context switching
+> to the init_mm") avoided installing init_mm.pgd as a user page table.
+> At the time, the ASID was held in TTBR0, so installing the reserved
+> TTBR0 also switched to ASID 0.
+> 
+> Since commit 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1"),
+> installing the reserved TTBR0 no longer changes the active ASID.
+> Consequently, switching to init_mm leaves the CPU using the previous
+> address space's ASID. An empty page table does not prevent TLB hits
+> for that ASID.
+> 
+> This can retain access beyond the lifetime of the backing pages.
+> During fullmm teardown, user data pages can be freed before their
+> cached translations are invalidated. If those pages are subsequently
+> reused for kernel data, an erroneous uaccess that hits a surviving
+> translation can read or corrupt that data instead of faulting.
+> 
+> Fixes: 7655abb95386 ("arm64: mm: Move ASID from TTBR0 to TTBR1")
+> Signed-off-by: Lai Jiangshan <jiangshan.ljs@antgroup.com>
 
-Done:
+Sorry for the delay. I looked at this again and it is indeed a bug but I
+doubt you can trigger it. It relies on some erroneous uaccess to the old
+pages. It also doesn't bring new TLB entries associated with the wrong
+ASID. The CPU hotplug window is pretty small. The efi_virtmap_unload()
+can also end up with the init_mm if no user spare ran.
 
-commit a33b6175c93c126c92bd1b98bd0760b39d79c234
-Author: Arnaldo Carvalho de Melo <acme@redhat.com>
-Date:   Thu Oct 29 11:20:31 2026 -0300
+Worth fixing though.
 
-    perf annotate: Print the stats where the counters are final
-    
-    The stats are printed from hists__find_annotations(), before that event
-    is annotated: with --code-with-type the first event reports zeros,
-    because those types are resolved while printing, and a later event can
-    report a total that is not its own.  The data type total is only
-    counted in --data-type mode, so --type-stat without it is incomplete
-    too.
-    
-    The data type pass resolves the samples while the histograms are being
-    resorted, so in stdio without --code-with-type the counters are final
-    before any annotation is printed.  Print the stats once there, before
-    the annotations, so that the quality can be checked without scrolling,
-    and once after them when --code-with-type or a browser is used, where
-    the counters only reach their final values during the output.  Leave
-    the TUI's alternate screen before printing, so the stats remain on the
-    terminal.  Warn if --type-stat is used without --data-type.
-    
-    Fixes: 58824fa0087e1cb7 ("perf annotate: Add --insn-stat option for debugging")
-    Fixes: 61a9741e9f78c64c ("perf annotate: Add --type-stat option for debugging")
-    Cc: Namhyung Kim <namhyung@kernel.org>
-    Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+> diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
+> index 803b68758152..7e56099c5fbb 100644
+> --- a/arch/arm64/include/asm/mmu_context.h
+> +++ b/arch/arm64/include/asm/mmu_context.h
+> @@ -235,15 +235,6 @@ enter_lazy_tlb(struct mm_struct *mm, struct task_struct *tsk)
+>  
+>  static inline void __switch_mm(struct mm_struct *next)
+>  {
+> -	/*
+> -	 * init_mm.pgd does not contain any user mappings and it is always
+> -	 * active for kernel addresses in TTBR1. Just set the reserved TTBR0.
+> -	 */
+> -	if (next == &init_mm) {
+> -		cpu_set_reserved_ttbr0();
+> -		return;
+> -	}
+> -
+>  	check_and_switch_context(next);
+>  }
+>  
+> diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
+> index 0f4a28b87469..a96ebe904dd7 100644
+> --- a/arch/arm64/mm/context.c
+> +++ b/arch/arm64/mm/context.c
+> @@ -218,6 +218,16 @@ void check_and_switch_context(struct mm_struct *mm)
+>  	unsigned int cpu;
+>  	u64 asid, old_active_asid;
+>  
+> +	/*
+> +	 * init_mm.pgd contains kernel mappings, so use the reserved page
+> +	 * tables for TTBR0 and switch TTBR1 to ASID 0. Leave active_asids
+> +	 * unchanged to preserve the ASID rollover bookkeeping.
+> +	 */
+> +	if (mm == &init_mm) {
+> +		cpu_do_switch_mm(__pa_symbol(reserved_pg_dir), mm);
+> +		return;
+> +	}
 
-Still doing local LLM and container fleet builds to make sure everything
-builds and tests in multiple arches before posting.
+I don't think we need the full cpu_do_switch_mm() machinery here. Can we
+not simply set the reserved ASID in __switch_mm()? Something like:
 
-- Arnaldo
+	if (next == &init_mm) {
+		unsigned long ttbr1 = read_sysreg(ttbr1_el1);
+
+		cpu_set_reserved_ttbr0_nosync();
+		write_sysreg(ttbr1 & ~TTBRx_EL1_ASID_MASK, ttbr1_el1);
+		isb();
+		return;
+	}
+
+Or just add the above to a new cpu_set_reserved_ttbr0_asid() function
+and call it. I think that's the only case where we need to set the
+reserved ASID.
+
+Thanks.
+
+-- 
+Catalin
