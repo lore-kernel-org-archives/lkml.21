@@ -1,100 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.179
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.23
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795570432;
-	b=31YtcKiBVSkWOn1iwpKB964AYfPh7PFYE7cyoINzCVarRandJlw7/hrw+BlLkl5jgPVS
-	 hHsVnfWhoh7wXfLWaQvQOI96VVVjHaVgaxp8vOhZ+/UmLMiTXWM2mG6F/MhHJ3P0LG7Dt
-	 YSzjj74mlLhRxis4CJzIa5EC42gVWrTxIOrIBM5D7PxF8I6FVGd+857/SGSKDnX7rx0QB
-	 Drv4eUN660hKDssNycEoLzMHOQvC7FFt40B+hiQ6+69tqP37bra8DlPTodR3DhaU7Fhnr
-	 gh1a/3hkhzlKGDviilWd3N73QSsVtAOtsj8rQqrmJW6QwnyyeFS27vJSrtUhi4x8vzQ==
+	t=1795570489;
+	b=ouqmi7ggC4tV1uwVpH3dTyWE7mzomYd7tpYMDajZfkStojae5axcJ46XgaaLCJRbf2d0
+	 o0Sfm42WnBvPGv/EcCaRGb4FDcKhcSmwVzSPTm7qg2WoRT3/sE2mPzeM/06YGhJ9N9pG3
+	 GLsjIzjjYjHab+vpJ5w8d8tteYF5mw0DTomQZ9UsjXf8smCTW+gO/Etpq4VCo8Bkm1+uo
+	 5epTUuE4yuMmi+mZ/9bYcYgsRB1kER924Q3EEIHWZsHis+Khve35BLy8Q9vttZTngYP8i
+	 8El2s1rhxGmsiVyuggg+LVXV4ArxSNoJzoNbYNeJvb9c2zNqyXjvXjwgbKS1kE/W3/Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570432;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=2gip1NK0wBgJYUEfPwhQ0iwa8xhKGiGvuEG2VPSq03s=;
-	b=dBzAkeSfCEyunjrYGAKmaXjhO2uPRFA8SowCJGMWhoV+6vRHk8u3Sq3frc/LDlFsdQp9
-	 qAZNl1fKa0fg0Cuot5LJAhh7BGj0KwwoBLPK3RphUwXlICqn7OAsE46EO8lAQs3J8fNyQ
-	 ZQlq/HRI6eJIzHzLxYhtxWdL8E4lOthPxdomnYDyp8Fy475xplNwb8k3butY+CDpCPVoG
-	 pnnm0YUH9Fx5s+/RhrwxF3Rne7PkZiBWOIikkCfCpGbG8Mb5taB3UGYO3oEvH552IzSIb
-	 9S1WtL7KE1uFbVS+pphsbF3HjjHaxnAraIwtDfWyBr9D9tbaYluPXNxENVpoPTb/c/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570489;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=0MTp1eyh+CLNbcchL9eCGWEkLrgTIe63/cgKLQroHUA=;
+	b=CEhEgxdySNnVo0m6IlUbmZMLTIelzcVxugX0jrK+mcX9tJ0EhEQGRg3eAC6S/k36Bg1Y
+	 ccT/SXMcl4AubRUxKRu7rVBBom8e6TrxYSIL4dIkgBEEEjAMWx2UWWeygLHQoZ2s6OM14
+	 zPVqoRWdbDG+hJQmt04SK95OmWuwMCehosUOi7x3q+2Vx48QKY+YRaYTCHegGFgd6K7uf
+	 GOlTUVV3Cv2KP49ce1cRZcg2+P2oWn7l1xNEVwqj+jxu335Ef7ZXmNcFfODkE/jdE5uEX
+	 5JaXQL/Mcu+htRS07BvZNTowEFvOhr0FJZ7aSwk+IAvcqQRh7apbAq3YptXomNUYYDQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yk0LCVlg;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.179
-Received: from mail-oi1-f179.google.com (mail-oi1-f179.google.com [209.85.167.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ettHELMN;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.23
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011023.outbound.protection.outlook.com [40.93.194.23])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17571606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:33:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17571606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1095E606A321;
+	Wed, 25 Nov 2026 01:34:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1095E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yk0LCVlg
-Received: by mail-oi1-f179.google.com with SMTP id 5614622812f47-571c36e48d4so1194945b6e.2
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:33:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795570431; cv=none;
-        d=google.com; s=arc-20260327;
-        b=GbchztzVtP8bL1ZWxmF6r4/vxQdQJJ2h4g/AHOFWQJCTJJvID7c+kTnkiiUfzllZ4l
-         LslfnyEmXHHtwm8hmpT56g7OrtPPkBSfXDxpGyXYcv0QJvMt3VmC6OoSWx2zs+y+NEvO
-         yxkIg+FN773ibYA77IgynI6F1CtahOe2jy14vyx0ktQIctwbL7/CKd7vX3l9q1ekvzCI
-         wno4u3zAASxDPfk3gFL6aHSaXKi6ZEVknic8AXu5hriX9AYmJU3FM8+jeZyF2QZt0sc/
-         1f8wmJ4DYG0rdbOvNv/S7CJ+IIltuUVodTODjmhQJMoATfGHAY1jmFgPumDYmAgVGKEJ
-         ZAgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=2gip1NK0wBgJYUEfPwhQ0iwa8xhKGiGvuEG2VPSq03s=;
-        fh=XIUPnl3fQhr0MMuKfh6W78P8tq57QngyZ2AemocZzdY=;
-        b=sZzjuhVu3ZsVZnJZ380UvijO2uyeJmmBumA9UohS1RfGJKEEHHMZtl4+spCWTz60OG
-         9ins8hXMcFMgMKqydCUJTgwAeXdNKEqOLCzOHhHYasBlXX+0vp51Wz7gjpxtqNRsPbev
-         R5ao/b6qFrwyd5twgKo8eeNdpDEXnlE4m/4tZjAPqCyMPHpN+ywu4OFyPdmGy5Z7cSxH
-         +EdZ/qrs3lU0DqHjIabu3yTDi6d54y2mZrwvH7nPXrNIdI19vYeFx2J5xBP6opalVLDC
-         o0YDL41drEDmFsgsXl0byE5e/JmxhbIXmRptljZ+0W+5yqkpbU+g6BuW6Jw75/io4Lxo
-         pJMQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795570431; x=1796175231; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=2gip1NK0wBgJYUEfPwhQ0iwa8xhKGiGvuEG2VPSq03s=;
-        b=yk0LCVlgOmnU4D9i3CfR+hOfBJAC/XLTsmFpbB0pkEVbJRS4GQUEPPFBo5DSZ29Al7
-         KM9EXI/MHZs3APRb+c3Kp8jRcj6BpExFU7rSZJX9NmHKt79Dsgw8cUtlidO8Rk9a+y3n
-         ebogyhIuhfqqHKHyWrrc0Mb37tYDKOX+XxjN0dFTvbo9aTzTur548g5B7cqeeRQZsEOW
-         yRuP6DWd/jRtrGEAK1gGp4Y+sD4UqU1JXdfoUY9Ok4p+YiiG5pxjkohoMeKo7SycoVUV
-         BXqFLXlLBlMAZrlY3DIuG2ohnGkV0bo3SKxTCmGhchb4RvMVvNkC8asw7YyAC6A9I6jV
-         M+iQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795570431; x=1796175231;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2gip1NK0wBgJYUEfPwhQ0iwa8xhKGiGvuEG2VPSq03s=;
-        b=gofR15ssBLwfB8zx3JxcFdlei4AmNNWH32xGWyOALpoqqPndP29wcuit6IDOCLhaog
-         k8osnE2hwn3JsCv2boWqQeryMvmZy0rqgXcCkfYNwu3OmyQT20URl1u9W97fMnwY0YLI
-         psWzvPoiqLm/8V+BCoh8NDeadxgzxxNEf0EENteOEC2ydB1s1H3Ta+WlnWz53cCnjFJ0
-         4FRu26C5Vbqdu/Gk3T6BracvQbAaND7zPeeGGZa462tqNM6TE+KQ+0cBIDSYMKcs46V1
-         pseXsEt57ktaZShqARIe7yfHwj2XaqPGTAfTnrgTEgsFohT7t6pqm9GihE+jWkHBilNI
-         L3Uw==
-X-Forwarded-Encrypted: i=1; AL+hErGi6VigLdgqoSO/qKZ9YaoqA+mF/gbJ/qjZitIRqVZ5gWeJk0Lrwqhv4+rtofiJ2IU+dncgmLyEhAyO9LU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z88+6XrLBuEb4IU5Sij/+owoNq4ozXJYiCQMocFkBWT8mnM4n7+
-	atvlgEq4vESiTmGb3EDTWYx4FJk9IuhZHO8OYYbsCGC0NBdc3ECLPjuZclv3cUxtwIdrTKMSaMW
-	wuSdg7CzqsOU1EwU1Kr7Y62Autr+E2N4=
-X-Gm-Gg: AZFdTZfJgRLK7QAg6dYWvo/KBkcgW1PoysKvTBGRsdD5hK/z/Wkm7yOU59XtI+AKvOP
-	+c/LbhCJqzmDDevsy7yrp5MYnPskJX8wHUvX2Y2Yknj5qHpD7yCfGAxkwEtl/KZIrM09+q5CvfT
-	loJnTWZQiAXGMddO3BUqowq0ej3ekWhCTmrq77Hoh5qHp2y6KLCywTQRXImx3rWTg/qMeRM/QJn
-	PWZcylCTnL3fnBDwt3zqJmHfK3bgOMW4LTnfacByY/dwXZ0bjJ7ctiR7V7IGaWZdL4lEI8ch6Zz
-	kO0d1HFpQTYptX3N5UdsEdgN6exgveTkssVURbsjY4Ccrl7t9L/3zQAmIXzRL5ZnoBJzilPcfqK
-	2nuw8JPcTbq6VrnJ4HScpCzUwJXCu4AQvjcOF9KBX
-X-Received: by 2002:a05:6808:23ca:b0:571:ceaa:3e29 with SMTP id
- 5614622812f47-57a035c721emr20126919b6e.0.1795570430804; Tue, 24 Nov 2026
- 17:33:50 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ettHELMN
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AZ22ER/qFwXXcL+i3ShYNKY7pY7LJuLTFhlovWshrFSDgizDA8wxavLh0g5FOpm8YPQBi49GjZaX8mdhgvjvD3KHgPNVHC1SqbfZPsd8Q4QbJ0Vm4sKwuPuUWAuW1ms18dICM0vZZ4Xqt8bbkY5u1vhSuJNotiEcCfxRVMr+Glw8Imp7KrO3mxOgMQrVlQ4nk+PuDkXan2QaYEc6/aGTXj3LLqXAdUb+Knl00Qb6EWcE9YLRIFWDwUD+RbT+Cdx6uP0Xg4T1JQJ0yBXSfiSRzAMsQ/1NcXBlODtC4HAP1t78IC84RKOimLjPZGXJFcty0Cyr8WvBJ0+jD2TYV5odyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0MTp1eyh+CLNbcchL9eCGWEkLrgTIe63/cgKLQroHUA=;
+ b=lAg33OXx8S/B6w70ViBRW+KfAG4r7CXyj+GqzcxZ25auaVSVGvwdCV928tniuxedscCg7iOklVs3kVZXw1hpE5XluxhR1HRbWPOIAyNSz3BAo6eSFtAIlaUDCKExBWv24ZAxSWLDG9I6oOcah1zfS283M/ISdP4qxqjUcDLSzFuIsScixGT0+DybJves7a2LjG5BBCx4wjJi6TpOwCpUT2IK9gbNxEDr7Dj5wtuwLhpVlsk5TFxwq6n0spXzjUwOVby8XwEBPed9mZf3tyQ/p30rcI07e2jyhpErpfAb6HsQpOadGqgAOzymF9jh2kS7fAFTNhhnH+HkHj1fniYVhQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0MTp1eyh+CLNbcchL9eCGWEkLrgTIe63/cgKLQroHUA=;
+ b=ettHELMNaiCtY0VJWAKN6zhZD52ZvNIvVyulo15sfthqr8Ehdiw6BngMxsVtuxcTxShLS/LZ1MhXdcW5xTwuk+z4T/bckf4keuZFDNKln5l2F3xoK3Pj0jb18JvKlSv5w8c1+KDeOZdffpHn1K3+3hOmWjwDeq1NmDmgkH7quzKUTpQOQerUfLvOVN3CzxJa2mdipslGJKN7HRE1/Ufz47XN/goI8Wr0FHN0CZUtFlZHlJ+BPyUbeYbzon2uqQTCkcj0fBliyVNnIAVma1sQ+X5RJq0tccJp8x5sSTSU/koHkuxSZSvq//13t2wu9MmWWZWMQCJ8EbF6w5N4lGJgtA==
+Received: from BL0PR01CA0082.prod.exchangelabs.com (2603:10b6:208:25::38) by
+ SA1PR12MB8142.namprd12.prod.outlook.com (2603:10b6:806:334::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.4; Wed, 25 Nov 2026 01:34:41 +0000
+Received: from MN1PEPF000793FE.namprd05.prod.outlook.com
+ (2603:10b6:208:25:cafe::2e) by BL0PR01CA0082.outlook.office365.com
+ (2603:10b6:208:25::38) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Wed, 25
+ Nov 2026 01:34:41 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ MN1PEPF000793FE.mail.protection.outlook.com (10.167.249.202) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 01:34:40 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 17:34:20 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 17:34:20 -0800
+Received: from mtl-vdi-603.wap.labs.mlnx (10.127.8.12) by mail.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Tue, 24 Nov 2026 17:34:17 -0800
+From: Jianbo Liu <jianbol@nvidia.com>
+To: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>
+CC: Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Florian Westphal
+	<fw@strlen.de>, <linux-kernel@vger.kernel.org>, Jianbo Liu
+	<jianbol@nvidia.com>
+Subject: [PATCH ipsec 0/4] xfrm: Fix device state teardown races
+Date: Wed, 25 Nov 2026 03:34:08 +0200
+Message-ID: <20261125013412.1123866-1-jianbol@nvidia.com>
+X-Mailer: git-send-email 2.39.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,183 +115,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123072320.5967-1-ki.chiang65@gmail.com> <20261123122343.6d3f8866.michal.pecio@gmail.com>
-In-Reply-To: <20261123122343.6d3f8866.michal.pecio@gmail.com>
-From: Kuangyi Chiang <ki.chiang65@gmail.com>
-Date: Wed, 25 Nov 2026 09:33:38 +0800
-X-Gm-Features: Aa3M54o4sBnpfJ7sTPNKoH-u4KSZQxGsSF95VQe859Y3yKpAPoeTSt-tRM9-78g
-Message-ID: <CAHN5xi2dFo2NFbMb8t_5uugX56Fq2=Jj3G2_5xA0-b_NTjQsSg@mail.gmail.com>
-Subject: Re: [PATCH RESEND] xhci: Handle missing USB2 resume events on Etron hosts
-To: Michal Pecio <michal.pecio@gmail.com>
-Cc: mathias.nyman@intel.com, gregkh@linuxfoundation.org, 
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF000793FE:EE_|SA1PR12MB8142:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9a26805b-935d-4653-3ef6-08df4a9446a7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|1800799024|36860700016|7416014|23010399003|376014|261009223027099003|18002099003|56012099006|11063799006|261028144727099003|261102123227099003|261026140227099003|261026121527099003|261021123027099003|261021121427099003|261022075727099003|261022105027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	zbAtz6DIdcIQr5KE1oB5oJ35BKDV+deVA14se0j6xn3Syaa5iFayZL+IEnYRFY0Fuze6MbAOkj8JnVSgn4WDbEW4G79arjJJsuHQN6JIYlAo3sUIJHbON0j8MauFGQY/MCZb4CNGOx7xZa8ALBnDrgqub2jlx2Zql0jNENxWJrX4xVLIcp1+m7aepBpN/vkEmzpY+foDE971E2yYKKxQTN+A/EodZ/5hf3iuEtvMSC7USKlAQrKi7Vi5DYwo0ZSaRAgAoi0ZGibNye4paVVqdnC5mo89bc94K8MEuS35htSv6RudMu4v265moknXue8Bys7kG9aW3hw/ubRs8TfBqD32WdiKwqVPkczPiPWGSZLzYE4QHCFVBCv8b1gposvLXtp9bDS9WMEd1O3xe0lrxca4c9E7qT0euXofADSEY+2wo1TdpWpgGKFyAEcEvmMdsNsvBQAo4dlcjoo5szrJ46b5p1DjLRoyxiOhX07NDNp7GAfGAiHkGw7c7C6y+4Z34DhZQ5sLf975y8dP0Cask3k6zBLzqukmahtdYQ+VTWLvzQnhABc1cMwlBjMVJ4sGDenNQbJYn6ftUBxLSefuLLGZfW3EjM+rQi08azd+CzRgR+aWzgoEGOoPElxhcYJj8dgouHuOp05yzBbrm/381r/FzahBU92d7LoxfpmOPGQDy7VHyFUM1ztsNsM1hScssXuxu4ZhUjS67IYyvIwOyQ==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(7416014)(23010399003)(376014)(261009223027099003)(18002099003)(56012099006)(11063799006)(261028144727099003)(261102123227099003)(261026140227099003)(261026121527099003)(261021123027099003)(261021121427099003)(261022075727099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	JiPYsvelaDN105YfhgcM37OGv0IsDmltu8vz8doYFy7m/7CiE8A4lzj8CCY6aMpSrDSsozpogUSZYf3DKqal7+GnBpk4a1JDwaSJjH7kXZnlU+ZMDkbn1c/E5UGOI2aD7uOUTAdEaMFNo57lcJgJVogvfhzr2ArDJzRqF+l7F/IxstqHD4FndXrQMcWSmHJCsoR9PUiQo6ODJWLbdeSdMkpqfHoS8tn9YLcwBdeN8ExH9nRx+zUUF4o0IH1QmNnf3as03Nd8PIus49yu7CFBg8dod0v7bmUNbUP3WpAeXSoe6XPcCBnyeKhlCVp/hI8ZdxrngaQUeWmV/3hOY4GB8/wGJQbjEWb27X3ZGSuttsCofiqb0xoaD5x3ICHCVflFM3LjdqdrKhTEXojpfMyiDRrjDn0g5jPCW/AOAN452IwhN2Jm2tSaaUtWv8HS5Ece
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 01:34:40.9102
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a26805b-935d-4653-3ef6-08df4a9446a7
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MN1PEPF000793FE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8142
 
-Hi,
+Three fixes for the teardown of xfrm device offload state and one
+revert, for ipsec.
 
-Thanks for testing and sharing the detailed logs.
+xfrm_dev_state_free() runs for the same state from the state GC, from
+the device flush and from xfrm_state_find(). Commit 89fefad9f971
+("xfrm: serialize state GC with device state flush") serializes the
+first two with a mutex, but xfrm_state_find() runs under RCU and
+still races with the flush.
 
-Michal Pecio <michal.pecio@gmail.com> =E6=96=BC 2026=E5=B9=B411=E6=9C=8823=
-=E6=97=A5=E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=887:23=E5=AF=AB=E9=81=93=EF=BC=
-=9A
->
-> This repro doesn't seem to work for me.
-> [...]
+Let only one caller free the device state of an SA, hold a state
+reference in the flush and wait for an RCU grace period before the
+free. The mutex is not needed after that, so revert that commit.
 
-I tested again on an EJ188 with three USB2 hubs connected, without the
-proposed fix but with extra local debug messages to detect ports that
-are in the resume state without a Port Status Change Event.
+1. xfrm: Give GC list nodes their own storage
+   Stop sharing the GC list nodes with the bydst and bysrc hash nodes.
+   Patch 2 uses gclist on states that RCU readers may still walk.
 
-When I connected the first mouse to hub 3, I saw the same behavior as
-in your test: the USB core checked all root hub ports, and all three
-hubs completed resume (evt 000e).
+2. xfrm: Serialize device state teardown
+   Let only one caller free the device state of an SA.
 
-However, when I connected a second mouse to hub 2, the root hub was
-already active. Port 1 also entered the resume state without an event,
-but only port 2 was reported in the status bitmap (evt 0004).
+3. xfrm: Wait for an RCU grace period before freeing device state
+   Let RCU readers of the driver state finish before the free.
 
-Both mice worked, but a third mouse connected to hub 1 had no effect.
+4. Revert "xfrm: serialize state GC with device state flush"
+   Remove the mutex that the fixes above make redundant.
 
-So the issue seems to occur when another suspended port enters the
-resume state while the root hub is already active.
+Jianbo Liu (4):
+  xfrm: Give GC list nodes their own storage
+  xfrm: Serialize device state teardown
+  xfrm: Wait for an RCU grace period before freeing device state
+  Revert "xfrm: serialize state GC with device state flush"
 
-Here are the test logs:
+ include/net/xfrm.h     | 10 +++----
+ net/xfrm/xfrm_device.c |  4 +--
+ net/xfrm/xfrm_state.c  | 61 ++++++++++++++++++++++++++----------------
+ 3 files changed, 44 insertions(+), 31 deletions(-)
 
-02:00.0 USB controller: Etron Technology, Inc. EJ188/EJ198 USB 3.0
-Host Controller
-/:  Bus 005.Port 001: Dev 001, Class=3Droot_hub, Driver=3Dxhci_hcd/4p, 480M
-    |__ Port 001: Dev 004, If 0, Class=3DHub, Driver=3Dhub/7p, 480M
-    |__ Port 002: Dev 005, If 0, Class=3DHub, Driver=3Dhub/4p, 480M
-    |__ Port 003: Dev 006, If 0, Class=3DHub, Driver=3Dhub/4p, 480M
 
-# connecting a mouse to hub 3 resumes the bus:
-[ 3613.057015] xhci_hcd 0000:02:00.0: Port change event, 5-3, id 3,
-portsc: 0xc400fe3
-[ 3613.057091] xhci_hcd 0000:02:00.0: resume root hub
-[ 3613.057106] xhci_hcd 0000:02:00.0: port resume event for port 3
-[ 3613.057114] xhci_hcd 0000:02:00.0: resume HS port 3
-[ 3613.057122] xhci_hcd 0000:02:00.0: USB2 port 1 resumed without
-event, portsc: 0xc000fe3
-[ 3613.057129] xhci_hcd 0000:02:00.0: USB2 port 2 resumed without
-event, portsc: 0xc000fe3
-[ 3613.057170] usb usb5: usb wakeup-resume
-[ 3613.057184] usb usb5: usb auto-resume
-[ 3613.057206] hub 5-0:1.0: hub_resume
+base-commit: b88c75488ecc768acadb14e980bbfa087b1dbf38
+-- 
+2.39.3
 
-# core checks all RH ports; ports 1, 2 and 3 are resuming:
-[ 3613.057221] xhci_hcd 0000:02:00.0: Get port status 5-1 read: 0xfe3,
-return 0x507
-[ 3613.057269] usb usb5-port1: status 0507 change 0000
-[ 3613.057284] xhci_hcd 0000:02:00.0: Get port status 5-2 read: 0xfe3,
-return 0x507
-[ 3613.057317] usb usb5-port2: status 0507 change 0000
-[ 3613.057331] xhci_hcd 0000:02:00.0: Get port status 5-3 read: 0xfe3,
-return 0x507
-[ 3613.057361] usb usb5-port3: status 0507 change 0000
-[ 3613.057376] xhci_hcd 0000:02:00.0: Get port status 5-4 read: 0x2a0,
-return 0x100
-[ 3613.057416] hub 5-0:1.0: state 7 ports 4 chg 0000 evt 0000
-[ 3613.057728] hub 5-0:1.0: state 7 ports 4 chg 0000 evt 0000
-[ 3613.295602] hub 5-0:1.0: state 7 ports 4 chg 0000 evt 000e
-
-# hub 1 is resumed, inspected and suspended again
-[ 3613.295628] xhci_hcd 0000:02:00.0: resume USB2 port 5-1
-[ 3613.295639] xhci_hcd 0000:02:00.0: Set port 5-1 link state, portsc:
-0xfe3, write 0x10e01
-[ 3613.295743] xhci_hcd 0000:02:00.0: Port change event, 5-1, id 1,
-portsc: 0x400e03
-[ 3613.295774] xhci_hcd 0000:02:00.0: Get port status 5-1 read: 0xfe3,
-return 0x40503
-[ 3613.295819] xhci_hcd 0000:02:00.0: clear port1 suspend/resume
-change, portsc: 0xe03
-[ 3613.306530] usb 5-1: usb wakeup-resume
-[ 3613.306558] xhci_hcd 0000:02:00.0: Get port status 5-1 read: 0xe03,
-return 0x503
-[ 3613.317615] usb 5-1: Waited 0ms for CONNECT
-[ 3613.317626] usb 5-1: finish resume
-[ 3613.318018] hub 5-1:1.0: hub_resume
-[ 3613.320288] usb usb5-port1: resume, status 0
-[ 3613.320306] xhci_hcd 0000:02:00.0: resume USB2 port 5-2
-[ 3613.320316] xhci_hcd 0000:02:00.0: Set port 5-2 link state, portsc:
-0xfe3, write 0x10e01
-[ 3613.320340] hub 5-1:1.0: state 7 ports 7 chg 0000 evt 0000
-[ 3613.320381] hub 5-1:1.0: hub_suspend
-[ 3613.321518] xhci_hcd 0000:02:00.0: Set port 5-1 link state, portsc:
-0xe03, write 0x10e61
-
-# hub 2 is resumed, inspected and suspended again
-[ 3613.331561] usb 5-2: usb wakeup-resume
-[ 3613.331592] xhci_hcd 0000:02:00.0: Get port status 5-2 read: 0xe03,
-return 0x503
-[ 3613.332562] usb 5-1: usb auto-suspend, wakeup 1
-[ 3613.342518] usb 5-2: Waited 0ms for CONNECT
-[ 3613.342532] usb 5-2: finish resume
-[ 3613.343274] hub 5-2:1.0: hub_resume
-[ 3613.345374] usb usb5-port2: resume, status 0
-[ 3613.345393] xhci_hcd 0000:02:00.0: resume USB2 port 5-3
-[ 3613.345403] xhci_hcd 0000:02:00.0: Set port 5-3 link state, portsc:
-0xfe3, write 0x10e01
-[ 3613.345427] hub 5-2:1.0: state 7 ports 4 chg 0000 evt 0000
-[ 3613.345439] xhci_hcd 0000:02:00.0: Port change event, 5-3, id 3,
-portsc: 0x400e03
-[ 3613.345497] xhci_hcd 0000:02:00.0: Get port status 5-3 read: 0xfe3,
-return 0x40503
-[ 3613.345548] xhci_hcd 0000:02:00.0: clear port3 suspend/resume
-change, portsc: 0xe03
-[ 3613.347649] hub 5-2:1.0: hub_suspend
-[ 3613.348842] xhci_hcd 0000:02:00.0: Set port 5-2 link state, portsc:
-0xe03, write 0x10e61
-
-# hub 3 is resumed, inspected and the device enabled
-[ 3613.356604] usb 5-3: usb wakeup-resume
-[ 3613.356628] xhci_hcd 0000:02:00.0: Get port status 5-3 read: 0xe03,
-return 0x503
-[ 3613.359576] usb 5-2: usb auto-suspend, wakeup 1
-[ 3613.368504] usb 5-3: Waited 0ms for CONNECT
-[ 3613.368515] usb 5-3: finish resume
-[ 3613.368981] hub 5-3:1.0: hub_resume
-[ 3613.370094] usb 5-3-port4: status 0101 change 0001
-[ 3613.471650] usb usb5-port3: resume, status 0
-[ 3613.471671] hub 5-3:1.0: state 7 ports 4 chg 0010 evt 0000
-[ 3613.472020] usb 5-3-port4: status 0101, change 0000, 12 Mb/s
-[ 3613.543564] xhci_hcd 0000:02:00.0: xhci_hub_status_data: stopping
-usb5 port polling
-[ 3613.544505] usb 5-3.4: new full-speed USB device number 7 using xhci_hcd
-
-# connecting a second mouse to hub 2 resumes port 2:
-[ 3622.523436] xhci_hcd 0000:02:00.0: Port change event, 5-2, id 2,
-portsc: 0x400fe3
-[ 3622.523492] xhci_hcd 0000:02:00.0: port resume event for port 2
-[ 3622.523499] xhci_hcd 0000:02:00.0: resume HS port 2
-[ 3622.523507] xhci_hcd 0000:02:00.0: USB2 port 1 resumed without
-event, portsc: 0xfe3
-[ 3622.564503] hub 5-0:1.0: state 7 ports 4 chg 0000 evt 0004
-[ 3622.564530] xhci_hcd 0000:02:00.0: resume USB2 port 5-2
-[ 3622.564541] xhci_hcd 0000:02:00.0: Set port 5-2 link state, portsc:
-0xfe3, write 0x10e01
-[ 3622.564651] xhci_hcd 0000:02:00.0: Port change event, 5-2, id 2,
-portsc: 0x400e03
-[ 3622.564684] xhci_hcd 0000:02:00.0: Get port status 5-2 read: 0xfe3,
-return 0x40503
-[ 3622.564744] xhci_hcd 0000:02:00.0: clear port2 suspend/resume
-change, portsc: 0xe03
-
-# hub 2 is resumed, inspected and the device enabled
-[ 3622.575423] usb 5-2: usb wakeup-resume
-[ 3622.575451] xhci_hcd 0000:02:00.0: Get port status 5-2 read: 0xe03,
-return 0x503
-[ 3622.586477] usb 5-2: Waited 0ms for CONNECT
-[ 3622.586487] usb 5-2: finish resume
-[ 3622.587310] hub 5-2:1.0: hub_resume
-[ 3622.588566] usb 5-2-port2: status 0301 change 0001
-[ 3622.695551] usb usb5-port2: resume, status 0
-[ 3622.695573] hub 5-2:1.0: state 7 ports 4 chg 0004 evt 0000
-[ 3622.696175] usb 5-2-port2: status 0301, change 0000, 1.5 Mb/s
-[ 3622.696661] usb 5-2-port2: indicator auto status 0
-[ 3622.773415] usb 5-2.2: new low-speed USB device number 8 using xhci_hcd
-
-# connecting a third mouse to hub 1 has no effect
-
-Regards,
-Kuangyi
