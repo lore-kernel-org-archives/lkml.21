@@ -1,102 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.182.83.82
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606407;
-	b=kU6Xu38x+kQQsr4g5DfgQ7OOuWPNyBzfe5mNlHtrTPc4hx5Inh6bIgERcaLSYMKByFpK
-	 neP+xCf+DVctsqhzOO74FH/uVZJ8afSmbRVOZagmjrpUuHVnCXuko68PKw4zTHKBtrX0N
-	 S0rUBl6Ts5oiOcnnCGyToGTsL6bKZa1AklNA/2lIsbApgHY47qXoll3abWEK67MOus0P+
-	 T2Zq9vEYHxdK9WZSsTJ+UKEL7IFUSSLfah7azB8Ia7V8LBzOL6Uirwl/xwaJSLRNTuHmm
-	 bN97yQ/ssLB5F8cmkjlRL3ksy6hDUdoaJqpLbE+FIGe3C1XeuP4/hHkgV71OgYlGLbw==
+	t=1795606449;
+	b=ylqGODu7OfKRwdwmt6Ri+03ZtoBBhkVUgFEVWb8GoGTvHpZXWZci28o/1HuqKtXhxixg
+	 15kmDPHsB3LIRsCUlZ0MRXKTdIw3BuWvXCOp+pf073EA3IP1dwb6u7p2B6nMUbItNdYQB
+	 T2POR/ehUPjEh9LSBfn3I4d/NyOIgOHNT9Uv4baVVm/UJ7POyd6nHW1KTPHFcMUttBEXK
+	 OtC0+1DVz+iYy8YSsI2jsgR9W44gQ9tLNFYzuMYbfYhyniyM9oulgNOY7r6e6WMQGgbzs
+	 pqVj0ecBlEiwYeGFBzWID3LTDVinAo7DV9EVVlTd50CrJqraFp2+HwY1LAk/DTT7iXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606407;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=Sq/kCHFcu0QVMXyhVOAe1FmkyI+j91FPYoBCiqQjVQY=;
-	b=cWnf2J46iBzZuwv+CqvCVyORq/B3M7gewigPcGHq/D3OLfqdPlewdPU2IoU9Notmupf7
-	 cQgJM48BhZS3Akjsa0RMRRjIaEVPGBOYv9y6ycrv2JmxWJbmXws2NpazKUMyGMB2OPvw8
-	 NAeYYt9rPZv45DCeyxz+D2wSIn9a1i1idJ3btuaRg1gfAq6oAyK/3BUqdFfeQ9+ke69n9
-	 DWeu2g7VIBcc16DXcrjnNzq0iy29/pSuwMg6909ic6rEH9+7wOQ8gbnajI1uN1L5cliRn
-	 UoN2yX7Cxxn3CqIMj3GpQ9+XUFa7eIzTi8+qUgM/9r55V1rkvbZTJbyaKv2TxP203vg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606449;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Subject:Date:User-Agent:
+	 Cc:References:In-Reply-To:X-KMail-QuotePrefix:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Content-Disposition:
+	 Message-Id;
+	bh=HKoDU+dLsCmuCJRgFHrfhtjWazV++JljIFE+J0sXE58=;
+	b=jpGBNe6cEHRmz8wzfoXmI/h+pt+ip9G/QUihW2iRXUPHyM9DXGXKKsbvpgC2aG6acvbx
+	 1HT+EGYoDvalDNymQipY0uyVU+/QyznkLyjkLa3umMtR2iRteX8DG2oLAn3LUxsFT1dCM
+	 E/lVdm3Ah2RDq1EkDNyzJ28ItvQVu801u8lozKX37xjhFy0J6bUChGPDkoSWa7H7hcYCv
+	 byrDKPqC018LRD28jwpqTC8gh+bWh5oiHxSKP8n/eUWisjAlBD91w2E98PuNTubQFg3zd
+	 Kt7QFKXmssGVCTDPuQ3Xs1zGWLd14OrVbX3YuEmXxtq0UmkUaE9o8FnH2sfeW0E78YA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ztYIrqhS;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=zary.sk;
+	spf=pass smtp.mailfrom=zary.sk;
+	dkim=pass header.d=zary.sk header.i=@zary.sk header.a=rsa-sha256 header.s=key1 header.b=LKmrfzwL;
+	arc=none smtp.remote-ip=194.182.83.82
+Received: from mail.zary.sk (mail.zary.sk [194.182.83.82])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF5CF606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:33:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF5CF606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97DD1606A321;
+	Wed, 25 Nov 2026 11:34:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97DD1606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=zary.sk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zary.sk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ztYIrqhS
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb9d8e8e90so28042525e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:33:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795606405; x=1796211205; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Sq/kCHFcu0QVMXyhVOAe1FmkyI+j91FPYoBCiqQjVQY=;
-        b=ztYIrqhS6SOv8FdpU3XaL3RIXhD65GUluXEdMrHws7gk+BS/3foVv46pQmvjUGCZs1
-         AO05RU946V+9gGxNvLrYSzEQtyFeF8DQt0BOkZi2pHV9Yuyj+QZAL1Uw0oXuREbVLS7U
-         H1D9E3MxYIQsHgy7oAZ59a6NZ02EkFa9zo4mzQ7V1QXkTJbOARGXC133wD9uU5KXBgBx
-         hZJKx7t8Lx29uGbTkFVxDs+RXJY5lcld/8Aieb/cRPKe257at4xHL7LrHWuDClR/iekK
-         ONruwTzQRf0s4h83nTXOLlEzJhy/93kF+hN0oD3diE8GEZAkYKbJA2PccABQgx1GmGCy
-         jDIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795606405; x=1796211205;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Sq/kCHFcu0QVMXyhVOAe1FmkyI+j91FPYoBCiqQjVQY=;
-        b=S5Ru34/SWXg0jepR/fdCWQFD00nLZxh4/S9Bsxtwrxj+FaUgUzm2BE2ycilsMFv66H
-         m7rKx46TI0TKspIJGgDSYLdT+h4TXsAQQlUeZBDtPhMLb52zegDDYcACfNONVyJrG9wl
-         VxLcj++5Q4lIP6yATcxG97QLaxQo68R9REFMN64HIGaenJwwDwQu3ptnn3WPHsWM+17/
-         6ZE8SOc13WoVE8m0THmNdNqBO3Jr/JVnzlbsNtzM1uvO1FWrzlv7VcaWgbOcvtX6JvSj
-         05uucV8kaw1Fd/KFcxwT5xjZ91oRich1iEk/zbRGAWWsatgJclsqTv+0vE9HeptNbNeg
-         GqNw==
-X-Forwarded-Encrypted: i=1; AL+hErF4JX79ww0LzvS1MT4QJnvmQNiMXVQ0DKh9MA/jauYuPBLmApyuioU26bPQlKcQZscA4FwPVCGgwsUZ8+g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ioul1K1qqkQ9SjIunc8oJKRkawSzDG7xosi/0irNW1wE9YWDY
-	JbnlBwoywgRTp8Wut5nPxl39YrFvnpIrnVIghxon3pBGmWG+v8w3UPZS
-X-Gm-Gg: AZFdTZe3AVi1N55ne/Kao9ilCP3NvMlAAp5vv3WEreQOT1uKS2CWxNOO1QqUmHP/OkB
-	NCQzq3yu63tRM6L5wx2CwDUgKIkdk8+82ISweq6ZhOboCiqZlUyJG9RIXmcH77XGVQYckWvdJax
-	6ZfwQrjd8qBFA2zbFV4RlYLRhMqrhjFOrP/t9i4WB1Px6n5xlX7reaUoVH5KD1KsoQKHVK2bjmp
-	3YE09dANuqEbzPH2iYzKwM1TY4S+fzv8m9ktq0o1SgHCcSyLcqRNKnmGKcd4L0W4hgN9FEPTmWD
-	vZUsemD4Y2hd7gAQmtXDGclGEXCCtuOMqqIYCWF/UARCerdwrB6mCtA2sxgrsDB/Athtrtnqmop
-	9XnV4j5WJcvxYd5rJ40Fbk2KFKTgSKW46aTOTcEC1qOXMrjzQHqUJveXodrxKfXVS0ToA0U5bCa
-	xQgsgoJ29f6FH8nhwzgf0DrEqe2coEszbokwMAd1nad9QKWpYobPDZZuyQ+jmurl/YESloHySNk
-	/itaMMCfFsrJeGG3fTfHMCjdRWkbgRY0eQjVpPhCYsXj+85ljESDbt/pzgjiVyZOTSl4QwfrqRv
-	6b3xeE0uhe/NsOkDuChR4c4Q5pfv3yXYAorAe3HTUJW4Jxuw24m+X1mpwsi1ZZX4Ooh4AkblXCQ
-	itAOSxreQHA61ZgdJFvjmEu66LDxDMz6wyiXrSz+islwTky6+WsRxQl87a92hBNJDdSZIzZI=
-X-Received: by 2002:a05:600c:6219:b0:4a1:d087:f6ab with SMTP id 5b1f17b1804b1-4bb8880badfmr337953705e9.18.1795606405132;
-        Wed, 25 Nov 2026 03:33:25 -0800 (PST)
-Received: from fedora-portable.home (2a01cb0082e4ed0003fef01df0cf8b0e.ipv6.abo.wanadoo.fr. [2a01:cb00:82e4:ed00:3fe:f01d:f0cf:8b0e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849e598sm479579725e9.8.2026.11.25.03.33.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 03:33:24 -0800 (PST)
-From: Ilan Bonneau-Zamon <yolezz.secret@gmail.com>
-X-Google-Original-From: Ilan Bonneau-Zamon <ilan.bonneauzamon@gmail.com>
-To: Yazen Ghannam <yazen.ghannam@amd.com>
-Cc: Mario Limonciello <mario.limonciello@amd.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	x86@kernel.org,
-	linux-kernel@vger.kernel.org,
-	Ilan Bonneau-Zamon <ilan.bonneauzamon@gmail.com>
-Subject: [PATCH v7] x86/amd_node: Continue initialization even if SMN reservation fails
-Date: Wed, 25 Nov 2026 12:33:22 +0100
-Message-ID: <20261125113322.53103-1-ilan.bonneauzamon@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261124162337.GD2156781@yaz-khff2.amd.com>
-References: <20261124162337.GD2156781@yaz-khff2.amd.com>
+	dkim=pass (2048-bit key) header.d=zary.sk header.i=@zary.sk header.a=rsa-sha256 header.s=key1 header.b=LKmrfzwL
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zary.sk; s=key1;
+	t=1795606446; bh=NaR0diMCtuXyVZO/NVpxvjHdL+7bjn4HQuViZ5NuIGw=;
+	h=From:To:Subject:Date:Cc:References:In-Reply-To:From;
+	b=LKmrfzwLLDE/KEOO7O7RVZBot1PYLMneMmIGb7fhgQAtTOLslhFubKFjzmhiAxmQS
+	 AemCr7w0e6I9eLAwXTmQFUCs4PBNRCXifSZzn0Zcr2jEOFTmEHbwkpyh/xXmZxprRT
+	 CQVcotXZuCR++/F7jY6KMUL46aLF5QDCuJipXf6utvqpT69df6NPKA1OwtBuXCES2w
+	 4gPdy/aAtscTp61z91I+cR04NEzmUp8VcPYScJq33lmGze4XILz3hqs1KCVqO+DEJ6
+	 Yd8lOrY5UZyWL+H2ZdeoOGfu5OWd78YySEedwJ5cSeABxmRNmy1tQcyAz6mgq4hCnE
+	 cIl++6HZjLr2Q==
+Received: from [192.168.1.3] (mail.gsystem.sk [37.58.14.130])
+	by mail.zary.sk (Postfix) with ESMTPSA id 0CDC8BED51;
+	Wed, 25 Nov 2026 12:34:06 +0100 (CET)
+From: Ondrej Zary <linux@zary.sk>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Subject: Re: [PATCH v3] Introduce Synology x86 NAS LEDs driver
+Date: Wed, 25 Nov 2026 12:33:55 +0100
+User-Agent: KMail/1.9.10
+Cc: linux-kernel@vger.kernel.org,
+ Hans de Goede <hansg@kernel.org>,
+ Ilpo =?iso-8859-1?q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ platform-driver-x86@vger.kernel.org
+References: <20261124125616.1168560-1-linux@zary.sk> <202611250911.51673.linux@zary.sk> <awa4YJkwVaoqaF0L@ashevche-desk.local>
+In-Reply-To: <awa4YJkwVaoqaF0L@ashevche-desk.local>
+X-KMail-QuotePrefix: > 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,62 +67,141 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: Text/Plain;
+  charset="iso-8859-1"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Message-Id: <202611251233.56539.linux@zary.sk>
 
-Currently, if reserving PCI config regions fails for a node, amd_smn_init()
-exits early. However, keeping successfully reserved regions active helps
-prevent userspace from accessing those registers even if one node fails.
+On Wednesday 25 November 2026, Andy Shevchenko wrote:
+> On Wed, Nov 25, 2026 at 09:11:51AM +0100, Ondrej Zary wrote:
+> > On Tuesday 24 November 2026, Andy Shevchenko wrote:
+> > > On Tue, Nov 24, 2026 at 07:54:47PM +0100, Ondrej Zary wrote:
+> > > > On Tuesday 24 November 2026 18:03:00 Andy Shevchenko wrote:
+> > > > > On Tue, Nov 24, 2026 at 01:45:46PM +0100, Ondrej Zary wrote:
+> 
+> ...
+> 
+> > > > > > +struct synology_pci_dev {
+> > > > > > +	unsigned int bus;
+> > > > > > +	unsigned int devfn;
+> > > > > > +	struct pci_device_id id;
+> > > > > > +};
+> > > > > > +
+> > > > > > +/* onboard PCI devices found in DS411+ to confirm the machine type (after DMI match) */
+> > > > > > +static const struct synology_pci_dev ds411plus_pci_devices[] __initconst = {
+> > > > > > +	/* 00:00.0 Host bridge: Intel Corporation Atom Processor D4xx/D5xx/N4xx/N5xx DMI Bridge */
+> > > > > > +	{ 0, PCI_DEVFN(0, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0xa000,
+> > > > > > +					       PCI_VENDOR_ID_INTEL, 0xa000) } },
+> > > > > > +	/* 00:1f.0 ISA bridge: Intel Corporation 82801IR (ICH9R) LPC Interface Controller */
+> > > > > > +	{ 0, PCI_DEVFN(0x1f, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x2916,
+> > > > > > +						  PCI_VENDOR_ID_INTEL, 0x2916) } },
+> > > > > 
+> > > > > > +	/* 02:00.0 Mass storage controller: Silicon Image, Inc. SiI 3531 Serial ATA Controller */
+> > > > > > +	{ 2, PCI_DEVFN(0x00, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_CMD, 0x3531,
+> > > > > > +						  PCI_VENDOR_ID_CMD, 0x3531) } },
+> > > > > > +	/* 03:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection */
+> > > > > > +	{ 3, PCI_DEVFN(0x00, 0), { PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x10d3,
+> > > > > > +						  PCI_VENDOR_ID_INTEL, 0x0000) } },
+> > > > > > +	{}
+> > > > > 
+> > > > > > +};
+> > > > > 
+> > > > > > +/* check if all PCI devices in the list are present at specified locations */
+> > > > > > +static bool __init synology_pci_devices_present(const struct synology_pci_dev *list)
+> > > > > > +{
+> > > > > > +	const struct synology_pci_dev *d;
+> > > > > > +
+> > > > > > +	for (d = list; d->id.vendor; d++) {
+> > > > > > +		struct pci_dev *pdev = pci_get_domain_bus_and_slot(0, d->bus, d->devfn);
+> > > > > > +
+> > > > > > +		if (!pdev)
+> > > > > > +			return false;
+> > > > > 
+> > > > > > +		bool matched = d->id.vendor == pdev->vendor &&
+> > > > > > +			       d->id.device == pdev->device &&
+> > > > > > +			       d->id.subvendor == pdev->subsystem_vendor &&
+> > > > > > +			       d->id.subdevice == pdev->subsystem_device;
+> > > > > 
+> > > > > Don't mix variable definitions with the code (it's exceptionally possible
+> > > > > for a couple of cases, none of which is this one). Can't it use
+> > > > > pci_match_id() approach with driver_data? (If we ever need this check.)
+> > > > 
+> > > > I don't see how can pci_match_id() be used here. I can merge pci bus and
+> > > > devfun into driver_data to fit into pci_device_id table but there's no
+> > > > pci_dev which could be matched against that table (and walking all PCI
+> > > > devices does not seem to be an improvement).
+> > > 
+> > > _After_ DMI match the walk over all PCI devices is not a big deal. The code
+> > > will be nicer. But maybe there is a better choice? Like checking CPUID? Or
+> > > maybe something interesting is present in the ACPI tables?
+> > > 
+> > 
+> > I don't know much about ACPI but can't find any Synology traces.
+> > 
+> > # acpidump -s
+> > Firmware Warning (ACPI): Incorrect checksum in table [GSCI] - 0x83, should be 0x34 (20250404/utcksum-100)
+> > ACPI: GSCI 0x0000000000000000 002024 (v01 052112 GMCHSCI  20120521 MSFT 00000097)
+> > ACPI: MCFG 0x0000000000000000 00003C (v01 052112 OEMMCFG  20120521 MSFT 00000097)
+> > ACPI: APIC 0x0000000000000000 00006C (v01 052112 APIC1409 20120521 MSFT 00000097)
+> > Firmware Warning (ACPI): Incorrect checksum in table [OEMB] - 0x6F, should be 0x03 (20250404/utcksum-100)
+> > ACPI: OEMB 0x0000000000000000 000082 (v01 052112 OEMB1409 20120521 MSFT 00000097)
+> > ACPI: DSDT 0x0000000000000000 006B21 (v01 1AAAA  1AAAA005 00000005 INTL 20051117)
+> > ACPI: FACP 0x0000000000000000 000084 (v01 052112 FACP1409 20120521 MSFT 00000097)
+> > ACPI: HPET 0x0000000000000000 000038 (v01 052112 OEMHPET  20120521 MSFT 00000097)
+> > ACPI: FACS 0x0000000000000000 000040
+> > 
+> > 
+> > ACPI devices look very generic:
+> > AWY0001:00
+> > INT0800:00
+> > INTC0102:00
+> > ITE8704:00
+> > LNXCPU:00
+> > LNXCPU:01
+> > LNXCPU:02
+> > LNXCPU:03
+> > LNXPWRBN:00
+> > LNXSYBUS:00
+> > LNXSYBUS:01
+> > LNXSYSTM:00
+> > PNP0000:00
+> > PNP0100:00
+> > PNP0103:00
+> > PNP0200:00
+> > PNP0303:00
+> > PNP0401:00
+> > PNP0501:00
+> > PNP0501:01
+> > PNP0700:00
+> > PNP0800:00
+> > PNP0A08:00
+> > PNP0B00:00
+> > PNP0C01:00
+> > PNP0C01:01
+> > PNP0C02:00
+> > PNP0C02:01
+> > PNP0C02:02
+> > PNP0C02:03
+> > PNP0C02:04
+> > PNP0C04:00
+> > PNP0C0C:00
+> > PNP0C0E:00
+> > PNP0C0F:00
+> > PNP0C0F:01
+> > PNP0C0F:02
+> > PNP0C0F:03
+> > PNP0C0F:04
+> > PNP0C0F:05
+> > PNP0C0F:06
+> > PNP0C0F:07
+> > PNP0C31:00
+> > PNP0F03:00
+> 
+> Can you add the platform to https://linux-hardware.org/?view=howto ?
 
-Change amd_smn_init() to attempt reserving regions for all nodes
-unconditionally, logging a warning on failure instead of exiting.
+https://linux-hardware.org/?probe=1d48e86441
 
-Suggested-by: Yazen Ghannam <yazen.ghannam@amd.com>
-Signed-off-by: Ilan Bonneau-Zamon <ilan.bonneauzamon@gmail.com>
----
-Changes in v7:
-- Keep the diff minimal and focused only on changing the failure handling
-  from error/abort to a warning when reserving PCI config space.
-- Drop unrelated comment, whitespace, and variable initialization changes.
----
- arch/x86/kernel/amd_node.c | 11 ++++-------
- 1 file changed, 4 insertions(+), 7 deletions(-)
 
-diff --git a/arch/x86/kernel/amd_node.c b/arch/x86/kernel/amd_node.c
-index b7926ba3610a..4ddfbddbdbea 100644
---- a/arch/x86/kernel/amd_node.c
-+++ b/arch/x86/kernel/amd_node.c
-@@ -250,8 +250,8 @@ __setup("amd_smn_debugfs_enable", amd_smn_enable_dfs);
- 
- static int __init amd_smn_init(void)
- {
--	u16 count, num_roots, roots_per_node, node, num_nodes;
--	struct pci_dev *root __free(pci_dev_put) = NULL;
-+	u16 count, num_roots = 0, roots_per_node, node, num_nodes;
-+	struct pci_dev *root = NULL;
- 
- 	if (!cpu_feature_enabled(X86_FEATURE_ZEN))
- 		return 0;
-@@ -261,7 +261,6 @@ static int __init amd_smn_init(void)
- 	if (amd_roots)
- 		return 0;
- 
--	num_roots = 0;
- 	while ((root = get_next_root(root))) {
- 		pci_dbg(root, "Reserving PCI config space\n");
- 
-@@ -271,10 +270,8 @@ static int __init amd_smn_init(void)
- 		 * entire PCI config space for simplicity rather than covering
- 		 * specific registers piecemeal.
- 		 */
--		if (!pci_request_config_region_exclusive(root, 0, PCI_CFG_SPACE_SIZE, NULL)) {
--			pci_err(root, "Failed to reserve config space\n");
--			return -EEXIST;
--		}
-+		if (!pci_request_config_region_exclusive(root, 0, PCI_CFG_SPACE_SIZE, NULL))
-+			pci_warn(root, "Failed to reserve config space\n");
- 
- 		num_roots++;
- 	}
 -- 
-2.56.1
-
+Ondrej Zary
