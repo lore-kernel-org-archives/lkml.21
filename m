@@ -1,102 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795611124;
-	b=YvhtA1fy2c+2cDwWXDq/swT4ihJwzmcutMs211eETzTKKPhRua2aDY4YO+j8OgWPyZig
-	 zNWd0SzL304x75RO6FZxEl8xycQhvfVNiH/k6BBmJPSQFvLFOelBSvX5dD0ckXkUHXBHv
-	 dk+ADKI5uD/ZVGSYm6A9mMkmOlUI+MbovnI1SQ697V2FAnu5zdE3yiGquzeSspn+Pcpaz
-	 4pT/oFrIrqWjkoIOqjrRrfB6TuUv25m0RhBs3+Plc2wfrNQTKymunM6IoJoYyXyVJeieH
-	 PteQ5dmrMlrER1BHhBLF5WgjNxfFDqR/RQsVh1FTflvLlW58zswsCeIa5jIwLHVWSZw==
+	t=1795611185;
+	b=u6KnzDeaNU6zljLmZHHwdTCCNqZ3+PXYBFyyTlp+tMBiWpDoZ03UlvuR+Ra8WhkhpOjn
+	 Dtehq5fIlKCD5VJpObavjfEeAOcjZPz6OzE797SNPCW3I/UpvrC38aCT6CaTE7o9yxpOS
+	 1THSv3RmtiP9GFH+HldR+8WgFVfpcZC29NpwwNzFmWyTm1JayIJ4lBemd3VjFnE8yDL4t
+	 OToWPiXR+BtDbjFIbagUNu88oRm9vJbcoDlvZyqx/qE/YCR7sT+LB95ENeCLeG53LkolB
+	 PSXT+xDNnEBDUiqTjq94XBX/GepnWUzh81cCTTkJZv8TNh5Our0L7ZEgMicLkn3ETPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795611124;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=a7/VZHL1+Zykiy4bJ1WLf1Y545HqmJxQ5d1ZgPnt3mk=;
-	b=zXPKV/1XXHsuzAY179hkPgk0otB4YIjFCiXDJFkLf5p2wa1WPVNI6QH6ase2jNNdwQRG
-	 UWwYHaqr4cuvk7ekaPFrui349G92Uligc3QMpGikmhyYdmz+Naui7+/hzYNiMevybQPgr
-	 CtJL/Se1ZFq1XIISvqlI13w37QSARQ2GQ2SXRhz1yqRbFZG+oR7bcHJYkhq7veXgq76Y6
-	 9LNywLj2NcZj+QI+/BaeguFLYQ/yMeaqo5Ri+G+QwgPX2OE2yuwF/jlefD/vpsUUmYItA
-	 8123zGdpaBYXS+VnQ2DpBHP9Qy1K046mp9TjqLmSGZr3u58aD3vMRM4B3FxPYNGOZ9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795611185;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
+	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=BOtwCkuS///H/++mzx9jvaHdGo6z6KFUibimZstSXSw=;
+	b=ip2swM0VtbYf5xKwZICfZ8C9LytcMIeF4SHfreO/CUWPp8I/IXqHNdORGqjqfgzXkqzJ
+	 d5LRHdYbmE2jojsyBrPKW2BuKcH84M0tlYs1INmfrs4ZcHkwy7xbVfok63m7aUly4nYKi
+	 EZJkf4udCs1PqxylDWEzLCeIhA+L2z9KOLM64aTrr25PLqXK/bFqsTBsF/iI1xwTPdWMQ
+	 wXE0ELm9LQsim/hOWYU2zlKOpgrYXp+S0iL0RY6VbsFDjnLJsic5zWpA2pGl2o4W9BV+e
+	 mL/JcXsj6gBAXwYyzpeXyc+MFIrv6xElrGbQBb3GQ1shx+xsL5K0gpzeVb8W8pQjcsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=amutable.com;
-	spf=pass smtp.mailfrom=amutable.com;
-	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=FaCzgTzM;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFDB3606A32E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:52:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DFDB3606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=FaCzgTzM
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so61390865e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:52:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1795611122; x=1796215922; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=a7/VZHL1+Zykiy4bJ1WLf1Y545HqmJxQ5d1ZgPnt3mk=;
-        b=FaCzgTzM79b1rLC7Y0lWXfgV8Kk74ThPrd3xNDQRSLLtP4cD6HFhqDxdgzfRpsemVJ
-         nlHA7kMT8LMBzgIaoEVuhln9+qlfYcisGaufmlaQlBPDNbUNMl0FzRzOzlofD/x5ucXU
-         mlyXC7EVj/55iFpQqtldUfCZrRH2fJWwolf2TAbQ9i78WxlliAnlpQJy+9a4Z7Nf6hFj
-         MU/eY1TbZYqWmdJ9ZrdkFlIrUXIdSzZ23GtO/Q2ms2lJQWbCgceGq8MhfSyACCqTKgKj
-         FK1ZNyXFvflrgIeKL1MU2tFpy8QVFMyhixIbzztTn/4PLq2RIOuCj9bCXtpsblECaNTQ
-         ZOuA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795611122; x=1796215922;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=a7/VZHL1+Zykiy4bJ1WLf1Y545HqmJxQ5d1ZgPnt3mk=;
-        b=a1RnHXk8vK7s08s+VJY2YbtqIe2s8ddjTwWjA7VZCcshEBR8kH6JEQTglEkOrvijoM
-         NfbbXMuzV3w5j6oveZEm/LvHEO+n+wNeuMxnmHkJ/ianDaUQg2BNTt0NPkU8LA73w+u1
-         DFJ5D531O1CJ2mc60N8dUS9T3ebAR4/KL1zoBlWiEjo8GYjo7Uv/5F/zdtyclVVmR5xV
-         JVqrE55N34upUlYwubKEcv9bTAfKn498yqw2zaOq5w5L1wQZIhe81Xp4m2Pl1DtqjN6r
-         7eL+O73O8/KfxtTnXFentlz2d7mj74c3yZ+z09OV3niadYWqH1kJrAal43U+RoDOpDI6
-         4g7A==
-X-Forwarded-Encrypted: i=1; AL+hErFcBiSehoAqbP4hpsSXGkPVG4X+88ZTJwDNkJ0jLKef97UjmD9xWLNqA/ZX/jsH365lNdvCxh901ADuEF8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8DMc2S/R0zguoJ6c+reX1ZNIYbFxradhfhytY9Mqd3ArPK1pAQ
-	FZ8gO8JAVpjY5DwBl6fru9H677heTSZ7ErVGUztHidapHmLaIsHeIxBqcAvmRf5AL9Ca
-X-Gm-Gg: AZFdTZf8rCPu3cozWqLLL8Ou99dCW+7T/GFbBD2G43MDdwELLCMN3Uwmhmtfc70+64v
-	t6Ygb+c/aZATpfrHU0ho7nj4Co188j5fadWp9OWjWFWj7X9bipK90bLq0EcNVQ+KIBa7D7Hqgp1
-	WLICGMCqNJv2t6bvCtN+ZVCrv2z2mHUqiPoK/rPQVfQcYrnGbeanhsWINzfOKqEpg4C7soATwxH
-	LpSY9zLQPlxPx/ncVbWI3YrOB1RCC1ZEaIER5GJAQnRqKUNG0hB0i2riAeyhM4Cw9pi0BQWTrBs
-	L+dqnFe6pEUfRN90z2lUbmthaTa8ICubfeC0FVEXkv8ou8jdkD86V3JUgFfB2y+GgbEJwbgRH1a
-	QrCP0SEU83adNx3PISTNBCYOEseACNgAFO/7b+XGj3MLgk55XcX+JNaDM6/J8NP1UwcyasFIZtW
-	Z3Ros8btNsCSa8jq3guW+5Oa4kzyxjw8qHkCpZQXlMCCwglZ3EM2/Sn5wqPOHmLTqV533Q1l4kU
-	ZkzU7wTLs3tVVfi7z74uJnSDVLwZqLNhdyCMJiLi+Zuef8YpUwzyzGTQCk58nZb0+6m8kjbLTxB
-	eoRO1N4JNJjHhP1u3UsGW4MI7z1xGYNcF6q5FxycWJIpy8NBBOrU9PzF5iSCpKOobs3MESLpRUI
-	G1yMHaiYHiI5FrqbHlKiCm+INaQS+RXwcgjIQJ54WCmeGOGAmPGa7iw==
-X-Received: by 2002:a05:600c:3b8a:b0:4ba:761:c0c5 with SMTP id 5b1f17b1804b1-4bb8880f0e0mr363677835e9.5.1795611121806;
-        Wed, 25 Nov 2026 04:52:01 -0800 (PST)
-Received: from ?IPv6:2003:cf:572c:2800:c235:97b:8b16:8928? (p200300cf572c2800c235097b8b168928.dip0.t-ipconnect.de. [2003:cf:572c:2800:c235:97b:8b16:8928])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm462265225e9.2.2026.11.25.04.52.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 04:52:01 -0800 (PST)
-Message-ID: <c4b406a5bb8968e4fd73bb984c55f8aafb4ce355.camel@amutable.com>
-Subject: Re: [PATCH v2 07/13] ima,evm: use d_real_metadata_inode()
-From: Alexander Mikhalitsyn <alex@amutable.com>
-To: Christian Brauner <brauner@kernel.org>, Amir Goldstein
- <amir73il@gmail.com>, 	linux-fsdevel@vger.kernel.org
-Cc: Chris Down <chris@chrisdown.name>, Miklos Szeredi <mszeredi@redhat.com>,
- 	linux-unionfs@vger.kernel.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, 	linux-trace-kernel@vger.kernel.org,
- linux-integrity@vger.kernel.org, 	linux-security-module@vger.kernel.org,
- linux-mm@kvack.org
-Date: Wed, 25 Nov 2026 13:52:00 +0100
-In-Reply-To: <20261116-work-ovl-d_real-v2-7-90564c4ae347@kernel.org>
-References: <20261116-work-ovl-d_real-v2-0-90564c4ae347@kernel.org>
-	 <20261116-work-ovl-d_real-v2-7-90564c4ae347@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E042606A334;
+	Wed, 25 Nov 2026 12:53:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E042606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: 22942438e8cf11f19a56ed5b684f684d-20261125
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:9288dedb-0ae7-469b-a702-dec0a9bbc5f1,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:9cada499fb6ec97757bc40a5e63537c9,BulkI
+	D:nil,BulkQuantity:0,SF:81|82|83|102|136|865|898,TC:nil,Content:0|15|50|99
+	,EDM:-3|-100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
+	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 22942438e8cf11f19a56ed5b684f684d-20261125
+X-User: huxiaoying@kylinos.cn
+Received: from thinksys.. [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <huxiaoying@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 2123365795; Wed, 25 Nov 2026 20:52:56 +0800
+From: Tom Hu <huxiaoying@kylinos.cn>
+To: Mark Pearson <mpearson-lenovo@squebb.ca>,
+	linux-kernel@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	Rong Zhang <i@rong.moe>
+Cc: Henrique de Moraes Holschuh <hmh@hmh.eng.br>,
+	"Derek J . Clark" <derekjohn.clark@gmail.com>,
+	Hans de Goede <hansg@kernel.org>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	xiaoying_hu@126.com
+Subject: Re: [PATCH 2/2] platform/x86: thinkpad_acpi: Only check charge_start against a known charge_stop
+Date: Wed, 25 Nov 2026 20:52:50 +0800
+Message-Id: <20261125125252.38003-1-huxiaoying@kylinos.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <6066c701-55c8-494f-9348-f9835b258b44@app.fastmail.com>
+References: <6066c701-55c8-494f-9348-f9835b258b44@app.fastmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,127 +75,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Mon, 2026-11-16 at 10:44 +0100, Christian Brauner wrote:
-> d_real() is about to be able to fail. D_REAL_METADATA never has to
-> look
-> anything up but we don't want to promise that it never fails. So
-> switch
-> the open-coded d_inode(d_real(..., D_REAL_METADATA)) in
-> process_measurement() and evm_calc_hmac_or_hash() over to
-> d_real_metadata_inode() and deal with errors.
->=20
-> evm_calc_hmac_or_hash() returns the error so EVM fails to verify the
-> metadata. process_measurement() passes the error on to
-> evm_metadata_changed() which treats it like changed metadata and
-> resets
-> the EVM status. That is needed as evm_verify_hmac() would otherwise
-> hand
-> out a cached INTEGRITY_PASS without looking at the metadata again.
->=20
-> This is a no-op as long as overlayfs can't fail D_REAL_METADATA.
->=20
-> Suggested-by: Amir Goldstein <amir73il@gmail.com>
-> Link:
-> https://lore.kernel.org/all/CAOQ4uxjoHbevvu8auB4m8AVcY9H6uHdDAP6mfi9OOMh+=
-3775xA@mail.gmail.com
+Hi Rong, Mark,
 
-Reviewed-by: Alexander Mikhalitsyn <alex@amutable.com>
+Thanks for the reviews.
 
-> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
-> ---
-> =C2=A0security/integrity/evm/evm_crypto.c | 5 ++++-
-> =C2=A0security/integrity/evm/evm_main.c=C2=A0=C2=A0 | 9 +++++----
-> =C2=A0security/integrity/ima/ima_main.c=C2=A0=C2=A0 | 6 +++---
-> =C2=A03 files changed, 12 insertions(+), 8 deletions(-)
->=20
-> diff --git a/security/integrity/evm/evm_crypto.c
-> b/security/integrity/evm/evm_crypto.c
-> index 1c41af2f91a60..17d528771d8fe 100644
-> --- a/security/integrity/evm/evm_crypto.c
-> +++ b/security/integrity/evm/evm_crypto.c
-> @@ -231,7 +231,7 @@ static int evm_calc_hmac_or_hash(struct dentry
-> *dentry,
-> =C2=A0				 uint8_t type, struct evm_digest
-> *data,
-> =C2=A0				 struct evm_iint_cache *iint)
-> =C2=A0{
-> -	struct inode *inode =3D d_inode(d_real(dentry,
-> D_REAL_METADATA));
-> +	struct inode *inode =3D d_real_metadata_inode(dentry);
-> =C2=A0	struct xattr_list *xattr;
-> =C2=A0	struct shash_desc *desc;
-> =C2=A0	size_t xattr_size =3D 0;
-> @@ -241,6 +241,9 @@ static int evm_calc_hmac_or_hash(struct dentry
-> *dentry,
-> =C2=A0	bool ima_present =3D false;
-> =C2=A0	u64 i_version =3D 0;
-> =C2=A0
-> +	if (IS_ERR(inode))
-> +		return PTR_ERR(inode);
-> +
-> =C2=A0	if (!(inode->i_opflags & IOP_XATTR) ||
-> =C2=A0	=C2=A0=C2=A0=C2=A0 inode->i_sb->s_user_ns !=3D &init_user_ns)
-> =C2=A0		return -EOPNOTSUPP;
-> diff --git a/security/integrity/evm/evm_main.c
-> b/security/integrity/evm/evm_main.c
-> index ac8328812e6ef..71faf156f9d6b 100644
-> --- a/security/integrity/evm/evm_main.c
-> +++ b/security/integrity/evm/evm_main.c
-> @@ -763,11 +763,11 @@ static void evm_reset_status(struct inode
-> *inode)
-> =C2=A0/**
-> =C2=A0 * evm_metadata_changed: Detect changes to the metadata
-> =C2=A0 * @inode: a file's inode
-> - * @metadata_inode: metadata inode
-> + * @metadata_inode: metadata inode, or an ERR_PTR() if it can't be
-> resolved
-> =C2=A0 *
-> =C2=A0 * On a stacked filesystem detect whether the metadata has changed.
-> If this is
-> - * the case reset the evm_status associated with the inode that
-> represents the
-> - * file.
-> + * the case, or if the metadata inode can't be resolved, reset the
-> evm_status
-> + * associated with the inode that represents the file.
-> =C2=A0 */
-> =C2=A0bool evm_metadata_changed(struct inode *inode, struct inode
-> *metadata_inode)
-> =C2=A0{
-> @@ -775,7 +775,8 @@ bool evm_metadata_changed(struct inode *inode,
-> struct inode *metadata_inode)
-> =C2=A0	bool ret =3D false;
-> =C2=A0
-> =C2=A0	if (iint) {
-> -		ret =3D (!IS_I_VERSION(metadata_inode) ||
-> +		ret =3D (IS_ERR(metadata_inode) ||
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 !IS_I_VERSION(metadata_inode) ||
-> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 integrity_inode_attrs_change=
-d(&iint-
-> >metadata_inode,
-> =C2=A0						=C2=A0=C2=A0=C2=A0=C2=A0
-> metadata_inode));
-> =C2=A0		if (ret)
-> diff --git a/security/integrity/ima/ima_main.c
-> b/security/integrity/ima/ima_main.c
-> index e463cfc1e3f43..016de5a66eced 100644
-> --- a/security/integrity/ima/ima_main.c
-> +++ b/security/integrity/ima/ima_main.c
-> @@ -357,10 +357,10 @@ static int process_measurement(struct file
-> *file, const struct cred *cred,
-> =C2=A0		}
-> =C2=A0
-> =C2=A0		/*
-> -		 * Reset the EVM status when metadata changed.
-> +		 * Reset the EVM status when metadata changed or the
-> inode
-> +		 * hosting it can't be resolved.
-> =C2=A0		 */
-> -		metadata_inode =3D d_inode(d_real(file_dentry(file),
-> -					 D_REAL_METADATA));
-> +		metadata_inode =3D
-> d_real_metadata_inode(file_dentry(file));
-> =C2=A0		if (evm_metadata_changed(inode, metadata_inode))
-> =C2=A0			iint->flags &=3D ~(IMA_APPRAISED |
-> =C2=A0					 IMA_APPRAISED_SUBMASK);
+On 2026-11-24, Rong Zhang wrote:
+> A random thought: perhaps initializing charge_stop with 100 could make
+> the code cleaner?
+Good idea, Since charge_start is already limited to [0, 99] earlier in the 
+store path, defaulting charge_stop to 100 when GET_STOP is not available makes 
+the existing `value > charge_stop` check a no-op for such machines, and the extra 
+stop_support condition is not needed. 
+
+The v2 I'm about to send.
+
+
+On 2026-11-24, Mark Pearson wrote:
+> Have you seen this happen on any actual HW?
+Not on hardware I have access to;  I agree a  firmware exposing GET_START but not GET_STOP 
+is unusual, so the patch is mostly hardening, but the current behaviour (rejecting every charge_start > 0) 
+is wrong either way, so I think it is worth fixing.
+
+Thanks,
+Tom
