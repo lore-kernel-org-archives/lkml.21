@@ -1,89 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795604749;
-	b=RTi/sY0whUE0gCNj16hAJ06OaMJ+zQmNMNJ6LtXaSe2L/TmrayT7bq8c/qxuvlvAY9jA
-	 xNat8l82DvyJ3BOr+0NCp2snr2gXR1eYSfNxFVQKrKRFoj5dMEEoALb7rvH1p2vzUzMe/
-	 r98BGb3fbW9/6W/fgVjdZ9SUGxpa3M92OEW68kdyVtAlPRGKIxTbPNL8ighyyiJeAYfob
-	 L74vz2uaMtx1iPWWYk8MAKaOAYnJCccrEKwU9Ko4D5Vn6aVH+pwfRcHAxJOIpQhZGg04h
-	 MKCNLCKyMPSVv83SnL+0KWzIbZ3rz1fEmFmmi+iJXhJucb82noKcJlj60EYEEdrPQjw==
+	t=1795604752;
+	b=Dx7AWS2PbZ4pME9teqHHT11MpaiSab22q30+7IgtgAJoaj8vRaIgrRudV8poSjXxZRLo
+	 ZG0Rr00BbI7GBUuILIXSrTGdtktEDa3DIts+jXT+9vc0u2xJ/7EN4DBiVZILbA3f89ctJ
+	 ZB4VIjXIZkoH6eBsjuMTVPGryei3LycfNIrQy0kGBXfqSskrkG7PUsaxjpsKkZow2lOR9
+	 PWwdmwBb3/kbuDJkEDbBfEhaC7K2++Fsx06jzzZe+UIddgwLw697CSf/+NTIC314PTvYV
+	 tq0FNJDa3Q/L3j9AN+MECHUIffdSEcSvxOGYAL5o88ZKJgykloHhCFsgyK0Uc2xNJ4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795604749;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795604752;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=09K4lGp/JnF05X+XGpt/i5g5uy43EeVqHfVZ7BHq6iE=;
-	b=1ELQR2s2oT7vhQrt13Z/YLESPYn272lF3l6+k5B0PXu3C15N5q284eK7S/vb+SBq8DYX
-	 DfjJy0ORj7/gZ7nfwDcEvnGid9B3l+BKN9ntz9p3T6OVSsBAjbZXmKqVK94RjQ5aimE1O
-	 viiAXcabTa2FsnQlvcdqHjF8IzuQ8UG90bKTH7fT1NIJt4ay0A28Rl1nTFZIGuxP87YJQ
-	 427Kt4dZYojkUSGbZZi/GQDRGuoVL9m+KYR4B6RytcoaVq09JgrT8eOYZ2xXHJ4gBZ8Ij
-	 slqvhlWFl0BOEaYmvCTGwzR7DnDx8BSsGEMwop1UdJqtJaExRTAnD4VbrJkzKdcXAow==
+	bh=Ny0ODnWnV6171dn8DCwt5qzCHPJg4PZkZSQUcRv3Azw=;
+	b=5Ca4kffguIe8Vjvv8zbtA4Q2fg7AF+DKaQitQCgr80DoZ5ZIBLCidjuQZIa5UE7T0nS6
+	 J8jNpYElgHhiVArJ/0au63KBmQGAFGcJ/bn1gSdAskixfvugMicsVFJ71RXxv/rBJSi3q
+	 7a299psBMktGdUw872j5fEMbJqLmNl67cT+rBxwWBYujkeruI2OEUk55ynXN2EfqA6YY5
+	 Yh3wOVOFuQL6yn0R7GtM9MbfGlrxdhlUaLBrX0J2sp5V56F06xlPCNUqyzFFe0++Kzbhi
+	 643wvpEjvM9XytSNGQfiHZATOl7QYYKrLiCj3XRhWYDVmvgTS1KmMiLPvsRIOnDhBFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RqeIy1dI;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=CEy37Vd8;
+	arc=none smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 419B9606A69C
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:05:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 419B9606A69C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 757C7606A68D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:05:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 757C7606A68D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RqeIy1dI
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb6057b333so26406065e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:05:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=CEy37Vd8
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-492690dd5daso4257910f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:05:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795604748; x=1796209548; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=09K4lGp/JnF05X+XGpt/i5g5uy43EeVqHfVZ7BHq6iE=;
-        b=RqeIy1dImvRxEyhep9ysebODz3tgV5tL1lqbsvROB6IwixIQm4Yn2/GxSUejfUBVuv
-         mmTRtvSA+c+fOBFU7HfW+ybydGyCh6dcaMRq3f54qOdzoRWMI1+jhsOg2QPT0mbPKojR
-         nziQSHaMY3Xq9PgGVbhB6bu0yH2DUqXrsXiJQO611w3eWmjBzP7NeyycMx4Ncgv32JON
-         7CxQ2ap3ku/q/ri5nHYPZQPlTjVBNLOUsT9PMXE9pKTQagDB+hiEpF18MhhFAAqBKZ06
-         fJ/LxnuBp6LYxxuEKEMVP/l0kWl4P/TNOil8AZHjz1QsvMCFJgXXJCq2auIBSTP4B7nU
-         a7Qw==
+        d=baylibre.com; s=google; t=1795604750; x=1796209550; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Ny0ODnWnV6171dn8DCwt5qzCHPJg4PZkZSQUcRv3Azw=;
+        b=CEy37Vd8zJASb+oDZFi+hiYjFEVNDIjOiGcpfpT3Bz+OWSOOq0UeZ+YVomAeulsXpW
+         w83/oCdoKZo6KaEfFudC4PUWEtBL/bonDnXKMp7z/fcmQ0dq9Ico7a9MBKE18bJt6PMG
+         PvIiyQ63vBQfNiAhjYmSnskO+4jgzH65nkzRFZ7I+4KfN2KYeLWTwyTkTwon84/16Ste
+         2nXoaT4i8GIDAv3Up0tr08THHvgaOq+Sq4kYzUzs4svaPrclEGNIKGYgaBar8+Aa6ftm
+         ClNI3LHGDMLVaEQhfF6jqxa1ma6Oga5UigM8TuOCl4VUlH9FwvWXhvn7osknppCiL8O5
+         WOxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795604748; x=1796209548;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795604750; x=1796209550;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=09K4lGp/JnF05X+XGpt/i5g5uy43EeVqHfVZ7BHq6iE=;
-        b=UQaped2zDruRHh84KZzi0ROqRG2tQcxvx2n03uHCOqObbGUrlbV9T/Q/s2vXOV1oov
-         AF8TrHXLJowdRfXxwAbcf5dWwZgyqvO1OF6ec6h4C1tPSwn17YsLLPJndls10R2/H+pk
-         pckpAKgxmohba6DSAg4T+m3wB3OHWWOFvqctlo2/5dQ1EM4wnXuTdFzxpSslTp59TnZb
-         leisDhevZ7ljLSM+Qg6FM4ZS10PMFSjtn0a/XXLNTPQZrTWR6702LgFgPTFElYScMdV6
-         dQhU7veu1aEI3UShtALiKVhcFMDNcspoEc7o9dg+nGFcrGJi5LYmQk1h9LoAjLz+/3Xu
-         tMSA==
-X-Forwarded-Encrypted: i=1; AL+hErFycmvo1NA0BboJU18Hq7jvypBhNrARHEBzqO++LFRN2510GwqZv2ILYI4pAyr/MBIYjqTZiDPEAv/rCbU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8K+t7625l7ASRhquo6fCBW+pSN02QMZMcyy99WDkhXeRPlHlnI
-	2zPyCEchG4l1ASNOQXOXXO2nhbOW7NXYTkcaYubDc2jI2iEi/VN+ZUpk
-X-Gm-Gg: AZFdTZeWE0op2QJja6ALfYtGgOz5qYLlXbWgGmdv0usgqkRo+vQYCpa4tOCkOd6m0v3
-	HNSFP16Jg9wI9dUOsewHZpU7z4dD6aXA6+L1rnPcxG1kN3RWoNZcje7zSMVzbEOJ90B4+Ngj56v
-	uCT+WtPIDeQwy5xEMp3nyq4LKHWiGQwrbwWllh8a6h6xZkal9wxtyCxOBcECe58ZvE+DPI5noXx
-	ttByfjqIhK/4qDKfuWybOk5yLxQQL+C6FchSSqO3qy865C9MRE80UpTppOsHNbtxMHQ4D/eUsc0
-	vCk57cr7R1meYOk11UDAucmmWU5UVd0lmUpp2EZqOARjqA8FBU/CVik1feQFD1nfs4BuJE6+XcO
-	RfqN3NvH1HJdNfDfdN+m+Ti4fRtAOtbQuQta8fpDD3jP5ZvbfcudxCXoAXsOtAdbvQVB56YLyoq
-	nUN6HZN47hZSWgmil+RC+aHe+0OiLOYEoEhZZdvWIC2lhwFlMup5l6/4eVtakmbZsnEC1YZSUj8
-	otsd+W9D7yG0nnXEouXB3Xqf/RigtNYA6dU+LRQIKp+HZuMAdFKIRyKbX6QvBDcJoG2vVECJVTp
-	iyMlWXpQxvascUQFM179As2hvCot+rXfsWtwjD6qlOhVjlqJgQrZdPyQQowqok3M
-X-Received: by 2002:a05:600c:1d8c:b0:4bb:5345:606b with SMTP id 5b1f17b1804b1-4bb8882358dmr347205155e9.31.1795604747563;
-        Wed, 25 Nov 2026 03:05:47 -0800 (PST)
-Received: from [127.0.1.1] ([2a00:23c4:a702:d301:2e3:78df:210d:93ae])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88f148aasm201583575e9.0.2026.11.25.03.05.46
+        bh=Ny0ODnWnV6171dn8DCwt5qzCHPJg4PZkZSQUcRv3Azw=;
+        b=zR9iUnqZhtoG3RJCo76gd60TLUoAzaI+vjst2VaXXYjOdXpS4iQYNKUS04RJTJhUPF
+         79/DF4JoIFNIqVAa2zHSvjPWDkbwNFM7mjUBHJKJr8F54Tl/PX06Lp/5BuPdctMPmIl0
+         QN2nrr1utpFmG52RDIPSBoTOOgNrgLnPvfOy2YYe50pqLtIntF6yFB1Befe2CYS2D1z3
+         ViMa1S6gQ4Z2KfA0laGcR26vz4B3SP1iFiu5GRb5n6KoTNQXe0LCXT0bLeS/aSU/4nei
+         kA1aUnggCFrBFUOKCoHWEf3Q0c2Kx8lFZxMg1uR26qJfO07ChZRDJ+QiGnECsa1VTDL/
+         C5/A==
+X-Forwarded-Encrypted: i=1; AL+hErEat2EEnY3TCwyBgUBglvlDA+77x3SViM/aaWt+hp2L+Jhr/w49TB7VNJemmUpgcTyJQjtNEexknmFaqK0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8xPA0TmxXs1Kr+uGKwuSlrmGd7tigyoSyF3ookmPZHTPF7g87R
+	Bu46A6beGnJbVFiMbLM7sqtvQMrN+A7KeD2XP/kKjxweDFVPHd2xCYz3ZK9rBDim5Ek=
+X-Gm-Gg: AZFdTZdmNhwcOB9IR5zoWBKqxQEotBqrK71a/kfg9//HcUFgN46GcFCz9DdvX+9FZLz
+	SvuAbe5FcHAaavn7smWGwg9lk1ds7FPggjvdi5fhgxEn+VG0uwpE3GA50a2s4hXPtYK6YdiUjd8
+	ZKtmRJgrrWrm17h0L07/XnKAuW9DQQ056FSf/hR0uuh3J5k1kCiVbrn6DsVqSLu/KDgVeAeLtMq
+	OcI543vcBpXPCA88vhTixYBbL67/zsA0MUAvyes+Y9JOLREF/6xvQCPelWeY0rd8Akn+AjCc7zM
+	b/x+MpMJDHSgwooALgycpvFN5S4VmZhlsT28HL+pIfNBMWmkfmBg08eD4/sCT3l7cxAUBzAj1QN
+	cJ0ms0zut4TStZiYEJmqv3dudSgkkLpZytRclmdM7mgj6eCoNmS2IQn2zL7ntl1/bR98GUopCI3
+	RRDAGmFesDXLQ/XiVYqBoQHrBqZlmn/Y/GppNN7tTINshAyDUAFfOJHwuUnXdltYJSeux61zEC5
+	XDzDaooszbdtKzK4WwObEjKxohL/yiZURthBmpp2lMvFR8dzeRlvpzaTD6StQNB5UA6H+t9DH/r
+	mrrVdnHlH3+a0lmd5w2Qrb+OdQ==
+X-Received: by 2002:adf:e011:0:10b0:48d:f99d:a0d2 with SMTP id ffacd0b85a97d-4abb2168f53mr24522718f8f.15.1795604749846;
+        Wed, 25 Nov 2026 03:05:49 -0800 (PST)
+Received: from [127.0.1.1] ([151.42.79.162])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989eesm33775330f8f.50.2026.11.25.03.05.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 03:05:47 -0800 (PST)
-From: Biju Das <biju.das.au@gmail.com>
-Date: Wed, 25 Nov 2026 11:05:45 +0000
-Subject: [PATCH v9 4/4] arm64: dts: renesas: r9a08g046l48-smarc: Enable
- USB2.0 support
+        Wed, 25 Nov 2026 03:05:49 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,144 +91,56 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-usb_rzg3l-v9-4-ea14d3ab8a53@bp.renesas.com>
-References: <20261125-usb_rzg3l-v9-0-ea14d3ab8a53@bp.renesas.com>
-In-Reply-To: <20261125-usb_rzg3l-v9-0-ea14d3ab8a53@bp.renesas.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795604743; l=2668;
- i=biju.das.jz@bp.renesas.com; s=20261020; h=from:subject:message-id;
- bh=2JNLz/zuyJoEmPb6HyoWFLLHFip41Wo3wsHG06Tf8hk=;
- b=hpAEc5bJe2SUzu7+Enn51ab/pjq71TSQ9fVIcTGn1t9DVWz7cjwaflINP3dt/rvrjnYmPRfTV
- Q3NAvbFpQLcCKhRtu7I2JOI3noDOudphk/Z1ijjwlR9MWCJxgbnqNhp
-X-Developer-Key: i=biju.das.jz@bp.renesas.com; a=ed25519;
- pk=yzD2T1OLS3lEYflbk64xhLlxhk75lZ+NoOtkTOqrlVw=
+Subject: Re: [PATCH] arm64: dts: amlogic: meson-g12b-odroid-n2-plus: enable
+ SD UHS modes
+From: Valerio Setti <vsetti@baylibre.com>
+To: Igor Velkov <iav@iav.lv>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Valerio Setti <vsetti@baylibre.com>, Dongjin Kim <tobetter@gmail.com>, 
+ Christian Hewitt <christianshewitt@gmail.com>
+In-Reply-To: <20261125-n2plus-sd-uhs-v1-1-cc2019e68da8@iav.lv>
+References: <20261125-n2plus-sd-uhs-v1-1-cc2019e68da8@iav.lv>
+Date: Wed, 25 Nov 2026 12:05:43 +0100
+Message-Id: <179560474311.1313389.4488537313012289406.b4-review@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=802; i=vsetti@baylibre.com;
+ h=from:subject:message-id; bh=oyMGF25BX72C/uylXywl0ei07ucGN60OTc56dWF+k0M=;
+ b=owGbwMvMwCV2z3ty7kUrRgbG02pJDNlsB7kc8j+cLuUtWbOaY5GFsNB1qWc+f+zsz+ul5Vdq8
+ bZOSP7ZUcrCIMbFICumyMIy/d7vglK1h8YJJwtg5rAygQxh4OIUgInsl2RkuCC+9l3Ms6QtP1QS
+ 1nHvmyl56cTF9jlrDk78WFz/eeEXnqmMDJ32r76cinf+P/uZUv7zVRJx74WKqz7xPOCOMlt1/Vv
+ pf14A
+X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
+ fpr=0497DEFB707526E13360C970DE4B936DD13A0100
 
-From: Biju Das <biju.das.jz@bp.renesas.com>
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2-plus.dts b/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2-plus.dts
+> index ce1198ad34e4..1f49686f359d 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2-plus.dts
+> +++ b/arch/arm64/boot/dts/amlogic/meson-g12b-odroid-n2-plus.dts
+> @@ -15,6 +15,14 @@ / {
+>  	model = "Hardkernel ODROID-N2Plus";
+>  };
+>  
+> +&sd_emmc_b {
+> +	max-frequency = <200000000>;
+> +	sd-uhs-sdr12;
+> +	sd-uhs-sdr25;
+> +	sd-uhs-sdr50;
+> +	sd-uhs-sdr104;
+> +};
+> +
+>  &vddcpu_a {
+>  	regulator-min-microvolt = <680000>;
+>  	regulator-max-microvolt = <1040000>;
 
-Enable USB2.0 Host/Function on the RZ/G3L SMARC EVK board.
+After checking the schematics and the devicetree I think this is correct.
 
-Drop the explicit "disabled" overrides for the OHCI, EHCI and HSUSB
-nodes, as they are disabled by default in the SoC DTSI. Enable the USB
-PHY controller and both USB2 PHYs.
-
-Port 1 has no OTG pins.
-
-Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
----
-v8->v9:
- * Restored usb1_pins to fix over-current condition during boot.
-v7->v8:
- * Updated commit header.
- * Dropped redundant nodes from board dts as it is defined in common
-   board dtsi
- * Dropped usb1_pins.
-v6->v7:
- * Moved the patch.
- * dr_mode changed to 'host' as function is not enabled yet.
-v5->v6:
- * No change.
-v4->v5:
- * No change.
-v3->v4:
- * No change.
-v2->v3:
- * No change.
-v1->v2:
- * Updated commit description.
----
- arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts | 49 +++++++++++++---------
- 1 file changed, 29 insertions(+), 20 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts b/arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts
-index abe0ae7cbc44..c96d742422b3 100644
---- a/arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts
-+++ b/arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts
-@@ -132,18 +132,6 @@ &can_transceiver {
- 	status = "okay";
- };
- 
--&ehci0 {
--	status = "disabled";
--};
--
--&ehci1 {
--	status = "disabled";
--};
--
--&hsusb0 {
--	status = "disabled";
--};
--
- &i2c2 {
- 	pinctrl-0 = <&i2c2_pins>;
- 	pinctrl-names = "default";
-@@ -195,19 +183,15 @@ &keys {
- #endif
- };
- 
--&ohci0 {
--	status = "disabled";
--};
--
--&ohci1 {
--	status = "disabled";
--};
--
- &pcie {
- 	pinctrl-0 = <&pcie_pins>;
- 	pinctrl-names = "default";
- };
- 
-+&phyrst {
-+	status = "okay";
-+};
-+
- &pinctrl {
- 	audio_clk_pins: audio-clock {
- 		pinmux = <RZG3L_PORT_PINMUX(H, 4, 6)>, /* AUDIO_CLK_B */
-@@ -352,6 +336,16 @@ ssi0_pins: ssi0 {
- 			 <RZG3L_PORT_PINMUX(H, 2, 9)>, /* SSIF0_RCK */
- 			 <RZG3L_PORT_PINMUX(H, 3, 9)>; /* SSIF0_TXD */
- 	};
-+
-+	usb0_pins: usb0 {
-+		pinmux = <RZG3L_PORT_PINMUX(3, 0, 12)>, /* USB20_OVRCUR */
-+			 <RZG3L_PORT_PINMUX(3, 1, 12)>; /* USB20_VBUSEN */
-+	};
-+
-+	usb1_pins: usb1 {
-+		pinmux = <RZG3L_PORT_PINMUX(3, 4, 12)>, /* USB21_OVRCUR */
-+			 <RZG3L_PORT_PINMUX(3, 5, 12)>; /* USB21_VBUSEN */
-+	};
- };
- 
- #if SW_SER0_PMOD
-@@ -427,3 +421,18 @@ &ssi0 {
- 	status = "okay";
- };
- #endif
-+
-+&usb2_phy0 {
-+	pinctrl-0 = <&usb0_pins>;
-+	pinctrl-names = "default";
-+	vbus-supply = <&usb0_vbus_otg>;
-+	status = "okay";
-+};
-+
-+&usb2_phy1 {
-+	pinctrl-0 = <&usb1_pins>;
-+	pinctrl-names = "default";
-+	vbus-supply = <&usb1_vbus_otg>;
-+	renesas,no-otg-pins;
-+	status = "okay";
-+};
+Reviewed-by: Valerio Setti <vsetti@baylibre.com>
 
 -- 
-2.43.0
-
+Valerio Setti <vsetti@baylibre.com>
