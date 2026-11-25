@@ -1,74 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.96
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621197;
-	b=KaabI9EbLojwgimmuM/3zDqxhkRHBbwBbsNuH40+XajjvsFmNDEXbTLm9Yw4D5my5oJ/
-	 fiOupli7eGA7oLH22XBzKPsvuEtY58qkVy+HXSvThz8gmz4ADkJ9B1IwdfxiY5Wd5itAO
-	 gaVrdkv/5E3PaKARjN7sgalidSibCl/ADUb8Z2lZMZTgBT7CO9WX56qXz2zrZQWKupbED
-	 lfN5a6CiO0Ci2KUDFL+5NIsk8/gCfyklYAg01fyOGyiqk8ZBBH6wUGXAArhZLfLRLQdHw
-	 lqAf4VV1nzVa8zvB/qrXuIh0UA6e+SYj3h4cW1wTnwUyujS9+tfzodbZ3LkphzKr9FQ==
+	t=1795621208;
+	b=AhhmL+WMZg9iSuTk12ELbzNvmxMvAdvv6dAGKvJKB1c1qAw5zglgq5Ak4twewbOCBadn
+	 E4njRFUilccqVfwqH2t89y6vNm/jqLEd0rBmdyy+yEspST5yPf7p7tP5JDLXBpyjg+NKn
+	 csOQmzHHrdupTxnmib+xGESAvu7xgi10tHMy7cbhpsLcpiDOJ0dG0VGjojTPQ3jg8NK7w
+	 v64SJ1rcYdjdee76xT4CpibICsCDHawUlODOSrxySB4OeTU5gOYJ0yhpM6ik0hqLlY5Dr
+	 x1R/2kgY4g1CmfIG76ZkviOW24lDtYdjiBarhJOup147wxtvzflXUK4h+jd9Bg+3TzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621197;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=AHWtWicFYQTSZ+pv8ha5Ysqf1whC+s2crZfNfys75SU=;
-	b=ugPsNPM/QZ/vNvhTkJuLQuRM3BRuB5XFKELlRZWrPW8SNXt969pSEQZb5Cu7MwROgnDX
-	 NSuO12C6F4XGWl1kkoU0Mjmw3S8cxYUzSMJl6eZ+uVLVpPXCHTUQ9RwmJo2s1rhCeFjE2
-	 GKC4Q85VESdHmPq4nT9faK6V4LAKatC49HCNFNmeZ/t408JP8Et92QKLKBHEjDYiAtWfe
-	 cTM9gdUl35w8CXX8syR4J9e1wpnlXOHl7FtigHZOh3QBfQPX8qrG8NHj04BNAxYKUZcdr
-	 KfNmzAMuXiOqFg8Pan7QrKF30CBWZ5FM9tDzOIBtNxjf/cxTs5vB0egtUMrYVR0WMxQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621208;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=rZFRJL5kVKliHOnl8sCtkBdu6gxnExzjTCGGWXjS1h4=;
+	b=oEOGZOUhr1QL1dwuWj3P3VX8fz904ksC5/NexQP1I8Si8dDDcwes6Dwdyvpmw7AnhOSv
+	 jy8cKfcCl/dx9FpUml9WLVXrjirHHykBFtIXTjWiqzyjBsz4ezP4H/WOk9FmyCUCp+7Hg
+	 bzfseyby06lKLVnoqqtnqtMp9LP2ZgG2rG7haiFh9Z8fbR96EYtCF7WAak3/mLYGB2IfU
+	 L7V/FkkfbzmRh6LDevg324FvCpWv8Qo/GEy7AgZo9Y4t0DN5OohspsZuCFLI50LvmYoKN
+	 dvq+AtzfWVd5a0IIE/h77lbWiYHbgXr3FWXlGY7AstqpRZ1OBErFOX0qdkJD87PgErw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dJqgTga1;
-	arc=none smtp.remote-ip=95.215.58.96
-Received: from mta1.migadu.com (out-96.mta1.migadu.com [95.215.58.96])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eLDjGTNw;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 033C4606A6A4
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:39:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 033C4606A6A4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93CCB60A3837;
+	Wed, 25 Nov 2026 15:40:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dJqgTga1
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=VasWsmKzmIjzdgB+tnchbPGMfZU/P7HS7PhkSGjv9OQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795621194; v=1; x=1796225994;
- b=dJqgTga1laKHG54NBY5wrr/2hR+KkHBoD/2xyXgNW7/q5J+4z+/8Awe+FDHaVOizfiAOKZIz
- 2vjha9q2GgktwA8kYH7kwprbjmRHSmSoLT2EmbZdZ3s6l+CLVbT8wuG03a8AqpJiu4A1LDoGJjO
- 57zADTO0lXdDRqmYyrLWSAHA=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id cc9b23bc0178ea10;
-	Wed, 25 Nov 2026 15:39:53 +0000
-X-Mizu-Trace-ID: cc9b23bc0178ea10
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 08/20] KVM: arm64: Move the VM's FGU initialisation into config.c
-Date: Wed, 25 Nov 2026 15:38:59 +0000
-Message-ID: <20261125153911.106793-9-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261125153911.106793-1-fuad.tabba@linux.dev>
-References: <20261125153911.106793-1-fuad.tabba@linux.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eLDjGTNw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BBA31F0156F;
+	Wed, 25 Nov 2026 15:40:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795621208;
+	bh=rZFRJL5kVKliHOnl8sCtkBdu6gxnExzjTCGGWXjS1h4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=eLDjGTNwPVrJ3qp1KOrfGbirXKm0hhgNBxjIZ4QgfEEpOoNNACwkAQNB7NiuAD730
+	 mXpqvyhV79IJmR0IvR7NE+y1+2w5O5mbWXnvAvotFTMq34sxR6FFy/1MosoMR7mAlZ
+	 F4FXNKZQclI1bgff5f7dComaNiI9spUc5Tcq7WQ0p5WpkFdeDd8pkCVbFzBy1CZKvQ
+	 BunIf2ld+y7ik5YZdaH2gjcs1RFCUEsdGFaS82T4eEl1fBuWJpim7+zu4l1QADIcJ5
+	 /QBlN7egHy8a+5mUqOHrol0YQbrAOGcyhJbm2qXJmwrpWSQCE5ArxNc7/ZN/5j8AN3
+	 ZWZsDfj2hnHmg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F14C33808209;
+	Wed, 25 Nov 2026 15:40:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,105 +54,44 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] tipc: zero the pad bytes between bundled messages
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179562120652.634550.3126259951173537423.git-patchwork-notify@kernel.org>
+Date: Wed, 25 Nov 2026 15:40:06 +0000
+References: <20261119184127.24931-1-astellman@stellman-greene.com>
+In-Reply-To: <20261119184127.24931-1-astellman@stellman-greene.com>
+To: Andrew Stellman <astellman@stellman-greene.com>
+Cc: jmaloy@redhat.com, tung.quang.nguyen@est.tech, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ netdev@vger.kernel.org, tipc-discussion@lists.sourceforge.net,
+ linux-kernel@vger.kernel.org
 
-The first time one of a VM's vCPUs runs, kvm_calculate_traps() computes
-the VM's fine-grained UNDEF masks from its ID registers, one
-compute_fgu() call per FGT group, and sets KVM_ARCH_FLAG_FGU_INITIALIZED
-so that it computes them once. The next patch computes the same masks
-for protected VMs at EL2.
+Hello:
 
-Move the calls and the flag into kvm_init_fgu() in config.c, so that a
-group added later is computed at EL2 too. compute_fgu() then has no
-caller outside config.c, so make it static.
+This patch was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-No functional change intended.
+On Thu, 19 Nov 2026 13:41:27 -0500 you wrote:
+> tipc_msg_bundle() places each message in a bundle at a 4-byte aligned
+> offset. It extends the bundle with skb_put() to cover both the padding
+> and the message, but copies only the message, so the 0 to 3 pad bytes
+> before it keep whatever was in the skb's tailroom, and they are sent to
+> the peer node.
+> 
+> Zero the pad bytes. Commit 81c600c26302 ("tipc: Dont send random pad
+> bytes in RESET/ACTIVATE messages") fixed the same kind of leak in link
+> protocol messages.
+> 
+> [...]
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/include/asm/kvm_host.h |  2 +-
- arch/arm64/kvm/config.c           | 20 +++++++++++++++++++-
- arch/arm64/kvm/sys_regs.c         | 17 +----------------
- 3 files changed, 21 insertions(+), 18 deletions(-)
+Here is the summary with links:
+  - [net] tipc: zero the pad bytes between bundled messages
+    https://git.kernel.org/netdev/net-next/c/504e306886ed
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 97332ffcb1300..82ba4bb9573f1 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1748,7 +1748,7 @@ static inline bool kvm_arch_has_irq_bypass(void)
- }
- 
- void kvm_idregs_enforce_dependencies(struct kvm *kvm);
--void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt);
-+void kvm_init_fgu(struct kvm *kvm);
- struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg);
- void check_feature_map(void);
- void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index adaf26ab93b85..c65cf1dd27330 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -1586,7 +1586,7 @@ static u64 compute_fgu_bits(struct kvm *kvm, const struct reg_feat_map_desc *r)
- 	return resx.res0 | resx.res1;
- }
- 
--void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt)
-+static void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt)
- {
- 	u64 val = 0;
- 
-@@ -1630,6 +1630,24 @@ void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt)
- 	kvm->arch.fgu[fgt] = val;
- }
- 
-+void kvm_init_fgu(struct kvm *kvm)
-+{
-+	if (test_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags))
-+		return;
-+
-+	compute_fgu(kvm, HFGRTR_GROUP);
-+	compute_fgu(kvm, HFGITR_GROUP);
-+	compute_fgu(kvm, HDFGRTR_GROUP);
-+	compute_fgu(kvm, HAFGRTR_GROUP);
-+	compute_fgu(kvm, HFGRTR2_GROUP);
-+	compute_fgu(kvm, HFGITR2_GROUP);
-+	compute_fgu(kvm, HDFGRTR2_GROUP);
-+	compute_fgu(kvm, ICH_HFGRTR_GROUP);
-+	compute_fgu(kvm, ICH_HFGITR_GROUP);
-+
-+	set_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags);
-+}
-+
- struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
- {
- 	struct resx resx;
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index c7d91138a6d49..2cbbae81c07c4 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -5841,22 +5841,7 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
- 	vcpu_set_hcr(vcpu);
- 	vcpu_set_ich_hcr(vcpu);
- 	vcpu_set_hcrx(vcpu);
--
--	if (test_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags))
--		goto out;
--
--	compute_fgu(kvm, HFGRTR_GROUP);
--	compute_fgu(kvm, HFGITR_GROUP);
--	compute_fgu(kvm, HDFGRTR_GROUP);
--	compute_fgu(kvm, HAFGRTR_GROUP);
--	compute_fgu(kvm, HFGRTR2_GROUP);
--	compute_fgu(kvm, HFGITR2_GROUP);
--	compute_fgu(kvm, HDFGRTR2_GROUP);
--	compute_fgu(kvm, ICH_HFGRTR_GROUP);
--	compute_fgu(kvm, ICH_HFGITR_GROUP);
--
--	set_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags);
--out:
-+	kvm_init_fgu(kvm);
- 	mutex_unlock(&kvm->arch.config_lock);
- }
- 
+You are awesome, thank you!
 -- 
-2.47.3
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
