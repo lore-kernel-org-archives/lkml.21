@@ -1,104 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596437;
-	b=Cy17yrVhvZ5Gn1L6Wqm166PDmGBkJ0c+PYWKvR0aJcTB/b8u71iiQ7EuG9+kcaXCsfUq
-	 fvHnBRoYd6ESuBgLpDT+Zxo/d/C7ll5ysbnhOM1qzyf4mf+cTS9cx/YC2zuNZ2//309iV
-	 +lY6oZe9mjsbuKjtaH9E3E0o4rOREb4o70AuQBXg05hl0gTtRCk0omZEeYedLswzIaAse
-	 tJX/8KtlU5tIDSChX2AhO/huJ7WDRsqIRxiTRBH6XXc6bMgUeUl3f/1Uctedrmfz134/D
-	 CHQd3aTGFXoq53Shv1Gz0CLCWDrcV4KPw4JABU63eyNFO34sU3MxDY4PNMjB8Ui3Ssw==
+	t=1795596438;
+	b=zn8mJu1uuhVjFkz9+BSMFqH/dMe+7fOnfPN8iLwK4692Nk+5+71vsJ4OFFFWGEu34ynP
+	 k/VZ9cpLcRjMVri0qVJkWeEkVcYOFueqxXRAntbA3LlXK4GOas42vduwACX/ESdyFnfDZ
+	 lFaRR6zoEw8m2+L4PYJQiL2apNmE5mQquqGJk5xmRqBfVYi8oHn2HpUOPWDwU3t9XfMTa
+	 avSPIRqoPiSAIzR4BOX+MneLZG2d4N05q1jGDlj5/0MNkCXGeSls+opde/qUpBkRnxhm/
+	 C0qJN13p9TE5nKEhpqhXZijgZduMuDNqFPm6A6WgiX8o3ZMc9g85d8xEnMa4e66/sKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596437;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=9JczosLg+2tleGLZ5rgCSANI1AUwxWfmCJsgr8HB+Wc=;
-	b=eVuapo49bYdNlpCXPyvC88GA72ojRHLJ9nsLmmp49Y4BHZ7Y+qwx93X+khXWT+dkrAFT
-	 wvvERP3KgPp35eOT8NPjjG3YyyXTugxBT9W27uPz1NjecTtQ92uIecak9CCqeawRqWr41
-	 GwLg6e3rWgAgTE8jOUItoEEs+I42cAkzSs34xAtkcpbhESNO5VCpsmVr6PeeUSuR5eqwq
-	 D9ZhygxJxvds+kwMB1HxmzOMpGWg6XonXR5+mdX2+Hr4tdfP1+tWOmQU6sNVsMSz6i1jv
-	 QQfEY3lvJU+pPot++azwR2yP5FJ33B3blQorAOIAaEk0gVAquoLLqumeiD8C+4PvgqA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596438;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=CY+RbvCWChjjL3SHqHvwvoll+M1JeoUvLibqMMnrqTI=;
+	b=b9RVfBhMrYmKwCgw7nokGa277IOWay/RmRCpnRV2lTLkH9KVdkREURsMcxmrLBXiJWBT
+	 cYIpg8Je3+e7ESZ0yZY+HnIaHKXUcEh09x0FWBqUbbADtdXMrCgxxbzjLmPncSSvMXUzg
+	 lDI10aCXnXD/GCxwV6twWMJuUKRnBG2gT5YGpSXEt0XfMO//4H6BkQexeFFLUxIbffi8G
+	 RsjqCrSLTkMcWxMS7LPW0yC+e/wTxUotjRfI2KJ3qnDVARwcPT9iC8iiDAJVW9wtOcfrA
+	 ThWpyQoe92XodxZqmVHnI6uFGMx1xj8BpdptDhGMhsYeMuXq1YAtwQfSJ9n7AZiIQAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K0NlGyfj;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b="OSB7p/Of";
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35014606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:47:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35014606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2B08606A332;
+	Wed, 25 Nov 2026 08:47:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2B08606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K0NlGyfj
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4b467581b98so52862875e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:47:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795596435; x=1796201235; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9JczosLg+2tleGLZ5rgCSANI1AUwxWfmCJsgr8HB+Wc=;
-        b=K0NlGyfjGbdsgVftf6yhorm4vLUo1t9RKlAFZqCeGpWY95ifrSNlBMEvJt8g36o3zA
-         mOSI+K5NZHGiZWPJI82G3yXKlGWnXFHUZsZO8KkXkOKPzsVAHH2KvvX/RKs+THnjzXIf
-         xLj3aDZ88CsVZsaay+0xHYa64btplUhlmmnnjpcV8K4JfHlhCVgWlCbMIwLF7PDQB0N4
-         FwGxsELcIVT0GAKexwXwroYw6u4NItk9jqDiAuKZvpFdMbsAezHIapq7KDvSJp4FCQYp
-         mbkjkTtyVn41YtrPpToJR65tZUNW0Nfp18yN9rqjMq1NVZ5pjCg0ndrsaBmB4oH3hpAn
-         AHFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795596435; x=1796201235;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9JczosLg+2tleGLZ5rgCSANI1AUwxWfmCJsgr8HB+Wc=;
-        b=iJPQnADw3oEqKrxCPav6324OnkrOzBi5cQ9AyZeeNlVzPEnWaviD+IsiehZvtt/PcH
-         ma3tADP6K8g5OfbA9g82yVHbgbg5/rogiyRilnkGYSKIIHOOpwyHq0s20RbIgiEjzlL/
-         gGzMLFB5h8Nb3CoRf34U7KWRFv6u4iecKOid9xuG2d/RObLaVLQnGmUMAZ2DzKFih9bv
-         qfPFf1e4rr3S0BaErxvT0kAqQQrYXwDro2YZsW7asRFh9YIWAHVvmZ2Z8S/guPHbJq0/
-         HHVYo7nMr/JSP9/jHO6ENwna8aMUomo+6WL8GA2iRjktLDsoI9d5fIkTjVp8d/3KjrPp
-         jMtA==
-X-Forwarded-Encrypted: i=1; AL+hErF2MqRhGN3lnZQmD5xKZGwwJG/PtVqyqdDvKzvthe/mwdrzG/jGCd7qVhDtGN5DgTPJyD0se/Zntlt9rkk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+e52qA9nAtrKj4g8e/BCtg0aUPRIP3lqlPUDMs5Nl5LqCUIbbc
-	94oLom/7uZNEZ1j/aAAf/PgH1SLCFPCAH9iw8TH2nuMR8wwNJ9Twaz4=
-X-Gm-Gg: AZFdTZcPV5idrE0eXByc/PU7DlHDgAG2n54cl5kXXBLa2sI3KYYrQyYP5xCcX1T2bTH
-	X8sEX43gk591+urR1HSulgeB8A7uxA9H0MLeOcmc5v1N7l15U1U7QY0h+yezq+on4tHyuDXSJjt
-	6/0QWvoW2CriHd48o0Hw/Ka1I+xqqEaF+7kOmbpJlbMq3P9v5KKh2+dK1R7ZSlzeZp5RwDmhPmS
-	6oywhqZ0QWnVpvBkSNmaOalurlJ1v3gBaCsb+qp9h+kg99qL433DmEmSxoe3n5h6an/Bv8A1HP7
-	pwQQ+KKfpSVS0bqeQ3pW55Ed3qYcBC0e/x4G844pPZE/cHGK91Gb4IFKPjk2dwavw3BgJmEo+qR
-	Te8KFLwmyN5wVGTkQ1outAyzWBPJ5/YqgKyffcUG7ENopAADMKFbOdieGxn68KAlZIR8TkPVF6p
-	/O+JVTnvAEiYKvOVeBV39iRMKeyXEFQZDA3vJeXS4e+7N6UUtXQlBrMr/vGBRczTAfcpJkT4QUu
-	IGyhYDNkauI2Rjt9bgsR4l/FruABlYxOU77wSsMeSYQU3FqsdKh1Z6q+YdV2+rWXAvbp5LioMiv
-	gCj8u+RkvFri01FHpG2aa9BAZag0ih4ymqmc0UIU7rjGrp40zSNZgXRA3dFqPZiLg2io
-X-Received: by 2002:a05:600c:6092:b0:4a1:d537:1c8d with SMTP id 5b1f17b1804b1-4bb8892bb67mr320913895e9.19.1795596434483;
-        Wed, 25 Nov 2026 00:47:14 -0800 (PST)
-Received: from book4-arch.fritz.box ([77.39.161.58])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm465183985e9.4.2026.11.25.00.47.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 00:47:14 -0800 (PST)
-From: Nicola Nicodemo <nicola084@gmail.com>
-To: opensource@grische.xyz,
-	Amit Kucheria <amitk@kernel.org>,
-	Thara Gopinath <thara.gopinath@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>
-Cc: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pm@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] thermal/drivers/qcom/tsens: Drop __init from the ->init callbacks
-Date: Wed, 25 Nov 2026 09:46:11 +0100
-Message-ID: <20261125084611.11437-1-nicola084@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261104145740.2623473-1-opensource@grische.xyz>
-References: <20261104145740.2623473-1-opensource@grische.xyz>
+	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=OSB7p/Of
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AP8l3whD3323401, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795596423; bh=CY+RbvCWChjjL3SHqHvwvoll+M1JeoUvLibqMMnrqTI=;
+	h=From:To:CC:Subject:Date:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	b=OSB7p/OfTOcD11+HPOAJz9zIRqKrbhcuyvmeyz7Iz/MU38tENLUjZmUsVG8NKTyuW
+	 lG6KfbXQ25o+vpwkVQO54sGwRLp9bHKuvsOAnEmITD5sW2R/CMPEf7/5/wYkif832C
+	 /4exyAlRueDctWF4NRb/+/NXNKW/tc1zDxH1kRJlewvQeTyqLbgorw8vsoNn1ZCnkr
+	 ACGp2LkqaxxuW4kRvfu31P1URPH2nUGu9oF/H9PxZlcQ2W2kMyMLkCEmLwPJGrRZmW
+	 YaW4YUtarUNIXRspcejf1HUYdkoi09uXeV5aBVgOuFzUtDy200pFLyTzRDgBBjn+IB
+	 O33xuTXA+Z2oQ==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AP8l3whD3323401
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 25 Nov 2026 16:47:03 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Wed, 25 Nov 2026 16:47:03 +0800
+Received: from RTKEXHMBS05.realtek.com.tw (10.21.1.55) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Wed, 25 Nov 2026 16:47:03 +0800
+Received: from localhost.localhost (172.24.54.48) by
+ RTKEXHMBS05.realtek.com.tw (10.21.1.55) with Microsoft SMTP Server id
+ 15.2.2562.56 via Frontend Transport; Wed, 25 Nov 2026 16:47:03 +0800
+From: Hilda Wu <hildawu@realtek.com>
+To: <marcel@holtmann.org>
+CC: <luiz.dentz@gmail.com>, <linux-bluetooth@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <alex_lu@realsil.com.cn>,
+	<jason_mao@realsil.com.cn>, <zoey_zhou@realsil.com.cn>,
+	<max.chou@realtek.com>, <kidman@realtek.com>, <arunr@valvesoftware.com>
+Subject: [PATCH v11 0/2] Bluetooth: btrtl: Add firmware format v3 support and RTL8922D
+Date: Wed, 25 Nov 2026 16:47:01 +0800
+Message-ID: <20261125084703.1578601-1-hildawu@realtek.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,24 +78,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
 
-On this boot path, 7.3 with CONFIG_QCOM_TSENS=m and qcom_tsens in the
-initramfs, Samsung Galaxy Book4 Edge 14" (X1E80100, NP940XMA):
+This series adds support for the new Realtek firmware format v3 and for
+the first controller that uses it, the RTL8922D.
 
-Without the series, the probe is deferred and the retry from
-deferred_probe_work_func jumps into the module's freed .init.text,
-on every boot:
+Format v3 replaces the flat epatch container with a section/subsection
+layout that can carry several independently configurable images, selected
+by key id and IC cut, each with its own register fixups and optional
+per-image config file.  Patch 1 adds the parser and the downloader.  The
+new code lives in btrtl_enh.c, which is linked into the same module as
+btrtl_main.c, so the lifetime of the parsed image list follows the existing
+btrtl_device_info and no extra module or symbol_get() dependency is
+introduced.  Support for the existing v1 and v2 firmware is unchanged.
 
-  Unable to handle kernel execute from non-executable memory at virtual address ffffc2f2779b4150
-  pc : 0xffffc2f2779b4150
-  lr : tsens_probe+0x170/0x670 [qcom_tsens]
-  Workqueue: events_unbound deferred_probe_work_func
+Patch 2 adds the RTL8922D id table entry, the matching quirks and the
+MODULE_FIRMWARE() entries.  The firmware binary will be submitted to the
+linux-firmware project separately.
 
-With the series applied (same kernel config, same initramfs), it boots;
-all four controllers probe and every thermal zone reads normally. The
-compatible is qcom,x1e80100-tsens / qcom,tsens-v2, so this exercises
-init_common() via ops_generic_v2, i.e. patch 1; patch 2's callbacks are
-not used on this SoC.
+Both patches are needed for a working RTL8922D. Patch 2 depends only on
+patch 1 and the series should be applied as a whole.
 
-Tested-by: Nicola Nicodemo <nicola084@gmail.com> # X1E80100, CONFIG_QCOM_TSENS=m
+btrtl.c is renamed to btrtl_main.c so that it and btrtl_enh.c can be
+built as one composite object while keeping the module name btrtl.ko.
+The CONFIG_BT_RTL option and the exported symbols are unchanged.
+
+v11 fixes a link error reported by the kernel test robot and addresses
+the Sashiko review of v10; see the changelog in patch 1.
+
+Testing was done on RTL8922D over USB (0bda:a82d, chip id 55) with
+rtl8922du_fw.bin; the boot log is included in patch 1.
+
+Alex Lu (1):
+  Bluetooth: btrtl: Add firmware format v3 support
+
+Hilda Wu (1):
+  Bluetooth: btrtl: Add the support for RTL8922D
+
+ drivers/bluetooth/Makefile                  |   2 +
+ drivers/bluetooth/btrtl.h                   |  87 ++-
+ drivers/bluetooth/btrtl_enh.c               | 794 ++++++++++++++++++++
+ drivers/bluetooth/{btrtl.c => btrtl_main.c} | 238 ++++--
+ drivers/bluetooth/btusb_main.c              |  26 +-
+ 5 files changed, 1066 insertions(+), 81 deletions(-)
+ create mode 100644 drivers/bluetooth/btrtl_enh.c
+ rename drivers/bluetooth/{btrtl.c => btrtl_main.c} (88%)
+
+-- 
+2.34.1
+
