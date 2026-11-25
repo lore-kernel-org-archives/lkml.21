@@ -1,55 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795631328;
-	b=OWwNK6+4Jl3yYAcDMBCJ3m2HxaCN+fCuIB0UxdU9NTPrlTs5vGFbXHepziMIcmIZ+yJr
-	 r33Ml1p1sPyD2lvPF/+/+0yDXUeBk1rH9+Dg8UtmC3zLoammT0cjsBwkIm2Gzb47U5cH9
-	 F3dAQT+mK0ctfBMWdrXhjb2PnJSZo23nm+73eAp97usyB2u9qE5MlnQik8Imyku9q0BMs
-	 mHxIQWZGnz8rJVIgum85qA4ZNliTpCsBIwm/0ADKA88rsy5Plsxx0OZQjwxQBYWSV7PeV
-	 Ya4/W5K2LM21nq9CCYw9evrHIqVC1bH8TPWwJD1roLLU6U5Hzy32EV6XP1XpOwLskIQ==
+	t=1795631348;
+	b=zsFsAUTysY2Z/Jk4kISm0vR9zXpvsRNjwIV7rV8XUHr8mGekarwUJSe8EgUcYGJV7F46
+	 1DNvVXSMfiB66FsPz5iQjD5suFt1UrgiNnJr7MyZ4WOhrDPyXSx/4UunP0XmsEwBUpCmY
+	 ZeZzreQxZZtAmb442/JmmDRbjd251QlHyorR3cC823wqgH53zTPRlybBwOyPyEfWhGaiR
+	 shOxrUtaliwb6j1b98t1L6AK9bViKI0RZuOAydWDGJUbf1um4El3bhaSPhn2zHALaQTtL
+	 M3nGU9UCtYJe7yx8Q2XchLd/L0FCmKePk/yLOrR2MHo/OaRA6F0rz9HX6F/4S2PMjTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795631328;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=s89ULcfJlcdzCl5MhVyPCLu49hljGSQBZ02EqlEm4lQ=;
-	b=I+dRqgEgvWzvZ7p3CJViQPp7nsVSvrQD2MeUeHlaU/vYA9Dq/s1A8IpPeAO+dRyDYDFp
-	 LGcgc6UeBQOfaxPg1h2ufrSvCGt9a2/M9uQZNNyUk/5ZvnlKQ2CPfvfWxKiy/kinzyy1K
-	 kp4mo09wojBxJnZfgrYajNp54V9CUll1lerk814fTT6pzps4RSkS+Uax6wBb7lGXPfnEW
-	 aOkWT3WIq+9c2r59eiUEEkoa/gsGrwdN4/q+nq5zN9dSOx2g46XjfaC4xLzYQ6+dmy7Ng
-	 0oSOGUfO5M43UQWzMPUaWwlZ3gc00t6BFXIWorQYja5xFwcTDnyFvgwhwSAK1sWyczw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795631348;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=BbqA7dzUFNRRH3i43l3ktiNJhr4jSjUq5g8IQF9/Igw=;
+	b=aYPLwFU8KbuKyuwSxM3OhKICGd5QgCd7LigJX8jKqJzW78dtAfTiiu0FJTX/eiZhRTjO
+	 EX+HZ1NJ3vtZKfd48oO4NIU1UU7//ff+3g9PcMikiDz7eJw7b4ArEAzIR5WObpNpH5cPV
+	 5zbYlrt27s3wge/IvMRCt9uTd24kStfuDbZNHGqpIDwYAOKoycgIklpb6sNlmzyMrAA1R
+	 mn8n13fjcb7NixVGG+IyNla06K1VMWgpGuzvV5IiyS0p+XfliV2wIxvesJ1/KN3M91Yq+
+	 YpVoGzLkvgYgcAT4ONdrSAst4a+LrVbKi3MQ8Jdb0Ayi3oCJ42DldHd01+t80rt+Z5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z09Id4Z8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NTsgbGfh;
+	arc=none smtp.remote-ip=74.125.82.170
+Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2402C606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:28:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 593F9606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:29:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 593F9606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z09Id4Z8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00B521F000D1
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:28:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795631328;
-	bh=s89ULcfJlcdzCl5MhVyPCLu49hljGSQBZ02EqlEm4lQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Z09Id4Z8vbGXWMkS1WR7gKdR39oEkIz1JoFK6v2fcJ3HDWZQEH5Wg2j4BlMbe5Tiw
-	 Op07GQ7ZOBQPpPQ33dWnYZbQlClfUZwMO0/aaeAbFHLbf2VuNc/CGRuOxL1ldqWzpj
-	 99zYPOLVb2nNRTZejieDWlitrmHVwPhj8LRvDufiId/Sh/nJe7+/4//2GKErIvO2YK
-	 MEfTnlSx07Bzs1TEaYccXsWLnUbFHIHvis66TU2ZakXfOkROUwV11u3zZPDyeqv6U9
-	 dqbIX3OHFGaCGCsAYinLTu5QObKclEib2rFg46AGmWpBgO5YmZfUL2Q7K9SxTy1YxL
-	 TFYxMI+cYPOQw==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5bcdae234ecso521744e87.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:28:47 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFVYUEPTpVEF8xA0Q62u2Dp5L0epPs4D2gjCNli0Q4K8WIUHMNX7p/HBzbk0XnzLDD/EUU+EMpXxqDhmR4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9/8gVr4S5Xpctv5PjL1da86HQWgNZKQTJsVRYR/V3jd7J575MN
-	rnDoWSQkP1xJ9g4IrpLxjg4PrSL/h72MTZU1ccHIVGyuzTknXLym3m6Hk4HQN1p7lh3q2OVjxoI
-	c+h9/QxoqyUy3WR4fAUK/V1X/iZ+ECEE=
-X-Received: by 2002:a05:6512:a85:b0:5b7:f75a:ea68 with SMTP id
- 2adb3069b0e04-5c1bc7df486mr4990618e87.35.1795631326771; Wed, 25 Nov 2026
- 10:28:46 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NTsgbGfh
+Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-33fb4680717so675247eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:29:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795631347; x=1796236147; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BbqA7dzUFNRRH3i43l3ktiNJhr4jSjUq5g8IQF9/Igw=;
+        b=NTsgbGfhTXGh+A1YKsQyEZSPadXbqYBhPvtMwI/4vatcNfcNkaYYd2k3wGpFI6atXH
+         5IK2WFXWtYmCG/cHmvu47nJ+qnkpkaaIYTKSigj0sGqgBBvIH78C9kwwrZ2PFHf9yvEP
+         dKAYG+pMBR1UKIanZ/bDZPBlpko1JTkvEc0rHdpXs29yntcu0dx3z5S/sh0yuH/euBKV
+         1eDZd8j1p1qFGaqmlStbvBXqYTV+B07j1ZzixQcN9eQY4gUw8DlJgt5QUUY3QAnchjys
+         dfaHYfZqbnTaoyWYQH9TW6end5if2pZcQa+HcqtGk/ohMDbzy2WjOuc0Ls9AWyNPm0dO
+         ZSdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795631347; x=1796236147;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BbqA7dzUFNRRH3i43l3ktiNJhr4jSjUq5g8IQF9/Igw=;
+        b=AUskHF+akIOY5aRhtdCO77pAhJfr9oExDW3aByJfhLrK7Haj8fAv9F1hNFogPsVgYx
+         +qRt0lqBSTbh+f7Od164hEY7zeLlXolMkZWCoEaLKQ2lWpbAmR6hjegU+2uNmxC4hcbR
+         vc0Mht8sN9IsH4xDbjiyjwKXQFmTMwudc36BrEHOiHoWIJYRcaA3B4b6wsZDeUF5Thpw
+         vnSDfJXAt0DgPIdmYy2EKYhMAndopBfWCvb0uXGrxgxypDEX5gNW8RkD9DmlHPkeoM2l
+         LwxmpoDC5sjuYjXyga7mqb2ftxSutn3QzRoBe1n695XRpi9fsroW59D8sNX4H0IeIpzJ
+         00OA==
+X-Forwarded-Encrypted: i=1; AL+hErEQ2TCzt1iQqtYPQmeXEH0URkzfzfgw8z0DkspucgJrzfdly0Yozv1aX8C6KAtFZ4bpmLm54UO6hTgZ1/I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8MPNXdEMsu3Vb+IpQcFgue1ykUHAk2xCznEK8Fz2nKf0hUQEsv
+	EMtr1XHx0ky/Yjea3wqQKawhdKqVOXyZUyCwoTmc2ULyzvgM1vrLJa5OFAJyJipP
+X-Gm-Gg: AZFdTZdpUrHleDskrrtxVJdPHgDLoM3FQuq3kRyaBFUPxOAibNnA40TjFfyWqy8U0i1
+	5uKGgJDNYih5b92p8WzypeE6BISmcl4RAnB8U2XY3Y7KNpUAQI8n5UjWFL3SJzv4yAEZM6Oi6gS
+	2WJHogCcp/AdRfCzx6hcV7ipDjWTA+TDbbDM2ph5ovrdkhyRNQh0gBoObnePjwKhPIp3ENBVzuQ
+	2kqhSFOZFsFomcsE73F2/ZNRZ1iEeqIgmb/rxzgn+eSqWkzq1M16eB4qwQxjaNfC9T4sfTbXD0q
+	tucopl8myP3KvNZVGIcvkakFOHe+XfXR3TtOeYKWzaJNcSXD/ioZO//IMqUH6ORTqXOjUXyopFf
+	8s05M3TXHTKr2zNfrBPJ03QbZmeTbVdxl6ci9N7uuk7HY2EyHpdcM9xQLB8c8YKIWHY8idW4Snj
+	WXs2fLmj3KRhOst6oPvNME9fPsOTnza5KtMRdQrIiultwWRz3h7hbwYQGeNtlOWxj+JHJMckEYn
+	azLHd+e6qYT4FFhx1rZHXnpncukNtyMUEXPKNbcsbMGwFEKV4xQRiDMm4TQdyVAAoNQTHNMUr6Z
+	etrtBVZ6Jr80/+2iOSph
+X-Received: by 2002:a05:693c:88c7:10b0:386:b3aa:77f0 with SMTP id 5a478bee46e88-386b3aa7d6emr9851203eec.18.1795631347123;
+        Wed, 25 Nov 2026 10:29:07 -0800 (PST)
+Received: from a1-free ([2603:c021:8021:f000:0:1865:8c38:18fc])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm14094564eec.17.2026.11.25.10.29.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 10:29:06 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>
+Cc: linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	TAKANO Mitsuhiro <takano32@gmail.com>
+Subject: [PATCH] vt: Escape the CUR_ prefix in the cursor kernel-doc
+Date: Wed, 25 Nov 2026 18:29:03 +0000
+Message-ID: <20261125182903.2396749-1-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,43 +96,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261124094059.3882014-1-john@phrozen.org>
-In-Reply-To: <20261124094059.3882014-1-john@phrozen.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 25 Nov 2026 19:28:33 +0100
-X-Gmail-Original-Message-ID: <CAD++jLm7b_Q8aN5E7zjEU8CPknKYy0ui_LE+jPYJji-YzAWxJw@mail.gmail.com>
-X-Gm-Features: Aa3M54q4ONvPZcrPiz4EM8PUlUrVb5r4XA_5oO6TkamikfKXWeoyqqveph49Ceg
-Message-ID: <CAD++jLm7b_Q8aN5E7zjEU8CPknKYy0ui_LE+jPYJji-YzAWxJw@mail.gmail.com>
-Subject: Re: [PATCH v4 0/9] pinctrl: airoha: add AN7589 support
-To: John Crispin <john@phrozen.org>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Ahmed Naseef <naseefkm@gmail.com>, 
-	Benjamin Larsson <benjamin.larsson@genexis.eu>, Christian Marangi <ansuelsmth@gmail.com>, 
-	devicetree@vger.kernel.org, lei.dong@airoha.com, Linqi.zhang@airoha.com, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, mfd@lists.linux.dev, 
-	Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>, Rajeev.kumar@airoha.com, 
-	upstream@airoha.com, Weifeng.xu@airoha.com, zhengping.zhang@airoha.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 10:41=E2=80=AFAM John Crispin <john@phrozen.org> wr=
-ote:
+A trailing underscore is how reST writes a link to a target, so `CUR_`
+in the prose is read as a reference to a target named "cur" and the
+build fails for the three cursor helpers:
 
-> Patch 5 adds the IOMUX to the syscon compatibles. Patch 6 adds the
-> binding for the pin controller. Patch 7 adds the binding for the GPIO
-> system controller it sits under, which also holds the PWM controller.
-> Patch 8 moves the GPIO register offsets to the common header, so the
-> AN7589 data can describe its own register table, with no functional
-> change. Patch 9 adds the AN7589 pin data.
-(...)
-> - Split the bindings in three: the syscon compatible (patch 5), the
->   pin controller (patch 6) and the GPIO system controller (patch 7)
->   (Lee, Conor).
+  drivers/tty/vt/vt.c:276: ERROR: Unknown target name: "cur"
 
-Once Lee merges patch 5 with the syscon bindings I can merge
-the rest to the pinctrl tree.
+The same line appears in vc_cursor_start() and vc_cursor_end().  Wrap
+the prefix in double backticks, which is how the rest of the kernel
+marks a literal, and all three render without an error.
 
-Yours,
-Linus Walleij
+Verification: before the change, each of
+
+  $ ./scripts/kernel-doc -rst -function vc_cursor_valid_size \
+        drivers/tty/vt/vt.c > x.rst
+  $ rst2pseudoxml x.rst
+
+reports "Unknown target name: \"cur\"" once, and vc_cursor_start and
+vc_cursor_end do the same; after it, none of the three reports anything.
+kernel-doc -none on the file is silent both ways.
+
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+---
+ drivers/tty/vt/vt.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/tty/vt/vt.c b/drivers/tty/vt/vt.c
+index 6a6eb8b2a6de..14b7214ec105 100644
+--- a/drivers/tty/vt/vt.c
++++ b/drivers/tty/vt/vt.c
+@@ -273,9 +273,9 @@ EXPORT_SYMBOL_GPL(vc_font_size);
+  * vc_cursor_valid_size - Computes a valid cursor size from the given value
+  * @cursor_size: The size constant of cursor pattern
+  *
+- * The argument given in @cursor_size is one of the CUR_ constants, as stored
+- * in struct @vc_data.vc_cursor_type. For unknown values, the helper draws the
+- * default cursor or an underline dash.
++ * The argument given in @cursor_size is one of the ``CUR_`` constants, as
++ * stored in struct @vc_data.vc_cursor_type. For unknown values, the helper
++ * draws the default cursor or an underline dash.
+  *
+  * Returns:
+  * A valid cursor size for the given size value
+@@ -317,7 +317,7 @@ EXPORT_SYMBOL_GPL(vc_cursor_valid_size);
+  *
+  * The parameter @cell_height is the height of the character cell as
+  * displayed by the console. The argument given in @cursor_size is one
+- * of the CUR_ constants. See vc_cursor_valid_size() for how to get a
++ * of the ``CUR_`` constants. See vc_cursor_valid_size() for how to get a
+  * valid cursor-size constant.
+  *
+  * Returns:
+@@ -353,7 +353,7 @@ EXPORT_SYMBOL_GPL(vc_cursor_start);
+  *
+  * The parameter @cell_height is the height of the character cell as
+  * displayed by the console. The argument given in @cursor_size is one
+- * of the CUR_ constants. See vc_cursor_valid_size() for how to get a
++ * of the ``CUR_`` constants. See vc_cursor_valid_size() for how to get a
+  * valid cursor-size constant.
+  *
+  * Returns:
+
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+-- 
+2.53.0
+
