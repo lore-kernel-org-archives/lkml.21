@@ -1,86 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795609489;
-	b=O6wo3UjSphLml6zGxPDFjnriedSrXftSHqlZqRx/zInecYTxa+JrXL2ChmVDgjcDJfxJ
-	 9Hi4j8p0OlOcR4udRkkzDOt/ZCRHko25YF3RmJhFIZpjNHTmds/KoDGe6wWTLR7Hi+G3U
-	 2GPglWOXSBpGf24Y1NzhH9MOep9Pm0uC9s8N2bGI/nAR+cLlcVA7i2v/SQDYKUb3GAYLU
-	 mk1g10qQAwopqFsRKM0nrRhy7KaB9Y+M2ZDsstCUm2+AzegnxeCxH74vSafWGA0J2yxg2
-	 KqUIwMF/6qhF9A2Pt+aF+gaf85+Z83BsVFzzz/qgOPMmrSnTyTE9zll7helwsJNiUgA==
+	t=1795609503;
+	b=rNuot6Bmi6Yutt96+gnPTj2M1va7vmXYyqsDK8sGvqNKA5JefiQxjt7upM64KHKWqHaq
+	 X3n893aLYvqzOZQzkCHAFAK5sfDVgW+Mz2v9LN+We4vbpzeAgu5hpiAFJf9mO+pqMf/3a
+	 IdR46ON30cNIifPIDOaIS4WiDSdy1XgectDT1VzQqBHAawf4Dw0p68A1Sr51hnELRTEtL
+	 9x4JU3Qu5lrL9XF7zKR0JsyPT9v9dx2FoMA8binl4V9WEjtEzeOcN92MItb0gcL2Xul8J
+	 Ek8braKDiMICZFaZTmxZ+wvoDwS2ds2A2rVK15zHC2vnFF5u0at4uawBQa4sV3JEVVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795609489;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Scanned-By;
-	bh=qtbzDgU/qebMP+x5NyFuhtZ0/3d3A7w4k6ADwt9eAp4=;
-	b=ztSoJEYr+LDK7AehfLsY8kBNGkV1rHHo51nHw6m1JX0/HtSJiPXUSZOLi4CGmtlOV78x
-	 3dXPVzRMBgRejSgQkqN7i0jdZBnvH5e+mTFdV7C9TeKoflbW86lPHAbNk2zghSf/Ref/e
-	 UU4I1AS0kH2jwZeNSj30rE1kZ91lQnW6okTbz35WkmeUM3jnOoR9lyzLTpZ1WlzA/F5M0
-	 yQJFKTCTCry8zeHmFOHrF7WtBJa+ibn5rJ2JbIZViGjDaKdj6Ydtsrc2SozBLUubkzjbj
-	 1XmjR1JI5EAd0CkoftevZJXM0R38Tq1f4upFnVZ9fg1/b+U/3JfQZ+QfaGZK351NJ+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795609503;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=tOVEigTAMlbJqp1UGeUt8ulAnm3uSAJ3Jp9WqDx3RDM=;
+	b=FN6g1LSrdvKYbAsVImmtW7MbXEQJmYbAFxHc3qSTGM3pr5VcTAuNUWsO93vnsOi5+n5P
+	 G5xLiFEIuAPfk9z91R8FJYn201d0YdlVJZelD7IDXnq+ZqyV5WPTBzMHNEfRB6ST+Cug9
+	 A8u2W3X6T8Sun4Y7wD4qQvEFHteRaI8eW3/B09zhyYablaG3l7t8cDtXVVGlwRJ4Q/d8h
+	 07zagWcrl2SGOlenJZGEEOJJJRqBCGbHy+s/MY0SPJDQGzpRv0/tKN9HtUIYenp5sDkw8
+	 9fwo2sVAn9fDrHln6yhsZjO+W55AmqSY+ahAzOb9BfCFK03MHzc/P5FsnX6iY4GoLiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GFH8um3q;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I4kMG0ET;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F23EE606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:24:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F23EE606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05955606A327;
+	Wed, 25 Nov 2026 12:25:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GFH8um3q
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795609487;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qtbzDgU/qebMP+x5NyFuhtZ0/3d3A7w4k6ADwt9eAp4=;
-	b=GFH8um3qzi/GqaGq8tVSGsrsaNbVaWPluxSQczJCTesg1/ahPU2WcJ/m6jhQxWzzOBkXG5
-	AqsVjTbK6wAF5Sr45RIgKvJ9Vbz1aqAth0Mgj/ZALSaksTmEQoGMNdD3qEidZCVZu5fCtM
-	M5E65h3SKEcZx4MqVqIDWc9d0xEqWYw=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-474-wdSzzG7COGOE8xbfhlyMYw-1; Wed,
- 25 Nov 2026 12:24:42 +0000
-X-MC-Unique: wdSzzG7COGOE8xbfhlyMYw-1
-X-Mimecast-MFC-AGG-ID: wdSzzG7COGOE8xbfhlyMYw_1795609481
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 03672180059B;
-	Wed, 25 Nov 2026 12:24:41 +0000 (UTC)
-Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 0914B342;
-	Wed, 25 Nov 2026 12:24:37 +0000 (UTC)
-Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
-	oleg@redhat.com; Wed, 25 Nov 2026 13:24:40 +0100 (CET)
-Date: Wed, 25 Nov 2026 13:24:36 +0100
-From: Oleg Nesterov <oleg@redhat.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: mt4022@columbia.edu, Jens Axboe <axboe@kernel.dk>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Michal Nazarewicz <mina86@mina86.com>,
-	Wen Yang <wen.yang@linux.dev>, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, tz2294@columbia.edu,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 5/7] sched/wait: always queue new waiters at the tail
-Message-ID: <awbThHt5dm3UKBL0@redhat.com>
-References: <20261122-b4-sched-wait-intr-head-v2-0-4a764b64e8ce@columbia.edu>
- <20261122-b4-sched-wait-intr-head-v2-1-4a764b64e8ce@columbia.edu>
- <CAHk-=wj_eqNh+gNhCQh3exrL5Pmo5hbZBcL0W-4Ah_Nw0Kegzw@mail.gmail.com>
- <awWSwmvaTwBxfU-r@redhat.com>
- <CAHk-=wj3GCXZohdFWWPAOkC_LHno4X0oQW+0sQFJzRMvjpODUg@mail.gmail.com>
- <CAHk-=wgYc9vFEmyV0Ch_e49j6GOhUCMQMnMV4f1FLLvumZOmRw@mail.gmail.com>
- <CAHk-=wgNZfCN5qW-0pOK_TFBscqTu6an7fK5pEkxewg-Aif1Fg@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I4kMG0ET
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E6741F01564;
+	Wed, 25 Nov 2026 12:25:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795609502;
+	bh=tOVEigTAMlbJqp1UGeUt8ulAnm3uSAJ3Jp9WqDx3RDM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=I4kMG0ETdLiDRiWKJH1iB+8FIFTsXSSOryE1LqIsPrlHIMyg5iP978NIUfoCzyNzi
+	 3mE3t8mZ1GRS0Xl0ihlFZmtAeLSeP4f/tDXovLYgbxwscamhUnZ6Z9W2zRa6gxrUZ/
+	 2rGfNXi4BuMf/GjZgb2N7pOrXbD/okFqSj8LnVHUN8ENzvIzC9BY2RKYeDPAGqYAb3
+	 m/5QIJzviR7B3j6OXrDXNv7ZaCv74UQ/GtoPzvX9vAA4+EQ0Z0eVAo9uhla0rCE+Mv
+	 K5crbRRkkHa0xBr2XOZ7ik9yJ+/oBD6CsniQuf/cQwRk84Zpe2Tx1+gJI+Juta2vZg
+	 lyY12jMNG5asw==
+From: Leon Romanovsky <leon@kernel.org>
+To: zyjzyj2000@gmail.com, jgg@ziepe.ca, Yiran Qiu <eritque-arcus@ikuyo.dev>
+Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org
+In-Reply-To: <20261120055951.302239-1-eritque-arcus@ikuyo.dev>
+References: <20261120055951.302239-1-eritque-arcus@ikuyo.dev>
+Subject: Re: [PATCH] RDMA/rxe: match a duplicate request to a resource of
+ its own type
+Message-Id: <179560950018.1210376.7975509467780141366.b4-ty@kernel.org>
+Date: Wed, 25 Nov 2026 07:25:00 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,38 +59,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAHk-=wgNZfCN5qW-0pOK_TFBscqTu6an7fK5pEkxewg-Aif1Fg@mail.gmail.com>
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
-
-On 11/24, Linus Torvalds wrote:
->
-> So just queue everyone in FIFO order.  LIFO might be better for
-> throughput, but every time we've ever tried that optimization in real
-> life, it has caused fairness issues, so let's just do the obvious thing
-> and add new waiters at the end of the list.
-
-I am still worried about the "ret < 0" case in __wake_up_common().
-
-wake_page_function() does
-
-	if (flags & WQ_FLAG_EXCLUSIVE) {
-		if (test_bit(key->bit_nr, &key->folio->flags.f))
-			return -1;
-		if (flags & WQ_FLAG_CUSTOM) {
-			if (test_and_set_bit(key->bit_nr, &key->folio->flags.f))
-				return -1;
-			flags |= WQ_FLAG_DONE;
-		}
-	}
-
-Before this patch, all non-exclusive waiters are already woken when
-wake_page_function() returns -1.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-18f8f
 
 
-Perhaps this change in behaviour is fine... I'll try to carefully read
-your series later.
+On Fri, 20 Nov 2026 00:59:51 -0500, Yiran Qiu wrote:
+> find_resource() matches a retransmitted request to a responder resource
+> by PSN alone, and rxe_prepare_res() never sets the PSN range of a FLUSH
+> resource, so it keeps the PSNs of the request that last used the slot.
+> duplicate_request() then gives a retransmitted READ the FLUSH resource
+> and reads res->read through the union, so read.rkey and read.length come
+> from the FLUSH's RETH va, chosen by the requester. read_reply() replays
+> the READ through rxe_recheck_mr(), which only checks that the rkey names
+> a valid MR.
+> 
+> [...]
 
-Oleg.
+Applied, thanks!
+
+[1/1] RDMA/rxe: match a duplicate request to a resource of its own type
+      https://git.kernel.org/rdma/rdma/c/fb3a71e8bbcdf4
+
+Best regards,
+-- 
+Leon Romanovsky <leon@kernel.org>
 
