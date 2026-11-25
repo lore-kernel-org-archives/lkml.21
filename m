@@ -1,59 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629207;
-	b=ya1Gw9ztS2CgwKjcjqnIzZajIBBlAP4ffA9zOdyNiOtJ8ZhnP/PhFdVowdzcDuIziCR6
-	 RVfNC7o6d0QBK3deLaWQgW+Sp3FdrzlXUwotU1WU0Agvc55OqPFrBhxz52K4TccdtRyMY
-	 yXTF905pRKzbpqzYrFNqdTPBZMigIjbiOgYefkSXsA70zPGgXTbRXSI1ED4NYFfayRLsh
-	 zpz2ZmnHtNBGWiLwqgqldK4R8GhqrXBnfnNASXzgNYxuqEfsKXi7A+rH7NH0dhAszEqi7
-	 OEKlLsN60cprFacvNid8kP0NoUCmFAP209dLUBdRj/6WWNbCqzqesCuS3OEfQiFGvjA==
+	t=1795629212;
+	b=dgbqZWVcqLddQKavutFDVziD1tIXolk0awn7sXgSMTru3pI2mtFmyguuwaVzABQflpQW
+	 ZtgO9pHXJKCFdgqJrQEmKU+3yk3FSnucinFfocTPdgmRKdz2rTXjiLxvM7Iq4rka2Usu9
+	 n6AcyvQe28wpV9fe85KfNTq5cvnbFtUeNwLKU79oZdBrcTgAOFKtUfp0RO2FBn70T2EO7
+	 sLwFzRaaDceSVJ86ZhJXcSUnwZ2mMw0sWQXntcNDJpyM54F64ck+0e+88JZdchu9OQYnx
+	 M8BWVo8HiUVsfZ/Q5ekdF8PxqVE3RUfJp1XXUf57dXwJbRJpGJHFgSKFPhD+TXM2AnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629207;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629212;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Last-TLS-Session-Version;
-	bh=kx6aRWMk+gHvtf/TGtSk6odRYlFp8x81lSAbHrh48+E=;
-	b=Rbi2jYWinuOHfQ++71wabDC16Dgj4u/+EiME34EERy9QSYcLIwyAvQmUTpL0pGzhtTco
-	 3iH3wa5rafpsv6M+b8U0gcYHgPDh8N1c06bUZQQIYUfSPa18q/L/p1T0lZB9L+FbFx04o
-	 bor9ZuVAj4FyeFikUNUfg1q+XspA056PV14U+ZGHFMUUlUfamPEFcepJcLy3vpzTldLPo
-	 PTImpUtjJkBFlAxokUfjKLlYLweQNIM7bVQQPi5xzZ7RnkOq5cgvnhzysh+kXxdDUk+nX
-	 8GjT/hoOB71uKWcJmh/s5tUtEKAn1dm6nTEs0Kw8toUiNjiDFMH7vXUFNk+qA7EmHxQ==
+	bh=PcycRmA0N7JwWG8IrfXbNLId07ZHA9iVWljKGyKyKAA=;
+	b=QjVqeY1YSaCifGwfohGyp1KTFy7Sw5n5fBx+jsMhJcjwd0UhuZcdvTtyzL/ykb3Mx0L1
+	 qfZ03WQU7T+hIfRSHfF316TQrAniIQF4nk0jm+dJhQlvdm6nw06pOkqOUUotZEtvFEjOg
+	 qXKMHMRH+LRF8+a4t65Tve7/vzHbXZZRWTKG0fzAphoQf9ULAr0nGNkS/j1BosYTUCDwZ
+	 4ze+OytkB/dm87za4B+dPvlEOiPigBJxcXuKkN1ayTwV5fQZvVO60EOQdNxnA/D7sXZi8
+	 paihXAQR5HE48xJpmRhcmSgxmqt2EFQc2QmYjwrDYAEMWniErPrEEK919IaZvfeBptw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=GI1vvacQ;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=POhwRb1e;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8FA0606A6AA
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:53:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8FA0606A6AA
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81BAF606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:53:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81BAF606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=GI1vvacQ
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=POhwRb1e
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 990AC1A17FF;
-	Wed, 25 Nov 2026 17:53:25 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 2F7EDC6221E;
+	Wed, 25 Nov 2026 17:53:38 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6BE3660480;
-	Wed, 25 Nov 2026 17:53:25 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0FD2A11E6B0D3;
-	Wed, 25 Nov 2026 18:53:14 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 333BF60480;
+	Wed, 25 Nov 2026 17:53:30 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 00CAA11E6B0CB;
+	Wed, 25 Nov 2026 18:53:23 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795629199; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795629208; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=kx6aRWMk+gHvtf/TGtSk6odRYlFp8x81lSAbHrh48+E=;
-	b=GI1vvacQlHmj38D8eydTuNR3fQjbD9C/BbRKpC5llFvsqdMs5nA+RdmzYHkzq3YKG7mKwi
-	eiGYhP5AbuZn+ZbCzj1quAerIeRtW5VuSvXO6iEJFxS7pbKGQOaEhhBBeg4AWFHcrptweH
-	WI8hw6MezKaNvEQu1R88bKYbhqtc4zpAxmrEj8px1fp1PWTiLCV5y8uQs2qKsI8XP4u5e1
-	0IBD47yOMowtOvJVilgNtSCg51WOBo2I9mNingZIRprQsvr4Z571c4djEmLUkSyfNBtaFG
-	fE+RfkhIWMPKBEnfSTBXYr8BxO0+xgPCy9BRgXvbv/wF/k9GGC7S9FQO+PpVVQ==
+	bh=PcycRmA0N7JwWG8IrfXbNLId07ZHA9iVWljKGyKyKAA=;
+	b=POhwRb1eHes0UPhuLBIQuwdpoNuJavA36m1+2PdC8kia1ma5zuNDKFYEzQUwbiYVEeSf08
+	ROvKL0RydcKTC5S4Rpo0ul869yzKyQvz0cDiM6byNUYbgNgwNIfZHNlCxz8Yg6FSYSUB+h
+	hOuAcIsXxgAe9Q0YudCZtqJXf/d/VCXzRMohdEVeYSBtu3rTX/VhBNLk/RqXlnY4KfFHB8
+	mTedU878nFVuIh+oehu/q6yMcODOcR5lWsSU+F0mpMUQF5WdY0Q8GaSS0efIRRzzYLL9If
+	v864IOAovyiSRCr0Pt2WjQm+09iqy+nRzsAPAk5TvwAfnHNb0DH2FNSrLplgHQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Wed, 25 Nov 2026 18:50:34 +0100
-Subject: [PATCH v4 21/32] drm/panel: implement .get_next_bridge
+Date: Wed, 25 Nov 2026 18:50:35 +0100
+Subject: [PATCH v4 22/32] drm/bridge: display-connector: implement
+ .get_next_bridge
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,7 +66,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-drm-bridge-hotplug-v4-21-822722850492@bootlin.com>
+Message-Id: <20261125-drm-bridge-hotplug-v4-22-822722850492@bootlin.com>
 References: <20261125-drm-bridge-hotplug-v4-0-822722850492@bootlin.com>
 In-Reply-To: <20261125-drm-bridge-hotplug-v4-0-822722850492@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -98,42 +99,41 @@ this.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/drm_panel.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/display-connector.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/gpu/drm/drm_panel.c b/drivers/gpu/drm/drm_panel.c
-index 26d9378563f5..ed8d6c43b6fb 100644
---- a/drivers/gpu/drm/drm_panel.c
-+++ b/drivers/gpu/drm/drm_panel.c
-@@ -70,6 +70,11 @@ static const struct drm_connector_funcs panel_bridge_connector_funcs = {
- 	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
- };
+diff --git a/drivers/gpu/drm/bridge/display-connector.c b/drivers/gpu/drm/bridge/display-connector.c
+index eb3412ec30a0..8b16ad89c7f1 100644
+--- a/drivers/gpu/drm/bridge/display-connector.c
++++ b/drivers/gpu/drm/bridge/display-connector.c
+@@ -36,6 +36,11 @@ to_display_connector(struct drm_bridge *bridge)
+ 	return container_of(bridge, struct display_connector, bridge);
+ }
  
-+static struct drm_bridge *drm_panel_bridge_get_next_bridge(struct drm_bridge *bridge)
++static struct drm_bridge *display_connector_get_next_bridge(struct drm_bridge *bridge)
 +{
 +	return NULL;
 +}
 +
- static int panel_bridge_attach(struct drm_bridge *bridge,
- 			       struct drm_encoder *encoder,
- 			       enum drm_bridge_attach_flags flags)
-@@ -220,6 +225,7 @@ static void panel_bridge_debugfs_init(struct drm_bridge *bridge,
+ static int display_connector_attach(struct drm_bridge *bridge,
+ 				    struct drm_encoder *encoder,
+ 				    enum drm_bridge_attach_flags flags)
+@@ -214,6 +219,7 @@ static u32 *display_connector_get_input_bus_fmts(struct drm_bridge *bridge,
  }
  
- static const struct drm_bridge_funcs panel_bridge_bridge_funcs = {
-+	.get_next_bridge = drm_panel_bridge_get_next_bridge,
- 	.attach = panel_bridge_attach,
- 	.detach = panel_bridge_detach,
- 	.atomic_pre_enable = panel_bridge_atomic_pre_enable,
-@@ -516,7 +522,7 @@ void drm_panel_add(struct drm_panel *panel)
- 	mutex_unlock(&panel_lock);
+ static const struct drm_bridge_funcs display_connector_bridge_funcs = {
++	.get_next_bridge = display_connector_get_next_bridge,
+ 	.attach = display_connector_attach,
+ 	.destroy = display_connector_destroy,
+ 	.detect = display_connector_bridge_detect,
+@@ -412,6 +418,7 @@ static int display_connector_probe(struct platform_device *pdev)
  
- 	panel->bridge.of_node = panel->dev->of_node;
--	panel->bridge.ops = DRM_BRIDGE_OP_MODES;
-+	panel->bridge.ops = DRM_BRIDGE_OP_MODES | DRM_BRIDGE_OP_GET_NEXT_BRIDGE;
- 	panel->bridge.pre_enable_prev_first = panel->prepare_prev_first;
+ 	conn->bridge.of_node = pdev->dev.of_node;
  
- 	drm_bridge_add(&panel->bridge);
++	conn->bridge.ops = DRM_BRIDGE_OP_GET_NEXT_BRIDGE;
+ 	if (conn->bridge.ddc)
+ 		conn->bridge.ops |= DRM_BRIDGE_OP_EDID
+ 				 |  DRM_BRIDGE_OP_DETECT;
 
 -- 
 2.56.1
