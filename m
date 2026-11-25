@@ -1,83 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795623660;
-	b=w+0AfUdLEIdH5eLi/5vjP2uRFuWS7lYE9gEx9FRf8GjcreYaik9gHD8apmJkHGQLd6d1
-	 VaLU2xvqy8ILu56H1Qfchla9dFKejVO5738lV5MnH14fKAM/mQzEF6BRANdVzQ2rYXKp1
-	 QZdhrFqtN+f8vdxEuYM/K56nRIvaInkB88lbRAkcyNGnxMDWOZLMS2HTLf5t6Qvh5r2ch
-	 V193AXsSAh+THuiXUYvP+RIBzaytT2uaN22TCfvKjestfVfkEMt7QlJVTMgTh1cDrbf5f
-	 XzBRz5h4mVX0VGBeuJrhQmmgyorQdtjgNKyB/F7py/fPiraxD0hMSIxb9QYIEMhqceQ==
+	t=1795623658;
+	b=c0kCBQMXdhxawRDtyJgTxYb032ilbxuxdc54ZXmdXgwzF9bFkfmCLgZIf1w0o+MUSXnf
+	 /ofY7/l0LTtIkLDb6arZ8IUpW1r9rNkhB+/31t+me6TDAleL2P75rwQlC4o+mxjDHNTCN
+	 PSIPMa1MgXntPWuJEMOMdThAg8oR9WJCx4lDwzlcxk+8YSJc/bH2cV4aebzM9nqSYxIil
+	 Ax+zlw1l16KQqftdLg9pgYHb0TVvtRKefvtdtj27s0oTJbAY0tKox0g7O1yePNk0RCIGM
+	 3KT2RrRTpLtnypRigwQDHZdaBKk8wcWXch2zscmdsmRX7G96Lxh/KjDA6VXda+vtNaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795623660;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795623658;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=0s6fmlzONGCK6lmJzVfynVtJ2jjFF8VyCT3dCxeu9Vc=;
-	b=4/YZROE4JnT5M/LJEBCKVVYJ5sRzwwpUBaeVlulmxIhWr3ZkCyc7YecepZcTeiRDWKeo
-	 ZkjWyelF+qC2hnywKnAvSIxO0OFO6oHmB6ooj3hyB71pJggEV0m94SbhBPtZsRgrzlBid
-	 S7Ldb7dpfSV7g10DAQINNNO8sWInrPj//a0E1eUF6DaahvfMy7EnN2oeYU5wReHt/CmT6
-	 lJu3zr1noLpuLmmUv/tTwKGIdqyQIkth4y4ltRdHnZX/kG55iOwe+LDmk/h5zsmFrQudr
-	 HGUtPlUmms07FctoEnDrgnCwjbRrC35Ig1upHF2DK/7XZ87YT9jfPQdCqAuGVarwbVg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=w6xtuLM9HrxHujYVMQV7MBMbD4qoIrs9MPoeBowe9/w=;
+	b=LnFnh56D01sBZvPVZLD/zz34cX5uijQ/F3pnSXxczVHiTbqpkA410qwYGLEuK0Q0IvMe
+	 0thMx7iwWG+K4uiMBewSn+Po70m6f72SX4umV9n8lckgzom2sUF2w4vlHBhJqihvd2rWN
+	 cj9AYpe6qC82S80hLsDh2EYUl+RVbFXI+m+PjLH0Qu4qYfTZPJ95TgLKZvv8/4AQHfc00
+	 yyKJ+0ELqvfa5CkLGZk8Dz6EEHbaCgqzxMhpb75BJGWHa8iYun0Nz3czLIlXOG0Z5QiTb
+	 QQsZIyZ5+8sevv8wAd7SMjEwmVGcRGVelYjF4jhgwEO/NY9w8duhXnDXsTHBZmRqy4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=RYHkCrYI;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=VnT24unC;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01249606A697
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:20:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01249606A697
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23F5D606A6A0
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:20:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23F5D606A6A0
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=RYHkCrYI
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb6adaf0f1so52532695e9.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:20:59 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=VnT24unC
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bb55cda775so37736835e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:20:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795623658; x=1796228458; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0s6fmlzONGCK6lmJzVfynVtJ2jjFF8VyCT3dCxeu9Vc=;
-        b=RYHkCrYIwR6AofqMN7x9sFOrMv6j/xwBfJ2B6o1RKohEr8/S7q6t6mJ213sAn/Rlfs
-         sy9EsJlw7BdKC6EWddNnXAQb+tJvOLOY0VEG8ADIvwfzXAei+AX33B8vK1sJCKA0tpXY
-         K+wnXJ7s2LO2xVngWfRlSNKySOCDe/+sqI0BZOipT8UroTxiQAOVlCocCbjCCUwa+gqA
-         neQXCdOBr0EXeKAhazZx9egdnG7Ev/85uRJSS5idEGS5qlH9hEglPa39iPKFMrwRpVb/
-         XUe/+bcS7f64/uibxk6T7oPBHZznYFoskelcjILT8MOPxDebIt8qPboxlnrvmmuFi1jB
-         ZqrQ==
+        d=suse.com; s=google; t=1795623655; x=1796228455; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=w6xtuLM9HrxHujYVMQV7MBMbD4qoIrs9MPoeBowe9/w=;
+        b=VnT24unCRzAxVBIvnn9r46a8R9A6BXNaRo+yX5cvnyLgwCp0henfgCBHBui2C0pAVA
+         w2dpQaozcs8NFQaVxun/y3Z1KNoi31zDMQVghtQr1ZDmKDq8i25SqDpnW3b6PVKaatPp
+         2H7v0esKzmSaUttqCYFwrKU5gmxOg7dUIz+NJ1BIX51gCGeBgaONqw1kGuq1n4aSZFna
+         5+YmiNNlNk405nhM2LUPu/d029lix5yrZodVetHRVDVgG42weOXDSXQCmbUn40Y/+CCW
+         mT2DLi1Pa/m+/H+6dt2njdaHvhINECXUK3U8AEUfLEaTCc4LYZSfydEqfJRWI4AK77IL
+         S+TQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795623658; x=1796228458;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0s6fmlzONGCK6lmJzVfynVtJ2jjFF8VyCT3dCxeu9Vc=;
-        b=oRMgr67tVAWlfhxD402tYy5R+DpdOOjguol6P64LqdO/XaE2iWhRgf3KXcPv6LVBhD
-         t+oAE3+jDyxk5qG6kUaD/CjKZkQdludQG71p8N3ui39I82CxxmkeWy6FmRA57eRwVtsu
-         pFC8zwRoSP1/UvAVTqTkMoDECYw7Ah3Dg7VeefzLOhfyPsw7RluFFsvF2AbFeP3nVAkm
-         dfJuXSOLgzWSKPSMun5r0R1afoC4vqoj0HU9721bTz/xGq7VA12SufyMl8MEBYs4yxnd
-         fJSai+A2GCl2BCp95Ht24a7x8l0+raIBFI7jLpxnPtIoeDdPDlNHw6L+lQsUN2wKgrKH
-         777w==
-X-Forwarded-Encrypted: i=1; AL+hErFpAjXrhgZJnD9HJ8zECwxvzsFABjMp7V4rbPMEq6z96KOviwxq2rSl6YKQMC8MQ5KmZB0/vJ41+tTgn4k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8cgcEectjAA/5XgY0240LUt8hJYV4NgJzSuSS6LoVoY1OC/lT7
-	aNBRl1htwDzRvjfwFKoja8j7g9q6Pt3j/YHOx+FhGO260z3rf2Nz049GdH3hnnl+aAg=
-X-Gm-Gg: AZFdTZdH6HiOIx8vfUd9NDe7k24TbIgPXqijEwScjInaqrDIiGtjuNUdVF8Co5Oz6IE
-	Q6P+YVPTme3gPHom1G/gSKO5FYCxKLBECBQKVfw+a7mvDZw2psswvISXELL6khgi75/vMNn2BDE
-	UCXELzwmAcoRDRTlFo9ILKLJhVLnMy+7jf4ntULIePZfudfiDiCgKkVpCw8wD86A9bIiCDa1TXy
-	pK5MpZNmwgiN5bMAPZeZ6jYwC0nJa5RtkRmWQZbTJeesII3TT5vPn5uu32svsCZRwPIctrdUEO9
-	ZbxXCuBZjiACrjCcV5dh+vEE5CMuY5CJ+jC8a3m4iYzR8QVc4Go6k9uOawM4PMX+iQJwwhnZjFa
-	aakMjVDxTRUUPw/CrmVrF24PreRU3JyGSoDMMjyq1J6MMfOfYfuqTEAvSMMwefxAyIBIWFkBwGh
-	W7qoemNzjHwPLNBLOsPPRiimHkCQYtsTTS7SBzp4X0PI5p41TM/qZ3iEse0VAK2CLh0GmE/rcfx
-	HvZpgi10ZuP+ZomwSMRQjVMy8UQcv7/r7IyfGbYLqJMB/vyusCerSF/m2R5c968yEyreVbpyolZ
-	3JfrnuR1uFu/B7RdqV1jADjYKMNF2t7KI1E+qMykz+HOSVW9bA==
-X-Received: by 2002:a05:600c:3b1a:b0:4a7:8fe8:130c with SMTP id 5b1f17b1804b1-4bb8881d4damr384617425e9.28.1795623658289;
-        Wed, 25 Nov 2026 08:20:58 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795623655; x=1796228455;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=w6xtuLM9HrxHujYVMQV7MBMbD4qoIrs9MPoeBowe9/w=;
+        b=qI5Pbm1Kzr2+TGjI2Czgl2y1W0SHoPZAMmG6nZRRfxg1WdssdHnsA6W5fYDt+QDAaA
+         VUJqRZep/0BSyAvyx4PxkQkrxlOGHO7bU3pxBdfWe9PSSve35JgaloYqRNNAcq2HIAsK
+         iVBi+HdFsTRl65+yFNpWnA1RzbJfU/8ILcbluORETnB6pz643sJ/9tLl5s/yZXdvc8WQ
+         nfNJWv1WQrpWE1ujADioeON/IvJOGw2tMT+7i2H3DRpJJj5ecE4ydA254Bgt6EzL86Ij
+         s5xgSFTRBCE+qgs0h6mi5icmfHEatH4PVTfALHw/NrxiJl6sRCPXwNqmRnqHimFJZTC+
+         Lxaw==
+X-Forwarded-Encrypted: i=1; AL+hErGwnKLXhJ/ihtPE73WoTfSKTLDc/v7i/ZuFw/Q1flepZiRIQB0suK6WduCszyhynT4al4OSsVBkzZtqPVM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ssCFIaTX+WAgIKy/Zg5z94HbH6dCeZZpTZMhmFSGBaWoe28rB
+	Ra8AwbUBRoaJo6GA5pYdwf6sZL56AgosciFDyKKfNEROECOrGXMKHBrJ/w8xTSYyXRk=
+X-Gm-Gg: AZFdTZeP0u37pWz9C1ClLgPPzZIHAJCAVNuxkQZYHr+Rb4ptm70ujcPjyYE7tbJwP/F
+	AZMn2H0ESnbT4lqyezPGjmMWGi0xIuWpNvTm6WScagszuvBsI1NZiR3jJj7D/s4x/z0pu+wDYze
+	ATyWq0ifFjHASDhguYrfqk5Q68cIP6VmwQM+E68VQrKlCrekM0hg2O+7D+36EpIO94b25ZRxrJK
+	t4pFBViOTQe5sWyRDsiltHkeZDXiTZTdNcZaCkLAlNq6RkaFyDNIj9f7XA+jywGHMJPx1JsRFoM
+	BmkYnsWmlm1DF1QCdWFgHKrNFdZjaWUMDgghJPyYN3yyt1b5oqGtA06NnhGhrfgi3My+pjO0JTS
+	U/QbRUiVMPUKiPBcN0sTBuygO3j8tB2+oqzVPyIbUfij3yCxKLZL/uMUSeDCGprDDE+aUpgDVRw
+	dgBWGXvBW8Z1qwN80ZFoLQ2em0geLS4kN5fLOki5pF7B7lFKbhyDF5/Iqb58iIsBuc5w+KCWZfn
+	5u9gxBwGWijUQ8+YimSWFHx2YmhFkoGT2UeZ+dyHIYk2rthQjE72XmYzq1P6TEZtXDMIWTYIt9a
+	4OryUbfuHt2bi/O5qKHWWtbftedU1Q==
+X-Received: by 2002:a05:600c:4f81:b0:4bb:5e8c:13bc with SMTP id 5b1f17b1804b1-4bb88805902mr356474775e9.7.1795623655370;
+        Wed, 25 Nov 2026 08:20:55 -0800 (PST)
 Received: from localhost ([195.94.148.180])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853ca452sm515826755e9.15.2026.11.25.08.20.57
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906640a2sm288622535e9.0.2026.11.25.08.20.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 08:20:58 -0800 (PST)
+        Wed, 25 Nov 2026 08:20:55 -0800 (PST)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	linux-pwm@vger.kernel.org,
@@ -99,12 +98,10 @@ Cc: naush@raspberrypi.com,
 	linux-hwmon@vger.kernel.org,
 	krzysztof.kozlowski@oss.qualcomm.com,
 	Andrea della Porta <andrea.porta@suse.com>
-Subject: [PATCH v14 3/3] pwm: rp1: Register auxiliary device for the fan tachometer
-Date: Wed, 25 Nov 2026 17:24:52 +0100
-Message-ID: <20261125162453.23573-4-andrea.porta@suse.com>
+Subject: [PATCH v14 0/3] Add RP1 PWM controller support
+Date: Wed, 25 Nov 2026 17:24:49 +0100
+Message-ID: <20261125162453.23573-1-andrea.porta@suse.com>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20261125162453.23573-1-andrea.porta@suse.com>
-References: <20261125162453.23573-1-andrea.porta@suse.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,187 +113,82 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On the Raspberry Pi 5, the firmware running on the RP1 Cortex-M core
-measures the fan tachometer pulses and periodically writes the computed
-RPM value into the phase register of PWM channel 2, inside the RP1 PWM
-controller register block.
+Hi,
 
-The Linux PWM framework has no abstraction to report such a value, and
-the reading belongs to the hwmon subsystem. Following the auxiliary bus
-model, let the PWM driver instantiate a "fan" auxiliary device
-(pwm_rp1.fan.<id>) to which the hwmon driver can bind, without needing
-any additional DT node.
+This patchset adds support for the PWM controller found in the
+Raspberry Pi RP1 southbridge, used on the Raspberry Pi 5 to drive the
+cooling fan.
 
-The way the tachometer value is obtained (the register is shared with
-the channel phase control) is an implementation detail of the PWM
-driver, so provide rp1_pwm_read_tachometer(), exported in the 'RP1_PWM'
-symbol namespace, for the auxiliary driver to use, as documented in
-Documentation/driver-api/auxiliary_bus.rst.
+Since v13, the driver also registers a "fan" auxiliary device
+(pwm_rp1.fan.<id>). On the Raspberry Pi 5 the RP1 firmware measures the
+fan tachometer pulses and writes the RPM value in the phase register of
+PWM channel 2; the companion hwmon driver, sent as a separate series to
+the hwmon list, binds to that auxiliary device and reads the value
+through rp1_pwm_read_tachometer(), exported in the 'RP1_PWM' symbol
+namespace. This is the approach agreed in [1], and it removes the need
+for any dedicated DT node or binding for the fan.
 
-The auxiliary device is destroyed first in .remove(), so that the hwmon
-driver is unbound before the PWM controller resources are released.
+The DTS node for the controller is already in v7.4-rc1 [2]. The DT binding
+has been applied by Rob [3] for consistency to v7.4 and is part of v7.4-rc2: as
+a consequence, patch 1 is included only to make this series apply 'logically'
+on top of v7.4-rc1 and can be dropped when rebasing.
 
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
----
- MAINTAINERS                               |  1 +
- drivers/pwm/Kconfig                       |  5 +++
- drivers/pwm/pwm-rp1.c                     | 49 +++++++++++++++++++++++
- include/soc/bcm2835/raspberrypi-pwm-rp1.h | 12 ++++++
- 4 files changed, 67 insertions(+)
+Changes in v14:
+- rp1_pwm_round_waveform_fromhw(): fixed a u32 overflow in the duty_offset
+  computation when the period register holds U32_MAX, and return a zeroed
+  duty_length/duty_offset when the inverted output is constantly low,
+  instead of a duty_offset equal to the period, which is rejected by
+  pwm_wf_valid() (reported by Sashiko AI review [4]).
+
+Changes in v13:
+- dropped the DTS patch, already merged.
+- add patch 3, registering the auxiliary device for the fan tachometer
+  and exporting the accessor used by the hwmon auxiliary driver. The
+  exported function was originally part of the fan patchset. Since it
+  is really part of the pwm driver to be taken by Uwe, I moved it in
+  this patchset.
+- Kconfig: pwm module now depends on AUXILIARY_BUS.
+- added a macro to define the phase channel number from which to read
+  the fan speed.
+- removed the 'Tested-by' tag from Gary (see V12) since the patchset
+  has been significally changed and need to be tested again.
+- the controller private data is passed to the auxiliary device as
+  platform data, so the exported accessor no longer depends on how the
+  parent platform device stores its driver data.
+- dropped the unused 'pwm' argument from rp1_pwm_apply_config().
+- added a MAINTAINERS entry for the driver, its DT binding and header.
+
+[1] - https://lore.kernel.org/all/ae9a4df9-b1f2-4f00-ab86-d9cf8d9bc387@roeck-us.net/
+[2] - https://lore.kernel.org/all/7c437a10-985b-402c-b3ac-cfa97c53d014@broadcom.com/
+[3] - https://lore.kernel.org/all/20261102192302.GA882027-robh@kernel.org/
+[4] - https://lore.kernel.org/all/sashiko-outbox-231741@kernel.org/
+
+Thanks,
+Andrea
+
+This version has been prepared with the help of an AI coding assistant
+(Claude Opus 5.5).
+
+Andrea della Porta (1):
+  pwm: rp1: Register auxiliary device for the fan tachometer
+
+Naushir Patuck (2):
+  dt-bindings: pwm: Add Raspberry Pi RP1 PWM controller
+  pwm: rp1: Add RP1 PWM controller driver
+
+ .../bindings/pwm/raspberrypi,rp1-pwm.yaml     |  66 +++
+ MAINTAINERS                                   |   8 +
+ drivers/pwm/Kconfig                           |  12 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-rp1.c                         | 477 ++++++++++++++++++
+ include/soc/bcm2835/raspberrypi-pwm-rp1.h     |  12 +
+ 6 files changed, 576 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
+ create mode 100644 drivers/pwm/pwm-rp1.c
  create mode 100644 include/soc/bcm2835/raspberrypi-pwm-rp1.h
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5c7b280a2bdb..26f8520c02ee 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23382,6 +23382,7 @@ L:	linux-pwm@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
- F:	drivers/pwm/pwm-rp1.c
-+F:	include/soc/bcm2835/raspberrypi-pwm-rp1.h
- 
- RC-CORE / LIRC FRAMEWORK
- M:	Sean Young <sean@mess.org>
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index 523789e82355..7b271a16a483 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -641,9 +641,14 @@ config PWM_RASPBERRYPI_RP1
- 	tristate "RP1 PWM support"
- 	depends on MISC_RP1 || COMPILE_TEST
- 	depends on HAS_IOMEM
-+	select AUXILIARY_BUS
- 	help
- 	  PWM framework driver for Raspberry Pi RP1 controller.
- 
-+	  The driver also registers an auxiliary device that allows the
-+	  companion hwmon driver (SENSORS_RP1_FAN) to report the fan speed
-+	  measured by the RP1 firmware.
-+
- config PWM_SAMSUNG
- 	tristate "Samsung PWM support"
- 	depends on PLAT_SAMSUNG || ARCH_S5PV210 || ARCH_EXYNOS || COMPILE_TEST
-diff --git a/drivers/pwm/pwm-rp1.c b/drivers/pwm/pwm-rp1.c
-index 30ab06b4cb75..9afe3706e624 100644
---- a/drivers/pwm/pwm-rp1.c
-+++ b/drivers/pwm/pwm-rp1.c
-@@ -38,6 +38,7 @@
-  *   channel. As a result, phase control will be ignored for now.
-  */
- 
-+#include <linux/auxiliary_bus.h>
- #include <linux/bitfield.h>
- #include <linux/bits.h>
- #include <linux/clk.h>
-@@ -49,6 +50,7 @@
- #include <linux/pwm.h>
- #include <linux/units.h>
- #include <linux/spinlock.h>
-+#include <soc/bcm2835/raspberrypi-pwm-rp1.h>
- 
- #define RP1_PWM_GLB_CTRL			0x000
- #define RP1_PWM_GLB_CTRL_CHANNEL_ENABLE(chan)	BIT(chan)
-@@ -79,12 +81,16 @@ enum rp1_pwm_ctrl_mode {
- 
- #define RP1_PWM_NUM_PWMS			4
- 
-+/* Channel whose phase register is used by the firmware to report the fan RPM */
-+#define RP1_PWM_FAN_TACH_CHAN			2
-+
- struct rp1_pwm {
- 	void __iomem *base;
- 	struct clk *clk;
- 	unsigned long clk_rate;
- 	bool clk_enabled;
- 	spinlock_t lock; /* sync for RP1_PWM_GLB_CTRL RMW access */
-+	struct auxiliary_device *fan_adev;
- };
- 
- struct rp1_pwm_waveform {
-@@ -286,6 +292,32 @@ static const struct pwm_ops rp1_pwm_ops = {
- 	.write_waveform = rp1_pwm_write_waveform,
- };
- 
-+/**
-+ * rp1_pwm_read_tachometer() - read the fan speed reported by the RP1 firmware
-+ * @adev: the "fan" auxiliary device registered by this driver
-+ * @rpm: where to store the fan speed, in RPM
-+ *
-+ * Meant to be called only by the driver bound to the auxiliary device
-+ * created by rp1_pwm_probe(), which carries the controller private data as
-+ * platform data. The auxiliary device is unregistered before the PWM
-+ * controller resources are released, so that data is guaranteed to be
-+ * valid for as long as the auxiliary driver is bound.
-+ *
-+ * Return: 0 on success, negative errno otherwise.
-+ */
-+int rp1_pwm_read_tachometer(struct auxiliary_device *adev, u32 *rpm)
-+{
-+	struct rp1_pwm *rp1 = dev_get_platdata(&adev->dev);
-+
-+	if (!rp1->clk_enabled)
-+		return -EBUSY;
-+
-+	*rpm = readl(rp1->base + RP1_PWM_PHASE(RP1_PWM_FAN_TACH_CHAN));
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_NS_GPL(rp1_pwm_read_tachometer, "RP1_PWM");
-+
- static int rp1_pwm_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -347,8 +379,23 @@ static int rp1_pwm_probe(struct platform_device *pdev)
- 		goto err_disable_clk;
- 	}
- 
-+	/*
-+	 * The fan tachometer is exposed to the hwmon subsystem through an
-+	 * auxiliary device. The chip id is unique, so it is used to avoid
-+	 * name clashes if more than one RP1 PWM controller is enabled.
-+	 */
-+	rp1->fan_adev = auxiliary_device_create(dev, KBUILD_MODNAME, "fan",
-+						rp1, chip->id);
-+	if (!rp1->fan_adev) {
-+		ret = dev_err_probe(dev, -ENODEV,
-+				    "Failed to register fan auxiliary device\n");
-+		goto err_remove_chip;
-+	}
-+
- 	return 0;
- 
-+err_remove_chip:
-+	pwmchip_remove(chip);
- err_disable_clk:
- 	clk_disable_unprepare(rp1->clk);
- 
-@@ -360,6 +407,8 @@ static void rp1_pwm_remove(struct platform_device *pdev)
- 	struct pwm_chip *chip = platform_get_drvdata(pdev);
- 	struct rp1_pwm *rp1 = pwmchip_get_drvdata(chip);
- 
-+	/* Unbind the fan driver before tearing down the PWM controller */
-+	auxiliary_device_destroy(rp1->fan_adev);
- 	pwmchip_remove(chip);
- 
- 	if (rp1->clk_enabled) {
-diff --git a/include/soc/bcm2835/raspberrypi-pwm-rp1.h b/include/soc/bcm2835/raspberrypi-pwm-rp1.h
-new file mode 100644
-index 000000000000..290a052480bc
---- /dev/null
-+++ b/include/soc/bcm2835/raspberrypi-pwm-rp1.h
-@@ -0,0 +1,12 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef __SOC_RASPBERRY_PWM_RP1_H__
-+#define __SOC_RASPBERRY_PWM_RP1_H__
-+
-+#include <linux/types.h>
-+
-+struct auxiliary_device;
-+
-+int rp1_pwm_read_tachometer(struct auxiliary_device *adev, u32 *rpm);
-+
-+#endif /* __SOC_RASPBERRY_PWM_RP1_H__ */
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 -- 
 2.51.0
 
