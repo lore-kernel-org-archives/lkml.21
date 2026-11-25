@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620929;
-	b=Plfiu6gMNtwbQnNDcW9yyJ1gctEkdOSQyYUTqpfT3ldkIiRaCcjzVGg4LXqIAzTfJcjg
-	 qOlZ+MrGyVF2U3+oX8WBQcjE1Ji3cMrfKYXPBVUh2CJYvi8zjTUAuaUUtU1nXkcj9jXsg
-	 OZpSRW+NacHe1p9keGUEl/LAWtpdjZliRytf4fDIQt53MkSZCHL6RjfqHO28FJQKWuRun
-	 KPiiEjRtu3cSDt54GhiFXTtKScssjCy17hn9YONno0soZnG3+2HhEuwWSfEZgkGdDDpjJ
-	 k0U+njcKgAl9kUJNYq7P5/G6YPuB9QCnccPpn9+aKgRFP1SeqM24SVKB81hOkHWUwiA==
+	t=1795620920;
+	b=0aiBUN0h4Ne4sruOYPzTHU/JWcixltOuq/M+RFe7vm30T68sb5QtGmVpPlJp3AaWaKxy
+	 IKxOb8hOcy2f+cHFEMfsNaPe/T7QspFE50fj6atDq0NcbRQ2dJa86wTC0am+I9h7zJjMH
+	 nrKD0KaUMrh+3rHw9T7aPAWoR0/9XNVCuG0DlRADfVBxiO9wzhNrVJnOYKeQCLjzaL1Et
+	 ql95L/qfpsZSd4AGm2pxZ+dofujusFk97ixC65qLKtdpgStQQibJ9I/EqG3I7/uLyslQm
+	 7lT0y/QzCYYKooTznsiaUdUCCSj1eF+yMKu9brXJoF89wuCxJ0f9ccPuK6tOnLriWpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620929;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620920;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=YgbzK8ibSGsIrs51CljrXndaFhLfFEHG1dcdzH3xvHM=;
-	b=2xGb0dY3/gJX+cKm6hSXH4msBwniJcE2qyu51IR8eyJ/6B0/NWyMnNeOaWqm5IC7yr8w
-	 s1BfM9/3irRYQ9DqOeQN3UUd2Ri5AgSgbzWkACiHix4+mGm7PbVj+UE8obpkbIbQAuXdZ
-	 kkPewN1/eJyJZ0BuVFbVKO4Y4C/Tp3gYlc7jsSOs7FUZAnKBka5CZo4lUYNpitj1ukSLQ
-	 NAfVJN31n10BRIoo2nMWZwM5AWRJbcpCpvYQWFF3XQ+ay+l7WYHAg9ydrE/xpu/20ZE45
-	 M9RemEFmx5FgrkAMMhTtLSAo/0YKaaEK1/N6uBI2s71YaoCirNXbgPj2nZiGuPoi7ow==
+	bh=jSktlNSabOFTde557bn7gPpS3UAsNJINOi7TnGKiOII=;
+	b=GZB1SqXKybAVgMHO0ZqXRfrmX+eRlJ+yBQXtegNi7slw3AEnKCkr4jJDICQeyHqCs/M6
+	 U+1sBrVLlm+JAcBVl1/lhaiG7wwqFrvEoeAD2RqQ2mX76seGn9GLDVH3758jM6lrcbu1X
+	 O5RulTH3Bred9PRuvnOgPXLBxTI+2bI8Gha5lqBqy0lhuAZL3BoEHK5UQ+NrxMH5PWrBM
+	 ztRrVhMe5rPOGYaOE4qhOqaERhPpiZLBTGDW55a7mm4A2RavU0cvfIWsK0Ds7xQOKwIbl
+	 D0SzQa3o4znSshFUG+ftFz0bQYEjVzyF2FTL92GAGutSdM0LHJvv8ZnHMidNRzsPZ1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linbit.com;
 	spf=pass smtp.mailfrom=linbit.com;
-	dkim=pass header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=ffmHMm5r;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	dkim=pass header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=jTnOku1r;
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 262C5606A69F
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:35:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 262C5606A69F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 425C0606A693
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:35:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 425C0606A693
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linbit.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=ffmHMm5r
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4bb606491faso31791725e9.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:35:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=jTnOku1r
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4a34ffd3e39so3242583f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:35:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linbit.com; s=google; t=1795620927; x=1796225727; darn=vger.kernel.org;
+        d=linbit.com; s=google; t=1795620919; x=1796225719; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=YgbzK8ibSGsIrs51CljrXndaFhLfFEHG1dcdzH3xvHM=;
-        b=ffmHMm5rp7v5ywmmeByUKwGrCM9qkBnSpyMKk832u8XteyMMVBNNmYN7GnvKaoysZT
-         HY0DgreFH8IbKhb43hP9FjMwrBRokPxJ5xBCeJ1h0abWj8qXWjFvix4xsKn9kaaEFiuS
-         CZUoAhnk0Q6HmMth1UDZOBz5TZ2r7/5cayoqz9m2Oht00gIhwPFuCo4fKA4JnEbYPeRM
-         z/KsapnIBhA8Th5eJTdUAIAapyYOYTpTI5PnRZtwweX0swvXfQt3RB7tqYAB7XYBqdfj
-         1JEvO8inaZpDwMoSnfem2nOJIQ/inV0+DM9KwXwSGTpSSCKGfO7V7M1CM3pwnA6WjKAk
-         hNzg==
+        bh=jSktlNSabOFTde557bn7gPpS3UAsNJINOi7TnGKiOII=;
+        b=jTnOku1rqYjPBmJMkExy3mNracstRtRc4T9DMU8ty1uwM/bE3Yyb7moOO03owF7C+V
+         OMx7WzBrNaYy2qGvMyTcZx99PmJGS35PEBF7mv8GlPCw5q8PvVBQxjciZfsXY+TveppN
+         ElLmmGU+AKCT7ejLFufQnegmYjtJSQkw+5z9g4hfjeGLwnMATtzh59Tnsw4m7BvEGZ7F
+         OIHy6I5OzKiLCmtjEg3tJmRT9rf2I2oyXz8udWgblWkqPImnHL+9E8IBWoimW9Q2kzEf
+         OOtbqHAchqq0sX0e+lcmcbIh1CFX2yaqkwzJ5lxtFvZqbf53DOQANG30Kn4r9pxDWeZ0
+         dGVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795620927; x=1796225727;
+        d=1e100.net; s=20260707; t=1795620919; x=1796225719;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=YgbzK8ibSGsIrs51CljrXndaFhLfFEHG1dcdzH3xvHM=;
-        b=cdumbGdVYWzjxQtvQ8NUi51mycacNYdntXZAbkXr3dCUUNiWOHZlFQjY3YMmzPQcl7
-         /oWkZTqpHSZFjP67D4BfrcaV4pDWu5ZiGLrjcVtEGtCqYnFwGecjoagWk0JC27jZcUqz
-         QidTIkd0FEGo+UmVMp2dk7DDzNEVN9jyA7+WOVnhVqr60ijKeC2J7l4TRmuq3SuSZFCe
-         gUC+1MomP4q2JME1DcPicguHZgKe6tG38jPGQTO0tvX/N8hmteUPgbS3CUZhTkyVA8Kg
-         qhCO7PSOObdbRTt7kZNRAFNBibAxDT/yN7jJ0e6+M1SUyFmeSiy7wgknhUyx/5ANZyTc
-         dO2Q==
-X-Forwarded-Encrypted: i=1; AL+hErGL03lT1fP/Oh/Jm9nbFvHlO8OcVL3D1FxSv3wt49D1RE4qP3zwM0wwImJ9wtlkENx+H1Qr2UUI5aObrws=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ubf2uyF9GymFv7n/d/g3wK2hdOm9iJ3BrYfHfIUfeOIMB5eVv
-	53GqFuHvJtzD+ovO0WIncui59BbIppg4Solzbjm6viv9vBXCKF25nd722XZ1SorWXlk=
-X-Gm-Gg: AZFdTZcjs0THKtc2mRBg9ppNVbhcjzVT3Uq3+z9cMXK0wob5Fh6q5+9y4bUAuOVX1fT
-	ArKzYDlGjCwmbGWkLyT/77xahJ2g4MXLV+HphWtgHtxBi49ubNB4f0x3ET88oHF7Fy1H5XIWfQr
-	DpJ1iQb6y7/JhdEWt36ue3Fb56KE/t/AOzwjCixffZYa8rWg/kv8P9cG4HYB+JBABmIhRYmQRJP
-	IrG5KvXvPEoz1YfTNN8fXEnc8/PxCPWlWR8sL5u59rIuJvscd+TYTsNkujFL90v1LZdMk+839iq
-	Ehpj+5+HYOQwLTthb5EMpZBrF4idRK5VVN1dDdkaJU8658DPVDtl/JlL2oMzjXrVG/1oNa1Il6y
-	DSIrggbqeAhzKjQxuydpprfioHs20HH48AokZ9KV0yUNufTjPsg6dZ0EJPYxJ/P7IJJ4w44UGQ6
-	rWC3szEkpXxt8ZEe90aE7GYisU0toXNqYp78xztZ2oWRWPhnCf4YUssq/JW+tt8aI2MlFccAE3L
-	+CET1dlR5lYlkReVbSTj2KRt8MnhE1+TU9ohWUAuVSyk53DCcvviwIjvuKPksW9Qd8mqt2SEpCh
-	tQhGpt5snBG4yYYl4YbbivoV/tzdUsLwCKQph/Z2RsNFwVWnCQggXQ7jrqzXlbIjfV3Nw8f4Ig=
+        bh=jSktlNSabOFTde557bn7gPpS3UAsNJINOi7TnGKiOII=;
+        b=2FB/qtpw2iewsgMqEYCORycxrerR2FTP3qy+So117uBdZiN85sKP5AZ6OJ2ABkOReE
+         YKWSTzOoB+M9RRqoZHuhcaaq006p/VsqGgGE+LnSQg6oJbPOFkmMNp6AAjivSiEYXfRi
+         aow+0MEF59xjl43Doghb+ORbvVaZZrD8cwjeaY3sn/UbkCpVa6uyzYy5nboo9ekr7sun
+         z3dszMRwigGTgkcSjtWgWZXb4SLHnl/TXoHS1E7bhkQUE7F0ZPXBy5wpQKZhOKjZs09u
+         MUqayBjp55O8WOV9Ys6C6UgokO5OPy5RvrFIfs0jpIlsmz9iwsGmzhVU0NHJqg0pzjUO
+         l3Lg==
+X-Forwarded-Encrypted: i=1; AL+hErFIgukc+4v11bC2YWUxgN1sDvEA+ivSNc6XyzC/8wJX6vVh8IzuUxnyU7Eds9J+SXG+8in3qo9VUhMhst8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9k18M1WOhi5bgRWu3WEcipAqFz2qiRSscJrqzyyhLnQik7Exkt
+	r93mYcbPSC8o4Kf255cuy4a/XjW5qQ9MOrEVLSOS1CXvReV5MtcB9j1pyP+ogpOlRDE=
+X-Gm-Gg: AZFdTZfVqhI9buWYhGdyImPJj3XBooc2fntEBwallqykcz+xeKcwjX/zMbGQYXZ6xnK
+	/BW16o8f0ZKW+551DVPgDB4pMnwPsMQF+TmE7pUPZ8IlfoWQ+8TxxbTtL8EXC2sFwpbqFZLR0xG
+	IvvjoWEUdTfW54DLpWCBB5FdAJsJxH5S41nNo7pbGB6YIWqku7GpuPSTH5Lz1rlmfvC+504jgBh
+	u/9C66FfT0vjqcKC6LDHxJndOOJ0cDuBFq58XetPjHo1Q2EubQrFjmsy3ICYxdMLHffUsPx/Sgm
+	sZJ5/UQoMFkzR1PnPkYy91DFvsZGPo4vZ5pY25c7ry07Z5+UXrwjpdNPsvCTYnrnHlShdfFwtwF
+	Ma2/ISMy6LD79qEBo41REhcKick/Eim/RM49ejg6pWmXf/EFLlKMoN8DCBxXQ62BxessUzrrihV
+	Shq81eRKWg9n8Y0TxZNHL/htb+kbWH4nx225OqsrgvNLwgLIRjZCrrmsflGtH40OAX2VTosWi41
+	qCezbk+eLges+k9EFnlEKZ2pct9j42NdHPJd0PFAOEzGUszHEz2xanP3xBg8wtHcOkFNVTheHNl
+	uGd6gGxBRByLZgzeUxSSL2D4cOtNxBHOGnTjUsSjYQjtkppIC77HrO7PBb1SjgNP6WwM6Fa+BA=
 	=
-X-Received: by 2002:a05:600c:64c8:b0:4bb:68e5:b952 with SMTP id 5b1f17b1804b1-4bb88819be1mr349292065e9.16.1795620927423;
-        Wed, 25 Nov 2026 07:35:27 -0800 (PST)
+X-Received: by 2002:a05:6000:1863:b0:48d:b940:af7a with SMTP id ffacd0b85a97d-4abb665167bmr43936314f8f.55.1795620918663;
+        Wed, 25 Nov 2026 07:35:18 -0800 (PST)
 Received: from linbit.com (h082218129081.host.wavenet.at. [82.218.129.81])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm35816275f8f.3.2026.11.25.07.35.26
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm35816275f8f.3.2026.11.25.07.35.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 07:35:26 -0800 (PST)
+        Wed, 25 Nov 2026 07:35:18 -0800 (PST)
 From: =?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>
 To: Jens Axboe <axboe@kernel.dk>
 Cc: drbd-dev@lists.linux.dev,
@@ -87,13 +87,10 @@ Cc: drbd-dev@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Philipp Reisner <philipp.reisner@linbit.com>,
 	Lars Ellenberg <lars.ellenberg@linbit.com>,
-	=?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	linux-doc@vger.kernel.org,
-	Joel Colledge <joel.colledge@linbit.com>
-Subject: [PATCH v4 09/21] drbd: add application/resync IO synchronization documentation
-Date: Wed, 25 Nov 2026 16:34:59 +0100
-Message-ID: <20261125153511.3060599-10-christoph.boehmwalder@linbit.com>
+	=?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>
+Subject: [PATCH v4 03/21] drbd: introduce DRBD 9 on-disk metadata format
+Date: Wed, 25 Nov 2026 16:34:53 +0100
+Message-ID: <20261125153511.3060599-4-christoph.boehmwalder@linbit.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261125153511.3060599-1-christoph.boehmwalder@linbit.com>
 References: <20261125153511.3060599-1-christoph.boehmwalder@linbit.com>
@@ -109,244 +106,188 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Add documentation describing how DRBD synchronizes application and
-resync IO, including the dagtag-based locking scheme introduced with
-the DRBD_FF_RESYNC_DAGTAG feature flag.
+Add a new header that captures the DRBD 9 on-disk metadata layout,
+enabling state tracking for multiple peers.
+It includes the per-device superblock and per-peer slot structures
+needed to track bitmap UUIDs and sync state for each peer.
 
-Co-developed-by: Joel Colledge <joel.colledge@linbit.com>
-Signed-off-by: Joel Colledge <joel.colledge@linbit.com>
+Co-developed-by: Philipp Reisner <philipp.reisner@linbit.com>
+Signed-off-by: Philipp Reisner <philipp.reisner@linbit.com>
 Signed-off-by: Christoph Böhmwalder <christoph.boehmwalder@linbit.com>
 ---
- .../application-resync-synchronization.rst    | 208 ++++++++++++++++++
- .../admin-guide/blockdev/drbd/index.rst       |   1 +
- 2 files changed, 209 insertions(+)
- create mode 100644 Documentation/admin-guide/blockdev/drbd/application-resync-synchronization.rst
+ drivers/block/drbd/drbd_meta_data.h | 163 ++++++++++++++++++++++++++++
+ 1 file changed, 163 insertions(+)
+ create mode 100644 drivers/block/drbd/drbd_meta_data.h
 
-diff --git a/Documentation/admin-guide/blockdev/drbd/application-resync-synchronization.rst b/Documentation/admin-guide/blockdev/drbd/application-resync-synchronization.rst
+diff --git a/drivers/block/drbd/drbd_meta_data.h b/drivers/block/drbd/drbd_meta_data.h
 new file mode 100644
-index 000000000000..895312453229
+index 000000000000..06014d8c84a7
 --- /dev/null
-+++ b/Documentation/admin-guide/blockdev/drbd/application-resync-synchronization.rst
-@@ -0,0 +1,208 @@
-+=========================================
-+Application and Resync IO Synchronization
-+=========================================
++++ b/drivers/block/drbd/drbd_meta_data.h
+@@ -0,0 +1,163 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef DRBD_META_DATA_H
++#define DRBD_META_DATA_H
 +
-+This summary describes one aspect of the Distributed Replicated Block Device
-+(DRBD) protocol. For a full definition of the protocol see the DRBD code.
++#define be_u64 __be64
++#define be_s64 __be64
++#define be_u32 __be32
++#define be_s32 __be32
++#define be_u16 __be16
 +
-+IO operations to the DRBD backing device can originate from 2 sources. Normal
-+operations from a filesystem or other user of DRBD are called application IO.
-+Resync operations in DRBD also perform reads and writes. These operations must
-+be synchronized to ensure that the data on the backing device is correct.
++/* how I came up with this magic?
++ * base64 decode "actlog==" ;)
++ */
++#define DRBD_AL_MAGIC 0x69cb65a2
 +
-+For instance, the following must be prevented:
++#define BM_BLOCK_SHIFT_4k	12			 /* 4k per bit */
++#define BM_BLOCK_SHIFT_MIN	BM_BLOCK_SHIFT_4k
++#define BM_BLOCK_SHIFT_MAX	20
++#define BM_BLOCK_SIZE_4k	4096
++#define BM_BLOCK_SIZE_MIN	(1<<BM_BLOCK_SHIFT_MIN)
++#define BM_BLOCK_SIZE_MAX	(1<<BM_BLOCK_SHIFT_MAX)
 +
-+* Resync read obtains block version v1 on some node
-+* Application writes block version v2 on all nodes
-+* Resync write overwrites block version v2 with version v1
++struct peer_dev_md_on_disk_9 {
++	be_u64 bitmap_uuid;
++	be_u64 bitmap_dagtag;
++	be_u32 flags;
++	be_s32 bitmap_index;
++	be_u32 reserved_u32[2];
++} __packed;
 +
-+In addition, care must be taken to ensure that bitmap bits are only cleared
-+when this block is genuinely in sync between these nodes.
++/* Changed block tracking: one bitmap slot, not owned by a peer, records every
++ * write to the backing device since the bookmark "id". Valid only with
++ * DRBD_MDFF_CBT in the features.
++ */
++struct cbt_bookmark_on_disk_9 {
++	be_u64 id;		/* the slot records changes since this bookmark */
++	be_u64 bitmap_uuid;	/* current UUID at cbt-start */
++	be_u64 bitmap_dagtag;	/* the Primary's dagtag at cbt-start */
++	be_s64 since;		/* time of cbt-start, seconds since the epoch */
++	be_u32 flags;		/* CBT_BOOKMARK_* */
++	be_s32 bitmap_index;
++} __packed;
 +
-+Synchronization with resync extents
-+===================================
++struct meta_data_on_disk_9 {
++	be_u64 effective_size;    /* last agreed size */
++	be_u64 current_uuid;
++	be_u64 members;		/* only if MDF_HAVE_MEMBERS_MASK is in the flags */
++	/* Feature flags. Values prefixed with "DRBD_MDFF".
++	 * Separate from "flags": Unknown features bits are cleared; unknown flags bits are kept.
++	 */
++	be_u64 features;
++	be_u64 reserved_u64[2];   /* to have the magic at the same position as in v07, and v08 */
++	be_u64 device_uuid;
++	be_u32 flags;             /* MDF */
++	be_u32 magic;
++	be_u32 md_size_sect;
++	be_u32 al_offset;         /* offset to this block */
++	be_u32 al_nr_extents;     /* important for restoring the AL */
++	be_u32 bm_offset;         /* offset to the bitmap, from here */
++	be_u32 bm_bytes_per_bit;  /* BM_BLOCK_SIZE */
++	be_u32 la_peer_max_bio_size;   /* last peer max_bio_size */
++	be_u32 bm_max_peers;
++	be_s32 node_id;
 +
-+Older versions of DRBD without the feature flag ``DRBD_FF_RESYNC_DAGTAG``
-+perform synchronization using "resync extents". These are also known as "bitmap
-+extents". They are stored in an LRU cache. These extents are exclusive with the
-+activity log extents.
++	/* see al_tr_number_to_on_disk_sector() */
++	be_u32 al_stripes;
++	be_u32 al_stripe_size_4k;
 +
-+Synchronization with data generation tags
-+=========================================
++	be_u32 reserved_u32[2];
 +
-+When the feature flag ``DRBD_FF_RESYNC_DAGTAG`` is present, DRBD synchronizes
-+resync and application IO using the concept of the "data generation tag"
-+(dagtag). This is coupled with fine-grained locking of the request intervals,
-+implemented internally using an interval tree.
++	struct peer_dev_md_on_disk_9 peers[DRBD_PEERS_MAX];
++	be_u64 history_uuids[HISTORY_UUIDS];
++	struct cbt_bookmark_on_disk_9 cbt_bookmark;
 +
-+For a given node, the dagtag is the number of sectors written by the
-+application on that node. The dagtag is used to determine which node has newer
-+data in certain scenarios. DRBD keeps track of the dagtags of its peers.
++	unsigned char padding_start[0];
++	unsigned char padding_end[0] __attribute__((aligned(4096)));
++} __packed;
 +
-+Whenever a resync request is made, the ``L_SYNC_TARGET`` node making the
-+request sends the dagtag from the current Primary node, if any. The
-+``L_SYNC_SOURCE`` node must wait until it has received the data corresponding
-+to this dagtag before responding to the resync request. This is important for
-+preventing the resync from writing older data over newer data.
++/* Attention, these two are defined in drbd_int.h as well! */
++#define AL_UPDATES_PER_TRANSACTION 64
++#define AL_CONTEXT_PER_TRANSACTION 919
 +
-+In addition, the request intervals are locked according to the following
-+scheme:
++enum al_transaction_types {
++	AL_TR_UPDATE = 0,
++	AL_TR_INITIALIZED = 0xffff
++};
++/* all fields on disc in big endian */
++struct __packed al_transaction_on_disk {
++	/* don't we all like magic */
++	be_u32	magic;
 +
-+* Primary: The application IO interval is locked while the data is being
-+  written to the backing disk. In addition, conflicting application IO is
-+  prevented until the epoch containing the request is complete. However, this
-+  is effectively a separate lock. Resync IO is not blocked while this lock is
-+  held.
-+* Secondary: The application IO interval is locked while the data is being
-+  written to the backing disk.
-+* Sync target: The ``P_RS_DATA_REQUEST`` interval is locked. The lock is taken
-+  in two phases. Before sending the request, the interval is locked for
-+  conflicts with other peers. Then the dagtag is recorded and the request is
-+  sent. When the reply is received, the interval is additionally locked for
-+  conflicts with ongoing IO, in particular writes from the same peer. The lock
-+  is released when the reply has been received and the data written to the
-+  backing disk.
-+* Sync source: The ``P_RS_DATA_REQUEST`` interval is locked. The lock is taken
-+  when the dagtag for the request is reached. It is released when the
-+  ``P_RS_WRITE_ACK`` is received. This lock is a read lock; it is exclusive
-+  with write locks, but not with other read locks.
-+* Verify source: The online verify interval is marked but does not block any
-+  other requests. The mark is set then the dagtag is recorded and the request
-+  is sent. The mark is removed when the ``P_OV_REPLY`` has been received, the
-+  dagtag from the reply has been reached and the data read. If any conflicting
-+  writes occur while the mark is set, the sectors are skipped.
-+* Verify target: The online verify interval is marked but does not block any
-+  other requests. The mark is set when the dagtag for the request has been
-+  reached. It is removed after reading the data. The latest dagtag received by
-+  this node is sent with the ``P_OV_REPLY``. If any conflicting writes occur
-+  while the mark is set, the sectors are skipped.
-+* Sending ``P_PEERS_IN_SYNC``: Intervals are briefly locked while sending
-+  ``P_PEERS_IN_SYNC`` to ensure that the bits remain in sync until the packet
-+  has been sent.
++	/* to identify the most recent transaction block
++	 * in the on disk ring buffer
++	 */
++	be_u32	tr_number;
 +
-+If a conflict occurs when an interval should be locked, the request is delayed
-+until the conflict resolves. Internally this is implemented by storing the
-+interval in the tree in an unlocked form. When an interval is removed from the
-+tree, the tree is searched for any intervals which can now be released.
++	/* checksum on the full 4k block, with this field set to 0. */
++	be_u32	crc32c;
 +
-+Application IO defers to resync IO. That is, application IO is blocked by
-+resync IO even when that resync IO has not yet obtained the lock for its
-+interval. This is important for ensuring progress. In the normal case, resyncs
-+only make one pass through the data. Hence they will eventually terminate.
-+Application IO, on the other hand, can keep a given region busy for an
-+arbitrary length of time. So resync IO must not wait indefinitely for
-+application IO.
++	/* type of transaction, special transaction types like:
++	 * purge-all, set-all-idle, set-all-active, ... to-be-defined
++	 * see also enum al_transaction_types
++	 */
++	be_u16	transaction_type;
 +
-+Correctness of data
-+-------------------
++	/* we currently allow only a few thousand extents,
++	 * so 16bit will be enough for the slot number.
++	 */
 +
-+We only consider the synchronization between application and resync IO here.
++	/* how many updates in this transaction */
++	be_u16	n_updates;
 +
-+The locking scheme prevents any writes from other peers to the resync request
-+interval from when the request is initiated until the received data is written.
-+After the lock is taken on the target, the dagtag is recorded and the request
-+is sent to the source. The source then waits until it has reached this dagtag
-+before reading. This ensures that the resync data is at least as new as the
-+data on the target when the request was made.
++	/* maximum slot number, "al-extents" in drbd.conf speak.
++	 * Having this in each transaction should make reconfiguration
++	 * of that parameter easier.
++	 */
++	be_u16	context_size;
 +
-+Conflicting application writes that reach the target while the resync request
-+is in progress are held until the resync data has been written. Hence they
-+overwrite the resync data. In the case where the source had already received
-+this application write when it performed the resync read, the application write
-+will overwrite the resync write on the target with identical data. This is
-+harmless.
++	/* slot number the context starts with */
++	be_u16	context_start_slot_nr;
 +
-+Resync requests sent from the target are not exclusive with application writes
-+from the same peer. However, since the resync and application data originate
-+from the same node, they are transmitted in the correct order in the data
-+stream. Application IO defers to received resync IO, ensuring that a resync
-+write received before an application write is also submitted first.
++	/* Some reserved bytes.  Expected usage is a 64bit counter of
++	 * sectors-written since device creation, and other data generation tag
++	 * supporting usage
++	 */
++	be_u32	__reserved[4];
 +
-+Correctness of bitmap bits
-+--------------------------
++	/* --- 36 byte used --- */
 +
-+DRBD guarantees that bitmap bits are set, or the corresponding activity log
-+extent is active, on at least one peer whenever 2 nodes are out of sync with
-+each other. A resync is called "stable" when the target is a neighbor of the
-+Primary node, if there is one. After a stable resync, all bitmap bits should be
-+clear. In other situations, DRBD makes a best effort attempt to clear bits when
-+appropriate.
++	/* Reserve space for up to AL_UPDATES_PER_TRANSACTION changes
++	 * in one transaction, then use the remaining byte in the 4k block for
++	 * context information.  "Flexible" number of updates per transaction
++	 * does not help, as we have to account for the case when all update
++	 * slots are used anyways, so it would only complicate code without
++	 * additional benefit.
++	 */
++	be_u16	update_slot_nr[AL_UPDATES_PER_TRANSACTION];
 +
-+Hence we need to ensure that:
++	/* but the extent number is 32bit, which at an extent size of 4 MiB
++	 * allows to cover device sizes of up to 2**54 Byte (16 PiB)
++	 */
++	be_u32	update_extent_nr[AL_UPDATES_PER_TRANSACTION];
 +
-+1. Bits are set when out of sync
-+2. Bits are only cleared when in sync
-+3. Bits are cleared in a stable resync
++	/* --- 420 bytes used (36 + 64*6) --- */
 +
-+We are only considering the synchronization of application and resync IO here,
-+so we only need to consider interactions between the 2 types. Requirement (1)
-+holds due to the general design for how writes work in DRBD. Requirement (3)
-+holds because there is no operation that sets bits in a stable resync. The
-+potential issues with these interactions arise with requirement (2). We need to
-+ensure that bits are never cleared that have become out of sync during the
-+operation.
++	/* 4096 - 420 = 3676 = 919 * 4 */
++	be_u32	context[AL_CONTEXT_PER_TRANSACTION];
++};
 +
-+On a Primary node, writes cause bits to be set and cleared when the
-+corresponding ``P_BARRIER_ACK`` packets are received. On a Secondary node,
-+writes cause bits to be set and cleared when the corresponding ``P_PEER_ACK``
-+is received. On a sync target, bits are cleared when the resync data has been
-+written. On a sync source, bits are cleared when ``P_RS_WRITE_ACK`` is
-+received.
++#define DRBD_AL_PMEM_MAGIC 0x6aa667a6 /* "al==pmem" */
 +
-+The bits cleared by writes must always be in sync because the corresponding
-+nodes have received the write. As demonstrated in the section "correctness of
-+data", they cannot lose this data due to a resync.
++struct __packed al_on_pmem {
++	be_u32 magic;
++	be_u32 slots[];
++};
 +
-+For a stable resync, bits will not become out of sync for the peer device on
-+either side during the resync operation because both peers receive the
-+application writes.
++#undef be_u64
++#undef be_s64
++#undef be_u32
++#undef be_s32
++#undef be_u16
 +
-+On a sync target for an unstable resync, no application writes are received, so
-+there will be no bits set that could be incorrectly cleared.
-+
-+On a sync source for an unstable resync, the interval is locked until
-+``P_RS_WRITE_ACK`` is received. Hence, when the bit is cleared, the target has
-+the same data for the interval as the source. That is, they are still in sync.
-+
-+For ``P_PEERS_IN_SYNC`` we consider only the 3 node case. There is only one
-+configuration with an unstable resync with 3 nodes. That is a chain
-+A - B - C with A being Primary and a sync from B to C. The only
-+``P_PEERS_IN_SYNC`` packets that have an effect in this configuration are those
-+from B to A indicating that C is in sync for some interval. B only sends this
-+packet when no bitmap bits are set towards C for the interval. In addition,
-+B must ensure that no application write causes bits to be incorrectly cleared
-+on A towards C. This could occur when B has sent ``P_BARRIER_ACK`` for a write
-+which is not yet represented in its bitmap towards C. So B must not send
-+``P_PEERS_IN_SYNC`` for an interval where this may be the case. To do this, it
-+checks that there is no activity in the activity log that overlaps with this
-+interval. To ensure that no writes occur between this check and sending
-+``P_PEERS_IN_SYNC``, it locks the interval temporarily.
-+
-+Deadlock safety
-+---------------
-+
-+We can ignore the locking of application IO until the containing epoch is
-+complete. No other lock acquisition depends on it. To put it another way, it
-+operates on a level above the rest of the locking.
-+
-+The locking on Primary and Secondary while application IO is being written to
-+the backing disk does not depend on any other lock acquisition. So it is
-+guaranteed that a locked interval of this type will eventually be unlocked.
-+
-+Online verify does not block any other operations, so cannot be involved in
-+causing a deadlock.
-+
-+Sending ``P_PEERS_IN_SYNC`` also cannot be involved in causing a deadlock
-+because it does not depend on any other lock acquisition.
-+
-+Resync requests depend on the corresponding peer. If the connection is lost,
-+the operation is aborted, so no deadlock will occur as a result of
-+non-responsive peers.
-+
-+A node cannot be both sync source and sync target simultaneously. Hence there
-+are no locks in the scheme which can block sync source reads indefinitely. So
-+a resync request from a sync target will always eventually receive a reply,
-+which allows it to perform the write and unlock its interval. This in turn
-+guarantees that the sync source will receive an ack and unlock its interval.
-+
-+Hence the locking scheme itself is free from distributed deadlocks.
-diff --git a/Documentation/admin-guide/blockdev/drbd/index.rst b/Documentation/admin-guide/blockdev/drbd/index.rst
-index 561fd1e35917..5d8d6707e4f4 100644
---- a/Documentation/admin-guide/blockdev/drbd/index.rst
-+++ b/Documentation/admin-guide/blockdev/drbd/index.rst
-@@ -15,5 +15,6 @@ Description
- .. toctree::
-    :maxdepth: 1
- 
-+   application-resync-synchronization
-    data-structure-v9
-    figures
++#endif
 -- 
 2.56.0
 
