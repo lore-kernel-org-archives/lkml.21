@@ -1,62 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795634643;
-	b=KbeGcYPksyi2TKDpgSssvoeweOQoM46r0CmwRtIXl2BNHBtjAVEDUzXQpGxHoiTe4gLu
-	 YyePJXvDGpPOxQNj1IdWvA8SxHBe/68rBwdQlqNGx0/B7RKU+ydpysogJLueZiHr7jwIt
-	 Efudi9iUc8501+NgjG6YDr1E0stxnN1NEZDjCaRAeEEJJznK+lAY2jDXdqryhlOt2bjp9
-	 FA/2vIMxCWhwbVWM8BWi7AkO5cmh3uQdhs7zxJ4k/52mcCGLlATt/y6A6QER2XFITj1KG
-	 pj6NzBLT+WcAzqQVteSdscttvBtoTAHf6tzuRac34mkuA1TWShTYXDL08PN35ACLCtA==
+	t=1795634645;
+	b=R5BCKzNuGadrGp9G7zHXfBLqbWWW/VEYJn4+U9Io19SfXHU4XuCPiAPQBjn6eucS9HQi
+	 adqIbIdQSeokdNjn7L6HUpaaFt44Frye1pdg+uNyufcVwfng9RWAN9+4ZVVcgDs3fkc3U
+	 3MD6/k3sVDB5kavnlx21SxY700SVPDXLkxHGN3HbTrPD/xb9MLqkybTu+qOWDfiroyk7R
+	 iXU8VueYtoeR66JmqPhCCqWW73W/ZrpNwVpbUMV6P6Wx2uaVDT11l45WKhbOz6h6v7fr7
+	 RBMOUFhGOji9S5es1brnotThiZR5hzsASSVN0OWGyKLiki3yHE3U/zObKYUEGtCVxuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795634643;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=KGmUhDDN0UG2rp9CP1JqbUp2tr3lxr0jBQoyS/TZUB4=;
-	b=nlgj1NbzwA8AMXy1mt7TwwDqKvnFksBVQsEaP3PerJzD13v13umr27JhdL8drSDmwuBR
-	 AG8HacjV/j3k0VnUzaeNWoR/NJYn8A5uSK2bnTlVV2AM/aRvu4qtZRbNZnAplTfLrZ1eE
-	 PvqI+LGIjTYyFHBDpKYpxQ0o35k7YcefsUnZwbAmh0kqYYWwkZhTwIdNvLILYgstemRB0
-	 Lm0EW8LznKMvsMRIb+xkRaj9+8zNqNFZYD6GVBa7hAFXNTNmlct/2ea8SrY7ViyEOkIqv
-	 blcAxuaBAh30wy3A+VbxcMq4CKwCceku00LtW/i+3J8gmsD4EklBzglQytEuw7wldyw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795634645;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=3W56owSBc9jDVBiGRn0n4U9fWiaOv59zmbpdMIKAQa0=;
+	b=1xWEBO8kGbmAUdV5WEeM+UA5RMkFtMVe5BWqlGzFLEwY+2tW3GP/PGYTZk30XVMoeLhF
+	 Ky27aOLJh/qr8N//Rerfsu9jNBYeteg8+HuU4XQmKEGq18lRbzaRIplKNbp3PAEZR0TgC
+	 3DbViA1VhVZN29HcxfvAZg3vuH6RmEJhAZk32Oez9M2qxOAit9PrXmC84BZzI6udgPNWq
+	 Z4hSKEn6ztCInvyjS6A4B1WBf+D5JMteO8lmJx83Ju10SiuWVQzT0FJ3pL3SNg3quE1Ju
+	 ql2ptbIp5N2xMn7pQJ5bBUCj65ujsGa+df8vdwpz/c3uZ35Yy/24uTAtjgIcs1BHmCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q14KmGIu;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Sz+yewe6;
+	arc=none smtp.remote-ip=209.85.128.44
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D398606A321;
-	Wed, 25 Nov 2026 19:24:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F6F8606A331
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:24:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F6F8606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q14KmGIu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFECE1F0089F;
-	Wed, 25 Nov 2026 19:23:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795634642;
-	bh=KGmUhDDN0UG2rp9CP1JqbUp2tr3lxr0jBQoyS/TZUB4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Q14KmGIupizQuBj0gJFxduH573ZEVMJGbA84pxIr1q4UlvgNl3LgL9YIHPsm4Q9E8
-	 EpuA5U5H2mLGUBtRspWfmvbMuQr0Jafc+d3H4Ma6QNUDVnCvQCCk0DPQNOMOVUxbHq
-	 0dI4JyOMbvPRn2l9vnLfO5TUDAy9HM09vmhd+DJXEaSVvSOvLNE+WrB0E7P1tLJwaL
-	 bxpnK2igqcAN0ggokwd50HcpVILQgzwX3rSnqnm+UB7CSQzj6GF3mBTEXl8awKUNic
-	 a7sK8C22spO8kF4UPoEfHTGqQ5O2FDsYI6NjyqWB176KG5ACE21eNv1laBQnLikjHB
-	 Ypojy2Nc6r6rA==
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Clark Williams <williams@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>
-Subject: [PATCH v13 13/19] perf test: Fix the Intel PT virtual LBR check
-Date: Wed, 25 Nov 2026 16:23:06 -0300
-Message-ID: <20261125192312.34134-14-acme@kernel.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261125192312.34134-1-acme@kernel.org>
-References: <20261125192312.34134-1-acme@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Sz+yewe6
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so79953395e9.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:24:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795634643; x=1796239443; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=3W56owSBc9jDVBiGRn0n4U9fWiaOv59zmbpdMIKAQa0=;
+        b=Sz+yewe6SyziGzAEKzOt5nMHv1H1Lj+Z0HDc2vJdMO+FHM4t3rSpipfVL8UM/QdD1x
+         kBqA6Sdceo9aY62Jz/SuRl/Sttghu54EXFh8TNr6KSOQUVZTh2wpfqmAHftQV5qzyz3c
+         ng9iz9IiznD9HXqDB/XigbFclvpxfzMmANNPRPBx5HL50hiAQY9hLcZXA4ZSjDhUDWpm
+         sW8W6jVnTTMruYiVqumEG6i4Qok05GVUWo4qF0BzASRNS//sy5CeJj/3OcErjwTsza3s
+         HzmUq+ancqiboahacBkg6mvsCPqhwXY1muu1KxXEGCSsID6NvMmcVVaenkS2TPTxc9ju
+         TWiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795634643; x=1796239443;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3W56owSBc9jDVBiGRn0n4U9fWiaOv59zmbpdMIKAQa0=;
+        b=C/enyOlx89qcQP301xqnvygllY6iwGYpWDPH0Beei9+Zd40xK4pXcbBf0B7hShzlSn
+         WK91ep/lmZFl7DeIXtV8I8o6THwqGOLWJ2jghY8NEl3RqJdP55eEOoBtSyazgWNxNcBw
+         N5lKLJj7spZozPum3yjgXwdyOy+305m53pg4Kux/qt5SpoCdPYocawZoD2rvpKI6ocAI
+         LK1RVauORwYgvTKEmficc9Y/66fIIsZr1veSuHspXYREra0p9Y9bi97tCIlnQdMUjHsK
+         rbs1fxtnPApKAXHR2dfCCwR5TIVm4mdIiObXOy1cLB9ki78S5d0k0AIGpSRPjEWAebyx
+         oC+Q==
+X-Forwarded-Encrypted: i=1; AL+hErEu3lVKPsrSBOXJ0L0tQJrrKpaOz1Gi3OfSLYki1q2wy7l2m4yYiTZxKj0GXOiDrP1tnPaOSLx2czc9goQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9liFGXwjC2m+xS5e4G7n28uU8HvOKAsIGJn3lhwWA5H6GBlDik
+	nSFzPJcn3A0aC1pTkRDmqlNzO68zBP0TfPTinmjttIpjTExzBTVWqIpL
+X-Gm-Gg: AZFdTZdStspH7uJl/xnu++IOIDpYAY25U3U3tUX7lkKd0UIYDH8lI8EzDBWPviBZzy6
+	J7cmreQzZhnQfbpqtHfOwVznP0yHDFqliI+MWyPDxgBDOxUbOtMgcbD2gJ0imfh+3XhQdrEttI+
+	JfG2vFF3xAJ6CYaaP2VasKxPmapvL8cEJcg7VWgAAtgW+SHv9qX7OiXbKxqoNNOa1PkllJWg66r
+	fM+gO2BpJD18uVJQrJb429xAqcIk44UETbTI+rkFM6WfuU37I0vvOMKoPcrcgZWkj7pOIWH2IXG
+	SgV+WBGKe/dfNQFgVxDuVq1MN8kIKNi+p6O3kbNY8wycrh4UDs5oPDLgYa/ZqL5PEQ3YLjmlKxY
+	4ipz/oOCPmkc+T/QX6XkIL2FdLCYodZ5UfDngKMIvh7XV1EI3mqUq47quakEi7d2/SFdsIcKQkE
+	X/UKZAOaF9bS7kCGHp9DDWr6Dy+4jt4gwSEMAIk6OGZQneoLm/T6cjQ2kdZZ9dt+JmggpDhTKp8
+	aBL68mwXOpyIU2HqKBM9WBYYf+0fWD5s4Zr64ycKSMIx1nZuXE3uSNMg0NZ2hiu3Do4jzspSUtL
+	cHEG0h1Xyf8EggKwGbHO0Yw5c3nTjlgnLPlxwABt+JM6iso+qIB88B/AWcgiuX6g50TnL7xKBIj
+	Kbqq9cXbyhOhuzxRckZ4AI8jXGM0Mz9gh3z7t+5xD5IZdznCTtwUb4x9J1oG7NqIqNUAlwEAQD5
+	gKD6jd+w==
+X-Received: by 2002:a05:600c:5901:b0:4bb:5e8a:7c9c with SMTP id 5b1f17b1804b1-4bb861467c8mr329102905e9.7.1795634643163;
+        Wed, 25 Nov 2026 11:24:03 -0800 (PST)
+Received: from MacBook-Pro-von-Karl.localdomain (dynamic-095-114-079-170.95.114.pool.telefonica.de. [95.114.79.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4abbd84e661sm34180072f8f.18.2026.11.25.11.24.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 11:24:02 -0800 (PST)
+Date: Wed, 25 Nov 2026 20:23:30 +0100
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Hongyan Xia <hongyan.xia@transsion.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Song Liu <song@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Valentin Schneider <vschneid@redhat.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 3/3] sched/preempt: Check preempt counts in notrace
+ helpers
+Message-ID: <awcwI1imHpWk8QFE@gmail.com>
+References: <cover.1794814699.git.kmehltretter@gmail.com>
+ <446e2bd042ce071da52ea80f577fe43c1b3dc031.1794814699.git.kmehltretter@gmail.com>
+ <c9b1e3a8-bb25-4808-bcf0-f2d5ba72a58f@transsion.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,57 +106,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c9b1e3a8-bb25-4808-bcf0-f2d5ba72a58f@transsion.com>
 
-From: Arnaldo Carvalho de Melo <acme@redhat.com>
+On Wed, Nov 25, 2026 at 01:26:28PM +0100, Hongyan Xia wrote:
+> > CONFIG_DEBUG_PREEMPT enabled. They therefore skip the bounds checks
+> > which ordinary preemption operations provide.
+> 
+> Nit: Somehow my brain cannot parse 'bounds checks' before reading the 
+> whole patch. Hopefully it's just me.
 
-On an Intel host the virtual LBR check failed with:
+I'll reword that to 'underflow and near-overflow checks'.
 
-  Warning: Processed 29 samples and lost 100.00%
+> >   #define preempt_check_resched() do { } while (0)
+> 
+> No need for this hunk as you are in !CONFIG_PREEMPTION without any 
+> checks anyway, but for symmetry I guess it doesn't hurt.
+> 
+> But if you decide to keep this change, then we can always use your new 
+> macros and remove __preempt_count_{inc/dec}(). They no longer have any 
+> users anyway?
 
-The record leaves the buffer sizes to the tool defaults: the data ring
-follows perf_event_mlock_kb, and the runner's small value left a single
-page, too small for the AUX samples.  Pin 4 data and 64 AUX pages, so
-the test does not depend on the host sysctl, and give the AUX ring room
-instead of the single page the tool sizes to the 4 KiB snapshot.  Both
-fit in the default mlock allowance regardless of the CPU count.
+Agreed, I'll remove those two macros.
 
-Also require the Python perf module to export session: a perf module
-without it, like the distro's python3-perf, made the check fail instead
-of skipping.
+> > +CFLAGS_core.o += -DDISABLE_BRANCH_PROFILING
+> > +endif
+> >   CFLAGS_build_policy.o += -DDISABLE_BRANCH_PROFILING
+> >   CFLAGS_build_utility.o += -DDISABLE_BRANCH_PROFILING
+> >   endif
+> 
+> This exclusion looks massive for a whole core.c file. When someone 
+> profiles branches, does he or she really care about branch statistics in 
+> DEBUG_LOCKS_WARN_ON()? Can we just switch to unlikely_notrace() in that 
+> macro globally?
 
-Fixes: 915d6b14dc0c8971 ("perf test: Migrate Intel PT virtual LBR test to Python API")
-Cc: Adrian Hunter <adrian.hunter@intel.com>
-Cc: Ian Rogers <irogers@google.com>
-Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
----
- tools/perf/tests/shell/test_intel_pt.sh | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+unlikely_notrace() does not solve the PROFILE_ALL_BRANCHES case, which
+instruments if statements directly, including those in the notrace
+helpers.
 
-diff --git a/tools/perf/tests/shell/test_intel_pt.sh b/tools/perf/tests/shell/test_intel_pt.sh
-index c0ecece0a8255124..96f5c132cebf23e6 100755
---- a/tools/perf/tests/shell/test_intel_pt.sh
-+++ b/tools/perf/tests/shell/test_intel_pt.sh
-@@ -384,13 +384,15 @@ test_virtual_lbr()
- 	# shellcheck source=lib/setup_python.sh
- 	. "${shelldir}"/lib/setup_python.sh
- 
--	if ! "$PYTHON" -c 'import perf' > /dev/null 2>&1; then
--		echo "SKIP: Python perf module not found"
-+	if ! "$PYTHON" -c 'import perf; perf.session' > /dev/null 2>&1; then
-+		echo "SKIP: Python perf module with session support not found"
- 		return 2
- 	fi
- 
--	# Check if virtual lbr is working
--	perf_record_no_bpf -o "${tmpfile}" --aux-sample \
-+	# The default data ring follows perf_event_mlock_kb and can be too
-+	# small for the AUX samples; pin 4 data and 64 AUX pages, which fit
-+	# in the default allowance.
-+	perf_record_no_bpf -m 4,64 -o "${tmpfile}" --aux-sample \
- 		-e '{intel_pt//,cycles}:u' perf test -w brstack || return 1
- 	perf inject --itrace=L -i "${tmpfile}" -o "${perfdatafile}" || return 1
- 	output=$("$PYTHON" "${shelldir}/lib/perf_brstack_max.py" -i "${perfdatafile}") || return 1
--- 
-2.56.0
+I will follow Steven's suggestion and make the Branch Profiling choice
+depend on !DEBUG_PREEMPT instead.
 
+Thanks,
+Karl
