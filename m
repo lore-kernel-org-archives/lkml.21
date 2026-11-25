@@ -1,74 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.68.63.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596802;
-	b=q9h9Ilzfi+VAP7IezQaQt+maLSoVaRC6z/JPp9MGIb54a3sjc6PgP/L6Y/54pyzdrO5+
-	 8zOvJ/xqunv2S7SWKiK0QwKWK59COnUqO3qyNLo02dZv1HoWsW8z8iFcuC2Vat50S+9Nk
-	 4MHKxFM8VLTYySDHRuPs0nIEniFQZgnpXTQk1efJAhQn1EIaDDRtZ4xYXJSkMJQVuqKUm
-	 kwuZcvHo9uxDnWj32dzl1IFH8D6L6KC7R2XrKuITlRZuqoZwd9At+fWxxGgK1VNvArFGt
-	 qAjMe9y+X8hmjcj69E/EG0bKovTbPWdxduX0q8Ff5BCtmF0I+AhckMzCKOe2Fc7m+hg==
+	t=1795596854;
+	b=jpggZsFLiwRg5b1UCLY5QGN2/QZcYKeQCv4djDAwNaKkaSHp6oiyco/mQTOXpTbJT948
+	 lQ2INfwcYthCxkRip+ASOOTGOi/u4VsRyZKuQucrmn1Yuf2mTZdHy+DzEQRI7SshOoNEy
+	 uAhyvOeIT12UAaGlg7c7GqohFp1HdJU3l91usm29kCQqOsy3wJex8veX7gwj/sV4wI14B
+	 CY17BeVKcNWYIZ0S+cMh4/OCFUaLsWbh18Rik9Zp/t9f7AUeDgTdXESAWv4qhB5hnSm6x
+	 UdteZZlhThI8nX85pZ0X0Uy8Q87ghrJishgj+923+72Z3ZuzwqX2QDv2z56+c20haJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596802;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:X-Virus-Scanned:
-	 X-Spam-Flag:X-Spam-Score:X-Spam-Level:X-Spam-Status:Received:Received:
-	 Received-SPF:Message-ID:Date:MIME-Version:User-Agent:Subject:From:To:
-	 Cc:References:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-PPP-Message-ID:X-NC-CID;
-	bh=yQ5oP8B/ewMdIJyV3jySqk1F2J/QMkaLPJwixo6jHK8=;
-	b=qsj/PSSIoRjXf0m2cC0bOVQ5GTHP88rsWtZ4txO7DEHa0wS7TsZBqyQVs73a1en1Yx1U
-	 Ng80rmkZXyYPXNpjYb9BYB9GR/BBEwhKIep4Eqey0aAb/YMrEngUuLRpV9bEtjt9rfTjO
-	 joDzfXlryJuzIeJUNxZcUX4aCumCq5Q9l4+HONrE+1EW/aYSbKZUCQ6D3BpaUL6WFel8M
-	 kzqHYo4t/y/OHZbBwsnjZovsJqOVdYTBATHCsoJ0Pqo6McHVQRIsc3w9cJdwUshPEySdH
-	 AMBcutDnsbFYbGjKLRiJ7T+rqCrcokCeEYwbaNybDVwo5+S+7tw4fu7bpZZa2MXc6kg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596854;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
+	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
+	 X-CMS-RootMailID:References;
+	bh=/0+lAOOij2K52U4R0VRs3qIZIOgm3jcSCXFoO01Bohg=;
+	b=gc+LqWamtKbuzH53LLQypuz0u07TNM3SgZmfgoAJEY82cPg+jimJg1ylx4QWwFnMem/x
+	 geUXst9ZA6hcb31y9gCP4mxHHa4eygyLqDxfbjD41XLmpDC1fclL+Bx//4PIAPh1pG5Gx
+	 iqoU4UId5l6RMQ34wUteJRS+OqY8ff8cRouPC82z7CPRLRxIzWcXZNTFmuTwMRO3kObWj
+	 iShgEn+O52AhODzDqxZgySjCUGYQXErNzfN+cXXhM5Wg3XNbmtFV60owJVmsQ2knUI4RY
+	 WkvEgVxL+QYipZSiwSApooemxla/LInAjOR2eK7KNXuiEKTMaXB9dPOzuGJ0Wyz9rtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=leemhuis.info;
-	spf=pass smtp.mailfrom=leemhuis.info;
-	dkim=pass header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b="U/u/HCof";
-	arc=none smtp.remote-ip=188.68.63.170
-Received: from relay.yourmailgateway.de (relay.yourmailgateway.de [188.68.63.170])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=J1yzosnh;
+	arc=none smtp.remote-ip=210.118.77.12
+Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FF20606A31E;
-	Wed, 25 Nov 2026 08:53:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FF20606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=leemhuis.info
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=leemhuis.info
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 522DA606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:54:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 522DA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=U/u/HCof
-Received: from mors-relay8203.netcup.net (localhost [127.0.0.1])
-	by mors-relay8203.netcup.net (Postfix) with ESMTPS id 4jZD3Y0mRLz8rjd;
-	Wed, 25 Nov 2026 08:53:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1795596793;
-	bh=AlE/5na4fH2NUXIJkY/rENlw2S0DFjAKYsvCxIq5tLA=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=U/u/HCoff96pu2i1H5b/2oiNQRFeojCP8QwRojd8XWeiwzVAbKeydBXSac5mMIGM2
-	 vwEmwPAzOX+P1gXwRyMPYCmrt4q2ayMt7nF9YXhbmwMxvI00qYA5vn7o1fIvU3A9Hu
-	 yYV5DNBaz8znvMCOIKW5gPOCkjpUUU9kunqEBRJKrVmRWYdS91+XK9hY4TqkMGIScn
-	 Z3RDf7z87DwZhK7Zj31WGGpPTU+s6tkg4R+1LY8pqabMFtjQ3WDMfK/sg4KLOK+82P
-	 Z92ieAlUBWdH75gkx+H8FTiQ5c7GcNs1/+cMrCu0R7xvyAET5jKbpkhZbFRv8x47mI
-	 Ye3NcJPwU0Lvg==
-Received: from policy01-mors.netcup.net (unknown [46.38.225.35])
-	by mors-relay8203.netcup.net (Postfix) with ESMTPS id 4jZD3Y01pPz8rfS;
-	Wed, 25 Nov 2026 08:53:13 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at policy01-mors.netcup.net
-X-Spam-Flag: NO
-X-Spam-Score: -2.901
-X-Spam-Level: 
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy01-mors.netcup.net (Postfix) with ESMTPS id 4jZD3V2kGBz8vKH;
-	Wed, 25 Nov 2026 09:53:10 +0100 (CET)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id BEE4E5FA03;
-	Wed, 25 Nov 2026 09:52:53 +0100 (CET)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <87b1bbd8-8113-4890-8623-738b19a9cc7b@leemhuis.info>
-Date: Wed, 25 Nov 2026 09:52:49 +0100
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=J1yzosnh
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261125085411euoutp02d978041cf601be2a08ab656482a1efc1~rPdKiooXL1461614616euoutp02k
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:54:11 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261125085411euoutp02d978041cf601be2a08ab656482a1efc1~rPdKiooXL1461614616euoutp02k
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795596851;
+	bh=/0+lAOOij2K52U4R0VRs3qIZIOgm3jcSCXFoO01Bohg=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=J1yzosnh8O0FQ+zOv4xV6wlWYSkwmCBvsTdVPW401AfwWJxN4L78IQe8rbJW1vatb
+	 hZcg5/xPfPxRGSsWRLSmDMcAobQidGl/bXypi1JVQNc8fQkRJfeEGt7H6XD6F91xzJ
+	 eatuJhhXprNVbYaTSK0AY0O4RpLts+lTdBydLYKo=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261125085411eucas1p26fb11707f67c2628fd55e71335d08bab~rPdKQhucL0555705557eucas1p2m;
+	Wed, 25 Nov 2026 08:54:11 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261125085408eusmtip12dc81ec341b1bfaabed6853baaabffe2~rPdIRjxTi1139111391eusmtip1Q;
+	Wed, 25 Nov 2026 08:54:08 +0000 (GMT)
+Message-ID: <3467269e-9929-4c9f-bc19-847976f49527@samsung.com>
+Date: Wed, 25 Nov 2026 09:54:08 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,48 +64,198 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] DMAR fault by Intel H97 SATA controller since
- "block: Increase BLK_DEF_MAX_SECTORS_CAP" (6.17-rc1)
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-To: Tobias Laas <tobias.laas@posteo.de>
-Cc: Damien Le Moal <dlemoal@kernel.org>, Jens Axboe <axboe@kernel.dk>,
- regressions@lists.linux.dev, linux-block@vger.kernel.org,
- linux-ide@vger.kernel.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, David Woodhouse <dwmw2@infradead.org>,
- Lu Baolu <baolu.lu@linux.intel.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Niklas Cassel <cassel@kernel.org>,
- 70sp <70sp@protonmail.com>, Laurence Oberman <loberman@redhat.com>
-References: <5ad27a97aafbc08a8702d5b90d09cd59@posteo.de>
- <awSs5Cw3hFkf4O4T@ryzen> <ec36d13e-e4c2-4bfb-8b50-69d4a1628839@leemhuis.info>
-Content-Language: de-DE, en-US
-In-Reply-To: <ec36d13e-e4c2-4bfb-8b50-69d4a1628839@leemhuis.info>
-Content-Type: text/plain; charset=UTF-8
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v3 2/2] alpha: enable contiguous memory allocation for
+ coherent DMA
+To: Magnus Lindholm <linmag7@gmail.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>
+Cc: richard.henderson@linaro.org, mattst88@gmail.com,
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-next@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
+	netdev@vger.kernel.org, iommu@lists.linux.dev, joro@8bytes.org,
+	will@kernel.org, Mark Brown <broonie@kernel.org>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <CA+=Fv5QJxoxEoKxRpm5Hisdf=y+VpmM-s_VBC1tDQ2FTCfb08w@mail.gmail.com>
 Content-Transfer-Encoding: 8bit
-X-PPP-Message-ID: 
- <179559677445.1390226.15266907353962811620@mxe9fb.netcup.net>
-X-NC-CID: unDnwYxQmKKySfnwJIdL5+kRq/d1VVk2Z7PmvJii7yq21dAmEHM=
+X-CMS-MailID: 20261125085411eucas1p26fb11707f67c2628fd55e71335d08bab
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261124232303eucas1p10f2da7a94c8aa19fa4e406d089c1367e
+X-EPHeader: CA
+X-CMS-RootMailID: 20261124232303eucas1p10f2da7a94c8aa19fa4e406d089c1367e
+References: <20261115103809.1288167-1-linmag7@gmail.com>
+	<20261115103809.1288167-3-linmag7@gmail.com> <awVzJMLVw4wUSqky@monoceros>
+	<CGME20261124232303eucas1p10f2da7a94c8aa19fa4e406d089c1367e@eucas1p1.samsung.com>
+	<CA+=Fv5QJxoxEoKxRpm5Hisdf=y+VpmM-s_VBC1tDQ2FTCfb08w@mail.gmail.com>
 
-On 11/24/26 09:55, Thorsten Leemhuis wrote:
-> [Reminder, this is not my area of expertise, so this might be sending
-> everyone in the wrong direction -- so handle it carefully]
-> 
-> On 11/23/26 22:15, Niklas Cassel wrote:
->>> Since the issue with mounting the rootfs disappears with intel_iommu=off, I
->>> wonder, whether there is a limitation on the maxmium block size either by
->>> the hardware or from the configuration of the IOMMU and SATA controller by
->>> the kernel.
->> Considering how common your SSD is, my guess is that it is somehow an
->> IOMMU or a BIOS/ACPI bug (since the BIOS generates specific ACPI tables -
->> DMAR on Intel).
-> 
-> I just a few days privately was told that "intel_iommu=on,sp_off" solved
-> problems wrt to one unresolved regression related to iommu with a
-> similar generation intel hardware. [...]
+Hi Magnus,
 
-For completeness, Šimon Pospíchal (now CCed) shared findings and a WIP
-fix (both with the help of a LLM) meanwhile here:
+On 25.11.2026 00:22, Magnus Lindholm wrote:
+> On Tue, Nov 24, 2026 at 12:32 PM Uwe Kleine-König
+> <u.kleine-koenig@baylibre.com> wrote:
+>> On Sun, Nov 15, 2026 at 11:37:43AM +0100, Magnus Lindholm wrote:
+>>> Select HAVE_DMA_CONTIGUOUS and reserve a default CMA area after the
+>>> machine has initialized its DMA windows. Prefer top-down placement
+>>> below the direct-map and usable RAM limits. Skip the default reservation
+>>> when no direct-map window exists. Explicit cma= ranges retain their
+>>> generic override semantics; top-down placement is a preference, not a
+>>> hard lower bound excluding the first 16 MiB.
+>>>
+>>> Use dma_alloc_contiguous(), which rejects non-blocking callers, before
+>>> falling back to alloc_pages_exact(). Pair both paths with
+>>> dma_free_contiguous(), whose buddy fallback uses free_pages_exact().
+>>> Skip CMA on the GFP_DMA retry after a mapping failure so it cannot
+>>> return the same unsuitable CMA pages. Retain zeroing for CMA memory.
+>>>
+>>> Round the size up to a page boundary in both allocation and free. CMA
+>>> allocates size >> PAGE_SHIFT pages, so an unaligned size could otherwise
+>>> allocate too few pages and overrun the allocation during zeroing. Keep
+>>> the mapping and unmapping lengths consistent with the aligned size.
+>>>
+>>> With CONFIG_DMA_CMA=y, the default CMA_SIZE_MBYTES setting reserves
+>>> 16 MiB without a cma= argument. cma=0 disables the default area.
+>>>
+>>> Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
+>>> ---
+>>>  .../io/dma-contiguous/arch-support.txt        |  2 +-
+>>>  arch/alpha/Kconfig                            |  1 +
+>>>  arch/alpha/kernel/pci_iommu.c                 | 19 +++++++++++++------
+>>>  arch/alpha/kernel/setup.c                     | 15 +++++++++++++++
+>>>  4 files changed, 30 insertions(+), 7 deletions(-)
+>>>
+>>> diff --git a/Documentation/features/io/dma-contiguous/arch-support.txt b/Documentation/features/io/dma-contiguous/arch-support.txt
+>>> index 3c6ce35d704f..6cd205a991f6 100644
+>>> --- a/Documentation/features/io/dma-contiguous/arch-support.txt
+>>> +++ b/Documentation/features/io/dma-contiguous/arch-support.txt
+>>> @@ -6,7 +6,7 @@
+>>>      -----------------------
+>>>      |         arch |status|
+>>>      -----------------------
+>>> -    |       alpha: | TODO |
+>>> +    |       alpha: |  ok  |
+>>>      |         arc: | TODO |
+>>>      |         arm: |  ok  |
+>>>      |       arm64: |  ok  |
+>>> diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
+>>> index 6ccb2d230326..cddc1f3af209 100644
+>>> --- a/arch/alpha/Kconfig
+>>> +++ b/arch/alpha/Kconfig
+>>> @@ -30,6 +30,7 @@ config ALPHA
+>>>       select HAVE_ARCH_COMPILER_H
+>>>       select HAVE_ASM_MODVERSIONS
+>>>       select HAVE_DEBUG_KMEMLEAK
+>>> +     select HAVE_DMA_CONTIGUOUS
+>>>       select HAVE_GUP_FAST
+>>>       select HAVE_KERNEL_BZIP2
+>>>       select HAVE_KERNEL_GZIP
+>>> diff --git a/arch/alpha/kernel/pci_iommu.c b/arch/alpha/kernel/pci_iommu.c
+>>> index 955b6ca61627..19aa5c05de2b 100644
+>>> --- a/arch/alpha/kernel/pci_iommu.c
+>>> +++ b/arch/alpha/kernel/pci_iommu.c
+>>> @@ -408,15 +408,20 @@ static void *alpha_pci_alloc_coherent(struct device *dev, size_t size,
+>>>  {
+>>>       struct pci_dev *pdev = alpha_gendev_to_pci(dev);
+>>>       void *cpu_addr;
+>>> -     long order = get_order(size);
+>>> +     struct page *page;
+>>>
+>>> +     size = PAGE_ALIGN(size);
+>>>       gfp &= ~GFP_DMA;
+>>>
+>>>  try_again:
+>>> -     cpu_addr = (void *)__get_free_pages(gfp | __GFP_ZERO, order);
+>>> +     /* A low-memory retry must not return the same unsuitable CMA pages. */
+>>> +     page = (gfp & GFP_DMA) ? NULL : dma_alloc_contiguous(dev, size, gfp);
+>>> +     if (page)
+>>> +             cpu_addr = page_address(page);
+>>> +     else
+>>> +             cpu_addr = alloc_pages_exact(size, gfp | __GFP_ZERO);
+>>>       if (! cpu_addr) {
+>>> -             printk(KERN_INFO "pci_alloc_consistent: "
+>>> -                    "get_free_pages failed from %ps\n",
+>>> +             pr_info("pci_alloc_consistent: allocation failed from %ps\n",
+>>>                       __builtin_return_address(0));
+>>>               /* ??? Really atomic allocation?  Otherwise we could play
+>>>                  with vmalloc and sg if we can't find contiguous memory.  */
+>>> @@ -426,7 +431,7 @@ static void *alpha_pci_alloc_coherent(struct device *dev, size_t size,
+>>>
+>>>       *dma_addrp = pci_map_single_1(pdev, virt_to_phys(cpu_addr), size, 0);
+>>>       if (*dma_addrp == DMA_MAPPING_ERROR) {
+>>> -             free_pages((unsigned long)cpu_addr, order);
+>>> +             dma_free_contiguous(dev, virt_to_page(cpu_addr), size);
+>> On next-20261123 I get a build error on an ARCH=alpha allmodconfig build
+>>
+>> arch/alpha/kernel/pci_iommu.c: In function ‘alpha_pci_alloc_coherent’:
+>> arch/alpha/kernel/pci_iommu.c:418:41: error: too few arguments to function ‘dma_alloc_contiguous’; expected 4, have 3
+>>   418 |         page = (gfp & GFP_DMA) ? NULL : dma_alloc_contiguous(dev, size, gfp);
+>>       |                                         ^~~~~~~~~~~~~~~~~~~~
+>> In file included from arch/alpha/kernel/pci_iommu.c:14:
+>> include/linux/dma-map-ops.h:105:14: note: declared here
+>>   105 | struct page *dma_alloc_contiguous(struct device *dev, size_t size, gfp_t gfp,
+>>       |              ^~~~~~~~~~~~~~~~~~~~
+>>
+>> which seems to be a conflict between
+>>
+>>         next-20261123~159^2 = f03df6019b56 ("alpha: enable contiguous memory allocation for coherent DMA")
+>>
+>> from
+>> https://git.kernel.org/pub/scm/linux/kernel/git/lindholm/alpha.git for-next
+>>
+>> and
+>>
+>>         next-20261123~104^2~23^2~7 = 31f7e12d621b ("dma-contiguous: pass the NUMA node to dma_alloc_contiguous()")
+>>
+>> from
+>> https://git.kernel.org/pub/scm/linux/kernel/git/kuba/linux.git dma_alloc_coherent_node
+>>
+>> I guess the right thing to do is to pull
+>>
+>>         https://git.kernel.org/pub/scm/linux/kernel/git/kuba/linux.git dma_alloc_coherent_node
+>>
+>> into the alpha tree and fix the offending function call in the merge
+>> commit.
+> Thanks for catching this and identifying the interacting commits.
+>
+> I reproduced the error on next-20261123. In
+> arch/alpha/kernel/pci_iommu.c, I changed:
+>
+> page = (gfp & GFP_DMA) ? NULL : dma_alloc_contiguous(dev, size, gfp);
+>
+> to:
+>
+> page = (gfp & GFP_DMA) ? NULL :
+> dma_alloc_contiguous(dev, size, gfp, dev_to_node(dev));
+>
+> This fixes the allmodconfig pci_iommu.o build. A full DP264 UP build
+> with CMA enabled also passed, as did an object build with CMA disabled.
+> The full allmodconfig build hit an unrelated cgroup sample error
+> involving PATH_MAX and LINE_MAX.
+>
+> I'd prefer to keep the Alpha tree independent of the DMA series.
+> Could we coordinate with Jakub and Marek to carry the adjustment in
+> linux-next and ensure it reaches Linus when both changes are present?
+> I'm happy to help with further testing.
+>
+> If that proves awkward, I can remove the CMA patch from for-next and
+> defer it to a separate Alpha pull request once the DMA changes have
+> landed, updating the caller then.
 
-https://lore.kernel.org/all/QISmXFlpPMgvFUKmdIBDwqn4JHHXt2NZeJzerMLHF_5icLo0lPKVlN0Ig9v8Vb52NmCeSFdyrao4x8KoN1DCXtDlnZS7eRIClC6vZyu-hPU%3D@protonmail.com/
 
-Ciao, Thorsten
+I think that rebasing the alpha changes on top of Jakub's stable tag:
+
+git://git.kernel.org/pub/scm/linux/kernel/git/kuba/linux dma_alloc_coherent_node
+
+would be the easiest way of handling this conflict as this way we will
+avoid any build breaks and keep the changes bisectable.
+
+However if You still want to keep Your CMA changes based on v7.4-rc1 in
+alpha tree, then please provide a stable tag or branch with them.
+I will merge it to dma-mapping-for-next and apply the needed fixup.
+
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
