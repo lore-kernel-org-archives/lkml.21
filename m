@@ -1,62 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795628410;
-	b=Fw2aKuEacLULsggRHJQ+vGB8VD2+Rb+LECwECJdK5nRchTJd8KfvbLVvdKR8AkMmaP6Z
-	 0WvvfrimG6ygpziAkXv+nQdB4AKv67B0f7L/DIzFdiQPgQb0xtFJ7davVDtu2HvP/pRgg
-	 CnIYXfK0HQuzxSKVFE/Y0XTiX2fwoedlxJBACcELTarwra0j/hyozchQFi1D5HWfid5ae
-	 j5vKNCYhn5FUo1vMslWEt23K6iaoC0X5NgepGS+7Ol4BlLzGNQ7Rq8pHmhzxrSGHsDazj
-	 dmeYcVfOdR+aAjDAGp0W95kEGOpdNBdEDzXKG+nleD2LS23liEZsFMBr8W7v0KdTR3Q==
+	t=1795628450;
+	b=ktGmTytr56+eQxkpH9wACVFlDoGkznyljlzdn68m8cpW74VY647s+87MxoSL2wS70nou
+	 NACJpEMXjcUsEI5Ufa71jKyEV1mfm+3GkDWiI/AqBElVffU1SSCr3PcmCqZKX0L+9UnSy
+	 ySLG0N001GUS4ncAKnMap7yHHQjCmq+8BwCZMpLd+nsj1zCf8UIA6NKrccuaTRmiVQOOu
+	 BJVx1zM0ev6ReWRPsZahjPJaPSu4m12iQJjGVYASVX7pPHyga51DHQG85LOtDsmU8R2fX
+	 HVstpxtPl6HYQx2sWjOYb2ny5aQZJPztJtEzFIXByhLiwF/+QOY3h70B794W7bkVarQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795628410;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Kv2CBvjOfycHlmjB6SC5hIbRJOSjsO3gZFs9cUX9YCg=;
-	b=xFvc+t0j8kMUz6YPlgZMdcK8RRkA8MVZHy1tboVjB4a6vlw8qkTXDASRsdqgDQEY1p3W
-	 AMXbd91JccPgBvsyn1scp5eN8Sb6dSneIvAKT8mWCHueFas+b1toiwuoO9YWaTi6v+5SL
-	 tXMVvtIQ7pS3HEh1tyHL96jUhGTPZ3Cq2j1dZIDOhXaw8ItzUrFfdyx4HFOTNdpcZSxUC
-	 QSDsV+0hoAvdOsUU+HQxkEUQ1R//ywhe3H8jiC+n1Mr8afSdF1I0CY0cJsYvvjPcoNw+U
-	 WZrnjYy4u4Lcxj0DW3wHR2E3jSUovqkHV+7Qa9HGgF8jngQB/T6rtncOCdMAE2mgppQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795628450;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=nYycouvr6zOSJsdG8B1rvzwHCG0khxitcfoXgjaouMs=;
+	b=Rd3GS5TjC5Hib/uP0t+GgFVrI5WSkwnKf2tld9M5qjkv9A5fWg9+gYPOGiQ6cwcWmdiQ
+	 izhYg/2qdB/KHw/OSSYrq4+wS7fznnHS9QNK4O67WvfxGW6PZzekK7FiNVHUTEwe1xgxk
+	 nBi+K9Snk5kRvcikR2eColwwMGZafzrKK5VfHW15FTe1MoRGZLUUZ823nrsVTulKTCIou
+	 sKDLckgBAHdqE5YDbYjbKLQX8293jFO0TxbXfXWWUyjfPAOX7zAMaUZ/kZCzloPxmjGsR
+	 aUlU6ywa04SGP9g80XZ2B+WRG5SC9ZwPmIZaSllFtiebTGl+BzZG8CwevHWLRFY6TSg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=gs2zOBOl;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5511C606A31E;
-	Wed, 25 Nov 2026 17:40:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5511C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Qe1hh7b8;
+	arc=none smtp.remote-ip=209.85.215.176
+Received: from mail-pg1-f176.google.com (mail-pg1-f176.google.com [209.85.215.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41F9E606A329
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:40:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41F9E606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=gs2zOBOl
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E2E1339;
-	Wed, 25 Nov 2026 09:40:06 -0800 (PST)
-Received: from e127648.arm.com (unknown [10.57.72.178])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2807B3F86F;
-	Wed, 25 Nov 2026 09:40:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795628409; bh=lnCsqy1vLk+wb0zjY+zvfVbFIS3udMzWV8kdwdEBezs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=gs2zOBOlP2a7W7F3z6Txi0AVjIhtMECOWJP6Li483S4GOLUmvr3Cpa3jKzoPnuM8h
-	 FgGZGUeSIlvdeDGQ83SK+Zai8stpEbzin6kzjnmtW+ujiIC90O3sVKi+zpcQCpg3Du
-	 L4lZiDot6Q4/+1NSRQcx8hiSKoGd2pU1WEHvC7cA=
-From: Christian Loehle <christian.loehle@arm.com>
-To: tudor.ambarus@linaro.org,
-	bzolnier@gmail.com
-Cc: krzk@kernel.org,
-	rafael@kernel.org,
-	daniel.lezcano@kernel.org,
-	lukasz.luba@arm.com,
-	linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Christian Loehle <christian.loehle@arm.com>
-Subject: [PATCHv3] thermal/drivers/samsung/acpm-tmu: Fix spurious CPU throttling
-Date: Wed, 25 Nov 2026 17:39:59 +0000
-Message-Id: <20261125173959.2198116-1-christian.loehle@arm.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Qe1hh7b8
+Received: by mail-pg1-f176.google.com with SMTP id 41be03b00d2f7-cde5a7d79b0so3070812a12.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 09:40:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795628450; x=1796233250; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=nYycouvr6zOSJsdG8B1rvzwHCG0khxitcfoXgjaouMs=;
+        b=Qe1hh7b8uf6iB26Wxe+AiFw3fDV+UQAJ12OvNs/mNAH7+h6iofbGLEeNl7P1CP50zc
+         Sb6+t3AeoAWvHdO9y4mQGCEcdMDJJFLT2+mfP5YsospXuYzobceDKaTh08CHKZWXppMU
+         YVxpxSYKI1JfSZPYlqCxKtUFNl4Qy4akFIBTpFsHkCxMqc9fz1NaEwcZtXWc3fMSqzRO
+         LxcISCRSwcd/Y5+5fTvghS/d7q8R7Zh/2byrrb/C+nzQMojIWHgGPTYXIXnUn0Vje3Q8
+         dK/2R1PfcKMqeKVy+rrAE8289LNyf6jcbjSYgljBbOB67evq+FzFZjUgx51u9o7IRqaM
+         ZKZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795628450; x=1796233250;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nYycouvr6zOSJsdG8B1rvzwHCG0khxitcfoXgjaouMs=;
+        b=crd+Ze9hDy/ZYYGYtIuIucruH7z1sfY3ArSy7DCOQ3H2ZvlH1i5/GlT4PpHEbGX9xs
+         JBec8lrtz+owS4b5p+omcbXmn376rFtacB0Nh2ccg5cKY3vppYoARFl4wyCzWZgYhtVN
+         QxIx+j/ndw7AurD7KVzhEta9TL46TMwhfpbCQs9sIFrfSLPTnQJGHEtJTk6aYLCxsbam
+         KKDEbffyStZ8XbY1KBpI/OjnggLWXbdjCJ3CJzIQvv4LF0JOuGxCvF7cAvdZhpA+sq/4
+         /IQHDIuzaEYtIh+6zl+19R7NF4Z7DuW4Cy9vCVPdbO7akvqeOQncaboV5oTT8ChNyS1C
+         1x/Q==
+X-Forwarded-Encrypted: i=1; AL+hErGFOLYi2h88Srj/Uwq9LYHKVHp1mC0cRLmmSNmerQw5ZRDTi8A5dBBDbp1YNiwhkdtGeP90q5S9LvuNCi4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/b8B4fqKcm4tJipmf1vACAESuttnjqX4RjHKX7TTLuYQRZAsJO
+	iuwpiR/a+IMdv4hgnN5L1Z7dXjtEbAKPm7d5haGCABu3YH2EHn5vhTRxvksTHX347A==
+X-Gm-Gg: AZFdTZe+mm66JJoHn2lRGfcKMrAxOruXRnej0xIJa1nzvrBdImwbKTZ+WAVPzLq1TQ8
+	eM+2qvK8mrWWqJi02P5p7dj3M4dUTWiF3IfKnSBoDWLXA8aL3Blx/Ff2Yy7RsgweKDn7uhjRfp9
+	IFwIlYCaKWl0mCxar5DEV25bECdxwYbx/M2N3ozOUAES6mzs9KiKUBYjDIJxmeHIqfuN/FBWZEL
+	e9jYY/X1RU1wD81+SZGAPo9fFdp6faDdGM+cey0cR6wrmBhAUclsa76tpWVtIH5vYXF7H2EaBJh
+	6DxCf9IiyzbvqVnlCcgGOgSmCbDArz/8obZ9kv3Wgw49h79zNtZ50Y6Z15Nd9C6QW+U+NDcAO1X
+	sjGg1GxFsXSEPd/DhlX3Ac4KwmqdVSeKSuSojkxmWnepi7wye7X0ALfVb6iNs71a5mJeVokKntl
+	S2dNXx+zsnubomll72GkM40dNRjfN1yspqLxyG6tPfSYHowq/hpWTpVCnEhf3uLY0uP4phZstfR
+	8KMeteIye+CnXza0AvGjBxnhDqap13I82x4YzBMmyqrizLSllUV9vKoBmnq+9QSb4plCmiZV8wA
+	TT7GFdlPZf3HyxrJJQBBPk7wEvX2+FyjFNAikTEUUFpispqGkssaDns039Dp2U+9
+X-Received: by 2002:a17:90b:390b:b0:3b3:fe22:2745 with SMTP id 98e67ed59e1d1-3b41c933edamr18216503a91.45.1795628448898;
+        Wed, 25 Nov 2026 09:40:48 -0800 (PST)
+Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecbd0bsm31676002a91.15.2026.11.25.09.40.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 09:40:47 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,177 +87,51 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Date: Wed, 25 Nov 2026 09:40:47 -0800
+Message-Id: <DN4H5ST3X9L1.3IUEC1CA5QI8H@google.com>
+Cc: "Tarun Sahu" <tarunsahu@google.com>, "Pasha Tatashin"
+ <pasha.tatashin@soleen.com>, "Mike Rapoport" <rppt@kernel.org>,
+ <robin.murphy@arm.com>, <maz@kernel.org>, <will@kernel.org>, "Alexander
+ Graf" <graf@amazon.com>, <seanjc@google.com>, <jgg@nvidia.com>,
+ <loganodell@google.com>, <arnd@arndb.de>, <dwmw2@infradead.org>,
+ <baolu.lu@linux.intel.com>, "Bjorn Helgaas" <bhelgaas@google.com>,
+ <oupton@kernel.org>, <alex@shazbot.org>, <gle.com@google.com>,
+ <pbonzini@redhat.com>, "Andrew Morton" <akpm@linux-foundation.org>,
+ <kevin.tian@intel.com>, <joro@8bytes.org>, <kvmarm@lists.linux.dev>,
+ <linux-pci@vger.kernel.org>, <kexec@lists.infradead.org>,
+ <kvm@vger.kernel.org>, <iommu@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <skhawaja@google.com>,
+ <sagis@google.com>, <linux-arch@vger.kernel.org>, <linux-mm@kvack.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v4 03/19] kho, memfd_luo: Reference struct kho_vmalloc
+ via serialized pointer
+From: "David Matlack" <dmatlack@google.com>
+To: "Pratyush Yadav" <pratyush@kernel.org>, "David Matlack"
+ <dmatlack@google.com>
+X-Mailer: aerc 0.21.0
+References: <20261110050202.529473-1-tarunsahu@google.com>
+ <20261110050202.529473-4-tarunsahu@google.com>
+ <2vxz4idb1i2w.fsf@kernel.org> <DN3VG4JCILOO.YN40XHHSWRPH@google.com>
+ <2vxzld6hx97g.fsf@kernel.org>
+In-Reply-To: <2vxzld6hx97g.fsf@kernel.org>
 
-acpm_tmu_set_trips() supplies two thresholds, but the ACPM command writes
-all eight slots, zero-filling the rest. On GS101, slot 7 limits CPU clocks
-independently of its interrupt mask. Setting it to 0 C limits all three
-clusters to about 200 MHz while cpufreq reports the requested frequencies.
-This was found through trial and error while tracking EAS regressions.
+On Wed Nov 25, 2026 at 6:43 AM PST, Pratyush Yadav wrote:
+[...]
 
-Program slot 7 from the lowest active hot trip so hardware throttling can
-precede the critical trip's system shutdown. Cache the low/high window and
-update the hot limit from set_trip_temp(), because the thermal core skips
-set_trips() when that window is unchanged.
+> So I wouldn't want to support slab until we have file handlers that
+> churn through a lot of preserved objects.
 
-Fixes: 50a2c5d4062a ("thermal/drivers/samsung: Add Exynos ACPM TMU driver GS101")
-Signed-off-by: Christian Loehle <christian.loehle@arm.com>
----
-Since v2:
-- Use hot instead of critical s.t. it precedes shutdown. (Tudor)
-Since v1:
-- Rebase onto linux-next, including Daniel’s queued ACPM TMU fixes.
-- Cache only low/high and look up the lowest active critical trip when programming. (Tudor)
-- Retain the requested window even if programming fails, matching the thermal core.
-- Handle critical-trip deactivation and zones without an active critical trip.
+Makes sense. If KHO slab isn't coming, then I'm fine with the arena.
 
+One thing I realized is that the choice between the two is visible to
+the incoming kernel. With separate allocations, the incoming kernel has
+to free struct kho_vmalloc and struct memfd_luo_ser separately. With
+the arena, it must only free the top-level allocation. So we should
+pick one now (while memfd is bumping its compatible string anyway)
+rather than switching later.
 
- drivers/thermal/samsung/acpm-tmu.c | 76 +++++++++++++++++++++++++++---
- 1 file changed, 70 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/thermal/samsung/acpm-tmu.c b/drivers/thermal/samsung/acpm-tmu.c
-index 4799ef518a7a..08856d713d5d 100644
---- a/drivers/thermal/samsung/acpm-tmu.c
-+++ b/drivers/thermal/samsung/acpm-tmu.c
-@@ -39,6 +39,10 @@
- 
- #define GS101_REG_INTPEND(i)		((i) * 0x50 + 0xf8)
- 
-+#define ACPM_TMU_NUM_THRESHOLDS		8
-+/* Threshold 7 throttles the CPUs in hardware, regardless of the INTEN mask. */
-+#define ACPM_TMU_HW_TRIP_THRESHOLD	7
-+
- enum {
- 	P0_INTPEND,
- 	P1_INTPEND,
-@@ -70,6 +74,9 @@ struct acpm_tmu_sensor {
- 	struct acpm_tmu_priv *priv;
- 	struct mutex lock; /* protects sensor state */
- 	enum thermal_device_mode mode;
-+	/* Last requested window, protected by the thermal zone lock */
-+	int low;
-+	int high;
- 	bool enabled;
- };
- 
-@@ -228,7 +235,8 @@ static int acpm_tmu_get_temp(struct thermal_zone_device *tz, int *temp)
- }
- 
- static int acpm_tmu_update_thresholds(struct acpm_tmu_sensor *sensor,
--				      u8 thresholds[2], u8 inten)
-+				      u8 thresholds[ACPM_TMU_NUM_THRESHOLDS],
-+				      u8 inten)
- {
- 	struct acpm_tmu_priv *priv = sensor->priv;
- 	struct acpm_handle *handle = priv->handle;
-@@ -249,7 +257,7 @@ static int acpm_tmu_update_thresholds(struct acpm_tmu_sensor *sensor,
- 	}
- 
- 	ret = ops->set_threshold(handle, mbox_chan_id, acpm_sensor_id,
--				 thresholds, 2);
-+				 thresholds, ACPM_TMU_NUM_THRESHOLDS);
- 	if (!ret) {
- 		ret = ops->set_interrupt_enable(handle, mbox_chan_id,
- 						acpm_sensor_id, inten);
-@@ -267,15 +275,40 @@ static int acpm_tmu_update_thresholds(struct acpm_tmu_sensor *sensor,
- 	return ret;
- }
- 
--static int acpm_tmu_set_trips(struct thermal_zone_device *tz, int low, int high)
-+struct acpm_tmu_hot_trip {
-+	const struct thermal_trip *updated;
-+	int temperature;
-+};
-+
-+static int acpm_tmu_get_hot_temp(struct thermal_trip *trip, void *arg)
-+{
-+	struct acpm_tmu_hot_trip *hot = arg;
-+
-+	if (trip->type == THERMAL_TRIP_HOT && trip != hot->updated &&
-+	    trip->temperature != THERMAL_TEMP_INVALID)
-+		hot->temperature = min(hot->temperature, trip->temperature);
-+
-+	return 0;
-+}
-+
-+static int acpm_tmu_program_thresholds(struct thermal_zone_device *tz,
-+				       const struct thermal_trip *trip, int temp)
- {
- 	struct acpm_tmu_sensor *sensor = thermal_zone_device_priv(tz);
--	struct acpm_tmu_priv *priv = sensor->priv;
--	struct device *dev = priv->dev;
--	u8 thresholds[2] = {};
-+	struct device *dev = sensor->priv->dev;
-+	struct acpm_tmu_hot_trip hot = { trip, INT_MAX };
-+	u8 thresholds[ACPM_TMU_NUM_THRESHOLDS] = {};
-+	int low = sensor->low, high = sensor->high;
- 	u8 inten = 0;
- 	int ret;
- 
-+	/* Exclude the trip being updated until the proposed value is considered. */
-+	for_each_thermal_trip(tz, acpm_tmu_get_hot_temp, &hot);
-+	if (temp != THERMAL_TEMP_INVALID)
-+		hot.temperature = min(hot.temperature, temp);
-+	thresholds[ACPM_TMU_HW_TRIP_THRESHOLD] =
-+		clamp_val(hot.temperature / MILLIDEGREE_PER_DEGREE, 0, 255);
-+
- 	/* If a valid lower bound exists, set the threshold and enable its interrupt */
- 	if (low > -INT_MAX) {
- 		thresholds[0] = clamp_val(low / MILLIDEGREE_PER_DEGREE, 0, 255);
-@@ -299,6 +332,34 @@ static int acpm_tmu_set_trips(struct thermal_zone_device *tz, int low, int high)
- 	return ret;
- }
- 
-+static int acpm_tmu_set_trips(struct thermal_zone_device *tz, int low, int high)
-+{
-+	struct acpm_tmu_sensor *sensor = thermal_zone_device_priv(tz);
-+
-+	/* The core remembers this window even if programming fails. */
-+	sensor->low = low;
-+	sensor->high = high;
-+
-+	return acpm_tmu_program_thresholds(tz, NULL, INT_MAX);
-+}
-+
-+static int acpm_tmu_set_trip_temp(struct thermal_zone_device *tz,
-+				  const struct thermal_trip *trip, int temp)
-+{
-+	if (trip->type != THERMAL_TRIP_HOT)
-+		return 0;
-+
-+	if (temp != THERMAL_TEMP_INVALID &&
-+	    (temp < 0 || temp > 255 * MILLIDEGREE_PER_DEGREE))
-+		return -EINVAL;
-+
-+	/*
-+	 * The core can skip .set_trips() when the window is unchanged and has
-+	 * not committed trip->temperature yet. Substitute the proposed value.
-+	 */
-+	return acpm_tmu_program_thresholds(tz, trip, temp);
-+}
-+
- static int acpm_tmu_change_mode(struct thermal_zone_device *tz,
- 				enum thermal_device_mode mode)
- {
-@@ -329,6 +390,7 @@ static const struct thermal_zone_device_ops acpm_tmu_sensor_ops = {
- 	.change_mode = acpm_tmu_change_mode,
- 	.get_temp = acpm_tmu_get_temp,
- 	.set_trips = acpm_tmu_set_trips,
-+	.set_trip_temp = acpm_tmu_set_trip_temp,
- };
- 
- static bool acpm_tmu_clear_pending_irq(struct acpm_tmu_sensor *sensor)
-@@ -477,6 +539,8 @@ static int acpm_tmu_probe(struct platform_device *pdev)
- 		mutex_init(&sensor->lock);
- 		sensor->group = &data->sensor_groups[i];
- 		sensor->priv = priv;
-+		sensor->low = -INT_MAX;
-+		sensor->high = INT_MAX;
- 
- 		tzd = devm_thermal_of_zone_register(dev, i, sensor,
- 						    &acpm_tmu_sensor_ops);
--- 
-2.34.1
-
+Separate allocations leaves the door open to KHO slab but wastes memory
+in the short term. It's not obvious to me which direction to go :)
