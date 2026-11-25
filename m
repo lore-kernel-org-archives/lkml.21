@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795634664;
-	b=tvI++S5x2ZZyQEkXt6LQ9U7lwWC05+TZSTTIDlVFpmEuS+WIfo0yfCvoZMrhE5VGkk9P
-	 Hb8ANibdYf2U8z5d6PSdSyFTgCowIspAAeGrSC9jg3yRR302g1rv/SKsUMx20S9jlG/aj
-	 Kui203Gz/JzuvhpRpw2oxrQln6eTr7+79oaQQcD+Wq0+4ea5W7/g5Op81QLP92tIHkJ8Q
-	 GhnnlHnWaSNVXi48y+Fcfhe+6V5bzqZoYT4yW/e/YkXcNIkRzEmqXg5eqoFreKpKEq/UL
-	 Ncjx/1c9aWzhN+HWDp3MMHzRujqxxUlozG+oxrhWtp+lGvmMwA3ua2GBR5vlIbsTxlQ==
+	t=1795634672;
+	b=Ad7y3AvG1BLdcI7WFxni7OJiEGX9finHwqwca4Yna9hMVnNNC9elZ12JMq2/syA4dmlm
+	 zIt1dmxNQhpo8VAAl3sHoLXNYMfBFr6TmKOBznc9Ye6esceFBH98VPmbp75XJsissArH0
+	 18OVcdyIePHaCTVi+5mxHM1HJZ3kD9GupgLtkipBGZBoFhLumy79co7sDTOjJNSC+2oo5
+	 Y8HXdatC7HPDJ6V94hMN7WpvRdmEDdsLuuIhonYTykGBaW/PZ4I2HKfEgpCHE4WVpc54k
+	 FubyzDq47Vqx9uOjAjPrqIBZfhQQUxhLM3faJGmzbZXxLT9T/Sfd0m/7gPk/E9Dc1uA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795634664;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795634672;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=MODycNRnPQeXoolJNsq5rlwR3n93k/TMqPuz01JJ6+E=;
-	b=eL1MjRSqDHyj179gubCt55HavIJ9qeBbrVCLBuK0zIgyebkChjQa5Htf/gTjW7CcPCXq
-	 PUg9C4GQYjy6+tjVxuFL0JumU9sLm1qds2vNG/PD7D4Vbg/5NzebNJS60GewaIVN4HlKK
-	 hWf8i8LNmBOITophDQl4Z2zu2jAtGNzbos5Wsq2rvB9e6tUcw79skmPTzLDRDEnp2ojSa
-	 MNJTsU7xQhZ0y+GIxZnu6mBdKjddwVTlRMO2fLryrxWIqz22LGxjilDovaZkBPmw6Lney
-	 vYCyinBCmFRvHE9Mg7qkLokmFIG6SfZeyxDLQ7YRgmyK4SqNPGWX5KAmAwUIrMtE6Mg==
+	bh=dQbWlvbH3b3NzDRhv0YEUu//Nq4bfBJezW3vKPLjjVI=;
+	b=RR3BpGcp27EZtjl0POxRh709xwAOLrq2W2NlbgYjl5F3Jr5kJUeFZB6i01FEIjcBraTe
+	 1D5i9UHf8VvdXTv2eWzo5Fe4Om2tVhHPneDsVacVhELwWLhUwnOyOmMHi4S606gbjmRaK
+	 jodpajq2Gg7ZTbKBA9b3R8NstighutzwBaD+39PRjA7XKAG+riiQt3Dx8jplY/mIx6dky
+	 x3DwvZF6lJPtcoTrQDVPPpRZdB1UETnzzBDe2CqePqTktOjoDgSiFIpDlACUYu7BjKKT3
+	 Tj0OGjsJFyIoWg+slA5O3F9NozIynk3eOnpQ5cPj/4mber4q3s1othJCHCwKi3QH2iA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZoMJ9W6s;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PMp8Ft3S;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBC5A606A6B4;
-	Wed, 25 Nov 2026 19:24:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E27DE60A380A;
+	Wed, 25 Nov 2026 19:24:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZoMJ9W6s
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E3701F01564;
-	Wed, 25 Nov 2026 19:24:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PMp8Ft3S
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87CB01F0157A;
+	Wed, 25 Nov 2026 19:24:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795634664;
-	bh=MODycNRnPQeXoolJNsq5rlwR3n93k/TMqPuz01JJ6+E=;
+	s=k20260515; t=1795634671;
+	bh=dQbWlvbH3b3NzDRhv0YEUu//Nq4bfBJezW3vKPLjjVI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ZoMJ9W6s7tw4IZz1VO+/7WxDdI9puRAzdg0QEcUdn8MneNkKpwokp/g3rVLZ8LJNt
-	 M7DmOKsikW4RxFFeXq8sGS2Gs4tjTkIGE3BU3c5IhSFDT2lJK8+JHjy4wGJfID/Jql
-	 p+QfNmGLefECMFAVUpa1KzydCqsNi2SqAUZfR0mxfQctLnvjZDRXR/frR1hpzeq9He
-	 KSZKzxptwWB4h2rChrhwMccWvAtAjWp5dIpZMI31yMwBhAH1WmTV3r/jilNUg5NTsi
-	 uXHYrBJq/SxIdQj5LcoX2eafoKqa3qZZFLxtpL7+nXQPv9vW/XPX4Xf401+gHn+8MP
-	 aP90nKntEoY0Q==
+	b=PMp8Ft3SLxuIY+dcqNlbWcf/VSXYTaUFpbXWCEnvAPTSb7xa7vUkMdFAJ9l6ez0Of
+	 ykSK8UfYv989KxXIKkTp/KRRqZFBkxvVBsYWg0f0Ty9Z/OqvgkeIJUy2J1NSZMtyxx
+	 NIh5Tb05JTQ+4MgKFgPYsQMM5KDFQVWG3fuHnYaQgl3zsGM2fEbJ4I3diCR4qrox0B
+	 OkPUAfl1Bb1LPgUK5Vu2D8qvYz3b3fvPZHG/DvNYA6tdxYovlqlO+WOdggndn+l4ZW
+	 NAFHsWCMHAS9Y55J+Kuyp2tv2QoNFiDA2PfcJrRZhYGr1ES4Gyrg4evU+4pF5yik+i
+	 kiFVnOIp4jmSw==
 From: Joshua Crofts <crofts@kernel.org>
-Date: Wed, 25 Nov 2026 20:24:04 +0100
-Subject: [PATCH 3/9] iio: gyro: adis16136: apply iwyu principle
+Date: Wed, 25 Nov 2026 20:24:06 +0100
+Subject: [PATCH 5/9] iio: gyro: adis16260: apply iwyu principle
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,7 +54,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-gyro-kernel-header-removal-v1-3-969b3e668d35@kernel.org>
+Message-Id: <20261125-gyro-kernel-header-removal-v1-5-969b3e668d35@kernel.org>
 References: <20261125-gyro-kernel-header-removal-v1-0-969b3e668d35@kernel.org>
 In-Reply-To: <20261125-gyro-kernel-header-removal-v1-0-969b3e668d35@kernel.org>
 To: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
@@ -65,11 +65,11 @@ To: =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
 Cc: linux@analog.com, linux-iio@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Joshua Crofts <crofts@kernel.org>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795634652; l=1104;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795634652; l=891;
  i=crofts@kernel.org; s=20261015; h=from:subject:message-id;
- bh=vu387nxZY8KFOYCptWUxtaNNGv7UDpGV+XyNBS+g5Ms=;
- b=WYDHmjz5pbKMq6EeHl6tbqPbXLGkxcUOXYoBVYdnp6XVSJPodQQhH6ZRnNvi0erLzoc7/CWYd
- NT1+Tjp3aUDCnWWxeVGNOp610r7VIGgyufdo/GwGcMqmJWU9BNx1+Jb
+ bh=SPceEcQ3n9KU9S4gmalPVXrRDxWUwLiiWAb5PjgwFNI=;
+ b=OeLLSnvwWLcovVyBTiqGVKtileWCro3IsSAj9gTAq21jzTEkWC7XPUtlpEnJMZ5xDnG3vn9iB
+ hsy26MUf8OqARma0LM4zitlHOzlshW6B+Wn4fnEXB8CwOawGBkk5hfP
 X-Developer-Key: i=crofts@kernel.org; a=ed25519;
  pk=RTDOoVwgeL4oFdASj9U+cxJuIjXuXk73zkjnGOJKbEo=
 
@@ -78,38 +78,30 @@ headers in accordance with the IWYU principle.
 
 Signed-off-by: Joshua Crofts <crofts@kernel.org>
 ---
- drivers/iio/gyro/adis16136.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+ drivers/iio/gyro/adis16260.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/iio/gyro/adis16136.c b/drivers/iio/gyro/adis16136.c
-index b687588ada03..7981ad694c1a 100644
---- a/drivers/iio/gyro/adis16136.c
-+++ b/drivers/iio/gyro/adis16136.c
-@@ -6,17 +6,21 @@
-  *   Author: Lars-Peter Clausen <lars@metafoo.de>
+diff --git a/drivers/iio/gyro/adis16260.c b/drivers/iio/gyro/adis16260.c
+index a79a8edf4c98..a7deccd6e55f 100644
+--- a/drivers/iio/gyro/adis16260.c
++++ b/drivers/iio/gyro/adis16260.c
+@@ -5,10 +5,13 @@
+  * Copyright 2010 Analog Devices Inc.
   */
  
+-#include <linux/device.h>
+-#include <linux/kernel.h>
+-#include <linux/spi/spi.h>
 +#include <linux/array_size.h>
 +#include <linux/bits.h>
-+#include <linux/debugfs.h>
- #include <linux/device.h>
--#include <linux/kernel.h>
-+#include <linux/kstrtox.h>
-+#include <linux/module.h>
- #include <linux/spi/spi.h>
-+#include <linux/sprintf.h>
- #include <linux/sysfs.h>
--#include <linux/module.h>
++#include <linux/dev_printk.h>
++#include <linux/errno.h>
+ #include <linux/module.h>
++#include <linux/spi/spi.h>
 +#include <linux/types.h>
  
  #include <linux/iio/iio.h>
- #include <linux/iio/sysfs.h>
  #include <linux/iio/imu/adis.h>
- 
--#include <linux/debugfs.h>
- 
- #define ADIS16136_REG_FLASH_CNT		0x00
- #define ADIS16136_REG_TEMP_OUT		0x02
 
 -- 
 2.56.0
