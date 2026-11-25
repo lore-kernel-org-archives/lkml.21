@@ -1,111 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.189.147
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795565185;
-	b=K0lS3/lAMkhEMoeiR4tOAybkSs5iI8hZYs5UDURi680XxnBANWv5kD+5bG/rtAgiYJn4
-	 3TvW1yqc9mq2my5zEXK8NR5MPTVF0GvIlWFm5i7F2YOlD/yvVd5kTQYjoykJ8CZNrr/S0
-	 XA7ezvyFE1E6Y21k+vEJbcIMUYlqV9+UbFvxnbSr4EmCL16UQvSyCt+pfn22dknl9dQxh
-	 74jLI7JEGAHK5hXsPXMBzBssQ7KFiZ7SjP23PhgbyIudNRv3Kq0lQt4v1OsINF56/gms1
-	 93s690Kl1aI9rCHLrs69jmvezgCG7hHZvELGWFudl8ncxU1r8trx1OE+jAm4PRWTbAA==
+	t=1795565190;
+	b=pTrIBjDTduT5nDDa/HUMFyv73WLXuT6T/XZmtteTdeXwOSBi21OneLQAzn+5g+CGL7K3
+	 l201q6Hz2F38Jonpwf5kdkl1u6U7oazL5QpkARiPAsh6I4Vywv3m6ZY8X1ZJN9Fo4mMgl
+	 BmPfW967AAzfigkP7UUBrd5y8Ock6sUpsnscAiTg+VLVgEc0rD6fhSndcPxHxxN4qsC9S
+	 n6v9pSR95JkkhlRYE0fve9NfmkOqN/s/5bSdg/JI3oCZDnP5A99JtFGGk1i2nWM3+JxhG
+	 9q7MpK6ogfFkamifY8bQjNmy+7FR4cM0hClBOu+BF+jZPyxoXg0a8DetvBl46/c4wcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795565185;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=CK2W4+wUnESJRPQMuOkNCLCi5VCZ9oTd0r3qBFZs0Ls=;
-	b=T1TXwoR/3OhRTR4Zi+d+weJEWZYK74E8ZE6KBSvsN8trAh+ajbXXA9brl9/jb8pCQ7Mi
-	 tGPNomEjAzCol+oJb9II2Bt//+nhM7NLgau2rxo0zzZlMvZY9kTJbcTnRFw/nThwOPHXd
-	 tIAj/yNudkBTcRpJ957GO7cIOzjjs2B6Rw354+0+siY89mOzv3uaYVZ2DBOzLRHib2d/k
-	 8XCOW7IH00bfV6rXffF+3frpE8eN7B2Yc7MeD7mCv1WhO2jFCmLvGavVttzbCotxHrMeg
-	 QGCtcBhX0On/BFuabPjLEN42HWZZAQlv5XhubRFoCAcNPPC+R5ATiWkCZgyaNjghvOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795565190;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer;
+	bh=lyFEA2pPtcSN+NFgMEM25R2o7ZLj2D0vspuZ/yOPX0M=;
+	b=3U3e4dg2J8VSIUo1OlOZbmSdymZTaWlMCePgwD/DVrG+q/fTNve/cW3DrIUCKLGuISBm
+	 41bocZypJWTjt24e59GLaDS/xqwKmjrpUf3A6zrAKKu4YA0VLvs8knjsc867xNXM/4SUr
+	 vXI8J6+8XxTBmes4aMmuehb9+tInRXLihYLpmHQWf1jC3bOuoes21S3MmSXB4gdkzDKfC
+	 +V1MG3SwW+MvKLYsRG4MslN0TydCmzyuNqOkf88dUrjD81K37ag6I9t0qGWsBn4u2Y48Q
+	 pk93+PI8GAwaef/dUcptolWR9L+j8JvNGp10JgAnR5XUZILlEYXrqKL/voOuWZvXhAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=M7PgpiVY;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b="I3RL/zgO";
+	arc=none smtp.remote-ip=66.163.189.147
+Received: from sonic314-21.consmr.mail.ne1.yahoo.com (sonic314-21.consmr.mail.ne1.yahoo.com [66.163.189.147])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F301606A339
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:06:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F301606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E83EB606A327
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 00:06:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E83EB606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=M7PgpiVY
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-385c497bf94so1396178eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 16:06:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795565184; x=1796169984; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CK2W4+wUnESJRPQMuOkNCLCi5VCZ9oTd0r3qBFZs0Ls=;
-        b=M7PgpiVYnCtcZ3Alr1XGilrLJFcT1rPKExZ/YFlJcZoxQCneu7EcbuiqSHE/UZWqsb
-         qQxVnZKDTArRTY+ZbW4zMC4eHL9Jn0LgxVbmlj6S7KIRl/BxP3niB/MApn0Ps8Giq3xc
-         K9Zc+9cgkiuNK3t3ntMDdP+ROQ18ox38DMp1I=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795565184; x=1796169984;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CK2W4+wUnESJRPQMuOkNCLCi5VCZ9oTd0r3qBFZs0Ls=;
-        b=KGnjk4KWpXENPkUKBB18GAAYWiAc8ybjrNbMSGXsTMaq7B65pysbn76dPN80lg8jhO
-         1igqh9wZOORJRYoegvIkqhOIWKMMYJc0o85eFxGcStcnDvxVYEHZTS7OAHWOq1wvJ1PX
-         dWlxQKshTAdjRTPYcyAm/WRdzUH9G0kKIUqv9UHXpsID0eeDfdxoKnWx+GACD34GSYgU
-         X8c0Nv5DiDba2U5BC+8s/wf5IY4c+ncLwdI0ADvc2qT6V2o8IIM2z+pYnS25GH4Zfcxs
-         0fiqhQFKzcp1TZDgs8/4gJFv8X5Zlp8taD9F5Ccz252tkYVbyJz3Jh+p+NP8mvIH0Gnh
-         8ijA==
-X-Forwarded-Encrypted: i=1; AL+hErHhxyZPL9RhUD83IOjGr6BsUM7+zEG5cuW6doPUMUaszVNx+M68m3+Yu/bwSIPQQItueHkqTcqp5pHpywk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/AfnfoH6CKSfMZsODb7uLJehnl3EQp1QnoXDF/azZltOsI7wmy
-	4RUVEHJhkAJeJ9xybDqb+47npC3cinwCLF5ONk6UH1jvQX8unyc8BpyrKGQ+I6oYvw==
-X-Gm-Gg: AZFdTZdAFRWBal4Ton38Kxq9rFk0I6CCjjQX1nuh0OlJQ8Zudth6Tt7zWD/0GNS62ay
-	9jKwJjOAAeFfPOt6pIdSdlaVqMvXdq6ashtxZFAlXgBWND9V7FxXFQXixeA/MnZgwjxrLGnD0Zd
-	CE2EseM/VEcIHccCBlkUMn5vdm4xGNkO6hBTvC1iJABAy64kYrJj2li0+CVrgc0KqEWl+gqENOl
-	KpZD1Y+uIlQzhpRRJ08fEeIf0EA38wuXgR7yIP+H0KVs/0R6CsJubMYNu0DhForvdeh8iDf+byU
-	2pBt7WtJECnyG30nCSWucMQ5xuA8Waeii0tnKg/jfUbeGTo3Zr0BcRq63eRaJj4laqXbzqUcLnA
-	DqooNERUMMgxpGEzNP7BEhDOXikvM1M1+VoDDXq36xQN/zfJW1mtOeEwak+/JHxwXSpNRFcZ+d+
-	pILWuqga+WuQhIxX1IW0alsWvSBJ8CYeGiOQ71QsjiF2aYq/z35tlA3nOCki9UcUjj+TtghqmlC
-	YHSFf91fSeKA1kTDsldK+DP6NPamd/t80DfDS5BMLpaciBtVXe8v02dChyQ6y+1DLk+YWHgIDV/
-	hKFBmY5W3tRHm8b3MEJbw9e4i90MQ/cExdSUG4CcyOrxmQfp4PLrsw6hZXiAnb2TX7ule/MI7k1
-	BIiMROKN0Deb8Xw==
-X-Received: by 2002:a05:7301:460f:b0:386:c850:1f25 with SMTP id 5a478bee46e88-386c8502211mr2425231eec.21.1795565184021;
-        Tue, 24 Nov 2026 16:06:24 -0800 (PST)
-Received: from localhost ([2a00:79e0:2e7c:8:ea9b:d8a3:ba44:2d0a])
-        by smtp.gmail.com with UTF8SMTPSA id 5a478bee46e88-38566fdce48sm51405808eec.14.2026.11.24.16.06.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 16:06:23 -0800 (PST)
-From: Brian Norris <briannorris@chromium.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Peter Griffin <peter.griffin@linaro.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Radu Rendec <radu@rendec.net>,
-	=?UTF-8?q?Jakub=20G=C5=82owacki?= <jglow@google.com>,
-	linux-clk@vger.kernel.org,
-	Douglas Anderson <dianders@chromium.org>,
-	devicetree@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Mariano Marciello <mmarciello@google.com>,
-	google-soc@lists.linux.dev,
-	Brian Norris <briannorris@chromium.org>
-Subject: [PATCH v2 1/9] dt-bindings: power: google: Add Google Tensor CPM
-Date: Tue, 24 Nov 2026 16:03:35 -0800
-Message-ID: <20261124160343.v2.1.Ib692ddd35c1dbea1757d9b1db6c1c7e938fc4ea6@changeid>
-X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-In-Reply-To: <20261125000349.3385325-1-briannorris@chromium.org>
-References: <20261125000349.3385325-1-briannorris@chromium.org>
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=I3RL/zgO
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795565188; bh=lyFEA2pPtcSN+NFgMEM25R2o7ZLj2D0vspuZ/yOPX0M=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=I3RL/zgOnvBwBQkRMgR434v6fDd+Ky2fqvqBEeuOma7ROFI+VMTZtw30iRLHr8jmNM0uOT4yEt+stuwxyr/k5HJJKm8QgAM9YVxgzllzYXHIPts9TdAMGcbUoEq0VC0FkCIcG5ttMvW4327uT5QgJ2HJYB83/gZwSwcyKjdoRVIcHjrp1iaU4cY73rncmfnpQPEpVZIF894HYZ1I1xWQ4CSxlXZnntXxU9NH1/eHOseiZakKEz1qEXj1TtpIZv/JZaGDXLphCp6pJVUdLdvywR1EQwrLWx7ICHM8zXCl+FEYfx4pt9T5ssmm+9RRTW6PJDExmzU3e4w7si4zpb7DdA==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795565188; bh=/FGSuO/ecgErCUPJk4t+Hrb6bn0QOWk2DdG2pUyVo/2=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=qMNzHxJDgv2hJKUEV6arVpcQwNvmf52aBkAkj5I30FW1pQfXuBdXUf02lhn7nwkVvz17BErY07gGPjpe4F4xR447KmALJTKZw4orfUcydN3BC4Ju1b2dqzC0pmsX8nyKY4hDt5ZM7llP/WDfWLhv7J+89RrrM4L2UEOotJbDwtZ6Ed32By2xsaG1ajWcy+52S0qqATWJFap89v4b4XT6L7BltQFVPNVvhyEyMfEUTLQf+i6f9QXU/j/26x05Qd6e0idUiglnPs12uJoO/qV1noNqp5OGYpMWtPGUffILutbFy0ZWBZXq9MJrJPrYha8E1j5E7FUlUpJXLA3rsP/y2Q==
+X-YMail-OSG: LS75rvIVM1nUEIkFXsW_JycgiLNn0T5V9WehPqIRND.VS598aBYm5nZOodtG8Vn
+ tJCT12arp6gK5rnEyQa8rn8WJGASJOebnnqlxWYJgm.KKsROG2.K.7mqaCT0yf_CTgg1BJ9dUpmk
+ gec151Eik2lFt3s0bHuXtHAB2EwAtGmuZQ4ZM7hTGnT65VCVyHmED2aWZx1dsHXU46AbJ4Kg2cio
+ _qBgUzjG2b2pv9W_h_MJz.D3julbcpp2_rBNkLV5g3vfF2RL.ZOh_pZPJfiItvvKO3SmtfSxW1vw
+ R2so5SXu7rp6GokFBEtr9_v8.ekTRpIV3gG6d8KUsEaCd4DAwfy38fNxBO8R33wuAxSSAVKaUgG3
+ QG8f1MaU1aDYZNqUjokR2Y0mHNSxbj0brtdDTiNFktZhPvBNbEwcmQj5nsvVxDvUVSR_6kGrYkgo
+ IDyaZl7tvrO7T0yJlEOYe0P8EpwE5Gsh1zh1zAIyZUIIa4mahrFfD3oLWKTJbNEKGLTq.oOudYH.
+ mN9pyR3moplhF4jw3NjASfDSZAEFOft7HcLhCHVKRjJUqwG7izXpGTA4WjY1ecjv.sbn5gAFhAqJ
+ 1iKNkE5CYZ2g05kYiHlIKAySYDTkZT5JZA7VliFoHF9hl2In4j6qwX8H8Mq7wv4sJMd70XmAASxC
+ kgHDB_dab4byMwgkn2FhZzm2TQ_63xhUn15wBMW30f3GFhwdqb7fx3NhqsOzSY5NE6017GSvGx9K
+ ugJfRZO0PwVgo3NF3yc0DwZO6zh.cjRQv4sAO5KAPmijeqODcB9cDlFamNjJAk4YcwbdH1Nj5kM_
+ DX3AcVe2tpX9aTrME_S40gzF1lMCrjVYMqru3QYOmCsUTMH.UnwMoAJi50mlU6bSKVZOM3VOhadH
+ LGUAQMxOOe38VspFDW1ca6jdib6RydA3N2mym.83wX9WVPltN52hJVKsBGthZam8ZxZIlDCLYTIu
+ 0hmPVgBwKVXl79KyaUf4tmkeiJF8i_6SDSE4sfr6D55E8wlv_awRJN7K7wnWLmvPjG6evG0BQiNy
+ QGb5e55TWeqLyvPJ1F8H0NgL4sPDO.57ibuEf2uQtRRcLsaZfQ.1CP4jIGhtQV9JG36olmUzVMX5
+ gfABdRZJf4L5A182_p0vUTtamlhcnoxIQbCk5g5nan2bBG9mbUtTNh8esIlDenDXGb9uqfbyjKJ2
+ 8_L.P70Ztd.xEEWm05AMUmEEnfkh2A0nbkQo04Lve28hythsSGXy5DhnWEsq0bxgErNKzufZb93V
+ V6eOyOPS9jdRWquOBTRQXZs6k77CuJZe.4FmbiJqRsVUbPuzAIm1KmDGNwe7xgq5ph_.dKY1a22j
+ UaLD5jLC6hdSUfiNdD4IHlKJ3slzLL.cAoOkqwrt.gk_9fHPhPsxG4AoIutLLapB.6tZlcE2x6TU
+ uKwg4TcqUw7VTazrdAR4nczz0tKp99X3t802uxrDo.zptu2a1ecvOU8q9SB9VF_twPj7q3O1bhDX
+ LQbWf9JitQ9dTcmdTD4SHUkOn19LuVcqkXA3EhDZYjP0muoKsu5ATFcseH8R9_NdRU7bpv6TJtVS
+ I5.QRlOvDJo.nUA3d3qEXNsg3YtmQB2T9uRVigXrYtBEnJBApKOvRjx8bD7qqtC8qlsy9L5tMUNq
+ HzM5wO9FQehXFIdKhL60EYRME2rRbTQJ6oXuJ1od9T5cFrhBnTBnlk.VXxvbpObo61RNI5upyWqi
+ Yjy09t9ANaIhHwKJQvB35.BQzSWv5Jqco0xp0qDwfiL1phx3DkG3tYJuDIhdCJ7SRBdCkFfASoqP
+ 3XkmGJTiMWmjHf59r9O0ovcNFHkO7tcbUtDYAfxJ_IjXnXYiHJlBT_nsPGUjwuBvNFTklNBRRYy9
+ PHFBJs1NMqZSBQYRdb5kITXD4NO3XFPTqkSnBnAukARmTiWg_mSgHvljX.Ve1Gu_pEasPfbG0UtA
+ U83FFIhBwXOxEBWFg0tW9EUrB5jxyTjZbjjjkTvM3agJP6paqYFjpo0XgOvHw4jvFgL7vCcWlWyN
+ lhxwci_0dckKvzUz3z5Zv9PdDX.CAW.59E0mmdJ8H8S86c_AGobbUbBuVXR5bAK_Phf3gMYw2bRp
+ i1oAOt4ugUZ0a_bMlRYXYQfmY02DoCZR5qGi9c_H5vi2LyJtd9yW.2qTB3pYl2gNs1zSrcGAR6j1
+ Z4tox.0PaZAidKiE6aKHdtJR77ERe4SKUdK0.eyCg1NYDBoab5CtHQundYOwKXMDA.l3eTxvy6J7
+ 3myLeD3PuANO1IOKIBHrcqdIjma1gePMumJKbq8.fGk_tKmjsk.MRbrLa4WA2cT3QfdG8RIq3Nwg
+ gTTQUrjCGmVgnVWLejLI1doSln7tsXJ10S5Mh6KbdUqtlyQ--
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: 7afdb8a3-9d43-4115-9d36-914853ea115d
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic314.consmr.mail.ne1.yahoo.com with HTTP; Wed, 25 Nov 2026 00:06:28 +0000
+Received: by hermes--production-ir2-7c4859dc89-4mhg8 (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID da7ed46c6e1c7aa25c86f1affa717893;
+          Wed, 25 Nov 2026 00:06:22 +0000 (UTC)
+Message-ID: <fe49b828-ee40-4cef-b969-536cc251f811@yahoo.com>
+Date: Wed, 25 Nov 2026 01:06:19 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,421 +84,393 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH net-next v14 07/15] net: dsa: realtek: rtl8365mb: set and get
+ vlan 4k for family D
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
+ o.rempel@pengutronix.de
+References: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
+Content-Language: pl
+In-Reply-To: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-The Central Power Manager (CPM) is a co-processor on the Google Tensor
-SoCs, as used on Pixel phones. CPM supports power-management and a
-number of other features.
+The hardware structure of 4K VLAN table entries has changed between
+silicon families. Family D's CVLAN entry is two 16-bit words rather
+than three: there is no third word extending member/untag past bit 7,
+and no priority/meter fields at all. The FID field is restricted to a
+narrower 2-bit width. The chip itself supports both IVL and SVL.
 
-The Application Processor communicates with CPM over a pair of mailbox
-channels. CPM provides clock, power-domain, reset, and interrupt
-services.
+IVL_EN (bit 3, versus bit 14 on family C) follows vlan4k->ivl_en. On
+family D, rtl8365mb_vlan_4k_port_set() enables it while any user port
+has VLAN filtering enabled (dsa_port_is_vlan_filtering()), so that
+static and learned FDB/MDB entries use the same key. Family C keeps IVL
+always enabled, as before.
 
-Notable features of this binding:
+When a vlan_filtering change flips this switch-wide state,
+rtl8365mb_d_vlan_4k_refresh_ivl() updates IVL_EN across the active 4K
+entries, so existing VLANs, including those programmed before filtering
+was enabled, switch between SVL and IVL immediately. Changes that leave
+the state as it is do not touch the table.
 
- * Resets and interrupts have a naive mapping to their underlying
-   resource on the remote (firmware) end, so they directly utilize the
-   firmware indexing (LPCM ID + reset ID, #reset-cells = <2>; and
-   interrupt ID, #interrupt-cells = <1>)
+The update visits only the VIDs in use, tracked in the vlan_4k_used
+bitmap in struct realtek_priv. rtl8365mb_vlan_4k_port_set() keeps it up
+to date under vlan_lock, so a toggle does not read all 4094 entries over
+the slow management bus (about 5 s per toggle on an RTL8367S-VB; 20-30 ms
+with the bitmap). The bitmap covers the entries written by this driver:
+an entry that was already in the table before the driver loaded is not
+visited. An entry that loses its last member is written back with IVL_EN
+cleared, as in its reset state, so that it is not left in IVL after it
+drops out of the bitmap. The rewrite itself is a separate function,
+rtl8365mb_d_vlan_4k_set_ivl(), so that an error path can restore the
+previous state.
 
- * Clocks and power domains also map relatively directly to CPM firmware
-   IDs (LPCM ID and object ID), but they have a more complicated
-   hierarchy, non-uniform characteristics, and even covering multiple
-   service protocols (especially for power-domains). So these use a
-   1-cell identifier, leaving software to perform the DT-to-firmware
-   mapping.
+Reusing the three-word family C layout on family D would read a third
+word that does not exist as a distinct table word on family D's die.
+Whatever data happens to be in that register would be folded into
+member/untag bits [10:8] on read, and written back on every
+read-modify-write cycle in rtl8365mb_vlan_4k_port_set(). Give family D
+its own two-word pack/unpack instead: add rtl8365mb_d_vlan_4k_read() and
+rtl8365mb_d_vlan_4k_write(). The shared code reaches them through the
+vlan_4k_read and vlan_4k_write pointers in struct rtl8365mb_family_info,
+so the pack/unpack code needs no is_d() check.
 
-Notably, CPM manages other services that are not yet included in this
-binding -- some attached PMICs, an RTC, and more. For simplicity, we
-don't try to describe and support all features all at once.
+The two-word layout matches the vendor switch API for this chip
+family, which writes only 0x0510/0x0511 for a CVLAN entry.
 
-Because it may be useful both for reviewers familiar with the downstream
-Linux support for these devices, or for future developers looking at
-adapting/improving/adding further features later on, it's worth noting
-some major deviations from downstream bindings:
+Nothing points to them until the family D info is added together with
+the chip table entry in the last patch. Until then they are not static
+and are declared in rtl8365mb_vlan.h, so that the build does not warn
+about unused functions.
 
- * CPM does not sit on the soc bus, and does not have any IO/reg region
-   of its own. The downstream bindings included some not-quite-related
-   hardware resources in the same "device", to aid doing some similar
-   things in the same driver. For instance, some power domains
-   (specifically, the GPU) are not managed by CPM, and instead are left
-   for direct-register-access. Such a domain should be described
-   separately, and not within the CPM node.
-
- * Downstream bindings tended to describe every CPM-using service as its
-   own node, with a (fake) mailbox-phandle back to the CPM node. We try
-   as much as possible here to avoid separate nodes if we can help it.
-   And see the next point:
-
- * Downstream bindings tended to describe every individual clock, reset,
-   and power-domain as their own sub-node, with various
-   software-describing properties as part of each node. These properties
-   are inherent to the SoC, however, so we avoid sub-nodes and instead
-   just provide appropriate #{clock,power-domain,reset}-cells, and leave
-   the per-{power-domain,clock} properties to the driver.
-
-Signed-off-by: Brian Norris <briannorris@chromium.org>
+Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
+Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
 ---
+ drivers/net/dsa/realtek/realtek.h        |   8 +
+ drivers/net/dsa/realtek/rtl8365mb_main.c |  13 ++
+ drivers/net/dsa/realtek/rtl8365mb_vlan.c | 185 ++++++++++++++++++++++-
+ drivers/net/dsa/realtek/rtl8365mb_vlan.h |   9 ++
+ 4 files changed, 213 insertions(+), 2 deletions(-)
 
-Changes in v2:
- * Move bindings to power/, not soc/
- * Make binding prefix/suffix pattern consistent (no LGA_*; put type
-   first (CLK_*, PD_*))
- * Consistent naming for dt-bindings headers
- * Drop unneeded IRQ number dt-binding header (these were simply naming
-   documentation, at best; I inline these into the DTS instead)
- * Drop unneeded reset number dt-binding header (these were simply
-   naming documentation; I move the macro definitions directly into the
-   dts/ folder instead)
- * List properties in alphabetical order
- * Flatten clock IDs to 1 cell
-
- .../bindings/power/google,lga-cpm.yaml        |  68 +++++++
- include/dt-bindings/clock/google,lga-cpm.h    | 173 ++++++++++++++++++
- include/dt-bindings/power/google,lga-cpm.h    |  79 ++++++++
- 3 files changed, 320 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/power/google,lga-cpm.yaml
- create mode 100644 include/dt-bindings/clock/google,lga-cpm.h
- create mode 100644 include/dt-bindings/power/google,lga-cpm.h
-
-diff --git a/Documentation/devicetree/bindings/power/google,lga-cpm.yaml b/Documentation/devicetree/bindings/power/google,lga-cpm.yaml
-new file mode 100644
-index 000000000000..a11b76df23fe
---- /dev/null
-+++ b/Documentation/devicetree/bindings/power/google,lga-cpm.yaml
-@@ -0,0 +1,68 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/power/google,lga-cpm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/net/dsa/realtek/realtek.h b/drivers/net/dsa/realtek/realtek.h
+index dacb780..fda385e 100644
+--- a/drivers/net/dsa/realtek/realtek.h
++++ b/drivers/net/dsa/realtek/realtek.h
+@@ -8,6 +8,8 @@
+ #ifndef _REALTEK_H
+ #define _REALTEK_H
+ 
++#include <linux/bitmap.h>
++#include <linux/if_vlan.h>
+ #include <linux/phy.h>
+ #include <linux/platform_device.h>
+ #include <linux/gpio/consumer.h>
+@@ -65,6 +67,12 @@ struct realtek_priv {
+ 	 * deleting port VLAN memberships and PVID configurations.
+ 	 */
+ 	struct mutex		vlan_lock;
++	/* VIDs with a non-empty 4K VLAN entry written by rtl8365mb on family
++	 * D (left empty by other chips and drivers), protected by vlan_lock.
++	 * Lets a switch-wide update visit only the entries in use instead of
++	 * reading all 4094 over the slow management bus.
++	 */
++	DECLARE_BITMAP(vlan_4k_used, VLAN_N_VID);
+ 	/* l2_lock is used to prevent concurrent modifications of L2 table
+ 	 * entries while another function is reading it. l2_(add,del)_mc
+ 	 * is an example that first read current table entry and then
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+index 687939d..24635fe 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_main.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+@@ -2303,8 +2303,21 @@ static int rtl8365mb_port_vlan_filtering(struct dsa_switch *ds, int port,
+ 	if (ret)
+ 		goto undo_set_framefilter;
+ 
++	if (rtl8365mb_is_d(priv)) {
++		mutex_lock(&priv->vlan_lock);
++		ret = rtl8365mb_d_vlan_4k_refresh_ivl(ds, port, vlan_filtering);
++		mutex_unlock(&priv->vlan_lock);
++		if (ret)
++			goto undo_egress_mode;
++	}
 +
-+title: Google Central Power Manager (CPM)
+ 	return ret;
+ 
++undo_egress_mode:
++	/* The previous state was the opposite of the new one, see below */
++	(void)rtl8365mb_port_set_vlan_egress_mode(priv, port,
++		vlan_filtering ? RTL8365MB_VLAN_EGRESS_MODE_REAL_KEEP :
++				 RTL8365MB_VLAN_EGRESS_MODE_ORIGINAL);
+ undo_set_framefilter:
+ 	if (prev_accepted_frame != accepted_frame)
+ 		rtl8365mb_vlan_port_set_framefilter(priv, port,
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+index 566c6bc..ff6f2ba 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+@@ -50,11 +50,15 @@
+ #include "rtl8365mb_table.h"
+ #include "rtl8365mb.h"
+ #include <linux/if_bridge.h>
++#include <linux/if_vlan.h>
+ #include <linux/lockdep.h>
+ #include <linux/regmap.h>
+ 
+-/* CVLAN (i.e. VLAN4k) table entry layout, u16[3] */
++/* CVLAN (i.e. VLAN4k) table entry layout: u16[3] on family C, u16[2] on
++ * family D
++ */
+ #define RTL8365MB_C_CVLAN_ENTRY_SIZE			3 /* 48-bits */
++#define RTL8365MB_D_CVLAN_ENTRY_SIZE			2 /* 32-bits */
+ #define RTL8365MB_CVLAN_ENTRY_D0_MBR_MASK		GENMASK(7, 0)
+ #define   RTL8365MB_CVLAN_MBR_LO_MASK			GENMASK(7, 0)
+ #define RTL8365MB_CVLAN_ENTRY_D0_UNTAG_MASK		GENMASK(15, 8)
+@@ -66,6 +70,10 @@
+ #define RTL8365MB_CVLAN_ENTRY_D1_METERIDX_MASK		GENMASK(13, 9)
+ #define   RTL8365MB_CVLAN_METERIDX_LO_MASK		GENMASK(4, 0)
+ #define RTL8365MB_CVLAN_ENTRY_D1_IVL_SVL_MASK		GENMASK(14, 14)
++/* Family D CVLAN entry, word 1 (family D has no word 2) */
++#define RTL8365MB_D_CVLAN_ENTRY_D1_IVL_EN_MASK		GENMASK(3, 3)
++/* FID_MSTI in the vendor API: the same bits hold the FID or the MSTI */
++#define RTL8365MB_D_CVLAN_ENTRY_D1_FID_MASK		GENMASK(1, 0)
+ /* extends RTL8365MB_CVLAN_ENTRY_D0_MBR_MASK */
+ #define RTL8365MB_CVLAN_ENTRY_D2_MBR_EXT_MASK		GENMASK(2, 0)
+ #define   RTL8365MB_CVLAN_MBR_HI_MASK			GENMASK(10, 8)
+@@ -231,6 +239,45 @@ int rtl8365mb_c_vlan_4k_read(struct realtek_priv *priv, u16 vid,
+ 	return 0;
+ }
+ 
++int rtl8365mb_d_vlan_4k_read(struct realtek_priv *priv, u16 vid,
++			     struct rtl8365mb_vlan4k *vlan4k)
++{
++	u16 data[RTL8365MB_D_CVLAN_ENTRY_SIZE];
++	int val;
++	int ret;
 +
-+maintainers:
-+  - Brian Norris <briannorris@chromium.org>
++	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_CVLAN,
++				    RTL8365MB_TABLE_OP_READ, &vid, 0, 0,
++				    data, RTL8365MB_D_CVLAN_ENTRY_SIZE);
++	if (ret)
++		return ret;
 +
-+description:
-+  The Central Power Manager (CPM) is an on-chip power management subsystem
-+  found on Google Tensor SoCs. It has a variety of responsibilities, from DVFS
-+  and power management to resets, PMIC control, and even RTC management. The
-+  Application Processor communicates with CPM over a set of mailbox channels.
++	/* Unpack table entry */
++	memset(vlan4k, 0, sizeof(*vlan4k));
++	vlan4k->vid = vid;
 +
-+properties:
-+  compatible:
-+    const: google,lga-cpm
++	/* member/untag: d0[7:0]/d0[15:8] on both families. Family C
++	 * extends these into data[2] bits [2:0]/[5:3] for its 9th-11th
++	 * ports; family D's die has only 8 ports and no third table
++	 * word, so data[2] does not exist there and must not be read.
++	 */
++	val = FIELD_GET(RTL8365MB_CVLAN_ENTRY_D0_MBR_MASK, data[0]);
++	vlan4k->member = FIELD_PREP(RTL8365MB_CVLAN_MBR_LO_MASK, val);
 +
-+  '#clock-cells':
-+    const: 1
-+    description: See <dt-bindings/clock/google,lga-cpm.h> for clock IDs.
++	val = FIELD_GET(RTL8365MB_CVLAN_ENTRY_D0_UNTAG_MASK, data[0]);
++	vlan4k->untag = FIELD_PREP(RTL8365MB_CVLAN_UNTAG_LO_MASK, val);
 +
-+  '#interrupt-cells':
-+    const: 1
-+    description: Interrupt identifiers are assigned by CPM firmware.
++	vlan4k->fid = FIELD_GET(RTL8365MB_D_CVLAN_ENTRY_D1_FID_MASK,
++				data[1]);
++	/* Family D has no priority/meter fields in this entry -
++	 * left zeroed by the memset() above.
++	 */
++	vlan4k->ivl_en = FIELD_GET(RTL8365MB_D_CVLAN_ENTRY_D1_IVL_EN_MASK,
++				   data[1]);
 +
-+  interrupt-controller: true
++	return 0;
++}
 +
-+  mboxes:
-+    items:
-+      - description: TX mailbox channel for sending requests to CPM
-+      - description: RX mailbox channel for receiving responses from CPM
+ int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
+ 			      const struct rtl8365mb_vlan4k *vlan4k)
+ {
+@@ -277,6 +324,125 @@ int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
+ 				     data, ARRAY_SIZE(data));
+ }
+ 
++int rtl8365mb_d_vlan_4k_write(struct realtek_priv *priv,
++			      const struct rtl8365mb_vlan4k *vlan4k)
++{
++	/* Bit 2 of word 1 is SVLAN_CHK_IVL_SVL in the vendor API; like
++	 * the other bits not described above, it is written as zero, as
++	 * the vendor API does for this chip family.
++	 */
++	u16 data[RTL8365MB_D_CVLAN_ENTRY_SIZE] = { 0 };
++	u16 vid;
++	int val;
 +
-+  '#power-domain-cells':
-+    const: 1
-+    description: See <dt-bindings/power/google,lga-cpm.h> for power domain IDs.
++	/* Pack table entry value */
++	val = FIELD_GET(RTL8365MB_CVLAN_MBR_LO_MASK, vlan4k->member);
++	data[0] |= FIELD_PREP(RTL8365MB_CVLAN_ENTRY_D0_MBR_MASK, val);
 +
-+  '#reset-cells':
-+    const: 2
-+    description:
-+      Each reset is specified by an LPCM ID (cell 1) and a reset ID (cell 2).
-+      LPCM and reset IDs are assigned by CPM firmware.
++	val = FIELD_GET(RTL8365MB_CVLAN_UNTAG_LO_MASK, vlan4k->untag);
++	data[0] |= FIELD_PREP(RTL8365MB_CVLAN_ENTRY_D0_UNTAG_MASK, val);
 +
-+required:
-+  - compatible
-+  - '#clock-cells'
-+  - '#interrupt-cells'
-+  - interrupt-controller
-+  - mboxes
-+  - '#power-domain-cells'
-+  - '#reset-cells'
++	data[1] |= FIELD_PREP(RTL8365MB_D_CVLAN_ENTRY_D1_IVL_EN_MASK,
++			      vlan4k->ivl_en);
++	data[1] |= FIELD_PREP(RTL8365MB_D_CVLAN_ENTRY_D1_FID_MASK,
++			      vlan4k->fid);
++	/* No priority/meter/member-untag-extension fields exist in
++	 * family D's 2-word entry - data[1] and data[0] above are
++	 * the whole entry, and data[2] is not part of it at all.
++	 */
 +
-+additionalProperties: false
++	vid = vlan4k->vid;
++	return rtl8365mb_table_query(priv, RTL8365MB_TABLE_CVLAN,
++				     RTL8365MB_TABLE_OP_WRITE, &vid, 0, 0,
++				     data, RTL8365MB_D_CVLAN_ENTRY_SIZE);
++}
 +
-+examples:
-+  - |
-+    power-controller {
-+        compatible = "google,lga-cpm";
-+        mboxes = <&cpm_ap_ns_req_mba>, <&cpm_ap_ns_resp_mba>;
-+        #clock-cells = <1>;
-+        #power-domain-cells = <1>;
-+        #reset-cells = <2>;
-+        #interrupt-cells = <1>;
-+        interrupt-controller;
-+    };
-diff --git a/include/dt-bindings/clock/google,lga-cpm.h b/include/dt-bindings/clock/google,lga-cpm.h
-new file mode 100644
-index 000000000000..a390297449d7
---- /dev/null
-+++ b/include/dt-bindings/clock/google,lga-cpm.h
-@@ -0,0 +1,173 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/* Family D has no EFID, so a VLAN-unaware bridge must learn in SVL (IVL=0)
++ * to match static FDB/MDB entries programmed with VID 0. Use IVL only while
++ * at least one user port is VLAN-filtering. @port/@filtering override
++ * the state of the port currently being changed, as DSA updates
++ * dp->vlan_filtering only after the driver callback returns.
++ */
++bool rtl8365mb_d_want_ivl(struct dsa_switch *ds, int port, bool filtering)
++{
++	struct dsa_port *dp;
 +
-+#ifndef __DT_BINDINGS_CLOCK_GOOGLE_LGA_CPM_H
-+#define __DT_BINDINGS_CLOCK_GOOGLE_LGA_CPM_H
++	dsa_switch_for_each_user_port(dp, ds) {
++		if (dp->index == port ? filtering :
++					dsa_port_is_vlan_filtering(dp))
++			return true;
++	}
 +
-+/* CPU */
-+#define CLK_CPU_SSWRP_TSS		0
++	return false;
++}
 +
-+/* DPU */
-+#define CLK_DPU_DP0_PIX			1
-+#define CLK_DPU_DP1_PIX			2
-+#define CLK_DPU_DSI0_PIX		3
-+#define CLK_DPU_DSI1_PIX		4
-+#define CLK_DPU_DSI1_PHY		5
++/* Set IVL_EN of every 4K entry in use to @want_ivl. Callers must use it only
++ * for a change of the switch-wide state (see
++ * rtl8365mb_d_vlan_4k_refresh_ivl()), so that every entry in use holds
++ * !@want_ivl on entry. Must be called with &priv->vlan_lock held.
++ */
++int rtl8365mb_d_vlan_4k_set_ivl(struct dsa_switch *ds, bool want_ivl)
++{
++	const struct rtl8365mb_family_info *fi;
++	struct realtek_priv *priv = ds->priv;
++	struct rtl8365mb_vlan4k vlan4k;
++	unsigned int failed;
++	unsigned int vid;
++	int ret;
 +
-+/* GPCM */
-+#define CLK_GPCM_DPU_PLL_DP		6
-+#define CLK_GPCM_HSIO_N_PLL_DP		7
++	lockdep_assert_held(&priv->vlan_lock);
 +
-+/* HSIO_N */
-+#define CLK_HSIO_N_USB			8
-+#define CLK_HSIO_N_DP0			9
-+#define CLK_HSIO_N_DP1			10
-+#define CLK_HSIO_N_PHY_FW		11
-+#define CLK_HSIO_N_USBDP_SUSPEND	12
-+#define CLK_HSIO_N_USBC_NON_STICKY	13
-+#define CLK_HSIO_N_USBC_STICKY		14
-+#define CLK_HSIO_N_USB_DRD_BUS		15
-+#define CLK_HSIO_N_USB_TOP_CSR		16
-+#define CLK_HSIO_N_U2PHY_APB		17
-+#define CLK_HSIO_N_USB2_PHY_RESET	18
-+#define CLK_HSIO_N_USB3DP_PHY_RESET	19
-+#define CLK_HSIO_N_EBU			20
++	fi = rtl8365mb_get_family_info(priv);
 +
-+/* HSIO_S */
-+#define CLK_HSIO_S_GPIO_REF_TCX0	21
-+#define CLK_HSIO_S_SYS			22
-+#define CLK_HSIO_S_UFS_CFG		23
-+#define CLK_HSIO_S_PHY_FW		24
-+#define CLK_HSIO_S_MPHY_REF_TCX0	25
-+#define CLK_HSIO_S_AUX			26
++	for_each_set_bit(vid, priv->vlan_4k_used, VLAN_N_VID) {
++		ret = fi->vlan_4k_read(priv, vid, &vlan4k);
++		if (ret)
++			goto rollback;
++		if (!vlan4k.member || vlan4k.ivl_en == want_ivl)
++			continue;
 +
-+/* LSIO_E */
-+#define CLK_LSIO_E_GPIO			27
-+#define CLK_LSIO_E_SPMI			28
-+#define CLK_LSIO_E_CLI7_CFG		29
-+#define CLK_LSIO_E_CLI8_CFG		30
-+#define CLK_LSIO_E_CLI9_CFG		31
-+#define CLK_LSIO_E_CLI10_CFG		32
-+#define CLK_LSIO_E_CLI11_CFG		33
-+#define CLK_LSIO_E_CLI12_CFG		34
-+#define CLK_LSIO_E_CLI13_CFG		35
-+#define CLK_LSIO_E_CLI14_CFG		36
-+#define CLK_LSIO_E_CLI7_SPI		37
-+#define CLK_LSIO_E_CLI8_SPI		38
-+#define CLK_LSIO_E_CLI9_SPI		39
-+#define CLK_LSIO_E_CLI10_SPI		40
-+#define CLK_LSIO_E_CLI11_SPI		41
-+#define CLK_LSIO_E_CLI12_SPI		42
-+#define CLK_LSIO_E_CLI13_SPI		43
-+#define CLK_LSIO_E_CLI14_SPI		44
-+#define CLK_LSIO_E_CLI7_I2C		45
-+#define CLK_LSIO_E_CLI8_I2C		46
-+#define CLK_LSIO_E_CLI9_I2C		47
-+#define CLK_LSIO_E_CLI10_I2C		48
-+#define CLK_LSIO_E_CLI11_I2C		49
-+#define CLK_LSIO_E_CLI12_I2C		50
-+#define CLK_LSIO_E_CLI13_I2C		51
-+#define CLK_LSIO_E_CLI14_I2C		52
-+#define CLK_LSIO_E_CLI7_UART		53
-+#define CLK_LSIO_E_CLI8_UART		54
-+#define CLK_LSIO_E_CLI9_UART		55
-+#define CLK_LSIO_E_CLI10_UART		56
-+#define CLK_LSIO_E_CLI11_UART		57
-+#define CLK_LSIO_E_CLI12_UART		58
-+#define CLK_LSIO_E_CLI13_UART		59
-+#define CLK_LSIO_E_CLI14_UART		60
-+#define CLK_LSIO_E_CLI7_I3C		61
-+#define CLK_LSIO_E_CLI8_I3C		62
-+#define CLK_LSIO_E_CLI9_I3C		63
-+#define CLK_LSIO_E_CLI10_I3C		64
-+#define CLK_LSIO_E_CLI11_I3C		65
-+#define CLK_LSIO_E_CLI12_I3C		66
-+#define CLK_LSIO_E_CLI13_I3C		67
-+#define CLK_LSIO_E_CLI14_I3C		68
++		vlan4k.ivl_en = want_ivl;
++		ret = fi->vlan_4k_write(priv, &vlan4k);
++		if (ret)
++			goto rollback;
++	}
 +
-+/* LSIO_N */
-+#define CLK_LSIO_N_GPIO			69
-+#define CLK_LSIO_N_CLI15_CFG		70
-+#define CLK_LSIO_N_CLI16_CFG		71
-+#define CLK_LSIO_N_CLI15_I2C		72
-+#define CLK_LSIO_N_CLI16_I2C		73
-+#define CLK_LSIO_N_CLI15_UART		74
-+#define CLK_LSIO_N_CLI16_UART		75
-+#define CLK_LSIO_N_CLI15_SPI		76
-+#define CLK_LSIO_N_CLI16_SPI		77
-+#define CLK_LSIO_N_CLI15_I3C		78
-+#define CLK_LSIO_N_CLI16_I3C		79
-+#define CLK_LSIO_N_CLI_INT0_I2C		80
-+#define CLK_LSIO_N_CLI_INT0_I3C		81
-+#define CLK_LSIO_N_CLI_INT0_UART	82
-+#define CLK_LSIO_N_CLI_INT0_SPI		83
-+#define CLK_LSIO_N_CLI_INT0_CFG		84
-+#define CLK_LSIO_N_CLI_INT1_I2C		85
-+#define CLK_LSIO_N_CLI_INT1_I3C		86
-+#define CLK_LSIO_N_CLI_INT1_UART	87
-+#define CLK_LSIO_N_CLI_INT1_SPI		88
-+#define CLK_LSIO_N_CLI_INT1_CFG		89
-+#define CLK_LSIO_N_CLI_INT2_I2C		90
-+#define CLK_LSIO_N_CLI_INT2_I3C		91
-+#define CLK_LSIO_N_CLI_INT2_UART	92
-+#define CLK_LSIO_N_CLI_INT2_SPI		93
-+#define CLK_LSIO_N_CLI_INT2_CFG		94
-+#define CLK_LSIO_N_CLI_INT3_I2C		95
-+#define CLK_LSIO_N_CLI_INT3_I3C		96
-+#define CLK_LSIO_N_CLI_INT3_UART	97
-+#define CLK_LSIO_N_CLI_INT3_SPI		98
-+#define CLK_LSIO_N_CLI_INT3_CFG		99
-+#define CLK_LSIO_N_CLI_INT4_I2C		100
-+#define CLK_LSIO_N_CLI_INT4_I3C		101
-+#define CLK_LSIO_N_CLI_INT4_UART	102
-+#define CLK_LSIO_N_CLI_INT4_SPI		103
-+#define CLK_LSIO_N_CLI_INT4_CFG		104
++	return 0;
 +
-+/* LSIO_S */
-+#define CLK_LSIO_S_GPIO			105
-+#define CLK_LSIO_S_MCLK0		106
-+#define CLK_LSIO_S_MCLK1		107
-+#define CLK_LSIO_S_MCLK2		108
-+#define CLK_LSIO_S_MCLK3		109
-+#define CLK_LSIO_S_MCLK4		110
-+#define CLK_LSIO_S_MCLK5		111
-+#define CLK_LSIO_S_MCLK6		112
-+#define CLK_LSIO_S_MCLK7		113
-+#define CLK_LSIO_S_PWM			114
-+#define CLK_LSIO_S_PWM_CFG		115
-+#define CLK_LSIO_S_CLI0_CFG		116
-+#define CLK_LSIO_S_CLI1_CFG		117
-+#define CLK_LSIO_S_CLI2_CFG		118
-+#define CLK_LSIO_S_CLI3_CFG		119
-+#define CLK_LSIO_S_CLI4_CFG		120
-+#define CLK_LSIO_S_CLI5_CFG		121
-+#define CLK_LSIO_S_CLI6_CFG		122
-+#define CLK_LSIO_S_CLI0_SPI		123
-+#define CLK_LSIO_S_CLI1_SPI		124
-+#define CLK_LSIO_S_CLI2_SPI		125
-+#define CLK_LSIO_S_CLI3_SPI		126
-+#define CLK_LSIO_S_CLI4_SPI		127
-+#define CLK_LSIO_S_CLI5_SPI		128
-+#define CLK_LSIO_S_CLI6_SPI		129
-+#define CLK_LSIO_S_CLI0_I2C		130
-+#define CLK_LSIO_S_CLI1_I2C		131
-+#define CLK_LSIO_S_CLI2_I2C		132
-+#define CLK_LSIO_S_CLI3_I2C		133
-+#define CLK_LSIO_S_CLI4_I2C		134
-+#define CLK_LSIO_S_CLI5_I2C		135
-+#define CLK_LSIO_S_CLI6_I2C		136
-+#define CLK_LSIO_S_CLI0_UART		137
-+#define CLK_LSIO_S_CLI1_UART		138
-+#define CLK_LSIO_S_CLI2_UART		139
-+#define CLK_LSIO_S_CLI3_UART		140
-+#define CLK_LSIO_S_CLI4_UART		141
-+#define CLK_LSIO_S_CLI5_UART		142
-+#define CLK_LSIO_S_CLI6_UART		143
-+#define CLK_LSIO_S_CLI0_I3C		144
-+#define CLK_LSIO_S_CLI1_I3C		145
-+#define CLK_LSIO_S_CLI2_I3C		146
-+#define CLK_LSIO_S_CLI3_I3C		147
-+#define CLK_LSIO_S_CLI4_I3C		148
-+#define CLK_LSIO_S_CLI5_I3C		149
-+#define CLK_LSIO_S_CLI6_I3C		150
++rollback:
++	/* Best effort: restore the entries rewritten so far. IVL_EN is
++	 * switch-wide, so before the scan every entry in use had the old
++	 * value (!want_ivl) and every entry below @failed that now has
++	 * want_ivl was rewritten above. The entry that failed is included:
++	 * its write may have reached the chip before the error was reported.
++	 */
++	failed = vid + 1;
++	for_each_set_bit(vid, priv->vlan_4k_used, failed) {
++		if (fi->vlan_4k_read(priv, vid, &vlan4k))
++			continue;
++		if (!vlan4k.member || vlan4k.ivl_en != want_ivl)
++			continue;
++		vlan4k.ivl_en = !want_ivl;
++		fi->vlan_4k_write(priv, &vlan4k);
++	}
++	return ret;
++}
 +
-+#endif /* __DT_BINDINGS_CLOCK_GOOGLE_LGA_CPM_H */
-diff --git a/include/dt-bindings/power/google,lga-cpm.h b/include/dt-bindings/power/google,lga-cpm.h
-new file mode 100644
-index 000000000000..b9c5037728f9
---- /dev/null
-+++ b/include/dt-bindings/power/google,lga-cpm.h
-@@ -0,0 +1,79 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/* Must be called with &priv->vlan_lock held. */
++int rtl8365mb_d_vlan_4k_refresh_ivl(struct dsa_switch *ds, int port,
++				    bool filtering)
++{
++	bool want_ivl = rtl8365mb_d_want_ivl(ds, port, filtering);
 +
-+#ifndef __DT_BINDINGS_POWER_GOOGLE_LGA_CPM_H
-+#define __DT_BINDINGS_POWER_GOOGLE_LGA_CPM_H
++	/* The scan visits every entry in use, so do it only if this
++	 * change flips the switch-wide state, not for each port of a bridge.
++	 */
++	if (want_ivl == rtl8365mb_d_want_ivl(ds, -1, false))
++		return 0;
 +
-+/* AOC */
-+#define PD_SSWRP_AOC		0
-+#define PD_AOC_CORE		1
++	return rtl8365mb_d_vlan_4k_set_ivl(ds, want_ivl);
++}
 +
-+/* AURORA */
-+#define PD_SSWRP_AURORA		2
+ static int
+ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
+ 			   const struct switchdev_obj_port_vlan *vlan,
+@@ -314,7 +480,15 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
+ 		vlan4k.untag |= BIT(port);
+ 	else
+ 		vlan4k.untag &= ~BIT(port);
+-	vlan4k.ivl_en = true; /* always use Independent VLAN Learning */
 +
-+/* CODEC_3P */
-+#define PD_SSWRP_CODEC_3P	3
++	if (!rtl8365mb_is_d(priv))
++		vlan4k.ivl_en = true;
++	else
++		/* An emptied entry goes back to its reset state, so that
++		 * it is not left in IVL after it leaves vlan_4k_used.
++		 */
++		vlan4k.ivl_en = vlan4k.member &&
++				rtl8365mb_d_want_ivl(ds, -1, false);
+ 
+ 	ret = fi->vlan_4k_write(priv, &vlan4k);
+ 	if (ret) {
+@@ -322,6 +496,13 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
+ 		return ret;
+ 	}
+ 
++	if (rtl8365mb_is_d(priv)) {
++		if (vlan4k.member)
++			set_bit(vlan->vid, priv->vlan_4k_used);
++		else
++			clear_bit(vlan->vid, priv->vlan_4k_used);
++	}
 +
-+/* DPU */
-+#define PD_DPU_DP		4
-+#define PD_SSWRP_DPU		5
-+#define PD_DPU_FE0		6
-+#define PD_DPU_FE1		7
-+#define PD_DPU_DSI0		8
-+#define PD_DPU_DSI1		9
+ 	return 0;
+ }
+ 
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.h b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
+index 009b127..f6230eb 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_vlan.h
++++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
+@@ -24,6 +24,10 @@ int rtl8365mb_c_vlan_4k_read(struct realtek_priv *priv, u16 vid,
+ 			     struct rtl8365mb_vlan4k *vlan4k);
+ int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
+ 			      const struct rtl8365mb_vlan4k *vlan4k);
++int rtl8365mb_d_vlan_4k_read(struct realtek_priv *priv, u16 vid,
++			     struct rtl8365mb_vlan4k *vlan4k);
++int rtl8365mb_d_vlan_4k_write(struct realtek_priv *priv,
++			      const struct rtl8365mb_vlan4k *vlan4k);
+ 
+ int rtl8365mb_vlan_port_get_pvid(struct realtek_priv *priv, int port,
+ 				 u16 *pvid);
+@@ -43,4 +47,9 @@ int rtl8365mb_vlan_4k_port_del(struct dsa_switch *ds, int port,
+ int rtl8365mb_vlan_pvid_port_set(struct dsa_switch *ds, int port, u16 vid,
+ 				 struct netlink_ext_ack *extack);
+ int rtl8365mb_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid);
 +
-+/* EH */
-+#define PD_SSWRP_EH		10
-+
-+/* G2D */
-+#define PD_SSWRP_G2D		11
-+#define PD_G2D_CORE		12
-+
-+/* GPDMA */
-+#define PD_SSWRP_GPDMA		13
-+
-+/* GPU */
-+#define PD_SSWRP_GPU		14
-+
-+/* GSW */
-+#define PD_SSWRP_GSW		15
-+
-+/* HSIO_N */
-+#define PD_SSWRP_HSIO_N		16
-+#define PD_HSIO_N_USB		17
-+#define PD_HSIO_N_USB_PSW	18
-+#define PD_HSIO_N_PCIE		19
-+#define PD_HSIO_N_DP		20
-+#define PD_HSIO_N_EBU		21
-+#define PD_HSIO_N_EBU_CORE	22
-+
-+/* HSIO_S */
-+#define PD_SSWRP_HSIO_S		23
-+#define PD_HSIO_S_UFS_PREP	24
-+#define PD_HSIO_S_UFS		25
-+#define PD_HSIO_S_PCIE		26
-+#define PD_HSIO_S_SD		27
-+
-+/* ISPBE */
-+#define PD_SSWRP_ISPBE		28
-+
-+/* ISPFE */
-+#define PD_SSWRP_ISPFE		29
-+#define PD_ISPFE_PIPE		30
-+#define PD_ISPFE_CSIS		31
-+
-+/* LSIO_E */
-+#define PD_SSWRP_LSIO_E		32
-+#define PD_LSIO_E_CLI_GPIO	33
-+
-+/* LSIO_N */
-+#define PD_SSWRP_LSIO_N		34
-+#define PD_LSIO_N_CLI_GPIO	35
-+
-+/* LSIO_S */
-+#define PD_SSWRP_LSIO_S		36
-+#define PD_LSIO_S_CLI_GPIO	37
-+
-+/* TPU */
-+#define PD_SSWRP_TPU		38
-+
-+#endif /* __DT_BINDINGS_POWER_GOOGLE_LGA_CPM_H */
++bool rtl8365mb_d_want_ivl(struct dsa_switch *ds, int port, bool filtering);
++int rtl8365mb_d_vlan_4k_set_ivl(struct dsa_switch *ds, bool want_ivl);
++int rtl8365mb_d_vlan_4k_refresh_ivl(struct dsa_switch *ds, int port,
++				    bool filtering);
+ #endif /* _REALTEK_RTL8365MB_VLAN_H */
 -- 
-2.56.1.831.g720f3f5937-goog
+2.53.0
 
