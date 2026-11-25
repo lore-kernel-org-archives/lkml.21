@@ -1,105 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.34.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570713;
-	b=qwiTUCv3Knb6zqlXJByKnTnJIDov/Hh+tBNcFW4O9u0gGlMd4GRSncDyL6TF3tL76ojG
-	 VrOHy35jVaomrW2UG0J2r6S6X6z28nG3qwPkpnAKcYP/WKC3nbd8BYXTI60WtAwawBUfN
-	 JpF1J8vpZKJ9tqzAfZWkJvRXeT01QBa7TgtLejLy/CctsGsQyEx9gPvo8U9Y92szEeSUR
-	 owbO3lIw0MuuiqXqtLvcA2ADK6VkN/T86/rXo8huckB4muQpiDMUe/SskuVN1d+3OifkX
-	 9A8sEhh5kCSMMT7MOvJ3yAVaQPeTo8gdjBtdkex4oE/TrgppSaZ7zgI58YXV5/AjfyA==
+	t=1795570754;
+	b=BhI/zmqZ3ZZRI0swVMVSgXIoqq4WEtSWC76Oe6wT4lGP5QPZyEUSlpqNr/K2Ea2SKMZR
+	 bsDoOfIGa5W+xlD8VZYdP49mnrumc3NwacgKlItvJFkdMyiONUrpxHhHGEZIAGvBQHgfB
+	 XTWibG82cHcd9LS5bdseJPRAX6adlPZhXCvFD57/zlo9m7qse3V8MssIcjBGAjq4SjHE/
+	 ay8GwsRSNqeYXyes4dN/EpKqu0DOrt+FFj3Nxl6ul/7eBxBg5jRyP5uhIr/pA4wUr89ob
+	 8f7yuVCSn3JxgCCMYHQOI5q2hA/WbU/lFCC52QVkQU1LGRmeoGJUQ5mjC90fAwOKDRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570713;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=8Vv99MPpkslfI31+Mx5b7uT41xxx/LrADAwFgaN3tlY=;
-	b=wL1FqdQkg3I4ymTgcyx2HIECkvcG1XYaBwsJK7R5W+6tjDCRkLaIaiTT9ykfuM61U3+9
-	 1CsiMnFpXdqEZZGkaLdUOXKpY+VlOkfpwmdAgwYrgzJ0CENzOJ1ap9sBacUEaFM+oeAcK
-	 tF1rhT/mF6hFyPIltmlniQz4qyH2uTIUaIhuIAp4cwTZxo3su9VLoIH0GgvBNmsgBzYmU
-	 k8EwIe027r5jlwoLnk0qc6oSGuXmvdWCfGG7HZIduUFW1iDGxu74gtXnxlu+9omAnDnYe
-	 J90qyt9xBT2XSJWeV8rb8EefSPRLn3gzTErhLXTZyFt5t3ui5qc6TfNczj9Z+/mEVsw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570754;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-QQ-SENDSIZE:Feedback-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=5FN8m7PE/nm8LadW/EpmCHNTSgvk1Y0b2hsF8AG+DuU=;
+	b=0vb5KCj+HffS7J0jNJW/9HjDhBV5ZQQPKR3e8LEwk3o47Q9US1HjI6YBGfcsZVJErKxA
+	 hDGFwof31tT25StR5cL/stwsWGBLDVgdh65zNFLZape72rjoBPPX6/nV04R0+EeubIEm3
+	 JiiG99fy16tGX++ARPQsmza4aNOLzR8aD6OjrWUkw0hM8LkoKT839EhrfF2owtrZh5UFV
+	 rMN0IG1FRN5nhuvUDNmCLqfXHMyLWuSmMRlD3UfXiCfKkydBRWB+LuFvBzuOlc5K2mYQO
+	 x8poWIdYSK/xcgz49mkjwxAGzunoWV+pYw5hQwuev/uyaA7ROf9ycE9gmzNEM4Y8EjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GFuy7yXk;
-	arc=none smtp.remote-ip=74.125.82.171
-Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=linux.spacemit.com;
+	spf=none smtp.mailfrom=linux.spacemit.com;
+	dkim=pass header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b="HO/nv7kU";
+	arc=none smtp.remote-ip=54.206.34.216
+Received: from smtpbgau2.qq.com (smtpbgau2.qq.com [54.206.34.216])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6672A606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 01:38:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6672A606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6C6B606A331;
+	Wed, 25 Nov 2026 01:39:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6C6B606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux.spacemit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux.spacemit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GFuy7yXk
-Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-33fb4680717so13410251eec.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 17:38:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795570711; x=1796175511; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8Vv99MPpkslfI31+Mx5b7uT41xxx/LrADAwFgaN3tlY=;
-        b=GFuy7yXk0uHaGiYhxMTpDBkZnfZ6B0cUDHX8fkhSMzvEehYUvNjgajp95CqTsUWDHF
-         0D9qWi2e2hIudkXWKpfoAw/Nfvr16ceeRPyRD2/46wRaVjwYgLkthc62YL9vJdEXPMuW
-         iNpsk4bJ9Cd3MYxXHwsEDsjtIp5YbXtYiT72LTMGLFHKpQ0p86Rm9OwPJsiFla3MKZ14
-         we8d1myisgP+wicTxgSps5hybh/1aQPmdFBxmdV8Vm2yRp5+i8TDcjHR8NszJPTIZ4oi
-         4HtoWh3ibmxzJnM1gUMvyE8qrQ0yuJwQsTFzL73tbCjY1par8QHn6U0wor465cskQdqU
-         /X6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795570711; x=1796175511;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8Vv99MPpkslfI31+Mx5b7uT41xxx/LrADAwFgaN3tlY=;
-        b=E44MZH6SSm+jE50kXgdOOOqNYSmEAPcZ+QIeYnDwFGK2QpElNSNXcGLZjmtNGYiMgO
-         MCDewFzGYlbJY/SkDWDXyIA3kNS3PB31WOpyc6pfw49/ZLrpbl8oi4T+2GOw2z5zSOfN
-         g9qhuBxpjk0LC9JGj7s8X3bLiRCAYym/a/Biur9PpCM30GQIn4J65PioD6ryYBd6mYOJ
-         xSxPvqSF8/YVE+x9y1nu9xNVjfiVxghDKSpVhIHCUSEL1lvmoNOCsg+AoPen7urW2UAf
-         lCjVoD0r2tvyg+XXsmvkD3Y6eyyE6sBJzdbPJ38nn63ajX4rXhYK6JNavFQKfHV2ypLJ
-         ZhSQ==
-X-Forwarded-Encrypted: i=1; AL+hErESfF2ZLbTBLsVQwpJzPqWqtPiILOFq3mdrYM/Eh+onoIJ8fh3vlN9CRgOiosyHky9UFotczrZXWn4hasY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/htTJsz/iqibANuM1fGYWFKZvd/ey/m7QJvEtJpk3ThtgsjtBe
-	EtflZWNxE1fe6MOarwvqhBcGHOUqQTx3lWU+XmkZZa/2QFBqosIDMe4X
-X-Gm-Gg: AZFdTZf24OU8BTD7BVzCsryZPCLOdG0l173AakCz2a7O0tW6uNHmrTrsw2yzlH7/kuM
-	P063OIAIqMJlqAnCzfXPE2sLQEHMd+4ngpddo5wqS8sKQaNEyRElb37E/HmzsAfG8NeMbQXC3et
-	gmL2H3BgNiBE4DgxoxM3AXWy0nXcn/U/TsRsEhtceMy0dOn+VBETwXBpwOx8QP0vKg/T5OORwxZ
-	lXq+ZVfAaMZr+jZ7EWX4l07wwNDjvoz9k9gY8hlnnqvEbeWwVuwS5ZEGonBDd8DAmjU01BqUoMn
-	sLQp6tCoNSrfkc5LIgogj3lehAkXC1ebMjnHT8F66t+3bYxMAQjw1Mfrr0nDNCv8zckXW5HIdgK
-	IXf6PBHD32wnJ2JxreByJjVOqC8yWpKhg5jWsY/1H7hylDAWaqAi51U8kfbxJlI/baxR/kAtI4v
-	0vUMBxVGtm1he/D/ckjJ5kP1hU7HxVqKlzMAHSZ5TCE/2Oi2MPNzqlDwGZP12OJFcmhpKmqmhnr
-	nho9zHXdyNsyFmjc/ePVtuEINLRonL+EAy116dnXsVoF2sqsdth1U09E2nHxetyzQ4z5QVald3H
-	oQDBExoIBOgJdzXJZhsF
-X-Received: by 2002:a05:7301:9a82:b0:369:4c3f:8a5 with SMTP id 5a478bee46e88-3856ef45385mr17875756eec.14.1795570710976;
-        Tue, 24 Nov 2026 17:38:30 -0800 (PST)
-Received: from a1-free ([161.33.196.121])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm47889173eec.23.2026.11.24.17.38.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 17:38:30 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>
-Cc: Ian Rogers <irogers@google.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Hang Zhengyang <hang.zhengyang1010@gmail.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	TAKANO Mitsuhiro <takano32@gmail.com>,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH v6] perf stat: Refuse a group mixing tool and kernel events
-Date: Wed, 25 Nov 2026 01:38:26 +0000
-Message-ID: <20261125013826.1495729-1-takano32@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261124135630.1027716-1-takano32@gmail.com>
-References: <20261124135630.1027716-1-takano32@gmail.com>
+	dkim=pass (1024-bit key) header.d=linux.spacemit.com header.i=@linux.spacemit.com header.a=rsa-sha256 header.s=mxsw2412 header.b=HO/nv7kU
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.spacemit.com;
+	s=mxsw2412; t=1795570719;
+	bh=5FN8m7PE/nm8LadW/EpmCHNTSgvk1Y0b2hsF8AG+DuU=;
+	h=From:Date:Subject:MIME-Version:Message-Id:To;
+	b=HO/nv7kUcuOj7xtV3DkQyU0zVwublzXg/qXr4Gi3ousfRddqwJn5QS9G/myX517P2
+	 dhfXZW4658GvuBqh1lB2GLRwgrYdY7x2hfo3wtqHoXVFY0zVk8cel1QZSlMjHKMw/5
+	 t0l0/6Cxr2WuSewVX4vRvx8dQJLOlAbzKU5jZY/8=
+X-QQ-mid: esmtpsz19t1795570717t0832536d
+X-QQ-Originating-IP: G2lbJzosbw7PNVaRZUJ76xE9em2WMqpBtM/JQ8J8JzE=
+Received: from = ( [183.48.244.245])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 25 Nov 2026 09:38:34 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 13276682170173551916
+EX-QQ-RecipientCnt: 16
+From: Troy Mitchell <troy.mitchell@linux.spacemit.com>
+Date: Wed, 25 Nov 2026 01:38:20 +0000
+Subject: [PATCH v3 1/5] dt-bindings: timer: Add SpacemiT K1 timer
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,529 +63,143 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-spacemit-soc-timer-v3-1-e6390f3ae4a6@linux.spacemit.com>
+References: <20261125-spacemit-soc-timer-v3-0-e6390f3ae4a6@linux.spacemit.com>
+In-Reply-To: <20261125-spacemit-soc-timer-v3-0-e6390f3ae4a6@linux.spacemit.com>
+To: Troy Mitchell <troy.mitchell@linux.spacemit.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2545;
+ i=troy.mitchell@linux.spacemit.com; h=from:subject:message-id;
+ bh=YTzIYqz5yG8XkouJ9NazRxZn63OsQlQGGOsumRdwLmQ=;
+ b=owGbwMvMwCU2g/N9w09jE33G02pJDNlsNqIy38Q6o97PaXhybLdUQtbLdq8ZPekumt+00iLOO
+ DEH2ql0lLIwiHExyIopsnQ/4NlW4BNlWyBQ6Aszh5UJZAgDF6cATKTrJiPDweVX0yc/CXiesW/a
+ W/apW63VDr9p4mRuDm65LNDA8PGZHCPDtUWXN8yyDf23fPme6z5TDXfofbqSyTbpVd7vE626X5n
+ P8gMA
+X-Developer-Key: i=troy.mitchell@linux.spacemit.com; a=openpgp;
+ fpr=3FE5535CF1B0E658E57DB59BAE1C2FBEA7DB42E1
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:linux.spacemit.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: OG3x6VvIxJM5LdQGB9pjaKV99f1J9HauilPBEbbS0YZIoHM8NCJpJrDu
+	+O91+TY6l/UBZ5RdnQp1pmQMwR30qniwYZ3AuHCQEGJCfA1Lk55rkk5Ow3wwYHwVM4QZ13s
+	ZIhNihUu6cw+yfDunrlh3HKhOd2ZkFR481GUGYq1RcIjuuuXWA15Ev9tjRpfFISruf4zBqG
+	RHuKbV+fReHietGkKT4d6fAfQSMu3D4IWPhZi9MQFR0UKKcrxkTpSBrn1NnM0miSF8BtQz3
+	VmXNC1AgYSuH76+dBdRWnmvNCtU0KTEkvHqvr0YiM6SFrLormo0v3JjULxgfuM0bb8ysBEW
+	wxrU/jLTTGnPMaD1UsOgMFZJyvzjaPTFbphcOzWn/JBzvXOUB77lEhJNUfffvp6uKBJ/W03
+	kS4UZ8XXzuD6Sjrih4bSzbSbz3njoimeF/hi+WlajFdaVPAG02RJmr8l2NimPCc0QvJUyhi
+	oUfwQWTMv9U4V4xkPb7DpA2FJrK+6ENFj7eZcbfmy/G0ZnxYtSN4R6m4mNorCfQ/PlvxB/9
+	+ToLqjRcH1Y/JXdwDBxqChNUX/lkoa7xvtUZBYyff489AHY2rbBWFSZvSlJclnfeSnnSEN1
+	1GjwcTzsnTJoo6M4JItbnaoZE073H0sHNJel2VYrivdy0RR7HB+MzX7aVATQglJjSkc1Xp6
+	bCqMBWU34j1zY/FWzXLIqYE9IRS78FC+igUUIL+s4IZIjyIprrKbikAWt/HspT1h7OKvJmv
+	ZU62pvn+nh5Fk8jEdCifMVolM6kcL0OCq5XDdN8PX9B9wBal/sHwJ2cyLgyh3g5MlzzzKNu
+	9aDQ89uMBkkBiWzXpmREuFIPuhQEMo0B9I/398iAUzjm740OqoKHMGtYamTyV9bIztCMdn6
+	JOUWD+KmST9MK3e6IQlMGrbQYez8fIF+yK5a1UV5h7dwI4QlDA05oNNv2WL0KsToThtIFld
+	TlKelprn3X5H+p2IR0LwSLXT9+wUfQWHFe5gC5aAUwhLt+yi+m5JrlVd+GuhJ6GJT5TdiKS
+	4kIEYufIiivJTEgytQM0SedG+rkP362altA2HZIA/GAiXyC1YB6PxB1Oc/ARyBvA0SU6Caz
+	pXPB8f3riSKaZc31tAY7o6Q7s9NHakJ+g==
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 
-A tool event has no kernel counterpart: user_time and system_time read
-/proc/stat, or /proc/<pid>/stat for a workload, and duration_time keeps
-its value in perf itself.  perf-list(1) says events from different PMUs
-cannot be grouped except for some software events, and the tool PMU counts
-as software, so a tool event stays in the group the user wrote.
+The SpacemiT timer block provides three 32-bit counters, each with three
+match comparators and an interrupt output. Describe its register range,
+interrupts, functional and bus clocks, and reset.
 
-The parser splits it from another software PMU's event, such as cpu-clock,
-and evlist__check_cpu_maps() removes members whose CPUs do not match the
-leader under -a or -C.  What is left is a group that cannot be counted.
+K3 uses the same register interface, so describe its timer with a
+SoC-specific compatible followed by the K1 fallback.
 
-Before this change, with user_time or system_time as the leader,
-get_group_fd() handed the procfs descriptor to the members and the kernel
-rejected each with EBADF.  With duration_time as the leader there was no
-descriptor, so the members got -2 and failed with EINVAL, "broken group
-leader" appearing only in the debug log.  Either way perf stat printed the
-tool event and "<not supported>" for the rest of the group:
-
-  $ perf stat -e '{user_time,cycles}' -- sleep 0.05
-                   0      user_time
-     <not supported>      cycles
-
-Before this change too, with a kernel event as the leader, the members did
-open, but the group read failed with ENOSPC.  perf sized the buffer for
-leader->core.nr_members entries, which included the tool event, while the
-kernel filled in one entry fewer; readn() then asked for the remainder
-with a count below the kernel's read_size, so the rest of the group came
-out as "<not counted>".  That was the shape of
--e '{cycles,instructions,duration_time}', which had not been counted since
-commit 6828d6929b76 ("perf evsel: Refactor tool events").
-
-Counting such a group means moving the leader to a kernel event and
-letting the group read skip the tool members; that is left to a separate
-series.  Splitting the tool event out and warning, as
-evlist__check_cpu_maps() does, would let the kernel events count, but the
-tool event would lose the group's window and the warning is easy to miss
-in a script.  The braces are the user's explicit request, so perf stat
-should not quietly reinterpret them.  Ian's "perf pmu: Don't treat tool
-PMU as a kernel software PMU for event grouping" splits it in the parser
-and this check then has nothing to refuse; Hang's patch opens the members
-with group_fd = -1 instead, which this check preempts.  Only one of the
-three should be applied.
-
-Refuse the group before the workload is started:
-
-  A tool event cannot be grouped with kernel events: user_time
-
-That is followed by "Put it outside the braces", as in
--e '{cycles,instructions},duration_time'.  perf stat used to leave the rest
-of the group uncounted and exit 0; it now exits 22.  Namhyung Kim preferred
-the refusal to counting the events one by one.  get_group_fd() no longer
-trips its BUG_ON() for a tool event with no descriptor, which is normal for
-duration_time; the BUG_ON() only fired in a DEBUG=1 build.
-
-A group of tool events only is accepted, as before.  A weak group led by a
-tool event is left to the weak group handling, which splits it in the open
-loop: get_group_fd() reports that no kernel group can hang off a tool
-event, and the loop splits on EINVAL before any member is enabled.  Any
-other weak group that mixes them is refused like a strong one.
-
-Sashiko's review of v5 found that the split was skipped for a leader that
-is a tool event but still has an fd.  user_time and system_time do have
-one, a procfs descriptor, so fd == -1 was false and that descriptor was
-handed to perf_event_open() as group_fd.  Under -a with
-perf_event_paranoid > 1 the member cycles:k failed with EACCES, which is
-not a split condition, so it stayed in the group while its fd array was
-freed; enabling the group then dereferenced NULL:
-
-  $ perf stat -a -e '{user_time,cycles:k}:W' -- true
-  Segmentation fault
-
-get_group_fd() now returns -2 for a tool leader with or without an fd.  The
-fd it may have is a procfs one and cannot be a group_fd for the members.
-
-The test no longer requires cycles to be printed when no hardware cycles
-event can be counted: the evsel falls back to task-clock or is renamed,
-and the group output is still checked.  A weak group led by a tool event
-under -a is now run as well, so the crash above stays fixed.
-
-Where the core PMU covers only part of the CPUs (hybrid x86, big.LITTLE
-arm64), evlist__check_cpu_maps() takes the tool event out first under -a,
-so no mixed group is left to refuse.  Sashiko's review of v4 raised this
-and the NULL dereference that the get_group_fd() change above prevents.
-
-The code, the test, the man page and this message were written with
-Hermes Agent (deepseek-v4.1-flash); I reviewed the result, built perf, and
-ran tools/perf/tests/shell/stat+tool_group.sh and checkpatch.pl --strict.
-The -a segmentation fault above was reproduced here.  The EBADF and the
-group-read failure were not re-observed: kernel events cannot be opened
-here (perf_event_paranoid=4).
-
-Fixes: 6828d6929b76 ("perf evsel: Refactor tool events")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Link: https://lore.kernel.org/all/sashiko-outbox-227849@kernel.org/
-Link: https://lore.kernel.org/all/sashiko-outbox-231330@kernel.org/
-Reported-by: Hang Zhengyang <hang.zhengyang1010@gmail.com>
-Link: https://lore.kernel.org/all/20261111-tool-pmu-leader-v2-1-3faa0fb98c51@gmail.com/
-Suggested-by: Namhyung Kim <namhyung@kernel.org>
-Link: https://lore.kernel.org/all/awC_aZXD5FBGu4mO@google.com/
-Link: https://lore.kernel.org/all/awTXdgY38s2bijW5@google.com/
-Cc: Ian Rogers <irogers@google.com>
-Link: https://lore.kernel.org/all/20261123071913.653315-7-irogers@google.com/
-Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+Signed-off-by: Troy Mitchell <troy.mitchell@linux.spacemit.com>
 ---
-v6: Sashiko's review of v5 found that a tool leader with a procfs
-    descriptor skipped the weak group split: user_time and system_time
-    do have an fd, so fd == -1 was false, the procfs fd went to
-    perf_event_open() as group_fd, and under -a with
-    perf_event_paranoid > 1 the member failed with EACCES, which is not
-    a split condition.  Its fd array was freed and enabling the group
-    dereferenced NULL.  Reproduced here:
+ .../bindings/timer/spacemit,k1-timer.yaml          | 71 ++++++++++++++++++++++
+ 1 file changed, 71 insertions(+)
 
-      $ perf stat -a -e '{user_time,cycles:k}:W' -- true
-      Segmentation fault
-
-    get_group_fd() now returns -2 for any tool leader, with or without
-    an fd; the fd it may have is a procfs one and cannot be a group_fd.
-    The -a cases no longer crash and the refusal is unchanged.  The test
-    runs one of them, so the crash stays fixed.
-
-    The test no longer requires cycles to be printed when no hardware
-    cycles event can be counted: the evsel falls back to task-clock or
-    is renamed.  That was Sashiko's Low finding.
-
-    Two comments in builtin-stat.c that described the EBADF route
-    were updated to the EINVAL route that get_group_fd() returns for a
-    tool leader.
-
-    v5: Namhyung Kim confirmed on 2026-11-24 00:16 UTC
-    (https://lore.kernel.org/all/awTXdgY38s2bijW5@google.com/)
-    that the group should be rejected rather than counted event by event,
-    so this keeps the refusal and drops the question from the message.
-
-    Rebased onto v7.4-rc4.  The perf-tools-next branch fetched here is still
-    at 2026-10-27 and does not carry tools/include/linux/stddef.h.
-
- tools/perf/Documentation/perf-stat.txt    |  14 ++
- tools/perf/builtin-stat.c                 |  69 +++++++
- tools/perf/tests/shell/stat+tool_group.sh | 237 ++++++++++++++++++++++
- tools/perf/util/evsel.c                   |  11 +
- 4 files changed, 331 insertions(+)
- create mode 100755 tools/perf/tests/shell/stat+tool_group.sh
-
-diff --git a/tools/perf/Documentation/perf-stat.txt b/tools/perf/Documentation/perf-stat.txt
-index 8ea17da89976..e52925ff776b 100644
---- a/tools/perf/Documentation/perf-stat.txt
-+++ b/tools/perf/Documentation/perf-stat.txt
-@@ -65,6 +65,20 @@ report::
- 	Multiple PMU instances are typical for uncore PMUs, so the prefix
- 	'uncore_' is also ignored when performing this match.
- 
-+	Tool events such as duration_time and user_time are read by perf
-+	itself and have no event in the kernel.  A group of a tool event and
-+	an event from a different software PMU, such as cpu-clock, is split by
-+	the parser, which warns that events were regrouped; -a and -C split
-+	a group whose members do not share the CPUs of the leader in the
-+	same way.  A group that is not split and mixes a tool event with an
-+	event the kernel opens is refused, as in -e '{user_time,cycles}',
-+	instead of printing the tool event and leaving the rest of the group
-+	uncounted.  Put the tool event outside the braces instead, as in
-+	-e '{cycles,instructions},duration_time'.  A group of tool events
-+	only is accepted.  A weak group (:W) led by a tool event is left to
-+	the weak group handling, which splits it when a member fails to
-+	open; any other weak group that mixes them is refused
-+	like a strong group.
- 
- -i::
- --no-inherit::
-diff --git a/tools/perf/builtin-stat.c b/tools/perf/builtin-stat.c
-index 37752d6bfef4..21cf17d3dcca 100644
---- a/tools/perf/builtin-stat.c
-+++ b/tools/perf/builtin-stat.c
-@@ -2469,6 +2469,70 @@ static int parse_tpebs_mode(const struct option *opt, const char *str,
- }
- #endif // HAVE_ARCH_X86_64_SUPPORT
- 
-+/*
-+ * A tool event like user_time has no event in the kernel: perf reads it
-+ * from a file such as /proc/stat, or computes it in perf itself.  A group
-+ * that mixes one with an event the kernel opens cannot be counted.
-+ * get_group_fd() has no group fd to hand to the members when the leader is
-+ * a tool event, so the members cannot be in a kernel group with it; with
-+ * a kernel event as the leader the members do open, but the group read is
-+ * rejected as the kernel knows only the members it opened.  perf stat used
-+ * to leave the rest of the group uncounted in both cases, when the CPU maps
-+ * had not split the group first; refuse the group instead.  A group with no
-+ * event the kernel opens is left alone, as perf reads each event in it.  A
-+ * weak group led by a tool event is left to the weak group handling in the
-+ * open loop, which splits it when a member fails to open; any other weak
-+ * group is refused like a strong one.
-+ */
-+static int check_tool_groups(struct evlist *evlist)
-+{
-+	struct evsel *leader, *evsel;
-+
-+	evlist__for_each_entry(evlist, leader) {
-+		struct evsel *tool = NULL;
-+		bool has_kernel = false, weak = false;
-+
-+		if (!evsel__is_group_leader(leader) || leader->core.nr_members < 2)
-+			continue;
-+
-+		/*
-+		 * The members of a group are not necessarily adjacent in the
-+		 * evlist: evlist__check_cpu_maps() makes a removed member a
-+		 * leader of its own without moving it.
-+		 */
-+		evlist__for_each_entry(evlist, evsel) {
-+			if (!evsel__has_leader(evsel, leader))
-+				continue;
-+			if (evsel__is_tool(evsel)) {
-+				if (!tool)
-+					tool = evsel;
-+			} else if (!evsel__is_non_perf_event_open_pmu(evsel)) {
-+				has_kernel = true;
-+			}
-+			weak |= evsel->weak_group;
-+		}
-+
-+		if (!tool || !has_kernel)
-+			continue;
-+
-+		/*
-+		 * A weak group led by a tool event is left to the weak group
-+		 * handling in the open loop: get_group_fd() returns -2 for a
-+		 * tool leader, the open fails with EINVAL, and that is what
-+		 * splits the group.  Any other weak group does not get that
-+		 * far, so it is refused like a strong group.
-+		 */
-+		if (weak && evsel__is_tool(leader))
-+			continue;
-+
-+		pr_err("A tool event cannot be grouped with kernel events: %s\n",
-+		       evsel__name(tool));
-+		pr_err("Put it outside the braces, as in -e '{cycles,instructions},duration_time'.\n");
-+		return -EINVAL;
-+	}
-+	return 0;
-+}
-+
- int cmd_stat(int argc, const char **argv)
- {
- 	struct opt_aggr_mode opt_mode = {};
-@@ -2947,6 +3011,11 @@ int cmd_stat(int argc, const char **argv)
- 
- 	evlist__check_cpu_maps(evsel_list);
- 
-+	if (check_tool_groups(evsel_list)) {
-+		status = -EINVAL;
-+		goto out;
-+	}
-+
- 	/*
- 	 * Initialize thread_map with comm names,
- 	 * so we could print it out on output.
-diff --git a/tools/perf/tests/shell/stat+tool_group.sh b/tools/perf/tests/shell/stat+tool_group.sh
-new file mode 100755
-index 000000000000..ff7142977979
+diff --git a/Documentation/devicetree/bindings/timer/spacemit,k1-timer.yaml b/Documentation/devicetree/bindings/timer/spacemit,k1-timer.yaml
+new file mode 100644
+index 000000000000..b71785b8aa94
 --- /dev/null
-+++ b/tools/perf/tests/shell/stat+tool_group.sh
-@@ -0,0 +1,237 @@
-+#!/bin/bash
-+# SPDX-License-Identifier: GPL-2.0
-+# perf stat tool events in an event group (no_mlock)
++++ b/Documentation/devicetree/bindings/timer/spacemit,k1-timer.yaml
+@@ -0,0 +1,71 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/timer/spacemit,k1-timer.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+set -e
++title: SpacemiT K1 timer
 +
-+out=$(mktemp /tmp/__perf_test.stat_tool_group.XXXXXX)
-+stderr=$(mktemp /tmp/__perf_test.stat_tool_group.XXXXXX)
-+err=0
-+skipped=0
++maintainers:
++  - Troy Mitchell <troy.mitchell@linux.spacemit.com>
 +
-+cleanup() {
-+  rm -f "${out}" "${stderr}"
++description:
++  The timer block contains three 32-bit up counters, each with three match
++  comparators and an interrupt output. Each counter can use the functional
++  clock or the internal 32.768 kHz clock and supports free-running and
++  periodic operation.
 +
-+  trap - EXIT TERM INT
-+}
++properties:
++  compatible:
++    oneOf:
++      - const: spacemit,k1-timer
++      - items:
++          - const: spacemit,k3-timer
++          - const: spacemit,k1-timer
 +
-+trap_cleanup() {
-+  echo "Unexpected signal in ${FUNCNAME[1]}"
-+  cleanup
-+  exit 1
-+}
-+trap trap_cleanup EXIT TERM INT
++  reg:
++    maxItems: 1
 +
-+# A tool event has no event in the kernel: perf reads it from a file such
-+# as /proc/stat, or computes it in perf itself, so it cannot be counted in
-+# a group that is opened with perf_event_open().  Such a group used to
-+# print the tool event and leave the rest of the group uncounted, so perf
-+# stat has to say what is wrong instead.
++  interrupts:
++    minItems: 1
++    items:
++      - description: Counter 0 interrupt
++      - description: Counter 1 interrupt
++      - description: Counter 2 interrupt
 +
-+# Whether this kernel lets the user open a hardware event decides whether
-+# the accepted cases can show a measured value at all.  An event that is
-+# not supported prints a "<not supported>" line even when perf stat exits 0.
-+kernel_events=1
-+if ! perf stat -e cycles -o "${out}" -- true 2> /dev/null ||
-+   grep -q "<not supported>" "${out}" ||
-+   ! grep -q "cycles" "${out}"; then
-+  kernel_events=0
-+fi
++  clocks:
++    items:
++      - description: Functional clock
++      - description: APB bus clock
 +
-+# CPU-wide events need root or perf_event_paranoid <= 0, so -a can fail even
-+# when a per-thread event works.
-+syswide=1
-+if ! perf stat -a -e cycles -o /dev/null -- true 2> /dev/null; then
-+  syswide=0
-+fi
++  clock-names:
++    items:
++      - const: func
++      - const: bus
 +
-+refused() {
-+  local group="$1" tool="$2" rc=0
-+  shift 2
++  resets:
++    maxItems: 1
 +
-+  echo "Testing that perf stat refuses ${group} $*"
-+  perf stat "$@" -e "${group}" -o "${out}" -- true 2> "${stderr}" || rc=$?
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - resets
 +
-+  if [ "${rc}" = 0 ]; then
-+    echo "perf stat accepted ${group}  [Failed]"
-+    err=1
-+    return
-+  fi
-+  if [ "${rc}" != 22 ]; then
-+    echo "perf stat failed with ${rc}, expected 22  [Failed]"
-+    cat "${stderr}"
-+    err=1
-+  fi
-+  if ! grep -qE "A tool event cannot be grouped with kernel events: (${tool})" \
-+      "${stderr}"; then
-+    echo "perf stat failed without naming ${tool}  [Failed]"
-+    cat "${stderr}"
-+    err=1
-+  fi
-+  if ! grep -q "Put it outside the braces" "${stderr}"; then
-+    echo "perf stat failed without saying how to write it  [Failed]"
-+    cat "${stderr}"
-+    err=1
-+  fi
-+}
++additionalProperties: false
 +
-+# The events named after the group have to show up in the output.
-+accepted() {
-+  local group="$1" name rc=0
++examples:
++  - |
++    #include <dt-bindings/clock/spacemit,k1-syscon.h>
 +
-+  shift
-+  echo "Testing that perf stat accepts ${group}"
-+  perf stat -e "${group}" -o "${out}" -- true 2> "${stderr}" || rc=$?
-+
-+  if [ "${rc}" != 0 ]; then
-+    cat "${stderr}"
-+    echo "perf stat failed for ${group} (${rc})  [Failed]"
-+    err=1
-+    return
-+  fi
-+  if grep -q "cannot be grouped with kernel events" "${stderr}"; then
-+    cat "${stderr}"
-+    echo "perf stat refused ${group}  [Failed]"
-+    err=1
-+    return
-+  fi
-+  for name in "$@"; do
-+    # When no hardware cycles event can be counted, cycles falls back to
-+    # task-clock and the evsel is renamed, so it need not appear.
-+    case "${name}" in
-+      cycles|cycles:*)
-+        [ "${kernel_events}" = 0 ] && continue ;;
-+    esac
-+    if ! grep -q -- "${name}" "${out}"; then
-+      echo "perf stat did not print ${name}  [Failed]"
-+      cat "${out}"
-+      err=1
-+    fi
-+  done
-+  if grep -q "<not counted>" "${out}"; then
-+    echo "perf stat did not count an event in ${group}  [Failed]"
-+    cat "${out}"
-+    err=1
-+  elif grep -q "<not supported>" "${out}"; then
-+    if [ "${kernel_events}" = 1 ]; then
-+      echo "perf stat could not open an event in ${group}  [Failed]"
-+      cat "${out}"
-+      err=1
-+    else
-+      echo "perf stat could not open an event in ${group}  [Skipped]"
-+      skipped=$((skipped + 1))
-+    fi
-+  fi
-+}
-+
-+# The tool event as the leader and as a member, a common group that puts
-+# the tool event last, and a weak group led by a kernel event, which is
-+# refused the same way.
-+refused '{user_time,cycles}' user_time
-+refused '{cycles,user_time}' user_time
-+refused '{duration_time,instructions}' duration_time
-+refused '{cycles,instructions,duration_time}' duration_time
-+refused '{cycles,user_time}:W' user_time
-+
-+# The tool event in the middle of a group, and the first of two tool
-+# events, which is the one the message names.
-+refused '{cycles,user_time,instructions}' user_time
-+refused '{user_time,system_time,cycles}' user_time
-+
-+# evlist__check_cpu_maps() takes duration_time out of this group (it is
-+# read on one CPU only), which leaves cycles and user_time apart in the
-+# evlist; the tool event has to be found anyway.  On a machine with one
-+# CPU there is nothing to split, so either tool event can be the first.
-+# When a core PMU covers only part of the CPUs (hybrid x86, big.LITTLE
-+# arm64), -a gives the leader a subset of the CPUs and takes the tool
-+# event out of the group as well, which leaves no group to refuse.  The
-+# command is then counted instead of refused, and either way it must not
-+# reach the tool event through a member with no descriptor.
-+rc=0
-+perf stat -a -e '{cycles,duration_time,user_time}' -o "${out}" -- true \
-+  2> "${stderr}" || rc=$?
-+if [ "${rc}" -ge 128 ]; then
-+  echo "perf stat crashed on -a  [Failed]"
-+  err=1
-+elif [ "${rc}" -eq 0 ]; then
-+  if [ "${syswide}" = 1 ] && [ "${kernel_events}" = 1 ]; then
-+    if grep -qE "<not supported>|<not counted>" "${out}"; then
-+      echo "perf stat left an event uncounted on -a  [Failed]"
-+      cat "${out}"
-+      err=1
-+    fi
-+  else
-+    echo "perf stat counted -a without full access  [Skipped]"
-+    skipped=$((skipped + 1))
-+  fi
-+elif [ "${rc}" -eq 22 ]; then
-+  if ! grep -qE "A tool event cannot be grouped with kernel events: (user_time|duration_time)" \
-+      "${stderr}" ||
-+     ! grep -q "Put it outside the braces" "${stderr}"; then
-+    echo "perf stat refused -a without the full message  [Failed]"
-+    cat "${stderr}"
-+    err=1
-+  fi
-+elif [ "${rc}" -ne 0 ]; then
-+  echo "perf stat left -a with ${rc}  [Failed]"
-+  cat "${stderr}"
-+  err=1
-+fi
-+
-+# A group of tool events only is read by perf itself, a single event in
-+# braces is not a group, a tool event outside the braces is not a member,
-+# and a weak group led by a tool event is split by the weak group
-+# handling.  The member of such a group must never be enabled through a
-+# descriptor that was freed; that used to crash under -a when the open of
-+# the member failed outside the split conditions.
-+rc=0
-+perf stat -a -e '{user_time,cycles:k}:W' -o "${out}" -- true \
-+  2> "${stderr}" || rc=$?
-+if [ "${rc}" -ge 128 ]; then
-+  echo "perf stat crashed on a weak tool group under -a  [Failed]"
-+  err=1
-+elif [ "${rc}" -ne 0 ]; then
-+  echo "perf stat left a weak tool group under -a with ${rc}  [Failed]"
-+  cat "${stderr}"
-+  err=1
-+elif ! grep -q -- "user_time" "${out}"; then
-+  echo "perf stat dropped user_time from a weak tool group under -a  [Failed]"
-+  cat "${out}"
-+  err=1
-+fi
-+
-+accepted '{user_time,system_time}' user_time system_time
-+accepted '{duration_time,user_time}' duration_time user_time
-+accepted '{user_time}' user_time
-+accepted '{cycles,instructions},duration_time' duration_time
-+accepted '{user_time,cycles}:W' user_time cycles
-+accepted '{system_time,cycles}:W' system_time cycles
-+accepted '{duration_time,cycles}:W' duration_time cycles
-+
-+echo "Testing that a tool event on its own is accepted"
-+if ! perf stat -e user_time -o "${out}" -- true; then
-+  echo "perf stat rejected a tool event on its own  [Failed]"
-+  err=1
-+elif ! grep -q "user_time" "${out}"; then
-+  echo "perf stat did not print user_time  [Failed]"
-+  cat "${out}"
-+  err=1
-+fi
-+
-+echo "Testing that the default events still work"
-+if ! perf stat -o "${out}" -- true; then
-+  echo "perf stat without -e failed  [Failed]"
-+  err=1
-+fi
-+
-+cleanup
-+
-+if [ "${err}" = 0 ] && [ "${skipped}" -gt 0 ]; then
-+  echo "perf stat tool event group test [Success] (${skipped} skipped)"
-+elif [ "${err}" = 0 ]; then
-+  echo "perf stat tool event group test [Success]"
-+else
-+  echo "perf stat tool event group test [Failed]"
-+fi
-+
-+exit "${err}"
-diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
-index d060fca8090f..d4cc705f3379 100644
---- a/tools/perf/util/evsel.c
-+++ b/tools/perf/util/evsel.c
-@@ -2381,6 +2381,17 @@ static int get_group_fd(struct evsel *evsel, int cpu_map_idx, int thread)
- 		return -1;
- 
- 	fd = FD(leader, cpu_map_idx, thread);
-+	if (evsel__is_tool(leader)) {
-+		/*
-+		 * A tool event has no perf_event_open() descriptor, or has
-+		 * only a procfs one (user_time, system_time).  Either way the
-+		 * members cannot be in a kernel group with it, and its fd
-+		 * must not be passed to perf_event_open() as group_fd.
-+		 * builtin-stat.c decides on the weak group split from errno.
-+		 */
-+		errno = EINVAL;
-+		return -2;
-+	}
- 	BUG_ON(fd == -1 && leader->supported);
- 
- 	/*
++    timer@d4014000 {
++        compatible = "spacemit,k1-timer";
++        reg = <0xd4014000 0x100>;
++        interrupts = <23>;
++        clocks = <&syscon_apbc CLK_TIMERS1>,
++                 <&syscon_apbc CLK_TIMERS1_BUS>;
++        clock-names = "func", "bus";
++        resets = <&syscon_apbc RESET_TIMERS1>;
++    };
 
-base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
 -- 
-2.53.0
+2.56.0
 
