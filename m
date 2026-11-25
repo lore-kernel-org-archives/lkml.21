@@ -1,47 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795601445;
-	b=pzSBhB863NwbByscZK5Ca/7R3DIgD2Vi/fy+O84tmV+K+TAKIf7pASuLWi6hrqOphIvN
-	 uVbt2r5sl7qnhAhFfSZLr8+mK2RK+1tNxmAIqKpdeH3vcyJP8zW03vHJ5IAuFgEaY795+
-	 Lr/y2IFQBqSaiVfI/yUXpIgV2bhogrrrehfItSj/OvVRBGuqme4e3Z7dzBu/vsPBOuCV1
-	 OSjxXakZhRUlJJbw0PmFW0CaJYjApfRJALGHO07UTQ4pZMKQNawf86KQezIeDAgIfM940
-	 WDtQfkcRprMoVR09PQUKOJO0Q+SeLKWiD+BPFjlE6EPwDWHulz5R7nIlE6ITwSW0U2g==
+	t=1795601462;
+	b=qg7/9mMbCGFzBBbBNGzKa3KVIEnJzAk0lgv81QNdJ+dVEueNb6oc0iIKhQt18l9uwkuH
+	 /pN0KQk5MpVMG9kLCH8y0ZRia1aqfammArGNW3raMg7QFonpLz6EiQkjQ6ZO3swF5TrvE
+	 CSL773hJj4BhqeAde8NAzgVlusw7ciE1vhFF3AMAsDhi1Ki65aJny2rn6k3RkCVrrFYw4
+	 ngMYgg90QsBCvi6i0gZK21LVIC8zgp/yTR6qEOPV3jhXLBLLe3xlptWrV09c1N88xEU6u
+	 WJ2Mf9/qktxfyoPuIR8w86v2IQDJr/y2kPIhXOMnYGIvRB5O5/cAECVUovJVWbaBy6A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795601445;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=mu024QmHDvgvYMUVNzXnXivyqSL4wI/j3FC6aH6IbZ8=;
-	b=pE8TFQzLDF7fM7MUre7HAikRBrI9JgBxTBjvzu7inTG2SKoQ6qQp0kuNKAeEuM4gP98k
-	 qvOvwJKHsxSL7XDW35XfzLLWzlLswXN88Pd4O95kQ7/K3crBZdHUjOY3s7dvHleTwxIhL
-	 few9L1jD35vuz8vYB2QvplI7pBEzKG2UKjTp4shOHGvdmxRHiIe0kz957QyNl7vwl8Ijf
-	 kNkaBR21agAGFqi/z/kEKOkXKRFyfmGKKz8FuZJrQu49co8CX+vaj7P+Ujjyq4NRTkk1i
-	 SdaIuBiCu+NnXr8zdv3WICM5z+kluLv+tj9T94Eu5W7V4jGrpDSHgraNSMupgcwMxXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795601462;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=BaF2y941KHDdVq/TCyzQzvb+LdOgdRdyfJjxbTxcEfE=;
+	b=Sce1suvtGxCouipP0zIZt3CDABnDAw7h0DlS9alqLxq5PgagkcKSGEDo1ix7joMgMqz+
+	 tYT9bE4lOI2a6ZnkO2H6XvEZbLX/eUOc3RgkrYQcsFILappgP22F1RqdNoIWHq36pLX/G
+	 fmN0EcYvRmRAJCm/h8TxD2xHdxKUrnFIJuuMQbbcvfORASECpEYVOROJlnAGdzsda5YMl
+	 wMWR2/nY1WnzZBII5t88tSo7tOM9eIfzvxwxZdeQ7xSZYD0Xer3pzZTQqTOJp/cYATm0P
+	 fZWaj6xQj57i7emurZ85dBf94hwYM/CHsSJfOgZIUc1+3SxqbthxG5+wT9we4xOSPvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RU7VdEp+;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VnHfrSIT;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A062606A321;
-	Wed, 25 Nov 2026 10:10:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8420606A31E;
+	Wed, 25 Nov 2026 10:11:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RU7VdEp+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57CB51F000E0;
-	Wed, 25 Nov 2026 10:10:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VnHfrSIT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E45121F000C6;
+	Wed, 25 Nov 2026 10:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795601444;
-	bh=mu024QmHDvgvYMUVNzXnXivyqSL4wI/j3FC6aH6IbZ8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=RU7VdEp+uQaJQTpx4ry0WTeOcxTev6KoYGQJYDB+lzjlmCfZPn362tXFwosYKRSkf
-	 dpUd4KPHR1KjAlpkI6+3pZhUBWdCC0oo9t2ne/xLDTNvZWvBQ+ryFsAhP2sq2bMxUh
-	 vewss76bYYnlC2qfeKk45o43f30xxCXaBatgNH4XNeubPGRA7rA6pAdqgVkVJbvflp
-	 Bi97DX6JK36dRAQdZj4BnREXCiNqMn85w998eS0D2lyJehBFUC7yiEkN+8Vra5hDqY
-	 6mDdC82jp1UZLmbZ75glZCe1YpTameE1o5BOkX/xojSGpLbwLc45H98z30LjJpTKZx
-	 H5Wm5zJYDBKBQ==
-Message-ID: <fe08f69a-0e62-4e4c-b87f-d4f3f9fb2a0b@kernel.org>
-Date: Wed, 25 Nov 2026 11:10:27 +0100
+	s=k20260515; t=1795601462;
+	bh=BaF2y941KHDdVq/TCyzQzvb+LdOgdRdyfJjxbTxcEfE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=VnHfrSITWV9Ws1hlo2hFlxZlsLTRcWeJRZjMNpyg1FXRnzV4vsCAShBP61Ocx1zhP
+	 HXCddZyw9ddGjL3vPqHptfCA16EWst0mQdqKWS0CC2UCkVU629Ra0UHfY0RfQX82FF
+	 p3gylN9hDN/QG0SgaFHaGtP12i58WCnHIlx+7KWdzhFN/x9qRz8VYI7jlUzz7n85w+
+	 G9JxwhlsqYHaGZyXggFi9vOaOxUg4+85XPglls1q366nyKsvlIRi/dBOhOMXOZLqyu
+	 hT486ffaUn+42UkmkQtqtkizkm3YDtYoVYQumDoYpC2FCZDmnq1AJZjrZO+QAA/TJd
+	 5Be4atrOMSApw==
+Subject:
+ Re: [PATCH net-next 2/2] bnge: Add support for ethtool -d register dump
+From: netdev-bot+sashiko@kernel.org
+To: ramakrishna.koduri@broadcom.com
+Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ vsrama-krishna.nemani@broadcom.com, vikas.gupta@broadcom.com,
+ bhargava.marreddy@broadcom.com, ajit.khaparde@broadcom.com,
+ dharmender.garg@broadcom.com, kumar.mudide@broadcom.com
+Date: Wed, 25 Nov 2026 10:11:01 +0000
+Message-ID: <179560146141.3135.3852070914350759699@kernel.org>
+In-Reply-To: <20261124100751.179270-3-ramakrishna.koduri@broadcom.com>
+References: <20261124100751.179270-3-ramakrishna.koduri@broadcom.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,157 +66,247 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 14/18] mm/madvise: adapt for LRU refs based operations
- for MGLRU
-To: kasong@tencent.com, linux-mm@kvack.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
- Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>,
- Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
- Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>,
- Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>,
- Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>,
- Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>,
- Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>,
- Gregory Price <gourry@gourry.net>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
- SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
- Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
- Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>,
- Kairui Song <ryncsn@gmail.com>, Xiang Liu <liuxiang.277@bytedance.com>,
- Ehab Ababneh <ehab.ababneh@intel.com>,
- Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang
- <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
- Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
- Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org,
- cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org,
- Tianyi Chen <hi@tychen.cc>, Ridong Chen <ridong.chen@linux.dev>
-References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
- <20261124-mglru-fg-v6-14-8ffea39934a6@tencent.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261124-mglru-fg-v6-14-8ffea39934a6@tencent.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-On 11/23/26 19:53, Kairui Song via B4 Relay wrote:
-> From: Kairui Song <kasong@tencent.com>
-> 
-> For the active/inactive LRU, madvise clears PG_referenced so that one more
-> access is not enough to reactivate a folio, and keeps PG_workingset on a
-> folio demoted out of the active list so its refault is still accounted as
-> a workingset refault (PSI).
-> 
-> MGLRU keeps that history in the folio's refs count instead, which now
-> lives in PG_referenced, PG_workingset and LRU_REFS_MASK, so writing to
-> those bits directly corrupts the count. The two hints want different
-> things:
-> 
-> - MADV_COLD resets the count in folio_deactivate(), which also requests
->   deactivation.
-> - MADV_PAGEOUT clears non-workingset refs and caps the rest at
->   LRU_REFS_WORKINGSET after isolation, before handing the folio to
->   reclaim_pages(). The hint marks the folio as cold, so the
->   eviction shadow records the capped count and does not inflate the
->   eviction/refault counters of the hot tiers that drive aging, while
->   folios at or above the workingset threshold keep their PSI
->   classification.
-> 
-> PG_young is cleared for both LRUs as before, so the referenced walk does
-> not count stale history as a recent access.
-> 
-> Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
-> Tested-by: Andrew Morton <akpm@linux-foundation.org>
-> Signed-off-by: Kairui Song <kasong@tencent.com>
-> ---
->  mm/madvise.c | 54 ++++++++++++++++++++++++++++++++++++++++--------------
->  1 file changed, 40 insertions(+), 14 deletions(-)
-> 
-> diff --git a/mm/madvise.c b/mm/madvise.c
-> index a36cfe98dd81..7e562e78d52a 100644
-> --- a/mm/madvise.c
-> +++ b/mm/madvise.c
-> @@ -360,6 +360,42 @@ static inline int madvise_folio_pte_batch(unsigned long addr, unsigned long end,
->  				     FPB_MERGE_YOUNG_DIRTY);
->  }
->  
-> +static void madvise_cold_prep_folio(struct folio *folio)
-> +{
-> +	/*
-> +	 * VM couldn't reclaim the folio unless we clear PG_young.
-> +	 * As a side effect, idle-page tracking loses recent referenced history.
-> +	 */
-> +	folio_test_clear_young(folio);
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
+
+Critical: 0 · High: 0 · Medium: 1 · Low: 3
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] bnge_get_pcie_regs() sets regs->version to 1, 2 or 3 from the
+  PCIe stats size firmware actually returned (`min(resp->pcie_stat_size,…
+- [Low] In bnge_hwrm_dbg_qcaps()
+  (drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c), the comment says…
+- [Low] The commit message lists only the categories of data that are
+  dumped.
+- [Low] In bnge_pcie_reg[]
+  (drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c, line 786),…
+
+--
+
+bnge: Add support for ethtool -d register dump
+
+This commit adds get_regs and get_regs_len ethtool callbacks to the bnge
+driver. The dump has three parts: PXP registers read through
+HWRM_DBG_READ_DIRECT, PCIe statistics from HWRM_PCIE_QSTATS, and adaptive
+QoS RX/TX MBUF data. It also adds HWRM_DBG_QCAPS discovery at probe time and
+reads new capability flags from FUNC_QCAPS.
+
+> Implement get_regs and get_regs_len ethtool callbacks to provide
+> register dump support for the BNGE driver. This includes support
+> for PXP registers, PCIe signal integrity, PCIe Latency Histogram
+> and Adaptive QoS TX/RX MBUF registers.
+
+[Severity: Low]
+Could the commit message describe the dump layout and the version numbers?
+Both become visible to userspace once this is merged.
+
+The layout is:
+
+- PXP registers at offset 0
+- PCIe stats at BNGE_PXP_REG_LEN (0x3110)
+- RX MBUF data at 0x3800
+- TX MBUF data at:
+
+#define BNGE_TX_MBUF_REG_OFFSET	(BNGE_RX_MBUF_REG_OFFSET + 0x64 + \
+				 sizeof(struct queue_adptv_qos_rx_info))
+
+What is the 0x64 byte gap between the RX and TX blocks? BNGE_MBUF_REG_LEN
+(0x12c) seems to include it.
+
+regs->version can be anything from 0 to 4, and version 4 does not exist in
+bnxt. The comment in bnge_get_regs() says "Version 4 is required for the
+userspace ethtool decoder". DRV_NAME is "bng_en", though, so ethtool will not
+use its existing bnxt decoder. Is a bng_en decoder available or planned?
+
+The patch also adds a new HWRM_DBG_QCAPS query at probe time, through
+bnge_func_qcaps()->bnge_hwrm_dbg_qcaps(). The commit message doesn't mention
+this either.
+
+> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c b/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
+> index 2467e44de291a..3ada50832c6d9 100644
+> --- a/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
+> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
+
+[ ... ]
+
+> @@ -740,6 +742,170 @@ static int bnge_set_pauseparam(struct net_device *dev,
+
+[ ... ]
+
+> +#define BNGE_PCIE_REG_SIZE(reg)		\
+> +	sizeof_field(struct pcie_ctx_hw_stats_v2, pcie_##reg)
 > +
-> +	/*
-> +	 * For the active/inactive LRU, a folio demoted out of the active
-> +	 * list should have PG_workingset so its refault is still accounted
-> +	 * as a workingset refault, and the referenced bit always needs to
-> +	 * be cleared even for inactive folios. For MGLRU, MADV_COLD clears
-> +	 * refs in folio_deactivate(); MADV_PAGEOUT handles refs after isolation.
-> +	 */
-> +	if (!lru_gen_enabled()) {
-> +		folio_clear_lru_refs(folio);
-> +		if (folio_test_active(folio))
-> +			folio_set_workingset(folio);
+> +static const struct bnge_reg_desc bnge_pcie_reg[] = {
+> +	{ BNGE_PCIE_REG_SIZE(pl_signal_integrity), 8 },
+> +	{ sizeof(__le16), 4 }, /* pcie_equalization_time: 4x __le16 */
+
+[Severity: Low]
+Does this entry match the HSI definition? include/linux/bnge/hsi.h declares
+the field as a single 64-bit value, in both pcie_ctx_hw_stats and
+pcie_ctx_hw_stats_v2:
+
+	__le64	pcie_equalization_time;
+
+Every other entry in this table takes its size from the struct through
+BNGE_PCIE_REG_SIZE(). This one hardcodes 2 bytes instead.
+
+The difference shows up on big-endian hosts. Converting four __le16 values
+swaps the bytes inside each 16-bit part but leaves the parts in their
+original order. A single le64_to_cpu() also reverses the order of the parts.
+bnxt_get_regs() converts this field as one u64.
+
+Should the HSI describe the field as __le16[4]? Or should this entry use
+BNGE_PCIE_REG_SIZE(equalization_time) with a count of 1?
+
+> +	{ BNGE_PCIE_REG_SIZE(ltssm_histogram[0]), 4 },
+> +	{ BNGE_PCIE_REG_SIZE(recovery_histogram), 1 },
+> +	{ BNGE_PCIE_REG_SIZE(tl_credit_nph_histogram[0]), 94 },
+> +	{ BNGE_PCIE_REG_SIZE(posted_packet_count), 5 },
+> +	{ BNGE_PCIE_REG_SIZE(rd_latency_histogram[0]), 14 },
+> +};
+
+[ ... ]
+
+> +static void bnge_get_pcie_regs(struct bnge_dev *bd, struct ethtool_regs *regs,
+> +			       u8 *dst)
+> +{
+
+[ ... ]
+
+> +	len = min_t(int, le16_to_cpu(resp->pcie_stat_size),
+> +		    sizeof(struct pcie_ctx_hw_stats_v2));
+> +	if (len <= 0)
+> +		goto drop_req;
+> +
+> +	if (len <= sizeof(struct pcie_ctx_hw_stats))
+> +		regs->version = 1;
+> +	else if (len < sizeof(struct pcie_ctx_hw_stats_v2))
+> +		regs->version = 2;
+> +	else
+> +		regs->version = 3;
+
+[ ... ]
+
+> +static void bnge_get_regs(struct net_device *dev, struct ethtool_regs *regs,
+> +			  void *_p)
+> +{
+> +	struct bnge_net *bn = netdev_priv(dev);
+> +	struct bnge_dev *bd = bn->bd;
+> +	u8 *p = _p;
+> +
+> +	regs->version = 0;
+> +
+> +	if (BNGE_NO_FW_ACCESS(bd))
+> +		return;
+> +
+> +	if (!(bd->fw_dbg_cap & DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED)) {
+> +		int rc;
+> +
+> +		rc = bnge_dbg_hwrm_rd_reg(bd, 0, BNGE_PXP_REG_LEN / 4, _p);
+> +		if (rc)
+> +			netdev_warn(dev, "Failed to read PXP regs: %d\n", rc);
+> +	}
+> +
+> +	if (bd->stats_cap & BNGE_STATS_CAP_PCIE)
+> +		bnge_get_pcie_regs(bd, regs, p + BNGE_PXP_REG_LEN);
+> +
+> +	if (bd->fw_cap & BNGE_FW_CAP_MBUF_DATA) {
+> +		int rc_rx, rc_tx;
+
+[ ... ]
+
+> +		rc_rx = bnge_hwrm_rx_mbuf_data(bd,
+> +					       p + BNGE_RX_MBUF_REG_OFFSET);
+> +		rc_tx = bnge_hwrm_tx_mbuf_data(bd,
+> +					       p + BNGE_TX_MBUF_REG_OFFSET);
+> +		if (!rc_rx || !rc_tx)
+> +			regs->version = 4;
+
+[Severity: Medium]
+Doesn't this assignment throw away the PCIe layout version that
+bnge_get_pcie_regs() just set?
+
+bnge_get_pcie_regs() picks version 1, 2 or 3 from the size firmware returned
+in resp->pcie_stat_size. That version is the only thing that tells userspace
+how much of the PCIe region holds real data.
+
+If BNGE_FW_CAP_MBUF_DATA is set and either MBUF query succeeds, the version
+becomes 4. That happens in all of these cases:
+
+- the PCIe stats were v1 sized
+- the PCIe stats were v2 sized or full v2
+- HWRM_PCIE_QSTATS failed
+- PCIe stats were never queried because BNGE_STATS_CAP_PCIE isn't set
+
+The ethtool core zero-fills the buffer. A decoder that sees version 4 would
+treat the unwritten tail as real TL credit and latency histogram values.
+bnxt_get_regs() uses the same 1/2/3 scheme but never overwrites it.
+
+A related point: when bnge_dbg_hwrm_rd_reg() fails, the only sign is the
+netdev_warn() above. The zeroed 0x3110 byte PXP region is still reported as
+register contents, and neither version nor len tells userspace about the
+failure. bnxt behaves the same way today.
+
 > +	}
 > +}
 
-These are all not things that madvise.c should have to worry about. Can we have
-some call into folio/reclaim code that will take care of this?
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
+> index 227de771f2ef6..9b8cb39dbe164 100644
+> --- a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
+> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
+
+[ ... ]
+
+> @@ -597,12 +598,45 @@ int bnge_hwrm_func_resc_qcaps(struct bnge_dev *bd)
+>  	return rc;
+>  }
+>  
+> +void bnge_hwrm_dbg_qcaps(struct bnge_dev *bd)
+> +{
+> +	struct hwrm_dbg_qcaps_output *resp;
+> +	struct hwrm_dbg_qcaps_input *req;
+> +	int rc;
+> +
+> +	bd->fw_dbg_cap = 0;
+> +	if (!(bd->fw_cap & BNGE_FW_CAP_DBG_QCAPS))
+> +		return;
+> +
+> +	/* Discovery failure is treated as restricted so we never attempt
+> +	 * direct register reads without confirmation from firmware.
+> +	 */
+
+[Severity: Low]
+Does the early return above match this comment? If firmware doesn't advertise
+FUNC_QCAPS_RESP_FLAGS_DBG_QCAPS_CMD_SUPPORTED, fw_dbg_cap stays 0.
+bnge_get_regs() only checks the restricted bit:
+
+	if (!(bd->fw_dbg_cap & DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED)) {
+		...
+		rc = bnge_dbg_hwrm_rd_reg(bd, 0, BNGE_PXP_REG_LEN / 4, _p);
+
+So HWRM_DBG_READ_DIRECT is sent for 0xc44 words in exactly the case where
+firmware has confirmed the least. If firmware rejects the request, every
+ethtool -d logs "Failed to read PXP regs".
+
+bnxt_hwrm_dbg_qcaps() also treats missing DBG_QCAPS as unrestricted. Should
+the comment be changed to match? Or should this branch also set
+DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED?
+
+> +	rc = bnge_hwrm_req_init(bd, req, HWRM_DBG_QCAPS);
+> +	if (rc) {
+> +		bd->fw_dbg_cap = DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED;
+> +		return;
+> +	}
+
+[ ... ]
 
 -- 
-Cheers,
-
-David
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124100751.179270-1-ramakrishna.koduri%40broadcom.com
