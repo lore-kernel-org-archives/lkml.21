@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795579223;
-	b=WE/AbqGeYDqhELAyU49rIzc27pDH5n2eAYfg6nKvHAgiU6irid+Yr8txZ5TmJ7e5z1/s
-	 hEvaT8RZUYiYVEcbMuGWv5N0ezMei54W3qFGlgFEv+jOP8N5lnQ12MlsFACmwqc7aoxI7
-	 8WLMnnhkLTWQBJvPczScs7yyxXOAn+XTdq1eecLB5BPCIf489gTVhBKRqaViwNI4bPykc
-	 mTRT4ig0J+zARkaSlPSS6H1xT1Sxch/G0NYf0Af7nvZKhHCvEVt6wrZLlbQrfQ0X745UT
-	 vOmS5SgoWMRjQh+n5oQnRY3NeQ8UCBJUtlMrckZFeZdxPXu1GYuwickrK+XEEGH9IPw==
+	t=1795579226;
+	b=pKBytGi+oIbEqPuTwukBvMguEWKOIlzhe2yA6WF4aGf0Fafe5kcvu8aY1Ce4XsKBi6CC
+	 kmqSRV12Qx3gkkmOgQFwSj0PtD+Qo4HZrQpMYKcUDTk9MID83c818XlSwWYtj34KSFrKM
+	 3nOU7UIS4l3i/fqlcFXToCEOvLHpZdXttijRggoMtjDcmOAS5izE3NY4ix8x1PyWZtK0k
+	 xiqi2HLM+VYQJ2FmhqkBZzYnFmDCpeU/5dbci1xeYM7Top2bRW+C0nWAsK1EgmkACs+eZ
+	 MJBAtJomPpnro8aMvHpGmlY+TE7c2SS9jaMd8hTIuDFy1SxBRLblKCeCGTZuGwtFyeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795579223;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795579226;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=h9Hto31Ei8twsoteptDahJHqXFA5GSu7dTamilsJIHo=;
-	b=r6qURQktuYPW9RULrOSO81WdZvGsNUuyGNB/BORkkRHST81W2iQjxJ8ZpP8uy1yR2jCl
-	 SsaFKzGAdWb19pCY8u0my1fxcLwZNngT/8RBwNckucbjild7NTe2F0AqavTovTsJ1i7JM
-	 7u0DMVn48GVODVkh9i4bAceOE7E4CEyee7/R9dSUh+NsJnTpeRkjcnX9O92+FISszm/32
-	 FxJEoVWp8RmOMur6dvq+ZgF5kAuBXk5MnnS7NF54wqrirnbGRjoRBiqQIFDLyR/Snbmz1
-	 KijQBJrXuK0LjOW4TYPQlK370WEG4+LhI+8DVvrExftcRQCqKdv3x0+nMpl6Hm8+Uug==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=Z272wPPw5zG0BP9Dk4LUCTCHRpu0SV9ZoE4xf+jSm8M=;
+	b=H5L496dxyVU80mxNr/j4/HM0z6gCpMZsZUGsrrfcLRlqynmT1MQuY6Qqr1x6kk3mZ+Eu
+	 gdOh/AQ4xTqsP+2JhM0MRKOINwzu3aDFwbY4zSEKYexEgv2LN7uDUtnMsNjoW2kwslwxZ
+	 g+Cvgyizku9IMDefBiGmXzvtMpKjUaWB/IU/HSefp0C7Fr94OT9sWvj/2/gBuW5kQQUV7
+	 in23b99+rrWTnpziNfohIwoZCZBo+82/S+gG1wDaNGDqF8EraT1/ukwa7EMHHi9HDuk46
+	 UGIe+LLkpVQ4Wyu3SwayvMtN4UDT51u6VbiUcBy0zqVdbMhGEoVlCBrn1MNaSVjj7Bg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="QNHcF/N0";
-	arc=none smtp.remote-ip=74.125.82.53
-Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RJpK21Ep;
+	arc=none smtp.remote-ip=74.125.82.46
+Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C0BB606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:00:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C0BB606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3ED2606A33B
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:00:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3ED2606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QNHcF/N0
-Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-1b546061d58so11951693c88.1
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:00:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RJpK21Ep
+Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-1b546061d58so11951775c88.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 20:00:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795579222; x=1796184022; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=h9Hto31Ei8twsoteptDahJHqXFA5GSu7dTamilsJIHo=;
-        b=QNHcF/N04NV8ILM8qkEX/s8SIJpCEw58cumyVq3qBS7wxFx5DkJ6YmQ7zpBgCcg8me
-         /k7RWICtD5HPtKA9ac2COBlXd4P1hMiCaOeQeGDM3FWWQvG1hJqiGBPHFxQI6W5NtvHv
-         hIY1yszW22yzTOhl8EFTHg5AFRQOAXdZSWxv+HwVVcqSMXCzQBD6//B0yfSlSdi47Y+E
-         eZ8dkCE0aeRxdHTp/DloqtWL/6l1vf57xSBrxGaduQr6Pe490MljsvdT6h0VGTypqLHY
-         90h2Uuzitw0FBu18rlvfmsjoUd9rpe7ub2XjlGCjsutosGJ6iCmgBavvn+7QEI6VJQZu
-         1F6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795579222; x=1796184022;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795579225; x=1796184025; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=h9Hto31Ei8twsoteptDahJHqXFA5GSu7dTamilsJIHo=;
-        b=FiE9aGO5gVVHPdJjSgZ7ebhErkr7tU6MlHUK1rgcxpHNn3rQACOuAaCGjPib9LDQfm
-         kzBQbpes5ltsfbn/QABKILJLrz4ZZZEbikakAUGkj09nWPeM5rZehP8kI088zhpQliHK
-         0paHZFnbC0C/W9WGcg8hEAJ3bGZXa1pkX+TfC6GYH8rI96WfJwoFc4WW7ZVMv/93EXDC
-         r8+sE+952Yhra7vfksFGBuZgImWeILPkFuPHkcD72hf0zX70Dd31OrW3AWtekLbNGWyU
-         pDxpH0fJVcliaZ7rQJPfpCpvJLd1buNHoSXNhJlstx4u3YnKBBd9xx3qqG6TvzqFapQX
-         al5g==
-X-Forwarded-Encrypted: i=1; AL+hErFAFrWVufB5iGXx0BfeJkLqJ1VYyDRFJtv83sAHfbaLPtOIn04Qfh2y2Axk37TWmsI3F/BIu9W075rLIK4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Fxq7+q+W3aH7xbzDYDlUFdX3Egz5voM+gp9ouSetoHi9UXMo9
-	7tl/AQKK+Vgffnl2LrzD6U8qcLKT7XRj3TtFE9bStgkIv1ZDPLNfd6iU
-X-Gm-Gg: AZFdTZcdMAbGWW0A6CYqrIyPnZ8PXffF4+OiV9q4l0NnDH39rDaWbm7ryudvDKeeRmK
-	SiLl2SZ0V6eqykXz+CLyOq2dOiHi+zCIclplcktXX5B95zqx+MDgmVANYpkzLtLAQFqXP5m/4y4
-	wsjM4u0iDnTLVi5KAxDPloHWucFGcVc8xBKiu/JTGm6lMotn181WICgiLAKqNEduSH22M81bviu
-	A02mynbCiAgmKB3cf3M1yw/kHGkGSmYu+23Scfc7AgRyoO+l6nciIGIQ5RkTiwRP+EmLelxPHqm
-	Y4NfUM0WCvmZisAhKga3hQlrx+zcpVGaoME8guTDgRvK6n9hoOmdXLPNOsdbU7a+1cbWVyoCBHV
-	nxlUKMwsr8Xemhi/IA89nJTglMw8fPy9khrX0tWBLsShmYJfmWOwncSEUTNGeBodj/AqItQD3Qc
-	Z/yEkM19hjMWj6acoodZr+zJZjvoXVmDIeZYzMBftpuNB2+iK9BIEYhyFpL9Ey4pc43uaIThOBE
-	C1RsoGvAdS+wZ9KD+iTSw8Gbm4EqaV3mcwDyMjk20EibDbW+ey+YqKmxITxlVqHrsHMGJpQmSSv
-	NqnjECN9n4edW7CZFgqwogC7Vxds7WAir+05NnAq9w==
-X-Received: by 2002:a05:7022:f50b:b0:1b5:2de3:bcfb with SMTP id a92af1059eb24-1b5568ee8famr18413134c88.25.1795579221616;
-        Tue, 24 Nov 2026 20:00:21 -0800 (PST)
+        bh=Z272wPPw5zG0BP9Dk4LUCTCHRpu0SV9ZoE4xf+jSm8M=;
+        b=RJpK21EpflpA3/7NObWyZFF1JNJSszim3rhf+YafYYjaM2mX+PBbXaAQW+qeVLLTSD
+         SSa9XJdmEjQT7ZlWlx2TZWc+KXzgjClEMEZum/p6SUKXH859QgpNVT0BC/GKQIV7KI61
+         w2bOyjkIK2CkGlxwlOc2AHx4Ial3b1KzOY6Ob3nnRcB8Fy90M/pQOE+9VJP6s/OU4VUr
+         41zB+UHvTNGHzHcLf7bAR3ejJBikTJ1qhkwl0UCu/Fs5s1F2YmPnm91JPpIZBYu14UJY
+         hWotx7eZVGzOAS5q4gI0i158tQgSE4OeW3pjG3YB/eRrZLfxcBPb2NsWJAiP82Q9Lpdr
+         KqHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795579225; x=1796184025;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Z272wPPw5zG0BP9Dk4LUCTCHRpu0SV9ZoE4xf+jSm8M=;
+        b=RyTrqjGhm2fWyVsFRh2Gx7YuBFUwyyjJfYa/uzcFDTuqxmsJym8dISrWDheCbj2m+S
+         26Uwn+Gp7lvphLiOZH4rFN3tYex7cZfmi+c//Hjlp70xpcc5VeTujUQ90ca0FWl2cMQ4
+         cewhAFwNYjFyWkEMdrut8dXGNYOMjWy9ZlTW0h23tRK95fTjFk9GIvLP1utmFXzWkVye
+         DuRO0/mkyPZbF1TV4A+5mBgx6KSULz0ZZwtTmBvd4R0gYfRa+PEc72TepCrLxcwcwMJm
+         CBRJZ5eeWFNu2ae4FToaffQww4Yfoc575RpiEdZW8NXzBFId0uiNfaqV3Ka+LuXAsdEf
+         058Q==
+X-Forwarded-Encrypted: i=1; AL+hErEg6D3vJF5ThaLyqSTQV65rTqcAiDOBqS3+9ZbLmPdqtEFRL3S86BhY3IW44HDRuJjyTS7v0BMSUxJLBJY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+3tLjvwRtcyftP6x+aUYX0flvXAQtXbfLih8bsqHqeVvgTRIHQ
+	IQteQsftpmYRLVgS9iIWBY9O3utMHZnl0xITkNaKo6F52MvhdPXsPubx
+X-Gm-Gg: AZFdTZdmYV28kayKDWyBlwEi6TgHvkf3Sepp0rzxnrF7Y8yFbpUD/cTZtkr+iVrZBt/
+	1AB+ozTS12Wr0EXW0Q+RGGdd6SZFUH3qr247q5AXGr9cJxblcTmNmJg/a7zc5wpVjoKEC7HVw0O
+	2TWsFyZZms12PkqwDqePb2KzkYVeXo4i5iBpfee6dRUmiVIuefgHSu6Z0jphMkRlcfwqPooTpm8
+	5e4oq5Aoe3w8tG7FDHJ2nFnat6fbELpEC8kdJLyzvR9ZqfvOovPuSnxPyetOi77pAEsKlZHjhTj
+	aH1ikmGohiCBaLRc/JtQL+SoICGU49qC5fpnSXbqjrQ9g18PqPnBR1r4l4a7TWgqs94l9r3ERPc
+	Y13uDCOOPg1tL+odwQthPFpG3QEp6JXBajj5iCqEdl1r3mu1TI9OeRtSkOZM2k5FWLevloiPoNb
+	7nb3JM8NUAL9xW8w1QiKlcBuNX31jXK6gcOwiSXfRzyo+l/ZQKRpItuR41LyM4Fp4cT3kru4q1O
+	7l/p0ViH3CptcKUdp8KQjfoRk1QoDBYSoLA7C95dDSGT1CLSJTW1D8J3ai2z9HjyrO/45fVpfIw
+	RVqY265ipHbIfErA0nbu
+X-Received: by 2002:a05:7022:92a:b0:143:26eb:18e9 with SMTP id a92af1059eb24-1b5568eb4dfmr23336562c88.28.1795579224787;
+        Tue, 24 Nov 2026 20:00:24 -0800 (PST)
 Received: from a1-free ([161.33.196.121])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55684c85fsm57094127c88.14.2026.11.24.20.00.18
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55684c85fsm57094127c88.14.2026.11.24.20.00.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 20:00:21 -0800 (PST)
+        Tue, 24 Nov 2026 20:00:24 -0800 (PST)
 From: TAKANO Mitsuhiro <takano32@gmail.com>
 To: linux-perf-users@vger.kernel.org,
 	Ingo Molnar <mingo@redhat.com>,
@@ -97,10 +98,12 @@ Cc: Ian Rogers <irogers@google.com>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
 	Jiri Olsa <jolsa@kernel.org>,
 	Adrian Hunter <adrian.hunter@intel.com>
-Subject: [PATCH v13 0/2] perf jevents: Reject unknown keys in the JSON tables
-Date: Wed, 25 Nov 2026 04:00:14 +0000
-Message-ID: <20261125040016.1675748-1-takano32@gmail.com>
+Subject: [PATCH v13 1/2] perf vendor events arm64 AmpereOneX: Fix misspelled PublicDescription keys
+Date: Wed, 25 Nov 2026 04:00:15 +0000
+Message-ID: <20261125040016.1675748-2-takano32@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261125040016.1675748-1-takano32@gmail.com>
+References: <20261125040016.1675748-1-takano32@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,62 +115,158 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Rebased onto perf-tools-next, as Namhyung asked.  This is v13.
+Sixteen of the 28 entries in mmu.json spell PublicDescription as
+"PublicDescrition"; the other 12 spell it correctly.  jevents.py reads
+only the keys it asks for by name, so those 16 fields are dead: the text
+is dropped without a word and never reaches the generated tables.
 
-The rebase drops the AMD hunks from 1/2: they are already in
-perf-tools-next as commit edd09316bd37 ("perf vendor events amd: Fix a
-misspelled JSON key").  So 1/2 now touches only the arm64 file, and its
-message no longer claims to carry the AMD half.  1/2 now fixes the 16
-AmpereOneX entries that spell PublicDescription as "PublicDescrition";
-Ilkka has acked the patch, which is not yet in perf-tools-next.
+Fixing them does not change the perf list output: every one of the 16
+entries has a BriefDescription with the same text, and jevents.py drops
+the long description when it equals the brief one.
 
-2/2 cannot land on a tree that still carries those 16 keys: the new check
-fails an arm64 build on them, so 1/2 comes first.
+Running jevents.py for arm64 before and after this change gives a
+byte-identical generated string table, pmu-events-string.c.
 
-The diff of 2/2 is unchanged: two hunks in jevents.py (_valid_keys and the
-check in JsonEvent.__init__) and jevents_bad_key.sh, which checks the
-failing case only.  (metricgroups.json is a plain dictionary of group names
-and is not checked.)  Its message now describes the test and carries
-James's Reviewed-by from the v12 posting.
+The file becomes self-consistent, and the field works if the brief
+text is ever changed on its own.  No text, name, code or expression
+changes.
 
-Measured on the rebased pair, on top of perf-tools-next (148690b95cc4):
+The three AMD entries that spelled BriefDescription as "BriefDescript6ion"
+were fixed in a separate patch, which is already in perf-tools-next as
+commit edd09316bd37 ("perf vendor events amd: Fix a misspelled JSON key"),
+so this patch now touches only the AmpereOneX file.
 
-  - make -C tools/perf -j2 NO_PYLINT=1 exits 0
-  - jevents.py over arm64, x86, powerpc, s390 and riscv each exits 0
-  - jevents_bad_key.sh exits 0: NotAKey in a table makes the generator
-    exit 1, with "Exception processing <path>" on stdout and a traceback
-    ending in "ValueError: Unknown keys: ['NotAKey']"
-  - grep for PublicDescrition and BriefDescript6ion over
-    tools/perf/pmu-events/arch/ finds nothing
+Written with Hermes Agent, an LLM assistant; the author reviewed it and
+ran the generator as described.  perf was built, not run against
+hardware.
 
-Changes since v12:
+Fixes: 16438b652b46 ("perf vendor events arm64 AmpereOneX: Add core PMU events and metrics")
+Acked-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+---
+ .../arch/arm64/ampere/ampereonex/mmu.json     | 32 +++++++++----------
+ 1 file changed, 16 insertions(+), 16 deletions(-)
 
-  - rebased onto perf-tools-next (Namhyung)
-  - 1/2 no longer carries the AMD hunks, which are in that tree already,
-    and its message says so
-  - 2/2's diff is unchanged: same as v12 (patch-id 8be9ac914f80), but its
-    message now describes jevents_bad_key.sh and carries James's
-    Reviewed-by
-  - the measurements above were redone on the new base
-
-v12 was posted at
-https://lore.kernel.org/linux-perf-users/20261120134252.1036963-1-takano32@gmail.com/
-The rebase request:
-https://lore.kernel.org/linux-perf-users/awTB4cryDW4H4no7@google.com/
-
-TAKANO Mitsuhiro (2):
-  perf vendor events arm64 AmpereOneX: Fix misspelled PublicDescription
-    keys
-  perf jevents: Fail the build on a key the tables may not carry
-
- .../arch/arm64/ampere/ampereonex/mmu.json     | 32 ++++++------
- tools/perf/pmu-events/jevents.py              | 24 +++++++++
- tools/perf/tests/shell/jevents_bad_key.sh     | 52 +++++++++++++++++++
- 3 files changed, 92 insertions(+), 16 deletions(-)
- create mode 100755 tools/perf/tests/shell/jevents_bad_key.sh
-
-
-base-commit: 148690b95cc425950dbba79d73eb4f7938347fce
+diff --git a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/mmu.json b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/mmu.json
+index 66d83b680651..9457f9be4ecc 100644
+--- a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/mmu.json
++++ b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/mmu.json
+@@ -30,37 +30,37 @@
+         "BriefDescription": "Data TLB translation cache hit on S2L2 walk cache entry"
+     },
+     {
+-        "PublicDescrition": "Data TLB translation cache hit on S2L1 walk cache entry",
++        "PublicDescription": "Data TLB translation cache hit on S2L1 walk cache entry",
+         "EventCode": "0xd805",
+         "EventName": "MMU_D_TRANS_CACHE_HIT_S2L1_WALK",
+         "BriefDescription": "Data TLB translation cache hit on S2L1 walk cache entry"
+     },
+     {
+-        "PublicDescrition": "Data TLB translation cache hit on S2L0 walk cache entry",
++        "PublicDescription": "Data TLB translation cache hit on S2L0 walk cache entry",
+         "EventCode": "0xd806",
+         "EventName": "MMU_D_TRANS_CACHE_HIT_S2L0_WALK",
+         "BriefDescription": "Data TLB translation cache hit on S2L0 walk cache entry"
+     },
+     {
+-        "PublicDescrition": "Data-side S1 page walk cache lookup",
++        "PublicDescription": "Data-side S1 page walk cache lookup",
+         "EventCode": "0xd807",
+         "EventName": "MMU_D_S1_WALK_CACHE_LOOKUP",
+         "BriefDescription": "Data-side S1 page walk cache lookup"
+     },
+     {
+-        "PublicDescrition": "Data-side S1 page walk cache refill",
++        "PublicDescription": "Data-side S1 page walk cache refill",
+         "EventCode": "0xd808",
+         "EventName": "MMU_D_S1_WALK_CACHE_REFILL",
+         "BriefDescription": "Data-side S1 page walk cache refill"
+     },
+     {
+-        "PublicDescrition": "Data-side S2 page walk cache lookup",
++        "PublicDescription": "Data-side S2 page walk cache lookup",
+         "EventCode": "0xd809",
+         "EventName": "MMU_D_S2_WALK_CACHE_LOOKUP",
+         "BriefDescription": "Data-side S2 page walk cache lookup"
+     },
+     {
+-        "PublicDescrition": "Data-side S2 page walk cache refill",
++        "PublicDescription": "Data-side S2 page walk cache refill",
+         "EventCode": "0xd80a",
+         "EventName": "MMU_D_S2_WALK_CACHE_REFILL",
+         "BriefDescription": "Data-side S2 page walk cache refill"
+@@ -90,61 +90,61 @@
+         "BriefDescription": "Level 2 instruction translation buffer allocation"
+     },
+     {
+-        "PublicDescrition": "Instruction TLB translation cache hit on S1L2 walk cache entry",
++        "PublicDescription": "Instruction TLB translation cache hit on S1L2 walk cache entry",
+         "EventCode": "0xd901",
+         "EventName": "MMU_I_TRANS_CACHE_HIT_S1L2_WALK",
+         "BriefDescription": "Instruction TLB translation cache hit on S1L2 walk cache entry"
+     },
+     {
+-        "PublicDescrition": "Instruction TLB translation cache hit on S1L1 walk cache entry",
++        "PublicDescription": "Instruction TLB translation cache hit on S1L1 walk cache entry",
+         "EventCode": "0xd902",
+         "EventName": "MMU_I_TRANS_CACHE_HIT_S1L1_WALK",
+         "BriefDescription": "Instruction TLB translation cache hit on S1L1 walk cache entry"
+     },
+     {
+-        "PublicDescrition": "Instruction TLB translation cache hit on S1L0 walk cache entry",
++        "PublicDescription": "Instruction TLB translation cache hit on S1L0 walk cache entry",
+         "EventCode": "0xd903",
+         "EventName": "MMU_I_TRANS_CACHE_HIT_S1L0_WALK",
+         "BriefDescription": "Instruction TLB translation cache hit on S1L0 walk cache entry"
+     },
+     {
+-        "PublicDescrition": "Instruction TLB translation cache hit on S2L2 walk cache entry",
++        "PublicDescription": "Instruction TLB translation cache hit on S2L2 walk cache entry",
+         "EventCode": "0xd904",
+         "EventName": "MMU_I_TRANS_CACHE_HIT_S2L2_WALK",
+         "BriefDescription": "Instruction TLB translation cache hit on S2L2 walk cache entry"
+     },
+     {
+-        "PublicDescrition": "Instruction TLB translation cache hit on S2L1 walk cache entry",
++        "PublicDescription": "Instruction TLB translation cache hit on S2L1 walk cache entry",
+         "EventCode": "0xd905",
+         "EventName": "MMU_I_TRANS_CACHE_HIT_S2L1_WALK",
+         "BriefDescription": "Instruction TLB translation cache hit on S2L1 walk cache entry"
+     },
+     {
+-        "PublicDescrition": "Instruction TLB translation cache hit on S2L0 walk cache entry",
++        "PublicDescription": "Instruction TLB translation cache hit on S2L0 walk cache entry",
+         "EventCode": "0xd906",
+         "EventName": "MMU_I_TRANS_CACHE_HIT_S2L0_WALK",
+         "BriefDescription": "Instruction TLB translation cache hit on S2L0 walk cache entry"
+     },
+     {
+-        "PublicDescrition": "Instruction-side S1 page walk cache lookup",
++        "PublicDescription": "Instruction-side S1 page walk cache lookup",
+         "EventCode": "0xd907",
+         "EventName": "MMU_I_S1_WALK_CACHE_LOOKUP",
+         "BriefDescription": "Instruction-side S1 page walk cache lookup"
+     },
+     {
+-        "PublicDescrition": "Instruction-side S1 page walk cache refill",
++        "PublicDescription": "Instruction-side S1 page walk cache refill",
+         "EventCode": "0xd908",
+         "EventName": "MMU_I_S1_WALK_CACHE_REFILL",
+         "BriefDescription": "Instruction-side S1 page walk cache refill"
+     },
+     {
+-        "PublicDescrition": "Instruction-side S2 page walk cache lookup",
++        "PublicDescription": "Instruction-side S2 page walk cache lookup",
+         "EventCode": "0xd909",
+         "EventName": "MMU_I_S2_WALK_CACHE_LOOKUP",
+         "BriefDescription": "Instruction-side S2 page walk cache lookup"
+     },
+     {
+-        "PublicDescrition": "Instruction-side S2 page walk cache refill",
++        "PublicDescription": "Instruction-side S2 page walk cache refill",
+         "EventCode": "0xd90a",
+         "EventName": "MMU_I_S2_WALK_CACHE_REFILL",
+         "BriefDescription": "Instruction-side S2 page walk cache refill"
 -- 
 2.53.0
 
