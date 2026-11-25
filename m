@@ -1,132 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795633628;
-	b=3jogo4ginJBmQLCLOEH5XR4+tBVHBg3qvOuT7FJo7wGHEalp7F+6O1N7BE8iivsQOXl1
-	 h+otWcpXY/YDCvO5J3BLObv4CyQdS1JRlXKtPOAjttPcvonc7ngeKjWoeyGzjF/LZCf3B
-	 +FBLWBMkKKas5dMqNJyV7NShN7VW6mNUGOIZ8c8pmDX7eQ8lhK/KtFw79zWhsPLyO3C+N
-	 unr9B4c+lt0NcUp+dYnOP7qP1cZZDrfhusMokR9lj9Ubm3pyz/KV3oM+Umhca0mi02O/V
-	 8Vnmp48/gyaSqH82w0oygg4dEteSKudLR4nIOaVanM33aFt7YY1vxJbHhKAq8t0Ojag==
+	t=1795633667;
+	b=2F5i4/d7YrLw2ghI89G7lDZDIT7vFkzA/EAOJcaKPaq2adFMyhiIG71FSeJp2DP97QqG
+	 bnAfRUVR4bFQOjlYXm72dORCSPQ1uaYIQPrW5os5Ra4sYC/Z4V7sS22/4jUUog6gb4r5N
+	 iRjW002mJQ+rFlxuiiIesqKGru7VzALqv2mOG/cYs05e16bkkKaMAW3tlW9Weo1hu8P8a
+	 FVCy0O31DIRXQj8Dv8o2V5IRsyBcvIaFdEF8HNIzaoUIQXIRtQJScZzapHSvchnd94Pl7
+	 7SqUO7Z/qlEV+BhXN7zw6jBV8iLnZC5N/8cp0syFJuc4m3EzhMm2vpwehTqOigbvZTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795633628;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795633667;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=JisVSgs385NGuntA6erRX4QYHX+VR40SrOV715tgnK0=;
-	b=Ud3Y22eDXB/yk8GS7zCfRCiSZzs/hCWRC4s8gapnVFcX963cCYm7g9lsVr0pK2uX93tP
-	 WnM2X7hw8uijS4cPQCTjV3eaazUAwdP6+ZSP4OEEDZaiK3rND+Zo9gCQp3uNpAyps1Y0e
-	 IsR22wJDrgbvp/2Og5AfDzS6VDrtf32vDEd/rcs32XX/H0mU7QGGJIAR3O/j5Xsm5lpIp
-	 IUYR6v3YMkwFinScvugO0goN6guuXxwBaLSoZmDaHQ9N6dA61sBmwcQSQupPRUo+fAXyP
-	 VDuUAueKmMftcCK95OnGSKJJ3EziFeczyaqRxdcNdtHRLnVnsiBjM7soYQADdPGa9FA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=sKg8ZyMEEgOXaGd8usgF3WU02o1HXUcHjHUf4a0nWGw=;
+	b=Wn3C5ab3NBF0/ccDjbjdBXciUvkeUwjKKJrsrcBB0e6S+WRgRVioDySHEE9tnUF1jMoH
+	 Q/vOcs7LHRnPtwzV3MzIRlQuof9ASZ+9OWXDxxet9qAuX3nKkfe9WlI92IjUQEEGf80he
+	 7kziHqHnEd3ySB2mWIYcE6Y7ClwvIG4L3HH/agLqT7QDjvwyM67whUahryLVr5i2hdkAy
+	 QPX0n0WfVNWzSJc2ggGaR+6JK/zJBFor71YLMXLgwfi2M/kQkSpkoQa2tIFMdbSbiU2xp
+	 ry09D4o+AqblanisnM6ubBvwfPGlwm8UP/NfY0xfygi1dAd1wtS06XEUmx6DlnE9Mqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=FcYwuSIU;
-	arc=none smtp.remote-ip=209.85.222.175
-Received: from mail-qk1-f175.google.com (mail-qk1-f175.google.com [209.85.222.175])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sFWesse3;
+	arc=none smtp.remote-ip=74.125.82.43
+Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48379606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:07:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48379606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 525FE606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:07:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 525FE606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=FcYwuSIU
-Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-94961bfe1a0so400014085a.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:07:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sFWesse3
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1b50a4bd2f3so4033357c88.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:07:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795633627; x=1796238427; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JisVSgs385NGuntA6erRX4QYHX+VR40SrOV715tgnK0=;
-        b=FcYwuSIUDw5OYWXKXjcI6QMvdjmCHVjCuBBGlVf+WjZpNlD0CSOQhxBMr8usmyz0ed
-         rvtoMbTF2eX4vk9Y9h9Nl4g3xiltHQiqgKO2s4RackGmi+H09P7UFu7jXDEMWAJch8Lu
-         Bez5vSdqY2qlX/U/yq0a0mho64/iizuPGyUtu1j22nAqTe87sbuUkE5K3s0Y4oVoD3Q2
-         3aZUQ7ci3LolsgjUbNvUcckL1dOvbbGYesd0YLqXsnjyEO32+hlSIJbbGPaLcKvqzKfe
-         drPhJMtyWdGvDZ8ppj9FApzJK+zHEu9C8REXRTErfSS3i04bujQ5JM7rKTqiYFVsn08k
-         dQzw==
+        d=gmail.com; s=20260707; t=1795633666; x=1796238466; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sKg8ZyMEEgOXaGd8usgF3WU02o1HXUcHjHUf4a0nWGw=;
+        b=sFWesse3cL28V8jFgtWKa3sArLJ4cUGPF0a1k6zvtoIheXiQiv5m6nQpFjhjQtjnUs
+         0lP3pojglMhy+AKhtXLwRPasBn8iWb2/zwFHh/ZNTgUqil0PsHQcUp4kh5cPrW9ClEeL
+         SBABfdnKBjwA5PZYNa2zLx522WUpM0wiOOAEhFAsNqVIHuCdejxAXi5TyuqSrHNtJNuL
+         4UWrWZTTrO6I/JktPfRL0NjX+f17O6l6KxKZwfpc41OOaztXyiEWUv3ImSjvemOY11fz
+         H+fEGFLrFH/pP+oXWjMuwBWjgtaSdCPSCc33VyBnNk1lHlJFu2PDvdD5NLGbjMJi31BL
+         HBFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795633627; x=1796238427;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=JisVSgs385NGuntA6erRX4QYHX+VR40SrOV715tgnK0=;
-        b=GBhXiv1Skm68pSTWRWn8vY44tOhya4JuU2MqQ4kIkNOfcKzYQftl0UjqB+Ev7Nai3w
-         Hz+KPI5wkHFynlraCwurD7a7etXIvR8RX3u/+Y6QGLxhpntIVnRUo+QKjDUliBh1I/Bj
-         0Z3/5UyWumI/+Wtr4fJqdXLf2LqU2ejmzMhB/KN/MeyV4//aiLbYX2tC7u5BMbeSnYkg
-         JyG8jpWs20esIt7UAoCYSkYkpWKbYKQXzB1ZOl9Zj8WgJdzJHwjz/GH/S3usKxounhI4
-         qqNnMCqCj/g3Qst4kdB48uc1eMGOlG0az0iHx/bUGtx/gxPpf2QXazDnPWUS1crGSgu8
-         eiPQ==
-X-Forwarded-Encrypted: i=1; AL+hErFKxgwcgtYii5gR69mHkoY64LZyLVApKSrDZS2WKyqZWBGGgJeX6s8pGm1phBGIDWBKL6DAQq46wmD07LE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Z1htQxk2Fi8fMa162T5pISk4YX0Q3iorD2K0ms+K2tJ71dKBo
-	tMz4+OMsf07erxWkALUn6XVdUUwmtanbpeP1V0qh7Uiz/laeO0TLoUDQSnVx3Rmker0=
-X-Gm-Gg: AZFdTZf5Wk24DCWP9VQNvQar+MQrw0N5RJLZ2dcns/O7LrgueelZAodOu56wBqNdS0O
-	k5anz0AGeh4SeR1D003qt7Kyp0ELv/i6mupnn3jLo8cD+gRGqmLJDVt5mzDqEHQI3I4B3PKLSDB
-	R6vCgKuPhQDkKf8SjHBaZf9EormyKCxrB/VLQ+8NrZxRjJwKm+F545Ar9Pw53ZCIu2IokbZ0YmK
-	AoZjUwkiQpUAjrwYl8PO80ScyYUhyToyQe7wRGGdwgvAgIfBe05YCkXeUZQD6u/VOwQcfhN8joV
-	QzxZL+77rspSIIDD0RYGVyJQ9+FXl9fNfz7iFU+QzfBlsJt6S/r8i3fWOJqGKJwsjM4E7B7Iqwu
-	GTCgTIL6bGRm7AVB015puH5MEwAkURmS1RZF99HkjSrgm9nTemjLOBUSwTOZGqqqvAillj6Nc82
-	e7Hl2G827AG+dwuqKqd3JiyXfjmox4DlPguFd49HqRV+cK4rghZX9/0WcSbJF8BVlLmtxFwe8sk
-	tnBtNni4EqaIFcV59x97HWDqK7xMUrIrUge0IMmvaqVTa9oyeytCqtQ8nGwVcswiS3Dqca7HIeI
-	gyna+Dw=
-X-Received: by 2002:a05:620a:4543:b0:949:65fe:b727 with SMTP id af79cd13be357-949ba9b99a7mr3433826285a.26.1795633626929;
-        Wed, 25 Nov 2026 11:07:06 -0800 (PST)
-Received: from ziepe.ca ([142.177.118.84])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-94a017cfb46sm339501085a.28.2026.11.25.11.07.06
+        d=1e100.net; s=20260707; t=1795633666; x=1796238466;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sKg8ZyMEEgOXaGd8usgF3WU02o1HXUcHjHUf4a0nWGw=;
+        b=QAgZPnZudycl8V/3KcLVe4VAbPE1cryPNJGNmjZmDpijTmfdt+ZyH16DdR/4pyy0Ow
+         6jHZKLVWKYSiZT7tz/Yis8S8Nf2C2wTlnTIpdDvTAulFOWtpvVntV047D3NRShvXevN2
+         NoXI1W3W7YR8SzZ7Ct3yo373FUrSHvA7uJf5gCMpo88tArWB2RHFFyGqqwfGtsFaBg24
+         kP3+HKU+3tVg8xE/iuKEnnKonNfFkupMexiZ3CsUF5bjxZv0LQEN8DokSvO2nAHuyo7Z
+         XuzJt8PX4SNSwy7++VxwLbKBDby332hS62JX2dILCsD6w0uiaffV6nZZRGMbdfTYdrOY
+         josw==
+X-Forwarded-Encrypted: i=1; AL+hErEISsOj94jVQzOhhMYHFRuoewQM4z7RHMGphBBKIvjWzmh3wn1ZjfOB5p5xhl9SM1t2lC/yc3TFkp2416Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z94ampQQkUCGNU6WnomqbfbpvJTlJi0Xe8WqKPGGB0NmTOtO76H
+	ISKn+311yK1d/UAZ67Va0DKvIUuzEFp6UkrioDtSbydr5YzozHyptJSu
+X-Gm-Gg: AZFdTZf0bffOJ5yvBzi5CBJlyLx/K2F8BIssCdkJXbCDSndeNvuRXPdGzklCcMFOA26
+	Bt6sGt4Vkwx3JCBYRbESId0UcBhML09MRdSv8TsOBLMo70ewwCiXLaLCIFY4UYVxQGQY7BnE5ob
+	7sY9JnE2FONIqRKFVuwXm8ZS78UpCQQKkJ/MzcH3BbgDlx+JfO7818AzYerwha3VzzDK5jMHRf2
+	mSVPjHD4NMmV0CjqjIZzuFTt+R0CwAC3yZKHEt8CgIE92AbzB3LateRiMiIKLcgsuENtBYb6Fjc
+	DH2rdptKaMvgEVYJl4CElhR/bB1F4KrsjFU4bZ7pSddvt5r5VhAYVC756SRuHrvXDcuwQ5TN9si
+	04yAR+x2C8t+dDpk2SrwC/wXT+afPNUHhMUxCT4vWth6Ud1XePe2oH9mGI61HfzuLEJYr1LeZat
+	snWoiokBgOC4uNnb0FU7YMado4HWBPkWiihFSZ839SiURNz+OskKL+G2pOVbbZIpcWssaaQ2AuF
+	pGHviMewuTS4tB7GsnOIKY9sP+CUMFYGMVvFCCVCPIc13lYDL7O9XfL9q8QQTt8NikseohLbxzQ
+	IWyDsO+J3duS4oXYva/xy8+l/XW2aoWLU7QIWjx6lg==
+X-Received: by 2002:a05:7022:7f01:b0:1b2:6a01:f55e with SMTP id a92af1059eb24-1b56f39c712mr9624578c88.34.1795633666143;
+        Wed, 25 Nov 2026 11:07:46 -0800 (PST)
+Received: from a1-free ([2603:c021:8021:f000:0:1865:8c38:18fc])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c1142sm42584510c88.2.2026.11.25.11.07.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 11:07:06 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xWIKf-00000002HLZ-3ZQi;
-	Wed, 25 Nov 2026 15:07:05 -0400
-Date: Wed, 25 Nov 2026 15:07:05 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
-Cc: Alistair Popple <apopple@nvidia.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Thomas =?utf-8?Q?Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	Matthew Brost <matthew.brost@intel.com>,
-	Vivek Kasireddy <vivek.kasireddy@intel.com>,
-	Dongwon Kim <dongwon.kim@intel.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Karl Mehltretter <kmehltretter@gmail.com>,
-	Baolu Lu <baolu.lu@linux.intel.com>,
-	Felix Kuehling <felix.kuehling@amd.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
-	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
-	linux-rdma@vger.kernel.org, iommu@lists.linux.dev,
-	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	linux-nvme@lists.infradead.org,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org,
-	Alexey Kardashevskiy <aik@amd.com>, zhipingz@meta.com,
-	treding@nvidia.com, jhubbard@nvidia.com, chaitanyak@nvidia.com,
-	Leon Romanovsky <leon@kernel.org>
-Subject: Re: [PATCH v3 03/24] dma-buf: Add the SGT DMA mapping type
-Message-ID: <20261125190705.GN246011@ziepe.ca>
-References: <7ac7edd0-5c38-440a-b26a-21bcbb6f4702@amd.com>
- <awT8prWsj11TBdmP@nvdebian.thelocal>
- <63eb7b6e-e0a8-4443-a434-0301ed59beae@amd.com>
- <20261124142032.GN9566@ziepe.ca>
- <7a5a2d3a-e42e-4dc0-8d22-8dd1bd249501@amd.com>
- <20261124194618.GC114530@ziepe.ca>
- <awZ_Os1pXelOGaFP@nvdebian.thelocal>
- <fb9a6b12-c134-4e40-86a5-dbcb59c0b91b@amd.com>
- <20261125155559.GL246011@ziepe.ca>
- <5fb8bb60-7d9f-49b1-899c-40a890fdc14b@amd.com>
+        Wed, 25 Nov 2026 11:07:45 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	linux-doc@vger.kernel.org
+Cc: Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <bentiss@kernel.org>,
+	linux-input@vger.kernel.org,
+	Hans de Goede <hansg@kernel.org>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Vadim Pasternak <vadimp@nvidia.com>,
+	platform-driver-x86@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	TAKANO Mitsuhiro <takano32@gmail.com>
+Subject: [PATCH 1/3] docs: python: abi_parser: Detect a symbol repeated on one file
+Date: Wed, 25 Nov 2026 19:07:40 +0000
+Message-ID: <20261125190742.2420486-1-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -136,93 +105,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <5fb8bb60-7d9f-49b1-899c-40a890fdc14b@amd.com>
 
-On Wed, Nov 25, 2026 at 07:17:51PM +0100, Christian König wrote:
-> On 11/25/26 16:55, Jason Gunthorpe wrote:
-> > On Wed, Nov 25, 2026 at 12:19:08PM +0100, Christian König wrote:
-> >> The low level API which talks for example to the IOMMU driver for
-> >> creating the information how to access the buffer is simply not the
-> >> task at hand for that framework. The stuff we already handle is more
-> >> than complicated enough.
-> > 
-> > No matter what name you give it we need something in the middle that
-> > can see the phys_addr_t and the iommu_domain..
-> 
-> No, absolutely not. That should be given to the exporter so that the
-> exporter can call the DMA API to create the DMA addresses for the
-> importer.
+check_issues() warns when a symbol shows up on more than one file, but
+it never looks at a symbol that two entries on the same file claim:
+"if len(files) == 1: continue" skips that case.
 
-I think I've said it many times, and I thought you agreed: NAK to
-giving GPU exporter drivers an iommu domain.
+The parser stores every entry under a key of its own, so a repeated
+symbol on one file is visible as two entries with the same file.
+Compare at that level and warn, and keep the cross-file case
+informational, because two drivers may expose an attribute with the
+same name for different devices, as sysfs-driver-hid-lenovo-go and
+sysfs-driver-hid-lenovo-go-s do.
 
-> The idea here is that the importer give all the information to the
-> exporter so that the exporter can do the mapping on behalves of the
-> importer.
+Verification: get_abi.py --dir Documentation/ABI validate used to
+print four warnings for the cross-file case and nothing for the
+repeated one.  It now prints four informational messages for the
+former and two warnings for the latter, at sysfs-driver-mlxreg-io
+lines 348 and 744 and at sysfs-driver-hid-lenovo-go lines 389 and
+566.
 
-No GPU driver must touch these internal details, they must only use
-standard abstracted APIs that prevent them from abusing things.
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+---
+ tools/lib/python/abi/abi_parser.py | 47 +++++++++++++++++++-----------
+ 1 file changed, 30 insertions(+), 17 deletions(-)
 
-My fear of DRM drivers abusing the DMA process is equal and possibly
-greater than your fear of phys_addr_t :P
+diff --git a/tools/lib/python/abi/abi_parser.py b/tools/lib/python/abi/abi_parser.py
+index d7bb20ef3acc..519ccacbadca 100644
+--- a/tools/lib/python/abi/abi_parser.py
++++ b/tools/lib/python/abi/abi_parser.py
+@@ -554,28 +554,41 @@ class AbiParser:
+     def check_issues(self):
+         """Warn about duplicated ABI entries."""
+ 
+-        for what, v in self.what_symbols.items():
+-            files = v.get("file")
+-            if not files:
+-                # Should never happen if the parser works properly
+-                self.log.warning("%s doesn't have a file associated", what)
++        # Two entries on the same file that claim the same symbol are a
++        # copy-and-paste mistake.  The parser gives every entry a key of its
++        # own, so such a pair shows up as two entries here.
++        per_file = {}
++        for key, v in self.data.items():
++            if v.get("type") == "File":
+                 continue
+ 
+-            if len(files) == 1:
++            file_ref = v.get("file") or [None]
++            fname = file_ref[0]
++            if fname:
++                fname = fname[0]
++
++            for what in v.get("what", []):
++                per_file.setdefault((fname, what), []).append(v.get("line_no"))
++
++        for (fname, what), lines in sorted(per_file.items()):
++            if len(lines) < 2:
+                 continue
+ 
+-            f = []
+-            for fname, lines in sorted(files.items()):
+-                if not lines:
+-                    f.append(f"{fname}")
+-                elif len(lines) == 1:
+-                    f.append(f"{fname}:{lines[0]}")
+-                else:
+-                    m = fname + "lines "
+-                    m += ", ".join(str(x) for x in lines)
+-                    f.append(m)
++            self.log.warning("%s is defined %d times at %s: lines %s",
++                             what, len(lines), fname,
++                             ", ".join(str(x) for x in lines))
++
++        # The same symbol on more than one file is normal: two drivers may
++        # expose an attribute with the same name for different devices, as
++        # sysfs-driver-hid-lenovo-go and sysfs-driver-hid-lenovo-go-s do.
++        # Report it, but do not call it a problem.
++        for what, v in self.what_symbols.items():
++            files = v.get("file")
++            if not files or len(files) < 2:
++                continue
+ 
+-            self.log.warning("%s is defined %d times: %s", what, len(f), "; ".join(f))
++            self.log.info("%s is documented on %d files: %s", what,
++                          len(files), "; ".join(sorted(files)))
+ 
+     def search_symbols(self, expr):
+         """ Searches for ABI symbols."""
 
-We are not giving DRM a nightmare API to continue to shoot us in the
-foot with.
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+-- 
+2.53.0
 
-> > The primary issue here is the exporter *direct* call to the DMA API!
-> 
-> Why?
-
-Because we need things to be mapped in ways the DMA API will never
-support.
-
-DMA API will never support something like dma_buf_iommu_map(). I have
-no idea at all how you expect to build this if exporters are directly
-calling DMA API. It is not possible.
-
-> > We cannot disconnect this from the DMA API, ie to use an iommu domain
-> > or ualink, if exporting drivers are hardwiring calls into it.
-> 
-> Well the plan is to not disconnect it at all. The exporting drivers
-> just says to the underlying API here is my buffer please map that
-> for this importer and that result is then given back to the importer
-> through the DMA API again.
-
-DMA API will only do basic PCI DMA mappings into dma_addr_t.
-
-It will never handle iommu_domain, it will never handle ualink/etc.
-
-Give us a plan for those if you don't like any of these ideas.
-
-> > Fundamentally the need is for the driver to get the phys_addr list,
-> > exactly like today, and then pass it to an op which formats that into
-> > the right data structure for the importer. Be it dma_addr[],
-> > iommu_domain, or some ualink_addr[] - or whatever.
-> 
-> No, the phys_addr type should only ever been seen by the DMA API and
-> not by DMA-buf.
-
-Again, I don't care how you label things or what "library" they live
-in, I can't tell if we are nitpicking names or what.
-
-But there needs to be some kind of abstraction that takes in
-phys_addr_t and makes sgt, dma_addr_t, or iommu_domain depending on
-what the importer needs.
-
-Exporters must not open code that.
-
-Obviously DMABUF is involved here *somehow* since it is the only thing
-that knows an importer even exists.
-
-Would you be happy if we made a 'dma mapping for dmabuf' library that
-did all of this and DMABUF just passes its type opaquely and drivers
-just call its tightly abstracted functions?
-
-That is the component Alistair is proposing, he just prefixed it with
-dmabuf_* as the namespace because, lets be honest, only dmabuf needs
-this weird looking thing.
-
-Jason
