@@ -1,70 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.68.63.166
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795587612;
-	b=SqlsOa3QXt93/I3mwRnYIXfRCGfTz/BxOSgneCI+7J9CDw77w+jsNekNWPx3vl2emzQ3
-	 EesSUGFTH91pSMRk12brdiPkPnHxEPJa0vJGdX5YT7d0TOmv4Fo2NATlnlF1fVmGMrnK/
-	 BTqLDFDqG3s5Fi5uIoH16+6OSn4CB6pq9c9aJTBmhprxtw45mI5bexAlrHRcjsL0/21Qe
-	 EfhRwNFsgcjyCijk2nOZP/ulgZhP7h12K96ATu0cYbs5poGjU+dXKoK+N9Pt9/sUZQMoz
-	 OHHACPtdHJU7LsNFh+FgRy7mhnrW38lff6mBrMmaHNzpyS2H4bWxymeEfVbDsM8yIDw==
+	t=1795587753;
+	b=mdxgvZAy5qpzUmXmkAalaA2RNJk8Vab0FRWuXnAwRc6viPAfNb8K/ie88rGQRjDhzYy+
+	 /o35YlpbY1jJ1VHjfG6xvUFUxjWBG09bDPGif0E7zdk+sCsVOYuWDijOG9RkQZ8cdeIbA
+	 vKP6ntMy1NTBVhuqe7miZNasR+tKzjUf42qpAZjQbaaWOBkNmKygaqFgyJtN7wl2Ls+1q
+	 HE9VG10lDN9KH/ix9kIMkEfpNdVw6LNFdsH4k2s0qcVoL1fZQmxaOnhZUb70yZrkszBsS
+	 VRs0vNKsC17ThFA2sAailt5loKFO91aNMAYHSK6aZsYkV3ICLC030H3cSfRy/yNVPlQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795587612;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received-SPF:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-PPP-Message-ID:X-Rspamd-Server:
-	 X-Rspamd-Queue-Id:X-NC-CID;
-	bh=pJqCFhuYVKfyEEe7gODdmBQ8xseMQRhIYA6Him2u8Cs=;
-	b=D0uKNb2PvO8GdVgvmlX2ew4CkJqR+oQOmSJDMcGSKcAub/h7qDexp6dOio2iIHtMqiin
-	 03hRVg8gM+IZKwTUydkte4P2YkBhvInNRw+ivG31EbVLD4sRDeaRidhNnr9EBfT2aBFS7
-	 T5UNPlp9N2p5w3Yig98m3R8vGd7s7wFZuqQVvMToym+EYdd1A/YghplsbZfN/uaCWHzDu
-	 sfIlp2Zj9h0Rx7CoV3viHJx6y5nDIuRqkkkrrIJC66fzLy+B9pKY8y8ZdVeZzF250Ouj6
-	 ljhEao6ryw2G32ktm+k3CmifaW6G/gi8lyP8i8IzhEW+uLatw7rxP9LLeAI2N4AiecQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795587753;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=Tjtx0YAdrMpcvwQv+CSokdx6fTpn2TH63lyYF/I9Hz0=;
+	b=wygGCBgzInbt2lX7O+EwSveFNvNfWUNj21n0usOskowYARSX0LTIOwFDXIONlsE9EWAE
+	 EpZ7BqHDyPXDc2ihBctJJxVyiclGO9m/nTGDnsTkgbN1BiYHj8EmkzIOpfE1O/NOr4gs6
+	 m2G77ePO248yeBG5l9TVSzpYirUEnmJr+CPPV0vOuO5WnFmnWYBZgiuEx5/1iS642k/Bf
+	 4HViQYiIxKp4OoL7HB30imqgOvKUTURVt6g+0dfGAcxWgtHVY7NxQghWF022TTmGZnH83
+	 iNoCbi5k8W+keS1goaLktSL+a2G2KWcrqwBOUpBmCMZ+H1cC3vYjPWHtWiyuNdzWusQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=leemhuis.info;
-	spf=pass smtp.mailfrom=leemhuis.info;
-	dkim=pass header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=S5dLNZfw;
-	arc=none smtp.remote-ip=188.68.63.166
-Received: from relay.yourmailgateway.de (relay.yourmailgateway.de [188.68.63.166])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UqpqaVI0;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2DB0606A326;
-	Wed, 25 Nov 2026 06:20:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2DB0606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=leemhuis.info
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=leemhuis.info
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41DE0606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:22:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41DE0606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=S5dLNZfw
-Received: from mors-relay-8202.netcup.net (localhost [127.0.0.1])
-	by mors-relay-8202.netcup.net (Postfix) with ESMTPS id 4jZ8dm4Wsrz3swD;
-	Wed, 25 Nov 2026 07:19:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1795587548;
-	bh=wSUwk++6YId6qSiwqtkioQl0UWnsY4AI3us1MJR7O4M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=S5dLNZfw5+HztpLo5e4nTGHDDApCHyO9w9T81S038DZXWKgmsDRFMTHDd4wXRo27Z
-	 0Ca/KgezD2b4vsYGPc59AZTSSzXn/9UUHktYYCM9cu1rU5LzCurebegY7jyJQbOT6C
-	 WgrEdCzRIZ+wqbg7Mz4++3HJIhcwpXeodem5tw7HGfp41vkwaMGYnqXcTuWRrlbWvm
-	 30ucg+yjwFIkzl3SHF45ZdHeTJs92js0R/s/3tUEqKriNwZ0yqkWwq4DDrg1KXYhMO
-	 XFlkyqQVRCO6PA86mK8uUmK68abvbwulHIfx2/1r1fCk9KBioDK2gWtqcxzPVfU9+X
-	 uyi77sDRwwn5w==
-Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
-	by mors-relay-8202.netcup.net (Postfix) with ESMTPS id 4jZ8dl4blwz41fc;
-	Wed, 25 Nov 2026 07:19:07 +0100 (CET)
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4jZ8dl5lhfz8sb7;
-	Wed, 25 Nov 2026 07:19:07 +0100 (CET)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 2897B5FA05;
-	Wed, 25 Nov 2026 07:19:02 +0100 (CET)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <cb74984c-86f5-4617-b05a-b812625108ba@leemhuis.info>
-Date: Wed, 25 Nov 2026 07:18:59 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UqpqaVI0
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-4aa5833c263so5124442f8f.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:22:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795587751; x=1796192551; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Tjtx0YAdrMpcvwQv+CSokdx6fTpn2TH63lyYF/I9Hz0=;
+        b=UqpqaVI08vg/ZUhs0YfTfM7EKN+BktLowjhHqXircA9B0nqfiWU/3SND1AkqbSr3sn
+         /AVCl002szn2ePT5T4LcKjz1yWsIeJHk63uWnEJ+OOWpumoKerzXDUJIKFixz8xPmcfj
+         a4QG/ITjUiPWrOd2Blx4AJZBlolGuRgZbwNaFUVihOQQ380cAaGL97Gd6pBeScNaj8Qs
+         YLQa8XAxh1RgIn57M/1/qHlztxfcjoF0zKQDaH3w/y0pboJtXDX+L/aS//YtSZA0rdTj
+         +z+vvN6r6+BvLvDuBRHIZOF3VPAGdXvR2wCtr8S1fH3nm+Gf+5lr+4EdAuanaY3lITdq
+         3rAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795587751; x=1796192551;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Tjtx0YAdrMpcvwQv+CSokdx6fTpn2TH63lyYF/I9Hz0=;
+        b=zlFe465KscRUK4Y6SnQsaLh0O9PeQMvSz7aS+lgrltfQzw3fFFPHGE1G6LKQg8dGCx
+         Y7x2tAjhdUJxFrKxSZWtSPmpGKsDaggeUeHdNq4M08rDQRFFiK/GUdFtLH3A/URxfAVH
+         awCQB+asmnA3DFzREdUJcyBvYxUS50UbreRJtxxv2v7JGtLvfKSJURhrrfMUaRzZv0Js
+         wxTpY5zZnZ0EKyvaI1Af7Gmspsm0pEg/ogJoOIqrqqAMt2QFvq26S7v5QKJakf8BuKbx
+         dRZsrBaB6813k/4bg8DS4PTBtZbU1wf7QHzFsHiX6uxunvv7Q9y2zWKGW0mMV6PaStuQ
+         rHRw==
+X-Forwarded-Encrypted: i=1; AL+hErGaPEycCCk+98su01fK3AxcvTCrD0nHoB6yxDJ/YlCsRDMaAzdsDFUanQDQJnj8vsr3PSmFD0MmAPdN6X4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Hw/E0F/UBfa5RYJlLB+iA4qHArzMaDzsXAk7HYz9RPVjm5LNf
+	838GRvdFoIELbDIaUnBCTsMR9pwsaSc8klz8JKOTcajnOJw4BO17QGBl
+X-Gm-Gg: AZFdTZeWtv+SU8NrDHgDmUTTuHBsa9o8Z6655NDjygdhtPoAWrRa4sajVncVJ52Fm0a
+	VBLvYfW06K4dkYedh8PlRtBOkNL1fDI6FCjQ/a9BXdtDCQva8dyh3PRDyhrs4SlNydn8JL8/2Gv
+	HRGu2RVIBb+mflgEuZTlJrxNkXt3CD2VigZLmWwK0iaj/YD4+LV6jyP8/bfPu/Y4pWmt0OzCeVC
+	OUH7wLkKgXxIPD7G1WV6YG+/78zlcj+/oU+NnbqpyErBpHodBm+rYOiKpoQumhMOg+xZimQzQfE
+	gttj/uD0F4omkNYFXdN3Ul932Lw0Z9fQoctldGzOcsfAfANLGuEv//Sguxk448Rfouxm167NZbu
+	4pfpYTnLibTEA5yHLU9K0+UH5aZSoHMwaQ/6+nfO2JnYeSuX/0T+ylRtKsuxwrUNmZhMxA9PxDf
+	IDNaiXqfMj2nhBUC1xgaMl+WlqUn0Imk9ieDmATEy/TskoTw1mhwdpMtFtai+onScohkxa+L56q
+	DQxhI3vHk6JtqDpsXX27Fhio/yj3Zw7h0adnfJy0t+SlvYjEHcCE/SQhReDfxLLOwPWrP4XR+71
+	Ha52lOuA4eKVB0PApNhM+QEcmg==
+X-Received: by 2002:a5d:5f53:0:b0:4b7:6ea2:54be with SMTP id ffacd0b85a97d-4b76ec0df5fmr9041902f8f.14.1795587751217;
+        Tue, 24 Nov 2026 22:22:31 -0800 (PST)
+Received: from localhost ([212.73.77.104])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab9cf005f2sm26407054f8f.45.2026.11.24.22.22.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 22:22:30 -0800 (PST)
+From: Askar Safin <safinaskar@gmail.com>
+To: jkoolstra@xs4all.nl
+Cc: amir73il@gmail.com,
+	brauner@kernel.org,
+	cyphar@cyphar.com,
+	gregkh@linuxfoundation.org,
+	jack@suse.cz,
+	jlayton@kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	neil@brown.name,
+	shakeel.butt@linux.dev,
+	tj@kernel.org,
+	viro@zeniv.linux.org.uk
+Subject: Re: [PATCH v8 07/12] vfs: short-circuit MAY_WRITE access for O_DIRECTORY opens
+Date: Wed, 25 Nov 2026 09:21:46 +0300
+Message-ID: <20261125062146.940336-1-safinaskar@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261024213539.1307600-8-jkoolstra@xs4all.nl>
+References: <20261024213539.1307600-8-jkoolstra@xs4all.nl>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,91 +107,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/nouveau/devinit/gf100-: fix POST being skipped on
- GPUs without display
-To: Francesco Magazzu <postadelmaga@gmail.com>, Lyude Paul
- <lyude@redhat.com>, Danilo Krummrich <dakr@kernel.org>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Ilia Mirkin <imirkin@alum.mit.edu>, dri-devel@lists.freedesktop.org,
- nouveau@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- regressions@lists.linux.dev, stable@vger.kernel.org
-References: <20261124213430.9525-1-postadelmaga@gmail.com>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-In-Reply-To: <20261124213430.9525-1-postadelmaga@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-PPP-Message-ID: <179558754289.1114489.3764401907754204004@mxe9fb.netcup.net>
-X-Rspamd-Server: rspamd-worker-8404
-X-Rspamd-Queue-Id: 2897B5FA05
-X-NC-CID: P8SVmUqsaxEA8mK5Y7dCdnZglqUjGvChl9/TMLo0wnACFZYvfX4=
+Content-Transfer-Encoding: 8bit
 
-On 11/24/26 22:34, Francesco Magazzu wrote:
-> Commit 2139cb633d48 ("drm/nouveau/devinit/gf100-: try to avoid
-> double-running vbios scripts") skips devinit if VGA CRTC register 0x00
-> or 0x1a is non-zero, unless the display engine is disabled.  It detects
-> the latter from the return value of nvkm_devinit_disable(), which is
-> always 0: the strapped-off engines are removed with
-> nvkm_subdev_disable() instead.  So the VGA registers are always read.
-
-thx; Dave, who applied the culprit, two days ago sent a patch that from
-a quick looks does exactly the same:
-
-https://lore.kernel.org/all/20261123-nouveau-fix-disp-v1-1-ebdc525287ce@redhat.com/
-
-Ciao, Thorsten
-> On a GM108 (GeForce 940MX: no display engine, not POSTed by the
-> firmware) those reads fault and return 0x13.  devinit is skipped, the
-> GPU is used uninitialised and the machine panics at boot:
+Jori Koolstra <jkoolstra@xs4all.nl>:
+> Requesting write access on a directory can never succeed. Rather
+> than performing a path-walk to determine whether the target is
+> actually a directory (-EISDIR) or not (-ENOTDIR), or does not exist
+> (-ENOENT), etc., we short-circuit to -ENOTDIR.
 > 
->   nouveau 0000:01:00.0: fifo: fault 01 [WRITE] at 00000000001a1000 engine 05 [BAR2] client 08 [HUB/HOST_CPU_NB] reason 04 [UNBOUND_INST_BLOCK] on channel -1
->   mce: CPUs not responding to MCE broadcast (may include false positives): 1,3
->   Kernel panic - not syncing: Timeout: Not all CPUs entered broadcast exception handler
+> Currently O_WRONLY for directories is only blocked in may_open(),
+> which happens after we have the inode for the target, so after any
+> create via O_CREAT|O_DIRECTORY.
 > 
-> Check device->disp instead, once nvkm_devinit_disable() has removed the
-> disabled engines, like nv50_devinit_preinit() does.
+> The advantage of short-circuiting is that we don't have to add even more
+> logic to lookup_open() to differentiate -EISDIR/-ENOTDIR. Also, for
+> filesystems that define ->atomic_open, handling this cannot even be done
+> at the VFS level, as we can't know ahead what the result of the lookup
+> will be.
 > 
-> Fixes: 2139cb633d48 ("drm/nouveau/devinit/gf100-: try to avoid double-running vbios scripts")
-> Cc: stable@vger.kernel.org
-> Assisted-by: Claude:claude-fable-5-2
-> Signed-off-by: Francesco Magazzu <postadelmaga@gmail.com>
+> Suggested-by: Christian Brauner (Amutable) <brauner@kernel.org>
+> Reviewed-by: NeilBrown <neil@brown.name>
+> Signed-off-by: Jori Koolstra <jkoolstra@xs4all.nl>
 > ---
+>  fs/open.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 > 
-> Notes:
->     v7.3.4 boots on this machine; v7.3.5, which has the stable backport
->     (992f7f5f34f8), panics.  Tested on v7.3.5: with this patch the GM108 is
->     POSTed again at probe and on runtime resume.  Not tested on a board
->     that has a display engine.
->     
->     Read at preinit on this board: 0x2240c = 0x00000000, CR00 = CR1A = 0x13,
->     0x021c04 = 0x00000001 (display strapped off).
->     
->     The regression was analysed and the patch drafted with an AI coding
->     assistant (Claude Code); I tested it on the hardware above.
-> 
->  drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c b/drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c
-> index 186e09ea0c..b256404c24 100644
-> --- a/drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c
-> +++ b/drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c
-> @@ -107,12 +107,12 @@ gf100_devinit_preinit(struct nvkm_devinit *base)
->  	 * VBIOS multiple times may have detrimental effects.
->  	 */
->  	if (base->post) {
-> -		u64 disable = nvkm_devinit_disable(base);
-> +		nvkm_devinit_disable(base);
->  		/* magic to detect whether or not x86 vbios code has
->  		 * executed the devinit scripts to initialise the
->  		 * board. only works if there's a display engine.
->  		 */
-> -		if (!(disable & (1ULL << NVKM_ENGINE_DISP))) {
-> +		if (device->disp) {
->  			if (nvkm_rdvgac(device, 0, 0x00) ||
->  			    nvkm_rdvgac(device, 0, 0x1a)) {
->  				base->post = false;
-> 
-> base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+> diff --git a/fs/open.c b/fs/open.c
+> index e43f02ff64ac..4334f30bb7ff 100644
+> --- a/fs/open.c
+> +++ b/fs/open.c
+> @@ -1343,6 +1343,15 @@ inline int build_open_flags(const struct open_how *how, struct open_flags *op)
+>  
+>  	op->intent = flags & O_PATH ? 0 : LOOKUP_OPEN;
+>  
+> +	/*
+> +	 * Requesting write access on a directory can never succeed. Rather
+> +	 * than performing a path-walk to determine whether the target is
+> +	 * actually a directory (-EISDIR) or not (-ENOTDIR), we short-circuit
+> +	 * to -ENOTDIR.
+> +	 */
+> +	if ((flags & O_DIRECTORY) && !(flags & __O_TMPFILE) && (acc_mode & MAY_WRITE))
+> +		return -ENOTDIR;
+> +
 
+Please, do -EISDIR here, not -ENOTDIR. You returning error here, **because** user attempts to write to **directory**. EISDIR is natural here, ENOTDIR is not.
+
+(I'm human, not LLM.)
+
+-- 
+Askar Safin
