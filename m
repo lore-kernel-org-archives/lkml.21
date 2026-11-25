@@ -1,83 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.12.53.23
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795647641;
-	b=TaoehORYnmUW39IhiGLnNOZRWttU9MCfoOkLZ6YXQW7KFlcDku2uYgg+CQp/5si7oZCp
-	 gxZoF15F9z7b2IKS6vNs6+16DvD3NPTS++elu9c1mkyJUaCJhHQ4R5nLc4CkBTz9iYlok
-	 9TV2wnuJQQlHFQLdkhwo+mR7wPsJhYw7N/nWRcbHyyNrVgMJXRAUXp915UrUqVdB365QV
-	 p5QaLuuIyivlyK8xGrelUQlUaBDKkqGkK5ZXBuHhvgLGPvBfVPHM8+nWW3cs2idChKICw
-	 kA5xMzTBTEhX4jJKF/u8BduhGs+X7R39Zresx3Ta+5h27SRaEqFtlE3Hkj20akN1+9A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795647641;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=TsY4BV/+ObWxXathrekPiFRx0vLYjHLDJuIBQPvLmmY=;
-	b=RBHfvo1XMubw5X0hdMBL10gZz1hsLD3iNNBnsoZRL4uZnUEwcsvOjxiYB7nSAc5g4wPt
-	 Cmili/Wz9/iLOFyl5lrE1X3X13GfKgHlZvVCjfq9pYMvxtbC6bd7omD9D9LG5TuTvMsPZ
-	 JFdbqFE3KzJ4Nx6pTe08zB0YdCeOa5LHvcNzVU+oikaZRB6AT0PugpWykh3Rd43nDVLEy
-	 fGWtCivU7dohW3i0w5lSPsPp705ORpE9dnV0tIrxjZmxHUUl3iNb1Uhztc6Y0QFWkQGpn
-	 Qq6R6jgY+ysUQ/sKCEUDW0TdXzcBz34ygQWFVXWYOPVPL0rseYCnHK2OEpTLyKn0kPQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amazon.com;
-	spf=pass smtp.mailfrom=amazon.com;
-	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=lsegGIeU;
-	arc=none smtp.remote-ip=52.12.53.23
-Received: from pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com [52.12.53.23])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795647855;
+	b=RFaMOE0LmK0jMfc2gXM3i+YZPnEtPDdgRWBZLE3Hg8HaCwgGVWVoagauLpOeTkoE7Lt3
+	 qeZUqb+JuKX+sqY6oKGVlbHIAmjXp7xQdHMJMG/LlpieMmHjjWovBLS0HYNpHQR6cvA4M
+	 XJxTLht3BKIYJC8hf8st0yVYn3SCFN0nnJY/Jquaua/w5h7Tp3RpDqQYsfB5Bg8VngsyQ
+	 OXnVaecBdwXDlmDihE+Q8EA3h9cRMk+uxoVo+aX7ZmsFSMqSUgpgqAaD9sYM02lYpgD8E
+	 R4cGzZcz5NdJ/xO8E3n1TyIShiAYzEh6a0efE8ZdOFXEbOYpiy296tXqXrgk43TpySw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795647855;
+	h=DMARC-Filter:DKIM-Signature:Received:DKIM-Signature:Received:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-Source:X-Source-Args:X-Source-Dir:
+	 X-SGantispam-id:X-AntiAbuse:AntiSpam-DLS:AntiSpam-DLSP:AntiSpam-DLSRS:
+	 AntiSpam-TS:CFBL-Address:CFBL-Feedback-ID;
+	bh=AMJchA9cehfGCW4JI5tP3dw+wnJqj4Q62yttfiUDjts=;
+	b=m3RlQBTel+szAEeIuSwSUQcPClMcd+Yq1+FsxqxrQIDGvyuriS22ac0OAk8/mHof3oq8
+	 38qVS6bZHzn72UFTxlQexeheqEwWHM6jZkqrOOXUP8l8I7bXik2lKin+TKAiGsKLXOnAJ
+	 k+TgofSgF9jcK9YEIXtbnAeJz3gX83FZq4QmqBhzABmgnHfMk38Y1L//FKmcaCK2G4SZA
+	 sPRp7MSjWs0osX4WNq3aetc0G6+ngUNFiWp1WY2QHGW9AlP4gHTSINtVrTMouN/6xQWBN
+	 WVLvBSrEm9KNwjtINA0YvHBxJIRgecDgdYqJOeGBdPQmKhI8ur4I7licrVrWGPQlSQg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=valla.it;
+	spf=pass smtp.mailfrom=valla.it;
+	dkim=pass header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=1Nl9Wff+;
+	dkim=pass header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=XMzbIqji;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.11
+Received: from delivery.antispam.mailspamprotection.com (delivery.antispam.mailspamprotection.com [185.56.87.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 288F1606A336;
-	Wed, 25 Nov 2026 23:00:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 288F1606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC5B7606A31E;
+	Wed, 25 Nov 2026 23:04:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC5B7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=valla.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=valla.it
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=lsegGIeU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1795647641; x=1827183641;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=TsY4BV/+ObWxXathrekPiFRx0vLYjHLDJuIBQPvLmmY=;
-  b=lsegGIeUDvUvnoyh1KLIY3AIF/Y0+OL3KonpEG2TuvlGrdd/swuravx+
-   tffr5qnioEwpUZaxdzT5ZOlAIv/NzJLdf9NlAOC1Lmj9MXFBJZ3En4Nue
-   LiU4hlhvMW3AHIAU5t1QTFsPY67BsQSk9K0iCNs04r2Mw1Pw8/Qg68XwG
-   LYSvAbghZdQC9P2xfbss+/ZQTb6PuLPCT4hPH+WYPb/H52AZZKxIxh126
-   nwS1E29svSv0GLCbKnV88qTmjGsAwLIOliTOzw0+1TfTXDlCGHX9BTOBU
-   woDKq40O4HG9vPJ1UYbO0eew2us/zksMIV8PgHpWXSy5ulJc0mWXhI/BV
-   Q==;
-X-CSE-ConnectionGUID: GfgC2pvdTDC0N2f0C9zPuw==
-X-CSE-MsgGUID: H1Q4FsJDRceDLibr+jRLtQ==
-X-IronPort-AV: E=Sophos;i="6.27,233,1787011200"; 
-   d="scan'208";a="34980411"
-Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
-  by internal-pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 23:00:38 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.53:30233]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.58.48:2525] with esmtp (Farcaster)
- id 1f3f3ea1-ce68-4516-84dc-fc3b677d619c; Wed, 25 Nov 2026 23:00:38 +0000 (UTC)
-X-Farcaster-Flow-ID: 1f3f3ea1-ce68-4516-84dc-fc3b677d619c
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
- Wed, 25 Nov 2026 23:00:38 +0000
-Received: from dev-dsk-surenkj-2b-416930d2.us-west-2.amazon.com (10.169.26.94)
- by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
- Wed, 25 Nov 2026 23:00:37 +0000
-From: Surendran Kanagaraj <surenkj@amazon.com>
-To: <jarkko@kernel.org>
-CC: <corbet@lwn.net>, <graf@amazon.de>, <gunnarku@amazon.com>, <jgg@ziepe.ca>,
-	<joshlev@amazon.com>, <leitao@debian.org>, <linux-doc@vger.kernel.org>,
-	<linux-integrity@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<nh-open-source@amazon.com>, <noodles@earth.li>, <peterhuewe@gmx.de>,
-	<rdunlap@infradead.org>, <skhan@linuxfoundation.org>
-Subject: Re: [RFC PATCH v4 1/8] tpm: Add a single table for all TPM wait limits
-Date: Wed, 25 Nov 2026 23:00:34 +0000
-Message-ID: <20261125230034.24726-1-surenkj@amazon.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261118073852.81107-2-surenkj@amazon.com>
-References: <20261118073852.81107-2-surenkj@amazon.com>
+	dkim=pass (1024-bit key, unprotected) header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=1Nl9Wff+;
+	dkim=pass (1024-bit key, unprotected) header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=XMzbIqji
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-c9nw.prod.antispam.mailspamprotection.com; s=arckey; t=1795647854;
+	 b=EHHJ0pZ+66xd2/KTwjaJWG7mQkaEB+eWzY8diWxYyCkvVbPBG/e0+H5U3US/7cQ6ge42b5Yg3y
+	  glsnjB4hLxvnGl0q/yLADdum7KCspA36J+2Gr/CKahmk6RANQdqClaQrF2wb8mgknniE+XBxKj
+	  gXJJqaYGuca07an4T9KRN5nWeCcFCznSTuWgsdnFdVF8Uo8b0Jwd7HHnGmfmRTfbpEak957XK8
+	  0wNZdo3GuHx9AU6ZQQqQ9+2LBHsd6ePauIRk/wcRIjPmx2HfQBxSI7y3TwQ2ZNGoRc3QH48IoO
+	  48LS0RjMPvAt2YrcwvkyiHC4tdW0wm8Pryqx2Mm7noKAmg==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-c9nw.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-c9nw.prod.antispam.mailspamprotection.com; s=arckey; t=1795647854;
+	bh=+RIMyKG9kmMdd7WbaQwJFRdHDVSR7Qlcbw8pUb55dOQ=;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	  From:Date:DKIM-Signature:DKIM-Signature;
+	b=b2zHt0qu7skt/WqltGDYuJNn9ackhWsFEK/g7CSTT/oYlm/982+RX/TyxhdVTexDWY/3V2m/DI
+	  XhR7j8H1v9v3Hc4BzSZyCoq0zFDp5Ogh4pPN/AQSbv1KWXn1DlD2zr13jboLup+H2Kr/JzZio+
+	  391MrHTtGsNcZf2fheI7kly5FVQd4YluqXb9u0MRyIv+4sjtJ/rFAox0teRzba7gAX/1KwbF2i
+	  iewF7KDP4L9SHSkmCJv+eXjHfpRVB2xnh3ppxROdcXGOXYV4LY8JvArwH9+kHfWhcY3CuFc8l1
+	  rvG+KgfxSedHGxs/0wQfynNuiEXL/MXMa6g2jrnMtkqzEw==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	List-Unsubscribe:Content-Transfer-Encoding;
+	bh=AMJchA9cehfGCW4JI5tP3dw+wnJqj4Q62yttfiUDjts=; b=1Nl9Wff+/fNQCB14hB/KId4ByZ
+	rDzm6tMfLgcIL3kpDz8jw3kVKQnZ35b1w9NVKuXKkdea04qWSPy+CvJ0d/fWnkSf5/4sYBzVx5MhA
+	lY5yJiBpN0wCj59k/rQo1DyhMtV+zECAOY7vlIgwU5Dt2UVHliPauFpDXKC0vijlYGmE=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-c9nw.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xWM22-00000003HZv-37Hj;
+	Wed, 25 Nov 2026 23:04:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=AMJchA9cehfGCW4JI5tP3dw+wnJqj4Q62yttfiUDjts=; b=XMzbIqjiYMssI8t3r2yOAfgyoA
+	Gdj10e7aEFF1CEgGrDK24njO4BK/G0czfFDH+E08+hBugbxXQXfQrzI9bB0S1KTRF/WB4nkYLZcro
+	qccKMiW/uaY/Tn4lOHjvq2Wsd/eOTYgooTv4RUQ1oRsaCpjpjLWqnI8tf66SXrv5GRgU=;
+Received: from [79.28.115.6] (port=61654 helo=bywater)
+	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <francesco@valla.it>)
+	id 1xWM1y-000000007e2-0Ejv;
+	Wed, 25 Nov 2026 23:04:02 +0000
+Date: Thu, 26 Nov 2026 00:04:00 +0100
+From: Francesco Valla <francesco@valla.it>
+To: Sailesh Nandanavanam <saileshnandanavanam@gmail.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] remoteproc: debugfs: use sysfs_streq() for write parsing
+Message-ID: <awdov1J8T9W08fML@bywater>
+References: <20261116184230.1885-1-saileshnandanavanam@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,58 +100,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: EX19D031UWC003.ant.amazon.com (10.13.139.252) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116184230.1885-1-saileshnandanavanam@gmail.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: fd2eae93dd0d2f2624514a3150680304
+X-AntiAbuse: ID - fd2eae93dd0d2f2624514a3150680304
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1xWM22-00000003HZv-37Hj-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-c9nw.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
 
-Hi Jarkko,
+On Tue, Nov 17, 2026 at 12:12:30AM +0530, Sailesh Nandanavanam wrote:
+> The debugfs coredump and recovery write handlers compare input with
+> strncmp() bounded by the write length, which accepts any prefix of a
+> valid command (e.g. "e" matches "enabled"). The sysfs counterparts in
+> remoteproc_sysfs.c already use sysfs_streq(), which requires an exact
+> match and tolerates a single trailing newline.
+> 
+> Switch the debugfs handlers to sysfs_streq() for consistent parsing
+> between the two interfaces, and explicitly NUL-terminate the copied
+> buffer since sysfs_streq() expects a string. Tighten the length check
+> to leave room for the terminator.
+> 
+> Truncated commands that were previously accepted by prefix match are
+> now rejected with -EINVAL.
+> 
+> Signed-off-by: Sailesh Nandanavanam <saileshnandanavanam@gmail.com>
+> ---
+>  drivers/remoteproc/remoteproc_debugfs.c | 33 ++++++++++---------------
+>  1 file changed, 13 insertions(+), 20 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/remoteproc_debugfs.c b/drivers/remoteproc/remoteproc_debugfs.c
+> index e8e7b6a3769b..ef6761a13c6c 100644
+> --- a/drivers/remoteproc/remoteproc_debugfs.c
+> +++ b/drivers/remoteproc/remoteproc_debugfs.c
+> @@ -73,19 +73,16 @@ static ssize_t rproc_coredump_write(struct file *filp,
+>  				    loff_t *ppos)
+>  {
+>  	struct rproc *rproc = filp->private_data;
+> -	int ret, err = 0;
+> +	int err = 0;
+>  	char buf[20];
+>  
+> -	if (count < 1 || count > sizeof(buf))
+> +	if (count < 1 || count >= sizeof(buf))
+>  		return -EINVAL;
+>  
+> -	ret = copy_from_user(buf, user_buf, count);
+> -	if (ret)
+> +	if (copy_from_user(buf, user_buf, count))
+>  		return -EFAULT;
+>  
+> -	/* remove end of line */
+> -	if (buf[count - 1] == '\n')
+> -		buf[count - 1] = '\0';
+> +	buf[count] = '\0';
+>  
+>  	if (rproc->state == RPROC_CRASHED) {
+>  		dev_err(&rproc->dev, "can't change coredump configuration\n");
+> @@ -93,11 +90,11 @@ static ssize_t rproc_coredump_write(struct file *filp,
+>  		goto out;
+>  	}
+>  
+> -	if (!strncmp(buf, "disabled", count)) {
+> +	if (sysfs_streq(buf, "disabled")) {
+>  		rproc->dump_conf = RPROC_COREDUMP_DISABLED;
+> -	} else if (!strncmp(buf, "enabled", count)) {
+> +	} else if (sysfs_streq(buf, "enabled")) {
+>  		rproc->dump_conf = RPROC_COREDUMP_ENABLED;
+> -	} else if (!strncmp(buf, "inline", count)) {
+> +	} else if (sysfs_streq(buf, "inline")) {
+>  		rproc->dump_conf = RPROC_COREDUMP_INLINE;
+>  	} else {
+>  		dev_err(&rproc->dev, "Invalid coredump configuration\n");
+> @@ -211,26 +208,22 @@ rproc_recovery_write(struct file *filp, const char __user *user_buf,
+>  {
+>  	struct rproc *rproc = filp->private_data;
+>  	char buf[10];
+> -	int ret;
+>  
+> -	if (count < 1 || count > sizeof(buf))
+> +	if (count < 1 || count >= sizeof(buf))
+>  		return -EINVAL;
+>  
+> -	ret = copy_from_user(buf, user_buf, count);
+> -	if (ret)
+> +	if (copy_from_user(buf, user_buf, count))
+>  		return -EFAULT;
+>  
+> -	/* remove end of line */
+> -	if (buf[count - 1] == '\n')
+> -		buf[count - 1] = '\0';
+> +	buf[count] = '\0';
+>  
+> -	if (!strncmp(buf, "enabled", count)) {
+> +	if (sysfs_streq(buf, "enabled")) {
+>  		/* change the flag and begin the recovery process if needed */
+>  		rproc->recovery_disabled = false;
+>  		rproc_trigger_recovery(rproc);
+> -	} else if (!strncmp(buf, "disabled", count)) {
+> +	} else if (sysfs_streq(buf, "disabled")) {
+>  		rproc->recovery_disabled = true;
+> -	} else if (!strncmp(buf, "recover", count)) {
+> +	} else if (sysfs_streq(buf, "recover")) {
+>  		/* begin the recovery process without changing the flag */
+>  		rproc_trigger_recovery(rproc);
+>  	} else {
+> -- 
+> 2.34.1
+> 
+>
 
-On Wed, Nov 18, 2026 at 07:38:45AM +0000, Surendran Kanagaraj wrote:
-> +static const u32 tpm2_defaults[TPM_NR_LIMITS] = {
-> +	[TPM_LIMIT_A]		= TPM2_TIMEOUT_A * USEC_PER_MSEC,
-> +	[TPM_LIMIT_B]		= TPM2_TIMEOUT_B * USEC_PER_MSEC,
-> +	[TPM_LIMIT_C]		= TPM2_TIMEOUT_C * USEC_PER_MSEC,
-> +	[TPM_LIMIT_D]		= TPM2_TIMEOUT_D * USEC_PER_MSEC,
-> +
-> +	[TPM_LIMIT_SHORT]	= 750 * USEC_PER_MSEC,
-> +	[TPM_LIMIT_MEDIUM]	= 2000 * USEC_PER_MSEC,
-> +	[TPM_LIMIT_LONG]	= 3000 * USEC_PER_MSEC,
-> +	[TPM_LIMIT_LONG_LONG]	= TPM2_DURATION_LONG_LONG * USEC_PER_MSEC,
-> +	[TPM_LIMIT_DEFAULT]	= TPM2_DURATION_DEFAULT * USEC_PER_MSEC,
-> +};
+Reviewed-by: Francesco Valla <francesco@valla.it>
+Tested-by: Francesco Valla <francesco@valla.it>
 
-The TPM2_SelfTest duration bump [1] made me realize that mapping the
-TPM 2.0 durations into these TPM 1.x style classes may not hold up long
-term. A spec update to a single command turns into a change that
-affects all commands under the class. I think it is better to keep the
-existing maps as they are and let the driver modify the map if needed.
-This is also what you suggested in commit 207696b17f38 ("tpm: use a
-map for tpm2_calc_ordinal_duration()"): keep a per-chip copy of the
-map and let the leaf driver patch it.
+Regards,
+Francesco
 
-At a high level, the series would become:
-
-1) Set default interface timeouts and duration at chip allocation.
-2) Keep the chip durations in a union of TPM1.x and TPM2.0 durations.
-
-     union tpm_durations {
-             unsigned long tpm1[TPM1_NUM_DURATIONS];
-             struct tpm2_ordinal_duration tpm2[TPM2_NUM_DURATIONS];
-     };
-
-   struct tpm_chip holds the union tpm_durations in place of
-   chip->duration[]
-3) update_durations() now gets the union which TPM1.x and TPM2
-   drivers can adjust.
-4) Show the durations sysfs file for TPM 2.0 chips.
-
-With this, I would drop the limits table, poll APIs and tpm.limits=
-parameter for now and keep the series focused on duration handling.
-
-Does this sound reasonable to you?
-
-[1] https://lore.kernel.org/linux-integrity/20261125182251.19360-1-surenkj@amazon.com/
-
-Thanks,
-Surendran
