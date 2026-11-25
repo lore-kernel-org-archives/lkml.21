@@ -1,94 +1,129 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.225
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795605107;
-	b=yKl19oGZ2ewWBPBt6EyaQYzaIGupfU/R1JVHrImndupe6yHjULJr6A65B8eIJ4SvYx2A
-	 VmAd4RdE8sQs5Xd0SgfDlLdt8uwP296Fg0iwF9DFVI+BkyMGE5u3I/bjzM7YleqwUAqSz
-	 v7L8H6AXNNBvz2fqVR5z8X9YjbuJrURrkiqh0/LaPvtMwPLK9SddD/bhjiBCGF/WYm/Wy
-	 2HLVWdZlcWwVFd4s07ysa7bgnj75Wde5qIPEGZ4VfskdBMGIpP2T1qESGlHl7TOyfolV7
-	 ScpfiLh4VGwqKGNfgatFL5vcOzL4LO4X4xQc5pXvPFhoLHiO/cHPt2EishRDAGSlORw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795605107;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:X-DetectorID-Processed:
-	 Content-Type;
-	bh=owg/sAad7KijtvhVRffMDebgGT1Qz6AjutfHvN44+yU=;
-	b=5OaLHr94AoMtTOU08wvcrAJz7qZZPTX+l66Gv6etQWYOXF1jpKq5/PnPvlL45m0MHPYW
-	 8Er1altwplLQCfzTuD1SQ2ZbuYAXDejzmjeRBx8i1g48/g169UguqsFJJwOctntY2vODk
-	 r4Pwqt+iahqt+3e5m2o2rx34OYtTE49sndT0uFdJ17NtwNvXDyWtvckTwLqgU92k4FtRw
-	 aaQpeeV6yBZt90XzUU4TnKkLOzQFA+6c+QFeVERrt6PFrH1EuV2KsPcVpbm/dLXal6Zgp
-	 hAi7KU4zuVDip8sg1YReBe3NqIXtSdohNlqmBqQqY0hisovmtqbmKOYWuCWVvnHU2Hg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=E9qDJYpp;
-	arc=none smtp.remote-ip=209.85.215.225
-Received: from mail-pg1-f225.google.com (mail-pg1-f225.google.com [209.85.215.225])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.139.77
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795605132;
+	b=XSusO/hyS1sEtYxzDVEF8k2Uhovj3PMiKd8nWa2cgAMdutRhwmeiL6/t4Pw6V32OCwSL
+	 UW+m4SH+mMJvmIZSSshbOrXKPl7o7vnk40i0fNyxvkHAL47w4ZDlPOf0TSqsC+DK4KD8f
+	 RjtmLEs/c1Ck8kxRoZXwU5NglZANKR+A78kLSBbQT2/iMhSlEU0QHOsZPHKM3L+pLw3tB
+	 qkmnAFy6jfncGsFRLLDBP+WMb1kEKu1bq2Vayo/nLydNP3F6NrwVecu89ooPw9Kc6gNr+
+	 tdGJ4gIdquBC52HNAOkkZ0uONR0Ne5QLdXoHdYgozAHnI9Ekp3s9eQaOxYpf3VCFmcw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795605132;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
+	 Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=CPgCGVPWPW1RFWqlxT+1wXcD5YcC5VW6oy543YSExXI=;
+	b=CXb6CWcnRoFIEle5EIGVjksrzu+v7FSh5mBrHVqbmTwRmAdgxpMnUXCIfw9jSxxnAwWt
+	 J/rLTzD1wTVBYeYE3nv4ZWnw1rqwZkFyawyXyDqWonvYRYIOA9Fr5WxWDcayBdWz7UeMb
+	 WJS38tczpiWVnSzGiSXpeFUZ4n/JwdBtM1Xfnt08cc0vtaboU5wbK52WXQ2MSN629O7NK
+	 4lApg7KLAqTIzj18LhMljDKMbJQXH95ZGaUe9fLMlwkS42pUnRenadXm3Rj+nKuiuiTpl
+	 71i2SlCPviSRhnek0js1ELOyxKHGfa80YwCg90A6+1+Q0JswktVCMcZ8fGbi6zYfVUw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=analog.com;
+	spf=pass smtp.mailfrom=analog.com;
+	dkim=pass header.d=vtelectron.com header.i=@vtelectron.com header.a=rsa-sha256 header.s=DKIM header.b=TkmdNTvO;
+	dkim=pass header.d=analog.com header.i=@analog.com header.a=rsa-sha256 header.s=DKIM header.b=n1Jrsvox;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.139.77
+Received: from mx0b-00128a01.pphosted.com (mx0b-00128a01.pphosted.com [148.163.139.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36EE9606A686
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:11:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36EE9606A686
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D1E2606A321;
+	Wed, 25 Nov 2026 11:12:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D1E2606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=analog.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=analog.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=E9qDJYpp
-Received: by mail-pg1-f225.google.com with SMTP id 41be03b00d2f7-cddc250d815so2208463a12.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:11:47 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795605107; x=1796209907;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:dkim-signature:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=owg/sAad7KijtvhVRffMDebgGT1Qz6AjutfHvN44+yU=;
-        b=BQovL37BYPOa4jG5yfDPU0s8Dx//1TIn4p6J95E5gM0UEUV4kcldCaBiSxUO7rosNr
-         936IG6eZSppnNy5G7XKub2fGiWj8pr1ORn8NgUT086OkMrxXLdfM7Sa5NfF5R8VH69ah
-         xrQWJ+zFmxKexlwJ+3SNH+8WxScAQNC006bjkPA8fxultrqI6dK19fUOLbcviqakzGS1
-         2kind7AqT/HnThXIJZRNxsKAlUnq7lYlZeWdz+StQXU9XL6hmjzrSooBbyZhdA4P/YuH
-         X/iCv0XS5/DdU2v7gFrL8j0FE3bWfH1lH5fTlYbaUSRYWwzRJxT7uTu9tWbaO5ylNYfm
-         KAeA==
-X-Forwarded-Encrypted: i=1; AL+hErFqyf1AYmWlEHQtagpLSIvjlJztZrVsWdRYhr+P42ARPgD+v+8HDGnm3OcULaeyRlTKgoNvhEip6dmBXHQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8SMO/ZTEGde6OMEV88euAiGuLRDJuGvoZdJHdmXAU8ELL8u0zC
-	nKW3o2Mg13haOs3Hs1kKNJbCKfWp33a0UF3YLPrvTsX6XV8Ro8qtOrgQ91lr3x5hMvxhrnGj3Pd
-	/zJpH4o1/qiIQhEyKldVreW0TPtC2BtBaQdn1Eq6hfnNLY+gCwHEXbSldCHvppXhS68eR4tXxHz
-	39oQsRYqMFktkLlWHLEYusWbDOqlIxtTMynCaVljYHB/ThgFpEnaJJCekFYqZfJwfkx6gi2U4tr
-	BfpSYbTDgm4nrORYKzWHhMnARu7Pg==
-X-Gm-Gg: AZFdTZcRLsmACecKpfafXgLtJQHRk+CrRU6VrfMGpq4wbqoEKZdXRdLLz+3+LuH162d
-	iHOlb0UYCRAveQsndBi+ixGUwPM6S03EnvP21IT35c35zrL52rbRMCzST18FGXqeNnK1ZiTKN1L
-	6hK6u4CSS/YGfBJjOpUK5VtenHccCWWT6eWpo6MyB3eJ5yZcNDlIQiEc+loyP6CJwfccMa8NN6+
-	Zcxl/ZvQ2m9UmyQkKB9FNfidLg/PVWw8qDTpkFl7nFk0BQmbrf8kr443VK3errNW1BbjrdKAm/0
-	hogrNmNr5g6VZuLpoXvXwJM/Gl7YKZ/ELAjVP/9eCaT9pYtOTFWvLcBHXszWIwnS8uc76K9NNv0
-	LFOV9UjqePzNvBcG74zgps80b5twCJ4U32RC0LIryKcQ7UEs/sKcAkPTTNLgLtHC4kBcIcjhiNq
-	QWrBQ2wVykciyPPMnT7tz5gMrPIP1W5X0+SP/jhZv0k4kZQg==
-X-Received: by 2002:a17:90b:5287:b0:3ab:9c73:12e with SMTP id 98e67ed59e1d1-3b41c7c22c0mr17260747a91.6.1795605106526;
-        Wed, 25 Nov 2026 03:11:46 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b4ddf8baaesm2817607a91.4.2026.11.25.03.11.46
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 25 Nov 2026 03:11:46 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-383ec96a7deso6282839eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:11:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795605105; x=1796209905; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=owg/sAad7KijtvhVRffMDebgGT1Qz6AjutfHvN44+yU=;
-        b=E9qDJYppsmZSwX6r5EYtEp55ihdKq8kfEl5bNo5+N78kMiwSFJ17CmOg8EmfxAUdk0
-         4pD9tDuOtK6w15XVY5J38sxb7Y7ASSbUwnDUb3pccwY5VzcRXNCFUlFUCGObyOJF+Qsi
-         mV49Weg4+qOoEtpuSr4WkCol3kA3AUjWae01Y=
-X-Forwarded-Encrypted: i=1; AL+hErH+G8KnW2DEI6kmRgw9J0wEVLESqXYpAUGl7bQbHN5YVmm8DBVrf5yt1J430pZ/KR3/cFI+7XO/EXrPF2w=@vger.kernel.org
-X-Received: by 2002:a05:7300:1486:b0:383:6eb6:5730 with SMTP id 5a478bee46e88-38570e24c0fmr21471546eec.32.1795605104659;
-        Wed, 25 Nov 2026 03:11:44 -0800 (PST)
-X-Received: by 2002:a05:7300:1486:b0:383:6eb6:5730 with SMTP id
- 5a478bee46e88-38570e24c0fmr21471511eec.32.1795605103887; Wed, 25 Nov 2026
- 03:11:43 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=vtelectron.com header.i=@vtelectron.com header.a=rsa-sha256 header.s=DKIM header.b=TkmdNTvO;
+	dkim=pass (2048-bit key, unprotected) header.d=analog.com header.i=@analog.com header.a=rsa-sha256 header.s=DKIM header.b=n1Jrsvox
+Received: from pps.filterd (m0375854.ppops.net [127.0.0.1])
+	by mx0b-00128a01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9nDLD1257821;
+	Wed, 25 Nov 2026 06:11:56 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vtelectron.com;
+	 h=cc:content-transfer-encoding:content-type:date:from
+	:in-reply-to:message-id:mime-version:references:subject:to; s=
+	DKIM; bh=CPgCGVPWPW1RFWqlxT+1wXcD5YcC5VW6oy543YSExXI=; b=TkmdNTv
+	OQCfIrAsKk2VMVf7pGQ47JyBPqdXchKO7gJOosQ/qDGa7y9AOjO20wDt52QSdFnV
+	MD375bqFOUbGslnDCSSQbcuzdAv6gG/e+JhiqJScq4lg3iP+fBQVLwtXhrqeMYTt
+	lewoCUKJ2Xos/XymcwowYsnmSv5ECjQq4eWRK32GsYQqHbfsxokQZc6JOvF5GOz8
+	DHiLqDhbzVSSn0Ng5A6OlZyrZ81L7gN15TljKaXcdmGYXypAiDBeORk1GHrepbXF
+	2mLu2zJplVr3f0W2X5UVAolxs4wBiIHEeERSYfFYIMt+G9tDn/SPzHCJKJGHZHB9
+	AjODN2QgkdL/epQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analog.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=DKIM; bh=CPgCG
+	VPWPW1RFWqlxT+1wXcD5YcC5VW6oy543YSExXI=; b=n1JrsvoxCWZUbYY/8i0Aa
+	K+vw9+blOwialQJzUAe7/MJ21d4KS70hF4niERhk96yAPJhPegJgkagJqgW5UxLN
+	PBp9vZaXLhFl+ofUHJIdIWGPjjKh2W57alGkuzU6d3jSjTdwnjmL5XK3+vzfBo8P
+	o3zoPZ4K/tkdpbhdtVxIYh7R273No8/OyV2Kj8cwX39XB5BDJt0xROPQTYM8J7Zr
+	2Vtv1y122Zf0u5g6gCtP786dGdP6YceaOXt5T39tikdvhc1wZPMQqxIgvsMIAZt6
+	IwVkcLss5b7vzSg1DeeeeEWH736sgQiSUW+pk8gAGB3hYfk3as45lKXyX9rv5yra
+	g==
+Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11012017.outbound.protection.outlook.com [40.107.209.17])
+	by mx0b-00128a01.pphosted.com (PPS) with ESMTPS id 4j5ctbw9h0-2
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 06:11:55 -0500 (EST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yHdd2bWB0X/hi4gGMPd+k71qZedIqp5YsEi6OWBIp4ihZQ4FEnqZjqY24CSks8VfI5s9UCPyPwnFnFbM1o3q5FDUg6/Yqdy1Dp4sjryJqTacBqim+8HcBFuhqlks9HGQaelGAku8kEhLJJKCQtdU6K3705qzpP7jSuWi2UfvY5CpFr363bypM6X/SV9+3nbe3WcqYst0dE5WnsLNOu6KnuTWGZ65QOrc50kpmknsuCRfhUXnkqaeWLjifQMtYQ6rQ69TY513TKnVtDsucLJeGUkdU1+x6NTo6UOpbCiCuT2DOfETNoR1ojudYaJ+HiFM96XdB7p4ruZLZWovN16zQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CPgCGVPWPW1RFWqlxT+1wXcD5YcC5VW6oy543YSExXI=;
+ b=CFdMcwxmtbFZM6f3y90CVlaeyDaXn4qQ9faW+e7wOdsKopZzeuvYsO21afC1lgocmdwV1vzH1QIYrBulw9bd6P0GUMPzFxAQCB/nwC8kD5dKI+RJs/Ndx39YqzgowKOXSkykLzpO/Ys4/5BqEtP65Pu+QJuLsVpNsJ/WUbIzvdqjpkTHMxsOUcz7l3zHiuvTH3eZAXcCyaMHpZb8P7DKH7BSdQORy9FTP4jS3ksGLZIf6sbmrAMMt+x+JiggPuSAzeO2nsVhwqWnm8VEZicUCrso/JZDx4PByxHJe/0LVlGt9Q6lwGsMxCrGLxLCjWr36YQIQ5hEnFnUKNEGb0CVYQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=analog.com; dmarc=pass action=none header.from=analog.com;
+ dkim=pass header.d=analog.com; arc=none
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=analog.com;
+Received: from SJ0PR03MB5469.namprd03.prod.outlook.com (2603:10b6:a03:28a::17)
+ by PH0PR03MB5750.namprd03.prod.outlook.com (2603:10b6:510:31::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Wed, 25 Nov
+ 2026 11:11:53 +0000
+Received: from SJ0PR03MB5469.namprd03.prod.outlook.com
+ ([fe80::2a19:76b2:e731:8c5a]) by SJ0PR03MB5469.namprd03.prod.outlook.com
+ ([fe80::2a19:76b2:e731:8c5a%5]) with mapi id 15.21.0639.011; Wed, 25 Nov 2026
+ 11:11:52 +0000
+Date: Wed, 25 Nov 2026 11:11:48 +0000
+From: Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, linux@analog.com,
+        Michael Hennerich <Michael.Hennerich@analog.com>,
+        Jonathan Cameron <jic23@kernel.org>,
+        David Lechner <dlechner@baylibre.com>,
+        Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH 6/6] iio: adc: ad7793: add firmware support and drop
+ platform data
+Message-ID: <awbA11Ps-v16BKxP@nsa>
+References: <20261125-iio-adi-legacy-platdata-v1-0-54e4c8830b57@analog.com>
+ <20261125-iio-adi-legacy-platdata-v1-6-54e4c8830b57@analog.com>
+ <awa728YWKMfpwe8c@ashevche-desk.local>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <awa728YWKMfpwe8c@ashevche-desk.local>
+X-ClientProxiedBy: MR1P264CA0118.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:501:50::25) To SJ0PR03MB5469.namprd03.prod.outlook.com
+ (2603:10b6:a03:28a::17)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,417 +133,137 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261124100751.179270-3-ramakrishna.koduri@broadcom.com> <179560146141.3135.3852070914350759699@kernel.org>
-In-Reply-To: <179560146141.3135.3852070914350759699@kernel.org>
-From: Ramakrishna Koduri <ramakrishna.koduri@broadcom.com>
-Date: Wed, 25 Nov 2026 16:41:15 +0530
-X-Gm-Features: Aa3M54rFdazOYMtFcfwUi309FpC72BZRtbNUyrBAABwYnwein-8wYx9YRvpn4YU
-Message-ID: <CADVpXAcBrorg9-VytaqUgj68mi_MV9qUhhQ0L4pZuYoLiGct9A@mail.gmail.com>
-Subject: Re: [PATCH net-next 2/2] bnge: Add support for ethtool -d register dump
-To: netdev-bot+sashiko@kernel.org
-Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org, 
-	pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	vsrama-krishna.nemani@broadcom.com, vikas.gupta@broadcom.com, 
-	bhargava.marreddy@broadcom.com, ajit.khaparde@broadcom.com, 
-	dharmender.garg@broadcom.com, kumar.mudide@broadcom.com
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
-Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="0000000000007427f3066117e409"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB5469:EE_|PH0PR03MB5750:EE_
+X-MS-Office365-Filtering-Correlation-Id: 02801cb2-5436-4c5f-2022-08df4ae4e8b4
+X-LD-Processed: eaa689b4-8f87-40e0-9c6f-7228de4d754a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+ BCL:0;ARA:13230040|366016|1800799024|23010399003|376014|7416014|10067099003|56012099006|11063799006|261026121527099003|261021121427099003|261022075727099003|261102123227099003|22082099003|18002099003|4143699003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+ fnR2Af9VG/3S2HJsTb3TQJEjzBXaK6Jhr1Yf/cMZ1zMuKV3TcOi/se1cty8NnqZapj6ewjudfIYd6x3mrgNEd3vy41CXvZXJswXTBmrmqviLZjzvKcYIRawH/sl8iN01rbAsN+S4Yq27lI8pDrSyT7Xe5AA/DOPqHSeUrj1z/BbVWo67Ir2PoSHQetESf8tZ9IaZAgMz0cxW1LkOCK+pTJqKkXX/VCcF4E9gIxlWE+asJqbeOZO0t3noGCp69q0NGiQSQT44oEVCrURF3+yIR3ShRmiGEwaQx+7tga1Eok+fr/v/zGujKF6RPIAC//AnONpt9SRPoaWlV2j6ZhKCtv5Z9bwjzNakj/em5kI8U2naIu/jLHew+3n7bHlC04Xq6mjUTVyCXE3cUig+5SV1VcjoPKQyl/rqztc28myFsc8eEd/CAoVoC3KhjUfeXQ0a5VKRndWACiTVq2fAtzSEDuTMq7sGdC7fVMdRh59BgxY77zW+qXYvgb9FXIAcMB/qL6hOPyH/qlSAWUXUsmYD2JwRDYgAksikLSWXKHOLQ6WIX6iduLs33jPEzukhtSfEIjM6UcpZUPnLxBahKxX0nro6mH2arbdvoY7AzZpY/ieJUFQvGBVSreUEIvd4cJt9OsU3GL5IaspdiWPbzPn+Cn+0X1O6+hobhUnkC+9ODnA=
+X-Forefront-Antispam-Report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB5469.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(376014)(7416014)(10067099003)(56012099006)(11063799006)(261026121527099003)(261021121427099003)(261022075727099003)(261102123227099003)(22082099003)(18002099003)(4143699003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+ =?utf-8?B?M3RCNGZ3MWJ4VDdkaVRGck5DSEVpVlk5MUt1MVljZnVsS3IvbEdML1ppUVkz?=
+ =?utf-8?B?azRnZHNMUGVZaFpvak1pZElkNElwb3c2RzNTbFZ6U2FhZnBiMXIxZWpKZ0c0?=
+ =?utf-8?B?ZThpYTNGWmpKdWVBT3p2UWY0R3Q3N0w5V1BvdGQ5N2U5aEpLQWtoSlJhTW5O?=
+ =?utf-8?B?QUh5Slg3amVRS2p1Uk9uVjNGSWJXNjkwczZvWUZXQS9HOXNqa1gxZXc4SC9q?=
+ =?utf-8?B?L0QxZHNTc0UrcmFhQUE1TUI0eHV5c3BpeFJ6a01SVGE3OVRKemxZVlBUZWFr?=
+ =?utf-8?B?Z2V2Vk1od3FLR01adEJGY0p5aVdvU3I0akZQTkUyN1ZKajRrdURYdVpuYkFw?=
+ =?utf-8?B?NFJEWFlPZGhNNG5LN0RZQjViS3p4YlhhcWpoaFlYbzV3MVNpQWw0UzFPL0Fl?=
+ =?utf-8?B?OHhyQkt5Qmd0dGZGVXA3MUsrVTlvNy9mTUYyZ0FqcEtVMENVeU44OWxmcjh6?=
+ =?utf-8?B?dHZHWEdFb0Uwd0ppRW5EUzgvdUU4UndjbHBweEJXK04vMGRiSGNRTzFPTExp?=
+ =?utf-8?B?UlMvQjlFV2pkYXlwVlFkK2VPZVZtWDNhUEMyTWpJVUJFZkdWMVR5SDNZcXNl?=
+ =?utf-8?B?SUk1SFpUQkNkTzFGTmVMQ2VpQko3SGJJT2tnRGJTUVhMb2h2SmREY0JITDV3?=
+ =?utf-8?B?YmlyNlJ6bm9iK2RmUys1L2xMQzAvZmpjV1dodGFqN3AxTDBsTmtHMVd1WTR2?=
+ =?utf-8?B?N0dkWXh5aklwcEZOYjhlR2Z1RDhFNUpmRktvL0dERXRkRDZnZk9wVFhza3g5?=
+ =?utf-8?B?N0tOQ043ZDFBUllXRzZmYlR0ZHJWaUp6Z1J2UGhiamhjQTd0cUF3NVp3ODhj?=
+ =?utf-8?B?ZUs2cndCbDF1VUJiaHRQTHU5SDF6bjB5d2NUeVlPano2aDJVWUZBUTByb20r?=
+ =?utf-8?B?MzRNYkU5TENqVVVmQjJmc1AwdTJhYWdzQ1NXb0dFdGQzMDdQUGJOblBsVVZT?=
+ =?utf-8?B?MUpHZmJqb1FwYzdLbEZVUWM1MnZBU01rM20reUk2OTNYY1JQbFhjbEE5Y2VI?=
+ =?utf-8?B?OXZUNHdtQ3FibURoekN1MVJacWVjdktXbmFhdU5aYWNNNlJvZUppVnZ2OGNq?=
+ =?utf-8?B?aVJ4eW9jNWFzYS9uemIrVnZ3eE5iN1dqOEFvangyRE41ZjJreGZ6NUo4NDVO?=
+ =?utf-8?B?cHdZazFhZk1QZVpXSGNsRU55RURIQkJWdmN1YjNrSWJtUU80Q2JVa2gxaGZD?=
+ =?utf-8?B?cnNoOUhkUU95a1NWLytDaWYxRVZrWTE1eTVQSGJ2Z2JtemxndDBJWWNsdG83?=
+ =?utf-8?B?b25CRHpGNWZRbnpqRWU2d2Vvemt4aUViSXlNd2RVWko5d2MvZW1QVUlTYkR5?=
+ =?utf-8?B?UXdJVnpGb2JvS2R3QzBPQkZvZS9UU2loaGdlUzNDUms5Ym5DNUNzeXdyMTdG?=
+ =?utf-8?B?YmV6QzJvNUZLcGtZN2Fzak14SzJ2WGsxbkZNWEs1ZWU1NzJBQU1udWJQUzJM?=
+ =?utf-8?B?RVFLWFZVdnFEVEE2cUZVNXAwRkRtRVJBV3FITFdkUzBNaDlkK015Mk9ySy9y?=
+ =?utf-8?B?ZnJ3NlV3Z0FaOFJQcXVoRzU3TUlHNnZwZ0dUKytqb1FxTnVWYm1kVHB1UGtP?=
+ =?utf-8?B?bnZKMTRnbEFoUWFCUmIwbVRDOEF0VUNtNGdCcmJBeWZLRVNyTmdyYmgwbkZ0?=
+ =?utf-8?B?WUxlMWNTUDI2TUtsSHBxQ2E3dmU2VGpZSmRMN0lscjVKVTlvZjFkTzQ3TmFD?=
+ =?utf-8?B?MDNoTGJsT1pMR29PTDVVT2hFM3VsOVBPM2VNQm9DVCtDeks2eU9JRnJlVDhJ?=
+ =?utf-8?B?RVZsaWdJOFRYUDdJUGV6bkM2VjVrMTFPaWtvYUhqZ3g1UDZOZ3F0THJXdnVL?=
+ =?utf-8?B?UlA1K3RkS0c1eXZLRnNUdXhPUHlKMG95cm5naXJWdDZDSmpDcVNZNXE2UWti?=
+ =?utf-8?B?Vzh0amRBaDFlZHI5aHArOHdNdjBqZ2h2b25zTXJObXZaQ1Nuc0VQeDhhUUh6?=
+ =?utf-8?B?MGlaVDYyRFNkOVJtdzVrd01lS3RkL2JUTlRJdHk4MktOa3R1RTVWbENCQWFV?=
+ =?utf-8?B?VUs0aWJxNDY4a1FtbjNNZitvaGVFRU56Q1Urc2lJWXhWUE1VcVJYb0hnUzdK?=
+ =?utf-8?B?V2pUcGNXTWpibk5ZS1pIY09JWFp5SVp5THp0eDI5bVViT251OVFhNG5LNTEz?=
+ =?utf-8?B?d0IzVFdEYmNibmpNRjNYNE5MK3R1VzdJRnJlZS8vT2xjMUg3RjRsZWp2UnpS?=
+ =?utf-8?B?dGFKbzJCU09SNzVsQ2FsdUlFdUZycTFPZHcyQjgzU3pyQ1NZZmgvVDZ5RktR?=
+ =?utf-8?B?T3FoQWF4OWlLNng2dC95KzBBNHppNS9XRnE5b2VFZ3R1U2MwbjZPKzRsS1dj?=
+ =?utf-8?B?ZjdYMFlLaGRac1NBN2hWZmo3L0R2VWxDdzgwRmpmOVhpTnczYmx3Zz09?=
+X-Exchange-RoutingPolicyChecked:
+	XdCVzaBNTM14Zvi8dPljZXpaYCZiDl8SlaVRX+N5TvJTkYBpcqLPUYXj/+hemsfcDvLk2YdkPNHuIXfQrsxxvDKTQEYiUrO0vKn6E4oZkZv5gS9KQ9LmoU6gv+KmUeVU7DsfxkFjwJXIlv+oFZY3uYaYdC87wjwyuZ0Dq+fU6UeubUz+vAxirekiFJJoZFbKqWraHSx0LXRO57/1LajHAKHeDs4zltYy2FYu+6YXocbP7Kjq65+DCGAyXFfotul/FCi8LPPwjmt1CgUI/EzeFR1l/jZ4SQJwAn1/Jybp8fnipowuZV8xwaJOY6Qh93pNxCbH3SwsNe0xC/vls16Frw==
+X-OriginatorOrg: analog.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 02801cb2-5436-4c5f-2022-08df4ae4e8b4
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB5469.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 11:11:52.9250
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: eaa689b4-8f87-40e0-9c6f-7228de4d754a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fzmsUrnL7Pw7oPGKpTDND9A9d5XVnH91WmT1Rgm5syEjivxOnAJMdwwvwqOcEWaV9FCHLrkbUTDQAPD8IJlrZg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR03MB5750
+X-Authority-Analysis: v=2.4 cv=JrJkP84C c=1 sm=1 tr=0 ts=6b06c27b cx=c_pps
+ a=5RlqQmsqPSmFSsyCuDtDZA==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
+ a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M51BFTxLslgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=0sLvza09kfJOxVLZPwjg:22 a=iZSIUCweCk2Oy3QsdGPA:22
+ a=Z9xE0C2JLfIMarS6JssA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: 76lJs2OLeUMaCoSnFErCbvVbqmpmeCqG
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA0NCBTYWx0ZWRfX0XAji/ruFQ+x
+ /qx6SsNUQTZ//ImtqQne1zax9WLnZX0xp8s3le9N5dJ6JPlXv9qag0xVIQ/Yk2I09DSjyOOJnPB
+ Hotc/QP8Lf95sanEsyt4BOz5js+13SwYXIvfKQwo5o4tPwy/3/RVFpjA+yl3DPhOp0SUrnraaJq
+ 2nhkyJh3ySojhjq6TWYpgnLqZWu7OnpDyK4EBoMdjVzJ47K3dfcW8zK1um3MPTtarZVTqNaXRXI
+ ppbn3fCLYrLPxZFv5k1+qQg0ds+5f3Ogp6JLU24J+7jdXbosCPkG8bwXPC/7qY12xSg7V2qelyC
+ YfucZgd0Plyl1z6dz/8sLOZ6ayYUyJZZdVlzFyF9rY9w+0voWT1KRa9YaWNTDmT4v6VnKVAuJmL
+ e5gvMpOGgtfaIKa6nCCHmQ06xJf4I74X5gBB+w9Cb0zvIPqa1J0xUyhCZFxIu6zDEuvUjDlM02F
+ 1LtUfDe0Zn7EtNZ9IUA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA0NCBTYWx0ZWRfX876xXaUrsq9W
+ 6dMs33Ft1df8PErVvtLKngA07RML133PVcYvB3a5VMPmnxG2MbjPowkCUSDh+/FOKryIUSTDbln
+ JG2youuw4e2fOBdUPu4aZ4oLAjlY5nZwtSHUliSTvaVtD6v+ivi1
+X-Proofpoint-ORIG-GUID: 76lJs2OLeUMaCoSnFErCbvVbqmpmeCqG
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 phishscore=0 bulkscore=0 lowpriorityscore=0
+ spamscore=0 malwarescore=0 adultscore=0 priorityscore=1501 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250044
 
---0000000000007427f3066117e409
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Wed, Nov 25, 2026 at 12:43:39PM +0200, Andy Shevchenko wrote:
+> On Wed, Nov 25, 2026 at 10:19:22AM +0000, Nuno Sá wrote:
+> > The driver refuses to probe without struct ad7793_platform_data, and
+> > there are no in-tree users of it. That means the driver can not be used
+> > at all on a modern system.
+> > 
+> > Get the configuration from firmware properties instead, following the
+> > new binding, and drop the platform data header:
+> > 
+> > - The reference is REFIN (REFIN1) if refin-supply is present, REFIN2 if
+> >   refin2-supply is present, and the internal 1.17 V reference otherwise.
+> >   Parts without an internal reference need refin-supply.
+> > - An external clock on the CLK pin is used if given. A 128 kHz clock
+> >   is divided by 2 internally.
+> > - The input buffer stays enabled (as it is at power-up) unless
+> >   adi,buffer-disable is set, and unipolar coding is used unless bipolar
+> >   is set.
+> > - The bias voltage generator, the burnout currents and the excitation
+> >   current sources get their own properties.
+> > 
+> > While at it, also enable the AVDD and DVDD supplies, add an OF match
+> > table and fold the platform data checks into the property parsing.
+> 
+> First of all, can this be split to a few smaller changes?
+> I will look at the rest later on.
 
-I see a valid comment by sashiko in this patch and will send out v2.
+I could but is it worth it? In theory this is all actually resulting of
+the same change which is dropping platdata which means supporting FW and
+of_id_table (the extra supplies could another patch but it comes
+down to the regulator bulk reg). I'll double check if something can be spitted
+but I do prefer to keep s/platdata/of_id as one single patch.
 
-Thanks,
-Ramakrishna Koduri.
+- Nuno Sá
 
-On Wed, Nov 25, 2026 at 3:41=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 4 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 3
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] bnge_get_pcie_regs() sets regs->version to 1, 2 or 3 from the
->   PCIe stats size firmware actually returned (`min(resp->pcie_stat_size,=
-=E2=80=A6
-> - [Low] In bnge_hwrm_dbg_qcaps()
->   (drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c), the comment says=
-=E2=80=A6
-> - [Low] The commit message lists only the categories of data that are
->   dumped.
-> - [Low] In bnge_pcie_reg[]
->   (drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c, line 786),=E2=80=A6
->
-> --
->
-> bnge: Add support for ethtool -d register dump
->
-> This commit adds get_regs and get_regs_len ethtool callbacks to the bnge
-> driver. The dump has three parts: PXP registers read through
-> HWRM_DBG_READ_DIRECT, PCIe statistics from HWRM_PCIE_QSTATS, and adaptive
-> QoS RX/TX MBUF data. It also adds HWRM_DBG_QCAPS discovery at probe time =
-and
-> reads new capability flags from FUNC_QCAPS.
->
-> > Implement get_regs and get_regs_len ethtool callbacks to provide
-> > register dump support for the BNGE driver. This includes support
-> > for PXP registers, PCIe signal integrity, PCIe Latency Histogram
-> > and Adaptive QoS TX/RX MBUF registers.
->
-> [Severity: Low]
-> Could the commit message describe the dump layout and the version numbers=
-?
-> Both become visible to userspace once this is merged.
->
-> The layout is:
->
-> - PXP registers at offset 0
-> - PCIe stats at BNGE_PXP_REG_LEN (0x3110)
-> - RX MBUF data at 0x3800
-> - TX MBUF data at:
->
-> #define BNGE_TX_MBUF_REG_OFFSET (BNGE_RX_MBUF_REG_OFFSET + 0x64 + \
->                                  sizeof(struct queue_adptv_qos_rx_info))
->
-> What is the 0x64 byte gap between the RX and TX blocks? BNGE_MBUF_REG_LEN
-> (0x12c) seems to include it.
->
-> regs->version can be anything from 0 to 4, and version 4 does not exist i=
-n
-> bnxt. The comment in bnge_get_regs() says "Version 4 is required for the
-> userspace ethtool decoder". DRV_NAME is "bng_en", though, so ethtool will=
- not
-> use its existing bnxt decoder. Is a bng_en decoder available or planned?
->
-> The patch also adds a new HWRM_DBG_QCAPS query at probe time, through
-> bnge_func_qcaps()->bnge_hwrm_dbg_qcaps(). The commit message doesn't ment=
-ion
-> this either.
->
-> > diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c b/driver=
-s/net/ethernet/broadcom/bnge/bnge_ethtool.c
-> > index 2467e44de291a..3ada50832c6d9 100644
-> > --- a/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
-> > +++ b/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
->
-> [ ... ]
->
-> > @@ -740,6 +742,170 @@ static int bnge_set_pauseparam(struct net_device =
-*dev,
->
-> [ ... ]
->
-> > +#define BNGE_PCIE_REG_SIZE(reg)              \
-> > +     sizeof_field(struct pcie_ctx_hw_stats_v2, pcie_##reg)
-> > +
-> > +static const struct bnge_reg_desc bnge_pcie_reg[] =3D {
-> > +     { BNGE_PCIE_REG_SIZE(pl_signal_integrity), 8 },
-> > +     { sizeof(__le16), 4 }, /* pcie_equalization_time: 4x __le16 */
->
-> [Severity: Low]
-> Does this entry match the HSI definition? include/linux/bnge/hsi.h declar=
-es
-> the field as a single 64-bit value, in both pcie_ctx_hw_stats and
-> pcie_ctx_hw_stats_v2:
->
->         __le64  pcie_equalization_time;
->
-> Every other entry in this table takes its size from the struct through
-> BNGE_PCIE_REG_SIZE(). This one hardcodes 2 bytes instead.
->
-> The difference shows up on big-endian hosts. Converting four __le16 value=
-s
-> swaps the bytes inside each 16-bit part but leaves the parts in their
-> original order. A single le64_to_cpu() also reverses the order of the par=
-ts.
-> bnxt_get_regs() converts this field as one u64.
->
-> Should the HSI describe the field as __le16[4]? Or should this entry use
-> BNGE_PCIE_REG_SIZE(equalization_time) with a count of 1?
->
-> > +     { BNGE_PCIE_REG_SIZE(ltssm_histogram[0]), 4 },
-> > +     { BNGE_PCIE_REG_SIZE(recovery_histogram), 1 },
-> > +     { BNGE_PCIE_REG_SIZE(tl_credit_nph_histogram[0]), 94 },
-> > +     { BNGE_PCIE_REG_SIZE(posted_packet_count), 5 },
-> > +     { BNGE_PCIE_REG_SIZE(rd_latency_histogram[0]), 14 },
-> > +};
->
-> [ ... ]
->
-> > +static void bnge_get_pcie_regs(struct bnge_dev *bd, struct ethtool_reg=
-s *regs,
-> > +                            u8 *dst)
-> > +{
->
-> [ ... ]
->
-> > +     len =3D min_t(int, le16_to_cpu(resp->pcie_stat_size),
-> > +                 sizeof(struct pcie_ctx_hw_stats_v2));
-> > +     if (len <=3D 0)
-> > +             goto drop_req;
-> > +
-> > +     if (len <=3D sizeof(struct pcie_ctx_hw_stats))
-> > +             regs->version =3D 1;
-> > +     else if (len < sizeof(struct pcie_ctx_hw_stats_v2))
-> > +             regs->version =3D 2;
-> > +     else
-> > +             regs->version =3D 3;
->
-> [ ... ]
->
-> > +static void bnge_get_regs(struct net_device *dev, struct ethtool_regs =
-*regs,
-> > +                       void *_p)
-> > +{
-> > +     struct bnge_net *bn =3D netdev_priv(dev);
-> > +     struct bnge_dev *bd =3D bn->bd;
-> > +     u8 *p =3D _p;
-> > +
-> > +     regs->version =3D 0;
-> > +
-> > +     if (BNGE_NO_FW_ACCESS(bd))
-> > +             return;
-> > +
-> > +     if (!(bd->fw_dbg_cap & DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED=
-)) {
-> > +             int rc;
-> > +
-> > +             rc =3D bnge_dbg_hwrm_rd_reg(bd, 0, BNGE_PXP_REG_LEN / 4, =
-_p);
-> > +             if (rc)
-> > +                     netdev_warn(dev, "Failed to read PXP regs: %d\n",=
- rc);
-> > +     }
-> > +
-> > +     if (bd->stats_cap & BNGE_STATS_CAP_PCIE)
-> > +             bnge_get_pcie_regs(bd, regs, p + BNGE_PXP_REG_LEN);
-> > +
-> > +     if (bd->fw_cap & BNGE_FW_CAP_MBUF_DATA) {
-> > +             int rc_rx, rc_tx;
->
-> [ ... ]
->
-> > +             rc_rx =3D bnge_hwrm_rx_mbuf_data(bd,
-> > +                                            p + BNGE_RX_MBUF_REG_OFFSE=
-T);
-> > +             rc_tx =3D bnge_hwrm_tx_mbuf_data(bd,
-> > +                                            p + BNGE_TX_MBUF_REG_OFFSE=
-T);
-> > +             if (!rc_rx || !rc_tx)
-> > +                     regs->version =3D 4;
->
-> [Severity: Medium]
-> Doesn't this assignment throw away the PCIe layout version that
-> bnge_get_pcie_regs() just set?
->
-> bnge_get_pcie_regs() picks version 1, 2 or 3 from the size firmware retur=
-ned
-> in resp->pcie_stat_size. That version is the only thing that tells usersp=
-ace
-> how much of the PCIe region holds real data.
->
-> If BNGE_FW_CAP_MBUF_DATA is set and either MBUF query succeeds, the versi=
-on
-> becomes 4. That happens in all of these cases:
->
-> - the PCIe stats were v1 sized
-> - the PCIe stats were v2 sized or full v2
-> - HWRM_PCIE_QSTATS failed
-> - PCIe stats were never queried because BNGE_STATS_CAP_PCIE isn't set
->
-> The ethtool core zero-fills the buffer. A decoder that sees version 4 wou=
-ld
-> treat the unwritten tail as real TL credit and latency histogram values.
-> bnxt_get_regs() uses the same 1/2/3 scheme but never overwrites it.
->
-> A related point: when bnge_dbg_hwrm_rd_reg() fails, the only sign is the
-> netdev_warn() above. The zeroed 0x3110 byte PXP region is still reported =
-as
-> register contents, and neither version nor len tells userspace about the
-> failure. bnxt behaves the same way today.
->
-> > +     }
-> > +}
->
-> [ ... ]
->
-> > diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c b/drive=
-rs/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
-> > index 227de771f2ef6..9b8cb39dbe164 100644
-> > --- a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
-> > +++ b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
->
-> [ ... ]
->
-> > @@ -597,12 +598,45 @@ int bnge_hwrm_func_resc_qcaps(struct bnge_dev *bd=
-)
-> >       return rc;
-> >  }
-> >
-> > +void bnge_hwrm_dbg_qcaps(struct bnge_dev *bd)
-> > +{
-> > +     struct hwrm_dbg_qcaps_output *resp;
-> > +     struct hwrm_dbg_qcaps_input *req;
-> > +     int rc;
-> > +
-> > +     bd->fw_dbg_cap =3D 0;
-> > +     if (!(bd->fw_cap & BNGE_FW_CAP_DBG_QCAPS))
-> > +             return;
-> > +
-> > +     /* Discovery failure is treated as restricted so we never attempt
-> > +      * direct register reads without confirmation from firmware.
-> > +      */
->
-> [Severity: Low]
-> Does the early return above match this comment? If firmware doesn't adver=
-tise
-> FUNC_QCAPS_RESP_FLAGS_DBG_QCAPS_CMD_SUPPORTED, fw_dbg_cap stays 0.
-> bnge_get_regs() only checks the restricted bit:
->
->         if (!(bd->fw_dbg_cap & DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED=
-)) {
->                 ...
->                 rc =3D bnge_dbg_hwrm_rd_reg(bd, 0, BNGE_PXP_REG_LEN / 4, =
-_p);
->
-> So HWRM_DBG_READ_DIRECT is sent for 0xc44 words in exactly the case where
-> firmware has confirmed the least. If firmware rejects the request, every
-> ethtool -d logs "Failed to read PXP regs".
->
-> bnxt_hwrm_dbg_qcaps() also treats missing DBG_QCAPS as unrestricted. Shou=
-ld
-> the comment be changed to match? Or should this branch also set
-> DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED?
->
-> > +     rc =3D bnge_hwrm_req_init(bd, req, HWRM_DBG_QCAPS);
-> > +     if (rc) {
-> > +             bd->fw_dbg_cap =3D DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRI=
-CTED;
-> > +             return;
-> > +     }
->
-> [ ... ]
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261124100751.179270-1-ramakrishna.koduri%40broadcom.com
-
-pw-bot: cr
-
---0000000000007427f3066117e409
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Description: S/MIME Cryptographic Signature
-
-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
-tJVewHuOmXgWQxNWV7Oiszu1d9xAcqyj65s1PrEIIaHnxEM3eTK+teecLEy8QymZjjDTrCHg4x36
-2AczdlQAIiq5TSAucGja5VP8g1zTnfL/RAxEZvLS471GABptArolXY2hMVHdVEYcTduZlu8aHARc
-phXveOB5/l3bPqpMVf2aFalv4ab733Aw6cPuQkbtwpMFifp9Y3s/0HGBfADomK4OeDTDJfuvCp8g
-a907E48SjOJBGkh6c6B3ace2XH+CyB7+WBsoK6hsrV5twAXSe7frgP4lN/4Cm2isQl3D7vXM3PBQ
-ddI2aZzmewTfbgZptt4KCUhZh+t7FGB6ZKppQ++Rx0zsGN1s71MtjJnhXvJyPs9UyL1n7KQPTEX/
-07kwIwdMjxC/hpbZmVq0mVccpMy7FYlTuiwFD+TEnhmxGDTVTJ267fcfrySVBHioA7vugeXaX3yL
-SqGQdCWnsz5LyCxWvcfI7zjiXJLwefechLp0LWEBIH5+0fJPB1lfiy1DUutGDJTh9WZHeXfVVFsf
-rSQ3y0VaTqBESMjYsJnFFYQJ9tZJScBluOYacW6gqPGC6EU+bNYC1wpngwVayaQQMIIGpzCCBI+g
-AwIBAgIMa38EXfcgBQ4ZhynNMA0GCSqGSIb3DQEBCwUAMFIxCzAJBgNVBAYTAkJFMRkwFwYDVQQK
-ExBHbG9iYWxTaWduIG52LXNhMSgwJgYDVQQDEx9HbG9iYWxTaWduIEdDQyBSNiBTTUlNRSBDQSAy
-MDIzMB4XDTI1MDYxOTA3NTQyMFoXDTI3MDYyMDA3NTQyMFowgekxCzAJBgNVBAYTAlVTMRMwEQYD
-VQQIEwpDYWxpZm9ybmlhMREwDwYDVQQHEwhTYW4gSm9zZTEZMBcGA1UEYRMQTlRSVVMrREUtNjYx
-MDExNzEPMA0GA1UEBBMGS29kdXJpMRQwEgYDVQQqEwtSYW1ha3Jpc2huYTEWMBQGA1UEChMNQlJP
-QURDT00gSU5DLjEoMCYGA1UEAwwfcmFtYWtyaXNobmEua29kdXJpQGJyb2FkY29tLmNvbTEuMCwG
-CSqGSIb3DQEJARYfcmFtYWtyaXNobmEua29kdXJpQGJyb2FkY29tLmNvbTCCASIwDQYJKoZIhvcN
-AQEBBQADggEPADCCAQoCggEBAL0BDfHMx7H8DhVwJ/DCrrWrFdde0ZEVhCDABth58CcjCf4IK7kK
-lkygTyAQBB9kL+GUoIK31C8vWthA+Ou9LtfDPFm4loAjeSFPGNaLKXf0ED0rJP0i8alYYzH0zk5n
-KYu8LfPYeAkf5hqZ48ZRoVdVzblCQSdPlc+Qja+9u9ZtKF/iP+tquVZfmsC0Og+AAkiXUsazqOYi
-d2I5h7IqxWIHEUrk2vgz3tbtEvSASDRM/af/1u3m1cUY6ZDbwTV7wLCkYEEvl5Wzw9p4ekEjJv5a
-5gDudlO4gZ24JUqR5VYpAfb3AOCgkcyg7C02rzffwHgTNf9c5xKpRJHKMv2iwf0CAwEAAaOCAeMw
-ggHfMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMIGTBggrBgEFBQcBAQSBhjCBgzBGBggr
-BgEFBQcwAoY6aHR0cDovL3NlY3VyZS5nbG9iYWxzaWduLmNvbS9jYWNlcnQvZ3NnY2NyNnNtaW1l
-Y2EyMDIzLmNydDA5BggrBgEFBQcwAYYtaHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2Ny
-NnNtaW1lY2EyMDIzMGUGA1UdIAReMFwwCQYHZ4EMAQUDAzALBgkrBgEEAaAyASgwQgYKKwYBBAGg
-MgoDAjA0MDIGCCsGAQUFBwIBFiZodHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5
-LzBBBgNVHR8EOjA4MDagNKAyhjBodHRwOi8vY3JsLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjZzbWlt
-ZWNhMjAyMy5jcmwwKgYDVR0RBCMwIYEfcmFtYWtyaXNobmEua29kdXJpQGJyb2FkY29tLmNvbTAT
-BgNVHSUEDDAKBggrBgEFBQcDBDAfBgNVHSMEGDAWgBQAKTaeXHq6D68tUC3boCOFGLCgkjAdBgNV
-HQ4EFgQU9g9Oo+bNJD4SZwPoLXspwvgyvr8wDQYJKoZIhvcNAQELBQADggIBAIecRRqebNMJ4d7H
-7cAR02jArJx9pL8fPfEO0VLjEKgEtyPd+LnzVGS8M6wSZPKfBgZjewZquAPW/Nu5QbVy20ictvQo
-NrcVS7pQxUQqyZ7ygxxyrgcKA70SlGwKiE6av7oO9/5uC76eT449EjnhYqkKM/NNnON3jyIZZGgm
-jGAM353u1cpJLcne3fjaYxdpwIjWq8LjOQiArNN/Oss5wkL+Jm3r5r0VKZJ9uoGKYzYNQSLjRBGv
-dBgaodLlBhU/mGzICgccmmp0CA4b91FsKDHxjw2/7cxGBCd27Vg/ckt41+3IXpIy8khBLlEiWxrg
-320ZAOQhiBI1of7pD74VjZFctfX8KDNIqNbVuz+r8yzdzsxf9KQWkLklTlSn4KJKsF8OXVHP6B2S
-E6qPU/2vuvsYIYLz6pVQNJ2WU+C5RiHhR9Aw94QqTQVeqTP8in6etwPQZxYpgH218jpHT9G1JifJ
-/lClaLGe1WZN3yaqOnL/J0sbMwmqIOJ/K9jR0W90v3J20DxlNvzezqr65c3hpq9CaTIQK5Bw9E3J
-+kDmDdMucUkLs+TXMVtttFp59CxL/++SroNuwArWExEL8K07/gSVsvJ8kscoeNLH44YJRZHMnQGW
-48IAnqWB5QHi+fJ/N96/Z3PgSmAgB21KPYkxPyJ6zswxdk8YIn77ub9hspo5MYICVzCCAlMCAQEw
-YjBSMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTEoMCYGA1UEAxMfR2xv
-YmFsU2lnbiBHQ0MgUjYgU01JTUUgQ0EgMjAyMwIMa38EXfcgBQ4ZhynNMA0GCWCGSAFlAwQCAQUA
-oIHHMC8GCSqGSIb3DQEJBDEiBCDyEaOHsPQqOW60PK0UYwrmhWbPrJLKLaUlLNjW8H3zFDAYBgkq
-hkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0yNjExMjUxMTExNDVaMFwGCSqG
-SIb3DQEJDzFPME0wCwYJYIZIAWUDBAEqMAsGCWCGSAFlAwQBFjALBglghkgBZQMEAQIwCgYIKoZI
-hvcNAwcwCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATANBgkqhkiG9w0BAQEFAASCAQA8v8tx7KQm
-OVum2qnUlm0Rg68zv+9L6DjA7bMSkKroDevfxQyyctDlyD8+gvWilPp1GcsIK0HlzWJe+LHqY0H2
-bntAVDlgtR15MURp8DB8spGAUYOs/XfgFZPHw2pnTor4ivvJp9E2bYCP1vso9CMni/XSaXRxU9P5
-Ex7lvATfITDhGXSXERSCVUMTb7ZyxBGCoG1v9EBFf2Seh/vlANIKWXYq+X9RuU5uzl8ySTz6Xcve
-bOz21j/IPGwt8iEEThqCNQriUW9ZHIGEjjAMER6MCaOx1YcOWUwmLMoR6aJMHfkF9M6DpDr5xrab
-GKrYPAkWKDi58vmf/pfwzC68Bi4E
---0000000000007427f3066117e409--
+> 
+> -- 
+> With Best Regards,
+> Andy Shevchenko
+> 
+> 
