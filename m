@@ -1,98 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.181
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795608266;
-	b=chal3gx2wEelna7QrEHmKguEqdD+ny2BLJEYExAO6q4wt2ftcs8Wn5jsSuDJToG9z4VE
-	 AnLK3apLOuGCpv/7iicFtG62G2sB9zoiuYSQK4z+lLhVIntkDHEmVQrNmmPLVuIn3pPUo
-	 t+lFC2aP3Aash2E3M7GB1las4EakeOtWY9YxGsvOLZJIpkMM+epBGePvZDmHaGL9hEwed
-	 Ivdemjolc/gnSwVBAPIir4FIjwlGTuIbZme1NoyJtNQcCZzHnPfTTIJluF1IFG31U5RA2
-	 xyiYJR/Ic9bnZ7T6A3/uPbFaL2p6RsIZl/eciMtQ/2LM2gwiSgZx2SM0FsiuSIA1Wwg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795608266;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=z+UkoMvvEaVTNil18OTBJI75hEZ+FMKT77tUTvdlmZY=;
-	b=2Hzv6XXqV45jv6OkTXgDCSHp7fNWnulsrY/pEpoaB7tO2Z2Ok4x3roj8On37EOA/hfGn
-	 3uXloVI8U+JumGhud2N9/7aRujPBWrM/XfiCVPJw0kKBUs23X1dDyecCIrmGjxfGAf5g8
-	 imu6l4oxkf2Cax3wqsARatdbtzCG+w+CU/oU7PQpFgFTThY/zJ5o9VEGCh4BLGTCa9YXG
-	 JuvYJALr8D0ovtiAZXaKXjh5LDGdl4G/+OrimB816zYxNl+9hLYVdY/1lQ3nm6E/arAny
-	 90A7BbhCUfDUhK2mJU6tvlInjhiN2sRPv1v1YUyrTvj7jo9K1LnNVWWk7hpFVR2XQkA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="v/lRLI/6";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.181
-Received: from mail-yw1-f181.google.com (mail-yw1-f181.google.com [209.85.128.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795608287;
+	b=qNJJqH51+rVDx7KCoMnDO6ExmZL7uVWnVd0/yA4l9iiA3lNvpj4uPALWRXlwEMuPm8eL
+	 uePzOojeZbraHWVu61lBu8RauxYIQITvGskCIzD2h77Wpz/BR5B2gD8QY/x/1pXGqZSae
+	 QJISGmslCo48NIc2scOUWbAXIUBGeuZbqfz8ZCt81ZaAZjvOWtnb7f/e79Ziu+UCPnik+
+	 A+Ibf+doIqsbsA6Y7I9C9R6Wcpn8EY5OFtTB1d11gAw+xH50ey882Sn8RVo7WZcaq7zpf
+	 iE+PI6NFceTySZDANIJBg3tGSTz1G/AR5QNfEhheEc7BQfra8UI4afTl91J0hccPFtA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795608287;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
+	bh=lBki+4xAXmSxHooQdTNTB74XM3rdpl5Jlw/sGPjJ2bQ=;
+	b=3K5vlafeSRpPEfVfpnG326uJ1lnh3h9EWVdcSR5Pp6Ru2f/daswP1mXtRklCVS58eLWH
+	 VzERBgI7EuxjzdcjAokKx3JPYHctQTsVRyegE0qhNQ5OPUauusF/4ANp1o/LcyWSoEc21
+	 z/BOb4XZS+eGcULoSrgOQ7Rp1Pv9rcfYtGpJIr5YQI6TdH8uAn55o226DXQ8EVrd8OMZN
+	 ogU6i0cylR0g/2VltqiQ3Y0gBZHTVSTHTgToOQOhDl5YBwLLVxqXjx6z4oHh2HHckwX8Q
+	 26C8Dyicdxo/Z9dCW6FHfnlpzRQ32SAxKzg4pgXFARUuE/fs8XUQw/cl0zQJ3qkVQfQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VHv2ssyS;
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 973B1606A339
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 12:04:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 973B1606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57B9A606A323;
+	Wed, 25 Nov 2026 12:04:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57B9A606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=v/lRLI/6
-Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-8b4c685c751so49666727b3.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 04:04:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795608264; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nkd9rOQDb0bq9dRMfiE2/PQ+KnhVufNkVF6TXnOfALyBhijNnXdTqZJ8Yrc0fT253A
-         XyxntHxV/7PVmtl+wC2+zXpiiHUBBXeolB9Ci034yiCz3LRcdfVtTfA9d7y3Y+oyd7cI
-         UCnQK8e84gH5TjsOf9vRIJAuaH/+vV682gaVor6A56cStSGmt1TtjDX0lVqFWnxcngNk
-         UdGGx/VX2/QfMijB9oLZCd9cuscn81OJ4Ho4SscMI0G5blFo6Ek8bkbg1WL+c08rBaI7
-         B/fUOS3gl3xc/JSRYMRLuI+X7654BG3MBrMBhqTl86+1Kknclyj/uVwmYBF4cEcQtBqG
-         e2mQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=z+UkoMvvEaVTNil18OTBJI75hEZ+FMKT77tUTvdlmZY=;
-        fh=9SHnZm3+nm5FGTCSaDlWDyV8Bg27khSbKo+zIZFaFG0=;
-        b=RvhorFxlLCYTA4hIo6svcg9wHxNNrlgGJAWrww2VJZUSS2f42zLY+6YkGFNOhEy541
-         kTtZZHAOoOg7xoanVqpN4RTTZc4/YykrGWOHtHgBrBXql+BkNjzhRfD5iNHeXIcs0VnP
-         oyLtaWpTN++tJFhgBeVDiYpiuxqqXZMMCOSHdKPNMfr2Q9gd2j+QHx1ML5JahLkxPoKu
-         r73U2OYJMp9zDckS0hHHMJ1NghXSrtzRHGmoj0qy6B2YiA46q1BSb2b6eafKyEFI1++k
-         Exyg5FfK3NC5eC0Y7xZ2Uzwgg1wvsWHb5r451LiRDc3E6ngCM+gIX7VG2KXO9cD2th64
-         HNnw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795608264; x=1796213064; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=z+UkoMvvEaVTNil18OTBJI75hEZ+FMKT77tUTvdlmZY=;
-        b=v/lRLI/6A8OQzRxCu/iTwg1iJgBq/xMj1Kawkk6QIgnAh6avbVuDxItK2xWpSTX6Ym
-         RW9+u8YoSgQtE0VKjwoo6jIevKDdLE67PlKdX+/eLOlh1FEzINMW1YQcJPSEjRwmNYoQ
-         DzXfPRO2b/F6SIsY1G+z57UPAOx2nm407QQagbJ0CbiD+WEhdOEnR9FHRmBuXqSHie3R
-         c92vMDkgOIBj0PArFc6b/i5dXsl05Ksfsx6an6qMFcIxg4ft7L8+3QB9jFlZgxo5rJh2
-         AyTPIRtdglgfvcJNDtWk7wXreSuWSPtzKCPFgNiqL6s7CTwyZX3lTxnlIfd2N/gmNLxZ
-         6Ihw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795608264; x=1796213064;
-        h=content-type:cc:to:subject:message-id:date:from:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=z+UkoMvvEaVTNil18OTBJI75hEZ+FMKT77tUTvdlmZY=;
-        b=isSlltXWEAA8ctXkTiq4tMt1uYrTfCYy6aC068GLUC6FAv8lYk6GqML0dzGH27KCJM
-         l6Wco/cXk7db6iCoF5osE3sWAhTYh76r9iHzNBB3BxI9rwq+wdCUbn7mBpeF8baP3fmZ
-         fj/OsZXUj3uwHDUreYLQNrUHZFT9okhii38QQ66Hg/QJ+dvD4LvctBIGL6pBVpmMdOZW
-         CC/m7WU7vna9wD7UGrZHFnZfB8OKQQXSYQKjGrQcNLTGvpMyacwHWEbolf2G7h8QABo0
-         ilzyy9XbAZ56IzAABbxc4+qLUkt0EWZBiMfeS06evY2vyxer0E2nR7USz9hCQIj1oSXQ
-         cINg==
-X-Forwarded-Encrypted: i=1; AL+hErFeMS74e3Mm+k3ZZaNp4f6u2mI6HEE/ev1Qodu2nUoeRPPV00htGy/J/FPeDAopIUHE1Vo0CALkRCjvg50=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ZqLNHiBq4ZKOOo0Gmp+Z31jE1Kx5ChpCGjeQWIrDP2BRMl3wV
-	se0edes5CL3DT8u9ELi+7Acl42hUqrakELZbu432iGJXsajz2y0SDRkOgj8ZM92yuc6uCyUcif9
-	iXnSVXllyCOXR/Es5njNq9RqeHxw49qCzzV1J
-X-Gm-Gg: AZFdTZcpuNme9Sa0K3a+5Rn3iXZgGnSbVeXXZ5biD9SvF42l5GRh8J9T0dJKnk7cgZc
-	WN6RDFUZvMSu/5NOQssAkOb/PtuvFy0U61QUogH2x4VlY/oVjhv06+xH2EoQTajy6iyD6yOcmlP
-	od/yEbOAP5TnQNDyJLFdKHiNQFtoo/pEjnVeKxEewI9u2FeNzNCs6mr588deE0u3ScyjgqnANZc
-	vZlF14VLebN5Vg5Anx6Yuf50HYRUbF/9CQOS4XFvQ1YWKSySAZNRBC5aqRIWHqwu3hs/b0e3B0W
-	ZycXlWr8as5hRq1Xv8ZxLf8UtVNxkMFMUf2jtETby3IufZ5N6hiAPQ4S/xdpd4eGEO2kumnS5H9
-	wTsDmPpwOWTQLmK/+OZSpZmVZugN6/PZBe7vLQxKa1z6YxfxhHXcGbYHS/yRV4LqiIpWm/ejyE3
-	SeVajoEy7HnWWPvwdX5gV5CHklZrovXkPuLeuZCLfS
-X-Received: by 2002:a05:690c:b19:b0:8b3:47ec:b20a with SMTP id
- 00721157ae682-8b520475e0cmr66201927b3.43.1795608264600; Wed, 25 Nov 2026
- 04:04:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VHv2ssyS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795608286; x=1827144286;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=4cKCKbZSIGARMvx3NwbCNxA9KCH81gFlhOHiyitYp5A=;
+  b=VHv2ssySsEh4bLGg5deffnA422oVNWFf37p3rNQ6xBQtMG1ndehXL1PG
+   5IszMZB6VxOq9XSC5vzXcmpCLOwo8qA/Dh0o6geOFSw2H2ZD1ScG6O1Ve
+   5bjSDB7JISqea3ExgXb8PGNCqHvNYf+Lzt9BuNaGLdyipPuhptCpQfYOC
+   fafesuYflZEd+Bs7aee/sOgPaVxmMmUYoUynHrCfJ/AOohtr7Zc9st3Z8
+   bR7OQT5nZB/NvBcTx4kGhHYHiTl8Cy+BxIcCcOT8kgVp+Tl3q/arcd/dY
+   QxlzlBiKVGQF2HFsQOIyWjGRHsG6sLAJQdsocP4kQC/HUMLrPwbvJvG6M
+   w==;
+X-CSE-ConnectionGUID: /QfEf5UwSdaOdz0rbf4bIw==
+X-CSE-MsgGUID: sUmAS1zMTMuQte//An9T/g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4487613"
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="4487613"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 04:03:31 -0800
+X-CSE-ConnectionGUID: 2HWffgX6RFq12SN9EC9gjw==
+X-CSE-MsgGUID: ooBJMlv+RsmSgY38fCWINA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="11719607"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by orviesa004.jf.intel.com with ESMTP; 25 Nov 2026 04:03:28 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id 2A23B98; Wed, 25 Nov 2026 13:03:27 +0100 (CET)
+Date: Wed, 25 Nov 2026 13:03:27 +0100
+From: "mika.westerberg@linux.intel.com" <mika.westerberg@linux.intel.com>
+To: Chunfeng Yun =?utf-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>
+Cc: "konrad.dybcio@oss.qualcomm.com" <konrad.dybcio@oss.qualcomm.com>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"westeri@kernel.org" <westeri@kernel.org>,
+	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"YehezkelShB@gmail.com" <YehezkelShB@gmail.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"sven@kernel.org" <sven@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"andreas.noever@gmail.com" <andreas.noever@gmail.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH v3 1/8] thunderbolt: Prefix NHI core functions with tb_
+ and tb_ring_
+Message-ID: <20261125120327.GD191152@black.igk.intel.com>
+References: <20261123113705.2297329-1-chunfeng.yun@mediatek.com>
+ <20261123113705.2297329-2-chunfeng.yun@mediatek.com>
+ <20261124161159.GT229695@black.igk.intel.com>
+ <1aa3fa77b7e96509db6779bbb0cc74ce7c9a4ffb.camel@mediatek.com>
+ <20261125071300.GA191152@black.igk.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,66 +95,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Marcel Moosbrugger <marcelmoosbrugger@gmail.com>
-Date: Wed, 25 Nov 2026 13:04:13 +0100
-X-Gm-Features: Aa3M54r2ba5mZUdoWmYri7uZbuEx-lFWMUQY_KR4UYOrncn3hD6_3rK1rzheKEQ
-Message-ID: <CABtUotOE+6AJpp9ewj3rDWRM=MdHOtcvqAhVmaZ+QAbZK4fSRg@mail.gmail.com>
-Subject: [BUG] intel_idle: Arrow Lake-H hard freezes, stopped by max_cstate=1
- but not =2
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Artem Bityutskiy <artem.bityutskiy@linux.intel.com>
-Cc: Len Brown <lenb@kernel.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261125071300.GA191152@black.igk.intel.com>
 
-Hello,
+On Wed, Nov 25, 2026 at 08:13:00AM +0100, mika.westerberg@linux.intel.com wrote:
+> On Wed, Nov 25, 2026 at 06:43:38AM +0000, Chunfeng Yun (云春峰) wrote:
+> > On 二, 2026-11-24 at 17:11 +0100, Mika Westerberg wrote:
+> > > On Mon, Nov 23, 2026 at 07:36:48PM +0800, Chunfeng Yun wrote:
+> > > > In preparation for modularizing PCIe NHI support and allowing PCIe
+> > > > and platform NHI drivers to be built as separate modules atop the
+> > > > Thunderbolt core framework, several NHI functions and structures
+> > > > will
+> > > > need to be exported.
+> > > > 
+> > > > Currently, several of these functions lack standard subsystem
+> > > > prefixes,
+> > > > risking namespace pollution or collisions across the flat kernel
+> > > > symbol
+> > > > namespace:
+> > > > 
+> > > > - ring_msix() lacks any subsystem prefix and diverges from all
+> > > > other
+> > > >   exported ring functions in the driver, which use the "tb_ring_"
+> > > > prefix.
+> > > > - nhi_probe(), nhi_shutdown(), and nhi_pm_ops lack the standard
+> > > > "tb_"
+> > > >   prefix used across the Thunderbolt public interface (such as
+> > > > struct
+> > > >   tb_nhi and struct tb_nhi_ops).
+> > > > - nhi_msi() is named after PCI MSI, even though the ISR simply
+> > > > schedules
+> > > >   the interrupt work and can serve as a generic ISR for non-PCIe
+> > > > platform
+> > > >   controllers as well.
+> > > > 
+> > > > Rename these functions and symbols to conform to Thunderbolt
+> > > > subsystem
+> > > > naming conventions before exporting them:
+> > > > 
+> > > > - ring_msix       -> tb_ring_msix
+> > > 
+> > > I think we can move MSI-X completely to pci.c. As far as I can tell
+> > > ARM
+> > > stuff is not going to need that. While there we can drop MSI, that
+> > > has been
+> > > never used (MSI-X was supported from day 0 by the HW).
+> > If move MSI-X completely to pci.c, then will rename and export another
+> > two functions:
+> > __ring_interrupt()
+> > ring_interrupt_index()
+> > 
+> > is it fine for you?
+> 
+> No that's even worse :( But I was thinking that we can do the same for MSIX
+> as for regular interrupt in nhi.c:
+> 
+>   nhi->irq set -> request_irq() for that
+>   ring->irq set -> request_irq() for that
+> 
+> This would hopefully limit the number of functions we need to export. Maybe
+> it allows us to get rid of the .request_ring_irq and the like in the
+> tb_nhi_ops?
 
-Two Arrow Lake-H laptops (06-c5-02) from different vendors freeze hard;
-only the power button recovers them. On both, intel_idle.max_cstate=1
-stops it and =2 does not. Crashlogs, oopses, dmesg and config are in
-https://bugzilla.kernel.org/show_bug.cgi?id=221923. I am mailing because
-the evidence now points at C6.
-
-                 ASUS GU605CW (285H)          ThinkPad E14 Gen 7 (255H)
-  no cap         5 freezes in 34 h * (7.2.8)  9 freezes in about 51 h
-  max_cstate=2   froze after 79 h (7.1.9)     froze after 63 s
-  max_cstate=1   0 in 510 h awake             0 in 671 h uptime,
-                 (281 h of it *)              s2idle included
-
-  * on a Thunderbolt dock, where the ASUS freezes most. The ThinkPad
-    numbers are its owner's (comments 9 and 11 in the bug).
-
-intel_idle has no table for INTEL_ARROWLAKE_H, so both use _CST: C1_ACPI
-(MWAIT 0x00), C2_ACPI (0x21, a C6 substate) and C3_ACPI. =2 removes only
-C3_ACPI. So the freeze needs C6, or a package state reached through it,
-but not the deepest state. The freezes that left a CPU-side trace died on
-idle exit: corrupted per-CPU data on the ASUS (all 16 CPUs within 65 ms),
-a misread instruction byte and a misread exception target on the ThinkPad.
-
-Specification update 834774 rev 025 lists ARL036 ("Unpredictable System
-Behavior May Occur When C6 or Deeper Sleep States Are Used") and ARL037
-("A Core May Hang When Entering or Exiting C6 or Deeper Sleep States").
-Both are Fixed for H, seen by Intel only in synthetic tests, and may have
-a BIOS workaround. Both laptops froze on microcode 0x122, the latest.
-
-1. Are we hitting one of these? Which component and version has the fix,
-   so that owners can check their BIOS?
-
-2. If firmware with the fix is not out yet, would a quirk be acceptable,
-   like the Skylake-H one for C8/C9 (d70e28f57e14)? A narrower one than
-   all of C6 would be better. I can test C6 off on E-cores or P-cores
-   only, or any patch. On the dock a few days give an answer. The ThinkPad
-   owner offered to test too.
-
-Caveats: no reproducer, only rates, and no known good kernel. Neither
-kernel is vanilla: the ASUS runs Omarchy's (Arch) 7.2.15 with nvidia-open,
-the ThinkPad Ubuntu 7.0 with VirtualBox and no NVIDIA GPU. During the =1
-run I also moved from 7.2.8 and from BIOS 311 to 314, and kept the i915
-render GT out of RC6. Before any of that, the cap alone gave 116 h awake
-without a freeze.
-
-A correction: in September I wrote to platform-driver-x86 that the
-intel_idle angle was refuted [1]. That rested on =2 only and was wrong.
-
-Thanks,
-Marcel Moosbrugger
-
-[1] https://www.spinics.net/lists/platform-driver-x86/msg65594.html
+I realized we cannot do this for MSIX because we allocate them on-demand so
+the callbacks need to stay. However, we can avoid exporting ring_msix if we
+make ->ring_request_msix() return the interrupt number.
