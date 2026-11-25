@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606125;
-	b=Ep/7hkPhk3a8xa3gYf2MVlGRJcTQIDA7DKLUB5MsaND/dyTjGmiBzMo/h69bzfmC0ryp
-	 RWqiSbUWMSO9ZeZGZ9b7fk1gtnXKl90/JlW+SQctmLQGZQJumHArsr61QA5X0BCQGUjOf
-	 dLHIkd/wsfuLNiS7BfK6+jO+0V83hYF4b2eiN8PeRILueN6JjnmDcwVybAnEA3W0SYJZy
-	 aE0G0ETsHfRKjTt4EhnPS7ABxRX6hkVLhrweI4ZChIMhLLv0X/wCWYGcoDmYdk25SvT7v
-	 uY6DWmDmI7ppAF4gsgQNVxmabNO54GMYrRRXpAP5NDMedepUbTbT+R6vzK4lYa/bduA==
+	t=1795606124;
+	b=FVZATZuk+AgP6idRvV+4E2axo2+1Mlgo9Hbz5KAoEdoYjsulAuAAf9Jsu7DjLT10fgSE
+	 4BRrduDgWp9suqJJcuOqZ/C0WpvP+WGr/FJzfoDpoqpIuVnmxA5DmD06esMpqg04/bFaZ
+	 0AOjHXECNaMfGij1XIFYD7BcdDMSCMTxZKzXNwET3GgyMgE5KnpD9J5W2aDsykX2Lzvti
+	 /l03z1x6ggqWjTdhQ2gJxeVwIBhmAAkflbIMcG9fOfCagvgo6mc2ctaM0PiQjwFKabehT
+	 s+VXpvKij0NqykvQGpubi32JovULwT5vMG9tWnL29xgTpxzQZkm+4eWWVmdvz/9tybA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606125;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606124;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=PH9AUh7w6ThZJsKaitS9ec4EBwWzCSLKSPBtEPu/DFo=;
-	b=mbGAKKj/Br/E3BjJ5fMVbxCTwkdBJOdq1cm7MLie3f070Ft5sVdiWjXlp1g2pZNm13sg
-	 8Yv50DFnLrKBfZadQWhlWjixT68NCvFvMdwhkuHeaSNvcTsdKRcMSdQtkS4x7DbY0ikUL
-	 yeUmx4DxDsBqpnJFyeHfV5pE/XmTAOU27BiQdfJSv/yTdZO6r0qAB8SdMRSAgPAPTZlXF
-	 2k3a5SKMSj3E7VDacZhu+GTOWv0IDzHnpWUMjAo5LLMpXE8z+j3Ubvb0ByecVlstrQjf4
-	 QyNKUa5akukLYwl4LC5GTRCcsJVtkm2Bj47cYPqWizgK3fxTEQoW+LOYjQwm2DxsEOw==
+	bh=Qd//H+we0TeasQzPW52DpsCIJIXJMWVEEvyKH+0QRSA=;
+	b=bnHpV9mzt3PKKrZTqCPkLrdAb0U9k7PZm88lWuVJ0FVoUGUMiTr++oPVcqPwu2xoe40u
+	 aG0VtDsWTsRSTQzrqs4yStywRXHWKR5zIdwCpZFhNsSrHk10DDclLcBX6Hi11E5AlkI1O
+	 C3vx3UWVRYs0bNhL374UHHWCwUlW6o0kSvcR4YFc0Fm9djuW7cdTu63IEBJS1be8piIWX
+	 J+uA5iKieuTNSYPmSrypncRDeW3NhdkJl5abFw0tdnCd8zsK3kYEwNUU60dnk2vpwf1aw
+	 WLju7051tNYrjxDrZb6S+YAVZlOd+CZWqvQnpKU1FYPSC07weNzGk4XY0vKQjvAH9xQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--jpiecuch.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=d29oQKxe;
-	arc=none smtp.remote-ip=209.85.128.70
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MKZbgIyj;
+	arc=none smtp.remote-ip=209.85.221.71
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com [209.85.221.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C651606A32E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:28:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C651606A32E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42BD8606A682
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:28:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42BD8606A682
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--jpiecuch.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=d29oQKxe
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4b9fde3044dso40281385e9.0
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MKZbgIyj
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4903fc8537aso3759119f8f.0
         for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:28:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=google.com; s=20260707; t=1795606123; x=1796210923; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=PH9AUh7w6ThZJsKaitS9ec4EBwWzCSLKSPBtEPu/DFo=;
-        b=d29oQKxeZiG4AX7c7fGcR4iAdfPsMF+MFshlwSb7h2Su1ChS63xp7DKPAZKkQZQbbd
-         Y0JHIKyYgN2YA38Rzm86SzBWCE0n5rVLxdb9enVjJRDJNv1I9MRHjnst7RnUSwvFVfSp
-         3eyxu1se0WOM6ttl0M8V3FmstpCHx3bj+WSi6qneTEqRAhQ6y3EEvPbaN3grPxIK2im4
-         PzSIK7ud/KL/7PErySxaUF5QJEfXjJcYbnJkrbziVkXCCAMv1smRdyiKl2lF/Bh7zaaV
-         sMTc+vmo4igmHHhcBLEioP8gsLfKLBikt8zU5GI1+K9+E/TXgR3pLu5tODBx2A10ATUv
-         8/Lw==
+        bh=Qd//H+we0TeasQzPW52DpsCIJIXJMWVEEvyKH+0QRSA=;
+        b=MKZbgIyjSKckqPESE2dB1ituYNH2dh2NJ+Sj+RLemLIKw9MsqdmqbdDEQg/fwwDVh3
+         WfaA1XbcqZBtGk9inWFme75DL4RjwQbx8aWLd1CxoTs03V2tJWR+Uu1YmqSQu2gdyOek
+         DTfKtJP3ykCSwZBokd2mjA8To4Oho0m3gXA4la7Zi8te6rxqPZ6OIxyC4x/XaKxcP9LK
+         8sDCMlUUqAOCaX4fZZg/DpiB8DQ617GfA230POJ/21n8EQYByYyd4URtt4aYrhlO0Ysi
+         WsrU6cdSkrCTInbGgk9mnqsKnGcCuwEEZoM4E6eYoKVs4QP3NAnPxjVTiUiOlL07zGE5
+         PWQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795606123; x=1796210923;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=PH9AUh7w6ThZJsKaitS9ec4EBwWzCSLKSPBtEPu/DFo=;
-        b=Q6bLpBgU/sD02aME3uxgy3KFJxpzJErJjeKzXl5wbeo5RVSVPxY2vmHYbqJf+RWQht
-         nTtin7oxYGE1NN4XOHDv1kJa0IaCa38a9JPPHbDmx0fCTCMwpF+G0mtmtPSap9bDC8QS
-         /iUG44jq+YxyAlxkCKlhjfGVM0vFVMKYE4wOm7n+Ow9rdaI+y8vb9B833U3RjHM9wq7+
-         e6OC9uzwVhl58hCFTYSBSo48Q7TvpEnAdT73pnWzfFGO3P6I90577UinkzC1gr67SKzD
-         oPpeLPZ6wWUGFGk+HxSm759LXQiXd2Mtn2JwwbHqsGD3xTUKM8hysFMLD9OfvXRBYJv4
-         ebfA==
-X-Forwarded-Encrypted: i=1; AL+hErHuS7H86pHmlUOYHh+6/cVBydkQu0Qloz5fK/IPtAnLSRkNqFMbcwCis9YZ5ovKD1ytTwi3eqag3BGBQjY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9QIRbLRsuUJDAs2oRh/Qt+0TFeQjtVjFTPvT48QVMXZokwpv5c
-	jqm1bjPG8i9xoy63L9mmHL3vtC0Sj/qUbGVOwO8MJLokCgwkO9qeemgtNC0jzrtw+OwOv0N31Bm
-	3UQWgUlD4WbxbsQ==
-X-Received: from wmbz19.prod.google.com ([2002:a05:600c:c093:b0:4a2:8b4:78e1])
+        bh=Qd//H+we0TeasQzPW52DpsCIJIXJMWVEEvyKH+0QRSA=;
+        b=eJhQqNCZFIjC0m627pHTdMha/e0mKH57cCtqezJslzEtkg/Ils3FnwnwFgxaRud0t5
+         HSycu+DvokFuka3AwJz2JK8FKaAbx3zvMrEwpnUALdk5useJOrkeo40Tz92znJpXUpmB
+         1eK7xYEuWdiML69cmtfHwtD35EG5WIazlafXAje1fVQA/KfsvR3odufh9cw/I6DankQM
+         soIP4UcL2oOQjd43ftUisPxVwp0KOVZBD/z2+nBYfh5Ym3YPWq/11cY/eenyv86D5Oge
+         Gfx/1KIiaxAUcSjORJ5pLCkDAWUexfHi8CcP9GG/DF2f1iyRzTAquxtnU7FZzyg8/RV2
+         eHCQ==
+X-Forwarded-Encrypted: i=1; AL+hErF3i7ZAgpJOuJhA/oeYVXc4PY8BcXpUYIqaiR24oCX5GtuRsTLynPHIlJpChfM8IwXYyoXY67w0ED4cVNA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ZkvZhtzKU5xs9gaDJC8HwYLrnTl55xia8RE56idpFUmeATN2M
+	1GkrT/QHAKREkzcgQO65L3K0frwbba9JGNQeCoo5AopQyEDwDCStqaf5CvRg7I6iVGFuqXz2Yxf
+	MS9oKhHccZgtTyQ==
+X-Received: from wrmt15.prod.google.com ([2002:adf:e44f:0:b0:4a3:da3d:b9a6])
  (user=jpiecuch job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:6092:b0:4a1:d537:1c8d with SMTP id 5b1f17b1804b1-4bb8892bb67mr329998235e9.19.1795606123419;
- Wed, 25 Nov 2026 03:28:43 -0800 (PST)
-Date: Wed, 25 Nov 2026 11:28:38 +0000
+ 2002:a05:6000:178d:b0:4ba:18fa:1187 with SMTP id ffacd0b85a97d-4ba18fa11fcmr3252982f8f.46.1795606122470;
+ Wed, 25 Nov 2026 03:28:42 -0800 (PST)
+Date: Wed, 25 Nov 2026 11:28:37 +0000
 In-Reply-To: <20261125112553.1539758-1-jpiecuch@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,9 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261125112553.1539758-1-jpiecuch@google.com>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125112553.1539758-5-jpiecuch@google.com>
-Subject: [PATCH v2 4/4] selftests/sched_ext: Test that ops.dequeue() runs with
- the task's rq locked
+Message-ID: <20261125112553.1539758-4-jpiecuch@google.com>
+Subject: [PATCH v2 3/4] sched_ext: Remove scx_wait_dispatching()
 From: Kuba Piecuch <jpiecuch@google.com>
 To: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
 	Changwoo Min <changwoo@igalia.com>
@@ -91,196 +90,121 @@ Cc: Kuba Piecuch <jpiecuch@google.com>, fangqiurong <fangqiurong@kylinos.cn>,
 	sched-ext@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Check in dequeue_remote's ops.dequeue() that scx_bpf_locked_rq() is the
-task's rq, and add a scenario that inserts tasks into SCX_DSQ_GLOBAL from
-ops.dispatch(), mostly from CPUs other than the task's.
+scx_wait_dispatching() waits for a task found on a DSQ to leave
+SCX_OPSS_DISPATCHING. scx_dispatch_enqueue() now clears ops_state before
+a dispatched task becomes visible on any DSQ, and the remote dispatch
+paths release DISPATCHING before they lock the task's rq, so the wait
+can no longer trigger. Remove it and all its callers.
 
-dequeue_remote fails without "sched_ext: Fix ops_state and ops.dequeue()
-locking races in dispatch".
+ops_dequeue() still waits on DISPATCHING, as a dequeue can race a
+dispatcher that hasn't inserted the task yet.
 
 Signed-off-by: Kuba Piecuch <jpiecuch@google.com>
 ---
- .../selftests/sched_ext/dequeue_remote.bpf.c  | 34 +++++++++++++++--
- .../selftests/sched_ext/dequeue_remote.c      | 37 +++++++++++++++----
- 2 files changed, 61 insertions(+), 10 deletions(-)
+ kernel/sched/ext/ext.c      | 24 +-----------------------
+ kernel/sched/ext/internal.h |  1 -
+ 2 files changed, 1 insertion(+), 24 deletions(-)
 
-diff --git a/tools/testing/selftests/sched_ext/dequeue_remote.bpf.c b/tools/testing/selftests/sched_ext/dequeue_remote.bpf.c
-index 983590c6d498..8996bcc96e1d 100644
---- a/tools/testing/selftests/sched_ext/dequeue_remote.bpf.c
-+++ b/tools/testing/selftests/sched_ext/dequeue_remote.bpf.c
-@@ -8,7 +8,11 @@
-  * the dispatching CPU's local DSQ, so most moves cross CPUs. With
-  * @test_use_move_to_local, tasks are queued on a user DSQ and consumed with
-  * scx_bpf_dsq_move_to_local(). Otherwise, they are queued in a BPF queue and
-- * dispatched with SCX_DSQ_LOCAL_ON.
-+ * dispatched with SCX_DSQ_LOCAL_ON or, with @test_use_global, inserted into
-+ * SCX_DSQ_GLOBAL, often from a CPU other than the task's.
-+ *
-+ * ops.dequeue() also verifies that it's always called with the task's rq
-+ * locked.
-  *
-  * Copyright (c) 2026 Google LLC.
-  */
-@@ -53,10 +57,11 @@ struct task_struct___core_sched {
- } __attribute__((preserve_access_index));
- 
- bool test_use_move_to_local;
-+bool test_use_global;
- 
- u64 enqueue_cnt, dequeue_cnt, dispatch_dequeue_cnt, change_dequeue_cnt;
- u64 remote_dispatch_cnt, remote_running_cnt, missed_dequeue_cnt;
--u64 core_sched_exec_dequeue_cnt;
-+u64 core_sched_exec_dequeue_cnt, remote_global_cnt, wrong_rq_dequeue_cnt;
- 
- static struct task_ctx *lookup_task_ctx(struct task_struct *p)
+diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
+index 8451eebbe2d1..3a69100e47f7 100644
+--- a/kernel/sched/ext/ext.c
++++ b/kernel/sched/ext/ext.c
+@@ -2726,14 +2726,11 @@ static void wakeup_preempt_scx(struct rq *rq, struct task_struct *p, int wake_fl
+ void scx_move_local_task_to_local_dsq(struct scx_sched *sch, struct task_struct *p,
+ 				      u64 enq_flags, struct rq *dst_rq)
  {
-@@ -121,9 +126,22 @@ void BPF_STRUCT_OPS(dequeue_remote_enqueue, struct task_struct *p, u64 enq_flags
- void BPF_STRUCT_OPS(dequeue_remote_dequeue, struct task_struct *p, u64 deq_flags)
+-	struct scx_dispatch_q *dst_dsq;
++	struct scx_dispatch_q *dst_dsq = scx_resolve_local_dsq(sch, dst_rq, p, &enq_flags);
+ 
+ 	lockdep_assert_rq_held(dst_rq);
+ 
+ 	WARN_ON_ONCE(p->scx.holding_cpu >= 0);
+-	scx_wait_dispatching(p);
+-
+-	dst_dsq = scx_resolve_local_dsq(sch, dst_rq, p, &enq_flags);
+ 
+ 	if (enq_flags & (SCX_ENQ_HEAD | SCX_ENQ_PREEMPT | SCX_ENQ_PREEMPT_LAZY))
+ 		dsq_insert_head(dst_dsq, p);
+@@ -2993,7 +2990,6 @@ static bool unlink_dsq_and_switch_rq_lock(struct task_struct *p,
+ 		 */
+ 		p->scx.dsq = NULL;
+ 		p->scx.holding_cpu = -1;
+-		scx_wait_dispatching(p);
+ 		return true;
+ 	}
+ 
+@@ -3053,8 +3049,6 @@ static struct rq *move_task_between_dsqs(struct scx_sched *sch,
+ 	lockdep_assert_held(&src_dsq->lock);
+ 	lockdep_assert_rq_held(src_rq);
+ 
+-	scx_wait_dispatching(p);
+-
+ 	if (dst_dsq->id == SCX_DSQ_LOCAL) {
+ 		dst_rq = container_of(dst_dsq, struct rq, scx.local_dsq);
+ 		/*
+@@ -5255,18 +5249,6 @@ static bool local_task_should_reenq(struct rq *rq, struct task_struct *p,
+ 	return *reenq_flags & SCX_REENQ_ANY;
+ }
+ 
+-/*
+- * The dispatcher runs ops.dequeue() and stores the final ops_state after
+- * dropping the DSQ lock, so @p can be found on a DSQ while still
+- * %SCX_OPSS_DISPATCHING. Wait for the dispatch to finish before operating on
+- * @p.
+- */
+-void scx_wait_dispatching(struct task_struct *p)
+-{
+-	if (unlikely(atomic_long_read_acquire(&p->scx.ops_state) == SCX_OPSS_DISPATCHING))
+-		wait_ops_state(p, SCX_OPSS_DISPATCHING);
+-}
+-
+ static u32 reenq_local(struct scx_sched *sch, struct rq *rq, u64 reenq_flags)
  {
- 	struct task_ctx *tctx;
-+	struct rq *locked_rq;
- 
- 	__sync_fetch_and_add(&dequeue_cnt, 1);
- 
-+	/*
-+	 * ops.dequeue() must always run with @p's rq locked, even when @p is
-+	 * inserted into SCX_DSQ_GLOBAL by ops.dispatch() on another CPU.
-+	 */
-+	locked_rq = scx_bpf_locked_rq();
-+	if (!locked_rq || locked_rq->cpu != scx_bpf_task_cpu(p)) {
-+		__sync_fetch_and_add(&wrong_rq_dequeue_cnt, 1);
-+		scx_bpf_error("%d (%s): dequeue without task rq lock (locked=%d cpu=%d)",
-+			      p->pid, p->comm, locked_rq ? locked_rq->cpu : -1,
-+			      scx_bpf_task_cpu(p));
-+	}
-+
- 	tctx = lookup_task_ctx(p);
- 	if (!tctx)
- 		return;
-@@ -187,7 +205,17 @@ void BPF_STRUCT_OPS(dequeue_remote_dispatch, s32 cpu, struct task_struct *prev)
+ 	LIST_HEAD(tasks);
+@@ -5310,7 +5292,6 @@ static u32 reenq_local(struct scx_sched *sch, struct rq *rq, u64 reenq_flags)
+ 		if (!local_task_should_reenq(rq, p, &reenq_flags, &reason))
  			continue;
+ 
+-		scx_wait_dispatching(p);
+ 		scx_dispatch_dequeue(rq, p);
+ 
+ 		WARN_ON_ONCE(p->scx.flags & SCX_TASK_REENQ_REASON_MASK);
+@@ -5449,7 +5430,6 @@ static void reenq_user(struct rq *rq, struct scx_dispatch_q *dsq, u64 reenq_flag
  		}
  
--		if (bpf_cpumask_test_cpu(cpu, p->cpus_ptr)) {
-+		if (test_use_global) {
-+			/*
-+			 * @p goes on the global DSQ of its own node, which this
-+			 * CPU may not consume. Kick @p's CPU in case it's idle.
-+			 */
-+			if (scx_bpf_task_cpu(p) != cpu) {
-+				__sync_fetch_and_add(&remote_global_cnt, 1);
-+				scx_bpf_kick_cpu(scx_bpf_task_cpu(p), SCX_KICK_IDLE);
-+			}
-+			scx_bpf_dsq_insert(p, SCX_DSQ_GLOBAL, SCX_SLICE_DFL, 0);
-+		} else if (bpf_cpumask_test_cpu(cpu, p->cpus_ptr)) {
- 			if (scx_bpf_task_cpu(p) != cpu)
- 				__sync_fetch_and_add(&remote_dispatch_cnt, 1);
- 			scx_bpf_dsq_insert(p, SCX_DSQ_LOCAL_ON | cpu,
-diff --git a/tools/testing/selftests/sched_ext/dequeue_remote.c b/tools/testing/selftests/sched_ext/dequeue_remote.c
-index af344581d5f1..aab6dfb2d64f 100644
---- a/tools/testing/selftests/sched_ext/dequeue_remote.c
-+++ b/tools/testing/selftests/sched_ext/dequeue_remote.c
-@@ -1,7 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-  * Verify that ops.dequeue() is called for tasks leaving BPF custody through
-- * an SCX-internal cross-CPU migration (move_remote_task_to_local_dsq()).
-+ * an SCX-internal cross-CPU migration (move_remote_task_to_local_dsq()) and
-+ * that it always runs with the task's rq locked, including when the task is
-+ * inserted into SCX_DSQ_GLOBAL from another CPU.
-  *
-  * Copyright (c) 2026 Google LLC.
-  */
-@@ -54,7 +56,7 @@ static void worker_fn(int id)
- }
+ 		/* @p is on @dsq, its rq and @dsq are locked */
+-		scx_wait_dispatching(p);
+ 		dispatch_dequeue_locked(p, dsq);
+ 		raw_spin_unlock(&dsq->lock);
  
- static enum scx_test_status run_scenario(struct dequeue_remote *skel,
--					 bool use_move_to_local,
-+					 bool use_move_to_local, bool use_global,
- 					 const char *name)
- {
- 	enum scx_test_status ret = SCX_TEST_PASS;
-@@ -69,6 +71,7 @@ static enum scx_test_status run_scenario(struct dequeue_remote *skel,
- 		nr_workers = MAX_WORKERS;
+@@ -5554,7 +5534,6 @@ static void scx_reenq_reject(struct rq *rq)
+ 			WARN_ON_ONCE(p->migration_pending);
+ 		}
  
- 	skel->bss->test_use_move_to_local = use_move_to_local;
-+	skel->bss->test_use_global = use_global;
- 	skel->bss->enqueue_cnt = 0;
- 	skel->bss->dequeue_cnt = 0;
- 	skel->bss->dispatch_dequeue_cnt = 0;
-@@ -77,6 +80,8 @@ static enum scx_test_status run_scenario(struct dequeue_remote *skel,
- 	skel->bss->remote_running_cnt = 0;
- 	skel->bss->missed_dequeue_cnt = 0;
- 	skel->bss->core_sched_exec_dequeue_cnt = 0;
-+	skel->bss->remote_global_cnt = 0;
-+	skel->bss->wrong_rq_dequeue_cnt = 0;
- 	memset(&skel->data->uei, 0, sizeof(skel->data->uei));
+-		scx_wait_dispatching(p);
+ 		scx_dispatch_dequeue(rq, p);
  
- 	link = bpf_map__attach_struct_ops(skel->maps.dequeue_remote_ops);
-@@ -126,7 +131,10 @@ static enum scx_test_status run_scenario(struct dequeue_remote *skel,
- 	       (unsigned long)skel->bss->dequeue_cnt,
- 	       (unsigned long)skel->bss->dispatch_dequeue_cnt,
- 	       (unsigned long)skel->bss->change_dequeue_cnt);
--	if (!use_move_to_local)
-+	if (use_global)
-+		printf("  remote SCX_DSQ_GLOBAL dispatches: %lu\n",
-+		       (unsigned long)skel->bss->remote_global_cnt);
-+	else if (!use_move_to_local)
- 		printf("  remote SCX_DSQ_LOCAL_ON dispatches: %lu\n",
- 		       (unsigned long)skel->bss->remote_dispatch_cnt);
- 	printf("  ran on a CPU other than the enqueue CPU: %lu\n",
-@@ -135,15 +143,25 @@ static enum scx_test_status run_scenario(struct dequeue_remote *skel,
- 	       (unsigned long)skel->bss->missed_dequeue_cnt);
- 	printf("  late SCX_DEQ_CORE_SCHED_EXEC dequeues: %lu\n",
- 	       (unsigned long)skel->bss->core_sched_exec_dequeue_cnt);
-+	printf("  dequeues without the task's rq locked: %lu\n",
-+	       (unsigned long)skel->bss->wrong_rq_dequeue_cnt);
+ 		list_add_tail(&p->scx.dsq_list.node, &tasks);
+@@ -6818,7 +6797,6 @@ static s32 bypass_lb_move(struct scx_sched *sch, struct rq *donor_rq,
+ 	lockdep_assert_held(&donor_dsq->lock);
  
- 	if (skel->data->uei.kind != EXIT_KIND(SCX_EXIT_UNREG))
- 		SCX_ERR("Scheduler exited with kind=%lld: %s",
- 			(long long)skel->data->uei.kind, skel->data->uei.msg);
- 	SCX_EQ(skel->data->uei.kind, EXIT_KIND(SCX_EXIT_UNREG));
- 
--	/* the test is meaningless if no task was moved across CPUs */
--	SCX_GT(skel->bss->remote_running_cnt, 0);
-+	/*
-+	 * The test is meaningless if no task was moved across CPUs. Global DSQs
-+	 * are per node, so the global scenario may not migrate tasks at all and
-+	 * needs remote global dispatches instead.
-+	 */
-+	if (use_global)
-+		SCX_GT(skel->bss->remote_global_cnt, 0);
-+	else
-+		SCX_GT(skel->bss->remote_running_cnt, 0);
- 	SCX_EQ(skel->bss->enqueue_cnt, skel->bss->dequeue_cnt);
-+	SCX_EQ(skel->bss->wrong_rq_dequeue_cnt, 0);
- 
- 	return SCX_TEST_PASS;
- }
-@@ -174,16 +192,21 @@ static enum scx_test_status run(void *ctx)
- 	struct dequeue_remote *skel = ctx;
- 	enum scx_test_status status;
- 
--	status = run_scenario(skel, false,
-+	status = run_scenario(skel, false, false,
- 			      "BPF queue -> SCX_DSQ_LOCAL_ON | cpu");
- 	if (status != SCX_TEST_PASS)
- 		return status;
- 
--	status = run_scenario(skel, true,
-+	status = run_scenario(skel, true, false,
- 			      "user DSQ -> scx_bpf_dsq_move_to_local()");
- 	if (status != SCX_TEST_PASS)
- 		return status;
- 
-+	status = run_scenario(skel, false, true,
-+			      "BPF queue -> SCX_DSQ_GLOBAL");
-+	if (status != SCX_TEST_PASS)
-+		return status;
-+
- 	return SCX_TEST_PASS;
- }
- 
+ 	if (rq == donor_rq) {
+-		scx_wait_dispatching(p);
+ 		dispatch_dequeue_locked(p, donor_dsq);
+ 		raw_spin_unlock(&donor_dsq->lock);
+ 	} else if (!unlink_dsq_and_switch_rq_lock(p, donor_dsq, donor_rq, rq)) {
+diff --git a/kernel/sched/ext/internal.h b/kernel/sched/ext/internal.h
+index 58652370da5a..c77f62cd7bc9 100644
+--- a/kernel/sched/ext/internal.h
++++ b/kernel/sched/ext/internal.h
+@@ -2322,7 +2322,6 @@ void scx_resched_curr_deferred(struct rq *rq);
+ u64 __scx_bpf_now(struct rq *rq);
+ void schedule_dsq_reenq(struct scx_sched *sch, struct scx_dispatch_q *dsq,
+ 			u64 reenq_flags, struct rq *locked_rq);
+-void scx_wait_dispatching(struct task_struct *p);
+ int __scx_init_task(struct scx_sched *sch, struct task_struct *p,
+ 		    struct cgroup *cgrp, bool fork);
+ void scx_enable_task(struct scx_sched *sch, struct task_struct *p);
 -- 
 2.56.1.839.g22a8290db9-goog
 
