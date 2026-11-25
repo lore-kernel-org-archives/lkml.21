@@ -1,82 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795587388;
-	b=OYzPqWCljQP8Uh8OtvJgMAXFmPEBpXo7HXGfV1sGM7RcDVAn7NFfwGlVl119CzRrQHAH
-	 WqKop4QFs/HqJXLe+oEjdKITU2czk9aGFuCSMoBPTZmfkoYOBhsxdQNP/w7CZAkH8Wt7W
-	 TbrJ3mpYD9h/FswhcNlu8optsMIdIOd6BazpmBKbOX6MmhpN766zLOyTFWo8OG+ZAeICk
-	 smA+iTvDMLSbQqnU0g7bHCwi0gdgD4e6dK3tqCwUsOYvqZHavg6HA1QLL80kClSBdamL4
-	 b8w+Om6r7nqZ7+JWwtp8s/ZUkAGEYTX/nxYV2H2k5ovW4dO/YIMOh2Cv+2oOnw2q0Zw==
+	t=1795587389;
+	b=lNIfXs7VmF2W2Ejd32A5AzOq5ZIKYCTM/ZyrV1VQ3SXQFDyIiE7A09rvFWo3VYI78WCb
+	 Asa+zouJxbTUgCMKo54AmlU3aonZdw4vl4woAGxZHpSCAWOYZHRs2ful916PSJehfsUjW
+	 cTkUu4ZdDVoDAjuQYmx1N/LHfsR98YEPws1E+U4jqohYbXNY9jzZhI5TN8nO6/Jeg/AJl
+	 tsoZmdygzs8zU6yGz97eI+DmI0k6yZkhACWHo3CDrn5Kff7BauzNJH1ZiopRjF0qQLWj1
+	 n4kRDHdz8ZOAz/ochR+c8t7Rpca609Hqg3psR8jAqaCnAhYty1cUCoUHpBuRKiXVzDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795587388;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-MTK;
-	bh=sBCW/1+hC6LenyMex4ykRMV0Vc6X6yOWotOMEDTxmWo=;
-	b=vMDXu60OCIzADrp5LSFrquGz+fbgnf0aJTM3ZruL5iPo8taW9/Xj2YnTMY1FDsQMAf0h
-	 yx5paD4VvqKQ63iPrtHHTG+cwvCTOHAhZqI2Z7tclkph0hsAboSbx+U47c/kDRvTwOhbN
-	 nLoBVvsx7LTJMuIX/3mqPyPoHz+pqx0AnEjMpupG7FEV61EVesYSZyR30UYnNyQ0+Ms+V
-	 Mogr1zVjxLZE7Hyi2Ep/1XLbjrsihkxTQcKxCHpNDGJcWEot/Q1tQOIjMKq66RABhvMhx
-	 rA3pBdd/C0hfJ6HqUeUyG7E2CTgOmMqgSO15fLpfoPNwb79CAzDe/Zoas7/UUH4rr/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795587389;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
+	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=MvZ1Apa0kG0tOQFjdr93l8HqQxxrkaONSQJCjsrGQW8=;
+	b=wnScA3o4xy1ERPq7/hBFGIWAjWoRE+94TWkfumaR1jsEuCMHoHWo6WlowJC/jwg8r4t+
+	 Ls7Uvwd7S0VTR74o6+2FaweZfTy6s04eShUuy2sxzYmqGHG7TFbjUfo02FaCOe5GwnxVN
+	 lcTiNR3Svu27U90f6ywCUmfxMXb73KArXdPGU3/n58P792MCwmYPlDwxvxWg+lxv1MYep
+	 AmKi/J18qLIqfPEwsJBGFgeQHmm1jbnch14OiFObw1RR11trbUDxrPAHQHc7xG/cY1eTh
+	 Z832u3M719Eq4I9CmYtLpRZapVqxoxaNDq56WWMgSz/NCEGBn4HObU3ZDesCRTlVzvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mediatek.com;
-	spf=pass smtp.mailfrom=mediatek.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=I5Ym7PCJ;
-	arc=none smtp.remote-ip=60.244.123.138
-Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=lObC260V;
+	arc=none smtp.remote-ip=209.85.210.71
+Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com [209.85.210.71])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A70B56070A29;
-	Wed, 25 Nov 2026 06:16:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A70B56070A29
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C031D6070A3D
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 06:16:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C031D6070A3D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=I5Ym7PCJ
-X-UUID: bc5741f0e89711f1b1788b6acf885367-20261125
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=sBCW/1+hC6LenyMex4ykRMV0Vc6X6yOWotOMEDTxmWo=;
-	b=I5Ym7PCJsL5W15FtvnV+qiH81l0ajlelJ4kQln2338qJbtrGfIEtdsj05hfUGjpNldW9L+v8aot/XUucZCVF6b1GI/l9TrkN/xtVa29W7zdpxEVjDuGJcA49JMe2i0qojGTUE37sUFTE/CUSG1jtd6droqiWe2aPIKCnp0HddP8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:f6dc5887-dd05-4855-85e6-eaf2cebf0f76,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:b0318ac,CLOUDID:34bc081a-ae4c-4a2b-b1c4-72e411efd0c9,B
-	ulkID:nil,BulkQuantity:0,SF:102|136|836|865|888|898,TC:-5,Content:0|15|52|
-	99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: bc5741f0e89711f1b1788b6acf885367-20261125
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1211872711; Wed, 25 Nov 2026 14:16:22 +0800
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 25 Nov 2026 14:16:21 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.56 via Frontend Transport; Wed, 25 Nov 2026 14:16:20 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Bin Liu <bin.liu@mediatek.com>,
-	kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>, Hans Verkuil
-	<hverkuil@kernel.org>, irui wang <irui.wang@mediatek.com>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Kyrie Wu <kyrie.wu@mediatek.com>
-Subject: [PATCH v20 00/15] media: mediatek: jpeg: add MT8196 JPEG support
-Date: Wed, 25 Nov 2026 14:16:03 +0800
-Message-ID: <20261125061618.2544386-1-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=lObC260V
+Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-86313f7f4faso5751227a34.1
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 22:16:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795587388; x=1796192188; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MvZ1Apa0kG0tOQFjdr93l8HqQxxrkaONSQJCjsrGQW8=;
+        b=lObC260VDOtlnuZB1KhtZWdIUP92sQfYLLDXabX0TYfAAY5ncL4HH4H6c1zw0oFgez
+         Z2P22iOHneHuMpxCTw6J10yjqpH0OCdwJJTFZAvnFpmDFX1S/kreMPRkNK0LvfWV5Vi5
+         8I1nklX4C4oO+RXRJgESbg+PwPJKS23qdczCDjh6Rk8dJoTYN9ksJLnwpRNKhx5tVvau
+         UA4YypHAmhPLFs0qFP0H2tJbMoYPQ//+WnBKjBIB2xVCEa+aYFp4bsj46QAlNjMfEbgD
+         c3g1q/CWpIg3DrHKHyX9rgDvzmtDpKEqY8Ok+LKWExBuQammKQ3FMN09mZP51Tlg7e3e
+         wnJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795587388; x=1796192188;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MvZ1Apa0kG0tOQFjdr93l8HqQxxrkaONSQJCjsrGQW8=;
+        b=xuN1a7sT5oMqYCIB+iAp9R8StO4eQriJHjkwwV7Aqr/Mxij01G6eX6D4sEoow7wQjY
+         /7QFxlj6TOm6drf4kL/oUvGXjmra/D48xKcjb3V+MY0hV0EoLW9AVnp1vshh0aqCq+3r
+         enQ1vx+W2NLlvRcTl1V3vGS+oN9VsHvibTT98RvZfLpAHpPK8hjxrJMn2ZlERG/59X1Z
+         Cgnc1WyApcC4Pi5sBQbYhXb099C3NUTHfVzgbXJPDcfOnu9b4MaFC3l4Hhn8EoOMGsli
+         P0GWEePk5Vh6fT9bHwiroy1Oe6i9Dict3l8fdHnZbsg6yQeMS6YGsEMHOrXjspBpRYNv
+         1XjA==
+X-Gm-Message-State: APuU4Z+mw0m46EFnaGorLfsZ8YIIn2+QuQRchnGM63rynKWZbUHlhiIh
+	LIVbBaM/06XMY+dO1buQSV5HTKxs5fpoxXoEYIUY5ASUdT2zaDPqGbGil6bkiFgnz98tvMI5KLt
+	HxTm5hW7po0AZek6vMarrpQO+U1X4KNGrkFNUNzID2t7iX/58EXwbWm0Hf8zAYIMzQlhAR7Cuap
+	K4orEOUgoMG7PLQRG/G4wkDsoWLU3t1d6z886Iw14eIqZIrh1ODQ==
+X-Received: from jafo16-n1.prod.google.com ([2002:a05:6639:310:10b0:620:c289:80b])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:50a7:b0:571:846e:6f06
+ with SMTP id 5614622812f47-57a0a60f070mr19095260b6e.21.1795587387382; Tue, 24
+ Nov 2026 22:16:27 -0800 (PST)
+Date: Tue, 24 Nov 2026 22:15:08 -0800
+In-Reply-To: <20261125061523.1540234-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,194 +77,328 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+References: <20261125061523.1540234-1-irogers@google.com>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+Message-ID: <20261125061523.1540234-16-irogers@google.com>
+Subject: [RFC PATCH v2 15/30] arm64: Add DWARF CFI annotations to entry,
+ ftrace, EFI, BPF, and KASAN
+From: Ian Rogers <irogers@google.com>
+To: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linux-arch@vger.kernel.org
+Cc: jpoimboe@kernel.org, rostedt@goodmis.org, peterz@infradead.org, 
+	mingo@redhat.com, tglx@kernel.org, bp@alien8.de, dave.hansen@linux.intel.com, 
+	x86@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, pjw@kernel.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	linux-riscv@lists.infradead.org, acme@kernel.org, namhyung@kernel.org, 
+	linux-perf-users@vger.kernel.org, mhiramat@kernel.org, ast@kernel.org, 
+	daniel@iogearbox.net, andrii@kernel.org, bpf@vger.kernel.org, 
+	nathan@kernel.org, llvm@lists.linux.dev, nsc@kernel.org, 
+	linux-kbuild@vger.kernel.org, ojeda@kernel.org, 
+	rust-for-linux@vger.kernel.org, ardb@kernel.org, linux-efi@vger.kernel.org, 
+	maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, shuah@kernel.org, 
+	linux-kselftest@vger.kernel.org, indu.bhagat@oracle.com, jremus@linux.ibm.com, 
+	wnliu@google.com, dylanbhatch@google.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-MTK: N
 
-From: Kyrie Wu (吴晗) <kyrie.wu@mediatek.com>
+Annotate arm64 hand-written assembly helpers with .cfi_* directives
+under CONFIG_UNWINDER_DWARF_CFI so runtime .eh_frame unwinding traverses
+call_on_irq_stack(), __efi_rt_asm_wrapper(), return_to_handler() (and
+exports ftrace_caller_end), __hwasan_tag_mismatch(), and
+arch_bpf_timed_may_goto(), and allow bpf_jit_supports_exceptions() when
+CONFIG_UNWINDER_DWARF_CFI is enabled.
 
-This series fixes multi-core JPEG buffer handling, resolution changes,
-streaming stop and clock management, and adds MT8196 JPEG decoder and
-encoder support. The MT8196 support includes compatible strings and
-SMMU stream-ID configuration through the shared JPEG syscon.
-
-Review scope and tags in v20:
-In v19, I folded the SMMU property changes already present in v18 patch 12
-into the previously reviewed compatible patches, v19 patches 10 and 11.
-I also removed the Reviewed-by tags from Krzysztof Kozlowski and
-AngeloGioacchino Del Regno. The word "agreed" in the v19 cover was
-incorrect: it did not reflect reviewer consent to that scope/tag change.
-
-This revision separates those scopes:
-- v19 patch 10 becomes v20 patch 10 (decoder compatibles only) and
-  v20 patch 11 (decoder SMMU phandle and its conditional requirement).
-- v19 patch 11 becomes v20 patch 12 (encoder compatibles only) and
-  v20 patch 13 (encoder SMMU phandle, conditional requirement and both
-  parent/child iommus stream-ID descriptions).
-
-The diffs and commit descriptions of v20 patches 10 and 12 match the
-reviewed v18 compatible-only patches exactly. Their Krzysztof Kozlowski
-and AngeloGioacchino Del Regno Reviewed-by tags are restored only for
-that unchanged scope. Those tags are not carried onto the SMMU changes.
-
-Patch 9 uses the common mfd/syscon.yaml binding, per Rob Herring's review,
-in place of the standalone JPEG SMMU schema.
-Patches 9, 11 and 13 carry only the existing Signed-off-by and require
-fresh DT review. All other Reviewed-by tags present in the published
-v19 patches are retained. Patch 5 additionally carries
-AngeloGioacchino Del Regno's new public Reviewed-by after review of the
-multi-core power-management change.
-
-Historical testing reported for v18 (not rerun for v19 or v20):
-The v18 series was tested on MT8196 with tast. JPEG encoding and
-decoding worked.
-
-Patches 1-8 contain JPEG driver fixes.
-Patch 9 adds the MT8196 JPEG SMMU compatible to the common syscon binding.
-Patches 10 and 12 contain the reviewed decoder and encoder compatibles.
-Patches 11 and 13 contain decoder and encoder SMMU properties.
-Patch 14 adds the driver compatible strings for MT8196.
-Patch 15 adds jpeg smmu sid setting.
+Signed-off-by: Ian Rogers <irogers@google.com>
 ---
-Changes in v20 (relative to v19):
---Rebased on mainline 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc.
---Bound the dynamic core count in the existing multi-core branch before
-  assigning max_hw_count, preserving the existing probe structure.
---Correct patch 5's dispatch-versus-hardware-completion description;
-  add AngeloGioacchino Del Regno's public Reviewed-by. No PM code change.
---Correct patch 6's description: restart the done-queue scan after each
-  expected frame and release consecutive completed frames in order.
---Use the common syscon binding for the MT8196 JPEG SMMU compatible,
-  remove the standalone schema and its MAINTAINERS file entry, and keep
-  the existing JPEG media-binding coverage.
---Split the decoder and encoder binding changes into the reviewed
-  compatible-only scopes and independent SMMU property patches, with
-  the exact review-tag ownership described above. The series has 15 patches.
+ arch/arm64/kernel/efi-rt-wrapper.S  | 22 ++++++++++++++++++
+ arch/arm64/kernel/entry-ftrace.S    | 35 ++++++++++++++++++++++++++++-
+ arch/arm64/kernel/entry.S           | 22 ++++++++++++++++++
+ arch/arm64/lib/kasan_sw_tags.S      | 16 +++++++++++++
+ arch/arm64/net/bpf_jit_comp.c       |  9 ++++----
+ arch/arm64/net/bpf_timed_may_goto.S | 19 ++++++++++++++++
+ 6 files changed, 118 insertions(+), 5 deletions(-)
 
-Changes in v19 (relative to v18; patch numbers below refer to v19):
---Rebased on mainline 23c62304dde29abe92013d85910d03a77dada35d.
---Initialize hw_rdy before populating children to preserve probe counts.
---Drain ready queues before waiting for in-flight buffers at STREAMOFF.
---Reject component suspend with -EBUSY while hardware is active; restore
-  M2M scheduling on failure and use pm_ptr() for component PM operations.
---Publish decoder completion metadata before arming the timeout.
---Keep queue-format updates under CAPTURE STREAMOFF locking and check
-  SOURCE_CHANGE state before comparing resolutions.
---Unlink prepared buffers before arming timeout or starting hardware.
---Introduce the shared SMMU schema before complete MT8196 decoder and
-  encoder bindings, including their required smmu-config phandles.
---Clarify MT8196 SMMU stream IDs in encoder iommus descriptions and use
-  the soc binding prefix for the shared SMMU schema patch.
---Complete SMMU initialization before allocating a child index and
-  publishing child pointers, preserving parent state on probe failure.
---Update descriptions. v19 removed Reviewed-by tags from the changed
-  code patches 7, 8 and 13 and from the combined binding patches 10 and
-  11. The handling of the binding scope and tags is corrected in v20.
-
-Changes in v18 (relative to v17):
---Keep suspend/resume callbacks and clock ownership on multi-hw component
-  devices. Leave single-hw callbacks on the master, and wait for the active
-  job before disabling component clocks.
---Add a standalone DT binding patch for mediatek,smmu-config and the
-  dedicated MT8196 JPEG SMMU configuration syscon at 0x38d0000.
-
-Changes in v17 (relative to v16):
---Rebased on top of the latest media tree
-
-Changes in v16 (relative to v15):
---Set max_hw_count from the DT child count and update hw_rdy from child hardware probes in patch 1.
---Fix patch 2 commit message wording per review.
---Rework patch 6 commit message per review.
---Remove redundant devm_clk_bulk_get() calls in patch 5 per review comments.
---Use %pe to print smmu_regmap error pointer in patch 12 to fix media-ci/static warnings.
-
-Changes in v15 (relative to v14):
---Rebased on top of the latest media tree
-
-Changes in v14 (relative to v13):
---Rebased on top of the latest media tree
-
-Changes in v13 (relative to v12):
---Rebased on top of the latest media tree
---fix kernel rebot build warnings in patch 5
-
-Changes in v12 (relative to v11):
---Rebased on top of the latest media tree
---Some modifications for patch v11's review comments.
---add reviewer to commit messages
-
-Changes in v11 (relative to v10):
---Rebased on top of the latest media tree
---add reviewer to commit messages
-
-Changes in v10 (relative to v9):
---Rebased on top of the latest media tree
-
-Changes in v9 (relative to v8):
---Rebased on top of the latest media tree
-
-Changes in v8 (relative to v7):
---Rebased on top of the latest media tree
-
-Changes in v7 (relative to v6):
---Rebased on top of the latest media tree
-
-Changes in v6 (relative to v5):
---reorder the patches set.
---fix commit message of patch 1-8.
-
-Changes in v5 (relative to v4):
---fix kernel robot build errors for patch 4.
---add reviewer for patch 1 and patch 2.
-
-Changes in v4 (relative to v3):
---change patch subject of jpeg encoder and decoder compatible.
-
-Changes in v3 (relative to v2):
---refactor smmu sid setting function interface
---Some modifications for patch v2's review comments.
-
-Changes in v2 (relative to v1):
---refine jpeg dt-bindings for MT8196
---optimize software code to manage jpeg HW count
---refactor smmu sid setting function interface
---Some modifications for patch v1's review comments.
-
-Kyrie Wu (15):
-  media: mediatek: jpeg: fix jpeg cores' amounts setting
-  media: mediatek: jpeg: fix jpeg buffer payload size setting
-  media: mediatek: jpeg: fix buffer structure size and layout
-  media: mediatek: jpeg: Fix buffer completion on multi-core streaming
-    stop
-  media: mediatek: jpeg: Fix multi-core clk suspend and resume setting
-  media: mediatek: jpeg: fix buffer state update timing
-  media: mediatek: jpeg: fix resolution change event handling in decoder
-  media: mediatek: jpeg: fix remove buffer removal timing for multi-core
-  dt-bindings: mfd: syscon: Add MT8196 JPEG SMMU compatible
-  media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgdec
-    compatible
-  dt-bindings: media: mediatek,jpeg: Add MT8196 decoder SMMU
-    configuration
-  media: dt-bindings: mediatek,jpeg: Add mediatek, mt8196-jpgenc
-    compatible
-  dt-bindings: media: mediatek,jpeg: Add MT8196 encoder SMMU
-    configuration
-  media: mediatek: jpeg: add jpeg compatible
-  media: mediatek: jpeg: add jpeg smmu sid setting
-
- .../media/mediatek,mt8195-jpegdec.yaml        |  24 ++-
- .../media/mediatek,mt8195-jpegenc.yaml        |  39 +++-
- .../devicetree/bindings/mfd/syscon.yaml       |   1 +
- MAINTAINERS                                   |   1 +
- .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 169 +++++++++++++-----
- .../platform/mediatek/jpeg/mtk_jpeg_core.h    |  19 +-
- .../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c  |  96 +++++++++-
- .../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c  |  94 +++++++++-
- 8 files changed, 377 insertions(+), 66 deletions(-)
-
-
-base-commit: 8d7fe9885c62fc9a95bf55d9db244d9672a8aadc
+diff --git a/arch/arm64/kernel/efi-rt-wrapper.S b/arch/arm64/kernel/efi-rt-wrapper.S
+index e8ae803662cf..4ddfa5362e4f 100644
+--- a/arch/arm64/kernel/efi-rt-wrapper.S
++++ b/arch/arm64/kernel/efi-rt-wrapper.S
+@@ -7,8 +7,19 @@
+ #include <asm/assembler.h>
+ 
+ SYM_FUNC_START(__efi_rt_asm_wrapper)
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_startproc
++#endif
+ 	stp	x29, x30, [sp, #-112]!
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_offset 112
++	.cfi_offset 29, -112
++	.cfi_offset 30, -104
++#endif
+ 	mov	x29, sp
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_register 29
++#endif
+ 
+ 	/*
+ 	 * Register x18 is designated as the 'platform' register by the AAPCS,
+@@ -48,11 +59,19 @@ SYM_FUNC_START(__efi_rt_asm_wrapper)
+ 
+ 	mov	x16, sp
+ 	mov	sp, x29
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_register 31
++#endif
+ 	str	xzr, [x16, #8]			// clear recorded task SP value
+ 
+ 	ldp	x1, x2, [sp, #16]
+ 	cmp	x2, x18
+ 	ldp	x29, x30, [sp], #112
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_offset 0
++	.cfi_restore 29
++	.cfi_restore 30
++#endif
+ 	b.ne	0f
+ 	ret
+ 0:
+@@ -69,6 +88,9 @@ SYM_FUNC_START(__efi_rt_asm_wrapper)
+ #endif
+ 
+ 	b	efi_handle_corrupted_x18	// tail call
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_endproc
++#endif
+ SYM_FUNC_END(__efi_rt_asm_wrapper)
+ 
+ SYM_CODE_START(__efi_rt_asm_recover)
+diff --git a/arch/arm64/kernel/entry-ftrace.S b/arch/arm64/kernel/entry-ftrace.S
+index 025140caafe7..d112a29fd1a7 100644
+--- a/arch/arm64/kernel/entry-ftrace.S
++++ b/arch/arm64/kernel/entry-ftrace.S
+@@ -167,6 +167,7 @@ SYM_INNER_LABEL(ftrace_caller_direct, SYM_L_LOCAL)
+ 	 */
+ 	br	x17
+ #endif /* CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS */
++SYM_INNER_LABEL(ftrace_caller_end, SYM_L_GLOBAL)
+ SYM_CODE_END(ftrace_caller)
+ 
+ #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+@@ -327,10 +328,23 @@ SYM_FUNC_END(ftrace_stub_graph)
+  *
+  * Run ftrace_return_to_handler() before going back to parent.
+  * @fp is checked against the value passed by ftrace_graph_caller().
++ *
++ * Under CONFIG_UNWINDER_DWARF_CFI, FREGS_PC is seeded with &return_to_handler
++ * before calling ftrace_return_to_handler(), which then overwrites FREGS_PC
++ * with the restored caller PC prior to invoking return callbacks. Tracking the
++ * return address at FREGS_PC allows kunwind_next_cfi() to unwind cleanly from
++ * inside ftrace_return_to_handler(), graph return callbacks, and interrupts.
+  */
+ SYM_CODE_START(return_to_handler)
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_startproc
++	.cfi_def_cfa sp, 0
++#endif
+ 	/* Make room for ftrace_regs */
+ 	sub	sp, sp, #FREGS_SIZE
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_offset FREGS_SIZE
++#endif
+ 
+ 	/* Save return value regs */
+ 	stp	x0, x1, [sp, #FREGS_X0]
+@@ -338,12 +352,24 @@ SYM_CODE_START(return_to_handler)
+ 	stp	x4, x5, [sp, #FREGS_X4]
+ 	stp	x6, x7, [sp, #FREGS_X6]
+ 
+-	/* Save the callsite's FP */
++	/* Save the callsite's FP and clear unused LR slot in ftrace_regs */
+ 	str	x29, [sp, #FREGS_FP]
++	str	xzr, [sp, #FREGS_LR]
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_offset x29, FREGS_FP - FREGS_SIZE
++	adr	x9, return_to_handler
++	add	x10, sp, #FREGS_SIZE
++	str	x10, [sp, #FREGS_SP]
++	str	x9, [sp, #FREGS_PC]
++	.cfi_offset x30, FREGS_PC - FREGS_SIZE
++#endif
+ 
+ 	mov	x0, sp
+ 	bl	ftrace_return_to_handler	// addr = ftrace_return_to_hander(fregs);
+ 	mov	x30, x0				// restore the original return address
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_same_value x30
++#endif
+ 
+ 	/* Restore return value regs */
+ 	ldp	x0, x1, [sp, #FREGS_X0]
+@@ -351,7 +377,14 @@ SYM_CODE_START(return_to_handler)
+ 	ldp	x4, x5, [sp, #FREGS_X4]
+ 	ldp	x6, x7, [sp, #FREGS_X6]
+ 	add	sp, sp, #FREGS_SIZE
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_offset 0
++	.cfi_restore x29
++#endif
+ 
+ 	ret
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_endproc
++#endif
+ SYM_CODE_END(return_to_handler)
+ #endif /* CONFIG_FUNCTION_GRAPH_TRACER */
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index 8d17f61d1b5b..15a591996307 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -882,6 +882,9 @@ NOKPROBE(ret_from_fork)
+  * Calls func(regs) using this CPU's irq stack and shadow irq stack.
+  */
+ SYM_FUNC_START(call_on_irq_stack)
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_startproc
++#endif
+ 	save_and_disable_daif x9
+ #ifdef CONFIG_SHADOW_CALL_STACK
+ 	get_current_task x16
+@@ -891,7 +894,15 @@ SYM_FUNC_START(call_on_irq_stack)
+ 
+ 	/* Create a frame record to save our LR and SP (implicit in FP) */
+ 	stp	x29, x30, [sp, #-16]!
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_offset 16
++	.cfi_offset 29, -16
++	.cfi_offset 30, -8
++#endif
+ 	mov	x29, sp
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_register 29
++#endif
+ 
+ 	ldr_this_cpu x16, irq_stack_ptr, x17
+ 
+@@ -906,10 +917,21 @@ SYM_FUNC_START(call_on_irq_stack)
+ 	 * record.
+ 	 */
+ 	mov	sp, x29
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_register 31
++#endif
+ 	ldp	x29, x30, [sp], #16
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_offset 0
++	.cfi_restore 29
++	.cfi_restore 30
++#endif
+ 	scs_load_current
+ 	restore_irq x9
+ 	ret
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_endproc
++#endif
+ SYM_FUNC_END(call_on_irq_stack)
+ NOKPROBE(call_on_irq_stack)
+ 
+diff --git a/arch/arm64/lib/kasan_sw_tags.S b/arch/arm64/lib/kasan_sw_tags.S
+index 20784ce75def..7959b5f3c6b0 100644
+--- a/arch/arm64/lib/kasan_sw_tags.S
++++ b/arch/arm64/lib/kasan_sw_tags.S
+@@ -38,6 +38,12 @@
+  * incremented by 256 prior to return).
+  */
+ SYM_CODE_START(__hwasan_tag_mismatch)
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_startproc
++	.cfi_def_cfa_offset 256
++	.cfi_offset x29, -24
++	.cfi_offset x30, -16
++#endif
+ 	bti	c
+ 	add	x29, sp, #232
+ 	stp	x2, x3, [sp, #8 * 2]
+@@ -66,9 +72,19 @@ SYM_CODE_START(__hwasan_tag_mismatch)
+ 	ldr	x18, [sp, #8 * 18]
+ #endif
+ 	ldp	x29, x30, [sp, #8 * 29]
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_restore x29
++	.cfi_restore x30
++#endif
+ 
+ 	/* remove the structure from the stack */
+ 	add	sp, sp, #256
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_offset 0
++#endif
+ 	ret
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_endproc
++#endif
+ SYM_CODE_END(__hwasan_tag_mismatch)
+ EXPORT_SYMBOL(__hwasan_tag_mismatch)
+diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
+index 33632fb20997..ee1436295046 100644
+--- a/arch/arm64/net/bpf_jit_comp.c
++++ b/arch/arm64/net/bpf_jit_comp.c
+@@ -3489,10 +3489,11 @@ bool bpf_jit_supports_ptr_xchg(void)
+ 
+ bool bpf_jit_supports_exceptions(void)
+ {
+-	/* We unwind through both kernel frames starting from within bpf_throw
+-	 * call and BPF frames. Therefore we require FP unwinder to be enabled
+-	 * to walk kernel frames and reach BPF frames in the stack trace.
+-	 * ARM64 kernel is always compiled with CONFIG_FRAME_POINTER=y
++	/*
++	 * We unwind through both kernel frames starting from within bpf_throw
++	 * call and BPF frames. Both UNWINDER_FRAME_POINTER and
++	 * UNWINDER_DWARF_CFI preserve x29 across kernel frames and walk
++	 * JITed BPF frame records.
+ 	 */
+ 	return true;
+ }
+diff --git a/arch/arm64/net/bpf_timed_may_goto.S b/arch/arm64/net/bpf_timed_may_goto.S
+index f8732b13bb1e..6d0aa023c1f4 100644
+--- a/arch/arm64/net/bpf_timed_may_goto.S
++++ b/arch/arm64/net/bpf_timed_may_goto.S
+@@ -4,9 +4,20 @@
+ #include <linux/linkage.h>
+ 
+ SYM_FUNC_START(arch_bpf_timed_may_goto)
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_startproc
++#endif
+ 	/* Allocate stack space and emit frame record */
+ 	stp     x29, x30, [sp, #-96]!
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_offset 96
++	.cfi_offset 29, -96
++	.cfi_offset 30, -88
++#endif
+ 	mov     x29, sp
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa_register 29
++#endif
+ 
+ 	/* Save BPF registers R0 - R5 (x8, x0-x4)*/
+ 	stp	x8, x0, [sp, #16]
+@@ -35,6 +46,14 @@ SYM_FUNC_START(arch_bpf_timed_may_goto)
+ 
+ 	/* Restore FP and LR */
+ 	ldp     x29, x30, [sp], #96
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_def_cfa 31, 0
++	.cfi_restore 29
++	.cfi_restore 30
++#endif
+ 
+ 	ret
++#ifdef CONFIG_UNWINDER_DWARF_CFI
++	.cfi_endproc
++#endif
+ SYM_FUNC_END(arch_bpf_timed_may_goto)
 -- 
-2.51.0.windows.2
+2.56.1.831.g720f3f5937-goog
 
