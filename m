@@ -1,84 +1,140 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795633977;
-	b=EMThjwadiwB0sSGkd1NGZ8vAmVnDCPPzHdcTerfpQ6dv7KGAXsUFBkozVOOpxuF4HeKa
-	 0L4Czva0QM+WMFHWfOpDBDWJ9U+SF6xWXFpiACKoOnEzf0xCLeDca3YGil+qXDpstn3fJ
-	 y8g3MfhAVtKoE1CkUmlayCbnrBZcscu4g6kfX/O+ztIfoFdlAoZokrMnn0kNxgp3TzsLi
-	 6wbb1UcS9dHPX/jXLeH8kDJYHsflU8XwClhkiPhurBh89eKHsCfKjCz9LHWUO63QNLE8s
-	 VYFNmIVIku9pAjyDBkVbUyqcubD8l/Ww+WEEqNMJZbp+b6Q+dF/ybIBOcTXc0miEnzg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795633977;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
-	bh=YB4Gj/bwdtqKdimiyrXCpXIQgGLQ/u8w3QhowIhVaN4=;
-	b=VB11q81pmWgZdrPZIA+fQfQAMcNaj3iMqAAq2aZY2fEa3BeQm/6uZJor1G48HLzMUHld
-	 QiKN16h61XLpSQQIAYvuhR2ZkuHPTB741i+S80Cp3O2M3VvOlAZdDOA160mcLpX0PMYbG
-	 GmY5I3MmDTQpHmsSOL6aEUVGBEeR9Qj7k/rgx590TrJHrXZ1dBq6BUJzM38Fp56F5DSqy
-	 yhtMOejIKtkeh1szF4DL8XhRqk3X8f5XkXFtQmZLXM9zmHdLnGIT6TchkKQWWDBPIa6nn
-	 NHnPozcfLKEeZXLv5LuNf7fsSA/4jcTF2/Yygscxnw2ljqoAi0cBJ5OVaZXUtDSPKXg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eLYv0AW7;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.9
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795634003;
+	b=z+mpJjQPep3ZAQF9KN10Uf8wx2c3T5LvPyGo6QtEAuvmwGR/mZg/0R7vW5ffYlSmcP9J
+	 xk3niBsFuOG2g5vm/Y1d+1El9E1miJ+IJeTxgbFnFj5QxPTLclcTsbFwG0Q6Lophq854y
+	 jhYpQijRFTNp6JIS+cZyAvGmK2BY3hMF2b2TlT1gT4VWMaWIK+H6xy/tTy07xhcO8XV2e
+	 UgoNNIb5PMEvRsAoJYEiz0v7tRgCTu2+9fGn4bSGsdMtUSqSGAotiorYJEFkQWIOH02aP
+	 DxU+UDt/0KLcYlvSLxQkeiRU2YKCbXwL2VB9ajE1BLYjTU4BeJApsVmAI3X+wBbs9Yw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795634003;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
+	 Subject:To:CC:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=DeWxgzgS17wp/3SR3RVo7ZikDUpxskgwd79OHm/uajE=;
+	b=Fn+tzRP4ocLwFrC2jTIXLwSNFPuU9y13YoE/fH5tW4JZ3IKaO6aiN9ogCNmjaJpYeg1I
+	 POs0oq5QyI2/4nu1LWqWial5u5Iavubuq0a9GKF0AMWKWWivI+cVxX1Iwwa9TuDd6zpkU
+	 5kaf25j1q5n/kNCbS3Cl6YWfUPhK04iedUMzE+rCwAZ3AMDZodLUpErwY/BGKvXdVKLSq
+	 INLQiv1iPTzVEKm2L+aakyxQ8ZE5HpVfjMfHe8OkqcvOHTAT9b6t1RSSUniKlaKloXWHr
+	 fBGmrMLOgWB60dzrbVFotSKEF+9l01XygMYtxtx/DAyEpnsqmDjEDM94ZUxvNVm42pQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KxoHTK5U;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=IiMd0PLG;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.9
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC1B2606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:12:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC1B2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F737606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:13:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F737606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eLYv0AW7
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f0a0d1a1e5so18601305ad.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:12:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795633976; x=1796238776; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=YB4Gj/bwdtqKdimiyrXCpXIQgGLQ/u8w3QhowIhVaN4=;
-        b=eLYv0AW75oPkxDz7XIhHggBJrokrS2krA0nKG8wbqCscce9LdPSEboCOTk7g13G7FI
-         qXBVgqH4SjzCIodnE4eOn7zmayfvCnHhNlcAwo5hQwdEk3lPn850rvQTEuuFcWCZkpVc
-         hDZ/uBu2bf4HcMwKr1HxD8dxh9/EgppDnM9IwnexfsS30EKly3iMwSm6lALM1o0HsLJS
-         IbiQZ/tanUcljgdSPHjdzPcs4FEMpa43NPbCQKw3AKKZU2XtYjqBGAU/OpEk+FpGvzpj
-         aj90gm4ZCMw0mWuvcnQGjsNhJg9Hlrz1Gj3XAHkkP7ZcFCENcLF+Cys+XE9i2SES5bTJ
-         Q7gQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795633976; x=1796238776;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YB4Gj/bwdtqKdimiyrXCpXIQgGLQ/u8w3QhowIhVaN4=;
-        b=GduMbrqDZhuJTYLp3sIiKkqyglL1STeB9s1gtYwLPOo3kkEi+GmQP0Wy/j72BMYuYX
-         7NBTCbsUALvjxDb7aV1xAhfQuuwETSw/ka21XRImmAID2oZWF9air/ZtIeAZpMcttCGe
-         aol8Aw6rYn1v5Bw0Xr15N9oQNwok1D+sc11L0cBIbJCwyjNWtY7vr9dx7v4cim5zPkZs
-         o/BBj5U+rKZpB+YvBCS71meROTQN23SLNh0pWyS1CinEaCSbCByzL78uRVh4VFtx5Qh5
-         OBd2GAf98PM7IyWBQI8/NIv55mLa+rV6wIfgdQCuVhMI5W5xAbNa55fmnKsFpzEX3QzP
-         1/5A==
-X-Forwarded-Encrypted: i=1; AL+hErErzaMFP2CYaRfTNIZUMQAp2MM2ZASjU38D/aDC9SNrXAvyBJi6GVPufvZE72Xe0nS2l/L3q/IhbPtA3sg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9QbXcYxFXP2+NtlcLhP6vyqmYxlaYUHRYY1TnAYqOdVUlK5ogp
-	puc0ovdfTG/wlvE8eD0Foxfzk6is0muszi0uC5rPc0PXGpuvo4H4xAfC7PgIwHBFSQ==
-X-Gm-Gg: AZFdTZdbwBqD91NHtssUJWaON+R72Sa9UL1zUV4pauqBzheIAu3CiFwWWdd8eBkpAI+
-	eoJ1NJBcY2xO03gW24EOo3EhN/T8uzO4x8Bofa+w0zkxd9Lp27RqSHljds+g7zLrr+fEDlJUI1X
-	hFzVzzDdHOo6QWaqfuaSdfFHVBNp8/3BS9NDDxtvJ9x9YlC0zv6U6c2HXUq3VNXuy+FcTFU2BNY
-	th5h3CSpm9ef2BrHu14hQjMb3AJFB+p1cgpQLh8mE+1VkaQ7nXB28qz83u8E5KeM/jnJNX0I8gQ
-	PN8mFJI1Il8V0S5n/oCO6AcYOd5G08v00WjvaXDQ0GMabcyz6/Nbhb949GswollnWGnJffvJ1eT
-	dNyIwdI6gZtnoBwX6Hcqy7dGOs5BpamLOao6MxUlk6mzsUW85sn4700wU+KY3WnbRn96nCB3Eh+
-	v70QfLDi06gI6vFiA8z5T9Oftqy31+mLKgllvbqLcumMDoILQ6gub20+RZ9B1TCs0nbzYyYEPFL
-	C69M7WSqSGdjPHwmuXNKewTYPTrEuow1bU6IkwVAq+frtNz/R3spxhOUUVNA2SZ4fqLAgmX7n3i
-	Gra2IuEUyN/y0RCz9nsTYSVPZgLR+EFpcQQNHYyVw499g0wYoaTyuF+qBuitLFcP
-X-Received: by 2002:a17:903:2283:b0:2f0:7707:228e with SMTP id d9443c01a7336-2f077072aeamr126105065ad.32.1795633975347;
-        Wed, 25 Nov 2026 11:12:55 -0800 (PST)
-Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f0b5647b94sm39776055ad.14.2026.11.25.11.12.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 11:12:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KxoHTK5U;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=IiMd0PLG
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795634002; x=1827170002;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=hk7tFDSIU8SKVCgmTKinRS5QKOhkdgBWztF4gVBcCOc=;
+  b=KxoHTK5Ul5DmQfBLi5Nhdz60EEDr2v61RsBXzWSuybl6NpDSrEwLETll
+   n7EQlMD92Q6BbQPogf2ZjZxd3LgNYH4qTrQAGU8dKlFS04ah9AHEW+tJv
+   VONq1D374kKr8hd27t5qA/iHohH18+5Gtn5QEwceW9WPwlDeu6LK/zKlD
+   h2SC/+Mz0B69emqlbquCwOVT0cbkiBGg+cP/EqvElAVhnNireMbtLefDD
+   IhIR9E/00JsrLDmbTdtCANvMNBvnHAuOoHH+LV3BRTjErDZyjPmLIDpex
+   VvjZMBMPK/7DzBEwRSO8jlJ4BtD0jfiahP00V0MV1ynfAnAbjWn+V+jkj
+   g==;
+X-CSE-ConnectionGUID: dhAdhqi3TB+C4EQAxhNmVA==
+X-CSE-MsgGUID: YJ+8CNB4QKWTUN6CBJeG1A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4423977"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4423977"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 11:13:21 -0800
+X-CSE-ConnectionGUID: fmARh3NdTpuarbu12LndNw==
+X-CSE-MsgGUID: 1GO8jB/CQzS1u+21bOcsTg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="12269867"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 11:13:21 -0800
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Wed, 25 Nov 2026 11:13:21 -0800
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Wed, 25 Nov 2026 11:13:21 -0800
+Received: from CH4PR04CU002.outbound.protection.outlook.com (40.107.201.52) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Wed, 25 Nov 2026 11:13:20 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pWIKJgcPIodpoobYNV7m2lrtlfFHJZSSy6sPdoJ2kC37u/lodCw4nYly7+rhSsXl7MJSSEy3eMuFcNY8IaDxarJ7aA2qfrbQfvg5Y695noigC8qUjvC9sgZ8nGwfbGeeRVbjfpK66mBtKLCh5nDzrorqogs2/WSvBofiHIusMv91WhFjvRbjWsQm4Y24yYwP7csceVlRxf2GuMUmTBy+W4gxUYzzKmrpmOU4ietYhWv43xkl28ybMVWj0axXnNPgvpuYqEowM3RORsc6ijhAHlQfYn7R3llKmO0kRCCO0I3yaQD6rlDsRuSduE1YOfxRItkXfWRBMEO9WI8tRM2GOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DeWxgzgS17wp/3SR3RVo7ZikDUpxskgwd79OHm/uajE=;
+ b=AtazSjz61zkZSAsjnhKtoTuHllWMMBuF6ToVkEB6gKMjq0QGZavjon3DeJ5yAJHCDQS5w/HP2Iu25g67HeUCllnmILNXdBAOteGssNBWW/4dk06v+ptkCRQU5n0xf5PTaAW5jGBEcT4/lkZsv9QNMdmT//qaWtUqUdA9+mJivKZeIEQ2x+Dq4mLx5Upk/+899AcawQ8sCWocxXG7Bf1iqo2JqVU7qmAQ83zlZtFY9fv0eezUf2QtEy2fAgVPfS5QMOVqw/go+5B+SkhFk3H2U039mR34yaY0SY4AuR9vNLzuxEcUUV/ksUDXD9eErF/Zzg8japw+QQMJaZAiTdrbYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DeWxgzgS17wp/3SR3RVo7ZikDUpxskgwd79OHm/uajE=;
+ b=IiMd0PLGiLJc5a9OcBLcGh/g1tGoyED6qD7BRDjeTeqxWjPSK8AlWhsJJWjVqJ8fMNhpT3WG1VKHflVj2JioyObkV8y9N0jM3LknrcP1GKkO+hXE6Fy+R07yMEPmtea9gtN0HyOaKotDMARQcUGvj0ncnsH6mxwZcKeQ0bNymiY=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
+ by SJ0PR11MB5086.namprd11.prod.outlook.com (2603:10b6:a03:2d1::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 19:13:13 +0000
+Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
+ ([fe80::b6cf:ce77:3cdf:7cc%7]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 19:13:13 +0000
+Message-ID: <c3662607-96c8-456f-8ea4-9e13b2851f4e@intel.com>
+Date: Wed, 25 Nov 2026 11:13:11 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 12/12] x86/resctrl: Add MMIO-based LLC occupancy
+ monitoring support
+To: Chen Yu <yu.c.chen@intel.com>, <tony.luck@intel.com>
+CC: <tglx@kernel.org>, <bp@alien8.de>, <mingo@redhat.com>,
+	<dave.hansen@linux.intel.com>, <hpa@zytor.com>, <fenghuay@nvidia.com>,
+	<babu.moger@amd.com>, <hongyu.ning@intel.com>, <chen.yu@linux.dev>,
+	<x86@kernel.org>, <linux-kernel@vger.kernel.org>
+References: <cover.1793864720.git.yu.c.chen@intel.com>
+ <7bed6c8ff93d549d82c546010933d8e6c02aa44b.1793864720.git.yu.c.chen@intel.com>
+From: Reinette Chatre <reinette.chatre@intel.com>
+Content-Language: en-US
+In-Reply-To: <7bed6c8ff93d549d82c546010933d8e6c02aa44b.1793864720.git.yu.c.chen@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW3PR05CA0029.namprd05.prod.outlook.com
+ (2603:10b6:303:2b::34) To SJ2PR11MB8370.namprd11.prod.outlook.com
+ (2603:10b6:a03:540::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,137 +143,162 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 25 Nov 2026 11:12:53 -0800
-Message-Id: <DN4J4BQK3N90.2WVQBRV6SRNXF@google.com>
-Cc: "David Matlack" <dmatlack@google.com>, <kvm@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, "Sean Christopherson" <seanjc@google.com>,
- "Vipin Sharma" <vipinsh@google.com>
-Subject: Re: [PATCH v9] vfio: selftests: Find devices that have VFIO
- selftest drivers
-From: "David Matlack" <dmatlack@google.com>
-To: "Josh Hilke" <jrhilke@google.com>, "Alex Williamson" <alex@shazbot.org>
-X-Mailer: aerc 0.21.0
-References: <20261120012553.3745742-1-jrhilke@google.com>
-In-Reply-To: <20261120012553.3745742-1-jrhilke@google.com>
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|SJ0PR11MB5086:EE_
+X-MS-Office365-Filtering-Correlation-Id: 69002c16-1d89-4754-b6e4-08df4b2826da
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|10067099003|11063799006|4143699003|5023799004|56012099006|261022075727099003|261022105027099003|261021123027099003|261026140227099003|261028144727099003|261021121427099003|261026121527099003|261102123227099003|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: xOmzpseCg4dw2A17wNqbVqfL6fzaBe8Mw6kLiF1phsJ+vbFonfduL6P9jxhTLQ6nI5I8zx1yjmcWJzWmAuQAPg2Vh6rBTQkGD+UQvgf95UWtcDHW0qqZlVYMC1M6els1jKJUBQNqBYw4GqO75Sb2XpjOwa/KlWnbT94C9buTlSS6quwtcMkG0mI+xYi97QzAm0zuZKXzygOjgNTwcViaZQ46DmDSnzF7wGHSyXutbjpcxwxC9BH+4wsfOwPPagPtJdmaX9NxIODRk8Y+EvZy31xxIcdW951sXd1OdCQ57sEbmWsk0wBGxUpH3gLChVgW59uUohmdCkGQv+iST/+aauQUT5ZjKhTvczi1JwcV7DgKb2R+MSX6vH1xNoTyOxMrYCOWw04Z0ez1vpDBa5HdDfgyHEYPA126rOBpg73lcqyUjPA7M8xkAVuSxnLEjNN0GlQpIJGHiWNiFC1DLOF6dX5dD5Ar4Xg2UNQsS8wNAMDDdNGzO7T7a5NtHlfZRuQlH+lRNr0lb8hMHaecmregKqi4CAFk0vIxvmdhsxWqXgkNumC3Q2mrqUWXYh4Zam0eICcs0dKn4i2XGbMPpvVTcjS1BkZm7p3ToQGVa/NuWYs289Y5F5VnkrZ5qzznlmXs3OYVjt0l9mPl2oCOsn46xa1dmStvFldNmFn+CY1uy+Y=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(10067099003)(11063799006)(4143699003)(5023799004)(56012099006)(261022075727099003)(261022105027099003)(261021123027099003)(261026140227099003)(261028144727099003)(261021121427099003)(261026121527099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RFBRaXR2Q0pCUjRHdkZzT0VpN2NOL0kwMFFMQ2xUdHNCejJEaVJpUlVROUpC?=
+ =?utf-8?B?T1VjaXhKWWQwOEJRRmlubGp5WTVCZ2E0YjNPcXdENVlhL3JCM0dieUUyZEZ6?=
+ =?utf-8?B?dlBFR2l6U3JjTVJJRVZ4ZzM2NHJ6QTB6eFFkcVZncFVNSWlmMk5iTG51MlBy?=
+ =?utf-8?B?ZVFpalNIbXlxUjd4Q0pxYmo4VWlJSUFrdVFxQjllRlQ2STJRQkpoSG42T0g4?=
+ =?utf-8?B?NEt0NTVyQ0pOT1pxSG9ySmxPYVA4SjFobUFXcGdtQW13eUJkL0RZQ1l4VjlK?=
+ =?utf-8?B?bzB2NDFuTlhqUnA2YmlNMkRRWUJlY3V3QUE2VWM4Y0VpZ212Y3FQUFZ0eGRZ?=
+ =?utf-8?B?WkZkY3VCMHN3UFhNVVJZYVFiWFdBcjN2ZjZhNTN3M01qSTdrTVkwTWRwV1Rz?=
+ =?utf-8?B?cmdNQnhyeWRsN0pjU0hGdjZpNngyWFZQK2pMcFNxamJjMHFCNFNKQkkwb3lD?=
+ =?utf-8?B?OGxES2s5Y0lHUmtoK2RnUWtVWGF3b1I4eUEycFpOdXVQSUVRcEV6cjJzb1lp?=
+ =?utf-8?B?dnNLUXd5aS9XQ0gxMUdjNEYvNnR6M0h0RU5FSG9HckQ0T1laT1Q2UEx1QmRw?=
+ =?utf-8?B?dForZjA3Lzk2dFBmWEs4ak5SWWc1d2dTaVR3SHZRc05Qd2NhK3FPVzV6YjVH?=
+ =?utf-8?B?OStDNUVHQ3BGeVpiYStxU0pZdWN0T3FaRTBNL1MrTjBzKy9rL285bzN0MjY1?=
+ =?utf-8?B?R0srMkxxZXM4MEUzdlV3alRFeWVNUGUyZW1qZzBkb3JMR0xzQWJKc1o3aHBB?=
+ =?utf-8?B?cXN5Q3oyb1M1UGpHZ0hUa2ZpaUxRd0FPMExBOFdqa21pN29wK1BqNWNrSVAw?=
+ =?utf-8?B?cnF0SVV5VGdqcUc1NDZ6ZkRlM2QzaUN5VWJDSy9teUE2WnhZRWNYSlQ1WjE0?=
+ =?utf-8?B?QmJQYXZJSGJiZ1d5b2FhSFFGQTg5ZEpETW9Tam5RZHBubUhwMGcvZTd6ZFVB?=
+ =?utf-8?B?OFBlVVpTQkpLb1p6eVg2NUFtYUE4d3krZ1B4cDQrVUoxN2Q4ck5IMjJUTG8x?=
+ =?utf-8?B?VHd2bzZKZit2a29raWlsNUZLZEIvY0ZIMXhZMWV0d2xFS24zdm9uSFJITmxs?=
+ =?utf-8?B?UVNWNG5rMnRnSk5LclFqcWVGdjh4cmRDVFNteVNoVWRNcEFzWlY5bG9HT2dR?=
+ =?utf-8?B?SU82MHJCWU42K1FvcG95WXNwcFFSM3NaY0d4YW5hSGRuQXY2U0xJRVZXVE5k?=
+ =?utf-8?B?cE5PMEhPN3JzcHhJd0YzS3E1d0RoQ2RYUkRqWVgrNEtmeFFsWFpPa3lCMkwr?=
+ =?utf-8?B?Zk9CR09JMkN3bjJ3MzRSUGd2bXV5ZnhIcDEvdTRxQTdvM2FpQ3NkYnV4YXp6?=
+ =?utf-8?B?NEtnNGUzVHg4bEtmMDFtZXNUTnpVdzQvNnlsb1R3UlQvS3F2MDBWQitqYzlD?=
+ =?utf-8?B?c2JHVThkcFFlZjZtellNNU1LaithRFdaK2QxOWRQbHo1TE1reUxvZjBMcEh5?=
+ =?utf-8?B?NUZBc2UwcDBFWUozVVFYcEZBZ0l3WGY4TmVDajZwNWl6dElmb01oWGNpZCt2?=
+ =?utf-8?B?anVFQ3VWVWhuUExwYUtDSDdPZm1jUGoxaG5kdEVoam1OVVdNRmc5MGswYzJK?=
+ =?utf-8?B?WHFVSXJHOEJleUlQOU9nWVRsb3NLMUJRMUd2anR3MUhPTk4vREhFbnlvS3gx?=
+ =?utf-8?B?VzZ3Rm01ckNhSHVPU1NWL1FtSU9RdGgvUUx1NERQVk9DK1VVcHZ3c0l0WVdR?=
+ =?utf-8?B?ZXcrWmV2TERNaVIxanlwME9wNllMYkRIb3MyR3dlWWxHcklpZjJXczlSNldR?=
+ =?utf-8?B?Z3pDZTZZMFVTRms3OGZaOER5aGk4STl5dEdrWHFpSEdLY3lCdVFjbFRURTMr?=
+ =?utf-8?B?TFZzeHQ4Tm5mRVZiR1h0ajJ6MjdlQUdOeVhoaWNkWHdBOHBYS29od005RFly?=
+ =?utf-8?B?N3FMK2hLV0ZkRllQYWtYc0lrL0pGZS9nTFlBb0dXQlZaRjRTbzgycDFLWUxR?=
+ =?utf-8?B?V3AySTVVbDFsMjBJVCtSZXZBUGtSQlcxektNVURSVzFTWDFhUk9KUGhtL1BG?=
+ =?utf-8?B?ZUdldkhaWk1DUW11amRqRWFoVm9tTVBlejlMcExpOTAwa3RkbUwzWEQ2MTZQ?=
+ =?utf-8?B?Sm9sbEl4QlRsRTFsOTRJZit4UGZ4L0g4Nk44V2pHOU0wNnNUd3VxcVltQThO?=
+ =?utf-8?B?c3htemJPZ3R0cXdXM1hWcHh1OWNQTG50YTh3ckFwVXNHeENxTXRTVE5UbVRx?=
+ =?utf-8?B?cTlCbkt5M3ZFUm96M2dHTEg2emcxMFdzSnM5VHFPOVNXS2Z4dlBubndPUkNG?=
+ =?utf-8?B?aUlUcEJvSlY2YW14VjQ3enlDWTVENlJsYTVPa2RVTFcraUFveE5mYWZ3Ullm?=
+ =?utf-8?B?US9uRXlrTHllcFVLb2ttMU53WGVrMjduTXluR0NLbDZOMFVKL3FMNCtUanNT?=
+ =?utf-8?Q?/uzsFsa37IAdo/rg=3D?=
+X-Exchange-RoutingPolicyChecked: hsa1qN1UzTvvfNmyBoQypiuKRje3lOdeOSchdcDgH7Lm/7A0zdM6Cb3llnH2bFkc7BJEzGW9NuIJzL/scTdvpIgzF0tO5G/NEMuAve4VYtBrZK1Dq8HTE4ymyGdPHE/b+uVVtU8DA0E+b+WMwyhDyvAkdahZhT5WfxaVkPetwLBl1VWskuqCWFYYCufS3Es1SBojJhYQ8ZzBEpePsNS0gA++xktONg43R7Grr7dcEuh0E5jjiikFv0/jYNIzQyXYJnZdR+RouQsA02mK4uvYasb8b8EMYh8fYmzXAD9+UPD56p6Gow36Zc2rRClHE3EUNz2itguvon30J9fCG5vDYA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 69002c16-1d89-4754-b6e4-08df4b2826da
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 19:13:13.3831
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EENxcASEMyi7zkAuwJo9CWngibPDJc7bD/vTQhNjSCbzHXrp8s9Uy4nTtMEepRWN0paYS1o7VKSWqg4vfQuxdSi15xUr6/k9FTaZk6wcI04=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB5086
+X-OriginatorOrg: intel.com
 
-On Thu Nov 19, 2026 at 5:25 PM PST, Josh Hilke wrote:
-> Add -q to print only the PCI addresses of usable devices so the output
-> can go straight to setup.sh. Add -a for use with -q to include unusable
-> devices as well.
+Hi Chenyu,
 
-Feeding the output straight into setup.sh worries me a bit. -q prints
-every matching device, including ones the host is actively using, e.g.
-the ConnectX NIC carrying the host's network connection or the GPU
-driving the display. And once the NVMe driver lands, that could include
-the boot disk. setup.sh will happily unbind all of them.
+On 11/5/26 2:10 AM, Chen Yu wrote:
+> Add erdt_mon_read() to read LLC occupancy via MMIO and use it when the platform
+> supports ERDT. Fall back to the MSR-based path if ERDT is unavailable on this
+> platform. Mark the LLC occupancy event as readable from any CPU when it is read
+> via MMIO.
 
-I don't think list_supported_devices.sh should try to filter these out,
-but it should at least show the user what each device is currently bound
-to (see below). The real protection belongs in setup.sh, since that's
-the script that actually unbinds devices, regardless of how the user
-picked the BDF. Please add a patch before this one that makes setup.sh
-refuse to set up a device that is bound to a driver (other than
-vfio-pci) unless -f is passed, e.g.
+This is just a list of actions without any context or problem. Please
+see "Changelog" section of Documentation/process/maintainer-tip.rst
 
-  $ ./setup.sh 0000:00:04.0
-  0000:00:04.0 is bound to ioatdma, pass -f to unbind it.
+> 
+> When LLC occupancy is read via MMIO, limit the number of RMIDs to what every
+> ERDT domain supports. resctrl uses a single number of RMIDs for all monitoring
+> events, so this limit applies to the MSR-based MBM events as well. When LLC
+> occupancy is not read via MMIO, e.g. with rdt=!cmt or without CMRC, no event
+> is read via ERDT and the number of RMIDs is determined by CPUID alone.
+> 
+> Keep the per domain limbo handler even though the occupancy counters can now be
+> read from any CPU via MMIO. A single global handler would still have to check
+> the limbo RMIDs of every L3 domain, so it would do the same amount of work. The
+> only saving would be running one limbo worker instead of one per L3 domain,
+> which does not justify maintaining two limbo handler models.
+> 
+> Suggested-by: Reinette Chatre <reinette.chatre@intel.com>
+> Signed-off-by: Chen Yu <yu.c.chen@intel.com>
+> Tested-by: Hongyu Ning <hongyu.ning@linux.intel.com>
+> ---
 
-Devices that are unbound or already bound to vfio-pci should not
-require -f.
+...
 
-[...]
+> +
+> +static int erdt_read_l3_occupancy(const struct erdt_domain_info *d, u32 rmid, u64 *val)
+> +{
+> +	struct acpi_erdt_cmrc *cmrc;
+> +	u64 l3_cmt_count;
+> +	u32 offset;
+> +
+> +	cmrc = d->cmrc;
+> +	if (!cmrc)
+> +		return -EIO;
+> +
+> +	offset = cmrc_index_function_1(cmrc, rmid);
+> +	if (offset + sizeof(u64) > (u64)cmrc->cmt_reg_size * SZ_4K)
+> +		return -EINVAL;
 
-> +# Devices that have a driver in selftests/vfio/lib/drivers. NVIDIA GPUs =
-are
-> +# matched separately in is_nv_gpu() because nv_falcon_probe() matches on
-> +# vendor, PCI class, and PMC_BOOT_0 rather than PCI device ID.
-> +readonly DEVICES=3D(
+This looks like an out-of-bounds issue for which -EIO is more appropriate
+since it is translated to user space as "Error" instead of the
+"Unavailable" that -EINVAL produces?
 
-Please add a comment that this list must be kept in sync with the probe()
-routines in lib/drivers/, similar to what you did for
-print_nv_falcon_note(). Otherwise the next device ID added to e.g.
-mlx5.c is going to get missed here.
-
-> +# Devices in DEVICES that are also on the vfio-pci denylist. The denylis=
-t is
-> +# in vfio_pci_dev_in_denylist() in drivers/vfio/pci/vfio_pci.c.
-
-Same here, s/The denylist is in/Keep in sync with/.
-
-[...]
-
-> +function print_denylist_note() {
-> +	echo
-> +	echo "  To use denylisted devices, load vfio-pci with disable_denylist=
-=3D1"
-> +	echo "  (or boot the kernel with vfio_pci.disable_denylist=3D1)."
+> +
+> +	l3_cmt_count = readq(d->base[ERDT_MMIO_CMRC_BASE] + offset);
+> +	if ((cmrc->flags & CMRC_FLAG_UNAVAILABLE_BIT) &&
+> +	    (l3_cmt_count & CMRC_UNAVAILABLE_COUNTER))
+> +		return -EINVAL;
+> +
+> +	*val = l3_cmt_count * cmrc->up_scale;
+> +
+> +	return 0;
 > +}
-
-The script checks for "Y" when reading disable_denylist, so please use
-disable_denylist=3DY here too, to keep things consistent.
-
-[...]
-
-> +	while getopts "qa" opt; do
-> +		case "${opt}" in
-> +			q) quiet=3D"true" ;;
-> +			a) all=3D"true" ;;
-> +			\?) usage ;;
-> +		esac
-> +	done
-
-Please add a -h option to print the usage. Right now -h works by
-accident, but getopts prints a confusing "illegal option -- h" first.
--h should also exit 0, since asking for help isn't an error.
-
-[...]
-
-> +		IFS=3D',' read -r name driver <<< "${entry}"
-> +		line=3D"${bdf} - ${name} [${id}] - lib/drivers/${driver}/${driver}.c"
-
-Please also print the kernel driver the device is currently bound to (if
-any), so users can see at a glance which devices are in use by the host
-before handing them to setup.sh. e.g.
-
-  Supported:
-    0000:00:04.0 - Intel IOAT SKX [8086:2021] - lib/drivers/ioat/ioat.c (bo=
-und to ioatdma)
-    0000:00:04.1 - Intel IOAT SKX [8086:2021] - lib/drivers/ioat/ioat.c (bo=
-und to vfio-pci)
-    0000:00:04.2 - Intel IOAT SKX [8086:2021] - lib/drivers/ioat/ioat.c (un=
-bound)
-
-Please source lib.sh and use get_driver() for this rather than
-open-coding it, like the other scripts do.
-
-Note that "driver" is already used in this script to refer to the
-selftest driver, so you'll want a different name for the kernel driver
-variable.
-
-[...]
-
-> +	if [ -z "${printed}" ]; then
-> +		echo "No devices with a VFIO selftest driver found." >&2
-> +	fi
+> +
+> +int erdt_mon_read(struct rdt_domain_hdr *hdr, enum resctrl_event_id evtid, u32 rmid, u64 *val)
+> +{
+> +	struct rdt_hw_l3_mon_domain *hw_dom;
+> +	const struct erdt_domain_info *d;
+> +
+> +	hw_dom = resctrl_to_arch_mon_dom(container_of(hdr, struct rdt_l3_mon_domain, hdr));
+> +	d = hw_dom->d_info;
+> +	if (WARN_ON_ONCE(!d))
+> +		return -EIO;
+> +
+> +	if (evtid == QOS_L3_OCCUP_EVENT_ID)
+> +		return erdt_read_l3_occupancy(d, rmid, val);
+> +
+> +	return -EIO;
 > +}
+> +
+>  static void __iomem *erdt_ioremap(resource_size_t base, u32 num_pages, const char *desc)
+>  {
+>  	void __iomem *addr;
+> diff --git a/arch/x86/kernel/cpu/resctrl/internal.h b/arch/x86/kernel/cpu/resctrl/internal.h
+> index 87494316becb..4d5aff6ec1b5 100644
+> --- a/arch/x86/kernel/cpu/resctrl/internal.h
+> +++ b/arch/x86/kernel/cpu/resctrl/internal.h
+> @@ -155,7 +155,8 @@ struct msr_param {
+>   *			which has been corrected for features like CDP.
+>   * @msr_base:		Base MSR address for CBMs
+>   * @msr_update:		Function pointer to update QOS MSRs
+> - * @mon_scale:		cqm counter * mon_scale = occupancy in bytes
+> + * @mon_scale:		cqm counter * mon_scale = occupancy in bytes.
+> + *			Not used when LLC occupancy is read via ERDT.
 
-Please print this with -q as well, since the message goes to stderr
-anyway and won't get mixed in with the BDFs. Right now -q silently
-prints nothing, e.g. when vfio-pci isn't loaded, which leaves the user
-guessing.
+To be accurate this should be "Not used for LLC occupancy read via ERDT." since
+mon_scale is still in use for MBM when LLC occupany is read via ERDT.
 
-And in both cases the script should exit with a non-zero status when it
-doesn't find any devices, so callers can tell the difference. This
-should include the case where devices are found but none of them are
-usable (e.g. -q without -a when vfio-pci isn't loaded or the devices
-are all denylisted), since -q prints nothing in that case either.
-
-Lastly, please update Documentation/driver-api/vfio-selftests.rst. The
-"Picking a Device" section says it "will be expanded in the future to
-guide developers on how to find a device with a supported driver", which
-is exactly what this script does. Please describe the script there, and
-update the "Setting up Devices" section to cover the new -f option for
-setup.sh.
+Reinette
