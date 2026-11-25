@@ -1,100 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795647919;
-	b=wwI7Mo87boVfFp7+EcaIJnnU7RXmP6fgbr/bcdzj74RyRdixb/cJdN2vtrJo1ZdPnh1l
-	 T5DB2mdkES7IjTJoLyNc1lwU+VQwYrrr5VTC9NksIMtAXim5884IFo6Ge8lXk7dQVeJEl
-	 MySOtIkg2Xh4wx+ltbkFdXQEwRLXbwSBgHSEoND0l6rHLdviv4ga/SZVgeLURW1QAUdA0
-	 5J9SzFgqtooQST1v2sghNARSon0JpsomAuZn9j/FdQW9H21QOAk+OQEUpPJ4tZVEsHDlD
-	 LL05POxuk8PkjB0LAulOO2iw0S+P60cDSd4y8sfxvRkXE1qW1kXUpUazxl6IKoOrASA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795647919;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=CUsk4JOA/Gc1KFGSW+8tuCRNrI5ZcDI7rXD/0VX8tFY=;
-	b=fEaiW89JCsIpCZYm7qX/XkQPCRlLuEDnLkvYWznB3I2YHjMXhoilrs03mrKk02nQMhL3
-	 4w1dni6gVTBEO4YXaFXlGZzIaU1tjk8TCyKE+M5H46ur1DFkQHbtLdlIzg7jk/ZpFzpLR
-	 k9+CQ298tlU8b2vJ5Azudx1dgTEfQkEZBzv6B6tJecX3OdnvoK9ICc4ZTiUqX512wv60q
-	 QeZOmd+87vqm4DHzHHDhPdQNj02W7pX2x2Wl9dwPd2quAZwz4PQWhnYHzthfJ9G0u2r6C
-	 +ENBjaHQGATCFvkBftnG8mt9lnDRGz0poBGbC8q9fPgdMSCEdFyaT60JHcBo9kTGBVQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=student.oaklandcc.edu;
-	spf=pass smtp.mailfrom=student.oaklandcc.edu;
-	dkim=pass header.d=student.oaklandcc.edu header.i=@student.oaklandcc.edu header.a=rsa-sha256 header.s=google header.b=e7+Vs4DD;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.50
-Received: from mail-yx1-f50.google.com (mail-yx1-f50.google.com [74.125.224.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.22
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795647957;
+	b=RF32lPFHJyHulzQ4NhbVooRmsuqOuUFamTNkRqXgGCIFpB3N5/ge8hfCLv/rYFkSdcVs
+	 82cxfruJ4cYDllL2wv17OTf5M9lMj64Rh5F2cxvHCMpBeDwMOMu0At3XUVvExWmMhFEER
+	 GmqkygKruQnKh9qoOjGg6hF+iBfYoKF+jUnLfmV7/Y3RxOOEi5WDjtFx65BnjxU4dj+8m
+	 kNj5QXpaEbUKGB8ajDEdKHq6ftxBzC12t/C4Pg5tDTeJU6BunHULLichg2Yq3JgJBF+5K
+	 +/psYf7JHtr4ZNs6k1ZdXaSEn45moi5YXLULpTcF2Cy0UalwwbjCrCoEPkdbJOxCvhw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795647957;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=vyG+QP7aVJceCbCL6IsryBR6S53JsWgTGZFEzxwGdhQ=;
+	b=RZYXWwXYAnwf1z5otGzSmO+Z/kOsOI9/TBMAVH87oSusaigV9PSG2lcMGqO5BE1vdAaM
+	 H3SxlW+4qaIpRzAcOpXURtpV931neLz4dgYQ6T0RyDCTOQruxYriO4nBhwRjMmfTx3YKH
+	 M4l6oospACrxMk9r/P2GlZFfOjnnyptWhWdB9ilr9WxE4JWOE9UsqZSjTPs3JoqKIjRlK
+	 e6vhxJqs9mSXZCOOoDnXmU6LwBh9O5XRcB8DvZqhNwqqq6a0aYjASd2qyw2CFEzu8At3z
+	 sgdDhQKzP0tLZ53JiRljdwUXkexrmqUgxgAzYmaRShLJrxB7kXd8Prqp+oNjuCAdGrA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmx.com;
+	spf=pass smtp.mailfrom=gmx.com;
+	dkim=pass header.d=gmx.com header.i=quwenruo.btrfs@gmx.com header.a=rsa-sha256 header.s=s31663417 header.b=Nk5vWfee;
+	arc=none smtp.remote-ip=212.227.17.22
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.22])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFDA6606A31E
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:05:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DFDA6606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=student.oaklandcc.edu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=student.oaklandcc.edu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F291606A32E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:05:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F291606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=student.oaklandcc.edu header.i=@student.oaklandcc.edu header.a=rsa-sha256 header.s=google header.b=e7+Vs4DD
-Received: by mail-yx1-f50.google.com with SMTP id 956f58d0204a3-67db35e7953so6564685d50.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:05:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795647918; cv=none;
-        d=google.com; s=arc-20260327;
-        b=OY991Q36/Ri6dC83TndhX41Sq3zAz46MdykUvuB8RWsxj6pL6KzaDpNBuYBkG7G8P3
-         AXM6vf6slMAQ/45mumABSTixALAychzFTKE/SbYCyQngH0L/Oif++WcN+pB0z35+ukcA
-         wgDlKIwN/GAO/OzR+KHPSdru7Evh7mG7OFAHCJS3szHDJtRVA2EN8/RUh8B0DOFG/Hda
-         N0XbV2aYDh2bbM1EVJWvtkXc6WrZcAW0f+3f3fkXTvOALpJThP/hNfTtnVka9JEmhSLR
-         WBH6Bte+LBlQ938C3eHZ8k5tHU7AyZ+8WhpxSdvd9LELaH3BnJbbyB/KnzZIHv49yvdW
-         +6eA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=CUsk4JOA/Gc1KFGSW+8tuCRNrI5ZcDI7rXD/0VX8tFY=;
-        fh=k2hECnox4EElBKjO3Q8KC0beJCxBfUAauTcQcG5ZXeY=;
-        b=KBk/W9iM6b+Aw6NN9Lfp0wlW95P125NICaMUIEjIJIMbKBicpr3Hb6EnDPKsccuNmU
-         jWcQ/ygnvhv492oSu5qzWZxqiVLb84YgZgTGKRASYATO0DX9GNa2zGRjmhJbdebTJzYw
-         bXnKpU235graKoIk3m89pFEm5T7lQjwc3ofeAq/G26lTQ8Pl7faRml40xmX0iPg0SNVq
-         CD3sFgYtEZfSSvxqZQ1JJLMR1fA4sd1u7gySvxWvlUgt7rfviP50v9imUbUpsiWb2uiG
-         xhxPAm91btwDwvQilZzVukzMBsYP5QX0cXr1CG9HZYJVAPJV0RypPCqRxSyIExEIM9I4
-         mVrw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=student.oaklandcc.edu; s=google; t=1795647918; x=1796252718; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CUsk4JOA/Gc1KFGSW+8tuCRNrI5ZcDI7rXD/0VX8tFY=;
-        b=e7+Vs4DDJo1B2Q1iI2PWxZfCmS6brvA/bVQum+7hECoCGsqT0ia9Ukqc2CLFa/YIbZ
-         QjUnxOQCuekDq3cFSgGlcnJIpvXhZ+0QKIM7IEyjvevz99ijO9ZnFkkHKAMjjbE263Qz
-         T6c29MLxr9BGfpOwcsiy0YIErsjV5DYSthPz4xWgsHMnRVcr3RCQjCTNxj7RuB3FwLs2
-         8impjS9W5pffnie64PXtIMQAmm2N1fiSZ2bnPgsf17iaipVIzK0Gc4Owd4lJ/RSmKnVh
-         W5dXGU/DGXBTn0awUjPlDEizQ5PrUKZApRvixQkn9XvCK29jJU0KVg0zbeNNIPleP9+0
-         aG1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795647918; x=1796252718;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=CUsk4JOA/Gc1KFGSW+8tuCRNrI5ZcDI7rXD/0VX8tFY=;
-        b=bEueOpaCBinI3F52ipDZqAmKtFwcXQEg24nq2iBNCCjdxKCK77k86X8A0xerNmH1Or
-         U0Jlaat8V4L7z9nbRFlzSOfqeorHOJLe+VUQq4FdjMEZj/S5dvlFGz25ldRWBTVVWkEG
-         HUl4IMtEE4gR3xbW9cwlJV5gq/0D0XiOm3Ixhn797ox+mxgqMTRkpLW7obauE8DHZyVF
-         FDSGxdNDWdQROzlz3TPcEaUEVl94Onz+/LcKvgbkHTHdznps3YgzYQ0nNp2CBWO51YBQ
-         CPHqPKmb4c9RG6gcYYckmitsQMXFcR3fadUsxkzITL51ACeO+Mmu8jsZeGm4F3JEiSZo
-         JhXg==
-X-Forwarded-Encrypted: i=1; AL+hErEvbdhWzyJ6br1WnXsC026cREqeP4+Qb6CDC086ZQ/VR0V5rM8udkfPPRXyjedd9nJ+2gf1BvfQVsDIWFE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Q2CERymoCEkoCnP3dXZcs+4tSQ/PJzeE5MJ/d6C20XtPtkwGQ
-	uwyjb7iUQYWXYijrcT+HNCNhpwqo0M0aXrJ4BXuZ54rY6c6ktdRr44Mbv69+9162jEXp94gnGln
-	u3OaJGhqCxMGae2pkXboPlxf5ISGYntwKYi9JG3SxYg==
-X-Gm-Gg: AZFdTZeLuLlPB2d2OfCaXD6DAndzg0Bnjyffqw4IV98x/nCsWMiMTJcvAxn5K/ozWh3
-	N3BrtGlr13nJu++K3nj/okdJsgKf2GEoqv9RZOxHSeiTNZABt0ORRO5XBwPNPG7BpRRJBJlLJU1
-	aUEQjP209WLJVCguaVRA5vpvkCv2rMns9/sbjrw0rFvTCLAeQPzjjbAmO5lcxsXZ5cpzlnqO9P1
-	xRa5ZvcEhXndsQAkCvgKXdFpwNigYNirKJJ43/iHOOheKrbprrwdeWIGxAWv0Cnmo9RE/b1981m
-	gGWq9FukNPtd9AhWp9rtVwotJpXZTpAVAeJt3UEzfUEYScs2ODwQ2qrXahUqLMG8YYsTNCXEk99
-	0db70HbIE9MYqI/b/+EvWwsFvPd72s7JKzE5958OP2G94BZq9/Iiz5ORXetqIfbzSASq6Gs97HO
-	rdRXGNx6rsPS/jm5RgV31AkhEum3B3WwDtT9qqfyN484aQ+CdQg9ybaQ==
-X-Received: by 2002:a05:690e:bc7:b0:67d:bdf4:f432 with SMTP id
- 956f58d0204a3-67df42ccf49mr6310765d50.11.1795647917923; Wed, 25 Nov 2026
- 15:05:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmx.com header.i=quwenruo.btrfs@gmx.com header.a=rsa-sha256 header.s=s31663417 header.b=Nk5vWfee
+DKIM2-Signature:  i=1; m=1; t=1795647954;
+ mf=PHF1d2VucnVvLmJ0cmZzQGdteC5jb20+;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=gmx.com;
+ s=s31663417:rsa-sha256:ewPU5erQK1AeQmDz+ZNzGYkyffX5
+   FoT2TuncKfOdBGLiVSPK5zMbdhH4BAY4BRuUEt4AfBhsY27zpV03SG8R/diOiywwC7KEHdwTd8+
+   aeDTrYy+FDlHbX38ZySU5KrSMLKsBKEyG/K8Vg8rSroj/vyEiEDToZAVXvw1IajBQAdJmNamM1R
+   lrxtY5MjMMasjcFurWlKWN+QM52qOVYC2fopEkOTA8WrKSC8S4JVUvHufWpi5i4Z/BJlzCkWoVR
+   Ibp6Iy4khmcALvnAEfhsVrbKGit2+iOkJbfpZpY3pqniMQ8kSixC7nfbpG7OMqbhlus5FpmqMl6
+   APgqJdPt+KxCAA==;
+Message-Instance:  m=1;
+ h=sha256:
+   /P4WST+u9tbK2xNxONOcirDeZCil39khRVx6fxZEqzA=:
+   SGFsC0Cfl3xN49iQENFQE0/azrxjJdZ7Hiy9+T2fmyc=,
+  sha512:
+   GoIi8rRskVPAhzYq3tUmTHq+578k7LYEecxMgriF1oXIAu6H8oRJbJSzSYafvwCXKFo74YlWkOLD/a8Ys3khgQ==:
+   7JgAz5A3Fuv7d8UPwcFq4REdGtg/zU3XR6sb1egJQ+CruY/Fk8kl00ukWXEip9b4SU98zbwScyW2hOctKDZy+Q==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.com;
+	s=s31663417; t=1795647940; x=1796252740; i=quwenruo.btrfs@gmx.com;
+	bh=vyG+QP7aVJceCbCL6IsryBR6S53JsWgTGZFEzxwGdhQ=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=Nk5vWfee/tGL90H7RjATHuqHWWWT5PEgVIZ1NgilMvSuKP35lpKTuP2wdywOj2Bt
+	 g56Pk49AkweqvnkaLst1Fx0/Ql5u+Wc+jaIlQFppXgBbs8P8kLXJllHb+NROTbC87
+	 AEZkWyNiRwr5yLZT0iuMgezISwToBI+OyoiPdvb7M48wdkiMIxW/U5Q6EU2lp4Rye
+	 fqO3kKPwNz5hLw09Z9tfjfsc13oNd83QbP1BLq4KYLxZ5lw3p/6Vt/26crKZXBe4o
+	 SzpGj5ooRWswCipIJ/uHheVWaI15IilRu6MHrNzMZ8tZyOsv8s+IpSD5rq5DliUIp
+	 SoJaBIqDxwK7A27ezg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
+ [212.227.17.174]) with ESMTPSA (Nemesis) id 1MvsEx-1yLIeK3Ntn-010hqq; Thu, 26
+ Nov 2026 00:05:40 +0100
+Message-ID: <271c5680-958f-48d0-ba17-f07e8a41f262@gmx.com>
+Date: Thu, 26 Nov 2026 09:35:34 +1030
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,135 +81,216 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261124-kunit-v2-v2-0-e1adbcad6b48@student.oaklandcc.edu>
- <20261124-kunit-v2-v2-2-e1adbcad6b48@student.oaklandcc.edu> <a8ddf62a-071e-485b-883d-95088ef50ba4@davidgow.net>
-In-Reply-To: <a8ddf62a-071e-485b-883d-95088ef50ba4@davidgow.net>
-From: "Poulin, Louis" <poulin.louis@student.oaklandcc.edu>
-Date: Wed, 25 Nov 2026 18:05:05 -0500
-X-Gm-Features: Aa3M54pKK9wFagi79A7F5Aq1lIG5lvOo_v3I9SHXFaydZ24r_eqXrQ36m_To4fc
-Message-ID: <CAGQButtBSOMZCeRX1ks=AoO4QEQ-w1LaNX8KUVep0t=raohL9w@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] kunit: tool: Fail on out-of-sequence test numbers
-To: David Gow <david@davidgow.net>
-Cc: Brendan Higgins <brendan.higgins@linux.dev>, Rae Moar <raemoar63@gmail.com>, 
-	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] btrfs: tree-checker: verify tree_block_info bounds in
+ check_extent_item()
+To: Elkin Cruz <elkin@google.com>, David Sterba <dsterba@suse.com>
+Cc: Chris Mason <mason@kernel.org>, linux-btrfs@vger.kernel.org,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev, irogers@google.com,
+ stable@vger.kernel.org
+References: <20261125221849.1424464-1-elkin@google.com>
+Content-Language: en-US
+From: Qu Wenruo <quwenruo.btrfs@gmx.com>
+Autocrypt: addr=quwenruo.btrfs@gmx.com; keydata=
+ xsBNBFnVga8BCACyhFP3ExcTIuB73jDIBA/vSoYcTyysFQzPvez64TUSCv1SgXEByR7fju3o
+ 8RfaWuHCnkkea5luuTZMqfgTXrun2dqNVYDNOV6RIVrc4YuG20yhC1epnV55fJCThqij0MRL
+ 1NxPKXIlEdHvN0Kov3CtWA+R1iNN0RCeVun7rmOrrjBK573aWC5sgP7YsBOLK79H3tmUtz6b
+ 9Imuj0ZyEsa76Xg9PX9Hn2myKj1hfWGS+5og9Va4hrwQC8ipjXik6NKR5GDV+hOZkktU81G5
+ gkQtGB9jOAYRs86QG/b7PtIlbd3+pppT0gaS+wvwMs8cuNG+Pu6KO1oC4jgdseFLu7NpABEB
+ AAHNIlF1IFdlbnJ1byA8cXV3ZW5ydW8uYnRyZnNAZ214LmNvbT7CwJQEEwEIAD4CGwMFCwkI
+ BwIGFQgJCgsCBBYCAwECHgECF4AWIQQt33LlpaVbqJ2qQuHCPZHzoSX+qAUCat7o8gUJFKS8
+ OQAKCRDCPZHzoSX+qAogB/9C5ErH7KGAGpcLPte3Wcfdt3acCkGAuMpCjqOt8BVw30mX0kmF
+ SRo2nODjz8YsYhWR1T8L3ylANAS/IGIJ64idBmObaqGHQn845nXLIvG33LqMsAGXmOJdRgTT
+ BnBA+QFCEIZpo7L9Qt1dOQdHSpHT31Ta1kKsbDm582KPVBl6KRcJJBnjudIerOA1/L/zEyDa
+ YjIfHIcvuM3Xm8AS00iBpsmc151QgCPljqnSRXBiup9C1oMgVlaROhY1iDam4UIQB6glkHQs
+ LZhUmFDNimX5LxfOzi2pFJSjJvPclRZVX7Sq6XhK/OFb6IvswN7i0nUYZMQfuGDNqGn70ic3
+ AQImzsBNBFnVga8BCACqU+th4Esy/c8BnvliFAjAfpzhI1wH76FD1MJPmAhA3DnX5JDORcga
+ CbPEwhLj1xlwTgpeT+QfDmGJ5B5BlrrQFZVE1fChEjiJvyiSAO4yQPkrPVYTI7Xj34FnscPj
+ /IrRUUka68MlHxPtFnAHr25VIuOS41lmYKYNwPNLRz9Ik6DmeTG3WJO2BQRNvXA0pXrJH1fN
+ GSsRb+pKEKHKtL1803x71zQxCwLh+zLP1iXHVM5j8gX9zqupigQR/Cel2XPS44zWcDW8r7B0
+ q1eW4Jrv0x19p4P923voqn+joIAostyNTUjCeSrUdKth9jcdlam9X2DziA/DHDFfS5eq4fEv
+ ABEBAAHCwHwEGAEIACYCGwwWIQQt33LlpaVbqJ2qQuHCPZHzoSX+qAUCat7pCgUJFMw7KQAK
+ CRDCPZHzoSX+qEjbB/9crFFjips2NKxkt2XUutUIKjBoUlg/xCeFIj8PsTuJePhrV9HzgKsa
+ rJgSqo3t78oQWmeaP9WPoDYjfhOkQXEs+G9UwHe/LENm70+Q1jrwY3nlcR3YrkDCJ+EvMZOW
+ ackgcOYn46Iri9DN91FbSTszPMnwHi/nf0aeJXicO9krrY5C8mUxv4CSKeKSRg/5BR59uDiy
+ 9CMRHDtIDnpDWaLOXtUeowCdiC5O/jA571PMFx3Aolc7g4SSyNbYodblCBOdJrh0CVm2LlQW
+ 3SXrvFpSAw7LMVDgsS8pTRt4A11eTIS7mz0zqafTohXP1wt+575IBHK5ZpThQb+PzSQmxAqa
+In-Reply-To: <20261125221849.1424464-1-elkin@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:wylhbFNh9luowl9gkTJ0PFI3Eo3M3jaZo9XOytK1y7HL2r0aMar
+ 7BVw8NKgo68sLPw2PMFiOPgYG3wWZhEqRVePbZdYDq6pjsBPGrA6qxbENN42hSSYe5mp0R8
+ mH8jHT0MgmeKdNDQWJ4e/PPVDreoiAGHfy3J/UP1+ik0DT/o96Q6lfS2QyWEJ99Yf+OVEdG
+ +jfFRCgMIsaEsGH6+HBGw==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:G6s6J3dLnzg=;vgb1aM140e78KM8b6VJgZpDsEWk
+ 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
 
-On 25/11/2026 13:22, David Gow wrote:
-> Hmm... I distinctly recall there being a reason we didn't fail in this
-> case: I think it was due to some tests being triggered early, so having
-> two concatenated KTAP outputs in the kernel log at boot. That seems
-> fixed, though, so I don't have a fundamental objection to this.
 
-I had an opportunity to do some digging so I did. I do not have a real
-boot log holding two outputs; what I have is below.
 
-lore, messages where the error text appears in a log (links at the end):
+=E5=9C=A8 2026/11/26 08:48, Elkin Cruz =E5=86=99=E9=81=93:
+> check_extent_item() only verifies item_size >=3D sizeof(*ei) before
+> reading struct btrfs_tree_block_info on non-skinny tree block extent
+> items (BTRFS_EXTENT_ITEM_KEY with BTRFS_EXTENT_FLAG_TREE_BLOCK). A
+> crafted filesystem image with 24 <=3D item_size < 42 causes
+> btrfs_tree_block_level() to read past the item and potentially past the
+> extent buffer's populated folios.
+>=20
+> Verify item_size >=3D sizeof(*ei) + sizeof(*info) before accessing
+> btrfs_tree_block_info.
+>=20
+> Fixes: f82d1c7ca8ae ("btrfs: tree-checker: Add EXTENT_ITEM and METADATA_=
+ITEM check")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Elkin Cruz <elkin@google.com>
 
-  [1] 2022-02-11, Ricardo Ribalda: kunit.py run --arch=x86_64 with PCI,
-      USB4 and USB4_KUNIT_TEST enabled gives "plenty of" "[ERROR] Test
-      property-entry: Expected test number N but found N+1" (numbers as
-      he wrote them). He writes that with the previous patch reverted
-      "all works fine".
-  [2] 2022-11-01, Mauro Chehab: i915 mock selftests loaded twice, the
-      dmesg re-assembled by hand (the "TAP version" lines first) so
-      that kunit.py parse would read it. It printed "Expected test
-      number 2 but found 1", both suites [PASSED], "Ran 36 tests:
-      passed: 36, errors: 1".
-  [3] 2022-11-07, Daniel Latypov: two plain files standing in for
-      module output in debugfs (he could not get module tests to work
-      locally), read in one kunit.py parse run with a patch of his:
-      both suites [PASSED], "Expected test number 2 but found 1",
-      "Ran 2 tests: passed: 2, errors: 1". He writes that the top
-      level test counter resets between modules, "iirc".
-  [4] 2023-10-04, Michal Wajdeczko: kunit-test.ko, then
-      kunit-example-test.ko: "Expected test number 1 but found 7",
-      "Ran 12 tests: passed: 6, skipped: 6, errors: 1". His patch
-      resets the suite counter right before running tests.
-  [5] 2024-05-14, Stephen Boyd: kunit.py run --arch=s390 printed
-      "Expected test number 1 but found N" (N = 2..9) before each of
-      eight [PASSED] suites; the run ends with "The kernel seems to
-      have crashed". His message does not discuss those lines. I have
-      not reproduced them.
-  [6] 2025-10-23, Sander Vanheule: regmap tests printed "Expected test
-      number 7 but found 8" (up to "23 but found 24") on passing
-      parameterized cases, in a run with tens of thousands of log
-      lines from a dev_warn() his patch added. He proposed
-      dev_warn_once() instead and Mark Brown agreed. I do not know
-      the cause.
+The check overall looks good to me, but still a minor nitpick inliend belo=
+w.
 
-My runs: QEMU x86_64, KUnit built as modules, dmesg saved after
-kunit-example-test.ko loaded, parsed with v7.4-rc1 kunit.py without and
-with this series. The counter fix is 2e3c94aed51e ("kunit: Reset suite
-counter right before running tests"), in v6.7 and v6.6.13.
+> ---
+>=20
+> I am trying out new Clang static analysis checks for kernel bug
+> classes, and they flagged this code as possibly buggy. The findings
+> were triaged/fixed and commit descriptions were drafted with help of AI,
+> then checked against linux-next (not runtime-tested on hardware).
+>=20
+> Thanks,
+> Elkin
+>=20
+>   fs/btrfs/tree-checker.c | 7 +++++++
+>   1 file changed, 7 insertions(+)
+>=20
+> diff --git a/fs/btrfs/tree-checker.c b/fs/btrfs/tree-checker.c
+> index d2bf21c7b848..a38eeef7b859 100644
+> --- a/fs/btrfs/tree-checker.c
+> +++ b/fs/btrfs/tree-checker.c
+> @@ -1665,6 +1665,13 @@ static int check_extent_item(struct extent_buffer=
+ *leaf,
+>   	if (is_tree_block && key->type !=3D BTRFS_METADATA_ITEM_KEY) {
+>   		struct btrfs_tree_block_info *info;
+>  =20
+> +		if (unlikely(item_size < sizeof(*ei) + sizeof(*info))) {
 
-  v6.5      No top-level plan. Example alone ("ok 1") and after
-            kunit-test.ko ("ok 6"): exit 0 with one error ("missing
-            subtest result line"); the same with the series.
-  v6.6      After kunit-test.ko: "ok 6 example" under "1..1". Exit 0
-            with one error ("Expected test number 1 but found 6");
-            with the series, exit 1, failed 1, errors 1. Example
-            alone ("ok 1"): exit 0, no errors; the same with the
-            series.
-  v7.4-rc1  "ok 3 example" under "1..3", alone and after
-            kunit-test.ko: exit 0, no errors; the same with the
-            series.
+I won't call this easy to read, nor following the common pattern used late=
+r.
 
-Two outputs concatenated, built from the saved dmesg (v6.5 with one
-"KTAP version 1" line added in front, as in [2]):
+I'd prefer the more common (ptr + sizeof() > end) check instead.
 
-  v6.5      Exit 0 with "Expected test number 2 but found 1"; with
-            the series, exit 1, failed 1, errors 1.
-  v6.6 and  The first output is parsed and the second is not; exit 0,
-  v7.4-rc1  the same with the series.
+Thanks,
+Qu
 
-Synthetic: two top-level blocks ("KTAP version 1", "1..1", one suite)
-in one file, the second numbered 1, numbered 2, or "not ok". Both
-parsers print the first block and exit 0; the second block, including
-its "not ok", does not appear in either output.
+> +			extent_err(leaf, slot,
+> +				   "invalid item size, have %u expect [%zu, %u)",
+> +				   item_size, sizeof(*ei) + sizeof(*info),
+> +				   BTRFS_LEAF_DATA_SIZE(fs_info));
+> +			return -EUCLEAN;
+> +		}
+>   		info =3D (struct btrfs_tree_block_info *)ptr;
+>   		if (unlikely(btrfs_tree_block_level(leaf, info) >=3D BTRFS_MAX_LEVEL=
+)) {
+>   			extent_err(leaf, slot,
 
-> That being said, if anyone's using the KUnit KTAP parser for
-> non-KUnit-y things which would fall afoul of this, now's the time to
-> speak up!
-
-In the tree, kunit_parser is imported by kunit.py, kunit_json.py,
-kunit_junit.py and kunit_tool_test.py; I checked with grep and a GitHub
-code search of torvalds/linux (its one other hit, in
-tools/verification/rvgen, is an unrelated variable name). I have no
-information about out-of-tree users.
-
-> For the comments: I think they need to be more specific about what
-> we're doing (and targeted at people reading the code, not people
-> looking at the changes in the patch).
-
-In the v3 I have prepared (not sent), the comment reads "Mark the test
-as failed if it is not correctly numbered." The original comment stays
-in test_parse_late_test_plan(), whose input is now "ok 1 test1" before
-"1..4" (SUCCESS, errors=1).
-
-> Do you think it'd be sensible to consolidate a few of them into a
-> smaller number of more complicated examples. [...] it'd be great to
-> have the test inputs in separate files in tools/testing/kunit/
-> test_data/ as with most of the other tests.
-
-The seven inline tests are two tests that read
-test_data/test_wrong_test_numbers.log and
-test_data/test_wrong_suite_numbers.log. The first log has repeated,
-skipped and failed results with the wrong number; the second has a
-wrongly numbered suite, a wrongly numbered nested case and a wrongly
-numbered suite with a skipped case.
-
-> [...] I'm not sure we need to separately verify that this causes a
-> specific exit code given we're already testing that it gives tests
-> with TestStatus.FAILURE above [...]
-
-The CLI exit-code test is removed.
-
-Louis
-
-[1] https://lore.kernel.org/r/CANiDSCs7M_hSb2njr50_d3z=cx=N9gWHzVe-HkpCV1Au8yVwOw@mail.gmail.com
-[2] https://lore.kernel.org/r/20221101134334.59500e01@maurocar-mobl2
-[3] https://lore.kernel.org/r/CAGS_qxpZokOs5vEhiiTtD4_c0h79MabGm4dmQ=C%2Bt0qoZEc6iQ@mail.gmail.com
-[4] https://lore.kernel.org/r/20231004205700.1511-1-michal.wajdeczko@intel.com
-[5] https://lore.kernel.org/r/9be47cd74b62ba8e4a36f3139fc8d275.sboyd@kernel.org
-[6] https://lore.kernel.org/r/833a6495c2b16e1da90c19826839191eec21e6f2.camel@svanheule.net
