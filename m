@@ -1,99 +1,120 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.10
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795634695;
-	b=1NIRucbceB+pd+6En81/TqoHo8JSMQk2dVojvFNfURdpl7cE1Y/+d5u4KMwFAk6GHNvJ
-	 H0vjCHGa9kqdIFuf99SCVVXEe5yAuoMe6gYum+CkwUa3cSLST1Cv0cPPZ1kWHQJOYzcFy
-	 ZWdTNW3hnfB17/qQTaB1XikBYtoMUCnqFeHpFQlFErXun5XkBWDaqwm5JEpLjY4tljIAN
-	 XiiF0W+cMcCc/h5cWHS85C2q2WQJrcmUtqDt2aNYqCwxMRVNY2Z2UdSB/7KvjuxFwZSOw
-	 XFA2EKflOpnOIvXxbkFMSvhKXwczQbpk2dY/xgjKp/NRIgb59t6JL/lIMzwt86Fab6g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795634695;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=WxfTDPpCeEgx5MNJbmiIuYKi9PAi79g/f4dqs+EVUyQ=;
-	b=ArIKBGW4q/qremSUKLXW1qax25ZZ2BZszUBZ9AnIgo1KnlqYTFQpWXSoeP38X45RgCGR
-	 5/STL4ZN/nuTolAM9S5iDjQ6enMEn7AohCi0dZN1NAHOByVTH2X5we+P+SdNPX9scdCUz
-	 IhYR6a0TuAE5lpMy5T/YK0b8DPDAJZU7da4ujMC9V/EdyFNvE2LK4uKFdHzRtmStT8/LW
-	 StMxD0otBA4Of6819gvwAlIDFXjFYVRr0YmnOgGR5JLHPlhKXSNioyFEKggI3paH85lxC
-	 k6e6u2hiqow2BfJWEVxAwScedFa1sq4INC6mWPxgRarIopMmLBnwQFb1GyATuNlgADQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b="D8dWXzM/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.10
-Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11011010.outbound.protection.outlook.com [52.101.65.10])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795634737;
+	b=CNh/ED+eHyZG6fJGd/nwuxNbwfnsCIhgCWYmJJg8+Q75MSla0JfJsZUcOTt1Lq02/wzB
+	 tt4sTsn0xI/xFewU82EgsKbdyuSr2llp4Rhe1VuKlORSx9sF6vkvR+G4f82Qs+82keB6X
+	 WEzPYPV5yhdxCFTq5VhLd5baAhNDZIwyafB3/tiA3JIDxyT48IvCiRR4KlHjS63VcvnlE
+	 lp8jKKYC1vap/oTKscDGAdoGDNb6wPDT+4+ASCh6tvWRk2lzIcUNQAWPjP7DKCVK2BO7D
+	 OzYg9qmuiK3Q1zT+62wIRXEFSnjfpe4hmucBVPAXb98jJ1Ghhzb9iNPLUndZPzDRFmg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795634737;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=YY7KokTVNQdRG2xnhQVkzSDE4zg2oGNcCPRrRtBfFBA=;
+	b=JjVb5XVMI2XNhdycyztPgPVP315OfVxDCImUhcO6xsDTze83i06sevDfSLarw6E9VRXk
+	 fGMyN4PYY3VoA56FmkIv9MwX2IzFzsznLyqezqnOAJ6vjac8fvkBiQvymFw0HcHcjPLT6
+	 NqQMjxZ3IKrlNWd8KrtN1I7PB2vJMp3iDsbbd6i0RP0qZzLNdvGLwGAoggRft7Y0slzHu
+	 WM6GheMcUzp4ic9DTlaGQxBwkBTEehYozGAcT4fdzAcJMRXc3+IH+gnNuoy7n6uG0ROsu
+	 ru1ekieJha9Vd34PPZAq8ljA1G2kCvyGu1QahlJgrX+J1QhA/5cTNLn5Pm20ELxS8Xg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Leh8WXRt;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=i38nKeuC;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F38B606A69D;
-	Wed, 25 Nov 2026 19:24:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F38B606A69D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C78C2606A333
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:25:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C78C2606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=D8dWXzM/
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UzRhi4zolU+WK394R9a0npKxIXEejMrrxKtI/NrJrcxyNBPfsGa9LSU1hDByD3uQI19bmaG+ScGMD11cqQ0psY1T/hWkjHNHdaTHLXze75Fp9cRZRNlDsuTUAGehy9gdioRjZDjIJ5SL7BCbgRyMAEn4wR6uLlOBDMsMXghegaXzVkSSUQ2T7XHjMJygSrznELMXpGGuyAu54rbwG5HNFN8pQ8d5m29VdKtegV5V0D30bOhtd9lKhxUQsiGGpekungz+6ieWxNYa2IVLrpLYa6ozEM+9PeRsvTwE3U0ua37wwTwetj82Ya+uGLXOg94CaMRS64Z806Kfkw7VvPLyDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WxfTDPpCeEgx5MNJbmiIuYKi9PAi79g/f4dqs+EVUyQ=;
- b=tKQkbcQvKxSPkWfx1g3rz/HcAfXb7pzSt6Tm0GGz0qhVdSWW7m6JHJd/v281ulMkK/m2/JY4uIJ/DvP01XojXooVTqPK+opVYtzR0t/fFRtaLkTHbI3xNJ+OF+MBgKU1R9MkEh27ZR2h+6/VhtTvo4ERSnLX9CKm+8uOAWrEL5pzOvgVnGIl/PPQaQfis80skgQ5evJ6dNs7cjYT9RUSNLqTAYlRnPpvyipwAAPmlMCOHdjsyfZYzuxvjhZ0VgY1ii3hTsKRjcAuZi/16XnVY/vtustZGP3kUEk7gqCoNmDs2/cpKMz9Nm0l+XgrcZ4qPVa8hz+7JAF3m+hj7/zfBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WxfTDPpCeEgx5MNJbmiIuYKi9PAi79g/f4dqs+EVUyQ=;
- b=D8dWXzM/3AwM298i7xrrPaSW7UbHN/mH+Rvt/RhpPgTGKvAdZ+lVPMFRkpOD+89qtTue8h3ohsE82aCvKmyBOmuLIV32RrxQsnG4G0kmf3ty1UNWKv4bJsuJSoPWQ7IdYRRgRT8yuYfOJEG6mlSz8lMxoldADvD1SCSfSdxPnVlVp9R8o8wwhEN4Zfmn7K33/EJU1g5v9QcXUPX2xQV3J+sfdowKAHIAyJtGt8jjFLami9JWyWhcsXef/q3JREXrEoppOi0hlEV0d4TVMffe6+buiz/NccpCjVlT3dVMEwGuVG8mWLGCW+abvK6O93EePQyKUbJBDbxbhh5jEw7pOg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by DBBPR04MB7770.eurprd04.prod.outlook.com (2603:10a6:10:1ed::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Wed, 25 Nov
- 2026 19:24:51 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 19:24:51 +0000
-Date: Wed, 25 Nov 2026 13:24:41 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v13 5/5] arm64: dts: imx943-evk: Add display support
- using IT6263
-Message-ID: <awc1-Yk9_sXpx9ki@SMW015318>
-References: <20261120-dcif-upstreaming-v13-0-966ac248773f@oss.nxp.com>
- <20261120-dcif-upstreaming-v13-5-966ac248773f@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120-dcif-upstreaming-v13-5-966ac248773f@oss.nxp.com>
-X-ClientProxiedBy: CPCP307CA0004.DNKP307.PROD.OUTLOOK.COM (2603:10a6:380::17)
- To MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Leh8WXRt;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=i38nKeuC
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APJB1iJ1358012
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:25:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=YY7KokTVNQdRG2xnhQVkzSDE4zg2oGNcCPR
+	rRtBfFBA=; b=Leh8WXRt5l7hIe7RtKjlc5O4uK+nTw3iOGPprVdaxO9Wigx3D/j
+	yseENXSby6OKQIaWjOibcQI4z6ZjpdRZ7tFGzg33to60FU6kTUT8z3afSAgYeWjI
+	5FhrOLjTDxITtVOUIsKra7Msfm52YhkkD6Xt/nvqJg1mtroD4J3sNMWJ2jUmbXDJ
+	mHsuaEIdJpr5aXCQCWV8Y2rv/qNGTAHeAokCP189kMSKNkmPlY3yWQaMVPzzcqOV
+	SDqPwLCepzTVBQujZPAe8worS+Q6CW7b2d5FR3WJceX+47miYTFXBzwYvCuCKdiv
+	ePFT52KlwU9/XN39stnSQVwMP2YfpgzR02Q==
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5yaxsr20-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:25:34 +0000 (GMT)
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4fb73e868aaso6519688b6e.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:25:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795634734; x=1796239534; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YY7KokTVNQdRG2xnhQVkzSDE4zg2oGNcCPRrRtBfFBA=;
+        b=i38nKeuCZvZrS9PstHZLOonhmz9vURpO0ke/tlEc6M0mjXwYns0r/eV4+Ihlf67xjb
+         z4QtwlYLBk6IRg57erg/PErNC9b1/wUQ0N75T/5ARJF9ENiINwZBLlC3qa7q0dWlq23f
+         oqiQZedevnvZrErfmj92whzucU2DBb+nh9tXWxnZSOfChp7egrHyRytAfie+WoydcFsk
+         LhkKVK9St39xWUbfpE54ljHFfnQaHpOhkvd+xe59HPOgr74Txc6zNFY16BlwSR0Nubx3
+         GXHDHk+tw/jSMR6FiOdaMwRr6T+wm8KGsyTdCReTZGlYzlI5dX6MXh0bsqV1fVwVZbSO
+         riBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795634734; x=1796239534;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YY7KokTVNQdRG2xnhQVkzSDE4zg2oGNcCPRrRtBfFBA=;
+        b=q4PzQCo/k9Ubj/41YV4ntULyTZopMXvlEsCLG2IHgr9z7YDsFjf2zTThkyDXxmEUFs
+         6foo2aI5E4vISn3WsQrdE1qnzqqRFgK9iWMocWPwg46OZfULKsGXCvs+7b8T1IoqUPlx
+         vPQVX2xO3/YSMenu7178eCrCpZBPy7q1kE8QEnP4j14OcM0kPLAMNubCbK1Yk2uNYbmJ
+         LFupd/8lopQosDvhw46MBCzuWrLO7Clgim/zFAe0uEczcTbqiRQ/d3K+/c8UZuk+OJcq
+         vQevBANWTI+s6GxJ8uZImvC6F8mtHUDDqgZ1AzfntGu93Mza2kRLR4UxBGPyzO5pTxxt
+         HpLg==
+X-Forwarded-Encrypted: i=1; AL+hErF12B6aVsjnKTNExhK2LE6WvLvbXhZIB6AnpoFXQfL0hznyLi35CI8PGnImvXIz7clfCVvn0TsTE6tjuw0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8OWOtkSz4CjoAhP4xVZv7h5JN2WMTTHry/2hU3uhkl3yzieK3G
+	vOlZnfvodLIjYF6x7AtfZde6zzFNqU6IH62KydqQXoxiONzYrMKeUZXC/vgCOKjt9XCmjBoEUut
+	n8LsSgQuPRNd306FvhyrNVlKIpMaiNJf8ynnAxTbB3W3EJdrI002s+KXTVSUudGYz0CE=
+X-Gm-Gg: AZFdTZd9bnSMrqD8sx9UnHqCb8IjQviSRpeXbsY8ndzqrwKb87RvaHPgkgeh9uAGm1s
+	44YiKHWTnQpajX7KYNUxacnPlUQagDTRQ4FCJBVOtlQspW41EUk52IsKubpeoYIq4lBDqajOx13
+	iwqSAqjPDcaGSnXLstGsFjTKsgLdPAALvJTvccUzW93Sz5rHISszo+TnrHgzZ504KJydiDqqKPz
+	SoCutZ9GWl55axfR8Cl6Y5r/oicjot/PriRLrDTATjj+Vlpr+kpHY828EubisvNtjTnBxyu2Lmu
+	3ipsth2/GEd81r3Zrb7yelKZqVVuOGbTeO3uSTTYVzu+cD4hcJdeV0w2w4iDGq7thNplY7PFiYA
+	bJ72MflThUMo/nywTyIDofD412k/A/kr/8mgQyaCP4wNTRr/9XZ8DuBeiEgEKrBkjFk4uyw3vl/
+	m1L2QAQIJDCSVjqWwSE2ytxp87C5gneiefTWVb
+X-Received: by 2002:a05:6808:23c3:b0:56a:7702:b341 with SMTP id 5614622812f47-57a0c4b9064mr20422933b6e.68.1795634734068;
+        Wed, 25 Nov 2026 11:25:34 -0800 (PST)
+X-Received: by 2002:a05:6808:23c3:b0:56a:7702:b341 with SMTP id 5614622812f47-57a0c4b9064mr20422896b6e.68.1795634733588;
+        Wed, 25 Nov 2026 11:25:33 -0800 (PST)
+Received: from hu-scheluve-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bd3008160dsm18125768fac.16.2026.11.25.11.25.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 11:25:33 -0800 (PST)
+From: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+To: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+        edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+        Jose.Abreu@synopsys.com
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, lorenzo.bianconi@oss.qualcomm.com,
+        hongmei.xu@oss.qualcomm.com, abhishek.chauhan@oss.qualcomm.com,
+        sarosh.hasan@oss.qualcomm.com,
+        Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+Subject: [PATCH net] net: stmmac: xgmac: fix RX split header length on multi-descriptor frames
+Date: Wed, 25 Nov 2026 11:25:31 -0800
+Message-Id: <20261125192531.1940982-1-sagar.cheluvegowda@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,207 +124,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|DBBPR04MB7770:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1b76db39-006a-47d3-8ad5-08df4b29c69a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|366016|7416014|376014|19092799006|10067099003|260925021911599003|260925022911599003|11063799006|56012099006|260925021311599003|4143699003|261021121427099003|261102123227099003|261009223027099003|261028144727099003|261022105027099003|261022075727099003|261026140227099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	QSqq0G3bvgtGvATpLHvnFomrZFM6+nQoQW9f5vKNBizym66TcXb3JQ6bYQhhIXWqYkAAI+AS5Oq958W3OuInXyo4l1E+ZSGIaIPRSh+aJ8hgPH8UV8W0ZKh4R2rZT2eRX0Mmf50HmM5LdCHQGmudhZWdoxOCXYswI3nKmFxiwClJ4GuiW0FvJESy+4+WupS1DIahjQqxkSuTit9gWOHT4Hk4IvqAhvajPsQR8+NZtwnXOEjchpfRd3oMBGkmfgaDeSGXchzFcBOXtQI2UQuqIPhFjFTIoTrHOzC0MJJCDwXpVdVI/lFeouC4RxTJ1DTuulYZd9cHmtDPvDOyqikkiMwYwTcV4MpFTxcf75Ri3n0480ZRhBJMAgZC5rRxDo1mysnOg331llXr8DZMHtGsklsVjL3mKO/nNxPK9cvU5mVkicx7VC7r+GxMtbsNsdMwtPCMBimAVix6Ehl+Np5dO4d+t3QXgRtMA2b2a0rFtQT87+3UQZlYqIcTVuz3lTHL7uX6+0Cxqq7T9thpnn50gswGqNnuvL2opB9blDmbK+Gj/2BnlTnqJFG1a2RYo75gja2YydyhriSQrSIoDNAirDWhFNFYmwWKes9C8n/iNKY+Pne2C/ncTtGdwdPdrD4nDI1xFiJxKgnXFPoP53WMbV604vmJBLBvqORsBhbYpaE=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(7416014)(376014)(19092799006)(10067099003)(260925021911599003)(260925022911599003)(11063799006)(56012099006)(260925021311599003)(4143699003)(261021121427099003)(261102123227099003)(261009223027099003)(261028144727099003)(261022105027099003)(261022075727099003)(261026140227099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?EGr0YDfIByvu+MjTuqaHbyBHni+VVPsa+mw9vuRnYBk3H1Ip/Kmpcln9mXzH?=
- =?us-ascii?Q?K+n9oEFXvqvKfH5hoZn7iNXFbrTwLS4gWbE9tfpmI9uYjtR0JwZ4UEhKKa0F?=
- =?us-ascii?Q?twJLKFQxF06cYNq1P21ZlEv1u9iH3K/crjjuruscPkUc3ttIs2QpmuN48ZpU?=
- =?us-ascii?Q?kse+q7LNYZMOVcAS0/6gQRzRJcB7JJOulitQ+OmgtJbIVWkRquamehcE3g5y?=
- =?us-ascii?Q?q0EZUfiJRPHHiSZzn7H8XQLy6Nd9/5NUJrHKfL4wXQjy5Td6L2CLw73Rqfjf?=
- =?us-ascii?Q?95XXgZbqO75hQH7kaDJRkuzThHXuLOzF/Q6oC/bjjVOwdJE+Ksa0Cm17+lzR?=
- =?us-ascii?Q?TAC0SgC5n9X/yuM4eYRduO9up8iMPn7xiwgnr2SSaO0MJykI8pTK9LzAbX7W?=
- =?us-ascii?Q?7RMOf7plND3TnMLGbk0LjjeR5cvDFwUWUzLluyou5xIoHU5bTNJfrTAs8SsA?=
- =?us-ascii?Q?chG+wQAi6FuF4dj+B5KnEdhcE32sY+E9hrp2c0K4MKXncQu1X9sETK5XUy5l?=
- =?us-ascii?Q?5S7m89THwhlBpGLQHPr17TJKHBx2yy9EgVB+k3K7GqR4p7aGXZMhI//0EBQA?=
- =?us-ascii?Q?UVy0V+qo5P0Jco3H8KmWC0t1EkBBLgc/PLom4C8ab/8gEAlSmrpcW6S0S6qf?=
- =?us-ascii?Q?dMTYRgecPNAC+pt0I6HVN18wSQXp4uPttwy4cMYdpA13rqxjwvxftYO5efKE?=
- =?us-ascii?Q?W49N9Zrzf6AQeO/nwx4mEsax+Z1egWFmQBcnBTm4NIjPNv85s7EihNnjc5IZ?=
- =?us-ascii?Q?godbX8gtjNuKIp9bQLCxyqvk1RJLPdqMnhydbRMdvQsnTukplgioj4YEitOK?=
- =?us-ascii?Q?rQ3uMSLNb0W+STRn+u+RFx4RRxXPsDdD3LrVbdJqMnAQZb7WKckpGmGOuFc+?=
- =?us-ascii?Q?SEBSFZSE9j1zsQCv/WMcy1HMNkDeqhoURRs2vJ1W8bEzYILfJGkoEMyaIXcy?=
- =?us-ascii?Q?DQ/5A5Of3oncULAxBshdaIMBSYNMqwJSrAbLE2+8XevQ8yZTLd7OufpcidOe?=
- =?us-ascii?Q?7exYooZkdeeYsHvUeRsDoyl4J95IjLTjNUdtJp9M3kTaxNILGN3GCUMLOs/p?=
- =?us-ascii?Q?FnRbnnxYbJec9FxAmB2h088vEuSPoWyU8Ky4NZ4F2j+WaPF3paLKjI/qSmIW?=
- =?us-ascii?Q?+AzmIVa/X31tCSxjDDGAmqWMDEbLAsf86FAdIxysqkLQuJiqdqvLiH+47fTG?=
- =?us-ascii?Q?o+wd94IxqxUAp/MCwDUvo3ij3cwRWhM0ONwkG9FLovUmvL4Ku0P0tlnSpI8r?=
- =?us-ascii?Q?pLDUhJy1DemzHrXRvBGbSjeCfmr0bT5fCZ37t/jRaClOYmPFYNc3vPjwN9ge?=
- =?us-ascii?Q?eNs+jB+IFbD3VigQo/28/4viO/ShSMY+aw4+hRhTxgcKDbTc6J6sVCf/wRUC?=
- =?us-ascii?Q?qrO9MJwlqj4sZwBDH/1E8gjNfymV7S4KBZvKN2XMRyMvx2WpzMb6k292UV8m?=
- =?us-ascii?Q?kaUMbYB1os4Y+9yeIEpCOFiiZYm5W8TtXIox1jE47B2489I42bhdYEem9v7L?=
- =?us-ascii?Q?vJalt7NovET3DPcYr4F9fLuKBlJmfx5f0VobWaI3h/9mCxrh3CX+B05LQXmD?=
- =?us-ascii?Q?/KMtfEnzV4dj69zlDZQhCtq9wufIqtnc6t3FON28FrJiRuoiMsInDgm9vmfM?=
- =?us-ascii?Q?dV+hs/HLTXdA/zEeALP55Et+gY01UbjeM2D97Kpe33hmuGVRXhMc7nMM0U/x?=
- =?us-ascii?Q?ssTRt0U5JLZsgbqsqIYshSCYbtpYPwwRSC81jFAGE3KLGg3EHgOhVf3Ch+WA?=
- =?us-ascii?Q?jWxjvftY+kP/iMEvGYnQTQtOjTSHZid5it9LY1YMZzq81HJ2IFG0?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1b76db39-006a-47d3-8ad5-08df4b29c69a
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 19:24:50.9913
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4gkgWxZSXRv62U41bkK0DeCQEHpiZ7ClddXDeH6BuzDvYsGGOZBwUQY2ziUopqjH6IgAxGgDQwkgEQl5x7JPjoKlEYNCu9Y7apTWj327LAaQZ3jpzC9FiNRvDEwiZgtd
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7770
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: obYLaO5HCU2sGzXc5wCLH3-sfr98uT8p
+X-Proofpoint-ORIG-GUID: obYLaO5HCU2sGzXc5wCLH3-sfr98uT8p
+X-Authority-Analysis: v=2.4 cv=ULpIjyfy c=1 sm=1 tr=0 ts=6b07362e cx=c_pps
+ a=yymyAM/LQ7lj/HqAiIiKTw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=ojtf-fZehEoJ8Fw7nBAA:9 a=efpaJB4zofY2dbm2aIRb:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA3NyBTYWx0ZWRfX7IDbfb/+ZBpl
+ O1+4DADPrkgl92SWSEY//QZbdb66y+CMrecSxDBYxn6POQbsUICC5bP0moPklGKM5HZrO2EJ6Np
+ p7HoqdYRTJjFgPdBuWQQC+crZKoRpKVsJ0NCaaaZomv37YAkx9/GQBESzUFe0ya8obxcNcUapRl
+ 5zCdkUGEclP6lmogHhXwbuGQFzZ4DRHf6kzc/wo6W2iTOwtg/jfnJ2y4vNFNfjVX9orHHIqhkgG
+ PCACXcbrMmbN3nZHaB3lGkKxAb9UMSMkVj1POKLIgegNFuCJg9eYXs1sKhccKTnFyhG48A3kSap
+ FZWxeKANWc/PlYu1uhmiTHP2zA+q1KUNOqBWqsxBPMiHIHsv7K+9iSJkbJP7NL201cwbIZyyCkh
+ rrcfEVVQhO0X9JsS1Cag9m5UZBc4x0mNjHlswQMPMPbo6NQfGg0ZWhBYrWvFt58WcIH1KkasDqP
+ xQfyBDutfi0p4Nsv7dg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA3NyBTYWx0ZWRfX3q/fr71NMQob
+ Z1HmKE/vjPNbzxy2i+h8BUaD49qyBibM7Rau7n75GpCAwV0iraSefPad+7Rshlp65r+WSzVqEnJ
+ rLKpCcde1/D9hdw3biSVJbVxwLIkQAs=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_05,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 priorityscore=1501 malwarescore=0 impostorscore=0
+ bulkscore=0 spamscore=0 suspectscore=0 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250077
 
-On Fri, Nov 20, 2026 at 12:50:40PM +0000, Laurentiu Palcu wrote:
-> The ITE IT6263 based NXP LVDS to HDMI converter can be attached to the
-> i.MX943 EVK board LVDS port using the mini-SAS connector. Since this is
-> the default configuration for the EVK, add support for it here.
->
-> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> ---
+dwxgmac2_get_rx_header_len() only reads the split header length (HL)
+from RDES2 when RDES3.L34T is non-zero. L34T, like all RDES3 status
+fields other than bits [31:28], is only valid on the last descriptor
+(LD set). HL, on the other hand, is only valid on the first descriptor
+(FD set), and the databook's "Header Length Availability in RDES2"
+table states that HL is available in RDES2[9:0] when FD=1 and LD=0,
+without any dependency on L34T.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+A frame spans multiple descriptors when it is larger than the RX buffer
+size. This can happen at any MTU, as XGMAC_CORE_INIT_RX sets GPSLCE and
+WD with GPSL = XGMAC_JUMBO_LEN (16368), so the MAC accepts frames up to
+16368 bytes while dma_buf_sz is only 1536 at an MTU of 1500.
 
->  arch/arm64/boot/dts/freescale/imx943-evk.dts | 86 ++++++++++++++++++++++++++++
->  1 file changed, 86 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> index 39e819c536cc8..36b1d42a44454 100644
-> --- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-> @@ -117,6 +117,18 @@ dmic: dmic {
->  		#sound-dai-cells = <0>;
->  	};
->
-> +	hdmi-connector {
-> +		compatible = "hdmi-connector";
-> +		label = "hdmi";
-> +		type = "a";
-> +
-> +		port {
-> +			hdmi_connector_in: endpoint {
-> +				remote-endpoint = <&it6263_out>;
-> +			};
-> +		};
-> +	};
-> +
->  	m2_connector: m2-connector {
->  		compatible = "pcie-m2-e-connector";
->  		vpcie3v3-supply = <&reg_m2_pwr>;
-> @@ -148,6 +160,15 @@ m2_e_uart_ep: endpoint@0 {
->  		};
->  	};
->
-> +	reg_1p8v_ext: regulator-1p8v-ext {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "+V1.8_EXT";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +	};
-> +
->  	reg_3p3v: regulator-3p3v {
->  		compatible = "regulator-fixed";
->  		regulator-max-microvolt = <3300000>;
-> @@ -155,6 +176,15 @@ reg_3p3v: regulator-3p3v {
->  		regulator-name = "+V3.3_SW";
->  	};
->
-> +	reg_3p3v_ext: regulator-3p3v-ext {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "+V3.3_EXT";
-> +		regulator-min-microvolt = <3300000>;
-> +		regulator-max-microvolt = <3300000>;
-> +		regulator-boot-on;
-> +		regulator-always-on;
-> +	};
-> +
->  	reg_m2_pwr: regulator-m2-pwr {
->  		compatible = "regulator-fixed";
->  		regulator-name = "M.2-power";
-> @@ -401,6 +431,10 @@ memory@80000000 {
->  	};
->  };
->
-> +&dcif {
-> +	status = "okay";
-> +};
-> +
->  &enetc1 {
->  	clocks = <&scmi_clk IMX94_CLK_MAC4>;
->  	clock-names = "ref";
-> @@ -439,6 +473,21 @@ &flexcan4 {
->  	status = "okay";
->  };
->
-> +&ldb {
-> +	assigned-clocks = <&scmi_clk IMX94_CLK_LDBPLL_VCO>,
-> +			  <&scmi_clk IMX94_CLK_LDBPLL>;
-> +	assigned-clock-rates = <4158000000>, <1039500000>;
-> +	status = "okay";
-> +
-> +	ports {
-> +		port@1 {
-> +			lvds_out: endpoint {
-> +				remote-endpoint = <&it6263_in>;
-> +			};
-> +		};
-> +	};
-> +};
-> +
->  &lpi2c3 {
->  	clock-frequency = <400000>;
->  	pinctrl-0 = <&pinctrl_lpi2c3>;
-> @@ -522,6 +571,43 @@ i2c@3 {
->  			reg = <3>;
->  			#address-cells = <1>;
->  			#size-cells = <0>;
-> +
-> +			hdmi@4c {
-> +				compatible = "ite,it6263";
-> +				reg = <0x4c>;
-> +				data-mapping = "jeida-24";
-> +				reset-gpios = <&pcal6416_i2c3_u171 8 GPIO_ACTIVE_LOW>;
-> +				ivdd-supply = <&reg_1p8v_ext>;
-> +				ovdd-supply = <&reg_3p3v_ext>;
-> +				txavcc18-supply = <&reg_1p8v_ext>;
-> +				txavcc33-supply = <&reg_3p3v_ext>;
-> +				pvcc1-supply = <&reg_1p8v_ext>;
-> +				pvcc2-supply = <&reg_1p8v_ext>;
-> +				avcc-supply = <&reg_3p3v_ext>;
-> +				anvdd-supply = <&reg_1p8v_ext>;
-> +				apvdd-supply = <&reg_1p8v_ext>;
-> +
-> +				ports {
-> +					#address-cells = <1>;
-> +					#size-cells = <0>;
-> +
-> +					port@0 {
-> +						reg = <0>;
-> +
-> +						it6263_in: endpoint {
-> +							remote-endpoint = <&lvds_out>;
-> +						};
-> +					};
-> +
-> +					port@2 {
-> +						reg = <2>;
-> +
-> +						it6263_out: endpoint {
-> +							remote-endpoint = <&hdmi_connector_in>;
-> +						};
-> +					};
-> +				};
-> +			};
->  		};
->
->  		i2c@4 {
->
-> --
-> 2.53.0
->
+For such a frame, the first descriptor has FD set and LD clear, and
+L34T is not valid there. When it reads as zero, hlen stays 0 and
+stmmac_rx_buf1_len() falls through to the rx_not_ls path, which counts
+buffer 1 as a full dma_buf_sz although it only holds the split header.
+The frame length accounting is then wrong and the skb is built with
+the wrong data.
+
+Read HL whenever the first descriptor is not also the last one, and
+keep the L34T check for single-descriptor frames. Also return early
+when FD is not set, as HL is not defined there. The caller already
+ignores the header length for non-first descriptors, so this part
+does not change the current behaviour.
+
+Fixes: 96147375d49f ("net: stmmac: xgmac: Only get SPH header len if available")
+Co-developed-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
+Signed-off-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
+Co-developed-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+Signed-off-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+Signed-off-by: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+---
+This fix was split out of the net-next L2 split header series after
+review of v5, where the multi-descriptor case was pointed out to be
+reachable with the current GPSL setting and to need a separate fix.
+The net-next patch will be reposted on top of this once it is in
+net-next.
+
+v5 of the net-next patch:
+https://lore.kernel.org/netdev/20261120005243.3724402-1-sagar.cheluvegowda@oss.qualcomm.com/
+Review comment:
+https://lore.kernel.org/netdev/179548403438.3135.1804854034587814346@kernel.org/
+
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h       | 1 +
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c | 9 ++++++++-
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index f8ab347f7b5b..0cdc0bc695c2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -437,6 +437,7 @@
+ #define XGMAC_RDES3_OWN			BIT(31)
+ #define XGMAC_RDES3_CTXT		BIT(30)
+ #define XGMAC_RDES3_IOC			BIT(30)
++#define XGMAC_RDES3_FD			BIT(29)
+ #define XGMAC_RDES3_LD			BIT(28)
+ #define XGMAC_RDES3_CDA			BIT(27)
+ #define XGMAC_RDES3_RSV			BIT(26)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+index 6719ac6e395b..ed38aa358642 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+@@ -292,7 +292,14 @@ static int dwxgmac2_get_rx_hash(struct dma_desc *p, u32 *hash,
+ 
+ static void dwxgmac2_get_rx_header_len(struct dma_desc *p, unsigned int *len)
+ {
+-	if (le32_to_cpu(p->des3) & XGMAC_RDES3_L34T)
++	u32 rdes3 = le32_to_cpu(p->des3);
++
++	/* HL is only defined on the first descriptor */
++	if (!(rdes3 & XGMAC_RDES3_FD))
++		return;
++
++	/* L34T is only valid on the last descriptor */
++	if (!(rdes3 & XGMAC_RDES3_LD) || (rdes3 & XGMAC_RDES3_L34T))
+ 		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
+ }
+ 
+-- 
+2.34.1
+
