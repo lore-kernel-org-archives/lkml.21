@@ -1,72 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.12.53.23
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795630965;
-	b=ddAP9G2DTFT4ePILKeH+LEAoOqwxf9JjTOt7ccoygxO7mnXRHMs+8N4v2bhuV54wzR22
-	 u3G/3ooVWThboMEwxHjLwW5YMEBWw5q8fpE1nT2ISbhgpauQFEnIfcWE6LSTSyXBQJC4P
-	 RTuHhnTMybE8LPEJU6xVYWrHmEjAwA9X78gbPxgOLmLeJyYR/o729hVFeL1Ymt+dGWqfT
-	 a9bsuK+7GGeBW/Zdessn1byWi8Lv3pWA8ikR9rwnlMgsIIMtNIWXnJiz8yuxlB4tbf1pO
-	 Q0P5YR4WUrkvcIYhfNO91kmj0PeMUhqVDfntKosJRUcyTn58xD7emwmv7LukYYbjB+g==
+	t=1795630978;
+	b=3JaAZjhUzkbJu2Z4RgFShjlT5hlKcYsRjfmcrt1aBvoZshRwIqCx+8NuCZcRVGLjPwxG
+	 Cw0gJw5V7KD35yxoGNxToxPlpO0CGnEuPaDEbM64p01ZV3cSmk7we6DXeDiknV1ckMSm4
+	 3FqQJH88FpsptuAWqAadGMJjH79lzVZW9pkRKBRPHSMErqIoFfn64+p5FCQbvXytnc9uB
+	 5ul717NRYZrZJiFHDgj490SjHLztJbjnUarU+R6q+8JAO4ny7yI3wGK8+BCpcIfBiBt/B
+	 xtSd5U26vRVTF9fiInbJpM9AXgQglfKGv3ocVE/R849KPQA/mCkeng750C4V9b/7duw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795630965;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Stat-Signature:X-Spam-Status:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=6qR++cFUSbUPUEmO+yBbsbTsqe4WGzx7vfqPrLzKD+Y=;
-	b=3ZKVcBTpNC6/JCS6uJ032o5JNcQV8NVAJio/uXSh5uFmmtIo/5fXFpfWAGpBy/sQUZIB
-	 +X9ycRAob22E+JGQMyJq+My+kAj773MQmwh47aihpPB8izt7ZXwRCTPAjbGcf+qg5tbnL
-	 jOf5jn70aEaWpHiiwbB6K1k6TcW8cHNug8MrurE1+xIm+Zy53kkMhd+Rdwk7ookJ7mH6D
-	 86WaXlJ+8IctuWDdwV0v5OoxTYwdWEMaY4uqv8V+UMqCmkdDJDKM0XvVtMFJWkAeIuysu
-	 xaAYiljwddDJasrjNLxMPEYqcn6mfIt09CmbK0puRUAz7ogOJ0Vo0Jci9tLc52oLi7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795630978;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=ZuEnzRlc456Mg7HAuiI3D4MtKg2Iy5JpiFQXs+lfEVE=;
+	b=g4MMufo0B2LU39dJ28ys5LY3AxcFSuoKR17BKnFbvZCCioYSC1AEavqJG/h8dP/JOB2D
+	 xT62Ev8AJZdFKaMNAbY7kEmZ0Wb1NeelgbfntrCg9UPwSdxnPa7D9r4rz60GeLu1+lSKP
+	 tyNZh/m8XQWGsIoK+e7+DlnVg+NayTXooiw5fQmfvnIiod3hYr9yG0FwjshMbBSwkBoKx
+	 09GxL6n23r0G8Xm3FTnpkhkI19GALN5qzAl91eanD3PhBdruurao3dmGjrqBeVryKZpDs
+	 nYNQOH+RtOmSxbnmfiLC98I/lcb6h5XdE584volf7JExhnhShT3jWOxayRpOLXIISjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=dhj3qKPr;
-	arc=none smtp.remote-ip=216.40.44.11
-Received: from relay.hostedemail.com (smtprelay0011.hostedemail.com [216.40.44.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=amazon.com;
+	spf=pass smtp.mailfrom=amazon.com;
+	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b="Gk9aNRg/";
+	arc=none smtp.remote-ip=52.12.53.23
+Received: from pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com [52.12.53.23])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3541D606A33C;
-	Wed, 25 Nov 2026 18:22:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3541D606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87F97606A323;
+	Wed, 25 Nov 2026 18:22:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87F97606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=dhj3qKPr
-Received: from omf19.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay02.hostedemail.com (Postfix) with ESMTP id C90DE120F71;
-	Wed, 25 Nov 2026 18:22:38 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf19.hostedemail.com (Postfix) with ESMTPA id 2158E20028;
-	Wed, 25 Nov 2026 18:22:27 +0000 (UTC)
-Date: Wed, 25 Nov 2026 13:22:25 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: "Gary Guo" <gary@garyguo.net>
-Cc: "Ian Rogers" <irogers@google.com>, <linux-kernel@vger.kernel.org>,
- <linux-trace-kernel@vger.kernel.org>, <linux-arch@vger.kernel.org>,
- <jpoimboe@kernel.org>, <peterz@infradead.org>, <mingo@redhat.com>,
- <tglx@kernel.org>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
- <x86@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
- <mark.rutland@arm.com>, <linux-arm-kernel@lists.infradead.org>,
- <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
- <alex@ghiti.fr>, <linux-riscv@lists.infradead.org>, <acme@kernel.org>,
- <namhyung@kernel.org>, <linux-perf-users@vger.kernel.org>,
- <mhiramat@kernel.org>, <ast@kernel.org>, <daniel@iogearbox.net>,
- <andrii@kernel.org>, <bpf@vger.kernel.org>, <nathan@kernel.org>,
- <llvm@lists.linux.dev>, <nsc@kernel.org>, <linux-kbuild@vger.kernel.org>,
- <ojeda@kernel.org>, <rust-for-linux@vger.kernel.org>, <ardb@kernel.org>,
- <linux-efi@vger.kernel.org>, <maz@kernel.org>, <oupton@kernel.org>,
- <kvmarm@lists.linux.dev>, <shuah@kernel.org>,
- <linux-kselftest@vger.kernel.org>, <indu.bhagat@oracle.com>,
- <jremus@linux.ibm.com>, <wnliu@google.com>, <dylanbhatch@google.com>
-Subject: Re: [RFC PATCH v2 00/30] unwind: Minimal DWARF CFI unwinding for
- user and kernel space
-Message-ID: <20261125132225.00254c37@gandalf.local.home>
-In-Reply-To: <DN4FM3TBOJ9T.2QOOL77P5HETO@garyguo.net>
-References: <20261125061523.1540234-1-irogers@google.com>
-	<DN4FM3TBOJ9T.2QOOL77P5HETO@garyguo.net>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=Gk9aNRg/
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1795630978; x=1827166978;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=ZuEnzRlc456Mg7HAuiI3D4MtKg2Iy5JpiFQXs+lfEVE=;
+  b=Gk9aNRg/jXs0VmWVxzFJNxt/nGigKHMrIyvQV1du2HkgLMVkTfK4LWuD
+   40rXHwCK9VvcxTL/6pBFUDg3Xk0NMsufqT9R67xWMTosn8ciWLt94lezA
+   SSwnN6NdF1ILiFZbIUAnQ2VpwLMkB1kM9Az37AA3+8rLW5DcyTx7O4yTa
+   g/JiAJOWEargUTlCRgDs7d4mpnZQoXCrfIxmaMT9mA2odtnJNQ7QT4cth
+   +6LMUchAVIQqoqAxUdtiXv6pYq+hdZJWeb2gyLe91wTDocMu6QfwMptsO
+   cJ/hk4JlI+9NN7URzjdBR2LHGWhfiy4IjFr32LY7jnbcabFNcvNBIhacY
+   A==;
+X-CSE-ConnectionGUID: zNYup3sFQaidJMi2Gdu0Ew==
+X-CSE-MsgGUID: 9Fb0GLfpTOuzFWUl2YP/yg==
+X-IronPort-AV: E=Sophos;i="6.27,233,1787011200"; 
+   d="scan'208";a="34960368"
+Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
+  by internal-pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 18:22:55 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.53:10774]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.13.177:2525] with esmtp (Farcaster)
+ id 53b94ead-0897-4c1a-9887-f1f9db642e8d; Wed, 25 Nov 2026 18:22:55 +0000 (UTC)
+X-Farcaster-Flow-ID: 53b94ead-0897-4c1a-9887-f1f9db642e8d
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Wed, 25 Nov 2026 18:22:55 +0000
+Received: from dev-dsk-surenkj-2b-416930d2.us-west-2.amazon.com (10.169.26.94)
+ by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Wed, 25 Nov 2026 18:22:54 +0000
+From: Surendran Kanagaraj <surenkj@amazon.com>
+To: <peterhuewe@gmx.de>, <jarkko@kernel.org>
+CC: <jgg@ziepe.ca>, <linux-integrity@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <nh-open-source@amazon.com>
+Subject: [PATCH] tpm: Raise the TPM2_SelfTest duration to 4000 ms
+Date: Wed, 25 Nov 2026 18:22:51 +0000
+Message-ID: <20261125182251.19360-1-surenkj@amazon.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,24 +82,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout06
-X-Rspamd-Queue-Id: 2158E20028
-X-Stat-Signature: bmxmyx7zbff3tj5wzgboeoe9y8ngdg7c
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1/Cm47ggEMe5tkUQwuPIv9j4yoOc3+2FwI=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=6qR++cFUSbUPUEmO+yBbsbTsqe4WGzx7vfqPrLzKD+Y=; b=dhj3qKPrnd5Ol5oStgJ72xjormeA1wf1DO/RZc9kjGarZplof6LxOCEYEKKVU+6U05bo+jnrn30dh3AQ2S2utOXzBrNDvJP6ChCp0OiNHXA0Mz5Qca51KujLnC0+gny5rgFtqYDHuEEGrRoB4ayAc52wJ7NqKJRyFXoq+87Y6Bg=
-X-HE-Tag: 1795630947-362156
-X-HE-Meta: U2FsdGVkX18ShW9pI+/3LezhiP+sfLyAz5bbFmDR0Cg79ArNrSxS4kGp2fzzjf2A8iMOExZ79Wjpfg5dnD2BuvcnWnPjmIUJbGqbBkLfSiaYUFYSqR7ZAyP5O5UzEvRDCN589rXn1aP6/jRut7zfB+DDsEhPmN5DqCQvkQ7ZfZK1DiZPYS6+dvk+POli+n6GtTpGQ+j2vtl3LmQVHr+SzbA0nhYCBgifjijh6DwBsiIDVGFv0Nn3Ybo7aD+vHLlpczM4CVbNSwTPAeoiNfZ1pIRQfuRQQygtba8VmRY7xWxfdUk9RhDQhUICoUNpPyMEpj3E7lFTHILx587J1If+CzVdP12M+SkIwx9akUq8SAeuSlUzaZ2IKhNYhFH5nvIw0f5ED6Ry586F6FXLp5r+/Q==
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: EX19D031UWC001.ant.amazon.com (10.13.139.241) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 
-On Wed, 25 Nov 2026 16:28:02 +0000
-"Gary Guo" <gary@garyguo.net> wrote:
+TPM2_SelfTest duration is currently 3000 ms, following PTP version 1.06.
+Version 1.07 [1] has since raised the full self-test timeout from
+3000 ms to 4000 ms (Table 26, Command Timing). Raise the TPM2_SelfTest
+duration to 4000 ms to match PTP version 1.07.
 
-> A quick question: how do you plan to get this working on 32-bit ARM which has
-> its own EHABI?
+[1] https://medias.cdn.trustedcomputinggroup.org/production/PC_Client_Specific_Platform_TPM_Profile_for_TPM_2p0_v1p07_Pub_5643562943.pdf
 
-Do we care? Isn't ARM 32 mostly deprecated at this moment? Or at least not
-adding new features.
+Signed-off-by: Surendran Kanagaraj <surenkj@amazon.com>
+---
+Found while working on the RFC series "tpm: Rework timeout and
+duration handling":
+https://lore.kernel.org/linux-integrity/20261118073852.81107-1-surenkj@amazon.com/
 
--- Steve
+ drivers/char/tpm/tpm2-cmd.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/char/tpm/tpm2-cmd.c b/drivers/char/tpm/tpm2-cmd.c
+index 65928ae85b49..d58c306f7d93 100644
+--- a/drivers/char/tpm/tpm2-cmd.c
++++ b/drivers/char/tpm/tpm2-cmd.c
+@@ -59,7 +59,7 @@ static const struct {
+ 	unsigned long duration;
+ } tpm2_ordinal_duration_map[] = {
+ 	{TPM2_CC_STARTUP, 750},
+-	{TPM2_CC_SELF_TEST, 3000},
++	{TPM2_CC_SELF_TEST, 4000},
+ 	{TPM2_CC_GET_RANDOM, 2000},
+ 	{TPM2_CC_SEQUENCE_UPDATE, 750},
+ 	{TPM2_CC_SEQUENCE_COMPLETE, 750},
+
+base-commit: 003906ddd61cac2b89aefaf001fc19a6cb5d541a
+-- 
+2.47.3
+
