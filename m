@@ -1,101 +1,32 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795625056;
-	b=Cayq8pt9SKw5SLr3aQwfD/JhM56yAX3HYYNxyfZ6/qpOalYKQr0wcFWcDV7Qm5QExhnP
-	 pUWCBY044zdv4lj1CrGAAF+tagDRK9iRGS274YOz4jhrCS7Sq+/KKHbb6S9KtvVattcPl
-	 3+ZELBMWGVZDo1ovnUuiQO7gVyrns2vhRRe6iFrS2t8VcYW1mTn5X3cg6GtkKhkLlR4Rg
-	 teCuWDzFswMi7kWgY9Exu74lBGTF3SicYsHzNw8pGqRUgukRP73ATjLOy/jb+zr60SbvB
-	 1jwkDv3MKrud/dA6q4ST9YfeqLv8XEuG7RnN4O7bLEKAJcCkwEg3NACGRtuHjJyG20w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625056;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=II/aro/lwWCAag041h9klo86GZWrpoxtriGNBQNlDMw=;
-	b=DBBVI1Kkp94glOFABVUQ/OE6ZwVDF6E2yPAB4fLnA+tD3BG2zOMQo04PPiU3VyZe8uux
-	 vCsH0dWiPhXQyiqeL/I5MwvyYZjt/Bkuw45SGEIFtHSRUlCHM3A72yLwSf1u2RyrMK3ix
-	 vaslECrtHpWs8ReTnOowOMPcrMDcfJ+85iZVqWrVgoHnmQo15BZ/MbzXyDnT8IMqmCNbU
-	 7L9x67zGI9FdP37ZGHBufiV7BPGz8HMZt3Y+7/QxtoZ/yhDGvzVbMSxrq7+XcQEdAIldh
-	 yOUsmGQJgyro6lICXvbfYangGh54Ka2qoUcaJRsz4qniqy5MQjGlXzBUq47Stj3ZM+A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PKZ23RQe;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.50
-Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795625063;
+	b=fVaR4Ctf1PMtiLwRbOlTLqDyYK6xzZSTPZnfFf+gGNKHiqINVIeKTJOzfINVEjJbSB6j
+	 X91SRqwB/KnaJpyqrqPvhOifhSKzW4aCjhXagOpkeRs3L2K/NQIfEQwcWn4nzLyPQxw0f
+	 l4C0Or6iNXffMk4lSnkvorL6PwVc5n2jSBP7YNHQ1koEoueoNhMKrkByNcizbyW3/aVl2
+	 GeIeSRf+JYKKuv7wBfwTJ0tnY+ovICIZ3d0fcmAe++ZoyTi4f8b2orCjPY5VZZogKjVur
+	 rbIGgoKdB2g3MOAx0htOqH4UfQcADhzJiY3ahsVWBpR5E/1WF9zOoAQKODxC8fdyGmA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625063;
+	h=Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:
+	 From:To:Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=Ufc5X5KPtSpN7LAkgIoRBGIIkQWdxqKwSyFbcVYvUyw=;
+	b=xmdLQwUIxOVGCY4nh86rV7pIdbrhQTDbGSvll21ChgKs4enaMHp6yHxMj9e02xyOF3Cq
+	 OXuH+nqaCiHBzVoVyYbyIyH9sc4dhH86tqK7KpR70/hsyeBHa2RMOHyBVNlmSfViqL8nl
+	 vkOjl1hZ4+luDNBtn/Jlk+BYhLZQ+K0WylSNzWhAQm9svLKN/x4cANHXFpHQXRru+hJN1
+	 ymcAPx0gr1+N+yB2JBphlvLvNIxhz10I4mcGpGtaCFx1L3Hxmfk1uzc6WoYQ3xh0aUykQ
+	 3IFh3cgW0PFOmJ+pbNO8b4spBQnvLAfdlOpehSo4hnWiLpQxQVfs8td5UD7e+8GXg7g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77960606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:44:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77960606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PKZ23RQe
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c4cb6834eaaso127064966b.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:44:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795625054; cv=none;
-        d=google.com; s=arc-20260327;
-        b=qmmgGirFc/K/Vc5x4Me8SnVAhD8FcZTi9CkBhkw64frM+yRrpi+iWSijtyaSAVgKbk
-         k8ip6R6P/EAaDKU+Kgr/2OPOkbr91u5z/F198pITl6jA5u8cmrKb0ES0FVnKC6ayqgyt
-         6IkGGJlWZhTiJ3DPYEVt1HR1YiwMxKLAJL+4nQAC/tUcaMLKIllZ510ft58QhidyAlDp
-         A0UEaCG8D0iI06XA5AzM9ZjbgbHo0ZTRfVoDDgEvYUKO+IOMFX4MzgJNn+OTNgp+AGDT
-         7ymg8L5mKolc8ze4fWiajh/tZUq28fNljCUtZ96OOmuUr6EVx75zvj/GHAHjnStfPIzu
-         Bbtg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=II/aro/lwWCAag041h9klo86GZWrpoxtriGNBQNlDMw=;
-        fh=dZyzNvDU2TMRTWg4JXTWzlbTw884CjsZwu7MaYaexAA=;
-        b=OjDz4IH+LE10XAhvBQH/9KdMJarvJ8TOZ/dBxpM6umDoReuB6sahtj/7j8T9KjPkUJ
-         X0xBE7xxTCXGS8AHcMhcHJvhHJPM5YBI5Wvpizjzqbf080X/fDGg4a/e3Dyo8PvWrmDE
-         YSdsNV3QEXUTY1wry+tHsJcqRaeBaZBS9kqPgdoc4kGyYu1Nku6WQC7dqcwx+5035RB9
-         kObc+MQNWdqi4ylwh78PPGKkBihz5ugQJCLJUKgzIupDISPXkgirkDlZsDjHLdhPIPnk
-         Ig3WfQjk7bk2GTyBUKn6EJmU4H3WhttOhz4oWO6SDVIbr3IaodlJ17gx2VfY6LhT+aGl
-         RmJw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795625054; x=1796229854; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=II/aro/lwWCAag041h9klo86GZWrpoxtriGNBQNlDMw=;
-        b=PKZ23RQeMEttotX4OBPRP2DbbrMEB51nwAQlsHi3Clsl60+KLwydytyVzIwS3CPrsp
-         gMCa0qLojqUmZPTj1WgDWb2vfDDzy8I3ouZC6AtzVQzGhYkAtsdS7I194LfKbKzPHVBH
-         9FjnQKv/TdlaTy27yqxtS+FRu+TCtlSdjsR4QOyB9tkMnDrs00BEwfTTEGdJNrrE0d1S
-         i0G3BgU+8ocwt4ScMKi+JN47+02WlDqK9aHu8g0fQCVcWCnmaTG9N306L0mPKog4H/f4
-         BgsXgGhnHP8RFqRdmh8kRVgxVbHO2JS8qa43xqFnpf9P4Z4Esbd1QfxvoHuOMiibIYtV
-         4BnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795625054; x=1796229854;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=II/aro/lwWCAag041h9klo86GZWrpoxtriGNBQNlDMw=;
-        b=hK4nZoCYXZ0K2YmpaYk4I76+Wp2bnvNbd9uwhgVhYpfNFkhMlqFUO7DiKPCcbcRFYe
-         AsAJKXj7CmUVljL439TVI357tgdKum7HFSu1dRWMFQYwB/yWwHcDaNtUu7HYmvQVj0Ow
-         y/kLpXgnyiYb1pauA6JHfazZuLgvh/zc62tNYnsUWSS8ButJW8F3YlZi5h0UPzo2IbEW
-         bdqRtqma3QiRgT42uY2pfDb+tPb5n/Vs69NGHUc73xLcesyKQnHA2MbK3yAS5CxJM62/
-         +J1s/j7pKPiBF3XCDaglhxA7zFo7L/D06nebRlzibgtEEvAo1MEIWRjABf1GdZz2bGnT
-         OWBQ==
-X-Forwarded-Encrypted: i=1; AL+hErF3GUKZWQKsyRfpH9a2Isx9GddoIIOqEstWj3qZcqW35QYiSmIU/vz0ZtqWnrS3MJFxHEzCGZoxoGK1fXU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/BRYKR0DUOkl133nCwrsdBeuAVoNsd5IJNQfzl8TqZtklc7xOM
-	Bw3cwIJzSYmwCBmYkUSpr1lBULPCxHnooIJhdh2VCW3BwV63kgEfSOkzryWxa73AzjoaVFOBzxf
-	LIYMm4IK5xhi+v9q0GPtVuYrKn5OPcgufIBxIZjvR
-X-Gm-Gg: AZFdTZd78XM4QCXEqANNN6G2niG5WjO0GPp8o9D0o1IJ2orsjsz0srhDUm2DzUH+e8W
-	CacNL3FxqmHWIwPQVGv/k1MiMd/AJ8jsyz6QoCKj4gaw1dpB9Qt2pJDbwbbjqniART92f7qRjY9
-	GrXiioqn22Lkn9DE6HGx6G/AccIlXYH/KJrguSRZHJYbwiiz7nl9d2iNpOCMmSGvxxCreJaKJp3
-	jJlApLfFVQpxvg/IQbShtnK5h4LOCY/q5FytpAykuRTce5ao7SVD22h23c8z7u4n36jFdhVu7j7
-	sV+GNIdTgcNsrNCWA+l30MBgirjYIRslLh8p/xsGyqXmG95jqTHnxBSL8aBUrD9vj84VHKVMiQi
-	jBdEMmCGnQmexDuMmvnSGtZlkWFOohygJaNB5IurbzCyN53OXmIVZ+jsrjzldkjFt9zOp+tUO0P
-	B9MIhfeb2ytPcGITKbgsIxOM3sgu5uLA9YHMnkqZ+YOZ7gU/O5M1o=
-X-Received: by 2002:a17:907:6d22:b0:c51:40e:847a with SMTP id
- a640c23a62f3a-c513a1e6fdfmr1639688066b.0.1795625053094; Wed, 25 Nov 2026
- 08:44:13 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15565606A329;
+	Wed, 25 Nov 2026 16:44:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D72C71F01562;
+	Wed, 25 Nov 2026 16:44:17 +0000 (UTC)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,106 +36,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <ac22215d-3e58-4aab-851e-47c30836e058@app.fastmail.com>
- <20261027231728.1466446-1-jthoughton@google.com> <32fad21b-5bad-4640-97df-ef0f638cd9e9@app.fastmail.com>
- <CADrL8HX5vb1PGDpWzp-eR0rNfsMCVUhFa9vp_WZZx2eJZ+dfXQ@mail.gmail.com> <1a99e5fc-129e-41e3-8420-101bcf04b366@app.fastmail.com>
-In-Reply-To: <1a99e5fc-129e-41e3-8420-101bcf04b366@app.fastmail.com>
-From: James Houghton <jthoughton@google.com>
-Date: Wed, 25 Nov 2026 11:43:36 -0500
-X-Gm-Features: Aa3M54qTCDON0Zo2YJDXp5pBtwrXjTcYjv8NoqDjQS_XV_tl8JrBb-LQVlKEL3Q
-Message-ID: <CADrL8HUOZs-vWRyM9p+Na-=arRU+Gx_cWMLbxHmUYnho4fAUXg@mail.gmail.com>
-Subject: Re: [RFC PATCH 00/10] uaccess: Refuse and warn on user accesses when
- current->mm is NULL
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Pavel Begunkov <asml.silence@gmail.com>, Alexei Starovoitov <ast@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
-	bpf@vger.kernel.org, Daniel Borkmann <daniel@iogearbox.net>, 
-	"David Hildenbrand (Red Hat)" <david@kernel.org>, David Sterba <dsterba@suse.com>, io-uring@vger.kernel.org, 
-	Jim Mattson <jmattson@google.com>, John Fastabend <john.fastabend@gmail.com>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Kees Cook <kees@kernel.org>, kvm@vger.kernel.org, 
-	"Liam R. Howlett" <liam@infradead.org>, linux-btrfs@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-perf-users@vger.kernel.org, 
-	linux-scsi@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	Lorenzo Stoakes <ljs@kernel.org>, Chris Mason <mason@kernel.org>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Michal Hocko <mhocko@suse.com>, Ingo Molnar <mingo@redhat.com>, 
-	"Martin K. Petersen" <mkp@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Mike Rapoport <rppt@kernel.org>, 
-	Sean Christopherson <seanjc@google.com>, Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
-	"Vlastimil Babka (SUSE)" <vbabka@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v7 04/14] PCI: rzg3s-host: Create the INTx IRQ domain
+ before setting the chained handlers
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+To: Claudiu Beznea <claudiu.beznea@kernel.org>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
+ robh@kernel.org, bhelgaas@google.com, p.zabel@pengutronix.de, 
+ geert+renesas@glider.be, magnus.damm@gmail.com, claudiu.beznea@tuxon.dev, 
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-renesas-soc@vger.kernel.org, 
+ Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, stable@vger.kernel.org
+In-Reply-To: <20261019065025.2146539-5-claudiu.beznea@kernel.org>
+References: <20261019065025.2146539-1-claudiu.beznea@kernel.org>
+ <20261019065025.2146539-5-claudiu.beznea@kernel.org>
+Date: Wed, 25 Nov 2026 22:14:13 +0530
+Message-Id: <179562505368.5580.2150497706749194750.b4-reply@b4>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=663;
+ i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
+ bh=aXar4x2N8gQJTl/ZNKcihlhafecP6Nche80dL3tuzYA=;
+ b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBrBxBgJ5tVOCEmi1KWNu7mCRxmFtmxilxnXuP9L
+ kBY8bO0SzqJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCawcQYAAKCRBVnxHm/pHO
+ 9bbCB/4k9mZGKX6nhG0HCgb5ZCAGgrQy8JHmafqY14GtFQ+LkXDlSF4MW1BRMoBjZGAPUjrxfJL
+ 9gllCDF6w3rsFb0nD46Xkx1isl1vNuUNtaNjpk7eqEDspLzWKLxPEivM/G7twbNdH5nSmJfSRve
+ FfG8Pf+4AVfL3JX640uFaclAFAtDs2KlCGXRq/1rdKbkyi3VBfXxgMQlAuQcWN9EZaSuraudvbo
+ N7J5VnxNMBRQTgmrZPO5Li53OTZDSc8JDB3G+8fGZo0SDo4651ka30ZdHySqtRJkel+vsn0p6XF
+ F53Hg2YEVZ5m8XGPWoR+/KZPiCPO72f0uuFvkeL0VNAgbRYa
+X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
+ fpr=C668AEC3C3188E4C611465E7488550E901166008
 
-On Tue, Nov 24, 2026 at 5:02=E2=80=AFPM Arnd Bergmann <arnd@arndb.de> wrote=
-:
->
-> On Tue, Nov 24, 2026, at 22:10, James Houghton wrote:
-> > On Wed, Oct 28, 2026 at 7:14=E2=80=AFPM Arnd Bergmann <arnd@arndb.de> w=
-rote:
-> >> On Wed, Oct 28, 2026, at 00:17, James Houghton wrote:
->
-> > So now in v2, the _nofault() helpers themselves do not check current->m=
-m.
-> >
-> > I've uploaded a draft version of v2 here, in case you want to take a lo=
-ok:
-> >   https://github.com/48ca/linux uaccess-v2-wip
->
-> I read through this now and it all looks good to me so far.
+On 2026-10-19 09:50 +0300, Claudiu Beznea wrote:
+> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> 
+> rzg3s_pcie_init_irqdomain() installs the chained INTx handlers before
+> creating the INTx IRQ domain. irq_set_chained_handler_and_data() also
+> enables the interrupt, so an INTx interrupt arriving in between is
+> handled by rzg3s_pcie_intx_irq_handler() while host->intx_domain is
+> still NULL, leading to a NULL pointer dereference.
+> 
 
-Wow you looked at that really quickly, thank you so much!
+Did you observe the NULL ptr dereference on the device or just figuring it out
+from the code? If you have seen it, please include the log, otherwise just state
+it that it could be possible.
 
-> >> Since in principle every user access should go through both
-> >> access_ok/mask_user_address and current->mm check at some point,
-> >> so combining the two as much as possible should help long-term
-> >> maintainability.
-> >
-> > You're right, and v2 has been restructured like this.
-> >
-> > - The check is in access_ok() itself: the generic version, plus the
-> > arm64 and riscv versions. __access_ok() remains a plain range check.
-> > - The callers of mask_user_address()/masked_user_*_access_begin()
-> > check current->mm explicitly. There are about a dozen such callers.
-> > - The unchecked accessors, __copy_{from,to}_user()
-> > and__copy_{from,to}_user_inatomic() (and arm64's
-> > copy_from_user_flushcache(), which also relies on an earlier
-> > access_ok()), keep an explicit check for now. Once their users are
-> > converted to the checked versions, those checks can be dropped.
->
-> Ok, sounds all good. If we get more than handful of mask_user_address()
-> and masked_user_*_access_begin(), we can always revisit that interface
-> to make sure the check can't be skipped, but for now this seems
-> like a good tradeoff.
+- Mani
 
-Great!
 
-> > Compared to v1, this also covers get_user()/put_user()/clear_user() on
-> > arm64, powerpc, riscv and the asm-generic architectures, and arch code
-> > like signal frame setup that uses access_ok() followed by __put_user()
-> > or unsafe_*(). user_access_begin() no longer needs its own check.
-> >
-> > What's still not covered: x86's get_user()/put_user(), which do their
-> > own range check in asm, a few architecture-specific paths that call
-> > __access_ok() directly (e.g. on alpha and sparc32), and arch code that
-> > calls __get_user()/__put_user() without access_ok(), mostly trap
-> > handlers for user-mode faults. Probably best tackled later.
->
-> ok
->
-> >> There are probably few enough of these that we could address them
-> >> by either adding current->mm checks or converting them to use
-> >> the full versions instead where that is an obvious change like
-> >> that usb gadget driver.
-> >
-> > Sounds good. I'll send a separate series converting the obvious ones,
-> > starting with the usb gadget driver. I think that will be useful.
-> > Let's see how far I can get; hopefully I can drop
-> > __copy_{from,to}_user() completely.
->
-> Ok, perfect!
-
-Thanks, Arnd! FWIW, there have been no syzkaller issues so far with
-this WIP v2. :)
