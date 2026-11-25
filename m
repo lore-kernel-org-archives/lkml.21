@@ -1,72 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645130;
-	b=iQe9nUKT/0+7/ZzpX1XDhTn31pFtlvbwRqaL08MeKdstLC2HSHI+DE/ixDjj1WcWYc1g
-	 KIom7/GocmT6LJnWUj77Hmy9uoKrXwp1lpA1e0OXEcJ4IccjUJxv2DJi9u9Qlivl1qMjA
-	 jz78KUMrBdPPNsc4GqVFa1kQcj5SNPqpAzK5ug0nbCGmc/bx9HvZv1l+JjhhdS10uNXXu
-	 Ky7Xi3hx9JbLsDg2tm67zL4/xp3jLTX4/aJIc51O5DhtXYy1ry4PEkvAeJL5hmSYJ/W8u
-	 AdrBHViO6ssP4HcM+cAeUd5NxCGApyU5oRsQxIm+t9i0JcraYKHkTXnECtpvT25x3HQ==
+	t=1795645142;
+	b=tJj3ccO9xkZjazudZcwPuPHvPX5dHTJBxSSVlCRXt8DF/SyU7BMuMlClyiDFpl+mDfN2
+	 nhPYuiZc+cMBRMJvbrZdzdAhzhB6Hhcpxr+i8i0QeYiNngGjUm9CxTbCQGGydxjtwqh0f
+	 Lwrgbpc7CKQbgE26DRcR00Lc14wE8OiCDxhiOTaSKW9uWRqPrwXPzb1Ctz8hfZ6fcUq09
+	 oBiEbrNypqJWLS6TeDRrSBKVL6KQp8CSOZt8/t0S/zr4TXQbb8XqMN2L9OGvwzDCPZ+iJ
+	 hKypMsFl6n9XvAlrU2i79FWM0qwZKjuyZlNuNelyujg1JaAeKQmRxQsTiEWJac2GE5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645130;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795645142;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=u2+GtbAzliCVLY4qt9XkKEEOn7y3no8jVdjlKGtflhg=;
-	b=GAjhtQH2hdfazQJdVgYUk17bjVlm8ICcZ1zRLTUH5jwSh5YGIVlqz0ajME/kcwUKJ1Hh
-	 l1Y/rBc1Ckrbsqx+CtougOnJXwcky3w0Uo/gUrnR0mGeh56G8lYEAX65DB1PwGY0lzYA/
-	 gXMPjn6bVlVXi8dAxB+y/qQOs0zPxEcprkBDFimU+oSDehzi+U2k1QyP2HIhNAfuLEVOg
-	 5YuT2XtmGbx3o5dx/LkMrhm0CdqrRd5L3zM68LxG2rKX5abtDf6Yc7szbMtg6Y8gAUG9W
-	 +FeXPMI21txeQq+GoJFZxkEv1BpJwntxCfathUz94LAOBCUKNZEUhcB8zvZSvOASSLg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=aKRTtm62UDdZcQ54J0I40J/JAeENeSlNH7NrIsStsO4=;
+	b=0400mY7ucp1HIIrJTM/jbM1LDWW+MRwKOnoczo5WB7mzxWIIXQx4ndBa5WkqqMkzFEhl
+	 kcJF+j4ICjVcdKHxvbhfsm12GJ8Fz3EDTCBSjgLXBAueGjvodb7OJTyuKLom2i2XIkSA0
+	 j2A45mc/v7reHDa8eH5Un1sHl4e+FCPMswiU9NrqQh/rbW8izNmXCLTAfhi5KiFf9i0sa
+	 4xeajyvq0IIpBW1DMU/Bug8lipaDIMqDVEPzt2I0o6Yfa1FP6JC9yJ0qZAKErNvymXoE6
+	 bsrLhRGV2uGHkn2cBP9fZ/tODZAnpuDO7wIOqIqn/spnEiUUhl5dw2PrSa3vcNEDKLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Q1yNJE5J;
-	arc=none smtp.remote-ip=74.125.82.200
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LU8ZmNYE;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FE23606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:18:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FE23606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9935F606A326
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:19:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9935F606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Q1yNJE5J
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-38355b03cb8so5972758eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:18:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LU8ZmNYE
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-3282db206d3so1241118eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 14:19:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795645129; x=1796249929; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=u2+GtbAzliCVLY4qt9XkKEEOn7y3no8jVdjlKGtflhg=;
-        b=Q1yNJE5Jql0gSdpOJaxee+sYbAdE4vnO9HYViUBT7dcZuqOUWfAGz6ujF6vvm059uG
-         bkOO8kYVpx4hvdU5anFdhMtCACp8MQ9Zbr0EqqWWUrkKFIgHlYfCush9fml4vs8IRqHq
-         F5gHH5hEiTsNDrCCP01faNxe2nOzkQEOMfQ+t3B4mKafRr4igC/56NH8lSjaG1Sx+fKf
-         HYI3vqyBaRzdEUzMvXNfBHsgty6iGew4dx8XnqN3hH6xcWtf5ZoFDUmksU5gN9fvnGUl
-         9iXb0GXcWrku0pEI0oX5BBEU8Q9QyKSASZ0xpicvvmik7RCSsOFIij8UgbCuwQxtkcF7
-         xJAg==
+        d=gmail.com; s=20260707; t=1795645141; x=1796249941; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=aKRTtm62UDdZcQ54J0I40J/JAeENeSlNH7NrIsStsO4=;
+        b=LU8ZmNYEa8Il91B0WjRYOgvdWYw4XvQqggs7fajTqPBNeaI43qn5T9VJYMg4J+ejTb
+         TwUYv3rIpHc3TFonssrAHgkL/T667IhTGvreXvL0T0ZnJEaq0LfGq5v4FxhLkGoR+1Bq
+         hTPdJ7S9EX+ly+/0KbQMcNGTWztPNsO3KZUkEz8Vx/05Hqc0GxtfqAKOQenaqVwVKKYz
+         c9+dafLvOBUlRjcTXdrE9KEYzclKS+njcpYiRREjV1cgnxjg/cY2pGBwTPtDEoRIopNP
+         uQoN5td4n8zStse7AMCATlc3dKTR8m6FDAoRse/+OwbRae7P103gkxf6sNevMteJm7oW
+         EPmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795645129; x=1796249929;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
+        d=1e100.net; s=20260707; t=1795645141; x=1796249941;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=u2+GtbAzliCVLY4qt9XkKEEOn7y3no8jVdjlKGtflhg=;
-        b=ww4T3q2yZJVjY4Rl2lCVwhEF/W2iSkcWrQq8gT5tJ5ACDUJscCB7Jzpaey/aJ+gaqd
-         zoyH2VQW5bbZ0MR2I0ysmmHdmX4mgJ0589FnuimYXkRvjeRA70rRgGCyTQtva5tQKl0W
-         lkql1aiJcBCRibi22uZV0CKGJpdAa6jCNjMJJEY3ZvUGAmGpbOd7M+MKVnSzPUBRo7vr
-         bINoJXgxmqn5mTJ6UuziIJ9NwVHfnrnw/XOxWFSzq8JkvjLr4GJTrc0nqs6V9JAeSSyz
-         a762FCjvVbit6kabUOplXUJvryEGstbC1k+MVH2rvwWTgvX6LjFX8dtFjaP7KeZL7v6E
-         OzZw==
-X-Forwarded-Encrypted: i=1; AL+hErHvDK3UeGRkQg8g8tsABouABqx50n29JunHO4r6QOnp75DgE44pYCXVt4NrcImkHNZY7OZkEoe7iQNBNSo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ClBtyeystQs7sIV6z7nPSoSpKbhX1rgYbWDshWy/afjN65qoS
-	l58G5Z8I+4zDbmsmOdwnmWbW2RKW8ejVRO6lrKYxWSC6s1GSaY+AmPHHngaewtVcbA0+bgyO5ar
-	jXg==
-X-Received: from dybla7.prod.google.com ([2002:a05:7301:1a87:b0:381:610e:404b])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:8948:20b0:386:b08e:4b7b
- with SMTP id 5a478bee46e88-386b08e4e93mr10610272eec.29.1795645128820; Wed, 25
- Nov 2026 14:18:48 -0800 (PST)
-Date: Wed, 25 Nov 2026 22:18:12 +0000
+        bh=aKRTtm62UDdZcQ54J0I40J/JAeENeSlNH7NrIsStsO4=;
+        b=QzcDQu8/rp6x+ZEp9p5Vryop77XuX4a+hrS/lmxa+0QghxF/hLd3aahjOCBe3ED0Pk
+         sac/iiHF7LMH9eWObOuje4WCbNLsQtGvL8l8Rkc6DZB9uQFZRqvZf2s0Cx8lz5qVmOhu
+         CMAQd94xshNeL38afkJQ29AttDeSh2HIERFw4IBSbhUvgGTSrKYA0i8TH8KRovkBkTx7
+         haNXybUtqBi+NaUw3ookDIrl8kWYKH7FJMfjmDQZEEeSKOK2mktc5HD86b0fNO3KolgH
+         aPw5XwGPZp0E/T8rEnZFdVJBQLLqODP9Fj5K8zj6vzGlmvAotSeXErNih+4aCTKFO3yU
+         1WOw==
+X-Forwarded-Encrypted: i=1; AL+hErFWtxRusUcmDrv8oVDhc7h9H/uFTQPd3l1xc9Bsr0cw1L3BT7G0M/DhlBrD/Uy1SDxUUe3UDBVyzbMJBNM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8OL4csOVx2zZeTfqz1bniLwgZJNHdu/YrDB3EZCET9R0s/U1wY
+	10Qs0lXuxtlxAj8oesVDR8bmbI1RGxanYR6Zwhc4i0WRiLDILYA4G+ID
+X-Gm-Gg: AZFdTZdmsa2yuZBk1yl9lZlPPoDIh6fSa2GBqPkhA/GOVTfJMaoU6hXqv9Ue0Yv5R4w
+	xiasQ3zG+MOL4fjR+GJz1KzZejcjGxhT5wVSoJNUV4EwSSe9jHzgwuMi3q4ApEu9KsoGWSrTk4q
+	obyoZ0kJV4Uz0W01h2eWE79WmcI+KIi/+yzt7Ok3mGqGZUl+X/ccOxf9OYl13ZN3766Tj3TEHv1
+	9K6qLewOE+b4y3G8ihs53DveLTMho3/r7yk3gqSdzib7rcGTeN7Nx7DgR5UTuCHwNCo0m62cgor
+	qZplEA85wVlUihSE6gVK6Tq1f68zxqxKKRCF3Q8Bjbnd2o/hNxg3bPFtfFd3ceZLMIR5jxV0HK+
+	8I8oEAEtxqV6gDet6irLlX3Od1CUPqovOh7qtEm1731l1bpWTrNgQGrrHUm4mkiivVdnS2OAlkE
+	RBb5agSNC3E95lFzxXLVxyROcVekh0rspFjzDX5sYdT7jmbkrLW/FCM5vzrfw3d8lKTwUa8lqmV
+	2vWOlxgIseOMnBi1yI6jk9MkRg3jNl2ZavACGe6xOnuY+3rIhl0cyPgwa/UNqVnVIuYTkjNMMhy
+	NzbNXSMTbq92+DCD+EZz6gHbkA==
+X-Received: by 2002:a05:693c:8951:10b0:386:b4a1:d92a with SMTP id 5a478bee46e88-386b4a1daa3mr9731399eec.1.1795645140431;
+        Wed, 25 Nov 2026 14:19:00 -0800 (PST)
+Received: from [127.0.1.1] ([2603:c021:8021:f000:0:1865:8c38:18fc])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567abb870sm47487514eec.25.2026.11.25.14.18.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 14:18:59 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: Jan Kara <jack@suse.cz>
+Cc: Theodore Ts'o <tytso@mit.edu>, linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] jbd2: Document the h_invalid flag of a handle
+Date: Wed, 25 Nov 2026 22:18:58 +0000
+Message-ID: <179564513831.2536897.4907315692095561152@gmail.com>
+In-Reply-To: <ylfq77loldtcc3nogxtqkwxlnqnqp5d3nvyrl3kezjtxcnpojg@ujgcfjxe7gkd>
+References: <20261125184027.2402549-1-takano32@gmail.com> <ylfq77loldtcc3nogxtqkwxlnqnqp5d3nvyrl3kezjtxcnpojg@ujgcfjxe7gkd>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,72 +95,22 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261125221812.1423319-1-elkin@google.com>
-Subject: [PATCH] nfs/blocklayout: use div64_u64() for chunk_size in bl_map_stripe()
-From: Elkin Cruz <elkin@google.com>
-To: Trond Myklebust <trondmy@kernel.org>, Anna Schumaker <anna@kernel.org>
-Cc: linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, irogers@google.com, Elkin Cruz <elkin@google.com>, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: kpatch-send.py
 
-In bl_map_stripe(), dev->chunk_size is a 64-bit integer (u64) decoded
-from XDR. Passing dev->chunk_size to div_u64() silently truncates the
-divisor to 32 bits, causing division by zero if chunk_size is a multiple
-of 4 GiB and silent miscalculation for other values above U32_MAX.
+Hi Honza,
 
-Use div64_u64() to preserve full 64-bit division by dev->chunk_size,
-and reject zero chunk_size or volumes_count upfront in bl_parse_stripe().
+thanks for the wording.  I am withdrawing this one rather than sending a
+v2: the same warning is already fixed in the ext4 tree by Amit Patole's
+patch, applied as commit 008aad6508e3.  My duplicate check looked for my
+own posts and for the subject I had written, so it missed his.
 
-Fixes: 5466112f0935 ("pnfs/blocklayout: Fix a 64-bit division/remainder issue in bl_map_stripe")
-Fixes: 5c83746a0cf2 ("pnfs/blocklayout: in-kernel GETDEVICEINFO XDR parsing")
-Cc: stable@vger.kernel.org
-Signed-off-by: Elkin Cruz <elkin@google.com>
----
-
-I am trying out new Clang static analysis checks for kernel bug
-classes, and they flagged this code as possibly buggy. The findings
-were triaged/fixed and commit descriptions were drafted with help of AI,
-then checked against linux-next (not runtime-tested on hardware).
+If you would rather have the comment read the way you wrote it than the
+way it stands in 008aad6508e3, say so and I will send a one-line
+follow-up on top of that commit.  Otherwise please drop mine.
 
 Thanks,
-Elkin
-
-Note: Liu Chao posted a patch on 2026-10-16 checking !chunk_size
-(https://lore.kernel.org/r/20261016041139.2292455-1-liuc63@xiaopeng.com),
-which is not yet in linux-next. This patch additionally fixes the 64-bit
-truncation in div_u64() (which still divides by zero for non-zero multiples
-of 4 GiB) and zero volumes_count. Happy to rebase on top of that patch if
-it is already queued.
-
- fs/nfs/blocklayout/dev.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/fs/nfs/blocklayout/dev.c b/fs/nfs/blocklayout/dev.c
-index 00462e6affb1..8c7af13d45d0 100644
---- a/fs/nfs/blocklayout/dev.c
-+++ b/fs/nfs/blocklayout/dev.c
-@@ -274,7 +274,7 @@ static bool bl_map_stripe(struct pnfs_block_dev *dev, u64 offset,
- 	u64 disk_chunk;
- 	u64 disk_offset;
- 
--	chunk = div_u64(offset, dev->chunk_size);
-+	chunk = div64_u64(offset, dev->chunk_size);
- 	disk_chunk = div_u64_rem(chunk, dev->nr_children, &chunk_idx);
- 
- 	if (chunk_idx >= dev->nr_children) {
-@@ -536,6 +536,9 @@ bl_parse_stripe(struct nfs_server *server, struct pnfs_block_dev *d,
- 	u64 len = 0;
- 	int ret, i;
- 
-+	if (!v->stripe.chunk_size || !v->stripe.volumes_count)
-+		return -EINVAL;
-+
- 	d->children = kzalloc_objs(struct pnfs_block_dev,
- 				   v->stripe.volumes_count, gfp_mask);
- 	if (!d->children)
--- 
-2.56.1.839.g22a8290db9-goog
+TAKANO
 
