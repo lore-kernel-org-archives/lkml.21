@@ -1,89 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795648309;
-	b=dGVe/FbmOqoldSQUKAN6veKNfhCzXXh4r2QSmyVshV+8+WPf1u/clmWhiDk/DL3HdJ/N
-	 +xVqsFkmSgrKa1rM22D+uW8rPSRpN8WxdG5i/tySc5aIa4frrG4DZ0ww81DPZKjrJn5Vn
-	 d9raz4RRQub62elBh096P4whj1uEAK7p4+LHqWsaWslJpB5VUPv/uhj1pbXt3MVGr+kY+
-	 PIiv27Z+Bi4ZfdUAJsokMB6JP5bkdcsT3FqSGTX/KUTeO8ceNPqc4lRQgQOydFyPXaKYd
-	 s3n4h5TNUwRh4qhE0QwMsM5VtPJcvWcSAsWWTsV92280Uj4zh9XuD+9jzNEmDbsCmJw==
+	t=1795648314;
+	b=yeoOZXSfJ7KOMsYLajiGBHUuBKzVdj/yWinPFowRA3HxpOKMRDe727oVnf5FEUYS+5A4
+	 mFRWJ/v+Me3muvo4o3Dd87mM89WWD1iZV6mUYoupnqVfBB1k2s8zScAfzY3ML1u9r9xnH
+	 ng7jmORcGMOZ2UcfnJlHXZXS5ZYeAgTuNYznjNwArbmF7DqrKNUOmRFZcmnxIQ/qO5pBR
+	 nQluzURO6JlWGvAbv/c5Mci/oYddeallELsr9K/4dlS9G90jvZP7aZpHVxJAMNif6xolf
+	 b4AU7NKjKP6TXCzLTnlvV7pl291hvOiqhyBHRQS6Sgx137nqkfBdLD8jg3of25DJ+tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795648309;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=8dwyi/LNt/sZRH2hpB60uP+84f591kldBMUUJKPT3OA=;
-	b=V7wVS7fk5DnZR8NJei7fxtU4lp+4s4qW91/UEJ8/S/169guore7IMXn7cg8GliaIt8Fg
-	 8igq1WTCMoOVDLzY61XaJMcblEu/7rZixyJi/xRfDkhzZcn+3+wHg0hEtxw64CKzsceJ4
-	 zJVPVBjl2RgWwMkaj9Yk+NmLavtMTYWHHWjPt+7PRNMMWVZR4nBjuAnAg+y2jrBwWKPo5
-	 S0GsXD6aiHLJtt02qgTJrBNEeoqRkGkhAu/0iVER4sLr/TeH5n9D7ewEsajhfp728M3SM
-	 lk037RxDsNFmouh1mt/1RkjtJ+AzjeIHcpfmLFmsMXvTESZ9dYmLmpoyJtKZ4jumxiQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795648314;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=xei6wpjeykoKjkdwpsJIscvNqWsoeVhdm4F9rN4EARM=;
+	b=Ae0NlUgC3cnluFZBbZR6iuLm30L0cWDvQW5zCDEQExzxvEikkrHapv+czz5NZoEOmXOV
+	 aF5h49JuUcuj1nMEkg8mejtmO5+J0t8k5TUlGvjy8hSRH6nBIceLqQOxGPSezQaKPL3cQ
+	 u+KHAzB9/Gz6OWtcYVJb7ZK2GLu6omZVXlT/dqupJTAm1LQr0ppZbh6u942Wforlbrbp8
+	 dnq2x67NvtNJDXc3fe0aTzdEDy0DnOLdCaRWwUx67ZqipdfNh/I79rN8d9lkBIoT79aYy
+	 xt2cze/CqQg2q3Up4T86gzcq/TA2AwNtDfmt8nV0p9HTrFztgcx8baifsM2xZcIIbRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ng7WexnC;
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KPKguQPo;
+	arc=none smtp.remote-ip=198.175.65.13
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99F46606A6B0
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:11:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99F46606A6B0
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6E58606A32C;
+	Wed, 25 Nov 2026 23:11:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6E58606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ng7WexnC
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-15ea896ddc8so10591873c88.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 15:11:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795648308; x=1796253108; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8dwyi/LNt/sZRH2hpB60uP+84f591kldBMUUJKPT3OA=;
-        b=Ng7WexnC5pJR0T86OUNpKT4/gXrdC8uA4+4p8dh+tmy5ZuuzXv0XTG0CODcSnopUrz
-         zR4ztAg6b4ymVurdbXh2xDkuLAE7u+JPzt4RXsdn0BPHAurAUrJ92IQN/8VwdnXVdSqv
-         HxNei9t3/FGN02wFtfdauJUuQhaK4pOWtTlZhXOuNm/jMvZVn1ikZcjCXwsNMwFK3Hen
-         noqc7MZNi4k09AfEBDAT9o76Z1W7jXXPiqkrY1zYvaBqBx4El5dcCHpG4MDKPPh8hFO0
-         2+x6NgSfss2P7yjJy7eG/e4Og90TI0kvHwEdOHzBg7TgMhIAGc/adSmbwmSwOCp9Tqcw
-         DMDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795648308; x=1796253108;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8dwyi/LNt/sZRH2hpB60uP+84f591kldBMUUJKPT3OA=;
-        b=XP0mbJVzj2nv5K13x1OCu6k+wduYGMkGsizdTJMI+j4OjcqqRcPxlqeyc15yJbT/CG
-         pOelUXuIJh77eHnvB3sX1NIiYI7cXAzCwfrSJIGsdlIyD3dxTbaYPRJSJmICFmQnguZR
-         aNvy+yB+Unsvt36RTnyJCsFi8NpSoqn7hWbiaJmqyfGtHwB8az2QaqsLzvmRpYkQRFlb
-         JvCFamPUNfUCoaqyZ1mmSMirAWVafrMwgFvboOXo9cVXZpx48zxYUEXW3h2dTk/eS8EY
-         UW9t0BxZcmuoqh6+A+e+TiP0RgK1zDkR/djB7movyJjb4XxLnNesL1phis09nT4BYG5b
-         ZCXQ==
-X-Forwarded-Encrypted: i=1; AL+hErFK5rywedPtWuxFUMJP3x2GkJmspKgFlQ2dA0Mm4EFaVydGAfKKTvlRJpzREGVoRdDRZPrd+Ubbnzly8UQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+rFLTHTr+nK7yvYyGHRxys+Rt9Rb4c9xWnsDzQ6On7IokxthP1
-	gyEmyqOcpesEy0/IXQYCNz+TItdGtIsR0Dea5n7lx1HmfEnUj5TWQhci
-X-Gm-Gg: AZFdTZdmltwdxik9WUl9aPebG5Kwv5Hkashpo357px3Hw0LaMQ4uE4ZEcGs0wsS+ZSe
-	ItV2eGtEHUKuHd8kLKWqoxOkv1sdfOHmy9ZtjaKjb/LBn2oxDihXU/s/l+Tqd9AWp45dAwG9G0x
-	tZC3/7UisdNwrxbKGl3DafLbaywtMR11CHBa9lYbIOtP3G2u3qX0SGgWfBtSIiWhNbwcV/CXQnn
-	3rSzTJA9iiMRU5BkJ+5BdzWYewOsae7BP7gxmfsH+f5y5geFYEy1SwxaIJHfxt+rMgdpnZEqdjH
-	lpDi3+pm7V7aGiFs5n26Ej5TagA1d524joE4Ep87Yf150ecwYDBqw9viU63zssoxhiZ7sAs+pWA
-	zfbO/f0ucUGMk0Zs4msFYea/hwk251gyDyMHD+z4UOSdkE55mJ2rlfgXepkciyhavqvhCBSGWyS
-	vr2Wt9pT5Aw/1F5acxuEVvashg/H5NGH6eJlZ6DgZjhbNvVFTc1kiILKsOf+3C17l2h25W4qdbU
-	x3WQrc6u+f7WUaj44WcwBnXS5ZsONT/dQ1Mx3z54DT0BVCXqrsgYUB0pGukqlsGImJ6Q/L1K8N3
-	anhnuwtyfEuwxtDPqQZddwJagPCGobSnDa5hmPfqGpS1t7cc6DTnDvnzCRQjzBXjs4lHgX6aqj8
-	RjnFsM3pQ4pj9/xZsbQ==
-X-Received: by 2002:a05:7300:6da7:b0:36c:3b8a:8090 with SMTP id 5a478bee46e88-3856c9a302amr2180408eec.2.1795648307648;
-        Wed, 25 Nov 2026 15:11:47 -0800 (PST)
-Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:f528:8797:fe51:9f7e])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm64430145eec.26.2026.11.25.15.11.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 15:11:46 -0800 (PST)
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Wed, 25 Nov 2026 15:11:21 -0800
-Subject: [PATCH 8/8] platform/x86: thinkpad_acpi: drop redundant input
- device parent assignment
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KPKguQPo
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795648313; x=1827184313;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=dzUiYw7RDREZjYycHCyL464Tmr8VJwaBAZHAwVtU6ZM=;
+  b=KPKguQPo8udx7QEo6TSeZLa5Lpm7/Ti4mvTiIfhONVJnhoUota9y1k3K
+   xH6uwj6MhL2+B2K7Lu2RGwGV4jJoZZUz8gLo2bJmZ4r/tQ9Z7pGCQnULI
+   M4THyC9FFZA0CYcmULZq6mX1Kj5A2jGbudwpHqwJ5s69UqcY2tzFEuntj
+   0W+y6XgwT7VHH91ES3h0J4zo3dIxNupnLkFUagxVGPpxV/Y6SkRGlY7K5
+   yghL+Bg3H1MC84mT0GfuAV7MKeSFytL2Flw8EKwYC323CpxXycYLmHVTT
+   77lDvO7+jLSB7Zn9fcgvlrZfWwDm7lPFDrGHuPQfe/bbZ6qWn7/bG3rUZ
+   Q==;
+X-CSE-ConnectionGUID: 3YYHfpiaSBmXhT7Pn4FOQA==
+X-CSE-MsgGUID: 28Y9emnaTISdG4gx/7JoUA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4451826"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4451826"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:11:50 -0800
+X-CSE-ConnectionGUID: +eVxzqAmRsCPSRlK11uPcw==
+X-CSE-MsgGUID: beHvVDKIROaw91HVJryJew==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="11874527"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.96])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 15:11:45 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+To: linux-pci@vger.kernel.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	David Matlack <dmatlack@google.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	linux-parisc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Subject: [PATCH v3 13/17] parisc/PCI: Convert to pci_assign_unassigned_bus_resources()
+Date: Thu, 26 Nov 2026 01:09:12 +0200
+Message-ID: <20261125230925.2441-14-ilpo.jarvinen@linux.intel.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261125230925.2441-1-ilpo.jarvinen@linux.intel.com>
+References: <20261125230925.2441-1-ilpo.jarvinen@linux.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,42 +89,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-thinkpad-acpi-hotkey-poll-v1-8-6dee57519c2e@gmail.com>
-References: <20261125-thinkpad-acpi-hotkey-poll-v1-0-6dee57519c2e@gmail.com>
-In-Reply-To: <20261125-thinkpad-acpi-hotkey-poll-v1-0-6dee57519c2e@gmail.com>
-To: Henrique de Moraes Holschuh <hmh@hmh.eng.br>, 
- Mark Pearson <mpearson-lenovo@squebb.ca>, 
- "Derek J. Clark" <derekjohn.clark@gmail.com>, Rong Zhang <i@rong.moe>, 
- Hans de Goede <hansg@kernel.org>, 
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: platform-driver-x86@vger.kernel.org, 
- ibm-acpi-devel@lists.sourceforge.net, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.17-dev
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Drop the manual tpacpi_inputdev->dev.parent assignment in
-tpacpi_pdriver_probe(), as devm_input_allocate_device(&pdev->dev)
-already sets the parent device.
+The Dino PCI bus driver assigns resources using
+pci_bus_assign_resources(). That function makes bridge window sizing
+disjoint from the assignment phase and is going to be removed.
 
-Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Convert pci_bus_assign_resources() to
+pci_assign_unassigned_bus_resources(). If no other bridges are involved,
+the extra sizing should be a no-op.
+
+Tested-by: Helge Deller <deller@gmx.de>
+Signed-off-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
+Acked-by: Helge Deller <deller@gmx.de>
 ---
- drivers/platform/x86/lenovo/thinkpad_acpi.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/parisc/dino.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/platform/x86/lenovo/thinkpad_acpi.c b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-index 898d919d697a..e809ed417e0c 100644
---- a/drivers/platform/x86/lenovo/thinkpad_acpi.c
-+++ b/drivers/platform/x86/lenovo/thinkpad_acpi.c
-@@ -12245,7 +12245,6 @@ static int __init tpacpi_pdriver_probe(struct platform_device *pdev)
- 	tpacpi_inputdev->id.vendor = thinkpad_id.vendor;
- 	tpacpi_inputdev->id.product = TPACPI_HKEY_INPUT_PRODUCT;
- 	tpacpi_inputdev->id.version = TPACPI_HKEY_INPUT_VERSION;
--	tpacpi_inputdev->dev.parent = &tpacpi_pdev->dev;
- 
- 	/* Init subdriver dependencies */
- 	tpacpi_detect_brightness_capabilities();
-
+diff --git a/drivers/parisc/dino.c b/drivers/parisc/dino.c
+index 286f4f75dba7..da75ba15faf4 100644
+--- a/drivers/parisc/dino.c
++++ b/drivers/parisc/dino.c
+@@ -1050,7 +1050,7 @@ static int __init dino_probe(struct parisc_device *dev)
+ 	 * if it isn't, this global bus number count will fail
+ 	 */
+ 	dino_current_bus = max + 1;
+-	pci_bus_assign_resources(bus);
++	pci_assign_unassigned_bus_resources(bus);
+ 	pci_bus_add_devices(bus);
+ 	return 0;
+ }
 -- 
-2.56.1.839.g22a8290db9-goog
+2.47.3
 
