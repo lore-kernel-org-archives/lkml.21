@@ -1,101 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.26
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795584921;
-	b=z166/BfRJM0NxC0PSwpz8eUDG+kyIVPa6yOc44EF5AEZ9rHm3VaDTWRpW070lcztWCxE
-	 R81XMQW1+NOogk4lHzQ49FCVSAKSVMDtU94kZ+GkN43sSWKGbOp4Cp30X5u5o6TUe3OIJ
-	 F7z3l+A8xcbyhS1ak+PYolhnG2JAW5MYJl2EPz3Ga7gBAIyNP9JRb+uzOzO4KnJq9EIHc
-	 9km0tYDC0BGrySSEXRmLTLciJZYRognCv6GvpKKa86dROBjOF0+OXIoDmb06cHYoXk1jk
-	 Rs8H/6fiNQvRyCOs5oQZ0REDjsAy9HH/DNjOK93kj9LjZe7tF1LN39PQ/7QkvTTFbTA==
+	t=1795584946;
+	b=IOQbuiSRbtx2gW4h/R8rbmMEpLTstRpPQzTEgWJ3Lbkxj3fOVfxIwr7yDlcsKIKoSPky
+	 Dkea69OjZkBfMS+BP4x5DrYrCGl8uu+1j6U5NlAVQ+HM0Uy5aJL3IvgauchZeuGJ0fnRt
+	 B1cdKERdZQW1hJSqsK2B7drxhrBC9/+wkBjbxx28TKQIJKXg7gg741tEBOAmxHHmjrug3
+	 L26cBrpsQO+7xPZ8acJLipRUK/SVw7M3Hb0a/hIVN37GdPADu1hg9opOz6XvgHCnq7S3V
+	 HG8/gwNUlt+K7L2aE6MGqibnZbZVO/rI5gh3FlwoKfpjL7xX6t5nGTrm5L/pNsVwkEg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795584921;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=DIXlRqv/2z9juZ40YrnkT5CgsYY3lUKcwDePl9HeFiQ=;
-	b=uWbsXlsHwBHTSV0ZoVKYcxnyESUoZ59BPECsT1PRKel13bc5Yv0v6xyv8Rl0EV7HQAHh
-	 1yxVVY6C83MVELM/f7mrbkKwXJOgoRoaX4mt2l7lwdPGqe19iK0KzMq7oWhTjO53w26l+
-	 9j2Cp8F76RFGqABkjmUdLD9ELoEOF0rkEQFtwswRBVMdJ/x1MDRvlValbCIWaB1aCg1ID
-	 BYOBczZBLpJyH7PD1o5AfOKgVQHZ1810Z5l79VP2b6NyDj7/U9Ti2dL4PopiQwiZnwZrS
-	 ox+GGBqeg3RBhM7o3pE9uX8ULWyFRiwo5Io9dl3jmFBSQn5vS9j3JZJqu632GOKCzwg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795584946;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
+	 CC:References:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=5G0se/H/hVvaNIdTvRh5XyfopfLe2Lhr0sil+g7hSsU=;
+	b=So43b4i+Vm2YsmYyt6wjDVvmQw0WeD/JxD/SH6DdHtLKuiBim27DhrtMcxybPwPijReD
+	 gZgCJvqtDCH1RS47PkTOrDNV7f3Hqac3rlYUiVxinesOs/aEcPG9l7MrpjTyWxSYydFbO
+	 Fgy3QGgQYojL+zFiJrSEVPHaL8KgXrndkmxubcsAcYJ6ZZpL59KoDLU9KbX67f/i/L2Gy
+	 SQZze1YyCUmJWAm0i2lsuaCEEJn5IJcixXfxaTIqLGMmCkZIUgDeu4Rhwi6A5RhH2BQnP
+	 TB41fmoegxM8AqpTrQsA8NrddjC3gyUKpRmTBja3TtoYbxK7AytU2pPkLAGAa8dTBVw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o9EY6P+m;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=sGrTKhtX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.200.26
+Received: from CH5PR02CU005.outbound.protection.outlook.com (mail-northcentralusazon11012026.outbound.protection.outlook.com [40.107.200.26])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45D8A606A323
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:35:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45D8A606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC1E2606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 05:35:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC1E2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o9EY6P+m
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-48e3b22e971so2760477f8f.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 21:35:21 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795584919; cv=none;
-        d=google.com; s=arc-20260327;
-        b=J5hVVG8Oamg6L1Uc7G5ZvbN4LeDApie/YQXtEwv5eQ+qP06OIvtrMwP/0tpo4RUHQl
-         BeHXxzLf9pO/f2Jo72M0deltwx+nG7PNpytfNs1HN6lGRsGEMLE5C4xDXRsrr5nn7BR2
-         LAxFZlw4wlGjTYhEny0Ub7YpJSVXWsEauP15lQI2k9BSGnVhA0k9b/tthka+CzGMc9kM
-         snRVMjh9rzLjG0APIXTdFuyEIlL8FFQFFiSbMHcdHtJPyms2Nq8P2h5UDZAsz6zmHZu2
-         DKNGLkIiz4HleAFy8vZ9NZt4lxFMs593vlFKrj6Pu/E9aEvX9PeomZDrpFoxpH1WaVu5
-         C/ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=DIXlRqv/2z9juZ40YrnkT5CgsYY3lUKcwDePl9HeFiQ=;
-        fh=Ak8VgUSe//JoOeLy21cTN7DNn4FKaDz+Y8psvZFENbE=;
-        b=JXXh0Y7VvyILV4+4bBsvG1v5gaTjfqv5XU1i+Atv1u6+9cC8cFbQDn4q38nZpKY6+E
-         2GfxeYyOuR91fy8NrbnbqZlnmjEaCZtbVJm2+fyC5plcawJnmdHsj5AviDxd3/JBcgoc
-         IAMtaYR29SS6JmeVIbjDHMams10ZYi8Xr0k3Hiwz+OjZjDTrG4jUWy0+L39Zn5ilJAyp
-         Sh62APqjc6qCme9CGQiowk9RnNlP/8Ck2bn8QjwdFt5XLd8gldn8dxnWO7k0hUF/LtZh
-         WyS45b/4Tq+ExF7V+wwhibrWgwucqrBZwDhqgd4a/J4LTp3zFdB8yr4IBncgGAHgsD2d
-         olCg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795584919; x=1796189719; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DIXlRqv/2z9juZ40YrnkT5CgsYY3lUKcwDePl9HeFiQ=;
-        b=o9EY6P+mlgR+Kct33Mf3oZ0z1Oc0os21EYW2QyzW2/KNaGbvnLvNQ8sbCG5zDp9ueM
-         u74Zm24oxxRQMNK8hqfFaWEdJFH0cN3a1TcZczjJ+aIs34Nsl6I4SwyHwsjmQQ9F0x+J
-         OK6h9X81phhEYtjBsFd2navN8SjSL+p0LFwLU6L4ln0fwBt3dCRFnn3mfiHM6Km9sSgH
-         JmscklCVftyGv/9ZF0tvRlyZkOao23jFBabCKvBC/8mdzxVOGENVkH3HPv3veqfyKrdW
-         J9O+RFR7TCiRwUn5t+45pLuktAgdua12wVTdocQvIPwTjpkpwZIhpwOLoTqMOz3yzhLQ
-         ERjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795584919; x=1796189719;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DIXlRqv/2z9juZ40YrnkT5CgsYY3lUKcwDePl9HeFiQ=;
-        b=e/96BGUFIoCwGKtekeW3At0ZkbhY83y/t4ir1b5lJGAjHHv9nlmY0ZU0gtiCJQ0ntu
-         8WQjVKHTZXNmRMh7bCvn6ZlQMHoHQ0ipuamjDt92NPcJfnj2TDU/ukRK2YXvIQ5ViwmI
-         XtwukL+un8hPJyEOAm8LJqSX4Ld07Z6jJX9x79zUZ2qfFkeOnEjB2YNShK66xAKDR3QF
-         qVTa1I7nkjC5Wwj1U4cCQPbDtQTKK6eEGg7UrdTUqzBAMuAv2o9kJOvs2kYlp7sg1byK
-         pjcAdP0bsaqhbubQI1LmTtgYcIPu44cNAcPIzqqNHCNBQOMk9tk/tAvq6EQUf1a6YK0P
-         8sWQ==
-X-Forwarded-Encrypted: i=1; AL+hErGhKS203y/ly8/oI5X/g0BjZo/M2fvxG4AJOjzrvMbcEG6YV+zBYHdoJ5qCTl9ZNcpMGRg0ED8iumx940A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/npHB3ratV7gkjHH6+GN2gg83Z/7/TO/r5iqTkvSxzS5LKoOZT
-	zn7yCEIJGpE3Zi5YGvnSwd7t6BDFh9Aw0KLkr00fYrXZAwFfwq+xE9RkpOZ9uh2jMU/zDmttk/G
-	a/QrDjtnNtDRZy5T8zWNZnavhag2aGII=
-X-Gm-Gg: AZFdTZf9k+mq7470llU89tIAxhUxFSakfoD3rw5nf1NbmViW3z1ycjH4VHU+/XbshNb
-	rtpYWAcxxnB7aQUoDObdKrJQs20NeCsd1Hq43euJsl0LgbOeEjjT7ngL/annMxM33zrluQ4hBfU
-	vOvckFDJUtCt1DmjkkhiEbq3hCiItZkvmvOjE3p123egEfs8eTZL3CVVuQRg8zoBmP6h5hiiBhy
-	k1xOQu/ubwYBsb/HPnSSsQUkhmJzzmE9MKGbOCB1dT572lfUPZFDkCsVKAeKmMbdw7seX1QptU2
-	UL2ZyMKghQKx51sZV4l3ts0XpyJpuBk58NAQvt6tPkS7ZJjMOPBBJJO1KjQXQoGM8yfpDXesa4d
-	P0t/eAAgzAKppuA3mFc/hAOWS0Ur1Wj9cndKZWap9qfVkDaTaeJfFxUBIzAqPDZY+CuljjFWW8/
-	HfXBhEoLXbqsoSRl3s3cA0j5BOL80y7qm4R4Ryvlo=
-X-Received: by 2002:a05:6000:1788:b0:492:3176:3d6f with SMTP id
- ffacd0b85a97d-4abb400aefcmr31101621f8f.47.1795584919374; Tue, 24 Nov 2026
- 21:35:19 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=sGrTKhtX
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HFhO3VSiW1V5xuhqg7KMOF9FAQQCTUe6iwyQXgHc9aK5XOHNjEvaLN9I7s6ikGDopWI4xYyHt6oXYJvI4tn0WUY4clYxcwLZYNLsbQbl9kGK3V5D+FzC90/si2vsXl5TtgyO4QM7HlQMMjH9zK6zxIqH0ZtibFSHvd2V+36ga+0LXxYyjtSrvaCnCwB54VijyQuaJhyjjdluQUvcRuHqZQYYgoin+d/WTHDXNdAivvVDKeQK8hhMOBWdhQkCkpXtXitT+3I+hDKg5zeGLDOxd3VxeLHRTzzSaw0l9m3EH3WdRiArv876yL8xVuO7RH2wEh7dOrIoaWKWDrl2cyBxDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5G0se/H/hVvaNIdTvRh5XyfopfLe2Lhr0sil+g7hSsU=;
+ b=t4fu8L8t7zIis5047RyXDqHd+7DiIcVlH7NJtZ2bxCx2Nr/t0Az/FAEZMBY5eI4mnviPQKFqe7oG8jQ4STiLQtZAmEo4qCJSXEO9r0W3llKxsbqA5fcAXFzlbXZ/SIiAAvX8ktmqbM+D+gMma6GrcvHmJ6N8EXvoc3so7IbBe98IjR8LXok8bQ1p12kjyQfhLNOJdfcXcQyQcpRy9XB5A5i/i7Cf6TgPcQQpVTvf2a6bs5yWFQ8P/WGUuF+ePAY5VrqSDmbh9RqTq+5Ibu2E6hRJXF29IVGRYa1wPUpYqxycKXJsnRfjSy9QvgnqTBY8BjElWRmK2fkwDGnYSCf6YQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linux.alibaba.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5G0se/H/hVvaNIdTvRh5XyfopfLe2Lhr0sil+g7hSsU=;
+ b=sGrTKhtXgZtKXCzrU6Woyz9eiBdKW1jDbV9GpzsF0/FAUL2ZNaz3W3pX/RjVkdcv3YT+F1XzjhrZp35p9DRbgfktZE+PhobBTf8BOZqqvSAyDt8WlHe2ErFFOcch0JRw5UFGiqPeIul/U918eM1OH+zvgCUPu285Zhh4CfZXCGg=
+Received: from SJ0PR13CA0123.namprd13.prod.outlook.com (2603:10b6:a03:2c6::8)
+ by CH4PR12MB231692.namprd12.prod.outlook.com (2603:10b6:610:50e::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Wed, 25 Nov
+ 2026 05:34:12 +0000
+Received: from SJ1PEPF00002319.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c6:cafe::8f) by SJ0PR13CA0123.outlook.office365.com
+ (2603:10b6:a03:2c6::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Wed, 25
+ Nov 2026 05:34:12 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ1PEPF00002319.mail.protection.outlook.com (10.167.242.229) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 05:34:11 +0000
+Received: from [10.85.44.127] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 23:34:08 -0600
+Message-ID: <9bb63df8-29b5-4b0c-9758-3fbbdb61dd06@amd.com>
+Date: Wed, 25 Nov 2026 11:04:01 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,133 +98,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-bpf-preempt-v2-r2-v3-0-586376ec3672@sentinelone.com>
- <DN38312WXPDJ.2KLUTCWSDFL3P@gmail.com> <CAEf4BzavErcSOZhGobqEo68d+2bCnJ8vFxxT_vqb+oQw1j1d7g@mail.gmail.com>
- <DN3X5OIRXSWR.2Y70DWFMPDXQF@gmail.com>
-In-Reply-To: <DN3X5OIRXSWR.2Y70DWFMPDXQF@gmail.com>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Tue, 24 Nov 2026 21:35:07 -0800
-X-Gm-Features: Aa3M54pxoPCdtejSbeLTFS7uA2H68O1zStyUPispdlpA_6QwbCBs5gPBT8bsyj0
-Message-ID: <CAEf4BzYxBM3R1s6XDSpN5htzMho4Jp2uBsx9ZBKTPNBvmEffxw@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 0/4] bpf: Check recursion per task for
- preemptible programs
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: mikeba@sentinelone.com, bpf@vger.kernel.org, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, 
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
-	John Fastabend <john.fastabend@gmail.com>, Emil Tsalapatis <emil@etsalapatis.com>, 
-	Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt <rostedt@goodmis.org>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	JP Kobryn <jp.kobryn@linux.dev>, linux-trace-kernel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] iommu/amd: Optimize IRT cache invalidation for nested
+ VM workloads
+Content-Language: en-US
+To: Guanghui Feng <guanghuifeng@linux.alibaba.com>, <joro@8bytes.org>,
+	<vasant.hegde@amd.com>, <suravee.suthikulpanit@amd.com>, <will@kernel.org>,
+	<robin.murphy@arm.com>
+CC: <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+References: <20261113095017.1835921-1-guanghuifeng@linux.alibaba.com>
+From: Sairaj Kodilkar <sarunkod@amd.com>
+In-Reply-To: <20261113095017.1835921-1-guanghuifeng@linux.alibaba.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002319:EE_|CH4PR12MB231692:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15052188-801a-4080-ca20-08df4ab5bc42
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|23010399003|1800799024|82310400026|376014|261026140227099003|261022075727099003|261102123227099003|261022105027099003|261028144727099003|261021123027099003|11063799006|10067099003|56012099006|261021121427099003|22082099003|261009223027099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	ewWsQSf9Sm8xNrmjRqcLy9Bgq+nMJHpRVZVh77Sd72Emki/LOpuHtbVSA547QIsabnx1WXaa0CRo2HPwDyHuwh7x6jgjsgAewq0RgE5pmIxJMwFkqSOVLn8WmQt9PK3NlohXFnWVJ7Q0Xmw7fBrF+Ax7zuk4Cv8jHCSV5XUPuG2whP2uBza9eghJXIWlRqoo8USUcQTu8CxdXsqCH6qxw4sKBzIxsLstTMcC/NbNMy+nbomgwra2h8WDUZ5aCct/5OFy9CfGLayXW+RaNXq+4Y0RvLyq9mTCJ/3bBwt3/O6uD2bjCrwnM2TBwqX2SI8RKCKgQ6GvpeLip6E+gL79NwRPxZ7NM1uE5HgIW4l6zZu94axCI/RztjvHhB8qDC8kMu9cVAVcuR3+uSQBzfiqnNUAc6ju9C79/b1pfKuOOyOVIWo52xIGWm7NMppufLpYX5eR8YdrVm8gs3wjhRMPY2AVN5B5PRRluk1cziOob+7+ykSeYKelQsp6ocMGCEI6w7NBRp5QrRr+c1JUDAoksLIIQHRyCzg+rUoOsGkAn0ssk+8wS68PMxsIgzflQcd2OX8k4WMkCPtVJug9Det3L4ITT+YqcpzJlgK6o/DLelk336f45SgPQDbL0nMDHE3Dufr2c1q6jeUbGkjBNFPusFnCpk4myzWhd0KuePg4ARA90zyROKHn/EubvlO1H7T5HOsIXhd2TdNCNtJwwgW3/Q==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(1800799024)(82310400026)(376014)(261026140227099003)(261022075727099003)(261102123227099003)(261022105027099003)(261028144727099003)(261021123027099003)(11063799006)(10067099003)(56012099006)(261021121427099003)(22082099003)(261009223027099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	dL/3ZPX0mfxRYWVmVP5RM5pMQBM9Xc0dZUzbqQ0KjPfVUKlZ6UNTYvsAvZJesx+d/IwO86ZPgrVNV5t5PYCRdWpOM2tI3gBQI5XabWOJEeWXXjdEhWEvndk/C+23pIpmulw+5m9aMwrXDe1sj4OnsBeHbpkCA7OdOeyE21nKD7CFLr6m+DQBLBtMNfr2eSeEZlj6JcGdAFVs8J/vY/RJCmCdeVBA4ABT2VTcD5vNwTQTjsM6SpL3oe6iVLe6xx9gcJSAykbGO9duIrKxI+LaIMQ75uHCmb/XnwMp4Q5UWUx/O8x0qbW/Asq+LAz2WtJs0BMPWbO8dUfYFe7lo/nnUMvZLfBtBClWiH4clcvlzRY7LMb3HAE85toyCRnLNCtuFHanPkuOTQcb+9ZSo1GSsCBJpFF3mX7LP6HNvXaUUoG7ES8zS+24ZXCB6V4NhyM7
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 05:34:11.6637
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15052188-801a-4080-ca20-08df4ab5bc42
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SJ1PEPF00002319.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR12MB231692
 
-On Tue, Nov 24, 2026 at 6:00=E2=80=AFPM Alexei Starovoitov
-<alexei.starovoitov@gmail.com> wrote:
->
-> On Tue, Nov 24, 2026 at 01:47 PM Andrii Nakryiko <andrii.nakryiko@gmail.c=
-om> wrote:
-> >> +       for (ctx =3D old_ctx; ctx; ctx =3D ctx->saved_run_ctx) {
-> >
-> > do you mind checking if unlikely() around ctx improves performance?
->
-> Mike,
-> pls try it on respin.
->
-> > So basically to opt out from this behavior BPF program would need to
-> > stop using any per-CPU maps and just implement its own poor man's
-> > per-CPU storage?
->
-> poor mans's per-cpu with bpf_get_smp_processor_id() shouldn't work
-> as an opt-out. See section 6.
+On 11/13/2026 3:20 PM, Guanghui Feng wrote:
+> This series optimizes the AMD IOMMU interrupt remapping table (IRT)
+> cache invalidation path for nested virtualization workloads.
+> 
+> When IOMMU AVIC is enabled, every nested VM entry/exit that switches
+> interrupt routes between guest and remapping modes calls into
+> iommu_flush_irt_and_complete().  A reported workload with 4334 device
+> entries shows median lookup latencies of 22-33 us per invocation due
+> to a linear search_dev_data() walk, even when IRT caching is disabled
+> and the lookup result is unused.
+> 
+> Patch 1 moves the device lookup after the irtcachedis_enabled early
+> return, eliminating the unnecessary walk when IRT caching is off.
+> 
+> Patch 2 caches the device data pointer (resolved at IRQ allocation
+> time) in struct amd_ir_data and threads it through all IRTE update
+> paths: guest-mode toggle, affinity change, IRQ enable/disable, and
+> IRTE free.  The amd_irte_ops interface is extended to carry the
+> pointer, eliminating all search_dev_data() calls at runtime.
+> 
+> Both patches preserve DMA-alias invalidation, command ordering,
+> locking, and completion-wait semantics when IRT caching is enabled.
+> 
+> Guanghui Feng (2):
+>   iommu/amd: Skip device lookup when IRT caching is disabled
+>   iommu/amd: Reuse device data for IRTE cache invalidation
+> 
+>  drivers/iommu/amd/amd_iommu_types.h | 10 ++--
+>  drivers/iommu/amd/iommu.c           | 73 ++++++++++++++++-------------
+>  2 files changed, 48 insertions(+), 35 deletions(-)
+> 
 
-it's hard to weed through that verbiage in section 6, are you
-proposing to mark "needs per-cpu protection" if BPF program is calling
-bpf_get_smp_processor_id()?
+Hi Guanghui,
 
->
-> > And even using SEC(".percpu") would still be detected
-> > as per-CPU usage, right?
->
-> This one is pretty much brand new, so there is no data to make
-> a decision. I can see arguments both ways.
+Thanks for the patches. I ran a few tests to measure their impact.
 
-.percpu is backed by PERCPU_ARRAY, so we don't need any data to say
-that it will trigger the protection, do we?
+Setup: 12 VMs, each with 32 vCPUs and one passthrough NVMe device. Each
+VM runs a small nested (L2) guest that executes CPUID in a loop, which
+toggles AVIC for every nested VMRUN/#VMEXIT.
 
->
-> > Should we give a way to opt-out of this protection explicitly while
-> > still using per-CPU maps?
->
-> After looking at the data, I think we shouldn't allow it.
->
-> An opt-out is for a prog that protects its per-cpu data on its own.
-> In the v1 thread your example was stack_trace_scratch in wprof.
-> It doesn't work. wprof is broken today, without this series.
-> An event gets args or a stack of another task. wprof 8dd41e18 on
-> bpf-next, corrupt events / all events:
->
->   -U                             what's wrong  lazy      full
->   -----------------------------  ------------  --------  ---------
->   u:func (arg:0, arg:1:str)      args          1928/16M  9111/17M
->   u:func (..., stack)            stack         683/15M   3419/15M
->   raw_tp:sys_enter (arg:id) and  args          3491/48M  16673/44M
->   tp:syscalls:sys_enter_openat
->
-> utrace_scratch has no protection.
+At a 1:1 pCPU:vCPU ratio, averaged across the 12 VMs:
 
-yeah, I was lazy :)
+  search_dev_data() lookup:            373.4 ns
+  iommu_flush_irt_and_complete():   172546.1 ns  (including the
+                                                  COMPLETION_WAIT)
 
-> stack_trace_cur handles nesting, but not preemption:
->
->   task A                task B                task C
->   idx 0, st_cnt =3D 1
->   preempted
->                         idx 1, st_cnt =3D 2
->                         preempted
->   put, st_cnt =3D 1
->                                               idx 1    <- slot of B
+So the lookup is about 0.2% of the flush path. The completion wait is
+the main bottleneck here, and the overall gain from this change is
+minimal for this path.
 
-yeah, this is true, just a stack-like approach doesn't give 100%
-guarantee (though in practice it has been good enough so far, though
-perhaps I just didn't heavily run into new preemptible kernels), but a
-better approach would be to use bitset + find first unset bit
-approach. I'll play with it.
+The change is still valid, though. It removes a linear walk of the
+dev_data list and the may help other places in the driver that call
+search_dev_data().
 
->
-> With -S offcpu task C is wprof_task_switch. Then the utrace event has
-> a record of kind ST_OFFCPU.
-> uprobes have no protection. That's what an opt-out gives to raw_tp, tp
-> and fentry progs:
->
->   -U, lazy                 today     preempt off  opt-out
->   -----------------------  --------  -----------  --------
->   raw_tp only, args        0         0            2849/45M
->   raw_tp only, stack       0         0            4081/27M
->   raw_tp and tp, args      3491/48M  0            3166/54M
->
-> The series doesn't touch uprobes, so wprof needs its own fix for them.
-> The default mode of wprof, without -U, is fine.
->
-> Now the bigger question: do we need preempt_disable() at all?
-> We do. Without it progs of 17 out of 69 projects in [1] corrupt their
-> data. 12 of them have progs that are clean today.
->
+Tested-by: Sairaj Kodilkar <sarunkod@amd.com>
 
-"Can corrupt in rare circumstances (in practice)", but sure, sure :)
+Thanks,
+Sairaj
 
-Still, choosing between handling all events and having bugs (fixable)
-of handling per-CPU data in my BPF program, I'll choose the former.
-Even if we don't want to make that a default, that's fine, but please
-at least give me a way to opt out from the kernel's
-over-protectiveness :) and not using per-cpu maps is not a way to opt
-out, it has its valid uses even with preemption. Think about simple
-per-CPU stats/counters updated with atomic operations and aggregated
-across CPUs in user space, periodically. E.g., I believe BPF
-selftests's bench uses this approach, why would it need preemption
-disablement just for this?
-
-[...]
