@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625576;
-	b=WQqHaJ6iNkSN2vc2krGtE0NwAyTgUgXGJ+37Y3WhxV2lSHitWsMscMcL1D1pOvB9z3n5
-	 qbKRgDp7H/PhV7TViRLm8raBYK2jey/+1AvO39In/KTTVR2GFfTV43YYc8TE7DljWdbcM
-	 mRZ5d+RMrXvmFkCYdsqAOTHM2J4h4GqeqJt1FF40a5F+ddeV6gkMttOLZ2Cu2A6DphjTo
-	 BcPxmgyvRjwXeGBJaAQChcnqtfFlxkqeu7SoUFUtOosXaSo3/4TOoTytDyTWALEfTASVT
-	 cCVOQoT7DgNYlOnbBIRt9aqa9+7xbblsfZzR6/CmBNdbA3aO4Z9zY3gPvQDO6fnvU4Q==
+	t=1795625580;
+	b=DbkbNbIi9rG0igGqWZlbQ3Ua3niz1vteGhqxtQ7wHH2j+w7tQ5sHXl4q3FgrSGv8/5J5
+	 Wei+FIrmTqfb8QjrmXymFFDMEWjF5J4pWy1Rivdj6DqlaKAcT1cXhxl6SSXm+mJk35gmc
+	 2sJYC5Ukq4Q52EofKlWbRH1A/kfInjdDyBfhuHpUo9hFDF9Kr8s5fLEkvgthaxCledxUJ
+	 W3uGvHo9PXuDkUzMgAgeNVU4isq6IlnPybS/St9Nfq1efrn0HXmZ6lmfJ2RbGpbgdIohf
+	 zhAS7eDtdsSZYyJ6tvA7oJiUxlAwYfa7nb0qCyZBGzv0x6K38NhiIs6p4bJN9bblaiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625576;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625580;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=JaZ96BFP7w1Op/oWAR3qnpvuRVSOJcqekj9/BhNvATA=;
-	b=CYJsgS2vNL0QDYqU9sqamaFUJjihSZ4KFDtVOJ15eDW2D70vEePjD435rM2ZFXF8QYqi
-	 aoVI4Kn4FVAe9dLWtHs5SGOqqnsKIkLGLWGIWOB8f64BAAGrGJKwUHUxiyOcHIKKPN+hW
-	 BLwPeKzjwmxY+Qm2kNufgT0LTgPoPk9OHpK+MShzZOil4e3CEOrxboIn7OUzqjfCG+FRB
-	 Yh/Z8LnOzSvpFdvb8xUzvlHECJaG1UXBDkFUCqE0KAmQoSN18J5uXdRHKo858i/edzsQb
-	 OBZY0Q6CDxC0U8uAohuZsvrQrF3IQel+i0G4WPDwV4kowNQSKzLEw0Ruqnp86rj4Q2g==
+	bh=Oz7Jwrl1fyQvd1SM32ZV4uHhbma6E080yta+7JCPzik=;
+	b=goM9OV7eqiNDLJy61t/KrEVNq80+Rqj/6zTYnFtGNWeDrUlQfsubhS6Z9CzJXwwTs5uY
+	 pQ42g7GaVFn6GXV4+fRL8dcoJqHktlCjSBacoZQpFmCTk58PBvBEiuBc7ncEumal4+LkZ
+	 WiTohFhi481e4M2nKRSRfQVClCFTmQJutQfpoaXaAhTuuKMNK9mdn4k0HOsxyGVcSw1id
+	 jUlo/Mz6Bs72zPOgaGhO+2KGylBRDi15zB1w/sIZSciESnBEB456TQR1ySxPnxLRL9YxM
+	 fHi/JbgZGLNfJbJr24chPpvOzIXRC1RJFGNuYzZ/N8gW/XHgtNySWnifWgc6s/HJYog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UscAfx1C;
-	arc=none smtp.remote-ip=74.125.82.171
-Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ehjdj6rt;
+	arc=none smtp.remote-ip=74.125.82.175
+Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33D59606A33B
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:52:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33D59606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BF58606A321
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:53:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BF58606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UscAfx1C
-Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-3282db206d3so487058eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:52:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ehjdj6rt
+Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-3863db981d4so8421003eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:53:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795625575; x=1796230375; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795625579; x=1796230379; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=JaZ96BFP7w1Op/oWAR3qnpvuRVSOJcqekj9/BhNvATA=;
-        b=UscAfx1C3V8CukWgZfB6n+f9a55aETVDV6iBrDj0BbpivO31v8/9/37pLcffTvGohb
-         MVCKH3t8eeUGKoMlawedRyNhAA9UOcvhqppaeknIar/EXc0CPeaDrpUslAP8Z64Ib53S
-         htvKvUIBJV8vwOh8Tm4OutLPZrKdVxfzgcqmjf4xMu1hq77Vm22O5eU8C4BBQ/MC2Acn
-         Ht4rU2QR6Ui4lp2g1SsRBv1TMuXmQN2QbJyXjKs2zxMHWxkrr6PDH3MPQmHev9MmA8UU
-         GLlWD6Q6AzYXaF2cmnCtbkj2wurv1XjaZL68g0bqhPTuOMLWUTJwwunJwBqJgWltowlg
-         NptQ==
+        bh=Oz7Jwrl1fyQvd1SM32ZV4uHhbma6E080yta+7JCPzik=;
+        b=Ehjdj6rte7v/iNas+NZlGjGUicWf7SuhxqTdDnwrFf97S7k93E7xDaK0M529oq1N32
+         7kJ7itU80xUslTT6u2POsqhfYolQDSHV3NJMtn+EPE/G9ppEQud9epKSgk7rHBzq3Ij4
+         TCsnYJxnoQvG+YJqpDjby2shfV6P2B56E94U6869xF8LWn8Ez4u4h09HmaBuJWDEBDmk
+         +IR+UWn8WyJkvHm0BKDAJ5rb0bmYe7DNuz1HL2agwT4pApILHV8aTkweZkapn8rWQmfV
+         YAmcUE9JCwp8na7QbiFAJiKdJgRp0mcRQTDo4j6eDZxbUceo/wnYvDD42GRVJu63sdwk
+         2qZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795625575; x=1796230375;
+        d=1e100.net; s=20260707; t=1795625579; x=1796230379;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JaZ96BFP7w1Op/oWAR3qnpvuRVSOJcqekj9/BhNvATA=;
-        b=DsYMOlxHMQKsAw1fl6Y9Zn6pbZd5axZvNIqG8v30t6ifm8k7AF4cYmQKER5gHE4Ibj
-         DL308CFKCkhzjl4lkvwYe9jhZLOToqjl8fUq4lXLjadcYeloT4tLUU7IgT7Fl1V8DolY
-         hEz+6CkaoYQIpRgqP6ePUeKFBcLr38HdCLSB5lEAbQnI/A6Wvrg05qcYftHoQid4rQxk
-         9EEn/f5aO31hnx+70ssM/tRO3sSLsLq+R3p938iv30Ulbkzf256EXgOQ18E9YUcd3lOl
-         QrI+p0pEMVCbWRpflTltKa/G2p5iZ9TmruyFjwKPnROV4AQlUgUtJ8QOs4FZw84nCC25
-         +AoQ==
-X-Forwarded-Encrypted: i=1; AL+hErE85Zc8HPPkUK0DBLTTBQ+kh0fJJaGxuiIvkbVMMWTW1X0k+NgPoQbYciir7x4TocRMyXLIR3h78VmsyF4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9s1XFOnx9HG6BO6KoRC8MWa3wVbOgpHOmNz01zv0T5guTNo0tW
-	c1adiWLy57RHEPfbzw010Hytlt5BwXuUGtkuTBSGZgR+DPZAFZdyJPgR
-X-Gm-Gg: AZFdTZestwcU+PyIkXElBffykJt0af/ZVyPc/at3ZNskim5m46akThS5GUQUFxFx29d
-	LMaIR6pGFSplULNan85nHv6DIOMLyCDfCJn0TBBvF976pxammaS/ZKfy6NFwENC8hyhC5t12A8o
-	iw3/8dBvrqRF5DHpx+ZHJmCbc96MfLiWspXFD53/OCqIt9lTKhsS9b7G6dA4KJhro8vc9s77Cda
-	DiOcfZbSBXdOGVE/dIUvaO0kFmbpEi7Nn8elHPV6x3lio2qOwPcQeOr1xsFzr02ypLweF8/2n++
-	d1fpNhnL0z0PM+9a2LYVkqFD83qK0GN2khqJ5C9PSBMUbRSkNmrvvArMpJTN5yMY9nYowZhbC01
-	unv14G/tuF/kJcHOcTpGH9cDvXDesshDYqLes1kKTEz/5hB5qUrVtbEjDvVw34GdiuT7o3jmmXA
-	9ucEQzQ4GVUz+PuGGknnEd7Ow38VDGheBhpKkcSXXbyRYOr3fApPQPj6NcENBNJpLfpVyXN1Nmr
-	5vSSEI6vPHAA3bLwgaQ8kip94MSGVdwxgqPFBWFIIQNNDVSG+ONOWSZiMkLRPKMqsEsgtzAHmap
-	IpLWdgUFNq62P8isgxxTGIXMO+1+v4s57A==
-X-Received: by 2002:a05:693c:8083:b0:377:678:2309 with SMTP id 5a478bee46e88-3856ef47a98mr20213276eec.15.1795625575355;
-        Wed, 25 Nov 2026 08:52:55 -0800 (PST)
+        bh=Oz7Jwrl1fyQvd1SM32ZV4uHhbma6E080yta+7JCPzik=;
+        b=LlVCz15AKKYmlgePY6x7G5o1u6ofiVxgt1Q6zoQ1C52g5FQ07Cqf3viVzFdLazeBYC
+         6wCoQvEAXb/C7OzK4YWdVYOVWbQdlCzXbLqiRQNmWYisynfd2/bMQJbKBQoFGEf5hv/n
+         EYaLh8cWgXTCBLFb3aJlECQkzDwOaakzcRWzPsdmG/HbwisLXtjRmcA2NgM40dERi/y2
+         q4zTpWAwPkWs8m4tMyyTRZ2PUdy0yG/RXPPMmVMeLF6OmMLGS+N6Q8X4MgWSeHKUdywP
+         +O7yxRStuPXQdE620aei0Amstw6sThV+s1Llt/xtEhigFS7lrKg5+5xBEWdsV/k2BpL1
+         sGIg==
+X-Forwarded-Encrypted: i=1; AL+hErGVY5O/axBiXEzHmoAJZRmuIQgSc/gAL10isNeGiNpFbYcQ+Z1CpMxvOOnHOohp0dsD8hb+qfxugq6+AAA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9oHRYjSqz7trpg5vVMSGRXfHFCOYOoPny5fZMrfyjNIK27DCFP
+	n9f9Ys+9XLUi/ZU1CoFAexQXXMt2e/86aCVXQzgZjeo47xbPoPWyzFaj
+X-Gm-Gg: AZFdTZdFh+0TtME+1fuxb/AXtHzdm+W+OYZsSjuTYd/xi6yt1nOB3U+bDcDj44IsaqE
+	CDJbt3s+xn6I+OH/5L2P8ksr4Kug6reEXI2NGvRu68cndr5coJSLouwPhOTunUrnUUOGjFO0qNV
+	OOv1TCn1T5arF0xmkVpeSLDZ0xkFlIc+XX1n/waKAfgYxGghsXWODnEHZ6NwE/PdnaEFPubM3jT
+	hY3wDuDjUCwFerH1L/4agMcLX2w/6e+k/Sv4/iB3RsY2IJ63uEvSqgd9OMwtTRhdId6xmARlDLk
+	1dBLzaxUU0xqcDonrkMaWg8qDBBvWCaSn6JWi+M29IJni6M/0E0/9IZmcoDL8NH9d3MwDsXyEvH
+	GIOVvzXn9NDXOM++IdT8hyDoiKBLjgFLTdGazrT3sMrxVb8zPxjv+/hiUR45DxYGvRpiVBbDtVY
+	qvNMHliAxyPjy+KB4ciOYjPWgnYyG+7rymPUFUSSn9mxj7eil1LOiz/0fp2KsXXA/ZUZS4QYC64
+	e8rcNruvhsNhvv59uJR1z5/TJQ4YpQcZ0FeDnylMHq6Ys0X8sPNcMP388xueSxk3YnPhXd1P7Q0
+	DbJZlCPDeYPXrgJkYDqmwyLwtmBWSdBDRQ==
+X-Received: by 2002:a05:693c:41c3:10b0:386:acf5:b4b5 with SMTP id 5a478bee46e88-386acf5b7c7mr10136296eec.23.1795625579483;
+        Wed, 25 Nov 2026 08:52:59 -0800 (PST)
 Received: from pve-server.rlab ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm98545358eec.3.2026.11.25.08.52.51
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm98545358eec.3.2026.11.25.08.52.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 08:52:54 -0800 (PST)
+        Wed, 25 Nov 2026 08:52:58 -0800 (PST)
 From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
 To: linuxppc-dev@lists.ozlabs.org
 Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
@@ -88,9 +88,9 @@ Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
 	Nicholas Piggin <npiggin@gmail.com>,
 	Shrikanth Hegde <sshegde@linux.ibm.com>,
 	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Subject: [PATCHv3 3/4] powerpc/ptdump: Show the exec flag of kernel mappings on e500
-Date: Wed, 25 Nov 2026 22:22:32 +0530
-Message-Id: <0f0c1087b2ce098cd79e2fff86f00ae1acc57bab.1795625038.git.ritesh.list@gmail.com>
+Subject: [PATCHv3 4/4] powerpc/mm: Drop PAGE_KERNEL_EXEC
+Date: Wed, 25 Nov 2026 22:22:33 +0530
+Message-Id: <96692b22febc2c4ee366de072cebb57abd8ffb18.1795625038.git.ritesh.list@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795625038.git.ritesh.list@gmail.com>
 References: <cover.1795625038.git.ritesh.list@gmail.com>
@@ -105,46 +105,55 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On e500, _PAGE_EXEC is made of two bits, _PAGE_BAP_SX and _PAGE_BAP_UX,
-and a kernel mapping only has _PAGE_BAP_SX (supervisor bit). The flag
-table requires all the bits of the mask to be set to print "X", so
-kernel_page_tables never shows a kernel mapping as executable:
+On powerpc PAGE_KERNEL_EXEC is just an alias to PAGE_KERNEL_X.
 
-w/o this patch:
-  0xf1015000-0xf1015fff  0x00000000         4K PTE   r          present  coherent                  accessed
+The comment above it's definition saying
+	("Make modules code happy. We don't set RO yet"), is stale.
+Since commit 4fcc636615b1 ("powerpc/modules: Make module_alloc() Strict Module
+RWX aware") module text is allocated with PAGE_KERNEL when STRICT_MODULE_RWX is
+enabled and only made executable later, so there is no longer a reason for
+a separate name.
 
-Print "X" when any of the bits is set the same way it is done for
-_PAGE_READ and _PAGE_WRITE:
+Convert the remaining users to PAGE_KERNEL_X and remove the definition.
 
-with this patch:
-  0xf1015000-0xf1015fff  0x00000000         4K PTE   r      X   present  coherent                  accessed
+No functional change intended.
 
-This only changes what is displayed. ptdump_check_wx() uses pte_exec()
-which already tests for either of the bits.
-
-Reviewed-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+Suggested-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
 Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 ---
- arch/powerpc/mm/ptdump/shared.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/powerpc/include/asm/pgtable.h | 3 ---
+ arch/powerpc/mm/mem.c              | 4 ++--
+ 2 files changed, 2 insertions(+), 5 deletions(-)
 
-diff --git a/arch/powerpc/mm/ptdump/shared.c b/arch/powerpc/mm/ptdump/shared.c
-index edc69da19b85..e28a41a8b1ac 100644
---- a/arch/powerpc/mm/ptdump/shared.c
-+++ b/arch/powerpc/mm/ptdump/shared.c
-@@ -22,9 +22,9 @@ static const struct flag_info flag_array[] = {
- 		.clear	= "w",
- 	}, {
- 		.mask	= _PAGE_EXEC,
--		.val	= _PAGE_EXEC,
--		.set	= " X ",
--		.clear	= "   ",
-+		.val	= 0,
-+		.set	= "   ",
-+		.clear	= " X ",
- 	}, {
- 		.mask	= _PAGE_PRESENT,
- 		.val	= _PAGE_PRESENT,
--- 
+diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
+index d20ff2ae02f5..ea06a85f0fa8 100644
+--- a/arch/powerpc/include/asm/pgtable.h
++++ b/arch/powerpc/include/asm/pgtable.h
+@@ -20,9 +20,6 @@ struct mm_struct;
+ #include <asm/nohash/pgtable.h>
+ #endif /* !CONFIG_PPC_BOOK3S */
+
+-/* Make modules code happy. We don't set RO yet */
+-#define PAGE_KERNEL_EXEC	PAGE_KERNEL_X
+-
+ /* Advertise special mapping type for AGP */
+ #define PAGE_AGP		(PAGE_KERNEL_NC)
+ #define HAVE_PAGE_AGP
+diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
+index 8a0fdfd028dd..bc83e45b7ae9 100644
+--- a/arch/powerpc/mm/mem.c
++++ b/arch/powerpc/mm/mem.c
+@@ -388,8 +388,8 @@ static void prealloc_execmem_pgtable(void) { }
+
+ struct execmem_info __init *execmem_arch_setup(void)
+ {
+-	pgprot_t kprobes_prot = strict_kernel_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_EXEC;
+-	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_EXEC;
++	pgprot_t kprobes_prot = strict_kernel_rwx_enabled() ? PAGE_KERNEL_ROX : PAGE_KERNEL_X;
++	pgprot_t prot = strict_module_rwx_enabled() ? PAGE_KERNEL : PAGE_KERNEL_X;
+ 	unsigned long fallback_start = 0, fallback_end = 0;
+ 	unsigned long kprobes_start, kprobes_end;
+ 	unsigned long start, end;
+--
 2.39.5
 
