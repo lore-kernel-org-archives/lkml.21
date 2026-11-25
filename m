@@ -1,54 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.16.166
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593682;
-	b=it2d0sldgrgzSfQT+DEePglk6y5IsJFgdwLd7TCLy5DXwW5DGKrARNALhQxCVjDUD4tC
-	 NMqAjP/jDQ5s3M2lrB4jfGFHWM7VE1oLi6SOcGByuypy+JP8wbFU1VvFpnWWV+803+8lc
-	 Vgnwka05d8TvPhLeZjud6/Eff75Yl3e4Q24ijevweOas++CD4oTGjfhjLLB9NAt7mBELq
-	 hWqLQk5qH4LwJveliI1QQEYMvdplUrmLjFaZpjsjsxlbdTR6waWADUhhLjgdnUCghXvx0
-	 Ng58aGuY8kkb27vlQeVeUqK0+cgK/K5bFvtIW2aEk8WJHJL+fXM8FPhPcdX55RsJEjw==
+	t=1795593679;
+	b=nX/hwvZZ3acR5LQffbShvkTQbZIe0WoLWIwhj90stcMisJ9Iwarr+5s1jaAP7Qxqi+Jm
+	 AsLkiRk22OR1SNcsNOeLm8MNYZuBwSQPTE2noGMw0iHuFNbP0ei20PP2ndeT5jzfhn4el
+	 CkJZpKt5+KFeCecVzGhtMSdK1wa1C8KfUUA8szH4VhznAW4RHBm94SmS+RTltrJIi63Mc
+	 rnyblizuwvcgo608prR/8THxbDq5zQcJmWSmRaG8zFaGLWptABtuzfg3Jdn0DcmOueN+B
+	 L0TElhWxTvl1zYqUjYCfTsed26RN88hBCxjojyYApABs2Ylq8bcDt0RxYgDunhEz89w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593682;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=LP1IAtDHQ50/Gr6AuuC//yWbzp4GHMqhUbSTNkvSPwg=;
-	b=42Jg3MR3ta/mmLGPMQq55fVr8ZfgQ04VDwi9kitWuX4X1VwmEfjm+FYSoAxqDe0ObStT
-	 uFM3eFReQBFGBbhG4zdv8w1xYdgPAK+ZT/3b8l+FJWNm9WnYIMMgM/UrQseHK789iL3Tg
-	 qFQBuibba4TKsx+NHL0Xay/KF1J4mMuRX04NrHPfP+O5jIc0iAOlrRHd6aCNW9qbf/d+G
-	 EZKYZkpiCFA+XQa2Shes/JoG+KtV/r4A4DvRUFONJVYyLOFyfx7PJU+JFgk9l4X5X4URr
-	 +yvylSg+ikhsjM88QHj9bKDhCtnKyQn6V2WjGaNUlsKnuwNGRDpB8ssNV8lvyPQnZag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593679;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=f4BDOrjWvnpZkSNCn7i4hODP7e8CFhLG3YbJwtbq2r8=;
+	b=kDlA/Y8ELyH27rx6SEHRfSeeQe5mBydI1v2WlUoFoC5uPfcUglivfZ3tkV7SzQpJevq0
+	 6hlV82zvvPvCV0dEA8esYwpGv6o8znUYFAaGLrg0ER/MS5fJYQ1Uiq85Apn04ZYM5O0Pt
+	 Mi17f0sshnF9NN82q5HB0pAmq/GOnIsm3hivCTMcQF4YGxgqFTi/pQn+21qhnmz6+EZTa
+	 8Py0Iz8tx6eWi8pBXfWSqGDULReVt1jXVU5C0NAkytMqnzujheosxyd/WqSp4nRvdRlGO
+	 raviyS+8KufLQl63UT7SSI6FFqx88XgcwE6XhAyQ18OQeNMoEyG/O0MfN9rPg/I2v/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=c+sN9FYr;
-	arc=none smtp.remote-ip=95.215.58.1
-Received: from mta1.migadu.com (out-1.mta1.migadu.com [95.215.58.1])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=m7cAnaND;
+	arc=none smtp.remote-ip=54.206.16.166
+Received: from smtpbgau1.qq.com (smtpbgau1.qq.com [54.206.16.166])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2112C606A32A
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 08:01:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2112C606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E039606A31E;
+	Wed, 25 Nov 2026 08:01:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E039606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=c+sN9FYr
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=YtzcS03QyCHrAEwClfwZE+Y9bJNf/vFcYTDViFBQxp4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795593680; v=1; x=1796198480;
- b=c+sN9FYrwiW4WYCWkSb/NylduYoC2C5I6iTz8kaL0RKL8GXw3Ad7uWT6XOCqMlUJ3QfoeKRt
- gxyFQS9eu6vn3gE1FDKl6URNorw3kTSyMI4vsMGV1Z0CUvtvHtWnqjAlNkAoXyHyXGZAw57AhVg
- 001bH2lTEkdMfjv9GOdex1bk=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 9e5ae19e1785dc42;
-	Wed, 25 Nov 2026 08:01:19 +0000
-X-Mizu-Trace-ID: 9e5ae19e1785dc42
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <e4adf40a-d77f-4ecd-a205-ea5eac1293a7@linux.dev>
-Date: Wed, 25 Nov 2026 16:01:15 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=m7cAnaND
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795593640;
+	bh=f4BDOrjWvnpZkSNCn7i4hODP7e8CFhLG3YbJwtbq2r8=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=m7cAnaNDSb25xweNbzWEfE1coqCu9RK+W0BbYia6wAXgbLmxAIabmRLgLUwcv8QTc
+	 Y8xe0WfqtyLLLth36rwWT5HgnmAOHym+gfM5gPr7vJuBROL1oVVxzyRiHRGYwrisSb
+	 fVb9O/wP4L0dooVtb5KTiUJLMQ3qRtweQaVocE+U=
+X-QQ-mid: esmtpgz12t1795593624td5f0f43a
+X-QQ-Originating-IP: ANCK05klNgD3SRV1Ylh0egbkc17pc0M7nyJSwN8vr3o=
+Received: from PEN202512010004 ( [113.57.152.160])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 25 Nov 2026 16:00:22 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 6911233739420315500
+EX-QQ-RecipientCnt: 7
+From: raoxu <raoxu@uniontech.com>
+To: pawell@cadence.com
+Cc: gregkh@linuxfoundation.org,
+	peter.chen@kernel.org,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	raoxu@uniontech.com,
+	stable@vger.kernel.org
+Subject: [PATCH] usb: cdnsp: fix NULL pointer dereference during system resume
+Date: Wed, 25 Nov 2026 16:00:21 +0800
+Message-ID: <7B818A718E70C344+20261125080021.3907332-1-raoxu@uniontech.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,167 +71,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 05/12] cpuset: use partition_disable() for remote
- partition disablement
-To: Guopeng Zhang <guopeng.zhang@linux.dev>, Waiman Long
- <longman@redhat.com>, Tejun Heo <tj@kernel.org>,
- Johannes Weiner <hannes@cmpxchg.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
- <mkoutny@suse.com>
-Cc: Guopeng Zhang <zhangguopeng@kylinos.cn>, cgroups@vger.kernel.org,
- linux-kernel@vger.kernel.org, Ridong Chen <chenridong@xiaomi.com>
-References: <20261114083124.1340140-1-ridong.chen@linux.dev>
- <20261114083124.1340140-6-ridong.chen@linux.dev>
- <08e4f7bd-37d7-4752-93f3-23fe6d15b1df@linux.dev>
-From: Ridong Chen <ridong.chen@linux.dev>
-In-Reply-To: <08e4f7bd-37d7-4752-93f3-23fe6d15b1df@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: NhdiEwnVOUqEoYTBV85/Sbt1sDdyb/Ak6xUl/7CZDKPexW2/c8kH8QRl
+	HVCRBrFFVOLOa3BNnarsI07U2+zJYye2StVPPBprsvw/XX3VyfuhsGs1G0jzWYMm8EKaB/j
+	RobcY9buh17V3Csj5PoS7mZUOKJQmMWfk1Evf816TKuNEHwXXWNeC7nCvYzKC9Mf0Zvj7hj
+	RMf9AqoZoxWT0BAtErEpU3k5arwhxQ42M94rm59d3E/Yii6STLLMQsmAvBw8RTI1oGbUwzL
+	3alKrpJrCLJv1GMjpxLRcw3sdTPtNC216TYEDHfBAsc71rhI8ROTjV7rjay21Ady7Oejkx8
+	GmMzuCPlrWMC3X8ucJcexTViNFXd+ydtuWucmJSFbW48NjAZr1JqojpnGe+76PJNXUvUUuU
+	Yn1ze0eX3efyfzJZalfpO7E62n29l4wPrWoamhDsC8wxf4ExGy+QTZhO8R+kN8++HgoGufI
+	/VkLr8s1rYMfRXRBJC1T4eFNlUxrV1zgJJ0RNQGg7s44YT2FR5KlyvHLhso8KQhUNifEevN
+	qF7Uy0RqFN/nGkGb9/56Zu2/DzWr01OFlYqgA1cwrV4OgByU2uM8tbNGs3eluuDlEnvHqTB
+	YWK6BrG+wMgD30Pr/a9rH5rpRntm9EjKcUCYOf5jh0CDPi9NLxSOFGBPrxRxPZ1I2LLazRz
+	OEwCw6MhkCt4z+V1ZKpCRhQYAYG3GMZoF0B8h1Dw7KMxgei8O4ZpTRAJUuhhArwtnM+cD8Z
+	HNnvYBoOTjcGH7faDcRqpubeZX4otdHqeOZJMb2/51BJiCKdbEU3aUCoUHGbpT7bAN40RpQ
+	OFo6CQ78rkqhuLIOb8PGfQnVEN4t/6psjDtw8Vd1UvuCxQK7JY8RLYH8DUovoCOZPSXfetY
+	kAVGVHPwbmUq0/CW9E6NeER4lh2iT24+L0x6LLqPF/VN9+baKv6Uy2aS5g6EJ+9PsmLcvsO
+	F53Q1hCCWwEjVaGI4pJbM68Pphvyw6b0uX9/PUVqJvX3ciV+EN1DONPyfxJtNcTB2/WTucJ
+	wiZ17E0r5dkF8HR3DOFco1kr1M8Ak=
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 
+From: Xu Rao <raoxu@uniontech.com>
 
+cdnsp_gadget_suspend() now always disconnects the gadget and stops
+the controller, even when the link is already in U3. cdnsp_stop()
+disables the slot and clears active_port, but leaves the cached
+link_state unchanged.
 
-On 11/24/2026 6:34 PM, Guopeng Zhang wrote:
-> 
-> 
-> 在 2026/11/14 16:31, Ridong Chen 写道:
->> From: Ridong Chen <chenridong@xiaomi.com>
->>
->> Now that the partition_disable() helper is available, replace the
->> existing implementation for remote partition disablement with this
->> centralized function to unify the disablement logic.
->>
->> remote_partition_disable() is removed and its callers call
->> partition_disable() directly. The new partition root state is passed
->> in by the caller instead of being derived from cs->prs_err, as only the
->> caller knows which state the partition is going to.
->>
->> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
->> ---
->>   kernel/cgroup/cpuset.c | 57 ++++++------------------------------------
->>   1 file changed, 8 insertions(+), 49 deletions(-)
->>
->> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
->> index 3702e43e95ef..681adcde10e8 100644
->> --- a/kernel/cgroup/cpuset.c
->> +++ b/kernel/cgroup/cpuset.c
->> @@ -1771,9 +1771,8 @@ static void partition_enable(struct cpuset *cs, struct cpuset *parent,
->>    * has its state updated. A valid partition under an invalid parent has
->>    * already given back its CPUs, so only the propagation is done.
->>    */
->> -static void __maybe_unused partition_disable(struct cpuset *cs, int new_prs,
->> -					     enum prs_errcode prs_err,
->> -					     struct tmpmasks *tmp)
->> +static void partition_disable(struct cpuset *cs, int new_prs,
->> +			      enum prs_errcode prs_err, struct tmpmasks *tmp)
->>   {
->>   	struct cpuset *parent = is_remote_partition(cs) ? NULL : parent_cs(cs);
->>   	int old_prs = cs->partition_root_state;
->> @@ -1923,48 +1922,6 @@ static int remote_partition_enable(struct cpuset *cs, int new_prs,
->>   	return 0;
->>   }
->>   
->> -/*
->> - * remote_partition_disable - Remove current cpuset from remote partition list
->> - * @cs: the cpuset to update
->> - * @tmp: temporary masks
->> - *
->> - * The effective_cpus is also updated.
->> - *
->> - * cpuset_mutex must be held by the caller.
->> - */
->> -static void remote_partition_disable(struct cpuset *cs, struct tmpmasks *tmp)
->> -{
->> -	WARN_ON_ONCE(!is_remote_partition(cs));
->> -	/*
->> -	 * When a CPU is offlined, top_cpuset may end up with no available CPUs,
->> -	 * which should clear subpartitions_cpus. We should not emit a warning for this
->> -	 * scenario: the hierarchy is updated from top to bottom, so subpartitions_cpus
->> -	 * may already be cleared when disabling the partition.
->> -	 */
->> -	WARN_ON_ONCE(!cpumask_subset(cs->effective_xcpus, subpartitions_cpus) &&
->> -		     !cpumask_empty(subpartitions_cpus));
->> -
->> -	spin_lock_irq(&callback_lock);
->> -	cs->remote_partition = false;
->> -	partition_xcpus_del(cs->partition_root_state, NULL, cs->effective_xcpus);
->> -	if (cs->prs_err)
->> -		cs->partition_root_state = -cs->partition_root_state;
->> -	else
->> -		cs->partition_root_state = PRS_MEMBER;
->> -
->> -	/* effective_xcpus may need to be changed */
->> -	compute_excpus(cs, cs->effective_xcpus);
->> -	reset_partition_data(cs);
->> -	spin_unlock_irq(&callback_lock);
->> -	cpuset_force_rebuild();
->> -
->> -	/*
->> -	 * Propagate changes in top_cpuset's effective_cpus down the hierarchy.
->> -	 */
->> -	cpuset_update_tasks_cpumask(&top_cpuset, tmp->new_cpus);
->> -	update_sibling_cpumasks(&top_cpuset, NULL, tmp);
->> -}
->> -
->>   /*
->>    * remote_cpus_update - cpus_exclusive change of remote partition
->>    * @cs: the cpuset to be updated
->> @@ -2039,7 +1996,7 @@ static void remote_cpus_update(struct cpuset *cs, struct cpumask *xcpus,
->>   	return;
->>   
->>   invalidate:
->> -	remote_partition_disable(cs, tmp);
->> +	partition_disable(cs, -prs, cs->prs_err, tmp);
->>   }
->>   
->>   /**
->> @@ -2667,7 +2624,8 @@ static void partition_cpus_change(struct cpuset *cs, struct cpuset *trialcs,
->>   
->>   	if (is_remote_partition(cs)) {
->>   		if (trialcs->prs_err)
->> -			remote_partition_disable(cs, tmp);
->> +			partition_disable(cs, -cs->partition_root_state,
->> +					  cs->prs_err, tmp);
->>   		else
->>   			remote_cpus_update(cs, trialcs->exclusive_cpus,
->>   					   trialcs->effective_xcpus, tmp);
->> @@ -3215,7 +3173,7 @@ static int update_prstate(struct cpuset *cs, int new_prs)
->>   
->>   	if (disable_partition) {
->>   		if (is_remote_partition(cs))
->> -			remote_partition_disable(cs, &tmpmask);
->> +			partition_disable(cs, PRS_MEMBER, PERR_NONE, &tmpmask);
->>   		else
->>   			update_parent_effective_cpumask(cs, partcmd_disable,
->>   							NULL, &tmpmask);
->> @@ -4164,7 +4122,8 @@ static void cpuset_hotplug_update_tasks(struct cpuset *cs, struct tmpmasks *tmp)
->>   				       (cpumask_empty(&new_cpus) &&
->>   					partition_is_populated(cs, NULL)))) {
->>   		WRITE_ONCE(cs->prs_err, PERR_HOTPLUG);
->> -		remote_partition_disable(cs, tmp);
->> +		partition_disable(cs, -cs->partition_root_state, cs->prs_err,
->> +				  tmp);
-> 
-> Now that partition_disable() takes the error code directly and updates
-> prs_err through partition_state_update(), the preceding
-> WRITE_ONCE(cs->prs_err, PERR_HOTPLUG) seems unnecessary.
-> 
-> Could we pass PERR_HOTPLUG directly to partition_disable() and remove
-> that assignment?
-> 
+If the controller retains its context across system suspend,
+cdnsp_gadget_resume() may call __cdnsp_gadget_wakeup() based on
+the stale U3 state. This dereferences active_port, which is NULL.
+Port-status event handling cannot restore active_port at this
+point because resume holds pdev->lock.
 
-Yes, nothing reads cs->prs_err before partition_state_update() sets it,
-so the assignment is redundant. Passing PERR_HOTPLUG directly also
-matches the local partition case below. I'll change it in v6.
+Remove the obsolete wakeup call from the resume path. The previous
+connection has already been torn down during suspend, and
+cdnsp_run() puts the enabled ports into RXDETECT. Let normal
+port-status event handling establish the new connection.
 
-> Thanks,
-> Guopeng
-> 
->>   		compute_effective_cpumask(&new_cpus, cs, parent);
->>   	}
->>   
-> 
+Fixes: eae6460f6173 ("usb: cdnsp: fix wakeup from S3 after controller context loss")
+Signed-off-by: Xu Rao <raoxu@uniontech.com>
+Cc: stable@vger.kernel.org
+---
+ drivers/usb/cdns3/cdnsp-gadget.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
--- 
-Best regards
-Ridong
+diff --git a/drivers/usb/cdns3/cdnsp-gadget.c b/drivers/usb/cdns3/cdnsp-gadget.c
+index 2830b595d632..350e45f511f5 100644
+--- a/drivers/usb/cdns3/cdnsp-gadget.c
++++ b/drivers/usb/cdns3/cdnsp-gadget.c
+@@ -2160,9 +2160,6 @@ static int cdnsp_gadget_resume(struct cdns *cdns, bool lost_power)
 
+ 	ret = cdnsp_run(pdev, max_speed);
+
+-	if (!context_lost && pdev->link_state == XDEV_U3)
+-		__cdnsp_gadget_wakeup(pdev);
+-
+ unlock:
+ 	spin_unlock_irqrestore(&pdev->lock, flags);
+
+--
+2.50.1
