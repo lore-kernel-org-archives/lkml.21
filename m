@@ -1,89 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629656;
-	b=cMqLWsLQI0Z07Bmm7YfTEBzgIH2rcpDPSH8gK1iqDblAmo0QQ5vNOPb4EhsM66vOkQF/
-	 JRSbHD7NelWu0mD1bDuWAJf4HfAXaJ7JvxTrJmyJf1QRgd2N3mffOxp2lvfzIBaU1CTaY
-	 HBBMzR6vtzHCd2Cg9GQsJ3yNnKfjchKiJHsf9JrEJQ3igvmKr7xIPvfDXeIT27GGG/pNR
-	 aFneF8xqopfPAZrlgvStBTtKxzEW5Qun/eu3xnw8nhluqgEB8fS1V2H99DAD++90/FYkA
-	 QWrYvZVb3G25qJRyC1owNbCmb8bjuby9Y0plSACMMxBVQK20pQmJ+eX4Fc/pBOqGSQQ==
+	t=1795629698;
+	b=d0uTWwVn385/sHng9BNctE3yZBXrrUzfeqAzK8LSEgwga5AaYsiNcBjYhG0CeAwR68OZ
+	 LRljmNXXjF8XzqhaCwjwCgd8TUVGXV4k9kCi1rD+JXNPytCMZo118xUBdbyP/OlMbEXCA
+	 9HkhA4TF1xXnE9pnGp6ERyM3zi4UBorQhA5uMYBWXj3jje1K9je+H4poThTQ1qz8sYlFa
+	 zgHZ5brhUQKtOs9/rr0xIufRNBl5N2BEdnrYvpnwm8/duRIrzXUa+m4roNMGYiSvcaBn4
+	 s80S//QJDIm+Ht90YZkUjYUOvX3O1z2hu54wKEyjfopGtVf00xH9ryLmJyAjrwxVtjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629656;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629698;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=QqgjZ4bObBFYGMg9svOARa160u3iYZw8bzMn7IXfRCw=;
-	b=Cf0MExyw3CCQGPem/YYQNRfu+eBoA6tZdNxQtdhyvYdFrdEY6nHXvDgwb9Y0ByaCE46F
-	 AZHsSp7c/2nWyTuHSrDXEkPEbQutEjNMXy4rIcO191l42tMltsoPqLxC0oMKHPH+2a6Gg
-	 eTcroK+82XSmG6RlhDYRURntq4T/aBZAa58B91lkDCLzMsUDJXEp0U6y9Lj5+WLiMMkc0
-	 sZG2TeZawvHLaOXeFHISJfqrTlv34sEjdRJ9QxSd9L+4Klgrp3F9aTITU9yjJvrbp7Ncs
-	 iZoCs3K8DJoTVTZm0NtDAMiRCOvuDqvS/WVcrH+3JhSs16xXGprh5lMrVjUALazGIxA==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=SQBKkj/SFHaVJ5EFbKpZOuMYnMF6Smo0buP2OU5gYwc=;
+	b=EamQDvVUI4RWKM94ZOByLnDKbj4+c2tnbWq4JNt87Ejjv77NSoubfpX8xj/Y7plJrUWJ
+	 aNKrnsYTbOLtX6lAYXVKMWDoxYxcsr35Dx7uHe0+Zg251JSN1IFBpjtu2layQBVinX+Jb
+	 IHu+sLYxWUiulF8janZJK6k/qTJQa580Z/5xgFddw8dDjS9QhJJkDXayGSbgRD+Qa0URC
+	 WCcrV8Qf5pKJnTRuKoAljvvAN42wJQSPFntLALEUIbjM08KmCnvGGRFSin10xmWg8bi7U
+	 5BKroD0WPZxqRwEFod2mHue+HSw8O6oimoc6IAV9NEelMokVxiULPviI7KQjmWzvxpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fRD1AUsF;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=OCP0V0Ds;
+	arc=none smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15D4D606A327
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:00:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15D4D606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60ED6606A330
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:01:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60ED6606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fRD1AUsF
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4ac08f4a0b2so4313506f8f.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:00:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=OCP0V0Ds
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so3832908f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 10:01:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795629654; x=1796234454; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QqgjZ4bObBFYGMg9svOARa160u3iYZw8bzMn7IXfRCw=;
-        b=fRD1AUsF9tDJYuYwbxPXkXtu9zWYe1dpFtJfe5CMETSrWtAvc7JRl9O38Gp3o9pp1t
-         QbIbT2epeGAm5UWKqdTuGmzg+vfYvcc34ptXmjq1nLAZlxSoE+twsoTjgEqM2CHV8X92
-         ErOHBP7xppVVaiIrTyUZ0OuVs4ClYR7gHoexH1JG2QVkw61I+agAq00XIMbhBEpk/ji3
-         jzNL2XRFVuKQWvftdF+Vr0Ivz62I0vpcq7MELZzeGy9DZvI9Oa9b3oWsB/K4N7YX9Rdq
-         F0hkUL5uv7spyKVe1rFn8YXeD68SNgPjeGBD4+gFaUEADGraUl4rw6AksglWABMDH9ha
-         BhiA==
+        d=baylibre.com; s=google; t=1795629696; x=1796234496; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=SQBKkj/SFHaVJ5EFbKpZOuMYnMF6Smo0buP2OU5gYwc=;
+        b=OCP0V0DsOeEAYPzEoQsc4+xtigvdjLN14Zm/eOfE8tjoXmSf3nxYiUydo/HtLgj4/Y
+         dWHC7ocBMsLKYG7YkNbRrMdJzkKJXRb7cZDVXqYI+tkWtgvpsqBA92Q3vgLcILlDU6Py
+         y5qq6MNmglKZxwCgQfl9LW5/VBHq4D5ispBK1uKb9b7v6ys5lqPmiTgu7ltc0QKKGIyj
+         aW54mEFs9u8BjIZhP1PMbQymnXBZ8KqdHrANPWgs8Asf9BjE1FnMd3o3tpeZNYQy/BNq
+         HlLEGYaTyABq7E/5N4BswimCnuwwjdCSoWQcyrAFidvvyiCHFkca6p12ZQYuOSCOrLLB
+         SGWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795629654; x=1796234454;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QqgjZ4bObBFYGMg9svOARa160u3iYZw8bzMn7IXfRCw=;
-        b=jvgPt5tD0xqTCtiKyOKhFhavOceQ46jWD/BgH5Kve0JCNM6HVg+NYHDp+ZKmeiBzD0
-         lwe95MvUzW/C1kiQC5zzi9sg7uGactMZITRqLgIA2SmmeNVfgYt4m3vlSM0Znsmq5tnO
-         pVQhFqjsyxkwjTgFeSETg7pMjkysX+NY0+I8Siltn25In6ZwAbA9vZmeTVNSt2qS94+q
-         gF/ZmR+We4o0UY0ggTRi+d2+QkgSluK0sq0cwP3c1puhITruNaIfJ5O5Gvvb/6ZT8GJL
-         b3DHdRZvsQRT72cGxod7U525n4S7V3UMsXgrlREg5RQ1R216A5KE+Bnp2RYMJNOGdYm9
-         bAzg==
-X-Forwarded-Encrypted: i=1; AL+hErFew/4pw0RFDbUeKkQ8Bx4LYEJL/UoNccn6+x3fz7qI7XJxpflakZHcIEktCfRtFHMhpqU3/y363HUHDK0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+8MjgCXz2EgMLv3xkKere8s+VeBx5H1ZWeBKSKFXf1q1V7tK5L
-	z2yiNWGVhOZ/jH7ynJTKTO/oeu1mKSSzE3rRG0E8X9tIrueigXztIOhK
-X-Gm-Gg: AZFdTZev2pzGHRkAzGZ5ShKSLBxGxWDqk6W+f6QN6lFn8mu7wrwggKxnUQ4ArZBlKCf
-	xzp0RyLtvTFE4ieHrnkGllhKKwsm3qdQ8hCcvNN5255KvVcyHluJTPZx7oWn3IBy+7WNJng9RLr
-	YT6dm7vDSV+VfVcJyXKl3b+bnTd/9KwxkiXpmnbWEu00rmov4GEVf+sO70e+IVVHX2Y4C8h1xlH
-	rlDyIK1AeIw8r+ggbw5iWTL/Z7SVyeaqzxSuoGIDJLlQW4uyYrCN+a7IsN/GTuiCCEYnrrSmBsi
-	6XHEeci+K6i4mBts/N8AGfMexLUkc7rd8BTGwrJXz55QzR5Tigeosx4m5XdeW7xa1BkSe0nRE9c
-	Je7aBZlmTgQJ3R1C02rbsucL5ZxQEM5nFLs6d4NAJa/Bm4GNx0UsC0++9lduqfANO4u0ns9z3Ap
-	3LQajJhl4xh9wNO8k+qQ4ZwgBZtd1ziV2xt1GLJj9bRLPTPXe0p/jK9AMDe56HV2kj4K506GdP9
-	ixobA0FGV1TBVrSzHLvAsiqD36Q2Nbe+fuG906c08woJqAf2eVS5VljMUg2qmkJYeFcxvptb9c4
-	YalYljKShC9a7hbQ56EKh448Cil9CLlcPchqLqxZ00trIaMV5k6JbWUGXRxAn8wU3aTI5spTxFk
-	I3hSU2YQKS1I=
-X-Received: by 2002:a05:600c:1d09:b0:4bb:6b59:aac3 with SMTP id 5b1f17b1804b1-4bb88816050mr393055345e9.29.1795629654223;
-        Wed, 25 Nov 2026 10:00:54 -0800 (PST)
-Received: from [192.168.0.69] (firewall-214-232.seh.ox.ac.uk. [163.1.214.232])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853b2437sm759477515e9.13.2026.11.25.10.00.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 10:00:53 -0800 (PST)
-Message-ID: <3d1cc139-77a0-49aa-86c8-a723cd29b992@gmail.com>
-Date: Wed, 25 Nov 2026 18:00:52 +0000
+        d=1e100.net; s=20260707; t=1795629696; x=1796234496;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SQBKkj/SFHaVJ5EFbKpZOuMYnMF6Smo0buP2OU5gYwc=;
+        b=wQ7zpEqy4us+ybiGuAzcIyQQ/Z8l0XFaWDZ69eGfQdCULVtUS8iaQ7ZtINg0+w7ytY
+         JFC5xVD5SzFB3E2hiSr6u/nmInbmdVjmBUWL7bYqzmZwp5ZIxG0UKwP3ei3YPw+pV/EK
+         G/PGgbixzGUYzIIOXpvIMEf+wTcP9GIWQKujzfUi1PiuarJeEePK0Enkz3djUhdmFO3E
+         g9jZDPSdIwRRfgTOJ8lY+TeLWppY6nQ0Ne25sVUe4gMHghRTu7EyKwLc1Mmu1+ruifLD
+         HgMkstCmV77npXmbb3C2F+V/7B4yJickWLhzkyjoYQpEdw3dVaO2ZvtnYzJkm4Lgx41k
+         TwVQ==
+X-Forwarded-Encrypted: i=1; AL+hErHopuQ0Ile0ucLCqNFWDBh+V+F+z+5hwjw4BGqlPMNHcOb4hH41KQHMyCkZWqiQSD2wJ86qA0R7P3vasCY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9CZBPXRGFHew7u3mgYAKM4hY/8JFiIgukpS8Y9PBWn36NreyJQ
+	zCEfrS+H3emE6e3f42po5GqoY5D1p7Ctny4SpBerSTZvrM9ld3UDXapG+0qmTGVzkWcBbiX9Wfh
+	dP+R2NDU=
+X-Gm-Gg: AZFdTZcaBsRNRH2gRJT2m27YxO3j6jkEflG16+IDrcrirzBz8s1hOeV6EnAEt7wb0G/
+	GkQIE9nLQMvgDK6i6JVxR1fZ0e+P+fLSZKM6b77Dr/62PvI4CQk5TGMB43Wo9VRkJT/9bke37xS
+	sxrTOwU7Zr3dymUAhkvJok10Hg1TeFnHSOIfJTIfEGlsIfLLdqiYclQRVHWmcYwmtiXaUjmWe96
+	0+/4mAz2QSQaLzpPG2KcnGwAyaDRy2bMXAD++sca9Kut2FXZ9usby57RiUWBZZ50NMl7qPWfJya
+	RsQgSv+NXOu+CYs9QnUuOirD5GYUxzCOU2Tq1r5pX0VHjn5FmORACSfRiUkw/QK1trTOra4j3Cv
+	yv2M343Jxr71cH0XauRQIwJ/dr6MnwkCOLET5zf3Cj3n7XR/wiGDipZE48YdCJ4NUn0o1NWobIY
+	ePlYe0iirVm2EPgoyagw/1EXGajAVKoLGyL5FVDNfKW8Jdzb/wuc2CHLnMrOR4eFp/Av5UDwK7p
+	dm8fQrvDl17XQawWZTq1BjRI/96nItcN8HY1RQcHwizjaztFMxFu46Lqku4oUjvOSkI8HbSjAgU
+	PXwpZGtRNtjwYZvFFFs419ThLQmIZ55dv5XeFKVAHyAbiIYFZkM85ZOZA6Y5Td0ZRNd/5HCisaM
+	4/EVGBk1Myij6hmEA
+X-Received: by 2002:a05:6000:2401:b0:4b4:2ce4:6dc4 with SMTP id ffacd0b85a97d-4b42ce46e8amr18390770f8f.48.1795629695670;
+        Wed, 25 Nov 2026 10:01:35 -0800 (PST)
+Received: from localhost (p200300f65f19a904452474b9d670397a.dip0.t-ipconnect.de. [2003:f6:5f19:a904:4524:74b9:d670:397a])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab6bc8ce06sm34654162f8f.47.2026.11.25.10.01.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 10:01:34 -0800 (PST)
+Date: Wed, 25 Nov 2026 19:01:33 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Stephen Boyd <sboyd@kernel.org>, Abel Vesa <abelvesa@kernel.org>
+Cc: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] spmi: Drop struct spmi_device_id
+Message-ID: <awciArqa9haTL0_n@monoceros>
+References: <20261125112158.938835-2-u.kleine-koenig@baylibre.com>
+ <awcfdfk1La-lwiMz@monoceros>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,64 +99,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] thunderbolt: add opt-in to preserve tunnels across
- s2idle
-To: Mika Westerberg <mika.westerberg@linux.intel.com>
-Cc: Andreas Noever <andreas.noever@gmail.com>,
- Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat
- <YehezkelShB@gmail.com>, Sukhdeep Singh <sukhdeeps@marvell.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Richard Cochran <richardcochran@gmail.com>, linux-usb@vger.kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
- <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
- <20261125132228.GE191152@black.igk.intel.com>
- <a08cb3e1-10a0-4a35-9258-cd510b91985e@gmail.com>
- <20261125143531.GG191152@black.igk.intel.com>
- <8e87af01-02a8-4714-827a-62c5beb6f4e4@gmail.com>
- <20261125145207.GH191152@black.igk.intel.com>
- <d05aa4e7-5c58-4311-a85e-6bfe9c31c62c@gmail.com>
- <20261125153300.GI191152@black.igk.intel.com>
-Content-Language: en-US
-From: Tobias Heath <heathtobias@gmail.com>
-In-Reply-To: <20261125153300.GI191152@black.igk.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-
-Understood, thanks. I'll withdraw patch 1/2 and respin patch 2/2 
-(atlantic) as a standalone single-patch submission to netdev. I'll also 
-keep investigating the Linux-side runtime-PM gaps on this hardware 
-separately — your pointer to runtime-idle S0ix was the correct direction 
-regardless of whether a thunderbolt patch gets involved.
-
-Thank you for the detailed review.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6oe7ykqcs6uc6lv2"
+Content-Disposition: inline
+In-Reply-To: <awcfdfk1La-lwiMz@monoceros>
 
 
-On 25/11/2026 15:33, Mika Westerberg wrote:
-> Hi,
->
-> On Wed, Nov 25, 2026 at 03:16:26PM +0000, Tobias Heath wrote:
->> Mika,
->>
->> That's clarifying, thank you — I hadn't understood the two-paths
->> distinction. The behaviour I want on lid-close is Path 2 (runtime-idle S0ix
->> / Modern Standby), not Path 1 with the TB fabric preserved. My patch is a
->> workaround that patches Path 1 to behave like Path 2, rather than using Path
->> 2.
->>
->> On AMD Ryzen AI 9 HX 370, I'll inspect amd_pmc debugfs (I assume the AMD
->> counterpart of pmc_core) to confirm whether runtime S0ix is entered when the
->> system is idle, and whether any particular device is preventing it. If Path
->> 2 can be made to work on this hardware, the TB patch is probably not needed.
->> I'll drop it in that case and keep only the atlantic fix.
-> Yea, it's not exactly trivial to get all the ingredients right but distros
-> typically have all the drivers + firmwares shipped so that may be good
-> starting point and just see what is missing (if anything).
->
->> Would you prefer I withdraw PATCH 1/2 now and respin as a single-patch
->> atlantic submission, or leave the series open while I investigate?
-> I would leave the TB patch out of it because in that shape it's not
-> something I'm comfortably taking as is anyway.
+--6oe7ykqcs6uc6lv2
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v1] spmi: Drop struct spmi_device_id
+MIME-Version: 1.0
+
+On Wed, Nov 25, 2026 at 06:50:16PM +0100, Uwe Kleine-K=F6nig wrote:
+> On Wed, Nov 25, 2026 at 12:21:52PM +0100, Uwe Kleine-K=F6nig wrote:
+> > This was introduced by commit 5a86bf343976 ("spmi: Linux driver
+> > framework for SPMI") in 2014 for Linux 3.15 and already then was unused
+> > and no user was added since then.
+> >=20
+> > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+> > ---
+> >  include/linux/device-id/spmi.h  | 17 -----------------
+> >  include/linux/mod_devicetable.h |  1 -
+> >  2 files changed, 18 deletions(-)
+> >  delete mode 100644 include/linux/device-id/spmi.h
+> >=20
+> > diff --git a/include/linux/device-id/spmi.h b/include/linux/device-id/s=
+pmi.h
+> > deleted file mode 100644
+> > index a821c42cfc9a..000000000000
+> > --- a/include/linux/device-id/spmi.h
+> > +++ /dev/null
+> > @@ -1,17 +0,0 @@
+> > -/* SPDX-License-Identifier: GPL-2.0 */
+> > -#ifndef LINUX_DEVICE_ID_SPMI_H
+> > -#define LINUX_DEVICE_ID_SPMI_H
+> > -
+> > -#ifdef __KERNEL__
+> > -typedef unsigned long kernel_ulong_t;
+> > -#endif
+> > -
+> > -#define SPMI_NAME_SIZE	32
+> > -#define SPMI_MODULE_PREFIX "spmi:"
+> > -
+> > -struct spmi_device_id {
+> > -	char name[SPMI_NAME_SIZE];
+> > -	kernel_ulong_t driver_data;	/* Data private to the driver */
+> > -};
+> > -
+> > -#endif /* ifndef LINUX_DEVICE_ID_SPMI_H */
+>=20
+> With further build tests done SPMI_NAME_SIZE is in use however. So for
+> now please disregard this patch, I guess I'll move it to another header
+> but will investigate the situation first.
+
+I think the fix is:
+
+diff --git a/drivers/spmi/spmi.c b/drivers/spmi/spmi.c
+index ec97f12046f5..6d6805a5ae69 100644
+--- a/drivers/spmi/spmi.c
++++ b/drivers/spmi/spmi.c
+@@ -64,8 +64,7 @@ static int spmi_device_match(struct device *dev, const st=
+ruct device_driver *drv
+ 		return 1;
+=20
+ 	if (drv->name)
+-		return strncmp(dev_name(dev), drv->name,
+-			       SPMI_NAME_SIZE) =3D=3D 0;
++		return strcmp(dev_name(dev), drv->name) =3D=3D 0;
+=20
+ 	return 0;
+ }
+
+which might be considered a standalone fix as there is no reason for
+both dev_name(dev) or drv->name to be not longer than SPMI_NAME_SIZE.
+
+Best regards
+Uwe
+
+--6oe7ykqcs6uc6lv2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsHInoACgkQj4D7WH0S
+/k7UrggAlyYu2HmH4/fGOIuZTO/qKfCJ1gbbHpFOk/meh0eExqMLiTsFb9WoWsGH
+focej+ZyOdU1CIQ94L6t3lXarBZDqrz3mx2fIZIfFL7NG48kEpQenYc6lDY4R6Vm
+uxhWxuxph/lJXsO45fSyNvpVU9SHsmNwZiVv+Nvuw0Zb6beme4pH4ANqzMZsJda4
+W1aw+NodJNKKMpyxJMj/96XURemoK2x1y1hDhlZhoGIljxcLxuiq5AYTCghHw1TE
+EHQ6ACHE+I3grjepu+7qj9E4og6XnHRhHPBfjQ16IF6Msn+7wUvSy50cQAkqUI1B
+Swgl08p5++kuznD0yyzOA6l2uL/b8Q==
+=d7Th
+-----END PGP SIGNATURE-----
+
+--6oe7ykqcs6uc6lv2--
