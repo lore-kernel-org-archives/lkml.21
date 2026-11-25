@@ -1,91 +1,120 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593232;
-	b=IAXqztW6yxN+G473WxrfduyHFIHyX+EdA0ETUduCddxZyJOiwOlBlcwL0PakNf7aAPRN
-	 YlVwDe30HczhHUq+zdoGah4/bZBmGX/RoDvc4dhLedWd/W+D7btmoHJrHKbtuP2OpbJNb
-	 KDAR2WMwFGJSKe5PmsuQiuNbXAEWArXJQfsZaMUJR9T4RM7R1ZLe/t8+tBiybDxVB972X
-	 hQjmo9sQ6aVkTr/uinUtS/JZ77uRHhlhPAKdyyCl1kcPtUKP0nKqdChfPesMTH653fJAK
-	 D7vaw49tBOEX0hkuZ/7ORQAZgn1RA3bhA5cQNJXmo3gexCnXYf+v/L6O5Q7joRN8KWA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593232;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=U0564f1/wQ5vpUisl1vWxnDQHDxUALBKjxGcDAa3Zv0=;
-	b=cEjMtF1Q3941DyMsBEyZL7xAbqxmD8MnA2st9+H325YCm+V2MtNiM/NqO855YT75b52n
-	 ulfAhSSXlqR36JDwlePwUsYSD+yCdA3z0Nno/fqzcEdPbBnoNqmNYdU5E066a/dOaZ5lY
-	 F7BJV38vkwpY8qoZcs5h9xrvStzg+d+FMtzGb4vT/Wvl6aW+mTiuQK4iiNgZj+ynXHNAk
-	 PofAfxdNTKQBuNDVv0bCTIMJy6x5J8r6fs5z2a+BbXzVyYwPeFVdOlVCK2j45eF6u2Ppj
-	 ohRij6sZhDYt3LMxcmhJzHBnHd2YrLoS6Z4XUyzsiZbASHMTP9M5XlkW6ZuwdbCNi4A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="GL2G/tVj";
-	arc=none smtp.remote-ip=209.85.216.44
-Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.14
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795593307;
+	b=z6auh8njAfZ1q+JibELNZ5WGqP9qMAXAZixzNmPcZSphvFy1wHdRX22SOykEfSJicq64
+	 6Bp4ZKw/VyVTqBu6/K8VbzBlHHl4vWOtzqh9Apdd+TvqLAgatHZhw86N1yf4NJirYoVxL
+	 ZVT3FCeyil7icoMRYFALEMyqtrV13Bzn0vI+8fJLSC4MOTrpFuMjMoNdxCNor+9uGwsZN
+	 qBCqoluBNGU8d6Hx47q6BGy8WbVt77mJAMUEd9NBJ5Q9IsDGC70NQiKhpS8fjKyUfEtKD
+	 tI1k0rpZnb4PmNjSwSpnJsCTkhcuYX20+aL3ku9WSuZ2u7f6t8oFkwo9dUkMf8p6iVw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593307;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=rdPYH/njZ6agywqcT+6bb3gwyYfCXqKA8yIzRa3s1Vo=;
+	b=cAepzfuEWIzNJuEHxTRoi29u4SynopjGUTspdvaVY5BEAaZi4iCT6jMIesY7FwXzdDA1
+	 vO9EGI7IEIl32m3GailvbPABvY4BkXvux9NnFNC0KfVD1xy+qP3g/sbch1neWb/fji3ej
+	 ZrhgznR/cMx4uDZWHM4/liaDIt/UCNBH4nuEiYVybIatvxSarwSTfjetKQdBuxN8E7wpX
+	 EreL5b10aJ52+W8XFUd4e21Q3OY3gRHK6elejlVXpVisI21XAloXIJLwRsABNfi+lrcmZ
+	 NajaxlkFvNkMM4PV382wiw0MFbhRvfTXqNHpbt90WnGz0KjnUh8IXn4t9DDZZIpuF+A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=Djz2WANC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.14
+Received: from AM0PR02CU008.outbound.protection.outlook.com (mail-westeuropeazon11013014.outbound.protection.outlook.com [52.101.72.14])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B9BD606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 07:53:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B9BD606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C37A4606A329;
+	Wed, 25 Nov 2026 07:55:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C37A4606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GL2G/tVj
-Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b487f44ee0so1912455a91.0
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 23:53:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795593231; x=1796198031; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=U0564f1/wQ5vpUisl1vWxnDQHDxUALBKjxGcDAa3Zv0=;
-        b=GL2G/tVjeRFiOoBQv+pcXwPzzo6knoBZR2QDzEuKIxXmpwCCnmgrHCp/dQEKS2RqgE
-         pf5a7x0kHMOj2lpNTl4Sq7tNJlseTjSpxB+z1PqM0g+ZQmy4/o1rHqNn2HSYXfcoCLwI
-         apJT8oGNx4yWJ+nCKErLHbVoC2dhUFZRXFPWSpkctcoW9XM5sgHmw3is4b5ZIKs/s/cz
-         sit3qoQTAmUjGuejlKJxR2T+lowFqm1gJ0TA5JxAVRlO7SJNpSvXNbxsT1+ERbnBJlcr
-         ktHApYxXYDm7izbhh4EAnKcFvwJgAMrP9UNQCOqCLQlPMY9Km4JOmqJ166XrLe1aJolZ
-         zYOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795593231; x=1796198031;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=U0564f1/wQ5vpUisl1vWxnDQHDxUALBKjxGcDAa3Zv0=;
-        b=ShJoTURhnUQ5B29+u5DdiU9e6xkNAgOYdt2OM49IY7lhOb/I48QoxscmVBIPw7U3DT
-         1Y+XGa1KHhzZ7CRIjOPNuyg18Yed4hKgCUo4k5GzbtULCG/l90B8p7+60fHsZ/ujPrQF
-         3Y+8zZQYEL/hVbDtkT4xb4ElaMRkp4apxK3kZhOwH3ZJJm+YEy/LEBOhopM3/8eU4cOO
-         8iMCitBpEEZP0rkAXnuvkxEF28Xy6F9FUbJIxmKuFD3A0dSnQ5lVbNXTEZ68tz8kv8Vc
-         Sm0rwlg9SbvUhPekSQ83BH+gPMydIRYQZ4qa7r/k2B0keuDN9RE0l4pMNkxB8Wn36S7J
-         syCA==
-X-Forwarded-Encrypted: i=1; AL+hErHO5sXYNLjjZnCkRwSH0L7gmn5tggZ7/vQPX/ABFleHw+eDyQRgAYtmwWM9wBgAuGNZ5tXM8CpGjxzXspo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9fnej8PDzux2T/IDCg7epAuk9EE3Pl39YyL9L4bMkecKzMLHa9
-	2/8jnD5mIWOi8vOtkJVNmM6pBpa0fGlSKF+CIZPOb/SSVI1gMChTHK8mS6m23JA=
-X-Gm-Gg: AZFdTZfU3hOEetwkLyKj84Ey3RHEDYmWw5FwlSJVkMFEXKZ3UQHien3qmBCi9Ri1+ks
-	8f0Qlc2oU7vMfyQSb6ImFX4chDblnoVqeoHW6kkONb2eseu3N6iPx1inV9BxG4IAoCR8STjqDF/
-	dBv4HJTDqMK/J0v7JaGcY+gISydZnQARaIcOusLO8v75RN7gjUTrqAbad2qrYbHoX4Wac/BOJQe
-	Si3XOjSRlslWk0AYqHLlWiwHld12mp+o83rDpbbflTjAB4LcvzPJLi7NEGN5lqBrixVwXtb3rF3
-	7xAZxoI2dCrm34Xk1LKVw0J43r73RkDu8SOBjvaOpPIFezN38LSfe/MIiCW7PwXzsEbcbWjMNs/
-	alRTwMbyv95bhBuQ297rSNRfE0lT29NEFjVYiDyQNe61+dO0tO/yIWXwIi52OPDQ1a8MXcSHxwB
-	ucOVMZHSIVhDZlHQhZXBOURgNwJhRhyB+ezsA9/vJpcFDOyowwgLD6IzYHcfaxA1Q0MEvf2xagk
-	a6zd+t5bctIfIJFECFJofv3L71//udfclARh5s2ISNaQC6SI/vBOIiuPYPMQh3Xho0m0InD4EY2
-	v9EKQth7X3YqYTthQzBmxqIpCmWqjmKeMr1O5GObonUhbe2R18SXFeIr7GA+t+QnUWNLKA==
-X-Received: by 2002:a17:90b:35d1:b0:3b0:9317:5842 with SMTP id 98e67ed59e1d1-3b41cb04e15mr16222267a91.48.1795593231485;
-        Tue, 24 Nov 2026 23:53:51 -0800 (PST)
-Received: from localhost.localdomain ([2406:3003:2002:639c:44a2:4377:d176:9ad1])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b7c6513sm12347433a91.4.2026.11.24.23.53.49
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 23:53:50 -0800 (PST)
-From: Yige Jiang <yigejiang86@gmail.com>
-To: =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>
-Cc: Yige Jiang <yigejiang86@gmail.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] bcma: Put the OF node of a core when the core is released
-Date: Wed, 25 Nov 2026 15:53:45 +0800
-Message-ID: <rc-b1-20261110-vc-179-09535b897585@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=Djz2WANC
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mOyGjAQvNQb2bjR0aUXueHpLKclgbDeF2hLv0E4ltGjgrTL53PJtbQDX0RwFPbAcnXzE1Sx6rDATiEs06WTNtl8NLZVzI7HbRtpc9aSuC3wSuwrpsJmqOw/vnhz+o5p5ECyw80VMTWmjaAQIdJ78y6TpVwns9hcRIxvRa7+eZ0/YPmXrWqWQiRkkofSU8611fnNgDm6M2B0xM2BErTaNUQK07/iRvUbdy0YFe1MyDXgMtqQ6sDipKvU+u6NxKfUBwuvuBMCZizfGkYfybnr+OMjqxjM7/nNOcKmtQr286PsAismRkbmqpcFVE3GGCMSU+2/nptyYFPLEuiJAPR/ETQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rdPYH/njZ6agywqcT+6bb3gwyYfCXqKA8yIzRa3s1Vo=;
+ b=BjwV+PEeOlEn/bkCn/8CayaMuZMe6pztN0MuK6ZTiy82HIic2Dm1woSUDbnQOURvscMXri7trujKwmk50VF/4GSJCQrmlbX8sNczX7Gnk0o8yYFY/tIhQjwTE6JkxU5cV/qd2v3gDVzOPTav6DfUJpratfN/TY/uHWSrFWSVD9oBty06trpCIbMOJBA91QKvCKTZ4X5sieSRSoHgYyEYC+vwDViN72/ayeeWNIJQYQ3YWCZDrpr4yBv0Z6gVBGN3rzBm9KojWsQTbilBMTj0VmcjOTa9wrYwDHN25VGuuV3QE8F+CGiBBnJ44asKubUDwkU40ew6QPbUfBrwv3KVuQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rdPYH/njZ6agywqcT+6bb3gwyYfCXqKA8yIzRa3s1Vo=;
+ b=Djz2WANCGzS4kkypQDf4q4exJfhS5Ub3WD9Fym480V/GRQ1BulyStLYkQRKq6ebgS1peKgcRZzywdV1y5+3fTYUo8mtYFEi6PdNLbaHX3hhzY69dqBCGyPvQiD7GDNEkfaJsLHcoM9cE0Z/hdJ+4y09FDp40JfhnNnKNsu8Xr0fouGN01sgQWtzdbzKCldIaLfy4d6PnAv9LkWm2UnoNQ0/OwosUmYQryBG0DfwdtZdLsQDO2h26Q5d+rNlKK3PXtYXLembxUNiOLhf/zaSs4SBsRzavrjePpRo5gv+S7CAkYQjJSFhZvtI8aDO+g4Y9XWtNtaXlsxLYsQqyFlza0A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM6PR04MB4472.eurprd04.prod.outlook.com (2603:10a6:20b:23::20)
+ by BR0PR04MB503013.eurprd04.prod.outlook.com (2603:10a6:2c8:4c::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Wed, 25 Nov
+ 2026 07:55:04 +0000
+Received: from AM6PR04MB4472.eurprd04.prod.outlook.com
+ ([fe80::aed9:e8b9:c352:9ba0]) by AM6PR04MB4472.eurprd04.prod.outlook.com
+ ([fe80::aed9:e8b9:c352:9ba0%6]) with mapi id 15.21.0639.010; Wed, 25 Nov 2026
+ 07:55:04 +0000
+From: Stefan Ghetu <stefan.ghetu@nxp.com>
+To: dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	devicetree@vger.kernel.org,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	=?UTF-8?q?Guido=20G=C3=BCnther?= <agx@sigxcpu.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Philippe Cornu <philippe.cornu@foss.st.com>,
+	Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
+	Robert Chiras <robert.chiras@nxp.com>,
+	Robert Foss <rfoss@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Sam Ravnborg <sam@ravnborg.org>,
+	Simona Vetter <simona@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Yannick Fertre <yannick.fertre@foss.st.com>,
+	Liu Ying <victor.liu@nxp.com>,
+	Stefan Ghetu <stefan.ghetu@nxp.com>
+Subject: [PATCH 1/2] drm/bridge: nwl-dsi: Move DSI host disablement to ->atomic_post_disable()
+Date: Wed, 25 Nov 2026 09:54:54 +0200
+Message-ID: <20261125075455.772826-2-stefan.ghetu@nxp.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261125075455.772826-1-stefan.ghetu@nxp.com>
+References: <20261125075455.772826-1-stefan.ghetu@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: FR4P281CA0431.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:d1::19) To AM6PR04MB4472.eurprd04.prod.outlook.com
+ (2603:10a6:20b:23::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,47 +124,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM6PR04MB4472:EE_|BR0PR04MB503013:EE_
+X-MS-Office365-Filtering-Correlation-Id: a4599d9a-5f98-4183-bf59-08df4ac96a4d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|1800799024|376014|7416014|19092799006|23010399003|261009223027099003|261009221227099003|18002099003|22082099003|3023799007|261026121527099003|56012099006|261028144727099003|261022105027099003|261021123027099003|261021121427099003|261102123227099003|10067099003|261026140227099003|11063799006;
+X-Microsoft-Antispam-Message-Info:
+	TrLqj9Q1Ye+Zih+23k6lSFseeVpJnYbdfVoEUpgs+xfxFTU9NytJRXwQqw1sR+nmTJuhn6iQRYV97Ghfv8Ule+jNRy5gOXG0rdaryTfPJoGhWcYpZhAlMcNtL4L3J9OS9iRkUGLT9UM48iflnV1K6uIhDBXGh/G7NQx+H2UU6OmWT48HyxsFe0pRwUAQtnbdcJ/knkggKMCTErtw23L/GyjS/qnDnL36rSgpXYw0rVyzzSbdQUsMK/hZKLkcOnRzRedtnQ5zjhIlk87tFImP82vLrhYNzwkKd2DFGUlVt01ZIqXD9PRHFrkgc6X1EiRX4EFi2qzIqM0t12tz3moCMEaDXY5Rk58tXohddDHdrmMTK9fFjjAEdZieL2pW98OItewz9/NhsD7sAdAxZwvjOGJKBvt6MO1HaLGWykFFFk5cpKvRCPlEtGDEzSwW9j02Gcp95luJnbvTgSUhw3fkhK9SxWcvIecaL+2WOpTaRFUwHw6VEctO5cExqcLEhnGxXwlb3b0WVufb0QqRCQblurRC2UcLp+wJ17YehDmyNjqs3m80Kc+ZHep3OcSQ5UfEXKy0d+hb1mf4pbPIYw2YH2xoXxU6r+Azsii28QqGHg8jwkcVhyB2yIdpYkxvphtjYB6AG/G75c0UBiAtW0Bj4jpYQq3NJmd2MKVeilKeoKM=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM6PR04MB4472.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(19092799006)(23010399003)(261009223027099003)(261009221227099003)(18002099003)(22082099003)(3023799007)(261026121527099003)(56012099006)(261028144727099003)(261022105027099003)(261021123027099003)(261021121427099003)(261102123227099003)(10067099003)(261026140227099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?Djzgpf3j2b86V/DGDLkbd8p1tD2UbEk7PojDgoYcd8y1h1JyVk457qKkD25y?=
+ =?us-ascii?Q?F51+VtJyEx00ITOlvhC+HHFXgyvmPvSVAGTMZN8exhohNM5+SX81bQ6H1yII?=
+ =?us-ascii?Q?DtMIfptZ8o1fGdGdI1y+5z8gURzM60tIxJ2A7vsRWTJoZc/Jr7U8G2QyGxfH?=
+ =?us-ascii?Q?/zkb2+aWA++u6Z3MXaJVD6B+8YyQJm2SKX0gzDqwd/9F0edFs8tO9e8MphkF?=
+ =?us-ascii?Q?PRVMm20h81CIop5tTAgCXaaF3E/hFwTQgv2RtElI9qA+djOnhSJwKCe8lHl/?=
+ =?us-ascii?Q?rhIslE9TIKvZ9a0pl5xuWJ5RjohutkwF47uWj1olj2TxV2ER/KvPWCWVlN4R?=
+ =?us-ascii?Q?yq7dL1763/F0wt8yju0VBapo4ADF4ATJRPsNBpjMBIDG59Zbdc+eDVNW0GIa?=
+ =?us-ascii?Q?W/d7/muJmVrf1SG3ll2PrINTRoJr4WLvQraPORz2Y+BlvkF9k3KasCKcyvPN?=
+ =?us-ascii?Q?Pw+6LIOtOWPY49Eg10FuxlxiKieGeiVXW4/NIGUYJXoRsNtXGpM4ybPLiLjw?=
+ =?us-ascii?Q?zncBfykP+ALtm9dqbEdZPbm1yktcfK2xMTYHYCoGLzKYLjdnt9kbbHiEUYU/?=
+ =?us-ascii?Q?7g8NrSHMXG/vABJYSYKdvQh+PxvPj92W7qVk8TCMlP4ZKham1d7LCoJpe1t1?=
+ =?us-ascii?Q?Z7xJCEnI/fqU7kbMn1ZtJtlKC3YbGXHChCRcpNvoKMXt8IzqjeHJmyBHTDwQ?=
+ =?us-ascii?Q?xlaqThWjUKRZzeJiOJfMasM6ujuUQrTSceMOIAgfOItiAK9EseY+aX6OZKM/?=
+ =?us-ascii?Q?Cg+8zOokQ9URcgKd10y2O6xPxXRWd4roT5jY0rHPVOWfFceP7Zk41S4YoBL1?=
+ =?us-ascii?Q?gSa+YO/JDiXqWQuXOYb407jl1/2IByNNNraPFouU61NXUR29Q2qQez/enzg6?=
+ =?us-ascii?Q?hd+IYgAmXq5PcGkBcaD6yigXAB33YFEMnvbAMtMxnLWuHecz1ap00xmwX6M1?=
+ =?us-ascii?Q?zU2nz4YuG2ochztvVgn3OC9ZvOfO2KEefw1YSrlmzCncR652of8bg4lOf3VT?=
+ =?us-ascii?Q?OJ/C8mDkHy/LbIIBRUucVpUoaIWSPJ1Vet6OMAc/kuPkBeRWOFMN8aHIsEYy?=
+ =?us-ascii?Q?T1njIYnXq8mAlg3YJt/5ELxmwhENHBaS/R0ghTwjUBu1zCN8zIMruIngNwXr?=
+ =?us-ascii?Q?n9GoOpoNECmR3paemirC/s0DvcabvDRYqsit3BWniIzt+7m4/2Nf8ctT1rZF?=
+ =?us-ascii?Q?2QyVbrLcSbh4mqkIdNNfikE0SnWVf58ZY1jK5/aG+TWIE5xg1YPFaAPvyW23?=
+ =?us-ascii?Q?7WJ8tsICFiWTRKsMf/XdfJl/hB6xwZGdrL4gexYojFIdx7VZraFrVO+qTgPP?=
+ =?us-ascii?Q?fKAn5zcic2ML2/SfBTJURE8w4qy1t18FDSpzStZNoQKMag6lMunUvjrMrx20?=
+ =?us-ascii?Q?vYZOzlETtGOtQFgvxBEplltMnoy3YxFo8llh/YdHvGJR0lcU63BxJNnfi375?=
+ =?us-ascii?Q?JZaySkHfu3QjQSxz724XSiAB3w+bzvuuQevLlONIGuW73ftWFqNhyChyOw9A?=
+ =?us-ascii?Q?HBE9bAOnzXSRfWvyHm9A4my5K0T29mz7GuuCnaYTsh+gANLU6UzogWK8zWHh?=
+ =?us-ascii?Q?MWKs+/5bKXFS8gdVY8SIL5Kw7eVAKuAulMoJab7f2tVb1aO13fDiO/wnOUPX?=
+ =?us-ascii?Q?oup7q5Sc6Xs9lUBW/Y7tSqhk6pOinDTuyk3dA5IqAU6yWWmcq/EFQY7x6HbM?=
+ =?us-ascii?Q?D4DsS4o1qYXlXnytkOXHEyrYEf7YqNlpIacuGk3HQVD4JYOT?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a4599d9a-5f98-4183-bf59-08df4ac96a4d
+X-MS-Exchange-CrossTenant-AuthSource: AM6PR04MB4472.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 07:55:04.3266
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 21o9NFCAcu2DJnyVwd7wbKeaK+mis1b5BjKYc58G8tM8zddeXkUUsVQsbWmPYeMHSGFrXr4hguF19r8ZXbjpRQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BR0PR04MB503013
 
-bcma_of_find_child_device() returns the matching child from inside
-for_each_child_of_node(), so it hands a counted reference to its
-caller. bcma_of_fill_device() stores that node in core->dev.of_node,
-but bcma_release_core_dev() never puts it, so each core matched to a
-DT node leaks one device_node reference when it is released.
+From: Liu Ying <victor.liu@nxp.com>
 
-The node normally comes from the base device tree, and base-DT nodes
-are never freed: of_node_release() frees only detached OF_DYNAMIC
-nodes, i.e. overlay or changeset nodes. On a normal DT system the leak
-therefore has no memory effect.
+Some MIPI DSI panels, like the Raydium RM68200, send DCS commands such
+as MIPI_DCS_SET_DISPLAY_OFF and MIPI_DCS_ENTER_SLEEP_MODE from their
+drm_panel_funcs::unprepare() callback. For those commands to reach the
+panel, the DSI host controller and its PHY must still be running.
 
-Drop the reference in the release callback, where the lifetime of
-the core ends. The node is still assigned before device_add() and is
-not changed afterwards.
+The panel bridge calls drm_panel_unprepare() from its post_disable
+hook, while nwl-dsi currently shuts down the controller, the PHY and
+the clocks from ->atomic_disable(). Since all ->atomic_disable() hooks
+in a bridge chain run before any ->atomic_post_disable() hook, the DSI
+link is already down by the time the panel tries to talk to it.
 
-Fixes: 2101e533f41a ("bcma: register bcma as device tree driver")
-Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+Move the disablement to ->atomic_post_disable(), so that a downstream
+panel bridge that sets pre_enable_prev_first gets a chance to send its
+shutdown commands first. The enable side is unaffected: the controller
+is brought out of reset in ->mode_set(), which runs before any
+pre_enable hook.
+
+Fixes: 44cfc6233447 ("drm/bridge: Add NWL MIPI DSI host controller support")
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
+Signed-off-by: Stefan Ghetu <stefan.ghetu@nxp.com>
 ---
-Based on linux-next next-20261109 (630059a5a632).
-Compile-tested: arm64, aarch64-linux-gnu-gcc 14.2.0, W=1, COMPILE_TEST=y, BCMA=m, BCMA_HOST_PCI=y, BCMA_HOST_SOC=y, OF_DYNAMIC=y; drivers/bcma/{main,scan}.o built before and after, no new warnings.
-No hardware or runtime test was performed.
-An AI assistant traced the OF node reference and helped draft the fix.
+ drivers/gpu/drm/bridge/nwl-dsi.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-The leak needs a DT-described bcma bus (a "brcm,bus-axi" SoC host such as BCM4708/BCM53xx, or a DT node under a bcma PCI host) and happens when a matched core is released (bus unbind, module unload).
-
- drivers/bcma/main.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/bcma/main.c b/drivers/bcma/main.c
-index 72f045e6ed51..58d72580f09f 100644
---- a/drivers/bcma/main.c
-+++ b/drivers/bcma/main.c
-@@ -123,6 +123,7 @@ static void bcma_release_core_dev(struct device *dev)
- 		iounmap(core->io_addr);
- 	if (core->io_wrap)
- 		iounmap(core->io_wrap);
-+	of_node_put(dev->of_node);
- 	kfree(core);
+diff --git a/drivers/gpu/drm/bridge/nwl-dsi.c b/drivers/gpu/drm/bridge/nwl-dsi.c
+index 09992529f3d85..5c82f0986eabb 100644
+--- a/drivers/gpu/drm/bridge/nwl-dsi.c
++++ b/drivers/gpu/drm/bridge/nwl-dsi.c
+@@ -736,8 +736,8 @@ static int nwl_dsi_disable(struct nwl_dsi *dsi)
+ 	return 0;
  }
  
+-static void nwl_dsi_bridge_atomic_disable(struct drm_bridge *bridge,
+-					  struct drm_atomic_commit *state)
++static void nwl_dsi_bridge_atomic_post_disable(struct drm_bridge *bridge,
++					       struct drm_atomic_commit *state)
+ {
+ 	struct nwl_dsi *dsi = bridge_to_dsi(bridge);
+ 	int ret;
+@@ -963,7 +963,7 @@ static const struct drm_bridge_funcs nwl_dsi_bridge_funcs = {
+ 	.atomic_create_state		= drm_atomic_helper_bridge_create_state,
+ 	.atomic_check		= nwl_dsi_bridge_atomic_check,
+ 	.atomic_enable		= nwl_dsi_bridge_atomic_enable,
+-	.atomic_disable		= nwl_dsi_bridge_atomic_disable,
++	.atomic_post_disable	= nwl_dsi_bridge_atomic_post_disable,
+ 	.atomic_get_input_bus_fmts = nwl_bridge_atomic_get_input_bus_fmts,
+ 	.mode_set		= nwl_dsi_bridge_mode_set,
+ 	.mode_valid		= nwl_dsi_bridge_mode_valid,
+-- 
+2.53.0
 
-base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
