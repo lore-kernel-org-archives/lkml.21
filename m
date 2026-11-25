@@ -1,61 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.73
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795643079;
-	b=rXt5/41JumfMOQiB2NV0fdn72/T00pCKabZJowflpx/NMFFfXo+Xq05wgRpNGs2G63Gn
-	 ybzoQZEOzcKk+MYyi7GrykWJ+WCtLErDQTJlDN72D7sjASZOE100pNBoAh0jhxTyk/MNa
-	 DJz8S5cWRP5+enkuE71xHPeI9KhUEkfSOgKwl7fkDMQT2TR58jGwlU9FrPHGyuVUVx1E4
-	 udrq1JQOcsJ1gZq5XGwNEGwbL9OHrBWG7P7dRQkYV/axdsvj1dF5730Qu3Sf+Bn6nKXWo
-	 cQ5J7Zqs25inwy7pfxDsdqaN9652zR+W/8YgtHZCb5zZ8fIKeb1hYha12+4P/XqLOvA==
+	t=1795643081;
+	b=n7p06ynT+9JS4Clhu3VMQPgooKQKhwsHWJs5R+c0Xs/YeKCN4HPN6Sw5R6KlVd6tAapA
+	 eAs7hbwX/SwqFjosW4Xv2moqZz407OitIImUyN6eSe7F+jI8fYmT0hmx+uyJjaoyf4DPG
+	 5cM62m8GG/Pmpb3gN+SnT9e2bFrLRIM084derAVz4FlBxf3GKoQqc9izfxIowOBIj3aNs
+	 kPwhpzK6Q4EpEuX2h5HJOE94o7ZtHRN5ASu758KA7F3eMjpiPpWRFes3aS31oDE0CUlQ3
+	 1p5pg3cl+GgCdo7vS7NHJClwRA8xex7tOxMAvnO/8ww6V7uFfpo2stXjEe90N/pwuiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795643079;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795643081;
 	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
 	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
 	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
 	 X-Report-Abuse:X-Report-Abuse-To:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=4j/XQhOlH2ab0JMIuNjO9RvRaPgAJ0A16BCloj2ZjhA=;
-	b=U2qFaVL7vul0JtErX0xOfdJallAp6r7gNqvkhsEqyPul5tsavhT9+caZnBHgzpEjnqAL
-	 k6K+FOZp1N5RQeTS+J8xICYIyKGAIQ5Z+zW+NJ+fZ4dh/vrgU1aBnvTcRnaSHc6NyqkNE
-	 oMxiEdmWWLtwBZOLO1BF2sL9DH3gpm5KFw1kBI6h2hFkf9LIvlFQN4jTqzrFtNQFr+s1Y
-	 LguSx8BTWBnT1lenocu3bUq+5mubsLKlEUS2oMyfRE0lSmYQWeex1GGO1se+PuC55PgR0
-	 rLv9e+m7mQVoTbGXCdHErXJn+hk13vYb3g8pomGnatoF3GP5tCUs6Rod1U1ajrYxIRw==
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=xDax2k9eB8zfhF2fVPSL/iize1OKzF/z97ykVMEg9/A=;
+	b=uB1nU5NCAaQcYuanxMciWhgmYauGhHeeIif1D9WPROSEsQ47y8Udh/X0FYsHltZNohSh
+	 67++ENHMOwkvkZyHtYch8SMPL9NpoKlfTnHiWJ/t5v1FbIWWGGsbPo0M4iKfK6zeJCEHr
+	 dSvBzrlAhJIS93rdhK2S4qhDzpCvq7oW00O8iVfFC2fqZsHXeUqWpESbZ4L/m3rkXeGvy
+	 +O+aVrOddYbSSQ3NZhP+g5NYgzRClW4Ao2NkzDfDFO6mtZJBfPyyvqawM692KKNzKV6ZV
+	 vP3oS24Chs5B06Pr3Orb4818MF7BTyiQnJQN9giWjN1u7p73g0amS/x7P8ErqtKOWBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=kwiboo.se;
 	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
-	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=Mi3v09Is;
-	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=W6aayl0y;
+	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=CTd08Z+F;
+	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=eM19iAYd;
 	arc=none smtp.remote-ip=121.127.44.73
 Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.73])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A004606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:44:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A004606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F0D1606A33E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:44:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F0D1606A33E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=Mi3v09Is;
-	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=W6aayl0y
+	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=CTd08Z+F;
+	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=eM19iAYd
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
- To: From: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-e1b5cab7be;
- t=1795643071; bh=4j/XQhOlH2ab0JMIuNjO9RvRaPgAJ0A16BCloj2ZjhA=;
- b=Mi3v09IsNtNnS3bkhI+MnzQwl7vRmLCG0cnOwdykyIJM9yQa8VGFByhQ5grjx8uaMn9++VWrR
- Nq5V0GfFra1Yg/3nQHh0wEekjsAueakCxPPX5duF3LeNQ+BrtnuytINvfQEqxURvLnLeai/OK02
- 1macQXDI4gmtMLEqlvqpWVbgH1s27XfZ1EaeFPw2NR4yZdrQCcYAL8epo7zszL9NzJiTM4UT9wI
- ytghFu0EthkqOZnFnpCP9OgqDJTMCE/eDO/blcQhaap9ZPcv13OAtorP7imwFiDZgtdAsTxKbC8
- HGPYBp1P9vKZtmX3PA33dcETc+fygUOCIDXqHbBBCFSw==
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From: CFBL-Address: CFBL-Feedback-ID;
+ q=dns/txt; s=fe-e1b5cab7be; t=1795643075;
+ bh=xDax2k9eB8zfhF2fVPSL/iize1OKzF/z97ykVMEg9/A=;
+ b=CTd08Z+Fs7APYhvlpd55Xl4k0d8sYFFmgKLRWt9eHgjKKgpmiUKtRybDUt8BYX6ptCk0qZRG+
+ hFe7w5GZaH4AY7Wv6SRNlZ5gLA+3pPZLZOV4EK2fd6biUafc49KnNp17cmEQQVpatMh/S6Ovyuf
+ bjS+oEDKuqxorSHfGx4i93xZ2aJC/G4g1DgMoKsjIQJD/9YNL0XxT4i/Vzh+9rRwza4yFD23U+A
+ JO911xY/Fvyw+jEAfP/248ZOJUMtJGO8zauvdC2Hg23EYwRRmkYYrEdlcuycekbLGkbQAyKF7Op
+ ki1eNIFYe741o23xs+B6kqsjefeoZ0G/F7lrY2eIQhkw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
- h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
- To: From: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
- t=1795643071; bh=4j/XQhOlH2ab0JMIuNjO9RvRaPgAJ0A16BCloj2ZjhA=;
- b=W6aayl0yB2MXslwLxlVCfBcFJIIs9qHPCH3kRzkJG2aLyFXrfb+QkUlCkoqwXEvhbQv1Mg2B7
- +K6ri2XhfeGfvaxyvq2+pQT1YnSRae+f7YMaGZ1JbmZc+WysIrrOXnvp882vYxK3R8OiAhvo2oe
- 46YhbzU9u5AH+4ABHW2ALss=
-CFBL-Feedback-ID: 6b0756bdf930f38bf754f931:8054e09cb6735f7376d55581c80b2ed5
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From: CFBL-Address: CFBL-Feedback-ID;
+ q=dns/txt; s=default; t=1795643075;
+ bh=xDax2k9eB8zfhF2fVPSL/iize1OKzF/z97ykVMEg9/A=;
+ b=eM19iAYdU7qNDKsLYgURH89I0FjakWO4l7QOdMhIUSNsDOtx6eqSZiVBpTNZrW6fCghoGsTnX
+ 0D7ZFEeJUqOFNHth+pDZAQW7MoXxpmDrGKpSoVJ+ZzimYKQE6cYrlH5ZAhLkvIjAs1dKKKbp5hn
+ 0bgLLwAKXOoXjUWrrURCXXE=
+CFBL-Feedback-ID: 6b0756bff930f38bf754f94a:26eca1fa36b2a9f48f4c53d40e9a50c2
 CFBL-Address: abuse@forwardemail.net; report=arf
-X-Forward-Email-ID: 6b0756bdf930f38bf754f931
+X-Forward-Email-ID: 6b0756bff930f38bf754f94a
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  121.127.44.73
 X-Forward-Email-Version: 2.19.39
@@ -72,11 +75,14 @@ Cc: devicetree@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH v3 0/6] ARM: dts: rockchip: Add Luckfox Lyra boards
-Date: Wed, 25 Nov 2026 21:44:12 +0000
-Message-ID: <20261125214421.1580359-1-jonas@kwiboo.se>
+	Jonas Karlman <jonas@kwiboo.se>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v3 1/6] dt-bindings: soc: rockchip: grf: Add RK3506 compatibles
+Date: Wed, 25 Nov 2026 21:44:13 +0000
+Message-ID: <20261125214421.1580359-2-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261125214421.1580359-1-jonas@kwiboo.se>
+References: <20261125214421.1580359-1-jonas@kwiboo.se>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,77 +94,54 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This series adds initial devicetree for Rockchip RK3506 SoC and initial
-support for Luckfox Lyra board family [1].
+Add the GRF and IOC compatible strings for the Rockchip RK3506 SoC.
 
-The Luckfox Lyra board family use different RK3506 SoC variants, i.e. Lyra
-and Lyra Plus both use RK3506G2 and Lyra Ultra and Lyra Zero W both use the
-RK3506B variant.
+Table 1-1 RK3506 Address Mapping in TRM for RK3506 contains following
+related entries:
 
-The RK3506G2 SoC variant has 128 MiB integrated DDR3 memory and the
-RK3506B SoC variant supports external DDR2/DDR3 memory.
+  Module		Address		Size
+  GRF			0xFF288000	16KB
+  GPIO2/3/4_IOC		0xFF4D8000	32KB
+  GPIO1_IOC		0xFF660000	64KB
+  GRF_CORE		0xFF840000	16KB
+  GRF_PMU/RMIO		0xFF910000	16KB
+  GPIO0_IOC		0xFF950000	64KB
 
-The pinctrl driver for RK3506 will not work as-is using the SoC DT from
-this series. The already merged driver depends on a rockchip,ioc1 phandle
-prop that never was described in dt-bindings. The SoC DT in this series
-instead uses rockchip,grf in GPIO controller node to reference correct IOC
-for GPIO0 and GPIO1. A patch to fix the pinctrl driver can be found at [2].
-
-The branch at [3] also contains follow-up patches that e.g. fixes pinctrl
-driver and adds USB support.
-
-Mainline U-Boot support can be tested using a branch at [4], it contains
-board support using same devicetree files extended with USB support.
-
-Changes in v3:
-- Squash board compatible patches
-- Add spi_nand label to flash@0 node
-- Drop unnecessary /omit-if-no-ref/ on led1
-- Collect a-b and r-b tags
-Link to v2: https://patch.msgid.link/20261122060114.773624-1-jonas@kwiboo.se/
-
-Changes in v2:
-- Add default pinctrl to fspi node
-- Add display_subsystem, vop, dsi and dsi_dphy nodes
-- Add osc_clk_out and ref_clk0_out to pinctrl
-Link to v1: https://patch.msgid.link/20261119152055.556266-1-jonas@kwiboo.se/
-
-[1] https://wiki.luckfox.com/Luckfox-Lyra
-[2] https://patch.msgid.link/20261120201540.672016-1-jonas@kwiboo.se/
-[3] https://github.com/Kwiboo/linux-rockchip/commits/next-20261116-rk3506
-[4] https://git.u-boot-project.org/u-boot/contributors/kwiboo/u-boot/-/commits/rk3506
-
-Jonas Karlman (6):
-  dt-bindings: soc: rockchip: grf: Add RK3506 compatibles
-  ARM: dts: rockchip: Add support for RK3506
-  dt-bindings: arm: rockchip: Add Luckfox Lyra boards
-  ARM: dts: rockchip: Add Luckfox Lyra and Lyra Plus boards
-  ARM: dts: rockchip: Add Luckfox Lyra Ultra board
-  ARM: dts: rockchip: Add Luckfox Lyra Zero W board
-
- .../devicetree/bindings/arm/rockchip.yaml     |   9 +
- .../devicetree/bindings/soc/rockchip/grf.yaml |   6 +
- arch/arm/boot/dts/rockchip/Makefile           |   6 +-
- .../dts/rockchip/rk3506-luckfox-lyra-plus.dts |  31 +
- .../boot/dts/rockchip/rk3506-luckfox-lyra.dts |   9 +
- .../dts/rockchip/rk3506-luckfox-lyra.dtsi     | 123 ++++
- .../arm/boot/dts/rockchip/rk3506-pinctrl.dtsi | 594 +++++++++++++++++
- arch/arm/boot/dts/rockchip/rk3506.dtsi        | 614 ++++++++++++++++++
- .../rockchip/rk3506b-luckfox-lyra-ultra.dts   |  31 +
- .../rockchip/rk3506b-luckfox-lyra-zero-w.dts  |  23 +
- .../dts/rockchip/rk3506b-luckfox-lyra.dtsi    |  99 +++
- 11 files changed, 1544 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra-plus.dts
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra.dts
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra.dtsi
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506-pinctrl.dtsi
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506.dtsi
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-ultra.dts
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-zero-w.dts
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra.dtsi
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
-Based-on: <20261121155810.706866-1-jonas@kwiboo.se>
+Changes in v3:
+- Collect a-b tag
+Changes in v2:
+- No change
+---
+ Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+index e94c83d7c138..3c1c3dc1b84d 100644
+--- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
++++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+@@ -15,6 +15,9 @@ properties:
+       - items:
+           - enum:
+               - rockchip,rk3288-sgrf
++              - rockchip,rk3506-ioc0
++              - rockchip,rk3506-ioc1
++              - rockchip,rk3506-ioc234
+               - rockchip,rk3528-ioc-grf
+               - rockchip,rk3528-pipe-phy-grf
+               - rockchip,rk3528-vo-grf
+@@ -93,6 +96,9 @@ properties:
+               - rockchip,rk3368-pmugrf
+               - rockchip,rk3399-grf
+               - rockchip,rk3399-pmugrf
++              - rockchip,rk3506-core-grf
++              - rockchip,rk3506-grf
++              - rockchip,rk3506-pmu-grf
+               - rockchip,rk3562-pmu-grf
+               - rockchip,rk3568-grf
+               - rockchip,rk3568-pmugrf
 -- 
 2.56.1
 
