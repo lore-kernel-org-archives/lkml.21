@@ -1,50 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.85.9.111
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795607043;
-	b=utUpY66VXv3IBIb1Hy4Mw4DmFNY/OzQEUp8BPyqpmyWVDerRbLRCQvKd1mtrRnKjM0+3
-	 7Mng0JQ8sdjBF0ZqdMT/ebfvNHEeKzz2SEHEkpgOwK+JCM0/Ycej6JB5VaVfH1tTMbfBY
-	 NfcaetgDMSWhqx82H7G9bf691XpUOxrSa8DFOB1oWAHOcYUdotzz8xoLfG2/WaGy2Z9hz
-	 IIGNakhwavCmyXqgf3TfuTh5jJtNHwmj5XHeflpPM70WeARxf8dABI4LGgWGJdhrD3hHC
-	 BJZR6Bz9k5s+uZWqbqpKu5JiwowiIiCa20wEQESuD+hgI2Lf3mOmUHuSYU3kJ+2SNiQ==
+	t=1795607176;
+	b=jiBMRa31cN2ZGlVG8HTu5+BkVZb59cnnGFNcYU8qHZ2xjkdB9hMvZ8h7xss1U4JXvezt
+	 aznM3kBjUqA1khg1+JfZkRG1onTK7Bfu+AISFnRn0hHfFA8Ml1f9MWmH3zda/qwVVxeXF
+	 FNeEOZR9sE4uth+a9I5TZhtHRwnmTZGJ6XBlM5/xYKpp41sHgNyciOFwfHNWpqj0u9lPV
+	 cBhWLmkTsAbD8X4k0gKDCS8lD3tz8ZPgoOYct6mUR2thIX0ngIGTJBC7UDwWNI/ScQGTl
+	 ofAT8Xn3Dv6Zz3Ry+jN/thwlewMmkH2fqZkx0UB9+gkCTF9lAifaiaaSL4y2ln4RKTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795607043;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=rYIORiZd9nOBvK9AJHaL2rXi6L6pn4f/a3NBkLU464g=;
-	b=SSs/5tz825pHMYFL5UvMu68HVER43xgrcepAKktB7wyFoUW2yiKWYayfmCSJM6VtCjLD
-	 STOCXGlhJKhB/Z3yoRqfwi+eRhS+njDwPDm8UZnzDf3tAJL4Fo7T98QQvOTJeX98tcwi3
-	 dYUmbWAMbQSGtnmYtomxEsBj0Pdjf8dkXsIr1/OCI/1SYxseKowbq5O3H/mspFalNOinb
-	 5aEal+52fiXPFjqQJAjEWwtorvlcCjkfyVVTf9hYW17C825dipmBuv+x1usuDPODHsv5a
-	 suIdl/Akm+TFKWgjX47jp2t0uV3OI69Wyu9dq+uU5vEKiQ6qB5+4kKR9zWlEr1yAJWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795607176;
+	h=DMARC-Filter:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
+	 MIME-Version;
+	bh=DpArIvxr3KOunlhtH1Io/OL1G52P9Bdd6eSpDcy8nJ8=;
+	b=Uze0slBMKsEYVXC9bUtr5QvI5aChqRlSG721h3AB4zWoCKbmNGvrd5sAWRyOGXn/keWg
+	 VDcelJnK8qpUCN8NNo0QKPLWpEqIFmjVcUQw7BHWNX4YwLV11TFQuq4LPcz21kjpWpNvN
+	 Dfc1zG3mDt710BlLJzMJl3znyY82/YhF3vQMTNQkXdDjGldMINWN07MndXEtv9AZAay58
+	 lqJ6uG3sJUBFA+SzHSdVWq5QDIcp2FXvg3mDCSLNF8op0nvZovlS09965vJ/TSpvMu1lu
+	 6ai5sLvBcrxJZNJdYRyiAkEirtvIbF9MuukXZdWcMtiTR2GL2BEDmeA6gIvGxKy/Z4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ideasonboard.com;
-	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=IFaBwVeV;
-	arc=none smtp.remote-ip=213.167.242.64
-Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
+	dmarc=pass header.from=irl.hu;
+	spf=pass smtp.mailfrom=irl.hu;
+	arc=none smtp.remote-ip=95.85.9.111
+Received: from irl.hu (irl.hu [95.85.9.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12881606A321
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 11:44:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12881606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=IFaBwVeV
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C34282E0;
-	Wed, 25 Nov 2026 12:41:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795606885;
-	bh=ocFPnV6tUBRjjstHlDwr8kukBG0+BHkvq63/lbQfLds=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IFaBwVeVO35SFZjb1/WwOdAHgpsMjU214L+OEukkT+DkcoGTVvfcg/E5HKmXiQab9
-	 IfplW8mW4eyhQAHBDx8Bv/JhUyrtrtCyHkNkjSgmKviXBR+daGdRLPnASiY2qRHqZO
-	 d6rogQK985Eh1JCpRYy6jFld0ggnZgsFYiPuQ/fE=
-Message-ID: <d9a10f1f-7550-49ee-9085-6ad4c662080d@ideasonboard.com>
-Date: Wed, 25 Nov 2026 13:43:55 +0200
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 4C6D9606A326;
+	Wed, 25 Nov 2026 11:46:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C6D9606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=irl.hu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=irl.hu
+Received: from [192.168.2.4] (51b695b0.dsl.pool.telekom.hu [::ffff:81.182.149.176])
+  (AUTH: CRAM-MD5 soyer@irl.hu, SSL: TLS1.3,256bits,ECDHE_RSA_AES_256_GCM_SHA384)
+  by irl.hu with ESMTPSA
+  id 000000000008120F.000000006B06CA85.00015913; Wed, 25 Nov 2026 12:46:13 +0100
+Message-ID: <005f13d17c178db0ee3f76344a0c1f1a07f89a00.camel@irl.hu>
+Subject: Re: [PATCH v2 6/7] platform/x86: ideapad-laptop: Trigger the EC on
+ YMC events following Windows behavior
+From: Gergo Koteles <soyer@irl.hu>
+To: Rong Zhang <i@rong.moe>,
+  Mark Pearson <mpearson-lenovo@squebb.ca>,
+  "Derek J. Clark" <derekjohn.clark@gmail.com>,
+  Hans de Goede <hansg@kernel.org>,
+  Ilpo =?ISO-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+  Ike Panhc <ikepanhc@gmail.com>,
+  Andrew Kallmeyer <kallmeyeras@gmail.com>
+Cc: Eduard Aliman <edialiman20@gmail.com>,
+  platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org,
+  Mahir Faisal <mahirfaisalantiq33@gmail.com>
+Date: Wed, 25 Nov 2026 12:46:05 +0100
+In-Reply-To: <7bf18131ce00d8aeab1e01721dc0cd71972ea365.camel@rong.moe>
+References: <20261125-ymc-82yl-v2-0-624bdcb3c50e@rong.moe>
+			 <20261125-ymc-82yl-v2-6-624bdcb3c50e@rong.moe>
+		 <84a3d94cc78ba0a26ed7b0af7cfcbde65433aa1e.camel@irl.hu>
+	 <7bf18131ce00d8aeab1e01721dc0cd71972ea365.camel@rong.moe>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,96 +66,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 3/4] drm/tilcdc: Implement state readout support
-To: Maxime Ripard <mripard@kernel.org>
-Cc: =?UTF-8?Q?M=C3=A0xim_Pedraza_Padilla?= <maximpedraza@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Jessica Zhang <jesszhan0024@gmail.com>, Jyri Sarha <jyri.sarha@iki.fi>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org
-References: <20261116142707.1299360-1-maximpedraza@gmail.com>
- <20261116142707.1299360-4-maximpedraza@gmail.com> <avs2dagfmQkv00H0@houat>
- <20261118212114.150992-1-maximpedraza@gmail.com>
- <20261124141119.441163-1-maximpedraza@gmail.com>
- <e58a5ff5-9c1b-40cc-a65d-c7fbfdaf18d1@ideasonboard.com>
- <awazkzDVZtpUsdQb@houat>
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Content-Language: en-US
-In-Reply-To: <awazkzDVZtpUsdQb@houat>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 
-Hi,
+Hi Rong,
 
-On 25/11/2026 12:11, Maxime Ripard wrote:
-> On Tue, Nov 24, 2026 at 04:38:43PM +0200, Tomi Valkeinen wrote:
->> Hi,
->>
->> On 24/11/2026 16:11, Màxim Pedraza Padilla wrote:
->>> On Wed, Nov 18, 2026 at 10:21:14PM +0100, Màxim Pedraza Padilla wrote:
->>>> Makes sense, I'll use the same approach in tilcdc, and see if it can be
->>>> turned into a common helper along the way.
->>>
->>> A follow-up on this one, now that I've rebased on v9. I ended up doing
->>> it differently, so I'd rather explain why before sending the next
->>> version.
->>>
->>> The tidss approach rounds the clock to the closest standard refresh rate.
->>> Panels driven by tilcdc often don't use one: with the timings from its
->>> datasheet, the panel on this board runs at 56.8 Hz (33.3 MHz), which would
->>> be read back as 60 Hz and 35.19 MHz. The adopted mode would then never
->>> match the panel mode, even with U-Boot programming exactly the same one.
->>
->> I felt that approach was a bit odd (and if I recall right, failed with my
->> OLDI panel), and in my tidss version I just used the clock rate directly
->> from the clk_get_rate() (see dispc_vp_readout_mode):
-> 
-> The problem is that you're losing information when setting the clock.
-> Especially for panels where you don't really have an established set of
-> pixel clocks, the clock is very likely to not be able to give the exact
-> frequency you asked for.
-> 
-> So when you're reading the clock frequency, the mode you're reading and
-> the one you'd set at first modeset will not necessarily match, so you
-> need to take that difference into account and try to get back on your
-> feet.
-If I understand correctly, your code in tidss is trying to guess the 
-pclk rate in (say) the simple-panel driver via assuming the refresh rate 
-is one of the standard ones?
+On Wed, 2026-11-25 at 19:26 +0800, Rong Zhang wrote:
+> Hi Gergo,
+>=20
+> Thanks for testing.
+>=20
+> On Wed, 2026-11-25 at 11:56 +0100, Gergo Koteles wrote:
+> > Hi Rong,
+> >=20
+> > Thank you for taking care of this.
+> >=20
+> > On Wed, 2026-11-25 at 02:17 +0800, Rong Zhang wrote:
+> > > Currently, the ideapad-laptop driver triggers the EC with YMC command
+> > > 0x01, which seems to be randomly chosen with trial-and-error and turn=
+s
+> > > out to be not a command for YMC events. While the devices in the DMI
+> > > quirk table recognize it, some other devices do not, making the
+> > > trigger_ec functionality a no-op.
+> > >=20
+> > > Lenovo's YMC driver for Windows (YMC.exe) emits YMC command 0x08/0x09=
+ on
+> > > fold/unfold YMC events, in which "unfold" means laptop mode and "fold=
+"
+> > > means other modes.
+> > >=20
+> > > Adopt the said sequence to make it work on all relevant devices. For =
+the
+> > > sake of caution, only emit YMC command 0x08 only for the known fold
+> > > postures. For all other postures (including unknown ones), emit 0x09 =
+to
+> > > make sure the touchpad and keyboard are still functional.
+> > >=20
+> > > Reported-by: Mahir Faisal <mahirfaisalantiq33@gmail.com>
+> > > Closes: https://msgid.link/CAGAHqH6o0TUa1HXMrNV6e+HNYwU3xxHkOM665756n=
+8Cp3AzhVQ@mail.gmail.com
+> > > Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+> > > Signed-off-by: Rong Zhang <i@rong.moe>
+> > > ---
+> > > Changes in v2:
+> > > - Fix typos (thanks Mark Pearson)
+> > > ---
+> > >=20
+> >=20
+> > ...
+> >=20
+> > >  	scoped_guard(mutex, &priv->vpc_mutex)
+> > > -		ret =3D write_ec_cmd(priv->adev->handle, VPCCMD_W_YMC, 1);
+> > > +		ret =3D write_ec_cmd(priv->adev->handle, VPCCMD_W_YMC, cmd);
+> >=20
+> > Unfortunately, the 14ARB7 does not emit a SW_TABLET_MODE after
+> > triggering the ec with 8/9 or the fixed value of 8 or 9. It only works
+> > with 1.
+>=20
+> Did you mean triggering the EC with 8/9 acts like a kill-switch on your
+> device that blocks any *further* LENOVO_YMC_EVENTs? Can triggering the EC
+> with 1 again makes it recover?
+>=20
 
-I don't think that works... Even if the target refresh rate in the panel 
-driver is close to (or exactly) those standard ones, it won't be the 
-same clock rate except by luck. And u-boot may have a different PLL 
-calculation, or different pclk in its dtso.
+Yes, the value 1 will recover it.
 
-I think the u-boot part should be fixed just by "fix your bootloader": 
-if you want SRO to work, make your bootloader use the same videomode 
-(including pclk) as the kernel.
+> >=20
+> > However, it turns off the keyboard and touchpad when triggered by 8/9
+> > or 1, as well as without any trigger.
+>=20
+> So it seems that any YMC commands can synchronize the state of the
+> keyboard and touchpad, but only 1 can actually "consume" the event.
+>=20
+> >=20
+> > Perhaps the triggering should be handled on a per-model basis?
+>=20
+> I don't want to add too many complexities to the DMI quirk table and the
+> module parameter.
+>=20
+> Considering that triggering the EC with 1 does nothing on newer models,
+> perhaps we can trigger the EC with 8,1/9,1 as long as the trailing 1
+> recovers the event delivery.
+>=20
 
-But even then it won't work. If the simple panel states pclk as 150.274 
-MHz, it will cause the HW to set 150.0 MHz, and the SRO in this series 
-will calculate 150.124675 MHz. This will cause a full modeset, and also 
-the SRO check will given an error.
+Writing 8 + 1 / 9 + 1 works.
 
-So... First, I think at least in the adjusted_mode we should have the 
-real pclk. The SRO check should pass only an equals check there. For 
-mode's pclk, I think setting the actual pclk makes sense, at least more 
-than guessing it. Or could we, at that stage, see what modes the 
-connector advertises, and pick a clock from there?
 
-If we can't get the pclks from the connector, the mode->clock won't 
-match, and we should either skip checking that in the SRO checks, or 
-have plenty of tolerance. I think it still leads to a full modeset, but 
-can the driver check if setting the mode->clock would results in the 
-current pclk, and somehow abort the full modeset?
-
-  Tomi
-
+Thanks,
+Gergo
