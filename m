@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795578218;
-	b=cLN1BejJ/PA6PlgKzrn7auX9OYrWin3iHEAognsus2lqjWdjsACwgaV60UC+egen9IZA
-	 mtcVb74e9GErZPN//7cJawC63+vg7QsIhJYvJkzVOdA3dHR2bn+3VEM1wxl4RNM6YiZkt
-	 Kozv/BNi4xFs53hqJkr+yoTk+2M45wqyI0ATXE/feTbzwU04McMylor48tOeijG0mpI5t
-	 I/RsGLlliJEPEvXvpp3Kk8CWkXeH2G44Z7ToI5y93WW7ZN41z4gvfQOY0yrivgZ5ZPzb5
-	 DHjf1ghPw5JCSx6N/1MJkl0GwRYzZ7mo6dfHaqWaLHuUmTg9IyEbSacLBPUTyToDZEA==
+	t=1795578222;
+	b=FRbHzgxBkmrOlJfJ6wf3fkTbEUrOb8vIdb2i+DH0i293fph2KI5hF07xx3IZOxKyWcdO
+	 zZ3J/pg8TBwrcf9tMBixUARssrpWP9AFiGWwtUINWY+jKi4gc2xIof/OojTvgE/1XDj4O
+	 hKYhzeeTioMrkw6GHjzaYL2mID0P0dVb8FoNftYnk3JrAbhsUmuJXgyKRx9+3lMT3Kdpi
+	 4WbnHVzVtBtw1YqDYiu/gC0zn2YkFXn6ASUC98QFTf6CQB6Ef5vfLrmnsU6Gm1xlkKocE
+	 uuFnP/q2rs2K+3g87Qe8sDML05rnF0VHBqDDg5nRsFtWMvPP2QA48uv3Tq70KvQtj9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795578218;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795578222;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=drwleRdoQE3pkKiq8NvL3TA0ZreOLUUT7TR68lPFDhc=;
-	b=ZYa4BENS68a0Pl+zuck6nFC29H7/RGNiampXGUR2USgA2hIkagCULcfGmlq6QxTZ4gtK
-	 Oxqfhvx0c9Zp6cYZvH7uiNb1LJYY+2LXZebj6/cNzLXUnRDhiaJC8bwlxSnhTh359qbTC
-	 g4rgvF7MGMuxvtYcVfuUGtu93ZCCbxqUk9/icye82yfgXR3fg8dbTiiPZbbc0vTWJbR/6
-	 X/zyGRwGdahsxbfjyM6/0OTB3EWzxzF5vB7fpW9skikRQRV9JTg9CTtEEv9wzev0ynxFO
-	 moCw7l+2mA0Je+OwMC3G4kpGUzcMu3stQlyIWhsdAGZunha9GB0HqNQa30OT3uqjeWg==
+	bh=dpKnhnsaRxCp3BhNS6dMqX7R85atmEMYETrpv/6MbAE=;
+	b=oGJrefjd0ePjwcmLkFQMvnlEJRH2qwcdbHRkPAtzDOGQqcSMsaHg48IPER/vuAUAlLW0
+	 3aeSHykRku/z8S+c/Js0GnO41UCO7nPMrhObVIcoEDgJVxQ5XQLmEzoN4B1JAj1IRtZ+V
+	 ti3CQpt2Qpeofmk10IRPnmY6qIljny9hKqKrv1h+4eVY9/AFDOiRl/UgZ0diyX7kmkXGG
+	 IEX9NWCYnjVq/iod7t/aD/af7Kik5Oz0uarSDeGbt/Nyc5/xcMMs7IajVF7Zw4L7QnhvX
+	 9rgBPXg0PUFWgM3SQ2f4tD+sFu54/EOGVU63j2i9FpswRzBmlLAkRDtBFldPKNHMIcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UHm56pzM;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0gL35YaP;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 443B7606A326
-	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:43:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 443B7606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49875606A31E
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 03:43:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49875606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UHm56pzM
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so41996565e9.3
-        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:43:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0gL35YaP
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so48469965e9.2
+        for <linux-kernel@vger.kernel.org>; Tue, 24 Nov 2026 19:43:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795578216; x=1796183016; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795578221; x=1796183021; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=drwleRdoQE3pkKiq8NvL3TA0ZreOLUUT7TR68lPFDhc=;
-        b=UHm56pzME5QuJjhiAlkwHOpYeDJa6yB0YSYI1bvu1L2C1K/b8c8JqZfqvQO604D27u
-         kbijntCdsTmXmZuyEXTOb3UWjibtttn9sm4yIUhv5BWWR4I4ZkBHypc2EQoj8gClP2kH
-         iWlUwFG+ksAX8PfuGzyqwgPWimGWoKbwCaHODUEXgT6GTXr7IYQf2wZ866+zITCViM9+
-         cWdmBvAUOA0q46kcT5cB45N/Ty+c6kaDy9tabJMeqja7JP84/DXzhEmYtOJHcJix8lMn
-         ap6y5YurBKaiszdHFCygN5ro1OeYnibVACzFSOUr4CNcobuqzEvh4D1LFkTgVWGuKHY/
-         cXww==
+        bh=dpKnhnsaRxCp3BhNS6dMqX7R85atmEMYETrpv/6MbAE=;
+        b=0gL35YaP581fK3jcOJPups+fF9Bbf8JIZtZt5mMf57n60XTFjn4kYofnxX068yiYH5
+         FuQ0yvkMTBi4fEdB55IabfGWqM2T63H29uww7lNh8DHLTv1kOBJPGaeo3AMOqMSSU+X6
+         3LdUBD9U4cj47O/R2+eBKO3iISBcpxscvMpW/pqZcRplromX81Z3/RuRNnC5/EG5rPmk
+         BQKfdN7YeHa+gsvJFgUsSAByJJs5MW9Pda01hnPON69QF8pF0jxAMkykIR7oUfizwaCg
+         kbnLzik97Yu5Gv5WsFhSEW86b5D4gcno5s7wlSNmKItRT/jR3gKoc8KIJ8tUtaqOPD+Q
+         iaFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795578216; x=1796183016;
+        d=1e100.net; s=20260707; t=1795578221; x=1796183021;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=drwleRdoQE3pkKiq8NvL3TA0ZreOLUUT7TR68lPFDhc=;
-        b=lwfxpVNa+n8+YhO1eyCYK/Maq2O3/+yAdO9BTALQeBUn78ixs3oiRGlc3dpRBP4h3x
-         5gIo9MbO3g2o7fAAE4NFl6qe8B2saiNcwjLBLBEFZ9RNIZ2eUSea+xeIwEozPQ1qoLwl
-         X1UAuL6L+QFNjBx5fks4CfBRca19usK0HJwTNzZ0UaUX1wW7u7B828yUQcceDLtSDg4X
-         Y8yg6zXateU0JUQey/XcnZ6CgwL8D6Jg93/DQc0E+bcWD2ZWqzB9MzySX/AYHfUJPt7z
-         Q7qkI76hqjG+yiANxl+I2ufF2RvMMrdAq36dZNX/F4b3OLbbczRNDfzsu9I5wjhC9dwP
-         ELIg==
-X-Forwarded-Encrypted: i=1; AL+hErHQyrXia0IYu3vN1GmkoEToGDD0gNcmN2xNX36tQxbmqLRMirL/BnLmHHriGbvEnekRhN0vmdCwaf9lZRI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+HuKD/bjGlXsRKD2K7fsrps0jrnAhk3/sCsvKFd4xvcTM0/Wpk
-	7FpCriTrRxWGVtfMmKWJqPBurWzINFq48DxHv/GBLQgvFgRGuCN/ahfi
-X-Gm-Gg: AZFdTZdbnl4siv+eJR4cbnmdEZJMptIzKovr58oz00fppFR7aUAahR52x966BZyWfSW
-	PTdMIeyI41/bHFJ3C4hCVncB7kavA42Ko2Vy+Ky61eTxeUe5BihRygd6TlS/itIXhgm+my/sAUY
-	5o5uB1XyEGaFPRKxBGLYvO/2iGq4QeMgmHKcUPoKgA9zTaDsB48mUA/5z4VlQe/hi5S1tPehCj5
-	nZuzEUnkOr4cNar9AqTIV6uy9nVni01UPOSy0Bnh4dWDf74YB8oOj/gum4jiKq5T2ksUxAr+pYw
-	hBK83Yy0poQRbS43aDb9P1rjAyvELNShEsfnVAepotXhuNSYZ1F2+OjfPHBA5Afea2By0qXoobu
-	kQ5NNOFI63AUh2gs1s2uwihRuMy1g3FeH24xojJic16AL06bBkZFiQtn7bzojFZiTn5Wsz6VS/f
-	BTtVIdTes1MVNx5ZkyzLgCLI5fhdcy+0Xluko3cRD08yfhz16O//xo0eK0iDCwd359ikFLNWhOy
-	0hEVkyuPuwAaCI70qtcIldelXectrtlYiW+ngzJfwmQJjTbjhhMjyx5760BM+v7h2kCZrTIgdct
-	uAWIOnJvoVG+Z1ezrOdUEmRdrJU0XmZ/Qflrxg==
-X-Received: by 2002:a05:600c:1d86:b0:4a1:fa27:df7c with SMTP id 5b1f17b1804b1-4bb88922972mr346329005e9.34.1795578215688;
-        Tue, 24 Nov 2026 19:43:35 -0800 (PST)
+        bh=dpKnhnsaRxCp3BhNS6dMqX7R85atmEMYETrpv/6MbAE=;
+        b=GTilGgzMht9043T3WWQmq5ZcgK7YB1gpulubhHMJovljs4PHTgdW/qqm2hspW2kRlt
+         hZYc5u/TCz5hq+ODNCrq9epWBbPmHuoJWNGApFFTgMcenThIa83AKoOtF6i/36Jt9uC8
+         Gh/QDgalTdAaOTpBbFKoNCQZJo32Esi3oAm3aBRJaWovFqzlvDG1M22ClLpP6jN2LNQi
+         aDZbw9mZzYcxl3dxlMOsAHkid21VBWb9dUyz5ixuqKPeaoi79uydX2uLGiJRtgnhTUJJ
+         ZW2r2s9z1KIxmanuR47vemfN8n2s5pkFYyCPo9WkrTyxEG9CM2gwhjiq2hdaCv6JpIRN
+         IosQ==
+X-Forwarded-Encrypted: i=1; AL+hErHxNkA/KFpZnVDG2BYvU3vz91rR/mCnLrW2FgeT2BdVmGa8PViAyGffo4lcRZwNv3kKx+dZlmeaDoDOans=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hZBCNDwfOrdGQ1SNNNBlmapV40o7fnWHPxzOjSaGPofStczqm
+	e+K39IEUiVRFogVnG/zHMZh+wynRdBmg57TF6pfuAASKIdt9g7zR850O
+X-Gm-Gg: AZFdTZe2TRR8UR7TIBB4r6p6rpAFoREoQQbwEkGOdxUHdDyxZfLZXERE+XD+oj1KMjH
+	SxnLzFK8eDCdiVmojGiQoRvu5gkswimjN7bsiO9PlbyIRYkVI9pS4FAVpoBVtLQACsuF52n6aLT
+	S5UXZSIczlvtwWG2PP0kJ3kdrpQ7Iy3lEVE2TZPcSVwY4bN5z6CotyCzh3mv+dyk75viMJeDBnG
+	MVnMcz+vfaXaPS5ze0aCD2wJV3t/UDTLc9MlB9xQWJ4bhEXIBSEdKWbQpqvRfCjEiX5ITxEXUZb
+	Ado59A7XMMxrk656AiRYQa7Kt3mdPe7HltLeCjKI5Hm+nl3QIcQ48HK4ZiLGcht0TIiMI8qebnn
+	ImdJnyQ+KCoeryJd96ovktwAK96WtinKjVeUWGMS9gb/zkLnALAy3+KEVB9IHREA8sg0v+dlSlF
+	IWYqc0EFqnt1uzcA9DOfHtY32i8Kv0nJK3UpbVj9bIEQ3sinO+9hZLWoBdEIWNWA3eeNBLOEFQ5
+	h9i8kWe3PCw+wrxOtctc4A+94K5q165eLHPhhzDl48IMvXP40y0rAo/vUZfu8YsL3jFm4gltksE
+	3UWDjVRGsCPcIYS8BhEGcywsZZ0nw0Jh/QRV1Q==
+X-Received: by 2002:a05:600c:34d0:b0:4bb:6a5a:7839 with SMTP id 5b1f17b1804b1-4bb889428eamr328092505e9.34.1795578220699;
+        Tue, 24 Nov 2026 19:43:40 -0800 (PST)
 Received: from [10.32.31.239] ([212.58.121.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88402ce9sm391107925e9.0.2026.11.24.19.43.30
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88402ce9sm391107925e9.0.2026.11.24.19.43.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 19:43:35 -0800 (PST)
+        Tue, 24 Nov 2026 19:43:40 -0800 (PST)
 From: Stanislav Aleksandrov <lightofmysoul@gmail.com>
-Date: Wed, 25 Nov 2026 03:42:57 +0000
-Subject: [PATCH v3 01/14] dt-bindings: interrupt-controller: qcom,pdc:
- Document Halliday PDC
+Date: Wed, 25 Nov 2026 03:42:58 +0000
+Subject: [PATCH v3 02/14] dt-bindings: power: qcom,rpmpd: document the
+ Halliday RPMh Power Domains
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,7 +95,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-halliday-dts-v3-1-5c8311c0b70b@gmail.com>
+Message-Id: <20261125-halliday-dts-v3-2-5c8311c0b70b@gmail.com>
 References: <20261125-halliday-dts-v3-0-5c8311c0b70b@gmail.com>
 In-Reply-To: <20261125-halliday-dts-v3-0-5c8311c0b70b@gmail.com>
 To: Bjorn Andersson <andersson@kernel.org>, 
@@ -127,34 +127,40 @@ Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
  Stanislav Aleksandrov <lightofmysoul@gmail.com>, 
  Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795578204; l=910;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795578204; l=1076;
  i=lightofmysoul@gmail.com; s=20261108; h=from:subject:message-id;
- bh=TIEe9N/cyAzKgpuoZBtDZhrBfZnBIMsVZBId/jMf7sU=;
- b=h6Yv22yIDPhl899/gQR/dzgzFCiAwokqygzx53AniCMssmz68nf3bAUZ4boIxRmClQQzRo206
- 0Yy7j0zKrrDAxm4EozqJW8b/LA63zgVJosiVzUEWd1tTWYtwAKtrSzc
+ bh=2tteAd38AfHrvk8Awl3RAniXNSdGBzL0LwEwE8e7LoI=;
+ b=5C7/JmmmJaij3ZDCjC7taKHJ7ftfQrXNJKeux4QbuaH+Zgcx8qkDlh+sISv0oWyhLHGJ/5oZb
+ fvQPpset2HKAWFH7uV37/GtdVaAFBb3EKxSiKjnd+R0Yi73lf00uJQF
 X-Developer-Key: i=lightofmysoul@gmail.com; a=ed25519;
  pk=jeRUlfmkhE53CJPoeIIXgu7rTE0ybDRH0HQrEwbydzg=
 
-Document the Power Domain Controller on the Qualcomm Halliday SoC.
+Document the RPMh Power Domains on the Qualcomm Halliday SoC
+(SXR2250P). Its command DB has the same power domains as SM8450
+(CX, EBI, GFX, LCX, LMX, MMCX, MSS, MX and MXC), so use
+qcom,sm8450-rpmhpd as the fallback compatible.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Stanislav Aleksandrov <lightofmysoul@gmail.com>
 ---
- Documentation/devicetree/bindings/interrupt-controller/qcom,pdc.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/power/qcom,rpmpd.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/qcom,pdc.yaml b/Documentation/devicetree/bindings/interrupt-controller/qcom,pdc.yaml
-index 8401d3b48e0f..cf20041e86c8 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/qcom,pdc.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/qcom,pdc.yaml
-@@ -28,6 +28,7 @@ properties:
-       - enum:
-           - qcom,eliza-pdc
-           - qcom,glymur-pdc
-+          - qcom,halliday-pdc
-           - qcom,hawi-pdc
-           - qcom,kaanapali-pdc
-           - qcom,kuno-pdc
+diff --git a/Documentation/devicetree/bindings/power/qcom,rpmpd.yaml b/Documentation/devicetree/bindings/power/qcom,rpmpd.yaml
+index 8ee1c25a7c9d..663baae9cc64 100644
+--- a/Documentation/devicetree/bindings/power/qcom,rpmpd.yaml
++++ b/Documentation/devicetree/bindings/power/qcom,rpmpd.yaml
+@@ -82,6 +82,10 @@ properties:
+           - enum:
+               - qcom,maili-rpmhpd
+           - const: qcom,hawi-rpmhpd
++      - items:
++          - enum:
++              - qcom,halliday-rpmhpd
++          - const: qcom,sm8450-rpmhpd
+ 
+   '#power-domain-cells':
+     const: 1
 
 -- 
 2.55.0
