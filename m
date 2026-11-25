@@ -1,114 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795570496;
-	b=BKdqH5NN+AdedbLZIG540RGKJoH5H8DFsN3WtuEDiduXiByjxUzZGH3AIC0rxVL9U1Kq
-	 uIwM9xNBAckU8jV2EIHDaQxcNHPehOmUjbv7k2dhiUGEdPoP6BC7yqPmtSEsuBGk+GiWv
-	 zRQHRziYmnLjcUU+pCluPRiN3JmXsYn++rPT0SUUW0clcDlGCysA+DpjgTpMERRFGJBP1
-	 fZEGIbiPicSeCq6xBw81eswAVk+iKMN+E3mOkAqnWiJi6wcshKIt2Zlt1oDVHWSsr2VCd
-	 ncNGSIESWQVeWgNpOaacbxvEzpio8KZOA/DCMoMev8G5V1rnhRa6LrlkDtuRgzzRC3Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570496;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-NV-OnPremToCloud:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=/X99SVcWokGbYbSQ79POR+9UUhCOfQ1oULvVM2QRI1s=;
-	b=MCF/GI7Ms2+QUJGh9gh8pV+p78ik2GEaVzCs8TJJdsJGwAvT/4qBmYkSf/w+sCYK8vEv
-	 VWjzG999RYtF7pXBjDBdLwf5hjoHE8kCF/5TPZyZRRLYbou+ZkOTX2bK++hp5wh9K0VJh
-	 kHJzLFloMda5PdYycfd20L5Sy0o6QgNHi3kCZfYJ53Einv9yxC8P98y0CiFi848xeU76P
-	 XbNHlWgyPfawINeZfR+yHbT7FMQW7Q3XCB3Am+ge1GdZ+G+XZBwCgvK2Qam539E+/zkSz
-	 s+QyVwTGuqUx5ENkBXH1qJXTaeJjF8Tn8ahKQfbKzc8FbEMfGg83Vled4vrYiT+t4iQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=b75xDQ+N;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.50
-Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012050.outbound.protection.outlook.com [52.101.53.50])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.223
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795570588;
+	b=O8dboAOv8kIMX0BqYqaC1JSwuiRE+OlY7nNzE7dDJzp+UpL79YDPwYJ1BKgH1ulzC5yX
+	 WV4qCf4k8IBJclq/GuZGVQxAHKte2HNad6a+xIiYhzmvcGFAwC7IOs6XzLLryuKtrYXiM
+	 FjNOsi9VmG3R+9511kUYZl/wjWe4zJ0cPi47CA0IcaGKmHMkSLzm2FLxA52rm1Ork0qUQ
+	 GEmLn8+/Kt46YI5rnMmQjEXwPz3S9j0xvfc9ldfsLmakYnVeQpXHC2SqtHXKg/KMgQqfV
+	 Und6xyatfbpmXGnJTr2W3xFwFdblU2cWyo3IhLFffW/7f+uyuFFqvc57MuLEA0PZf5w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570588;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=CoDH69e6XzIOtyxojAs/Hua9h2l7rwpIoBGHHmKkX/0=;
+	b=XPcBx0mz5cyis01khxIsp/VGtHzgLQw7NVmz5pTOZr2ThwAwvkot9PkY8erRKUjKc19m
+	 IZ7ZJTTYVdoYVpWF0gLbHzE3acgOAC7C8QnWstixARJ7Sv6qAiKleL2MAE0zHvNBkGKpI
+	 sQf+DLAsV7ZHx+R0DKTDgBeJfdoMsgNNJ7REkeZPmn7n+aJHOUCaye9WgUXCB2U2RUFLn
+	 qTA0ClcAIB20VJM9raYj0KN91zJ9tr2gldokWH+fKs8MME7yXiFBBH9yLqxh/3Z/hIUSC
+	 P3GymIlmIPr5gyjXv50wdBDU+blRLr1q3tRa1w/ZId6Soi5JN/4Vs8L4Bxg/F2nGb9A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=AJzm+MRn;
+	arc=none smtp.remote-ip=113.46.200.223
+Received: from canpmsgout08.his.huawei.com (canpmsgout08.his.huawei.com [113.46.200.223])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3693E606A32D;
-	Wed, 25 Nov 2026 01:34:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3693E606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E14D4606A321;
+	Wed, 25 Nov 2026 01:36:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E14D4606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=b75xDQ+N
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IifXn2lGLqAWZBOANNTHSwBGXP+jqKrke0ZBYMB64yKRZ9SxScUNodHgpBhWi23lKMhfFNKIQbC/56e5wD50MiKEOSCGLoXfWTzmPH7M6++C1g17SqiM4B4SNVRF+wTtWpISFu0cZS6dqVyRKEBMa0SIClbMHp6EnK37pzRZQYjIUXRD8KUg57++QUuxaMF+ba4s167UTdcJsKNvT6bbP5HG0+xJcx9GrKaWoTAQ3Mey5+9NETLKAzYiuQGssPkDXbKLnFqbgQLcL0/XiYsxYs//SAPmmSye+0s1NrM+PelLuDToJToATEpEaKo+K4PeC1flD81sUTUUQzzgcThrvQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/X99SVcWokGbYbSQ79POR+9UUhCOfQ1oULvVM2QRI1s=;
- b=CIWkYo9mLXIdS61Wyj5avcCtIFLzp7quRvfwhAy66vF59/OVcPbIbp2/TRQxt7SDBsLdAngLlLOv+77RAEZq5Xh//I114eFQ99HjCRLOwZ3LkFraBBE7DYqbY0tV7wx0mAw35xAvCORs6/8/l/I+TodQy6WdF7kW0tRPCIiJN93FnASoOqosTAAKdZgnnkXzEsUWKCd7blu3QAwOilEi+rnhoQ7HgiRAZWw4qaJZ+zweTh6gfPKBBXC3Qtd+UxWcvjTICEOljFDD9yMbP+NkxooF6VmLFZCexKmBvvQWF38FqsngoxYT3SPst3A8yb1902p+jpkI7AJTkP8fDB+FyA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/X99SVcWokGbYbSQ79POR+9UUhCOfQ1oULvVM2QRI1s=;
- b=b75xDQ+NDJ3soMwo7f1sDRWgrgQIYH3XuvIldWONNGtc/iVqSz5dxjwgoT4uxyCecqH3NOaz+Lom+wrS1HHtCgMETX/H2Q3Jf2du3blW7zSAgpz404qfDG+xmAAIdWtwfSAqfBZwXxbcaC/BGuw9SaD1FKHeAxVyBnku6n1I/3ntWWYU9rdL3o3UInHow/BvCUXDlqAXX6kbE8AFarr0VO/B3D9F/0/C1CoWaAXdbT/zSXlANG7rx0fedYTF1mZJkI2+1h8+cBWVaHGiRDMqNREEUBblPu8qC8wsyREpJX/4eDQ4wna6F/3DCtQ7Gm9L4AxCEWv4D8BP2xsj2lzbDw==
-Received: from CH2PR08CA0021.namprd08.prod.outlook.com (2603:10b6:610:5a::31)
- by BL3PR12MB6402.namprd12.prod.outlook.com (2603:10b6:208:3b2::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
- 2026 01:34:46 +0000
-Received: from BL2PEPF000352D9.namprd02.prod.outlook.com
- (2603:10b6:610:5a:cafe::b) by CH2PR08CA0021.outlook.office365.com
- (2603:10b6:610:5a::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.8 via Frontend Transport; Wed, 25
- Nov 2026 01:34:46 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL2PEPF000352D9.mail.protection.outlook.com (10.167.254.10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 01:34:46 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 17:34:28 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 17:34:28 -0800
-Received: from mtl-vdi-603.wap.labs.mlnx (10.127.8.12) by mail.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Tue, 24 Nov 2026 17:34:24 -0800
-From: Jianbo Liu <jianbol@nvidia.com>
-To: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>
-CC: Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Florian Westphal
-	<fw@strlen.de>, <linux-kernel@vger.kernel.org>, Jianbo Liu
-	<jianbol@nvidia.com>, Carolina Jubran <cjubran@nvidia.com>
-Subject: [PATCH ipsec 2/4] xfrm: Serialize device state teardown
-Date: Wed, 25 Nov 2026 03:34:10 +0200
-Message-ID: <20261125013412.1123866-3-jianbol@nvidia.com>
-X-Mailer: git-send-email 2.39.3
-In-Reply-To: <20261125013412.1123866-1-jianbol@nvidia.com>
-References: <20261125013412.1123866-1-jianbol@nvidia.com>
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=AJzm+MRn
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=CoDH69e6XzIOtyxojAs/Hua9h2l7rwpIoBGHHmKkX/0=;
+	b=AJzm+MRn1kIlxfFbZWUb3cfgNUmek2GqBNhHqigRQR025B6jY0e8r+99HpWLGK442Q8ZphyXA
+	JiUtke7ZEpnOGfX8cb6EbnGzNf9t1PU0KQ+WVpUFlWPBVZfamdxDURNKiYMOOH9EUlZMwJNUW4v
+	3IrPdCwyI5CzYsze9KE9Sy0=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4jZ2M52YhZzmV6H;
+	Wed, 25 Nov 2026 09:36:01 +0800 (CST)
+Received: from whupemk300003.china.huawei.com (unknown [7.152.185.49])
+	by mail.maildlp.com (Postfix) with ESMTPS id E542B40563;
+	Wed, 25 Nov 2026 09:36:24 +0800 (CST)
+Received: from huawei.com (10.50.87.204) by whupemk300003.china.huawei.com
+ (7.152.185.49) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 25 Nov
+ 2026 09:36:23 +0800
+From: Zhang Yuwei <zhangyuwei20@huawei.com>
+To: Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
+	<mhiramat@kernel.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Joerg Roedel <joro@8bytes.org>, Will
+ Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-trace-kernel@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<chenjun102@huawei.com>, <zhangyuwei20@huawei.com>
+Subject: [PATCH] iommu: Trace I/O page fault response latency
+Date: Wed, 25 Nov 2026 09:34:30 +0800
+Message-ID: <20261125013430.2144822-1-zhangyuwei20@huawei.com>
+X-Mailer: git-send-email 2.22.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,204 +75,272 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL2PEPF000352D9:EE_|BL3PR12MB6402:EE_
-X-MS-Office365-Filtering-Correlation-Id: 516999bf-edf1-4332-4a22-08df4a9449c3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|1800799024|23010399003|82310400026|7416014|376014|10067099003|56012099006|5023799004|11063799006|261028144727099003|261026121527099003|261026140227099003|261102130727099003|261102123227099003|261021123027099003|261021121427099003|261021135927099003|261022105027099003|261022075727099003|261009223027099003|18002099003|22082099003|6133799003|13003099007|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	VO6y+boUEms9YsX8Ohrp+wVwPgbTBB8TJTFuFDaqIQNe0Jjhk1/8DE2+q07m+Y7m1VV8R6IX80mYAchoK1rl4//lduYvAUn6caGHCARq46MHrQhdQCNzRG7PVwUG1E7d4uvC7TOaiAiGXTyloUrqSFqdBqoPx3bLyeAQJEWy2lofKXKLgbU0WYYdIvjV57C8UJMf/DO4AIjHhGSObUIhcxEOKdDAoVNnkEtK9Vt0nrW4iLMx7ecpnf/RcWB1z2MBvQ1tcY/cqRXZyO8f31r2P9M+3vDYKxEjCdZjrB+A1JWInhpW+Ven1InPdjYXrO9CkwJvZmtlvwZeDHVxEdZICv8ypNY62LaF3Hw5eRPTkbwabNukz6ubB1nG4DWqkgAs7mCUKOcRSOSY9On8ca6TKG/pwV4xJ1waj6PboHD3+gOmbMwcZzYMn5N2dKWMaMusGsH12SCAtwlH8zvApSksPbVUWO+i23HWxBkk/ZQQFYq/op+J8IgIEzSlR+FdHWZ84zGjKNtEK4bIU8f1YfGmr0lAJWMfmUPM8D/zzmq5kemIidylfUKBxTSo9Yf0FuCiSkWeMmUdHVzCqg7+0s0sIe/w5ilzB/3Vdp11aTzByWgiK+zUX4D5VqKxzF+ZLBQ6ZtA+PKaU297fmGz64cqoz6vK958L6EAKNT/KjbaA6d0c8P9wHNiwHlQmUxcLjQn6isORAgeCoATgmSDBrZSJrQ==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(23010399003)(82310400026)(7416014)(376014)(10067099003)(56012099006)(5023799004)(11063799006)(261028144727099003)(261026121527099003)(261026140227099003)(261102130727099003)(261102123227099003)(261021123027099003)(261021121427099003)(261021135927099003)(261022105027099003)(261022075727099003)(261009223027099003)(18002099003)(22082099003)(6133799003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	32Hx3bRfYCvWF6ckhTAQD6Kt/wb9HKBW+6YrRtkCy/u8Hz44nl8slabGU91aRMfjcUj7KODWdKF5iyTcHvUhPqmY/RP7HYVQR6gSwKRpeJi3aysBVBXhrRlintfuoWTX0uuQr272vpH1Dm+LJplQzcYNr9NnPQ4OACR55zxyNgnJ2Dnljbz9z6C2tqc+y6NsjyZh0JSu19Y/Y6ZVRa+XU+Rp5i56tUAdMSeLK1XuZMCH7i5ILx0bUxeFI1D7vNsMvFEZbJvIMDCaPbcqDxcXWdJUPxrUJ4wU6ioeLX/l6FTsJs0+pS5/YQeXxETr3vDrx43Tf6ZBXNlRlKD+NHC+Na+0uKefGhfvBE0rPZiaEGsIAoSGU/izPM9d/2pBNtjr1oWyi6Rf70SQ5QmC2Mvf9xzSh1AK70XNbll59OznXmlqPQkPnOII5S/0jQQcSQU+
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 01:34:46.1285
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 516999bf-edf1-4332-4a22-08df4a9449c3
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BL2PEPF000352D9.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6402
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ whupemk300003.china.huawei.com (7.152.185.49)
 
-Commit 89fefad9f971 ("xfrm: serialize state GC with device state
-flush") stopped the state GC and xfrm_dev_state_flush() from freeing
-the same device state at once, but a third caller is not covered.
+From: Chen Jun <chenjun102@huawei.com>
 
-xfrm_state_find() frees a packet offload acquire state when km_query()
-fails. It runs under RCU and can't take the mutex.
-xfrm_dev_state_delete() first puts the state on xfrm_state_dev_gc_list
-with xso->dev still set, so a device flush can find it there and call
-xfrm_dev_state_free() too. Both callers see xso->dev set and both
-unlink the state, so the second hlist_del() hits a poisoned node.
+Carry an optional monotonic timestamp with each IOPF and preserve it
+across group construction, including allocation error paths. Sample it
+at the common report entry point and record latency after the driver's
+page_response callback returns.
 
-Claim the device in xfrm_dev_state_free() by clearing xso->dev under
-x->lock and xfrm_state_dev_gc_lock, so only one caller unlinks the
-state, invokes xdo_dev_state_free() and drops the netdevice reference.
-x->lock also keeps xso->dev stable for the stats updates that hold it.
+Cover asynchronous group responses and synchronous error responses. For
+grouped requests, measure from reporting the last fault in the group.
+Use existing tracing configuration and record fault identity, response
+code and elapsed nanoseconds without command submission return values.
+Print PASID validity inline as pasid(v) or pasid(i), retaining the raw
+validity field for programmatic consumers.
 
-In the flush, take a state reference before removing a state from the
-device GC list, so it stays alive while the flush owns it. Skip a
-state with no reference left, the state GC frees it.
+Document the software timing boundaries and tracefs interface.
 
-Keep xso->type unchanged after detaching the device, so lockless
-readers of xso->type do not see a packet offload state as a software
-state. Reject offloaded states with no device in
-xfrm_dev_offload_ok(): a packet offload state would otherwise pass
-the !dev check there, and xfrm_output() would send the packet with no
-ESP or use the NULL device in xfrm_dev_direct_output().
+The implementation was validated with x86_64 builds with tracing
+enabled and tracing disabled.
 
-Found by the AI review of the commit above (see Link) and reproduced
-on ConnectX-7 with a packet offload policy that has no SA, an acquire
-listener that never reads, UDP senders hitting the policy and the
-device taken down in a loop:
-
-[  167.689163] Oops: general protection fault, probably for non-canonical address 0xdead000000000122: 0000 [#1] SMP
-[  167.690938] CPU: 11 UID: 0 PID: 2093 Comm: python3 Not tainted 7.4.0-rc1+ #10 PREEMPTLAZY
-[  167.694337] RIP: 0010:xfrm_dev_state_free+0x41/0xe0
-[  167.699068] RAX: dead000000000122 RBX: ff1100014f543800 RCX: ff11000103bbf800
-[  167.700247] RDX: dead000000000100 RSI: 0000000000000001 RDI: ffffffff82da8c68
-[  167.716897] Call Trace:
-[  167.717405]  <TASK>
-[  167.717863]  xfrm_state_find+0x19b0/0x1ab0
-[  167.718629]  xfrm_resolve_and_create_bundle+0x17d/0x11e0
-[  167.722070]  xfrm_lookup_with_ifid+0x1e7/0xb50
-[  167.722872]  xfrm_lookup_route+0x1d/0xa0
-[  167.723593]  udp_sendmsg+0x8da/0xc90
-[  167.724273]  __sock_sendmsg+0x38/0x70
-[  167.724988]  __sys_sendto+0x119/0x180
-[  167.727954]  __x64_sys_sendto+0x20/0x30
-[  167.728666]  do_syscall_64+0x72/0x3b0
-[  167.729357]  entry_SYSCALL_64_after_hwframe+0x4b/0x53
-[  167.741064]  </TASK>
-[  167.752388] Kernel panic - not syncing: Fatal exception in interrupt
-
-With this series the same test ran 400 cycles with no crash, and 150
-cycles on a kernel with KASAN and lockdep.
-
-Fixes: 07b87f9eea0c ("xfrm: Fix unregister netdevice hang on hardware offload.")
-Link: https://lore.kernel.org/netdev/20260908224854.1591115-1-kuba@kernel.org/
-Signed-off-by: Jianbo Liu <jianbol@nvidia.com>
-Reviewed-by: Carolina Jubran <cjubran@nvidia.com>
+Signed-off-by: Chen Jun <chenjun102@huawei.com>
+Signed-off-by: Zhang Yuwei <zhangyuwei20@huawei.com>
 ---
- net/xfrm/xfrm_device.c |  4 ++--
- net/xfrm/xfrm_state.c  | 51 ++++++++++++++++++++++++++++--------------
- 2 files changed, 36 insertions(+), 19 deletions(-)
+ Documentation/trace/index.rst      |  1 +
+ Documentation/trace/iommu-iopf.rst | 52 ++++++++++++++++++++++++++++++
+ MAINTAINERS                        |  2 ++
+ drivers/iommu/io-pgfault.c         | 17 ++++++++++
+ drivers/iommu/iommu-traces.c       |  1 +
+ include/linux/iommu.h              |  2 ++
+ include/trace/events/iommu.h       | 36 +++++++++++++++++++++
+ 7 files changed, 111 insertions(+)
+ create mode 100644 Documentation/trace/iommu-iopf.rst
 
-diff --git a/net/xfrm/xfrm_device.c b/net/xfrm/xfrm_device.c
-index f153bf695b9d..3bbb970cd337 100644
---- a/net/xfrm/xfrm_device.c
-+++ b/net/xfrm/xfrm_device.c
-@@ -422,11 +422,11 @@ bool xfrm_dev_offload_ok(struct sk_buff *skb, struct xfrm_state *x)
- 	int mtu;
- 	struct dst_entry *dst = skb_dst(skb);
- 	struct xfrm_dst *xdst = (struct xfrm_dst *)dst;
--	struct net_device *dev = x->xso.dev;
-+	struct net_device *dev = READ_ONCE(x->xso.dev);
- 	bool check_tunnel_size;
- 
- 	if (!x->type_offload ||
--	    (x->xso.type == XFRM_DEV_OFFLOAD_UNSPECIFIED && x->encap))
-+	    (x->xso.type == XFRM_DEV_OFFLOAD_UNSPECIFIED ? !!x->encap : !dev))
- 		return false;
- 
- 	if ((!dev || dev == xfrm_dst_path(dst)->dev) &&
-diff --git a/net/xfrm/xfrm_state.c b/net/xfrm/xfrm_state.c
-index 3eb012ed8657..8465ae064742 100644
---- a/net/xfrm/xfrm_state.c
-+++ b/net/xfrm/xfrm_state.c
-@@ -790,20 +790,28 @@ EXPORT_SYMBOL_GPL(xfrm_dev_state_delete);
- void xfrm_dev_state_free(struct xfrm_state *x)
- {
- 	struct xfrm_dev_offload *xso = &x->xso;
--	struct net_device *dev = READ_ONCE(xso->dev);
-+	struct net_device *dev;
- 
--	if (dev && dev->xfrmdev_ops) {
--		spin_lock_bh(&xfrm_state_dev_gc_lock);
--		if (!hlist_unhashed(&x->dev_gclist))
--			hlist_del(&x->dev_gclist);
--		spin_unlock_bh(&xfrm_state_dev_gc_lock);
-+	if (!READ_ONCE(xso->dev))
-+		return;
- 
--		if (dev->xfrmdev_ops->xdo_dev_state_free)
--			dev->xfrmdev_ops->xdo_dev_state_free(dev, x);
--		WRITE_ONCE(xso->dev, NULL);
--		xso->type = XFRM_DEV_OFFLOAD_UNSPECIFIED;
--		netdev_put(dev, &xso->dev_tracker);
-+	spin_lock_bh(&x->lock);
-+	spin_lock(&xfrm_state_dev_gc_lock);
-+	dev = xso->dev;
-+	if (!dev || !dev->xfrmdev_ops) {
-+		spin_unlock(&xfrm_state_dev_gc_lock);
-+		spin_unlock_bh(&x->lock);
-+		return;
- 	}
-+	if (!hlist_unhashed(&x->dev_gclist))
-+		hlist_del(&x->dev_gclist);
-+	WRITE_ONCE(xso->dev, NULL);
-+	spin_unlock(&xfrm_state_dev_gc_lock);
-+	spin_unlock_bh(&x->lock);
+diff --git a/Documentation/trace/index.rst b/Documentation/trace/index.rst
+index f4058e8e92e3..e61e428ecd68 100644
+--- a/Documentation/trace/index.rst
++++ b/Documentation/trace/index.rst
+@@ -57,6 +57,7 @@ applications.
+    events-landlock
+    events-pci
+    events-pci-controller
++   iommu-iopf
+    boottime-trace
+    histogram
+    histogram-design
+diff --git a/Documentation/trace/iommu-iopf.rst b/Documentation/trace/iommu-iopf.rst
+new file mode 100644
+index 000000000000..259cf23c6899
+--- /dev/null
++++ b/Documentation/trace/iommu-iopf.rst
+@@ -0,0 +1,52 @@
++.. SPDX-License-Identifier: GPL-2.0
 +
-+	if (dev->xfrmdev_ops->xdo_dev_state_free)
-+		dev->xfrmdev_ops->xdo_dev_state_free(dev, x);
-+	netdev_put(dev, &xso->dev_tracker);
++IOMMU I/O page fault response latency
++====================================
++
++The event uses the existing IOMMU I/O page fault handling and event tracing
++configuration; no additional configuration option is needed. For example,
++``CONFIG_ARM_SMMU_V3_SVA`` selects the I/O page fault handling infrastructure
++for ARM SMMUv3.
++
++The ``iommu:iopf_latency`` event measures software response latency from
++entry to ``iommu_report_device_fault()`` until the IOMMU driver's
++``page_response()`` callback returns. Both asynchronous group responses
++and synchronous error responses are covered. It includes software queueing
++and fault handling, but excludes time in hardware queues before reporting.
++The meaning of callback completion depends on the driver; for ARM SMMUv3
++it is after RESUME command submission returns, not after transaction
++recovery. No additional command synchronization is issued.
++
++For grouped requests, one sample measures the interval from reporting the
++last fault in the group to responding to that group. Earlier partial
++requests do not each receive a separate latency event when assembled into
++a group. The address and PASID fields identify the last fault. A
++synchronous error response instead identifies the fault being rejected.
++For ARM SMMUv3 EVTQ stall faults, each reported event is marked as the last
++fault of its group.
++
++For example, with tracefs mounted at ``/sys/kernel/tracing``::
++
++    echo 1 > /sys/kernel/tracing/events/iommu/iopf_latency/enable
++    cat /sys/kernel/tracing/trace_pipe
++    echo 0 > /sys/kernel/tracing/events/iommu/iopf_latency/enable
++
++Each response records the device name, PASID and its validity, group ID
++(stall tag on ARM SMMUv3), fault address, response code, and ``duration_ns``
++in nanoseconds.
++Response codes are
++``IOMMU_PAGE_RESP_SUCCESS`` (0), ``IOMMU_PAGE_RESP_INVALID`` (1), and
++``IOMMU_PAGE_RESP_FAILURE`` (2). The event does not report whether command
++submission succeeded.
++
++Timestamps are taken only while the tracepoint has an enabled consumer.
++A response without a sampled start time produces no latency event. A
++sampled request may span disabling and re-enabling the event, in which case
++the full interval is reported if the tracepoint is enabled at response
++time. Enable transitions are best effort with respect to concurrent faults.
++Trace filters and ring buffer overruns can discard records as usual.
++
++``tracing_on=0`` stops trace buffer recording but does not necessarily
++disable the tracepoint. Other consumers, including perf and BPF, can also
++keep it enabled. Events that never reach the response callback have no
++completed interval to report.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 782389bd5cd3..82217afd67e2 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -13704,10 +13704,12 @@ L:	iommu@lists.linux.dev
+ S:	Maintained
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
+ F:	Documentation/devicetree/bindings/iommu/
++F:	Documentation/trace/iommu-iopf.rst
+ F:	drivers/iommu/
+ F:	include/linux/iommu.h
+ F:	include/linux/iova.h
+ F:	include/linux/of_iommu.h
++F:	include/trace/events/iommu.h
+ F:	rust/kernel/iommu/
+ 
+ IOMMUFD
+diff --git a/drivers/iommu/io-pgfault.c b/drivers/iommu/io-pgfault.c
+index c16ff1fc4b95..72e654ea5ffe 100644
+--- a/drivers/iommu/io-pgfault.c
++++ b/drivers/iommu/io-pgfault.c
+@@ -6,11 +6,14 @@
+  */
+ 
+ #include <linux/iommu.h>
++#include <linux/ktime.h>
+ #include <linux/list.h>
+ #include <linux/sched/mm.h>
+ #include <linux/slab.h>
+ #include <linux/workqueue.h>
+ 
++#include <trace/events/iommu.h>
++
+ #include "iommu-priv.h"
+ 
+ /*
+@@ -96,6 +99,7 @@ static struct iopf_group *iopf_group_alloc(struct iommu_fault_param *iopf_param,
+ 
+ 	group->fault_param = iopf_param;
+ 	group->last_fault.fault = evt->fault;
++	group->last_fault.report_time_ns = evt->report_time_ns;
+ 	INIT_LIST_HEAD(&group->faults);
+ 	INIT_LIST_HEAD(&group->pending_node);
+ 	list_add(&group->last_fault.list, &group->faults);
+@@ -155,6 +159,14 @@ static struct iommu_attach_handle *find_fault_handler(struct device *dev,
+ 	return attach_handle;
  }
- #endif
  
-@@ -974,6 +982,7 @@ int xfrm_dev_state_flush(struct net *net, struct net_device *dev, bool task_vali
- 	struct hlist_node *tmp;
- 	struct xfrm_dev_offload *xso;
- 	int i, err = 0, cnt = 0;
-+	HLIST_HEAD(flush_list);
- 
- 	spin_lock_bh(&net->xfrm.xfrm_state_lock);
- 	err = xfrm_dev_state_flush_secctx_check(net, dev, task_valid);
-@@ -1012,21 +1021,29 @@ int xfrm_dev_state_flush(struct net *net, struct net_device *dev, bool task_vali
- 
- 	mutex_lock(&xfrm_state_gc_mutex);
- 	spin_lock_bh(&xfrm_state_dev_gc_lock);
--restart_gc:
- 	hlist_for_each_entry_safe(x, tmp, &xfrm_state_dev_gc_list, dev_gclist) {
- 		xso = &x->xso;
- 
- 		if (xso->dev == dev) {
--			spin_unlock_bh(&xfrm_state_dev_gc_lock);
--			xfrm_dev_state_free(x);
--			spin_lock_bh(&xfrm_state_dev_gc_lock);
--			goto restart_gc;
-+			if (!refcount_inc_not_zero(&x->refcnt))
-+				continue;
-+			hlist_del_init(&x->dev_gclist);
-+			/* xfrm_dev_state_free() may consume dev_gclist. The
-+			 * reference prevents state GC from using gclist until
-+			 * this flush removes it and drops the reference.
-+			 */
-+			hlist_add_head(&x->gclist, &flush_list);
- 		}
--
- 	}
- 	spin_unlock_bh(&xfrm_state_dev_gc_lock);
- 	mutex_unlock(&xfrm_state_gc_mutex);
- 
-+	hlist_for_each_entry_safe(x, tmp, &flush_list, gclist) {
-+		hlist_del_init(&x->gclist);
-+		xfrm_dev_state_free(x);
-+		xfrm_state_put(x);
-+	}
++static void iopf_trace_response(struct device *dev, const struct iopf_fault *evt,
++				const struct iommu_page_response *resp)
++{
++	if (trace_iopf_latency_enabled() && evt->report_time_ns)
++		trace_iopf_latency(dev, evt, resp,
++				   ktime_get_ns() - evt->report_time_ns);
++}
 +
- 	xfrm_flush_gc();
+ static void iopf_error_response(struct device *dev, struct iopf_fault *evt)
+ {
+ 	const struct iommu_ops *ops = dev_iommu_ops(dev);
+@@ -166,6 +178,7 @@ static void iopf_error_response(struct device *dev, struct iopf_fault *evt)
+ 	};
  
- 	return err;
+ 	ops->page_response(dev, evt, &resp);
++	iopf_trace_response(dev, evt, &resp);
+ }
+ 
+ /**
+@@ -219,6 +232,9 @@ int iommu_report_device_fault(struct device *dev, struct iopf_fault *evt)
+ 	struct iopf_group abort_group = {};
+ 	struct iopf_group *group;
+ 
++	/* Error paths may respond synchronously before reporting returns. */
++	evt->report_time_ns = trace_iopf_latency_enabled() ? ktime_get_ns() : 0;
++
+ 	attach_handle = find_fault_handler(dev, evt);
+ 	if (!attach_handle)
+ 		goto err_bad_iopf;
+@@ -334,6 +350,7 @@ void iopf_group_response(struct iopf_group *group,
+ 
+ 	mutex_lock(&fault_param->lock);
+ 	ops->page_response(dev, &group->last_fault, &resp);
++	iopf_trace_response(dev, iopf, &resp);
+ 	list_del_init(&group->pending_node);
+ 	mutex_unlock(&fault_param->lock);
+ }
+diff --git a/drivers/iommu/iommu-traces.c b/drivers/iommu/iommu-traces.c
+index 23416bf76df9..ce2ab3277b5f 100644
+--- a/drivers/iommu/iommu-traces.c
++++ b/drivers/iommu/iommu-traces.c
+@@ -25,3 +25,4 @@ EXPORT_TRACEPOINT_SYMBOL_GPL(unmap);
+ 
+ /* iommu_error */
+ EXPORT_TRACEPOINT_SYMBOL_GPL(io_page_fault);
++EXPORT_TRACEPOINT_SYMBOL_GPL(iopf_latency);
+diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+index ac43b8b93f14..d797b42fdb20 100644
+--- a/include/linux/iommu.h
++++ b/include/linux/iommu.h
+@@ -125,6 +125,8 @@ struct iopf_fault {
+ 	struct iommu_fault fault;
+ 	/* node for pending lists */
+ 	struct list_head list;
++	/* Fault report timestamp in ns, or zero if not sampled. */
++	u64 report_time_ns;
+ };
+ 
+ struct iopf_group {
+diff --git a/include/trace/events/iommu.h b/include/trace/events/iommu.h
+index 373007e567cb..cfcc29a792b2 100644
+--- a/include/trace/events/iommu.h
++++ b/include/trace/events/iommu.h
+@@ -11,6 +11,8 @@
+ #if !defined(_TRACE_IOMMU_H) || defined(TRACE_HEADER_MULTI_READ)
+ #define _TRACE_IOMMU_H
+ 
++#include <linux/device.h>
++#include <linux/iommu.h>
+ #include <linux/tracepoint.h>
+ 
+ struct device;
+@@ -156,6 +158,40 @@ DEFINE_EVENT(iommu_error, io_page_fault,
+ 
+ 	TP_ARGS(dev, iova, flags)
+ );
++
++TRACE_EVENT(iopf_latency,
++
++	TP_PROTO(struct device *dev, const struct iopf_fault *evt,
++		 const struct iommu_page_response *resp, u64 duration_ns),
++
++	TP_ARGS(dev, evt, resp, duration_ns),
++
++	TP_STRUCT__entry(
++		__string(device, dev_name(dev))
++		__field(u32, pasid)
++		__field(bool, pasid_valid)
++		__field(u32, grpid)
++		__field(u64, addr)
++		__field(u32, response)
++		__field(u64, duration_ns)
++	),
++
++	TP_fast_assign(
++		__assign_str(device);
++		__entry->pasid = evt->fault.prm.pasid;
++		__entry->pasid_valid = evt->fault.prm.flags &
++			IOMMU_FAULT_PAGE_REQUEST_PASID_VALID;
++		__entry->grpid = resp->grpid;
++		__entry->addr = evt->fault.prm.addr;
++		__entry->response = resp->code;
++		__entry->duration_ns = duration_ns;
++	),
++
++	TP_printk("device=%s pasid(%c)=%u grpid=%u addr=0x%llx response=%u duration_ns=%llu",
++		  __get_str(device), __entry->pasid_valid ? 'v' : 'i', __entry->pasid,
++		  __entry->grpid, __entry->addr, __entry->response,
++		  __entry->duration_ns)
++);
+ #endif /* _TRACE_IOMMU_H */
+ 
+ /* This part must be outside protection */
 -- 
-2.39.3
+2.22.0
 
