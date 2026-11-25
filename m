@@ -1,83 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592184;
-	b=KCemE8Hyda2j6K90El/OsuIcMveR78lEOybRe2iAR8fdaYSGWa1IVvonu2RRLr2Tb2F3
-	 WYfRdYceYRAP1y2wYtvDcsfnfW0IhPNV7sUaxFZkkWVSNAXKZzGbYa5J6Ib6OcNOYYXHt
-	 nDb83vbBD6AnKuePXLGKQJp8P4hLCa3zSdr9tKXN6FFDYGc69jRHlg00uwYJHuHPi6lwK
-	 R7YFx+u5hckzNhdnhIK65xIp55ijXgwOsP7ClfCeIjnDzQ14pDpUXw7pDS6uTCd6KyVI6
-	 pEm5oY1mhPsIg1aaX6VNCuRZ3c4P6K5lYu8ccoG6XoyMZlXTOXRrUw1xwQk4JPXwDZA==
+	t=1795592225;
+	b=j1wY8rDo4iHmKNsfqPV4ka9ptmjXHyqG9y5n2xyvqxjCqGW5fzSEzaR/G5uH18G6wPT4
+	 sTDCdcCIFqBKBDUv+sjz1LcUvlIgZMXM7WyE1X1KxKj1fY0e5ApMLz+PHhJ7NI3VTzzIO
+	 xRy81bleDsYORlak3fPdwRJ4dyFOShk0ZgAC0NrFURFSHFfGZQwKxWK/CZ0PSgBeuT1lr
+	 V2n5/sCaY8Fx7UwhSucvSOG2ckDwFvV+t7CnSCv+6yz8fLzs16rKNlAaJHXKPnjWpOXMb
+	 34Qjfib8DIZ6Ls8UGg+/oKChhP9NKv5Xk41zRXwogXeZwYpNGOhl0iFtuKSnsxhbirw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592184;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-SRS-Rewrite;
-	bh=NqNmpPsXgETS8dZeuiCyJlLE3rCmwYk+XFbPXhBfg4U=;
-	b=TfaJxgyHtTH0UCdjE2SsFapAUQpeiBt/ymZgUU8lV50hdt43KxkN4i/yjUpK75x9IcLW
-	 KZF0yLt5I68jxgO2NWPhBfbg8ud3wTwf4901qgWZnHxeUpRFABAYnvkpNHOxevugg8CM8
-	 n1hNEVgZJv8omrqc97YFkoB/k18+5hB99VmlaL5MFCe6e0Wbbrlr+4CV59+LW5n1jO3G7
-	 q25kt23kvIKBigRxv+xT/8TuGvquTy/U+Q7c6uX49dWmYwPaGdkn/AMCvLYhcYwP+YQzd
-	 SjRM15G+8MkEul1qB1DMWps7q/m2w6dgM2zvucth8CET+fSZDuWcM7VxpCklhb6c2NQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592225;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=8eRVApJ+L+4/3rfdnuY4xvhBuCOH0eKWoFliwmNzr38=;
+	b=mvb/Tl+j8PQQTEaG04e1X1r2Jzut215JKF18FNlrdW1/U4kLqzU5MvbS4RsdcumDQoga
+	 GbAVBCnlS0fjp3ChOeEGT3hwk+WcvRJvl6eEVdH8zzMckIj/biNdbygDzo7a5jFUsEudg
+	 ZWcJxxr9cL8nRAFQianzaebA1MywK3UPj/Nv6rZp4yJBxIRpiYbWyzW4IUVN9EcLEsivR
+	 ihK+yZdgmzqiPQXFLw4Cpu+CiCobODp3nO02K60EYLtugRWVrEw01306xQbEGYaITKndw
+	 qE7tk9MP5aU+gp0nDsgkFFfZ/hqqWLnvMWJW/d9nDzziTHFpm7HCw9+KIE8YioS7whg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=none smtp.mailfrom=bombadil.srs.infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=v8EOTEaR;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hEvwRbbZ;
+	arc=none smtp.remote-ip=192.198.163.14
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27F8B606A332;
-	Wed, 25 Nov 2026 07:36:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27F8B606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=bombadil.srs.infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08CF3606A681;
+	Wed, 25 Nov 2026 07:37:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08CF3606A681
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=v8EOTEaR
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
-	:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=NqNmpPsXgETS8dZeuiCyJlLE3rCmwYk+XFbPXhBfg4U=; b=v8EOTEaRlkbw5Q1MD4ATdrS8Du
-	2wLhbbgEsGmVs2gzSbe0zfglIVkfdWxz0ovS9CWjZwEl1CGJ2/C7bDC7X3WguhCzxTmDvhE7lnkdB
-	2PdOthUl8XjMxaiLMQS4DnMzgiwDG9gkZMZ/MgOxviFcgX11LYqlvEvZ9qIHOuMPnlfD6S7+/WcLZ
-	x78t4cRSYCT/NuBnjkRcOSbjdyN8MJavl4xXiAweXPTJalZVcgJgOIkJh5lrxmc7BwYeSj0BK7DW3
-	D5sQTHw1xvNoOL5nVGPUXJgyiWNirG1cAYedkL4VUTnWGojZcvbrSgdl0Tsg5R6yhsibfI/6ruAfJ
-	7f0262bg==;
-Received: from hch by bombadil.infradead.org with local (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xW7Y9-00000008uf8-3ovC;
-	Wed, 25 Nov 2026 07:36:17 +0000
-Date: Tue, 24 Nov 2026 23:36:17 -0800
-From: Christoph Hellwig <hch@infradead.org>
-To: Pedro Falcato <pfalcato@suse.de>
-Cc: John Hubbard <jhubbard@nvidia.com>,
-	Christoph Hellwig <hch@infradead.org>, Jan Kara <jack@suse.cz>,
-	David Hildenbrand <david@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, Peter Xu <peterx@redhat.com>,
-	Johannes Weiner <hannes@cmpxchg.org>, linux-ext4@vger.kernel.org,
-	linux-nfs@vger.kernel.org, "Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Nico Pache <nico.pache@linux.dev>,
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
-	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
-	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
-	Baoquan He <baoquan.he@linux.dev>, Michal Hocko <mhocko@kernel.org>,
-	linux-fsdevel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH RFC 0/5] mm: GUP dirty + ->release_folio() fixes
-Message-ID: <awaP8a3GaI3LCcuw@infradead.org>
-References: <20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de>
- <4f096d70-6f94-4148-8f47-242b8551e5f9@nvidia.com>
- <awWNyDZT2SVu2Zp9@pedro-suse.tail5790ac.ts.net>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hEvwRbbZ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795592224; x=1827128224;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=wY2iVTEG6wd27k6XZWlgDe4gkeLUQ9O+twmzFh+uS00=;
+  b=hEvwRbbZui8SSYLvGQs7taADMZmogQkKQFWtYJ9R1+Iv2Zj2Pp4jEBI2
+   U0gzQbxb4st7lArrcpG0anajB6HbquMduZtRC+6xlCk4ox8fZLK51eoq9
+   9bifCqBM+qGcQHWAMDnoSiGMghCvwGnfxIEKDtnQQAxqkHeRRZDXhnjMh
+   9kIg0rd7seljVzAd43BOSzMT4+IGBQ5W4KiL78j2gi5WzWWbNZdy6Ei5T
+   umaIrceck9w6+J+4M4B6U8HoVyG5qj2wIOFkmy0vdhrMDDhKsqcWW9j7A
+   uaH6shDGpDIJSjNbSHmTdCn37nYikTD+La9aX3WrEVObwe/UCJN2XTxJ0
+   g==;
+X-CSE-ConnectionGUID: Z9k8VcvZR/Gr4K65oTNOrw==
+X-CSE-MsgGUID: C+FD4P4eQfyV3/airmWIVw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4382073"
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="4382073"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 23:36:20 -0800
+X-CSE-ConnectionGUID: BrYDC8I4QDKWdxCnBs+FxA==
+X-CSE-MsgGUID: 0XDuAw81R3eLc/q/3+0ieQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="11781260"
+Received: from yilunxu-optiplex-7050.sh.intel.com (HELO localhost) ([10.239.47.46])
+  by fmviesa004.fm.intel.com with ESMTP; 24 Nov 2026 23:36:15 -0800
+Date: Wed, 25 Nov 2026 15:26:19 +0800
+From: Xu Yilun <yilun.xu@linux.intel.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+Cc: "x86@kernel.org" <x86@kernel.org>,
+	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Kiryl Shutsemau <kas@kernel.org>,
+	"Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"Hansen, Dave" <dave.hansen@intel.com>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"Xu, Yilun" <yilun.xu@intel.com>,
+	"Li, Xiaoyao" <xiaoyao.li@intel.com>,
+	"Mehta, Sohil" <sohil.mehta@intel.com>,
+	"Hunter, Adrian" <adrian.hunter@intel.com>,
+	"Maloor, Kishen" <kishen.maloor@intel.com>,
+	"tony.lindgren@linux.intel.com" <tony.lindgren@linux.intel.com>,
+	"Fang, Peter" <peter.fang@intel.com>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"Duan, Zhenzhong" <zhenzhong.duan@intel.com>,
+	"Gao, Chao" <chao.gao@intel.com>,
+	"artem.bityutskiy@linux.intel.com" <artem.bityutskiy@linux.intel.com>,
+	"nik.borisov@suse.com" <nik.borisov@suse.com>
+Subject: Re: [PATCH v5 5/6] x86/virt/tdx: Make TDX module initialize the
+ extensions
+Message-ID: <awaNm24u6mY/BeXB@yilunxu-OptiPlex-7050>
+References: <20261111-tdx-module-ext-v5-0-c74f764abc3d@linux.intel.com>
+ <20261111-tdx-module-ext-v5-5-c74f764abc3d@linux.intel.com>
+ <CO1PR11MB4835398A9726ACBA73621C218C442@CO1PR11MB4835.namprd11.prod.outlook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,32 +101,44 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <awWNyDZT2SVu2Zp9@pedro-suse.tail5790ac.ts.net>
-X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by bombadil.infradead.org. See http://www.infradead.org/rpr.html
+In-Reply-To: <CO1PR11MB4835398A9726ACBA73621C218C442@CO1PR11MB4835.namprd11.prod.outlook.com>
 
-On Tue, Nov 24, 2026 at 01:37:43PM +0000, Pedro Falcato wrote:
-> > pin_user_pages() was specifically introduced for this exact class of
-> > problem. get_user_pages() is now meant for other, much more limited cases.
-> > I've attempted to document that, here:
+On Tue, Nov 24, 2026 at 08:01:39AM +0000, Tian, Kevin wrote:
+> > From: Xu Yilun <yilun.xu@linux.intel.com>
+> > Sent: Wednesday, November 11, 2026 11:49 AM
 > > 
-> >     https://docs.kernel.org/core-api/pin_user_pages.html
+> [...]
+> >  static __init int init_tdx_module_extensions(void)
+> >  {
+> > +	int ret;
+> > +
+> >  	if (!(tdx_sysinfo.features.tdx_features0 & TDX_FEATURES0_EXT))
+> >  		return 0;
+> > 
+> > -	return tdx_ext_mem_setup();
+> > +	ret = tdx_ext_mem_setup();
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	return tdx_ext_init();
+> >  }
+> > 
 > 
-> Ok, so I guess you want me to drop the hacks to make GUP FOLL_WRITE not
-> screw itself over? To be clear, the rest is still broken, even with pin_user_pages().
-> It just means we get nicer looking fixes, and I can drop patch 3.
+> Above means that tdx_ext_init() will be called even when ext.required_pages
+> is 0, e.g. when TDX_KERNEL_SUPPORTED_ADDON_FEATURES0 is null as this
+> series stands or on a platform which reports TDX_FEATURES0_EXT but no
+> any add-on features (would it happen?). 
+> 
+> Just want to confirm that doing so won't hit an error.
 
-Yes.  And maybe start looking into fixing GUP FOLL_WRITE users if there
-are any that you ran into or which are relevant to your workload.
+It's fine. TDH.EXT.INIT should return success if no extensions are
+required. This is discussed in v2 and v3 cover-letter states that:
 
-> It's unclear (to me) whether we care about any straggling get_user_pages
-> FOLL_WRITE users. A quick look around doesn't find me many; most seem to have
-> been converted to pin_user_pages() (though, admittedly, I don't know how many
-> of these are converted in stable; do we care?). Perhaps piling on a patch
-> to simply disallow get_user_pages(FOLL_WRITE) is ok? Giving Lorenzo's idea
-> a go again :)
+  Rick pointed out that if TDH.EXT.INIT could always return a reasonable
+  return code, we don't have to query ext_required metadata. A fix for the
+  ABI is: TDH.EXT.INIT should return success if no extensions are
+  required. We reached agreement with TDX module team and removed
+  ext_required.
 
-I fear this is going to to break quite a lot of things.  Although given
-how long we've asked about this maybe we should at least send a patch
-to it with all relevant maintainers Cced and queue it up in -next for
-a while.
-
+Oh, there is still ambiguity here, we don't ask TDX module to delete
+ext_required. We removed kernel code that reads and checks ext_required.
