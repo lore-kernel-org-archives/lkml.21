@@ -1,97 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.176
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795673896;
-	b=IZrNwEj4X6aSFEoFdIVbZWG5YsOGjPXsyJ/Wwa2Q7kPSyPqnflzzUIW6IAcJp33bBtjD
-	 jrCdvovChTAe4m6txyRPcdDOHWWg7V5fei8fyjZSWA+CLs373m5AI/z1u1qPMOCjk7ex2
-	 JKwS73yLCffn32JJaXMgHbzbm1Ca6oCjzshzLyOt/3hAIsxztEWllUs8FJuXQHHNHNQKd
-	 y/hhKdpw+xtxqPllG1LtPGKlkauRZ7JVuKhRuECc3LE1m28NKjzgLade/bWEca4sfPZSh
-	 a1PuZYdp7B20R9WkCffji6VI4wJHd8AixLoxtoicEmcuErKgKgK+K6M0BznofTR+edA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795673896;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=aVOanH9gyLL3aaqPDmZbtrwaaIj/21AzXVfdkKlPJG0=;
-	b=Fj/j0pDtvVm8HcgR0D8Tg5bq0NTtxIN8PqnCi7o51bsR8UWAUNHAjYeTzY3MDBhTkqqH
-	 tXeC9j3ElmrTow0Aw376iZn0gH9Xog98u1OXaR8tkmI1WYluyq1DwzSbpN57MMMeVgGQZ
-	 az6qQFr6T/jHP4HvWzWATo9HioU7D/CpN+cHOLUm1ez40q9S68gC6eYeGlhAnvuOBJbzt
-	 6YuvaAyDXNXDPhIeyr1UoEXlu443jIiqOitzf1LuD1G7oyJjjR5Aui/GrnrSjZZHqV2Q4
-	 LhWt0gszW6VK01z2KD1+hestR4ZnVq/jL9c8q3L8etusu2pCrSKggnAESZZ9ubMUTpg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b="gLq869I/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.176
-Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com [209.85.128.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C3D6606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:18:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C3D6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795673951;
+	b=wS+P3VTHAGtWMvHPscAmY9Ju9tQa+4l+MUU89dP/1AK5/ss5zcUnnHRu2qFjGyK2x5w9
+	 FxD46wxMAPjcXrNJYtc0ibLQtNYR8gRClgOqd8WN1NGh5n9XoIskLgu5LYcVfSN50iq1h
+	 uOq6hHfTiNc6663BjNhLhRsP+pDhNciYIOU2FLWyBB/HRhFFkDAu8JMxUafJmXANkufxh
+	 V2Yi9boNsBtOfONt/8S7LbQZiOo9cZBxotibgQtnbuBPUEAdsd7yUSZilNGKDZ4GrW2+p
+	 Z+KqK2NoVgW49+k0/WYXqlC1MP7GpeJXH/MRra2E8uEizLKhOkwTw+jczgeRVajleFw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795673951;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=EK9NlA9A9Ay5zTVdixzrgGUW5jboXGbIDd6mwOWxKCk=;
+	b=kWocWEcLGwwMpx3ALOwLm8A6f43m9tpLJa/FcRj35YddVIn8wcrX7DZnLB2isCvsx5Z6
+	 47zVmyZ29iDh09fQiriy2ba90PXt/VqKa+bGzn07Z8/DCi1zutGoMxcEiSDq/yNWEaHFm
+	 8YNtqPfwWf36frrVV5boA+vcQuajf1CCm9jFy8/gY+tkplPg0pMVX7EWmaqHGY1VSDoJa
+	 rpjO5nkLyZU5CM9o5SJc5OgReuzecflh7SsTEZ0MeLwbDORyJXGAJio3035TWq8Ochg1U
+	 E4qbqBqAw9GiA20o5CTy7lb9PeVmzzwLfMsJcPUPZAGxOGKasi5j73SAWSB+naWyEZw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=YSlz5MgE;
+	arc=none smtp.remote-ip=111.22.67.135
+Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5C6AF606A31C;
+	Thu, 26 Nov 2026 06:19:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C6AF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=gLq869I/
-Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-8b502b9b702so77166057b3.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:18:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795673895; cv=none;
-        d=google.com; s=arc-20260327;
-        b=AvoynT6jKLD3l2Fbm4pBAK11/ZZlfBddo+1+ummWju+Cyx2tiP0vD9wC+71mVdin8H
-         CTinpE2+c642MgO+ATZJktWhDNyA9FAhcQCLri8yg8a4KP/hI2hJ5YrPrPK8iD5PylZH
-         LUxPbknqkTjk3RcWtqn0vHU4LN3UCGvffLRXGtWqzoIiA7g2QsqP6UnmBQOhXwuaV1sC
-         wPyd0rMokDiRUPeGApslI29V0ajiaSR1r/VuRHns+lG8SX2FdKHugZJy1dSGLiyDzxYo
-         MEvyIXWAzt1SwGfOXgBnFp4iazxOYGWVyfQEKunpfhZCygH2Ut78bzN1rUIBtgqMSo6W
-         AmOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=aVOanH9gyLL3aaqPDmZbtrwaaIj/21AzXVfdkKlPJG0=;
-        fh=JUHKcfdX88PyMzdPr45ra6WLpBIurFFeK7zCW+uozWI=;
-        b=SAvGOZ2u6HI5YeCBPE+/DCxaqh7c/09Sg06u8smD1MwEpz+UTuLdrnq25da+jKlYFe
-         FnbRj0gV58NV9MLQRyYb81FbvgHU5BaHpoOR+IMP+NQny0zYfhSGaeJdedx/CuQ9nVoa
-         utNlGBJvZHPmgzql1VepbOdnLyQwHR/tmcnOGQRxPEOQswpbAzLT4hPZ6XMrveoZArMI
-         MJJoA6pKcOoqh/DC92fWSL1MBOv99/dMjU9ZA3hdXaHYW3EV7btiQ6Z505UdCf1H0HeG
-         brHRtv+5MbFy38VN0ga7dTBDticHsRffIxw4s1n5QhGcRznLUJx3sysHw+/f3PueqGzg
-         YEdw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=YSlz5MgE
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795673895; x=1796278695; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=aVOanH9gyLL3aaqPDmZbtrwaaIj/21AzXVfdkKlPJG0=;
-        b=gLq869I/6qlizse+VwzwIgPRWMmieNpo0tUZcjygdmskvRI2ZPWRqHTsenXWr5I1F3
-         FPEEpS6S5fHY/rb2oHadHWP5QZmblRzCSLlWOrSfsAM0ZoGwixi1dllmnVS+fZEiK8DM
-         upjULIxs68FNVmv9roqVaHOTAyNicVsytkUaQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795673895; x=1796278695;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=aVOanH9gyLL3aaqPDmZbtrwaaIj/21AzXVfdkKlPJG0=;
-        b=JnW/yTUkqf/65lNBOupQBvfWzda8gK01tehJWHL3wcgujnKxvQCyQaxp9vpp2T4s7p
-         TNuy9J+JubK+JTtdLv1jDXUAGwH30+c0Fo56ebpybOO4W+QLyY3GWvkDyETSgAW3BNLY
-         IuI97bLIzevmb5FFn+X+Y4C5XybUrbqaAW0F90Bl5QcRFxzcEsO45RneIDngGlSWQGf9
-         dGGTVz9jHQIvIHDYUMyq6tk9we9OneukhMlBLG5ct21u9t/FeB2WWhtl8PGLc39JVC46
-         6epyPfDWP3nybz8WKCan7g7qkZNveclIfbVFmaSD5w3ynyzHvqCLa+B2iUlx9mw96Maj
-         gndA==
-X-Forwarded-Encrypted: i=1; AL+hErFAvdqhMgdeubt+OhbT9W4Hid/qrY8DfMcWeJqLQGjo2iN7d+e8IScaD49QcY4nrjbSZrOnT0GcGSEDRg0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z87NdmNDkDy70ytRpCiHCkwYfc6WHAsnYFf+hG0CJkPXQLcrBSO
-	sRpqijeb4PIHGzJn8D08R4jBYiuu7TZkk8u2L+UHJZ4kGv0ax2m56RJ5561FcWg3rqGxPLq8McT
-	i0i1v8MM2Cw/TMtIdcSQ8MNXD4FE6/TMGoguvEsva
-X-Gm-Gg: AZFdTZcjnEcU0QVDPsn8wXQF9cT2GVDlaXyCsgX6Xrx4JNstax2Lz6fnKRpFyWEkUDf
-	hm42bmUYThIT1/g+oUFSaBbFHOLTc4K1dqI9mWzBf7angIAbwjKyH1kpIxQutqvhP4WxFSRMIev
-	ES9rc61XFA/O1ycISiOq3ZRIAd32yjk8DgmMn0IZoc1pRNEEDhhnIdNjyChFS3G5C0rfvB1O1ej
-	SjjeAU88Kxi4CN5x6DwBnVpmpopnYGMQ8rYz1tF6qDe7uDVGv8lWaG9H5G8kEfudxSpMBrkOYXg
-	FgbICvX9MfmfxZMjcQegOefUfnNi6GyNzq0AwC91Q/S7b2shg1k0WFz2vTa4gP8akddEExVVmxl
-	i+WCWNYOKtNPfBaCwi5qV4vgTZyJ4D5D8GetvW+xyF3z6QSaYTbfcNdJ4BCSUnnvhT/I=
-X-Received: by 2002:a05:690c:29a:b0:8b3:b5f1:89b4 with SMTP id
- 00721157ae682-8b520472ed1mr75612087b3.28.1795673895189; Wed, 25 Nov 2026
- 22:18:15 -0800 (PST)
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=YSlz5MgE46VrwhBT7bRjN0MGppo99ywOBzuzxZaT0Ek0GEfI/1fU8Jdo4+DRHCJ4dPn8DhKtD83es
+	 2f047P3FQw5PBajK8OTbk8b5D4l3ocAWT6QR7Xan3YlQL+uQfbI2iISWc3zOVDpCi/PN/cO2+bwnM2
+	 GGAQPXO64fdYq+UQ=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app07-12007 (RichMail) with SMTP id 2ee76b07cf174f5-597f5;
+	Thu, 26 Nov 2026 14:17:59 +0800 (CST)
+X-RM-TRANSID:2ee76b07cf174f5-597f5
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from FHD-W7400297 (unknown[10.55.1.70])
+	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16b07cf15283-5fa97;
+	Thu, 26 Nov 2026 14:17:59 +0800 (CST)
+X-RM-TRANSID:2ee16b07cf15283-5fa97
+From: Aibing Chen <chenaibing@cmss.chinamobile.com>
+To: Potnuri Bharat Teja <bharat@chelsio.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next] cxgb4: avoid truncating the MSI-X interrupt names
+Date: Thu, 26 Nov 2026 14:17:56 +0800
+Message-ID: <20261126061756.1856-1-chenaibing@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,73 +72,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125234822.94684-1-iasnezhkov@gmail.com>
-In-Reply-To: <20261125234822.94684-1-iasnezhkov@gmail.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 26 Nov 2026 14:18:03 +0800
-X-Gm-Features: Aa3M54olT77g2PTxdeOuWYsBXJkE8EBtJ7XPbNnfHF5Q5XhrfHNOZbtGC_6G3kA
-Message-ID: <CAGXv+5FgDoHPGcSHqMvGKb1R+2me0_JPr3xq_twbw-n693KNHg@mail.gmail.com>
-Subject: Re: [PATCH] regulator: mt6358: fix MT6366 VDRAM2 vosel_mask
-To: iasnezhkov@gmail.com
-Cc: broonie@kernel.org, lgirdwood@gmail.com, matthias.bgg@gmail.com, 
-	angelogioacchino.delregno@collabora.com, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 26, 2026 at 7:48=E2=80=AFAM Ilia Snezhkov via B4 Relay
-<devnull+iasnezhkov.gmail.com@kernel.org> wrote:
->
-> From: Ilia Snezhkov <iasnezhkov@gmail.com>
->
-> mt6366_regulators[] declares VDRAM2 with vosel_mask =3D 0x10 (a single
-> bit, bit 4) on MT6358_LDO_VDRAM2_ELR0, even though vdram2_selectors[]
-> uses values { 0, 12 } (0x0 and 0xc) which live in bits 3:0.
->
-> MT6358 in the same file (mt6358_regulators[]) and MediaTek's downstream
-> MT6358/MT6366 regulator driver both use vosel_mask =3D 0xf on
-> MT6358_LDO_VDRAM2_ELR0.
->
-> Change MT6366 VDRAM2 vosel_mask from 0x10 to 0xf.
->
-> Found and drafted with an AI coding assistant while auditing MT6366.
->
-> Fixes: f0e3c6261af1 ("regulator: mt6366: Add support for MT6366 regulator=
-")
-> Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
+The MSI-X interrupt names are assembled with snprintf() into
+adap->msix_info[].desc[IFNAMSIZ + 10], from adap->port[0]->name (up to
+IFNAMSIZ - 1 characters) plus a suffix and a queue index:
 
-Unfortunately the datasheet does not include these registers, but I think
-it makes sense that the mask should match that for the MT6358.
+  "%s-Rx%d"         needs up to 30 bytes
+  "%s-mirrorrxq%d"  needs up to 37 bytes
+  "%s-%s%d"         needs up to 43 bytes
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+The last one also formats the ULD queue name, which is copied from the
+ULD with memcpy(rxq_info->name, uld_info->name, IFNAMSIZ) into a
+char[IFNAMSIZ] field, so it can be up to IFNAMSIZ - 1 characters as well.
 
-> ---
->  drivers/regulator/mt6358-regulator.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/regulator/mt6358-regulator.c b/drivers/regulator/mt6=
-358-regulator.c
-> index d6a0ec4..1d62c25 100644
-> --- a/drivers/regulator/mt6358-regulator.c
-> +++ b/drivers/regulator/mt6358-regulator.c
-> @@ -604,7 +604,7 @@ static const struct mt6358_regulator_info mt6366_regu=
-lators[] =3D {
->         MT6366_REG_FIXED("vrf18", VRF18, "vs1-ldo1", MT6358_LDO_VRF18_CON=
-0, 0, 1800000),
->         MT6366_REG_FIXED("vaud28", VAUD28, "vsys-ldo1", MT6358_LDO_VAUD28=
-_CON0, 0, 2800000),
->         MT6366_LDO("vdram2", VDRAM2, vdram2, "vs2-ldo1",
-> -                  MT6358_LDO_VDRAM2_CON0, 0, MT6358_LDO_VDRAM2_ELR0, 0x1=
-0),
-> +                  MT6358_LDO_VDRAM2_CON0, 0, MT6358_LDO_VDRAM2_ELR0, 0xf=
-),
->         MT6366_LDO("vsim1", VSIM1, vsim, "vsys-ldo1",
->                    MT6358_LDO_VSIM1_CON0, 0, MT6358_VSIM1_ANA_CON0, 0xf00=
-),
->         MT6366_LDO("vibr", VIBR, vibr, "vsys-ldo3",
-> --
-> 2.54.0 (Apple Git-157)
->
->
->
->
+Because -Wformat-truncation is enabled for W=1 builds and COMPILE_TEST
+configurations turn it into an error through CONFIG_WERROR, the driver
+does not build today:
+
+  cxgb4_main.c:1074:48: error: '%d' directive output may be truncated
+    writing between 1 and 11 bytes into a region of size between 8 and
+    23 [-Werror=format-truncation=]
+  cxgb4_main.c:1356:47: error: '%d' directive output may be truncated
+    writing between 1 and 5 bytes into a region of size between 1 and 16
+  cxgb4_uld.c:141:38: error: '%s' directive output may be truncated
+    writing up to 15 bytes into a region of size between 10 and 25
+
+Size desc[] for the worst case, 42 characters plus the terminator, which
+is IFNAMSIZ + 27 bytes.
+
+Compile tested only, with W=1 before and after the change; no Chelsio
+hardware was available to exercise the driver.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202604141419.a4vuNBN7-lkp@intel.com/
+Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
+---
+ drivers/net/ethernet/chelsio/cxgb4/cxgb4.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/chelsio/cxgb4/cxgb4.h b/drivers/net/ethernet/chelsio/cxgb4/cxgb4.h
+index f20f4bc58..dda787b8d 100644
+--- a/drivers/net/ethernet/chelsio/cxgb4/cxgb4.h
++++ b/drivers/net/ethernet/chelsio/cxgb4/cxgb4.h
+@@ -1049,7 +1049,7 @@ struct msix_bmap {
+ 
+ struct msix_info {
+ 	unsigned short vec;
+-	char desc[IFNAMSIZ + 10];
++	char desc[IFNAMSIZ + 27];
+ 	unsigned int idx;
+ 	cpumask_var_t aff_mask;
+ };
+
+
