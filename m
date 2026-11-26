@@ -1,102 +1,132 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795686984;
-	b=E6iYKUw+3Z1XqXwb9XenIhL8TJNRwcvIMjfD9Vyhg1L+XcwATH26rccQgnm6wIM9RboL
-	 BZWzdXSUwj6gK951k0qIxXBQv2x2/XQ59RxE1uEw3PDbbkuwtBRL6XUpSAleVYGSm37pk
-	 qVG/ixhWWE+6pF4Lu4FmOq2S2LvMnWixKSmARDNxYdUZiHzzzfDi5ww8l89L3ws9aZi5J
-	 j8lLMmcmo2aqeKesJTMkvHy6l7/YKb2ghktjMUnXWNfCmdbDur4RTCERZq0Qsy14gGXGP
-	 0WJv6ilITa2XgATQ8xpJUk98EMx88oYWpg1fmlpdswwXk0q3wgOtHLOzTFLgfYSQJZQ==
+	t=1795686993;
+	b=Tp2zPOb4vXYdFxY8gqoKWYweaTUAAAtBtz6Zz2ND7qXncFkvITfJ3ZO94lkPFcokef3d
+	 pZ89X+L3pahqyoh8STbrYrVUQzP7lIbY1KeEpc3aMokcYO1GBCBlfmFs0jrCTJGq1IjVS
+	 rq+f0NDnfGGC0VCaizOtRMet6XAPyF3vk6MhaWkWeSgR1vQZFKJ+iJf3huzDv1+qPxc5S
+	 89WaVi18eVzP8kWSbPdtjM48pwOWbTwKYciMTL/BwreX9nusytzTfnI0Wih1t6dI7XBcw
+	 kWdUPzsP+y5h3f1uvFy2WSQ2gzC0IuZYXDyJ4bw6Lb/4KsMbdA1hQO28K3IyX4OLyiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686984;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spamd-Result:
-	 X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=DEolLkOljRXREjJokeITFBX2mW0hahWTQh09VSBvMQQ=;
-	b=3tPvrxFdC0dzgHHS8SrdCtN07QJq2W94upkRRQFxLklEmlWuartZOYsRu/qPcL2PKDTX
-	 aOyBOzzRb4tVo/G4jMi5ijDWpFEudy82C5PCPm6YO89epmeM3Xl+bxZ1hyaZf2f7Xg0EL
-	 jq4TfkGegJxPguRZrnfDFAO0v13UrnZzvbbtQAKUzpYyTCz5R+bhP4fcJtAAgeypZg0un
-	 2ulUmrfUWVWskf48BgEJZPS+NbkkfNH48WIJl8HVkDyiLtoy2xF5FUb374fAcSnN+n5DK
-	 k/unFmceN4Mx6XPcNojl3iiYaKh3R3EfiupCF8pXLU6ZGPA2qrQpI6/rDisHIWecWyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686993;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=rXYnq/FMsaO0wy/3wLLDl97ZH6IKPomcYTZ4KmGBeUc=;
+	b=mDAAzr1DQIKK3ZQ7TGbkuOsBZ9rSxLS7gp3dNRUj8hDK6K5oL1ZC1HnCpeKPTaG+daXK
+	 Ce4Q596NuMZs+0wtL4MIQNb6e5zHdpXd2Iu9AF3m7wVAxS5E+FQwk+sJ95FOZUlwurHjX
+	 NeR48AO8a5xY7E/04ggzjahzSjl0Ns6isvGo7mCePdCUqmvAXZ9AiQxYgRFgIvWB9KVc7
+	 AjBRwbwF/Haw4UlcgdAFrzs+GE+Oz11t61wBvg7Qc075hYOf7xAxawyUmRcPD6Zu5Aujl
+	 LoSDgSbvYjmRXPrtF22g4zTxNLdgkiIgEhW1f0eI0rlVNc9xz2Iz6SYnQropcMykvoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b="Docrok/B";
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EKlZBHHf;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b="Docrok/B";
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EKlZBHHf;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Bjemo1Jk;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LDVQUtJf;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7667606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:56:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7667606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83CE1606A32C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:56:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83CE1606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Docrok/B;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EKlZBHHf;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Docrok/B;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=EKlZBHHf
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id A51721FB3D;
-	Thu, 26 Nov 2026 09:56:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795686981; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=DEolLkOljRXREjJokeITFBX2mW0hahWTQh09VSBvMQQ=;
-	b=Docrok/BfFTkBbi+sgtVQpEiznDxTr7ZVlSXMjlMrpvYmi1PUn3iOuHb1Vj5oI48eSKVyF
-	ZDqXo/zjvHS/dGFjN632Tvm1P/NEaMBpXekGO0WsSvvoK1uyg0H/96Tigqv077U48ZRbuv
-	OUQR8gu+H6V9FE6nlMjGNe7KSwl7U5Y=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795686981;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=DEolLkOljRXREjJokeITFBX2mW0hahWTQh09VSBvMQQ=;
-	b=EKlZBHHfYB3pWuf54AKE6cxnMGYD2KNAMwFr5LDLLupy2yfAlF05INfoIfVJ9/6OSemQJk
-	VRUe9DSHle56zOAg==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795686981; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=DEolLkOljRXREjJokeITFBX2mW0hahWTQh09VSBvMQQ=;
-	b=Docrok/BfFTkBbi+sgtVQpEiznDxTr7ZVlSXMjlMrpvYmi1PUn3iOuHb1Vj5oI48eSKVyF
-	ZDqXo/zjvHS/dGFjN632Tvm1P/NEaMBpXekGO0WsSvvoK1uyg0H/96Tigqv077U48ZRbuv
-	OUQR8gu+H6V9FE6nlMjGNe7KSwl7U5Y=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795686981;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=DEolLkOljRXREjJokeITFBX2mW0hahWTQh09VSBvMQQ=;
-	b=EKlZBHHfYB3pWuf54AKE6cxnMGYD2KNAMwFr5LDLLupy2yfAlF05INfoIfVJ9/6OSemQJk
-	VRUe9DSHle56zOAg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4E28A134C3;
-	Thu, 26 Nov 2026 09:56:21 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id TVUAAkUCCGsnAgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 26 Nov 2026 09:56:21 +0000
-Message-ID: <0b2ba699-e686-46cf-a392-220946452963@suse.de>
-Date: Thu, 26 Nov 2026 10:56:20 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Bjemo1Jk;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=LDVQUtJf
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ7B3ed2210807
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:56:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=rXYnq/FMsaO
+	0wy/3wLLDl97ZH6IKPomcYTZ4KmGBeUc=; b=Bjemo1JkjtvGIptSoufg5Z8swpI
+	4LxdmRgrR+deEScb9VDujE5NyB4i/x3hu2TmI1RhZjze4DuQbFC9GUbrtrbla9AQ
+	B62j2V35OZIt8I6+gipMrWQCUnJgNDxZ/dnOvOzXtUycmFwmUF8OCrTIu4QBo1Ri
+	Fo5lIYSqbOkliwDqMvXVPuBtFc/NDu3bqrUo9WmC5faEq5VOeNza3jf+oN+3+5Ms
+	hxftphfUJbh9yDqE+bkVQzcCYz5VfPu3o/sCWVoTpwMx6v6aMfUSfXd9eIT8/e2t
+	ODeo/1YmhTVzVzdmjTnRgTKxm6yvMXDCBrP08Mqex97+VvPh5/bwoF5gCKw==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j66qfad48-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:56:31 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3b42c3dba96so7902783a91.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:56:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795686990; x=1796291790; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rXYnq/FMsaO0wy/3wLLDl97ZH6IKPomcYTZ4KmGBeUc=;
+        b=LDVQUtJf88krQvbOb83JKgNbuSHg+CHTYBz9mS3go5ijFXj8NA9YVb33QFOugbdg3c
+         ZDkqg3y/e3lxsR36jCG8frYOmNmsH6kWFyvYDikwcH5JhKDjBvoFjT3t2PU8Yw9CWgOP
+         moCok/4GNHm9eQTJGOWGsPPC+/bflrFYkHHOUDhenAptz+MmR0xKn1R30CxVPxsAMv8Y
+         rHKnn6DFCVp1eAUSEttIb1fjHYevhaaNAUTctrqu4jrn3MSvSEhLYSjARIQgbtfX1vZZ
+         OsCQ7xM5Ka+fY3x1HVJn0dVGlQJDW0KGi821vY3ubOSa+mBMn/eV/ZmnzLlJwXwstni2
+         YnoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795686990; x=1796291790;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rXYnq/FMsaO0wy/3wLLDl97ZH6IKPomcYTZ4KmGBeUc=;
+        b=jwgCousfzm5CWwLAQbZOp89rnNydke459Vmmql2HJuJaS5ZEuZxcqOgp5mR0xPxCv5
+         xUDILvjGr4GxauLr881SuqQuGmdRJxHPtRfZGVd+huNSNUQJqG1lcqiDtYm6hR2mZwBe
+         FO3JFLKWDXMv2xx8Cjm/cPtohckfiEuMA0Baf7ERVgJJA6AQcUGmpe/GI/oLrpC/nU/0
+         ye5zqdNj2ajneofeUi2KFz2NR63611cifYn0miyJtZH8OL6xyqRf1/0KZ8De+n+cEgin
+         xgcFiBvD+NQaAi43fmf9h2C3DENUiq+Tr+x9UmBZUYdwte74mrh0AlGIa8wTAV0pgqVq
+         6MNA==
+X-Forwarded-Encrypted: i=1; AL+hErHJN/dhUgAK6+/JrheXswa5C+hjeLcYQjeOqGLNRRvqllYJlBB6F6dGUrxGcDdbqDvFLS66EVUrY4P8qkU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9023VVkHg/QBA1YZV2O2hB8b6NIJ65Nh9Rv3Sp5klDnr37v710
+	hOEDlFwRC2MQHcaQpWO/qFYT5JAr1y7hyed84/ddjJzaP+u6NPcp/mrVxGd7sU6u0OseZzKNT9I
+	uLMWDclpMs78TBO2oojhPyQHlcjaBu4YxC2pYGQWxwqGHPdLdk8N0UV2/rQ30UkG3taE=
+X-Gm-Gg: AZFdTZertbi6Hoc47wwt8gPLg+kADbktgl4AcoEFuXkBhkNXOuT9YClLysPs9hRHYpG
+	UDTdIusrgaot5jr1Gv38aJkF/VJzN2jT1w9MxF5NquOjrBDlCbx/wyYAqG8ENh8Esoj/5SgTIvG
+	rg4F8BoHukvl3EYZjHTqLF2GOax0LDixdDQ8SFTeY8Z/z9jcCJiWtdlE7hZSTqXXpcKwRrkqooH
+	5nfJfRfWcJPlJXFmdIIiSgmvgF18pDYPpBMT+2WySWlKRs3ap3qEneqp7T5cmbFVCJhcceqMWXb
+	sSFI4mNxFarmNzcqSolsp2/0s399HBFbOX58KS+ufs5guJrwIboQaHHSv/w3eml9wrvCkiFLJXZ
+	+JUae78DzN3KdYEW2KrnSqkZTguAxJ/5enGngGBbLo+M1dRk0cuNf3++IA1XoDCYNmP/7hPc2kM
+	WgcTZvshXuF2YE2zY3xIRVNVRR0EE9RgkTDVoIDum3/EQZHd3l46UdxB9jTt3nN5tMWp7OddsO2
+	g==
+X-Received: by 2002:a17:90b:17cb:b0:3b0:cc6f:1046 with SMTP id 98e67ed59e1d1-3b41c9bc517mr21125793a91.67.1795686990012;
+        Thu, 26 Nov 2026 01:56:30 -0800 (PST)
+X-Received: by 2002:a17:90b:17cb:b0:3b0:cc6f:1046 with SMTP id 98e67ed59e1d1-3b41c9bc517mr21125768a91.67.1795686989539;
+        Thu, 26 Nov 2026 01:56:29 -0800 (PST)
+Received: from hu-mchitale-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3b41abb2076sm32459030a91.2.2026.11.26.01.56.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 01:56:29 -0800 (PST)
+From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+        Greg KH <gregkh@linuxfoundation.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Ian Rogers <irogers@google.com>
+Cc: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
+        Anup Patel <anup.patel@oss.qualcomm.com>,
+        Alexandre Ghiti <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
+        Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+        Adrian Hunter <adrian.hunter@intel.com>,
+        Mayuresh Chitale <mchitale@gmail.com>,
+        Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
+        Andrew Jones <andrew.jones@oss.qualcomm.com>,
+        Sunil V L <sunilvl@oss.qualcomm.com>, linux-riscv@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Zane Leung <liangzhen@linux.spacemit.com>
+Subject: [PATCH v7 04/14] gtrace: Add functions to create/destroy a trace component path
+Date: Thu, 26 Nov 2026 15:25:25 +0530
+Message-ID: <7647f6d7e4435523423e5e392131f102da8ca56d.1795512532.git.mayuresh.chitale@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1795512532.git.mayuresh.chitale@oss.qualcomm.com>
+References: <cover.1795512532.git.mayuresh.chitale@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,195 +136,382 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/log: Add an automatic integer scaling
-To: Jocelyn Falempe <jfalempe@redhat.com>,
- Javier Martinez Canillas <javierm@redhat.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org
-References: <20261124224408.728354-1-jfalempe@redhat.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20261124224408.728354-1-jfalempe@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-13.29 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	XM_UA_NO_VERSION(0.01)[];
-	RCPT_COUNT_SEVEN(0.00)[8];
-	FREEMAIL_TO(0.00)[redhat.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,lists.freedesktop.org,vger.kernel.org];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,imap1.dmz-prg2.suse.org:helo,suse.de:email]
-X-Spam-Score: -13.29
-X-Spam-Level: 
-X-Spam-Flag: NO
+X-Proofpoint-ORIG-GUID: UgZAsTTTuQrXh---Q2dRI5Hs2ytQbMYF
+X-Proofpoint-GUID: UgZAsTTTuQrXh---Q2dRI5Hs2ytQbMYF
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzOCBTYWx0ZWRfX97MbHy94o9u1
+ H44UYzsGk49Eoatmb6cqIXRSI9A0GEQ4SxTT5l+CI/VlW/IsZMX/5fAgIzoFqpos+Ou11vngHET
+ WQfsuAML7/3HNjXVaZALrLEvApmM9J4=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzOCBTYWx0ZWRfXx8FKMLyEGq0x
+ VIbNTYFU0VAO5HKVPBwDzpLNQSpMQno7U5RMtLB+h9WNRxQGODN5RRKwm5NE/eRBTOEheoj3tR5
+ B/yWvahi1TU+r6eBpz/Saix0mZ5bsiI40L9jiwYDDwSzUSYBRTjhGhW8Jh/5NhYgE63X3iJRe+N
+ 6hVrpiP1tzEq25LG32DYuBIxJIIKccbbE8SdVrA56O2Rz94hz6ZRTAInEYmSOWd+SxtXJDwtNO1
+ bu7QGkkiJETBRQWvjbgafZBU3PsNaZQIgK02slr5ZZRtCTJeMEgHMkFrQUxPpjjRv/P9P4ovZXY
+ 3J57SQTZSA5OOwSarIizsVYBA5smdVy5CTe8CO+C8ZslKbl5PuLAEu9N1yRAtMWy287LQkiqj8M
+ YkpzHw1uXi0YcRNpK6obglolTBvd2sAYciWnwmnQMxnl+c4dqxNtai1Lmk1jZHT8LNHeJbLDJBr
+ uC4zVfdxm5UA5RSRWCQ==
+X-Authority-Analysis: v=2.4 cv=Q5VHcI2a c=1 sm=1 tr=0 ts=6b08024f cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8
+ a=Z2DXsEUlK3EcHYVHAYUA:9 a=uKXjsCUrEbL0IQVhDsJ9:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_02,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 lowpriorityscore=0 spamscore=0 adultscore=0 bulkscore=0
+ priorityscore=1501 suspectscore=0 malwarescore=0 clxscore=1015 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260038
 
+From: Anup Patel <anup.patel@oss.qualcomm.com>
 
+Trace needs to be configured on a chain of trace components which are
+connected to each other. These chain of components is also referred
+to as trace component path. Add functions to create/destroy a trace
+component path which will be later used by gtrace perf support.
 
-Am 24.11.26 um 23:42 schrieb Jocelyn Falempe:
-> On HiDPI screen, the default font might be too small, so if no
-> scaling is specified, try to upscale reasonably.
-> The auto scaling is computed for each display.
->
-> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
+Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
+Co-developed-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+---
+ drivers/hwtracing/gtrace/gtrace-core.c | 257 +++++++++++++++++++++++++
+ include/linux/gtrace.h                 |  27 ++-
+ 2 files changed, 283 insertions(+), 1 deletion(-)
 
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-
-I think this change could be merged, but please see my thoughts on 
-picking the optimal sizes.
-
-
-> ---
->   drivers/gpu/drm/clients/drm_log.c | 36 ++++++++++++++++++++-----------
->   1 file changed, 24 insertions(+), 12 deletions(-)
->
-> diff --git a/drivers/gpu/drm/clients/drm_log.c b/drivers/gpu/drm/clients/drm_log.c
-> index 4654091fe11a..7a0db2690b55 100644
-> --- a/drivers/gpu/drm/clients/drm_log.c
-> +++ b/drivers/gpu/drm/clients/drm_log.c
-> @@ -25,9 +25,9 @@ MODULE_AUTHOR("Jocelyn Falempe");
->   MODULE_DESCRIPTION("DRM boot logger");
->   MODULE_LICENSE("GPL");
->   
-> -static unsigned int scale = 1;
-> +static unsigned int scale = 0;
->   module_param(scale, uint, 0444);
-> -MODULE_PARM_DESC(scale, "Integer scaling factor for drm_log, default is 1");
-> +MODULE_PARM_DESC(scale, "Integer scaling factor for drm_log, default is 0 (auto)");
->   
->   /**
->    * DOC: overview
-> @@ -42,6 +42,7 @@ struct drm_log_scanout {
->   	const struct font_desc *font;
->   	u32 rows;
->   	u32 columns;
-> +	u32 scale;
->   	u32 scaled_font_h;
->   	u32 scaled_font_w;
->   	u32 line;
-> @@ -72,17 +73,17 @@ static struct drm_log *console_to_drm_log(struct console *con)
->   
->   static void drm_log_blit(struct iosys_map *dst, unsigned int dst_pitch,
->   			 const u8 *src, unsigned int src_pitch,
-> -			 u32 height, u32 width, u32 px_width, u32 color)
-> +			 u32 height, u32 width, u32 blit_scale, u32 px_width, u32 color)
->   {
->   	switch (px_width) {
->   	case 2:
-> -		drm_draw_blit16(dst, dst_pitch, src, src_pitch, height, width, scale, color);
-> +		drm_draw_blit16(dst, dst_pitch, src, src_pitch, height, width, blit_scale, color);
->   		break;
->   	case 3:
-> -		drm_draw_blit24(dst, dst_pitch, src, src_pitch, height, width, scale, color);
-> +		drm_draw_blit24(dst, dst_pitch, src, src_pitch, height, width, blit_scale, color);
->   		break;
->   	case 4:
-> -		drm_draw_blit32(dst, dst_pitch, src, src_pitch, height, width, scale, color);
-> +		drm_draw_blit32(dst, dst_pitch, src, src_pitch, height, width, blit_scale, color);
->   		break;
->   	default:
->   		WARN_ONCE(1, "Can't blit with pixel width %d\n", px_width);
-> @@ -122,7 +123,7 @@ static void drm_log_draw_line(struct drm_log_scanout *scanout, const char *s,
->   		if (src)
->   			drm_log_blit(&map, fb->pitches[0], src, font_pitch,
->   				     scanout->scaled_font_h, scanout->scaled_font_w,
-> -				     px_width, color);
-> +				     scanout->scale, px_width, color);
->   		iosys_map_incr(&map, scanout->scaled_font_w * px_width);
->   	}
->   
-> @@ -206,6 +207,15 @@ static u32 drm_log_find_usable_format(struct drm_plane *plane)
->   	return DRM_FORMAT_INVALID;
->   }
->   
-> +/* Find the biggest integer scaling to get about 120x50 chars on the screen */
-> +static int auto_scale(unsigned int cols, unsigned int rows)
-> +{
-> +	unsigned int scale_w = DIV_ROUND_CLOSEST(cols, 120);
-> +	unsigned int scale_h = DIV_ROUND_CLOSEST(rows, 50);
-> +
-> +	return max(min(scale_w, scale_h), 1);
-> +}
-> +
->   static int drm_log_setup_modeset(struct drm_client_dev *client,
->   				 struct drm_mode_set *mode_set,
->   				 struct drm_log_scanout *scanout)
-> @@ -230,8 +240,13 @@ static int drm_log_setup_modeset(struct drm_client_dev *client,
->   		return -ENOMEM;
->   	}
->   	mode_set->fb = scanout->buffer->fb;
-> -	scanout->scaled_font_h = scanout->font->height * scale;
-> -	scanout->scaled_font_w = scanout->font->width * scale;
-> +	if (scale)
-> +		scanout->scale = scale;
-> +	else
-> +		scanout->scale = auto_scale(width / scanout->font->width,
-> +			                    height / scanout->font->height);
-> +	scanout->scaled_font_h = scanout->font->height * scanout->scale;
-> +	scanout->scaled_font_w = scanout->font->width * scanout->scale;
->   	scanout->rows = height / scanout->scaled_font_h;
->   	scanout->columns = width / scanout->scaled_font_w;
->   	if (!scanout->rows || !scanout->columns) {
-> @@ -444,9 +459,6 @@ void drm_log_register(struct drm_device *dev)
->   {
->   	struct drm_log *new;
->   
-> -	if (!scale)
-> -		scale = 1;
-> -
->   	new = kzalloc_obj(*new);
->   	if (!new)
->   		goto err_warn;
->
-> base-commit: bcf5c42d6ed136cc407cea896f131d6893c830af
-
+diff --git a/drivers/hwtracing/gtrace/gtrace-core.c b/drivers/hwtracing/gtrace/gtrace-core.c
+index 57554d5eb98d..728235fc9bfe 100644
+--- a/drivers/hwtracing/gtrace/gtrace-core.c
++++ b/drivers/hwtracing/gtrace/gtrace-core.c
+@@ -26,6 +26,7 @@ struct gtrace_comp_priv {
+ 	struct gtrace_component comp;
+ 	u32 type_idx;
+ 	bool ready;
++	bool visited;
+ };
+ 
+ #define to_gtrace_comp_priv(__comp)	\
+@@ -230,6 +231,62 @@ int gtrace_reset_component(struct gtrace_component *comp)
+ }
+ EXPORT_SYMBOL_GPL(gtrace_reset_component);
+ 
++static int __gtrace_walk_output_components(struct gtrace_component *comp,
++					   bool *stop, void *priv,
++					   int (*fn)(struct gtrace_component *comp, bool *stop,
++						     struct gtrace_connection *stop_conn,
++						     void *priv))
++{
++	struct gtrace_comp_priv *cpriv = to_gtrace_comp_priv(comp);
++	struct gtrace_connection *conn, *stop_conn = NULL;
++	struct gtrace_platform_data *pdata = comp->pdata;
++	int i, ret;
++
++	if (cpriv->visited) {
++		dev_err(&comp->dev, "loop detected, please fix the firmware\n");
++		return -ELOOP;
++	}
++	cpriv->visited = true;
++
++	for (i = 0; i < pdata->nr_outconns; i++) {
++		conn = pdata->outconns[i];
++		ret = __gtrace_walk_output_components(conn->dest_comp, stop, priv, fn);
++		if (ret) {
++			cpriv->visited = false;
++			return ret;
++		}
++
++		if (*stop) {
++			stop_conn = conn;
++			break;
++		}
++	}
++
++	ret = fn(comp, stop, stop_conn, priv);
++	cpriv->visited = false;
++
++	return ret;
++}
++
++int gtrace_walk_output_components(struct gtrace_component *comp, void *priv,
++				  int (*fn)(struct gtrace_component *comp, bool *stop,
++					    struct gtrace_connection *stop_conn,
++					    void *priv))
++{
++	bool stop = false;
++	int ret;
++
++	if (!comp || !fn)
++		return -EINVAL;
++
++	mutex_lock(&gtrace_mutex);
++	ret = __gtrace_walk_output_components(comp, &stop, priv, fn);
++	mutex_unlock(&gtrace_mutex);
++
++	return ret;
++}
++EXPORT_SYMBOL_GPL(gtrace_walk_output_components);
++
+ struct gtrace_component *gtrace_cpu_source(unsigned int cpu)
+ {
+ 	struct gtrace_component *comp;
+@@ -496,6 +553,206 @@ void gtrace_unregister_component(struct gtrace_component *comp)
+ }
+ EXPORT_SYMBOL_GPL(gtrace_unregister_component);
+ 
++struct gtrace_path_node {
++	struct list_head		head;
++	struct gtrace_component		*comp;
++	struct gtrace_connection	*conn;
++};
++
++struct gtrace_component *gtrace_path_source(struct gtrace_path *path)
++{
++	struct gtrace_path_node *node;
++
++	node = list_first_entry(&path->comp_list, struct gtrace_path_node, head);
++	return node->comp;
++}
++EXPORT_SYMBOL_GPL(gtrace_path_source);
++
++struct gtrace_component *gtrace_path_sink(struct gtrace_path *path)
++{
++	struct gtrace_path_node *node;
++
++	node = list_last_entry(&path->comp_list, struct gtrace_path_node, head);
++	return node->comp;
++}
++EXPORT_SYMBOL_GPL(gtrace_path_sink);
++
++static int gtrace_assign_trace_id(struct gtrace_path *path)
++{
++	const struct gtrace_driver *gtdrv;
++	struct gtrace_component *comp;
++	struct gtrace_path_node *node;
++	int trace_id;
++
++	list_for_each_entry(node, &path->comp_list, head) {
++		comp = node->comp;
++		device_lock(&comp->dev);
++		gtdrv = to_gtrace_driver(comp->dev.driver);
++
++		if (!gtdrv || !gtdrv->get_trace_id) {
++			device_unlock(&comp->dev);
++			continue;
++		}
++
++		trace_id = gtdrv->get_trace_id(comp, path->mode);
++		device_unlock(&comp->dev);
++		if (trace_id == -ENODATA)
++			continue;
++		if (trace_id < 0)
++			return trace_id;
++
++		path->trace_id = trace_id;
++		return 0;
++	}
++
++	return 0;
++}
++
++static void gtrace_unassign_trace_id(struct gtrace_path *path)
++{
++	const struct gtrace_driver *gtdrv;
++	struct gtrace_component *comp;
++	struct gtrace_path_node *node;
++
++	if (path->trace_id == GTRACE_INVALID_TRACE_ID)
++		return;
++
++	list_for_each_entry(node, &path->comp_list, head) {
++		comp = node->comp;
++		device_lock(&comp->dev);
++		gtdrv = to_gtrace_driver(comp->dev.driver);
++
++		if (!gtdrv || !gtdrv->put_trace_id) {
++			device_unlock(&comp->dev);
++			continue;
++		}
++
++		gtdrv->put_trace_id(comp, path->mode, path->trace_id);
++		device_unlock(&comp->dev);
++	}
++}
++
++static bool gtrace_path_ready(struct gtrace_path *path)
++{
++	struct gtrace_comp_priv *cpriv;
++	struct gtrace_path_node *node;
++
++	list_for_each_entry(node, &path->comp_list, head) {
++		device_lock(&node->comp->dev);
++		cpriv = to_gtrace_comp_priv(node->comp);
++		if (!cpriv->ready) {
++			device_unlock(&node->comp->dev);
++			return false;
++		}
++		device_unlock(&node->comp->dev);
++	}
++
++	return true;
++}
++
++struct build_path_walk_priv {
++	struct gtrace_path		*path;
++	struct gtrace_component		*sink;
++};
++
++static int build_path_walk_fn(struct gtrace_component *comp, bool *stop,
++			      struct gtrace_connection *stop_conn,
++			      void *priv)
++{
++	struct build_path_walk_priv *ppriv = priv;
++	struct gtrace_path *path = ppriv->path;
++	struct gtrace_path_node *node;
++
++	if ((!ppriv->sink && gtrace_is_sink(comp->pdata)) ||
++	    (ppriv->sink && ppriv->sink == comp))
++		*stop = true;
++
++	if (*stop) {
++		node = kzalloc_obj(*node);
++		if (!node)
++			return -ENOMEM;
++		INIT_LIST_HEAD(&node->head);
++		gtrace_get_component(comp);
++		node->comp = comp;
++		node->conn = stop_conn;
++		list_add(&node->head, &path->comp_list);
++	}
++
++	return 0;
++}
++
++static void gtrace_release_path_nodes(struct gtrace_path *path)
++{
++	struct gtrace_path_node *node, *node1;
++
++	list_for_each_entry_safe(node, node1, &path->comp_list, head) {
++		list_del(&node->head);
++		gtrace_put_component(node->comp);
++		kfree(node);
++	}
++}
++
++struct gtrace_path *gtrace_create_path(struct gtrace_component *source,
++				       struct gtrace_component *sink,
++				       enum gtrace_component_mode mode)
++{
++	struct build_path_walk_priv priv;
++	struct gtrace_path *path;
++	int ret = 0;
++
++	if (!source || mode >= GTRACE_COMPONENT_MODE_MAX) {
++		ret = -EINVAL;
++		goto err_out;
++	}
++
++	path = kzalloc(sizeof(*path), GFP_KERNEL);
++	if (!path) {
++		ret = -ENOMEM;
++		goto err_out;
++	}
++	INIT_LIST_HEAD(&path->comp_list);
++	path->mode = mode;
++	path->trace_id = GTRACE_INVALID_TRACE_ID;
++
++	priv.path = path;
++	priv.sink = sink;
++	ret = gtrace_walk_output_components(source, &priv, build_path_walk_fn);
++	if (ret < 0)
++		goto err_release_path_nodes;
++
++	/* Before proceeding, check that a valid path was built. */
++	if (list_empty(&path->comp_list)) {
++		ret = -ENODEV;
++		goto err_release_path_nodes;
++	}
++
++	if (!gtrace_path_ready(path)) {
++		ret = -EOPNOTSUPP;
++		goto err_release_path_nodes;
++	}
++
++	ret = gtrace_assign_trace_id(path);
++	if (ret < 0)
++		goto err_release_path_nodes;
++
++	return path;
++
++err_release_path_nodes:
++	gtrace_release_path_nodes(path);
++	kfree(path);
++err_out:
++	return ERR_PTR(ret);
++}
++EXPORT_SYMBOL_GPL(gtrace_create_path);
++
++void gtrace_destroy_path(struct gtrace_path *path)
++{
++	gtrace_unassign_trace_id(path);
++	gtrace_release_path_nodes(path);
++	kfree(path);
++}
++EXPORT_SYMBOL_GPL(gtrace_destroy_path);
++
+ int __gtrace_register_driver(struct module *owner, struct gtrace_driver *gtdrv)
+ {
+ 	gtdrv->driver.owner = owner;
+diff --git a/include/linux/gtrace.h b/include/linux/gtrace.h
+index 46264c775efb..562cd1eca162 100644
+--- a/include/linux/gtrace.h
++++ b/include/linux/gtrace.h
+@@ -269,6 +269,10 @@ int gtrace_enable_component(struct gtrace_component *comp);
+ int gtrace_disable_component(struct gtrace_component *comp);
+ int gtrace_reset_component(struct gtrace_component *comp);
+ 
++int gtrace_walk_output_components(struct gtrace_component *comp, void *priv,
++				  int (*fn)(struct gtrace_component *comp, bool *stop,
++					    struct gtrace_connection *stop_conn,
++					    void *priv));
+ struct gtrace_component *gtrace_cpu_source(unsigned int cpu);
+ 
+ struct gtrace_component *gtrace_register_component(struct gtrace_component_id *id,
+@@ -280,13 +284,34 @@ void gtrace_release_outconns(struct gtrace_platform_data *pdata);
+ int gtrace_of_parse_outconns(struct gtrace_platform_data *pdata);
+ int gtrace_of_parse_inconns(struct gtrace_platform_data *pdata);
+ 
++/**
++ * struct gtrace_path - Representation of a trace path from source to sink.
++ * @comp_list: List of trace components in the path.
++ * @mode:      Usage mode for trace components.
++ * @trace_id:  Hardware source ID, or GTRACE_INVALID_TRACE_ID if none is supplied.
++ */
++struct gtrace_path {
++	struct list_head		comp_list;
++	enum gtrace_component_mode	mode;
++	u32				trace_id;
++#define GTRACE_INVALID_TRACE_ID	U32_MAX
++};
++
++struct gtrace_component *gtrace_path_source(struct gtrace_path *path);
++struct gtrace_component *gtrace_path_sink(struct gtrace_path *path);
++struct gtrace_path *gtrace_create_path(struct gtrace_component *source,
++				       struct gtrace_component *sink,
++				       enum gtrace_component_mode mode);
++void gtrace_destroy_path(struct gtrace_path *path);
++
+ /**
+  * struct gtrace_driver - Representation of a trace driver.
+  * @id_table:      Table to match components handled by the driver, terminated
+  *                 by GTRACE_COMPONENT_TYPE_NONE.
+  * @probe:         Driver probe() function.
+  * @remove:        Driver remove() function.
+- * @get_trace_id:  Get/allocate a trace ID.
++ * @get_trace_id:  Get/allocate a trace ID. Returns a nonnegative ID, -ENODATA
++ *                 if this component supplies no ID, or another negative error.
+  * @put_trace_id:  Put/free a trace ID.
+  * @driver:        Device driver instance.
+  */
 -- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Stefan Gaiser, Jochen Jaser, Abhinav Puri, (HRB 36809, AG Nürnberg)
-
+2.43.0
 
