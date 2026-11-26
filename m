@@ -1,100 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.178
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795662785;
-	b=ckvR+tLX20m17FrbnyOszxYjqF6KuCNqmHXpnqkzUFwdMT9/5mc1egeB6knU27glK8CY
-	 dZSEiWBwUtyg6u3/ZxbRpd2oZ4uduaoYQTGfLEaT/8zQRH/WFeIEfTFmsMLelWTo/Ybde
-	 sd6ibgrOdp6Gl4x6bXlPtOpI20kl0M8qnBf7oNRb0cOkxPur8DCc9hUV7+t8aZqmsISZ2
-	 V4LYNbpSJOpJS4r1Rgdqt1Vr8oHcB7YDycGv2CrNzG+3myptu7TsML46H+kqB6g9jn9kH
-	 NmQUtTE1H6/hvkt4vwKsxo99SvOikjthGUR7/usJ/F328o5/AXLAgNkIvSELCaNds4g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795662785;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=0u2teU5+DNhXHRl/MB1LD7h44EF6lJ6g1dkNyrP5OEA=;
-	b=OUIkO527HTjmjNWPVfX1A0dhlMJbFLRSvwENJIdnjn+u4P/ZgTXuhgwFn/tW3v8IA4pI
-	 eK7ml4t4YEH2MGyieKOZg5mDTNqUXBzTC4dS+HKo31LZvWkbA1MTBMy8gEjaKRSZNcYu2
-	 AtUU3wO9MtKwijNqUaVVieYfEVrsRiOvZBLCEMTJ9jGDpWCZsez7725JQbh1+eHkz/W6l
-	 Ubk8YRlWzzDO+Khmz87YPpHXvslkvb5uruNKKe7TsuLqagSsRcm7VJwMdHi22wSJ3IkLS
-	 enZBUmJRu1+hZOgBjUzlxa4SB5V+XJ+KL/6fMgfL2K3D8lzCcGHhLaLQ8xISto+yT0Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UisuFHf+;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.178
-Received: from mail-yw1-f178.google.com (mail-yw1-f178.google.com [209.85.128.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795662820;
+	b=tRuR2NhDtfq/35AaGkr3jmHw6VcRhrngUB0581Mu3583/FJtDduLrDaSZl+wLhtnzm8c
+	 u8whpvetw8++hm02LNqwW6Yj/8+nmDbb4MOaoRGR4ZmQtYlj+vURNdAf8IVHUXD24chNK
+	 V9o1oYb3cNYccHbST+Po7AtqCxKQRYKjIQzDWlZPLAu8XKyU8mZTh95Jre5+SimX5cXqO
+	 xC4KPVV+ucLy8mf++IFcF3xxc3ZKbccA4B/EtNh9EoXp5TwtRFUXEN93auTyMyUeFgMgQ
+	 zZ5EOqyteZ8B2rUs3EXUiZyoGLRbFht+5Abd8hc8SfZyhB2H52RzCWJ4UvGqgAzrOug==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795662820;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=2Ib8aYZITDo/ZPmpEFTS6qhqZypmgy7XDQl+C7k59bg=;
+	b=bAPNQvmwlAd/beP0GoBkTGnK56Kmrf9DH7QpOS+CGDaPDtNQXKUd00S5gS0vhRpic0/f
+	 BLjM3D3vSSqYQRF1Q13wRBsuoxGkkSxrG94NvJCJzJLZwEi3JIbb0UapCsn4cR/M1gCCg
+	 VXQ0xz6iqVzA77D/7cGz35z7f8WONgsikucRMj3DViRlldTDJFot4HAOi8x4ggHxNnTeD
+	 iQB/feL5kV2RqOh33etg2BjCiVg3B/p4EWVoS9LEF0gdMkWivzYas+JzOc4GFE/YF/hMD
+	 8I4vyxh4+SGlEDPgMJ2e8YyQvMXJclTkYy0OpEwtQt3hscYp9Ks9jjOfOBDdDzxDPXw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LfpeBh1K;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5655606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:13:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5655606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0580B606A321;
+	Thu, 26 Nov 2026 03:13:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UisuFHf+
-Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-8b32daac9d7so35632077b3.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:13:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795662784; cv=none;
-        d=google.com; s=arc-20260327;
-        b=WiNDADP8KjItsjE3UotXUsNcLMb1VwW39bLIoPh/rMWgQY++WEmbhOrFn9r45/mQhW
-         AtJHS/M8tK1mp6Sdkb69+mJcq85Eprs+oPkxc2OHYh4AAJozyssLmz6KsZEzqozR3zif
-         fAB4UGu27TX1S22QK2TM9GjseLYLps0ojbi6HZridlRsw/Zs2wGRBAa1/oqYcgmfnFAf
-         6pXGX2bEeNI0bzHXxQBRbGRovqnj88Znxf4OtY6QOMQmRRtvsCh6UFzTI3pwmeU7Xuhy
-         NGI/OV1zkloxBSSvB3Z0AFGaIzlT3o0JQAnVpY/WlVELVsw49k2oRWfqX4G5RndiNxyL
-         mdVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=0u2teU5+DNhXHRl/MB1LD7h44EF6lJ6g1dkNyrP5OEA=;
-        fh=Uy4omCiRrkeWsm7m+nBifkK+amt1+6i9dtvfhErBhHM=;
-        b=FfoWL1ATyeUVfNifSa0US4wGk30pkfsolAngGkTUaCDIRBm0ICMoB/KJ6gRnT6cvFk
-         OSWMpngzkgA4J7PHn06dvveXNH1mYDWEE3WMm4coyAvICF9p/8AeUqcvVBYOz/+t0qOU
-         fDwLKUb51irUbBtOijJ3fuPD2Li94nOHFeN4B8ePyOmQ+mQcxAR6Uga2+YOllpXiLWBo
-         nUNGtBViDsQpXToThigYKkdpjAaMWJA4Cpyenw7IT9DXd8bRjxIHtehK02rcaDktiStN
-         S3Q0pWC7Em5n7PsUCR+u+d+JkRpuUevWHz0ShXlKk4Rct5sUr4NfY6V7K7z/gaHT9X1Y
-         IHJQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795662784; x=1796267584; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=0u2teU5+DNhXHRl/MB1LD7h44EF6lJ6g1dkNyrP5OEA=;
-        b=UisuFHf+11MsiQEkohokz+1jDpyAqyX++7iLpg29wa6o3zjneM/lyPoL7/X1iNCEvO
-         kZScrauJ/qMJ8kMTxa9PFoPJ1TS8z1vpnkJ2zARofylySHngdnuX3MXKPt14xwi57xsW
-         lKGFJhN5zuUVkvmiYHg9G2xqhUaazUBCFZvZ/o2kXcCF4v6M55t0XkuGjKZ7viu7LHFr
-         JGllJTyjOmxI9DqOjEdaNNZGAZn5Y+OruXKEea+t4GQMCNUMA1wO+NifHnnJxe+LhmGk
-         GUwD6owy1Fy+/g9Giv6BbOgVUoDMYWVEhSGcOxlAq/FBCzAaK1Hs97skGyOP0qFngu51
-         GsWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795662784; x=1796267584;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0u2teU5+DNhXHRl/MB1LD7h44EF6lJ6g1dkNyrP5OEA=;
-        b=BmZzOR1aSdsHXLNV1Wd7pkFY2lXvQ6A/tsGLwD3LvzYOOZtNcNNqVNdSXoq8e4PDBW
-         4zmOP099Y+9L9kV8MRj8F5Hhvul5q9Q4kw+8rKhf2Kc3gr5EEwWRjkns1o2FRbOFDR9f
-         AAOYzilR+kd170a28LiiesUmDwTh3cDQwA3baTg9cpG17a1j0/goiJXDBBAt68tAI+nl
-         SN6e17Ucr2YMFzq58iQvQzOaCaUzxGrEFHs1aPxkNpkIz5lfRKCZfcICmT2MrGupEF9F
-         109y6eij7pO8NcVx2yUqap8fr542W/lvqXMh8ML/p5SgIORkOAJH/Lr0RGYPf/OjTMPD
-         MRDg==
-X-Forwarded-Encrypted: i=1; AL+hErE1RCBCWSI1t01IooWIDGOc55gItAMPWA3r/91IaMxHLRujEXttYJVlpAd1xue9+hoqFmqMAhkMYDEA4FM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8C5K+JChvEHYi86xdA6pCq0xiRkuqcIRCfBAfkI378DlFV+XGT
-	/Bov81VrQI1HhYiwm2ZmjJIVsglsLpEZudSz9NGJAfIxL0vCraJDUWZ/DjK1rmac7ECOtdOIz9G
-	zQuZyB/M9W45uKzOEqwS7iiKDlIbKZFg=
-X-Gm-Gg: AZFdTZfwW2a6AZRtMRoYiyN+nPeG8g6LKYJCedb3HTIdq4ggtpnHqH6KAS/fVSObtol
-	hgUk8K36A/wjIARLxQgWU1RlckgGK/PpaXcJ97mxTOcQr9JeAl9YsGc4jDOOxQGxKoAZwMoGMTe
-	0xzxdbFrHBjZrjB8DqDlAkYRkQ+saSZpC1m5C+pHbi0EP/vvtGeDymuOOM5nigyhP/RV8gVtulN
-	bpJEWKRuK6AsiMMsw0evpiCk/xSzzHuZIKlj/h3VSdL7bpMraRz4QsQpH5z1w7M3AmpmgSNyAiP
-	MgDV3XJLKkg7moQa0k7th68e4SDXgNfVWuZlSbN73eiAIhhPJAGHajxSbnAuAZMGhz4elxI+KMC
-	Z77V1oBfSEb3MsxBO4kVyMCJ4GkkDHFKrYMFSBDc5OTjgQjc7eXnKZY3kn3dlsgsMfh4=
-X-Received: by 2002:a05:690c:6d83:b0:8b1:6c4d:6b83 with SMTP id
- 00721157ae682-8b518f1cf54mr82200347b3.24.1795662783714; Wed, 25 Nov 2026
- 19:13:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LfpeBh1K
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F66F1F000C0;
+	Thu, 26 Nov 2026 03:13:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795662819;
+	bh=2Ib8aYZITDo/ZPmpEFTS6qhqZypmgy7XDQl+C7k59bg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=LfpeBh1K10pS4Qv0815P2GMlhs3eUb++qM5yCCQWxVHkoWMjLapeED9yyOuaF15mD
+	 GWPnFny6IkXku0G7oJ5mjeuvUrUcAoZA8wIahSn0dJrAknLMrO0vj1NzDDnnTkT9vq
+	 oKcwMK0QYIHQwoC08lwxACgq/L/Pek+17lU5vlpUn3SVhJ5V0Yc2kz+Jpu7wCecQdH
+	 1hKYr0cvX9XKbkZXPHCgSwKAbbwKiIhZeMXAZR3rsa2u0sqtx4VENy4Ywf8d52LIRz
+	 GlPpp8kne+KEbddqVm3i10pQshEQc7PKVExpc/qhRDe2+bVsHFcj+MnaaK4kRTl2eV
+	 8R5kQMQzDGZ4Q==
+Date: Wed, 25 Nov 2026 19:13:37 -0800
+From: "Peter Chen (Qualcomm)" <peter.chen@kernel.org>
+To: Mario Behn <mario.behn@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH] usb: chipidea: udc: give up when the endpoint halt bit
+ is not taken
+Message-ID: <awej4edcffKnljdt@hu-petche-lv.qualcomm.com>
+References: <20261105205343.982465-1-mario.behn@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,56 +60,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125-klp-series-v3-v3-0-b1e0f79af331@vt.edu>
- <20261125-klp-series-v3-v3-2-b1e0f79af331@vt.edu> <sashiko-outbox-234405@kernel.org>
- <DM6PR05MB4137C0B5BB4D88A9D5847EBAD1432@DM6PR05MB4137.namprd05.prod.outlook.com>
-In-Reply-To: <DM6PR05MB4137C0B5BB4D88A9D5847EBAD1432@DM6PR05MB4137.namprd05.prod.outlook.com>
-From: Yafang Shao <laoar.shao@gmail.com>
-Date: Thu, 26 Nov 2026 11:12:27 +0800
-X-Gm-Features: Aa3M54r9bQyCNEtl8vDg0fA8BgkRlMLeLZFLbV6lOjC0bsXV0kG9vz91uifhxJo
-Message-ID: <CALOAHbAQuYG__4b054bRobVRyT+v143wBcVAN26T_PtiO-oqmA@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] livepatch: Include exiting tasks in the transition
-To: "Ravindran, Binoy" <binoy@vt.edu>, "Paul E. McKenney" <paulmck@kernel.org>
-Cc: Frederic Weisbecker <frederic@kernel.org>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
-	Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, 
-	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, 
-	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>, 
-	Ingo Molnar <mingo@kernel.org>, Jiri Kosina <jikos@kernel.org>, 
-	"sashiko-reviews@lists.linux.dev" <sashiko-reviews@lists.linux.dev>, 
-	"live-patching@vger.kernel.org" <live-patching@vger.kernel.org>, "Shastri, Jaidev" <jaidevshastri@vt.edu>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "rcu@vger.kernel.org" <rcu@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261105205343.982465-1-mario.behn@gmail.com>
 
-On Thu, Nov 26, 2026 at 8:58=E2=80=AFAM Ravindran, Binoy <binoy@vt.edu> wro=
-te:
->
->
-> Thanks, this is right. A dying task reports its quiescent state in
-> rcu_note_context_switch(), early in __schedule(), and then still runs
-> traceable code, such as update_rq_clock() and pick_next_task(), until
-> switch_to(). RCU does not promise to wait for code after that point, and
-> with expedited grace periods the quiescent state is reported right
-> there, so synchronize_rcu() can return too early.
-> klp_synchronize_transition(), which v2 used, does not have this
-> problem: schedule_on_each_cpu() completes only after the work item has
-> run on every CPU, which on the dying task's CPU happens only after
-> switch_to().
->
-> v4 goes back to klp_synchronize_transition() for both waits and keeps
-> klp_try_switch_exiting_tasks() from v3. I will send it after rerunning
-> the tests.
->
-> Yafang, this reverses your second suggestion; I hope the reason above
-> makes sense. It also brings back the v2 transition times.
+On 26-11-05 21:53:42, Mario Behn wrote:
+> hw_ep_set_halt() writes the stall bit of an endpoint and loops until it
+> reads back. On endpoint 0 the controller clears the stall bit itself when
+> a SETUP packet arrives, so when one arrives while the driver stalls the
+> endpoint the loop never ends. It runs in the UDC interrupt thread with the
+> controller lock held, and the SETUP packet it is waiting out can only be
+> consumed by that same thread.
+> 
+> Seen on a Zynq-7000 (an ADALM-PLUTO class board, PREEMPT_RT) during the
+> host RNDIS initialisation: the gadget stalls the GET_ENCAPSULATED_RESPONSE
+> poll that has no answer yet, the stall is refused, the interrupt thread
+> spins for a minute, RCU stalls and every other USB operation blocks on the
+> lock. With a bounded loop the condition shows on 1 to 3 percent of boots
+> and is harmless: the pending SETUP packet is handled next and the host
+> repeats its poll.
+> 
+> Retry for about a millisecond, then warn with the endpoint control and
+> setup status registers and return -EBUSY. The callers already report a
+> failed stall.
+> 
+> A loop timeout for the same hang was proposed in 2021 (usb: chipidea: add
+> loop timeout for hw_ep_set_halt(), Jeaho Hwang) and not applied.
+> 
+> Signed-off-by: Mario Behn <mario.behn@gmail.com>
 
-Agreed. I missed the point that the quiescent state is reported early
-in __schedule(), and that the code from there until switch_to() is not
-covered by synchronize_rcu(). Thanks for pointing that out.
+Please add Fixes tag and Cc to stable tree.
 
---=20
-Regards
-Yafang
+Peter
+> ---
+>  drivers/usb/chipidea/udc.c | 22 +++++++++++++++-------
+>  1 file changed, 15 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/usb/chipidea/udc.c b/drivers/usb/chipidea/udc.c
+> index d52f89489893..4f4e6d296de5 100644
+> --- a/drivers/usb/chipidea/udc.c
+> +++ b/drivers/usb/chipidea/udc.c
+> @@ -224,20 +224,28 @@ static int hw_ep_prime(struct ci_hdrc *ci, int num, int dir, int is_ctrl)
+>   */
+>  static int hw_ep_set_halt(struct ci_hdrc *ci, int num, int dir, int value)
+>  {
+> +	enum ci_hw_regs reg = OP_ENDPTCTRL + num;
+> +	u32 mask_xs = (dir == TX) ? ENDPTCTRL_TXS : ENDPTCTRL_RXS;
+> +	u32 mask_xr = (dir == TX) ? ENDPTCTRL_TXR : ENDPTCTRL_RXR;
+> +	int retries = 1000;
+> +
+>  	if (value != 0 && value != 1)
+>  		return -EINVAL;
+>  
+>  	do {
+> -		enum ci_hw_regs reg = OP_ENDPTCTRL + num;
+> -		u32 mask_xs = (dir == TX) ? ENDPTCTRL_TXS : ENDPTCTRL_RXS;
+> -		u32 mask_xr = (dir == TX) ? ENDPTCTRL_TXR : ENDPTCTRL_RXR;
+> -
+>  		/* data toggle - reserved for EP0 but it's in ESS */
+>  		hw_write(ci, reg, mask_xs|mask_xr,
+>  			  value ? mask_xs : mask_xr);
+> -	} while (value != hw_ep_get_halt(ci, num, dir));
+> -
+> -	return 0;
+> +		if (value == hw_ep_get_halt(ci, num, dir))
+> +			return 0;
+> +		udelay(1);
+> +	} while (--retries);
+> +
+> +	dev_warn_ratelimited(ci->dev,
+> +			     "ep%d%s: halt=%d not taken, ENDPTCTRL 0x%08x ENDPTSETUPSTAT 0x%08x\n",
+> +			     num, dir == TX ? "in" : "out", value, hw_read(ci, reg, ~0),
+> +			     hw_read(ci, OP_ENDPTSETUPSTAT, ~0));
+> +	return -EBUSY;
+>  }
+>  
+>  /**
+> -- 
+> 2.53.0
+> 
+
+-- 
+
+Thanks,
+Peter Chen
