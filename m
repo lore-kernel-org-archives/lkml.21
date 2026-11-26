@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795725840;
-	b=EADcKjdDMNVStFqrf7oCZfNriNOCvRlalGqJRI4VQfoOR7zXOhqpicT0eSjwGe+Fciqs
-	 faWHGrGdFYVB6IRBkbqu3yGQt+ZJ2b5SoVpTAOw3dTuCcFwXoHP166WWY4idBQlMy7ljk
-	 r1XPpNe6/mCeXxKpZL58w0CVmmxLqOoNnAXO3KicwMk1GxdgbEGJjO421gHPW974hz+CX
-	 +8yKqXNtTELvhqOxBMyFsZTju6PvRMWtsX3KLtUypfPI/4WR0QdeYumhF75N4u/GYhdmx
-	 Q2J5878znhgReInHNL58tIZqlzu1qX6OEiuD6hMAvaBoyzFl+AvsJna1t04xBOYI6yA==
+	t=1795725954;
+	b=h8aeNaWHE5viJjS+IYVbr/nXAjG/6d6O9LwcwK7Ik9/b0i1hbasqNzV5QpECXhD/ROzo
+	 WFk01VcMn9Tf+2Cdal+G8ACDt0BDRulbHU3WFmL5xhDA0QVNY8+rduR7f3FgaKFqoOqmg
+	 UoUYtZcB1VFtv1a020D3Ot9TDijvxCfPyNn1AcJQYoXLWEpPSEp++s++E5eBKKQ5c14lO
+	 Wlvp9fKMuULKrdys/MXz5vDqH52kOhQXCsQJVbEf4TMTYzU0Lzx9qxssJzxOZMzo39qS9
+	 fGj95GHJXg5hIzTS5NwZD6qrMtCTm6U3c1iS2yBtbvv44C34mQ9ZBWFRZm6caDejqgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795725840;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795725954;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=HZWRevE1wEbxjpukKO4CHBOJXi8fdV+M/EXVnjp9qbQ=;
-	b=K4R21Xf4ZDSxvvL5h2nipMhv34GylF2ALZqx1Y239TdMyiOW6Si7ZTEvf00Jv0L10/v8
-	 RgU+zqEiXjS0GjgmYlFQJ1ifFTo1/sliXbJDPSw46m/yE5sSOvtUPMlHtX43Df0TjXxah
-	 6NbMUAhUshx7ixdxt3NB5AusvG/nsmbpJV5LgIOpRAMcw4Q1DbJYBWZSFc7wIGxsWT+TY
-	 kFVLdrj6vPLOofyiQd3iA8MpPr6I823QBYhDrmE9igXLYH8/9qbfworLJhdSthLd8uYtF
-	 AOQndmJqyxtajkfDW8fUtPGMioMGNRCjZwtlfOeiYiKiGATWmXjB6y4oES0hCJRcZSg==
+	bh=LdqUDcmfoR3VJWIc2NbNNrZHmtzY94+puoQPf5oM6wg=;
+	b=xjm2a9dJHaS8Ye8XMbeqD0bU5U8YX7j97iHiAS8RTXP59VRsszbCxj/LeE5Ie7Nt0kDS
+	 y9GpZafppSaaODidMXlldeZp1CJXznl0jxpseQln0GtLbRJenidGOJnFbdct9/rDxzm9d
+	 e8qxrESdtBT3ChkSb+LKHxN1PX0KK0000QKjIx1ByZwUJm8Qdadu8GDMSPlMV6m+SXCWU
+	 aF0E+p9f4P8CcrelfPYHVLqX4zvLLZKYyYlU0OMNJw9d0SBSvE8IjxqoKSPRCZCNQOtEQ
+	 6iUdi1jQp//zjsvBRDT/tXMCzOe2TP8xZ9E2WCpfVH/VR6Bpbteepl8cc0AhzsXf5yw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HzrKrxkP;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KVyteKjX;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77F37606A69D
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:44:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 346AE606A6BE;
+	Thu, 26 Nov 2026 20:45:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HzrKrxkP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230FC1F000C1;
-	Thu, 26 Nov 2026 20:43:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KVyteKjX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 118741F00896;
+	Thu, 26 Nov 2026 20:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795725840;
-	bh=HZWRevE1wEbxjpukKO4CHBOJXi8fdV+M/EXVnjp9qbQ=;
+	s=k20260515; t=1795725953;
+	bh=LdqUDcmfoR3VJWIc2NbNNrZHmtzY94+puoQPf5oM6wg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=HzrKrxkPYwpZq2p5I+W/uO0iC2l84srRfLNrBWBzW6/XTO/aqG7itxEvv32+GnbxO
-	 IUdqcYpOW833bg7Bf35iLPuePhrSxmJj9QeyB8JDL9yH1OMGQPTxzLFxtWqf3oH9hB
-	 n08mJlROwgG6fOzxMxJZYfiUmv17mB9gqLhnL9XNct9ADLDkUxROrSh8m1HSmmApMA
-	 8hagac7sQAlt2sCCRrM529JRFquZ90Mn8dsP0Q/2bHd4E3OIf4aTe/JafuC5b70CIa
-	 GjmYHkGUnrklq09lmce2yjixVUqKMTtrWHRziOguMsO5/mBA9K7qIesclbJ//2MEA2
-	 6GEoAVYakaSkg==
-Message-ID: <f43c375f-7648-465c-97f1-2678a879701b@kernel.org>
-Date: Thu, 26 Nov 2026 21:43:50 +0100
+	b=KVyteKjXGDcCUpwC5xC5unxF2Q12OHXEwwIl3Xu8YhDL3mIPnsG7rq25tDnCuifhl
+	 pkZm+MwrXRrrdvAdzo4hkMI5x3uB9x/TosXo45GOlAQMVGnULAGx5qyMeszOCSupZb
+	 nZwcDxdqQ/3wa3Ej9YhUL11mqUHEoUc93elW9t63Adx00H2BD7Lwm9Y2NG84y6ptqQ
+	 7eDn26PKTROt7IJupJpBxIdHvPNTkGFpBfEmsdiKhZjhHvvghtIO9YQ1pVr4kovd+G
+	 6cEVUuGqBDFETtyZewIwEs021gm2BO0k0P+5sLBQBlioEYI6cgsyO5RNWit/AVDFDD
+	 niLGmeq1hx4bQ==
+Message-ID: <3a44dbfb-265f-4749-b411-9491a0bcf8c0@kernel.org>
+Date: Thu, 26 Nov 2026 21:45:42 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,32 +52,30 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] mm: introduce copy_mc_highpages() and batch copy in
- folio_mc_copy()
-To: "Garg, Shivank" <shivankg@amd.com>,
- "tejavojjala@google.com" <tejavojjala@google.com>,
- "Rao, Bharata Bhasker" <bharata@amd.com>, "rppt@kernel.org"
- <rppt@kernel.org>,
- "david.laight.linux@gmail.com" <david.laight.linux@gmail.com>,
- "ankur.a.arora@oracle.com" <ankur.a.arora@oracle.com>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "vbabka@kernel.org" <vbabka@kernel.org>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "mingo@redhat.com" <mingo@redhat.com>, "surenb@google.com"
- <surenb@google.com>, "peterz@infradead.org" <peterz@infradead.org>,
- "nhuhuan@google.com" <nhuhuan@google.com>, "hpa@zytor.com" <hpa@zytor.com>,
- "tglx@kernel.org" <tglx@kernel.org>, "liam@infradead.org"
- <liam@infradead.org>, "Salunke, Hrushikesh" <Hrushikesh.Salunke@amd.com>,
- "bp@alien8.de" <bp@alien8.de>, "mhocko@suse.com" <mhocko@suse.com>,
- "ljs@kernel.org" <ljs@kernel.org>, "rientjes@google.com"
- <rientjes@google.com>, "pfalcato@suse.de" <pfalcato@suse.de>,
- "torvalds@linuxfoundation.org" <torvalds@linuxfoundation.org>
-Cc: "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "x86@kernel.org" <x86@kernel.org>
-References: <20261113-batpagecopy-v3-1-297f5b2fd28e@amd.com>
- <7639d5f0-3dfb-4446-ab04-51317f604a69@kernel.org>
- <8ef0c61f525f3a1881d2717b1b7e43cd74d7674e.camel@amd.com>
+Subject: Re: [PATCH bpf-next v1 1/4] bpf: Add call for selecting kmalloc or
+ kmalloc_nolock at call time
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>
+Cc: Harry Yoo <harry@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>,
+ bpf@vger.kernel.org, andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ daniel@iogearbox.net, Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+ linux-rt-devel@lists.linux.dev, Vlastimil Babka <vbabka@kernel.org>,
+ Hao Li <hao.li@linux.dev>, Andrew Morton <akpm@linux-foundation.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Brendan Jackman <brendan.jackman@linux.dev>,
+ Johannes Weiner <hannes@cmpxchg.org>, Zi Yan <ziy@nvidia.com>,
+ linux-mm@kvack.org, Ingo Molnar <mingo@redhat.com>,
+ Will Deacon <will@kernel.org>, Boqun Feng <boqun@kernel.org>,
+ Waiman Long <longman@redhat.com>, linux-kernel@vger.kernel.org
+References: <20261124060357.11700-1-emil@etsalapatis.com>
+ <20261124060357.11700-2-emil@etsalapatis.com>
+ <DN38HGVL8JHQ.2ZVZQCKFXVA9T@gmail.com> <awWRZ9xCzWLnj_R6@thinkstation>
+ <20261125140902.GE2668804@noisy.programming.kicks-ass.net>
+ <DN4QLI2XAGO1.2DDIFJ49PNRPS@gmail.com>
+ <20261126094403.GA49833@noisy.programming.kicks-ass.net>
+ <aecebb39-47c9-4b0f-a076-ac0ddc7724d9@kernel.org>
+ <DN5FM9P3X2P0.2IFD5DFBRELP1@gmail.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -124,45 +122,21 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <8ef0c61f525f3a1881d2717b1b7e43cd74d7674e.camel@amd.com>
+In-Reply-To: <DN5FM9P3X2P0.2IFD5DFBRELP1@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/26/26 19:44, Garg, Shivank wrote:
-> On Mon, 2026-11-23 at 17:23 +0100, David Hildenbrand (Arm) wrote:
->> On 11/13/26 18:09, Shivank Garg wrote:
->>> folio_mc_copy() copies a folio one page at a time with copy_mc_highpage(),
-> <snip>
->>> -
->>> -	return 0;
->>> +	return copy_mc_highpages(folio_page(dst, 0), folio_page(src, 0),
->>> +				 folio_nr_pages(src));
->>>  }
->>
->> What bugs me a bit is that we are not tackling copy_user_large_folio(). So this
->> looks incomplete.
->>
->> There, we still have this. That keeps this process_huge_page() machinery alive,
->> and a special case for gigantic pages (copy_user_gigantic_page).
+On 11/26/26 21:40, Alexei Starovoitov wrote:
+> On Thu, Nov 26, 2026 at 01:46 AM David Hildenbrand (Arm) <david@kernel.org> wrote:
+>> This is all just way too complicated and shaky, sorry to say it.
 > 
-> Agreed.
-> 
->>
->> Meanwhile, folio_zero_user() moved to a range-based approach and abandoned that.
->>
->> Can we clean all that up as well while we are at it?
->>
->> These look like excellent candidats for using copy_mc_user_highpages() as well.
-> 
-> I've started working on this and the cleanups around it.
-> 
-> As copy_mc_highpages() patch stands on its own, I'd prefer to post those as follow-up
-> series on top.
-> 
-> Does that work for you, or would you prefer it in one series together?
+> Which part?
 
-Let's do the full thing if possible please. Only if you get stuck there we could
-use a partial solution.
+kmalloc_nolock :)
+
+> I don't see any new concepts of failure modes vs existing code.
+
+I hope we can sort out the rough edges.
 
 -- 
 Cheers,
