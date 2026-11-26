@@ -1,84 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.199.235.221
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795712389;
-	b=B18qasKsls407xgnwbG8Hhk5njErJRrJzU+iRUN3OfMq9U6i5wyyN45t3kh0f2QZOIga
-	 jwE8BTbSPUVNF3lUiC/uFCp6yYAFxMVfnJpmBLQ5Nuyr6vCd8K9rFaIONtBua5/omFaL3
-	 8SvnnZFEw0ewpUOb5mgXIDzf2IzRYugKqUtR2flDzn4nJOByhvFOHWsj5YHB5pCqkXpZM
-	 3fr9KGYWazdEufUuB6sS2twRySRYBSAW0q+ymAcQfRMZXTS/5ZUMA3K3tMDhumk/Uxt1m
-	 iKXZuyrRTWirFeGaOa2Qz9X7kSxjAsHDLH6hjoXY8MGCuVwpn4g3HcM5HL3FsjXLE7A==
+	t=1795712400;
+	b=f5OjaRQpMriM5tZVqT6R2lilL6Gwp9eeiUo6TmxVw+S/Ow0NThOY5PEgk438wAbxqYHu
+	 dR2EW4R0wYE2Nnpha+Ns4FCwyTbX+CpCpty9ydBv7jWN/7NThFXxxGk4AKHuQT36rE+Ez
+	 VXkRpL6mjJEGDM1Ttd0JoIwAbneCyH71OTsws8AI5pgLpxSHDzCoILvZvgekd5FKA97Kr
+	 Z+VbAFXVz/KYmNefwhxTYS+k4nqLBYdEiUmjtgnrA/9eVQ2pvVg5R39f6RvhEmhNRJgts
+	 GNEfJ5uYHB0I1QD2Xk3kY6UkybC0MZcfapy14mz69xHpRUGDIXJWy2UIpowXtgSP5vA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795712389;
-	h=DMARC-Filter:Received:Received:DKIM-Filter:DKIM-Signature:
-	 X-Virus-Scanned:Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=AHx1ZHDrqBb1Si3Vg9G24oWeMqKbUp9iTNo0v3fevqo=;
-	b=ecVBF2jIW/TU2kXwgWH0OEWGERUVd/uA7ST8l/hrBd9IMDX/ct7lxRYcDjAsBJK0BGrm
-	 sF+c+IZawnVzUnGJDi2WB1FVnULyI+RAYvN6pBk6IHK778+Wy2q4yufAAlN0T53XDLCnf
-	 OCTiK/kartO/V7z3uCui6DlsZ+an2DEiDKViGGRecBavQfo2vjcA7TWZdRSuInYqVf6ww
-	 VHGSZmPlfYoJ/zMPH9oeulaAe8XpTuWqnF2J1Pttsvls/gcwNoXcZ8fSv5T1luQKRu7RK
-	 r7H/8sQaSH9eg/UMDq6V4lCKs8MV60dh1viOnpVhELPnbdHLpFFam9vEdYVO579/B6g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795712400;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=ArVPK6BKpDUZcAFpoyGnP6MOmVeqaCHP2/9qAGR6yYA=;
+	b=rEnCoPAUH+wPzp+QUaMV2tRXsnUVVBFx7l4mSlQqlvpzukQnVQhy7plIHedvHSOEniKF
+	 RYfvRJqx4VYl5RN2XA9HfQtcABNvaJoqlFukQa5HXncbXek6wlwqkjeDUNt5proAtBR9z
+	 P/oukSZhTNqPUYZezXg21Nie9Km1Pwwt+4gppoCkRnBU0GkE6qj8KpsQpgid11SwpJThO
+	 YvTwy9qRMdH5+FVzw9c+3yJCB4J3Huiqk8WDGTu4f8vX1BBx0gTJ0Gk/fLXEZgUS8wNIh
+	 GDzxFMw3/fHokfuUFvIq+J2NP3sp8+QGa1ztao+t2iNhUZaHgaA3x/aYulHDMnN7z3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cirad.fr;
-	spf=pass smtp.mailfrom=cirad.fr;
-	dkim=pass header.d=cirad.fr header.i=@cirad.fr header.a=rsa-sha256 header.s=573E3878-7916-11F1-BF4B-F68474317960 header.b=JhouUIo+;
-	arc=none smtp.remote-ip=194.199.235.221
-Received: from retz.cirad.fr (retz.cirad.fr [194.199.235.221])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="NKLG/c1Q";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 267FD606A31E;
-	Thu, 26 Nov 2026 16:59:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 267FD606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cirad.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cirad.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D60B4606A32A;
+	Thu, 26 Nov 2026 17:00:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cirad.fr header.i=@cirad.fr header.a=rsa-sha256 header.s=573E3878-7916-11F1-BF4B-F68474317960 header.b=JhouUIo+
-Received: from retz.cirad.fr (localhost [127.0.0.1])
-	by retz.cirad.fr (Postfix) with ESMTPS id 1A375210CB39;
-	Thu, 26 Nov 2026 17:59:40 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by retz.cirad.fr (Postfix) with ESMTP id E2B91210CB8B;
-	Thu, 26 Nov 2026 17:59:39 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.10.3 retz.cirad.fr E2B91210CB8B
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirad.fr;
-	s=573E3878-7916-11F1-BF4B-F68474317960; t=1795712380;
-	bh=AHx1ZHDrqBb1Si3Vg9G24oWeMqKbUp9iTNo0v3fevqo=;
-	h=From:To:Date:Message-ID:MIME-Version;
-	b=JhouUIo+srPjnJRPo3bBdddGVOSulP0WXkfsaXtn3NC7xUv/Pfq98honcLwGI1G+k
-	 Uw699z0xEriJO1hFUqlceUnxaCxqxj/fg/1vRAq/PknZ2bhg+BrravmlOGRyqzRJiu
-	 aaHK15FcJ8OWpFRjdlh869gCH+UBKH09Ac45nfKAhQtNEegq4Bq5s3D1oCfy/+khRC
-	 PnPYUGfKYrIAemPme9H7I48OCRUtkdFu2gdq4ERf9dSDduRLVO9JlBid8IYnBoc0YC
-	 /gdlf/6gW9IMolp8s2hWC09uOcAS84lajEQmzPRNLGNhtYzMqJhpWuU5MSeOoJBAWD
-	 OlgjQyNZSYbdg==
-X-Virus-Scanned: amavis at retz.cirad.fr
-Received: from retz.cirad.fr ([127.0.0.1])
- by localhost (retz.cirad.fr [127.0.0.1]) (amavis, port 10026) with ESMTP
- id mmMzcOV2bv_K; Thu, 26 Nov 2026 17:59:39 +0100 (CET)
-Received: from localhost.localdomain (78-196-243-100.subs.proxad.net [78.196.243.100])
-	by retz.cirad.fr (Postfix) with ESMTPSA id 200E7210CB39;
-	Thu, 26 Nov 2026 17:59:39 +0100 (CET)
-From: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Mah=C3=A9?= <frederic.mahe@cirad.fr>
-To: Yixun Lan <dlan@kernel.org>
-Cc: =?UTF-8?q?Fr=C3=A9d=C3=A9ric=20Mah=C3=A9?= <frederic.mahe@cirad.fr>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Long Wan <long.wan@linux.spacemit.com>,
-	linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v2 0/2] mmc: spacemit: Introduce tx delay DT property
-Date: Thu, 26 Nov 2026 17:59:19 +0100
-Message-ID: <20261126165920.905227-1-frederic.mahe@cirad.fr>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261125-07-k3-sdhci-dts-v2-0-a069659ba025@kernel.org>
-References: <20261125-07-k3-sdhci-dts-v2-0-a069659ba025@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NKLG/c1Q
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FC851F000C4;
+	Thu, 26 Nov 2026 16:59:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795712400;
+	bh=ArVPK6BKpDUZcAFpoyGnP6MOmVeqaCHP2/9qAGR6yYA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=NKLG/c1QN2Scs8+qoJdavof3eQ+1oZRCah7zQ3XxaYeMJPt2fWZEu9ujrFrasfcoO
+	 yqOFr/1Zlj3DnmOX+2bMPR6l3Yk9k7QGTpSx6qHhlDxMg9gFo9M/gOrkJQ+FUTgOKD
+	 wjr3wPpgmyqAV6ZhXyQbJNX5WufHndIFPy60jsKkshTIXofIoHsZ6UzXqE5+kpqDTc
+	 eTm2Bgrzt7X4RSMsoRgShl7TUwTVV9el5c8Gh8TPQBzLck4o0L7tU2tnr8xQu2vyst
+	 ILSoLNhp5ipidg+TRNTpt446Em4N9gLcd4V/Lxqndnmhpt3wWHN5Hbt+2MBRQH43+O
+	 wesAUBG/qzP2g==
+From: Mark Brown <broonie@kernel.org>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Andrei Simion <andrei.simion@microchip.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, phucduc.bui@gmail.com
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261119103413.31729-1-phucduc.bui@gmail.com>
+References: <20261119103413.31729-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH 0/4] ASoC: atmel: mchp-spdifrx: Improve driver cleanup
+ and error handling
+Message-Id: <179570252647.142532.8118528768282595011.b4-ty@b4>
+Date: Thu, 26 Nov 2026 14:15:26 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,17 +63,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1786; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=jAqLfns8tJYxcs2fnPmiZAEiggeYiEvvhYnmI0s4E8g=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLI5UnsKpxwW/n9Fs0hhQYq2HWO9RI3TW0cRL379WlbJF
+ 7d8Js7sKGVhEONikBVTZInL4n5ZX/J6Dd/BhW0wc1iZQIYwcHEKwET61RkZ9nrX8Ifc+jFvRYrN
+ S55P87XTwpab8EWu03xje/RCoVv2SYb/SXYZts8y13itVv/rr5pwePPT9HY7vx9BHQfvNa7dsUS
+ AAQA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-Hi Yixun,
+On Thu, 19 Nov 2026 17:34:09 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: atmel: mchp-spdifrx: Improve driver cleanup and error handling
+> 
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> Hi all,
+> 
+> This series improves probe error handling and runtime PM cleanup,
+> adjusts IRQ registration order, and fixes error propagation in the
+> ulock get callback.
+> 
+> [...]
 
-Tested v2 on a Banana Pi BPI-F3 (v7.4-rc4) without the new property
-(the board DT does not set it): no regression. The eMMC runs in HS400
-enhanced strobe (256 MiB direct read at 210 MB/s), and an SD card in
-high-speed mode reads at 15.6 MB/s. W=3D1 build is clean.
-Testing done with the help of Claude (AI assistant).
+Applied to
 
-Tested-by: Fr=C3=A9d=C3=A9ric Mah=C3=A9 <frederic.mahe@cirad.fr> # BPI-F3
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-Fr=C3=A9d=C3=A9ric
+Thanks!
+
+[1/4] ASoC: atmel: mchp-spdifrx: Improve probe error handling
+      https://git.kernel.org/broonie/sound/c/3c762dbdc06d
+[2/4] ASoC: atmel: mchp-spdifrx: Use devm helpers for runtime PM
+      https://git.kernel.org/broonie/sound/c/0918434ce540
+[3/4] ASoC: atmel: mchp-spdifrx: Move IRQ request after runtime PM setup
+      https://git.kernel.org/broonie/sound/c/e3414e02d7fe
+[4/4] ASoC: atmel: mchp-spdifrx: Propagate runtime PM errors in ulock get
+      https://git.kernel.org/broonie/sound/c/648e08bdb51c
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
