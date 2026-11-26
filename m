@@ -1,83 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703023;
-	b=NySEyVELwwlAXw3WXVLlu81Gfoga/tkUwPyy86o64tCvfI3jkjhh1k5QxWDZu1ll78TR
-	 R0tXlubTUEiJn6gFQ+800de4frMd22RIEqFrEoxDDk6qvRqUfXRapfUQkkpjVnKN7fFIb
-	 IgPNMJO+i+4hamMv8C/f7Y7K5YUoAeGACNF4e49HbvsbNg8BSnYPZGj7Ysw1NjaT5zhCi
-	 w5XWp8q3HsW5xIu5PHyMoimxWFt2CWOgTVUoeXLfYm7NRerPXiFj1hahb1c0ebNUVIKns
-	 TrDUoviwjMKCaMImRHFkeHx52Sfytzn+VcuWWrmHgILJlaAMhGyy0JfZJBAnMb433fw==
+	t=1795703045;
+	b=2h8UL4kheu6CMQrUA6jQzf8hGlp3pkUmWNsdazQVsRrD5uMN/uyLR11DMVTFfa8F2ddV
+	 iuISeU8FuIK/egG9aSondHQbAsqFZEYYGHTGPGNu+Ep4AoY6WZB4SHuqx3V15mZspI8Jh
+	 LjYyJcVuj/OBxTV343RoVdHCrGnsujpEvBWkLFopk+Xd0vbZNZtR7WaqiNeA1ZdjMr4jZ
+	 z+LFdGXIdDi/Nq7iXzBBUpbRvcF5TNkIm+Pp44cQzXyDD7R+pMf+NS5WkvSWfUxJFWzGL
+	 RYFlGsV4OOOGFBDPkEzounDtwJ6HtTACKv0h3hGoJ7R/04YdmZAAlVRBxSJJq16f1oQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703023;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=dm2y8Oq8oXMm7QsOuoqQEHDEq067SfqFTct2Ocjc2Ss=;
-	b=sf325pX6+Whh2l8omArm7J5DDacEuKfD1+Ms/dVmKCdxcwvIdWi4a0Te44oQBm5DX0Wc
-	 yccDDMqgoLcdlgE1XsZEWgYC8TdRsEqL6bIUsXWk0KFGfJP4tCP0nZ1PmSQc7yYUSdFtA
-	 RIMRAs6C1e/Ovv/WkTYhbnIpTjF82GIZnagjIeidaRhkokw7IDSTIGqGTidu+Qy8XSAl7
-	 EDyCOvRN790zi6vMzRkRZZ6peRTWFFl/5dHdlnelQBsqjv++Z7sPTJZr8Zol32B1DzHqP
-	 yRthq7ltn6twJYRexsOteXS9NHAXEQCVsyNTFKJW9cwrgcxWtNGAwJ5S72gasOb+j7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703045;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=nGDviZu4wWbCw/94ZJVbbOlqdCrfKBOx/sMrkNJCHBs=;
+	b=AKn1Y+IqYtCobl22D3HoTOtbxoX2A9ORTrv8RbEOlCnOuE/YfRDRZ+PjHG4JdaJIN74Q
+	 7+NdmYbUaziKqJ5fuzgAHMJAoGNUAV7XdUOVK4ahUMbMM3Ph9UlEMlGWpT617/kFOm5YO
+	 LBV1tl0qcRStP4/YF33EvRso38R84VX8fd/6FEF3Sm/89We7uVHBd1+vcr64i+PEqHaG1
+	 Ytj3F5I1FVU8v/ZCf2JtarEe468VEvnhYM/v3LryNzb5A2vjQyKlsPnbTjKNcD5KumKgp
+	 wammfY3OXsj1WOzPv8yMUBm6uk53u/Gvl3vE7mXivkEmOvf96FI+76Xs/Xb9HIm6rVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=gKrKVYbv;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dJDPIgoI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E89A606A321;
-	Thu, 26 Nov 2026 14:23:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E89A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56A44606A31C;
+	Thu, 26 Nov 2026 14:24:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=gKrKVYbv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795703021;
-	bh=SeH7W4HXcoMbKbmUVHcSDi20fgxLOytbLKN210ZOlI4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gKrKVYbvVwu5WWkzcQ2z7uMhkNOB/Eoprtm7L4DXw9xL4Fz1yV4EPacje+wbpIcR/
-	 GXMb58l0xbb3Cf0DUgH+vpOK1yeO5hHa1K98pX+DOsFGPonrDnvtsEJrahTiRSNW4y
-	 a1IuTbRxlwO2F7uX84qr9nfZou9L5AWKm3cYC5PgipxqMgR3lxACu7L48VAJ/xJyAP
-	 +0NiBRQ0GKOexzhvyc+R8+vXTagF17YNxn2/uAH9t24DlfwAzRqmgmtbpXGLiMeLDL
-	 uG58itz9MlAlyMmbcLhskXxHBlM9A2zjP2Djm4u4Q+W28HPc1fcdcX99OeMCT3CXBw
-	 2mKIxD2l4tcNw==
-Received: from laura.lan (unknown [100.64.0.215])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0680417E0FD4;
-	Thu, 26 Nov 2026 15:23:40 +0100 (CET)
-From: Laura Nao <laura.nao@collabora.com>
-To: dakr@kernel.org
-Cc: a.hindborg@kernel.org,
-	acourbot@nvidia.com,
-	airlied@gmail.com,
-	aliceryhl@google.com,
-	bjorn3_gh@protonmail.com,
-	boqun@kernel.org,
-	daniel.almeida@collabora.com,
-	deborah.brouwer@collabora.com,
-	dri-devel@lists.freedesktop.org,
-	gary@garyguo.net,
-	kernel@collabora.com,
-	laura.nao@collabora.com,
-	linux-kernel@vger.kernel.org,
-	lossin@kernel.org,
-	ojeda@kernel.org,
-	rust-for-linux@vger.kernel.org,
-	simona@ffwll.ch,
-	tamird@kernel.org,
-	tmgross@umich.edu,
-	work@onurozkan.dev
-Subject: Re: [PATCH v7 3/3] drm/tyr: add Job IRQ handling
-Date: Thu, 26 Nov 2026 15:23:28 +0100
-Message-Id: <20261126142328.216740-1-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <DN548CRVXMGK.BOPO5J56Y1OH@kernel.org>
-References: <DN548CRVXMGK.BOPO5J56Y1OH@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dJDPIgoI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33AA41F000CA;
+	Thu, 26 Nov 2026 14:23:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795703045;
+	bh=nGDviZu4wWbCw/94ZJVbbOlqdCrfKBOx/sMrkNJCHBs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dJDPIgoIEY6adsxiBKLj31BpxdocV45Ho0ZXndsXTByUCNQSeqJbisV76kX96NGTm
+	 lP8PTWZkBAGAaf4ROQhL4YqNqDUlIg+OsBLvEgyfgtkWB+XlbUoT0R/bzjR59GoZSP
+	 N5+A4KpckrQdwruGKB/c/3DFMnTOqERUzcvPzJZpY/g4Kdxp2gDzUy1JYrmyX8XKYP
+	 TXxxUruqjjJGGyB011S20azsLDh52IjKOk0t101eKEo/U3oNrczd8Vk1ozeO6EL1DP
+	 x3OTUL1cheR2+0oIxHePd2pDgUmFL2xhTfFh30DsPsjg1hCIsQI/y4vtjeD7HByrbT
+	 yF43DQKEx+kfQ==
+Date: Thu, 26 Nov 2026 14:23:55 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, Peter Xu <peterx@redhat.com>, 
+	Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
+	Roman Kisel <romank@linux.microsoft.com>, Saurabh Sengar <ssengar@linux.microsoft.com>, 
+	Naman Jain <namjain@linux.microsoft.com>, Michael Kelley <mhklinux@outlook.com>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	"Jose A. Perez de Azpillaga" <azpijr@gmail.com>, "T.J. Mercier" <tjmercier@google.com>, 
+	Eliav Farber <farbere@amazon.com>, "Gregory Price (Meta)" <gourry@gourry.net>
+Subject: Re: [PATCH v3 0/4] mm: fix races between huge and non-huge faults in
+ PFN mappings
+Message-ID: <awhAygxxEKQ7TVuY@gremlin>
+References: <20261125-huge-pfnmap-fault-races-v3-0-bbc44489341b@kernel.org>
+ <dc62bf2a-9188-4cc6-9850-14ab3a2e5274@kernel.org>
+ <awg3r1kVqhQy7wlZ@gremlin>
+ <e60ef611-5e67-41b3-9c5a-ade4d183c492@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,33 +71,20 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e60ef611-5e67-41b3-9c5a-ade4d183c492@kernel.org>
 
-On 11/26/26 12:45, Danilo Krummrich wrote:
-> On Mon Nov 23, 2026 at 3:58 PM CET, Laura Nao wrote:
->> +/// Requests a threaded IRQ registration for the Job IRQ.
->> +///
->> +/// # Safety
->> +///
->> +/// Callers must not `mem::forget()` the resulting registration or otherwise prevent its
->> +/// [`Drop`] implementation from running.
->> +pub(crate) unsafe fn job_irq_init<'a>(
->> +    pdev: &'a platform::Device<Bound>,
->> +    hw: Arc<HwGate<'a>>,
->> +    events: Arc<JobIrqEvents>,
->> +) -> Result<Pin<KBox<TyrIrqRegistration<'a, JobIrq>>>> {
->> +    let job_irq = JobIrq { events };
->> +    // Ensure interrupt sources are disabled until the handler is registered.
->> +    job_irq.clear_mask(hw.access().iomem());
->> +
->> +    // SAFETY: The caller guarantees the resulting registration will not be leaked.
->> +    unsafe { TyrIrqRegistration::request(pdev, c"job", job_irq, hw) }
->> +}
+On Thu, Nov 26, 2026 at 03:15:57PM +0100, David Hildenbrand (Arm) wrote:
+> Can you resent against mm-core/for-next? That would help a lot.
+
+[ ... ]
+
+> I dropped the series from mm-core/for-next and pushed the branches.
 >
-> You could implement a constructor in an impl TyrIrqRegistration<'a, JobIrq>
-> block instead, which is think is cleaner than a free standing function.
+> If you're fast I can apply it there again even before I merge -next this evening ;)
 
-Right, thanks for the suggestion. Will do.
+Sure, on it, will get that out in a sec!
 
-Best,
-Laura
+--
+Cheers, Lorenzo
