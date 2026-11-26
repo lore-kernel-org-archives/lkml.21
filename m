@@ -1,58 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795696102;
-	b=Lm47Q4PK0am4qOq2zEt9OMY5x9/MhLez2MBIwsQLykrTNlCYxlydnmjR4dDGcJkdYV7M
-	 vZiA41mnWhZcBXsjy6NKaUGQIn6C7XpumpFU5Db6FNpGj7rDPzjHJSMoM/OeKv8tqfLX8
-	 xifNwFFNqsIviTvL3KnkB0f32tCUiCFWP8tZVHOWhRCL8hQUnGJkj9CwaKfsOzbppM77W
-	 CU29VDluZ5fVgDHb5NPCMJL6XijS4vNyV7wjqsaJwv3oT+TL1jONPXdlQFKrzZA2VFHzx
-	 RKVnHhVlgEbzIx20p89YsmpGJIRluxCom9iTPLc+SocRThfHshgR0QupbKT4yGmoPxw==
+	t=1795696108;
+	b=5NumtpyBz2+spBND2NP+z2D3GCE3jxkmg3gFHGRYj/GeecDgGJEt7iHRGBHHUAJzyZ2o
+	 67xCbdM6rG/Srsd6bvZoDPRyh+gW7V1enrjHlc1PyekNYnjlyJc58sHBaYFYa6DKeK+A+
+	 wbwND2VO3LLQD9TBbbKnDbWBKNouTGbtCqxurPD70pvl/1tUD9YqNeDVSY0tD8GbVW0h/
+	 eOA4I0CVQmJPJNTb/qCI5idjzzgJe8hYwDCv6Ra/sb+CqdozRo35xxHd/9NU6QUDx942c
+	 6XcETcOesApZsdJAEXcfp9U52XK0iy5HK8VSdQPQys/nXJFYFpEDwR8dWJROoufOQDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795696102;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=ArlvmEMGN27jBhN3Cy984yIjnWKIqYZFJD4/EaUdqjQ=;
-	b=AWsAQIbAWJHom9Zb4vdGdXHTTVd6oK+54OSyuGM8CU890bxosBRrtDjFXfGEedAS9viE
-	 13faRnKckPMKUKdUuh1VbqyjarzvWqjBMA98qMn45b4mZwNC4VEzSTamdM6tq50ndDhKn
-	 WcjrLDq7CFYa0t3slLoOwN0eRwBxoGxQ+ZqBwueVAHCr/Rs3LpwY8emQLWQj0efyfnbGk
-	 yvCtfmdl2cjzmusv7PeKfMg8dS2apTBiGJf3hvulTPr8KGHgQG9SEP8X1PK4rznzmWrsH
-	 yRdiav6e3ixgX93qPaXc8tjOWmazVgbz3eSVSUmYvc4Y4BCKpyILE+qxJmE0ywZee+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795696108;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=xu4Hob4T/c2RBRj9oSFW3u62G/KKa3D4oPKEkYrOGh0=;
+	b=u2XOs8rI/NgdPWYqv1JpCTFYhFEmpyM/rW5rZqOpSE/e3wzHxY13Gt5cT33rM1sgqU6O
+	 n+HqeDE5+dee0RCs5luoBXGfU87uZ181SRnwDDwVTU1gcylDTF/iVl9Pbv901L1KcMhiO
+	 2MzwnbgYfCw+lO3xHPvVqKnvvo/11eZhZLREfJIOMD6hq6QylcfL9PwqdcHlVQ/JWJvVR
+	 WZq2fHfxHjMVoPCMYbZ4IeyS5uMRPaovAPnwsdH8j7Q6vmsiMKYoSU8H/S8baDQjaJyPL
+	 CMYRPQPYnF8ejbJFPQcyoGqYqC/QKkdBNlhi1R+uzldXpXOIm1uO1mUOXFsj01nnBig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AfzYxK3P;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 88E62606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:28:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88E62606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=glider.be;
+	spf=pass smtp.mailfrom=glider.be;
+	dkim=pass header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=e6OCY5HE;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gPHaXeVY;
+	arc=none smtp.remote-ip=103.168.172.137
+Received: from flow-a2-smtp.messagingengine.com (flow-a2-smtp.messagingengine.com [103.168.172.137])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33632606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:28:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33632606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=glider.be
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=glider.be
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=AfzYxK3P
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E21AF1C2B;
-	Thu, 26 Nov 2026 04:28:17 -0800 (PST)
-Received: from e142392.arm.com (e142392.arm.com [10.2.213.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 882243F86C;
-	Thu, 26 Nov 2026 04:28:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795696100; bh=HCbX/IbazWKscucgT5cWE9fT0tX8wPV3R692kWKmp2g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AfzYxK3Pjv7BE1onmPbYnITfBJtYkGApfxkf84coUMyq/ikkSSiuok7/U26301SFW
-	 4sgz+Z6fwGvMaNz1l5c0tmQebjLImimHCBuVkQapkeHXNXbIF7VniC/jMIwmVXaEbH
-	 UIHBj6Yssf3HCc7Iz8RIoCy4IjyPIgw6tE13W0aM=
-Date: Thu, 26 Nov 2026 12:28:13 +0000
-From: Kristina =?utf-8?Q?Mart=C5=A1enko?= <kristina.martsenko@arm.com>
-To: Jirka Hladky <jhladky@redhat.com>
-Cc: will@kernel.org, catalin.marinas@arm.com, luyang@redhat.com, 
-	dockseed@proton.me, jmario@redhat.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Claude Code <noreply@anthropic.com>
-Subject: Re: [PATCH v2] arm64: clear_user: keep alignment padding out of the
- zeroing loop
-Message-ID: <lnh4ij6zpo5haddbkvxjp2gui6xlgjzaxkrmh26xgovc2b3muz@2wapkzpfnceq>
-References: <CAL2CeByu46f48j8O9=237fvhpPUCsKjOZkFuuHU3xrr3wVF5Eg@mail.gmail.com>
- <20261124233043.1289050-1-jhladky@redhat.com>
+	dkim=pass (2048-bit key, unprotected) header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=e6OCY5HE;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=gPHaXeVY
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailflow.phl.internal (Postfix) with ESMTP id 3C143138064B
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:28:27 -0500 (EST)
+Received: from ams-imap-13 ([10.64.2.33])
+  by ams-compute-02.internal (MEProxy); Thu, 26 Nov 2026 07:28:27 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=glider.be; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1795696101;
+	 x=1795699701; bh=xu4Hob4T/c2RBRj9oSFW3u62G/KKa3D4oPKEkYrOGh0=; b=
+	e6OCY5HEsHMWHDpNXuor4iPuoUZRz06OnWHRGx/Ba40dgAc6p6p/mYAxy+wY5LRR
+	JeUV2w/vhulJh1cNFQtCqxlRQBwJ8z1ZAwb44G6SxLAE7TK8dxzFTkB8/MNdEYDN
+	Cgsw70JHXhX8zRa3qRQONfffGFLQMBiLEd5LKhTTrDEM7vyWwmsETbX8SfUludqI
+	FpN1Iw8sAUxQpUCc997EFsnnWP2ComIns+MtIhUmClaGfp3r6UnAbqyjgn8s5ibZ
+	7K2ehZuRBPU0C6fP2IeaHaDF9hO+ixpnLJ4qDm+FIIfQk3YLGOiiF07R3sr2IWtR
+	yROge4h1CIePk9TBBlnveQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795696101; x=
+	1795699701; bh=xu4Hob4T/c2RBRj9oSFW3u62G/KKa3D4oPKEkYrOGh0=; b=g
+	PHaXeVYZ/awO7BEIXECg9Z9mXPu5macsqgjq5m/8KsyzM0r0GinSKa+LDTmPypPU
+	wUem9iJ9ynhVjSv/fB4OXr361SQWYQUvUD8a9y6kna9fZ6vyRh7g88eICT4ekHlY
+	WRDg/Z4Q/4UnGYlGYve8WM3H7Zy5dijr4wd8mxY5LLTNwh54jVFrakYnNK/5BvKO
+	xkNT6huE2oQWBzXSVMDX4iF8znKYV8kpaUVYGWVXFmudhWIutNo4UqHZ5wTUOr1M
+	t+dhRNMd+jhM/DsWxXQM8g0ISBhZCIqYIBq7upvYUP+oM/Li0ACHaTs50JyCHHZG
+	4kkepmtkG+b93LOCTHmbw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=glider.be a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795696101; d=glider.be;
+	mf=PGdlZXJ0K3JlbmVzYXNAZ2xpZGVyLmJlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:fA+3mto0x8z4+VCtxanJEenUmYi5fI4Pg3RRqCV2W8J77w9
+	ftnnA9mwj4KQRWrg/40I9FVfJlfhq8tbPK8ipmQ6uoOk6mXDd+6ddjYpV7zcMqVg
+	aRrXIFUTZiKUGwOJAuCOAvE0/e5Fq+BspU3P4Xn5Wcq6mVvq8A8DT4q8hXXgeIUq
+	rnSZqZvirN3wxbHZLqtr0ccfBmLJZc2OmhZihNveqEfvSzp0UW8JfLpfiSh3Tu2b
+	rmWdyQbq5zuVql/yC+1Cag49wgSTXMrqNdeRNrbTAnqodKQwFUTjrD7ELrkg9i72
+	MnZ7hCPA7E4qP57Pd+Wad+WbQH+KBSjp9AO78/w==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:jkOwiisYvaimaD7aEFu0qippkfrPA824FSsblOr4xpw=:OiNd1Uft4081bt2SCEBPZKHGE7rtaoQoTYPz7jv/7Oc=;
+X-ME-Sender: <xms:4SUIa7cGedfw092ux_ZCeI0sjCj4irwMpx6uQj2nyUJ7zoL7W46U7A>
+    <xme:4SUIa8AZ0zhhDP4t7IeiSnEWG_U9fP4k94KqN5sln3DvzAAp1v0MooMx9tGDnuEwe
+    fW49hCOWagmPy-mm5Np3dDIVYuhux8DAPTLu6_p5djkX_eAR9i4ZTl1>
+X-ME-Proxy-Cause: dmFkZTGVm0NwrNPzjnsePArY1oNZC8jCvyBd1JNrwF5KI+JZaZ2MpkN+KcCFQFw0MoHSUX
+    6vEsjBKhDtCDDqGJbDtk1/F8fxeAfSIqmXJJQMjVt6vG6UD2h5npdRupHgDcaDs268kS4l
+    aZ98Ye4pgHukWz2ktCJ0OHs4JQ2IUYRnOOLksu3TJpR7N4vaotEtoQEADjvZI6MXUCZHzF
+    VAvrj433NYrLM/wLUnJ/LVskJORGCahkPXm+7f4QAh9iSHp669vTPxdmEZ2z+VAeYELGL1
+    RcKNCume5IIJJeDcG1PvBkfNTUcPYCkJUbv98fvlv8SzX59Z6/+VPhvMKmCDt2SoRM0yVc
+    8MZtBZw3up6rtTYZd1sTXDOv/asORVwHreP2NYDYFk81oGYxOMRTXrb3Cj/DzeM1WoNtmY
+    uSCltdT5SYTv4veZj0XHJf0ymdCEZSKcNFBz14Im6WttQhvzKeNZZomlMxcZ8Ho8alJ4nc
+    2g7RwBV4BrMLLCAvzuueIrah78IKPmpgere9RGE276BLeL0znRut4UPdhta1CeuyOm1t6q
+    +2ioy79p/duh7zcJOmW6IlwbiU4Ri760w2jBixK9uX2947W1tHr4iVB9dxn9ez7EzJ3/bJ
+    +8tMvM+rLhcKFSkiS3UjQxjz3Eb4rzFWJsC9aTCPOA4gYI94jLpioivHgWKw
+X-ME-Proxy: <xmx:4yUIa72EDJ56HSB41dkGWe1HGZD3vTaywXNDV2SiEGgfmlWJPkGhOg>
+    <xmx:4yUIayMk0fmBKWyeCGEm2tCvHK_slq2nP5Ww6yZtSju0Rj1lbc0sEA>
+    <xmx:4yUIa7biYLjmHB3Uw83X0njxb5EP6YGHSGpqlIAUxLMHwlG6KrE0mg>
+    <xmx:4yUIawyKIrND_LjniQUbp1BuIfxbsxzz71Vmd74EiS7XpfuUJi5iYA>
+    <xmx:5CUIa7mYZAIs0an1vbImXT_aQ14qy83LK5YxBf01KlK3UyXqeIydKqUY>
+Feedback-ID: ia0f84a9e:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 65656F800A1; Thu, 26 Nov 2026 07:28:17 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,87 +115,137 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261124233043.1289050-1-jhladky@redhat.com>
+X-ThreadId: AJ3dJRnBKuuc
+Date: Thu, 26 Nov 2026 13:27:57 +0100
+From: "Geert Uytterhoeven" <geert+renesas@glider.be>
+To: "Biju Das" <biju.das.jz@bp.renesas.com>,
+ "Biju Das" <biju.das.au@gmail.com>
+Cc: "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "Magnus Damm" <magnus.damm@gmail.com>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Jonathan Cameron" <jic23@kernel.org>,
+ "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>
+Message-Id: <3b689e6a-98ad-422c-8b67-45d4a44377f2@app.fastmail.com>
+In-Reply-To: 
+ <TYYPR01MB66036BB057404C15BB64E57B86422@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+References: <20261125-usb_rzg3l-v9-0-ea14d3ab8a53@bp.renesas.com>
+ <20261125-usb_rzg3l-v9-1-ea14d3ab8a53@bp.renesas.com>
+ <a152df0a-0b0b-4193-b3ac-ee0df0350802@app.fastmail.com>
+ <TYYPR01MB66036BB057404C15BB64E57B86422@TYYPR01MB6603.jpnprd01.prod.outlook.com>
+Subject: Re: [PATCH v9 1/4] arm64: dts: renesas: r9a08g046: Enable TSU
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 25, 2026 at 12:30:43AM +0100, Jirka Hladky wrote:
-> Commit fe59e0358d9b ("arm64: lib: Use MOPS for usercopy routines")
-> restructured __arch_clear_user() and moved the loop alignment inside
-> the function. In doing so, the loop label ended up in front of its
-> own alignment directive:
-> 
-> 	1:	.p2align 4
-> 	USER(9f, sttr	xzr, [x0])
-> 	add	x0, x0, #8
-> 	subs	x1, x1, #8
-> 	b.hi	1b
-> 
-> The backward branch at the bottom of the loop therefore lands in the
-> alignment padding, and every iteration of the 8-byte zeroing loop
-> executes however many padding NOPs the linker happened to need (0-3).
-> Because that count depends on where the function lands, unrelated
-> code changes anywhere in the kernel can shift /dev/zero read
-> performance: an irqbypass reorganisation in 6.17 [1] left two NOPs
-> in the loop and cost about 30% of /dev/zero read throughput on
-> affected builds.
-> 
-> Norman Herms diagnosed this and proposed moving the label below the
-> directive, so the padding is executed only once on the fall-through
-> path and the loop body starts 16-byte aligned as intended:
-> 
-> 	.p2align 4
-> 	1:
-> USER(9f, sttr	xzr, [x0])
-> 
-> Measured on Ampere Altra (Neoverse N1, no FEAT_MOPS), reading 4 GiB
-> from /dev/zero, two otherwise identical kernels built from the same
-> tree and toolchain, differing only in this change (two NOPs of
-> padding in the unpatched loop):
-> 
->   kernel instructions per MiB:	797.5k -> 536.4k
->   throughput:			11.6 GB/s -> 22.3 GB/s (+92%)
-> 
-> The instruction delta is exactly the two removed NOPs: 2 x 131072
-> instructions per MiB at 8 bytes per iteration.
-> 
-> [1] https://lore.kernel.org/all/20250516230734.2564775-6-seanjc@google.com/
-> 
-> Fixes: fe59e0358d9b ("arm64: lib: Use MOPS for usercopy routines")
-> Reported-by: Luke Yang <luyang@redhat.com>
-> Suggested-by: Norman Herms <dockseed@proton.me>
-> Signed-off-by: Jirka Hladky <jhladky@redhat.com>
-> 
-> Co-Authored-By: Claude Code <noreply@anthropic.com>
-> ---
->  arm64/lib/clear_user.S | 3 ++-
+Hi Biju,
 
-This patch doesn't apply. The file path is missing the "arch" directory,
-it should be arch/arm64/lib/clear_user.S.
+On Thu, Nov 26, 2026, at 12:53, Biju Das wrote:
+>> From: Geert Uytterhoeven <geert+renesas@glider.be>
+>> On Wed, Nov 25, 2026, at 12:05, Biju Das wrote:
+>> > From: Biju Das <biju.das.jz@bp.renesas.com>
+>> >
+>> > Add #cooling-cells to the CPU nodes, and describe the ADC1 (used
+>> > exclusively by the TSU) and TSU nodes along with a CPU thermal zone
+>> > using passive and critical trip points, with CPU frequency cooling
+>> > maps for thermal mitigation.
+>> >
+>> > Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
+>> 
+>> Thanks for your patch!
+>> 
+>> > --- a/arch/arm64/boot/dts/renesas/r9a08g046.dtsi
+>> > +++ b/arch/arm64/boot/dts/renesas/r9a08g046.dtsi
+>> 
+>> > @@ -381,6 +385,37 @@ scif5: serial@1004e000 {
+>> >  			status = "disabled";
+>> >  		};
+>> >
+>> > +		adc1: adc@108c0000 {
+>> > +			compatible = "renesas,r9a08g046-adc1";
+>> > +			reg = <0 0x108c0000 0 0x10000>;
+>> > +			interrupts = <GIC_SPI 378 IRQ_TYPE_EDGE_RISING>;
+>> > +			clocks = <&cpg CPG_MOD R9A08G046_ADC1_ADCLK>,
+>> > +				 <&cpg CPG_MOD R9A08G046_ADC1_PCLK>;
+>> > +			clock-names = "adclk", "pclk";
+>> > +			resets = <&cpg R9A08G046_ADC1_PRESETN>,
+>> > +				 <&cpg R9A08G046_ADC1_ADRST_N>;
+>> > +			reset-names = "presetn", "adrst-n";
+>> > +			power-domains = <&cpg>;
+>> > +			#address-cells = <1>;
+>> > +			#size-cells = <0>;
+>> > +			#io-channel-cells = <1>;
+>> > +
+>> > +			channel@8 {
+>> > +				reg = <8>;
+>> > +			};
+>> > +		};
+>> > +
+>> > +		tsu: thermal@108d0000 {
+>> > +			compatible = "renesas,r9a08g046-tsu";
+>> > +			reg = <0 0x108d0000 0 0x10000>;
+>> > +			clocks = <&cpg CPG_MOD R9A08G046_TSU_PCLK>;
+>> > +			resets = <&cpg R9A08G046_TSU_PRESETN>;
+>> > +			power-domains = <&cpg>;
+>> > +			#thermal-sensor-cells = <0>;
+>> > +			io-channels = <&adc1 0>;
+>> 
+>> <&adc1 8>
+>
+> With the above entries, I get below error as adc1 has a single channel
+>
+> https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/iio/inkern.c#L135
+>
+> [   15.067383] iio iio:device0: invalid channel index 8
 
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arm64/lib/clear_user.S b/arm64/lib/clear_user.S
-> index de9a303..143d2f7 100644
-> --- a/arm64/lib/clear_user.S
-> +++ b/arm64/lib/clear_user.S
-> @@ -37,7 +37,8 @@ USER(6f, setet	[x0]!, x1!, xzr)
->  	subs	x1, x1, #8
->  	b.mi	2f
->  
-> -1:	.p2align 4
-> +	.p2align 4
-> +1:
->  USER(9f, sttr	xzr, [x0])
->  	add	x0, x0, #8
->  	subs	x1, x1, #8
+I am not surprised ;-)
 
-Looks correct to me. I didn't realize that putting the label on the same
-line as the alignment directive would have this side effect.
+>> You cannot have "channel@8" in the ADC node and magically assume consumers should refer to this using
+>> "<&adc1 0>".
+>
+> ADC1 has single channel and HW manual says it is ADCR8(A/D conversion 
+> result register 8)
+> That is the reason for channel@8.
+>
+> You mean I should use channel@0 instead to avoid the above error as a 
+> single channel
+> registered by iio??
+> 	channel@0 {
+> 			reg = <8>;
+> 	}
 
-Reviewed-by: Kristina Martšenko <kristina.martsenko@arm.com>
+No, DT describes hardware, and the hardware manual says it is channel 8
+(and FWIW, the "reg" property must match the unit address).  If you
+want to deviate from this (I think you don't), you would need a DT
+bindings header file.
 
-Thanks,
-Kristina
+>> I don't buy your rationale in [1]:
+>> 
+>>    "There is a mapping between internal Linux array index (0) and the actual hardware channel ID (8).
+>> 
+>>     See the code
+>>     https://elixir.bootlin.com/linux/v7.3-rc3/source/drivers/iio/adc/rzg2l_adc.c#L354"
+>> 
+>> This mapping is in the driver, and there is no mention of it in the DT bindings.
+>> This means the driver must be fixed first, too.
+>
+> OK. You mean I should add custom of_xlate in driver?
+>
+> Please let me know if you prefer adding .of_xlate to the ADC driver
+> so we can use <&adc1 8> in the DTS, or keeping <&adc1 0> with the default
+> simple xlate.
 
+Please add an .of_xlate() function, so (possibly sparse) hardware
+channel numbers are mapped properly to software channels.
+Thanks!
+
+Gr{oetje,eeting}s,
+
+                                                Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                                            -- Linus Torvalds
