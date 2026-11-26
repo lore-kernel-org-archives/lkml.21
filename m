@@ -1,106 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.16
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795691845;
-	b=RLmyH2TtkeXzbKoauCQv21EbhFyBKZCAUmSDnuw7VylPSl8rCyWJQfBXI9RfQFP08Him
-	 wkwHn9Ii6di/lIvENvvo0CmXXDjpHR8ADyPb2rKjwmSS8xwGS2LaDqcxQLiUivmM+3FIE
-	 6ptYCVzxp/BwZibWo6mfyjsufxjaz/eWFCPfSRfUt7BIraOO2dV9ErYfFY/H6TyCbKbit
-	 6cUC8RqobHKmVdZztIxQieiZph9X8703uqseE/RWvyyL2Ywk2cd+xajW9RCSzjayYLZ+5
-	 JeMBxW5I9XcfSKGBbGnpL74ZH431ADzZELsBMNZaUByyDUjUuTiOmZPV3C7H9+cOITA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691845;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=mGhzzx2JBiSXZmN5NsNNhJrvMUg/IkgLVCZMKuQMxJ8=;
-	b=ASvD3lORYzMgPeTruGwW2/JqWQ6hsNA1hSjWS9Xmt6AUdYb39d0xPs/lyl+fUM4+3yaV
-	 5/YnZUWDFw6BDNxlVlv2UCtGcGf5FTlK7bkPh/z19yFIELx4nOyIIo3+tHOyAwHf8Z1AG
-	 TiOC853BWO384WqjmL1Ij6JWHfF75Y7GkMl6Rm4wHMpXssxqWzzRNkqsceXrDM9a70CJq
-	 74kfBHKkGDJ1Yg9CIAnap75VfzWfoTuziVovUpsa4Vlr60IpsRDocly8p7QiZqbA4EW2U
-	 hMIHJ6/CmTUgPEmpIxp2QPs0WR9ToazPKrKpdXZ/hXb3jm/ZeabZx6grD+hYtgmk41Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=dgQ0mlnD;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.16
-Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011016.outbound.protection.outlook.com [52.101.57.16])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795691848;
+	b=1RL4AixhzSFrcPW2zxZiitj3TiAtKtlNt8br+JduQXiqFPudiAjZGJRiFb9ic+MdVRSq
+	 ZzlDdbhZmkL2HFHkdffN3emhLjtUqCOWGeMgJx7xk2UuYEfO9uRuVFh1t/tmS95+J1OeS
+	 /JKU5BFGgBq/kPKBGZ/99PN0yCJhy8eETf1rN43HecwmW06ZaLM4rMTrCj7XqKdk5O55E
+	 1s077bxAEszd8C2WXzRueGUb1ppKeYegE0EhVvTQWTv7jeJvyCHoRJNj0KZyszUARxjrA
+	 Ba9U1s1U970zKvrfoQFeaRdf27/BMmnjzyUzABMWjEGtiFfLKw+hxP969BTN8UVG1mg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691848;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=LczL5BiLVZ8edJ8mzcgVaZOm0K+ce2l6+1MIkOsoudg=;
+	b=t0ffA0OMSn1SRm2XGnmRNoXLHYlwgqZXNInZbkhR5qrA4ui3VJcLKXquvv7KZlwE9nps
+	 ZZr6Bzi9nttwQhZFK5gzZqUePjz6bdtD4N9XAAXaqveRc9nwggpyE8o+V8Wky1Q+pQgFK
+	 g3XeLptsITl8tI0JIm7bupfhqKT2PzeB9cmTYiyP22PUC428v5FC/oRDLcoRBk7KVnQeX
+	 SUUEbf2RK9pe3jO4oeJVgfZNQaPG1bCNT8ocwGyaULUGOObbKiBmueY1rwdBbd57ide+o
+	 8lQ+4Lsyvsz7x8k2LhcRrJYECg/2MAH0tkIAeczkg4eOjbcPxvB8JqPWG9zEfPxkdjg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=G3hmVTVb;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=iTAjEPJf;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBD9B606A32D
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BBD9B606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D23A2606A33E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D23A2606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=dgQ0mlnD
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LOE0nZexfLz+ZrLeiaUc4x6emD4qLz5ElOyj8ZFIhF9QrwHwtBria8bokf1Zc1iUqIeh9Es4JIJU7t7eyLPJGaplfdOy3uS6NCISo2i4XmKySGV/ie9x7SOz4/9afIThlqCQt/mgIkmB7uT2Fj0IP3SM/XsNLZAeA0XsgXV5vbfTb8zGA+33yhsFdPz7v119cGPTGfvoba/HK+d8KgLne7r5HxThv0CHF2zG+9JVouHAG/OleBUzsAgUFdTmjGTHHvw2it24nN8tovt4FKzoSDWxxgyntzVZer4iR3GNuIkGuVZLUO0Y6XMX46mKXz82ZuD4+tj89F0MVOjtglMbRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mGhzzx2JBiSXZmN5NsNNhJrvMUg/IkgLVCZMKuQMxJ8=;
- b=GaZuyCz2rJsdwjlmULyyl1VbpzSqGeEOwnazjDO4yqRhIJ1OK1SxMCQDltrWhvuoPP0aZBwKXSYjb8k6CGvsErj6YMZboyJm7OnIdczEst4+6cqoLbOhwjWdeVyHkaogVdHdzbu75Lv1gaZtAq3bcOHGNUqFz9Y97z/+NiIIuVTTTsj1BqGc19hMaAi+Z/V2YaQA+pgJW1/x/6pSfOMhHIePnIDj8CTyFWr5HX7iyY4d+jJwd4h/wUdOWh7UreeKbU4ItmoOIy4FjwuOMXW8XqRtYK0ecBrlfWUab1Q01OA9Pbg00SXDXEr1FFraJk2MKmnEqeRAFxhLcEygJP3fBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mGhzzx2JBiSXZmN5NsNNhJrvMUg/IkgLVCZMKuQMxJ8=;
- b=dgQ0mlnD/s6zZ0jgO9rUho946v68vjvhz92x2bIgPXa9G1bxv+egkTHBKU1vPoM39b0OOakgQHtuwWLElo3CzqeES5d/Nv4qiOU5pwSAqiPSyXc5rB5vGR9MAYMe3Dm7Qxwgoq0PVhO/7ET4O6KKklav77NeRiVmI1VwNHroNR7j9hI335uk/DcbOjsP3uJqiVLvznxqh58IOtPnbOrPQvaWIctqWZ/fPv8Lv3eO/nRqr202R/np9pX948BOXq9Pt/qnQNY/ORyaQJiAB+pA7KSDaj+PBWqLau4FI+/5HmkVoTUwz2HtWiaWIJzlvDwO8APgZ1mP6gaJn5PT4v0jBA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL1PR12MB5174.namprd12.prod.outlook.com (2603:10b6:208:31c::19)
- by PH0PR12MB5630.namprd12.prod.outlook.com (2603:10b6:510:146::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Thu, 26 Nov
- 2026 11:17:20 +0000
-Received: from BL1PR12MB5174.namprd12.prod.outlook.com
- ([fe80::58de:822b:868:96e9]) by BL1PR12MB5174.namprd12.prod.outlook.com
- ([fe80::58de:822b:868:96e9%6]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 11:17:20 +0000
-From: Andrea Righi <arighi@nvidia.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Tejun Heo <tj@kernel.org>
-Cc: Ingo Molnar <mingo@redhat.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	John Stultz <jstultz@google.com>,
-	David Vernet <void@manifault.com>,
-	Changwoo Min <changwoo@igalia.com>,
-	Tao Cui <cuitao@kylinos.cn>,
-	sched-ext@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/4] sched: Remove sched_proxy_block_task()
-Date: Thu, 26 Nov 2026 12:13:59 +0100
-Message-ID: <20261126111649.208476-4-arighi@nvidia.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261126111649.208476-1-arighi@nvidia.com>
-References: <20261126111649.208476-1-arighi@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SA9PR13CA0023.namprd13.prod.outlook.com
- (2603:10b6:806:21::28) To BL1PR12MB5174.namprd12.prod.outlook.com
- (2603:10b6:208:31c::19)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=G3hmVTVb;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=iTAjEPJf
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQBHBgl3860155
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	LczL5BiLVZ8edJ8mzcgVaZOm0K+ce2l6+1MIkOsoudg=; b=G3hmVTVburM98xk7
+	B7qB5mcpHxodDCYqnHJCtcmoNaorZvEjLvLFM+IxukVmknInBtwBrdxsxE2y4KcY
+	XU6NBj+QAgT4wAxJYYXULrqZjWQCeLmo8iUe+tJ8JrGS2G+2BUj1IDpNyC8jVl34
+	YxncGYEC6Fn3VECvm/7CwH0Gq6TJySiAB2PtS3w7iM6ybTlROnE33HFtJ7028LfB
+	cITc3hfSenCn685LThBuARjH31qAS8DUTehWtOFaLMpZYzNbrC0zTwasXQi/nVNn
+	2/egM0HymlEuZrvBO4pg/SrjArxrt4siLxi5J/1vlY2Uz9JfrDwpR4BCc1zN9i89
+	9NT3Xg==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6hm80j3g-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:26 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-55ca6405c20so132830301cf.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:17:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795691846; x=1796296646; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LczL5BiLVZ8edJ8mzcgVaZOm0K+ce2l6+1MIkOsoudg=;
+        b=iTAjEPJfYlPJyXjh+xl1BBZXA8r7A9XLu4Azq5jEhUEFUtPglBVdpxkKbudz4ZcstE
+         lrTp60U5JoDMA3uGXCIfKKdeY/2QUj3vXog2jXxtOkGesF8p4SXUUAbX2CWrXBe08HK4
+         4/iyIOijVXQUssEY/9Zc4HJj2XU5XIFKIoom0aAUJqR465j9bhYQEd75K9hp8I1O9XCd
+         /qZCwE87pdoMlLMlARfgo/7SL7lT/YvUN5xeskD9nRKdIUvW7asj9iNX53NdmkNAe4n+
+         D1+wvz2W+s58BNxsX57PKg8d/EZQUklU/VFszRGuHeYh+1gQE1dvQAlDolfHSD8kVenK
+         DSow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795691846; x=1796296646;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LczL5BiLVZ8edJ8mzcgVaZOm0K+ce2l6+1MIkOsoudg=;
+        b=VQ/yOMxQH7vu7x2mL6ZQCbcylf0DQv0HMivnZ6MLt9luUN4SkTodZVWDMaw1TPnSPi
+         0fFb5ilJatwjtJE8kU/A4zKRWyN3cXtXEwmr45pPFbv0sMt4sDv0f5oiKCO6igZgStW0
+         HlGmuAnDfM/VHh/45tHhi94e0vhQlrvTbUx7R5lFQ7yF1XA9k9V4/9U7J/PQrA9au/9Z
+         85R6PGMtsKqCFxyZw9bD8CGofvWR7OB5Jx7oaaINobLJ16DThxkk6t1aGGlxWvr07RdX
+         FwDZ15x2ZNAg/DfgIqzOEOpt6NKcZSjwGtcmDntItIih8m2dPoJU2da5gAzj3wsoQYzo
+         Fiug==
+X-Forwarded-Encrypted: i=1; AL+hErEL+4NlwQ4wtarmHnSg1adjMriyBQ62jVfIvmTMR8VIRMH1q41NJ/UyihRhPClW3JMUZN6zITxObzN2YL8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+7mWOEPpv5f/DxTHN3irsPiOSX6sZgI1Mxp8xwkzZHjftYkXFG
+	hIRJQZh5+uJgouwPcJvZSz6IteeMgPIgMDsQjLzyBm/s/+TfWn9Q5G4M8FsvwWg5v+00oGY7acC
+	XGBClHmCCVpz3TQ2PmP5HA3QOFO/VbDutjw2wkIwKMC899wQuxKrPFu5lUTzu+2SNCl4=
+X-Gm-Gg: AZFdTZfBnxEJVS5qKlkvkY8iZGpUTpj0Ku5NnBsb/eXvJEeKP60jn9eh3HxyDd92AD/
+	W70HAA7lVR0sKKRdZEUaZoemckng5hQxqyKHMPmKROEMrQFFUFeNsc5K3cjp2qtreHQLhkDNd5D
+	ZbJQW2WVIPMJEuU6EjV9elRYxMht9POZKVetrLMoOEGQEkofB36VRJjO3+mXg+8Icss0y3uG7xs
+	lBok+mkuOKynA7yGBxwqbaY6sVY6Wox42qnSHEdB+kZOfpyImzl/xVzPMkw6F85B5gYKPhwadPj
+	5nNZUWY7d4uN53m27hLxhA93NS5Vpp3bDjGjx2CesUc/tboQ6Vl/2dF7SyW1jzMK+TAZYQxV/Kx
+	bwPKz6l12hTEyZbw+Q4BfQC50JGyOn4Y52hmz/pkAOLY1B51peGvXO0KTj6Ee0cvyV3etO0H7wJ
+	RsbNLgJlKNObaNpXnOLQK3KWlrLeVz6CLD0qVN3mRyFA==
+X-Received: by 2002:ac8:59cc:0:b0:533:81cf:5c9b with SMTP id d75a77b69052e-55d6fcf949fmr396091451cf.24.1795691846069;
+        Thu, 26 Nov 2026 03:17:26 -0800 (PST)
+X-Received: by 2002:ac8:59cc:0:b0:533:81cf:5c9b with SMTP id d75a77b69052e-55d6fcf949fmr396091071cf.24.1795691845606;
+        Thu, 26 Nov 2026 03:17:25 -0800 (PST)
+Received: from WENMLIU-LAB01.ap.qualcomm.com (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788506b0sm177653661cf.17.2026.11.26.03.17.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 03:17:24 -0800 (PST)
+From: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 19:15:57 +0800
+Subject: [PATCH v6 1/3] media: qcom: camss: x1e80100: Use the lite clocks
+ for the lite CSIDs
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,126 +117,114 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL1PR12MB5174:EE_|PH0PR12MB5630:EE_
-X-MS-Office365-Filtering-Correlation-Id: 810c9997-6d89-4bfa-1ef5-08df4baed620
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|18002099003|22082099003|261022105027099003|11063799006|261026140227099003|56012099006|261102123227099003|261021121427099003|261021123027099003|261022075727099003|261009223027099003|261026121527099003|261028144727099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	ovJihJjFjph0XoGt37BvyGP359+pPfhRWecPvOvjLpjo30CBQm06WCapjHCCj6mkDWIUotIepy7XT9AsyTRB8DyJigWhRk6/SxPH3onXYT4tpIKNEYRwQh11pbwck9IvKbfLDnBwoeFaW8CWNP1gmnuZBmzN8xpx4ndMCDkFCaift+XaCo7xhHtaP0D94ixOyzZihypz3sheLabB7HCAeRbs7+9437DidmGuzsDyT/cEvi6PdghFem6Fdk1cWODj8NvCK7MQiU0GTYa0+LGtbquziqAcYXo63Nymp8C0Amn/5TxixnkzjPC9ZTzyKdmyDVzpl6O3SOKFTQBken68OC9eukbRCjnYWZSd/9d5MX8NckMOn4XMcwEmnQHcuBsAhKpMBg/Vu21RCKTTKjTgpswufZGZcJnHbpCr2hTLO0RensqVCO0b/8P3ThQutIZ6QpRJfueG6qWwz+7s3gIxUSuxGuZ1G2cdArXiCWv+H0SqT7Px6463v/jeOJ5e+UY2Ad/kawItHDkWK4iasRff32/iJkBbpeSM9hwN60n66vDjTF5hrq9lGrO6bvAsuEfBTMI3KN2m49DMGVGdr2ND+fAFh0JXpijPWfop4AQem+VfNsAwdyAh3gKqahNGq96mIub2fJlKMWGFh2unk3TscZN36M+4DqL4b24oowdNu58=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5174.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(18002099003)(22082099003)(261022105027099003)(11063799006)(261026140227099003)(56012099006)(261102123227099003)(261021121427099003)(261021123027099003)(261022075727099003)(261009223027099003)(261026121527099003)(261028144727099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?dOfS3HwVohTX0bR0lVFWeblAOMKe7WbFE8cRRaxFv7czXI1qvxy7gxmfUyxW?=
- =?us-ascii?Q?bp/4d1TbIA0o6XFMV+q/Ix7r4y172EopT7JHE058ZDkHTXxUpvuER8VgcDcB?=
- =?us-ascii?Q?75/gQpKb94JmOITwV4ctUAHYnltyLBfaYg2VDVeI6l2vrMj7G9P3EUgABMaO?=
- =?us-ascii?Q?qVU2esgnc8eivx2HZPIglu/2nvxXSuQRcELDB8PeWfBR4JDa8gPnoXr7RHG8?=
- =?us-ascii?Q?BiYpGgxfoF/Xaoz+IzOXxq8Aghdgv6ftxoRthpPOV26g9UGWRe38kIipGKKH?=
- =?us-ascii?Q?BJ5QVAMH75FZRn47q/QZZ5Y9sbvaj3wLxKVrgnF2DsGEyTf46yzSv9euAtkY?=
- =?us-ascii?Q?aMQy2p+lnUjZe/GVau1zRGa0MvH51B+cSehHveJhoDJneldlEBiSvlLeiihM?=
- =?us-ascii?Q?ZI7zjZnArsF+7LV/+9/ICxt40yCqSprtDWbdjOfz/U/PQMhza03/j31dLAlx?=
- =?us-ascii?Q?kfMk34/ToDgUAXZaWtdDDUsK6jW9Upl+vDzLmuO0WDUuMgLv/oGJFiBMHgPz?=
- =?us-ascii?Q?FajROtUhOwfC0s8lg7zuzlqECYcxsilfKM0JaDSakPUNQ3vtOlOzRsflXiSy?=
- =?us-ascii?Q?M3xPDs6w5BH+wvKhBiFgfwQCP/iKIsVljj6mmSDF8oqUcf4yh+wMLsNT8dv2?=
- =?us-ascii?Q?XdjL96UnnmcKC2bZpLfbRm1nX0JSm4WR2rB9AoH6wi0uoV22mfKLYSx480eU?=
- =?us-ascii?Q?JPwo/PVKVeL6t0JOEc4zJ5WcTh5d+KVCxqtHui+lz+Zg62DPN0QeMWf65clk?=
- =?us-ascii?Q?j/gS0CZ6ldVOVcPANrfZVIwUK8tGg/ud1C82uJ4UOA95gjqmL/TlY29VYLPk?=
- =?us-ascii?Q?zAJ22gLnr1wkZHOjrAg36XtQFO18V8Uw4UWDD8OhNhl/JuocS/BMc4ZDoRAW?=
- =?us-ascii?Q?s0Xd+o2I/fb4WZPJFVIrLyMjVGRI34+vABs1YfMpFLZIp1e7zzH2eUEhVgKx?=
- =?us-ascii?Q?IjoFA9rVkxuRYdISLIpszq8OVmmEM3yIysRi8t30fNEPlrQLp44RXtpl8sG/?=
- =?us-ascii?Q?07YuXb80Y8xjWCPRRwyWd21QxJCl9fU25UlyEtDKplwZLFx0uSiUO4pK3RsP?=
- =?us-ascii?Q?BaHG/ja/ryNgS/X6pphp7OUNYhQf537gIq9LTmcbEIeRVuOX8ujqA8/ucZ1G?=
- =?us-ascii?Q?QulzRIGnWO6/iohiKdXq1R+fOKz4RUH1YRQCUiupwlIl27ivbd14VOzpn+62?=
- =?us-ascii?Q?1T+y/RkcmY3RjVClzOw4VmZPJiBznNeV5MxFlhFRxX5/9Ack1P2JVPCvxWjg?=
- =?us-ascii?Q?bJIOn0oAs1llxzodG7/YFKo5K1i3k/6M5bXq3fKTGCuuwQHKln3+4LwTLiJa?=
- =?us-ascii?Q?YoFnRrMAaph2xVFL+kNjrqnX3j9hQPcMrrtBtfPHhTzpVwyDUwh/nytTiOe7?=
- =?us-ascii?Q?klvmX+Gu3vzNJzG4hMVCicsGSKoFew/cTVRswIY/sXOGkx0duvGbsSwf+/Mq?=
- =?us-ascii?Q?PS9GQU0ieqShv+qvdDVmQ30GrH48uckhiaIFVI8Fpj40GGHgPVcuGGP6rRf0?=
- =?us-ascii?Q?NBjuO/SXdipLziDUkYvjYEx45jIgEXfi9hqHA9TFlH6rolonPvPXqE/vCOn8?=
- =?us-ascii?Q?sm0Xi8zfDMjaVyfomiRVU+Cn/M/OoymXJW1n4hY8hkM5IcqJOLBSJud8j9gU?=
- =?us-ascii?Q?Gl5CA/o9NQDaZ4dS4jIblwzhNp7QnHcMgfrfQ9wNUqMYWhJ9fEzXeVZWFQUT?=
- =?us-ascii?Q?0iToBLkyvcXMOkXzRdOEhodEK/jp4e6CD6Xi4T3QQVcg24jl?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 810c9997-6d89-4bfa-1ef5-08df4baed620
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5174.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 11:17:19.9951
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: N5zMe+34I/dL2HKtQLqUHfuk6fMgp25MM7HWKTZM8ndmRgRRalrRnmaHjPY1RMTbRb/KW7UVMWPyZ3W2pES8Ow==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB5630
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-purwa_camss-v6-1-5ab97aea3832@oss.qualcomm.com>
+References: <20261126-purwa_camss-v6-0-5ab97aea3832@oss.qualcomm.com>
+In-Reply-To: <20261126-purwa_camss-v6-0-5ab97aea3832@oss.qualcomm.com>
+To: Bryan O'Donoghue <bod@kernel.org>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Jesse Casco <jesse.casco@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795691835; l=2518;
+ i=wenmeng.liu@oss.qualcomm.com; s=20250925; h=from:subject:message-id;
+ bh=6Ey5y3ww8capTsBQgpxjXNOXFZAA+h5B/q8ghiZjkAk=;
+ b=Q+PXM5oHGjjms4+wSi1VNOH8AS3KRM5GO5ftqcc8Dy0NN8kXh7GS7F/VCIqvskEOJ4Pz0Cwj5
+ JmYdCdNht9XB4CVYujybPE8jvsdkOn9/CuuPz+AuvIw6oOm6FxSsdrA
+X-Developer-Key: i=wenmeng.liu@oss.qualcomm.com; a=ed25519;
+ pk=fQJjf9C3jGDjE1zj2kO3NQLTbQEaZObVcXAzx5WLPX0=
+X-Proofpoint-ORIG-GUID: djrJKgEH1UI-zTPNiLBue16qdWmEMqus
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA0MyBTYWx0ZWRfX4FQtZdRHbwFg
+ lv1O6oQXnfDGw2KzH1FgZ7Eieo7smpTpfdTyJnNut9sZ3chtVXJCU9hfI3ERl/IdjjCzAGj/zul
+ z+5kpYgcBVnHPWK2pkf4mB/6WxviOnM=
+X-Proofpoint-GUID: djrJKgEH1UI-zTPNiLBue16qdWmEMqus
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA0MyBTYWx0ZWRfXyrgkwPXfk6yS
+ DV1+AzkT82UkqCy2xAVjtsCoMUBfuFH4hdLiefbRtwh3UcJnLbmLy9amMeiYbj3D5/V8P7qrapD
+ Z5Wf49+7dzFwICCpIoTw2h5KUBPfbDPYtb8RlmLZkz/FrjzS7HxLXEeTZULu0NT1LiLvFLnBYzU
+ /oI5dfhphgL7yyJOhtTZvLWrFZzVCV7reNlb2D8QCjJTqLmubn6gFYMlC6mKiOxLpJJphsQoEhZ
+ WR0zKk4g1pwgeqYmdY2utBanKgZKw5SeRYkymNPDgWts8rMsHEUH5G1bfwSqo3L3f2FDEiBzH5F
+ LM2dl2y9/A2HKHUfU/hA9SXiOL8CYzfDwXVw/ejh6RTDrOy7GAoyMQmgQeKqdtT7B1OHlFELOTz
+ 5tyHtE8qHyf5S7OzGxVRGJHUJMzwg3wcQCinu4qoNMqXSy0owmTuktRauRyAo4pF5ZhkLJtAwVU
+ ue4C31mCbZIqULa121w==
+X-Authority-Analysis: v=2.4 cv=O/usLx9W c=1 sm=1 tr=0 ts=6b081546 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=pGLkceISAAAA:8 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=lvRKaed-JQPLFg1lVikA:9
+ a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_02,2026-11-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 priorityscore=1501 bulkscore=0 adultscore=0 clxscore=1015
+ impostorscore=0 lowpriorityscore=0 phishscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260043
 
-sched_ext was the only user, and it now relies on switching_to()
-refusing retained donors instead.
+From: Jesse Casco <jesse.casco@gmail.com>
 
-Suggested-by: Peter Zijlstra <peterz@infradead.org>
-Signed-off-by: Andrea Righi <arighi@nvidia.com>
+The X1E80100 CSID_LITE0 and CSID_LITE1 resources list the full CSID
+clocks, "csid" and "csid_csiphy_rx", instead of "vfe_lite_csid" and
+"vfe_lite_cphy_rx", which the binding provides for them. The lite CSIDs
+then run with their own CSI-2 receiver unclocked: their registers can be
+read and they raise the reset interrupt, but they never report RX, RDI
+or buffer-done interrupts, so no frame arrives.
+
+Use the lite clocks, with the vfe_lite_csid rates the IFE_LITE entries
+already use.
+
+Fixes: 1830cf0f56c3 ("media: qcom: camss: Add x1e80100 specific support")
+Signed-off-by: Jesse Casco <jesse.casco@gmail.com>
+Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+Reviewed-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
 ---
- kernel/sched/core.c  | 28 ----------------------------
- kernel/sched/sched.h |  6 ------
- 2 files changed, 34 deletions(-)
+ drivers/media/platform/qcom/camss/camss.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index 1b4ec78738861..4e05f6458a118 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -6855,34 +6855,6 @@ static void proxy_deactivate(struct rq *rq, struct task_struct *donor)
- 	block_task(rq, donor, state);
- }
+diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
+index 5469664dbc4ac2d6722d0555dbcbb1a10dd439c0..d3d27205af0dd49599fe0717dc8dde68a9afa638 100644
+--- a/drivers/media/platform/qcom/camss/camss.c
++++ b/drivers/media/platform/qcom/camss/camss.c
+@@ -4567,13 +4567,13 @@ static const struct camss_subdev_resources csid_res_x1e80100[] = {
+ 	{
+ 		.regulators = {},
+ 		.clock = { "gcc_axi_hf", "gcc_axi_sf", "cpas_ahb",
+-			   "cpas_fast_ahb", "csid", "csid_csiphy_rx" },
++			   "cpas_fast_ahb", "vfe_lite_csid", "vfe_lite_cphy_rx" },
+ 		.clock_rate = { { 0 },
+ 				{ 0 },
+ 				{ 64000000, 80000000 },
+ 				{ 80000000,  100000000, 200000000,
+ 				  300000000, 400000000 },
+-				{ 300000000, 400000000, 480000000 },
++				{ 266666667, 400000000, 480000000 },
+ 				{ 300000000, 400000000, 480000000 }, },
+ 		.reg = { "csid_lite0" },
+ 		.interrupt = { "csid_lite0" },
+@@ -4589,13 +4589,13 @@ static const struct camss_subdev_resources csid_res_x1e80100[] = {
+ 	{
+ 		.regulators = {},
+ 		.clock = { "gcc_axi_hf", "gcc_axi_sf", "cpas_ahb",
+-			   "cpas_fast_ahb", "csid", "csid_csiphy_rx" },
++			   "cpas_fast_ahb", "vfe_lite_csid", "vfe_lite_cphy_rx" },
+ 		.clock_rate = { { 0 },
+ 				{ 0 },
+ 				{ 64000000, 80000000 },
+ 				{ 80000000,  100000000, 200000000,
+ 				  300000000, 400000000 },
+-				{ 300000000, 400000000, 480000000 },
++				{ 266666667, 400000000, 480000000 },
+ 				{ 300000000, 400000000, 480000000 }, },
  
--/*
-- * Remove a retained proxy donor before changing its scheduler ownership.
-- * The caller holds p->pi_lock, so p cannot wake and migrate if block_task()
-- * drops it from the runqueue. If DELAY_DEQUEUE keeps a blocked fair task
-- * queued, switching_from_fair() completes the dequeue in the immediately
-- * following sched_change_begin().
-- */
--void sched_proxy_block_task(struct rq *rq, struct task_struct *p)
--{
--	unsigned long state = READ_ONCE(p->__state);
--
--	lockdep_assert_held(&p->pi_lock);
--	lockdep_assert_rq_held(rq);
--
--	if (!p->is_blocked || !task_on_rq_queued(p))
--		return;
--	if (WARN_ON_ONCE(state == TASK_RUNNING))
--		return;
--
--	if (task_current_donor(rq, p))
--		proxy_reset_donor(rq);
--
--	if (!p->se.sched_delayed)
--		block_task(rq, p, state);
--
--	WARN_ON_ONCE(task_on_rq_queued(p) && !p->se.sched_delayed);
--}
--
- static inline void proxy_release_rq_lock(struct rq *rq, struct rq_flags *rf)
- 	__releases(__rq_lockp(rq))
- {
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index b34709723d861..36e0e28a34acd 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -2534,12 +2534,6 @@ static inline bool task_is_blocked(struct task_struct *p)
- 	return !!p->blocked_on;
- }
- 
--#ifdef CONFIG_SCHED_PROXY_EXEC
--void sched_proxy_block_task(struct rq *rq, struct task_struct *p);
--#else
--static inline void sched_proxy_block_task(struct rq *rq, struct task_struct *p) {}
--#endif
--
- static inline int task_on_cpu(struct rq *rq, struct task_struct *p)
- {
- 	return p->on_cpu;
+ 		.reg = { "csid_lite1" },
+
 -- 
-2.56.1
+2.34.1
 
