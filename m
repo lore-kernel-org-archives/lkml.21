@@ -1,111 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795704362;
-	b=LCCjWBgnt+Alju/APqSfNPzX7FB8CyN+q8tKwWSs6x1OBvj6GbHMMupZvm5ANmC+oQD0
-	 wdIhb82afBmRU7iU8pr/7jzbSun1ftChfdHRYFfCJRCkWl4fQkMBPXVTYNYa7uKYEuWLU
-	 FdyGgM4Z5K4yAoOz0vmsxQCM98rL/7tajkKsMk517mFTJ4oiGsOVoI1ED61OzX+e4EZGN
-	 zfaFZMWOcpRsAB7GtPvK3XMsQOCKewUwJQIcKcRrj+i/I82OCwdrLlgsuJnziWEgXNSjP
-	 2LDHsBC7N5WA28cEj1v5Ej/j5VQpW6nezGzBJ/MTRgvu1wQ+ldfq8vl7DU1xyZovyBQ==
+	t=1795704438;
+	b=JehB1U67RWryZIckWQ5edJSWT2tPEU45G2PafSF7Noiy/BElTfngzMQtmaPAAyC+uwas
+	 UvjnaQnaMNh4/FnmNMAYeVV8HOimJZGNTK3A1M8bV1UlM4dn/vSSa4ubTfnhm0jeYMFDU
+	 XQ35mITBQWfhKNes/GJqL/DdGvD/9rLzOU13pTNRf5bEHCRFFGkNcdU/znS8HUqNsCBOJ
+	 SlZrk4jip0EeGegK5nGIiXaUyNCiHo2+bbr3ikoFdRQ/aDbsoji39FB9ub74yVgXy6vj/
+	 ZMlSpAVBenbxrk2I3Q1Z21674+9N3a6hCvwn3zNNFFGlxIq+957/2TYCabjeh4FGttw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704362;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Wu1agTFEkGcx3K6CnCdIJjGrSzPmSSzxOxrr1RuQESY=;
-	b=EOmk82X3IBBwVo0j0YmH/p39y9kFTd8uMoKBF1ICCjMU+y6gyy+Zl1GZjsHxY1/62wMI
-	 QSysBFX3HSGoC1wW2FdZ7mDhOzvHF+z6kdBXR+6mi8jXIsDV0yghcOnqLocLDJea/6IdT
-	 yUuknLOXNernAGPfXQw5/zFC47QSVKKMANKaTnLDgDe6GdF2ZrnJYZUTcltmV//FuZeqZ
-	 opSOBLl+dQ1HU4BpPU+opzSNghBDj518VhpUNYAIq696hDJ8wwX5yQlzFrYHGDlWgtQzB
-	 3A0Khgra9tNZCCxuVAIAMS+MilGXG1/lpn9/PSQVAlP4M9cME2uHpX5bH/QU+yeqbUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795704438;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=/q/pFzvKWu2mEF9/DwcsF9YD9/DZAPV7fZSCS+XMqKU=;
+	b=I9HbsfXmLCHEC6qHvnlq6ioN5E4ZyqhvCqBRY0UsBVm6b20FUa9+hmmUpO4btsTxdhLQ
+	 heaXDGQslhxntp32g28w10Qhr326zviSRyBPqyz/YY0P5MDg7ILuUwNdA/TyexJtMPSjZ
+	 D34h7T+Y89rQcrrZfwol1jLHVcOwxR5dylglt0lEc3Ci07kO4TfbuztWjJwsUXTMKQsJN
+	 z/sEvUi/+ECMTvu7lQ+BYRH7nVybFyNAdzJHb7qtFCtpQ7QvyFd9/2S3wrcYqUQ4koF/N
+	 jMhqkbnsY72MmkT2Ih+q3b0GLgmooJMipNjazEHuCltCe2kHjGnOF5O7e6mgQbKe68Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=PrY5X9JI;
-	arc=none smtp.remote-ip=209.85.218.45
-Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TnusCb4W;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 819D0606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:46:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 819D0606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4035606A31C;
+	Thu, 26 Nov 2026 14:47:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=PrY5X9JI
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c506a231b88so953712566b.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:46:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795704360; x=1796309160; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Wu1agTFEkGcx3K6CnCdIJjGrSzPmSSzxOxrr1RuQESY=;
-        b=PrY5X9JIHXb4qCOmbPGQEhCJ+snfEAQq9mqA6AkUzJOCOxr19TbiI+b7MJezD+vHrJ
-         W+VkhuxjOjmuopQgXRrNpHvvnXkokmXdYWt/sVqBNEdHwQqN9+taJREj/GIOPkl8FkN0
-         NS1jADcJh9CMWcvo+S9ltpiVfLtf4w5i+4irDDTeAf/nlXBAAMItr67neuhaqaQ4PXuS
-         LzT7WKYVvqXK6prhN9QrkNIe6cwWybOWLerzZF98j4R+4i8EZoSSHSg1MSXgM2Zie0n1
-         Fe2On8V0rn5A+qLKpV4IubjfLdxKfRd56TgbX/8dEoe7Ah6KXc2B43voULbrcwTzpenv
-         gYGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795704360; x=1796309160;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Wu1agTFEkGcx3K6CnCdIJjGrSzPmSSzxOxrr1RuQESY=;
-        b=P8xeQC31HDC76AN5uTL0AzxBBYzrzwVbKxjQe0bLWRwrSlh1VirSFy/ZiOliEo7t06
-         0+fVUPAzd/1QgMS/XekkCJF566OUxMr+PNFgixGObJqYOcNPcNvZkEdpLNvy5ibEpKKY
-         ddG3UgzQDsy+TC4SGnTALz4A20DIDLLlBCJD4oBcXFgge714OLiYTZ5Fl/FXO/Cy29rc
-         r2q6yK8vYNBpZ4zXQGfnXwDTCscf+w69fuDD083J75tjzu0f20dkmk7KdOKDGya5acJD
-         yPL0d+pAB50C4pO9FPObtyn8qh5/4YXdpw/SElj5vPBni/EPnSxBI+33o3puQ0B93W4D
-         zlfw==
-X-Forwarded-Encrypted: i=1; AL+hErEhcdF4XX+/VELAMBAm43PmM/PXVmosjPyTVFigFkXExdXo7qQxlN6j0i7omvVKmQaOVDKAvoSHNJBY1ps=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+OwVhSReNMt98HCGhhqzTd2REpVI4suayUGM+FNcC2G931pnt1
-	Jv4TpAuy2CCiSdDpr+vgMb5ZL41PP9/IJ7S03/kseTaotgsEw/GtQrj6RU1g7/jZfDg=
-X-Gm-Gg: AZFdTZc1OiuJtprBmVauZGuReXj8VmfwR0NmeiLKvvv8maS5ZPCIj3rKfiFfzDUB/CF
-	Ib1f7u6qCKihROdc9DX6ZrO1uU0BzwdDP9Q+/+JP+Vn5Ja+VDjEQQY7aPTK13GAkc5gQM5nnQw1
-	tSNGoZIPFYxNbSYxwd04D8EBSXc5eWm5uWNX8uFCGe3kaGV3V2jVJq1tqBY38uDQ23BCu+MZVc7
-	8mljffIDLIkVstuPoyei3kANEHA9eKAtr9NqCFN/BVeAcKwULhLbWusgPQHlhUrp53prGUrUVdo
-	yjyhIySThTQXOnWyfLXBRblvAB0gxgz04IeJZs/9srRAOUtQsAymjeO/RStYapL5Uh9YoCqK8vm
-	ugmtI/SmBB1ZpnUBbGZjpQzdG98wk1VnM40mGbn0KegnvabmAcJIMeWMO0ssAwLn1q5GR5HMQiu
-	CSm7kHIjnhpgBzVRrX9514NzM9OlUHUAbU1QbXApNX6ftN7t2on5O5oUdJgicDVBEF6l/IkcFT1
-	0fMtloUuk34HqdvDsywckauMdn9PsIbpXsA/jhPUbvfJBDOy6G7+MT+MPbxCCEzyL3WEBpJN9wo
-	T0HB3qsitisA/GyZ52NBmpHDvtki
-X-Received: by 2002:a17:906:4fc4:b0:c51:24a3:208 with SMTP id a640c23a62f3a-c513a5da66bmr1688802166b.9.1795704359748;
-        Thu, 26 Nov 2026 06:45:59 -0800 (PST)
-Received: from localhost ([195.94.148.180])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae698ccsm760181766b.26.2026.11.26.06.45.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 06:45:59 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 26 Nov 2026 15:49:59 +0100
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	dmaengine@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Saenz Julienne <nsaenz@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Dom Cobley <popcornmix@gmail.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 10/28] dmaengine: bcm2835: make address increment
- platform independent
-Message-ID: <awhHF_MII6yCi1T9@apocalypse>
-References: <20261123145728.29082-1-andrea.porta@suse.com>
- <20261123145728.29082-11-andrea.porta@suse.com>
- <awXpsh-ZbSqbotIm@lizhi-Precision-Tower-5810>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TnusCb4W
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA2621F000C0;
+	Thu, 26 Nov 2026 14:47:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795704438;
+	bh=/q/pFzvKWu2mEF9/DwcsF9YD9/DZAPV7fZSCS+XMqKU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=TnusCb4W4Q6qbGBNI/+jR7w8yDxVE4LJQfEBrhJ6cZFXGapUzlFTf3WMBxxMNbUeZ
+	 7XJ/CuvWT5y24oUsLfgecaKlBERKAz1OzmvH50dDghi/kAdDc0zfT9mh8zFHgxnxJu
+	 d4213BuLgwWQeuNAyBZprdzTrjEavQFzp1Diram+4u+iv6nTh1l8/GrXGMoVUHOMI9
+	 1sPHXVNf29OWNBJH6tDfAM7PWd+sx8uzQvzorHEsGxE3CVabagg/fy2XvHRTynXB+N
+	 Fc+8hJenVdWTNp/VftnqWgECRoEPV00Er7wPt4ljJzK42a8ezXl+OsKC368ooFspUy
+	 4Mb6SuTqCNYoA==
+Subject: Re: [PATCH net v9 2/2] selftests: net: test joining genetlink groups
+ no family owns
+From: netdev-bot+sashiko@kernel.org
+To: anilkaushikwireless@gmail.com
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, idosch@nvidia.com,
+ nicolas.dichtel@6wind.com, jacob.e.keller@intel.com, jiri@resnulli.us,
+ fw@strlen.de, martineau@kernel.org, v3rdant.xiang@gmail.com,
+ aliceryhl@google.com, linux-kernel@vger.kernel.org, nhorman@tuxdriver.com,
+ shuah@kernel.org, linux-kselftest@vger.kernel.org
+Date: Thu, 26 Nov 2026 14:47:17 +0000
+Message-ID: <179570443724.3135.6495722482046462156@kernel.org>
+In-Reply-To: <20261125144514.2717012-3-anilkaushikwireless@gmail.com>
+References: <20261125144514.2717012-3-anilkaushikwireless@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,98 +66,163 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awXpsh-ZbSqbotIm@lizhi-Precision-Tower-5810>
 
-Hi Frank,
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-On 14:46 Tue 24 Nov     , Frank Li wrote:
-> On Mon, Nov 23, 2026 at 03:56:48PM +0100, Andrea della Porta wrote:
-> > Actually the criteria to increment source & destination address isn't
-> > based on platform specific bits. It's just the DMA transfer direction which
-> > is translated into the info bits. So introduce two new helper functions
-> > and get the rid of these platform specifics.
-> >
-> > Signed-off-by: Stefan Wahren <stefan.wahren@i2se.com>
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > ---
-> >  drivers/dma/bcm2835-dma.c | 28 ++++++++++++++++++++++------
-> >  1 file changed, 22 insertions(+), 6 deletions(-)
-> >
-> > diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
-> > index 77b3e2f58ac5..6180a2737e07 100644
-> > --- a/drivers/dma/bcm2835-dma.c
-> > +++ b/drivers/dma/bcm2835-dma.c
-> > @@ -273,6 +273,24 @@ static u32 bcm2835_dma_prepare_cb_extra(struct bcm2835_chan *c,
-> >  	return result;
-> >  }
-> >
-> > +static inline bool need_src_incr(enum dma_transfer_direction direction)
-> > +{
-> > +	return direction != DMA_DEV_TO_MEM;
-> > +}
-> > +
-> > +static inline bool need_dst_incr(enum dma_transfer_direction direction)
-> > +{
-> > +	switch (direction) {
-> > +	case DMA_MEM_TO_MEM:
-> > +	case DMA_DEV_TO_MEM:
-> > +		return true;
-> > +	default:
-> > +		break;
-> > +	}
-> > +
-> > +	return false;
-> > +}
-> > +
-> 
-> This is not 100% correct. there are case DMA_DEV_TO_DEV, and some peripheral
-> FIFO is a range of MMIO space, not fixed address.
-> 
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
-The driver only advertises DMA_MEM_TO_MEM, DMA_MEM_TO_DEV and DMA_DEV_TO_MEM
-(see .directions field), and all the peripherals it serves are accessed through
-a single FIFO register.
-The helpers keep the behaviour of the S_INC/D_INC bits they replace. In v4 I'll
-make them explicit about the supported directions and I'll document that DEV_TO_DEV
-is not supported.
-Supporting FIFO windows would be a separate feature, which no client needs right
-now.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Thanks,
-Andrea
+- [Medium] In bind_before_family()
+  (tools/testing/selftests/net/nl_genl_mcast.py), the `finally:` block…
+- [Low] _free_ids() in tools/testing/selftests/net/nl_genl_mcast.py
+  decides it is in init_net by comparing…
+- [Low] _members() in tools/testing/selftests/net/nl_genl_mcast.py calls
+  sk.getsockopt(SOL_NETLINK, NETLINK_LIST_MEMBERSHIPS, 64) and decodes…
 
-> Frank
-> 
-> >  static void bcm2835_dma_free_cb_chain(struct bcm2835_desc *desc)
-> >  {
-> >  	size_t i;
-> > @@ -338,10 +356,8 @@ static void bcm2835_dma_create_cb_set_length(struct bcm2835_chan *chan,
-> >   * @cyclic:         it is a cyclic transfer
-> >   * @info:           the default info bits to apply per controlblock
-> >   * @frames:         number of controlblocks to allocate
-> > - * @src:            the src address to assign (if the S_INC bit is set
-> > - *                  in @info, then it gets incremented)
-> > - * @dst:            the dst address to assign (if the D_INC bit is set
-> > - *                  in @info, then it gets incremented)
-> > + * @src:            the src address to assign
-> > + * @dst:            the dst address to assign
-> >   * @buf_len:        the full buffer length (may also be 0)
-> >   * @period_len:     the period length when to apply @finalextrainfo
-> >   *                  in addition to the last transfer
-> > @@ -413,9 +429,9 @@ static struct bcm2835_desc *bcm2835_dma_create_cb_chain(
-> >  			d->cb_list[frame - 1].cb->next = cb_entry->paddr;
-> >
-> >  		/* update src and dst and length */
-> > -		if (src && (info & BCM2835_DMA_S_INC))
-> > +		if (src && need_src_incr(direction))
-> >  			src += control_block->length;
-> > -		if (dst && (info & BCM2835_DMA_D_INC))
-> > +		if (dst && need_dst_incr(direction))
-> >  			dst += control_block->length;
-> >
-> >  		/* Length of total transfer */
-> > --
-> > 2.51.0
-> >
+--
+
+selftests: net: test joining genetlink groups no family owns
+
+This adds a Python selftest. It checks that Generic Netlink multicast
+group IDs no family owns cannot be joined with setsockopt() or bind(). It
+also checks that a socket bound to free IDs does not become a member of
+the NET_DM groups once drop_monitor is loaded.
+
+> diff --git a/tools/testing/selftests/net/nl_genl_mcast.py b/tools/testing/selftests/net/nl_genl_mcast.py
+> new file mode 100755
+> index 0000000000000..8bbe3d22225cf
+> --- /dev/null
+> +++ b/tools/testing/selftests/net/nl_genl_mcast.py
+
+[ ... ]
+
+> +# include/uapi/linux/nsfs.h
+> +NET_NS_INIT_INO = 0xEFFFFFF9
+
+[ ... ]
+
+> +def _free_ids(ctrl):
+> +    """Return the IDs in 1..32 that no family owns."""
+> +    # Outside init_net, the dump skips the families that are not netnsok,
+> +    # but their groups are still owned.
+> +    if os.stat('/proc/self/ns/net').st_ino != NET_NS_INIT_INO:
+> +        raise KsftSkipEx("not in the initial network namespace")
+
+[Severity: Low]
+Can this check ever match on kernels older than commit 9b0240b3ccc325
+("netns: use stable inode number for initial mount ns")?
+
+That commit added NET_NS_INIT_INO to include/uapi/linux/nsfs.h. Before
+it, the ns.inum of init_net was a dynamically allocated proc inode number
+(PROC_DYNAMIC_FIRST and up), so this comparison never matches.
+
+join_free(), bind_mask() and bind_before_family() all call _free_ids()
+first. On those kernels all three subtests would skip, even when run in
+the initial network namespace. The printed reason, "not in the initial
+network namespace", would also be wrong.
+
+The companion fix "genetlink: Reject joining multicast groups no family
+owns" has a Fixes: tag, so it is a likely backport candidate for stable
+trees such as 6.12, 6.6, 6.1 and 5.15. If this test is backported with
+it, the fix would never be exercised there.
+
+The commit message explains why the fixed inode number is used, but it
+does not mention this limitation. Would a fallback help here? For
+example, the test could compare against the inode of /proc/1/ns/net when
+the fixed value is not in use. Another option is a skip message that
+states the actual condition.
+
+[ ... ]
+
+> +def _members(sk):
+> +    buf = sk.getsockopt(SOL_NETLINK, NETLINK_LIST_MEMBERSHIPS, 64)
+> +    # An array of u32 in host byte order
+> +    words = struct.unpack(f'={len(buf) // 4}I', buf)
+> +    return sum(w << (32 * i) for i, w in enumerate(words))
+
+[Severity: Low]
+Could _members() decode uninitialised bytes when the socket has more
+than 512 groups?
+
+In netlink_getsockopt(), the NETLINK_LIST_MEMBERSHIPS case stops copying
+once the user buffer is full. It then reports the full required size
+anyway:
+
+net/netlink/af_netlink.c:netlink_getsockopt() {
+    ...
+		opt->optlen = ALIGN(BITS_TO_BYTES(nlk->ngroups), sizeof(u32));
+    ...
+}
+
+do_sock_getsockopt() in net/socket.c writes this value back to user
+space without clamping it. CPython's socket.getsockopt() then resizes
+the returned bytes object to that length. Everything past the 64 bytes
+the kernel actually wrote is left uninitialised.
+
+For a genetlink socket, nlk->ngroups follows mc_groups_longs *
+BITS_PER_LONG, and that grows on demand in genl_allocate_reserve_groups()
+and genl_validate_assign_mc_groups(). If it goes above 512, the
+full-value ksft_eq() checks in join_free() and bind_mask() could fail
+because of garbage high bits.
+
+Would it be safer to decode only the first min(len(buf), 64) bytes, or
+to size the buffer from the returned optlen?
+
+[ ... ]
+
+> +def bind_before_family(ctrl) -> None:
+> +    """A free ID joined with bind() stays unjoined when a family takes it."""
+> +    names = [fam['family-name'] for fam in ctrl.getfamily({}, dump=True)]
+> +    if 'NET_DM' in names:
+> +        raise KsftSkipEx("NET_DM is already registered")
+> +
+> +    free = _free_ids(ctrl)
+> +    try:
+> +        with _sock() as sk:
+> +            sk.bind((0, sum(_bit(gid) for gid in free)))
+> +
+> +            # Looking up the family loads drop_monitor.
+> +            try:
+> +                ids = _groups(ctrl.getfamily({'family-name': 'NET_DM'}))
+> +            except NlError as e:
+> +                raise KsftSkipEx("drop_monitor is not available") from e
+
+[ ... ]
+
+> +    finally:
+> +        # So that the next run can load it again
+> +        cmd("modprobe -q -r drop_monitor", fail=False)
+
+[Severity: Medium]
+Can this finally block turn the "drop_monitor is not available" skip into
+a failure?
+
+With shell=None, cmd() in lib/py/utils.py splits the string into a list
+and runs it through subprocess.Popen() without a shell. If modprobe is
+not on PATH, Popen() raises FileNotFoundError. fail=False only ignores a
+non-zero exit code, not a failure to start the command.
+
+An exception raised in a finally block replaces the pending one. The
+KsftSkipEx raised when getfamily() fails with NlError is then lost.
+ksft_run() catches the FileNotFoundError under except BaseException and
+counts the test as a failure, with a traceback.
+
+Without modprobe, request_module() in the kernel would also fail. That
+makes the NlError path the one taken in exactly this environment. The
+cleanup also runs when the test never loaded drop_monitor.
+
+modprobe may only be in /sbin or /usr/sbin, and the test may run with a
+PATH that excludes them. In that case even the success path would end in
+FileNotFoundError and be reported as a failure.
+
+Would it help to run modprobe -r only after getfamily() succeeds, or to
+catch OSError around the cleanup?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125144514.2717012-1-anilkaushikwireless%40gmail.com
