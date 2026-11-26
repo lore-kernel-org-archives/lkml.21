@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795655407;
-	b=cdxEB1qBvS2XCAc9lupcxBhNMPnhmG8788Zkoguunys9VBHv0CbaszpTLInur7gyUoEN
-	 rBLsGotFfPpVUwK8RZ3zngqU6JfgVAQuuOtih1i9jMec6iuwc/NQHaC8lXpjRmdV0Ynb8
-	 npateh/z4laay7tk/nZLEh5akfhu3pRTGXfdwC1cFczb2QSfMSkGA8Mc0M6aqHmqfnB2p
-	 K2+S52p4zGtjdNgi00gRa9AhZVukgsDa8aHg/f+baFyj7C7y0roekp/+9952tkamrqF3Y
-	 iPGBVOSMs/Y1mRK5+TGds4+HksZ9OwNqI94fJNFgWn1QEeMLd7hbSINa6e/bUSFa6kA==
+	t=1795655411;
+	b=0nZEptYrCdVjNB6wEF+grTUMCt5liERAxWCTzf3soznm4FhkOpHXuxfWMdWYH5gRvNTM
+	 ktt+sdW2+JIThcUR+jccclztioBl5OjZqgHOHfdIDdDrQYEQGfPAsQHUbgw57waq5AgOs
+	 qwkgKjbDL2wffmsYSW8dqGo59O/SaHrqfKSNBSAQTRHY3fyBF82fKlAFoc/9e7+TSvkX/
+	 /rnp+oL1CBpaF5kHjRQD8pXGaHv3gHHVwKsc0NomJ/XwehJF9tYVBv+Njmx7v77+j7S5P
+	 crjutNYDwaFWBp02D23hCcce3Hz74LjU1WlU2GCu+ClIwnyGCgoUB9jbgpMesoqamWQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795655407;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795655411;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=n3eDNRFNkis7rRhskdmMxswZGudGLnk3t4gSHbRSwfs=;
-	b=LHuazlSAZCvU296RcAzyoBPjw2dSuUFVI/sfDfMyQ4Jsxty/l3H/ZPX+jirT5sxBF0UX
-	 d/xEIPBVZaZk6wMJ+Q9gxt4tqDXFJiCYQgonP7dkNZXVExD5OnGu79I4TEkB04mw/TIE+
-	 8zdLqD+TiN37C/AmYfqNmEeYdhFJPJ/WEcsbJ7tXwza4E36p9FzLElN0VUL3/933TM6lC
-	 bnNOah385TqUgJ52mxBYF1v+l5wbo49IFzWUtLWZVt+yBoL5tmsDD5mgBTxgOV7LEp/rn
-	 wyMgi/4Ev/sJZzu0NbftCH+ax8FIMZnEMIvJZqOnR7YmwNEuvQj70dxIMjCNPzIMM9w==
+	bh=hLqcqMJze4p895PyhjSSj+Tnxq3rn5mo+PGedMdTRNQ=;
+	b=FZmAwSTTZawtBFA7/6OehCElzSUzSm8j+MOTu/fDWjh4/N5wnsV6+z2NKvPAaVE0UZkO
+	 K2m6P+XqEU25zLNsD958N9JMJtwQq+H70x6hGf67GAgRliJYqOnRg7FMSs0ouGqWXcyzl
+	 MnrE2bSg0ASaTMT1K3KDlGBf8p0Nq/rm2CwZjU3ZW4GcMEyMt4urdxvZ58bQcKDjj97r8
+	 282ydvnNuZhIrW8rdTJrudtJJjq8h9n/HA+kMQxZQGCA2g9QoFr8vBzyNs2No877CdlVP
+	 UvHiXei00UmZkH2ZeWROlGn6+zNIaiwnc96Ddk/TwUCbxKdZBd6mxN08kBt4XzYFStg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bc1Oroi2;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VkAOY2HH;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14E3B606A68D;
-	Thu, 26 Nov 2026 01:10:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 859FB606B74B;
+	Thu, 26 Nov 2026 01:10:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bc1Oroi2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81DF61F01563;
-	Thu, 26 Nov 2026 01:10:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VkAOY2HH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 427B91F000E0;
+	Thu, 26 Nov 2026 01:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795655406;
-	bh=n3eDNRFNkis7rRhskdmMxswZGudGLnk3t4gSHbRSwfs=;
+	s=k20260515; t=1795655411;
+	bh=hLqcqMJze4p895PyhjSSj+Tnxq3rn5mo+PGedMdTRNQ=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=bc1Oroi26uPkyEsALHrZUf5G9DEPdcDpYa/lyMgb607YBDOuZ//wSlKHBzJpQjn6Y
-	 p8alsnXQHbNbvdhO72hsGUsytiZeUBH8qJjAw111jj5+yDRQfVv8h30of9MMg13l0C
-	 pcSevcG5b6dL+d8VHazb3+yMmE8zscJF8VVQYtC2+NYPWAhNcOxcgv/GYiwbZKAYJi
-	 6NPKAUd999ahIHMX7NvnXDvcOgmujxdH+vhKcag0isBo5rnB/giQqryuuiBGTJBsgh
-	 Pdijmke+Hrxa7o65FuNgL2TLc7spDvLpoOzkoJCy6azRmogyq5BjcwDRz2k9OJERuG
-	 11+Hpv7iT6olw==
+	b=VkAOY2HHQuDGOkhEX07xSs9Sbgj5AzCwb6MVURp1N7KzgV8N7bCUO7HktDtB5gNTP
+	 mmbgWuHHYUwQIwdpmjKPaDcgqAIfO1J3us2t7qWPrgg0RfKrBfbkAN3JccGxsC2tCR
+	 y4T/GGTy2ZuOsa4DGRtYx+eHDbawNQs+kuRNzcon4rkDYyAyEbQkyy5anQB4K0Z376
+	 a85nk1vGqopCXkkyCtP8Oyjr5NfkoN9qtBZsC1Nx5qPJg14SKSihH5q5itqpcUqDOP
+	 dgX2v6EyO8dVnTCgRubw7OsCJA7gEPa4vOwQM2jO7pGiNmPbTHJrzd8u1LQDYQRiLg
+	 s9VhpJxLlAhEA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 774C43809A24;
-	Thu, 26 Nov 2026 01:10:06 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3243809A24;
+	Thu, 26 Nov 2026 01:10:11 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -54,47 +54,43 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v4 bpf-next 0/3] riscv: bpf: Add BPF private stack support
+Subject: Re: [PATCH net v2] vhost/net: Fix receive queue test in busy poll
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179565540527.1427026.16404193754358900267.git-patchwork-notify@kernel.org>
-Date: Thu, 26 Nov 2026 01:10:05 +0000
-References: <20261125122126.939-1-cp0613@linux.alibaba.com>
-In-Reply-To: <20261125122126.939-1-cp0613@linux.alibaba.com>
-To: Chen Pei <cp0613@linux.alibaba.com>
-Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org, memxor@gmail.com,
- bjorn@kernel.org, puranjay@kernel.org, alexei.starovoitov@gmail.com,
- eddyz87@gmail.com, martin.lau@linux.dev, song@kernel.org,
- yonghong.song@linux.dev, jolsa@kernel.org, emil@etsalapatis.com,
- ihor.solodrai@linux.dev, pulehui@huawei.com, pjw@kernel.org,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- luke.r.nels@gmail.com, xi.wang@gmail.com, shuah@kernel.org,
- rgbi3307@gmail.com, guoren@kernel.org, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
+ <179565540977.1427026.8052845055528929913.git-patchwork-notify@kernel.org>
+Date: Thu, 26 Nov 2026 01:10:09 +0000
+References: <1B3A1B72438119BC+20261120033824.681219-1-raoxu@uniontech.com>
+In-Reply-To: <1B3A1B72438119BC+20261120033824.681219-1-raoxu@uniontech.com>
+To: raoxu <raoxu@uniontech.com>
+Cc: mst@redhat.com, jasowangio@gmail.com, eperezma@redhat.com,
+ davem@davemloft.net, kvm@vger.kernel.org, virtualization@lists.linux.dev,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
 
 Hello:
 
-This series was applied to bpf/bpf-next.git (master)
-by Alexei Starovoitov <ast@kernel.org>:
+This patch was applied to netdev/net.git (main)
+by Willem de Bruijn <willemb@google.com>:
 
-On Wed, 25 Nov 2026 20:21:23 +0800 you wrote:
-> This series adds private-stack support to the RV64 BPF JIT.
+On Fri, 20 Nov 2026 11:38:24 +0800 you wrote:
+> From: Xu Rao <raoxu@uniontech.com>
 > 
-> The verifier rejects a struct_ops program that requests a private stack
-> with -EACCES when the JIT does not report
-> bpf_jit_supports_private_stack(), and sched_ext requests one for its
-> dispatch callback, so no sched_ext scheduler can load on riscv64 today.
+> sock_has_rx_data() returns a positive value when receive data is
+> available. For sockets without a peek_len() callback, however, its
+> fallback returns skb_queue_empty(), which has the opposite meaning.
+> 
+> An AF_PACKET SOCK_RAW socket is accepted by get_raw_socket() as a
+> vhost-net backend, and its socket operations do not provide peek_len().
+> With busy polling enabled for this backend, an empty receive queue is
+> treated as ready and a nonempty queue as not ready. This can make
+> vhost_net_busy_poll() stop polling prematurely or fail to stop for
+> queued receive data, and invert its receive-side scheduling decision.
+> TUN and TAP backends provide peek_len() and are unaffected.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v4,bpf-next,1/3] riscv: bpf: Add BPF private stack support
-    https://git.kernel.org/bpf/bpf-next/c/15a0f4bb0dd5
-  - [v4,bpf-next,2/3] selftests/bpf: Enable private stack tests for riscv64
-    https://git.kernel.org/bpf/bpf-next/c/02f7413abb36
-  - [v4,bpf-next,3/3] selftests/bpf: Test a private stack together with stack arguments
-    https://git.kernel.org/bpf/bpf-next/c/805728c7feb4
+  - [net,v2] vhost/net: Fix receive queue test in busy poll
+    https://git.kernel.org/netdev/net/c/cdf84b850584
 
 You are awesome, thank you!
 -- 
