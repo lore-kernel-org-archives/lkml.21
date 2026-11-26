@@ -1,112 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.159
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795651337;
-	b=QYeKpd8Mghm8D2gQ0GPXDA6zPckg/gpCQM2mo7iZe/De5MalWa62vpSYQu+Qe0h8LnmK
-	 6xrLZKgg/xdgCexqFCQ8mNUnoTQkXzDqywwdjHcpcizh4T1X8IeAbeOVEWeLwogtYpALZ
-	 GLqlNdKtklLSspW033y9kr8yOUhDCnCcC8X/s25Y4aaYYXWmYPzE+cBCuxi86P6MNQyaa
-	 fAMsP73VcJXQY+4lNt2Q1fd4G+5MFdWdCHkA8501pxfWl0wk9HZN6g9uakpKfak4cZnmq
-	 RZRf4O6oo3JvavqY96G7SggMhjRqazDrW5wm9k3OkZysmeiErSKfojUsVsqQHCGbylQ==
+	t=1795651349;
+	b=AkmBYt0ypKFgz5SqgXEqBTFdfFp/zVaO5S/rKwBGrJsHqWq3AHQHh1oZktO7S0ss5YUh
+	 iHyFvG58F1x5hKDBRlFvEo8cJu/WxIYSEDhbGBqYUW8xIAUNBxr4ouWWN1vV5xTKMA+im
+	 Yvx3CZf8mzw8fU07Dd1GTNa84STcZgRJrIhvPBKDngmUklg73dna38hJDpGj5tBM2660T
+	 VmtviEjAXlDfkIA7A5MdvDUcRZ+aqrLod5JOyHPlPgmzJX1f9rgHtcvjPVr5sh/cGhhNQ
+	 ZBIEbfVC+r9+i4GUYKUgmN5IRm03D9nvk0HiE3MLVJvS29t3Wh9HGL0D2YblfDSyS4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795651337;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=B7T1/nVBEREpJdJWj80b/dnoP++w319PyP5R6m3DFZ0=;
-	b=1ar9r/yv7XKqDCyTMaWFd9BNpVti/91kIYu+ptz8BgbYfhd4arnjqmRGyHWaFgpLLCRN
-	 s5VML0B2nJOUCmlrHe2ypCGeyWEYn4MGY7/5jEVM0oAOtxAlnGpTyKHKnGhdxMSvmfhHO
-	 iD69Gwewh4pqNjOZkZy/DKKj7mODDgi6FqQ7OxoZZ7YTdSrEOLnDyOPS9kF7UF9bm8/QV
-	 mKGJJgHjLDyBPNHjN6BupcCCLibJBgvryZBAlhIAo3Yy3iflVQJ4HW2j5hQwW+1OBZoAH
-	 IxRUKHEFT7Ly4M4uwxfuG5cf8aMWv5fJjmypHcVblUH/3xnU/4fOiqt2nzfhCmmlpoQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795651349;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=I/EixjgbYCmvAu40Ca3l/UxP84HaWV2V7/oHxjSD+IU=;
+	b=GvBlAIF/UG1v3C5zoA8xsPoedtnwZTz/Sstg0OB0shASKrNKmdXyjAXwHl/41MhtP8iD
+	 lv/18Ju6PJ0/StN9G/v2XqCVT9FC5TI/CEQEZzNFFtokEm/sV3NWvf4nEnvh0ALGmAj99
+	 PXiE7NyVZca4EOB8XBz7XUSlbRjLv7WCP1EjpHGD8dM24vmcs4JRPuLbx7VEwOPX8JU6S
+	 KLLw7bhWW3roXngpWHbWcoYRgnBXczDVkREjLoHYZTStGmxCffnHQz6+ejGmhil6Ua3AU
+	 xkapFOLdAbfGMQszGd+no9Y/CLJ1WtniArXhDM6rmu9FxUH9oRxl94iGEYQulhVTWzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Z0zHOKBc;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="XJt/Js96";
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dmarc=none header.from=jannau.net;
+	spf=pass smtp.mailfrom=jannau.net;
+	dkim=pass header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm2 header.b=S8ICm4WG;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=T21hNhVp;
+	arc=none smtp.remote-ip=202.12.124.159
+Received: from fhigh-b8-smtp.messagingengine.com (fhigh-b8-smtp.messagingengine.com [202.12.124.159])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5034E606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:02:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5034E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D77B6606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:02:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D77B6606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jannau.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jannau.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Z0zHOKBc;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=XJt/Js96
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APJgh0j1138083
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:02:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	B7T1/nVBEREpJdJWj80b/dnoP++w319PyP5R6m3DFZ0=; b=Z0zHOKBch2c98mCk
-	Je3/utDj/6DWW7Y3mEh4ebKMbUBAnaavE6sDooW2+yKA9WF4MLvDCNrrxnZpGZUk
-	OCOaCafv5XyyspMKsT2+53w09NWBrzc9Wa7YzSJm52FS05FF+OD/hFs7oJNTkaDG
-	8ETlQnfH3znOYTrfL9ahHEdaL7TThnxZAtX6v8llGz4LG8Q4WsNR9KZXYcbRwUrs
-	vB7TlXCf0fbJaXsGW7H1GBXdsux12YnT+wl5THZqRhAtzz38m/508b+RnFdSVX1a
-	tJrlYI7Jc4D3yK8XuQ9C9zj5x6CBZU+3cVCC22dgAtIBr8wiMR9diMZCi5OJ3Xb9
-	Ulfrcw==
-Received: from mail-ua1-f72.google.com (mail-ua1-f72.google.com [209.85.222.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j662s8p0f-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:02:16 +0000 (GMT)
-Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-99e0a55e4b4so1747910241.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:02:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795651335; x=1796256135; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=B7T1/nVBEREpJdJWj80b/dnoP++w319PyP5R6m3DFZ0=;
-        b=XJt/Js96fp/eNRie0PWjSpBpLzSFqrczD/r6F3cgF8lqi6Byrbr1od7x433KStb3Lb
-         kyLKeMS/jCmZCgfwYz4Wdte4AYAuPVA/4jCH3EEkthZDV/AQtM8Lgr7XS8CClRH1I5Of
-         iamyxXp+ViSpBoKWYbtuchJLdiD1SXGH9Vk6HCES7aIGM/1crHkVCTLuXZvXsmgF+7MT
-         uoI2VKoVO7SC3CKhPfGzFxUIA4EJkBZIlr6mfsRNfHc89Yax72n5c9Q8fpB9CGDZ+zd4
-         QhnmHlLbmsngd1jLiah0cPY/lz5D3y8lmUDt+oknUhe9r5mLs74biTIXo503AQbYZclc
-         S2Fw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795651335; x=1796256135;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=B7T1/nVBEREpJdJWj80b/dnoP++w319PyP5R6m3DFZ0=;
-        b=Nqimp58Fe1VPyLQiixYwjEJFyeqmPlbdVFTligSIX9rNcEuy9pPfpdxKOFU6j0Qgwq
-         HmppkR1EBohwNwQ2AN6aCY4gT+duAoXPHCdEzrKJiUpjSJo6ZIxl9UhnrAmblCzpmCgA
-         prir+FXP7Y2t7G8p0b+wQSJTBTKDiEytqe2uuI3eiR2WYaxZR9Lrc97Il8yMDg9i9FSg
-         l0iR2/W56XempzPDYAoQvmNgEBj/yel6Jrf1Y7Ewzykp8v+2pNN9W6aZhVRiH9eW8GZd
-         pCIn7gbDiWh531AGIgTfGduQ59omXnvvrFdSaC9/USl7aorp36LwwUFn1b4TXPTGbHef
-         3QRg==
-X-Forwarded-Encrypted: i=1; AL+hErH6Nztto1rRS9Qh+uCJ8xNl2ftieavwuWrd67fQS1YSD1h8JR7w+f0zeDdxJbI3spuV1eZRBJruNlaQWsw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z86vCvuUXzhtQ/wXOj6SYH6T85mi9pTL4TfaFggBFirmDo0vyqe
-	NOF+fxZKq2djzG/WPw5OzqdcLtAiVeLUcKcYI1dsYdVvGRque2bICIDUKjIdRsXWI2GCzuOblyL
-	Fk6cmiHmlcY8BOf3hbVhli/zt11JcefeWrZxfFojo1hJAszmFeaYGV24Vv/8V4ev27So=
-X-Gm-Gg: AZFdTZebjABtEm9xRKCIgVi+F/xlonQA6DGChmOvFwDg9nTtPhXw9Ojla7VOkbsh1bE
-	FYwR5evRCz0jM3mhDvq5cPGmIwQ5xGX7fBustxVvDSy2PEIRkQqadRENWC2XCntARfryF4Rp2OM
-	HPJRXx8ZcQAV93p5xy0dNK4rql4/0nREuoMFnJ4eWwVqa9gCflg7LeFi6mh+AvWADGcpA8WmoIs
-	9fvf0E+qprY4zXhGRoCO744AQ0C2pB1BmyFWlWW8DC5cFFj39Oci0RgBAWvsIDYKegaxPguG69m
-	Hfy8w/srDGbVzXwslLHbmmnzCuy2C1kFDKnJvXsRklYo1EGdVRTeS12zPJqBEBx8+Sff2NpKFUK
-	jZEXWjW8O503bJorFRj3+tunjT6W2FTZ7WqvIaDWvIH432izFFLQLC7pYrjNHhvM6oKEg1JgjAH
-	XdZYU5XE3CF9wnq7BMVrwzYPfG9a6E5RyQsmY=
-X-Received: by 2002:a05:6122:e44b:b0:5ec:b4ec:e93f with SMTP id 71dfb90a1353d-5ee8aef5b41mr10335528e0c.10.1795651335295;
-        Wed, 25 Nov 2026 16:02:15 -0800 (PST)
-X-Received: by 2002:a05:6122:e44b:b0:5ec:b4ec:e93f with SMTP id 71dfb90a1353d-5ee8aef5b41mr10334927e0c.10.1795651330438;
-        Wed, 25 Nov 2026 16:02:10 -0800 (PST)
-Received: from ?IPV6:2a05:6e02:1041:c10:f3bd:f67e:d6c3:ff0a? ([2a05:6e02:1041:c10:f3bd:f67e:d6c3:ff0a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b7515sm761206815e9.13.2026.11.25.16.02.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 16:02:09 -0800 (PST)
-Message-ID: <1e12ac6a-eb73-4f54-8a79-8da13d6c1638@oss.qualcomm.com>
-Date: Thu, 26 Nov 2026 01:02:08 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=jannau.net header.i=@jannau.net header.a=rsa-sha256 header.s=fm2 header.b=S8ICm4WG;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=T21hNhVp
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 66F767A031F
+	for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:02:28 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-03.internal (MEProxy); Wed, 25 Nov 2026 19:02:28 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1795651346; x=1795737746; bh=I/EixjgbYC
+	mvAu40Ca3l/UxP84HaWV2V7/oHxjSD+IU=; b=S8ICm4WGdaryIEQYvmDBQmpCZI
+	oSWKEP3MFoSFnPun0Mv1x4R1nkXYHZU5NBYeJ45eNbvhADV2Gf5icxxpqWC3yMXw
+	RNtZ94ydyYUDSkr7faB7tqUTi+XhIuAFH35tq2CjDBVOxxGklA3ZC8yLDskUwHeW
+	fZzYQZANEwaXLoxy4ukmQ1stnoeWIqmTHF+uSyalq+EU50utthgnZi8X13B44maJ
+	BqPMyL9VYVFkEKpiMZ2hCLO7AiJTB7NJLe75/rCX6xqyEik9fstv6XfpbR8mOG5k
+	S51b2yNkIy/X7G0SimjMHuahPYZLE3ffaWfi4j1kLKdYMCNVVAWv3JnLVoIQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795651346; x=1795737746; bh=I/EixjgbYCmvAu40Ca3l/UxP84HaWV2V7/o
+	HxjSD+IU=; b=T21hNhVp9Bc6X848OkDfVu3gIZAp6jYa+3NL689lQNIISKPhY2S
+	UXiVlJIlQdXj/59o11+kYlXtCda5G+VZXJDy9kRVpF1lIYSWQgFI+UEqAxoy/xPK
+	dFJcc+HpaV8XGKiobpwUEZPkW6EYFMAwRuxe8bRu+Aaaa0xm85SNo7Ac9Pd7h2kx
+	CiwzPBIhzbjvIGcgk0VU1VHxmFFDwyIhioxtYwD/8lu4if2qWaXdN6ftbaDtxD1h
+	GemVeMifKKuUcPOUdBOO1QZPX9zu2qlCUC8nNIjqvg3Q6YFKQE0f1Nf5A4l2dyS0
+	cSRE4foS/eGfNNY681gungdRU7yQbEy0GXg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=jannau.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795651346; d=jannau.net;
+	mf=PGpAamFubmF1Lm5ldD4=;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:bba8bqcnVa7LQhuH3UrwEHkoRVBJPLxqaSSa4nRDIYSt3YO
+	NOUw82NbPSX4xzXS1y0oAitdQUVyqHXehLeWsoleLPQnid0AwOnSJjYXgp/Stq4x
+	xEDib1YTvrAdnBogSA5dzM/cqGcEmLE7ZGqzP0i6nOgZ5RjYSd2DTtPKNzEhVbuu
+	Rfk6JW4ZGCbxO/mnN8acC4kUUeAFDdAwO2/xFfAc2nl3UhGVUUw/ML1xto2xIEEq
+	lZpELbt6y/Q3OGC/1/bxKxp0RVZaX8F5O55y6PehPAs82ktrVq99jo8aP0oDS+dc
+	6vVY8ZrNPrwRtWfK1FtT8cziE1f/ALyYoPBKKfg==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-disposition,content-type,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:tDoPFIFCjv4ScTxj5CcwBl065SRM6O2pki3t/d++sC4=:i0IZr4PdUawSFYOTTZ1/Xh8M6PKNHuLC5AguMyxB5qc=;
+X-ME-Sender: <xms:EncHa062zR-iiOGuMhpSaO-os_I1CwJCNpUTmCTrxoGmd_yvqPwjfA>
+    <xme:EncHa7H6yEBzpIZTFmPuVVKsdsG6rymeBmh4Q_Lq6p4Js997A6ae-O0LkDLdw_iPC
+    yXRwNXISNDEgpdlk2jVviuuXlPC5YCLY65Htpq4E9eRPbfrBUpCgKcz>
+X-ME-Received: <xmr:EncHa21LZN8n0T2LKGUZ4eQq_RH_qM1QAp-4GMeGNcZq6p2Tp0QWVOCy1cRLcazdHfpd-7Ag9Rf2ABfeZ0DKo_ci0eOOi56eU90>
+X-ME-Proxy-Cause: dmFkZTEVSM8ASemFC/jfZGcg+XGGEZ73WqXseEzCSjHInIleoACRQL39zw1S3aZK2lMqtX
+    vZt6n+0xZNOOfcA9tSoqQ5g/B/DDAgKftESrjPFKJxGig4U9Q7p+3VV+xac/O4+EmQ5YP2
+    OhGbcF3LQwPiGWvYMTpNcY0Yz63uXKxjxf3ZMaevwX7/z4RftBEJJkCMam45fOqJ1/IY1D
+    pFFf4xhCSJNKu4IzPKrJqYvDkrQksQ75kkO3yjlWbC/0yJzbtpyGIzVi+dJStdZpMP+6RQ
+    1vo8pZDpACjnoc/b57D0U4DXgURO7fDka8SMXeAn5BzpbjgGEkXTzXhHffj3Ly138tDEnn
+    GuC/Qwwyj5dc8p4xbE2MMqRW1wknQpSSoAwNy39lZFrJbHZB6L3erWLRqIVzRoc2ccdyw3
+    9xF83V/YrBzzQV4YMGcLPXUT84AkZ3WYbWmhyl2YsVsvcqAMUDG0VjdW2v2jdNnlLyLc2b
+    gSJlKms/jV5o/ANGzSU7DoeNcpYhSvtc8SitQFyadnWCjI47HoG1UP9NZY1eZcwO5pxDmO
+    JoGK4VUNRangtCDHcjC0ZOdtxNtyT4H9F/iLwyQ3Esk8EgRZFwwKWpGsGPMYhNOgtVgJyc
+    4rH1UQvrKAzkx2b+ikjoMkeuWoqQJdLEIppeelAhD9Zmsy0/RfQgQ+P44hag
+X-ME-Proxy: <xmx:EncHa4pKEuYSQSiqE3RYlG-FTVfXmkFggfwT4FxoJOiJQYJ4Ti5GXA>
+    <xmx:EncHazNMdarQ2Tp0HG-UeTIU_Ilr3Q5N7TJ1E9hWEWgR7_Zk6s8aUA>
+    <xmx:EncHa6XDS7Ak4mymMTEoPPwVNAeWup2MvwoIneLb27S2t115JnZuDw>
+    <xmx:EncHa2sc4NZf9obmUJfl6KWM91mMFzWQ_bYxU-EGFeHMRpVdl7P4kA>
+    <xmx:EncHa_r8u-03JrlxEAbzgwT-JtAjxJeJtp9hcIwFFoTyMc7CogWy-qqO>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 25 Nov 2026 19:02:25 -0500 (EST)
+Date: Thu, 26 Nov 2026 01:02:24 +0100
+From: Janne Grunau <j@jannau.net>
+To: Sasha Finkelstein <k@chaosmail.tech>
+Cc: Sven Peter <sven@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/5] phy: apple: atc: Add initial M3 series support
+Message-ID: <20261126000224.GD372978@robin.jannau.net>
+References: <20261125-t8122-phy-v3-0-196e20b3537e@chaosmail.tech>
+ <20261125-t8122-phy-v3-3-196e20b3537e@chaosmail.tech>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,127 +128,361 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND] clocksource/drivers/timer-mediatek: Enable the GPT
- irq before registering
-To: Ryan Brue <ryanbrue.dev@gmail.com>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Thomas Gleixner
- <tglx@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org
-References: <20261125-timer-mediatek-gpt-irq-order-v1-1-7e24640e82d4@gmail.com>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-In-Reply-To: <20261125-timer-mediatek-gpt-irq-order-v1-1-7e24640e82d4@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=B54sQ+tM c=1 sm=1 tr=0 ts=6b077708 cx=c_pps
- a=ULNsgckmlI/WJG3HAyAuOQ==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=c92rfblmAAAA:8
- a=pGLkceISAAAA:8 a=VwQbUJbxAAAA:8 a=QX4gbG5DAAAA:8 a=cm27Pg_UAAAA:8
- a=EUspDBNiAAAA:8 a=Ll55pq3paLvcCbb_psMA:9 a=QEXdDO2ut3YA:10
- a=1WsBpfsz9X-RYQiigVTh:22 a=GvGzcOZaWPEFPQC_NcjD:22 a=AbAUZ8qAyYyZVLSsDulk:22
-X-Proofpoint-GUID: 4PCgQR-9L9dXeW3VqUNShuEyWwOB9TBb
-X-Proofpoint-ORIG-GUID: 4PCgQR-9L9dXeW3VqUNShuEyWwOB9TBb
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA5NSBTYWx0ZWRfX8ycYmwyXkyuP
- cS3Ne3jwEFOqVqwAGaYCXqkQgtIFsXzf7Mpmwp51TAELkJXzYAGVjJdYVM55WHk4/WSim/lm5lj
- pmPBXBjF/zCsv0FHqmbbfH56GI/cswWrB7T4dnJcGiEAnEdLWCXr59Nk5IJLLnEK+gXIXHDRV4e
- 9ZPrGQUgqEAMN8Z7Mn7miHSBMYbzLgQlNVeY00OnB23WlwlocwjrAivUbmOw9hpIPlm5IqHLE5J
- 1su3Gj99ZqtrzTKfrqskKPJD+yeUdnBBnLQic9h8HFo6GTMWuerBf1+FVgQ8fpZ62iwO179AmuG
- CyO4EqkkdOzytj6yaIUoeJA9xH7FJkYVLu/GdgMaU72pPGicFgG6pJ1eH1o6q8dCTLpKDe9WIM8
- Ia0yBKqihqIez53JYXp8o7Fb6IM4oCrYo4JWTcW1BHFUP35XJWBWvHoL8ly9DqmISBq73uTtc6C
- IZmWj5MiNcJkAx0AhHQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA5NSBTYWx0ZWRfX8Gc5xcC9UQvq
- vcSWbYajK4ZjNvY0Awyw/6uMQI0/EHfwJasIRko7BP4QC1w1iLsAYWlIYMuWufVg/0KEE9e8oGH
- BUd5JDWGdP0v40fS6RPIVjDyV2YsSVw=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_05,2026-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
- phishscore=0 clxscore=1015 malwarescore=0 adultscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250095
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261125-t8122-phy-v3-3-196e20b3537e@chaosmail.tech>
 
-On 11/26/26 00:22, Ryan Brue wrote:
-> Since the driver probes as a platform device, the GPT clock event is
-> registered late in boot, when PSCI CPU idle may already have put CPUs
-> into a state that stops their local timer. Those CPUs wait in the
-> oneshot broadcast mask on the hrtimer broadcast, and
-> tick_install_broadcast_device() arms the new broadcast device to expire
-> at once so that it wakes them.
+On Wed, Nov 25, 2026 at 02:11:47PM +0100, Sasha Finkelstein wrote:
+> Adds initial support for the new t8122 phy. USB/TB only for now, DP
+> will fail to negotiate
 > 
-> mtk_gpt_init() sets the timer's bit in GPT_IRQ_EN only after
-> clockevents_config_and_register(). The forced event fires while the bit
-> is clear, nothing is latched in the status register, and the waiting
-> CPUs are never woken. On an MT8173 tablet with the CPU_SLEEP_0 idle
-> state in use, this hung the boot in 20 of 40 boots, and in none of 16
-> with this change.
-> 
-> Enable the interrupt before registering the clock event. The IRQ line
-> stays disabled until enable_irq(), so the handler still can't run before
-> the clock event is set up.
-
-Please have a look at:
-
-https://sashiko.dev/#/patchset/20261125-timer-mediatek-gpt-irq-order-v1-1-7e24640e82d4%40gmail.com
-
-> Fixes: 7a097aba7255 ("clocksource/drivers/timer-mediatek: Convert to OF probing")
-> Reviewed-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> Tested-by: Luca Leonardo Scorcia <l.scorcia@gmail.com> # on mt8167
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Tested-by: Chen-Yu Tsai <wenst@chromium.org> # on Hana (Telesu)
-> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
-> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 > ---
-> Since v7.4-rc1 the MediaTek timer probes as a platform device, and on
-> MT8173 with PSCI CPU idle the boot then hangs about half the time: the
-> broadcast device is armed at once to wake CPUs that are already idle,
-> and that event is lost because the GPT's interrupt is enabled only after
-> registration. Traced on the board with prints in
-> tick_install_broadcast_device() and mtk_gpt_init().
+>  drivers/phy/apple/atc.c | 449 +++++++++++++++++++++++++++++++++++++-----------
+>  1 file changed, 347 insertions(+), 102 deletions(-)
 > 
-> This is a resend of the 11-03 patch with the review and test tags from
-> its thread folded in. The code is unchanged, and it still applies to
-> v7.4-rc4 and tip timers/urgent. As a 7.4-rc1 regression, it would be
-> good to have it in 7.4.
-> 
-> This patch was developed with the help of an LLM coding assistant.
-> ---
-> Changes in RESEND:
-> - Collected Reviewed-by and Tested-by tags from v1; no code change.
-> - Cc Daniel's oss.qualcomm.com address and Chen-Yu.
-> - Link to v1: https://lore.kernel.org/r/20261103-timer-mediatek-gpt-irq-order-v1-1-6d1ddf977224@gmail.com
-> ---
->   drivers/clocksource/timer-mediatek.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/clocksource/timer-mediatek.c b/drivers/clocksource/timer-mediatek.c
-> index 842d6ee4259e..1b2cbcc2795a 100644
-> --- a/drivers/clocksource/timer-mediatek.c
-> +++ b/drivers/clocksource/timer-mediatek.c
-> @@ -339,10 +339,10 @@ static int mtk_gpt_init(struct platform_device *pdev)
->   
->   	/* Configure clock event */
->   	mtk_gpt_setup(&to, TIMER_CLK_EVT, GPT_CTRL_OP_REPEAT);
-> +	mtk_gpt_enable_irq(&to, TIMER_CLK_EVT);
->   	clockevents_config_and_register(&to.clkevt, timer_of_rate(&to),
->   					TIMER_SYNC_TICKS, 0xffffffff);
->   
-> -	mtk_gpt_enable_irq(&to, TIMER_CLK_EVT);
->   	enable_irq(timer_of_irq(&to));
->   
->   	return 0;
-> 
-> ---
-> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-> change-id: 20261103-timer-mediatek-gpt-irq-order-a878ed869f84
-> 
-> Best regards,
+> diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
+> index 45f1280a6faa..68fc93a88f41 100644
+> --- a/drivers/phy/apple/atc.c
+> +++ b/drivers/phy/apple/atc.c
+> @@ -100,9 +100,15 @@
+>  #define AUSPLL_FREQ_CFG 0x2224
+>  #define AUSPLL_FREQ_REFCLK GENMASK(1, 0)
+>  
+> +#define AUS_COMMON_SHIM_BLK_BIAS_REG 0x0a00
+> +#define AUS_COMMON_SHIM_BLK_BIAS_REG_BGBIAS_OV BIT(1)
+> +
+>  #define AUS_COMMON_SHIM_BLK_VREG 0x0a04
+>  #define AUS_VREG_TRIM GENMASK(6, 2)
+>  
+> +#define AUS_COMMON_DIG_RCAL1 0x804
+> +#define AUS_COMMON_DIG_RCAL1_ALL_CODES_DONE BIT(0)
+> +
+>  #define AUS_UNK_A20 0x0a20
+>  #define AUS_UNK_A20_TX_CAL_CODE GENMASK(23, 20)
+>  
+> @@ -123,15 +129,23 @@
+>  #define CIO3PLL_DTC_VREG 0x2a20
+>  #define CIO3PLL_DTC_VREG_ADJUST GENMASK(16, 14)
+>  
+> +#define ATCPHY_EVT_USB2_CTL 0x0
+> +#define ATCPHY_EVT_USB2_CTL_EVT_EN 0x1
+> +#define ATCPHY_EVT_USB2_CTL_LOAD_CNT 0x8
+> +
+>  #define ACIOPHY_CFG0 0x08
+> +#define ACIOPHY_CFG0_COMMON_BIG BIT(0)
+>  #define ACIOPHY_CFG0_COMMON_BIG_OV BIT(1)
+> +#define ACIOPHY_CFG0_COMMON_SMALL BIT(2)
+>  #define ACIOPHY_CFG0_COMMON_SMALL_OV BIT(3)
+> +#define ACIOPHY_CFG0_COMMON_CLAMP BIT(4)
+>  #define ACIOPHY_CFG0_COMMON_CLAMP_OV BIT(5)
+>  #define ACIOPHY_CFG0_RX_SMALL_OV GENMASK(9, 8)
+>  #define ACIOPHY_CFG0_RX_BIG_OV GENMASK(13, 12)
+>  #define ACIOPHY_CFG0_RX_CLAMP_OV GENMASK(17, 16)
+>  
+> -#define ACIOPHY_CROSSBAR 0x4c
+> +#define ACIOPHY_CROSSBAR_T8103 0x4c
+> +#define ACIOPHY_CROSSBAR_T8122 0x64
+>  #define ACIOPHY_CROSSBAR_PROTOCOL GENMASK(4, 0)
+>  #define ACIOPHY_CROSSBAR_PROTOCOL_USB4 0x0
+>  #define ACIOPHY_CROSSBAR_PROTOCOL_USB4_SWAPPED 0x1
+> @@ -146,7 +160,8 @@
+>  #define ACIOPHY_CROSSBAR_DP_SINGLE_PMA_UNK008 0x008
+>  #define ACIOPHY_CROSSBAR_DP_BOTH_PMA BIT(17)
+>  
+> -#define ACIOPHY_LANE_MODE 0x48
+> +#define ACIOPHY_LANE_MODE_T8103 0x48
+> +#define ACIOPHY_LANE_MODE_T8122 0x60
+>  #define ACIOPHY_LANE_MODE_RX0 GENMASK(2, 0)
+>  #define ACIOPHY_LANE_MODE_TX0 GENMASK(5, 3)
+>  #define ACIOPHY_LANE_MODE_RX1 GENMASK(8, 6)
+> @@ -180,6 +195,24 @@ enum atcphy_lane_mode {
+>  #define ACIOPHY_TOP_BIST_PHY_CFG1 0xac
+>  #define ACIOPHY_TOP_BIST_PHY_CFG1_LN0_PWR_DOWN GENMASK(13, 10)
+>  
+> +#define ACIOPHY_BIST_CFG1 0x17000
+> +#define ACIOPHY_BIST_CFG1_CLOCK_EN BIT(0)
+> +#define ACIOPHY_BIST_CFG1_USB_EN BIT(2)
+> +
+> +#define ACIOPHY_BIST_CFG2 0x17004
+> +#define ACIOPHY_BIST_CFG2_LN0_PHY_STATUS_RE BIT(2)
+> +
+> +#define ACIOPHY_BIST_MAC_USBPHY_STATUS2 0x17080
+> +#define ACIOPHY_BIST_MAC_USBPHY_STATUS2_LN0_PHY_STATUS2 BIT(7)
+> +
+> +#define ACIOPHY_BIST_MAC_USBPHY_CFG_OV1 0x17088
+> +#define ACIOPHY_BIST_MAC_USBPHY_CFG_OV1_LN0_PIPE_RESET_N_OV 0x100000
+> +#define ACIOPHY_BIST_MAC_USBPHY_CFG_OV1_LN0_PWR_DOWN_OV GENMASK(26, 25)
+> +
+> +#define ACIOPHY_BIST_MAC_USBPHY_CFG_OV2 0x1708c
+> +#define ACIOPHY_BIST_MAC_USBPHY_CFG_OV2_LN0_RESET_N_OV 0x200
+> +#define ACIOPHY_BIST_MAC_USBPHY_CFG_OV2_LN0_PWR_DOWN_OV 0x20
+> +
+>  #define ACIOPHY_SLEEP_CTRL 0x1b0
+>  #define ACIOPHY_SLEEP_CTRL_TX_BIG_OV GENMASK(3, 2)
+>  #define ACIOPHY_SLEEP_CTRL_TX_SMALL_OV GENMASK(7, 6)
+> @@ -463,6 +496,7 @@ enum atcphy_lane_mode {
+>  
+>  /* USB2 PHY regs */
+>  #define USB2PHY_USBCTL 0x00
+> +#define USB2PHY_USBCTL_USB_MODE 0x7
+>  #define USB2PHY_USBCTL_RUN 2
+>  #define USB2PHY_USBCTL_ISOLATION 4
+>  
+> @@ -556,6 +590,21 @@ struct atcphy_mode_configuration {
+>  	bool set_swap;
+>  };
+>  
+> +struct apple_atcphy;
+> +
+> +struct atcphy_hw {
+> +	void (*configure_post_tunable)(struct apple_atcphy *atcphy, enum atcphy_mode mode);
+> +	void (*configure_pipehandler_usb3_host)(struct apple_atcphy *atcphy);
+> +	void (*configure_usb2_evt_ctl)(struct apple_atcphy *atcphy);
+> +	void (*enable_cio3pll_clk)(struct apple_atcphy *atcphy);
+> +	int (*wait_rcal1_done)(struct apple_atcphy *atcphy, enum atcphy_mode mode);
+> +	void (*configure_lane_pmafsm)(struct apple_atcphy *atcphy,
+> +				      const struct atcphy_mode_configuration *mode_cfg);
+> +	int aciophy_lane_mode;
+> +	int aciophy_crossbar;
+> +	bool need_dp_tunables;
+> +};
+> +
+>  /**
+>   * struct apple_atcphy - Apple Type-C PHY device struct
+>   * @np: Device node pointer
+> @@ -566,6 +615,7 @@ struct atcphy_mode_configuration {
+>   * @tunables.lane_usb3: USB3 lane-specific tunables
+>   * @tunables.lane_dp: DisplayPort lane-specific tunables
+>   * @tunables.lane_usb4: USB4 lane-specific tunables
+> + * @hw: Hardware version specific data
+>   * @mode: Current PHY operating mode
+>   * @swap_lanes: True if lanes must be swapped due to cable orientation
+>   * @dp_link_rate: DisplayPort link rate
+> @@ -599,9 +649,10 @@ struct apple_atcphy {
+>  		struct apple_tunable *lane_usb4[2];
+>  	} tunables;
+>  
+> +	const struct atcphy_hw *hw;
+>  	enum atcphy_mode mode;
+> -	bool swap_lanes;
+>  	int dp_link_rate;
+> +	bool swap_lanes;
+>  	bool pipehandler_up;
+>  
+>  	struct {
+> @@ -983,11 +1034,141 @@ static void atcphy_pipehandler_set_mux(struct apple_atcphy *atcphy, u32 data, u3
+>  	udelay(10);
+>  }
+>  
+> -static int atcphy_configure_pipehandler_usb3(struct apple_atcphy *atcphy, bool host)
+> +static void atcphy_clear_nonselected_phy_reset(struct apple_atcphy *atcphy)
+> +{
+> +	/* Clear reset for non-selected USB3 PHY (?) */
+> +	mask32(atcphy->regs.pipehandler + PIPEHANDLER_NONSELECTED_OVERRIDE,
+> +	       PIPEHANDLER_NATIVE_POWER_DOWN, FIELD_PREP(PIPEHANDLER_NATIVE_POWER_DOWN, 3));
+> +	clear32(atcphy->regs.pipehandler + PIPEHANDLER_NONSELECTED_OVERRIDE,
+> +		PIPEHANDLER_NATIVE_RESET);
+> +}
+> +
+> +static void atcphy_configure_pipehandler_usb3_host_t8122(struct apple_atcphy *atcphy)
+> +{
+> +	int ret;
+> +	u32 reg;
+> +
+> +	core_set32(atcphy, ACIOPHY_BIST_CFG1, ACIOPHY_BIST_CFG1_CLOCK_EN);
+> +	/* This should be a mask, but unsure what bits should be cleared */
+> +	writel(ACIOPHY_BIST_MAC_USBPHY_CFG_OV1_LN0_PIPE_RESET_N_OV |
+> +	       FIELD_PREP(ACIOPHY_BIST_MAC_USBPHY_CFG_OV1_LN0_PWR_DOWN_OV, 2),
+> +	       atcphy->regs.core + ACIOPHY_BIST_MAC_USBPHY_CFG_OV1);
+> +	/* This should be a mask, but unsure what bits should be cleared */
+> +	writel(ACIOPHY_BIST_MAC_USBPHY_CFG_OV2_LN0_RESET_N_OV |
+> +	       ACIOPHY_BIST_MAC_USBPHY_CFG_OV2_LN0_PWR_DOWN_OV,
+> +	       atcphy->regs.core + ACIOPHY_BIST_MAC_USBPHY_CFG_OV2);
+> +	core_set32(atcphy, ACIOPHY_BIST_CFG1, ACIOPHY_BIST_CFG1_USB_EN);
+> +	ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_BIST_CFG1, reg,
+> +				 (reg & ACIOPHY_BIST_CFG1_USB_EN), 10, 10000);
+> +	if (ret)
+> +		dev_warn(atcphy->dev,
+> +			 "Timed out waiting for ACIOPHY_BIST_CFG1_USB_EN\n");
+> +	core_clear32(atcphy, ACIOPHY_BIST_CFG1, ACIOPHY_BIST_CFG1_USB_EN);
+> +	ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_BIST_MAC_USBPHY_STATUS2, reg,
+> +				 !(reg & ACIOPHY_BIST_MAC_USBPHY_STATUS2_LN0_PHY_STATUS2),
+> +				 10, 10000);
+> +	if (ret)
+> +		dev_warn(atcphy->dev,
+> +			 "Timed out waiting for ACIOPHY_BIST_MAC_USBPHY_STATUS2_LN0_PHY_STATUS2\n");
+> +
+> +	core_set32(atcphy, ACIOPHY_BIST_CFG2, ACIOPHY_BIST_CFG2_LN0_PHY_STATUS_RE);
+> +	udelay(10);
+> +	core_clear32(atcphy, ACIOPHY_BIST_CFG2, ACIOPHY_BIST_CFG2_LN0_PHY_STATUS_RE);
+> +	core_mask32(atcphy, ACIOPHY_BIST_MAC_USBPHY_CFG_OV1,
+> +		    ACIOPHY_BIST_MAC_USBPHY_CFG_OV1_LN0_PWR_DOWN_OV,
+> +		    FIELD_PREP(ACIOPHY_BIST_MAC_USBPHY_CFG_OV1_LN0_PWR_DOWN_OV, 3));
+> +
+> +	/* there is a read and write of ACIOPHY_BIST_MAC_USBPHY_CFG_OV2 here with same values */
+> +	udelay(10);
+> +	core_set32(atcphy, ACIOPHY_BIST_CFG1, ACIOPHY_BIST_CFG1_USB_EN);
+> +	ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_BIST_CFG1, reg,
+> +				 (reg & ACIOPHY_BIST_CFG1_USB_EN), 10, 10000);
+> +	if (ret)
+> +		dev_warn(atcphy->dev,
+> +			 "Timed out waiting for ACIOPHY_BIST_CFG1_USB_EN 2nd toggle\n");
+> +	core_clear32(atcphy, ACIOPHY_BIST_CFG1, ACIOPHY_BIST_CFG1_USB_EN);
+> +	ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_BIST_MAC_USBPHY_STATUS2, reg,
+> +				 !(reg & ACIOPHY_BIST_MAC_USBPHY_STATUS2_LN0_PHY_STATUS2),
+> +				 10, 10000);
+> +	if (ret)
+> +		dev_warn(atcphy->dev,
+> +			 "Timed out waiting for ACIOPHY_BIST_MAC_USBPHY_STATUS2_LN0_PHY_STATUS2 2nd time\n");
+> +	core_set32(atcphy, ACIOPHY_BIST_CFG2, ACIOPHY_BIST_CFG2_LN0_PHY_STATUS_RE);
+> +	udelay(10);
+> +	core_clear32(atcphy, ACIOPHY_BIST_CFG2, ACIOPHY_BIST_CFG2_LN0_PHY_STATUS_RE);
+> +
+> +	atcphy_clear_nonselected_phy_reset(atcphy);
+> +
+> +	core_clear32(atcphy, ACIOPHY_BIST_MAC_USBPHY_CFG_OV2,
+> +		     ACIOPHY_BIST_MAC_USBPHY_CFG_OV2_LN0_RESET_N_OV |
+> +		     ACIOPHY_BIST_MAC_USBPHY_CFG_OV2_LN0_PWR_DOWN_OV);
+> +	core_set32(atcphy, ACIOPHY_BIST_CFG1, ACIOPHY_BIST_CFG1_USB_EN);
+> +	ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_BIST_CFG1, reg,
+> +				 (reg & ACIOPHY_BIST_CFG1_USB_EN), 10, 10000);
+> +	if (ret)
+> +		dev_warn(atcphy->dev,
+> +			 "Timed out waiting for ACIOPHY_BIST_CFG1_USB_EN 3rd toggle\n");
+> +	core_clear32(atcphy, ACIOPHY_BIST_CFG1, ACIOPHY_BIST_CFG1_USB_EN);
+> +	core_clear32(atcphy, ACIOPHY_BIST_CFG1, ACIOPHY_BIST_CFG1_CLOCK_EN);
+> +}
+> +
+> +static void atcphy_configure_pipehandler_usb3_host_t8103(struct apple_atcphy *atcphy)
+>  {
+>  	int ret;
+>  	u32 reg;
+>  
+> +	core_set32(atcphy, ACIOPHY_TOP_BIST_PHY_CFG0,
+> +		   ACIOPHY_TOP_BIST_PHY_CFG0_LN0_RESET_N);
+> +	core_set32(atcphy, ACIOPHY_TOP_BIST_OV_CFG, ACIOPHY_TOP_BIST_OV_CFG_LN0_RESET_N_OV);
+> +	ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_TOP_PHY_STAT, reg,
+> +				 !(reg & ACIOPHY_TOP_PHY_STAT_LN0_UNK23), 10, 10000);
+> +	if (ret)
+> +		dev_warn(atcphy->dev,
+> +			 "Timed out waiting for ACIOPHY_TOP_PHY_STAT_LN0_UNK23\n");
+> +
+> +	core_set32(atcphy, ACIOPHY_TOP_BIST_READ_CTRL,
+> +		   ACIOPHY_TOP_BIST_READ_CTRL_LN0_PHY_STATUS_RE);
+> +	core_clear32(atcphy, ACIOPHY_TOP_BIST_READ_CTRL,
+> +		     ACIOPHY_TOP_BIST_READ_CTRL_LN0_PHY_STATUS_RE);
+> +
+> +	core_mask32(atcphy, ACIOPHY_TOP_BIST_PHY_CFG1,
+> +		    ACIOPHY_TOP_BIST_PHY_CFG1_LN0_PWR_DOWN,
+> +		    FIELD_PREP(ACIOPHY_TOP_BIST_PHY_CFG1_LN0_PWR_DOWN, 3));
+> +
+> +	core_set32(atcphy, ACIOPHY_TOP_BIST_OV_CFG,
+> +		   ACIOPHY_TOP_BIST_OV_CFG_LN0_PWR_DOWN_OV);
+> +	core_set32(atcphy, ACIOPHY_TOP_BIST_CIOPHY_CFG1,
+> +		   ACIOPHY_TOP_BIST_CIOPHY_CFG1_CLK_EN);
+> +	core_set32(atcphy, ACIOPHY_TOP_BIST_CIOPHY_CFG1,
+> +		   ACIOPHY_TOP_BIST_CIOPHY_CFG1_BIST_EN);
+> +	writel(0, atcphy->regs.core + ACIOPHY_TOP_BIST_CIOPHY_CFG1);
+> +
+> +	ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_TOP_PHY_STAT, reg,
+> +				 (reg & ACIOPHY_TOP_PHY_STAT_LN0_UNK0), 10, 10000);
+> +	if (ret)
+> +		dev_warn(atcphy->dev,
+> +			 "timed out waiting for ACIOPHY_TOP_PHY_STAT_LN0_UNK0\n");
+> +
+> +	ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_TOP_PHY_STAT, reg,
+> +				 !(reg & ACIOPHY_TOP_PHY_STAT_LN0_UNK23), 10, 10000);
+> +	if (ret)
+> +		dev_warn(atcphy->dev,
+> +			 "timed out waiting for ACIOPHY_TOP_PHY_STAT_LN0_UNK23\n");
+> +
+> +	atcphy_clear_nonselected_phy_reset(atcphy);
+> +
+> +	/* More BIST stuff (?) */
+> +	writel(0, atcphy->regs.core + ACIOPHY_TOP_BIST_OV_CFG);
+> +	core_set32(atcphy, ACIOPHY_TOP_BIST_CIOPHY_CFG1,
+> +		   ACIOPHY_TOP_BIST_CIOPHY_CFG1_CLK_EN);
+> +	core_set32(atcphy, ACIOPHY_TOP_BIST_CIOPHY_CFG1,
+> +		   ACIOPHY_TOP_BIST_CIOPHY_CFG1_BIST_EN);
+> +}
+> +
+> +static int atcphy_configure_pipehandler_usb3(struct apple_atcphy *atcphy, bool host)
+> +{
+> +	int ret;
+> +
+>  	ret = atcphy_pipehandler_check(atcphy);
+>  	if (ret)
+>  		return ret;
+> @@ -1012,56 +1193,7 @@ static int atcphy_configure_pipehandler_usb3(struct apple_atcphy *atcphy, bool h
+>  		}
+>  
+>  		/* BIST dance */
+> -		core_set32(atcphy, ACIOPHY_TOP_BIST_PHY_CFG0,
+> -			   ACIOPHY_TOP_BIST_PHY_CFG0_LN0_RESET_N);
+> -		core_set32(atcphy, ACIOPHY_TOP_BIST_OV_CFG, ACIOPHY_TOP_BIST_OV_CFG_LN0_RESET_N_OV);
+> -		ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_TOP_PHY_STAT, reg,
+> -					 !(reg & ACIOPHY_TOP_PHY_STAT_LN0_UNK23), 10, 10000);
+> -		if (ret)
+> -			dev_warn(atcphy->dev,
+> -				 "Timed out waiting for ACIOPHY_TOP_PHY_STAT_LN0_UNK23\n");
+> -
+> -		core_set32(atcphy, ACIOPHY_TOP_BIST_READ_CTRL,
+> -			   ACIOPHY_TOP_BIST_READ_CTRL_LN0_PHY_STATUS_RE);
+> -		core_clear32(atcphy, ACIOPHY_TOP_BIST_READ_CTRL,
+> -			     ACIOPHY_TOP_BIST_READ_CTRL_LN0_PHY_STATUS_RE);
+> -
+> -		core_mask32(atcphy, ACIOPHY_TOP_BIST_PHY_CFG1,
+> -			    ACIOPHY_TOP_BIST_PHY_CFG1_LN0_PWR_DOWN,
+> -			    FIELD_PREP(ACIOPHY_TOP_BIST_PHY_CFG1_LN0_PWR_DOWN, 3));
+> -
+> -		core_set32(atcphy, ACIOPHY_TOP_BIST_OV_CFG,
+> -			   ACIOPHY_TOP_BIST_OV_CFG_LN0_PWR_DOWN_OV);
+> -		core_set32(atcphy, ACIOPHY_TOP_BIST_CIOPHY_CFG1,
+> -			   ACIOPHY_TOP_BIST_CIOPHY_CFG1_CLK_EN);
+> -		core_set32(atcphy, ACIOPHY_TOP_BIST_CIOPHY_CFG1,
+> -			   ACIOPHY_TOP_BIST_CIOPHY_CFG1_BIST_EN);
+> -		writel(0, atcphy->regs.core + ACIOPHY_TOP_BIST_CIOPHY_CFG1);
+> -
+> -		ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_TOP_PHY_STAT, reg,
+> -					 (reg & ACIOPHY_TOP_PHY_STAT_LN0_UNK0), 10, 10000);
+> -		if (ret)
+> -			dev_warn(atcphy->dev,
+> -				 "timed out waiting for ACIOPHY_TOP_PHY_STAT_LN0_UNK0\n");
+> -
+> -		ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_TOP_PHY_STAT, reg,
+> -					 !(reg & ACIOPHY_TOP_PHY_STAT_LN0_UNK23), 10, 10000);
+> -		if (ret)
+> -			dev_warn(atcphy->dev,
+> -				 "timed out waiting for ACIOPHY_TOP_PHY_STAT_LN0_UNK23\n");
+> -
+> -		/* Clear reset for non-selected USB3 PHY (?) */
+> -		mask32(atcphy->regs.pipehandler + PIPEHANDLER_NONSELECTED_OVERRIDE,
+> -		       PIPEHANDLER_NATIVE_POWER_DOWN, FIELD_PREP(PIPEHANDLER_NATIVE_POWER_DOWN, 3));
+> -		clear32(atcphy->regs.pipehandler + PIPEHANDLER_NONSELECTED_OVERRIDE,
+> -			PIPEHANDLER_NATIVE_RESET);
+> -
+> -		/* More BIST stuff (?) */
+> -		writel(0, atcphy->regs.core + ACIOPHY_TOP_BIST_OV_CFG);
+> -		core_set32(atcphy, ACIOPHY_TOP_BIST_CIOPHY_CFG1,
+> -			   ACIOPHY_TOP_BIST_CIOPHY_CFG1_CLK_EN);
+> -		core_set32(atcphy, ACIOPHY_TOP_BIST_CIOPHY_CFG1,
+> -			   ACIOPHY_TOP_BIST_CIOPHY_CFG1_BIST_EN);
+> +		atcphy->hw->configure_pipehandler_usb3_host(atcphy);
+>  	}
+>  
+>  	/* Configure PIPE mux to USB3 PHY */
+> @@ -1183,33 +1315,10 @@ static void atcphy_setup_pipehandler(struct apple_atcphy *atcphy)
+>  				   PIPEHANDLER_MUX_CTRL_CLK_DUMMY);
+>  }
+>  
+> -static void atcphy_configure_lanes(struct apple_atcphy *atcphy, enum atcphy_mode mode)
+> +static void
+> +atcphy_configure_lane_pmafsm_t8103(struct apple_atcphy *atcphy,
+> +				   const struct atcphy_mode_configuration *mode_cfg)
 
+Since atcphy_configure_lane_pmafsm_t8103() is called through a function
+pointer the diff would be a more readable if the previous
+atcphy_configure_lanes() would be split
+
+Janne
