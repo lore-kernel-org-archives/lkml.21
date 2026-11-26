@@ -1,128 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.149.25
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795704281;
-	b=MXIuoG4wLqhBQ6yfJqS+qtVSx0KPaEVVRphl393EYx4tTxijXXLL1tq230hln6i4ZkAz
-	 5F9TcgSoOAzyjR0qE4IpFz+Zzt1PtRgoTj3Ms5xcqm7vPPPdYSiEI5uYiKJjShmkLiPPC
-	 c40u7BNUm75R2Z225uYIBWdlu/sK1pf68/p+2B/Kn9oxCa9+aFTv4jOGB7YctnCqQfAma
-	 qmb/b/QNHtD/kcX4a0itZezyQNgnAXxY4vMky3hpL/S5LwwSGMuPeQh9WsjUOPAEemLds
-	 oIWhsoKCg4nrddfQEMrbo3iurWqIMeoTUVNQO6INEXjkEdBflHl3QTK5b8aEE63gIOQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704281;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
-	 Received:Received:X-MS-Exchange-Authentication-Results:Received-SPF:
-	 Received:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Reason;
-	bh=0P4TV5LdVL6w8mPKNZ5vFwVL+SjAZEYC+63rbb05k18=;
-	b=ITsV64pubdk7l8ncFogQB93g4/YKve6ZR9Qkh5ojRByxJi8fuUkCYOMXfPX/gfjPCTtF
-	 nyVuAcKS7XqJilyau2r3LYGXki1dwOI7kqWIEiT5+hA6kcN0vBUXBgmAGdoOaopaymgKk
-	 81pavBr0HtlIW7pcbD+L4wUcGQJdgO01NIQW/3wN3gkBqjYRBJvgkMDc4WCYNOEekXLtv
-	 yB+SYfkl/CLu0ruS3CDn9lmE1WQw9PaIqwGZ+wuCUJ9QP+tGOkFW49ZvJ6m5nidQxD/OR
-	 +o58uiFlmK/6LjpFNhJeB/SWfH0Z0I3N88NZ/UwDj/5QS9RiX3qeU/QUm6IJw5/zzNA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=opensource.cirrus.com;
-	spf=pass smtp.mailfrom=opensource.cirrus.com;
-	dkim=pass header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b=SogNLKGI;
-	dkim=pass header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b=XuHWt7A5;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.149.25
-Received: from mx0b-001ae601.pphosted.com (mx0a-001ae601.pphosted.com [67.231.149.25])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795704349;
+	b=G1UHfx3CgOJqaCnLSyqAYVkQrUZ9Pb+U32IS4O05tsx61UfJvKjohrVaVhiUwIrLgq4a
+	 C3MBAo4A796nvQo2uV3MIx+3jY+SC0k8zzKPzhI366o+spm8WyWI+SpIY3nmEKJUvz5Pu
+	 PZFJDR1vpvCCGDYZxjMjyKnzOlDEPAe1488U278tVf5yZj21YngASg7Nhd7jXw6NlrECv
+	 WszB0QWdGd6hq05Sh8XsK0N9MmMEXXsMyAVBs1QVUY7/SGPJH5EH196b8ZAgkl5rogT2P
+	 eLyj1DNicMVGFwy49o06FwIoYdFQg/EtGPAgsEglaBtFaJ9ZQQ1HI08VX7x49Qxbj/A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795704349;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=jL8G5ucVxhl6XpniwOn5qtswk6ptTrbZ5+4HABky+sU=;
+	b=xHKNTgaPSrKLa++QdfyL0QllKx8g3gS/UfQrSXzw0RLZG9s3hZNThcRDXTzsSxN7us4X
+	 00i90xpZUWekPQbX0WJl7nHbPh7ZHt+OnvdkV5w2lk/EL6Op5qbQptjdYl0AbQKvlXp+g
+	 QjOpUu2swhhgIil27XQnplfo1x/5rn2hj3NT3j5bJJ3g6DKh9PwFSGKQbL+aMcV+GN7iR
+	 LFeg3CJr7d2TqAGjdZ8fCxRlKENoxbeJCosndtttZHflcms2EdAWZJMUthpsseuUhgvLR
+	 bw4kc4kNss5MhxG0zFXpkjwfYoUjt+1RmxZ30ULeXyeBFsCmvUCbpc5ot1V0ZFaYlXw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QYpHcabK;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A84B2606A327;
-	Thu, 26 Nov 2026 14:44:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A84B2606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=opensource.cirrus.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=opensource.cirrus.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8EF2606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:45:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b=SogNLKGI;
-	dkim=pass (1024-bit key, unprotected) header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b=XuHWt7A5
-Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
-	by mx0a-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQDsP4Y116072;
-	Thu, 26 Nov 2026 08:44:29 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=PODMain02222019; bh=0P4TV5LdVL6w8mPKNZ
-	5vFwVL+SjAZEYC+63rbb05k18=; b=SogNLKGIjrCAnU/oErizOwQdkf/YdCbTrE
-	teNCL9xefzxyKJfXztdMdZYYTy0EKac4hkhJXvn0va6tdXCQEC/4UZZxOHZUob1e
-	2vKu9OTgpMt8LlapuQIzqeLU8AjZJRIZf3ycMgK7+IlaxSO6pv9LiMVT9hrT4NlD
-	P1r8VaPo2ZJqFpmI2X9Glteh0xilbIns3wy4vxcbeiE+/R/f/X1fKQS3eRR12SXn
-	dIW7EmCVwTh51wkHtcMu4pUGjPANH25jxCTTEcPGPBzT0ET6gr7dZfZs1i2ZI/ke
-	nY8KXJaaOAiwAwfcgqAHVdzN4TZxur6XYAdIuFGihyTvEKBGv8kg==
-Received: from sn4pr0501cu005.outbound.protection.outlook.com (mail-southcentralusazon11021112.outbound.protection.outlook.com [40.93.194.112])
-	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 4j51884amd-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 26 Nov 2026 08:44:28 -0600 (CST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vF1DPWR68spZQNusrgWtUlaAqpIWaBWwTwVwYdJ4eAebTf6iajM3Xitu4TNrnM5wyxs4xaW2m3UxOjZTMm4YtE/wH6um6vJ8c5GxA9h05Q/w8824ksxJhKSncK/YQfysb3inSJKn7X+Woz820OQHMqsKRJPgSPNklAZoIwq/yS+TRymitRvsFjRlDmyATk5YA3qMbaxt1XR2lJSemX0EwVzJocwHdyVB3OHUl7kAQ/HOpV80o0lj+NlV28GbDcmefLo806CspgKRPF2JgJD34mXr40FTTKdcLJ3IC3/Y7XX57nvBGvNjQWNL0kifEwdu8sKyVyg9a9z0OXuyQAyzxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0P4TV5LdVL6w8mPKNZ5vFwVL+SjAZEYC+63rbb05k18=;
- b=crQqtY0KW0DYwKD8Xv2cDnLhJU3k+y1eE0jpq2LF8//GAac2hpwksqoNyD/I8XxfLLnSlpOQwmnqnRrA0yAQe/7tNOXZU8vRBYkPO3aWM16wNmmHe73L+9FvQwF3mykDw5ptfqzme+onRmmLOTOhDMa7ca268ccq4tUa7kQxQi1ZehNo93ZDheOxaVLIIAJbWqKXXsrWd18NhYTjDV0IBukvPPRewdid7WRVXGFOF25LOgeh7OpAWibqPfxY2yJyhvNhXZzF5/+y3r5hvjiB2vHA/SMh/UAXGB++wBJ67NbvrZPpVQqPEc6BbiB/9SV2T4lTEI5ObaCRQOz27FlVGg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 84.19.233.75) smtp.rcpttodomain=cirrus.com
- smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
- action=oreject header.from=opensource.cirrus.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0P4TV5LdVL6w8mPKNZ5vFwVL+SjAZEYC+63rbb05k18=;
- b=XuHWt7A5+qceRcPPFZa6FrEdBWF0y2UIhCAqN6M1I2sxJYVdJJ/1iIW3EQAUq+rooBacp5aQB47JMreBkbLoEn66iyY1+w7/7IZtmo7ZH/KsZ/eo7io5ng/GZIUsgh5Y0ZL4GjQnpG1GOmMvu0h3mq9s7OuIekbQePWSOiv2cJE=
-Received: from MW4PR03CA0131.namprd03.prod.outlook.com (2603:10b6:303:8c::16)
- by IA0PPF311458007.namprd19.prod.outlook.com (2603:10b6:20f:fc04::c97) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Thu, 26 Nov
- 2026 14:44:25 +0000
-Received: from BY1PEPF0002696B.namprd05.prod.outlook.com
- (2603:10b6:303:8c:cafe::6c) by MW4PR03CA0131.outlook.office365.com
- (2603:10b6:303:8c::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
- Nov 2026 14:44:24 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
- IP is 84.19.233.75) smtp.mailfrom=opensource.cirrus.com; dkim=none (message
- not signed) header.d=none;dmarc=fail action=oreject
- header.from=opensource.cirrus.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
-Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
- BY1PEPF0002696B.mail.protection.outlook.com (10.167.244.155) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.5
- via Frontend Transport; Thu, 26 Nov 2026 14:44:23 +0000
-Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id BAD7A406550;
-	Thu, 26 Nov 2026 14:44:21 +0000 (UTC)
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id A2D58822540;
-	Thu, 26 Nov 2026 14:44:21 +0000 (UTC)
-Date: Thu, 26 Nov 2026 14:44:20 +0000
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: Lee Jones <lee@kernel.org>
-Cc: vkoul@kernel.org, yung-chuan.liao@linux.intel.com,
-        pierre-louis.bossart@linux.dev, linux-sound@vger.kernel.org,
-        mfd@lists.linux.dev, linux-kernel@vger.kernel.org,
-        patches@opensource.cirrus.com
-Subject: Re: (subset) [PATCH v3 2/2] mfd: cs42l43: Move to core detach helper
-Message-ID: <awhFxHHaapoYL3FM@opensource.cirrus.com>
-References: <20261116110913.3555209-3-ckeepax@opensource.cirrus.com>
- <179569809495.72708.5920909967925778004.b4-ty@b4>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QYpHcabK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 143091F000CF;
+	Thu, 26 Nov 2026 14:45:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795704349;
+	bh=jL8G5ucVxhl6XpniwOn5qtswk6ptTrbZ5+4HABky+sU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QYpHcabKB8A5uWvZwYP0lVVKukfxNBAoWXWIiefHci3pC7KeBZuK9SW74oFBLaL/n
+	 cqoy/YByLDr3wbHOeVLQpYgccznfeMUzUqdPzyy/mCPSRwNus9t2fEJhvgOyNiL3Ik
+	 CpxHXbHuwbSmrgI4HhKBY+dqG7HxT/ovasWRAo0bThZaUsMYGqyANx2X2Anu9ZHqac
+	 RWPcSr0SxN5twTU4v1fxRR5LjIFgxbooxghKmaVh6D3j6/M3FOYhCY0I3/Zdg+WZ6G
+	 iOxtN+NF8R5vwquyyXJSd3DGD1douEkXCCA5EFXRUm/A1kmTGvX3KeW7M5TR77O7KZ
+	 gdo+aWcLq46mg==
+Date: Thu, 26 Nov 2026 14:45:47 +0000
+From: Harry Yoo <harry@kernel.org>
+To: Andreas Hindborg <a.hindborg@kernel.org>
+Cc: Vlastimil Babka <vbabka@kernel.org>, Hao Li <hao.li@linux.dev>, 
+	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, "Liam R. Howlett" <liam@infradead.org>, 
+	Suren Baghdasaryan <surenb@google.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	stable+noautosel@kernel.org
+Subject: Re: [PATCH 1/3] mm/slab: update the documentation of sheaf_capacity
+Message-ID: <awhCltyLWlLRBtsG@thinkstation>
+References: <20261125-sheaf-doc-update-v1-0-4a579abaf0b8@kernel.org>
+ <20261125-sheaf-doc-update-v1-1-4a579abaf0b8@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -134,67 +62,90 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <179569809495.72708.5920909967925778004.b4-ty@b4>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0002696B:EE_|IA0PPF311458007:EE_
-X-MS-Office365-Filtering-Correlation-Id: ad3df2e2-bb8b-4120-1dc6-08df4bcbc36b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|36860700016|23010399003|61400799027|82310400026|11063799006|261009223027099003|10067099003|4143699003|56012099006|16102099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	2Io8JoEQC43PB/JsW19cOy8at+3w29wDkFgn4nu736HEHvViCMiejDvYuaPC/FDyEg61str2N2XZz/Ke8ZbbJ2HD+CSRgDeW+Z6orcmbGqTW4lSn0AEFP77PnWAPI4wyCqaYrNc/YjyzYZU3MYb6A2ztfjoi4lS0a4CLBzzrkLEGLmvyWmGfh5ZuhV0myhO+p9zJk0RvzMAv9j3asfMBN4CfxRACDKS0YK8GN9z/hEpmtayGhtiLjDIZo/my/GDQ7c+DS/Ftn8RnTqC3OGa0VDbUHhOnFO1FMoDfTwdatApopdZxWYy+B8rqxYlWmWOU8latZDxPEKk4vGcmMpeWG+BsDm9KD3iaFE1MpI2UeXRhiNKERy5aYmoPvDQWbvJKYlO8aX9GNh0JV2A1y3PeoQt5L9KrgIs4975D4MLKLFdPiW0/F990ces95Y+VpgWuiHfuBG5HGYG5jCCbPdqLCQ68Q1jQFoHEu1fgVLXjbDn+rxooUFlru1SDlnS0paRFaIVAxAuUbwSHrhSXn+luR5936WMQVjQSO7OrVQ1Rh/2q1QZwr2rlCuYvzhY+CmeMDWT+uGLvgfcPpKhLhOUP5tqTfi62RAZgK2iE97+C/I2U6ZILeNh+i3K4O/okryJMI5z66p3VTxpnkiwmUazWP4iGDumV0Kxenhb+3nybvuk72xPPZNluuW29OVM3mVyYh138ENicMpkZGCuezzfZiQ==
-X-Forefront-Antispam-Report:
-	CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(23010399003)(61400799027)(82310400026)(11063799006)(261009223027099003)(10067099003)(4143699003)(56012099006)(16102099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	et9HrQmVmYUaVPwntap2IFYMLObO4M4D5z/U5AYD0gewDmRnlG8HG97IugjG42BXEGoNLLeyI++k7MFLIrrOwEYTtv9+4DtznW0mVQ0SZgc6X+MpV1qBlnaRXfCQfNUeHIUpLmFOt62D4rdtwI7LpXaqiRfvGhqFWYEUXg0XJpVRG9KmMwpt7Qy9fh5AYh2eXkxCYO3lrWOzbpWQ0G3LJP9QJUF+JysdtqaUtI6Z2apvBhgboyFmU1bZ6zH8OcMqcpBEyS1zgriAFYyrDtX+Q7jKXs/nXKXmIwOVodt4CW32GmuDmlUZFJkiJlYE6NWDKg7L8KXiepntaRy4g/ZlnkofMwgKXoU47DQEuthRcxaDLkDSFB/FL0ojprN2+KrmMWgRsM5dH2NbKmz0+x5S5gBUoNczNm98bV+r+DP/EzSVUxnHEtq8Z1GJnrnrbPXc
-X-Exchange-RoutingPolicyChecked:
-	DOsWtDIQQ/H43ZCaxGhC9EFA4B/Bc4mbzwsZFQzz6k2X7h7guCrOpYtw2tFIMN3oqq2RnAulzSSRem2L7lNx9iuLO9mPWheeWfDctCOfjtfDkNsCRc396QzQih40O54FZhhLusLdAPh292gx61i92dduh23PAYFIJVIKTFhheRHupCaPyNOyjOvQgQuin4MucGtFP7+DeiJ3eHONoujyHqCZ1T+sJNV2GxGuK8pUsRu/vuwTrQ9dyok1ToSHw4PvJLCrAWZJJaR7bnql6P4nV8DE1Xn4AHf0nMBjRGcH3kLmpBNAcX+y3dQ+g0HuJQNjnP5QxTEcUetJ4OQhR1/haA==
-X-OriginatorOrg: opensource.cirrus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 14:44:23.5758
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ad3df2e2-bb8b-4120-1dc6-08df4bcbc36b
-X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-BY1PEPF0002696B.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF311458007
-X-Proofpoint-ORIG-GUID: UMzhIhQ7AqCoPJ_wQGlkDRUTWkM7tfDu
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA1NyBTYWx0ZWRfX+xSjy9XuqU2k
- QLYFSkkTLUPod5qwnCYovPs54nRfZmaMr8adpnP9+KxtD0ZWWm5GKHI5/iIr4fsxqhl7SH7eHTG
- wAQrI8cZBUKdTLOFSei7vaOkB8724EXg1tS5qAUPJNZGwjop2ZlFFcdJfbZuGebVVK/dOtTeF/H
- UuxZGLMeMaYj49/mT/TdUkCO+ZBwoBQrSVuY3lIKkt5v6Jm4mgazXrAis+Zyv+f7kxiKEB9c4Ib
- sRhegNqJpKJ4EXmjOfEB7vNeEe28WByBAE/4xVYC5ZVvV/rR7bm48xDLATjdjoYMmoWURHYdilH
- unjCZRxHAOJjH/kloSClwMfrJZgvsEDGvI6EQgMHfo44gXUKBZ2WzM1Cqs4vJZNJj2+XU1SGaOR
- 1Z0qufLmVDO4mZ4o/gHcLZdURxBvJV97Z5KOuzFeQ661XHW7O/Z2yv+Ghbs2O5DlVUJUbJbFilh
- Dd6mGi5M52q0uQE58ww==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA1NyBTYWx0ZWRfX1f6fZnrtrIIH
- M6NYb0aC+YFZmIKIieIym/IiI/ZngOeV8cgrDawtOH/Nqq2tZYiPj9Vp3z+vrjRiFHgVTraMy/k
- SUDD8ehtbEIZMR8xizq9irBkHObGLH0=
-X-Proofpoint-GUID: UMzhIhQ7AqCoPJ_wQGlkDRUTWkM7tfDu
-X-Authority-Analysis: v=2.4 cv=BuEIUoX5 c=1 sm=1 tr=0 ts=6b0845cc cx=c_pps
- a=c++aTPG+XoUugkGw6UtskQ==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=Dj2-6B8FqX4mGL0U3gbX:22
- a=_HRWddgdQaYcXc59OkkA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Reason: safe
+In-Reply-To: <20261125-sheaf-doc-update-v1-1-4a579abaf0b8@kernel.org>
 
-On Thu, Nov 26, 2026 at 01:01:34PM +0000, Lee Jones wrote:
-> On Mon, 16 Nov 2026 11:09:13 +0000, Charles Keepax wrote:
-> > Now the core has a helper to signal a device will detach from
-> > the SoundWire bus, there is no need for the cs42l43 driver code
-> > to separately track that. Switch to using the new core helper.
+On Wed, Nov 25, 2026 at 08:35:12PM +0100, Andreas Hindborg wrote:
+> The documentation of the sheaf_capacity member of struct kmem_cache_args
+> describes sheaves as an opt-in feature: a non-zero value enables sheaves of
+> the given capacity, and zero means that no sheaves are created.
 > 
-> Applied, thanks!
+> This has not been the case since sheaves were added to most caches.
+> calculate_sheaf_capacity() now calculates a capacity from the object size
+> for all caches and returns the larger of that and the requested capacity.
+> The requested capacity is thus a minimum, and zero selects the calculated
+> capacity, as pointed out in [1].
 > 
-> [2/2] mfd: cs42l43: Move to core detach helper
->       commit: 54b3632c8ec08735d3f6235d80005aa0b648c7dd
+> Update the documentation to match.
 
-This won't build without the soundwire bit.
+> While at it, mention that a non-zero
+> value makes the cache unmergeable,
 
-Thanks,
-Charles
+This is not something we want to guarantee in the API?
+Otherwise LGTM.
+
+> that the requested capacity is also not
+> used when slab_tiny is enabled, and refer to the debugging parameter by its
+> current name, slab_debug.
+> 
+> The updated text refers to the slab_tiny boot parameter, which older
+> kernels do not have, so exclude the patch from stable autoselection.
+> 
+> Fixes: e47c897a2949 ("slab: add sheaves to most caches")
+> Cc: <stable+noautosel@kernel.org> # slab_tiny is not in older kernels
+>
+> Link: https://lore.kernel.org/r/8a73da1c-0167-4aa5-a62c-4190327685cd@kernel.org [1]
+> Signed-off-by: Andreas Hindborg <a.hindborg@kernel.org>
+> ---
+>  include/linux/slab.h | 26 +++++++++++++++++---------
+>  1 file changed, 17 insertions(+), 9 deletions(-)
+> 
+> diff --git a/include/linux/slab.h b/include/linux/slab.h
+> index ad645967a3ee..64daeb239f78 100644
+> --- a/include/linux/slab.h
+> +++ b/include/linux/slab.h
+> @@ -351,13 +351,12 @@ struct kmem_cache_args {
+>  	 */
+>  	void (*ctor)(void *);
+>  	/**
+> -	 * @sheaf_capacity: Enable sheaves of given capacity for the cache.
+> +	 * @sheaf_capacity: Minimum capacity of the sheaves of the cache.
+>  	 *
+> -	 * With a non-zero value, allocations from the cache go through caching
+> -	 * arrays called sheaves. Each cpu has a main sheaf that's always
+> -	 * present, and a spare sheaf that may be not present. When both become
+> -	 * empty, there's an attempt to replace an empty sheaf with a full sheaf
+> -	 * from the per-node barn.
+> +	 * Allocations from the cache go through caching arrays called sheaves.
+> +	 * Each cpu has a main sheaf that's always present, and a spare sheaf
+> +	 * that may be not present. When both become empty, there's an attempt
+> +	 * to replace an empty sheaf with a full sheaf from the per-node barn.
+
+>  	 * When no full sheaf is available, and gfp flags allow blocking, a
+>  	 * sheaf is allocated and filled from slab(s) using bulk allocation.
+> @@ -375,10 +374,19 @@ struct kmem_cache_args {
+>  	 * Bulk allocation and free operations also try to use the cpu sheaves
+>  	 * and barn, but fallback to using slab pages directly.
+>  	 *
+> -	 * When slub_debug is enabled for the cache, the sheaf_capacity argument
+> -	 * is ignored.
+> +	 * The allocator selects a default capacity for the sheaves based on the
+> +	 * size of the objects in the cache, with larger objects giving a lower
+> +	 * capacity. With a non-zero value, the capacity is at least the given
+> +	 * value. Use this to match the expected maximum size passed to
+> +	 * kmem_cache_prefill_sheaf(), to avoid low-performance oversize
+> +	 * sheaves. A cache created with a non-zero value is not merged with
+> +	 * other caches.
+>  	 *
+> -	 * %0 means no sheaves will be created.
+> +	 * When slab_tiny is enabled, or when slab_debug is enabled for the
+> +	 * cache, no percpu sheaves are created and the requested capacity is
+> +	 * not used. A non-zero value still prevents merging of the cache.
+> +	 *
+> +	 * %0 means the calculated capacity is used.
+>  	 */
+>  	unsigned int sheaf_capacity;
+>  };
+
+-- 
+Cheers,
+Harry / Hyeonggon
