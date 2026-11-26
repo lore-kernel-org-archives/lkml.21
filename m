@@ -1,82 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795707097;
-	b=s6sbYu/SpdFDMYnKYzIBU2im37Jq//qfy3uWOSbJ9Rg5MWFA2KMRZnXsYShmIqoS6shX
-	 FTCwUyrdjl+bW1X/B7E/NDkY6HXy3yMGnu1j6UCxrVrISXWFHNv4ospBhqE9zS/zVnYNX
-	 50hsSYv3j3mLGGerf9gzEW1xWJ/vIeoFkc9kSFGGARPXsvGWCGQvYJ8xl6K094xWMXkR9
-	 VUPjyo1tP3cIgM4/mFEWwJZnECinr5BGcor/J7EAz81qT50gWEreIgD9LDVlVBq3Dmshb
-	 GGsFTMwqDXRlYFbkR8+VhJZdCHvNgC5ODYA9FfMr09aFaU9RcZqxYe2lg1vg+4v67NA==
+	t=1795707104;
+	b=MP10QJo2ZJ5frrEGbvgi+3xPlJmQBtFh4NoWt8Za7MFJUex6FG4YMzFNTVtHI0G+VoL3
+	 boAN+ZXKDy+pPR0/WPJ2Nsca79bHHXP57fVe0Z5swK9Byw/Q3lbmJrEiHnhqZuK0YUZDX
+	 BaB/2GxAp36ev57Kb+kK6B+Tam2OUVkT+gQx368TXpz9UiPz/MdyoIr488Y1h3M9Wy22W
+	 EL+hsrm5r3f62Pt72nrqCHAmas0seXDCCyT7U4Jpw3BrRYK+M4rhYEwAiGYRH2ScjVnQD
+	 hUqYXZZjDcR97IX9m61dGpUJF7j/6hW8WUP69VMKWhSCYi/cUrny7s3Q0XG/6E6hVIw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795707097;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=tQNqYmCO8U6RJi6uvaLNBKhLSSUT6e27NTsnReOP5Uo=;
-	b=rhXAwNSmxKy6E100zqoNG6SwG545n4GbjUK5dnotj7MwyTOqXufrh6pbzXH6fnsjOKo1
-	 G0wAEKX7+CihgAMJb89+5ldiyD+vT/RiOMXE+CC8RPJEvrNDI2q0IGSEQQljk79O8HJ2r
-	 6rjoWY2fzBBEFKtI0TsGKIj9HaVtLA07c9QjsovMeLOfgiRTyRFrFhxeNGE97SVgy+Ptg
-	 QKGPj1fvo6lNNGWvtlKtzl4T0Q8CiM3sKX+l+qRsdazGgCpRH7dFjFSz4bmvkGQgbwhw8
-	 UKSbU6/951p8WsAumHI978K7yzsldNo7BVWgNY1Im1XwKkKcuvqu7UpTZ9l373yOlbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795707104;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=CNCCU62jDJl9wNoG3rW1B0EyVBtl7xnr4/sj56FZ3Ck=;
+	b=lNdfm6SRqRMj2NymfRvkKD0+VLYbxrmEx4ZBqpY7MQNqv7IEn74P7CbFHGaxGLFwPLBG
+	 4uqBsgPTre5P6m9RQrpxUj9g97hIPVa71JcMcxVASm/todexuqpm89IDt3zZnncpFsKPO
+	 6wwOhzyhKxn/ptUzlktly4gMzarpqCkoaMOivlCO5RQqTK1ajafWSbCTac69dxofP5aBa
+	 YCh2jivjCn/o/yZUEKbfRhj55dIg6eZqO1NX7rMBXxCgYIqg7aE/qdq1i0EdC0GrcrK2t
+	 yMy6d6us1iVjjVcpopC4l/aXGKED+zFC61JctDYuNK9hfN5qbp6yv/OU+DcAtJZR8Hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="fU/Go9g1";
-	arc=none smtp.remote-ip=192.198.163.17
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=mG3JMuiu;
+	arc=none smtp.remote-ip=209.85.128.53
+Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D0F1606A31E;
-	Thu, 26 Nov 2026 15:31:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D0F1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 579CF606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:31:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 579CF606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fU/Go9g1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795707097; x=1827243097;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WPpUQImv+mfRbVWcaasBa39HKBziPr14wNhR5TVYdI4=;
-  b=fU/Go9g1OFaAdID099iAo1f3CjQJnuHjpzB+gSEZXcgGYK3joXNmjTBF
-   vH6EMDMRf8CwXpSKBHY/qLPMt/x2HtUNlJ10Bpaklk4L15z2SlIe6hmM3
-   OVA0kxHDLLlk2dUSAZpLYjRt2sp4CMzoFdlLOjc2gVZv9149KDZqRhFHb
-   ffwYiOwPvqiQAQDyD4SYjdxV9tN1RDTx0ERLT+YB4RvU3K2XMozjvPsvP
-   8BGCPwhSZrzD9z+PGXKO55Ur5YSU7cQ7ROLRuBqBZzT5v81l5JwBNeXh0
-   IWrMml4nBV+gNvjSqRCwABhQKXDPwU3jnqy7sw3V2haOLlRvCifiDCxZL
-   A==;
-X-CSE-ConnectionGUID: ze0PDmWNRoq3SCUEVEUnCw==
-X-CSE-MsgGUID: tiOYv10HQWC+a+SZ0AwcOw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4617975"
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="4617975"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 07:31:36 -0800
-X-CSE-ConnectionGUID: HSpzvcUSRaa7pSYZQB7NhQ==
-X-CSE-MsgGUID: z5WCboktQ6OpjR5IViJMlg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="12528604"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 07:31:33 -0800
-Date: Thu, 26 Nov 2026 17:31:30 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Gary Wang <is0124@gmail.com>
-Cc: Andy Shevchenko <andy@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Thomas Richard <thomas.richard@bootlin.com>,
-	Daniele Cleri <danielecleri@aaeon.eu>,
-	JunYingLai <junyinglai@aaeon.com.tw>,
-	Louis Chen <louischen@aaeon.com.tw>,
-	BillyChou <BillyChou@aaeon.com.tw>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v3 4/5] pinctrl: upboard: fix I2C pinmux-select set CPLD
- GPIO OUT not function mode
-Message-ID: <awhQ0mvdzSw9NaVM@ashevche-desk.local>
-References: <20261126-upboard-pinctrl-add-intc1057-intc105e-support-v3-0-81d35c9ba246@gmail.com>
- <20261126-upboard-pinctrl-add-intc1057-intc105e-support-v3-4-81d35c9ba246@gmail.com>
- <awhPbIZjDazImfBf@ashevche-desk.local>
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=mG3JMuiu
+Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb9d8e8e90so42772575e9.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:31:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1795707103; x=1796311903; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=CNCCU62jDJl9wNoG3rW1B0EyVBtl7xnr4/sj56FZ3Ck=;
+        b=mG3JMuiuTh0qJHEgtqlWO1QzHe5cXadqiY6ZbiCRf+9Y8OuZWFJTbOjRFCdDV0FHiF
+         yo0/VV2mjXJounpOzQuaQcP0fXNpVw+6YBwUaLe2xUfdvyGWUvICyeR59pkYmRVfcA6+
+         kgkjGNxQTU3tC6HVXAulQUDLlerh4h/dQEl+qmJ/CJcHfWqcNJ4UzNOqdrqy7UyKy0QY
+         FsZmLJSYWdagR2ZBAcO18fcAR84OutmANWh4TbzudwM3ILZwz8UMw31C9GKoSq278m2C
+         48fpAArBX7F7UrlFa8Y5fM9pkq82TnCqjs6LqjApE60izruG0XhF9XZKgVA1peF9ozW3
+         NpWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795707103; x=1796311903;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CNCCU62jDJl9wNoG3rW1B0EyVBtl7xnr4/sj56FZ3Ck=;
+        b=R7HoYZSyoIfoaWbjfADMg0FYSUJsB8f0JyX2eY5jAAuZJZvZfoAHrJbZhQ3U8gc6ZG
+         WMymm9oD1/o5lKMgua4XZG8qhkVCtSv0pQsnoW8DRHQIHe8eTpxhbFS1e5XVavuV9ki3
+         QLfu/3Q0fTZQx3YgOZQVeUflbKk0besFIF01VFn0nxvpmPJMkqyU0K/UZnUppwQM/5be
+         PzawSMalCGPlGrUa87dNkessLUPsXUoHamYjodnoRC6LXRDwoaevTIsl5dhjGm5mXcUb
+         pY+FiXmQUxS9tcp5MaGcJqtUb+JiOEYTXQp7U92SQuGEhyv9KzDoz8ICVrARyfJoBGLQ
+         EMAw==
+X-Forwarded-Encrypted: i=1; AL+hErEda9d/wsDYSjfhchF616o6LYjidnz++9qNaeuPlmCddObS3dDAEYrLw7MIAjsQXxL9C7NLMZL1bmdq+pc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+g4FRAk0/FEwk4eg9To193DUlgkMmDBmcuaWcl3lkkcLE84YCI
+	mm09bXLlkRqdJxJWXyI9cGxo+NcC0aksTo8vuKQAcY4oOf5nHUNfbx5+1Oe2HMFsmPA=
+X-Gm-Gg: AZFdTZcTQSGZxR+TMrA+sJTkKFY+u4aIvbnBi1vxM8agF0+IJB6j/qW21sG0bvz36iX
+	hA6lrJkTrLqH6mgfMkI49Y4HyadUZBRs8zk2s+Xpthh5WDaxPPaDawJrOiHSibPzuNLdAUiuAWq
+	u7PkRh5cwbUfvFaBc5Z/awce67u6kcRzNBbE14MxKGE87oZbeTPsi0aH74/8euPGytCrzWBJYn5
+	Ja30Eiblz3f+qF0+J5nH6QxItuG6I73FH3UKL7eVPdayhtHlewhWhepaeGvXwRgD8M4KOec8ZhP
+	Pgnx2RtDTrySC+alPrOY/boOqjLC6qwqHUL9fYpi/iv98ZTMzbABqAROlnZX3FUHuGeKRqdKuLW
+	ZcmSKHt82Xe5B1+N4Ca0sLlySDljZd9swQA4xijGLBT7tAl5BAFzrO5KCNWIAPVPuO0hmnq/3jP
+	9fdi3LAbex+y7qCoxxSlG+/J4SttD64h9aHAcutMrc6wOf/+BqhxQOTV+ZxfwNwmayr7EH1kCYN
+	oJ8aIKmQZ/0cYNH5rNDxxFn9aXiUe75SM0W+BHmbtYQKS62HX59+mOF25G3NZOiV13XPZenWrYR
+	zvs3sqjjn3koHfBKmMInlVJEKvsbldTsA6VOeAW5UzZL0p86jaQ3mkrWfA1S1kLxo3BT63N/RCx
+	MPI+NgWEub1CdcQ0xckw=
+X-Received: by 2002:a05:600c:4753:b0:4a1:cfa7:e968 with SMTP id 5b1f17b1804b1-4bb8880c73emr448397385e9.21.1795707102651;
+        Thu, 26 Nov 2026 07:31:42 -0800 (PST)
+Received: from localhost ([2a00:2381:fd67:101:11a1:dfac:b1c2:1000])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853c9170sm678687845e9.14.2026.11.26.07.31.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 07:31:42 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,28 +88,82 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awhPbIZjDazImfBf@ashevche-desk.local>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 26 Nov 2026 15:31:41 +0000
+Message-Id: <DN591I26AVUH.11MO49ZCF9V8U@linaro.org>
+Cc: <bzolnier@gmail.com>, <krzk@kernel.org>, <rafael@kernel.org>,
+ <daniel.lezcano@kernel.org>, <lukasz.luba@arm.com>,
+ <linux-kernel@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
+ <linux-pm@vger.kernel.org>
+Subject: Re: [PATCHv3] thermal/drivers/samsung/acpm-tmu: Fix spurious CPU
+ throttling
+From: "Alexey Klimov" <alexey.klimov@linaro.org>
+To: "Christian Loehle" <christian.loehle@arm.com>,
+ <tudor.ambarus@linaro.org>
+X-Mailer: aerc 0.20.0
+References: <20261125173959.2198116-1-christian.loehle@arm.com>
+ <CANgGJDp02H7-wLv6DoaPMeiy4UvDUC2nvSR=+mngEZ+Z4Hqgog@mail.gmail.com>
+ <2162b02c-642a-446c-973e-ca80607da294@arm.com>
+In-Reply-To: <2162b02c-642a-446c-973e-ca80607da294@arm.com>
 
-On Thu, Nov 26, 2026 at 05:25:37PM +0200, Andy Shevchenko wrote:
-> On Thu, Nov 26, 2026 at 11:09:47PM +0800, Gary Wang wrote:
-> > The CPLD I2C pin mode setting through pinmux-select is not correct.
-> > Should be set UPBOARD_PIN_MODE_FUNCTION on AANT0F04 devices.
-> > 
-> > Set UPBOARD_PIN_MODE_FUNCTION to 1 to prevent a NULL pointer
-> > dereference error on .modes[i] for any pin group using this setting.
+On Thu Nov 26, 2026 at 10:50 AM GMT, Christian Loehle wrote:
+> On 11/26/26 09:16, Alexey Klimov wrote:
+>> Hi Christian, Tudor,
+>>=20
+>> On Wed, 25 Nov 2026 at 17:40, Christian Loehle <christian.loehle@arm.com=
+> wrote:
+>>>
+>>> acpm_tmu_set_trips() supplies two thresholds, but the ACPM command writ=
+es
+>>> all eight slots, zero-filling the rest. On GS101, slot 7 limits CPU clo=
+cks
+>>> independently of its interrupt mask. Setting it to 0 C limits all three
+>>> clusters to about 200 MHz while cpufreq reports the requested frequenci=
+es.
+>>> This was found through trial and error while tracking EAS regressions.
+>>=20
+>> Cpufreq reports the requested frequencies =E2=80=94 are these cached val=
+ues
+>> being reported?
+>> Or is this what the kernel gets via the ACPM call?
+>
+> Requested frequencies are reported. The 200MHz I only deduced from PMU co=
+unters.
+>
+>>=20
+>>> Program slot 7 from the lowest active hot trip so hardware throttling c=
+an
+>>> precede the critical trip's system shutdown. Cache the low/high window =
+and
+>>> update the hot limit from set_trip_temp(), because the thermal core ski=
+ps
+>>> set_trips() when that window is unchanged.
+>>=20
+>> FWIW, Exynos850 control register for TMU has bits to enabled/disable
+>> such behaviour (and it probably works).
+>> Maybe gs101 also has it.
+>> But it seems that cpufreq scaling feature itself is explicitly enabled.
+>
+> Thanks for the hint Alexey!
+> THERM_TRIP_EN is bit12 on Exynos850, clearing that on gs101 still stays o=
+n 200MHz
+> for me. The downstream driver doesn't define it either.
+> Clearing bit16, i.e. 0x09003 instead of 0x19003 does indeed remove the th=
+rottling
+> even with all zeroes in slot7.
+> I would probably still go with $SUBJECT, as I'd say the risk of this havi=
+ng unwanted
+> side effects is lower IMHO, but I'm also happy with either.
 
-Hmm... bit how the modes[i] can be messed up here? 0 is integer
-and NULL is void *...
+Sure, no objections about the patch here!
 
-Can you provide a compiler warning or traceback of broken kernel with this?
+I just thought that for exynos850 we might need to initialise it manually
+since we rely there less on ACPM and what bootloader leaves for kernel.
 
--- 
-With Best Regards,
-Andy Shevchenko
+Thanks for checking.
 
+Best regards,
+Alexey
 
