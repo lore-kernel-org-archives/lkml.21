@@ -1,109 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684984;
-	b=iAWprWpYx3+cTjjuPyivaoxjO4QLZpAtoWJGWfWe0YRfuhsgCMZNRA8QjUThvnSA5qI0
-	 +Oktl8V83YcqYuEkvE6FieMP7CKssjQdN4o7dx1EPEToBMeJCsD2PXwTu7elIKdfYAYPm
-	 Q4SCdkJuV1DfjzXPbl24ICTFH7u4jtBgdt1IJkRVWaUbAUdo6Z0kJpU/a8ql+Vv2oiVY6
-	 EKu4xtW7oyKe/0aF3THCZjBcmgZ0wzr92hGl3LXgIpX+XUnJVbWMh3hCFR7HVGUf5eUBM
-	 UNn/w8KPsBNt0xMtVoxQ2d78Oaf7QQ3D9F9rm4Lu5+qz+dSMRuQzdZhxQnE00Jgr1sw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684984;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795685018;
+	b=UHN1eLmEdGtqw4iZSaArAiQljXK39rGFSnQZl6N4Q1x72BERnTfBKsYos569dm5j4KO/
+	 iKf2xRhiu2KRPVAzxaYp2jjzDljGNLOHYVk4EGYzV3a5VJ7CSaNl/qISfwxfrkJ/ZTxxR
+	 kKlAHcXnvHuyZyaYcA+nYDFAbzqI1PCMsqlycHQiMmx1DNO2Cc6r2cuI5ZxLHoIiV7Kp3
+	 DTAi1TLbp9oFbfoCMMDURajmbdW5DXZwIfGzj3R7/EmHxbMy0BE5O/AiQRn82DBlZOQB3
+	 kk0ZZSSZMIjAdkrA4jrJmYnG04xQoaRKay8mQEx12v5K4R93JujZo4yn58fQz44delQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685018;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=yWyZ1Z9Pbd4bxOXX/sgjyAr1HCnwtGuzuy6z8VWTlYM=;
-	b=Rs9xQsG3pZbmwGZtwfVlAOL/zZZlAhXGHcxq2r/tDe3RNj2XI5M+HiW+V2niC/WcnIPX
-	 AOc5bte8jYZM81RDDHjUVj9xEyieSqkD5by/WoU3Jqlhmkgb/prU9ypKG/jndCPAZc4Gz
-	 +DT9QseqyVRQQ+CUGZtqfVPRL1EeNfXOpQ5hxdWAqno0DM9NrgeKzMFKz3Em4D7igEKm3
-	 4p1rIwqwdvJIDMGc5mDxhW5XR7DEzjCwahAmM4ujnGhMJCUgZAB+2kE7pP6bVtqDNvd1q
-	 Bi8OxmKo9CkRGBkDUCSVps4DxGoh/RJnQHUtGDJlr3B8JyhORGDyzeNS9OzYScKucJQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=S+Hr1k1Y;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=qFkJpBZX;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=xckR6blDjDVAhqTSlG7y2c/dJk+7MAk3ZiUn44VZKcw=;
+	b=3rUoUi4+AVGWHbhBxxlJpO8XtAgAqC/qJOcWZxH1oZS67FzhTvA9ATkZTYyNe/VgZPRi
+	 hUogX4ihfXYBnHcEq0LxK7SDa+r3/Y/C8KNyD+ag3y5436MxFh2c/cgStGM8HNhA4fkg0
+	 cvBLP9wtm+J8Qi/UCrcAGdm0DasDday7Abv8u39JAAJbN8x+fwB/j2HIl2ga7+39pEDGO
+	 SeD/Ana8kDMzbXmA9YpluoXC/AtMKHZudKIDgbRORv5IsbSaXVuBDnS0arK3uZ6bSpjqR
+	 0GnF6cMJlJuRdLc5qVldQaPy+4G1ccXGxZYA7eyVswOu5BWnznkEscEryobRwigEfKw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=htZC86Pa;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.49
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80BB5606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:23:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80BB5606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B2B3606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:23:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B2B3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=S+Hr1k1Y;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=qFkJpBZX
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795684982;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yWyZ1Z9Pbd4bxOXX/sgjyAr1HCnwtGuzuy6z8VWTlYM=;
-	b=S+Hr1k1YChTvMPunMRiV16r5lcOMovr9Q6P25OnLBdQTO/M+Fg9l9izQUvELyP1Baeye3K
-	nn0IT5aWxsW6oMMZkxJwcx7bh6AMnOHZtHI+8bRkKqzF39ycsg+mhTfz1EhDtQEMj7nF65
-	jCoJNPsh+H5Wkk1/LuTO3IN1yMcfEM4=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-348-CK5jMwJDMEu3TB24AjakXQ-1; Thu, 26 Nov 2026 09:23:00 +0000
-X-MC-Unique: CK5jMwJDMEu3TB24AjakXQ-1
-X-Mimecast-MFC-AGG-ID: CK5jMwJDMEu3TB24AjakXQ_1795684979
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4bb64c99bb8so55313825e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:23:00 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=htZC86Pa
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c4322d310e7so166027566b.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:23:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795685017; cv=none;
+        d=google.com; s=arc-20260327;
+        b=CE99bslesG0+0/AD2gnbQkDkqbaHUsGInfR5LCjtLePVTlVqS1uAjGTEe96q3Sg+lJ
+         C/Hk7Uz5OqnXvNYqADqyP1yY9bs+lYrCNlmjidXxA5M4xIrp44t+OS4m3DW0otBUsqv5
+         b6fKMmP79OUmKdO27lgv/8gt0ktt0DSphnz8HZLJlidW0kMSwfcV6UckL4mLjV/ns9Ta
+         7dSXFpL4Sd/pgLQry/zySQajbpPct4yqBvGRLtaWIbpR7RW3V3YZpURD42vRPKv6rO24
+         kEaG7EluDPG53mkQV2vlEM0mysRKLGzl7x6h0dpqmkmjSGJ642Q/CEvU6xeqjShvMqiu
+         zv7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=xckR6blDjDVAhqTSlG7y2c/dJk+7MAk3ZiUn44VZKcw=;
+        fh=kKZ72KQJNhpiBhdQZB7LR1n33WMJoiTI+wFy3E2DHm4=;
+        b=MpFNQWWhSVijHAEHRWYuirNjgQaqyS9jmGb7KHk3u//XeGxjuHudnbX2UWmMEq/4LG
+         RZbwmjeScEqS6/2zGlMQXbnQ9RAgHqQVuHJ4W4efbXrtsyJneyzwEfqKWnThBIWUl5cF
+         q8ASIxoxWXgv8ZCbmeDLT9WhHzv9IqPz4sgF5OxM2m2E8FMVoswW88glL1pBSs2/lDN7
+         bW2q1lWJ3r/uDZnlAD8XObZ5TOSO9eg9xRDgfpDTUBVreupKVxmJ5gB3y7WjNpupddhJ
+         gXf59ZC1XoTODiygmGYQqbVEJoVqL1tCM89pli3NzcUk0P2mnHplOgqqEiyYh0aaFkc6
+         MLqg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795684979; x=1796289779; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yWyZ1Z9Pbd4bxOXX/sgjyAr1HCnwtGuzuy6z8VWTlYM=;
-        b=qFkJpBZXEyThetAAwO7vPpWaj37KdxAJ6F6O2SQRnneOLjsdVBVfTHGTqVeZ5TIOR1
-         6PVYWBWciDPvM9B3YcnZTnqMhIRo6Itmo3XXW9ZfUxR+Rz7XFYzhnqEFH+g9dKZ9tfOA
-         MxM8zY63sJHh3kO33LYnE0w330Gr33URguexvpXMNceJEnD1/qloqI0c4u9xDT0Ch6jn
-         ojRIgkrZAikz6LTrIVKp12c+6JIrb9VEoy4Q+zszDRLA/X6L9cVPkmWLPbOAw45hDhFY
-         tbpPC41w+BZ9AnfO0EpanM3IpTneyBf1rR6IBw1W/ljlfXMu7aHRkehXShtJh3JmaNND
-         BnWA==
+        d=gmail.com; s=20260707; t=1795685016; x=1796289816; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=xckR6blDjDVAhqTSlG7y2c/dJk+7MAk3ZiUn44VZKcw=;
+        b=htZC86PaPTG34kYWAisdWcgHJD1UzaMIQvA1regyq5nViPY53KsD3NsllAndQX1evi
+         Ni4eoDAvoFkwSVjRH2aLo8DK1It6q5/8NfVeByru4dF9S6/VEXj+TZJ5U8mChY30w0Uv
+         jcCx/2OSR9wIj7x8YmXDsxOsBKo6p3Q3ujwy/4TdmbIF5u+YX04R1Bv1QF0hLopIVtio
+         PngI5fpJQ1uCiosc+uFsN8S0QqiNZJdqLTNdOL6uay7GyqwBy7ErG/e7G5Nk2oTVO/wr
+         64NWwOk7mZ5vgAa+kdjPvHzrMIdBU6PYX15ePP1qntAbHhcwn6ZQtcGoRW3QJj2GibeU
+         nxqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795684979; x=1796289779;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yWyZ1Z9Pbd4bxOXX/sgjyAr1HCnwtGuzuy6z8VWTlYM=;
-        b=R63taw7Jjls08OLuD6Pyx5hjam5/Us3jJStebUGMzHLNY5GX4I3F//7dxrPPHiiEL6
-         xdzxnTvs7ge6/7b3Tu48OkazpAVahHWLE3pI37xtwM6OQd1U4G+sd/dqOflCtIgtgDII
-         oDPqj73Y/Dpprn3w/zaAJcoXuJ31dAtiIgM7BN2JClJnE8/Rwtq1+yyMTazke7ZUQmZu
-         lsgpIj+3SbQQUq+EgtGGeqXwDrnyUgDkP7xM2yUZS9CcSEX1V8zAr6fGKIbKBzNNt65g
-         Hvn7sBo6w8bnELHCLlI3vtbfATfWgkNeuhAYe/iWzuQTZFGUWHbvzdTrnZHoLpVe+rOV
-         d4KA==
-X-Forwarded-Encrypted: i=1; AL+hErH/Cjxur8gVXWsZ3GtG6S7QF2HUi1UoHZgez/KAV9Ew2QiHals1Q5rIRLKQ7Ffqgf73RvKzJOM47FD+4vo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z//elD2X75IWJuUxTr2ho+5xS8R1aa0Z8HWzt8K21NypbW0oS9i
-	2vIeRDM3ut78Wf8NYfqRrp7vlhnC/ZZyiiRg2/TkxmkRxgL83CvHzSPChXUGaMCa0ZywEFH2HvF
-	cCLkvocwJ+8nBMm5KSVvNXjmcNHN8kvFKtpgxMJbXLoFCb+G4aukBcSWtK7umt7zU8rXZtJ5Xxg
-	==
-X-Gm-Gg: AZFdTZcflpCk6UspF2GP6qXNQq84adzKM3RyGuEVJNjgzQAuZDTt/su0FfUHId+F3Uh
-	OldvVInBccHvcvUQpWegTXnXy+31T6Akc121ziFUQq8exADUDrj7k84NxEjeF0WtuiyiTcN3v5v
-	gR10Kyi9J0vO4xF6EOCNM20fSxdk8CyYXJk/irhIT2l4g8TiCe6d/R6X636RFrPdSpBYvb4gI3l
-	Q6OXoKhcO6B7tFlVPfc/xhi+khFn5gPL83SCoMYXpYHiFXtczIvPZceGs4gnf6yEr5nRn8u3g3A
-	1zcXjc6TNMR6SrlJnb32BfEom8dytXxjzbpDlsN1lHjdSd1vq9gcsrTokmriaTZzMwW6p/+tWki
-	hOyxnDdZSJqmVRySQ5OIx80zAH7XI3d4QYnoZfY1bi3rsuy0ZSVklgdoj3XlATV+KFu07hUFU65
-	DZCOYiWnMc/bwkS8IRk76FAhTZsPk2zAxh157xKrHL1ArK
-X-Received: by 2002:a05:600c:638f:b0:4aa:2339:a375 with SMTP id 5b1f17b1804b1-4bb8880607cmr384835065e9.13.1795684979171;
-        Thu, 26 Nov 2026 01:22:59 -0800 (PST)
-X-Received: by 2002:a05:600c:638f:b0:4aa:2339:a375 with SMTP id 5b1f17b1804b1-4bb8880607cmr384834555e9.13.1795684978735;
-        Thu, 26 Nov 2026 01:22:58 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865b1sm593204925e9.5.2026.11.26.01.22.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 01:22:58 -0800 (PST)
-Message-ID: <0bc39607-b30b-4dc4-abdd-49f5c72fc2e9@redhat.com>
-Date: Thu, 26 Nov 2026 10:22:56 +0100
+        d=1e100.net; s=20260707; t=1795685016; x=1796289816;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xckR6blDjDVAhqTSlG7y2c/dJk+7MAk3ZiUn44VZKcw=;
+        b=z2LeIJ+3uqnIBC+BBIhq4dDDmUx25/j1XADIpH0qt6JZ3NfeBsS9VPWw+yzVNfdP1m
+         dp4Rv+SSZR3eBSX/4Inp1TyCYZh65ZqEmlrmE2uFTilV4vEXKoQdIjuaCQJ2097+WxUG
+         TX4RsQJcSmSRoxNk3O4fh5JngXyipO0tLHRbdmBKKp67KhIhOW2tYG0h7x8MiH0/j9PX
+         /jJKrBbvMuH/qEt/ByLGrn8zxYvG2IxpSlnU+glTdFZX8gRVTIVyFfoaD5urT8QtoApl
+         t0BbdBWLfTdR6+pOfw1C5UcLNIL0jMxKHff+zA6bDdYMobp5q7kbIgrChuE0nD3DhVNB
+         l9Sg==
+X-Forwarded-Encrypted: i=1; AL+hErGGeoLjmBNRl853xQSXvmYN5I3Pne3/KrtFfMbGjkw7+996ndRCMUettxbVLtXQJ0n/wqBqFWOmms69iHw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+YnnucGP8YuhB14h500j27DnXNFs6g99vtDWLrrfVA358N5KfV
+	SFEjUr9BQDoSmYaqwG9vOWsd96o8vlgQ0DFt1Wh8S3EiXW+vT1Ec7lHxUcu8cyHVIjUbOMGaOoB
+	zynbd3JZzorgzwbCjLopAoEOTb3bVfx4=
+X-Gm-Gg: AZFdTZfGM06L3q8gifsj0rK+JvGhvyGYOpXFSAKWX/CsVPv6m92KBBNz1uguPykABnt
+	Jty9/6e8pzyrQWN6Z0dxVmpAfvR4Zrd3KoNzN75oh/qLLGGqw+MP8oaSL1KMr56JsAfIcv0GHMr
+	n3eABDf/yYNxBdppecfojd4/D0EigY2D96CeYCDJpRD/Okk+pcuB1AvNXjxJwUdq1AHtQJ//+Fv
+	SEqwkOeVlpdM49c5+hJdke2nhtHl0eXMI1Uj4gx7MIgspyioLhmDDxZZ+miv2px/RfHpLaGXW7O
+	Nnid19De25Mrky6Y+yWBvkd7GCY2TP1Wzn2HpT9OHH63MimNRML0+jh3mP3jMzViXfrOBH8Iq+k
+	LSZImrkRPOOFaDv4O6qxRtFSGImftkutVVNWIbmZe1sCzMUz59YXTzLO64246gZ0b/3h47w==
+X-Received: by 2002:a05:6402:1501:b0:6b7:182c:5d4e with SMTP id
+ 4fb4d7f45d1cf-6ba37c7c3a6mr11134218a12.5.1795685016112; Thu, 26 Nov 2026
+ 01:23:36 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,44 +104,115 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 0/4] net/smc: fix the failover cursor switch and wrap
- rollover
-To: Sidraya Jayagond <sidraya@linux.ibm.com>
-Cc: Dust Li <dust.li@linux.alibaba.com>,
- Mahanta Jambigi <mjambigi@linux.ibm.com>,
- "D. Wythe" <alibuda@linux.alibaba.com>, Eric Dumazet <edumazet@kernel.org>,
- "David S. Miller" <davem@davemloft.net>,
- Guangguan Wang <guangguan.wang@linux.alibaba.com>,
- Tony Lu <tonylu@linux.alibaba.com>, netdev@vger.kernel.org,
- Wenjia Zhang <wenjia@linux.ibm.com>, Ursula Braun <ubraun@linux.ibm.com>,
- Hidayath Khan <hidayath@linux.ibm.com>, linux-s390@vger.kernel.org,
- linux-kernel@vger.kernel.org, Simon Horman <horms@kernel.org>,
- Wen Gu <guwen@linux.alibaba.com>, Stefan Raspl <raspl@linux.ibm.com>,
- linux-rdma@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>
-References: <20261113-b4-disp-1a9ab9b0-v1-0-4a7c8d85d849@proton.me>
- <20261123165127.2453df54@kernel.org>
- <3e66af3fba5b4744b099734fe5054e6e@linux.ibm.com>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <3e66af3fba5b4744b099734fe5054e6e@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261122000856.536902-1-koray.fra@gmail.com> <20261122000856.536902-3-koray.fra@gmail.com>
+ <CAOQ4uxhegn1z=41_MHL1Zu2hXuPtzNhC=x4gd371oaeJE4-weQ@mail.gmail.com>
+ <DN2N6A68PBO1.2QT8ZOARF4I6L@gmail.com> <CAOQ4uxhDQqEQ3T9NveBFpUmSU032BxrNV5D+_zHj8u9LOQY+qg@mail.gmail.com>
+ <DN4DRUYPHYMP.20U4DYV5VBN7P@gmail.com> <CAOQ4uxg0g+XkPb3-kQS5ez1-rp7Q=BkYDHW0CGOFhpbcf70yMg@mail.gmail.com>
+ <DN4KLSM2OO0K.2C8Q5CPFBVNL6@gmail.com> <CAOQ4uxhpJygZH-arLFSUYEEfqFG96Sr3_6CWakfSkdWxEsOxMg@mail.gmail.com>
+ <DN50PH7HHSWZ.3H4T25JFPQECY@gmail.com>
+In-Reply-To: <DN50PH7HHSWZ.3H4T25JFPQECY@gmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Thu, 26 Nov 2026 10:23:23 +0100
+X-Gm-Features: Aa3M54qgNadyHP5LQf6BsvKupVU6AY9XgOmNRBH-yAFSYibTS_3xHgBMtDNHcI0
+Message-ID: <CAOQ4uxgJTSspRJqRFaSJxKUShVULaJpMv8UhBFR-DV2kUe1sXw@mail.gmail.com>
+Subject: Re: [PATCH 2/3] vfs: add xflags mask to fileattr API
+To: koraynilay <koray.fra@gmail.com>
+Cc: Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
+	Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, Jan Kara <jack@suse.cz>, 
+	"Darrick J . Wong" <djwong@kernel.org>, Andrey Albershteyn <aalbersh@kernel.org>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+	Lauri Gates <lauri.gates@gmail.com>, Christoph Hellwig <hch@infradead.org>, Dave Chinner <dgc@kernel.org>, 
+	linux-btrfs@vger.kernel.org, linux-xfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	ntfs@lists.linux.dev, linux-nfs@vger.kernel.org, linux-api@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/26/26 07:21, Sidraya Jayagond wrote:
-> I am reviewing this series now; please do not toss it. I will send the
-> per-patch comments today.
-> 
-> Sorry for the delay. For some reason our mail server was rejecting messages
-> from the kernel mailing lists; it is fixed now.
+On Thu, Nov 26, 2026 at 9:59=E2=80=AFAM koraynilay <koray.fra@gmail.com> wr=
+ote:
+>
+...
+> >> > Attributes that have X_value like fsx_projid have few types:
+> >> > 1. 0 means disabled (all existing values incl. projid)
+> >> > 2. 0 is a valid value but cannot be unset (btime)
+> >> > 3. 0 is a valid value and NULL/unset is also a valid value
+> >> >
+> >> > Only for type 3 does can the interpretation of
+> >> > (!XFLAG_X && !fsx_X) be considered as an "unset"
+> >> > and anyway, this will require support in individual fs.
+> >>
+> >> IMO !(xflags & XFLAG) && (rw_mask & XFLAG) should clear/unset the valu=
+e
+> >> in all cases, ignoring what's in fsx_X.
+> >>
+> >> And all existing values would be of type 1 for VER0, but of type 1 + 3
+> >> for VER1.
+> >>
+> >
+> > I agree that this will be more consistent.
+> >
+> > With explicit opt-in to FILEATTR_MASKS API
+> > vfs can determine that
+> > (!XFLAG_X && !!fsx_X) is alway -EINVAL
+> >
+> > When fsx_X =3D=3D 0, the value of XFLAG_X does not really matter
+> > so filesystems can decide themselves if they want to act on
+> > an "unset" flag or not.
+>
+> Hmm, I think fsx_xflags should have priority over the value in this
+> _masks API.
+>
+> In my mind, to clear PROJID a userspace program would only need to do:
+>
+>   struct file_attr fa =3D {
+>         .fsx_xflags =3D 0,
+>         .fsx_xflags_rw_mask =3D FS_XFLAG_PROJID
+>   };
+>   file_setattr(&fa, AT_FILE_ATTR_MASKS);
 
-Re-stating the series.
+If the program (e.g. chattr -p) internationally sets rw_mask =3D FS_XFLAG_P=
+ROJID
+what do we gain from not requiring the program to also set fsx_projid =3D 0=
+?
+I just don't see any wins for anyone from this design choice.
 
-Note that you can have a nice view of what is pending on netdev for you here:
+Maybe I am missing something.
 
-https://netdev.bots.linux.dev/suie.html?delegate=netdev
+>
+> and have projid cleared (same for EXTSIZE/EXTSZINHERIT/COWEXTESIZE),
+> while to set/change it:
+>
+>   struct file_attr fa =3D {
+>         .fsx_xflags =3D FS_XFLAG_PROJID,
+>         .fsx_xflags_rw_mask =3D FS_XFLAG_PROJID,
+>         .fsx_projid =3D 67,
+>   };
+>   file_setattr(&fa, AT_FILE_ATTR_MASKS);
+>
+> and this:
+>
+>   struct file_attr fa =3D {
+>         .fsx_xflags =3D FS_XFLAG_PROJID,
+>         .fsx_xflags_rw_mask =3D FS_XFLAG_PROJID,
+>         .fsx_projid =3D 0,
+>   };
+>   file_setattr(&fa, AT_FILE_ATTR_MASKS);
+>
+> would have the same result as the first snippet, but not the same
+> meaning, since this would mean "set projid to 0" while the first snippet
+> means "clear/unset projid" (but in this case, for projid and all the
+> other already existing fsx_* it would have the same result).
+>
 
-filtering by smc _and_ MAINTAINERS entry
+As I wrote it could matter per attribute and per filesystem
+whether set to 0 or unset is different.
 
-/P
+The man page language should be flexible enough about this point.
 
+It only needs to document the invalid combinations.
+
+When proposing an UAPI change I often included a man-page draft
+as a proof that the UAPI can make sense to human readers.
+
+Thanks,
+Amir.
