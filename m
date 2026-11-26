@@ -1,84 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703852;
-	b=FSIl9XpgbWE2HzC1MEpfZpm9zsf1ml1iezbe5hbyrT1hrVJNq+5gWM06o+PLhL1AyqLG
-	 5CPXQxcVXH+gDTVRrV0MTLMlJwwlv2PYhE6KOiYVVhkG/IYN/mYjduHceXxEuL9Q3XnWc
-	 NgGsQQiVn6bc2expEFEa4R6m4vzvl1vuDMm8XpbqA+XjHnQBC60ZeCxouwYWg9Wg5l5nJ
-	 Kj1dZKffNvH9lzm7Il5wd0Rd/0HP1KFoGTvKHHm2gUL33g7nMuAM1ZBAu1uklnTHvMzU1
-	 HShBywKsdY1pF2Ql3rmWwiGB/UBUAGU8x+k3LHIhVmfWbRYRbq7bgZOyDg/zOafb7ig==
+	t=1795703863;
+	b=ui14ws0GjnTZ3c+Ax0WGoXYUxf1RTPfcWXp3r1V2XEBY2wAdpvO5DHISGSA4r4AYItYp
+	 obAtkNMi8GooA6YBspB/rjajvUVUYPC/+Sa7Ct9pV9P1TdYXG9wTuvOIbB31WqNTSxwc1
+	 vI/5ei+G5eSqHI6DwgSfXkz0lsu9gNrEA2P02pNhdk2ae8pZddF47wb6fZo291r7ztz3D
+	 +tqy7pzOnU5oF+/bX5xkajcwRSGKKEw9Or+3VqbrGDPwOq5Y5KTESNR34VGSgFgCpYOIT
+	 VhvZ2ncpS7sbRxUWulp4+xzzJoli+bPDhUSvP4F4oJjI+l1tviq9B5YDKavaTKPjwmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703852;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=uvOAD9yOGnAC8Ztss/IjrgdkyvLur1+4cPbktijaMrU=;
-	b=5L2XuGjPKMcRxUggQ1PySQJc/3NLSIKY2i9phJCQyxwMyWKDWsKoIg8uxyLFfaO2Den2
-	 YaYSmdAbqhHTWJENmjT7jrAXloQTVsKKEZKdyj/MqmUWr6AoOK4/HtCpDwJY1fqS4Tguq
-	 aXO7g6YtW5JJH1IryD76tchDZZxYgdPI6GZmdjRW7+KtlrSLrzqZsfkzIfAWa3XjJX+tf
-	 DCdVY4gdLLBp93FCqXlsctpJVdIHmBexzFzy7LdpgOV9GlUBjHZ6sa0uxPOqwin/Z062N
-	 /suQIwyeTgEWZl8f+WnPLU5S0zwgMMCprlPozS7CJzST1YCtQEE21fWhm4JaQtBpdWw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703863;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=raxDnfRsb1wb27xhRaX2DQ4tnujeCdMJ/Eut1gP5YJs=;
+	b=DnwB1N5yzWvwchSkOSKVFgNJwX8EdnL6ljost7k159oDOugRcS5BpBZ8DdnU+QzXe7XN
+	 ZXnA93WLU8p8xYjtutHldJhV1nRNyEwG2vkUBFvPoeC9qpVsCArFybyxXqfUhJlmVbQp+
+	 2FqQMG0ykSMe7gkqjk7Hg+ZDWiQijoNpZKb8eN6XzBUUrmDNnY4ogh1DRaxM1zsHHLNuC
+	 HOcpvxHSPAUjR6cJNC4zujVHEGQz5/c7ESCcgcodHNxiSRO+VJrEqQO12KsyG7v+GYqnT
+	 yBQksbyWPMANLlzvKRSEGAxIKkVyiOu4hn9HNd3V0WQTlQ4iyyRUHEaCmhmbi96lMMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ttn9dtxO;
-	arc=none smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fm4Lbi0J;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B49E4606A31C;
-	Thu, 26 Nov 2026 14:37:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B49E4606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 7225C606A31E;
+	Thu, 26 Nov 2026 14:37:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ttn9dtxO
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795703851; x=1827239851;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NFMhsQ7/o1fMsj01WtwyF816qClvD9yZEfnRKx8D37Y=;
-  b=Ttn9dtxORVX/yLCkaFeMKEDdiIGx5emoBKV6Or5KBuJmS5BCV559pMfV
-   NNFzt+4DgX6juRoiDkAyzUq7xxU1xnIXmNMmLjrTpUHEfz7ZedGotKEOe
-   grhz+mwsmbz2L1LQvSy1WIrUmBTagZYQ2GVUPX6GhjpMvkpXYgyHwxrjw
-   jMFVA2EYcHay/Y7dJAN6PFnoS+mGa98IFi3K0MK6y/YgEuofbPPmnvQ4b
-   bwhcoY7ZdnIaULHCTrf3TjNwvdLKvmNG+63vG6wlvcYZ+Zl8bRyqNq20H
-   Zb4im3Y2R+0bkCVGpi03KRblm9TWBiZ8P+rDmhVo0RiYwJdS00YP72P+W
-   w==;
-X-CSE-ConnectionGUID: 6I0JEZBLQ++kqvF+Vt5YyA==
-X-CSE-MsgGUID: qelGVfCfRgmabvZ2FbFtFw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4624557"
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="4624557"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:37:30 -0800
-X-CSE-ConnectionGUID: 396ke5XTQ8+QU+WBAMzH2A==
-X-CSE-MsgGUID: KukHOz3eSM2Jqy0/UEKSTw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="13959107"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:37:28 -0800
-Date: Thu, 26 Nov 2026 16:37:25 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Joshua Crofts <crofts@kernel.org>
-Cc: Rupesh Majhi <zoone.rupert@gmail.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Eddie James <eajames@linux.ibm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/7] iio: pressure: dps310: use time unit macros for
- sleeps and timeouts
-Message-ID: <awhEJX_XLkFS-ZF0@ashevche-desk.local>
-References: <20261126121331.10438-1-zoone.rupert@gmail.com>
- <20261126121331.10438-6-zoone.rupert@gmail.com>
- <065da662-2670-4f7c-93dd-410e9c11d18a@kernel.org>
- <awg42TwLsgf_Xp3U@ashevche-desk.local>
- <7951c11e-b7f3-4a1a-ac07-87e231e7eb68@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fm4Lbi0J
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id DB0F21F000D8;
+	Thu, 26 Nov 2026 14:37:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795703862;
+	bh=raxDnfRsb1wb27xhRaX2DQ4tnujeCdMJ/Eut1gP5YJs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fm4Lbi0JF86dDB3d7wYxeAB1FUd/gyyA+ZhVYyuRTTHTvoKjT7n+OAYwHrS64gEBP
+	 fWsCzVOB1EFirkCWnBeixvPq+8Lyrfs8jOaaeQ9UkhJS+rUenCR/HR6n1uC3sv9cJT
+	 SR4wulja1wH9tJS04kFC7P4H7XwZfZeCH3A9A3b6eh58lTGVT8/9Ojm6cEZ5MaBG5a
+	 IlvSAucych/GdDR3R/Ppg8w8itSWC8m48L4Swayy3vhoIE/426+ABxupfRM0yT0VDl
+	 v88ZX7JUn9YbbFwPz+OWRF2x6rOKDZiIKgu2lmC92kc9wyp6bYwtDKNuPqSRo1GPZp
+	 YJvskvKa/UYiA==
+Date: Thu, 26 Nov 2026 15:37:39 +0100
+From: Bartosz Golaszewski <brgl@kernel.org>
+To: SignKirigami <prcups@krgm.moe>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] pinctrl: qcom: Add Netrani TLMM support
+Message-ID: <trnv55pophj76vyltw4bqg4scax2mjxg74guvnz35y4ik5yrdo@6co34tei5ihp>
+References: <20261126-netrani-tlmm-v1-v2-0-3426fca870c1@krgm.moe>
+ <20261126-netrani-tlmm-v1-v2-2-3426fca870c1@krgm.moe>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,36 +62,52 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <7951c11e-b7f3-4a1a-ac07-87e231e7eb68@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20261126-netrani-tlmm-v1-v2-2-3426fca870c1@krgm.moe>
 
-On Thu, Nov 26, 2026 at 03:19:06PM +0100, Joshua Crofts wrote:
-> On 26-Nov-26 14:49, Andy Shevchenko wrote:
-> > On Thu, Nov 26, 2026 at 02:17:34PM +0100, Joshua Crofts wrote:
-> >> On 26-Nov-26 13:13, Rupesh Majhi wrote:
+On Thu, Nov 26, 2026 at 04:53:38PM +0800, SignKirigami wrote:
+> Add the Netrani TLMM pin groups, mux functions and PDC wake interrupt
+> mapping. Register eGPIO for GPIO114 through GPIO140; selecting it hands
+> ownership away from the TLMM instead of programming a TLMM mux value.
+> Also expose the dedicated UFS reset and SDC1/SDC2 groups through their
+> separate control registers. The GPIO register bank starts one megabyte
+> into the TLMM window.
+> 
+> Signed-off-by: SignKirigami <prcups@krgm.moe>
+> ---
 
 ...
 
-> >> > -	usleep_range(15000, 55000);
-> >> > +	msleep(20);
-> >> I think it's safe to use 15 as specified in the datasheet, as msleep()
-> >> guarantees sleep for the specified time + a max of 12.5% slack.
-> > 
-> > Wouldn't be better to have some margin still? You know that time goes
-> > differently on different CPUs and in general time can go backwards (in
-> > computers), so the long sleeps can (I haven't checked though) go both ways,
-> > and a minimum sleeping time can be less. Also on the other side firmware
-> > might have issues in some circumstances and require slightly bigger sleep
-> > than specified. That's why I proposed margin.
-> Sure, it's just that some patches add a margin and some patches ignore this
-> and just add the default datasheet value. A lot of times slack is an adequate
-> enough margin. I was always for just the default value.
+> +
+> +static const struct msm_pingroup netrani_groups[] = {
+> +	[0] = PINGROUP(0, qup0_se1, ibi_i3c_qup0, cmu_rng, qdss_cti_trig0, _, _, _, _,
+> +		       _, _, _),
+> +	[1] = PINGROUP(1, qup0_se1, ibi_i3c_qup0, cmu_rng, _, _, _, _, _, _, _, _),
+> +	[2] = PINGROUP(2, qup0_se1, _, _, _, _, _, _, _, _, _, _),
+> +	[3] = PINGROUP(3, qup0_se1, gcc_gp3_clk, cmu_rng, qdss_cti_trig1,
+> +		       wlan1_adc_dtest0, atest_usb0, _, _, _, _, _),
+> +	[4] = PINGROUP(4, qup1_se0, ibi_i3c_qup1, _, phase_flag, qdss_gpio,
+> +		       _, _, _, _, _, _),
+> +	[5] = PINGROUP(5, qup1_se0, ibi_i3c_qup1, _, phase_flag, qdss_gpio,
+> +		       _, _, _, _, _, _),
+> +	[6] = PINGROUP(6, qup1_se0, qup1_se1, _, _, _, _, _, _, _, _, _),
+> +	[7] = PINGROUP(7, qup1_se0, qup1_se1, _, phase_flag, qdss_gpio,
+> +		       _, _, _, _, _, _),
+> +	[8] = PINGROUP(8, qup1_se1, ibi_i3c_qup1, qdss_gpio, _, _, _, _, _, _, _, _),
+> +	[9] = PINGROUP(9, qup1_se1, ibi_i3c_qup1, _, phase_flag, qdss_gpio,
+> +		       _, _, _, _, _, _),
+> +	[10] = PINGROUP(10, qup1_se3, _, phase_flag, _, _, _, _, _, _, _, _),
+> +	[11] = PINGROUP(11, qup1_se3, _, phase_flag, _, _, _, _, _, _, _, _),
+> +	[12] = PINGROUP(12, qup1_se3, _, _, _, _, _, _, _, _, _, _),
+> +	[13] = PINGROUP(13, qup1_se3, _, phase_flag, _, _, _, _, _, _, _, _),
+> +	[14] = PINGROUP(14, qup1_se5, _, phase_flag, _, _, _, _, _, _, _, _),
+> +	[15] = PINGROUP(15, qup1_se5, _, _, _, ddr_pxi0_test, _, _, _, _, _, _),
+> +	[16] = PINGROUP(16, qup1_se5, _, _, _, _, _, _, _, _, _, _),
+> +	[17] = PINGROUP(17, qup1_se5, _, _, _, ddr_pxi0_test, _, _, _, _, _, _),
+> +	[18] = PINGROUP(18, qup1_se2, _, phase_flag, _, _, _, _, _, _, _, _),
 
-Yeah, probably for 10+ ms delays this is fine.
+Same issue as Molokai, please look at the series[1] from Taniya.
 
--- 
-With Best Regards,
-Andy Shevchenko
+Thanks,
+Bartosz
 
-
+[1] https://lore.kernel.org/all/20261118-gp_mn_tlmm_support-v1-0-703f7badd194@oss.qualcomm.com/
