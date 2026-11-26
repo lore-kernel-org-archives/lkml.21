@@ -1,49 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.244
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795687550;
-	b=aseaxcIiChGjX412a+Vm3zWDLf5kn6BAhT2SITWkbUVmg1+FNtchtCzlr2COAOrwRqUS
-	 /RMjSkZ9cLtq7A55bHUpECPY9aSChVDYOp7f3gZlWxtSHwpO0zA/HlmKA5szEAMIX2w7X
-	 waOWV+v6AZfp28ZYz+AfqpJpqISBHujT3YtU1jW7V7avSPeXWnsRS9WORyEjgSdVZLxyE
-	 41XEPsYsIYWN7mFVG6oEDz2MBM5pM/4aBUMtCpifa3zwkQkWNWb/iF+IU8itvMPZ2NpR2
-	 WzDmWs9m39CcU/uvy9yMWoAChYv4kr5fS18JuCzb++w7sBeOg6gDI52b0DAoxgeQRXA==
+	t=1795687594;
+	b=aiIJtG6gns0d22e7V2Csmlw+xwGof6V7pMBxx7NVxqX/T8S4Z4wt+3SZy8+2GS/NzU/M
+	 nqFjw7WHZNGmZwGH45F/aZr0r4FdhTjny8cCKWOFSrXzZ+3ocnK//q9OLWAMwOoZf5E/8
+	 x06MSwMscy1CRxJv+n4nBCbAN3MR8PrLxuI3kDiWA+mcvEIhSlY3EsKLVhNwlPkBXnxnJ
+	 nurV3eNoahPZaz+FPF50lF1Blu3rQD4YHW/tPhPfevu1jUnrShyabJ7uUwfck/xM2a85v
+	 kf8Q3eT7bw/vKFkpXs9TJpkTmTorJQ9SHhrZEfgJ9dw7k2r5J2b3O81mxtVjjWX0NxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795687550;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=Ty6+GSusQzvZvW6i1/PsIEFNbWepeM6vNHIXJKskBFw=;
-	b=qk97nEyVcVk5xQKGnE08Lb/kDhrjTBnvJ5nzj8+bzvVDl7/fvKQoWlzNVlqXtPqqq9aK
-	 a2TUMuscocGmDCL3t2sQ0/a6AF/amiEO/Cs4EAQ7f6vxYJWHThfXV8z/v4IqwoDGBukbK
-	 DY0nMXpregRTtqKNUDjpjHIUWxiVEf8I1ehkfRRkxKKGuD/JN9XCNNjb8g1IcYkm/mQkD
-	 be9687Oo5RVDfCT/RgvFZN3TrnZDZNTnPAUJc7VUn0pTq8mrt69xOr89XwZ0AV4qi69qA
-	 74VTqTU2PRGNXhGCM31SHmN6Dv4Jdv17Xyx+2dvhL3PcxY3TIO+bL+RtP6N9mE2NmEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795687594;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Cc:Subject:To:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=LMMzqw31ZU0RiKKL7WMLIwENWzBxfv0mqYOyr2TaD2A=;
+	b=cSyAItujvb+zvq8cScwXkYEibCR56ARRZS5e5az4eAcZc15l0Qo072C5Sv9WSua/kF6x
+	 62IXKBGapBxA+PP3zG19gl8ylWBf4B/UaH1U8DdXjG0o5tQIDaxxtpzumMPZI9/chqW5n
+	 f9M/9lMjvHREVlxwivQ6dkfXAeTVMSZ3wb30hqx7f7sk99lDuGHM3qBSEGpiFmSd+nEJ1
+	 rYgBaDyT7YbBAti5mI8PqFTD4RywL4zdRQ9js7rQdpOwRALTue4EfPN0TF1xX963rs6xd
+	 XogkRFnxjiVTYYS8KcdwIwVS081XUjJ1QOolTwN2I3fFjqfZEd4OALlNKKriRkAtntg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=SgYZqNib;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 41E76606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:05:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41E76606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="onGrBZU/";
+	arc=none smtp.remote-ip=95.215.58.244
+Received: from mta1.migadu.com (out-244.mta1.migadu.com [95.215.58.244])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BC9F606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:06:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BC9F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=SgYZqNib
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DDA71BA8;
-	Thu, 26 Nov 2026 02:05:40 -0800 (PST)
-Received: from [10.57.70.67] (unknown [10.57.70.67])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A0B23F86C;
-	Thu, 26 Nov 2026 02:05:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795687543; bh=Czn0LXMeTfTW818AmgQT0BdZNE4RFyK4ZDz4s6IWYj0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SgYZqNibReZRnQLpGMkZv/BSiY+T9p40xLgiwvRmjsLy8U5BYxI+UKqlZQ1EQ7V7c
-	 oBM1VINr6PcbJRZikXwTCDcXHjYV5MbbKH2uHEs1+y0Q1E5X6mdGsAN+h0diIWEjaH
-	 Hk6X+NCrRQmTMx619rbiYLTyXiFjnzwVgKPkzUao=
-Message-ID: <32f8da5e-adbe-4b91-8bd5-d446a59e0c3b@arm.com>
-Date: Thu, 26 Nov 2026 10:05:39 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=onGrBZU/
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=+0RS0xiYs/lGHswPGl72t+eKpn20fk7GmNjlh8RHSZE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795687591; v=1; x=1796292391;
+ b=onGrBZU/or0XZ/tQVw//J1dmrKK3aPrGP+hfuLWe8vxMh1uxAMYLtw65pLqYIMN8ccm7puxX
+ 6ALiEzWhZFpja108AZFoNbJ92PEYGEvLFSGkuIF8BN3T+aCPNWcGlDBhTY0VnEMkclm2CLT9vvo
+ jkaLLb+7iJ6feS680aE2OinA=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id d9cff11a4d1b2971;
+	Thu, 26 Nov 2026 10:06:31 +0000
+X-Mizu-Trace-ID: d9cff11a4d1b2971
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <7ad89439-5921-4dce-8da1-7c9321930ce9@linux.dev>
+Date: Thu, 26 Nov 2026 18:06:16 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,135 +59,84 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/3] sched/uclamp: Fix race condition leading to
- imbalanced uclamp_rq
-To: Qais Yousef <qyousef@layalina.io>, Ingo Molnar <mingo@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Steven Rostedt <rostedt@goodmis.org>, John Stultz <jstultz@google.com>,
- linux-kernel@vger.kernel.org, Kayra Cizmeci <kayracizmeci@gmail.com>,
- Wei Wang <wvw@google.com>
-References: <20261126012836.15205-1-qyousef@layalina.io>
- <20261126012836.15205-2-qyousef@layalina.io>
-From: Christian Loehle <christian.loehle@arm.com>
-Content-Language: en-US
-In-Reply-To: <20261126012836.15205-2-qyousef@layalina.io>
+Cc: cui.tao@linux.dev, cuitao@kylinos.cn, linux-block@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
+Subject: Re: [PATCH v8] loop: defer the queue limits clear to a workqueue
+To: Bart Van Assche <bvanassche@acm.org>, axboe@kernel.dk, hch@lst.de,
+ Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>
+References: <20261126054223.176824-1-cui.tao@linux.dev>
+From: Tao Cui <cui.tao@linux.dev>
+In-Reply-To: <20261126054223.176824-1-cui.tao@linux.dev>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/26/26 01:28, Qais Yousef wrote:
-> Static keys are not guaranteed to be enabled atomically across CPUs.  Or
-> across callsites on the same CPUs. Which means when sched_uclamp_used is
-> enabled, some CPUs/callsites will return true for uclamp_is_used() while
-> others won't, leading to asymmetric uclamp_rq_{inc, dec}_id. If we
-> decrement without increment this is safe as documented in the code. But
-> an increment without a decrement is a problem and will leave the
-> uclamp_rq in a corrupt state.
+Hello, Bart,
+
+在 2026/11/26 13:42, Tao Cui 写道:
+> From: Tao Cui <cuitao@kylinos.cn>
 > 
-> The reported case seems to happen due to callsites on the same CPU not
-> seeing the flipped state.
+> loop_clear_limits() calls queue_limits_commit_update() directly from
+> the loop workqueue that processes the request.  That does a
+> non-atomic struct assignment to q->limits without freezing the queue,
+> which races with lockless readers of q->limits on other CPUs, such
+> as bio splitting reading max_hw_sectors and the discard path reading
+> max_hw_discard_sectors, letting them observe torn values.  The
+> trigger is a discard or write-zeroes request on a loop device whose
+> backing file does not support the corresponding fallocate operation.
 > 
-> Update init_uclamp_rq() so that we do uclamp_rq_set() to ensure
-> WRITE_ONCE() is used to update the value field and keep KCSAN happy.
+> The code already has an XXX comment saying this should move to a
+> workqueue.  Do that: schedule a work item on the system workqueue,
+> where it is safe to freeze the queue around the limits update.  The
+> unsupported modes live under a new mutex, lo->clear_limits_lock,
+> guarded by a backing-file check that drops records from a racing
+> unbind or rebind.  The work item is scheduled while holding that
+> lock, so an unbind resets the verdicts under the lock before calling
+> cancel_work_sync() and cannot miss a schedule from a request that is
+> still in flight.  Requests that arrive while the clear is in flight
+> fail quietly, so the console report stays at the first failure.
+> loop_remove() also cancels the work item before the queue becomes
+> unreachable.
 > 
-> Plugging the race is hard as discussed in [1]. Take it for granted and
-> do correction actions on going to idle to guarantee this state is
-> transient for a short period after uclamp_sched_used is enabled.
-> 
-> [1] https://lore.kernel.org/lkml/CANDhNCqyXsZ6G77z+9s=rTO6BZifRG9+hVxMTah+tAv6pB6h3w@mail.gmail.com/
-> 
-> Reported-by: Wei Wang <wvw@google.com>
-> Signed-off-by: Qais Yousef <qyousef@layalina.io>
-> ---
->  kernel/sched/core.c  |  7 +++----
->  kernel/sched/idle.c  | 19 +++++++++++++++++++
->  kernel/sched/sched.h |  3 +++
->  3 files changed, 25 insertions(+), 4 deletions(-)
-> 
-> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-> index ea89471d4743c..23009278cc9a4 100644
-> --- a/kernel/sched/core.c
-> +++ b/kernel/sched/core.c
-> @@ -2139,15 +2139,14 @@ static void uclamp_post_fork(struct task_struct *p)
->  	uclamp_update_util_min_rt_default(p);
->  }
->  
-> -static void __init init_uclamp_rq(struct rq *rq)
-> +void init_uclamp_rq(struct rq *rq)
->  {
->  	enum uclamp_id clamp_id;
->  	struct uclamp_rq *uc_rq = rq->uclamp;
->  
->  	for_each_clamp_id(clamp_id) {
-> -		uc_rq[clamp_id] = (struct uclamp_rq) {
-> -			.value = uclamp_none(clamp_id)
-> -		};
-> +		 memset(uc_rq[clamp_id].bucket, 0, sizeof(uc_rq[clamp_id].bucket));
 
-nit: indent
+Sashiko reported three issues against v8 [1]; all are real and fixed in
+v9 below, so v8 can be skipped.
 
-> +		uclamp_rq_set(rq, clamp_id, uclamp_none(clamp_id));
+> Does freezing lo->lo_queue before queue_limits_start_update() invert the
+> block layer lock ordering between queue freeze and q->limits_lock?
 
-So I did reproduce WARN_ON_ONCE(!bucket->tasks) on CONFIG_UCLAMP_TASK_GROUP=y, which
-relies on .active being in sync with bucket->active.
+Yes, the work item froze first.  v9 takes limits_lock before freezing,
+like loop_set_dio() and loop_set_block_size().
 
-FWIW I don't see a good way of mitigating the missed decrement for .active,
-but if somebody else sees it please shout.
-I'll post my proposal in a minute
+The splat and deadlock part I could not reproduce: since f1be1788a32e
+("block: model freeze & enter queue as lock for supporting lockdep")
+the freeze path annotates io_lockdep_map as a trylock, so the reversed
+order does not become a recorded dependency, and requests never take
+limits_lock so a freezing caller's drain always completes.  Interleaved
+LOOP_SET_BLOCK_SIZE, LOOP_SET_DIRECT_IO, write-zeroes and rebind churn
+under PROVE_LOCKING stay quiet on both v8 and v9.  FWIW the same
+applies to loop_set_status() in my dma-alignment patch: I'll reorder it
+in v2 for consistency rather than wait for a report.
 
->  	}
->  
->  	rq->uclamp_flags = UCLAMP_FLAG_IDLE;
-> diff --git a/kernel/sched/idle.c b/kernel/sched/idle.c
-> index 451b4846219d5..c3882e3fbdf78 100644
-> --- a/kernel/sched/idle.c
-> +++ b/kernel/sched/idle.c
-> @@ -506,6 +506,25 @@ static void set_next_task_idle(struct rq *rq, struct task_struct *next, enum snt
->  	 * lost_idle_time of clock_pelt
->  	 */
->  	update_idle_rq_clock_pelt(rq);
-> +
-> +	/*
-> +	 * Due to a race condition when enabling sched_uclamp_used static key,
-> +	 * we can end up with imbalance where uclamp_rq_inc_id() has happened
-> +	 * on a CPU without uclamp_rq_dec_id() on another CPU that hasn't seen
-> +	 * the static key flipped. The race condition is unlikely, but ensure
-> +	 * the uclamp_rq() state is set properly on each entry to idle.
-> +	 *
-> +	 * The reset will cause the uclamp_max from uclamp_idle_value() to be
-> +	 * lost. Since we are imbalanced, hard to know what is right. So just
-> +	 * cleanup. This should be a transient error state once we recover
-> +	 * everything should work as expected.
-> +	 *
-> +	 * We need to be careful of some paths that can force idle with tasks
-> +	 * are still queued.
-> +	 */
-> +	if (uclamp_is_used() &&
-> +	    !rq->nr_running && unlikely(!uclamp_rq_is_idle(rq)))
-> +		init_uclamp_rq(rq);
->  }
->  
->  struct task_struct *pick_task_idle(struct rq *rq, struct rq_flags *rf)
-> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-> index 32f76551a0c5e..3cbaea9e29406 100644
-> --- a/kernel/sched/sched.h
-> +++ b/kernel/sched/sched.h
-> @@ -3815,6 +3815,7 @@ static inline unsigned long cpu_util_rt(struct rq *rq)
->  #ifdef CONFIG_UCLAMP_TASK
->  
->  unsigned long uclamp_eff_value(struct task_struct *p, enum uclamp_id clamp_id);
-> +void init_uclamp_rq(struct rq *rq);
->  
->  /*
->   * When uclamp is compiled in, the aggregation at rq level is 'turned off'
-> @@ -3913,6 +3914,8 @@ uclamp_eff_value(struct task_struct *p, enum uclamp_id clamp_id)
->  	return SCHED_CAPACITY_SCALE;
->  }
->  
-> +static inline void init_uclamp_rq(struct rq *rq) {}
-> +
->  static inline bool uclamp_rq_is_capped(struct rq *rq) { return false; }
->  
->  static inline bool uclamp_is_used(void)
+> If LOOP_SET_BLOCK_SIZE is called on a bound loop device after an
+> unsupported mode has been recorded in lo->clear_limits_seen, can the
+> cleared queue limits end up permanently re-enabled?
 
+Yes.  v9 resets clear_limits_seen inside the recompute's freeze so the
+next failure reschedules the clear.
+
+> Can calling lo_unsupported() when !bdev_max_discard_sectors(lo->lo_device)
+> falsely disable FALLOC_FL_ZERO_RANGE or latch FALLOC_FL_PUNCH_HOLE when
+> discard was only disabled via sysfs?
+
+Yes.  v9 gates on the per-mode hardware limits instead of the shared
+bdev_max_discard_sectors().
+
+Tested with PROVE_LOCKING enabled: loop/011, the concurrency sweep, the
+interleave and the mkfs/unbind stress run clean, v8 as a negative
+control included.
+
+Thanks,
+Tao.
+
+[1] https://sashiko.dev/#/patchset/20261126054223.176824-1-cui.tao@linux.dev
