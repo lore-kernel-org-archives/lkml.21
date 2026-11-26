@@ -1,55 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692276;
-	b=D2okMKxlAFCyE8ijPiDjLLNBitmoPCaocxn1gvyecb+SaTDcqEUAi+RUx3JB8gAkcqgC
-	 +Ksu/7zOIYn0L6LaUx5BidyhXzCjzpL5F10cVa6gOEBpEWUpAFNnzKYgrNz4+yILvXyZA
-	 y5BhFQzDfmkjqAHUmPamZu4WJURzVl3yzMkGD1h8pKU2OWKP3slBuZ/blGuh7T4TiEqbO
-	 TcGnYDYTmHwKL5CT7hLObkiav83/6JTNCulfPa8GWypvgSoXEdMdjs9rkbI4LVaEEY6XN
-	 +Xz9hUx3el+iB+6SaVUbVH7CDzGPEnjLEYNml9+SqXQekg+hKS/HkWwyqdOfX+zgvcQ==
+	t=1795692283;
+	b=zOWnp1gQyfWLVIYSotTFt+WbVoyP3tTV0Z3OcFW18D2Nfq2qjHWf7V2IfswOHWiJxDZK
+	 WHSvhwN7DhToTDXCoHVQ0SkcHBMna9gdpRLiMIisFQjhP02M9SNjAFLzOks2b4hcI9nEs
+	 AYHXk8/ED3Gi/bFmpN9VaE+hIU5CKwf70v5TUxuvaoAihPAm1BcTno1hWf7ZKbaCaB3SS
+	 eeL/ZtXUCWvSXIy3FP+zoAGjjuQbx+t8STwDEBILQ0XK0lY3G08hvzrXBfrFXWOL0HIaR
+	 mUS4dkSSNjG5vxijp0YuWdkgaQYEX9lG96xcacT+h6tupPNfW5TCK9xjifXG4f5gqFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692276;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692283;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
 	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=UVxlk6g5JbI0vlkgcbA1fCwyIz587P7XOysaUBcQn9c=;
-	b=ZZ1bIIzKk9dJIZAmn2eh1RwwN8mO68AfOT9y0MNtKuLd2qphz2wuCxb+dhqW2ffuI42v
-	 NAiBNAtH+YawssL5xsw/ETRg1t3wOTHyAFQyp/2ay2nPG/nZDuCG53sG79oQ4vKnk6R2/
-	 RjO/8UzudxL7OythHV2u8VWpmUsNYP9uFIcrExzmzagB9WFT0L2eKUXd+RizyjSOQJsAa
-	 be4Xhz/AYXbQryxSHJJNTkvOlO4ayKjNiQeV6uWZULhUxtLMr0ru15oLCY+LM+n8U2Fj4
-	 8f4YwVabW2PNFiWcmBQqzV87Js6XhesPEEN4Jf1trhnwcyApOYV7aU8aFiaWNL6mk5g==
+	bh=fmOCBn8xEVIjs5aJ8J4Zaw7Ett/3XskeCn9tB7ZV//M=;
+	b=aFKx5ryjSq896P62abn+MHeNJcI6x63hUXNtQy75JRpgb/1Z67nZktOPzyM+gV6MR/hI
+	 VYGVzboUVP19fHuHOwPYYzds6baysY2Jt4JNxkus6qsqxTjYdxxWZsKq55kE6WGRPrwKk
+	 0/vpObXT1fuCmL1G4dwuDsKsmmYu3uFkNGcPnT4eZhPzJwktc2XpEicvcveK6vk6LIFxm
+	 20NkcCBt2xHbXSUCl3I4MNMUAnkNRqIPw1FQOwcgeawEyd+klwFddujlwBuU6miJIaSXG
+	 LBbbwEID6eXO3ZKaieYrOseBaEFzYppidl6vo9KWmlAVfiRquGmGay+L9LZs4Sxz6rg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Kjv0Jagu;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vvl5fpK9;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEB92606A333;
-	Thu, 26 Nov 2026 11:24:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEB92606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70D4360A2617;
+	Thu, 26 Nov 2026 11:24:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70D4360A2617
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Kjv0Jagu
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vvl5fpK9
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id F2EDEC2B9CC;
-	Thu, 26 Nov 2026 11:24:42 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 30BEA4E417A0;
+	Thu, 26 Nov 2026 11:24:41 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B034E60237;
-	Thu, 26 Nov 2026 11:24:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CA04C11E6B363;
-	Thu, 26 Nov 2026 12:24:29 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EF26B60237;
+	Thu, 26 Nov 2026 11:24:40 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 33A6311E6B324;
+	Thu, 26 Nov 2026 12:24:37 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795692273; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1795692279; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=UVxlk6g5JbI0vlkgcbA1fCwyIz587P7XOysaUBcQn9c=;
-	b=Kjv0JaguTUr6OIJ6SNTvNnheU/6jE3V6VDyd5Ky8UbjSGB//sjnKppSXk5jBMx6MqBMYE8
-	XNRfDw5kVLrkE2NAqI6BEhe6lrqqMqx+YIDZHBBMI+pxZcU2z2vcqCHfsMvlQbVOOKuaGI
-	zaPH4htqDlHraF2d8aiafq129lMuan79LEgWYLA+3y3S6VZrGzYMreOb4WAMUhCnqdnWde
-	zWGhSf1EPXYRQNQc4pS/pE5Po+2PL2pmtffEF/eFBYz7DdrXp2ttSmC3rv4Pbn+aHEzYb7
-	C5eQnaJtOwVGOHKswU9V+Fh8cPRruXHyFR3a0bKms3TvnN/ef5e5Tyi86rn+dQ==
+	bh=fmOCBn8xEVIjs5aJ8J4Zaw7Ett/3XskeCn9tB7ZV//M=;
+	b=vvl5fpK9CE9GA+CniH9VbudHEwoIA8lFUH4e4ejHhnj40V5va5vGrYjXsv/a34zqar34QV
+	Lcb+C0qPpnSgffRYjPn9HyQC5J3OP+QD6IU16oJDXfddfR9t+QNYZOKp39MJZJYIw+o1YH
+	uk3aSONk1myr78Pu1LvuVFVaTaY4vbYk8LAMusaGSTke+CrGQDhmjZjcmmuGlTZ57ZduZP
+	sohYaYMMxjck+ZQyDq9iLjQmngE8STuJSKZY6Ijk6t+KSEGq7zAlzrfJ6J+KHhQadkFWLJ
+	p83gNMFmxAGAeSIqD/KfQC8DfL7Z6PPTKVElfvuAnilTLqc66ErXq/RgZ+UIpg==
 From: Herve Codina <herve.codina@bootlin.com>
 To: David Gibson <david@gibson.dropbear.id.au>,
 	Rob Herring <robh@kernel.org>,
@@ -70,9 +70,9 @@ Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 	Luca Ceresoli <luca.ceresoli@bootlin.com>,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	Herve Codina <herve.codina@bootlin.com>
-Subject: [PATCH v4 17/22] flattree: Handle unknown tags
-Date: Thu, 26 Nov 2026 12:22:34 +0100
-Message-ID: <20261126112239.636284-18-herve.codina@bootlin.com>
+Subject: [PATCH v4 19/22] libfdt: Introduce fdt_getprop_by_offset_w()
+Date: Thu, 26 Nov 2026 12:22:36 +0100
+Message-ID: <20261126112239.636284-20-herve.codina@bootlin.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261126112239.636284-1-herve.codina@bootlin.com>
 References: <20261126112239.636284-1-herve.codina@bootlin.com>
@@ -88,140 +88,179 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 
-The structured tag value definition introduced recently gives the
-ability to ignore unknown tags without any error when they are read.
+Future operations, such as handling unknown tags on dtb modifications,
+need to modify properties retrieved by their offset.
 
-Handle those structured tags.
+fdt_getprop_by_offset() already exists to get a property by its offset
+but the property returned is read-only. A writable returned property is
+needed.
+
+Fill the gap and introduce fdt_getprop_by_offset_w(), the write enabled
+variant of fdt_getprop_by_offset().
+
+Also add its related test.
 
 Signed-off-by: Herve Codina <herve.codina@bootlin.com>
 ---
- flattree.c         | 69 +++++++++++++++++++++++++++++++++++++++++++---
- tests/run_tests.sh |  4 +++
- 2 files changed, 69 insertions(+), 4 deletions(-)
+ libfdt/libfdt.h           |  6 +++
+ tests/.gitignore          |  1 +
+ tests/Makefile.tests      |  2 +-
+ tests/get_prop_offset_w.c | 78 +++++++++++++++++++++++++++++++++++++++
+ tests/meson.build         |  1 +
+ tests/run_tests.sh        |  1 +
+ 6 files changed, 88 insertions(+), 1 deletion(-)
+ create mode 100644 tests/get_prop_offset_w.c
 
-diff --git a/flattree.c b/flattree.c
-index b7d81d60..90ff62ae 100644
---- a/flattree.c
-+++ b/flattree.c
-@@ -580,7 +580,8 @@ static void flat_read_chunk(struct inbuf *inb, void *p, int len)
- 	if ((inb->ptr + len) > inb->limit)
- 		die("Premature end of data parsing flat device tree\n");
- 
--	memcpy(p, inb->ptr, len);
-+	if (p)
-+		memcpy(p, inb->ptr, len);
- 
- 	inb->ptr += len;
- }
-@@ -605,6 +606,66 @@ static void flat_realign(struct inbuf *inb, int align)
- 		die("Premature end of data parsing flat device tree\n");
- }
- 
-+static void flat_read_structured_tag_data(struct inbuf *inb, uint32_t tag,
-+					  struct inbuf *databuf)
+diff --git a/libfdt/libfdt.h b/libfdt/libfdt.h
+index 7a1915a5..82965e32 100644
+--- a/libfdt/libfdt.h
++++ b/libfdt/libfdt.h
+@@ -856,6 +856,12 @@ static inline struct fdt_property *fdt_get_property_w(void *fdt, int nodeoffset,
+ #ifndef SWIG /* This function is not useful in Python */
+ const void *fdt_getprop_by_offset(const void *fdt, int offset,
+ 				  const char **namep, int *lenp);
++static inline void *fdt_getprop_by_offset_w(const void *fdt, int offset,
++					    const char **namep, int *lenp)
 +{
-+	uint32_t len;
-+
-+	len = FDT_TAG_DLEN_GET(tag);
-+	if (len != FDT_TAG_DLEN_VARLEN) {
-+		len *= sizeof(fdt32_t);
-+	} else {
-+		/* Get the length */
-+		len = flat_read_word(inb);
-+	}
-+
-+	/*
-+	 * Put the data (len bytes) in databuf if provided.
-+	 * No need to check the validity of the inb ptr + len against the inb
-+	 * limit. This will be check in the following chunk read.
-+	 */
-+	if (databuf)
-+		inbuf_init(databuf, inb->ptr, inb->ptr + len);
-+
-+	/* Skip the following data (len bytes + padding) from inb */
-+	if (len) {
-+		flat_read_chunk(inb, NULL, len);
-+		flat_realign(inb, sizeof(uint32_t));
-+	}
++	return (void *)(uintptr_t)fdt_getprop_by_offset(fdt, offset, namep,
++							lenp);
 +}
+ #endif
+ 
+ /**
+diff --git a/tests/.gitignore b/tests/.gitignore
+index 914699be..6fd6cb97 100644
+--- a/tests/.gitignore
++++ b/tests/.gitignore
+@@ -30,6 +30,7 @@ tmp.*
+ /get_phandle
+ /getprop
+ /get_prop_offset
++/get_prop_offset_w
+ /incbin
+ /integer-expressions
+ /fs_tree1
+diff --git a/tests/Makefile.tests b/tests/Makefile.tests
+index 30452d05..ddfe317e 100644
+--- a/tests/Makefile.tests
++++ b/tests/Makefile.tests
+@@ -16,7 +16,7 @@ LIB_TESTS_L = get_mem_rsv \
+ 	sw_tree1 sw_states \
+ 	move_and_save mangle-layout nopulate \
+ 	open_pack rw_tree1 rw_oom set_name setprop del_property del_node \
+-	appendprop1 appendprop2 propname_escapes \
++	appendprop1 appendprop2 propname_escapes get_prop_offset_w \
+ 	string_escapes references path-references phandle_format \
+ 	boot-cpuid incbin relref_merge \
+ 	extra-terminating-null \
+diff --git a/tests/get_prop_offset_w.c b/tests/get_prop_offset_w.c
+new file mode 100644
+index 00000000..be31744c
+--- /dev/null
++++ b/tests/get_prop_offset_w.c
+@@ -0,0 +1,78 @@
++// SPDX-License-Identifier: LGPL-2.1-or-later
++/*
++ * libfdt - Flat Device Tree manipulation
++ *	Testcase for fdt_getprop_by_offset_w()
++ * Copyright (C) 2026 Bootlin.
++ */
 +
-+static bool flat_skip_unknown_tag(struct inbuf *inb, uint32_t tag)
++#include <stdlib.h>
++#include <stdio.h>
++#include <string.h>
++#include <stdint.h>
++
++#include <libfdt.h>
++
++#include "tests.h"
++#include "testdata.h"
++#include "util.h"
++
++int main(int argc, char *argv[])
 +{
-+	if (!FDT_TAG_IS_SKIPPABLE(tag))
-+		return false;
++	const char *name, *name_w;
++	const void *propval;
++	char *modif_val;
++	void *propval_w;
++	int proplen_w;
++	int exp_len;
++	int poffset;
++	void *fdt;
 +
-+	/* Read tag related data */
-+	flat_read_structured_tag_data(inb, tag, NULL);
++	test_init(argc, argv);
++	fdt = load_blob_arg(argc, argv);
 +
-+	return true;
-+}
-+
-+static uint32_t flat_read_tag(struct inbuf *inb)
-+{
-+	uint32_t tag;
-+
-+	do {
-+		tag = flat_read_word(inb);
-+		switch (tag) {
-+		case FDT_BEGIN_NODE:
-+		case FDT_END_NODE:
-+		case FDT_PROP:
-+		case FDT_NOP:
-+		case FDT_END:
-+			return tag;
-+		default:
-+			break;
++	/* Retrieve the offset of the 'prop-str' property */
++	fdt_for_each_property_offset(poffset, fdt, 0) {
++		propval = fdt_getprop_by_offset(fdt, poffset, &name, NULL);
++		if (propval) {
++			if (!strcmp(name, "prop-str"))
++				break;
 +		}
-+	} while (flat_skip_unknown_tag(inb, tag));
++	}
++	if (poffset < 0)
++		FAIL("Property 'prop-str' not found");
 +
-+	die("Cannot skip unknown tag 0x%08x\n", tag);
++	/* Get the property value for modification */
++	propval_w = fdt_getprop_by_offset_w(fdt, poffset, &name_w, &proplen_w);
++	if (!propval_w)
++		FAIL("fdt_getprop_by_offset_w(%d): %s", poffset,
++		     fdt_strerror(proplen_w));
++
++	/* Check original values */
++	if (name_w != name)
++		FAIL("Name pointers mismatch : %p instead %p", name_w, name);
++
++	/* Check that returned pointers for read-only and write are the same */
++	if (propval_w != propval)
++		FAIL("Data pointers mismatch : %p instead %p", propval_w, propval);
++
++	/* Check length of the property */
++	exp_len = strlen(TEST_STRING_1) + 1;
++	if (exp_len < 4)
++		CONFIG("Property \"%s\" should be at least 4 bytes", name);
++	if (proplen_w != exp_len)
++		FAIL("Original size mismatch on property \"%s\": %d instead of %d",
++		     name, proplen_w, exp_len);
++
++	/* Modify the property value */
++	modif_val = xmalloc(proplen_w);
++	memcpy(modif_val, propval_w, proplen_w);
++	modif_val[1] = (modif_val[1] != 'A') ? 'A' : 'a';
++	modif_val[3] = (modif_val[3] != 'B') ? 'B' : 'b';
++	memcpy(propval_w, modif_val, proplen_w);
++
++	/* Check that the modified value is taken into account */
++	if (!check_get_prop_offset(fdt, poffset, "prop-str", proplen_w, modif_val))
++		FAIL("Modified property 'prop-str' not found");
++
++	PASS();
 +}
-+
- static const char *flat_read_string(struct inbuf *inb)
- {
- 	int len = 0;
-@@ -754,7 +815,7 @@ static struct node *unflatten_tree(struct inbuf *dtbuf,
- 		struct property *prop;
- 		struct node *child;
- 
--		val = flat_read_word(dtbuf);
-+		val = flat_read_tag(dtbuf);
- 		switch (val) {
- 		case FDT_PROP:
- 			if (node->children)
-@@ -911,7 +972,7 @@ struct dt_info *dt_from_blob(const char *fname)
- 
- 	/* Skip possible FDT_NOP available before the root node */
- 	do {
--		val = flat_read_word(&dtbuf);
-+		val = flat_read_tag(&dtbuf);
- 	} while (val == FDT_NOP);
- 	if (val != FDT_BEGIN_NODE)
- 		die("Device tree blob doesn't begin with FDT_BEGIN_NODE (begins with 0x%08x)\n", val);
-@@ -920,7 +981,7 @@ struct dt_info *dt_from_blob(const char *fname)
- 
- 	/* Skip possible FDT_NOP available before FDT_END */
- 	do {
--		val = flat_read_word(&dtbuf);
-+		val = flat_read_tag(&dtbuf);
- 	} while (val == FDT_NOP);
- 	if (val != FDT_END)
- 		die("Device tree blob doesn't end with FDT_END\n");
+diff --git a/tests/meson.build b/tests/meson.build
+index 89c6a75a..59264262 100644
+--- a/tests/meson.build
++++ b/tests/meson.build
+@@ -284,6 +284,7 @@ tests = [
+   'get_path',
+   'get_phandle',
+   'get_prop_offset',
++  'get_prop_offset_w',
+   'get_next_tag_invalid_prop_len',
+   'getprop',
+   'incbin',
 diff --git a/tests/run_tests.sh b/tests/run_tests.sh
-index 97f5a50e..5334a9b4 100755
+index 5334a9b4..06f6188a 100755
 --- a/tests/run_tests.sh
 +++ b/tests/run_tests.sh
-@@ -1011,6 +1011,10 @@ dtc_tests () {
- 
-     # Tests for overlay/plugin generation
-     dtc_overlay_tests
-+
-+    # Tests with "unknown tags"
-+    run_dtc_test -I dtb -O dtb -o unknown_tags_can_skip.dtb.dtb unknown_tags_can_skip.dtb
-+    run_test dtbs_equal_ordered --noskip-nop unknown_tags_can_skip.dtb.dtb unknown_tags_removed.dtb
+@@ -445,6 +445,7 @@ tree1_tests () {
+     run_test setprop_inplace $TREE
+     run_test nop_property $TREE
+     run_test nop_node $TREE
++    run_test get_prop_offset_w $TREE
  }
  
- cmp_tests () {
+ tree1_tests_rw () {
 -- 
 2.56.1
 
