@@ -1,92 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795660251;
-	b=2WgDOJ3XEA6YEUoZvUyXxeSf8MC7aIdXRVOf4NFRDvmSJqlD0pgHqXyEFzkto+4JjBec
-	 snALjTIMaQJCvzmI1mXtm5hFPr3XUwGL+9b/oEbZV77FKanh7RIpamTwoH1Krs/n3KFRw
-	 7bXagMspmIIhmRRHl0+LCTeoYpXCIUd9BhA9sTU+YqG9L+94J43NOypsV1sMs2lRz8MiC
-	 88iN3lugxmh47cU/87c89XC+n5DikEiM/t2vrsEpafEaOb4qKwJXjMBTrJ4Eon4c1Ve2B
-	 5ULz4Te1EwQRasJduVhkziYiAjKQyzP7EQyfoyO2xRn0NH8q/LQldVJzAxjRxa7LB/A==
+	t=1795660266;
+	b=KAqpMjQ6a/fTW8LpqoA0VOuQ7KpDmUnP0yX5yE3epng2Lpk02Oelpib4zNTOhL0MOXeb
+	 jMnMncarykJxdEyw2tC/CpbsfY1b8rFt3zWgWxpczir7Epfg8/j8L51Vd5fVn09q0Piw5
+	 zceMrGsgXhFFhUBPmXsuRMtEk9R5TYZepktWTL1iUTomroKlBmzAd8/q6LDnj2ijmul5a
+	 L5hL5dzbxf4fHLa/dtypXrXXcVcp3xxvEz16HoNrQrA3F63j8Pogc4uePSTXPLBQ60YhM
+	 ZBCIKxvXeaXXq4bxOAd/8c/S5a/dCjoQbZ7RDoLV9FGDnifN8MLdHefK2Nfchygpgig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795660251;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795660266;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=pNo7FC/nRbL7LkGJ5TcZupw/29f4Jh2KwXeVR7Yj4BY=;
-	b=gnG73L+1pn87pGhxD5fQ6CY9TW3kDPYkkXJXYpbTNxeaW67UlPmiF3jtH3eoDcCrxIVn
-	 0vaX6hoOYhu3BoFPDDR6riSwwcBfpP47alv5u7FO/mpgQsKSv5XT6AFEt33+zjaJPKRAO
-	 hSm1niTZHrIbeI4JwU4V7TAo5Z1PIxdPRvOUp3RoJREZamFch6S7rWIqvD0wEpabTHiaK
-	 VPdXTQDkCQVArhSl1g25v71ROSMdGaIqeKpcT49XfF3UZv/pCUaz610dVQ3KXxmZjE6Rd
-	 tYk6nvXqQ9NAJwSQYUQGT47v/pNMWHzdoGjkPwWYuTiGt5RphYmLdgcpiUtrPivXyEw==
+	bh=D9BbuCBvz+3YcHKVGn/xJbMHO6prVxAgpemJ515Bw74=;
+	b=zOZqKaMIUTVmM3pkh0EWc07NXU4AKFATgewC6ZBfxPguivNFHFvo8G3tBpIKLZNUqwSL
+	 7cGrUUQXzJ7w2l08f5H4Fc7HLwBpvfC3bTFddsQVhYmt5TPsgJBJ97RL1ugaSTzW7lPpz
+	 Mr6wFPXByJgO+3EqRUf39cLvTEXPgyi4gL4HjkASrrf0pDGW/nhjeCGiMGDozgiaNRP4f
+	 uk5W4JwwsZfx/YFxeJpU7tbIMOVEeezbm+bSzUEWBH84fSDvDQYplX67A7tLenGSJuJwz
+	 hUaqHaxRRbhUZpzFO7AJO3Zmu/fmdanjOUugiD64RkmfsBY6eA9yDExSl6BHdtcb6xQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UNsE7VL7;
-	arc=none smtp.remote-ip=198.175.65.21
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UCZ7WjGJ;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9884606A32D;
-	Thu, 26 Nov 2026 02:30:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9884606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87830606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:31:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87830606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=UNsE7VL7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795660251; x=1827196251;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=prY11NS/UJ0OpUeEsduHH5UymKEof/BwDENNeLSNI7k=;
-  b=UNsE7VL7FjtqyoWRc7B7BT86gwmfLkc43Li71qtz/5lXg8W3q0Tul4eH
-   tsYHdTJODZBRyqplcgj+4VZmRpR8qfKQzfJoXd8hS+0R2RIOYWt8FK8nf
-   HrUCq/+RqexNEs+5PIbr4gLPxljVVe71VYKZOABmewAHw6ZPwWsv8aOhI
-   aybBtTf4gIj/gdm3D0zQsCFrNvwbsDh6tiCrmwvtYqoma99uc5fLSkV5n
-   DO1yNeJEeKGPhhFu3chrXZvj4tudyxHDlTfmB7+wroCmQttAeTkchiG+L
-   7lTr6ipAjWcHgCemSALHmKFqMbtNddX6zAHPtnUb5iEgrntU6vTbQNx1h
-   g==;
-X-CSE-ConnectionGUID: f1rU7zdJQ/SSKuvqqCzhYg==
-X-CSE-MsgGUID: XBlNsuPST6SvmJvym5Xr1A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4642537"
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="4642537"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 18:30:50 -0800
-X-CSE-ConnectionGUID: EP+NvuEjSHWoLVc5NVD9PQ==
-X-CSE-MsgGUID: 1fNS23aNTMOwIoV+zoRiqA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="12044182"
-Received: from sohilmeh.sc.intel.com ([172.25.103.65])
-  by orviesa007.jf.intel.com with ESMTP; 25 Nov 2026 18:30:49 -0800
-From: Sohil Mehta <sohil.mehta@intel.com>
-To: kvm@vger.kernel.org
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Thomas Gleixner <tglx@kernel.org>,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UCZ7WjGJ
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so4058436f8f.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:31:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795660265; x=1796265065; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=D9BbuCBvz+3YcHKVGn/xJbMHO6prVxAgpemJ515Bw74=;
+        b=UCZ7WjGJV3lOB/or7KBd4OYdQpi8Ezg6nfoYaY2l9e1dn8bhqJh9xHFUtPITfqA5NQ
+         lliWmfyOrAUG2/Jyw/KdVrCUqklOQ2Z95kNFN8RxnCV9WD6fLlujwcVApYeGQvYF3PF7
+         qyX4kc3PY4Z6YG6espsUV453KDyN2N2+G7mx7QMRjiaehiwUizFTVEQYVEgNTvp6pdqw
+         eOUAZbsBaIOnPaJxd+ys0WScP8s6uYBfxDG0khfT1PUmf6M4BsowfD5YJTQNaOvfbExL
+         7SbLDszH9utOYB068IZt7kM/PHkoi85zwqkBo1TLel3SGDwXM6FIvyEL1FFSPllloUfQ
+         ZpYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795660265; x=1796265065;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=D9BbuCBvz+3YcHKVGn/xJbMHO6prVxAgpemJ515Bw74=;
+        b=eQPwmyMQHQwjVSEubv9UbOnKNQwhU3JKxRuorqnuWSkz0xlwdfbByJHnnG3Vitrg+0
+         3noPSWMQT7KPKHMQSbkYG8dAiu2RCkknv80AE3Fg297hmp2WQAs/MGCunv5GjE35xopO
+         ZRgf7z5qrathhOkn4iCHrzzF/9zzNjf3c8NUMKGlp9DH9bMXFpBhRPTrswE1o1MPymcU
+         J4FFINehHEOpTB0CXmkum5Cgrb6hCJUm1DwlaSBGYYrt1/i6e55eLa6El0Gs2lptk9kz
+         3i4koXQ82iUfvdUDE9m5javnVQ8FTbehBnP6OzSHSy6xAmG9pJLMTiC7pRakkCui7hNl
+         Jlrg==
+X-Forwarded-Encrypted: i=1; AL+hErF49l4QHL+9F2q83r6V9UOk/BN9HFAQU9ruaGxEYxYeSh5zCJ1jyNkQl9gxcNEXMMqLf4yIjT99n/biuVI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/+L1khjoU7/7Iofn1GmPJ2cJ4cvA0qUrULGGumc5+zSYyEb8A7
+	qqFtyKDFk3MfoFRL0sOOcNgCtgqhKHbs3O9eF40BFZo/xgvEi8qyVRzI
+X-Gm-Gg: AZFdTZfMPB3Du2Dlnoevdz+h6FN8RKgg1DHOWkEsXGmf1olM4HJZOwn19pyalD0Nduk
+	rVm/zZ48H3piUw6NkWf4K/Pt3HDakry80kdTQoTc/fCe7V6yB9Vk06/T69Pm0ltK8uPiFirmR9X
+	H27MG7g+fwEb2Or79ORfzArWPaPg7hh/8xWwQZkVZRiFrD3UEV+AFkYoQq0C6kOOmZ8DuAq7uCC
+	UE6B+eyAaneOE4oQYubrZlz+kIwslFeiIwMPF5fym4Z6NWMiptv8AOmDg3Dr2I3m+KR3TYGo5S7
+	DYlS2xBV4utiggux0vTDuYeb+Ws8G1x6qYP2hVWmro5EMdwsTN00Fvwbns3STvF0DblXM/vZ2VL
+	yXeuema0aC2VJUVrkpQ7YfsMwh5X1eGamh4F3PLOuEIBuiWGsyFUEHruahB703AaYL6LP3K39pQ
+	URZRPE4/JZQ+yNI+hT4aDQ4+HgGr4JprIU9/ZLZGPvVQRzkRTjtvriWYi0Oy9gBH3UwUdNt48Dx
+	UMKMqFbpLbF/1/kWR7eQoTeveHJTGOrPfKYFZBaF4Z87/JHH22Ch0N5CpERHikSsIdrn0J0kpeP
+	u9HY8mAkOgrl3gUSTLbtZYri+QIuKk6CSiPKGDdDiNHIWcYN1V1+wCvnnArNx7PKFkjWYt0SbYp
+	czt0Q5RUsFCEqrGBHQJFirfLHalbc+uMOjI59GK2yTD5Hc98X5wx20JR9DqJpc/xNw0AHDY/3u/
+	vnj7pF7WNqn5bZsx91WnPiRTT8TN9xrEvKCHv5/w==
+X-Received: by 2002:a05:6000:2c05:b0:4a7:ed95:7c9f with SMTP id ffacd0b85a97d-4abb19c16a4mr38680089f8f.22.1795660264607;
+        Wed, 25 Nov 2026 18:31:04 -0800 (PST)
+Received: from localhost.localdomain (dynamic-2a02-3100-b10e-d501-d0c4-b021-8d77-e472.310.pool.telefonica.de. [2a02:3100:b10e:d501:d0c4:b021:8d77:e472])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf685asm37722445f8f.20.2026.11.25.18.31.02
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 25 Nov 2026 18:31:04 -0800 (PST)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Peter Zijlstra <peterz@infradead.org>,
 	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Xin Li <xin@zytor.com>,
-	Shivansh Dhiman <shivansh.dhiman@amd.com>,
-	David Woodhouse <dwmw@amazon.co.uk>,
-	Chao Gao <chao.gao@intel.com>,
-	Binbin Wu <binbin.wu@linux.intel.com>,
-	Sohil Mehta <sohil.mehta@intel.com>,
-	"Chang S . Bae" <chang.seok.bae@intel.com>,
-	Zhao Liu <zhao1.liu@intel.com>,
-	Jon Kohler <jon@nutanix.com>,
-	x86@kernel.org,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Hongyan Xia <hongyan.xia@transsion.com>,
+	Song Liu <song@kernel.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] KVM: VMX: Dump the secondary VM-exit controls in dump_vmcs()
-Date: Wed, 25 Nov 2026 18:27:43 -0800
-Message-ID: <20261126022743.4082392-4-sohil.mehta@intel.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261126022743.4082392-1-sohil.mehta@intel.com>
-References: <20261126022743.4082392-1-sohil.mehta@intel.com>
+Subject: [PATCH v2 0/3] sched/preempt: Check notrace preempt-count updates
+Date: Thu, 26 Nov 2026 03:30:51 +0100
+Message-Id: <cover.1795631277.git.kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,63 +116,85 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: "Xin Li (Intel)" <xin@zytor.com>
+With CONFIG_DEBUG_PREEMPT, the notrace preemption macros bypass the
+underflow and near-overflow checks used by ordinary operations. Add
+checked noinstr updates for their existing callers and share validation
+with preempt_count_add() and preempt_count_sub().
 
-KVM now activates the secondary VM-exit controls whenever hardware
-supports them. Print them next to the primary VM-exit controls in the
-VMCS dump to help debug failed VM-entries.
+Patches 1 and 2 mark the arm64 raw preempt-count and reschedule helpers
+__always_inline, matching x86, s390 and asm-generic, so noinstr callers
+keep them in their own section.
 
-While at it, give the entry and exit controls the 0x prefix that the
-execution control fields already have.
+Patch 3 also disables branch profiling with DEBUG_PREEMPT to prevent
+instrumentation from reaching noinstr text, covering both
+PROFILE_ANNOTATED_BRANCHES and PROFILE_ALL_BRANCHES.
 
-Signed-off-by: Xin Li (Intel) <xin@zytor.com>
-Signed-off-by: Sohil Mehta <sohil.mehta@intel.com>
----
-v1:
- - New patch, split out of FRED KVM v10 series so that the dump covers
-   the field this series adds.
----
- arch/x86/kvm/vmx/vmx.c | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
+Patch 1 is extracted from Hongyan Xia's entry RFC. Song Liu also posted
+notrace annotations for the same arm64 helpers:
 
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index d35bad8b29a7..7291c2916ff6 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -6493,7 +6493,7 @@ void dump_vmcs(struct kvm_vcpu *vcpu)
- 	struct vcpu_vmx *vmx = to_vmx(vcpu);
- 	u32 vmentry_ctl, vmexit_ctl;
- 	u32 cpu_based_exec_ctrl, pin_based_exec_ctrl, secondary_exec_control;
--	u64 tertiary_exec_control;
-+	u64 tertiary_exec_control, secondary_vmexit_ctl;
- 	unsigned long cr4;
- 	int efer_slot;
- 
-@@ -6518,6 +6518,11 @@ void dump_vmcs(struct kvm_vcpu *vcpu)
- 	else
- 		tertiary_exec_control = 0;
- 
-+	if (cpu_has_secondary_vmexit_ctrls())
-+		secondary_vmexit_ctl = vmcs_read64(SECONDARY_VM_EXIT_CONTROLS);
-+	else
-+		secondary_vmexit_ctl = 0;
-+
- 	pr_err("VMCS %p, last attempted VM-entry on CPU %d\n",
- 	       vmx->loaded_vmcs->vmcs, vcpu->arch.last_vmentry_cpu);
- 	pr_err("*** Guest State ***\n");
-@@ -6626,8 +6631,10 @@ void dump_vmcs(struct kvm_vcpu *vcpu)
- 	pr_err("*** Control State ***\n");
- 	pr_err("CPUBased=0x%08x SecondaryExec=0x%08x TertiaryExec=0x%016llx\n",
- 	       cpu_based_exec_ctrl, secondary_exec_control, tertiary_exec_control);
--	pr_err("PinBased=0x%08x EntryControls=%08x ExitControls=%08x\n",
--	       pin_based_exec_ctrl, vmentry_ctl, vmexit_ctl);
-+	pr_err("PinBased=0x%08x EntryControls=0x%08x\n",
-+	       pin_based_exec_ctrl, vmentry_ctl);
-+	pr_err("ExitControls=0x%08x SecondaryExitControls=0x%016llx\n",
-+	       vmexit_ctl, secondary_vmexit_ctl);
- 	pr_err("ExceptionBitmap=%08x PFECmask=%08x PFECmatch=%08x\n",
- 	       vmcs_read32(EXCEPTION_BITMAP),
- 	       vmcs_read32(PAGE_FAULT_ERROR_CODE_MASK),
+  https://lore.kernel.org/r/20261023011049.1164625-10-song@kernel.org
+
+Changes in v2:
+- Patches 1 and 2: no code changes, added Hongyan Xia's Reviewed-by.
+- Patch 3: replace the Makefile CFLAGS override with a !DEBUG_PREEMPT
+  dependency on the Branch Profiling Kconfig choice (Steven Rostedt).
+- Patch 3: remove the unused __preempt_count_inc() and
+  __preempt_count_dec() macros and clarify the changelog wording
+  (Hongyan Xia).
+
+Link to v1:
+
+  https://lore.kernel.org/r/cover.1794814699.git.kmehltretter@gmail.com
+
+This series is independently useful and also provides the checked count
+updates planned for follow-up IRQ-entry work. It does not change IRQ
+entry, trace-recursion lifetime or TRACE_CTX_TRANSITION.
+
+This addresses Peter's suggestion:
+
+  https://lore.kernel.org/r/20261029093219.GH1779021@noisy.programming.kicks-ass.net
+
+The series is based on Linus's tree at commit 4dce97c6c265
+("Merge tag 'ext4_for_linus-7.4-rc5' of
+git://git.kernel.org/pub/scm/linux/kernel/git/tytso/ext4", after
+v7.4-rc4).
+
+Testing:
+
+- Kconfig: x86-64, arm64 and arm builds with Clang 22.1.8 verified both
+  branch-profiling modes, DEBUG_PREEMPT and non-debug configurations,
+  !CONFIG_PREEMPTION with PREEMPT_COUNT=y, plus allmodconfig,
+  allyesconfig and defconfig + debug.config.
+- arm64 v2 runtime: Clang 22.1.8, W=1, PREEMPT, DEBUG_PREEMPT,
+  PROVE_LOCKING, FTRACE and PREEMPT_TRACER. Full Image and external
+  module builds passed, .noinstr.text disassembly showed no
+  ftrace_likely_update() or outlined preempt-count calls, and QEMU
+  boots verified balanced load/unload, underflow rejection and
+  near-overflow detection at 0xf5.
+- Additional v1 testing (C code in arch/arm64/include/asm/preempt.h and
+  kernel/sched/core.c unchanged): x86-64 Clang 19 objtool noinstr
+  validation and nested-KVM runs, arm64 GCC 14.2 PREEMPT_RT and
+  allmodconfig builds plus native Axion boot, and ARC, C-SKY and MIPS
+  builds and QEMU tests.
+
+I used an LLM to help extract and review the changes, write the test
+harnesses and prepare the commit messages.
+
+Hongyan Xia (1):
+  arm64: Always inline raw preempt count updates
+
+Karl Mehltretter (2):
+  arm64: Always inline preempt count and reschedule checks
+  sched/preempt: Check preempt counts in notrace helpers
+
+ arch/arm64/include/asm/preempt.h | 10 ++++----
+ include/linux/preempt.h          | 23 +++++++++++++-----
+ kernel/sched/core.c              | 40 ++++++++++++++++++++++++++++----
+ kernel/trace/Kconfig             |  1 +
+ 4 files changed, 59 insertions(+), 15 deletions(-)
+
+
+base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
 -- 
-2.43.0
+2.39.5 (Apple Git-154)
 
