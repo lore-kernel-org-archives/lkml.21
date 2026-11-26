@@ -1,56 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795701612;
-	b=WWCkZR+vV+3bplyz5tg9CUeGOGt9mzeT4ZNebApXRYk/mCPn6buJWoxBD3uvcIck0DvJ
-	 0me7EHODTNR27ag1UXEchpwXL+b+GWzd+xcrkdqOaGmsr0x5hAEQ6O87NdwzOsmhcxInh
-	 6s2OnxU7scIu11JHRB5tBc8TWUHci4RRsDbhY6OyGPMB7ZK+w/mU4tSqkmAHcnx7U3Rjt
-	 d82FXuLVMMnFLalBk2euFKXD97Bq2QbejAEd4yNOkMPMmxWuoPTmN+q6X/7B5R8rytNdz
-	 DFd8VX9L+vEgsA6y4Hd/Qz9eCb1l/aORSwtwQQDWUauLqj49laiTvSJ0z5QKbuZEpLg==
+	t=1795701695;
+	b=CdEYvXvx/vrU1TfG7Y3+aVZlZjI/hAPJnC71May0Et2MaTzAe/WCVx5VoCxGRTdWDIm1
+	 2KgcgEPVVY8F635mR5Wmz5PhEP4xU+6o9uxbdmuWTLizxmxGTM4GMCJa8wL9NwjApUxkV
+	 opgdL9A6BYtkpTPXKAKzHMMTwW0ytIQkMzkQTdgf7SuXew08x7S8hg0QtsdDuycNg0PiK
+	 FAEKLHYQkngywDQaooQn2cr0HRqZfMa9uJDODrL/Wc3qbAp640cKa30cmzZ9Iz0+dn82m
+	 V4+Do2DJ3oDS7jwwzkYi05nXK+xCKN392k45h8ahChZ2Ae5YvGsM3DFasIgMWXFiapQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795701612;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=afr0WWbPAo4uI6sGvyvDO8Ffgg+XtZm65AKUzb2v8GE=;
-	b=K/fVYgAAaAynCGALqLvh5Nyhp0D402FLWiXXskguCnNFh9Q1GjjhOGZO1Xu5Aw9SkM0b
-	 weEwpVqEsjSTBXvgQ7E4Gfi45nQTMsicKUFXioi7zlSx9BNsRO2fm/VSm7SaLSS1f/ROg
-	 jyJocBqLtzNT1Pwh8SiRDCOdWs9aGhWoxJTxwFQ26uJjShQbbsjNktn9E8fxeTErGW6C/
-	 I2q9fcB4El4ZAB2WU7ig1tyClD+0XxSmhAqGlJzm864rI3H1RQC4otoU8C4gsOUyEjdKV
-	 xs2yTifqX0l68ZPGvdz2Y1JxtIn1uya29ZT3wM7QeIHVAYCR99eGJEmdFLxNDZpyu1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795701695;
+	h=Received:DKIM-Signature:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
+	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=wNad8aGHa4/tIJ1y5EBj81nrFIm9e9hCQQtF7l5nDIY=;
+	b=N5KGmT1e/6G0MxJU+tO8+2it+DdrrNoXR3CWoOm7GXyYadbOOec0LrhA0oZR97lxyGRT
+	 V0KJ7qtvJlEcu2V/TLijkxWcPC4md7BPM/CPpmhYXisMwZRT88WXdFPjvKwcBfp3Mo/SZ
+	 I22PXOd+EMEE6FNr+G0sEqP2SUgj2t7wWbY4YGCnMiPz74puu3hhC4WO/3gbgruiGq/vB
+	 wAb2mDsdeK7BqldMOivM6u26M8Vhuc3Er1teh7PAzCiv28Mh3i1yohhK+SG3yZcblbHJn
+	 b0eXqx97iqlW6fTFpBIqmgUfA2eb4l4QTDwHaBifuC3ag5o+sd6oYwvV4wOco2tNH6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nO82qoad;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TrmFEPoZ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02B5C606A31E;
-	Thu, 26 Nov 2026 14:00:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BA22606A31C;
+	Thu, 26 Nov 2026 14:01:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nO82qoad
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3C4C1F000C4;
-	Thu, 26 Nov 2026 14:00:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TrmFEPoZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E241F1F000C4;
+	Thu, 26 Nov 2026 14:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795701611;
-	bh=afr0WWbPAo4uI6sGvyvDO8Ffgg+XtZm65AKUzb2v8GE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=nO82qoadSC+WyC80fAVIuxxT+ewJX18V5Jar6jSJ4aP6TjFlz5iI0UWNi0UShH6mK
-	 7auI+YGNiKHJIWhfQdifNgT7UqHbuYR+af1SKRAhe4ZX9f9hq9yIH7smNULYxpCy4K
-	 736bF9HM39huo+J3QxtJQV/es/+xDY0H7CYC5g+J5p6AqI9MyTpRK48mnPYG/3T+hH
-	 W85FJ5yE4hTRQM4JW1tY/4Yi7D2gEUboG29ygaXGwcKwGcIX0EEMfAef5hU9pwqlCL
-	 myudh7ajvw4hq3f3ozPHGQwjfWL08qOMOX8yzd9peQASnN4MgYccNJMoMNp+sh5Y54
-	 IPFO0SXZxj0/g==
-From: Leon Romanovsky <leon@kernel.org>
-To: Abhijit Gangurde <abhijit.gangurde@amd.com>, 
- Allen Hubbe <allen.hubbe@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
- Andrew Boyer <andrew.boyer@amd.com>, "Nikhil P. Rao" <nikhil.rao@amd.com>
-Cc: linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261118-b4-ionic-rdma-admin-timeout-v1-1-39536999a3e4@amd.com>
-References: <20261118-b4-ionic-rdma-admin-timeout-v1-1-39536999a3e4@amd.com>
-Subject: Re: [PATCH rdma-rc] RDMA/ionic: Wait the device command timeout
- for admin queue commands
-Message-Id: <179570160885.1269533.5766510850700105572.b4-ty@kernel.org>
-Date: Thu, 26 Nov 2026 09:00:08 -0500
+	s=k20260515; t=1795701695;
+	bh=wNad8aGHa4/tIJ1y5EBj81nrFIm9e9hCQQtF7l5nDIY=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=TrmFEPoZXfgUxvRkBH8yU8kXTjF1KuoGclUL4zDFvcCFj7rXLA5CzIDnMQ1UaG9bN
+	 T5qZXaHRkJ/2ZzP/t+SohQ9qDR3ZiCR7PM7fPFPN4avcuLf601iyPJXyV+7miAQGu1
+	 xHKHluAT7d07Upus7x5m/sGpxBlAChMICgQ0M3siMX710eIMpvFA8C515AG4IqsdJh
+	 IOaEg2L1ScHj5wK3dZZ0ACgQEhDE8/94E2NraDImRIaQNWMWzIpopM97G1HD2kWuUf
+	 jWl138QdRGV7FF0PQuBUPnwEl9SrlDtmHCL6HpZprJ2hrEVpqgb/XOuYLPN0yTs3NT
+	 cBuJMbi/iJpKQ==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,26 +51,40 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-18f8f
+Subject: Re: [PATCH v5 2/4] regulator: core: Parse
+ regulator-off-on-delay-us generically
+From: Mark Brown <broonie@kernel.org>
+To: Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+ Kamal Wadhwa <kamal.wadhwa@oss.qualcomm.com>, 
+ Saikiran <bjsaikiran@gmail.com>
+In-Reply-To: <20261027-regulator-off-on-delay-v5-2-f9c3b128c6d0@oss.qualcomm.com>
+References: <20261027-regulator-off-on-delay-v5-0-f9c3b128c6d0@oss.qualcomm.com>
+ <20261027-regulator-off-on-delay-v5-2-f9c3b128c6d0@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 14:01:30 +0000
+Message-Id: <179570169045.142532.16106966799227228984.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=479; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=KdfCQNV3a8eJP9eLdbdXsgwj3MPsywhJnLY4FkqlhXc=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLI5rHebCn2e2x+ZcLVM6dVWlynLlN50bXnPv+3dX7fTY
+ kut672TOkpZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjCRPXKMDJeW+yV8nJprs2fK
+ ytvuL4OvC1+Jsjgu2Lfgo+7E5UE6DNsZ/nDfWXysr+Gm4ZMPFi/tprF+/lMyN677vZ3tDrlHb9X
+ 7/zIBAA==
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
+> off_on_delay is normally fixed per regulator type in regulator_desc,
+> e.g. hardcoded for every LDO a driver supports. But the delay a rail
+> needs before it's safe to re-enable can depend on board-specific
+> factors like attached bulk capacitance, not just the regulator type,
+> so some individual regulators need a different value than their
+> type's default.
 
-On Wed, 18 Nov 2026 21:57:52 +0000, Nikhil P. Rao wrote:
-> Commit ec8ee714736e ("ionic: stretch heartbeat detection") notes that
-> firmware can take more than 2 seconds to service a device or admin
-> queue request, and is only expected to complete it within the ionic
-> command timeout of 5 seconds. The RDMA admin queue watchdog gives up
-> after 2 seconds, and a timeout resets the RDMA LIF, after which every
-> verb fails with -ENODEV. Wait 5 seconds, as ionic does for its own
-> admin queue.
-> 
-> [...]
+This doesn't apply against current code, please check and resend.
 
-Applied, thanks!
-
-[1/1] RDMA/ionic: Wait the device command timeout for admin queue commands
-      https://git.kernel.org/rdma/rdma/c/58b15c7123d493
-
-Best regards,
 -- 
-Leon Romanovsky <leon@kernel.org>
-
+Mark Brown <broonie@kernel.org>
