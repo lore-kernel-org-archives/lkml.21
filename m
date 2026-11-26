@@ -1,112 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795725235;
-	b=AnPwVvXu7J/bedvmsXh7ZxCJ0wqc9gTpMzksj7T0V6EVoiklkPF9GyWXZBRKaKWvnL+6
-	 bSu+bp4pKmFXRYTPp86Winw28yiSBuWY+lX/TTMbrTrSEpN7VLO3o+ECfjZ4Wf6O7uxYO
-	 aL474UAvp9hT7yTV7sH/Jyt+UsRhZiWxOo+X+1aXzToOW926tSDcPRwrdTg9ZrFzY0ejw
-	 7rwWF4YYOJVIgI8hrYbnB8WFxRz4qW8Ee4eaoxRoPNWpymhopC5XG6zLRRGFLhjfxCpFj
-	 BKFu1NS750LWRFGpa8b1dDAuqnA3tmx/bMRolal8mrnOmcFxTDbVwOmTSfMQ14mnhEA==
+	t=1795725237;
+	b=QgVT6wTIzq++lH+ARK1GAwiZBpb9Tkiv0ZCtB0c6JIVPthzJsjcpswI+3SokUiFtQxdP
+	 KGRhksRjUH3pP1yfTAq65KZ5ds+Bm1W7fjUtbXMWcRZ73Nk8k+jdLWd+lm4edROcyd/EZ
+	 u4o2Czufoi27nYgwGiYOD/bgifOT5hB0i2rrPbXuAM4jdGVS/zCWS9Q3bcoHIwf1YHFIh
+	 9kPgrvK2d5VNectK2rD6yKs4tkxyjFRlXprpHxcsO9mmTfX0I6bWCmvceBZo36KBNdlmc
+	 cq1W+dVU7MmBBZ5all7wVEoKAbZtysuxlD4ifuwVZLhLDfwteZ/Fn0mjU12609GrM0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795725235;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Type:MIME-Version:Content-Transfer-Encoding;
-	bh=r1XVIRh3fQHS2h4Sz3Sym6iq1PD22XfOzca3/RkWwfE=;
-	b=bzNtZCWjvK+BQ0L9+s3Iaf36jgJdR3JTDYe3Jt9Pe5x1FgYeA/UTi4sdKErLkBtOp4y2
-	 H5s5eDc9GhOe2E6YMkv/tJEFLN2PM83xCzzTMIY4mtjR3fRE8fCumf6kM1UUC6Qebe3XJ
-	 Ojw2IVOFiYuMrzgFaIrtIeMIi+egE4J7lK2ZUrC6jmL2DBf6woy6s5WQKu0x3u4u0RvB7
-	 NaLejp5ChBsPftBmkxFAirXBXKADbNqIzuK/lfyYJi5Fdk7dKvAnFAPCnTsWBzclndzM6
-	 fMeC/8GVGNebCozTOGHssI5+EKLjbz+KW8mQe0M+APt3El/NC2ejOsimecDtHjcjqOA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795725237;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=EWNSn7/qGLe4P+MNmNuGL5nNMpUQ5CrgVDoViR4hYXc=;
+	b=hUr36IVsiUdPjBMMiJ5KgWzEAToYjakBsCbvqVt6O046XKojLEyz5ohArHZRp0EUETdI
+	 LoWMh/V1YpyeQV1BLo3r4q8u2yzK7Q0dNoeyNxF/nprjGFhNYPrD5CzlxYVIYQf2c2376
+	 DsZJg4FMsCSE34/9F3OMTet63ZBqYkjxKd8TOcwPBBVV0cYok2iS4yZl6lY863VIizijU
+	 FL+kWnfqn+4zbGamzDJE4SAr5oSajn847NW44UrFMdUSL1vcXxy4pYUzZYPF+HgVeNXme
+	 +NUPBI64dN80eu6aV0oZ7tyG61w1jp8mXVAZyV0EBQgvUi2BSRNyG4kn6sMF6qTRYKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ki7lj7Iz;
-	arc=none smtp.remote-ip=209.85.160.52
-Received: from mail-oa1-f52.google.com (mail-oa1-f52.google.com [209.85.160.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FoBP1jdN;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8335F606A334
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:33:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8335F606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8761B606A32E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:33:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8761B606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ki7lj7Iz
-Received: by mail-oa1-f52.google.com with SMTP id 586e51a60fabf-4b0348a4c79so5123237fac.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:33:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795725234; x=1796330034; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=r1XVIRh3fQHS2h4Sz3Sym6iq1PD22XfOzca3/RkWwfE=;
-        b=ki7lj7IzqYkWadwnqj6PgQlP9aUyGwgU5E6yX6pdQV3YeHU1khswnjP+jW5pftsJ7C
-         pnt+f1ngrIJ2bmBCHrG4FW/0/vhgDJXdVWuGQwLf83LcE8uBAjgR6ujhbwxkvSHofQXZ
-         asrOrtlakJUqMZ9EVGAnWlkUZCh7MU8McKfGDZjePn1L+QTpHpwRONn3wuebp6gB6vWU
-         IpEF8r0arMvF9klc4QSs5BvQzqUM4dJRhyFeL9E6BgRJy4ZCX5fZe+SGfo5UL18yQM1t
-         mf79GpaG4qogum7upxuxPTUL/HZDgK/iTQcXnApXO9nB9IjFJNQZbUGj5/jIG2T+YeQJ
-         sMdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795725234; x=1796330034;
-        h=content-transfer-encoding:mime-version:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=r1XVIRh3fQHS2h4Sz3Sym6iq1PD22XfOzca3/RkWwfE=;
-        b=qzGllO/yZNxF7rJkBwlMcD7UDWJR4nIQo54nKR3KTrEfLrPkX8okedkYpXCcGKohnb
-         w6FKQyLqoXoVBzmCbVe3VbQn+Ppw26PzhvkUxOTkqfrdhllflmCq0z0ip2vVDj2+fb38
-         M+zhDh42T3VSs2gZX7A94PPsj32Hvp8/CS7UbUYMTpx2tB2gclVkDwA7qyZzjCT/steg
-         zekdOmgfk/Nyfgro7B9YFyJK58UQTajDgK9zDM5s5/E6wzsJKzgTw5oK8QwzcqtW5Blm
-         7raNT476+LgBa86hTpWZMpekWXiFPyPdIw8/ytGaR8tdtiI8kmsWYEhldGRDoUgSWjgY
-         lW2A==
-X-Forwarded-Encrypted: i=1; AL+hErHEtnxSnliLmOt60JGvKR391SMKm3wwKfSR1Fbu5IzJt+doGZP1XpQGU6bNQbCxpOTNS3I/sRDZbMr2+L8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8bdlQNDTVN5uaORssuB8tq4+I0746UrCvlAtJGhK79/Q4+YWPT
-	ayP+XTTlmtAeu7Io/81saqHBDGlrFiUWAatOHzZeCnuqd/+hI0NGnQJW
-X-Gm-Gg: AZFdTZcZgx8javqoWkCUY59V2MA62H1pN02ZZjHfJcWiBcgzvoucbjRxzMHc+OvMP4B
-	+VG5OayaO+OJPLFCL5YQr9gVe5UJErFHf/tjt7GvuCRDep56wIXx6N/Q6V1KNzIkVPc5MCk3bsp
-	bjCqP8DR41K5zVAC4W/NO5IcgBdsu3zuI9BNIICC0PheMaJa4JrH2taPDe21FRO+qHt+q9ri3ni
-	/2wZVvMHVRnuMONWaO363Od5dWMpxUdNLSKTBEFWwYOgO5GaM40v1xfiOHDPHBLvgA54mU7D9S9
-	/kxD88xiMOWyT4a+W+Aiyi4VXRmAalh3zLOM9YTOm3Po5Jl4u/eSj4fNcfcYlYeFYQj7aQp6JCm
-	WsgnEKgz7PGinM8Jfiqy/s+2EyRjrY0Zm+vK7gBt+O/nXI2pa7a1AVSitv4LCDFhzf81C6oUbDE
-	7pHI1iNO5CeRRjbRkZve9yGMDvq2lFQuhTpyzgdfEJnwnhA9WGCnivhBYxcNGhogE14tPrlK5o/
-	V3/4FpQorAofe9hpnzHtih+BXYYT8tbO8eUh7GX/Bqn/SKPz6Rgsmi04o4Q4kshCxq3zW+aCb4r
-	psKWHxqQyiwz9+r2BZSO5eAlr9F3tXe8VFpd8lKAshpLc+J3MhXkYRMfBEVqMIg4UeXdV39/DDg
-	Iegn2iYo=
-X-Received: by 2002:a05:6808:4fd4:b0:55c:859:adc with SMTP id 5614622812f47-57a0c5bfaaamr27052957b6e.55.1795725234464;
-        Thu, 26 Nov 2026 12:33:54 -0800 (PST)
-Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a31929223sm17049002b6e.1.2026.11.26.12.33.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 12:33:54 -0800 (PST)
-From: Enzo Adriano <enzo.adriano.code@gmail.com>
-To: andre.przywara@arm.com,
-	wens@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	Maxime Ripard <mripard@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FoBP1jdN
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795725235;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=EWNSn7/qGLe4P+MNmNuGL5nNMpUQ5CrgVDoViR4hYXc=;
+	b=FoBP1jdNiEjT4inICkkFmu4MaUhAGrB3l5X8XFACxq2m20w3RPY7gpxlCLK3FJVO6ArWdO
+	9jtVEAm68Kvlt1pe7TT1dW4Icw8OSW2k7qLFlmlxzf/jH+Vr+eRuwabolq8uEnJYoN5t/y
+	YY6XxkNc/U62yeXZquhLm4By2j+7BYw=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-379-PPslup6RNDuO54EKJcimBg-1; Thu,
+ 26 Nov 2026 20:33:51 +0000
+X-MC-Unique: PPslup6RNDuO54EKJcimBg-1
+X-Mimecast-MFC-AGG-ID: PPslup6RNDuO54EKJcimBg_1795725228
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6E85B18011CC;
+	Thu, 26 Nov 2026 20:33:48 +0000 (UTC)
+Received: from ivecera-thinkpadp16vgen1.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 464341800286;
+	Thu, 26 Nov 2026 20:33:42 +0000 (UTC)
+From: Ivan Vecera <ivecera@redhat.com>
+To: netdev@vger.kernel.org
+Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Donald Hunter <donald.hunter@gmail.com>,
+	Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Junhui Liu <junhui.liu@pigmoral.tech>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Pablo Mazzini <pmazzini@gmail.com>,
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
-	Alexander Sverdlin <alex@sverdlin.org>,
-	Jun Yan <jerrysteve1101@gmail.com>,
-	Lukas Schmid <lukas.schmid@netcube.li>
-Subject: Re: [PATCH v5 2/3] arm64: dts: allwinner: add A733 SoC description
-Date: Thu, 26 Nov 2026 15:33:52 -0500
-Message-ID: <20261125-a733-02-soc@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <0e94af87-71d1-4a5c-a2bb-218a2306db27@arm.com>
-References: <20261121-a733-cubie-a7s-dt-v5-0@gmail.com> <20261121-a733-cubie-a7s-dt-v5-2@gmail.com> <CAGb2v64c5oirvfq7R3a1CWQCydfOOipcRD7dhSFAb=zczRdTHw@mail.gmail.com> <0e94af87-71d1-4a5c-a2bb-218a2306db27@arm.com>
-Content-Type: text/plain; charset="us-ascii"
+	intel-wired-lan@lists.osuosl.org,
+	Min Li <min.li@microchip.com>,
+	Grzegorz Nitka <grzegorz.nitka@intel.com>,
+	Karol Kolacinski <karol.kolacinski@intel.com>,
+	Saeed Mahameed <saeedm@nvidia.com>,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Petr Oros <poros@redhat.com>
+Subject: [PATCH RFC net-next 10/19] dpll: drop device events from the in-kernel notifier
+Date: Thu, 26 Nov 2026 21:32:22 +0100
+Message-ID: <20261126203231.934632-11-ivecera@redhat.com>
+In-Reply-To: <20261126203231.934632-1-ivecera@redhat.com>
+References: <20261126203231.934632-1-ivecera@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,38 +103,112 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-> > This should be evident from the schematic itself (the pins are used for
-> > I2C). And then the datasheet would tell you which mux value it is.
+Commit 2be467588d6b ("dpll: Add notifier chain for dpll events") sends
+device created, deleted and changed events to the in-kernel notifier
+chain, but no driver ever handled them. The only driver that uses the
+notifier, ice, waits for pins with a firmware node and ignores
+everything else.
 
-A7S schematic sheets 7 and 16 show PG8/PG9 going to the EEPROM.
-A733 Datasheet section 4.2.6, table 4-36 gives function 6 for TWI0
-SCK/SDA. The v6 commit message cites both. In v6 the I2C0 group has
-/omit-if-no-ref/ and the RTC clock include follows the A733 clock headers.
+Keep the pin events and remove the device ones.
 
-> > Someone please test the PMU.
+Signed-off-by: Ivan Vecera <ivecera@redhat.com>
+---
+ drivers/dpll/dpll_core.c    | 13 -------------
+ drivers/dpll/dpll_core.h    |  1 -
+ drivers/dpll/dpll_netlink.c |  3 ---
+ include/linux/dpll.h        | 11 -----------
+ 4 files changed, 28 deletions(-)
 
-On the A7S with v4 I pinned perf to each of CPUs 0-7. Cycles and
-instructions counted on all eight. Sampling cycles at period 100000
-delivered 193 or 194 samples per CPU, all on the requested CPU. Its
-PPI 7 interrupt count increased by exactly the number of samples.
-The two PMU nodes and their interrupt partitions are unchanged through v6.
-Norman also verified PMU counting and overflow interrupts on all eight
-CPUs on his A7S with v5 [3].
-Vinicius also reports PMU counting and overflow interrupts on both
-core types on his A7Z v1.11 [1].
+diff --git a/drivers/dpll/dpll_core.c b/drivers/dpll/dpll_core.c
+index b1b76856c4a188..2371b81181471d 100644
+--- a/drivers/dpll/dpll_core.c
++++ b/drivers/dpll/dpll_core.c
+@@ -61,19 +61,6 @@ static int call_dpll_notifiers(unsigned long action, void *info)
+ 	return raw_notifier_call_chain(&dpll_notifier_chain, action, info);
+ }
+ 
+-void dpll_device_notify(struct dpll_device *dpll, unsigned long action)
+-{
+-	struct dpll_device_notifier_info info = {
+-		.dpll = dpll,
+-		.id = dpll->id,
+-		.idx = dpll->device_idx,
+-		.clock_id = dpll->clock_id,
+-		.type = dpll->type,
+-	};
+-
+-	call_dpll_notifiers(action, &info);
+-}
+-
+ void dpll_pin_notify(struct dpll_pin *pin, unsigned long action)
+ {
+ 	struct dpll_pin_notifier_info info = {
+diff --git a/drivers/dpll/dpll_core.h b/drivers/dpll/dpll_core.h
+index eb33ae2d6080ab..1b3c74ef4c1b42 100644
+--- a/drivers/dpll/dpll_core.h
++++ b/drivers/dpll/dpll_core.h
+@@ -113,7 +113,6 @@ extern struct xarray dpll_device_xa;
+ extern struct xarray dpll_pin_xa;
+ extern struct mutex dpll_lock;
+ 
+-void dpll_device_notify(struct dpll_device *dpll, unsigned long action);
+ void dpll_pin_notify(struct dpll_pin *pin, unsigned long action);
+ 
+ #endif
+diff --git a/drivers/dpll/dpll_netlink.c b/drivers/dpll/dpll_netlink.c
+index 7b9fadf3b3668a..78017aae19a6f2 100644
+--- a/drivers/dpll/dpll_netlink.c
++++ b/drivers/dpll/dpll_netlink.c
+@@ -891,13 +891,11 @@ dpll_device_event_send(enum dpll_cmd event, struct dpll_device *dpll)
+ 
+ int dpll_device_create_ntf(struct dpll_device *dpll)
+ {
+-	dpll_device_notify(dpll, DPLL_DEVICE_CREATED);
+ 	return dpll_device_event_send(DPLL_CMD_DEVICE_CREATE_NTF, dpll);
+ }
+ 
+ int dpll_device_delete_ntf(struct dpll_device *dpll)
+ {
+-	dpll_device_notify(dpll, DPLL_DEVICE_DELETED);
+ 	return dpll_device_event_send(DPLL_CMD_DEVICE_DELETE_NTF, dpll);
+ }
+ 
+@@ -912,7 +910,6 @@ int dpll_device_delete_ntf(struct dpll_device *dpll)
+ int __dpll_device_change_ntf(struct dpll_device *dpll)
+ {
+ 	lockdep_assert_held(&dpll_lock);
+-	dpll_device_notify(dpll, DPLL_DEVICE_CHANGED);
+ 	return dpll_device_event_send(DPLL_CMD_DEVICE_CHANGE_NTF, dpll);
+ }
+ EXPORT_SYMBOL_GPL(__dpll_device_change_ntf);
+diff --git a/include/linux/dpll.h b/include/linux/dpll.h
+index 99118dadb271e0..9eccfe41240418 100644
+--- a/include/linux/dpll.h
++++ b/include/linux/dpll.h
+@@ -211,21 +211,10 @@ typedef struct ref_tracker *dpll_tracker;
+ typedef struct {} dpll_tracker;
+ #endif
+ 
+-#define DPLL_DEVICE_CREATED	1
+-#define DPLL_DEVICE_DELETED	2
+-#define DPLL_DEVICE_CHANGED	3
+ #define DPLL_PIN_CREATED	4
+ #define DPLL_PIN_DELETED	5
+ #define DPLL_PIN_CHANGED	6
+ 
+-struct dpll_device_notifier_info {
+-	struct dpll_device *dpll;
+-	u32 id;
+-	u32 idx;
+-	u64 clock_id;
+-	enum dpll_type type;
+-};
+-
+ struct dpll_pin_notifier_info {
+ 	struct dpll_pin *pin;
+ 	u32 id;
+-- 
+2.56.1
 
-> So I wonder if you could take just that binding patch already, to not
-> block progress here?
-
-The binding is Vinicius's v2 3/4 [2]. It adds the A733 compatible with
-the DW APB UART fallback and has Conor's ack. Taking it separately
-would cover the DT dependency. My console tests also used Vinicius's
-driver changes.
-
-[1] https://lore.kernel.org/r/20261125124139.23869-1-vinicius.eduardo.pedrosa@gmail.com
-[2] https://lore.kernel.org/r/09f3a181436e6f19317224e583c2fdaa787797d7.1792439398.git.vinicius.eduardo.pedrosa@gmail.com
-[3] https://lore.kernel.org/r/CqGMQaDysL6l016qtEM8oOEnYUMKACgmwLUbb0wruVAzPcwiqrz00WCOhTrhkVEaZt1YB3xfucXdEc-ZFi-sCPgn69RNqtW0v4Gn_HjQZXs=@proton.me
-
-Thanks,
-Enzo
