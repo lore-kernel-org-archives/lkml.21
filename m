@@ -1,57 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795720617;
-	b=hNj5O0cbBF9SlM3sqSYrLSSbvXTnHbmnyUOj9zWLkmNc5rrnpSh9ADLJK/tn+ujN75DO
-	 bB1+UZDhg9s3NbLJh4XK4dniXvLkjrDRd5ngYJIVShqwO8cPuoOdmCx7RSUl4fARcyn+F
-	 NanIfqAM0VVDUW/KfNjHCo/f7B7MUjMEPR0FI7CNL7founNZT5mih4xyqAO62O7WOOuzZ
-	 +0snu3MZLEpaO6ES7+BZ4YEYxeZJJuIP0V3vExu8WoX0pRS5uzVFsMcDOCnFNHMp29AjX
-	 1H9wP7oRQcoZggqMH7bboKyHe0loYvnqwZgFrQYSS07V690WlpK26gx90BRfye3ZAMQ==
+	t=1795720621;
+	b=U46RpbSguDJiHOgooONq5dlqQa2CFRjXRSioT6kSnQKlVGHlpf17wQVVNmbE9wpKXmY+
+	 X7yWpRQT2cR09uPG7LEeWPSVYS7GtDxW6u2Nfgi+gA3Q0xlFgyVFh/09QAQiY0gUdbN7D
+	 +5pdMgN6/lIhP4jrMVhBXPSo/ulMW+qCwc9tbfZKa/TzsY4pz6SQBza7HmlV92oj6/1Ox
+	 3Op5JLg6KBNAIL6nTiN2QXL514NKQ7fWbk527HngS4nAQ4U46RpMAYYIziYeKyo1EcEPw
+	 YxsfIlFUJFo0TVWKwbZ0gCPNh+ax5XiENz9xGZ9nz2+Mso1jojMbNP68+dazfKXdnYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795720617;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795720621;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=NZtY45FGkTmV1jsVONpLrGSZDkTyzaPfcIcXdwBvd8s=;
-	b=bmKtDjOWFoVNdnlNhmlun31C4zvHjg6c4Q/+qThYhNj+RIA0rs60Ph3GPPGR+N2tjMOv
-	 3+BbxRJP9Cu06GDgUg4iXKHOhkHVLKA+64SCfqNbx8M7782HJn4KZW1pIbn72U1oWUXOw
-	 HxunEQWqTjVZ9/zHw80Gli1TQHJHRHo5A4UIY31Z2NEPmniZ+qK9DCsa/HhipVgRScCQb
-	 dmtg90HUiBI+Ir0wmAKmVoLhlIlwVIS/8kdpPNUfw2AArXouhueyh7f16Tjyy1amA41vy
-	 RnsVsLcOCScRA2rbyL+pQ9sKleFzA8uB8AD+BnsZoPZs0HhfYsr+ubJzidwkuKy7EaA==
+	bh=QC9DfUnNWJVMnUf2ONDNYFI/o23hdAko+A6GsVR1Eek=;
+	b=AevqYkU/Pot+ADPxnrBVdwtyRQ8GyDWMYfx2cv+FFGS55O55wXgikKMugg0Y3gIkl3V3
+	 tv79gkCi+m6vjH0W+BbpljMyIWIdF0avjvuf/5FZ9vPl1pT896b9Ck173sL73GMUU7NtX
+	 dVnlU1eQ9aDJYRuZh0j4kfHsyOU3oIxnLUQNi3DtFlcjXWjBNqWf57B3My9akvvuN5f3B
+	 Q3GLGhOISLIDYcC4ykvV99xoEj/ge7MCSVsTUAwD/08PAQjvj7dlFUNFyJi+BsO+bR9ht
+	 RxDF/qTYI13IMM7y9jojcEyh0CUY6rH3NYtskIxCiZcy8ynEG3lQRlsw7pBmrogI5VA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GS5FAyek;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rzv+FSSh;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B9F1606A684;
-	Thu, 26 Nov 2026 19:16:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27865606A32A;
+	Thu, 26 Nov 2026 19:17:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GS5FAyek
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CA4E1F000D0;
-	Thu, 26 Nov 2026 19:16:56 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Rzv+FSSh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04FAA1F0093C;
+	Thu, 26 Nov 2026 19:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795720617;
-	bh=NZtY45FGkTmV1jsVONpLrGSZDkTyzaPfcIcXdwBvd8s=;
+	s=k20260515; t=1795720620;
+	bh=QC9DfUnNWJVMnUf2ONDNYFI/o23hdAko+A6GsVR1Eek=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GS5FAyek4rmsv/62JCIZEzjSMYL2joihLtthb/bFtY62xEkM0QkdKgUcfNaDYjqAK
-	 2hfY2W17dPdVAj123g2fjv2gLBZtwkakLvtpSovjYwtfX04GuM0tQVR+Vs9bCdoGNf
-	 mTWoqz48jpVl7YL1Z02r+8lmPXGB4hlQykYw6y/x8YseCdzxFsI+Sej6vAQEz6yF14
-	 6a5F8vpc2ndE6ELGofmCk4/xfBN8urN40iZfUGSlyLw3ViE0vsuE591YBzi3uAwkSj
-	 aDQ19FFwT/jisDSPErge6K7zACBLEtNhLnHFhoHOSXE1KfUquFmsyHRu0CuOF7leR9
-	 Qd8YYZfXYJ1Bg==
-Subject: Re: [PATCH net-next v2 03/12] amt: key relay tunnels on a union
- amt_addr endpoint
+	b=Rzv+FSShHeqQWihtE2UmvqeWgncDIRGoEaFlpg6SmxxE9O21lI7f6PXJ4Ig7KE6a3
+	 eNbh7EyN0IRSHcXUm0Ly9M6AqPCkSwUnlTWSselPzB+zfCgC5xoZzMXV6+AgXlIyMj
+	 XjT535nrKK8IaVkcL6x3QIZN0obby2Lt/erxl6IZq9wz4N/vg60i9Rlo4qZj2obsrQ
+	 IWQeICyp19zLtKM1Ts3EHqrr9uXrMqkZsmmRyWryMWjUuRU4aMorkwA0Sk+1hnvUzP
+	 ek6Gjlo08cn0bg1r++4vK64kpJXqZ1ZMNEacyHVNkWroMzJ90AO3YsU4heUTJMt68z
+	 cdDct9esxmuEA==
+Subject: Re: [PATCH net-next v2 05/12] amt: forward multicast data over IPv6
 From: netdev-bot+sashiko@kernel.org
 To: omar@blockcast.net
 Cc: ap420073@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, shuah@kernel.org,
  horms@kernel.org, netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
  linux-kernel@vger.kernel.org
-Date: Thu, 26 Nov 2026 19:16:56 +0000
-Message-ID: <179572061610.3135.16297939691113808529@kernel.org>
-In-Reply-To: <20261125191450.2497936-4-omar@blockcast.net>
-References: <20261125191450.2497936-4-omar@blockcast.net>
+Date: Thu, 26 Nov 2026 19:16:59 +0000
+Message-ID: <179572061952.3135.14503580379845323397@kernel.org>
+In-Reply-To: <20261125191450.2497936-6-omar@blockcast.net>
+References: <20261125191450.2497936-6-omar@blockcast.net>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -76,115 +75,142 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] This patch makes the per-source tunnel cap compare the full
-  16-byte union amt_addr endpoint with memcmp() (amt_addr_equal()).
-- [Low] The commit message says 'amt_request_handler() and
-  amt_update_handler() take that snapshot on entry, before…
+- [Medium] When the outer transport is IPv6, amt_tmtu_exceeded()
+  (drivers/net/amt.c:1255) checks a GSO inner IPv6 packet with…
+- [Low] amt_tmtu() (drivers/net/amt.c:1246) computes dst_mtu(dst) -
+  sizeof(struct ipv6hdr) - sizeof(struct udphdr) - sizeof(struct…
 
 --
 
-amt: key relay tunnels on a union amt_addr endpoint
+amt: forward multicast data over IPv6
 
-This commit stores the relay tunnel endpoint as a union amt_addr instead
-of a __be32 and matches endpoints with amt_addr_equal(). It adds
-amt_outer_saddr() to snapshot the outer source address and amt_relay_mac()
-to compute the Membership Update MAC over the full endpoint.
-
-> amt_outer_saddr() copies the outer source address of a received message
-> by value into a zeroed union amt_addr. amt_request_handler() and
-> amt_update_handler() take that snapshot on entry, before
-> pskb_may_pull() and iptunnel_pull_header() can reallocate the header,
-
-[Severity: Low]
-Is this description accurate for amt_request_handler()?
-
-It holds for amt_update_handler(), where amt_outer_saddr() runs before
-both pskb_may_pull() and iptunnel_pull_header().
-
-In amt_request_handler(), though, the snapshot is taken after the
-function's only pskb_may_pull(), and that handler never calls
-iptunnel_pull_header():
-
-	if (!pskb_may_pull(skb, sizeof(*udph) + sizeof(*amtrh)))
-		return true;
-
-	amt_outer_saddr(amt, skb, &saddr);
-
-The code itself looks fine. ip_hdr() and ipv6_hdr() are derived again after
-the pull, and nothing pulls after the snapshot.
-
-Could the commit message be changed to describe the ordering in
-amt_request_handler() correctly?
+This patch lets an IPv6 relay send Multicast Data by routing the copy
+through amt_udp_xmit() for either outer family. Over IPv6 it routes
+first and drops a payload that exceeds the route MTU less the outer
+headers. It then sends one Packet Too Big to the source after it has
+walked all tunnels.
 
 > diff --git a/drivers/net/amt.c b/drivers/net/amt.c
-> index 52ccaca08b5ec..38740e0ace424 100644
+> index 7e8219a0cdf9e..823367e8232bb 100644
 > --- a/drivers/net/amt.c
 > +++ b/drivers/net/amt.c
+> @@ -1237,26 +1237,51 @@ static void amt_req_work(struct work_struct *work)
+>  				 msecs_to_jiffies(100));
+>  }
+>
+> +/* RFC 7450 s5.3.3.6: a Multicast Data message sent over IPv6 must not
+> + * carry a Fragment header, so a payload larger than the tunnel MTU is
+> + * dropped, and an IPv6 source is sent a Packet Too Big. An IPv4 source is
+> + * not told, as icmp_send() never answers a multicast datagram. The tunnel
+> + * MTU follows the route's path MTU, as on every IPv6 UDP tunnel.
+> + */
+> +static u32 amt_tmtu(const struct dst_entry *dst)
+> +{
+> +	return dst_mtu(dst) - sizeof(struct ipv6hdr) - sizeof(struct udphdr) -
+> +	       sizeof(struct amt_header_mcast_data);
+> +}
 
-[ ... ]
+[Severity: Low]
+Can this u32 subtraction wrap when dst_mtu(dst) is below 50?
 
-> @@ -3198,7 +3231,8 @@ static bool amt_request_handler(struct amt_dev *amt, struct sk_buff *skb)
->  	 */
->  	rcu_read_lock();
->  	list_for_each_entry_rcu(tunnel, &amt->tunnel_list, list) {
-> -		if (tunnel->ip4 != iph->saddr || READ_ONCE(tunnel->dead))
-> +		if (!amt_addr_equal(&tunnel->addr, &saddr) ||
-> +		    READ_ONCE(tunnel->dead))
->  			continue;
->  		per_src++;
->  		if (tunnel->source_port == udph->source)
+ip6_dst_mtu_maybe_forward() returns the raw RTAX_MTU metric when one is
+set, and ip_metrics_convert() only clamps RTAX_MTU from above. So an
+admin route with something like "mtu 40" is accepted. A large lwtunnel
+headroom (for example seg6 with a big SRH) can also push dst_mtu() below
+the 50 byte overhead.
 
-[ ... ]
+In that case tmtu becomes roughly 4G, and amt_tmtu_exceeded() never
+fires in amt_send_multicast_data():
 
-> @@ -3210,15 +3244,12 @@ static bool amt_request_handler(struct amt_dev *amt, struct sk_buff *skb)
->  	if (!have && (full || per_src >= amt_max_tunnels_per_src(amt)))
->  		return true;
->  
+	tmtu = amt_tmtu(dst);
+	if (amt_tmtu_exceeded(oskb, tmtu)) {
+
+The copy is still dropped later in the IPv6 output path. Because the
+patch already leaves out tunnel MTUs below IPV6_MIN_MTU, no Packet Too
+Big to the source is lost. However, an skb copy is still made and
+pushed through IPv6 output per tunnel per packet. An ICMPv6 Packet Too
+Big is generated toward the relay's own address, and tx_dropped is not
+counted on the amt device.
+
+Should amt_tmtu() clamp at zero, or should amt_send_multicast_data()
+treat a dst_mtu() smaller than the overhead as exceeded?
+
+> +
+> +/* True if @skb, the inner packet before encapsulation, or any segment of
+> + * it, is larger than @tmtu.
+> + */
+> +static bool amt_tmtu_exceeded(const struct sk_buff *skb, u32 tmtu)
+> +{
+> +	if (skb_is_gso(skb))
+> +		return !skb_gso_validate_network_len(skb, tmtu);
+> +	return skb->len > tmtu;
+> +}
 
 [Severity: Medium]
-Does an exact 16-byte compare still make the per-source cap work on an
-IPv6 relay?
+Is the transport header reliable at this point for an inner IPv6 GSO
+skb that carries extension headers?
 
-amt_tunnel_get_or_create() uses the same exact match before it allocates
-a tunnel:
+skb_gso_validate_network_len() computes the per-segment length as
+(skb_transport_header - skb_network_header) plus
+skb_gso_transport_seglen(). Earlier, amt_dev_xmit() calls
+ipv6_mc_check_mld(), and ipv6_mc_check_ip6hdr() always resets the
+transport header to just past the fixed IPv6 header:
 
-	list_for_each_entry(tunnel, &amt->tunnel_list, list) {
-		if (!amt_addr_equal(&tunnel->addr, saddr) ||
-		    READ_ONCE(tunnel->dead))
-			continue;
-	...
-	if (amt->nr_tunnels >= amt->max_tunnels ||
-	    per_src >= amt_max_tunnels_per_src(amt)) {
+net/ipv6/mcast_snoop.c:ipv6_mc_check_ip6hdr() {
+    ...
+	skb_set_transport_header(skb, offset);
+    ...
+}
 
-amt_max_tunnels_per_src() caps the count at
-clamp(max_tunnels / 8, 1, AMT_MAX_TUNNELS_PER_SRC). Its comment says it
-limits "the tunnels one verified source address may hold".
+ipv6_mc_check_exthdrs() then returns -ENOMSG for a non-MLD packet before
+it corrects the offset:
 
-On IPv6 this counts per /128. The MAC return-routability check only shows
-that the sender can receive at one /128. An ordinary host usually has at
-least a /64 routed to it (SLAAC or prefix delegation).
+	if (ip6h->nexthdr != IPPROTO_HOPOPTS)
+		return -ENOMSG;
+    ...
+	if (nexthdr != IPPROTO_ICMPV6)
+		return -ENOMSG;
 
-The defaults are a max_tunnels of 128 and 16 tunnels per source. Could one
-host run Request -> Query -> Update from eight addresses in its /64, fill
-the table, and keep it full by refreshing last_seen? After that, full
-would be true here and every legitimate gateway would be refused a Query.
-Over IPv4 the same attack needs eight separate IPv4 addresses.
+	if (!skb_set_transport_header_careful(skb, offset))
 
-This can't be reached at this commit, since amt_v6() is false. It becomes
-reachable later in the series, when "amt: add netlink attributes for an
-IPv6 outer transport" adds IFLA_AMT_LOCAL_IP6.
+So for every IPv6 data packet the transport header stays at nh+40, even
+when Hop-by-Hop or Destination Options headers come before UDP.
 
-The selftest in "selftests: net: add amt_v6.sh for an IPv6 outer
-transport" only checks that two gateways in the same /64 are kept apart.
+For an SKB_GSO_UDP_L4 skb with such headers, the computed segment length
+is short by the length of those extension headers. A segment that is
+larger than tmtu by up to that amount passes this check. In that case
+*ptb is not lowered, no Packet Too Big reaches the source, and the copy
+is encapsulated.
 
-The commit message only says that the per-source count "compares the
-same way".
+skb_reset_inner_headers() in amt_send_multicast_data() then copies the
+same offset into inner_transport_header. The outer
+ip6_finish_output_gso() validation would also under-count, so the
+oversized segments go out on a path whose route MTU cannot carry them.
 
-Would counting per /64 for IPv6 (or per a configurable prefix) keep the
-cap doing its job? The cap allows up to 16 tunnels per source, so
-separate gateways in one /64 would still be kept apart.
+This seems to contradict this part of the commit message:
+
+    The device offers software GSO, so a GSO skb is checked
+    per segment with skb_gso_validate_network_len(), before the tunnel
+    offloads are set up. A payload that does not fit is dropped.
+
+Would it make sense to locate the real upper-layer offset (for example
+with ipv6_skip_exthdr()) before validating, or to fix up the transport
+header in amt_dev_xmit() for data packets?
 
 [ ... ]
+
+> @@ -1575,8 +1617,10 @@ static netdev_tx_t amt_dev_xmit(struct sk_buff *skb, struct net_device *dev)
+>  			}
+>  			continue;
+>  found:
+> -			amt_send_multicast_data(amt, skb, tunnel, v6);
+> +			amt_send_multicast_data(amt, skb, tunnel, v6, &ptb);
+>  		}
+> +		if (ptb && v6)
+> +			icmpv6_ndo_send(skb, ICMPV6_PKT_TOOBIG, 0, ptb);
+>  	}
+>
+>  	dev_kfree_skb(skb);
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125191450.2497936-1-omar%40blockcast.net
