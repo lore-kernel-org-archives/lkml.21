@@ -1,64 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.128.211.58
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705605;
-	b=3cRKKXTprmH4ewv3ne8fsrhoVnGWncPdYx+9YyNKrhHrjSWPtyexwkvNif+TQqV+ILgf
-	 dYjJ6HirE/9MwzcZyF2rXp23Wd7H8V/XlUPDj+PkXl67nMbFSkgB+tsVHbaPaGGOZdvAB
-	 sy18evXbxmNt3Q574sOZzSZo/M1abOUdViQJK6Z9IOWIqEmpMadQwh/k1mX5/9FupdWxh
-	 C5TkEtd4TEsCzrekqq2OgWYK8DqoKB6DFLUnRXVC12jN7qnIcoyPfD9NFgfjk66Mafdr5
-	 IcAavcDsEcMjYd7O3TXXEUYqe5Ni7u3baz0aShHX+BlgIgnr6uFFyGCVwrOkseP/xVg==
+	t=1795705606;
+	b=CvdkUPnk+BAf5Aan5/5uULJ+Y3d3N44XsvO1bppULWYmx+XRzr4KOxiAm7WvUYWCAqcC
+	 8ScruB+0x6ocFb8Z0YI9ut93tEX0EcmSX2iWHFzbOZ4J2vPV9AoRop94drQXdZPJulURB
+	 nGDk3Ymu4MFjXjK0/Mh92mwqMiZWQr5O6VCcC56uFQGBi0CsfgEtcTuxjuUlqKv03jtmv
+	 AvyAWXlzH2MfPimSHyhsQ+jtjpcxZvwjbESaw01F4bJwrPps80xqgQWxL3o1RP2+bg9k1
+	 GA2LusbFrIzo9HZ9qU+mrYNTvV2SSRwkTATo119ayXHnBLZwNa6eo5z4YyZO07PCN3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705605;
-	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=P/d3OM8jlp/1q06F5xJCK8CHxhoAe4QjYMzVPqtI/z0=;
-	b=TgzzSyM4jRuPu4IVSrSpYdrMpmY80Bt+2haKfHUQL3y48Pa+XLLoo4pOpVaaX9hcVWjF
-	 V9c6DtkymUxJouhBDo9H8o23Xw+1HPFETmaahplfPnJRMsFPNzWxJ6U8b9icehcOaN4MC
-	 KMx7VdS5HY6wP622vUXJMAV5Xs4C8Dt5jW7YbhS1DBkESBTr6K+9+jSpqt3hQfj14QwTl
-	 oi0Gv9vGTHYrlxW7EFfQ8yNdf5Ksm8+FvUjhhvX3sp13xlr+0lNr16Ga93YoK7oD4IEv9
-	 adCSZMNgmnfk25gYTxJhCD91YaB+NOqJNyR2M1raje7lu9L3LvQxEEt/rwNMz9QPa7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705606;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=yHJjnqdL844yp5/3cL/zMhtXYOJmPCTodyX0lwRgvCI=;
+	b=WkaL/fbrpq9fG501nIIV3FUpwIRyOlCDcmPp7Un/V34y+t9AQ5l5QWXmUPk1HVlVusB0
+	 apE5d2ukqZUemVaEfL7ZtGcrEgf22fETW1QWOz2i0GJNpoAFdpBNWCeZMuDVrxWmQiyJe
+	 OEC5sHNCT+8zc+1sOzjOR7rtGH0AZRjCE9JvnJF44C3h2Tn/I9jehh8+YtueKvwRLlzwo
+	 w92z7KrmqJDeNJwWbUhYaw2NXsx16TEBElqH8poLlgtWZo6X6TU+R0O0O0Gg15YU/SZBg
+	 NA5PL2Ny4XM4uUtMm7f+EVRyFhBbJNW/fDhHNKFdNQrc4ADyW7A1mzjTFmT7G92bh0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=librecast.net;
-	spf=pass smtp.mailfrom=librecast.net;
-	dkim=pass header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=bYsQ1aPM;
-	arc=none smtp.remote-ip=185.128.211.58
-Received: from bregans-1.gladserv.net (bregans-1.gladserv.net [185.128.211.58])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37C7E606A31C;
-	Thu, 26 Nov 2026 15:06:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37C7E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=librecast.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=librecast.net
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=N2hGNppw;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2AFA9606A32E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:06:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AFA9606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=bYsQ1aPM
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=librecast.net; s=2026110900; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=P/d3OM8jlp/1q06F5xJCK8CHxhoAe4QjYMzVPqtI/z0=; t=1795705604; x=1796569604; 
-	b=bYsQ1aPM37tl9W1+XBcsrsQt6351P1qJ77NSJJ1XoxvP8hkWw4ST+IwSM2IYh9g6j+JTvjuA31y
-	6Dly9LmQ+Ao6RO2fuYUznIUzAhgF5AiY7qvtm8MxN0hmzwh3/HI9flzbhnjTsd/gTZMdCdI/0H/oU
-	WQjU9w0W25undfmHCRZPB9yxgVphYiVtrMSYR8q2n1R90QQ+Zh9MmLYznMzhTsa5oFHtcvrXQRl2d
-	Pj4PLAiZbLZpJvtXhcx0in9iFlwRWXpsocFs/9XVyGpC9SJ+Ed0cmO4hS+GyCkN15FNhg0zgV71Fc
-	qmp9t9392pjJCBL9H2JFK7Gesk6928Npgr1A==;
-Date: Thu, 26 Nov 2026 16:06:39 +0100
-From: Brett A C Sheffield <bacs@librecast.net>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 5.15 000/319] 5.15.227-rc1 review
-Message-ID: <awhK_0exBWstjZw7@karahi.librecast.net>
-References: <20261126144006.732901931@linuxfoundation.org>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=N2hGNppw
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6F6641BA8;
+	Thu, 26 Nov 2026 07:06:42 -0800 (PST)
+Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 992273F632;
+	Thu, 26 Nov 2026 07:06:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795705605; bh=SmA81HTz62BWhHQAqzcRjjxEkt0pI5eNKUkgvke5O/U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=N2hGNppwOkMZ09t++HZR2nuE+A9Z3b8AJjGcYJeGzC3uXEMBpLoEeDj/ntiRCU2Fa
+	 0pzG35ttAnBovAGIXxyXKxs5Xw1mjwIW5Z5rFzn9wLnAHA7ycxPQnnLwIthCrzf1Ow
+	 QngSq8U6ACLXbT9rzuHOa6Ci2tLWpBMqFIpG1dKw=
+Message-ID: <e44a9c55-4fe5-438b-80b5-f2ebf09dc1d6@arm.com>
+Date: Thu, 26 Nov 2026 15:06:41 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,41 +53,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261126144006.732901931@linuxfoundation.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 14/23] coresight: trbe: Treat access not allowed stops
+ as fatal
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ coresight@lists.linaro.org
+References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
+ <20261016-trbe_enable_disable_irq_handle_refactor-v2-14-3f57cf3199b1@arm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-14-3f57cf3199b1@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On 2026-11-26 15:36, Greg Kroah-Hartman wrote:
-> -------------
-> Note, this is the LAST 5.15.y kernel release to happen.  After this, it
-> is end-of-life.  You should not be using this kernel tree at all, UNLESS
-> you are an Android system.  If you are running Android, please go get
-> your 5.15.y updates from Google's public kernel tree after this release
-> for any "important" bugfixes for that platform as they will be keeping
-> it alive for another year or so for their specific platform
-> configurations and then it will wind down. But really, even Android
-> systems should have moved on by now to a more modern kernel...
-> -------------
+On 16/10/2026 17:55, Leo Yan wrote:
+> Arm ARM (ARM DDI 0487 M.b), the rule R_RRCNN in "D6.11 UNPREDICTABLE
+> behavior" permits a buffer management event when the effective SCR_EL3
+> security state does not match the owning Security state. This can stop
+> collection with IRQ=1, S=1, EC=0 and BSC=0 while leaving the other
+> status fields unchanged.
 > 
-> This is the start of the stable review cycle for the 5.15.227 release.
-> There are 319 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+> With EA and WRAP clear, trbe_get_fault_act() currently returns SPURIOUS
+> for this status. The spurious handler re-enables TRBE without clearing
+> S, so collection can remain stopped. A retained WRAP indication can
+> instead cause the status to be treated as a normal buffer wrap.
 > 
-> Responses should be made by Sat, 28 Nov 2026 14:39:40 +0000.
-> Anything received after that time might be too late.
+> Recognize this architecturally permitted stopped status as an access
+> not allowed error and return FATAL so the fatal handling reports
+> truncated trace. Check the syndrome before WRAP and do not exclude
+> TRG, since both fields are left unchanged by this stop. Check the saved
+> IRQ bit to preserve updates without a pending interrupt.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-trbe.c | 8 ++++++++
+>   1 file changed, 8 insertions(+)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+> index 4aeed1a17c4bf1653fb41731ac15f31feec7ed2e..1c585b6123df2f20d08747678d836742ce9564cc 100644
+> --- a/drivers/hwtracing/coresight/coresight-trbe.c
+> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
+> @@ -708,6 +708,14 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
+>   		goto out_fatal;
+>   	}
+>   
+> +	/* An access not allowed stop can leave WRAP and TRG unchanged. */
+> +	if (is_trbe_irq(trbsr) && !is_trbe_running(trbsr) &&
+> +	    ec == TRBSR_EL1_EC_OTHER &&
+> +	    bsc == TRBSR_EL1_BSC_NOT_STOPPED) {
+> +		err_str = "Trace buffer access not allowed";
+> +		goto out_fatal;
+> +	}
 
-Build failure:
+It would be good to have the conditions in the commit description
+listed here for reference. Also additionally, I wouldn't mind adding
+a wrapper to cover this case or even adding an alias for
 
-  CC      init/do_mounts_rd.o
-init/do_mounts_rd.c: In function ‘rd_load_image’:
-init/do_mounts_rd.c:277:9: error: implicit declaration of function ‘init_flush_fput’ [-Wimplicit-function-declaration]
-  277 |         init_flush_fput();
-      |         ^~~~~~~~~~~~~~~
-make[1]: *** [scripts/Makefile.build:289: init/do_mounts_rd.o] Error 1
-make: *** [Makefile:1925: init] Error 2
+#define TRBSR_EL1_BSC_NOT_STOPPED TRBSR_EL1_BSC_NO_ACCESS
 
 
--- 
-Brett Sheffield (he/him)
+Suzuki
+
+> +
+>   	if (is_trbe_wrap(trbsr))
+>   		return TRBE_FAULT_ACT_WRAP;
+>   
+> 
+
