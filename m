@@ -1,71 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.31
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795662341;
-	b=X7gRLKHbMHbFgNh/r5V9edZw0x4HnB8fqx2nmS5CvyqKc8eOtZisnm7yFtjiTFmJ7KBc
-	 BzC2wMXmgPHjKMzJtbwOMdCfnXZyDB3vtggv7CYx2MDenmeuUdEi6dh7yLSjrdFbSxYzv
-	 HdE2x3bzisCkloKb2aLfsf6dYpJT18F2+Z+dm3e3IAdJrSAF3ChGI/WdBiblQnRW2MSEi
-	 386EaCtyLtJzCAVxbA4Yda5Xd9FX1LaDGZtQZ7eDBsUguLNSHGrleK5FLsrPtodsjxZPj
-	 +0l6kd2egQTSmepJdPvQZhNXnxJIU3NVL95rGfHozGmYZs5rxGUHAGxgl2MMe347tAA==
+	t=1795662369;
+	b=eRlahzryrwaY11iUAfTsZcsgJHxH5scAqBjQ7ADaErIVGNYUX8NHjwtH8f58V1yShOOe
+	 IlT4lTauakhrr9JUtP9wjzECuRydW7i6+95yqhD64Poxuqx9GBvl3udaIjHb/s21cdX4d
+	 gOpQmUnsds3fPzSTtxYW4E1QozK6zC170p1N1mCNt6W0MZntN66v06D16PB/fVUkq5NbQ
+	 NNt8Mq2hn13Yc9E47/ERXpX1fuAtEGyNkSIhKHZxR1zccSzY9hand9iSlokhG1ybWofO6
+	 elsfkmvk0q0EOx5+lFtO9+bvPHq8hB7RDQBasAidVoqnwBYWxthR8KJZKmUq26PrUjA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795662341;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:
-	 X-ZohoMailClient;
-	bh=h5N4OA8SQE3E9YKn3UwdCPMRzewE8UsIoK77sNRV1p4=;
-	b=SjWN0/XL/FcHMPe1qkcMNqs4ccaQAnvLulFE2hN4J6wJjFOeR6zDkOr1w2VqeoYfBYI9
-	 jzGXBY9afLRfqABk1kPXbkS//Mf0y5atLMxR8uFbvJM52/Lk/cXPLD7Y5i0GgAwNx3lrf
-	 hCZLj9CLMJZIFuUdxHBU+dGefyScoXQaUoAmeVkVSt/7YzdqsvcNsImy5fNJGkZiVoCzq
-	 kMASD8BhGWglEpA+ufMkq2AtQZ/Bu2KHPM/fiMXAuNJRVw1MChK6q6AeGb/EabL65q0NJ
-	 FWicF+A5rEiG6A1+wAiQBZ6+ARL4wEwQMnlOeu2m83y/LgyMsWbzSBRYsrIrmzWGctw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795662369;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=o69evBy0XQTEb+8/KBKgO6ZnECgHprI3gjdYs14yNJI=;
+	b=yjpRwg1BngzRs7fg2OH2F84tS9wfn3Bph1U/JwJfa24cWVIY8T3NIQbZ8WkHXVHpTHwk
+	 rke27Bc0nn654o6wZPynifnqZ0rusLexUENXrmXA17FVNfYIfaJ7p8hAJSIoNTXgkiZIw
+	 0D3HGoCmxvcmdp5ca5+OqpJqApgd+6+y1b2mfPlfhifvBFNmSpZTl+OFZPZ0axXmW4LLQ
+	 R+2RWp5xwtNAby52O1r7pV7z+Xy3LufhwU4azNJTF+FbA3aIzCMD4R9joBlbVqFnBIWtf
+	 uq0yV5younRVBI4j0CB1+Et0F/RAtEpjeZkQs7W41fgx0lyXTil61qgy5PqkWJMF1cg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b="Mn/R+fv5";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
-Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="qpJk1/5l";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.31
+Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010031.outbound.protection.outlook.com [52.101.193.31])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FC27606A332;
-	Thu, 26 Nov 2026 03:05:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FC27606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACEF2606A32E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:06:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ACEF2606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=Mn/R+fv5
-ARC-Seal: i=1; a=rsa-sha256; t=1795662304; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=beLjr7bzVwzb8QTPzpm/u2lBKzIZ6PGCUZKJDIR/7RgcrGtI0U2uhHB1rkHYXJv88StPFh2lZxXR+RBsNX8bjTJFVKWnd6FdgY0Cu7aTVSPL//hEnIOD4HLfMPvMsSE92r7lr9h69tsZtZSIMhjpOy2JsEHe6gFvRIceFRzEgpc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795662304; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=h5N4OA8SQE3E9YKn3UwdCPMRzewE8UsIoK77sNRV1p4=; 
-	b=T0xzWQErG6L/rAVO4NEM7P0lOUZ4x6RgcxAQrijw4GrZlQri67VrJqelTZOTgNj604x3vwM7mVWVVibxxl9KDW0UdF6SylGc4gPr2MsCiGUirf2g10OIHRIfX7GbVyMrAnF4qXPkq4KEkKirMuH3ILlGif9N6q7ffZSB/DMeg+A=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=Mn/R+fv5W0ghqtGrtEFpTU1CEG0/+f70dgkKuj8ZQS1BzA4XvccmFoq186sF2J4/2HXn1ivX5b+kFxGZTdWLox2Cr4ai2QpFm4Fw1nORmyCla0+uSWfc55pGA6g3HIkAZRUHZ9lifkCArTstePNv/toUhARTMWVa80qjZPrEtvs=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=h5N4OA8SQE3E9YKn3UwdCPMRzewE8UsIoK77sNRV1p4=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795662301200627.4872012453012;
-	Wed, 25 Nov 2026 19:05:01 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id CDF8A18044A; Thu, 26 Nov 2026 04:04:56 +0100 (CET)
-Date: Thu, 26 Nov 2026 04:04:56 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Midgy Balon <midgy971@gmail.com>, Diederik de Haas <diederik@cknow-tech.com>, 
-	Elaine Zhang <zhangqing@rock-chips.com>, Freimut Diener <f.diener@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: power: rockchip: Allow
- post-init-providers for domains
-Message-ID: <aweeQ2McnEE6yXvY@venus>
-References: <20261125-rock5t-regulator-deps-v1-0-6a3470ad1855@pengutronix.de>
- <20261125-rock5t-regulator-deps-v1-1-6a3470ad1855@pengutronix.de>
- <oJj2NKd1Svmsn320H8YWrg@sntech.de>
- <962182b2-6fa0-4aaa-a47a-f78339b5d89e@rock-chips.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=qpJk1/5l
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wlWVsaOVG6BYZq0ABCOPLZjv77xAIb/zJz6A9WiSggpXj1oZuDowCaZ24ZsUB5gOtmsKb9F2r0HcObemndTToYoj+sh2rbzyiCsrvsxQpdLtmzMICN/07ofsZGsW2hW0PZp7uN1XBLaFlyPRJtQh6jDVkKfw14N0ZnNqNBiYknwgBhxxR8/nirHjPkh/z+j58kv3mOSq1MYQtYTFpLx8pfHAqP5/CkUkd6BoeoQsd5rfihH8f7Gka+K1hfMh7/oHNJjQ/qG91Q2UAFWIJBwYSZAwb/8naHkUNIvSzaK3tzZ5wgIwqhabOBqACLE3GbGStN+MadtEe1BrL97gyJHvCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=o69evBy0XQTEb+8/KBKgO6ZnECgHprI3gjdYs14yNJI=;
+ b=S24z86rHoKeMiiwpSMCnRL+fOInF1Vop2FVxDfSuefd8b8D3A0bvhcI0fncQRfrxusAv3AE8rSiNGDlxpE9y/mv9D2ifAN0JUhxC6E7smQrAfgaByy9I2BgyOQhenDnLQVTt4KLvCahJ7911QlsdxdiNyymLX4/ZIkIUK0DjuxCeWZ75CIOIZO56SWPInyEKoNr7i3dQoblIs0HqAh5/v7eTZ0dOtW4x7npUc6myyl9TvFA6vLDVWg4CfMy2WrQl5sFWg37Da7T6SnXZplbtQwgV8nSLnEpV4LJ+ViggBBP4PEAurTXpZyvVoSBSkqWILf+/sa6TC6jN5vF+d/yPsg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=o69evBy0XQTEb+8/KBKgO6ZnECgHprI3gjdYs14yNJI=;
+ b=qpJk1/5lK9636SMNnRBIm900RFOF5voaZ+l3ofWRj7/Kx8dAm6wkTMvqtYMvJXloVHRtauT7Blh1OGECkQlDuJrZgBdaQ9axDzy2JHr/VUbz/iaWNfKNlxL2kKNisnG6gaxpd+kO4C8vapDMn3lkeU6vnRK7rsjpnAKmqY1bCEyCCk1BrJwnJ8wVOGuG5/RbnZfn5s+q89LwmSlaJVdJHYkNelKhVwOep9ICLjTFyFTa81qoyzuAWr179lMMtl8QzRNULlJOGRZYBTlclaiez9xfiVLxKMbH4dyEbmqXIRzdwKUK2y27dcLTWgNugTRg1TqcmxnUAe5s6neOZ9b6LA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB9730.namprd12.prod.outlook.com (2603:10b6:610:253::9)
+ by SJ2PR12MB8036.namprd12.prod.outlook.com (2603:10b6:a03:4c1::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Thu, 26 Nov
+ 2026 03:06:01 +0000
+Received: from CH3PR12MB9730.namprd12.prod.outlook.com
+ ([fe80::843d:c1f0:b2ed:4128]) by CH3PR12MB9730.namprd12.prod.outlook.com
+ ([fe80::843d:c1f0:b2ed:4128%4]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 03:06:01 +0000
+From: Balbir Singh <balbirs@nvidia.com>
+To: akpm@linux-foundation.org,
+	linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org,
+	Balbir Singh <balbirs@nvidia.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Leon Romanovsky <leon@kernel.org>,
+	David Hildenbrand <david@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Michal Hocko <mhocko@suse.com>,
+	Shuah Khan <shuah@kernel.org>
+Subject: [PATCH] selftests/mm: move the HMM migration benchmark out of selftests
+Date: Thu, 26 Nov 2026 13:56:53 +1100
+Message-ID: <20261126025653.1344932-1-balbirs@nvidia.com>
+X-Mailer: git-send-email 2.56.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MEVPR01CA0058.ausprd01.prod.outlook.com
+ (2603:10c6:220:1fd::14) To CH3PR12MB9730.namprd12.prod.outlook.com
+ (2603:10b6:610:253::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,140 +103,1022 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qemy2mlvuv3ghs56"
-Content-Disposition: inline
-In-Reply-To: <962182b2-6fa0-4aaa-a47a-f78339b5d89e@rock-chips.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/295.650.59
-X-ZohoMailClient: External
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB9730:EE_|SJ2PR12MB8036:EE_
+X-MS-Office365-Filtering-Correlation-Id: e66a2dd1-4d9d-465e-8d56-08df4b6a335b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|366016|7416014|23010399003|1800799024|261026140227099003|261022105027099003|11063799006|10067099003|56012099006|260925022911599003|260925021311599003|260925021911599003|261028144727099003|261022075727099003|261021121427099003|261021123027099003|261026121527099003|261102123227099003|261102130727099003|261009223027099003|18002099003|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	NDBjd1DSJ+cE9DLO9iAqqg0LSZcZV4yqqvMX2Bz+0arbTdhfXadDRnf81NA+KPy88RIK3aOBl0h3/+vUuJGmSLO1kYBjrHGo56Uu+ScsIL47BSXvBXzJgkIL16eL0/3uDJZK1vO2TAZdqY9cRef+YAZ2ZLMBKGSrYXLxKiyVpxumYkNWU2f8zD4sT5R9uU6B+2cdAFdFuCKydyl2LjPpo8Ir7LxvvTfBonXXlwJiiBb3soj27o6g2Y2dKSvlroS5KVh44TxY+d9LD4iDWY70+bPoi3vdCte6sHlM89mB8ra6dBRoaY+joUb+pl8+RETwBDcFR6jLo+PVleTEwNxKQeiHk5w8+tyfQGudS6uKig+rvj3Uk5O6B/YriDVOdZ3OJ3xL+pB/mszzlrNePrdhm7JPG09fWPFVBTWWgqYjrTyG2pCKC4eahQsCOHWnQXnY88UfDpX61N81DitE7pWdkUxZTLM+EkvI8vwhhsivwsrgZfssgsnEV+oTdNyQYzP+3o9vELHtFle9gJgeNeH7LifydRTiMUQtuFLvUZsD7iBLG+DApwmlmvlu4xKl/dtCix/gZOO3ol4k4kxi2jyqCxNRy+TL6PSl2LUKXR7c4Cl3KEf6vUAw9pUzCHUjPcn+02nWX/IF+GmNFd5aNVHrQt0IAcxucG3CES7b9SBT0dI=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9730.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(23010399003)(1800799024)(261026140227099003)(261022105027099003)(11063799006)(10067099003)(56012099006)(260925022911599003)(260925021311599003)(260925021911599003)(261028144727099003)(261022075727099003)(261021121427099003)(261021123027099003)(261026121527099003)(261102123227099003)(261102130727099003)(261009223027099003)(18002099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?kV+fWVcZNAfPwCUipGPvx1rfoE0d/7m5ROMjFAerMwL2IUXfb+1vhxWvhJZO?=
+ =?us-ascii?Q?EbktJYMe7la1eH7E2YlupxqEaFX6z8FISb7rKRgM8bmvSStcUSbKfYDIB1V2?=
+ =?us-ascii?Q?eqSKSc6jPAVL5VtM4TJVAjDOCMVySd56DLfh/dWVeK1u9E/Z04rLuiCtG8LP?=
+ =?us-ascii?Q?2WwQ0k7nXMVWJfzdItsUR9eCC0QQ/KJa0JbosYWwrUnCcOwfqtI7wdjaiv+o?=
+ =?us-ascii?Q?RNYfY2TZZT2+Qa7A9NaLh5WFPQ7fcIVJ/Phm5AyfNfdHLSur7jIqogzFJJOD?=
+ =?us-ascii?Q?n5IMlHyruZOReGHmRv+d/toAPfLLhsoMAhSmQiyFrCWW+QNn9IV1SAbqnoyG?=
+ =?us-ascii?Q?NM51+FxajSzrhUZZtVJMQU+TD4NS0tTDjN/xgmAF1EiU5mwD/+V69PGjt8FE?=
+ =?us-ascii?Q?zP1t3/yh+nqGINrx9dhgNzD1ISRO+PuvWrP6ePMBRSrb8uN2fLw48K+dAWuS?=
+ =?us-ascii?Q?dBaQS0HfVkysurt4oK8aOjfBfUo1ZHkS0jQzbaEWJPBBNfSy1klGLFr4Q5gl?=
+ =?us-ascii?Q?Jfmt1oFXOOM/s6qmYLm55F3MMzmtyl6I+Q2tL9qrfU/3YLGzb3uHdfA277xx?=
+ =?us-ascii?Q?A2Nh5IKnn4rayu4g/Q/sbq5+y8sjN2YuPPv4Urelo69AMLvgE3yyshfV8mAt?=
+ =?us-ascii?Q?B0Jkau9vupSbSvtdK6VE8jKl9KhEvpGpOyzWBoongOukIEEziTqyqRfUoWkf?=
+ =?us-ascii?Q?me479LKw5WKRp0p4LYhJXRQiu7ld3s4DHbDc/f1Jf6NuPA5mdF34aING5IMZ?=
+ =?us-ascii?Q?2OvoUn1om2MNS4DJKFkzLq4nyNehgyVMswuYdOdzw9afMN37bx6GkIKmRhcd?=
+ =?us-ascii?Q?e66PjiST18CkzU3qjlYWujpf6+f5p9AHbR9EReXK5Lmwi97Xq4bH2Xye9lwi?=
+ =?us-ascii?Q?NsqinGJurCkykjwugQyint1hpz9PtbKcEB5X1gU7sKwgyjOdaFqr5e3yEXvD?=
+ =?us-ascii?Q?sMczRpZnoIOzdG97vhFqQLj8ggMipFI+YMfIQcNskgH1SAVoe+3yLPzkFkQb?=
+ =?us-ascii?Q?CYFFPsaR1O0TXtxYia2R3wG03k8oDd1OJPVFAcMpF9sISRMXfxPbYJ6ac9d8?=
+ =?us-ascii?Q?02YZ2I7kh8cWbOfrP+jkjPkiI12cAbXYWx17ImEMtJ0paPFdAk75BixzoJtU?=
+ =?us-ascii?Q?ug+PSwz9+7gcZ0JXRX1GZ1fFOm47NHvUzgvv/WpdRQGtGvCZv3F6vdwz6lKh?=
+ =?us-ascii?Q?V1OB2lcbcXx3l8x9h988PLjFBybj21+8retW5kiApYnrR+26GIwEEYw1rej2?=
+ =?us-ascii?Q?NoHPgulI2eN8iadjgDR87VlQv2/Qd88y0R+bGi/EexvIGAtbHI3pdSB30Nh9?=
+ =?us-ascii?Q?KK42uAeLCkKLp3fnWWf8F0peqfmd0qulFOR+r8+tTdi0AryC+6lSOT9zUxDS?=
+ =?us-ascii?Q?sODrWZ10cJlHacJIru/ZQFY6Od9jxeyiA9HDwDFM+5uBMjJ2fLvcRK5aasVD?=
+ =?us-ascii?Q?g0+ECFjxcCzw5PDSOeAoiUZ2hPbZ+DyM0JIbbPXMLXIntPiqRiwyoWF7RXtF?=
+ =?us-ascii?Q?nCsxopt3HI3bKYnv9/bafQH7TmzNU7r1CXNwGCVJjcWOfw7s8cHwo7scWDQv?=
+ =?us-ascii?Q?XL0nHqfq/d+oq1j30WUGGLqrUFenV2P0OoiwDperMMl4blmEkfHdHSnMBfng?=
+ =?us-ascii?Q?dTIzljwBk9wsHqGWf2BM6piokmIR33e3K3yjiPf8MSnpBHCC1tgLHmUKqAzt?=
+ =?us-ascii?Q?60QvZIf2wfNxlf4YRTXuLAOMwMoo9W/aTTYpW65JkcW+o6tH7GklFGJ6V1N/?=
+ =?us-ascii?Q?C3P6G3xlfQ=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e66a2dd1-4d9d-465e-8d56-08df4b6a335b
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9730.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 03:06:01.3165
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CYEMpj5LApWl0CZXG5TxPEr8QSotphDiFTvKnh6WjlZnNBKPn3zpHhdFNE5h+OFVO3yszdXB9anpnF15kLfx/A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8036
 
+The HMM selftest runs benchmark_thp_migration on every invocation.
+The benchmark repeatedly migrates buffers in both directions to measure
+latency and throughput with and without THP. Run it on demand so the
+regular suite spends its time checking correctness.
 
---qemy2mlvuv3ghs56
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/2] dt-bindings: power: rockchip: Allow
- post-init-providers for domains
-MIME-Version: 1.0
+Move the benchmark into its own hmm-bench binary and share the device
+fixture, buffer helpers and migration ioctls with hmm-tests. To run it:
 
-Hi,
+  make -C tools/testing/performance-tests/mm
+  sudo modprobe test_hmm
+  sudo tools/testing/performance-tests/mm/hmm-bench
 
-On Thu, Nov 26, 2026 at 09:50:56AM +0800, Chaoyi Chen wrote:
-> On 11/26/2026 4:37 AM, Heiko Stuebner wrote:
-> > Am Mittwoch, 25. November 2026, 11:33:57 Mitteleurop=E4ische Normalzeit=
- schrieb Freimut Diener:
-> >> A Rockchip power domain can have a supply that is required when
-> >> powering on the domain but is not required to initialize the power
-> >> controller.
-> >>
-> >> Allow post-init-providers on power-domain child nodes to describe
-> >> such dependencies.
-> >>
-> >> Signed-off-by: Freimut Diener <f.diener@pengutronix.de>
-> >=20
-> > Interesting that this exists since 2024 and this will be the first
-> > user it seems.
-> >=20
-> > I've looked at the dtschema for it, and this looks really great for thi=
-s.
-> >=20
-> > Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> >=20
->=20
-> That's exactly what we want. :)
->=20
-> I guess it's because the kernel doesn't include this part of the
-> binding, and it's only included in the dt-schema repository,=20
-> so nobody noticed it?
->=20
-> https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/po=
-st-init-providers.yaml
->=20
-> Reviewed-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Drop the 128-PMD buffer to bound the amount of memory migrated in one
+measurement. With 2 MiB PMDs, the largest buffer falls from 256 MiB to
+16 MiB. The remaining sizes still cover buffers smaller than a PMD, a
+single PMD and multiple PMDs, with and without MADV_HUGEPAGE.
 
-I don't think that this is what we want. It just tells the kernel
-how to break a cyclic dependency: Probe the power-controller before
-the regulator. But things are already handled in the same way, so
-the only result is that the boot warning goes away. But it does not
-solve the fundamental problem:
+Call fflush(stdout) after printing the results for each buffer size.
+The kselftest harness ends the test child with _exit(0), so timing
+results still buffered in stdout can be lost when output is redirected
+to a file or pipe.
 
-What we would actually want is dependency tree information on
-sub-device level, as the cyclic dependency only happens due to
-clustering all power-domains together. But doing dependency tracking
-on sub-device level in the kernel would be a *really* big task
-(it was discussed at this years LPC in a talk from me and Angelo
-on exactly this problem).
+Link: https://lore.kernel.org/r/20261124215730.0f6adc9ad36c7abc623a1dde@linux-foundation.org
+Cc: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Leon Romanovsky <leon@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: David Hildenbrand <david@kernel.org>
+Cc: "Liam R. Howlett" <liam@infradead.org>
+Cc: Vlastimil Babka <vbabka@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Michal Hocko <mhocko@suse.com>
+Cc: Shuah Khan <shuah@kernel.org>
+Signed-off-by: Balbir Singh <balbirs@nvidia.com>
+---
+On mm-everything-2026-11-24-10-33, hmm.hmm_device_private.migrate_fault
+fails with -ENOENT on the second migration to the device. I reproduced
+this in QEMU with the selftest binaries built before and after this
+patch. In the same guest, both binaries pass with test_hmm built from
+the parent of 5cbbd205947d ("lib/test_hmm: invalidate all mirrors on
+device-private migration") and both fail with test_hmm from that commit.
 
-Fortunately, there is only a few affected power-domains on Rockchip
-specifically, so an alternative solution is moving those to a
-separete device. At this point there is no cyclic dependency and the
-warning is also fixed. But there is a huge difference: Now the
-kernel has dependency informations, which are also used for
-suspend/resume. So the kernel knows it should resume the power
-domains required for SPI/I2C (bus used by regulator) first, then the
-regulator driver and then the power domains needing regulators.
+ MAINTAINERS                                   |   1 +
+ tools/testing/performance-tests/mm/.gitignore |   1 +
+ tools/testing/performance-tests/mm/Makefile   |  13 +
+ .../testing/performance-tests/mm/hmm-bench.c  | 191 +++++++++
+ tools/testing/selftests/mm/Makefile           |   1 +
+ tools/testing/selftests/mm/hmm-common.h       | 202 +++++++++
+ tools/testing/selftests/mm/hmm-tests.c        | 384 +-----------------
+ 7 files changed, 410 insertions(+), 383 deletions(-)
+ create mode 100644 tools/testing/performance-tests/mm/.gitignore
+ create mode 100644 tools/testing/performance-tests/mm/Makefile
+ create mode 100644 tools/testing/performance-tests/mm/hmm-bench.c
+ create mode 100644 tools/testing/selftests/mm/hmm-common.h
 
-If you just add the post-init-providers, you basically just got rid
-of a kernel warning by adding a DT property that possibly becomes ABI.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8a3548854767..e97699c6f90b 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -12218,6 +12218,7 @@ F:	Documentation/mm/hmm.rst
+ F:	include/linux/hmm*
+ F:	lib/test_hmm*
+ F:	mm/hmm*
++F:	tools/testing/performance-tests/mm/*hmm*
+ F:	tools/testing/selftests/mm/*hmm*
+ 
+ HONEYWELL ABP2030PA PRESSURE SENSOR SERIES IIO DRIVER
+diff --git a/tools/testing/performance-tests/mm/.gitignore b/tools/testing/performance-tests/mm/.gitignore
+new file mode 100644
+index 000000000000..d4cc8960680c
+--- /dev/null
++++ b/tools/testing/performance-tests/mm/.gitignore
+@@ -0,0 +1 @@
++/hmm-bench
+diff --git a/tools/testing/performance-tests/mm/Makefile b/tools/testing/performance-tests/mm/Makefile
+new file mode 100644
+index 000000000000..03a133f4bd28
+--- /dev/null
++++ b/tools/testing/performance-tests/mm/Makefile
+@@ -0,0 +1,13 @@
++# SPDX-License-Identifier: GPL-2.0
++TEST_GEN_PROGS := hmm-bench
++
++CFLAGS += -Wall -O2 -I$(top_srcdir) -I$(top_srcdir)/tools/lib
++CFLAGS += $(KHDR_INCLUDES) $(TOOLS_INCLUDES)
++LOCAL_HDRS += $(selfdir)/mm/hmm-common.h $(selfdir)/mm/vm_util.h
++LOCAL_HDRS += $(top_srcdir)/lib/test_hmm_uapi.h
++
++include ../../selftests/lib.mk
++
++$(OUTPUT)/hmm-bench: $(selfdir)/mm/vm_util.c \
++		     $(top_srcdir)/tools/lib/mm/hugepage_settings.c \
++		     $(top_srcdir)/tools/lib/mm/file_utils.c
+diff --git a/tools/testing/performance-tests/mm/hmm-bench.c b/tools/testing/performance-tests/mm/hmm-bench.c
+new file mode 100644
+index 000000000000..a80f5268fb75
+--- /dev/null
++++ b/tools/testing/performance-tests/mm/hmm-bench.c
+@@ -0,0 +1,191 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <limits.h>
++#include <sys/time.h>
++#include <mm/hmm-common.h>
++
++struct benchmark_results {
++	double sys_to_dev_time;
++	double dev_to_sys_time;
++	double throughput_s2d;
++	double throughput_d2s;
++};
++
++static double get_time_ms(void)
++{
++	struct timeval tv;
++
++	gettimeofday(&tv, NULL);
++	return (tv.tv_sec * 1000.0) + (tv.tv_usec / 1000.0);
++}
++
++static void print_benchmark_results(const char *test_name, size_t buffer_size,
++				     struct benchmark_results *thp,
++				     struct benchmark_results *regular)
++{
++	double s2d_improvement = ((regular->sys_to_dev_time - thp->sys_to_dev_time) /
++				 regular->sys_to_dev_time) * 100.0;
++	double d2s_improvement = ((regular->dev_to_sys_time - thp->dev_to_sys_time) /
++				 regular->dev_to_sys_time) * 100.0;
++	double throughput_s2d_improvement = ((thp->throughput_s2d - regular->throughput_s2d) /
++					    regular->throughput_s2d) * 100.0;
++	double throughput_d2s_improvement = ((thp->throughput_d2s - regular->throughput_d2s) /
++					    regular->throughput_d2s) * 100.0;
++
++	printf("\n=== %s (%.1f MB) ===\n", test_name, buffer_size / (1024.0 * 1024.0));
++	printf("                     | With THP        | Without THP     | Improvement\n");
++	printf("---------------------------------------------------------------------\n");
++	printf("Sys->Dev Migration   | %.3f ms        | %.3f ms        | %.1f%%\n",
++	       thp->sys_to_dev_time, regular->sys_to_dev_time, s2d_improvement);
++	printf("Dev->Sys Migration   | %.3f ms        | %.3f ms        | %.1f%%\n",
++	       thp->dev_to_sys_time, regular->dev_to_sys_time, d2s_improvement);
++	printf("S->D Throughput      | %.2f GB/s      | %.2f GB/s      | %.1f%%\n",
++	       thp->throughput_s2d, regular->throughput_s2d, throughput_s2d_improvement);
++	printf("D->S Throughput      | %.2f GB/s      | %.2f GB/s      | %.1f%%\n",
++	       thp->throughput_d2s, regular->throughput_d2s, throughput_d2s_improvement);
++	fflush(stdout);
++}
++
++/*
++ * Run a single migration benchmark
++ * fd: file descriptor for hmm device
++ * use_thp: whether to use THP
++ * buffer_size: size of buffer to allocate
++ * iterations: number of iterations
++ * results: where to store results
++ */
++static inline int run_migration_benchmark(int fd, int use_thp, size_t buffer_size,
++					   int iterations, struct benchmark_results *results)
++{
++	struct hmm_buffer *buffer;
++	unsigned long npages = buffer_size / sysconf(_SC_PAGESIZE);
++	double start, end;
++	double s2d_total = 0, d2s_total = 0;
++	int ret, i;
++	int *ptr;
++
++	buffer = hmm_buffer_alloc(buffer_size, buffer_size,
++				  PROT_READ | PROT_WRITE,
++				  MAP_PRIVATE | MAP_ANONYMOUS, -1);
++	if (!buffer) {
++		ret = -1;
++		goto cleanup;
++	}
++	memset(buffer->mirror, 0xFF, buffer_size);
++
++	/* Apply THP hint if requested */
++	if (use_thp)
++		ret = madvise(buffer->ptr, buffer_size, MADV_HUGEPAGE);
++	else
++		ret = madvise(buffer->ptr, buffer_size, MADV_NOHUGEPAGE);
++
++	if (ret)
++		goto cleanup;
++
++	/* Initialize memory to make sure pages are allocated */
++	ptr = (int *)buffer->ptr;
++	for (i = 0; i < buffer_size / sizeof(int); i++)
++		ptr[i] = i & 0xFF;
++
++	/* Warmup iteration */
++	ret = hmm_migrate_sys_to_dev(fd, buffer, npages);
++	if (ret)
++		goto cleanup;
++
++	ret = hmm_migrate_dev_to_sys(fd, buffer, npages);
++	if (ret)
++		goto cleanup;
++
++	/* Benchmark iterations */
++	for (i = 0; i < iterations; i++) {
++		/* System to device migration */
++		start = get_time_ms();
++
++		ret = hmm_migrate_sys_to_dev(fd, buffer, npages);
++		if (ret)
++			goto cleanup;
++
++		end = get_time_ms();
++		s2d_total += (end - start);
++
++		/* Device to system migration */
++		start = get_time_ms();
++
++		ret = hmm_migrate_dev_to_sys(fd, buffer, npages);
++		if (ret)
++			goto cleanup;
++
++		end = get_time_ms();
++		d2s_total += (end - start);
++	}
++
++	/* Calculate average times and throughput */
++	results->sys_to_dev_time = s2d_total / iterations;
++	results->dev_to_sys_time = d2s_total / iterations;
++	results->throughput_s2d = (buffer_size / (1024.0 * 1024.0 * 1024.0)) /
++				 (results->sys_to_dev_time / 1000.0);
++	results->throughput_d2s = (buffer_size / (1024.0 * 1024.0 * 1024.0)) /
++				 (results->dev_to_sys_time / 1000.0);
++
++cleanup:
++	hmm_buffer_free(buffer);
++	return ret;
++}
++
++/*
++ * Benchmark THP migration with different buffer sizes
++ */
++TEST_F_TIMEOUT(hmm, benchmark_thp_migration, 120)
++{
++	struct benchmark_results thp_results, regular_results;
++	size_t thp_size = pmd_psize();
++	int iterations = 5;
++
++	if (!thp_size)
++		thp_size = TWOMEG;
++
++	printf("\nHMM THP Migration Benchmark\n");
++	printf("---------------------------\n");
++	printf("System page size: %ld bytes\n", sysconf(_SC_PAGESIZE));
++
++	/* Test different buffer sizes */
++	size_t test_sizes[] = {
++		thp_size / 4,      /* quarter THP */
++		thp_size / 2,      /* half THP */
++		thp_size,          /* single THP */
++		thp_size * 2,      /* two THPs */
++		thp_size * 4,      /* four THPs */
++		thp_size * 8,      /* eight THPs */
++	};
++
++	static const char *const test_names[] = {
++		"Small Buffer",
++		"Half THP Size",
++		"Single THP Size",
++		"Two THP Size",
++		"Four THP Size",
++		"Eight THP Size",
++	};
++
++	int num_tests = ARRAY_SIZE(test_sizes);
++
++	/* Run all tests */
++	for (int i = 0; i < num_tests; i++) {
++		/* Skip test sizes exceeding INT_MAX to avoid overflow */
++		if (test_sizes[i] > INT_MAX)
++			break;
++
++		/* Test with THP */
++		ASSERT_EQ(run_migration_benchmark(self->fd, 1, test_sizes[i],
++					iterations, &thp_results), 0);
++
++		/* Test without THP */
++		ASSERT_EQ(run_migration_benchmark(self->fd, 0, test_sizes[i],
++					iterations, &regular_results), 0);
++
++		/* Print results */
++		print_benchmark_results(test_names[i], test_sizes[i],
++					&thp_results, &regular_results);
++	}
++}
++
++TEST_HARNESS_MAIN
+diff --git a/tools/testing/selftests/mm/Makefile b/tools/testing/selftests/mm/Makefile
+index 675ec57d47de..c129ac2c635a 100644
+--- a/tools/testing/selftests/mm/Makefile
++++ b/tools/testing/selftests/mm/Makefile
+@@ -6,6 +6,7 @@
+ # If you do not YOUR TESTS WILL NOT RUN IN THE CI.
+ 
+ LOCAL_HDRS += $(selfdir)/mm/local_config.h_gen $(top_srcdir)/mm/gup_test.h
++LOCAL_HDRS += $(selfdir)/mm/hmm-common.h
+ LOCAL_HDRS += $(selfdir)/mm/mseal_helpers.h
+ 
+ include local_config.mk
+diff --git a/tools/testing/selftests/mm/hmm-common.h b/tools/testing/selftests/mm/hmm-common.h
+new file mode 100644
+index 000000000000..838d496b35fb
+--- /dev/null
++++ b/tools/testing/selftests/mm/hmm-common.h
+@@ -0,0 +1,202 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef HMM_COMMON_H
++#define HMM_COMMON_H
++
++#include <errno.h>
++#include <fcntl.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <stdint.h>
++#include <unistd.h>
++#include <strings.h>
++#include <sys/ioctl.h>
++#include <sys/mman.h>
++#include "kselftest_harness.h"
++#include <mm/vm_util.h>
++
++/*
++ * This is a private UAPI to the kernel test module so it isn't exported
++ * in the usual include/uapi/... directory.
++ */
++#include <lib/test_hmm_uapi.h>
++
++struct hmm_buffer {
++	void		*ptr;
++	void		*mirror;
++	unsigned long	size;
++	int		fd;
++	uint64_t	cpages;
++	uint64_t	faults;
++};
++
++enum {
++	HMM_PRIVATE_DEVICE_ONE,
++	HMM_PRIVATE_DEVICE_TWO,
++	HMM_COHERENCE_DEVICE_ONE,
++	HMM_COHERENCE_DEVICE_TWO,
++};
++
++#define TWOMEG		(1 << 21)
++#define HMM_PATH_MAX    64
++
++FIXTURE(hmm)
++{
++	int		fd;
++	unsigned int	page_size;
++	unsigned int	page_shift;
++};
++
++FIXTURE_VARIANT(hmm)
++{
++	int     device_number;
++};
++
++FIXTURE_VARIANT_ADD(hmm, hmm_device_private)
++{
++	.device_number = HMM_PRIVATE_DEVICE_ONE,
++};
++
++FIXTURE_VARIANT_ADD(hmm, hmm_device_coherent)
++{
++	.device_number = HMM_COHERENCE_DEVICE_ONE,
++};
++
++static int hmm_open(int unit)
++{
++	char pathname[HMM_PATH_MAX];
++	int fd;
++
++	snprintf(pathname, sizeof(pathname), "/dev/hmm_dmirror%d", unit);
++	fd = open(pathname, O_RDWR, 0);
++	if (fd < 0)
++		fprintf(stderr, "could not open hmm dmirror driver (%s)\n",
++			pathname);
++	return fd;
++}
++
++static bool hmm_is_coherent_type(int dev_num)
++{
++	return (dev_num >= HMM_COHERENCE_DEVICE_ONE);
++}
++
++FIXTURE_SETUP(hmm)
++{
++	self->page_size = sysconf(_SC_PAGE_SIZE);
++	self->page_shift = ffs(self->page_size) - 1;
++
++	self->fd = hmm_open(variant->device_number);
++	if (self->fd < 0 && hmm_is_coherent_type(variant->device_number))
++		SKIP(return, "DEVICE_COHERENT not available");
++	ASSERT_GE(self->fd, 0);
++}
++
++FIXTURE_TEARDOWN(hmm)
++{
++	int ret = close(self->fd);
++
++	ASSERT_EQ(ret, 0);
++	self->fd = -1;
++}
++
++static int hmm_dmirror_cmd(int fd,
++			   unsigned long request,
++			   struct hmm_buffer *buffer,
++			   unsigned long npages)
++{
++	struct hmm_dmirror_cmd cmd;
++	int ret;
++
++	/* Simulate a device reading system memory. */
++	cmd.addr = ptr_to_u64(buffer->ptr);
++	cmd.ptr = ptr_to_u64(buffer->mirror);
++	cmd.npages = npages;
++
++	for (;;) {
++		ret = ioctl(fd, request, &cmd);
++		if (ret == 0)
++			break;
++		if (errno == EINTR)
++			continue;
++		return -errno;
++	}
++	buffer->cpages = cmd.cpages;
++	buffer->faults = cmd.faults;
++
++	return 0;
++}
++
++static void hmm_buffer_free(struct hmm_buffer *buffer)
++{
++	if (buffer == NULL)
++		return;
++
++	if (buffer->ptr) {
++		munmap(buffer->ptr, buffer->size);
++		buffer->ptr = NULL;
++	}
++	free(buffer->mirror);
++	free(buffer);
++}
++
++/*
++ * Allocate a buffer structure with memory mapping and mirror.
++ *
++ * @mmap_size:   total size of the mmap region (may differ from @mirror_size
++ *               for alignment padding in THP tests).
++ * @mirror_size: size of the mirror data buffer (the actual working set).
++ * @prot:        protection flags for the mmap (e.g. PROT_READ | PROT_WRITE).
++ * @flags:       flags for the mmap (e.g. MAP_PRIVATE, MAP_SHARED,
++ *               MAP_ANONYMOUS, MAP_HUGETLB).
++ * @fd:          file descriptor for the mmap; pass -1 for MAP_ANONYMOUS.
++ *
++ * All internal allocations are checked; returns NULL and cleans up on any
++ * failure. Caller must ASSERT_NE or otherwise check the return value.
++ */
++static struct hmm_buffer *hmm_buffer_alloc(unsigned long mmap_size,
++						unsigned long mirror_size,
++						int prot, int flags,
++						int fd)
++{
++	struct hmm_buffer *buffer;
++
++	buffer = malloc(sizeof(*buffer));
++	if (!buffer) {
++		perror("malloc buffer");
++		return NULL;
++	}
++
++	buffer->fd = fd;
++	buffer->size = mmap_size;
++	buffer->mirror = malloc(mirror_size);
++	if (!buffer->mirror) {
++		perror("malloc mirror");
++		free(buffer);
++		return NULL;
++	}
++
++	buffer->ptr = mmap(NULL, mmap_size, prot, flags, fd, 0);
++	if (buffer->ptr == MAP_FAILED) {
++		perror("mmap");
++		free(buffer->mirror);
++		free(buffer);
++		return NULL;
++	}
++
++	return buffer;
++}
++
++static int hmm_migrate_sys_to_dev(int fd,
++				   struct hmm_buffer *buffer,
++				   unsigned long npages)
++{
++	return hmm_dmirror_cmd(fd, HMM_DMIRROR_MIGRATE_TO_DEV, buffer, npages);
++}
++
++static int hmm_migrate_dev_to_sys(int fd,
++				   struct hmm_buffer *buffer,
++				   unsigned long npages)
++{
++	return hmm_dmirror_cmd(fd, HMM_DMIRROR_MIGRATE_TO_SYS, buffer, npages);
++}
++
++#endif /* HMM_COMMON_H */
+diff --git a/tools/testing/selftests/mm/hmm-tests.c b/tools/testing/selftests/mm/hmm-tests.c
+index 066207ae8e3b..3969f52e7525 100644
+--- a/tools/testing/selftests/mm/hmm-tests.c
++++ b/tools/testing/selftests/mm/hmm-tests.c
+@@ -10,59 +10,22 @@
+  * bugs.
+  */
+ 
+-#include <errno.h>
+-#include <fcntl.h>
+-#include <stdio.h>
+-#include <stdlib.h>
+-#include <stdint.h>
+-#include <unistd.h>
+-#include <strings.h>
+ #include <time.h>
+ #include <pthread.h>
+-#include <limits.h>
+ #include <linux/mman.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
+-#include <sys/mman.h>
+-#include <sys/ioctl.h>
+-#include <sys/time.h>
+ #include <sys/syscall.h>
+ #include <sys/eventfd.h>
+ #include <linux/userfaultfd.h>
+ #include <poll.h>
+ #include <mm/hugepage_settings.h>
+-
+-#include "kselftest_harness.h"
+-
+-/*
+- * This is a private UAPI to the kernel test module so it isn't exported
+- * in the usual include/uapi/... directory.
+- */
+-#include <lib/test_hmm_uapi.h>
+ #include <mm/gup_test.h>
+-#include <mm/vm_util.h>
+-
+-struct hmm_buffer {
+-	void		*ptr;
+-	void		*mirror;
+-	unsigned long	size;
+-	int		fd;
+-	uint64_t	cpages;
+-	uint64_t	faults;
+-};
+-
+-enum {
+-	HMM_PRIVATE_DEVICE_ONE,
+-	HMM_PRIVATE_DEVICE_TWO,
+-	HMM_COHERENCE_DEVICE_ONE,
+-	HMM_COHERENCE_DEVICE_TWO,
+-};
++#include "hmm-common.h"
+ 
+ #define ONEKB		(1 << 10)
+ #define ONEMEG		(1 << 20)
+-#define TWOMEG		(1 << 21)
+ #define HMM_BUFFER_SIZE (1024 << 12)
+-#define HMM_PATH_MAX    64
+ #define NTIMES		10
+ 
+ /* Just the flags we need, copied from mm.h: */
+@@ -77,28 +40,6 @@ enum {
+ 
+ HUGETLB_SETUP_DEFAULT_PAGES(1)
+ 
+-FIXTURE(hmm)
+-{
+-	int		fd;
+-	unsigned int	page_size;
+-	unsigned int	page_shift;
+-};
+-
+-FIXTURE_VARIANT(hmm)
+-{
+-	int     device_number;
+-};
+-
+-FIXTURE_VARIANT_ADD(hmm, hmm_device_private)
+-{
+-	.device_number = HMM_PRIVATE_DEVICE_ONE,
+-};
+-
+-FIXTURE_VARIANT_ADD(hmm, hmm_device_coherent)
+-{
+-	.device_number = HMM_COHERENCE_DEVICE_ONE,
+-};
+-
+ FIXTURE(hmm2)
+ {
+ 	int		fd0;
+@@ -125,35 +66,6 @@ FIXTURE_VARIANT_ADD(hmm2, hmm2_device_coherent)
+ 	.device_number1 = HMM_COHERENCE_DEVICE_TWO,
+ };
+ 
+-static int hmm_open(int unit)
+-{
+-	char pathname[HMM_PATH_MAX];
+-	int fd;
+-
+-	snprintf(pathname, sizeof(pathname), "/dev/hmm_dmirror%d", unit);
+-	fd = open(pathname, O_RDWR, 0);
+-	if (fd < 0)
+-		fprintf(stderr, "could not open hmm dmirror driver (%s)\n",
+-			pathname);
+-	return fd;
+-}
+-
+-static bool hmm_is_coherent_type(int dev_num)
+-{
+-	return (dev_num >= HMM_COHERENCE_DEVICE_ONE);
+-}
+-
+-FIXTURE_SETUP(hmm)
+-{
+-	self->page_size = sysconf(_SC_PAGE_SIZE);
+-	self->page_shift = ffs(self->page_size) - 1;
+-
+-	self->fd = hmm_open(variant->device_number);
+-	if (self->fd < 0 && hmm_is_coherent_type(variant->device_number))
+-		SKIP(return, "DEVICE_COHERENT not available");
+-	ASSERT_GE(self->fd, 0);
+-}
+-
+ FIXTURE_SETUP(hmm2)
+ {
+ 	self->page_size = sysconf(_SC_PAGE_SIZE);
+@@ -167,14 +79,6 @@ FIXTURE_SETUP(hmm2)
+ 	ASSERT_GE(self->fd1, 0);
+ }
+ 
+-FIXTURE_TEARDOWN(hmm)
+-{
+-	int ret = close(self->fd);
+-
+-	ASSERT_EQ(ret, 0);
+-	self->fd = -1;
+-}
+-
+ FIXTURE_TEARDOWN(hmm2)
+ {
+ 	int ret = close(self->fd0);
+@@ -187,93 +91,6 @@ FIXTURE_TEARDOWN(hmm2)
+ 	self->fd1 = -1;
+ }
+ 
+-static int hmm_dmirror_cmd(int fd,
+-			   unsigned long request,
+-			   struct hmm_buffer *buffer,
+-			   unsigned long npages)
+-{
+-	struct hmm_dmirror_cmd cmd;
+-	int ret;
+-
+-	/* Simulate a device reading system memory. */
+-	cmd.addr = ptr_to_u64(buffer->ptr);
+-	cmd.ptr = ptr_to_u64(buffer->mirror);
+-	cmd.npages = npages;
+-
+-	for (;;) {
+-		ret = ioctl(fd, request, &cmd);
+-		if (ret == 0)
+-			break;
+-		if (errno == EINTR)
+-			continue;
+-		return -errno;
+-	}
+-	buffer->cpages = cmd.cpages;
+-	buffer->faults = cmd.faults;
+-
+-	return 0;
+-}
+-
+-static void hmm_buffer_free(struct hmm_buffer *buffer)
+-{
+-	if (buffer == NULL)
+-		return;
+-
+-	if (buffer->ptr) {
+-		munmap(buffer->ptr, buffer->size);
+-		buffer->ptr = NULL;
+-	}
+-	free(buffer->mirror);
+-	free(buffer);
+-}
+-
+-/*
+- * Allocate a buffer structure with memory mapping and mirror.
+- *
+- * @mmap_size:   total size of the mmap region (may differ from @mirror_size
+- *               for alignment padding in THP tests).
+- * @mirror_size: size of the mirror data buffer (the actual working set).
+- * @prot:        protection flags for the mmap (e.g. PROT_READ | PROT_WRITE).
+- * @flags:       flags for the mmap (e.g. MAP_PRIVATE, MAP_SHARED,
+- *               MAP_ANONYMOUS, MAP_HUGETLB).
+- * @fd:          file descriptor for the mmap; pass -1 for MAP_ANONYMOUS.
+- *
+- * All internal allocations are checked; returns NULL and cleans up on any
+- * failure. Caller must ASSERT_NE or otherwise check the return value.
+- */
+-static struct hmm_buffer *hmm_buffer_alloc(unsigned long mmap_size,
+-						unsigned long mirror_size,
+-						int prot, int flags,
+-						int fd)
+-{
+-	struct hmm_buffer *buffer;
+-
+-	buffer = malloc(sizeof(*buffer));
+-	if (!buffer) {
+-		perror("malloc buffer");
+-		return NULL;
+-	}
+-
+-	buffer->fd = fd;
+-	buffer->size = mmap_size;
+-	buffer->mirror = malloc(mirror_size);
+-	if (!buffer->mirror) {
+-		perror("malloc mirror");
+-		free(buffer);
+-		return NULL;
+-	}
+-
+-	buffer->ptr = mmap(NULL, mmap_size, prot, flags, fd, 0);
+-	if (buffer->ptr == MAP_FAILED) {
+-		perror("mmap");
+-		free(buffer->mirror);
+-		free(buffer);
+-		return NULL;
+-	}
+-
+-	return buffer;
+-}
+-
+ /*
+  * Create a temporary file that will be deleted on close.
+  */
+@@ -326,20 +143,6 @@ static void hmm_nanosleep(unsigned int n)
+ 	nanosleep(&t, NULL);
+ }
+ 
+-static int hmm_migrate_sys_to_dev(int fd,
+-				   struct hmm_buffer *buffer,
+-				   unsigned long npages)
+-{
+-	return hmm_dmirror_cmd(fd, HMM_DMIRROR_MIGRATE_TO_DEV, buffer, npages);
+-}
+-
+-static int hmm_migrate_dev_to_sys(int fd,
+-				   struct hmm_buffer *buffer,
+-				   unsigned long npages)
+-{
+-	return hmm_dmirror_cmd(fd, HMM_DMIRROR_MIGRATE_TO_SYS, buffer, npages);
+-}
+-
+ /*
+  * Simple NULL test of device open/close.
+  */
+@@ -2506,191 +2309,6 @@ TEST_F(hmm, migrate_anon_huge_zero_err)
+ 	hmm_buffer_free(buffer);
+ }
+ 
+-struct benchmark_results {
+-	double sys_to_dev_time;
+-	double dev_to_sys_time;
+-	double throughput_s2d;
+-	double throughput_d2s;
+-};
+-
+-static double get_time_ms(void)
+-{
+-	struct timeval tv;
+-
+-	gettimeofday(&tv, NULL);
+-	return (tv.tv_sec * 1000.0) + (tv.tv_usec / 1000.0);
+-}
+-
+-static void print_benchmark_results(const char *test_name, size_t buffer_size,
+-				     struct benchmark_results *thp,
+-				     struct benchmark_results *regular)
+-{
+-	double s2d_improvement = ((regular->sys_to_dev_time - thp->sys_to_dev_time) /
+-				 regular->sys_to_dev_time) * 100.0;
+-	double d2s_improvement = ((regular->dev_to_sys_time - thp->dev_to_sys_time) /
+-				 regular->dev_to_sys_time) * 100.0;
+-	double throughput_s2d_improvement = ((thp->throughput_s2d - regular->throughput_s2d) /
+-					    regular->throughput_s2d) * 100.0;
+-	double throughput_d2s_improvement = ((thp->throughput_d2s - regular->throughput_d2s) /
+-					    regular->throughput_d2s) * 100.0;
+-
+-	printf("\n=== %s (%.1f MB) ===\n", test_name, buffer_size / (1024.0 * 1024.0));
+-	printf("                     | With THP        | Without THP     | Improvement\n");
+-	printf("---------------------------------------------------------------------\n");
+-	printf("Sys->Dev Migration   | %.3f ms        | %.3f ms        | %.1f%%\n",
+-	       thp->sys_to_dev_time, regular->sys_to_dev_time, s2d_improvement);
+-	printf("Dev->Sys Migration   | %.3f ms        | %.3f ms        | %.1f%%\n",
+-	       thp->dev_to_sys_time, regular->dev_to_sys_time, d2s_improvement);
+-	printf("S->D Throughput      | %.2f GB/s      | %.2f GB/s      | %.1f%%\n",
+-	       thp->throughput_s2d, regular->throughput_s2d, throughput_s2d_improvement);
+-	printf("D->S Throughput      | %.2f GB/s      | %.2f GB/s      | %.1f%%\n",
+-	       thp->throughput_d2s, regular->throughput_d2s, throughput_d2s_improvement);
+-}
+-
+-/*
+- * Run a single migration benchmark
+- * fd: file descriptor for hmm device
+- * use_thp: whether to use THP
+- * buffer_size: size of buffer to allocate
+- * iterations: number of iterations
+- * results: where to store results
+- */
+-static inline int run_migration_benchmark(int fd, int use_thp, size_t buffer_size,
+-					   int iterations, struct benchmark_results *results)
+-{
+-	struct hmm_buffer *buffer;
+-	unsigned long npages = buffer_size / sysconf(_SC_PAGESIZE);
+-	double start, end;
+-	double s2d_total = 0, d2s_total = 0;
+-	int ret, i;
+-	int *ptr;
+-
+-	buffer = hmm_buffer_alloc(buffer_size, buffer_size,
+-				  PROT_READ | PROT_WRITE,
+-				  MAP_PRIVATE | MAP_ANONYMOUS, -1);
+-	if (!buffer) {
+-		ret = -1;
+-		goto cleanup;
+-	}
+-	memset(buffer->mirror, 0xFF, buffer_size);
+-
+-	/* Apply THP hint if requested */
+-	if (use_thp)
+-		ret = madvise(buffer->ptr, buffer_size, MADV_HUGEPAGE);
+-	else
+-		ret = madvise(buffer->ptr, buffer_size, MADV_NOHUGEPAGE);
+-
+-	if (ret)
+-		goto cleanup;
+-
+-	/* Initialize memory to make sure pages are allocated */
+-	ptr = (int *)buffer->ptr;
+-	for (i = 0; i < buffer_size / sizeof(int); i++)
+-		ptr[i] = i & 0xFF;
+-
+-	/* Warmup iteration */
+-	ret = hmm_migrate_sys_to_dev(fd, buffer, npages);
+-	if (ret)
+-		goto cleanup;
+-
+-	ret = hmm_migrate_dev_to_sys(fd, buffer, npages);
+-	if (ret)
+-		goto cleanup;
+-
+-	/* Benchmark iterations */
+-	for (i = 0; i < iterations; i++) {
+-		/* System to device migration */
+-		start = get_time_ms();
+-
+-		ret = hmm_migrate_sys_to_dev(fd, buffer, npages);
+-		if (ret)
+-			goto cleanup;
+-
+-		end = get_time_ms();
+-		s2d_total += (end - start);
+-
+-		/* Device to system migration */
+-		start = get_time_ms();
+-
+-		ret = hmm_migrate_dev_to_sys(fd, buffer, npages);
+-		if (ret)
+-			goto cleanup;
+-
+-		end = get_time_ms();
+-		d2s_total += (end - start);
+-	}
+-
+-	/* Calculate average times and throughput */
+-	results->sys_to_dev_time = s2d_total / iterations;
+-	results->dev_to_sys_time = d2s_total / iterations;
+-	results->throughput_s2d = (buffer_size / (1024.0 * 1024.0 * 1024.0)) /
+-				 (results->sys_to_dev_time / 1000.0);
+-	results->throughput_d2s = (buffer_size / (1024.0 * 1024.0 * 1024.0)) /
+-				 (results->dev_to_sys_time / 1000.0);
+-
+-cleanup:
+-	hmm_buffer_free(buffer);
+-	return ret;
+-}
+-
+-/*
+- * Benchmark THP migration with different buffer sizes
+- */
+-TEST_F_TIMEOUT(hmm, benchmark_thp_migration, 120)
+-{
+-	struct benchmark_results thp_results, regular_results;
+-	size_t thp_size = pmd_psize();
+-	int iterations = 5;
+-
+-	if (!thp_size)
+-		thp_size = TWOMEG;
+-
+-	printf("\nHMM THP Migration Benchmark\n");
+-	printf("---------------------------\n");
+-	printf("System page size: %ld bytes\n", sysconf(_SC_PAGESIZE));
+-
+-	/* Test different buffer sizes */
+-	size_t test_sizes[] = {
+-		thp_size / 4,      /* quarter THP */
+-		thp_size / 2,      /* half THP */
+-		thp_size,          /* single THP */
+-		thp_size * 2,      /* two THPs */
+-		thp_size * 4,      /* four THPs */
+-		thp_size * 8,      /* eight THPs */
+-		thp_size * 128,    /* one twenty eight THPs */
+-	};
+-
+-	static const char *const test_names[] = {
+-		"Small Buffer",
+-		"Half THP Size",
+-		"Single THP Size",
+-		"Two THP Size",
+-		"Four THP Size",
+-		"Eight THP Size",
+-		"One twenty eight THP Size"
+-	};
+-
+-	int num_tests = ARRAY_SIZE(test_sizes);
+-
+-	/* Run all tests */
+-	for (int i = 0; i < num_tests; i++) {
+-		/* Skip test sizes exceeding INT_MAX to avoid overflow */
+-		if (test_sizes[i] > INT_MAX)
+-			break;
+-
+-		/* Test with THP */
+-		ASSERT_EQ(run_migration_benchmark(self->fd, 1, test_sizes[i],
+-					iterations, &thp_results), 0);
+-
+-		/* Test without THP */
+-		ASSERT_EQ(run_migration_benchmark(self->fd, 0, test_sizes[i],
+-					iterations, &regular_results), 0);
+-
+-		/* Print results */
+-		print_benchmark_results(test_names[i], test_sizes[i],
+-					&thp_results, &regular_results);
+-	}
+-}
+ /*
+  * Test that HMM can fault in pages backed by userfaultfd using the
+  * hmm_range_fault_unlocked_timeout() path with no timeout. This exercises
+-- 
+2.56.0
 
-Greetings,
-
--- Sebastian
-
->=20
-> >=20
-> >> ---
-> >>  Documentation/devicetree/bindings/power/rockchip,power-controller.yam=
-l | 3 +++
-> >>  1 file changed, 3 insertions(+)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/power/rockchip,power-co=
-ntroller.yaml b/Documentation/devicetree/bindings/power/rockchip,power-cont=
-roller.yaml
-> >> index b41db576f95de..d2b512dd95f63 100644
-> >> --- a/Documentation/devicetree/bindings/power/rockchip,power-controlle=
-r.yaml
-> >> +++ b/Documentation/devicetree/bindings/power/rockchip,power-controlle=
-r.yaml
-> >> @@ -147,6 +147,9 @@ $defs:
-> >>            A number of phandles to qos blocks which need to be saved a=
-nd restored
-> >>            while power domain switches state.
-> >> =20
-> >> +      post-init-providers:
-> >> +        $ref: /schemas/post-init-providers.yaml#/properties/post-init=
--providers
-> >> +
-> >>        "#power-domain-cells":
-> >>          enum: [0, 1]
-> >>          description:
-> >>
-> >>
-> >=20
->=20
-> --=20
-> Best,=20
-> Chaoyi
-
---qemy2mlvuv3ghs56
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmsHodUACgkQ2O7X88g7
-+po/3RAAlzYSBqgLZ0niXp3v5QXc7ekGkVrhAWNv1J3U+rDhKNy7fG3mHOGg+rIP
-dxa/MKFQC33DdBeTGGrmGpipUxbpSekApiWftLIvvcw70JHt7kpDAjDKQ1v/eudL
-UQgMlqMr+GjVpGNNGSiPHf9iSpPF+lLl5cASvO4wopGGDitYvcJDbNSz3ZlVbrbF
-ddXeuncx60pM1tKhuIg6P96ZMugn7iQBuZOvWYy89o2/Y/uFo79OQqx8EyUuwjmX
-YcCJjHn/9YMi4K5O8HlaNo1aQxLDiPb22ro0ju172J7VdVo3Ok5aN7B35004OuxE
-tD5xVw20QtghgtvogrB0iaESgTeupPeTImg5LTYzmETtAUAD7FGDGBIuJqZyFsmI
-5Rnv7iKuhmtMi1poqCpc7S6PgzpNUVoRfhnBA5OH2i+reNsW62QJ7R6CHclBL0xn
-lEzS3lD6hgF5Grmht9N8oUMI8sb8THb2/OGjlQ4LMXqVQ1rURH4/fd0GYETbE6bz
-uqoSDdHBoRovFdJhMht4QPwUrXYVvt8ODzapLE9Rmzf0kDhDefiPBg19w1uolC9A
-jECte6wVX33fz7LeItsy+K/DI4Ute2V9J029Ek8IWnz4Oi8mJ1fGNtohYTgsi5mj
-KwXGbDQkLBeuqQJLKNkiUh+3T0SOz/UrtVTQbUnKPsW5S7r2yk0=
-=WcPX
------END PGP SIGNATURE-----
-
---qemy2mlvuv3ghs56--
