@@ -1,87 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795672795;
-	b=L0srhjgG2kX6q0uocP426QVkUZGDcQQQ6Mjh2081ha0B40dXp0l17d+VdtN3nIRMlTwo
-	 UbRPSAFIFHMsbG1661Ej+E+elCZQ8TSVJjuDzn1R04Q4B0wuUeegligIsD12NSeEyz252
-	 CCr2okHVlSMOG7TyFZDkLNK2nRUZLbvJgJWPdgs3v6HkkB5Dsx8l3YT8vP8zlkFTEg62x
-	 kp5o1AFEVyo6udznd9qDXNHWhWeMuAqph2X/PXAwpDdvv1bk3FcK3yxGQguTv4Mhiaxgn
-	 V1TGunZ0DHDqcOW1jVZH6Ek5xHzf/6P0ahIi2fWiAm0RoXk4bQFZTvWOyBBCgEBzDxA==
+	t=1795672866;
+	b=UK+jQ+4HmrhuJx9P5nss5qAmtu/y5qiHsZOsZWS9n/KXdki6ShRocDZRVATJK5sNK8yO
+	 4ZHEOqmTlmEPEtMTohxHycYp0qKBt5thOxWnN18cz4+YaK1iDTgKCdBUGUVN1wO+Ccbbi
+	 kvsxQUIm7eBW2XlWNnIjLCaoWMxDwJEZBXXa0GKE3EZQfcvV3KuiuqQCmKtfAS3oFohmr
+	 1c/Ft7sex4GBpsPt7VLT+GJDjMVvhpUKRMI0q5vw5k+4GmGrArGJvGaTo3WRq98AritaO
+	 Y5cKSe8M2exAl+LgDAKeE5u9RIWQmy0v2FeIFVeoDjjjXwdnV+aBDgz5pQ6GLGIjBvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795672795;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795672866;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=k2IRBl9gY5e2oSUNrEWY6jjQeC8ZZ1pQO6bdpjOXj2I=;
-	b=TQNsgbAq28Nydu8qwB/kTP+eDo6yQZjMA5etpJxNwDS4TUBG5/dNpgo+WyIaFS8wLF3J
-	 xNOiH2tfGzHpMJ4vWiF6n/mqkl7fVyXxws4rjSZGS6/O2iO9TJnszs0aQ2aejvG4hdD4G
-	 +IedSW/sn9BcglkvoXK4nFXtjzXk6dpLd3WtaYWCo7/UumXYqmkJFSYl757XgRDZzCUbS
-	 uZpfFmfnveNJwwPpN+ZnMY/zRX2BonECmFqL4sOA8FnNkAD8aqlSQpFOB09qqtQCJKOz3
-	 PmrmX3xRXf1r3AbgK8bhMeyk+UnzJdkObwKaEvrqwGnReOWVG/u3+eRlLBX0DP8jnAw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=noZQpOwfLBmz3TPp2KJmxS4eR0zft1CATjF4Oh8nA1Y=;
+	b=g8XnEF3pODLMU4JRM+elkwgkAlb3fS0b8ByCgr2Tw5mb7kh/ChtFQWXYwkmuRoBpiW8R
+	 zpM9CTv6JnNRn3F1H+f06a71pE8jldZ8cr+QpzBNB6FskHiLg2HWaBJDJCeeYAD+gTOX2
+	 ndNYRPPQXf4hbu4JgCfciZVp6HL4zxxkU06WZl4Pjr546dd0p46lhMyq45SsV9FFgEf9o
+	 dmPZf4dqhERQ6Ho7F7gqHxTlD8SB1n1DhRIfWoV+x5Nw5MVSFVGIg50J4wNswkU21/o76
+	 Fss6nrwzPboSrfPH0IU5L9cji8aWMYJKlaBTTRPkDcFMeqWWHWZ+vx0DnWffM2YhOuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=eXnfkOdx;
-	arc=none smtp.remote-ip=209.85.167.49
-Received: from mail-lf1-f49.google.com (mail-lf1-f49.google.com [209.85.167.49])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LwKMnaF4;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8B84606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:59:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8B84606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98070606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:01:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98070606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=eXnfkOdx
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5c00c727a21so543202e87.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:59:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LwKMnaF4
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so70047035e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:01:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795672793; x=1796277593; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=k2IRBl9gY5e2oSUNrEWY6jjQeC8ZZ1pQO6bdpjOXj2I=;
-        b=eXnfkOdxJc0Gj7vmJ8rNyjwrixGiB80YcEjr3kfxXXWycGgRixJo8zxbnIzNFq3yNc
-         2mMdoAgIIepQ2rgKnIcqF0K8Ll9eeCF+H+HCXTEzWIn2DGA2jL4fMrPxUFQy3HCk3Xho
-         YM+CEtXOh/+YQemc6c8XUTfwL7cc73Wxn5BAxKVko7gF0qH8FaoP1GFQFthtGnYhYhj4
-         v/6KADYgbLYCA3z2UPDOvPzdlYW2TEnWANnnfLA9bWYQTYBGWmyjVSZkSQtsixl6N+8z
-         7fuqCjnuZdhE5DFOtA9to/FYLZvKfJdwZDx64/SawBHM+x+VrPGbavm2BWt0jy8yf4eq
-         00cw==
+        d=gmail.com; s=20260707; t=1795672864; x=1796277664; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=noZQpOwfLBmz3TPp2KJmxS4eR0zft1CATjF4Oh8nA1Y=;
+        b=LwKMnaF40gf2NenBXd9HKjJk5NoW1bd0N0ZWMM3TpugQG/lZzB1W6d03tog5bTiLqe
+         0Jvfo/vFCCLvRGpI562On+rVz6xBFos3VbGVKjMbgwjA2dm9AX61nRdbebCiA2kOJ1Ek
+         LJkKEG6J5pAIyys9SO3fl1X+FbVOdv38Qz98IARCZRsxnDEGCM1iRsa4VBblcseyMJVX
+         kJH3BAT9gYcIOmeX+yqyYXFkWpd21tw6Jx7rNhSzRLvlxAhNA4MegBpp8DaLs6RD8waG
+         oMKYEpCN2j1XC9VvBj+8DnyA8b2+d19uF9kvyPrV7rv0y6Bg1P3ju/HNvfo4sgBdaS3m
+         736g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795672793; x=1796277593;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=k2IRBl9gY5e2oSUNrEWY6jjQeC8ZZ1pQO6bdpjOXj2I=;
-        b=OB6KceZEdhTT0asps3/zeoqYgwnAh+kzvsDXH6sVm55DufcrIY9+HFr1jpjIlWvz7m
-         IOVBrr8O73oe1ZQsnarPdxtKgE3K5+aUEtP8mnVDFchdFCnYvvm16sEbuLbynejj3sTs
-         2O52Ye5wUZYpYjAPEs2go8PwfWf8xyanJ9HxW+tqXmSEwCjh7aKCSDcIevZOdw7LFzc/
-         /IuWa3rvIgBbB5nzCT36dBDgonenyeIDPLnslaTeT67Mr0obFO2y8rngSCe/UEqybAQc
-         f/bqKRHqUXJC8VCWaBOuzc9X9AsHTRaKKZnSOQa7WebiZ8iHK6gLTx1omwauTM10N+f1
-         QpkQ==
-X-Forwarded-Encrypted: i=1; AL+hErFFakJ5kwKB7TwEp+Jr8VvESd2QLz8Tv/1iZFgGnTaE9S5U6acasEezQx9qUHfl2k9/WcHshQaSKOq0ed0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8YQ6XxpghMpQek1XcaZWF4i1OJ9qJ3HG0ZU+Sqh67lLWvfhR9A
-	+QH/lPoqZJ/Zip8kzl8jvi36X/CytbDk2hd3yh/h7iZxFRTU2JIREJwjAptFmJ/0QpM=
-X-Gm-Gg: AZFdTZeKB1MkPdaedisdWr6wFy82R/hBGZcSkEq+uHjHvwSHXh29WylN2KagPl06vOf
-	jSWl2pk99W/0y8m0sJctO4VJeDuVOMCv6M82WiIiQ7i0sJsdVX45aSz0o4yC19oURtojvGCQznf
-	ibiFREitF0BWA+Q6/6p9xJft1hUg+5D4y1yiz5am1zMZ4h2ep1JcBAYeVMvzf/Fahwl+/MD9CDW
-	xCxSB8o+2oaJ5dpCjJLJzO55z/8Ca2TIue8jKqHq/nl6/nBCnXPWDOI+mCfYg8mj4UK28SHuwk1
-	AIhBK5z6obEIRsUq0qXwXZ8fIlZX7tuFq6E8h8H8+sR+BORfIIA1VeP93y7D7kqJZCrPuVHcooi
-	pIHofIpiZx9xOgcfZC7HwUgwU7FxdJG98p5Je3Zfsxlyi9xqaGL3QiRtAXb9fKEKgpNq1PJQMth
-	e23bDDswixqkPK+YsRJMeDvAUKSTnC3bH188h2fA5u9IDbCMLscimUhgfJn0nB240MaGrw+P1KV
-	FyD4Do1qdBD5dXmvFqof94/kO8CsUDCAWla/5zJ1MMvn0l9H0h/Zwxzml0yrqKR+TMjYh3bo80x
-	Od5NZ0VHzDJuGWd5X1nm6rTDEj4IBv1zAHFyI6ghex4RNNi9EkE0Dz+bjt2o+1dz62Q62GVN5Po
-	P0qsST/w=
-X-Received: by 2002:a05:6512:12c7:b0:5bf:a48b:7827 with SMTP id 2adb3069b0e04-5c1bc6bf385mr6662753e87.2.1795672792982;
-        Wed, 25 Nov 2026 21:59:52 -0800 (PST)
-Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd01b3eesm5192662e87.42.2026.11.25.21.59.52
+        d=1e100.net; s=20260707; t=1795672864; x=1796277664;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=noZQpOwfLBmz3TPp2KJmxS4eR0zft1CATjF4Oh8nA1Y=;
+        b=ZejoK6IxjgNhy8sThgkgVMePPHqqlEPRvlFbe9zDTl5dwxXCbbIksUU3L+PnvtZmPv
+         iwUJEQy29Ne4P9ZKsCyWFjSPXJUOFSRv6PgcPq5alY5EX+0f/oo6GXj5kqJ/Wr4zMGq3
+         co2yUsALJdgnQ4IcSPHx5i4V3LT4alT4DpfFtjJmTTw5nXLPYn2AW94UezI6TB8eExHT
+         ODklLbd78QqpEijs82p/H0iVzSEgwI32LKqU153x+g7MR/RGGIRLQKK1TzHQtOBqXHTU
+         baqBAKexlEv3Y6qK5g1eQmRUzSHoUpHU8/ZstMnQY+XVSs4bfMz+V5KVuVBXDetRrkX2
+         iD/w==
+X-Forwarded-Encrypted: i=1; AL+hErGOvm9J2wwhBPObAQv9JEVEyy6/ZmjEbgJPJtVBZJ2h35sV2fOdp4/T4EQdHKw/fa4G+Op42Wkndi8eKRo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Rtv8N1AUverNKU4xvtWop/DnUmZfCd987m4Enswzb4dp43dqQ
+	8lHuUHxTt3CeLQER6/7iGpb6+lUaqOutzf0VorOrELfPQsJjikWcEHmK
+X-Gm-Gg: AZFdTZdPfncdfHvLEMaB8Vblm7LWfKoGLZCAefeFnaCGlFnHtP2qYVAwd7fvH8ZWcYW
+	vOnS/Hk67LYfb9WCHfTydSwnk/teZh2iY2wRHg4xOtSOZVcb8VODXAqfJ3tHhDEE2dtc/cAGVAx
+	LqX/xCY6qPkqsCAvIxkRtTvQ/qo7jR652tDzN59uvoKf9iEsv7W6vgHSTqw21fiXmCfe9zxId8w
+	mZZIrp5ZSFi9F5Im32CbZos0A/mPVuup4snpK4BwoIczWZZL1kf1btBrETym1ch/1jw93g6M/yk
+	DsCkUkvpBrdmAU99TR4kLZblGElS8PCNWkpHEffpuolfmFU+ZJF/5V1rhNg55FGP1FdjIGLYjvs
+	YhB0fy8V3/DHexZcDztfq47EDM4SdF3Q/m9XlcAginbFf5GGp/jIDy5+AxsxgGZIFzYthKoi/9u
+	iO4loD8SHCnGJU+ONO9xyV375ewZdvF922SIUX32E7FtLOxvkVnRfhCkjnDOnikhJ63f/XmhEhr
+	qxtUNlnTih5dOi1iC3zRD+4U3En6pmTPC4iuWlP/M22vIGFuYs0qSAhz4mHTWEMrXMA/CjVJSP5
+	dOcP6TLtHSIZSFd8bsWEcV0D8A==
+X-Received: by 2002:a05:600c:3ba5:b0:4b0:a307:46f8 with SMTP id 5b1f17b1804b1-4bb8880f29bmr451553765e9.10.1795672863649;
+        Wed, 25 Nov 2026 22:01:03 -0800 (PST)
+Received: from localhost ([212.73.77.104])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb884911e3sm697608555e9.6.2026.11.25.22.01.02
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 21:59:52 -0800 (PST)
-Message-ID: <6d7257a7-92dd-4a1a-a598-9a4cd2be6e2e@linaro.org>
-Date: Thu, 26 Nov 2026 07:59:51 +0200
+        Wed, 25 Nov 2026 22:01:03 -0800 (PST)
+From: Askar Safin <safinaskar@gmail.com>
+To: josef@toxicpanda.com
+Cc: James.Bottomley@HansenPartnership.com,
+	andrew@amutable.com,
+	brauner@kernel.org,
+	jbingham@gmail.com,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sergeh@kernel.org,
+	taherafahimi@linux.microsoft.com
+Subject: Re: [PATCH RFC v3 01/90] Documentation: add a design document for cells
+Date: Thu, 26 Nov 2026 09:00:54 +0300
+Message-ID: <20261126060054.2554394-1-safinaskar@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261105-b4-cells-v3-1-bc9095937a84@toxicpanda.com>
+References: <20261105-b4-cells-v3-1-bc9095937a84@toxicpanda.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,117 +103,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] media: qcom: camss: Add Glymur-specific resources
-To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
- Bryan O'Donoghue <bod@kernel.org>,
- Loic Poulain <loic.poulain@oss.qualcomm.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Suresh Vankadara <svankada@qti.qualcomm.com>,
- Vikram Sharma <vikram.sharma@oss.qualcomm.com>
-References: <20261123-glymur_camss-v4-0-d7db74f59e22@oss.qualcomm.com>
- <20261123-glymur_camss-v4-2-d7db74f59e22@oss.qualcomm.com>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <20261123-glymur_camss-v4-2-d7db74f59e22@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/23/26 13:36, Nihal Kumar Gupta wrote:
-> Glymur has three CSIPHY instances while X1E80100 has four. Reusing the
-> X1E80100 CSIPHY resources also exposes CSIPHY2, which is not present on
-> Glymur.
-> 
-> Add Glymur-specific CSIPHY resources for the three available PHYs while
-> continuing to reuse the common X1E80100 CAMSS resources.
-> 
-> Fixes: 09d6c30d3fae ("media: qcom: camss: Add Glymur compatible")
-> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-> ---
->   drivers/media/platform/qcom/camss/camss.c | 42 ++++++++++++++++++++++++++++++-
->   1 file changed, 41 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-> index f8e5cf9f3ff09e96d3b48cd5628489715385cc5c..f3cab9ecef04273e09b81ee0cd4e31ca45d1c915 100644
-> --- a/drivers/media/platform/qcom/camss/camss.c
-> +++ b/drivers/media/platform/qcom/camss/camss.c
-> @@ -4103,6 +4103,30 @@ static const struct resources_icc icc_res_sa8775p[] = {
->   	},
->   };
->   
-> +static const struct camss_subdev_resources csiphy_res_glymur[] = {
-> +	/* CSIPHY0 */
-> +	{
-> +		.csiphy = {
-> +			.id = 0,
-> +			.formats = &csiphy_formats_sdm845
-> +		},
-> +	},
-> +	/* CSIPHY1 */
-> +	{
-> +		.csiphy = {
-> +			.id = 1,
-> +			.formats = &csiphy_formats_sdm845
-> +		},
-> +	},
-> +	/* CSIPHY4 */
-> +	{
-> +		.csiphy = {
-> +			.id = 4,
-> +			.formats = &csiphy_formats_sdm845
-> +		},
-> +	},
-> +};
-> +
->   static const struct camss_subdev_resources csiphy_res_x1e80100[] = {
->   	/* CSIPHY0 */
->   	{
-> @@ -5572,6 +5596,22 @@ static void camss_remove(struct platform_device *pdev)
->   	camss_genpd_cleanup(camss);
->   }
->   
-> +static const struct camss_resources glymur_resources = {
-> +	.version = CAMSS_X1E80100,
-> +	.pd_name = "top",
-> +	.csiphy_res = csiphy_res_glymur,
-> +	.tpg_res = tpg_res_x1e80100,
-> +	.csid_res = csid_res_x1e80100,
-> +	.vfe_res = vfe_res_x1e80100,
-> +	.csid_wrapper_res = &csid_wrapper_res_x1e80100,
-> +	.icc_res = icc_res_x1e80100,
-> +	.icc_path_num = ARRAY_SIZE(icc_res_x1e80100),
-> +	.csiphy_num = ARRAY_SIZE(csiphy_res_glymur),
-> +	.tpg_num = ARRAY_SIZE(tpg_res_x1e80100),
-> +	.csid_num = ARRAY_SIZE(csid_res_x1e80100),
-> +	.vfe_num = ARRAY_SIZE(vfe_res_x1e80100),
-> +};
-> +
->   static const struct camss_resources msm8916_resources = {
->   	.version = CAMSS_8x16,
->   	.csiphy_res = csiphy_res_8x16,
-> @@ -5806,6 +5846,7 @@ static const struct camss_resources x1e80100_resources = {
->   };
->   
->   static const struct of_device_id camss_dt_match[] = {
-> +	{ .compatible = "qcom,glymur-camss", .data = &glymur_resources },
->   	{ .compatible = "qcom,msm8916-camss", .data = &msm8916_resources },
->   	{ .compatible = "qcom,msm8939-camss", .data = &msm8939_resources },
->   	{ .compatible = "qcom,msm8953-camss", .data = &msm8953_resources },
-> @@ -5824,7 +5865,6 @@ static const struct of_device_id camss_dt_match[] = {
->   	{ .compatible = "qcom,sm8550-camss", .data = &sm8550_resources },
->   	{ .compatible = "qcom,sm8650-camss", .data = &sm8650_resources },
->   	{ .compatible = "qcom,x1e80100-camss", .data = &x1e80100_resources },
-> -	{ .compatible = "qcom,glymur-camss", .data = &x1e80100_resources },
->   	{ }
->   };
->   
-> 
+Josef Bacik <josef@toxicpanda.com>:
+> +The mount namespace stays owned by the user namespace of the builder.  That is what
+> +keeps a task of the cell from mounting anything.
 
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+fsmount creates mount in anon namespace. So fsmount is allowed?!
+
+> +not poll readable, ``PIDFD_GET_INFO`` has no exit to report, and its ``fdinfo`` says
+> +``Pid: 0`` and not ``-1``.
+
+I don't like this. PID 0 is idle process (swapper). Let it be -1 or -2.
+
+
+> Nobody has to
+> +wait for the task: it is reaped on its own, and the pidfd tells how it ended.
+
+I don't like this. I think task should be normal task, which reaped normally.
+If user wants the task to be autoreaped, then let the user set CLONE_AUTOREAP.
+
+Also, you said "pidfd tells how it ended", yet your later example reads status
+from cell fd, not from pidfd.
+
+Anyway, I think that we should get exit status the usual way, i. e. waitid
+on pidfd with P_PIDFD.
+
+> +   pidfd = pidfd_open(cfd, PIDFD_EMPTY);   /* no task yet, the caller does not fork */
+> +
+> +   pidfd_configure(pidfd, PIDFD_SET_STRING, "exec", "/usr/sbin/nginx", 0);
+> +   pidfd_configure(pidfd, PIDFD_SET_BINARY, "argv", "nginx\0-g\0daemon off;", 21);
+> +   pidfd_configure(pidfd, PIDFD_SET_FD, "1", NULL, log_fd);
+> +   pidfd_configure(pidfd, PIDFD_SET_FD, "2", NULL, log_fd);
+> +   pidfd_configure(pidfd, PIDFD_CMD_START, NULL, NULL, 0);
+
+Does new process indeed start with empty file table? If yes, then also set
+fd 0 to /dev/null in this example. Usual userspace programs are not
+prepared to fd 0, 1 and 2 to be closed.
+
+(I am human, not LLM.)
+
+(Don't add me to CC for next version.)
 
 -- 
-Best wishes,
-Vladimir
+Askar Safin
