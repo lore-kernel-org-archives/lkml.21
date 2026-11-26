@@ -1,54 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795658970;
-	b=xuvwD2DaKrfkMUinAKFzQIthudmhaw7wtQRfbrU++y0YeA8OIcQ9exh9ou0UFMIP2rgK
-	 eh7HStsrl152nSmRh8XCWHJnsj73LxQY5C46KDcOwCI2uWPtZ1W6A6MP842lX/4C1LydB
-	 9u00jduat1r9SrctqsFAiY2TJx5isRDnjuxVUQnv6vS2OiH7c1KNlCabmpwOlBC7MTZtq
-	 ajErp6isHAxQsl+3ab8RcDwwjjrN1TyZ6V1tbQr6RD5RrqnGl3iNc51es9qzGDALmlkiy
-	 Fq+HvhuJXZNd0k1yjCh0cnTn2/vb9nL+r1ETLsnBwx0waF56+qtpAcAGHnmQSahxbFA==
+	t=1795659040;
+	b=yxPD6dvs/fFxlPPB2MvbT4DImF8/MC89K0VblbCJPX2qPU19/dpVU+o6k+ISXu372Viy
+	 zGSPpUfyqx7jJC26ArZ8VPH47EhXROOwoFEkJY/tD55zI5SPeOKY7JzAR3yy76/kdtSZj
+	 KsLst9teOD4zbu7pZvn10g7ApWlC2aJrTq0QWDlMAU1RV4COfJfaI5F1UsKtpDBv8VqH2
+	 6YTOfL5Q+/eVB/tFMhdYO7fZ72P+D5QoX9PkMjKgPXbTB/OyTHxlZig86o3aNY3Fh+j+4
+	 pD6Uarxx8/BHamEqg27B9fqOoWSwjYQfz45AHpl1wv/67OEEI8yvWA9CX9VAFUq2fow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795658970;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Cc:Subject:To:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=mmQ9TdwufADSMjphoIOqHkpU1Ow14KEhoo6cBeI4n9s=;
-	b=ucChE9U8kLGUGuxuh3spo+1h7cEQbsoWZ8ojairtb0b9SsYw3lCqFTyLcZvsTydLm34F
-	 V/NCdTnQb30sd8jPGzzlBKVEwCfoZtZ8ehutT/eKAcjuCHmZT9aXrJT7U6YdFaEGgg+86
-	 J0hH4XTA36ZDtBKIc4mNGF+qooeOHS1aankHIwCpVP7YcN4lSDqrMbjBzm86H78jNs4B7
-	 DHSCztG5E43obnxMpJWT6yNmUNp/5TdciJ+3G9lbO+k1FTnbpT7fOxLCUN9RN5aTRghoN
-	 /TU86AiMHUFfKIPuZhNapRDefN2DNhmMsYIEuXUTsOgHwtlDU6kE/rdg9x6ou3H5wwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795659040;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Cc:Subject:To:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=sfOd+NziBzTa22yAYn3r1uv53slyazXEMhCyhMfSPQo=;
+	b=Yh1+LdOpMcnX/VOqFzy3lGwL8VahT69gWKnwhwPRexb61xcAW/cOet3qID5CThCkn4AD
+	 mBaYqM1geikZt6zatYESN3b+H31cULTdPZ9aZ7ZjuYmixMMhnohHqyZwCzUUkkg/5b7gA
+	 nsllC+l7q+MpOgdyKwHyTXsNam/RvOvnKM1RIuesjMEUDAPclTZmWFTKL+fmxLUnn4+8u
+	 T6LvaLS2x1LknDEoiNekmDz5bO4n3FxL5fLGRZivPwaYcSpu8v6VTGGWCVAV2io1h95kq
+	 hCCYqx02H4HB+FJz/u2Sq2JgMfeQHJzgtkuiU1KSREjDNWG5p9gZWv8HwSogiNUWrzg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SLk4fzfy;
-	arc=none smtp.remote-ip=91.218.175.123
-Received: from mta0.migadu.com (out-123.mta0.migadu.com [91.218.175.123])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Uq0Jx+5Y;
+	arc=none smtp.remote-ip=198.175.65.14
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2928606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:09:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2928606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31024606A31E;
+	Thu, 26 Nov 2026 02:10:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31024606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=SLk4fzfy
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=lSkU19aRfOotCaRJSikienAlcbDkSFi5RTcpkW9r2Zw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795658968; v=1; x=1796263768;
- b=SLk4fzfyor6ze6Lu2/F0CvwYwEg3J6jIS8IILtzG1MZr5iYPJCa/RN/PH2Ff+9PMcg2vhlUJ
- rr9WraRUcl6BSWO4Xfb5dAzVjQY96AElgWWgUXnhIWjaHnnNoBvsM+qoJZn8ciSL8LNCxcvdOOi
- anU7Dg8LiMKahrE4Kg18dyks=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 62c2b253538906c5;
-	Thu, 26 Nov 2026 02:09:27 +0000
-X-Mizu-Trace-ID: 62c2b253538906c5
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <a4f6abfa-0415-4b8b-bc5a-fb05c02ff7ac@linux.dev>
-Date: Thu, 26 Nov 2026 10:09:22 +0800
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Uq0Jx+5Y
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795659039; x=1827195039;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=3VD5OE3lHqN+lJeIaePByLYe9hp07+ylRNPf3AKi6T0=;
+  b=Uq0Jx+5YEslx0uxdxpjZHn3QQbLDLtyv6VwHtc2Iq//gZYe1CYBsOgCs
+   yNVgNHdroU+kQ/LAClC+ZUsYN6TioUdZ8XPJX63IiETLt07+lLLp6Ditl
+   JG42Y0DDHHrwtseKLpoP9UM+N6XxytUaGjtIDYjkqa27IQGvudm7SZpnC
+   S/TIBrJYiVM/pJdskAMqm4hw8ciF8C8yCRgCKTkp+lyJEl9x5i7Cx0MaZ
+   OFMVfvcJcJG29Cd4zzJp13moHUSsLm5zONwjLTkoy+rioiy9DiI7jyu/w
+   kjj2FKJpcPwtsNsDHh6l53VC0qsePHcyeX2JEOrNsEwAYXV1zOmrliGeS
+   g==;
+X-CSE-ConnectionGUID: QDwPl2/yRRODhhxLsVsxAg==
+X-CSE-MsgGUID: e9Lfc2K3Rxq1vAbYn6hdpQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4464109"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4464109"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 18:10:38 -0800
+X-CSE-ConnectionGUID: tZeL6rgGT4mSB/WLC+H1sQ==
+X-CSE-MsgGUID: PHp++zb5QCeZIucqP1r//Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="13814504"
+Received: from unknown (HELO [10.238.1.144]) ([10.238.1.144])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 18:10:36 -0800
+Message-ID: <c1e39b60-c748-488b-ad2b-f94bf71e2441@linux.intel.com>
+Date: Thu, 26 Nov 2026 10:10:32 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,109 +73,341 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: cui.tao@linux.dev, cuitao@kylinos.cn, linux-block@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
-Subject: Re: [PATCH v7] loop: defer the queue limits clear to a workqueue
-To: Bart Van Assche <bvanassche@acm.org>, axboe@kernel.dk, hch@lst.de,
- Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>
-References: <20261124031238.555291-1-cui.tao@linux.dev>
- <b48806fb-22a5-40da-a682-22e010c8316d@linux.dev>
- <f8d3056d-2950-428c-b5f3-c41b5fa10eb2@acm.org>
-From: Tao Cui <cui.tao@linux.dev>
-In-Reply-To: <f8d3056d-2950-428c-b5f3-c41b5fa10eb2@acm.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Cc: baolu.lu@linux.intel.com, Jason Gunthorpe <jgg@ziepe.ca>,
+ Kiryl Shutsemau <kas@kernel.org>,
+ "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+ "yilun.xu@linux.intel.com" <yilun.xu@linux.intel.com>,
+ "Li, Xiaoyao" <xiaoyao.li@intel.com>, "Gao, Chao" <chao.gao@intel.com>,
+ Binbin Wu <binbin.wu@linux.intel.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 5/9] iommu/vt-d: Block GCMD and ECMD while acquired by
+ the TDX module
+To: "Tian, Kevin" <kevin.tian@intel.com>,
+ "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+ "x86@kernel.org" <x86@kernel.org>,
+ "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
+ "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+References: <20261112043054.2664857-1-baolu.lu@linux.intel.com>
+ <20261112043054.2664857-6-baolu.lu@linux.intel.com>
+ <CO1PR11MB4835F23CDAD5127487B5978B8C432@CO1PR11MB4835.namprd11.prod.outlook.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <CO1PR11MB4835F23CDAD5127487B5978B8C432@CO1PR11MB4835.namprd11.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hello, Bart,
-
-在 2026/11/25 00:56, Bart Van Assche 写道:
-> On 11/24/26 12:10 AM, Tao Cui wrote:
->> For v8, my plan is to stop deciding whether to quiet a request at
->> queue_rq() time and instead quiet repeated failures at the point of
->> failure. The verdicts remain recorded for the lifetime of the backing
->> file and are cleared only on rebind or unbind. loop_clear_limits()
->> reports whether a verdict is new, and repeated failures mark only
->> their own request quiet. That guarantees the first failure for each
->> mode is reported, regardless of how dispatch and queue freezing
->> interleave.
+On 11/25/2026 11:49 AM, Tian, Kevin wrote:
+>> From: Lu Baolu <baolu.lu@linux.intel.com>
+>> Sent: Thursday, November 12, 2026 12:31 PM
 >>
->> [ ... ]
+>> Once tdx-host acquires an IOMMU for TDH.IOMMU.SETUP, the TDX module
+>> owns its Secure TDX Mode state. The VT-d driver must not change the
+>> global state of the IOMMU behind the TDX module's back, nor issue
+> 
+> just part of the global state, right?
+
+Yes, only the state controlled through GCMD and ECMD interfaces. Once
+the IOMMU is in TDX mode, the hardware ignores host writes to GCMD and
+ECMD, so the driver would wait for a status update that never comes.
+
+> 
+>> enhanced commands, until the IOMMU is released after TDH.IOMMU.CLEAR.
 >>
->> Does this approach look reasonable to you? If so, I'll send the
->> already tested patch as v8.
+>> Use the tdxc_acquired flag of struct intel_iommu, which is protected
+>> by register_lock, to block both. dmar_tdxc_acquire() now fails with
 > 
-> That approach sounds reasonable to me. If the verdicts are kept for the
-> lifetime of the backing file, I think the following simplifications are
-> possible:
-> - The clear_limits_pending member variable is no longer needed. The
->   work function can read the mask with the unsupported modes without
->   resetting it.
-> - lo_fallocate() can return -EOPNOTSUPP without calling
->   file->f_op->fallocate() if the mode is already known to be
->   unsupported.
+> 'both' means what?
+
+GCMD and ECMD interfaces.
+
 > 
-Thanks.  v8 follows with all of this addressed.
-
-Both are in: the work item reads the mask without resetting it, and
-lo_fallocate() skips the fallocate probe when the mode is already
-known to be unsupported.
-
-> Tracking the verdicts per mode also fixes the following issue in v7:
-> clear_limits_pending is not per mode, so a failed discard suppresses
-> the error message for the first write-zeroes failure.
+>> -EBUSY if an enhanced command is still in progress when it sets the
+>> flag. All GCMD writers hold register_lock and wait for completion before
+>> dropping it, so setting the flag under the same lock guarantees no GCMD
+>> operation is in flight once acquire() returns. While the flag is set,
+>> ecmd_submit_sync() fails with -EBUSY rather than waiting, as it may be
+>> called from atomic context.
 > 
-Right.  The verdicts are per mode and stay recorded for the lifetime
-of the backing file, so a failed discard no longer suppresses the
-first write-zeroes report.
-> A few more comments about v7 that also apply to v8:
-> - loop_clear_limits() calls schedule_work() after clear_limits_lock has
->   been unlocked. Can a request that passed the lo->lo_backing_file
->   check queue the work item after cancel_work_sync() has been called
->   by __loop_clr_fd() or loop_remove()? Since lo_free_disk() no longer
->   cancels the work item, I think that would result in a use-after-free.
->   How about calling schedule_work() while holding clear_limits_lock and
->   resetting the state before calling cancel_work_sync() in
->   __loop_clr_fd()?
-v8 does exactly that: schedule_work() now happens while
-clear_limits_lock is held, and __loop_clr_fd() resets the verdicts
-before calling cancel_work_sync().  A verdict that passes the
-backing-file check queues the work item before the lock is released,
-so the reset is ordered after any pending schedule and
-cancel_work_sync() cannot miss it.  loop_remove() needs no
-reordering: after __loop_clr_fd() has reset the verdicts no further
-schedule can happen, so its cancel stays as the backstop it already
-was.
+> this needs a re-write for why GCMD/ECMD are blocked differently.
 
-> - The code that resets clear_limits_mode occurs three times. Please
->   introduce a helper function. Is the reset in
->   loop_assign_backing_file() needed since __loop_clr_fd() already
->   resets the state and since loop_clear_limits() ignores failures for
->   a backing file that is no longer current?
-I dropped the reset in loop_assign_backing_file() instead of moving
-it: since d4fabede1da0 ("loop: remove support for swapping loop fds")
-its only caller is loop_configure(), which requires an unbound device,
-so the verdicts are always zero there.  That leaves __loop_clr_fd()
-as the only reset site, so there is no helper to add anymore.
+This is stale. They are actually blocked the same way.
 
-> - The work function freezes the queue and commits the queue limits even
->   if no mode has been recorded. Please return early in that case.
-> - The changelog for v7 is missing. Please include a "Changes since v7"
->   and a "Changes since v6" section in v8.
+ecmd_submit_sync() also holds register_lock until the command completes,
+and IOMMU_WAIT_OP() panics rather than returning on timeout. So no
+enhanced command can be in progress once acquire() takes the lock.
+
+The only difference is whether a writer can be reached. GCMD is only
+accessed at init, hotplug, suspend and shutdown, so they get
+WARN_ON_ONCE(). ECMD can be reached at runtime through perf, which
+should be handled specially (see below).
+
+>>
+>> Write buffer flushing is the only GCMD write reachable on the runtime
+>> map path. Rather than adding a check there, refuse to acquire IOMMUs
+>> that require it (rwbf_quirk or CAP.RWBF). Move rwbf_quirk and
+>> rwbf_required() to iommu.h so dmar.c can use them.
 > 
-Both done: the work item returns early when the verdicts are already
-reset, and the changelog has both "Changes since v6" and "Changes
-since v7" sections.
+> good to mention that this quirk is on early old platforms.
 
-Re-tested after these changes: a concurrency sweep at 2, 4, 8, 16 and
-32 threads logs exactly one error per run, whereas v7 starts reporting
-duplicate errors at eight threads.  Sixty rounds of mkfs-kill/unbind
-stress also completed without warnings.
+Yes. CAP.RWBF is only set on early VT-d hardware. It doesn't apply to a
+scalable-mode IOMMU hardware that supports TDX Connect. I am not sure
+about a virtualized VT-d. So a WARN_ON check is still needed.
+
+> 
+>>
+>> The remaining GCMD writers (root table, translation enable/disable,
+>> queued invalidation and interrupt remapping) are only used at init,
+>> hotplug and suspend/resume. Acquired units are never hot-removed,
+>> hibernation is unavailable with TDX, and the following patch refuses
+>> system suspend while an IOMMU is acquired. Guard them with
+>> WARN_ON_ONCE() ahead of their companion register writes (RTADDR,
+>> IQT/IQA, IRTA).
+>>
+>> intel_iommu_shutdown() is the exception. It is only called from
+>> native_machine_shutdown() via machine_shutdown(). On restart, halt,
+>> power-off and kexec, syscore_shutdown() runs first and tdx_shutdown()
+>> issues TDH.SYS.DISABLE, which takes every IOMMU out of Secure TDX Mode.
+>> The crash kexec path doesn't call it. Clear tdxc_acquired there so
+>> translation is still turned off.
+>>
+>> Signed-off-by: Lu Baolu <baolu.lu@linux.intel.com>
+>> ---
+>>   drivers/iommu/intel/iommu.h         |  8 ++++-
+>>   drivers/iommu/intel/dmar.c          | 50 ++++++++++++++++++++++++-----
+>>   drivers/iommu/intel/iommu.c         | 33 +++++++++++++++++--
+>>   drivers/iommu/intel/irq_remapping.c | 10 ++++++
+>>   4 files changed, 89 insertions(+), 12 deletions(-)
+>>
+>> diff --git a/drivers/iommu/intel/iommu.h b/drivers/iommu/intel/iommu.h
+>> index 18fef91753a0..26135248675d 100644
+>> --- a/drivers/iommu/intel/iommu.h
+>> +++ b/drivers/iommu/intel/iommu.h
+>> @@ -690,7 +690,10 @@ struct intel_iommu {
+>>   	u64		ecmdcap[DMA_MAX_NUM_ECMDCAP];
+>>   	u32		gcmd; /* Holds TE, EAFL. Don't need SRTP, SFL, WBF
+>> */
+>>   	raw_spinlock_t	register_lock; /* protect register handling */
+>> -	/* Acquired for the TDX module. Protected by register_lock. */
+>> +	/*
+>> +	 * GCMD and ECMD writes are rejected while the TDX module owns
+>> this
+>> +	 * IOMMU. Protected by register_lock.
+>> +	 */
+>>   	bool		tdxc_acquired;
+> 
+> No need to update this comment. It's still for acquiring the tdx mode.
+> 
+> explanation of restrictions in the tdx mode belongs to other places.
+
+Agreed.
+
+>   
+>> -static void dmar_tdxc_set_acquired(struct intel_iommu *iommu, bool
+>> acquired)
+>> +static int dmar_tdxc_block_regs(struct intel_iommu *iommu)
+> 
+> You could keep the original name with comment internally to explain
+> the need of blocking certain registers.
+
+Agreed.
+
+> 
+>>   {
+>> -	guard(raw_spinlock_irqsave)(&iommu->register_lock);
+>> -	iommu->tdxc_acquired = acquired;
+>> +	unsigned long flags;
+>> +	int ret = 0;
+>> +
+>> +	raw_spin_lock_irqsave(&iommu->register_lock, flags);
+>> +	if (cap_ecmds(iommu->cap) &&
+>> +	    (readq(iommu->reg + DMAR_ECRSP_REG) &
+>> DMA_ECMD_ECRSP_IP))
+>> +		ret = -EBUSY;
+> 
+> here a comment is appreciated, for both why a check on ecmd is required
+> but not for gcmd.
+
+Will fix this.
+
+> 
+>> @@ -2669,11 +2695,19 @@ int dmar_tdxc_acquire(struct pci_dev *pdev,
+>>   	if (!(iommu->gcmd & DMA_GCMD_TE) || !iommu->qi
+>> || !sm_supported(iommu))
+>>   		return -EINVAL;
+>>
+>> +	/* Write buffer flushing needs GCMD, which is blocked once acquired.
+>> */
+>> +	if (rwbf_required(iommu))
+>> +		return -EOPNOTSUPP;
+>> +
+> 
+> let's be clear here that WBF is incompatible with tdx mode. It's an old
+> quirk hence simply rejecting it if required.
+
+Yes, sure.
+
+> 
+>> @@ -4336,6 +4353,16 @@ int ecmd_submit_sync(struct intel_iommu
+>> *iommu, u8 ecmd, u64 oa, u64 ob)
+>>
+>>   	raw_spin_lock_irqsave(&iommu->register_lock, flags);
+>>
+>> +	/*
+>> +	 * The TDX module owns this IOMMU. This may be called from
+> 
+> the TDX module doesn't own the entire IOMMU
+
+Will fix this.
+
+> 
+>> atomic
+>> +	 * context (e.g. perf pmu::start/stop), so don't sleep; just reject
+>> +	 * the request.
+>> +	 */
+>> +	if (iommu->tdxc_acquired) {
+>> +		ret = -EBUSY;
+>> +		goto err;
+>> +	}
+>> +
+> 
+> iommu_pmu_stop() doesn't check the return value of this. It's a void
+> function. So returning error here still breaks the perf feature.
+> 
+> we may need a way to disable iommu perf completely in the acquire
+> function.
+
+Good catch. Returning an error there leaves events that look like
+they're running but never count, or that can't be stopped.
+
+I'll make perf events and TDX mode mutually exclusive instead:
+
+- The iommu pmu counts its live events under register_lock.
+- event_init() fails with -EBUSY while the IOMMU is acquired.
+- acquire() fails with -EBUSY while any event exists.
+
+Something like the following(compiled but not tested). Does this work
+for you?
+
+diff --git a/drivers/iommu/intel/iommu.h b/drivers/iommu/intel/iommu.h
+index 1bbfb1b6f905..0945e63c901a 100644
+--- a/drivers/iommu/intel/iommu.h
++++ b/drivers/iommu/intel/iommu.h
+@@ -674,6 +674,7 @@ struct iommu_pmu {
+  	struct pmu		pmu;
+  	DECLARE_BITMAP(used_mask, IOMMU_PMU_IDX_MAX);
+  	struct perf_event	*event_list[IOMMU_PMU_IDX_MAX];
++	unsigned int		nr_events;	/* Protected by iommu->register_lock */
+  	unsigned char		irq_name[16];
+  };
+
+diff --git a/drivers/iommu/intel/dmar.c b/drivers/iommu/intel/dmar.c
+index f0ac8c433198..1ae27198b999 100644
+--- a/drivers/iommu/intel/dmar.c
++++ b/drivers/iommu/intel/dmar.c
+@@ -2588,10 +2588,15 @@ static void dmar_tdxc_unreserve_did(struct 
+intel_iommu *iommu)
+  }
+
+  /* GCMD and ECMD writers complete under register_lock, so none is in 
+flight. */
+-static void dmar_tdxc_set_acquired(struct intel_iommu *iommu, bool 
+acquired)
++static int dmar_tdxc_set_acquired(struct intel_iommu *iommu, bool acquired)
+  {
+  	guard(raw_spinlock_irqsave)(&iommu->register_lock);
++	/* Perf issues enhanced commands at runtime and can't handle failure. */
++	if (acquired && iommu->pmu && iommu->pmu->nr_events)
++		return -EBUSY;
++
+  	iommu->tdx_acquired = acquired;
++	return 0;
+  }
+
+  static struct dmar_drhd_unit *dmar_tdxc_find_drhd(struct pci_dev *pdev)
+@@ -2677,9 +2682,11 @@ int dmar_tdx_acquire(struct pci_dev *pdev)
+  	if (ret)
+  		return ret;
+
+-	dmar_tdxc_set_acquired(iommu, true);
++	ret = dmar_tdxc_set_acquired(iommu, true);
++	if (ret)
++		dmar_tdxc_unreserve_did(iommu);
+
+-	return 0;
++	return ret;
+  }
+  EXPORT_SYMBOL_FOR_MODULES(dmar_tdx_acquire, "tdx-host");
+
+diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
+index 6dbb421d8099..c810b4776fd7 100644
+--- a/drivers/iommu/intel/iommu.c
++++ b/drivers/iommu/intel/iommu.c
+@@ -4358,12 +4358,8 @@ int ecmd_submit_sync(struct intel_iommu *iommu, 
+u8 ecmd, u64 oa, u64 ob)
+
+  	raw_spin_lock_irqsave(&iommu->register_lock, flags);
+
+-	/*
+-	 * The TDX module owns this IOMMU. This may be called from atomic
+-	 * context (e.g. perf pmu::start/stop), so don't sleep; just reject
+-	 * the request.
+-	 */
+-	if (iommu->tdx_acquired) {
++	/* Perf, the only caller, is kept off IOMMUs acquired for TDX mode. */
++	if (WARN_ON_ONCE(iommu->tdx_acquired)) {
+  		ret = -EBUSY;
+  		goto err;
+  	}
+diff --git a/drivers/iommu/intel/perfmon.c b/drivers/iommu/intel/perfmon.c
+index e40ed253eaa9..e4df1aee4fcd 100644
+--- a/drivers/iommu/intel/perfmon.c
++++ b/drivers/iommu/intel/perfmon.c
+@@ -276,9 +276,19 @@ static int iommu_pmu_validate_group(struct 
+perf_event *event)
+  	return 0;
+  }
+
++static void iommu_pmu_event_destroy(struct perf_event *event)
++{
++	struct iommu_pmu *iommu_pmu = iommu_event_to_pmu(event);
++
++	guard(raw_spinlock_irqsave)(&iommu_pmu->iommu->register_lock);
++	iommu_pmu->nr_events--;
++}
++
+  static int iommu_pmu_event_init(struct perf_event *event)
+  {
+  	struct hw_perf_event *hwc = &event->hw;
++	struct iommu_pmu *iommu_pmu;
++	int ret;
+
+  	if (event->attr.type != event->pmu->type)
+  		return -ENOENT;
+@@ -295,7 +305,20 @@ static int iommu_pmu_event_init(struct perf_event 
+*event)
+
+  	hwc->config = iommu_event_config(event);
+
+-	return iommu_pmu_validate_group(event);
++	ret = iommu_pmu_validate_group(event);
++	if (ret)
++		return ret;
++
++	iommu_pmu = iommu_event_to_pmu(event);
++	guard(raw_spinlock_irqsave)(&iommu_pmu->iommu->register_lock);
++	/* The enhanced commands that perf relies on are blocked in TDX mode. */
++	if (iommu_pmu->iommu->tdx_acquired)
++		return -EBUSY;
++
++	iommu_pmu->nr_events++;
++	event->destroy = iommu_pmu_event_destroy;
++
++	return 0;
+  }
+
+  static void iommu_pmu_event_update(struct perf_event *event)
+-- 
+2.53.0
 
 Thanks,
-Tao.
-
-> Thanks,
-> 
-> Bart.
-
+baolu
