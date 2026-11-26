@@ -1,62 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.71.155.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795698392;
-	b=jW9n44csnR1v0eKWgkMlaL2lsHtbCauVDJjyRfj83VTPFDJUOp26JJOEJwVeSmA8To03
-	 5iHBh0/b9SQNqk494dfaFsA+I2zo4pAYZLL9L3mTQeZA4tIYKG8bn9GGmp+4JdfABJA45
-	 u6Zb8k2XKhUU9Ymwv/7UTF6uu7nVRDWJY3uTAy8ghaewvoGH1UCw01WDJZ44VmvI2mZZc
-	 M8U83MZAppQCPDtLj742mL3/ZSzTTvEjOFfYeEhYlu8ea1ThkdoUKfzOy5LAl857TPAgl
-	 xulhN0WvxwSTd9R7qxxHlDiKvRgRstnfxmR4swpYAP7AxbtXhHdvQFR+V4apsUZ//ow==
+	t=1795698438;
+	b=y7+VqFG3q7jGhVru7eh3qnRU+FrAk1NDDLjx6TvIFQbqbSF19aV7dtYBD+C4XP/FQQ/0
+	 H6sE9SJfPWrS6IlHBH3gYp4khwFdAQeAdHnVkuHfdDKjOrm43dLLsr/i3BM5sc4n/thV8
+	 avpnLvWKzjJHFjq679Gvr7/lgbHE6wV5vwnhJEgb8bUU9HxxBLZbVk91DubVLvhe74uYL
+	 /TlHvHhvhkPfH4lqKCMyepK1yBqVVxT9Fv+vwPG2bVkPIrcwUBbHnFVQkBE+9PdCbib1e
+	 IRlTlOt923rHiYAcLQFHNap2zTNL4bCW2c1B8fOUqU5CKmucZM7SGBTBptqUDAEyIHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795698392;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=mKr1keYM02EumLxC+PGjz0vKlqa4GJrbdZwQ+sNCyN8=;
-	b=UF4GATBmHphjvh9lLYoK6a8nFvM/sN5EBONO1HSd3c7l8Ot2JLTR1LyEpz8j6XCtRuad
-	 JommaNHUZpLhii2FMXNKreZDRB5L1WDZsbwuFcMkwmk9VOFRDwTnZnFSaFXbs/L5QBlbZ
-	 YhPxxExkTQPCZNTIeYNvFuP1YZEmmlIW1xVgTigpyMrTnw6M2vmLlkg1VvUhPGm3Qv5Oj
-	 194wVoyXzNtPRU+7llk1GC1OT3tT587py+cESwPo2HU7xo1kvYbfMkXysdV2yC/tOLtpK
-	 gnclUKTs3hGGj1d0w5TXbxTjLcf2np2nkL2o10547bqzDE4zXFdzP/hFXRq3LZWAE4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795698438;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=k6MLydfrU5dN1iQDZDbtilSOMTOBZOStE4iUqdVk/Q4=;
+	b=TiM/6luqe96zoPb+dNzVZKIl7mMiXcQ18t8CSJq/c7xCWA4CvkygDbhbX8/DdFK1poQs
+	 qE6ZZ/M78twNL5CXkQYV9dP02Thk+ahl1Z/r6h45hLEGxdd6TQCyhKm+xgRHFVzQP3GkB
+	 ZXn8zn3jK7oSu6EK0UN7IJ8qQS/AEsj6YAmDUaJ6aWAY6rzL6a0F1LEuw0OLpYsiz/4Zv
+	 sjVWgcYdgM00B225L4lR4KIHnhyfYJ8QdnyDAq6v1KtL6k1aoA+K4rn/BvX3Nm1eWm42b
+	 6zsQKUvKOJmtiGNCX4H1lNtA51LDOb4Az7+jNr+fVG6sV2gyjIOjg6EwbaJ7Ri/SaRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.sdu.edu.cn;
-	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=VGVreo6J;
-	arc=none smtp.remote-ip=101.71.155.101
-Received: from mail-m155101.qiye.163.com (mail-m155101.qiye.163.com [101.71.155.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jkwy0Pw6;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8897B606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:06:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8897B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD95E606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:07:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=VGVreo6J
-Received: from user.localdomain (unknown [223.80.110.101])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 561f6fac9;
-	Thu, 26 Nov 2026 21:06:23 +0800 (GMT+08:00)
-From: Tian Xuechen <202300460064@mail.sdu.edu.cn>
-To: chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de,
-	chunfeng.yun@mediatek.com,
-	vkoul@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	jie.qiu@mediatek.com,
-	junzhi.zhao@mediatek.com
-Cc: neil.armstrong@linaro.org,
-	mani@kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	liguangshuo@mail.sdu.edu.cn
-Subject: [PATCH v2] phy: mediatek: hdmi: Fix potential stale PLL provider on unbind
-Date: Thu, 26 Nov 2026 21:06:22 +0800
-Message-Id: <20261126130622.4073620-1-202300460064@mail.sdu.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jkwy0Pw6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 370C21F000D0
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:07:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795698438;
+	bh=k6MLydfrU5dN1iQDZDbtilSOMTOBZOStE4iUqdVk/Q4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=jkwy0Pw6kheEy3Bf54lDMZfIwZbTP0UhNeq6TrUDmAwiib+pNkpMEpSZMLBkMFpk0
+	 9QxxnryKn7D4iRJQunPjHgv0MQcyA4WveEXdsAh4Om4HwcNHnppuzXiYMAVG/nBxfM
+	 N451kxiOk4jDmJMI4fXYIqZP8XMVWFZ9R1NFLO8BHJhZYp9ryFtXWPMXRf3Qk/Nlt1
+	 7uRpvWq3GVmLQcMoyat6UoUTOwsrACZdsRoz89k8wxpNUi6OMcStndOvPUP+whZgSK
+	 2ls2p8yhJSgYsHw2e5RZZYqbZu1YhAaobwvMmyRZwQJ98xWNZqwM9j82olirp2/kv4
+	 YR8u2DQqYHCeA==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c08539c827so5513235e87.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:07:18 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHThpjZYIIxX7tNHiiTG9j9Xf/bdAJIwUCQDim3ylAaGanqh090yMoVocxokUgYL7dEHJ3DFmOBuijXphY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/v7bOfltOEBOzIxZwS6yxnZoHlORbq6+lP5hQa3OAtxrMgl6Rl
+	9kzylIuPLxCypXDU6g9QeJSC7kwohx6t9WKy7rVhVt4pIHMg2l7OGHVQSLLb4jnod//u81YaQ3Y
+	8Hh92Nv/00Rd8EKKWYhe7mO2IXf1rG9Q=
+X-Received: by 2002:a05:6512:3b14:b0:5c0:465:3fb5 with SMTP id
+ 2adb3069b0e04-5c1bc806862mr6763468e87.10.1795698436999; Thu, 26 Nov 2026
+ 05:07:16 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,51 +59,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa217f6da9903a2kunmd1d1900f35cb30
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaTh9CVhhCH0MfQh0ZSk0ZHlYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJSUhVQ0tVSkpLVUpLSllXWRYaDxIVHRRZQVlLVUtVS1VLWQ
-	Y+
-DKIM-Signature: a=rsa-sha256;
-	b=VGVreo6JblqymZugb0+4qCtBedflwSKtMKFPEPUwtLOPRBf1bqaoOTw/IUQ1UtMTRhInHiPaD0h3NIHRYV0OacgYxdq4PaqbdqHKy1tM9bjdqoaMMzdAhehUUh30H1jXGEnP480VMFA2EK68jAkNk9VeOxAYhgiOxK/Bqk0BdvQ=; s=default; c=relaxed/relaxed; d=mail.sdu.edu.cn; v=1;
-	bh=mKr1keYM02EumLxC+PGjz0vKlqa4GJrbdZwQ+sNCyN8=;
-	h=date:mime-version:subject:message-id:from;
+References: <20261116031043.502-1-laixiangwu@cmss.chinamobile.com>
+In-Reply-To: <20261116031043.502-1-laixiangwu@cmss.chinamobile.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 26 Nov 2026 14:07:04 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmJt8+Yz3hWPwA7wo63crAj6E+qD2b83h9pPLSV4ktu_A@mail.gmail.com>
+X-Gm-Features: Aa3M54oOpmRcJWcEY0wb-eeul9G7QcTYb_X8Hc7Y0lyAIc5DHSEcaFmVlL8EIqk
+Message-ID: <CAD++jLmJt8+Yz3hWPwA7wo63crAj6E+qD2b83h9pPLSV4ktu_A@mail.gmail.com>
+Subject: Re: [PATCH v3] pinctrl: stm32: Fix reset control leak in
+ stm32_pctl_probe() error paths
+To: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Cc: antonio.borneo@foss.st.com, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, linux-gpio@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The HDMI PHY registers its PLL with devres but leaves the OF clock
-provider registered on unbind. Publish the PLL hardware through a
-managed provider so it is withdrawn before the PLL is unregistered.
+On Mon, Nov 16, 2026 at 4:10=E2=80=AFAM Xiangwu Lai
+<laixiangwu@cmss.chinamobile.com> wrote:
 
-This issue was found by our static analysis tool under development.
+> stm32_pctl_probe() acquires an exclusive reset control for every GPIO
+> bank with of_reset_control_get_exclusive(), but none of the error
+> paths release them again: the bank loop returns directly on
+> -EPROBE_DEFER and on a failed clock lookup, and the
+> clk_bulk_prepare_enable() failure and the err_register path also
+> leave the already acquired reset controls behind.
+>
+> On success the reset controls are kept for the lifetime of the device
+> and are never released either (the driver has no .remove), but that
+> is harmless.  On a failed probe, and in particular when the probe is
+> retried after -EPROBE_DEFER, every attempt leaks another set of
+> reset control references.
+>
+> Release the acquired reset controls on all error paths.
+>
+> Also release the clocks of the already processed banks on the
+> -EPROBE_DEFER path, which was missed by the earlier clock leak fix
+> dfd8259507c5 ("pinctrl: stm32: Fix clock reference leak in
+> stm32_pctl_probe()").
+>
+> Fixes: 2254e77665d5 ("pinctrl: stm32: defer probe if reset resource is no=
+t yet ready")
+> Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
 
-Fixes: 8f83f26891e1 ("drm/mediatek: Add HDMI support")
-Signed-off-by: Tian Xuechen <202300460064@mail.sdu.edu.cn>
----
-v2:
-  - Update the patch author attribution to Tian Xuechen.
-  - No code changes.
+Patch applied for fixes.
 
- drivers/phy/mediatek/phy-mtk-hdmi.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/phy/mediatek/phy-mtk-hdmi.c b/drivers/phy/mediatek/phy-mtk-hdmi.c
-index d063fc787c28..06784393b0ef 100644
---- a/drivers/phy/mediatek/phy-mtk-hdmi.c
-+++ b/drivers/phy/mediatek/phy-mtk-hdmi.c
-@@ -178,8 +178,8 @@ static int mtk_hdmi_phy_probe(struct platform_device *pdev)
- 			return ret;
- 	}
- 
--	return of_clk_add_provider(dev->of_node, of_clk_src_simple_get,
--				   hdmi_phy->pll);
-+	return devm_of_clk_add_hw_provider(dev, of_clk_hw_simple_get,
-+					   &hdmi_phy->pll_hw);
- }
- 
- static const struct of_device_id mtk_hdmi_phy_match[] = {
-
-base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
--- 
-2.43.0
-
+Yours,
+Linus Walleij
