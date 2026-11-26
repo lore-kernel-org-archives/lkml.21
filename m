@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795726701;
-	b=PF1Oc789AqoQCNm69STwlHUF5Iq32r5NDKSSBmldsoI6U629W5+4WiwYWJK3aamiKsqR
-	 UyXI46hA2U7yfOFbR9u8ixv60fCJYfd8wnt1N+Rss+abAoZg2SgSNuWROd8rxO12pciQC
-	 vQtHR3zLY7tswzMcklSkF8OJZhwc2N1uXxRIuu250OtHgkbp1yYsXOM4msRfLqa0dXbGj
-	 gWCPZH8Zwt1jQuZRh5gsXbeEusCv6TIYYtyoUp2G1+zOgSbkOnbGceygxrJx9VArAuqur
-	 L52sp7J9vQfz+H7nhRn10vNAvtprwbsAnzBFWoML1VjrNiZIxHLek15mZemQJUIv98w==
+	t=1795726702;
+	b=XNwJ0QHIYcGP8w2FVfH+vKZrcjm3zw7KGDXsCMCS1CRAtxcaRnnDmDfvp/TuT7aB/TmB
+	 mjQgpIyiiTOeAnJIbRuzTRSEE2LoS05KrIiYegpcddVpnb/4j4xSOl/0iRBtIygUMYmv2
+	 n5VnCwWnvP3zV7PqCdkumrEEx3ZvsUzNpLYNucRekFJmbWWdOfBxmwM4/gNKooecpr7TQ
+	 D+DrfguL9yJ3haCE7m8dyB3Lhbz0doRaSCx/APtxTmrzPIP4VRkrJrgf3eLjON2TgS5cM
+	 jk+kw+bK1JFz1s9Rs3oZT7Gc+OqGKrjatohu7/4ICjY7m6qpzAdTbSaXoRI+X/+8Zqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795726701;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795726702;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=64p4jkLLf3hJWd/mZVm38nQSWNZQPlgWDMk1O/6JppA=;
-	b=fRg088tCHZasPMBBnFSZjWLDfYGJHwJkxiIbqVQ88OM1xEKfZuEcuRkLCyyo/7x0pNdy
-	 KZna7HGB+1Uni4QX4LBzwhITpFH3oOK7Mkfe+IQF/CFSQRCBZlTVvd0P6LlRUkvFyuHbj
-	 IsCsHTZbMS0uVuSr4PcYnzNVD7k+Laa8TAXaKmtN012hXux8C9vnR+V//EFaPcbj7Ux3f
-	 MeDl4XFVGKV6eRqwjNDONuc0W/w4/9OVv6nmwSx4p46ey61wI5R5MezIyWlQj8AskTJt5
-	 4x05NSHGGmV+PU9sZNiDuw7yPND+F0kj5HiQ8czA7ufT2Inlpb1GBzXrYBL4UR/D8uA==
+	bh=35h4zBjbR7gM1F3Ki/dOQbia67MOOWg2rYj7xt/yKT8=;
+	b=UVbF05An4lYyzvqG93l4h+tQluj5En0P0gkdMnEVVxPzmnq3hVRa0K0+vvI5tDJO6VuX
+	 u86xGOmVqt/CbjjThByAcSbhVG4zaXn2o2fMEQy/s1grVSjrMRNVIvU9lMnP2mhP45nnp
+	 8YpUIBo9m2i7RSE9/761oiIHON7xZmgDxL4Zd6DbWHX/OfIdGWBUKDfL6A3zaw6Kzoz4I
+	 qnsFm7s1Mp4uW1DzWi+5P6+1G8uyvr7/uM7epCMxLVsENiKtZHK0jTRthKpT6tphSXiZR
+	 whUqXNDYftX8MrmxrJxfF9KW+TQd4LuUCmUpBehO/NxE3oP1ZAgqRgTJ47HFBb6kJ6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kwTd3Lj3;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hvBpjnLi;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97AFB606A687
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:58:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97AFB606A687
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 991FB606A699
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:58:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 991FB606A699
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kwTd3Lj3
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so70237605e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:58:21 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hvBpjnLi
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so79480045e9.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:58:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795726700; x=1796331500; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795726701; x=1796331501; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=64p4jkLLf3hJWd/mZVm38nQSWNZQPlgWDMk1O/6JppA=;
-        b=kwTd3Lj3h7gWSW4hlXU7Y2Hp7NK6wwUFZYWzo69CLtKgp7bKq49pvznF1x1J6oforz
-         XpSSx3rnD8ZJQv9ZLR1VR+o1l/woT4ePSmOxQfX8szP1xqALfPIu1f4q3yHVUIt4uuVj
-         D6prSF1or6k2cZJnoVZFpsUgYFpC8ZfltX9MOTwzgbK2+UwuBE4xTL6eRy/hn3cF/KwK
-         Q+segsBL2WT+V9Ix4WcDdLwge9WKoL/8jqr07iHJsSXiAIJrB86R8yxDCCkKByPJrzfj
-         mhhKYRfrOZWsFnvvaEWOog1B2GXqjLL0aKHJDoZXoB9cJanXc4Q7EB6tM3MyXASpkqBS
-         vNQA==
+        bh=35h4zBjbR7gM1F3Ki/dOQbia67MOOWg2rYj7xt/yKT8=;
+        b=hvBpjnLiK85NBLUdP8Zb9JJdBn71rCq42CPRamnf5Zjb1T5AY2ve34vAoZippRwFPJ
+         YbWLRUove/3IUPW5dxc/F+sQpOyTfD7Kx7XBjTqsyZ9tGw1hsah1BbGmvVEL+DwHTqD+
+         dUK68uMWZrA7+WhJpUkX3Ly4d/xPDZCATCQioL9ptdYCxhCg3FAUDmNdzixMQUTN0sSP
+         Wy+TZXle4UGWM31NKwl1k/RKElPrpO96tbkF/oE1+62pK3AB0TDId9tmrCBrTuFFjxyb
+         OLlqc/QGyhR0c9I9vP9CbPQ8jOQESwMfqeIZFgvhtztvfu0zCywccUZ3+1g+LdDK7vIc
+         GxnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795726700; x=1796331500;
+        d=1e100.net; s=20260707; t=1795726701; x=1796331501;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=64p4jkLLf3hJWd/mZVm38nQSWNZQPlgWDMk1O/6JppA=;
-        b=mYh0UH36iOrqay2Urr1UY65dYD4IcVHNQDs+uw0q/NGvA3yzwOcOi0bLqI1p603UWq
-         ScN17If54QlM+tN3slqAUUq0JoM70j0XoJpe9WgkXTr7l+vpUU6vkujB/V1kaq7UyRNM
-         tyFsgoo4vOdAwIT7jcvnjPXuj+PDgx3VfVfRvqGwxcE8735ujirnQKk6iwmpDMTMlvY3
-         lVpFJPaLu7+/OIDJlaJVBHqcdYUPE1OhD/ICyNjoYjifQm64e9YCPbBXACCBaLp1ZyHy
-         FLESwk+hRbPcZ4D5/8UwzZ431acnkkz+c2DBK7NLrn+9mzdlLvkiHFyRy4VOi2Noum8Q
-         sZZg==
-X-Forwarded-Encrypted: i=1; AL+hErGa5hGXpLzGT5FOd0lDsBCUWcwMUny4pIrjvAPHVTmYqiDAR6C/eXEXOJRLKRNIukX3bOWeg9nQgol52Ws=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9dWTdYRKkzI5pGW1zHEQ59CB9moBv/LywZbolN8VKXaPepBkqg
-	KPCOukegv4rjF/E/5HQvnZULoPYltKehW7DgvUhNvaPoF0tbg7ADBhns
-X-Gm-Gg: AZFdTZddtgTE4UYKjHkWmmCR90LmZ9v5v+sJ4pSQXcT7h3kJHlwOw4BQgNgXVTDHF0W
-	kWUrYy1Qqw/69SqaFnFwH7Zyg0gAAQn4KGYh0XyAXeLMRPrdpvT34GDurdNHCrY7vJk1Nr15NJH
-	6g3icYxI8LhdnpcJFdT9lmPi7g1r3CTvZNOKC1Zn8I1DRlPzPpNwDPx9At/mhAeQHe+IsF7QrD4
-	LkT4ymJjQqfIJmLnIIblVOSNkoiaMt0g8omlHP8lKQUniPdZPwsUo8tm/TRPCRttDO/mYZnrO8W
-	xSY5OM7yeLTAMf4rUZdpQ8zmOX2nwSSxEqutRVDCsA7eujc7yrJHeQE+VNgPi6afgXrBXjaPsds
-	8VoEI8Z1vmhftCETdcTprjJwMTZVBrTuPmfDDULc5gjR1vChno1PCembBzVEnSCUj9ql/kmSQco
-	MlcHbd471l834rLatSG3QFGX7S64xo5H/fzqvwd9c+U0+Lkl4b0r29BxDd/98BOEFv7YABjNs+b
-	N/CRCzwWZZnrGNXQ254cS3CuJZkVdcgfwf6vBW/+6mLLsH1076wKsSHj5oNd4n7vjP+WVLXFt5I
-	LNy5jmuFkPiKjVE8G6DWRk0d9YFY0RJ2anyB3hhPw6xq1SZEsa619zp9WKoDI6BL5/N4g3nyyMn
-	m0H4=
-X-Received: by 2002:a05:600c:4585:b0:4a1:83f0:7c91 with SMTP id 5b1f17b1804b1-4bb8882948dmr457925855e9.18.1795726699905;
-        Thu, 26 Nov 2026 12:58:19 -0800 (PST)
+        bh=35h4zBjbR7gM1F3Ki/dOQbia67MOOWg2rYj7xt/yKT8=;
+        b=S4f0dBP9SHY7STxbB/daFsjR7aFwfc4KUHGwCy5lgPwbl3jMmZy2YACocheRYTa3kH
+         j33wYK57kW9y027YU+qTDzIbohnhV9BwgYigKV/44k3d2nBRXc5lwoCkCwxCyWQaqnnm
+         bKdHMiTgnK69FCqkHqk+6cSZRwFxjnkpk26OVEL95c9kmuyp+10ySr6ZkzOwLw/eJtHx
+         QqIkQyG6wwjE3RtMoWe5hrzJW84xRn8KWLow/5FrP31xXC2K8g2n+vc9Y1JZKSpSBd8j
+         V4QNXzC66jTnK7kx1LGO62lCFIzO1mLcdhEbeN3h/teCZIMxOXmtDibZ6dLPWR3BdnSf
+         iDXw==
+X-Forwarded-Encrypted: i=1; AL+hErH+vFSJ5y52SxJDv6YQCzpr+Mx/lV1LpqKim9ByhjNUGo/+gYygS7jBdJYueKR5g316N5niQd/x5K7v6Zs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z80iAJbvzaOmxMkQ8S//0oBE17yJO2ayP1qkSCWIt25Pj4H7n3Y
+	1ZGPWetodLKnB91lgWN4KUZnPN2ocqs2WLny3Tf42KCPUx9EDd5X8zZn
+X-Gm-Gg: AZFdTZefaBixCyV4kATUEnDlXAKF9jDivwzYngF/5O3Bez7pToiyAmU4eZAFDeE2rTa
+	wiGwh3FNZZyMMlYMap0p+KN+OiAx69/kYnf/qh6GJVxfM6zoSJfwe4WasxOgp8NYAHCHF2H0lo+
+	gHF/7WTXydsFEBjy4WY7LCtsOa1d9+UzLDIufiLoOT18Kfk55C40zqFbevZ0r1Fgf1DZ4bs7CgN
+	8OcSAbqoRQxUw7SulAi5nkD2Bit0sA+ZgqLD3UMIuzRRIIwtnhJ/3hgDEa3RAgt9owKG2xTW9lt
+	yGDuOQTldBI8Ts9zP7Gb0h+H9H2yGpeBxdJnp7Kp7YHnaQ3am+mVzqnF3BfZ2h9vgYNp5feaHZ1
+	26Q54R8Nhkg8K0P4A71PwyR+WZg/W7vvN1oSu5SggNPXCSBro5hfdI1fTIQ8ykO6V7CVv1D/i8l
+	r5ngkT2TWSqYSV5WW2dTF30/+0oRN+VpeaN3hmUcZFQFesUfqdUbo9VsQNy17jk+68dXEMRwN/N
+	jjoIFbXn+FwojWulDa25uG9CzMKagL1TNP7DpMQkM514raDpgP2v0XBoQwEcQsw+491btG2ksZq
+	3rt8XsxgENG5+aphirJfOzTsuBqobJjDqQOT9J1vTIKzDxc/IQfuEc2StsOJU2xwtMWN20YDYOJ
+	wvn8=
+X-Received: by 2002:a05:600c:64c8:b0:4bb:68e5:b952 with SMTP id 5b1f17b1804b1-4bb88819be1mr422243895e9.16.1795726700975;
+        Thu, 26 Nov 2026 12:58:20 -0800 (PST)
 Received: from localhost (2001-1ae9-5b-ad10--33.ip6.tmcz.cz. [2001:1ae9:5b:ad10::33])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399d52sm611178075e9.6.2026.11.26.12.58.18
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399d52sm611178075e9.6.2026.11.26.12.58.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 12:58:19 -0800 (PST)
+        Thu, 26 Nov 2026 12:58:20 -0800 (PST)
 From: Arisa Snowbell <arisa.snowbell@gmail.com>
 To: intel-xe@lists.freedesktop.org
 Cc: dri-devel@lists.freedesktop.org,
@@ -89,18 +89,10 @@ Cc: dri-devel@lists.freedesktop.org,
 	Rodrigo Vivi <rodrigo.vivi@intel.com>,
 	David Airlie <airlied@gmail.com>,
 	Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	Philipp Stanner <phasta@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linaro-mm-sig@lists.linaro.org
-Subject: [PATCH 4/5] drm/xe: hold video decode work and HuC queries for a pending DG2 HuC load
-Date: Thu, 26 Nov 2026 21:57:56 +0100
-Message-ID: <20261126205758.49845-5-arisa.snowbell@gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 5/5] drm/xe/uc_fw: select the DG2 HuC blob for a load by the GSC
+Date: Thu, 26 Nov 2026 21:57:57 +0100
+Message-ID: <20261126205758.49845-6-arisa.snowbell@gmail.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261126205758.49845-1-arisa.snowbell@gmail.com>
 References: <20261126205758.49845-1-arisa.snowbell@gmail.com>
@@ -115,99 +107,56 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On DG2 the HuC load by the GSC completes asynchronously after probe, a GT
-reset or a resume. Media submitted before then would run without the HuC,
-and userspace querying the HuC version (as Mesa and the media driver do at
-init) would see a device without one.
+The GSC loads the whole DG2 HuC binary (dg2_huc_gsc.bin, the one i915
+uses), so there is no legacy CSS image to find in it for a DMA load: parse
+the CPD header for the manifest version only.
 
-Like i915 (i915_request_await_huc()), make video decode jobs depend on the
-fence of the pending load. The HuC version query waits for it too,
-interruptibly and bounded by the load's own 10 s deadline; document that.
+This enables the HuC on DG2.
 
 Signed-off-by: Arisa Snowbell <arisa.snowbell@gmail.com>
 ---
- drivers/gpu/drm/xe/xe_exec.c  | 13 +++++++++++++
- drivers/gpu/drm/xe/xe_query.c |  5 +++++
- include/uapi/drm/xe_drm.h     |  5 +++++
- 3 files changed, 23 insertions(+)
+ drivers/gpu/drm/xe/xe_uc_fw.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/xe/xe_exec.c b/drivers/gpu/drm/xe/xe_exec.c
-index f9b0fdb96..65e445205 100644
---- a/drivers/gpu/drm/xe/xe_exec.c
-+++ b/drivers/gpu/drm/xe/xe_exec.c
-@@ -14,6 +14,8 @@
+diff --git a/drivers/gpu/drm/xe/xe_uc_fw.c b/drivers/gpu/drm/xe/xe_uc_fw.c
+index d0ea05923..05f51378b 100644
+--- a/drivers/gpu/drm/xe/xe_uc_fw.c
++++ b/drivers/gpu/drm/xe/xe_uc_fw.c
+@@ -137,6 +137,7 @@ struct fw_blobs_by_type {
+ 	fw_def(BATTLEMAGE,	GT_TYPE_ANY,	no_ver(xe,	huc,		bmg))		\
+ 	fw_def(LUNARLAKE,	GT_TYPE_ANY,	no_ver(xe,	huc,		lnl))		\
+ 	fw_def(METEORLAKE,	GT_TYPE_ANY,	no_ver(i915,	huc_gsc,	mtl))		\
++	fw_def(DG2,		GT_TYPE_ANY,	no_ver(i915,	huc_gsc,	dg2))		\
+ 	fw_def(DG1,		GT_TYPE_ANY,	no_ver(i915,	huc,		dg1))		\
+ 	fw_def(ALDERLAKE_N,	GT_TYPE_ANY,	no_ver(i915,	huc,		tgl))		\
+ 	fw_def(ALDERLAKE_P,	GT_TYPE_ANY,	no_ver(i915,	huc,		tgl))		\
+@@ -555,11 +556,7 @@ static int parse_cpd_header(struct xe_uc_fw *uc_fw, const void *data, size_t siz
+ 	if (css_entry) {
+ 		int ret;
  
- #include "xe_device.h"
- #include "xe_exec_queue.h"
-+#include "xe_gt_types.h"
-+#include "xe_huc_mei.h"
- #include "xe_hw_engine_group.h"
- #include "xe_macros.h"
- #include "xe_pm.h"
-@@ -317,6 +319,17 @@ int xe_exec_ioctl(struct drm_device *dev, void *data, struct drm_file *file)
- 	if (err)
- 		goto err_put_job;
+-		/*
+-		 * This section does not contain a CSS entry on DG2. We
+-		 * don't support DG2 HuC right now, so no need to handle
+-		 * it, just add a reminder in case that changes.
+-		 */
++		/* The DG2 HuC has no CSS entry, its caller passes none */
+ 		xe_assert(xe, xe->info.platform != XE_DG2);
  
-+	/* as on i915, video decode must not run before a pending HuC load */
-+	if (q->class == XE_ENGINE_CLASS_VIDEO_DECODE) {
-+		struct dma_fence *huc_load = xe_huc_mei_load_fence(&q->gt->uc.huc);
+ 		offset = entry_offset(header, css_entry);
+@@ -661,6 +658,13 @@ static int parse_headers(struct xe_uc_fw *uc_fw, const struct firmware *fw)
+ 	case XE_UC_FW_TYPE_GSC:
+ 		return parse_gsc_layout(uc_fw, fw->data, fw->size);
+ 	case XE_UC_FW_TYPE_HUC:
++		/*
++		 * The GSC loads the whole DG2 binary itself, so there is no
++		 * legacy CSS image to find for a DMA load.
++		 */
++		if (uc_fw_to_xe(uc_fw)->info.platform == XE_DG2)
++			return parse_cpd_header(uc_fw, fw->data, fw->size, "HUCP.man", NULL);
 +
-+		if (huc_load) {
-+			err = drm_sched_job_add_dependency(&job->drm, huc_load);
-+			if (err)
-+				goto err_put_job;
-+		}
-+	}
-+
- 	if (!xe_vm_in_lr_mode(vm)) {
- 		err = xe_svm_notifier_lock_interruptible(vm);
- 		if (err)
-diff --git a/drivers/gpu/drm/xe/xe_query.c b/drivers/gpu/drm/xe/xe_query.c
-index 9cc35fc83..696bae5ee 100644
---- a/drivers/gpu/drm/xe/xe_query.c
-+++ b/drivers/gpu/drm/xe/xe_query.c
-@@ -22,6 +22,7 @@
- #include "xe_gt.h"
- #include "xe_gt_topology.h"
- #include "xe_guc_hwconfig.h"
-+#include "xe_huc_mei.h"
- #include "xe_macros.h"
- #include "xe_mmio.h"
- #include "xe_oa.h"
-@@ -600,6 +601,7 @@ query_uc_fw_version(struct xe_device *xe, struct drm_xe_device_query *query)
- 	case XE_QUERY_UC_TYPE_HUC: {
- 		struct xe_gt *media_gt = NULL;
- 		struct xe_huc *huc;
-+		int ret;
- 
- 		if (MEDIA_VER(xe) >= 13) {
- 			struct xe_tile *tile;
-@@ -619,6 +621,9 @@ query_uc_fw_version(struct xe_device *xe, struct drm_xe_device_query *query)
- 			break;
- 
- 		huc = &media_gt->uc.huc;
-+		ret = xe_huc_mei_wait(huc);
-+		if (ret)
-+			return ret;
- 		if (huc->fw.status == XE_UC_FIRMWARE_RUNNING)
- 			version = &huc->fw.versions.found[XE_UC_FW_VER_RELEASE];
- 		break;
-diff --git a/include/uapi/drm/xe_drm.h b/include/uapi/drm/xe_drm.h
-index 578f0c1eb..db893d041 100644
---- a/include/uapi/drm/xe_drm.h
-+++ b/include/uapi/drm/xe_drm.h
-@@ -628,6 +628,11 @@ struct drm_xe_query_engine_cycles {
-  *
-  * Given a uc_type this will return the branch, major, minor and patch version
-  * of the micro-controller firmware.
-+ *
-+ * On platforms where the GSC loads the HuC (DG2), the load runs asynchronously
-+ * after probe, reset and resume. A query of %XE_QUERY_UC_TYPE_HUC then waits
-+ * (interruptibly, for at most 10 seconds) until a pending load settled, so
-+ * that it does not report a HuC that is about to run as missing.
-  */
- struct drm_xe_query_uc_fw_version {
- 	/** @uc_type: The micro-controller type to query firmware version */
+ 		ret = parse_cpd_header(uc_fw, fw->data, fw->size, "HUCP.man", "huc_fw");
+ 		if (!ret || ret != -ENOENT)
+ 			return ret;
 -- 
 2.56.1
 
