@@ -1,114 +1,114 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684862;
-	b=DfY4aIr+5pfOMFiZxPBIDZIsoiZ/dTq3tm7k3szfciC3cQWvwoxqQrlcP8QGkGuasrs/
-	 9vHPdAaCxx+xP5YPZoZq5X3Upwcno+lLlaWFydEBnGfY5RgIfKKLllrIJtmvxKql5hn5L
-	 pYA5Lq3bBYmgozUAdwxuQ2PxjVsjzXNFome4+VE+NLKMD450tcGHnZjQkm9TbJoLMf91X
-	 Y0rDtKsd2i4gZT+oCoGBTapQCMyzUeCCBMDMzX4yoUWJviMxGXmqDrd8mdQRqMMZGPtNg
-	 BCjgWrUV9viGxoZCH7vmIEDE4w1t7uGoz7onk3eXyp0XqbhMe6tXYVMcdfih+KY0ovw==
+	t=1795684865;
+	b=TjcMFTxyN1uSiQiUKdU3ieTMxXRAR5MaIpOmLkFzGPjUnhv+uK8KMKxlcM8SO73o+Eo0
+	 k8yQX9UeHAnwl7fYH9qAeLgRM1CciXZrOF/oYLl3Wwkyyqe7vqgsAvj1mQXUj10DUjDGy
+	 OoU9jDhgIYz2Tpf7zW+IlREXNs3ZTTosoGw7ebKVB+I0Fy7O4fyz6m3mXZP1HUKbh/fvf
+	 EtIi3aKNMvsqpKOKAougFtyzC5gngLrgUgaaq6PBBGj2tJap0JV7p0jGjp+EcD8Jpl5iS
+	 Mfu8nqgO6crDZX1ySA9C/Zl9iRZeeSueVQ1m2kZBAbC/X9ikWIcdiVsJ0SvkJkXlDMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684862;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795684865;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
 	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
 	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=eJnnvQ5aLDsD97522fKzkf8jFAq8ARUXVpXmP0iy07A=;
-	b=PSkgu9tkS/74c01xibP/aqNreFZd0Tq8A/TCzJCRGBzyQruRX+t1ygFtYLyTvFYkQkHL
-	 apVpheTrmiWDWMu1F4+Mla5rrxxgjvjD6eqWaiHwO68xFVQV/maO6DWG6y2XAVaHa2RWv
-	 iD3xbqg9gcgFg+UsbgnhaGKbbuaqhwURoFGo2Ut92mIxVCol1l9V+cnIPMp9sBnggT7aD
-	 ekJEm0kX6P4JCSxM1OJcBAtNrKTQVs4GfmacwB+YWDfRvv3hDZQtGCUUA4K9IorQ/MfPa
-	 PBaqLvR+1C2QJMQnGdOIPIvYyiOpMwIFTscaabc/+kaveO0Uhh9uIinJmRCfxd2vBMg==
+	bh=rUmomVq3pxKdEuVLsOEIdEZuTgnyv7Nb3Q+X1uZgbq0=;
+	b=YOtXDlBsL+2mTbingW43ysd2/sBSmixzGOkG+pFbLuyNLSYwW+CtpiF1ZzZ1DG3+49wh
+	 VwRzH+O5EbxRBAUNLjXM3g7ACQJ44WrCEk/aw/GFYdZ8clP7d/bAZCVXgTnozWpDUuD2d
+	 o2RGtW1ow2NivQaNkrHC/B4l1rcJcpGI0aTavbavPXEt0WjOBgMT8/pY4Nl7nEraLqmJz
+	 qB3SDimOSSd9y9FrQ+/cM66AlZZVhAd+nCsGkiBU1VuDBqXfxrbEPg+hJCkUq8wAZDVGn
+	 6Qnct8f5Qyc+Gww3cElw1jKWSK13BeuewMwrEN++goNCWqvoyfI5AGtEkVO4w7BSSgg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=DpieXgtt;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cj4qx4zm;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=QRtJRlld;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QEjNm4bS;
 	arc=none smtp.remote-ip=205.220.180.131
 Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54C53606A6AE
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:21:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54C53606A6AE
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E8F0606A69D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:21:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E8F0606A69D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=DpieXgtt;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=cj4qx4zm
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ8NarQ2860320
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:21:01 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=QRtJRlld;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=QEjNm4bS
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ7Avba695012
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:21:04 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=eJnnvQ5aLDs
-	D97522fKzkf8jFAq8ARUXVpXmP0iy07A=; b=DpieXgttU48CowZjrVSLWlpN5ig
-	61tA8QpPZbpJ1HxPr+GfOuAXVdQ6SMlWoDkAa+qvxe22P0fAdz0QxNjZDuwMkKjA
-	KzIkt4OeokSaCTv7TEzbkxnsV3rJy6l//ZNIgH7AU+mqTgy2o3i1AYGjjzbcUxek
-	DB3hmw1vdHzHo+RlEsPHX90/i8HotWxDH4TqxwkxA3aHrcvFDyjUSz4swk1+b6SE
-	+mjnNWa8nKQTNk6NDeoRYU9TRN+BKYcL+6sqiqKwsNtsB1hTmNhjSwtYoFAbcDZt
-	g4daWwYR+Poi7WPCnNkIuiqCDMxY4It5ZXFeihds2O8XDDn7m9CV84VnXxA==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6h7g87y8-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=rUmomVq3pxK
+	dEuVLsOEIdEZuTgnyv7Nb3Q+X1uZgbq0=; b=QRtJRlldmAvKKEDNR4t7lUUnzBu
+	wUAljhQXDI9vFpeR6bsXyhpR+LyXWRPGIjyu4TbdkMleXAmxGhuS0DjqVnRtaXN9
+	sMadzbIx2aVjYsm2TgR/SUNRxZohXCAvLTAwv8XhG4GKHcoa4AFYK6sRBAx0aEXC
+	Ruo/uI/bg8z24bFR+0Ar/tCU3DZ9Potbxj1gxfb/GFt/2HaOQvbVC1HzMB00ar1S
+	VBE16KcXGnEOMjGocGhCIlCdLan27+LsHYfV3XmZ6OequaaXGMqS8MgiFf8YVWRX
+	mSMdNjDHPfM6txH8PqOPrG0DjpxGZ0pzqEK9NyvmawKOIk4knUjBjpiuv0w==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6fw7rjs2-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:21:01 +0000 (GMT)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-8a065d0e9deso5800437b3a.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:21:01 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:21:03 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a079256596so4884165b3a.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:21:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795684860; x=1796289660; darn=vger.kernel.org;
+        d=oss.qualcomm.com; s=google; t=1795684863; x=1796289663; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=eJnnvQ5aLDsD97522fKzkf8jFAq8ARUXVpXmP0iy07A=;
-        b=cj4qx4zmglMsA13kTeCfPEDCoppYRTowwDh1u3sPhProfUbsXSJuuC+Y42PV+5OZWl
-         yHoe9hs2gP8zruVwsgvPzabENvERhfPCoXICY9yLCd3/lYmEnpPfiZZbjp98NMZsJbDB
-         fLgCVfhDojdnvzP9zf6h9sOaxp72S5Nb5qHAtdIcLnVj/MiMTx+CdpTYor18v2XT9eUM
-         WB1Vbe06Wm4wFjAhh5BAZyJSgOFeWCZF7FH0LwaD/bSekx5+H7fVJatfY2vB2D0VTKsi
-         l1iEkXUJPW5BgGCfVkAQPdc8sPDOCdJgRjFsQzHmvnijcjy4BE0L5ajXZZu9fzayZhQw
-         e9ug==
+        bh=rUmomVq3pxKdEuVLsOEIdEZuTgnyv7Nb3Q+X1uZgbq0=;
+        b=QEjNm4bS/9S0A81Q5sjKNTHZkyWKmpFW00er6+Cy42W1Itx6QtVvzoz3Jh3eUH+J89
+         5j1hcZ06AzNg9JiGFSEA+8/BD4G+f4npgHR+vsA/eTNSWyo0F7AJdq62/+01+5kKVqQn
+         p6PhwbmP2n0ovafCUykaYY8U/3D903bGGlQ3vvUw5caZQUadRo5E1KhZMzT85WciaP4W
+         qnXCkz0Zlyw8qX3s6Ix4YXELDafDV2ISmjCMw7XOH0GrPjR2CF6a6oXSgiDXIuxry4ER
+         BAoRwTPbQEUIt/R0JZC/r4wdlc2rkg/sVkwXnh+9aPLYjw32tuV+xWe0ltg8JT50AYos
+         ifNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795684860; x=1796289660;
+        d=1e100.net; s=20260707; t=1795684863; x=1796289663;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eJnnvQ5aLDsD97522fKzkf8jFAq8ARUXVpXmP0iy07A=;
-        b=b+b+Xx5ENXMAft94H3v/VLGtozXxK6i8D6y+beMaj3pqTxzDrhN4O7bgUKubbPl+mq
-         LVN8F3puPCmyBXlyvLqJKOHNn9f78jmz0SkQRXzGrN5NIe/W2voXJNWCDMVK896SBEc2
-         UBu7TAlDwIdfhVQd5IdsQeuImgn1W8wbBQOf7hA5m3ftXcoDNOPy65ie//QfjSvYmLHn
-         Q7G9N8DDj+j9clX7BJUninxM55ENgg77cgMM0GsjvJ5AeYEOpIlAUSb5G7JycA4k2rBk
-         U9EaiXe1zFlQKajwav+FlRamFOMUn7z5CqbIoTsDLHYiSRRcKHC//hzRIcKBElbDKLD0
-         rs7Q==
-X-Forwarded-Encrypted: i=1; AL+hErFkNQc7t9tzlISYYrBBsqDL2gpPdKnR7HIO1pfjOJM91iCKNo3PjnxSPEZJD2heDBPYFGaEJ1zAj1VWzXQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8GJO0NxC2LHDJY3lWRcmtr7oZ3vejJDUpq7MxDSqN5n3bF1lpZ
-	bF8QGEod56AccINfyDOoOu+AasELAtrWUmYUCDS8LRk7R53YwvZOYNiYF6s2aKaw6GrOqOPxfVQ
-	0wU1DuH3OQxJq/fIMfb8cY6qvpexuc86HBW6XCCN89osqF7H4zTxowveVd5iUwt+4DHg=
-X-Gm-Gg: AZFdTZfWCdM3I+jUm56y69QNZjyKoOZKWY3t+/rD4pNMv0pA0ChciQ22JxUYtoumfU2
-	Qj8ZU6fgKnt8AH0ooR/TzZfn95yuTjHlvKlkXA4+ScuVEjosfSCszWyzPmpeCcZ041fTA1xVXvi
-	9VQ0HjFC91swZrM2zMporZxcjE8vlTfwSWOpxb/FXP7z7ih0XViXbnusPnqikCjXT1vyn1SKWOR
-	/K7ovRVnvftanglXr40xbb7UCTFQYjsPWxEvXgkARNxfd7/QySKzOsvJLkMIKHsit9jMw+HRJOn
-	exUmChYO2QGlvxOKcQkVI1+5jjAsfkdSOBy9zn05OGpx/ZDkLhGaHv756are+x1oSAqzpOzAwfe
-	MDE1/1Gc36c1N8NG+u2Zk7Tnv6PoCokhvvqQRJGVPzBr7+QmfM8mt8+a/bUCqZ72POHHB24nZXL
-	IC4q4WYrGYjP+7u3P9RjxsdKDx8ktZLuw=
-X-Received: by 2002:a05:6a00:1492:b0:8a0:5f42:a482 with SMTP id d2e1a72fcca58-8c7de587185mr14794951b3a.43.1795684860346;
-        Thu, 26 Nov 2026 01:21:00 -0800 (PST)
-X-Received: by 2002:a05:6a00:1492:b0:8a0:5f42:a482 with SMTP id d2e1a72fcca58-8c7de587185mr14794930b3a.43.1795684859810;
-        Thu, 26 Nov 2026 01:20:59 -0800 (PST)
+        bh=rUmomVq3pxKdEuVLsOEIdEZuTgnyv7Nb3Q+X1uZgbq0=;
+        b=gPbi/F/qaEZOxYzTdpVdUDvgNwIm+iYS3QYiL70CC4MBJfSSUKi9zTc0OAsHTR/ke6
+         vzbQ7rTuZmWVBFUTQZDg2XDNp6d8VrAJ9Q2FUvzw7Ti97TKzYtjiVqxwKVYLAIko3ZNl
+         sD6CvqfE+DKI8fw2/A4HMT3XBg9Q1hoJ/psKqE4Z3zSxEfGYdbP4ZgTM9tTWGzFpcWsB
+         05dTLkp2N3C7RrtTx1XFi4HLX4lw8CgQaa67YlPO6ZUAzfndoszEtDpaKBOPaOKjujzl
+         QgDd5y961EkV+PTwRh88w+/jYM2E6U7ohOE2D58UIPSsfkrrm5r1W5qaFic7565osPGT
+         U4qg==
+X-Forwarded-Encrypted: i=1; AL+hErEswHnWnoNLXLusOQ50YGP1co97WI/FdLcYU/1FuRPMbGRvAIwarDQBVPg+UEtgLYRfH57gaN5R2/Z8pFg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/GyeiokrduxwPEkc41HR4h17sqCI2gn/J1O7qs29LmfubkxXYN
+	Ee/O0KoQhvNtPnSyTT13Qjqbyzq7Q9oK9hyjyFOHywC6e3HS/4c/v8HVhhAGJymu1/XNU9NG4OF
+	lV7qepeqyyBt90DyypH3UtmBn5U2Evso0GDLabs7OxciWy6Seg+kSGHbYIHZNA0u1/Po=
+X-Gm-Gg: AZFdTZfV2QYOlPlBUQH3pgE3LT0lK7+eTybHcxXSSeaEyUdfn/+MTLllHbvAug0CR7g
+	Sz0pyvklRsUbTTCTjFNOQnNc7p0rKxXzkvzIMRiuzz7SmeIojc1elAUDYDceq4VWGtohEjt41h5
+	XrJkwmLoAL3OKoz74QSs8x2MqXQAmIKVmUKUUxJZLdiHhOgQUDyuZw6nJx10ozOiFdLff/MnDSp
+	8YW6pipvaG29kXjXdjd1fOrFl630uSMYsQKXEu10oiIkupK015rIfFUlNFsUaiZIZ9ThfVzN3VU
+	qr4VabdkWW/3pcr4gjkEU2klbhvuWc2lHQoCt5ZWQg7luxyGCwbbRbi6yZpj0tAnfGsdE3izi+Q
+	nFwwIdEuyEc6Xb4kQjeJyw74pEpKI2NrYP4B790i0G0KoEJYLB5D9SWiByc4hjjj0eq11BkoPJ6
+	SRyXK5yQRFX8FgC3ZzJtCmv07UppJ92Ws=
+X-Received: by 2002:a05:6a00:1817:b0:8a0:5dd9:7983 with SMTP id d2e1a72fcca58-8c87b9cfaaamr18250003b3a.12.1795684862768;
+        Thu, 26 Nov 2026 01:21:02 -0800 (PST)
+X-Received: by 2002:a05:6a00:1817:b0:8a0:5dd9:7983 with SMTP id d2e1a72fcca58-8c87b9cfaaamr18249983b3a.12.1795684862228;
+        Thu, 26 Nov 2026 01:21:02 -0800 (PST)
 Received: from Z2-SFF-G9-MQ.ap.qualcomm.com (i-global052.qualcomm.com. [199.106.103.52])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c8707792e8sm10752089b3a.7.2026.11.26.01.20.57
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c8707792e8sm10752089b3a.7.2026.11.26.01.21.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:20:59 -0800 (PST)
+        Thu, 26 Nov 2026 01:21:01 -0800 (PST)
 From: Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>
 To: jjohnson@kernel.org
 Cc: ath12k@lists.infradead.org, linux-wireless@vger.kernel.org,
         linux-kernel@vger.kernel.org,
         Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>
-Subject: [PATCH ath-next v2 4/7] wifi: ath12k: skip links without channel context in ath12k_mac_get_vif_up()
-Date: Thu, 26 Nov 2026 17:20:34 +0800
-Message-Id: <20261126092037.462830-5-miaoqing.pan@oss.qualcomm.com>
+Subject: [PATCH ath-next v2 5/7] wifi: ath12k: restart STA link vdev on chanctx assign if channel changed
+Date: Thu, 26 Nov 2026 17:20:35 +0800
+Message-Id: <20261126092037.462830-6-miaoqing.pan@oss.qualcomm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261126092037.462830-1-miaoqing.pan@oss.qualcomm.com>
 References: <20261126092037.462830-1-miaoqing.pan@oss.qualcomm.com>
@@ -122,81 +122,185 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: to2tTB2-5eI9kjMnHrJ2tSsdCywOw5Ty
-X-Proofpoint-GUID: to2tTB2-5eI9kjMnHrJ2tSsdCywOw5Ty
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzNiBTYWx0ZWRfXwdgjuUPswJRI
- 2HCjmEjbZq3L73tzrnpD8cVnpEeNy9wXODNzx4qFp7UdzhgNoCX8cgfnEr1KRe+HeuEDdcKR7Tr
- qCvvcVmYl4eIX93Cri1yIsvcmRMRfJ7bAQTAs6kAl885zjSjvL7ZWG7q2H42sclpLnyfLMGHf/M
- vKC4Y4SK7Fgq9wNKQhvvVkCjHeWoDXTrb+wX+3Sf9zxoWAlmlO9dR2qFWo7iVl5VjFFvje3ZxvG
- 9IqvACOigMRhprMMHULJQRtznh21WVYaLVSZThJkDJG98IKeTiy5XTrwNGHzMzx9E7HLB+QgAJY
- DSvxsfuB3Skv/ds1S3V4XJhz++7jSe9KdFrlKLZl08baGwHb1/fw3UyDZYmm7rzn6+xLrkmIuKm
- actaKAIZEriEt79rg0qWlqkj9Nis3mYiI/YRbbtW/NJ3/tK1p4hwtNfGcmbAGMo8PknNf8xYxMh
- 3NdXq+SX/at2Fk0D59Q==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzNiBTYWx0ZWRfX386l9d/p/zeL
- rXyMePbIUwS8h5Hw0MfeJISO/6Of1BeDlTYuelUMjl+xUIZShGquZcR8EN+R2PsZeJL4WKgH7m0
- YhWpQDjvOxRMZfox/ZYAhugpLzfV1aI=
-X-Authority-Analysis: v=2.4 cv=L4GI0OT8 c=1 sm=1 tr=0 ts=6b07f9fd cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=b9+bayejhc3NMeqCNyeLQQ==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzNiBTYWx0ZWRfXycUdTCHYOUID
+ WOUYjNpWiHmJ7IF4wSir8zJxCDNKzi028g622Ha2QB0WIjEZqyeW6azeycAAuyNbmbmV/jipy3E
+ zEZyc8lhlM7BVnGDFmrXV5jhMgni+eY=
+X-Proofpoint-GUID: 8cfRwXNp6caqyO9gcykac9Y-KUGt_8MU
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzNiBTYWx0ZWRfX5FC2IcTaLtNu
+ Wt7FVX8Wdi6iTW3iAeSCnCmrPDSTo5EZFWIG9sP/+UPs4mB0PAF76cLTfWSc5kiaknsUAF4Z2wX
+ WGqlL5LvHpt3+i5lu5F3c6YaQn+C5w9Fz4iEkSJdk9IQgq5mLm5RV5ykeDPRbRSimpdw8C+IRi1
+ mRNrXTDzbZ7sWyNqK+JK9rXJLlY84YcKaJx/1ckuHiIVqppLp/qpZ7PAMfN+yajNc3LIscf4B1z
+ jNyEZvgwu6AV2QV7tQpzO3GbsWMsVn7L17WyojYPpR78/xflPRGFYfArqSXitD1UovTDDQw19g9
+ dyChU3S2S3FLh54TSbW/S5Nk67yKzmq0Tbi7XWAter7mA5VVB5Vm4RyvsiGxHn1/p0Z6mUg1+h6
+ OnUwslARId+HHKQV/PFBaO4QqnWzMBGTtGUoQYfr8wabW664n3vHu2UIGAGpLCvRz28W00SCFKK
+ AEcHHC9PTXDr3Xjitaw==
+X-Proofpoint-ORIG-GUID: 8cfRwXNp6caqyO9gcykac9Y-KUGt_8MU
+X-Authority-Analysis: v=2.4 cv=ePeGH3p1 c=1 sm=1 tr=0 ts=6b07f9ff cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=b9+bayejhc3NMeqCNyeLQQ==:17
  a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
- a=gfZQdUK8Rj-w2-3WJ4IA:9 a=OpyuDcXvxspvyRM73sMx:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8
+ a=XL2xf8-uihB83E6xwaYA:9 a=zc0IvFSfCIW2DFIPzwfm:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-26_02,2026-11-25_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 bulkscore=0 suspectscore=0 malwarescore=0 lowpriorityscore=0
- clxscore=1015 spamscore=0 impostorscore=0 phishscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260036
+ priorityscore=1501 suspectscore=0 clxscore=1015 adultscore=0
+ lowpriorityscore=0 bulkscore=0 phishscore=0 malwarescore=0 spamscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611260036
 
-Active-link deactivation releases the channel context of a link while its
-vdev stays up in firmware. ath12k_mac_get_vif_up() returns the first vdev
-that is up, and that vdev is used to derive the target pdev. It could pick
-such a deactivated link, and ath12k_mac_get_target_pdev_id_from_vif() would
-then find no channel for it.
+When mac80211 changes the active links on an MLO STA interface it calls
+assign_vif_chanctx() and unassign_vif_chanctx() on the affected links.
+A deactivated link has its channel context released, and a link that is
+activated again gets one assigned.
 
-Skip links without a channel context in ath12k_mac_get_vif_up(). The
-WARN_ON() in ath12k_mac_get_target_pdev_id_from_vif() is kept, since
-callers reaching it are expected to have a channel context.
+Currently unassign_vif_chanctx() does not stop the vdev of a STA link,
+but it still clears is_started. The vdev and the BSS peer therefore stay
+in firmware while the driver believes the vdev is not started. When the
+link gets a chanctx again, assign_vif_chanctx() starts a vdev that is
+already running in firmware and counts it twice in num_started_vdevs.
+
+Fix this by not clearing is_started for a STA vdev in
+unassign_vif_chanctx(), so the driver state matches the firmware state
+and the vdev and the BSS peer stay in firmware across an active links
+change. Only non-STA vdevs, which are stopped there, clear is_started.
+A STA vdev may already have been stopped, with is_started cleared, by
+station removal, so the is_started check at entry is limited to non-STA
+vdev types.
+
+As a result, assign_vif_chanctx() can see a STA vdev that is still
+started. Compare the new channel with the one the vdev was started on,
+recorded in started_chandef:
+
+ - Same channel: nothing to do, the vdev is already running on it.
+ - Channel changed: restart the vdev on the new chanctx (vdev restart if
+   it is up, otherwise stop and start), the same way
+   switch_vif_chanctx() does.
+
+A started vdev of any other type still hits WARN_ON() and returns
+-EBUSY as before.
+
+Since unassign_vif_chanctx() no longer clears is_started for a STA vdev,
+clear it in ath12k_mac_station_remove(), where the STA vdev is actually
+stopped, but only if the stop succeeded. Otherwise is_started stays set
+after a disconnect although the vdev is stopped in firmware, and on
+targets using vdev_start_delay (WCN7850, QCC2072)
+ath12k_mac_station_add() skips ath12k_start_vdev_delay() on reconnect,
+so the vdev is never started.
 
 Tested-on: QCC2072 hw1.0 PCI WLAN.COL.1.0.c2-00277-QCACOLSWPL_V1_TO_SILICONZ-1
 Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
 
 Signed-off-by: Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>
 ---
- drivers/net/wireless/ath/ath12k/mac.c | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
+ drivers/net/wireless/ath/ath12k/core.h |  5 +++
+ drivers/net/wireless/ath/ath12k/mac.c  | 47 +++++++++++++++++++++++---
+ 2 files changed, 47 insertions(+), 5 deletions(-)
 
+diff --git a/drivers/net/wireless/ath/ath12k/core.h b/drivers/net/wireless/ath/ath12k/core.h
+index 3a92a4b03359..7c7057468916 100644
+--- a/drivers/net/wireless/ath/ath12k/core.h
++++ b/drivers/net/wireless/ath/ath12k/core.h
+@@ -331,6 +331,11 @@ struct ath12k_link_vif {
+ 	bool is_created;
+ 	bool is_started;
+ 	bool is_up;
++	/*
++	 * Channel the vdev was last started on. Used to tell whether a
++	 * still started vdev needs a restart when it gets a chanctx again.
++	 */
++	struct cfg80211_chan_def started_chandef;
+ 	u8 bssid[ETH_ALEN];
+ 	struct cfg80211_bitrate_mask bitrate_mask;
+ 	struct delayed_work connection_loss_work;
 diff --git a/drivers/net/wireless/ath/ath12k/mac.c b/drivers/net/wireless/ath/ath12k/mac.c
-index d7234ef9c025..2b4dfef3efb7 100644
+index 2b4dfef3efb7..e79a9e55c248 100644
 --- a/drivers/net/wireless/ath/ath12k/mac.c
 +++ b/drivers/net/wireless/ath/ath12k/mac.c
-@@ -953,12 +953,23 @@ void ath12k_mac_get_any_chanctx_conf_iter(struct ieee80211_hw *hw,
- static struct ath12k_link_vif *ath12k_mac_get_vif_up(struct ath12k *ar)
- {
- 	struct ath12k_link_vif *arvif;
-+	struct cfg80211_chan_def def;
- 
- 	lockdep_assert_wiphy(ath12k_ar_to_hw(ar)->wiphy);
- 
- 	list_for_each_entry(arvif, &ar->arvifs, list) {
--		if (arvif->is_up)
--			return arvif;
-+		if (!arvif->is_up)
-+			continue;
-+
-+		/*
-+		 * A deactivated MLO link keeps its vdev up in firmware but has
-+		 * released its channel context, so it cannot be used to pick
-+		 * the target pdev.
-+		 */
-+		if (ath12k_mac_vif_link_chan(arvif->ahvif->vif, arvif->link_id, &def))
-+			continue;
-+
-+		return arvif;
+@@ -7178,6 +7178,13 @@ static int ath12k_mac_station_remove(struct ath12k *ar,
+ 		if (ret)
+ 			ath12k_warn(ar->ab, "failed to stop vdev %i: %d\n",
+ 				    arvif->vdev_id, ret);
++		else
++			/*
++			 * vdev is stopped in firmware now; clear the flag so
++			 * ath12k_mac_station_add() starts it again on reconnect
++			 * (vdev_start_delay targets).
++			 */
++			arvif->is_started = false;
  	}
  
- 	return NULL;
+ 	if (sta->mlo)
+@@ -11549,6 +11556,7 @@ ath12k_mac_vdev_start_restart(struct ath12k_link_vif *arvif,
+ 	}
+ 
+ 	ar->num_started_vdevs++;
++	arvif->started_chandef = *chandef;
+ 	ath12k_dbg(ab, ATH12K_DBG_MAC,  "vdev %pM started, vdev_id %d\n",
+ 		   ahvif->vif->addr, arvif->vdev_id);
+ 
+@@ -12443,9 +12451,32 @@ ath12k_mac_op_assign_vif_chanctx(struct ieee80211_hw *hw,
+ 		goto out;
+ 	}
+ 
+-	if (WARN_ON(arvif->is_started)) {
+-		ret = -EBUSY;
+-		goto out;
++	if (arvif->is_started) {
++		if (WARN_ON(ahvif->vdev_type != WMI_VDEV_TYPE_STA)) {
++			ret = -EBUSY;
++			goto out;
++		}
++
++		if (cfg80211_chandef_identical(&arvif->started_chandef, &ctx->def)) {
++			ath12k_dbg(ab, ATH12K_DBG_MAC,
++				   "vdev %d still started on same channel, skip restart\n",
++				   arvif->vdev_id);
++			return 0;
++		}
++
++		if (arvif->is_up) {
++			ret = ath12k_mac_vdev_restart(arvif, ctx);
++		} else {
++			ret = ath12k_mac_vdev_stop(arvif);
++			if (!ret)
++				ret = ath12k_mac_vdev_start(arvif, ctx);
++		}
++
++		if (ret)
++			ath12k_warn(ab, "failed to restart vdev %i addr %pM on freq %d: %d\n",
++				    arvif->vdev_id, vif->addr,
++				    ctx->def.chan->center_freq, ret);
++		return ret;
+ 	}
+ 
+ 	if (ahvif->vdev_type == WMI_VDEV_TYPE_MONITOR) {
+@@ -12510,7 +12541,7 @@ ath12k_mac_op_unassign_vif_chanctx(struct ieee80211_hw *hw,
+ 		   "mac chanctx unassign ptr %p vdev_id %i\n",
+ 		   ctx, arvif->vdev_id);
+ 
+-	WARN_ON(!arvif->is_started);
++	WARN_ON(ahvif->vdev_type != WMI_VDEV_TYPE_STA && !arvif->is_started);
+ 
+ 	if (ahvif->vdev_type == WMI_VDEV_TYPE_MONITOR) {
+ 		ret = ath12k_mac_monitor_stop(ar);
+@@ -12527,8 +12558,14 @@ ath12k_mac_op_unassign_vif_chanctx(struct ieee80211_hw *hw,
+ 		if (ret)
+ 			ath12k_warn(ab, "failed to stop vdev %i: %d\n",
+ 				    arvif->vdev_id, ret);
++		arvif->is_started = false;
+ 	}
+-	arvif->is_started = false;
++
++	/*
++	 * is_started is intentionally not cleared for a STA vdev: it is not
++	 * stopped here, so the flag has to keep matching the firmware state.
++	 * assign_vif_chanctx() restarts it if the channel changed.
++	 */
+ 
+ 	if (test_bit(WMI_TLV_SERVICE_11D_OFFLOAD, ab->wmi_ab.svc_map) &&
+ 	    ahvif->vdev_type == WMI_VDEV_TYPE_STA &&
 -- 
 2.34.1
 
