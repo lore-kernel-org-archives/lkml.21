@@ -1,64 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795709001;
-	b=IXqwol0dYh0sHKfwzt6w+EuGhr/RnxD3/Cua57zzDI9833il5WWn3UFExMwMOpk2t3YE
-	 1l8xCeimC4oWeEsQmkDcEOYHzQCajDQXX9QXIupE16E5vErcN6W1lVZ0klyFT1GMMAA0g
-	 pNfDWsNAgwqAJjODel7CZnp2T4llYRO0tTDo0OQ6VMBgo22RlOlz+QFhJe/Q1fK1uOT/C
-	 FibvgqDxuQH9C14+TVKMSiiiNWg/b8kaKKqjko9VekjxK5vrJla0+iwvt+pXAdLsp07T9
-	 9SfWw2npnZfiGhfqTWQBWBX0UTu9EyrId1bLjtu6w86M7VoKTPm60Chsy4KqZwlPONg==
+	t=1795709021;
+	b=UYXdkAenCMfXUvDpCfaYH0gmYqt7vdDxoSQYi7Nd8FPFGGJYPbDer1hqTOUp7O5ICXzD
+	 x65BWus0S3+gZOicovXUWSML+cbDOX3eLKnUg+PRJyYahDk5sryMaCdvw+Obp61NlsqkK
+	 YYJjqkTEd6boZIurUm9P7ajcE4G+Ch6M8AiZFlGsb5SJbMtPQvruVd4CB6k7p2YjtTcU3
+	 3WHj0jI4Q7R9JkzcVuX5T0vEFuqCoSW05sTrwkufI4Cg4VZWRUlXsdKWCB4zY9pEf/qGR
+	 FbfMVLdU/CmJCZrlOoUml//XnVedmjqY8z764eIjlujqqzbRCZxoEyZH01ktUEJi88g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795709001;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795709021;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=44+itDmYdIDZq1m1y3tMLBmpTy1usswVb9CLkDorUXk=;
-	b=ko2mYiW/JKwRtYsmsUxEynu0kGWAlt5ElEGvvSWXzFOXDf7a56i8ZENuiHBF/5tmsK2S
-	 Uv/jG+pQlTTIHvZqtWuWjkBb+4sPP2q2AyefTTlEFqGx/D/okgCRn4df/b1hrm0km6lD4
-	 03LiMgHeiKKb6i9kpz0NW7YbqYENZx5WRCqCdDqK1xLqJOup8JZcLjfbzoBBOsCNTXDqS
-	 Q1e2mphXDQ7h0/IcWHc7mafEh48rZXVoqq/lkUf5kVEhvMX+dXW1Jv/S73UzdE09PHwZP
-	 9Vay9V/M7QBYwxQBH/LjXan4XdrbPWoOn8gHWs5t2q/s24MJOTyEMj6NXlR/F6YtgCQ==
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=B+txrsHu7j5o8pwxnuB1v5aLJXC6NoKWxlmhHwf5Bn8=;
+	b=qz7Knb3qZeIGHhWS7AGq/441YKiCBySyWqqscRftHsyaAEfN/YO3paRPc9QzJwaVJrY0
+	 BLKyZXJmRQEk8VJOm3+tHdJ251KONvYNHop+tmUqG3l9gxjhPgDhwcKTGRgUTdOBdsLgY
+	 F7h7USEwK6+G85ih1c2M5p2eNNDNvmlgfxGyZdw5FJxIUG1C7FFqsj/4eDGwCeFY3DmQR
+	 SK5AW1kQAbMfhuI61sM/9bISq64RJ4GvDfIW+rayRNp8Zwe8cols+Eamv80A6f+aEq+Tt
+	 5qvGOeB7n5kZZQFfFgIPTBQy/7J6bznEoVA/JdBejZ91RtOR7gdYwdKVAf1rMAdWwAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="YxL/fGey";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oPtEPTlc;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id F2353606A31C;
-	Thu, 26 Nov 2026 16:03:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DB20606A31C;
+	Thu, 26 Nov 2026 16:03:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YxL/fGey
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id B7D4F1F000D3;
-	Thu, 26 Nov 2026 16:03:19 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oPtEPTlc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AE721F000D0;
+	Thu, 26 Nov 2026 16:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795709000;
-	bh=44+itDmYdIDZq1m1y3tMLBmpTy1usswVb9CLkDorUXk=;
+	s=k20260515; t=1795709020;
+	bh=B+txrsHu7j5o8pwxnuB1v5aLJXC6NoKWxlmhHwf5Bn8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YxL/fGeyNanXqI/SWB0bmXra+66k/Y0eoThFxEuDWTtG8VnilgB9tDBnRVSh5ro12
-	 tb3FWEhuSM9OkwEMaj0sUhydCFW4+f9dGYKjWmx6rSl4xVZ/Dx0BKas1TwpxKrNckr
-	 Q5Q2jHqElBcmlvugK9UnGuv5aMiknonIwrvtaNayD+Z9sHM0eOCeIriEfGe2nxMI9M
-	 zebQYYTRXidZQSVdQLOeUC01YN0vxf7yvgxGkY51Q7fUae2caL65IS688YWbQVaLGw
-	 DwO3rCLnvnfQpLa8zeAf/Hyd8dIwPtJviclkObHpHTpAjBm0HZtIQbqpk0pydj5pzc
-	 jDisSJIyHwVkA==
-Date: Thu, 26 Nov 2026 18:03:16 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Hannes Reinecke <hare@kernel.org>
-Cc: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	Hannes Reinecke <hare@suse.de>, Chaitanya Kulkarni <kch@nvidia.com>,
-	Eric Biggers <ebiggers@kernel.org>,
-	David Howells <dhowells@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
-	keyrings@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	Martin Belanger <martin.nvme.dev@gmail.com>
-Subject: Re: [PATCH v7 00/14] nvme-auth: switch to use the kernel keyring
-Message-ID: <awhYRJ3mktQEcQOQ@kernel.org>
-References: <20261126-dhchap-keyring-v4-v7-0-ee438ffea527@kernel.org>
- <awhXg41rBQL982qk@kernel.org>
+	b=oPtEPTlcwPf7nqMnUfGRSfpJxwuCkYMrBHuE0gXStHym0mAE2+fNxXVcwRMJJWN++
+	 z/eEU7BkmIEM8JBPm5/rGPq/4XcdSXLNM72bCiTjwE+R1v1TuJcZQfFUluRmFeH8el
+	 hYD1/syJ7A4jPiYt9Qhf7WydePLs+d1PtX5OIdo8h5swwxzupl+YENXjhAav1oKZfr
+	 Jsxz7tKpjBX81xluDB8HZdVtSU01fyMhm06eIYvyAuOEfKmS95z+mE2fUL2NTckIQh
+	 rrn49sJ/G75WeYYYjLKn1vA8fg0ErLLAu6iMNQ3nlyUC5Iyw0AdTQLAdivuvEERqfE
+	 /jHA5nSpv8jsg==
+Date: Thu, 26 Nov 2026 16:03:36 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Svyatoslav Ryhel <clamor95@gmail.com>
+Cc: Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	mfd@lists.linux.dev, Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v6 1/5] regulator: dt-bindings: maxim,max8907: Convert to
+ DT schema
+Message-ID: <9a9cac1b-edaa-429e-a5b5-46adba2841ab@sirena.org.uk>
+References: <20261123150224.199601-1-clamor95@gmail.com>
+ <20261123150224.199601-2-clamor95@gmail.com>
+ <CAPVz0n1GzY5BJLUZrdCgJHrkZ+45Kix7VP05EJeiY5FVycwKBA@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,29 +63,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="OUa812RZuwcsCrVy"
+Content-Disposition: inline
+In-Reply-To: <CAPVz0n1GzY5BJLUZrdCgJHrkZ+45Kix7VP05EJeiY5FVycwKBA@mail.gmail.com>
+X-Cookie: Sank heaven for leetle curls.
+
+
+--OUa812RZuwcsCrVy
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <awhXg41rBQL982qk@kernel.org>
 
-On Thu, Nov 26, 2026 at 06:00:08PM +0200, Jarkko Sakkinen wrote:
-> Without looking into detail to the changes, it'd be best if key type
-> semantics would align with [1]. See the preparation patches for other
-> subsystems.
-> 
-> I'll send updated patch set after v7.5 merge window. The only reason
-> I'm not moving forward sooner is to gather as many bug fixes as
-> possible for the "previous world", which LLM bots kindly provide.
-> 
-> Otherwise, this needs to be refactored very soon after the patch set is
-> merged.
-> 
-> [1] https://lore.kernel.org/keyrings/20261112040242.247168-1-jarkko@kernel.org/
+On Thu, Nov 26, 2026 at 05:52:22PM +0200, Svyatoslav Ryhel wrote:
 
-I'm not saying that this could not be merged first or try to put that
-type of causality in place. The point is that it would be best if this
-was prepared as size-fit as possible with best effort.
+> This patch is prerequisite for MAX8907 LED patch. Since Lee is quite
+> strict to what he picks maybe you can pick this, LED and ADC[1] device
+> tree patches?
 
-See e.g., S390 changes in the patch set above to see most complicated
-upgrade.
+Please send a coherent series that can actually be applied, it's too
+much work to pick random patches out of independent serieses.  In
+general you should try to avoid dependencies on in flight serieses, it
+makes everything much harder to manage.
 
-Br, Jarkko
+--OUa812RZuwcsCrVy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsIWFcACgkQJNaLcl1U
+h9Dgkgf+KyYu4Nw0RrogrtuvjrfJKiV6tmbXPydYOR53+bO9NDamJpDFdLpqHr1r
++TepBul1oTrOzCxWhdapf1J2R0/sNEOLOAuVoUIOTJYsmCgvDMDCWlLUtxEVmE7q
+bpyQoQ034TuYZltCkqOKqnOoMw6r+MwDMFkphah95HJm3n6ghuveZCLFMDjbDkgI
+G/Mz+nRgixILpRXByjcwDpBqtiBTYLIp+EXJIS47DGNt5kKOgbbVIqmopGcHeIMR
+6wMrQvdvP/qJug/q6jkMTq8HWnU9/+pEmZf61YavEqgDro5Eg/W+9XfpuyTCz+Er
+9edyAcAIDLcV509wLeaQOyhj8gB0rw==
+=w84m
+-----END PGP SIGNATURE-----
+
+--OUa812RZuwcsCrVy--
