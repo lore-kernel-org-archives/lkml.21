@@ -1,57 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795656733;
-	b=SpcfVV9/Hac+LGVsCqhEvthm/X104DJoB3IYc80W3FQw8kpIEzs0/U78Y+Sc0ju1q/LL
-	 NZE3dTIeJDHT4ELldwf1XfFvXKiOkNbWSEGIPFWe0LWrYuT2orcovv3EuIbTqwyBJIP2D
-	 2wyjDWKYEYAnWLK7+/z077tAqhNYIYnYo+UEDUf8VFscbfAWdfz62z1q8K1toBV4OxDHQ
-	 IHjY+4pH4PKf9ZExtXdD043/9Eav/I4vp6WKoTbXBTcp2emPGghhcoaSMauGnogv2ASs4
-	 anTLrSCNdcwd28eOCm2ydwntiHl+Aqe62tYNB1qQfwbNlbxtrzrtUORd+wmRUaQsHcA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795656733;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=IeOMS4Xk3IfW0flGi3s6pj9NvgNzNZr9mxYJinJDXiU=;
-	b=pii8u+A3/YWDpUnLlfScUQVaBM0u27MkbtkIARgpzLr548fKNzL5ODC67UOQX8wUi4HS
-	 bEvZLibxLMdBVM9QFJvzZlur4EGA+8Ht6J7QnicC8g9OX1zAwD1A6oNypmivYaTkoTtOh
-	 RCa6bJS0qvi7O2INrCFWwIs+UD5M7MUnGJWH7bvnez5uiNP83UIySjXtmuvKTZWq0dLql
-	 OS8hwylwH0dH/KoAaPN+rHenFcxE4hDyzdg+NUbPjvrQr6ePhvseaucE7ZrdXUG6c7R7a
-	 x44VRFb2paYiqpFu3XCBpAsjeKDs3jQT9lWKLIWN6fio5s1K3oLCS43/IdXv40xVpRg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aBDH9fw+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795656740;
+	b=VZqnm4H9xlD4URrr1Pg2wZHo+my9QOe6QhMoH/YS/jJ33KlpHY7NOhfZ6M4JZeCvE95H
+	 lmqOXPQ0I6/wvIxXZnw8tdQyFDlmfL3qMFGUuuKvyDkGXlMJEkihjF8DcyX8fVRXNxjum
+	 MY4tE4+IeheofyQFFzTE1CPvFK6cYwQctDTLZY3BOt/94jy67fxXzZpHl7aeXSApjqrte
+	 LPU3tvu/R4l2RGDemNuLDBUwQhhd/9tG9fc3sya9rpCYDao87H8YVgbSxib9/UzrBYCFH
+	 T88Iipko0Sk0wHHPXhNkUW+Q20tb6OS3RgvQy3uvFNQ4ttJAEGvXSPR5shhTmW5LTlQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795656740;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=5teNO/JxhkwB2jgsp8iXjdVcePZzcXg4cZvEeoAYOys=;
+	b=itJ26D6heBzFBEB6nmMnFxzin9LLkt7sipGKOiY+QFev5vnE6pvpffMG62Y3IPBOPcwt
+	 lOve34aejDwU8ao3haD1Uub2cvcMBAHNHOT0tHLJN4M1f4m2zpUkfLn4BO0LSJsBWG0ti
+	 3sCgZ3y2rjA5CFDeWXLmiOTKLq7yag369nUZRSfTUsEqjVJ6jpyAASkGIoeGF/rYzrrbV
+	 wiQzWOU8vQMAgARFNR+qhsljRii3n7j0bPW8Z4KqA5dQSMuIz43Rupbtym6t+1iUl5nhm
+	 Kw+fAoKx8MCK8oJ5gk7Yw1epsIVutf4UAidMSXDGwGNDkAL/ye7s3xNiMvpiEfj1Zug==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=G69pUh0b;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEE34606A31E;
-	Thu, 26 Nov 2026 01:32:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F366B606A337
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:32:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F366B606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aBDH9fw+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19BF21F000D0;
-	Thu, 26 Nov 2026 01:32:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795656733;
-	bh=IeOMS4Xk3IfW0flGi3s6pj9NvgNzNZr9mxYJinJDXiU=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=aBDH9fw+YSvVTkSHjb8QnL1zATSUz2TCpdEFqOsuYu08wWnEYEBaWeQLVjfOFXX2Z
-	 AMHe/+MNJoUYpBpJATFdOqpqcTwYWu8q7gAAdXckYfUahJ4Hze51wpUX6ETePfLvMM
-	 ZKpp6e4l4KEs5PNCE2w/J8qjIHZxgJDBeqIFOaBskQHLfFrTMRxsOtEikxZZpl5IdF
-	 uVjN/NeeqnowA5CRtJwvanj5cLaIhWh77zWvZqHU3I+FYfGbE/da4InsPw/UovRUWF
-	 qGxGAQEzJWrGU4MQgejnDr5cj1obLyLb2pIxfSDZeyvmYY6T99InNfbKezkwN9FGm+
-	 7geqNuT3n0ocQ==
-Message-ID: <sashiko-outbox-234553@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v11 21/43] rtmutex: Continue the chain walk when a
- waiter's deadline donor changes
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <1f5dbe87dcc9405b5848044acbb7381db868418d.1795646914.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
- <1f5dbe87dcc9405b5848044acbb7381db868418d.1795646914.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 26 Nov 2026 01:32:12 +0000
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=G69pUh0b
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-498f5fa4f70so5263222f8f.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:32:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795656738; cv=none;
+        d=google.com; s=arc-20260327;
+        b=QgjpmTmstjp4QVKteYVXiAbppsnB8kVCUU6L+5OGoPi9h+vT6jYjwm96S7+HrZEFM5
+         vy4HKLrfJ83250EUsFHt+ajBfWK74/s6ci+xPhww16ChWOi4YYQZPq1PWftKR4z2a6qM
+         RAFb9wsBMqAjcj8oOxmS84G0IpeMLHMl/xiSxhVbQs0cC/1GkIsnnYEtLvorOUihwsCe
+         XJkXFzqEeZnSZPQUBCnmG27zy+1EuiO9rHOvZHrBqbiUsAnesC6BdaeiWn2SElwgdZYs
+         L/YVt4k690hwRK4ZyCwz0MY6rkKvKuhQF0NJ9EVIoqPUoUHlyf8LxdCvr2KKfqUidN/J
+         qekA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=5teNO/JxhkwB2jgsp8iXjdVcePZzcXg4cZvEeoAYOys=;
+        fh=rYHtGuh/yrho/Ya1nY/UYwTVE8YnAdNRM4NaX9C6lJE=;
+        b=Jt0IxmYMVcUN4amOTOKDz9EYP9O3vAdgFQK7BNFoJLP3/KbAXBkTXbjTuZ13i12CKd
+         Xt0z6cxeIqN+fVjhehDJOx5f+SOqwwJO8W4CvDfpK7kGVah+mQ3BoDUHkdnqBw1SjAcz
+         p56ltOoPUKFRuHyechXckzcL1lmqLF9pITqD7DA6ar1WFPn59SObgDW9DI4quofrpjBg
+         hA1gduknu3dudrmR5/OmQHAg38YlTre4DKTyrkCYF9y6mRhXJvDBJqTGv/TwLKB4RDSx
+         kE4FktAWL67x4mrIGeLMlu7iq7zKZivDLj6x4Q2QFHLBtNiS3dqpfNL7A9UpUlenOFty
+         PKbA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795656738; x=1796261538; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5teNO/JxhkwB2jgsp8iXjdVcePZzcXg4cZvEeoAYOys=;
+        b=G69pUh0bIuMO5aiiQ2cErt6a8mQ9ogXBZQCUU0YPh2cUtHR4dr+eCfeZTqCSrtPfpr
+         ElJuQnVK+miJu3zQW1iWegWXQH0L7/yM51HcdFP1yQi5pTLVHaJPXvXVaTdnOoHvujPb
+         picYP8JFQObu7yJT8v+OFsrAkJo+tmVcVaccWFcfmEbKK0YWsMeifN8txbGiK6PFqSX8
+         PzXYl9wp9Q7DvWIaBNqzMZNo9fsPNpIdct0GDPhphGfYthYvoCuAMxsQwEK5KxtoUyJh
+         Xyk4MVwbvecngLVaLW8K3ZAVt9cIohphjoJpBqi6tgmlAoVvKERvaNeoDF3WmqZ7cH4L
+         aqtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795656738; x=1796261538;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5teNO/JxhkwB2jgsp8iXjdVcePZzcXg4cZvEeoAYOys=;
+        b=pIYyvcdDBs5umw4x5P00sQG+7HMD1NuKZ0RMun9ycCQd29vuM1EJ4xwameJZ34yAaB
+         RPLAUwRC346LOiCermBUdnwzvsdxZQ87DVDKLuopNwWxw83H8FOpf5sFF3F34B9JHyEP
+         zAgE54OPVc/vQtGhVOxnt6PGTUvLtxhXUHWmS1CTlRwjAj/4WU7MjYEkN2Qxcd0sM1LG
+         rH+Ihy8OxI/IBvp8UsqeGTGCWqEEe6nvpDMW33ixSRpkUHhGa7uKC4WRcNJCwWi6869V
+         /cduv4bvp0aYLTGDWI6BS9am5ffhkzOxaYrpcE1g9tpue6lrVEUvTV1w82mVO3A25dew
+         D8og==
+X-Forwarded-Encrypted: i=1; AL+hErHPVFn6/imrj2WJT1Vq5W88h0v/NjRtuuTIOerUy4B4/1zyEdbfWOiAu2oY2zgHxmiJjcO9UHRJtf+OEW8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9p90UME4Oag4UGHdWHqDuJ3jx+cwicYkbW8y1BtuOa2AoaZy8w
+	qp0EP5KVcyP/hPHX7yyoYH2F6Kww4AR+7VOJ8gh31HUjYwXYzgfcGtES83xxZ/mYX0PAWiuZlUZ
+	xUKz4h5HoJJa/b4iG6iIqxsAVidKjduCObgecJtc=
+X-Gm-Gg: AZFdTZfy2FzvIGN39sfPvqbW5x9xs57XNm8It6wMOuYPjcZCcM0FX6Pjm3lBTYxNmo6
+	JdCOsF+Obca8DzJYVwkD/GpqIC3FSzMjoNd+Kn0thYamUVF+lZHpnMOjItnMIKT2q3TKLc/7KTE
+	12rJXOXtwbh7L6KMA3QfqUJOmZT4x25eVN188FyTLly/H+FEM/JDG2KtoGl6dqYr9siVIn2gkBm
+	cpspXN0vpW9og6ivA3ehXKsL+f2xB1la1WbQJKTiawelt8fYU3feyNLqkr7ytc2eSQcojjxDpwM
+	ntbjOPZdtyynEp/0cKNQcfValeAaCmqDOOHQve5gb+7y8ofbbYk+LkkN08FbCdJHKys0RdVz483
+	v1gBltvr7AaBmdMs5lqIQy5OoP2BbPpuy7FIZJfiXPQDB6WkWASpE4+wjCjbRctg5RJr8+uOao8
+	trd9wJk+DrBf7RNjiaQ0xWyNunLSAyLuxfjGpgPiellLkpMQ8vpYzInweMqy9Bvz5Rz9D0TIpPt
+	Lmy0NovBU52arziRlFOj0lw1TT0bfjVxOEK7dIibA8JIWVutwTHCg==
+X-Received: by 2002:a05:600c:37c9:b0:4a4:4d57:8487 with SMTP id
+ 5b1f17b1804b1-4bb887fe7f7mr340566925e9.5.1795656737646; Wed, 25 Nov 2026
+ 17:32:17 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,141 +105,81 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+References: <20261023220431.1106611-1-jstultz@google.com> <20261023220431.1106611-2-jstultz@google.com>
+ <20261024114422.GA6775@noisy.programming.kicks-ass.net> <58521a9f-2f05-4176-8b14-96c7b5f0e212@amd.com>
+In-Reply-To: <58521a9f-2f05-4176-8b14-96c7b5f0e212@amd.com>
+From: John Stultz <jstultz@google.com>
+Date: Wed, 25 Nov 2026 17:32:04 -0800
+X-Gm-Features: Aa3M54pITc9m_l4GP7pYefq-G1vawrBordw8bvc2EtxKjZzePz-SWvlKRRqUQng
+Message-ID: <CANDhNCrxuWTohB_Vs+cmKyhNVbfiRMRhmdgLZ+2OoRHWh3cYPQ@mail.gmail.com>
+Subject: Re: [PATCH v33 1/7] sched/psi: Preserve sleep-persistent PSI flags on
+ off-CPU sleeping dequeues
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
+	David Stevens <stevensd@google.com>, Ingo Molnar <mingo@redhat.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Juri Lelli <juri.lelli@redhat.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Valentin Schneider <vschneid@redhat.com>, 
+	Suleiman Souhlal <suleiman@google.com>, Andrea Righi <arighi@nvidia.com>, Metin Kaya <Metin.Kaya@arm.com>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Zimuzo Ezeozue <zezeozue@google.com>, Waiman Long <longman@redhat.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Joel Fernandes <joelagnelf@nvidia.com>, Qais Yousef <qyousef@layalina.io>, 
+	Xuewen Yan <xuewen.yan94@gmail.com>, kuyo chang <kuyo.chang@mediatek.com>, 
+	hupu <hupu.gm@gmail.com>, Zhan Xusheng <zhanxusheng@xiaomi.com>, 
+	"zhidao su (Xiaomi)" <soolaugust@gmail.com>, Hui Su <sh_def@163.com>, 
+	"Shubhang Kaushik (Ampere)" <sh@gentwo.org>, kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue to consider:
-- [Medium] rtmutex: waiter->pi_se desynchronizes from owner->dl.pi_se
-  after unlocking pi_lock
---
+On Sun, Oct 25, 2026 at 10:00=E2=80=AFPM K Prateek Nayak <kprateek.nayak@am=
+d.com> wrote:
+> On 10/24/2026 5:14 PM, Peter Zijlstra wrote:
+> > On Fri, Oct 23, 2026 at 10:04:12PM +0000, John Stultz wrote:
+> >> diff --git a/kernel/sched/stats.h b/kernel/sched/stats.h
+> >> index ebe0a7765f98e..20820fe1021a1 100644
+> >> --- a/kernel/sched/stats.h
+> >> +++ b/kernel/sched/stats.h
+> >> @@ -175,12 +175,28 @@ static inline void psi_dequeue(struct task_struc=
+t *p, int flags)
+> >>       * Do nothing here.
+> >>       *
+> >>       * In the SCHED_PROXY_EXECUTION case we may do sleeping
+> >> -     * dequeues that are not followed by a task switch, so check
+> >> -     * TSK_ONCPU is set to ensure the task switch is imminent.
+> >> -     * Otherwise clear the flags as usual.
+> >> +     * dequeues that are not followed by a task switch. If TSK_ONCPU
+> >> +     * is not set (meaning we already switched away while the task
+> >> +     * stayed on the rq as a blocked donor), handle the sleeping
+> >> +     * state transition here so sleep-persistent states (TSK_MEMSTALL=
+,
+> >> +     * TSK_IOWAIT) are preserved.
+> >>       */
+> >> -    if ((flags & DEQUEUE_SLEEP) && (p->psi_flags & TSK_ONCPU))
+> >> +    if (flags & DEQUEUE_SLEEP) {
+> >> +            int clear =3D TSK_RUNNING, set =3D 0;
+> >> +
+> >> +            if (p->psi_flags & TSK_ONCPU)
+> >> +                    return;
+> >> +            if (p->se.sched_delayed)
+> >> +                    return;
+> >
+> > Must this really be sched_delayed, that is, cannot p->is_blocked be use=
+d
+> > here? I'm trying to push sched_delayed into fair.c if at all possible.
+>
+> In this case, blocked donors going to sleep would need
+> to set the PSI flags accordingly (do what psi_sched_switch()
+> missed).
+>
+> "p->se.sched_delayed" tasks would have already set those indicators
+> but can still arrive here from dequeue_task(SLEEP | DELAYED) of
+> sched_change_begin() - in all those cases, the dequeue flags will
+> also have DEQUEUE_DELAYED which can be used instead to bail out
+> early here.
+>
+> Would that be okay?
 
-commit 20b64bd5f85400f14e722790295c12b998e0b8ee
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-
-rtmutex: Continue the chain walk when a waiter's deadline donor changes
-
-This commit records a task's deadline donor in struct rt_mutex_waiter and
-includes it in the chain-walk termination check so that donor changes on a
-blocked task propagate to downstream lock owners even when the waiter's
-priority and deadline sort keys remain unchanged.
-
-> diff --git a/kernel/locking/rtmutex.c b/kernel/locking/rtmutex.c
-> index 5a9534c715b84..c78dfe9c93fc5 100644
-> --- a/kernel/locking/rtmutex.c
-> +++ b/kernel/locking/rtmutex.c
-> @@ -369,10 +369,12 @@ static __always_inline void
->  waiter_update_prio(struct rt_mutex_waiter *waiter, struct task_struct *t=
-ask)
->  {
->  	lockdep_assert_held(&waiter->lock->wait_lock);
-> +	lockdep_assert_held(&task->pi_lock);
->  	lockdep_assert(RB_EMPTY_NODE(&waiter->tree.entry));
-> =20
->  	waiter->tree.prio =3D __waiter_prio(task);
->  	waiter->tree.deadline =3D task->dl.deadline;
-> +	waiter->pi_se =3D task->dl.pi_se;
->  }
-> =20
->  /*
-> @@ -433,6 +435,21 @@ static __always_inline int rt_waiter_node_equal(stru=
-ct rt_waiter_node *left,
->  	return 1;
->  }
-> =20
-> +/*
-> + * Return true if @waiter is up to date with its task @task. Compare the
-> + * sort keys and the deadline donor, which rt_mutex_setprio() copies from
-> + * @task to the lock owner. A boost or a deboost of @task can change its
-> + * donor and leave its keys as they were. The owner must then get the new
-> + * donor: the old one can exit. The caller holds @task->pi_lock, which
-> + * protects @task->dl.pi_se. @waiter->pi_se is never dereferenced.
-> + */
-> +static __always_inline bool
-> +rt_waiter_up_to_date(struct rt_mutex_waiter *waiter, struct task_struct =
-*task)
-> +{
-> +	return rt_waiter_node_equal(&waiter->tree, task_to_waiter_node(task)) &&
-> +	       waiter->pi_se =3D=3D task->dl.pi_se;
-> +}
-
-[Severity: Medium]
-Can waiter->pi_se get out of sync with the donor that rt_mutex_setprio()
-copies to the lock owner?
-
-In rt_mutex_adjust_prio_chain(), waiter_update_prio() snapshots
-waiter->pi_se from task->dl.pi_se at [7], then drops task->pi_lock at [8]
-before taking owner->pi_lock and calling rt_mutex_adjust_prio() at [11]:
-
-kernel/locking/rtmutex.c:rt_mutex_adjust_prio_chain() {
-    ...
-	waiter_update_prio(waiter, task);
-
-	rt_mutex_enqueue(lock, waiter);
-	...
-	raw_spin_unlock(&task->pi_lock);
-	put_task_struct(task);
-	...
-	task =3D get_task_struct(rt_mutex_owner(lock));
-	raw_spin_lock(&task->pi_lock);
-
-	/* [11] requeue the pi waiters if necessary */
-	if (waiter =3D=3D rt_mutex_top_waiter(lock)) {
-		rt_mutex_dequeue_pi(task, prerequeue_top_waiter);
-		waiter_clone_prio(waiter, task);
-		rt_mutex_enqueue_pi(task, waiter);
-		rt_mutex_adjust_prio(lock, task);
-    ...
-}
-
-Because rt_mutex_adjust_prio() -> rt_mutex_setprio() reads pi_task->dl.pi_se
-directly from the task rather than from the waiter, a concurrent boost and
-deboost on an intermediate task M (holding L1 and L1', blocked on L2 owned
-by O, already boosted by deadline task H on L1') can update O->dl.pi_se to
-a new deadline waiter W on L1 while M's waiter w_M on L2 still records
-&H->dl:
-
-CPU0 (walk for H on L1')          CPU1 (W blocks on L1, then leaves)
-------------------------          ----------------------------------
-rt_mutex_adjust_prio_chain(M)
-  raw_spin_lock(&M->pi_lock)
-  [7] waiter_update_prio(w_M, M)
-        w_M->pi_se =3D &H->dl
-  [8] raw_spin_unlock(&M->pi_lock)
-                                  task_blocks_on_rt_mutex(L1, W)
-                                    raw_spin_lock(&M->pi_lock)
-                                    rt_mutex_setprio(M, W)
-                                      M->dl.pi_se =3D &W->dl
-                                    raw_spin_unlock(&M->pi_lock)
-  [10] raw_spin_lock(&O->pi_lock)
-  [11] rt_mutex_adjust_prio(L2, O)
-         rt_mutex_setprio(O, M)
-           O->dl.pi_se =3D M->dl.pi_se
-           /* O->dl.pi_se is &W->dl */
-  [13] raw_spin_unlock(&O->pi_lock)
-                                  remove_waiter(L1, W)
-                                    raw_spin_lock(&M->pi_lock)
-                                    rt_mutex_setprio(M, H)
-                                      M->dl.pi_se =3D &H->dl
-                                    raw_spin_unlock(&M->pi_lock)
-                                  rt_mutex_adjust_prio_chain(M)
-                                    raw_spin_lock(&M->pi_lock)
-                                    rt_waiter_up_to_date(w_M, M)
-                                      /* w_M->pi_se =3D=3D M->dl.pi_se =3D=
-=3D &H->dl */
-                                      goto out_unlock_pi;
-                                  W exits
-O refills from W->dl  <-- use-after-free
-
-Even with commit "sched/deadline: Hold a reference on the deadline donor of
-a boosted task" keeping W's task_struct alive, the chain walk still stops
-early at M and leaves O running on the departed donor W's parameters instead
-of H's.
-
-Copying waiter->pi_se into waiter->pi_tree in waiter_clone_prio() and having
-rt_mutex_setprio() read the donor from the top pi_waiter (or holding the
-donor's pi_lock across the read) would keep waiter->pi_se and owner->dl.pi_=
-se
-consistent.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795646914.gi=
-t.mathieu.desnoyers@efficios.com?part=3D21
+That looks like it is working. I'll include it in my next iteration!
+Thanks again for the suggestion!
+-john
