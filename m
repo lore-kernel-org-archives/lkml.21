@@ -1,72 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795653844;
-	b=B/dvw4e8gLqf/N4VkD7QrmveHLFbrHvMVb8RhZpwxnY1S8LNJNbB1q31KvpNGZBc8su0
-	 DoCG0HRKYEbXx70Ju5kLDpetSALutD4LO5zqxiyb3kYhmSBPN8YON/Q/365UJgflX4e7m
-	 dV5wtDBhlq3akEIhIvyeFT4cFCRaF7Z3DsOLC6R1ekd9BoEjbGnrWdow17n5IJ76bcJjw
-	 pg11fi/letzM9tchGeJ7o1l1qlyW/LWnz4q5rhUpowRGUrdJ1b/I55hv31qM55uzEF4FX
-	 XiVC91q0oyr2t+tt9lhIEjmBay/4oFYoaPuqa6bMbVLI+kMWHK0gbqH0bxEHSS2W94g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795653844;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795653870;
+	b=rgsPRT0zU3wsxooGNB7tD9smFYlPKY9V9WXDl0tc68oO36kn2bclX3kk4BfQFLJ8k3+d
+	 EfmShjVa9BSY8E/lsEx+5ItX1YAXJk/S/scp90hrRsH1MLmtoMNflmfLvBVmEZY+z3j9E
+	 l2Rc5Jg5hMP7pndGwW4Yp63BZkeKIPpNXDAy9XpvY+FLNbk80cFlPNQuPq67yqOUIqbNF
+	 Ohv9lyB9nR2QBetZXvMPTfMDLu5qH5KGhKeB/m/yAX4l/Q/IPEqZVXNxTG0cYIB9Cne//
+	 wXS7T7uV9lYKcN+5dID7RlZgSepCnxEsTuYOgSpb9WU5N8D6wSQ8WPwC3CzjsI0gNoQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795653870;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
-	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=kntvEAl8c9UlNNjGZIvxtVFbdMIQt57S01N2AkNPnUM=;
-	b=CjFr4FtKQiKm+g160GU0VkMKSdN+ACn37K2aceBnKMySyvankbfZElgo3TB1YnKZBTXh
-	 VKmoQDbvVrdaUkL1oS3LY2lCYbhihHAghdfHiFya1DThhxCUucqIM5mXSFuvYiD9AVQZS
-	 FiLCkIdgdYPCl1aWfkXE/IXXQLtnmjxP0SYtw4XzRd1fDw+5z3ey3EhjcvE27nnX6j0ah
-	 GFPkh3SauASGCyOGercmFGLKEH6nA1/qsNSlTHkL/PeV/Bprkv3fhyozI1BbGCRE0E60S
-	 NC/ywfEi6vFRcQWFFqu+jrF+Tnm2BjSmHc7tEIdbOs/zr7OKlhfPCEmf244ginaVoSw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=iVFnQD3imnTlv+9jxnHkNU96izoDIFXplUev078ijIQ=;
+	b=xlBKWZooFXTkQG556oNjrh6ESOMoZguBWl8RRtk9RXQJQId+9dzY9kUlaBFZhEhQIiZ/
+	 kzyhXYCgfluhQN6d/fjZNywj8dPCPOuSbtDLTLB+Q1TwhN2YPeMwi+cgk+1zlI2zV711i
+	 fw0j9Itn6jQEs/Xec96Fq+ai90J5MUlgpK8lQSxVAOXfDp5Q14MAKIOPznOfNxMLaj/Wy
+	 BK8XGWrTVsCRdCB2TQkKshGcsYNvetK7/OCepggbcyEi1IdLg1s/xofJ/JIX2sON+wHlR
+	 ecb61yX2WxHDBeNMWzI9J2plA6U12htnCzsuJxIfrNdrjQWmfxaA86iwZ/c6d1zZOVQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BoNrw4dc;
-	arc=none smtp.remote-ip=74.125.82.198
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TFVWM1nN;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.54
+Received: from mail-ej1-f54.google.com (mail-ej1-f54.google.com [209.85.218.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 416DD606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:44:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 416DD606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B6A3606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:44:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B6A3606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BoNrw4dc
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-384c78aa0dbso8483837eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:44:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TFVWM1nN
+Received: by mail-ej1-f54.google.com with SMTP id a640c23a62f3a-c506a231b88so870050766b.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:44:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795653869; cv=none;
+        d=google.com; s=arc-20260327;
+        b=SAQf3miQU87hN7LFm2c/ZhZPdrhkY+cRxzDzug/37igXiuGSGnRTFVkfvikdnf+MfK
+         ng8g7fB+hE3rv7xsou1AwjX/3RMXIL33iJo2omDkgSNv4snEPIH5avTNcnZBZIg2RWk5
+         PgQwxWRTBJ1vLDeYpHzHu5J+r0kmgsF95802BQf//lhb3egLhrwbImQw+0qORzOA61R/
+         nF0sH6fxQQ7Tk5251fKbBkID+iTuE0Zk2XolBmNWVgNI3j/N+uwcM/C2VfajDzAYgUBx
+         30M31h/mTuRkTRiRpjoyspZM6hI3kWFnAkRmv0IUBDIxYd+QGy3RgkhCHwe1GVH1qIg8
+         gZXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=iVFnQD3imnTlv+9jxnHkNU96izoDIFXplUev078ijIQ=;
+        fh=0LL+v94T5KedC3eJXuUQLa9pdFLsbQXjOnAqF2Zof5M=;
+        b=XooDzenrW7plrTOoW7dqZCvB4rOgY8vymUAybgsfykReuEnVUgrWPHOsa661n6ufc5
+         esFuZbEJFxP8NYvxA8IEAHTZej4i7Nz/s4qOZsl0n0P9K/V8lQDkF3ROM8niKOwTCaIZ
+         PPSkGhxyqxIlP3uE4TB3mOZqvemBXShPs9MR6GVLJrv84WmmrhSm71ibH+RdXXYZNLTD
+         oTrODUMnuDX3EVBvCxxr/dW0LHaXcPiuMKVDaLxJLXN+YFkqqnSjwdGP+c7L2nsbcDyP
+         PUV262lgqMHK3zqt1VQPGPY2OgGe70jV7HOAmydmUpg8MitI/kdpjC9D/cuyzV6J3iUr
+         Sepw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795653843; x=1796258643; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kntvEAl8c9UlNNjGZIvxtVFbdMIQt57S01N2AkNPnUM=;
-        b=BoNrw4dc0wesVjDd+co6oCGosrNKKDLwVcayt+Uq4JDCQ4k8wM2BaT2HXHXtW0y9yY
-         4yB/olIQXKxP1SsOqKpKrjbsIb/X/tl52QhyzAgZeTIDME93CS0Ueyn2l4A57Hln3+fN
-         xhG5/T3R4cR3Sk7Tr2VpUgisHB7nWyTnsc0DNzUomU4P55P2qw3ldNwZ1c/miXqHOZli
-         g3MFFfT8Wz4gV3zJ9VHmLqnuViABWwA5Kf0bN+FiOMQQLN5PsFHIfFRTyiseo7gaXn1H
-         LgUQQ3aeqG5JTHfVQPQoCIbGX2ZK/8906aAadolKVC8Jpps6NkYFE+DIgrPhygb5dkYU
-         42ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795653843; x=1796258643;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795653869; x=1796258669; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=kntvEAl8c9UlNNjGZIvxtVFbdMIQt57S01N2AkNPnUM=;
-        b=PB/6CqPbavhYAM4dFSG03tGmisqdSyefRBEW6cUMFVZr35mo9lLlIXj0pwX1RqxLec
-         R+QGNPVa63BKWQ34jSLI6K5UuS87h0aD8f5+P9ULIwAOl6QbAAxyI45MLYr4sYbIfQaT
-         ijXYBpEvEgVKLO8GtftE5H+ysafbSGuKEK3tVsWS1E7d6s6tUK5urTODtOMprIRMiZzn
-         IrTcGe3WHMc5vIH0hOQtpSiXAyJBFpfX7+BjX9XVZKmKwc3C6sn3keUKR0To1kbNYXst
-         PuPxThzEMSxSpduI2c/s4fXm28tJIkGpGQXMu6ZGwbhzt7cKZG+o8diBC3lb4nk9pqql
-         hpwA==
-X-Forwarded-Encrypted: i=1; AL+hErEJBCJsaSY9O+gZNCREqkXxd+05wJASA6wlURYdqJA4xoz+N/Kiqmj/xD9BhyQCZSRPdlrbI0Ji7nQbLzU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/nGgLsot+nQh1RiTP4F26fvEwp6zRb6h10Wah6tAuASnqLokmE
-	mnKrJTma90qcfFn36I6GnSIDsZe5UrvpSq+MK+jBME8c89dbuXJnu8jAih2CoK7tw8yJ1pFzuKh
-	ASQ==
-X-Received: from dybgk2.prod.google.com ([2002:a05:7301:182:b0:385:e49a:dd09])
- (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:8084:b0:36f:4981:da16
- with SMTP id 5a478bee46e88-3857073f5ebmr18632806eec.25.1795653842992; Wed, 25
- Nov 2026 16:44:02 -0800 (PST)
-Date: Thu, 26 Nov 2026 00:43:32 +0000
+        bh=iVFnQD3imnTlv+9jxnHkNU96izoDIFXplUev078ijIQ=;
+        b=TFVWM1nNu5gApS+aRUNGAO2b47beOviKXKAUtZcibEAeTqBUzqYaxbl/Ez5VQvaHiJ
+         TXrTwu8x0jRe4t5Qky6cuxp9+qXTOVpIHPYaRTuFvweUNvzRuyVro3GhlyImE69z5l6h
+         8+10BUgXaVnSQdQJL56ogVd0eoghwHYtJzCo3zCbsQwT+vD3SGCXtB3FiXNUreuGXelJ
+         f7VR1BO5S+hnTUr9vyAHKXMc2Z8rg1qIpqzDfb7vnBqg8zVirP17bCZUWs0HZkfhTJwL
+         aGZZfKvpUl1Z4/v5oLfuk517qMaRDnLShKckyF1bvlHNxOJLhAHLt0pu9I70jGnqlzcF
+         ZJeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795653869; x=1796258669;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=iVFnQD3imnTlv+9jxnHkNU96izoDIFXplUev078ijIQ=;
+        b=IDFdx4g/qrVwMxFk37fKmgJN+NMoyhZVrruLBUIJwOQMP2ZPHPj+OKWMIRvTioF+Iw
+         JYuSSkjiaP5/2+AAt/oj8IWAWCd3WPH4jkcEN8I1krHAIzBtwq7AHjRx8KivBe5W6n+Y
+         R2SOqb6YSAznFkpNJ8xDnmAtauUDyJc6VDmMxNMOrPAO7nyPRknQ0GGel5LYaQa0Z51u
+         jszfLQan6kg7aMwTg2t182qly4uGB5xFUizKzCjkrGYixCt9pzK81rztpoUFt7dbdF1p
+         N9IDmMKQx2MpLFG1WMjyQ++sLZWbvalHblJtFUGhkBDIeTJiJBU7zwE/QFZsn++4jyb/
+         +FLw==
+X-Forwarded-Encrypted: i=1; AL+hErFjIGhuf11CIOoi14BDRIKZpaZHaiJsgRrbS2zQBlSu+CrkKSJx7qMAuX4GRRSxZrNm12vj2gdN1XNWeKE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/fdZOkk5zmp36N5jzZjl8dkGx/AYmWUIW708njkJ88bcLrruv4
+	fBYZvxVE9EObBV5S+oJUhEDvlH531MrQMaSy92ANcoJ1Q1pINSIoFxTL3Svm5q9kc4LR9dNGxB4
+	+iznprjLqHmC7kKb5gcEQz1A4kOweQjHTLC2y2Lw4
+X-Gm-Gg: AZFdTZdNkGdu63U9oYLBk5eOOkGB6LhH4H/oJmQN2p5RXMJ3c18BvSOPfwJICMSzj8F
+	Dk/CHW+cpni2rlFqFg9sdJo52pjCAoMOKd0bggEUAj8xHVTgm6S5D5/lpxS01gtpW5Q7WGcB/Lx
+	9bzUZ8KSKPoz3zI/p2cvOenJLkPH96p5AWW6XziNTN4YT8aZWXHTweVeHAMPPJl2v2qvPvZNOcG
+	kEYCH9wPuOth5cO/UPwIhxxQwXWNqwHKAUXRGivBtUAWtrRbOCn6wiy9lHrefwmH2urErlayiiV
+	B6uyhl+z4yIAC3wsbgazM7PQaqXvpztGSBT98fCyXjACZkVTEa2DE80mZoFEJ3Q39NaLNatlCfB
+	PyCzDysVqKQBgwklLruApjq04m3mHIcAm8/FNa8EZM9zejHyW5bJ6WGhLmPFNYIJgvWc=
+X-Received: by 2002:a17:906:6412:b0:c51:24eb:e5ed with SMTP id
+ a640c23a62f3a-c513aabb094mr1147878466b.42.1795653868573; Wed, 25 Nov 2026
+ 16:44:28 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,67 +102,53 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
-Message-ID: <20261126004332.1712403-1-elkin@google.com>
-Subject: [PATCH v2] btrfs: tree-checker: verify tree_block_info bounds in check_extent_item()
-From: Elkin Cruz <elkin@google.com>
-To: David Sterba <dsterba@suse.com>, Qu Wenruo <quwenruo.btrfs@gmx.com>
-Cc: Chris Mason <mason@kernel.org>, linux-btrfs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, irogers@google.com, 
-	Elkin Cruz <elkin@google.com>, stable@vger.kernel.org
+MIME-Version: 1.0
+References: <20261113221248.3535369-11-wusamuel@google.com>
+ <20261113221248.3535369-13-wusamuel@google.com> <CAEf4Bzb6LQmHHkvB8WBezU6YRtggycRvvA3L03mQHDr3WQM6mA@mail.gmail.com>
+In-Reply-To: <CAEf4Bzb6LQmHHkvB8WBezU6YRtggycRvvA3L03mQHDr3WQM6mA@mail.gmail.com>
+From: Samuel Wu <wusamuel@google.com>
+Date: Wed, 25 Nov 2026 16:44:16 -0800
+X-Gm-Features: Aa3M54p3EatRpTsPAm_mcmxJ6hPDpQs1114Xl7F84nCmfTvZhGsQScuZoJFkxmI
+Message-ID: <CAG2Kctr+6-EESkYn+Dspg0FxTOMFRoj8269UZaNNDFNf3d+bHw@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 2/9] module: Add module_kallsyms_find_name()
+To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Petr Pavlu <petr.pavlu@suse.com>, Daniel Gomez <da.gomez@kernel.org>, 
+	Sami Tolvanen <samitolvanen@google.com>, Aaron Tomlin <atomlin@atomlin.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Petr Mladek <pmladek@suse.com>, 
+	David Laight <david.laight.linux@gmail.com>, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-modules@vger.kernel.org, bpf@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, llvm@lists.linux.dev
 Content-Type: text/plain; charset="UTF-8"
 
-check_extent_item() only verifies item_size >= sizeof(*ei) before
-reading struct btrfs_tree_block_info on non-skinny tree block extent
-items (BTRFS_EXTENT_ITEM_KEY with BTRFS_EXTENT_FLAG_TREE_BLOCK). A
-crafted filesystem image with 24 <= item_size < 42 causes
-btrfs_tree_block_level() to read past the item and potentially past the
-extent buffer's populated folios.
+[...]
 
-Verify ptr + sizeof(*info) <= end before accessing
-btrfs_tree_block_info, matching the inline ref bounds checks below.
+> > --- a/include/linux/kallsyms.h
+> > +++ b/include/linux/kallsyms.h
+> > @@ -24,6 +24,13 @@
+> >  struct cred;
+> >  struct module;
+> >
+> > +/* Exact or prefix name query, optionally in one module. */
+> > +struct kallsyms_name_query {
+> > +       const char *name;
+> > +       size_t cmp_len;         /* bytes to compare; includes NUL if exact */
+> > +       const char *modname;    /* NULL matches any module */
+>
+> will "vmlinux" match just vmlinux? or how can one express "I only need
+> symbols from vmlinux image" with this?
 
-Fixes: f82d1c7ca8ae ("btrfs: tree-checker: Add EXTENT_ITEM and METADATA_ITEM check")
-Cc: stable@vger.kernel.org
-Signed-off-by: Elkin Cruz <elkin@google.com>
----
-
-Changes in v2:
-- Use (ptr + sizeof(*info) > end) with matching extent_err() format to
-  follow the existing pattern in check_extent_item(), thanks to Qu
-  Wenruo for the review.
-
-v1: https://lore.kernel.org/r/20261125221849.1424464-1-elkin@google.com
-
-I am trying out new Clang static analysis checks for kernel bug
-classes, and they flagged this code as possibly buggy. The findings
-were triaged/fixed and commit descriptions were drafted with help of AI,
-then checked against linux-next (not runtime-tested on hardware).
-
-Thanks,
-Elkin
-
- fs/btrfs/tree-checker.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/fs/btrfs/tree-checker.c b/fs/btrfs/tree-checker.c
-index d2bf21c7b848..40f2355cbb1d 100644
---- a/fs/btrfs/tree-checker.c
-+++ b/fs/btrfs/tree-checker.c
-@@ -1665,6 +1665,12 @@ static int check_extent_item(struct extent_buffer *leaf,
- 	if (is_tree_block && key->type != BTRFS_METADATA_ITEM_KEY) {
- 		struct btrfs_tree_block_info *info;
- 
-+		if (unlikely(ptr + sizeof(*info) > end)) {
-+			extent_err(leaf, slot,
-+				   "tree block info overflows extent item, ptr %lu info size %zu end %lu",
-+				   ptr, sizeof(*info), end);
-+			return -EUCLEAN;
-+		}
- 		info = (struct btrfs_tree_block_info *)ptr;
- 		if (unlikely(btrfs_tree_block_level(leaf, info) >= BTRFS_MAX_LEVEL)) {
- 			extent_err(leaf, slot,
--- 
-2.56.1.839.g22a8290db9-goog
-
+At the ioctl layer (patch 3/9), passing "vmlinux" in query_module
+restricts the search to vmlinux without calling
+module_kallsyms_query_name(). I will clarify the comments in both
+patches in v4.
