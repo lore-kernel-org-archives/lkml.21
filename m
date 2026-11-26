@@ -1,116 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795655792;
-	b=QKpLdsdQhLWSz15bldPEb+T4AUN5YxsB2IntrkQMU+OMQTkZI3x/XFJDIPH5sj1itubG
-	 LgiT39Fp3QautRGCtT1ofqNqMeNCzbsLyiF0PjE4rjfnqhZFAubY5RwxMH27sgydKgcup
-	 wgeFn1vi8Vls23ES/dPHkeC2HLYCyXbmpm/yJeuRQv9N10pd9+zTe9qV39o8OtfwqXJKL
-	 xPCIjLOjAZRqnGnTH5JyVXVZyf6kg35iE9Z5jKRm9EHIqj5bRUjCc4TImfHqplolit5A/
-	 IjGBkHuTS6YQSk8QSQuyd6NZ2W+kZ9ACbHf+fbfYYtCDcN21eZdkqRBlNvSMhBBNhFw==
+	t=1795655838;
+	b=VuZyUrjUt4HdNF5Rmlt8+W/Yxq7t0qNrGjVO8rLasgpHN6tIiUSQksN5rolLvlRHzuU9
+	 nF/N7P9LWobzFkooADYprOg0nHnhnQ99HrAEo7ksUXnVbTbp02fRuqryC3dFXBqkPlSjm
+	 U5fhPDcICMa9SnFBkHQnBePgN2aFcdBh/g8hNar6zXF/liMhmatjZJdRnVNoZylBeaKbj
+	 a33FfeRP63koLJJe3am/v+Dko/J1A9BDzDfQzeLc4LM+rJzqCluiRqaM/YbSaDiOJ9Nri
+	 QBont+v1zllfKH+oJ1Fl63e+3oX3ejNC3y6a3sSJMu399qGQXRYlh6aFgiErOwNY7Nw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795655792;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795655838;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:Message-ID:From:To:Cc:Subject:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=QlSPO9+8YS67Tn4rbTFkn+Zhwur7gCmRYFgUkoNRUs4=;
-	b=m//ZP3CF6seNMYtkaK2dEZ7bghWSfhQZ/eeKNESnZPeKkOjZb2ioOnWpCzi2FabGsB4H
-	 IIKZ6lK5+Vm/yzb4FbCznR7oawTASve9QRAscztADDbwM2cNTc6UoP51eQNrTuhsx5Kbs
-	 M6vsgVMhJG+SAhq/1dr0jdJ7NaitKi1LhW7qNE1w6qVScD6UITbPf6WcX9SWRvkhIIh5Z
-	 iCdfdFGMDFQ4hiEQmFyaINSO3/bnVFtVfnOElFXWSMNxubu9rqavrCX0tq4A1wU98UAqM
-	 4tITGuobSwRzTiL1z1y/nZIucCvMIemkqfjVU/MzYgnRZ5gzLtv5xFMj2aJjqZAYrZw==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=8vhDEbyn1nkYBGZ2jl97YuxcDAz2vqULbU/VOeX9XGM=;
+	b=3wojuxri1H3A8K8O9ORnJI0oZ7uTHIWwk1rEMgdQRoMkWhoJVINbTrUDgADXqIKQTdsM
+	 TcqdIr8lek642Wnwy/wzLP2Yvfx2pHLu/rKWOMFNsoTiNo53qjNBUOHcsyXTDaFLvLzVs
+	 F6XId+PtsP+8iDTndbQ2WGOwajDB+QHmjf5SJtnikO0fiK2jskA0g26lBtNbviuitDkZy
+	 ZUtMZPOu5jnr1QNSas3uCQATeOWf3vCnZHOhRNDafAkJdLiLoaRs28s6gJ7qTwhoVZyTf
+	 HJTJyc2DylE8sLv3+WugORMOz+kmOlKTxMGesdhyz+aPmhunAvSatHff0raTwKf6uuQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E3hiWB4Z;
-	arc=none smtp.remote-ip=209.85.128.178
-Received: from mail-yw1-f178.google.com (mail-yw1-f178.google.com [209.85.128.178])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=EuPcaFp9;
+	arc=none smtp.remote-ip=209.85.218.52
+Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B172606A327
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:16:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B172606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DDCB606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:17:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DDCB606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E3hiWB4Z
-Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-8b2d14968c9so62089597b3.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:16:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=EuPcaFp9
+Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c50933bdf4bso1226830566b.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:17:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795655791; x=1796260591; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=QlSPO9+8YS67Tn4rbTFkn+Zhwur7gCmRYFgUkoNRUs4=;
-        b=E3hiWB4Zj+L3kKg33G/3K6k/Vf2pySHmj8NCZYgRSDYT2gq9x2DlDktdLL3cq4jVyL
-         4IoAI4BW66V/dudYr+Z7ncM3MMMdZmRahqSriEwy7JyprppwYPFa0ZMqPnmh/aAwsawT
-         5ZPg1tzHAn4RKfxhygskCZMsE/5Ke5WcMM8fH5svn/nR4in9izf6cXxJQn9fP2bibktZ
-         GLmjEKHBoW5Cw/qvmRNVhpnOh1nTfUVgeHI/LBlz2K0ch7e9mOhOcLhoT4VWu98W1vVA
-         CL4wu/KF8CpapNCEMXuXHkmp1FIzQ9pFD8iMQgLEmGSxk4sNn9jv9cZv+GyDRmpxUqME
-         A0rQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795655791; x=1796260591;
-        h=mime-version:content-transfer-encoding:content-type:references
-         :in-reply-to:subject:cc:to:from:message-id:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=suse.com; s=google; t=1795655836; x=1796260636; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=QlSPO9+8YS67Tn4rbTFkn+Zhwur7gCmRYFgUkoNRUs4=;
-        b=XzKIYb8QzoROH8ddOkKpkXpwuXNJJXKy9Sf6F4KhGRuFSTrABZVyF5brYfTSbzE4aR
-         22AK7V+wCr8OB01QgH66Y6HgeUZ6qtoxgzRrR+oYy56xlEp5hWg/V6T1Tuh3Sxh/DKTb
-         cp+ZO75Kh9GRBb5xLDvYoN4o8qD1hgSEjZdHPDcX3UStp/B19WmvnlaiosT5k++7GR8u
-         UiXqtI8vf/rOGWmd0E6lvUvELkbnTHXjUSUQDd9nd9nFENw+JCEDYP9kOJRfjLol6Mxa
-         7aIwnxKjBdqCZS847UgG4bDJ42HRusm3FHwl8A8CfBS7ol3q4IEFjOtLwtpzNhFQBRyX
-         QfKw==
-X-Forwarded-Encrypted: i=1; AL+hErEJYctUDbdo79LSqZ4RzvYASFFuzlpm9uvTR2CRRZ8ur3XLqpx785DPgqX2RTFW68j1KkrZ32VEalYQ7tY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8jGMJquQWlAIS4tKS0WCFbtG63vec9aicqkCnsGglaodEP+Mzv
-	1O63IdZDqc6UXeHId9OopRLCxCgfN9G/4abNcnGtcgLbQ241hgyWT1uF
-X-Gm-Gg: AZFdTZddV623pUgNYTd5tInKXpTYSHjx88jv+sv5t3stYftzDt2iBVpZBix74JzMuTG
-	GEOzG6p6LPIb+SyPDfQu0WCspUCnnsYQf9weu/0D4watNRcxw3b8l+ieGF5MfIWobzEpvtKKLI+
-	/9gAO8uQXsOKfOSAMjP4f8SwkZlVGT8OnmJ6p2aSmxcxjN+5myza+KrmGPLtqaScZWyG8m0ygy2
-	5T/JenctN1KGNQVOl1tCtdVB36n7KS1WkrG85AfreHpKOazaj2CtKKsPf5feikpXXquGcXm1Kag
-	0ZBmHLOklsSO6zSVj/DHEUjcAX0DtcRmU5M9uZZeU/aQOezYIjdMxHZ1ne5O93bQF8ClGIm3bxx
-	QTncDYUQejrdKm6eZOAd/Mbh9YngC29eOhvSl6WOWq54sQClmY9fThEfz5d+iRoRn47/r8oC90W
-	ydzT8wYZ33aSGgW5F5QoGRSfu1FNZ1omM12yzPgeqZLVWLrejnxjlBO39zeOprdX5RCKXgAGDhK
-	7V5Z7Z/4VjUrHPYH8MLJ/R5UgntuoQbfvPJxu176b3wrOFHyqr5I3wJUfLwL8VGfCPZ1349N8H3
-	PRG1ccYQJyPjAH+XNN3DiXvn
-X-Received: by 2002:a05:690c:6a06:b0:8b4:d0ea:ca9d with SMTP id 00721157ae682-8b52045f6c5mr70876907b3.25.1795655791098;
-        Wed, 25 Nov 2026 17:16:31 -0800 (PST)
-Received: from localhost ([120.244.9.31])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b575ff89c0sm12140497b3.0.2026.11.25.17.16.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 17:16:30 -0800 (PST)
-Date: Wed, 25 Nov 2026 20:16:25 -0500
-Message-ID: <9ec2f818084f2e723e8b82218a302258.docular.xu@gmail.com>
-From: Guodong Xu <docular.xu@gmail.com>
-To: Cody Kang <codykang.hk@gmail.com>
-Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@kernel.org>,
- Troy Mitchell <troy.mitchell@linux.spacemit.com>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Haylen Chu <heylenay@4d2.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Yao Zi <me@ziyao.cc>,
- Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Icenowy Zheng <uwu@icenowy.me>, Jerome Brunet <jbrunet+clk@baylibre.com>,
- Sarah Emery <sarah.emery@canonical.com>, Ze Huang <ze.huang@oss.qualcomm.com>,
- Dmitry Baryshkov <lumag@kernel.org>, Cody Kang <codykang@vsit.ai>,
- dri-devel@lists.freedesktop.org, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-clk@vger.kernel.org, Luca Ceresoli <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v3 12/17] drm/spacemit: add Innosilicon DP/eDP controller
- bridge driver
-In-Reply-To: <20261121-k3-display-v3-12-ec419e8e96b8@gmail.com>
-References: <20261121-k3-display-v3-0-ec419e8e96b8@gmail.com>
- <20261121-k3-display-v3-12-ec419e8e96b8@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+        bh=8vhDEbyn1nkYBGZ2jl97YuxcDAz2vqULbU/VOeX9XGM=;
+        b=EuPcaFp9BXac6sMmb6amC/sR4AV3C810SzQPpUadP/CfYhNJy95HQsqugEQEF2j6X/
+         hM9gfQzFVGfyzTwTLXpS2VwXeFVoKiz7QXps9mnzKN+jSK5XrUvLQErzOEBZ/SYP2uOX
+         G3j4mAXF0nUzjlVKJrVvXV4JEl/A8e1PcamDXVPTTvUeHC0JpBHWGUBCwXPrnQmH3n3p
+         j0y3yd0wXW/9fQJQariK7blt2FBn1GiGFGUIhMW3zwY7qsr1Xop+Y6wgHYs4DkmRt0ZT
+         XHk6U65FBDhQo8yOok+iVuRTpH227Jp94oddWifomkp13/RdmxXbFcExrnj0funb7Zmj
+         OQ9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795655836; x=1796260636;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8vhDEbyn1nkYBGZ2jl97YuxcDAz2vqULbU/VOeX9XGM=;
+        b=fH+MTHQu6CYe4QzYUxjrj7eRLq/QLyGp+D4rbPvpOssh97+NBxiq/YANCxyVWF4AHO
+         1kCN1+2YUHmd8He1nSS7c8jwJMP0xQM1dNxQQqB6fb13Ph/odcHn4rkTXm8Xh9Gg4D+e
+         dSswvFktbDl4TGw/wpx7iyMGgJMSfrmreR6pHBuXpemfvwly1QnU/wHVOfhT1MjidzTi
+         oKIIsZXEgBaSXsD3nKvBVDlU7kC269gDNxb0u7N2vgHKJNrWGp9zSElf8vUuf76j5exZ
+         uN+2JIwQCPbCpdgrdZyeXENAOo1maTQjlVVN3F0RbmH/S8DqnV1bEEgY+MD0hL67MzwW
+         5ohA==
+X-Forwarded-Encrypted: i=1; AL+hErHEOISfMJyYAbKt7yySYVMK6nCoPANP4Lyo59+NhVV7SBSsoc3uThFFQoqZDrU5cGiE2uQZsGEnw6UVkFg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+NHPUFf6d5EZYE4d1+NItNZBPWGbjVcQkyFXKOQYfOPz2IJLJ5
+	GmJ/ro0FSJkEO26Gb1D8jlLt6E8jGQsccy4DOOJCqAelblwOiBYLoQ47ODFcCb5AkwY=
+X-Gm-Gg: AZFdTZd3bM/5UMBLHanUyueubmKGpw8tzFB0E8nyHu4k+lrhYgSJJCanvqgIw+WuKbQ
+	syUa1tg/4TBuOaAp+znK74jbCcV8v2Xse9qTmxQo3TsCnVCky8dmj2B6qz8Ok3IQ+bM3Q1eiAb5
+	ss6MgIoc4ugMW7vTODnkVJric9LpJmc27xLLlvwtoKJfpaaBPtkWhsfg9JsrQEoFIMC5tJxrMb3
+	GZZtj1RW6INzdRtkUoq/9usR8Ny4XA+TyJOTam1HahxhHGCMJmzQ9QQ2lceMGsN4OnKENXXc4Qu
+	H9JBMjBLOP82YR3uSRlitmLRs4VrFqi9quHgYDZLv0pjnOTcrYKPQMamTzDPfsMVntUpPSgxNl4
+	SllUgKOc6dMd3Y0BMHtK0UwzM/jp5/3B7NpQDR6PYerg2QvzpXN3wYc/MblhUJ5UKxpj7OLbGK9
+	oMETRJRS8noRB3a+RP98h24xoPS1XHYM/he6T9F9NFQY9BxpEy2vQzEvuoQh5U034LvjRtQxkmb
+	D79vfQLz3BjPvwMwwzzqingFJGQmQTlkIm6cw2XXsaRWbQ22++hACmRkbhVCedKO/3oYh8iNqtO
+	y0H+OF840+++bJldRCD7lS8tcusZ4qTPAHPWaDxz5No=
+X-Received: by 2002:a17:906:730a:b0:c2e:1b6b:8b19 with SMTP id a640c23a62f3a-c51319443e5mr1859065766b.23.1795655835781;
+        Wed, 25 Nov 2026 17:17:15 -0800 (PST)
+Received: from [172.16.0.229] ([159.196.52.54])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cff4c1asm9716494a12.15.2026.11.25.17.17.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 17:17:13 -0800 (PST)
+Message-ID: <03dd7e64-2357-4e8a-9383-d748b4883efa@suse.com>
+Date: Thu, 26 Nov 2026 11:47:02 +1030
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,67 +92,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] btrfs: tree-checker: verify tree_block_info bounds in
+ check_extent_item()
+To: Elkin Cruz <elkin@google.com>, David Sterba <dsterba@suse.com>,
+ Qu Wenruo <quwenruo.btrfs@gmx.com>
+Cc: Chris Mason <mason@kernel.org>, linux-btrfs@vger.kernel.org,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev, irogers@google.com,
+ stable@vger.kernel.org
+References: <20261126004332.1712403-1-elkin@google.com>
+Content-Language: en-US
+From: Qu Wenruo <wqu@suse.com>
+Autocrypt: addr=wqu@suse.com; keydata=
+ xsBNBFnVga8BCACyhFP3ExcTIuB73jDIBA/vSoYcTyysFQzPvez64TUSCv1SgXEByR7fju3o
+ 8RfaWuHCnkkea5luuTZMqfgTXrun2dqNVYDNOV6RIVrc4YuG20yhC1epnV55fJCThqij0MRL
+ 1NxPKXIlEdHvN0Kov3CtWA+R1iNN0RCeVun7rmOrrjBK573aWC5sgP7YsBOLK79H3tmUtz6b
+ 9Imuj0ZyEsa76Xg9PX9Hn2myKj1hfWGS+5og9Va4hrwQC8ipjXik6NKR5GDV+hOZkktU81G5
+ gkQtGB9jOAYRs86QG/b7PtIlbd3+pppT0gaS+wvwMs8cuNG+Pu6KO1oC4jgdseFLu7NpABEB
+ AAHNGFF1IFdlbnJ1byA8d3F1QHN1c2UuY29tPsLAlAQTAQgAPgIbAwULCQgHAgYVCAkKCwIE
+ FgIDAQIeAQIXgBYhBC3fcuWlpVuonapC4cI9kfOhJf6oBQJq3ujyBQkUpLw5AAoJEMI9kfOh
+ Jf6o8OIH/0mqW+TQM4m2x3hCsnK+oB4yJH1qnGvIhFF/Lhs48wI02sGh6/4aA0hkCDfd9LHQ
+ +ci4FUepZ9y4VS01+oIExbg/8ytzGYTzLtb44jK2GBOBVSJkMiha6jp22XFt7WUkT/tvbreu
+ WWdGsaJIRQaZChy7xsMI8lqQ2WdmluZJ4LT0wD3l/l6QU1ZseMGySebdY9sVOQEOJNV7Qj92
+ /KOAFNmeZshV/qDI8Iw1RTs6TvLqCcqmlZLCmJkYSVhT1RonWRren8xIRcFEgMe004IDnt7V
+ qdQhk/nhTS9x9MBAhMRl0TTE1VKDLvVALsud3iZLrmmtYvwPApzGJk052f0m28vOwE0EWdWB
+ rwEIAKpT62HgSzL9zwGe+WIUCMB+nOEjXAfvoUPUwk+YCEDcOdfkkM5FyBoJs8TCEuPXGXBO
+ Cl5P5B8OYYnkHkGWutAVlUTV8KESOIm/KJIA7jJA+Ss9VhMjtePfgWexw+P8itFRSRrrwyUf
+ E+0WcAevblUi45LjWWZgpg3A80tHP0iToOZ5MbdYk7YFBE29cDSleskfV80ZKxFv6koQocq0
+ vXzTfHvXNDELAuH7Ms/WJcdUzmPyBf3Oq6mKBBH8J6XZc9LjjNZwNbyvsHSrV5bgmu/THX2n
+ g/3be+iqf6OggCiy3I1NSMJ5KtR0q2H2Nx2Vqb1fYPOID8McMV9Ll6rh8S8AEQEAAcLAfAQY
+ AQgAJgIbDBYhBC3fcuWlpVuonapC4cI9kfOhJf6oBQJq3ukKBQkUzDspAAoJEMI9kfOhJf6o
+ SNsH/1ysUWOKmzY0rGS3ZdS61QgqMGhSWD/EJ4UiPw+xO4l4+GtX0fOAqxqsmBKqje3vyhBa
+ Z5o/1Y+gNiN+E6RBcSz4b1TAd78sQ2bvT5DWOvBjeeVxHdiuQMIn4S8xk5ZpySBw5ifjoiuL
+ 0M33UVtJOzM8yfAeL+d/Rp4leJw72SutjkLyZTG/gJIp4pJGD/kFHn24OLL0IxEcO0gOekNZ
+ os5e1R6jAJ2ILk7+MDnvU8wXHcCiVzuDhJLI1tih1uUIE50muHQJWbYuVBbdJeu8WlIDDssx
+ UOCxLylNG3gDXV5MhLubPTOpp9OiFc/XC37nvkgEcrlmlOFBv4/NJCbECpo=
+In-Reply-To: <20261126004332.1712403-1-elkin@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-Hi Cody,
 
-On Sat, 21 Nov 2026 15:40:51 +0800, Cody Kang via B4 Relay wrote:
-[...]
-> diff --git a/drivers/gpu/drm/spacemit/Kconfig b/drivers/gpu/drm/spacemit/Kconfig
-> index 8326a7b98151a..4667cb624401a 100644
-> --- a/drivers/gpu/drm/spacemit/Kconfig
-> +++ b/drivers/gpu/drm/spacemit/Kconfig
-> @@ -16,3 +16,22 @@ config DRM_SPACEMIT
-[...]
-> +config SPACEMIT_INNO_DP
-> +	tristate "SpacemiT Innosilicon DP/eDP controller support"
-[...]
-> diff --git a/drivers/gpu/drm/spacemit/Makefile b/drivers/gpu/drm/spacemit/Makefile
-> index b3b148000cf7b..260d316a271b5 100644
-> --- a/drivers/gpu/drm/spacemit/Makefile
-> +++ b/drivers/gpu/drm/spacemit/Makefile
-> @@ -9,4 +9,7 @@ spacemit-drm-y := spacemit_drm.o \
->  		  dpu/dpu_saturn_hee.o \
->  		  dpu/saturn_fbcmem.o
->
-> +spacemit-inno-dp-y := spacemit_inno_dp.o
-> +
->  obj-$(CONFIG_DRM_SPACEMIT) += spacemit-drm.o
-> +obj-$(CONFIG_SPACEMIT_INNO_DP) += spacemit-inno-dp.o
 
-I noticed a corner case when testing module unload on v3.
-spacemit_inno_dp can be removed while a process still has cardN open
-(say Xorg or kmscube is running and somebody does rmmod
-spacemit_inno_dp), and the DRM device then still holds references on
-the bridge. When that process closes cardN later, the kernel oopses. On
-a CoM260-IFX:
+在 2026/11/26 11:13, Elkin Cruz 写道:
+> check_extent_item() only verifies item_size >= sizeof(*ei) before
+> reading struct btrfs_tree_block_info on non-skinny tree block extent
+> items (BTRFS_EXTENT_ITEM_KEY with BTRFS_EXTENT_FLAG_TREE_BLOCK). A
+> crafted filesystem image with 24 <= item_size < 42 causes
+> btrfs_tree_block_level() to read past the item and potentially past the
+> extent buffer's populated folios.
+> 
+> Verify ptr + sizeof(*info) <= end before accessing
+> btrfs_tree_block_info, matching the inline ref bounds checks below.
+> 
+> Fixes: f82d1c7ca8ae ("btrfs: tree-checker: Add EXTENT_ITEM and METADATA_ITEM check")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Elkin Cruz <elkin@google.com>
 
-	sleep 20 < /dev/dri/card0 &
-	rmmod spacemit_inno_dp
+Reviewed-by: Qu Wenruo <wqu@suse.com>
 
-  Unable to handle kernel paging request at virtual address ffffffff01ac5188
-  Modules linked in: spacemit_drm [...] [last unloaded: spacemit_inno_dp]
-  epc : drm_bridge_put.part.0+0x72/0xb6 [drm]
-  [...]
-  [<ffffffff01b0b142>] drm_bridge_put.part.0+0x72/0xb6 [drm]
-  [<ffffffff01b0b19e>] drm_bridge_put+0x18/0x22 [drm]
-  [<ffffffff01c41318>] drm_bridge_connector_put_bridges+0x34/0x7a [drm_display_helper]
-  [<ffffffff01b23400>] drm_managed_release+0x86/0x116 [drm]
-  [<ffffffff01b13cce>] drm_minor_release+0x68/0x80 [drm]
-  [<ffffffff01b1ce2a>] drm_release+0xd2/0x102 [drm]
-  [<ffffffff802b325c>] __fput+0xa8/0x248
+Will push to for-next soon.
 
-An open cardN pins spacemit-drm only. The last drm_bridge_put() comes
-at the final close and reads bridge->funcs, which was in the module
-of spacemit_inno_dp that is already gone.
+Thanks,
+Qu
 
-Other DRM drivers with the same structure, rockchipdrm for example,
-put the bridge driver and the DRM driver into one module. I think doing
-the same here (add spacemit_inno_dp.o to spacemit-drm) is the better
-solution.
+> ---
+> 
+> Changes in v2:
+> - Use (ptr + sizeof(*info) > end) with matching extent_err() format to
+>    follow the existing pattern in check_extent_item(), thanks to Qu
+>    Wenruo for the review.
+> 
+> v1: https://lore.kernel.org/r/20261125221849.1424464-1-elkin@google.com
+> 
+> I am trying out new Clang static analysis checks for kernel bug
+> classes, and they flagged this code as possibly buggy. The findings
+> were triaged/fixed and commit descriptions were drafted with help of AI,
+> then checked against linux-next (not runtime-tested on hardware).
+> 
+> Thanks,
+> Elkin
+> 
+>   fs/btrfs/tree-checker.c | 6 ++++++
+>   1 file changed, 6 insertions(+)
+> 
+> diff --git a/fs/btrfs/tree-checker.c b/fs/btrfs/tree-checker.c
+> index d2bf21c7b848..40f2355cbb1d 100644
+> --- a/fs/btrfs/tree-checker.c
+> +++ b/fs/btrfs/tree-checker.c
+> @@ -1665,6 +1665,12 @@ static int check_extent_item(struct extent_buffer *leaf,
+>   	if (is_tree_block && key->type != BTRFS_METADATA_ITEM_KEY) {
+>   		struct btrfs_tree_block_info *info;
+>   
+> +		if (unlikely(ptr + sizeof(*info) > end)) {
+> +			extent_err(leaf, slot,
+> +				   "tree block info overflows extent item, ptr %lu info size %zu end %lu",
+> +				   ptr, sizeof(*info), end);
+> +			return -EUCLEAN;
+> +		}
+>   		info = (struct btrfs_tree_block_info *)ptr;
+>   		if (unlikely(btrfs_tree_block_level(leaf, info) >= BTRFS_MAX_LEVEL)) {
+>   			extent_err(leaf, slot,
 
-Luca (added to Cc), is module unload something your bridge hotplug
-series [1] is meant to cover?
-
-[1] https://lore.kernel.org/r/20261118-drm-bridge-hotplug-v3-0-44bb3b4a828f@bootlin.com
-
-Guodong
