@@ -1,100 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657796;
-	b=iaVxNaC73IU0QpiMyZCYHvwDogTFh6GjvIO+2/jjr+LgyrMJ5suoK9gWockYfIXhnfIj
-	 WncjL75gTnvQV27CvziTMiPiH0RBzZEdbFgJfI5WucWiAMPawu8AB02UFtP1ApMtHmiHl
-	 SHCMzMowQQCZnaQCVqjloXGoLGoF26ohw99GpfDitqFmQlOubAvQlTlnPghG00X5CR8NW
-	 /k2m34Q3a/QGAEfs+9vuE6Q84e/1cut6n3yR63NrHojJkZcWWDhXZq8Zmj+k2PVCFQQe+
-	 8jbl3wpbinhqhasI/kIMwFba8kHBhfB22DstMHPzOMQ3kbOGD5AZ3JrQ7OcGnXAICyQ==
+	t=1795657802;
+	b=DGY33ipX1LJ0UkFh4DF4VNrIGo5GhOqXeRBKPQlAvHbK/3IhgnXMGp+yLQWxze53XpGf
+	 OBzQMnpqZ1k6wezs1q95N/ey4zfOk4TCEst0V4PDr6MxWQ40xuvo+rMv8jxezTtanx0Ke
+	 1sF6VvICpBPJNc3JHj6gFTE5equf+pyUFCfl9tHsxj3vs42nU5Qyyuwn6KkzBqZdMryFb
+	 oINCATMU05MFPZoHcnBo1v87BtZrqWeNUVD6F/NCgCiy2kZ6zujSeR/QTzNE8eWUIV9EB
+	 bpogOzq4seB/gCoZphfyfGVAAxRIkRfJO6wUqV6IunXHExgZw1dumMdzvRPyPNa9N/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657796;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657802;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Cw/ZCD9ESmIvPuVt31//P6WCFhiNU7mYCdD+27sv2XY=;
-	b=QqN4iMwwsxGXZd8EA4eqDcpSET/2jPso2uuYlXAW7/rM9DeQhXHsNBDfmAh48HjiYnTj
-	 5T9xlhvABbF2pWTBsi6QFuWzcRTu/xbcnA6SMWnz1MmAhgWtoKW8Tc/WVAZnozoK33RQ5
-	 0eFjs75+lzCqqIxRT8JojbrdBzdXTfgqlpRldiBvHHEn9PCP8EqKRkTxTw1RfTMUWzacG
-	 ejbwl+iCN0FMf/ADKq3bI0+wwaDBh1Sq7eSKbx1B+tNSvmIjTuZqxJNgA5GCHVdp5EEjN
-	 iXEZnmrYGxfp2EZWzIdoNbwZwVZ4DpHKEFHfS049fZzfq7QjKqMgxuH9+fIkqjoHSYg==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=/tpzHtlkGwh77klAgQ3+7vDN5VnMY54g4sCcJN12BCU=;
+	b=VVkJPiIlT2TMtzLeQONJb42nq46f3XX0lW/0xra5wfdsf3TE5DK+kyxv1MHtBd1A1R/7
+	 pLPD+PyzQR34qyDVBliQV+DBKt+VYl3JqiHBo1NdJhpcaDKniuR75nDoO+L6qH9EE6do/
+	 Vku3QhESrsyg7FqlUzWuMu81hh/I2OL9AoREHX6Yc8xZq0jx5WlRemBc1FFBL5C5WNa87
+	 lFGpZNjb7P/7q/TTy9DUyO7w5Mgk8COX4E49UrwSa0FVHop331F9vu8W+rhDDnhUKuVOB
+	 Qx3vlXd3xj1O1926XH5uk0iaK6iJ/ZI/Z9xVbI8gnOK8qg1uiRgMPUAMAxyPQPYOXKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dv0WJtS1;
-	arc=none smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	dmarc=pass header.from=kernel.dk;
+	spf=pass smtp.mailfrom=kernel.dk;
+	dkim=pass header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=HTnZrZZA;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 725B9606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:49:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 725B9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABEF1606A32D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:50:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABEF1606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kernel.dk
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernel.dk
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dv0WJtS1
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-498f5fa5103so3815478f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:49:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=HTnZrZZA
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso4011487eec.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:50:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795657795; x=1796262595; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Cw/ZCD9ESmIvPuVt31//P6WCFhiNU7mYCdD+27sv2XY=;
-        b=dv0WJtS1Oa9bALH4bZIZ0/4+htuV4Fr0HVoUrStZVtHMceAIIV/Qb9myaksaqW9s0f
-         hr7kGd04KNkBN3Q/lVUO1pwX/xicdGKjOu5pB3ioQPFf7aXCOOH2pED0xkmEKcs62YFW
-         +XQylm1QUYKTjN4oEICBYMcxlRal6V3FXHghSw4ECDk4TQtlPsas5T+bJiThoG77wfu5
-         WF7QAaNUAzGVQGtyRpwxp2ytlkjycH+cFRxHOU1BX+r2xKlTQDhTda7XqOf2sr3Q9hiC
-         mOjtz01RU4xnvcoMUR9dATR7R9GacXtIlmrKvzmSgDmI1kNYr1/CPRaXUiLnHDhcZQ6d
-         /+Mw==
+        d=kernel.dk; s=google; t=1795657801; x=1796262601; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/tpzHtlkGwh77klAgQ3+7vDN5VnMY54g4sCcJN12BCU=;
+        b=HTnZrZZAk1fimzpf7glBUawWrfz/uu9E4sN4bkzRxUwK+9JNC+YgbwMC26RHCqMaVV
+         g1fAWikYyKwGlWsTuWlSm2tdpfSKYlMaqe4J+NBvOWJ1jzJWjfQHmb3QSnoQYXG8Pd99
+         X2PnM1cNcu1HnNj+AlEXCYovWFuJCKZwJX7DtAQF3HyEZDGF/aM56unH5RHMBqVP3dac
+         jQxzA4XpDOCLQq6+kw7Diak3FdD46upCx2ml4v0Tx91BRDlr/leBM44VeK33SH6Y5FnW
+         oe6KSxmzGH9/CltxMd6DCGpdsFAFwLxUn8cFI61gpgbeyf0ySiKbkzXmcWDHv+nqIJGr
+         pdxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795657795; x=1796262595;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Cw/ZCD9ESmIvPuVt31//P6WCFhiNU7mYCdD+27sv2XY=;
-        b=XR2ZpkK/iECc8IqCZYhIv1059Lp0TwLQLEfB2l3YGnIAMoKr+jabK6tiQwzcRQmv3S
-         eSN/qD0WhFfuuot9Rw4U8sTgaz3bHN4yQrVZ/KIQmRHai3nLIN5o1qCrQeqNb93PfUz1
-         K3MyJlYEbbvSP9gPSdWwHtdAiDK+EQf5wroj5QlYA9JabgZcm3wxCosvzV3YkLF6jXe7
-         B2R4TqmM7/nya05C0jJVPt3U4vPWV8eEvklkWlpx8IGb6eY/kH/6GJy+Z9tJ8RXPJeKf
-         R1eWmhME/ae9xGCCxqSyBK5FqmDqQ6eC/gxVYec8YAdHkZhjFB6ZAab7I5Mh+ty7Ko+M
-         Tltg==
-X-Forwarded-Encrypted: i=1; AL+hErEEe7/OUDTwOFuOLghLG9155/7iMVgG9IQbtpEIRlNrgo9e7ki1qOxTGiqB/KZSEXqX1o51qbgLeUlXlGw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/412j0m23T4Es+brkotV+grT1wof4V5QTZIs5DuyI6E8F2jz+0
-	s/G/xQ1KJoyUuMi2mzxwUpbOdCag/dCmnCIErr2qs1JSaTdHaBCaWaCN
-X-Gm-Gg: AZFdTZchuz6aeoCmvJr2gj/aZ3n6mzdNnrucuAnk1HLfXiUHyR5ObcHaw5WvWboJPie
-	1HAKfTg34hB7MPILLsJV/hk2BYzXPhK5rIydsSoT0rlRz3IPGl+HWIfoIbdWJ/Icnmdckwav/FI
-	MhGgmKrUXDH/uZDi9CE7gm0mRFIU41yC7CFkkSZaosyi1nznbZfS7OP9RUam2BX07az8x+RWxZ4
-	1RKxY0OhKntRVOD70J6jzADmWqn9Xr2CmeGgaALHRvFn2/37o75AHUj0AXF+48KlVbrpXDriMKN
-	1E5nsj9AJ6NqCcCj7/13akoMeF/MHz4Yh4fB1/jiQfEE4G0UNta/yELlenKopJbJ1qc39xxJWA3
-	kd6ZB+njfeH4TM09q6KLhTY5NVBha+OSSWDOx4VOjUktxxxhK2qzzI5QuY6xQ72BoCXxB6m3vVU
-	2jgVFkhwweJR+/Kcn9yf3OQv5S7bzzktd3Jd6QRC53U3teVT1b26FOO8ihm99lkmepImPorXpg+
-	946Jq/YbMfkSVORVmjruMyjDRPTj0T1naPECOa4URVUnPB58YsbuGOcBuqxMk/B12ImohCgNil7
-	I2P3bDYVD8F483v4bLUh31uMKi4/WfwQX+gSKqApiBwWqzg=
-X-Received: by 2002:a5d:5f91:0:b0:48d:f9dd:e3df with SMTP id ffacd0b85a97d-4abb386134bmr34709391f8f.18.1795657794701;
-        Wed, 25 Nov 2026 17:49:54 -0800 (PST)
-Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4b34e9c3ffesm21483408f8f.19.2026.11.25.17.49.53
+        d=1e100.net; s=20260707; t=1795657801; x=1796262601;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/tpzHtlkGwh77klAgQ3+7vDN5VnMY54g4sCcJN12BCU=;
+        b=Ab53rb3nFPWLAAKiFyVqCWx16dWN7d3yd66v6YzKJ0caQGLPrgCFwExWcDEXcJOpPa
+         A9iq7wd+EqHe0u4bzMwdPy+dW6/BM3sWL1jL5B1dVVA+n8wS4xIKykPWiWLKJYEyv9M8
+         r3HSVoB6DGR66HAhzD49/Kn8qPzUfKCE21nIiLAeg66c2jf96+mb+buqSEHsp3S15K7X
+         fLa9dUKsNHY3Hi9IabsQ6GL8o7nEV6At+WxULI/nLCsjPWdrIjDQNcjarLqs/UNJiHSb
+         JsR3op1fF98KcUFaxFJWVSnx6dLWlaPtXKYLPuIf4mMqLegbwrWz9tWaM+L3ALrGTCHS
+         JbsQ==
+X-Forwarded-Encrypted: i=1; AL+hErHviIWO1Ank+MfgHJgep+TPUV5v5ZZWsPzAp2Nd5x9HkSW1cWoIhEOCqjhQCgbr0pg/u0vVFEESmPFpVV4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Nc4xLTY9U6jaA4scYfGXtftrdeTy3KrM52iz8PFXi9g/9QQzV
+	+7UEkyIRbUdtsVajSR+muOM79znxDptWfuFumtuJSnjlpMnXPD5Pmr8ar9TnoKkNGFY=
+X-Gm-Gg: AZFdTZcAlezcwRYcQo7Qm2UreH0+9gsI9hU2xKWVd/kCZd0lULVvRjbOCDd9FjIDxEw
+	vmYgK3LnBKE0TsII3H/gZcPduBMyP2kGONTmMzQuxky84SNmENqdRvKYQcFVQ7xtbD4Rt+BqNDy
+	uALjNmicS2dILcMXE8ovMu78fZPgSX+BClIcyBsabpdIu+iqyIy6W/zc7HZLMIQek2fpM2JDMM9
+	sUa0R2+N1N1bzLBxpkeUWdCh7PpfgIAGJhNHNkQoOtjTOkoJLHlfeBFBw8Nq+A8V3Grxp4tau7j
+	8ASqDC1PAHb+mCi1KMdidQoVweymHs+jGgl5kXJ22fj1pTPYZW34y7DyysewF2eUznjtHcnCaZg
+	xuwthjHkztpKp68uuxJ41VFb/iyKRTd//oFX545qwPJJVF36v9CZU1RbJMDu/t7WdjQkCZdeBo9
+	+ZQOpCuUlsOu1uSbsyAa6F0orV+pG0l52fqILEDJNQqu5PZmeld/A6/myty0d0XnWfpVhVv1ulW
+	iMRPxwBzJ2sKryf9sKiXRORmZYBkgP/WQWbM32XQNQ2LSyx3FFdwm8b2O49knl3KoRHRzc9RD9k
+	aDu2JlaerAGFDaIu68GOv5E25eKpZWA/EytHaJFr8GuBfvfterpW/65ota/sjdF2jlWYIZyn57j
+	10t80yQaaFu525PqXTjvWULjzVz4RjaVYq+5b9YEA6tzZo/Dd6GiPEeja0CM0FNHzURZ+hg==
+X-Received: by 2002:a05:693c:8042:b0:379:8df3:d2c9 with SMTP id 5a478bee46e88-3856f14ca78mr21362842eec.13.1795657800466;
+        Wed, 25 Nov 2026 17:50:00 -0800 (PST)
+Received: from [192.168.1.142] ([198.8.77.135])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672ce402sm54208971eec.16.2026.11.25.17.49.59
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 17:49:54 -0800 (PST)
-From: Askar Safin <safinaskar@gmail.com>
-To: josef@toxicpanda.com
-Cc: James.Bottomley@HansenPartnership.com,
-	andrew@amutable.com,
-	brauner@kernel.org,
-	jbingham@gmail.com,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sergeh@kernel.org,
-	taherafahimi@linux.microsoft.com,
-	Andy Lutomirski <luto@amacapital.net>
-Subject: Re: [PATCH RFC v3 00/90] cells: a container as one kernel object
-Date: Thu, 26 Nov 2026 04:49:19 +0300
-Message-ID: <20261126014919.2135815-1-safinaskar@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261105-b4-cells-v3-0-bc9095937a84@toxicpanda.com>
-References: <20261105-b4-cells-v3-0-bc9095937a84@toxicpanda.com>
+        Wed, 25 Nov 2026 17:49:59 -0800 (PST)
+Message-ID: <1cf30693-44c6-4761-9900-e36259082e4e@kernel.dk>
+Date: Wed, 25 Nov 2026 18:49:59 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,36 +93,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v4 0/3] block: delay support for error injection
+To: Haris Iqbal <haris.iqbal@linux.dev>, Christoph Hellwig <hch@lst.de>
+Cc: linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Keith Busch <kbusch@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ linux-doc@vger.kernel.org
+References: <20261111215838.103356-1-haris.iqbal@linux.dev>
+ <179501806989.17649.3138860274842922761.b4-ty@b4>
+ <20261120164416.GA32719@lst.de>
+ <edb8249a-7bc3-430e-bbb7-243e1881a0b8@linux.dev>
+Content-Language: en-US
+From: Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <edb8249a-7bc3-430e-bbb7-243e1881a0b8@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Josef Bacik <josef@toxicpanda.com>:
-> - File capabilities are ignored in a cell, and a cell can drop from its
->   bounding set without CAP_SETPCAP.
+On 11/21/26 4:27 AM, Haris Iqbal wrote:
+> 
+> 
+> On 11/20/26 17:44, Christoph Hellwig wrote:
+>> On Wed, Nov 18, 2026 at 09:07:49AM -0700, Jens Axboe wrote:
+>>>
+>>> On Wed, 11 Nov 2026 22:58:35 +0100, Md Haris Iqbal wrote:
+>>>> Error injection can only fail a bio today.  This adds a delay_us option so
+>>>> that a rule can hold a bio back first, to model a slow device.  The delay
+>>>> happens above the driver, so it tests the code waiting above the block
+>>>> layer, not the blk-mq timeout handler.
+>>>>
+>>>> A delayed bio is marked with a new BIO_ERROR_INJECTED flag so the rules
+>>>> are not applied to it again, even after a split.  Christoph asked on v2
+>>>> to avoid the flag by allowing a delay only together with an error.  I kept
+>>>> delay-only rules, as a slow device that succeeds is the more useful case,
+>>>> so the flag question is still open.
+>>>>
+>>>> [...]
+>>>
+>>> Applied, thanks!
+>>>
+>>
+>> Hmm.  This still has rela issues as pointed out by Sashiko.  I'd very
+>> much expect a resend to address them.
+> 
+> I can resend with the fix, or send just the fix to be patched above
+> this, since these are already picked. Let me know whats preferable.
 
-This is useful thing on its own. Don't require CAP_SETPCAP if no_new_privs
-is set, even outside of cells. Similarly, a lot of other useful things here
-can be applied not only to cells.
-
-> - The host runs no usermode helper for a task of a cell, so no modprobe
->   and no request-key, and a core dump doesn't go to a pipe or a socket.
-
-Again, very useful thing. Consider to add it to all non-initial
-user namespaces.
-
-> - CLONE_NEW* being EPERM in a cell is written down as a position and not
->   as something that is missing. (Andrew)
-
-Note: it seems Andy Lutomirski (CC'd) wants something opposite
-( https://lore.kernel.org/all/CALCETrUD4vh_iSHV7G0bprUFU8=c+ECo701-tXcbQ3UXBWC1ig@mail.gmail.com/ ).
-
-> 8. procfs, sysfs, devtmpfs and cgroupfs. There are no per-cell instances
->    yet, the builder assembles those with what exists today and can get
->    it wrong the same way a runtime can today. Where I want to go is each
->    of the four taking the cell as a mount parameter and showing only
->    what the cell holds. That's a lot of work and I wanted this out
->    first, but I would like to know if anybody hates the direction.
-
-Again: consider taking userns as a mount parameter.
+Send a fix please, that should always be the default as otherwise
+I have to rebase the tree.
 
 -- 
-Askar Safin
+Jens Axboe
