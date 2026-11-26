@@ -1,68 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.210.91.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795696648;
-	b=q2sMPcdp7egtp0QYmpWVdb/8rdR42j5DV6IzSMFCpwL/DjnHU3dBiutPcjjf8IccBdps
-	 +EJSMhYksE2UZa67LgGTPdFUE2QHuua8lhkpGCuF4K3GtiwI0QFELlpIhHnZpipUt0kDf
-	 ci/4qEaU/X8W1G+uqvh6dfd+CavUk0X5xQOe8XCg6rsIS9igHHedqunRoRxOUDWkMtg3+
-	 EAbZejiJXMXJoO1Gvkt8T2vQwSgGbCq4jc87ixHgaIDXjOdIC7LeNTsYWXLraZ7gd9hyQ
-	 YMnaZrKXsKH+e3zbSWxV99E7SNW8I944dzD2ULLLMnBYN1hG2AozYPDBhS2hcTovYXg==
+	t=1795696725;
+	b=sGhRcwGih/tlr06knyMcL8CkdYg/cq+0K8YpUQOB0UH+qoXEj5CTD2L1A6iKhou+TW0G
+	 5OyJMWMk46UCIWJBcigzr8hWOjqU8+iDO1C958M5vMNMnobc/1nvJ9gcITNEwq4XvTRb9
+	 VjNaB5rtSReOC1hQm18+h2zVbGezDGDdnECXYDjnNHDwmvWUstfUrAaDWE50lPNJdM46K
+	 gTdpibk0vN0eKsUdJAdqs75UlTQQl4DJcd5qrzYwShGnb8OnHBzqhBZt55kpwN9yMhb2r
+	 RehRZ9TpaZkypKL2r3QTK4lTVXB872e00D0inXqyjN0JGyAj8sOvUpPzyqR7UZKPS1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795696648;
-	h=DMARC-Filter:Received:Received:Received:Received:X-OVh-ClientIp:From:
-	 To:Cc:Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:x-ovh-tracer-id:X-VR-SPAMSTATE:
-	 X-VR-SPAMSCORE:X-VR-SPAMCAUSE:DKIM-Signature;
-	bh=RQkJfhAebHnDToX49dPcuad16KB6cMedVUuroADXyWg=;
-	b=qPTbANlHLaTJKjwNyXrkueT1ZL8ShYSWZMg1xsUauKWgOBimQAF8IlUReX4XqHAn2TuA
-	 ZO7QNst/0lK4HDkgyQqXXYkWwW4+YYpNR+fjO+NqmPDh3itOexy5JQdj7UDORj0Xrskt8
-	 DBxTHSJyi4iyxLYJmnZNf0SmChHIA9rKMK8ohexBMSVGLFOrZTtahv0KDt2J6E8QZRwRP
-	 U4srB51xUR3vZRkBkFrY037lRz9pLZoJ3HW6XLjZehmx/VZzmsdAXnEmaKxsz4U573FWL
-	 HtHG8FckRXALZfscyCIJCnPTk/FMEEM34gwzqRD/lKkmARgYsJmZ8rB5Q8Ue4aTAJrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795696725;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=C/AbZhSvVAtAuxRzfiAolPI8iaF2YFQe3pPvY/yniKU=;
+	b=Gu+2pImmOrlY8MKJCZkdysO2ZuBFQ6ZQZFGT73CnEtnUIiOts+d9RD0or6v6R+cEGL9W
+	 lvjS7C2XEQaiTbJ9ghV7qPD/mwCfg8D68UtfOSL3t5mTtGbO0rO2vejgA9eQhsQ50TMrk
+	 ZjosS5OfRdhJwTptF9HZVdOx5lcsay3nShLB/rNZFikFAvKVqbJFbhkyHtyrMx8yOUHca
+	 buPTnDSLla6L/TDLfNoqQgclGkp0TknnNrUCNIa5UnkxbWAXqTxoDWm9RpyYtdePaS/eS
+	 vwa2eixIq+MSmPcAHEnnYrS5WVvvgdm1hGnJMBeZ3M6u9LT9ZGDrMYVHf3bqU9mgBAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=npnm.eu;
-	spf=pass smtp.mailfrom=npnm.eu;
-	dkim=pass header.d=npnm.eu header.i=@npnm.eu header.a=rsa-sha256 header.s=ovhmo-selector-1 header.b=XoUVzbg0;
-	arc=none smtp.remote-ip=51.210.91.34
-Received: from smtpout5.mo538.mail-out.ovh.net (smtpout5.mo538.mail-out.ovh.net [51.210.91.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tFlToMll;
+	arc=none smtp.remote-ip=209.85.215.170
+Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A513606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:37:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2A513606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=npnm.eu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=npnm.eu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C4E1606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:38:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C4E1606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=npnm.eu header.i=@npnm.eu header.a=rsa-sha256 header.s=ovhmo-selector-1 header.b=XoUVzbg0
-Received: from director5.derp.mail-out.ovh.net (director5.derp.mail-out.ovh.net [79.137.60.225])
-	by mo538.mail-out.ovh.net (Postfix) with ESMTPS id 4jZwzf16w0z67Hf;
-	Thu, 26 Nov 2026 12:37:18 +0000 (UTC)
-Received: from director5.derp.mail-out.ovh.net (director5.derp.mail-out.ovh.net. [127.0.0.1])
-        by director5.derp.mail-out.ovh.net (inspect_sender_mail_agent) with SMTP
-        for <simona@ffwll.ch>; Thu, 26 Nov 2026 12:37:17 +0000 (UTC)
-Received: from mta7.priv.ovhmail-u1.ea.mail.ovh.net (unknown [10.109.254.138])
-	by director5.derp.mail-out.ovh.net (Postfix) with ESMTPS id 4jZwzd6G2Wz6MYl;
-	Thu, 26 Nov 2026 12:37:17 +0000 (UTC)
-Received: from npnm.eu (unknown [10.1.6.3])
-	(Authenticated sender: laniel_francis@npnm.eu)
-	by mta7.priv.ovhmail-u1.ea.mail.ovh.net (Postfix) with ESMTPSA id 2F7BAB82161;
-	Thu, 26 Nov 2026 12:37:16 +0000 (UTC)
-Authentication-Results:garm.ovh; auth=pass (GARM-110S004b9630277-25c9-4875-a9f6-99af4d3fd264,
-                    230BAD52BFC520DA66055B44D06E91CCCAB19385) smtp.auth=laniel_francis@npnm.eu
-X-OVh-ClientIp:159.26.112.43
-From: Francis Laniel <laniel_francis@npnm.eu>
-To: Karol Herbst <kherbst@redhat.com>, Lyude Paul <lyude@redhat.com>,
- Danilo Krummrich <dakr@redhat.com>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, nouveau@lists.freedesktop.org,
- linux-kernel@vger.kernel.org
-Subject:
- Re: [PATCH v1 0/1] drm/nouveau/devinit/gf100-: fix display engine check in
- preinit
-Date: Thu, 26 Nov 2026 14:37:14 +0200
-Message-ID: <2858204.mvXUDI8C0e@pmachine>
-In-Reply-To: <20261125111925.8651-1-laniel_francis@npnm.eu>
-References: <20261125111925.8651-1-laniel_francis@npnm.eu>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tFlToMll
+Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cd60c5da24cso4083727a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:38:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795696724; x=1796301524; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=C/AbZhSvVAtAuxRzfiAolPI8iaF2YFQe3pPvY/yniKU=;
+        b=tFlToMllBmBUfovy3jCkelg96DvYyf0CcQSpDZvBXzBd4Wp4ql/V+h+5du6YzZVz4l
+         ovhx//D+I2ED0lzcIzbvH4b2xf8LmuW7/9s6mFetj27G7h8RK4FBxId6P4wb7XbEZb7+
+         vLZmJKp9khzUhfRChjBlpIhc2CT4AhN4IUOqqARTj9tg9PsLkpZHt1ylrb5LyvyVQOpH
+         XGS/WSRKqOj4J6X06llhm68e9x2XvuFH4iSeyQ/tETF7jaMoLrcPX6XXJm9HGjFyCI5U
+         w8tSS9GJZgx/iruyR1YumB/75n2EZozRvoaoGmUxgETJatQoDZdsq7z/yqnhWP/LzWZS
+         WaRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795696724; x=1796301524;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=C/AbZhSvVAtAuxRzfiAolPI8iaF2YFQe3pPvY/yniKU=;
+        b=KMTGXIFuvi4IHAMuW94u0G+AXkY0PQPhNs1B5vezIX4y9LIiisPj9WN6BneUvKeZBD
+         E17FnGEQ6+XhSFgOioKjRxgYO3MMEhODVdMm9jXO/d/mf9bylKr0thBZb52zWAAHfkCg
+         WqRoA0QoZEjwCtxbpSg8vOfDIGastyyw4p0n90ia3cWZaIZYcAXIocdfdpFOG5y3U850
+         nnEMzG+RyP1lvDcmcEDYTNQUONBY2P8rYh5xYtvR3UxEvFMviHEm5GgrbNMyORjHxghN
+         Fy8xSOTZXy850HrhonWJwug5z14Tun4+9WqbtBkKsVP3G1mb+pP+V7yrAfx1tH8EMFE8
+         Af9A==
+X-Forwarded-Encrypted: i=1; AL+hErGdDMZraC4RxuMfzHpVXRHgnCrglTEJhz+8x/prBdpB9Yn+kQkYg3qnPBV42HJ4nwPM13bCxnQrr4NxMo8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8QBam6/XImzEfW8FsE6dHRDNy8I7qydzN9D52sSrQNX9ygPRlI
+	0FEUtOuZHSRhCTvSdDCu1+XzhnnYMOK0c1riJwNbiUathLktW0kEJo0y
+X-Gm-Gg: AZFdTZf2r6J48TM2vBtyWpOPjGj21iHROkuYXxd3pPGNkefpKs8StcjVZRhOtvUYedX
+	Q3vAN7EVHkXaoLc5hNrMcS/2bBzbNxarlGUwrUfNI4c1GUG82yVelXn9jWkrce66B+iL6f3mFEO
+	KihOMuFEtNofamLj5qlGL4xB7xyEe/pFFxDYxG8x+ADfgapNn6vmSthZfVfCE1VMIcmi7r8r2xx
+	0Rm2KZwmfen3BP5+hCzvjMdg2xod0H9bgHy2VfxyBE9gUTZnuyR+0g8b0yCxNbePZLtlOCzMPit
+	gqZ0E3iin0wpHcu6LDIdSIelB6sOuaD8WYLoLxBFXa4SShX/JRglTbaamMt6SHO1g5pXqKfUbVh
+	B5yaJmd9AUTVKEPdFulaYRrvtfXrlRzOS2N56myB3+8S8KWPM6WBO2EMlkCP0k20dzqNZaqmcaJ
+	l7WlLrThZeaFu9z5+nyrXXgZx1rGU0n8HczqZJInRzdKfv6PcDUNcDhFgO+p3CkQGqTixweaQwm
+	ipCETiEir+5lqETeNhn4OWLFrJygC2prJQkJvywBN4i/Xm6rO+nNaXICXx42GLt/CTQgunMH0Pa
+	iGN1BcYSnRX2WO8N/riD6lAJZP/3KInaq9ezaZYk/L/DioMvEAMyilwq3ffQrU3V40//x3M=
+X-Received: by 2002:a17:90a:d2cf:b0:3ab:2737:3395 with SMTP id 98e67ed59e1d1-3b41cafd604mr18006258a91.42.1795696724285;
+        Thu, 26 Nov 2026 04:38:44 -0800 (PST)
+Received: from KASONG-MC4 ([101.32.222.185])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a33fsm33352174a91.6.2026.11.26.04.38.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 04:38:43 -0800 (PST)
+Date: Thu, 26 Nov 2026 20:38:16 +0800
+From: Kairui Song <ryncsn@gmail.com>
+To: Ridong Chen <ridong.chen@linux.dev>
+Cc: kasong@tencent.com, linux-mm@kvack.org, 
+	Andrew Morton <akpm@linux-foundation.org>, Johannes Weiner <hannes@cmpxchg.org>, 
+	Muchun Song <muchun.song@linux.dev>, Qi Zheng <qi.zheng@linux.dev>, 
+	Ying Huang <ying.huang@linux.alibaba.com>, Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
+	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>, 
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
+	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, 
+	Hugh Dickins <hughd@google.com>, SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, 
+	Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>, 
+	Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>, 
+	Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh <ehab.ababneh@intel.com>, 
+	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>, 
+	Joanne Koong <joannelkoong@gmail.com>, Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, 
+	Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
+	damon@lists.linux.dev, linux-doc@vger.kernel.org, Tianyi Chen <hi@tychen.cc>
+Subject: Re: [PATCH v6 02/18] mm/memcontrol: allow update of LRU statistic
+ without holding LRU lock
+Message-ID: <awgnMVr6GHt0XKD0@KASONG-MC4>
+References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
+ <20261124-mglru-fg-v6-2-8ffea39934a6@tencent.com>
+ <387237c3-c2f8-4782-9ba6-481f459cf7f2@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,180 +119,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-x-ovh-tracer-id: 2881459338773603644
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: -100
-X-VR-SPAMCAUSE: dmFkZTE1qDi0Soti/4tnUiSxQb2gQr7FxqvYVam6SEq/87eXXB81y5tpavkUrC7wdjB7Tkj4LqTCiFvsbz+ZaKkSYpljATzQIRbSsbgqUHzEd/XZqIdaByia5otWAqBgf2yH9BXOVmbuPvB8WaW2DSjvUNHxhHSz9DzJUCumBiD3AVJQNrcx/FMleRUSKGfFNZQ/n86IjCTvcEkNjLqwnlLHVMTkH7DxSxLE0QfZ3jQ39ZhrPUdngP0f+5cd3TUef3RiE7fSph0RyHiMGsR90mu+ReEZzXXJctFiyi0hMMNQ2SDbrE1NsmhfDhlfjeopTcAsdHvbAMOp2tMNnfBqkvk8KP23jMbtxusYe6uWuCS4xn6TTMyrh84BUiNxxIUzdywRDu5+N8jA0Su4Yo1geUm4x01eL7r7kxAQm+5oQXcROlToQWLWZP2Z2/louvzRxkSaQy7wMs+d9Vyel3EgoSVRiVPBrD1raTPPtSiQ9Vgb7m31pJDRz8/1EhRfPF/ASVa0re0YoSqDGh/ziskt1mL6t3hopNAINw7x0y9GtNKFCCiuReZIkLWRQTs1V8G6SnYseJ351Tpka8pgC0JB5DBbV7fG3P4OoB+8FkIEWc3lrOVyHqtgYegUQf1XPwcZvCVZgK+QVvg2TG2B+pVif/7rZ/Y2SyKAa/9rXimeEZU0gZPosg
-DKIM-Signature: a=rsa-sha256; bh=RQkJfhAebHnDToX49dPcuad16KB6cMedVUuroADXyWg=;
- c=relaxed/relaxed; d=npnm.eu; h=From; s=ovhmo-selector-1; t=1795696638;
- v=1;
- b=XoUVzbg0mjfIRCIBeqGf5+qGvpx5E4ZmWX/+DLDqQr0k8RH0q2oj35btQG15D5NKf0hiKMeJ
- 3s9F2Ru2O20+oU/7efKOl8N8VY6prQ9EuT1Ih1JFIX3qagbYpkO10FkuibgavKnKQ/T4xMpx9tY
- DYWj0l36FWF6LFeIy/30Xm9jseWTEVfzv+fBNeO8arsbWEfvL7+bJD4sXW918b207MPGmPNOnfm
- 8l1j6WZetI080VCTP7woiJ8tXSA1PNt0LWFQDr6cTxzUcP+EMwi9jhjhJLbnZF6ptjKvXdD3Azp
- Z6OuPqhQYB3JdepPUuN1s2aNy3InFPTCcXzCTfkzAzq/g==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <387237c3-c2f8-4782-9ba6-481f459cf7f2@linux.dev>
 
-Le mercredi 25 novembre 2026, 13:19:24 heure normale d=E2=80=99Europe de l=
-=E2=80=99Est Francis Laniel a =C3=A9crit :
-> Hi,
->=20
-> I had a problem booting 6.12.118 kernel with NVIDIA GP108GLM [Quadro P520=
-]:
-> ...
-> [    1.657796] nouveau 0000:2d:00.0: fb: 0 MiB GDDR5
-> ...
-> [    2.590323] BUG: unable to handle page fault for address: ffffcdd5c140=
-0000
-> [    2.590326] #PF: supervisor read access in kernel mode
-> [    2.590328] #PF: error_code(0x0000) - not-present page
-> [    2.590330] PGD 100000067 P4D 100000067 PUD 100203067 PMD 101f29067 PT=
-E 0
-> [    2.590334] Oops: Oops: 0000 [#1] PREEMPT SMP NOPTI
-> [    2.590337] CPU: 7 UID: 0 PID: 223 Comm: (udev-worker) Not tainted 6.1=
-2.118+deb13-amd64 #1  Debian 6.12.118-1
-> [    2.590340] Hardware name: LENOVO 20S4001JFR/20S4001JFR, BIOS N2XET27W=
- (1.17 ) 12/10/2020
-> [    2.590342] RIP: 0010:ioread32+0x32/0x60
-> [    2.590347] Code: ff 03 00 77 25 48 81 ff 00 00 01 00 76 08 89 fa ed c=
-3 cc cc cc cc 8b 05 6c e5 6f 01 85 c0 75 11 b8 ff ff ff ff c3 cc cc cc cc <=
-8b> 07 e9 d7 d4 66 00 83 e8 01 48 89 fe 48 c7 c2 72 53 51 b2 48 c7
-> [    2.590350] RSP: 0018:ffffcdd5c1137338 EFLAGS: 00010292
-> [    2.590353] RAX: ffffffffc0a55890 RBX: ffff8aa642386c00 RCX: 000000000=
-0000000
-> [    2.590355] RDX: 00000000bad0ac3c RSI: ffffcdd5c1400000 RDI: ffffcdd5c=
-1400000
-> [    2.590357] RBP: ffffcdd5c1137374 R08: 000000000000a500 R09: 000000000=
-0000000
-> [    2.590359] R10: ffffcdd5c1380000 R11: ffffcdd5c13fffff R12: ffffcdd5c=
-1137470
-> [    2.590360] R13: ffff8aa642386cb0 R14: ffffcdd5c1137380 R15: 000000000=
-0000000
-> [    2.590362] FS:  00007fa0fa647980(0000) GS:ffff8aad4d780000(0000) knlG=
-S:0000000000000000
-> [    2.590365] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-> [    2.590367] CR2: ffffcdd5c1400000 CR3: 000000010b472002 CR4: 000000000=
-03706f0
-> [    2.590369] Call Trace:
-> [    2.590371]  <TASK>
-> [    2.590373]  gp102_acr_wpr_patch+0xaf/0x1a0 [nouveau]
-> [    2.590477]  nvkm_acr_oneinit+0x3bc/0x600 [nouveau]
-> [    2.590550]  nvkm_subdev_oneinit_+0x42/0x90 [nouveau]
-> [    2.590620]  ? ktime_get+0x3a/0xd0
-> [    2.590624]  nvkm_subdev_init_+0x30/0xa0 [nouveau]
-> [    2.590692]  ? nvkm_intr_rearm+0xc7/0x1c0 [nouveau]
-> [    2.590759]  nvkm_subdev_init+0x48/0x60 [nouveau]
-> [    2.590827]  nvkm_device_init+0x16b/0x1f0 [nouveau]
-> [    2.590936]  nvkm_udevice_init+0x47/0x70 [nouveau]
-> [    2.591044]  nvkm_object_init+0x41/0x120 [nouveau]
-> [    2.591115]  nvkm_ioctl_new+0x160/0x220 [nouveau]
-> [    2.591182]  ? __pfx_nvkm_client_child_new+0x10/0x10 [nouveau]
-> [    2.591249]  ? __pfx_nvkm_udevice_new+0x10/0x10 [nouveau]
-> [    2.593234]  nvkm_ioctl+0xa6/0x140 [nouveau]
-> [    2.593305]  nvif_object_ctor+0x11a/0x1a0 [nouveau]
-> [    2.593371]  nvif_device_ctor+0x2e/0x70 [nouveau]
-> [    2.593438]  nouveau_drm_device_new+0x170/0x300 [nouveau]
-> [    2.594065]  ? __pci_set_master+0x36/0xd0
-> [    2.594068]  nouveau_drm_probe+0xc2/0x1e0 [nouveau]
-> [    2.594167]  local_pci_probe+0x42/0x90
-> [    2.594171]  pci_device_probe+0x25b/0x290
-> [    2.594173]  really_probe+0xde/0x340
-> [    2.594177]  ? pm_runtime_barrier+0x54/0x90
-> [    2.594180]  ? __pfx___driver_attach+0x10/0x10
-> [    2.594182]  __driver_probe_device+0x84/0x140
-> [    2.594184]  driver_probe_device+0x1f/0xa0
-> [    2.594186]  __driver_attach+0xbc/0x1d0
-> [    2.594187]  bus_for_each_dev+0x8c/0xe0
-> [    2.594190]  bus_add_driver+0x112/0x1f0
-> [    2.594193]  driver_register+0x72/0xd0
-> [    2.594195]  ? __pfx_nouveau_drm_init+0x10/0x10 [nouveau]
-> [    2.594261]  do_one_initcall+0x5b/0x310
-> [    2.594265]  do_init_module+0x60/0x230
-> [    2.594269]  init_module_from_file+0x89/0xe0
-> [    2.594272]  idempotent_init_module+0x11e/0x310
-> [    2.594276]  __x64_sys_finit_module+0x5e/0xb0
-> [    2.594278]  do_syscall_64+0x87/0x1b0
-> [    2.594281]  ? filemap_read+0x340/0x370
-> [    2.594285]  ? vfs_read+0x24d/0x370
-> [    2.594288]  ? __x64_sys_pread64+0x98/0xd0
-> [    2.594291]  ? arch_exit_to_user_mode_prepare.isra.0+0x16/0xa0
-> [    2.594293]  ? syscall_exit_to_user_mode+0x37/0x1b0
-> [    2.594295]  ? do_syscall_64+0x93/0x1b0
-> [    2.594297]  ? do_sys_openat2+0x9c/0xe0
-> [    2.594300]  ? arch_exit_to_user_mode_prepare.isra.0+0x16/0xa0
-> [    2.594302]  ? arch_exit_to_user_mode_prepare.isra.0+0x16/0xa0
-> [    2.594304]  ? syscall_exit_to_user_mode+0x37/0x1b0
-> [    2.594306]  ? do_syscall_64+0x93/0x1b0
-> [    2.594307]  ? do_syscall_64+0x93/0x1b0
-> [    2.594309]  ? __flush_tlb_all+0x13/0x30
-> [    2.594311]  ? __flush_smp_call_function_queue+0xab/0x410
-> [    2.594314]  ? syscall_exit_to_user_mode+0x37/0x1b0
-> [    2.594316]  ? clear_bhb_loop+0x70/0xc0
-> [    2.594319]  ? clear_bhb_loop+0x70/0xc0
-> [    2.594321]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
-> [    2.594323] RIP: 0033:0x7fa0fb1ad6b9
-> [    2.594325] Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 4=
-8 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <=
-48> 3d 01 f0 ff ff 73 01 c3 48 8b 0d 27 67 0d 00 f7 d8 64 89 01 48
-> [    2.594329] RSP: 002b:00007ffc9ccb2f38 EFLAGS: 00000246 ORIG_RAX: 0000=
-000000000139
-> [    2.594332] RAX: ffffffffffffffda RBX: 000055dd07c93360 RCX: 00007fa0f=
-b1ad6b9
-> [    2.594334] RDX: 0000000000000004 RSI: 00007fa0f98d544d RDI: 000000000=
-000001d
-> [    2.594336] RBP: 0000000000000004 R08: 0000000000000000 R09: 000055dd0=
-7c6f130
-> [    2.594338] R10: 0000000000000000 R11: 0000000000000246 R12: 00007fa0f=
-98d544d
-> [    2.594339] R13: 0000000000020000 R14: 000055dd07c912d0 R15: 000000000=
-0000000
-> [    2.594342]  </TASK>
-> [    2.594343] Modules linked in: hid_generic usbhid hid i915(+) nouveau(=
-+) mxm_wmi drm_gpuvm drm_exec gpu_sched drm_buddy i2c_algo_bit drm_display_=
-helper crct10dif_pclmul crc32_pclmul cec crc32c_intel ghash_clmulni_intel r=
-c_core drm_ttm_helper sha512_ssse3 iTCO_wdt ttm sha256_ssse3 intel_pmc_bxt =
-xhci_pci sha1_ssse3 ucsi_acpi iTCO_vendor_support xhci_hcd rtsx_pci_sdmmc w=
-atchdog aesni_intel drm_kms_helper typec_ucsi nvme mmc_core gf128mul usbcor=
-e typec nvme_core i2c_i801 psmouse drm crypto_simd roles thunderbolt e1000e=
- video serio_raw rtsx_pci i2c_smbus nvme_auth cryptd usb_common battery wmi=
- button
-> [    2.594376] CR2: ffffcdd5c1400000
-> [    2.594378] ---[ end trace 0000000000000000 ]---
->=20
-> With the following patch, the kernel was succesfull booting:
-> [    1.404564] nouveau: loading out-of-tree module taints kernel.
-> [    1.404624] nouveau: module verification failed: signature and/or requ=
-ired key missing - tainting kernel
-> [    1.739550] nouveau: detected PR support, will not use DSM
-> [    1.739571] nouveau 0000:2d:00.0: enabling device (0006 -> 0007)
-> [    1.739648] nouveau 0000:2d:00.0: NVIDIA GP108 (138000a1)
-> [    1.776320] nouveau 0000:2d:00.0: bios: version 86.08.3e.00.26
-> [    1.776582] nouveau 0000:2d:00.0: pmu: firmware unavailable
-> [    1.860292] nouveau 0000:2d:00.0: fb: 2048 MiB GDDR5
-> [    1.897865] nouveau 0000:2d:00.0: drm: VRAM: 2048 MiB
-> [    1.897868] nouveau 0000:2d:00.0: drm: GART: 536870912 MiB
-> [    1.897869] nouveau 0000:2d:00.0: drm: BIT table 'A' not found
-> [    1.897871] nouveau 0000:2d:00.0: drm: BIT table 'L' not found
-> [    1.897871] nouveau 0000:2d:00.0: drm: Pointer to TMDS table not found
-> [    1.902700] nouveau 0000:2d:00.0: drm: MM: using COPY for buffer copies
-> [    1.902820] [drm] Initialized nouveau 1.4.0 for 0000:2d:00.0 on minor 0
-> [    1.902908] nouveau 0000:2d:00.0: [drm] No compatible format found
-> [    1.902910] nouveau 0000:2d:00.0: [drm] Cannot find any crtc or sizes
->=20
-> Basically, the patch mimics behavior existing in nv50_devinit_preinit().
->=20
-> Francis Laniel (1):
->   drm/nouveau/devinit/gf100-: fix display engine check in preinit
->=20
->  drivers/gpu/drm/nouveau/nvkm/subdev/devinit/gf100.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> Best regards,
->=20
+On Thu, Nov 26, 2026 at 05:43:14PM +0800, Ridong Chen wrote:
+> 
+> 
+> On 11/24/2026 2:52 AM, Kairui Song via B4 Relay wrote:
+> > From: Kairui Song <kasong@tencent.com>
+> > 
+> > To enable moving file pages in folio_mark_accessed directly and lazily
+> > for MGLRU, allow updating the LRU statistic atomically without holding a
+> > lock. It may cause temporary counter underflow, which should be fine as
+> > the counter is eventually consistent and only serves as an estimate.
+> > 
+> > Reviewed-by: Barry Song <baohua@kernel.org>
+> > Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+> > Tested-by: Andrew Morton <akpm@linux-foundation.org>
+> > Acked-by: Muchun Song (ByteDance) <muchun.song@linux.dev>
+> > Reviewed-by: Lian Wang <lianux.mm@gmail.com>
+> > Signed-off-by: Kairui Song <kasong@tencent.com>
+> > ---
+> >   include/linux/mm_inline.h | 5 ++---
+> >   1 file changed, 2 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
+> > index 2395ca8ee305..2edb9beef6d3 100644
+> > --- a/include/linux/mm_inline.h
+> > +++ b/include/linux/mm_inline.h
+> > @@ -47,12 +47,11 @@ static __always_inline void __update_lru_size(struct lruvec *lruvec,
+> >   {
+> >   	struct pglist_data *pgdat = lruvec_pgdat(lruvec);
+> > -	lockdep_assert_held(&lruvec->lru_lock);
+> >   	WARN_ON_ONCE(nr_pages != (int)nr_pages);
+> >   	mod_lruvec_state(lruvec, NR_LRU_BASE + lru, nr_pages);
+> > -	__mod_zone_page_state(&pgdat->node_zones[zid],
+> > -				NR_ZONE_LRU_BASE + lru, nr_pages);
+> > +	mod_zone_page_state(&pgdat->node_zones[zid],
+> > +			    NR_ZONE_LRU_BASE + lru, nr_pages);
+> >   }
+> >   static __always_inline void update_lru_size(struct lruvec *lruvec,
+> > 
+> 
+> Hi Kairui,
+> 
+> Just a heads-up: this may conflict with Joanne's "mm: move LRU size stat
+> updates out of lru_lock in folio batches" [1], which is in linux-next now.
+> 
+> That patch makes __update_lru_size() add to a batch attached to the
+> lruvec by the lru_lock holder, and relies on lockdep_assert_held() there.
+> Once this patch lets folio_inc_lru_refs()/folio_reset_lru_refs() call it
+> without the lock, they could write into another CPU's on-stack batch.
+> So the lockless paths probably need to bypass the batch.
+> 
+> [1] https://lore.kernel.org/20261029204157.117879-1-joannelkoong@gmail.com
 
-Sorry for the noise, a patch was already posted some days ago:
-https://lore.kernel.org/all/20261123-nouveau-fix-disp-v1-1-ebdc525287ce@red=
-hat.com/
+Yes I'm aware of that, the fix is easy too, something like:
 
+diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
+index 4ca8011bd288..fb5e3990402c 100644
+--- a/include/linux/mm_inline.h
++++ b/include/linux/mm_inline.h
+@@ -64,6 +64,30 @@ static __always_inline void __update_lru_size(struct lruvec *lruvec,
+ 				NR_ZONE_LRU_BASE + lru, nr_pages);
+ }
+ 
++static __always_inline void __update_lru_size_lockless(struct lruvec *lruvec,
++				enum lru_list lru, enum zone_type zid,
++				long nr_pages)
++{
++	struct pglist_data *pgdat = lruvec_pgdat(lruvec);
++
++	VM_WARN_ON_ONCE(nr_pages != (int)nr_pages);
++	mod_lruvec_state(lruvec, NR_LRU_BASE + lru, nr_pages);
++	mod_zone_page_state(&pgdat->node_zones[zid],
++				NR_ZONE_LRU_BASE + lru, nr_pages);
++}
++
+ static __always_inline void update_lru_size(struct lruvec *lruvec,
+ 				enum lru_list lru, enum zone_type zid,
+ 				long nr_pages)
 
+---
+
+And I think that batch design could be somehow improved too,
+holding a stack variable in a global struct looks a bit odd, could
+be simplified if we audit and update all users for update_lru_size
+later.
