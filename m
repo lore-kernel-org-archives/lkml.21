@@ -1,77 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.188.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795701967;
-	b=KuewT0X/POxysfVLECQuCMaazq6o37wftTLwohPXapoJ3WBYwFblTsFYMDMR3tN39f1C
-	 gEotYPJ6zF9i5N1MhYpvMX9CB0uz3Z++pWBerzuaBMv9JFc1kzblj7z5Z7SqsX224H3Vf
-	 z/TkI2VVZANNmrdAlbuk3A6f3Cb0mQOD2QW8VfO4TL2goYYnHzyzIr6i3T/SyJP524MW/
-	 uxM3nKEob1w9EsD99WvM44yHCa2ikABMaeWQcl4efUOnl0+TW4sGnkTYBOjd4ZpbtlcTl
-	 WFJVwjy0c6tZf3oXHrbda7XBwrlrCLEZ0s2GH8sAYcHU24uuBXpRgepzSpBwvPWqntw==
+	t=1795701980;
+	b=NMcqcfm3AO+CfAf/vKBmI1vZdZNoThf6N4Qlr5tiIsV/E2B6+NWI5CIaVCj4iMtW4tpJ
+	 JMm7/nQOVHzMJCJQkJ03Cw5vazG9ABIepm4x3ini73Op7cZuTIy7kSsPpR+G32+u5OGAt
+	 H5kFbggostxz5E794ytIUDo0UBdo/rHEIN2u24zdipMArtqwUWEK/OyDd7VNnwqt8+d1d
+	 nweAxFb0utAhZmxbaXei0hKu3Wqf4VaStrDkbO04uBw8SMzotB/HESAqyKJy7c2bMuqOx
+	 Tea87KA3nLzjyK1aPM0CXcCP0rtXC9zBYtNcKV56XTIqQfBWwmBoef+Cb0NBia5NP0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795701967;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=/KDx6PRDjEGDYnhz2VHuKJaW+Yap8yQnZ51Ns2dL25s=;
-	b=BM9RJ79VXmpLj/aitAKZSbePqDqEBZr+D5674PoWURJ7cg0WiTRx1oizcVP6LyokUbhO
-	 WZJWZIIrAMlCrftI7Ns6T1FvEBa6kGhUk4SyPYg2JFpv+Bwe5MPrcVI5FHtDlbjDQVMCA
-	 OcrnnBRuuWm6UpJ2EtehXVxZfCDPh1AOplDh437GBWAHbXODQMppQJPpKrse3PPioh0tv
-	 OQIo+by+HHysC0y037RYveBwQQ+442kmPSrMEU0IWTwHX0WDhIwFqsjOgNE52+8pDD1jv
-	 85THDxV0hSgN08VDHvdvqGhFuimKGfdvI50J0J8LzZFxD27CKg5BY49lrtIajZleeBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795701980;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:
+	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=z6yDRTcU4R01ur/fecdkMQS1c66OkwJs8if54klUoSA=;
+	b=rgcUrWueV2Q6OSDkDTQGRiUtP1LXydvBrs8m7nWDRtJY5QUAbh+MVAxfQAiwfwdNDpEx
+	 yfQYbyM+8rAV/HyCFAgRgs+ii3DwExPqTCVqnMqZQoNCMKzdE8v5FY4cPpsitQLP6vu0/
+	 JfOImOiPmsjLp/sJbNl/9UuJ7fgKGMjhl5ICxRO9Lrswv/zIvIXJ2t9dUkQNmrN1U7Lui
+	 FgSnn9arHmVq0sm6k1ZU+YeLTOoF1g9qPjfgSUiKk5+jVy7/aKcTnaqKRu5PPOsUcHqNI
+	 Aoy3RWXPT66PQOhWcit81y79sYRG9pVGoUh2JnM8RZU+oCJC2rGQGtOM4Cafhnz6v3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=R5s36xpL;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
+	dmarc=pass header.from=canonical.com;
+	spf=pass smtp.mailfrom=canonical.com;
+	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=eYRlpmqy;
+	arc=none smtp.remote-ip=185.125.188.123
+Received: from smtp-relay-internal-1.canonical.com (smtp-relay-internal-1.canonical.com [185.125.188.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D9F8606A31C;
-	Thu, 26 Nov 2026 14:06:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D9F8606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65FF4606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:06:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65FF4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=R5s36xpL
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/KDx6PRDjEGDYnhz2VHuKJaW+Yap8yQnZ51Ns2dL25s=; b=R5s36xpLZZgPLm9uLI7A4NQRBp
-	BcPgrPg+UI4fudIwP0wP6NTooKgKiXNWPYZpuS/veOMyx1kOm4nEw771tf7kE1zfnN8w3pELMShiN
-	aYwdVBEvtUzJbAfsPevaUf519f/405eaGSY8InuwM3EgTs8Xb96n3CkaCCQqfQ6QHZJu4X8FdgWw8
-	HBv+R/JOMiqAWTMxYfzFskKB/zrGOeT22awtZfEWXrRhI6AfDVniH/bG/zthugHR4EwOgbilFbKzi
-	KhKsTHLS9qNxHMKPEmWju28vjo5bK0sRpWl9cA9RNj+90TMeK7/tuz3xYlExMN2UGkCAjyAUwQ8Sl
-	0eaVhJPg==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xWa6p-00000004qEY-2zZJ;
-	Thu, 26 Nov 2026 14:05:59 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 7E534302186; Thu, 26 Nov 2026 15:05:58 +0100 (CET)
-Date: Thu, 26 Nov 2026 15:05:58 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: Dylan Hatch <dylanbhatch@google.com>, Miroslav Benes <mbenes@suse.cz>,
-	Petr Mladek <pmladek@suse.com>,
-	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Thomas Gleixner <tglx@kernel.org>, live-patching@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] sched, livepatch: Fix transition stall for CPU-bound
- tasks
-Message-ID: <20261126140558.GF49833@noisy.programming.kicks-ass.net>
-References: <20261117045254.1048298-1-dylanbhatch@google.com>
- <20261117045254.1048298-2-dylanbhatch@google.com>
- <awIMltMpXzhXiDpU@jpoimboe>
+	dkim=pass (4096-bit key) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=eYRlpmqy
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id C61473F71C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:06:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1795701971;
+	bh=z6yDRTcU4R01ur/fecdkMQS1c66OkwJs8if54klUoSA=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version;
+	b=eYRlpmqyFdkfgRN1H20kNSqt4kLbXbp+n2xAz/f/dR+6pBDoe1UY0QwUc9EBXFaeE
+	 log8CucK7AoHw1d0HPtCUO4flMPMNRiBIbOF2xiL2+GFoCEXQdt/n9/XLo3pHvqjBD
+	 zi//xTS/I32yiqRGd0k7kiYBYK16E+1PGKgTJBOakLa4mnODmnxcQ+9j+uVSnCUTzu
+	 8UGye3q8GyFS6amxQY79hKtPMhKhnxechG03p6d+Jj/fxLiUze0R+C1YpZkECLcns5
+	 EfhEQ3QFgW+GCOkRkoBmNFF901k8ZQ785ArGzVcl3lN58OAfSv+OT7Sk5ZdAtyFSbD
+	 D/gSdnedIe49FoWMRI0rFaGe7L5ljOI1m1A24g7FaFdgP3UQwV/vPCOyDlqcnhr+z4
+	 O5Ovmux46kgAXKKdigvO5ejM1UovtYZxZHYBJJTzv4XAXr2rUn0WMQqdT1ttg/OM5X
+	 YZiUx+WE2qlgBC2X4Ak9un6XG7O/xFrU8Wn4ZI0G9m0ZoSoFVDqs2FNlahn4RPlTEE
+	 aNozElS0vciMwFu3TrWiMwt7Op6Gj5UiaS7AgTI/tfiN3Jja4kSK5DjU5C66JSrO0o
+	 gTXfjeg++wTu4bbh1DKUAXGAf2pU4KBcsIdPP5vNy6geDGYgpBAYl4bqJ9ELJ7yIaC
+	 vHA1/OslLE8eqviEI0AJ6ILc=
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3b41333cb47so5925828a91.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:06:11 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795701970; x=1796306770;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=z6yDRTcU4R01ur/fecdkMQS1c66OkwJs8if54klUoSA=;
+        b=1ZJ1YkRlNBsf8v5P/xcWXqyfv9QfRbNdhX5JYgIywiOIvgeMpV5Pwt8rFby+sciq5W
+         G4TYG/Kz0fKbKOhDI4BkR0D5vyVZXDFPrnQbt3FlXXMQbLYZWBDMFPKWQC/aXYnpqeJW
+         ATl1FXvzOm1D2w31qnk2xZzbldpPox4qIziEUUPeug/hhlrp8yIXF2Keq4yXgifgGm2X
+         oHEvZj/pHbUi2mHotDDMdczXNmcArgiODCSOwoBIQujoFlMYjZ74e0eNor1lHxLBFPSF
+         L7MlWe3DuE9QAKMFL7s6H5uy73SjI7R6pz2VUTaM1ou6iDBMIqPED/V5+Ny8xAmuvdnc
+         c0YQ==
+X-Forwarded-Encrypted: i=1; AL+hErHvLmIw6VhPWLFY/LEpq8HCcbkioP2ypAAES5O67q+2Ef77g6qYDVht8MQKRtCFzapdmHsi8T61Dz5bRMU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8QNJm5LmVrQVh8iHi5hz56CQvEWikAuawjfWVUOCsw6kV2FHY5
+	l+QnaREK+0cNPjWMi2Krd6vZi6J3wDyp6Ar0haV3U4E9LIwram1BUo2I1kmXNP0zfWil8vMRdLW
+	qr/MIcVEcCiXWZ6kW4ckmhmWNdcVhIkiI9FvC/M2qcPp5TNHtVlzL+ZzQsuxUSqvcGDj5GFUuOr
+	c1lkFAIw==
+X-Gm-Gg: AZFdTZd7gjfeh9qFOeDt5dkB3FJS3Jr3/CdXsVE4/WDY6NmBwYPLC49/Lk+XGMSK7wA
+	+we36QtcaX+lUlbPtsDoML7IvpkTd0aIc5YpE621GbwnutGZVVdnkdbvev5tkxo2Q8eCc9ZNzlF
+	CUnEiq2aM0AMWJ8ziZbXCNI7WszKvVAcf2fI02Y1NkPWugNNP5um6ZOP//Oip0sZZmtXdAcx8d3
+	wZELWibvUORYu7T29kxO0AsTYCrwdXh++HwDodsPQZ+s6WVvLBFcp4B3t0930o2vHScq8xR6oaN
+	lwrpsoUt5dV9hZ2X2ccGdfsijLGX+S6jlERB/sDCbu6gbLA8aMRlOzZTgYS5NYrut57hLQReQ+I
+	UK4OSgYbHPyB+NpvkAq+ulTrTfJikWqEN2zrAkXQrerhie72u8YVzqzjj
+X-Received: by 2002:a17:90b:554d:b0:3ad:d29c:5e64 with SMTP id 98e67ed59e1d1-3b41c9b361fmr20365719a91.65.1795701970091;
+        Thu, 26 Nov 2026 06:06:10 -0800 (PST)
+X-Received: by 2002:a17:90b:554d:b0:3ad:d29c:5e64 with SMTP id 98e67ed59e1d1-3b41c9b361fmr20365663a91.65.1795701969667;
+        Thu, 26 Nov 2026 06:06:09 -0800 (PST)
+Received: from localhost ([2001:8003:ec27:e900:9eb2:9fad:60b1:766e])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfc8829sm11022054a12.8.2026.11.26.06.06.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 06:06:09 -0800 (PST)
+From: Yufeng Gao <yufeng.gao@canonical.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Steen Hegelund <Steen.Hegelund@microchip.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	UNGLinuxDriver@microchip.com,
+	linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yufeng Gao <yufeng.gao@canonical.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] phy: microchip: build both SerDes drivers when they share a config value
+Date: Fri, 27 Nov 2026 00:05:21 +1000
+Message-ID: <20261126140521.237240-1-yufeng.gao@canonical.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,41 +113,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awIMltMpXzhXiDpU@jpoimboe>
+Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 01:55:39PM -0800, Josh Poimboeuf wrote:
+The Makefile adds the two drivers with ":=" instead of "+=":
 
-> diff --git a/kernel/livepatch/transition.c b/kernel/livepatch/transition.c
-> index e058d21d84b75..1ccbae2051c72 100644
-> --- a/kernel/livepatch/transition.c
-> +++ b/kernel/livepatch/transition.c
-> @@ -402,12 +402,22 @@ static void klp_send_signals(void)
->  		 * Meanwhile the task could migrate itself and the action
->  		 * would be meaningless. It is not serious though.
->  		 */
-> -		if (task->flags & PF_KTHREAD) {
-> +		if (task->flags & (PF_KTHREAD | PF_USER_WORKER)) {
->  			/*
->  			 * Wake up a kthread which sleeps interruptedly and
->  			 * still has not been migrated.
->  			 */
-> -			wake_up_state(task, TASK_INTERRUPTIBLE);
-> +			if (wake_up_state(task, TASK_INTERRUPTIBLE))
-> +				continue;
-> +
-> +			/*
-> +			 * If it's running, force it through __schedule() so
-> +			 * it can switch itself in klp_sched_try_switch().
-> +			 */
-> +			if (task_curr(task)) {
-> +				set_tsk_need_resched(task);
+  obj-$(CONFIG_PHY_SPARX5_SERDES) := sparx5_serdes.o
+  obj-$(CONFIG_PHY_LAN966X_SERDES) := lan966x_serdes.o
 
-That's broken. Preempt state is more than just the TIF bit.
+When PHY_SPARX5_SERDES and PHY_LAN966X_SERDES are both 'y' or 'm',
+both lines assign the same variable and the second replaces the first:
 
-> +				kick_process(task);
-> +			}
->  		} else {
->  			/*
->  			 * Send fake signal to all non-kthread tasks which are
+  obj-y := sparx5_serdes.o
+  obj-y := lan966x_serdes.o
+
+In this case, sparx5_serdes is silently not built despite enabled. To
+fix this, use "+=" (for both drivers).
+
+Fixes: 305524902a00 ("phy: Add lan966x ethernet serdes PHY driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yufeng Gao <yufeng.gao@canonical.com>
+---
+ drivers/phy/microchip/Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/phy/microchip/Makefile b/drivers/phy/microchip/Makefile
+index fd73b87960a5..0ea4004abf75 100644
+--- a/drivers/phy/microchip/Makefile
++++ b/drivers/phy/microchip/Makefile
+@@ -3,5 +3,5 @@
+ # Makefile for the Microchip phy drivers.
+ #
+ 
+-obj-$(CONFIG_PHY_SPARX5_SERDES) := sparx5_serdes.o
+-obj-$(CONFIG_PHY_LAN966X_SERDES) := lan966x_serdes.o
++obj-$(CONFIG_PHY_SPARX5_SERDES) += sparx5_serdes.o
++obj-$(CONFIG_PHY_LAN966X_SERDES) += lan966x_serdes.o
+
+base-commit: e7d2f93a4426ea6b33dbca1ce585a9876e3a7344
+-- 
+2.53.0
+
