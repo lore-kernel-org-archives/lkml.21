@@ -1,68 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795713793;
-	b=eLInTm6IT+6ygMfDXkvvXf/PwYseb9Z3hDb+r6IEzH4sUlAqLziU6JSSu29ujURI63xu
-	 MiRRzZXWsjr7MWn8i/SsbqiZ+kThb8qLEiSeJ6TaQUAXFN6kaP6sRSb3qPHG5J8zZOvuS
-	 yHUJB9r28CpcpQewNU6shnkX90l58/hRI4g4P98bVPpsD1r/aezFUpgzVnWMxJQOTjVB2
-	 4Iqu89L4pAai8hyDD2GpLCOwh/CL8oq+4K2aJMlMBP83w6fzpeOStpC2X/PpXvitC5I0g
-	 Wq3YKuW9A4d9Dyl99NRJ+aQ+LCO3DIdlVUVlVAExKXe5mXeBdsdk9dH8fCzLqBfHJzQ==
+	t=1795714002;
+	b=AnJ8+afsDdWGrDd7r+2+e8RYhgi5jCczSuk+GvgylUtCAHgEGrTL2iilFsWuBeusbFl6
+	 NSNttM0U/wN+yKL/jsJG+MfTZZNT0405BqvkLWtrKR/sWghys5JDXL25ODET7XDTm1Lmy
+	 D17cDKqneT8VMr/CGy5eSuoRZz55wlNv8NLzsic9iBDAk9gzQ9PJUFW5dPS5eF8cpf6GQ
+	 YebO7biaRtcizZf3No2Dtgn9BLDnI482GJYo7v1Ug1tm60IInsgRH2xZlGMqGHDzsdgSN
+	 ZgaKElYIJVP+t3+uccU7ABxlJ3O+Uq2YaUUJ6uxovhlJCmGU4/wNSjwHwvwR8DGaOgQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795713793;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=6t8zMEHWOq/TMcqyQcFtZHat+KMa7yPUF6stD0po4a8=;
-	b=POpozPqJMnB0xgYR+qNYaFo7XETeHYLYCdJjf8hoj1/a6KXW/HfemPQgOixF8l8wCnUJ
-	 yzYYVTZxOCWyqX+wnOkGoJzqFXvM/dEkU1tJudhO6j243Al36yNR659Gkahe7I7yjD7DH
-	 yH+dbNY6oV6Q7EOOamuye5rUpqGEoXwMaGF8TIywEzLhwL5s0lGS28/HGKzerULzWob/s
-	 DfLG1C3Ds/+c7p/kXOstbEZ32Nn3byE5KXNFo9x7GoQayVl87tGLmDDnxPkCArcRYwZ60
-	 Kxzt5sbhkdlfraMnfrM/4LvwXf4YFfsTYeZpgQ3UPSyRGp3+j0BAXkWuler/Int7xSA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795714002;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=3TsAdFflCae5+igj5qVBS4hOwgiKQAIIPXHogQ5HlvU=;
+	b=zZeR6g633N1s97DZFHh222/gB5Jvrbtd+Q3GndVDXN+retFp3BmPhGGymQjjfb1EKKyP
+	 TTyZmnw0q9AuGHKhmqa98w2/olnIgrLkWtMImXuInPueTlYoUD6PYfmDifr35FQ7FQLoG
+	 C/g6rM8VzKLifrcUoXLvnNsgRURTev5DIznshgG7fE9woMV5m85FcxTZnkm/a+tg8mJjs
+	 RxqXfzNt3Hr2t1ReS564cuzIGS3dWt8SpFVobfOUnczsvfViN3oA96GKDZqNh7WClfrSy
+	 3egxSUqTrewbKeTzrYYqTXbDf/3L9O7Gs81ODzIWEtU//aRsnEvRegbCDR+4Olyf5RA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RhB7QdfK;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id EC81B606A332;
-	Thu, 26 Nov 2026 17:23:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC81B606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nXW9C6+2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4092606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:26:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RhB7QdfK
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7DA371CE0;
-	Thu, 26 Nov 2026 09:23:08 -0800 (PST)
-Received: from e142021.manchester.arm.com (e142021.arm.com [10.33.50.35])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5637F3F632;
-	Thu, 26 Nov 2026 09:23:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795713791; bh=MM9n/DJpa5JgVDUvJl3UrEXOEQhNBvmadA6mv/jc9fo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RhB7QdfKoTzZdolKyQ5cyY8aURiuPOZBVNaY2N70lM3z9nP0jutzeOMJAPJxRU4SU
-	 I9QNRsSnBEAAUSl39VHju4Jzk0mxkUewI1kghUgjdGtOjFmHfrGcwon6IIquVxGSlV
-	 NvHZ/9MxRyi7gfZm91eB8R8VtFsJgSEGzXtjTC0g=
-From: Andre Przywara <andre.przywara@arm.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Alastair D'Silva <alastair@d-silva.org>,
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
-	Pablo Mazzini <pmazzini@gmail.com>,
-	Enzo Adriano <enzo.adriano.code@gmail.com>
-Subject: [PATCH 2/2] arm64: dts: allwinner: add Radxa Cubie A7A board
-Date: Thu, 26 Nov 2026 17:22:53 +0000
-Message-ID: <20261126172253.1097838-3-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261126172253.1097838-1-andre.przywara@arm.com>
-References: <20261126172253.1097838-1-andre.przywara@arm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nXW9C6+2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70E231F000E1
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 17:26:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795714002;
+	bh=3TsAdFflCae5+igj5qVBS4hOwgiKQAIIPXHogQ5HlvU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=nXW9C6+2gF1Q3zHNBPh8fBgfcJl1KF5jCuJOoyL8o79r4Jo4Qi8RYCE+y3y4gVhgg
+	 nc0b1UM4KedhJ77WRrrMSxTvgEbywdv1OgVa9r0kq3ZJ3XScT//RfFOmrX2BOiVeBi
+	 hdZiOKM3USpja0gYDwehlfItA/pcQkbB79zrz4+otu/2TxbHHZIs3uRTsihpvOIgdX
+	 aNP0NmKyp/EvuGg+wAtzZgJvFcratHTWORY+eT96S0iegXqA0+5VQVnkSsKLgGOz78
+	 bxi3hI5Ea+s3u6VibI5gvHyAO6QM854aMb9ECLC1130omghVqMrOtr9fPNXW3bMvT8
+	 fRYG6YNFRth8g==
+Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6bab10844b5so8207794a12.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:26:42 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErETyGHQKSbfEI8YvVKhZ2DuQXEzneROjh7wdeprtJ5BPzdMGjW2lQu8fPVQu4lyAjzXjnGxzKAAhUZzjTs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8njUELyKu+jGYsJk6Ipz9ZvlfmNZbbNf0DaHVBFCe29BarAT5g
+	5GHLsYJVCsEERJvgdE0QZHLRpIL2nULR32cBWk3kEwkCEUTHcdh57tRqg4F44FKBgeRwaKAmmOn
+	581IuYXPiV0TYdbrrXV9xgVNh6sht7BhAqFQqV5RTPA==
+X-Received: by 2002:aa7:d8c6:0:b0:6b7:8b02:726e with SMTP id
+ 4fb4d7f45d1cf-6ba1fc20931mr13487563a12.18.1795714001262; Thu, 26 Nov 2026
+ 09:26:41 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,439 +59,265 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <cover.1795439990.git.lianux.mm@gmail.com> <be6ef058f4a6babd3562270daa5b61c4ff9a6a50.1795439990.git.lianux.mm@gmail.com>
+In-Reply-To: <be6ef058f4a6babd3562270daa5b61c4ff9a6a50.1795439990.git.lianux.mm@gmail.com>
+From: Chris Li <chrisl@kernel.org>
+Date: Thu, 26 Nov 2026 09:26:29 -0800
+X-Gmail-Original-Message-ID: <CACePvbU2cg1EVBjONWjYcsanDM0JS4eLXgX9aGYeEaXu4zZ2-w@mail.gmail.com>
+X-Gm-Features: Aa3M54rq-_aDaC2IZzYFQcaEVIrU54eEGaMwFyEv8kqdmSEUInVdyb4y-llAiSs
+Message-ID: <CACePvbU2cg1EVBjONWjYcsanDM0JS4eLXgX9aGYeEaXu4zZ2-w@mail.gmail.com>
+Subject: Re: [PATCH v5 04/19] mm/swap: introduce swap device iteration helper
+To: Lian Wang <lianux.mm@gmail.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	Andrew Morton <akpm@linux-foundation.org>, Nhat Pham <nphamcs@gmail.com>, 
+	Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>, 
+	Youngjun Park <youngjun.park@lge.com>, Kemeng Shi <shikemeng@huaweicloud.com>, 
+	Kairui Song <kasong@tencent.com>, Jihan LIN <linjh22s@gmail.com>, 
+	Kunwu Chan <kunwu.chan@linux.dev>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Thomas Gleixner <tglx@kernel.org>, linux-hardening@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The Radxa Cubie A7A is a single board computer using the Allwinner A733
-SoC. It features:
-  - Allwinner A733 SoC (6*Arm Cortex-A55 + 2*Arm Cortex-A76)
-  - Imagination BXM-4-64 MC1 GPU and 3 TOPS NPU
-  - 2-16 GiB LPDDR5 DRAM
-  - AXP318W PMIC
-  - eMMC and UFS socket
-  - single lane PCIe 3.0 via FPC connector
-  - microSD card slot
-  - bootable SPI NOR flash
-  - HDMI 2.0 and MIPI-DSI connector
-  - MIPI-CSI camera connector
-  - GBit Ethernet socket, with optional POE support
-  - unknown Bluetooth and WiFi
-  - USB-C 2.0 OTG port (also primary power supply)
-  - USB-A 3.1 host port
-  - 3* USB-A 2.0 host ports (via hub)
-  - 40 pin GPIO connector
+On Mon, Nov 23, 2026 at 6:16=E2=80=AFAM Lian Wang <lianux.mm@gmail.com> wro=
+te:
+>
+> From: Kairui Song <kasong@tencent.com>
+>
+> Separate iteration over allocated swap_info descriptors from iteration
+> over writable devices. Hibernation lookups require SWP_USED and
+> SWP_WRITEOK under swap_lock. Take a single snapshot for each flag
+> test, since unrelated bits in the same word can change during setup.
+>
+> drain_mmlist() only needs the atomic usage count; walk every
+> descriptor without loading flags there. In si_swapinfo(), count
+> usage only for descriptors that are in use but no longer writable.
+>
+> Move the live-reference warning from __swap_type_to_info() into
+> __swap_entry_to_info(). The iterator must inspect descriptors before
+> applying its flag filter, including descriptors whose device reference
+> is dead; entry-based lookup retains the warning.
 
-Add initial support for the peripherals we have DT bindings for so far,
-including UART, PMIC, SD card, some EEPROM and an external RTC chip.
-The PMIC rails assignment has been determined by the schematic.
+The patches looks good. Some minor nitpick follows.
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- arch/arm64/boot/dts/allwinner/Makefile        |   1 +
- .../dts/allwinner/sun60i-a733-cubie-a7a.dts   | 385 ++++++++++++++++++
- 2 files changed, 386 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7a.dts
+Acked-by: Chris Li <chrisl@kernel.org>
 
-diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
-index f38375fff1753..011323d668b7c 100644
---- a/arch/arm64/boot/dts/allwinner/Makefile
-+++ b/arch/arm64/boot/dts/allwinner/Makefile
-@@ -70,4 +70,5 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun55i-a527-cubie-a5e.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun55i-h728-x96qpro+.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-avaota-a1.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-orangepi-4a.dtb
-+dtb-$(CONFIG_ARCH_SUNXI) += sun60i-a733-cubie-a7a.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun60i-a733-cubie-a7s.dtb
-diff --git a/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7a.dts b/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7a.dts
-new file mode 100644
-index 0000000000000..9017cadf6c6a9
---- /dev/null
-+++ b/arch/arm64/boot/dts/allwinner/sun60i-a733-cubie-a7a.dts
-@@ -0,0 +1,385 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-+/*
-+ * Copyright (c) 2026 Arm Ltd.
-+ */
-+
-+/dts-v1/;
-+
-+#include "sun60i-a733.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
-+
-+/ {
-+	model = "Radxa Cubie A7A";
-+	compatible = "radxa,cubie-a7a", "allwinner,sun60i-a733";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		power-led {
-+			function = LED_FUNCTION_POWER;
-+			color = <LED_COLOR_ID_GREEN>;
-+			/*
-+			 * The LED is connected between VCC and GND, so it
-+			 * turns on as soon as the board gets power. But a
-+			 * transistor allows to pull down the anode to GND,
-+			 * so the LED can be turned off.
-+			 */
-+			gpios = <&pio 9 26 GPIO_ACTIVE_LOW>; /* PJ26 */
-+			default-state = "on";
-+		};
-+
-+		status-led {
-+			function = LED_FUNCTION_STATUS;
-+			color = <LED_COLOR_ID_BLUE>;
-+			gpios = <&pio 9 27 GPIO_ACTIVE_HIGH>; /* PJ27 */
-+		};
-+	};
-+
-+	osc32k: osc32k-clk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <32768>;
-+	};
-+
-+	/* discrete SY8089A DC/DC step-down regulator */
-+	reg_vcc2v4: regulator-2v4 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "ldo-input";
-+		regulator-min-microvolt = <2400000>;
-+		regulator-max-microvolt = <2400000>;
-+		regulator-always-on;
-+		vin-supply = <&reg_vcc5v>;
-+	};
-+
-+	/* board wide 5V supply from the USB-C connector */
-+	reg_vcc5v: regulator-5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&reg_dcdc5>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&reg_dcdc5>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&reg_dcdc5>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&reg_dcdc5>;
-+};
-+
-+&cpu4 {
-+	cpu-supply = <&reg_dcdc5>;
-+};
-+
-+&cpu5 {
-+	cpu-supply = <&reg_dcdc5>;
-+};
-+
-+&cpu6 {
-+	cpu-supply = <&reg_dcdc3>;
-+};
-+
-+&cpu7 {
-+	cpu-supply = <&reg_dcdc3>;
-+};
-+
-+&i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c0_pg_pins>;
-+	status = "okay";
-+
-+	eeprom@50 {
-+		compatible = "belling,bl24c16f", "atmel,24c16";
-+		reg = <0x50>;
-+		pagesize = <16>;
-+		vcc-supply = <&reg_aldo1>;
-+		wp-gpios = <&pio 2 7 GPIO_ACTIVE_LOW>; /* PC7 */
-+	};
-+};
-+
-+&mmc0 {
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cap-mmc-highspeed;
-+	cap-sdio-irq;
-+	cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>;   /* PF6 */
-+	disable-wp;
-+	vmmc-supply = <&reg_swout2>;
-+	status = "okay";
-+};
-+
-+&hosc {
-+	clock-frequency = <26000000>;
-+};
-+
-+&pio {
-+	vcc-pb-supply = <&reg_swout2>;	// via VCC-IO
-+	vcc-pc-supply = <&reg_cldo5>;
-+	vcc-pd-supply = <&reg_swout1>;
-+	vcc-pe-supply = <&reg_bldo1>;
-+	vcc-pf-supply = <&reg_swout2>;	// via VCC-IO
-+	vcc-pg-supply = <&reg_aldo1>;
-+	vcc-ph-supply = <&reg_swout2>;	// via VCC-IO
-+	vcc-pj-supply = <&reg_swout1>;
-+	vcc-pk-supply = <&reg_aldo1>;
-+};
-+
-+&r_i2c0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&r_i2c0_pl_pins>;
-+	status = "okay";
-+
-+	axp318w: pmic@36 {
-+		compatible = "x-powers,axp318w";
-+		reg = <0x36>;
-+		interrupt-parent = <&nmi_intc>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+		interrupt-controller;
-+		#interrupt-cells = <1>;
-+
-+		aldo156in-supply = <&reg_vcc5v>;
-+		aldo234in-supply = <&reg_aldo1>;
-+		bldoin-supply = <&reg_vcc2v4>;
-+		cldoin-supply = <&reg_vcc2v4>;
-+		dldoin-supply = <&reg_vcc5v>;
-+		eldoin-supply = <&reg_dcdc9>;
-+		ips-supply = <&reg_vcc5v>;
-+		vin19-supply = <&reg_vcc5v>;
-+		vin23-supply = <&reg_vcc5v>;
-+		vin45-supply = <&reg_vcc5v>;
-+		vin678-supply = <&reg_vcc5v>;
-+
-+		regulators {
-+			reg_dcdc1: dcdc1 {
-+				/* VCC3V3 on GPIO connector and power LED */
-+				regulator-name = "vcc-wifi-hub-pci-gpio-led";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_dcdc2: dcdc2 {
-+				regulator-name = "vdd-sys-dram-ve-combo";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <800000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_dcdc3: dcdc3 {
-+				regulator-name = "vdd-cpub";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1050000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_dcdc4: dcdc4 {
-+				regulator-name = "vdd-gpu";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <960000>;
-+			};
-+
-+			reg_dcdc5: dcdc5 {
-+				regulator-name = "vdd-cpul";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1050000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_dcdc6: dcdc6 {
-+				/* Voltage set by DRAM init routine */
-+				regulator-name = "vcc-draml-vddq";
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <600000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_dcdc7: dcdc7 {
-+				/* Voltage set by DRAM init routine */
-+				regulator-name = "vcc-dram";
-+				regulator-min-microvolt = <1050000>;
-+				regulator-max-microvolt = <1100000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_dcdc8: dcdc8 {
-+				regulator-name = "vcc-ufs-io";
-+				regulator-min-microvolt = <1200000>;
-+				regulator-max-microvolt = <1200000>;
-+			};
-+
-+			reg_dcdc9: dcdc9 {
-+				regulator-name = "eldo-input";
-+				/*
-+				 * The schematic says 1.25V, but the
-+				 * granularity of DCDC9 is 20mV in this range.
-+				 */
-+				regulator-min-microvolt = <1240000>;
-+				regulator-max-microvolt = <1260000>;
-+			};
-+
-+			reg_swout1: swout1 {
-+				regulator-name = "vcc-pd-pj-lcd-ephy";
-+			};
-+
-+			reg_swout2: swout2 {
-+				/* SoC VCC-IO and USB 3.3V supply #2 */
-+				regulator-name = "vcc-io-sd-emmc-ph-usb";
-+				regulator-always-on;
-+			};
-+
-+			reg_aldo1: aldo1 {
-+				/* PortL (this PMIC) and USB 3.3V supply #1 */
-+				regulator-name = "vcc-pl-usb";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_aldo5: aldo5 {
-+				regulator-name = "vcc-ac101-codec";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+			};
-+
-+			reg_bldo1: bldo1 {
-+				regulator-name = "vcc-pe-pk-mcsi";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+			};
-+
-+			reg_bldo2: bldo2 {
-+				regulator-name = "vcc-lvds-lcd";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+			};
-+
-+			reg_bldo4: bldo4 {
-+				regulator-name = "vcc18-codec";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+			};
-+
-+			reg_cldo1: cldo1 {
-+				regulator-name = "vcc18-lpddr";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_cldo2: cldo2 {
-+				regulator-name = "vcc18-hdmi";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+			};
-+
-+			reg_cldo3: cldo3 {
-+				regulator-name = "vcc-pll-dram-avcc";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_cldo5: cldo5 {
-+				regulator-name = "vcc-pc-combo";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+			};
-+
-+			reg_dldo1: dldo1 {
-+				regulator-name = "vcc-efuse";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_dldo6: dldo6 {
-+				regulator-name = "vcc-ufs";
-+				regulator-min-microvolt = <2500000>;
-+				regulator-max-microvolt = <2500000>;
-+			};
-+
-+			reg_eldo1: eldo1 {
-+				regulator-name = "vcc09-lpddr5";
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_eldo6: eldo6 {
-+				regulator-name = "vdd-cpus-usb";
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <800000>;
-+				regulator-always-on;
-+			};
-+
-+			reg_rtc_ldo: rtc-ldo {
-+				regulator-name = "vcc-rtc";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-always-on;
-+			};
-+		};
-+	};
-+};
-+
-+&r_i2c1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&r_i2c1_pl_pins>;
-+	status = "okay";
-+
-+	rtc@51 {
-+		compatible = "haoyu,hym8563";
-+		reg = <0x51>;
-+		#clock-cells = <0>;
-+		interrupt-parent = <&r_pio>;
-+		interrupts = <0 3 IRQ_TYPE_EDGE_FALLING>;	/* PL3 */
-+	};
-+};
-+
-+&r_i2c1_pl_pins {
-+	/*
-+	 * The schematic shows external pull-up resistors, but still the
-+	 * internal pull-ups are required somehow.
-+	 */
-+	bias-pull-up;
-+};
-+
-+&r_pio {
-+	/*
-+	 * Specifying the supply would create a circular dependency.
-+	 *      vcc-pl-supply = <&reg_aldo1>;
-+	 */
-+	vcc-pm-supply = <&reg_aldo1>;
-+};
-+
-+&rtc {
-+	clocks = <&r_ccu CLK_BUS_R_RTC>, <&hosc>, <&r_ccu CLK_R_AHB>,
-+		 <&osc32k>;
-+	clock-names = "bus", "hosc", "ahb", "ext-osc32k";
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pb_pins>;
-+	status = "okay";
-+};
--- 
-2.43.0
+Chris
 
+>
+> Signed-off-by: Kairui Song <kasong@tencent.com>
+> Signed-off-by: Lian Wang <lianux.mm@gmail.com>
+> ---
+>  mm/swap.h     | 12 ++++----
+>  mm/swapfile.c | 77 ++++++++++++++++++++++++++++++++-------------------
+>  2 files changed, 54 insertions(+), 35 deletions(-)
+>
+> diff --git a/mm/swap.h b/mm/swap.h
+> index d488a69c2809..70fd3ab655ff 100644
+> --- a/mm/swap.h
+> +++ b/mm/swap.h
+> @@ -108,16 +108,16 @@ static inline unsigned int swp_cluster_offset(swp_e=
+ntry_t entry)
+>   */
+>  static inline struct swap_info_struct *__swap_type_to_info(int type)
+>  {
+> -       struct swap_info_struct *si;
+> -
+> -       si =3D READ_ONCE(swap_info[type]); /* rcu_dereference() */
+> -       VM_WARN_ON_ONCE(percpu_ref_is_zero(&si->users)); /* race with swa=
+poff */
+> -       return si;
+> +       return READ_ONCE(swap_info[type]); /* rcu_dereference() */
+>  }
+>
+>  static inline struct swap_info_struct *__swap_entry_to_info(swp_entry_t =
+entry)
+>  {
+> -       return __swap_type_to_info(swp_type(entry));
+> +       struct swap_info_struct *si;
+> +
+> +       si =3D __swap_type_to_info(swp_type(entry)); /* rcu_dereference()=
+ */
+> +       VM_WARN_ON_ONCE(percpu_ref_is_zero(&si->users)); /* race with swa=
+poff */
+> +       return si;
+>  }
+>
+>  static inline struct swap_cluster_info *__swap_offset_to_cluster(
+> diff --git a/mm/swapfile.c b/mm/swapfile.c
+> index f22197a6286c..56b75770d320 100644
+> --- a/mm/swapfile.c
+> +++ b/mm/swapfile.c
+> @@ -106,6 +106,34 @@ static DEFINE_SPINLOCK(swap_avail_lock);
+>
+>  struct swap_info_struct *swap_info[MAX_SWAPFILES];
+>
+> +static inline struct swap_info_struct *__swap_iter(int *i, unsigned long=
+ flag)
+> +{
+> +       lockdep_assert_held(&swap_lock);
+Nitpick: Suggest have a internal version of "int _i", then sync to
+"int *i" at function exit.
+
+> +       while (*i < nr_swapfiles) {
+
+The trick part of this is that, if the caller change *i between you
+test *i < nr_swapfile and you use *i for __swap_type_to_info(*i), you
+can visit out of bound array.  So having an internal version of  *i as
+scalor will remove that abuse. It is likely the compiler can generate
+better code as well because it avoids needing to know about pointer
+aliasing with pointer. I think your later verison might need to use
+more complicate inter state that "int i", so you might as well make it
+a inter struct which contains "int index" now.
+
+> +               struct swap_info_struct *si =3D __swap_type_to_info(*i);
+> +
+> +               VM_WARN_ON(!si);
+
+You don't need this WARN ON. When i < nr_swapfile, the swap_info[i]
+array can never the NULL. If you are paranoid you can continue if "si"
+is NULL.
+
+> +               (*i)++;
+> +               if (flag && (READ_ONCE(si->flags) & flag) !=3D flag)
+> +                       continue;
+> +               return si;
+> +       }
+> +       return NULL;
+> +}
+> +
+> +#define __for_each_swap(si, flag)                      \
+> +       for (int __i =3D 0; ((si) =3D __swap_iter(&__i, flag));)
+
+This is a bit too cose to for_each_swap_info. May be __for_each_swap_dev_fl=
+ag()
+
+> +
+> +/*
+> + * for_each_swap_info - iterate over all allocated swap descriptors
+> + * @si: the iterator
+> + *
+> + * Context: The caller must hold swap_lock. The lock may be dropped duri=
+ng
+> + * the loop body but must be re-acquired before the next iteration.
+> + */
+> +#define for_each_swap_info(si) __for_each_swap(si, 0)
+
+NITPICK: for_each_swap_dev()?
+
+> +#define for_each_avail_swap(si) __for_each_swap(si, SWP_USED | SWP_WRITE=
+OK)
+
+NITPICK: for_each_avail_swap_dev()?
+
+> +
+>  static struct kmem_cache *swap_table_cachep;
+>
+>  /* Protects si->swap_file for /proc/swaps usage */
+> @@ -2284,26 +2312,18 @@ void swap_free_hibernation_slot(swp_entry_t entry=
+)
+>
+>  static int __find_hibernation_swap_type(dev_t device, sector_t offset)
+>  {
+> -       int type;
+> -
+> -       lockdep_assert_held(&swap_lock);
+> +       struct swap_info_struct *si;
+>
+>         if (!device)
+>                 return -EINVAL;
+>
+> -       for (type =3D 0; type < nr_swapfiles; type++) {
+> -               struct swap_info_struct *sis =3D swap_info[type];
+> -
+> -               if (!(sis->flags & SWP_WRITEOK))
+> -                       continue;
+> -
+> -               if (device =3D=3D sis->bdev->bd_dev) {
+> -                       struct swap_extent *se =3D first_se(sis);
+> -
+> -                       if (se->start_block =3D=3D offset)
+> -                               return type;
+> +       for_each_avail_swap(si) {
+> +               if (device =3D=3D si->bdev->bd_dev) {
+> +                       if (first_se(si)->start_block =3D=3D offset)
+> +                               return si->type;
+>                 }
+>         }
+> +
+>         return -ENODEV;
+>  }
+>
+> @@ -2470,16 +2490,13 @@ int find_hibernation_swap_type(dev_t device, sect=
+or_t offset)
+>
+>  int find_first_swap(dev_t *device)
+>  {
+> -       int type, ret =3D -ENODEV;
+> +       int ret =3D -ENODEV;
+> +       struct swap_info_struct *si;
+>
+>         spin_lock(&swap_lock);
+> -       for (type =3D 0; type < nr_swapfiles; type++) {
+> -               struct swap_info_struct *sis =3D swap_info[type];
+> -
+> -               if (!(sis->flags & SWP_WRITEOK))
+> -                       continue;
+> -               *device =3D sis->bdev->bd_dev;
+> -               ret =3D type;
+> +       for_each_avail_swap(si) {
+> +               *device =3D si->bdev->bd_dev;
+> +               ret =3D si->type;
+>                 break;
+>         }
+>         spin_unlock(&swap_lock);
+> @@ -2996,12 +3013,14 @@ static int try_to_unuse(unsigned int type)
+>   */
+>  static void drain_mmlist(void)
+>  {
+> +       struct swap_info_struct *si;
+>         struct list_head *p, *next;
+> -       unsigned int type;
+>
+> -       for (type =3D 0; type < nr_swapfiles; type++)
+> -               if (swap_usage_in_pages(swap_info[type]))
+> +       for_each_swap_info(si) {
+> +               if (swap_usage_in_pages(si))
+>                         return;
+> +       }
+> +
+>         spin_lock(&mmlist_lock);
+>         list_for_each_safe(p, next, &init_mm.mmlist)
+>                 list_del_init(p);
+> @@ -3997,14 +4016,14 @@ SYSCALL_DEFINE2(swapon, const char __user *, spec=
+ialfile, int, swap_flags)
+>
+>  void si_swapinfo(struct sysinfo *val)
+>  {
+> -       unsigned int type;
+> +       struct swap_info_struct *si;
+>         unsigned long nr_to_be_unused =3D 0;
+>
+>         spin_lock(&swap_lock);
+> -       for (type =3D 0; type < nr_swapfiles; type++) {
+> -               struct swap_info_struct *si =3D swap_info[type];
+> +       for_each_swap_info(si) {
+> +               unsigned long flags =3D READ_ONCE(si->flags);
+
+Hmm. There is a READ_ONCE(si->flags) inside for_each_swap_info() as
+well. Now you have two READ_ONCE(si->flags). How do you ensure that
+flag between two READ_ONCE is always synced?
+
+>
+> -               if ((si->flags & SWP_USED) && !(si->flags & SWP_WRITEOK))
+> +               if ((flags & (SWP_USED | SWP_WRITEOK)) =3D=3D SWP_USED)
+
+I think for_each_swap_info() requested flags as SWP_USED |
+SWP_WRITEOK. Is this intent here to catch the race that SWP_WRITEOK
+get dropped after the for_each_swap_info()?
+
+Chris
+
+>                         nr_to_be_unused +=3D swap_usage_in_pages(si);
+>         }
+>         val->freeswap =3D atomic_long_read(&nr_swap_pages) + nr_to_be_unu=
+sed;
