@@ -1,60 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657496;
-	b=4oavtOQv8waEFOpsmnFhlrlmgbCIWBgdl+8oAaalz/TLqp+bYXdRMdTDv0wq7sZxztmG
-	 C0yQl5PKuMGMOI4lWKH2WP3PnGzAGil5JP+7BlvRzM2ARoI3MJTKuc9q2zTsemX5vlyrL
-	 vGBiNl9SXztUDlk79r6OFJvBQo/AlLSwz3KjiP7TfhNR6pOrd8ttY2c4GL9WKybNxXpdj
-	 2lxF+BhZQqouHu6cIX+m31HnB+sFxQ+V4Ck/mWFZx84qpeYKRTDbsdgvdYYvp9Ksvh7st
-	 GcyltWhYy2vgCc1G9ORHSAt5H8tyJgZFRd5q4ITO1J2xUkDjHUVjtw68kVT5tAaa6qw==
+	t=1795657559;
+	b=WkfQUpsTbZNj46OfLQrozz/B5A2rXw3nLL7z0gCMfopvl81JZPI+BTo7lwbqIKhUwn9X
+	 PkuxHy8rAEXh2bxsQvN2DY/Mmu2MrKP02zEdz9RIC6hbSB+FXvA5NgPgQZiMj/FVQtx/G
+	 K+9SsLbQt6z4ybDi4DPI+54ZejPsIUz3Ype3C9+tNbsocCoIJX6fZUh5ZA9wgUOucr37n
+	 +hr1HsjII9/HiyF15tJQwRHDboG1PX7gPdjQtatuv5D6kWn8tyIcriVGJmafO4fCD0muB
+	 rBkGdDpFr0h+ox9J6FpDBTL7JJTAe4nO/bdwatiPQv76lz7wXe5Z+mdMy7s+qNZ8Jpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657496;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=mHw3fF9VwxtqgAqIm1+76NLfsCQVvS+qok5BB7sKrHo=;
-	b=BjLBbkZpBjyuTyrdH2sONT2fAkx/m5tFfdKLC+LhF3nuMcKC+9rUoaImYW8fRPye4wwo
-	 i0fZip4VBMUJPaPrBDS2w+Am24d8RG5Pv0T+FeEBLNXB2hFTkVTXFEfx15JuxjQry+G1L
-	 4qHyJY/H7RjHgq3E7F4/V6WRUV3qvFJf8ooI7GOIe2+bYD4knCyrm7I55hA3r/V1ZY8Xx
-	 yUyLCqU7W9HmBGxy4K2utCXZa8U4WkLlhcHpR2UZqX7GEnlr1sdlV1r8I4BKvSHHJ6rjf
-	 kll/bWiL5sydSORMuujB1q0uLYdBmCz7Iz20kSw9H1LOp+5MTfzy45YIYRu9/86gTUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657559;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=wOhUMvOvzQ8J+fcRHlkBq0U3V2e+VS9gVMFOQhS8dQs=;
+	b=Xs/c1XrS92fA7CAEUFHCy4SYI2oQZtua4Yu70bePFRfzdba1R92BBC3s1vo85/Z6KCJG
+	 YLCnA2jrBOVwS+geAvfBvCqmZjRx7PxIEtPy/9c2Xk9Jb/mjCqLBufgilbWG/v+D4Kvp2
+	 4KEFdZj3BB5JV/g0HDSh8jLkBwWr58QKp19TFdPJUHXqm7BmH3G2/GMnloJGgie0hEVfC
+	 CS9ZhC7pl1cjl3PQ/9jMEvYhJpZ61HAbfivSp89UrRAAl9ZE7tT9AK6p65nogqHbzTaW6
+	 mWqQXOnDwWr9oLOfnDtmNBHdLwVTNUIxuqoHxjklZ6iql54VCJLbX0Exm+bu89y6GAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RBhVMI+r;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GjrVGjAa;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D40D1606A31E;
-	Thu, 26 Nov 2026 01:44:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93A34606A32A;
+	Thu, 26 Nov 2026 01:45:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RBhVMI+r
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB4EC1F000C4;
-	Thu, 26 Nov 2026 01:44:54 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GjrVGjAa
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B2201F000C0;
+	Thu, 26 Nov 2026 01:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795657496;
-	bh=mHw3fF9VwxtqgAqIm1+76NLfsCQVvS+qok5BB7sKrHo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=RBhVMI+rKIFrOS1JTVAAqt5cNeiv/1UmGQKoOL8RegRUvo7NJYKzO5wvw2LGsMeYY
-	 0BOfgcjeSnXfTGI1bI5T7kK/WwAzCDC74OT+ENoEJD099+l5sDvERZ+E8Pq3Z1Af06
-	 Ir3NJy0eJlLj1xRPD/OsIREGqOKKcvNQK9/Ph20lTO1CR18ICnXMxVmZV643FaJfyO
-	 KRJzP1l3oGqTXzOcqcEkJBPro8CcfmNDDeXR0LJ/zph4qS8febH5SgdlnnNYs2vS7/
-	 Xknf5I71zJdtT2eWvY39WB264PkkLS5vbo14pTfmii4AneM/R92F6Bil6wEyle7w3O
-	 oZHEh1T5QRtxA==
-Date: Thu, 26 Nov 2026 01:44:49 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Joshua Crofts <crofts@kernel.org>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, linux-kernel@vger.kernel.org,
- linux-iio@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>, David
- Lechner <dlechner@baylibre.com>, Andy Shevchenko <andy@kernel.org>, Rupesh
- Majhi <zoone.rupert@gmail.com>
-Subject: Re: [PATCH v2 1/1] iio: core: Split debugfs routines
-Message-ID: <20261126014418.6eb2a97a@jic23-hlaptop>
-In-Reply-To: <awcaWIBZbS4Iq4uj@ashevche-desk.local>
-References: <20261125140251.384361-1-andriy.shevchenko@linux.intel.com>
-	<6d517c95-82e1-4713-bc1f-9922a975e26d@kernel.org>
-	<awcaWIBZbS4Iq4uj@ashevche-desk.local>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795657558;
+	bh=wOhUMvOvzQ8J+fcRHlkBq0U3V2e+VS9gVMFOQhS8dQs=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=GjrVGjAakC8OkdW1fK2I8A5QPIeuCtc5H8ojbMum9uqWMPQzLjgHaEUuF8zbY2Cpj
+	 Ly8FYtKruP/GsUnDx/+CSdUvkTWD/bkaq+eKR642zS62BJ3wJXp4jgI9K8AwYqtsvu
+	 dyINV/1B1Ef0MP34caKP8qIu7PcH4b20ywEiqXhDAmmHk4/GLPRLj6pKqMI+Z3WnAH
+	 8EFAsgcEpg92hbIMs2OBY4oHPXWcE/xf6RP/7lqct4QcNftDgi7vHVsIQ8RJfPs0CR
+	 a0ijZOvCHZC24QNK4iy3IseWUGrX+BUZ/1WDXv0CmyRDsECh2tjenjBeh1itjmUDOF
+	 sNNHHhGnzf2/w==
+Message-ID: <sashiko-outbox-234583@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v11 34/43] sched/deadline: Cancel the replenishment
+ timer with the parameters
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <85ae6bb1ce221469c21c31a352a703aceed394ed.1795646914.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
+ <85ae6bb1ce221469c21c31a352a703aceed394ed.1795646914.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 26 Nov 2026 01:45:58 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,38 +60,92 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
 
-On Wed, 25 Nov 2026 19:26:48 +0200
-Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue to consider:
+- [Medium] sched/deadline: dl_task_timer() extends departed constrained
+  task by a period
+--
 
-> On Wed, Nov 25, 2026 at 03:22:59PM +0100, Joshua Crofts wrote:
-> > On 25-Nov-26 14:59, Andy Shevchenko wrote:  
-> 
-> ...
-> 
-> > > +static void iio_device_register_debugfs(struct iio_dev *indio_dev) {}
-> > > +static void iio_device_unregister_debugfs(struct iio_dev *indio_dev) {}  
-> > I checked Sashiko and it points out that building with debugfs disabled
-> > causes compiler warnings:  
-> 
-> Right, you were a bit late after my reply to myself :-),
-> but thanks for double check!
-> 
-> I think this warrants a v3.
-Sensible change. I'll wait for v3. 
+commit b4f4668865f16f00f3ee081d72d2725e00494e96
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-Thanks,
+sched/deadline: Cancel the replenishment timer with the parameters
 
-Jonathan
+This commit cancels a task's deadline replenishment timer alongside
+clearing its deadline parameters in task_non_contending() and
+inactive_task_timer().
 
-> 
-> > After adding inline,
-> > 
-> > Reviewed-by: Joshua Crofts <crofts@kernel.org>  
-> 
-> Sure, thanks!
-> 
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index c59953e80b1a9..828923a771076 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
 
+[ ... ]
+
+> @@ -2895,6 +2896,7 @@ static enum hrtimer_restart inactive_task_timer(str=
+uct hrtimer *timer)
+>  		}
+> =20
+>  		dl_task_release_bw(p);
+> +		cancel_replenish_timer(dl_se);
+>  		__dl_clear_params(dl_se);
+> =20
+>  		goto unlock;
+
+[Severity: Medium]
+Can dl_task_timer() fire before inactive_task_timer() at
+dl_next_period(dl_se) for a departed constrained-deadline task, pushing
+its bandwidth release and parameter reset out by an extra period?
+
+When a constrained-deadline task is throttled without a runtime overrun
+(for example via sched_yield()), start_dl_timer() queues dl_se->dl_timer
+for dl_next_period(dl_se).  If the task then leaves SCHED_DEADLINE,
+task_non_contending() or inactive_task_timer() queues
+dl_se->inactive_timer for that same dl_next_period(dl_se) timestamp
+without cancelling dl_timer.  Because dl_timer was queued in the hrtimer
+tree first, it fires first at dl_next_period(dl_se):
+
+kernel/sched/deadline.c:dl_task_timer() {
+    ...
+	if (!dl_task(p)) {
+		if (dl_se->dl_throttled && !is_dl_boosted(dl_se)) {
+			sched_clock_tick();
+			update_rq_clock(rq);
+			replenish_dl_entity(dl_se);
+		}
+		goto unlock;
+	}
+    ...
+}
+
+replenish_dl_entity() advances dl_se->deadline by dl_period.  When
+inactive_task_timer() runs right after, it sees
+dl_next_period(dl_se) - rq_clock(rq) =3D=3D dl_period > 0 and returns
+HRTIMER_RESTART instead of reaching dl_task_release_bw(),
+cancel_replenish_timer(), and __dl_clear_params():
+
+kernel/sched/deadline.c:inactive_task_timer() {
+    ...
+	if (!dl_task(p) && READ_ONCE(p->__state) !=3D TASK_DEAD &&
+	    !dl_is_implicit(dl_se)) {
+		s64 left =3D dl_next_period(dl_se) - rq_clock(rq);
+
+		if (left > 0) {
+			ktime_t at =3D ktime_add_ns(hrtimer_cb_get_time(timer), left);
+
+			hrtimer_set_expires(timer, at);
+			task_rq_unlock(rq, p, &rf);
+			return HRTIMER_RESTART;
+		}
+	}
+    ...
+}
+
+The departed task's bandwidth remains locked in dl_b->total_bw for an
+extra period, and if the task returns to SCHED_DEADLINE after the phantom
+deadline it is throttled with zero runtime until that extra period ends.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795646914.gi=
+t.mathieu.desnoyers@efficios.com?part=3D34
