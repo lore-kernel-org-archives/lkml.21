@@ -1,54 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795724982;
-	b=bzlpoyY2D1aytyYzLm7FwOFzrCoBSBS+HrTGOUSJehJlocxVZKCMC4+f5mQeaO/LrsFQ
-	 GMRcZf0n1Ln1nybwosgl9ICq9ufffaUEvorZ1ytkGn3M1yX+5jhKzwJ2wO2mQhDGBDehs
-	 VS5WsJKhNMMFDP9Wic5GGn0VIsaGI2BMez/WCw5UHNgLfeGzjL5CR+1eNkBhkzlzsuo/d
-	 OIy8ITv2dsGk1ffvVDi3xtoP8+m8xBV+h346Zxsv/BKJM5p73MVnwkT3i0NyiK8xsRelj
-	 fk4F2fds84WoENcqY+Jv6aURVlIKrrUXZrzja7P87dcwvLHVd9/QRKlZ4HemdKHgA5A==
+	t=1795725089;
+	b=Kb9VPg0hvE3z+LKj1CSjA76NhiHxlDN2XNTxL1xyLNFPnsl8WzSo+nooRZbahwrV1a64
+	 +Knjkii+iIlJSr7TL0KuBu8EpEk29c6uKp+pvh6jo6b7GLNjDL4vc24qeHE6aHmFNzSj6
+	 sShDqM0njl5ipFuAEsx2L2FQj4guh8ql9di6z8AY5glM2OUFU93UYqNENKs6n6/iFyWi2
+	 It6DE99BiJov0bpwGuXH4lVgVcEqto/eUoqWpxzFAAbdo3Q/W5nmg9N8JVcc5fUvH4CMW
+	 6/2S5S2BsFFnMYKBaa0V/FmTGWud31mzyRYT4YcZgQ+pJlh61xxfT2Rq0lwHKo9zMLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795724982;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=ybSwYsBtFYROIp34qQ+zyeNf1481F+Ed1hRzeSMq/es=;
-	b=j8Z2V0mAdJbSVSLIcnuonuDg+dhjHK8BsMTgBVEavzhYfg8cwDEWFG5druPIxagLIopt
-	 Jx+dbKn7iDyPi99R6JuFLr+lCyjeHRk9a0FC2gt6wR7FgIPJIo8DYJ9yNCW/CeIcmp5U3
-	 DXzagbhNphkLGijuN1vsLJBqVlnPms2opZ39sZ55TjCC2MorML3LjiV+zbPPhDI+Yo+Y8
-	 qh+SyZqQxvVpOfZgyWPWqCxwVMeSGxGSyrYrbjPWpuVtG5fUgo807HzrqREgWo+fTYmnC
-	 jdBP2m3AmDtymfn0Ol+w9AY1mH53yBfw6eqqelqc7qplzXq0ZjSc4V4blE8OVrA3BWA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795725089;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-MBO-RS-ID:X-MBO-RS-META;
+	bh=lL4D7R9KxDf+22sv9+j/sxEZCecScCAzSX1cEImABW8=;
+	b=v3h6zgaj6btXuffnG+8SlOENMlyNo3SYwoXQ2t+NUvs9G/OqB1GBNbrsl8SPUQlWl9s8
+	 FFhTfKxQ4GdBzTArIAln9haiNkfc/bELX2MNG6VBy4atOJIz3fMDIzvFB3nON7SbxHESg
+	 RT1WQRTPsoOHTbvzPwXwihVi3gr6y4IXiz7UprBd5QP1ZnNgGR5lIoowm1WpyPkYWfKBS
+	 eWIQcJ8mUJmq0FIGTGRkgJBFN/++nCAfNCb3YyZn+KmuWr5s9CJFIOstpeHbgTERMoqdS
+	 djSOGtY2RfK87Fl+/7X5r9LgC/GhgwMJ/LvjO/Yp8bO/LsmFNQsiZQeNkmKMNKbpxTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CvnWuDTS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=mailbox.org;
+	spf=pass smtp.mailfrom=mailbox.org;
+	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=P+O7Mgq3;
+	arc=none smtp.remote-ip=80.241.56.171
+Received: from mout-p-201.mailbox.org (mout-p-201.mailbox.org [80.241.56.171])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9E40606A326;
-	Thu, 26 Nov 2026 20:29:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F254F606A31C;
+	Thu, 26 Nov 2026 20:31:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F254F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CvnWuDTS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41DB81F00896;
-	Thu, 26 Nov 2026 20:29:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795724981;
-	bh=ybSwYsBtFYROIp34qQ+zyeNf1481F+Ed1hRzeSMq/es=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CvnWuDTS9B+z+krGjRcMZpTn9H7uWZK38RaC0srFABbGR3V2MoXMlYW8dY/quEjql
-	 YoJh0rBLrLLKrDBx9XGXvkKNZEWbXD2El7BYruOLkCzCe0dChjk08mnbfUfO4Y/QaL
-	 w4aeIm0aEaLt2VbDoRMGbbi2EK9cJZwJ+2Nd/wuuZk6k2Ozqd5iatKC3yTG/9SryOU
-	 iMx3bB+AkKQ+0idMuHrQYoAPYyTFrozsvbM4ZJ0/k4AlC5TLMFXnLemPiL//kf/xVR
-	 3LR0BYDbia3u40PJKD84oUdIjFekAxfTTH+Mhq/yjf+QUGpgKrzCG94FaveT0fNAgP
-	 ddu9ERCk/IwTA==
-Date: Thu, 26 Nov 2026 20:29:37 +0000
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Li Mingzhe <limingzhe1839@phytium.com.cn>
-Cc: myungjoo.ham@samsung.com, kyungmin.park@samsung.com,
-	cw00.choi@samsung.com, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH 1/1] PM / devfreq: add SCMI performance protocol bridge
-Message-ID: <20261126-gleeful-lionfish-of-biology-6b3284@sudeepholla>
-References: <20261118085715.27400-1-limingzhe1839@phytium.com.cn>
- <20261118085715.27400-2-limingzhe1839@phytium.com.cn>
+	dkim=pass (2048-bit key) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=P+O7Mgq3
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4jb7Vb3zTGzMljx;
+	Thu, 26 Nov 2026 21:31:19 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1795725079;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=lL4D7R9KxDf+22sv9+j/sxEZCecScCAzSX1cEImABW8=;
+	b=P+O7Mgq3XY/A52unPjO6kVgrXbL5V40AafZ2SGmfMKZYd1rMJVlmCMQTSLkgNHyeCWOkXG
+	XJApf6uNOFSilZ6nuModLLKdjAFH1O8jQsb4rKmh9z/TWiywJTsk4oR+DtktjxD42HRXOd
+	AZ8KVP0/dcn9VlIJqrb1yj20euv3vei3min2AutQnT4LnPZNXFY7aGpLUPMbw4Y9DGbply
+	oym3hlxcij2OSpsRzb6ygSDIPo7Om2f4dwPKmTamsLsaa8PZQRh94K0UUjyIhzH8Jy4Id2
+	WhI+3pRxfanUEtD2qzR9s/LMVUS/C+JdjGfK5VwNMvyAXKWk87J8949LZ0folQ==
+From: Manuel Ebner <manuelebnerli@mailbox.org>
+To: Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Manuel Ebner <manuelebnerli@mailbox.org>,
+	linux-sound@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ASoC: imx-pcm-rpmsg: fix kernel-doc
+Date: Thu, 26 Nov 2026 21:30:39 +0100
+Message-ID: <20261126203039.1777085-2-manuelebnerli@mailbox.org>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,149 +81,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118085715.27400-2-limingzhe1839@phytium.com.cn>
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: d782bbe52c75f34ceeb
+X-MBO-RS-META: ohjh36gga4w6sbm5enryspnsho44jfi9
 
-On Wed, Nov 18, 2026 at 04:57:15PM +0800, Li Mingzhe wrote:
-> Add a bridge that binds the SCMI performance protocol scmi_device and
-> exposes a devfreq-side API in include/linux/scmi-devfreq.h:
-> 
->   scmi_devfreq_ready()         bound check for early probe deferral
->   scmi_devfreq_domain_id()     DT clocks phandle -> perf domain id
->   scmi_devfreq_opps_add()      import PERFORMANCE_DESCRIBE_LEVELS
->                                into the device OPP table
->   scmi_devfreq_freq_get/set()  PERFORMANCE_LEVEL_GET/SET wrappers
-> 
-> All functions return -EPROBE_DEFER until the bridge is bound, so
-> consumers (DMU/NOC devfreq, GPU and other modules) are retried
-> automatically. The API is generic and public so that out-of-tree
-> devfreq consumers can use it.
-> 
-> Signed-off-by: Li Mingzhe <limingzhe1839@phytium.com.cn>
-> ---
->  drivers/devfreq/Kconfig        |   9 ++
->  drivers/devfreq/Makefile       |   1 +
->  drivers/devfreq/scmi_devfreq.c | 205 +++++++++++++++++++++++++++++++++
->  include/linux/scmi-devfreq.h   |  30 +++++
->  4 files changed, 245 insertions(+)
->  create mode 100644 drivers/devfreq/scmi_devfreq.c
->  create mode 100644 include/linux/scmi-devfreq.h
-> 
+Correct typo in kernel-doc, fixing:
+  $ ./scripts/kernel-doc --none sound/soc/fsl/imx-pcm-rpmsg.h
+  Warning: sound/soc/fsl/imx-pcm-rpmsg.h:419 expecting prototype for struct param_s. Prototype was for struct param_r instead
 
-[...]
+Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
+---
+ sound/soc/fsl/imx-pcm-rpmsg.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> diff --git a/drivers/devfreq/scmi_devfreq.c b/drivers/devfreq/scmi_devfreq.c
-> new file mode 100644
-> index 000000000000..147668850a7c
-> --- /dev/null
-> +++ b/drivers/devfreq/scmi_devfreq.c
-> @@ -0,0 +1,205 @@
-> +// SPDX-License-Identifier: GPL-1.0
-> +/*
-> + * Phytium SCMI devfreq bridge
-> + *
-> + * Single owner of the SCMI performance-device binding for the Phytium
-> + * devfreq drivers (NOC/DMU), mirroring the drivers/cpufreq/scmi-cpufreq.c
-> + * pattern: bind the perf-protocol scmi_device, import its ops/handle,
-> + * register the dummy clock provider required by devices whose DT
-> + * "clocks" phandle points at the perf protocol node, and expose a small
-> + * devfreq-side API to the platform drivers.
-> + *
-> + * NOTE: the devfreq users must be built-in; unbinding/rebinding the
-> + * scmi_device while a devfreq device is polling is not supported.
-> + */
-> +#include <linux/module.h>
-> +#include <linux/device.h>
-> +#include <linux/atomic.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/of.h>
-> +#include <linux/property.h>
-> +#include <linux/pm_opp.h>
-> +#include <linux/scmi_protocol.h>
-> +
-> +static const struct scmi_perf_proto_ops *perf_ops;
-> +static struct scmi_protocol_handle *scmi_ph;
-> +static atomic_t bridge_ready = ATOMIC_INIT(0);
-> +
-> +/*
-> + * The devfreq nodes carry "clocks = <&scmi_perf id>" solely so that
-> + * scmi_dev_domain_id() can parse the perf-domain id. The OPP core,
-> + * however, treats any "clocks" phandle as a real clock reference and
-> + * calls clk_get(dev, NULL) when creating the OPP table via
-> + * dev_pm_opp_add() inside SCMI's device_opps_add(). Since protocol@13
-> + * is never registered as a clock provider, that lookup would return
-> + * -EPROBE_DEFER and brick the DT perf path.
-> + *
-> + * Mirror drivers/cpufreq/scmi-cpufreq.c:311-315: register a dummy
-> + * clock provider on the sdev whose of_node IS the protocol@13 node so
-> + * the clkspec lookup matches and clk_get() succeeds. clk_get()
-> + * resolves to NULL (of_clk_hw_simple_get() just hands back the data
-> + * pointer), which the OPP core treats as success. The perf path never
-> + * uses clk_set_rate()/clk_get_rate(), so the placeholder clk is never
-> + * touched afterwards.
-> + */
-> +static void scmi_devfreq_setup_dummy_clk_provider(struct scmi_device *sdev)
-> +{
-> +	struct device *dev = &sdev->dev;
-> +	int ret;
-> +
-> +	if (!of_property_present(dev->of_node, "#clock-cells"))
-> +		return;
-> +
-> +	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_simple_get, NULL);
-> +	if (ret) {
-> +		dev_warn(dev, "devfreq bridge: failed to add dummy clk provider: %d\n",
-> +			 ret);
-> +		return;
-> +	}
-> +
-> +	dev_info(dev, "devfreq bridge: dummy clk provider registered on perf protocol node\n");
-> +}
-> +
-> +static int scmi_devfreq_scmi_probe(struct scmi_device *sdev)
-> +{
-> +	const void *ops;
-> +	struct scmi_protocol_handle *ph;
-> +
-> +	ops = sdev->handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PERF, &ph);
-> +	if (IS_ERR(ops)) {
-> +		dev_err(&sdev->dev, "devfreq bridge: devm_protocol_get failed: %ld\n",
-> +			PTR_ERR(ops));
-> +		return PTR_ERR(ops);
-> +	}
-> +
-> +	perf_ops = ops;
-> +	scmi_ph = ph;
-> +
-> +	scmi_devfreq_setup_dummy_clk_provider(sdev);
-> +
-> +	atomic_set(&bridge_ready, 1);
-> +	dev_info(&sdev->dev, "devfreq bridge: SCMI perf protocol acquired, ready=%d\n",
-> +		 atomic_read(&bridge_ready));
-> +	return 0;
-> +}
-> +
-> +static void scmi_devfreq_scmi_remove(struct scmi_device *sdev)
-> +{
-> +	atomic_set(&bridge_ready, 0);
-> +	dev_warn(&sdev->dev, "devfreq bridge: SCMI perf protocol released, devfreq users will defer\n");
-> +}
-> +
-> +static const struct scmi_device_id scmi_devfreq_id_table[] = {
-> +	{ SCMI_PROTOCOL_PERF, "devfreq" },
-> +	/*
-> +	 * Claim remaining protocol@13 instances (e.g. the "cpufreq"
-> +	 * scmi_device after a failed cpufreq registration): an unbound
-> +	 * scmi_device on this of_node keeps fw_devlink holding the
-> +	 * devfreq nodes in deferred probe with "supplier not ready".
-> +	 */
-
-For the above reason, you must build this devfreq driver using SCMI
-performance domain genpd driver so that we don't need to create more
-devices. With the latest fix merged, devfreq device won't be created
-anymore.
-
+diff --git a/sound/soc/fsl/imx-pcm-rpmsg.h b/sound/soc/fsl/imx-pcm-rpmsg.h
+index 8286b55f00..52f2529724 100644
+--- a/sound/soc/fsl/imx-pcm-rpmsg.h
++++ b/sound/soc/fsl/imx-pcm-rpmsg.h
+@@ -397,7 +397,7 @@ struct param_s {
+ } __packed;
+ 
+ /**
+- * struct param_s: send rpmsg parameter
++ * struct param_r: send rpmsg parameter
+  *
+  * @audioindex: audio instance index
+  * @resp: response value
 -- 
-Regards,
-Sudeep
+2.56.0
+
