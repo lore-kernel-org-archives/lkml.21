@@ -1,54 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795656374;
-	b=TKuGBBSDilHBUEwguxFxlOOTIufIxSnrViiD9q1neSSDUHq5oIJYrB6+w1GeuGjPdKa9
-	 uXGajs/m3Iz3V9SX21lhQVSAz87+bD3w00Jh6bJhFbH/bibNwrMfmR7XYu9/uq9yP3pKN
-	 AsAYkK/U6XQLaKlpjS/qpe8z2a7fhngeL1TqyeZmG+eZ1CwbGAjLFiBfRC3CvdGzWWxxb
-	 ej+faSQeBFy0RpYxpuos6nEAEoiHur4TI1OHtC5Ul9HQStgf+dCXgNc6pRy9pjBgQE7+h
-	 30q6m/aTkno681O8E3nc6iKfzdkLFwocl2vL4aLw1YsPPYT+6X09Boi0YPFwvYQfDcA==
+	t=1795656425;
+	b=GjSv4Wd3wFwcokf2uKJzB2iLpBwfLXCjiOFnKNLxdbHcr2S/391z2n+OcrkSszw8VEUM
+	 Pz9GgCCrQBRB/Th8PaN+JbNUzYSLcqPl0VCd/PsMFhfA6+k4ony2/NIuDkCsSF6/XJ3kc
+	 67ScBAqyNAFNyHUhYNNx2MtjMD5uuQfmfz7Vwop/Mpt4woo8mil3Q6tAmXkFsJn0IYkSf
+	 rHZ314I5HwXOc43h00+kZsXG0ukyZKwr04rBsVRmIyNW8EwZXIlZqlqP9vgybr9WUoaei
+	 hxvxVcKESSDZDKgNGU6NtGJ6uW3FYqMnVzG8b1yezM16mWZtzAJ/Wpuf8QIa7+sdq0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795656374;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795656425;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=Z/SO45JEq1Tj9RqYNIrS64ldH+SeEVWmw+AWikVk48g=;
-	b=B6QUaU/nVNCAy5MVgUro21Ny7+VM91Dyaww/9Sc05W5bK1Iz0A3QSv3FdX/zYHGVv9A3
-	 0fwtC97qfvQ2bq9w9XyVvptwxmXC+EL9DZZL40GxUmFHbrMmnik4jAr4h4bZ6yCEIfYZG
-	 rjcqEc2MtAQ+v3JxM5Vsx1yyJmgXS1aK8gQYx+lqsOrwk/tqoM+lrkzDXem7WWSetg0Ym
-	 oUHmdhZXiOKqVOCVxndrzVEkWhSSOkReq900KrzGBbxgKeYGZSmy2B4oyXbFhvudGp+Yc
-	 E8Tt4MdAnGvGBLS67r+JWZkuGWTF9czfJaLGHNri+Q6dZs6M4xYnljJlsgyOQIYJ7SQ==
+	bh=BthUF0RcsY223BUhCP9WAf9gffY6kCpIAVz/UiN/vMc=;
+	b=zSqwuXGa/F7sDrbj5HoPHfmxpeubwCHhzhrFmv/u8valixjllVM68joe2XetF5tpKehx
+	 JlRzKg9ztzEik94t9/DXpfcxCWhSCugEV5UBryzIdAVPuRBK+JZVVn1G34gAiIhHMOZhc
+	 cPrMMXEDDtISu5OliQZNGpx5rAF6pG61Rxdov67N1EVoKur4z8P1z9yYIo6JY7liENkyw
+	 +EHMRczAIp0lvLm0i8m76YGvK0yp3vWrQlxFG+ZIU261NYTfchJFvRxAhGIteFNM2Bp/l
+	 BWH8lemjsl7rb8RD9yrjI48h/NQmDxRXX3dQcH8bVXRF4yqVxxPIizsILQ2mgXUjDNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=azCOmnH9;
-	arc=none smtp.remote-ip=95.215.58.43
-Received: from mta1.migadu.com (out-43.mta1.migadu.com [95.215.58.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vz8FOBOw;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6741B606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:26:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6741B606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F141606A31E;
+	Thu, 26 Nov 2026 01:27:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=azCOmnH9
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=D1UHaW0a6adTmdkfzXoJGoIQXD78CQO3jmkmbRoDsZs=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795656370; v=1; x=1796261170;
- b=azCOmnH9erdm6Cq7Lccc2+ysEQanywkkrY/DWraFz6VtuY9rw5S6c40xDjasc3xluUPip9RY
- 9LlRCC/MO58LJfhVW9AZjuFfWx23EihJRfUS6uorsOTBqOlZ7A9RHqSr19rSjOPdhipYWREZ+2/
- J0Qroccg40VVunhAUitk4yE0=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id f65ccc0d161a6465;
-	Thu, 26 Nov 2026 01:26:10 +0000
-X-Mizu-Trace-ID: f65ccc0d161a6465
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <3bce3a69-e41c-4683-b1ca-9477dd41a7e0@linux.dev>
-Date: Thu, 26 Nov 2026 09:25:51 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vz8FOBOw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE0051F000C4;
+	Thu, 26 Nov 2026 01:27:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795656425;
+	bh=BthUF0RcsY223BUhCP9WAf9gffY6kCpIAVz/UiN/vMc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Vz8FOBOw/TKLHo5xfCxZ+oSe1R4WTmFkstu0Bj7UwV0kpPnbK7elmIF1Oo11PHgw4
+	 0+ae61vTbf7COca8hOSkZzT6if25OgXNT7KTxIypR1JwKt/hB2wQp2+KU4LqYy8QJ8
+	 /Lk/iSKzfkViwE1RAj4N//guvNEJ21wqLizOP/LAeo7XUNSwDQuxPH5KU71HBYpywI
+	 aMrBnnnQxfMotjgwgk3pI5SADhcpGbGeYngxLXY2Uiwn8BkCO4ljx9W7f82XwlYUn8
+	 PIlL+lH6/LZDHrG9E8ZXrvLv1dOfMIyeLHkFLwLhD0fpxIzdBr0ART9VuyjBKhtMGR
+	 zuXeVNVVazz/A==
+Date: Thu, 26 Nov 2026 01:26:59 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Jan Remes <ciakval@gmail.com>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Joe Sandom
+ <joe.g.sandom@gmail.com>, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Jan Remes <jan.remes@mycroftmind.com>, Andy
+ Shevchenko <andriy.shevchenko@intel.com>
+Subject: Re: [PATCH v4 4/4] iio: light: tsl2591: improve lux calculation
+ precision
+Message-ID: <20261126012659.44b7f0d7@jic23-hlaptop>
+In-Reply-To: <20261022-first-patch-v4-4-90b2fc6e8e28@mycroftmind.com>
+References: <20261022-first-patch-v4-0-90b2fc6e8e28@mycroftmind.com>
+	<20261022-first-patch-v4-4-90b2fc6e8e28@mycroftmind.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,73 +64,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 0/8] ext4: Add dma-buf read/write support
-To: Anuj Gupta <anuj20.g@samsung.com>, Christoph Hellwig <hch@lst.de>,
- Pavel Begunkov <asml.silence@gmail.com>,
- Christian Brauner <brauner@kernel.org>
-Cc: Anuj Gupta <anuj1072538@gmail.com>, Nitesh Shetty
- <nj.shetty@samsung.com>, Jens Axboe <axboe@kernel.dk>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Christian Koenig <christian.koenig@amd.com>,
- Philipp Stanner <phasta@kernel.org>, Dan Williams <djbw@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>,
- Alexander Viro <viro@zeniv.linux.org.uk>, Theodore Ts'o <tytso@mit.edu>,
- Andreas Dilger <adilger.kernel@dilger.ca>,
- Baokun Li <libaokun@linux.alibaba.com>, Ojaswin Mujoo
- <ojaswin@linux.ibm.com>, Ritesh Harjani <ritesh.list@gmail.com>,
- Zhang Yi <yi.zhang@huawei.com>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, linux-block@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- nvdimm@lists.linux.dev, linux-ext4@vger.kernel.org,
- linux-xfs@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linaro-mm-sig@lists.linaro.org, Li Wang <liwang@kylinos.cn>,
- Mengmeng Zhao <zhaomengmeng@kylinos.cn>
-References: <20261113070621.273953-1-mengmeng.zhao@linux.dev>
- <20261120154153.GC28611@lst.de>
- <361c4312-f77b-495f-9ee4-e0b9612b4463@linux.dev>
- <CGME20261124084131epcas5p3098eab1bc134da7aefcc83c646b54a9d@epcas5p3.samsung.com>
- <20261124084025.2101804-1-anuj20.g@samsung.com>
-From: Mengmeng Zhao <mengmeng.zhao@linux.dev>
-In-Reply-To: <20261124084025.2101804-1-anuj20.g@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On 11/24/26 16:40, Anuj Gupta wrote:
-> On Mon, Nov 23, 2026 at 09:51:41AM +0800, Mengmeng Zhao wrote:
->> Hi Anuj, I'd be happy to help pull our patches together into a single
->> unified series and send it out for review, if you're okay with that—and
->> would appreciate your review once it's posted as well. Please let me know how
->> you'd like to coordinate, or if you have any updates in progress on your
->> side before I put the series together.
-> 
-> Hi Mengmeng,
-> 
-> We already have updates in progress on the XFS side.
-> 
-> We will consolidate the combined series along with your ext4 work and
-> related patches, keeping your authorship.
-> 
-> One more thing that we are looking at combining is the ability to share
-> the registration across files. Pavel had mentioned this earlier in our
-> xfs series [1] and posted a series too [2] which needs some more work.
-> 
-> FWIW, we also had ext4 changes, but intentionally started with one
-> filesystem (XFS) so that the common interface could settle first.
-> 
-> [1] https://lore.kernel.org/linux-block/4649a20f-aba9-418e-987f-66f21ab24410@gmail.com/
-> [2] https://lore.kernel.org/linux-block/cover.1793751001.git.asml.silence@gmail.com/
+On Thu, 22 Oct 2026 20:56:43 +0200
+Jan Remes <ciakval@gmail.com> wrote:
 
-Hi Anuj,
+> From: Jan Remes <jan.remes@mycroftmind.com>
+> 
+> The lux calculation computes the ratio CH1 / CH0 as a truncated integer
+> (CH1 * 1000 / CH0) before using it. When CH1 is close to CH0, the
+> truncation makes the result off by up to ~35%, e.g. CH0 = 56097,
+> CH1 = 55973 at LOW gain and 100ms gives 1.517 lux instead of 1.118 lux.
+> 
+> The formula (CH0 - CH1) * (1 - CH1 / CH0) / CPL is equal to
+> 
+>    (CH0 - CH1)^2 * DF / (CH0 * ATIME_ms * AGAIN)
+> 
+> which needs no intermediate ratio. Compute it like that, with a single
+> division at the end.
+> 
+> Also report the result in micro-lux instead of milli-lux. At MAX gain
+> and 600ms one count is well below 1 mlx, so the milli-lux resolution
+> throws away information. The numerator still fits into u64.
+> 
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+> Signed-off-by: Jan Remes <jan.remes@mycroftmind.com>
 
-Sounds good, that makes sense given the ongoing XFS and shared registration
-updates. Thanks for including our ext4 patches and keeping the authorship.
-Feel free to loop me in once you post the combined series—I'd be happy to
-help review and test it.
+Applied patches 3-4 to the testing branch of iio.git
 
-I looked at Pavel's patchset as well, and noticed it adds a new f_dma_io_tag
-field to struct file, whereas Christoph and Christian want to avoid bloating
-struct file. Did I miss something, or do you have a different approach in mind
-to avoid adding fields to struct file?
+I just merged in rc4 so for 1 and 2 on which to base this.
+
+Thanks,
+
+Jonathan
