@@ -1,79 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795683714;
-	b=u52AOc1CKCYhMUK/lfnVmCsqto+JTDC/LcpogBcbdyzFnA9c/mS6W98l4MrVbsVnfiIZ
-	 eIOmhXeXpaZd/cMOUh4n/9JhkCBlzII9SFgnA2mow+NjV5A0y+gxYObZax+AF5hzbxymB
-	 Gyhsq24m9waraPtctqkCh6j5TqzFQx34ME1Dik3sGoOSX9z6d43yKgmJYhtUWoDBnwvtN
-	 xJl+tis1m+u1gMsPP73U1zer8iCZQeM4XVpQe69RylXxeKQ8Cm1ulDnxVSGHDnpxildgv
-	 9kNtTckEYQ5E2cRDGwSBSA8wluJJsUqHadmJNmYeANJAP248EyT6h/ETRxbYsGV4jeA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683714;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=iSyv5QQCZMuxDCBvBCU2Dcf16LijdNeO408HdwTICyw=;
-	b=db24o+YOJEpNoPGNaZdGwn1B6i3hhJKz3Wh+t6h2iS7+vcO/RuH8vCVOM2PCfSBig7uq
-	 rpVWGAEKUlYknZcF8+72gH8CQeRJzhL+Fk+b9hnXSQ7k5xnUx6DZAXswmjSOxVYOiMBNF
-	 lTAGQE3e6mUIDtIQs8r9VNHyXaM4glt92DZsLc0U6Hlq2+q786Kdo5Jc6dw8N3zUOH2iW
-	 WReBe3+eKQZOKh2hzp4AlQSsXOe5llZ6UVZwedeY1fJsIXQT3CSSsCzE2uOhhZhJP//RA
-	 NcI7ijw1g6nkN7M9Bdc49+gQ9FW95dZSF9l3NuoAwomK6xPXnodX5jark0ytS6SZ4Wg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ufd9jiEQ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D418606A32D;
-	Thu, 26 Nov 2026 09:01:54 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ufd9jiEQ
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795683713;
-	b=GupMmheK0fNStjparELKuQpIyiDtxNmJpzVPrn7DZLRD2Yz5smIGxW0nsce/yMEjCCay
-	 3m1+q91WbRC6v54NHkXhtfzmZylfFXmD4EF+opF8DFIHYaUxDZI9DTbBfVRbdaMi8xqMg
-	 eMPrF+jPs0xtId+bQVe1hkbk7IJjk3NzqwGLb+qakgLzlLPqc0hCU6BPBIymcrwmfR4L8
-	 V5zmCcTmOB1qtUffvzdHpPnfZ6t5NRxFRUrYvAZCaETanp2bUl430y8J/af0fU8siZ/0L
-	 yOl0c9JQEj1vcLDY/MSv65UrqRGJk+wtSk66qLd/FAoQAUq2qFIPpmguI133nw4y9ag==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795683713;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=iSyv5QQCZMuxDCBvBCU2Dcf16LijdNeO408HdwTICyw=;
-	b=c1CsTw3xvoieKNM5yolj3o7WlpApNotBGJS2vhFClJ6WBzhOiudDuuvUbJFmTzj7ctQt
-	 ytZ5rJFLgI+68VvTRkUCwgiwLZfXNEG4rYCcJIv0+pw2s1T5LCtezMv11gMkswDFkBbsX
-	 mVMB5R+ggk/YalHvj/oFZPJnrQ2EmEeZuvt7au2ofxaeW+qPuQm7uGnGJWaMNiefi/1mf
-	 MnM76/ClFWDb1POSQTqf+RL/+FPgkIww+vlIBsG54wDOMqvNvtH2uTuVFwtdUrHkXMXkm
-	 6iYArn8Y7ue42hGbwtKX01HggiD2GvA6/ZeYn5QGLO0TB4O/4bnsaA9tTH/geLBdpsQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795683763;
+	b=Z+i24RE+y8T0LuYGLiM2ps3c1vQS4Fa3WDYr6rsShm8VL/dhrPRY0QRdgl08N/aPpt7f
+	 QXR5iNtdZ8UZCY/vf9HzPCHJgTycpNCo4WOgp2hyHJv03MyVkgjKe6AZyPZRnpJJ9xBCh
+	 q5y2pV+PH0EGkV47+jRdXnvh3Ia/qqP6pAyyTmUpTh0PX9a//I4KVuEXP9nFfyu5KB6YC
+	 oIS1V/iGYhVuFO+TG509Ds1za9aB4c/wZqR0stt8Oj9CPaPHwxjrhYiFHAIeWx1nuSytS
+	 lWSUdAomwqQTx5JuNZtlisA/h2AKGnqSzE5wBo+ERFf0+OMLrkrDBw0RSjOMuGkW2Wg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683763;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=8p/oKY20OusxDDv41Q7c7EC8fbrlCimdqEtfaz8bn3Y=;
+	b=xydEB6WEqROx7b5RgG+mIyN3w/+k11SFdHCartkU4WlF7dy/MJI6OI1vSdBc9ScGP+6q
+	 xARiBvR+grqQyleqKFukZsGpCd46P+nVGk8xosKfvry+OZyMwFSpmEvpycKbRg2Pvve7q
+	 KnK+DyvlH6/hTV3Wb52DgadcvKk06AWk6NsmyRP3jDdo5Js/PHqsAfLA7YnT/IBV/Hqv4
+	 Tk08nqGqJYCVWMON6ZqyhZEPNAeeuFE1s0uNXxevuExdCekMnTUE8sH6yGB4S8rjrDt/M
+	 v180dbmjtQY48Jwrh5AVPYgosYY8PQJsMtpwuGGvrpyqs3qt3FoMAqevpn+QgJVOnTg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=OTRwqwpY;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=igIyvYPz;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 441611F000D3;
-	Thu, 26 Nov 2026 09:01:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795683713;
-	bh=iSyv5QQCZMuxDCBvBCU2Dcf16LijdNeO408HdwTICyw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Ufd9jiEQukbE/gDE0AJlxr9XZetgEeecZRumippSyreoS5I+Tr698VJL9cX8MggyA
-	 mlB87HwWUlORduGI0Ijj/YVTwrH8kOpi5HUkPJWKz0CKuC8PS41ZLT/BBb/lhaIENg
-	 z0/+OkDFnNxJdStsiR5U1+43PkOy0h0gdGuGS+wUeUy/3eplEzBNfAwJ9n6wZvTUwL
-	 qqSB3Ev+KLPDd2LbbOajk5DVUvxTJir3H1Ocy0LDqW9kmEIsiZWPgCAHJbpQM855bG
-	 RtdRJ9c5aL1DVJBWJIK5F/nTY/bvSpjEPwqmX+CHb7Fc4wylHquK7jXMkfbR1DEf0B
-	 X/TnWlmY5uLGg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 43B864D33E;
-	Thu, 26 Nov 2026 09:01:21 +0000 (UTC)
-From: =?utf-8?q?St=C3=A9phane_Grosjean_via_B4_Relay?= <devnull+s.grosjean.peak-system.fr@kernel.org>
-Date: Thu, 26 Nov 2026 10:01:13 +0100
-Subject: [PATCH v9 12/14] can: peak_usb: pass the dev_num argument of
- PCAN-USB Pro GETDEVID
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25AFD606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:02:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25AFD606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=OTRwqwpY;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=igIyvYPz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795683761;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8p/oKY20OusxDDv41Q7c7EC8fbrlCimdqEtfaz8bn3Y=;
+	b=OTRwqwpYUS/JpPCeEYXTzj9XbNBLshUW9b3cXSXGplpblw0KAqLpEjRiJ1HTwteIDouOBD
+	an2p8SpzbI2nhc5ctxKuEIOsVbMvgrggxwUtqRuaFJxohNi7NTO3sbssqMmUyc+L53AcD3
+	dv5KAIbkeYAjpl72dZcF2VT87tJBg+o=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-680-Wsr2_-uoMveMUw7zGsu2qQ-1; Thu, 26 Nov 2026 09:02:39 +0000
+X-MC-Unique: Wsr2_-uoMveMUw7zGsu2qQ-1
+X-Mimecast-MFC-AGG-ID: Wsr2_-uoMveMUw7zGsu2qQ_1795683758
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4ba078f26f4so47431555e9.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:02:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795683758; x=1796288558; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8p/oKY20OusxDDv41Q7c7EC8fbrlCimdqEtfaz8bn3Y=;
+        b=igIyvYPzyjRQSEipicbzlgE1rdtJPqLk2OQsa8vMJ+VvvLHvD22rujfg9hjsXDLChl
+         52v3ZZAv4GHDLEA4yFBkkuYMTCFVPxVbaSz08r48/4o6yn5GSWURXCj74c09bYwXnwnh
+         1+bF4qwcGG4iGCRP+UPuvhW5p4dcVqs8w+1rcWu2pmWBvF96O/ue79xyqSFYqgPXAwI5
+         NEPjf6qCQ/BErNg6a5iPpx82yy8YPs3DOPOi+jBYcQcxZFm/G6RD4CtldZwSIVTiTrEl
+         BbYzjhlQI7s7bQPy+Gl9g85I3el4SfvxkruLbXqk9Ayq9sfQi7LKRnYAEXy5/nc+XR9v
+         tu/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795683758; x=1796288558;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8p/oKY20OusxDDv41Q7c7EC8fbrlCimdqEtfaz8bn3Y=;
+        b=T8rqiFSpgUX8JR3pCHtXMUHSVj7p8vUTeDh32mSXtMx8abYmgrY4VZbCsCMaifimgE
+         QChELlBM4PANaN9K/VSJca5Z+bBj89w56EgqVS9BUyhBUPw97FVctMi1zvTiE1qXGf+J
+         GAbAWrSQY+cPfTgecO9jpLnL7YGiWgujkiPEh0+bu3O6Fen1DtiJGgXevnEb7QWrNox2
+         wKs3jQRIV2OSEZZFAdGB6kLkAgkhDctvQ6xngrffW9wIuCyOCYE52GTKnsiFZJv6xdvh
+         ZzS9uXrVXmbq9ivs34A8Vdsx0UX0jQcTe4D6F3j2wlclUkBCpgUxuvT8GTOKHyBJMdIU
+         Ytzw==
+X-Forwarded-Encrypted: i=1; AL+hErEuvW783nRigtvsmuiJ1bfpR9NXcj8PXYBHivwQH6fgg8bhOgJHLFjrrqD8ynLEZsASr0WOcYmZM2d0EIc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9nsuBUQYIhUSWF1MfeWlt1/vILs0jm30Cd5x3UDyv9kx8c2hGE
+	qy5YZ0WNysLgB03SNtU/XZPyFs/rerm8+AYtdUTqB4pxoQkcDb+LfYcpHRDdkOG14hi2ZDBQUPV
+	lsi6chl71HOwrF948IfpDvlObD3HEHtzdEiwWmlHS2Y6mhK/3wRG0GlYugS9nH4ZRKQ==
+X-Gm-Gg: AZFdTZdBihiEvsW3Sn2M5c0NYGKf8Z958aVl7XgSg7cpArkfTf4aOZdNJ4XDF9vAJ2l
+	k3uEVyptOSSHZ2yDTzfW3koDr5PTfFSyDL0pkDaLz8V/JfWhHfkEyg6Jc9OekvQidhGKIwJKzai
+	3fyqqNgFo/iv5FreX1t3Lxkxh0cclIEIsNZHHjfFWD/LRZ271BTcOSuyV+7c2bw+FHzRzDQ4SSr
+	vz5agQq0ZnhBgCJXc/0vslyQlZDOF4q3yS3H8TJnPU2VTHiooiDNgmalv8yE4IcYBYe3vXgDab5
+	uZDsHEACvlMblaUmUzK5jvnpB/A2pjRFB96rezAbJ3oz4p9+eCqNJXulQZJ+nC5Ts5mCq5VCr5B
+	f/KxUMSGG9LjpDW5HPQubjo78SrfbGjHuYLwGjsB2wHOK5Rh2o7yof1ioFJz6A71UVidNBGbc0x
+	/Ducr/XnbIdo8xW4a+Wcmz
+X-Received: by 2002:a05:600c:1546:b0:4a1:fc98:1cb1 with SMTP id 5b1f17b1804b1-4bb887c2cb0mr453115735e9.2.1795683758381;
+        Thu, 26 Nov 2026 01:02:38 -0800 (PST)
+X-Received: by 2002:a05:600c:1546:b0:4a1:fc98:1cb1 with SMTP id 5b1f17b1804b1-4bb887c2cb0mr453115315e9.2.1795683757931;
+        Thu, 26 Nov 2026 01:02:37 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:11aa:87f0:ea69:b2b0:2dae:5ef9? ([2a01:e0a:11aa:87f0:ea69:b2b0:2dae:5ef9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849247asm595663095e9.7.2026.11.26.01.02.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 01:02:36 -0800 (PST)
+Message-ID: <fe5485e4-c3fc-4f18-86b2-d37106876c47@redhat.com>
+Date: Thu, 26 Nov 2026 10:02:35 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,79 +111,170 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-canfd_check_channel_idx-v9-12-abe0099b4585@peak-system.fr>
-References: <20261126-canfd_check_channel_idx-v9-0-abe0099b4585@peak-system.fr>
-In-Reply-To: <20261126-canfd_check_channel_idx-v9-0-abe0099b4585@peak-system.fr>
-To: Marc Kleine-Budde <mkl@pengutronix.de>, 
- Vincent Mailhol <mailhol@kernel.org>, 
- Wolfgang Grandegger <wg@grandegger.com>, 
- =?utf-8?q?St=C3=A9phane_Grosjean?= <s.grosjean@peak-system.fr>, 
- Dan Carpenter <error27@gmail.com>, Lukas Magel <lukas.magel@posteo.net>
-Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Tristan Madani <tristmd@gmail.com>, 
- Joas Antonio dos Santos <joasantonio108@gmail.com>, stable@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795683678; l=2050;
- i=s.grosjean@peak-system.fr; s=20261020; h=from:subject:message-id;
- bh=Ik7L4M6nF06Q+SDmhDTB8AMYB40CZOhjzaUTkkjkX3c=;
- b=E/vSaQOP5/cFTY8FPOlBkAAFUm+CkMiaGUddGCwJW0j6p9DgHpNHCO84Hl4wywoGp1VQOOanO
- 7YmqTlhZ9h/C6yuQ3+PLl7tIgVFrOhJTNeXBQvs7Fq3M/luSyXhCDkS
-X-Developer-Key: i=s.grosjean@peak-system.fr; a=ed25519;
- pk=bP7QV2zvvAKAfConZlUOGKGEcXL64SNUpVUm++Ai+/c=
-X-Endpoint-Received: by B4 Relay for s.grosjean@peak-system.fr/20261020
- with auth_id=1250
-X-Original-From: =?utf-8?q?St=C3=A9phane_Grosjean?= <s.grosjean@peak-system.fr>
-Reply-To: s.grosjean@peak-system.fr
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/log: Add an automatic integer scaling
+To: Thomas Zimmermann <tzimmermann@suse.de>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org
+References: <20261124224408.728354-1-jfalempe@redhat.com>
+ <b5f237cf-582a-42f5-8ebc-c006ccecf62f@suse.de>
+Content-Language: en-US, fr
+From: Jocelyn Falempe <jfalempe@redhat.com>
+In-Reply-To: <b5f237cf-582a-42f5-8ebc-c006ccecf62f@suse.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-From: Stéphane Grosjean <s.grosjean@peak-system.fr>
+On 11/26/26 08:47, Thomas Zimmermann wrote:
+> Hi Jocelyn
+> 
+> Am 24.11.26 um 23:42 schrieb Jocelyn Falempe:
+>> On HiDPI screen, the default font might be too small, so if no
+>> scaling is specified, try to upscale reasonably.
+>> The auto scaling is computed for each display.
+>>
+>> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
+>> ---
+>>   drivers/gpu/drm/clients/drm_log.c | 36 ++++++++++++++++++++-----------
+>>   1 file changed, 24 insertions(+), 12 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/clients/drm_log.c b/drivers/gpu/drm/ 
+>> clients/drm_log.c
+>> index 4654091fe11a..7a0db2690b55 100644
+>> --- a/drivers/gpu/drm/clients/drm_log.c
+>> +++ b/drivers/gpu/drm/clients/drm_log.c
+>> @@ -25,9 +25,9 @@ MODULE_AUTHOR("Jocelyn Falempe");
+>>   MODULE_DESCRIPTION("DRM boot logger");
+>>   MODULE_LICENSE("GPL");
+>> -static unsigned int scale = 1;
+>> +static unsigned int scale = 0;
+>>   module_param(scale, uint, 0444);
+>> -MODULE_PARM_DESC(scale, "Integer scaling factor for drm_log, default 
+>> is 1");
+>> +MODULE_PARM_DESC(scale, "Integer scaling factor for drm_log, default 
+>> is 0 (auto)");
+>>   /**
+>>    * DOC: overview
+>> @@ -42,6 +42,7 @@ struct drm_log_scanout {
+>>       const struct font_desc *font;
+>>       u32 rows;
+>>       u32 columns;
+>> +    u32 scale;
+>>       u32 scaled_font_h;
+>>       u32 scaled_font_w;
+>>       u32 line;
+>> @@ -72,17 +73,17 @@ static struct drm_log *console_to_drm_log(struct 
+>> console *con)
+>>   static void drm_log_blit(struct iosys_map *dst, unsigned int dst_pitch,
+>>                const u8 *src, unsigned int src_pitch,
+>> -             u32 height, u32 width, u32 px_width, u32 color)
+>> +             u32 height, u32 width, u32 blit_scale, u32 px_width, u32 
+>> color)
+>>   {
+>>       switch (px_width) {
+>>       case 2:
+>> -        drm_draw_blit16(dst, dst_pitch, src, src_pitch, height, 
+>> width, scale, color);
+>> +        drm_draw_blit16(dst, dst_pitch, src, src_pitch, height, 
+>> width, blit_scale, color);
+>>           break;
+>>       case 3:
+>> -        drm_draw_blit24(dst, dst_pitch, src, src_pitch, height, 
+>> width, scale, color);
+>> +        drm_draw_blit24(dst, dst_pitch, src, src_pitch, height, 
+>> width, blit_scale, color);
+>>           break;
+>>       case 4:
+>> -        drm_draw_blit32(dst, dst_pitch, src, src_pitch, height, 
+>> width, scale, color);
+>> +        drm_draw_blit32(dst, dst_pitch, src, src_pitch, height, 
+>> width, blit_scale, color);
+>>           break;
+>>       default:
+>>           WARN_ONCE(1, "Can't blit with pixel width %d\n", px_width);
+>> @@ -122,7 +123,7 @@ static void drm_log_draw_line(struct 
+>> drm_log_scanout *scanout, const char *s,
+>>           if (src)
+>>               drm_log_blit(&map, fb->pitches[0], src, font_pitch,
+>>                        scanout->scaled_font_h, scanout->scaled_font_w,
+>> -                     px_width, color);
+>> +                     scanout->scale, px_width, color);
+>>           iosys_map_incr(&map, scanout->scaled_font_w * px_width);
+>>       }
+>> @@ -206,6 +207,15 @@ static u32 drm_log_find_usable_format(struct 
+>> drm_plane *plane)
+>>       return DRM_FORMAT_INVALID;
+>>   }
+>> +/* Find the biggest integer scaling to get about 120x50 chars on the 
+>> screen */
+> 
+> Something like 80x30 (VGA mode 0x17) or 80x50 (VGA mode 0x102) seems 
+> natural. But what is the reason for 120x50?
 
-pcan_usb_pro_get_can_channel_id() builds its GETDEVID record with
-pcan_msg_add_rec(), passing only the channel index. However,
-pcan_msg_add_rec() handles GETDEVID together with SETBTR and SETDEVID,
-and also reads a second argument with va_arg(), to fill the dev_num
-field of the record. Reading this missing argument is undefined
-behavior: in practice, whatever value is left in the corresponding
-register or stack slot is written to the request in dev->cmd_buf.
+I think this was a good default with old 15" CRT at 640x480. But for 
+example for code line length, it's now configured in the 100-120 range 
+in most codebase.
+When looking at dmesg, a lot of lines are longer than 100, so 120 allows 
+to avoid too much line splitting.
+For the number of rows, it's important to have some log history, so 50 
+looks to be the sweet spot.
+User can set a scaling manually, or build the kernel with bigger fonts 
+if they don't like the default.
 
-This value is sent to the device with each GETDEVID request. Moreover,
-peak_usb_disconnect() clears PCAN_USB_STATE_CONNECTED before it
-unregisters the netdevs, and once it is cleared,
-pcan_usb_pro_send_cmd() and pcan_usb_pro_wait_rsp() return success
-without any USB transfer. pcan_usb_pro_get_can_channel_id() then
-returns the dev_num field of the request as the CAN channel ID, so an
-ETHTOOL_GEEPROM request handled in this window makes
-peak_usb_get_eeprom() copy that value to userspace, and cache it in
-dev->can_channel_id.
+Currently, with 8x16 font (which is the most common), the default in 
+full HD is 240x67. In 4K it's 480x135. So doing some integer scaling 
+make the default experience much better.
 
-Pass 0 as dev_num, so that the request is fully defined, and a null ID
-is returned in that case.
-
-Found by Sashiko AI review.
-
-Fixes: d8a199355f8f ("can: usb: PEAK-System Technik PCAN-USB Pro specific part")
-Cc: stable@vger.kernel.org
-Signed-off-by: Stéphane Grosjean <s.grosjean@peak-system.fr>
----
- drivers/net/can/usb/peak_usb/pcan_usb_pro.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/net/can/usb/peak_usb/pcan_usb_pro.c b/drivers/net/can/usb/peak_usb/pcan_usb_pro.c
-index 840658723648..0d014f4c08a7 100644
---- a/drivers/net/can/usb/peak_usb/pcan_usb_pro.c
-+++ b/drivers/net/can/usb/peak_usb/pcan_usb_pro.c
-@@ -435,7 +435,7 @@ static int pcan_usb_pro_get_can_channel_id(struct peak_usb_device *dev,
- 	u8 *pc;
- 
- 	pc = pcan_msg_init_empty(&um, dev->cmd_buf, PCAN_USB_MAX_CMD_LEN);
--	pcan_msg_add_rec(&um, PCAN_USBPRO_GETDEVID, dev->ctrl_idx);
-+	pcan_msg_add_rec(&um, PCAN_USBPRO_GETDEVID, dev->ctrl_idx, 0);
- 
- 	err =  pcan_usb_pro_send_cmd(dev, &um);
- 	if (err)
+Best regards,
 
 -- 
-2.53.0
 
+Jocelyn
+
+> 
+> Best regards
+> Thomas
+> 
+>> +static int auto_scale(unsigned int cols, unsigned int rows)
+>> +{
+>> +    unsigned int scale_w = DIV_ROUND_CLOSEST(cols, 120);
+>> +    unsigned int scale_h = DIV_ROUND_CLOSEST(rows, 50);
+>> +
+>> +    return max(min(scale_w, scale_h), 1);
+>> +}
+>> +
+>>   static int drm_log_setup_modeset(struct drm_client_dev *client,
+>>                    struct drm_mode_set *mode_set,
+>>                    struct drm_log_scanout *scanout)
+>> @@ -230,8 +240,13 @@ static int drm_log_setup_modeset(struct 
+>> drm_client_dev *client,
+>>           return -ENOMEM;
+>>       }
+>>       mode_set->fb = scanout->buffer->fb;
+>> -    scanout->scaled_font_h = scanout->font->height * scale;
+>> -    scanout->scaled_font_w = scanout->font->width * scale;
+>> +    if (scale)
+>> +        scanout->scale = scale;
+>> +    else
+>> +        scanout->scale = auto_scale(width / scanout->font->width,
+>> +                                height / scanout->font->height);
+>> +    scanout->scaled_font_h = scanout->font->height * scanout->scale;
+>> +    scanout->scaled_font_w = scanout->font->width * scanout->scale;
+>>       scanout->rows = height / scanout->scaled_font_h;
+>>       scanout->columns = width / scanout->scaled_font_w;
+>>       if (!scanout->rows || !scanout->columns) {
+>> @@ -444,9 +459,6 @@ void drm_log_register(struct drm_device *dev)
+>>   {
+>>       struct drm_log *new;
+>> -    if (!scale)
+>> -        scale = 1;
+>> -
+>>       new = kzalloc_obj(*new);
+>>       if (!new)
+>>           goto err_warn;
+>>
+>> base-commit: bcf5c42d6ed136cc407cea896f131d6893c830af
+> 
 
