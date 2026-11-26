@@ -1,88 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.161
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795724431;
-	b=tOmPoqo5bHlHwkNYhyJZZzP4Dg2KZCIy2k5vW1ECHmA3CIU5G1/SA5fQazAhzn1pQv9I
-	 KfI4UWH+KLK+/5umbIV2XQOeKvcG9ovdeFKEUxFFvgOPq6IxexIONv95dwqOsc7qn0vVp
-	 Qm7lK5VgvVFCIqaewXk/goVRH7bVsLNsSivKJOk/rXFS+V0tr0lRhjc6i1iWLSB7roCWF
-	 3/ZQ+R6YHmx9UxeOwbrtzUC30dD2K+sA5Zy6jjTFABSxZ2Sm/NA615ZPcm3e3xB0LEb+s
-	 cLhI6UcovCQd2+mSHC2CROOa2+EWW7Q0WTr2Zxe9cVm0dJEsFAH1YuB7Tg66UW3Hx5A==
+	t=1795724596;
+	b=k/svDF5At2Ovszkt1KQzhzG0tDY0rXyuIvV0Ja0BJvTJBaHFv4VFqkcXVkmUtq8DGd4b
+	 hMg3dVRnfKin1iQbWOhC3I0DFdN4Z3kZEuBIZJWhGOBShFuhkZpZRt5RSRQ+IqGA4+dMC
+	 Vu5Luf1Ueln3SGAa8tpaK3pGfUhWMk9QTri8fA70MtdWApMg8z87CZo/0nkTyg0NlqLuE
+	 8jsmOqGddhMVfvkhqDoQ8nJCrzCjqB5uWOp5Lq3rZCfbA/UfI8KNJye2sdaaEHToQnusC
+	 gtbFewJEGPutsX5gGbMlqr46R72JSOjbTihEKzfZeHALfXYOyNcLkj/92C5uXuTkV2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795724431;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=7CCrVyrTBdPbSe+1if8Pi4d/84Yf1ZbiqX0NUSqRqbc=;
-	b=pRBLfRK/SeQoR5UPKo3cN1emKtZRoN5KsrFF8UM9d7+NWXG9TvUm6dUaHEiyMX0uBAVP
-	 8a5pYvpmtHEM+VE0j8A0DSuVMY8ei7ooo5NP7xRneI8sVw9Jwa9ndp1fq0tVwYw0jGbGH
-	 DfKYvreAzpb5dMl8RHRRtBD7fhONCN71WgnXOKXDQxa7eCsqoDM1o5qijA4F9WLixQg86
-	 PAz4TzWnFRJAfLV2FcLbrDdIbzE7owk2DJ9ajNUYJxl8VFkHGqIrn18r08L94eZw5Nlqx
-	 I4T/loxzprXOZM13+KsFfUcmqv7Gyks24Hk4tpX/xiWmmcy8dYEIS3TttYBdDdaX1HA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795724596;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-MBO-RS-META:X-MBO-RS-ID;
+	bh=chwPbWyV/3dniQ0D2ybP4CEEyDkfX7hi6zR4HVMIJeU=;
+	b=fV7fyjHI8gRUHoFDqTZXKosXfb1Z6zLsBmpOHv9WWVojAofqpjThGK42oKqqltLOLo+D
+	 dERjVT6uynNBVf9Spd4eh3tdeUtMg29Hmtbtnm8O5LW9inJ0rVz6ttd/vHW+lNla/OQjv
+	 B95LDTMVKtxDwrJmAs7/ATBQYSiayxD1PMkiUSjTVbmSRLtkeQ1ih5X1MRrsVctrCY8+o
+	 Az2SawvTmvG+WAgdkoOLGJMf3Uyi4eRMigzqhnXV7bqHpYsLYw7oJsrE4y2VW+1C02h8S
+	 SE0WsH0h4v5hR3LFGYBrWqEX53s/ckXheTRNfn/2Pk3+o+NtvUXZ64xBnvE1uKNy2Tw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=qSOzqmLQ;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dmarc=pass header.from=mailbox.org;
+	spf=pass smtp.mailfrom=mailbox.org;
+	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=sUChQFoI;
+	arc=none smtp.remote-ip=80.241.56.161
+Received: from mout-p-103.mailbox.org (mout-p-103.mailbox.org [80.241.56.161])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C49C606A31C;
-	Thu, 26 Nov 2026 20:20:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C49C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98434606A321;
+	Thu, 26 Nov 2026 20:23:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98434606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=qSOzqmLQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795724428;
-	bh=pUN2TxTtZtOVhddUkx6PB3N78CQVfEnriFZuNg5Tvgk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=qSOzqmLQEkX+WmrOPd53ng4Ub+f3WGThnGgKuLjCGaW25geqXy7wFsN4FAoD2V6V+
-	 G5135TPN/vMUQg07ob8ICMRGsXkKtPnhoNQqZwD5Fs2yZnXUwxWyLXoAmQQ/deolyN
-	 dgAvUV1LAQ899xivuB4Txz9UumTJQECIAusvR9raaAe8hLxfOnFk9OM5wUn0umBuFd
-	 Bl0TGgC4t23igBCkDDEN7lWTyb05AfGEvQH0MQuEtNqlLipxq+V/Ph8Yer1a0QcCSA
-	 IVLSFNwOuVnFv0mwHxw11o9Fnr28wW6V+ywmW9VqMgerhDB/njmIcc6XDjfuqMomyl
-	 B7OIaLOGRW9Tw==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
+	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=sUChQFoI
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6A5A817E00E8;
-	Thu, 26 Nov 2026 21:20:26 +0100 (CET)
-Message-ID: <23748f44fb9f43f88af97c65200cc75ed5d1ee6e.camel@collabora.com>
-Subject: Re: [PATCH v5 2/4] iommu/rockchip: Add rockchip_iommu_restore()
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: aiyengar1990@gmail.com, Mauro Carvalho Chehab <mchehab@kernel.org>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley	 <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, "Joerg
- Roedel (AMD)"	 <joro@8bytes.org>, Will Deacon <will@kernel.org>, Robin
- Murphy	 <robin.murphy@arm.com>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev, Hans Verkuil
-	 <hverkuil@kernel.org>, Alex Bee <knaerzche@gmail.com>
-Date: Thu, 26 Nov 2026 15:20:24 -0500
-In-Reply-To: <20261126-iep2-v5-2-3deac0976f10@gmail.com>
-References: <20261126-iep2-v5-0-3deac0976f10@gmail.com>
-	 <20261126-iep2-v5-2-3deac0976f10@gmail.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-dQAySM4Jzz+X++kJrWM9"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4jb7K62xwWzKmSv;
+	Thu, 26 Nov 2026 21:23:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1795724586;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=chwPbWyV/3dniQ0D2ybP4CEEyDkfX7hi6zR4HVMIJeU=;
+	b=sUChQFoI7LpHGmv6qupX6IW+Mo5ENr926n5SH/iYJ1qqOi1SRTgAj4htSTabS5bKRcGGHf
+	CCCLe5Lj4bUexTGiGglAXiABs4gms89YBeFab06it2G14rDcTH1PNS5uNjIM9k08ZAF5jB
+	V86kqhnR19tw7OqshPL1OeKmQ9pQzkxjXhTJ5TJNlAwIKajA39eXwxqJxc4jn1ySNZp/Gz
+	+pPBNqfy8k85JoMxJB+HFJpFCBeLEYLKZGaYU2yjwcD7hPsEHroVLFQnKe8u+28WRVTx65
+	8u6VxXSJJP3qi0UnfIwC65XshinneS6SLg7WzwDjmDpH6qD0Z5s9XSkfItPAzQ==
+From: Manuel Ebner <manuelebnerli@mailbox.org>
+To: Oder Chiou <oder_chiou@realtek.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>
+Cc: Manuel Ebner <manuelebnerli@mailbox.org>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ASoC: rt5514-spi: fix comment notation
+Date: Thu, 26 Nov 2026 21:21:07 +0100
+Message-ID: <20261126202107.1776233-2-manuelebnerli@mailbox.org>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,136 +72,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: ebdd3m1kwtneigwm9sisijay1murohx9
+X-MBO-RS-ID: f86c900311ea0c15c44
 
---=-dQAySM4Jzz+X++kJrWM9
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Turn kernel-doc into multi-line comment, fixing:
+  $ ./scripts/kernel-doc --none sound/soc/codecs/rt5514-spi.h
+  Warning: sound/soc/codecs/rt5514-spi.h:12 This comment starts with '/**', but isn't a kernel-doc comment. Refer to Documentation/doc-guide/kernel-doc.rst
+   * RT5514_SPI_BUF_LEN is the buffer size of SPI master controller.
 
-Le jeudi 26 novembre 2026 =C3=A0 19:51 +0000, Arun Iyengar via B4 Relay a =
-=C3=A9crit=C2=A0:
-> From: Arun Iyengar <aiyengar1990@gmail.com>
->=20
-> Some masters reset their IOMMU along with themselves. The RK3588 IEP2
-> does: after its soft reset, paging is off and its DMA is untranslated.
->=20
-> Add a helper to reprogram the IOMMU of such a master, so that its
-> driver need not attach and detach an empty domain to do it. rkvdec
-> does the same with rkvdec_iommu_restore().
->=20
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
+---
+ sound/soc/codecs/rt5514-spi.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Acked-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+diff --git a/sound/soc/codecs/rt5514-spi.h b/sound/soc/codecs/rt5514-spi.h
+index cedb19709c..fce9fba1fc 100644
+--- a/sound/soc/codecs/rt5514-spi.h
++++ b/sound/soc/codecs/rt5514-spi.h
+@@ -9,9 +9,9 @@
+ #ifndef __RT5514_SPI_H__
+ #define __RT5514_SPI_H__
+ 
+-/**
++/*
+  * RT5514_SPI_BUF_LEN is the buffer size of SPI master controller.
+-*/
++ */
+ #define RT5514_SPI_BUF_LEN		240
+ 
+ #define RT5514_BUFFER_VOICE_BASE	0x18000200
+-- 
+2.56.0
 
-We are trying to get rid of hacks in many Rockchip m2m media drivers. rkvde=
-c
-have that hack upstream, and now I have rga2 and iep2 driver submission wan=
-ting
-to use the same hack. So I asked Arun to give it a try and find a solution.=
- So
-see this as a v1.
-
-Nicolas
-
-> ---
->  drivers/iommu/rockchip-iommu.c        | 36 +++++++++++++++++++++++++++++=
-++++++
->  include/soc/rockchip/rockchip_iommu.h | 17 +++++++++++++++++
->  2 files changed, 53 insertions(+)
->=20
-> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iomm=
-u.c
-> index 21af2f621c76..81cad102929e 100644
-> --- a/drivers/iommu/rockchip-iommu.c
-> +++ b/drivers/iommu/rockchip-iommu.c
-> @@ -27,6 +27,8 @@
->  #include <linux/spinlock.h>
->  #include <linux/string_choices.h>
-> =20
-> +#include <soc/rockchip/rockchip_iommu.h>
-> +
->  #include "iommu-pages.h"
-> =20
->  /** MMU register offsets */
-> @@ -1349,6 +1351,40 @@ static int __maybe_unused rk_iommu_resume(struct d=
-evice *dev)
->  =09return rk_iommu_enable(iommu);
->  }
-> =20
-> +/**
-> + * rockchip_iommu_restore() - Reprogram the IOMMU of a master after its =
-reset
-> + * @dev: master device, runtime active, with no DMA in flight
-> + *
-> + * Some masters reset their IOMMU with themselves, which turns paging of=
-f.
-> + *
-> + * Context: may sleep.
-> + *
-> + * Return: 0 on success or a negative error code.
-> + */
-> +int rockchip_iommu_restore(struct device *dev)
-> +{
-> +=09struct rk_iommu *iommu;
-> +=09int ret;
-> +
-> +=09if (!device_iommu_mapped(dev) ||
-> +=09    dev->iommu->iommu_dev->ops !=3D &rk_iommu_ops)
-> +=09=09return 0;
-> +
-> +=09iommu =3D rk_iommu_from_dev(dev);
-> +=09if (!iommu || iommu->domain =3D=3D &rk_identity_domain)
-> +=09=09return 0;
-> +
-> +=09ret =3D pm_runtime_get_if_in_use(iommu->dev);
-> +=09if (ret <=3D 0)
-> +=09=09return ret;
-> +
-> +=09ret =3D rk_iommu_enable(iommu);
-> +=09pm_runtime_put(iommu->dev);
-> +
-> +=09return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(rockchip_iommu_restore);
-> +
->  static const struct dev_pm_ops rk_iommu_pm_ops =3D {
->  =09SET_RUNTIME_PM_OPS(rk_iommu_suspend, rk_iommu_resume, NULL)
->  =09SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
-> diff --git a/include/soc/rockchip/rockchip_iommu.h b/include/soc/rockchip=
-/rockchip_iommu.h
-> new file mode 100644
-> index 000000000000..79fdd898a0fc
-> --- /dev/null
-> +++ b/include/soc/rockchip/rockchip_iommu.h
-> @@ -0,0 +1,17 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +
-> +#ifndef __SOC_ROCKCHIP_IOMMU_H__
-> +#define __SOC_ROCKCHIP_IOMMU_H__
-> +
-> +struct device;
-> +
-> +#ifdef CONFIG_ROCKCHIP_IOMMU
-> +int rockchip_iommu_restore(struct device *dev);
-> +#else
-> +static inline int rockchip_iommu_restore(struct device *dev)
-> +{
-> +=09return 0;
-> +}
-> +#endif
-> +
-> +#endif /* __SOC_ROCKCHIP_IOMMU_H__ */
-
---=-dQAySM4Jzz+X++kJrWM9
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawiUiAAKCRDZQZRRKWBy
-9BjUAQDSNPqdSlLUl/O9azaIblOpLLPu+oK5Nw5EuSLHW+r7zAEAxnuyZq9XVKSw
-gxVnBpP/poBKRTNumlOhqdw1p4TEoAQ=
-=p9Z6
------END PGP SIGNATURE-----
-
---=-dQAySM4Jzz+X++kJrWM9--
