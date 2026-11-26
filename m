@@ -1,86 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795681261;
-	b=s5pFpH7C/jeYxWNozGHHsJACcSUUV0BXSrjHZd34mzGZoCRx632wbZErfv7qWzIgbELS
-	 //PADkTILAZuUw8wmIAyhtOch0nZqZt8rJztw+d6ExcnEnrtd2WKAgNla9LzSWryX4y0h
-	 g31wOOW1T2jJqc7sWazfxjy1oFXJqvP9dhrXm2PukISHjfgkyDQoccExc2Jz0pu8eJl+8
-	 90uULldpOAEdzmI/S7mEmuFO8ZkaT4x2n2fFBKOYYeALX1rHIYQhwy+hJCPD7/39kYCTu
-	 71nmvnqNsmWkDfx5obW6z9hKhwq6spadzfLSrssegQySbEb7r8sRcSnm2p3hcw07BzQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795681261;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=nWb5Z5t6RK8tqOX0Y27tfK1vMpGLhP24jlEag1RHczg=;
-	b=n5xhxlW34gJscTA59++vZsuTas1Wl4BrUDXNXl4ZP4dZkAvHyOFau/4+b+o9VLjIUtzr
-	 4DtRuv3uTqW4Cq1VRJtmPRtus0DJfROCF4tIl94bXtcDtBtnC8gm2MBKvnTDYMyX2kJhp
-	 US7607b9nB8V/o5NLH2o2EPISRyFfWmB+4J7j+0B13TsgbrNiEiLLiopzdZVoTBU8Ef9S
-	 BKzAitVLaIN1jhcQjYHqRA7nWwaFodpos1KEeRglV2cuQGC52HVckSxAFTO918Ob6krAJ
-	 LTuXJsjhn/PkdIzeuoYkjBUC3Ltsg4k7iJTb7UmsUerqMD9Wv+5LfAe1YhiA99kMAAg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KxxYqGEl;
-	arc=none smtp.remote-ip=209.85.216.43
-Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.47
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795681265;
+	b=RlreMNPlpV8ulv6B70l4L8s0rzjii0gW22/3I4ppFf74JCLaaleV335eiHwMhGekga1R
+	 x23k/aVvVf8NffNK0P6m7tVo7q0Hu342pA3AK0BwFVrGV8cIjW+BEafu3HAcAQS5kCYqD
+	 0chr6nPluZs8bDibo/OvpKRGZJyOF9Wt4pE7RPJ4QQFc3GOspYj4rjDEmO3FNRrL7QESW
+	 p38KBmT3qCNfCoS+NJnH61XxHH2fDXmNOM39B1J7oXcItOOqClft49R/ddN3/99G+DAlm
+	 Ga+B+QYw/Vbb+uKQK+ylJMyIs9GNZ+MT2iLMlCQ7qu/Pgpy08aa2Htc7XTd3hAT3Ezw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795681265;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=vi6DPbefR17d89NDmL6atgVQ448zUlLkyKKH49tYVD8=;
+	b=RdGf7W3UDsvhjskouj0AmH/Cd5tbwKJKb652Y6LZLIvcCyHMsQXu1Ngqv2qwxhzFi6aE
+	 2q/imJb7tp0fh4KiG6i/bCbw4xa0c7CAZMR6BLca7fAyq1sn63W18c9V7JGbBL/7gRafk
+	 sw/S5wsyF1yBnh8yvFrrnlKucdTAdkr7tqN8No4xLNCc0nEgVfVEV9mJXcEymSMUttT19
+	 4Fv8ogg1+tg8HLr5APUo5PSR2spqrCoYckGW9X9r7fXTS7NJVaqZy0WKhn2L9ZLsHruBg
+	 5YUQQYGVeziDBBqEIX2Geau4iA7lJnWlgSrUquux41wz9dTrukRKTC6RdHl3xgobkpg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=LhAaeTaV;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.47
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010047.outbound.protection.outlook.com [40.93.198.47])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD667606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19AA7606A33D
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:20:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD667606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19AA7606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KxxYqGEl
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3ac78f4c10bso3227433a91.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:20:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795681259; x=1796286059; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=nWb5Z5t6RK8tqOX0Y27tfK1vMpGLhP24jlEag1RHczg=;
-        b=KxxYqGElOq5lW5A+bS0tALx/oAwqgEL/9qSYCKn911jBtH9pbkiCvxaJdT0v3oGq3y
-         JpIDQ7J47l4wGfqo1POzNlMjh9XpzAUNYJpVCzlRnT5nG7iXcLCu/Vz/xbP39rJmUjLt
-         WQC83CX4eLHB2JEgZ0wi+5j1ZG8zU1CJgHbFq04jnxvORYhdDk6lpQhmqdt/OrJT3bol
-         vzwnv0GVfY8TAvewFH10/FOXMcP10wcGVmiAR8F+BjDVEGeRy8FMuadMM16AkunvxQ1M
-         YlvqpRwapZin13rZ0jJ/1a7Gm+j+6MxvgrjXxvZOrLfyzekjgBU7IZAvBgpb1TGV6Yst
-         WZiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795681259; x=1796286059;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nWb5Z5t6RK8tqOX0Y27tfK1vMpGLhP24jlEag1RHczg=;
-        b=l7EyJl/5/mNEuP7Pw5U7ggKYqdAj+BThniWsAWyBtIzK+zG/8VR9ROQ0Dq2CJ6nXD+
-         xjU7IoI6seipzJhTkP8Fk+AEExwbNHhhZN4QJ8OK74Tren2ItiS5UkQNLMw7XFMGOXn+
-         9MgD+wQ4gm1Zey0hsBjtgCoFtpeYBAuGfxDLHF1/HbRx6DOc5O7sOJbC+BPunWpps4rk
-         W/fHRrSzSCb1MkufOyZIeA/yHgbwvOWPLVGAYnwniRntUl9dAvqoP0GYND/0iLj+Fljp
-         K0aLP4llyIcikBVpxiWVJt0F4R3CQF2Cm0zy3t02VpCmy+ZStYPTZQSfmz3JOBAYCpvo
-         LB0A==
-X-Forwarded-Encrypted: i=1; AL+hErE9kKgLHpwe30nakn7hWkVNkgVW9lErJbBq0Y9ShsP7Y4oB7lYnHIPDk/Ppqh6yx5tz9184tLwXNte3mnA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+kAZuyR6j3w3/z0vDz1/GyMvPerWGSKWH5RKxvmW4dt1BnClaL
-	+9gfMdsZyRflIYGGLU7dX3izHCToQEhzUzm8O7elqDz5vNxZCD/23TQR
-X-Gm-Gg: AZFdTZekfYiOGfmEjvxH7bUDrLMdxWz8OzONdT4R5SU4D5BEXu+Cr/FBzwikRfxA4xc
-	IVsjdiBMaggP9wvPIVZxWsFVQxqYv3HJptpJ9Ht4oxHwD36vcMYazqRtlSm1Sye5MDqdf1LK8rn
-	5pP1q/riQuooLcyZCueeQqcdY5PbxhDDCyup1iXXD0ibw0UpC08NFaLwGzkqrJUQNSR5XNP9J9a
-	zvUwDJknYW0SmvgsX1f7bJe975Cs6WiCJ6IvLAM8EgSCv6ooZjQVVAjfKzN6buI7j2MBa6ewnMf
-	aYnkndxUBB2vFJgC8j2IZUz26jCLF5CB85WDSdjyskfxXRPYySW0tY371noz2QKOBLeB7G4NX8c
-	6uNiU2wKW8uuoUNVCgmLV8ie6u6xKYehHkWgEiS0ssTYgrLiiKwieY+F0/C/p4M3dEqa/8daEsD
-	avZCGqIY1yyjyNdlkN13OBli8UshIhBzFPuWh70HLg2FUm82kYwweEwhErXpTAzPVdhgbZHWGzF
-	ayGzDrAOmek9tg+AMuNaRuVsUBgdNP9xsvG9ZW3KIbp+8QgG55BtRsob0lB/tGWPhBZ71uvJXiI
-	ohWEU2NwcjidktjYoMvwpaAwJXfFfUnPk5+xQdMf2Fvf/2Rk0mEGrkworQVG
-X-Received: by 2002:a17:90b:3f0f:b0:3b0:934c:5e41 with SMTP id 98e67ed59e1d1-3b41c9080e7mr24217936a91.29.1795681258845;
-        Thu, 26 Nov 2026 00:20:58 -0800 (PST)
-Received: from [192.168.255.10] ([43.132.141.21])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b420e1307csm30537371a91.7.2026.11.26.00.20.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 00:20:58 -0800 (PST)
-Message-ID: <5b2703a3-ae4f-431e-bf4e-d44348654913@gmail.com>
-Date: Thu, 26 Nov 2026 16:20:55 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=LhAaeTaV
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QI6hjCU5ySHKWhByFaofvCtxXfXDWPa1H2ogCD/cJl+Jw5h1mtlfUCbnEa6RbG5qutR+XqpQFvHbAcY5gMZDRk+oLrlq65FLMNlbve0hfxvSX+qQ0xuuWoz7xAA0p1yGwT4GbbB3hajyNTvZ1xm8mU7YdMRvDRe6enDbiNcd8Ll8CvHLP0dl9sLwc7PVAdSnUKQqtZOWLs5dRdPKzIztKWxo7tiyZWtTffWHMLknxi/Bopjv6X2c8nmU0mCCqE76iIKNOHJrbsNUlwLjt6fTKzPGRvDqlTAf0DGlmESevkIWeq42RnmqHa+dpqWZbBDyU2DrlXsM1Bwd4eem2+yOmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vi6DPbefR17d89NDmL6atgVQ448zUlLkyKKH49tYVD8=;
+ b=sYVXJuZt2pgCytp3rL7qlJSpguKAI46GJb5A2pvQ4/JWn2i8SwG0hMMYIW1hhyge8JESGdPkwDn5Q1lDAI+TOkOg8BOiZ/jegVuqRfDh/q/PluPn3J/8NQH83FOdlouEm4Ljr/XdFSMGsQSMCC43DR7LSHlGzXkIZBvqEfQjQiJAd4fHI52kiIxC9kiC9TeL8JXaE3oqz2UZMiAses0vAvrN2UDNHcKsD+Gx+zYA+T8xOlsHg60saEbdZD56HrnvV9rrARn53NFIZ19b6hqG6QoIbHGmi1yD0SvXzqslks8PeEz4JIZX6iW/bBzU7omNOAUIO3iR8ITZ/nCugBwfFQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vi6DPbefR17d89NDmL6atgVQ448zUlLkyKKH49tYVD8=;
+ b=LhAaeTaVRRoybIbrWDNS1vyPiGo2sbqm5hYRh/BjkoWEGzzXzUiEPzOztu90vav+V2XJhlbsylGBCJaFj5b5Du6D0yr1LvIItiYSX8eKV4LsL0a3dOjq0UtAEARXOTqIO7SK6yjRnuZBcanUfvTCMaz0QtgLdQqA+YaV7JqRlR+vqXT4MCHhCDmK1tvCTRF+lznZOTuRNuNqqjS1/NyYJ/fo2Swh6aw7kZf5atv7ZBEj6K6EEE8uwg0COjN0YiMlheE9JoMRHGOCHCRXniVxlr5XgOktVtzdr+AwiMf6fF3VukeeumnAnqW8MLsXQ5VDOlM935ncPLRMzBqdNJxkXg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB6413.namprd12.prod.outlook.com (2603:10b6:8:ce::10) by
+ LV0PR12MB248855.namprd12.prod.outlook.com (2603:10b6:408:603::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 26 Nov
+ 2026 08:20:56 +0000
+Received: from DS0PR12MB6413.namprd12.prod.outlook.com
+ ([fe80::e82a:6673:4142:37fa]) by DS0PR12MB6413.namprd12.prod.outlook.com
+ ([fe80::e82a:6673:4142:37fa%5]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 08:20:56 +0000
+From: Eliot Courtney <ecourtney@nvidia.com>
+Date: Thu, 26 Nov 2026 17:20:14 +0900
+Subject: [PATCH 5/7] gpu: nova-core: falcon: add `FalconImage` for
+ `FalconFirmware` trait
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-boot-rework2-v1-5-99a1dc6c7cc4@nvidia.com>
+References: <20261126-boot-rework2-v1-0-99a1dc6c7cc4@nvidia.com>
+In-Reply-To: <20261126-boot-rework2-v1-0-99a1dc6c7cc4@nvidia.com>
+To: Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Alexandre Courbot <acourbot@nvidia.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>
+Cc: John Hubbard <jhubbard@nvidia.com>, 
+ Alistair Popple <apopple@nvidia.com>, Timur Tabi <ttabi@nvidia.com>, 
+ nova-gpu@lists.linux.dev, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, Eliot Courtney <ecourtney@nvidia.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: TY6PR01CA0018.jpnprd01.prod.outlook.com
+ (2603:1096:405:3bb::16) To DS0PR12MB6413.namprd12.prod.outlook.com
+ (2603:10b6:8:ce::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,165 +102,767 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2] bonding: unbind 802.3ad slaves on enslave failure
-To: Nikolay Aleksandrov <razor@blackwall.org>, jv@jvosburgh.net,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, sfeldma@cumulusnetworks.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Lin Jiapeng <jiapenglin@tencent.com>,
- TencentOS Corvus AI <corvus@tencent.com>
-References: <20261124024319.52145-1-ljp1205831794@gmail.com>
- <654889ea-3b83-4fd4-b283-184f87b3d208@blackwall.org>
-From: Lin Jiapeng <ljp1205831794@gmail.com>
-In-Reply-To: <654889ea-3b83-4fd4-b283-184f87b3d208@blackwall.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB6413:EE_|LV0PR12MB248855:EE_
+X-MS-Office365-Filtering-Correlation-Id: dc38aea6-e3bf-4d39-ac5b-08df4b9631a8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|376014|10070799003|366016|22082099003|18002099003|56012099006|11063799006|261009223027099003|261021123027099003|10067099003|261026121527099003|261102123227099003|261022115727099003|261022105027099003|261026140227099003|261022075727099003|261021121427099003|261028144727099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	dVIo2W+yVGyiBgWThTleppR9QLyI8fzOAXfBGf/GxIb7WBlvDW2KoTegMZZADpCkyvEu1C0zgrhxNj1+vd5jj1MHGaHG4XI3GvszB07lf4Jfdf8QYb/YF1G0oY3JrOSuNuCLXPEuxQa9y7w7fN6T7zA0lW4gzMls7hT1kIoWXk/BMoAO8Zu3kPiqFT8ibBcPk1fGqK4LWqJ0JPRr0ZdBA3u+8RAURUj0jis8rIfhGbXhydTaKuP5ZNqgWyUElRWJDiRcwJIlWcbxfXSNNuLyAsUeDN4NeUJMGYzxcopKjAAMO2ZAZ1FNB9TIKUlsDh5OqI38LXIWDCMnyhWnvBTUYGWbPTyK7K3gnK8y1KY5rZ3XZ9gE/XivBU8WA189z+9WwflU67WjQUOwhvD6wEugWaT5uRwiTO+uukNRS+FxBp1DL3toW0vTMxeIUc5qYXDhbBJV8h0qYDHwSKbIWwdLI34o2c/Y+WeRDLcnC87m8ohC57bgerihh8xtBz9LRml0zXgzQ7Xkojp4ozhz8dCKccD/WtvgIL0FmzH05B6MshKJ6J/OlnSjSHEL1h/od56/AkS5gZT/tmbQ8VN2mjb0/qp9UK9la58YX75VeZP6g7PqUoqK7GgHKpCs99s5tBlXLkH4gn8YI+zEWLg+w9iCMHX8x8ZHL2vCb8vPm5s+Ivc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6413.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(10070799003)(366016)(22082099003)(18002099003)(56012099006)(11063799006)(261009223027099003)(261021123027099003)(10067099003)(261026121527099003)(261102123227099003)(261022115727099003)(261022105027099003)(261026140227099003)(261022075727099003)(261021121427099003)(261028144727099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?U3pMaDZkM21UYUdDS3h0NWx1SHp3SCtnZlFuMHgrSU0zUG5yYjl1eURwT2lD?=
+ =?utf-8?B?bzNhMVdaWGV2a3ROMXg2dG5Cam8wTE5BdWxpSnRhVThJODlZeWpOaHZqdEJu?=
+ =?utf-8?B?d3ZuNGFGN0llbG9JY3RyVVFabi9vaVlBaVNMVnlFZEdSUWpzUEQ0YkVuY3dk?=
+ =?utf-8?B?R29ab3o2eWg4bUZNZkcxdXhvQTZKeEJGbGVvUXpwdTljL2JDM2kwakdHdUI0?=
+ =?utf-8?B?VE8vc0ZkTS9wdzlpNWgxMTh0NkFidDBPNXFuSERYdVhGRWQ5QytWOHh2Qks5?=
+ =?utf-8?B?ZzdjTC83b1VYUXhveW43RGNxMjJkRTZzdDJzMnJnV0Rianh6MEFmTE1JNStE?=
+ =?utf-8?B?S0xQUEkwV0VSSlRlV1lFc2FSQmtUOWE3cGV3Mlg3d1Z5ZjRCK0JsbVExckpO?=
+ =?utf-8?B?V3hvRE9iaEpGZk1nNDZoY2lDOEIxY2VjWFk1YUtSMlZJVDdZR1lXWVlWb0t2?=
+ =?utf-8?B?WHQrNVV1NE10RzFKOHpCMEVnR3BmN2FVV3NEZll2TWx0dTJVVUVSZ2w0RjBI?=
+ =?utf-8?B?bHlRLzRPREV4Y0l0VDhPbk9ldUZ4b1pZaWxoZDl3VnIvNXRjMy9Fc3dtT0Fn?=
+ =?utf-8?B?eGVqVlN5MndNV0lhNnl3VE1WVUtjN2VubmVjNkN6SEpXcTRMVXJkSkRuOWlD?=
+ =?utf-8?B?MDNiYUxUS1JremtUejhtbWY3REh0dVRJendKVjdrV2dlcE9nbUNNVE9tRktZ?=
+ =?utf-8?B?TDFRM0ozdGtuQVJUNmlvMCs3ZDdId1VZb0RHWFRDQ0g5eTF0SUtsK0ZFcm1z?=
+ =?utf-8?B?V2FhOUVHb1ExbG9YVFZKUmZSS09PK09JVWt3MFkyLzg5cmZlTk5hWDZBYnFv?=
+ =?utf-8?B?WDEvNFpoZXNVUjE0RjhrSTNFMkhuWU9zSkl0eVcxR3dxZHNrMllVdS9LZGFy?=
+ =?utf-8?B?WVFCQzlQNldsVTJaWkhuejBocE1henNPRkp2ZHE0ZUVqRWNJR21QVXpzN0dQ?=
+ =?utf-8?B?cmV2cnR1OE1ZYnFXcHRMQk1NL2lGSk9SU0NzT3JRT2tSTDBPMjJOdC91SmU5?=
+ =?utf-8?B?bXhLeHcxdS8vaVVIM3JsZndaM09PTHk4U1c3Uy80UWRBc3dIVDNSVWtPRHJ3?=
+ =?utf-8?B?ZjNQSEcxRUpBbk9rMm5yejVUcHJHY0pOTTdHaS9zNXBOUzRhUW1SNXg0THpI?=
+ =?utf-8?B?cnBMQncvRXhLbWdBMVJlZUVUaTJyNnZIVzFTSU9KVXlCMDc1UWFsOURnY2dx?=
+ =?utf-8?B?VW1IOElkU0tsSjNhV1Jmd1ZrekFXc01lUlBIbGVUOHNya2dKZmNtM29Rcjdi?=
+ =?utf-8?B?U3ZtZ3FCM2x3bzJNajJzVmlTZ2NJUGpBVFo0SFJSc1FsdGtFK3FGWlJHYlBk?=
+ =?utf-8?B?eGR5Ui9iSnlEdDVKVDUyTHRnc1RUU2kwNXJHWGFCY0VkVW9SajdFd2JaQitL?=
+ =?utf-8?B?UDZvclo3bG1xanJHeGNSd0xLYi8yUHFNTHQvZHJyQVJpbVJUV0FmQlR1SUcv?=
+ =?utf-8?B?YkVZblBXc0w1MTA4bWVWK082bnVoRGkyQU5PYVNxZHhxWmMweGJOcnJoTk5n?=
+ =?utf-8?B?S3hBVys0d0IwVGNodkQzZ2dLK2wvVmRld09BMzBzalpnOUhMZlp0S2x6eUh0?=
+ =?utf-8?B?bHRlWDhCT1NlRkJMaDEvQTMzMkZHMzl0Ujd4YWNLaWJ4RzdUOStrWU51a1ND?=
+ =?utf-8?B?dXhDd3F5RVk0OWYxeVhPWUF5VVVzSXdiOGRTQVpETlFPYlFJRkIzRU42UDl4?=
+ =?utf-8?B?SlBiOEpZYzVLa0pndXJUYW85SCtaOGpQZ3JaczZjSFlvbGpGMHR4N0pVMlF6?=
+ =?utf-8?B?Z1ZXNmMzbW1VUi9RYUo1eHZPL3l6REoxbzZFM2twSE5oTkRua3dxODJ6dEhV?=
+ =?utf-8?B?T2VKcks2SVFYSFYrSFVBZWwvY2FQQTN5UFY2YUUrK0pQWGdvVWJJTEh2cGpR?=
+ =?utf-8?B?T05UOHV3U1pDZnRFdDNxUTlucFpDMWVEOFVtVysyeTl5UkE4TFZsUkp4ZHc1?=
+ =?utf-8?B?MEtRd2N0TnZIbmdKcU9ScGVEMlZBa29KdzVERGdsamd1YXd4L0ZVZ0NaY2g0?=
+ =?utf-8?B?akVXMHNiNjVRL1QvNUd0c2JJVUFWQm9OSjlkZ1V1Q1VZN1FUWVdhVVh4TEVn?=
+ =?utf-8?B?d3haRklMa1JmVUJ1a2crV3pWT1kxb0hxdHloU2F2ZlRaRGFXaVV0eXBoNUJH?=
+ =?utf-8?B?WWdiVzFRN1EwWC9lVnp0Y1pUQm05NWozVFlGV3pHSk5JT3RiY0o0L29lYXFB?=
+ =?utf-8?B?MWE3aS93aWxmemR0cEVBRFZJbDBBYWNyMG5lMkJOQnk1c0ZyMlhrUDhhT3Qr?=
+ =?utf-8?B?alZsUUhtT2ZGWXRlcWNibm0wNWNDc2pnQXlYQzAyd2FRU1oxOUlGK28wTzNu?=
+ =?utf-8?B?SXZoa2hhL25ENmRmTGZnTlc0YjY5NE02Y0FqTlZkNG0zZjc3UEIrNmkzRitl?=
+ =?utf-8?Q?AjqUPXA8Q28BNdXmJ9mxeUdQXRcHcqB3qK2VzFOpIOUuJ?=
+X-MS-Exchange-AntiSpam-MessageData-1: PzDSotYd8co8YA==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dc38aea6-e3bf-4d39-ac5b-08df4b9631a8
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6413.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 08:20:56.2630
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wpOdFdBJgokhHrenz0kf+NyBXH8sHG5dXaIDx2GR4gO1o3JNXOmvUOhZRjTEl4ft/VoamTskMD9I/78AnqyeRA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR12MB248855
 
+Introduce a new struct `FalconImage` which holds each segment (secure
+imem, non-secure imem, dmem) that needs to be uploaded to a falcon.
 
+This replaces `FalconDmaLoadable` which mixed the locations/source of
+each segment with how it is given to a falcon. This makes it easier to
+add falcon firmware loaded from framebuffer memory, which is needed for
+r000.
 
-On 2026-11-25 3:14 p.m., Nikolay Aleksandrov wrote:
-> On 24/11/2026 04:41, Lin Jiapeng wrote:
->> From: Lin Jiapeng <jiapenglin@tencent.com>
->>
->> The 802.3ad enslave path binds a slave before publishing it in the bond's
->> slave list. The periodic state machine can select the port and attach 
->> it to
->> a LAG while enslavement is in progress, including while 
->> NETDEV_CHANGEUPPER
->> notifiers are running.
->>
->> If enslavement fails, rollback can free ad_slave_info without 
->> unbinding its
->> port and leave later LAG processing with a dangling pointer. This affects
->> both a failed upper-link notification and later failures such as
->> bond_sysfs_slave_add(). A test-only kretprobe forces the latter to return
->> -ENOMEM, after which KASAN reports:
->>       BUG: KASAN: slab-use-after-free in 
->> ad_agg_selection_logic+0x1a0d/0x1fa0
->>       Read of size 1 by task kworker/u16:0/13
->>       Freed by task 110:
->>         kfree
->>         slave_kobj_release
->>         kobject_put
->>         bond_enslave
->>
->> Drain the RX handler before unbinding so receive handlers cannot race 
->> with
->> port->slave becoming NULL. Unbind before upper unlink when the link 
->> exists,
->> and also unbind after an upper-link failure without repeating the unlink.
->> Rebuild the slave array after aggregator changes and leave earlier
->> unpublished failures unchanged.
->>
->> Fixes: 07699f9a7c8d ("bonding: add sysfs /slave dir for bond slave 
->> devices.")
->> Reported-by: TencentOS Corvus AI <corvus@tencent.com>
->> Link: https://lore.kernel.org/netdev/20261113130454.63032-1- 
->> ljp1205831794@gmail.com/
->> ---
->> v1 -> v2:
->>    - Drain the RX handler before unbinding to avoid NULL dereferences 
->> in the
->>      802.3ad receive path.
->>    - Cover NETDEV_CHANGEUPPER failure after transient upper-link 
->> publication,
->>      without repeating upper-dev unlink.
->>    - Rebuild the 802.3ad slave array after rollback.
->>
->>   drivers/net/bonding/bond_main.c | 11 +++++++++++
->>   1 file changed, 11 insertions(+)
->>
->> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/ 
->> bond_main.c
->> index e9f5e753f677..7ca948bb27d0 100644
->> --- a/drivers/net/bonding/bond_main.c
->> +++ b/drivers/net/bonding/bond_main.c
->> @@ -2355,10 +2355,21 @@ int bond_enslave(struct net_device *bond_dev, 
->> struct net_device *slave_dev,
->>       bond_sysfs_slave_del(new_slave);
->>   err_upper_unlink:
->> +    netdev_rx_handler_unregister(slave_dev);
->> +    if (BOND_MODE(bond) == BOND_MODE_8023AD)
->> +        bond_3ad_unbind_slave(new_slave);
->>       bond_upper_dev_unlink(bond, new_slave);
->> +    goto err_update_slave_arr;
->>   err_unregister:
->>       netdev_rx_handler_unregister(slave_dev);
->> +    if (BOND_MODE(bond) == BOND_MODE_8023AD)
->> +        bond_3ad_unbind_slave(new_slave);
->> +
->> +err_update_slave_arr:
->> +    if (BOND_MODE(bond) == BOND_MODE_8023AD &&
->> +        bond_update_slave_arr(bond, new_slave))
->> +        bond_slave_arr_work_rearm(bond, 0);
->>   err_detach:
->>       vlan_vids_del_by_dev(slave_dev, bond_dev);
->>
->> base-commit: 7e1392a42ea288d70a266f6553fe06f57f8647ea
-> 
-> This looks awful jumping around error labels and doing the same thing
-> at different places. Surely you could rearrange them better, maybe
-> something like this (untested, needs proper review):
-> --- a/drivers/net/bonding/bond_main.c
->    +++ b/drivers/net/bonding/bond_main.c
->    @@ -1888,10 +1888,11 @@
->     int bond_enslave(struct net_device *bond_dev, struct net_device 
-> *slave_dev,
->                   struct netlink_ext_ack *extack)
->     {
->    +     const struct net_device_ops *slave_ops = slave_dev->netdev_ops;
->          struct bonding *bond = netdev_priv(bond_dev);
->    -     const struct net_device_ops *slave_ops = slave_dev->netdev_ops;
->          struct slave *new_slave = NULL, *prev_slave;
->          struct sockaddr_storage ss;
->    +     bool upper_linked = false;
->          int res = 0, i;
-> 
->          if (slave_dev->type == ARPHRD_CAN ||
->    @@ -2246,13 +2247,14 @@
->                  slave_dbg(bond_dev, slave_dev, "Error %d calling 
-> bond_master_upper_dev_link\n", res);
->                  goto err_unregister;
->          }
->    +     upper_linked = true;
-> 
->          bond_lower_state_changed(new_slave);
-> 
->          res = bond_sysfs_slave_add(new_slave);
->          if (res) {
->                  slave_dbg(bond_dev, slave_dev, "Error %d calling 
-> bond_sysfs_slave_add\n", res);
->    -             goto err_upper_unlink;
->    +             goto err_unregister;
->          }
-> 
->          /* If the mode uses primary, then the following is handled by
->    @@ -2357,11 +2359,15 @@
->     err_sysfs_del:
->          bond_sysfs_slave_del(new_slave);
-> 
->    -err_upper_unlink:
->    -     bond_upper_dev_unlink(bond, new_slave);
->    -
->     err_unregister:
->          netdev_rx_handler_unregister(slave_dev);
->    +     if (BOND_MODE(bond) == BOND_MODE_8023AD) {
->    +             bond_3ad_unbind_slave(new_slave);
->    +             if (bond_update_slave_arr(bond, new_slave))
->    +                     bond_slave_arr_work_rearm(bond, 0);
->    +     }
->    +     if (upper_linked)
->    +             bond_upper_dev_unlink(bond, new_slave);
-> 
->     err_detach:
->          vlan_vids_del_by_dev(slave_dev, bond_dev);
+Since this decouples storage of segments from the way to send them, we
+can also remove the PIO adapter and separate PIO specific machinery.
 
-Thanks a lot for the suggestions. I have adopted your suggested 
-structure in v3: the err_upper_unlink label is
-gone and the rollback is a single err_unregister block gated by
-upper_linked. On top of that, v3 includes a few changes based on the
-pw-bot review of v2, mainly binding the 802.3ad port only after the
-upper link has been established and re-evaluating the carrier in the
-rollback path.
+Signed-off-by: Eliot Courtney <ecourtney@nvidia.com>
+---
+ drivers/gpu/nova-core/falcon.rs                    | 307 ++++++++-------------
+ drivers/gpu/nova-core/firmware/booter.rs           |  43 +--
+ drivers/gpu/nova-core/firmware/fwsec.rs            |  42 +--
+ drivers/gpu/nova-core/firmware/fwsec/bootloader.rs |   9 +-
+ drivers/gpu/nova-core/firmware/gen_bootloader.rs   |  57 ++--
+ 5 files changed, 190 insertions(+), 268 deletions(-)
+
+diff --git a/drivers/gpu/nova-core/falcon.rs b/drivers/gpu/nova-core/falcon.rs
+index f0e6f0eea641..337d13359fa5 100644
+--- a/drivers/gpu/nova-core/falcon.rs
++++ b/drivers/gpu/nova-core/falcon.rs
+@@ -17,10 +17,6 @@
+         Io,
+         Mmio, //
+     },
+-    num::{
+-        Bounded,
+-        TryIntoBounded, //
+-    },
+     prelude::*,
+     sizes::SZ_4K,
+     time::Delta,
+@@ -132,7 +128,6 @@ pub(crate) enum FalconMem {
+     /// Secure Instruction Memory.
+     ImemSecure,
+     /// Non-Secure Instruction Memory.
+-    #[expect(unused)]
+     ImemNonSecure,
+     /// Data Memory. If `tag` is set, a transfer into DMEM also tags each block with its source
+     /// offset, which is then the DMEM virtual address of the image.
+@@ -234,141 +229,58 @@ pub(crate) enum FalconSegmentSource<'a> {
+     },
+ }
+ 
+-/// Trait implemented by falcon firmwares that can be loaded using DMA.
+-pub(crate) trait FalconDmaLoadable {
+-    /// Returns the firmware data as a slice of bytes.
+-    fn as_slice(&self) -> &[u8];
++/// Code to load into `IMEM`.
++#[derive(Clone)]
++pub(crate) struct FalconImemSegment<'a> {
++    /// Where the code is.
++    pub(crate) source: FalconSegmentSource<'a>,
++    /// Offset in `IMEM` at which to load the code.
++    pub(crate) dst_start: u32,
++    /// Virtual address of the code, used for tagging.
++    pub(crate) va: u32,
++}
+ 
+-    /// Returns the load parameters for Secure `IMEM`.
+-    fn imem_sec_load_params(&self) -> FalconDmaLoadTarget;
+-
+-    /// Returns the load parameters for Non-Secure `IMEM`,
+-    /// used only on Turing and GA100.
+-    fn imem_ns_load_params(&self) -> Option<FalconDmaLoadTarget>;
+-
+-    /// Returns the load parameters for `DMEM`.
+-    fn dmem_load_params(&self) -> FalconDmaLoadTarget;
+-
+-    /// Returns an adapter that provides the required parameter to load this firmware using PIO.
+-    ///
+-    /// This can only fail if some `u32` fields cannot be converted to `u16`, or if the indices in
+-    /// the headers are invalid.
+-    fn try_as_pio_loadable(&self) -> Result<FalconDmaFirmwarePioAdapter<'_, Self>> {
+-        let new_pio_imem = |params: FalconDmaLoadTarget, secure| {
+-            let start = usize::from_safe_cast(params.src_start);
+-            let end = start + usize::from_safe_cast(params.len);
+-            let data = self.as_slice().get(start..end).ok_or(EINVAL)?;
+-
+-            let dst_start = params.dst_start.try_into_bounded().ok_or(EINVAL)?;
+-
+-            Ok::<_, Error>(FalconPioImemLoadTarget {
+-                data,
+-                dst_start,
+-                secure,
+-                start_tag: dst_start.shr::<8, 16>().into(),
+-            })
+-        };
+-
+-        let imem_sec = new_pio_imem(self.imem_sec_load_params(), true)?;
+-
+-        let imem_ns = if let Some(params) = self.imem_ns_load_params() {
+-            Some(new_pio_imem(params, false)?)
+-        } else {
+-            None
+-        };
+-
+-        let dmem = {
+-            let params = self.dmem_load_params();
+-            let start = usize::from_safe_cast(params.src_start);
+-            let end = start + usize::from_safe_cast(params.len);
+-            let data = self.as_slice().get(start..end).ok_or(EINVAL)?;
+-
+-            let dst_start = u16::try_from(params.dst_start).map_err(|_| EINVAL)?;
+-
+-            FalconPioDmemLoadTarget { data, dst_start }
+-        };
+-
+-        Ok(FalconDmaFirmwarePioAdapter {
+-            fw: self,
+-            imem_sec,
+-            imem_ns,
+-            dmem,
++impl<'a> FalconImemSegment<'a> {
++    /// Returns the code of `blob` that `target` describes, to be tagged with `va`.
++    pub(crate) fn from_blob(blob: &'a [u8], target: &FalconDmaLoadTarget, va: u32) -> Result<Self> {
++        Ok(Self {
++            source: FalconSegmentSource::Sysmem(target.data(blob)?),
++            dst_start: target.dst_start,
++            va,
+         })
+     }
+ }
+ 
+-/// Represents a portion of the firmware to be loaded into IMEM using PIO.
++/// Data to load into falcon's `DMEM`.
+ #[derive(Clone)]
+-pub(crate) struct FalconPioImemLoadTarget<'a> {
+-    pub(crate) data: &'a [u8],
+-    pub(crate) dst_start: Bounded<u32, 24>,
+-    pub(crate) secure: bool,
+-    pub(crate) start_tag: u16,
++pub(crate) struct FalconDmemSegment<'a> {
++    /// Where the data is.
++    pub(crate) source: FalconSegmentSource<'a>,
++    /// Offset in falcon's `DMEM` at which to load the data.
++    pub(crate) dst_start: u32,
++    /// Virtual address of the data, used for tagging, or `None` to leave untagged.
++    pub(crate) va: Option<u32>,
+ }
+ 
+-/// Represents a portion of the firmware to be loaded into DMEM using PIO.
+-#[derive(Clone)]
+-pub(crate) struct FalconPioDmemLoadTarget<'a> {
+-    pub(crate) data: &'a [u8],
+-    pub(crate) dst_start: u16,
+-}
+-
+-/// Trait for providing PIO load parameters of falcon firmwares.
+-pub(crate) trait FalconPioLoadable {
+-    /// Returns the load parameters for Secure `IMEM`, if any.
+-    fn imem_sec_load_params(&self) -> Option<FalconPioImemLoadTarget<'_>>;
+-
+-    /// Returns the load parameters for Non-Secure `IMEM`, if any.
+-    fn imem_ns_load_params(&self) -> Option<FalconPioImemLoadTarget<'_>>;
+-
+-    /// Returns the load parameters for `DMEM`.
+-    fn dmem_load_params(&self) -> FalconPioDmemLoadTarget<'_>;
+-}
+-
+-/// Adapter type that makes any DMA-loadable firmware also loadable via PIO.
+-///
+-/// Created using [`FalconDmaLoadable::try_as_pio_loadable`].
+-pub(crate) struct FalconDmaFirmwarePioAdapter<'a, T: FalconDmaLoadable + ?Sized> {
+-    /// Reference to the DMA firmware.
+-    fw: &'a T,
+-    /// Validated secure IMEM parameters.
+-    imem_sec: FalconPioImemLoadTarget<'a>,
+-    /// Validated non-secure IMEM parameters.
+-    imem_ns: Option<FalconPioImemLoadTarget<'a>>,
+-    /// Validated DMEM parameters.
+-    dmem: FalconPioDmemLoadTarget<'a>,
+-}
+-
+-impl<'a, T> FalconPioLoadable for FalconDmaFirmwarePioAdapter<'a, T>
+-where
+-    T: FalconDmaLoadable + ?Sized,
+-{
+-    fn imem_sec_load_params(&self) -> Option<FalconPioImemLoadTarget<'_>> {
+-        Some(self.imem_sec.clone())
+-    }
+-
+-    fn imem_ns_load_params(&self) -> Option<FalconPioImemLoadTarget<'_>> {
+-        self.imem_ns.clone()
+-    }
+-
+-    fn dmem_load_params(&self) -> FalconPioDmemLoadTarget<'_> {
+-        self.dmem.clone()
++impl<'a> FalconDmemSegment<'a> {
++    /// Returns the data of `blob` that `target` describes (untagged).
++    pub(crate) fn from_blob(blob: &'a [u8], target: &FalconDmaLoadTarget) -> Result<Self> {
++        Ok(Self {
++            source: FalconSegmentSource::Sysmem(target.data(blob)?),
++            dst_start: target.dst_start,
++            va: None,
++        })
+     }
+ }
+ 
+-impl<'a, T> FalconFirmware for FalconDmaFirmwarePioAdapter<'a, T>
+-where
+-    T: FalconDmaLoadable + FalconFirmware + ?Sized,
+-{
+-    type Target = <T as FalconFirmware>::Target;
+-
+-    fn brom_params(&self) -> FalconBromParams {
+-        self.fw.brom_params()
+-    }
+-
+-    fn boot_addr(&self) -> u32 {
+-        self.fw.boot_addr()
+-    }
++/// Firmware image to load into a falcon.
++pub(crate) struct FalconImage<'a> {
++    /// Non-secure code.
++    pub(crate) imem_ns: Option<FalconImemSegment<'a>>,
++    /// Secure code.
++    pub(crate) imem_sec: Option<FalconImemSegment<'a>>,
++    /// Data of the image.
++    pub(crate) dmem: FalconDmemSegment<'a>,
+ }
+ 
+ /// Trait for a falcon firmware.
+@@ -378,6 +290,9 @@ pub(crate) trait FalconFirmware {
+     /// Engine on which this firmware is to be loaded.
+     type Target: FalconEngine;
+ 
++    /// Returns the image to load into the falcon.
++    fn image(&self) -> Result<FalconImage<'_>>;
++
+     /// Returns the parameters to write into the BROM registers.
+     fn brom_params(&self) -> FalconBromParams;
+ 
+@@ -446,25 +361,32 @@ pub(crate) fn reset(&self) -> Result {
+ 
+     /// Write a slice to Falcon IMEM memory using programmed I/O (PIO).
+     ///
+-    /// Returns `EINVAL` if `img.len()` is not a multiple of 4.
+-    fn pio_wr_imem_slice(&self, load_offsets: FalconPioImemLoadTarget<'_>) -> Result {
++    /// Returns `EINVAL` if `data.len()` is not a multiple of 4, and `EOVERFLOW` if
++    /// `dst_start` does not fit in the `offs` field of `IMEMC`.
++    fn pio_wr_imem_slice(
++        &self,
++        data: &[u8],
++        dst_start: u32,
++        secure: bool,
++        start_tag: u16,
++    ) -> Result {
+         // Rejecting misaligned images here allows us to avoid checking
+         // inside the loops.
+-        if load_offsets.data.len() % 4 != 0 {
++        if data.len() % 4 != 0 {
+             return Err(EINVAL);
+         }
+ 
+         self.pfalcon.write(
+             Array::at(Self::PIO_PORT),
+             regs::NV_PFALCON_FALCON_IMEMC::zeroed()
+-                .with_secure(load_offsets.secure)
++                .with_secure(secure)
+                 .with_aincw(true)
+-                .with_offs(load_offsets.dst_start),
++                .try_with_offs(dst_start)?,
+         );
+ 
+-        for (n, block) in load_offsets.data.chunks(MEM_BLOCK_ALIGNMENT).enumerate() {
++        for (n, block) in data.chunks(MEM_BLOCK_ALIGNMENT).enumerate() {
+             let n = u16::try_from(n)?;
+-            let tag: u16 = load_offsets.start_tag.checked_add(n).ok_or(ERANGE)?;
++            let tag: u16 = start_tag.checked_add(n).ok_or(ERANGE)?;
+             self.pfalcon.write(
+                 Array::at(Self::PIO_PORT),
+                 regs::NV_PFALCON_FALCON_IMEMT::zeroed().with_tag(tag),
+@@ -483,11 +405,12 @@ fn pio_wr_imem_slice(&self, load_offsets: FalconPioImemLoadTarget<'_>) -> Result
+ 
+     /// Write a slice to Falcon DMEM memory using programmed I/O (PIO).
+     ///
+-    /// Returns `EINVAL` if `img.len()` is not a multiple of 4.
+-    fn pio_wr_dmem_slice(&self, load_offsets: FalconPioDmemLoadTarget<'_>) -> Result {
++    /// Returns `EINVAL` if `data.len()` is not a multiple of 4, and `EOVERFLOW` if
++    /// `dst_start` does not fit in the `offs` field of `DMEMC`.
++    fn pio_wr_dmem_slice(&self, data: &[u8], dst_start: u32) -> Result {
+         // Rejecting misaligned images here allows us to avoid checking
+         // inside the loops.
+-        if load_offsets.data.len() % 4 != 0 {
++        if data.len() % 4 != 0 {
+             return Err(EINVAL);
+         }
+ 
+@@ -495,10 +418,10 @@ fn pio_wr_dmem_slice(&self, load_offsets: FalconPioDmemLoadTarget<'_>) -> Result
+             Array::at(Self::PIO_PORT),
+             regs::NV_PFALCON_FALCON_DMEMC::zeroed()
+                 .with_aincw(true)
+-                .with_offs(load_offsets.dst_start),
++                .try_with_offs(dst_start)?,
+         );
+ 
+-        for word in load_offsets.data.chunks_exact(4) {
++        for word in data.chunks_exact(4) {
+             let w = [word[0], word[1], word[2], word[3]];
+             self.pfalcon.write(
+                 Array::at(Self::PIO_PORT),
+@@ -509,27 +432,6 @@ fn pio_wr_dmem_slice(&self, load_offsets: FalconPioDmemLoadTarget<'_>) -> Result
+         Ok(())
+     }
+ 
+-    /// Perform a PIO copy into `IMEM` and `DMEM` of `fw`.
+-    pub(crate) fn pio_load<F: FalconFirmware<Target = E> + FalconPioLoadable>(
+-        &self,
+-        fw: &F,
+-    ) -> Result {
+-        self.pfalcon.update(regs::NV_PFALCON_FBIF_CTL, |v| {
+-            v.with_allow_phys_no_ctx(true)
+-        });
+-
+-        self.pfalcon
+-            .write_reg(regs::NV_PFALCON_FALCON_DMACTL::zeroed());
+-
+-        if let Some(imem_ns) = fw.imem_ns_load_params() {
+-            self.pio_wr_imem_slice(imem_ns)?;
+-        }
+-        if let Some(imem_sec) = fw.imem_sec_load_params() {
+-            self.pio_wr_imem_slice(imem_sec)?;
+-        }
+-        self.pio_wr_dmem_slice(fw.dmem_load_params())
+-    }
+-
+     /// Programs FBIF context DMA slot `ctx_dma` with the value that `configure` returns, runs `f`,
+     /// and restores the slot once `f` has returned `Ok`.
+     ///
+@@ -671,26 +573,64 @@ fn dma_stage(&self, data: &[u8], offset: u32) -> Result<Coherent<'a, [u8]>> {
+         Ok(dma_obj.into())
+     }
+ 
+-    /// Perform a DMA load into `IMEM` and `DMEM` of `fw`.
+-    fn dma_load<F: FalconFirmware<Target = E> + FalconDmaLoadable>(&self, fw: &F) -> Result {
+-        let blob = fw.as_slice();
+-        let imem_sec = fw.imem_sec_load_params();
+-        let dmem = fw.dmem_load_params();
++    /// Load `segment` into `IMEM`, as secure code if `secure` is set.
++    fn load_imem(&self, segment: &FalconImemSegment<'_>, secure: bool) -> Result {
++        match (segment.source, self.hal.load_method()) {
++            (FalconSegmentSource::Sysmem(data), LoadMethod::Pio) => self.pio_wr_imem_slice(
++                data,
++                segment.dst_start,
++                secure,
++                u16::try_from(segment.va >> 8)?,
++            ),
++            (source, _) => self.dma_wr(
++                source,
++                if secure {
++                    FalconMem::ImemSecure
++                } else {
++                    FalconMem::ImemNonSecure
++                },
++                segment.va,
++                segment.dst_start,
++            ),
++        }
++    }
++
++    /// Load `segment` into falcon's `DMEM`.
++    fn load_dmem(&self, segment: &FalconDmemSegment<'_>) -> Result {
++        match (segment.source, self.hal.load_method()) {
++            (FalconSegmentSource::Sysmem(data), LoadMethod::Pio) => {
++                // Tagging not possible if using PIO.
++                if segment.va.is_some() {
++                    return Err(EINVAL);
++                }
++
++                self.pio_wr_dmem_slice(data, segment.dst_start)
++            }
++            (source, _) => self.dma_wr(
++                source,
++                FalconMem::Dmem {
++                    tag: segment.va.is_some(),
++                },
++                segment.va.unwrap_or(0),
++                segment.dst_start,
++            ),
++        }
++    }
++
++    /// Load a firmware image into Falcon memory, using the preferred method for the current
++    /// chipset.
++    pub(crate) fn load<F: FalconFirmware<Target = E>>(&self, fw: &F) -> Result {
++        let image = fw.image()?;
+ 
+         self.dma_reset();
+ 
+-        self.dma_wr(
+-            FalconSegmentSource::Sysmem(imem_sec.data(blob)?),
+-            FalconMem::ImemSecure,
+-            imem_sec.src_start,
+-            imem_sec.dst_start,
+-        )?;
+-        self.dma_wr(
+-            FalconSegmentSource::Sysmem(dmem.data(blob)?),
+-            FalconMem::Dmem { tag: false },
+-            0,
+-            dmem.dst_start,
+-        )
++        if let Some(segment) = &image.imem_ns {
++            self.load_imem(segment, false)?;
++        }
++        if let Some(segment) = &image.imem_sec {
++            self.load_imem(segment, true)?;
++        }
++        self.load_dmem(&image.dmem)
+     }
+ 
+     /// Wait until the falcon CPU is halted.
+@@ -802,15 +742,6 @@ pub(crate) fn is_riscv_halted(&self) -> Result<bool> {
+         self.hal.is_riscv_halted(self)
+     }
+ 
+-    /// Load a firmware image into Falcon memory, using the preferred method for the current
+-    /// chipset.
+-    pub(crate) fn load<F: FalconFirmware<Target = E> + FalconDmaLoadable>(&self, fw: &F) -> Result {
+-        match self.hal.load_method() {
+-            LoadMethod::Dma => self.dma_load(fw),
+-            LoadMethod::Pio => self.pio_load(&fw.try_as_pio_loadable()?),
+-        }
+-    }
+-
+     /// Write the application version to the OS register.
+     pub(crate) fn write_os_version(&self, app_version: u32) {
+         self.pfalcon
+diff --git a/drivers/gpu/nova-core/firmware/booter.rs b/drivers/gpu/nova-core/firmware/booter.rs
+index a52c965093c9..0e7a839c644b 100644
+--- a/drivers/gpu/nova-core/firmware/booter.rs
++++ b/drivers/gpu/nova-core/firmware/booter.rs
+@@ -19,8 +19,10 @@
+         Falcon,
+         FalconBromParams,
+         FalconDmaLoadTarget,
+-        FalconDmaLoadable,
+-        FalconFirmware, //
++        FalconDmemSegment,
++        FalconFirmware,
++        FalconImage,
++        FalconImemSegment, //
+     },
+     firmware::{
+         tlv::{
+@@ -207,27 +209,28 @@ pub(crate) fn run<T>(
+     }
+ }
+ 
+-impl FalconDmaLoadable for BooterFirmware {
+-    fn as_slice(&self) -> &[u8] {
+-        self.ucode.0.as_slice()
+-    }
+-
+-    fn imem_sec_load_params(&self) -> FalconDmaLoadTarget {
+-        self.imem_sec_load_target.clone()
+-    }
+-
+-    fn imem_ns_load_params(&self) -> Option<FalconDmaLoadTarget> {
+-        self.imem_ns_load_target.clone()
+-    }
+-
+-    fn dmem_load_params(&self) -> FalconDmaLoadTarget {
+-        self.dmem_load_target.clone()
+-    }
+-}
+-
+ impl FalconFirmware for BooterFirmware {
+     type Target = Sec2;
+ 
++    fn image(&self) -> Result<FalconImage<'_>> {
++        let blob = self.ucode.0.as_slice();
++        let imem_sec = &self.imem_sec_load_target;
++
++        Ok(FalconImage {
++            imem_ns: self
++                .imem_ns_load_target
++                .as_ref()
++                .map(|target| FalconImemSegment::from_blob(blob, target, target.dst_start))
++                .transpose()?,
++            imem_sec: Some(FalconImemSegment::from_blob(
++                blob,
++                imem_sec,
++                imem_sec.src_start,
++            )?),
++            dmem: FalconDmemSegment::from_blob(blob, &self.dmem_load_target)?,
++        })
++    }
++
+     fn brom_params(&self) -> FalconBromParams {
+         self.brom_params.clone()
+     }
+diff --git a/drivers/gpu/nova-core/firmware/fwsec.rs b/drivers/gpu/nova-core/firmware/fwsec.rs
+index 45b088f30b76..bde546c95a41 100644
+--- a/drivers/gpu/nova-core/firmware/fwsec.rs
++++ b/drivers/gpu/nova-core/firmware/fwsec.rs
+@@ -31,9 +31,10 @@
+         gsp::Gsp,
+         Falcon,
+         FalconBromParams,
+-        FalconDmaLoadTarget,
+-        FalconDmaLoadable,
+-        FalconFirmware, //
++        FalconDmemSegment,
++        FalconFirmware,
++        FalconImage,
++        FalconImemSegment, //
+     },
+     firmware::{
+         FalconUCodeDesc,
+@@ -180,27 +181,26 @@ pub(crate) struct FwsecFirmware {
+     ucode: FirmwareObject<Self, Signed>,
+ }
+ 
+-impl FalconDmaLoadable for FwsecFirmware {
+-    fn as_slice(&self) -> &[u8] {
+-        self.ucode.0.as_slice()
+-    }
+-
+-    fn imem_sec_load_params(&self) -> FalconDmaLoadTarget {
+-        self.desc.imem_sec_load_params()
+-    }
+-
+-    fn imem_ns_load_params(&self) -> Option<FalconDmaLoadTarget> {
+-        self.desc.imem_ns_load_params()
+-    }
+-
+-    fn dmem_load_params(&self) -> FalconDmaLoadTarget {
+-        self.desc.dmem_load_params()
+-    }
+-}
+-
+ impl FalconFirmware for FwsecFirmware {
+     type Target = Gsp;
+ 
++    fn image(&self) -> Result<FalconImage<'_>> {
++        match self.desc {
++            // V2 FWSEC only boots through the generic bootloader.
++            FalconUCodeDesc::V2(_) => return Err(EINVAL),
++            FalconUCodeDesc::V3(_) => {}
++        }
++
++        let blob = self.ucode.0.as_slice();
++        let imem = self.desc.imem_sec_load_params();
++
++        Ok(FalconImage {
++            imem_ns: None,
++            imem_sec: Some(FalconImemSegment::from_blob(blob, &imem, self.boot_addr())?),
++            dmem: FalconDmemSegment::from_blob(blob, &self.desc.dmem_load_params())?,
++        })
++    }
++
+     fn brom_params(&self) -> FalconBromParams {
+         FalconBromParams {
+             pkc_data_offset: self.desc.pkc_data_offset(),
+diff --git a/drivers/gpu/nova-core/firmware/fwsec/bootloader.rs b/drivers/gpu/nova-core/firmware/fwsec/bootloader.rs
+index 461e5e6f7899..ace97b049874 100644
+--- a/drivers/gpu/nova-core/firmware/fwsec/bootloader.rs
++++ b/drivers/gpu/nova-core/firmware/fwsec/bootloader.rs
+@@ -19,7 +19,6 @@
+     falcon::{
+         gsp::Gsp,
+         Falcon,
+-        FalconDmaLoadable,
+         FalconFbifTarget, //
+     },
+     firmware::{
+@@ -63,7 +62,7 @@ pub(crate) fn new(
+         // In practice, this is expected to always be zero but is required for code correctness.
+         let (align_padding, firmware_dma) = {
+             let align_padding = {
+-                let imem_sec = firmware.imem_sec_load_params();
++                let imem_sec = firmware.desc.imem_sec_load_params();
+ 
+                 imem_sec
+                     .dst_start
+@@ -82,9 +81,9 @@ pub(crate) fn new(
+         };
+ 
+         let dmem_desc = {
+-            let imem_sec = firmware.imem_sec_load_params();
+-            let imem_ns = firmware.imem_ns_load_params().ok_or(EINVAL)?;
+-            let dmem = firmware.dmem_load_params();
++            let imem_sec = firmware.desc.imem_sec_load_params();
++            let imem_ns = firmware.desc.imem_ns_load_params().ok_or(EINVAL)?;
++            let dmem = firmware.desc.dmem_load_params();
+ 
+             // The bootloader does not have a data destination offset field and copies the data at
+             // the start of DMEM, so it can only be used if the destination offset of the firmware
+diff --git a/drivers/gpu/nova-core/firmware/gen_bootloader.rs b/drivers/gpu/nova-core/firmware/gen_bootloader.rs
+index cfc1b99c015c..b5c8621574b1 100644
+--- a/drivers/gpu/nova-core/firmware/gen_bootloader.rs
++++ b/drivers/gpu/nova-core/firmware/gen_bootloader.rs
+@@ -23,12 +23,13 @@
+         Falcon,
+         FalconBromParams,
+         FalconDmaLoadTarget,
++        FalconDmemSegment,
+         FalconFbifMemType,
+         FalconFbifTarget,
+         FalconFirmware,
+-        FalconPioDmemLoadTarget,
+-        FalconPioImemLoadTarget,
+-        FalconPioLoadable, //
++        FalconImage,
++        FalconImemSegment,
++        FalconSegmentSource, //
+     },
+     firmware::tlv::{
+         request_tlv, //
+@@ -174,17 +175,6 @@ fn boot_addr(&self) -> u32 {
+         u32::from(self.start_tag) << 8
+     }
+ 
+-    /// Returns the PIO parameters that place this bootloader in non-secure IMEM, at byte offset
+-    /// `dst_start`.
+-    fn imem_load_params(&self, dst_start: Bounded<u32, 24>) -> FalconPioImemLoadTarget<'_> {
+-        FalconPioImemLoadTarget {
+-            data: self.ucode.as_ref(),
+-            dst_start,
+-            secure: false,
+-            start_tag: self.start_tag,
+-        }
+-    }
+-
+     /// Runs the bootloader on `falcon` to load and start the image that `dmem_desc` names.
+     ///
+     /// The bootloader and the descriptor are loaded by PIO, the bootloader in the last blocks of
+@@ -229,15 +219,15 @@ pub(crate) fn run(
+                     dmem_desc,
+                 };
+ 
+-                falcon.pio_load(&fw)?;
++                falcon.load(&fw)?;
+                 falcon.boot(&fw, Some(mbox0), None)
+             },
+         )
+     }
+ }
+ 
+-/// The generic bootloader together with the descriptor that it reads from DMEM offset 0, as one
+-/// firmware that [`Falcon::pio_load`] accepts.
++/// The generic bootloader together with the descriptor that it reads from DMEM
++/// offset 0, as one [`FalconFirmware`].
+ struct GenericBootloaderLoad<'a> {
+     bootloader: &'a GenericBootloader,
+     /// Byte offset in IMEM at which the bootloader's code is loaded.
+@@ -248,6 +238,22 @@ struct GenericBootloaderLoad<'a> {
+ impl FalconFirmware for GenericBootloaderLoad<'_> {
+     type Target = Gsp;
+ 
++    fn image(&self) -> Result<FalconImage<'_>> {
++        Ok(FalconImage {
++            imem_ns: Some(FalconImemSegment {
++                source: FalconSegmentSource::Sysmem(self.bootloader.ucode.as_ref()),
++                dst_start: self.imem_dst_start.get(),
++                va: self.bootloader.boot_addr(),
++            }),
++            imem_sec: None,
++            dmem: FalconDmemSegment {
++                source: FalconSegmentSource::Sysmem(self.dmem_desc.as_bytes()),
++                dst_start: 0,
++                va: None,
++            },
++        })
++    }
++
+     fn brom_params(&self) -> FalconBromParams {
+         // The bootloader is unsigned, and the falcon HALs of the chipsets that load it this way
+         // write no BROM registers, so these values never reach hardware.
+@@ -262,20 +268,3 @@ fn boot_addr(&self) -> u32 {
+         self.bootloader.boot_addr()
+     }
+ }
+-
+-impl FalconPioLoadable for GenericBootloaderLoad<'_> {
+-    fn imem_sec_load_params(&self) -> Option<FalconPioImemLoadTarget<'_>> {
+-        None
+-    }
+-
+-    fn imem_ns_load_params(&self) -> Option<FalconPioImemLoadTarget<'_>> {
+-        Some(self.bootloader.imem_load_params(self.imem_dst_start))
+-    }
+-
+-    fn dmem_load_params(&self) -> FalconPioDmemLoadTarget<'_> {
+-        FalconPioDmemLoadTarget {
+-            data: self.dmem_desc.as_bytes(),
+-            dst_start: 0,
+-        }
+-    }
+-}
+
+-- 
+2.56.1
 
