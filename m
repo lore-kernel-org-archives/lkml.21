@@ -1,85 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795674326;
-	b=eQKp57CIjlBmcHIEV+qj5UAslkqtxJzEoFC6NaSOYJRrUOyWK/MljmTVTM86r+ZwJSzm
-	 5Cpe0GmvCAJpZ4/4krEMaGjWF8SNlHDNzqkew+vjBZ4cLCmkEvKJmskQje6zm+JQGiKkI
-	 GbreyCiYfu4UhIy3Syxc+JI5/WVphUNvT0b9AJifyly1EFzk7goXAPf3g4JkDjVsPcCAw
-	 +PtyVZhRbigIW4oOS8srby/i5LLwU+boXDyW9j7y8gMEus1wHGrRRSFhCNR2yjaeL/V3o
-	 VWNISg59FBpyaZIv2L360ph+ooIvm/P5Kj3Ovi8yu8ELRYaaQVbkG8VZ7Nh00xNm4mg==
+	t=1795674429;
+	b=cZN8VakcEpndgIq9rOv52ZBXsZYbHOYG/aVRD4oUfn3417FzgZhM27EjCsUWv/SQePbp
+	 QXP98DQ460y8tVh9XWvPiDdyfYR8FpG0NlfuJfflQMAQ92sFkyYFZwxYjAXmDEF+SvdH5
+	 Gr5kcknhg1PhJA0x9AWpSQL5jq+F2jSahtycWz/TVnPRNorL5jt9wSfhvMDQ/FAhTe0nX
+	 BOcpdWp1fX9iiqW4/F95cmEbxNhqosXaVilaIqhS6prA5pwihDtoHgzTcPy0x7si985Tv
+	 b+SvD/tqOHcnMMg0NhmjcytaMFqMVFKuRwElHJOND38K3daeTbx/m6nu/1omQk3q+Gg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795674326;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=VZe39WaA8R6UeVIikLXAN07ESOsxBSo6V3fin9PGn8M=;
-	b=jRZy9cZTe+BizCDUG56cKeKE/talxJO5ppt8HQwuzPyb7bc6qrL64OsJ3Uv658xmj6wT
-	 3ylgEx4fXEufeYB0Abm8OeTRlLk5lKb6T6NcmsPrkHyDB+w6zkGvYlfk6Vs9tgVEyU4vr
-	 LjP/YSADY0abscx+6TXz19Yw1Z+OG/tAvRUxDfWoiEzNxMrueFvICiiZq3kSzqOLY6IAV
-	 wm/y2F1y6VphMVeSyB2ueUyK5rhcpSZ+5Jn8NtDDjFPiC8j9010vaXVsFqCOavRCs8nOG
-	 RtjwBwgJdPHE6yxixVpGzh7IsiFX1GmofR11nkLdhAOWqBhq82CAALA3S7Rf+4kcDMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795674429;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:Message-ID:Subject:From:To:CC:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
+	 MIME-Version:X-MTK;
+	bh=1D8mPUhCaEsrNElot8tnF/R4sri5CYIf/0Q3XZ/zvAs=;
+	b=yfyAdgYUdGFLO9N6SoHyvjS6XVpL0xqAmQ8BEPP1XUsjjF7HV41lss8q+YuKBrSmEfiI
+	 WxgP+5oQfuRHdhWYCDyXk/0uQ8SC+78spNnP3LLa+VWUMR2C/10zo9pFPeC+byCUHYwfp
+	 vTD4+DZyUkoNVp3Nwmlob1A3BJxffXYXpasHDIrE4PVOWMAAN/H8OYCnQYl6I6g4naHnN
+	 fYjk8TyeF/6CTHVQZ2ITdNDCrqrGBr4bnIJ+djP29PeT4qSbcNOAyNgOEyx4VbVP6uReY
+	 if9lmsfsCqCTyqGV//LZCQtf0E+Ef2BatrBSYN86qa/0zBHMYK8t8w66JaKMGyLA/dQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=K4at5neX;
-	arc=none smtp.remote-ip=74.125.82.44
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=mediatek.com;
+	spf=pass smtp.mailfrom=mediatek.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=BzNfJwX4;
+	arc=none smtp.remote-ip=210.61.82.184
+Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52DB2606A327
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:25:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52DB2606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25A78606A31C;
+	Thu, 26 Nov 2026 06:27:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25A78606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mediatek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mediatek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=K4at5neX
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1a3c08d6928so9890722c88.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:25:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795674325; x=1796279125; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VZe39WaA8R6UeVIikLXAN07ESOsxBSo6V3fin9PGn8M=;
-        b=K4at5neX7QHiToiVo/vG/UxC2yV/7Yyw6zsQA82iUfKQrk0pXd18XCW/Jz5OlUkgBC
-         tXraDsQJx5DtuQXoSmD+cpIkWBviq1m4Pcz2UwD3CShAnXXLmSOK5MP/mtIe29M1rtTu
-         ibc/L7X5xbVH/fWOGQrBHfZcevV3pnZSDweRg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795674325; x=1796279125;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VZe39WaA8R6UeVIikLXAN07ESOsxBSo6V3fin9PGn8M=;
-        b=SMlWA6w4d8aRA42x6urqKIC/B6QmhpLOoDMcpdGF6yyncSFOkkQ8QSeeINErZpxNct
-         X2HtxvuYkcp7cVSLwOV7BjPxqJ2+T7j0UXykW7j9ChkRXfC0v0g3lKw8RJKmihzbKtbA
-         PVlPXd7pDUHk3UbP6HVxfwIMzmhBPCqA2u/Yf1ECAN81EEwi/4H/6Vplq3DTnvBvD8OX
-         evkojHwi9+PVqvkLJk6jSdGeRbBQKYE9K6bHFISx5Qm4YAPUn898GECGhYZ+bqMdqIRw
-         Mo5BamynFv9IUBJDSaIsTm6bkkuRrPUCfNgbPhHNPnZbsCMuzw8ghI8ielncBcX3zcZt
-         hlMg==
-X-Forwarded-Encrypted: i=1; AL+hErEl9b5+gZrwf+oDxIkrSARbbubWP6SqqcQhC91U4JOSMTyEGTwiSwxnDT0UJAuez2Em1Op+lfONu6OTFqA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/d5MqrvsAouGrnGxhUqGBdD0993UO2JgAOctm1BrRcT42yhq68
-	HeEfE5my8S/sw2glUjp7pP3e9TyRVtWiPz0w1pWEfgEpNAkq57YgDfSokZ36Lv2bbQ==
-X-Gm-Gg: AZFdTZdpVNiEgjhiywxBCu+dJNoGklmb7v/FzB5Nut+AriuOP4q5IDyaCTNaTZNSauZ
-	hg+svj2uMdCNoRuL93RgKDAo9dJeGvGkA6FAT4dQjkHjLl8icaoyaAhP90+hxUrpsJIX86iAkeb
-	0gQzb2tAOMm8+zlv9Z4J/glM1Tuh0gdslna3afuwKNQzjwm27NkWP6iFELVfe9j7SIeiJUBsOXT
-	IUEwLlpAlFky2G9AFxCf3XknhuKd76gJHKj0QUsFKnhPsxUpYxOTGPUlBmGjmqNFGrJYIWXBILm
-	eF9YOccZwGkJRp0pwI/u0O7bppnh6/H7525/t5T8FeHTji7EYGrL1xyUPOKsDzIasx4XNomq+BB
-	MwZE7qLeYC32A0Z6K5q+k3rqEetIM9r5cEblSYCvOUuRkdPpr2Xuw1b3rhohvDRJ8cz15KEUgi3
-	TYO6jNVmKS9bL+4R7WIgWxYmHj+GEvbQ+rAGrrfUD7dCZl0WGYMgsokf/c7PBc7JkFtTxoQEkaY
-	YmLeYl0/hirclS3fnsv7pUXl3qh2W/dkFdQ4+y+TNrKld3tqwxYAqiiBkC79JcxSTdJnOD/ur9J
-	zGvx9xZUfnSKAqy4DlyWEuYkQyCbBkowucDjqXZ6T8ezjkpfV6bd+QUnqkv2HtzPgnxGX209wK9
-	JkdOd2veGbjCUkUGAsIRfNQ==
-X-Received: by 2002:a05:7022:7f01:b0:15e:9126:c60f with SMTP id a92af1059eb24-1b5568bb55cmr17922707c88.29.1795674325489;
-        Wed, 25 Nov 2026 22:25:25 -0800 (PST)
-Received: from fshao-cloudtop.c.googlers.com (123.142.199.104.bc.googleusercontent.com. [104.199.142.123])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b56ef9fd16sm36793186c88.4.2026.11.25.22.25.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 22:25:25 -0800 (PST)
-From: Fei Shao <fshao@chromium.org>
-Date: Thu, 26 Nov 2026 14:23:50 +0800
-Subject: [PATCH 8/8] drm/mediatek: Expose GEM memory usage stats via fdinfo
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=BzNfJwX4
+X-UUID: 61979708e96211f1a7aecdb2598be72c-20261126
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From:Subject:Message-ID; bh=1D8mPUhCaEsrNElot8tnF/R4sri5CYIf/0Q3XZ/zvAs=;
+	b=BzNfJwX4NxxWehmFX2R/keIXjxZs5cEdCNWjoTeQzANUA6e24YxZU3t2fEaUBoowpjADG/A2VJXiPX4vd9idA4EX0TXlwenRW8+J/U+OX05lDQG7o3fgSIsal37CMT8rz71Vj2+QkGnJGiWitDb74Uy/2R5NkLSLiY1P3LASK9o=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:64a89749-c2c2-4185-a606-620f12ad19ab,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0318ac,CLOUDID:44ba5d31-f289-4656-bb36-27baf4489f11,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|136|836|865|888|898,TC:-5,Cont
+	ent:0|15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:
+	nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 61979708e96211f1a7aecdb2598be72c-20261126
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1503983675; Thu, 26 Nov 2026 14:26:57 +0800
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 26 Nov 2026 14:26:56 +0800
+Received: from [10.233.130.16] (10.233.130.16) by mtkmbs11n2.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
+ Transport; Thu, 26 Nov 2026 14:26:56 +0800
+Message-ID: <17e91a1ef61133b5c3e0e736577c9596091667ca.camel@mediatek.com>
+Subject: Re: [PATCH v3 0/3] scsi: ufs: core: Add debugfs for PA TFS/FEC
+ error counters
+From: Peter Wang <peter.wang@mediatek.com>
+To: Po-Wen Kao <powenkao@google.com>, <linux-scsi@vger.kernel.org>
+CC: Konstantin Vyshetsky <vkon@google.com>, Randall Huang
+	<huangrandall@google.com>, Alim Akhtar <alim.akhtar@samsung.com>, "Bart Van
+ Assche" <bvanassche@acm.org>, Bean Huo <beanhuo@micron.com>, Stanley Jhu
+	<stanleyjhu@google.com>, "James E . J . Bottomley"
+	<James.Bottomley@HansenPartnership.com>, "Martin K . Petersen"
+	<mkp@kernel.org>, Can Guo <can.guo@oss.qualcomm.com>,
+	<linux-kernel@vger.kernel.org>
+Date: Thu, 26 Nov 2026 14:26:56 +0800
+In-Reply-To: <20261125113435.1426680-1-powenkao@google.com>
+References: <20261125113435.1426680-1-powenkao@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,69 +90,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-drm-fops-show-fdinfo-v1-8-7cb1d1a5d6ef@chromium.org>
-References: <20261126-drm-fops-show-fdinfo-v1-0-7cb1d1a5d6ef@chromium.org>
-In-Reply-To: <20261126-drm-fops-show-fdinfo-v1-0-7cb1d1a5d6ef@chromium.org>
-To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Oded Gabbay <ogabbay@kernel.org>
-Cc: Lucas Stach <l.stach@pengutronix.de>, 
- Russell King <linux+etnaviv@armlinux.org.uk>, 
- Christian Gmeiner <christian.gmeiner@gmail.com>, 
- Rob Clark <robin.clark@oss.qualcomm.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, 
- Abhinav Kumar <abhinav.kumar@linux.dev>, 
- Jessica Zhang <jesszhan0024@gmail.com>, 
- Marijn Suijten <marijn.suijten@somainline.org>, 
- Boris Brezillon <boris.brezillon@collabora.com>, 
- Rob Herring <robh@kernel.org>, Steven Price <steven.price@arm.com>, 
- =?utf-8?q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>, 
- Melissa Wen <mwen@igalia.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Karol Wachowski <karol.wachowski@linux.intel.com>, 
- Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- etnaviv@lists.freedesktop.org, linux-arm-msm@vger.kernel.org, 
- freedreno@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, Fei Shao <fshao@chromium.org>
-X-Mailer: b4 0.16.0
+X-MTK: N
 
-Set .show_fdinfo to drm_show_memory_stats() to report standard GEM
-memory usage stats in /proc/<pid>/fdinfo/<fd> via DEFINE_DRM_GEM_FOPS().
+On Wed, 2026-11-25 at 19:33 +0800, Po-Wen Kao wrote:
+> From: Brian Kao <powenkao@google.com>
+>=20
+> This series exposes the MIPI UniPro v3.0 PA layer TFS/FEC error
+> counters (0x15C3-0x15C7) under debugfs:
+>=20
+> =C2=A0 /sys/kernel/debug/ufshcd/<dev>/pa_err_stats/{host,device}/
+>=20
+> Patch 1 fixes an existing teardown race by removing debugfs and
+> disabling debugfs_ee_work before scsi_remove_host() removes the WLUN.
+> Patch 2 defers debugfs creation until after device init while keeping
+> debugfs_ee_work initialization before IRQs are enabled. Patch 3 adds
+> the PA_TFS_* and UniPro 2.0/3.0 definitions and creates
+> pa_err_stats/{host,device}/ based on PA_LOCALVERINFO /
+> PA_REMOTEVERINFO.
+>=20
 
-Signed-off-by: Fei Shao <fshao@chromium.org>
----
- drivers/gpu/drm/mediatek/mtk_drm_drv.c | 2 ++
- 1 file changed, 2 insertions(+)
+Hi Brian,
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index a8bf0690756a..9d646740c468 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -18,6 +18,7 @@
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_drv.h>
- #include <drm/drm_fbdev_dma.h>
-+#include <drm/drm_file.h>
- #include <drm/drm_fourcc.h>
- #include <drm/drm_gem.h>
- #include <drm/drm_gem_dma_helper.h>
-@@ -607,6 +608,7 @@ static const struct drm_driver mtk_drm_driver = {
- 	DRM_FBDEV_DMA_DRIVER_OPS,
- 
- 	.fops = &mtk_drm_fops,
-+	.show_fdinfo = drm_show_memory_stats,
- 
- 	.name = DRIVER_NAME,
- 	.desc = DRIVER_DESC,
+The series looks good to me.
 
--- 
-2.56.1.839.g22a8290db9-goog
-
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
