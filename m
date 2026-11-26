@@ -1,61 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795656567;
-	b=bmkwoydXL1waicK69yys37cEWb7kAV4sefFCAbN0Pom+GT9LNK+74ylXVcLa2J2ZHCZ+
-	 vQWLZktMF2wf5nvWgr13viT7NK18z1m39hYYGxksv6WdAXXYA3zbp1PBktKprVa0/5vYv
-	 rxfF7utXI3eFvtddRd1I3huSNdZLyobeg22Zzswb6s8V2iNgSbZOAArNFytOCwDADFpcr
-	 dmTEIS5+n7pGXvXIplE3r5M3bQwwq3jF2WuaUOvLnN3x2E8J3utfFI5e2d9xCl2ssvroH
-	 TsaoifTsLR5ZDcsnb+ZKP4/9iN91jVKoEwyGPvCPKWYgwj0xTbvfiq28mg8DqqU7hpg==
+	t=1795656647;
+	b=WGaSJkvzgFyWuLgA3I8uli4fuPSzmRuueCxPmDS50a8o5F8KuJz0M4bSXsuiLT2jdjLB
+	 /G1PJmVtcfKK45TgRogR3KvYYB2ngeG8BV91oEUlYxLIp3lx7AbzifKoc8uVlF81TaCSx
+	 ZLzwRrT5RpcZj1hHJ6IKYeyCVHQgQ51lZ9zHrf/0czYuyTjx9jZajGsZvHxzBKhv6OEn2
+	 8ckIm/htuFOXhGOu7gff2Q+geVxQrabl3NavXnT3wpm0GzdQjtGrNukZWPrTW/UMR1Z/C
+	 L2vwa2UK0biJ1nuU0kq5QYw25gd+E3dw05ne50070cQXfoTxvJPpeTDWzthOdKxVOKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795656567;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=lYfAzimQeKYglGy8WwevUdBKNNX60VKjrnfwkOqQRfo=;
-	b=ubUSlFJabHz3l3TZv2mUaYfL+wvigDv9QCVjHVHzFRcZc+jvYlpz2vVcbw0O0jd3n+HG
-	 PO4AOzrYfq9epYzEwPjQ4GWibHOkeMsx2L1FXcktGpHn+C2Wqbw2gtQRKjv6TkSp4Q7LG
-	 70ZgJ0wm8IPAy3M4nMIAWAhNFY31kQSdqVGUxe149C81eLbKV1UPTrifVvbTbGtGYcln4
-	 Km5dvglfoDdoFdHB4EiTjHl0nc+epQP0VZC1/iq3kEiPH51QYleXdp9yNFZtTN4xfEYtF
-	 OcBZk9vqKxwOgbRYuI8FRbPuU7EnT95rniNaf2C1onmWUxC9PJnoE3DZq8rGxPH+MxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795656647;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=B7+XUUhyxk6IXkM7wXCrImejbkh4PLopZ1JC4w6bI80=;
+	b=Z9hZYgHXQmbtwSY5G5e6gwSdJY84HVkQ/DWAjxQ6OVXN8gVMcHN18RvM8+vAGoK4ywKt
+	 yp0GVVPVMiuYgH5HU11pp/4JFesGhc3Mm6oHcTU391J7CkGlmuTW+FY1FVnh5XcSrzpZg
+	 OdaI1nDKC5deFANGr0KDdd1DDW1rOr2xEiP0zeyT34Dg7OxKffeoCBShG6hSozBJfC0b8
+	 lFpbAsaeZOppR4EfrCBvW5uSHC/gSlGVqQIO4MNiwn44K+8pFZcTmUnjA7CEZohrPw/7j
+	 vs4m/LwasyFOgkqf8b6IYZnMUiynVnVSrrJvZyiNvcKYoev6gFIydhL/tOwzwlOcwkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dxMUR0dD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=FWJQCWnp;
+	arc=none smtp.remote-ip=220.197.31.3
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CB17606A31E;
-	Thu, 26 Nov 2026 01:29:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41D4B606A31E;
+	Thu, 26 Nov 2026 01:30:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41D4B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dxMUR0dD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A00E1F000C0;
-	Thu, 26 Nov 2026 01:29:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795656567;
-	bh=lYfAzimQeKYglGy8WwevUdBKNNX60VKjrnfwkOqQRfo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=dxMUR0dDne2xCfqgdQJjwD5xehGGP8/ybUT5OTPtfm+bfLou496LTRhExMEH2h2Li
-	 3AE4DFFh492a84zIJdULB7X2kIkhCnMqZxLRfoiOYN748O0HjXBkFqq8bJg/jST+P1
-	 gpPGb9+RacItd1fqshv88tbU6aoEhN0/NazKtWA8QF9n5ISTsKxwbxnjGNF7gmUTv/
-	 Oqx8inzQDu8P1Gc53ZHklmmM1DIgMSLnJrhi8stN7eK1q0+J1GgzugQgamup+OoXOy
-	 m0HuTEo9qnCgdt4hrYyioBVx4I8bghC++UCZhWUAgBQYkz76FIvNVsyboBsll3bhAd
-	 AFWMW5vQwzxKw==
-Date: Thu, 26 Nov 2026 01:29:19 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Joseph Telaak <joseph@telaak.dev>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Peter Rosin
- <peda@lysator.liu.se>, Michael Hennerich <Michael.Hennerich@analog.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux@analog.com, devicetree@vger.kernel.org,
- Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v2 0/6] iio: potentiometer: mcp4018: Add Analog Devices
- AD5246
-Message-ID: <20261126012919.4a3e9004@jic23-hlaptop>
-In-Reply-To: <20261125-iio-ad5246-v2-0-8feeb630f0b6@telaak.dev>
-References: <20261125-iio-ad5246-v2-0-8feeb630f0b6@telaak.dev>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=FWJQCWnp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=B7
+	+XUUhyxk6IXkM7wXCrImejbkh4PLopZ1JC4w6bI80=; b=FWJQCWnpoqBqcjxCoO
+	Nrzlbsx1zKrknYA/onErYe4ae7qVMo7Qx4rxEX+w0XDHo4ZpIeO+FCdqRmSrTKes
+	Y+jupF6WhAcVaZMfGj3hGMjm6FRx5zNzQQd59x5QciolzL10R8Pn1LsIixy8XDhU
+	qI7mKZJc0sBgM3EDUz6cnKv+8=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wB3VCGhiwdr3Kw5KQ--.18805S2;
+	Thu, 26 Nov 2026 09:30:10 +0800 (CST)
+From: zhangshida2026@163.com
+To: Carlos Maiolino <cem@kernel.org>
+Cc: "Darrick J . Wong" <djwong@kernel.org>,
+	Christoph Hellwig <hch@infradead.org>,
+	linux-xfs@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	zhangshida2026@163.com,
+	Shida Zhang <zhangshida@kylinos.cn>
+Subject: [PATCH v2 0/2] xfs: optimize getfsmap by reusing and advancing the refcount cursor
+Date: Thu, 26 Nov 2026 09:30:07 +0800
+Message-Id: <20261126013009.533557-1-zhangshida2026@163.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20261123075048.3658960-1-zhangshida@kylinos.cn>
+References: <20261123075048.3658960-1-zhangshida@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,24 +66,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wB3VCGhiwdr3Kw5KQ--.18805S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ZryDCF4DZw1DGF4DJFyfXrb_yoW8tr15pr
+	Z5KrW3Cw4kK3Z7Z3Z3Aw10qF1Fq3y8tw4rWr9xGrWUC347JryIvwn3KF15Za42krWrAF1Y
+	qr4q93WfCF4vkFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zNjgsUUUUUU=
+X-CM-SenderInfo: x2kd0wxvklvtasqslqqrwthudrp/xtbC5wKns2sHi6LxqwAA3u
 
-On Wed, 25 Nov 2026 15:22:27 -0500
-Joseph Telaak <joseph@telaak.dev> wrote:
+From: Shida Zhang <zhangshida@kylinos.cn>
 
-> The AD5246 is a 128-position I2C rheostat that speaks the MCP4017/18/19
-> protocol. This series adds it to the mcp4018 driver, so it can be an IIO
-> channel provider for an in-kernel consumer.
-> 
-> Patch 1 moves the out_resistance*_raw_available ABI to the generic file,
-> patch 2 reports the wiper range, patch 3 adds the binding, patch 4 turns
-> on the vdd supply, patch 5 moves the scale divisor into the per-part
-> config, and patch 6 adds the parts.
-> 
-Applied to the testing branch of iio.git. That means it is now queued up for
-the next merge window.
+GETFSMAP walks the rmap btree in increasing startblock order and asks
+the refcount btree whether each record's blocks are shared.  Every
+record pays a cursor alloc/free and a root-to-leaf btree search, even
+though the next query is almost always the next refcount record.
 
-Thanks,
+This series keeps one refcount cursor per group, positions it once, and
+advances it with xfs_btree_increment() as the rmap walk moves forward.
+Patch 1 factors out the cursor cleanup so patch 2 can add the cached
+refcount cursor without duplicating it.
 
-Jonathan
+Measured with a kernel-isolated FS_IOC_GETFSMAP loop over the whole data
+device (3000 reflinked 256KB files, mkfs -m rmapbt=1,reflink=1 -d
+agcount=4, Kunpeng 920 + NVMe), mean of three interleaved A/B runs:
+
+                      original    this series
+  walk time           3048 us     324 us   (9.4x)
+  xfs_btree_lookup    10.7%       ~0%      (% of cycles)
+
+The full fsmap output is byte-identical before and after (6421 records).
+
+---
+
+v2:
+ - split into a prep patch (xfs_getfsmap_del_cursors helper) and the
+   optimization, per hch
+ - merged the cursor alloc and initial-position branches, removed
+   rc_positioned; alloc+position is now xfs_getfsmap_refcount_init()
+ - EOF check moved before cursor allocation; rc_eof reset on cursor
+   free so it can't leak across groups
+ - fixed all lines over 80 columns and the rc_cur indentation
+ - reworded the commit messages
+
+v1: https://lore.kernel.org/linux-xfs/20261123075048.3658960-1-zhangshida@kylinos.cn/
+
+Testing (7.3.4, Kunpeng 920 + NVMe, mkfs -m rmapbt=1,reflink=1):
+ - full xfstests -g auto: 1166 tests run; the 30 failures are environmental
+   (none use fsmap) and reproduce on the unpatched base kernel
+ - data fsmap byte-identical base vs series (6421 records)
+ - realtime reflink (rtrefcountbt) path exercised: fsmap over a reflinked
+   realtime volume is byte-identical, 1000 shared records
+
+Shida Zhang (2):
+  xfs: factor out a xfs_getfsmap_del_cursors helper
+  xfs: optimize getfsmap by reusing and advancing the refcount cursor
+
+ fs/xfs/xfs_fsmap.c | 149 +++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 125 insertions(+), 24 deletions(-)
+
+-- 
+2.34.1
+
