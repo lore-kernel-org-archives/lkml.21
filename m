@@ -1,76 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703575;
-	b=3ljPzOjcbI6gq5UP+golZFABptT9i3bR/Dyv4rjAeNNKUGecb7fp2zLDSKW8CgViln7r
-	 8A7y0ynJlJW3m3Iv9S1y0eKUSBWoRwZouU3SdnoCIt3K2MuHBoTcScy16mwHcwmjwCd/8
-	 Iq4ILif8ER6HbKmqgFuA1oujKbOjQmTelX37KSuiB1WMMlcWC8DJdITCiyxpYdNx1q0V6
-	 7Rg/yazUTVd40ZN17cc2KbphGht0gjD+5msYSEWebjFX1IN7+1J5AXY3R73Pj7uyFLrEV
-	 NAUpJethZKAYbwDqQsAU0RwsVZydTq4nt4uG1H29dX/BpsSOj6NSGmb7l/uXuJTgsAQ==
+	t=1795703623;
+	b=CwNTvkSdMWElDhGZt8rtvbVMMn4frHydjR4akZSuFKvvEy8yAZhjSwTr61A47sWPJjeg
+	 7LCZDOX3oBX2/KmLgBKEMKYccCwqOQJsVEjE15wTGnpku2HJj2g+TmjLNxlwpfJeTr+Bh
+	 mV321OVGaSn99TX2h78NybLbq+SeOiZZvmMQjTOhBw4tqyBD0Xzj+JYAFaJy6uMLroH3x
+	 sMDWnWeqcqicTg5LASLkUs0kPhrpi7OHp3F4HGjWY6LSz39DWF7+rDooE3l+0NJpcPc5+
+	 d3qP0TeeeY6UBu21tm2zavSlW5O899vuPsnPmPZpN8z8EkUVJyazYomY6qoAutK1AjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703575;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=lh7RPirw1fOLix78b5McENzWSQPv2ScyL9X0ufdtQao=;
-	b=RtfF0jTxz52UoQrZ2YuxDTjTdKfQzlnDACaR0yrMgjpKyoVhSZvuGdQM+OQ8rKI1lFmB
-	 xtbEKH9q+uV5o3ov28SjObsyhFf2UbUZSFXQx9Z57AzV77O/LgbY4XMmwZ/QJC4UKxNeQ
-	 Et5ibvDjG/wqElNe9YZJvti0v/nCoNDh/xdRcfA0zUTaODMluZwjBkY26Pepk1yrdXbtI
-	 /YrODVYJA+nwm33w58+PZLlglJddpVsLFkTRgcbiC6in+WIAAzA6xAofdm564pnklckiR
-	 OCsHrxX6IpSR4lmOAx18A0XZR/WiKbnka8gY50tS6DUp84Qk+f+NqGvR9+ArzTExiSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703623;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
+	bh=OdZbwpP/zDQdp9WYnj9Y3rkO79PVsL1DSsAoVUblECU=;
+	b=e/Crkch7eW1kfE5VuojW3mH354I+ykvHOs5QGvVuXJlqr6F0Hsw6I7ldWMgyZyL5PxV+
+	 YmAQCry1ySeTOnKIpbJN8l6/3Ir1R9zEXTRdlti5L0UBWE3MNGkxVyrYi7mGAUEkvd6mE
+	 cNxVKHpdFPyxYkrM2yBPc95PQ9hNs+a2l02zeDHYRH7ZD8AwvLUPbJSaLYk2Hei1fqsdm
+	 cjbTfm2UrBecmQ1vVAsfpm1+/skko62gDhrREKzhDZaEB1W49aZVh2fm2aj/iuECI/JaG
+	 J6u3rRMvlJn0WiZepPbBY4SvkdfEXzP/rs00ZX8xmeVgUumN+aqfRmCTxy6K3ACZoiQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HrNCUEeT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=gmx.de;
+	spf=pass smtp.mailfrom=gmx.de;
+	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=hfhtWQhh;
+	arc=none smtp.remote-ip=212.227.15.15
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28024606A683;
-	Thu, 26 Nov 2026 14:32:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8866606A335
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:33:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8866606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HrNCUEeT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E28361F000C4;
-	Thu, 26 Nov 2026 14:32:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795703574;
-	bh=lh7RPirw1fOLix78b5McENzWSQPv2ScyL9X0ufdtQao=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=HrNCUEeTAhOWR1IQilGFsl5Z0M6KEHvI3p4ZWhkWJYc1d/3XH4HfTdnseq1layVul
-	 lOtNqTbJpsHUKstbpbjjtYqQX69nCKvS5+PsgDzzf+Cq+KWqngjIzTc3iBme6+zoSc
-	 M39ST3oF5CJCTOEMq0tDLWmyrVIJ5lRYcY+rJT1R90HPfLeCv7IHwb3gD6G2G+sPI0
-	 9Nn2gQBWu0jjP6GTuO2XWveelOPUmUaPer/YNTzdl6IbM75hivo+kH4u8Q0eQc4KkN
-	 HtTLKBmIhLXuqmepKnj0ZdFVE3zXyITbbn4DdOgQnH9ZLCmw0FlfSW5p2//I9bEqF4
-	 Gz6P9fwNyolBg==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Todd Freed <toddfreed@meta.com>, netdev@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Boris Pismenny <borisp@nvidia.com>, Cosmin Ratiu
- <cratiu@nvidia.com>, Daniel Zahka <daniel.zahka@gmail.com>, Donald Hunter
- <donald.hunter@gmail.com>, Dragos Tatulea <dtatulea@nvidia.com>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Jamal
- Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, Leon
- Romanovsky <leon@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>, Paolo Abeni
- <pabeni@redhat.com>, Pedro Tammela <pctammela@mojatatu.com>, Saeed
- Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>, Tariq
- Toukan <tariqt@nvidia.com>, Wei Wang <weiwan@google.com>, Willem de Bruijn
- <willemdebruijn.kernel@gmail.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- bpf@vger.kernel.org, =?utf-8?Q?Asbj=C3=B8rn?= Sloth =?utf-8?Q?T=C3=B8nnes?=
- =?utf-8?Q?en?= <ast@fiberby.net>, Qingfang
- Deng <qingfang.deng@linux.dev>, Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgense?=
- =?utf-8?Q?n?= <toke@redhat.com>,
- Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah
- Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
- Matthieu
- Baerts <matttbe@kernel.org>, David Ahern <dsahern@kernel.org>, Jonas
- =?utf-8?Q?K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>, Hangbin Liu
- <hangbin.liu@linux.dev>
-Subject: Re: [PATCH net-next v3 02/12] psp: take the psp nexthdr from the
- packet on encap
-In-Reply-To: <20261124221758.3230929-3-toddfreed@meta.com>
-References: <20261124221758.3230929-1-toddfreed@meta.com>
- <20261124221758.3230929-3-toddfreed@meta.com>
-Date: Thu, 26 Nov 2026 15:32:50 +0100
-Message-ID: <87h5h3irxp.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=hfhtWQhh
+DKIM2-Signature:  i=1; m=1; t=1795703619;
+ mf=PFdfQXJtaW5AZ214LmRlPg==;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=gmx.de;
+ s=s31663417:rsa-sha256:qufEQASPk3f6tC5j5m7HbZjyEtTy
+   f5ahCXyj8mtSaiAt1D7J9VAd9ndXcDkNR+N2yMtjSw7J9NQbS05zPUkPFb0hu5vT9L7wemy4NzU
+   nkKHHdtsjwNVyPHcrNsemiQiwtXmBcTV/WJe0QyQZL0Foc29EQqSuOYROP5Pbn24NGSTIKNNlJn
+   pgSh/EVUb1IcZdv2U6A+Arx42jvYjVvwtq9LubxjSZxAMwKCRf99h8G1eAXcpG3bhcD6GbT8R0G
+   1qftedyPtNYEy2fPxfbS6QEMYuLzDsrZFxpWpLi0VodvxXO/ILUlLkZ2TW+rIf8adC7BAoQfEbx
+   H1SUtWLKgBclMw==;
+Message-Instance:  m=1;
+ h=sha256:
+   DoPzZyvmG2JKlDuQpj4z52DDd7SX7xtS869YTZjr1BU=:
+   QSB85PwWkGl3gs95ElQHB9OHXGf8tCPoISgJWKKJxwU=,
+  sha512:
+   1bDddrAGFxSihIG0lNOg4TigDAiz5TQHO+WMt+ZaZxlZWIE/JZ8m8dKmfRnT/O/CVTrQ1BYs0xoy7bFTR2mahA==:
+   KK9yOUy8fYrHdPCrOxnlnIhrJmb5/TZ4QRJkuAIcNg6yv5LkQyB1MZ8hov+9kG6ZXZtFQSWWoNyVJjnfR7hgpQ==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1795703619; x=1796308419; i=w_armin@gmx.de;
+	bh=OdZbwpP/zDQdp9WYnj9Y3rkO79PVsL1DSsAoVUblECU=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=hfhtWQhh6eiYHCtz17XURouvFh9g8QAyKVv8t4XHthHJqiVueXRY2DOoqS0j0TZj
+	 SPPNOFUQ0ywIF7g01Te0/Yx8U5oUXisfRfswAGFvUParGC7Y/qDd9R6QRjYJGtjuM
+	 nErjLJWBRY92gIalYLbTyYSe+EVMxxBNecdHMo/+GblihT4I9GJ0ulqaIn2vZ2rY/
+	 /NdFJJD6QECA+KHuW+mCiiPVfa0JNz/hLtpxnw8CwGHeZBLJsd60kcNrj1aPS5rKW
+	 //fxJV98er1hMK+jAGbWHdJj2zSQ/cjkxcUASz/40TKBtbS7RybOIYTaopdWO68OO
+	 E3Gslnw539iOzPjGlQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MOiHl-1xsGnV3DTz-00SojK; Thu, 26
+ Nov 2026 15:33:38 +0100
+From: Armin Wolf <W_Armin@gmx.de>
+To: matan@svgalib.org
+Cc: hansg@kernel.org,
+	ilpo.jarvinen@linux.intel.com,
+	platform-driver-x86@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	daxter1992@gmail.com
+Subject: [PATCH v2 2/2] platform/x86: lg-laptop: Improve keyboard backlight detection
+Date: Thu, 26 Nov 2026 15:32:32 +0100
+Message-ID: <20261126143327.419702-2-W_Armin@gmx.de>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126143327.419702-1-W_Armin@gmx.de>
+References: <20261126143327.419702-1-W_Armin@gmx.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,240 +90,202 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:gZUB4u8LnFLMQ5NKFz7FORaQ6MaFnzS4y38MMYLJKCx9qIUfgZj
+ AmltfQ9X9i4yjH7Kj+kyxbEVnRiousW+CHYoXQP3lu/Ods+slBAtteNKpMuTMdfTae3mjOO
+ B8hhvnanS+0l9LPzhcBm94lJSbE5y42ak2N/zdFFd3TJBsC59m4WHHdKMevJM++DRbjKR7A
+ hJUwdD9kFqOCQalqiG5XQ==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:PHg+GZNcYJE=;P+djx9AkDvt9HwX+EZLkuhLFs1s
+ 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
 
-Todd Freed <toddfreed@meta.com> writes:
+Not all devices support the keyboard backlight feature, instead they
+will return an error when trying to read/write the backlight level.
 
-> PSP socket support has thus far been limited to TCP, and
-> psp_dev_encapsulate() hardcodes IPPROTO_TCP as the PSP next header.
->
-> Socket-less PSP associations will also support UDP traffic. Populate the
-> PSP next header from the IP header of the original packet instead.
->
-> With the next header taken from the fixed header, psp_dev_encapsulate()
-> now refuses some cases which are unsupported:
->
->  - IPv4 and IPv6 fragments. Non-initial fragments have no L4 header, so
->    this cannot work. Not a behavior change for PSP sockets.
->  - IPv6 extension headers. More generally, any packet whose transport
->    header isn't right after the IP header (IPv4 options are fine). Some
->    of these could be supported in the future. Not a behavior change for
->    PSP sockets.
->  - Already encapsulated for a tunnel (skb->encapsulation). Their inner
->    headers are already set up.
->  - A checksum to complete (CHECKSUM_PARTIAL) for a next header other than
->    TCP or UDP, which the device can't complete behind the PSP header.
->    Software GSO of a tunnel with an outer checksum, e.g. GRE with csum,
->    clears skb->encapsulation on the segments but leaves the outer checksum
->    to the device.
->
-> Both callers of psp_dev_encapsulate(), mlx5 and netdevsim, drop the
-> packet when it returns false.
->
-> mlx5e also fixes up the TCP checksum of GSO skbs for the device, which
-> is only valid for TCP. Have the stack segment other GSO skbs, e.g. UDP
-> from socket-less associations, in software. Likewise the device only
-> completes a TCP or UDP checksum behind the PSP header: have the stack
-> checksum the other CHECKSUM_PARTIAL skbs.
->
-> For the outer UDP source port, psp_write_headers() already branches to
-> use TCP ehash if the skb has a socket, with fallback to
-> udp_flow_src_port(). Previously, sk always meant TCP. Add an explicit
-> check on nexthdr, and on the socket being a TCP one (a raw or packet
-> socket can send TCP segments, and has no sk_hash), so that the fallback
-> branch is taken for other packets. udp_flow_src_port() hashes the flow
-> if the skb has no hash yet: compute it in psp_dev_encapsulate() before
-> the headers are moved and the IP protocol rewritten, so that it covers
-> the packet's own flow rather than the outer headers being written.
->
-> Signed-off-by: Todd Freed <toddfreed@meta.com>
-> ---
->  .../net/ethernet/mellanox/mlx5/core/en_main.c | 33 +++++++++
->  net/psp/psp_main.c                            | 67 ++++++++++++++++---
->  2 files changed, 90 insertions(+), 10 deletions(-)
->
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_main.c b/drivers/=
-net/ethernet/mellanox/mlx5/core/en_main.c
-> index 54f4f5a097c8..0fac06651e5b 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
-> @@ -5248,6 +5248,23 @@ static netdev_features_t mlx5e_tunnel_features_che=
-ck(struct mlx5e_priv *priv,
->  	return features & ~(NETIF_F_CSUM_MASK | NETIF_F_GSO_MASK);
->  }
->=20=20
-> +/* The L4 protocol right after the IP header (and its IPv4 options), whi=
-ch
-> + * the PSP Tx path requires, is one the device can complete the checksum=
- of
-> + */
-> +static bool mlx5e_psp_l4_csum_ok(const struct sk_buff *skb)
-> +{
-> +	u8 proto;
-> +
-> +	if (skb->protocol =3D=3D htons(ETH_P_IP))
-> +		proto =3D ip_hdr(skb)->protocol;
-> +	else if (skb->protocol =3D=3D htons(ETH_P_IPV6))
-> +		proto =3D ipv6_hdr(skb)->nexthdr;
-> +	else
-> +		return false;
-> +
-> +	return proto =3D=3D IPPROTO_TCP || proto =3D=3D IPPROTO_UDP;
-> +}
-> +
->  netdev_features_t mlx5e_features_check(struct sk_buff *skb,
->  				       struct net_device *netdev,
->  				       netdev_features_t features)
-> @@ -5256,6 +5273,22 @@ netdev_features_t mlx5e_features_check(struct sk_b=
-uff *skb,
->=20=20
->  	features =3D vlan_features_check(skb, features);
->=20=20
-> +	/* The PSP tx path fixes up the TCP checksum of a GSO skb for the
-> +	 * device, which is only valid for TCP, and the device only completes
-> +	 * a TCP or UDP checksum behind the PSP header. Have the stack segment
-> +	 * and checksum other skbs.
-> +	 */
-> +	if ((skb_is_gso(skb) || skb->ip_summed =3D=3D CHECKSUM_PARTIAL) &&
-> +	    mlx5e_psp_is_offload(skb, netdev)) {
-> +		if (skb_is_gso(skb) &&
-> +		    !(skb_shinfo(skb)->gso_type &
-> +		      (SKB_GSO_TCPV4 | SKB_GSO_TCPV6)))
-> +			features &=3D ~NETIF_F_GSO_MASK;
-> +		if (skb->ip_summed =3D=3D CHECKSUM_PARTIAL &&
-> +		    !mlx5e_psp_l4_csum_ok(skb))
-> +			features &=3D ~NETIF_F_CSUM_MASK;
-> +	}
+Avoid registering the associated LED class device on such devices
+by first verifying that reading of the backlight level works. For
+this the get_kbd_backlight_level() function has to be modified to
+stop hiding any errors coming from the WMAB call.
 
-Hmm, that's a large check in the hotpath -- maybe it's cheap? So the
-cost for small UDP packets with Tx checksumming enabled and no PSP don't
-blow up.
+Reported-by: Carlos Javier Alvarez <daxter1992@gmail.com>
+Closes: https://bugzilla.kernel.org/show_bug.cgi?id=3D222275
+Tested-by: Carlos Javier Alvarez <daxter1992@gmail.com>
+Signed-off-by: Armin Wolf <W_Armin@gmx.de>
+=2D--
+Changes since v1:
+- fix error handling in lg_laptop_handle_input_event()
+=2D--
+ drivers/platform/x86/lg-laptop.c | 24 +++++++++++++++++++++---
+ 1 file changed, 21 insertions(+), 3 deletions(-)
 
-> +
->  	/* Validate if the tunneled packet is being offloaded by HW */
->  	if (skb->encapsulation &&
->  	    (features & NETIF_F_CSUM_MASK || features & NETIF_F_GSO_MASK))
-> diff --git a/net/psp/psp_main.c b/net/psp/psp_main.c
-> index 964749a865b1..dc6144469647 100644
-> --- a/net/psp/psp_main.c
-> +++ b/net/psp/psp_main.c
-> @@ -214,7 +214,8 @@ unsigned int psp_key_size(u32 version)
->  EXPORT_SYMBOL(psp_key_size);
->=20=20
->  static void psp_write_headers(struct net *net, struct sk_buff *skb, __be=
-32 spi,
-> -			      u8 ver, unsigned int udp_len, __be16 sport)
-> +			      u8 ver, u8 nexthdr, unsigned int udp_len,
-> +			      __be16 sport)
->  {
->  	struct udphdr *uh =3D udp_hdr(skb);
->  	struct psphdr *psph =3D (struct psphdr *)(uh + 1);
-> @@ -236,10 +237,11 @@ static void psp_write_headers(struct net *net, stru=
-ct sk_buff *skb, __be32 spi,
->  	 * This field is subject to reshuffling, thanks to
->  	 * sk_rethink_txhash() calls in various TCP functions.
->  	 *
-> -	 * Instead, use sk->sk_hash which is constant through
-> +	 * Instead, use sk->sk_hash for TCP which is constant through
->  	 * the whole flow duration.
->  	 */
-> -	if (likely(sk)) {
-> +	if (likely(sk && nexthdr =3D=3D IPPROTO_TCP &&
-> +		   (!sk_fullsock(sk) || sk_is_tcp(sk)))) {
->  		u32 hash =3D sk->sk_hash;
->  		int min, max;
->=20=20
-> @@ -261,7 +263,7 @@ static void psp_write_headers(struct net *net, struct=
- sk_buff *skb, __be32 spi,
->  	uh->check =3D 0;
->  	udp_set_len(uh, udp_len);
->=20=20
-> -	psph->nexthdr =3D IPPROTO_TCP;
-> +	psph->nexthdr =3D nexthdr;
->  	psph->hdrlen =3D PSP_HDRLEN_NOOPT;
->  	psph->crypt_offset =3D 0;
->  	psph->verfl =3D FIELD_PREP(PSPHDR_VERFL_VERSION, ver) |
-> @@ -270,8 +272,34 @@ static void psp_write_headers(struct net *net, struc=
-t sk_buff *skb, __be32 spi,
->  	memset(&psph->iv, 0, sizeof(psph->iv));
->  }
->=20=20
-> -/* Encapsulate a TCP packet with PSP by adding the UDP+PSP headers and f=
-illing
-> - * them in.
-> +/* UDP+PSP goes in at the transport header, the protocol of the IP header
-> + * becomes UDP, and the PSP next header takes the protocol it had. The
-> + * transport header must directly follow the IP header: IPv4 options are=
- fine,
-> + * IPv6 extension headers aren't.
-> + */
-> +static bool psp_dev_encap_ok(const struct sk_buff *skb)
-> +{
-> +	u32 network_len =3D skb_network_header_len(skb);
-> +
-> +	/* inner headers already set up */
-> +	if (skb->encapsulation)
-> +		return false;
-> +	/* fragments not supported for transport mode */
-> +	if (skb->protocol =3D=3D htons(ETH_P_IP))
-> +		return network_len =3D=3D ip_hdrlen(skb) &&
-> +		       !ip_is_fragment(ip_hdr(skb));
-> +	if (skb->protocol =3D=3D htons(ETH_P_IPV6))
-> +		return !ipv6_ext_hdr(ipv6_hdr(skb)->nexthdr) &&
-> +		       network_len =3D=3D sizeof(struct ipv6hdr);
-> +	return false;
-> +}
-> +
-> +/* Encapsulate a packet with PSP by adding the UDP+PSP headers and filli=
-ng
-> + * them in. The PSP next header is taken from the IP header: packets with
-> + * IPv6 extension headers, or whose transport header isn't right after t=
-he IP
-> + * header, are refused, as are IP fragments, packets already encapsulated
-> + * for a tunnel, and packets with a checksum to complete for a protocol =
-other
-> + * than TCP or UDP.
->   */
->  bool psp_dev_encapsulate(struct net *net, struct sk_buff *skb, __be32 sp=
-i,
->  			 u8 ver, __be16 sport)
-> @@ -279,11 +307,30 @@ bool psp_dev_encapsulate(struct net *net, struct sk=
-_buff *skb, __be32 spi,
->  	u32 network_len =3D skb_network_header_len(skb);
->  	u32 ethr_len =3D skb_mac_header_len(skb);
->  	u32 bufflen =3D ethr_len + network_len;
-> +	u8 nexthdr;
->=20=20
-> -	if (skb->protocol !=3D htons(ETH_P_IP) &&
-> -	    skb->protocol !=3D htons(ETH_P_IPV6))
-> +	if (!psp_dev_encap_ok(skb))
->  		return false;
->=20=20
-> +	if (skb->protocol =3D=3D htons(ETH_P_IP))
-> +		nexthdr =3D ip_hdr(skb)->protocol;
-> +	else
-> +		nexthdr =3D ipv6_hdr(skb)->nexthdr;
-> +
-> +	/* Devices complete only a TCP or UDP checksum behind the PSP header.
-> +	 * Software GSO of a tunnel with an outer checksum, e.g. GRE, leaves
-> +	 * the segments here with encapsulation cleared and CHECKSUM_PARTIAL
-> +	 * at the tunnel header.
-> +	 */
-> +	if (skb->ip_summed =3D=3D CHECKSUM_PARTIAL &&
-> +	    nexthdr !=3D IPPROTO_TCP && nexthdr !=3D IPPROTO_UDP)
-> +		return false;
-> +
-> +	/* udp_flow_src_port() may need to hash the flow: do it on the
-> +	 * original headers, before they are moved and rewritten
-> +	 */
-> +	skb_get_hash(skb);
+diff --git a/drivers/platform/x86/lg-laptop.c b/drivers/platform/x86/lg-la=
+ptop.c
+index a784071de8b3..43c4985da810 100644
+=2D-- a/drivers/platform/x86/lg-laptop.c
++++ b/drivers/platform/x86/lg-laptop.c
+@@ -641,10 +641,10 @@ static enum led_brightness get_kbd_backlight_level(s=
+truct device *dev)
+=20
+ 	ret =3D lg_wmab_get(dev, WM_KEY_LIGHT, &value);
+ 	if (ret < 0)
+-		return LED_OFF;
++		return ret;
+=20
+ 	if (FIELD_GET(KBD_LED_MAGIC_MASK, value) !=3D KBD_LED_MAGIC)
+-		return LED_OFF;
++		return -EIO;
+=20
+ 	if (FIELD_GET(KBD_LED_MODE_MASK, value) =3D=3D KBD_LED_MODE_OFF)
+ 		return LED_OFF;
+@@ -719,6 +719,9 @@ static void lg_laptop_handle_input_event(struct input_=
+dev *input_dev, u32 value,
+ 				break;
+=20
+ 			kbd_brightness =3D get_kbd_backlight_level(kbd_backlight.dev->parent);
++			if (kbd_brightness < 0)
++				kbd_brightness =3D LED_OFF;
++
+ 			led_classdev_notify_brightness_hw_changed(&kbd_backlight, kbd_brightne=
+ss);
+ 			break;
+ 		default:
+@@ -823,6 +826,21 @@ static int lg_laptop_input_init(struct device *dev, a=
+cpi_handle handle)
+ 	return 0;
+ }
+=20
++static int lg_laptop_kbd_backlight_init(struct device *dev)
++{
++	int ret;
++
++	/*
++	 * Devices that do not support the keyboard backlight feature
++	 * usually return a error when trying to read the backlight level.
++	 */
++	ret =3D get_kbd_backlight_level(dev);
++	if (ret < 0)
++		return ret;
++
++	return devm_led_classdev_register(dev, &kbd_backlight);
++}
++
+ static acpi_status lg_laptop_address_space_write(struct device *dev, acpi=
+_physical_address address,
+ 						 size_t size, u64 value)
+ {
+@@ -1035,7 +1053,7 @@ static int acpi_probe(struct platform_device *pdev)
+ 		battery_limit_use_wmbb =3D 1;
+=20
+ 	/* LEDs are optional */
+-	ret =3D devm_led_classdev_register(&pdev->dev, &kbd_backlight);
++	ret =3D lg_laptop_kbd_backlight_init(&pdev->dev);
+ 	if (ret < 0)
+ 		kbd_backlight_available =3D false;
+ 	else
+=2D-=20
+2.56.1
 
-Wdyt about adding a helper that does source port selection here?
-Then pass that sport to the psp_write_headers (unused argument btw). The
-block in the header writer is then just uh->source =3D sport.
-
-Interesting series!
-
-
-Bj=C3=B6rn
