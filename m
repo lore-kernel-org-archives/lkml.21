@@ -1,97 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795687667;
-	b=RXpOIKk5Dnw0pzdjeooVC9c8TAC10XBtTcrQR8EuniwhcQCYVdALTTjC5avPzjESZ7jj
-	 4WzXsSxr3FUm/G0NPlN/him0bT43QzXR8XaqFUXCxBJNRoof9RCBg6nH6Hf8QhukN5Tv1
-	 E68e7c9AupQPq+sP2FGhQIF5lFANsoVFiAuyD1cWmTCHFoWm/4PD0UFb7JwDnnwzKaBY8
-	 hg+QxuvYuQiaz3v2wsxH3eYiFcGWtzfNUP0ZaYDtX94lKAi1MUtUMopvrzym/auAWA4YA
-	 85qQNV4EOXnnMRUJ1FLciCJK1d1/9hqvoz4Ylw8SpSqWmyC14wIAu9a0h9plBrB2h5g==
+	t=1795687669;
+	b=DOnfwlWeZWa5HCe056lNxlCvIMGvEglXZ+ef9A4X2Oz2mlwNdDYKIdvXa9Lw6N4bKZSl
+	 rJAhJK6wkP2gvoVYGWtpV89gX+rSo/DbXndZXsXAGrnM85Ec2WFzd45qlSl1c8XzTRNRF
+	 AYrDGy34ATVnVOMECu73wUaM/30ajK/3iDgxjmnV8/F7lky3nVDq/gaDy+/rD1A9UGsKa
+	 oTSik+53OiE6b6DrO4AE8tERbP1m24r78hJwYpaA3xrDHRmonIfNWgrSBcgY3CkrMhqD8
+	 UdKlOlXGRUCMiX030WExLWnLIeegCTVSH9oEWp9HQqZrvyyrQK4ccMnhrg7kagHi0Hw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795687667;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795687669;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
+	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=2FQzcmdWuR6mzCWiHNw819pdvBvln6aeaDVrWUxMTqU=;
-	b=qnzv9ByakYNDJJXg3I+ChAlbWrPL2yiLLDcFdQYduClFXPchMPqptq5omubWzRJArcvF
-	 M+xxY3HQ9fgoFgaWlOYM59BT1Aw8jwOGb6oKjngFtjfHlCrRvBP5fizqCxpRbA44rmx/Q
-	 PntnjcMTOnWzgdH9jSzja6wjLS2rN89r2XR095IZy4ky/0qtjB1Ul18n+asRYofSW+457
-	 GmrZOGAYru8XoAqg4oYoc5tw3PSLmVQjDFOAbTLQMkEyb7sl0xkwP5/yin+4TCLepET7q
-	 MLf4VoBbRgz83VQi+y8LMrXXLNiXbZ5uhPSvjA7lGz7lriNj71FwNzT+/z+9G7fMwqA==
+	bh=sqyhnicDhpkGAm6vt+Gh5feLU6BYKVrlXMdIf5bBnuA=;
+	b=GThvbQy+JrZ13MgYiekReeBNrWOd7OocEZBaPqoIxpKlgdTpF2tIDTVCMB8GSVoVXnq4
+	 hoEQCVV8LCNDYR2oY6WfLeiUzgvdbJcNdakgwxrvRymJgZ152ePVeqvRcvolnulxSWU60
+	 N3Yv3xiUiKQJGGqROMbCRAhub/2Pz7XOwjpofT2N45fcRiqV7ucI/AXCxB2VpAwkw4rei
+	 6wfbUVJGMXGA5C7+ltGmbVFma6UA/SAHSYkU0LfsT7HyRiZkMxt5TIVUZrjtiPxHtWanf
+	 MBDijK2NQNAtQ6UuuQ5mFm5LKbMv8/goN4KzZF3CIOBpPFv8y56G7TZHARMPqjd4v2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q2ZsT1LY;
-	arc=none smtp.remote-ip=95.215.58.71
-Received: from mta1.migadu.com (out-71.mta1.migadu.com [95.215.58.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C403606A32D
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:07:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C403606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q2ZsT1LY
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=GI1XpP+ljsyfP43UHLv7NCLXQmakxhCuFxYt4ZNGCiQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795687665; v=1; x=1796292465;
- b=q2ZsT1LYL7XNWQlSSK245hDe30mzFMYXHMpjfIFgyJKLOOdn7rfuNq7K2u2B01yqAx+su3Zo
- 2gsrnYb6Qp0Z+NE2EwidQ/OutEvG7gnh1Zof7AhYCaS5RnUFBOJabmLvAxvr461VWbcupMUMxXW
- 0BU0HA/NoGaLUfCueUC0jG7E=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 2480f8a893a63f48;
-	Thu, 26 Nov 2026 10:07:44 +0000
-X-Mizu-Trace-ID: 2480f8a893a63f48
-X-Migadu-Flow: FLOW_OUT
-From: Mengmeng Zhao <mengmeng.zhao@linux.dev>
-To: arsenova@a7snv.com
-Cc: adilger.kernel@dilger.ca,
-	anuj1072538@gmail.com,
-	anuj20.g@samsung.com,
-	asml.silence@gmail.com,
-	axboe@kernel.dk,
-	brauner@kernel.org,
-	christian.koenig@amd.com,
-	corbet@lwn.net,
-	djbw@kernel.org,
-	dri-devel@lists.freedesktop.org,
-	hch@lst.de,
-	jack@suse.cz,
-	libaokun@linux.alibaba.com,
-	linaro-mm-sig@lists.linaro.org,
-	linux-block@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02712606A31C;
+	Thu, 26 Nov 2026 10:07:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02712606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: 359f1e9ae98111f19a56ed5b684f684d-20261126
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:7abd7bb3-f148-44ef-a6fc-5090b5df27bb,IP:0,U
+	RL:0,TC:0,Content:-5,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:20
+X-CID-META: VersionHash:7db8b62,CLOUDID:d88d4222f20b6b6f86b2c378f6c4f1a0,BulkI
+	D:nil,BulkQuantity:0,SF:102|850|865|898,TC:nil,Content:0|15|50|99,EDM:5,IP
+	:nil,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 359f1e9ae98111f19a56ed5b684f684d-20261126
+X-User: zhangheng@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zhangheng@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 798453359; Thu, 26 Nov 2026 18:07:38 +0800
+From: Zhang Heng <zhangheng@kylinos.cn>
+To: tiwai@suse.de
+Cc: perex@perex.cz,
+	linux-sound@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-xfs@vger.kernel.org,
-	liwang@kylinos.cn,
-	mcgrof@kernel.org,
-	mengmeng.zhao@linux.dev,
-	nj.shetty@samsung.com,
-	nvdimm@lists.linux.dev,
-	ojaswin@linux.ibm.com,
-	phasta@kernel.org,
-	rdunlap@infradead.org,
-	ritesh.list@gmail.com,
-	skhan@linuxfoundation.org,
-	sumit.semwal@linaro.org,
-	tytso@mit.edu,
-	viro@zeniv.linux.org.uk,
-	willy@infradead.org,
-	yi.zhang@huawei.com,
-	zhaomengmeng@kylinos.cn
-Subject: [RFC PATCH v3 2/8] iomap: add dma-buf direct I/O guards
-Date: Thu, 26 Nov 2026 18:07:21 +0800
-Message-ID: <20261126100721.313677-1-mengmeng.zhao@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261125171600.4053585-1-arsenova@a7snv.com>
-References: <20261125171600.4053585-1-arsenova@a7snv.com>
+	stable@vger.kernel.org,
+	helamonster@gmail.com,
+	regressions@lists.linux.dev,
+	Zhang Heng <zhangheng@kylinos.cn>
+Subject: [PATCH] ALSA: hda/realtek: Fix mute LEDs on ThinkPad X1 Carbon 6th
+Date: Thu, 26 Nov 2026 18:07:31 +0800
+Message-Id: <20261126100731.903504-1-zhangheng@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,95 +74,32 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Nitesh Shetty <nj.shetty@samsung.com>
+ALC285_LENOVO_DAC_RENAME is not chained to ALC269_FIXUP_THINKPAD_ACPI,
+so the vendor fallback that registers the mute LEDs is skipped.  Chain
+it to restore the LEDs.
 
-Direct I/O copies data from the CPU in four places, zero-filling
-holes, inline data, bounce pages and integrity metadata. A dma-buf
-iterator has no pages behind it, so refuse it there.
-
-Reads that encounter a hole or unwritten extent before i_size
-therefore return -EOPNOTSUPP for the entire operation, even if I/O
-for an earlier mapped extent was already submitted.
-
-Holes that start at or beyond i_size are stepped over since reads
-are truncated to i_size before completion.
-
-Signed-off-by: Nitesh Shetty <nj.shetty@samsung.com>
-Signed-off-by: Anuj Gupta <anuj20.g@samsung.com>
-Co-developed-by: Yun Wang <arsenova@a7snv.com>
-Signed-off-by: Yun Wang <arsenova@a7snv.com>
-Reviewed-by: Li Wang <liwang@kylinos.cn>
-[Mengmeng Zhao: remove the registration helper and fold in
-Yun Wang's past-EOF step-over fix]
-Signed-off-by: Mengmeng Zhao <zhaomengmeng@kylinos.cn>
+Fixes: 108704eecab9 ("ALSA: hda/realtek: Rename Line Out control to Headphone on ThinkPad X1 Carbon 6th")
+Cc: <stable@vger.kernel.org>
+Reported-by: Jeremy Bryan Smith <helamonster@gmail.com>
+Closes: https://bugs.launchpad.net/ubuntu/+source/linux/+bug/2174970
+Signed-off-by: Zhang Heng <zhangheng@kylinos.cn>
 ---
- fs/iomap/direct-io.c | 32 +++++++++++++++++++++++++++++++-
- 1 file changed, 31 insertions(+), 1 deletion(-)
+ sound/hda/codecs/realtek/alc269.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/fs/iomap/direct-io.c b/fs/iomap/direct-io.c
-index ad041ac3252a..de07a4efcbf7 100644
---- a/fs/iomap/direct-io.c
-+++ b/fs/iomap/direct-io.c
-@@ -425,6 +425,11 @@ static int iomap_dio_bio_iter(struct iomap_iter *iter, struct iomap_dio *dio)
- 	unsigned int alignment;
- 	ssize_t ret = 0;
- 
-+	/* integrity metadata is generated from the data pages */
-+	if (iov_iter_is_dmabuf_map(dio->submit.iter) &&
-+	    (iomap->flags & IOMAP_F_INTEGRITY))
-+		return -EOPNOTSUPP;
-+
- 	/*
- 	 * File systems that write out of place and always allocate new blocks
- 	 * need each bio to be block aligned as that's the unit of allocation.
-@@ -589,7 +594,24 @@ static int iomap_dio_bio_iter(struct iomap_iter *iter, struct iomap_dio *dio)
- 
- static int iomap_dio_hole_iter(struct iomap_iter *iter, struct iomap_dio *dio)
- {
--	loff_t copied = iov_iter_zero(iomap_length(iter), dio->submit.iter);
-+	loff_t copied;
-+
-+	if (iov_iter_is_dmabuf_map(dio->submit.iter)) {
-+		u64 length = iomap_length(iter);
-+
-+		/* zero-filling walks the data pages */
-+		if (iter->pos < dio->i_size)
-+			return -EOPNOTSUPP;
-+		/*
-+		 * Past EOF there is nothing to zero: the read is truncated to
-+		 * i_size before it is reported, so step over the hole.
-+		 */
-+		iov_iter_advance(dio->submit.iter, length);
-+		dio->size += length;
-+		return iomap_iter_advance(iter, length);
-+	}
-+
-+	copied = iov_iter_zero(iomap_length(iter), dio->submit.iter);
- 
- 	if (dio->flags & IOMAP_DIO_FSBLOCK_ALIGNED) {
- 		loff_t aligned_copied = round_down(copied,
-@@ -619,6 +641,10 @@ static int iomap_dio_inline_iter(struct iomap_iter *iomi, struct iomap_dio *dio)
- 	loff_t pos = iomi->pos;
- 	u64 copied;
- 
-+	/* inline data is copied from the CPU */
-+	if (iov_iter_is_dmabuf_map(iter))
-+		return -EOPNOTSUPP;
-+
- 	if (WARN_ON_ONCE(!inline_data))
- 		return -EIO;
- 
-@@ -717,6 +743,10 @@ __iomap_dio_rw(struct kiocb *iocb, struct iov_iter *iter,
- 	if (!iomi.len)
- 		return NULL;
- 
-+	/* bouncing copies the data from the CPU */
-+	if (iov_iter_is_dmabuf_map(iter) && (dio_flags & IOMAP_DIO_BOUNCE))
-+		return ERR_PTR(-EOPNOTSUPP);
-+
- 	dio = kmalloc_obj(*dio);
- 	if (!dio)
- 		return ERR_PTR(-ENOMEM);
+diff --git a/sound/hda/codecs/realtek/alc269.c b/sound/hda/codecs/realtek/alc269.c
+index 147e97f..a00b1b2 100644
+--- a/sound/hda/codecs/realtek/alc269.c
++++ b/sound/hda/codecs/realtek/alc269.c
+@@ -7476,6 +7476,8 @@ static const struct hda_fixup alc269_fixups[] = {
+ 	[ALC285_LENOVO_DAC_RENAME] = {
+ 		.type = HDA_FIXUP_FUNC,
+ 		.v.func = alc285_lenovo_dac_rename,
++		.chained = true,
++		.chain_id = ALC269_FIXUP_THINKPAD_ACPI,
+ 	},
+ 	[ALC287_FIXUP_YOGA9_SPEAKER2_TO_DAC1] = {
+ 		.type = HDA_FIXUP_FUNC,
 -- 
-2.43.0
+2.25.1
 
