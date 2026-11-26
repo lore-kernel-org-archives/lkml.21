@@ -1,67 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795707085;
-	b=EB7w/2l0Vb60YqMbDUN4ZdeijAGF09VKJBlTxm10TKMzp36P87wWfqeQQDvU/AJRPbjK
-	 EJTQE/nUQqwpnVcfw64WXJIS8Y5C8/9sGG+w1c4RDV4Yx+vK3uaA1is2WIApsMd/5bCD7
-	 BfLcaH8nLlQznNeKwUczGe3y3zUVWI+AgVv0TH6eSO5rszSA99DdsZjoh47vVLMyNlTfP
-	 6Rw4jj2e9UuEKaKHHVjzPctzNa6ofsfkLuOu+KbUyEv/V6BoPRFk9Ny5ftsLo4q24FalT
-	 a18QkVEmCzO3sDaxARtTG1itUjhuNpKzDWI7oJz1v66SIZtEaMwA8aCrceljaMoXLew==
+	t=1795707097;
+	b=s6sbYu/SpdFDMYnKYzIBU2im37Jq//qfy3uWOSbJ9Rg5MWFA2KMRZnXsYShmIqoS6shX
+	 FTCwUyrdjl+bW1X/B7E/NDkY6HXy3yMGnu1j6UCxrVrISXWFHNv4ospBhqE9zS/zVnYNX
+	 50hsSYv3j3mLGGerf9gzEW1xWJ/vIeoFkc9kSFGGARPXsvGWCGQvYJ8xl6K094xWMXkR9
+	 VUPjyo1tP3cIgM4/mFEWwJZnECinr5BGcor/J7EAz81qT50gWEreIgD9LDVlVBq3Dmshb
+	 GGsFTMwqDXRlYFbkR8+VhJZdCHvNgC5ODYA9FfMr09aFaU9RcZqxYe2lg1vg+4v67NA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795707085;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=xQ0RSjJ7OY5hjeVnaVHGJ/axxFsswP+kzVwoQA4BraA=;
-	b=2GDw8NfwNH+JROgwxfLBqsqoN63qKlX41D46JtwBrLL4V4v9joNKN3twpdYLD+9UWouJ
-	 GgCUKTcmLLE7TNXE5AcseEUG1m/RsRNqfGMtYC4GFD/NWYigaTueGY1eTGxghRNHyiSSH
-	 Huqmfx2z5xigl0tPNoINm0688dCMFkW2zZ2FGnT/SRVcYg52C/t9pevNU8NiGDtxVpibg
-	 wBD01ZGEGsz6/E+Pr/jFMsSiJz4O4280OvxBXOBAJF8fw9ZplorecNCT44OLxjd8JOLH/
-	 AD0nOmSWqitmBFBDpGY6kSYT40oXPzo+wcXgcl0byb+DC9E6B2Ds7FBlKNRJrW1XhJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795707097;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=tQNqYmCO8U6RJi6uvaLNBKhLSSUT6e27NTsnReOP5Uo=;
+	b=rhXAwNSmxKy6E100zqoNG6SwG545n4GbjUK5dnotj7MwyTOqXufrh6pbzXH6fnsjOKo1
+	 G0wAEKX7+CihgAMJb89+5ldiyD+vT/RiOMXE+CC8RPJEvrNDI2q0IGSEQQljk79O8HJ2r
+	 6rjoWY2fzBBEFKtI0TsGKIj9HaVtLA07c9QjsovMeLOfgiRTyRFrFhxeNGE97SVgy+Ptg
+	 QKGPj1fvo6lNNGWvtlKtzl4T0Q8CiM3sKX+l+qRsdazGgCpRH7dFjFSz4bmvkGQgbwhw8
+	 UKSbU6/951p8WsAumHI978K7yzsldNo7BVWgNY1Im1XwKkKcuvqu7UpTZ9l373yOlbA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=HmJJFbWf;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="fU/Go9g1";
+	arc=none smtp.remote-ip=192.198.163.17
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76529606A31C;
-	Thu, 26 Nov 2026 15:31:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76529606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D0F1606A31E;
+	Thu, 26 Nov 2026 15:31:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D0F1606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=HmJJFbWf
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=xQ0RSjJ7OY5hjeVnaVHGJ/axxFsswP+kzVwoQA4BraA=; b=HmJJFbWfwVAWdH/N+SCSq5KDX0
-	8xgNLRqAWTss+beWiQ4u4TXrmBSQgoQw2kPhs2bAF/zqVjzXt8lfkGYs6ErB/7dCrGGTLkVB1Eo8k
-	3E05jyy08z7u8IeFDIElQzJDDe7hBP/cjKGv0Z/PDJfE8gobHVV1AnuCS1KhN1MA0rB0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xWbRK-001baQ-Ni; Thu, 26 Nov 2026 16:31:14 +0100
-Date: Thu, 26 Nov 2026 16:31:14 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: filipp.dunsky@gmail.com
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v3 2/3] net: mdio: Add Cortina CS7542 bus
- controller
-Message-ID: <97babf2e-02eb-4efb-8662-f960a36b9073@lunn.ch>
-References: <20261126-b4-cs7542-mdio-v3-0-35739a0f3225@gmail.com>
- <20261126-b4-cs7542-mdio-v3-2-35739a0f3225@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fU/Go9g1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795707097; x=1827243097;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WPpUQImv+mfRbVWcaasBa39HKBziPr14wNhR5TVYdI4=;
+  b=fU/Go9g1OFaAdID099iAo1f3CjQJnuHjpzB+gSEZXcgGYK3joXNmjTBF
+   vH6EMDMRf8CwXpSKBHY/qLPMt/x2HtUNlJ10Bpaklk4L15z2SlIe6hmM3
+   OVA0kxHDLLlk2dUSAZpLYjRt2sp4CMzoFdlLOjc2gVZv9149KDZqRhFHb
+   ffwYiOwPvqiQAQDyD4SYjdxV9tN1RDTx0ERLT+YB4RvU3K2XMozjvPsvP
+   8BGCPwhSZrzD9z+PGXKO55Ur5YSU7cQ7ROLRuBqBZzT5v81l5JwBNeXh0
+   IWrMml4nBV+gNvjSqRCwABhQKXDPwU3jnqy7sw3V2haOLlRvCifiDCxZL
+   A==;
+X-CSE-ConnectionGUID: ze0PDmWNRoq3SCUEVEUnCw==
+X-CSE-MsgGUID: tiOYv10HQWC+a+SZ0AwcOw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4617975"
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="4617975"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 07:31:36 -0800
+X-CSE-ConnectionGUID: HSpzvcUSRaa7pSYZQB7NhQ==
+X-CSE-MsgGUID: z5WCboktQ6OpjR5IViJMlg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="12528604"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 07:31:33 -0800
+Date: Thu, 26 Nov 2026 17:31:30 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Gary Wang <is0124@gmail.com>
+Cc: Andy Shevchenko <andy@kernel.org>, Linus Walleij <linusw@kernel.org>,
+	Thomas Richard <thomas.richard@bootlin.com>,
+	Daniele Cleri <danielecleri@aaeon.eu>,
+	JunYingLai <junyinglai@aaeon.com.tw>,
+	Louis Chen <louischen@aaeon.com.tw>,
+	BillyChou <BillyChou@aaeon.com.tw>, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v3 4/5] pinctrl: upboard: fix I2C pinmux-select set CPLD
+ GPIO OUT not function mode
+Message-ID: <awhQ0mvdzSw9NaVM@ashevche-desk.local>
+References: <20261126-upboard-pinctrl-add-intc1057-intc105e-support-v3-0-81d35c9ba246@gmail.com>
+ <20261126-upboard-pinctrl-add-intc1057-intc105e-support-v3-4-81d35c9ba246@gmail.com>
+ <awhPbIZjDazImfBf@ashevche-desk.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,41 +88,25 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261126-b4-cs7542-mdio-v3-2-35739a0f3225@gmail.com>
+In-Reply-To: <awhPbIZjDazImfBf@ashevche-desk.local>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-> +#define PER_MDIO_CFG			0x00
-> +#define   MDIO_CFG_MANUAL		BIT(0)
+On Thu, Nov 26, 2026 at 05:25:37PM +0200, Andy Shevchenko wrote:
+> On Thu, Nov 26, 2026 at 11:09:47PM +0800, Gary Wang wrote:
+> > The CPLD I2C pin mode setting through pinmux-select is not correct.
+> > Should be set UPBOARD_PIN_MODE_FUNCTION on AANT0F04 devices.
+> > 
+> > Set UPBOARD_PIN_MODE_FUNCTION to 1 to prevent a NULL pointer
+> > dereference error on .modes[i] for any pin group using this setting.
 
-Just curious. If it is not manual, what does MDIO_CFG_AUTOMAGICAL do?
+Hmm... bit how the modes[i] can be messed up here? 0 is integer
+and NULL is void *...
 
-> +static int cs75xx_mdio_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct cs75xx_mdio *priv;
-> +	struct mii_bus *bus;
-> +	u32 cfg;
-> +
-> +	bus = devm_mdiobus_alloc_size(dev, sizeof(*priv));
-> +	if (!bus)
-> +		return -ENOMEM;
-> +
-> +	priv = bus->priv;
-> +	priv->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(priv->base))
-> +		return PTR_ERR(priv->base);
-> +
-> +	cfg = readl(priv->base + PER_MDIO_CFG);
-> +	/* The firmware configures the MDC rate; retain its prescaler. */
-> +	cfg |= MDIO_CFG_MANUAL;
-> +	writel(cfg, priv->base + PER_MDIO_CFG);
+Can you provide a compiler warning or traceback of broken kernel with this?
 
-This comment is not obvious. I'm assuming the prescaler configuration
-is also in PER_MDIO_CFG, but nothing here actually says that. 
+-- 
+With Best Regards,
+Andy Shevchenko
 
-/* The firmware configures the MDC rate; Perform a RMW in order to
- * retain the prescaler setting, which is in bits 24-42.
- */
 
-???
-
-	Andrew
