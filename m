@@ -1,80 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795709741;
-	b=cf2/2x+M0czixNoetxV+8meyrTLYKkeMnR88uS44QE9+rNXqm6rWw2SkYB74Jf5suWzW
-	 0E237M9DwCELM6f8QY1ss1cd7NUWV8szeDkvdACgZZctnhd6k927FI+A/fp+ZJpzWyQe2
-	 FKw9aSj00BxpstSUKSbSCLo9+aRzhMUsJmtdcg10xDe+7IZasYpbKTMulBaesFd8id3AG
-	 oQZ2lUhZoJTf0bYN9v8Hvx7vbLom7kD6R+PaKFaZYhqK8k+k9/493yKULPpy4DjpBDvlI
-	 Q51Mlp2ApY7wuKiBpJiOTmxgfjOSa5a6Mgc413KUH/nQZa2sp2BYjXveyB9HMmuAuRg==
+	t=1795709747;
+	b=URiMVH07UG2PT/oEzPRgysamhyZNIbb3gQERna01XtctebevNLXxX4w7OoZj1CuMPMGj
+	 4AdShezLMQjiiPit08p1kowbHXY+TV05LoqGqaruHtXEVo8vfTWuo1dj5O2hXfZJ8Lo9B
+	 a/9vzygCMiMPYQxkZsdwIz4pUm1jIYdcxEZJI54YlRSWvWDkCTvD58SMms8zLnlNhR78S
+	 BbOsHnWmnQyrN7iTspGsCnw0csoc91tSGEph3pJay6uxBttjswgAuxhGNS/jRRxOHC3xz
+	 k3F2nH5U3x2EB8ChKQde0pBFf6+GlVRIbMERpmgDsyjeOX3pQCsQyNfii+GHpOGImMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795709741;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=UQkC8Tq1xe+vqF6ekMwTzZzbCpLMKq5QVP3VvlYU/kM=;
-	b=K7hn9uDkdcw4TtFujfFp5dkaTauYXS5Ut3+C2mGbd6NYxDqcTwBVejnhIf02S/EpgW7G
-	 zRfNUAZm5UO8lJE4bDJ5GRkdH5vUQcmmney8V8ErMKZHAn5zQmAWhWqr57s5ukfNrguZn
-	 Ip+la8AG5tp72rYweUZY/VUSyEIvHLWhYqs5kGHaj/q2g2bx/wgd/wEegG8758TrwOJnv
-	 rdLco8KOs6Kg5yjx5P6rb4KlZjSUtWpL5RtC0Lzt+5DCJsroBBn+zH7Oyhclo2/h7r/Ps
-	 Xv9/aUVcqVuuxZ0dkauCv33tiaXTceTLKJX3WD228ekDMYNBjb5eRlyOozid7gF11GA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795709747;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=GKuS7nLZ3oMQ2Nkc8HVI+BxFOyzbOxVBIuQcZG1z19o=;
+	b=4MmKZBxobk+Bp1w7+v8psi/SJJ9CSVEzce2avWxXmKzx3yc1AeLPgjrnMfWyu6QBLTRI
+	 LvitSYu7q9wkc+dglybm7fnXExRaqEVBnSyNrndQvyKe2fJYBV5IeKoCMnjQIzud+zLqz
+	 xCQ2/QFrppay6fLi+Iqm14E/UyPr+w34YLVQhYKWbdTKuYA0awikPczDPsSuN5GtFvVeu
+	 fNzeUU78lT8TRhHRkfe8JRQYSHOS4N+WXso1K/ky4Uqk2TB+Crk4tF8RaiZqXnEKRfMml
+	 LDw6jLL1CROqO2OC2fg3NzyWG6gXO+tcfst29jtLks7LJPT/uv5gbEcbnD+LqyI+eHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=JuP46dOs;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=hMJci5ap;
+	arc=none smtp.remote-ip=212.227.17.11
+Received: from mout.web.de (mout.web.de [212.227.17.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9014C606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:15:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9014C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CE48606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:15:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CE48606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=JuP46dOs
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795709740;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UQkC8Tq1xe+vqF6ekMwTzZzbCpLMKq5QVP3VvlYU/kM=;
-	b=JuP46dOs1uiX38gRyqCy9t1SS6Wk7IQLjfRzk5o+1vpXKkW5Yc5cGpEI2B9iBFzD6663iM
-	b3LyVzkHLsj8qoZDG34NccnQpWeO/gOoTW1FsB8FtA9fD2ggSX8XKXTIzDf0gX1NJC91ay
-	U76cUW6s6+FFhxBFO3fyjfUe8cxNCtg=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-33-pCsuPvD5MMOkSc40pWq5yw-1; Thu,
- 26 Nov 2026 16:15:35 +0000
-X-MC-Unique: pCsuPvD5MMOkSc40pWq5yw-1
-X-Mimecast-MFC-AGG-ID: pCsuPvD5MMOkSc40pWq5yw_1795709734
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0D4CD1955DE1;
-	Thu, 26 Nov 2026 16:15:34 +0000 (UTC)
-Received: from jhladky-thinkpadp1gen7.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0CC401956045;
-	Thu, 26 Nov 2026 16:15:30 +0000 (UTC)
-From: Jirka Hladky <jhladky@redhat.com>
-To: will@kernel.org
-Cc: catalin.marinas@arm.com,
-	kristina.martsenko@arm.com,
-	luyang@redhat.com,
-	dockseed@proton.me,
-	jmario@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v4] arm64: clear_user: keep alignment padding out of the zeroing loop
-Date: Thu, 26 Nov 2026 17:15:26 +0100
-Message-ID: <20261126161526.1745191-1-jhladky@redhat.com>
-In-Reply-To: <CAL2CeByu46f48j8O9=237fvhpPUCsKjOZkFuuHU3xrr3wVF5Eg@mail.gmail.com>
-References: <CAL2CeByu46f48j8O9=237fvhpPUCsKjOZkFuuHU3xrr3wVF5Eg@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=hMJci5ap
+DKIM2-Signature:  i=1; m=1; t=1795709744;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:OhNTakkFQvK5OA1TZKwmT8m44vjQ
+   2cNQ5SlP1WJxdFe0I5CWZeqbZdhSXzoz4HVZ17yH4m+IlT/rzmY/gyw62HEmrgN5vp5Z/X7lt9H
+   vr098Rhw/XjV3KiepY5AfmN/j6/hc9ZuOyHLp/uNbksG5mhipr9B2tDSz+NnlAputEOTKLt0kWr
+   5FNiy84jTUQ7VtD40O1g45g7iSJmCfw0fYhWoxdbxjveyma/tpjaEaW1A0TYpalw3WtATGaCzxm
+   IiPfwtK3uRFZw/X5A03j+ngoUdl69UPGpJu6FDB6pFAGKngkeZ4N8q0huCUoD82IBomUdfW2kqn
+   2drgnczAzxSViw==;
+Message-Instance:  m=1;
+ h=sha256:
+   Xu4s07prBiFQoCMjTHbugfcUsi9xDwfkskt73zzUPWw=:
+   lYKjP3NlDaBTyJZVE0VCLhdWFb7V/zbPJUWRMvW4b1s=,
+  sha512:
+   Ng+Y8qLQnijbr1PqewoRTXjzYGtaQ9Rd6iZYo64NhHnqxQccx4Fa0OYNf2h0C0Eh6lN/Cpe6q7ACfNEV/CkO0A==:
+   DDcdi6+yNjPPYwYfkU7hMggaAhoUN83CywhImhoC+qW46kfAJT/QtT07CjoAARptGAs0NngmflnsBWirTtoyWg==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795709732; x=1796314532; i=markus.elfring@web.de;
+	bh=GKuS7nLZ3oMQ2Nkc8HVI+BxFOyzbOxVBIuQcZG1z19o=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=hMJci5apK+B/8Qf2UkOZVb+fU4hdBzJ4xY+WRJnleVUetffseiMpA+6wxAO/eY8+
+	 yL7n7CCw2h9jHgK+fQ74EeziecsZGHDh97/BO9kMX/ZE2dUjXy2cRf7/4yOLGXyuu
+	 5JgLznZ/73PWjDIUwlf3WUJ8qc+MwWsbXpUJIM/rj3TwTuK/oLaXvHb9culD5ENzt
+	 6P+DzP0QzCu5q/ksvWjErF9VLxMDKzhw0heyrglyi+ZprC8mF/icL3SKSPy0rCv1+
+	 Ak88vrGJYcluwNtYbno1N3G8gIGms5zr/F+XRsenTISqVt7POcO/h0PvTOtHrg4sA
+	 yZkOHI0qRAO5Tl0raA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MbCHy-1y3k1k0YnY-00fp1C; Thu, 26
+ Nov 2026 17:15:32 +0100
+Message-ID: <a526e002-c8fc-4935-95f9-5943cb557e99@web.de>
+Date: Thu, 26 Nov 2026 17:15:27 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,90 +81,158 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: bcm63xx_enet: Use devm_clk_get_enabled() in two probe functions
+To: Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Hemanth Selam <hemanth.selam@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jonas Gorski <jonas.gorski@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
+References: <d293609b-c8cd-4993-a243-89c6d1ace4a0@web.de>
+ <ac10d9ef-b193-487c-b4c1-6126aa770c6f@wanadoo.fr>
+ <603d7ea7-5d7d-49c4-a01b-a7805e88c361@web.de>
+ <9c26b213-aa58-4c27-99c7-926c6b4d5275@wanadoo.fr>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <9c26b213-aa58-4c27-99c7-926c6b4d5275@wanadoo.fr>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:3TBkhHz00Ppr3StysJ701/4TtJYA0mtUQu7GicKK8gG2dvf4nYC
+ pcKI2pSrAIihQ5LWUNcjZV4KkhZhVLxxOTu477HTvOiVY5aeQEHy80drKq86akmURppm2nJ
+ wp/jbkuZUfjbQzzsgiuYsbRWssuwETWFkDktemsxS8x1leYlNRCzb60kUZx2OwArWE4IKWH
+ BwQ44UL/IzzWqKuOWEfwQ==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:/4WIJLFraeE=;YAm0QeD5TOdCWGUZXGphFYkoj9N
+ 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
 
-Commit fe59e0358d9b ("arm64: lib: Use MOPS for usercopy routines")
-restructured __arch_clear_user() and moved the loop alignment inside
-the function. In doing so, the loop label ended up in front of its
-own alignment directive:
+> Your=C2=A0patch=C2=A0is=C2=A0related=C2=A0to=C2=A0bcm_enet_probe().
+>=20
+> See L1754 and L1791. These 2 calls are related to 2 clk_disable_unprepar=
+e() calls in the error handling path and in the remove=C2=A0function.
+>=20
+> Why=C2=A0only=C2=A0update=C2=A0one=C2=A0place,=C2=A0and=C2=A0keep=C2=A0o=
+ne=C2=A0clk_disable_unprepare()?
 
-	1:	.p2align 4
-	USER(9f, sttr	xzr, [x0])
-	add	x0, x0, #8
-	subs	x1, x1, #8
-	b.hi	1b
+I got also the impression finally that implementation details would need
+further clarifications and development considerations.
 
-The backward branch at the bottom of the loop therefore lands in the
-alignment padding, and every iteration of the 8-byte zeroing loop
-needlessly executes the padding NOPs. The NOP count is fixed at
-assembly time (the assembler aligns the .text section of clear_user.o
-to 16 bytes), so the NOPs have been executed on every iteration since
-the MOPS update. What link-time layout can change is the position of
-the function, in 16-byte increments, and with it whether the NOPs and
-the first sttr straddle a cache-line boundary: an irqbypass
-reorganisation in 6.17 [1] moved the function, and the loop's cost
-showed up as a ~30% /dev/zero read throughput regression on affected
-builds.
+* Conditions are checked for the ungating of the item =E2=80=9Cpriv->phy_c=
+lk=E2=80=9D.
+  https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/net/ethernet/br=
+oadcom/bcm63xx_enet.c#L1789-L1800
 
-Norman Herms diagnosed this and proposed moving the label below the
-directive, so the padding is executed only once on the fall-through
-path and the loop body starts 16-byte aligned as intended:
+* But a clk_disable_unprepare(priv->phy_clk) call is unconditionally perfo=
+rmed
+  in the implementation of the function =E2=80=9Cbcm_enet_remove=E2=80=9D =
+so far.
+  https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/net/ethernet/br=
+oadcom/bcm63xx_enet.c#L1930
 
-	.p2align 4
-	1:
-USER(9f, sttr	xzr, [x0])
+  Is there a need to adjust the control flow any further?
 
-Measured on Ampere Altra (Neoverse N1, no FEAT_MOPS), reading 4 GiB
-from /dev/zero, two otherwise identical kernels built from the same
-tree and toolchain, differing only in this change (two NOPs of
-padding in the unpatched loop):
 
-  kernel instructions per MiB:	797.5k -> 536.4k
-  throughput:			11.6 GB/s -> 22.3 GB/s (+92%)
-
-The instruction delta is exactly the two removed NOPs: 2 x 131072
-instructions per MiB at 8 bytes per iteration.
-
-[1] https://lore.kernel.org/all/20250516230734.2564775-6-seanjc@google.com/
-
-Fixes: fe59e0358d9b ("arm64: lib: Use MOPS for usercopy routines")
-Reported-by: Luke Yang <luyang@redhat.com>
-Suggested-by: Norman Herms <dockseed@proton.me>
-Reviewed-by: Kristina Martšenko <kristina.martsenko@arm.com>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Cc: stable@vger.kernel.org
-Signed-off-by: Jirka Hladky <jhladky@redhat.com>
----
-Changes since v3 (commit message only, no code change since v2):
-
-- reworded the explanation per Catalin Marinas: the padding NOP
-  count is fixed by the assembler rather than by link-time layout,
-  and the NOPs have been in the loop since the MOPS update (the
-  irqbypass rework only moved the function)
-- dropped the Co-Authored-By trailer per Catalin; for the record,
-  this patch and its verification were prepared with the help of an
-  AI assistant
-- added Cc: stable
----
- arch/arm64/lib/clear_user.S | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/lib/clear_user.S b/arch/arm64/lib/clear_user.S
-index de9a303..143d2f7 100644
---- a/arch/arm64/lib/clear_user.S
-+++ b/arch/arm64/lib/clear_user.S
-@@ -37,7 +37,8 @@ USER(6f, setet	[x0]!, x1!, xzr)
- 	subs	x1, x1, #8
- 	b.mi	2f
- 
--1:	.p2align 4
-+	.p2align 4
-+1:
- USER(9f, sttr	xzr, [x0])
- 	add	x0, x0, #8
- 	subs	x1, x1, #8
--- 
-2.56.1
-
+Regards,
+Markus
