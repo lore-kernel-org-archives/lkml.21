@@ -1,63 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.47.171.185
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685053;
-	b=wlC2vGmV02zopNbMKWXlibcccwYRCtolpocYcd7Xhqmky1uqNnUmLpfPwXwnoMS6aEbF
-	 WtXbHutP9Dj1vTv5ZDY1ewreOW1DABoaH/RkvLXI3d/oytFCLoivkhI//D2itB9ZZQ3qy
-	 PhDuIGJHZ/TTc2NGw3lxiz9bgsaDMQm3NE/4DSv3Bz3vMbErXfz216n1fX4tuBxIR0O8/
-	 CSxIudo4H/pJ/rAXWG4Ur1tONfv6DWyibS3vKB4jaK5L/4d1aqHQhBGwP0Rvv25P28ZXr
-	 e6ZwkPVxGbjjcif/0CyEaAkAv4NsyjDRjbfl6NCPK4f5YGBNkRjSWjrpQIXmHZdqDPQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685053;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=98AuoaBy6scAqdpD1bFpY8R263vuCvhHxS6e/zP2npM=;
-	b=xTjQE0IKrkNipZUqajEbNVGXKP/+I3WVFmuxo5srmxHk2SGTtiD8SHcWTku+RI2soIl2
-	 Vq00QRLz20xbtE9OL2Wy2sWNrjRjmWzoEQCxo57MZAP6eT2uV3y9pFisD5oeYxg0rlYQn
-	 6RrSKhinijEiJ62ZTMI9Gk09odJ7u9Okvz+NAAZFokAoL5uZdYT9emlDeeb2Wt1oajbh4
-	 0FgD02eYMpw9uI59oGtwD4MXSkVRGmpw2Uemqs+TNUF1WySBNy85fN0lZ1+r+I89uAV7f
-	 XGx94FkRLouYmp97QfHe3g8DHSbRyDKIk4LYCKIwqH7vS087zF2cuRV23DP9BUsQj1w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=datenfreihafen.org;
-	spf=pass smtp.mailfrom=datenfreihafen.org;
-	arc=none smtp.remote-ip=78.47.171.185
-Received: from proxima.lasnet.de (proxima.lasnet.de [78.47.171.185])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795685078;
+	b=SHA9E/0/PCuVIYMyaDHjwmyebBADAIoYOl7YoErWay+4dzdz80AGUiMeHd8Hi8RSvzwG
+	 /9Kfhjebnxhs1nB1PUyUYpfEGi3itFUxCYGEiSmQi1AZjjSFRztsVSdmIpa62ctcvy758
+	 HxZXY9foWmRMOed3FWg838w/PiHSfH2EwHo6v6+LgpZ86CHIac73XdEU3s9Zvs4ubagsP
+	 wpVGX4v3GoUuPc4Px+5jhU+lX6vEDh3fsyB+lmGqYFO/NBkjq7MPs0E8kDBunoLRdMd7d
+	 13tU2qd/k/r0X5geYil6Rb7lfm2fQs9sb/45eAt4Ycg4QvgCCl2qUe4Fw7O4vfbeyTA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685078;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=cmYgxX0wyUrCUPNHbGvSBKwLn/QP4K0XP4FUfbN/y0I=;
+	b=QwphxcX90qHyJH496P/sPrFuu11CjMJgeJmhCiZh4aI00pjbjGdtyV0e40D9JqsiiimH
+	 2TbDUpyNdMsPUA/BBaeWV26lYABfNy01YyntH/3tzSMo/ceeGzFJufuUI+HJxsasC2I58
+	 IxtStJRoOqxfxZq+p5Yo7LokFzETCpbdKo9zkeoY22piaMpoKlw6iYPeOsXuoMssL4uop
+	 1+17TVJTl9Hqh9IMJzo8vuLKp0pjCecUjjr30NE4QjSIgd5r66E97nvsE37g8492T54df
+	 YT2ScfF2nBXrQrSbNbpE6kptQ+vEg0AznhTxVr7oupQJdR5eOpSB7R+oTnjQjRF17Nw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oXBW0Jox;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76BEA606A31C;
-	Thu, 26 Nov 2026 09:24:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76BEA606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=datenfreihafen.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=datenfreihafen.org
-Received: from work.datenfreihafen.local (unknown [46.253.254.165])
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 903E0606A31C;
+	Thu, 26 Nov 2026 09:24:38 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oXBW0Jox
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795685078;
+	b=bjsnDRAaUoRmElIAetvYZoXnxXQNWkIpDaVqKIrSy+E8gXlOlzT2y/JdlolF2RjoWnSQ
+	 YibolCQ+4BW8EMca3/R6vGhMrf+Zhuf2hV7w327H1H5Wfo5X8T/mDV/0USR/aejFOmJeW
+	 8hX6MhCVrshT5uA6nAnbGHtIPAHJRCHntiaiJbcxYo6pRWcrVmVoPszWm1k7cvqz0QeZy
+	 V4JOPH7bzeNAL8rNWazLvcOriYeImLWI3Zgh1TdcOoiKwQxhiODQpJGlSekaew3nbbLUh
+	 kkJ0bnD6rFYoBzCFD76977DVAkfqJ/9DXEv68pQjYT3TkRcG+eaz827xGV6hp2R84MA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795685078;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=cmYgxX0wyUrCUPNHbGvSBKwLn/QP4K0XP4FUfbN/y0I=;
+	b=k/cwVgV3pM9MIxSpRT7bT7ELhQP22Mm87PRMkui59SCYC+BsiMtYRFOyC30eHgkHVEI0
+	 Jzq2018z94W3z+ScjcI7yJMEy7iu/85x4dRJUVJZvSq5mS0lqRpQEXYRLIMVRdXpk6gFX
+	 msbEKnZHsfQQSl+6LzaeHVFeSeqXLJjTQWY3XIfaVy2kDilVUJuV/mAI7FrGBVq85ONe+
+	 BO/FtSvdq7pD7gKgdpSz9ThLplnbWeOsIuYG4D4xKejQpSJaCXR3Du69u9n57Lj7UwuKq
+	 4OrGtvRRjvcN3j3NzWmnPHCaDu570ioKlnhGHm4XdnTtD2UVu3II4VmcvaPKqiObZ3Q==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: stefan@sostec.de)
-	by proxima.lasnet.de (Postfix) with ESMTPSA id EFA8AC02DA;
-	Thu, 26 Nov 2026 10:24:10 +0100 (CET)
-From: Stefan Schmidt <stefan@datenfreihafen.org>
-To: linux-wpan@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Yifan Zhang <yfzhang23@stu.pku.edu.cn>
-Cc: Stefan Schmidt <stefan@datenfreihafen.org>,
-	alex.aring@gmail.com,
-	miquel.raynal@bootlin.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	zihanx@nebusec.ai,
-	stable@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v3] mac802154: validate pinned interface before beacon transmission
-Date: Thu, 26 Nov 2026 10:24:06 +0100
-Message-ID: <179568504196.1941682.10640221246377134318.b4-ty@datenfreihafen.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <179378621331.55520.8126896786309171541@stu.pku.edu.cn>
-References: <179337523079.51423.6573078122047317758@stu.pku.edu.cn> <179378621331.55520.8126896786309171541@stu.pku.edu.cn>
+	by smtp.kernel.org (Postfix) with ESMTPS id 369161F000CF;
+	Thu, 26 Nov 2026 09:24:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795685078;
+	bh=cmYgxX0wyUrCUPNHbGvSBKwLn/QP4K0XP4FUfbN/y0I=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=oXBW0JoxjSP3B/2uHmvdBQ3V4x8G0NdNJt6PPmG1B81E6SIlmtzkNp4RaDUyE9ePx
+	 1XzBA8tHpB/5Lhvg4gUaCFbKPMV0FHAAfGHCEyQvgAMGOKPCOl+m644faOWBhe01cO
+	 0KDZIQIx5miTr31uXCfH3G8pTdYf022N0+i67OBF89rfDTqumzx6TudDNeAU2qrHnA
+	 q9DxIXnykcXo4+3VkkpfSDI4Q9QDpqGp6Iq85Ukk8wfPx92FczFpIQreAMFagTAyS5
+	 F67/I4T1S9Q/d/NQy/kNx77blIBeE9YKTTXWeJXwieJOzA9aPY6vpweRzYWFnm9/jJ
+	 XADX0uTZDmovw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 8DA1A4D353;
+	Thu, 26 Nov 2026 09:24:34 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Subject: [PATCH RESEND v2 0/3] reset: support reset for Amlogic A9 SoC
+Date: Thu, 26 Nov 2026 09:24:16 +0000
+Message-Id: <20261126-a9-reset-v2-0-e3d850e68725@amlogic.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,28 +84,57 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795685071; l=1089;
+ i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
+ bh=W2d5QqQKBqxvLWMEJ0hRfu/NSeHdDzwS5lPAkyQg7Fo=;
+ b=7WkPlCfxU6cc4NNY9jDCaiVSFNgjX0BFQ3UsbkMwMqVdIutYlN491SnjJhXGjUDI9GkGdxodO
+ otquynK8/eVDEp6C/RV3s6w5EcZRZ8rMoQY6g5OGnvfm7azgdq5HAsj
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
+ auth_id=578
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Reply-To: xianwei.zhao@amlogic.com
 
-Hello Yifan Zhang.
+Document the reset controller compatibles used by the Amlogic A9 SoC, and
+add the reset configuration and compatible entry for the Amlogic A9 AO
+reset controller, and add reset node for Amlogic A9.
 
-On Wed, 04 Nov 2026 17:56:53 +0800, Yifan Zhang wrote:
-> mac802154_beacon_worker() selects a beacon request under RCU and pins
-> the corresponding netdev before dropping the read lock.  The transmit
-> helper used to read the request again, so a concurrent interface switch
-> could make it dereference an unpinned netdev.
-> 
-> Use the pinned wpan_dev throughout transmission.  Under RTNL, verify that
-> the request still belongs to that interface and that the interface is
-> running.  Build the beacon from the protected template while still
-> holding RTNL, then hand it to the locked MLME transmit helper.  Free the
-> skb only on errors before that handoff.
-> 
-> [...]
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+Changes in v2:
+- Use standard node name reset-controller.
+- Link to v1: https://lore.kernel.org/r/20260709-a9-reset-v1-0-fd7cf039b853@amlogic.com
 
-Applied to wpan/wpan.git, thanks!
+---
+Xianwei Zhao (3):
+      dt-bindings: reset: amlogic: Add A9 reset compatibles
+      reset: amlogic: Add A9 AO reset controller support
+      arm64: dts: amlogic: a9: Add reset controller support
 
-[1/1] mac802154: validate pinned interface before beacon transmission
-      https://git.kernel.org/wpan/wpan/c/95f866334454
+ .../bindings/reset/amlogic,meson-reset.yaml        |   5 +
+ arch/arm64/boot/dts/amlogic/amlogic-a9-reset.h     | 247 +++++++++++++++++++++
+ arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi        |  14 ++
+ drivers/reset/amlogic/reset-meson.c                |   9 +
+ 4 files changed, 275 insertions(+)
+---
+base-commit: 4336e970ec6890fbd424128c352564a9c1dd514a
+change-id: 20260706-a9-reset-9c39e8fdb06d
 
-regards,
-Stefan Schmidt
+Best regards,
+-- 
+Xianwei Zhao <xianwei.zhao@amlogic.com>
+
+
