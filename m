@@ -1,57 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=114.242.206.163
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795658498;
-	b=qTNAPMgXO1T67jt9Z0UyGkVzOET3z8si02TBK9KFOH1qcvcqXdCD3DjEZvPK7SUGbWec
-	 gZfiAe5mbWYNDBssaaAImjX8CShKaYc0X9/bDllsgbnqkyG6suIq4r113j6inuMguXQQV
-	 al2cg4TBBhc2OCzdJUBG0ASl1rL6UuPgbU4BTqGHiivsrk0fWAdtkNWBmihDiHVmq4TxQ
-	 eypaBM+mEmodfvYN+FVgDga794OQFluGb9B7SVXFeS9/l1aIyxT5+7H46fgjiLhtdD7BO
-	 uHDZDfQE+KAsNiNVB7Bsm8uo6rYcoBRshHoDiLSbFW5NoQy+8mzxnJxo/a1KcKW3Gww==
+	t=1795658531;
+	b=S6GIEsbQpaw8Pssa9uK8e8MIJ7njmYqXop3XS+YySSshmYZ6cThOoB94tHl6+7CfD5Ri
+	 ka1RCgUUEAUARWTSuvocLmWYntplmhAwc0zAhOMIeg8NWSQfPI/YIkNrB666OWLqY7cBp
+	 bC36VYPlShD85JS+IFvwnKNUJbbB4wlab4oiYgcFD7c64aIhecm6jQLDwNfoTdmLN3RFZ
+	 PCmAS79O8JOxklMrxZXqNLJnddQcp5Jq7oN95ZtGa5FtfAvxnowFeyNad8tauvEzH0Qlo
+	 RZsu+NDCoHwcSxPFtLr7i0FF4CQ3LeIeywXzVWEp9nnfNiiEDXJu8OXyRsZqLvdOrvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795658498;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=DrlN2HxJ+I3bISLWgA04HPxA74Q0FNUZW42EnCO49bA=;
-	b=Gdjm7QMJaVFVqGZSn7oeQcb2znipLwD0GplAZXKfwuXMJsfigapiWcLQDEHtZYmi8HFf
-	 53TRdPugRmt+Ud4ZwT/di1Qqm6oqN/M2Ogh61aepched/d6QtBEIje8OtHw2hQZklndxU
-	 afXCUQn5aZNut3W6csn8S8NlNKfOinKwixYR+Yqpn1pjSgK18SePLrwkPjmJM0uKtFqEt
-	 LK62YJ27Kza22n98aKBbxUNbSz9A8q9rGHucQbzP5jCAkJQ3kh4uPCPhZAV+SEQxp9Iz1
-	 XGRO/vgrglaS0vnRfxtd1+fa5PbmKRVNe9XvcEXczRolCaa2K9IVcb39ffnoSine6bA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795658531;
+	h=DMARC-Filter:Received:Received:Subject:To:Cc:References:From:
+	 Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:Content-Type:
+	 Content-Language:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=F89I1g6d8xmtBB7mY85xmIJWfFhPXLIxLjU4qL0HIPs=;
+	b=pP/CJNBP5QP6v/CLN+LQZtd8IFxWOpF0yRbvFGZb2VQzMdEcMB864yk4TryQbdtaeyW1
+	 VDkIpfgrymJFHd/6UxNElV8bTn9NgjFNhoHEPz4YfSoIQbMkCjLW/pUo9l4+pJ+4p/3tW
+	 7LOsgNYFg6QQ/e9Hji3nW9RwfhmqqLZzrkgPDtkC762bD7mhh5E5WnaW1Ae0b0Ck7YrN7
+	 gTI1RsRQoSxpNAF7/pxoKXreSTPqHZZYZedGT3P0XCQH/2fY6vxvtAOOrVN9AQ3X9xZ4V
+	 RV6HtIjO0NppwCn+vsF7wKZ+6Rhu1yEkIZ5KtRDXupaDCTRSpXEZO4G+wNdcbXuqduQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JgKKEDcM;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89ECC606A31E;
-	Thu, 26 Nov 2026 02:01:38 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JgKKEDcM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A7791F000C6;
-	Thu, 26 Nov 2026 02:01:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795658497;
-	bh=DrlN2HxJ+I3bISLWgA04HPxA74Q0FNUZW42EnCO49bA=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=JgKKEDcM5llFA0UgWcCYkTzcYXT7w48t/+2q5gFc1uqJF7/lwmEqHv39pE2ec5Nrn
-	 Gzdik3ribBf7BviaPa53Jrowe/l0s++OSTTNP2oCVhh/1utKxW25g9T11l5h5f/mXY
-	 1pW/6qJnz8DbDpYK6IVe3AYR7ao0T6h2UvG87tYz0zbkxLeBxaBS6DZAcdoZGVfM0h
-	 mvmh5ZS2UrvvjABSIhJMGWTPxhAgOT4V6p0KM9416+rLnfLf60/VrxS7+A7XR74ReQ
-	 +06UsdMx01/k0XkLXuLm2KPCyQGZhqMzlPmiInGf4l2byDDXIZ6rq5+Umyb7/cNnLg
-	 /R0W18/11nUOg==
-Message-ID: <sashiko-outbox-234599@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v11 42/43] selftests/sched: Test parameter changes in
- deadline_bw_test
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <f4340ebcf4ff6e789ad8c5272eb798b3180265d4.1795646915.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
- <f4340ebcf4ff6e789ad8c5272eb798b3180265d4.1795646915.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 26 Nov 2026 02:01:36 +0000
+	dmarc=none header.from=loongson.cn;
+	spf=pass smtp.mailfrom=loongson.cn;
+	arc=none smtp.remote-ip=114.242.206.163
+Received: from mail.loongson.cn (mail.loongson.cn [114.242.206.163])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 21F79606A321;
+	Thu, 26 Nov 2026 02:02:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21F79606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=loongson.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=loongson.cn
+Received: from loongson.cn (unknown [123.138.236.242])
+	by gateway (Coremail) with SMTP id _____8DxpvAfkwdr1RsjAA--.34150S3;
+	Thu, 26 Nov 2026 10:02:07 +0800 (CST)
+Received: from [127.0.0.1] (unknown [123.138.236.242])
+	by front1 (Coremail) with SMTP id qMiowJAxFs0ckwdrMGk3AA--.52566S2;
+	Thu, 26 Nov 2026 10:02:05 +0800 (CST)
+Subject: Re: [PATCH bpf-next v1] selftests/bpf: Restrict JIT tests to 64-bit
+ LoongArch
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: bpf@vger.kernel.org, loongarch@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20261125103208.15242-1-yangtiezhu@loongson.cn>
+ <DN4QVSWEI27E.32PRRHCUBAZFK@gmail.com>
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+Message-ID: <d308dec5-a310-344b-7ff5-0e67e118d9b8@loongson.cn>
+Date: Thu, 26 Nov 2026 10:02:04 +0800
+User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,224 +57,55 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+In-Reply-To: <DN4QVSWEI27E.32PRRHCUBAZFK@gmail.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID:qMiowJAxFs0ckwdrMGk3AA--.52566S2
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj9xXoWrKw1kGr1ftF4fGFykJFyUtwc_yoWkJrg_uw
+	4xGryrCr1UAryqy3WFgF1FyrZrJFWDJ3y8XrWfXrZ7uas3Ja1rJFs5Gr1fXFy7JrW0kFn8
+	Gan0vr47XF1UXosvyTuYvTs0mTUanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUj1kv1TuYvT
+	s0mT0YCTnIWjqI5I8CrVACY4xI64kE6c02F40Ex7xfYxn0WfASr-VFAUDa7-sFnT9fnUUI
+	cSsGvfJTRUUUb3AYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E6xAIw20EY4v20x
+	vaj40_Wr0E3s1l1IIY67AEw4v_JrI_Jryl8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	WUJVW8JwA2z4x0Y4vEx4A2jsIE14v26r4j6F4UM28EF7xvwVC2z280aVCY1x0267AKxVW8
+	JVW8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27wAqx4
+	xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v2
+	6r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCYjI0SjxkI62AI1cAE67
+	vIY487MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMxCIbckI1I0E14v2
+	6r126r1DMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17
+	CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF
+	0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIx
+	AIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIev
+	Ja73UjIFyTuYvjxU7XTmDUUUU
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issues to consider:
-- [Medium] selftests/sched: premature bandwidth probe after
-  reenter_runnable_in_gap()
-- [Medium] selftests/sched: missing rival readiness wait in
-  owner_boost_case()
---
+On 11/26/26 9:17 AM, Alexei Starovoitov wrote:
+> On Wed, Nov 25, 2026 at 02:32 AM Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
+>> Now that 32-bit LoongArch support has been added to the kernel while the
+>> eBPF JIT remains 64-bit only (HAVE_EBPF_JIT depends on 64BIT), limit the
+>> BPF JIT-specific test cases and architecture macros to 64-bit LoongArch.
+> 
+> Most of them are not JIT-specific.
+> The interpreter runs sdiv, bswap, movsx and gotol.
+> The default build of test_progs fails against such a kernel anyway.
+> dummy_st_ops_success.c takes struct bpf_dummy_ops from vmlinux.h,
+> and that struct is under CONFIG_BPF_JIT.
+> raw_tp and kprobe progs can't load there either:
+> 
+>    select HAVE_PERF_EVENTS if 64BIT
+> 
+>> This is a cleanup patch, inspired by Sashiko AI review:
+>> https://lore.kernel.org/bpf/sashiko-outbox-228693@kernel.org/
+> 
+> That comment is about the new guard in bpf_insn_array.c.
+> Nothing is broken. I don't think we need this patch.
+> Pls don't change 16 files because a bot said so.
 
-commit 1245641ca231366ed56f97e5e4afa480f85900ad
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+OK, understood, please drop this patch.
 
-selftests/sched: Test parameter changes in deadline_bw_test
+Thanks,
+Tiezhu
 
-This commit adds 39 test cases to deadline_bw_test covering SCHED_DEADLINE
-parameter changes, priority inheritance boosting, and tasks re-entering the
-deadline class during a constrained gap, and waits for total_bw to drain
-between partition test cases.
-
-> diff --git a/tools/testing/selftests/sched/deadline/deadline_bw_test.c b/=
-tools/testing/selftests/sched/deadline/deadline_bw_test.c
-> index 83dd8b4e79a3d..78b58888e9d54 100644
-> --- a/tools/testing/selftests/sched/deadline/deadline_bw_test.c
-> +++ b/tools/testing/selftests/sched/deadline/deadline_bw_test.c
-
-[ ... ]
-
-> @@ -2749,93 +2923,3168 @@ static int requeue_pi_new_period(void)
-
-[ ... ]
-
-> +static void *rr_t(void *arg)
-> +{
-> +	int err;
-> +
-> +	rr_t_tid =3D gettid_();
-> +	err =3D set_constrained(0, 10 * NSEC_PER_MSEC, 20 * NSEC_PER_MSEC, 5 * =
-PERIOD);
-> +	rr_t_start =3D now_ns();
-> +	if (err) {
-> +		ksft_print_msg("T refused as a deadline task: %s\n", strerror(-err));
-> +		rr_t_ready =3D -1;
-> +		return (void *)1;
-> +	}
-> +	rr_t_ready =3D 1;
-> +	while (!rr_stop) {
-> +		uint64_t t =3D now_ns(), b =3D rr_back_at;
-> +
-> +		if (b && !rr_t_ran && t > b + 2 * NSEC_PER_MSEC)
-> +			rr_t_ran =3D t;
-> +	}
-> +	return NULL;
-> +}
-> +
-> +/*
-> + * The same as reenter_asleep_in_gap(), for a task that stays runnable. P
-> + * has one CPU:
-> + * 1. T becomes a deadline task of 10ms in 20ms, every 500ms, at 0ms, and
-> + *    spins. It is throttled at 10ms, until its next period at 500ms.
-> + * 2. At 40ms, the main thread switches T to SCHED_OTHER, then back to
-> + *    SCHED_DEADLINE with the same parameters.
-> + *
-> + * Leaving the class and coming back must not give T a new period before
-> + * 500ms. With a new period, T would run at once. The case fails if T ru=
-ns
-> + * from 2ms to 50ms after rr_back_at.
-> + */
-> +static int reenter_runnable_in_gap(void)
-> +{
-> +	int ret =3D KSFT_FAIL, err;
-> +	void *t_ret =3D NULL;
-> +	pthread_t t;
-> +
-> +	rr_t_ready =3D 0;
-> +	rr_stop =3D 0;
-> +	rr_t_tid =3D 0;
-> +	rr_t_start =3D 0;
-> +	rr_back_at =3D 0;
-> +	rr_t_ran =3D 0;
-> +	if (pthread_create(&t, NULL, rr_t, NULL)) {
-> +		ksft_print_msg("the T thread could not start\n");
-> +		return KSFT_FAIL;
-> +	}
-> +	if (wait_for(1000, rr_t_ready) || rr_t_ready < 0) {
-> +		ksft_print_msg("T never started\n");
-> +		goto out;
-> +	}
-> +	while (now_ns() - rr_t_start < 40 * NSEC_PER_MSEC)
-> +		sleep_ns(NSEC_PER_MSEC);
-> +	err =3D set_other(rr_t_tid);
-> +	if (err) {
-> +		ksft_print_msg("T cannot leave SCHED_DEADLINE: %s\n", strerror(-err));
-> +		goto out;
-> +	}
-> +	/* Store it before the switch back. A T given a new period runs at once=
-. */
-> +	rr_back_at =3D now_ns();
-> +	err =3D set_constrained(rr_t_tid, 10 * NSEC_PER_MSEC, 20 * NSEC_PER_MSE=
-C, 5 * PERIOD);
-> +	if (err) {
-> +		ksft_print_msg("T refused back as a deadline task: %s\n", strerror(-er=
-r));
-> +		goto out;
-> +	}
-> +	sleep_ns(50 * NSEC_PER_MSEC);
-> +	ret =3D KSFT_PASS;
-> +out:
-> +	set_other(rr_t_tid);
-> +	rr_stop =3D 1;
-> +	if (pthread_join(t, &t_ret) || t_ret)
-> +		ret =3D KSFT_FAIL;
-
-[Severity: Medium]
-Can measured() probe cg_p before rr_t's 0-lag time at 500ms and report a
-false bandwidth leak?
-
-Unlike reenter_pi_blocked_in_gap() and reenter_asleep_case(), which wait
-for T to run at 500ms before returning, reenter_runnable_in_gap() switches
-rr_t to SCHED_OTHER and returns at about 90ms while rr_t's 2% bandwidth is
-still held by its inactive timer until 500ms.  Because the case is
-registered as MEASURED_IN_P, measured() only waits 3 * PERIOD (300ms,
-reaching about 390ms) before running probe(cg_p):
-
-tools/testing/selftests/sched/deadline/deadline_bw_test.c:measured() {
-    ...
-	ret =3D run_in(cg, fn);
-	sleep_ns(3 * PERIOD);
-	after =3D probe(cg);
-    ...
-}
-
-If probe(cg_p) spawns its nine 10% tasks before 500ms, the ninth task fails
-admission with -EBUSY (5% fair server + 2% rr_t + 90% > 95%) and fails the
-test.
-
-[ ... ]
-
-> +/*
-> + * Run as the rival C of pi_owner_throttled_rival(). Become a deadline
-> + * task of 40ms in 60ms, every 100ms. Wait until W is about to block,
-> + * then sleep until 13ms after O's start, and spin 40ms of CPU time.
-> + * Return NULL, or 1 on an error.
-> + */
-> +static void *ob_rival(void *arg)
-> +{
-> +	struct timespec ts;
-> +	uint64_t end;
-> +	int err;
-> +
-> +	err =3D set_constrained(0, 40 * NSEC_PER_MSEC, 60 * NSEC_PER_MSEC, PERI=
-OD);
-> +	if (err) {
-> +		ksft_print_msg("the rival refused as a deadline task: %s\n",
-> +			       strerror(-err));
-> +		return (void *)1;
-> +	}
-> +	sem_wait_sig(&ob_rival_go);
-> +	end =3D ob_t0 + 13 * NSEC_PER_MSEC;
-> +	ts.tv_sec =3D end / NSEC_PER_SEC;
-> +	ts.tv_nsec =3D end % NSEC_PER_SEC;
-> +	while (clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &ts, NULL) =3D=
-=3D EINTR)
-> +		;
-> +	spin_ns(40 * NSEC_PER_MSEC);
-> +	if (set_other(0))
-> +		ksft_print_msg("the rival cannot leave SCHED_DEADLINE\n");
-> +	return NULL;
-> +}
-> +
-> +/*
-> + * Run an owner_boost case of @kind: ob_owner() and ob_waiter(), and
-> + * ob_rival() with OB_RIVAL. W must get pi_lock within @limit_ms of O's
-> + * start.
-> + */
-> +static int owner_boost_case(int kind, int limit_ms)
-> +{
-> +	void *o_ret =3D NULL, *w_ret =3D NULL, *c_ret =3D NULL;
-> +	int throttled =3D kind !=3D OB_GAP && kind !=3D OB_LATE_GAP;
-> +	int ret =3D KSFT_FAIL;
-> +	pthread_t o, w, c;
-
-[ ... ]
-
-> +	if (kind =3D=3D OB_GAP)
-> +		sleep_ns(30 * NSEC_PER_MSEC);	/* O sleeps past its deadline */
-> +	if (kind =3D=3D OB_RIVAL && pthread_create(&c, NULL, ob_rival, NULL)) {
-> +		ksft_print_msg("the rival thread could not start\n");
-> +		kind =3D OB_THROTTLED;
-> +		c_ret =3D (void *)1;
-> +	}
-> +	sem_post(&ob_go);
-
-[Severity: Medium]
-Can ob_waiter preempt ob_rival before ob_rival enters SCHED_DEADLINE?
-
-On P's single CPU, owner_boost_case() creates ob_rival and immediately
-posts ob_go to wake ob_waiter without waiting for ob_rival to finish
-set_constrained():
-
-  main thread (CPU of P)        ob_waiter             ob_rival
-  ----------------------        ---------             --------
-  pthread_create(..., ob_rival)
-  sem_post(&ob_go)
-                                wakes as SCHED_OTHER
-                                set_deadline(2ms, 10ms)
-                                sem_post(&ob_rival_go)
-                                take_pi_lock()
-                                  boosts ob_owner
-                                  ob_owner spins 5ms
-                                  unlocks at 15ms
-                                                      first scheduled
-                                                      set_constrained(...)
-
-When ob_waiter runs before the newly created ob_rival thread, ob_waiter
-and the boosted ob_owner keep the single CPU in SCHED_DEADLINE until the
-lock hand-off is already over at 15ms, so pi_owner_throttled_rival()
-passes without ob_rival competing at 13ms.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795646914.gi=
-t.mathieu.desnoyers@efficios.com?part=3D42
