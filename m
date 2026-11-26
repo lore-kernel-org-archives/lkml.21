@@ -1,67 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795674273;
-	b=KVTyRbDsEUSt7LGmUnQyIbByB2Hku3LTqqfdwm3N7WigUaBW6QKvRi0T3d4uBvGUUmt0
-	 M/bI671/kiQkGs32BkU5/4w/1GqI+UWZ/dNHPoDIYUVienY1QLT2WYGaM8WAnv01fxfkm
-	 fcYnOWQ1rd6/k2k6RK7IWJILJRAqeBXIdohk7Mxw4v5YxJxxj7dnlJV1PvHC0DWsylkNT
-	 wLHnE2mptWF1ZDg+LicJZdB8yEG3ox06mosEUk3EY4PlEJVO1bFeuORIx+ataorduI3vG
-	 ocNDhGW4GolFE7uKn2clrCr7Vs5CNtvHgMrcQWgVwGRM2/EWuFH/KVuAu/vdrwyYppg==
+	t=1795674285;
+	b=doomPZJ6CEb4Xq5jGWmjsDqOij+KdNGGfsJnY53FDtbd70oSRFoeNcKqsFJO/7ko8ZGJ
+	 5GS3LYnKHhEH0/Xg8L3VzDepwUGPcHiJNhc6GWQpwd3R2eOtq4Kg5Q2b8fi6ydMwZHuR8
+	 R7PyLyOa3TomWKecFD1/PVdlqNvsf+oR5DxxSoOpkk1c38zHFooVkB1TjrwiT0sY3VX6a
+	 paTFuH9si12qbGMShZHm5Rw/3T9UwMMlCNQ6F0Y/ubLmF1NFn9CSKCRl2PEkL37BOfzt4
+	 /s+n+D/xd/dFQU2io4NycRv2lciyPBP4XMCxPMBnIqYICAuOSFhwfFPB/lfghKv4BRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795674273;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-MBO-RS-ID:X-MBO-RS-META;
-	bh=54Gr52l2TYE8K41+i/7jlgfFtHwpt1TqVfCkux0de5Q=;
-	b=mJGcMIY5jGC4g0ih/40T4Xg8NZs1KE8/z39f28oWexNGMiYfB3197o1fG83Ga7agJ2IG
-	 HCc/CEdi62+QAzPZDqg7CXOf6bhpF6P0Mr3hult930RJ6YzBgDOrHBV2LTfIwETrP9ul0
-	 YIvF3POLD7p5Na4oz84oAeNn0Mpqon9Iud8tEZj82Lkp0Y1/MynrsCHnnPmcmuA/iq03j
-	 OQfvb3WndOp6RHtNBrfPoo04w8Z12LD8D52vdmNdGUsLFMqefkhZkjGsQmi3PYKtPcUBc
-	 GpNJIs/WvhYkD7GWTWjY/F3pR/OAa0i+J6BK5OdkREZi+ys8kC8c7Z3hG3tN3KJHZkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795674285;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=8r10h3LnRLt9vjVGGqIH+e89aRk+gTjmWUgpe6jQIHI=;
+	b=UciiP9ZWWUH/GdW0xRpNIyu/dSooFUmOgFT3mcQIZaFBFsQc8s8G2j00Rg4nw/fXUuAs
+	 wqiKI31+RbCI2NHsnGkSoxNTd3PuEuyr6uhLPZgwpaaILZbJbCuPU0VqblRD73gbew+JS
+	 2WzO9LU90vKugvZlWyAFLs94zm36UiJPO5Qod2/JcJSG/WfdvK8S/vfnIs8NZh11gEvPA
+	 x3i0zEU0ithdKWIULz+p1jHfMGdRJqeLUfOcwlG9uBSGWQgCnSqi3uhaQLDnmLsrloHdf
+	 R+3hNs5OOmbixlzykNfnFjYE41+u6EaPgXop/VckIQRadZGFPD9BqvzxPZbTPEU5TvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=A5GSzsYV;
-	arc=none smtp.remote-ip=80.241.56.151
-Received: from mout-p-101.mailbox.org (mout-p-101.mailbox.org [80.241.56.151])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=NmQeR3Yv;
+	arc=none smtp.remote-ip=74.125.82.46
+Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CF2B606A321;
-	Thu, 26 Nov 2026 06:24:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8CF2B606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B175606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:24:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B175606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=A5GSzsYV
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4jZmjM3PxSz8txw;
-	Thu, 26 Nov 2026 07:24:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795674263;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=54Gr52l2TYE8K41+i/7jlgfFtHwpt1TqVfCkux0de5Q=;
-	b=A5GSzsYV5F7cxfaqKo9VMJQlSCwz02VM+yywBG1eoNEDgFi5GisMOszZbpKPU+VdOSRBOv
-	sU0LqZ4o/arXqts/A2jdPYCjoTe4l4pRz8v1jwrZjlz5zpeE8DZaswHGfn/joRNWDKgdgp
-	PkLm0Bo+fKbRh3IHctapS+7cFzzx8B+IfQgSjTfp1aB/FbT13PyoqTZgwCPuAKtJltGYsa
-	QctkjB0b9FGZ3Mx+quXZ4WCEMyLRWhx2IHvnUgjEW7H8yQbFNH/XWEhtCB2a7yldcz4F2t
-	EjN9fQOEZYX/17sVHO3HTsBliXq7ixpJSb1nsIPTYCLh7zxjYREAH7kTTOY9VQ==
-Date: Thu, 26 Nov 2026 07:24:21 +0100
-From: Benjamin Boortz <bennib@mailbox.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, akpm@linux-foundation.org, 
-	linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org, 
-	lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com, 
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, 
-	broonie@kernel.org, achill@achill.org, sr@sladewatkins.com
-Subject: Re: [PATCH 7.3 0000/1005] 7.3.7-rc1 review
-Message-ID: <awfQdrf18IeLxpOT@bb-82jq>
-References: <20261125143821.729802100@linuxfoundation.org>
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=NmQeR3Yv
+Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-1ae58d17cd9so7385216c88.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:24:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795674284; x=1796279084; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8r10h3LnRLt9vjVGGqIH+e89aRk+gTjmWUgpe6jQIHI=;
+        b=NmQeR3YvouSPoejt2/ltTFEZkJF4kWAkE0yu1LWqRtQ4a58YTZHG511fPlSYFWNhSH
+         5mxMjd0Hn2LLHkU1vAcLnQ9H+6+4hArdJm7mJdXuyBzMoyhg60WnT8jB6voMAIiwCSqH
+         L5sWw/UymwNVK5FuApsHLMjth149Wa9arOt8g=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795674284; x=1796279084;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8r10h3LnRLt9vjVGGqIH+e89aRk+gTjmWUgpe6jQIHI=;
+        b=dw5TQLYGigw4lCn646Z9oH6AVAae7eALkfDnMQCQD9JouiTFnVAD01TPrC4x8c/pIo
+         bzmWq1eDbz2NOraiXOS+4c6MHBC7g+gUEzMxHMC7isZsVjmwRGQ2A28uvwhGrieu9PmX
+         blGRrSFJMh/f5c19UR4vpSPfTxptiajfQSJt0+wuVdwLARp40FUX/vSTsLt2MjYS9TLr
+         171MRh5FFvLQsPS2CJkj6esroxTuXsKXfKUTaoYyeQpWej9fCs0/aNoOFZS8fGORwEqg
+         oCyEzaYjv8gbFKnHMR3qwq4r5mCukzfWHmxz7Tgp9uPe++musFy5/KMP4zpqeT3DJfI5
+         pHCA==
+X-Forwarded-Encrypted: i=1; AL+hErGUqa8KAjKoODZ2Z8CziJ3s1oecn06vpm8OL03npKs1VAz+ohXb/KwobzfA+E6vyvNFRyeswo+iVw/HP2Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+HmgZgDloAy2/8axo0AXgRSflszypAjOkZ8dPPHwINp8li8KRm
+	i9Ce6U1cB5hNYb9FfCzq4qGeu1qtpGiS3cf1zNZirEL++V1iLpN4lz26I+gwexNxfg==
+X-Gm-Gg: AZFdTZfc9tf3vP/1usUmwcFyoc99RQK2k59RwtFcVGHo5nw8/4bPPOqIQVsm0wxbXdp
+	7g8IeSM7uhIKabZwBkXTVHZivvg8rlyTCn4SvPFe1Gfr+DgJWg/42lNH6pvThSMR/c3uGYQ/dEp
+	Av9POh5yqttF2JzH/Bms7XWGkRJfGQKP/e1KsXnA8M++45hB/ZOphJFbcYZAjl5QhHnQBqX2Gdj
+	S3h/ypldHf+gD2zrEXF4LJK3uF7BBUdiq6tnNcu54ekVB1rMAVUJaUOeHoLb93wPW0cHGgcr1Zi
+	N0sSIPorThWoWqGtNKx64L1F/yehRt0aLsZiJWU6NpZg7PCr+R3NrLe41HvjfJ4uaQ76CxQNhx6
+	AIYQTkuEZsE72WB3aKz2JaXfmofnZt0W7/LTLNMsQcSkrj6vzAwjp9hyheo5nLib3dkMh6i3mby
+	TNiaVTHEPeYhgIwbFNv7pK+8qZPQJ2hO0lUZ7nrNN0RUzrHtjcQ/LlYrxow52KqZor6fNqXZ5Kf
+	rMJ3TpfZiBCc40RQqbH2cl8qw1MB30p42wXDcVLfmqDipdCC88vIPhyyvJusxjZHomklg+vezMT
+	WcoijGxVrDcEzIzk5eCSZiWu2bhTb6zgTiPmjOch2Fk6Qw9wMZNyiik3plbR3z6kT2awuKXpSd3
+	XZpWUv0ZeQTBjtgMdiZwLZQ==
+X-Received: by 2002:a05:701a:cc82:20b0:1b5:5a81:d388 with SMTP id a92af1059eb24-1b55a81ddfdmr16361341c88.4.1795674284302;
+        Wed, 25 Nov 2026 22:24:44 -0800 (PST)
+Received: from fshao-cloudtop.c.googlers.com (123.142.199.104.bc.googleusercontent.com. [104.199.142.123])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b56ef9fd16sm36793186c88.4.2026.11.25.22.24.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 22:24:43 -0800 (PST)
+From: Fei Shao <fshao@chromium.org>
+Date: Thu, 26 Nov 2026 14:23:45 +0800
+Subject: [PATCH 3/8] drm/etnaviv: Use DEFINE_DRM_GEM_FOPS()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,21 +89,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20261125143821.729802100@linuxfoundation.org>
-X-MBO-RS-ID: 4dc762b175a24d5dc2e
-X-MBO-RS-META: qsbj16bmgfeeyqgahx3zsdrj5rc9ir3f
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-drm-fops-show-fdinfo-v1-3-7cb1d1a5d6ef@chromium.org>
+References: <20261126-drm-fops-show-fdinfo-v1-0-7cb1d1a5d6ef@chromium.org>
+In-Reply-To: <20261126-drm-fops-show-fdinfo-v1-0-7cb1d1a5d6ef@chromium.org>
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Oded Gabbay <ogabbay@kernel.org>
+Cc: Lucas Stach <l.stach@pengutronix.de>, 
+ Russell King <linux+etnaviv@armlinux.org.uk>, 
+ Christian Gmeiner <christian.gmeiner@gmail.com>, 
+ Rob Clark <robin.clark@oss.qualcomm.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Abhinav Kumar <abhinav.kumar@linux.dev>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, 
+ Marijn Suijten <marijn.suijten@somainline.org>, 
+ Boris Brezillon <boris.brezillon@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Steven Price <steven.price@arm.com>, 
+ =?utf-8?q?Adri=C3=A1n_Larumbe?= <adrian.larumbe@collabora.com>, 
+ Melissa Wen <mwen@igalia.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Karol Wachowski <karol.wachowski@linux.intel.com>, 
+ Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ etnaviv@lists.freedesktop.org, linux-arm-msm@vger.kernel.org, 
+ freedreno@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, Fei Shao <fshao@chromium.org>
+X-Mailer: b4 0.16.0
 
-On Wed, Nov 25, 2026 at 03:22:18PM +0100, Greg Kroah-Hartman wrote:
+DEFINE_DRM_GEM_FOPS() now wires .show_fdinfo to drm_show_fdinfo() by
+default. Migrate the driver to use DEFINE_DRM_GEM_FOPS().
 
->This is the start of the stable review cycle for the 7.3.7 release.
->There are 1005 patches in this series, all will be posted as a response
->to this one.  If anyone has any issues with these being applied, please
->let me know.
+Signed-off-by: Fei Shao <fshao@chromium.org>
+---
+ drivers/gpu/drm/etnaviv/etnaviv_drv.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
-Build and boot tested with QEMU for x86_64, i386, arm64, and riscv
-across multiple configurations, and boots on AMD Ryzen 7 5800H.
-No regressions observed.
+diff --git a/drivers/gpu/drm/etnaviv/etnaviv_drv.c b/drivers/gpu/drm/etnaviv/etnaviv_drv.c
+index ec1352c1b09f..93869e8f3f96 100644
+--- a/drivers/gpu/drm/etnaviv/etnaviv_drv.c
++++ b/drivers/gpu/drm/etnaviv/etnaviv_drv.c
+@@ -494,11 +494,7 @@ static void etnaviv_show_fdinfo(struct drm_printer *p, struct drm_file *file)
+ 	drm_show_memory_stats(p, file);
+ }
+ 
+-static const struct file_operations fops = {
+-	.owner = THIS_MODULE,
+-	DRM_GEM_FOPS,
+-	.show_fdinfo = drm_show_fdinfo,
+-};
++DEFINE_DRM_GEM_FOPS(fops);
+ 
+ static const struct drm_driver etnaviv_drm_driver = {
+ 	.driver_features    = DRIVER_GEM | DRIVER_RENDER,
 
-Tested-by: Benjamin Boortz <bennib@mailbox.org>
+-- 
+2.56.1.839.g22a8290db9-goog
+
