@@ -1,73 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795727402;
-	b=MlYpuK0gsGpQkb4ljUMX2+/bYlAsTEoq2Iu7jzDBJmoZmX3ndfK8qSJbO9z13hbdftUU
-	 949BwRHH0HuWUFUbX11RQpjQTEHb7VLK1fxAOTGV7BUMn0auRcBxvy4kJg2uRGJbEJCs4
-	 6bzoz9NW7owZT53jDWJsThDGKvyf+LdyFkLV95EMnii1ASp5vw5/B1Yo7G7jcokhwq0Iv
-	 Nux22yys58YwtA0pOzt24aDpztQsvCd/BJMRilI3P+JdXqHM8av74eoxaknyHcj7hqsgv
-	 AObeG9HQ77XPXFQTYSHaXFebizkl2fphEPzbAkSgYVIYKZnY6OMcJ0m9GRd1L9Xm5Yg==
+	t=1795727488;
+	b=OozewBPp3LlJ6eLqKAKPmQTpCPS4JZ3eAQXTOJeqRpln0HXennW9psaCRDGzyz3547eQ
+	 lfWc+rt3FUiRP6i1qW/n9uJsOGarzhZqkIvwCMQzJzaGi8oKNXzA9Lkn8qU0uh6DqWSx4
+	 4ZN7BQgrFuGegaEuEZD25nJRT1M0zZMY92rSaheMLsgPPO3+RD/uGRYfhY+Xv5QgluuZ9
+	 g37eA598zQPRGyaxIFBUC9PeV0COAARHMOeqjFGkrdN66t9UDwcwAXIjnJ+uq0Lj+l4Z1
+	 PRNLdfnfgwcaRtPymrhY9sumIHyfb8V7x+ICdaOrgkz13jCVu1Tftnq9lczVuU2mN7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795727402;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=p2xNedof4Ko4NfZmXTB64oZmhca+eJLe1h7G8tH7eCA=;
-	b=C2UsmgX1g2zPK0P4l7Y8fL1rvFKsvB2s1XiR8NRgsSv6ahn+527j6VYBttv7Ba9usgkn
-	 t5z/6fMD5T5PfzHLotGicr1f+qnZlLhgnPmO61hQ2ggjY0YXMzdbXvStEiTpw2ppZMs7g
-	 ZlDsDpE2CqcBifFmqnXb0MgEMd9weTtJvfqJL3UXyzxtUz9vsZlD6mcZMS43vNPKZnMFs
-	 VPed2NllqVOOel+YYzQLaUKqJhyJ1KkLnEP3iQ3xYcf7JfGCMTXck0LDh9kY9ZTgGhu3h
-	 hv4jIJ4kU5uqybnJ/xUke+ppf242xI4fZ4w0sK9qkgAxlURRwb12bFpVFhxWkwVYlUg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795727488;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:Subject:From:To:Cc:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=1eGhF9wa+InSW4Ry7zowJx6R0jLY/ryLtxDc7jirqqQ=;
+	b=GAqOsVh2qR1RtJJxdLWFsF1S/lvJG2uba3lxIYhYNnxi7As2ONv3P2wqUNSPo1S0vBgn
+	 HypPRh+ugLHn9i0Pp4lncQcBbCXiyuPFrb9Pn9lySNVWIC5uKuPDnDXHw1GfsdHQa9ibT
+	 Qwghiyk89A7hbYGBCEzOtjvA1KTz+Si74Zrwlc4I5Sn8qRid+kswl3rDKoRQZhQ27amhb
+	 YLrv5gDyLPkeO8+0lKuZsP+5czlWVJkoCs43hSerRJe/Q/qTlvHxYryGlUiXNlsP4SznQ
+	 I/0Emb9LzRcMB+9m4gXsdzGMPPzeTQVMVOLsyNnDngkdd2iS0oHnpYvLIChzapKygCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=d-silva.org;
-	spf=pass smtp.mailfrom=d-silva.org;
-	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=S1akCqD7;
-	arc=none smtp.remote-ip=119.15.109.137
-Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jcLm4e3K;
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABF55606A327;
-	Thu, 26 Nov 2026 21:10:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABF55606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0397A606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:11:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0397A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=S1akCqD7
-Received: from Hawking.lan (hawking.lan [10.0.1.4])
-	by www.nmnhosting.com (Postfix) with ESMTP id 7A223404C4;
-	Fri, 27 Nov 2026 08:09:55 +1100 (AEDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1795727395;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=p2xNedof4Ko4NfZmXTB64oZmhca+eJLe1h7G8tH7eCA=;
-	b=S1akCqD7pVd3giXAKn02vOqeNyJDsak4S+Ugubkxc/i90OCi5kfA20TMnUYdjB+qWoZYna
-	3PHuW5rvdxMxQOvILicRV1PEuoke8XP8DCJ8cSvYgwdjJO/7wmnraSaDE96HZ4PI+G5wa6
-	Z5fa4/2Z6283mm5dKO5hwu5vae5YaXILEyxaYB5n5wF6kOIzIpR3Jqc8g3wmJbPvQILQ+6
-	KXpXhXl5U0fwy4xBFb0b8Xk2uh/hBV7gEc9JLYavRbuRolcrVA+XuENk0uwB2NBgbmqpCP
-	M9mdcp3ELGtbgc54+yIujKa2D8JSRMXVQmH2HKCYiXHNEBFpCsZQy5T0PoYQog==
-From: Alastair D'Silva <alastair@d-silva.org>
-To: Enzo Adriano <enzo.adriano.code@gmail.com>
-Cc: linusw@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	Andre Przywara <andre.przywara@arm.com>,
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>,
-	Norman Herms <dockseed@proton.me>,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Alastair D'Silva <alastair@d-silva.org>
-Subject: Re: [PATCH v4] pinctrl: sunxi: use automatic voltage detection on A733
-Date: Fri, 27 Nov 2026 08:09:55 +1100
-Message-ID: <20261126210955.3021478-1-alastair@d-silva.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261125-a733-pinctrl-v4@gmail.com>
-References: <20261125-a733-pinctrl-v4@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jcLm4e3K
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f0464dd6b6so45645835ad.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:11:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795727486; x=1796332286; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
+         :from:subject:message-id:date:content-type:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1eGhF9wa+InSW4Ry7zowJx6R0jLY/ryLtxDc7jirqqQ=;
+        b=jcLm4e3Kr4LRZNOQm7TsamIhRQAYCemljovkkU3TOUej7mwnQKEsCh9AjHMYvZoOIM
+         l6WjPISP+9d68Nz8fiGelOJmiMruep+oH2AhR9EW8yi8zsmxzICA6BN8B4wOM0dO+Fjk
+         adfEy9NCNDiYa+ZsAv/KJ0aYFPBgtcEc8IMwXK577/HgPV5JZFz0vtM+ANoCHTH1js+P
+         yhUINFlY3YWofsCwixNJmIXrh/UvZ7OX0qxK+dfels9uDi6MGxmR+h2nM49pADIPGL1B
+         dLZpsh5cwBqugKHHikoqdcxEaQwitTiFoF5JS7KDOmYNk1kHnIZLlPn5ZDEMYj03o6v7
+         6nQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795727486; x=1796332286;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
+         :from:subject:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1eGhF9wa+InSW4Ry7zowJx6R0jLY/ryLtxDc7jirqqQ=;
+        b=eyO0DFOWECh5Mt1gaI+wwCC0dt4jNdbLQw/2zSsPdpM44SWr368ZwMgWDXDpARVe9g
+         p5o3HSSkz5MApv7+dk5JtCyNCp3Kkbhsu//Rkd8+Auh0KJMdIzzkYnJBj4+4URyqlZu0
+         DbMgiPp5178plMFvJQX8/q/ohw1sRMSyAp1H0Nqkv/NMFGqFgYPFI4F7rVfPbzAzS9dX
+         YEezOqNKMpIGVcFqhCkmwY4yRO6+LFpX8/b6PNNX0oWyySk4jZutr8sbVXkz0v1ILpbR
+         WBnhK/ERnoi5U/M94HIO+nWlFi8n2iHB1hp6btpXv2yfiG+vZsVhhSFCJ/kHLhi0/ZVA
+         Ki+w==
+X-Forwarded-Encrypted: i=1; AL+hErGC19ShFcY1rNl+ivCaPsL5PpAw5GnH8goq04VI3exi3/duPkJtBxFo+m5ty2lekcUaCxPNXR7dHXyqy5Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9DbJR4c9C1frB5TFag6ykIOij6SyWH6YPPXET59+62sa7nloSE
+	NfSnuVALjPdI7CIXfyVjI5I//NpfJE58q3C97hePe+yaIDWlla/pQDG3
+X-Gm-Gg: AZFdTZfxQhLfuHATNnl06+fdAzc5kG96UV1ZBsVFab96vW6Dx21omFaoq3RjFBNqY7N
+	sojjvgVT9k1BFRHAskRRArVVmK8lZJ6ThXKuIBjxkXZEG+7LloXG8aVGLFDQkUQ+URJAoXNDF/9
+	blG7n54ZcBogK/f69nxNYEBxL24ZA1dWZWjR8w4d2bZr+fVlfLgQkHpsVJEgAn6fNLXh4IyDhkM
+	5MyADZPhRqekoMdOdYpHCxjVUfolWKPN5DhKlZIBF7BcL4Xj/FhTSK/+P+yHWkSDrnIY0NV8qbp
+	Y4m+hyF+9ak21dr8QMVosPrxlaLYWz1+1IlqAWy3715D7K0OKv2ocA066PpO/GXIo2G/Uww4nCw
+	KV577Q+nLMHmN9MJ47l6ZBjyijr0o5K76Vhxf1+VpoHRGdtceXTTxV+5iV+xEUNQv3cr2Yy25DB
+	byyHCNdiTtiH7JPn0FX9c7Jeyv09tuWhKJxurfhgjA1cvkVO0gWojYAzETGdKeIMxL1IJhxQOtS
+	u1JcfjsTC+0bqhiTVlegr2PWc7ps+4Dp0DzWXcGRW3QWFfecB5Un1LIc9jtKE1wkApQlYq5ce3i
+	R6+f9484ni7YYphFoMGqfyaFZiuUYUib7BQtjshtRWd6In7ZWw8o7ZmXwQ5NPi1xld8yuaYjVBi
+	7+jK2UPKk4+Bye8MLaSmaFgRyprt8hPEw6A==
+X-Received: by 2002:a17:902:f642:b0:2ed:fdb:b37a with SMTP id d9443c01a7336-2f03ef84acbmr222699935ad.4.1795727486118;
+        Thu, 26 Nov 2026 13:11:26 -0800 (PST)
+Received: from localhost ([153.61.198.255])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0dcbe3sm109123135ad.28.2026.11.26.13.11.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 13:11:25 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 26 Nov 2026 21:11:25 +0000
+Message-Id: <DN5G9M8G2IKK.Y4INWFA4JESW@gmail.com>
+Subject: Re: [PATCH bpf-next 1/2] bpf: account for local storage map
+ elements memory
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Mahe Tardy" <mahe.tardy@gmail.com>, <bpf@vger.kernel.org>
+Cc: "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar
+ Kartikeya Dwivedi" <memxor@gmail.com>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>, "Yonghong Song"
+ <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Emil
+ Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
+ <ihor.solodrai@linux.dev>, "Shuah Khan" <shuah@kernel.org>, "Christian
+ Brauner" <brauner@kernel.org>, "Amery Hung" <ameryhung@gmail.com>,
+ <linux-kselftest@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+In-Reply-To: <20261126131318.470837-1-mahe.tardy@gmail.com>
+References: <20261126131318.470837-1-mahe.tardy@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,37 +108,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 26, 2026 at 03:33:36PM -0500, Enzo Adriano wrote:
-> A733 uses two-bit voltage-mode fields, but the handlers selected when
-> v7.4-rc1 added A733 support program them as one-bit fields. The R-PIO
-> handler also writes an A523 control register absent on A733.
-> 
-> Add BIAS_VOLTAGE_PIO_POW_AUTO to select auto (01) in every field of
-> POW_MOD_SEL at controller init and skip per-pin voltage setup. Use it
-> for both A733 controllers: the A733 User Manual v1.00 documents 01 as
-> auto in sections 18.14.6.1 and 18.14.7.20. Give A733-R a separate
-> descriptor so A523-R keeps its existing voltage handling.
-> 
-> On Orange Pi 4 Pro, the one-bit handler leaves bank H in 1.8 V mode
-> while supplied at 3.3 V, breaking RGMII Gigabit TX. Alastair D'Silva
-> reported that selecting auto mode restores TX.
-> 
-> Fixes: 0535bfbfa97b ("pinctrl: sunxi: add support for the Allwinner A733")
-> Fixes: 31d68e10381c ("pinctrl: sunxi: a523-r: add a733-r compatible string")
-> Link: https://lore.kernel.org/r/20261107000135.6b684277@ryzen.lan
-> Reported-by: Alastair D'Silva <alastair@d-silva.org>
-> Closes: https://lore.kernel.org/r/20261125115703.3724690-1-alastair@d-silva.org
-> Suggested-by: Andre Przywara <andre.przywara@arm.com>
-> Suggested-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-> Tested-by: Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com> # Radxa Cubie A7Z
-> Tested-by: Norman Herms <dockseed@proton.me> # Radxa Cubie A7S (A733)
-> Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+On Thu, Nov 26, 2026 at 05:13 AM Mahe Tardy <mahe.tardy@gmail.com> wrote:
+> Walk the bucket's list to count the number of elements in the map, note
+> that concurrent insertions and deletions can make the count imprecise.
 
-Verified on Orange Pi 4 Pro: PIO_POW_MOD_SEL (0x02000040) reads
-0x05555555 and 3.3 V RGMII Gigabit TX on bank H works at 1Gbps/Full
-(DHCP, ping, and iperf3).
+No other map_mem_usage() walks the elements. All of them read a counter.
+'bpftool map show' reads memlock of every map.
+An sk_storage map has one selem per socket, so every read of its fdinfo
+is one cache miss per socket.
 
-Reviewed-by: Alastair D'Silva <alastair@d-silva.org>
-Tested-by: Alastair D'Silva <alastair@d-silva.org> # Orange Pi 4 Pro (A733)
+Lets count in map->elem_count, like htab.
+It costs one this_cpu_inc/dec under b->lock. Update and delete take
+that lock already.
+bpf_map_sum_elem_count() and cur_entries in maps.debug start to work
+for local storage maps too.
+
+diff --git a/kernel/bpf/bpf_local_storage.c b/kernel/bpf/bpf_local_storage.c
+index b12fcec..6f7c2e5 100644
+--- a/kernel/bpf/bpf_local_storage.c
++++ b/kernel/bpf/bpf_local_storage.c
+@@ -259,14 +259,17 @@ static int bpf_selem_unlink_map(struct bpf_local_storage_elem *selem)
+ 		return err;
+
+ 	hlist_del_init_rcu(&selem->map_node);
++	bpf_map_dec_elem_count(&smap->map);
+ 	raw_res_spin_unlock(&b->lock);
+
+ 	return 0;
+ }
+
+-static void bpf_selem_unlink_map_nolock(struct bpf_local_storage_elem *selem)
++static void bpf_selem_unlink_map_nolock(struct bpf_local_storage_map *smap,
++					struct bpf_local_storage_elem *selem)
+ {
+ 	hlist_del_init_rcu(&selem->map_node);
++	bpf_map_dec_elem_count(&smap->map);
+ }
+
+ int bpf_selem_link_map(struct bpf_local_storage_map *smap,
+@@ -284,15 +287,18 @@ int bpf_selem_link_map(struct bpf_local_storage_map *smap,
+ 		return err;
+
+ 	hlist_add_head_rcu(&selem->map_node, &b->list);
++	bpf_map_inc_elem_count(&smap->map);
+ 	raw_res_spin_unlock_irqrestore(&b->lock, flags);
+
+ 	return 0;
+ }
+
+-static void bpf_selem_link_map_nolock(struct bpf_local_storage_map_bucket *b,
++static void bpf_selem_link_map_nolock(struct bpf_local_storage_map *smap,
++				      struct bpf_local_storage_map_bucket *b,
+ 				      struct bpf_local_storage_elem *selem)
+ {
+ 	hlist_add_head_rcu(&selem->map_node, &b->list);
++	bpf_map_inc_elem_count(&smap->map);
+ }
+
+ /*
+@@ -377,7 +383,7 @@ static void bpf_selem_unlink_nofail(struct bpf_local_storage_elem *selem,
+ 			 * is sleepable: see below.
+ 			 */
+ 			if (likely(selem_linked_to_map(selem))) {
+-				hlist_del_init_rcu(&selem->map_node);
++				bpf_selem_unlink_map_nolock(smap, selem);
+ 				if (sleepable_users)
+ 					keep_fields = true;
+ 				else
+@@ -556,7 +562,7 @@ int bpf_local_storage_alloc(void *owner,
+ 	 * such a storage through the map. b->lock holds off those who find
+ 	 * first_selem through the owner and want to unlink it.
+ 	 */
+-	bpf_selem_link_map_nolock(b, first_selem);
++	bpf_selem_link_map_nolock(smap, b, first_selem);
+ 	raw_res_spin_unlock_irqrestore(&b->lock, flags);
+
+ 	return 0;
+@@ -673,14 +679,14 @@ bpf_local_storage_update(void *owner, struct bpf_local_storage_map *smap,
+
+ 	alloc_selem = NULL;
+ 	/* First, link the new selem to the map */
+-	bpf_selem_link_map_nolock(b, selem);
++	bpf_selem_link_map_nolock(smap, b, selem);
+
+ 	/* Second, link (and publish) the new selem to local_storage */
+ 	bpf_selem_link_storage_nolock(local_storage, selem);
+
+ 	/* Third, remove old selem, SELEM(old_sdata) */
+ 	if (old_sdata) {
+-		bpf_selem_unlink_map_nolock(SELEM(old_sdata));
++		bpf_selem_unlink_map_nolock(smap, SELEM(old_sdata));
+ 		bpf_selem_unlink_storage_nolock(local_storage, SELEM(old_sdata),
+ 						&old_selem_free_list);
+ 	}
+@@ -794,8 +800,9 @@ u64 bpf_local_storage_map_mem_usage(const struct bpf_map *map)
+ 	struct bpf_local_storage_map *smap = (struct bpf_local_storage_map *)map;
+ 	u64 usage = sizeof(*smap);
+
+-	/* The dynamically callocated selems are not counted currently. */
++	/* The maps of an owner share its bpf_local_storage. It's not counted. */
+ 	usage += sizeof(*smap->buckets) * (1ULL << smap->bucket_log);
++	usage += (u64)smap->elem_size * max(bpf_map_sum_elem_count(map), 0);
+ 	return usage;
+ }
+
+@@ -830,6 +837,10 @@ bpf_local_storage_map_alloc(union bpf_attr *attr,
+ 		raw_res_spin_lock_init(&smap->buckets[i].lock);
+ 	}
+
++	err = bpf_map_init_elem_count(&smap->map);
++	if (err)
++		goto free_smap;
++
+ 	smap->elem_size = offsetof(struct bpf_local_storage_elem,
+ 				   sdata.data[attr->value_size]);
+
+@@ -902,6 +913,7 @@ restart:
+ 	/* smap remains in use regardless of kmalloc_nolock, so wait unconditionally. */
+ 	rcu_barrier_tasks_trace();
+ 	rcu_barrier();
++	bpf_map_free_elem_count(map);
+ 	kvfree(smap->buckets);
+ 	bpf_map_area_free(smap);
+ }
+
+pw-bot: cr
