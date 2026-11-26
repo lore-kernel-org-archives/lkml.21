@@ -1,60 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.136
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795710287;
-	b=1t3DRmnM8qUIvwhF/Wwy2l4z8fL7pu11gGHtq+9vQ/Zf0PeazmtP9iCW8MxGqmgS2Jfy
-	 0i9zfdiAwDmK5fVQAy/MU58e2Az7DWbXYIuF4YGpF/UUVayiKMRmR3953Kr8FoIgyx/i4
-	 GOF0DMqsymXkD+W3ZIoLj1IX4u0fZiUd6a3f4CbU014CeVJcsKlW3WJ0bTvRpdHX7Y0kY
-	 cie/ynVzC3iaRFBOvhxDf59R9+tWovhZQ5PwrnQFuXzKKrxcSy6nVMYvdWk7doLHrFss2
-	 vDmSDmyqG/2QkM2EtG5u5SZy48forfthOThh2YXwFlbvJ3N5RT7uKiPTttfXicXLeuw==
+	t=1795710306;
+	b=SkgJkZ957Xqzr08FXh4qI3utMGa0WgVj4N2QajZ162wkyMrBSbwQ5flLEdZsO2wcdNpF
+	 ap7TIFWtQaBFaq+6XyDqgyEVJCBVVC5nOu7taG+kDfJIbDoaJIG3W7oz5FlWVP4UplIsP
+	 TLXKOvx4eYSRSqBcPQtJxLy0X+vIKluRNzB8slSLZjuIzcDSUMD3xQc2avGNiMNgMi4Mn
+	 nw4j8/WOFFlWRejZHfJQAs8IOpl8oLA3taEP5SWjNYVZUjZUay30JqmXCJIiE/nLz0gMa
+	 sBdcMgkduckp9GWhEhnNzIreT20uB9/QKxfxDXCcCtC5+EbJLDyQzKOmxPomNEO58zQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795710287;
-	h=Received:DKIM-Signature:Received:Message-ID:User-Agent:Date:From:To:
-	 Cc:Subject:References:MIME-Version:Content-Type;
-	bh=MXfnLQc8QqSlSv99NQlnF4nC+p/fImJWA5CTJ0l45W4=;
-	b=QQlElkI51M5D5kJM1Psm00Y9gAR6EsPYzI9ppI2RZG0A6Ci1YzgO+sUjwtGpX2SKjpNh
-	 wtt292EyCOsfYoQCSUJT0LTLD2R88VUsGtorE09KRaEEvDmzx4zeiY3erosmg5J2lHVlo
-	 NtKZ8WIE1Zwun1AoflwJ6mSOeE+5yJ9DtT0IMvL8FkXL6KRXZT1kbnV5TXvYhmeCdLqRX
-	 YXJQ/faOWZIwzMkFX6KTS71LODJahMt+sb8nmky+3Zs4qXEzASpmBX+b8vdTvecTulTIh
-	 WY+/U/nrho2dC/OMIc0WiihUq1dnLpYHplcMxB2hbtzCdbDXsUOjV+ZL9Q/jvx4hNMg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795710306;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=DXKJcxGChXQiUrdpxHtH8E3kYOstiLhQvbObQ9yIL8U=;
+	b=J/FilE2kEKPVwfJkb8CLpCeTOt7zKQNSsKdtdg16bTCoUJA3xm78Siw7YN35CeSZA0/C
+	 KFwDG3guurIrrvZjKmIVElUjreMqDpAYlavtdsxKbxX1wCqCItkP8qLmRtlWeEgUXxbcC
+	 BpH1P6mQGsfpJZe7/3v/rZWCueLJhzym6enZ7SHOy8zN0w9jNGwO3u2PK+n55nDUT76Xd
+	 TQRTE2Ylx0v26n14dkf5EwnjvMmrkVbZSiFLey1UVgbAlh44sI5MT4n3ySTreMn/n5nE2
+	 F/RfsWGHeWuzBxlwp0itL4vjbhmyZBtoKhTFcudaIWgHjk9Hm7MyXX8BEsei8bdE76g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nE51W2Em;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=glider.be;
+	spf=pass smtp.mailfrom=glider.be;
+	dkim=pass header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=Hfcsa6Nx;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=YGnZOuga;
+	arc=none smtp.remote-ip=103.168.172.136
+Received: from flow-a1-smtp.messagingengine.com (flow-a1-smtp.messagingengine.com [103.168.172.136])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3311606A6B6
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:24:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4CC5606A32E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:25:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4CC5606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=glider.be
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=glider.be
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nE51W2Em
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 913041F00A3C;
-	Thu, 26 Nov 2026 16:24:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795710287;
-	bh=MXfnLQc8QqSlSv99NQlnF4nC+p/fImJWA5CTJ0l45W4=;
-	h=Date:From:To:Cc:Subject:References;
-	b=nE51W2Em4Sv8ORYaJ5MR9iqLTebgPcxE9SB2Av62ZxecYTm/dTXDFROopndn83pLu
-	 tSKosQUMFw/HQ151gzVSWdJc8EjZ6iMkp0oOM+dlpMPXUC7BRKi0+ydG+oTwkY63rR
-	 3HIRLWvv7ItxxB3F5N3aY3+yUmC7LU8m0rdrBxLbf0kwcHUDa2qKWFugKWBF5wCMMs
-	 uzNxZG7p7jDsO/9OCh4tmBZaaJ5EkoOgN6jvLwsCvO2Y3DISSpB4aLCuYWElC6dNCr
-	 /t9S52KyEHbLZXN8V+3dM/Dq3tQaWvVy0OWeddehAxtFm0ZMcvweGMS7LLH8GGfst4
-	 6GR7oaIUpkHHg==
-Received: from rostedt by gandalf with local (Exim 4.100.1)
-	(envelope-from <rostedt@kernel.org>)
-	id 1xWcH8-00000007bqb-3j2s;
-	Thu, 26 Nov 2026 11:24:46 -0500
-Message-ID: <20261126162446.718174269@kernel.org>
-User-Agent: quilt/0.69
-Date: Thu, 26 Nov 2026 11:24:37 -0500
-From: Steven Rostedt <rostedt@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Morton <akpm@linux-foundation.org>
-Subject: [for-next][PATCH 14/15] tracing/filters: Reject stray quotes and parentheses in unquoted
- function event operand
-References: <20261126162423.442922469@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=Hfcsa6Nx;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=YGnZOuga
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailflow.phl.internal (Postfix) with ESMTP id E4B52138065E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:25:04 -0500 (EST)
+Received: from ams-imap-13 ([10.64.2.33])
+  by ams-compute-02.internal (MEProxy); Thu, 26 Nov 2026 11:25:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=glider.be; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1795710299;
+	 x=1795713899; bh=DXKJcxGChXQiUrdpxHtH8E3kYOstiLhQvbObQ9yIL8U=; b=
+	Hfcsa6NxZgPO2oooy1zABDj+ZKWv9vbkk6CosmJQG1Wr5gc24eRHexTYqhg/Bmk0
+	WUztAJPAYly2S67xQbfzKQUu7O08LCNIS5FoyChYQYJBISttLTj+18T3D4mWokVQ
+	C69iLJ0aJDadwn6qEaqxBqdWhpZkyI9zyKIWu3Q+pj4TtkP1pTjePZL0L2JMjuCg
+	JB0/o7THcUtbrUE0fgZNe2Prpvi639Is76+9Uu5XzvJ1HyFg4FAHWmR5qTAjkjhL
+	5Hc72j+SqpSCrQNzKhbnpDgXmXPUeIC4w4Aj8bobaXyqxpXGUVyJluv7mT5vV0gE
+	PVBj7kS0uIQHtb5w6tODqg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795710299; x=
+	1795713899; bh=DXKJcxGChXQiUrdpxHtH8E3kYOstiLhQvbObQ9yIL8U=; b=Y
+	GnZOugaev9KPjjtYyJX9FzgNQhhFAZnycXL3qmzU6mn+9K+J1D8YlJOpgHLul60R
+	0+npOoxr0klltVV4Vp9AP9A5ySV39rXHY5rItfa3+RfT33DqfrqrWjz/ph+P4rW3
+	H9TWu9bv5J1RIcHnSwxxSpLoTSlcb/kBdzoET6PbCCm6fbZSu6umKQPvg53eQpjv
+	oOSsbXeVmWWy5CU/Y20ESqAxOW93LmzsGO+D1m/MVZbEut3joZXn0N+cCeSoLDcY
+	/g4YV1AjD5H5x9KMvMKyAbftHFfZrBxl9s+RIM7Yob2qE6fVxVtn6L2muqlpJL5g
+	srJwb0BrC4K47fgE6r4+A==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=glider.be a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795710299; d=glider.be;
+	mf=PGdlZXJ0K3JlbmVzYXNAZ2xpZGVyLmJlPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:nV2vyoCRAhmbXk2/fmT62/L+JS1moC9gy5UcgRygciMW9aQ
+	qCCxt3q6m0RTgoMcZ49MY4lxMwgZfrJ/WU5UJgbAfB6mGn4/ugpEXK6EuLBHM0Cr
+	Q9STdiwoSkP4NHJh2lnpr3mjUbHM6tThHoA80zESNu/vqILTleuF6PhpsoejQgEV
+	tdOg1UzH+LGTnAnX3OlO2Ahoy6g5V0CU7oJ/xdII7jdhnw+x8BkVAwESjwVMgyt+
+	mmp4xlKniJ0Fr43HVHeImPgDJeafkeT4Ly20QaKprnptkDovClHhgk/GvhvYMwfg
+	9fte5MEyaQ1Ek3HC8t+uFslpkvVRefHF8swaWJw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:qQmxHQMPHnQCDKMum53alWNecHWe+s/lRISCTxwfOlU=:GavFexzO7MLi+LG2UwFc5A1XfxPf5DjnFR3tbQ8qYJo=;
+X-ME-Sender: <xms:VF0IaymM8aZkVfJnVqDkT0sbMQQv91e4f3WuzhhIo_jaeDQqqfkdfw>
+    <xme:VF0Ia0pXILhvAExHt2GutKUHLbFWQNy3Xwy1-D7Y9-2IntLnR_Qu38uzG7n1w8z4H
+    Q5mwoh3wN_ZNPF3dMxA2hLeuI5hsxVcgbk0TkQlfwsnD1rMsELilLg>
+X-ME-Proxy-Cause: dmFkZTEzIYBhsi6k5llXTMz4GXc+EbdpoaswLc95h6NFOzvpV8/KUTbBEazoXgShRjdNab
+    jToHlegpkP9DfKohUEAKpEHqRJBeuEOlftX2vwaJqYGj+8rwl5lmj0+0AiKl6dNraXUjr2
+    jskLUbgPnBk6tX1LPv9xkNHsXny/sYTE/4WgcDxF2zYEDbtC+jHtrj6hcQIJd9sdb5eVxC
+    E8o+DtF/RWJZ6pzRQs9f5X0iEGn0lT+FV5gNui++5GYjdsv4Hv+KFfQS24cVxTVEOYNhq/
+    2ItEBylLx7vSEvxvc3PdrH7eciXnZ1C93T4f8vpbSXObWlLHmA8zHeFT5NDmwletNWUwiA
+    UmdcpBon0rYEBzDsPudxtJKad7f8vXQCXitRdOnNqoe1lJzkNYNTrOoa3SdWZ7QAPzEy+w
+    afoa7SpG4SPGicCQ+LZ2lZsdvAdxRCX/2WdtxN740is2T62WHfLH9C98KTGJ8+bqAvO7x2
+    5gjfXtbG7J5Va3256WYwY8cXBsSt5xJuqBwMtCvZzhPsuMnLgszvDYWjXRlRNHvGqYbq7h
+    ZHS6aHZW/GGtfTpXeAwD4Hr4zuqBrvLF3zS1Zv0/SwLtzpOTQjuD0iOwwfemRYHyPJoLZU
+    v28B/O+f9LW2mAb0ElvqVRCi2u6AOcilH10orEkg1MbP8beVGDgT8+pJmXHw
+X-ME-Proxy: <xmx:V10Ia2jAvtXnSokeiJEZysrrHTZCbwTb--4o-irTEqNZpIpV2CCIug>
+    <xmx:V10Ia2eAXA4lPegcEJfNgBZkwKHAvTHTQf7pohp3a1NW2LoGLraCmA>
+    <xmx:V10Ia_I63n1ll2YNSl2xoJjwZmb9wNgStyreoRUJu8inY2WRxpZnww>
+    <xmx:V10Iazn4VqfhlrMkDqDVq1tNzeIP3MKJslQeIK6kzlPKaGRQGP3DkA>
+    <xmx:Wl0Ia-QSII4wvdMJmIEpLcjVu3uLIKmz02FQHpJmAHEKPtn-FsAwVV5k>
+Feedback-ID: ia0f84a9e:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id DAD3DF800A1; Thu, 26 Nov 2026 11:24:52 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,53 +115,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+X-ThreadId: AQpAu8X3laJJ
+Date: Thu, 26 Nov 2026 17:24:32 +0100
+From: "Geert Uytterhoeven" <geert+renesas@glider.be>
+To: "Markus Elfring" <Markus.Elfring@web.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ "Andy Shevchenko" <andriy.shevchenko@linux.intel.com>,
+ "Christophe Jaillet" <christophe.jaillet@wanadoo.fr>,
+ "Florian Fainelli" <f.fainelli@gmail.com>, "Frank Li" <Frank.Li@kernel.org>,
+ "Michal Simek" <michal.simek@amd.com>, linux-renesas-soc@vger.kernel.org,
+ linux-gpio@vger.kernel.org, "Jacopo Mondi" <jacopo+renesas@jmondi.org>,
+ "Linus Walleij" <linusw@kernel.org>,
+ "Wolfram Sang" <wsa+renesas@sang-engineering.com>,
+ "Phil Edworthy" <phil.edworthy@renesas.com>
+Message-Id: <c3281c86-0326-4d9a-908b-ca461d038052@app.fastmail.com>
+In-Reply-To: <02632c0d-110f-4d42-82f8-30091468aa91@web.de>
+References: <02632c0d-110f-4d42-82f8-30091468aa91@web.de>
+Subject: Re: [PATCH v2] pinctrl: renesas: rzn1: Use devm_clk_get_enabled() in
+ rzn1_pinctrl_probe()
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+On Mon, Nov 23, 2026, at 15:21, Markus Elfring wrote:
+> From: Markus Elfring <elfring@users.sourceforge.net>
+> Date: Mon, 23 Nov 2026 15:00:10 +0100
+>
+> * Reuse existing functionality from devm_clk_get_enabled() instead of
+>   keeping duplicate source code.
+>
+> * Delete a clk_disable_unprepare() call on an error handling path
+>   and the implementation of the function =E2=80=9Crzn1_pinctrl_remove=E2=
+=80=9D.
+>
+> * Convert the data structure member =E2=80=9Cclk=E2=80=9D to a local v=
+ariable.
+>
+> * Omit the label =E2=80=9Cerr_clk=E2=80=9D.
 
-In parse_pred(), when parsing an unquoted operand for function events,
-the loop only stops at ')', '&', '|', or the NUL terminator.
+And platform_set_drvdata()...
 
-However, calc_stack() parses '(', '\'', and '"' independently to
-determine stack depth and string boundaries. If an unquoted function
-operand contains stray quotes or an open parenthesis (e.g. "ip == foo'bar"
-or "ip == foo(bar)"), parse_pred() consumes them as part of the function
-name operand, causing parse_pred() and calc_stack() to desynchronize.
 
-Reject unquoted function event operands containing '(', '\'', or '"'
-by reporting FILT_ERR_INVALID_VALUE.
+>
+> This issue was detected by using the Coccinelle software.
+>
+> Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+> ---
+>
+> V2:
+> Wolfram Sang requested further adjustments according to the proposed c=
+hanges.
+> https://lore.kernel.org/linux-gpio/awQ7qa5FGG9RETtS@ninjato/
 
-Link: https://patch.msgid.link/179323793740.740114.16357488115964317102.stgit@devnote2
-Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
----
- kernel/trace/trace_events_filter.c | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-pinctrl for v7.5.
 
-diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
-index 097b432647fc..588215f7252f 100644
---- a/kernel/trace/trace_events_filter.c
-+++ b/kernel/trace/trace_events_filter.c
-@@ -1875,9 +1875,17 @@ static int parse_pred(const char *str, void *data,
- 		for (; str[i]; i++) {
- 			if (q && str[i] == q)
- 				break;
--			if (!q && (str[i] == ')' || str[i] == '&' ||
--				   str[i] == '|'))
--				break;
-+			if (!q) {
-+				if (str[i] == ')' || str[i] == '&' ||
-+				    str[i] == '|')
-+					break;
-+				if (str[i] == '(' || str[i] == '\'' ||
-+				    str[i] == '"') {
-+					parse_error(pe, FILT_ERR_INVALID_VALUE,
-+						    pos + i);
-+					goto err_free;
-+				}
-+			}
- 		}
- 		if (q && !str[i]) {
- 			parse_error(pe, FILT_ERR_MISSING_QUOTE, pos + i);
--- 
-2.53.0
+Gr{oetje,eeting}s,
+
+                                                Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m=
+68k.org
+
+In personal conversations with technical people, I call myself a hacker.=
+ But
+when I'm talking to journalists I just say "programmer" or something lik=
+e that.
+                                                            -- Linus Tor=
+valds
