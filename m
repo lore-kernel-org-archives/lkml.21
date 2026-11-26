@@ -1,88 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795690118;
-	b=bbIC+70zIaqjlSU9h4TeE7MCKn1pzkI2cgI3jqTexHnQadkV5fsN0tB72X5SF1avOf4K
-	 kp3EpY11LP3vpVO1blEpTRKyeEf4Wcqy3OTIL2ml2lLGptcCITpOoT9DNaoJ5kfFNbfA5
-	 XeIqqW6SVYDE7/yNWZVkaMRObVze6W42Fy/MYPWJqvkXcbPVmYb9sxCZOW4XBgZK6653/
-	 8KQdbyUvYsbe1dG60M1VLPpdj78oSUKy9EEW1/RSwt6uCq1Ki9rtkyVw8nSzgpLBuVOpI
-	 9HRIxaRW8xACOsGgTaYW+BNuTglctoJzY8HsOG8zi1Khtb0obilEuMpPyiCv3DuCe1g==
+	t=1795690120;
+	b=YnPmtXqXDuDVDDufWmLA+EDAwZ1RD7a4z5kqd0J/qeAg/+2CVdAXJEYZYoTIc/h6IsSL
+	 SKRxDaiOerySfOEcV8umKBKkhBvzmp6w9REiBhyvq4l93B0DlYjYYKMlQAAdQFGtsTkHK
+	 uJlMXEPr8T+eB8dagR/OinZePQ1jITJ3gGAPPotOPBantlJA7ShV07Hd6B4gJYBU1UCCT
+	 7MWr/fJjhHzAQh/7cl7UBig8EiPsxXorwSagGJ5UaURl574ac3MhJ88cA6TqC/39qUooP
+	 G0qlGYsg0tKQnGH/xnIy5LS7JrDjGVz9eMfIKwMNDmG5ZNQ3fgmArUVnar1cc3s4aPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795690118;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795690120;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:References:From:
-	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=IDc5wh92OmJd7meydvzforJaRiTSWNIveGrTrgefsIc=;
-	b=A+WdhD3lvP5fFtAUNLTg+rmAy/DJOULcRCWo0d/Thqyf9FVsrBADkG/rBTWHnoSOLob4
-	 yHuCaUL+C+CDIYDtBJHkP7bfvF3vYyTaHYsXyYZMEEUHFwLlqZWOIUUepksjBb/QHsxnx
-	 ZwokoqdU6WvAgveDRWmGLagFzb0Fz+MluiFQ+uDd1xyWX/Dx9c+0SyQaw0fr1jTKzDVQC
-	 gFFY4+B3dVt7vg79dLfgr+HufgFk2/yMqZrg0T81Rgzz+2SemJG71SOUwpazZuujwfDf/
-	 KctzVq8OzjuCik9wXv5Pu6bJ1V5RCXXFAJPZ3Rf4k6CCTKWcOXdkLlWIJqWRJ8wzJFg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=q0JMax0vQd34r8Jzb5i5IRxK+8bWWNqoR9qhYGl1CV0=;
+	b=TIBzw0RLBbodAQZ95k7aQJQo3HBVhYz94nCMKsODZzBof2sUbK8JNQEZxtvRLmiLFnLI
+	 WYZeeknA786i6wFxqbHQ/BXhaL+B8lzULKnlNNjCFj/YH3uUMeABlrhXh65XKoWUtV9oE
+	 jbCWmIfBUp9BUxrdChBR5ecDbqGp+CiEz9ZyexkkRwmNZT3WLFcJZ8w7MqOXIxtREP+4s
+	 bBgAe/G9y/IXFzG3IUUaBNRnygVGdhyZdqrbvSMY5BlXU18oHREvpo3Pc/wC/gL3wfk5b
+	 pl5EcmTuw+OHFHqZF7dnR0GXj781m4F+cEv7hDYkccFeU9LmR/jFy2Y1U6qFsyCOQkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=GiskcG3A;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--dbalint.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jTBWfLUe;
+	arc=none smtp.remote-ip=209.85.167.69
+Received: from mail-lf1-f69.google.com (mail-lf1-f69.google.com [209.85.167.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A76D606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:48:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A76D606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71204606A329
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:48:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71204606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--dbalint.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=GiskcG3A
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso48793995e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:48:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jTBWfLUe
+Received: by mail-lf1-f69.google.com with SMTP id 2adb3069b0e04-5c3251813beso808693e87.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:48:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795690117; x=1796294917; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt
-         :content-language:from:references:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IDc5wh92OmJd7meydvzforJaRiTSWNIveGrTrgefsIc=;
-        b=GiskcG3AZfv4rjQMMRzETIS5nB1O4/GFy7yhqxC3MF2QoeeWhmZRCjM3ZFrZKrhtak
-         C23IpujOJZxJqcAqEXtDTG2fqm4O0qmxP5MfVcrjNnqefR1sy5BdprXPutKWvkaCn+ic
-         nkAsReAH8xuvt06QXw2gCj/jv1ozsWREpdDp+/ar2xQ9eAsk4QfpPzgdvwnv0J76SXt6
-         KlBnKdNDm6OyHdHUBm5RX4XomPyhiwMzjrcVutQGokrv8RCHQGHB9y/vqPVOcKEMwYNA
-         u+hqOt4+CUBZaEu7h+hr211HxMbMvcDNPI2sdhIu8yBvrLDXcx+jC6Rya10utr+UE7QR
-         yoKg==
+        d=google.com; s=20260707; t=1795690118; x=1796294918; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q0JMax0vQd34r8Jzb5i5IRxK+8bWWNqoR9qhYGl1CV0=;
+        b=jTBWfLUeGGzoEr3whoChgn8VXNQCPbGoQHrUrNq223/OFVMvZlC7xkPfFKOjdtwwVV
+         vNjFWybYvyBrXxsoT5nx/Wx2T9+P8lO7hgIIYEMey0PiPK33TLuC2RM9eYXVWhv3+geU
+         JU9g/MHhR2/CMRjM38ZnN+gz9u1uuILmd7v3v/EGXokxDd0iXIBK67HcBeX+TXyzDfWL
+         ZUvx6X1vUObilt/2LT2ZXnbMuT/BA29v7GavCEsJ2hXobFPnGEw4pE5VXh2lOXoWoOjq
+         q+sG36m0VCnKFz+T7YGC9ZWXx//Vt9rwUn8L+XVnyr6a+p1l4FQXElNLvxLdvtiAi1Y3
+         uVYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795690117; x=1796294917;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt
-         :content-language:from:references:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IDc5wh92OmJd7meydvzforJaRiTSWNIveGrTrgefsIc=;
-        b=iiVBI9w5mYNzRwWacrboc3PO51SZgfKCNbvs4YQhklbAtPbCrgXl64moWJPtKDYfV8
-         v8Lkf7x7/a6l9QYmbxu/0KspiAlEz1ZjHZCHdolRHT24Gc7ZAUKL/e96jop8LFpukiwZ
-         ReO+rkWLmgV41r0Upy4fLNq2WBn1cwpZolXZUh5GlcmIS8NgamPfPDoNgWX5SicdX75n
-         rw6Qz548wQR4BOYghFFYSLnKzSa8eCjtHFd38MO/B/1KiE+4tcvVTbSjRZLXCTcXjaD8
-         IwwELjEpcsCPhPb9sx6nsxuHh6v4Jtv0OUeLQEqa81sb3NJ4/3TZAC9bXEMrzO2RT/9g
-         OWSA==
-X-Forwarded-Encrypted: i=1; AL+hErHbgyhtwrojlk8j19QqOPItQzITayV7mUVeb1OkYC7kNRKD+9usKu0m0fBe5hJCEmh00yfCFGB0Dvs1hfs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+SIqb9UB+Kw23q5GMf2x9JsX0pyRvlbDAqRV7f5YFDUqh+edr7
-	Y+3tsNVA+ygVoxC6AKSdBM9yyfJsMBNlGoOflG8t7oAhwmXgL59f97ysIle83wHVDks=
-X-Gm-Gg: AZFdTZcLqiYG1uYTV+KRpk469Q0WNf51s6wKoVWbGTvy0fbxxtTzur20qSJIPXagsQX
-	y2NxdgER8Gdp54YwW9aguGFObsNEzf43nBZX0muHu6tlQDKX7VfubXKZzP1b3uKFdcBoZzn19nt
-	iV2LSodt0zzycFq5u1Lde4Oj6XqaiWUaY5p4uhHcqL/A/cVkAmheFrfG1poXry7Pe58tKpTvi57
-	6SjUAt+gBAF9S1MfqYC/lV/tOWthdX9pypP5k9nJs3GqF6P94ESaGp+dPQbkIF1PSJl8MHVAj6A
-	+EYsPviZrngOhn7eFOgGJuDL+B+v5UkQConKIL2Wh+hzWKn7/gLI18okMW0Aef3Hchwl9HiVge1
-	4R2kZ1NrgYL7ZahwZeuVLxr/xT42vk9b4NMEmbecSlLVTIybEsaEqRMJWpOB/qaamy2xE6OF5w/
-	EBkfl3ya+9myGXdYdxNcngirZYDdvywQqt/HEG81vB54h5z+12ZYdvHc3Jdz26BmTO2aJbuWkfi
-	QLMfxBHRNNFhBth+rNA7/xa9V4pgb4PW6au6FXqgXxkXTmFYUHkeqaaj/QguNJV+9biLD0gZJ3X
-	X3VLSOdjnHZ9dCdg+A4mxC9iRAe0IuIS
-X-Received: by 2002:a05:600c:820d:b0:4bb:5de1:e912 with SMTP id 5b1f17b1804b1-4bb887c3ae7mr413006755e9.1.1795690116672;
-        Thu, 26 Nov 2026 02:48:36 -0800 (PST)
-Received: from [192.168.0.20] ([212.21.133.162])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf680fsm45905764f8f.14.2026.11.26.02.48.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 02:48:36 -0800 (PST)
-Message-ID: <5e0136bc-43c9-4f7d-8689-b58515a55992@suse.com>
-Date: Thu, 26 Nov 2026 12:48:35 +0200
+        d=1e100.net; s=20260707; t=1795690118; x=1796294918;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=q0JMax0vQd34r8Jzb5i5IRxK+8bWWNqoR9qhYGl1CV0=;
+        b=nb2xPTEnqaflcjApbRfBjnMjyxHpQ114hyCCu5dIIiYgGCBakDuLWjKPn4JSHnZtlq
+         4nIbqiXkScr7b8PLmTHvUjL+/7TX0qqn4I0Yw8R3CoelrVh3jD7gYoDTBy+jiedSnMzb
+         zq9nmyTH2SWAbPbDhVmCQH0aA71t9USKcY1Ct8lW8Yg1uEYsRXsloGT6F7bRO+JHqiI7
+         8LXEUTVb1ENnvjYMp3/mFbSyCvjrfJVVDGCYUbJbukZ4VKQ3Tyl4EbfcMX7RSJYkAXJL
+         QDNqdcet0EJ7ywKILDU8aeyoakOdtJKyHlVeTtqpTJF593c9+25a8AqGWHWZBhSD3/ZF
+         26lQ==
+X-Forwarded-Encrypted: i=1; AL+hErEHFOgFQ3BQOX+XCZ05RdCRMdSIgaLR2+IcI9veGSRyKX1YDl7ChZnLItz5h0c43hsVZYXtTSZa6XJGTMM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/nxwKTDiZjmMg8HKTkcGJMY8nWLqsYQpWHoHiM2501LLla18Q8
+	CHW2QwBjrzWJZbyXdjhKRkBY5cYulrK5ADRVD+x7pM7jSCmJdAOfDE8GSXFHU4Jzia6lEdSL2oR
+	KbKtRwbREPA==
+X-Received: from lflu22.prod.google.com ([2002:ac2:43d6:0:b0:5c1:a392:10d])
+ (user=dbalint job=prod-delivery.src-stubby-dispatcher) by 2002:ac2:4f09:0:b0:5c1:57d9:270c
+ with SMTP id 2adb3069b0e04-5c1bc8743dcmr5885193e87.46.1795690117479; Thu, 26
+ Nov 2026 02:48:37 -0800 (PST)
+Date: Thu, 26 Nov 2026 10:47:55 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,121 +75,88 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] x86/virt/tdx: Add command line param for DPAMT
-To: Rick Edgecombe <rick.p.edgecombe@intel.com>, bp@alien8.de,
- dave.hansen@intel.com, hpa@zytor.com, kas@kernel.org,
- linux-kernel@vger.kernel.org, mingo@redhat.com, tglx@kernel.org,
- x86@kernel.org, chao.gao@intel.com, yan.y.zhao@intel.com, yilun.xu@intel.com
-References: <20261126005417.976523-1-rick.p.edgecombe@intel.com>
-From: Nikolay Borisov <nik.borisov@suse.com>
-Content-Language: en-US
-Autocrypt: addr=nik.borisov@suse.com; keydata=
- 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
-In-Reply-To: <20261126005417.976523-1-rick.p.edgecombe@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261126104757.2860272-1-dbalint@google.com>
+Subject: [PATCH v2 0/2] Introduce cros_ec power monitoring
+From: Daniel Balint <dbalint@google.com>
+To: Jonathan Cameron <jic23@kernel.org>, Lee Jones <lee@kernel.org>
+Cc: linux-iio@vger.kernel.org, mfd@lists.linux.dev, 
+	linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org, mwojtas@google.com, 
+	Daniel Balint <dbalint@google.com>
+Content-Type: text/plain; charset="UTF-8"
+
+This series adds the ChromeOS EC On-Device Power Monitoring
+(cros_ec_pwrmon) driver to read onboard power-monitoring ADCs, such as
+PAC194x, wired through the embedded controller (EC).
+
+Several ChromeOS platforms are equipped with onboard ADCs connected to
+the EC via I2C. The driver interfaces with the EC via the existing
+EC_CMD_PWRMON host command API and EC_MKBP_EVENT_PWRMON events to manage
+ADC accumulation and expose per-rail accumulated energy through IIO
+energy channels and a triggered buffer. The driver is only loaded when
+EC_FEATURE_PWRMON is advertised by the EC.
+
+This is a borderline case between IIO and hwmon. IIO is used rather than
+hwmon [1] because userspace queries all rails (up to 64) together as a
+coherent frame -- for example, to compare per-rail drain contributions
+across device-state transitions (such as screen on/off triggering a
+snapshot) and to correlate fine-grained ODPM frames with other
+timestamped system diagnostics for off-device per-process, per-rail
+energy attribution, where relative deltas across channels are as
+important as absolute values. Since a single EC latch and MKBP delivery
+takes non-trivial bus time, latching per sysfs read across 64 files
+would introduce significant inter-channel skid and redundant EC work.
+While driver-side caching in hwmon could avoid per-read latching, hwmon
+has neither an on-demand trigger ABI to force a fresh latch nor a
+timestamp ABI to report the actual latch time (or expose whether a read
+hit cached data or crossed a mid-sweep cache expiry), making IIO's
+explicit trigger, latch timestamp, and single buffer read a cleaner fit.
+
+Reference to detailed v1 discussion:
+[1] https://lore.kernel.org/linux-iio/20261120091022.1459658-1-dbalint@google.com/
+
+Changes in v2:
+- Dropped v1 patch 1/3 ("platform/chrome: cros_ec: fix alignment of
+  ec_params_pwrmon"), already applied to chrome-platform/for-next
+  (346739bcdf65).
+- Replaced custom multi-value energy_value sysfs attribute and its ABI
+  doc with standard buffer-only IIO_ENERGY channels (.read_label, scale)
+  and an IIO triggered buffer with IIO_CHAN_SOFT_TIMESTAMP
+  (CLOCK_BOOTTIME); selected IIO_BUFFER and IIO_TRIGGERED_BUFFER in
+  Kconfig.
+- Replaced wait_queue_head_t with struct completion.
+- Grouped per-channel state into struct cros_ec_pwrmon_chan, and used
+  aligned_u64 scan buffer.
+- Switched EC host commands from legacy cros_ec_cmd_xref_status() to
+  cros_ec_cmd(), which manages msg buffers and cleanup automatically.
+- Dropped redundant st->ec and st->msg fields, used local params/resp
+  variables instead of casts.
+- Added an event_size check in the MKBP notifier.
+- Fixed signed/unsigned energy integration and channel counting for
+  duplicate/out-of-range MKBP events; returned -EINVAL for missing
+  channel labels.
+- Switched probe error paths to dev_err_probe(), clamped channel count
+  with min(), hardcoded indio_dev->name to "cros-ec-pwrmon", switched to
+  devm_blocking_notifier_chain_register(), dropped direct
+  <linux/mod_devicetable.h> include, and used named initializer with
+  "{ }" sentinel in cros_ec_pwrmon_id[].
+- Capitalized "Load" in the mfd patch subject.
+
+Daniel Balint (2):
+  iio: adc: add cros_ec_pwrmon driver
+  mfd: cros_ec: Load cros_ec_pwrmon on supported ECs
+
+ MAINTAINERS                      |   7 +
+ drivers/iio/adc/Kconfig          |  13 ++
+ drivers/iio/adc/Makefile         |   1 +
+ drivers/iio/adc/cros_ec_pwrmon.c | 370 +++++++++++++++++++++++++++++++
+ drivers/mfd/cros_ec_dev.c        |   9 +
+ 5 files changed, 400 insertions(+)
+ create mode 100644 drivers/iio/adc/cros_ec_pwrmon.c
 
 
-
-On 26.11.26 г. 2:54 ч., Rick Edgecombe wrote:
-> The Physical Address Metadata Table (PAMT) holds TDX metadata for
-> physical memory and must be allocated by the kernel during TDX module
-> initialization. Dynamic PAMT (DPAMT) is a TDX module feature that can
-> reduce this memory use by allocating part of the PAMT dynamically.
-> 
-> In order to work with DPAMT, the kernel needs to perform upkeep on the
-> DPAMT for each page that it gives to the TDX module. Late during the
-> upstreaming of DPAMT, an optimization patch that avoided taking a global
-> lock for each maintenance operation was dropped. The plan was to follow up
-> the initial upstreaming with optimization work, however priority for this
-> work has yet to materialize.
-> 
-> Separately from the wrinkle of the global lock, TDX continues to struggle
-> with large patchsets to enable new features. Doing DPAMT maintenance for
-> the new types of memory these features require, further grows the initial
-> patchsets.
-> 
-> Adding a kernel parameter for DPAMT can help these two separate problems.
-> Having DPAMT be default off can make the offensive global lock the rare
-> case, while still giving some big memory conscious users the option to use
-> DPAMT. Having DPAMT capable of being off means that the upcoming TDX
-> features can be merged in smaller pieces by ignoring DPAMT to start.
-> 
-> So add a parameter and make DPAMT default off.
-> 
-> Signed-off-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
-> ---
-> Dave, feel free to ignore.
-> 
-> TDX developers, this is small, but can I get a round of review on the
-> patch? One consideration I had was if tdx_supports_dynamic_pamt() should
-> be renamed, but I thought it wasn't worth the churn.
-> 
-> Another idea is to ignore the impact of the global lock until someone
-> complains. And for the new features, to make them mutually exclusive with
-> Dynamic PAMT support by simply keying off module support, rather than
-> allowing Dynamic PAMT to be disabled. But since Dynamic PAMT is available
-> on all newer modules, this would only appear to make the new features
-> enabled. In practice they would be dead code. And default off is arguably
-> the best default option in DPAMT's current state. So prefer the kernel
-> param.
-> 
-> Also, I cherry-picked this from the last DPAMT patchset and didn't retest
-> it on upstream yet. Will do, but I'm not expecting problems.
-
-
-To me all this seems like "DPAMT upstream was rushed because it is 
-helpful for some few big players", and because 99% of the other people 
-aren't going to use it let's make it optional. And we end up with 
-conditionals sprinkled in the code, 99% of the time those conditionals 
-evaluating to false.
-
-Wouldn't it be better if Intel gets it act together, upstreams the 
-optimisation work, making DPAMT a first-class citizen and just get rid 
-of the optional and ensure that DPAMT is used in 99% of the cases? 
-Otherwise it just feels that upstream work starts with one statement and 
-commitments, later those are revised and/or never materialize.
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+-- 
+2.56.1.839.g22a8290db9-goog
 
