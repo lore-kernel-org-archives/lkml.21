@@ -1,122 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795678828;
-	b=fbJdUvWUSiAMMJVGPbF3jxWmDQDNCrFkbEpsna134ucakvnmuLILCdukeF+9jfSXSg8C
-	 oMHAHCzgVIF3YcdK/c3dC6EhaqJYNISJNj9b+8p7zfZsKRUZ3WiN0mloOGgKStI+QtbMw
-	 PII/mflFh6DB+TPM+uE/A9OhtpzC3qXqXkv+MpnYUj7CBKZX9J+B6/yCmtaXbQaViLZLj
-	 n1zCfGZlNCB2L/0NOImsF3mvRQ0Lnaz9lTIzKCBTwlKzXogHSY/uaslE+k0g/tC2xN6TJ
-	 i8jBThc6YtGa1Cu5n2QcqTdLFHQBTPjpp3030ukr1+ze3Y/WhDwdfxA4IQcs3F1OldQ==
+	t=1795678944;
+	b=5QU1N/K/sjIsuhVT8iICqZvvXYl99LtTvXIWXOzc/g6Az5UylKK3uF8VXmvdIyNpGzvt
+	 qBwQO/03ZvY6J0CcpSn7Q+ZqSXpj3xMny3vow05gOwU/JYaCy6Up9RLrCfwsasXI/JfGn
+	 PYiS9LMxV2WnlBuA5dEkw7aB5A5wHzWySlwVGdiNgkjE+xglQSgODSTZui7ZsHFdOx/Ox
+	 NhA+N8ZNGXEBb9yx8bTPHFiA0Scy9yBo6i8Pu0uaSzbk2J34ptBpuZ6wzbwLe+UBbWFPh
+	 0rTkgTv/Rnz3LapeCsnyhAbp9rMIlcNhH8Kgvv2ysKQtNUGeXhdCgV0KvneSIEvV6JQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795678828;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=sXWlGCRC9JQkumWInitkE8i9IQlzJPF9vbX50igGRpE=;
-	b=2vxL2+6WupEehMzlfh9hcog8c/xxEPdvhzm9X6H0xUfVUwSEN2+Pd571M2l3T6fcLfwH
-	 dzKEwztshSxRcUXaWCUy3Lh59svwfYzhLcbFVlYGKsC5VMP3WbyGRzgngTo2u/dxui8NK
-	 Tl9fjC9WOk5eZ+vE2xjHmqD/UnLnhnSrouWqpWFLHEjb8y5xWxKRRZHrdA0zS4FZmo9tP
-	 BHcLk12+nMY+Ya4FGvS3gsDtGnDKH+28O8zLnjGxUlSaDOSmQsI9JVKAbOYOFtFSzo8VO
-	 u1e0KXNiUOyhiteIwfGOYgkqgVq2siXUYsMyMMoD+5KONm+yZAnta4jyZa+xWNtQTGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795678944;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spamd-Result:
+	 X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
+	 X-Rspamd-Queue-Id;
+	bh=522sR5k/HjcpUe/h+3iFcrG+nFF6mEp2RnM9L0cMugs=;
+	b=JQnn/F4Rt4pMCS+9pIW8wTi/otkieA1Y25DbLt0J2ifSGmRQKVnf5hEYWEif0+gSQipc
+	 y4zRlcYHTktYdazvHo8MqFnDbvj/Nl3jwVGV6eVDekgS5HbaRc5SxzmzDKrigyGEDq2vi
+	 CIJfGoe/QCYY1IvxKKxsMp05mu/O6mWoC0es7eeszhN9BpqtLY5Nko8pcNmuvFvY2JkvS
+	 7dAP515FlSMvd/M2y/q9/SACClTbPqLDhIN+dbi10p8ibU/10AdAKWSKXg3w20Dzp5egN
+	 o/2zXU0qAUGwRdTP/ExQBjri6zThVuxn2d78JAifuWqtiuw1nvazUlzqgOtxWs4l2fw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=O3r9h3Eo;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HbhqQaTt;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=ldONL25o;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="tWeWn/BG";
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=ldONL25o;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="tWeWn/BG";
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51269606A695
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:40:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51269606A695
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BB5D606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:42:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BB5D606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=O3r9h3Eo;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HbhqQaTt
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ7B44T2335360
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:40:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=sXWlGCRC9JQkumWInitkE8i9
-	IQlzJPF9vbX50igGRpE=; b=O3r9h3EosuF9La/6Gk7uOPkO4ocLiXnApEIAq0JS
-	iwKgxZwIGDvt9pNdEIF4kg6QTVy+0uGoQUvInBreDTq5wxmPe4raq10qjgEDx7gw
-	XRsbdE3bKZGT/zOH3xJpEzKRQZQBjwQnwI5VSPfaH3B+TNCEtOKrl0u63w8vDNGU
-	SfG3Aq76yZ0r1PbEdj+aG8j5TTkpP9GuDPuHfZ23RdwzcTuSs0sY/twBfH8v2fwO
-	xoaK+fDgSNB2OxS5b+AtTecoTxS88YFn2klbbOfsaBQmEc5swCkiiMztSbSLeYDR
-	eeI6dTBfmkxJ2C+Dna+XftGJ3zlNETyh1RVjYs+/K0RVSA==
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6ak015tt-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:40:27 +0000 (GMT)
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-386a65fca25so5784632eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:40:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795678826; x=1796283626; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=sXWlGCRC9JQkumWInitkE8i9IQlzJPF9vbX50igGRpE=;
-        b=HbhqQaTtUpIVHEYSZ/lBnCTkaiQmQU9BVp4ByHYxoHK7iB5Se6gMVgigWKa2RsKXqp
-         ajWpl3lojcKhFfRrNdMSIaE0yEUrjhOf/WPSaumhIs4RtgsFoYRD8y2GdrwZc5Yd7jFF
-         4R4V684rPRqQzBf6sGySOFgQMKWEVK3FBMC90QVU4ITpgNzxcaNrn5eU9lxcouzo9iYW
-         ok/Pc5mKmuY/sx+3IjOcON6exSgQkxe9W07ldnmYwx0qmR1UwrZ+o2yurcZOTRxeiACf
-         v/9M4YPVAQTwOKp0jFeuPYPxoK+oHHi0XNFRDtaBF+3f42hXUFmUuNPKQtZdYj/YH6xb
-         pQ9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795678826; x=1796283626;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sXWlGCRC9JQkumWInitkE8i9IQlzJPF9vbX50igGRpE=;
-        b=2mbG2jEu1IppVZ6wxtv3W0F2BME7JvNXZScl6oyeYm41aDrcpsLQOpCLDuFoWKEJa+
-         0tFzc5ut8MCF2HCVSKDsyog36CmlAWgQG8w7zDLKNxKzWPhiFc0ojgXZYloZdKL3j/u4
-         tR8icCrLpM0IhgVUyr3KMLDmqqP/8fA/t8KyVLRMBWmVTfRLIldiPSOlCHYCusKJQ4+f
-         MOtX2KAFuR0CAY67IGf3FpxgTQwOLZN9STjErbvNTjV0DgKrHumXj2khKO3seVLshP//
-         pawErOWQaunUzQLk73wBBiuchyDGr6nm93QnPAASJ4Q/73H1mgP4lcR5/MO3YXkbTP1W
-         9mxQ==
-X-Forwarded-Encrypted: i=1; AL+hErGoH/WYUcqR4h7vSj7QaJkUb91bgOFi/AQ1uUAAy4wbTHhYgYzxi3Nsuhno7HgFZLq3NyqcM1iDUr7p1WE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+7bPR2E8Z8g91ZJ+hH9KqDxu7sWSuH+9gRPvTHEdt/b1/Ab7Zq
-	uNrqor+yymv7qVb5TTR9xBkOIi12otmYe12gNlcQMlKz12AwxmtYmFamVwR3V8lXYZmeqw0F00S
-	0c7V38apiq/mY4KyEPzL/u2ywm/B9CGxh0H5TJJp+vR1Rzk6n19vgArAG4Xqw7hkCDePDvMjmpw
-	1bjA==
-X-Gm-Gg: AZFdTZclCKm1gTzOOmUPXrxmOExTm5FBlqHTKsYXBEOs9BJ4AO+HyK5Na0nllJgSJWm
-	50uo7ubZrwtXBVEpfTj1m99pL+28kgAsRM3O0RvpAVXXtoLHgbiWC9CATOIy4esgMKG8/EHuoUp
-	8/Rm1Lklh03bWBuywmK8K0jNw6yfX0SE6ABN5X6H72zRtXo7lxJLI00oVB4598LN0YOS3elPYtB
-	XJx7A14jiOPJkd5sSvb7tyUFW+trEHCAZdDAVTMvgyj/QJ4r+Vm6WTHEQrHjIVfKefwnh/cHslS
-	91S+tzK2KFFfwWBH4Pk7G3SlYfVtiL0BvGPNWMAguMo45fqGrHQ3GfVLkYTkFUfMJ5eamlKCdEc
-	kG6z0FKqvRZkhDkNiHxgzisXkIKfvXU8NboMFHXOa5bzIYcnBNyVE49cJuK8x9hX1/+2FQEbAYx
-	FG1J241DSpiug3Md1+sfTNeeM=
-X-Received: by 2002:a05:7301:2108:b0:386:b99:8ff9 with SMTP id 5a478bee46e88-3860b999354mr18107022eec.40.1795678825955;
-        Wed, 25 Nov 2026 23:40:25 -0800 (PST)
-X-Received: by 2002:a05:7301:2108:b0:386:b99:8ff9 with SMTP id 5a478bee46e88-3860b999354mr18106995eec.40.1795678825418;
-        Wed, 25 Nov 2026 23:40:25 -0800 (PST)
-Received: from hu-petche-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386992b404bsm47180909eec.1.2026.11.25.23.40.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 23:40:25 -0800 (PST)
-Date: Wed, 25 Nov 2026 23:40:23 -0800
-From: Peter Chen <peter.chen@oss.qualcomm.com>
-To: Faisal Hassan <faisal.hassan@oss.qualcomm.com>
-Cc: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org,
-        linux-usb@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        krishna.kurapati@oss.qualcomm.com,
-        krzysztof.kozlowski@oss.qualcomm.com,
-        Sriram Dash <sriram.dash@oss.qualcomm.com>
-Subject: Re: [PATCH v5 01/11] usb: dwc3: qcom: Distinguish PM and runtime
- suspend/resume paths
-Message-ID: <awfiZ8IE4UMuiO7P@hu-petche-lv.qualcomm.com>
-References: <20261123104727.1539149-1-faisal.hassan@oss.qualcomm.com>
- <20261123104727.1539149-2-faisal.hassan@oss.qualcomm.com>
+	dkim=pass (1024-bit key, unprotected) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=ldONL25o;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=tWeWn/BG;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=ldONL25o;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=tWeWn/BG
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 5EFEC2261F;
+	Thu, 26 Nov 2026 07:42:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795678941; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=522sR5k/HjcpUe/h+3iFcrG+nFF6mEp2RnM9L0cMugs=;
+	b=ldONL25oXNuqH+qhkRjg/eN6W9Hdd5txOktZAHthiQ1E/6ZEYmULci9NaWu3xP+X8SiVvy
+	7b8BzvfCewRNAISJEeVlg1e1dkcRLpQmWuB6PFSULybS7VW1XrXvOudeweSICVEWRltqQW
+	MUp9quwoL6jacYjX8Dey3GvbscY9mh8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795678941;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=522sR5k/HjcpUe/h+3iFcrG+nFF6mEp2RnM9L0cMugs=;
+	b=tWeWn/BGDoKB2PJdyjBBZCOv1U/TEDL0gGz/BM/WH0A8TZzy+GBr6M+QT8gkSMVIrW1P1z
+	GXlu5lxLQkKNAlCA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=ldONL25o;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="tWeWn/BG"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795678941; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=522sR5k/HjcpUe/h+3iFcrG+nFF6mEp2RnM9L0cMugs=;
+	b=ldONL25oXNuqH+qhkRjg/eN6W9Hdd5txOktZAHthiQ1E/6ZEYmULci9NaWu3xP+X8SiVvy
+	7b8BzvfCewRNAISJEeVlg1e1dkcRLpQmWuB6PFSULybS7VW1XrXvOudeweSICVEWRltqQW
+	MUp9quwoL6jacYjX8Dey3GvbscY9mh8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795678941;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=522sR5k/HjcpUe/h+3iFcrG+nFF6mEp2RnM9L0cMugs=;
+	b=tWeWn/BGDoKB2PJdyjBBZCOv1U/TEDL0gGz/BM/WH0A8TZzy+GBr6M+QT8gkSMVIrW1P1z
+	GXlu5lxLQkKNAlCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id EC5C8134C3;
+	Thu, 26 Nov 2026 07:42:20 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id TnaJLNziB2vOdgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Thu, 26 Nov 2026 07:42:20 +0000
+Message-ID: <a6835f05-9722-4df3-9b70-325cc267c44a@suse.de>
+Date: Thu, 26 Nov 2026 08:42:20 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -126,154 +108,367 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123104727.1539149-2-faisal.hassan@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=T4oZ3PKQ c=1 sm=1 tr=0 ts=6b07e26b cx=c_pps
- a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=jIQo8A4GAAAA:8 a=Y18rF2VYFuf4IdEaWfYA:9 a=CjuIK1q_8ugA:10
- a=bBxd6f-gb0O0v-kibOvt:22
-X-Proofpoint-ORIG-GUID: AtuLKoqi9rQ7x0ybIYcPDNpAa6NUNMsh
-X-Proofpoint-GUID: AtuLKoqi9rQ7x0ybIYcPDNpAa6NUNMsh
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAyOSBTYWx0ZWRfX0dVrQ7rCHssA
- lLIV27Q74Adhj2ZtZMa8Ek1rPMOMtwH5Pojo0yhHPhbgYJ12dmUd5+rfKTtzNfmAL4gMh1iPsog
- HFVXQTB+QHyXGGqerUEWynlFDO2NP9bSkIt63KSB35/7fMXXv3kvuItTjjCt5Fp/5GNm2+kczUX
- szOA6Zf/xajkCzJCZcfFu80jTAlGlAi7qnycYbDo0rIi/XAheDhEVszpICE9pl6/NhtNJ4Kylll
- OOS5idN5O23f9nxjjlNYlEYtN68MDEARsFCv4FH5Rv2/W2aDOAGO+8Xf3UCY6tiO+W40TYJiI7e
- 87fdko2v8My4nyWJa/R2mQzNUiyr2u1jAaufI+5qwnR+g7t7BmeefWLEcCbxaIDS0fSYAuFqTtS
- tyRVz+OyqFcU0TMgeeGra0NRReETMBFxR2sJRuQ3IUnHC4BuAVuDqcuMT+UMGmQiABIvsQCPQjW
- WQ7KtswLU41l0tnbCCw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAyOSBTYWx0ZWRfX7/8Ui1Iyyf98
- g88EBZnSESkStRYIOtyYk0m92CxROGJtuxFWu6qWDsL04zVA75T8x5lh9M+R0WhRKJ2VqBgU4Nr
- z+xNOojbR8XWgg5aWuBbDzV31UMnZss=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_02,2026-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 spamscore=0 suspectscore=0 phishscore=0
- lowpriorityscore=0 bulkscore=0 malwarescore=0 impostorscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260029
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v4] drm/gud: move format init from gud_probe()
+To: Ruben Wauters <ruben.wauters@linux.dev>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+References: <20261123154638.2298-1-ruben.wauters@linux.dev>
+ <d9212a46-b5ea-4bee-a1b3-052549cc4ed6@suse.de>
+ <06ab3827afd9515e5cfa4821b0a744c7ac94baec.camel@linux.dev>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <06ab3827afd9515e5cfa4821b0a744c7ac94baec.camel@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-13.50 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	XM_UA_NO_VERSION(0.01)[];
+	FREEMAIL_TO(0.00)[linux.dev,linux.intel.com,kernel.org,gmail.com,ffwll.ch];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[7];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[linux.dev:email,suse.com:url,suse.de:email,suse.de:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	DKIM_TRACE(0.00)[suse.de:+]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -13.50
+X-Spam-Level: 
+X-Rspamd-Queue-Id: 5EFEC2261F
 
-On 26-11-23 16:17:16, Faisal Hassan wrote:
-> The dwc3_qcom_suspend() and dwc3_qcom_resume() functions
-> handle both system PM and runtime PM paths but cannot
-> differentiate between them, preventing distinct power
-> management strategies.
-> 
-> Refactor suspend/resume functions to accept pm_message_t
-> instead of boolean wakeup flags. Use PMSG_IS_AUTO()
-> to identify runtime PM (PMSG_AUTO_SUSPEND/RESUME) versus
-> system PM (PMSG_SUSPEND/RESUME) paths.
-> 
-> Preserve existing wakeup behavior: always enable wakeup
-> for runtime suspend, check device_may_wakeup() for system
-> suspend.
-> 
-> Follow dwc3/core.c pattern to enable future per-path
-> strategies like differentiated power states.
-> 
-> Co-developed-by: Sriram Dash <sriram.dash@oss.qualcomm.com>
-> Signed-off-by: Sriram Dash <sriram.dash@oss.qualcomm.com>
-> Signed-off-by: Faisal Hassan <faisal.hassan@oss.qualcomm.com>
-> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> Reviewed-by: Krishna Kurapati <krishna.kurapati@oss.qualcomm.com>
 
-Reviewed-by: Peter Chen <peter.chen@oss.qualcomm.com>
 
-Peter
-> ---
->  drivers/usb/dwc3/dwc3-qcom.c | 25 +++++++++++++++++--------
->  1 file changed, 17 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/usb/dwc3/dwc3-qcom.c b/drivers/usb/dwc3/dwc3-qcom.c
-> index d44f093ac243..7a7225b900b3 100644
-> --- a/drivers/usb/dwc3/dwc3-qcom.c
-> +++ b/drivers/usb/dwc3/dwc3-qcom.c
-> @@ -335,8 +335,18 @@ static void dwc3_qcom_enable_interrupts(struct dwc3_qcom *qcom)
->  		dwc3_qcom_enable_port_interrupts(&qcom->ports[i]);
->  }
->  
-> -static int dwc3_qcom_suspend(struct dwc3_qcom *qcom, bool wakeup)
-> +/*
-> + * For runtime PM, always enable wakeup.
-> + * For system PM, check device wakeup capability.
-> + */
-> +static bool dwc3_qcom_wakeup_enabled(struct dwc3_qcom *qcom, pm_message_t msg)
-> +{
-> +	return PMSG_IS_AUTO(msg) || device_may_wakeup(qcom->dev);
-> +}
-> +
-> +static int dwc3_qcom_suspend(struct dwc3_qcom *qcom, pm_message_t msg)
->  {
-> +	bool wakeup = dwc3_qcom_wakeup_enabled(qcom, msg);
->  	u32 val;
->  	int i, ret;
->  
-> @@ -369,8 +379,9 @@ static int dwc3_qcom_suspend(struct dwc3_qcom *qcom, bool wakeup)
->  	return 0;
->  }
->  
-> -static int dwc3_qcom_resume(struct dwc3_qcom *qcom, bool wakeup)
-> +static int dwc3_qcom_resume(struct dwc3_qcom *qcom, pm_message_t msg)
->  {
-> +	bool wakeup = dwc3_qcom_wakeup_enabled(qcom, msg);
->  	int ret;
->  	int i;
->  
-> @@ -750,14 +761,13 @@ static int dwc3_qcom_pm_suspend(struct device *dev)
->  {
->  	struct dwc3 *dwc = dev_get_drvdata(dev);
->  	struct dwc3_qcom *qcom = to_dwc3_qcom(dwc);
-> -	bool wakeup = device_may_wakeup(dev);
->  	int ret;
->  
->  	ret = dwc3_pm_suspend(&qcom->dwc);
->  	if (ret)
->  		return ret;
->  
-> -	ret = dwc3_qcom_suspend(qcom, wakeup);
-> +	ret = dwc3_qcom_suspend(qcom, PMSG_SUSPEND);
->  	if (ret)
->  		return ret;
->  
-> @@ -770,10 +780,9 @@ static int dwc3_qcom_pm_resume(struct device *dev)
->  {
->  	struct dwc3 *dwc = dev_get_drvdata(dev);
->  	struct dwc3_qcom *qcom = to_dwc3_qcom(dwc);
-> -	bool wakeup = device_may_wakeup(dev);
->  	int ret;
->  
-> -	ret = dwc3_qcom_resume(qcom, wakeup);
-> +	ret = dwc3_qcom_resume(qcom, PMSG_RESUME);
->  	if (ret)
->  		return ret;
->  
-> @@ -810,7 +819,7 @@ static int dwc3_qcom_runtime_suspend(struct device *dev)
->  	if (ret)
->  		return ret;
->  
-> -	return dwc3_qcom_suspend(qcom, true);
-> +	return dwc3_qcom_suspend(qcom, PMSG_AUTO_SUSPEND);
->  }
->  
->  static int dwc3_qcom_runtime_resume(struct device *dev)
-> @@ -819,7 +828,7 @@ static int dwc3_qcom_runtime_resume(struct device *dev)
->  	struct dwc3_qcom *qcom = to_dwc3_qcom(dwc);
->  	int ret;
->  
-> -	ret = dwc3_qcom_resume(qcom, true);
-> +	ret = dwc3_qcom_resume(qcom, PMSG_AUTO_RESUME);
->  	if (ret)
->  		return ret;
->  
-> -- 
-> 2.34.1
-> 
+Am 24.11.26 um 19:43 schrieb Ruben Wauters:
+> On Tue, 2026-11-24 at 09:46 +0100, Thomas Zimmermann wrote:
+>> Hi
+>>
+>> Am 23.11.26 um 16:46 schrieb Ruben Wauters:
+>>> As part of the cleanup of gud_probe(), this patch splits off format init
+>>> code from gud_probe into it's own function. This makes the code more
+>>> compartmentalised and easier to follow, and makes gud_probe() smaller
+>>> and also easier to read.
+>>>
+>>> Signed-off-by: Ruben Wauters <ruben.wauters@linux.dev>
+>> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+>>
+>> I have two minor comments for you to consider.
+>>
+>> Best regards
+>> Thomas
+>>
+>>> ---
+>>> V1 -> V2:
+>>> - Removed output parameters for gud_get_formats()
+>>> - Added gud_get_max_buffer_size() helper function
+>>>
+>>> Apologies this v2 took so long
+>>>
+>>> V2 -> V3:
+>>> - Fix potential num_formats underflow
+>>> - Skip XRGB8888 in size calculations if emulated
+>>> - Remove redundant r1 and XRGB1111 size calculations
+>>>
+>>> V3 -> V4
+>>> - Take XRGB8888 emulated format into account when calculating
+>>>     max_buffer_size
+>>> ---
+>>>    drivers/gpu/drm/gud/gud_drv.c | 185 ++++++++++++++++++++--------------
+>>>    1 file changed, 111 insertions(+), 74 deletions(-)
+>>>
+>>> diff --git a/drivers/gpu/drm/gud/gud_drv.c b/drivers/gpu/drm/gud/gud_drv.c
+>>> index 680447f426f3..1ffb2a4fc901 100644
+>>> --- a/drivers/gpu/drm/gud/gud_drv.c
+>>> +++ b/drivers/gpu/drm/gud/gud_drv.c
+>>> @@ -435,11 +435,115 @@ static void gud_free_buffers_and_mutex(void *data)
+>>>    	mutex_destroy(&gdrm->ctrl_lock);
+>>>    }
+>>>    
+>>> -static int gud_probe(struct usb_interface *intf, const struct usb_device_id *id)
+>>> +static size_t gud_get_max_buffer_size(struct gud_device *gdrm, u32 *formats, u32 num_formats)
+>>> +{
+>>> +	struct drm_device *drm = &gdrm->drm;
+>>> +	size_t max_buffer_size = 0;
+>>> +	size_t fmt_buf_size;
+>>> +	int i;
+>> Small detail: num_format, which you're comparing to is unsigned. So
+>> using unsigned for i is preferable.
+>>
+>>> +
+>>> +	for (i = 0; i < num_formats; i++) {
+>>> +		const struct drm_format_info *info = drm_format_info(formats[i]);
+>>> +
+>>> +		/* Substitute emulated XRGB8888 for proper format */
+>>> +		if (formats[i] == DRM_FORMAT_XRGB8888 && gdrm->xrgb8888_emulation_format)
+>>> +			info = gdrm->xrgb8888_emulation_format;
+>>> +
+>>> +		fmt_buf_size = drm_format_info_min_pitch(info, 0, drm->mode_config.max_width) *
+>>> +							 drm->mode_config.max_height;
+>>> +		max_buffer_size = max(max_buffer_size, fmt_buf_size);
+>>> +	}
+>>> +
+>>> +	return max_buffer_size;
+>>> +}
+>>> +
+>>> +static int gud_get_formats(struct gud_device *gdrm, u32 *formats)
+>>>    {
+>>>    	const struct drm_format_info *xrgb8888_emulation_format = NULL;
+>>>    	bool rgb565_supported = false, xrgb8888_supported = false;
+>>>    	unsigned int num_formats_dev, num_formats = 0;
+>>> +	u8 *formats_dev;
+>>> +	struct drm_device *drm = &gdrm->drm;
+>>> +	struct device *usb_device = gdrm->drm.dev;
+>>> +	int ret, i;
+>> Same comment here about i being signed.
+> Hi,
+>
+> If you would like I can send a v5 fixing these, or I can just add them
+> when I push to drm-misc-next, up to you
+
+I'd send out a v5 to the list so that it's documented. Then after 2 days 
+or so, merge the patch if no further comments came in.
+
+Best regards
+Thomas
+
+>
+> Ruben
+>>> +
+>>> +	formats_dev = devm_kmalloc(usb_device, GUD_FORMATS_MAX_NUM, GFP_KERNEL);
+>>> +	if (!formats_dev)
+>>> +		return -ENOMEM;
+>>> +
+>>> +	ret = gud_usb_get(gdrm, GUD_REQ_GET_FORMATS, 0, formats_dev, GUD_FORMATS_MAX_NUM);
+>>> +	if (ret < 0)
+>>> +		return ret;
+>>> +
+>>> +	num_formats_dev = ret;
+>>> +	for (i = 0; i < num_formats_dev; i++) {
+>>> +		const struct drm_format_info *info;
+>>> +		u32 format;
+>>> +
+>>> +		format = gud_to_fourcc(formats_dev[i]);
+>>> +		if (!format) {
+>>> +			drm_dbg(drm, "Unsupported format: 0x%02x\n", formats_dev[i]);
+>>> +			continue;
+>>> +		}
+>>> +
+>>> +		if (format == GUD_DRM_FORMAT_R1)
+>>> +			info = &gud_drm_format_r1;
+>>> +		else if (format == GUD_DRM_FORMAT_XRGB1111)
+>>> +			info = &gud_drm_format_xrgb1111;
+>>> +		else
+>>> +			info = drm_format_info(format);
+>>> +
+>>> +		switch (format) {
+>>> +		case GUD_DRM_FORMAT_R1:
+>>> +			fallthrough;
+>>> +		case DRM_FORMAT_R8:
+>>> +			fallthrough;
+>>> +		case GUD_DRM_FORMAT_XRGB1111:
+>>> +			fallthrough;
+>>> +		case DRM_FORMAT_RGB332:
+>>> +			fallthrough;
+>>> +		case DRM_FORMAT_RGB888:
+>>> +			if (!xrgb8888_emulation_format)
+>>> +				xrgb8888_emulation_format = info;
+>>> +			break;
+>>> +		case DRM_FORMAT_RGB565:
+>>> +			rgb565_supported = true;
+>>> +			if (!xrgb8888_emulation_format)
+>>> +				xrgb8888_emulation_format = info;
+>>> +			break;
+>>> +		case DRM_FORMAT_XRGB8888:
+>>> +			xrgb8888_supported = true;
+>>> +			break;
+>>> +		}
+>>> +
+>>> +		if (format == GUD_DRM_FORMAT_R1 || format == GUD_DRM_FORMAT_XRGB1111)
+>>> +			continue; /* Internal not for userspace */
+>>> +
+>>> +		formats[num_formats++] = format;
+>>> +	}
+>>> +
+>>> +	if (!num_formats && !xrgb8888_emulation_format) {
+>>> +		dev_err(usb_device, "No supported pixel formats found\n");
+>>> +		return -EINVAL;
+>>> +	}
+>>> +
+>>> +	/* Prefer speed over color depth */
+>>> +	if (rgb565_supported)
+>>> +		drm->mode_config.preferred_depth = 16;
+>>> +
+>>> +	if (!xrgb8888_supported && xrgb8888_emulation_format) {
+>>> +		gdrm->xrgb8888_emulation_format = xrgb8888_emulation_format;
+>>> +		formats[num_formats++] = DRM_FORMAT_XRGB8888;
+>>> +	}
+>>> +
+>>> +	devm_kfree(usb_device, formats_dev);
+>>> +
+>>> +	return num_formats;
+>>> +}
+>>> +
+>>> +static int gud_probe(struct usb_interface *intf, const struct usb_device_id *id)
+>>> +{
+>>> +	int num_formats = 0;
+>>>    	struct usb_endpoint_descriptor *bulk_out;
+>>>    	struct gud_display_descriptor_req desc;
+>>>    	struct device *dev = &intf->dev;
+>>> @@ -447,9 +551,8 @@ static int gud_probe(struct usb_interface *intf, const struct usb_device_id *id)
+>>>    	struct gud_device *gdrm;
+>>>    	struct drm_device *drm;
+>>>    	struct device *dma_dev;
+>>> -	u8 *formats_dev;
+>>>    	u32 *formats;
+>>> -	int ret, i;
+>>> +	int ret;
+>>>    
+>>>    	ret = usb_find_bulk_out_endpoint(intf->cur_altsetting, &bulk_out);
+>>>    	if (ret)
+>>> @@ -510,81 +613,16 @@ static int gud_probe(struct usb_interface *intf, const struct usb_device_id *id)
+>>>    	drm->mode_config.helper_private = &gud_mode_config_helpers;
+>>>    
+>>>    	/* Format init */
+>>> -	formats_dev = devm_kmalloc(dev, GUD_FORMATS_MAX_NUM, GFP_KERNEL);
+>>>    	/* Add room for emulated XRGB8888 */
+>>>    	formats = devm_kmalloc_array(dev, GUD_FORMATS_MAX_NUM + 1, sizeof(*formats), GFP_KERNEL);
+>>> -	if (!formats_dev || !formats)
+>>> +	if (!formats)
+>>>    		return -ENOMEM;
+>>>    
+>>> -	ret = gud_usb_get(gdrm, GUD_REQ_GET_FORMATS, 0, formats_dev, GUD_FORMATS_MAX_NUM);
+>>> -	if (ret < 0)
+>>> -		return ret;
+>>> -
+>>> -	num_formats_dev = ret;
+>>> -	for (i = 0; i < num_formats_dev; i++) {
+>>> -		const struct drm_format_info *info;
+>>> -		size_t fmt_buf_size;
+>>> -		u32 format;
+>>> -
+>>> -		format = gud_to_fourcc(formats_dev[i]);
+>>> -		if (!format) {
+>>> -			drm_dbg(drm, "Unsupported format: 0x%02x\n", formats_dev[i]);
+>>> -			continue;
+>>> -		}
+>>> -
+>>> -		if (format == GUD_DRM_FORMAT_R1)
+>>> -			info = &gud_drm_format_r1;
+>>> -		else if (format == GUD_DRM_FORMAT_XRGB1111)
+>>> -			info = &gud_drm_format_xrgb1111;
+>>> -		else
+>>> -			info = drm_format_info(format);
+>>> -
+>>> -		switch (format) {
+>>> -		case GUD_DRM_FORMAT_R1:
+>>> -			fallthrough;
+>>> -		case DRM_FORMAT_R8:
+>>> -			fallthrough;
+>>> -		case GUD_DRM_FORMAT_XRGB1111:
+>>> -			fallthrough;
+>>> -		case DRM_FORMAT_RGB332:
+>>> -			fallthrough;
+>>> -		case DRM_FORMAT_RGB888:
+>>> -			if (!xrgb8888_emulation_format)
+>>> -				xrgb8888_emulation_format = info;
+>>> -			break;
+>>> -		case DRM_FORMAT_RGB565:
+>>> -			rgb565_supported = true;
+>>> -			if (!xrgb8888_emulation_format)
+>>> -				xrgb8888_emulation_format = info;
+>>> -			break;
+>>> -		case DRM_FORMAT_XRGB8888:
+>>> -			xrgb8888_supported = true;
+>>> -			break;
+>>> -		}
+>>> -
+>>> -		fmt_buf_size = drm_format_info_min_pitch(info, 0, drm->mode_config.max_width) *
+>>> -			       drm->mode_config.max_height;
+>>> -		max_buffer_size = max(max_buffer_size, fmt_buf_size);
+>>> -
+>>> -		if (format == GUD_DRM_FORMAT_R1 || format == GUD_DRM_FORMAT_XRGB1111)
+>>> -			continue; /* Internal not for userspace */
+>>> -
+>>> -		formats[num_formats++] = format;
+>>> -	}
+>>> +	num_formats = gud_get_formats(gdrm, formats);
+>>> +	if (num_formats <= 0)
+>>> +		return num_formats;
+>>>    
+>>> -	if (!num_formats && !xrgb8888_emulation_format) {
+>>> -		dev_err(dev, "No supported pixel formats found\n");
+>>> -		return -EINVAL;
+>>> -	}
+>>> -
+>>> -	/* Prefer speed over color depth */
+>>> -	if (rgb565_supported)
+>>> -		drm->mode_config.preferred_depth = 16;
+>>> -
+>>> -	if (!xrgb8888_supported && xrgb8888_emulation_format) {
+>>> -		gdrm->xrgb8888_emulation_format = xrgb8888_emulation_format;
+>>> -		formats[num_formats++] = DRM_FORMAT_XRGB8888;
+>>> -	}
+>>> +	max_buffer_size = gud_get_max_buffer_size(gdrm, formats, num_formats);
+>>>    
+>>>    	if (desc.max_buffer_size)
+>>>    		max_buffer_size = le32_to_cpu(desc.max_buffer_size);
+>>> @@ -650,7 +688,6 @@ static int gud_probe(struct usb_interface *intf, const struct usb_device_id *id)
+>>>    		return ret;
+>>>    
+>>>    	devm_kfree(dev, formats);
+>>> -	devm_kfree(dev, formats_dev);
+>>>    
+>>>    	drm_client_setup(drm, NULL);
+>>>    
 
 -- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Stefan Gaiser, Jochen Jaser, Abhinav Puri, (HRB 36809, AG Nürnberg)
 
-Thanks,
-Peter Chen
+
