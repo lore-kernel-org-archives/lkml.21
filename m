@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.61
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795672352;
-	b=g5saB4hmFmGbBjdE/16bqiJsdP1uentWKy9y3IrBf6c3deIqi4Hbt0hp97v3STnOY+RO
-	 5cz2Av/w6xGhmy62zAbUmf0fAXYjGRiOf8Z+QGMZJ2/aoKVMUOtdX07ALP19D7IWkLzK2
-	 s2qtyio6sQFsg5R7T3YdMtrsoqxquKUgJFnk6FgA3Z/G9NWaQlSJn9C0iRA8V8tVRou+V
-	 UEbM6CYFzesGkwh14ZNXfOkhcPcpvFJ5vXqQC5fI+LqOjgBIycv2r4XM2l1OTRLRfyvDz
-	 yNhr/SMoMg4XQ6HCGRYJWRB+u8vQRxxFuKU/VQ1YtMNXDJvukX7hQcRvDAB88LfSdgg==
+	t=1795672359;
+	b=AMSd4hkn4kqGNzdK1/sverbRRjs6MF3uSUMQTEWftVt+mCHyoAkXLJVGMlyDsb3WItfq
+	 tyod7jTw9MJgw9pe8P9SrQ5h+xFCHKpTN5zVgoZPzdHXrEuWhTbaK8l+9gLafeMCUkizC
+	 BXrGzghFDMgVcBHEv0BgXKkRLHG8qXY1VXwOq0MnCJohr0NpDEV6c7wi7TAYPF4fMNXdQ
+	 yTl6wv5IZmXOGSn16o9ELcqJf6eQBrVArIc79AGwjUyix8Mjg58rKQkhwiWZUIaN1SVfQ
+	 +gQd3tgFncXooyuDy6q158DT4SL8h+copTDonF0dD9oWPrr+O8SyxFyatkPFKFTjMLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795672352;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795672359;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=zVuXwTyscVbFZi1wkQQAp7eD1hXL+dltypOcVIhVGZk=;
-	b=y1m7U+oSrFuC6zhbK+MKn1gctrCA7TvoxHmGCmw+aAQxiYyUm7lz3sKkqgztcEdT4mH/
-	 Yo5IcjcsPZVzwcHFSDVn63N4BubKJcYqhW5d+6bEP6EXyVj21z86S0Xss5q/IEhU1nw1N
-	 PrPktr8juA5ie+/2d+aiFwqDiMnwteMLFPmOezXB9buGJEvplBp6ZLX28s6DMydkv8wzC
-	 gGN08H88BRH9N0Kj9E9M/aFguCYP0q8FchC5IVANGhMNBLx009W0ccoT8VEaOYGZMcHiU
-	 qLB1FWqSTjx5zFITiiMXnJr8a8f95EQngWQ0+ZbnC8I3zTMLRjw1ODmxPZoMaDu8cwQ==
+	bh=Rp87fFVo66z0bNjr/QAS94X3yd/Vue0JZ5sGVAATgmM=;
+	b=fbTOb4bQrSeqMf9tS/mu/ts84fLghHJM9o8H/J2XW95MU/qp/tPoWodxKxKToGovHdLX
+	 dSmRR0HfN6Yo/DLXYshArF/smhRYE0B7957bR7bQsPaqZepVrOjgYAfL0qBLjBA2O1GWx
+	 O3kRm68Tm8zGYkOX8+y8R3igmZTXhLw7qpk138scaMZFwBYKuwlusyKKCgqybaRW6L8Ex
+	 Qn3lcFEwgrt+fK5cdVJc37D0L4R4jl+Hf52v1vZbtHgET32MxRak6sjdsw2CIqWvAbPtZ
+	 7c3oRLvx6N7xyF/AViFrDaCVSzYiXd4k7g4hHEJqjNCIaKQc8UulOzK6B05PZ/HrblA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ONqKK8bn;
-	arc=none smtp.remote-ip=91.218.175.55
-Received: from mta0.migadu.com (out-55.mta0.migadu.com [91.218.175.55])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QG573tJa;
+	arc=none smtp.remote-ip=91.218.175.61
+Received: from mta0.migadu.com (out-61.mta0.migadu.com [91.218.175.61])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24415606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:52:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24415606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89FEB606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:52:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89FEB606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ONqKK8bn
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QG573tJa
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=baszU1mgchieKqc/JGnZXd/YJ5gRMUsdHJjPpVJvFZQ=;
+DKIM-Signature: a=rsa-sha256; bh=PDJSASvlt9xJZen0jV2WM8AUZCLu70P+kYtSbovdDvs=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795672350; v=1; x=1796277150;
- b=ONqKK8bnNeEeOmHKGj56U3mdVSBU+8GghiKcwoXAxpubEhdYvizLQmfoNer1jkFMlSWRzT78
- gDCBhHwRkpWuxwLZHYoWpnT7j9nv9rrqVRr/gfiEPUohm/WS9F1GFJk90IAmXTuxIxrtlDzjClL
- JI2DYGnPFlpxSgB+HoZVYTYc=
+ t=1795672356; v=1; x=1796277156;
+ b=QG573tJaV654Sq6KseiWH+511Ij/DlsFvITfxRTQIVkHzfaXrNe3TpmmvmTK6hGzBqrZQkjV
+ XGmgtLZfpdM/Pwa98GdUK9Meljq8EYzvB1PbtddLDt6iJNh6FRUeAXWb5OZW2kl/Rm23XEWB/bp
+ hHZVVvsh76S1r+FAPLevpEN4=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b5932c74b5b5b20e;
-	Thu, 26 Nov 2026 05:52:30 +0000
-X-Mizu-Trace-ID: b5932c74b5b5b20e
+Received: by smtp.migadu.com with ESMTPS id bb5f8296b098adfa;
+	Thu, 26 Nov 2026 05:52:36 +0000
+X-Mizu-Trace-ID: bb5f8296b098adfa
 X-Migadu-Flow: FLOW_OUT
 From: Guopeng Zhang <guopeng.zhang@linux.dev>
 To: longman@redhat.com,
@@ -60,9 +60,9 @@ Cc: ridong.chen@linux.dev,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Guopeng Zhang <zhangguopeng@kylinos.cn>
-Subject: [PATCH 1/2] docs: cgroup-v1: Fix the isolcpus description
-Date: Thu, 26 Nov 2026 13:52:05 +0800
-Message-ID: <20261126055206.251724-2-guopeng.zhang@linux.dev>
+Subject: [PATCH 2/2] docs: cgroup-v2: Document the housekeeping CPU requirement
+Date: Thu, 26 Nov 2026 13:52:06 +0800
+Message-ID: <20261126055206.251724-3-guopeng.zhang@linux.dev>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261126055206.251724-1-guopeng.zhang@linux.dev>
 References: <20261126055206.251724-1-guopeng.zhang@linux.dev>
@@ -79,52 +79,36 @@ Content-Transfer-Encoding: 8bit
 
 From: Guopeng Zhang <zhangguopeng@kylinos.cn>
 
-The sched_load_balance section incorrectly includes CPUs isolated
-with the domain flag of isolcpus= in the default scheduling domain.
-It also refers to a nonexistent cpuset.isolcpus file.
+The cpuset.cpus.partition documentation does not describe the
+housekeeping CPU requirement for isolated partitions.
 
-Correct both passages and clarify that domain is the default flag
-of isolcpus=. The nohz and managed_irq flags do not by themselves
-disable scheduler load balancing.
+When full dynticks is enabled, changes to the isolated partition
+configuration must leave at least one active CPU available for
+housekeeping.
 
 Signed-off-by: Guopeng Zhang <zhangguopeng@kylinos.cn>
 ---
- Documentation/admin-guide/cgroup-v1/cpusets.rst | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+ Documentation/admin-guide/cgroup-v2.rst | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/Documentation/admin-guide/cgroup-v1/cpusets.rst b/Documentation/admin-guide/cgroup-v1/cpusets.rst
-index fb3fb6fa88cb..d47f96979988 100644
---- a/Documentation/admin-guide/cgroup-v1/cpusets.rst
-+++ b/Documentation/admin-guide/cgroup-v1/cpusets.rst
-@@ -398,10 +398,11 @@ Put simply, it costs less to balance between two smaller sched domains
- than one big one, but doing so means that overloads in one of the
- two domains won't be load balanced to the other one.
+diff --git a/Documentation/admin-guide/cgroup-v2.rst b/Documentation/admin-guide/cgroup-v2.rst
+index 2f792ff29425..36199da5c842 100644
+--- a/Documentation/admin-guide/cgroup-v2.rst
++++ b/Documentation/admin-guide/cgroup-v2.rst
+@@ -2838,6 +2838,13 @@ Cpuset Interface Files
+ 	kernel boot command line option.  If those CPUs are to be put
+ 	into a partition, they have to be used in an isolated partition.
  
--By default, there is one sched domain covering all CPUs, including those
--marked isolated using the kernel boot time "isolcpus=" argument. However,
--the isolated CPUs will not participate in load balancing, and will not
--have tasks running on them unless explicitly assigned.
-+By default, scheduler load balancing includes all online CPUs except
-+those isolated with the "domain" flag of the "isolcpus=" boot option.
-+This flag is implied if no flags are specified. The "nohz" and
-+"managed_irq" flags do not by themselves disable scheduler load
-+balancing.
++	In addition to the CPU 0 restriction above, when full dynticks is
++	enabled with "nohz_full=" or the "nohz" flag of "isolcpus=", the
++	isolated partition configuration must leave at least one active CPU
++	available for housekeeping. This CPU must be outside the full-dynticks
++	CPU set, the CPUs isolated at boot using the "domain" flag of
++	"isolcpus=", and the CPUs in all isolated partitions.
++
  
- This default load balancing across all CPUs is not well suited for
- the following two situations:
-@@ -474,9 +475,9 @@ such partially load balanced cpusets, as they may be artificially
- constrained to some subset of the CPUs allowed to them, for lack of
- load balancing to the other CPUs.
- 
--CPUs in "cpuset.isolcpus" were excluded from load balancing by the
--isolcpus= kernel boot option, and will never be load balanced regardless
--of the value of "cpuset.sched_load_balance" in any cpuset.
-+CPUs isolated with the "domain" flag of the "isolcpus=" boot option
-+remain excluded from scheduler load balancing regardless of the value
-+of "cpuset.sched_load_balance" in any cpuset.
- 
- 1.7.1 sched_load_balance implementation details.
- ------------------------------------------------
+ Device controller
+ -----------------
 -- 
 2.43.0
 
