@@ -1,88 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795677473;
-	b=2bb/diDOOkvjBStFS2wxv1YYLSbUnEXBxL9B5ZoH6Vmm1JZPVzXat4817bGwZDWPm96I
-	 WLSJ2gVPeXa34e2uW2dHVhq59AWH9RUTZE4TniRLT7erYoz81iuAoNzE82+tW1kcqlqdb
-	 LgjEPoGWYq2BO6cTA4xQbtCDlVbZ0JX/pUnoLhc6NfFV2Daw7o9qrokUSUIZMREyCJs7G
-	 aUv5WY9z8xZUBXOtoKJS9Md/bg207F6HcA5FEwegcCyTm6j9S2KeuPGfGY8GjKimtaOf2
-	 zPDkkTVMHsk2HHDj5rlAg1YCL2M/XPsii9DL/BqrWZBOzjFvBoOGPskJVHz1oxoM80g==
+	t=1795677500;
+	b=r/EsVvHTrLwR5Ci1DRlQIBmQ3ff0EODHCEBNmObPfyq5dkvVJKSNr3kkvxOfgKliS+8i
+	 J9Jqiq5YgCOvxyI59lnZLDwjx7zg4g5tVpPZM4bwQio7qFe3PWmCYvpG3t0tsOkcW6Wa6
+	 boviuUTMT5m0lBZdAT3+VC9mTHwegG1kcPvQiMF4RP5Jake5KGJRt4CrI+18qe7LWvzcO
+	 R51B34KmcDC2/Ay7FXtACixVJpNRtEQW/cZuy1LRkzSyHU6dH+cese+x565S7qwVZVjyG
+	 DyLWxA4vAMR6O493gvrjaqAh42XLoKKTtdoAz47T3CtJo4nDwdhEQkq1fmWYp4xeKkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795677473;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=wiVxz1XhCvSbqHjLx44qyZZxEHDYSWwOkZ0h4qId1n8=;
-	b=XjSY5wQMDsTDFJFfAVn0MdwR5XsWIbKvYUGVOL9GFsvI0gkHx/wnFQaDgehQefbanB9N
-	 hj5v+2zXRFzNRLlADmYYC0nScY4O67BeO8Q9LkkrK247H1wtoew02hqpzjNATMOX1W5Ze
-	 Jb7b7IjBKoM5KErxuA5ZQl3ks3Bt7Scb818yBktuzUoejq+10BFIrxYk3KDwdO7sF9QTe
-	 WSB74NaKPcnQpoEO4R6dAMSbP0JsPhFOi8ZhdZVohMqQz4tq8vjpe52qfg6bvqAZX2Hw/
-	 IkmenpoUrfvbXaqSdjdSTckB9gAqwS9H0IBZBHCbrCbqmrRNa4BpJnlTtqyuYL6xZMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795677500;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=tX3o0qeNUHveUfMsho6zhAb9fsA6bZNmkDLOGDbQF6U=;
+	b=qRBM1+/y99avbCzUD5zXWNJ5KacaVOnNybDIHTOuDoTJSpuvaZ1/ZokH2sXNR1fit9Yj
+	 k4zmnFOuiNn2tF5SuMK1r74TSq8uePZcHWuRo8Xh/0XE2j25bLjCUTj//058bZYqDqQzt
+	 IxdE5TK2R7/+u0F9y7mGb2C+Y2hsMhxxvm7L96GRcqh7+RFPiBufsH4AXhvauRTnRXAql
+	 845/1qn5HZyAD86lmvYZIKveo3ImjHfoLU8a/Mw0l5JiPcBxDqOf8KAJ9sEInmaFhxT/s
+	 xTzZ9TF02zcKCHTEWj/HX6LXQeKrGqb1c20whx0YOjnnTDfewltVxI0P4/QRbRBXTig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Sfn+1XGf;
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=dj2yBEI6;
+	arc=none smtp.remote-ip=185.70.43.16
+Received: from mail-4316.protonmail.ch (mail-4316.protonmail.ch [185.70.43.16])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAA55606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:17:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CAA55606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46BD9606A31C;
+	Thu, 26 Nov 2026 07:18:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46BD9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Sfn+1XGf
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-48e47347279so4009884f8f.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:17:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795677471; x=1796282271; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=wiVxz1XhCvSbqHjLx44qyZZxEHDYSWwOkZ0h4qId1n8=;
-        b=Sfn+1XGf9gfG5Jn7/PdhjghbRyNRuYp+f8+9MKmPJC1kRa80vZr8lNh+RRB4nfmfk7
-         knV+9WTMyabHlW3LdeTvg1HEs/tzhTh2r5nn5KM8VjhNo9Cb1ycy+u3p+Mq/ghtKlLSs
-         7U8oIORFpg+SB9S+KNOcRTF9JGCSFkBCQb4a11/5VttDHxuo8VZ7WyDr5WrFzxjSYEk2
-         oBownlQPfhor9uWGVen4Hkf3u6uIsBzyPENrUwdOhfw0hYUR7N1Q42CsIWuM2EAB2lN6
-         nhgeHn/FdeHCTtdSXpJ77vp2Iw9H1JjjBGkIVaiUcCB1GQCY/WYzj/F6PW2jeEuuQl4r
-         p5Mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795677471; x=1796282271;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=wiVxz1XhCvSbqHjLx44qyZZxEHDYSWwOkZ0h4qId1n8=;
-        b=HKra8w3lBoS6XMtMfHb5B4zhl+vxoZBOj4X/EKR07yEkhTEM7AH1FA+K153oJ/hL/U
-         b4Nul/7RnlinuQit0ijvRD9izFSWN9thFbNlzhDb4xwCUY0d8FD4b3/8SS1ONoIDuEEC
-         jCgyQNqZth5Hx/t4j6IpzFj4HH4HfESI1EZFBx0NmpUIsQxZjfp0+E9rqVyb2j9iNLYM
-         92/FDlQT8UPMJLGHTMRt3u0mTCk6C6akv9P83roQ6dLrYXbM57mVZY5rMcmUuaZt6zqE
-         ZL8Suu5UV+aPQXC/QDyRAnLwS08UoG8faCcVz3nEd+QCWlUbJ9N2AZQqPs6/KMvWA32i
-         uu0g==
-X-Forwarded-Encrypted: i=1; AL+hErGPGk6g1xzd2Ea1V0rSkVo1QrPWAz7s1H/RfDozPY7cOKTxNsrCHNfMb3Y/8Vf977pSzGwJ3yFec2L5LLY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+nYOuw0HnAxGtpTA2Bot7oAkaBlot1hxIv2Bis1vSEQoCFR/ug
-	zVfHWR9KSHo9cVLaXuIaNcv+JZSkgc3w07yCySOmomDVIzcQ/NeSi8o3cmcVgkPLOJA=
-X-Gm-Gg: AZFdTZd2Psgzm88EwLxvlvKSDXl9m6df+f3j53DV1BfmjM4Q2O2ty9RIv6mlUuMOyup
-	5AakQwnI2UnCxsceBhhOcv4FbCo+mQU9oJQmK7L9RM9x+P8Jvy2hGJpmG3O6gYe7yJRMkVVfFuY
-	cX3KwHiWSauD5Add2yJFExzJKBG4rmdzcNJwwq/TbRL9YyM7NSVylIpFpnj0JvXYHmtkySEmss/
-	59o2eBZlBireMSIqj02ZcwIVuWqvqB4K/wvHTqUS1+p1vaUh8SmEPbAI1B3km6sLGYFmCIDtpFQ
-	+Z29mX8savPO3vIJTosjcP4RSy7c4e4Z5NzdK4g/CmR3ljT9rL1Ap4We3Cebb/pPn7s1shJQa7u
-	XLt89BPCquRbG7hp6FSwiIIz9pdRG1jl/WmMSLz7ZTXg4QwpVy4kwL8UUCP3sgqfo5UuhawEnSU
-	gS1QNJXJhTkgOZNduJ3aaBmWGGccekhJvtSl0f5EO2sJAAenPT0Ady7tZJhGULWN8YutOwA/Kdm
-	KdL9atQ37LulTQTM8bHAsg6CuI5gQ226PlMyFSWABAhm156bEusPt/n6hJL3SYB/Jg/635recMJ
-	w1KWiNL085erEMv/Mh3APTkACP/g3/YR
-X-Received: by 2002:a05:6000:3106:b0:48d:ff0d:cfa5 with SMTP id ffacd0b85a97d-4abb7787bc0mr41436090f8f.47.1795677471097;
-        Wed, 25 Nov 2026 23:17:51 -0800 (PST)
-Received: from [192.168.0.20] ([212.21.133.162])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf685asm39014813f8f.20.2026.11.25.23.17.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 23:17:50 -0800 (PST)
-Message-ID: <d642f950-6423-420d-927c-991cbb5c2669@suse.com>
-Date: Thu, 26 Nov 2026 09:17:49 +0200
+	dkim=pass (2048-bit key, unprotected) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=dj2yBEI6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795677497; x=1795936697;
+	bh=tX3o0qeNUHveUfMsho6zhAb9fsA6bZNmkDLOGDbQF6U=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=dj2yBEI6txOoDvpYaPykPsJAaCthsH9dkkb0HKqxeZd5o37mWj/sOOf22lGbNmfzx
+	 KwDc5eKxSmNYiiSupjLjOhJRTjGJaRGN0zqdJkJVg0rCUKaf6gsmbIsJNrsW3KGKxF
+	 /57QBqw2LFiZU/Bg2Dc8+eaimQ9dZ5/IF+0g1w2UuKklSk2q35nheN2K9y7X/X1s6v
+	 vrO4WsCUNiYchXvjmkEpkOXpls8jjmQlMBWl+EelvwlbRpE2V8ZsHKL9DALi0pP5Zk
+	 7YcbNjmlRJhpxniBpX6mQ7juyLjrmomxfgzh+QgkXhsrlbsQC2rLQS60Tmw6QAxmf2
+	 ew69LSxWLlYzw==
+Date: Thu, 26 Nov 2026 07:18:12 +0000
+To: iasnezhkov@gmail.com
+From: Roman Vivchar <rva333@protonmail.com>
+Cc: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, linux-iio@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] iio: adc: mt6359: divide scale by ADC resolution
+Message-ID: <cLdx9oABQCqAoQThLiQ2oL34p3QMP4Xjq-kkFh6bkQfY16c-wXzqrKm06VYO0rxMkR56vn2ycUamZ7i6zv0metPym3UtZP2DUW-7H1KKyB8=@protonmail.com>
+In-Reply-To: <20261126031013.27701-2-iasnezhkov@gmail.com>
+References: <20261126031013.27701-1-iasnezhkov@gmail.com> <20261126031013.27701-2-iasnezhkov@gmail.com>
+Feedback-ID: 173184497:user:proton
+X-Pm-Message-ID: bf6b6590f4306e2e6d14d6933bf8b5bf3be7ec46
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,103 +64,87 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH] x86/devmem: Drop /dev/mem access for confidential
- guests
-To: Naveen N Rao <naveen@kernel.org>
-Cc: Pedro Falcato <pfalcato@suse.de>, Dave Hansen <dave.hansen@intel.com>,
- x86@kernel.org, mhocko@suse.com, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Kees Cook <kees@kernel.org>,
- Ingo Molnar <mingo@kernel.org>, Vishal Annapurve <vannapurve@google.com>,
- Kirill Shutemov <kas@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Michael Ellerman <mpe@ellerman.id.au>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "Liam R. Howlett" <liam@infradead.org>,
- Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>,
- Vlastimil Babka <vbabka@kernel.org>, David Hildenbrand <david@kernel.org>
-References: <20261124160025.738362-2-nik.borisov@suse.com>
- <0dc6759e-ada2-461c-85de-809c170abd6a@intel.com>
- <awXBtrPSHfs51Y2f@pedro-suse.tail5790ac.ts.net>
- <8500860b-d2ff-45c1-8604-28a2b3d66382@suse.com>
- <awcMnXKDWjTvxumG@blrnaveerao1>
-From: Nikolay Borisov <nik.borisov@suse.com>
-Content-Language: en-US
-Autocrypt: addr=nik.borisov@suse.com; keydata=
- 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
-In-Reply-To: <awcMnXKDWjTvxumG@blrnaveerao1>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
+Hi,
 
+On Thursday, November 26th, 2026 at 5:11 AM, Ilia Snezhkov via B4 Relay <de=
+vnull+iasnezhkov.gmail.com@kernel.org> wrote:
 
-On 25.11.26 г. 18:51 ч., Naveen N Rao wrote:
-> On Tue, Nov 24, 2026 at 07:57:05PM +0200, Nikolay Borisov wrote:
->> On 24.11.26 г. 19:10 ч., Pedro Falcato wrote:
->>> On Tue, Nov 24, 2026 at 08:36:45AM -0800, Dave Hansen wrote:
->>>> On 11/24/26 08:00, Nikolay Borisov wrote:
->>
->>> 2) open-codes random CC checks in mm, which is kind-of regrettable
->>>
->>> OTOH, it's unclear to me why that CC check is needed. If configs select
->>> STRICT_DEVMEM and IO_STRICT_DEVMEM, shouldn't it Just Do The Right thing?
->>> in iomem_is_exclusive, etc. If not, could the CC awareness sit there
->>> instead?
->>
->> Well, you are right that if we retain just the select
->> STRICT_DEVMEM/IO_STRICT_DEVMEM it might fix the immediate issue. I don't
->> know why eventually Dan decided to also add this check, I guess it's an
->> instance of "fail fast".
-> 
-> Actually no? On x86, devmem_is_allowed() allows access to the first 1 MB
-> area, so STRICT_DEVMEM alone isn't sufficient.
+> From: Ilia Snezhkov <iasnezhkov@gmail.com>
+>=20
+> mt6359_auxadc_read_raw() returns raw ADC counts for IIO_CHAN_INFO_RAW
+> (12-bit or 15-bit depending on the channel), and returns only
+> (r_ratio.numerator * vref_mV) / r_ratio.denominator for
+> IIO_CHAN_INFO_SCALE without dividing by the ADC full-scale range
+> (1 << chan->scan_type.realbits).
+>=20
+> As a result, iio_read_channel_processed() and userspace consumers
+> multiplying raw * scale obtain millivolt values that are 4096x (12-bit)
+> or 32768x (15-bit) too large.
+>=20
+> Include the 1 << chan->scan_type.realbits divisor in
+> IIO_CHAN_INFO_SCALE: shift r_ratio.denominator left by realbits for
+> IIO_VAL_FRACTIONAL when denominator > 1 (r_ratio.denominator is u8 and
+> realbits is at most 15, so the result fits comfortably in int), and
+> return IIO_VAL_FRACTIONAL_LOG2 with realbits otherwise so channels with
+> denominator =3D=3D 1 use an exact shift and unpopulated descriptors (such
+> as MT6357 VDCXO where denominator =3D=3D 0) cannot trigger division by ze=
+ro.
+>=20
+> Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxil=
+iary ADC")
+> Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
 
-For the first megabyte of memory (BIOS) is return 2, meaning "Just 
-return 0, rather than trying to access the address range".
-> 
-> 
-> - Naveen
-> 
+This fix was already submitted [1]. Please check mailing list for
+existing patches first.
 
+Also, wait at least 24 hours before sending v2 for non-trivial series.
+
+[1] https://lore.kernel.org/linux-mediatek/20261117-6768-6358-fixes-v2-3-1f=
+fc3c2f3c80@protonmail.com/
+
+> ---
+> Changes in v2:
+> - Move AI coding assistant note below ---. No code changes.
+
+This applies to all your mediatek patches as well.
+
+Best regards,
+Roman
+
+>=20
+> Found and drafted with an AI coding assistant.
+>=20
+>  drivers/iio/adc/mt6359-auxadc.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-aux=
+adc.c
+> index 88b0e26..54c9048 100644
+> --- a/drivers/iio/adc/mt6359-auxadc.c
+> +++ b/drivers/iio/adc/mt6359-auxadc.c
+> @@ -772,11 +772,12 @@ static int mt6359_auxadc_read_raw(struct iio_dev *i=
+ndio_dev,
+>  =09=09*val =3D desc->r_ratio.numerator * cinfo->vref_mV;
+>=20
+>  =09=09if (desc->r_ratio.denominator > 1) {
+> -=09=09=09*val2 =3D desc->r_ratio.denominator;
+> +=09=09=09*val2 =3D (int)desc->r_ratio.denominator << chan->scan_type.rea=
+lbits;
+>  =09=09=09return IIO_VAL_FRACTIONAL;
+>  =09=09}
+>=20
+> -=09=09return IIO_VAL_INT;
+> +=09=09*val2 =3D chan->scan_type.realbits;
+> +=09=09return IIO_VAL_FRACTIONAL_LOG2;
+>  =09}
+>=20
+>  =09scoped_guard(mutex, &adc_dev->lock) {
+> --
+> 2.54.0 (Apple Git-157)
+>=20
+>=20
+>=20
+>
