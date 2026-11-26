@@ -1,49 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.136.64.225
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.136.65.226
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795707945;
-	b=TjuFJbwuNMsJjPRIkhoptAoJMM/th/Xqm0Wgx4ejxxgCRuZVf4V0Yph9DKUOEc5fj77f
-	 vfFi0D6KNkMazDBqzbzoNGQVvTDA1L3jFtTChSX67Foo1ng2k8SbGjvH3LbrhkW8Jfyf4
-	 t1ev8pkX7SmmDvwsITQsJGunwrT55y9DIEMr+Hr2ZSSqJKRAEWG7CKGw0HD5oQLWJmip8
-	 y3xIOkGF0HyMYuul2MzqdoSzXdORayw+M7Z1B7bl6H7Med5sTbvGxZIfbzc9VeJyVInt9
-	 aIUW2sZvBcEOsuCAfLMZngnH/R0kPZ4/EzxqI0mt2vJRrMItEpc5ovfGXJsnlJ31nQw==
+	b=AvEwAgC+Aq7dZ9QzlXFpacUpb0RxLtGyAoYz9JmbreTzcYJBPWpXLPoUODMaU3Lz+/G6
+	 2IAn4R4L6uOQVqy++y1QWVHE/n7Yk+HicgjHI5qG9YlNRYg4VuYDae4jFKTrz0Nkj6tr4
+	 TbZTndEdLM6RYiYrFwLEs3/IpSVDLSbKi+BoAv8RLRHL52HpnbfUC5Ld/xHRGjqhKszts
+	 9gE3OeN+ERNYerJ1xHKdEvalxgX1FCpBAPnsKx8CRg/zmQ+CUhLXO/0EUeKt0hBJc4vKR
+	 lgmxeVw/tvCvtSZgioshib0fX+DxIgoGVPQxh6gyhaEyCoedC35FqhAbIrltFfgBknw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795707945;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Flowmailer-Platform:Feedback-ID;
-	bh=9DMDsUj4wu9ouiC6uWgd/VZi3mi0jlavk3gy5YlGjHY=;
-	b=yzszzI23FiMPj+TWYjQWIODd5bjsuz8BNWFB2Q8FVtemp6bfG5cMTWF6jAqkpA/WaYO+
-	 6DV4ZN1Bzba1LluNweC7ZnLBbhidLNY0FI3/cp8MFMkxRRNYUnbYNwP6pUxr1r7koSFU6
-	 n6gPMwk0sd3MreoruFZ2Uh9KPsitqspLhHqS0qoHl4wXAr+3k9SRNqVLszjWrpIfd+h3i
-	 QlJHlWStb2jC479PKjoRG2faVKlCJg/tUN2f7TaSiamwZCfDWSTxwDrQZw3Wxgu1it315
-	 kYsvI6VJ45II1mKIt2GDD4s3KCqBJUTHYFM9ANVeqG9BUNej8Ox/aq/38cCfNrTcjbg==
+	bh=az1KsUCOEvIIxorkitpK+gHntZMH7zgdrhguIEfxT5s=;
+	b=flodrMuiUlXPf8mOFqAD2W+XuxBUz/HeNWA4JRQ8PpyYVLh+zLHbNKBtTYXcCMhN78Ws
+	 MF75B6pJyAcM27e80WY0pSvcJxMdCogwQKf2g/g2vIY6umjLQzeFY0Pf2ITamREIlLiHL
+	 gRr0xHuZ0hZF4dF3bjKBzgfg6BA9/FwfJRYK8UvLq0FMrSWY0Uyl/Gzg1Dakp+c865bCH
+	 gtuFXuVq5kipovlztyXGT/UNR8PV/gOFLmOB1pH4J96OHZl5Fg60PB5RzuCEqPqdyhlXl
+	 y2JNia10YTZEHGowzLQWXMSJ7B+wz2fi14Q96089SZa84T9JCZ3RYI5e5srP/jwwTrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=siemens.com;
 	spf=pass smtp.mailfrom=rts-flowmailer.siemens.com;
-	dkim=pass header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=GzIPB0dS;
-	arc=none smtp.remote-ip=185.136.64.225
-Received: from mta-64-225.siemens.flowmailer.net (mta-64-225.siemens.flowmailer.net [185.136.64.225])
+	dkim=pass header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=ehToWkuS;
+	arc=none smtp.remote-ip=185.136.65.226
+Received: from mta-65-226.siemens.flowmailer.net (mta-65-226.siemens.flowmailer.net [185.136.65.226])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66537606A33F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 679A2606A682
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:45:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66537606A33F
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 679A2606A682
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=siemens.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rts-flowmailer.siemens.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=GzIPB0dS
-Received: by mta-64-225.siemens.flowmailer.net with ESMTPSA id 20261126154535f4553cf3af000207bb
+	dkim=pass (2048-bit key, unprotected) header.d=siemens.com header.i=alexander.sverdlin@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=ehToWkuS
+Received: by mta-65-226.siemens.flowmailer.net with ESMTPSA id 202611261545366b9a6ddaee00020730
         for <linux-kernel@vger.kernel.org>;
-        Thu, 26 Nov 2026 16:45:35 +0100
+        Thu, 26 Nov 2026 16:45:36 +0100
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
  d=siemens.com; i=alexander.sverdlin@siemens.com;
  h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
- bh=9DMDsUj4wu9ouiC6uWgd/VZi3mi0jlavk3gy5YlGjHY=;
- b=GzIPB0dS+8R+L5kEFCMd71KhSvGadMNqjGnrED8yttZBFrzyGN27NLq5L07RNcfjuHNQsS
- 2qu1y0sq9QtytHAYlNXd+R3bYK4qhKVpi4ox3ryGU+d6fgxzWmYcs2FqMGXpw38QAp+JwLkA
- ZzV8/b9yQ4m/KnNAH0sC+THRVJSUd5whblrbJhuayZlKMw2U1CG1sbEIpmiMEJrwgxNcDK39
- T9EsIq6gk6ksJJs2095zqqjI7E5XY+6grl/yG6mqMjMtHAWZkCtmkywVrELApvdAyuAeMw4Y
- t80nA9WtKJob6LH3wG045AyMRdV2nOUjaqxw60BBm90rBomVQG8cYUBg==;
+ bh=az1KsUCOEvIIxorkitpK+gHntZMH7zgdrhguIEfxT5s=;
+ b=ehToWkuSkfRSEgmoQnk+U0lHjRGQ14iAp8QUhMva97CGG/LkJQrj6Ng4OYZ68Fw3Vd42Vo
+ toBBBOqw06G0VRPy/d0q6rFdfsWxWzGiQSJeJMyq3zab+akS3fTYYQIP/RzRFp1ftBXWk+2L
+ ubgpv9wY0MtwsdWCW7gwiPcFzoWNa91SEesv9qTEqqg9C09cyd6XgoWa6hPihZ0J0aHQlpKc
+ OHzHa+VPybZ3hf0htwTMjdsy52+35WmtpO5sHqbK5Ye6zdoeS9FWHuexyVZXgSCl8B4U4w1x
+ P4U6Re1f0T1kuyeMGwWYGrOaeRpwb0Ne/f2Ty8Nj2WDku5t7FbBYco8Q==;
 From: "A. Sverdlin" <alexander.sverdlin@siemens.com>
 To: linux-gpio@vger.kernel.org
 Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
@@ -53,10 +53,11 @@ Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-omap@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Lee Jones <lee@kernel.org>
-Subject: [PATCH v2 3/4] pinctrl: single: Reject bit-per-mux without a usable function mask
-Date: Thu, 26 Nov 2026 16:45:24 +0100
-Message-ID: <20261126154529.1599568-4-alexander.sverdlin@siemens.com>
+	Lee Jones <lee@kernel.org>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH v2 4/4] pinctrl: single: Drop unused fshift and fmax
+Date: Thu, 26 Nov 2026 16:45:25 +0100
+Message-ID: <20261126154529.1599568-5-alexander.sverdlin@siemens.com>
 In-Reply-To: <20261126154529.1599568-1-alexander.sverdlin@siemens.com>
 References: <20261126154529.1599568-1-alexander.sverdlin@siemens.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -74,53 +75,69 @@ Feedback-ID: 519:519-456497:519-21489:flowmailer
 
 From: Alexander Sverdlin <alexander.sverdlin@siemens.com>
 
-With "pinctrl-single,bit-per-mux", the number of bits per pin is derived
-from "pinctrl-single,function-mask" as fls(fmask). Neither the binding nor
-pcs_probe() requires the mask to be present with bit-per-mux, or to fit
-the register width:
+pcs_probe() derives fshift and fmax from "pinctrl-single,function-mask",
+but nothing reads them: fmax was never used and the last user of fshift
+went away with commit 2243a87d90b4 ("pinctrl: avoid duplicated calling
+enable_pinmux_setting for a pin").
 
-- If the mask is missing or zero, bits_per_pin stays 0. Probe succeeds,
-  but parsing the first pin group divides by zero in
-  pcs_parse_bits_in_pinctrl_entry() and pcs_get_pin_by_offset(), and so
-  does reading the debugfs "pins" file via pcs_pin_shift_reg_get().
+The computation isn't harmless either: a function-mask of 0 passes
+__ffs(0) and then shifts the mask by the undefined result.
 
-- If the mask is wider than the register, width / bits_per_pin is 0.
-  pcs_parse_bits_in_pinctrl_entry() then allocates zero-sized vals and
-  pins arrays and writes through the returned ZERO_SIZE_PTR, and
-  pcs_pin_shift_reg_get() takes a remainder modulo zero.
+Remove both fields.
 
-Both configurations pass dt-validate against the current binding.
-Reject them in pcs_probe().
-
-The patch was inspired by a sibling fix
-("pinctrl: single: Reject invalid register width in pcs_probe()").
-
-Link: https://lore.kernel.org/all/20261119205013.2563811-10-lee@kernel.org/
-Fixes: 4e7e8017a80e ("pinctrl: pinctrl-single: enhance to configure multiple pins of different modules")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/sashiko-outbox-224208@kernel.org/
 Signed-off-by: Alexander Sverdlin <alexander.sverdlin@siemens.com>
 ---
- drivers/pinctrl/pinctrl-single.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Changelog:
+v2:
+- patch introduced
+
+ drivers/pinctrl/pinctrl-single.c | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/pinctrl/pinctrl-single.c b/drivers/pinctrl/pinctrl-single.c
-index f5f0b95dc4282..ba5782b6b63d0 100644
+index ba5782b6b63d0..9fbc132517c79 100644
 --- a/drivers/pinctrl/pinctrl-single.c
 +++ b/drivers/pinctrl/pinctrl-single.c
-@@ -1860,6 +1860,14 @@ static int pcs_probe(struct platform_device *pdev)
+@@ -154,9 +154,7 @@ struct pcs_soc_data {
+  * @mutex:	mutex protecting the lists
+  * @width:	bits per mux register
+  * @fmask:	function register mask
+- * @fshift:	function register shift
+  * @foff:	value to turn mux off
+- * @fmax:	max number of functions in fmask
+  * @bits_per_mux: number of bits per mux
+  * @bits_per_pin: number of bits per pin
+  * @pins:	physical pins on the SoC
+@@ -187,9 +185,7 @@ struct pcs_device {
+ 	struct mutex mutex;
+ 	unsigned width;
+ 	unsigned fmask;
+-	unsigned fshift;
+ 	unsigned foff;
+-	unsigned fmax;
+ 	bool bits_per_mux;
+ 	unsigned bits_per_pin;
+ 	struct pcs_data pins;
+@@ -1843,15 +1839,9 @@ static int pcs_probe(struct platform_device *pdev)
  
- 	pcs->bits_per_mux = of_property_read_bool(np,
- 						  "pinctrl-single,bit-per-mux");
-+	if (pcs->bits_per_mux &&
-+	    (!pcs->fmask || fls(pcs->fmask) > pcs->width)) {
-+		dev_err(pcs->dev, "invalid function mask 0x%x for bit-per-mux\n",
-+			pcs->fmask);
-+
-+		return -EINVAL;
-+	}
-+
- 	ret = pcs_quirk_missing_pinctrl_cells(pcs, np,
- 					      pcs->bits_per_mux ? 2 : 1);
- 	if (ret) {
+ 	ret = of_property_read_u32(np, "pinctrl-single,function-mask",
+ 				   &pcs->fmask);
+-	if (!ret) {
+-		pcs->fshift = __ffs(pcs->fmask);
+-		pcs->fmax = pcs->fmask >> pcs->fshift;
+-	} else {
+-		/* If mask property doesn't exist, function mux is invalid. */
++	/* If mask property doesn't exist, function mux is invalid. */
++	if (ret)
+ 		pcs->fmask = 0;
+-		pcs->fshift = 0;
+-		pcs->fmax = 0;
+-	}
+ 
+ 	ret = of_property_read_u32(np, "pinctrl-single,function-off",
+ 					&pcs->foff);
 -- 
 2.56.1
 
