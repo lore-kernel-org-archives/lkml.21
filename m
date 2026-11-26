@@ -1,59 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795709021;
-	b=UYXdkAenCMfXUvDpCfaYH0gmYqt7vdDxoSQYi7Nd8FPFGGJYPbDer1hqTOUp7O5ICXzD
-	 x65BWus0S3+gZOicovXUWSML+cbDOX3eLKnUg+PRJyYahDk5sryMaCdvw+Obp61NlsqkK
-	 YYJjqkTEd6boZIurUm9P7ajcE4G+Ch6M8AiZFlGsb5SJbMtPQvruVd4CB6k7p2YjtTcU3
-	 3WHj0jI4Q7R9JkzcVuX5T0vEFuqCoSW05sTrwkufI4Cg4VZWRUlXsdKWCB4zY9pEf/qGR
-	 FbfMVLdU/CmJCZrlOoUml//XnVedmjqY8z764eIjlujqqzbRCZxoEyZH01ktUEJi88g==
+	t=1795709033;
+	b=dkVsG+L0fjTypQT9LW/FtsyTkUwRQwQ1b8nHPW/UWiW1OhoCWMCGSN/XxGhXmz/cSatW
+	 /m8NNeBc+9lKdIWsNWuYkEjCbhXsfSLTLemZo9xWEr03fo7kccipWfUDy19BxO499HtfB
+	 ib6uNWAnq+ZA/7ScBG2+8uB0P/aEoJQa6ViU2e5xk9RFysSQ+XmNPyN/f00AY6jRzRbts
+	 wNyrT2mT7Pz5WBSomKImcavl2sglGYLftpuo497M44F0j6cQGZcZQVgunsFNgHjNgRa9e
+	 Cy8p7TK86Lx2tNp984cKNU11JHBxKCzNCQVbk+sxUQ/U4emMFEwF7WecYQuEspZSeUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795709021;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=B+txrsHu7j5o8pwxnuB1v5aLJXC6NoKWxlmhHwf5Bn8=;
-	b=qz7Knb3qZeIGHhWS7AGq/441YKiCBySyWqqscRftHsyaAEfN/YO3paRPc9QzJwaVJrY0
-	 BLKyZXJmRQEk8VJOm3+tHdJ251KONvYNHop+tmUqG3l9gxjhPgDhwcKTGRgUTdOBdsLgY
-	 F7h7USEwK6+G85ih1c2M5p2eNNDNvmlgfxGyZdw5FJxIUG1C7FFqsj/4eDGwCeFY3DmQR
-	 SK5AW1kQAbMfhuI61sM/9bISq64RJ4GvDfIW+rayRNp8Zwe8cols+Eamv80A6f+aEq+Tt
-	 5qvGOeB7n5kZZQFfFgIPTBQy/7J6bznEoVA/JdBejZ91RtOR7gdYwdKVAf1rMAdWwAQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795709033;
+	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:Subject:Cc:To:From:References:
+	 In-Reply-To;
+	bh=SeGJXFDra7qt2XaXiZZRyUSJ/hoqsJ5EGUFXiQMsRhA=;
+	b=hz5JOelEq83zyqDdqkRUsQ/NXP0F+BZT46wI87TZONjL5m1KH51HFO4q0+UNhgMEVyWL
+	 UUm8lbkIgECCaAS8W71ylWCN7bLpND0EoR8G7wCvyBHSgR0afX015f+xtcDA1vWbeJEW6
+	 e6eKFJ2Ln/22lGhBzxemd5E07AWOTpToL9EMuy/iCCcAada8XrR67Xf276k9SIBjofk4p
+	 KDT1662+7bwCvKTV2y+R81+XVMkCRHMfo4wI6XTIDXEkHIGYEV/fSFPo4wdgmQBQxphWo
+	 ohTXRHX7zaZNvIrXFe3R3Ab/7G/AgcoqUX13VwMDsc0M+1iukPEq2VJp0cZE8k+vE+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oPtEPTlc;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="SX/q+q2q";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DB20606A31C;
-	Thu, 26 Nov 2026 16:03:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B3EE606A31C;
+	Thu, 26 Nov 2026 16:03:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oPtEPTlc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AE721F000D0;
-	Thu, 26 Nov 2026 16:03:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SX/q+q2q
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6CD21F000C6;
+	Thu, 26 Nov 2026 16:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795709020;
-	bh=B+txrsHu7j5o8pwxnuB1v5aLJXC6NoKWxlmhHwf5Bn8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oPtEPTlcwPf7nqMnUfGRSfpJxwuCkYMrBHuE0gXStHym0mAE2+fNxXVcwRMJJWN++
-	 z/eEU7BkmIEM8JBPm5/rGPq/4XcdSXLNM72bCiTjwE+R1v1TuJcZQfFUluRmFeH8el
-	 hYD1/syJ7A4jPiYt9Qhf7WydePLs+d1PtX5OIdo8h5swwxzupl+YENXjhAav1oKZfr
-	 Jsxz7tKpjBX81xluDB8HZdVtSU01fyMhm06eIYvyAuOEfKmS95z+mE2fUL2NTckIQh
-	 rrn49sJ/G75WeYYYjLKn1vA8fg0ErLLAu6iMNQ3nlyUC5Iyw0AdTQLAdivuvEERqfE
-	 /jHA5nSpv8jsg==
-Date: Thu, 26 Nov 2026 16:03:36 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Svyatoslav Ryhel <clamor95@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	mfd@lists.linux.dev, Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v6 1/5] regulator: dt-bindings: maxim,max8907: Convert to
- DT schema
-Message-ID: <9a9cac1b-edaa-429e-a5b5-46adba2841ab@sirena.org.uk>
-References: <20261123150224.199601-1-clamor95@gmail.com>
- <20261123150224.199601-2-clamor95@gmail.com>
- <CAPVz0n1GzY5BJLUZrdCgJHrkZ+45Kix7VP05EJeiY5FVycwKBA@mail.gmail.com>
+	s=k20260515; t=1795709032;
+	bh=SeGJXFDra7qt2XaXiZZRyUSJ/hoqsJ5EGUFXiQMsRhA=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To;
+	b=SX/q+q2qRHngQc0aqyzJWZ3k1w6IwSvAPKt5KY+2dxgyhF8uBNBgPuirQje/EobS9
+	 DGSBRaKr3/PA3Za2X/wisfGdCduUkPW3gNGzoaDzDvAoYHfk8A8mhAmyX0pMdAK4HN
+	 UZ6tppO6WchfgienhUKTxsewmtDMOcVmxSwLkHw6M55mNACoFf/liQ/c36IhSvYPJi
+	 I4+HkJvkqmh2CRduCGxAPFmpk2eaBVmj0xJdrEMBV7xYHpYrrFTMtD9JuQVWJks8af
+	 uPRBnDSKgb0BS8SvkRoykkONj4/AZ3afaSuI4xNsfRkbmQq8fCt26WOh/ZKX1xqlpq
+	 lrlpsGMEK0L4Q==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,42 +48,54 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="OUa812RZuwcsCrVy"
-Content-Disposition: inline
-In-Reply-To: <CAPVz0n1GzY5BJLUZrdCgJHrkZ+45Kix7VP05EJeiY5FVycwKBA@mail.gmail.com>
-X-Cookie: Sank heaven for leetle curls.
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 26 Nov 2026 17:03:48 +0100
+Message-Id: <DN59Q36YML41.3A4ZDCDQ69O9C@kernel.org>
+Subject: Re: [PATCH 2/2] driver core: platform: Allow drivers to skip PM
+ domain power-on at probe
+Cc: "Beleswar Padhi" <b-padhi@ti.com>, <gregkh@linuxfoundation.org>,
+ <rafael@kernel.org>, <johan@kernel.org>, <pavel@kernel.org>,
+ <lenb@kernel.org>, <ulfh@kernel.org>, <sid9.karanam@gmail.com>,
+ <afd@ti.com>, <nm@ti.com>, <vigneshr@ti.com>, <u-kumar1@ti.com>,
+ <driver-core@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+ <linux-pm@vger.kernel.org>
+To: "Ulf Hansson" <ulf.hansson@oss.qualcomm.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20261123084218.673382-1-b-padhi@ti.com>
+ <20261123084218.673382-3-b-padhi@ti.com>
+ <CAPx+jO9LhihGLHYSFR4Wd8GhOu_AC7tE49OJxrVEVAJyEDHhiw@mail.gmail.com>
+In-Reply-To: <CAPx+jO9LhihGLHYSFR4Wd8GhOu_AC7tE49OJxrVEVAJyEDHhiw@mail.gmail.com>
 
+On Wed Nov 25, 2026 at 4:28 PM CET, Ulf Hansson wrote:
+> On Mon, Nov 23, 2026 at 9:43=E2=80=AFAM Beleswar Padhi <b-padhi@ti.com> w=
+rote:
+>> diff --git a/include/linux/platform_device.h b/include/linux/platform_de=
+vice.h
+>> index 3bd0f1f0d8704..4d1679c4ea78e 100644
+>> --- a/include/linux/platform_device.h
+>> +++ b/include/linux/platform_device.h
+>> @@ -292,6 +292,14 @@ struct platform_driver {
+>>          * to setup and manage their own I/O address space.
+>>          */
+>>         bool driver_managed_dma;
+>> +       /*
+>> +        * By default the PM domain of a platform device is powered on b=
+efore
+>> +        * the driver's probe is invoked. Drivers that need to configure=
+ the
+>> +        * device (e.g. hold it in reset) before its PM domain can be po=
+wered
+>> +        * on must set this flag, and are then responsible for powering =
+on the
+>> +        * PM domain themselves.
+>> +        */
+>
+> I would appreciate it if we could be more to the point. We should not
+> need an entire book to explain what one variable is for. :-)
 
---OUa812RZuwcsCrVy
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Hm...to me the comment seems reasonable. What do you suggest instead?
 
-On Thu, Nov 26, 2026 at 05:52:22PM +0200, Svyatoslav Ryhel wrote:
-
-> This patch is prerequisite for MAX8907 LED patch. Since Lee is quite
-> strict to what he picks maybe you can pick this, LED and ADC[1] device
-> tree patches?
-
-Please send a coherent series that can actually be applied, it's too
-much work to pick random patches out of independent serieses.  In
-general you should try to avoid dependencies on in flight serieses, it
-makes everything much harder to manage.
-
---OUa812RZuwcsCrVy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsIWFcACgkQJNaLcl1U
-h9Dgkgf+KyYu4Nw0RrogrtuvjrfJKiV6tmbXPydYOR53+bO9NDamJpDFdLpqHr1r
-+TepBul1oTrOzCxWhdapf1J2R0/sNEOLOAuVoUIOTJYsmCgvDMDCWlLUtxEVmE7q
-bpyQoQ034TuYZltCkqOKqnOoMw6r+MwDMFkphah95HJm3n6ghuveZCLFMDjbDkgI
-G/Mz+nRgixILpRXByjcwDpBqtiBTYLIp+EXJIS47DGNt5kKOgbbVIqmopGcHeIMR
-6wMrQvdvP/qJug/q6jkMTq8HWnU9/+pEmZf61YavEqgDro5Eg/W+9XfpuyTCz+Er
-9edyAcAIDLcV509wLeaQOyhj8gB0rw==
-=w84m
------END PGP SIGNATURE-----
-
---OUa812RZuwcsCrVy--
+>> +       bool pm_domain_no_power_on;
+>>  };
