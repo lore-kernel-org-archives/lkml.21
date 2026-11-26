@@ -1,68 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680912;
-	b=oYQHgEsPIV0PZxlH35712iOrLHONvn6iD1b1s9+LCO4VrXakLhnbCWZIHJr0C0QAbolx
-	 NqUtPz5wcptzPR6XxqmpDgbVWOngq69o6lwCwckNDKt97fJsyw/Aox+wRxGmxHh4KBvkA
-	 53scDcdjByR22rV2TA9akovg3sayo53F0SCAWgmMY24ObFKJ++xnSmmYhG/uOyAnscorU
-	 2UuHCr1PFJrueIatMkknKETJ2KPrd5CBPK/CmlnvyyqAaF/pALFrhlHHL9mA/lud4d/IQ
-	 xgjmpmsUlhXs45x/QYa7IMCgIBP7Ti9LuILsUnMMwhWAAl55FzVU+Mz9n/Gu1LKwJ/w==
+	t=1795680991;
+	b=eNWG4VcdWp3Vgzv+IxmlGdvX1oYmG4H0vecuxH+nKy/wpGWTjIUHs1gNddEEBmaJveaS
+	 81NtEBSP1qAj2onx1ARX/VA/62jkF/viwnkDiB0QcOg+uvPpullhZ8A5qs0turdejbGqA
+	 EkmjDcIPY06cqxRlUf9XvZf05t6w6dNSnYmNfFwuE23uAhqXkVb9b5Z60JtP7iO7Wg2S0
+	 y2uwR3CdbLl0rU8feHzFgdmZk0d71thsJKhdB00tlrPBCGu7okiGfLTSDZPZZ+y66MTdA
+	 bDlSLh2GGeJFv6qUfR+5Lzuv/kHajuH2jpbZqJJheTe8WOjq6D0wFr3hm0KahB1p5PQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680912;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=BswtccZ9oLTvd3i09TipMATpHp0Vu8UkQ5BGIGzbvC0=;
-	b=4ZY3B4sz8x7AswDby1eXMtS8bwcmMQWnkYnUzQ6Rk0Aa+kX8APeULOblJZyK+RfqMZB3
-	 tPZhMFcno92D1CWW+0gvkRiAUugYa1MXoyybedEjZlW1dMjvx8JwCGCu7ejlR+34ixA5T
-	 nUsAHxhe1PF+b97mjBacXs95LX9XBB9uIkZlYjQXabvpWjavgYbxN/RyWcnd/rGP+vmeD
-	 OCrRP7ItZomFVIlXo4RGi2/GWUJAeC4gTeBc1PfttZuR1oZEzCETA81ZlH6TXP1Zg9QhV
-	 hgD4bBdNHmkOs818uiKFMI38WTYkmB8jzQkcwBkiBFVUIH0/6mppcfwzUFtucrj9MOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680991;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=2hMqRpK1MgAk6PiKz4K8A/o73UtnqzeUiIYqjDgbKrk=;
+	b=5UFfAaXf9AkNK5clkRFaMSyo5miusXHHq/di9ZxasqIT4j302L+nVkpB9Zzcn5sxU3q8
+	 LiR6P1lCCKaJ/T0kP1baIWxnh+k4feo+O2/H4ew7xJunBdZCNtI+Ifzf8olwEJGNTYdCZ
+	 RTx9TnRFaKQ77HkpYiuUHJuj1SPDnphox7cLwOBzqy+RulBexAR3IUAJPcMwD9aoOClrZ
+	 Ke8qSK9cyWWj1fYj2j4GKYU0KvIfjK0HFdWAoGWD0edDKoxEl9Oxr+YDbeWfS0yEGTXQ6
+	 GMsKnploBcnNwSnqkg5hYrsaR9JO41cnBMBVQsGtWOd4y1oP9YCjbyD2223e9K6AlVA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DQGAswUV;
-	arc=none smtp.remote-ip=192.198.163.19
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=B9Y1lsMK;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KMeXZzUV;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98D75606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:15:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98D75606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7218606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:16:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7218606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DQGAswUV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795680912; x=1827216912;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=sqiuoGxJl9/CrJL1jDUP/bBMZakYFywfB1gHkPnBSXo=;
-  b=DQGAswUVDsoyQ5/zGksEPdAPW1eNr8iFW4oFzMdt3CCF+9tLI5AUQeH/
-   JBAmanOuldH54B6yBkJ4zATOF1LtQg38hF9VYmCkrqietVOs5YhhykkOn
-   a95AQzECxcCJfzX/vmjTslM0wviyPSHhN3MynmSE8b6DQVSEekguGBNs7
-   AwG4IptNfoJt8yBGBBbUUeuWbVLvr+rvbPDEpDMzAl281ViDE7G4UGTMc
-   F6sEBn1A1lg0LBEocrdf69VMjZfDJVXoEX2vED4DBsCgzMq2nPaK3RElS
-   xR1jfuVMv/v5q4V6AYn4I7/GmnYcWZ4gRkqUZtTkbZZtPvaDVe4SQitho
-   A==;
-X-CSE-ConnectionGUID: E2LpI5EXSJmvpx6nFrxk8Q==
-X-CSE-MsgGUID: m50UHFlGTbiDA2tgeMLrXQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4595092"
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="4595092"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 00:15:11 -0800
-X-CSE-ConnectionGUID: 4S4EEdRoS4mgomc/1DiNOg==
-X-CSE-MsgGUID: QlQBy2IiTNSvcnkV2jBs8g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="13880971"
-Received: from unknown (HELO [10.238.0.68]) ([10.238.0.68])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 00:15:05 -0800
-Message-ID: <f8102f9d-118a-4255-a332-11aabd47b7fe@intel.com>
-Date: Thu, 26 Nov 2026 16:15:03 +0800
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=B9Y1lsMK;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KMeXZzUV
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ7j3Ll132104
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:16:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	2hMqRpK1MgAk6PiKz4K8A/o73UtnqzeUiIYqjDgbKrk=; b=B9Y1lsMKHwnmyDqV
+	Qocphua3FpMjdRo3xNMKZbL5Df9gZ+Zlo6R3IwOAxBszc/Mu2lH60OagkIzpsoFa
+	Ay72Rvv4fvpENox6mW8KaETEcGg7bjpMMc9bue9Nt37A+r2tBHL2Xoy4gqHzzxzT
+	J0qJFpuE08d1NmgqkUGcUGUU5KN9vKLPXYNrAj3yFCfsGyCI/Gdnf1C8r5hAV4ld
+	aXrzVzoLitLT75NsXG/6QYVc8RJenjq/GFhqD9bvTIwB1k/doBQDM5Vgr5IPnMYY
+	rVaieTzvNYI4Wn+0+ajvv8Nl0I5IvyqUvNqVCc4oj2NbW9wboYaPuGqT7BDtJmVv
+	9bV9Cw==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6gne03t8-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:16:29 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cc7361c62b9so4230981a12.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:16:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795680988; x=1796285788; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2hMqRpK1MgAk6PiKz4K8A/o73UtnqzeUiIYqjDgbKrk=;
+        b=KMeXZzUVb48q92a5u42a/4qKpQBja5dzvu1qqidcuC3KwqRyGyAXKBmgYdQv4F8tGJ
+         wfLJF7tSSMJShTyZkosL/gpgULPmkGDx3hz/QpCRhAmeua2EV9lbjT4K9MsurfErzrFM
+         Kc/mZAclUSTSWryQgiFvoY3di0EKXOOUgh7iMHYIeBjFkduCG6GN2GrZHWfrMLtOHHIL
+         PuPI+/rEk6wxN0FyallbmdXHQ77fEFDu97b5SkCYpwmtUXSwbCMIUCU0xMoCoMQGpQR8
+         b8C2G8WMkwdhUbPQHqgKpZfDSFHPT/b8O90BAidIzs3c47jiJPYcqGZguS6Pauho3TM3
+         a9mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795680988; x=1796285788;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2hMqRpK1MgAk6PiKz4K8A/o73UtnqzeUiIYqjDgbKrk=;
+        b=NGID2kn6Zlj4XfDKakDmammnf8Ko3y9yYm8SOH3CZddN0zrCDTEi/c47u9MK9kz7J1
+         lzSOwH4icxm+OmdjTCkx4zwcWG28ftJowAfUmedS/MY4OH4rmOeIQPfF/VTkOllRUC+z
+         4aMNNR1SJjaoZk+QDK2L3DliGLOEsW/suCBQntLbsZTpMm7/SdE+T7hsYtuTbxcx/iuX
+         m5Ng0tAfq2zQWvhp+9yrk/SN4h1yl331shnIrAonIXuU17C3BrM9N9TnQQNbV4qJLM5A
+         z5FEe/YmK1faAe1hOiAhSNFJUwItorlh4C6T+nN0sQVIW+X7Nd3V8CiJZlxDaGCMjonL
+         zPQg==
+X-Forwarded-Encrypted: i=1; AL+hErGgpmqSD2IEFFzAbRIyd+3zJsh/s1A9o+8ArqbBvPrxTqh8Cuk+TLhyalpn/VIaQ/ivcflIemqBBVbNw18=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+r/kVenBG3ze+7S+UI3xmMeAeHjKnzZMzp252ovG16q5Ebgy1l
+	3Q9mFMOkS+e90za9t7KtobCQM/oAV6hOtVJwO3B370sBkJEj8k8KHFnYxiK5KFLHiIdw4xp1YQN
+	x1n4mbr06mRiH+pXRJJBPvSsveNA676S0lHl2f50rjYpqAyGEHItXQm6lW9taxHO1w38=
+X-Gm-Gg: AZFdTZdzU8jdIKjOVujnEQyG41VHBRNu28UGLDqluxRDSjq8/dEn+FB4OW+KvoDLtas
+	xjuedAzyUqLLUF1t2wrM896hDZOrnLJaE5I8G0HCPH8cFkCtkkYJq73PH5ocasDaBqKvfP3vtCh
+	1ilm+WFVGbHYqr1wLMalOQdxCFdIBUJbXV4sxtWcmJJweYyE5pG8YRViObRIjCSx1X3FIxy4A7E
+	NbGnezs7oVZuBlxzN4RFe1tckLnSEWU4DNFUpoo/6qbDqheAVNAxDuGo04spvquly9XPROv5Myo
+	ZECqwjfY7d1SL3I7Kocwk41wgJevuCRZ2IoLH+qbEySKOcvsgDid1QqPzGQDiC9YI/DMIq/Lbv5
+	jvaQ93QskoyDLcCNUWkkljTVF3sjq1jDdod8jGir4vKlrUnPj5yusYfpdSwZUgoStR9DnOgD7Sc
+	umGn3y
+X-Received: by 2002:a17:90a:c10e:b0:3b0:ada3:b505 with SMTP id 98e67ed59e1d1-3b41c8fe1d6mr20875747a91.19.1795680988383;
+        Thu, 26 Nov 2026 00:16:28 -0800 (PST)
+X-Received: by 2002:a17:90a:c10e:b0:3b0:ada3:b505 with SMTP id 98e67ed59e1d1-3b41c8fe1d6mr20875722a91.19.1795680987817;
+        Thu, 26 Nov 2026 00:16:27 -0800 (PST)
+Received: from [10.239.104.253] ([114.94.8.21])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4dfbe54a2sm10713182a91.17.2026.11.26.00.16.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 00:16:27 -0800 (PST)
+Message-ID: <5e83a95f-72fc-4a5c-877a-9238f76df192@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 16:16:23 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,79 +115,76 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 00/15] PCI/TSM: coco/tdx-guest: Implement TDX-Connect
- PCIe TDISP (phase2)
-To: "Duan, Zhenzhong" <zhenzhong.duan@intel.com>,
- "x86@kernel.org" <x86@kernel.org>,
- "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Cc: "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "tglx@kernel.org" <tglx@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>,
- "bp@alien8.de" <bp@alien8.de>, "hpa@zytor.com" <hpa@zytor.com>,
- "Hansen, Dave" <dave.hansen@intel.com>, "kas@kernel.org" <kas@kernel.org>,
- "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
- "jgg@nvidia.com" <jgg@nvidia.com>, "nicolinc@nvidia.com"
- <nicolinc@nvidia.com>, "aik@amd.com" <aik@amd.com>,
- "aneesh.kumar@kernel.org" <aneesh.kumar@kernel.org>,
- "seanjc@google.com" <seanjc@google.com>,
- "pbonzini@redhat.com" <pbonzini@redhat.com>,
- "yilun.xu@linux.intel.com" <yilun.xu@linux.intel.com>,
- "Gao, Chao" <chao.gao@intel.com>, "Verma, Vishal L"
- <vishal.l.verma@intel.com>, "Tian, Kevin" <kevin.tian@intel.com>,
- "Peng, Chao P" <chao.p.peng@intel.com>
-References: <20260924041032.1096569-1-zhenzhong.duan@intel.com>
- <de1262f3-4097-4aa0-bcee-0dad05ec5538@intel.com>
- <IA3PR11MB9136465096B2B1D5152C1E1C92422@IA3PR11MB9136.namprd11.prod.outlook.com>
+Subject: Re: [PATCH ath-next v4 01/10] wifi: ath10k: fix SDIO aux workqueue
+ starvation in recovery detection
+To: Kang Yang <kang.yang@oss.qualcomm.com>,
+        Jeff Johnson
+ <jjohnson@kernel.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>
+Cc: Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+        linux-wireless@vger.kernel.org, ath10k@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+References: <20261120-recovery-v4-v4-0-53d6a04490e0@oss.qualcomm.com>
+ <20261120-recovery-v4-v4-1-53d6a04490e0@oss.qualcomm.com>
+From: Baochen Qiang <baochen.qiang@oss.qualcomm.com>
 Content-Language: en-US
-From: Xiaoyao Li <xiaoyao.li@intel.com>
-In-Reply-To: <IA3PR11MB9136465096B2B1D5152C1E1C92422@IA3PR11MB9136.namprd11.prod.outlook.com>
+In-Reply-To: <20261120-recovery-v4-v4-1-53d6a04490e0@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=XpVvqlF9 c=1 sm=1 tr=0 ts=6b07eadd cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=Uz3yg00KUFJ2y2WijEJ4bw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=KKR0-_iPvwzX1PQTlCgA:9 a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzMSBTYWx0ZWRfXzAiOGx0EG9Vt
+ DH5WknWWQPsBuVFWzr0o2pZ3O+FBzSnXCO3zrtHIHrW9CJ7qKDSupdLBYnqYZEHfSGKApfyTBXl
+ 84XqJ9noC3PMRMUAiE036CMKim5W0kZW7k5nIRnzk26Gjla3zSew+xpjOERAr7CCKxKKc+lENn1
+ hgNiVLpwgh1i5eQ522+OhDFp6fHpV6CsrDZn4L290aWbj+VSW1Dl232i1wi4l5UUmq5WIXgDpoO
+ 9Vbv0mATjDpkY5lIUVAKMv/SqJcwixtZhN9HhJs8h72yB5BJXfY6XsHUuZ7How2hg15pwouJcaV
+ UQFkSjqNkvp0lE0rr+n4gBgIdJw6eBE1mVVy3KcKzYrngiPj4LQ2k2P+R6Ww2zRiJwU0g7BvXmw
+ RgLbTp4/Nr4JQAbAvy7QzG7TzQ3zthmCJxlupeXWAX2tnoOcnEf6hajBGjWMFx+KJ5N2AaiRR/+
+ qJvcpGd5TzG5D7/9AVw==
+X-Proofpoint-GUID: 9ZCIx6-gBolrgdNaLFNJ-T_CdIPYaCOO
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzMSBTYWx0ZWRfX7PlaAPw8wUei
+ KkH83cWziNuQdqNWOuJfby+ER+LF/XNODRo7DwqSOhcEHEOvv4o5YAfKXaSH49ev/vWLbtpZjW2
+ 5jc5wM6S1XEj341Km6JkAq7GfWhs8Cs=
+X-Proofpoint-ORIG-GUID: 9ZCIx6-gBolrgdNaLFNJ-T_CdIPYaCOO
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_02,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 adultscore=0 priorityscore=1501 lowpriorityscore=0 malwarescore=0
+ spamscore=0 impostorscore=0 suspectscore=0 phishscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260031
 
-On 11/26/2026 11:11 AM, Duan, Zhenzhong wrote:
->> 3. TDG.TDI.MMIO.ACCEPT requires TDI to be in the ASSIGNED/ACCEPTED/RUN
->> state.
->>   After TDI is bound by host via TDH.TDI.BIND, the state is BOUND. It
->> requires
->>   guest to call TDG.TDI.RD read the TDI_GET_BIND_SESSION_ID, which changes
->> TDI
->>   from BOUND state to ASSIGNED.
->>
->>   This is a hard dependency for TDG.TDI.MMIO.ACCEPT not to fail and it's
->> not
->>   mentioned in patch 12 where the call to read TDI_GET_BIND_SESSION_ID is
->>   added.
->>
->>   The SESSION_ID is used to ensure the host doesn't bind a new TDI after
->>   guest attests the TDI without guest's awareness because the SESSION_ID
->> is
->>   verified in the following TDG.TDI.START. And making the read of
->>   TDI_GET_BIND_SESSION_ID to change the state machine of TDI from BOUND to
->>   ASSIGNED, make it mandatory for the implementation.
->>
->>   But it doesn't make sense to assign additional semantic to a metadata
->> reading
->>   behavior in a specific phase. Instead, we want to propose introducing a
->> new
->>   dedicated TDG call, e.g., TDG.TDI.LOCK, which needs to be called by the
->> guest
->>   to lock the TDI after it's bound by the host, and it returns
->>   TDI_GET_BIND_SESSION_ID on success.
-> What TDG.TDI.LOCK locks? 
-> Or is it essentially a renaming of TDG.TDI.RD(TDI_GET_BIND_SESSION_ID)
-> to make the state transition(BOUND -> ASSIGNED) explicit?
 
-It's not a rename of TDG.TDI.RD(TDI_GET_BIND_SESSION_ID), but a replacement of
-the semantic of transitioning the TDI from BOUND to ASSIGNED.
 
-TDG.TDI.RD(TDI_GET_BIND_SESSION_ID) is still supported, and can be called
-anytime. When TDI has valid BIND_SESSION_ID, it returns the session ID.
-Otherewise return error.
+On 11/20/2026 4:41 PM, Kang Yang wrote:
 
-> Clarifying this will help determine whether "LOCK" or something like
-> "ACCEPT_BIND" / "ASSIGN" better reflects the underlying operation.
+> @@ -8170,9 +8177,13 @@ static void ath10k_reconfig_complete(struct ieee80211_hw *hw,
+>  		ar->state = ATH10K_STATE_ON;
+>  		ieee80211_wake_queues(ar->hw);
+>  
+> +		/* Cancel the deadline monitor first so it cannot declare the
+> +		 * device wedged after recovery has completed.
+> +		 */
+> +		cancel_delayed_work_sync(&ar->recovery_check_work);
 
-Yeah. It looks "LOCK" doesn't sound good. Because guest cannot lock anything,
-and the host can still unbind the current TDI and bind a new one.
+If recovery monitor runs between "state = ON" and the cancel. It then wedges a device that
+has just recovered. The sync cancel only waits for it to finish, after which
+pending_recovery is cleared while the state stays WEDGED.
 
-TDG.TDI.ACCEPT_BIND or just TDG.TDI.ACCEPT?
+would be better to move cancel_delayed_work_sync() and the pending_recovery reset in front
+of the `ar->state == ATH10K_STATE_RESTARTED` check? Then either the monitor has already
+run and the check fails, or it is cancelled and can no longer race with the transition to ON.
+
+> +
+>  		/* Clear recovery state. */
+>  		complete(&ar->driver_recovery);
+> -		atomic_set(&ar->fail_cont_count, 0);
+>  		atomic_set(&ar->pending_recovery, 0);
+>  
+>  		if (ar->hw_params.hw_restart_disconnect) {
+> 
+
