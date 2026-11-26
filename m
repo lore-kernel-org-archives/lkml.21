@@ -1,98 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795725270;
-	b=ZNNb+vWytAfNPF9ovgX2h89aSqJH6IurVFq8U2KLaTAR27c0D0pf/X4NG2gvJN8P6Ck6
-	 M3jkkJ2QQjaeKn4P4lxrGXWlGMKEDqIaRXyVLQ+MiFeXlD+2UlwDFmH5VMNX/cjue88Cq
-	 ubr2ogARIwpfL8wBHQsIM+baEXt9OPNmypUDLHrSC03kK7hTPIG0XPxD3yz263E+hySx3
-	 LMKyzyyVcxRXGEW+Ll6Thm/EBV4j9ZQ98Rg59VravgD8hz0lO5cpN8TLDQ0SFyzHaqv69
-	 L7x0FwInj7PeA+En7yLvnh6jTW2ciKVSEiALbOousg++dLuVlrVLzeLvweVGwTE4i1A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795725270;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=TpW/aO2pRUW8vCTqx+Lq5/2TghrPoKWcvdPUdPz/mZw=;
-	b=xqQCl3Z+lSC96mXx9XWLfTKvGmHtqJZrpaSpRStJJQEkt4A2mwUttzv6hPfuhS9xwtZz
-	 mIdEjJHQmYo1Y9tIry2VMVZnFqPnbK2mmiMfJQel9nW/E7AkXZTyGzpLfui4v5c/Jry9r
-	 PkncxaTIVcN/zLj3nCCyz9M8jWsYukOoo7nrsdnp0OM++nPs8A7UvWFxp6QeNwFzJno1+
-	 j+etLoEG7Pp+WcqTcnG8MAiB0ZVGF8dUSmledwOURkkcb0rxIJSdQQbtTXbnKynEWLSCq
-	 Xfw7P/orsL5Lbh/W8MzZkynAbZE1MSF/pWtUCkC6qHhsYgxJhMv7zIRiXH+1P3MnDTA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=A1M3Tnpq;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.203
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795725271;
+	b=IG3xVN4C/tkdfbi7ATqKUrUJkBpVsNNxgTOqqIbwob6uLs79zX3fhXp9yYvnOL5C00Rc
+	 uHBCpuEuGKcmsGeMVjicuc1aiM0ceUg6HCQWHEZSBcMR9HAjF/VpWvTwaOUHxWL4y6i2h
+	 /HqWajOBcAI+X/V6oTwUlLX5NHyhQ2oAUJVWa3c9pro3jnWbSg57PSpXXuCm7d5fpAEOX
+	 YueuXv4qQYXt8SadMs7zGpZo8O+Gh9MLxpI2jVXrlwSDehYiMKkY+mnl8RbUKtp7iV5dH
+	 C4CLjFlLB/rJcZ6yXJjPSPgn7+0S1N7kqmi4sT8VnwwcWco/UqcEdk2NQHObHmpyYZw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795725271;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=di3bN8TPtgKo4t9vFYgPIJtNT3UqOcDJowHuF819Ygo=;
+	b=ElTfixk4McvC6O44pmA/qXx15iwMLKcJYpdPcEg80I31FSJo0WF1hLKV5umCDBTZS+cE
+	 9T+TPfSETepXFpyeewaN6gSnhOs2V/s2xck9oT/y1Alw0usN9myztL7/uHzxx0nQusk25
+	 EMQVNwH7HF2p4FeDUkxGU+Dl72afYkKfn0J0Z5P8VngWm+fSy91hSYOfY0M6hnFHa5cnI
+	 IlOEDGRzqrl1xKixkC/iiNYF4sbO+bhcuBIXQW2L1vUi8A5Cir8oTfZGyVTLlJbbgGZzH
+	 1fG2ZLyJtfBseouhU/s3NRi4Je385JddEqh4GSlmu9yXVvB4x+Bz0xcR9Y2OUcmBumw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Uur42fxC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.203
+Received: from mail-oi2-f11.google.com (mail-oi2-f11.google.com [74.125.231.203])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A779606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:34:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A779606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59A75606A32F
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:34:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59A75606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=A1M3Tnpq
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795725269;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TpW/aO2pRUW8vCTqx+Lq5/2TghrPoKWcvdPUdPz/mZw=;
-	b=A1M3TnpqDoou2F7MxMPN7QNw4IM8e63IvpvwcCmPDQ/6esb5KTGF92qCiMvEY8mTW+Cewy
-	Q9CaMFZKsncPDxxyM588jpVQ36YkN93Y4zPel4+yp/r/tzjrzvs5MtaQvorVLqzdiRrQjY
-	cG7YJdwp3diwiIOUVSPuEClxgcbWl7U=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-357-xc2boAwVMticbVqR9qHsJQ-1; Thu,
- 26 Nov 2026 20:34:25 +0000
-X-MC-Unique: xc2boAwVMticbVqR9qHsJQ-1
-X-Mimecast-MFC-AGG-ID: xc2boAwVMticbVqR9qHsJQ_1795725262
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A769D1955F74;
-	Thu, 26 Nov 2026 20:34:22 +0000 (UTC)
-Received: from ivecera-thinkpadp16vgen1.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 6A41A1801977;
-	Thu, 26 Nov 2026 20:34:16 +0000 (UTC)
-From: Ivan Vecera <ivecera@redhat.com>
-To: netdev@vger.kernel.org
-Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Donald Hunter <donald.hunter@gmail.com>,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	intel-wired-lan@lists.osuosl.org,
-	Min Li <min.li@microchip.com>,
-	Grzegorz Nitka <grzegorz.nitka@intel.com>,
-	Karol Kolacinski <karol.kolacinski@intel.com>,
-	Saeed Mahameed <saeedm@nvidia.com>,
-	Tariq Toukan <tariqt@nvidia.com>,
-	Petr Oros <poros@redhat.com>
-Subject: [PATCH RFC net-next 15/19] dpll: register pins only with a parent pin of their owner
-Date: Thu, 26 Nov 2026 21:32:27 +0100
-Message-ID: <20261126203231.934632-16-ivecera@redhat.com>
-In-Reply-To: <20261126203231.934632-1-ivecera@redhat.com>
-References: <20261126203231.934632-1-ivecera@redhat.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Uur42fxC
+Received: by mail-oi2-f11.google.com with SMTP id 5614622812f47-568042aaf90so1060114b6e.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:34:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795725270; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ItjCDMwmR9Vr88yDP6jOofR96Z8DvnHGXAd/bNaOQWYo1pydg2E0V3x5pH5ZpYr6W3
+         H335g3hUM93jcqmgOjvaZqyUf6l3ERXkv4gobpmcuUrIg+T0vEJFlSS7xO7UARzkiQhq
+         WamrwFmhJPoBUWYRcuLeOr5jqTGY6uUydVgP4TSTiBRF3vDuRCzw8HDATQI6NsXIRtF/
+         7ZsUkFTb4UlIGLo5aYU2oZb3rLKU+sRSPgVIMweOaHSqPfMrjw/DZR/hm8cjLYdUgXfz
+         9SPtXuWPDg4hqavp0dIX9R4aEFSncPxuipwqjMCuQ2pvKgtKPvCC0b7dpyYLNMQr0qIs
+         54AA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=di3bN8TPtgKo4t9vFYgPIJtNT3UqOcDJowHuF819Ygo=;
+        fh=M5xJr+fyBcYUQPp3trRLkN9eLBo+cbmxiB9vn/MAmKg=;
+        b=sTRDOMUfp+l1uM5dl3OTy3p4HQ/BBnZbqtz62knDRY48ylMAbwtgnh7/AB0+wnB9wP
+         KjmbdsrO3BnKsET5+10Q7aTv6CdS411kYdW3n4YoqUszpAgsML61P5kGBMFTs6KltxiH
+         2PTC1jhMEr6ovNupO30Z8BHShR7SY5dVsqbIoxDM576BOogCWUayef3lXesTiH13ofr0
+         I7tNUU6eVwEO4DuHJQCeXFi/lysLz+5Q+VNJt4Yd0mJCyP6sx6J+0uKeDHqjZNQqJ9Vf
+         2FS6ZjKQ7F8SK+l4ifKU+2fl9Z30v5QXvtB/d/qPbO+hJZKHCuGp5dqDBlx+5jrGuf1/
+         gloQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795725270; x=1796330070; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=di3bN8TPtgKo4t9vFYgPIJtNT3UqOcDJowHuF819Ygo=;
+        b=Uur42fxCErQVDiYgWsKaF8dmmmKy4JbHVbR4WBRfegN9yxGryufdu+g4xnFbfIEZph
+         v/vJoHVkegwTYPi7Emfn5H9g3v8PMhueZQ/CnIOLCbM/w5Uyvj5Pxp9y+TNdz8tT+/C4
+         9kd6riX88L1evvU5UNNw1K3SeFMFhUxyNW1hB445DwIrcvtzmdCTCi2+heFkfDzCF7Fk
+         SCrwMmLIjyUUVOA78iXCeOor65sUMESkMXSQDLHT+RNVFuXXdQkREM47NXzwJYeuWSLz
+         K4AMzS/yR+mP+hm5ilz8l0OoP9VM+Eeje/09DE206JP8k4AuPh0zfUpXpJiSkJ2Llc2a
+         HTiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795725270; x=1796330070;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=di3bN8TPtgKo4t9vFYgPIJtNT3UqOcDJowHuF819Ygo=;
+        b=TKmkYm9BAMAv6XS0o5ZF7s58GLKOpncmSC1J6QIsy08K81hWL0YL9weORp9+P1BQtQ
+         nvOeN8YQ5TwziSxniLH4nNKB2l8y4BaCD5v35MQA85sJg5fy9xclA/MYtH+0B4bwbJE4
+         C8i4xsTYGgCdMwNr1FOVN8nko/S5HUQUsrzRS6p9mk04fGjldLYycLOLhs8nB/MSEJbM
+         LT+7Pj6aDEmSVrqNN1jnR3/P8Kb2e4Lh+nGlNiTiLa8Ogi0S3M+Rxda5I05cfgSZ6EiP
+         QjHx2Jt49sSyyx2ltnnycb0LHkoIJBNTdmPdJBC0+nBHr30HfVPGe90y7Uy8W6DhYw4+
+         3VdA==
+X-Forwarded-Encrypted: i=1; AL+hErFHGPRXPwbfoh0C5qnH47yqRgl6glMcc8QmoYO9VhVOln0FJcYK5lxUCX97gMsPCspuh/lzpV6g1PKTsYA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8H8JRwFEBM9caVieD76XeD0OcLQhTzWHAWU+FNVG7+7nA1QOHt
+	yGoCgloU80aVih8TQqOGfCqNxgJfWnX1haeazuN6IfUQdzIW8LEh1aIEU/shdSK318w/Ofc1kDW
+	xrgCcZoyMscehxqYvXiHySt4G2QJVMOo=
+X-Gm-Gg: AZFdTZeRiR+aGjnnlu86lqZrYaTA8xfL0FO0rCNVwiCZprxpP0emQ8KorOLPP+ngxN6
+	5bQUXQ+Q7BpMk1f0hN7+DHzaIExplPaB+i+v5B67Apya9fLgP7TfbvMYWpETWcM6ED7QVex+e9S
+	2xi6HkRbjOd2MHe+pt4vhVGEchS7Tq9WSFHYdsgx/y9VZDdPcROZLB1f/cc/nfS5+n1uVDcqZCP
+	wWYRUKCN0vXF1ZT48w1RphzLXb76I0rt6SwamsFt4IC4qg5JPT1d+WfDqs0tOqbA6MnvBkuSYd6
+	UNCHNZSG0hOZG0+R20LyARIbiXeuhUlp/+s19yCOxoeFSohV3d7u850QM8qULteoMbQQP5G2lPx
+	k2AZ78AGuQGQH0VJY96W6j3WYxupEFN6KE+GvyigqkfjX+5UwfebHisRV6Olk89SbeIft0lopmE
+	lJ88BXY6u2vpVPP5w3hx/E04/iJmZccHq4qGaMnA8dUL8Dv1RKluA4
+X-Received: by 2002:a05:6808:c3d2:b0:579:293a:52ac with SMTP id
+ 5614622812f47-57a06a0f737mr23560243b6e.9.1795725270248; Thu, 26 Nov 2026
+ 12:34:30 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,76 +104,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+References: <20261126045222.20770-1-dennylin0707@gmail.com>
+ <awgPDmEbGpJsT_iS@redhat.com> <awhFQzXfWnDh1mKe@redhat.com>
+In-Reply-To: <awhFQzXfWnDh1mKe@redhat.com>
+From: Hungyu Lin <dennylin0707@gmail.com>
+Date: Thu, 26 Nov 2026 12:34:19 -0800
+X-Gm-Features: Aa3M54o9-WZCIMdpV3GauBo7bolCOn69ezMqv7eMAI9mQ5Mi_Dde3UYGSABQw80
+Message-ID: <CAGEkeHeWU1=HjMX=GETdRnWkr-xqTBZp7p8RDdtTiUVw3+qBfQ@mail.gmail.com>
+Subject: Re: [PATCH] proc: also check the opener's capability for
+ oom_score_adj and oom_adj
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: akpm@linux-foundation.org, brauner@kernel.org, adobriyan@gmail.com, 
+	jannh@google.com, jack@suse.cz, sforshee@kernel.org, me@black-desk.cn, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-dpll_pin_on_pin_register() accepts a parent pin of another owner and
-then registers the pin with the DPLLs of that owner. Its only user was
-ice on E825, which now describes its recovered clock muxes with its own
-DPLL devices linked with the zl3073x pins.
+On Thu, Nov 26, 2026 at 03:42:11PM +0100, Oleg Nesterov wrote:
+> I just noticed that __set_oom_adj() has more CAP_SYS_RESOURCE checks below.
+>
+> Shouldn't we unify them or even factor out?
 
-Require the same owner for the parent pin, as dpll_pin_register() does
-for the DPLL, and document how to describe a mux in front of an input of
-another device.
+The checks below only decide whether a successful write also sets
+oom_score_adj_min. The checks above already prevent a write through
+an fd opened without CAP_SYS_RESOURCE from lowering it, so I left
+them as they are.
 
-Signed-off-by: Ivan Vecera <ivecera@redhat.com>
----
- Documentation/driver-api/dpll.rst | 7 +++++--
- drivers/dpll/dpll_core.c          | 9 +++++++++
- 2 files changed, 14 insertions(+), 2 deletions(-)
+I can factor out the common check in the two rejection paths in a
+separate patch on top of this one if you like.
 
-diff --git a/Documentation/driver-api/dpll.rst b/Documentation/driver-api/dpll.rst
-index 90c88fcf21b385..bc34fc83882fac 100644
---- a/Documentation/driver-api/dpll.rst
-+++ b/Documentation/driver-api/dpll.rst
-@@ -355,7 +355,8 @@ Pin ownership and links
- 
- The owner of a dpll device or a pin is identified by the module and the
- clock_id passed to dpll_device_get() or dpll_pin_get(). dpll_pin_register()
--accepts only a dpll device of the same owner as the pin.
-+accepts only a dpll device and dpll_pin_on_pin_register() only a parent pin
-+of the same owner as the pin.
- 
- A pin represents a pad of the device whose driver registers it. When the
- board connects a pad of one device to a pad of another one, for example an
-@@ -364,7 +365,9 @@ the driver of one of them describes the connection with
- dpll_pin_link_add() on its own pin. The link names the pin at the other
- end by its firmware node, which the driver of that pin sets with
- dpll_pin_fwnode_set(). Each driver registers only its own pins and the
--drivers may probe in any order.
-+drivers may probe in any order. A mux of one device that feeds an input of
-+another device is a dpll device of its own driver, with the selectable
-+signals as input pins and an output pin linked with that input.
- 
- While both pins are registered, ``DPLL_CMD_PIN_GET`` reports the link for
- each of them with the id of the pin at the other end:
-diff --git a/drivers/dpll/dpll_core.c b/drivers/dpll/dpll_core.c
-index 7440b174c3de2b..9b48d289ec7330 100644
---- a/drivers/dpll/dpll_core.c
-+++ b/drivers/dpll/dpll_core.c
-@@ -1081,6 +1081,8 @@ EXPORT_SYMBOL_GPL(dpll_pin_unregister);
-  *
-  * Register a pin with a parent pin, create references between them and
-  * between newly registered pin and dplls connected with a parent pin.
-+ * The @parent and the @pin must have the same owner, they must be created
-+ * with the same module and clock_id.
-  *
-  * Context: Acquires a lock (dpll_lock)
-  * Return:
-@@ -1097,6 +1099,13 @@ int dpll_pin_on_pin_register(struct dpll_pin *parent, struct dpll_pin *pin,
- 	if (WARN_ON(parent->prop.type != DPLL_PIN_TYPE_MUX))
- 		return -EINVAL;
- 
-+	/* A pin of another owner is connected by a link, see
-+	 * dpll_pin_link_add().
-+	 */
-+	if (WARN_ON_ONCE(parent->module != pin->module ||
-+			 parent->clock_id != pin->clock_id))
-+		return -EINVAL;
-+
- 	if (WARN_ON(!ops) ||
- 	    WARN_ON(!ops->state_on_pin_get) ||
- 	    WARN_ON(!ops->direction_get))
--- 
-2.56.1
-
+Thanks,
+Hungyu
