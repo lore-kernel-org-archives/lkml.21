@@ -1,111 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795700674;
-	b=SNdTI+M8rmWm6SYc22GvoXtAStyTIg1k/G+cdlNl7SeB/g7GXk0jXXQEB+V+djsokMry
-	 7CBC5UJrRLD1xMN1WyMqYlWqzagQ9F6LKBmZKMTEtl2W6rliFf77amP1BnxduvGyr399K
-	 nNXCG/RWUyzNA7YY7BF5PaztXAzzUOZS1dX8sTeskhgjyRVNKZTHVliy8uk0AnLHJ+7Wk
-	 uAEO7zJ1nluOxTSon79GNkADNsKFrkNWCuMwZjCzO/DpT+5Uq1CPc4TEk19Sf9BlmfK0Z
-	 /WmuCUAHPkqkNLETfT4OoF9oHTv09KhkuqhhChQ3ypJALImDhLmgQexJhuMvyBJpy8g==
+	t=1795700684;
+	b=fm7RQ11dUo8+Ig9rOmCfMx2emoa2TYG5tTYUIC21tdY9cXmPoJCesTmQUC17jDenKAjv
+	 3daFc2zutpHDbybWTnRkDMsUKgXqKMPYfYLZhRmFEiqzxeyKZnc/5wsfuQ9dhoOXVo/oj
+	 YSSceJCrokETX0r09h8YFl5t493srCUyxq4fRW/AOUFv64l9RkkHYNz1UCtCANVqfCLRq
+	 aStzU2pq4pOy8/fj/hRJYjhy70JWkK5aiMsbKhxtlXXI1yzNgi399yJvI1X9zB6MC8gnj
+	 QR76FfR2wEc+0XhPT/rXtXrIXrh5i7jqpIAOanPNEaCrXuBaj7QbNR371BRaRjAW1Cw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795700674;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=jY7SRS8EY4WvgV5Hy1de+tHZT9Z4JJSU2OV+0aUvWLY=;
-	b=WdpJhXM+e5YKksJsZ9Xzs1LTegx2Hv3/kwL8tSS/x9ozCRlFmjw3WroJ5c+7qpS/Yyyo
-	 CYkWrfHx63EYkj+yjcXfsIXTuOR5f6A5RicNBKkI353uvKOUb63jpIY7U3KCp6JKxA5Oj
-	 qQotkrDGRqYuwWhT4g2OTAjw1MqamNHXxl2tqMNrHD8biXVt+Ed2RROLiZ0JljF2yaYTv
-	 hNZQergTSZ0wa7+VlFo4qjLJgwFcK50AdJIrLhOUzc3mRHYPLZko8Xhp53wvSDGzvlenf
-	 Jk2gTxKMCI+a1Y7V+pqCChhc9Uo5hppzeahgOpHbv2og6jRbjo5EjA8W7JYi2ZNju2Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795700684;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References:
+	 MIME-version:Content-type:Content-Transfer-Encoding;
+	bh=FutE3Dt4WAYQzSyNTGkp0eGUi0NDw5s5dO55H2LHifs=;
+	b=ywige2inNs9k+Mv9TOXflcVzj2LAe8Jn+5790W+xu5Ba0ZiKG0oGUvabQyJGwS1fpERf
+	 yTFwT52z6kLHwlNR92BpnhuK863uxW/CcwTIcZ20B2vFhUwDJIB5ldY3RlUo1rrsu34KZ
+	 EH22V/cBc0FjSheTyHBCEAUuBQQrAfqsJZsC5B6dzd7o5Xr2n3T18tRf0fUse0lxpW6nr
+	 bUQraRGYgQuguSWAcuV68kKgETfPXlmEi6nlNi3aT/AObIKfoXq73WjX7sSWPqBPmeLbw
+	 uvCiC74qIIZikrwHYTq6IZcXxM09GXQ5myptb5VaJElKxrfHjB43/9dAAFaPtC9bJKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=glider.be;
-	spf=pass smtp.mailfrom=glider.be;
-	dkim=pass header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=ks9M+NXe;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=aJHgQI0K;
-	arc=none smtp.remote-ip=103.168.172.138
-Received: from flow-a3-smtp.messagingengine.com (flow-a3-smtp.messagingengine.com [103.168.172.138])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="b6E9y2/e";
+	arc=none smtp.remote-ip=74.125.82.43
+Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE154606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:44:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE154606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=glider.be
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=glider.be
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B2CA606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:44:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B2CA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=ks9M+NXe;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=aJHgQI0K
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailflow.phl.internal (Postfix) with ESMTP id ECAAA13805DC
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:44:32 -0500 (EST)
-Received: from ams-imap-13 ([10.64.2.33])
-  by ams-compute-02.internal (MEProxy); Thu, 26 Nov 2026 08:44:33 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=glider.be; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1795700670;
-	 x=1795704270; bh=jY7SRS8EY4WvgV5Hy1de+tHZT9Z4JJSU2OV+0aUvWLY=; b=
-	ks9M+NXeZToCkNeyCEcOiO57Vrff20M6XgsDpWwrzz7/99elcZw89qmkkNU7a8XF
-	W9knFLhuXGK5+nHGGqTzHbcNNrAjH5T7S6wKwx0NhagvoKM+3vuEmzAD2UBbK7BL
-	lAY6zCiBnAeiawp6a5hPfjsoYWe/eMmx4cgKjN+dsJtPteiJRAsCP+AF9Luy6/9p
-	97Ycl3hRWouLImTT2i83xFXLuFoPBdf4Ha3hI+0VAVw1RZ0l1mFrQnAkJOOWy+Lb
-	vGqI0JoWdgEzBCkT0dtrf8uThSHpndUoSSFcQPAExQYwPVKx3Z8nSfUQ1+q4ta3m
-	TNMfi2OP8RVYW7NCfaySlg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795700670; x=
-	1795704270; bh=jY7SRS8EY4WvgV5Hy1de+tHZT9Z4JJSU2OV+0aUvWLY=; b=a
-	JHgQI0KIdaNNSs30w5t4TZxOw7mXGverwiNhoRJwNZ5K0QO5ncWRRUf/SzZ5aduc
-	PoNa6uKtipFes1JQ8AB2zSzkSr5AlgpJxyDHyRF28uqBlkUs+BDr5lsQiCy9VQIR
-	0S5DFK5+ALe2/wuyVfSAGq8ti9UMeBpzNe6JMAPbKM3bMBbi921J56d6Bixpat47
-	48bjiokL645lklxXX6UCs9LTMl6XxKdexXwnwyxueK4NHxbWsWNjmp1+6dAvT60h
-	+KejqD3f9gBejuveG/E7d3v0VkLzI6APPJW6IlyflLpttsByx1FV/21sgUdpxwdF
-	HInHpoWLG5ZzZhDpDQxBQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=glider.be a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795700670; d=glider.be;
-	mf=PGdlZXJ0K3JlbmVzYXNAZ2xpZGVyLmJlPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:irexvQiWvFawYul5izBqIPKxvu0IgwkRdJzrsMa5bnZAZYQ
-	c56GrSDA3QxQMDrFNUHpLfIM1Lauhtu/7B96czfKLKF1SSJ2hmwhA47ieS9soBpt
-	tyhLv75BPVKW6UU0pCu3rfM7JrlTucavHGlaJgkGgv/e0QajK2ffmv9N8VSBh8Gy
-	P2o5Nq6eK82O+eLPvJbaAbADdmqlHxvyMmHJrQzVbhuna9dBIuaKGAKsZ+9/yJBa
-	/V7Kys+gyMk/VraCt6Pe6FgCQBcaZ2i/xS/m62lV+bFmccNiAXBk2kyAcGsSENNn
-	+juvH+QrvWmiKq06uTaUM26kWHoT4+WAVcTOoog==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:CH5LxRj4t7fUnkD/K9gm9IqfmmHJlbgLCoYZhkvySOA=:STMR6hsVSFCsgck2T08ksDap6/kwxk6X43QzRdvj+Ck=;
-X-ME-Sender: <xms:uzcIa441yI-H9ilfRWxqDlaJNCtYtgrLA-OrB2ZGeFyC0r2AIdW2sg>
-    <xme:uzcIa0s103boGVZssNZZSPCpa7HdvpqSqt7uFKFxjHLN71lhp7BfWDsrkAHODfvwV
-    RwjqE4LlAKS_jJWTnqCIHlHDeEEBx2g_xymND0oaVEWUw7HsXamNhU>
-X-ME-Proxy-Cause: dmFkZTGiE3u+QPdbaOCW+PkpYwEs1CFrKcWeYM604yYgXfDsFBYxjQMMgVHFUqRERJSYUt
-    /ekq/G541e9LXNUlfiNzNnL6bc6s2cb0zMshW18VpRzvQ7HeH/Ln6Tt/ynSpgqqra0JECT
-    rmKMLIqvOUhCilWj57mKJrc5kCRWZNYAlx2nukAIuKI1u4P0xSQMv9WgfAth0Q+Xq79OKf
-    TkIHs07z8Z+owMB3TsrNFLpWsCJ+NmMR3MgmsfERXWGjQW08bTNiXtdRV7kTGoJz7E8t0f
-    ngz8k++2bURX45zZ4HIhEFCJFbozNAJp9cA9UOBTUHdGxmFw51u8dux9bu3RL3FcVbRsc+
-    7eukkmksuIMCal2gD2+cEbcxEmUp1HCvGB31duJJFfmu+PPQwCG9YsbVeq3k9IS/7CWBf4
-    eRfxo/0C7F3xL/nHQ5eFHLVLJPFUdh3cy41hVTN32NlVi0ypseK/tIr/zcPvs+qnNGHS5b
-    SQGoALwIMnb6XpVlbhkmuKwlad0nEHNDVXn7ESM57qqrv3VewNzHwCKfDpq8vqaO49An1u
-    uivcraA0Yo8Ej5eW2hOz3XAsT/5LfQmDSkT4qcE8HvQUrUjvO4xyumB4Gl+roeHnLwneGi
-    k9fRwqa1zy+T3KPtgnzteySuaOXRRv59Ad3d+M07BkFpruUfKG3Hs0NSB8Iw
-X-ME-Proxy: <xmx:vDcIa32ztnOw2c8OL8LDX6_BPg4e_qYIpXhE0qZdrgJc_nHqwgpE9Q>
-    <xmx:vDcIa7Bv1VQzRSGPzFoDIlllQp1VWmz-P0ytFDP_231LFfdUNDY-XQ>
-    <xmx:vDcIa8Ld-PiqDL785CuVC334lstFkfK5mDRQ9ptlppHqm4hrksMRag>
-    <xmx:vDcIa8ltrFVYQAeNHmRHkdsenv9ZwOT6yz1mHbqd7BYbJLbFJDCQvA>
-    <xmx:vTcIa_ScZLEsLt_j2TAlpzjoYZ_qNrbGQXJ84YkdY55tZ4HjUiRRmiwg>
-Feedback-ID: ia0f84a9e:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 8FE88F800A1; Thu, 26 Nov 2026 08:44:27 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=b6E9y2/e
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1b546061d58so16142687c88.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:44:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795700683; x=1796305483; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=FutE3Dt4WAYQzSyNTGkp0eGUi0NDw5s5dO55H2LHifs=;
+        b=b6E9y2/euebQQQiN3JvEbHXkCpr5hwWU+Hgt3KmglK6HO5n3DQWE3JTpr99YNQ+bw4
+         nD/x+yWMYZiZxK0urtLaxJauEZmY3DAGmv3B5D8OXDAbglU8T/TCV7fL9p25lPF9TZmF
+         MuMv0sv04W6FMnyOBK5u3UbA/bjghVwK1FFKowsSGN1fkcMFC5JtqsLQFMkcVwoDYVyJ
+         jCH15gjb64MIJBqeXNA06AMxOXRn56duw/CGVjPgJxBiLxm5PLjIw6fLuJ6IIAF7jQBm
+         3VuVLtx+2avdw5miWkHYYULPIXV6X8Ca0EMYWgC96freW+CNQqsXwJsyph1C8POCKHYb
+         vrug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795700683; x=1796305483;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FutE3Dt4WAYQzSyNTGkp0eGUi0NDw5s5dO55H2LHifs=;
+        b=KVD8bRFf0z073WudKPrZcJMdWcr9cfOzK18XuzDeJNDSm8A+J/9w78cvO+ROqaJnKM
+         AXZXWE0+a7pdaeOXk07UPjw2kTBu+GDZRS9HSHZnan7XqeqAvtFpwd/xQuW0GYAqvqnk
+         m38PcHConiNwr0hFWVb7iC2bybAwlGf435dBd6SR7QUmwpWra/W2VUkP+mLuuiTvAskU
+         cdIN+xY3RI4NhIUi+cNZtcyGePj+qY0FndAJMSK+91+CjO7p5RCuCnMqMxmREz8xe/sb
+         i8NkkPAJE0PoQvHida/GnL1bG9llg2Cb53mLZq9+RWHYlhMdWMmRWhVEnttIdG3dj0LL
+         JIfw==
+X-Forwarded-Encrypted: i=1; AL+hErEq4suqPsOy1wAMsqt8cKp39cujHa6sjGwHfYkcIqqTsjAFBcugHWO3N+9O1bg2634kuy088HsZtfOObb8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8rvdcVqH7/vtD51cerJnbSab51qSsTi8PS5FSFo4kjTLOTYoXH
+	2va/Gswf1PDzT0xmpmf+72IiIbaoiVH7/HoXSZ1fAehDHiSIaZ5mMo7mR9mOMQ==
+X-Gm-Gg: AZFdTZf5N9Y363WuC/FariYWYfc+71A3ttmLhHEWgRTOzmzTAVAVPi88ZIcW/S5DKWK
+	VKhGJoGiumGU61cN1HHGvHaQ1OboOinrT9OqltWCE8Y/W0S4ETK6Qt2ZoyC4eDiYOSmm730AcEa
+	Zv2L+m4yuljTK1UrYo1Od9kyE/Ch1YoF5EYkRECoCimN62q1bR4JvvRvGvqjXmd7cksUJj9RFkZ
+	2n/sBCRNyrcw/yCqNvD299wSoAc3s5WDpZF9k2rBP530gZrlHG2Muil2IRBefluDjv/eVotYvM1
+	2f7Q7mGtfP2u1kAdkPZ8PPB2efCakZpw8+8anm7Dms8bj2+FZVOZdHDfNnytGqYvYRQh4W7gJKe
+	x0NwQRQzXsauAZhxar9PwI0DJRRO+LTi6ovOFhAwCSXaqh3/s5TWwJkj1gCeer5zNbHfWQ6f59X
+	G1cVDj55lfZUKslcIwyVTNpQxZ+xTmYZx70jx+G3L0DIIgN0HYR1+twXFIO909u+B0PB1EVR6As
+	kckUzD56J5R7XaoaXhasriE+zPWw+x+R8xYXTbE6NGsOCvy/B9ZAWfJNsHplLVIohiqcoE954Dq
+	DIpp9cyyCt0maxdwfW9ZdyXLjHcuPls2/MhVYL1iIS91RhYr
+X-Received: by 2002:a05:701b:21cd:b0:1b5:e9d:c641 with SMTP id a92af1059eb24-1b5568bc08amr20788013c88.18.1795700682366;
+        Thu, 26 Nov 2026 05:44:42 -0800 (PST)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55682d301sm50563787c88.10.2026.11.26.05.44.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 05:44:41 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, linuxppc-dev@lists.ozlabs.org
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>, linux-kernel@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Shrikanth Hegde <sshegde@linux.ibm.com>, Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH v4 2/4] powerpc/execmem: Allocate kprobes insn pages from the modules area on book3s/32 and 8xx
+In-Reply-To: <d7633118-f091-487d-993e-38a03f9be58c@kernel.org>
+Date: Thu, 26 Nov 2026 18:56:46 +0530
+Message-ID: <ik1jk9k9.ritesh.list@gmail.com>
+References: <cover.1795666663.git.ritesh.list@gmail.com> <e8f8d59f9a3c88f45f873c91a2ff94586b68d928.1795666663.git.ritesh.list@gmail.com> <d7633118-f091-487d-993e-38a03f9be58c@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,67 +95,109 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-ThreadId: AsmFC5iU653B
-Date: Thu, 26 Nov 2026 14:44:07 +0100
-From: "Geert Uytterhoeven" <geert+renesas@glider.be>
-To: "Yige Jiang" <yigejiang86@gmail.com>,
- "Wolfram Sang" <wsa+renesas@sang-engineering.com>,
- "Andi Shyti" <andi.shyti@kernel.org>, "Magnus Damm" <magnus.damm@gmail.com>
-Cc: linux-renesas-soc@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Message-Id: <ec57d879-3b89-43d0-855d-723086e0a9fd@app.fastmail.com>
-In-Reply-To: <rc-b1-20261110-vc-182-eee62ef398fd@gmail.com>
-References: <rc-b1-20261110-vc-182-eee62ef398fd@gmail.com>
-Subject: Re: [PATCH] i2c: rcar: release DMA channels when host notify setup fails
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+MIME-version: 1.0
+Content-type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-Hi Yige,
+"Christophe Leroy (CS GROUP)" <chleroy@kernel.org> writes:
 
-On Thu, Nov 26, 2026, at 14:31, Yige Jiang wrote:
-> rcar_i2c_master_xfer() requests the DMA channels lazily, on the first
-> transfer that finds priv->dma_tx or priv->dma_rx still set to
-> ERR_PTR(-EPROBE_DEFER). Clients probed while i2c_add_numbered_adapter()
-> registers the adapter can already issue such transfers, so the channels
-> may be held by the time rcar_i2c_probe() creates the host notify client.
+> Le 26/11/2026 à 05:26, Ritesh Harjani (IBM) a écrit :
+>> On book3s/32, a kprobe on an instruction that can't be emulated and has
+>> to be single stepped out of line, crashes the kernel. For e.g. with the
+>> following cmds...
+>>      ~> echo 9 > /proc/sys/kernel/printk
+>>      ~> mount -t debugfs debugfs /sys/kernel/debug
+>>      ~> echo 'p:wx filldir64+0xb8' > /sys/kernel/debug/tracing/kprobe_events
+>>      ~> echo 1 > /sys/kernel/debug/tracing/events/kprobes/wx/enable
+>>      ~> echo 1 > /sys/kernel/debug/tracing/events/kprobes/enable
+>>      ~> ls
+>> 
+>> ...we can see the following crash:
+>>      kernel tried to execute exec-protected page (f101a008) - exploit attempt? (uid: 0)
+>>      BUG: Unable to handle kernel instruction fetch
+>>      Faulting instruction address: 0xc02b919c
+>>      Vector: 400 (Instruction Access) at [f19a9d60]
 >
-> If i2c_new_slave_host_notify_device() then fails, the out_del_device
-> path deletes the adapter but does not call rcar_i2c_release_dma(); only
-> rcar_i2c_remove() does. The channels then stay allocated, together with
-> their DMA engine references, after probe has failed and priv is freed.
+> Unrelated to this patch, but shouldn't the above address [f19a9d60] be 
+> identical to the one in the "kernel tried to execute exec-protected page 
+> (f101a008)" ?
 >
-> Release the DMA channels right after deleting the adapter, in the same
-> order as rcar_i2c_remove(). rcar_i2c_release_dma() skips channels that
-> were never requested.
+
+Actually this log is taken from xmon. So [f19a9d60] is not a fault
+address. xmon prints the address of the exception frame (pt_regs) there,
+i.e.
+
+arch/powerpc/xmon/xmon.c
+static void excprint(struct pt_regs *fp)
+{
+	unsigned long trap;
+
+#ifdef CONFIG_SMP
+	printf("cpu 0x%x: ", smp_processor_id());
+#endif /* CONFIG_SMP */
+
+	trap = TRAP(fp);
+	printf("Vector: %lx %s at [%px]\n", fp->trap, getvecname(trap), fp);
+
+    ^^^ it comes from this print here 
+
+>>          pc: c02b919c: filldir64+0xb8/0x2dc
+>>          lr: c02b9148: filldir64+0x64/0x2dc
+>>          sp: f19a9e20
+>>         msr: 10029032
+>>        current = 0xc112e900
+>>          pid   = 102, comm = ls
+>>      enter ? for help
+>>      [f19a9e20] c1a8d420 (unreliable)
+>>      [f19a9e50] c02e4074 dcache_readdir+0x208/0x2a8
+>>      [f19a9e90] c02b8c5c iterate_dir+0x88/0x1fc
+>>      [f19a9ec0] c02b96e0 sys_getdents64+0x88/0x198
+>>      [f19a9f10] c0014400 system_call_exception+0xf8/0x20c
+>>      [f19a9f30] c00191ac ret_from_syscall+0x0/0x2c
+>>      ---- Exception: c00 (System Call) at a7596164
+>>      SP (af802310) is in userspace
+>> 
+>> This happens because on book3s/32 the exec permission is per segment
+>> (256MB), not per page. The page tables have no hardware exec bit, only
+>> the segment registers have a no-execute (N) bit. mmu_mark_initmem_nx()
+>> sets N on all the kernel segments except the ones of the modules area.
+>> So nothing in the vmalloc area can be executed, even when the page is
+>> mapped with PAGE_KERNEL_ROX or PAGE_KERNEL_EXEC, because _PAGE_EXEC is
+>> a software only bit there and the segment's N bit is what the MMU
+>> enforces.
+>> 
+>> 8xx and 603 (which is book3s/32) have one more problem. Their ITLB miss
+>> handlers walk only the current task's PGD, whose kernel entries are
+>> copied from swapper_pg_dir in pgd_alloc(). Only kernel text and the
+>> modules area are sure to be in that copy, the modules area because
+>> prealloc_execmem_pgtable() creates its page tables at boot. Unlike the
+>> DTLB path, nothing fixes up a missing entry on an ITLB miss. So an insn
+>> page in a vmalloc area mapped after the task's PGD was allocated can't
+>> be executed.
+>> 
+>> Before commit 1b750c2fbf82 ("powerpc: extend execmem_params for kprobes
+>> allocations"), the kprobes insn pages came from module_alloc(). That
+>> commit moved them to the whole of the vmalloc space, on the grounds that
+>> kprobes use a breakpoint and don't need to be near the kernel text.
+>> That is fine on platforms where the exec permission is per page,
+>> as PAGE_KERNEL_ROX is then enough to make a vmalloc page executable.
+>> It is not on book3s/32 and 8xx, where the modules area is not only close to
+>> the kernel text but is also the only page-mapped area whose segment is
+>> left executable. So the insn pages must keep coming from there.
+>> 
+>> MODULES_VADDR is only defined on book3s/32 and 8xx, so use the modules
+>> area for EXECMEM_KPROBES whenever it is defined.
+>> 
+>> Fixes: 1b750c2fbf82 ("powerpc: extend execmem_params for kprobes allocations")
+>> Suggested-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+>> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>> Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 >
-> Fixes: c4651f11d09a ("i2c: rcar: add HostNotify support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+> Reviewed-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+>
 
-Thanks for your patch!
+Thanks Christophe for your reviews and suggestions!
 
-> ---
-> Based on linux-next next-20261109 (630059a5a632).
-> Compile-tested: arm64, GCC 14.2.0, W=1, CONFIG_I2C_RCAR=m, 
-> CONFIG_COMPILE_TEST=y (object only; no new warnings).
-> No hardware or runtime test was performed.
-> Needs a pre-Gen3 R-Car I2C node with the "smbus" property and dmas, a 
+-ritesh
 
-Why does it need a pre-Gen3 R-Car I2C node to trigger?
-Pre-Gen3 I2C controller do not support DMA, so this cannot happen?
-
-> client transfer during adapter registration, and a failing 
-> i2c_new_slave_host_notify_device() (e.g. a client already at 0x08); no 
-> in-tree DT sets "smbus" on an R-Car I2C node.
-
-Gr{oetje,eeting}s,
-
-                                                Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                                            -- Linus Torvalds
