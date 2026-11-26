@@ -1,13 +1,13 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684858;
-	b=JdHEsJOuERIyuCcZltQfzjnYXY+irfRs2QnKB4p7Uj/wkmrvHW7PVi4aMLu6qGWWzuE6
-	 CxHMThTyavAtC4UFASeS+9mekEPpvvpXZo8o2LoitLimtQ3UlmU98FxEtmF5sOA4RywDx
-	 h1EDX6Yk43ch2BeqdSM+u1mA8usFvRBcvFiP+Y0kEEnKxB8KUdwgGY9zEpIUUpiAZnB+H
-	 Uswi0UYCf12un7ggMa//Yuyj7pJzxbhyXT5XMLsDVre5hl+bXx69qB02n1RwAAqoCV16B
-	 Q60p4hyAMyoDi3lOrkiGeXZWvgv7plJDbwNsmdLzkUBQuobO6aKNd0FBVs/qkiAI4UA==
+	t=1795684861;
+	b=mBjaKaNzR75wpU8Ug+g3ihfRL2S1I1YjIrZdd59Y0AtunBmYX3JA6FIbx2AvNY23VPzm
+	 wkSOfv0uruOtY4uJSQEWzK8FY/rAKDuI/a60GuzblUlzZlAphGrfausl8GoWhCeirJqxE
+	 aCM0fSsLzoHpRb54U87gmAZ7kQkzBKOonAr4GTZoxzCkBovE+Hza7GVKOoki9wGSSPBPG
+	 NelIw2WHOsQWSg1NObJg/q/M45WiZ8ot4rjjT9mOfaQrfW5DANTIdw/AefBNITg/rTg9e
+	 U50reVlPReghETb5+Ws++OAEU6zTFKGsR+DjxLXhzZAPtxk1c5UFOiRr1Ze75N5PvBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684858;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795684861;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
@@ -16,99 +16,99 @@ ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
 	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=qwv5F15K0gQkiOaOk8klOzfJ2jmiYtyCZXXUL00XQbg=;
-	b=i/ArfzTE/MSjI6d1SbFPQs3VsNC6PhXT1aZblw4m0xtBSrTJwXubqDRNtGlz0+b0WaX9
-	 56vDVe1GmN8gGWeJa+3tPcSSPXh0/E7Hn2DvAsgWU6+stO06e2FCoGiZshWh69Vv7aQk+
-	 1nf1aUWlc0Uw9GSk6Yep8m9rdNODbDZv1VRwUcinLD1GnaafrQP9c9Pq0H5EveAW3jbmx
-	 dbVV6JEb4Hf945IDyImda9RhFQIS7pYKtJ45UeQtKfFvF9Kk5YEyxZFl1Ox2Q2E3q0avG
-	 LOf4NpuPmnN3fiUaEK/lrTmp+nHfUOBozk4NDjpa72uAffo8B27TCVF2zCysGuzhUgA==
+	bh=7dXCZqzkXmwN+wFfCdS/ByK9E7Gk9Xnhivu9BJqco3s=;
+	b=VAWnm4aXeftAfOXRU1v0loj2GgVW92Ys8j2qMfsi2PivzdbL94H/jV/5SHbtaur1J9+v
+	 5LmFLkZNsUmww9EK+8nI6xjy89FovB4g2gmpfVWALj59pC64+Fs89GRq3tTyLa6THhgkh
+	 5i6mAXP3tHbGpYosFy6gQ+berFsP5F5fwsLyZcOwU6+OgXgutiS91pHuLetvRmG7PmXGD
+	 q8aiWx08RdwALD5r06chNnAAoRXN1n+rLdSloPwwv+e3hm5ddVP6XxhSVisbaW+PhyFMz
+	 5N+B4CB4jkgIhsZJ1x7Cjttw9cO7Kx29iXg0LD/huZT7ImrtNWjYYJa378s9QXZYQTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=gMz1m3JB;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hCxKCzw0;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=TMC2UZC3;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NusoFDI4;
 	arc=none smtp.remote-ip=205.220.180.131
 Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D85B1606A698
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:20:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D85B1606A698
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 239C6606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:20:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 239C6606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=gMz1m3JB;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hCxKCzw0
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=TMC2UZC3;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NusoFDI4
 Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ8NVWw2859739
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:20:56 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ8NWwc2859784
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:20:59 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=qwv5F15K0gQ
-	kiOaOk8klOzfJ2jmiYtyCZXXUL00XQbg=; b=gMz1m3JB/m6cP/aEcPh9DWWnjwH
-	zKeRMyin8zQqvqGFPNZoicakOZ9ZKii/LeoqVp7sv9lmJbv3gIwSHRXpaJqPLRIV
-	0HGKaN9pjfJRemjr+hur4u+vYzjzJA2h/yJviwiZOZtm4Vfj9VIQV0ql8+pUA2MH
-	cvnOufV4IZcQHqif5ob4YmUEJk79xtZ6T4tc+dlBTIoKfCB2GiL7drb7V36xY2c8
-	LDZj8fosYJrmop2CPgXwJLt8DtP6nPlNB0W6GWcQlGBjSrGLlEW5XzH82XnWwFqr
-	r4pEVwt35pG4OelrC1eE1h+Z1nDfhN4k+57/xIMnjO5gmxnYI9TZQisVdjQ==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6h7g87xf-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=7dXCZqzkXmw
+	N+wFfCdS/ByK9E7Gk9Xnhivu9BJqco3s=; b=TMC2UZC3pbrDgsvqamkhU2BsIlQ
+	1poJoRoNy4OwI8yuL1akUK2zn9laq1yp+o1rYqcUazcGrq0bCrrExETNRR/ZEDl3
+	q1XFINkM/bSHmdFkDa12kTl4DqB4jgWkrJv32vGLlqMGlSm7uEMcq7o9gYksRNdG
+	Vrx0CUVxiOwwObpD+uG8a5KQh/BqAIZCT0QKMFUzlE99pJRw8i3dZ5lhA/4Lwbgg
+	tYwcbXZtMCDsmDPTKhHQaRg6GqNquoNEETCoAJQB16ILat2Y9LxKREI/D/i1YXVD
+	F1rV8Be4an3Z7i6itjaXECFEbDGAJmY28TgJi169/HWVQPAawKMWPQ9cHlg==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6h7g87xu-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:20:56 +0000 (GMT)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-8a05b68f851so5777932b3a.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:20:56 -0800 (PST)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:20:59 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cdb90a6230cso3338555a12.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:20:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795684856; x=1796289656; darn=vger.kernel.org;
+        d=oss.qualcomm.com; s=google; t=1795684858; x=1796289658; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=qwv5F15K0gQkiOaOk8klOzfJ2jmiYtyCZXXUL00XQbg=;
-        b=hCxKCzw0Ot0d5kF3JhIXnrB7TdqxVw6clC+RCUOIyECWGoQRBSGTFmapoZX3sUbYuC
-         Yg4AHeLwofTMydZIxGkqN9og3Icyjq+a3mjEswJuxIaMmIvtoFxUD5XnOio94tK+u6AH
-         d/EKoRaxrIJwGK5igLxEaMVebjC4IbXGt6Fdw32Q6HPpfntpT0YNvcz0QU5vlryhBms9
-         WnF2+pyOCNYerpIBq8/C7FpoSCHGbXBWuVKpmRTx1d76VgAwW5gMh9lHgrpaseo1tqqQ
-         tsh4k0P6hagwOMv01sektQTQrDsr1TwxdRxXqbHBtQ0bu3LsTVM2F6KukXi5gKWJgVvL
-         1DSA==
+        bh=7dXCZqzkXmwN+wFfCdS/ByK9E7Gk9Xnhivu9BJqco3s=;
+        b=NusoFDI4t91NfrzS3bj8E3zEsCwq6mQvOJ6MNosjiS3k5r1b5C5S3plsbFtGD8TeNX
+         FI0vR6h886YvjlQsJI/6+4DTgt46Lxm/HoT4bz9tM+l9ouWsTNyzbyEjL55JAorT+2so
+         mTqe7BNSzdChKDZBlXBPO/sNvDq3KoKMmVzfnZ5QzcZtx7uAGHzPtXFPTf9NtrLSebFn
+         oLBwnLEw0r70Az5wcFrH4uztGRFQR+cmcZBGPWcvG+uyFMkxxU/mYxrRV513ONMC71A3
+         9QrwSxsRug/adq3KDI8qYnGoxUJYBc8T6Y1eV77N/FvkOs3jqFBF8FBFeihCx/J2IvRN
+         FC0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795684856; x=1796289656;
+        d=1e100.net; s=20260707; t=1795684858; x=1796289658;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qwv5F15K0gQkiOaOk8klOzfJ2jmiYtyCZXXUL00XQbg=;
-        b=tHTzuZ/KZSQwN4PI8dUMz0mSzaNwnVuON1dEnrS4HAD/UPKD/18nAcugRAws8+c6xY
-         Tklsom/4f4RqebeE5jvDJjb7fz2CfTDQaFMn4eDoAoNROlvbjQvulzAw6NCG75VjZVBA
-         gKK91Z8Rlfkdx3U8FadZi+6huj7TEnnq7l4JJJXeTmozvjcRDd8tMJCxgQQl5mLMsbVi
-         IvHTlczo7r7yoOWcNxoolRXthcQD6yYQtHae6QYsP0qAiQCla9oyz8cnqgid4vDbEA87
-         xtto7bzD6qSDyAR+Gj2tjHb3uQo7JbhLsO8BEVg2swUciS+58fttwRqkp9PaWyEH7YHS
-         dZzw==
-X-Forwarded-Encrypted: i=1; AL+hErG/D2mTUsnnhUupfLPCZPWkmj4S9ebr0WA24781P3K0DRG7L9dAn2AIYqt4U7qddvJ4J/NOcVVeMnW74CU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+yfTsotASBy1KR315khdJLjyhCi6muNVV/++8YRvZ+4UT9KrKU
-	mXOOFzADtVBHrC+fXXdZtAoIgha21Vj+SvxeJ8CIgs19L9HDzMjsQH+xzngtrlwFetOPJPa50kG
-	A+qx1+hJowrBS2Hn1ly/QIrxG2EPjhpsmnHzOPLwkYRQCe6l77pkPt7Jsfm6EixklhVw=
-X-Gm-Gg: AZFdTZeQXvOIwnt6Uyg2Ur5RGaI/VaUMDzwwCsEjJCz5hoZ0ny6xpIDlakA6h2D6fyf
-	SJ706T/Io3SA0GTyX8/NJm75M3v9fhAI2avipM72eHn6GaWhLhausnmq5J4ZWIZlaqxXx5fmaLF
-	PsopVqgSzB5oRxRCNpPPWmjzmTaa1tv0IDZvE1SN7OZN4i7gyYLp4XsPpvjCzzItfpldeUGvZEh
-	MmY/YSO6tojw47jiTZQkdNWSjrPwAMGHpOZIifBwQ1158uNaRz37FOLcu2nnSRy21wDGlVpu5d2
-	ex8DAdiETs1Tlrur4QOLvrfFma4KNv2xKg4/LJ5NgemzHCw1FAv09aXYVZkK1jt+tIbjyCf+hRZ
-	htmHFEegYvA3NhITeMC4ikdPzuoHO2n5sg57udUIeNQCB41TlFEzCHJRIstPqP+OCNYy2p8JZEX
-	uHHG9b88gs0ceK+2dYmSB7mnJLqX32iBY=
-X-Received: by 2002:a05:6372:a713:b0:3e2:3392:53f4 with SMTP id adf61e73a8af0-4014d456ca2mr13153519637.18.1795684855621;
-        Thu, 26 Nov 2026 01:20:55 -0800 (PST)
-X-Received: by 2002:a05:6372:a713:b0:3e2:3392:53f4 with SMTP id adf61e73a8af0-4014d456ca2mr13153503637.18.1795684855128;
-        Thu, 26 Nov 2026 01:20:55 -0800 (PST)
+        bh=7dXCZqzkXmwN+wFfCdS/ByK9E7Gk9Xnhivu9BJqco3s=;
+        b=Y/jhbQpU6nkBAIMKhHmg2SY/CO7D2WqjZlBJ1kGTokgIMtsbxdIQEtDBmkGZjlouYi
+         24eRe9kWg8Kk0ysX7VZLJmjjJ8dGlnlB+jAJYhoAWE/nKZqAqTTnHSeFARy61wERpuPB
+         1D67iRHHUWiEfbMxcH39K7nrsdOy+z7JluxgnHsTFfhpUftBUIf5Wio+Q8cz6MFxVUag
+         946I23gGzDUU5hv5VEbF5+AKIAOxL7OzFlVljnJK33d9XpRhkyBif3NHazrI8JWkaOql
+         Ul5v/MI20z6F5WDg3nJdLXRtmpKr9N2Fm9i6+CfgViaICNe2WhiYaGnavTixsuMxYqTC
+         zBhw==
+X-Forwarded-Encrypted: i=1; AL+hErE4srSTt604kM1U8i4N2q5wxIBEmj6hC9Xh/8jbBbA1UVJwb5m8j3EGjZTp1d8ksZ1at24QT35wuHIbL0M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+kTy1+0QJDRgxl9cvoDFTZX3D7WeQWME72EyLtvFQp4QY7B3V9
+	XOmeWOPoAHp/+z8cF36GlERKKDjY0yejMDvZOyD9ELZuANfeIVzsR9dDbYcysx3m/C78V+bI57O
+	jxGYgQA/e8vL6BGo6kiyvyRwApAo/WrATftgiWrKCs5L6fmlM+l2XiJwZrqlqBMJpCf8=
+X-Gm-Gg: AZFdTZc3T/0AG4veubs2uqSTytupT4g1WTZGvLiNvGj7kfkM3XhRO7iCwKkouRaBfEu
+	IX5yYWinrbl2uIgSLVAtNUQvvdjUjTbNnaXJ/yNTLgJrwzWfvw8CJOX2MR3MWa6MN1yP86avmA3
+	sXiZ0mC6aXRzEYU0KNJUrErncjeCNDkSjougVzFCzhl6mCdhD+JpNKG8ClTtyYZvfCJ9FtKeFqy
+	RccCUX7EA/C3R15XWtmQP9R70oUr/2zrWJrZgtmr0g8urV59fTd9AFV5T12UN7+z2lH7zcGfyZA
+	6IVWpnSOdKxKnmOsBSP4/uuXIvaa51B/UUuwvpkPgbblxKfwlm+G+Uz+Ycn7JezSmMqVbL9NCkx
+	jfl4vo02lDkD63TPDzgpvdzHVMYgqW1LuQLjNIAANY9OuFw9FvBv9ZdMkR5VF1T+gBcgp/5TADW
+	LbvurJ7PfwoQoQaNqKjPaEVcd/9rEmPJA=
+X-Received: by 2002:a05:6a20:2446:b0:3dd:85aa:452a with SMTP id adf61e73a8af0-4014b5659d7mr23101904637.37.1795684858002;
+        Thu, 26 Nov 2026 01:20:58 -0800 (PST)
+X-Received: by 2002:a05:6a20:2446:b0:3dd:85aa:452a with SMTP id adf61e73a8af0-4014b5659d7mr23101877637.37.1795684857511;
+        Thu, 26 Nov 2026 01:20:57 -0800 (PST)
 Received: from Z2-SFF-G9-MQ.ap.qualcomm.com (i-global052.qualcomm.com. [199.106.103.52])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c8707792e8sm10752089b3a.7.2026.11.26.01.20.53
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c8707792e8sm10752089b3a.7.2026.11.26.01.20.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:20:54 -0800 (PST)
+        Thu, 26 Nov 2026 01:20:57 -0800 (PST)
 From: Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>
 To: jjohnson@kernel.org
 Cc: ath12k@lists.infradead.org, linux-wireless@vger.kernel.org,
         linux-kernel@vger.kernel.org,
         Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>
-Subject: [PATCH ath-next v2 2/7] wifi: ath12k: send overwrite flags and AP MLD addr in MLO link set active
-Date: Thu, 26 Nov 2026 17:20:32 +0800
-Message-Id: <20261126092037.462830-3-miaoqing.pan@oss.qualcomm.com>
+Subject: [PATCH ath-next v2 3/7] wifi: ath12k: fix ath12k_mac_op_change_vif_links() for active-link updates
+Date: Thu, 26 Nov 2026 17:20:33 +0800
+Message-Id: <20261126092037.462830-4-miaoqing.pan@oss.qualcomm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261126092037.462830-1-miaoqing.pan@oss.qualcomm.com>
 References: <20261126092037.462830-1-miaoqing.pan@oss.qualcomm.com>
@@ -122,24 +122,24 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: gGn7Or7AMCWelivJTOJlTuDgsHhWfvVE
-X-Proofpoint-GUID: gGn7Or7AMCWelivJTOJlTuDgsHhWfvVE
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzNiBTYWx0ZWRfX4ND4ZSazZK96
- ekznmc+2+c6LTssCS46PDlbHjOgdeynKK4tobeC9b9CICx9tsIr2Gb0au6+D8oE7+WaWf9xf0KB
- tTz/9rdLM7ooIrfL5gzTauofgtADLxvf0EfjCbUKJ0kG432oQ0gjsWLF4+aGBpGtD8lGrzMif+J
- H+qxLSsyHhFz6e7Wn4aEXFsSg6T1tRFizTpDCo9JO3rgsiJmsNpZ41S2cx5G2JjeAVwSES+4MIC
- Epc9rNByJKi6A5CyZh7qLb1u8lKlRH8SCdqBuLrSNh2dFwJ/3QKEbc2zKvEL9/q7VwHWEZ8S1nU
- /VOOukjERuT55p05NnfDfUfBxDbwG99qzDbNz7jtN/zBS5z4sK13O6ap/D3sdq14SMjoWYwtRCF
- TTmCM6Vh5305/6Fw8Tz6k1zNf5zuKSIrnKedYuCmTX2d5YJBZYcMsK0mNVN98pws8FatVle00ww
- b2ENGkdJMUghNpMWoSA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzNiBTYWx0ZWRfX57ZOZE1eIRQb
- hzpjTJKz2eStfpn9NZsP9b29zv0GN5KQsVlw7gsu5evW7uKgPKCWiHOhYLoaMzVq3k7RDfCoysb
- 5EjBuAgAt/W3bybNR/NJ1Uf0h5NCzlw=
-X-Authority-Analysis: v=2.4 cv=L4GI0OT8 c=1 sm=1 tr=0 ts=6b07f9f8 cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=b9+bayejhc3NMeqCNyeLQQ==:17
+X-Proofpoint-ORIG-GUID: ekvogniQYM6Vi84BdnAe4sKdQyjDV1hv
+X-Proofpoint-GUID: ekvogniQYM6Vi84BdnAe4sKdQyjDV1hv
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzNiBTYWx0ZWRfX32bg3CPwFy2B
+ k1iG+Mjh8vPxdOXR40SAXMlDFTxQA3+u57MvW5ehll26GZJRyZUaY/JZJttWSel0s/VSkEK1VV7
+ /e4RuSR2FMJbGvi88FfCzgC0FbHWwm0Csq956NVNZCAD4qnWi9qroxvohUhBApWif4nlncdNmpk
+ RVWboRhOPN/37rbvIiYvUMRG/h9nN3P6CyLraGgQ8GGerDbksTkTGQSShEoSas9zxhGoAQoCIUK
+ 8EYLFEPmO8IxL81mXgTcH1AYyOFij+p/1cMir5mT6dVstKek6XX8CGHYc9xQH3VXypvRjg7WuQz
+ iGvpVu21wnWqHhBU1PeGBDtxP59yxvckQhzr7mbJmmvLbAUgT+pf+xMW1uGcmBTGgO29TqIowVd
+ IivTapF+fRpFx+B+1cjK6jBNsSS6uhoOTwJMQkTLBdRWHB/JWSj+8XFMAgY81w0KckaPBnRhzWO
+ 0cPB6R9j4MLci6O2ASQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzNiBTYWx0ZWRfX/n/RiJgSrPbM
+ CEEvKWg5LJzZfp5Mjtx0N1O34CKhYgj12e2fR++EgdCOYh60dJH5ryXqE6V6boga4VIoD3YDjcj
+ bvAlntBFfvCuuA59TUS4qD127B+mp4Y=
+X-Authority-Analysis: v=2.4 cv=L4GI0OT8 c=1 sm=1 tr=0 ts=6b07f9fb cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=b9+bayejhc3NMeqCNyeLQQ==:17
  a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
  a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=EUspDBNiAAAA:8
- a=2wyP5r7tFOAPNzKROpoA:9 a=OpyuDcXvxspvyRM73sMx:22
+ a=Ns_Jbl9W-MFJWGn9c5UA:9 a=3WC7DwWrALyhR5TkjVHa:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-26_02,2026-11-25_01,2025-10-01_01
@@ -149,116 +149,74 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260036
 
-When CTRL_F_OVERWRITE_FORCE_ACTIVE_BITMAP or
-CTRL_F_OVERWRITE_FORCE_INACTIVE_BITMAP is set in ctrl_flags, firmware
-replaces the existing force link bitmaps rather than OR-ing the new bitmap
-into the accumulated force state. Without these flags, successive commands
-accumulate: forcing link A active and then forcing link B active would
-leave both links forced simultaneously, making it impossible to clear a
-previously forced link. With the overwrite flags, each command atomically
-replaces the force bitmap, giving the driver precise control over which
-links are active.
+Currently, ath12k_mac_op_change_vif_links() derives the links to add and
+remove from the old_links/new_links arguments: it creates a link vif
+(arvif) for each link in ~old_links & new_links and frees the arvif of
+each link in old_links & ~new_links.
 
-Encode the two overwrite flags in WMI_MLO_LINK_SET_ACTIVE_CMDID, and copy
-the AP MLD MAC address from the argument into the command. Also fix the
-CRTL_F_DYNC_FORCE_LINK_NUM typo.
+However, mac80211 invokes drv_change_vif_links() both when the valid
+links change and when the active links change. In the first case
+old_links/new_links are the valid links. In the second case they are
+only the active links, while vif->valid_links is not modified. A link
+that is deactivated is therefore reported as removed, although it is
+still a valid link of the MLD.
 
-ath12k_mac_mlo_sta_set_link_active() takes the AP MLD address and sets
-both overwrite flags when the mode is FORCE_ACTIVE_INACTIVE. The existing
-caller passes NULL and uses INACTIVE_LINK_NUM, so its behavior does not
-change.
+To fix this, derive the arvif lifetime from vif->valid_links, which
+mac80211 updates before calling the driver and which an active-link
+change leaves untouched. Create an arvif for each link in
+valid_links & ~links_map and remove those in links_map & ~valid_links.
+A link that is only deactivated keeps its arvif. On disconnect
+(valid_links == 0) every remaining arvif is removed. The WARN_ON() for
+adding a link that already has an arvif is dropped, since links already
+in links_map are not selected for creation.
 
 Tested-on: QCC2072 hw1.0 PCI WLAN.COL.1.0.c2-00277-QCACOLSWPL_V1_TO_SILICONZ-1
 Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
 
+Fixes: 315d80be304a ("wifi: ath12k: allocate new links in change_vif_links()")
 Signed-off-by: Miaoqing Pan <miaoqing.pan@oss.qualcomm.com>
 ---
- drivers/net/wireless/ath/ath12k/mac.c | 10 ++++++++++
- drivers/net/wireless/ath/ath12k/wmi.c | 11 +++++++++--
- drivers/net/wireless/ath/ath12k/wmi.h |  4 +++-
- 3 files changed, 22 insertions(+), 3 deletions(-)
+ drivers/net/wireless/ath/ath12k/mac.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/net/wireless/ath/ath12k/mac.c b/drivers/net/wireless/ath/ath12k/mac.c
-index a247dcf387de..cecd634c5f7f 100644
+index cecd634c5f7f..d7234ef9c025 100644
 --- a/drivers/net/wireless/ath/ath12k/mac.c
 +++ b/drivers/net/wireless/ath/ath12k/mac.c
-@@ -7573,6 +7573,7 @@ static bool ath12k_mac_freqs_on_same_mac(struct ath12k_base *ab,
- static int ath12k_mac_mlo_sta_set_link_active(struct ath12k_base *ab,
- 					      enum wmi_mlo_link_force_reason reason,
- 					      enum wmi_mlo_link_force_mode mode,
-+					      const u8 *ap_mld_addr,
- 					      u8 *mlo_vdev_id_lst,
- 					      u8 num_mlo_vdev,
- 					      u8 *mlo_inactive_vdev_lst,
-@@ -7585,6 +7586,14 @@ static int ath12k_mac_mlo_sta_set_link_active(struct ath12k_base *ab,
- 	param.reason = reason;
- 	param.force_mode = mode;
+@@ -4388,9 +4388,8 @@ ath12k_mac_op_change_vif_links(struct ieee80211_hw *hw,
+ 			       struct ieee80211_bss_conf *ol[IEEE80211_MLD_MAX_NUM_LINKS])
+ {
+ 	struct ath12k_vif *ahvif = ath12k_vif_to_ahvif(vif);
+-	unsigned long to_remove = old_links & ~new_links;
+-	unsigned long to_add = ~old_links & new_links;
+ 	struct ath12k_hw *ah = ath12k_hw_to_ah(hw);
++	unsigned long to_remove, to_add;
+ 	struct ath12k_link_vif *arvif;
+ 	u8 link_id;
  
-+	if (ap_mld_addr)
-+		ether_addr_copy(param.force_cmd.ap_mld_mac_addr, ap_mld_addr);
-+
-+	if (mode == WMI_MLO_LINK_FORCE_MODE_ACTIVE_INACTIVE) {
-+		param.ctrl_flags.overwrite_force_active_bitmap = true;
-+		param.ctrl_flags.overwrite_force_inactive_bitmap = true;
-+	}
-+
- 	for (vdev_idx = 0; vdev_idx < num_mlo_vdev; vdev_idx++) {
- 		vdev_id = mlo_vdev_id_lst[vdev_idx];
- 		entry_idx = vdev_id / 32;
-@@ -7683,6 +7692,7 @@ static int ath12k_mac_mlo_sta_update_link_active(struct ath12k_base *ab,
- 		mode = WMI_MLO_LINK_FORCE_MODE_INACTIVE_LINK_NUM;
- 		reason = WMI_MLO_LINK_FORCE_REASON_NEW_CONNECT;
- 		return ath12k_mac_mlo_sta_set_link_active(ab, reason, mode,
-+							  NULL,
- 							  mlo_vdev_id_lst, num_mlo_vdev,
- 							  NULL, 0);
- 	}
-diff --git a/drivers/net/wireless/ath/ath12k/wmi.c b/drivers/net/wireless/ath/ath12k/wmi.c
-index dde7721182af..7e06dbb1e884 100644
---- a/drivers/net/wireless/ath/ath12k/wmi.c
-+++ b/drivers/net/wireless/ath/ath12k/wmi.c
-@@ -11832,6 +11832,7 @@ int ath12k_wmi_send_mlo_link_set_active_cmd(struct ath12k_base *ab,
- 						 sizeof(*cmd));
- 	cmd->force_mode = cpu_to_le32(arg->force_mode);
- 	cmd->reason = cpu_to_le32(arg->reason);
-+	ether_addr_copy(cmd->ap_mld_mac_addr.addr, arg->force_cmd.ap_mld_mac_addr);
- 	ath12k_dbg(ab, ATH12K_DBG_WMI,
- 		   "mode %d reason %d num_link_num_param %d num_vdev_bitmap %d inactive %d num_disallow_mode_comb %d",
- 		   arg->force_mode, arg->reason, num_link_num_param,
-@@ -11844,10 +11845,16 @@ int ath12k_wmi_send_mlo_link_set_active_cmd(struct ath12k_base *ab,
- 					 sizeof(*link_num_param) * num_link_num_param);
- 	buf_ptr += TLV_HDR_SIZE;
+@@ -4400,14 +4399,15 @@ ath12k_mac_op_change_vif_links(struct ieee80211_hw *hw,
+ 			   "mac vif link changed for MLD %pM old_links 0x%x new_links 0x%x\n",
+ 			   vif->addr, old_links, new_links);
  
-+	cmd->ctrl_flags =
-+		le32_encode_bits(arg->ctrl_flags.overwrite_force_active_bitmap ? 1 : 0,
-+				 CTRL_F_OVERWRITE_FORCE_ACTIVE_BITMAP) |
-+		le32_encode_bits(arg->ctrl_flags.overwrite_force_inactive_bitmap ? 1 : 0,
-+				 CTRL_F_OVERWRITE_FORCE_INACTIVE_BITMAP);
-+
- 	if (num_link_num_param) {
--		cmd->ctrl_flags =
-+		cmd->ctrl_flags |=
- 			le32_encode_bits(arg->ctrl_flags.dync_force_link_num ? 1 : 0,
--					 CRTL_F_DYNC_FORCE_LINK_NUM);
-+					 CTRL_F_DYNC_FORCE_LINK_NUM);
+-	for_each_set_bit(link_id, &to_add, IEEE80211_MLD_MAX_NUM_LINKS) {
+-		arvif = wiphy_dereference(hw->wiphy, ahvif->link[link_id]);
+-		/* mac80211 wants to add link but driver already has the
+-		 * link. This should not happen ideally.
+-		 */
+-		if (WARN_ON(arvif))
+-			return -EINVAL;
++	/*
++	 * Link objects follow vif->valid_links, which mac80211 updates before
++	 * calling us. old_links/new_links only describe the active links and
++	 * must not be used to decide object lifetime.
++	 */
++	to_add = vif->valid_links & ~ahvif->links_map;
++	to_remove = ahvif->links_map & ~vif->valid_links;
  
- 		link_num_param = buf_ptr;
- 		for (i = 0; i < num_link_num_param; i++) {
-diff --git a/drivers/net/wireless/ath/ath12k/wmi.h b/drivers/net/wireless/ath/ath12k/wmi.h
-index 68dd13cafe51..6d590b30ecbe 100644
---- a/drivers/net/wireless/ath/ath12k/wmi.h
-+++ b/drivers/net/wireless/ath/ath12k/wmi.h
-@@ -6385,7 +6385,9 @@ struct wmi_vdev_set_tpc_power_cmd {
- 	 */
- } __packed;
- 
--#define CRTL_F_DYNC_FORCE_LINK_NUM GENMASK(3, 2)
-+#define CTRL_F_OVERWRITE_FORCE_ACTIVE_BITMAP   BIT(0)
-+#define CTRL_F_OVERWRITE_FORCE_INACTIVE_BITMAP BIT(1)
-+#define CTRL_F_DYNC_FORCE_LINK_NUM             GENMASK(3, 2)
- 
- struct wmi_mlo_link_set_active_cmd {
- 	__le32 tlv_header;
++	for_each_set_bit(link_id, &to_add, IEEE80211_MLD_MAX_NUM_LINKS) {
+ 		arvif = ath12k_mac_assign_link_vif(ah, vif, link_id);
+ 		if (WARN_ON(!arvif))
+ 			return -EINVAL;
 -- 
 2.34.1
 
