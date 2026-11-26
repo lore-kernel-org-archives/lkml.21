@@ -1,66 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795707276;
-	b=b6A9CzTdqNYUoQNE9tZatabz3Aj+hsYtylaKIK8UaW37hGkr/5Rx5DNm8qVXmmekPKym
-	 KyU4eMucDsOhWDm0flc0TCT1Zsas5QOTK4k7+lGDIgvitMuNexqa91HRHCiX4V6hysKz2
-	 CfBT9hZIASIlieIdlyL/4gBHUadtnn7y/LetNaDXI8RX9Bsix4vedAFCtXPnhW/ruNxPg
-	 wD5NMypLmv4Ta9VTWPolPm0IomN4Z30SCGKhw+xtA4XLkkXSo7boBVIBqkHFOKtwFfCs3
-	 TZgQOzFDc8FXJjSRs743n+S7OYuw5mMSa86RUKZ0NYONc/AjxeeyNFoBviZkmb2Npyw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795707276;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=a9FtnrpxaIAKefnbYYtSZG/5XURLP2+2TW4SlFBwbQw=;
-	b=qFa/jQ8WzUuEQaXyHsEFhNhiP8ulerqPDZAu5zCQCZK27bBgSgw6xFVvL57KExsN03T5
-	 x4sx3nw/ggIFq5J5KE+EINONXnLuneOtItiH8mKqKHmXUWl8B7NehIHiesv+gbYy1YlTr
-	 d408SBvKrZoH+2jigBDuVEn8tU6KzbDdu3KRa17Hii7kSt+jOVl8iIhixMhdk8yxDjPdy
-	 pNHJqVwjckrTSwK9lJy97YPW1hisDjUsnX62izrADkX/5VBwZGHR75w/MXhttXOLXuQxT
-	 kzzkg9vyLsrED4zLIiNOg1c2JK8XLXAlZbWxn7ZmInVO+iAbd+nxOJQ/EUoFT0kZ/vA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=uo8qy9tt;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9A700606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:34:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A700606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795707296;
+	b=5H6IxAaj6MkbYBMJc0IFQWlST/QZGqfJ6dMdBH4cFTbonL3V0hgBv6E7KQWBwLxeRRBr
+	 aRzEzscRqZJBp7PKwZ6vM103vf7yqF2lXNL20H11/FAb9nCIXc2v2Exs05YXW8qosylhY
+	 RmMw7mVtEDk3UVfjWy361LAiANhGmRZTgmsqgB+VqpxEywfkdCemPoRDwDX+NU/dFIAqo
+	 KFQIkMYf/UCzqH/Dc+vWRUkoRfCebSYDvOmt/YUDrdNap+j+/6ugrf6a9sqGw/10PoNXJ
+	 Szj2+MRWAzSv8OlDqirUbXJw5AR52aWJlvhQBtxwnblteN/DDHXBZXLaRuBStgI7dzQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795707296;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:In-Reply-To:References:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=B/HUnvAbOtNt4rDSrPJDRorwf8U9aGoTH/cBx0v4eEk=;
+	b=H5Q5pi0A4BSpO9q5Uq+O1xGmXuX/sLU7Z+5dLPdHYOV3zN1LKJsImXXtL16//KEcYcMP
+	 og9JNrgAt3AMasfRXYGYkx7OB5F34VVxE2DAPCREgRmM6o5F9xgozwr6607JeQHNMPvN6
+	 b7Q5stHA9Y4dBIafvoOzkaXodkOC6mYmitMFhPXyjFMDbpkfrmDZRhc8HgheWXthNLzl6
+	 lgCvQN0T9Z2yt/UbefimbwMRD1BOuzcC/MWalrVuKfKDy4BL8knOIdWM58VEss0qzKxTc
+	 qN8ysOgQFO1/M9P4J2yukfiOib++y5E+sXiNAxFqJVN8d6sxtjDZ++FNThpQ93n8PRw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TZPmR89F;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BD2F606A31C;
+	Thu, 26 Nov 2026 15:34:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=uo8qy9tt
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DC2481BA8;
-	Thu, 26 Nov 2026 07:34:31 -0800 (PST)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 777C93F632;
-	Thu, 26 Nov 2026 07:34:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795707274; bh=COJsSm9NqCcxDFb9aLudm4GL9sjUzsTZPKkS4GralMI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uo8qy9ttqyfmseiEQZrw1bJLsSxmeADlJQKxYP5v31RAV3gztbVxStVzC63OwPQDd
-	 whtUFGngeo8ICHlzjGOD/MrNOSZqveBp3uxYYOL+MX0jnroFMvM1ZnVC1QQVSVomtO
-	 W768DmlpA/KtmkvEokdsl1C4MBPM0Mc2PW7tCTCQ=
-Date: Thu, 26 Nov 2026 15:34:19 +0000
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Usama Arif <usama.arif@linux.dev>, Lorenzo Stoakes <ljs@kernel.org>, 
-	maz@kernel.org, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, riel@surriel.com, 
-	shakeel.butt@linux.dev, kernel-team@meta.com, rkeilty@meta.com, atish.patra@linux.dev, 
-	dgreid@meta.com
-Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
-Message-ID: <klnyvfxwhpw73wo55y5aq3qliglnf7xkfkmfj6cgzje7z3n2fq@aqjxshyjnldu>
-References: <20261124152842.2634495-1-usama.arif@linux.dev>
- <awcXhk885lqDRAHy@LeoBrasDK>
- <06a69a4f-59bb-49b8-9ed0-f4cfe0ecad37@linux.dev>
- <awcoCklLOKeuXPhh@LeoBrasDK>
- <e7bdcfa9-bbd8-4649-8318-2f6dc236db15@linux.dev>
- <4jxdf2pkuu2f7dftvf6ltpv27jctfuvvrfcrbfxudsgnp3hdfk@taur55wftexq>
- <awhODYKXnsBi_s_B@LeoBrasDK>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TZPmR89F
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795707295;
+	b=r48tsQoyMuneuZwuccDXMkonx3UU4nkQnqh1oipscps3g8OQU084GxLUaOEWGidHInp3
+	 8uPPU9+sWFQ2iez9CxMpIEIWO6QwKkOqQchWg2c3OMD7fuM6uhDeRtKoHspfxAW0pGWhs
+	 +qhWnm8SNhRBJIUoq98tC+V/plkWdreAxQmaWSHGbdN+MtYvvN6rZc4dWbSlB8jTwZk0M
+	 9PNlcNt7DXi3F9f0xaFup9jxVRzljady4X7ESRntjiz4aedaxTiywPJUYvbYN0d3N+Eg6
+	 Q2l7KzZlyPxZvW2QMbX/Crqph+UqVfEhDWcd3erP+EH9iEhZYX5tnEWPvP76KrJfvhA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795707295;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:
+	 In-Reply-To:References:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=B/HUnvAbOtNt4rDSrPJDRorwf8U9aGoTH/cBx0v4eEk=;
+	b=FPDnvbn27ZoEU6Cr19fv54jVRDR4i8sgLy0vnuNz8tvNvNq8BPamgPWWCY7qEdmSSE5n
+	 nLus2BDapafjUwV4lJLfDIJa61Jxx5SGIcCLOC1hzICdd5+XF/vwdLBq/IiF7W5lX9Nof
+	 iEiYlYd1yjZEE05mntK+42WRxTe3sEjsTGNgO83hvGKvv9S4dgTAppxQ2g28xWemtzZ4+
+	 ZsnT32aw16UvFxNXY65Xaqu4zLpaBVllJcw+HoqP9FTQrEyFr8acPvGCVkbT2ECQeaUI8
+	 FmYKPZtPHhxRi7BDVlnXEpyAWwdRo52aeEPofpMyqLzSksqJXaDSEY9NTFHBAC/mZNA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 053061F000C0;
+	Thu, 26 Nov 2026 15:34:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795707295;
+	bh=B/HUnvAbOtNt4rDSrPJDRorwf8U9aGoTH/cBx0v4eEk=;
+	h=From:Date:Subject:In-Reply-To:References:To:Cc:Reply-To;
+	b=TZPmR89FlTTj6292+TCY/leZORZRvZrvfuYx3XAkky3UlPBxJWLqBFoMjjq+ky0pY
+	 sEIyL1TqPjzLQHjGwT0J+TzVWeCHhoi/dTr/Uuuo/uJUqfD5+UMAgBu0XumGhsvvuR
+	 EJQEqt842UhiGgVV/2ZbG1bPzqFyBEEbe8iX9svnhVBZmc7vOhApd+BtQdlTsCEnkf
+	 zGOHHvlCDYn1t53ma0WwrQLcG7hK2isAVKsMY8WfpTCCSiEciwbWT7UqI/xVlmdASj
+	 cWZojR34MXzB+23WJS2JcaKTwAXBuUrlo6mHTa/dhdjg6dupLKln1xMdbA/68V0svE
+	 3dfOAbf/BomXQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 76D864D5D9;
+	Thu, 26 Nov 2026 15:34:45 +0000 (UTC)
+From: Daniil Matus via B4 Relay <devnull+matus.daniil.gmail.com@kernel.org>
+Date: Thu, 26 Nov 2026 18:34:27 +0300
+Subject: [PATCH RESEND v2] kunit: tool: Preserve suite ancestry in JUnit
+ test identities
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,164 +84,135 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awhODYKXnsBi_s_B@LeoBrasDK>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-kunit-junit-classname-resend-v2-1-9b64a461fd86@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAIJRCGsC/y2OwW7CMBBEfwXtua6wKaGphNQIgioOSKGHHioOj
+ lkSA7FTb8ClKP/e2O1lpHmzeto7EDqNBC+jOzi8atLWDEU8jEDV0lTI9H7oIMYi4Vwk7HQxumP
+ HmOosiYxskDkkNHs2TcaSH1KphOIwKFqHB/0d9Z+wzd/zzRJ2f5wu5RFVF9zhspSErHTSqDqgf
+ 1+gYa01ddbd4pdXHm2LbI3ZCtupr7pt++azjcWv9ekjnzzf5ulPUaQ4a2zh2cTlT7Ny7lf+tZH
+ 6/FjFVLaBXd/3v/FwwncBAQAA
+X-Change-ID: 20261126-kunit-junit-classname-resend-560a1f9ac2c1
+In-Reply-To: <CAJeAFep5wgtRpHwANoeqJkWE38y=9zQQ9e7moQw-3rE47b=wFw@mail.gmail.com>
+References: <CAJeAFep5wgtRpHwANoeqJkWE38y=9zQQ9e7moQw-3rE47b=wFw@mail.gmail.com>
+To: David Gow <david@davidgow.net>, 
+ Brendan Higgins <brendan.higgins@linux.dev>
+Cc: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
+ Rae Moar <raemoar63@gmail.com>, kunit-dev@googlegroups.com, 
+ Shuah Khan <skhan@linuxfoundation.org>, linux-kernel@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795707284; l=4395;
+ i=matus.daniil@gmail.com; s=kunit-20261126; h=from:subject:message-id;
+ bh=guR65c33Yy6aOn8l/8tEcwaApr1EtihpO6MCIUvqnig=;
+ b=OAlOK6QD2zDRU86EtZTjHU+7BGEvLys9zTcQJMeqtmHEgE/MucNHt/p6naj4j4nQ+mI/tn+9S
+ lfggROcFKXgDuv/TKWgdJS+fHPcCgcuS4sZ8uMXchaANYix+YCXs2RJ
+X-Developer-Key: i=matus.daniil@gmail.com; a=ed25519;
+ pk=fz9V2/QhKszS4ZwqnIRXMj1O2LdUSQGVUgqGmMdZk0o=
+X-Endpoint-Received: by B4 Relay for matus.daniil@gmail.com/kunit-20261126
+ with auth_id=1654
+X-Original-From: Daniil Matus <matus.daniil@gmail.com>
+Reply-To: matus.daniil@gmail.com
 
-On Thu, Nov 26, 2026 at 03:19:41PM +0000, Leonardo Bras wrote:
-> On Thu, Nov 26, 2026 at 08:06:41AM +0000, Wei-Lin Chang wrote:
-> > On Wed, Nov 25, 2026 at 09:42:33PM +0000, Usama Arif wrote:
-> > > 
-> > > 
-> > > On 25/11/2026 10:25, Leonardo Bras wrote:
-> > > > On Wed, Nov 25, 2026 at 05:55:29PM +0000, Usama Arif wrote:
-> > > >>
-> > > >>
-> > > >> On 25/11/2026 09:14, Leonardo Bras wrote:
-> > > >>> On Tue, Nov 24, 2026 at 07:28:42AM -0800, Usama Arif wrote:
-> > > >>>> When a stage-2 fault may need new page tables, KVM first tops up the
-> > > >>>> vCPU's page cache: if it holds fewer pages than the fault might need, it
-> > > >>>> is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
-> > > >>>> 40. Unused pages stay in the cache until the vCPU is destroyed.
-> > > >>>>
-> > > >>>> With 64 KiB pages, that is 2.5 MiB per vCPU, and most of it is never
-> > > >>>> used. Stage-2 has at most three levels and the root is preallocated, so
-> > > >>>> a fault needs at most two new table pages (kvm_mmu_cache_min_pages()).
-> > > >>>> As every last-level table covers 512 MiB, an 8 GiB guest needs just 17
-> > > >>>> table pages to map all of its memory, while its four vCPU caches get
-> > > >>>> filled with 160.
-> > > >>>>
-> > > >>>> On a production host with 64 KiB pages running 101 VMs with four vCPUs
-> > > >>>> each, the caches were still 86% full. The memory used:
-> > > >>>>
-> > > >>>>                         before      after
-> > > >>>>   per-vCPU capacity     2.5 MB     512 KB
-> > > >>>>   all 404 vCPUs         869 MB     <= 202 MB
-> > > >>>>
-> > > >>>> Let's lower the capacity to 8 with 64 KiB pages, In the production
-> > > >>>> usecase above, it frees at least 667 MB. That still covers the two-page
-> > > >>>> minimum and leaves room for several table allocations per refill. 4 KB
-> > > >>>> and 16 KB pages keep 40.
-> > > >>>>
-> > > >>>> The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
-> > > >>>> but it is topped up before every page it maps, so 8 is sufficient there
-> > > >>>> as well. The pKVM hypervisor memcache and the eager split cache don't
-> > > >>>> use this capacity.
-> > > >>>>
-> > > >>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
-> > > >>>> ---
-> > > >>>>  arch/arm64/include/asm/kvm_types.h | 5 +++++
-> > > >>>>  1 file changed, 5 insertions(+)
-> > > >>>>
-> > > >>>> diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
-> > > >>>> index 9a126b9e2d7c99..28568da9ea4a7b 100644
-> > > >>>> --- a/arch/arm64/include/asm/kvm_types.h
-> > > >>>> +++ b/arch/arm64/include/asm/kvm_types.h
-> > > >>>> @@ -2,7 +2,12 @@
-> > > >>>>  #ifndef _ASM_ARM64_KVM_TYPES_H
-> > > >>>>  #define _ASM_ARM64_KVM_TYPES_H
-> > > >>>>  
-> > > >>>> +/* Must cover kvm_mmu_cache_min_pages(), at most 2 with 64 KiB pages. */
-> > > >>>> +#ifdef CONFIG_ARM64_64K_PAGES
-> > > >>>> +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 8
-> > > >>>> +#else
-> > > >>>>  #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
-> > > >>>> +#endif
-> > > >>>>  
-> > > >>>>  #endif /* _ASM_ARM64_KVM_TYPES_H */
-> > > >>>>  
-> > > >>>> -- 
-> > > >>>> 2.53.1-Meta
-> > > >>>>
-> > > >>>
-> > > >>> Hi Usama,
-> > > >>>
-> > > >>
-> > > >> Hello Leonardo,
-> > > >>
-> > > >>> Have you tried to reproduce this issue in v7.4-rc1 or newer?
-> > > >>
-> > > >> Yes. The patch is against kvmarm/next (v7.4-rc3), which includes
-> > > >> Lorenzo's pre-fault series, and I A/B tested it there.
-> > > >>
-> > > >> On unpatched v7.4-rc3 with 64 KiB pages, a VM whose 16 vCPUs each fault
-> > > >> in one page needs a single stage-2 table page, yet the vCPU caches hold
-> > > >> 640 pages (40 MiB). With the patch they hold 127 pages.
-> > > >>
-> > > >>>
-> > > >>> IIUC Lorenzo Stoakes introduced a change that would cause the memcache to 
-> > > >>> skip topup if the cache contains a minimum of ~4 pages, so it can possibly 
-> > > >>> improve that issue.
-> > > >>
-> > > >> I don't think that part is new. __kvm_mmu_topup_memory_cache() has
-> > > >> returned early when mc->nobjs >= min since commit 6926f95accee ("KVM:
-> > > >> Move x86's MMU memory cache helpers to common KVM code"). Lorenzo's
-> > > >> commit d27acc152c62 ("KVM: arm64: Size the stage-2 memcache from the
-> > > >> fault MMU") takes min from s2fd->mmu instead of vcpu->arch.hw_mmu. For a
-> > > >> guest abort that is the same MMU, so nothing changes here.
-> > > >>
-> > > >> With 64 KiB pages, min is kvm_mmu_cache_min_pages(), which is at most 2.
-> > > >>
-> > > >>>
-> > > >>> Although I can see that when it's below that minimum it fills the whole 
-> > > >>> capacity (40) of the cache.
-> > > >>>
-> > > >>
-> > > >> Right, and that is the problem. Skipping the top-up avoids refilling
-> > > >> the cache, but nothing ever drains it. A vCPU's first fault fills its
-> > > >> cache to 40. Each last-level table covers 512 MiB, so a guest needs very
-> > > >> few table pages, and most vCPUs never drop below min. The remaining
-> > > >> pages stay allocated until the vCPU is destroyed, which is why the
-> > > >> production caches were still 86% full.
-> > > >>
-> > > >> The patch keeps the early return and only lowers how far a refill goes.
-> > > > 
-> > > > Right,
-> > > > 
-> > > > I took a look in the cache workings, and it does not seem to receive freed 
-> > > > pages back in. It gets filled by topup and used by map, so IIUC it is used 
-> > > > only to avoid failing an allocation during the mapping walk.
-> > > > 
-> > > > Maybe it could be the case to simplify this cache to have the capacity 
-> > > > about the same as the minimum (since it always topup before mapping) and 
-> > > > avoid the waste altogether.
-> > 
-> > Well the more you reserve the less frequent you'd need to actually allocate at
-> > topup, which saves time, so there's this trade-off to consider.
-> > 
-> > Thanks,
-> > Wei-Lin Chang
-> > 
-> 
-> Hi Wei-Lin,
-> 
-> IIUC, every time we topup, we call a mmu_memory_cache_alloc_obj() for every 
-> one of the objects in the array. So as it is today it runs it 40 times, and 
+From: Daniil Matus <matus.daniil@mail.ru>
 
-Not necessarily, I meant with 40,
+JUnit testcases currently carry only a name. A parameterized KUnit test
+becomes a nested testsuite named after the test function. Reusing that
+function in several outer suites therefore produces the same immediate
+suite name and parameter name in each of them.
 
-if (mc->nobjs >= min)
-	return 0;
+For example, cs_dsp_test_run_stop_callbacks is registered in four cs_dsp
+callback suites with the same "all ops" parameter. GitLab identifies cases
+by suite name, classname and testcase name. Without a classname, these
+distinct cases have identical keys in the imported report.
 
-happens way more often.
+Set classname to the dot-separated ancestor suite names, including the
+parser's main root. Preserve the existing suite hierarchy, testcase names,
+statuses and logs. Add a regression using the existing nested log fixture,
+whose seven testcases otherwise have only five distinct identity tuples.
 
-> waits until it runs down to allocate up to 40 again.
-> 
-> With the change, it will run 4, then up to 4 how many times are needed.
-> 
-> So having a smaller cache can potentially save both cputime and memory if 
-> the cache is not that oftenly used. That being said, allocating 40 in 
-> sequence would be faster than 4 * 10 because the instruction / data cache 
-> is hot.
+Validation: all 92 kunit_tool_test.py tests pass. The new regression fails
+on the unmodified generator. Comparing all 24 log fixtures shows no XML
+changes other than the added classname attributes.
 
-I agree here.
+Fixes: e9e05c72752f ("kunit: tool: Add (primitive) support for outputting JUnit XML")
+Signed-off-by: Daniil Matus <matus.daniil@mail.ru>
+---
+The first posting wrapped several diff lines in transit. This resend uses
+b4 as David suggested. The code and commit message are unchanged.
+---
+ tools/testing/kunit/kunit_junit.py     | 10 +++++++---
+ tools/testing/kunit/kunit_tool_test.py | 14 ++++++++++++++
+ 2 files changed, 21 insertions(+), 3 deletions(-)
 
-Thanks,
-Wei-Lin Chang
+diff --git a/tools/testing/kunit/kunit_junit.py b/tools/testing/kunit/kunit_junit.py
+index 362207035..d5730aebe 100644
+--- a/tools/testing/kunit/kunit_junit.py
++++ b/tools/testing/kunit/kunit_junit.py
+@@ -10,7 +10,8 @@ from kunit_parser import Test, TestStatus
+ from typing import Optional
+ 
+ # Get a string representing a tes suite (including subtests) in JUnit XML
+-def get_test_suite(test: Test, parent: Optional[ET.Element]) -> ET.Element:
++def get_test_suite(test: Test, parent: Optional[ET.Element], name_prefix: str = '') -> ET.Element:
++	classname = f'{name_prefix}.{test.name}' if name_prefix else test.name
+ 	suite_attrs = {
+ 		'name': test.name,
+ 		'tests': str(test.counts.total()),
+@@ -26,9 +27,12 @@ def get_test_suite(test: Test, parent: Optional[ET.Element]) -> ET.Element:
+ 
+ 	for subtest in test.subtests:
+ 		if subtest.subtests:
+-			get_test_suite(subtest, test_suite_element)
++			get_test_suite(subtest, test_suite_element, classname)
+ 			continue
+-		test_case_element = ET.SubElement(test_suite_element, 'testcase', {'name': subtest.name})
++		test_case_element = ET.SubElement(test_suite_element, 'testcase', {
++			'name': subtest.name,
++			'classname': classname,
++		})
+ 		if subtest.status == TestStatus.FAILURE:
+ 			ET.SubElement(test_case_element, 'failure', {}).text = 'Test Failed'
+ 		elif subtest.status == TestStatus.SKIPPED:
+diff --git a/tools/testing/kunit/kunit_tool_test.py b/tools/testing/kunit/kunit_tool_test.py
+index 85ae21754..d37354c70 100755
+--- a/tools/testing/kunit/kunit_tool_test.py
++++ b/tools/testing/kunit/kunit_tool_test.py
+@@ -18,6 +18,7 @@ import os
+ import signal
+ import subprocess
+ import sys
++import xml.etree.ElementTree as ET
+ from typing import Iterable
+ 
+ import kunit_config
+@@ -725,6 +726,19 @@ class KUnitJUnitTest(unittest.TestCase):
+ 		self.assertTrue("tests=\"0\"" in result)
+ 		self.assertFalse("testcase" in result)
+ 
++	def test_nested_test_classnames_junit(self):
++		result = self._junit_string('test_is_test_passed-all_passed_nested.log')
++		testcases = ET.fromstring(result).iter('testcase')
++		self.assertEqual([
++			('main.sysctl_test', 'sysctl_test_dointvec_null_tbl_data'),
++			('main.sysctl_test.example', 'example_simple_test'),
++			('main.sysctl_test.example', 'example_mock_test'),
++			('main.sysctl_test', 'sysctl_test_dointvec_table_len_is_zero'),
++			('main.sysctl_test', 'sysctl_test_dointvec_table_read_but_position_set'),
++			('main.example', 'example_simple_test'),
++			('main.example', 'example_mock_test'),
++		], [(case.get('classname'), case.get('name')) for case in testcases])
++
+ 
+ class KUnitMainTest(unittest.TestCase):
+ 	def setUp(self):
 
-> 
-> I think the only way to evaluate the performance impact is by running some 
-> benchmarks.
-> 
+---
+base-commit: 97d73c8251226cf27cc6656b4c542869bb8c69fa
+change-id: 20261126-kunit-junit-classname-resend-560a1f9ac2c1
 
-[...]
+Best regards,
+--  
+Daniil Matus <matus.daniil@gmail.com>
+
+
