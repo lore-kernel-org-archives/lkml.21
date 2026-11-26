@@ -1,76 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.207.22.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795675806;
-	b=d4P5qavS8J3TDzfrtWe0Sfa67xwFor/NBe/CP5jDbqHVRcK97Nt0uzPg2gNcb+uq/dxh
-	 iKsDfLDxxQQ5e5dFszkY3S9eNCvhsWdF5yliVeTztxJzQRgLnpYHDTQhMuqb66ZqTiXTP
-	 TfyQLTwVXO14xo2Ofq5iz1zKxUrwp104Cl6mHW2n52t41QyrhzyZSbXHkyO+l0U6JSMqO
-	 iRsOqJoM5RqQAmjEu32jlghlKBkFY7uJV8se06qKG59QLj76ElV9jsqPcz1DzI3cpHkyV
-	 JEQmZbrH9ho4hYG91kzl7/7F3g3dH1ljzGRVKnIKBzfa/MqwPaaW5E1arHQiOqmXSqQ==
+	t=1795675830;
+	b=0HVLCjuXCQBR1uYU2ENPXvIBPtWSUoYSmytO8Slfi8I6jSxlsiTgnXDaGU9AQYyz3kHW
+	 umuU4MqP6nDRWwZat9lPU5sPDODY3o17x1jNReQc8eOx6t91yhguiUM+lwUbnn0OvU4Jm
+	 s/hOtiSZYC3ry3m2PCQ9yX0R7tbJY01JaI8xB0UGzCzCNwsFmiNb4fGIEQ5ci6UcEEjsW
+	 jvcI5bObO8FkKLtNGKjEOQxUdKBM3i2wEZ20HdTaLuxlg2MpcQhnWCoumvMObZqoPk56+
+	 f/B0bOkAOudiW0qPnD2gDpFwd+JYltJ/Y+cnwDd5WnfPB1e04+UDiyMEaR1KdLr/N5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795675806;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
-	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=Zb8du/ZgL0YkfsGgvKac3zPx2H5lc212zhD70YfpTrU=;
-	b=KJjd880CT1LVmIwLhdQm06qZ8yBhrbZWR+OiMGFo9wQ88jTEQgOFfZg2jnqHaAQUjAMF
-	 2LUXI125CFmPGexNlbn7pBtS8w8gDuXGtt4tYrMIBYv3KNkkCSkcAAYYLgG83pGe1Neb/
-	 oQSI6Dqf6hCsCGteHRsKDrFM9jHuKKs6PC1L4D41lc7IjvJfL94PEziLWi8gfKDj5FXAK
-	 ZN82r4zDxgVF7ftuhOOZHFy05s/imop88G9rs4PbGCl58+LxgA9yT4F/OCnE68Ei31kMo
-	 MoNZW/NexmGzY4bfsUwCDmqsKXm9mbKEXOb5RxjsNaVckMk6hE0gQliFITtEJFyy5zw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795675830;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:Cc:
+	 Subject:To:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=ZoiJbuRMqJkbZCgyJM9gElB2PWpxJgreaUQZdBrK56Q=;
+	b=NvwHtVUaK+xN5ARyIPFhrz00+ASupUM3e+pBBOcFYZJdz7qOeugiVCIN9B1/npP1jCHq
+	 wP5bkjD9X+OtZkz/xsS0bs4FLlm1L1ayp2bi0W1JnhPSIrmsDtuvSzap6enF2VnzJoqsn
+	 78kon9gD3f+yF+LpyATgE4pF1gTV8XzzH7WcOcNmFKXUttSZ8WRBOJhsxcjvKixe7D2QE
+	 azEC42sMBFqZ297nwnUXCxiI8CoRCaJvjYpIIpsYUUkGk0NTtrLdqt5WWnexKOl2qQZH2
+	 RoFa2kVqQYX7vyUC1ly9glsnIi78V3xYbHNWijQJE4r34i/OcfK7G+B8UQUSfrv84+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=TO2nPYD9;
-	arc=none smtp.remote-ip=54.207.22.56
-Received: from smtpbgbr2.qq.com (smtpbgbr2.qq.com [54.207.22.56])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eWf9B3YD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50A7A606A31C;
-	Thu, 26 Nov 2026 06:50:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50A7A606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0865B606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:50:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=TO2nPYD9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1795675764;
-	bh=Zb8du/ZgL0YkfsGgvKac3zPx2H5lc212zhD70YfpTrU=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=TO2nPYD9Db0kjNbmLJMH1nNszoJRWuKKs+IqptIIufWk9g+vdms5yKKk9HRUw5Vdr
-	 IpYcrlYIkhQ0GS8F6mvGsNgAHo1N/dYMAWm+XMZn/PJzbNrpiD96d33D8CobEYQsz4
-	 m1uhSrBeWR5KRlJV6VGNpCPz/g7ZzASZvGhbSLiU=
-X-QQ-mid: esmtpgz12t1795675758t6d13b64d
-X-QQ-Originating-IP: nnQhQgMbQLxG9h+7D6IUGi6L73nTL4IBmyUz3o6QQNw=
-Received: from PEN202512010004 ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 26 Nov 2026 14:49:16 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 2135634178366383156
-EX-QQ-RecipientCnt: 16
-From: raoxu <raoxu@uniontech.com>
-To: bhelgaas@google.com
-Cc: luiz.von.dentz@intel.com,
-	tglx@kernel.org,
-	pengpeng@iscas.ac.cn,
-	brgl@kernel.org,
-	wangruikang@iscas.ac.cn,
-	ligongwei@kylinos.cn,
-	maciej.fijalkowski@intel.com,
-	michael.bommarito@gmail.com,
-	18255117159@163.com,
-	xiangzao@linux.alibaba.com,
-	vidyas@nvidia.com,
-	lihaoxiang@isrc.iscas.ac.cn,
-	linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	raoxu@uniontech.com
-Subject: [PATCH] PCI/MSI: Retry a mismatched MSI-X message once during restore
-Date: Thu, 26 Nov 2026 14:49:01 +0800
-Message-ID: <4EDB2ADA2CFC5963+20261126064901.1798104-1-raoxu@uniontech.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eWf9B3YD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40D711F000CA;
+	Thu, 26 Nov 2026 06:50:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795675829;
+	bh=ZoiJbuRMqJkbZCgyJM9gElB2PWpxJgreaUQZdBrK56Q=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To;
+	b=eWf9B3YDEwGcmRFj0Lt9FXm0+gG/uhrPtL2WQ7Yma/3o9ZVdis9nqhwEGQGTz6yvF
+	 +7SdO5QOMxHGlLH/WDSG53ZT2mno39Kr28KB3/iJmwx/nhmFleKM9/HoFy5ZMDT2YF
+	 be2GZh5/g8zGdK+v1+aLxaY4LuD5e1ufc9uYSDwuFGa2TInuz7DVvlMfdQjWWaBv+m
+	 g0XzXceuizNUtU4p2Z1MTw2Se2ZAap+kb6nEuJoFPfs/fdn5HDEM+VBDkkqsFjWcxl
+	 gLZunLqrWkO3mCvXi244BtImayYM7GprQ2lDh9v03FDAigFqHU58CK1TIQkJVbWaYs
+	 w6B5H+DFGgprg==
+Message-ID: <bc771151-b017-44fc-9643-6ab3da24c531@kernel.org>
+Date: Thu, 26 Nov 2026 14:50:25 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,136 +51,95 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MfJtHqZtrd+O0mh5CtnHDBqW/sHpDZ/gOFDYCi/XrgxZDJIOstGj/afz
-	7pa050pRmYJtHCOVXt18zIo9UIE1sP8Ow0KdL4VllEkCBUXawxHbAQ9B6RM2ck5Wo1iS9IW
-	fVP5xQxVW1lV2dAiSvB2yyKLrJFWOQjRygbYk+fCcHr4w4OEHDRyUtW/xLCrnBnGkuWljKf
-	73sECnTwsPzjwcqsdA8MEy1w2dSxVGcFeJhhCqW8XKP195ckbNDengp5n6N+JOxJ1Y46QhH
-	I6gkHB9fmAFMgLXnptht2oZE9BVQ9TA3tsLy+vgSWfy/guB/iwcEZVEF9cqLFHU8SuFF1jl
-	ohWz92CN2z005rPT7uUHBIs11lvbMka6CA4bQSYDQdx6rPt7k0Po4RBLx7qUy9eBeidVNdp
-	hzHH6GgjcQ9DXdT1kpLIB0ImZTjtEy8eWDFEDmMUW/r+eiT2J/vcNumazeFp568310+rrW5
-	xdaH4tnsBSsHEIGoPWK/TUA5CanutBvCqMvjhwTqPmr+8XgAicYVJ6qMoqqttKLL5d9opo8
-	VxAR0yODu+ZcXQlgyVeb+3m2hJVhjNJYTXtRVa5Kbobb1K4eAAmTmHtN5yTV59PC/wD5D5S
-	iV+mYXcwM3oq+DL/SWi45HAGLgH0m46Qj8NRW/l7N0IBSNXGzmRtoYDI1JnrizVGmSPYKOr
-	st6yPRBf1TxqV++lbYNafYLB1B1QT5fKUMC8Ofg+YeP1VmZpVmEKsgrt5XN/7UeNLo39ZVe
-	3Vcb2Uwi3LtNuoTYOkI10nGHgH+MsuPgmuiRk6DceZ+AsIhqyLVCAeuKLrlpAbcS3vH4Q84
-	m6Qo4mZ5DxYSIQspyuPnJfelm1qhLZYj9SQdrMbfaUYWg0YcvNYTqscqAnjGD742zLmpMe5
-	80Al8gYqUc3QWCzassmxSgHhvKkTPdQLdRsfZGAEdlAxPkDVwUFMa6rrCB2issjsISVEBCB
-	RDmpAkrr/EU3+7/n0s8JVk5hA295F728T4VEB8sP40R8/kVvHLDiUWEkJUnsejwVFcjsiHW
-	L+H5om9bsgI7I2gmkvlvV0x1+ph4faJoySAYs/VNzQmKhpSaM1p+PFZIl+7vZEqOHsPugi6
-	Q==
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Cc: chao@kernel.org, linux-erofs@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, guanwentao@uniontech.com,
+ niecheng1@uniontech.com, gouhaojake@163.com
+Subject: Re: [PATCH] erofs: reject turning inode_share on during remount
+To: Gou Hao <gouhao@uniontech.com>, xiang@kernel.org, zbestahu@gmail.com,
+ jefflexu@163.com, dhavale@google.com, hongbohbli@tencent.com,
+ guochunhai@vivo.com, hongzhen@linux.alibaba.com
+References: <20261113113204.560730-1-gouhao@uniontech.com>
+Content-Language: en-US
+From: Chao Yu <chao@kernel.org>
+In-Reply-To: <20261113113204.560730-1-gouhao@uniontech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-From: Xu Rao <raoxu@uniontech.com>
+On 11/13/26 19:32, Gou Hao wrote:
+> The inode_share and domain_id constraint is validated when a
+> superblock is initialized, but remount replaces the live mount options
+> with a newly parsed option set without rechecking it.
+> 
+> Therefore a filesystem mounted without domain_id can enable inode_share
+> by remount.  For an image with ishare xattrs, the next lookup of a
+> regular file then passes a NULL domain_id to
+> erofs_xattr_fill_inode_fingerprint() and crashes.
+> 
+> Since domain_id cannot be changed by remount, reject turning inode_share
+> on during remount.
+> 
+> Reproducer:
+> 
+> 	mkfs.erofs --xattr-inode-digest=erofs.fingerprint.v1 img  man/
+> 	mount img t
+> 	mount -o remount,inode_share t
+> 	ls t/
+> 
+> Full crash log:
+> 
+> [   50.416381] erofs (device loop0): mounted with root inode @ nid 37.
+> [   78.553276] BUG: kernel NULL pointer dereference, address: 0000000000000000
+> [   78.553882] #PF: supervisor read access in kernel mode
+> [   78.554326] #PF: error_code(0x0000) - not-present page
+> [   78.554762] PGD 0 P4D 0
+> [   78.555014] Oops: Oops: 0000 [#1] SMP NOPTI
+> [   78.555423] CPU: 4 UID: 0 PID: 4446 Comm: ls Kdump: loaded Not tainted 7.3.0-erofs #2 PREEMPTLAZY
+> [   78.556105] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.3-0-ga6ed6b701f0a-prebuilt.qemu.org 04/01/2014
+> [   78.556942] RIP: 0010:strlen+0x0/0x20
+> [   78.557284] Code: f7 75 ec 31 c0 e9 40 76 02 00 48 89 f8 c3 cc cc cc cc 0f 1f 84 00 00 00 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 <80> 3f 00 74 14 48 89 f8 48 83 c0 01 80 38 00 75 f7 48 29 f8 e9 07
+> [   78.558636] RSP: 0018:ffffd2bb444afab8 EFLAGS: 00010212
+> [   78.559092] RAX: 0000000000001000 RBX: 0000000000000027 RCX: 000000000000000c
+> [   78.559652] RDX: ffffffffffffffff RSI: ffff8f2bcdef0d71 RDI: 0000000000000000
+> [   78.560267] RBP: ffff8f2bc526b000 R08: 0000000000000610 R09: 00000000e096ebe3
+> [   78.560839] R10: 0000000074d3def0 R11: 0000000085971d85 R12: ffff8f2be536fae0
+> [   78.561443] R13: ffffd2bb444afb08 R14: 0000000000000000 R15: ffff8f2bcdef0d61
+> [   78.562019] FS:  00007fe2289c94c0(0000) GS:ffff8f2f478c2000(0000) knlGS:0000000000000000
+> [   78.562673] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+> [   78.563133] CR2: 0000000000000000 CR3: 000000011e6ec001 CR4: 0000000000772ef0
+> [   78.563656] PKRU: 55555554
+> [   78.563892] Call Trace:
+> [   78.564111]  <TASK>
+> [   78.564315]  erofs_xattr_fill_inode_fingerprint+0x95/0x150 [erofs]
+> [   78.564785]  erofs_ishare_fill_inode+0x75/0x260 [erofs]
+> [   78.565193]  erofs_fill_inode+0x12e/0x190 [erofs]
+> [   78.565603]  erofs_iget+0x85/0xc0 [erofs]
+> [   78.565950]  erofs_lookup+0xe6/0xf0 [erofs]
+> [   78.566312]  __lookup_slow+0x5b/0x100
+> [   78.566631]  lookup_slow+0x39/0x60
+> [   78.566914]  path_lookupat+0x19b/0x2a0
+> [   78.567223]  filename_lookup+0xf0/0x200
+> [   78.567534]  ? filldir64+0x38/0x190
+> [   78.567822]  vfs_statx+0x7d/0x150
+> [   78.568096]  do_statx+0x66/0xb0
+> [   78.568367]  __x64_sys_statx+0x64/0xd0
+> [   78.568670]  do_syscall_64+0x8d/0x460
+> [   78.568974]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> [   78.569367] RIP: 0033:0x7fe228b5c0de
+> [   78.569665] Code: 2d 0d 00 ba ff ff ff ff 64 c7 00 16 00 00 00 e9 a5 fd ff ff e8 53 c0 01 00 0f 1f 00 f3 0f 1e fa 41 89 ca b8 4c 01 00 00 0f 05 <48> 3d 00 f0 ff ff 77 2a 89 c1 85 c0 74 0f 48 8b 05 05 2d 0d 00 64
+> [   78.570936] RSP: 002b:00007ffec5afe428 EFLAGS: 00000246 ORIG_RAX: 000000000000014c
+> [   78.571485] RAX: ffffffffffffffda RBX: 0000564bf6a2c498 RCX: 00007fe228b5c0de
+> [   78.572007] RDX: 0000000000000900 RSI: 00007ffec5afe560 RDI: 00000000ffffff9c
+> [   78.572532] RBP: 0000000000000002 R08: 00007ffec5afe430 R09: 00000000f6a31900
+> [   78.573061] R10: 0000000000000002 R11: 0000000000000246 R12: 0000000000000000
+> [   78.573595] R13: 0000564bf6a319f3 R14: 0000000000000000 R15: 0000564bf6a2c480
+> [   78.574130]  </TASK>
+> [   78.574334] Modules linked in: erofs loop nft_fib_inet nft_fib_ipv4 nft_fib_ipv6 nft_fib nft_reject_inet nf_reject_ipv4 nf_reject_ipv6 nft_reject nft_ct nft_chain_nat nf_nat nf_conntrack nf_defrag_ipv6 nf_defrag_ipv4 rfkill ip_set nf_tables intel_rapl_msr intel_rapl_common intel_uncore_frequency_common skx_edac_common nfit sunrpc libnvdimm snd_hda_codec_generic kvm_intel snd_hda_intel snd_hda_codec rapl snd_hda_core pcspkr snd_intel_dspcfg i2c_piix4 joydev virtio_balloon snd_hwdep i2c_smbus rtc_cmos eni_vdpa vdpa sg fuse fsdev_dax sr_mod bochs cdrom drm_shmem_helper drm_client_lib drm_kms_helper sd_mod ahci ata_generic libahci ata_piix drm libata virtio_net net_failover failover serio_raw dm_mirror dm_region_hash dm_log dm_multipath dm_mod
+> [   78.578967] CR2: 0000000000000000
+> 
+> Fixes: 5ef3208e3be5 ("erofs: introduce the page cache share feature")
+> 
+> Signed-off-by: Gou Hao <gouhao@uniontech.com>
+Reviewed-by: Chao Yu <chao@kernel.org>
 
-Repeated S3 cycles on an Inspur CE720F2 with a Phytium D3000 CPU
-leave its Renesas xHCI controller (0000:04:00.0, 1912:0014) without
-working interrupts. The keyboard and mouse stop responding, and
-newly attached USB devices cannot be used.
-
-The failure was reproduced on UOS 6.6.0-arm64-desktop, revision
-d7bafad345e0, build #5.
-
-The affected kernel already includes commit 231c7a57d193
-("PCI/MSI: Enable memory decoding before restoring MSI-X messages").
-However, inconsistent MSI-X message readbacks still occur after the
-restore write on this platform.
-
-Diagnostic excerpts below are wrapped and omit repeated device
-prefixes and unrelated fields.
-
-On normal cycle 16, the MSI-X message read back after the PCI
-restore write matches the intended message:
-
-  [ 1163.085945] xhci-s3 msg-after irq=86 read=1
-      want=00000000:36850040/00000000
-      actual=00000000:36850040/00000000
-
-On failing cycle 18, the same readback is all ones. At xHCI resume
-entry, the message address is zero:
-
-  [ 1285.211630] xhci-s3 msg-after irq=86 read=1
-      want=00000000:36850040/00000000
-      actual=ffffffff:ffffffff/ffffffff
-  [ 1285.213401] xhci-s3 n=18 pci-resume ret=0
-      read=1 v0=00000000:00000000/00000000/00000000
-
-Here, want is the software-cached target message and actual is the
-hardware readback, formatted as address_hi:address_lo/data. The
-last field in v0 is vector control. An all-ones read can indicate
-an unsuccessful MMIO access; it need not be the stored table value.
-The later zero address differs from the expected 0x36850040.
-
-The controller then reports a command timeout:
-
-  [ 1295.556532] Command timeout, USBSTS: 0x00000018 EINT PCD
-  [ 1295.556557] xhci-s3 n=18 timeout cmd=01013c01
-      dma=0x0000002021506000 irqs=0
-  [ 1295.556560] xhci-s3 n=18 events scanned=10 limit=0
-      matched=1 cc=1 last_cmd=0000002021506000
-
-matched=1 and cc=1 identify a successful completion of that Stop
-Endpoint command in the event ring. irqs=0 means no xHCI interrupt
-was recorded after resume. The command completed, but its completion
-was not processed normally.
-
-Read back the message after the existing MSI-X restore write. If
-either address field or data differs from the cached message, repeat
-the write once. Matching entries receive no additional write.
-
-With the retry, cycle 263 records the incorrect zero address and
-then the expected message after the additional write:
-
-  [16009.367505] xhci-s3 msix-check irq=86 retry=1 match=1
-      want=00000000:36850040/00000000
-      before=00000000:00000000/00000000
-      after=00000000:36850040/00000000
-
-retry=1 confirms that the mismatch triggered the extra write;
-match=1 confirms that the subsequent readback matches the target.
-
-In 500 S3 cycles with temporary diagnostics, 491 comparisons matched
-without a retry. Nine mismatches triggered a retry and all nine read
-back correctly afterwards. The subsequent xHCI resume snapshots
-remained correct, no xHCI command timeout occurred, and a USB storage
-device attached after testing enumerated successfully.
-
-Signed-off-by: Xu Rao <raoxu@uniontech.com>
----
- drivers/pci/msi/msi.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
-
-diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
-index 8a0133a6a286..a3304829258d 100644
---- a/drivers/pci/msi/msi.c
-+++ b/drivers/pci/msi/msi.c
-@@ -871,6 +871,7 @@ int __pci_enable_msix_range(struct pci_dev *dev, struct msix_entry *entries, int
- void __pci_restore_msix_state(struct pci_dev *dev)
- {
- 	struct msi_desc *entry;
-+	struct msi_msg actual;
- 	bool write_msg;
- 	u16 cmd;
-
-@@ -896,6 +897,15 @@ void __pci_restore_msix_state(struct pci_dev *dev)
- 		msi_for_each_desc(entry, &dev->dev, MSI_DESC_ALL) {
- 			if (write_msg)
- 				__pci_write_msi_msg(entry, &entry->msg);
-+			if (write_msg && dev->current_state == PCI_D0 &&
-+			    !pci_dev_is_disconnected(dev) &&
-+			    !entry->pci.msi_attrib.is_virtual) {
-+				__pci_read_msi_msg(entry, &actual);
-+				if (actual.address_lo != entry->msg.address_lo ||
-+				    actual.address_hi != entry->msg.address_hi ||
-+				    actual.data != entry->msg.data)
-+					__pci_write_msi_msg(entry, &entry->msg);
-+			}
- 			pci_msix_write_vector_ctrl(entry, entry->pci.msix_ctrl);
- 		}
- 	}
---
-2.50.1
-
+Thanks,
