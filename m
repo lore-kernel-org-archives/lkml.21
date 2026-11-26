@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795695221;
-	b=rdlfea/Ac+CEWFAVkKukfxNacnd9Dnv5mqXdXRI3jXVYxBDNk/hoAcKb2yigPrQ4qdx+
-	 3KXxXUCtgHSGS51b35OlxOMXoLinmyMLdJe/4cDEzUyl11oQs3iS+d0Eh0UGrjsKDYQ42
-	 wLEzsUvHupAtjKqmHKlIqqvE9oJ9nhhtnShE2lJLJcgvUlVYa+dDcreLD33rjrqaRTZK4
-	 SDMEUt20FX0gubQlH5H4Fw4Cbho5B9YTTzIHYlJfv/YEA/j5qy6KxpSkWVQMFo0AJty7D
-	 xmCuV2JXuUPKBZI/P/CuQC9zlhlWYFB0ndqHnGxn2WNOOBvxS3n1ZsAB5Gr9K21u8Kg==
+	t=1795695226;
+	b=fSR+QJX8K1SWH20ayAkjcX+wvib6BG4O/o0toO48HiIppg84EyPl1wSDPzlP70FUI6HC
+	 gC4tL9tX66sl8njmAjfH1nnql5tzT8zPh6pfWEp1voj5tjp7MRnCA2M86Uu6fB72n1/2r
+	 /eOXeNfgYZb5EhedRmOjK5vPVdpBHMP/ej2jh0KIHDz3RkvV1+HEk4nYf/pRZ713neU2I
+	 VsupKOxq0pVkPmluhvnAJPVPZqJExkZ8weAT8UPTB700838yxoqw33nuIgiKHr6h4Qdjw
+	 PyGKzHqUJsOLZ1OT2nWYgAR/5n8Qj2PIkLC34sRjiGVc2AxsIGAQzXw7cWlYYIOJBdg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795695221;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795695226;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=jMhje2gFEGMhwhdy3xLDdOVh6UnYKEqxlg7UxZsDxjQ=;
-	b=GYg218VXzq6NuOPdLvToWz6T+vuFAOjU96eSg1NdI5FVr4xaVt+DDNFBnaXwo9oB7Ssv
-	 1x2t2TNVjW3taKjf6Lh5NA87COFDsx+uFab90suieTzEOJYG7bNvR70T3MNSIKo+BNxMg
-	 T6Oj9Bl+R4Lb08RFYrInGsRuo//RH+flkHTZuf9b9M2+U8IJvq5qHq5WnV6GDeWEtqqDF
-	 4xkkuqFJ0clFPFv7Pm/iabEg/M4jEFW52fdhFADQfXmTJz1D8SnHZZm4R1B9hkYWrFG1x
-	 s7llbhwoDELsfHPS4R1Enajt/5WNFbnGXhpQbKwb7dWseJwpvEqgktZYiJpZupG1AlA==
+	bh=IKo51XN8NfxEpTsepqSSjLtEqea01Lke9oM38577tNE=;
+	b=ryvMjD/lnIXBV8r9tfamb+GsmQscXKtnaj1NachTutZLZDWgY+WhL5EwwBBtjfCtmh4C
+	 NQDytkDQJyeErrHJP+oqPRxE0txu3zehGx3q+8pbTFJoFh7YsMOj5C2HtLYYatAO1MLok
+	 EcUq7NA3y3IIkPrBrrKtB+pjC2F2mzbtAJVIq8UCMrKWOSYImv8g8q4Pufe9txuMqO0C2
+	 wPxj4qnG75mJ+pvdGU4rTaWu3ZGp5RS1VCLP7FG19RdQpEqpVmka1ROqMzjHQihGi4J1Q
+	 YjFGBt/QpVhNbc4MFBeQh6SkfTiiIyaaBmp7gENti0Ri7NyNe7WwavsKkmCHtOU7ppQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K9zhOTlt;
-	arc=none smtp.remote-ip=209.85.208.176
-Received: from mail-lj1-f176.google.com (mail-lj1-f176.google.com [209.85.208.176])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZmfgwZ+y;
+	arc=none smtp.remote-ip=209.85.208.173
+Received: from mail-lj1-f173.google.com (mail-lj1-f173.google.com [209.85.208.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1236606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:13:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1236606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6378E606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:13:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6378E606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K9zhOTlt
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3ae5ab4fcdcso48216581fa.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:13:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZmfgwZ+y
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-3afa1c39d76so15711961fa.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:13:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795695219; x=1796300019; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795695223; x=1796300023; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jMhje2gFEGMhwhdy3xLDdOVh6UnYKEqxlg7UxZsDxjQ=;
-        b=K9zhOTlt4nNrZhN0V6C4mNeztK/FZUJg2ZJ5o41KHa7dN71TZZVR16IoRdaF6r+qwH
-         cNfDIvfBmBKraEjiIwcI2xx4PtYlxgu5/bi26QbQENxjEBGj93OmJZKJ09ePjESzwMWE
-         NxmHAdy0xskOBOO43s4IHcDocFwQhvgiWP6D7ac0YKhpFarH5e0A73IJYbKIWgH08DU7
-         e2lcoeapKX6qJFd9DmKYMwhxubueeOtsVfIcMJeVP6LtOtJP6GtfjhAnZr9LvBnytseL
-         s5BVsEaGhqkqFTY20R3HUBZj8hsUjW1cj30uFGRC8fYVPgQZO9HruTYKWbbcDNcuSOHt
-         kkbw==
+        bh=IKo51XN8NfxEpTsepqSSjLtEqea01Lke9oM38577tNE=;
+        b=ZmfgwZ+yVNUDOm+Pni5F6B76OERMzyyBtswaeBekBLzeIOigrnptcsVOguQyL6zInq
+         PDLjeupiVgUFuFjvlHUek93Y+8dpGJc1V4fE6dHr2GxMMi/2R8+LUbO1eKn8Sj9vl3Ei
+         GTQ3aYYDRhC7TkJrd/Tx47LHN//NNBJ4Tn8EZ/FEHd2v7dcvngtaVlogn2tEkmynbb/g
+         wwA6/om1EpPEAmS1X/tkchCLsXBSHr9fxIfF2b5axcH4Nk7t6Hnz7ya9c++rOibtqclM
+         1s2Z2Y8z2EFKPST3Zf9rYc+AbcrFoKk5zPCadG3DzELXqJZUWo4QGUZVL1CC364x7NBu
+         0XEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795695219; x=1796300019;
+        d=1e100.net; s=20260707; t=1795695223; x=1796300023;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jMhje2gFEGMhwhdy3xLDdOVh6UnYKEqxlg7UxZsDxjQ=;
-        b=G/YU3+B7OBBFGSZG+wdh6CNX/wD/Ky1cxpOJhblFMGQUb3/i+caW9FPmYfaXxrZtGj
-         4FHPiaflbbwPTBBO8awnvf8/4PhgaTz4vlY0pUaJxfaUe4YXG7S0sd2tyeI/VikJid9v
-         vwQUpxniIh20xrj805bkbro61ABOdDtW535ti1aoOnVfKdPlXv3zXutkX8S3oCNnEFhC
-         2hVQjcbR+HjmShNGebwLS3eDQtkitW+H3f4wLOFUM1rYLkFcFixIQBo+iuIjYKGWJ22l
-         v3Ek98HFE6Lky/10wuaC83Gva1caRrr1KS5sbM/V/fNuiM/F8EzsTNUXPHGBrkVibeXn
-         8DHA==
-X-Forwarded-Encrypted: i=1; AL+hErH9/zmGk8VaetIpqtueGcbXPtc5/7ef7n1RX1u2fWxyPUSHFGaVZlOF5xXN4CgtfLal79N5WJZYlCKLvIw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z99MQ0rgoykm/8ETW7pMizsIcxgGowHZ3k0FNnEXGt7cIzclXBP
-	7JjfRwm/VQm8mGBMWqUkZZOHiNlZjlUnLd3DqVG+SSKNZquPVwEX8/dj
-X-Gm-Gg: AZFdTZceSSDutHfBPRxGNcP+w1DObYn7/vZKlz2sEaY+s/SR0LVP753NzLAkvLI9XxR
-	6OE2k0suYOpD8SpsqBpzyOf5DOhbVELQKWfC56E4IEkXpOR9G79XEOori4MmY4GbG0eq8XxnKvU
-	bk509dKkkfhxi5gEON+QxCjB07/1MjSzhaB6D+qejTd1n7cP0RI/nKop8Wv1YXkUNvfdHGUMiHR
-	Bys1reiGAxrI7UmEere8bW42eEq6WQxxP7uu902gPJbPUAU49GqXAm8EJJWIsrMRMUqaOVb60xL
-	oszWbFdntqBSby0/iK3ctewUNO1IuRDBdYuWOxyIcnKi07nfhIMMdVGCLDVWgNUWKwNF9w+7CYE
-	xQ8NwAIMM13ZMFxa2pqITevV0SnYWcnB3BKxfRWCYaiYrwSPlwxbPGD+D5bzzkcT+kE/i3AVVYp
-	jq/jP0IZDYK/zIFy6uTHM/ShnGANRTKTSWVjhFSJ3XqBGlT79/ZogIZUVS9UBx6rIU1hAgs9PSJ
-	YW96nQPZAgQQLaSKNRz8SPgq+m0fmwLleAiLFEFSAQRGbsV0sjz6itk/fA7f1dzBBmDaNEyXsnR
-	D6UOuW3Ed+UG87r3zEz2wAatKSIY7bfC8KMh7lNLWNKa6MkcfwX1XVKWVS6XesycJbKlsFf0sEN
-	ZKOVP3+dT36jtJmwiCzADjejpNdGY48k5vnpY
-X-Received: by 2002:a05:6512:6695:10b0:5c0:bca:77cd with SMTP id 2adb3069b0e04-5c1bc803ecamr4435362e87.42.1795695218890;
-        Thu, 26 Nov 2026 04:13:38 -0800 (PST)
+        bh=IKo51XN8NfxEpTsepqSSjLtEqea01Lke9oM38577tNE=;
+        b=u5paBn4HOgeOAQnF3eq7yUr54colNJJ1wJTTqPSmF66AgZlo78QtGKi73Q1RCTgyKq
+         5mQZD435iHQCH7sYyhwzGgyyT801+ySitQm1x/URlbMsYn/6DID7Sr0law8PwhlclxNq
+         qrQmK4RGcLWVWst/bImQxHCso3Hl4uEWmVWcig+TEOoH069KVCxl/QppfILhSurKOvGn
+         ZGg3Km9pDiFHI48ji0qIu3JlSMimsXT82fAkJ4RZTBBERTk6T6oK19sQ5LMFOTHUW0UL
+         PfZug+0apkKQhei9ULYfvN5/gE5cAd6huaQNeXL3Nza7KiptMsCmMFbnIrfZMu2Equy2
+         ZoDg==
+X-Forwarded-Encrypted: i=1; AL+hErGSiwYwQXEZ9ChSxM8yii08C4OEtvrs7g7RlOQ60pF3K2OsZk80XA5fSTmkGWImxVk7VKqpNNa9wl/7Oik=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/zN8SUR6fxSKsgMyLdN0rIxZJt+i7kCmsnwLQNxF32Ogz7SEAb
+	9jhHDPRzAFeZE7L1y+7L3km0TB3zD/4xTRkDUB63QIqIqAsvmWgoly78
+X-Gm-Gg: AZFdTZfs3Rp2rVQMhVIbweJEqpItDZ+ca4Y+uBEreF2e+1bbXdyjPxSTO9hnp0GnHwU
+	FRgl+YNco6CCWUEElBq/2zZrsqj+Ggq5cXWhlvT2Jaq9p4pIOGPf8h5wGxeHX6E0eKTFaophbOP
+	/8WuT6fKrJjZ2rPulT9Vvj4hrjq/hp/Gmlq9OzgPEAGRM5SwJ2Ut2usrsf0PxZEnhXuyuVV1LXm
+	Yl/TvhzR5/TMN0ODK+YTAsdJ+r7MuwTP90xzSyZCNfYNByGd7b1MCaVoeEOwnXAXjhN5d61H7tY
+	rRUmiTGokxkjb2z8dDcNqC8UCWB9ooBCZLIS6dBYHN/pD41fOMrfQtzxuFqNgNb56iFJ/ACl53E
+	08zc+Off48JMDBKJpHjNSAg44CPNh5lO3t6l9f4IgxGgl8jTnqDxKXMGejhBVXBzfTj7sFp7mU3
+	Xdo1oybcvwH0ZHbVLe00qdR1i34BU2zK0NrcHxe8Q10+JMp/8TcjQVx1vL/KSGpkR1YiSwg6Muj
+	od1ALO6WqlsmcAIDZ3BmMpDzCTQ0/M/T8oMvyxfd3BpMaJ7zAO1id8Mao9S6ffu4dgvMqWVIwac
+	kTETBjGqtcEk+931UY6BDhUyX6Yhtf8999K5F6PeyKeDBCtUK4vIAOG9mVj0XCco9Blsj1dRr2x
+	mVNonMDCMhwwriDoKv6+aBjBbD2QFNVIOZGwdnHYY1jKwxUgxAAMo9C8FWQ==
+X-Received: by 2002:a05:6512:304e:b0:5c1:4bbc:45cf with SMTP id 2adb3069b0e04-5c1bc8a5cf6mr6545422e87.48.1795695223318;
+        Thu, 26 Nov 2026 04:13:43 -0800 (PST)
 Received: from yantra.. (nekmmqtmzjx8yvukhae-1.v6.elisa-laajakaista.fi. [2001:99a:d7d:c300:68b4:f70:61d8:6e86])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae8044e8e0sm56541791fa.5.2026.11.26.04.13.38
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae8044e8e0sm56541791fa.5.2026.11.26.04.13.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 04:13:38 -0800 (PST)
+        Thu, 26 Nov 2026 04:13:42 -0800 (PST)
 From: Rupesh Majhi <zoone.rupert@gmail.com>
 To: Andy Shevchenko <andy@kernel.org>,
 	David Lechner <dlechner@baylibre.com>,
@@ -87,10 +87,11 @@ To: Andy Shevchenko <andy@kernel.org>,
 	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>
 Cc: linux-iio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Rupesh Majhi <zoone.rupert@gmail.com>
-Subject: [PATCH v2 1/7] iio: pressure: dps310: sort register field defines high to low
-Date: Thu, 26 Nov 2026 14:13:24 +0200
-Message-ID: <20261126121331.10438-2-zoone.rupert@gmail.com>
+	Rupesh Majhi <zoone.rupert@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>
+Subject: [PATCH v2 2/7] iio: pressure: dps310: read the coefficients with get_unaligned_be*()
+Date: Thu, 26 Nov 2026 14:13:25 +0200
+Message-ID: <20261126121331.10438-3-zoone.rupert@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261126121331.10438-1-zoone.rupert@gmail.com>
 References: <20261126121331.10438-1-zoone.rupert@gmail.com>
@@ -105,51 +106,82 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Some field defines run from the high bit down, others from the low bit
-up. Sort them all high to low, as the datasheet lists them.
+The coefficients are big endian fields, some of them 12 or 20 bits
+wide and not byte aligned. Read each with get_unaligned_be16() or
+get_unaligned_be24() and let sign_extend32() drop the bits of the
+neighbouring field, as the ZTS8032 coefficients already do.
 
-Suggested-by: David Lechner <dlechner@baylibre.com>
+No functional change intended.
+
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 Signed-off-by: Rupesh Majhi <zoone.rupert@gmail.com>
 ---
 v2:
-- sort high to low instead of low to high, fewer lines move and it is
-  the datasheet order (Andy)
+- "No functional change intended." (Andy)
 
- drivers/iio/pressure/dps310.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ drivers/iio/pressure/dps310.c | 36 +++++++++--------------------------
+ 1 file changed, 9 insertions(+), 27 deletions(-)
 
 diff --git a/drivers/iio/pressure/dps310.c b/drivers/iio/pressure/dps310.c
-index 9ffef150cc4c..ce83bd3691af 100644
+index ce83bd3691af..abf1652980ea 100644
 --- a/drivers/iio/pressure/dps310.c
 +++ b/drivers/iio/pressure/dps310.c
-@@ -54,20 +54,20 @@
- #define  DPS310_PRS_RATE_BITS	GENMASK(6, 4)
- #define  DPS310_PRS_PRC_BITS	GENMASK(3, 0)
- #define DPS310_TMP_CFG		0x07
-+#define  DPS310_TMP_EXT		BIT(7)
- #define  DPS310_TMP_RATE_BITS	GENMASK(6, 4)
- #define   DPS310_TMP_RATE_1SPS	0
- #define  DPS310_TMP_PRC_BITS	GENMASK(3, 0)
- #define   DPS310_TMP_PRC_1	0
--#define  DPS310_TMP_EXT		BIT(7)
- #define DPS310_MEAS_CFG		0x08
-+#define  DPS310_COEF_RDY	BIT(7)
-+#define  DPS310_SENSOR_RDY	BIT(6)
-+#define  DPS310_TMP_RDY		BIT(5)
-+#define  DPS310_PRS_RDY		BIT(4)
- #define  DPS310_MEAS_CTRL_BITS	GENMASK(2, 0)
--#define   DPS310_PRS_EN		BIT(0)
--#define   DPS310_TEMP_EN	BIT(1)
- #define   DPS310_BACKGROUND	BIT(2)
--#define  DPS310_PRS_RDY		BIT(4)
--#define  DPS310_TMP_RDY		BIT(5)
--#define  DPS310_SENSOR_RDY	BIT(6)
--#define  DPS310_COEF_RDY	BIT(7)
-+#define   DPS310_TEMP_EN	BIT(1)
-+#define   DPS310_PRS_EN		BIT(0)
- #define DPS310_CFG_REG		0x09
- #define  DPS310_INT_HL		BIT(7)
- #define  DPS310_INT_TMP		BIT(5)
+@@ -239,8 +239,6 @@ static int dps310_get_coefs(struct dps310_data *data)
+ {
+ 	int rc;
+ 	u8 coef[MAX_COEF_LEN];
+-	u32 c0, c1;
+-	u32 c00, c10, c20, c30, c01, c11, c21;
+ 
+ 	/* Read all sensor calibration coefficients from the COEF registers. */
+ 	rc = regmap_bulk_read(data->regmap, DPS310_COEF_BASE, coef,
+@@ -252,37 +250,21 @@ static int dps310_get_coefs(struct dps310_data *data)
+ 	 * Calculate temperature calibration coefficients c0 and c1. The
+ 	 * numbers are 12-bit 2's complement numbers.
+ 	 */
+-	c0 = (coef[0] << 4) | (coef[1] >> 4);
+-	data->c0 = sign_extend32(c0, 11);
+-
+-	c1 = ((coef[1] & GENMASK(3, 0)) << 8) | coef[2];
+-	data->c1 = sign_extend32(c1, 11);
++	data->c0 = sign_extend32(get_unaligned_be16(&coef[0]) >> 4, 11);
++	data->c1 = sign_extend32(get_unaligned_be16(&coef[1]), 11);
+ 
+ 	/*
+ 	 * Calculate pressure calibration coefficients. c00 and c10 are 20 bit
+ 	 * 2's complement numbers, while c01, c11, c20, c21 and c30 are 16 bit
+ 	 * 2's complement numbers.
+ 	 */
+-	c00 = (coef[3] << 12) | (coef[4] << 4) | (coef[5] >> 4);
+-	data->c00 = sign_extend32(c00, 19);
+-
+-	c10 = ((coef[5] & GENMASK(3, 0)) << 16) | (coef[6] << 8) | coef[7];
+-	data->c10 = sign_extend32(c10, 19);
+-
+-	c01 = (coef[8] << 8) | coef[9];
+-	data->c01 = sign_extend32(c01, 15);
+-
+-	c11 = (coef[10] << 8) | coef[11];
+-	data->c11 = sign_extend32(c11, 15);
+-
+-	c20 = (coef[12] << 8) | coef[13];
+-	data->c20 = sign_extend32(c20, 15);
+-
+-	c21 = (coef[14] << 8) | coef[15];
+-	data->c21 = sign_extend32(c21, 15);
+-
+-	c30 = (coef[16] << 8) | coef[17];
+-	data->c30 = sign_extend32(c30, 15);
++	data->c00 = sign_extend32(get_unaligned_be24(&coef[3]) >> 4, 19);
++	data->c10 = sign_extend32(get_unaligned_be24(&coef[5]), 19);
++	data->c01 = sign_extend32(get_unaligned_be16(&coef[8]), 15);
++	data->c11 = sign_extend32(get_unaligned_be16(&coef[10]), 15);
++	data->c20 = sign_extend32(get_unaligned_be16(&coef[12]), 15);
++	data->c21 = sign_extend32(get_unaligned_be16(&coef[14]), 15);
++	data->c30 = sign_extend32(get_unaligned_be16(&coef[16]), 15);
+ 
+ 	if (!data->info->has_c31_c40)
+ 		return 0;
 -- 
 2.43.0
 
