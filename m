@@ -1,96 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795693501;
-	b=qRgZG40vVx3nS5hHfDpYADfctM3uLamrhiwmoOb0dEOLEq05Ndx2mrVIIwzk6hUsRhNh
-	 SiksPmCm3vW+uhx/FDNderbmz654DCzqaMibtHYXZBRQ2sE6uM/1qfJbAz4K4HcFLH+BO
-	 rGI16/ToB0Y2seUbZYT2hqg0c2jXmaZOf7sGSqKaBncFRYAd06sen2MioSLFSqrHjnVcV
-	 NOGphwXLLcKBPTkfP7X5yXdolKhAaYn9Xn+JxsE3QXU1pbOL8DapkkAVegYbGWKSGFYbM
-	 UfVriJ5mg4HkIR2Z/T+o8jzssiJIWfXXDwVLq567Mvf/EaSRnbWrJGO8IUcGAW3L4uA==
+	t=1795693502;
+	b=rmcbpSb9QQ9H6kh4He8UPR2oq4EbwPLA7n6CQYbnzmrYXbysuYIJ9r9aRTAEUtWzDmjg
+	 whDny7GbuxfP9cmn9TteSltjx4yxgZPAFMfmr0YK2gqYeL5E7Z5fAw1gJCGirvnXcN0Ae
+	 tUETlcZdxcfhDy43LFJVmvi/3JN1jUmmaiop74ifogEfal7DbFUuKp4yQSVpJSA0xymTB
+	 Xp7i2bnHU6Vj9yd7bZPOZhFloGN3pYbZaj0oipl1zdmoT5JGJ2S6/E94JQXWoFzWaTb3i
+	 AvzBdvL7RV+OCQc6qlXGxgGFIH+GBFh1Esc4Qhe8WsorlzjGEh9F055Yi5h+hQ4+mzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795693501;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=xYSc6o4UCMvbbTqkqVkaayI84J/EIX3dDWkV92RPVPU=;
-	b=UvNGyE5MPX9f5O3cj2Nsek+bt9q+EjmZEoUhpCkKJp5+S4cZUP20gERtEbONYWqrsGgD
-	 Y289+kqs6+FY4a1qQi0ubkRshjZMayUwoade+t0qAqCgCPqq2NqvqpF8EBjJ+qDp2FfoV
-	 JnotOQ2z3GlFqnvdKNC8R0rrnVsW2TvKedfcwuZ0mvSCxKhVP0jrAvvXHgmFhC8LY4XXN
-	 srYnUC1wckpMxM+YoRrww7msDL1ILzqhfSCNNrE5F1K5GsMiM4rAkjwdnk/rySNLJe9+E
-	 hhWwK7FLpYoDX2kLl77I1dJCIhqKHzN4hFK5FD4HStn3drmbW6Oda7v13eoLyv9PviQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795693502;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
+	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
+	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=J/w9woKIDcG1KIzz6jIjSge7TDzANIjKjukbxSS5bGE=;
+	b=ABq1/zTnx4L6lwBx5JJDGMwiv2Qb3QcFt7INBEDBuCTEsmOI6NF1+daNhLtgfKAiFqA6
+	 8389JDjJg/MidMP3k+Vj4mfoswe2bWPRzatJE/26BohWCZ7EG9bEQ8BTA0huUsOMnHCNs
+	 KvN0UX1PdypxCx1UAwfK9aDwd0IVb6dna0ELLpquPF4uQUM1oTR4JGwG1Wd8wt5I2RDi5
+	 k4CENv5XJhP2gzBye17yjszWUje1hdsWrTxQTysgE17hiXkdHmcXjU7FiUsQHScB4qdnD
+	 W/KDHqKyT7dwaEqUqU71u37pr+2t4F03NdO5ohddTYBmQLsOuQ2hPoc6xmuNZlQ+/6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
+	dmarc=fail header.from=linux.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TT9nKMVn;
-	arc=none smtp.remote-ip=209.85.216.47
-Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
+	arc=none smtp.remote-ip=209.85.128.182
+Received: from mail-yw1-f182.google.com (mail-yw1-f182.google.com [209.85.128.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27DC6606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:45:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27DC6606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CCFD606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:45:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CCFD606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TT9nKMVn
-Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3adac5c10e3so3615415a91.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:45:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795693500; x=1796298300; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xYSc6o4UCMvbbTqkqVkaayI84J/EIX3dDWkV92RPVPU=;
-        b=TT9nKMVnjlGalKy60mqCX4AhaK2/uVGMNv2Q9+zuDWwWAA3ZallXeakZq60KA53PRk
-         Eq1ZczfzGzWcE5/pGYHlnRb13FFhw/FBjCBY0u72R9fSR71GuGj9wB456Ua1pUCY9Vac
-         GGSw3x3i/IchlVnCJjPdykA3wBro4TSSraLutbIql7I6a55TYcgbWCFmW6ehcAn4IUni
-         jJV84wMHEgtNqUH77DM13rLPfZ01AwysgINjaSiKjn18kMw/gQfPV7buzEWBA2IlhEag
-         THOEkGQNqUAhkUpNT8SwPbRDteF1qcDHEOfqIQm3Pb4AJI/d0dxQFAGJ42BbNNFV6cKQ
-         u6wg==
+Received: by mail-yw1-f182.google.com with SMTP id 00721157ae682-8b335ef6441so49452887b3.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:45:02 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795693500; x=1796298300;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xYSc6o4UCMvbbTqkqVkaayI84J/EIX3dDWkV92RPVPU=;
-        b=Daudr3ZGhDT0oAiUdsMqQHbe/44DzIIdTvyuPVGQCu/J++f3vfge0DMgY3sU5OgjoU
-         eFL+Or4rL2aL8TWvnCfkAszL4N8/DRbHwgGvO7iwjUpy8aN87XBL+V+GVTOA13Tjbxup
-         wNIcXDQLVfDitefxX1kWU01Nq6wlAGlsOWczN8M2to49u0QECYTjoJGutI0fYUSM/JTN
-         hCgN+yPi4MsJibKDWtWrYBuGq6t03oNiYpYQ1uap4bIlkTUHMkf7S4k9KVNLZbKRZZqI
-         SjSJI5Y0pKEjelLAJv59mbprp1ylWZ+xJN/kYpcdtvLo2lyJU8d3idZgxqpMucRt+mwx
-         iJFw==
-X-Forwarded-Encrypted: i=1; AL+hErHpjH42LusglzZnlrR5AZTxljBNNn+c/OH151Ohyka3W+v/bCn8XN1px6Jl6c6wq8FwuSH/e8KNqbnIIV4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/G9OXVsMt34dHYiiyZlkJqI1PK38PVZ4WcrcT7fIZDrR5JY41b
-	OCWkISglhdm+GV93GyAMkfTmeZosiFjCwMGte2nlJ2MPwOECmnzNREMk
-X-Gm-Gg: AZFdTZc1R1o5EdHfahbxoDtIxBYDjodJjFe6m3phy6gKsOJq2mtXLvHIpka5bLXxBv+
-	/9rHiCJGaIKGM/Z3U4eG2OIoxCPeb1k8EiTqU7GanQjTQbcmZKoRgEP63vXwmOEtvEGqGhHviDr
-	8hSzrOc5cfPHE0ywabhHvgCg+uj42eNc87ay3yfJM5RePG1qfYsDk2mdHhpJrjzovSKoQX7baew
-	5hXdrUHgCkhMimwiq25cL+7x0/ijSCh31Qlx8SsdxkXfQZKTnM/Ce5VrmhHN3ynQB9Vp8ar4Buc
-	u/jnVn5P+ZJ8iAl4JG1YlqLYeI5lvFF0CcgNGLds1QosJrrXtwhMvF1Pr0rmaSyv0bocMFxXhk8
-	qgznto9E7i4EeVp4D5PYQQzQ9fKw47omTE5OqkMd4B2w0RKf53uu93TvDV/7oCHag8nq0SmtVkG
-	oqNCFUpW7FWXmcPD9LP+k2guYAvsqwf42wtcC+DXzOS5TAApGWwGTVliznoc8soyRIdFpj4TLOC
-	H7Dh/+aDGIk3al085BG8BWB0rQMCWO5BevSUk72Kp389Izqp895taAC8JjniPBk3jYOO3m/kHzN
-	hhsw5LU76EuwcMqXogNDLxYP0s76eL+n
-X-Received: by 2002:a17:90b:1802:b0:3b4:1359:45e8 with SMTP id 98e67ed59e1d1-3b41c92c55emr19529457a91.44.1795693500463;
-        Thu, 26 Nov 2026 03:45:00 -0800 (PST)
-Received: from omarchy ([14.139.177.146])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb2076sm32962809a91.2.2026.11.26.03.44.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 03:45:00 -0800 (PST)
-From: Vaibhav Chahar <vaibhav.chahar26@gmail.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Marius Cristea <marius.cristea@microchip.com>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Joshua Crofts <crofts@kernel.org>,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Vaibhav Chahar <vaibhav.chahar26@gmail.com>
-Subject: [PATCH v4 0/2] iio: adc: Use guard(mutex) to manage locks
-Date: Thu, 26 Nov 2026 17:14:31 +0530
-Message-ID: <20261126114433.20674-1-vaibhav.chahar26@gmail.com>
-X-Mailer: git-send-email 2.56.0
+        d=1e100.net; s=20260707; t=1795693501; x=1796298301;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=J/w9woKIDcG1KIzz6jIjSge7TDzANIjKjukbxSS5bGE=;
+        b=tfYg3aDy0Nk7eglP0mvNmpQTu8q3VR8XMJPxCIMFd8HCc5fCubEPcu0QRDAhchVat6
+         3PH6PfpVrJd2GCqAY7eYOO1LMkWnaOA5bcZbypWWz6+tS/B2Dtb2xL+Vo3lirKlckMQI
+         iWN6ejO00c/VvQ1XiTysoVrCPOLsrAq0wfsI8XlNxmPMsYVrUkG8/91fSiYPn9e5ybd/
+         eY9mKqae3ZVCHpmkKNR04gfSn13NBYf+k6R6vEiuIlGQ0azaKGYFcdXHF60iPp3jtOJ4
+         p9C0WATz44Z8kcB3mLtg6ANuUFnyG8af5uSdZCr1R7wt1QtQUhb6GfU7WYFtmIfFiKHp
+         CYyA==
+X-Forwarded-Encrypted: i=1; AL+hErHqPIQR5RdeKunmGMQ1ewcK5iIAH4g6kcA7yPiwz1BC2R8M44WVpT58M0PoAt3ZMKAP/ptu9o+/lozLQaE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+aqNVGPvDnBCh0Lg0HqeH8gdjDm3UBc4a8l5rm3qGzMZbqZYa3
+	b53rCTY1XInfkDOex/DAkkkCHHKgePhLwUHlASpUOm9bTrk5IP1H42eYe4btaw==
+X-Gm-Gg: AZFdTZfAUqgnuge7rjty5/chkBathgHfoprvoTbpRhtsKqo1NhgZW+yOZzWRxNyBn/o
+	2aUChsFRn2EGameg3JmKthpFl/N9059BHe1uNlgBOVz7bSM3Hvb39vcynx0u0jxzMHswXuOOxzW
+	/xO6y9K+oOL/r9/vBeIrjo/MAmV6YnCrGJbfsD7cL0JoCFIRFEmRtt20NZ5ICjNrYluh8wT3mNG
+	PAiQb+U0tTO/I46uhAFTuP7DPQEq30zlYEf+f8QOn6yIhy5H43L834KkZbAyfgq8+XycU0ZeCXN
+	HjEqEJxRWyQ9PT6VhYD41rx8cXZeEJWTGnJfihmYgiHhYFcBijV/tDiw5lL9CBLiQWp4dofLqoX
+	TcyuXW+b4lEVbLHRv2BTSvQ35edeNCjahR+eiRz9x+0j5GgbIPBP17IAQQL0SMsS6l8XAvO2rBA
+	QMqrodtt1ThTiFB5ql9ZyMoVBLDtoBa0psp5O6B1EDvDa4DVPmH30GBBXKs7U+WcXWvDOa8JRxl
+	BFO7KmjzwnMLT+tDAPySBG+GzQ4yQlHeRsVugCqbR2Cc4Mke0w/tVGyUVE9wdVjIvzDYfnI68Fc
+	lSpB7Rv/Zixt6PhPHd4e1L5FipPVTeYOW6MaKSG0oaVBZELwtunkIX49UdRXsMNmQBJoyOEQeRE
+	NRLUvamEYzMc=
+X-Received: by 2002:a05:690c:e1c5:10b0:8b5:6331:7986 with SMTP id 00721157ae682-8b563317b84mr17597217b3.42.1795693501374;
+        Thu, 26 Nov 2026 03:45:01 -0800 (PST)
+Received: from mail-yw1-f177.google.com (mail-yw1-f177.google.com. [209.85.128.177])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b52028c802sm84852027b3.11.2026.11.26.03.45.01
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 03:45:01 -0800 (PST)
+Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-8b4c2da74c0so44914277b3.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:45:01 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGNiZOsi21TuORAU6GDGdlHs3kjC9AwF5ciyq1cxzBcuq1eowg+QNRWIaOVwnxZQQMPxUtllPx5QuW5Vck=@vger.kernel.org
+X-Received: by 2002:a05:690c:4985:b0:8b3:3854:c28b with SMTP id
+ 00721157ae682-8b520435d1bmr62048027b3.22.1795693500919; Thu, 26 Nov 2026
+ 03:45:00 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,39 +82,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261121213102.143130-1-tanure@linux.com> <20261121213102.143130-4-tanure@linux.com>
+ <CAFBinCAzSgCGfXb_Q3FuwEmPAEiHSxzVR_ceyqMNp+LEZ18u1g@mail.gmail.com>
+In-Reply-To: <CAFBinCAzSgCGfXb_Q3FuwEmPAEiHSxzVR_ceyqMNp+LEZ18u1g@mail.gmail.com>
+Reply-To: tanure@linux.com
+From: Lucas Tanure <tanure@linux.com>
+Date: Thu, 26 Nov 2026 11:44:49 +0000
+X-Gmail-Original-Message-ID: <CAJX_Q+1or5Eqe46hdtv0CtekSnLTJkfZ3UQY=RmfmYGeXd7YxA@mail.gmail.com>
+X-Gm-Features: Aa3M54p7abSX0OPwjSGJJWzx2W6fGgqfMqyz9aVR061y3YOch6bS5dv9yFIyoYk
+Message-ID: <CAJX_Q+1or5Eqe46hdtv0CtekSnLTJkfZ3UQY=RmfmYGeXd7YxA@mail.gmail.com>
+Subject: Re: [PATCH v8 3/4] arm64: dts: amlogic: t7: add the ethernet controller
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Convert mcp3564 and palmas_gpadc to use guard(mutex) instead of manual
-mutex_lock() and mutex_unlock() calls to simplify error handling paths.
+On Tue, Nov 24, 2026 at 9:37=E2=80=AFPM Martin Blumenstingl
+<martin.blumenstingl@googlemail.com> wrote:
+>
+> On Sat, Nov 21, 2026 at 10:31=E2=80=AFPM Lucas Tanure <tanure@linux.com> =
+wrote:
+> [...]
+> > +                               int_mdio: mdio@1 {
+> > +                                       reg =3D <1>;
+> > +                                       #address-cells =3D <1>;
+> > +                                       #size-cells =3D <0>;
+> > +                                       status =3D "disabled";
+> Lucas, Igor (+Cc) has taken a closer look at the MDIO mux, see [0]
+> What he's saying is that (in my own words):
+> - status =3D "disabled" is unnecessary
+> - if you had problems without status =3D "disabled": Igor's patch should
+> fix it, can you please test it?
+>
+>
+> [0] https://lore.kernel.org/linux-amlogic/20261124-re-martin-g12a-mux-t7@=
+iav.lv/T/#m240f885979c7c3a84af26ee8b60d38f3092f0c0a
 
-Changes in v4:
-- mcp3564: Drop blank lines before `if (ret)` checks and add blank lines
-  after `guard(mutex)` in `mcp3564_read_raw()` to improve readibility.
-- palmas_gpadc: Move `palmas_gpadc_read_done()` inside
-  `palmas_gpadc_read_raw_locked()` and drop unused `ret` from
-  `palmas_gpadc_read_raw()`, moved conditional check inside
-  `case IIO_EV_INFO_VALUE:`.
+I never saw a problem without it. v1 to v4 had the on-chip bus
+enabled and the VIM4 ran at full speed. v5 disabled it after a review
+comment, so that a board enables only the bus it uses, and Igor calls
+that ordinary practice for a new SoC. I am fine either way: keep the
+line, or drop it in v9 if you prefer.
 
-Changes in v3:
-- mcp3564: Use of guard(mutex) across all paths. (Dropping __func__
-  from dev_dbg() calls will follow in a separate patch.)
-- palmas_gpadc: Make helper function palmas_gpadc_read_raw_locked() so
-  palmas_gpadc_read_done() always runs before unlocking safely.
+Tested Igor's patch on the VIM4 on linux-next (next-20261120, which
+has it and the T7 driver) with the on-chip bus enabled, the MAC on
+the external RTL8211F:
 
-Changes in v2:
-- Patch 1 (mcp3564): Wrap switch cases containing guard() in braces,
-  add blank lines around guard() calls, and clean up the commit message.
-- Patch 2 (palmas_gpadc): New patch converting palmas_gpadc calls to
-  guard(mutex).
+- both buses come up, mdio_mux-0.0:01 (RTL8211F, the MAC's PHY) and
+  mdio_mux-0.1:08 (Meson G12A Internal PHY); link 1Gbps/Full;
+  ETH_PHY_CNTL2 reads 0x0 after the attach
+- while receiving 942 Mbit/s with iperf3, I unbound and re-bound the
+  internal PHY driver twice (phy_probe reads the PHY through the mux):
+  after each bind ETH_PHY_CNTL2 reads 0x40, SMI_SRC_MAC only,
+  USE_INTERNAL and RX_CLK_EPHY clear
+- the stream kept 941 to 942 Mbit/s in every 2 s interval, 0
+  retransmits, 0 errors in 2.4M received packets, and receive keeps
+  running with the register left at 0x40
 
-Vaibhav Chahar (2):
-  iio: adc: mcp3564: Use guard() to manage mutex
-  iio: adc: palmas_gpadc: Use guard(mutex) to manage locks
+So the data path stays on the external PHY across an internal access,
+on the T7 as well.
 
- drivers/iio/adc/mcp3564.c      | 103 ++++++++++++++-------------
- drivers/iio/adc/palmas_gpadc.c | 126 ++++++++++++++-------------------
- 2 files changed, 107 insertions(+), 122 deletions(-)
-
---
-2.56.0
-
+Lucas
