@@ -1,79 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795685267;
-	b=XuWvO/GmF+Ki0d7KBnmz+Lp50sh9KOPB/mdlX9uNqpNTHvNe8JGW1OX8tkmCuWBscgKh
-	 XHpSwcLB7k0vuxirQFyAm+cG/YkAxy/Yp1f7Sq9vKZRjIzZYky7j1I5PLXF9vGe+NQPli
-	 ciz+XeM/RF9lHd01VqlwB6FZXF7GeyqWBL2+Sdtf6M6NKVamVoqbzS3GMvqx3ta5bwsPq
-	 UeWKyRKEgF2v734csTBLW35e99aeZFR/Nnx4IbZQEUNldCWKIWvFNSoz246VaNX7WYjI6
-	 JPPXBJelhSlIH2opinxBB5bgNx8bJWZdgb28H6/wk1B0VJTyN62awv6ohHo207keQqw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685267;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=cSPfx5VZMmgPwRxjxT6Nr3BB6izaAxY6WRbmr0OC6sg=;
-	b=LQfHDMiAoCsThC+01hcv90MkDYWNP0OdVIAupCBiQKpG8QEUcPo3lDBQTDbr0Rete9fg
-	 elBiNFNCNXoHZqPlkRYFo/6lc5JsEJe010OmAiPsL6cIm8DRbrFRtq5jGGlkBtQnbuQsZ
-	 EUXtR6h9y1J6cqiN7Y0U+1T15zmEIXnkWn8Byw+5vxecrOiXOOmN+yjeAWvRpZbar2Q7J
-	 swaU56VhIxSfqgqgCqBo4Ms5vYF1/IkL5mpths6+dh69CFpxsVuwk4wn34wn3oA8Mfp1O
-	 oscNh+Jhl+ga74CAhr03ZeiuNGSMlBkyzrrqp7g9HB+HLsFWhf/51LbSaDGg/Hau+BA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AuqxUiLZ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93F13606A33B;
-	Thu, 26 Nov 2026 09:27:47 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AuqxUiLZ
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795685267;
-	b=Fcnbvb1aZ9wTlYpMTN6Wu7GvjF1jzeDHgjzxLuNfsHZ+NrSu4lklxtMnTrKzs5V6ilox
-	 QuCugdNP/yrQYHAmQNOr6XL3yJaXhDwkYoOCbnm/XKz625JZ1rN/qk+E3aDD6DYixsYFB
-	 o7Eaey5Js7F+ve8hms9EJlsXEHd1YMkf0xzbM251O0j9E4vv2qc5V0oCK5DLxmN/R0lQ/
-	 qWBObTfskVBJ/lUMh4XpHOfgBXjnPeInBvRJzGvMM5PZI/m9TwM57vINwpT/qb6yM61eg
-	 TKIY1HqUnQcrhFmkiIQNLdykK5B9Jntif1fO9mbv7CEU6YQLCqa9gboj9TtSNWwcn1w==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795685267;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=cSPfx5VZMmgPwRxjxT6Nr3BB6izaAxY6WRbmr0OC6sg=;
-	b=fzHTwHUwX5VE05BJOujnuybcfvjv4gN/mMYEQcdqiUXmVz1ODS+MeC+femtYyxYdxelv
-	 jQihkAOgMddxn9tmPLIP+z2rgBCc4bndZdJeMKSi4qk2jTT8QjXD5xH5YP79MEJs2f5cP
-	 hWrcIj9l3k/GeLiUsDiKl7nZcxlvdZdhBiyHLxaIsvfZLVCPJc1WOAerkk1GMGar8EtUM
-	 NU/u0+coTBBFGyQiYtGw1yQYGsWhRlT/VVEasCJ2HeI4ulwUhVTCiFlFyWoBkUkFjkLXL
-	 jxvUAXIcnhEG+XKOSgqFHGDKXSQx7yWsvjhRrQiWaOmTOq+kinYYu9thYFDPTHjEuiA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795685282;
+	b=2WoBpUVA/FpGQxXYhsXIL0/QHOrXw5fmmcpr7YZd17eN0vTNWK5/qBj3KfCsFlFXjh0t
+	 rlsJom3BFNuq4BuPYfDGcAqpLkTlJj0TOQVvZzxpRjKhAzeQGockg/jtnvxRS89EWUbXM
+	 s13CxNEaiaaa355woEiFnwP2akg2fVC0iyEEFORYxtTxTzREOvyV0Q7fW9dRcEYVMLeRT
+	 MKvhWixRFD7n521u9ykuph/UV4pj6v3ya4KfNMGkPyrV+C9L629CSMdngpjT4b27js1Wq
+	 Z7aHLII6deVeoSDyydgcFlaE7F5hOE34p7mkYOynPBh6GAbcVCyZzDT20lBrRP4Vzkg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685282;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=T1rSRkzl9awRiglIgFpbzWob53mrf2jMTVjGG4JCJCM=;
+	b=sfxkbGwqanpK4dlEXq9Sh3KHMp74eKsI4z/2q5WH36LUxUl433NDy7bKdaA1V/SNXBSN
+	 1nALknpDSvXdD2y2EdJu5nvEC+PdcEId6hmPbQ0abp1ZzUfbYV4SjuCqtuY4clqXDd9TX
+	 0fw+od0PZLMjMdieRAOxVO5TrhpX4kumlLXmXxjlj69ByZTXand7qx8jq1FNShtGnjSD+
+	 NASBm5aDgyFZwgxqbUWgKIPa+pLSVYPbQ5Y++63PZCt7AtE8qcRpevCVfyS+RLK09Rui9
+	 ynFIKv0oaMOTxIjcrGUB0CTrkOo4qiLen/wljDyVSh+IdznvcerAQzPT1APCTmlSUYQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SihxB5bK;
+	arc=none smtp.remote-ip=209.85.221.50
+Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B766F1F000D1;
-	Thu, 26 Nov 2026 09:27:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795685267;
-	bh=cSPfx5VZMmgPwRxjxT6Nr3BB6izaAxY6WRbmr0OC6sg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=AuqxUiLZnQdt2QiUfKNjVPiqbSWiIRn+C6vSQPz8hSYwCcXuuN0liG5f4bSoCBq0D
-	 9APeretLtQ5nRcfXGtcfI1LsGte+zh3p+UAmBu7SvwlKxu3l+KZwcUEBQkN1JP6DsY
-	 b3GTLbPHiZb06Qaq+TWRSRtnt/YA0oF5bt+9dbUOig/NZ0hZn+c5+4uP/idOR90a/b
-	 U9htFmQwNIxwWcXGUUCAKQCowbzN1gtBO/Xe71xSVuaaRlsK/T59ibXkg7/Foq5lFH
-	 iO3c2jf94pqne46U1Qp73qHzQE7ZNjxylhpcczIuG5Z0fw6y1mr0VotSDusYkpXEL/
-	 spEjRJm35teTA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 478D44D36B;
-	Thu, 26 Nov 2026 09:27:35 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 12:27:35 +0300
-Subject: [PATCH net-next v3 3/3] MAINTAINERS: Add Cortina CS7542 MDIO
- controller entry
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60656606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:28:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60656606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SihxB5bK
+Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4a357b1c649so3913232f8f.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:28:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795685281; x=1796290081; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=T1rSRkzl9awRiglIgFpbzWob53mrf2jMTVjGG4JCJCM=;
+        b=SihxB5bK+QPJHxaaKBfNka4GcM1M7hWevMT/+d19CiGwXlvqlqntuFDsEmK7kGMJoF
+         ATR3EBM5cQZQwa51XfXjyq7fC0UPYZBnoob08c4EhbSrAF6aVG9fpOSx4qSX3eOsIbeA
+         KcPGEE7wiaIO9FUpT+QTyV4LULNcxXH5mJ/6c6RQeBaNqHHMmQK3kWna/HxXJCEUIcX+
+         6KmjAbB4ifpQ5jAzuoR5lzKnuX9RfTzF/QwDGj/oyHju/3HhaFb8g9oI3YVfn3VJMM8T
+         qytU8NiShO2ZQwBwBwLNGrbRXe/pfFZ9Fxjx+eBqYFxD+G+p4qFeRvyUmyBYpy5HqmMX
+         DVVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795685281; x=1796290081;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=T1rSRkzl9awRiglIgFpbzWob53mrf2jMTVjGG4JCJCM=;
+        b=QUbHHtKs78IKUz4t3yMkIf9HV08UZPjOyI6vFtBhByGYPxoOIbYr1fuLyKyKRY6RrM
+         UAMN1TTh0EoRN3qU7o/LM4C+LbTrIyeGyR5ZyUok/M2ykJhrkNRZRvzsqG7gBchBXx72
+         9hKsYc0tGq2pRieoegBE+3FCexfMVSkNe0eHOCAnTU/HRFAXMvRB1tPpw6I/F+D/HJQA
+         ZJeiE9YuAQgWdZ4c0oe1ESzVhgL7fIGbMAMpbrSxUgPbK3dYD7xv9dWM1uiMeRx3/7Tq
+         ZwZtdcGBzUD+ZqLyM+ffLjWOVj7T/p737Q0oG24Tc2cTh36J3LwPl3Leh7UPzx/qoslf
+         bYHA==
+X-Forwarded-Encrypted: i=1; AL+hErF5OceQ3yYi2wOitYb8hzRYnQkUUxTsOv0GpJDpi35orc1eSOKM0tWjCU7z3XVdNRGr/kDE7v3hOSjfkuw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9yBmgKaO2uXSIDh2uq2jn8C9oSO1QbtZszBe0fG40bYYfBK3wz
+	Z2FZgK9uCYn6i2It8/ImYbMKdjqVC2dVZTN2ZEw+Nko2qLCZGAPr6ZWE
+X-Gm-Gg: AZFdTZfsd6SLFMBcG3OeO5EIMOnNy0wvusmWl1HzrpKWMQFSR9lJdmnDGVWdPvBqBCt
+	cfwr7yrrYZzjI6nhgK6ks6nNopRkGGJ1bKqADVQXfU6hd/91rmOFdRzSl+fdXIBFT3st1GzljrQ
+	OxU2GbzthFB3UAHyGC1RGTHswYihJRCF4N8Dc3osNjTbPxZvZEPP7QNsfrwfrLxkRb5WRltvVzz
+	FzH+elAOSnX7C44U242YcIakhOpzv+Cl7OfMSVDg7xUcu4ZrgYS25RBBH5+2cvAqn8R1c/mNieL
+	9yxxnR2QTFnMvm7USFwGJdHs99czBmUt7vNA2JNgz9/Wi4LhJKG4wsWxVK+H2v2qxmMeiaIWp+w
+	nkNKA1iQ/fXsxnr3kPHBYyxl/0k4cwkl68E1ykjibHr3wLeobxkxa08d4zLvfpHXZkPIO09x4oO
+	I+6qJVcrJKWaNpEt8Fv0BfkeiovRgExQCID1WaCAskXxrCbFcNBJGC3+RBfeogTiOPlZRAKMjH5
+	jIteGPoZr4GSuuSF2xA5ppxx0X4sjDKeaP4M//6qUroaFDapkxV0xztvZgPO87SOy4FFBp1iWqS
+	FhN5WiRTyOu9P2nzGQbDymXv03HiGXnUQ/Hw5MB+JtYgxtk=
+X-Received: by 2002:a05:6000:29d9:b0:48e:bf0:30f with SMTP id ffacd0b85a97d-4abb2910fbfmr28308833f8f.34.1795685280415;
+        Thu, 26 Nov 2026 01:28:00 -0800 (PST)
+Received: from localhost ([212.73.77.104])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab69bf680fsm45387870f8f.14.2026.11.26.01.27.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 01:27:59 -0800 (PST)
+From: Askar Safin <safinaskar@gmail.com>
+To: josef@toxicpanda.com
+Cc: James.Bottomley@HansenPartnership.com,
+	andrew@amutable.com,
+	brauner@kernel.org,
+	jbingham@gmail.com,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sergeh@kernel.org,
+	taherafahimi@linux.microsoft.com
+Subject: Re: [PATCH RFC v3 21/90] fs: seal a mount namespace for a cell
+Date: Thu, 26 Nov 2026 12:27:49 +0300
+Message-ID: <20261126092749.2894153-1-safinaskar@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261105-b4-cells-v3-21-bc9095937a84@toxicpanda.com>
+References: <20261105-b4-cells-v3-21-bc9095937a84@toxicpanda.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,65 +103,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-b4-cs7542-mdio-v3-3-35739a0f3225@gmail.com>
-References: <20261126-b4-cs7542-mdio-v3-0-35739a0f3225@gmail.com>
-In-Reply-To: <20261126-b4-cs7542-mdio-v3-0-35739a0f3225@gmail.com>
-To: "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
- Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795685252; l=883;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=pa+eVVj3dWWEgeMEgkzxsEwVYcHck8BeW/HLISWO33s=;
- b=9RlLK4Mr4o+DSwZ/23ESsstNH1NT5bxxAh3/Qu/deQkLEcTP/lYEVu3cJJMW3cZpkF3kkhSPu
- wxWTMDDsgEbDGXmbS6wCJd/JHEQdMbX1rQz4Z3SInJYzL6UtqsUVflO
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Reply-To: filipp.dunsky@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+> +			      ns->root->mnt.mnt_sb->s_type == &nullfs_fs_type))
 
-List the binding and driver under the author maintaining the Almond+
-platform support, together with the appropriate subsystem mailing list.
+I don't like this. nullfs is multiinstance now.
 
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+First, we have usual userspace nullfs. Then we have knullfs.
+Also we use knullfs for marks: https://lore.kernel.org/all/20261002-work-mount-cover-v1-2-232a8f52b43c@kernel.org/ .
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
----
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+So, instead of "s_type == &nullfs_fs_type", please, check that this is that particular instance we need.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 44540a1eb..312d3b4af 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -6918,6 +6918,13 @@ S:	Maintained
- F:	Documentation/hwmon/corsair-psu.rst
- F:	drivers/hwmon/corsair-psu.c
- 
-+CORTINA SYSTEMS CS7542 MDIO CONTROLLER
-+M:	Fil Dunsky <filipp.dunsky@gmail.com>
-+L:	netdev@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/cortina,cs7542-mdio.yaml
-+F:	drivers/net/mdio/mdio-cs75xx.c
-+
- COUNTER SUBSYSTEM
- M:	William Breathitt Gray <wbg@kernel.org>
- L:	linux-iio@vger.kernel.org
+I think check should be such:
+ns->root->mnt.mnt_sb == init_mnt_ns->root->mnt.mnt_sb
+
+> +			/* Whatever is on top, now that it can no longer change. */
+> +			while ((m = __lookup_mnt(&top->mnt, top->mnt.mnt_root)))
+> +				top = m;
+
+Why not use function "topmost_overmount" here?
+
+Also, why we need "root" field of struct cell at all? We can simply call "topmost_overmount" every time instead.
 
 -- 
-2.53.0
-
-
+Askar Safin
