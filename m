@@ -1,100 +1,44 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.179
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795696492;
-	b=3xRXyndlJMqS0Eb9XTp3nMvF4sEwLCceZUnGhxxOIXXyy1lfw5QiFtBXFl2Kq8aD3EBK
-	 lUUgALYtlmRyj1hpTeDxWHqFsTiT23Ou9/k0cP+2cVCRcgm9g9qRoLErs1q3iatWVJhC0
-	 LGCEvLgcvHndK29NhWwdT7W9igc+uHlBSKxe19wjuwNAUZdQU/xgpKBurPxqZULbrpt/N
-	 TK/ek1ifbFwwmUzvP3K/zrUFo6O09eKOxTkaS2NVpGgNi/M/L0LaDDh6L15BNGszus9yj
-	 YvFfHJRwL4SNTegabqJSmT3tVtHy7n6NDry2T+IgouVH69NVxteiGvgLweANuA0iZpg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795696492;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=dDRUvqdgLDoNTUwwmWZUy/8sn7+qDXig4yRPABqk+q4=;
-	b=NgJbFFMXKvL14pBqrBCAPTjeibbkI/3mmx5VDnKMEr/9qVmn/jISOMuqbwEI2Uadh7ll
-	 g8Xo/2XQdSYX/Oha7to1EmAZnC/PoFiA6oupFasWMcLnBeY8YFKmruWuNMnJiUcK7O/lk
-	 DdZON/h+0ThltUibxiYpWfgFDyjeRIhGka5G4m4ji7w1pDwl2w7B4JCICDJVS2R08zWfu
-	 55PFi/0HwqzcsEBbkvbrFPlbpsr7elYWyLOjxmmHHPn0fhvVKhz5SkcKspQX7x97l9MOC
-	 wq6ORshlXRJ5567ayEmXNDhkdhOW7eY1U7+6Mh9Bekq1Fh7665AXItZC8Hof8ZY8n7g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gYB2dn7S;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.179
-Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com [209.85.128.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EF61606A33A
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:34:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EF61606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gYB2dn7S
-Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-8b4e04eda5aso51789127b3.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:34:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795696491; cv=none;
-        d=google.com; s=arc-20260327;
-        b=iiua60TnMtga5K3SIQEZ5QuHG7QLh4eMmEoKDOktGqQIteDnnooyMr8DgMybKK+I48
-         TZbGH9iKlcaZTVRcCk+l8vufv3oYJsktWwyRn6yL3lRVxJiI8/bAsDBWk9u3oLNMODH8
-         0Q19adM7ZV82wO+Dk2ioAzCfdzSWy40osidD+n7uOGvC4ThtlFL2BCWMkdVj7toAKgSz
-         dNqOpZ5yhQibIwJ1mFL8D0mxlLq6u4Ryr5fRa9Sg9rgZs+relRYA3JjPQUIhL1ricK1m
-         SiDaQVAGgCZ9qW1YnuYiFY+f3xW+pvrv81HkvLwOSavrMtPDsXuzvkvJaNvrdc35eI0E
-         oOYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=dDRUvqdgLDoNTUwwmWZUy/8sn7+qDXig4yRPABqk+q4=;
-        fh=nnjoC6Xn0VrBqr3vYm/xd4FbCYE7XFwc8IEEUxK7pZk=;
-        b=G6URzuA1KYvuMaNPhnsuorYr4MHD3YqBVDuQ7FCZ1g6CoobcgGebP8e5zXGRaivuhi
-         639BaMMyQ5ZP0GKa/PfbKh1Rb02P1x2ob58upWhPMRA3y29ighDTjbHw03gswzN1UtUj
-         DHxc3ElWpUhonLUxa7YfKmh4G15a3vFnq0HPeHlpLPwW0EPk72BHLr8QzNKQamBgxBua
-         /JrXHw+V/7jiX+zdqUeE1hGT5uheywlAxekj+NG5TS3RvcewsNZG9BDYUw/HZL7dL4vn
-         lO3OlbOTkEwPeFx3U8R50+6WV53Gpi1sCjcOle5vFHBXkLRZI0KhiyD/gBTvQsrB+rDI
-         YVWg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795696491; x=1796301291; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=dDRUvqdgLDoNTUwwmWZUy/8sn7+qDXig4yRPABqk+q4=;
-        b=gYB2dn7S6lZJ5cNDrDXU2kUngQanm3LaWvesgltsgxLzldlXABGf96WZNq0+0V1ZKV
-         JJyU/Y5eJ4dczDpbZ6f0OT4jc04IPvbm3miCxAc8cPu/rIAbN/JIir0zxJxK9ykpMjoJ
-         OcfN9CCbrEJDzzbjpkBxPjYKl3pzXdkbbzEqE5WpRxNDRzUBvwS373UcOBAmE3YBqPkH
-         ySjaHyladr0feRfzgs1r+XLyihZ7RrUMXMq4rOsAT/Yb6ZqfEwc9MrXtwYx6xzQHKRKo
-         QrdV90oB3Z8o824wjOUz7d0PsxfhqQ8NIR+e0efbAp02kTFEBBEhB2sgw1Zox0wECCjr
-         EaBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795696491; x=1796301291;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dDRUvqdgLDoNTUwwmWZUy/8sn7+qDXig4yRPABqk+q4=;
-        b=SfCOqbke5HU6qNszswwVkDCae/RhQWqJCs6pQREN+mGa3g0ofwd0F3CTF9uMvr71NG
-         eJ/M09vBmwlYeE81GmnRhNnUUuTGwwJGXhV0MpM8SiApAciO0VGV0yvetadhhBCLZ/Ll
-         Nd9/9EfczApjOXswTQZOYsTOZ0tXI5r6deSL+Lzze+jXHrob1jzD0w06CBiPPeYqE6O7
-         tA2E45qtI9OWMJ3HPk0JJTdEqm3iZ96IL2KV/Hagmi78voYHBHef2rdHbhBQOADHBkfQ
-         +WKI2OWcpIoS+OTRaS0RkdkM0tKL9gxxQZhrhitpNnZgJYsKAnDlJI2JU0+SzGRgff0Q
-         Msew==
-X-Forwarded-Encrypted: i=1; AL+hErEjdFildYfe7vnhICtk9Z+++HNmgSaVJvn5XnT0VJuH+qvILE5YBYaY0lhJyY3KBYtapaY7xnmMcsPLjIg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Uj40a2KMRbi7aZcs9S91ddd0Udcx7CK1g5XBaVJ/6uX+fDcnO
-	Tqk5x46K+AnQHCKGqMwzgGIExCFLjExXz9LO81v0GeRCVvKbe/NCD+q5efFejdeGRyONuncnafn
-	SWsx2EMEj/36lA22fr5ID0Ny4vCY7ZCU=
-X-Gm-Gg: AZFdTZcO9CgeXJXKOHpV7VCgBiWHNp04Qd/a8KQVSrbR26X5F+ordJggmz1viQr9ZlH
-	huoTaZKwjxiNEx0u3gRN0XHJDU0IK6uLBZwfwhi7g+SvOsFvXpyW+UI02FrCDWnNyNvsrQx0Rs4
-	jnpN6JLF1Z2/OmhrmzHjbr11BTYKaw8IlUQwYGhXPTTcLJZgtQ0aqYcPehJaBdjsFGfwEa+jIF3
-	x/5I+E1JPSyhiodt6FswDerJQxFz1kpJstFlYbCxQHUTQT75D5HEg2RQK4jL2ge3mLwy4SRS2rk
-	+1OrptyUVPk4Mfp22xbieLBvXpveO0LlSUeZSjGBNpPaVgQFZy0tdL6Aa9DUNjAQtQuxlKeSdg0
-	JR0kEIZeoszwFUze+0qxcevrUmAUBxnQSGrbs66zSfdWrKKIF3+BthGF9Y4ipSgg0C1ykmA==
-X-Received: by 2002:a05:690c:886:b0:8b4:d1d3:36f7 with SMTP id
- 00721157ae682-8b52054a9a1mr88892787b3.53.1795696491522; Thu, 26 Nov 2026
- 04:34:51 -0800 (PST)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=132.226.202.154
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795696559;
+	b=3lbxPtI9BQicN8rCepturjXE/DqkQNjlEvZkDrDZwVggotZk6pAD5oKEsddoTtL83icD
+	 YWmUqFFcnmfHgrU07a1/aTmHxKdcWdtDZY8bzajsyDvFjjlfOFzjP6i0hrRFmA2hfIkA5
+	 ESysVfEfFjMAMI+TSLHz4jvjUxXK9jHXT9/FGPFcZUG3cV6Me6t/hWebQjVHH5uKJ9JwK
+	 EOb7RutqGCwOz+G9rh1c9zXNz4mmjhEvfkf1BCJ3eBbSWMJyD7Z+ikkZMImwq3oKZsRYg
+	 II4DHMmlrSJTJ314nKqq2Wh/Q3/WTuRJwyQk/ez/Ul7Pp7KYxNBQSAVmpjG6IOZVQYQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795696559;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=OmsM6s2j2Da5/TTXWuUxbvyNAAwghqaC+fHkUhJp2bc=;
+	b=Gu5uoTl1HlBPDce5CLBITmukerVjpaso4ClTSlUz9I716WqY66kZT8WmOKzZhKjh8coJ
+	 DUd2ydHVz8+25KBTTgHzBZBLSrfWezutYajjTCQ4V1ead39yDkYUUeuvbuVuxVkk4lQ6T
+	 HCYSZXr1DXOsAiSM/+N7Rj6W8WxNKY61tKuTUeOfIQYkQVgOssCVrIxcEZTyB2HcQrz2Q
+	 8R+D85KIfc16EaUlkR231FWi4cxSs4Re/3SRCbggBSxZcyG4aV/ib+61H7UeE+vJwo1W+
+	 w2niz54XcDpxLl0jF+nkQEkfNP0K11+sJjJ4euijvuo/cSaFzstekAkf9PjvUs/o+Dw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=hust.edu.cn;
+	spf=pass smtp.mailfrom=hust.edu.cn;
+	arc=none smtp.remote-ip=132.226.202.154
+Received: from fraori-sdnproxy-3.icoremail.net (fraori-sdnproxy-3.icoremail.net [132.226.202.154])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6CC57606A321;
+	Thu, 26 Nov 2026 12:35:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CC57606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=hust.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hust.edu.cn
+Received: from hust.edu.cn (unknown [172.16.0.52])
+	by app1 (Coremail) with UTF8SMTP id IAEQrMC2_c6nJwhrf4YRAA--.62814S2;
+	Thu, 26 Nov 2026 20:35:51 +0800 (CST)
+Received: from [222.20.126.109] (unknown [222.20.126.109])
+	by gateway (Coremail) with SMTP id _____wCngRamJwhrb7IjAA--.18280S2;
+	Thu, 26 Nov 2026 20:35:50 +0800 (CST)
+From: Hanxiang Xu <xuhx@hust.edu.cn>
+To: Takashi Iwai <tiwai@suse.com>, Jaroslav Kysela <perex@perex.cz>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH v2] ALSA: ctxfi: wait for a running system-timer callback in the free path
+Date: Thu, 26 Nov 2026 20:25:18 +0800
+Message-ID: <20261126202600.1-1-xuhx@hust.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,43 +48,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125130318.2590336-1-congnt264@gmail.com> <9b75515f-f6e9-4d00-81d7-1e83cddd14e8@web.de>
-In-Reply-To: <9b75515f-f6e9-4d00-81d7-1e83cddd14e8@web.de>
-From: =?UTF-8?B?Tmd1eeG7hW4gQ8O0bmc=?= <congnt264@gmail.com>
-Date: Thu, 26 Nov 2026 19:34:39 +0700
-X-Gm-Features: Aa3M54qLk9RSMM85pLCadOXRpeQlM3Wwp1UCxR9_4VUEKEkcdCZfev9BbSJuZow
-Message-ID: <CAJpJ=GsvQVBONdbKCyTuBjBuCDSXG9gRoVxg3j+XPq4+HYr-MA@mail.gmail.com>
-Subject: Re: [PATCH] leds: rt4505: Put the child node reference
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: linux-leds@vger.kernel.org, ChiYuan Huang <cy_huang@richtek.com>, 
-	Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:IAEQrMC2_c6nJwhrf4YRAA--.62814S2
+Authentication-Results: app1; spf=neutral smtp.mail=xuhx@hust.edu.cn;
+X-Coremail-Antispam: 1UD129KBjvJXoW7KF4xKFy8JFW8Gw4rXr1DWrg_yoW8Zrykp3
+	98uw1aqw18Zr40k3s7WrWDJ34kArZ3Aa4UGFn5GwnayFnxWw18tFW7KF12yF47ZrWv9Fy2
+	y340va98Ar45JFJanT9S1TB71UUUUUDqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9mb7Iv0xC_Kw4lb4IE77IF4wAFc2x0x2IEx4CE42xK8VAvwI8I
+	cIk0rVWrJVCq3wA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjx
+	v20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwA2z4x0Y4vE
+	x4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzx
+	vE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VACjcxG62k0Y48FwI0_Gr1j6F4UJwAv7VCjz48v1sIEY20_GFW3Jr1UJwAv7V
+	CY1x0262k0Y48FwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l
+	c2xSY4AK6svPMxAIw28IcxkI7VAKI48JMxAIw28IcVCjz48v1sIEY20_GFW3Jr1UJwCFx2
+	IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v2
+	6r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67
+	AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IY
+	s7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr
+	0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07bcwZcUUUUU=
+X-CM-SenderInfo: bgsqjkayqyjmo6kx23oohg3hdfq/
 
-On Thu, Nov 26, 2026 at 5:13=E2=80=AFPM Markus Elfring <Markus.Elfring@web.=
-de> wrote:
->
-> =E2=80=A6
-> > Drop the reference with a device managed action registered right after =
-the
-> > node is taken, so it is released after the LED class device that was
-> > registered later has been unregistered. leds-rt8515 puts the node of th=
-e
->
-> Would the identifier =E2=80=9Crt4505=E2=80=9D matter more here?
-Hi Markus,
+Currently, ct_systimer_free is aliased to ct_systimer_prepare, which
+calls timer_delete_sync_try(). While ct_systimer_prepare() must remain
+non-sleeping because it can run under the PCM stream lock, using
+timer_delete_sync_try() in the free path is unsafe: if the timer
+callback is concurrently running on another CPU, timer_delete_sync_try()
+returns -1 without waiting for completion. The caller then proceeds to
+free the ct_timer_instance object, resulting in a use-after-free in the
+still-running timer callback.
 
-Do you mean that sentence should name rt4505? It refers to leds-rt8515
-as a sibling driver that already puts the node. The driver being fixed
-is rt4505, named in the subject.
+Replace the ct_systimer_free macro with a dedicated function that calls
+timer_shutdown_sync(), which waits for any running callback to finish
+and prevents the timer from being rearmed before the instance is freed.
 
-Thanks,
-Cong
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Hanxiang Xu <xuhx@hust.edu.cn>
+---
+Changes in v2:
+ - Set From: to Hanxiang Xu <xuhx@hust.edu.cn> matching Signed-off-by:
+ - Use a single blank line before Cc: <stable@vger.kernel.org>
+ - Format cleanly with git format-patch to preserve tabs and spacing
 
->
->
-> > same kind after registering its LED and flash sub-device.
->
->
-> Regards,
-> Markus
+ sound/pci/ctxfi/cttimer.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/sound/pci/ctxfi/cttimer.c b/sound/pci/ctxfi/cttimer.c
+index 9d6f5df..fea9d61 100644
+--- a/sound/pci/ctxfi/cttimer.c
++++ b/sound/pci/ctxfi/cttimer.c
+@@ -111,11 +111,17 @@ static void ct_systimer_stop(struct ct_timer_instance *ti)
+ 
+ static void ct_systimer_prepare(struct ct_timer_instance *ti)
+ {
++	/* non-sleeping: also runs under the PCM stream lock */
+ 	ct_systimer_stop(ti);
+ 	timer_delete_sync_try(&ti->timer);
+ }
+ 
+-#define ct_systimer_free	ct_systimer_prepare
++static void ct_systimer_free(struct ct_timer_instance *ti)
++{
++	/* may sleep: wait for a callback running on another CPU */
++	ct_systimer_stop(ti);
++	timer_shutdown_sync(&ti->timer);
++}
+ 
+ static const struct ct_timer_ops ct_systimer_ops = {
+ 	.init = ct_systimer_init,
+-- 
+2.43.0
+
