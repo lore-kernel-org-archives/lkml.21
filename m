@@ -1,94 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.54
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795661296;
-	b=2gPjxuDEVufPyiYMrbAG76gXJ5pIrlCCT+Hv9Tu7bzuRQV+WV95wrVGieHs+ytStgFNy
-	 hfV0LvXDAu5tczEYkHiXMhUjpkblmMjwbERS2rvFSGhGOgq8lQyb6nJjQw18O3AcATGrH
-	 UoDInSdxzyjGrTMn+k+BQLkZ5dszN0y/XKMKwTXSKB+j6eswvzICYsHQHVii/z5QtWy42
-	 8qPV9OMfGiREQrWYkrVJnhuDR6H93Ryfctng1wR5HaJ2QKJfe9V42ti43S3EQXjrXO+qP
-	 Izs3VDtjpobKxFcQK1D/HhFJieCBuH9rUPkoM+KLCD0eGvDiMm4QqleLRlxCRS6sZLA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795661296;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795661295;
+	b=U3OqvvOL6yk/EyvGfvzh0ApqRBjwhrt+vsUOsThKqomHRXIMHCcu3xljFjXhsYTFdXRU
+	 8wRnMPq9zIvySw2x16nHr/D+Um20f7/mznPo//sDhkPQnURFdtTm6pf39poLJBTz9835N
+	 Xt3VxuzAkmSp6YDCo6KuwVQPaLAmfX6itf8Pv5rvGY9UzwV5SRCkVkX13l8XqGTiRjyER
+	 zWwPMHp+4VsGo7AdL5pDZ83VKR16CIT61QFIkNUdf6tJe9rDSrYT6U1yLCQs8N80icw9C
+	 afwzZhvz9bN1ZLhhylFEgaw3KvvhGQgqawbxhQ/MYdxWNtvFs6d4F03qWCpfZSXqE9Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795661295;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=6MU1/48ZybrBDzSqWU7nC+slwlNUnGGFJ6ROpqcIX4U=;
-	b=4j4iFfuoKGHIVq5P6Y4mhFFaSGMMIptLaSZqTRuYVhEn8mU0Yu9MsIehBK/BMN2kpnB1
-	 3rIsbe3IEm56xGQNuhU2gUfAfuRNbuZCPa6aTWpXmqbisJQOX2Craxh1ID6UncnPaVFnR
-	 Q1q+euPmS5yGGTgbfEIiosniCkR1y9PNYvWq89qU1OLhm13MYQVxfA8L5WOkYMb1ngLVy
-	 AFdxfSJylA5J2jR+bAOdQUI2iMS8psuQhj2vkLgdGQyEwWAs5ARAG0vhbkVv32I36q7Lc
-	 +QVNkA3veoorv2bgQteD7Cdr1OogeP5gaEUgcaoHWIehZ4hilVNcvKK4j2u2g3q0z+A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IZFwNIh7;
-	arc=none smtp.remote-ip=209.85.216.54
-Received: from mail-pj1-f54.google.com (mail-pj1-f54.google.com [209.85.216.54])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=sSFnpqUuUbjElix+JO0v+jouPkVBxE7R6M/+d3k0EDM=;
+	b=ydY0/VW3xTIMLPGtFwdZTOHS9JAXDdcx6yzm1CHiIqEh0Gbi7mQoo0NbqGyqqqBKtYCz
+	 bLJZPHjnIjNfk4WFrLNZ8E4uBbT2qgb0lhtAA/Moo9gTSlIH4JG0XUgvoDcUF6agzQ0Lq
+	 Rjh2d/itmN1jpbrrGNm562wl88A5yRBigzltAYWQ9NSZnSJTP1J2tLVaKBuj+nhEWtAi/
+	 9+YxLdrytesxapvVUbgJ51mPsYMWcYarTto/1Z5ooLCmLNZ11Ol57cxfEIt/aRrr1vB9G
+	 6cncK1c44olJ4HZwHjXHqHQHK6pQuFK3+okh64924xvJGWqU2AQzkJ5H7TbUVbDPVSw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RZStdTq0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.49
+Received: from mail-lf1-f49.google.com (mail-lf1-f49.google.com [209.85.167.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C62A2606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:48:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C62A2606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EAD8A606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:48:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EAD8A606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IZFwNIh7
-Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-3b421e8d111so4425376a91.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:48:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RZStdTq0
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5be3ed646a5so8521181e87.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:48:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795661293; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DEp5mPDzjIvQfXy9h8kK4nBL+KvIiNGXywjJcwWB4/foY/R8/C77qgrtELzQxD+nMf
+         RcfA+YBF4s01xHrXzPmymprRm5pMC5/oljkBiMSUvJsPvwzL8sLcsnCTfH+Hd0HYDADm
+         4jRR/toU1wUAQyICuT1KPfow9/91qQbPkwoAkYnzSfMy7S4ggoApXi3YH9pjQw0BZ9df
+         5nnxy2qj6yNELfBMW1eLE9dVNhdnYravuG+8kcU/LAa2cJjZq25wRXxvyT85v0Q7M6l2
+         zE1UUZd6fCk8ZnXbaXCPnXZhqR8Pzj72S1ma+b8/cNfwQIZk/7HyrATujUiFLdebCd//
+         pzBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=sSFnpqUuUbjElix+JO0v+jouPkVBxE7R6M/+d3k0EDM=;
+        fh=Ng7hQeoaaUVbUy6JbxbPVP5wmuS3a3EyS+EnS/srAXY=;
+        b=EDCBIf6cB5uuZFgtcY5yKtLAjkwo5ExeaqY4QEqR0ke3bVtcVI00lctiC5JzPfdfk6
+         bRHDst4USQBmTnnXfSlWX9meUheaU9nvKJwA/tgRNdAVqxCTgDXkfYknKJiRTKt+s+I7
+         oKFoDseBbemFH3R8mVR9NhTJRTznS2jA48tiK6IVlIc4+YvGvUoYX9sMq1fhJcy081Uv
+         x8jjlKgUPn0N7oK7zICWH2bksjAQGrdUxq3mqYXfSvQzGLS1fBJE8/DApEHRcR1+QUOO
+         O/i8ZbZ3P/b4kDUr2aUqrwS/RX+KW6VhwoE39voJnw/K+QijHJYqtCiW9nFh+5hEC6Z5
+         RGUA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795661295; x=1796266095; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6MU1/48ZybrBDzSqWU7nC+slwlNUnGGFJ6ROpqcIX4U=;
-        b=IZFwNIh7WzHe3PbjJQ/iynoH6m5rUuCSzTBDF4gGxs+nS7INS1cVB6T5u40XFSLvfY
-         Cv7t3ZB0P4TYE+M+XbyRc2PIKO9ZpszHfipULoVPN8rBvj1X0e0F/+N7Fk5zTtxi0Uwk
-         pPxO8+okHgpuP0oXgWox+0A5oKObsyOBGV40tlU2UrRJ3aOenRZnW6txydUsNrxF+Gix
-         l76p2UghEvND8FyvfptD4vEMbg02BPH77LRQilvbJHj3whyFs7IGVA+Xk4aNEUbrb3jh
-         +cs2eAs8UbpwS3rpHLd0B3cpKH93XBVMF+43bXs6HZjBYgSCbB1qj/fFpGIl+T08Yi6/
-         OHZw==
+        d=google.com; s=20260707; t=1795661293; x=1796266093; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=sSFnpqUuUbjElix+JO0v+jouPkVBxE7R6M/+d3k0EDM=;
+        b=RZStdTq0/KWhsgaLcWelVgO0rfVN/AIjokPuIYlr09nEwdBHkcFLaFMsdzW7BkHetL
+         TrDKVN/cTWJzYk71S7A4+NNtvQoP3fTbfFmvM43PDObmq4e8Xxy6WIJoZkDTK9IIUsIf
+         w9JLTG4dof3j4mgJPFctiDJ9T5scHcr4koVZskvs/v6f09ECohStwaZv5MEUwEfP5mnI
+         /g3RIu/7a5HYSdLBr9PIQGqSigyBJzfghlOrA1HmzbfehPa0QtlpFJqYU2GgRzZVInO7
+         xWFhVUeHQIvyS65EnUyqjeGxAoPMutTqJB8oRMUqZUKtwIB2fYuQluYoAPZrjP7DCQHn
+         fVYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795661295; x=1796266095;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6MU1/48ZybrBDzSqWU7nC+slwlNUnGGFJ6ROpqcIX4U=;
-        b=u+or2BiTdrxBe6T5flcIwPYzSwLykZFehxwY5uwxfa5MCE/zOI3wyCv6W2/wMM19PZ
-         5v+wcSwsM1FvQaf073IxPFgzF6iYdgtXQaW5s6uSGiezFBsxnmMnXk4VKtOnk3mX1Mq+
-         iP6u99Rf8Iy6vX143XedFsPqhb2kXGiiNUOxnXroKHjA5sbRFWEsti6j9W5630u89mr4
-         BCDE7kqv9llP970O9nfKv6sIzl5/HvAP3PPuF1ltYnfQ07I7JWdPtJJRS+NpzyOIqALk
-         fg1XiEJEMLAzZz7NOFhWsSmkn7/CuaPPAg2SDbI+emMChr0vcW30z1BMIFiu0Ty62cwW
-         v41A==
-X-Forwarded-Encrypted: i=1; AL+hErEgZJ46S1IbRvOTFrHKOwobfzuK2baGa90q9zDHmOXL+qGAgcR3kgR8mfN+D9lMVm4l0+cPi98Pc6dL53g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9n91pyiOSDZ0RVzQNcM/1ycwYWVjsW+ZEGqN9t6M/U5S28yyjP
-	70eXncOJ0WfXQrULUcLBBYVzc3kZEK8U89B/XaxVxUJQ05T7rTZ04oiKM/6ERlq+
-X-Gm-Gg: AZFdTZfKc+5rFEoEIJM+7clHGCBvPoOb0HLF96q3FTUMsYlbOasxweUzem4ND7UunGE
-	lCbwgOejU4KYZl2/WB8wy0ehCD1Av9znEmbkzQjvceR/L5sXXbZras/M6Ua7H8f9DGuW20ayD+w
-	UiSviSYH2N+kDN4AaTwagY37cLwOlisZa+c3PZmAlK3USPWNc9mRX2XXVkiD7mDTShSW3Df8rJE
-	2oebGsyUkFGQKYKkcjG/gu1BSCBAbdPi3k2OIqRqOjyDnvPl69YhNRObFmhkw2WtISoDNWSbK5T
-	jLcWCGuKEggCNdcQ152b+bTyTU5/QzleUN8nd3fS20J1c/1q6SMzNlbsaDr+GCHlPjUwQZIpkHj
-	wderBoUIXPOLGtNkTPUpaxF1YquJecV5zh25BtVPUhxdAfMIrCD9fV0ykNahqMaD3m2b9WgOYaA
-	bAn+Qk7K/DPFnIVMBzQIYpgdqE/9ALsoEWeMTEbPuuOIU42U5TM8d0mnfA9LrWXPr/RQ3pFdSDO
-	1N8UvKweImpnRatsSCNTOhprte0eSUURQUm51cuFlUezZl1vGD1XRKvtWwsC0CsLb2iIQJ3fCto
-	x1x1+9YeOyc9jLDJEeGbLiklLq6kDD+GRudITdaf9g==
-X-Received: by 2002:a17:90a:ec86:b0:3b3:ab75:c940 with SMTP id 98e67ed59e1d1-3b41c9b2ddamr19126643a91.18.1795661295006;
-        Wed, 25 Nov 2026 18:48:15 -0800 (PST)
-Received: from a-VirtualBox ([168.188.125.88])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4afeaaa84sm14486670a91.10.2026.11.25.18.48.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 18:48:14 -0800 (PST)
-From: Minseo Park <hiyoukou@gmail.com>
-To: linux-media@vger.kernel.org
-Cc: m.tretter@pengutronix.de,
-	kernel@pengutronix.de,
-	mchehab@kernel.org,
-	hverkuil@kernel.org,
-	linux-kernel@vger.kernel.org,
-	Minseo Park <hiyoukou@gmail.com>
-Subject: [PATCH] media: allegro: reject S_FMT on OUTPUT while buffers are allocated
-Date: Thu, 26 Nov 2026 11:48:06 +0900
-Message-ID: <20261126024806.33434-1-hiyoukou@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20260707; t=1795661293; x=1796266093;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sSFnpqUuUbjElix+JO0v+jouPkVBxE7R6M/+d3k0EDM=;
+        b=k9Q9b1Zf5WW1VY7FyAl0jR9PBQJ4CwUi/mozUaIhs3Bty41gAG/frU5+wSDZeKtz1c
+         f/fdgs3f5Dcrg+6f4L0eXSPi2mnzJ4joNlzy/bJ5spgxaKi4zmvN6oqpqK4W2gv2nMqS
+         XGJhsenusjCCQaz8qrrqeLaEf5cjRvZJjz1Ho6P6J9stWgg0WzuJ/81T8vVvIt5zC2sj
+         oNy2Jc7rYfqKIjpya5N7G9ILEQeCef44H6jjjviK/dW4fuwV9M+Z0CyD+wZoi4fIkYdq
+         7LlGBDUsPRibizqmTQMt46BtiH1gO7KUXqzdBv7r4XrlN10SxJws8BO+in4Dq4ryA2wb
+         T97w==
+X-Forwarded-Encrypted: i=1; AL+hErFn4AP9lzZ7pesGPhkPvnjX2rAGD3CFRXXsXKhX79irVI0MFPeffj9JACRuxTnNsHymed7lN/Q93faZ/D8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+WrGIIXqvjZmo4pCcxd5R35ov9fkaCoxwLlQVS4jzLlWW61ss9
+	ZD497jJFHHRZkgT0ilOLJJn7dFXgFKJmL0swhESeFkket/kM4Jx1RzavK4jpCDJNoNd8FGigKUf
+	MnpxtWsPWc6jFhHHoUbx868M93HpLGINHcLqcFT1E
+X-Gm-Gg: AZFdTZfp0GV5vVkUmmEtqihbmEZmyERL7dvAEChxuj8JI5MUIXiSdfLr/YALOXwT0WF
+	rPkNHX34M1ewwdYiOnd4e8GLrUZycZ+EEks/LZ6TqRYfPiPSRDgreffRBCDMI7L+Y7/cxikxDdI
+	RRDsZMIb7c7q+psoWanPsQ8mLdUvs12/W6559YvjYAIC2+2ngB3oWByHXLCVTMyZX457STfm2W0
+	VxPs1UQtk7c5ptVhXWazVRl0NJV7kMixS2SZh/kYiQWBSTh55R9PBSZU/LBpyf6jbxSIkVR8pBt
+	a63TiHinRZN0Q2jUoVX3+PQG36Qx2FfjES9oyUqYoETj5gsHO5TlJMFiUUp+kDoEb0J9hM7ZKl8
+	485j/HUZy0IrUpNOk4FdR0eMOJlLh/yI/5PkOSV+YQe5LhOT1jB5r6uLmTHzOUfYGy/k=
+X-Received: by 2002:a05:6512:3d14:b0:5bf:d54c:c189 with SMTP id
+ 2adb3069b0e04-5c1bc660a0dmr6174968e87.5.1795661292818; Wed, 25 Nov 2026
+ 18:48:12 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,87 +104,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261110020632.4003499-1-svv@google.com> <20261110020632.4003499-4-svv@google.com>
+ <CANRwn3S63O+WRTGhpcNR__ybSuYUb2uEJavUY3b9Uaa_vEhWXQ@mail.gmail.com> <CANRwn3QjnmnhJP2y7tihZWrvgkdT9PG+qGaNbEW=x=mgUP4OHg@mail.gmail.com>
+In-Reply-To: <CANRwn3QjnmnhJP2y7tihZWrvgkdT9PG+qGaNbEW=x=mgUP4OHg@mail.gmail.com>
+From: Siarhei Vishniakou <svv@google.com>
+Date: Wed, 25 Nov 2026 18:47:56 -0800
+X-Gm-Features: Aa3M54rOxoiOvBSclEq7_xDi6e9FQMltiQKQ215JTx5OlREUy9W3b-zaJJ0tzEE
+Message-ID: <CAKF84v0trQ5gpW9ceGmjGF-_Sh7vgitoeoqxRNZ-+xScnYU4MQ@mail.gmail.com>
+Subject: Re: [PATCH 3/3] HID: wacom: report ABS_TWIST alongside ABS_Z for pen twist
+To: Jason Gerecke <killertofu@gmail.com>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
+	Benjamin Tissoires <bentiss@kernel.org>, Ping Cheng <ping.cheng@wacom.com>, 
+	Jason Gerecke <jason.gerecke@wacom.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Henrik Rydberg <rydberg@bitmath.org>, linux-input@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-allegro_s_fmt_vid_out() stores the requested frame size in the channel
-without checking whether the OUTPUT queue already holds buffers.  The
-CAPTURE side does check, with vb2_is_busy(), but the OUTPUT side never
-got the same guard.
+=D0=B2=D1=82, 24 =D0=BD=D0=BE=D1=8F=D0=B1. 2026=E2=80=AF=D0=B3. =D0=B2 11:3=
+9, Jason Gerecke <killertofu@gmail.com>:
+>
+> On Fri, Nov 13, 2026 at 3:29=E2=80=AFPM Jason Gerecke <killertofu@gmail.c=
+om> wrote:
+> >
+> > On Mon, Nov 9, 2026 at 6:21=E2=80=AFPM Siarhei Vishniakou <svv@google.c=
+om> wrote:
+> > >
+> > > Historically, Wacom tablets reported stylus barrel rotation (twist)
+> > > via ABS_Z because a dedicated evdev axis did not exist. Now that we
+> > > have this axis, report pen twist on ABS_TWIST in addition to ABS_Z.
+> > >
+> > > Keep reporting ABS_Z to maintain backward compatibility for existing
+> > > applications that support Wacom devices.
+> > >
+> > > Signed-off-by: Siarhei Vishniakou <svv@google.com>
+> > > ---
+>
+> Still waiting for the requested inline comments, but in the meantime
+> I've been able to test and verify that the code works as expected:
 
-The buffers are sized from channel->sizeimage_raw when REQBUFS runs
-allegro_queue_setup().  Growing the frame size afterwards leaves the
-queue holding buffers that are too small for the format the channel now
-describes, and nothing catches it: allegro_buf_prepare() validates the
-field order only, not the plane size.
+Thanks Jason for the feedback and for testing this!
+I just uploaded a v2 where I had to rework the rotation logic - this
+way, reporting "0" would mean that the device is aligned with "North"
+direction.
 
-allegro_device_run() then hands the encoder the small buffer together
-with the new geometry:
-
-	src_y = vb2_dma_contig_plane_dma_addr(&src_buf->vb2_buf, 0);
-	src_uv = src_y + (channel->stride * channel->height);
-
-and allegro_mcu_send_encode_frame() passes channel->stride along with it.
-Going from the smallest frame size the driver accepts to the largest, the
-12 KiB that were allocated are described to the MCU as 11.9 MiB, with the
-chroma plane starting 7.9 MiB past the end of the buffer.  The MCU reads
-whatever follows the allocation and encodes it into the CAPTURE buffer,
-or faults, depending on whether an IOMMU covers the device.
-
-Check vb2_is_busy() before storing the format, as the CAPTURE side does.
-That is enough on its own: the core records the queue_setup() size in
-vb2_plane.min_length when the buffers are created and rejects a DMABUF
-shorter than that, and the queue offers only MMAP and DMABUF, so once the
-format cannot change the buffers cannot be too small either.
-
-This was found with the help of Claude (Anthropic), which also wrote the
-patch and this changelog; I reviewed both against the source.  See
-Documentation/process/generated-content.rst.  There is no reproducer: I
-do not have the hardware, so this is compile tested only, W=1 with
-COMPILE_TEST on x86_64.
-
-Fixes: f20387dfd065 ("media: allegro: add Allegro DVT video IP core driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Minseo Park <hiyoukou@gmail.com>
----
-Tool disclosure detail, per Documentation/process/generated-content.rst.
-The assistant was asked to audit V4L2 S_FMT handlers for driver state
-committed before validation, across a long interactive session rather
-than from one prompt.  The candidate list came from a script that
-flagged .vidioc_s_fmt_* handlers writing driver state without a
-vb2_is_busy() guard; it was calibrated against a known case first, and
-its output was read by hand.  The asymmetry with allegro_s_fmt_vid_cap()
-and the path through allegro_device_run() were established by reading
-the code, not by the script.
-
-Review and a test on real hardware would be appreciated.
-
- drivers/media/platform/allegro-dvt/allegro-core.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/media/platform/allegro-dvt/allegro-core.c b/drivers/media/platform/allegro-dvt/allegro-core.c
-index dc76986ce48d..b241a7208deb 100644
---- a/drivers/media/platform/allegro-dvt/allegro-core.c
-+++ b/drivers/media/platform/allegro-dvt/allegro-core.c
-@@ -3461,12 +3461,17 @@ static int allegro_s_fmt_vid_out(struct file *file, void *fh,
- 				 struct v4l2_format *f)
- {
- 	struct allegro_channel *channel = file_to_channel(file);
-+	struct vb2_queue *vq;
- 	int err;
- 
- 	err = allegro_try_fmt_vid_out(file, fh, f);
- 	if (err)
- 		return err;
- 
-+	vq = v4l2_m2m_get_vq(channel->fh.m2m_ctx, f->type);
-+	if (vb2_is_busy(vq))
-+		return -EBUSY;
-+
- 	channel->width = f->fmt.pix.width;
- 	channel->height = f->fmt.pix.height;
- 	channel->stride = f->fmt.pix.bytesperline;
-
-base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
--- 
-2.43.0
-
+Could you please re-review the patch? Some of the code had to change
+significantly.
