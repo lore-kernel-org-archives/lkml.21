@@ -1,47 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795726779;
-	b=Mj5P4L0zPykRsM87joIrATz6snHm8OPonImPTPCVCa16XxJwc2XJVL6L2xr3kOQMgdjV
-	 /LTA7eQbsd6zVz+OwGT/i5rMbcvtrnVMx0EdAs1e5h7Im0sDWBy96xgkfM6JugD73Rc0q
-	 dxLAoVLcmoA/099BFZtswyZij4ZCVl1MTsPoKaos6gSqyhEF71UcZ8srDDjso3ntgrN3h
-	 3HaHMS86SFnxOBJbQ4l03RDLu1bK/BHNaD36+jpoWUxGxy+G3lzVkA2L4QbhFWup1wU6n
-	 4B6NvhWr0Q0FWzJwdyaUqI4+jMKtZJcp3Fx/sZtwl10c0EE4wHcWxFi7Ta8lhSuSasA==
+	t=1795726810;
+	b=k/DaoAJWKY0SjXjkhq9JOXV9nAlyInLfU89kvK2i6TpCg7QgKO4vP8au4yERNCgavGzx
+	 qYy7P+WbQte0g7U+InBUiQBaUJ6ZW5AafexC/GNx6V38YcWQJCEOYI+UjmBPzlsJdgnry
+	 SU4dFZBmtA7fAhxymK8huvmEOgVuT0VVY93Qnp0A8+GH300mgugU5AhM8YicayWsscp0b
+	 U9VH74dWoaEYWPD9Qi6Z7gmb7e7v+miwsZmysAD4g6WkVMQ0+t+Bae/mjagW7WujL7ppY
+	 RNNaWh0xEnuNA2MOxK9oc6u1arO16ileXypoaJwWLLi0WIaN7H6f5dXf4l5PmcCbB+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795726779;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=43FuZlAs6POCjvZrAHbbrpryok64HGMb+mhfMxJg5sU=;
-	b=gPCtkkD+v3r2+0fbol2lBM9lOSEjCZm5Pt8Fo57YDl3T2kQQpKTMu9vzDkC7aUU1XbXz
-	 yuNDg0CkpVHXZxanQBhr3BEdGiWn/r8RC6k+3CA/HEXUXo/mBOzoV/vpqUjn/Gxovd1Ov
-	 kmqiJrZRk/nykATxa5othPVtFmIvJniySblbVGtnKL+ns20MzwfvTnXbLNcgzPuoMz+ad
-	 t14WbUDiIzfL5UtOOg4Mj85NK/LBHyMEb9YYsbXZLtroHS1+pxy8rT23zg2oGjyhwq/pI
-	 TFxWqAg2L5VNLPyRjixLHL/1mNqBfK1Ak/9DKLisr0vikHgonHNmydzyfy3d2diA7RA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795726810;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=L2EUDWrGprysBtTQg6JNgt9Au2GThQvZuOs0KqhjIOc=;
+	b=LYIqHWFPzu6XF9pjsiuql3pJcesU5Ptma0Bj+8y98EkkJqFwCx3Mf+tsmWkWTU7Us90x
+	 2F0TsYflr/2pVwzM/3RKAgCRL+YhE0BvbU2vv60CTTjjrkbRdedZ7T4np6GTZhWhm2V1Z
+	 axu96DeU0x8GwRyZbl81vFbGqZ/VjCTg3dGGQh2m6XeLuw2R5vuL7/M5MJgYQjdyXUi9d
+	 kLMMeik8+Of3PC+ddbzvI+sIJQCqVtFJe083cmwMYzN2zYeqOZbX40ketNAt53iiPo5LX
+	 k8ESQiOmmRTwCLDX99HPMExYPGEX0GkESx8+ND8aMYIAn4kGHxY4fvdoUHu6TsBxXxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EZlrpj+q;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=acxnUDQv;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C26E606A31C;
-	Thu, 26 Nov 2026 20:59:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B226606A323;
+	Thu, 26 Nov 2026 21:00:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EZlrpj+q
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11F4A1F000C1;
-	Thu, 26 Nov 2026 20:59:36 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=acxnUDQv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B72D31F000C1;
+	Thu, 26 Nov 2026 21:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795726779;
-	bh=43FuZlAs6POCjvZrAHbbrpryok64HGMb+mhfMxJg5sU=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=EZlrpj+qCyV5jdtbCYTu+wtwLbjxPX0rXbtu7iIULy30wKGiuwwqW6icaY1xnf5CR
-	 CaP2w2ejg1oQVeV79DRobEAfKlZY7PPxdK9hTIXqD2YF1MBoduPA4/NLGN+op5SVsL
-	 v69Het4VX4rC/7gyXzad4MubX1F4/Ju7/vFXSmG/YlsPKbslXI5C6mqLt+zZ27woI1
-	 69Mwcrk5WkPPk4l09e+EDuu3qgNUSY4I1ap5s0/qCTCDHHlNoWAEKsgYjJeU+xZaby
-	 j59UynoouuNRkMPLST4+qKagPf0SWu2hA7wR0QROrNoqSqyzmeHwGFT1K6iG5Ts3Xj
-	 P37WGlPu2BeXw==
-Message-ID: <15b5029d-e1c4-4978-b602-48ff32c3400c@kernel.org>
-Date: Thu, 26 Nov 2026 22:59:35 +0200
+	s=k20260515; t=1795726809;
+	bh=L2EUDWrGprysBtTQg6JNgt9Au2GThQvZuOs0KqhjIOc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=acxnUDQvYX7IUP6aztJayBqdQ+yBjo1O220TVMSoV6okvGms61PVW0Ga6u/m0JMeD
+	 oqgKZTFgaaKrbkPHwGYXZGf+Pl2nBeD7HwKwwl7Nnzz9tE5+JU5FahrMfbCmHBPnkT
+	 JDL1xZUwUJIR+myWD2TH/0QPZu8pbD4Js6KAyqZutBrfhW1BVmwcnf3lJNL5Xz/lz7
+	 FVrIcn2XWXAeBNpS3ZD1E+S7wUj8KbSQcOLFxAGABistMtV4Ay0Gm5usIC2a/WS7xU
+	 Zpc4Zm0sJNDsxeruF1D1Jq1AM6F+n44Y3F2cxFPdMhCDKx0pjdgPKL6yd8sgtiS7tP
+	 mVLSxW+i0Ahbw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE82F3803326;
+	Thu, 26 Nov 2026 21:00:09 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,49 +53,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 15/16] ARM: dts: microchip: sam9x60_curiosity: Enable
- OTP Controller
-To: Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Ryan Wanner <ryan.wanner@microchip.com>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-References: <20261105110715.2486432-1-ada@thorsis.com>
- <20261105110715.2486432-16-ada@thorsis.com>
- <1d45ab58-9e5a-4b9f-adc4-691a99f0e05e@kernel.org>
- <20261119-gaming-employed-e2f29d4756aa@thorsis.com>
-Content-Language: en-US
-From: Claudiu Beznea <claudiu.beznea@kernel.org>
-In-Reply-To: <20261119-gaming-employed-e2f29d4756aa@thorsis.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH bpf-next v4 0/6] bpf: Add log support for tracing
+ link_create
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179572680824.617567.1633909900114303634.git-patchwork-notify@kernel.org>
+Date: Thu, 26 Nov 2026 21:00:08 +0000
+References: <20261125143138.47174-1-leon.hwang@linux.dev>
+In-Reply-To: <20261125143138.47174-1-leon.hwang@linux.dev>
+To: Leon Hwang <leon.hwang@linux.dev>
+Cc: bpf@vger.kernel.org, ast@kernel.org, daniel@iogearbox.net,
+ john.fastabend@gmail.com, andrii@kernel.org, eddyz87@gmail.com,
+ memxor@gmail.com, martin.lau@linux.dev, song@kernel.org,
+ yonghong.song@linux.dev, jolsa@kernel.org, emil@etsalapatis.com,
+ ihor.solodrai@linux.dev, rostedt@goodmis.org, mhiramat@kernel.org,
+ mathieu.desnoyers@efficios.com, kpsingh@kernel.org, matt@bobrowski.net,
+ shuah@kernel.org, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ netdev@vger.kernel.org
 
-Hi, Alexandre,
+Hello:
 
-On 11/19/26 17:17, Alexander Dahl wrote:
-> Hello Claudiu,
+This series was applied to bpf/bpf-next.git (master)
+by Alexei Starovoitov <ast@kernel.org>:
+
+On Wed, 25 Nov 2026 22:31:32 +0800 you wrote:
+> I'm planning to add syscall common attrs support for LINK_CREATE cmd.
 > 
-> Am Sun, Nov 15, 2026 at 04:27:35PM +0200 schrieb Claudiu Beznea:
->>
->>
->> On 11/5/26 13:06, Alexander Dahl wrote:
->>> Allows to access the OTP memory and Product UID now.
->>>
->>> Signed-off-by: Alexander Dahl<ada@thorsis.com>
->>
->> Reviewed-by: Claudiu Beznea <claudiu.beznea@kernel.org>
+> This is the second series for the plan, that adds syscall common attrs
+> support for LINK_CREATE of tracing prog and cgroup prog.
 > 
-> Well, in feedback to v4 sashiko suggested [1] it is not necessary to
-> enable the node in board dts, because the node is implicitly enabled
-> already in SoC dtsi.  Can confirm this from testing.  I would therefor
-> drop this patch for v5 of the series.  Or is it better to keep it to
-> make it explicit?
+> BTW, address Andrii's review [1] in patch 5:
+> 1. Change if (!OPTS_ZEROED(opts, iter_info_len)) to if
+>    (!OPTS_ZEROED(opts, log_opts)).
+> 2. Add comment to iter_info and iter_info_len that they are
+>    deprecated, and use iter.info and iter.len instead.
+> 
+> [...]
 
-Unless this node is critical for the SoC to work (I think it is not), let's keep 
-it disabled in the SoC dtsi and enable it in the board dts file.
+Here is the summary with links:
+  - [bpf-next,v4,1/6] bpf: Add log support for tracing link_create
+    https://git.kernel.org/bpf/bpf-next/c/be52e74c3df1
+  - [bpf-next,v4,2/6] bpf: Add log support for tracing_multi link_create
+    https://git.kernel.org/bpf/bpf-next/c/3e5de7a1a5a8
+  - [bpf-next,v4,3/6] bpf: Add log support for iter link_create
+    https://git.kernel.org/bpf/bpf-next/c/892d17776b75
+  - [bpf-next,v4,4/6] bpf: Add log support for cgroup prog link_create
+    https://git.kernel.org/bpf/bpf-next/c/554864149321
+  - [bpf-next,v4,5/6] libbpf: Add log_opts support for BPF_TRACE_ITER
+    https://git.kernel.org/bpf/bpf-next/c/72fb27b0551d
+  - [bpf-next,v4,6/6] selftests/bpf: Test tracing and cgroup link creation logs
+    https://git.kernel.org/bpf/bpf-next/c/42fe7db4d6b6
 
-Thank you,
-Claudiu
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
