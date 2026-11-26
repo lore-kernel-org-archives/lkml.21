@@ -1,76 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683429;
-	b=i6cGROEmrxfFg/TXEIH2BhuZddwJxoCJ5khFYN55mD5z1GW6/YesekWARQHg7ADoiAsU
-	 glLJKiNhyfJaw38R2nBr6dpTvyfAdG/qmsEVJWjL5y5U2C2Jh5plJyjTQmjfGIXLT147g
-	 t6IZYbKdGqwxv2K7py5UnfkTauBHTBGPbjwax6KXgThAWvtnOmD4HGkFvsEPPT8EybGAw
-	 ezcWgMjLdgIXkx3O/a1gADoIxVY78p0QZHIrMVHp8MY1v7VetikN9oEQ5OcShqhoJQVRJ
-	 9C9NqhFCr5ASjnekOLm4qW1FULFkPYQLpOYDELndqTijTmtkUFLFdJ08xk4PltXTNGQ==
+	t=1795683430;
+	b=Lj7/2sDuCY7KFkotVhe2KkUK8q3lS1csUDJyveHBsF5hu1CSykafCxTz2ylPde72EgIj
+	 xjGkCQNJzsy9PuaFA/fxiAC8JQtokwOBdelv0drxGxuDP1ySyq7DZNhx6L8GaxdZMi1P/
+	 zIEkg0dpLe+vN8vVOTHQmI52XWbrH9etLFyQXV/WjMYpzTN3/TvZsTyrPVE1oancQCYbC
+	 AmH214MTSvQ/vXLa416/thnOsvZSC81CPp3S8aRK8cInij9gerMdXmAdrC73lo9qm28s4
+	 s+adZukp6vrNTDXeOfyM306o9rn5aSXC9gYs8fTHL+UHM2TjloNJCDTzEb+LM9bTEyg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683429;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
-	bh=+xm6Nkf6BzesHyi2GpHfWG2ZszRki3RAcUZM3tdcUwM=;
-	b=4820XfoFHJuM00ez5HH7H6Wbe/9alqS1qNrIWSQOWlC8blsF6ukYcnj0oAqWIXywHiHM
-	 DOzXxDnS6UzWupqyvVXYIAzayRIFCeN+f2yUNuJsCMPLBVXcLKgYMptt9ZpFbEV5gcEfL
-	 ZUN+++1WUr2QI5ZqhXm5T9Iovu+MY95LohKhzeB1H19CjTOLdg6FvN/GMPMxKlL9iXV3X
-	 tRh6R0e0QVE9dnAhYGKYPcpf8GKZwWJblzG2gLNY8jGSaNjvMevuP7GXXIw+ZJMn6MoMk
-	 itjjM8MWbKr6Vf2d0jCtwgeAqBwLc4y6ngIf6D0vBOQ2+bttJe1eedDxHYLI9fXlBuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683430;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=c8eXb6MPyyPDuG7fWkku3VOTMsmdQ5zJqCf3p5BmCmA=;
+	b=WDMfv/zNsXKov/AfQpcqfzJ+AtY3wGjVny5rIyZnmozxBD6aFQgXbsdJeLlfm/blwZO4
+	 QlDXMGbG1P9fxiwvYGQiOG2w7srtQ7gyfmj3gcIkX+C1Vx6HabxHlFGgM3DgJh8Ck40f0
+	 1CKT2z6LO6iu/0QHrK/MgQgrLydjqsd3N6XWDdmGeNx1ola8XDRxccrC1STsZ+Jn4ky+N
+	 gOs8cYT1BSqtfX4cHGW4EcsTb8577tALd+7ranNK3XWd7XdPht7bdqEBUxWMy/OKOadFs
+	 Ftc4JyxbAAGNn6+tVAo2JijzqLbHqvanCHZLIlHC81QreufL+N5SsiY9lKoyg4DjRbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Lh3nowhw;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="mu/Qtpfj";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35375606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:57:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35375606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C271B606A32D;
+	Thu, 26 Nov 2026 08:57:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Lh3nowhw
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795683428;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=+xm6Nkf6BzesHyi2GpHfWG2ZszRki3RAcUZM3tdcUwM=;
-	b=Lh3nowhwZ+YoRj3H8yz4tXtRkOG4pnWxIII4Jo/tBK5fs4rVvYK+FPTg0B7juHfmBolra2
-	Cwp9vAqu/udwG1NwoMrVMwfNI09w4lL5RaUs7MpYeDsj/TdesbQdmubh4lRZmFB+mRKSH1
-	IkAbsjzmzFbLUqtxrTiQtjTxu0BsOCs=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-29-8PSsJiaINlmfJzoEnyN7Bg-1; Thu,
- 26 Nov 2026 08:57:05 +0000
-X-MC-Unique: 8PSsJiaINlmfJzoEnyN7Bg-1
-X-Mimecast-MFC-AGG-ID: 8PSsJiaINlmfJzoEnyN7Bg_1795683424
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 817251800BC0;
-	Thu, 26 Nov 2026 08:57:04 +0000 (UTC)
-Received: from snishika-thinkpadp16vgen1.tokyo.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 42F7641F;
-	Thu, 26 Nov 2026 08:56:59 +0000 (UTC)
-From: Seiji Nishikawa <snishika@redhat.com>
-To: Keith Busch <kbusch@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>
-Cc: Hannes Reinecke <hare@suse.de>,
-	Chris Leech <cleech@redhat.com>,
-	Seiji Nishikawa <snishika@redhat.com>,
-	linux-nvme@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] nvme-tcp: fix use of a released socket in nvme_tcp_poll()
-Date: Thu, 26 Nov 2026 17:56:53 +0900
-Message-ID: <20261126085653.3339227-1-snishika@redhat.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mu/Qtpfj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 668621F000C6;
+	Thu, 26 Nov 2026 08:57:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795683430;
+	bh=c8eXb6MPyyPDuG7fWkku3VOTMsmdQ5zJqCf3p5BmCmA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=mu/QtpfjGKXegsH13hhds3olZJA9A5aGEyvkzLIF1twPMK2FrrB2HstxUZJTclybe
+	 Cz8rSYWwoboY6jGa1DjCj3x5OaObt8X3pIFj0CmK5a8/mHmKnOIV2G0ebRZYxe7/ZS
+	 ClBisQ3u94UvfR/RXaIXO9H8AMGPNQdLSW9434Rjn89osAqFqI8vbp46Py6fwLzA3y
+	 UXjVLnyY4IOm7F74DugQfMMCB1Z7fY0deneEZ4StOpbf1El/X0d6Nca+PZ7CmcNpss
+	 5UHBir8hdb27yJ/+UVrQtX2UwVeBAs0d+GE7tsqZdhFyoxqTutl3Pyt2KuGfDmNkq1
+	 UbayDbAWtbrbw==
+From: Leon Romanovsky <leon@kernel.org>
+To: Bernard Metzler <bernard.metzler@linux.dev>, 
+ Andrew Stellman <astellman@stellman-greene.com>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, linux-rdma@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261122191122.65240-1-astellman@stellman-greene.com>
+References: <20261122191122.65240-1-astellman@stellman-greene.com>
+Subject: Re: [PATCH rdma-rc] RDMA/siw: Don't send stale data for a queued
+ zero length Read Request
+Message-Id: <179568342728.1250831.15769582279657645593.b4-ty@kernel.org>
+Date: Thu, 26 Nov 2026 03:57:07 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,103 +60,28 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-18f8f
 
-A controller reset while polled I/O is running crashes the kernel:
 
-  BUG: kernel NULL pointer dereference, address: 0000000000000018
-  #PF: supervisor read access in kernel mode
-  #PF: error_code(0x0000) - not-present page
-  Oops: Oops: 0000 [#1] SMP PTI
-  CPU: 2 UID: 0 PID: 2585 Comm: fio
-  RIP: 0010:nvme_tcp_poll+0x14/0xd0 [nvme_tcp]
-  Call Trace:
-   <TASK>
-   blk_mq_poll+0x6e/0xc0
-   bio_poll+0x8e/0x140
-   iocb_bio_iopoll+0x2e/0x50
-   io_do_iopoll+0xda/0x470
-   __se_sys_io_uring_enter+0x43f/0x7a0
-   do_syscall_64+0xe9/0x340
-   entry_SYSCALL_64_after_hwframe+0x76/0x7e
+On Sun, 22 Nov 2026 14:11:22 -0500, Andrew Stellman wrote:
+> siw_init_rresp() queues an inbound RDMA Read Request in the inbound read
+> queue (IRQ) when the TX work request is busy. For a zero length Read
+> Request the IRQ entry has num_sge 0, and siw_activate_tx() then leaves
+> wqe->sqe.sge[0] as the previous work request left it.
+> siw_qp_sq_proc_tx() sets num_sge to 1 for every Read Response, so the
+> Read Response is built from the previous work request's sge[0]. RFC
+> 5040, section 5.2.1, requires a zero length Read Response.
+> 
+> [...]
 
-nvme_tcp_poll() reads queue->sock->sk before it checks NVME_TCP_Q_LIVE.
-The reset stops the queue and then nvme_tcp_free_queue() releases the
-socket and sets queue->sock to NULL. Nothing keeps nvme_tcp_poll() out
-of the queue while this happens, so it reads a NULL queue->sock.
-Checking NVME_TCP_Q_LIVE before the read of queue->sock does not suffice
-because the socket can be released after the check.
+Applied, thanks!
 
-In the vmcore of the crash above, the controller is in
-NVME_CTRL_CONNECTING, and the queue that was polled has sock == NULL and
-flags == 0. The reset work has freed all I/O queues and waits for the
-admin queue connect command.
+[1/1] RDMA/siw: Don't send stale data for a queued zero length Read Request
+      https://git.kernel.org/rdma/rdma/c/da570e4488d197
 
-The crash is always reproducible by resetting the controller while
-polled I/O is running on a poll queue. For example, connect with
---nr-poll-queues=4, run fio with --ioengine=io_uring --hipri on the
-device, and run "nvme reset" every 10 seconds.
-
-Take queue_lock in nvme_tcp_poll() and check NVME_TCP_Q_LIVE under it
-before using the socket. nvme_tcp_stop_queue_nowait() clears
-NVME_TCP_Q_LIVE under queue_lock, and nvme_tcp_free_queue() releases the
-socket under queue_lock. So nvme_tcp_poll() sees either NVME_TCP_Q_LIVE
-cleared or a valid socket, and the reset waits until nvme_tcp_poll()
-drops the lock. nvme_tcp_get_address() already uses queue_lock in the
-same way.
-
-Use mutex_trylock() so that nvme_tcp_poll() does not sleep on the lock.
-If the trylock fails, nvme_tcp_poll() returns 0 and the caller polls
-again.
-
-Fixes: 1a9460cef571 ("nvme-tcp: support simple polling")
-Signed-off-by: Seiji Nishikawa <snishika@redhat.com>
----
- drivers/nvme/host/tcp.c | 22 ++++++++++++++++++----
- 1 file changed, 18 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/nvme/host/tcp.c b/drivers/nvme/host/tcp.c
-index 62a594b..dbd9bdc 100644
---- a/drivers/nvme/host/tcp.c
-+++ b/drivers/nvme/host/tcp.c
-@@ -3196,18 +3196,32 @@ static void nvme_tcp_map_queues(struct blk_mq_tag_set *set)
- static int nvme_tcp_poll(struct blk_mq_hw_ctx *hctx, struct io_comp_batch *iob)
- {
- 	struct nvme_tcp_queue *queue = hctx->driver_data;
--	struct sock *sk = queue->sock->sk;
--	int ret;
-+	struct sock *sk;
-+	int ret = 0;
- 
--	if (!test_bit(NVME_TCP_Q_LIVE, &queue->flags))
-+	/*
-+	 * A controller reset stops the queue and releases the socket under
-+	 * queue_lock. Hold queue_lock so that the socket stays valid while it
-+	 * is used here. Do not sleep on the lock. If the trylock fails, return
-+	 * 0 and the caller polls again.
-+	 */
-+	if (!mutex_trylock(&queue->queue_lock))
- 		return 0;
- 
-+	if (!test_bit(NVME_TCP_Q_LIVE, &queue->flags))
-+		goto out_unlock;
-+
-+	sk = queue->sock->sk;
- 	set_bit(NVME_TCP_Q_POLLING, &queue->flags);
- 	if (sk_can_busy_loop(sk) && skb_queue_empty_lockless(&sk->sk_receive_queue))
- 		sk_busy_loop(sk, true);
- 	ret = nvme_tcp_try_recv(queue);
- 	clear_bit(NVME_TCP_Q_POLLING, &queue->flags);
--	return ret < 0 ? ret : queue->nr_cqe;
-+	if (ret >= 0)
-+		ret = queue->nr_cqe;
-+out_unlock:
-+	mutex_unlock(&queue->queue_lock);
-+	return ret;
- }
- 
- static int nvme_tcp_get_address(struct nvme_ctrl *ctrl, char *buf, int size)
+Best regards,
 -- 
-2.43.0
+Leon Romanovsky <leon@kernel.org>
 
