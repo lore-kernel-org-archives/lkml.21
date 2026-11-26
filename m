@@ -1,62 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795728028;
-	b=lMwUQlT6DFHRgmootToLCgfeMs2cGSA2x2YsO7DgRVPiX03r5gnAeRlzPCqkWmZAp9da
-	 tBA1K175SwFF5aHQPcTJxP6pVZCN8h4nZt5YehmLU3bHOwxPrg7bCj9McoPtc588RnqKR
-	 s9ZrKKAYt98FO8NU0rDUtjnVBxDz1Pq2fcxgPievj3x8uefhVf3D/UojWgx25lYRxyWf+
-	 QXIgpqc+6uv228En8FS9Ts9zgr2XKC0IipUZ3VjuD/vhfi3C2lJYx5ob/CyqfVAh71gvw
-	 1AHSV21GiYbwePbm4xca5TslylLx30ErP0Rii0/r+FGbj0sGvkXTPAsdAUkFJTSPmVw==
+	t=1795728198;
+	b=SvgkhBA0aEQ/lPQpvxrvimEwed5uIqGifhouGzbf5i2avNhJ9TnksID9BfryQBtxM8fK
+	 U36woN8IGT9g4aV+sa9ieJwiQ5RXlmK7ty4+97VfLGyyy/gHw8qRP8JDkYnMQInPuFQ1V
+	 WhMjJMivZ4eJ56b9aeYW6evLYR0FM9khNdhEsoqiJK79s5ZowGa2QdGuA2U65yFVJl8NG
+	 C7X2B5TCeSZgr8yzwfJJe0x58JJpQa/XVz6mdamSbWxL35IlGmt2knEQhoPqPWlbtBRYc
+	 rcdptwyG1ozTxvINXmNqSfQVl+0LE3yuZt4WVrKZoj5uR7V7TTPhCIUV9ZAp7ijk1tA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795728028;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=WpnFRtFvn4rUzHOPiDA3buIdDTlwdvdiSjo/iAEXaNc=;
-	b=vpIlCq1+WQihFBeFiiSEBGrWJpJGf4JiTK6Ps7zcJiJFbU+6pstdUppjmpnaUTOXr4Rn
-	 EAv0jeB/DGTDWEDdlGmxuQAtKdlJfxcQvqaQ8H2/1NYdDEWdBSJx+u6kpevGXqDhWhkvw
-	 eqcOFvqNmOTzbyknkUqzUmeP1pJ0k73U8Xill5qQKoGcJOH3c3Sx84h/hi08HpbTPPMaT
-	 ezgTSAmR1UDLYkkpJ1q/1cm7VYQec8L7fIckhsuhRKPoXyrKI4+Bf0PcVI+vkpkW7j6MY
-	 nqu9luYFe6igBZQEMI8FtYPEuyGgMKy/ij9XIE9aT7OUedurqqcB1xTACRODAT540Qg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795728198;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=5Kzpid4RLm/541vknBbiSpsgz96CflLOK7rHjgv23pI=;
+	b=jRU1m/3JxFYNv7+4Ch0DyQ5U6pEclSAHEfKHvQmzdFndKBTv2XegYvuOTilbmnyluTF1
+	 poGR2DuB3iIxMxWIle3+L839eJIZYhNgAMCD1JqR44oUsdcQkQDruqjR0gQebUIMB4Pcl
+	 Q6HCOLmiaXh0MTlzmsHbdKfU6EbWAr/YfW1hbA0L0wg42QBARDjtwhc98+6h5bOkvfUSY
+	 OCs9AyQBVhUe6cgufrNpUJAZdqfVPZqxzMd2O9nbcmu2M3TuRgJmTIMvoHWspNbVYK7zQ
+	 YK9QN/i6Ihy995mi2dLgnV2KTO5oicHiZLnt/Lvk9P8i87jsHgA1fCKlVcowN7myE0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nWh9269O;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BCaiHIt6;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A22E7606A332;
-	Thu, 26 Nov 2026 21:20:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F4BE606A31E;
+	Thu, 26 Nov 2026 21:23:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nWh9269O
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 774B81F00893;
-	Thu, 26 Nov 2026 21:20:27 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BCaiHIt6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C2B61F00897;
+	Thu, 26 Nov 2026 21:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795728028;
-	bh=WpnFRtFvn4rUzHOPiDA3buIdDTlwdvdiSjo/iAEXaNc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=nWh9269ObV9qFD/T5/kn1f5F2/DBwuSvUXqIyPJq6lGQuVy2TgWBUl5GiWHAVrDcg
-	 Rr/0Ug2oysUGhlY7rgBUNVuRtSrrffEwmlZjbRQUaX1bdErbDTQaxKI4fI6teswfOw
-	 bKQgmToJ34Ri2Q0OZU0MORV2zpeQN8wc5rzawCOUZ4sQk3yPYJRstzOAigjLWrpNiq
-	 gFm3CZmWvbyA9r8GlvxYplywu42Mc8eAk8xW0S4q4hr8KU7tNSwQHS+NAwotPu4U+h
-	 QDLeyDzn33v5lC/DcD2c/QIMdOQQi/d4AT+g+RAxM8eYtqWCd3sIe/58TZLBMysCNX
-	 BKv17V8lL3jsg==
-Subject:
- Re: [PATCH net-next v2 2/2] selftests: net: add tcp_l3mdev_exempt_ports test
-From: netdev-bot+sashiko@kernel.org
-To: kalash@nexthop.ai
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, corbet@lwn.net,
- skhan@linuxfoundation.org, rdunlap@infradead.org, dsahern@kernel.org,
- idosch@nvidia.com, ncardwell@google.com, kuniyu@google.com, shuah@kernel.org,
- joel.granados@kernel.org, netdev@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Date: Thu, 26 Nov 2026 21:20:27 +0000
-Message-ID: <179572802703.3135.17411865692194388871@kernel.org>
-In-Reply-To: <20261125-tcp-l3mdev-exempt-ports-v2-2-b920f3ff8f5e@nexthop.ai>
-References: <20261125-tcp-l3mdev-exempt-ports-v2-2-b920f3ff8f5e@nexthop.ai>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795728197;
+	bh=5Kzpid4RLm/541vknBbiSpsgz96CflLOK7rHjgv23pI=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=BCaiHIt6JQl0pKTeR7oir9kH6/VRwOk66jC8Lakml5kQXxM/bsIIulL6wNEiFYTNL
+	 v7c5FpxDbbQROOP6Egyukx7h6LD0Ef38w09+5qGiT9sO2+aOxOuC9Ojpb2Ie0Xxkzf
+	 b+wnzDj1eiFI1WOiIfYoO7YvAFYWS/pQJa3w0COFDMzDi9ALyxjEqyhWHPKWg8s77a
+	 NRdRxtBcARIGZlJ67E5B0clv2xurFlI3SiWCSM7MOjhIoUoGINhIIiEW8lXsUO59TQ
+	 utoBiuD1GLAmTPn8kQtSijHrtY44+QY9I+eVGEm6kcSYRFGWABr00qrKEQrcQd/5On
+	 x4Ihv1Wn47D4Q==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Elkin Cruz <elkin@google.com>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ llvm@lists.linux.dev, irogers@google.com
+In-Reply-To: <20261120192237.2870582-1-elkin@google.com>
+References: <20261120192237.2870582-1-elkin@google.com>
+Subject: Re: [PATCH 0/2] ASoC: mediatek: clear afe->regmap on
+ devm_regmap_init_mmio() error
+Message-Id: <179572175011.838304.10101662458233835065.b4-ty@b4>
+Date: Thu, 26 Nov 2026 19:35:50 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,152 +63,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1579; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=3p1Ore9hafy1yDB9rebMEMzGAj4tc6cIfEocpWtEBT4=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLI5FjsybN5705/rolj9xORgjeXptw9ufuP1qkqbsTAk/
+ 8VZrqe9HaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE9gQLk4BmIjlVUaGxx++dvV2X39dtkm7
+ Tnst18HwVXHca796TZoocVB527bWWEaGF6xpOw+1WFXt12dbe55x5fwZSw1nPbt/f9OC24vOLTJ
+ 8wwMA
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+On Fri, 20 Nov 2026 19:22:35 +0000, Elkin Cruz wrote:
+> ASoC: mediatek: clear afe->regmap on devm_regmap_init_mmio() error
+> 
+> I am trying out a new Clang static analysis linter for ERR_PTR/NULL
+> handling, and it flagged this code as possibly buggy. The findings were triaged
+> and fixed with an AI coding assistant, then checked against linux-next (not
+> runtime-tested on hardware).
+> 
+> [...]
 
-Low priority / nit picks for your consideration:
+Applied to
 
-- [Low] The header comment of the new test script
-  tools/testing/selftests/net/tcp_l3mdev_exempt_ports.sh (lines 8-9)…
-- [Low] In vrf_and_unbound_listeners() in
-  tools/testing/selftests/net/tcp_l3mdev_exempt_ports.sh, the first…
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
---
+Thanks!
 
-selftests: net: add tcp_l3mdev_exempt_ports test
+[1/2] ASoC: mediatek: mt8196: clear afe->regmap on devm_regmap_init_mmio() error
+      https://git.kernel.org/broonie/sound/c/4d5ed6cd0a14
+[2/2] ASoC: mediatek: mt8189: clear afe->regmap on devm_regmap_init_mmio() error
+      https://git.kernel.org/broonie/sound/c/18246650ab69
 
-This adds a selftest for net.ipv4.tcp_l3mdev_exempt_ports. With
-tcp_l3mdev_accept=1 and the port exempted, it checks that a VRF
-connection reaches the VRF-bound listener in either creation order and
-is refused by an unbound-only listener. It also checks that default-VRF
-connections still reach the unbound listener, for both IPv4 and IPv6.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-> diff --git a/tools/testing/selftests/net/tcp_l3mdev_exempt_ports.sh b/tools/testing/selftests/net/tcp_l3mdev_exempt_ports.sh
-> new file mode 100755
-> index 0000000000000..da7f20bf2e9e6
-> --- /dev/null
-> +++ b/tools/testing/selftests/net/tcp_l3mdev_exempt_ports.sh
-> @@ -0,0 +1,260 @@
-> +#!/bin/bash
-> +# SPDX-License-Identifier: GPL-2.0
-> +#
-> +# Test net.ipv4.tcp_l3mdev_exempt_ports.
-> +#
-> +# With tcp_l3mdev_accept=1, a listener that is not bound to a device also
-> +# matches connections that arrive in a VRF. For a port listed in
-> +# tcp_l3mdev_exempt_ports it must not: only a listener bound to the VRF
-> +# may take such a connection. Connections in the default VRF are not
-> +# affected.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-[Severity: Low]
-This isn't a bug, but is this comment narrower than what the kernel
-does?
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-Documentation/networking/ip-sysctl.rst describes tcp_l3mdev_exempt_ports
-as:
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-    only a listen socket bound to the L3
-    master device or to the receiving device can accept them.
+Thanks,
+Mark
 
-The check in compute_score() (net/ipv4/inet_hashtables.c, and its twin
-in net/ipv6/inet6_hashtables.c) only rejects sockets with no bound
-device:
-
-    if (!sk->sk_bound_dev_if && sdif &&
-        tcp_port_l3mdev_exempt(net, hnum))
-            return -1;
-
-A listener bound to the slave device (veth_vrf here) still matches
-through the sdif comparison in inet_sk_bound_dev_eq().
-
-Could the comment say "bound to the VRF or to the receiving device"?
-
-Also, none of the cases uses a listener bound to the slave device, so
-that documented behaviour has no test coverage. Would it be worth adding
-one?
-
-[ ... ]
-
-> +# Start a server in the background. nettest sets SO_REUSEPORT on its
-> +# listeners, so an unbound and a VRF-bound listener can share the port.
-> +# $1: IP version, $2: "vrf" or "unbound"
-> +start_server()
-> +{
-> +	local args=()
-> +
-> +	[ "$1" = 6 ] && args+=(-6)
-> +	[ "$2" = vrf ] && args+=(-I "$VRF")
-> +	ip netns exec "$ns_s" nettest "${args[@]}" -s -p "$PORT" -t 3 -q &
-> +}
-
-[ ... ]
-
-> +		for order in "unbound vrf" "vrf unbound"; do
-> +			read -r first second <<< "$order"
-> +			RET=0
-> +
-> +			start_server "$ver" "$first"
-> +			pid_first=$!
-> +			wait_listeners 1
-> +			check_err $? "first listener did not start"
-> +			start_server "$ver" "$second"
-> +			pid_second=$!
-> +			wait_listeners 2
-> +			check_err $? "second listener did not start"
-> +
-> +			connect "$ns_c" "$ver" "$addr"
-> +			check_err $? "VRF connection failed"
-
-[Severity: Low]
-Can the first server time out before the client's SYN arrives here?
-
-start_server() gives each nettest a fixed -t 3. In nettest.c, do_server()
-does a single select() with that budget right after listen(), and closes
-the listener when it expires:
-
-tools/testing/selftests/net/nettest.c:do_server() {
-    ...
-		rc = select(lsd+1, &rfds, NULL, NULL, ptval);
-		if (rc == 0) {
-			rc = 2;
-			break;
-		}
-    ...
-}
-
-The first server's 3 second timer is already running while the script
-does all of this:
-
-  - finishes the slowwait poll
-  - starts the second server through ip netns exec
-  - polls until wait_listeners 2 sees two listeners (up to 2s)
-  - starts the client through ip netns exec
-
-On a slow or debug kernel (KASAN, lockdep) these steps can add up to
-about 3s.
-
-With order "vrf unbound", the VRF listener would then be gone. The
-exempt port makes the unbound listener refuse the connection, so the
-connect fails and rc_vrf is 2, even though the kernel behaved correctly.
-
-With order "unbound vrf", the unbound listener exits early. The
-check_timeout() on rc_unbound then passes trivially, and the subtest no
-longer shows that the unbound listener was skipped.
-
-If wait_listeners itself times out, check_err records it, but the
-subtest still goes on to connect.
-
-Would a server -t larger than the total wait budget avoid this?
-
-> +
-> +			wait "$pid_first"
-> +			rc_first=$?
-> +			wait "$pid_second"
-> +			rc_second=$?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125-tcp-l3mdev-exempt-ports-v2-0-b920f3ff8f5e%40nexthop.ai
