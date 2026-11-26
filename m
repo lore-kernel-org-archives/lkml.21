@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705671;
-	b=0550r4AvN8xtdm+qwB0cMPWwB6CExJ9+YgTkMslO/PapXM+qD5fbU8w0V47GYq7yZrtv
-	 7RzS3rwpkFQbjKiRFsrGndrbSS5rTxA8SOSlsbP2viB7mOqEatlNW7qCI4gN5SLVjYQkr
-	 DFXX02n3nAMiSKdg/lOnyBMbnhBv+BRXp+1gvdxIDySuCAyWc88PAAYN9+A045HW3sPQs
-	 cZLADsCmX8iA57pNmybuw9kjuchwZyzd71WnhldxGUlcTBfRfBlvohO/K+l/uDBQ3/k/r
-	 02nWwL5IWLbRDXGyCWr3MaIFmSFEgMCpNMPNO985tbQxxlW9XPgEjSbSXBvqMwt1VKA==
+	t=1795705680;
+	b=L3UvFSNo7lDX4hRGM+L43zndjJbzYWuLXGGo1Qz8XjGgk0deBPweoOQ7KSw6YDZLTY5d
+	 bODMQk2vsIcJyK1CI1yAcyUIThxO5HFf3h6pQYtKfUfr0KEKzQIc+F4MCNkFrVUE5Rz2L
+	 jiETmfF0G73j2SmAtgrDQ/uAOapVeOcj7e2AEKEqXNrQE8yTOwyn4xhWQxWgTOZGsypr5
+	 kgB9QEJRsg3nbqHSMuFKG/p6rIHMw/omTyCQSjsVoqXYecxNvMbZnaTSEZY8UGcZxLdkD
+	 Pw2BNDKqflVlgjwbrsUzoaPXIFGqoXWYayGuwcy+HKDfa1IqdU1cibLvAKp3IFqlN0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705671;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705680;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
 	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
 	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=oYOwZt2o2wH9uRVJu6slHuDPqyKrOCBqHbC3f4eh43k=;
-	b=zOwYlt1bytYTi43NExAuNkOuA14LfI30Mj1ihnqLVqvUZBPDRHo34/EqO63B3Aa8H0d+
-	 JEi9pGNGoR44Zh66KdK4zCpk0IVG2wKGlm3WT1TlJ2rAmDYbFiIOg6xaZLJ2ongMJPDWp
-	 z5L/3/FlMTUGOdsdupW4fWKz5wnyKQqv2Tn1YTB4A9/PQXiYg2dhTdNmnGmPQwzQHa5k0
-	 pXofldFicaWVGE6w7pE6Kj88L14Lk8AgwGLyLvZuKl41DpZS2dCpwHgDTWKY9zGIZ2reL
-	 tVE/3RISwOYgviOi9WKI3dxqpjI2enGRs7eDqWg9Mwe/lWeVirQZbc8p3/VWO7itA/w==
+	bh=qd0IyWJWgxFJe6K8lzcJgYPZmz94vxmtfSOmYUc+AOM=;
+	b=21PwgY9u8u1fM/B6NaB1cPvJ8oCumWzm1rjCmqn5IMP0Yhx18PbTc5s1HnoNxgQW8Yyb
+	 1vmZD6OxbAkxW4hbZ0noCPWuKlBEXdrNSOJCQaQc2xbOm82LJaWwUMauT4S9u4EH1+eR+
+	 psfwo50+1CeEER9RqwD9T3wHhJflq79pG1SSOEGtS1Zv5B1rzwHiUv2RAaixngVWT/IuO
+	 JbNXEwC3bU77a3r/ci5SdX0YtVO+ezyXCbdeXQnE+rLstWNMeK2Mtlo0eMYExIlPq5Txe
+	 1NsboK/II7fjJdACZwOBQOu7/AUBMlVOA5nVpiFrEBhL/aJsfpoxE/ozK6TUhjf5Q2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=arm.com;
 	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Ysac1J8c;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=tTO9PAEe;
 	arc=none smtp.remote-ip=217.140.110.172
 Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4B471606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:07:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B471606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A153A606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:07:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A153A606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Ysac1J8c
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=tTO9PAEe
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF3531CE0;
-	Thu, 26 Nov 2026 07:07:47 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 398771BA8;
+	Thu, 26 Nov 2026 07:07:56 -0800 (PST)
 Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 47DD73F632;
-	Thu, 26 Nov 2026 07:07:49 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6BEB53F632;
+	Thu, 26 Nov 2026 07:07:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795705670; bh=N13kENy/YT3CmI2v9OZz20pBO/6Kdr1w5ujLM/K0Rck=;
+	t=1795705679; bh=yQ6/kuCwtsRfnXsHazLqO0maiTSknyF6p3TOO6ky2Ps=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ysac1J8cV9XbFeauWTOxSjW8tzYu6IKU6nPvCUEflOTbzB3fVEMn3OwCJnKOsFtQH
-	 YjiQFfq5VsS5wYaKpnoGr7w43ivB/gWN96htaMSedOW6/4JaATlgevHIgWo79SfqOy
-	 PEvq6IzBwIX6un7RmMK+OC6sbEUJR8ibX1nzXmKY=
-Message-ID: <6c630185-9d9a-4b92-996c-50a691ce5ec0@arm.com>
-Date: Thu, 26 Nov 2026 15:07:49 +0000
+	b=tTO9PAEe1PjMP0IJdFKLEuBNbbvARlV69XER9fQOARBLUAR27kVUcaM6+LcdVs1LB
+	 ET7l3FoBIvDXL3zarrqtX7XWYoF0FXFdQaCjeCRimPM2lj1q35JG22+cmX6FNwhXTw
+	 x7+nHCqhRWPP5Yiyh6sf1mL57n3U6HZvtdQyBlVs=
+Message-ID: <af91df31-bba3-43f7-a739-996d11422f96@arm.com>
+Date: Thu, 26 Nov 2026 15:07:55 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,6 +78,7 @@ On 16/10/2026 17:55, Leo Yan wrote:
 > Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > Signed-off-by: Leo Yan <leo.yan@arm.com>
 
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
 > ---
 >   drivers/hwtracing/coresight/coresight-trbe.c | 6 +++---
