@@ -1,77 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=199.89.1.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795707105;
-	b=UXegYYMrd4885MuGn9Dz3eAt73lNyHKmCEGoSQGuB2hH2TdaHJNIphRJcE+q6cO6wXVZ
-	 +VzRcJfQPj9ssBdS3cvaa92vfiGp177bgNFOG69CCLqtA3+5WiSrV6azABDO0yXE2us3G
-	 QTKRhD2i/qr16oNnZ4O+FHfea3dGkhFeGpgPpa7iCh/eAn2MpWojngV0hsos1c/MXHzbl
-	 ssxO0gwn3FFli7fLlh82qz2l7e4zHDrU0qSAM45fHXIGVuSNfgfzfxIBDl4mcVxFz9iU8
-	 chive7zJMG/wpwebE+l/rhJ5/uiIdu7aCR30yp0Cgs1eqHRwkN+3nhCZmSSLjFJRNgg==
+	t=1795707141;
+	b=f3BJMha96nzS05RKVYXS0ypalDV7fcweghDyoqYvg4BBPyyzbyVLA2/s8DHWZTK7CVku
+	 JdmEquO6gC1Q4/5BJNLmzhrqN7sqTjn8Xk+wi5kegIhQPUDFqYINTIybbKTBEvZG4lBwH
+	 qutlhX9BNlm3P1bAMADS8WLbodmpaVd5P9026fyu9CK1QpY9wdC2Ds9Q/ccMbA0ShfgNN
+	 hoQNO/eKH17rjiMQza1dXHzbToksEitJawrxcx+SEjltFY5hw8AXRP5DE44MaIMEAN5Pj
+	 pIjGJjVcPwuELmDw9amtjOoEazFH9jmlM4icPd+K7YJxxNgyystJbag0mvGHDWWLBLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795707105;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=VTt6jbaht2zGBYKNI2lpBkMP4t0i6MoEcGFYwP5l2hs=;
-	b=2xPgN3EB9H2XcyKGiFqYQN7xB88hOIiWUACaLYpZVl54TxLPrdYhCswKysEjICUNz/HT
-	 NJgClLSeXJW4I8DtxxV/XBupGc7zRxB/2Ar7MW6MmYKlJ46l1k9B1yNOq0ky5TAGDfdmf
-	 zEXcicvFivKZLmXaVbrcG6iPbvzHITZtlKxLN0gLOlLUlDSpxDHnN5ufYOCITnM/Kjkqu
-	 MZduJ3j1NOVL6RMzEtlofG9MmxAn7UCkyeL9D7Z3BMDUZ3anvRMKIFlrt5kCmzedUyqtJ
-	 yqj6w219lapm+ULcOm9NkyOs3WxhMIjmBwZrfjYZhrpBfeHUSHWQNlN+wrUZH83Ty4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795707141;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=PNRTFodZeg3klhEIHpNcqT1+QKIt6csRkW2GBELWkCs=;
+	b=Z9zqDLNLITZVLl+hvGuZNv09ZYgigtRIpMf3MXPx/BJi2msND8Sx9za78BMtkFTqEiZt
+	 Sy77F+ZvJX0aKTToR5IOTk1ZTquAzf+o7dd5lY3E30T3t4qPC3bu4hIjzF6gLDgiUhPEX
+	 9VzqEFdlW5d2ltUyzKKl4MHQve74K2CGkYifhPC8InDEB6oFPzhvrjUaCCkTNOFaRjAge
+	 sOuPW+Kx2dQRqjsXRnKUbt7Y7PxaZSVWLPLI71IRg21iHWtKnvMs1iS82B5fukbY7SP4/
+	 GFcJN/xfUjkWXXB76+sce4TbdDkWTfhZVfodeeGBr33JmwdvveyJ7u47YSMmtM3vanQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.222.179
-Received: from mail-qk1-f179.google.com (mail-qk1-f179.google.com [209.85.222.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=acm.org;
+	spf=pass smtp.mailfrom=acm.org;
+	dkim=pass header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b="38CVG2/u";
+	arc=none smtp.remote-ip=199.89.1.14
+Received: from 011.lax.mailroute.net (011.lax.mailroute.net [199.89.1.14])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C12C5606A32E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:31:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C12C5606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-qk1-f179.google.com with SMTP id af79cd13be357-945e6d9ceeaso614682385a.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:31:44 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795707103; x=1796311903;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VTt6jbaht2zGBYKNI2lpBkMP4t0i6MoEcGFYwP5l2hs=;
-        b=ASF7cva8oYSrO34hwyODxFfl+BfXCL/zGZjre4IK/Ezs3uFB46xeVpQWZF68MdzL1G
-         dxJUhZ/DQEVSmxUc0g8JMBUPHcBhwlHKQivjNXCUGfoqpwNQ5SA69XEzM0PN132zgkYa
-         jlUeZsYdaBOevz466bIm8upk/3SBdPH4qNAkDXC76cRy0T6G79g26mFHmqdeGMEVmlbr
-         CY2DoI41UxGgSVrad1zlfiiRl46R2TgrPSeBnBi5FQ80Np5zNB0FtKR/B9jUZ7qNEK78
-         GPuPQnkDF6HgaOMwI2o1O0p7koE/bX7NQ63y6IPMjkiqYDoN6Lo04Zw80na2+dK8jf/I
-         PX1Q==
-X-Forwarded-Encrypted: i=1; AL+hErHYgchAtPDeed1FEPszxGbnS57v2kOEkb2qM7fmSC+hUXFKHdQYNnJgX6qiV3tU/LAiGtKI4zxAaLaOe9U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8eCYWpvp5dbH6zPwcJyayrqlgGZ0tBimY4LZaJ4NJInlbGCzoX
-	XMqhg1eKDrmWxGI0AIVCFcGfVbJfLtYecrtD8OWICgMiSgCFgoBdj8RspiI4gI41
-X-Gm-Gg: AZFdTZdPlM/57FBAzvgJQ4FRrZSBAFFqRlTdPO5JgCWyTYLrm4FnRgR9aIWDZXMbO+T
-	ndMP4HWzAjzlaM9DZyxeqweyOE3KkWtD3ElR6FMj478n6DC0zhGcKJ2dKwLhLQvgL1GbgStu9XO
-	69HmHLNvbceSVEmLukDSXdGfSoePpSBIwRmzQxG9eRLOI9gfa9NUx9AlRkdNj+3LoNOsCzRMC30
-	GATJcQvdMKSigsP2ter+hDJ+sAgZ4T47z5Em1s5A3RRgqkyiA0xGJqdm+Xh658XrwW+hNQmHgwj
-	1FncqbALqoYu4e0feLyerC3tagDVfw07yaKZCSakVhOrTGtX3GumStPQpy/xcWq/1i+CBVx9zEg
-	LO/gE00yHtxqQI/oEzgTvWc1G3AIWxNG3tlPKEUGb4zFJU7o0Psljb5rNJes4Umuq8cMHu/rRe8
-	DILl7LxP41zmK5q6xI9izbGYlBcUBZzL7kuK4U5+X498RdnaX6gml24TAG0TBej0DdPuRd4zI/x
-	186Ey0LoIHWtyoLqw40OrMv1xzI7eaCWQfvcBJ8nHvDwcM6v6gtOsYQb4ZKngc821SVgk/Kac6P
-	AoM4Hf8c3AViK8FT7siErLnRXVSsviI3XJpbboyq+hRnQq1y/f6gxpobGRXvtL45kNs=
-X-Received: by 2002:a05:620a:2913:b0:93e:7939:acd0 with SMTP id af79cd13be357-949ba9a9b03mr4006737685a.37.1795707103390;
-        Thu, 26 Nov 2026 07:31:43 -0800 (PST)
-Received: from mail-ua1-f53.google.com (mail-ua1-f53.google.com. [209.85.222.53])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb031617sm1583165485a.1.2026.11.26.07.31.42
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 07:31:42 -0800 (PST)
-Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-99c042cee7dso3741967241.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:31:42 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErH30k7iGdmNFplYqLJ9cnIbQey+ez2RMwQyRFaLXmpdUAvqq5+v15yUwIGDLoT5wJBypqqPb3EDObHeKMQ=@vger.kernel.org
-X-Received: by 2002:a05:6122:1352:b0:5ea:d247:adb0 with SMTP id
- 71dfb90a1353d-5ee8aec0273mr12525476e0c.4.1795707102063; Thu, 26 Nov 2026
- 07:31:42 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51566606A31E;
+	Thu, 26 Nov 2026 15:32:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51566606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=acm.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=acm.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=acm.org header.i=@acm.org header.a=rsa-sha256 header.s=mr01 header.b=38CVG2/u
+Received: from localhost (localhost [127.0.0.1])
+	by 011.lax.mailroute.net (Postfix) with ESMTP id 4jb0sc4lYZz1XLwXS;
+	Thu, 26 Nov 2026 15:32:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1795707134; x=1798299135; bh=PNRTFodZeg3klhEIHpNcqT1+
+	QKIt6csRkW2GBELWkCs=; b=38CVG2/uMumHKcw/S8mzwUmeTxIHZL3YTBVvnCBD
+	4UvbmY20qQttqp7QYeiaI3lNjsB3pBGO1UHCvy3I+uWcLZ1o+dPWNaQiFQtDay+g
+	Weruj3T/U02BoK1usxsOdwpKvDb4JcJ60x/kFhO0pjPJ74J8yFdQzC0WC+NE55X/
+	pF0VejWN644e2bGhcTRpzVG/5HPmXVuxZSh/LC62s0r8+01037Kljjjg53U8K25A
+	Qogqx8HmcLIQILl2UK62GQa5krp+I2iDh7FTlx5hI/L1JVE865w+5Y7pjkAOVXPf
+	82yIknVm2IFzPW9835lFHaB7VtVbM0X5OSjoHE3tI7LEpQ==
+X-Virus-Scanned: by MailRoute
+Received: from 011.lax.mailroute.net ([127.0.0.1])
+ by localhost (011.lax [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id zjxEdK-9Tc2n; Thu, 26 Nov 2026 15:32:14 +0000 (UTC)
+Received: from [192.168.51.14] (c-24-6-239-25.hsd1.ca.comcast.net [24.6.239.25])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 011.lax.mailroute.net (Postfix) with ESMTPSA id 4jb0sT6v67z1XLyhd;
+	Thu, 26 Nov 2026 15:32:13 +0000 (UTC)
+Message-ID: <46cefe96-a193-40f9-bc1a-facc73cf6afa@acm.org>
+Date: Thu, 26 Nov 2026 07:32:12 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,96 +70,160 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261110080727.2377040-1-niklas.soderlund+renesas@ragnatech.se>
- <20261110080727.2377040-4-niklas.soderlund+renesas@ragnatech.se>
- <CAMuHMdWpZfsaJOcTEBCugyDgKDXNRje68n59OrGFx-0hJXG+4Q@mail.gmail.com> <20261126151633.GO3898744@ragnatech.se>
-In-Reply-To: <20261126151633.GO3898744@ragnatech.se>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 26 Nov 2026 16:31:30 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWS=HmLkWJayNjWiuaWaCEsq=TZe3Z2d955FiqiT3R0LA@mail.gmail.com>
-X-Gm-Features: Aa3M54pKeTC5hUFcgZHzefDJuLY0GDmu_UJnMCzuy7g_xoL8fTHhTprfIbzhyhc
-Message-ID: <CAMuHMdWS=HmLkWJayNjWiuaWaCEsq=TZe3Z2d955FiqiT3R0LA@mail.gmail.com>
-Subject: Re: [PATCH net-next v8 3/3] arm64: dts: renesas: r8a779g0: Add gPTP node
-To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Richard Cochran <richardcochran@gmail.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "DavidS. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>, Sergey Shtylyov <sergei.shtylyov@gmail.com>, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9] loop: defer the queue limits clear to a workqueue
+To: Tao Cui <cui.tao@linux.dev>, axboe@kernel.dk, hch@lst.de,
+ Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>
+Cc: cuitao@kylinos.cn, linux-block@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
+References: <20261126054223.176824-1-cui.tao@linux.dev>
+ <20261126135628.495497-1-cui.tao@linux.dev>
+Content-Language: en-US
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <20261126135628.495497-1-cui.tao@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hi Niklas,
+On 11/26/26 5:56 AM, Tao Cui wrote:
+> loop_clear_limits() calls queue_limits_commit_update() directly from
+> the loop workqueue that processes the request.  That does a
+> non-atomic struct assignment to q->limits without freezing the queue,
+> which races with lockless readers of q->limits on other CPUs, such
+> as bio splitting reading max_hw_sectors and the discard path reading
+> max_hw_discard_sectors, letting them observe torn values.  The
+> trigger is a discard or write-zeroes request on a loop device whose
+> backing file does not support the corresponding fallocate operation.
+> 
+> The code already has an XXX comment saying this should move to a
+> workqueue.  Do that: schedule a work item on the system workqueue,
+> where it is safe to freeze the queue around the limits update.  The
+> work item takes the queue limits lock before freezing, matching the
+> order used by loop_set_dio() and loop_set_block_size().  The
+> unsupported modes live under a new mutex, lo->clear_limits_lock,
+> guarded by a backing-file check that drops records from a racing
+> unbind or rebind.  The work item is scheduled while holding that
+> lock, so an unbind resets the verdicts under the lock before calling
+> cancel_work_sync() and cannot miss a schedule from a request that is
+> still in flight.  Requests that arrive while the clear is in flight
+> fail quietly, so the console report stays at the first failure.
+> loop_remove() also cancels the work item before the queue becomes
+> unreachable.
 
-On Thu, 26 Nov 2026 at 16:17, Niklas S=C3=B6derlund
-<niklas.soderlund+renesas@ragnatech.se> wrote:
-> On 2026-11-26 14:33:17 +0100, Geert Uytterhoeven wrote:
-> > On Tue, 10 Nov 2026 at 09:10, Niklas S=C3=B6derlund
-> > <niklas.soderlund+renesas@ragnatech.se> wrote:
-> > > The gPTP module is shared between the RAVB and RTSN Ethernet devices =
-on
-> > > the SoC.
-> > >
-> > > Signed-off-by: Niklas S=C3=B6derlund <niklas.soderlund+renesas@ragnat=
-ech.se>
-> >
-> > Thanks for your patch!
-> >
-> > > --- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-> > > +++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-> > > @@ -606,6 +606,15 @@ mfis: system-controller@e6260000 {
-> > >                         status =3D "disabled";
-> > >                 };
-> > >
-> > > +               gptp: ptp@e6449000 {
-> > > +                       compatible =3D "renesas,r8a779g0-gptp", "rene=
-sas,rcar-gen4-gptp";
-> > > +                       reg =3D <0 0xe6449000 0 0x500>;
-> >
-> > Can you please remind me again where I can find this base address in
-> > the documentation?
->
-> It's very well hidden. The gPTP device itself is only described in the
-> attached files to the datasheet, but it does not describe how it is
-> wired into the V4H.
->
-> For the longest time I assumed each RAVB (and RTSN/RSWITCH) had its own
-> gPTP device as it where on Gen3. I got feedback from Renesas this is not
-> the case and there is only a single device on Gen4 which is shared
-> between all users. That is RTSN and RAVB on V4H and RWSITCH and RAVB on
-> S4. To make it even more fun the gPTP device uses the same clock and
-> reset as RTSN on V4H and RSWITCH on S4.
->
-> I got final confirmation of the address itself from the address map in
-> 002_R-CarV4H_Address_Map_D_r1p30.xlsx.
+This patch is more complicated and harder to verify than it should. Has
+it been considered to allocate memory dynamically instead of adding new
+members to struct loop_device, as is done in the untested patch below?
 
-Thanks, found it!
+Thanks,
 
-> > The size looks too small to me, though, as there are registers at offse=
-ts
-> > 0x500 - 0x788.
->
-> You are correct, it should be 0x1000. I will send a new version in a few
-> days in case you have feedback from the question above.
+Bart.
 
-I can fix that while applying, no need to resend.
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v7.5.
+diff --git a/drivers/block/loop.c b/drivers/block/loop.c
+index d122cb008811..bd9c453a9b8c 100644
+--- a/drivers/block/loop.c
++++ b/drivers/block/loop.c
+@@ -222,26 +222,76 @@ static void loop_set_size(struct loop_device *lo, 
+loff_t size)
+  		kobject_uevent(&disk_to_dev(lo->lo_disk)->kobj, KOBJ_CHANGE);
+  }
 
-Gr{oetje,eeting}s,
+-static void loop_clear_limits(struct loop_device *lo, int mode)
++/*
++ * Information passed from lo_fallocate() to loop_clear_limits_workfn().
++ * @lo_backing_file holds a reference to prevent that the backing file is
++ * freed and its address is reused by another backing file before
++ * loop_clear_limits_workfn() has finished.
++ */
++struct loop_clear_limits_work {
++	struct work_struct	clear_limits_work;
++	struct loop_device	*lo;
++	struct file		*lo_backing_file;
++	int			mode;
++};
++
++static void loop_clear_limits_workfn(struct work_struct *work)
+  {
+-	struct queue_limits lim = queue_limits_start_update(lo->lo_queue);
++	struct loop_clear_limits_work *w = container_of(work,
++				struct loop_clear_limits_work, clear_limits_work);
++	struct loop_device *lo = w->lo;
++	struct queue_limits lim;
++	unsigned int memflags;
++	bool changed = false;
 
-                        Geert
+-	if (mode & FALLOC_FL_ZERO_RANGE)
+-		lim.max_write_zeroes_sectors = 0;
++	mutex_lock(&lo->lo_mutex);
++	/* Skip the update if the loop device has been unbound or rebound. */
++	if (lo->lo_state != Lo_bound || lo->lo_backing_file != w->lo_backing_file)
++		goto unlock;
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
+-	if (mode & FALLOC_FL_PUNCH_HOLE) {
++	lim = queue_limits_start_update(lo->lo_queue);
++	if ((w->mode & FALLOC_FL_ZERO_RANGE) && lim.max_write_zeroes_sectors) {
++		lim.max_write_zeroes_sectors = 0;
++		changed = true;
++	}
++	if ((w->mode & FALLOC_FL_PUNCH_HOLE) && lim.max_hw_discard_sectors) {
+  		lim.max_hw_discard_sectors = 0;
+  		lim.discard_granularity = 0;
++		changed = true;
+  	}
+-
+-	/*
+-	 * XXX: this updates the queue limits without freezing the queue, which
+-	 * is against the locking protocol and dangerous.  But we can't just
+-	 * freeze the queue as we're inside the ->queue_rq method here.  So this
+-	 * should move out into a workqueue unless we get the file operations to
+-	 * advertise if they support specific fallocate operations.
+-	 */
++	if (!changed) {
++		queue_limits_cancel_update(lo->lo_queue);
++		goto unlock;
++	}
++	memflags = blk_mq_freeze_queue(lo->lo_queue);
+  	queue_limits_commit_update(lo->lo_queue, &lim);
++	blk_mq_unfreeze_queue(lo->lo_queue, memflags);
++
++unlock:
++	mutex_unlock(&lo->lo_mutex);
++	fput(w->lo_backing_file);
++	kfree(w);
++}
++
++/*
++ * The queue limits can't be modified from inside lo_fallocate() since that
++ * would require freezing the queue while a request is being processed. 
+Hence
++ * defer the queue limits update to a work item. The work item is queued on
++ * lo->workqueue such that lo_free_disk() waits for it to finish.
++ */
++static void loop_clear_limits(struct loop_device *lo, struct file *file,
++			      int mode)
++{
++	struct loop_clear_limits_work *w;
++
++	w = kmalloc_obj(*w, GFP_NOIO);
++	if (!w)
++		return;
++	INIT_WORK(&w->clear_limits_work, loop_clear_limits_workfn);
++	w->lo = lo;
++	w->lo_backing_file = get_file(file);
++	w->mode = mode;
++	queue_work(lo->workqueue, &w->clear_limits_work);
+  }
 
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+  static int lo_fallocate(struct loop_device *lo, struct request *rq, 
+loff_t pos,
+@@ -268,7 +318,7 @@ static int lo_fallocate(struct loop_device *lo, 
+struct request *rq, loff_t pos,
+  	 * supported and clear them here if that turns out not to be true.
+  	 */
+  	if (unlikely(ret == -EOPNOTSUPP))
+-		loop_clear_limits(lo, mode);
++		loop_clear_limits(lo, file, mode);
+
+  	return ret;
+  }
+
