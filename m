@@ -1,89 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795702136;
-	b=Q2I/pW+dUy92VBvzMb0/g6jO16v6iNIbLZNkx8JQzIVNRkEywcU34C1YE+3XL7q4fJOU
-	 Q14pvUTs/usF3ORD5hf7+0nY+XgLgfDiiH0iUCocfhvHSAWXk/BXbU64fCAsJla18zCyz
-	 U1LOOg+6SyyV9OLWDZli+1m+uWa4xQklzP079fyfx02YXzCiKCehk+WL4cZiUsaLDbuqv
-	 59MKkw6mW9iPOQNmfKXdwdZYKnzY1YWB/9qmhzwka4CFdX0/oe4xdgR0qZwKmI3As1FwK
-	 ZtoVAc3V+/RTWgCSvalp4tPOfEDm2/BHD0DZIV8kA7golzy4aYzICQfWTGwiL4seqWw==
+	t=1795702141;
+	b=4U4En68zHwlkHSZvnlsNOjMjvhL0jxmXGdXQBUY13f7UQfU22t6vrHkjK0Qa2zuI4E1e
+	 0+u8ObC2Lz5olZ2lsWTDBGLEmo5XHiix+c9Ney/oGn2ocAgmOgivO2P0znOHIXtirB1+f
+	 KHJT7npmYSLvuyAMU+PgkpgJiasFCAY7WNlhrJ0emBNWtm0JSuTg3cB7sfzVyFuSAZLzn
+	 g4RA8vehHJHwSLJx/gAWWWesfwTy2P0zcMlqTIXb9vW2pN3ZNYlEqE2JnBi0mRLAv9Vga
+	 n+VKwc4qVb4yxOeR/NdUJg8oRp1b4cSHOxZc2N7GNrVx6pUplfZY3kQ//YyJ9VQIKuw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795702136;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=GvuH5FgiSMD44pf2TE4TigBof7wb/V2xhFCzupazmmI=;
-	b=HzMb4DlUDD6z3ZzlFUXWwBOUycQSmniK+1aftvmYr16au0x2Ug4RI9dMgajPQaLvaE5F
-	 FXJp80scjalq1nbUhlV4KE5lJGEwIoTAqEvPzwI0UBo7fYBsTX4FQFEbMSgfbChp1n0A8
-	 4f43ePU7JSN6Y+UyMfMKE5JywDgQO0fs5lZfmfeAsONErAWb6HgERdJ4pMEjMKtDcl9bm
-	 VMpBqfdP+Nclc0gpq3rK7UuUcDBRnKCjDfKijUkLoN7bpooWVKKcJJ4I4W13d9ohskThi
-	 Qpq7TX8z5PWiHQ8UePHmF5pyPA2pako//m56zPRhVPA4YJAA0iz6NybdKIWJvqfVY9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795702141;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=+RnIM1HtBqJmr1TYefSFaUGmNdXmFqkNW1kZ1ss1nFA=;
+	b=fkuPaXymLvu3RiCT5S382mZvcLteN2yd83Qy/i2S/LZRlQjLWTKAR8OtZ7cDKycHfOKR
+	 VEWye2v36d0VBwwzCRruznmsAOP/PouNl2tYPtxMKqW5E9q7aq3fjvJqf5E5GyG9wDtEz
+	 hzeeXkmnKnM3y8C1AFhk5NITzG2XjgNp4SCBqgDcG+W9DI19Y6RDWHkFrPULcASbZ5Myk
+	 cpWwsmWtYcGV+qJUWrkXeq/VRxc9j/xV5AnLaUa0zklsi7Rl6wemQYx0AyyE9e/ILpqX/
+	 fOMLDScLGsmSY4uZa458WflQ0GrP8Wj7c7YJNuc4gP8s4Jk4cCVpn7cIn4oOGZNSsNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Kt4QXCXa;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lW43wOmH;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KIdY7ypv;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FA9A606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:08:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FA9A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAF63606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:09:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DAF63606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Kt4QXCXa
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f04244c3d0so56564385ad.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:08:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lW43wOmH;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KIdY7ypv
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQBVc3g1275558
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:08:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	+RnIM1HtBqJmr1TYefSFaUGmNdXmFqkNW1kZ1ss1nFA=; b=lW43wOmHoNPpHkvT
+	9ddEi4N2W/l6Cv18M1Won6TjJfjMXKA4KAvrEbtaM9l+Aaqhp886oj0JL/RaYOTI
+	LbyetkOg+lFv+f20Behr3HyGcTaL/JSW1yFbeMMTv3a6+grTCWp1pom2c4jMRTt3
+	YTevRga6DQgLa2mKWV9uYGqPljyoPnBETEEJCX4cWGQmAEDgLg85SHJ2O310yI6V
+	3Ttx/fzhbN4db44RghiiUdYgm/mwYcHFuUmKOG2JVLKhKppFSluIAM8+Wx9+V9D6
+	8tidhypqnS1DUVaOtuiuxQSh1r5JJbF06C4wzZrvwvBuKX3UpaFcSLwLdBjvRkZ4
+	rt6qqg==
+Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6fw7sjcn-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:08:59 +0000 (GMT)
+Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5eac41ff334so5307136e0c.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:08:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795702135; x=1796306935; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=GvuH5FgiSMD44pf2TE4TigBof7wb/V2xhFCzupazmmI=;
-        b=Kt4QXCXaoiHjMCfvd63z6HImCZzJEjl6YmtgyDWByGjaYKRR75/J7kO8gCu106xmQw
-         MryhJ4lM5iT8rZMzCwKMS+6CoVR2068poCS76/ITyOrSXSjj2p/H5Pz9jRRbJFi0p75J
-         FMwArQO0r9CqAFcf3ovm2Ja34gBdKrTVZMy77DjfjstdIBGBbsuVUyDU9w/fe6jrmgNe
-         ORmHQiDvp7BLHmPY5dmgiomrDyqDS3nor7rRBgfJFD23p72X/LgLcCrMqU6x1rGsJBgd
-         Gkib6TRFVnmNXyD47uLt9q2XhsrWK0MJNcaIp4J3kHXEkudtEU7WiHJ1VdkJVFTuk2LL
-         KFfw==
+        d=oss.qualcomm.com; s=google; t=1795702139; x=1796306939; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+RnIM1HtBqJmr1TYefSFaUGmNdXmFqkNW1kZ1ss1nFA=;
+        b=KIdY7ypvzWNEJpPE1zjY9JwVUwkmPl3FwlH/V6mvBiFQGbQGytZA4XjCofszz9wY/g
+         tQKbwYbzuwkBZbfp/N8vuE+yMsjPHkkyb7pEmP5fbzZak+YnBThwUCVHTj0OGf5GkoWl
+         mRN3W1Jsts4urfNJJHajr4zP6qisVOh0z/NwhOrB6xmi7GHLhXh2sc9HjIYllevJWhlY
+         6ZCtepY22C7VosJU7pQP2GGyrAxmLI5J5HH++d5DXO4e+fQ02q+XBpL4SPdVFgq4jqk3
+         WB/TnPJBcvbIWwZ3LcjedjayFEyid+sy09Xc7PoWF2yKJffvz4xLQktUnWe4wXJQbj2W
+         GidA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795702135; x=1796306935;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795702139; x=1796306939;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=GvuH5FgiSMD44pf2TE4TigBof7wb/V2xhFCzupazmmI=;
-        b=FcebN4cvlBSVVdm0i9BtHCK1X2/6goWp/G73Ofk8ROwBNDeP0bo7POJTidm2jmNEK6
-         JFSt04Z56KTdH5lRnJRlhOu0Z+6L9HgtwygABHMlK9pUYF3QX/IgBEnm3rmgNgAntTTe
-         HjsOgc7dc/19Os6bs1zCQiAgGbAr06gR5ctb4/vG36UDcaV/eex5JcOrSgRmxh5DWFdj
-         eoZjm0i50E/PL1+yo8NeR7cJAsZ0Bp0KXcY+bY11ruq7qNjAZdCLaLO36aWcwiAjVIXe
-         bG9xql/w7RdiAB5IxA4EjjsXHmBCUb8epKW5AqZR4q6pW+Xv87uBDKWvRDns71QqOtMA
-         4gtg==
-X-Forwarded-Encrypted: i=1; AL+hErGobrajSzuo+ZMMM7BneZFGWhb7aeSuWpHcYd50I9bZTI/Faug3avXZZQRtKuzXWJD1VbOA8LpSTY3HRAA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+9VLsWHGWIFJl4CUS39t6mNBNdPXd6Ps9zr/DT/5MAuUp+r+po
-	oCVSpukLR3Sh76CFgMw14MZRidt0MtUy756OXLsAzJpDCBH501YaqigQ
-X-Gm-Gg: AZFdTZf/OdF6BM7cwjZUrEXhuHlFZ9oqL0ok6A9hGONu+vJ+9gvvEEOGQQo4Erv5dm5
-	wtzUOkgyzYtD9SRPfWZMRA9lslos8IC9lAPOUZ8LdxGTZm0N4AqdsWh1imhjgWK06+XjpD3ogG8
-	Qgt7lrbOFi7n/8RvynWwk6LR4RSgMW1jofb1waCNhk9590dyo5moSQzmGBu0O+tBV725Un0OKWs
-	t1rw0w0Oq8mN464n/9/cN/A7mva6qy/pJKB30TUnoVraBoMx6xnmBAXOMYTRYQxbcTEmGqfkkI4
-	JYMCcvdawZJxp99mEXFbFUOjdyvJkM4UItWXoX2q2EDUNV2OR7AMN0Qo+exweurQ7RKVbvQymFY
-	3IV9ekobeKCHlA5he/7bNbUdrOIAH4yxiYdkzpE7jlP+rHOW8qaDSgFDIVRBBWUrH9/R/zyct9+
-	4GmQAMYruu1PtAGO9dILZXQ3vIUv2BPW5vKe6RtrenrNVOrQVZ8INuxTXPU+Aegd9JhOugBvt6q
-	oRzPF8gKtcPkxAdX0AlUpINT4PQDCdO2G+h0RJEHd79KTsv1jAa4cguVaH1JlxGDUJpaQkWqTE6
-	0VUXftCkmmOxFeYe4jm1mSLU6np7xCdm33I9Lxy4tPRIvnwIK9qXfnPp0HlWWvV9/ThjZBUF3kD
-	RyiM6EXLvcoCfDzEUs7phHShRpvfboPxLdI465v/F+arTgvYc+xlQZXRx
-X-Received: by 2002:a17:90b:2f8c:b0:3b4:9a2:9a2f with SMTP id 98e67ed59e1d1-3b41c9b1f71mr20464082a91.14.1795702134548;
-        Thu, 26 Nov 2026 06:08:54 -0800 (PST)
-Received: from [169.254.3.1] ([143.248.188.96])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b8733e6sm12583573a91.3.2026.11.26.06.08.48
+        bh=+RnIM1HtBqJmr1TYefSFaUGmNdXmFqkNW1kZ1ss1nFA=;
+        b=hVmjCb1EBhNp4TNMBxXal/kJqMYeVBAIQ+3Mnzh3+NrMt5VWHHL2VOOEE9MEKLYp4R
+         FBTeuT/5mZZQRGtFexNgBLK9A3MZHF8pULZBC1cuYoKS+3oiLf222XDrSJpIBIKYKtHr
+         PKmEPGeXmwePtQHDboZtf4Ty9JjqFUn11Ap8+6Zfj2ZP6XJVFol2dPy36MHJU/iB82EK
+         r3J/xVvq89PCLhBSi+/eZmUOS4/4baNJyGZBazyedz0lGrvjAJ0jwxvY+qEhBSBPMc9r
+         BYN8z4uCaz52y9u0FIE3Cn8y07aSTCAusT35YBmmTU+upB/E/I5MfI6uEA/vFgFxrSC0
+         N86Q==
+X-Forwarded-Encrypted: i=1; AL+hErHARrrbFpEICIwjyph8mxp4QT3/46agBJx0We6yagbEK7kO3UO08aYXRk/zTvvwVYVmnhDh7iV2qvWIWmM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Mpg0tpQILq0FHGslqr4qlba4VzuGQ4apMbd21f7noP8mSI1Cz
+	nYDhdwHJPXikLCAzQmX0+yWGzk/6pQxn533X40LkVHtyvAFCJkLDsTnp2/5Hv5ADlkc5UIjZY0x
+	KJq9bINChPo5AJRLaVwpXzIacO8x0Wp4LG+fXZHUyNKg0BY5BtuZRCvxDEC3Xbxgb6X4=
+X-Gm-Gg: AZFdTZcJm6jtvGOsuao6pZxME9XS5KtU0SxrEOyz39hXqWwDOB9t7x5UWNwW9kfrgjs
+	I+hSgH1+MSiTcMtn3Js4MEt/wzpPizLBqoyURinvlg+Kynn/db3z9kfFkOwHmjp6Ell3uirzNTd
+	EJVNJ5FFCwSXTX87En0OxphG3l3rTm/v16D+hS/hzTeF5riYOefteromszTkrazEL7PTc3F3hkL
+	873JGYx33rjR7NEq1sqL66EzpqrGdufiVJeYS2HwNLlgCmX8vZ3oSRbEg1McM1SKM11lszO6taa
+	1dOhTijCPq6YzPx+KzOYNdxYwwQ214E+4O73QqUB7fjIMkpk9NXNfW7VhMI4gUFFdfsDl+7dmJ/
+	cnzSK1kCJUZecD+9r8eXQdr0rscZ99prKDK1lpaNYnBTzX25KF7xq5ualA3pkM5OyRBoL13yQWY
+	O4zFmUwAWqf5XDNnOz4D+jAXpKkGI9JwwGzIEFT+GnB+smKLxHY2uIprSZZj1zgw==
+X-Received: by 2002:a05:6122:893:b0:5ea:be1b:1b24 with SMTP id 71dfb90a1353d-5ee8af4d132mr13026179e0c.13.1795702139118;
+        Thu, 26 Nov 2026 06:08:59 -0800 (PST)
+X-Received: by 2002:a05:6122:893:b0:5ea:be1b:1b24 with SMTP id 71dfb90a1353d-5ee8af4d132mr13026141e0c.13.1795702138655;
+        Thu, 26 Nov 2026 06:08:58 -0800 (PST)
+Received: from brgl-qcom.home (2a01cb1d00dc7e0089167b9b97a26c96.ipv6.abo.wanadoo.fr. [2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8533579csm524644075e9.2.2026.11.26.06.08.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 06:08:54 -0800 (PST)
-From: SeungJong Ha <engineer.jjhama@gmail.com>
-Date: Thu, 26 Nov 2026 23:08:32 +0900
-Subject: [PATCH net-next v4 1/2] rust: net: phy: take &self in methods that
- do not need phy_device->lock
+        Thu, 26 Nov 2026 06:08:57 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: linusw@kernel.org, brgl@kernel.org,
+        Sahaj Chaudhari <sahaj123.sc@gmail.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+        j-keerthy@ti.com, nsekhar@ti.com, prabhakar.csengg@gmail.com,
+        avinashphilip@ti.com, sujithkv@ti.com
+Subject: Re: [PATCH v2 0/2] gpio: davinci: fix probe-time IRQ setup
+Date: Thu, 26 Nov 2026 15:08:55 +0100
+Message-ID: <179570212798.21589.16916308704407177260.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261124121500.2cd5cbf30f89-1-sahaj123.sc@gmail.com>
+References: <20261124121500.2cd5cbf30f89-1-sahaj123.sc@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,410 +126,56 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-exp-phy-rs-maybelocked-v4-1-16f9a10bb579@gmail.com>
-References: <20261126-exp-phy-rs-maybelocked-v4-0-16f9a10bb579@gmail.com>
-In-Reply-To: <20261126-exp-phy-rs-maybelocked-v4-0-16f9a10bb579@gmail.com>
-To: FUJITA Tomonori <fujita.tomonori@gmail.com>, 
- Trevor Gross <tmgross@umich.edu>, "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, rust-for-linux@vger.kernel.org, 
- linux-kernel@vger.kernel.org, SeungJong Ha <engineer.jjhama@gmail.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA1NSBTYWx0ZWRfX4z8Rv/o4wh5c
+ 0INqXT9x0MgQ3146msGwQUn5K7pjWWoBnImM/FnaSXlN4NZ7LkIa4JghGIEbgkTE8bptx3Sw8Uc
+ +s3rC+Dzv5p3me9NlP3UJag3rd/j79c=
+X-Proofpoint-GUID: k3p7JN9ouaesxHJEMLYLSkZWtWwEhkiQ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA1NSBTYWx0ZWRfXz3axXcfQF3nK
+ awJCW47CmFXZRYsmdCqqLRkFF5onDFlDYuWwksG0yTHQ33xuyBkSx1IQIqmmuU5HgxqEWUS1eSF
+ BIs/xEMoUlCk6fUY5d3t1hw/FtJ+blJyZy4/nBrWyKhe+0HdbPRpDKhqbpVj9JEK2+rapXIgB9N
+ 95IcHB1n/aPykJGbMbXjdTQWpHObkgv9QEjT+KF+JEts1zMcMaALJzJ6ji8KSUobajguVXhOXNX
+ hG0sk5upROL7VqcJp6k+uheSWP6LmJCmKYQ87wzK/y3bFgpMDKCyTIRjLuYjx2KLHf+W2YsoNQ0
+ pF/170h3Md4bXEy5sVNvhNiv8y9U87QVlKicS+DyPI+HlrABNtk5eCxDFVsU0K8pWTSLWybA7T+
+ yKcLejVJVkPxH8snGrjD8ikgegLNCFpSjKUbCfoXMAHJqkarHRw8/AoxFwJjfTlKLYZSUsogNAu
+ yCZKcdMzI0dOgKMDXPw==
+X-Proofpoint-ORIG-GUID: k3p7JN9ouaesxHJEMLYLSkZWtWwEhkiQ
+X-Authority-Analysis: v=2.4 cv=ePeGH3p1 c=1 sm=1 tr=0 ts=6b083d7b cx=c_pps
+ a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=2qz6BBfO9x0p2zejefQA:9 a=QEXdDO2ut3YA:10
+ a=tNoRWFLymzeba-QzToBc:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_03,2026-11-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 clxscore=1015 adultscore=0
+ lowpriorityscore=0 bulkscore=0 phishscore=0 malwarescore=0 spamscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611260055
 
-Every callback gets a `&mut Device`, which assumes exclusive access to
-the device, but some callbacks run while another path holds
-`phy_device->lock`.
 
-Make `&mut Device` mean exclusive access to the state that
-`phy_device->lock` protects, so that safe code cannot use that state
-without the access. The methods that use it take `&mut self`, including
-state(), is_link_up() and the autoneg getters, which read it.
+On Tue, 24 Nov 2026 19:06:52 +0530, Sahaj Chaudhari wrote:
+> This series fixes two independent probe-time bugs in the DaVinci GPIO
+> driver:
+> 
+> 1. A file-global MMIO base can be overwritten by overlapping controller
+>    probes, causing BINTEN setup to target the wrong controller.
+> 2. Per-bank IRQ data is allocated as chained handlers are installed. A
+>    later allocation failure can leave handlers pointing to devm-managed
+>    data freed during probe unwind.
+> 
+> [...]
 
-Document when PHYLIB calls the `&mut Device` callbacks without the lock,
-with the phy_mii_ioctl() path outside the guarantee, and fix their
-SAFETY comments.
+Applied, thanks!
 
-phy_id(), read(), write() and genphy_suspend() do not use that state:
-the MDIO bus lock serializes register access, and phy_id does not change
-after the device is created. They take `&self`, so that the callbacks
-that get a `&Device` in the next patch can still use them.
+[1/2] gpio: davinci: use controller-specific MMIO for BINTEN
+      https://git.kernel.org/brgl/c/a142f1c5de4b9c03910cc304a26fbbdef69ca422
+[2/2] gpio: davinci: allocate bank IRQ data before installing handlers
+      https://git.kernel.org/brgl/c/9c5f350322837c83882e350f11f10cb29ed7f9eb
 
-No functional change.
-
-Suggested-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
-Signed-off-by: SeungJong Ha <engineer.jjhama@gmail.com>
----
- rust/kernel/net/phy.rs     | 141 ++++++++++++++++++++++++---------------------
- rust/kernel/net/phy/reg.rs |  12 ++--
- 2 files changed, 82 insertions(+), 71 deletions(-)
-
-diff --git a/rust/kernel/net/phy.rs b/rust/kernel/net/phy.rs
-index c4e7b1d6c6f4..bb2cc6b3c94c 100644
---- a/rust/kernel/net/phy.rs
-+++ b/rust/kernel/net/phy.rs
-@@ -57,50 +57,71 @@ pub enum DuplexMode {
- /// A [`Device`] instance is created when a callback in [`Driver`] is executed. A PHY driver
- /// executes [`Driver`]'s methods during the callback.
- ///
-+/// A `&mut Device` has exclusive access to the state of the `phy_device` that `phy_device->lock`
-+/// protects, such as `state`, `link`, `autoneg`, `autoneg_complete`, `speed` and `duplex`, and the
-+/// methods that use that state take `&mut self`. A `&Device` makes no such claim.
-+///
-+/// PHYLIB calls the callbacks that get a `&mut Device` with `phy_device->lock` held, except:
-+///
-+/// - [`Driver::probe`] and [`Driver::get_features`], which `phy_probe()` calls without the lock
-+///   before the device is attached.
-+/// - [`Driver::soft_reset`], which `phy_init_hw()` calls without the lock while the state machine
-+///   is not running, or from a MAC driver that then ensures exclusive access. `phy_mii_ioctl()`,
-+///   which PHYLIB documents as "use at own risk", is outside this guarantee.
-+/// - [`Driver::read_status`], when a MAC driver calls `phy_read_status()` directly. The MAC
-+///   driver is then responsible for exclusive access.
-+///
- /// # Invariants
- ///
--/// - Referencing a `phy_device` using this struct asserts that you are in
--///   a context where all methods defined on this struct are safe to call.
--/// - This struct always has a valid `self.0.mdio.dev`.
-+/// - `self.0` is a valid `phy_device`, and `self.0.mdio.dev` is a valid `struct device`.
-+/// - For the lifetime of a `&mut Device`, no other thread accesses the state of the `phy_device`
-+///   that `phy_device->lock` protects.
- ///
- /// [`struct phy_device`]: srctree/include/linux/phy.h
--// During the calls to most functions in [`Driver`], the C side (`PHYLIB`) holds a lock that is
--// unique for every instance of [`Device`]. `PHYLIB` uses a different serialization technique for
--// [`Driver::resume`] and [`Driver::suspend`]: `PHYLIB` updates `phy_device`'s state with
--// the lock held, thus guaranteeing that [`Driver::resume`] has exclusive access to the instance.
--// [`Driver::resume`] and [`Driver::suspend`] also are called where only one thread can access
--// to the instance.
- #[repr(transparent)]
- pub struct Device(Opaque<bindings::phy_device>);
- 
- impl Device {
--    /// Creates a new [`Device`] instance from a raw pointer.
-+    /// Creates a new shared [`Device`] reference from a raw pointer.
-     ///
-     /// # Safety
-     ///
-     /// For the duration of `'a`,
--    /// - the pointer must point at a valid `phy_device`, and the caller
--    ///   must be in a context where all methods defined on this struct
--    ///   are safe to call.
--    /// - `(*ptr).mdio.dev` must be a valid.
--    unsafe fn from_raw<'a>(ptr: *mut bindings::phy_device) -> &'a mut Self {
-+    /// - the pointer must point at a valid `phy_device`.
-+    /// - `(*ptr).mdio.dev` must be valid.
-+    unsafe fn from_raw<'a>(ptr: *mut bindings::phy_device) -> &'a Self {
-         // CAST: `Self` is a `repr(transparent)` wrapper around `bindings::phy_device`.
-         let ptr = ptr.cast::<Self>();
--        // SAFETY: by the function requirements the pointer is valid and we have unique access for
--        // the duration of `'a`.
-+        // SAFETY: By the function requirements the pointer is valid for `'a`.
-+        unsafe { &*ptr }
-+    }
-+
-+    /// Creates a new mutable [`Device`] reference from a raw pointer.
-+    ///
-+    /// # Safety
-+    ///
-+    /// For the duration of `'a`,
-+    /// - the pointer must point at a valid `phy_device`.
-+    /// - `(*ptr).mdio.dev` must be valid.
-+    /// - the caller must have the exclusive access that [`Device`] describes.
-+    unsafe fn from_raw_mut<'a>(ptr: *mut bindings::phy_device) -> &'a mut Self {
-+        // CAST: `Self` is a `repr(transparent)` wrapper around `bindings::phy_device`.
-+        let ptr = ptr.cast::<Self>();
-+        // SAFETY: By the function requirements the pointer is valid for `'a`. `Opaque` permits
-+        // other references to the same `phy_device`, e.g. in a concurrent `&Device` callback.
-         unsafe { &mut *ptr }
-     }
- 
-     /// Gets the id of the PHY.
-     pub fn phy_id(&self) -> u32 {
-         let phydev = self.0.get();
--        // SAFETY: The struct invariant ensures that we may access
--        // this field without additional synchronization.
-+        // SAFETY: `phydev` is valid by the type invariant of `Self`. `phy_id` is set by
-+        // `phy_device_create()` and never written afterwards.
-         unsafe { (*phydev).phy_id }
-     }
- 
-     /// Gets the state of PHY state machine states.
--    pub fn state(&self) -> DeviceState {
-+    pub fn state(&mut self) -> DeviceState {
-         let phydev = self.0.get();
-         // SAFETY: The struct invariant ensures that we may access
-         // this field without additional synchronization.
-@@ -124,7 +145,7 @@ pub fn state(&self) -> DeviceState {
-     ///
-     /// It returns true if the link is up.
-     #[inline]
--    pub fn is_link_up(&self) -> bool {
-+    pub fn is_link_up(&mut self) -> bool {
-         let phydev = self.0.get().cast_const();
-         // SAFETY: By the type invariant of `Device`, `phydev` points to a valid
-         // `struct phy_device`, and there is no concurrent write to this field.
-@@ -136,7 +157,7 @@ pub fn is_link_up(&self) -> bool {
-     ///
-     /// It returns true if auto-negotiation is enabled.
-     #[inline]
--    pub fn is_autoneg_enabled(&self) -> bool {
-+    pub fn is_autoneg_enabled(&mut self) -> bool {
-         let phydev = self.0.get().cast_const();
-         // SAFETY: By the type invariant of `Device`, `phydev` points to a valid
-         // `struct phy_device`, and there is no concurrent write to this field.
-@@ -148,7 +169,7 @@ pub fn is_autoneg_enabled(&self) -> bool {
-     ///
-     /// It returns true if auto-negotiation is completed.
-     #[inline]
--    pub fn is_autoneg_completed(&self) -> bool {
-+    pub fn is_autoneg_completed(&mut self) -> bool {
-         let phydev = self.0.get().cast_const();
-         // SAFETY: By the type invariant of `Device`, `phydev` points to a valid
-         // `struct phy_device`, and there is no concurrent write to this field.
-@@ -178,13 +199,13 @@ pub fn set_duplex(&mut self, mode: DuplexMode) {
-     }
- 
-     /// Reads a PHY register.
--    // This function reads a hardware register and updates the stats so takes `&mut self`.
--    pub fn read<R: reg::Register>(&mut self, reg: R) -> Result<u16> {
-+    // The MDIO bus lock serializes the access, so this takes `&self`.
-+    pub fn read<R: reg::Register>(&self, reg: R) -> Result<u16> {
-         reg.read(self)
-     }
- 
-     /// Writes a PHY register.
--    pub fn write<R: reg::Register>(&mut self, reg: R, val: u16) -> Result {
-+    pub fn write<R: reg::Register>(&self, reg: R, val: u16) -> Result {
-         reg.write(self, val)
-     }
- 
-@@ -192,7 +213,8 @@ pub fn write<R: reg::Register>(&mut self, reg: R, val: u16) -> Result {
-     pub fn read_paged(&mut self, page: u16, regnum: u16) -> Result<u16> {
-         let phydev = self.0.get();
-         // SAFETY: `phydev` is pointing to a valid object by the type invariant of `Self`.
--        // So it's just an FFI call.
-+        // `phy_read_paged()` needs `phydev->drv`, which is set in every callback that gets a
-+        // `&mut Device`.
-         let ret = unsafe { bindings::phy_read_paged(phydev, page.into(), regnum.into()) };
- 
-         to_result(ret).map(|()| ret as u16)
-@@ -239,10 +261,10 @@ pub fn genphy_resume(&mut self) -> Result {
-     }
- 
-     /// Suspends the PHY via `BMCR_PDOWN` bit.
--    pub fn genphy_suspend(&mut self) -> Result {
-+    pub fn genphy_suspend(&self) -> Result {
-         let phydev = self.0.get();
--        // SAFETY: `phydev` is pointing to a valid object by the type invariant of `Self`.
--        // So it's just an FFI call.
-+        // SAFETY: `phydev` is pointing to a valid object by the type invariant of `Self`. The C
-+        // function only sets `BMCR_PDOWN`, serialized by the MDIO bus lock.
-         to_result(unsafe { bindings::genphy_suspend(phydev) })
-     }
- 
-@@ -309,10 +331,10 @@ impl<T: Driver> Adapter<T> {
-     /// `phydev` must be passed by the corresponding callback in `phy_driver`.
-     unsafe extern "C" fn soft_reset_callback(phydev: *mut bindings::phy_device) -> c_int {
-         from_result(|| {
--            // SAFETY: This callback is called only in contexts
--            // where we hold `phy_device->lock`, so the accessors on
--            // `Device` are okay to call.
--            let dev = unsafe { Device::from_raw(phydev) };
-+            // SAFETY: `phy_init_hw()` calls this with `phy_device->lock` held, or without it while
-+            // the state machine is not running or a MAC driver ensures exclusive access. The
-+            // `phy_mii_ioctl()` path is outside this guarantee, see `Device`.
-+            let dev = unsafe { Device::from_raw_mut(phydev) };
-             T::soft_reset(dev)?;
-             Ok(0)
-         })
-@@ -323,11 +345,9 @@ impl<T: Driver> Adapter<T> {
-     /// `phydev` must be passed by the corresponding callback in `phy_driver`.
-     unsafe extern "C" fn probe_callback(phydev: *mut bindings::phy_device) -> c_int {
-         from_result(|| {
--            // SAFETY: This callback is called only in contexts
--            // where we can exclusively access `phy_device` because
--            // it's not published yet, so the accessors on `Device` are okay
--            // to call.
--            let dev = unsafe { Device::from_raw(phydev) };
-+            // SAFETY: `phy_probe()` calls this before the device is attached, when no other PHYLIB
-+            // path accesses it.
-+            let dev = unsafe { Device::from_raw_mut(phydev) };
-             T::probe(dev)?;
-             Ok(0)
-         })
-@@ -338,10 +358,9 @@ impl<T: Driver> Adapter<T> {
-     /// `phydev` must be passed by the corresponding callback in `phy_driver`.
-     unsafe extern "C" fn get_features_callback(phydev: *mut bindings::phy_device) -> c_int {
-         from_result(|| {
--            // SAFETY: This callback is called only in contexts
--            // where we hold `phy_device->lock`, so the accessors on
--            // `Device` are okay to call.
--            let dev = unsafe { Device::from_raw(phydev) };
-+            // SAFETY: `phy_probe()` calls this without `phy_device->lock`, under the same
-+            // assumption as `probe`.
-+            let dev = unsafe { Device::from_raw_mut(phydev) };
-             T::get_features(dev)?;
-             Ok(0)
-         })
-@@ -355,7 +374,7 @@ impl<T: Driver> Adapter<T> {
-             // SAFETY: The C core code ensures that the accessors on
-             // `Device` are okay to call even though `phy_device->lock`
-             // might not be held.
--            let dev = unsafe { Device::from_raw(phydev) };
-+            let dev = unsafe { Device::from_raw_mut(phydev) };
-             T::suspend(dev)?;
-             Ok(0)
-         })
-@@ -366,10 +385,8 @@ impl<T: Driver> Adapter<T> {
-     /// `phydev` must be passed by the corresponding callback in `phy_driver`.
-     unsafe extern "C" fn resume_callback(phydev: *mut bindings::phy_device) -> c_int {
-         from_result(|| {
--            // SAFETY: The C core code ensures that the accessors on
--            // `Device` are okay to call even though `phy_device->lock`
--            // might not be held.
--            let dev = unsafe { Device::from_raw(phydev) };
-+            // SAFETY: `__phy_resume()` asserts that `phy_device->lock` is held.
-+            let dev = unsafe { Device::from_raw_mut(phydev) };
-             T::resume(dev)?;
-             Ok(0)
-         })
-@@ -380,10 +397,8 @@ impl<T: Driver> Adapter<T> {
-     /// `phydev` must be passed by the corresponding callback in `phy_driver`.
-     unsafe extern "C" fn config_aneg_callback(phydev: *mut bindings::phy_device) -> c_int {
-         from_result(|| {
--            // SAFETY: This callback is called only in contexts
--            // where we hold `phy_device->lock`, so the accessors on
--            // `Device` are okay to call.
--            let dev = unsafe { Device::from_raw(phydev) };
-+            // SAFETY: PHYLIB holds `phy_device->lock` when it calls this.
-+            let dev = unsafe { Device::from_raw_mut(phydev) };
-             T::config_aneg(dev)?;
-             Ok(0)
-         })
-@@ -394,10 +409,9 @@ impl<T: Driver> Adapter<T> {
-     /// `phydev` must be passed by the corresponding callback in `phy_driver`.
-     unsafe extern "C" fn read_status_callback(phydev: *mut bindings::phy_device) -> c_int {
-         from_result(|| {
--            // SAFETY: This callback is called only in contexts
--            // where we hold `phy_device->lock`, so the accessors on
--            // `Device` are okay to call.
--            let dev = unsafe { Device::from_raw(phydev) };
-+            // SAFETY: PHYLIB holds `phy_device->lock` when it calls this, or a MAC driver that
-+            // calls `phy_read_status()` directly ensures exclusive access.
-+            let dev = unsafe { Device::from_raw_mut(phydev) };
-             T::read_status(dev)?;
-             Ok(0)
-         })
-@@ -410,9 +424,8 @@ impl<T: Driver> Adapter<T> {
-         phydev: *mut bindings::phy_device,
-         _phydrv: *const bindings::phy_driver,
-     ) -> c_int {
--        // SAFETY: This callback is called only in contexts
--        // where we hold `phy_device->lock`, so the accessors on
--        // `Device` are okay to call.
-+        // SAFETY: `phy_bus_match()` calls this without any PHY lock, possibly on a device
-+        // that is bound to another driver. A `&Device` makes no claim about the lock.
-         let dev = unsafe { Device::from_raw(phydev) };
-         T::match_phy_device(dev).into()
-     }
-@@ -429,7 +442,7 @@ impl<T: Driver> Adapter<T> {
-             // SAFETY: This callback is called only in contexts
-             // where we hold `phy_device->lock`, so the accessors on
-             // `Device` are okay to call.
--            let dev = unsafe { Device::from_raw(phydev) };
-+            let dev = unsafe { Device::from_raw_mut(phydev) };
-             // CAST: the C side verifies devnum < 32.
-             let ret = T::read_mmd(dev, devnum as u8, regnum)?;
-             Ok(ret.into())
-@@ -449,7 +462,7 @@ impl<T: Driver> Adapter<T> {
-             // SAFETY: This callback is called only in contexts
-             // where we hold `phy_device->lock`, so the accessors on
-             // `Device` are okay to call.
--            let dev = unsafe { Device::from_raw(phydev) };
-+            let dev = unsafe { Device::from_raw_mut(phydev) };
-             T::write_mmd(dev, devnum as u8, regnum, val)?;
-             Ok(0)
-         })
-@@ -459,10 +472,8 @@ impl<T: Driver> Adapter<T> {
-     ///
-     /// `phydev` must be passed by the corresponding callback in `phy_driver`.
-     unsafe extern "C" fn link_change_notify_callback(phydev: *mut bindings::phy_device) {
--        // SAFETY: This callback is called only in contexts
--        // where we hold `phy_device->lock`, so the accessors on
--        // `Device` are okay to call.
--        let dev = unsafe { Device::from_raw(phydev) };
-+        // SAFETY: PHYLIB holds `phy_device->lock` when it calls this.
-+        let dev = unsafe { Device::from_raw_mut(phydev) };
-         T::link_change_notify(dev);
-     }
- }
-diff --git a/rust/kernel/net/phy/reg.rs b/rust/kernel/net/phy/reg.rs
-index 80e22c264ea8..f96cc06bfe3a 100644
---- a/rust/kernel/net/phy/reg.rs
-+++ b/rust/kernel/net/phy/reg.rs
-@@ -44,10 +44,10 @@ pub trait Sealed {}
- /// ```
- pub trait Register: private::Sealed {
-     /// Reads a PHY register.
--    fn read(&self, dev: &mut Device) -> Result<u16>;
-+    fn read(&self, dev: &Device) -> Result<u16>;
- 
-     /// Writes a PHY register.
--    fn write(&self, dev: &mut Device, val: u16) -> Result;
-+    fn write(&self, dev: &Device, val: u16) -> Result;
- 
-     /// Checks the link status and updates current link state.
-     fn read_status(dev: &mut Device) -> Result<u16>;
-@@ -104,7 +104,7 @@ pub const fn vendor_specific<const N: u8>() -> Self {
- impl private::Sealed for C22 {}
- 
- impl Register for C22 {
--    fn read(&self, dev: &mut Device) -> Result<u16> {
-+    fn read(&self, dev: &Device) -> Result<u16> {
-         let phydev = dev.0.get();
-         // SAFETY: `phydev` is pointing to a valid object by the type invariant of `Device`.
-         // So it's just an FFI call, open code of `phy_read()` with a valid `phy_device` pointer
-@@ -116,7 +116,7 @@ fn read(&self, dev: &mut Device) -> Result<u16> {
-         Ok(ret as u16)
-     }
- 
--    fn write(&self, dev: &mut Device, val: u16) -> Result {
-+    fn write(&self, dev: &Device, val: u16) -> Result {
-         let phydev = dev.0.get();
-         // SAFETY: `phydev` is pointing to a valid object by the type invariant of `Device`.
-         // So it's just an FFI call, open code of `phy_write()` with a valid `phy_device` pointer
-@@ -196,7 +196,7 @@ pub fn new(devad: Mmd, regnum: u16) -> Self {
- impl private::Sealed for C45 {}
- 
- impl Register for C45 {
--    fn read(&self, dev: &mut Device) -> Result<u16> {
-+    fn read(&self, dev: &Device) -> Result<u16> {
-         let phydev = dev.0.get();
-         // SAFETY: `phydev` is pointing to a valid object by the type invariant of `Device`.
-         // So it's just an FFI call.
-@@ -206,7 +206,7 @@ fn read(&self, dev: &mut Device) -> Result<u16> {
-         Ok(ret as u16)
-     }
- 
--    fn write(&self, dev: &mut Device, val: u16) -> Result {
-+    fn write(&self, dev: &Device, val: u16) -> Result {
-         let phydev = dev.0.get();
-         // SAFETY: `phydev` is pointing to a valid object by the type invariant of `Device`.
-         // So it's just an FFI call.
-
+Best regards,
 -- 
-2.54.0
-
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
