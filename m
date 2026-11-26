@@ -1,112 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795720427;
-	b=khwLMQuGf9k5a/9tK9W9hZsoesJn+iRL54fbviyK1N+xYemCkUrcz+5eAYm1T+vcW1GC
-	 P5gfeuWL89GC7zUasMVvUyAk2OO9tx2V86t7tykO5cJAkUsgD0hO4QCkjHj0MYFaMH0Cx
-	 uQtHhkwj1gaNKw88Dy6UTXRCDwzPREZ2GaxN049fULIbrInVEHeDC1gYI5svZ4Bkqx1uE
-	 QUYhKTeRSTkXJzbPhqWH3yZOiT7WCnn0kJS4zt8jMsx3G4LZzEja/Vdsh1t5JU08TJabl
-	 jIUDtK7ucrZ8lEe4EMTnwkmqURIb9EiuklkZ9RXCcN6grbHaZd46X0LCe1flHwpgnvA==
+	t=1795720459;
+	b=L2wrNDd+ua+4K59cVdwhPQwkRRb+rDXeGEZQ/gPtSPLGiM+KcdvMbul7aSB+iXsaXzLe
+	 gmc8ktnKygOEweei9pdBfLGyjqeZOisGxv3T75uudFsBoqrldBOZLU1+fGLCKEX+A7B3C
+	 B6D49KUrSWFvpa04FR2SIIv8IP16DfE7kCoY306efiuVQGIvYYklxocpJUI2Nk9MnHnx5
+	 EjlJaDkJ7tWYdnTqDG0FBN+ipPmEcvSvJFGqtJsgRojsGwQNEYUmSiwos4u37CGedtGJ5
+	 6e7BlyXzml7jd2s5wji7DZ6QGtQq0WoYoTmtjCAFAQAHXtuhZz+KzPaqHwf5OPyz09g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795720427;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=h1UFGITbc31w1LxPCll7J1WmlLDmP1MiT08SYmYOrz0=;
-	b=W0KnMFv2feUptUPP3638OFuPEX9NWnW+5UtigfjG52KVMWn8NgvUckyR5uwGNs7I8bOH
-	 x3LqOHNW9RKEUG1Bjzgjl7COMsvNnQ2qU2zarGDECJZtMI6JWIyLw6Z0b6olnO85HoWBW
-	 4jxcRCl8WhFsCy92/MGcLsGkFuswuboohBbmvTYTAP5fNhf0yrEO3VYyKnTarkGi8Wbgz
-	 hHn8HCSI/KiJmQsNGGA6Ethwb0/O7nolmc/IVB3uecJf/bG/3I7Zt4moMFTBZFia+5yoy
-	 U1wtjj/mNQEFNFK4b63H8DN+JhWzCYYPAsv5bL4PVRyP6PSY8rp6BnX3mR0II3iCluA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795720459;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=8q/VB3c/73wlCZkx7DvMv3nIBqo12V1N1B2GG0LAjuo=;
+	b=MozPq0boDJlCoKu0pq5TizUnNrYLPLW53ysdpnmvH3BxrfvM1ldR6Wnf81l861bWoCrf
+	 KCNXWwNBRziuDFbUV1uzL/ONn9lNPLnwtu1PElUOTQcovVoSsIPqzSDDRjsDfgTdJmpOA
+	 M8R2KxLxoJPd2RHNd+Widi9D1NroRfEVVFkJpVamlsk7/NM1xhfw3fLG2sJCz5LuUjA5i
+	 I/VkTVVJUg2VDqZjkUux00wWV7yJjyJRbrPi9inwfMe9Vxlfmc+gPQtNVtY9Q0qD+5hUL
+	 ZH+jjCGaf5EumLJw+HlYfBSzwZwxNcqubCm1lA/vV52/ughjbduJ+duFcYYbcI0UkTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=RwDKNoTD;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=AZ62Xn1e;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=dqEi5PDv;
+	arc=none smtp.remote-ip=209.85.208.72
+Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com [209.85.208.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EC82606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:13:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EC82606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39DA0606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:14:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39DA0606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=RwDKNoTD;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=AZ62Xn1e
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQFu4sB3850515
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:13:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	h1UFGITbc31w1LxPCll7J1WmlLDmP1MiT08SYmYOrz0=; b=RwDKNoTDrd8OqzT1
-	TgtOqdEwMzzyJD5/4rINp1dTkHD4ONkTvv7u2treSFn/SjouCOeegRJpyf/B5RmT
-	U5Ld2Ap+Z3i0rOMxhBOUgIh3lb64kn00wvt5/w2pTnk90bCFCqlpTSNGox66vk5m
-	+Jms5ZjChrPmZgrK9s0H9bxrtjIKXY7o/hbgBHBjg1kHxyWij2jM10CHSUzzY/Bs
-	WXw/wtkOkNFg5nkFnYikRMcvMtnGi9U3niHDJ8/yHUjxXrJ5iSkx21bzJEV+LbG6
-	zX1kchnlYWDDMJ0VUvnPzg6mFeIUQ4Naku4LHaERM4WS9TD6Ww4Muuy2Ovn0hG1F
-	M+GwzQ==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6h7ga733-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:13:45 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-33713e5e6daso11651957eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:13:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=dqEi5PDv
+Received: by mail-ed1-f72.google.com with SMTP id 4fb4d7f45d1cf-6b879130a02so6610502a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:14:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795720424; x=1796325224; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795720457; x=1796325257; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=h1UFGITbc31w1LxPCll7J1WmlLDmP1MiT08SYmYOrz0=;
-        b=AZ62Xn1edyH0ABycYMJenYZ6tGUbdF9xYfmHjRO2qjD3/IsaJuD3iJpRWxM8O+EKgX
-         ZaXTytmS33Er7u0jl3QmK/lFxXOnbwcgISVGe/fRxKd45CEgScdhO5/cGKDw5WlSL1rC
-         P6i9uJAdP7JXMawZo1j6xiCPwH3q3s889QCNG+X9IC3drG5lefJJ1XeA/m/z0iM1K1MT
-         66aBWB/FCLnx0X8o5uixqjMJVzsjc4/YwiPzU8ov9NG/gI4xziSc0q97h7Eg6Zs9ULAW
-         gvU9qERaSkyfIUiVn5iA9h9e8OtLBZGD4qsgjHgMi0hPoDmNAbOpDm5suj6185Uu0FK8
-         irXw==
+        bh=8q/VB3c/73wlCZkx7DvMv3nIBqo12V1N1B2GG0LAjuo=;
+        b=dqEi5PDv30gTfAasu5Ja/e+ur78G8qsuDm93O1UkP+UvXGZ82G4AGKiRBruSkCQqyn
+         FPUJJZvCkpmo3hRzM06O9EmZXgDAnY/72P3ybkYV2d6dEpc9pHmknbUJeE/TKPBol5gz
+         f0bHEiWdwLDOKQXMn0u3duo52cvDxmfSMrH4Y3ReIPZBmT08gFnL66b24BGjLzesO6jP
+         SWqZJw501z99arvEfU2cl116uO9lPnjdt7ZmG4I/5uqhCDkta0AUWMxIvP1B9dgyOVxW
+         4r5v6nDlwIaiR31vTboH52xjNarc5b4B5AX8Je7peCugULdcaUGradVecwj1mAgJCZR+
+         1jHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795720424; x=1796325224;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795720457; x=1796325257;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=h1UFGITbc31w1LxPCll7J1WmlLDmP1MiT08SYmYOrz0=;
-        b=SUqWrViwBPKpuqXY67T/XDzronx8mjldAipT+TX1qwrJkaXUhE89hmMJ1X6yrnslKW
-         bVXWcZjBJXZ6Xcy+Xcxo377EKyfDoRGXxq6C1lA1rqqK3xP6LHn+Pk6S4FHd5inbFjPk
-         FcaAfIOtVuCkznacD8yCro16BuD+mOLMSOqFJP9B8qCTGiRchAsR+rWHQuvPIwEqhTvB
-         wt37Z/p/TZh2Ff1I2TUNtXKA4BnGT+jEUSdIcyUkduLNU8KJIIqM5ZIP9oy9bqJuBJ3y
-         uN5hvNkEydr4YqumRgut8kQThq5civIPG2WYjgCPNgVaicg4e+jyFwEkGNlkHiPcrxAy
-         D3mA==
-X-Forwarded-Encrypted: i=1; AL+hErFPPNztRHTTjvuv8J6Se8SK/dDRPItI+S/2Vg3RZh1haO0o6P6n1HwLT1u8tMhF2uJSjtrklP2WHsNdmmo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+LDnuiyS+g6IiZVPJ7uYiLQbE9DI+YepWKzUHEYM5SSD1H9Dv1
-	EA3h2Ah4Cx3tjCQgVJohI8s2kLJMVxrRLFO0uE6pZFyOP1mSTgyTJJFNLI7uGPBC+X8Qc4QycOA
-	YZIQNZBUapBiti6Oiw7VdqmV5SL7M+d0xSSbSrEtRhOI2fYq4qyYTiEG7A4tVhflFs9U=
-X-Gm-Gg: AZFdTZf60RQlG3WRhuMBTIlUd27H7QbJvVlV2BF8bg6/JqfPOMysVqLtBisupXVbtWO
-	KYw2W7XOQwDVGhVz2ZRJNdOZ2OO0nBYZIQk4LkOi21T+dzWqdUZ/y/WS890dY8xtfJpmLSfk1SO
-	e1MmoRhiKHvjxgo05yx//I847slao/gYL3duoQf/XTmwm4Q2AQRy0mkOiKzunrQSqnGnLlBb2+b
-	TRvpRuWWBUCrLw7tIdfEjxuxguCB0qB4ix5PTfaFl7i1W444SnbKP7KXhYBbiuS+kmyIVUGfJFs
-	Q5RF4fiioCOuigbhb3wkHrimdpB4ce8vfRKGcnetUHGJeDX6x8asRbzApgLgWm1nTQBxP9ooVja
-	zAzsHD/X2IKsAOVmf8AGKY1myILkdtEFO4m+F8ostVGAHhxpLCa+Q3H8bY1WfqAEbOiujTtvyMg
-	==
-X-Received: by 2002:a05:693c:8803:20b0:386:9b9c:ef1b with SMTP id 5a478bee46e88-3869b9cf99amr16692846eec.3.1795720424109;
-        Thu, 26 Nov 2026 11:13:44 -0800 (PST)
-X-Received: by 2002:a05:693c:8803:20b0:386:9b9c:ef1b with SMTP id 5a478bee46e88-3869b9cf99amr16692820eec.3.1795720423545;
-        Thu, 26 Nov 2026 11:13:43 -0800 (PST)
-Received: from [10.204.104.211] ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b9bdafb5sm32792874eec.9.2026.11.26.11.13.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 11:13:43 -0800 (PST)
-Message-ID: <ea19dcb2-9d9e-4d6c-86f5-72a677fca5b8@oss.qualcomm.com>
-Date: Fri, 27 Nov 2026 00:43:37 +0530
+        bh=8q/VB3c/73wlCZkx7DvMv3nIBqo12V1N1B2GG0LAjuo=;
+        b=rPjSXqWmjf7nuDyLdQzrVESsKvqvXbTOyMmL50rCgaqvdQ6L4UgjgWt2jvlE0Zxb7b
+         YwIKDuy2OvH+fm5vLPm7mWe+CLeuuNw/Ij9q8ATKRfTYQIxL+gn3ryCL8/GazBGyscHv
+         jggVwprkckfQu5au3qXX96IlQYktviiDLqg9af6GzrhtkIZ4gpk7tofq2qRd/XH77ZDn
+         NLua1Wmu91YTPa1/8EXMYZJUTFCMewR6A+JqyTjNz/qnzqEqMuxd/6Q5pcZ0jsmIk63W
+         GuIgEzqv7F/gRaCFdBmr8fas/LYA9q2qpWouP0LpUUGqatQiYk6X54oNwWQlNJR0X1KZ
+         CluA==
+X-Forwarded-Encrypted: i=1; AL+hErEkr/zaMBVwVW/ySOtgA+jlr7e8x+yUZ+BR8skEs0Cye/gs512owX3e/1yno5ZCbhtH9+Feqf949CgGMKQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8kem4rp8RYIwAsaRSCXmqSaRvbgT7CAsYGjCwbwAicacK6D8mA
+	ZwLR+MqAdXQIeSPtG+5fgUadty5bRDiWJMBSC8XNo+ETvBpb4gwQkWvdib18gVUcL4gr9IcT6W2
+	YKykEx2QGy2Cl5dZyZw==
+X-Received: from edgd12-n2.prod.google.com ([2002:a05:6402:a50c:20b0:6b8:8b9a:86f6])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:aa7:c0c8:0:b0:6b9:278a:99f4 with SMTP id 4fb4d7f45d1cf-6ba37d5bcd8mr11922168a12.10.1795720457280;
+ Thu, 26 Nov 2026 11:14:17 -0800 (PST)
+Date: Thu, 26 Nov 2026 19:14:16 +0000
+In-Reply-To: <20261126-b4-rust-reset-v1-5-9c4c3d029080@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,263 +77,79 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] drm/msm/a6xx: Expose GMU IFPC entry count in debugfs
-To: Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar
- <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-References: <20261030-topic-a6xx_ifpc-v1-0-6992841a9a32@oss.qualcomm.com>
- <20261030-topic-a6xx_ifpc-v1-3-6992841a9a32@oss.qualcomm.com>
-Content-Language: en-US
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-In-Reply-To: <20261030-topic-a6xx_ifpc-v1-3-6992841a9a32@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: cPK5dO4_rF8txlq19K0V95OKidKqFVjn
-X-Proofpoint-GUID: cPK5dO4_rF8txlq19K0V95OKidKqFVjn
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA3NSBTYWx0ZWRfX7IjViDgkNkil
- EEVsJarokdd+A9QVvI3WbthfeAj2L2Hz7eXlEm8iMCkBCvE1ldyDsAGgJ1l7m8RXDov2CXJ+hUE
- B5QVqiAKUmJyo1f/OcabD3WkZ43XTjuW7fBrafw7zLURlSMULTxWDPKgm+D3yflviJkf7NS4epa
- I9GzCs29o5d0P59wXLVfPkdDbi2IzUbrYaGwTeHhNYZChB8GfT9vdmOzxXIxZYEL0UmgFoZY8Kf
- egj+GXEGGQ29TWS3rS6Y1airWgda4gaI5oZxXOJVUizKGr34r8yp88JD6sTEpw67yj2rbC8hj/I
- HAgi4Sehg3rt0Xx5Zh+gSkXa6sULDgU58SiwLQTqB4gxeVS/AmYb3wl2AVUN1Tm1WTjnJBQocr+
- 6h8S1MaC5a/tJIbigX4i/DOEud3mntnYZzw/UA2EmvxlkIqOmwgnfvJDj3tXUbFsaMrbOs1wvIg
- jI3uBfk4ASQ5eMHoVOQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA3NSBTYWx0ZWRfX1LLiAe1zsIeA
- gmT9Z7LQPdAgE9D/KO/VAcIrKHVwOpUf/MY85PlQCOVdlsFoOx459j26zdep5JTB4jABGqnhNfw
- iJFDxUwZZrrBAnW4mi7H5h966m51QW4=
-X-Authority-Analysis: v=2.4 cv=L4GI0OT8 c=1 sm=1 tr=0 ts=6b0884e9 cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=4juFOUNQJm3OhpHwc1AA:9 a=QEXdDO2ut3YA:10
- a=6Ab_bkdmUrQuMsNx7PHu:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_04,2026-11-26_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 bulkscore=0 suspectscore=0 malwarescore=0 lowpriorityscore=0
- clxscore=1015 spamscore=0 impostorscore=0 phishscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260075
+Mime-Version: 1.0
+References: <20261126-b4-rust-reset-v1-0-9c4c3d029080@collabora.com> <20261126-b4-rust-reset-v1-5-9c4c3d029080@collabora.com>
+Message-ID: <awiFCBnJ_i-N_Blb@google.com>
+Subject: Re: [PATCH 5/7] rust: reset: add SharedResetControl
+From: Alice Ryhl <aliceryhl@google.com>
+To: Daniel Almeida <daniel.almeida@collabora.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?B?QmrDtnJu?= Roy Baron" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Tamir Duberstein <tamird@kernel.org>, 
+	Alexandre Courbot <acourbot@nvidia.com>, "Onur =?utf-8?B?w5Z6a2Fu?=" <work@onurozkan.dev>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-kernel@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	Detlev Casanova <detlev.casanova@collabora.com>, 
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Content-Type: text/plain; charset="utf-8"
 
+On Thu, Nov 26, 2026 at 01:04:32PM -0300, Daniel Almeida wrote:
+> +    /// Deasserts the reset line and moves the [`SharedResetControl`] to the [`Deasserted`] state.
+> +    ///
+> +    /// Equivalent to the kernel's [`reset_control_deassert()`].
+> +    ///
+> +    /// [`reset_control_deassert()`]:
+> +    /// https://docs.kernel.org/driver-api/reset.html#c.reset_control_deassert
+> +    #[inline]
+> +    pub fn deassert(self) -> Result<SharedResetControl<'a, Deasserted>, Error<Self>> {
+> +        // INVARIANT: The reference that `self` owns moves to the value that this returns.
+> +        let reset = ManuallyDrop::new(self);
+> +
+> +        // SAFETY: By the type invariants, `reset.inner` is a pointer that a C getter returned, and
+> +        // `reset` owns its reference.
+> +        to_result(unsafe { bindings::reset_control_deassert(reset.inner) })
+> +            .map(|()| SharedResetControl {
+> +                inner: reset.inner,
+> +                _phantom: PhantomData,
+> +            })
+> +            .map_err(|error| Error {
+> +                error,
+> +                reset: ManuallyDrop::into_inner(reset),
+> +            })
+> +    }
 
+The C side here interacts badly with the error path of
+`SharedResetControl::deassert()`.
 
-On 10/30/2026 3:33 PM, Konrad Dybcio wrote:
-> From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> 
-> Add a read-only debugfs file, ifpc_count, that reports how many times
-> the GMU has entered IFPC.
-> 
-> The count is accumulated from the GMU XOCLK_4 power counter. The
-> counter is selected in hw_init, and the delta is folded into the total
-> from the busy callback, so the value advances whenever devfreq samples
-> the GPU.
-> 
-> Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> ---
->  drivers/gpu/drm/msm/Makefile              |  1 +
->  drivers/gpu/drm/msm/adreno/a6xx_debugfs.c | 23 +++++++++++++++++++++++
->  drivers/gpu/drm/msm/adreno/a6xx_gpu.c     | 30 ++++++++++++++++++++++++++++++
->  drivers/gpu/drm/msm/adreno/a6xx_gpu.h     | 10 ++++++++++
->  drivers/gpu/drm/msm/adreno/a8xx_gpu.c     |  9 +++++++++
->  5 files changed, 73 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/msm/Makefile b/drivers/gpu/drm/msm/Makefile
-> index 1e246616f83f..afd42e5bda00 100644
-> --- a/drivers/gpu/drm/msm/Makefile
-> +++ b/drivers/gpu/drm/msm/Makefile
-> @@ -30,6 +30,7 @@ adreno-y := \
->  	adreno/a8xx_preempt.o \
->  
->  adreno-$(CONFIG_DEBUG_FS) += adreno/a5xx_debugfs.o \
-> +	adreno/a6xx_debugfs.o \
->  
->  adreno-$(CONFIG_DRM_MSM_GPU_STATE)	+= adreno/a6xx_gpu_state.o
->  
-> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_debugfs.c b/drivers/gpu/drm/msm/adreno/a6xx_debugfs.c
-> new file mode 100644
-> index 000000000000..a3f622cb189f
-> --- /dev/null
-> +++ b/drivers/gpu/drm/msm/adreno/a6xx_debugfs.c
-> @@ -0,0 +1,23 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
+In `drivers/reset/core.c`, `reset_control_deassert()` does:
 
-Qualcomm Copyright?
+    if (rstc->shared) {
+        if (WARN_ON(atomic_read(&rstc->triggered_count) != 0))
+            return -EINVAL;
 
-> +
-> +#include <linux/types.h>
-> +#include <linux/debugfs.h>
-> +
-> +#include <drm/drm_file.h>
-> +
-> +#include "a6xx_gpu.h"
-> +
-> +void a6xx_debugfs_init(struct msm_gpu *gpu, struct drm_minor *minor)
-> +{
-> +	struct adreno_gpu *adreno_gpu = to_adreno_gpu(gpu);
-> +	struct a6xx_gpu *a6xx_gpu = to_a6xx_gpu(adreno_gpu);
-> +
-> +	if (!minor)
-> +		return;
-> +
-> +	if (!(adreno_gpu->info->quirks & ADRENO_QUIRK_IFPC))
-> +		return;
-> +
-> +	debugfs_create_u32("ifpc_count", 0444, minor->debugfs_root,
-> +			   &a6xx_gpu->ifpc_count);
-> +}
+        if (atomic_inc_return(&rstc->deassert_count) != 1)
+            return 0;
+    }
+    ...
+    return rcdev->ops->deassert(rcdev, rstc->id);
 
-Can we keep this in a6xx_gpu.c untill there are more a6xx debugfs nodes?
+Unlike `reset_control_reset()`, `reset_control_deassert()` does not
+decrement `rstc->deassert_count` when `rcdev->ops->deassert()` returns
+an error.
 
-> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> index 48d3ee4d55d9..e7c3da5d3ac6 100644
-> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> @@ -1338,6 +1338,11 @@ static int hw_init(struct msm_gpu *gpu)
->  			GENMASK(7, 0), 0x4);
->  	}
->  
-> +	if (adreno_gpu->info->quirks & ADRENO_QUIRK_IFPC) {
-> +		a6xx_gpu->ifpc_counter_last =
-> +			gmu_read(&a6xx_gpu->gmu, REG_A6XX_GMU_CX_GMU_POWER_COUNTER_XOCLK_4_L);
-> +	}
-> +
->  	/* Select CP0 to always count cycles */
->  	gpu_write(gpu, REG_A6XX_CP_PERFCTR_CP_SEL(0), PERF_CP_ALWAYS_COUNT);
->  
-> @@ -2334,6 +2339,17 @@ static void a6xx_destroy(struct msm_gpu *gpu)
->  	kfree(a6xx_gpu);
->  }
->  
-> +void a6xx_ifpc_count_update(struct a6xx_gpu *a6xx_gpu, u32 cur)
-> +{
-> +	/* A counter below the last sample means the GMU restarted it */
-> +	if (cur >= a6xx_gpu->ifpc_counter_last)
-> +		a6xx_gpu->ifpc_count += cur - a6xx_gpu->ifpc_counter_last;
-> +	else
-> +		a6xx_gpu->ifpc_count += cur;
-> +
-> +	a6xx_gpu->ifpc_counter_last = cur;
-> +}
-> +
->  static u64 a6xx_gpu_busy(struct msm_gpu *gpu, unsigned long *out_sample_rate)
->  {
->  	struct adreno_gpu *adreno_gpu = to_adreno_gpu(gpu);
-> @@ -2347,6 +2363,11 @@ static u64 a6xx_gpu_busy(struct msm_gpu *gpu, unsigned long *out_sample_rate)
->  			REG_A6XX_GMU_CX_GMU_POWER_COUNTER_XOCLK_0_L,
->  			REG_A6XX_GMU_CX_GMU_POWER_COUNTER_XOCLK_0_H);
->  
-> +	if (adreno_gpu->info->quirks & ADRENO_QUIRK_IFPC)
-> +		a6xx_ifpc_count_update(a6xx_gpu,
-> +			gmu_read(&a6xx_gpu->gmu,
-> +				 REG_A6XX_GMU_CX_GMU_POWER_COUNTER_XOCLK_4_L));
-> +
->  	return busy_cycles;
->  }
->  
-> @@ -2818,6 +2839,9 @@ const struct adreno_gpu_funcs a6xx_gpu_funcs = {
->  #if defined(CONFIG_DRM_MSM_GPU_STATE)
->  		.gpu_state_get = a6xx_gpu_state_get,
->  		.gpu_state_put = a6xx_gpu_state_put,
-> +#endif
-> +#if defined(CONFIG_DEBUG_FS)
-> +		.debugfs_init = a6xx_debugfs_init,
->  #endif
->  		.create_vm = a6xx_create_vm,
->  		.create_private_vm = a6xx_create_private_vm,
-> @@ -2889,6 +2913,9 @@ const struct adreno_gpu_funcs a7xx_gpu_funcs = {
->  #if defined(CONFIG_DRM_MSM_GPU_STATE)
->  		.gpu_state_get = a6xx_gpu_state_get,
->  		.gpu_state_put = a6xx_gpu_state_put,
-> +#endif
-> +#if defined(CONFIG_DEBUG_FS)
-> +		.debugfs_init = a6xx_debugfs_init,
->  #endif
->  		.create_vm = a6xx_create_vm,
->  		.create_private_vm = a6xx_create_private_vm,
-> @@ -2921,6 +2948,9 @@ const struct adreno_gpu_funcs a8xx_gpu_funcs = {
->  		.gpu_busy = a8xx_gpu_busy,
->  		.gpu_get_freq = a6xx_gmu_get_freq,
->  		.gpu_set_freq = a6xx_gpu_set_freq,
-> +#if defined(CONFIG_DEBUG_FS)
-> +		.debugfs_init = a6xx_debugfs_init,
-> +#endif
->  		.create_vm = a6xx_create_vm,
->  		.create_private_vm = a6xx_create_private_vm,
->  		.get_rptr = a6xx_get_rptr,
-> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.h b/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
-> index 79912a33e17c..8f0cb168a535 100644
-> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
-> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
-> @@ -139,6 +139,10 @@ struct a6xx_gpu {
->  	spinlock_t aperture_lock;
->  
->  	u32 slice_mask;
-> +
-> +	/* Total GMU IFPC entries, accumulated from the XOCLK_4 counter */
-> +	u32 ifpc_count;
-> +	u32 ifpc_counter_last;
->  };
->  
->  #define to_a6xx_gpu(x) container_of(x, struct a6xx_gpu, base)
-> @@ -254,6 +258,12 @@ struct a7xx_cp_smmu_info {
->  #define A6XX_PROTECT_RDONLY(_reg, _len) \
->  	((((_len) & 0x3FFF) << 18) | ((_reg) & 0x3FFFF))
->  
-> +#ifdef CONFIG_DEBUG_FS
-> +void a6xx_debugfs_init(struct msm_gpu *gpu, struct drm_minor *minor);
-> +#endif
-> +
-> +void a6xx_ifpc_count_update(struct a6xx_gpu *a6xx_gpu, u32 cur);
-> +
->  extern const struct adreno_gpu_funcs a6xx_gpu_funcs;
->  extern const struct adreno_gpu_funcs a6xx_gmuwrapper_funcs;
->  extern const struct adreno_gpu_funcs a7xx_gpu_funcs;
-> diff --git a/drivers/gpu/drm/msm/adreno/a8xx_gpu.c b/drivers/gpu/drm/msm/adreno/a8xx_gpu.c
-> index f892731cd3d3..ba81a1c9c551 100644
-> --- a/drivers/gpu/drm/msm/adreno/a8xx_gpu.c
-> +++ b/drivers/gpu/drm/msm/adreno/a8xx_gpu.c
-> @@ -680,6 +680,10 @@ static int hw_init(struct msm_gpu *gpu)
->  	gmu_write(&a6xx_gpu->gmu, REG_A8XX_GMU_CX_GMU_POWER_COUNTER_SELECT_XOCLK_1,
->  		  FIELD_PREP(GENMASK(7, 0), 0x4));
->  
-> +	if (adreno_gpu->info->quirks & ADRENO_QUIRK_IFPC)
-> +		a6xx_gpu->ifpc_counter_last =
-> +			gmu_read(gmu, REG_A8XX_GMU_CX_GMU_POWER_COUNTER_XOCLK_4_L);
-> +
->  	/* Select CP0 to always count cycles */
->  	gpu_write(gpu, REG_A8XX_CP_PERFCTR_CP_SEL(0), 1);
->  
-> @@ -1354,6 +1358,11 @@ u64 a8xx_gpu_busy(struct msm_gpu *gpu, unsigned long *out_sample_rate)
->  			REG_A8XX_GMU_CX_GMU_POWER_COUNTER_XOCLK_0_L,
->  			REG_A8XX_GMU_CX_GMU_POWER_COUNTER_XOCLK_0_H);
->  
-> +	if (adreno_gpu->info->quirks & ADRENO_QUIRK_IFPC)
-> +		a6xx_ifpc_count_update(a6xx_gpu,
-> +			gmu_read(&a6xx_gpu->gmu,
-> +				 REG_A8XX_GMU_CX_GMU_POWER_COUNTER_XOCLK_4_L));
-> +
+Because `SharedResetControl::deassert()` returns `reset` in the
+`Unknown` state (`ASSERT_ON_DROP == false`) on error:
 
-This is all unnecessary plumbing. This counter is not useful outside of a litmus test to see
-if IFPC works. Also, this won't work if devfreq is disabled for some reason
-or with performance/powersave governors.
+- If the caller drops `reset`, `deassert_count` stays leaked at 1, so
+  future shared users will see `deassert_count != 0` and skip
+  `ops->deassert()`.
 
-We can just read the register from the debugfs callback instead.
+- If the caller retries `reset.deassert()`, `atomic_inc_return()` returns
+  2 (`!= 1`), so `reset_control_deassert()` returns 0 without calling
+  `ops->deassert()`, leaving the line asserted while Rust treats the
+  control as `Deasserted`.
 
--Akhil
+I wonder if this is a bug on the C side we should fix in core.c?
 
->  	return busy_cycles;
->  }
->  
-> 
-
+Alice
