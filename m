@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685497;
-	b=fxSYriWXFHHtzEmCh3MrYxP2H7l4yb/6/o+Og9nlNL7tZJfq6QwiSlNBV0m+SmAu9yYx
-	 xAeOlEo5OK+D2vWWmZjpfXCw1wFGMVbeWLteRk6duixWwOGc/WA+oFkezMl5qOdH5lCpc
-	 rFWf2XZqspTCAOL/UWBjvqLQvE8cicnR8Aejf6Y2wCrWJLq4T2txete0Ff0+SmsKvuWkK
-	 ZqggF37MAzhayCWKmITB4l7yL/gi3dDiX4/9gR+PJqpvdIUT/3aBCLwAY4+hw5UpEK5YV
-	 J0CEYggFO0heVcfNBjny38d7NbLTHrQ/QGQHcw7qssqXAS4pDT7CvelxRXm3Ps16zAw==
+	t=1795685492;
+	b=3vaVLKJrH+VAjVta7oVuSZ8nUGE0hDX1XKDhUhNf6qNnqLlyOecIWQnWSV9qNMVoMLHy
+	 n3Amo69XW9bFSiFfIQ6xJQ+fiwI+9yv/JIaoyCYpilQJ6SGUgrcbauA0wmls/C2YTYw4y
+	 xTmixTysQZwKevP93/DJ9pMrydos4r5zL1xsYKJv1R493YAoj3csh9nwDDYJhTgHQm8AI
+	 +XESeiZxU9YZKqbrsu77XRgfJ7GsO67OmJkUETYESPg6brnDgRw0n5SiUqE1l+dVZ2mVY
+	 G0UP0phXOJPVsiLmzOTdSik2EL2BF+ebtynL7chIUb0ZNGDxw6Zka7t525WVB9x49ow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685497;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685492;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=gX0OFpBIYe/qacRDrt/Sy4hgzQEEA9llCw0+rwuqWao=;
-	b=Ns8TR5zZ9qMmvU0sS6+HU54I0S6B+rfEZGUuYxX+aN0O6oVrd4ztn6oRkcKpfEgrYAWg
-	 qyTSzGC8fnaaACaR8XwHzPotJGfUKYwekRWPMNlmbJ2FzzbRnR4UOQC7MZ4pMYM/gvHTB
-	 BPh1Mz7O6BL62AuX1gbHP9rD4oB6XoJ7Tk3+jbciWhHCTI4HZ/YdUqwGLHzaufsqqT+C8
-	 qC6uiX51rr2csHQqfn0NQa1loVJBTHbl0ZSJ0l+Lr6N+R5daoR5M7GTlI1NHENvMdbVRn
-	 wvn4nqKKImP4mxrcz/T8hjhBnOk41Nl6pbbCOw/rvqHyFel9JG9l3dTdrEBNKW0D0Qg==
+	bh=1Hsp/nKJQfa6z9fxFEd4d4zCQ7inN3vyv8oVcbS42Bc=;
+	b=Ox2tymjImYi9o5h0HWRd60ZoaL90XhzQVLoVdTTK0nhMqrcx7lzMMXF5X4Iuar7PbtFe
+	 HZ7FFgX13qei7QLIVK+QKsQFlB7kl30j/7tYPTKEsUwCRuBypm7njkfBmZWNm1MsCPsxC
+	 82K6tRxvgAJYHWKHHLSbhgRYw/fIo46r4LvKdcfNXoy4iZsoylM1RGmCliecHTLNFWzwI
+	 6V1OXJJexlx7vl1uQ7bNwjPPBwh+PzLDu5fZeD83n2r5TJYvKJV9TAjIzVPNofIB0jkQB
+	 IJ5Z5B0PHPiy1ZQFkbBdjYBZvQgwOWokwPX1h+cQZ+CSJlTF85wXLnlEd4NN9PWb9ag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cuXSBc4y;
-	arc=none smtp.remote-ip=209.85.218.49
-Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UWiADtOA;
+	arc=none smtp.remote-ip=209.85.208.48
+Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com [209.85.208.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C626606A6AD
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:31:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C626606A6AD
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 298F1606A69A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:31:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 298F1606A69A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cuXSBc4y
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c516a192844so681699266b.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:31:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UWiADtOA
+Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-6b87a1a2babso13756426a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:31:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795685495; x=1796290295; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795685490; x=1796290290; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gX0OFpBIYe/qacRDrt/Sy4hgzQEEA9llCw0+rwuqWao=;
-        b=cuXSBc4ymy/1FhE7czqgxVhL2pz1j2KhS8v2+IOR5yIiOftYpCI2D+9Q1H96fi7KJX
-         SsJPPCRLSl1T+niMFQYhKgowEjPKlquCqfmnlEH2nrhO4CtJo954Qao0+8g0f/K5HEdA
-         XT5hZccMWcWoAC1VX0r9kRTnUrcHgZxJ2qk6IJcPjrjXcEFSAwW3/N51vu6UZ48oHjh+
-         VvF96Yt9Bujv3mxpDBbgLYBMcdaXYWrGQl34eWz7u6nea8TbBAogPpGXxppnRtUtJ1/H
-         MyMPlEgKVPCuYEomKbnIHgpb9Abe4c2xFTa/GGAW3Kx8glAyeifAuRUQ7UBw8gozs/fA
-         KhAg==
+        bh=1Hsp/nKJQfa6z9fxFEd4d4zCQ7inN3vyv8oVcbS42Bc=;
+        b=UWiADtOAPdIfy2Td76h/yXsK6/bP/5BR4o3HCPmj7HIw8jdapX3wPGP7EE4mS5YqJj
+         Iv2ezBrsDwiYaM99rULbCEKIRMFI5VtUV4K2hacDbTJZIjPGQp4uyOJJjg4X+1sMPuG9
+         le+gVTEjQT1sxHEuCCudB9vXXtimZWXAyqfV3ZsSVWXZTcy4Zv/hmy5M1AKmNEW7MOfc
+         BgSxdMfxxPDcAIgyka7+PT9TSnwa6h3nms4SlvDGGULBvqVrz6/Fei6CksVpN+VMLGQJ
+         Yce1vDvmTkbGvncZrsDzdbSGj808/nn26X7W3IekJN1MYx4O7O0FHapg1VWWjx3EZ6UU
+         tw/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795685495; x=1796290295;
+        d=1e100.net; s=20260707; t=1795685490; x=1796290290;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gX0OFpBIYe/qacRDrt/Sy4hgzQEEA9llCw0+rwuqWao=;
-        b=w2npB0oE/MdAwAncMgImeCdIi36SPCfjPUMTkmbxZ4EWuBbu08lTzeYdAdJikiK5Fv
-         HBETxUic05ooUPEC8QLDspduTbvjLhpkU7+6WXXg+tEU5p2ca8rK+KDTTgUxje+UTe7X
-         mwlOKWLA2ajLrmC/lHlT0EAxjcWQiy88NfeXSjVu8YhGzpCTkuJ3VhuMt1BUgxWb5ocY
-         kLdE8br/RR3pDUhBwmRKgEdLr6Q6XPj92wo0Z5KmZothsDCpZvqE1k6/L8G2oHTB+PoR
-         /jBn0eAiUuEjorg0G2EV098RihJ4H/W9znXX0alfI3pR6zG7NvQifZ1Sea7KYe0hGYZ8
-         WAMg==
-X-Forwarded-Encrypted: i=1; AL+hErGV9dvY2yqjFNAc7lirWZsv4ZsJdEIGh/5w3c1mgOuS/HrIJlYyPXzZOa2bcC9c5vOnDEiNYu49d2jkeMA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9qovjhuqgiTXAFB5/sbeiKK7wMRqxdJT+lNYgva1ZcsNmkSpXA
-	A8CfrsnQVYZjL9kCBhREUKVgl3AyoQr3OM8TYlmiMdRtWOQOQZormPMa
-X-Gm-Gg: AZFdTZftNRCXaBj733ddFTjbjFdkab2tM4OX77mrhOpShYp/qXo2bE7Dp/t1IebYocD
-	fa2H5kBUE9jSU5RE5qmzWsRicb7pFeBs/1zhhXLCcx0bAGsR+gdyiseHsk8TW4KXEmJYdNAFjzS
-	Z9RwiS1EyuO4XbkQNbk66fWbLH8H8IdXPtV1ROm0csC+f3zr92bCA2YoacMuJBzKsq1Gnvxx4dB
-	9cCOwWVnGahyZEyhQblNnE30Zm62svZBQ/CUnDvBuWeQ49VB+1tTTTyEGk7JxPPGWQD0bL6xj5h
-	FYMu3KS9c4UMQ5U05qe5kn6C92EgcrDeNuU3oVhwamtBOMdNSrETS00qd+auCnzDa/VBrtu9Mm7
-	KxRMf2cy+1hoVacE1AiCuRAbgYKeQTrfoKhzcwIb+2xCx1EinXOB+IMbhK2kEDGTduprvGEvVD8
-	hsEvUPbYvKlj8CZ/s+2YsBcL+TlkMNVC9qbpVGLt5BbIl96pV8scGdMBMoZUe81CB2SlBmYGAC7
-	KnDvWR0CnKrEpJEKFEukKf5YTu1DakpUn0cR6sV2t9qjnh04GB5KCzi28dPcVB9EeLMhyTeGBqF
-	2OOWIV8C+M0gFTu5gORVF5BKCzGwDIRHoq1hmIoHTMEwMoY8b58PMQMlMbaJqHk4Y534XGY=
-X-Received: by 2002:a17:907:3e92:b0:c51:9ab4:393c with SMTP id a640c23a62f3a-c519ab43c77mr662842566b.32.1795685495308;
-        Thu, 26 Nov 2026 01:31:35 -0800 (PST)
+        bh=1Hsp/nKJQfa6z9fxFEd4d4zCQ7inN3vyv8oVcbS42Bc=;
+        b=V1JYJv0AtGqppZ+9TH0KWx2hFKpfbwuujph4WSCSytYSC6Bss9QhYyF/ty1BmfXZvT
+         NUhWxEPTwVC6zC7S49f1KTrAF/ihYy+2WltrY9f7qU/MpgizjnhOsYhT3FITeu/YFJ4i
+         a6Dg6U3hL7G4I2l6ClLUGIUt7W93PCkKFxzb/H4qhZO/fK0Q/rjTOj8F1CFLw9HFZuMV
+         EYdN3z9mOFgR/3V4t+ZYgeklNURmpdeEtebe4OY+BnBNkmUvTT9rDi/4YogIcDoHGmyX
+         ftDSI/Uyz76nwIlI6pCESghncSjqG8Ts5ll7RexAaxBdLWcSUk13obAvB2G98SKFyHN6
+         IgsQ==
+X-Forwarded-Encrypted: i=1; AL+hErGVJ126qfONuiSc+zZsxstrNWC5VGBCN6Lqrl8uOVGXGDcjx70YWGTQyUvXYosFAWiPri1lnmHNu5USWkU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/JR5lB3vU/CGteSEue4fsfbdDQbbVGWfB6aUieFhTCsmmNh2oL
+	L9M22PPAhrYsoMUBRMHECuf64rv9Lc9gwgzasj3+PWYrHfvKjNQ4KIVq
+X-Gm-Gg: AZFdTZf5F3xnfHrHbKQvWiZIdRwjAL0vGbXlhUjqDmq4tQZ1weskFOoCUUNIQxdMc/Y
+	cW5OMzHU2sqSncrp36VZhYeHfeJeR+6Kdp86xy5ByS5SRYTp0KC9PMHScwyn+VDjWly5g+1U0A9
+	debW80RnxUU9AEst5CM+rBKl8dA+BtqlnuND3MF1DcSJE0d7kr4i29Hlj9xHhUJ5WFdPz+2B3la
+	hU90aA3mb8Fwjc0pbwPDhMNhsE/khghLlBUPX58mGzldl4dLwgIHkCK96BMXdwpIaSIhbd+QTQv
+	xKQ+qynNgSaHk2T8a9YjGptHxCd2r6SwZj6xCpdpF/dcymw72wGfLCMd2zmN2V8Z9si7pGTFe/6
+	kXFKvD38P5Fbh/tzMx2DXeW86TPca9R5kS+mDlyR51QUi8j2qD3fP386OhZrTK7BebSOg+mUC99
+	PW6mBibjui55tGlu0+SS9MsHu1040IBdSTx3QMTwfMzKf8UnQpno2EY+YzW09cTCMf+ktB9S0so
+	vZc+AMENj7VtcHEYZonzd+z9lVL7F6MDA3T/eZhSO12/ysze15nkphBzBIBq9uDStHelAzInEC/
+	5yaphveCvfzLK3eizJgUOliKF42ufwkfjiHYmehW09PNLoupxtWfA9faGAYMdyfHyDpPSek=
+X-Received: by 2002:a17:907:ec09:b0:c2d:c6e7:9e9a with SMTP id a640c23a62f3a-c513a816ce5mr1651611766b.11.1795685490519;
+        Thu, 26 Nov 2026 01:31:30 -0800 (PST)
 Received: from buildhost.darklands.se ([2001:9b1:ff:d701:51eb:176f:63d9:53f8])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdee82sm597090066b.66.2026.11.26.01.31.34
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdee82sm597090066b.66.2026.11.26.01.31.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:31:34 -0800 (PST)
+        Thu, 26 Nov 2026 01:31:30 -0800 (PST)
 From: Magnus Lindholm <linmag7@gmail.com>
 To: davem@davemloft.net,
 	andreas@gaisler.com
@@ -85,9 +85,9 @@ Cc: sam@ravnborg.org,
 	sparclinux@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linmag7@gmail.com
-Subject: [PATCH 16/18] sparc32,leon: use the upper SDRAM on the GR-LEON4-ITX
-Date: Thu, 26 Nov 2026 10:30:21 +0100
-Message-ID: <20261126093106.1345825-17-linmag7@gmail.com>
+Subject: [PATCH 11/18] sparc32,leon: restore the kernel header offsets used by U-Boot
+Date: Thu, 26 Nov 2026 10:30:16 +0100
+Message-ID: <20261126093106.1345825-12-linmag7@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261126093106.1345825-1-linmag7@gmail.com>
 References: <20261126093106.1345825-1-linmag7@gmail.com>
@@ -102,133 +102,37 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The factory PROM reports only 192 MiB minus 8 KiB on this 256 MiB
-board. Match the board, PROM map, DDR2 geometry and active scanout
-before registering the unused upper ranges. Honor an explicit mem=
-limit.
+Factory GR-LEON4-ITX U-Boot checks for HdrS at 0x9000, then at 0xc000.
+Reserve eight pages before HdrS in LEON-enabled kernels to restore the
+UP and SMP offsets. This costs 32 KiB in the loaded image.
 
-Keep the PROM and 2 MiB at the framebuffer base out of the allocator.
-The latter accommodates grvga's 800x600 RGB565 double buffer. Claim
-the adjacent RAM before adding it so an oversized fixed framebuffer
-cannot overlap an allocated page.
+SILO, TILO and the kernel's piggyback tool can locate HdrS relative to
+the branch to gokernel. The ELF entry point and header ABI stay the same.
 
 Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
 ---
- arch/sparc/include/asm/leon.h   |  1 +
- arch/sparc/kernel/leon_legacy.c | 56 +++++++++++++++++++++++++++++++++
- arch/sparc/kernel/setup_32.c    |  2 ++
- 3 files changed, 59 insertions(+)
+ arch/sparc/kernel/head_32.S | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/arch/sparc/include/asm/leon.h b/arch/sparc/include/asm/leon.h
-index 9e51f1fb70fd..733394efe0eb 100644
---- a/arch/sparc/include/asm/leon.h
-+++ b/arch/sparc/include/asm/leon.h
-@@ -227,6 +227,7 @@ void leon_update_virq_handling(unsigned int virq,
- extern bool leon_gr_leon4_itx;
- void leon_init_timers(void);
- bool leon_legacy_is_itx(void);
-+void leon_legacy_add_highmem(void);
- void leon_node_init(struct device_node *dp, struct device_node ***nextp);
- void init_leon(void);
- void poke_leonsparc(void);
-diff --git a/arch/sparc/kernel/leon_legacy.c b/arch/sparc/kernel/leon_legacy.c
-index d6c9efe59f42..03d3120797f0 100644
---- a/arch/sparc/kernel/leon_legacy.c
-+++ b/arch/sparc/kernel/leon_legacy.c
-@@ -5,10 +5,14 @@
-  * Build the AMBA device tree omitted by the factory LEON U-Boot.
-  */
+diff --git a/arch/sparc/kernel/head_32.S b/arch/sparc/kernel/head_32.S
+index 6547717aac20..d36839ca1f03 100644
+--- a/arch/sparc/kernel/head_32.S
++++ b/arch/sparc/kernel/head_32.S
+@@ -64,6 +64,14 @@ sun4e_notsup:
  
-+#include <linux/bitfield.h>
- #include <linux/init.h>
-+#include <linux/ioport.h>
- #include <linux/kernel.h>
-+#include <linux/memblock.h>
- #include <linux/of.h>
- #include <linux/of_pdt.h>
-+#include <linux/sizes.h>
- #include <linux/string.h>
+ 	.align PAGE_SIZE
  
- #include <asm/leon.h>
-@@ -22,6 +26,13 @@
- #define LEGACY_AHB_SLOTS 64
- #define LEGACY_APB_SLOTS 16
- 
-+#define ITX_DDR_BASE		0x40000000
-+#define ITX_PROM_END		0x4c000000
-+#define ITX_FB_BASE		0x4d000000
-+#define ITX_DDR_END		0x50000000
-+#define ITX_DDR2CFG1		0xffe00100
-+#define ITX_GRVGA		0xc0800000
++#ifdef CONFIG_SPARC_LEON
++/*
++ * Factory GR-LEON4-ITX U-Boot checks for HdrS at 0x9000 (UP), then at
++ * 0xc000 (SMP). Older kernels had eight pages before the header.
++ */
++	.skip 8 * PAGE_SIZE
++#endif
 +
- struct legacy_bus {
- 	u32 area;
- 	u32 freq;
-@@ -44,6 +55,51 @@ bool __init leon_legacy_is_itx(void)
- 	return prom_leon_legacy && leon_gr_leon4_itx;
- }
- 
-+/* grvga may request a fixed framebuffer with devm_request_mem_region(). */
-+static struct resource itx_highmem[] = {
-+	DEFINE_RES_NAMED(ITX_PROM_END, ITX_FB_BASE - ITX_PROM_END, "System RAM",
-+			 IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY),
-+	DEFINE_RES_NAMED(ITX_FB_BASE + SZ_2M, ITX_DDR_END - ITX_FB_BASE - SZ_2M,
-+			 "System RAM", IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY),
-+};
-+
-+void __init leon_legacy_add_highmem(void)
-+{
-+	struct resource *res;
-+	unsigned int i;
-+
-+	/* The factory PROM reports only the first 192 MiB minus 8 KiB. */
-+	if (!leon_legacy_is_itx() || memblock.memory.cnt != 1 ||
-+	    memblock_start_of_DRAM() != ITX_DDR_BASE ||
-+	    memblock_end_of_DRAM() != ITX_PROM_END - SZ_8K)
-+		return;
-+
-+	/* DDR2CFG1 bank size code 5 selects 256 MiB per chip select. */
-+	if (FIELD_GET(GENMASK(25, 23), legacy_read(ITX_DDR2CFG1)) != 5)
-+		return;
-+
-+	/* Match U-Boot's 800x600 RGB565 scanout before reusing the rest. */
-+	if (legacy_read(ITX_GRVGA + 0x14) != ITX_FB_BASE ||
-+	    legacy_read(ITX_GRVGA + 0x04) != ((599 << 16) | 799) ||
-+	    FIELD_GET(GENMASK(5, 4), legacy_read(ITX_GRVGA)) != 2)
-+		return;
-+
-+	/* Leave room for the factory scanout and grvga's double buffer. */
-+	for (i = 0; i < ARRAY_SIZE(itx_highmem); i++) {
-+		res = &itx_highmem[i];
-+		if (request_resource(&iomem_resource, res)) {
-+			pr_warn("LEON: GR-LEON4-ITX high memory %pr is busy\n", res);
-+			continue;
-+		}
-+		if (memblock_add(res->start, resource_size(res))) {
-+			release_resource(res);
-+			pr_warn("LEON: failed to add GR-LEON4-ITX high memory %pr\n", res);
-+			continue;
-+		}
-+		pr_info("LEON: added GR-LEON4-ITX high memory %pr\n", res);
-+	}
-+}
-+
- static bool __init legacy_is(u32 id, unsigned int device)
- {
- 	return (id >> 24) == VENDOR_GAISLER &&
-diff --git a/arch/sparc/kernel/setup_32.c b/arch/sparc/kernel/setup_32.c
-index c84ac2f1ad15..20c8914cb965 100644
---- a/arch/sparc/kernel/setup_32.c
-+++ b/arch/sparc/kernel/setup_32.c
-@@ -313,6 +313,8 @@ static void __init setup_memory(void)
- 
- 	memblock_set_bottom_up(true);
- 	memblock_allow_resize();
-+	if (IS_ENABLED(CONFIG_SPARC_LEON) && !cmdline_memory_size)
-+		leon_legacy_add_highmem();
- 
- 	phys_base = ram_base;
- 	/* phys_base must describe what PAGE_OFFSET maps to, not where RAM starts. */
+ 	.global root_flags
+ 	.global ram_flags
+ 	.global root_dev
 -- 
 2.43.0
 
