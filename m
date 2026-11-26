@@ -1,101 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795687230;
-	b=eQKSYXfmU8V8v8jtjrBalUpCVwp/0frHBK2LUrQb77DAr+5zIRMV3XmKmJ3muLzyQde4
-	 dkfyyUWZgHp7r2WqdnLDkPh/24Ydem4Gk/5uAkPnAwTq5qQv9u5M08SSQTMS30G1ttQbw
-	 9iHRkWVsr+sw96FiP6Y3/t+KafcVBfyMUdRahrFlk4bihUonL0KjSaLhnhN5qjQeZ3G+z
-	 LDq4SEhHcwm0JO59KexImCkLnLFImB3pGgTMybu2ZqgpW4r5BRh+ziBnk1LDsC/tGQQ7c
-	 aoRX4Lkzb00X4jcM62r7WhNY1BMnYeo0MuOiKJtQRSyM5mQPMuaVen2fY5U0Lg++M0w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795687230;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=q2mecaHdf9fQt6uFtB3JOo6SnHGQnL+J6Uhto1mX8V4=;
-	b=Y1ShRJanqDa4ynW9fZTrQWelee/Qp/cXaTcoaKQSZnYtMKaEiW2KQHkCVey8H52CLCdP
-	 a5tubCsOdXCaXup7M2eJYAvZniDf/x2lUFS9RrRePCHK6ClpAcpLCh4kEv2CYbhZ3C+Ze
-	 uPJBCEo2/Thlkjyyi29/Jkt8BAxsuJF8nF+Relt7CTQQAmtId0IL7hrNjhWsI66RGiGtD
-	 UGhF2OJW6hZ1UNiYLS9CO/weRRgNhl1MAMRyr3sEoOHS1rt3v9iKOUQZ5dsYl+Q7ByhcB
-	 kQxuV72zlwq6nUbAUjDp8PbZn6YArUeihrae0zzD1ikg3T46tJ3276aFi9ZN4i0/nHA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=E2nkLJu8;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795687241;
+	b=JzgYHsTaioCAlDYrCktPRoHpX3GpvvoNM5ILxB1WoKidJ8aAqofUUURCAk1o1LYei54V
+	 bNo3Fxdj1kKVBoM8YqbgAIlswrAGKhni5gCMYFMxWFXnqpiAnR70ejBBZwazWMUfNZ3Y3
+	 tlTJaK1RfB8gKWvydEe03AdgjkBjDMjQKQZ6OL4/0P7oQTP+eeucfO8jJXqSl3nL5TDYT
+	 snnCBWsA63/l7gVeZhuZVcWK5eOQnHKxpQcKBwYqlHmxeQGNwuQzYB0IoU45SyHTbj7BA
+	 KRpO16FijfkUW+WjyQjHDZNkm85axT9JB2NnO/FAqOnYoiuRI7lqrKmqHh5PSe6YOIg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795687241;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 X-Spamd-Result:X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:
+	 X-Spam-Score:X-Spam-Level:X-Rspamd-Queue-Id;
+	bh=UFFp1oiGPIwV8RD8ciokVUvncMDM8WVuzmh4qG6CApE=;
+	b=T9w4Ht768QHzxZjUPJ1IL6lOGI1Ai2CbNqHYb84bM85i5KNMkeIyDAgbky33PRwEhHrZ
+	 gMa4CwpmCmTv2y6kDXslKPp9nXXE/cIagu/+ZeYID+Arj9YJAt8NagSQFVGQh2Evg3bym
+	 QGN/KvgXb2zM8xmAGNJvFOh5iVU94wQT2SL22fWizu3UqUgRQ0cDMDZRfpbOItKp/Xskn
+	 c/zBCI6QH/AW7iYUjpV/JCTjM79E2LTHtzytPGoGEI+IVwjfw51GUKQrY/X7Sb1sLhjh4
+	 +B6gX5wVFnG8u6MDhmGlYi4ejqGY2Rsuu/4XxXro2HYHzLQuIr9b4Pt1mR4TCB+Vo3w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=CERyQ3DQ;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="2j2d3/W2";
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=OauXt523;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=QKejRXX8;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A713E606A321;
-	Thu, 26 Nov 2026 10:00:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A713E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F14A5606A321;
+	Thu, 26 Nov 2026 10:00:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F14A5606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=E2nkLJu8
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 3062F200509;
-	Thu, 26 Nov 2026 11:00:27 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795687227;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=CERyQ3DQ;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=2j2d3/W2;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=OauXt523;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=QKejRXX8
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id CD12C22608;
+	Thu, 26 Nov 2026 10:00:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795687238; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=q2mecaHdf9fQt6uFtB3JOo6SnHGQnL+J6Uhto1mX8V4=;
-	b=E2nkLJu8uEfaPkMO+WNZl7KByQ7wd17jFeir36TfrYvQxbfFKC7mn2SdTAalXdGoaa2ZmX
-	4JdaOx+npG715reCsbR4dqlTOdAhV8XxUMxPAVhifDuL7NIW999vC1SXMStE2T4J1Qyuue
-	wH7HPosPfk522LVvVeI0DhpI8n1UkwymWyW5FjEOB3ne4Tr3hfd4c4JyIhyW7mrNfZ6Yyr
-	YEMwxxw+xpvmpjaLvvWb3e13r5hSYOVKAgLvp23gvm7kpUNJtj7UTG1HeEDxMugxEkKLmA
-	DzPgwizW2yWZHh4Cjdyyk6ZugjJLAFSmbay1dQGQJVh6ynP4voaDmCXb9xt25w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795687227;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
+	bh=UFFp1oiGPIwV8RD8ciokVUvncMDM8WVuzmh4qG6CApE=;
+	b=CERyQ3DQ4HGhJ5DYl83HjbSu3zVSwSJQtcQwghJhQOp0bMjNCYo7WZ/4r5i+UnLpxc7OQS
+	sHkJ5TUf5LcqUGlRP3hzuewZ7mNWg4Lw3gTL8sO0ayixjJijtaqTlWZ5ZQFO+/+4RyRSE6
+	5waRw9IOqakAulYC1QLNY7ZParPRocY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795687238;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=q2mecaHdf9fQt6uFtB3JOo6SnHGQnL+J6Uhto1mX8V4=;
-	b=FE0vI8qUEgOEZFKbIBM0XdrhW/hSbyHWJ79sdSHrsOnIVg9JEElEXBugFVTnApGxcIFa7G
-	Wue4egM96zYl+LHmjwCZWd8cH1JvD4fGUp2BNUcsKW7KeqGlECqkUe3YOKg0dBdRHcqH8B
-	xehcEpC+OMFHPxEOGXEywsiSKKbqf014iK9FsG18lWx0/XBf9LNJpEe4n6Uzrd10g0vBo1
-	QzCfZpwxO9juycrNaJDMumwinDvIQBiKp8shIONQe8lRT7fgnDC1xY9uGvGRflNo35fwcR
-	CrNeELb7j1xccXRj/53szIGDZ7MjEDL49PqzujbKBUcC9uQ1Ec4cl3pg/JbMYA==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795687227; a=rsa-sha256;
-	cv=none;
-	b=VNKAcbU6083evAYtgG/4DbGEJvDmbeaURvQyZkqMuPvl3kT6NFUlGfwrj14ied8bMDmGsK
-	1nd8XCpCfywUpvxt6Au1HrWlkK9V+ujelfUgjVJme3TKo2WX51GbHeQUN2f6+ZssaL+Cvw
-	jVFVZIrrzbRYtsqnHcmYFbKCYUT1VQzHDacWYk7TY6rBCSZNLAET3rpVHCvqCsr7acPb5o
-	/5pi015kNzKdfOLW6rpZi2T620SePC75+kmFWGpWl8si/nqfvUhDKd+qwgUhBaxgXG8++s
-	iNrMfHtbfyiBxB3FcQXdd0c0imCObGH4V4h8A/FeZdcfswD8UykmGrHKvBJTFA==
-Message-ID: <66d5a395e692387ff39669b60f803cde8f97affe.camel@pengutronix.de>
-Subject: Re: [PATCH v2 5/9] reset: google: Add CPM reset driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Brian Norris <briannorris@chromium.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Brian
- Masney <bmasney+clk@redhat.com>,  Jerome Brunet <jbrunet+clk@baylibre.com>,
- Thomas Gleixner <tglx@kernel.org>, Ulf Hansson <ulfh@kernel.org>,  Peter
- Griffin <peter.griffin@linaro.org>, Tudor Ambarus
- <tudor.ambarus@linaro.org>,  =?ISO-8859-1?Q?Andr=E9?= Draszik	
- <andre.draszik@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Radu Rendec <radu@rendec.net>, Jakub
- =?UTF-8?Q?G=C5=82owacki?=	 <jglow@google.com>, linux-clk@vger.kernel.org,
- Douglas Anderson	 <dianders@chromium.org>, devicetree@vger.kernel.org,
- linux-pm@vger.kernel.org,  Mariano Marciello <mmarciello@google.com>,
- google-soc@lists.linux.dev
-Date: Thu, 26 Nov 2026 11:00:27 +0100
-In-Reply-To: <awcz1aP6xcL6G2t4@google.com>
-References: <20261125000349.3385325-1-briannorris@chromium.org>
-	 <20261124160343.v2.5.I0b1ad34a718a9b5f667d2481041970ea45989dd3@changeid>
-	 <f89e293688feb3f9bcdce0f1b6fed0ee424e5cd8.camel@pengutronix.de>
-	 <awcz1aP6xcL6G2t4@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	bh=UFFp1oiGPIwV8RD8ciokVUvncMDM8WVuzmh4qG6CApE=;
+	b=2j2d3/W2G1dFlCKn3Euu/DICXfb9HeSGVLzESiwW5OFEJjAsdsltJj87A5qzeEy9vlNtzr
+	of6ipMb+p9NDyCDg==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=OauXt523;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=QKejRXX8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795687237; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UFFp1oiGPIwV8RD8ciokVUvncMDM8WVuzmh4qG6CApE=;
+	b=OauXt523YqXZ4nqClv7Q9Szx8Hyz5S6b1tf/JmtzX6+KbkSUWC+ZNoIoVW7XCcUpIgLLqu
+	yMW6bO76zTUo9kx34Z6zK+Cbw30Dd/CtfIt6gYgzBUc2dJa68R8J35SFvd/sOkfZiXfrl2
+	jgQJdj5VL36wwv3yzmZ36US+5mbvXJg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795687237;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UFFp1oiGPIwV8RD8ciokVUvncMDM8WVuzmh4qG6CApE=;
+	b=QKejRXX8nDmiIlTvUEXnBSG9jNPyDvzO6OMU0bFZ60FCIpq8gJhtsLwyyBqXqbJ44R8CGB
+	j6VoAMDB86OUsdCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 814A1134C3;
+	Thu, 26 Nov 2026 10:00:37 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id ObgzFkUDCGv1BgAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Thu, 26 Nov 2026 10:00:37 +0000
+Date: Thu, 26 Nov 2026 11:00:37 +0100
+Message-ID: <87ld6f6hfe.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: security@nitrohex.com
+Cc: Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] ALSA: timer: Protect the slave instance flags with the timer lock
+In-Reply-To: <20261126-alsa-timer-slave-flags-v2-1-8e07a536fea3@nitrohex.com>
+References: <20261126-alsa-timer-slave-flags-v2-1-8e07a536fea3@nitrohex.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,70 +113,86 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-Spamd-Result: default: False [-12.51 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_TLS_ALL(0.00)[];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TO_DN_SOME(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_FIVE(0.00)[6];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim];
+	URIBL_BLOCKED(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,nitrohex.com:email];
+	DKIM_TRACE(0.00)[suse.de:+]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -12.51
+X-Spam-Level: 
+X-Rspamd-Queue-Id: CD12C22608
 
-On Mi, 2026-11-25 at 11:15 -0800, Brian Norris wrote:
-> On Wed, Nov 25, 2026 at 09:48:04AM +0100, Philipp Zabel wrote:
-> > On Di, 2026-11-24 at 16:03 -0800, Brian Norris wrote:
-> > > Google Tensor SoCs (used on Pixel phones) manage many resources
-> > > (including resets) using a Central Power Manager (CPM) co-processor. =
-We
-> > > communicate with CPM using mailboxes, abstracted in the
-> > > devm_cpm_get_handle(), etc., API.
-> > >=20
-> > > For posterity, I list a summary of changes made relative to the
-> > > downstream Pixel driver:
-> > >=20
-> > > * Switch to auxiliary bus, as a child of a CPM device
-> > >=20
-> > > * Use devm more heavily
-> > >=20
-> > > * Avoid representing each reset as its own Device Tree node.
-> > >=20
-> > > Signed-off-by: Brian Norris <briannorris@chromium.org>
-> > > ---
-> > >=20
-> > > Changes in v2:
-> > >  * Rename symbols from goog_cpm_rst_* to cpm_reset_*
-> > >  * Moved shared protocol details to CPM driver
-> > >  * Remove custom reset debugfs interface and .remove callback.
-> > >  * Remove per-SoC table; we only need naive translation of firmware I=
-Ds
-> > >=20
-> > >  drivers/reset/Kconfig            |   1 +
-> > >  drivers/reset/Makefile           |   1 +
-> > >  drivers/reset/google/Kconfig     |  11 +++
-> > >  drivers/reset/google/Makefile    |   2 +
-> > >  drivers/reset/google/reset-cpm.c | 154 +++++++++++++++++++++++++++++=
-++
-> > >  5 files changed, 169 insertions(+)
-> > >  create mode 100644 drivers/reset/google/Kconfig
-> > >  create mode 100644 drivers/reset/google/Makefile
-> > >  create mode 100644 drivers/reset/google/reset-cpm.c
-> > >=20
-[...]
-> > > diff --git a/drivers/reset/google/reset-cpm.c b/drivers/reset/google/=
-reset-cpm.c
-> > > new file mode 100644
-> > > index 000000000000..ef0863f25cac
-> > > --- /dev/null
-> > > +++ b/drivers/reset/google/reset-cpm.c
-> > > @@ -0,0 +1,154 @@
-[...]
-> > > +	if (lpcm_id > CPM_RST_ID_MAX)
-> >=20
-> > This looks a bit weird.
-> >=20
-> > Maybe add a CPM_LPCM_ID_MAX, directly use U8_MAX here, or rename the
-> > constant to not include RST_ID?
->=20
-> How about these (with the masks made 8-bit as they should be)?
->=20
->   FIELD_MAX(CPM_RST_LPCM_ID_MASK))
->   FIELD_MAX(CPM_RST_ID_MASK))
+On Thu, 26 Nov 2026 10:18:33 +0100,
+Rongen Wang via B4 Relay wrote:
+> 
+> From: Rongen Wang <security@nitrohex.com>
+> 
+> snd_timer_start_slave() and snd_timer_stop_slave() set and clear
+> SNDRV_TIMER_IFLG_RUNNING in timeri->flags while holding only
+> timeri_lock.  For a slave that is linked to a master, the interrupt
+> path updates the same word under timer->lock:
+> snd_timer_process_callbacks() sets SNDRV_TIMER_IFLG_CALLBACK before it
+> calls the instance callback and clears it afterwards.  Both sides do a
+> plain read-modify-write, so when they overlap one of the two updates is
+> lost.
+> 
+> If the set of SNDRV_TIMER_IFLG_CALLBACK is lost,
+> snd_timer_close_locked() does not wait for the callback that is still
+> running, the owner frees the instance, and the interrupt path clears
+> the flag in the freed object:
+> 
+>   BUG: KASAN: slab-use-after-free in snd_timer_process_callbacks+0x269/0x2b0
+>   Read of size 4 at addr ffff888007e5cc10 by task poc/90
+>    snd_timer_process_callbacks+0x269/0x2b0
+>    snd_timer_interrupt+0x7b8/0x1100
+>    snd_utimer_ioctl+0x7c/0xb0
+>   Freed by task 91:
+>    kfree+0x127/0x3b0
+>    __snd_timer_user_ioctl.isra.0+0xe93/0x28f0
+> 
+> If the clear is lost instead, the flag stays set: the instance gets no
+> further callbacks, and closing it spins in the drain loop of
+> snd_timer_close_locked() with register_mutex held, which blocks every
+> other open and close of an ALSA timer.
+> 
+> Take timer->lock around the whole flag update of a linked slave, as
+> snd_timer_start1() and snd_timer_stop1() do for master instances.  The
+> callers hold timeri_lock, so timeri->timer is stable, and the lock
+> order is the one these functions already use.  A slave that is not
+> linked to a master cannot be reached from any timer and needs no
+> additional protection.
+> 
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Rongen Wang <security@nitrohex.com>
 
-Even better. I just got tripped up by the comparison between lpcm_id
-and what looked like the limit for rst_id.
+Applied now.  Thanks.
 
-regards
-Philipp
+
+Takashi
