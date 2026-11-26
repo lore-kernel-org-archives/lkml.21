@@ -1,73 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692597;
-	b=zr2n2v1z9m6mkjcz0wkRHJ68N5SyJl47HjTKSIITCbe/vwqRs8M4C7kfN6ii7kfv0esJ
-	 7nNY43jQI27ME0LQqgKOlfggk7PBr0FLoHdN3bFfkMQCt1DHo5xD9r5TXGox2up1iFq+/
-	 tDCjmCx+HBnjfM3ipH+a9bkklcH2G3Hz9EQdYJYndScq54wSfU44lAyeHE122eSDnvHnA
-	 b3XxIvjfEUT0AvWGqj/PR9kril4xTQi1nv/h5/kFwBxb1gzMjGwKwuxfI4fK3FbxlxlnY
-	 ZaPLbEK/9NOKh2uTZ8gvFD8lAUjdACWkjPXuWdIN1gbh9p1+WutR4wbT35bdgwxr7Iw==
+	t=1795692606;
+	b=rpn4CnUOMvY1HDouDFQFVFWYBGk7FGwzoHu0+1wYxjQxsghVpKMT1YHYl+NQ7wwOTZRv
+	 mV1bxuV1vKdg2sNUKBHY0fkh7vt+wu+kXp6oAbpvVbMUI98KPReLSFG0zTTMjyobjV8lT
+	 AuIjUD73EQRnc6YQEgqIQrNzL3sAjUYQbfgR9C+b1SSNNvcxRdzEi/Yz1WWsuUdgCoKVy
+	 oZWx2P7Tr/Ar/ttMAFXoYRjzAhvRfbYfHpG0GJjT+GdlqY2H5F8LJG/ZBZKeFTyYlIENO
+	 HZg1cSJLISQjSi7XoYlCpBjo8hQ34zrFSK/ZoVJ9h5Pozp9ik91CEOnqxgOOX2eNXOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692597;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=XhbpXDScqac1UhRIrZyeVYHcl98st9w4XVtGw+jNWnI=;
-	b=P5Sm1MtPuncuxg9a8yNykwvrBaZLt27JlYOxh9qyTPaFGn++LQEmkIzE4+1rcQRaXixE
-	 OiijGwE533EC8g/GZsEqCWPfRSu4Tt++q5obBrKxmQJN4XCM0w8ryYXcm0ohaZoakw5tX
-	 ptBKf/iKNBb5EKVRlAHE9W2/OFx53lxKCsy5NeMu5OWcK7fJ5vQ69jv1NA9bbyWftEuJ7
-	 PN9iAsDtlbksVlSNUVPRlxZUDkDiJx9T5fTx2xTPBg7ZKzeloSY6GvNVs/cef+rRxWI1O
-	 LiHxhnG+GQJdR9eVboqkq8IJvIhBlk0Kn06uRQkwEuDLDYcmsU5G5AuzQjLWSgiBUXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692606;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=S0F01oKQlokKIS/TDepIlDEvNv6YynhZXJ/ynQCSvIA=;
+	b=5YdVF21Fiz3yQLg4KNBYsVyoKQHp7iWQ6/K/0PbKSrc3uaOonazFPj3T1cKCBWF0DH4w
+	 mkCHB24cAfi9jez7w71A+dTuKbps+RseaWkbu6vpihAjZh4LuQEmbn+X0C2tdKu28Z7to
+	 cCyIjhObPjYPmn+hUNJPYnrs2qGDc2K72Xl0aSlH2zow1+I+dlsyoK+lel+jWRAgEHdxd
+	 mqRHxPv483AuhmXME0TSBjBFQxt9PhbQcc49854Tw6Wqx1Qu25uWstrvibkKnHV/1LdSf
+	 8KH5jCdPzgWKWoBcXquC8ks+kRTh2YUENlG795iptbBoIudWw0rDMjt3EGIlr0rKjSg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VEmjJRX9;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=zvdMqCus;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCDCB606A32E;
-	Thu, 26 Nov 2026 11:29:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76491606A32A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:30:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76491606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VEmjJRX9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A16541F000ED;
-	Thu, 26 Nov 2026 11:29:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795692597;
-	bh=XhbpXDScqac1UhRIrZyeVYHcl98st9w4XVtGw+jNWnI=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=VEmjJRX9Qy6mjHpVUdDhtSHI0XorPt+27beB9pwkFgmHQ06TxOFaTgECAD0354+uT
-	 thnOpte60eU82qW2zVEvAQ1kXOGzi7T46Bovls1bJERasGUIFmqrM9iQfZIeiLCmdL
-	 oe9W4/9Pmf8grdqnpHC7M58S7TQOBE3lS6y68V0h5UrU7tM1eXz8jdbowO48Z1CUNG
-	 1dkaBSEEK/8ECtq+xl6L6IEXXmUwj/Vkz3JYvAFM2t6Vm7WMoII9ANm14cMMSWuMA/
-	 tyvQP1rqzlTcTM85yPN4gEKdgxdQOw2dF5zXuNKN023U+JkoOKYL6T8p+662xtmoaO
-	 LpcEfUX4Mihmw==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id C61B51980047;
-	Thu, 26 Nov 2026 06:29:53 -0500 (EST)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Thu, 26 Nov 2026 06:29:53 -0500
-X-ME-Sender: <xms:LhgIa0AousP7ER93-v2O8AnqUTW-qnae7ljZWnumadC8kBZLEjtu8w>
-    <xme:LhgIaxV3-wyHVeJuL5hetuhkzkM6obB8zdY9izOZOQmCo1gKsr31v2P3Q0suggqYY
-    hCCMW7mHp9aAAdbu4CIfF-bx4bVubCB_QjZLYKOn3UiThEY9qSmvD3aOA>
-X-ME-Proxy-Cause: dmFkZTGEvntK3qpQAIuytMySgY5S3YFtOdMVQ5q6UkR4hsNzS17dYCT4A4VJ8mlotDkeWU
-    hWnKFssqpk5GJ0VN4nozi3zfUlc12igXAEGezZ8fZxy3j7EqmHd4ZtmeEBT7kGQ6a8dpRB
-    OqWQ44yxQLMIacqWRMXinqpRuNl+hdRn+KPjngyMxcphE5G4hR91+Il67Z/2F1pBKa8zqA
-    JnAxmdT+ioZ5ywX9OJ+RVXb2EWzvOy4GrwYMSSGwFu8+luKzUH03y08s6jq4sfQ2sJ89x2
-    ZziuiJEA/bK3Vqe83dm0ANtspTYKBe2ezvv/qZA1OIb5sxM1FjeXmbiLwrmy0ccYb4VcWN
-    zXcf5GyJtYpwDFELG75VNScmgFlEpuWbDnbQIJY+2uGiI+zZH/0o2qOMYmskeSqdNWvhG0
-    PwClG0/6LlwAH7KDHH/JVJ7sRxwhqmo43QUyqeUKMnSUHtSBaqt3PurLbS9Xt3TXkjqVQH
-    ADft7ezwNPwJm+1M79hvjAC/affJNu0OhkMp2MtiZ4e381o27S2Negf/xGHkJ40DO93I4s
-    FgTT5iebhDp3Ms4GVBgHMEhuz3DdjcshRrJpHVDt5DuUDbDZEv1iMW+SOakudNfUKN/hWy
-    aSlL7TgWSrZLeUNWkh1lEVjNxOQpwjaiOLHiyrAOmgILkwGajcO0/3ZaPV2g
-X-ME-Proxy: <xmx:MRgIa1Z_rg5EcSV9DKtda6y_bX2jEcuTPsm-QLQdiZEIGv0jgZjq4g>
-    <xmx:MRgIa3FUoSAnRrqRWfVUA7LInHCSYa6jm52wC520sggTM3Q1hr236g>
-    <xmx:MRgIa-ksermYbNQnkPHwxIAE-isdMnMzpNZFo4HjVej66PZ6D6lEFQ>
-    <xmx:MRgIa-kQU8_UdoJy8zIKrToJN6zOhgU7j7V9S16-7TiNQ_UfUOgLeQ>
-    <xmx:MRgIa7Wo-taHsLgBJjN4YNHgZyisJugpp62n-35rNOj-bu-eMNkkpFaF>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 9131DF800A2; Thu, 26 Nov 2026 06:29:50 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=zvdMqCus
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 0FB49C2B9C9;
+	Thu, 26 Nov 2026 11:30:12 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B704A60237;
+	Thu, 26 Nov 2026 11:30:03 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ACE7F11E6B370;
+	Thu, 26 Nov 2026 12:29:51 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795692596; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=S0F01oKQlokKIS/TDepIlDEvNv6YynhZXJ/ynQCSvIA=;
+	b=zvdMqCusOyaXAFtExAGAqJVmzUYpuYp/Y8/PCjuOqV/6yNx5qUhmH9APMixcy3q3wqbFtA
+	MWUi9Ca+uwY6AfgwKgMbDQ7IlYcwqsnjq61RK2hb44X1sureh47ObpYUN7BmooAqZY0/Wf
+	7ozli583KyRI31YUxlcULIHXf55xjs8LFSJJ5O+bsockoKhFm9RIRKUM6HxLHnsZQCJXWz
+	sHU1MLJ0nPjca+UsH7618c3Tlu7dNyH1HdbWvAJLy9jJgZbMA51M3vWHp1J5cBumvYKKI0
+	lYsKwm/h0g/LnkyXrUdCEnVtfDTelTdg1wJFiQlCOjJGyhrezJTSZgmAa572EQ==
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Date: Thu, 26 Nov 2026 12:28:51 +0100
+Subject: [PATCH v7 08/43] drm/drm_atomic_state_helper: Properly load
+ default value for rotation
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,56 +64,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Thu, 26 Nov 2026 12:29:30 +0100
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Cc: "Ilias Apalodimas" <ilias.apalodimas@linaro.org>,
- "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
- "Borislav Petkov" <bp@alien8.de>,
- "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H . Peter Anvin" <hpa@zytor.com>, "Mike Rapoport" <rppt@kernel.org>,
- "Tom Lendacky" <thomas.lendacky@amd.com>,
- "Rick Edgecombe" <rick.p.edgecombe@intel.com>,
- "Pankaj Gupta" <pankaj.gupta@amd.com>, linux-efi@vger.kernel.org,
- linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org,
- kernel-team@meta.com, stable@vger.kernel.org
-Message-Id: <2c075daa-978b-4efc-bb36-736909ec5ff6@app.fastmail.com>
-In-Reply-To: <20261125173338.1250080-1-kas@kernel.org>
-References: <20261125173338.1250080-1-kas@kernel.org>
-Subject: Re: [PATCH] x86/efi: Handle EFI_UNACCEPTED_MEMORY in do_add_efi_memmap()
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261126-vkms-all-config-v7-8-21194cda2468@bootlin.com>
+References: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
+In-Reply-To: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
+To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
+ Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Lucas De Marchi <demarchi@kernel.org>, 
+ =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
+ victoria@system76.com, thomas.petazzoni@bootlin.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, llvm@lists.linux.dev
+X-Mailer: b4 0.17-dev
+X-Last-TLS-Session-Version: TLSv1.3
 
+Currently, the default rotation is always DRM_MODE_ROTATE_0 for all planes.
+Some planes may have a rotation property, and the property may specify a
+different default value and supported values.
 
+This is not an issue for "fixed" configurations, but with the introduction
+of VKMS configuration, some plane may only support 90° and 180°
+rotations, so the reset state of the plane was wrong (forced to 0°).
 
-On Wed, 25 Nov 2026, at 18:33, Kiryl Shutsemau (Meta) wrote:
-> The EFI stub reports unaccepted memory to the kernel as E820 RAM.
-> do_add_efi_memmap() has no case for EFI_UNACCEPTED_MEMORY and adds the
-> same range again as E820_TYPE_RESERVED. e820__update_table() resolves
-> the overlap in favour of the reserved type, so the kernel never uses
-> the range.
->
-> do_add_efi_memmap() runs when soft reservation is enabled and the
-> firmware marks any conventional memory EFI_MEMORY_SP; that takes no
-> command-line option. It also runs with the add_efi_memmap boot
-> parameter. A TDX or SEV-SNP guest booted either way loses the memory the
-> firmware left unaccepted, and it does not show up in MemTotal.
->
-> Add unaccepted memory as RAM, as the stub does. Without
-> CONFIG_UNACCEPTED_MEMORY the kernel cannot accept it, so keep it
-> reserved there.
->
-> Fixes: 745e3ed85f71 ("efi/libstub: Implement support for unaccepted memory")
-> Reported-by: Mike Rapoport <rppt@kernel.org>
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-> ---
-> Build-tested only, with and without CONFIG_UNACCEPTED_MEMORY.
->
->  arch/x86/platform/efi/efi.c | 6 ++++++
->  1 file changed, 6 insertions(+)
->
+Fixes: ab2dd990f4ab ("drm: Add __drm_atomic_helper_crtc_state_reset() & co.")
+Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
+Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+---
+ drivers/gpu/drm/drm_atomic_state_helper.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+index 267f44330629..13e848abb33c 100644
+--- a/drivers/gpu/drm/drm_atomic_state_helper.c
++++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+@@ -32,6 +32,7 @@
+ #include <drm/drm_crtc.h>
+ #include <drm/drm_device.h>
+ #include <drm/drm_framebuffer.h>
++#include <drm/drm_mode_object.h>
+ #include <drm/drm_plane.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_vblank.h>
+@@ -231,6 +232,11 @@ void __drm_atomic_helper_plane_state_init(struct drm_plane_state *plane_state,
+ 
+ 	plane_state->plane = plane;
+ 	plane_state->rotation = DRM_MODE_ROTATE_0;
++	if (plane->rotation_property &&
++	    !drm_object_property_get_default_value(&plane->base,
++						   plane->rotation_property,
++						   &val))
++		plane_state->rotation = val;
+ 
+ 	plane_state->alpha = DRM_BLEND_ALPHA_OPAQUE;
+ 
 
-I can take this via efi/urgent if desired.
+-- 
+2.56.0
+
