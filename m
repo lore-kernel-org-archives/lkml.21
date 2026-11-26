@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685495;
-	b=VBAKkL866FQlS4Xsg3RrTzw+E56U8f5U20aDW2nLYL4nKE4BC4u1GpETQjSw7KyC8kls
-	 aY8dcX36/m9kpxWAQnHRJ2jFYC8NxuPFMa+bDan1ADVRiLesWreBgYX9tPYFH6V6CioVs
-	 4RBQQeQPARRcsdHNgamEYqGWu0cNY6L5tXeuFf+FdU2hQIPg8rbAZMP2EHx9/1kOY/V/f
-	 qCfy/cBbeXYXfJ0hDaoHEjt1cHD+loxY3QVfOGAPWQb47fLLbzQdWlkZG3lXmihyvUbF1
-	 HaBPSnKaL+RbkFhg8Hlyk2pgS8eTBfOaSFLHnXFq+ODt7/r2hc0maP5WGKs2GBjugBw==
+	t=1795685497;
+	b=fxSYriWXFHHtzEmCh3MrYxP2H7l4yb/6/o+Og9nlNL7tZJfq6QwiSlNBV0m+SmAu9yYx
+	 xAeOlEo5OK+D2vWWmZjpfXCw1wFGMVbeWLteRk6duixWwOGc/WA+oFkezMl5qOdH5lCpc
+	 rFWf2XZqspTCAOL/UWBjvqLQvE8cicnR8Aejf6Y2wCrWJLq4T2txete0Ff0+SmsKvuWkK
+	 ZqggF37MAzhayCWKmITB4l7yL/gi3dDiX4/9gR+PJqpvdIUT/3aBCLwAY4+hw5UpEK5YV
+	 J0CEYggFO0heVcfNBjny38d7NbLTHrQ/QGQHcw7qssqXAS4pDT7CvelxRXm3Ps16zAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685495;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685497;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=dhgAqUexAx0akPEBmUx3hg120Mv0CqmUceKuUJMrsi0=;
-	b=SyRnZtaoeAgJxEBpMGYo/UJQ+iPIeNDP9/i7tbnl3nZsSmFkjJqZeQyLwmXgzMKSl8At
-	 uTmABipEH1pG6FmDoxGmD9I/pXKNWZUoKUIPdKG5ff8j91yNle8BCXv6hGKwPvmcCivEj
-	 dYl8wO88ZpodrhRO3s5w+oCgFZE4ffIRoTxVs9QncgHFCgCWEuIz3cHZSSDFN9J0LhhU2
-	 XtJ4PzaF81LCSqlZj3k5skF8BIi051GYnHKm+08UThvyCab4BiPZ8YxUH9jEeF/w0gDCE
-	 Jp2PJ76HGmcYZEvAedQdTATwV2cGAyR2OY2PMiJOyZOxrKqqOEqHmmLPYRyE1ta1jKg==
+	bh=gX0OFpBIYe/qacRDrt/Sy4hgzQEEA9llCw0+rwuqWao=;
+	b=Ns8TR5zZ9qMmvU0sS6+HU54I0S6B+rfEZGUuYxX+aN0O6oVrd4ztn6oRkcKpfEgrYAWg
+	 qyTSzGC8fnaaACaR8XwHzPotJGfUKYwekRWPMNlmbJ2FzzbRnR4UOQC7MZ4pMYM/gvHTB
+	 BPh1Mz7O6BL62AuX1gbHP9rD4oB6XoJ7Tk3+jbciWhHCTI4HZ/YdUqwGLHzaufsqqT+C8
+	 qC6uiX51rr2csHQqfn0NQa1loVJBTHbl0ZSJ0l+Lr6N+R5daoR5M7GTlI1NHENvMdbVRn
+	 wvn4nqKKImP4mxrcz/T8hjhBnOk41Nl6pbbCOw/rvqHyFel9JG9l3dTdrEBNKW0D0Qg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Av0yqfyZ;
-	arc=none smtp.remote-ip=209.85.218.46
-Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com [209.85.218.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cuXSBc4y;
+	arc=none smtp.remote-ip=209.85.218.49
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5092160A262A
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:31:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5092160A262A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C626606A6AD
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:31:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1C626606A6AD
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Av0yqfyZ
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-c5127c7abd5so1051298866b.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:31:33 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cuXSBc4y
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c516a192844so681699266b.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:31:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795685492; x=1796290292; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795685495; x=1796290295; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dhgAqUexAx0akPEBmUx3hg120Mv0CqmUceKuUJMrsi0=;
-        b=Av0yqfyZcYlX+Fh5ia0aHAJtb28S0HSUkwzadwTS5Rq4pxD+iSdrILbcNmqqJboiO9
-         CwBElEeTynjw7uchu4gLjIBMwJ0iabqCeTtdzUo332zlHn0WRYKsyOY567GoxmVcvCBc
-         K1wqwx8mlF5B38PwtMWIyrRYKW5Rh8Yvzr15dIFlhWiayLTy0yhwi7Ne9yBVjhGP3Mgf
-         OBIspfhQk8hzqhXBDL9FXEyLPyk/y/3t/YCYA7pn4HomwuwUAxyF46Cc1pTMqa+hw547
-         PN0biVvHzjtNis67EZ+V4fxVrXOTQ1C4tKfSfFeR9NQeHOqrwGW+VoGzEKnfWQFswtUx
-         k/2A==
+        bh=gX0OFpBIYe/qacRDrt/Sy4hgzQEEA9llCw0+rwuqWao=;
+        b=cuXSBc4ymy/1FhE7czqgxVhL2pz1j2KhS8v2+IOR5yIiOftYpCI2D+9Q1H96fi7KJX
+         SsJPPCRLSl1T+niMFQYhKgowEjPKlquCqfmnlEH2nrhO4CtJo954Qao0+8g0f/K5HEdA
+         XT5hZccMWcWoAC1VX0r9kRTnUrcHgZxJ2qk6IJcPjrjXcEFSAwW3/N51vu6UZ48oHjh+
+         VvF96Yt9Bujv3mxpDBbgLYBMcdaXYWrGQl34eWz7u6nea8TbBAogPpGXxppnRtUtJ1/H
+         MyMPlEgKVPCuYEomKbnIHgpb9Abe4c2xFTa/GGAW3Kx8glAyeifAuRUQ7UBw8gozs/fA
+         KhAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795685492; x=1796290292;
+        d=1e100.net; s=20260707; t=1795685495; x=1796290295;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dhgAqUexAx0akPEBmUx3hg120Mv0CqmUceKuUJMrsi0=;
-        b=SpaBo1871Q6A9ArsvETr1nrlMQ1Vsb00eauhWbOeoaAhbjursjZTOD+hAFxwHrLBuQ
-         Ydy7vt3ZMNBMS47lXkcwLY94JwbhcXXLamMPsCYw5Lm5Ix7T5x+7ZwK6xov+EuoQMdrf
-         nj2DmKLy+WUlCCFMuDCmS7VFtaHaDO81Uig5p+aaqDh3RQ7ojXyhKa702FYyv9VLfzWq
-         aTL1RFdmxP9SDrjAVXbQsPhC2kaSQ0OnOua0gd0U/bkMKQMyp2W9ewzYI+ynL/dNR3vC
-         eVHrBEGdCA6NxEvsFgmdXyVT4DqQtvCrTLWDVOZYq25FuTeaA4Sf5te9Lyr8izxoXP5n
-         lrxA==
-X-Forwarded-Encrypted: i=1; AL+hErElM/S5YPn7/7z6bJclvrWV5SAB/H0xjIefsT8PFyOEblEzyQ+/jE0tTtxOzGYH8MQacP6txOm0lWMcap4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8M5OeC+5Jpk9z6cdxCf/mKXgqKrMlQ8+Ohk27xTlHZU6he/aus
-	B5KRkzAm7qNBQ3d1l1Yym20+yhFcI2GykWy9Z7vjjsWwZMKpneu37zgj
-X-Gm-Gg: AZFdTZdqP7s1ZCwjxM0rigfS78KLVNBLNnE36bhDBN3i4lTEKiq9fC6dXb4//UBODvV
-	Y0vzQvP53Den8y/Mzr4D6UNdpWLcbiqSNklDK8o6FmznuECkyFbbQNj+E2FayJ85q/TWNeztdpp
-	k5h/KR0M6RFffqWZ1E3II0yP3yMuOA3fu5e60rpr0XRjucg0ko7UIWFev5/iK6KKkwzm/K63Jhh
-	er3IVV4B12OS/dz+8CHJxBmeZMryl8FyO7uhZkqrNFeFsEwamighqrx1Ug3mDmPoxtDQO06pW9d
-	wEdV24yA/qFFK4hXT3zgEObFRqI8fwfLl4Wwgh+bVNuHW+R8g+HsZGG0yl0uSTCngwCS3Qj4W+R
-	j9MOkg4tMaNXqNdE8XXYXN4lsCVXD8BkHPz7yBBED63yGb6arbPIVMUh3JUq24edfijd/kL45TX
-	pk401q/VzHPK16pJtHQv7pI5UkRJwGsPV6J9CRAYDkeHG9W6Pb6sSVx33GJFEMr8OAPlU+cno4Q
-	ITGHTFKihj/yYby8QwDSCP9ljs5KTmX4KVsp4g0KFLerQlPo2busUT14GIEsCWhLvJglT39+1vt
-	9GhuAB1bBQAmvyOWMoR+HpsZz9IMqHEfeQBH9j8Xtl3i4bg0r2w59zQOEwPWpNERWj+bgepb
-X-Received: by 2002:a17:906:fa82:b0:c50:4b6e:329 with SMTP id a640c23a62f3a-c513a5eaea2mr1331141366b.15.1795685492298;
-        Thu, 26 Nov 2026 01:31:32 -0800 (PST)
+        bh=gX0OFpBIYe/qacRDrt/Sy4hgzQEEA9llCw0+rwuqWao=;
+        b=w2npB0oE/MdAwAncMgImeCdIi36SPCfjPUMTkmbxZ4EWuBbu08lTzeYdAdJikiK5Fv
+         HBETxUic05ooUPEC8QLDspduTbvjLhpkU7+6WXXg+tEU5p2ca8rK+KDTTgUxje+UTe7X
+         mwlOKWLA2ajLrmC/lHlT0EAxjcWQiy88NfeXSjVu8YhGzpCTkuJ3VhuMt1BUgxWb5ocY
+         kLdE8br/RR3pDUhBwmRKgEdLr6Q6XPj92wo0Z5KmZothsDCpZvqE1k6/L8G2oHTB+PoR
+         /jBn0eAiUuEjorg0G2EV098RihJ4H/W9znXX0alfI3pR6zG7NvQifZ1Sea7KYe0hGYZ8
+         WAMg==
+X-Forwarded-Encrypted: i=1; AL+hErGV9dvY2yqjFNAc7lirWZsv4ZsJdEIGh/5w3c1mgOuS/HrIJlYyPXzZOa2bcC9c5vOnDEiNYu49d2jkeMA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9qovjhuqgiTXAFB5/sbeiKK7wMRqxdJT+lNYgva1ZcsNmkSpXA
+	A8CfrsnQVYZjL9kCBhREUKVgl3AyoQr3OM8TYlmiMdRtWOQOQZormPMa
+X-Gm-Gg: AZFdTZftNRCXaBj733ddFTjbjFdkab2tM4OX77mrhOpShYp/qXo2bE7Dp/t1IebYocD
+	fa2H5kBUE9jSU5RE5qmzWsRicb7pFeBs/1zhhXLCcx0bAGsR+gdyiseHsk8TW4KXEmJYdNAFjzS
+	Z9RwiS1EyuO4XbkQNbk66fWbLH8H8IdXPtV1ROm0csC+f3zr92bCA2YoacMuJBzKsq1Gnvxx4dB
+	9cCOwWVnGahyZEyhQblNnE30Zm62svZBQ/CUnDvBuWeQ49VB+1tTTTyEGk7JxPPGWQD0bL6xj5h
+	FYMu3KS9c4UMQ5U05qe5kn6C92EgcrDeNuU3oVhwamtBOMdNSrETS00qd+auCnzDa/VBrtu9Mm7
+	KxRMf2cy+1hoVacE1AiCuRAbgYKeQTrfoKhzcwIb+2xCx1EinXOB+IMbhK2kEDGTduprvGEvVD8
+	hsEvUPbYvKlj8CZ/s+2YsBcL+TlkMNVC9qbpVGLt5BbIl96pV8scGdMBMoZUe81CB2SlBmYGAC7
+	KnDvWR0CnKrEpJEKFEukKf5YTu1DakpUn0cR6sV2t9qjnh04GB5KCzi28dPcVB9EeLMhyTeGBqF
+	2OOWIV8C+M0gFTu5gORVF5BKCzGwDIRHoq1hmIoHTMEwMoY8b58PMQMlMbaJqHk4Y534XGY=
+X-Received: by 2002:a17:907:3e92:b0:c51:9ab4:393c with SMTP id a640c23a62f3a-c519ab43c77mr662842566b.32.1795685495308;
+        Thu, 26 Nov 2026 01:31:35 -0800 (PST)
 Received: from buildhost.darklands.se ([2001:9b1:ff:d701:51eb:176f:63d9:53f8])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdee82sm597090066b.66.2026.11.26.01.31.31
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdee82sm597090066b.66.2026.11.26.01.31.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:31:31 -0800 (PST)
+        Thu, 26 Nov 2026 01:31:34 -0800 (PST)
 From: Magnus Lindholm <linmag7@gmail.com>
 To: davem@davemloft.net,
 	andreas@gaisler.com
@@ -85,9 +85,9 @@ Cc: sam@ravnborg.org,
 	sparclinux@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linmag7@gmail.com
-Subject: [PATCH 13/18] sparc32,leon: discover AMBA devices for legacy U-Boot PROMs
-Date: Thu, 26 Nov 2026 10:30:18 +0100
-Message-ID: <20261126093106.1345825-14-linmag7@gmail.com>
+Subject: [PATCH 16/18] sparc32,leon: use the upper SDRAM on the GR-LEON4-ITX
+Date: Thu, 26 Nov 2026 10:30:21 +0100
+Message-ID: <20261126093106.1345825-17-linmag7@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261126093106.1345825-1-linmag7@gmail.com>
 References: <20261126093106.1345825-1-linmag7@gmail.com>
@@ -102,453 +102,133 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Factory LEON U-Boot supplies no AMBA device nodes. For its legacy PROM
-signature, discover GRLIB plug-and-play buses and synthesize the missing
-nodes, resources and clocks with bounded traversal.
+The factory PROM reports only 192 MiB minus 8 KiB on this 256 MiB
+board. Match the board, PROM map, DDR2 geometry and active scanout
+before registering the unused upper ranges. Honor an explicit mem=
+limit.
 
-Publish the system ID needed by the existing LEON4 idle workaround.
-Reserve a conflict-free IPI only for SMP. Preserve firmware-supplied
-trees; reject unsupported required topology rather than continuing
-without usable interrupt and timer controllers.
+Keep the PROM and 2 MiB at the framebuffer base out of the allocator.
+The latter accommodates grvga's 800x600 RGB565 double buffer. Claim
+the adjacent RAM before adding it so an oversized fixed framebuffer
+cannot overlap an allocated page.
 
 Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
 ---
- arch/sparc/kernel/Makefile      |   1 +
- arch/sparc/kernel/leon_legacy.c | 343 ++++++++++++++++++++++++++++++++
- arch/sparc/kernel/prom.h        |   5 +
- arch/sparc/kernel/prom_common.c |   1 +
- drivers/of/pdt.c                |   9 +-
- include/linux/of_pdt.h          |   5 +
- 6 files changed, 362 insertions(+), 2 deletions(-)
- create mode 100644 arch/sparc/kernel/leon_legacy.c
+ arch/sparc/include/asm/leon.h   |  1 +
+ arch/sparc/kernel/leon_legacy.c | 56 +++++++++++++++++++++++++++++++++
+ arch/sparc/kernel/setup_32.c    |  2 ++
+ 3 files changed, 59 insertions(+)
 
-diff --git a/arch/sparc/kernel/Makefile b/arch/sparc/kernel/Makefile
-index 497b5714fa8f..6bfc23ce3b08 100644
---- a/arch/sparc/kernel/Makefile
-+++ b/arch/sparc/kernel/Makefile
-@@ -53,6 +53,7 @@ obj-$(CONFIG_SPARC64)   += prom_irqtrans.o
- 
- obj-$(CONFIG_SPARC32)   += leon_kernel.o
- obj-$(CONFIG_SPARC32)   += leon_pmc.o
-+obj-$(CONFIG_SPARC_LEON) += leon_legacy.o
- 
- obj-$(CONFIG_SPARC64)   += reboot.o
- obj-$(CONFIG_SPARC64)   += sysfs.o
+diff --git a/arch/sparc/include/asm/leon.h b/arch/sparc/include/asm/leon.h
+index 9e51f1fb70fd..733394efe0eb 100644
+--- a/arch/sparc/include/asm/leon.h
++++ b/arch/sparc/include/asm/leon.h
+@@ -227,6 +227,7 @@ void leon_update_virq_handling(unsigned int virq,
+ extern bool leon_gr_leon4_itx;
+ void leon_init_timers(void);
+ bool leon_legacy_is_itx(void);
++void leon_legacy_add_highmem(void);
+ void leon_node_init(struct device_node *dp, struct device_node ***nextp);
+ void init_leon(void);
+ void poke_leonsparc(void);
 diff --git a/arch/sparc/kernel/leon_legacy.c b/arch/sparc/kernel/leon_legacy.c
-new file mode 100644
-index 000000000000..a9364708e231
---- /dev/null
+index d6c9efe59f42..03d3120797f0 100644
+--- a/arch/sparc/kernel/leon_legacy.c
 +++ b/arch/sparc/kernel/leon_legacy.c
-@@ -0,0 +1,343 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Written by Magnus Lindholm, linmag7@gmail.com
-+ *
-+ * Build the AMBA device tree omitted by the factory LEON U-Boot.
-+ */
+@@ -5,10 +5,14 @@
+  * Build the AMBA device tree omitted by the factory LEON U-Boot.
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/init.h>
++#include <linux/ioport.h>
+ #include <linux/kernel.h>
++#include <linux/memblock.h>
+ #include <linux/of.h>
+ #include <linux/of_pdt.h>
++#include <linux/sizes.h>
+ #include <linux/string.h>
+ 
+ #include <asm/leon.h>
+@@ -22,6 +26,13 @@
+ #define LEGACY_AHB_SLOTS 64
+ #define LEGACY_APB_SLOTS 16
+ 
++#define ITX_DDR_BASE		0x40000000
++#define ITX_PROM_END		0x4c000000
++#define ITX_FB_BASE		0x4d000000
++#define ITX_DDR_END		0x50000000
++#define ITX_DDR2CFG1		0xffe00100
++#define ITX_GRVGA		0xc0800000
 +
-+#include <linux/init.h>
-+#include <linux/kernel.h>
-+#include <linux/of.h>
-+#include <linux/of_pdt.h>
-+#include <linux/string.h>
-+
-+#include <asm/leon.h>
-+#include <asm/leon_amba.h>
-+#include <asm/oplib.h>
-+#include <asm/cpu_type.h>
-+
-+#include "prom.h"
-+
-+#define LEGACY_MAX_BUSES 8
-+#define LEGACY_AHB_SLOTS 64
-+#define LEGACY_APB_SLOTS 16
-+
-+struct legacy_bus {
-+	u32 area;
-+	u32 freq;
-+	u32 bridge;
-+	unsigned int parent;
+ struct legacy_bus {
+ 	u32 area;
+ 	u32 freq;
+@@ -44,6 +55,51 @@ bool __init leon_legacy_is_itx(void)
+ 	return prom_leon_legacy && leon_gr_leon4_itx;
+ }
+ 
++/* grvga may request a fixed framebuffer with devm_request_mem_region(). */
++static struct resource itx_highmem[] = {
++	DEFINE_RES_NAMED(ITX_PROM_END, ITX_FB_BASE - ITX_PROM_END, "System RAM",
++			 IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY),
++	DEFINE_RES_NAMED(ITX_FB_BASE + SZ_2M, ITX_DDR_END - ITX_FB_BASE - SZ_2M,
++			 "System RAM", IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY),
 +};
 +
-+static struct legacy_bus legacy_buses[LEGACY_MAX_BUSES] __initdata;
-+static unsigned int legacy_bus_count __initdata;
-+static phandle legacy_phandle __initdata;
-+static u32 legacy_irqs __initdata = BIT(0) | BIT(15);
-+
-+static u32 __init legacy_read(u32 address)
++void __init leon_legacy_add_highmem(void)
 +{
-+	return LEON3_BYPASS_LOAD_PA(address);
-+}
++	struct resource *res;
++	unsigned int i;
 +
-+static bool __init legacy_is(u32 id, unsigned int device)
-+{
-+	return (id >> 24) == VENDOR_GAISLER &&
-+	       ((id >> 12) & 0xfff) == device;
-+}
++	/* The factory PROM reports only the first 192 MiB minus 8 KiB. */
++	if (!leon_legacy_is_itx() || memblock.memory.cnt != 1 ||
++	    memblock_start_of_DRAM() != ITX_DDR_BASE ||
++	    memblock_end_of_DRAM() != ITX_PROM_END - SZ_8K)
++		return;
 +
-+/* GRLIB AHB memory and bus-relative AHB I/O BAR encodings. */
-+static bool __init legacy_bar(u32 area, u32 bar, u32 *addr, u32 *size)
-+{
-+	u32 mask = (bar >> 4) & 0xfff;
-+	u32 start = (bar & 0xfff00000) & (mask << 20);
++	/* DDR2CFG1 bank size code 5 selects 256 MiB per chip select. */
++	if (FIELD_GET(GENMASK(25, 23), legacy_read(ITX_DDR2CFG1)) != 5)
++		return;
 +
-+	switch (bar & 0xf) {
-+	case 2:
-+		*addr = start;
-+		*size = -(mask << 20);
-+		break;
-+	case 3:
-+		*addr = area | (start >> 12);
-+		*size = ((~mask & 0xfff) + 1) << 8;
-+		break;
-+	default:
-+		return false;
-+	}
-+	return *size && is_power_of_2(*size);
-+}
++	/* Match U-Boot's 800x600 RGB565 scanout before reusing the rest. */
++	if (legacy_read(ITX_GRVGA + 0x14) != ITX_FB_BASE ||
++	    legacy_read(ITX_GRVGA + 0x04) != ((599 << 16) | 799) ||
++	    FIELD_GET(GENMASK(5, 4), legacy_read(ITX_GRVGA)) != 2)
++		return;
 +
-+static void __init legacy_property(struct device_node *np, const char *name,
-+				   const void *value, unsigned int length)
-+{
-+	struct property *p = prom_early_alloc(sizeof(*p));
-+
-+	p->name = prom_early_alloc(strlen(name) + 1);
-+	strscpy(p->name, name, strlen(name) + 1);
-+	p->value = prom_early_alloc(length + 1);
-+	memcpy(p->value, value, length);
-+	p->length = length;
-+	p->unique_id = of_pdt_alloc_unique_id();
-+	p->next = np->properties;
-+	np->properties = p;
-+}
-+
-+static void __init legacy_u32(struct device_node *np, const char *name, u32 val)
-+{
-+	__be32 cell = cpu_to_be32(val);
-+
-+	legacy_property(np, name, &cell, sizeof(cell));
-+}
-+
-+static struct device_node * __init legacy_node(struct device_node *parent,
-+					       const char *name, const char *path)
-+{
-+	struct device_node *np = prom_early_alloc(sizeof(*np));
-+	struct device_node **tail = &parent->child;
-+
-+	of_node_init(np);
-+	np->name = prom_early_alloc(strlen(name) + 1);
-+	strscpy((char *)np->name, name, strlen(name) + 1);
-+	np->full_name = prom_early_alloc(strlen(path) + 1);
-+	strscpy((char *)np->full_name, path, strlen(path) + 1);
-+	np->parent = parent;
-+	np->phandle = ++legacy_phandle;
-+	np->unique_id = of_pdt_alloc_unique_id();
-+	legacy_property(np, "name", name, strlen(name) + 1);
-+	legacy_u32(np, ".node", np->phandle);
-+	/* Like the PROM builder, publish before OF device registration starts. */
-+	while (*tail)
-+		tail = &(*tail)->sibling;
-+	*tail = np;
-+	return np;
-+}
-+
-+/* Follow version-1 AHB2AHB bridges, including reverse links, once per bus. */
-+static int __init legacy_scan_buses(void)
-+{
-+	unsigned int b, slot, seen;
-+	int cpu_bus = -1;
-+
-+	legacy_bus_count = 1;
-+	legacy_buses[0].area = LEON3_IO_AREA;
-+	for (b = 0; b < legacy_bus_count; b++) {
-+		u32 table = legacy_buses[b].area | LEON3_CONF_AREA;
-+
-+		for (slot = 0; slot < LEGACY_AHB_SLOTS; slot++) {
-+			u32 id = legacy_read(table + slot * 32);
-+
-+			legacy_irqs |= BIT(id & 0x1f);
-+			if (legacy_is(id, GAISLER_LEON3) ||
-+			    legacy_is(id, GAISLER_LEON4))
-+				cpu_bus = b;
-+		}
-+		for (slot = 0; slot < LEGACY_AHB_SLOTS; slot++) {
-+			u32 pnp = table + 0x800 + slot * 32;
-+			u32 id = legacy_read(pnp);
-+			u32 area;
-+
-+			if (!legacy_is(id, GAISLER_AHB2AHB))
-+				continue;
-+			if (((id >> 5) & 0x1f) != 1) {
-+				pr_warn("LEON: unsupported legacy AHB bridge at %x\n", pnp);
-+				continue;
-+			}
-+			area = legacy_read(pnp + 8);
-+			if (!area || (area & 0xfffff))
-+				continue;
-+			for (seen = 0; seen < legacy_bus_count; seen++)
-+				if (legacy_buses[seen].area == area)
-+					break;
-+			if (seen < legacy_bus_count)
-+				continue;
-+			if (legacy_bus_count == LEGACY_MAX_BUSES)
-+				panic("LEON: too many legacy AMBA buses");
-+			legacy_buses[seen].area = area;
-+			legacy_buses[seen].parent = b;
-+			legacy_buses[seen].bridge = legacy_read(pnp + 4);
-+			legacy_bus_count++;
-+		}
-+	}
-+	return cpu_bus;
-+}
-+
-+/*
-+ * This U-Boot puts CONFIG_SYS_CLK_FREQ / 1000 in the CPU property, but
-+ * uses CONFIG_SYS_CLK_FREQ for its initial bus at LEON3_IO_AREA. It is
-+ * the I/O-bus clock in kHz, not the actual CPU clock on a bridged LEON4.
-+ */
-+static bool __init legacy_clocks(int cpu_bus)
-+{
-+	struct device_node *cpu;
-+	u32 freq, factor, config;
-+	unsigned int b;
-+
-+	if (cpu_bus < 0)
-+		return false;
-+	cpu = of_find_node_by_type(NULL, "cpu");
-+	if (!cpu)
-+		return false;
-+	freq = of_getintprop_default(cpu, "clock-frequency", 0);
-+	of_node_put(cpu);
-+	if (!freq || freq > U32_MAX / 1000)
-+		return false;
-+	freq *= 1000;
-+	legacy_buses[0].freq = freq;
-+	for (b = 1; b < legacy_bus_count; b++) {
-+		freq = legacy_buses[legacy_buses[b].parent].freq;
-+		/* AHB2AHB user[0]: FFACT at 7:4, direction at bit 8. */
-+		config = legacy_buses[b].bridge;
-+		factor = (config >> 4) & 0xf;
-+		if (!factor)
-+			factor = 1;
-+		if (config & 0x100) {
-+			if (freq > U32_MAX / factor)
-+				return false;
-+			freq *= factor;
-+		} else {
-+			freq /= factor;
-+		}
-+		legacy_buses[b].freq = freq;
-+	}
-+	return true;
-+}
-+
-+static void __init legacy_device(struct device_node *bus, u32 id, u32 freq,
-+				 __be32 *regs, unsigned int count)
-+{
-+	struct device_node *np;
-+	char name[16], path[48];
-+	u32 device = (id >> 12) & 0xfff;
-+	u32 irq = id & 0x1f;
-+	u32 addr = be32_to_cpu(regs[0]);
-+	u32 config;
-+	unsigned int timer;
-+
-+	legacy_irqs |= BIT(irq);
-+	if (legacy_is(id, GAISLER_GPTIMER)) {
-+		config = legacy_read(addr + 8);
-+		if (config & BIT(8))
-+			for (timer = 0; timer < (config & 7); timer++)
-+				legacy_irqs |= BIT((irq + timer) & 0x1f);
-+	}
-+	if (legacy_is(id, GAISLER_IRQMP)) {
-+		config = legacy_read(addr + 0x10);
-+		legacy_irqs |= BIT((config >> 16) & 0xf);
-+	}
-+
-+	snprintf(name, sizeof(name), "%02x_%03x", id >> 24, device);
-+	snprintf(path, sizeof(path), "%s@%x,%x", name, irq,
-+		 be32_to_cpu(regs[0]));
-+	np = legacy_node(bus, name, path);
-+	legacy_property(np, "reg", regs, count * 2 * sizeof(*regs));
-+	legacy_u32(np, "freq", freq);
-+	legacy_u32(np, "vendor", id >> 24);
-+	legacy_u32(np, "device", device);
-+	legacy_u32(np, "version", (id >> 5) & 0x1f);
-+	if (irq)
-+		legacy_u32(np, "interrupts", irq);
-+	pr_info("LEON PnP: %s at %08x irq %u clock %u\n", name,
-+		be32_to_cpu(regs[0]), irq, freq);
-+}
-+
-+static void __init legacy_apb(struct device_node *bus, u32 base, u32 freq)
-+{
-+	unsigned int slot;
-+
-+	for (slot = 0; slot < LEGACY_APB_SLOTS; slot++) {
-+		u32 pnp = (base | LEON3_CONF_AREA) + slot * 8;
-+		u32 id = legacy_read(pnp), bar, addr, size, mask;
-+		__be32 regs[2];
-+
-+		if (!(id >> 24) || !((id >> 12) & 0xfff))
-+			continue;
-+		bar = legacy_read(pnp + 4);
-+		if ((bar & 0xf) != 1)
-+			continue;
-+		mask = (bar >> 4) & 0xfff;
-+		addr = base | (((bar & 0xfff00000) >> 12) & (mask << 8));
-+		size = ((~mask & 0xfff) + 1) << 8;
-+		if (!is_power_of_2(size)) {
-+			pr_warn("LEON: invalid APB mask at %x\n", pnp);
++	/* Leave room for the factory scanout and grvga's double buffer. */
++	for (i = 0; i < ARRAY_SIZE(itx_highmem); i++) {
++		res = &itx_highmem[i];
++		if (request_resource(&iomem_resource, res)) {
++			pr_warn("LEON: GR-LEON4-ITX high memory %pr is busy\n", res);
 +			continue;
 +		}
-+		regs[0] = cpu_to_be32(addr);
-+		regs[1] = cpu_to_be32(size);
-+		legacy_device(bus, id, freq, regs, 1);
-+	}
-+}
-+
-+void __init leon_legacy_amba_init(void)
-+{
-+	struct device_node *bus, *np;
-+	unsigned int b, slot, bar;
-+	u32 systemid;
-+	int cpu_bus, ipi;
-+
-+	if (sparc_cpu_model != sparc_leon || !prom_leon_legacy)
-+		return;
-+	np = of_find_node_by_path("/ambapp0");
-+	if (np) {
-+		of_node_put(np);
-+		return;
-+	}
-+
-+	cpu_bus = legacy_scan_buses();
-+	if (!legacy_clocks(cpu_bus))
-+		panic("LEON: cannot determine legacy AMBA clocks");
-+	for_each_of_allnodes(np)
-+		if (np->phandle > legacy_phandle)
-+			legacy_phandle = np->phandle;
-+	bus = legacy_node(of_root, "ambapp0", "ambapp0");
-+	legacy_property(bus, "device_type", "ambapp", sizeof("ambapp"));
-+	legacy_u32(bus, "#address-cells", 1);
-+	legacy_u32(bus, "#size-cells", 1);
-+	legacy_u32(bus, "freq", legacy_buses[0].freq);
-+	/* The last four words of the AHB PnP area contain the system ID. */
-+	systemid = legacy_read(legacy_buses[0].area | LEON3_CONF_AREA |
-+			       LEON3_AHB_SYSTEMID);
-+	legacy_u32(bus, "systemid", systemid);
-+	pr_info("LEON PnP: system ID %08x\n", systemid);
-+
-+	for (b = 0; b < legacy_bus_count; b++) {
-+		u32 area = legacy_buses[b].area;
-+		u32 freq = legacy_buses[b].freq;
-+		u32 table = area | LEON3_CONF_AREA;
-+
-+		pr_info("LEON PnP: bus %08x clock %u\n", area, freq);
-+		for (slot = 0; slot < LEGACY_AHB_SLOTS; slot++) {
-+			u32 pnp = table + 0x800 + slot * 32;
-+			u32 id = legacy_read(pnp), addr, size;
-+			__be32 regs[8];
-+			unsigned int count = 0;
-+
-+			if (!(id >> 24) || !((id >> 12) & 0xfff) ||
-+			    legacy_is(id, GAISLER_AHB2AHB))
-+				continue;
-+			for (bar = 0; bar < 4; bar++) {
-+				if (!legacy_bar(area, legacy_read(pnp + 16 + bar * 4),
-+						&addr, &size))
-+					continue;
-+				regs[count * 2] = cpu_to_be32(addr);
-+				regs[count * 2 + 1] = cpu_to_be32(size);
-+				count++;
-+			}
-+			if (!count)
-+				continue;
-+			if (legacy_is(id, GAISLER_APBMST)) {
-+				legacy_apb(bus, be32_to_cpu(regs[0]), freq);
-+				continue;
-+			}
-+			legacy_device(bus, id, freq, regs, count);
++		if (memblock_add(res->start, resource_size(res))) {
++			release_resource(res);
++			pr_warn("LEON: failed to add GR-LEON4-ITX high memory %pr\n", res);
++			continue;
 +		}
++		pr_info("LEON: added GR-LEON4-ITX high memory %pr\n", res);
 +	}
-+	if (!IS_ENABLED(CONFIG_SMP))
-+		return;
-+	/* IRQ15 is reserved for cross-calls; avoid all peripheral IRQs. */
-+	for (ipi = 14; ipi > 0; ipi--)
-+		if (!(legacy_irqs & BIT(ipi)))
-+			break;
-+	if (!ipi)
-+		panic("LEON: no free legacy AMBA IPI interrupt");
-+	legacy_u32(bus, "ipi_num", ipi);
-+	pr_info("LEON PnP: selected IPI IRQ %d\n", ipi);
 +}
-diff --git a/arch/sparc/kernel/prom.h b/arch/sparc/kernel/prom.h
-index 26a1cca7c761..60ecbd064a4f 100644
---- a/arch/sparc/kernel/prom.h
-+++ b/arch/sparc/kernel/prom.h
-@@ -6,6 +6,11 @@
- #include <asm/prom.h>
- 
- void of_console_init(void);
-+#ifdef CONFIG_SPARC_LEON
-+void leon_legacy_amba_init(void);
-+#else
-+static inline void leon_legacy_amba_init(void) { }
-+#endif
- 
- extern unsigned int prom_early_allocated;
- 
-diff --git a/arch/sparc/kernel/prom_common.c b/arch/sparc/kernel/prom_common.c
-index d258fd10db01..770d780bf830 100644
---- a/arch/sparc/kernel/prom_common.c
-+++ b/arch/sparc/kernel/prom_common.c
-@@ -154,6 +154,7 @@ static struct of_pdt_ops prom_sparc_ops __initdata = {
- void __init prom_build_devicetree(void)
++
+ static bool __init legacy_is(u32 id, unsigned int device)
  {
- 	of_pdt_build_devicetree(prom_root_node, &prom_sparc_ops);
-+	leon_legacy_amba_init();
- 	of_console_init();
+ 	return (id >> 24) == VENDOR_GAISLER &&
+diff --git a/arch/sparc/kernel/setup_32.c b/arch/sparc/kernel/setup_32.c
+index c84ac2f1ad15..20c8914cb965 100644
+--- a/arch/sparc/kernel/setup_32.c
++++ b/arch/sparc/kernel/setup_32.c
+@@ -313,6 +313,8 @@ static void __init setup_memory(void)
  
- 	pr_info("PROM: Built device tree with %u bytes of memory.\n",
-diff --git a/drivers/of/pdt.c b/drivers/of/pdt.c
-index cb0cb374b21f..3c2d4684b7c4 100644
---- a/drivers/of/pdt.c
-+++ b/drivers/of/pdt.c
-@@ -24,10 +24,15 @@
- static struct of_pdt_ops *of_pdt_prom_ops __initdata;
+ 	memblock_set_bottom_up(true);
+ 	memblock_allow_resize();
++	if (IS_ENABLED(CONFIG_SPARC_LEON) && !cmdline_memory_size)
++		leon_legacy_add_highmem();
  
- #if defined(CONFIG_SPARC)
--unsigned int of_pdt_unique_id __initdata;
-+static unsigned int of_pdt_unique_id __initdata;
-+
-+unsigned int __init of_pdt_alloc_unique_id(void)
-+{
-+	return of_pdt_unique_id++;
-+}
- 
- #define of_pdt_incr_unique_id(p) do { \
--	(p)->unique_id = of_pdt_unique_id++; \
-+	(p)->unique_id = of_pdt_alloc_unique_id(); \
- } while (0)
- 
- static char * __init of_pdt_build_full_name(struct device_node *dp)
-diff --git a/include/linux/of_pdt.h b/include/linux/of_pdt.h
-index 89e4eb076a01..f89999ae68e5 100644
---- a/include/linux/of_pdt.h
-+++ b/include/linux/of_pdt.h
-@@ -32,6 +32,11 @@ struct of_pdt_ops {
- 
- extern void *prom_early_alloc(unsigned long size);
- 
-+#ifdef CONFIG_SPARC
-+/* Share the PROM node/property ID space with synthesized nodes. */
-+unsigned int of_pdt_alloc_unique_id(void);
-+#endif
-+
- /* for building the device tree */
- extern void of_pdt_build_devicetree(phandle root_node, struct of_pdt_ops *ops);
- 
+ 	phys_base = ram_base;
+ 	/* phys_base must describe what PAGE_OFFSET maps to, not where RAM starts. */
 -- 
 2.43.0
 
