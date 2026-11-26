@@ -1,56 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=47.88.81.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.156.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795658451;
-	b=CK2Vc9XMMFobFiKGNdeusFIgO/vXFxj+QDQnDfnb1bQPZCe6Lq0SGYWBI5LXluWO+mrD
-	 /Ei6HcO4QdVUoYwg9i/F82YPY/TlZKmdnZhcpUoCbKRgv0FfhQwgaGLVEa7ua8yRzfJ/Z
-	 3qfX1mYLDC2FfaxR0nhZLgW9XZ9WG31uOMuZYCdO35i9vjNvixO7xnFnTROFhyYBePRzW
-	 Tpb1NHG65y5znTLfZiJhzDMdh21BSmLw39H9ERzpLJ68QrxZ1dmBcE8R16xEbyVIotQNC
-	 XlvRBDaEK10KGM9NK2T5DlKUKhfZqKsVruyTJKEhEu5T3CeqWxMjrEu/QyfM5QUOxuw==
+	t=1795658452;
+	b=EYV1G9jF0DZmtV1hljNoQWIlYDHx+aQuUwfK9b6rbSodAglssHObw2LS0oa3gl/ZAm//
+	 4+TZkDsi7VNQlrAiwdGu4g/bH5COGEhsybuowlTRmBEdsRaPQwBqpCDFgZ/cVE7WkCScn
+	 wNLVi51etBeZimmO8G479YrbeC1CCufPHopu07a/iFxPXzOIXN2w1HA3ruCKyHHPwXhf/
+	 T+EIwL3pOQqAITnRJ9lpieVHZCDGJ5ZRcRjzm41RjJOTjqZKtmFoHCZ2mQWo7HH9PrXDW
+	 BdOKqnSwz1MmK3o/Qt8mIllkZLpcPR6NGihyrVImVF8eh3XmCoTbD/5sCmaWXq2NXtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795658451;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=dS0nJV7B8FO6nX2XpNE4aq6Htc0TIZReUXjnZBfhFOw=;
-	b=BeWcJNyKLmvNIOoy1pniUDujy7hbYzwlS2uJDXq8eWA0r2jkDjdCcmBXPevBzJ7KoeMj
-	 PqxXqvPmgzu/Uo09a7ZRlPOmtazvQALD8oorkUkcKLajsRJItFVjbcQMaU+QYj28z4OVa
-	 Bmre7u5dpYuEkVn8Ypl8JW9EIMBUk2NZQ6GNrSGOM+RcUDBO4NSfP8k2bfmgptMb2zXVj
-	 yXUdnpQK+bc4h1MchAL3AacEGf3M4DoNsx5MYwAU5h28Wf4LKRQLnCm7SrBbxNGf4lmQw
-	 Gz2kZ5nk4WS2PmjQJ4drg9yEv0ESJZ7otUR7F0sUBfpWTuqrY97DHrbHQUHyu15fXog==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795658452;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Date:From:To:CC:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version;
+	bh=L6goEdFq7O5GDRozIYCd7HLSe04ZuUddA+kdR8LBkqQ=;
+	b=rpGi9OIqYvZym/Q6MJVqTpYAZ5AzY4G5fFCfxS8VwQqVv7wT99HBuepTyqh6QXwxNnCu
+	 EmIHESk89zS52an44khOhAc4YWqXaZjnVZH5HXOR0gd2oh4e7qbjLqX2W8KxBh1eTgXvg
+	 7Yt7LxK8EgptaSKfILZ4veu9zN0w5y9ZS/iUcWTG9zL7PYVIUogUGrjlo9oTrhjXPTtOL
+	 XOmLGXcIzwKFpfzls+DeqAdRHSDrHxHXVHNo6kI5Rkerr8YwNS5sC5vzWr/yQ5wS/hp4p
+	 yXOC5uuuIh8ag9fUqhyifDO/MdCOk/0cVfMewkd0ViNaf/JPqjRQHa9mzP4sPkhMEtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hj-micro.com;
-	spf=pass smtp.mailfrom=hj-micro.com;
-	dkim=pass header.d=hj-micro.com header.i=@hj-micro.com header.a=rsa-sha256 header.s=default header.b=ZDa1gb98;
-	arc=none smtp.remote-ip=47.88.81.169
-Received: from mail-m81169.netease.com (mail-m81169.netease.com [47.88.81.169])
+	dmarc=pass header.from=marvell.com;
+	spf=pass smtp.mailfrom=marvell.com;
+	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=LBR1EYMB;
+	arc=none smtp.remote-ip=67.231.156.173
+Received: from mx0b-0016f401.pphosted.com (mx0b-0016f401.pphosted.com [67.231.156.173])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3385606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:00:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3385606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hj-micro.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hj-micro.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19E3C606A329;
+	Thu, 26 Nov 2026 02:00:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19E3C606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=hj-micro.com header.i=@hj-micro.com header.a=rsa-sha256 header.s=default header.b=ZDa1gb98
-Received: from 1clarkelill.hj-micro.com (unknown [122.224.241.34])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5608fe53a;
-	Thu, 26 Nov 2026 10:00:43 +0800 (GMT+08:00)
-From: clarke.li@hj-micro.com
-To: james.morse@arm.com,
-	ben.horgan@arm.com,
-	andre.przywara@arm.com
-Cc: reinette.chatre@intel.com,
-	fenghuay@nvidia.com,
-	srivathsa.rao@oss.qualcomm.com,
-	jonathan.cameron@oss.qualcomm.com,
-	gshan@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH] arm_mpam: Share error IRQ actions among MSCs
-Date: Thu, 26 Nov 2026 10:00:29 +0800
-Message-ID: <20261126020029.686144-1-clarke.li@hj-micro.com>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=LBR1EYMB
+Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APNfsSP3980007;
+	Wed, 25 Nov 2026 18:00:23 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=L6goEdFq7O5GDRozIYCd7HLSe
+	04ZuUddA+kdR8LBkqQ=; b=LBR1EYMBX0kGCUBHBWt/+33QhDGfpdqXJkVcYVKpg
+	g0Rds6SxIyS/iVQspGZxlrfuNUJk1HoOp+SVTZM3eiQby1Pl+c83fsyaLffU0n4i
+	YTXJyBpG/mQ/tOIAq5A1xfvJrxDmEDsdzDsogirAWSVn3yDvrIZeNNDI0oKxxxLr
+	eNLxcSMfaOR5xuP5pJcM9uMK7sCb3qXxx70OuoGEf8B9CcyJcPKDCU4OnKw0sTpB
+	MsOAQTZf42n6A4ubh795V7U2bOwvstKrLJL0gN9FQKsOr9JA17rdRjZXMPSzPc+8
+	p9wl8RfTF0Wk3D4ZbRWUjfauDpSNzBgkwKEGSiiTmds2A==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4j5nhg5bsx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 18:00:22 -0800 (PST)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Wed, 25 Nov 2026 18:00:21 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Wed, 25 Nov 2026 18:00:21 -0800
+Received: from rkannoth-OptiPlex-7090 (unknown [10.28.36.165])
+	by maili.marvell.com (Postfix) with SMTP id A230F3F704A;
+	Wed, 25 Nov 2026 18:00:17 -0800 (PST)
+Date: Thu, 26 Nov 2026 07:30:16 +0530
+From: Ratheesh Kannoth <rkannoth@marvell.com>
+To: Ian Rogers <irogers@google.com>
+CC: Sunil Goutham <sgoutham@marvell.com>,
+        Geetha sowjanya
+	<gakula@marvell.com>,
+        Subbaraya Sundeep <sbhatta@marvell.com>,
+        Andrew Lunn
+	<andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        "Eric
+ Dumazet" <edumazet@kernel.org>,
+        Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>,
+        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <llvm@lists.linux.dev>, Elkin Cruz
+	<elkin@google.com>
+Subject: Re: [PATCH net v2] octeontx2-af: Fix uninitialized variables in MCS
+ alloc handlers
+Message-ID: <aweSsCquVuAOvvUW@rkannoth-OptiPlex-7090>
+References: <20261125004227.1007723-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,268 +92,74 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa215956b6f09d6kunmb3e276a1b696e7
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDTB9CVkMYT0NCH0pPHkNLHlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKSUlVSUlPVUlPSlVIT1lXWRYaDxIVHRRZQVlPS0hVSk
-	tJT09PSFVKS0tVSkJLS1kG
-DKIM-Signature: a=rsa-sha256;
-	b=ZDa1gb98nPE6AbzC4xtnLskdPa0XgqnBEnRvmOqXb8z2ykbRhx2/DnI6TbY92yV2lpiCuhw7BG9u1T+Nygky+77z7MGvivOHGNKuVwJqQ3WOKohTefZfdz61fwc8RHb+wVjvpL2L1m5taKyHS0odRGm68/pVcXi6qhV2bPW6Ohw=; c=relaxed/relaxed; s=default; d=hj-micro.com; v=1;
-	bh=dS0nJV7B8FO6nX2XpNE4aq6Htc0TIZReUXjnZBfhFOw=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261125004227.1007723-1-irogers@google.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAwNiBTYWx0ZWRfX2IWq3yDnsrRL
+ eHDx3jtFsXa3Ix7pu/3AEVVa/KslZMUzQd4KiLGugr5V037jLFC1vW3YbQHNVSbhBGEYrtwvsC+
+ u2M1QJaSOQF18gJL6GDTs+CyDSotr2d2koLpCClDpS3WkO9BgaCKejLEZX+4o4AGvwFMMunwL9/
+ qdqgA+1d8QC56oIzfOhC8JrvEPQi2wOiGvMsZbtu+99AvuWPD9ke5KWyIVTxiAqGE7S7IIbAYEo
+ stEPi8Ox0C/YdJRDP/jvQUj/p9AFm/ceU3kemFssUPZpS1yY9laDRMBJ6ajUZ1aWVAX0J3bZ6Xj
+ KAL66hN869QTe/Ym3NZikqmJZdgBiu37gJpRjGONCiWAx6U+jD2Y25LssdbefrOR2xPV42MA5er
+ 6lzG9+T0kqVt6ieXRYgKWkiXazyBlEV2FI3yfR5TwzWx2rTuWNCpFOYtVJkGL1gtOFAETv55kgk
+ Y5qpRItQ+4b4z55aQLg==
+X-Proofpoint-GUID: OM6vz0pOG0NPddNM883AYxlCtsb-MBes
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAwNiBTYWx0ZWRfX1BYYKQyq7/bb
+ BYJsQZhbJRaFWVEpawqiAeO7wvukzCFYFVugTELUjpss5osQdpMmIzyC5B66s1daRVBY6jkyD/0
+ OQJpcNYOebKRWDUxvOXXKZG2CNFqm4s=
+X-Authority-Analysis: v=2.4 cv=WtC+otfv c=1 sm=1 tr=0 ts=6b0792b6 cx=c_pps
+ a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=l0iWHRpgs5sLHlkKQ1IR:22 a=QXcCYyLzdtTjyudCfB6f:22 a=1XWaLZrsAAAA:8
+ a=M5GUcnROAAAA:8 a=N5rkjbZfQW29Q2f-B9oA:9 a=CjuIK1q_8ugA:10
+ a=OBjm3rFKGHvpk9ecZwUJ:22 a=-hqoVU7_RMCviKuYZNaS:22
+X-Proofpoint-ORIG-GUID: OM6vz0pOG0NPddNM883AYxlCtsb-MBes
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_05,2026-11-25_01,2025-10-01_01
 
-From: Hongnan Li <clarke.li@hj-micro.com>
+On 2026-11-25 at 06:12:27, Ian Rogers (irogers@google.com) wrote:
+> diff --git a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+> index cd9cca5a9cf5..92c987134436 100644
+> --- a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+> +++ b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+> @@ -682,12 +682,15 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+>  {
+>  	u16 pcifunc = req->hdr.pcifunc;
+>  	struct mcs_rsrc_map *map;
+> +	int rsrc_id = 0, i;
+>  	struct mcs *mcs;
+> -	int rsrc_id, i;
+>
+>  	if (req->mcs_id >= rvu->mcs_blk_cnt)
+>  		return MCS_AF_ERR_INVALID_MCSID;
+>
+> +	if (!req->all && !req->rsrc_cnt)
+> +		return -EINVAL;
+> +
+>  	mcs = mcs_get_pdata(req->mcs_id);
+>
+>  	if (req->dir == MCS_RX)
+> @@ -744,6 +747,9 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+>  			rsp->rsrc_cnt++;
+>  		}
+>  		break;
+> +	default:
+> +		mutex_unlock(&rvu->rsrc_lock);
+> +		return -EINVAL;
+>  	}
+>
+>  	rsp->rsrc_type = req->rsrc_type;
+> @@ -793,6 +799,9 @@ int rvu_mbox_handler_mcs_alloc_ctrl_pkt_rule(struct rvu *rvu,
+>  	case MCS_CTRL_PKT_RULE_TYPE_MAC:
+>  		offset = MCS_CTRLPKT_MAC_EN_RULE_OFFSET;
+>  		break;
+> +	default:
+> +		mutex_unlock(&rvu->rsrc_lock);
+> +		return -EINVAL;
+Thanks.
 
-On our arm64 platform, 128 L3 cache MSCs share one error interrupt. The
-MPAM driver registers an IRQF_SHARED | IRQF_ONESHOT action for each MSC.
-On this 64-bit system the IRQ core has 64 ONESHOT thread-mask bits per
-IRQ, so registering the 65th MSC fails with -EBUSY and MPAM does not
-initialize:
+May be we need to add some debug prints as same error code is returned for all these
+error cases.
 
-  mpam_msc.195: error -EBUSY: request_irq(58) ...
-  mpam_enable_once: Failed to register irqs: -16
-  mpam_disable: MPAM disabled due to Failed to enable.
-
-MSC 195 is the device identifier in the log; it was the 65th MSC
-requesting this shared IRQ.
-
-Register one action per shared Linux IRQ and dispatch it across the MSCs
-protected by the existing SRCU list. Process MMIO MSCs in the hard
-handler and firmware-backed MSCs in the thread. Preserve the ONESHOT
-masking required by firmware accesses and release the shared actions
-after disabling the MSC interrupt sources.
-
-On the test platform, running a kernel based on Linux 7.4-rc4, MPAM
-initialized and /proc/interrupts showed one MPAM action for the IRQ
-shared by 128 MSCs. Basic resctrl L3 allocation and occupancy monitoring
-also worked.
-
-An error was injected into one of the MSCs sharing that IRQ. The driver
-reported the expected MSC and error, disabled MPAM, and released the
-shared IRQ actions. No IRQ storm or kernel warning was observed in this
-test. Error-path testing has so far covered one MMIO MSC; firmware-backed
-MSCs and all teardown scenarios have not yet been tested.
-
-
-Fixes: 453654684a0d ("arm_mpam: change MPAM-Fb error IRQ to use a threaded IRQ handler")
-Signed-off-by: Hongnan Li <clarke.li@hj-micro.com>
----
-We could not find a limit on the number of MSCs sharing an interrupt in
-either the MPAM MSC specification or the MPAM ACPI specification.
-
-Should the driver support platforms where more than 64 MSCs share an
-interrupt? If so, does grouping the MSCs under one IRQ action look like
-a reasonable approach?
-
- drivers/resctrl/mpam_devices.c  | 125 +++++++++++++++++++++++++-------
- drivers/resctrl/mpam_internal.h |   1 +
- 2 files changed, 100 insertions(+), 26 deletions(-)
-
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 27abf60f4d67..e0f14f33868e 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -2959,49 +2959,124 @@ static irqreturn_t mpam_ppi_handler(int irq, void *dev_id)
- 	return __mpam_irq_handler(irq, msc);
- }
-
-+/* One action per shared Linux IRQ, regardless of the number of MSCs. */
-+struct mpam_shared_irq {
-+	struct list_head list;
-+	int irq;
-+	bool requested;
-+	bool has_fb;
-+	atomic_t hard_handled;
-+};
-+
-+static LIST_HEAD(mpam_shared_irqs);
-+
- /*
-- * MMIO based MSC accesses must run in non-preemptible context, as they
-- * might have affinity requirements to check.
-- * MPAM-Fb based MSC accesses must NOT run in hard-IRQ context, as they
-- * can sleep.
-- * So split the IRQ handling up, depending on the MSC access type.
-+ * The MSC list is protected by SRCU, including during device removal.
-+ * MMIO accesses must run in hard IRQ context for the CPU affinity check;
-+ * firmware accesses must run in the thread because they can sleep.
-  */
- static irqreturn_t mpam_shared_hard_irq(int irq, void *dev_id)
- {
--	struct mpam_msc *msc = dev_id;
-+	struct mpam_shared_irq *shared = dev_id;
-+	struct mpam_msc *msc;
-+	irqreturn_t ret = IRQ_NONE;
-+
-+	guard(srcu)(&mpam_srcu);
-+	list_for_each_entry_srcu(msc, &mpam_all_msc, all_msc_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		if (msc->error_shared_irq != irq || msc->iface != MPAM_IFACE_MMIO)
-+			continue;
-+		if (__mpam_irq_handler(irq, msc) == IRQ_HANDLED)
-+			ret = IRQ_HANDLED;
-+	}
-
--	if (msc->iface == MPAM_IFACE_MMIO)
--		return __mpam_irq_handler(irq, msc);
-+	if (!shared->has_fb)
-+		return ret;
-
-+	/* Preserve hard IRQ handling for the threaded spurious-IRQ accounting. */
-+	if (ret == IRQ_HANDLED)
-+		atomic_set(&shared->hard_handled, 1);
- 	return IRQ_WAKE_THREAD;
- }
-
- static irqreturn_t mpam_shared_thread_irq(int irq, void *dev_id)
- {
--	struct mpam_msc *msc = dev_id;
-+	struct mpam_shared_irq *shared = dev_id;
-+	struct mpam_msc *msc;
-+	irqreturn_t ret = IRQ_RETVAL(atomic_xchg(&shared->hard_handled, 0));
-
--	if (msc->iface == MPAM_IFACE_MMIO)
--		return IRQ_HANDLED;
-+	guard(srcu)(&mpam_srcu);
-+	list_for_each_entry_srcu(msc, &mpam_all_msc, all_msc_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		if (msc->error_shared_irq != irq || msc->iface == MPAM_IFACE_MMIO)
-+			continue;
-+		if (__mpam_irq_handler(irq, msc) == IRQ_HANDLED)
-+			ret = IRQ_HANDLED;
-+	}
-
--	return __mpam_irq_handler(irq, msc);
-+	return ret;
-+}
-+
-+static int mpam_add_shared_irq(struct mpam_msc *msc, int irq)
-+{
-+	struct mpam_shared_irq *shared;
-+
-+	list_for_each_entry(shared, &mpam_shared_irqs, list) {
-+		if (shared->irq == irq)
-+			goto found;
-+	}
-+
-+	shared = kzalloc_obj(*shared);
-+	if (!shared)
-+		return -ENOMEM;
-+	shared->irq = irq;
-+	list_add_tail(&shared->list, &mpam_shared_irqs);
-+
-+found:
-+	msc->error_shared_irq = irq;
-+	if (msc->iface != MPAM_IFACE_MMIO)
-+		shared->has_fb = true;
-+	return 0;
- }
-
- static int mpam_register_irqs(void)
- {
--	int err, irq;
-+	struct mpam_shared_irq *shared;
- 	struct mpam_msc *msc;
-+	int err, irq;
-
- 	lockdep_assert_cpus_held();
-+	lockdep_assert_held(&mpam_list_lock);
-
- 	guard(srcu)(&mpam_srcu);
-+	/* Complete every group before any shared IRQ can invoke its handler. */
-+	list_for_each_entry_srcu(msc, &mpam_all_msc, all_msc_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		irq = platform_get_irq_byname_optional(msc->pdev, "error");
-+		if (irq <= 0 || irq_is_percpu(irq))
-+			continue;
-+		err = mpam_add_shared_irq(msc, irq);
-+		if (err)
-+			return err;
-+	}
-+
-+	list_for_each_entry(shared, &mpam_shared_irqs, list) {
-+		err = request_threaded_irq(shared->irq, mpam_shared_hard_irq,
-+					   mpam_shared_thread_irq,
-+					   IRQF_SHARED | IRQF_ONESHOT,
-+					   "mpam:msc:error", shared);
-+		if (err)
-+			return err;
-+		shared->requested = true;
-+	}
-+
- 	list_for_each_entry_srcu(msc, &mpam_all_msc, all_msc_list,
- 				 srcu_read_lock_held(&mpam_srcu)) {
- 		irq = platform_get_irq_byname_optional(msc->pdev, "error");
- 		if (irq <= 0)
- 			continue;
-
--		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
--		/* We anticipate sharing the interrupt with other MSCs */
-+		/* The MPAM spec says the interrupt can be SPI, PPI or LPI. */
- 		if (irq_is_percpu(irq)) {
- 			if (msc->iface != MPAM_IFACE_MMIO) {
- 				dev_err(&msc->pdev->dev,
-@@ -3018,14 +3093,6 @@ static int mpam_register_irqs(void)
- 			smp_call_function_many(&msc->accessibility,
- 					       &_enable_percpu_irq, &irq,
- 					       true);
--		} else {
--			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
--							&mpam_shared_hard_irq,
--							&mpam_shared_thread_irq,
--							IRQF_SHARED | IRQF_ONESHOT,
--							"mpam:msc:error", msc);
--			if (err)
--				return err;
- 		}
-
- 		guard(mutex)(&msc->error_irq_lock);
-@@ -3041,8 +3108,9 @@ static int mpam_register_irqs(void)
-
- static void mpam_unregister_irqs(void)
- {
--	int irq;
-+	struct mpam_shared_irq *shared, *tmp;
- 	struct mpam_msc *msc;
-+	int irq;
-
- 	guard(cpus_read_lock)();
- 	guard(srcu)(&mpam_srcu);
-@@ -3062,13 +3130,18 @@ static void mpam_unregister_irqs(void)
- 			if (irq_is_percpu(irq)) {
- 				msc->reenable_error_ppi = 0;
- 				free_percpu_irq(irq, msc->error_dev_id);
--			} else {
--				devm_free_irq(&msc->pdev->dev, irq, msc);
- 			}
- 			msc->error_irq_req = false;
- 		}
- 		mutex_unlock(&msc->error_irq_lock);
- 	}
-+
-+	list_for_each_entry_safe(shared, tmp, &mpam_shared_irqs, list) {
-+		if (shared->requested)
-+			free_irq(shared->irq, shared);
-+		list_del(&shared->list);
-+		kfree(shared);
-+	}
- }
-
- static void __destroy_component_cfg(struct mpam_component *comp)
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 1f86cc158100..698632ee7859 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -83,6 +83,7 @@ struct mpam_msc {
- 	bool			has_extd_esr;
-
- 	int				reenable_error_ppi;
-+	int				error_shared_irq;
- 	struct mpam_msc * __percpu	*error_dev_id;
-
- 	atomic_t		online_refs;
---
-2.43.0
-
+Reviewed-by: Ratheesh Kannoth <rkannoth@marvell.com>
