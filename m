@@ -1,49 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705633;
-	b=qA29sHiBCFZqRqQZFl1LD05pc8Tk5zibRMEwH9nhOOYDFoTk+Frd9Qtkddr+le3hI+f5
-	 sSEmSnOKHZZqtQGdbZRfVHm536Rgq+3ZZGNmnUVqlG18/OH/gfHE88l6/UPaQoblRReYJ
-	 dkSgkh9jINdggL71NAillvg6ezFGXbOpUMREjvndi7rUgWUl57LkTkrQ9EWjAEYKkhAOE
-	 ZTVyipE1AGdkRrIXuhh1dRjLnt2BkEnyyE28QHwhUphBrtFNJ6616DOi30PpiPxT1YNyZ
-	 79mt4nYJs6mr67LPkSx6oqXhzVhgWclVP70M9ySAk55yTqRxJLMr5yVp9P+DD8dcXMg==
+	t=1795705630;
+	b=WQj4Vsl50ecdjlvdnuXacfOWzLX2hFIn97yV4UOxswtGesRCLk/CeblWu21F0zy9C6vM
+	 fJ0UEnAOuyRH9OXDtF5kuux2sRWyUdAO4aoae5eJSN6tNHlZudjbA4xTfc9fQaAqneKVT
+	 j2t+X/0lyZNa6bMpaZyt75Yqe5uwZZLBNrWtM7Ys3MPTqoFoSZaNT9x5OggTfm8Ux/dA7
+	 QbNPBocGxGAVFcG11LZlMlxcm/IyE22PhKyMYZ8apAktLqZB6tF989G8EYW4YL5V4S5VR
+	 zdCmKKFYYFBw9R/nTzEU4uQt3Zp9WuhS9iPwmduZQAJT7/EnAntwQNQFN897/wgHc5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705633;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=n5CDoBf2Fv8xIfXCbmFk6XgifNpwifpcCpSH7gHISk4=;
-	b=PJ4yfR4H4xCRzsw185DAy1zeqGSgowxIPhO32Vb+q0iyp1SrK858PKkOdqcpbTZz39jx
-	 xEmx0LU0jzXVIxfT0bgyGVvlBHNcIzp6AbCnXrImJrt4csfLC48k6L5dX6cA6qE4WWsUf
-	 sRQNkoz1a3RYuAQGL56Qm3wevbdna2por1u+P0PRoL6+y1GIDGEhMf8Xb9AnhOOEvtjV5
-	 Ht3fPWMqQW3KTtWZvoZxcfHtteBXRpce96bw2GvIAaHgMksygU96xKmackxo/C7v4Zsrh
-	 ppYeMj/QEnDN6BrAKWu5CqvpASnkIiPOuv4BMxG+DTXe5KjixM8gyzHrVWbHLNy9mFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705630;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=vsjnvGGljX9pov+p77+0fvVdhwRr+JXPFgWF2Ng3Rww=;
+	b=ZjCIvPuvQIoXaspL3raCWYl82gvHVBdc7ldqNegpG8HZ9riCxx2SU95coo+lJuyc+59B
+	 0GocDoppJYkyQfC/eUbXuThXbXoAFR+t/Kj+aTwWYZS+c3UiEg/ZSefUni9hVckdiHxW4
+	 TsWp+duv7kfW2JOTgLqEFHYEvIpj5ggVjSKykE9wlbEv8XW6VVXQN4Wyz936OBYqz5bfJ
+	 ZlmwTzpKjcjcIDg7BMF43x6NYmLDjy7wS6ffm7sDoRyL5bj3WPj1mTlW6heBBo0kYfHLB
+	 lbetjdRcAYwzDK8+chPzRDbEyqcJ5mDSeYowYcKaLAOnS0IRiUMwEVhN/AuACoAxhdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=a6QT1NVK;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id DAF6D606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:07:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DAF6D606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoTa01m1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AE81606A32A;
+	Thu, 26 Nov 2026 15:07:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=a6QT1NVK
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 642272F;
-	Thu, 26 Nov 2026 07:07:09 -0800 (PST)
-Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 882A43F632;
-	Thu, 26 Nov 2026 07:07:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795705632; bh=AieeaMTIp9KHcnC/OuZHb7mJZvRRhJwxM20cx/8+X7g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=a6QT1NVKHK8E9Ne7k4nYf4VCoFSZSTEDWJbOuinJ/lHzhY1NS60TACeUnWPy4aPRN
-	 LT+jNLq20k3ZSRsMXKH2ImZFvbx6bFU9aoNY9Un1GQb+B5VoPYYZ993PFJ/BGwHuvV
-	 ZgvEjpBP20piuBS5XyDMLwa8iTl2IGknV4eS2hCE=
-Message-ID: <afa190f7-4e22-4871-ba77-c2dccaf27e4c@arm.com>
-Date: Thu, 26 Nov 2026 15:07:08 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoTa01m1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D74891F000D3;
+	Thu, 26 Nov 2026 15:07:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795705630;
+	bh=vsjnvGGljX9pov+p77+0fvVdhwRr+JXPFgWF2Ng3Rww=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=LoTa01m10c/DFZtn0E18pWQOzi4WRWeXm/PToA80poqv9rMEQN4wOov6H0/4L7lJe
+	 uc0iMxmwFZ54pWHI8X2OCZH2jKBPIEEND4+WwURhtUrClzewlh0L3aaAjS+rVRecj8
+	 XDsXgFdK4MM9rLbT8hrf9ackhQi0GjFkweNgeGkr1XlGwCD7HUyhRrNLK+LNLIezHc
+	 MidXYkkfw1prDM8i0QXxEx6X2HNntFP+90SzmYy7rafHgJf5yiBoXzk6VDE6pvcsJ7
+	 78sYnYQl5CRACUTGxXyboRSwKWtxZoqco/WJHBkuZI/EfdeMp6Iv/cJWLs4SV1gw4z
+	 QhZfukUObWyEQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Todd Freed <toddfreed@meta.com>, netdev@vger.kernel.org
+Cc: "David S. Miller" <davem@davemloft.net>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, Boris Pismenny <borisp@nvidia.com>, Cosmin Ratiu
+ <cratiu@nvidia.com>, Daniel Zahka <daniel.zahka@gmail.com>, Donald Hunter
+ <donald.hunter@gmail.com>, Dragos Tatulea <dtatulea@nvidia.com>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Jamal
+ Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, Leon
+ Romanovsky <leon@kernel.org>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>, Paolo Abeni
+ <pabeni@redhat.com>, Pedro Tammela <pctammela@mojatatu.com>, Saeed
+ Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>, Tariq
+ Toukan <tariqt@nvidia.com>, Wei Wang <weiwan@google.com>, Willem de Bruijn
+ <willemdebruijn.kernel@gmail.com>, Kuniyuki Iwashima <kuniyu@google.com>,
+ bpf@vger.kernel.org, =?utf-8?Q?Asbj=C3=B8rn?= Sloth =?utf-8?Q?T=C3=B8nnes?=
+ =?utf-8?Q?en?= <ast@fiberby.net>, Qingfang
+ Deng <qingfang.deng@linux.dev>, Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgense?=
+ =?utf-8?Q?n?= <toke@redhat.com>,
+ Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah
+ Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
+ Matthieu
+ Baerts <matttbe@kernel.org>, David Ahern <dsahern@kernel.org>, Jonas
+ =?utf-8?Q?K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>, Hangbin Liu
+ <hangbin.liu@linux.dev>
+Subject: Re: [PATCH net-next v3 04/12] psp: add support for socket-less psp
+ associations
+In-Reply-To: <20261124221758.3230929-5-toddfreed@meta.com>
+References: <20261124221758.3230929-1-toddfreed@meta.com>
+ <20261124221758.3230929-5-toddfreed@meta.com>
+Date: Thu, 26 Nov 2026 16:07:06 +0100
+Message-ID: <87cxrriqcl.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,61 +80,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/23] arm64/sysreg: Define TRBSR_EL1.EC event classes
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- coresight@lists.linaro.org
-References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
- <20261016-trbe_enable_disable_irq_handle_refactor-v2-1-3f57cf3199b1@arm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-1-3f57cf3199b1@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On 16/10/2026 17:54, Leo Yan wrote:
-> TRBSR_EL1.EC identifies the cause of a trace buffer management event,
-> but the sysreg description does not name its architected values. Define
-> the five encodings as an unsigned enum so TRBE status handling can
-> refer to each cause by name.
-> 
-> The values cover other events, Granule Protection Check faults,
-> implementation-defined events, and stage 1 and stage 2 Data Aborts on
-> writes to the trace buffer, as specified by Arm ARM (ARM DDI 0487 M.c).
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+Todd Freed <toddfreed@meta.com> writes:
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Currently, a PSP association is bound to a TCP socket when it is
+> created, and can hold both an Rx and a Tx key.
+>
+> Add Tx associations which are not bound to a socket, and are referenced
+> by an ID, so that other parts of the stack can attach them to packets.
+> See the subsequent patches, where the tc psp action does just this.
+>
+> Socket-less Rx does not need an association, and the kernel does not
+> keep anything for this case. For Rx, userspace calls the rx-spi-alloc
+> operation, and then uses tc filters that match the corresponding SPI,
+> version, and PSP device. The flower matches for these fields are added
+> in a subsequent patch.
+>
+> Add the following new netlink commands. They are admin-only, and
+> restricted to the netns of the PSP device.
+>
+>   rx-spi-alloc  allocate an Rx SPI and derived key, without a socket.
+>                 The key is delivered to the peer out of band. Also
+>                 returns the number of key rotations of the PSP device
+>                 so far (key-rotations)
+>   assoc-add     create a Tx association and install the peer's key,
+>                 returns its ID
+>   assoc-del     delete a Tx association
+>   assoc-get     get / dump Tx associations; only the SPI is reported
+>
+> Socket associations are not addressed by these commands, so for example
+> assoc-get does not list them.
+>
+> The kernel doesn't enforce key rotation for socket-less Rx the way it
+> does for socket associations. A tc filter which matches a SPI of one
+> generation will also match that SPI if subsequently re-used in another
+> generation. It is up to userspace to deal with this eventuality by
+> removing such rules in time. Userspace may subscribe to rotation
+> notifications for this purpose.
+
+Could you talk about the rationale here? rx-spi-alloc returns the key
+rotations, why not make the generation part of the flower match?
+
+Probably missing something, but seems like natural for the kernel to
+ensure that stale rules wont match reused SPIs?
 
 
-> ---
->   arch/arm64/tools/sysreg | 8 +++++++-
->   1 file changed, 7 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 94bf065c8ac71f20f482c91a5147cb6e001dfba2..f68c23dd4e83ee4d00610e097d9188d3a2c9ed15 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -5834,7 +5834,13 @@ EndSysreg
->   Sysreg	TRBSR_EL1	3	0	9	11	3
->   Res0	63:56
->   Field	55:32	MSS2
-> -Field	31:26	EC
-> +UnsignedEnum	31:26	EC
-> +	0b000000	OTHER
-> +	0b011110	FAULT_GPC
-> +	0b011111	IMP_DEF
-> +	0b100100	FAULT_WRITE_S1
-> +	0b100101	FAULT_WRITE_S2
-> +EndEnum
->   Res0	25:24
->   Field	23	DAT
->   Field	22	IRQ
-> 
-
+Bj=C3=B6rn
