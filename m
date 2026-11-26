@@ -1,47 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691606;
-	b=l5lrer5piwsKMzt/gM4Rb7ZivTDVliJvwfsRx7qtUkZIAztHOGcHZXvkQTWAumUH4W8l
-	 VpWgTW0t2gquV1rZqhIw3f09rsrnlhqFOUHj24Dk80UWcppMjOe54c9UPjoVMJBr66J2Y
-	 4swd+BFNwqiyeihLhZ7CKDw9ZZ7APDPZ1/oOWmkJeSPbOKYUwO5YjCxA1j7E/jwbx0jF8
-	 3l6heVjVk8o00R1hCSOHtzYxP8opat45xkt2/OeZ7R+jQ6sbSTpP3Ll66Xjf4kZXpCNd/
-	 bchJ4P6SfhbblwFzg/mopeYPNzUtRSvsQxFPfi5rEY/+O1Q9O+ftpj/l2tq02IfDy0Q==
+	t=1795691648;
+	b=JZsUDQk0V8HDpE4GS51PkbSEMm1nB4MsTCnb2WZ2egeoyCH9lj7j7qyQl+ElDVlI7K8W
+	 KipG3ZthzDViEfYhytT8qjduw0H+eib/B0u6YvwyT5uBMZ/KSJGJZ7Bf5PHJYz8mG+0Sj
+	 RW/gKgOmrmZUgyepFqL9SL7vR4cgXvo71y1IBxkrxhvSHnBGtnl0QhDM6wRE5jpX4LAg+
+	 IT/QtvPDpES9qZZTNzxTvZdg3BFxdM0lFEBJDS5AEbxqu4YIi94fxateWkEJN/juwocU7
+	 pB4HT00XTchS3t5fm1GnQzk/vv3RBnFv13bH0sZc4j5FDRfYOU1YqQal4Oq0kko5lwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691606;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=QyEzruHSk3PWNRGlXxnoXSvBzuBF1VHW0e91SegwgI4=;
-	b=ZvBeWNJjYh4YE4laN/BPJ5zusjEd+gfBr4rzmVGnRek0j9nR0UY1SoEZTNLXBV18auba
-	 qTdGfo5pofaV6j/NPjgHtVBxXTQsSFAxvCwUeD6kcr304b0PsnBEaU21f6oaTCUKzMn0Y
-	 9eTY8lXlpW6taj1TOMJC/5vbTEQUwIZFs2vhdtKX1hnSdEVDSv7I+ITA2CIQnvpCloBGo
-	 5fS8PT2kolMI3tvW2QuLZ+nqNcJ+pLip9H9md6QWEvEhN6uWkzAmMV7Vw0vhAwfca4xOD
-	 8o/6l8nZydvmb23A/tDrmImr5gFVsYkE+PoT5CmCpBFRtgjBVMvSgO9YJv9WYrWWYlg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691648;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=LFWwc3+AYfzJIpjs6+s8KEhT/u7I94YZNIJa6waYCdw=;
+	b=Qymup6GKfE7Vu6sPRvCK+PiGKOc69kY5TyWpT9Ywe/VGZq2Ti13l8i+ASje1go6dowh9
+	 Wx6v/IjvwTIsOekDzFLZm0Y7GnZBFXyGM4zy69fxm5ZlIedENgSUVHQYd1NXoJ5z5kgcN
+	 TL5Pd0EEeZ0EyhBgWj5YJ4aXESHp3wx4zK0U+euBcGuOL9K3fkh+Lxm/77uVKvP5FiG1S
+	 IPFafU02aDAwJB8W0Rw77HrG7ZolwNNop9WErlcvBEIKkznTNCc27nmmzxL/BwfW8rVix
+	 tSui8M5dw0v3txj83nJSpIExlVCnCLuAoXIQCU1CwtfkrvW4RP8/XFG8So0PrPyoNUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KHqd8jGo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cGD8njSp;
+	arc=none smtp.remote-ip=209.85.215.172
+Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0CB2606A31C;
-	Thu, 26 Nov 2026 11:13:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F7C6606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:14:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F7C6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KHqd8jGo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 750331F000C4;
-	Thu, 26 Nov 2026 11:13:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691606;
-	bh=QyEzruHSk3PWNRGlXxnoXSvBzuBF1VHW0e91SegwgI4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=KHqd8jGoK63FBGz6hruXqVsJj0+OR5Kg92zKXvALh22HB3TDrcoyFshXfuUHkjShG
-	 X43MCgVG6Ql4ImY/4qE+dBYhOUtvDRdQ5Wev2E9cRKsZ6KE56T5+f0qr/tW6uiQKbW
-	 hVaGU1yCLlVKfSlzPravL9m5+aPBHHTQGkVJ8Ux9BezoV6AQkCI3nItKg0iJXcd7e9
-	 z3KKWdCcYd2b+f17PRrxM5csYQg9fJ8v5RHyyq6mxVrzii7ig9D4ko62yh1MVahScK
-	 B3lfEeMOIyw0XxB7xd7Ep+vMDo6FusSnITcevpn8wBF65Z76U2DPREUVw3v/TSJmiu
-	 HTpO4GMb6fWBQ==
-Message-ID: <d1d7e82c-a113-48e3-801e-61dcffc4c747@kernel.org>
-Date: Thu, 26 Nov 2026 12:13:19 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cGD8njSp
+Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cdddc79a4afso2906105a12.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:14:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795691647; x=1796296447; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LFWwc3+AYfzJIpjs6+s8KEhT/u7I94YZNIJa6waYCdw=;
+        b=cGD8njSpm9yBoOYgmh7titWNydgvCEZKM08UtxzF4E/k7N16JtN3wLT4D7DDsTMcZS
+         bKUcxitjH2pomIu/HeE34Gae4rAeLOmj5Dai/x3pGTczZu7OHT+Tx9R5kKA0qcEXzh++
+         LXzeQFzWcGihYf1QJaftBJX0CcPSv8yYcAJV4Jn+4d6tCJh3irGusAwH13S7uUn5IgDU
+         e81vSMbU8SDAsYZ6OcUO3TbMgExL737O8Kacb4RrkxDx6WRs7BA/vlBz0zl0+lNeWt3D
+         SBqEs0JMuUhftESmvJnKr20AMoBxaW+pBEawVv6uATX8Kg5jxli/LrESf0b0P4jBc4R2
+         iMuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795691647; x=1796296447;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LFWwc3+AYfzJIpjs6+s8KEhT/u7I94YZNIJa6waYCdw=;
+        b=YJ0CdpgNJOsFR6RXoHgq0rWd2Z5n/egLAW8qQzO186eNHJ2B1JHIOGey50rBKhfq4A
+         lrpoOttO2Aqep0Ya9udHyB61/I5D13jR9e2+9d7UO6k7+VjMcUPCPHM0OMmBNHO3hwZd
+         JozfgW9YRrmhy+dedHIqh8KJuIMmlRd3fhdBXozh4NszTLc8LFAgoKh15DfSl+eBi+14
+         1w6WJJUYitop9l1I1y/HbLww6Dx1g+duvexaV1FIo4NvDdPi4ORU+Us93SeSLomkqpdm
+         2ljZ5LA7G3ojh9XOqzDc4WBEvJoFjcTyxqNaGvAHo1rmh2OAkrYgrwkNYld/W4L4K9mg
+         ClYQ==
+X-Forwarded-Encrypted: i=1; AL+hErEuYyIe9TfCDk4c4kCZEEV1oqKZJ0W1Fi2GU7oW1PThVvOI2LnQd5/05AR/3Y4N6oVIpZKQ9v/geJYbf+g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+DjigzJmz1C5KJtXnKTIA8ah5Xz7RvOS00kOHxJU+PWCP2WxqV
+	nb69sqtkLIvAHPquV6ad+N0OTWY0JydS3QSHDLhdlwp2TGpZPe5rnjW/2eFdZ1qOHWl8iQ==
+X-Gm-Gg: AZFdTZd4vVX/bbIR5ohaWI+663o+UtbSu+N03IqkEm6yXF4G/7WJEqYNhPhWYmaVl71
+	XwKrj0XS4oytPo/nKesu7jxbikAaLrEEC7Ki/Jqk3QSph60HywulX0YCE8qLBFuxy6omEQ/JTBA
+	sQg17W+tETFHqjDsykhOWpymZMsZ2NuXfLBPmRHN9ttmjOHL7lZgcmu3IkaCwgjxqKV+dpSw8WN
+	DVJJBpy0cAuRB0e6ayH9Odk4hvh+DmXVOKSPmfZzH1DyqR/enNv2ZLiSI1rb7vbVKqDsXg8ez5O
+	o6K8zMnLhKZD4HHiKwwbV8fC+M8p25wx/7vjVRdI3BNR6xT/3bgZgeK5qliddxtOUYjFd7264cV
+	cdCUmYx53opQgxQYdKsm3F5UFegVGgWxkf/TzyeWO/WJn/DhKdGc/AW37OWi+deKLywtRG8x0nA
+	IIZAEOCwRJw+Ai7oqWOOu8zdjB2jNaoZeGGOnWGMyha4PNAWsIUfPu4kVpenBEMfMzGR3043Hul
+	oofmlKXEaM+SJw27zLc/S1pSnAXJatuV8gioB0YXZLcLJ8o2BXFNzAXuDnKql2pYZqjj7lXW+sU
+	x0efZzZQXPqn46G0vSBSO/5YAJwlCN+16QOeEkmbnVSdqKo/lUGxyLHOA97nWS3Y7um3dP86NHC
+	g8KRIb4qXi2uKKyoybzFaWkHZxaZi2lung9hi9bCJ8nSxkzs=
+X-Received: by 2002:a17:90b:17cd:b0:3ac:9599:a689 with SMTP id 98e67ed59e1d1-3b41c9d3111mr17009544a91.34.1795691647272;
+        Thu, 26 Nov 2026 03:14:07 -0800 (PST)
+Received: from lwq-server.tail118c18.ts.net ([74.176.208.23])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41aab4729sm31983650a91.0.2026.11.26.03.14.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 03:14:06 -0800 (PST)
+From: Yaohan Li <shunsheng1218@gmail.com>
+To: "Martin K . Petersen" <mkp@kernel.org>,
+	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Bean Huo <beanhuo@micron.com>,
+	Stanley Jhu <stanleyjhu@google.com>,
+	linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] scsi: ufs: core: disable exception work before removing hwmon
+Date: Thu, 26 Nov 2026 19:14:00 +0800
+Message-Id: <20261126111400.2828356-1-shunsheng1218@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,121 +100,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] docs: Fix the name of the memory hotplug online type
- configs
-To: TAKANO Mitsuhiro <takano32@gmail.com>, Jonathan Corbet <corbet@lwn.net>,
- linux-doc@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Oscar Salvador <osalvador@suse.de>, Dan Williams <djbw@kernel.org>,
- Jonathan Cameron <jic23@kernel.org>, linux-mm@kvack.org,
- linux-cxl@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261125193039.2437025-1-takano32@gmail.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261125193039.2437025-1-takano32@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/25/26 20:30, TAKANO Mitsuhiro wrote:
-> The default online type is a Kconfig choice, so the symbols it defines
-> are CONFIG_MHP_DEFAULT_ONLINE_TYPE_OFFLINE, _ONLINE_AUTO,
-> _ONLINE_KERNEL and _ONLINE_MOVABLE.  There is no
-> CONFIG_MHP_DEFAULT_ONLINE_TYPE symbol, but five files name one:
-> 
->   Documentation/admin-guide/kernel-parameters.txt
->   Documentation/admin-guide/mm/memory-hotplug.rst
->   Documentation/driver-api/cxl/linux/early-boot.rst
->   Documentation/driver-api/cxl/linux/memory-hotplug.rst
->   Documentation/driver-api/cxl/linux/overview.rst
-> 
-> Spell the family with a trailing _* so that a reader looking the symbol
-> up in a .config finds one that exists.
-> 
-> early-boot.rst also gives the zone choices as _NORMAL and _MOVABLE.
-> The symbols are _ONLINE_KERNEL and _ONLINE_MOVABLE, so write those.
-> 
-> Verification: a build of the tree defines
-> CONFIG_MHP_DEFAULT_ONLINE_TYPE_OFFLINE and no bare
-> CONFIG_MHP_DEFAULT_ONLINE_TYPE in include/generated/autoconf.h, and
-> grep finds no reference to the bare symbol under Documentation/ after
-> the change.
-> 
-> Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
-> ---
+ufshcd_remove() unregisters the hwmon device while hba->eeh_work can
+still be running. A SCSI completion can also queue hba->eeh_work later
+during scsi_remove_host(). When the worker runs ufs_hwmon_notify_event(),
+it can access the freed hwmon device and trigger a use-after-free.
 
-[...]
+Disable and drain hba->eeh_work in ufshcd_remove() before removing
+hwmon. This ensures any running handler finishes while hwmon is still
+present and prevents later SCSI completions during removal from
+requeuing the work.
 
->  		       See the ``state`` property of memory blocks for details.
-> diff --git a/Documentation/driver-api/cxl/linux/early-boot.rst b/Documentation/driver-api/cxl/linux/early-boot.rst
-> index 414481f33819..be9d5e510f99 100644
-> --- a/Documentation/driver-api/cxl/linux/early-boot.rst
-> +++ b/Documentation/driver-api/cxl/linux/early-boot.rst
-> @@ -34,7 +34,7 @@ which dictate how memory will be managed by Linux during early boot.
->    * Linux Build config option that dictates whether the kernel supports
->      Specific Purpose memory.
->  
-> -* CONFIG_MHP_DEFAULT_ONLINE_TYPE
-> +* CONFIG_MHP_DEFAULT_ONLINE_TYPE_*
->  
->    * Linux Build config that dictates whether and how Specific Purpose memory
->      converted to a dax device should be managed (left as DAX or onlined as
-> @@ -61,7 +61,7 @@ SystemRAM.  This will expose the memory to the kernel page allocator in
->  If `Specific Purpose` is set and supported, :code:`CONFIG_MHP_DEFAULT_ONLINE_TYPE_*`
->  dictates whether the memory is onlined by default (:code:`_OFFLINE` or
->  :code:`_ONLINE_*`), and if online which zone to online this memory to by default
-> -(:code:`_NORMAL` or :code:`_MOVABLE`).
-> +(:code:`_ONLINE_KERNEL` or :code:`_ONLINE_MOVABLE`).
-But combining "CONFIG_MHP_DEFAULT_ONLINE_TYPE_*" with "_ONLINE_KERNEL" doesn't
-make any sense. What am I missing?
+Fixes: 66ec6d59407b ("[SCSI] ufs: Add support for host assisted background operations")
+Cc: stable@vger.kernel.org # v6.10+
+Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
+---
+Tested in QEMU/KVM (KASAN + PROVE_LOCKING) with an out-of-tree virtual
+UFS 3.1 platform controller driving the in-tree ufshcd-core.ko (no
+kprobes):
+- Unbinding the device during an exception-event alert flood hits a
+  KASAN slab-use-after-free in hwmon_notify_event() /
+  kobject_uevent_env() from ufshcd_exception_event_handler() (freed by
+  ufs_hwmon_remove() <- ufshcd_remove()) on the unpatched kernel, and
+  passes 10-cycle A/B and 30-cycle stress runs with no KASAN, warning,
+  or lockdep reports after the patch.
+- Exception alerts on SYNCHRONIZE_CACHE during scsi_remove_host()
+  requeue eeh_work on 10/10 cycles before the patch and 0/10 cycles
+  after.
+- Compile-tested with W=1 on x86_64 and arm64; verified clean apply on
+  mkp/scsi.git for-next.
+- Not tested on physical UFS hardware.
 
-Maybe we should just spell out the full config names then?
+AI assistance: AI tools assisted with static code triage, writing the
+virtual UFS QEMU test module, and drafting the changelog; I reviewed and
+verified the root cause, teardown order, workqueue/lock behavior, and
+the final patch.
 
+ drivers/ufs/core/ufshcd.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+index 3c28bc67c65f..86100ac90fce 100644
+--- a/drivers/ufs/core/ufshcd.c
++++ b/drivers/ufs/core/ufshcd.c
+@@ -10988,6 +10988,7 @@ void ufshcd_remove(struct ufs_hba *hba)
+ {
+ 	if (hba->ufs_device_wlun)
+ 		ufshcd_rpm_get_sync(hba);
++	disable_work_sync(&hba->eeh_work);
+ 	ufs_hwmon_remove(hba);
+ 	ufs_bsg_remove(hba);
+ 	ufs_rpmb_remove(hba);
 -- 
-Cheers,
+2.34.1
 
-David
