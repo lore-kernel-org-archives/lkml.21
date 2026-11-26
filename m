@@ -1,62 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705216;
-	b=E6rCSVhP0Mof75x+wTi3ebmYEAogRNe2nwc/zVBXNhlb+G/Np8Cm8N13glaXnP7s6+qk
-	 327Rdj4YKs27Af3NtCsRRHtxYW+mL91WOR7xVz9quNYoiVRscZA3xtAWjZDm3hMHP8IQa
-	 IPiIHq60V06V3Qr5WCU3S384oZVd+rcJQJaK/xiOWLAWtfH9ibbd+PUJ6MwfW8m21h/Ej
-	 BRG5d75xpZgJGqmqJCuSAGwo45kek13xdSSRnrGBai30MMhER06N+u7x06G8umHLawOxD
-	 kcM0v1CaYS8sNQzewC5l2Tnw/odJsntviH+Mf3EgIO3b2RMmGIchuDDaodlXhs0zdJA==
+	t=1795705251;
+	b=io67mMI8RPz9acmL2CSg7l/AUP+XQVesNofQA2FnrISCSfCXHtGJGYrAH9zJQOZCCrga
+	 pzDrFOplwgrVbNy1RuaH1TPlVVkDlWfVuagzVSTNrpIUBHRlIS/9xShUB1WiY3vAXxAHt
+	 A6TTZ7ZKsVoiJdqcEZknUtUAOHhz4Di9fZM7gL5CG7pSJimCC+N71vnUkAn18uy7ohq3m
+	 kYXEzcJ9ftgC7/YhkjpfjD+gDZ0g3Gu6/WfyLMZ0KrEGYpx7pkQ/yBGt+S16zwDJipblj
+	 o8GNwH4XhfEsUsJmp9nSVBDhD80a3DOyPHuPodMBJwTr60slmSjVSTjKeJFy+J1WiLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705216;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705251;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:User-Agent:X-stable:X-Patchwork-Hint:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=VdEPB+02aLkFWW0T4BgvH8SvpGAjip/GZNhuh8ecV2M=;
-	b=iwvqI/GVHgzDMTbTcQLNbeILxmEz+J3GujBkmvQS373y710+vlbVg3nHflxKlay8AUMS
-	 aN/RQtwizWF1sFUuECURgqo/CNY7l2wzZPovuWnTMTXfbCR1Hk6sOAmzRuK9EhVov5OiY
-	 wBtY1TdqTYj6dVTSsIRy7mkbm1X8EUmyDNXiqABh2aa1SsDSgkPaQYqRWWTw6Hld+P1S2
-	 WLOM0n06Sz2psx7883+XS1GGTKusFzdRwyhZRbMRIrbi7EH8VGSu0+iucywqJSfqNwLt5
-	 60a65HDm30lzjzr/Vyx2UEyDEliRxIyBtPEzatLfZ68v+ZpZAaqWDH3mTW65pXkOGPQ==
+	bh=RB78X0IcOyrqNjXNG6N3DX4I1/jgYJG4ZEhjhOhkzQs=;
+	b=IDFmfF2T5tR5/ODOrWHJwrtjJg2njuuynjb8XdAHn2lMEKfivU6wIWFkrNXA0j10Mh0i
+	 J9gqOUDow/tvzx5a2NltGn2H9F0UIqjTAZHTJDqvKkSBB6ZT77HzuJBQqiUq+2cKBn+so
+	 uXPM9yKDL8ITC0YSNgr7y9Zcezw9IDy2DWOMv7SnZJzeJEGFs8M6td5bedyPWwVbk/7Yl
+	 7Akf058mM46JQRDKq15e+uRp5c6YEKe1ZgCweDieRZq2KO0j3zVE4414ZNvT2z9ClRax/
+	 XBVctCTaj62gmRgIM/WB8cD0V+xYpXKOY64kzAwBZOLTPRVVX8e/pNLhKKT2rMR804A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=C25039wr;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gz68Hsaa;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35FC9606A339;
-	Thu, 26 Nov 2026 15:00:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A23DE606A329;
+	Thu, 26 Nov 2026 15:00:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=C25039wr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 314651F000CA;
-	Thu, 26 Nov 2026 15:00:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795705215;
-	bh=VdEPB+02aLkFWW0T4BgvH8SvpGAjip/GZNhuh8ecV2M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=C25039wrZfPph4UjTuGtWYu0klcTKhXjWyAfmkJsWUnb1b+3oRvGUeJIBCU2aUg+y
-	 gPXqtAZu/FX3sjgrvuG2jjMFR/fLcKm48dPfjGBDZaNAJ+/YR327BpvmguQRHm3hD2
-	 Uwz1iSxXVWmYnJ44JlwDAQOGJ1JUS5eW+vfMSu6Q=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	David Laight <david.laight.linux@gmail.com>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Ingo Molnar <mingo@kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Waiman Long <longman@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.15 121/319] locking/osq: Fix unlink queue corruption
-Date: Thu, 26 Nov 2026 15:38:09 +0100
-Message-ID: <20261126144009.477195070@linuxfoundation.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261126144006.732901931@linuxfoundation.org>
-References: <20261126144006.732901931@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gz68Hsaa
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EFD61F000C4;
+	Thu, 26 Nov 2026 15:00:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795705251;
+	bh=RB78X0IcOyrqNjXNG6N3DX4I1/jgYJG4ZEhjhOhkzQs=;
+	h=From:To:Cc:Subject:Date;
+	b=Gz68HsaaIeYn+XU6mxagfJkVh7xsjb8Is2cqwsEkAP/7JxmR38b1EO0S/lqe6S9ju
+	 h1mgNRqcQgBF4z01M8/fzrmItYD7XfRmd1ErZNS2opE5xnL2Kl10u3Ro/dO68BOh4Y
+	 s75dQBQoFMwju6oz8D11MDSEOkb19Xhc3x74bAyMfSBulchWXGBJ4xjjI/wuyADs8n
+	 vsPNgYr7uhLZLs80azXwtdZUDwSD5B2xZpwD8e0L7g1lP3RUFg3UBQh6Je9SlYCxPw
+	 kO+7ugALNp4XOecfjUxE0W8n6Olz+7BziokFpO1yVqjHb1AdLWWTNTnfrFCAONWI2y
+	 aYcRkUMDFOOqA==
+From: Sasha Levin <sashal@kernel.org>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>
+Cc: Komal Bajaj <komal.bajaj@oss.qualcomm.com>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	kernelci@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: qcom: sm8750: Mark the watchdog as reserved
+Date: Thu, 26 Nov 2026 10:00:48 -0500
+Message-ID: <20261126150048.2221469-1-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,117 +66,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-5.15-stable review patch.  If anyone has any objections, please let me know.
+Since next-20261110 the SM8750 MTP in KernelCI panics during boot when
+qcom_wdt probes:
 
-------------------
+  Internal error: synchronous external abort: 0000000096000010 [#1] SMP
+  pc : qcom_wdt_probe+0x374/0x460 [qcom_wdt]
+  Kernel panic - not syncing: synchronous external abort: Fatal exception
 
-From: Peter Zijlstra <peterz@infradead.org>
+The node has no "sram" property, so qcom_wdt_get_bootstatus() reads
+WDT_STS, and that first watchdog MMIO read takes the external abort.
+The MTP runs the Gunyah hypervisor, which owns the APSS watchdog, as on
+SM8650.
 
-[ Upstream commit 408b129aac48b574c0c9d11137a89eefba825d5d ]
+Mark the node reserved, as commit 4f8202061737 ("arm64: dts: qcom:
+sm8650: Add watchdog node") does for SM8650. This also lets qcom_scm
+register the Gunyah watchdog, which it skips while a "qcom,kpss-wdt"
+node is available.
 
-Very similar to commit 50972fe78f24 ("locking/osq_lock: Fix osq_lock
-queue corruption"), make sure to order the prev->next store against
-the next->prev store.
-
-Fixes: 50972fe78f24 ("locking/osq_lock: Fix osq_lock queue corruption")
-Suggested-by: David Laight <david.laight.linux@gmail.com>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Waiman Long <longman@redhat.com>
-Cc: linux-kernel@vger.kernel.org
+Fixes: 6554c11efd6d ("arm64: dts: qcom: sm8750: Add watchdog node")
+Link: https://files.kernelci.org/qualcomm/baseline-arm64-qualcomm-6b071ff5286e1965ecb6e758/log.txt.gz
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- kernel/locking/osq_lock.c | 60 +++++++++++++++++++++++++++++----------
- 1 file changed, 45 insertions(+), 15 deletions(-)
+Built sm8750-mtp.dtb and sm8750-qrd.dtb on top of arm64-for-7.5 (W=1),
+not tested on hardware.
 
-diff --git a/kernel/locking/osq_lock.c b/kernel/locking/osq_lock.c
-index b3748ed287ebb..29597052f442c 100644
---- a/kernel/locking/osq_lock.c
-+++ b/kernel/locking/osq_lock.c
-@@ -84,6 +84,49 @@ osq_wait_next(struct optimistic_spin_queue *lock,
- 	return next;
- }
+ arch/arm64/boot/dts/qcom/sm8750.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/boot/dts/qcom/sm8750.dtsi b/arch/arm64/boot/dts/qcom/sm8750.dtsi
+index f46a5e8a953c7..3f76dfe0bd565 100644
+--- a/arch/arm64/boot/dts/qcom/sm8750.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8750.dtsi
+@@ -6007,6 +6007,7 @@ watchdog@16410000 {
+ 			reg = <0x0 0x16410000 0x0 0x1000>;
+ 			clocks = <&sleep_clk>;
+ 			interrupts = <GIC_SPI 0 IRQ_TYPE_EDGE_RISING>;
++			status = "reserved"; /* Owned by hypervisor */
+ 		};
  
-+/*
-+ * Set prev->next; this is the counterpart of osq_wait_next() in that
-+ * by setting ->next the wait is terminated and progress is resumed.
-+ */
-+static inline void osq_link_next(struct optimistic_spin_node *prev,
-+				 struct optimistic_spin_node *next)
-+{
-+	/*
-+	 * Suppose:
-+	 *
-+	 *                   tail
-+	 *                    |
-+	 *                    V
-+	 *   CPU1 -> CPU2 -> CPU3:
-+	 *   n: 2    n: 3    n: nil
-+	 *   p: nil  p: 1    p: 2
-+	 *
-+	 * And this is CPU2 doing the self-unqueue concurrent against CPU1s
-+	 * unlock()/unqueue(). Since 'prev->next == NULL' and CPU1 will be
-+	 * stuck in osq_wait_next() until the below store of 'prev->next'.
-+	 *
-+	 * CPU2				CPU1
-+	 *
-+	 * next->prev = prev;		osq_wait_next()
-+	 * WMB				MB
-+	 * prev->next = next;		next->prev = prev
-+	 *
-+	 * Without the WMB it would be possible to have conflicting stores
-+	 * like:
-+	 *
-+	 * CPU2				CPU1
-+	 *
-+	 * prev->next = next // CPU1.n = 3
-+	 *				next = osq_wait_next() // = 3
-+	 *				next->prev = prev // CPU3.p = nil
-+	 * next->prev = prev // CPU3.p = 1
-+	 *
-+	 * Which would result in list corruption.
-+	 */
-+	smp_wmb();
-+	WRITE_ONCE(prev->next, next);
-+}
-+
- bool osq_lock(struct optimistic_spin_queue *lock)
- {
- 	struct optimistic_spin_node *node = this_cpu_ptr(&osq_node);
-@@ -107,20 +150,7 @@ bool osq_lock(struct optimistic_spin_queue *lock)
- 
- 	prev = decode_cpu(old);
- 	node->prev = prev;
--
--	/*
--	 * osq_lock()			unqueue
--	 *
--	 * node->prev = prev		osq_wait_next()
--	 * WMB				MB
--	 * prev->next = node		next->prev = prev // unqueue-C
--	 *
--	 * Here 'node->prev' and 'next->prev' are the same variable and we need
--	 * to ensure these stores happen in-order to avoid corrupting the list.
--	 */
--	smp_wmb();
--
--	WRITE_ONCE(prev->next, node);
-+	osq_link_next(prev, node);
- 
- 	/*
- 	 * Normally @prev is untouchable after the above store; because at that
-@@ -196,7 +226,7 @@ bool osq_lock(struct optimistic_spin_queue *lock)
- 	 */
- 
- 	WRITE_ONCE(next->prev, prev);
--	WRITE_ONCE(prev->next, next);
-+	osq_link_next(prev, next);
- 
- 	return false;
- }
+ 		cpucp_mbox: mailbox@16430000 {
+
+base-commit: dde0308a2f8867806a444df1fdd7e685b1c56d5b
 -- 
 2.53.0
-
-
 
