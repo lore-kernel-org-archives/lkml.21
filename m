@@ -1,107 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795672324;
-	b=kdl8kG7oIZXMmyoTZHjRGnxMwA36fapUFdhgEDqD/DdsvNKvaBXPLFdsb7SL6tjzDqUz
-	 8tOgUqkwSbOfVZG3kgWqmjx/viK90zW9nJOTPK/yxronCuoFmLTqtdtehuYK9z0DtYzPX
-	 Io7YVlytNUjY530pV/AyV5wTe7Li6gBTPZIH3+2WJx65j1G/F4X6ZcYZCzc+iUordwE6x
-	 XtdDf3BYW14khJf/+I0CV7lkvPoWUXabNBVs22Hf76l4OHJgyp4pULZwGCJkNAVdzBYFW
-	 HitWItPW2xoicq4GdI9FUOI2wXWeMF6auhnv/zDn0Hg1eNPZ4jkwBVaRkp3ZV4a5aqw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795672324;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795672336;
+	b=dPeWNkePnwBrPNZRznBR8vb7mSj7djeqwA+ksXuOJTgf2YIu9Zs4eR8oAmIEx28cjlxg
+	 1R0g5jiGjUC7mt8W3MHE/TNz/75w5fiJVgB8RxZLwAYD7QXGHuQW3lOfbRXHTKGqwhFQM
+	 8IZUqqQSzv/2q03JX/fcPTj+8KFvkTiR/8RrTB/iU4TpHbx/3SlGSsKUIuipy1K7Iv9bT
+	 lZwqpWyoPmFIvE/WXKK2Wt4FpBXuA5aG7EyHXJs6dPV0Kp2kY+Wa9jyb/y+ZxN1RweBZg
+	 gGFUly4VjdFAwDc+qx6yrdCOby/5wPR+NvgfmghV+6RKoeVmgBqxLKCVYDZMSUdgO5Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795672336;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:In-Reply-To:References:MIME-Version:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=2k6JRJKRP7LLLbAdrdUeXnNjQUGXGLvFy8MnHqGutzQ=;
-	b=BySkjbKSWV4J8BBMZX2rvxW4eLGE9BDnGSiUchcIkyWIWDzrEHv34LAthefti8Mipzfc
-	 ndlnYFjOhx815wGa4MLen12TqPqriJo/AdwLVpnWE+vVgJPSXscl4u0bJc/PSfRlX8RvT
-	 ZRr042yLMVLVfYXNZj81djmtIvqi2UGCSYxAYVdQUTzutp8TpKthYtyJ+BddeBmJm8W4h
-	 1/JGaw576wZwAGAluErxAuZ33hU80i0Xk9alsAisPYInoDS5xhyhWYwNCEEaEs3yvHD0r
-	 L7Lb6maILKpDJgZPnJhTZHwKW027r2FmaQDLjx59Ch8DDuTFJXpFhtnahlUwI5tycLQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=F3MGezqK;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.47
-Received: from mail-qv1-f47.google.com (mail-qv1-f47.google.com [209.85.219.47])
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=CZPWEk037QWIcnrjW4FwU0aU2BDmAlHR+95YsRtbxp0=;
+	b=3lA239BQ7I3KOD78w0oIZNyvv7nLNBsZtaBM6cb7NqLcoLi2giGaHxupaD9w65Jjbpdz
+	 5JD5ALpynV3U/W4MOuiSAy/PgiyOG43AXJ94D274LcjicdfK6JRU9H9d15Zew8QK1Th0u
+	 PxnoqxO/ZZFNmfhUlbnFAjxPWr+7gcOPekpf1YCrXobYs+qQDAtfqLEjRUgQYCtj+EMmI
+	 RMYqfEbEaGfklLsDq4M43kb5KMwQuK9TpIzFfmLBzZOx0tGMt2zQE/jMk9acU5N3JSKTi
+	 YtRe35AOyHrcHYIH7grkKJpioL/c9bR7S42FNSO3m7fNC7/+7rzEFnceJ4bU0auc8gA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Vp6h4G7h;
+	arc=none smtp.remote-ip=209.85.167.42
+Received: from mail-lf1-f42.google.com (mail-lf1-f42.google.com [209.85.167.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71FF3606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:52:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71FF3606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFAAB606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:52:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFAAB606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=F3MGezqK
-Received: by mail-qv1-f47.google.com with SMTP id 6a1803df08f44-92130d3ee15so62104406d6.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:52:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795672323; cv=none;
-        d=google.com; s=arc-20260327;
-        b=I+WOaTYkWj+A2XYTEMnPLuoRgm3ZPs5iJWCMTnxkZAxAXFzMkyJoUxoYPcmrrJAyl6
-         qQTJyAR/WPfrK2+k3V7F2OTV1O47+0a/4mo1P/veT1eRvU2nugzfhI2ATkywKli+T1dG
-         1cd/6tcNfrM2DXrmXTNcpm/bSBANSzSBH/qIk0UFoECZIOgF80mgzx9JTiMvIEtnde34
-         bMtkuqT2sFXduuhXESs7d6LNo3pZAdPkzVJtyNoZNJ6RDcBRPxup9661rJJWbc1iSJ7L
-         ggHIjmLCU+kGf/yeS1q2xS4zZR8bd6B2ooMDKU50UcpVkN5oo1yGHjCw/PfAbTWL/Xdt
-         dXpg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date
-         :mime-version:references:in-reply-to:from:dkim-signature;
-        bh=2k6JRJKRP7LLLbAdrdUeXnNjQUGXGLvFy8MnHqGutzQ=;
-        fh=IIFQyV2LquFilDt+b1IboHUUiP0QEPFrBn48wH5Szeg=;
-        b=oNWKq50/oaYI5/HUHSjO4tENIMPYA7EnbicImxKC949GOLMYbsqFUhKIOM+gRUZZb0
-         6xR3tWDjg4ReXkESlksXoR+OgObytk4gvvPaPP+cjjI2OrgV0+F2lrBF7JS14nxhAFwx
-         SSlounOdniB7tykBvNgWh3iswL8fmfSMVLB1+CyuTp/kXRONoE+atNzLniPRe5viLtKD
-         CTGocfaKhOtlrT8qUrlycn7asPJM1tW9DBj57lX8vd64rMKDyJpTrJB1EvfFkINmSMAF
-         4+oY2CCixMdfFStytyFk9oV9E0V/EXXdjsQm5VWiq3JuIrwU2Dr9dGfobCIyGkWzUIXs
-         aLdg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=Vp6h4G7h
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5c00b0866b0so381303e87.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:52:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795672323; x=1796277123; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:mime-version:references:in-reply-to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=2k6JRJKRP7LLLbAdrdUeXnNjQUGXGLvFy8MnHqGutzQ=;
-        b=F3MGezqKQgAa0JyHUcJcp+Zg6ECnBiEvfsDThi8VsnhmCXRKlWSoL52eSfBDIFPD2x
-         uBbQU3jIrSUyVrO39S/PrsN2kIgfRdYx7M7CPQVpKhWs9Qo+tfOQoO0djyv9S5fGo/cG
-         1stlyUDGtPHC8EeCiOXBaLjWTaoV9VydgrdgU9Wk4b+iiHz1Qka7xoNJKUOBsrfIXsST
-         m4QV08PcuhYqC+cWrzNqW7y0Pt6RJga7Ihe94hLQ2aZhHXa/ETNRe70kJ28YwT7HQ0OF
-         0aK/j4URULabgM805RCSyWG7Y7IAj7NdsXDAv0sHOeHVtmj7X6u+Ir0IZ2tntty7NS9X
-         sjhw==
+        d=linaro.org; s=google; t=1795672334; x=1796277134; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=CZPWEk037QWIcnrjW4FwU0aU2BDmAlHR+95YsRtbxp0=;
+        b=Vp6h4G7hpleX+FTb7fdJNRAUYd9jz4lCrh33wMt0Ysn5Nb2Xo1Zb1+kzJAUVK7M5YB
+         tzwbvxW6rKNBTKwTsrFX6mUrY9wdUCBJPrDzpBluNzFfe+x0SzxpDd7g2z+1OUc7Osxz
+         uEIu5Xt+UxUDEqs5lNqsReLPF3kyI+cUNMjCtVEpEL3TvMV5sjx43V662aDloiIrM26H
+         TxMW/fWmkaBqAlyrH0tDhiQQ6TXOAv0/7qWniaGnVMQPuWrv2jbIZ1+opl8j3/zzSJ7d
+         R+f8ajGcN4IcmH5VH5PoeMz8OGFMF3xInqI+yNfUC/EWj2pL7DZx/tLkPlZXPn23Ic/6
+         qjgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795672323; x=1796277123;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:mime-version:references:in-reply-to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795672334; x=1796277134;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2k6JRJKRP7LLLbAdrdUeXnNjQUGXGLvFy8MnHqGutzQ=;
-        b=ce/44eEj/DJphufZpSlPBtmB5k8IwK9X1cojRgMnnPjhTk1Soap3YvUb9XwfByx/HR
-         I8q8ZfriWswQL9YJPYAnX6SH1Fj/j+n6eAweoree003vJV+GrL68lSK/yynteO01VRta
-         Y5B4X3IYaOqqXmTshmXGAW+3IYYd0YB8cv5dAMMBl9Z2dIhNqGWEneSMYT723E1ncMJ2
-         HjsiJT9TN7F/7M9ksWK7nspQVRpPgAz4eS3Jbdv7KJ/v9Ir6NBa0uDbYqK6RU1amnW3y
-         sw4IIYawP4VDvU1vcjC6fWhmI78oisB/7W0V3N8w0Id/Yc6JBYcEHVfIQXVNSwgq1+o1
-         RylQ==
-X-Forwarded-Encrypted: i=1; AL+hErFuMsHyxbwm7FcKcG7xlmmXEjr3wQPd3kfKOCzsblCBMNjmiLdrfyP+/fG2CCU2mBRSePQE6kImjAhK/2Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9FPUgaf7tswLMi7chVoa7Y0rC2flC6F6PhWoW3ZZuq4fWnYVVy
-	HUIzHbR8SA/Mo+VA2Ow323PPOQteFIIXtlN7ojL/bwzKo5Gji23uxAohQ8KpRsUD9LbeF8iXEeS
-	A9EPFYeX0o9FG2MJJ9RIrRXvSHqPkS3oBVZTcwDCk
-X-Gm-Gg: AZFdTZcloFCoZJUzwII5pB/MU9OwYXU64iPbgPrQm4uAbH8K8M9skmw/DVbgOUa0SO2
-	oGfNXd6XXlYf6lvDw4vWZLt2JbwN6QAx9A0DtBQkKyCFsf2ZpjsmHCgNQCqgIBVa3UpySBlfwLR
-	Qh8Bxu9WKQHKN8jhTNb6ycCIEvyJejuYUqdT7JuPCoybh7r7Qj0NA0M+9HmnDSjtwElV4mJOmXB
-	MA/+IBmWbIqRokdG5QfxZRbj2llE1anUevjrif6HXiqEDch/vPS0vnkS2Cb+qmPbxa5h9woch62
-	iLeK8LjVOcfLedGQ2vu/VEQfJgOM1v7pNR0BncpHVWntZrVaKKNGCngkBuDbMIqN95H27AENSz6
-	OeNKBjKQPn3U4+3VJNyRe7NQE0n75LitO2d3nkF0ruO0hW8uQxzGKJhvOFJemCzVsog==
-X-Received: by 2002:a05:6214:458b:b0:921:15d6:2acf with SMTP id
- 6a1803df08f44-92134aae3a6mr363727356d6.12.1795672322542; Wed, 25 Nov 2026
- 21:52:02 -0800 (PST)
-Received: from 176938342045 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Nov 2026 21:52:01 -0800
-From: Ackerley Tng <ackerleytng@google.com>
-In-Reply-To: <3b7d2d65-be96-4b63-9de6-7303d2de641b@kernel.org>
-References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
- <2026102727-data-sequel-ce41@gregkh> <566ddeb4.2ad04.1a202302fe1.Coremail.xuhx@hust.edu.cn>
- <3b7d2d65-be96-4b63-9de6-7303d2de641b@kernel.org>
+        bh=CZPWEk037QWIcnrjW4FwU0aU2BDmAlHR+95YsRtbxp0=;
+        b=KfcY1LsvbZIpi66VF03wbJppvGMSBF3w5P1LlrbrP00OIB6D8xN/sMedJdxxAvli8Y
+         mm3OyHwvpWJw+JpDF0qgdh2cexcMzXI6gD0L36kS4eLan93+zQnV+jq6DTd6fTUf99ME
+         WOqb0SPjRVG6Xfwx5y1VMpvh12PMd6iJreq7cpGL0XwdBlL2H2vZMgYssNdoKIFq0tUo
+         SoAP7d5aW6iFtB3qLfJjP4qmOuxXECXXHFIrxoPc26ugBg7GiPu/UIGYbYRqwjlL4aZc
+         zDoyRb7XCMsfZKtPt6JohVF5H3A+l/M7XxRIi0BLCyGjFroj7ueVlvHrE075AvicRmiE
+         4gdg==
+X-Forwarded-Encrypted: i=1; AL+hErGxE2N2XTCNpzXSlC0XlA4huWTJbsilT0qzpyY4ofk5xn8xsjWj/sizrczzwOirL9lprCo+fGznGL43Y/Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8P31sIAynWsXBZuCDTsUApCGpqrCRuvTDD97dkH5SMjCWY7bac
+	oB2QeogwYDj8vtxzzsZ4YQItnfqvjdtRvDkKpNLvTcK2pgFVpVondHuQj71bFyXOKbs=
+X-Gm-Gg: AZFdTZcIFEJ6Ol2gelOeYeGB5MoW4A/7UvOW5TJ+cqkmDefwXEUA68fm7rIY+yoahE/
+	PcIdvopdJospooABwAtC55OTZ6xGNAfPQmH7zNtLd90dqMobVN8Zm1s/Zz4WDuZiMs9UlZ+EWkF
+	Ur+QHLiFzqgnWTVznbPtM7hh/Eoo4MatSd48wueB8XeMzQrWttMJkFBOc25Iq4aNIpSxrQHePXa
+	Uv3fV23nKhGPBo4ssinhoKY7wZdAGecRx/FOQsGbBKa0xRcWLGaUGVAHWRY/VlzYA9mMqUiy6LI
+	sZ0/MSmg+HFp9obIXmG61tAbwua+NR8N1G0UebobVub1vYkZmT90jeO/K7SEr8t3073aaQUEJQQ
+	BNtqb3+sL3QWpShScbw3hQhj+qBTSBj11aJr0Evl6GTQjWSC2h0Uw1X1EeIEDKH1nJjgTQd4/X+
+	z+kV+22DgWOyOCpeSfyrfUxRujjK52aTa//HwuecgkPvV/59AqaIImr+WTKg2HBjkhAQs85SE14
+	T31QF+LgPG+h0x4MFLWT9X33mMLmxtzyo65NqnQ8z8wkK/5L8LBESC2wb2PR2fVcpk2xP/ao9zK
+	K8CQ9GYoUutaAPdHY2tlp/GE8+ynRG8SoWKQze6/s3+FZ3+fm4W9czUmBC4yrphozIn62sOcJOy
+	3Hk+GnsM=
+X-Received: by 2002:a05:6512:12c7:b0:5bf:a48b:7827 with SMTP id 2adb3069b0e04-5c1bc6bf385mr6657518e87.2.1795672333627;
+        Wed, 25 Nov 2026 21:52:13 -0800 (PST)
+Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bcf33a96sm5147700e87.11.2026.11.25.21.52.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 21:52:13 -0800 (PST)
+Message-ID: <044783f4-29f2-4a73-8b2f-d06fe4a5ebbd@linaro.org>
+Date: Thu, 26 Nov 2026 07:52:12 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,61 +91,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Wed, 25 Nov 2026 21:52:01 -0800
-X-Gm-Features: Aa3M54repb8SXZGoGoOnOV4yw28LCY3gHdW88ztUp64xOBuWhqUl6TXDC7tITrI
-Message-ID: <CAEvNRgFsS3ntQBANqaqdm5XS8c4n6KDh3aODiduf6pCczmBSGg@mail.gmail.com>
-Subject: Re: mm/hugetlb: a min_size-only hugetlbfs subpool is kfree()d before
- its last pinned page is released, so free_huge_folio() takes a spinlock on
- freed memory (UAF)
-To: "David Hildenbrand (Arm)" <david@kernel.org>, =?UTF-8?B?5b6Q5pmX57+U?= <xuhx@hust.edu.cn>, 
-	muchun.song@linux.dev, osalvador@suse.de, akpm@linux-foundation.org
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/3] dt-bindings: phy: qcom,x1e80100-csi2-phy: Add
+ Glymur compatible
+To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>, bod@kernel.org,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, linux-arm-msm@vger.kernel.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ Suresh Vankadara <svankada@qti.qualcomm.com>,
+ Vikram Sharma <vikram.sharma@oss.qualcomm.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260925-glymur_camss-v4-0-d7c2983d6d7b@oss.qualcomm.com>
+ <20260925-glymur_camss-v4-1-d7c2983d6d7b@oss.qualcomm.com>
+ <179561294019.462348.12092000419789488599.b4-reply@b4>
+ <238a552a-ca4b-4997-aecb-fdaa278ca1c4@oss.qualcomm.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <238a552a-ca4b-4997-aecb-fdaa278ca1c4@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-"David Hildenbrand (Arm)" <david@kernel.org> writes:
+On 11/26/26 07:41, Nihal Kumar Gupta wrote:
+> Hi Bryan, Vladimir,
+> 
+> On 25-11-2026 18:52, bod@kernel.org wrote:
+>>> --- a/Documentation/devicetree/bindings/phy/qcom,x1e80100-csi2-phy.yaml
+>>> +++ b/Documentation/devicetree/bindings/phy/qcom,x1e80100-csi2-phy.yaml
+>>> @@ -16,7 +16,11 @@ description:
+>>>   
+>>>   properties:
+>>>     compatible:
+>>> -    const: qcom,x1e80100-csi2-phy
+>>> +    oneOf:
+>>> +      - const: qcom,x1e80100-csi2-phy
+>>> +      - items:
+>>> +          - const: qcom,glymur-csi2-phy
+>>> +          - const: qcom,x1e80100-csi2-phy
+>>>   
+>>>     reg:
+>>>       maxItems: 1
+>>>
+>>> -- 
+>>> 2.34.1
+>>>
+>>>
+>> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> 
+> This series is already present in the mainline tree:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/media/qcom,glymur-camss.yaml
 
-> Hi Ackerley,
->
-> does your series [1] actually fix this? What's the status of that?
->
-> [1]
-> https://lore.kernel.org/linux-mm/20260916-hugetlb-subpool-always-track-us=
-ed-v3-0-38aae9b5ccdd@google.com/
->
+Likely I've picked up an old series for my review.
 
-Hi!
+> I am not sure why it appeared in your review queue again.
+> Can you please review the follow-up changes instead?
+> 
+> https://lore.kernel.org/all/20261123-glymur_camss-v4-0-d7db74f59e22@oss.qualcomm.com/
 
-Yes, "mm/hugetlb: Track used_hpages when getting/putting pages from
-subpool" fixes this bug.
+Sure, will do.
 
-I've been tied up with other work since [1] was posted.
-
-I have a set of reproducers locally for the various combinations of
-min_size, max_size, and both defined, while taking various paths
-(reservations vs actual allocations).
-
-The plan was to always track used_hpages, which simplifies the
-accounting and it does fix all the reproducers I have.
-
-I thought in addition to simplifying and fixing all those paths, it
-would always fix races, but AI showed me a repro with races that broke
-the model.
-
-Because of the repro, I planned to re-evaluate to see if there's a
-better model/clean fix but haven't got around to that.
-
-I'll try to get to it in the next few weeks?
-
-Ackerley
-
-> On 11/22/26 08:37, =E5=BE=90=E6=99=97=E7=BF=94 wrote:
->>
->> [...snip...]
->>
->
->
-> --
-> Cheers,
->
-> David
+-- 
+Best wishes,
+Vladimir
