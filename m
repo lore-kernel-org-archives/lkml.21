@@ -1,48 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795731387;
-	b=u1FgJkXRtY+tHTrACQOcrKCwZBgDJjfgntpOmdrYLksPrGhsDbnZf4jMKX1fSh8odHys
-	 1npEdR70BCm4ICyEXZvCHttboP8ABAnmL5zgQ5zu6I0adl5mxrBLg4cVIsrKm9M6vNp6n
-	 0hHmLkv0Q9jT9nBNyWYaJ+usIjXaiX+14t6c1NSZHBD/I3TevUAOgeNeHeeQg3D9Ung8j
-	 d+OBfkaUnUKwkkjf3TpNo/QUm8ELoOyLkal6YC+Gz8jpG4zc2KXYabSYfG5XmSEZeZn3/
-	 MhJqNkx9qBeSpBxiTHOra0QQS88JWsUYxCWT+blAQsXCcl4/gdMiAOGi8jGjq2ZfAhA==
+	t=1795731383;
+	b=Oevp3miS8qkrZoi1mQ8KKM0o9kY+i1jfxNCUhpky6lJ0T2qVJ93CeMoGtF+AWXr6o6Tp
+	 ytNa2qEwCyaqHNsDtyfMnP+yexiEa3I1Gb3D0qjeLsFcpLzrYCjMc+5feOy4La/GJU1p4
+	 GJwoK9TNUDuQQ+9TqDqkqOkwpHRFw1PO13Tc/kKpBAJyPioDOiLtKAYsqkRpm9lKSwf8P
+	 IV7HJxBRGGM8HRRKB/LJBXPR3LYCPPuFDFTxib4wL2MjUYR9XulEK5RVj1I/XcnI5wnYU
+	 YfPa9+9+VxZgEBFeQAYwlQ6qKLXPgmnakIi+3dksUmVq8hqZq3RyaFwMaZSEMqpn5Vw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795731387;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=8z2XUUqREtvPD1Rvl386LWx/7ramX/eBbc0c8rwkDls=;
-	b=GU7ME2ZP7tfh/3J5D0Hyttl7yPSSTWcB0F4sZDWqa9KHlJYnaDM2rhLDNI/vwB/ZY/3Z
-	 eXNt5VNkjRDbz2eS84mD842VJ8qtU3iDJrCUVMkeHPHIFwipDhBdbHP2RYc8ZhaN+Lq8h
-	 2RP+zBZLxLenXOb3DxcQfsdntCaHz/fvcFj8auThbRPzo5AV+eTqSAfVnKck6lpOF4Ys4
-	 YSXQaYi/8f+sfCT9Plw5Zs/9dRPv/SyhqowOWTLprof74vPcBWMttOZh47fJ3LWjU7ymS
-	 f14rF6GTFSb8/Rkw+NqeNHO2/UhknSwtZVDaA/kXFWm3rknZ1MIfcsahW9Ql8u0PZlA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795731383;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=j5IBNz3SIMv2Dt/Xq/+fSGmPcSx2opqGLqLgk+FS9Ao=;
+	b=1XR+HUR53rxRvXPufvwf9Bf4Pg/mfWe+upOTWWUNmozvQ4vcndlJEAjIaOzAZliUM5/3
+	 3FPyrlMHFptNdA2VIC5jE+70Os+bRCjyDcprmTGiI3KSSkobe+M5v91IDPLanyZ0bioBx
+	 v6EaU4h9Q+Hg8nHn01Lj/dHEE/YAvGkwzrHZSi/Ed6cz1ThZfDXnWudwpOOlnjlZRzaOn
+	 alkFfEnZHbtmhCgPYJ5wSsoZ+3tFCuS1N+6Eidemea2vZ94ArYlXNufVArRng0KTRDHPc
+	 aMQiki6l1RhWPsetH09Fek3PNnKZNv62/1jPGHlGgMDwJBMPwpNaZ1dAA+ytlyiRbUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Im9LDFM/";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cgXgEncC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8F84606A323;
-	Thu, 26 Nov 2026 22:16:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64AC3606A31C;
+	Thu, 26 Nov 2026 22:16:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Im9LDFM/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB6AD1F00893;
-	Thu, 26 Nov 2026 22:16:26 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cgXgEncC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF6CD1F00896;
+	Thu, 26 Nov 2026 22:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795731387;
-	bh=8z2XUUqREtvPD1Rvl386LWx/7ramX/eBbc0c8rwkDls=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Im9LDFM/yNmdORFKqB+F5MhFM4umiQeEjJY3ky2rjxCe65GJ0/llc2nyqtGv9zOQy
-	 ZUxqA2dOHOXsZuOaAQydICv5NN/w5xh/1403/SMVGQcF8eXtZvuo+qiZrt7vNE3ADZ
-	 NCSO0/nvyl7bSygZUFGCrMJu+NQjiYWP+odvg4WdTyokbxkssSQmdA9SI+kkYijdpZ
-	 cZpzyR/pZQq0imADHDhAsqsbyWkSSo9o9RDNOYYaXW2pOcb4hLsh53x2i4+uBbWxuY
-	 JKO5h0qiPX0BExjokSAToNDO/l7m19WMZ2N5m0p3DPBBanNn+72KhXCTYobBGqxiQL
-	 YgnBnELOpjoYw==
+	s=k20260515; t=1795731382;
+	bh=j5IBNz3SIMv2Dt/Xq/+fSGmPcSx2opqGLqLgk+FS9Ao=;
+	h=From:Subject:Date:To:Cc;
+	b=cgXgEncCFSNQcnhVZmKpVo/UiQ1KOnlBH7p4IIglX5Ppf8Jv+3R10hw4tLhJRE4a9
+	 4bGeigW1yuvEFdCLQoYvQkI/Fgq5YjDBMiBQVIvk74clHJOJL4X/n8WRhww14BqcVP
+	 QNAYt3M1oNWAeX0P+f42ndiCX1vrfz/VhKfOBP5m/yXepdHqMXaaZwWB5UB2k4bpSZ
+	 YIIJ7PIfu2YQshKMX5swdoHAXz8PQ2Ec16LE2WomFq3cdQa6OiiDhd8NDjAtwbtjun
+	 sEwCxFveobFi7U1BB6LSGCecsOwEoiUyJzpVLrSubzWn8S7JZ/EORszsugYcZJBYJn
+	 dDEahS2Z1ogTw==
 From: Christian Brauner <brauner@kernel.org>
-Date: Thu, 26 Nov 2026 23:15:33 +0100
-Subject: [PATCH 3/4] fat: support O_TMPFILE on msdos
+Subject: [PATCH 0/4] fat: support O_TMPFILE
+Date: Thu, 26 Nov 2026 23:15:30 +0100
+Message-Id: <20261126-work-fat-tmpfile-v1-0-3bca7b2dbc20@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,126 +55,60 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-work-fat-tmpfile-v1-3-3bca7b2dbc20@kernel.org>
-References: <20261126-work-fat-tmpfile-v1-0-3bca7b2dbc20@kernel.org>
-In-Reply-To: <20261126-work-fat-tmpfile-v1-0-3bca7b2dbc20@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y3MyQ7CIBCA4Vdp5uwQINpYX8V4YBnsuNAGcEmav
+ rugHv9ZvgUyJaYMh26BRE/OPMUaatOBG008E7KvDVrqXind42tKVwymYLnPgW+E0suwHWjY+X2
+ A+jYnCvz+ksfTr/PDXsiV5rQLazKhTSa6sY2aKKoo/qJoe1jXD3aOnZecAAAA
+X-Change-ID: 20261126-work-fat-tmpfile-0d0f49e95d8f
 To: OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
 Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
  "Christian Brauner (Amutable)" <brauner@kernel.org>
 X-Mailer: b4 0.17-dev-04696
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3238; i=brauner@kernel.org;
- h=from:subject:message-id; bh=jT7nQIWsz8DKwPxh3Nz0xfFEfYVqZfzjWLZ7pz9zZY4=;
- b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWRzrN84T295XUpAXLC2gqP+NrOM6nWtl+v7dGxSZgnMn
- 673+wNjRykLgxgXg6yYIotDu0m43HKeis1GmRowc1iZQIYwcHEKwERa3jP84f/y5cGy8+5OE5UK
- jhr2//ZZnq3DHmBt1nM5ZU0Ji75ULSPDFO41TjkpZ/Vfp+Qkz/9XwnPHaXJxy/O2aZzSaesVLpo
- zAwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1903; i=brauner@kernel.org;
+ h=from:subject:message-id; bh=JWvzku8vn23nXtqkRXaLlGhoF3JlVBHJ63WGEN8laLA=;
+ b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWRzrF/b8a4uvlGC9ahWzYo9q03SrJ5PuVF73reBQZXvE
+ zMbI/OfjlIWBjEuBlkxRRaHdpNwueU8FZuNMjVg5rAygQxh4OIUgIls52Jk2BgjuTX5KauB7be9
+ S7wCyjW+Ttef/+glx48dyrck07epPGNk2HKnwNXk8bVzjWqhG+e3JzcxvFgneGTD2dXzNxbOfVB
+ 0kR0A
 X-Developer-Key: i=brauner@kernel.org; a=openpgp;
  fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
 
-Do what vfat does. msdos_link() creates the directory entry the same
-way msdos_create() does and handles ATTR_HIDDEN like do_msdos_rename().
-With the dots mount option a leading dot means the file is hidden and
-__fat_write_inode() writes the attributes from i_attrs. So i_attrs has
-to agree with the new name.
+This adds O_TMPFILE support to vfat and msdos.
+
+Currently, every O_TMPFILE open on FAT fails with EOPNOTSUPP and
+userspace falls back to creating a named temporary file and renaming it
+into place. systemd does that in bootctl when it writes to the ESP.
+
+FAT can do O_TMPFILE just fine. It already handles files without a
+directory entry: when an open file is unlinked i_pos is reset to 0,
+writing the inode does nothing and the clusters are freed when the
+inode is evicted. An O_TMPFILE simply starts out in that state.
+
+The only tricky part is linkat(). FAT has no hard links so I added a
+->link() that only gives an O_TMPFILE its first name. Everything else
+still fails with EPERM. Adding just ->tmpfile() would've been a
+regression. systemd only falls back to the named temporary file if the
+O_TMPFILE open fails. If the open succeeds it calls linkat() and gives
+up if that fails.
 
 Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 ---
- fs/fat/namei_msdos.c | 70 ++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 70 insertions(+)
+Christian Brauner (4):
+      fat: add fat_tmpfile()
+      fat: support O_TMPFILE on vfat
+      fat: support O_TMPFILE on msdos
+      selftests/filesystems: add FAT O_TMPFILE tests
 
-diff --git a/fs/fat/namei_msdos.c b/fs/fat/namei_msdos.c
-index 5a43d042eb01f..5709650a29986 100644
---- a/fs/fat/namei_msdos.c
-+++ b/fs/fat/namei_msdos.c
-@@ -439,6 +439,74 @@ static int msdos_unlink(struct inode *dir, struct dentry *dentry)
- 	return err;
- }
- 
-+/***** Give an O_TMPFILE its first name */
-+static int msdos_link(struct dentry *old_dentry, struct inode *dir,
-+		      struct dentry *dentry)
-+{
-+	struct inode *inode = d_inode(old_dentry);
-+	struct super_block *sb = dir->i_sb;
-+	struct fat_slot_info sinfo;
-+	unsigned char msdos_name[MSDOS_NAME];
-+	struct timespec64 ts;
-+	int err, err2, is_hid, old_attrs;
-+
-+	/* FAT has no hard links. */
-+	if (inode->i_nlink)
-+		return -EPERM;
-+
-+	mutex_lock(&MSDOS_SB(sb)->s_lock);
-+
-+	err = msdos_format_name(dentry->d_name.name, dentry->d_name.len,
-+				msdos_name, &MSDOS_SB(sb)->options);
-+	if (err)
-+		goto out;
-+	is_hid = (dentry->d_name.name[0] == '.') && (msdos_name[0] != '.');
-+	/* Have to do it due to foo vs. .foo conflicts */
-+	if (!fat_scan(dir, msdos_name, &sinfo)) {
-+		brelse(sinfo.bh);
-+		err = -EINVAL;
-+		goto out;
-+	}
-+
-+	ts = current_time(dir);
-+	err = msdos_add_entry(dir, msdos_name, 0, is_hid, 0, &ts, &sinfo);
-+	if (err)
-+		goto out;
-+	inode_inc_iversion(dir);
-+
-+	old_attrs = MSDOS_I(inode)->i_attrs;
-+	fat_attach(inode, sinfo.i_pos);
-+	if (is_hid)
-+		MSDOS_I(inode)->i_attrs |= ATTR_HIDDEN;
-+	else
-+		MSDOS_I(inode)->i_attrs &= ~ATTR_HIDDEN;
-+	mark_inode_dirty(inode);
-+	if (IS_DIRSYNC(dir)) {
-+		err = sync_inode_metadata(inode, 1);
-+		if (err)
-+			goto out_detach;
-+	}
-+	brelse(sinfo.bh);
-+
-+	inc_nlink(inode);
-+	ihold(inode);
-+	d_instantiate(dentry, inode);
-+	mutex_unlock(&MSDOS_SB(sb)->s_lock);
-+	fat_flush_inodes(sb, dir, inode);
-+	return 0;
-+
-+out_detach:
-+	fat_detach(inode);
-+	MSDOS_I(inode)->i_attrs = old_attrs;
-+	err2 = fat_remove_entries(dir, &sinfo);	/* and releases bh */
-+	if (err2)
-+		fat_msg(sb, KERN_WARNING,
-+			"failed to roll back new entry (%d)", err2);
-+out:
-+	mutex_unlock(&MSDOS_SB(sb)->s_lock);
-+	return err;
-+}
-+
- static int do_msdos_rename(struct inode *old_dir, unsigned char *old_name,
- 			   struct dentry *old_dentry,
- 			   struct inode *new_dir, unsigned char *new_name,
-@@ -651,10 +719,12 @@ static int msdos_rename(const struct mnt_idmap *idmap,
- static const struct inode_operations msdos_dir_inode_operations = {
- 	.create		= msdos_create,
- 	.lookup		= msdos_lookup,
-+	.link		= msdos_link,
- 	.unlink		= msdos_unlink,
- 	.mkdir		= msdos_mkdir,
- 	.rmdir		= msdos_rmdir,
- 	.rename		= msdos_rename,
-+	.tmpfile	= fat_tmpfile,
- 	.setattr	= fat_setattr,
- 	.getattr	= fat_getattr,
- 	.fileattr_get	= fat_fileattr_get,
-
--- 
-2.53.0
+ fs/fat/fat.h                                       |   2 +
+ fs/fat/inode.c                                     |  31 ++
+ fs/fat/namei_msdos.c                               |  70 +++++
+ fs/fat/namei_vfat.c                                |  46 +++
+ tools/testing/selftests/filesystems/fat/.gitignore |   1 +
+ tools/testing/selftests/filesystems/fat/Makefile   |   2 +-
+ tools/testing/selftests/filesystems/fat/config     |   1 +
+ .../selftests/filesystems/fat/run_fat_tests.sh     |  41 +++
+ tools/testing/selftests/filesystems/fat/tmpfile.c  | 324 +++++++++++++++++++++
+ 9 files changed, 517 insertions(+), 1 deletion(-)
+---
+base-commit: 2dc60bd9975fc8666a13d58410499e06e6799ba9
+change-id: 20261126-work-fat-tmpfile-0d0f49e95d8f
 
