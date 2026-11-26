@@ -1,57 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.144
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795701374;
-	b=jopKABBMndX1E4G5QFAcXObXHnMsZthzbT4fPSCjne+SVFOOSc8naqw7jx3vcOn7gmWp
-	 WzyZTJQVLSNwSPx6EbEmbKxwnO9roQMZZV0lmehxF8dAxQ3CQH7WtW7jzldXZsXs+nRKY
-	 QgHwM74SrsKwWEu010IjDkalNoX6PqDzOKluJxXOW8k6MA825dZOAXVBrR34EYumn1Phy
-	 RIo7zwlVqfRyQQk3cQZHOo9RkqEADDCZf19Xv+4gPJbb3lHoNBWaVovfYBz3R374pOFl7
-	 wzzK8IgaCltgfB356meri0hJkBWAPIJxC/zsdhwonIxE/klxw71EQl34kzYiEXqpuLw==
+	t=1795701409;
+	b=IH67vhb3fV9sr2kT4+XD1oJHfmiz4VLlW6lUmUfTpiu36Rsp+Twb9Tg557NUZ5rCeVku
+	 ElbHxg++Xt8b0Ug9WNk+lHhYneoeE79tTzfAbcynHLZGpmEwLMnD7dxqH8MG4dDlPO84E
+	 7bYUy4gWvnxXI5xQhmw1Jswcd0UupAziXlz0PdSQ4a8cGrKlTiD7qda2C5Ua8SQxXsWWZ
+	 w5b/KF8sD77UhGdaFLjdq5HAHKcptQGgyRjKzr+CBTqDh/bFfMuGEp1Dtjtwm7yvhwgNP
+	 JtFRvEweGdk1bF1Ra0/zqMMsFvVagiRkNY/YBLJ3W9pUot0svcTN0aXsbQRYrke3rJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795701374;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=iLd00IFzohbVpIMe1LWBEqJ1vSd7ISrAhl/TJxwW2yI=;
-	b=fo3ex6tAPtdq2FrtNj5fJ3Ac3PN/v3c687PSiwSDHq69RCTDpCn6snh9nfqadOgY9ShT
-	 tqehrXhuf8JqjjPsVFnPZyaKNPY0G75QL70uMOQnZyjtY3iaTzQHZHvnSMn5PB1Ldjw64
-	 9mZB9FE3nGfG+w2g7lRav2eYO9slxzMcPUPhEH6Kn1yGWg/FBC+Bbozh3XOEUvUNwmiDm
-	 DFnxuTIl69jvMjNJzzWhe33v1ZJxIkf1Zt4RV4seDjf/95iXTbkbhAV7yf43TDIsREDJ0
-	 t18Cm/0agae9Ne2XfZMNyjd0AYB+zSLS02qFFm9uTpQmmqeej7NGK/FWi6GSp/+na3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795701409;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=mSDD91TLN/72z/uC3zOy9x3ksTTieaPKZ1YAAqKxj3A=;
+	b=tXtZKqwr8w9cDtIRCZrJn+YJe/pJlz/sZwVpLO8D/oqIYGqG0DOCm7G007RhCncDbIKR
+	 wtYhtME78SeZQmsdAiGezv92J3S8lM5//ZEL5/+/c8ouLi2+rr66JRlHIY1fX8bfVL8+b
+	 Y+jrTjZVPblYpqczVgcPeTcsYb114e8nH/8I1jKHKadw5o2mP4qq4x3yMkJuN6y1JQkk/
+	 ks19HadwtI9s2nIdSnYOgW7u9SoUOOJ10CrYv6K8u2AYR5FeeclpmF8/msNtG5h87Ux+O
+	 sXmgLKz516QT1rprtqHGpRN1Uu4oV+QVCqVLRm5CAi6Sh91jMObyGkW2Qwra3+KaDcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=PqenlfRR;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hzwJG95u;
+	arc=none smtp.remote-ip=91.218.175.144
+Received: from mta0.migadu.com (out-144.mta0.migadu.com [91.218.175.144])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FF18606A31E;
-	Thu, 26 Nov 2026 13:56:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 698E7606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:56:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 698E7606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=PqenlfRR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D54551F000C4;
-	Thu, 26 Nov 2026 13:56:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795701373;
-	bh=iLd00IFzohbVpIMe1LWBEqJ1vSd7ISrAhl/TJxwW2yI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PqenlfRRn+1XNlNVrU1tSdeKKdilse0cjMPDbckAFjpH88+aQRx59627q6T7mZHnU
-	 8vmJXEsyOibBXLWptGpqOSS3GNUpVBlepk+WBcBdggQjwuuAHMzhBprkvjEsL6+Nuh
-	 +bN2dhKWXK3+cdqLXhQtVLjmAMEViJPb6QdyuLko=
-Date: Thu, 26 Nov 2026 14:56:33 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Peter Schneider <pschneider1968@googlemail.com>
-Cc: stable@vger.kernel.org, Christian Brauner <brauner@kernel.org>,
-	patches@lists.linux.dev, linux-kernel@vger.kernel.org,
-	torvalds@linux-foundation.org, akpm@linux-foundation.org,
-	linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
-	lkft-triage@lists.linaro.org, pavel@nabladev.com,
-	jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 6.18 000/990] 6.18.66-rc1 review
-Message-ID: <2026112654-designate-skimmed-87c4@gregkh>
-References: <20261125143822.072087159@linuxfoundation.org>
- <5eecac7a-613f-490c-abf7-7e218807ec2f@googlemail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=hzwJG95u
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=8b1bEgOOtpzWQWKfCAwVXwtE4knX7o/iGvJiTWAJh08=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795701406; v=1; x=1796306206;
+ b=hzwJG95u+TvW2mnvQTkCA5pPxeF24Wk2imZp4uSPwHvyNvN/2oWRvNsCTAUuOw2Xnlwb7MGW
+ XRX9oX5P2G9EnlQ8c/nbBXCs9rWnDHyQuPog0rKjL0Rb/mIcekpbynPd5sDn55volq2Xcg+Mwqo
+ 766su7pNySwIJGPeL2lqSuOc=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id de7d47af3f371c98;
+	Thu, 26 Nov 2026 13:56:46 +0000
+X-Mizu-Trace-ID: de7d47af3f371c98
+X-Migadu-Flow: FLOW_OUT
+From: Tao Cui <cui.tao@linux.dev>
+To: Bart Van Assche <bvanassche@acm.org>,
+	axboe@kernel.dk,
+	hch@lst.de,
+	Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>
+Cc: cuitao@kylinos.cn,
+	linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cui.tao@linux.dev,
+	Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
+Subject: [PATCH v9] loop: defer the queue limits clear to a workqueue
+Date: Thu, 26 Nov 2026 21:56:28 +0800
+Message-ID: <20261126135628.495497-1-cui.tao@linux.dev>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261126054223.176824-1-cui.tao@linux.dev>
+References: <20261126054223.176824-1-cui.tao@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,101 +72,295 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5eecac7a-613f-490c-abf7-7e218807ec2f@googlemail.com>
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 26, 2026 at 01:05:58PM +0100, Peter Schneider wrote:
-> Hi Greg,
-> 
-> Am 25.11.2026 um 15:22 schrieb Greg Kroah-Hartman:
-> > This is the start of the stable review cycle for the 6.18.66 release.
-> > There are 990 patches in this series, all will be posted as a response
-> > to this one.  If anyone has any issues with these being applied, please
-> > let me know.
-> 
-> 6.18.66-rc1 builds and boots on my machine (2-socket Ivy Bridge Xeon
-> E5-2697v2 server), but I get a warning message in the dmesg output:
-> 
-> [    7.686067] ------------[ cut here ]------------
-> [    7.686073] WARNING: CPU: 19 PID: 454 at fs/libfs.c:495 offset_readdir+0x1ae/0x1d0
-> [    7.686081] Modules linked in: i2c_algo_bit ehci_hcd libahci scsi_transport_sas i2c_smbus lpc_ich dca wmi
-> [    7.686093] CPU: 19 UID: 0 PID: 454 Comm: (udev-worker) Not tainted 6.18.66-rc1+ #1 PREEMPT(voluntary)
-> [    7.686096] Hardware name: ASUSTeK COMPUTER INC. Z9PE-D16 Series/Z9PE-D16 Series, BIOS 5601 06/11/2015
-> [    7.686100] RIP: 0010:offset_readdir+0x1ae/0x1d0
-> [    7.686103] Code: c1 2e e8 b5 75 ce 00 84 c0 0f 84 ae fe ff ff be 03 00
-> 00 00 4c 89 ef e8 60 9d ca 00 48 89 c3 48 85 c0 74 0a f6 40 03 08 75 9b <0f>
-> 0b eb 97 49 c7 44 24 08 ff ff ff 7f e9 81 fe ff ff e8 cb 44 cd
-> [    7.686106] RSP: 0018:ffffd0914e18fa98 EFLAGS: 00010246
-> [    7.686108] RAX: ffff8e884bcbe540 RBX: ffff8e884bcbe540 RCX: 0000000000000000
-> [    7.686110] RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
-> [    7.686112] RBP: ffffd0914e18fb18 R08: 0000000000000000 R09: 0000000000000000
-> [    7.686113] R10: 0000000000000000 R11: 0000000000000000 R12: ffffd0914e18fb60
-> [    7.686115] R13: ffffd0914e18fa98 R14: ffff8e884ba57930 R15: ffff8e884ba57898
-> [    7.686116] FS:  0000707f469e7980(0000) GS:ffff8ea8042e1000(0000) knlGS:0000000000000000
-> [    7.686118] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-> [    7.686120] CR2: 000064a69e409f28 CR3: 00000020888cc004 CR4: 00000000001706f0
-> [    7.686123] Call Trace:
-> [    7.686126]  <TASK>
-> [    7.686130]  iterate_dir+0xbe/0x240
-> [    7.686148]  __x64_sys_getdents64+0x76/0x110
-> [    7.686151]  ? __pfx_filldir64+0x10/0x10
-> [    7.686153]  x64_sys_call+0x1cf7/0x2350
-> [    7.686157]  do_syscall_64+0x82/0xec0
-> [    7.686163]  ? policy_nodemask+0x127/0x1c0
-> [    7.686168]  ? count_memcg_events+0xd7/0x1a0
-> [    7.686172]  ? __mod_memcg_lruvec_state+0xd2/0x1f0
-> [    7.686174]  ? __lruvec_stat_mod_folio+0x8c/0xf0
-> [    7.686177]  ? set_ptes.isra.0+0x3b/0x90
-> [    7.686181]  ? do_anonymous_page+0x106/0x990
-> [    7.686185]  ? ___pte_offset_map+0x1c/0x180
-> [    7.686188]  ? __handle_mm_fault+0xb55/0x1020
-> [    7.686192]  ? count_memcg_events+0xd7/0x1a0
-> [    7.686194]  ? handle_mm_fault+0x26c/0x380
-> [    7.686197]  ? do_user_addr_fault+0x2f8/0x860
-> [    7.686201]  ? irqentry_exit_to_user_mode+0x2e/0x320
-> [    7.686204]  ? irqentry_exit+0x43/0x50
-> [    7.686215]  ? exc_page_fault+0x90/0x1b0
-> [    7.686217]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
-> [    7.686230] RIP: 0033:0x707f4751b623
-> [    7.686232] Code: 8b 05 f1 87 10 00 64 c7 00 16 00 00 00 31 c0 eb 9e e8
-> 51 05 04 00 90 b8 ff ff ff 7f 48 39 c2 48 0f 47 d0 b8 d9 00 00 00 0f 05 <48>
-> 3d 00 f0 ff ff 77 05 c3 0f 1f 40 00 48 8b 15 b9 87 10 00 f7 d8
-> [    7.686234] RSP: 002b:00007ffd481402f8 EFLAGS: 00000293 ORIG_RAX: 00000000000000d9
-> [    7.686237] RAX: ffffffffffffffda RBX: 000064a69e401ef0 RCX: 0000707f4751b623
-> [    7.686238] RDX: 0000000000008000 RSI: 000064a69e401f20 RDI: 000000000000001a
-> [    7.686239] RBP: 000064a69e401f20 R08: 0000707f47624ac0 R09: 0000000000000001
-> [    7.686241] R10: 0000000000000000 R11: 0000000000000293 R12: 000064a69e401ef4
-> [    7.686242] R13: fffffffffffffe90 R14: 0000000000000000 R15: 0000000000000000
-> [    7.686245]  </TASK>
-> [    7.686246] ---[ end trace 0000000000000000 ]---
-> 
-> 
-> I didn't do a bisect this time, but looked at the changes to fs/libfs.c
-> 
-> You pulled in all three from this patch series:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=66a52b662e5c09c7e784d2656e0b7ab14b396a8f
-> 
-> which are
-> 
-> 65fabd95dd9c89667a09ca3d11e99a40649c8435 libfs: make i_rwsem the lock of the offset tree
-> 0db6cbb65261dd574ba1db1a607b50f488629556 libfs: end offset readdir at positions past DIR_OFFSET_EOD
-> c10108a3b99ad2c0728d77c348d0ce05561de636 libfs: walk offset directories in offset order
-> 
-> but from these, only "libfs: make i_rwsem the lock of the offset tree" was
-> "Cc: stable@vger.kernel.org # v6.14+". I wonder why you pulled in the other
-> two?
+From: Tao Cui <cuitao@kylinos.cn>
 
-Because they are marked as "Fixes:" for other commits in the tree.
+loop_clear_limits() calls queue_limits_commit_update() directly from
+the loop workqueue that processes the request.  That does a
+non-atomic struct assignment to q->limits without freezing the queue,
+which races with lockless readers of q->limits on other CPUs, such
+as bio splitting reading max_hw_sectors and the discard path reading
+max_hw_discard_sectors, letting them observe torn values.  The
+trigger is a discard or write-zeroes request on a loop device whose
+backing file does not support the corresponding fallocate operation.
 
-> So I reverted the other two, built and booted it, and that made the warning message disappear.
-> 
-> I see you have all three in the current 7.3.7-rc1 too, and in the current
-> 6.12.120-rc1, you have only "libfs: end offset readdir at positions past
-> DIR_OFFSET_EOD" which was not CC:stable, so you might want to look into
-> that, too.
+The code already has an XXX comment saying this should move to a
+workqueue.  Do that: schedule a work item on the system workqueue,
+where it is safe to freeze the queue around the limits update.  The
+work item takes the queue limits lock before freezing, matching the
+order used by loop_set_dio() and loop_set_block_size().  The
+unsupported modes live under a new mutex, lo->clear_limits_lock,
+guarded by a backing-file check that drops records from a racing
+unbind or rebind.  The work item is scheduled while holding that
+lock, so an unbind resets the verdicts under the lock before calling
+cancel_work_sync() and cannot miss a schedule from a request that is
+still in flight.  Requests that arrive while the clear is in flight
+fail quietly, so the console report stays at the first failure.
+loop_remove() also cancels the work item before the queue becomes
+unreachable.
 
-Ok, I've dropped both of these now, thanks!
+Fixes: 5f75e081ab5c ("loop: Disable fallocate() zero and discard if not supported")
+Suggested-by: Bart Van Assche <bvanassche@acm.org>
+Signed-off-by: Tao Cui <cuitao@kylinos.cn>
+---
+Changes since v8:
+- take limits_lock via queue_limits_start_update() before freezing in
+  the work item, following the convention that all block driver code
+  takes limits_lock before freezing (06a2ff603f1f, loop_set_dio(),
+  loop_set_block_size(), queue_limits_commit_update_frozen()); the
+  v8 order was a regression introduced by the v8 early-return rework
+  (sashiko review)
+- gate lo_fallocate() on the per-mode hardware limits
+  (max_hw_discard_sectors / max_write_zeroes_sectors) instead of the
+  shared bdev_max_discard_sectors(), which is also driven by the sysfs
+  discard cap: with only the punch-hole verdict committed, a
+  write-zeroes request could latch a false ZERO_RANGE verdict and
+  clear the write-zeroes limits on a backing file that supports them
+  (sashiko review)
+- reset clear_limits_seen in loop_set_block_size(): its limits
+  recompute re-enables cleared modes, and with verdicts previously
+  kept for the life of the backing file, repeat failures would never
+  reschedule the clear (sashiko review)
+- drop verdicts recorded against a NULL backing file silently and
+  annotate the lockless lo_backing_file accesses with READ_ONCE and
+  WRITE_ONCE (sashiko review)
+- verified with a PROVE_LOCKING-enabled kernel running loop/011, the
+  concurrency sweep, interleaved LOOP_SET_BLOCK_SIZE and write-zeroes
+  traffic, and sixty mkfs/unbind stress rounds: no lockdep reports and
+  no hangs, both with this reorder and, as a negative control, with
+  the v8 order
 
-greg k-h
+ drivers/block/loop.c | 142 ++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 128 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/block/loop.c b/drivers/block/loop.c
+index 194f51d9dab6..460c3a319988 100644
+--- a/drivers/block/loop.c
++++ b/drivers/block/loop.c
+@@ -67,6 +67,9 @@ struct loop_device {
+ 	struct list_head        rootcg_cmd_list;
+ 	struct list_head        idle_worker_list;
+ 	struct rb_root          worker_tree;
++	struct work_struct      clear_limits_work;
++	struct mutex		clear_limits_lock;
++	unsigned int		clear_limits_seen;
+ 	struct timer_list       timer;
+ 	bool			sysfs_inited;
+ 
+@@ -222,9 +225,35 @@ static void loop_set_size(struct loop_device *lo, loff_t size)
+ 		kobject_uevent(&disk_to_dev(lo->lo_disk)->kobj, KOBJ_CHANGE);
+ }
+ 
+-static void loop_clear_limits(struct loop_device *lo, int mode)
++static void loop_clear_limits_workfn(struct work_struct *work)
+ {
+-	struct queue_limits lim = queue_limits_start_update(lo->lo_queue);
++	struct loop_device *lo =
++		container_of(work, struct loop_device, clear_limits_work);
++	struct queue_limits lim;
++	unsigned int memflags;
++	int mode;
++
++	/*
++	 * Take limits_lock before freezing, like loop_set_dio() and
++	 * loop_set_block_size().
++	 */
++	lim = queue_limits_start_update(lo->lo_queue);
++
++	/*
++	 * The freeze drains in-flight requests, so everything scheduled
++	 * before it is visible in the snapshot below.
++	 */
++	memflags = blk_mq_freeze_queue(lo->lo_queue);
++	mutex_lock(&lo->clear_limits_lock);
++	mode = lo->clear_limits_seen;
++	mutex_unlock(&lo->clear_limits_lock);
++
++	/* A racing unbind may have reset the verdicts; nothing to commit. */
++	if (!mode) {
++		queue_limits_commit_update(lo->lo_queue, &lim);
++		blk_mq_unfreeze_queue(lo->lo_queue, memflags);
++		return;
++	}
+ 
+ 	if (mode & FALLOC_FL_ZERO_RANGE)
+ 		lim.max_write_zeroes_sectors = 0;
+@@ -234,14 +263,69 @@ static void loop_clear_limits(struct loop_device *lo, int mode)
+ 		lim.discard_granularity = 0;
+ 	}
+ 
+-	/*
+-	 * XXX: this updates the queue limits without freezing the queue, which
+-	 * is against the locking protocol and dangerous.  But we can't just
+-	 * freeze the queue as we're inside the ->queue_rq method here.  So this
+-	 * should move out into a workqueue unless we get the file operations to
+-	 * advertise if they support specific fallocate operations.
+-	 */
+ 	queue_limits_commit_update(lo->lo_queue, &lim);
++	blk_mq_unfreeze_queue(lo->lo_queue, memflags);
++}
++
++/*
++ * Record that the backing file does not support @mode.  Returns true
++ * for a first verdict or a dropped stale record, false for a repeat.
++ */
++static bool loop_clear_limits(struct loop_device *lo, struct file *file,
++			      int mode)
++{
++	bool first;
++
++	mutex_lock(&lo->clear_limits_lock);
++	if (READ_ONCE(lo->lo_backing_file) != file) {
++		/* Stale record from a racing unbind or rebind; drop it. */
++		mutex_unlock(&lo->clear_limits_lock);
++		return true;
++	}
++	first = (mode & ~lo->clear_limits_seen) != 0;
++	lo->clear_limits_seen |= mode;
++	/* Scheduled under the lock so cancel_work_sync() cannot miss it. */
++	if (first)
++		schedule_work(&lo->clear_limits_work);
++	mutex_unlock(&lo->clear_limits_lock);
++
++	return first;
++}
++
++/*
++ * Record the verdict and return -EOPNOTSUPP; repeats stay quiet so only
++ * the first failure per mode reports.
++ */
++static int lo_unsupported(struct loop_device *lo, struct request *rq,
++			  struct file *file, int mode)
++{
++	/* A NULL file means the backing file is already gone. */
++	if (!file)
++		return -EOPNOTSUPP;
++
++	if (!loop_clear_limits(lo, file, mode))
++		rq->rq_flags |= RQF_QUIET;
++
++	return -EOPNOTSUPP;
++}
++
++/*
++ * Return true when @mode is already recorded as unsupported, so the
++ * fallocate probe can be skipped.
++ */
++static bool loop_mode_unsupported(struct loop_device *lo, struct file *file,
++				  int mode)
++{
++	bool known;
++
++	mode &= FALLOC_FL_ZERO_RANGE | FALLOC_FL_PUNCH_HOLE;
++
++	mutex_lock(&lo->clear_limits_lock);
++	known = file && READ_ONCE(lo->lo_backing_file) == file &&
++		(mode & lo->clear_limits_seen);
++	mutex_unlock(&lo->clear_limits_lock);
++
++	return known;
+ }
+ 
+ static int lo_fallocate(struct loop_device *lo, struct request *rq, loff_t pos,
+@@ -256,8 +340,19 @@ static int lo_fallocate(struct loop_device *lo, struct request *rq, loff_t pos,
+ 
+ 	mode |= FALLOC_FL_KEEP_SIZE;
+ 
+-	if (!bdev_max_discard_sectors(lo->lo_device))
+-		return -EOPNOTSUPP;
++	/*
++	 * Zeroed hardware limits mean the matching verdict is already
++	 * committed; record the op's bit for the per-mode quiet accounting.
++	 */
++	if ((mode & FALLOC_FL_PUNCH_HOLE) &&
++	    !bdev_limits(lo->lo_device)->max_hw_discard_sectors)
++		return lo_unsupported(lo, rq, file, mode);
++	if ((mode & FALLOC_FL_ZERO_RANGE) &&
++	    !bdev_write_zeroes_sectors(lo->lo_device))
++		return lo_unsupported(lo, rq, file, mode);
++
++	if (loop_mode_unsupported(lo, file, mode))
++		return lo_unsupported(lo, rq, file, mode);
+ 
+ 	scoped_guard(file_write, file)
+ 		ret = file->f_op->fallocate(file, mode, pos, blk_rq_bytes(rq));
+@@ -269,7 +364,7 @@ static int lo_fallocate(struct loop_device *lo, struct request *rq, loff_t pos,
+ 	 * supported and clear them here if that turns out not to be true.
+ 	 */
+ 	if (unlikely(ret == -EOPNOTSUPP))
+-		loop_clear_limits(lo, mode);
++		return lo_unsupported(lo, rq, file, mode);
+ 
+ 	return ret;
+ }
+@@ -513,7 +608,7 @@ static int loop_validate_file(struct file *file, struct block_device *bdev)
+ 
+ static void loop_assign_backing_file(struct loop_device *lo, struct file *file)
+ {
+-	lo->lo_backing_file = file;
++	WRITE_ONCE(lo->lo_backing_file, file);
+ 	lo->old_gfp_mask = mapping_gfp_mask(file->f_mapping);
+ 	mapping_set_gfp_mask(file->f_mapping,
+ 			lo->old_gfp_mask & ~(__GFP_IO | __GFP_FS));
+@@ -1032,9 +1127,18 @@ static void __loop_clr_fd(struct loop_device *lo)
+ 
+ 	spin_lock_irq(&lo->lo_lock);
+ 	filp = lo->lo_backing_file;
+-	lo->lo_backing_file = NULL;
++	WRITE_ONCE(lo->lo_backing_file, NULL);
+ 	spin_unlock_irq(&lo->lo_lock);
+ 
++	/*
++	 * Requests may still be in flight across this unbind; reset the
++	 * verdicts before the cancel so it cannot miss the work item.
++	 */
++	mutex_lock(&lo->clear_limits_lock);
++	lo->clear_limits_seen = 0;
++	mutex_unlock(&lo->clear_limits_lock);
++	cancel_work_sync(&lo->clear_limits_work);
++
+ 	lo->lo_device = NULL;
+ 	lo->lo_offset = 0;
+ 	lo->lo_sizelimit = 0;
+@@ -1415,6 +1519,10 @@ static int loop_set_block_size(struct loop_device *lo, blk_mode_t mode,
+ 	loop_update_limits(lo, &lim, arg);
+ 
+ 	memflags = blk_mq_freeze_queue(lo->lo_queue);
++	/* The recompute above may re-enable modes with recorded verdicts. */
++	mutex_lock(&lo->clear_limits_lock);
++	lo->clear_limits_seen = 0;
++	mutex_unlock(&lo->clear_limits_lock);
+ 	err = queue_limits_commit_update(lo->lo_queue, &lim);
+ 	loop_update_dio(lo);
+ 	blk_mq_unfreeze_queue(lo->lo_queue, memflags);
+@@ -1700,6 +1808,7 @@ static void lo_free_disk(struct gendisk *disk)
+ 	loop_free_idle_workers(lo, true);
+ 	timer_shutdown_sync(&lo->timer);
+ 	mutex_destroy(&lo->lo_mutex);
++	mutex_destroy(&lo->clear_limits_lock);
+ 	kfree(lo);
+ }
+ 
+@@ -2018,6 +2127,8 @@ static int loop_add(int i)
+ 	spin_lock_init(&lo->lo_lock);
+ 	spin_lock_init(&lo->lo_work_lock);
+ 	INIT_WORK(&lo->rootcg_work, loop_rootcg_workfn);
++	INIT_WORK(&lo->clear_limits_work, loop_clear_limits_workfn);
++	mutex_init(&lo->clear_limits_lock);
+ 	INIT_LIST_HEAD(&lo->rootcg_cmd_list);
+ 	disk->major		= LOOP_MAJOR;
+ 	disk->first_minor	= i << part_shift;
+@@ -2056,6 +2167,9 @@ static int loop_add(int i)
+ 
+ static void loop_remove(struct loop_device *lo)
+ {
++	/* Cancel before the queue becomes unreachable. */
++	cancel_work_sync(&lo->clear_limits_work);
++
+ 	/* Make this loop device unreachable from pathname. */
+ 	del_gendisk(lo->lo_disk);
+ 	blk_mq_free_tag_set(&lo->tag_set);
+-- 
+2.53.0
+
