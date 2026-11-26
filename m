@@ -1,89 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795695341;
-	b=rlbjAwDiUZ4XxXEfbXPo4VIfAxrctWWcanQwU3y+VYRsECRNftJwOx52wF3xEeAmVC6U
-	 RRjB3qrK3cW/UNQSd1zdNPYaKAhWMvcrxzL7qLuDDIyNd+h7zmdBBQt/8cTFzhnsclYn/
-	 Q6kqWKEZEvQPPngNevP2iLtYfVAlMhHZ8MfmYaCFM89VMewCInpY1HAwW/ZXJ6axIJ60g
-	 V67M25TTTXNAzt/tM2xUhzlz3mKOni0Sh9zCIvO3yzxjUrMTd+GbT7d0QeICzzkzbhD+5
-	 jykxXkWlMpx/WD7wRhJjcqaCpmkhoEotU3p7BKLpXIH4iyN1xVRMUE9FD8pE4FcqqiQ==
+	t=1795695346;
+	b=Gr8bfP4IMxNI8jG1zPF1fr5gc2CQoYKAb/65Ln0Tn2o4niEuiTo+Yr7YdI4uzoUBN8Gh
+	 ZIwQWc1m+qgfLagPdnWZXTQ+dSDfx/XEjYRXgz+nMM8keFpIDgLkWdAW+ggSN49wCzyAf
+	 Ckv4Q9oKgRdJjLRT3gRgy7lBIKw3V/mhgnML+71pe2enD7lEw+24OYZR/ikTjIlAWv1V5
+	 ZOuRnD7o/wHES4aESGfls4iwOthobwY9oHpR0Lm7dQJUcO9kS8JbDBtn9walYoEYkIp2q
+	 Pd4klannZr1wnVy/aACSYBk9iChL4l4SRnLt3wG0OPnRzE5IOKvkUxF/+9XqDEip7jw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795695341;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=P1Mn4IDEtM3X0G04DoPkhdXK832QwOPLqhzhG/Y0UJQ=;
-	b=zqVGVLnMSzuxMfUrc/lEP4+OZhXupH5/1iaH+UjBD8VoGMdWpGkNGqUdXsXcFnphGbUr
-	 PdjSp9apfhO+YmF7ESUBZpMa5hBEHCqf+fOstiQQMv3CuzCxSnbnnQs8aHSgXjOm/FuOS
-	 CdGzeRZYKEEqMlESqFv3DXqmkSF1VMXP9YmBYW3vzdr2Ql3X/MDjJWqX1pPxe0qI/M7xJ
-	 RI9Rbc+Cu6e8zzZRcRGLixONiKg0KW5XNLl9z6dNnmKbEpdcPwkL4nMMtPfLG7Qhx1nlI
-	 39K9LNP+C1prBwsnagvBlHbdqG2MVNzVFmWKAEJkQGDklEwiNX1cP26SWqgo7jZvCLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795695346;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=ejTolVWS/3eK+IMYMtAIj+rYv+HyvbjZG2pfQPmahAg=;
+	b=ctAeKsxUo3mJ+yPp//iwZXOkAPKYp24gIO0gR1RPwrwS/uFT0/HSz7qw/gwXE4ilXbTI
+	 PTqtClDrId2EpYjNUzA74m5qiiRvP01Eq9dzUN6hfqtUenngaHPEpRczINEal5/8SuNmc
+	 ASlJAsm8PRRFO8PtmmfaQ9WiC6VJ7xLNHw0Oixrh1Hd7oWgkbZMnAThGK/IWDUSmHIAoi
+	 TdOjgtdxNN/cD8yW3TwDEpeor8toE6z5KpaF3gBUqlgkXbZEQYed2wfgVG/NDtPF+rD3s
+	 OleslkIqUwhclen1P7iuQzw1zDMuwAI05/OeEHYomtUc/2bAfDrhodps0PT/tlDdaag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="i7yzPMc/";
-	arc=none smtp.remote-ip=74.125.82.49
-Received: from mail-dl1-f49.google.com (mail-dl1-f49.google.com [74.125.82.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=Hb6u32uf;
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F568606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:15:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F568606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5257D606A323;
+	Thu, 26 Nov 2026 12:15:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5257D606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i7yzPMc/
-Received: by mail-dl1-f49.google.com with SMTP id a92af1059eb24-1b589050416so1203590c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:15:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795695340; x=1796300140; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=P1Mn4IDEtM3X0G04DoPkhdXK832QwOPLqhzhG/Y0UJQ=;
-        b=i7yzPMc/XsUM3ABvClyDztOMuxprbiGA6nlR0sq5k3nEzw5PHnPO3+xfs+OC4MHC+K
-         MS9C/O5NEtnEYahIwraEL7AlwzkJcnTfQo5NbpTexg6h54+SsHO5o+5SvLn+UBgcf2pK
-         xYFuV3CZcuFiSiicAoOz6vIZ2IMx3bQFvuWwVVF3StpeduiNwvlZWzeCbJ6TQKPJXjqn
-         okv9KwIgiqTggcbXpCzDxby7B6PE8++n2yS4O4polKy4OAc6bjNQuzcFuTBbBJ4AlUTn
-         qs4kR5THByzA2Ur8r0m/2BupvT8H0vodv6YHK2pn7k2YtpddValLSh5eNacBd91bL6nW
-         Km0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795695340; x=1796300140;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=P1Mn4IDEtM3X0G04DoPkhdXK832QwOPLqhzhG/Y0UJQ=;
-        b=HMyvGtgxOZNKq4co9tTEwOGkHEgBKEXEvwK+5hOxuYMcPGmTJ/7FEUo25Qv9GMUftZ
-         XZoYDr2anZOtsUSv9KKqDMWfbqdWX+kHhXklyWLMLi06ytLrbZIAyNGGxLpKFrzsds9d
-         N3OHuIj/w4ZM+oFFhMGTNi/pJgx53XUeJKeETEjDdUkG9l9gwwXcmftvqom58puHO8KV
-         vhDEEgiwZLsNuIb3lrbivGxFoe4b6oGLIT3Fgr1KYIraBLa0wjvgSJWqgTMVuFx+6t/o
-         VfTf7WQj55sTpzSozEDBYOXxKtE4JajR/I2A7psxnYjZN847VS7BRLD9dAJd8C0gKKy7
-         k22Q==
-X-Forwarded-Encrypted: i=1; AL+hErEUQQmI/g8tEpPKiS+aLDMk5I9ckQj01BL60RPySYi2BoPPkfQUVHSJ7yDVDU1CUoZCX4ZTozN1QsAQDN8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9iE3O+uJcOoQee2XS5VTz1RQkiuhqll4Qa3m4rXTqaVHivI87U
-	XqlUpLV2TdwZIckj/pJXVXJBtUJeyknaRz53fIzFVqRq/WL1KTN/XIpr
-X-Gm-Gg: AZFdTZdU6NKGXHy9UUAscCQ6ctXBOmMmNG6paVJzJoIbzCqI9lwar27bnl5y7VW77g4
-	VBfJYlsVSozFLd4SG5ifL0iQ2zxTtcDjfEf9fAAMEOaFH0BUuKm4qq7MTsrCJuFww/8zyy3djWH
-	qKOtkMV1l522S7QWRNvGj7GSv3Exvc3JSZd7DMZs1Ja2Grd52ebyDiHN+YccaMrZJdsnNquX/ta
-	Zs1eKLxby+7Ihzm9aka5Bb9pv8xdntZRYaV0huf7VF+LVmIMcmm7hr8osZ+pR/omABTWclcJfxO
-	OZ7jiDgvZVK3K5n8B+Ywmp/BhC7C15ydx+ksMN3UIvJeb/iL4OslFJ3H8eVH6NcsxRvqb/+a7Rt
-	iCj0PoGxZHEg+anDnLEOWV5gv8e1DujFpuxQhErDpb46wX4IVmlWGNxRpiQphdMe6n60E6IZ6qP
-	YctKh0If9OjjLnoiN0Fwr6NZczJDR/ciVTkRjy0Sg6F6lpS2q9ho7lFJJa7LOPzIpYguTCpG5yT
-	cxNbZ8QnsoUJR+aZQPYDcoJD6O3l90ehjuduP8PTzcGAmu3HFWwYdYsaJpdZ2GnPaYtjIrMP0E2
-	wOarG/6hflaiFptfsaUc7fK7W52dfw8N4tCM/dMxRGg2updv9IgVmXDAdVr7hC7m6JIR5jz65p1
-	naBastInyxrbWEPM=
-X-Received: by 2002:a05:7022:b051:20b0:185:b157:f271 with SMTP id a92af1059eb24-1b5568e30b9mr23372593c88.23.1795695339724;
-        Thu, 26 Nov 2026 04:15:39 -0800 (PST)
-Received: from [192.168.151.216] (115-179-187-167.aichi.fdn.vectant.ne.jp. [115.179.187.167])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b562a82b3fsm58188566c88.5.2026.11.26.04.15.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 04:15:39 -0800 (PST)
-Message-ID: <de7f36b9-1ea5-4f48-91f5-dda0146d2e1f@gmail.com>
-Date: Thu, 26 Nov 2026 21:15:37 +0900
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=Hb6u32uf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795695354; x=1827231354;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hQyIbm7vXOCwN75H9xbgMrw794v67s7pmm0O8GSxXE0=;
+  b=Hb6u32uff+UwzR/gCQdwUrW0DCg+ct1kpHdaC8C9LtlqfS9/QAjHWPsu
+   J/eCGxx9n/k+hIIyzjoT7bwXC3Tuvv5JTUzADoC3GzI6DcuKt2YBNe1rH
+   3PkRZXvrChi4W1fp7yDlz8m3GIx6kcAvyrlQy9Za36aIa1kx4B7YUgQsI
+   WoftD8C/1lZq9sVRXEWbcaqsXXupwJk3GnEnobnC0hsmTOKWHjSY94w6c
+   tLmoMWAwdk2oIh77CY4wvfbS4IstODiLoy7unHGzGsFEM5bxhMgpu1dvG
+   84tCiBOYRKfN4FYO5MrAXrQitB/iINHX42AS6+7F79akIAzhxc/Gp6ZPm
+   w==;
+X-CSE-ConnectionGUID: A0wiu6lCTdKIYILWdkd/4Q==
+X-CSE-MsgGUID: D1OP0uW+ReqLjguteQSEaA==
+X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
+   d="scan'208";a="66109279"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 05:15:53 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.57; Thu, 26 Nov 2026 05:15:45 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Thu, 26 Nov 2026 05:15:42 -0700
+Date: Thu, 26 Nov 2026 13:15:41 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Nicolai Buchwitz <nb@tipi-net.de>
+CC: Doug Berger <opendmb@gmail.com>, Florian Fainelli
+	<florian.fainelli@broadcom.com>, Broadcom internal kernel review list
+	<bcm-kernel-feedback-list@broadcom.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Florian
+ Fainelli <f.fainelli@gmail.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Dave Stevenson
+	<dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH net-next v9 7/8] net: bcmgenet: allow the MTU to be
+ changed
+Message-ID: <20261126121541.6gybeqbkxsvjav5i@DEN-DL-M70577>
+References: <20261123-nb-genet-mtu-nn-v2-v9-0-4f93ded19bbb@tipi-net.de>
+ <20261123-nb-genet-mtu-nn-v2-v9-7-4f93ded19bbb@tipi-net.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,28 +86,182 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/14] ARM: deprecated platform removal
-To: Vladimir Murzin <vladimir.murzin@arm.com>, Brad Hawthorne <brad@sim.vu>,
- Linus Walleij <linusw@kernel.org>, Arnd Bergmann <arnd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260914140821.1805449-1-arnd@kernel.org>
- <17a74e90-27d1-4954-86a8-491267f00cb8@gmail.com>
- <CAD++jL=VJsnk-GzAvR4oR8oKJayQzq9Oes+ZW7K=iHGrQ1jh0w@mail.gmail.com>
- <20261122003911.1203777-1-brad@sim.vu>
- <b0be3be5-3a7d-469e-9166-a3414a52cbea@arm.com>
-Content-Language: en-US
-From: Yoshifumi SHU <envzhu@gmail.com>
-In-Reply-To: <b0be3be5-3a7d-469e-9166-a3414a52cbea@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261123-nb-genet-mtu-nn-v2-v9-7-4f93ded19bbb@tipi-net.de>
 
-On 2026/11/26 18:48, Vladimir Murzin wrote:
-> Can you or Yoshifumi send a revert for c5e0cbe2858d,  please? I admit
-> I overlooked that base already at offset 0x100 so I'd be more than happy
-> with revert.
+Hi Nicolai,
 
-Thanks! I'll send the revert.
+> The driver never sets dev->max_mtu, so the MTU is stuck at ETH_DATA_LEN.
+> 
+> One descriptor reaches as far as the packet ready threshold, so derive the
+> maximum from it. The threshold registers are 8 bit in units of 16 bytes and
+> want a multiple of the 256 byte burst size. A descriptor is one page and
+> also holds skb_shared_info behind the frame. On 4K pages the page is the
+> tighter limit and leaves 3564 bytes. That includes room for a VLAN tag so a
+> VLAN interface can run at the parent MTU. The MAC accepts a little more
+> than one descriptor holds, so a double tagged frame at that maximum is
+> dropped as fragmented until a later patch reassembles those.
+> 
+> The PHY keeps running across the change so the link stays up, with its
+> lock held so that a link event cannot enable the MAC while the registers
+> change. Two MTUs at or below ETH_DATA_LEN derive the same values, so a
+> change between them needs no restart at all.
+> 
+> Only v5 is known to size the TBUF for a long frame and to carry the full
+> length in a transmit descriptor, so the older parts keep the default MTU
+> until someone confirms them.
+> 
+> Only a DMA that refuses to halt still takes the interface down, because
+> nothing is left to run on.
+> 
+> Suggested-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> Link: https://github.com/raspberrypi/linux/issues/5561
+> Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
+> ---
+>  drivers/net/ethernet/broadcom/genet/bcmgenet.c | 99 ++++++++++++++++++++++++++
+>  1 file changed, 99 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+> index ae20c4b3c570..8dcee6951be3 100644
+> --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+> +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+> @@ -91,6 +91,12 @@
+>  				      ENET_THLD_MAX * ENET_THLD_UNIT, \
+>  				      ENET_THLD_PAGE_LEN)
+>  
+> +/* Largest MTU that fits one descriptor, with room for a VLAN tag so a VLAN
+> + * interface can use the parent MTU.
+> + */
+> +#define ENET_MAX_MTU		(ENET_THLD_MAX_LEN - GENET_RBUF_ALIGN - \
+> +				 ETH_HLEN - VLAN_HLEN)
+> +
+>  /* Tx/Rx DMA register offset, skip 256 descriptors */
+>  #define WORDS_PER_BD(p)		(p->hw_params->words_per_bd)
+>  #define DMA_DESC_SIZE		(WORDS_PER_BD(priv) * sizeof(u32))
+> @@ -3988,6 +3994,89 @@ static int bcmgenet_change_carrier(struct net_device *dev, bool new_carrier)
+>  	return 0;
+>  }
+>  
+> +static int bcmgenet_change_mtu(struct net_device *dev, int new_mtu)
+> +{
+> +	struct bcmgenet_priv *priv = netdev_priv(dev);
+> +	unsigned int old_mtu = dev->mtu;
+> +	struct bcmgenet_dma_set set;
+> +	int ret;
+> +
+> +	/* A failed resume left the datapath down, nothing to reprogram */
+> +	if (!netif_running(dev) || !priv->tx_cbs) {
+> +		WRITE_ONCE(dev->mtu, new_mtu);
+> +		priv->rx_buf_len = bcmgenet_rx_buf_len(new_mtu);
+> +		return 0;
+> +	}
+> +
+> +	/* Below ETH_DATA_LEN everything is floored, so there is nothing to
+> +	 * reprogram and rx_buf_len stays as the receive path reads it.
+> +	 */
+> +	if (max_t(unsigned int, old_mtu, ETH_DATA_LEN) ==
+> +	    max_t(unsigned int, new_mtu, ETH_DATA_LEN)) {
+> +		WRITE_ONCE(dev->mtu, new_mtu);
+> +		return 0;
+> +	}
 
-Best regards,
-Yoshifumi SHU
+What about a similar check for MTUs above ETH_DATA_LEN? AFAICT, there are
+ranges where you don't need to do a full replacement of the buffers, yet
+you still do.
+
+> +
+> +	ret = bcmgenet_alloc_dma(priv, bcmgenet_rx_buf_len(new_mtu), &set);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* The watchdog trips on an idle queue once the rings are gone */
+> +	netif_device_detach(dev);
+> +
+> +	/* The PHY stays up, hold its lock. A link event would otherwise take
+> +	 * the MAC out of reset and enable it mid rewrite.
+> +	 */
+> +	mutex_lock(&dev->phydev->lock);
+> +	bcmgenet_netif_stop(dev, false);
+> +
+> +	WRITE_ONCE(dev->mtu, new_mtu);
+> +	priv->rx_buf_len = bcmgenet_rx_buf_len(new_mtu);
+> +	bcmgenet_set_mtu_regs(priv, new_mtu);
+> +
+> +	ret = bcmgenet_init_dma(priv, true, &set);
+> +	if (ret) {
+> +		/* The datapath is gone, do not leave the interface up */
+> +		netdev_err(dev, "failed to initialize DMA, closing\n");
+> +		WRITE_ONCE(dev->mtu, old_mtu);
+> +		priv->rx_buf_len = bcmgenet_rx_buf_len(old_mtu);
+> +		mutex_unlock(&dev->phydev->lock);
+> +		/* bcmgenet_close() attaches the device again */
+> +		netif_close(dev);
+> +		return ret;
+> +	}
+> +
+> +	bcmgenet_hfb_restore(priv);
+> +	bcmgenet_netif_start(dev, false);
+> +
+> +	/* bcmgenet_netif_start() only restores the link interrupt */
+> +	if (bcmgenet_has_mdio_intr(priv))
+> +		bcmgenet_intrl2_0_writel(priv, UMAC_IRQ_MDIO_EVENT,
+> +					 INTRL2_CPU_MASK_CLEAR);
+> +
+> +	mutex_unlock(&dev->phydev->lock);
+> +
+> +	/* Interrupts were off, so a latched link event is lost. Internal PHYs
+> +	 * on v1-v4 are not polled either.
+> +	 */
+> +	phy_mac_interrupt(dev->phydev);
+> +
+> +	/* An energy detect event cancelled with the work is still latched */
+> +	if (READ_ONCE(priv->irq0_stat))
+> +		schedule_work(&priv->bcmgenet_irq_work);
+> +
+> +	netif_device_attach(dev);
+> +
+> +	/* Filter updates that came in while the device was detached got
+> +	 * dropped. An IPv6 join does not hold RTNL.
+> +	 */
+> +	netif_addr_lock_bh(dev);
+> +	bcmgenet_set_rx_mode(dev);
+> +	netif_addr_unlock_bh(dev);
+> +
+> +	return 0;
+> +}
+> +
+>  static const struct net_device_ops bcmgenet_netdev_ops = {
+>  	.ndo_open		= bcmgenet_open,
+>  	.ndo_stop		= bcmgenet_close,
+> @@ -3999,6 +4088,7 @@ static const struct net_device_ops bcmgenet_netdev_ops = {
+>  	.ndo_set_features	= bcmgenet_set_features,
+>  	.ndo_get_stats64	= bcmgenet_get_stats64,
+>  	.ndo_change_carrier	= bcmgenet_change_carrier,
+> +	.ndo_change_mtu		= bcmgenet_change_mtu,
+>  };
+>  
+>  /* GENET hardware parameters/characteristics */
+> @@ -4352,9 +4442,18 @@ static int bcmgenet_probe(struct platform_device *pdev)
+>  	/* Mii wait queue */
+>  	init_waitqueue_head(&priv->wq);
+>  	bcmgenet_hfb_init(priv);
+> +
+>  	priv->rx_buf_len = bcmgenet_rx_buf_len(dev->mtu);
+>  	priv->tx_thld_len = bcmgenet_tx_pkt_rdy_thld(dev->mtu) * ENET_THLD_UNIT;
+>  	priv->tx_thld_window = priv->dma_max_burst_length * ENET_BURST_UNIT;
+> +
+> +	/* Only v5 is known to size the TBUF for a long frame and to carry the
+> +	 * full length in a transmit descriptor, the older parts stay at the
+> +	 * default MTU
+> +	 */
+> +	if (GENET_IS_V5(priv))
+> +		dev->max_mtu = ENET_MAX_MTU;
+> +
+>  	INIT_WORK(&priv->bcmgenet_irq_work, bcmgenet_irq_task);
+>  
+>  	priv->clk_wol = devm_clk_get_optional(&priv->pdev->dev, "enet-wol");
+> 
+> -- 
+> 2.53.0
+> 
