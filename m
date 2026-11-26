@@ -1,88 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795708494;
-	b=Q+yljGyNguYFAuw4jrJ6DmcjC2zQx8z5M/AgGiRWlUU7Cp12yF7q3i2ja9SzYR1WXXi9
-	 iDFfgcVoKluW6aa6RWWld3Sfg+Ou7t3Gjs65+VISR3DgZ9MxI2BUPAiK1FaQn2uwrHJ7g
-	 XYjiRE8lfrs+PlUYt7i6lszfn6IWY39ZvtGyhD1WDZMzIpGyKc5nJJkFKFNsxx2e37iml
-	 /1XzLFQgwSc6ILLq2dcyedNAhKdPc3cvAtgPfRMg2L8cSxtSOWqXWkaOwwABXA4kAH/oI
-	 WeyJpPotrQDYEeCz8Ylo5pfG+24qG7EmVrO8uNjwXRmWyotibtcRW0phyTA1YuajlCw==
+	t=1795708521;
+	b=nZiF31VsCGBxiInUn/2Uary/JqtX2hdhOxXyk1X8EyM8Hc29Tc6kXvgCPfN8C1O35SRr
+	 eCrjT4+S4mPVelRSz/zY7hGekZ4osa0JpgKPcQ2sYxD5QUxP+PvJi/agNzi5FBF5aZRRA
+	 Zt18J1+ONijr5FdQo6p5b4cegzCxdKlUU8ZdmKhU6jsWe/YaizjNiJTDlj2Uq8xZJ/vBy
+	 lRCTzMiB070MlnYZ6+/2g9N76oU5V7XzcQWVlpMzFlFyYv4DHH5HLpQ4vHf6g4AvG+PGA
+	 gPy/2PtvnugIMiN6wQUy3V6fEq4lgUUEJhWnsqi0NtGgIxQM6dnoK7k09AO31FqVIUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795708494;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Received:Received:Date:From:To:Cc:Subject:Message-ID:MIME-Version:
-	 In-Reply-To:X-CMS-MailID:X-Msg-Generator:Content-Type:
-	 X-Sendblock-Type:CMS-TYPE:cpgsPolicy:X-CFilter-Loop:X-CMS-RootMailID:
-	 References;
-	bh=5M9xtfTWt/rD6V3Yq9/gJOzmL0PuY9q0JOmTonMrkYc=;
-	b=tTMXDsUPkUve7LOve57bQ+wovpB8krKhrLyTc2oyUo8bfPs8UHFbmkkco6wY5rUJEBCc
-	 lE+81OIQ7Ujy+oNovCftuduV39P0ZmAG49Ss5d/+y9n7difPoAhPry+QMhEoKV6Huu17k
-	 tq8APb3vqE5uV3xVgtma9mFc+kD96vEUiyg4L/6TCmwFPkoqlZmIE0eM5pDVi5d/QJLQO
-	 b2XRjuLzax61GYeJkPbDoMG98zNLcW4Fy3Hz8UpeEYmB1BwFV/a4nw3YGWN3k7pXmCoRg
-	 j7w9xpNL7V6XUdK4uONuQzToO5ywGHZ7UIeTlrJmuLhhJLhuX1x/697xHlzApjUmR1g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795708521;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding;
+	bh=GWUKzQOK5TMyRFajMGCLMgpr+ANo1hrXcxfeGfWdrNo=;
+	b=XujIbPqmKunOyNI+3Onudb4c/Xws71zse7cbfvKpNbc1/y91+sdmUg1ipG4g6yXowDuI
+	 S2oRBk9hm40VDg6f6uwyl8Ng0ZDjArcHYS65b1r7fisbzPXkpwABHymDNe6LniZ2iB4Bi
+	 EiRn3PHX3kH2zBW8U8V3i6YOaAgebqEp8z2S2xokeyKZ+eajcFIzYaT3haNiR+tRy65Ow
+	 gXgIwBF2XIn1tLp1578sMXLZEIMDYI7PnRA6GELZdl50AucsNRvy+jE+peSsVM29+0ypV
+	 hpo/emUI4sm1Os7fSsCNZi2BYzRUND8Tjgodzc1/laGxtLYmO6asQGQ25MJNwR1ATPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=S8Q+2CV4;
-	arc=none smtp.remote-ip=203.254.224.33
-Received: from mailout3.samsung.com (mailout3.samsung.com [203.254.224.33])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03A23606A31E;
-	Thu, 26 Nov 2026 15:54:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03A23606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Z1EsWO6A;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 386C4606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:55:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 386C4606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=S8Q+2CV4
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20261126155444epoutp03dcd4ec9596cec66ed694dc1c2cd611a1~ro1pFr0S32621526215epoutp032;
-	Thu, 26 Nov 2026 15:54:44 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20261126155444epoutp03dcd4ec9596cec66ed694dc1c2cd611a1~ro1pFr0S32621526215epoutp032
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795708484;
-	bh=5M9xtfTWt/rD6V3Yq9/gJOzmL0PuY9q0JOmTonMrkYc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=S8Q+2CV47r+jcyB/hxRZQoNdHuxQ/gWyvqpTmqCCGD4I8E1N/8Sp5R2e+BT1h5Dit
-	 Id45RW2ZS5AZJEl/R4M3H3tcJ9xLhuBNVHLz9LrKcWbkmclmhrryoUfbwW/+ukJYtW
-	 oFWXu+LFCdF+trLev1upv67SG1axo8gAriR3T9dQ=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20261126155443epcas5p3efe33a75b41143a93560ac14ae0acd78~ro1oKmgN02527325273epcas5p3D;
-	Thu, 26 Nov 2026 15:54:43 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.95]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4jb1MQ68Ssz3hhT3; Thu, 26 Nov
-	2026 15:54:42 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20261126140745epcas5p4f87a6186091785f4d3de4b69734aed88~rnYO8DwMQ2019420194epcas5p43;
-	Thu, 26 Nov 2026 14:07:45 +0000 (GMT)
-Received: from green245.gost (unknown [107.99.41.245]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261126140741epsmtip24d507cb1363ab8b6b8b6b2fe8c81b878~rnYK24Eeh1787017870epsmtip2c;
-	Thu, 26 Nov 2026 14:07:41 +0000 (GMT)
-Date: Thu, 26 Nov 2026 19:36:51 +0530
-From: Nitesh Shetty <nj.shetty@samsung.com>
-To: Pavel Begunkov <asml.silence@gmail.com>
-Cc: Mengmeng Zhao <mengmeng.zhao@linux.dev>, Anuj Gupta
-	<anuj20.g@samsung.com>, Christoph Hellwig <hch@lst.de>, Christian Brauner
-	<brauner@kernel.org>, Anuj Gupta <anuj1072538@gmail.com>, Jens Axboe
-	<axboe@kernel.dk>, Sumit Semwal <sumit.semwal@linaro.org>, Christian Koenig
-	<christian.koenig@amd.com>, Philipp Stanner <phasta@kernel.org>, Dan
-	Williams <djbw@kernel.org>, Matthew Wilcox <willy@infradead.org>, Jan Kara
-	<jack@suse.cz>, Alexander Viro <viro@zeniv.linux.org.uk>, Theodore Ts'o
-	<tytso@mit.edu>, Andreas Dilger <adilger.kernel@dilger.ca>, Baokun Li
-	<libaokun@linux.alibaba.com>, Ojaswin Mujoo <ojaswin@linux.ibm.com>, Ritesh
-	Harjani <ritesh.list@gmail.com>, Zhang Yi <yi.zhang@huawei.com>, Jonathan
-	Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy
-	Dunlap <rdunlap@infradead.org>, linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	nvdimm@lists.linux.dev, linux-ext4@vger.kernel.org,
-	linux-xfs@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org, Li Wang <liwang@kylinos.cn>, Mengmeng Zhao
-	<zhaomengmeng@kylinos.cn>
-Subject: Re: [RFC PATCH v2 0/8] ext4: Add dma-buf read/write support
-Message-ID: <20261126140651.vzs2gdwajemvf6kt@green245.gost>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Z1EsWO6A
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB7961BA8;
+	Thu, 26 Nov 2026 07:55:16 -0800 (PST)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CC153F632;
+	Thu, 26 Nov 2026 07:55:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795708519; bh=W3j5bTkpiQ5xyMVgEBbFFifoyYnABJf1hwDRohAf4B8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Z1EsWO6A8CnkdOnaCV32+CRdvuEWM9h6nXvinWH9WhTKmixvP+R/wcLiSNCIgQIte
+	 KoQ9diaAmbY30+PONFKwnKzJWw5uu1l+VPp4fnSF3tn2WAJUEaS/PE/YDLO+GeM8ex
+	 aX+rUoWjVgXlHtnI7PETBlVzGgqbpyS054EFVesA=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	maz@kernel.org,
+	oupton@kernel.org,
+	fuad.tabba@linux.dev,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	riel@surriel.com,
+	shakeel.butt@linux.dev,
+	kernel-team@meta.com,
+	rkeilty@meta.com,
+	atish.patra@linux.dev,
+	dgreid@meta.com
+Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
+Date: Thu, 26 Nov 2026 15:55:13 +0000
+Message-ID: <awhWYdZVkESY9eJs@LeoBrasDK>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <klnyvfxwhpw73wo55y5aq3qliglnf7xkfkmfj6cgzje7z3n2fq@aqjxshyjnldu>
+References: <20261124152842.2634495-1-usama.arif@linux.dev> <awcXhk885lqDRAHy@LeoBrasDK> <06a69a4f-59bb-49b8-9ed0-f4cfe0ecad37@linux.dev> <awcoCklLOKeuXPhh@LeoBrasDK> <e7bdcfa9-bbd8-4649-8318-2f6dc236db15@linux.dev> <4jxdf2pkuu2f7dftvf6ltpv27jctfuvvrfcrbfxudsgnp3hdfk@taur55wftexq> <awhODYKXnsBi_s_B@LeoBrasDK> <klnyvfxwhpw73wo55y5aq3qliglnf7xkfkmfj6cgzje7z3n2fq@aqjxshyjnldu>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,43 +81,162 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-In-Reply-To: <0b76171b-7f2e-41d2-8a5c-102dbe4cb85b@gmail.com>
-X-CMS-MailID: 20261126140745epcas5p4f87a6186091785f4d3de4b69734aed88
-X-Msg-Generator: CA
-Content-Type: multipart/mixed;
-	boundary="----sfnc.NZyIOBfLTiZTLswaXBSL0w4GQC52Zj1LhBq2cHN2.MV=_ad66_"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20261124084131epcas5p3098eab1bc134da7aefcc83c646b54a9d
-References: <20261113070621.273953-1-mengmeng.zhao@linux.dev>
-	<20261120154153.GC28611@lst.de>
-	<361c4312-f77b-495f-9ee4-e0b9612b4463@linux.dev>
-	<CGME20261124084131epcas5p3098eab1bc134da7aefcc83c646b54a9d@epcas5p3.samsung.com>
-	<20261124084025.2101804-1-anuj20.g@samsung.com>
-	<3bce3a69-e41c-4683-b1ca-9477dd41a7e0@linux.dev>
-	<0b76171b-7f2e-41d2-8a5c-102dbe4cb85b@gmail.com>
-
-------sfnc.NZyIOBfLTiZTLswaXBSL0w4GQC52Zj1LhBq2cHN2.MV=_ad66_
-Content-Type: text/plain; charset="utf-8"; format="flowed"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 
-On 26/11/26 10:44AM, Pavel Begunkov wrote:
->I'll resend it later, how to store the tag is the least interesting
->part, it can just move inside the block/ext4/etc code, which would
->be uglier, but whatever.
->
+On Thu, Nov 26, 2026 at 03:34:19PM +0000, Wei-Lin Chang wrote:
+> On Thu, Nov 26, 2026 at 03:19:41PM +0000, Leonardo Bras wrote:
+> > On Thu, Nov 26, 2026 at 08:06:41AM +0000, Wei-Lin Chang wrote:
+> > > On Wed, Nov 25, 2026 at 09:42:33PM +0000, Usama Arif wrote:
+> > > > 
+> > > > 
+> > > > On 25/11/2026 10:25, Leonardo Bras wrote:
+> > > > > On Wed, Nov 25, 2026 at 05:55:29PM +0000, Usama Arif wrote:
+> > > > >>
+> > > > >>
+> > > > >> On 25/11/2026 09:14, Leonardo Bras wrote:
+> > > > >>> On Tue, Nov 24, 2026 at 07:28:42AM -0800, Usama Arif wrote:
+> > > > >>>> When a stage-2 fault may need new page tables, KVM first tops up the
+> > > > >>>> vCPU's page cache: if it holds fewer pages than the fault might need, it
+> > > > >>>> is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
+> > > > >>>> 40. Unused pages stay in the cache until the vCPU is destroyed.
+> > > > >>>>
+> > > > >>>> With 64 KiB pages, that is 2.5 MiB per vCPU, and most of it is never
+> > > > >>>> used. Stage-2 has at most three levels and the root is preallocated, so
+> > > > >>>> a fault needs at most two new table pages (kvm_mmu_cache_min_pages()).
+> > > > >>>> As every last-level table covers 512 MiB, an 8 GiB guest needs just 17
+> > > > >>>> table pages to map all of its memory, while its four vCPU caches get
+> > > > >>>> filled with 160.
+> > > > >>>>
+> > > > >>>> On a production host with 64 KiB pages running 101 VMs with four vCPUs
+> > > > >>>> each, the caches were still 86% full. The memory used:
+> > > > >>>>
+> > > > >>>>                         before      after
+> > > > >>>>   per-vCPU capacity     2.5 MB     512 KB
+> > > > >>>>   all 404 vCPUs         869 MB     <= 202 MB
+> > > > >>>>
+> > > > >>>> Let's lower the capacity to 8 with 64 KiB pages, In the production
+> > > > >>>> usecase above, it frees at least 667 MB. That still covers the two-page
+> > > > >>>> minimum and leaves room for several table allocations per refill. 4 KB
+> > > > >>>> and 16 KB pages keep 40.
+> > > > >>>>
+> > > > >>>> The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
+> > > > >>>> but it is topped up before every page it maps, so 8 is sufficient there
+> > > > >>>> as well. The pKVM hypervisor memcache and the eager split cache don't
+> > > > >>>> use this capacity.
+> > > > >>>>
+> > > > >>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> > > > >>>> ---
+> > > > >>>>  arch/arm64/include/asm/kvm_types.h | 5 +++++
+> > > > >>>>  1 file changed, 5 insertions(+)
+> > > > >>>>
+> > > > >>>> diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
+> > > > >>>> index 9a126b9e2d7c99..28568da9ea4a7b 100644
+> > > > >>>> --- a/arch/arm64/include/asm/kvm_types.h
+> > > > >>>> +++ b/arch/arm64/include/asm/kvm_types.h
+> > > > >>>> @@ -2,7 +2,12 @@
+> > > > >>>>  #ifndef _ASM_ARM64_KVM_TYPES_H
+> > > > >>>>  #define _ASM_ARM64_KVM_TYPES_H
+> > > > >>>>  
+> > > > >>>> +/* Must cover kvm_mmu_cache_min_pages(), at most 2 with 64 KiB pages. */
+> > > > >>>> +#ifdef CONFIG_ARM64_64K_PAGES
+> > > > >>>> +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 8
+> > > > >>>> +#else
+> > > > >>>>  #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
+> > > > >>>> +#endif
+> > > > >>>>  
+> > > > >>>>  #endif /* _ASM_ARM64_KVM_TYPES_H */
+> > > > >>>>  
+> > > > >>>> -- 
+> > > > >>>> 2.53.1-Meta
+> > > > >>>>
+> > > > >>>
+> > > > >>> Hi Usama,
+> > > > >>>
+> > > > >>
+> > > > >> Hello Leonardo,
+> > > > >>
+> > > > >>> Have you tried to reproduce this issue in v7.4-rc1 or newer?
+> > > > >>
+> > > > >> Yes. The patch is against kvmarm/next (v7.4-rc3), which includes
+> > > > >> Lorenzo's pre-fault series, and I A/B tested it there.
+> > > > >>
+> > > > >> On unpatched v7.4-rc3 with 64 KiB pages, a VM whose 16 vCPUs each fault
+> > > > >> in one page needs a single stage-2 table page, yet the vCPU caches hold
+> > > > >> 640 pages (40 MiB). With the patch they hold 127 pages.
+> > > > >>
+> > > > >>>
+> > > > >>> IIUC Lorenzo Stoakes introduced a change that would cause the memcache to 
+> > > > >>> skip topup if the cache contains a minimum of ~4 pages, so it can possibly 
+> > > > >>> improve that issue.
+> > > > >>
+> > > > >> I don't think that part is new. __kvm_mmu_topup_memory_cache() has
+> > > > >> returned early when mc->nobjs >= min since commit 6926f95accee ("KVM:
+> > > > >> Move x86's MMU memory cache helpers to common KVM code"). Lorenzo's
+> > > > >> commit d27acc152c62 ("KVM: arm64: Size the stage-2 memcache from the
+> > > > >> fault MMU") takes min from s2fd->mmu instead of vcpu->arch.hw_mmu. For a
+> > > > >> guest abort that is the same MMU, so nothing changes here.
+> > > > >>
+> > > > >> With 64 KiB pages, min is kvm_mmu_cache_min_pages(), which is at most 2.
+> > > > >>
+> > > > >>>
+> > > > >>> Although I can see that when it's below that minimum it fills the whole 
+> > > > >>> capacity (40) of the cache.
+> > > > >>>
+> > > > >>
+> > > > >> Right, and that is the problem. Skipping the top-up avoids refilling
+> > > > >> the cache, but nothing ever drains it. A vCPU's first fault fills its
+> > > > >> cache to 40. Each last-level table covers 512 MiB, so a guest needs very
+> > > > >> few table pages, and most vCPUs never drop below min. The remaining
+> > > > >> pages stay allocated until the vCPU is destroyed, which is why the
+> > > > >> production caches were still 86% full.
+> > > > >>
+> > > > >> The patch keeps the early return and only lowers how far a refill goes.
+> > > > > 
+> > > > > Right,
+> > > > > 
+> > > > > I took a look in the cache workings, and it does not seem to receive freed 
+> > > > > pages back in. It gets filled by topup and used by map, so IIUC it is used 
+> > > > > only to avoid failing an allocation during the mapping walk.
+> > > > > 
+> > > > > Maybe it could be the case to simplify this cache to have the capacity 
+> > > > > about the same as the minimum (since it always topup before mapping) and 
+> > > > > avoid the waste altogether.
+> > > 
+> > > Well the more you reserve the less frequent you'd need to actually allocate at
+> > > topup, which saves time, so there's this trade-off to consider.
+> > > 
+> > > Thanks,
+> > > Wei-Lin Chang
+> > > 
+> > 
+> > Hi Wei-Lin,
+> > 
+> > IIUC, every time we topup, we call a mmu_memory_cache_alloc_obj() for every 
+> > one of the objects in the array. So as it is today it runs it 40 times, and 
+> 
+> Not necessarily, I meant with 40,
+> 
+> if (mc->nobjs >= min)
+> 	return 0;
+> 
+> happens way more often.
 
-What about the f_op method instead of storing the
-tag in multiple users that we support now i.e., block/ext4/xfs code?
-We refined your patches with this approach and it seemed to fit well.
+That's what I meant with 'waits until it runs down'. Basically we have
 
---
-Nitesh
+if (mc->nobjs >= min)
+	return 0;
 
-------sfnc.NZyIOBfLTiZTLswaXBSL0w4GQC52Zj1LhBq2cHN2.MV=_ad66_
-Content-Type: text/plain; charset="utf-8"
+while (mc->nobjs < mc->capacity) {
+	obj = mmu_memory_cache_alloc_obj(mc, gfp);
+	...
 
+So, first use it allocates mc->capacity entries, and every further topup
+will return early unless it goes below min, when it populates again. The 
+only reason for a larger cache being more performant would be to use 
+that cache locality, which could indeed have a large impact, if we use this 
+cache a lot.
 
-------sfnc.NZyIOBfLTiZTLswaXBSL0w4GQC52Zj1LhBq2cHN2.MV=_ad66_--
+Thanks!
+Leo
