@@ -1,96 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.80
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795686419;
-	b=pckcBP0uOMQGnm4clptE8fYGf3Cc0JvY9ZiPJiEbPhrsT/xYfRVILgS9/Dp8JoCIkeMX
-	 xF3ZSKZcfwzrK29k38wrBHKZIIOdnEPrCY8TXXBDSTSAK3AL3Po8D5HI861swdpDsESmA
-	 Qkh+8ttU77l+fqzIarhqZZI6pYSYkh7iU7K+HJwiaCt4221XYALNl6YtDyH4Xudc0SfvE
-	 jZRJWRmWzIwgyOvmoTCmLXTBqFkIYLE7y0tFMLppJhvadUaDdu8nAsFPd8iiSD60HuAly
-	 Ra4dRPcrC+ixCIrWFsPIzr+z4JLVADMJinDom9i7ryiSvrHjzyNjxbM4qLwRXJYXK1g==
+	t=1795686415;
+	b=TQmdlMkv56M52CJ+RLHEpzUNPTLlQTmJXj91c3h86DNWpznqIP2OhWZ0274MlH7+zLXp
+	 mMfi6bGE9m4+QE5pXZRIo7aRZwxLajc+3sAubp0QieN0zjjWEzkoT8TDl5Ru56X4z1OK4
+	 VURjFqbe4qNMHLf3fokeu7z8rljyKr1zCGAyn3jeOOhRhgbNXRmKAiw8f4nPpLOiCD6Rx
+	 yXv2rNXvzmj2HysQfpM9TEl3Z/VHTzX0jJ3HxSjtiMziverTJAByuBpxsFhV50HW5g6a0
+	 ZMIyOp1K1aTRMhrQfYvjI2L0S+2gXZ+Fu20s+jXjauv3Ve+wYJUlSEbHb5E7+j1B/fQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686419;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:Content-Language:To:Cc:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-TrafficTypeDiagnostic:X-MS-PublicTrafficType:client-request-id:
-	 request-id:X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=hgb3CzsavLuTIWjGYHWrpq0VwKgNKC7QTXhAr8Dc55s=;
-	b=l/ff6cf/CDPXIzMoLWPatzPFcu0oZpRMEsOh3ryMEJ7W7vDPEwtBpDjzAn3b9Jz7ia5l
-	 21EcF6GynrCSXumiyAPes5CzTfpR96RcytgLobUB5mW+43lloPZnRFDFTU2mYohdG9yr0
-	 F3SCdEW9QKLBdlfXCLO31GmQ7RofPTlYzKrmyYwAxzk/+UZybow9I1tNNH9ivwoTME+K4
-	 KJqtLYcrp5GEqWDaLtpN+7zhvRmj+/dDV52TJj8Cy5pHIvwYYnb6UAXew6F8tFwBvHdZ8
-	 Na8oTZpiaPLU6sv/n/wiv/8EPm+M5zPUC157xX1auBBwsVTjpkVJBc2NGbl0qXElQPQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686415;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=MC4h41uEDaIRngWv7swOFD5Ize0oaW8izgbEnRz8qLI=;
+	b=EJS3AxNKHodN2OQwXGYzCJCKhMnAspf9x60EKy3tWQdVixjgXanoPdL0zaEtL/mW8/0c
+	 GeZC7nIuF0afIqKkDcbYmU/Fb5gH+dFvGWjXHd4QhXGgcoXY3F8apMBwCgZOmpFdjGkZo
+	 8VQ6AdUAh2nCotnJ+OenQIxu4Dp0AvDUU/+6KExBWQWUwdOwqKMiSj7udcT1epl+jcKHP
+	 XXfUEIgmh9wkZVLoolKbjMYq+3YPiNV4Ilma+P2powRstXpQ+eurzcUuga8NKNvGg2QGo
+	 Ip5cMvlTExndvUKhj01yRXCZ4/hgOjyVnWJUoFDKPuIjDU7+BKF8gZY0tWWElqPRSyA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amlogic.com;
-	spf=pass smtp.mailfrom=amlogic.com;
-	dkim=pass header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=Wy57bffH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.80
-Received: from SEYPR02CU001.outbound.protection.outlook.com (mail-koreacentralazon11023080.outbound.protection.outlook.com [40.107.44.80])
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=cFqsoP72;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C65D5606A321;
-	Thu, 26 Nov 2026 09:46:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C65D5606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amlogic.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amlogic.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AE99606A329;
+	Thu, 26 Nov 2026 09:46:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AE99606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=Wy57bffH
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tWbu8hQaeT8xr2TNJv5iEy6aTK6DA3TUMLgPVPBIe6GJ7NEV6HdjMwFCuhcGR2ktT8s6Km7BKSo8zItoRy/eQSre4xoR0Et1/5hFtSYm2XuqQQEwXLGPrNa35mqHRgKSS4ZOOKykKFaxLsdjW2G8zuwM6Jh238PVe74I/HJs8QmEptmxz+lJ97N93PgjozbGUPUEB5CPBc/VqVsjgpUtObgjdiNIlWelrK2rfyoo1272UeYalocXFd6It4SWlbbyBVVPznLGM/tQCpFmzzYIbP+XhHXmdlyrbAWqDcOkLygLeQXhFdhXi4hWkQTbs2hK8VfQ6GLJuogIZIYH/lVhyA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hgb3CzsavLuTIWjGYHWrpq0VwKgNKC7QTXhAr8Dc55s=;
- b=xmmQ1IjPlISwWdC8UDX+7HQiyHPDGp20mOU1mLlAHlY0JvrJ8wDaWI6An5k1Zk8ejrF+jEU761xk7iEpqtD3sYHb4ekpDTZSc/5gyk9ow4PkJeWEJcqJsmO0TihPSWituwDQuMvKO2w4sDRHYFL/v8Ps6+8x+bkUq8fqw6JXwU1aUK1KYmGoSegpVBACxtore47z2/osRCZeQcUDsXLr3LmRvyURgovCtJjjlHnrdZ0d1JX+fBHPAi73rJncfjFrCN+gNzKWfMwpGEGcs9j3o4JR5vva89jPPtQ/SlYzAnDX7QMQGEgma47+NJGEMCzZk1nDGBALSQAGmwaNezixSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hgb3CzsavLuTIWjGYHWrpq0VwKgNKC7QTXhAr8Dc55s=;
- b=Wy57bffHU8sqMjxU8CnkuKPKssHPhX6lnT4uG6klSgEai7MNLEjtpA/cVnf15iRD4Mphm4wELAI2/z2gxeO+n8X4Dncnr27I+t0x6GirXBp0+goAaAnHm4BiJSdKLckaafct0pKyNoXdSDD2QIq/j7hGZDVFvG+7kRYLxfCISW2OqBnw5vXYNMrt7bPPiYOjuZw2FltPodXqTYIPAaeA7D8kzn9+KUnc3SlfFab6Kl9XHA7sqL4tZPInb1rPNiH5KSIa4S9ahpCMDcX/4szhWm9UYkElFQPY5fjYS99hs6X2hprB82FjcLZUzuVXjuNMKGzN4XBp+ZAlhf9F21iitw==
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
- by SG2PR03MB6610.apcprd03.prod.outlook.com with HTTP via P2P; Thu, 26 Nov
- 2026 09:46:52 +0000
-Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::78d4:9dee:2e32:d1e4]) by TYZPR03MB6896.apcprd03.prod.outlook.com
- ([fe80::78d4:9dee:2e32:d1e4%7]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 09:46:51 +0000
-Message-ID: <ad026f93-bcea-4dc7-8aac-fd4846d40f43@amlogic.com>
-Date: Thu, 26 Nov 2026 17:46:47 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v2 3/3] arm64: dts: amlogic: a9: Add reset
- controller support
-Content-Language: en-US
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261126-a9-reset-v2-0-e3d850e68725@amlogic.com>
- <20261126-a9-reset-v2-3-e3d850e68725@amlogic.com>
- <3b661596c0c46390825c78d74843acf624c1494f.camel@pengutronix.de>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <3b661596c0c46390825c78d74843acf624c1494f.camel@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI1PR02CA0057.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::10) To TYZPR03MB6896.apcprd03.prod.outlook.com
- (2603:1096:400:289::14)
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=cFqsoP72
+Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
+	(Authenticated sender: pza@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 806BA2007F9;
+	Thu, 26 Nov 2026 10:46:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795686412;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MC4h41uEDaIRngWv7swOFD5Ize0oaW8izgbEnRz8qLI=;
+	b=cFqsoP72y639fqeuayd6tCXH5ELLMc6vJ9jmyXioQt+WK4/ZIQ3itbc3CxGZYW0j9erMJa
+	1P+jjBhG1losB54bIuYqBj01/iGkyH6xwQptFsBHB0+1h3vYmPszDM77CR66ZuOF/WnbV9
+	t6a7OpUgBp60MWx3GC/eR48/yTZW++5X/67TMb2uZW1ClAKzp03XCk+MvLmvsE2cHUStqk
+	+hiqHsnoUOKB2cbUa918NDv1d4wQ3gJqFetHjKB2o9eHOK9PiV6byqtpL95tUJMJ2/0r+M
+	IVBihPR+QBJgbftUKMclvsGdX0xdGw8oXiP7aUZVOdtVm5KeOxauBh6gTFMBpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795686412;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MC4h41uEDaIRngWv7swOFD5Ize0oaW8izgbEnRz8qLI=;
+	b=f8FqESZTwfikt108tJpMPFoYGVChEq+yv+BU9tYjf4lFGW34Cqyj8Qb5nchlfzAwucm69a
+	i7mxXyFVT6d5DyGMkPt8x368eMBtD1k6FNTYlVeyUJv0Bv18TEyuluxMGJnX2vWx6WvHH+
+	7Q9KtY9JVHMOqhpt6+BXSpTTL/AL8LM/fsCXmkOHOEaV78/we/XUkFmmgxF8XSjYYmj5/M
+	kzb8ZPJ+9oW18YOAFBY41smeuc8qCSngcQyegu4k/7KGeKsptCJhco5hHrhFKOsYse3N1N
+	XxDIpUtIHt3tLdfZgsMs0wuYBSZqPqb0reFsWOehVMyzPtvwnaPaXpoML4vbpw==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=pza@pengutronix.de smtp.mailfrom=p.zabel@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795686412; a=rsa-sha256;
+	cv=none;
+	b=arGxwUgv5R4kYSmyGvImS3qy0zI7qAS/Z5G7RTl0nmE5zO8W5s4yHeCA/l5OW6WARsS4ej
+	LGCp7TD0xMqPfDSNKPgO0iAkQKOE0xeHZLWRsqZXMM2GmDQ0RIZF6MhnRzzwC2QWAyr8vU
+	5QImmXm3pK8p4195Zsc3B21L0tZmpsH0yFLXaHeNr67Y+QiKUNn9wNviUm70dayJRRGI+v
+	dizZpdknVZwzF4z2//lHHE/P1w7nqJOr6CDM4irSY34L4YGECFBFW42eBwOyrXt0K9OFUL
+	I4CFI2P06SIbfpNf7EC3rb2ipFLbHyAdZfhKCJDVGgXzcxko4N365dPrYJAqWA==
+Message-ID: <41ab851c110a3391f1e202a80ac3e0fed913f4b1.camel@pengutronix.de>
+Subject: Re: [PATCH] media: coda: Release firmware if code buffer allocation
+ fails
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Yige Jiang <yigejiang86@gmail.com>, Mauro Carvalho Chehab
+	 <mchehab@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Date: Thu, 26 Nov 2026 10:46:52 +0100
+In-Reply-To: <rc-b1-20261126-vc-161-779570fc1703@gmail.com>
+References: <rc-b1-20261126-vc-161-779570fc1703@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,111 +94,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|SG2PR03MB6610:EE_
-X-MS-PublicTrafficType: Email
-client-request-id: e7b22258-ab35-428b-a3cb-15c8c8cc7545
-request-id: 30aa2b9d-ea09-403c-858a-08df4ba232ab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|7416014|366016|6133799003|18002099003|261009223027099003|22082099003|11063799006|4143699003|10067099003|56012099006|261102123227099003|261026121527099003|261021121427099003;
-X-Microsoft-Antispam-Message-Info:
-	xEH2LmC1OcZeR1L5066rI/cC+FWfOQOdxZt3zO/hf4/rUbkIyt+qKjyZOzD4umpLuG7+nSJrSEnRgsKFMZueDg4XU+ZSHoC7R7EMB1iIOFpkMc0elcGGgy76q4ha7t6ia42VYlr/SjHiDOck6hhEYnHtv0HOmtqnogaL+GkEEXc1Y95tDocrHpI5fKGySQecF7H4H7zCYQr8i5FDsNqE2OUg1le+EZwmhMfAXlCmZx5VLolwnFI++CigC3djTdZ0GRmBxq+gzON1mPHgZXFNciBgkhT/s9O02WPCANqfk5Il7fs7RxTDI6NvbDXz62cBYgxapcQLSgQ0uuFqi15PlWX3ApXB8dGLGB3fEjf1Boru1wv0V4jJ16ByTHuGbzLBc4WKYAHkSGsg7/DO+qOBHYuU/3KX7fAlG26LpGGRh8L2gK0j3tYpoj9/6TryCN7+bQFKOQPVjM7pk/XFN83WzeMg3575jD9rrnBYsLuZCRJy1xZ9h6raVZn+qYNdPyEbetN+wzkfrptOeVyxD6WznJQGSxEoCOf3kKDAC7etCe7W/Ki7RHe5gg467zNeau9ojiMHiriz+vyo91boBdCp/lR7cuKT6zyNJXP/B5Q8UkTw+MoSpYkLbJc3vr4VMTE7
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(6133799003)(18002099003)(261009223027099003)(22082099003)(11063799006)(4143699003)(10067099003)(56012099006)(261102123227099003)(261026121527099003)(261021121427099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?REh2SFdPT0VtaUNZWERlZkVOVEhsQ1JvVVV2K085Q1lXSTRTajZwUXdlRUh4?=
- =?utf-8?B?c1ErRTRmd2MwblhkVGdMUkdDUmZTb29LdUhuNEE4NExuekZicW9vUDlSNURw?=
- =?utf-8?B?NVBpMG8zamgrWElHNGVhbmpNRVp5dGpCeHJjOVI2cjZZR3VKYjI4bVc2ZFRx?=
- =?utf-8?B?a1ZqTUtNaVFYdlNvZjFGWVIwRW5xdXNLbklJbE1uTjV6MzZ5NHF6OGY2S1Yv?=
- =?utf-8?B?ZDlIaXBoeDRxU2xBV0FZZXpzbkNwSFRxcmRTRjdLNUpBdEtUaGNTRXphOVRM?=
- =?utf-8?B?OWZSa3phOVMzODlEZnBGRi9ldlRTanF5TTZDcUpIZzNEZ3EzWmxvOUMvUk9F?=
- =?utf-8?B?R2p0WUR0ZTJoOG15eHNkK0JPZExLQzVvM0l6dmlPK2c2Ym9pelgwQjIyazQr?=
- =?utf-8?B?bzNwUHF6clMxd1NlRUQyUlhhUTNEWE9ISDlwUE1DR1pOL3YzY0p1OFRVaFFp?=
- =?utf-8?B?c0g1YjlleHhSWU40UVlOanlDbjJhV2MwcjZMU3BJa3lyYkUxV0VyNUxvVVh6?=
- =?utf-8?B?eERrUTFzOVhVY01qL0VLYi9Xekt5YjVKcmRBOHI2QVQzRHp3bjdaRmRZNEdP?=
- =?utf-8?B?R0VoM1MwamMva2tHZzZJYjRkQnVCMTBYN011Z1Y2N2Q5eEg3WXhuTi9DNTlm?=
- =?utf-8?B?VkNJR3RmWVpBUVkvQnA3TVVYd1dBQjlqc1JzY1UramxiWjdGMSs5SW1BRUtX?=
- =?utf-8?B?YjlXR3JRRlRVZHRyTXJjdTN0eHJpV3U2ZnRIUmI2SHllL0VSeEJBYXo0bVNv?=
- =?utf-8?B?MTFRWUFUZXE4blJhamdpckZZeGhyVS9RSEo4V2REK2F3OE01T2ZlMXRFSE12?=
- =?utf-8?B?ZlFOVmxxbEJ1T3dBaldNVEd5SVdVa2E0cTdnSUp2QTdPMmt6ZmFKdUwxM0RI?=
- =?utf-8?B?cENaMFdTVnB4d3B0RmVSQitlQnJSSmJSb1J5SGIwVGt6cm1mdVBoTkhqMGR1?=
- =?utf-8?B?cDdBeXhSdXJFSUhlN0xKQ0wvQ0Q4QVdwdGhxRnhRTUdTSkJydUhmOVY2azUv?=
- =?utf-8?B?SDFneTg3aXBNTnFMNjF3eWl0MzB2cXJIYnVOT2lwQUxUQVZLSTlCeWNDZjBw?=
- =?utf-8?B?M3NhOFF2eEtOQ2lNNzdCVmdDS0xCRWM2OWpsbTJWMkV6N1IrWElPWEErbUVn?=
- =?utf-8?B?MzhsUHYxRCt2dzhscEEydFlGOE9hTzgyTk9SOC9rZ1NmRVg4NUhDSHM4NVNQ?=
- =?utf-8?B?L013ajhMMFZoWTJhUnhSOTdvZ0o4SGVSS2ZTdEx5YnJNWTdLOXA3OE0rbDhR?=
- =?utf-8?B?ajZZeGlEOThyaWR6cGNqeFFEd2RacThIdWJUTFJEUldvaXN1QmZQbnl2NGlN?=
- =?utf-8?B?SkhpMEZ0bkwrYXNBdEdZVWZaWVljNTJEME4zYkxjNm0wTnVwL1ZuUFVnZ0Iy?=
- =?utf-8?B?bUVLR25ta280OGEva1ZCVnpYN0pRejZOQUViaDAwMTdwRitkYzFINkQ5N2lW?=
- =?utf-8?B?TURMU3FWUjlxbjZRd0FoN3VXcldoMUthRHArOHRNUlBVYTdrQzZhUGhpNUJ2?=
- =?utf-8?B?Yk1KNE1Qb08wQjdNSEhFRXBmM1ZaQ0RVQVBqeVFjekkra0RGUmxrZUtUSmxx?=
- =?utf-8?B?ZUN4dVlPRWRneVB4THc5aEIvMEtFQUhWRVM3NlZVbGRLQWF1bDMvRjc2ck5t?=
- =?utf-8?B?WVFMbDFDUm9vdFpGQktrc1BzVTNsVDlUcVRld2tRd0lHQnR6TmFxT2lhelY1?=
- =?utf-8?B?Q3VKZFJTZTQ5NHp4UmVCSUFwNFExYVdQY1J2emVGRkpRaVp3WVpLREJpT0pP?=
- =?utf-8?B?KzdUa1F3cytsOHE5WkcrR3Vmak5adG92bjd1YXpjQnJwNTVRdlljNFUvZk00?=
- =?utf-8?B?eFdKdjZMQkY4ODhWaDZpa2NQOXlaSzF1Qko2aHJhcUQxR0NOcmM2WjI2Ylhu?=
- =?utf-8?B?ZVVCQkxBVXpRbGZSM1NNcHAzVk9FWlJkYU5yMVVLQjNlYjNZVGxoMGc0Nyt3?=
- =?utf-8?B?YzVpR1pEUjB5ZkJza3R1Q2s5ZUxoSEJZR0thcHJLZnVvWDNneE9oSnNtVHh4?=
- =?utf-8?B?L3llbXk4V1JtVDJnaEpLZHczTHhYNUpac0hiRUt4NnlpNWpBbVVsZzVuM1hM?=
- =?utf-8?B?c0JyMHQ4aHNMdlVYRGxScUROaXJnMkt6bE9sTGZGQWdXeCsvbjVDb0NUR0tQ?=
- =?utf-8?B?TEordTMvT1Q3eThQbDljS0xRMGdXaXpVWkdOTlcwS2NqZ3BvTytkZ3R0SWN4?=
- =?utf-8?B?QmIyRDRrM2diVkNPOVR5bVZYWHRiV2l0OUlLdzh2OXFpQ2NxUEFtaE9YOHJR?=
- =?utf-8?B?OWkyOG5YbDFya1lFU2VDTWRWN1FJZUN2RU10T3YrWWhYMW9sNnc3UTR5dmg0?=
- =?utf-8?B?Z24rWUtSbnR2RjlTNW9IYkg1NjFKaUFtWFJkV1g3eERUakNXcStEZz09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 30aa2b9d-ea09-403c-858a-08df4ba232ab
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 09:46:51.8660
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: df9baTRyE/238jI9xdK7MlJJ5MMR6WGqYXmFiUyOg/lwRZjiJtzYc1/foU4iR42GyGB5xgKI2IE0bbdRSrAsFDJIE8H3cL1W7gh75P7Y8Wc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR03MB6610
 
-Hi Philipp,
-    Thanks for your review.
+On Do, 2026-11-26 at 13:21 +0800, Yige Jiang wrote:
+> coda_fw_callback() owns the firmware passed to it by
+> request_firmware_nowait(). It normally releases the firmware after copyin=
+g
+> it into the BIT processor's code buffer. If allocating that buffer fails,
+> the callback jumps to put_pm and skips release_firmware(), leaking the
+> firmware and its associated resources.
+>=20
+> Release the firmware before jumping to put_pm, which drops the runtime PM
+> reference taken in coda_probe().
+>=20
+> An AI coding assistant helped identify the leak during review of static
+> analysis results and helped draft the fix and commit message.
+>=20
+> Fixes: 186b250a0725 ("[media] media: coda: Add driver for Coda video code=
+c")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+> ---
+> Based on linux-next next-20261109 (630059a5a632).
+> Compile-tested: arm64 coda-common.o with GCC 14.2 and W=3D1,
+> CONFIG_COMPILE_TEST=3Dy, CONFIG_ARCH_MXC=3Dy and CONFIG_VIDEO_CODA=3Dm.
+> The baseline and patched object builds both produced 0 warnings.
+> No hardware or runtime test was performed.
+> The path needs the coherent DMA allocation of the code buffer to fail in =
+the async firmware callback (OOM or fault injection).
+>=20
+>  drivers/media/platform/chips-media/coda/coda-common.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/chips-media/coda/coda-common.c b/driv=
+ers/media/platform/chips-media/coda/coda-common.c
+> index 3fe33c4..ca8f953 100644
+> --- a/drivers/media/platform/chips-media/coda/coda-common.c
+> +++ b/drivers/media/platform/chips-media/coda/coda-common.c
+> @@ -3004,8 +3004,10 @@ static void coda_fw_callback(const struct firmware=
+ *fw, void *context)
+>  	/* allocate auxiliary per-device code buffer for the BIT processor */
+>  	ret =3D coda_alloc_aux_buf(dev, &dev->codebuf, fw->size, "codebuf",
+>  				 dev->debugfs_root);
+> -	if (ret < 0)
+> +	if (ret < 0) {
+> +		release_firmware(fw);
+>  		goto put_pm;
+> +	}
+> =20
+>  	coda_copy_firmware(dev, fw->data, fw->size);
+>  	release_firmware(fw);
+>=20
+> base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
 
-On 2026/11/26 17:31, Philipp Zabel wrote:
-> On Do, 2026-11-26 at 09:24 +0000, Xianwei Zhao via B4 Relay wrote:
->> From: Xianwei Zhao<xianwei.zhao@amlogic.com>
->>
->> Add reset controller descriptions for the Amlogic A9 SoC and include the
->> corresponding reset IDs header.
->>
->> Signed-off-by: Xianwei Zhao<xianwei.zhao@amlogic.com>
-> This drops Neil's R-b from [1].
-> 
-> [1]https://lore.kernel.org/all/5a42cd49-e884-4a2f-8ffb-017828c556d7@linaro.org/
-> 
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-Indeed, I will Add Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-
->> ---
->>   arch/arm64/boot/dts/amlogic/amlogic-a9-reset.h | 247 +++++++++++++++++++++++++
->>   arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi    |  14 ++
->>   2 files changed, 261 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9-reset.h b/arch/arm64/boot/dts/amlogic/amlogic-a9-reset.h
->> new file mode 100644
->> index 000000000000..55fcaa54cd56
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/amlogic/amlogic-a9-reset.h
->> @@ -0,0 +1,247 @@
->> +/* SPDX-License-Identifier: (GPL-2.0+ OR MIT) */
->> +/*
->> + * Copyright (c) 2026 Amlogic, Inc. All rights reserved.
->> + * Author: Zelong Dong<zelong.dong@amlogic.com>
->> + *
->> + */
->> +
->> +#ifndef _DT_BINDINGS_AMLOGIC_MESON_A9_RESET_H
->> +#define _DT_BINDINGS_AMLOGIC_MESON_A9_RESET_H
-> Maybe rename this to not include DT_BINDINGS anymore?
-> 
-Will do.
-> regards
-> Philipp
+regards
+Philipp
