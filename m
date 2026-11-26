@@ -1,107 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795711276;
-	b=joKaaAMQv8ucUxYoVR528e3inDs8pnIHf3zqFWvSodV0Su5cwLF0oUhoMW7fS08qtwYB
-	 m80FS2tofG94/jyCOHJl0WmHE5ftvgzxsHtIlAPIGgGU5jGab+A6spDKoiUNPLUDqAij3
-	 y20692x3834UJzJxyelcvjAvi24T35wTQeRppEF9aZi7NGVM/uPpMpRomGlnFlUbXMFk1
-	 MMWV41HNKptCyv27PG8U/9aGI8dlrvDcdEWaj3pQDY5tPz7YonrlRfyy7tSCWODWBWfGm
-	 Y4uQhv2oGIm4/WtFskUIu4dzJLpuPIIrtlMCwrpoygigcQLlm/05Ys2Oi+SXsZ5G2PQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795711276;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=jU16bWHumwV20jpiMrBRT2UNHlED4a7CUl264/set1s=;
-	b=j2/VNDKNb5UaSPW7wiB1n137i0RofbMt/q6pBBQZcU1+xw9Rcux1n5V+3y7m/H6ZKJkr
-	 opkHYWHCNwwwLEeSTwG0AWoX9AHzCq+VgQwtDUgG4QvwwW6uDKqo6nde4qbJJWvJ8qFF1
-	 Zs+Cc55hNSTut9XYtsL9hnQwsaNxryQwSag/Jo6sH4+pLhHv2MTACsjC8hELgBfTuCw0i
-	 jScEC9/zRsgGEhXGwK4ll3hn+G954SwzEju1TZB/GSmpYsQuC10/uuFI/Ovvnq41oBk0x
-	 Lr7muf4XFrzcc6ul8MuIeQfgYUvZJO9/HXAHUmjqWBfmOAHsImlOXTapSmBfKJo/2LQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Lp1ALPeY;
-	arc=none smtp.remote-ip=209.85.221.45
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795711317;
+	b=TdurHD0XJw7U0NOa8Jwgj8+LuBAQslO5MIs0i5VqbnHA8WzSy9Us5VdNBNGBGmgg9ZH+
+	 jGCfvznC6c0/nm2NVs7nGVIyuUk9jTwg6JVYzMMm3hsjkNa3niEQ8cDgwKEfZpChhcFzA
+	 2/TpmdSZskwdixb9QYgsLbwtBMEVhLYAxD0w6HOX+/XBuyNOtDJnPhZzlIJ/kbOVESO/2
+	 fp+6II5u15QFm0Um+/Nq620kiTDGbjZZJgdNeoeEw9pQMa5i7IC1kR/uQ/Ny9urHN9KsY
+	 YcrOqumNNzZOGqRyiqLP0xC2nSU4xyYj4QNMGeGbWrkSaC1aSbBV4SWDBaYrhaMtVRw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711317;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=VygsRWMu19YlnfF9gsoqmfWMLGEp1qEBqKlVHOIN/xU=;
+	b=fl6itvXjOXmQPafoPoHVln1anbB/cCgdXWbuEPrfD5/I39oKl2lw3XLNICQ9OdVB0rN+
+	 lC88iAe83+TwsT1402C1emLTEpKKN0OfPVnfzNqlDU5qOSSSyhXY7XgkgAxJMTCfm5xFL
+	 esN/AIIjBzvRZpVEnJN29KBDopn8aIol6sfZsZtNgNznWMPJzlNNo4csZ2mWResyi/1vL
+	 iZAFcYq0qrvhFzOKIsDEZy8gxfppD2w1zer/fvr/f6CgH9gFT8p3ImXb2jhfK428NSYp0
+	 eR9QR/yQedouVidJvCktIb6v6rgpcaaFkF/23cIfz3O0/wbDMXtT/cAN9ndRHTKLWLA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hWZQCSri;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47A1E606A321;
+	Thu, 26 Nov 2026 16:41:57 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hWZQCSri
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795711316;
+	b=h7diWlj7iDwEWt842v7eO29fII2ynDngXs9Wv7wgI+mRl1IbkoVyN0tB3ziTdKdYbi55
+	 km2AQ40vztDo8edHode0sSbUOuMBA3iRU5kr9Vutv7mRnYp8fMFfhZDBuyM3LAkKYuuxk
+	 ptZbMuRFlUISGgaR/KQlTT6/W52aAjIOE1VXyFtmP/Hif29uKlGOFNEKJmFpGiomJJ4B6
+	 qweBj2ovBR2UHENvuubC+8S4wOdwbjNg5Is+ybrPPRZwJGzxc8e2uvfshaUjNQF1NpM1Z
+	 cN9fcjA4PI47S/tJuSHtRlkA7ih9rVUJhLoKFIyPcBt2X8We3qZqIplgzLqbLlBVUCA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795711316;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=VygsRWMu19YlnfF9gsoqmfWMLGEp1qEBqKlVHOIN/xU=;
+	b=YCSG1qCaI8lEs3PT1a0noNxMYwa3RBmJxmr8y5BWW2R4yikOAFcVeHY7VY+TynrfTehO
+	 VPC76+BvivjAtXO5LMrqRmDoUUXde5/CVTzXwT6ipFntlDEt0i4JJLa9SoHskAm8vE7Qk
+	 C5CUsX1nK3xngsbC+Y/fEo7vAlOLRsB3KsU9bl3uL8lodik0CGewCQBGZrRmQ/bfS8no+
+	 2+7HD1C/z1GpacXRJd0Mlyas0bhlblWpf4EFEB/hgHBCgV8jYjhJgbyvvqMgYH/rD9vLV
+	 bl6w0FfaRaWfzvDF6GOEKCo3fIazH4FwSPKR9RLkP1gc7wlqD7YNe0cbF5zucgSTFnQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 950A2606A339
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:41:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 950A2606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Lp1ALPeY
-Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-4a9be758734so4592190f8f.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:41:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795711275; x=1796316075; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jU16bWHumwV20jpiMrBRT2UNHlED4a7CUl264/set1s=;
-        b=Lp1ALPeYbN3Y4Q21lzfxRACgs9teSones3Qdq3Ep5tB5MOFjC1Lqgzk38Ymp9xH78z
-         HUv39VyynAoh3n2mwZ9LOUBIrQvM0c3ILn0bc/kNW/w/NAoiNMegggP4rHfvsO17YfII
-         Q7x6lKJbGU5wojgYh27VOfk20edTCgwfYLFTUF5C28NIjPWKnwCHUnVr5vK32lVBOh6U
-         MAz9NmLiqQVyTsiHksXcFvF9UcgcIoi+zCqSQ1cVJYGqMVPpSQsdGIqVBjuwB8gH2iwW
-         DHhBTSlHTOJXXFmN01OoDQlthI+w/Ld28JqJC94bVpGjZDFQ7ODPj4ZVXsnuBY7qq7Y0
-         /EJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795711275; x=1796316075;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jU16bWHumwV20jpiMrBRT2UNHlED4a7CUl264/set1s=;
-        b=wEwqHb5e38mqopG1UH4D90FlL59nWW+aPVcj74YzMoZFuNB4y+QHv7n61LuSXyRJ2u
-         Fam0XlnAxJLjleHJ0m0ulYMfazvlme21lekEy3fcDOFIRr+ZTogffcxeXnlTc0qAsDyL
-         s1DWGGK9eURh17LSJyh6LH1OY2QilUY7Z/Jj6JZvJ4v1fE3jDMC8q25yyE78s6lpRzP0
-         ANiErwKvXuk+Gon7sFw44+VX/wbzYGQ8iWgbenwA8pcmnLYB1sylFTx+jMF2B+0hLkVd
-         CmNjOfBJB5/AjMEHKh0rToMu0KNcE8bQZxn0mgTpFRpTTlIgGJw+RGiKXhUJUAt8+C0Y
-         gYRg==
-X-Forwarded-Encrypted: i=1; AL+hErEglmo4YRwTrRWtZUos2RiEaUu0dS6cRcgsV6FjCmbs7lfR+dlHAIJKpYxFbUQwdQmhZHTe8ekq/stSF2E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8qZw1Brpw5dQ68l38wlCiFKDXQPk7gLFubC4D0KDKWtSEun7wZ
-	dyLtHZ84X7LYS1xbpeXvnq+AwtohNK8XDfbEIDIK5kTkuvIa7qRZA76n
-X-Gm-Gg: AZFdTZdUCCHI1AKnzmyW+Da2l8sz6V5xyGsCvOoIWNbOzsnZA3FbREU4p/lx1nt/X22
-	CcmPpn9GPluvYT6G/1D6jb5I3NsKDnGn7SCg3x5JtnTaE2MCt5oajxXiQlNaozNGhKj3bUfcKux
-	BN3peSdh18EY/igkelIXneS1g5Y3eJ1Cgfh4Vjqt5JYS9kiD1IlTEgW6jQjNEHzYCiogn3EK3NG
-	rWHaci4hR5OvcrDhA7hn25G5SW34VxRfyo40di88mYJUD3fJdwlfSga77XFWDf2TfA/VZhyH1uD
-	umOETC7XDPfY3HazVQji+GXArLI80MX687L3NJCV6L8qlKsRgXhRqaGfufQO+p46wYgPFpKpqMD
-	ffOBna8lE4ZalA/bujzmt90NjvWA/CQHkMPeWPuCMSp3DZ4ay5XUkDNK3rNg4Y59RhbUmWO6pko
-	WWazOa4ge0oH67lu2ng/0fE/WbuwZM5Bjwu6zqXyR34DyuXASPAO6nNe6ZHr1v6I9B8uvc3WTre
-	6CCGaOaVUA6/d5LxL0R8IxaCbjdni+eFHSeFCUdtT+5nxIeh9VI7DEdJEt2Ff3CiXvpvABE8Vou
-	5RUhCdm55xlogbvNoMWrtOSLbUy3oNKyfF9SWRuViybuu0b5H3hKdbk=
-X-Received: by 2002:a05:6000:4b1e:b0:48c:7143:610c with SMTP id ffacd0b85a97d-4abb2910b8fmr41814928f8f.36.1795711274674;
-        Thu, 26 Nov 2026 08:41:14 -0800 (PST)
-Received: from vitor-21h1cto1ww ([2001:8a0:c4c6:f00:6ce3:c28c:2097:7d09])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b5f6sm39333942f8f.34.2026.11.26.08.41.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 08:41:14 -0800 (PST)
-From: Vitor Soares <ivitro@gmail.com>
-To: Ulf Hansson <ulfh@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Vitor Soares <vitor.soares@toradex.com>,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Advait Dhamorikar <advaitd@mechasystems.com>,
-	Marek Vasut <marex@nabladev.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Adam Ford <aford173@gmail.com>,
-	stable@vger.kernel.org,
-	Francesco Dolcini <francesco.dolcini@toradex.com>
-Subject: [PATCH v2 2/2] pmdomain: imx8mp-blk-ctrl: fix suspend/resume order
-Date: Thu, 26 Nov 2026 16:40:59 +0000
-Message-ID: <20261126164058.2373605-6-ivitro@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261126164058.2373605-4-ivitro@gmail.com>
-References: <20261126164058.2373605-4-ivitro@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id E6EF61F000ED;
+	Thu, 26 Nov 2026 16:41:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795711316;
+	bh=VygsRWMu19YlnfF9gsoqmfWMLGEp1qEBqKlVHOIN/xU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=hWZQCSriccAZ+bqj8mal26ynme6sUFw8mykHOEXpOrDP67kE0bnZt2Fa6HpohuD+3
+	 xMfwfcwfQeFKywrA5gZ8KVMYBhoQXEIR9c5c0MafWdE44jMvjvbsVwl2kOt4HPLrHX
+	 ePy5nelODrCNIQ3seBtYdIkJDCi9g7A76jINNy3dvLTMZ4cSPDLhpCe98g7/ovDinD
+	 GW3tsA/c6HtfksHlaa8thsahAyNGsGFEbiRIRTMuASvLVmooA0C2bUBCttwXq0OqXP
+	 GjcBLEdUr0P8A8QRhlboc4Ki2/9XbsDHcKTjOQvLnHi4juYrbCbAv0yJosNK5wJQkk
+	 ry2+xdAaTASdA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 77B814D721;
+	Thu, 26 Nov 2026 16:41:46 +0000 (UTC)
+From: Binoy Ravindran via B4 Relay <devnull+binoy.vt.edu@kernel.org>
+Date: Thu, 26 Nov 2026 11:41:32 -0500
+Subject: [PATCH v4 1/3] rcu-tasks: Add helpers to visit tasks on the exit
+ lists
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,119 +83,203 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261126-klp-series-v3-v4-1-2ad73e9c9254@vt.edu>
+References: <20261126-klp-series-v3-v4-0-2ad73e9c9254@vt.edu>
+In-Reply-To: <20261126-klp-series-v3-v4-0-2ad73e9c9254@vt.edu>
+To: "Paul E. McKenney" <paulmck@kernel.org>, 
+ Frederic Weisbecker <frederic@kernel.org>, 
+ Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
+ Joel Fernandes <joelagnelf@nvidia.com>, 
+ Josh Triplett <josh@joshtriplett.org>, Boqun Feng <boqun@kernel.org>, 
+ Uladzislau Rezki <urezki@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang@linux.dev>, 
+ Josh Poimboeuf <jpoimboe@kernel.org>, Miroslav Benes <mbenes@suse.cz>, 
+ Petr Mladek <pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>, 
+ Song Liu <song@kernel.org>, Ingo Molnar <mingo@kernel.org>, 
+ Jiri Kosina <jikos@kernel.org>
+Cc: rcu@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ live-patching@vger.kernel.org, Yafang Shao <laoar.shao@gmail.com>, 
+ Jaidev Shastri <jaidevshastri@vt.edu>, Binoy Ravindran <binoy@vt.edu>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795711306; l=6595;
+ i=binoy@vt.edu; s=20261123; h=from:subject:message-id;
+ bh=yjPjOhb/Atfnqas8UHt57mA11woD8FJQKXxBGP8uW1s=;
+ b=9JjPDopv/FzV2BE3xbWYnLkY5+zY4UuS+0XPxoaBGbdW7BTJTeK0Pcql70MxVQZWLAQPAeXBn
+ XAIT0NcWOufAJvcIHZsR7T3op/SkJsYzkKuc1LbDvY7bmUXkAHIB2WY
+X-Developer-Key: i=binoy@vt.edu; a=ed25519;
+ pk=4cNdKPHP0InmhK/9bb7Tm2ZMUXUvLGfw1pmVt5b98fA=
+X-Endpoint-Received: by B4 Relay for binoy@vt.edu/20261123 with
+ auth_id=1622
+X-Original-From: Binoy Ravindran <binoy@vt.edu>
+Reply-To: binoy@vt.edu
+Content-Transfer-Encoding: 7bit
 
-From: Vitor Soares <vitor.soares@toradex.com>
+From: Binoy Ravindran <binoy@vt.edu>
 
-As in imx8m-blk-ctrl, the GPC domains behind the HSIO and HDMI blk-ctrl
-are driven through the virtual devices from
-dev_pm_domain_attach_by_name(), which have no parent and no device link
-to the blk-ctrl or its consumers, so nothing orders them in dpm_list.
+A task joins its CPU's RCU-tasks exit list in exit_tasks_rcu_start(),
+before exit_notify() unhashes it from the task list, and leaves it in
+exit_tasks_rcu_finish(), after do_exit() has disabled preemption for the
+final switch. Once exit_notify() has unhashed it, the task is no longer
+found by for_each_process_thread(), but it still runs do_exit() and may
+sleep there. Code that must reach every task that can still be
+descheduled, such as the livepatch transition, has no way to find it.
 
-On Verdin iMX8MP, with the phy-fsl-imx8m-pcie module loaded after the
-HSIO blk-ctrl has probed, the virtual devices are suspended before the
-PCIe PHY, and the CPU hangs in genpd_suspend_noirq() of
-32f00000.pcie-phy with the HSIO bus domain already off. The system
-never completes suspend to mem.
+Add two helpers. rcu_tasks_visit_exiting() calls a function on each
+task on the exit lists under the list locks, without allocating.
+rcu_tasks_snapshot_exiting() copies the tasks into a caller-supplied
+array with a reference held on each, for callers that must sleep or take
+other locks while examining them. Without CONFIG_TASKS_RCU there are no
+exit lists, and the helpers do nothing.
 
-Add a stateless device link from the blk-ctrl to each virtual device,
-bus domain included, so they are suspended after and resumed before the
-blk-ctrl and its consumers.
+rcu_tasks_postscan() keeps its place in an exit list with a bare
+list_head while it drops the lock to reschedule, relying on nobody else
+traversing the list. Move that cursor into struct rcu_tasks_percpu,
+next to the list it marks, so that the new helpers can recognize and
+skip it. Only the grace-period kthread runs postscan, one CPU's list at
+a time, so one cursor per CPU suffices.
 
-Fixes: 556f5cf9568a ("soc: imx: add i.MX8MP HSIO blk-ctrl")
-Cc: stable@vger.kernel.org
-Co-developed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
+Assisted-by: Claude:claude-opus-5-5
+Signed-off-by: Binoy Ravindran <binoy@vt.edu>
 ---
- drivers/pmdomain/imx/imx8mp-blk-ctrl.c | 29 ++++++++++++++++++++++++--
- 1 file changed, 27 insertions(+), 2 deletions(-)
+ include/linux/rcupdate.h |  9 +++++++
+ kernel/rcu/tasks.h       | 69 +++++++++++++++++++++++++++++++++++++++++++-----
+ 2 files changed, 72 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
-index 212d491c75e4..e967ae7eda30 100644
---- a/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
-+++ b/drivers/pmdomain/imx/imx8mp-blk-ctrl.c
-@@ -657,6 +657,17 @@ static int imx8mp_blk_ctrl_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, PTR_ERR(bc->bus_power_dev),
- 				     "failed to attach bus power domain\n");
+diff --git a/include/linux/rcupdate.h b/include/linux/rcupdate.h
+index 3f74ae6d6e1f..55b8b4a0fa94 100644
+--- a/include/linux/rcupdate.h
++++ b/include/linux/rcupdate.h
+@@ -214,6 +214,15 @@ static inline void exit_tasks_rcu_start(void) { }
+ static inline void exit_tasks_rcu_finish(void) { }
+ #endif /* #else #ifdef CONFIG_TASKS_RCU_GENERIC */
  
-+	/*
-+	 * Make the genpd virtual devices suppliers of the blk-ctrl so that
-+	 * they are suspended after and resumed before the blk-ctrl and all
-+	 * its consumers.
-+	 */
-+	if (!device_link_add(dev, bc->bus_power_dev, DL_FLAG_STATELESS)) {
-+		ret = dev_err_probe(dev, -EINVAL, "failed to link to bus\n");
-+		dev_pm_domain_detach(bc->bus_power_dev, true);
-+		return ret;
-+	}
++typedef void (*rcu_tasks_exiting_fn_t)(struct task_struct *t, void *arg);
++#ifdef CONFIG_TASKS_RCU
++void rcu_tasks_visit_exiting(rcu_tasks_exiting_fn_t fn, void *arg);
++int rcu_tasks_snapshot_exiting(struct task_struct **buf, int max);
++#else
++static inline void rcu_tasks_visit_exiting(rcu_tasks_exiting_fn_t fn, void *arg) { }
++static inline int rcu_tasks_snapshot_exiting(struct task_struct **buf, int max) { return 0; }
++#endif
 +
- 	bc->power_off = bc_data->power_off;
- 	bc->power_on = bc_data->power_on;
+ /**
+  * cond_resched_tasks_rcu_qs - Report potential quiescent states to RCU
+  *
+diff --git a/kernel/rcu/tasks.h b/kernel/rcu/tasks.h
+index fcac7361ec51..b5fa5a3a8503 100644
+--- a/kernel/rcu/tasks.h
++++ b/kernel/rcu/tasks.h
+@@ -33,6 +33,8 @@ typedef void (*postgp_func_t)(struct rcu_tasks *rtp);
+  * @barrier_q_head: RCU callback for barrier operation.
+  * @rtp_blkd_tasks: List of tasks blocked as readers.
+  * @rtp_exit_list: List of tasks in the latter portion of do_exit().
++ * @rtp_exit_cursor: Placeholder that rcu_tasks_postscan() parks on @rtp_exit_list
++ *	while it drops the lock, so that exit-list walkers can skip it.
+  * @cpu: CPU number corresponding to this entry.
+  * @index: Index of this CPU in rtpcp_array of the rcu_tasks structure.
+  * @rtpp: Pointer to the rcu_tasks structure.
+@@ -49,6 +51,7 @@ struct rcu_tasks_percpu {
+ 	struct rcu_head barrier_q_head;
+ 	struct list_head rtp_blkd_tasks;
+ 	struct list_head rtp_exit_list;
++	struct list_head rtp_exit_cursor;
+ 	int cpu;
+ 	int index;
+ 	struct rcu_tasks *rtpp;
+@@ -1068,7 +1071,6 @@ static void rcu_tasks_postscan(struct list_head *hop)
+ 		struct rcu_tasks_percpu *rtpcp = per_cpu_ptr(rcu_tasks.rtpcpu, cpu);
+ 		struct task_struct *t;
+ 		struct task_struct *t1;
+-		struct list_head tmp;
  
-@@ -716,6 +727,15 @@ static int imx8mp_blk_ctrl_probe(struct platform_device *pdev)
- 			goto cleanup_pds;
+ 		raw_spin_lock_irq_rcu_node(rtpcp);
+ 		list_for_each_entry_safe(t, t1, &rtpcp->rtp_exit_list, rcu_tasks_exit_list) {
+@@ -1081,14 +1083,15 @@ static void rcu_tasks_postscan(struct list_head *hop)
+ 				continue;
+ 
+ 			// Keep our place in the list while pausing.
+-			// Nothing else traverses this list, so adding a
+-			// bare list_head is OK.
+-			list_add(&tmp, &t->rcu_tasks_exit_list);
++			// The cursor lives in rtpcp so that the exit-list
++			// visitors can recognize and skip it.
++			list_add(&rtpcp->rtp_exit_cursor, &t->rcu_tasks_exit_list);
+ 			raw_spin_unlock_irq_rcu_node(rtpcp);
+ 			cond_resched(); // For CONFIG_PREEMPT=n kernels
+ 			raw_spin_lock_irq_rcu_node(rtpcp);
+-			t1 = list_entry(tmp.next, struct task_struct, rcu_tasks_exit_list);
+-			list_del(&tmp);
++			t1 = list_entry(rtpcp->rtp_exit_cursor.next, struct task_struct,
++					rcu_tasks_exit_list);
++			list_del(&rtpcp->rtp_exit_cursor);
+ 			j = jiffies + 1;
  		}
- 
-+		if (!device_link_add(dev, domain->power_dev, DL_FLAG_STATELESS)) {
-+			ret = -EINVAL;
-+			dev_err_probe(dev, ret, "failed to link to %s\n",
-+				      data->gpc_name);
-+			dev_pm_genpd_remove_notifier(domain->power_dev);
-+			dev_pm_domain_detach(domain->power_dev, true);
-+			goto cleanup_pds;
-+		}
-+
- 		domain->genpd.name = data->name;
- 		domain->genpd.power_on = imx8mp_blk_ctrl_power_on;
- 		domain->genpd.power_off = imx8mp_blk_ctrl_power_off;
-@@ -726,6 +746,7 @@ static int imx8mp_blk_ctrl_probe(struct platform_device *pdev)
- 		ret = pm_genpd_init(&domain->genpd, NULL, true);
- 		if (ret) {
- 			dev_err_probe(dev, ret, "failed to init power domain\n");
-+			device_link_remove(dev, domain->power_dev);
- 			dev_pm_genpd_remove_notifier(domain->power_dev);
- 			dev_pm_domain_detach(domain->power_dev, true);
- 			goto cleanup_pds;
-@@ -775,10 +796,12 @@ static int imx8mp_blk_ctrl_probe(struct platform_device *pdev)
- cleanup_pds:
- 	for (i--; i >= 0; i--) {
- 		pm_genpd_remove(&bc->domains[i].genpd);
-+		device_link_remove(dev, bc->domains[i].power_dev);
- 		dev_pm_genpd_remove_notifier(bc->domains[i].power_dev);
- 		dev_pm_domain_detach(bc->domains[i].power_dev, true);
- 	}
- 
-+	device_link_remove(dev, bc->bus_power_dev);
- 	dev_pm_domain_detach(bc->bus_power_dev, true);
- 
- 	return ret;
-@@ -795,12 +818,14 @@ static void imx8mp_blk_ctrl_remove(struct platform_device *pdev)
- 		struct imx8mp_blk_ctrl_domain *domain = &bc->domains[i];
- 
- 		pm_genpd_remove(&domain->genpd);
-+		device_link_remove(&pdev->dev, domain->power_dev);
- 		dev_pm_genpd_remove_notifier(domain->power_dev);
- 		dev_pm_domain_detach(domain->power_dev, true);
- 	}
- 
- 	dev_pm_genpd_remove_notifier(bc->bus_power_dev);
- 
-+	device_link_remove(&pdev->dev, bc->bus_power_dev);
- 	dev_pm_domain_detach(bc->bus_power_dev, true);
+ 		raw_spin_unlock_irq_rcu_node(rtpcp);
+@@ -1332,6 +1335,60 @@ void exit_tasks_rcu_finish(void)
+ 	raw_spin_unlock_irqrestore_rcu_node(rtpcp, flags);
  }
  
-@@ -815,8 +840,8 @@ static int imx8mp_blk_ctrl_suspend(struct device *dev)
- 	 * can power down our domains and more importantly power them up again
- 	 * after resume, without tripping over our usage of runtime PM to
- 	 * control the upstream GPC domains. Things happen in the right order
--	 * in the system suspend/resume paths due to the device parent/child
--	 * hierarchy.
-+	 * in the system suspend/resume paths due to the device links to the
-+	 * genpd virtual devices added in probe.
- 	 */
- 	ret = pm_runtime_get_sync(bc->bus_power_dev);
- 	if (ret < 0) {
++/*
++ * Call fn on every task on the exit lists, in place, with the per-CPU list
++ * lock held and interrupts disabled. fn must not sleep. Does not allocate.
++ * These are the tasks that have passed exit_tasks_rcu_start() but not
++ * exit_tasks_rcu_finish(). Once exit_notify() has run they are no longer on
++ * the task list, but they still run do_exit() and may sleep there.
++ */
++void rcu_tasks_visit_exiting(rcu_tasks_exiting_fn_t fn, void *arg)
++{
++	int cpu;
++	unsigned long flags;
++	struct task_struct *t;
++
++	for_each_possible_cpu(cpu) {
++		struct rcu_tasks_percpu *rtpcp = per_cpu_ptr(rcu_tasks.rtpcpu, cpu);
++
++		raw_spin_lock_irqsave_rcu_node(rtpcp, flags);
++		list_for_each_entry(t, &rtpcp->rtp_exit_list, rcu_tasks_exit_list) {
++			if (&t->rcu_tasks_exit_list == &rtpcp->rtp_exit_cursor)
++				continue;
++			fn(t, arg);
++		}
++		raw_spin_unlock_irqrestore_rcu_node(rtpcp, flags);
++	}
++}
++
++/*
++ * Copy up to max tasks on the exit lists into buf, taking a reference on
++ * each. Returns the number of tasks on the lists, which may exceed max.
++ */
++int rcu_tasks_snapshot_exiting(struct task_struct **buf, int max)
++{
++	int cpu, n = 0;
++	unsigned long flags;
++	struct task_struct *t;
++
++	for_each_possible_cpu(cpu) {
++		struct rcu_tasks_percpu *rtpcp = per_cpu_ptr(rcu_tasks.rtpcpu, cpu);
++
++		raw_spin_lock_irqsave_rcu_node(rtpcp, flags);
++		list_for_each_entry(t, &rtpcp->rtp_exit_list, rcu_tasks_exit_list) {
++			if (&t->rcu_tasks_exit_list == &rtpcp->rtp_exit_cursor)
++				continue;
++			if (n < max) {
++				get_task_struct(t);
++				buf[n] = t;
++			}
++			n++;
++		}
++		raw_spin_unlock_irqrestore_rcu_node(rtpcp, flags);
++	}
++	return n;
++}
++
+ #else /* #ifdef CONFIG_TASKS_RCU */
+ void exit_tasks_rcu_start(void) { }
+ void exit_tasks_rcu_finish(void) { }
+
 -- 
-2.53.0
+2.39.5
+
 
