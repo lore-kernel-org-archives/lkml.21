@@ -1,100 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795669193;
-	b=hAt0U395LgOahB288BqRmh15vosK1F8M8UCbA96XbJKYWINGljBpIFr9JL0Ysec7Fiw4
-	 PboHO7jkH7I/AORltY/6IedYuC9RlPqtxpzlWFzFBwEUvpmMlaZOfRZ28dEN2ztrPTcLL
-	 yndwWv7zpBP1U+iwQ4I3oNkrB52fO0ozltlGjoEEmBnC9u31ju+qStX9ZObSgOkrxRmcH
-	 eSU5+OLIo63D1xlTq4F2lsD2GaTwhI0FQFPC4LF66YcffzIdwpMnAcriGjdzvnP4wfnHp
-	 SpObbMGG2//WWS5D+BnjtXlVLNDta06tmoH1OUjKZ80kDHcxnHddPX0lY7h0XTkjC/A==
+	t=1795669474;
+	b=5tcNhQL/hEQX+inf2s7tgCXzRH5bAdaky5cQV4Zob+tgiPD16EyPMHHJg7TsleVQ9IKc
+	 aggKsk/TsDE1RpL0paC9s08Bw3L2Pc7yVP5y5tJwvXkQDOCkDYrxz9oRwggy3L/z+BXoK
+	 WnhxFHiaCyrMD8jwYf+iViSmKNDxt7+XKcLQINax8UyciOcJvecOzDOO9FQdN3M6MBGhJ
+	 XpDqDY4WHccGJQ5VhLLJFD5VNnFhvz5zPNpiRbuwyfKgtYmdmTV0D9BgXUxmIINGq6Mkj
+	 aSD2AGJ3GiVov3pk28Itxo9sD6g0we4Np5Ds4wQZGlRZL5H/A9BBpg28LFMdmR2EoTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795669193;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795669474;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=xeiikBLPBm412p+eEKjwJKkmvAegh7AP9H8VXVhgxBw=;
-	b=Joy9tIhl/1Z0tirP+m7ccpHpvwJPB0zC8ermkJSYW8iBcj3MMefewICUCpzmIsuYbWvI
-	 tPS6M9PWZaVTnQItJQlFC4F1qCYCwTSiELJLv3Zj9HK8tVH34nUCkHiiNM3arYZun56vQ
-	 ufkHDzLRrstozulVqBNORQm53fwZuZPvqKSAmT93OVJ3GwlI4qJCqWoiox81MrKtjYpAt
-	 WKMXMQyi1NbWvG3zTH3NG6/S44vy2SboDqaVSRHxxYgTZGx9A/ynFqflmwhWMTmIAbw2/
-	 Xb+b/j9HRHAbHY+jazIDz1/vHwjtf6R6FaQniwYx4fER4ZfKMd0ZENXrH84miM1da0A==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=crGGYNxEXyJKntahkm8iE1ek1YTEyGg3pNiPWsgpCVA=;
+	b=n7t6upleuUF5fKCrUJiglYvu/ogZUKGgAcJAVP5NugKcmIIqVGnQ5hLtz0MMBP/g4pV2
+	 EZ0xZtq8+kazDI6t8lznYXxPfzNHDLpqFNXtPPZSu7R0ERZ4gMjOP90MeTnHtXIZ86MQj
+	 oCyK68t7yX+Mlbq688+LY7NzRfKeGD43VNYrUMfFJpzMYfZml43lfDmMP1IqsmuppwJ/V
+	 Og5SvSWnK1wrCLcmVcFB01QBqhnq72rfuHBP4aMEBnUN6z6eyfKVc+X53hfPqAfNOD6rv
+	 pFIcUkGb7XA03DhsXMuxZ/XxDHqeOOYuTsiIP1rrYkSNQJfwPpEvX+D7xGJMgkjjg9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FWM0jOiw;
-	arc=none smtp.remote-ip=209.85.214.176
-Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SSap788I;
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A02F3606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:59:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A02F3606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0628606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:04:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0628606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FWM0jOiw
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2f0213202fdso35286895ad.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 20:59:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SSap788I
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-38699cf08dfso8030708eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:04:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795669192; x=1796273992; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xeiikBLPBm412p+eEKjwJKkmvAegh7AP9H8VXVhgxBw=;
-        b=FWM0jOiwEBSB+lT/KzPX7bzbz5pRuQ16gBwwSR7uQCd6sJB2/D7BAzE8SvJtOe1FYm
-         +AXC1AlMNprtTA4x0Ddk52naLr9G+CAsExW4bBBscLOl91V1zSyf4/BFsQ7X8TQd2AJn
-         lj7qKJLFrUOumZE4m+kFWJhTpjEco2/V+PuTywkRg11qWiPL+733MHMun9Hx+hUY36pv
-         Ye3iI963P4iZPeeDypm2xBw8wTetSYBiBv4zj3zonn0HxBCWr3iLyiP8ugm9FAofUHFD
-         /SzD20pH4xvg+j0i6fhF3xD//+1EKx+TRNdJiCtzlUbhdwHOTuvA9YYwvcR//ViK3Sao
-         YvOA==
+        d=gmail.com; s=20260707; t=1795669473; x=1796274273; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=crGGYNxEXyJKntahkm8iE1ek1YTEyGg3pNiPWsgpCVA=;
+        b=SSap788IOw1yVidTGDD/J+2IJJb94ev+hCn0OpcJgWvkGWGGYHTuxmSu/1TSDBP0PB
+         T4KhNiWgQ2tFEN6HRPZ/0KewqchUw817EEqwMHqwPkb9HtlMutL/9Pv6pdw0JVRaeH8Z
+         arlf6dPFN4DMXrKrgqtuvlWbxoqmuYTYFoHMl+obUjhkpn+FvoV6yOnbQLf2NX0AvBvF
+         9qO+MwPFR+RsxAtbSPeyUd9ednF7D+0gzosH0lYJHzmnLtCR6+VQeGWVSuJ9WpW0nOK3
+         y6GnUp78612GhohYS2pn4d6HTiPrXxMk0kLFzMPtk+pK+WzB0f1sOSWFKG4rUgpOsqK+
+         la3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795669192; x=1796273992;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xeiikBLPBm412p+eEKjwJKkmvAegh7AP9H8VXVhgxBw=;
-        b=yoLHmy5LrORz5GO9tjfAIap8UOZwv3vkFFWyiHkft3aSLQs3p53FaMu6Ms9S8j4k4d
-         2XTD3alhJqPR89WAlDuKjY2RKfjqeKVJE5PKyLbEva7QTQZ4gEfc8tGPRNYXw6MblQ5N
-         OkDuohhXSK07O36MLwVnVfD6zi/sLt8ShH9YNN0qBIRuepabALT8cvJbuQRZx+L0kxDF
-         TUQESj+Tfxh6e35JTVL1L3vHa0IyjVwxGYL93oFJfNF0dG7CAjGQP3lYiFtis21rAfKR
-         mn3suOo4cVwodbN6XHYIfemGMcE3h+xWUAgdtDKjJwzZJZuZGAke+PyW/pnHulUZ/7zp
-         6GUQ==
-X-Forwarded-Encrypted: i=1; AL+hErF8RCeh/3EIt9QeGV4r9GlX0sJn39yY0FjXDVuLPYxvqPDPMq5nYToju+GhnbVrR0j3ls8ZIiY0j4NQUhw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+jTCTe+cvZsbOE+qNYWurGLVkwZzVPVgRfQ4nxOPZnp4jse/1J
-	K45O8F/Q8QjTKy023BPiB9lV+ZW1TAy/nzd4ZVVqj1gcZ3Oj5kOrQWsl7jNZ7LaIMfISlQ==
-X-Gm-Gg: AZFdTZcPbEO09AFrGsF071zvMasbgTBsinKg+y47KEV/hRIDWYRq4v4Ni+r7H99qRkF
-	XOY0PMzgVpFbKazSgqaQ8VZrW/ynqbhZ67vCWzb1Myq7kOjt8r1KohT2sKSWYVWa/avGpvRK2R8
-	cw7ALvQ/jaILsJ3ktFXHNFVy0sotuA1+TkEkOTHK35JyA1hRHxMCqZuB1gpDgGoEAULZsSumtd9
-	trRFxrblM8aY+VnbMsmGw11HJhApfOE2JjIR+5iztJyIihXgzZqmvAanOIUP1TNPJlu6xpWn6en
-	bM69nLdhu/E2AqxuMhTA+sWKYHFmee7v/qVp607ldff5ApLmwIqELd2wFmHkwaO2k4hvB9WfZ4u
-	EgIEXdJnD9OZIJ84K9owpr5gP8F7VXQGzlaIPc9+obo4kjwZXQaO5eivJZUxMXiqJ6FWWy6yM8g
-	aRE9915i6F2kQK8vobD0SAb2pmgTwxqro3NTqfZ4MXcR9O/cfgJXOHJqHKLJ2vKMpInYSkENlKD
-	7xfTkuWUeM8L282AUi/gjq5q12mXJA4mbrdYNDqjPzzdJuRRCQiI6N7Aaxh2KOtWPRlrQM3UWXt
-	RvWPWEy8mxu+QMkepIFyZRn3xasg6r2hdyZ7MQsG4/l+92B3QUMd7HPD1UXG1nlTYu/llIkHRRc
-	jlt+BDDZHO9e1JbCsaBuvr5hNtlM48iCy4ElM2klmPxnpL5FYNhr2vNXwTg8gp9JdJ46Y/4B9A1
-	hQaH1GKAuffhQaCvPb1LtDWEnjICG+G7moF1iVgG2THJru
-X-Received: by 2002:a17:903:b0e:b0:2ef:ced4:35e8 with SMTP id d9443c01a7336-2f03f1e0d60mr192992555ad.52.1795669191962;
-        Wed, 25 Nov 2026 20:59:51 -0800 (PST)
-Received: from kapoor ([149.40.62.17])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f07d6d4bddsm68507395ad.62.2026.11.25.20.59.47
+        d=1e100.net; s=20260707; t=1795669473; x=1796274273;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=crGGYNxEXyJKntahkm8iE1ek1YTEyGg3pNiPWsgpCVA=;
+        b=FwLdCjFsug7oDGNTsT/+cuUG9Hgf0Zc9nXZdEJNjgp3vYrnYkHF+/5k57KJt1/br5i
+         7YQbIwoKkV7wBIakSm73qMmvrHDegyFnC0WZZf40ltBeAVCisxwOzELO3ZDPHNihM3V/
+         ZNiDzeKtMfyj7/8MXDMu4qvhzJtwHYVTzeHE3DYVFzRcKt0p9kI60E6hNsJqTeRRAa2G
+         mQTzNlhfhIrhF66kaxk8Lui3PMOgMV1wlc+0DL8uOWNhw0SNPDFayThbS7JTYh1fmFJA
+         IeztqAdQwsJ1tnCJwfaLXstyhaB5nT/xCDvMHmQTweSS7s22w5VvBSaTheNNQzTTzPZg
+         SOFg==
+X-Forwarded-Encrypted: i=1; AL+hErGA/3+u3HYrdFK06hsPySi9coKOefeGe7u5DbyZ6lJTz6XbTHI5bRGML100iv1hvEcDQo7mMqonrmXfpdA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9R/ceRZ3IsmYrdO4zkFS/jyIGI2GzIo2GA9cph7pXCB+MEKY4c
+	58M9Jjq5pReFIxrdoj4/eLhriVKe5STBVHeO2X9kYAon9vonVOZ8VhmF
+X-Gm-Gg: AZFdTZfFDsUUBoLOftLutK1oEfXM3+yvim25JJwbEkIvcr3vqkad7CnB7JydeQVu9kO
+	zr9WkKRtehpDyoNZBHk27n86rONxJXig/HvHOPcMRYn7KJPoUEGbZ54aX9GMavchpyTvPrMgKo/
+	CmHNR4LiJHDRpR/XyGx6IcaoR5Li/EguA+ik7u3iteG6kRxKYZz/PwtC5012VZdhHWzOV9qRrzz
+	YJ46Zwb1gtSjUJlqU+ymLjJR0zWmbQd4T972Gfm6KrO8g7UxRwHvo/6u60lho3sP9W+M/TUPHKz
+	60HPECe8lTi4G++vvSIj4XP4VWCIwFRx81OSJUsL7w/TlbjTPH2FFDZ+t49nxx9NM0K+4vnFnA5
+	Em1uJX3gyRDHUCwnRapj8cOlAXEAQCdR7A9QHcLpN06hCld5H+xLEoRUa+l364OC/tIVhZx+qjq
+	Bqk6uUPwRGZXsU7wqUPpxn91pCTkDNrgBTemeGZIflsffWVtiqgG81Uauh2YiZqwFNVzCymaglE
+	ElhTZp9/N32XFnRfY+axCOyDqaawOXW8n5Xilz19Xe/gvH0aNRHHVdH4Qp0FVe4kqbqa4LTGbq2
+	vbtIHwc0cM8HqGjhv8ADpllp/S52j/E0L/7ZjIFfHA==
+X-Received: by 2002:a05:7301:714:b0:36a:7b3c:4e0a with SMTP id 5a478bee46e88-3856fd5e4a4mr20736555eec.24.1795669472707;
+        Wed, 25 Nov 2026 21:04:32 -0800 (PST)
+Received: from 10-86-27-207.ban-spse ([165.204.217.251])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm60776540eec.28.2026.11.25.21.04.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 20:59:51 -0800 (PST)
-From: Arnav Kapoor <kapoorarnav43@gmail.com>
-To: iasnezhkov@gmail.com
-Cc: jic23@kernel.org,
-	dlechner@baylibre.com,
-	nuno.sa@analog.com,
-	andy@kernel.org,
-	linux-iio@vger.kernel.org,
+        Wed, 25 Nov 2026 21:04:32 -0800 (PST)
+From: Gokul K <gokul02k@gmail.com>
+To: Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	kvm@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-kselftest@vger.kernel.org
+Cc: Sean Christopherson <seanjc@google.com>,
+	Song Gao <gaosong@loongson.cn>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: inkern: guard fwnode_xlate with info_exist_lock
-Date: Thu, 26 Nov 2026 10:29:42 +0530
-Message-ID: <20261126045942.518691-1-kapoorarnav43@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261125234827.94791-1-iasnezhkov@gmail.com>
-References: <20261125234827.94791-1-iasnezhkov@gmail.com>
+Subject: [PATCH v2 0/2] KVM: LoongArch: selftests: MAINTAINERS coverage and a VM leak
+Date: Thu, 26 Nov 2026 10:33:50 +0530
+Message-ID: <20261126050352.1957454-1-gokul02k@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,31 +102,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 11:48:27PM +0000, Ilia Snezhkov wrote:
-> +	scoped_guard(mutex, &iio_dev_opaque->info_exist_lock) {
-> +		if (!indio_dev->info)
-> +			index = -ENODEV;
+Two small fixes to the LoongArch KVM selftests. Patch 2 frees the VM on
+the PMU test's skip path. Patch 1 came out of routing it:
+get_maintainer.pl did not name the LoongArch KVM maintainers for
+tools/testing/selftests/kvm/loongarch/, because the MAINTAINERS entry
+does not cover that directory, so this series would otherwise have
+gone to Paolo, Sean and Shuah only.
 
-Taking info_exist_lock here matches the rest of inkern.c, but -ENODEV
-already means "no channel on this node, keep looking" in the callers.
-Without a name, __fwnode_iio_channel_get_by_name() passes it back up,
-fwnode_iio_channel_get_by_name() then walks the parents and
-iio_channel_get() falls back to iio_channel_get_sys(), and
-iio_channel_get_all() falls back to the map list on -ENODEV from
-fwnode_iio_channel_get_all(). So if the race is hit, the lookup carries
-on instead of failing. A code that isn't used as that sentinel would
-avoid it.
+Based on loongarch-kvm in linux-loongson.git.
 
-> +		if (index >= indio_dev->num_channels)
-> +			index = -EINVAL;
+Patch 2's hunk sits next to the one in "KVM: selftests: Convert comma
+to semicolon" [1], which is not applied yet. They do not overlap and
+apply in either order.
 
-__fwnode_iio_simple_xlate() already checks args[0] against
-num_channels, so this only matters for drivers with their own
-fwnode_xlate. Could the commit message say that, or could it be a
-separate patch? It is unrelated to the locking.
+Compile-tested only. Patch 2 builds: tools/testing/selftests/kvm/loongarch/
+pmu_test links for loongarch64 with a GCC 15.2.1 cross compiler, using
+glibc from Debian's loong64 port as the sysroot. The binary was not run.
+Patch 2 changes the PMU-not-enabled skip path, which only runs on a
+LoongArch host whose VM config leaves the PMU off.
 
-Thanks,
-Arnav
+Changes in v2:
+- 1/2: also drop the lib/loongarch/ line, which */loongarch/ already
+  covers, so the entry matches the other arches (Zenghui Yu)
+- 2/2: unchanged
+
+v1: https://lore.kernel.org/all/20261123100701.1679376-1-gokul02k@gmail.com/
+
+[1] https://lore.kernel.org/all/20260428053204.1018608-1-nichen@iscas.ac.cn/
+
+Gokul K (2):
+  MAINTAINERS: Add the LoongArch KVM selftests directory
+  KVM: LoongArch: selftests: Free the VM when the PMU test skips
+
+ MAINTAINERS                                      | 2 +-
+ tools/testing/selftests/kvm/loongarch/pmu_test.c | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+-- 
+2.54.0
+
+
