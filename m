@@ -1,75 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703062;
-	b=Z5ZIeHNbmfwbD1eNzkyx+h0DrJv+TI5ilbpfVRV73cEYZabVPr+CQAUQYj70Va4yGK+Q
-	 uyKlTaa7S7GjO2iWfUPQyLBsAHH9bJs5Zp2fGAfR3LNSTr1MtVmwTDlfRMIgrEnj2I+k1
-	 0Sr2Nx61ZQF6P78xpIrpVgvX+HXRgooABqWXsrTxCeRcQMqgdJfenEsZCgphdhKREBWd2
-	 YpmoA6PYa3roImFzXpUIkFX+SlhSH0BI2yo3HelrFo716HTMqSdPhnY1Gu7tt5Nb+cADN
-	 9Ejwe1WxifowJfHnsyx7wMdzg9Dc+LbXqQ0eqzaiMuyycP6MtxZVqOG7IkNCdrk+c0Q==
+	t=1795703080;
+	b=lm1vmm+XLtVB6RcDT7pfx3tDi4hA1dEo/Tt9PdxK9LukWngWKqlsZDg1WttlpHrjp9dN
+	 63nhXXEGytmkEtIq4AJTbD8zJyZmhVCa46cFLbIB2rqM0TE+F5nWY3MSx9ezlq6Y8RzNo
+	 bKHPn+LUxaTYTjXv4t/4X4V97oKtm+yK3+F3u09PYEhg5gSqKVlxSci9PjmGBON0vFurK
+	 mERPseiPsyfhQ2BJ8YIWnB6AU7aG2cfBcvKNnUm1y41JzTcADs6wugdTjKkAIRCqUU2Vg
+	 I7a0hKSO3Zj3EZPhUFqy/tJfBNoKYemmiConmyLKYZYc3jngUJBjmInynwCILZx6j9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703062;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=YoQJi0E2u6KNMOZLeqYhtROWmRCICFOTpd4u2TPiQ0g=;
-	b=qy4eW/hWUJx2jnpvTelrNFLe0RBFFwZqSuumCyy4BMThIQQvrEjTMKN1DfKd3a4DzYkD
-	 WOqiq8GpirJZF691AKWuraysgof/7DM4zRIVv6MLvBa8pxr74u+b05EtJn4j7JhMVyxx+
-	 niWGXjmqCzYJDb3Thgpw6yNDtoYCrxfOykMZ7UTrWsZbfIC1YZkCQkELDbJKiiUObCJPc
-	 SpVJIQYDeaEmEO7XyvGDrWCf4TwEiLBgNbIMzhf+YasRsGLAMLG9fZ5tuYvu6yVdF2jM+
-	 6/DLkrZWk6/1iQpUwKyLsNZsFr6qTfvyezFHDS56pcnRrG3J8GlXnrLuKgsFqhFjNKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703080;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=OHrC46cIWChCBmJPkyR2Sr/R2tdqnLfv5l1cfknsL0s=;
+	b=XKeVJgquVSrrigd5fC7VdPY4/fWm0uO4LmhvmpBVj/oHn78AbuGv6Bn3Sjyzbs8IL4f2
+	 jfpRnvGlF4Hsk/t2AG+ArVTIJrkZBImCY3vfekgTx3XtuhLOVlm9s+soKoljHaX7M1QsD
+	 3wOgbMPZD8k1zE+/EdkuXgPeWceoMc4waR7eiamPIYvEEA7x7cNGQutfI4KL1tsoaKsal
+	 rwgXICSiuk5MpC/hxrMXymw8I00sWQ/0CR+QlqnD0McRqMQSXGK1pmt7BSVHHrEHpsKCK
+	 TmTnLcOfh3lM6jfZI+1zIQRiMtuLrQtBZV1SCRlshHdroxvHwi5OJLSBRZOZ5tWYuuQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZrLoLnLD;
-	arc=none smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Y9IePDbQ;
+	arc=none smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14BB7606A31E;
-	Thu, 26 Nov 2026 14:24:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14BB7606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47E7C606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:24:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47E7C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZrLoLnLD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795703062; x=1827239062;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ZvzEs1Hev41dOJbtnB6dy5Rb+UIgVmY7ywomSy9YJeQ=;
-  b=ZrLoLnLDIae2txjRvi0gI3I50KYxXMCcbxsWbPS1RPE1TKoVdm/lHpwg
-   gyFVlJLPt1LKEamYsB3HMECmUbpnjaWCWMMcz0jrvzK6rT2SZDQ3NZCjJ
-   Lzw/ycoybQn8IzGwlrdhOK6FfQvNaD5JFMWLj1o6nBRV9VgOV4pMuJW3T
-   gqiXah3n3Y+nWsXFIymz8gsIX6DlZL7VQ+E8MzwGq5xIXuAXhPwQ7b5yp
-   penaSwE/juhBNyNvVczCVMRMebKQCL54DbQFdf1xX9j4z/unb9v0qbhGz
-   ncjE7U2ZEHvvuwqLzcQZVADIjn1sQw8Orl0l/tSQE1hQ98Gldlh0KML34
-   w==;
-X-CSE-ConnectionGUID: GPgrVvKyQ+OCis2yKstzfg==
-X-CSE-MsgGUID: kuStUjgoTbqJEHG/Ix14NA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4622774"
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="4622774"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:24:21 -0800
-X-CSE-ConnectionGUID: DYzGS5FnQ3WlEYVF3BIuGg==
-X-CSE-MsgGUID: jYDRh+8CSbu+a/9a1IB+mw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="12334045"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:24:19 -0800
-Date: Thu, 26 Nov 2026 16:24:17 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: iasnezhkov@gmail.com
-Cc: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
-	andy@kernel.org, Arnav Kapoor <kapoorarnav43@gmail.com>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] iio: inkern: guard fwnode_xlate with info_exist_lock
-Message-ID: <awhBEfD6I5nakCKJ@ashevche-desk.local>
-References: <20261126060615.63790-1-iasnezhkov@gmail.com>
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=Y9IePDbQ
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-48e47347279so4319118f8f.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:24:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795703077; x=1796307877; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=OHrC46cIWChCBmJPkyR2Sr/R2tdqnLfv5l1cfknsL0s=;
+        b=Y9IePDbQYBGAkTYC0UHzY0Ah22gBklCybCgN+2CP0TmoVzaQZEcUDck8ROwN3qZW10
+         BUyKC9hPyddCf8J9QcIBzdHVTNC0f238CW2OjgElb5lwGbF0hbmWyJ0Lglc+rP8oVaoY
+         SqyBBY3RudJZHO+opBNWuKse+7RQofX7isIY+R5+ASa0f3e/7kzGa6bUA6KVe7CBx8PA
+         XFE0CYFbb75jRu2VS2xEKwS96T9FRb79/jmeTXxkijja6HeWozniJBaMTKsCNOtExekd
+         l4mKGaLzKTHI3hSiGKA11FxzTRI60c/1bU6CsrmubRPXRnOg37jW1uA/rnQITqlULocA
+         CNQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795703077; x=1796307877;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OHrC46cIWChCBmJPkyR2Sr/R2tdqnLfv5l1cfknsL0s=;
+        b=CJrO8cV2jKOl4Cfhdk+/RMt4sd6nXWTaZs3KLW36m8NYhnpkRKO1Jg3R2spzpd+vGI
+         CybcL9jbLCMmVAR9mwHBqEiufXHWntpGzRbb460uFtRrTeimBh7dRG3PW0yfJogpBLbn
+         pYzhIyahLG0R6450Epf29lnWk5LyGm33yevn1bzZXYGFDmtmB4S2gFKGZtmto6ltgjCX
+         //U6gs64ZFg34Ln5fHUc3vPUYd4zzPKJ4GtGvpryhjtfrT1cHEgEPiU5axptes0ljH4T
+         HPfbHQO0Qz83IH5MdXMMJYVkZ0yYPViP2Pn8SfMgjRjai8CVfd2oV6mIIMz19XPjQM/C
+         Lwlw==
+X-Forwarded-Encrypted: i=1; AL+hErGByGKIshPWBYBJ9JdReZg91QOX8IXBVib9ZGbx3A8WQOXCPmFrXK5JPyYXjRpD9rNL8WzQaVLfmkIE6l4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9LO9QiQzgbGB5e77gl6rS74Zg9eAlau6CzWNeaIOjwg/FLQK6Z
+	o7ZHow+j5J8+jdpykVbFQNNn0m6de8D+HyvmcJagKT07H5U4sz/IWq33K7uC/Scq2Ec=
+X-Gm-Gg: AZFdTZeFbryJocwOa4xsd38ZyLnSx2bHJk+XG+Q0HqkHu4gG+JLHnd3fLcU1msUkhvq
+	rVvF5k8x5PXRqAbH/xV44oB3lWM0HJnC0FCQI4XVtticXjxcreJk6ISNOrYjcJCWzh0U+HC13Wz
+	siEEZDUoaj7O6kM3TwFSCuIqAtIb9bMTMWXcDTt6/aDh9iDLxc48bimpa0tgA1u3kjgEKQUX8wB
+	9Moo9c5rWrf/5uGTx6WPvLkcZckBdPnwH+GGVvNa0Q1V45NUSs8rma8fVRvSRPAn6ZQWfYo2UET
+	53Izrz/9tAQn+xHvly4Da3GcMAB27YaSG1FXDmgsqd6JQpDKIIjDOl/zfHGe82uFeR+wMmAShWI
+	wBfD9dKr98MBr/7ZxgqcPRmslQ5pd4unavimJPUB1nPUUDQ/mjMJ3QX7v/KBgsKiwM2O2W4id7v
+	414kkX8JGtPm/1oZopgfJ9yTrqDI6/hZaamdbLei51YlIeIi2BToooF9IikICVTB1DIg6V33hIN
+	sZb9kcuTOS4bx4lgFZrVTjbPMK0k/nYE2laT8+FEQst0O5ML+mLII+ce8auY8HKfBqwX7sXl10G
+	N9KV6Lt7Dyy4X2pi8Hl+pi8wTbMD9+U55iF+FJm+HaeNZufx9A==
+X-Received: by 2002:a05:6000:4008:b0:4b6:8c1:bc3d with SMTP id ffacd0b85a97d-4b608c1bc69mr17794667f8f.57.1795703077525;
+        Thu, 26 Nov 2026 06:24:37 -0800 (PST)
+Received: from localhost ([195.94.148.180])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b2052c8sm41189410f8f.41.2026.11.26.06.24.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 06:24:37 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 26 Nov 2026 15:28:36 +0100
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	dmaengine@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Saenz Julienne <nsaenz@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Dom Cobley <popcornmix@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 02/28] dmaengine: bcm2835: Add support for per-channel
+ flags
+Message-ID: <awhCFGZ8f6f4h5Ku@apocalypse>
+References: <20261123145728.29082-1-andrea.porta@suse.com>
+ <20261123145728.29082-3-andrea.porta@suse.com>
+ <awXjgCtgR5wtadnb@lizhi-Precision-Tower-5810>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,54 +117,76 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261126060615.63790-1-iasnezhkov@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <awXjgCtgR5wtadnb@lizhi-Precision-Tower-5810>
 
-On Thu, Nov 26, 2026 at 06:06:15AM +0000, Ilia Snezhkov via B4 Relay wrote:
+Hi Frank,
+
+On 14:20 Tue 24 Nov     , Frank Li wrote:
+> On Mon, Nov 23, 2026 at 03:56:40PM +0100, Andrea della Porta wrote:
+> > From: Phil Elwell <phil@raspberrypi.org>
+> >
+> > Add the ability to interpret the high bits of the dreq specifier as
+> > flags to be included in the DMA_CS register. The motivation for this
+> > change is the ability to set the DISDEBUG flag for SD card transfers
+> > to avoid corruption when using the VPU debugger.
+> >
+> > Signed-off-by: Phil Elwell <phil@raspberrypi.org>
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > ---
+> >  drivers/dma/bcm2835-dma.c | 10 ++++++++--
+> >  1 file changed, 8 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
+> > index b19182c6e3df..690f5ba1c439 100644
+> > --- a/drivers/dma/bcm2835-dma.c
+> > +++ b/drivers/dma/bcm2835-dma.c
+> > @@ -137,6 +137,10 @@ struct bcm2835_desc {
+> >  #define BCM2835_DMA_S_DREQ	BIT(10) /* enable SREQ for source */
+> >  #define BCM2835_DMA_S_IGNORE	BIT(11) /* ignore source reads - read 0 */
+> >  #define BCM2835_DMA_BURST_LENGTH(x) (((x) & 15) << 12)
+> > +#define BCM2835_DMA_CS_FLAGS(x) ((x) & (BCM2835_DMA_PRIORITY(15) | \
+> > +				      BCM2835_DMA_PANIC_PRIORITY(15) | \
+> > +				      BCM2835_DMA_WAIT_FOR_WRITES | \
 > 
-> __fwnode_iio_channel_get() dereferences indio_dev->info->fwnode_xlate
-> and invokes it without holding info_exist_lock. Concurrent
-> iio_device_unregister() clears indio_dev->info under info_exist_lock,
-> allowing a NULL dereference or callback execution during provider
-> teardown.
+> Your commit message said "ability to set the DISDEBUG flag", why need
+> other flags here?
+>
+
+Right, the commit message was incomplete. Besides DISDEBUG, the flags carry
+the AXI priority and panic priority, used by the BCM2712 HDMI audio channels
+in patch 28 to keep the FIFO fed, and the wait for outstanding writes.
+They have the same layout as the CS register fields, so they only need masking.
+I've reworded the commit message in v4.
+
+Thanks,
+Andrea
+ 
+> Frank
 > 
-> Hold iio_dev_opaque->info_exist_lock with scoped_guard(mutex, ...)
-> matching the rest of inkern.c, and return -EPROBE_DEFER if
-> indio_dev->info is NULL. Since iio_device_unregister() calls
-> cdev_device_del() before clearing indio_dev->info, seeing a NULL info
-> pointer corresponds to racing right before device removal from
-> iio_bus_type, where !idev already returns -EPROBE_DEFER. Using
-> -EPROBE_DEFER also avoids colliding with the -ENODEV sentinel used by
-> callers to continue parent or map-list lookups and avoids the named
-> lookup -EINVAL fallback in __fwnode_iio_channel_get_by_name().
-
-...
-
-> static int __fwnode_iio_channel_get(struct iio_channel *channel,
->  				    struct fwnode_handle *fwnode, int index)
-
->  {
->  	struct fwnode_reference_args iiospec;
-> +	struct iio_dev_opaque *iio_dev_opaque;
-
-I see that this block is not so ordered, but even though, try to follow
-the reversed xmas tree order.
-
->  	struct device *idev;
->  	struct iio_dev *indio_dev;
->  	int err;
-
-...
-
->  	indio_dev = dev_to_iio_dev(idev);
-> +	iio_dev_opaque = to_iio_dev_opaque(indio_dev);
->  	channel->indio_dev = indio_dev;
-
-You ignored my previous comment. Why?
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+> > +				      BCM2835_DMA_DIS_DEBUG))
+> >  #define BCM2835_DMA_PER_MAP(x)	(((x) & 31) << 16) /* REQ source */
+> >  #define BCM2835_DMA_WAIT(x)	(((x) & 31) << 21) /* add DMA-wait cycles */
+> >  #define BCM2835_DMA_NO_WIDE_BURSTS BIT(26) /* no 2 beat write bursts */
+> > @@ -433,7 +437,8 @@ static void bcm2835_dma_start_desc(struct bcm2835_chan *c)
+> >  	c->desc = to_bcm2835_dma_desc(&vd->tx);
+> >
+> >  	writel(c->desc->cb_list[0].paddr, c->chan_base + BCM2835_DMA_ADDR);
+> > -	writel(BCM2835_DMA_ACTIVE, c->chan_base + BCM2835_DMA_CS);
+> > +	writel(BCM2835_DMA_ACTIVE | BCM2835_DMA_CS_FLAGS(c->dreq),
+> > +	       c->chan_base + BCM2835_DMA_CS);
+> >  }
+> >
+> >  static irqreturn_t bcm2835_dma_callback(int irq, void *data)
+> > @@ -460,7 +465,8 @@ static irqreturn_t bcm2835_dma_callback(int irq, void *data)
+> >  	 * if this IRQ handler is threaded.) If the channel is finished, it
+> >  	 * will remain idle despite the ACTIVE flag being set.
+> >  	 */
+> > -	writel(BCM2835_DMA_INT | BCM2835_DMA_ACTIVE,
+> > +	writel(BCM2835_DMA_INT | BCM2835_DMA_ACTIVE |
+> > +	       BCM2835_DMA_CS_FLAGS(c->dreq),
+> >  	       c->chan_base + BCM2835_DMA_CS);
+> >
+> >  	d = c->desc;
+> > --
+> > 2.51.0
+> >
