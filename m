@@ -1,85 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795711334;
-	b=ivkL7c4+zHrk+/NHjcxlmWhXeYgFCBAQEWQjyb6Bjpmu0BWg0zldWl8Js0qWt97Ye4h9
-	 pf9zzplOA1jKBTpITl+yBuaHB8PJp4SaFsZzVaKpSuu4aYwylmJGMB0tVSa6swlvHHfN4
-	 eeSP6A8nAwW2fU4/G3XsEgd4kmuTd3UXTqZN+c0gneur2nXLvRU7mJzt0/a/B2Vs/iEdJ
-	 jWPOXxJ/0Jxcbgs0hhPHW95zTv+80umd+PgogIudavDYx+XFO/45shDImnG/qs0B7GOMJ
-	 eEvwIQPSMuvNituLsjVYviyIYS9BSkNZFyCYJduLJbE0kKoMVt8SHhA5WZu76HwO6Yg==
+	t=1795711336;
+	b=B/lftQXZmHAkGxOZ6T0l3G6hNdD7aHITFg5dc719/877gO+LzzJd5CRnSd8QMkLAoKPf
+	 j5NKlRkfU1dY/pD3NK8NHw/0MYXjY5eYm6FcdxZbhssCGWGL2i06IO7oy5gvPel4vyDzN
+	 ydTKWnI1uS5VFq8b6FDlvluFlLIPtj5yjhd3O4mrOJb7805kYaNVLWNq0Wz7LfgPGNJup
+	 YAvBT9D6ccwGwDBjCze6m0Zu4hhBX6ghW+cA4vfRW2Br/YlvqGotHEo20iUUYclRIoT/D
+	 bjE10MEfBM82wMkL1yCxX7w7/0Ef4nHZHkz6OeC5otRuLcjLrsLKonxf/59cncXkxCQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795711334;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711336;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=tXzlqriDCchISdhq2S4x7+9hMGbGzDajZ595wmRIilo=;
-	b=IWbYjPnZTDDLKWTUfAg+efGxTspx6OvcrJ8ntjQK8QZNaNC2mg6Q3dcKK8TZNJrIikDw
-	 w9n9RYDG1oFR4TOo0g8LDdPz8nZyTtO6fxDDEpABVpjYs87uY9AhD+llGhNvIyxPpon8O
-	 63jJnMSQdGuDNnNqyfkwi0r+Pw435lI/ocMWz7/LdQdGkEXYFiI9dSFOKV+XdEjz5S1BJ
-	 0iLpsuDkeUZoPMMHPzc4VxhHWqhci6S/apd3k1eSr7z9+248mG3YOGbgJjFPm4TfpJxEm
-	 UBD5yKZ7cXCKGzUNX3NDgH6h33cPgWQGwCUPnj8CmSynxx3NRtzT+GYDwkcUJHELmmA==
+	bh=Pmk+sIZTt3w0WtAkxU0Aj/ecWCHoLEzaJTgVNQnsM0k=;
+	b=RHjnkdsOc8CUxHIbHVkXJ0yPl/kjm+uGvlXtTVRDI4VJI2bO4aNLLpdeXLWK8jshuPr5
+	 hRH02t1eZIXDtXmkvogX2sGNApov+uD/rIf6jeDo0TlBua46WoMldHthKbRq/9aI9aTEI
+	 KX64tvgBYgTvNS0IF4oFwi+ikIo7tzAj6tkGpMyhpWbVBE3Uz94G5VMUcSwer3skJeh9g
+	 5SR+yzeavi+eDn4/L7hK2UpNaY++sabuUFrtcDSz3Xd7z9XySRaFBZNMS7b7zT9XrMYeS
+	 YW6VnKc1/SIHuSRvXzaYJhaTwiwFZBqdMdd1qdtQeg3Jj6DTc7Zwnu0+BFOfkz+f2JA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A0c7Uths;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DNMH7WHJ;
+	arc=none smtp.remote-ip=74.125.82.182
+Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1A5F606A688
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:42:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1A5F606A688
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 831B660A261C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:42:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 831B660A261C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A0c7Uths
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-38644aedba1so10752086eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:42:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DNMH7WHJ
+Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-386b8f2f671so4085209eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:42:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795711333; x=1796316133; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795711336; x=1796316136; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=tXzlqriDCchISdhq2S4x7+9hMGbGzDajZ595wmRIilo=;
-        b=A0c7UthsOC0y/rSaEOriAcQVtilu/udmayAq32HbAEviVBvxR+C4kBogoyExh3LyPw
-         OND69ody1GWoMla+Q2cAXKemA/dRJOP6wucsz5VGwlz3UNlgBOqcgWxWQelGyPma/T1/
-         MOqYdFIkqjUOYlhmr0c7Q+gY43V+i+SEqm3xPiKY1qftt2Fa2Hrnq7RxW3lGCdL/xSmz
-         SbbauCLQr087jfUqM58s9VEsxqkfm2yJJvHc0K+YLWqIHo9X806kGEhxAjycVH5bZZpQ
-         ysoFteqjAY3ei0lX/ilwdSyUwIMQHYgJ2TNJElTAQIuIdDimakxtsS5EMVCzT1xsz6tH
-         uRMw==
+        bh=Pmk+sIZTt3w0WtAkxU0Aj/ecWCHoLEzaJTgVNQnsM0k=;
+        b=DNMH7WHJFQB+wN775CiJuduR7WvVjAAUrs7squmv4mc9JUVd5BlEkKWAdtE191NYsA
+         fg6x+jJwH22wu2d768nC1M8rq1yDL08M/uKkb4uS4VYHElBcxqdJJsGIoB3GPxNcUfkB
+         ToW9TY8ddx72IP/xrQlTdCNxt8nRGb3VLDihfIt/XaHB2XuCFkxWXGfO2t1YkxfzGEiM
+         fS0MYvAvcMssbUmVDTJK+YOAP2j3mm2F1SwtYHm/EbtFiLBUXeDNOS14pMxq9VCtPmCP
+         X6+RWtsso8wnr8X4PR1OlOM1Y7HSCIyVUMoaiDrODYTn3AyDPaf0OgD/+6SF702nsXju
+         59YA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795711333; x=1796316133;
+        d=1e100.net; s=20260707; t=1795711336; x=1796316136;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tXzlqriDCchISdhq2S4x7+9hMGbGzDajZ595wmRIilo=;
-        b=Pf6yxcqpr1u6R1H65CsTlBaB60doQEuPyQbXrDfMZlqQ/S44uBbt76M9UZ34KJVgrO
-         PyLDLPIk9GIqUDjPOcp8GufRjTQK6jTs85VvtBkQ6pqLiwM3IodRKtMuDxixqHrH6gL3
-         +5yO4tDKQgfCxmN2k9ptCv1fmj1LTK9x6ZWf7MHi2E8jqSjMgKMnQ9r1TeOJElY8NIAT
-         SeO+98VlGmfUe+PixVHTTJC1+NG12UC85e+ZjLTmRhAqg/ZR//moqWXJ4krY8x205QWl
-         Xe5ptDDgb5dxr+O718a/A5d88Ae4opDerDosTYJ2F8R4NxXe/9O96ZUKZWsQbrZRCOH7
-         S9Aw==
-X-Forwarded-Encrypted: i=1; AL+hErGFjtX5TbL6mqwC9P1MWcu2j4KHmkDokJqAnPVG/eMJqoRwHbXt8aegiipWCpWtLl6OO+LLGs+UTX5JJ8Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Wc577JcZxekCLV/5Fuo+IMERkEh2ez8qxRczYKWA+Hlkv7TaA
-	uG+X02pBrSg7BJMkIGCTabkc+/I2q+JoxtsdT/RsUxeRc1luhQDs8PD6
-X-Gm-Gg: AZFdTZe+H3SwmUOzNG9gIZF7nFhOxePhPTPPBbbpB8mYJX2CLuFRXHe1cXEyEz348qQ
-	+AI3ID8M+7XoXvbqDDW29OC0OmDUyF8UPsDPYyQBH+RJ3mtFcDaILwU7Ve0RbHTaeEiMDrT0YrE
-	BS3RNHt1pia4TJxUE4o1zd9pwRLVClfm4Bvbbbn+So2EIdWnFF3TBFcwzhBMW7YLP6jmHiRNkKN
-	wYrm6exxHS2iCnO4rGwET2lky3YSCxai/FHxbTF5ALOpG2QhlmW1S1t0znWFEB15WJBM5CeLQNj
-	Qbaq1Tq6gD45Ccebvy/J3Q6/WeXdwHLWKjHpkPP/2GG2r15aFJFC+Hn844Q7qPG/YhtUiGhn3UR
-	rQWBnpowC7pG+gv87ex4Ex2WNwJI/b/F0nkrp83nRR21ciZdtMp034NchkM3HwAxBmU4xWebjEH
-	KvFM1+JzDv3GL/zm65sJmZEXU32MUiAYbUD6z+r3ajU/Eh7wdfsWlpK6od3hTqkv4Kq3wYsH382
-	9ik46AsGmQhDdHNYbjhLm3dt/1ouEuSzB/yB+SN9sE6BsNYmZ9QfN/kWVzvyvlXqWbs6VKlEbe7
-	kKPiWQBytBt774Cgl8WZQ0qiPR1J0j+WSl1SdMxt+NoXhXseOWZ93bo64dGeh5WL9Sn1N9cZiCw
-	ylDr7CHO1IQhNPI/E60EogIWUT0vN4asY9HJLBTlbPRyo8R6eUJ8lTRbZnX2THjdNgkmCi9PL35
-	6lqZ6Wm8cJTAKiLwDHPA==
-X-Received: by 2002:a05:693c:414d:20b0:386:9f89:aa80 with SMTP id 5a478bee46e88-3869f89aee3mr17238179eec.0.1795711332806;
-        Thu, 26 Nov 2026 08:42:12 -0800 (PST)
+        bh=Pmk+sIZTt3w0WtAkxU0Aj/ecWCHoLEzaJTgVNQnsM0k=;
+        b=vZ5bF5qkQTfR22S3xd3wDaKI8CJ5NSUEZvdrP9wF2iHdSdEDIwtLGSy/YlVuy49AIK
+         ufVbyxXLElf1OD93Bq/oO7NxheEYv0OSuujY5980gzwRdx6eFTuctZ4idMP19mei7xOZ
+         fyXezE0rjqDVy3DXEn0kl2gNmZyB6kPaRLL3Bzld15VqENubgQLzuw62+8v6wEAk/86y
+         BlKZ/yF3GounkNnZbQmM6ar+Gzevn5amGCqI6I3AMstreJcgGlIWya9UmLfRKLU2GNAH
+         pWsyu4MYMjLiIU3BrZ/E/EcNFh6iyrmLZpx8VnQpq4tOhF20XJ7SAzsj6EwdqUswtnCc
+         Lbeg==
+X-Forwarded-Encrypted: i=1; AL+hErHnjHRReZG7zHUwqX/FlwOm/1ZZexAYFlRRzcA5e49TCRv6t6BcT5IJea+UgrjffQnYMN++m07B39FWp/0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+qkxjU8KvLM75isWTL+6SQzcD//28Sm6tVcu+XGhWJvoI+RXyR
+	6r0wfMur0go9Qj1KCAkcJ7D21bIiaixbQC9Yj0H5o8/IBf1x0hJ8mvm6
+X-Gm-Gg: AZFdTZcdD5jXRE148d1scI3p5tYZK9FCzd4wU1LzYL1ZZFYbymQ/7VsRV8qBvfhUYoh
+	Yba/VeOI/VjaKtRTCYFQrfMyyEOH4nVIvLCHhXPjDJifPbOiUrq7dIyxUa940QpGJnEw5n1US/L
+	/CGfb1GRygmkVxU2hGiMMM5j5NdJdkgtgnCwqn6ZkSmuILoSDBmtpJCTIujQqEYx+PMTYGwFP0L
+	mr4WKpvSg8ugylsRa+nY/U7fhe1U+wAI5kh0FsGcv/WOzWHdqMh4sE1JRsaBdLLYGlENmvtXLX4
+	TjbjFAchhkbXpt2sSwGoTxd0vSJSss6IQNP62L9mfrXU4u8gLdvc2QVF7sC/ytM0OLosh1Ih+6w
+	r9ytQUGzWPyNL74W77kksDhzQ3hqZqBav0+Pn4Bi6O5CQ/w4Gy3ewenc1MbMFB/1WzzpmXYUsk6
+	58q+CARPPHpIOGAcQKGlTe729vQPTjQgtgNanZKbfxnhsIG58O12VQk9KnpTH2xBBHxt7avAXQD
+	zqiFj3skB/cPJNL9ix50HSWnxhpOcGY+Ey0iBmZWxLbdJQCcKoOkKvIriM5ppRB5ZJz2bGsLfiE
+	En/zrjNRykFbDtzd+Iikx0r17+ZEbUP01ALkI3os3CuN3fN+DfgJVNSZ6U3+aEItpnl1Dbot1O1
+	WY12co8j9j1fRKiOvRvnzZzGcSq5atlvTgjCpGwMrI/05LgAYbEVv6apJJYxyg6hArXpqR6MB
+X-Received: by 2002:a05:7300:1c1b:b0:386:9d31:2d18 with SMTP id 5a478bee46e88-3869d313208mr16132034eec.0.1795711335410;
+        Thu, 26 Nov 2026 08:42:15 -0800 (PST)
 Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm115299825eec.3.2026.11.26.08.42.11
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm115299825eec.3.2026.11.26.08.42.14
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 08:42:12 -0800 (PST)
+        Thu, 26 Nov 2026 08:42:14 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org
 Cc: richardcochran@gmail.com,
@@ -94,9 +93,9 @@ Cc: richardcochran@gmail.com,
 	arkadiusz.kubalewski@intel.com,
 	jiri@resnulli.us,
 	jonathan.lemon@gmail.com
-Subject: [PATCH net v6 1/8] net: dsa: sja1105: keep pin function on EXTTS disable
-Date: Thu, 26 Nov 2026 08:42:02 -0800
-Message-ID: <20261126-timecard-driver-v6-1-ahmadexp@gmail.com>
+Subject: [PATCH net v6 3/8] ptp: ocp: preserve timestamp routes on DPLL frequency changes
+Date: Thu, 26 Nov 2026 08:42:04 -0800
+Message-ID: <20261126-timecard-driver-v6-3-ahmadexp@gmail.com>
 In-Reply-To: <20261126-timecard-driver-v6-0-ahmadexp@gmail.com>
 References: <20261126-timecard-driver-v6-0-ahmadexp@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -112,35 +111,96 @@ Content-Transfer-Encoding: 8bit
 
 From: ahmadexp <ahmadexp@gmail.com>
 
-Disabling EXTTS currently selects PTP_PF_EXTTS, changing the shared PTP_CLK pin from periodic output to timestamp input. Only select the EXTTS function while enabling capture; disable continues to clear the state and synchronously stop the timer.
+DPLL frequency changes on a combined SMA input currently replace its complete selector value. This silently removes timestamp or counter destinations configured through the SMA sysfs interface.
 
-A coding assistant helped analyze the teardown side effect, develop the correction and source-derived regression test, and prepare this changelog. The test exercises the actual function with configuration writes stubbed.
+When changing an input frequency, retain selector bits for destinations that do not define a frequency. Preserve the existing output path and continue to clear disabled inputs. This keeps the timestamp route while changing the frequency-bearing source.
 
-Fixes: 747e5eb31d59 ("net: dsa: sja1105: configure the PTP_CLK pin as EXT_TS or PER_OUT")
+A coding assistant helped identify the route-loss issue, develop the fix and regression test, and prepare this changelog. The test uses the actual selector and DPLL functions with instrumented register access.
+
+Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
 Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 ---
- drivers/net/dsa/sja1105/sja1105_ptp.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ drivers/ptp/ptp_ocp.c | 47 ++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 42 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/dsa/sja1105/sja1105_ptp.c b/drivers/net/dsa/sja1105/sja1105_ptp.c
-index 350f958dcb2a..da35805152e0 100644
---- a/drivers/net/dsa/sja1105/sja1105_ptp.c
-+++ b/drivers/net/dsa/sja1105/sja1105_ptp.c
-@@ -816,9 +816,11 @@ static int sja1105_extts_enable(struct sja1105_private *priv,
- 	    (extts->flags & PTP_EXTTS_EDGES) != PTP_EXTTS_EDGES)
+diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
+index 625a85b2dc7e..284908c6abc2 100644
+--- a/drivers/ptp/ptp_ocp.c
++++ b/drivers/ptp/ptp_ocp.c
+@@ -5873,16 +5873,31 @@ static int ptp_ocp_dpll_frequency_set(const struct dpll_pin *pin,
+ 	struct ptp_ocp_sma_connector *sma = pin_priv;
+ 	struct ptp_ocp *bp = dpll_priv;
+ 	const struct ocp_selector *tbl;
++	u32 val, aux = 0;
+ 	int sma_nr = (sma - bp->sma);
+-	int i;
++	int i, j;
+ 
+ 	if (sma->fixed_fcn)
  		return -EOPNOTSUPP;
  
--	rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
--	if (rc)
--		return rc;
-+	if (on) {
-+		rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
-+		if (rc)
-+			return rc;
+ 	tbl = bp->sma_op->tbl[sma->mode];
+-	for (i = 0; tbl[i].name; i++)
+-		if (tbl[i].frequency == frequency)
+-			return ptp_ocp_sma_store_val(bp, i, sma->mode, sma_nr + 1);
++	for (i = 0; tbl[i].name; i++) {
++		if (tbl[i].frequency != frequency)
++			continue;
++
++		if (sma->mode == SMA_MODE_IN) {
++			val = bp->sma_op->get(bp, sma_nr + 1) & SMA_SELECT_MASK;
++			if (sma->disabled)
++				val = 0;
++
++			for (j = 0; tbl[j].name; j++) {
++				if (!tbl[j].frequency && (val & tbl[j].value))
++					aux |= tbl[j].value;
++			}
++		}
++		return ptp_ocp_sma_store_val(bp, tbl[i].value | aux,
++					     sma->mode, sma_nr + 1);
 +	}
+ 	return -EINVAL;
+ }
  
- 	priv->ptp_data.extts_enabled = on;
+@@ -5900,6 +5915,7 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+ 	int i;
  
+ 	val = bp->sma_op->get(bp, sma_nr + 1);
++	val &= SMA_SELECT_MASK;
+ 	tbl = bp->sma_op->tbl[sma->mode];
+ 	for (i = 0; tbl[i].name; i++)
+ 		if (val == tbl[i].value) {
+@@ -5907,7 +5923,28 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+ 			return 0;
+ 		}
+ 
+-	return -EINVAL;
++	if (sma->mode == SMA_MODE_OUT)
++		return -EINVAL;
++
++	/* Inputs can feed several destinations, including timestampers. */
++	*frequency = 0;
++	for (i = 0; tbl[i].name; i++) {
++		if (!(val & tbl[i].value))
++			continue;
++		val &= ~tbl[i].value;
++		if (!tbl[i].frequency)
++			continue;
++		if (*frequency && *frequency != tbl[i].frequency) {
++			*frequency = 0;
++			return 0;
++		}
++		*frequency = tbl[i].frequency;
++	}
++	/* Unknown destinations do not establish a frequency either. */
++	if (val)
++		*frequency = 0;
++
++	return 0;
+ }
+ 
+ static const struct dpll_device_ops dpll_ops = {
 -- 
 2.54.0 (Apple Git-157)
 
