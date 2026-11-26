@@ -1,147 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.19
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795710074;
-	b=rUNzi1PeV1Pn20b/H3e0Slo/hoLc+CwWpZXTXtwn0i8DfYwMJHjHHmUnm2YTvbC5O91o
-	 CuPSTHnxelsncIuVlOgTzNSiDslRVZ5OV0zO9IuCqUn3JQfhEx+SG9ygkHrWrz/sILE1w
-	 /ON8gtv/tyRg0dniYibJezygJcR7pW2VFri9UlHasVOAuGgT7/elpOUJ72LUYHvkRoWO8
-	 rEpqrAqMVykDejJFwp4uW3mYhCGpwu2I9t4JtQO+mbXEyXmDkNsOKz4GDeM+8Ne62zkQK
-	 +dV33GcIMTUuYfu2aOh70GgdTPEn0I8lDur7CwgGTPzTFe0LH/HlR5+qT29dO28p6Sw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795710074;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=Copskdu/HoTGSrs8O7Wvv7M2hmil7wxePLfQvjpJyk4=;
-	b=nsyAMYqK0OXwDkiICxLn3tAUJr3iVpk2ke7bXDC8x56IRh6dzQrb5pv3ab5HenVIEdys
-	 vceTOQrrvRVQVkLFUGvZvyP7uXiHeSK+fouMvKc3ZoJUNx755c3Iiwn/uqjLaKOBHwrgb
-	 QVRfJsXNA8+eQmgYID7Uy8ci3uf+AQp8y+UosUNK3kBp1kA02D9aYBkCkqQ6jcLG6nTOT
-	 snvwG+QJuzAL9PqvrlOX1/pvgoKp+qrb7Uid7jgB3+PURBQnbpdmP0LO2r682io3hAqZu
-	 vWI9xcVamDU177yxldEvsigeai1r62Oc+KRuiYwOyEHylFc/a0AfUaiFYVuRZgsiFLg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nkZsaxGS;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=FRv1LTPn;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.19
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795710080;
+	b=KXrIJZ2g9dElwklRIIJRmQY1FBpd0Z5VhixW1Yf5CVtG6JeLof3To0Xzw53qpvYlyLGj
+	 QaPEzg9kGUzD2C+Oq60ylxzFhWw5Xpo81Y0A+3qZjA4XvR7s6wW7NDb5e45rWFxJnaaHr
+	 tP1+r9IDcpOAnpvOkbOD2JDhRxTlF2fQJpYNy+F7nXQEJ1Z3TIjZUDEPjfIIZEzwQxr1c
+	 ufK4ok9ROyeRz0yplC31s+bMpzMHe3Le8lpQxMpepP61VziRGqOV5adWqRg4ewDcXP4Ub
+	 04mVR/7Otn2aSPe5HFRank0GsEc63TguUn9dG+Q3XqI1pI59xCbAW7p+mbzD/h9hTOQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795710080;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Scanned-By;
+	bh=A1jyeLWuWjnhHowDtKUsEW2eUs6IPRHJnLaQGdTj/pI=;
+	b=OyIpTk9MccLnIR2C2H1aNgaqwYEMi5xAc37uSZHt2XiXfRggYWMo68bahrjL4d4Eqcr7
+	 aCFKiBWZzAnevjVE5cWTjFAra/TrlhenUVtR1DCPBp/TA/zVH1maIDeSlbE8wc2F0y3xX
+	 t7Qro9Q8VT6oyPyjd6I57FPoMQ+SOLsWKPkgGhLLcavWS+UX1uh21Sb+1+tBlHvluS+ul
+	 f3pdz9urkvU3YpRcQ2BHt7Y+qvKEJPfzAe8LoPsGITDmiVF+qEPXZLsBjH17DGXW2ikxv
+	 QzjOw+q7iYDwyhdVOAPbYeDzzrBYnjlWnUBm4I+bvZEJTiiiF0QPo2ylYuTO+18QWfg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KL9lMwex;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D25C2606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:21:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D25C2606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2053606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:21:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2053606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nkZsaxGS;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=FRv1LTPn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795710074; x=1827246074;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=E40qhtyw1vo9r7N0qFS+HBnoB3kgOPE+Evp6wNAScQk=;
-  b=nkZsaxGSWApJxmpuIxyYlVuvS+p7unSBAZXBj0pHAFvqbC6UC1AjBR+x
-   JbS2sSTeIH4VIA9GoS8XbRUZoldR9UoZFAI4YLuNasiGe+dkjnjrWjQO3
-   nPwTzlfLrkMiQcPfS1w5p6HUAKsthJMCQewSeN7isJkiAFJfMIopbQLJ8
-   JlpuokX5XlHLich8CFlsWKdJb7qT3TYV3gtq2rBGYdopprRJFRx4Lhs1K
-   RPFCSe+ONUhqM4tlpmTPhszTRhWK019OTQ8H31hWEwlsje3+xo6ZDnXqB
-   HIGjaMuVbZjxOrurnRsp7GRBgtCgQLWn6sEapOltZTyY+xhfuI8een0wl
-   Q==;
-X-CSE-ConnectionGUID: 1bnVKvXWQtO02p84Yk5yTA==
-X-CSE-MsgGUID: GuA7Ozr7TAqTrDBObJayAA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4642109"
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="4642109"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 08:21:13 -0800
-X-CSE-ConnectionGUID: HXoyIyb3Td6G5Ipb1pu2Yw==
-X-CSE-MsgGUID: JCf7KrYmSY2a8vhezLD4IA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="12238468"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by orviesa002.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 08:21:13 -0800
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Thu, 26 Nov 2026 08:21:12 -0800
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Thu, 26 Nov 2026 08:21:12 -0800
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.25) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Thu, 26 Nov 2026 08:21:11 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EeeN4ZG/rlnePlq70/+59rLd3W3w9mkEgEVo9kxnFSUgNQtm+fhH2Ho45tB7Vhac5vJf6goxzev8QGf+f3nzJ5TowQEU+qZnK2yX/6hd/S4P2fblnkroNm82tMud+60N5bAZJizpQ3bw830UP+QfDQkOGoDRF0ukV1p/K8lRKbLQWaIFv+wSIS5YE0UeDe8TmDitPSkXq0+Hiczs90e7eby5VT6mXGtDNjjM8khvJ34JOgB9UNzMsjo/KNPjLzkR5MAg+Cft66YaJlng/ifvhD00b85R4cvHrVYjtrA8NOdPfd0pFojfTHjfSNsGAjUr2WN78F1BuB2KKso3E2ZMeA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Copskdu/HoTGSrs8O7Wvv7M2hmil7wxePLfQvjpJyk4=;
- b=V35vdoQHDF6hZYNsMnLa7SosatvnWCQfQSmrRQofC/KHDnONqt1NT8jJp4NRL4dyPfY5PL3231siOoXd72XbJc40AkMru5PwtYzqcvRfqfQHtovxyOAm41a8qhnnXcL1+6/uQVN+y5Rlv4nTw35d8yektl7TXOCC+WpvBrJoDlfy6g29ls9VI8AJ6dFF2UOZWrcgTOWa2R4hw+r4b/blz5O0RC8JwOsqvrLb93iIwgbNz7m+LOgfnPaAB3lBjrg0J4JRpDzvP0H+/1xyt3w+DlOirVE9go8B0+89PdkOEMHn1alK5FqYEfYIbZD1FZXLmN2FLsXFE9DkiBqLaCPA7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Copskdu/HoTGSrs8O7Wvv7M2hmil7wxePLfQvjpJyk4=;
- b=FRv1LTPnAaDPMNDHQrIrY/YzgrjgIJrwHGNC2YUATVDUgH0lO9IyGBuu+Rwgae9+pLaTqwPNAgaKN2RgnfLUyHRBdcc82X+dUU2UH71R+MLXmIQT/fS4qfs+8zl0p1EjWPCVegUqGfsGLIH0/HoF9RvftxjuzlnLunUAJih6Rcw=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DM4PR11MB6020.namprd11.prod.outlook.com (2603:10b6:8:61::19) by
- BL1PR11MB5270.namprd11.prod.outlook.com (2603:10b6:208:313::5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.6; Thu, 26 Nov 2026 16:21:09 +0000
-Received: from DM4PR11MB6020.namprd11.prod.outlook.com
- ([fe80::3058:1480:e4ac:5765]) by DM4PR11MB6020.namprd11.prod.outlook.com
- ([fe80::3058:1480:e4ac:5765%3]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 16:21:09 +0000
-Date: Fri, 27 Nov 2026 00:10:01 +0800
-From: Chen Yu <yu.c.chen@intel.com>
-To: Reinette Chatre <reinette.chatre@intel.com>
-CC: <kees@kernel.org>, <mingo@redhat.com>, <peterz@infradead.org>,
-	<juri.lelli@redhat.com>, <vincent.guittot@linaro.org>,
-	<dietmar.eggemann@arm.com>, <rostedt@goodmis.org>, <bsegall@google.com>,
-	<mgorman@suse.de>, <vschneid@redhat.com>, <kprateek.nayak@amd.com>,
-	<david@kernel.org>, <ljs@kernel.org>, <liam@infradead.org>,
-	<vbabka@kernel.org>, <rppt@kernel.org>, <surenb@google.com>,
-	<mhocko@suse.com>, <bp@alien8.de>, <tglx@linutronix.de>,
-	<dave.hansen@linux.intel.com>, <tony.luck@intel.com>, <ben.horgan@arm.com>,
-	<Dave.Martin@arm.com>, <james.morse@arm.com>, <babu.moger@amd.com>,
-	<fustini@kernel.org>, <jedrzej.wasiukiewicz@intel.com>,
-	<fenghuay@nvidia.com>, <peternewman@google.com>, <x86@kernel.org>,
-	<linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>,
-	<patches@lists.linux.dev>
-Subject: Re: [RFC PATCH 1/3] fork,arm,x86,fs/resctrl: Fix stale resource
- group assignment vs copy_process()
-Message-ID: <awhZ2UGIpFDNgcCs@chenyu-dev>
-References: <cover.1795197419.git.reinette.chatre@intel.com>
- <b2e13da64ca3e41207b5d46fb060bccefaf9fecd.1795197419.git.reinette.chatre@intel.com>
- <awO3nYazk97csbpO@chenyu-dev>
- <22918abf-7487-4662-a87b-34c579783e51@intel.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <22918abf-7487-4662-a87b-34c579783e51@intel.com>
-X-ClientProxiedBy: SG2P153CA0049.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::18)
- To DM4PR11MB6020.namprd11.prod.outlook.com (2603:10b6:8:61::19)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KL9lMwex
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795710080;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=A1jyeLWuWjnhHowDtKUsEW2eUs6IPRHJnLaQGdTj/pI=;
+	b=KL9lMwex18WCoxeRuLdxXNhiP/OvGHr+RUm7lHvWhw598xojzeRSQ/FEpuLlCN5MEIqzfC
+	vvK80OsUgCTy4l4ZWT8OwJLiJFzNLkVUz/9stNiE9BAR6PNpfsHqC1NcldkwXBX1oPyoBr
+	w6wAVCVQiXHKx8LaawnqYn+waLpeYHg=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-50-HD0IksBpPQmyFKmIA45-hQ-1; Thu,
+ 26 Nov 2026 16:21:12 +0000
+X-MC-Unique: HD0IksBpPQmyFKmIA45-hQ-1
+X-Mimecast-MFC-AGG-ID: HD0IksBpPQmyFKmIA45-hQ_1795710071
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E2CFF1955D88;
+	Thu, 26 Nov 2026 16:21:10 +0000 (UTC)
+Received: from pabeni-thinkpadp1gen8.rmtit.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 38D5C180197D;
+	Thu, 26 Nov 2026 16:21:08 +0000 (UTC)
+From: Paolo Abeni <pabeni@redhat.com>
+To: torvalds@linux-foundation.org
+Cc: kuba@kernel.org,
+	davem@davemloft.net,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] Networking for v7.4-rc5
+Date: Thu, 26 Nov 2026 17:20:57 +0100
+Message-ID: <20261126162057.141802-1-pabeni@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -151,143 +77,557 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR11MB6020:EE_|BL1PR11MB5270:EE_
-X-MS-Office365-Filtering-Correlation-Id: f19361f3-0a01-4e4b-53d7-08df4bd947ac
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|366016|18002099003|261009223027099003|22082099003|10063799003|10067099003|11063799006|4143699003|56012099006|261026121527099003|261026140227099003|261022105027099003|261022075727099003|261028144727099003;
-X-Microsoft-Antispam-Message-Info: 4bg8DDNjC2YpHcLooPu1pM+b0nwtHDzYjeK6ox4TH1yJpbnBH4OmWys39xO3OLNhuQSg8dyW9DYNLbivPHjq2GCZX+YesQ5/k6MX1FAKZJX1JpuMlAS2UIixYJuDwxc9g2V1QqMk/GK386f2uNyCitMzjp66Rx084KF4OTLxcJqBf+TMIgJ+pCQcdQ2/RgER3x5tGckWp1gFt3sGgysoD0hHghgPuWdfiP6QhRMzhMGju0w1cBF+4raXKpcurPj0k9kVKIFp8ySI/quV8VnN5y7nZlddh9YJa2fn0FUjUL8MLXiR9QkK29ZwDVZjdtK54VbDu06m5se6fP1NuQcUv16O+HwGmXjkx85/prZ10PSZ5cBq0MVTuMoAqVS1DIHMrJ4XY1iEln+nORFv4lbx8rHbTEJFaC9QpblnevOTOUKLrnwJDJpo/w9hzjavBrE5Ua8rZVvnOqdTIPu3t/lUftEigys5d9j0x3NFDT1egGwc9Kkyot6chhF0Rg6jgmA2exJgnvt7Emci0bViZa5BPFMiIG2J5YfFeKaP84MRaBq9c98raIH1lB/3Yu5wrEehhXAdLyl/nXRGlq6u1qKPpFMihKPlbUn0inFHqxvgv+Hk0z4D8fluP//sIqwjI4dybQI5myhkUOddSrsXZ/yZRdlrTbFlGLaLaV2g34DrlkM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR11MB6020.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(366016)(18002099003)(261009223027099003)(22082099003)(10063799003)(10067099003)(11063799006)(4143699003)(56012099006)(261026121527099003)(261026140227099003)(261022105027099003)(261022075727099003)(261028144727099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ju2XSDxUjjj4I0nlP13UlyP9mz7r2WiMHnjFiffbdrOkQxWFA8rOynoc855J?=
- =?us-ascii?Q?XQTWypWKhZ7oJERZVYwdUYvySmJXQYDm3EP2eKMxqwnESMLJh8kvczaA43ay?=
- =?us-ascii?Q?CIhxapwoEk8HQdlwjm+koXRJp0QqShzCv0KIEUdUUtWl6fQDtOKw7XeOUGnT?=
- =?us-ascii?Q?eiHdeLUiFgt8TjXxZgRcgClrIc4FLoDO2ksEJlLweZqrXH2Mn4XsmgOZr0Z/?=
- =?us-ascii?Q?5Db+NY/AI8EKIjFz+H2wxbhKOMig++bKpAbR9Ka41oCqSdNZps8CwhTdrHwt?=
- =?us-ascii?Q?+ZqZ87mTkgP4M0Ok+ykQ0T9SoYkYCKc4f1Xwo4X848IF9LmBi8tNN/XGGk1l?=
- =?us-ascii?Q?g90r5MZlJTkATnyUORXXJ+ugjFjZjkhsO3tmP9K28xXIiXOJLleOlYLNDNZK?=
- =?us-ascii?Q?8b74g7tonQL6MfYa5IhZCWOuPKodtWvEzOJbSklOT5qbKDJl8wh0TQjcL3RA?=
- =?us-ascii?Q?yXCfccwa2E8s2vkf0NuBReIUtAD4m9xz7Wj/+HPGWXOPNK74FB6MKTi1FitF?=
- =?us-ascii?Q?+gMBn459rh+LyfG7LTjTsG3IdN0yFcAUTvXoV83BdvA8XuMQNQ9yeXmFWhFk?=
- =?us-ascii?Q?hu3F/CowKCU6BG2WxRuoUZ/SrKh68u4czwAMODyf0yhiT05AHrH8vba6TraS?=
- =?us-ascii?Q?4Fk/CE6Ls6sSLwmzY2vd7GbBjKqNHQTZofp4+hXl4pTPAJgEXoPME+32Vnmm?=
- =?us-ascii?Q?lkorqGdoFLycTpUTXgfFma480NvAqCEpWgXfuJG5nnDg0hMrH3WLPoaa/EOZ?=
- =?us-ascii?Q?/mi64iFw9NCFU/DJ8LphTqQH+xP7TyafAbYshP6sFmiSaP4mDym0opIJVak/?=
- =?us-ascii?Q?cXhNcTqGMmeCK+5Pf8cs0kO4A7E07TE8qsvDEizvnBr776gEt0erXU03pyyT?=
- =?us-ascii?Q?XshP+9qzX0eB2lJzk2n9JxknB2ELfVTGUTnA2alkcAIWu/vQHVcUAH/uZ1Od?=
- =?us-ascii?Q?jw9OxeQmMH+3cjOFTAeHhXTO6K74E+1w+59I3ZWJFCh4S8zKQe2c+Cx/lmtP?=
- =?us-ascii?Q?p3Pp3Ov2HTMQIaiwwnJR7GJZh8drbALmITBkxCo3xk+X3feg9eHKv1Im9PuI?=
- =?us-ascii?Q?s99ohAVRU6iq9sKAraQCnGz4OnNcujlpGEtSvcgTda8K3gL7Gfw1a0uUcpFF?=
- =?us-ascii?Q?wGkgFvoK+xwCQFT190lDCbAhYvAPho5FQQ71kiLkG3RPNLUYSHv+LqhYwg1w?=
- =?us-ascii?Q?Evbu6PcgcHS23CrQw0PvDtvplKWqmVp0oAyYkAU76XPr6vyyd2CWuM1rp48Y?=
- =?us-ascii?Q?yKwbOrxtSp0j9E+zR2Otd6tJb0FSKExrmnczRkTpoTxlWOnV01603L1lNMN9?=
- =?us-ascii?Q?7UMVbM0E4oTd7dkPHVWU3gXosrgxDtDwaL+EIZ5JJdLd71qFpTQMRk4t2ENf?=
- =?us-ascii?Q?3Tjn29kZ6UioKQGdF8lA5jEYV9xm35eFqcJRczvYPaZKI7NxFKYngeDBIZ86?=
- =?us-ascii?Q?E8js9FW4hGihRm2IbqM3pQ19AWXGPj6LikJRTJnZaxZW7QdmoH52IlFf7cWY?=
- =?us-ascii?Q?T8Izw/bzZHcuyLgtXab0YVhWRxPInLgOgSElX6w7CDnecJDaIvGkJmB9Z970?=
- =?us-ascii?Q?UfIV/PIbM0vM85ENDFjDWFgoLx8qE61uygm087xZJvfYrBVHXlXA4x2X+Umn?=
- =?us-ascii?Q?XUuDhcLEincVCq35wDWrFqP67zkc638oTYAhgEN+nIaHQdW71n1/vemfJ9R7?=
- =?us-ascii?Q?IGGF2Kl54MsMrYSQ4mJNL9UHtCWxdfcwjLA8t2eXi2CZ+RQc9OmyxS2MZ9Ex?=
- =?us-ascii?Q?QjM2nny+sQ=3D=3D?=
-X-Exchange-RoutingPolicyChecked: H1YzGrW1vbGhg65vkjG3hpkYAhRBiMFHkfe0Cmco8Hh2fsWnS0MQJ4mEJdDjOmXRx+aA+dIBGvdSRdtp6r/1yU5/a4Vq3stf+28YtI/OVTxHmgK/YwDi1wTnIJ35643j5w0KqeOUcVuPj+trPlYpw5msyUCKmpFe4whJ/EyoCyI9p4znXMjnfGLz4hqi89UUuknsW9W+NcLiCCujfJYbbE4MGgFNOvvZltEYkmvPdJh8EJvkRFGwJJzWOVdZ6qDQrULIprMeWR7XQoSjOoL/UfMQQImaxv/shBsJFuFb9aYem8B86BoD3A+nBQRWaEuPIPEKt/QSIwNS9uQMplVdfA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: f19361f3-0a01-4e4b-53d7-08df4bd947ac
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR11MB6020.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 16:21:09.4393
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: crMnAAf8EOObmq5G7zfVCQj4kf4naT7cXgM+DsbB1g3ctTxxdrKp8BaCSYvESdZUGlp+14XljqWqKfUiNr7cow==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR11MB5270
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-Hi Reinette,
+Hi Linus!
 
-On Mon, Nov 23, 2026 at 02:50:14PM -0800, Reinette Chatre wrote:
-> Hi Chenyu,
-> 
-> On 11/22/26 7:48 PM, Chen Yu wrote:
-> > On Fri, Nov 20, 2026 at 10:39:30AM -0800, Reinette Chatre wrote:
-> 
-> ...
-> 
-> >> diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-> >> index 57ab090072c2..ebf780fc5fe9 100644
-> >> --- a/fs/resctrl/rdtgroup.c
-> >> +++ b/fs/resctrl/rdtgroup.c
-> >> @@ -657,12 +657,28 @@ static int __rdtgroup_move_task(struct task_struct *tsk,
-> >>  		return -EINVAL;
-> >>  	}
-> >>  
-> >> +	/*
-> >> +	 * Hold tasklist_lock for read so that resctrl_copy_process(), which
-> >> +	 * holds it for write, cannot read the CLOSID and the RMID of @tsk
-> >> +	 * while only one of the two has been updated.
-> >> +	 *
-> >> +	 * Hold tasklist_lock just for the @tsk update. A CPU running @tsk
-> >> +	 * keeps using the CLOSID and RMID that resctrl_arch_sched_in()
-> >> +	 * applied when @tsk was last scheduled in, so
-> >> +	 * update_task_closid_rmid() below has to interrupt that CPU for the
-> >> +	 * new resource group to take effect. Leave that until after
-> >> +	 * tasklist_lock has been dropped: a CPU waiting for tasklist_lock
-> >> +	 * for write waits with interrupts disabled, and @tsk's CPU is the
-> >> +	 * one that may be waiting, because @tsk may be forking.
-> >> +	 */
-> >> +	read_lock(&tasklist_lock);
-> >>  	if (rdtgrp->type == RDTMON_GROUP)
-> >>  		resctrl_arch_set_closid_rmid(tsk, rdtgrp->mon.parent->closid,
-> >>  					     rdtgrp->mon.rmid);
-> >>  	else
-> >>  		resctrl_arch_set_closid_rmid(tsk, rdtgrp->closid,
-> >>  					     rdtgrp->mon.rmid);
-> >> +	read_unlock(&tasklist_lock);
-> >>
-> > 
-> > Is it possible to combine u32 closid and u32 rmid into u64 closid_rmid?
-> 
-> This is something we can look into yes. The "What remains?" portion of
-> the cover letter highlights this but stops short of proposing the change
-> as you do here. Making this change will only eliminate the need for this
-> lock at this point though, it will not fix the bug, right?
->
+The following changes since commit 1e575bda30acc0bf01f799cee798d4a1c100d538:
 
-Right, current patch can fix the race between fork() and rmdir/task movement.
- 
-> > RDT will no longer support 32-bit kernels, so u64 is always atomic. Then
-> 
-> Planned, but not yet done.
-> 
-> > we don't need the above tasklist_lock in __rdtgroup_move_task(), and there
-> > is no race with resctrl_arch_sched_in() - but we do need it during fork()
-> > though.
-> 
-> Right. The primary goal with this patch is to add a resctrl hook into
-> kernel/fork.c:copy_process() to address the bug that results in a task
-> _permanently_ assigned with a wrong CLOSID/RMID. This is required whether
-> CLOSID/RMID are two separate values or one, as demonstrated by MPAM, which
-> stores the two as one value, also needing this.
-> 
-> In comparison, as described in the cover letter, the potential race with
-> x86 __resctrl_sched_in(), is not permanent since it is corrected at next context
-> switch. As you indicate with your proposal, addressing it needs a separate
-> and more invasive fix. 
->
+  Merge tag 'net-7.4-rc4' of git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net (2026-11-19 08:11:44 -0800)
 
-OK, I think the current version is ok to fix the race, and we can deal with
-__resctrl_sched_in() later.
+are available in the Git repository at:
 
-I fed AI with the patch 3/3 to generate a simplified test script, and try
-to reproduce:
-1. The frequent forked task f joins the task list with group m's RMID, which
-is freed by rmdir.
-2. A later mkdir N reuses the freed RMID, and task f shows up in the new group N.
+  git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git tags/net-7.4-rc5
 
-Tested on a 160-CPU Intel server with the script, C does not show up in
-the new groups. 50 cycles passed.
+for you to fetch changes up to e1055cbfd6eb578417f3ce983cf44462e8465267:
 
-Tested-by: Chen Yu <yu.c.chen@intel.com>
+  Merge tag 'linux-can-fixes-for-7.4-20261124' of git://git.kernel.org/pub/scm/linux/kernel/git/mkl/linux-can (2026-11-26 15:47:14 +0100)
 
-thanks,
-Chenyu
+----------------------------------------------------------------
+Including fixes from WiFi, Bluetooth and CAN.
+
+Current release - regressions:
+
+  - eth: mlx5e: TC, fix a NULL pointer write in the peer flow error path
+
+Current release - new code bugs:
+
+  - xfrm: interface: drop non-IP packets before pskb_inet_may_pull()
+
+  - eth: b53: use the correct override register 2 Gbps bit
+
+Previous releases - regressions:
+
+  - core:
+    - do not run out of frags in alloc_skb_with_frags()
+    - gso: cow head on tcp fraglist fallback to skb_segment
+
+  - ipv6:
+    - honor suppress_prefixlength in fib6_lookup()
+    - mcast: do not pass uninitialized bytes to dev_mc_add()
+
+  - tcp:
+    - don't clear saddr before ->put_port().
+    - initialize ir_rmt_addr and ir_loc_addr in cookie_v6_check()
+
+  - mptcp: fix dummy mapping of overlapping segments
+
+  - bluetooth:
+    - fix use-after-free in mgmt_powering_down()
+    - fix NULL pointer dereference on failed init
+
+  - wifi:
+    - iwlwifi: fix FW crashes on old devices and with 320 MHz channels
+    - ath10k: revert "stop unanswered temperature reads"
+    - rtw89: fix connection drop on RTL8851BE
+
+  - eth:
+    - gve: fix checksum state of HW-GRO packets
+    - mana: set a non-zero minimum interrupt moderation, fix TX timeouts
+    - brcm: fix link-local detection with a prepended tag
+
+Previous releases - always broken:
+
+  - core:
+    - initialize sk_peer_lock in cloned sockets
+    - release netpoll dev_lock when NETDEV_PRE_UP vetoes an open
+    - gso: fall back to skb_segment when fraglist cannot satisfy checksum
+
+  - tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
+
+  - udp: only quit inuse scan early on identical SO_REUSEPORT sockets
+
+  - ipv4: fix conntrack defrag forwarding after ip_frag_reinit()
+
+  - vsock/bpf: release sock lock while waiting for data in recvmsg,
+    fix deadlock
+
+  - mptcp: a bunch of fixes for send stalls after fallback and TFO
+
+  - can: avoid RTNL stalls in CAN_RAW, CAN_ISOTP and CAN_BCM
+
+  - eth:
+    - tun: bound the NAPI receive queue
+    - tg3: fix heap overflow in unbuffered NVRAM write path
+    - mlx5: DR, fix out-of-bounds write when sync to HW fails
+    - ionic: fix TX stalls on TSO skbs larger than the TX ring
+    - bcm4908: a bunch of TX/RX ring fixes
+
+Misc:
+  - add Willem de Bruijn to networking maintainers
+
+Signed-off-by: Paolo Abeni <pabeni@redhat.com>
+
+----------------------------------------------------------------
+Alexander Duyck (3):
+      fbnic: Wait for in-flight PTP timestamps before treating Tx as idle
+      fbnic: Cover all of the HW stats with the stats lock
+      fbnic: Initialize and reset the HW stats before they can be read
+
+Ankit Garg (1):
+      gve: fix checksum state and gso_segs of HW-GRO packets
+
+Antonio Quartulli (2):
+      tun: complete the zerocopy buffer of packets consumed by XDP
+      tun: bound the NAPI receive queue
+
+Aristo Chen (1):
+      net: dsa: felix: fix NULL pointer dereference in felix_port_enable()
+
+Artemii Mashanov (1):
+      cxgb4: allocate the full ethtool filter location array
+
+Blake Alexander (1):
+      net: dsa: mv88e6xxx: do not override PHYIDs on external MDIO
+
+Cen Zhang (2):
+      Bluetooth: hci_sync: Fix remaining advertising instance UAFs
+      Bluetooth: hci_sync: Use controller handles for periodic advertising
+
+Chad Aldreda (1):
+      ptp: vmclock: keep the device state until the last file is closed
+
+Christian Brauner (2):
+      net: don't leak pidfds through a short SO_PEERPIDFD optlen
+      selftests/net: check that a short SO_PEERPIDFD optlen fails
+
+Daniel Wade (1):
+      net: af_key: fix use-after-free in dump_sp() on policy migrate
+
+Dimitri Daskalakis (5):
+      eth: fbnic: wait on the correct queues in fbnic_queue_stop()
+      eth: fbnic: skip disabled Tx rings when setting the queue NAPI
+      eth: fbnic: skip freed Tx rings in fbnic_get_ts_stats()
+      netdevsim: report fake timestamping stats
+      selftests: drv-net: stats: query timestamping stats while down
+
+Dominik Maier (2):
+      mptcp: gate diag sequence counters on CAP_NET_ADMIN
+      udp: only quit inuse scan early on identical SO_REUSEPORT sockets
+
+Elad Nachman (1):
+      MAINTAINERS: update prestera switchdev e-mail address
+
+Emmanuel Grumbach (3):
+      wifi: iwlwifi: honor the per-channel 320 MHz regulatory flag
+      wifi: iwlwifi: mvm: don't send LARI_CONFIG_CHANGE to old FW
+      wifi: iwlwifi: mvm: fix VHT NSS reporting on pre-MQ devices
+
+Eric Dumazet (3):
+      net: clear skb->mac_len in skb_unset_mac_header()
+      tun: flush uc and mc addresses in TUNSETLINK
+      ipv6: mcast: do not pass uninitialized bytes to dev_mc_add()
+
+Felipe Pereira Stival (2):
+      tls: don't hide a queued KeyUpdate from poll()
+      selftests: tls: add a poll test for a queued KeyUpdate
+
+Felix K. (2):
+      wifi: ath9k: fix beacon slot selection once TSF exceeds 2^39 us
+      wifi: ath9k_htc: fix beacon slot selection once TSF exceeds 2^42 us
+
+Florian Fainelli (7):
+      net: dsa: b53: initialize the jumbo frame size register offset
+      net: dsa: b53: fix the SRAB grant timeout check
+      net: dsa: b53: clear stale state when creating an ARL entry
+      net: dsa: b53: use the correct override register 2 Gbps bit
+      net: dsa: b53: fix mirror port encoding on BCM5325 and BCM5365
+      net: dsa: b53: fix mirror destination and source state tracking
+      net: dsa: tag_brcm: fix link-local detection with a prepended tag
+
+Gal Pressman (1):
+      net/mlx5e: Release FIB event work flows before dropping RTNL
+
+Geliang Tang (1):
+      mptcp: fix dummy mapping of overlapping segments
+
+Haishuang Yan (2):
+      net: do not run out of frags in alloc_skb_with_frags()
+      net: add a KUnit test for the alloc_skb_with_frags() tail split
+
+Haiyang Zhang (1):
+      net: mana: Set 1 usec / 1 comp as default and minimum interrupt moderation
+
+Hao Tan (1):
+      wifi: rtw89: coex: Disable pre-AGC for out-of-band links
+
+Henry Martin (1):
+      net: initialize sk_peer_lock in cloned sockets
+
+Hungyu Lin (1):
+      net/tcp-ao: fix reset key lookup for IPv4 segments on IPv6 listeners
+
+Hyunjung Ko (1):
+      l2tp: reject short IPv6 address attributes
+
+Igor Opaniuk (1):
+      net: qrtr: ns: keep notifying local servers after a failed send
+
+Imre Kaloz (1):
+      net: marvell: prestera: disable port before changing its MAC mode
+
+Jakub Kicinski (16):
+      Merge tag 'wireless-2026-11-19' of https://git.kernel.org/pub/scm/linux/kernel/git/wireless/wireless
+      Merge branch 'fbnic-follow-up-fixes-for-the-tx-idle-check-hw-stats-and-fw-mailbox-allocations'
+      Merge branch 'net-bcm4908_enet-tx-ring-and-dma-fixes'
+      MAINTAINERS: add Willem de Bruijn to networking maintainers
+      Merge branch 'mptcp-misc-fixes-for-v7-4-rc4'
+      Merge branch 'tcp-initialize-missing-request_sock-fields-in-syncookie-path'
+      Merge branch 'net-mlx5-fix-hws-and-dr-steering-memory-safety-bugs'
+      Merge branch 'eth-fbnic-miscellaneous-driver-fixes'
+      Merge branch 'net-fix-a-pidfd-leak-with-a-short-so_peerpidfd-optlen'
+      Merge branch 'net-do-not-run-out-of-frags-in-alloc_skb_with_frags'
+      Merge branch 'intel-wired-lan-driver-updates-2026-11-13-ice'
+      Merge tag 'for-net-2026-11-23' of git://git.kernel.org/pub/scm/linux/kernel/git/bluetooth/bluetooth
+      Merge branch 'vsock-bpf-fix-recvmsg-deadlock-and-zero-length-oob-errqueue-reads'
+      Merge branch 'ionic-fix-tx-stalls-on-tso-skbs-larger-than-the-tx-ring'
+      eth: bnxt_en: restore Rx coalescing after re-allocating the completion ring
+      eth: bnxt_en: restore Tx coalescing after re-allocating the completion ring
+
+Jason Xing (1):
+      xsk: set network header on skb at generic transmit
+
+Jeff Johnson (1):
+      Revert "wifi: ath10k: Stop unanswered temperature reads"
+
+Jerome Mohm (2):
+      vsock/bpf: fix zero-length, MSG_OOB and MSG_ERRQUEUE reads
+      vsock/bpf: release sock lock while waiting for data in recvmsg
+
+Jiayuan Chen (5):
+      ipv6, calipso: fix data-race in calipso_cache_add() bucketsize check
+      tcp: fix shift-out-of-bounds in SYN-ACK retransmit timers
+      tcp: fix shift-out-of-bounds in inet_csk_rto_backoff()
+      ipv4: fix conntrack defrag forwarding after ip_frag_reinit()
+      tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
+
+Jingxuan Xie (1):
+      af_packet: avoid waiting for TPACKET_V3 copies at retirement
+
+Johannes Berg (4):
+      wifi: ath9k: uninline ar9003_paprd_create_curve() helpers
+      Merge tag 'iwlwifi-fixes-2026-11-16' of https://git.kernel.org/pub/scm/linux/kernel/git/iwlwifi/iwlwifi-next
+      Merge tag 'ath-current-20261116' of git://git.kernel.org/pub/scm/linux/kernel/git/ath/ath
+      Merge tag 'rtw-2026-11-19' of https://github.com/pkshih/rtw
+
+Jun Yang (1):
+      sctp: preserve stream scheduler across outq teardown
+
+Kiran K (2):
+      Bluetooth: btintel_pcie: Set only MAC_INIT in btintel_pcie_mac_init()
+      Bluetooth: btintel_pcie: Fold MAC_INIT into btintel_pcie_get_mac_access()
+
+Kordian Chmielewski (7):
+      net: bcm4908_enet: fix the TX ring wrap
+      net: bcm4908_enet: drop a TX frame whose DMA mapping failed
+      net: bcm4908_enet: release the TX ring on stop
+      net: bcm4908_enet: unmap the buffer of a dropped RX frame
+      net: bcm4908_enet: unmap RX buffers on stop with their mapped size
+      net: bcm4908_enet: publish the buffer address before OWN
+      net: bcm4908_enet: order the TX ring index accesses
+
+Kuniyuki Iwashima (1):
+      tcp: Don't clear saddr before ->put_port().
+
+Leonard Lausen (2):
+      ipv6: Honor suppress_prefixlength in fib6_lookup()
+      selftests: netfilter: cover IPv6 FIB prefix suppression
+
+Luiz Augusto von Dentz (17):
+      Bluetooth: mgmt: Fix read_index_list() buffer overflow
+      Bluetooth: hci_core: Take req_sync lock in hci_power_on()
+      Bluetooth: hci_sync: Lock the lookup in hci_disable_ext_adv_instance_sync()
+      Bluetooth: hci_sync: Hold hdev->lock in hci_schedule_adv_instance_sync()
+      Bluetooth: SMP: Serialize link key updates from smp_notify_keys()
+      Bluetooth: SMP: Check smp_data before using SMP_DEV()
+      Bluetooth: SMP: Don't create the BR/EDR channel while unregistered
+      Bluetooth: hci_event: Validate sent command length in LE Set Ext Adv Enable
+      Bluetooth: mgmt: Reject zero multi advertising rotation duration
+      Bluetooth: L2CAP: Don't use uninitialized EFS in l2cap_parse_conf_rsp()
+      Bluetooth: mgmt: Fix mesh transmission locking and lifetime
+      Bluetooth: MGMT: Fix use-after-free in mgmt_powering_down()
+      Bluetooth: MSFT: Protect the event prefix with hdev->lock
+      Bluetooth: hci_debugfs: Fix racy toggling of debugfs controlled flags
+      Bluetooth: hci_core: Hold hdev->lock when removing advertisement monitors
+      Bluetooth: MSFT: Free the response of the monitor commands
+      Bluetooth: hci_core: Don't fail removing a monitor unknown to the controller
+
+Marc Kleine-Budde (2):
+      Merge patch series "can: avoid RTNL stalls and fix CAN_ISOTP and netlink issues"
+      can: gs_usb: gs_can_start_xmit(): don't leak uninitialized memory over USB
+
+Matthieu Baerts (NGI0) (5):
+      mptcp: do not use a raised snd_wnd for the send window
+      mptcp: use sk instead of casting msk in check_fully_established()
+      mptcp: push queued data on passive TFO subflows becoming established
+      mptcp: push queued data on subflows falling back at the handshake
+      mptcp: don't send a FIN before the pending data on fallback
+
+Michal Swiatkowski (1):
+      ice: use global queue index in TC to-queue offload
+
+Miri Korenblit (2):
+      wifi: iwlwifi: trans: don't memset trans::conf when it is still needed
+      wifi: iwlwifi: mvm: correctly check the API version
+
+Nguyen Ngoc Thang (1):
+      Bluetooth: L2CAP: Use a reserved ident for L2CAP_LE_CREDITS
+
+Nicolai Buchwitz (5):
+      net: bcmgenet: keep DIM from getting stuck after close or suspend
+      net: bcmgenet: accumulate the DIM packet and byte counters
+      net: bcmgenet: reset the Rx discard count with the ring
+      net: systemport: restart DIM from the default profile on start
+      net: systemport: accumulate the DIM packet and byte counters
+
+Nikhil P. Rao (2):
+      ionic: reject Tx ring sizes below the minimum
+      ionic: limit TSO segments to the minimum Tx ring size
+
+Oliver Hartkopp (7):
+      can: bcm: copy the CAN frames outside of lock_sock()
+      can: bcm: do not remove the procfs entry in bcm_notify()
+      can: raw: use a private mutex instead of lock_sock()
+      can: isotp: use a private mutex instead of lock_sock()
+      can: bcm: use a private mutex instead of lock_sock()
+      can: isotp: always start the rx timeout in ISOTP_WAIT_DATA state
+      can: isotp: reject socket options while a transfer is active
+
+Paolo Abeni (5):
+      Merge branch 'net-gso-fraglist-segmentation-fixes'
+      Merge branch 'ipv6-honor-suppress_prefixlength-in-fib6_lookup'
+      Merge branch 'tls-don-t-hide-a-queued-keyupdate-from-poll'
+      Merge branch 'tg3-bug-fixes'
+      Merge tag 'linux-can-fixes-for-7.4-20261124' of git://git.kernel.org/pub/scm/linux/kernel/git/mkl/linux-can
+
+Pavan Chebbi (2):
+      tg3: Don't fail probe if 31-bit coherent DMA mask is unsupported
+      tg3: Skip management FW version when APE firmware is not ready
+
+Petr Oros (1):
+      ice: allow reading the last byte of the NVM and Shadow RAM regions
+
+Quanye Yang (1):
+      mptcp: push pending data after a sendmsg copy fault
+
+Rishikesh Jethwani (1):
+      kcm: reject TLS on attached TCP sockets
+
+Sergio Lopez (1):
+      vsock/vmci: reject datagram binds in local network namespaces
+
+SeungJong Ha (1):
+      net: release netpoll dev_lock when NETDEV_PRE_UP vetoes an open
+
+Shravya KN (1):
+      tg3: Fix heap overflow in unbuffered NVRAM write path
+
+Shuai Liu (1):
+      xfrm: interface: drop non-IP packets before pskb_inet_may_pull()
+
+Shunsuke Nagashima (1):
+      wifi: ath10k: fix status of bundled mgmt tx completions
+
+Suyuan Wang (1):
+      tipc: restore write readiness when a socket's group goes away
+
+Tariq Toukan (1):
+      net/mlx5e: SHAMPO: Do not merge packets with different kTLS RX state
+
+Thaison Phan (2):
+      tcp: initialize ir_rmt_addr and ir_loc_addr in cookie_v6_check()
+      tcp: accecn: initialize AccECN fields in syncookie path
+
+Thomas de Gruijter (2):
+      Bluetooth: MSFT: Record the filter state on Command Disallowed
+      Bluetooth: MSFT: Only enable the advertisement filter with monitors
+
+Tianyi Gao (1):
+      xsk: reject TX checksum requests that overflow skb->csum_start
+
+Toke Høiland-Jørgensen (1):
+      wifi: ath9k: make sure we stop the wmi tasklet on init fail
+
+Tzung-Bi Shih (2):
+      Bluetooth: btrtl: Propagate errors if btrtl_vendor_read_reg16() fails
+      Bluetooth: btrtl: Return -ENOMEM if bt_skb_alloc() fails
+
+Uri Dar (1):
+      net/mlx5: E-Switch, skip vport change work for disabled vports
+
+Uwe Kleine-König (The Capable Hub) (1):
+      can: flexcan: Fix probing for m68k/coldfire
+
+Wang Haoran (1):
+      net: bcmasp: avoid refcount drain on probe
+
+Willem de Bruijn (4):
+      net: gso: cow head on tcp fraglist fallback to skb_segment
+      net: gso: fall back to skb_segment when fraglist cannot satisfy checksum
+      Merge branch 'net-dsa-b53-preliminary-fixes'
+      Merge branch 'net-bcmgenet-systemport-dim-and-rx-discard-fixes'
+
+Xu Rao (1):
+      vhost/net: Fix receive queue test in busy poll
+
+Yevgeny Kliteynik (2):
+      net/mlx5: HWS, Handle NULL in vport destination action creation
+      net/mlx5: DR, Fix out-of-bounds write when sync to HW fails
+
+Zhao Li (2):
+      Bluetooth: MGMT: Retain the selected legacy advertising schedule ID
+      net/mlx5e: TC, fix a NULL pointer write in the peer flow error path
+
+Zhu Ling (3):
+      can: netlink: fix static FD-NON-ISO mode validation
+      can: netlink: fix IFLA_CAN_BITRATE_MAX attribute sizing
+      can: netlink: fix CAN XL PWM attribute sizing
+
+ Documentation/networking/ip-sysctl.rst             |   2 +-
+ Documentation/networking/kcm.rst                   |   3 +
+ Documentation/networking/tls.rst                   |   7 +-
+ MAINTAINERS                                        |   3 +-
+ drivers/bluetooth/btintel_pcie.c                   |  31 +-
+ drivers/bluetooth/btrtl.c                          |   9 +-
+ drivers/net/can/dev/netlink.c                      |  22 +-
+ drivers/net/can/flexcan/flexcan-core.c             |  12 +-
+ drivers/net/can/usb/gs_usb.c                       |   2 +-
+ drivers/net/dsa/b53/b53_common.c                   | 209 +++++++++---
+ drivers/net/dsa/b53/b53_priv.h                     |   4 +
+ drivers/net/dsa/b53/b53_regs.h                     |   1 +
+ drivers/net/dsa/b53/b53_srab.c                     |   2 +-
+ drivers/net/dsa/bcm_sf2.c                          |   4 +
+ drivers/net/dsa/mv88e6xxx/chip.c                   |   2 +-
+ drivers/net/dsa/ocelot/felix.c                     |  13 +-
+ drivers/net/ethernet/broadcom/asp2/bcmasp.c        |   2 +-
+ drivers/net/ethernet/broadcom/bcm4908_enet.c       | 143 ++++++--
+ drivers/net/ethernet/broadcom/bcmsysport.c         |  20 +-
+ drivers/net/ethernet/broadcom/bnxt/bnxt.c          |  47 +++
+ drivers/net/ethernet/broadcom/genet/bcmgenet.c     |  19 +-
+ drivers/net/ethernet/broadcom/tg3.c                |  43 ++-
+ drivers/net/ethernet/chelsio/cxgb4/cxgb4_ethtool.c |   4 +-
+ drivers/net/ethernet/google/gve/gve_rx_dqo.c       |  84 ++++-
+ drivers/net/ethernet/intel/ice/devlink/devlink.c   |   2 +-
+ drivers/net/ethernet/intel/ice/ice_tc_lib.c        |   3 +-
+ .../net/ethernet/marvell/prestera/prestera_main.c  |  17 +-
+ .../ethernet/mellanox/mlx5/core/en/tc_tun_encap.c  |   2 +-
+ .../mellanox/mlx5/core/en_accel/en_accel.h         |   5 +-
+ .../mellanox/mlx5/core/en_accel/ktls_txrx.h        |  21 ++
+ drivers/net/ethernet/mellanox/mlx5/core/en_rx.c    |   2 +-
+ drivers/net/ethernet/mellanox/mlx5/core/en_tc.c    |   7 +-
+ drivers/net/ethernet/mellanox/mlx5/core/eswitch.c  |   3 +-
+ .../mellanox/mlx5/core/steering/hws/fs_hws.c       |   2 +
+ .../mellanox/mlx5/core/steering/sws/dr_icm_pool.c  |  32 +-
+ drivers/net/ethernet/meta/fbnic/fbnic_csr.h        |   3 +-
+ drivers/net/ethernet/meta/fbnic/fbnic_debugfs.c    |   3 -
+ drivers/net/ethernet/meta/fbnic/fbnic_ethtool.c    |  11 +
+ drivers/net/ethernet/meta/fbnic/fbnic_hw_stats.c   |  24 +-
+ drivers/net/ethernet/meta/fbnic/fbnic_hw_stats.h   |   1 +
+ drivers/net/ethernet/meta/fbnic/fbnic_pci.c        |  16 +-
+ drivers/net/ethernet/meta/fbnic/fbnic_txrx.c       |  93 ++++-
+ drivers/net/ethernet/microsoft/mana/gdma_main.c    |   5 +
+ drivers/net/ethernet/microsoft/mana/mana_en.c      |  76 +++--
+ drivers/net/ethernet/microsoft/mana/mana_ethtool.c |  26 +-
+ drivers/net/ethernet/pensando/ionic/ionic_dev.h    |   3 +-
+ .../net/ethernet/pensando/ionic/ionic_ethtool.c    |   7 +
+ drivers/net/ethernet/pensando/ionic/ionic_lif.c    |  10 +-
+ drivers/net/netdevsim/ethtool.c                    |   9 +
+ drivers/net/tun.c                                  |  70 +++-
+ drivers/net/wireless/ath/ath10k/core.c             |   1 -
+ drivers/net/wireless/ath/ath10k/thermal.c          |   9 +-
+ drivers/net/wireless/ath/ath10k/thermal.h          |   2 -
+ drivers/net/wireless/ath/ath10k/wmi.c              |   2 +-
+ drivers/net/wireless/ath/ath9k/ar9003_paprd.c      |  10 +-
+ drivers/net/wireless/ath/ath9k/ath9k.h             |   3 -
+ drivers/net/wireless/ath/ath9k/beacon.c            |  10 +-
+ drivers/net/wireless/ath/ath9k/htc.h               |   2 -
+ drivers/net/wireless/ath/ath9k/htc_drv_beacon.c    |  10 +-
+ drivers/net/wireless/ath/ath9k/wmi.c               |   5 +-
+ drivers/net/wireless/intel/iwlwifi/iwl-nvm-parse.c |   6 +-
+ drivers/net/wireless/intel/iwlwifi/iwl-nvm-parse.h |   7 +-
+ drivers/net/wireless/intel/iwlwifi/iwl-trans.c     |   1 -
+ drivers/net/wireless/intel/iwlwifi/mvm/fw.c        |   3 +
+ drivers/net/wireless/intel/iwlwifi/mvm/ops.c       |  12 +-
+ drivers/net/wireless/intel/iwlwifi/mvm/rx.c        |   4 +-
+ .../net/wireless/intel/iwlwifi/tests/nvm_parse.c   |  24 +-
+ drivers/net/wireless/realtek/rtw89/coex.c          |   3 +-
+ drivers/ptp/ptp_vmclock.c                          |  63 +++-
+ drivers/vhost/net.c                                |   2 +-
+ include/linux/skbuff.h                             |   1 +
+ include/linux/tcp.h                                |   3 +
+ include/net/bluetooth/hci_core.h                   |   7 +
+ include/net/bluetooth/l2cap.h                      |   5 +
+ include/net/gso.h                                  |  33 ++
+ include/net/inet_connection_sock.h                 |   5 +-
+ include/net/mana/gdma.h                            |   6 +-
+ include/net/mana/mana.h                            |   9 +-
+ include/net/tcp.h                                  |  23 +-
+ net/bluetooth/hci_core.c                           |  81 ++++-
+ net/bluetooth/hci_debugfs.c                        |  32 +-
+ net/bluetooth/hci_event.c                          |   9 +-
+ net/bluetooth/hci_sync.c                           | 344 +++++++++++++++----
+ net/bluetooth/l2cap_core.c                         |  33 +-
+ net/bluetooth/mgmt.c                               | 377 ++++++++++++++++-----
+ net/bluetooth/mgmt_config.c                        |   8 +
+ net/bluetooth/mgmt_util.c                          |  23 +-
+ net/bluetooth/msft.c                               | 118 +++++--
+ net/bluetooth/smp.c                                |  58 +++-
+ net/can/bcm.c                                      | 114 +++++--
+ net/can/isotp.c                                    |  81 +++--
+ net/can/raw.c                                      |  41 +--
+ net/core/dev.c                                     |   4 +-
+ net/core/net_test.c                                |  51 +++
+ net/core/skbuff.c                                  |  34 +-
+ net/core/sock.c                                    |   7 +-
+ net/dsa/tag_brcm.c                                 |   7 +-
+ net/ipv4/af_inet.c                                 |   2 +-
+ net/ipv4/inet_connection_sock.c                    |   1 +
+ net/ipv4/ip_fragment.c                             |   2 +
+ net/ipv4/syncookies.c                              |   7 +
+ net/ipv4/tcp.c                                     |   4 +-
+ net/ipv4/tcp_ao.c                                  |  14 +-
+ net/ipv4/tcp_offload.c                             |  10 +-
+ net/ipv4/tcp_timer.c                               |   3 +-
+ net/ipv4/udp.c                                     |  25 +-
+ net/ipv4/udp_offload.c                             |   5 +-
+ net/ipv6/af_inet6.c                                |   4 +-
+ net/ipv6/calipso.c                                 |   5 +-
+ net/ipv6/fib6_rules.c                              |   6 +
+ net/ipv6/mcast.c                                   |  10 +-
+ net/ipv6/syncookies.c                              |   6 +
+ net/ipv6/tcpv6_offload.c                           |  11 +-
+ net/kcm/kcmsock.c                                  |  16 +-
+ net/key/af_key.c                                   |   9 +-
+ net/l2tp/l2tp_netlink.c                            |  10 +-
+ net/mptcp/mptcp_diag.c                             |  28 +-
+ net/mptcp/options.c                                |  23 +-
+ net/mptcp/protocol.c                               |   4 +-
+ net/mptcp/protocol.h                               |   6 +-
+ net/mptcp/subflow.c                                |   2 +-
+ net/packet/af_packet.c                             |  40 ++-
+ net/qrtr/ns.c                                      |  21 +-
+ net/sctp/outqueue.c                                |   7 +-
+ net/tipc/socket.c                                  |  10 +-
+ net/tls/tls_main.c                                 |   9 +-
+ net/vmw_vsock/vmci_transport.c                     |   6 +
+ net/vmw_vsock/vsock_bpf.c                          |  45 ++-
+ net/xdp/xsk.c                                      |   5 +-
+ net/xfrm/xfrm_interface_core.c                     |   8 +
+ tools/testing/selftests/drivers/net/stats.py       |  25 +-
+ tools/testing/selftests/net/af_unix/scm_pidfd.c    |  51 +++
+ tools/testing/selftests/net/netfilter/nft_fib.sh   |  90 +++++
+ tools/testing/selftests/net/tls.c                  |  40 +++
+ 134 files changed, 2636 insertions(+), 768 deletions(-)
+
