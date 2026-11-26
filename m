@@ -1,54 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795681077;
-	b=miCFMQoTMplXb853pJswaoJ2TxXBG6m4zb5LJXCr3AzifP+mbY020ybMPVexgoabw/H1
-	 QKHY+FduH3+VQJHMKPXsFt5aK9cnroe0mPWJAQXr3qsiJUctsGuHU2zN1XHIMh7NuNeXo
-	 6G+jp827A/0Shl8O5mFrWIvbHwAcBiH9slGZoeh4S9N+C/Gd+03WZicPkWtyQM9RPmHDX
-	 3GLu5b4q0GrSinO40HFIX8pabRVCW6NYJQ+I3U1XhdbP8Lq3LmXDeO6S+Dud1McvU0tFE
-	 KdMdJ+bJTy4H2Ld8A6RjOyYjJlvnx4ukPNi+7xS6n0gdkgi9e2FS3oqvMOpad5zOonQ==
+	t=1795681116;
+	b=OYPo1P3fVVUN/duh0pDnekFn1746lZu5xmkGaZigBD79FDUApNPqZ1OSSh02Q/skXrNS
+	 /R7+VAxA8hy1c/2q22cdsz5CblnFhjobiA4qpCyU1NGQyYc9nKxlHzEurwrJNh6ekAhPN
+	 thM/H4IdbwWOzXHcw/tkKH5tLffKrRItvXMfgWMJ02m0afUukUBagYyt4yQ3A2W8mFvFk
+	 jo5DyOV3fR5+dLS00N8rw4QXsQV3e2UousmvdtFOcOEpPiQu71p7njLes3fA5h2PTixPs
+	 p+ORafK9kPYdcOzFBfZVb/zvCkYoALcBNggcDQEkl8DMgxapYcIETarKQ/9z9LomkEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795681077;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=ZAAFRtBH862TbNDRmcS9EWixbsX+mEXr1CWTrLSYILs=;
-	b=BAxhBzJY16fXI3cya1+sqCiyhYx2BG+D1mCMN8Y1kLYeuNAj4EviwJk43B0oN2m27VKU
-	 1ZsAb21qUfQPbiu9nGaJ1XYLedZ2hUEJhvqANjA99MQyYbePjSg7V1PK5SevvIQKHDgXN
-	 w3VSPHOG5BvkQPvUVUF27iEGQYM8isQdlIWOlvne/ZKokWasBj7gz0b7YooPDtDvHTjhc
-	 Q0CC4BciTUUi0JK2hIeWAwRXMKIg8m7WjHEDfV8IrQNA/RI8u+2D5qxhiXO2YZfPxP2xJ
-	 otSk+vyr14fUkOczxLrhPnx+cQE8WYHXYYxZ9itx9i9n0n1yIC8//tilpeexX9zQWwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795681116;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
+	b=UpLc/rN/vWzVaPtAQzduu37NyxP5DYnIraAI3WjNvchofjdtyOPhLMCn8iwshKbMEHDv
+	 2ptCdD9dm9K9G0PMdtfA4Ol37TyG3hpucjD3bqSn0Lz+OJRLR2qtzE+rfQe8gdAUR0RkE
+	 aY3vHMW1CbZz1LPV/e4vkNv0heK5PTAjMptrjWqsBD3HP6Z5oDw0QXKpk1AJ0Z8vwxpIW
+	 8lzgB7aKLVSGfx/bTeqxQcIC7W42i/Ct9r/bMcgxLtYK4dJEBQy3oosPD9gho38bQ8mWC
+	 ggI4lcVEaFybI8yfNXwpV6aRyL2VbkOFkA09wW57lmRIT1h4HA7nBaAYLtWg3tDgKNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.160.69
-Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com [209.85.160.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Sk/Xl0e5";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B62F606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:17:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B62F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-47b7f5b898aso3056959fac.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:17:56 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795681076; x=1796285876;
-        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=ZAAFRtBH862TbNDRmcS9EWixbsX+mEXr1CWTrLSYILs=;
-        b=i/sVwKMJhb0Org3Ut7tB2G5rCA7RMA13gSDzkD03Ea308HAeto9qbec8QlPdud0TdM
-         oynfitIhxdJLlKeuuNJmu+Ohg0zhUbcohEKAWn4r2zGodlR5jB+afd81t5IsXVYNGTda
-         nDvGv+7hMwSJDpC0TjuOwBWz93DrtDPxyuslR1JLvb5VXppeSForXArKyQ+u6FFiJ8Qv
-         tSWfpVVjqcdyNFyhgbXJcVPEgyd5cOkrZTnGA0R2gGhf0L5WKOUqVkUiztDtSv+GznUZ
-         gqUF4R+9WaOhhNggxSNrHU5LyhguorABGGqPHQH6HFJTieEytq3U9ZhJVHqbRbPUHFm0
-         Hapw==
-X-Forwarded-Encrypted: i=1; AL+hErEI13GxITAG4XTXmdhn9Gf+DA5/mw1MtxQ7SzbeB09dsFK9cceaC2ah4pCsyBOBitxgumy86J8gkxxHB4M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/GSfDDNrT/8A6yoZT2Rfo+Jcvvs9Sj10kFQg/q0IAju+IIi9IA
-	H6zW/rnRBEAXObBkx4dW4loOx6qPIu0/jv7V6xqqYxi6ecBmXE+xWqmipRJRBXGiLd+3v+Fnl1B
-	4H46FC+jzhIe+kiJyYgkUyrSYRwNEqGbZalMxKq9PsGU7/lXIGawaEVobf/0=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3A99606A31C;
+	Thu, 26 Nov 2026 08:18:36 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Sk/Xl0e5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EE911F000C4;
+	Thu, 26 Nov 2026 08:18:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795681116;
+	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Sk/Xl0e559YMB5cUarA4ASsvDIq9xLwofyNzneuUzIOqp/h9vXMkCeRYCDkcJlC8v
+	 1AWDIDJ44Hjr0D+5VK9cduLQm7wiQnRtwj4+TmbOzRDOafNM1/zh1mqmnm2qhyDRJg
+	 vcsNpFWCcXi+oZw/3AVzCn9a7zDCOC8kJOHvZglxbE8nHTWg8hFONXHL5fB5HprJ2v
+	 M7lHTo/ozZyEsYanqNho9UZ4xY9Zqo1gk5LoCzeKK1fhS3wvTwbJ81PJqtE/+sMeXi
+	 3aaung9RQVMejVarM905b7ytFyeWuXGH5XBJQnUYchGMfJkHY51GCZdz8JVmnIGE4L
+	 V+JDPmPEwylow==
+From: netdev-bot+sinfo@kernel.org
+To: Ralf Lici <ralf@mandelbit.com>
+Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
+ Ido Schimmel <idosch@nvidia.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>,
+ Simon Horman <horms@kernel.org>, Sagarika Sharma <sharmasagarika@google.com>,
+ Kuniyuki Iwashima <kuniyu@google.com>, Xia Yan <yanxia@cmss.chinamobile.com>,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] ipv6: advance the serial after rebalancing in
+ fib6_ifup and fib6_ifdown
+Date: Thu, 26 Nov 2026 08:18:35 +0000
+Message-ID: <179568111516.3294.6279071790998998021@kernel.org>
+In-Reply-To: <20261126081353.55240-1-ralf@mandelbit.com>
+References: <20261126081353.55240-1-ralf@mandelbit.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,29 +67,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:4f09:b0:568:2816:33bc with SMTP id
- 5614622812f47-57a0ccd186fmr19901601b6e.66.1795681076183; Thu, 26 Nov 2026
- 00:17:56 -0800 (PST)
-Date: Thu, 26 Nov 2026 00:17:56 -0800
-In-Reply-To: <3c4d21f6-1e8f-4a77-902e-106356fd5e26@yandex.ru>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b07eb34.904258e1.78503.0024.GAE@google.com>
-Subject: Re: #syz test https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
- 25faec9ce61c01fb45abf812a222c5b43c3cd5c5
-From: syzbot <syzbot+489e907b2a026a6f5fa0@syzkaller.appspotmail.com>
-To: dmantipov@yandex.ru
-Cc: dmantipov@yandex.ru, linux-kernel@vger.kernel.org, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
 
-> #syz test https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 25faec9ce61c01fb45abf812a222c5b43c3cd5c5
+Hi!
 
-Command #1:
-Patch testing via #syz test is temporarily disabled.
-See https://github.com/google/syzkaller/issues/8122 for details.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-Command #2:
-Patch testing via #syz test is temporarily disabled.
-See https://github.com/google/syzkaller/issues/8122 for details.
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
