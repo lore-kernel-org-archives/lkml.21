@@ -1,47 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795675161;
-	b=NiHw6hJcFxpjyRJWNzeqUGPeO+7APY3KOBbB/DHTlBYjiKUw27ZuqIlWbdA4HrY4EIT5
-	 4MBy18CWAL+s825uUSk2VdMGIaI+SPTBw1lmSP+ApNVSnzWhR5W5WN4Xyevk7oica5OxD
-	 P741IosVKyxnPlnkV7QatjrWEL1Ome98SVWsoQwaUSdo9DU1vPm6IXqRHhHkyBvx2H5FJ
-	 +kEiYA4v9GNPp3qxm/zEQ69y7C9rCWTg5LK+sGf4Dgo+bxEo4thEj5je3QBOeUWLLlbU9
-	 1tryDJ6Mvk4gPdgRDgQ0sESGTmPL0vNRCIoz9ktzXCyZ25wyE6+r3skQ55NzA+dWaMw==
+	t=1795675162;
+	b=Aek5fERYP3vdJmkKRFKTMNSrIoU9gf4lfmEf3pLYw0MybJpFYB3Jm4XvoKxoOKq0jPLQ
+	 h9iG1NAmJa05G+CmDYVXlp6QjZ2qCWTmTNOI16K+hHt7iDo1hnDJE2ZE3xxo1OGcF0FWX
+	 c57ZbV+s916bRN4Qh9kYiPftVPk5duSc983yEyIW/7KNrKht2ku4TjRHY9zlhfQpFUsSD
+	 YmSMB9Hmi2YxmysHEUUk3hM1YJ9+cjevgwENVOP8IPQW0J0x3rZRsTB1zmrDmB1hVa3h0
+	 krHihKRht32COLi3a/cBGxB77IKu0BPIfxwKamgmrRKTgjzjgh+u5vPeLPSdzOPsD5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795675161;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=3McccvAI/FLaZGqGJQk/HhOZ4ZrqKkkSLebPcj1nZnc=;
-	b=QtYmzj1vLsbGN2bUJn++OWkXgILsCqsgfnexT9MqQKuAhTnX1OPeKNCZa3cFMOmO6iAn
-	 27VMvez1c+lQdj95GuoLFMAthh1vvl8SR5UZdrtOEWdM43Cjc0zVBjuvxbiNZ+ykKHrsC
-	 U9EdPo4GA8FQNPz9RDKZ15LwjizfHWvD2OZQ4wgKJ7OGEogfLiXgCP4T09f+mhplki5g0
-	 7MI3NNipWDVGc7T/QPaEI8IGnYxAg7PKaCZE/TWd1KLh3K3NiM9migK2BErj7qxtBhQBn
-	 UDg22NjQyc2PssK9MV1JZ8Ye2RZEcfWvTuV0P6Y73aIwv83pXOIDVGPqqGZuJXacQtQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795675162;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=mX7cQaJdQ3Z8GzuWZM+Tv7znYIvTndE2qCggNaFUZmE=;
+	b=MGqI1ho2zdDEgVlMmYMDcMpOrJrrUK7HCP+GeNzXfUz3vLrIoSFbEtWsyQpSpTPC7RHm
+	 vXIovdNHf0V6UeEU51aOezC8d0wmCx+ejJ9pzZNDZv4bov3hHACCUnIJ9SAvYeL8qFWjf
+	 3eb7IrlpH7tHBwcJXOfodo/Cq/10s9lcEBF2p2Kiyy4O+tI0z2HT90ijNl1e76+43ZnCu
+	 lk1P7XwPj/AdDv2Aahung6bE3wAu/9yfj+Ha2yq5m3gtCvV4ovqMiUyL5jUd2157CNS96
+	 2d9EwPFjbwXnWIBO1Zx2VYW3IpgRzir/2LKC00XBg4+kzQgCCVwbT8YYCRjO3kOf3rA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AMgrSOKG;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kLvUAliF;
+	arc=none smtp.remote-ip=209.85.210.172
+Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1DF4606A32D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16EEE606A326
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:39:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16EEE606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AMgrSOKG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A32A1F000C6;
-	Thu, 26 Nov 2026 06:39:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795675161;
-	bh=3McccvAI/FLaZGqGJQk/HhOZ4ZrqKkkSLebPcj1nZnc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AMgrSOKGVOD1dNuClyYuqAm6kgbeWNJTX9kp7rsd2PvOmScHdG9euwHsAUA5bTS4c
-	 SgF8C8JAU2yWxiXrEQ0FtbGgHmrPF0r24koMReV3vKjhRDF1rv/PCZEPWp7U/3a81e
-	 DNpvQYfzAZs4uJgsXGTX5QFoj7WnC07HJk23bIQSdO9nxtkyb/2mRoxRyPs5iDrJtd
-	 JhFDWcB+Usv1AqX5T/qdHRR/ZOyQg7adMRgG8hyRvL7xCG29Jc3DpK21VGOfsjDFdo
-	 TxLy3Dl0HjtsoOuTPhVCzavUaYZ/VTfVkIe0A1rLN8GyGkJZIme94FyqNNZoOIkD+x
-	 KK6PYGk679KCA==
-Message-ID: <72190fc0-e756-4442-a38c-7b8871e6a971@kernel.org>
-Date: Thu, 26 Nov 2026 07:39:16 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kLvUAliF
+Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8b58d6f67a5so3365572b3a.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:39:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795675161; x=1796279961; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mX7cQaJdQ3Z8GzuWZM+Tv7znYIvTndE2qCggNaFUZmE=;
+        b=kLvUAliFJyEB9GuFnigyENCAPMqPACSl3yQ0Lh/p5I9xtKEwSoHuqvTV4Rdh4TyVqE
+         DgixpVSquD4bQNYtr9i57AZaqGNYOq9vh/q218XIwgn/9El12qG0twmL1SrPp7n74i+D
+         rZLfsl59GbRoGUaBOvnMbvLLmO8TwA4jIC4ffJqDTJr6L+SjFmGKGxsVVh6XfxDzH1X6
+         tQsB3bo3JA9kbaYfwffzxdhEHgLaxRo8hjdUBHcJbqAaZFyNF8Itc4Itzn8lpWAWYUK2
+         vjr9NQcW/YnV8yESkHrutrXQXFx0e1ZqL9LQ8JgSyjMs+ABOPSrIxPx2scm48JqK3CMa
+         jOCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795675161; x=1796279961;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mX7cQaJdQ3Z8GzuWZM+Tv7znYIvTndE2qCggNaFUZmE=;
+        b=jv0gIh4EobcP7u160j+5UjWahDrmsfxYYN6KUyRYIeQRHdpGXWEqGgnb2lZRmjUkvH
+         /bwIHow0OGuf0cEs2wbT0GAmT0Z2g1nDLWSQLfQ3GpVqXhwlS3Nfa58YjKIHTf0oxhJg
+         C4YlsGaic8z8R5msma3vbRWBL27g2gJJovrWYgpukFhu/R6WQLLjc40A3M01x2nYi4um
+         TSHbn9dS/tB7JUVztEHMttDm+d/pNEe/Wu7erq5hW1Aj/hPe2DXt2/s241JKYDxSQmi/
+         fPkCUr/ekdMH3X0l9YrWk+X/gwb2khx3PtddmBkytrOdTyAXnDWoLV++4UeiihZqjZmG
+         5ayw==
+X-Forwarded-Encrypted: i=1; AL+hErFNzvY/NSFWXhRzL42XGZips7Tt0fW84dSJ5/DAQYU7CPDmSmjTGRHJQexTGsQEcPw95qRLfoRDw2wyvGk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+eWXZ5EMIa9LFxyRdHEeldLux4oXMV66pZAuufkIE8Dp/acc29
+	w0Th1y3Yplx2CUh3UxJ5xlZCfAAKL3FVe0Lo+NUIQqksYgkthAhIXJTp
+X-Gm-Gg: AZFdTZeKQBuHpteoqcgqoSKKQpwa1E2HrOCgyS358tUFqSVsKZwiSGXwniFsJB8yqyb
+	9EyG5GFuZujd3j00Lcfe76hFC7O+RtwxXresh+j6Txv2iSjJX3vGqTk8NMgesURpgMoewdbRUn3
+	cWbGYbeIjFqhcvPI3FQXT4hOSaSoBBo4+zb2DdAT15rydiVIRz3+VdcoEhMqyhpCR7QbCeFQ5I4
+	ZIAo3KGEwBpCLCigLiY6qsC48wgprF8AtpykQJ73/IeRaVv1b3pdpB1k6rApFOFiKQuK7PxemEn
+	ed4tqW2RRx4d8Jpi+dPQkL2tw1xzI5I7ndoyzBAUDhD5/0gC7z7NPLc3VLlAxxggo9rOPivYUOf
+	wB50ScYGMPfKgCtx6p3ocX2s7dBGovE/TpxSJcY0agrOCI0rL7QBV7kDKRXuBRGXnf+Ce6rKQQ9
+	nadVtsJHr6eIkpNhW54HaJgPPlfCKjZtRd/stsSTZQ563TT3B8mEXRhJ+wkqA7p5mCA40Q74+cv
+	U5A5a3hxWMkzER7bh1AVkvTN02ImPZgjm6DNL/NePF3oLAsm5AO6zrzMYQpxbRPgxj6aLhA6EKP
+	zPRHnd6ti4BShyPm8fIEBNfvkCaen9cdzkaenPABx/7ztU7dBqrNrdI=
+X-Received: by 2002:a05:6a00:1802:b0:893:12e5:c07c with SMTP id d2e1a72fcca58-8c87c389ae0mr18623299b3a.27.1795675161015;
+        Wed, 25 Nov 2026 22:39:21 -0800 (PST)
+Received: from server225.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077a058sm10297575b3a.8.2026.11.25.22.39.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 22:39:20 -0800 (PST)
+From: Ping Li <leeonion.muyu@gmail.com>
+To: cyan@meta.com
+Cc: leeonion.muyu@gmail.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	mark.rutland@arm.com,
+	alex@ghiti.fr,
+	emil.renner.berthing@canonical.com,
+	masahiroy@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	u-boot@lists.denx.de
+Subject: Re: [PATCH v2 0/2] arm64,riscv: boot: emit standard LZ4 frame for Image.lz4
+Date: Thu, 26 Nov 2026 14:39:14 +0800
+Message-Id: <20261126063914.3237108-1-leeonion.muyu@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261126030233.2546274-1-leeonion.muyu@gmail.com>
+References: <20261126030233.2546274-1-leeonion.muyu@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,107 +108,9 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: mm/hugetlb: a min_size-only hugetlbfs subpool is kfree()d before
- its last pinned page is released, so free_huge_folio() takes a spinlock on
- freed memory (UAF)
-To: Ackerley Tng <ackerleytng@google.com>, =?UTF-8?B?5b6Q5pmX57+U?=
- <xuhx@hust.edu.cn>, muchun.song@linux.dev, osalvador@suse.de,
- akpm@linux-foundation.org
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
- <2026102727-data-sequel-ce41@gregkh>
- <566ddeb4.2ad04.1a202302fe1.Coremail.xuhx@hust.edu.cn>
- <3b7d2d65-be96-4b63-9de6-7303d2de641b@kernel.org>
- <CAEvNRgFsS3ntQBANqaqdm5XS8c4n6KDh3aODiduf6pCczmBSGg@mail.gmail.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <CAEvNRgFsS3ntQBANqaqdm5XS8c4n6KDh3aODiduf6pCczmBSGg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/26/26 06:52, Ackerley Tng wrote:
-> "David Hildenbrand (Arm)" <david@kernel.org> writes:
-> 
->> Hi Ackerley,
->>
->> does your series [1] actually fix this? What's the status of that?
->>
->> [1]
->> https://lore.kernel.org/linux-mm/20260916-hugetlb-subpool-always-track-used-v3-0-38aae9b5ccdd@google.com/
->>
-> 
-> Hi!
-> 
-> Yes, "mm/hugetlb: Track used_hpages when getting/putting pages from
-> subpool" fixes this bug.
-> 
-> I've been tied up with other work since [1] was posted.
-> 
-> I have a set of reproducers locally for the various combinations of
-> min_size, max_size, and both defined, while taking various paths
-> (reservations vs actual allocations).
-> 
-> The plan was to always track used_hpages, which simplifies the
-> accounting and it does fix all the reproducers I have.
-> 
-> I thought in addition to simplifying and fixing all those paths, it
-> would always fix races, but AI showed me a repro with races that broke
-> the model.
-> 
-> Because of the repro, I planned to re-evaluate to see if there's a
-> better model/clean fix but haven't got around to that.
-> 
-> I'll try to get to it in the next few weeks?
+Thanks a lot for testing across three lz4 versions, Yann -
+especially 1.11.1, which I hadn't covered locally.
 
-Thanks. It's a UAF, so higher priority. But I think admin interaction is
-required to trigger the UAF, so lower priority :)
-
--- 
-Cheers,
-
-David
+Ping
