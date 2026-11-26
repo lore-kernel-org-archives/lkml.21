@@ -1,111 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795700238;
-	b=03AGd9ekGYQBg+//T2Q0WHr8ujQxrC/NhbLOPAb9Ld3/7P26ZdmUZR+luPSJqJ6Seh1+
-	 9RjCkZxVc4g003exjD5Ss3y0KlQsRa6DMZJfviO7NelHzjKJeimN/OseZpRSBEoWBKJrg
-	 J/fZ2p8crF2V5ZGbNRdnOyiqmr5qwvTPj2XbvQSQSZxDjL0pHO9VcS30XimMLhyKzA5ef
-	 IxAi9i6QbvANTWLwjMJ0kX90cVGE9yfq3QOeUCCDNW0LnEo0ZP/Li7qNLceLIMJ/24jaQ
-	 mrQ3JkCZJmkN96muLfR3EhNtWtGHUQint4Xjgrp1V6Fp6EJM7HLtkuqB7IuYY+c83bw==
+	t=1795700243;
+	b=nHbZDybw9ERY10+7jVWlI99MS/adTN1jfjlm/f2RvS0tmqrxeeNLno5bHNLpPR64gvsL
+	 2C3gpS43WQKOTUEugyP0yNTmbrNqskNeOhGVUUowqHAEr/8dPe2wHQuuePBIARlWkC3KI
+	 0dAxVfkUDvv8ACTUOcOdiGgXcd1IHtdKf4mZHHftvnRgu0Sy+bRibZtrLkDCEx07FtCg3
+	 y+faY2FvehtRmFUGUfgzxWpdI+nqCDjc2XLxh0QOgi0prvyZgjIP2J3Nh2DMKpWt/hJu6
+	 aYz+EjALUkKl/1SBucZFnnV1XZVM31Y1W2YYHFf2pFR/t5SPBpGdT/9GFpAOBciGQcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795700238;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=JMugssCcily/7wa694wDfnnBgfL202tVpzluRelC+Xs=;
-	b=RoIvlxlIgcioR5VCjv9pKvwvhQTXuQB4XuL44uV47+SYDXx2vSUXE3vlbppNEkELQKtC
-	 /XCyVM1gYilZj3/2r7UxQV84eGPX+YKSPcz7niOeB7b1PP9nm5KlojDdurBnXHop8mzqn
-	 wmWqZ9c89StyiJQYUPdpPiXKRsrXisddRnGGY9WN8v7SZJEGx/xI2pQW+CBg0ZAAGCakC
-	 yshWcSaiWE/QXEG0cZ0khaMTuhAGAkOlYeq6CStcLc9Ubfe4F2FSnHodL9KbqFvRdaytN
-	 Fy8qDl+RP59nSAEd51I4NlUJrQ2pYj9PAodfA3Gkz70lXupQyJo4fq8FGUNCI1RnlkQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795700243;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
+	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=OTlAdjsMnjHpK7mYzreF1Hc8nBUzyBy1IwUaOdo6L+A=;
+	b=0TFNkWichRCsRUeevr2Eb9FNQqaciwf4+F9CvVicQrRZ1IHhT8Pwyn2EYNxumr2Q2C2o
+	 QbXJbNE/qIM6TybNaH+eK8PKaLfX1/CeCgpcKC4ENzLPLg+fi0TYsYXkGvpuoe2t36ES4
+	 rhxDX4oNA0m8lTyMFn0jAl3mC3jnz0pYgDE/hE/d0hH7VXQ/nXX+KYrHjQip7AT+kRmaz
+	 C9gU0Onxq0hC8FRqJGLHCw32k/T6keCVNNb5P+Hbusvh330mJdKT5T2fnuZsmYpTkPyGR
+	 VZ3hJudg6QtV67pNKaZmDxQG3wjQutvp3gStX92p+Xuqf29caVHmR845iTJeysnkVAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=glider.be;
-	spf=pass smtp.mailfrom=glider.be;
-	dkim=pass header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=Ru7CDrNI;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=thUwDvQa;
-	arc=none smtp.remote-ip=103.168.172.138
-Received: from flow-a3-smtp.messagingengine.com (flow-a3-smtp.messagingengine.com [103.168.172.138])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=pCvaSWpT;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ED29606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:37:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ED29606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=glider.be
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=glider.be
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3F32606A32C;
+	Thu, 26 Nov 2026 13:37:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3F32606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=glider.be header.i=@glider.be header.a=rsa-sha256 header.s=fm1 header.b=Ru7CDrNI;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=thUwDvQa
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailflow.phl.internal (Postfix) with ESMTP id 15E0D13806F9
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:37:17 -0500 (EST)
-Received: from ams-imap-13 ([10.64.2.33])
-  by ams-compute-02.internal (MEProxy); Thu, 26 Nov 2026 08:37:17 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=glider.be; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1795700235;
-	 x=1795703835; bh=JMugssCcily/7wa694wDfnnBgfL202tVpzluRelC+Xs=; b=
-	Ru7CDrNIMYLGbjqcXniwkQQZGEz1z+hYmiW3IV6ICK6gOXNbKKftIV9c9RRDu30a
-	hnlumkMH61KfllQOwIiiMmnhfNqG+HzMu/3yQc5fcRtk4IJNUuDUy5bYqpDxftan
-	2GUJFVZxsFwRSIpDc8+m3ruJ5fb4S5nCTt5R65zJP0W2niJnpPTnMubcfu/g44M7
-	Tz/qJvOvt7aY32RJq3H+4k9ESf+oXgZPo5ioRKStDaO7VZIkVfuuEBj/2C0mt27g
-	sxhVN+WGWxqK4UD6+rYgUgclBRwq9h53xvmDfIAsbGBIldF5o9RLrzyIQCPIZEGJ
-	l8yixWPJkC4pLeOV5W23+w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795700235; x=
-	1795703835; bh=JMugssCcily/7wa694wDfnnBgfL202tVpzluRelC+Xs=; b=t
-	hUwDvQa4HoU2mjaj8GcCvlOHkRd7eAPlbjWf9tRSGVLjqq7tMxaVvsOaqokvJgIr
-	+kyA8izVqh8oJyCmHYFsjLtV6a7FTmdObSl5LyBHbes0tGHoVW0kyaPQ0TiRYMJb
-	gM8Taa0ixyxnxo1ToYHRaJ/CpuxcqFrBGjKwyovnDApw+OIomHJhRqPjEmyiVTg9
-	cKlCgwVLu0OetojImSqScS53j27SKJ6YXedWIIp5HVRb7cuBsSrs692LfmYa+cxX
-	/sEeeT9cwZunT9x1qmsEVnZ+hLDNJXg2dOzpFQHjuwuig2wQxMzijUCM743Xi7hx
-	Qf9N6ASOGei5VXtWDfz9w==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=glider.be a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795700235; d=glider.be;
-	mf=PGdlZXJ0K3JlbmVzYXNAZ2xpZGVyLmJlPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:Sq8iMNKspay4Dk55E2vTz8zl9NQMi4KffkqXzbflVfYesMM
-	jxoJxYceP9onSiQmevrUP2gFAyyYAvtE0CRv7vJIDw2tjFsHzagrk+e02H6l+Fjb
-	D9I0L+uwXS/TZNo3vzmXz84zg+xU9/EYQfgM8cTuqTV9HdTsxUY1IgRgtwCOEi4L
-	6ZaUfahvoRNwdqj49j6Af2jnYGK9Muiz4kgEHf1fImrir0GdDxtUMMguL1mTE3aM
-	YUdFBbigvuMeglHncIHukcqCJSYwOUamC1A8WljOurM2mcHxWVOZT8QlbNy3fsXl
-	kuC0FPTvfBc9kWd3cCisZ52LZOyT8jMhGRvx6pQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:42cS/u5GRwGS1MIqUEs68Rnpw8J8OQUCyWSrsVRG6tA=:Tv/37dhwHGiEPheMbeF/i/uv3mWlE33EsHblwdW4/rI=;
-X-ME-Sender: <xms:CDYIa4nF98PxlGb14V6pqX4qtwGMSMfsRo-J4IeoWFKScXJYm8yUZg>
-    <xme:CDYIayoF089wjlb9VIu-eVWOCSw1GnRHgglE-o5Ez9dUZgm-UjtQshB8LWhTUD0R5
-    fIa9BJAdxoyHqln6xRYDMSqT_Md-hWINhkBxKw3COLb4yPBogNpVR91>
-X-ME-Proxy-Cause: dmFkZTErsaaucJjYq/x+6V2mCCXBrJA3xek8KYWqXgKZNN9IFx6iUHi2/PpW1dzrLefW6Q
-    GLHalkwlOBSs/MsCjgh1wT+SNniTnkE/oU+REiRyOwTCL/ugTHXDip+KVAvegPcl8V5QAf
-    UTWH5/GWxy3iNfpZ7xE8DBd2e/SAAl0VMEN7VlARs78KtmMZDeXwEfIbm7zuPByl0tZQp3
-    LfrkfplXFbAN0y9sryCubVqu9yUdw4wwe4sUrHcep0ykM8fRn1YjayJmFNWJcm60e4hbX0
-    isuE8t6Vxqu67mDR4fH67HzmJfiKRMTbBYjZFhhcutPHbQhMrP89Kn78qQ/tqh7YgNttsT
-    5Vfg4/jlpV+7+m5rJKJLERcY92vxQBDS8d/1oY/LixBfKEtsiJhAt3RonCo5g3zIR7nSkL
-    sqQY6WnOUNA+PTPtS/P3l1ktRe88wWSj0OTLFjB8pzOWfm4l9swQb/Ok88bgvFCMbE+51I
-    2Ch15Erkjr03P3bOFUBrg83QYFgk9MHKU/MONMTKc1t3o30N5WxoVQ3C1ZmuvplmAzA5Jr
-    H9xTqM/HutCAXLwbckISFgxYgu4+k/QvlN/a4Y/S5BDP4lgtu5TLlqleRNhzJ78GOZXxV5
-    PQ5Hnbc8UHLH3pXp5V02rW4O4uHR3cf1ljOH6/Wv/UYi58X7fAq/A6OSoP8Q
-X-ME-Proxy: <xmx:CjYIa0IAbLSn7U_Nu-wkcANmrlIicuUH5B_4PRBMJkpGnaGAtiRAdA>
-    <xmx:CjYIa2Zs3VEdRRNcVYrlKShiYaWbRGm-SZo540zd9QPBTtQitxd9Xw>
-    <xmx:CjYIa2-n9hfOuvwlzv5JS4VG3EFBW-V3yQrNoimvIWDR4aEtKez4ng>
-    <xmx:CjYIa3ZydvmxheEv0bGg6auow_TXJ7xQ4lFT4yttlQ4gCF-_9k_VcQ>
-    <xmx:CzYIa_o4ZIK-gm8mEUWKmIwc7qwcNBhAm5KSAUpCilMIyuYGh0exuY_H>
-Feedback-ID: ia0f84a9e:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id BDBE2F800A1; Thu, 26 Nov 2026 08:37:12 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=pCvaSWpT
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id E3F7B4E417A3;
+	Thu, 26 Nov 2026 13:37:20 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B2701604ED;
+	Thu, 26 Nov 2026 13:37:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8E6DA11E68072;
+	Thu, 26 Nov 2026 14:37:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795700239; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=OTlAdjsMnjHpK7mYzreF1Hc8nBUzyBy1IwUaOdo6L+A=;
+	b=pCvaSWpTPSboOeyPCEWxm296dT2ARRfMHg/jxbWuTxvylPGzKgJGYSQl4h3BS7GKq4Q7zv
+	yx45WbFdHbJUsYFG63QlEWM4hh6IgGzsK/ZRLyPe9xQGgKBgtU+thk+PLi8vzw2f4naOvZ
+	aqPBFCt6c5hPWGI0+WONFQofOVevtXply55MOfTMTGeMpzkDfLIhv+HCDIz4lEtQ9w9ruk
+	k2TkAeZrkinf3xDXs1rnFcVIwVyqEqn8At85hso4wkH2ohbjo5qROvmiPVbE4ag2NbEgIY
+	4xOZi0b6C6VCvMk2wuh3F7S+nVnwUaMoOXhfDp0A8viZR4ItOrZps+w6ysOyGA==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,43 +58,54 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-ThreadId: ASQztn6YUXh7
-Date: Thu, 26 Nov 2026 14:36:52 +0100
-From: "Geert Uytterhoeven" <geert+renesas@glider.be>
-To: "Yuho Choi" <oss.patchbox@gmail.com>, "Ulf Hansson" <ulfh@kernel.org>
-Cc: "Magnus Damm" <magnus.damm@gmail.com>, linux-renesas-soc@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
-Message-Id: <1ad06f20-621d-4dc3-8978-4c22dcd476dc@app.fastmail.com>
-In-Reply-To: <20261124153811.338437-2-oss.patchbox@gmail.com>
-References: <20261124153811.338437-2-oss.patchbox@gmail.com>
-Subject: Re: [PATCH] pmdomain: renesas: rcar-sysc: Fix CPG/MSTP node reference leak
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 26 Nov 2026 14:37:14 +0100
+Message-Id: <DN56LVC0GG0Z.31QWFJ8SS5206@bootlin.com>
+Subject: Re: [PATCH] drm/exynos: hdmi: put bridge reference on probe failure
+Cc: "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>, "Peter Griffin"
+ <peter.griffin@linaro.org>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Luca
+ Ceresoli" <luca.ceresoli@bootlin.com>, "Marek Szyprowski"
+ <m.szyprowski@samsung.com>, <dri-devel@lists.freedesktop.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <stable@vger.kernel.org>
+To: "Yige Jiang" <yigejiang86@gmail.com>, "Inki Dae" <inki.dae@samsung.com>,
+ "Seung-Woo Kim" <sw0312.kim@samsung.com>, "Kyungmin Park"
+ <kyungmin.park@samsung.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.22.0
+References: <rc-b1-20261110-vc-19-b220c856ecbb@gmail.com>
+In-Reply-To: <rc-b1-20261110-vc-19-b220c856ecbb@gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Tue, Nov 24, 2026, at 16:38, Yuho Choi wrote:
-> rcar_sysc_pd_init() checks whether the device tree has a
-> "renesas,cpg-mstp-clocks" node by storing the result of
-> of_find_compatible_node() in the bool has_cpg_mstp. The returned node
-> has its reference count raised, and the reference is lost when the
-> pointer is converted to a bool. rcar_sysc_pd_init() runs once as an
-> early initcall, so this leaks a single reference at boot.
+On Thu Nov 26, 2026 at 6:58 AM CET, Yige Jiang wrote:
+> hdmi_resources_init() ends with hdmi_bridge_init(), which takes a
+> reference on the next bridge with of_drm_find_and_get_bridge(). That
+> reference is only dropped in hdmi_remove(). When hdmi_probe() fails
+> after hdmi_resources_init(), including the -EPROBE_DEFER returns for
+> the DDC adapter, the PHY and the syscon lookups, the reference is
+> leaked, once per failed probe attempt.
 >
-> Keep the node in a local variable and put it after the check.
+> The sashiko AI review bot pointed this out on dri-devel on 2026-07-16,
+> in its review of an unrelated exynos_hdmi patch.
 >
-> Fixes: 1c8c77f52d10 ("soc: renesas: rcar-sysc: Enable Clock Domain for 
-> I/O devices")
-> Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
+> Drop the reference at the end of the probe error path and route the two
+> early returns after hdmi_resources_init() through it. drm_bridge_put()
+> ignores NULL, which covers boards without a bridge on port 1.
+>
+> Fixes: 2db0d298f22d ("drm/exynos: hdmi: convert to of_drm_find_and_get_br=
+idge()")
+> Cc: stable@vger.kernel.org
+> Link: https://lore.kernel.org/r/20260716132919.A3EA81F000E9@smtp.kernel.o=
+rg
+> Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-
-Gr{oetje,eeting}s,
-
-                                                Geert
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 --
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                                            -- Linus Torvalds
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
