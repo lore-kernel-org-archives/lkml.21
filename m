@@ -1,101 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.178
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795662874;
-	b=nJQdvXXJJVc+5y0Dfsf3f7Auz98F6k5DGM33JozLJqZ8niEaq38NYOTfsQ/j7u9cukvs
-	 Ck21dCbkUlM/5RIRqoZysgQUXU8n93dGMPYR4ydDtqIVaOIVJdczsl5zQrGwFvFFctWFr
-	 lGNRDS5hUoZoDYQPY89LxBRs8m5hQBV8f69GB2YZusbauOslRVL3PrHsZHcIn7UXdf0Q6
-	 jPdl5oKp1RsKyXKL4fbB9pLA+t+YFACLOEJpnRGCCpV97G8u3Tq2omWu+Ptm9p0JfL1pI
-	 pem/1vPlSrbCPmSjy+fHVeF+uvnoMUP/nM54CvR2PUZNcbG+ylJAM1YViLudUnO21OQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795662874;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795662921;
+	b=HFONwhtvxngRGozKJe/aoA4KmjqFzlj1I7aMj6WHPm/tOGo8KD/eBhtIG9U9jgx3p/fp
+	 8DYflhW55XZswIaiVN3UgfyfHyCzCqqpukjrn6RKVBuQlfFj2uBq+GAlGSozttY65wUxx
+	 63DmFIMF0uX0AmpryaHaDi95RUlBV2YRxAIrqoaRe4ihGWAUM8Pulrq4nlgSVuIX3YIJ/
+	 Eehj6E4d1/gp2ppj6kDmzok0O1ZqxTztKqjFh9a0Qx8ZkhGU6qc+iFwgPibSFabfHjhzL
+	 vbZPSgfoDB788rH0jbFTrK5FqhAvFMmya5MwLZzn+xejLpSD/ZHV0EKvLE9PBvZX1xA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795662921;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=GcbvCV5GSqklGhaKRYdmeFkbVhlk/m5bj3QKHwsg91o=;
-	b=Yebj9swByF9Kkxh7WneTXXG2NRTQEOxpjy5hnK8CWJC2N6W4LO4d42+JyxGI0bZDvglZ
-	 WcjolGU4VzAlQNR/ljgKGhDSbErz+WFwnkG+sp2Uk0u46Vsdp3jJQC1Ew/Jbc/8bq3bNG
-	 6Vn/kv1xhqLL5ZdIyS/ugSsO6GEkbgmPh6q0fK+HgstYeDDN1mjMK37kKoNl6Mcruj4A0
-	 vpQVzm5gXOJxRiNc+uFw3pZFfZgL7PbnE2ulzhBY1oQZ+RynQXMEAtyA8oeP3M7N8jk3L
-	 7L04n+GQBR5T2kiz6nZwtWCE7Lmfn5+i0uw6c0ZSMuLtZ7eKdXrOR1QsfAZDyrpK3NQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=sNzRYBNLRKkf0Y/gp9OREoymKpw7SvFmjDC5u9+y2bU=;
+	b=p8uobEkXZfIQpf/W9fLJKyNoV+hyA+SbB5BD7vw4GnpiFdqK3xLZfD+f+hJviatjA3TA
+	 9nKiOQF8zTb3LOj28eATPFdkmdj/CYkZFaF9CW3hjwWUtCo/tRuPOYN6dhwGfAAgUxo2F
+	 sF0FUgv8e14MM4uSoJd03gjzLabcmPl37C4dhsKRYeDNTs8HHmO82Vhs0tvjVMhG3DXyq
+	 vBl5203e+mJG5Cy0XNeHE+r0VItXSetlz7BVtOufTzHMeVOEZVbFJkjur7xFJr68C0OGZ
+	 nFwOo9BXqHIqh3txdb71UTik2LH1GHiCgxRfiWtl0KQLp+Oc4U40lcJOF/SVJ7F6wzQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k57OBqG+;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.178
-Received: from mail-oi1-f178.google.com (mail-oi1-f178.google.com [209.85.167.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=skD2ppcL;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33DFC606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:14:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33DFC606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E004606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:15:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E004606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k57OBqG+
-Received: by mail-oi1-f178.google.com with SMTP id 5614622812f47-4af81963f35so4626975b6e.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:14:33 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795662873; cv=none;
-        d=google.com; s=arc-20260327;
-        b=EEVVoEbhqpkUXOcOyr5G7wHMrRA+ZRT+b0UYGXz22C8NE0lOqN5AvOZaLjLoGSrJrd
-         cFB3N+20UqNGlt77V/wG69PpM+Jlu3BMFHj2C3UOTh7xLSQBeSJZCu54IDorYe0/wvyK
-         DqQH+yCf0yeIJys7tNGOhm9OhDh7/LpZgc9KGIUPPATwNn1jEVOl+Ny59gTlhqk5qrR0
-         eiphJdJfNpA1FTBEDXXwxYKUKtZ5Ilu7SLQ1qufUH2iRBvtMpYeSsLrBVMuPYBATHZl4
-         fX77Y0EsUaC5WajuEXDZekvEdAZ/ny90HuErg3jmE3YomvpgZZjk0cTHOqE/VT7mw4W9
-         bQqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GcbvCV5GSqklGhaKRYdmeFkbVhlk/m5bj3QKHwsg91o=;
-        fh=wPEn0LAE0pUkGJlOFUaZ9L5C2u8dSWgCadXqgc/K7oo=;
-        b=dEof4WfQk5XUi+td6TnmE1HlB/2MTEcUoUoxdroHqSr0FWxg7C+xUTzY2hp0HiuRtV
-         M9/eYIWvaQ2amI5lD4VfUvY1SsKGLZ0JrxnTOKDrLEhNgaJ3MLpkcmFC//FiKgjHzjXb
-         E9Sjep/wzbTyXkn1NQFpG+DW9Uwh2iRZcAobXdrY0kugibw2U53MJGblNILsqGuOLt1N
-         xgVa5pl7Vtjj8NMHKO4A8rByP0jrJk3s3SrFp4AyEKit7zISdAsO1QZMqN05MialMTgT
-         QnR4YuqDeHhnUIch/ypMrNPqsXEkEVsWHviTuuJDVDF5H5TV0o0GQEfWGtDOv8L0Mx2P
-         1bKg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=skD2ppcL
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4b467581b98so63302475e9.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:15:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795662873; x=1796267673; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GcbvCV5GSqklGhaKRYdmeFkbVhlk/m5bj3QKHwsg91o=;
-        b=k57OBqG+sdHsS6tAnO60PQtKVwTw9tGjuHZQ6fJn2LWBHbCWjCVJHSbctqtcHi75Yv
-         QuEi6Z26SQkGadic68tDApWZ2a3oxHJvUjRD2bqpfURy8q+N9DwPWhRQimhJJVEDCQfi
-         3pCmJHG3J3hzYFa5VWeSRYrUUDxbdYfgj0bBx80qn6FwsmGvyeiCkDaKggXKJTbE4/wJ
-         cbxTtNYHJF+z5UtaK+VKTYJDMqWOHqR1lC+RmtSeH9UR6QRlzhGbRcsZfJOlHkdrkmlc
-         esNzgsR/LZxPXubTaN82BFU7SgBK4nexG/+G4RkXQWnwkTWTyq5exAgc5GTD2Ny2bCkn
-         iENQ==
+        d=gmail.com; s=20260707; t=1795662919; x=1796267719; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sNzRYBNLRKkf0Y/gp9OREoymKpw7SvFmjDC5u9+y2bU=;
+        b=skD2ppcLp8Io6d1UOVIAK49rjMBwYkQ5KwfoDF0RZK3PJEsvZ0LRJ3kNOLo8CLUrRP
+         YLgirbXYWF9Pg9MZUgEMOnzVrY2jwIVgD7OmWr3IYRQwKyqy628c3iwbsYdB+YJQv7KB
+         vHhTGwfGVQ3Ei0/E0CuAjbYVsoyAsuh4DwxJKQlJQG5zWgmy8JWX3el5c2MZDoBrEgcF
+         ZN7vym/yWsZoZoI9UTV2UtpiK92wOnTScZWeNi7wW7BRstB1Dh8V/N33bx6zhsYP+9yp
+         Zm/DpZzl5ar/0ekbWXqDkdgm09FolS3Df0wdOKRkbsHHV9DAyK/AQ43ba3ISCwUoWztd
+         l2lg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795662873; x=1796267673;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GcbvCV5GSqklGhaKRYdmeFkbVhlk/m5bj3QKHwsg91o=;
-        b=nRUMj1y6NEiZXcdtelvC3exUTIPJY6FJjyaHs6rfUL5xeDG53PiFAOMiOb0+4x7sC8
-         jCdQcsjwDk0MpH5o6K7E5S/ZAv073uY3jZx3/MV6YF70BQ3ODkqToLyHY2vfZXdpgcDS
-         mNO36QZas7nGTtu9PF++oOrN1agbZJ+TzqQkT5YphEdz4w6dd75JU8Y+iDDjj4spt/8b
-         c8z+6Evpg7Kre2yAVOuGO7qAq6QRtGV0BG0U6IEcBxaqYGj6FTZq9sQDa+qN9rv34f3L
-         ewm16iZMnaU9lYy4TOZIvEMIwd8DdKnKAECC6UAG9LwTqTUp4N2pEKdFrk8l7hoVYrx5
-         ohyA==
-X-Forwarded-Encrypted: i=1; AL+hErF5rFg+JLjsa+eMCXOkTsUBsCQnkZfY8GDDSEiCnFAQDiKg61HoXPtg+NA5KFbeRTJVK+1ixLdONvvs6YE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Y0BwoCbOw2qEqdb9HsQ2ZVf457Ipv81X/+PUmTnGTad1ziq/l
-	fPdqcdPhs9zRevoQFcvwH/JxSsC1blLmr7JisPtuGiFF3lPlO/+2JuXT1kSSfumcO15MHuYQGZf
-	Ecp1wrFP18YEyf0jQzFChYmp2vUYILbo=
-X-Gm-Gg: AZFdTZds1ehLaWxGrZQ+48pLd0L0wv5Zkq78NZJpuYtHnoWe7Lmb0rnGoLiIRbHB0T4
-	2/2W9lqkcvmixdY3D1uK92M/4bb/KO6xu/+Q+DaxUv4WpZSv3KASzmPuY7MedQeRC6RqxoPKEms
-	hxaWcyRZ5ZxL8HRwoRYV1lQLo5RMSRBJaRKr9rmrFAg87ZyIecZlanQjMEjVRvLb8hVlsF11ghx
-	CT5cEQyPYd026se4C2v3lF53j+jRQu2hGbM+SnQcc9U36y2n7y/hMY6u8oFBFzGntUVq4zqkGB2
-	ksGPHiDhQ9lgDDIZoGxfoMx0Sjunbl8sKVkNy+pYz5d8iZ/cWYrJ/xENRCAd0EE03gSQvAcMQNz
-	luN3lphhGY8qBbg46qKycWn1Ss0NXdbyawdnGgyjczkvkV9B1d/neTyS0OnBovKKSNAnedh/1Ju
-	4WDBUZ23If7k/ug3EUS3FQXAVQiX2uBe8=
-X-Received: by 2002:a05:6809:757:20b0:57d:1af2:6e12 with SMTP id
- 5614622812f47-57d1af26e3emr9673937b6e.30.1795662873030; Wed, 25 Nov 2026
- 19:14:33 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795662919; x=1796267719;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sNzRYBNLRKkf0Y/gp9OREoymKpw7SvFmjDC5u9+y2bU=;
+        b=FzU6NIjgmY4fqmO0vAAGyVSOYLdqh+/oEsNLIBX+SOwbADvFEZQUg7d0TXot9N1Ma6
+         3zqjR2/KxYtQD1x3+MercF0E1jyjvTQieH/T/q0Y/bJ9FMLe5vVoiDuLFM3x12FaYked
+         480vLCWqUiHZJtDIbAzkFhq2dyfPTn7WOBbNlv1vXr5cMwxvcKZGqnkcZjDx5+asTxY1
+         5oGDGzQDUVIcmkY66+TOIyh54bC8GeRyEbQs4w50yJU9OqBJExZBFF6ux2cFqMcGM5Po
+         nWi5otGmt/yOpA75TYuwl06J340eXKq9rKTx/ENQZeqslLQZevBmccuOEiRmve/3ArFb
+         ppqw==
+X-Forwarded-Encrypted: i=1; AL+hErFCJEa++NxoDzb9JuNLrx93E4LyGdD/IEa3umrjw+ucJdijOp+lfScrGBgTqicaj1c9uv3KUTKfGkOpCxs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+AQJ6vcRSYitzs8uvfy8IJg4BEUT08etkyzDR9LgoqsHptlugD
+	Qw+XFXAqEoPGrD3QmtDaSRmSwtuRMwhjO7IjAtj8OmNsx4y91Ai0Z7f6
+X-Gm-Gg: AZFdTZfHm7lqEmFwx9OaBt61yeyhp+NHwvrgNZWrGUPn4Ze97ChNhTrubxp/afnDPLG
+	Mho9X9KRUD2s/sgMn96Qxe/LjrGxhFS8QFFtdsutwJXreP40kEGo147jZd31Y0AYjqTVSsEqhrL
+	qxau0v7RwWg76ofLs2c2BdZ1jgSMYUTrxtnI6FVZZhKDBXmwA/V0TzMtUo2In1o7jdQbIHLS4Nl
+	KT0vVlS4hEpmHwtVtzpoa0eRYTuQJoYks7qM44KuIzIaO/pH7F19vTj2uycHwLLELGBuqL4fibU
+	s8o7CqORvKVVmGL6viLolSimqJLQU6uyRm6PUxkSYVbLOG5+Uobi4QN4mIf3dxrQE7QOLC2gkik
+	XRC3gkMPph2KmIivkjV0fYQmgbyQuvIF8pGSnjOCX8Nih0qdulJ7SKNgvriPPzwxnvDMutsS1Mc
+	Ss0hEnxovG5vtELdqDtJWydm6SJdBlTTi7K9MviTzR5/12gTfOXfWqF6izPxlNxY5SmUWDWuext
+	gFAhm56zM5fRF5OzKf6yzHCwQnpdDjEeBBG/3C2xSbJtpo/+b/pBWODyul5iP4STE6aTIyzryyq
+	PvmxRrD/q1vwYmWenl3hCACllR6hfIW9fLYKWONb/LWH5RCURWz9WuUgaADlpjh2xGru9gBJvpN
+	WqOtak41IQd7IdnaYN5gMKA/0r05pyWSq9HG5Kr06G4WjxAOcNMKR5F1y/CTRm1+KmsMChkFse5
+	BaLyQPdapVdYPJMZqA2m6lsoTq8X7MQ7VklA==
+X-Received: by 2002:a05:600c:3b98:b0:4bb:7033:c92f with SMTP id 5b1f17b1804b1-4bb88826810mr384054565e9.11.1795662919396;
+        Wed, 25 Nov 2026 19:15:19 -0800 (PST)
+Received: from localhost.localdomain ([31.223.101.75])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3882sm37189290f8f.49.2026.11.25.19.15.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 19:15:19 -0800 (PST)
+From: Oguzhan KAYNAK <kaynak.oguzhan0@gmail.com>
+To: Jon Mason <jdmason@kudzu.us>,
+	Dave Jiang <dave.jiang@intel.com>,
+	Allen Hubbe <allenbh@gmail.com>
+Cc: ntb@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Oguzhan KAYNAK <kaynak.oguzhan0@gmail.com>,
+	stable@vger.kernel.org,
+	regressions@lists.linux.dev,
+	yangqixiao <yangqixiao@inspur.com>
+Subject: [PATCH] ntb: ntb_tool: accept hexadecimal addresses in peer_mw_trans again
+Date: Thu, 26 Nov 2026 06:15:06 +0300
+Message-Id: <20261126031506.165973-1-kaynak.oguzhan0@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,98 +102,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123142203.3860616-1-hjf3108@gmail.com> <20261123142203.3860616-3-hjf3108@gmail.com>
- <CAHi4H7HVNRnBynR2KLnxr=fpep=jkSBbE1NHvFr5e2DsvSTpjQ@mail.gmail.com>
-In-Reply-To: <CAHi4H7HVNRnBynR2KLnxr=fpep=jkSBbE1NHvFr5e2DsvSTpjQ@mail.gmail.com>
-From: Jie Feng <hjf3108@gmail.com>
-Date: Thu, 26 Nov 2026 11:13:56 +0800
-X-Gm-Features: Aa3M54o33vWSDdhl3EhMnBuHhyvDxviml_wh1UCQV3GqiVxQrmBIeWc2Ms3zbUM
-Message-ID: <CABOQOSV5eW5X0_ChXe8MT2tTFPtLTHLuRn520Ya-tUp8MoQTFQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] ARM: bcm: support more than two CPUs on BCMBCA
-To: William Zhang <william.zhang@broadcom.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Russell King <linux@armlinux.org.uk>, Anand Gore <anand.gore@broadcom.com>, 
-	Kursad Oney <kursad.oney@broadcom.com>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Linus Walleij <linusw@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hi William,
+Commit 21fbdc4d0b1e ("ntb/ntb_tool: correct sscanf format for u64 and
+size_t in tool_peer_mw_trans_write") changed the format of the
+peer_mw_trans parser from "%lli:%zi" to "%llu:%zu". Unlike %lli, the
+kernel's vsscanf() parses %llu in base 10 only, so an address written in
+hexadecimal is read as 0, the ':' in the format no longer matches, and
+the write fails with -EINVAL.
 
-On Thu, 26 Nov 2026 at 02:48, William Zhang <william.zhang@broadcom.com> wr=
-ote:
->
-> Hi  Ho Jie,
-> On Mon, Nov 23, 2026 at 6:22=E2=80=AFAM Ho Jie Feng <hjf3108@gmail.com> w=
-rote:
-> >
-> > BCMBCA Cortex-A7 SoCs can have more than two cores, such as the
-> > quad-core BCM6755. Extend the CFE SMP support to all secondary CPUs.
-> >
-> > CFE parks every secondary CPU on the same mailbox, and the wakeup SGI
-> > wakes all offline CPUs at once. Hold them in a pen and release them one
-> > at a time.
-> >
-> > Signed-off-by: Ho Jie Feng <hjf3108@gmail.com>
-> > ---
-> >  arch/arm/mach-bcm/Makefile         |  1 +
-> >  arch/arm/mach-bcm/bcmbca_headsmp.S | 26 +++++++++++++++++
-> >  arch/arm/mach-bcm/bcmbca_smp.h     |  9 ++++++
-> >  arch/arm/mach-bcm/board_bcmbca.c   | 46 ++++++++++++++++++++++++------
-> >  4 files changed, 73 insertions(+), 9 deletions(-)
-> >  create mode 100644 arch/arm/mach-bcm/bcmbca_headsmp.S
-> >  create mode 100644 arch/arm/mach-bcm/bcmbca_smp.h
-> >
-> > diff --git a/arch/arm/mach-bcm/Makefile b/arch/arm/mach-bcm/Makefile
-> > index fcc4e0174a..c3cd2959bc 100644
-> > --- a/arch/arm/mach-bcm/Makefile
-> > +++ b/arch/arm/mach-bcm/Makefile
-> > @@ -60,4 +60,5 @@ endif
-> >  ifeq ($(CONFIG_ARCH_BCMBCA),y)
-> >  obj-y                          +=3D board_bcmbca.o
-> >  obj-$(CONFIG_SMP)              +=3D bcm63xx_smp.o bcm63xx_pmb.o
-> > +obj-$(CONFIG_SMP)              +=3D bcmbca_headsmp.o
-> >  endif
-> > diff --git a/arch/arm/mach-bcm/bcmbca_headsmp.S b/arch/arm/mach-bcm/bcm=
-bca_headsmp.S
-> > new file mode 100644
-> > index 0000000000..3d0d0d97be
-> > --- /dev/null
-> > +++ b/arch/arm/mach-bcm/bcmbca_headsmp.S
-> > @@ -0,0 +1,26 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +/*
-> > + * All CPUs will wake up on an SGI. Wait in the holding pen until
-> > + * bcmbca_cpu_release matches the MPIDR.
-> > + *
-> > + * Based on arch/arm/mach-versatile/headsmp.S
-> > + */
-> > +#include <linux/linkage.h>
-> > +#include <asm/assembler.h>
-> > +
-> > +       .arm
-> > +ENTRY(bcmbca_secondary_startup)
-> > + ARM_BE8(setend        be)
-> > + THUMB(        badr    r9, 1f          )
-> > + THUMB(        bx      r9              )
-> > + THUMB(        .thumb                  )
-> > + THUMB(1:                      )
-> > +       mrc     p15, 0, r0, c0, c0, 5
-> > +       bic     r0, #0xff000000
-> > +       adr_l   r6, bcmbca_cpu_release
-> > +pen:   ldr     r7, [r6]
-> > +       cmp     r7, r0
-> > +       bne     pen
-> > +
-> It is better to invalidate the L1 cache for the secondary cpus
-> regardless of whether the bl does that or not.
+This breaks the usage documented at the top of ntb_tool.c
+("echo 0xADD0BA5E:16384 > $DBG_DIR/peer0/peer_mw_trans0") and the NTB
+selftest. tools/testing/selftests/ntb/ntb_test.sh writes back the "DMA
+Address" that mw_trans<N> prints with %pad, i.e. in hexadecimal. As the
+address format comes from ntb_tool itself, the first memory window test
+fails this way independent of the NTB hardware driver:
 
-If I'm not wrong, this will eventually end up in __v7_ca7mp_setup
-which calls do_invalidate_l1?
-https://elixir.bootlin.com/linux/v7.4-rc1/source/arch/arm/mm/proc-v7.S#L301
+  Running mw0 tests on: 0000:00:04.0 /  0000:00:05.0
+  ntb_test.sh: line 117: echo: write error: Invalid argument
 
-Best regards,
-Jie Feng
+Parse the address with %lli again, which accepts any base, as before
+that commit. To keep the format and the argument type matching, which
+was the point of that commit, store it in a long long; it is passed on
+as u64 as before. A negative address is accepted and converted to u64,
+as it was before that commit. Keep %zu for the size.
+
+Found by running the NTB selftest against a virtual NTB device in
+QEMU; the fix was tested the same way (the unmodified selftest passes,
+and hexadecimal writes to peer_mw_trans0 succeed 10 out of 10 times).
+
+Fixes: 21fbdc4d0b1e ("ntb/ntb_tool: correct sscanf format for u64 and size_t in tool_peer_mw_trans_write")
+Cc: stable@vger.kernel.org
+Cc: regressions@lists.linux.dev
+Cc: yangqixiao <yangqixiao@inspur.com>
+Assisted-by: LLM
+Signed-off-by: Oguzhan KAYNAK <kaynak.oguzhan0@gmail.com>
+---
+ drivers/ntb/test/ntb_tool.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+--- a/drivers/ntb/test/ntb_tool.c
++++ b/drivers/ntb/test/ntb_tool.c
+@@ -928,7 +928,7 @@ static ssize_t tool_peer_mw_trans_write(
+ 	size_t buf_size, wsize;
+ 	char buf[TOOL_BUF_LEN];
+ 	int ret, n;
+-	u64 addr;
++	long long addr;
+ 
+ 	buf_size = min(size, (sizeof(buf) - 1));
+ 	if (copy_from_user(buf, ubuf, buf_size))
+@@ -936,7 +936,7 @@ static ssize_t tool_peer_mw_trans_write(
+ 
+ 	buf[buf_size] = '\0';
+ 
+-	n = sscanf(buf, "%llu:%zu", &addr, &wsize);
++	n = sscanf(buf, "%lli:%zu", &addr, &wsize);
+ 	if (n != 2)
+ 		return -EINVAL;
+ 
+-- 
+2.34.1
+
