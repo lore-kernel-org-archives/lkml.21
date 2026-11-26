@@ -1,63 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795672319;
-	b=j1J/GzoWq8PsGDnpGorph8tan6LGPmFLD2EJti7Yf50nHjG+/wYWRnm9BrdIumtsHiZG
-	 pZEOBiUciO7N6s1Zjxjk+LADOS1G1xw+nflzA3/6Jx6H/+UQXu1tDKYMc39sh5/w8qq6m
-	 FeZv9HXMAglbfdwe7P3YfZEyPO3A/yutDaE8GS1oq9YG5lVLZotiV6ZV3+n4MmzGOqo7j
-	 BIYGOT/TUOaV8ExUpj+L0dz2E6eSMGjMgYUIcOQQCHbgRaHQy0ZdsDawvrUjZ7S86tRyE
-	 yIg0igObk+bfge1oUeuAl7rRg6EbMqcVLa3DcIxpQ3rxlti2OXLuq4cahaG9eU7T6ng==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795672319;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=JbegetZtdMJY0UH56qsA+4py+WjtuP90DgylLUgZa9w=;
-	b=4fwhUpMn4HYjskHRRsDn0F62S+Zy5w0N2mbEs1b2CXmg0dYuQRr/a9bpVsCnJ4rMJ1Uk
-	 2lJTmbIBAF4kbIWy6oNtvvBYTLl/v2LVkgSQUWa5ymOtaAibu1T60qP5/1Fft9ImbpsDx
-	 0AcKwwtVIt89AnIiYPslrh4SRt26JBtHrBYOZfglvOcFlOpXvJdheo6KXRFSggMOT6V4q
-	 TwOqSFA5wTXO9dpcRy3gwwcFhBvnV0dqtaL6Q7Io7UnXwuhvhDokCkopddWGujUN5Zp/s
-	 DXJCAxJsS9QJ8kgH/LuMfMr8tvW8vWrOq//G4EuM+V6czM5jMpLhShX199ydBoljerw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mB1zVfI+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.47
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795672324;
+	b=kdl8kG7oIZXMmyoTZHjRGnxMwA36fapUFdhgEDqD/DdsvNKvaBXPLFdsb7SL6tjzDqUz
+	 8tOgUqkwSbOfVZG3kgWqmjx/viK90zW9nJOTPK/yxronCuoFmLTqtdtehuYK9z0DtYzPX
+	 Io7YVlytNUjY530pV/AyV5wTe7Li6gBTPZIH3+2WJx65j1G/F4X6ZcYZCzc+iUordwE6x
+	 XtdDf3BYW14khJf/+I0CV7lkvPoWUXabNBVs22Hf76l4OHJgyp4pULZwGCJkNAVdzBYFW
+	 HitWItPW2xoicq4GdI9FUOI2wXWeMF6auhnv/zDn0Hg1eNPZ4jkwBVaRkp3ZV4a5aqw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795672324;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:In-Reply-To:References:MIME-Version:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=2k6JRJKRP7LLLbAdrdUeXnNjQUGXGLvFy8MnHqGutzQ=;
+	b=BySkjbKSWV4J8BBMZX2rvxW4eLGE9BDnGSiUchcIkyWIWDzrEHv34LAthefti8Mipzfc
+	 ndlnYFjOhx815wGa4MLen12TqPqriJo/AdwLVpnWE+vVgJPSXscl4u0bJc/PSfRlX8RvT
+	 ZRr042yLMVLVfYXNZj81djmtIvqi2UGCSYxAYVdQUTzutp8TpKthYtyJ+BddeBmJm8W4h
+	 1/JGaw576wZwAGAluErxAuZ33hU80i0Xk9alsAisPYInoDS5xhyhWYwNCEEaEs3yvHD0r
+	 L7Lb6maILKpDJgZPnJhTZHwKW027r2FmaQDLjx59Ch8DDuTFJXpFhtnahlUwI5tycLQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=F3MGezqK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.47
+Received: from mail-qv1-f47.google.com (mail-qv1-f47.google.com [209.85.219.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F189606A31C;
-	Thu, 26 Nov 2026 05:51:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71FF3606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:52:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71FF3606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mB1zVfI+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 178B71F000CA;
-	Thu, 26 Nov 2026 05:51:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795672319;
-	bh=JbegetZtdMJY0UH56qsA+4py+WjtuP90DgylLUgZa9w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mB1zVfI+R01hF2zbBQpgEqOuzZm7P7/2DdcJwuDqxeovKJXk64nnnOjiX5OlQ45fk
-	 GMNmS5fYcbULpgzOTMJ7LRDo+LFpPa+5feR3jByJIyXwmYLGh+oJtaNuBd2g2wsJL1
-	 ++lsT/uvODPYCFgtfqlyGP2tWNR5X0m30k2lpSOpntrfDBogP+0MS3elU/RBKjnKpF
-	 T16Q2NBpf4H1veqrcW2dEGGOTg8xHgbaWVMP2SXCW1AkjqpsSaU4gP7qXbnXNK5y/3
-	 ydkzmxIo/lG4y94MrDk2vJJdHlQqj4HX13EO9/LyIV/ggPbQ0SLodSA+Ivq+x7pzxC
-	 y960LSgW17mRg==
-From: Yixun Lan <dlan@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Yixun Lan <dlan@kernel.org>
-Cc: Alex Elder <elder@riscstar.com>,
-	Icenowy Zheng <uwu@icenowy.me>,
-	Iker Pedrosa <ikerpedrosam@gmail.com>,
-	linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] clk: spacemit: extend to support pm domain driver
-Date: Thu, 26 Nov 2026 05:51:51 +0000
-Message-ID: <179567190353.1020552.6488313745742549977.b4-ty@b4>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261008-04-k3-clk-pm-aux-v1-0-8372d7307694@kernel.org>
-References: <20261008-04-k3-clk-pm-aux-v1-0-8372d7307694@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=F3MGezqK
+Received: by mail-qv1-f47.google.com with SMTP id 6a1803df08f44-92130d3ee15so62104406d6.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:52:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795672323; cv=none;
+        d=google.com; s=arc-20260327;
+        b=I+WOaTYkWj+A2XYTEMnPLuoRgm3ZPs5iJWCMTnxkZAxAXFzMkyJoUxoYPcmrrJAyl6
+         qQTJyAR/WPfrK2+k3V7F2OTV1O47+0a/4mo1P/veT1eRvU2nugzfhI2ATkywKli+T1dG
+         1cd/6tcNfrM2DXrmXTNcpm/bSBANSzSBH/qIk0UFoECZIOgF80mgzx9JTiMvIEtnde34
+         bMtkuqT2sFXduuhXESs7d6LNo3pZAdPkzVJtyNoZNJ6RDcBRPxup9661rJJWbc1iSJ7L
+         ggHIjmLCU+kGf/yeS1q2xS4zZR8bd6B2ooMDKU50UcpVkN5oo1yGHjCw/PfAbTWL/Xdt
+         dXpg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date
+         :mime-version:references:in-reply-to:from:dkim-signature;
+        bh=2k6JRJKRP7LLLbAdrdUeXnNjQUGXGLvFy8MnHqGutzQ=;
+        fh=IIFQyV2LquFilDt+b1IboHUUiP0QEPFrBn48wH5Szeg=;
+        b=oNWKq50/oaYI5/HUHSjO4tENIMPYA7EnbicImxKC949GOLMYbsqFUhKIOM+gRUZZb0
+         6xR3tWDjg4ReXkESlksXoR+OgObytk4gvvPaPP+cjjI2OrgV0+F2lrBF7JS14nxhAFwx
+         SSlounOdniB7tykBvNgWh3iswL8fmfSMVLB1+CyuTp/kXRONoE+atNzLniPRe5viLtKD
+         CTGocfaKhOtlrT8qUrlycn7asPJM1tW9DBj57lX8vd64rMKDyJpTrJB1EvfFkINmSMAF
+         4+oY2CCixMdfFStytyFk9oV9E0V/EXXdjsQm5VWiq3JuIrwU2Dr9dGfobCIyGkWzUIXs
+         aLdg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795672323; x=1796277123; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:mime-version:references:in-reply-to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=2k6JRJKRP7LLLbAdrdUeXnNjQUGXGLvFy8MnHqGutzQ=;
+        b=F3MGezqKQgAa0JyHUcJcp+Zg6ECnBiEvfsDThi8VsnhmCXRKlWSoL52eSfBDIFPD2x
+         uBbQU3jIrSUyVrO39S/PrsN2kIgfRdYx7M7CPQVpKhWs9Qo+tfOQoO0djyv9S5fGo/cG
+         1stlyUDGtPHC8EeCiOXBaLjWTaoV9VydgrdgU9Wk4b+iiHz1Qka7xoNJKUOBsrfIXsST
+         m4QV08PcuhYqC+cWrzNqW7y0Pt6RJga7Ihe94hLQ2aZhHXa/ETNRe70kJ28YwT7HQ0OF
+         0aK/j4URULabgM805RCSyWG7Y7IAj7NdsXDAv0sHOeHVtmj7X6u+Ir0IZ2tntty7NS9X
+         sjhw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795672323; x=1796277123;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:mime-version:references:in-reply-to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2k6JRJKRP7LLLbAdrdUeXnNjQUGXGLvFy8MnHqGutzQ=;
+        b=ce/44eEj/DJphufZpSlPBtmB5k8IwK9X1cojRgMnnPjhTk1Soap3YvUb9XwfByx/HR
+         I8q8ZfriWswQL9YJPYAnX6SH1Fj/j+n6eAweoree003vJV+GrL68lSK/yynteO01VRta
+         Y5B4X3IYaOqqXmTshmXGAW+3IYYd0YB8cv5dAMMBl9Z2dIhNqGWEneSMYT723E1ncMJ2
+         HjsiJT9TN7F/7M9ksWK7nspQVRpPgAz4eS3Jbdv7KJ/v9Ir6NBa0uDbYqK6RU1amnW3y
+         sw4IIYawP4VDvU1vcjC6fWhmI78oisB/7W0V3N8w0Id/Yc6JBYcEHVfIQXVNSwgq1+o1
+         RylQ==
+X-Forwarded-Encrypted: i=1; AL+hErFuMsHyxbwm7FcKcG7xlmmXEjr3wQPd3kfKOCzsblCBMNjmiLdrfyP+/fG2CCU2mBRSePQE6kImjAhK/2Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9FPUgaf7tswLMi7chVoa7Y0rC2flC6F6PhWoW3ZZuq4fWnYVVy
+	HUIzHbR8SA/Mo+VA2Ow323PPOQteFIIXtlN7ojL/bwzKo5Gji23uxAohQ8KpRsUD9LbeF8iXEeS
+	A9EPFYeX0o9FG2MJJ9RIrRXvSHqPkS3oBVZTcwDCk
+X-Gm-Gg: AZFdTZcloFCoZJUzwII5pB/MU9OwYXU64iPbgPrQm4uAbH8K8M9skmw/DVbgOUa0SO2
+	oGfNXd6XXlYf6lvDw4vWZLt2JbwN6QAx9A0DtBQkKyCFsf2ZpjsmHCgNQCqgIBVa3UpySBlfwLR
+	Qh8Bxu9WKQHKN8jhTNb6ycCIEvyJejuYUqdT7JuPCoybh7r7Qj0NA0M+9HmnDSjtwElV4mJOmXB
+	MA/+IBmWbIqRokdG5QfxZRbj2llE1anUevjrif6HXiqEDch/vPS0vnkS2Cb+qmPbxa5h9woch62
+	iLeK8LjVOcfLedGQ2vu/VEQfJgOM1v7pNR0BncpHVWntZrVaKKNGCngkBuDbMIqN95H27AENSz6
+	OeNKBjKQPn3U4+3VJNyRe7NQE0n75LitO2d3nkF0ruO0hW8uQxzGKJhvOFJemCzVsog==
+X-Received: by 2002:a05:6214:458b:b0:921:15d6:2acf with SMTP id
+ 6a1803df08f44-92134aae3a6mr363727356d6.12.1795672322542; Wed, 25 Nov 2026
+ 21:52:02 -0800 (PST)
+Received: from 176938342045 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 25 Nov 2026 21:52:01 -0800
+From: Ackerley Tng <ackerleytng@google.com>
+In-Reply-To: <3b7d2d65-be96-4b63-9de6-7303d2de641b@kernel.org>
+References: <4c7f9772.192e1.1a17d5c2ed5.Coremail.xuhx@hust.edu.cn>
+ <2026102727-data-sequel-ce41@gregkh> <566ddeb4.2ad04.1a202302fe1.Coremail.xuhx@hust.edu.cn>
+ <3b7d2d65-be96-4b63-9de6-7303d2de641b@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,28 +111,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Date: Wed, 25 Nov 2026 21:52:01 -0800
+X-Gm-Features: Aa3M54repb8SXZGoGoOnOV4yw28LCY3gHdW88ztUp64xOBuWhqUl6TXDC7tITrI
+Message-ID: <CAEvNRgFsS3ntQBANqaqdm5XS8c4n6KDh3aODiduf6pCczmBSGg@mail.gmail.com>
+Subject: Re: mm/hugetlb: a min_size-only hugetlbfs subpool is kfree()d before
+ its last pinned page is released, so free_huge_folio() takes a spinlock on
+ freed memory (UAF)
+To: "David Hildenbrand (Arm)" <david@kernel.org>, =?UTF-8?B?5b6Q5pmX57+U?= <xuhx@hust.edu.cn>, 
+	muchun.song@linux.dev, osalvador@suse.de, akpm@linux-foundation.org
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+"David Hildenbrand (Arm)" <david@kernel.org> writes:
 
-On Thu, 08 Oct 2026 02:57:54 +0000, Yixun Lan wrote:
-> The APMU (Application Subsystem Power Management Unit) register region block
-> not only provides clock and reset support, but also the pm domain management
-> capabilities, so registering pm domain driver via auxilary bus is feasible
-> way to go.
-> 
-> The series try to extend the CCU driver to do some preparation for addition
-> of pm domain driver via the auxilary bus.
-> 
-> [...]
+> Hi Ackerley,
+>
+> does your series [1] actually fix this? What's the status of that?
+>
+> [1]
+> https://lore.kernel.org/linux-mm/20260916-hugetlb-subpool-always-track-us=
+ed-v3-0-38aae9b5ccdd@google.com/
+>
 
-Applied to SpacemiT SoC tree (branch: clk-for-next), thanks!
+Hi!
 
-[1/2] clk: spacemit: rename to generic ccu aux register function
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=92abd348af1882c1f91af67e6c66cc1e0a437814
-[2/2] clk: spacemit: register pm domain auxiliary driver
-      https://git.kernel.org/pub/scm/linux/kernel/git/spacemit/linux.git/commit/?id=a2aa2b526090cad0199bda2fcf713f25cb15dd18
+Yes, "mm/hugetlb: Track used_hpages when getting/putting pages from
+subpool" fixes this bug.
 
-Best regards,
--- 
-Yixun Lan <dlan@kernel.org>
+I've been tied up with other work since [1] was posted.
+
+I have a set of reproducers locally for the various combinations of
+min_size, max_size, and both defined, while taking various paths
+(reservations vs actual allocations).
+
+The plan was to always track used_hpages, which simplifies the
+accounting and it does fix all the reproducers I have.
+
+I thought in addition to simplifying and fixing all those paths, it
+would always fix races, but AI showed me a repro with races that broke
+the model.
+
+Because of the repro, I planned to re-evaluate to see if there's a
+better model/clean fix but haven't got around to that.
+
+I'll try to get to it in the next few weeks?
+
+Ackerley
+
+> On 11/22/26 08:37, =E5=BE=90=E6=99=97=E7=BF=94 wrote:
+>>
+>> [...snip...]
+>>
+>
+>
+> --
+> Cheers,
+>
+> David
