@@ -1,57 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795698097;
-	b=FmJb7MAo146LIpgqTCS93ZJAN6ugs1eV1DuqagOkpjfThUIkWpZ56KCy+Hts0kMg8a/1
-	 N/bWZojT0E0ACUhKNKRNo5n4LZq+3E6XPrspI22rqfZMRC5IS91TqXpP2oaFaE4mXXGfP
-	 zgaa2VrRgCUhuJSwsYjCNBgg1iWGL78BW0M4gEyX6C8zEqnKUOwBzbSXEIRLA3OOoHDPH
-	 j2gKEUJ+3RLXl+Ymz1bHjUDnJNuLtSt/op0LMLkrSq6+ISeXg5PviiL5hve43lCyQA2zW
-	 rVlOF8BRSYewnslu5sXz5j53El3r/sy20IXHnSQL14ST0hOAcEJSD9R4bVKYBVKXOnA==
+	t=1795698109;
+	b=SbfH52E0kOQEmVYnbTq357siu+h4PJzI2smYLXcC6+Bj8gBLLGQEIPUv3EvzEWBeAzeG
+	 zV7mw9Ye1HfvaC9RNFTyClZEDtZGqtfzftW/OqFTEDJ6GaXgN4IXpdIbqlVU4/U3gyR3J
+	 1h8MSc/Ra5/2jeMIuJMPntvFqPORMK8nwV6j0jUz0YjY7e7ARLyh71jVI5DPB4qNXr2uT
+	 86KPGn+x0C960deTnl96iuF1fDJb2SIo7p3hIxOmwtrYkpNTLQ46Y/4V6Kg5CRx6ay2em
+	 wnO7G8jUoGy7mCiVxidfjNrjacDny3QtDjOQx6i8GvcB5MzQ6V7WaGBOo9RG+uitWDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795698097;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=bmT8vzP/apjUMpvBWqPywMdM2CvA0VW1Sq9cgVbAE4U=;
-	b=DPgR+c6V37Pt84yBMA26eXMDn948/+5yRcAmRcXL3Vu/3fBw0z/CI1/9fqstB79aObus
-	 AOyQOyyWsTOXxKyoZxpbx/72QiXiqxbzCZarkBGgQpVPKzq/E9QLW6GZO7H4VDhLnOXSS
-	 9Ec8i/jGau0CyKJ2whMQktPFxtm5h4Bit+oF2XlMhosGep4du5nxRsFIkn1jWt/ZLj3tD
-	 lRZIkCTOeD8iDw43K/u8Ji3j3zNpyqSD1RTyV+BkwmpC5XAyA2PbsYInphjR89OqGWuQC
-	 6R1XfFk5L+lpW78JIH+Lpekay+tlowO6uZdXoY0yz4ovBeQnZ68IezgHDqhVwAmS7jg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795698109;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=N2yHnZZDwtY9XXYQXiWDSwJtyosjFswTBECKZC2DsEY=;
+	b=d+eNWNZYVkbf2RwyGWYJeCws1X48ASZAU0ZbB/jNLDiUX2qBXGmTnokUW99OTPeW/3EO
+	 J+7jKLu5feCB9lJPf+fhbBhGXUVSCulagvp9G9wTJPM9ecV5q+K3eI9S19Ys58EVEixtU
+	 oMOCbMjiU0I8+OMUpsQK3Otm3eCAMhkaFtDvrTMXqU6iS+HZp4idlWDbUiuFvkkXg67iR
+	 HBCgfbyni280nllObk1HsU1kvbg6I1rXzp5qsU/ir/YIl6J0WUw0EDz1ssqmFgghqP/At
+	 Lse6rM/8pksocKYJNps4A7bDN7HLXIDp2gtVdi5swv15zlS33ngmY2+AcbyoQD6mfNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GvQSlj0R;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="hp/mp+gz";
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 820E4606A32C;
-	Thu, 26 Nov 2026 13:01:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ECD7606A330
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:01:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6ECD7606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GvQSlj0R
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FA801F000CA;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=hp/mp+gz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795698106;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=N2yHnZZDwtY9XXYQXiWDSwJtyosjFswTBECKZC2DsEY=;
+	b=hp/mp+gz1l6+BHRm5xNfCfdKaJcQbBCBHmMN5dlxdacnbtfG5HpLQJBYECwVXYtI7/fAdK
+	NgAemH1snAdUkXNcufsDQww8w+MRIEJWRZeaXSHCHoG6xVOLuQ1RlZwvehKIN/6KzsUg8K
+	mUdVgKEnIbDdilt48sj3+/RU7zxeEEY=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-443-nlifkvalPtuC54xxnQpWZg-1; Thu,
+ 26 Nov 2026 13:01:41 +0000
+X-MC-Unique: nlifkvalPtuC54xxnQpWZg-1
+X-Mimecast-MFC-AGG-ID: nlifkvalPtuC54xxnQpWZg_1795698099
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0A2961800678;
+	Thu, 26 Nov 2026 13:01:39 +0000 (UTC)
+Received: from gmonaco-thinkpadt14gen3.redhat.corp (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4C1B7180054C;
 	Thu, 26 Nov 2026 13:01:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795698096;
-	bh=bmT8vzP/apjUMpvBWqPywMdM2CvA0VW1Sq9cgVbAE4U=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=GvQSlj0RXbT9VMThJVGbUz80WP944GPGJxQo5irDgytjl09pNQ3GYWQH276C4RhIh
-	 PmqggQioLmNCe07E5lNLj/ZgVrcgcqxnuNveVB0yR+EnhBGbu16+r1N4c6xvAt1+WA
-	 1FZmdjKSP/99PNvoe0d26c/ApXANdMTgvCSnUH1GXKXDH4jsgNwf/7L8I7kzkxZfu3
-	 Of6TiwdBk1k3yVsd6i+2PX2ieth2qGUOlsY5DnOY7R3H1i85MK3wooCZC/43lWBM3k
-	 eDeju2/NzeEuDoMY675OxPWTXmlvqg2AoyCrLr3XBzS3prj/KuJcELdwCfmWMwUeap
-	 WggD5u4TFKmZA==
-From: Lee Jones <lee@kernel.org>
-To: lee@kernel.org, vkoul@kernel.org, 
- Charles Keepax <ckeepax@opensource.cirrus.com>
-Cc: yung-chuan.liao@linux.intel.com, pierre-louis.bossart@linux.dev, 
- linux-sound@vger.kernel.org, mfd@lists.linux.dev, 
- linux-kernel@vger.kernel.org, patches@opensource.cirrus.com
-In-Reply-To: <20261116110913.3555209-3-ckeepax@opensource.cirrus.com>
-References: <20261116110913.3555209-3-ckeepax@opensource.cirrus.com>
-Subject: Re: (subset) [PATCH v3 2/2] mfd: cs42l43: Move to core detach
- helper
-Message-Id: <179569809495.72708.5920909967925778004.b4-ty@b4>
-Date: Thu, 26 Nov 2026 13:01:34 +0000
+From: Gabriele Monaco <gmonaco@redhat.com>
+To: linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	bpf@vger.kernel.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	linux-doc@vger.kernel.org
+Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+	Nam Cao <namcao@linutronix.de>,
+	Wen Yang <wen.yang@linux.dev>,
+	Tobias Schaffner <tobias.schaffner@siemens.com>,
+	Viktor Malik <vmalik@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	John Ogness <john.ogness@linutronix.de>
+Subject: [PATCH v3 15/18] tools/rv: Add -E/--errors-only option
+Date: Thu, 26 Nov 2026 14:00:01 +0100
+Message-ID: <20261126130004.127155-16-gmonaco@redhat.com>
+In-Reply-To: <20261126130004.127155-1-gmonaco@redhat.com>
+References: <20261126130004.127155-1-gmonaco@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,20 +89,155 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16-dev-ad80c
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-On Mon, 16 Nov 2026 11:09:13 +0000, Charles Keepax wrote:
-> Now the core has a helper to signal a device will detach from
-> the SoundWire bus, there is no need for the cs42l43 driver code
-> to separately track that. Switch to using the new core helper.
+Currently the rv tool enables tracing when running with -t and that
+allows to see tracepoints generated from both in-kernel and BPF
+monitors.
+In-kernel monitors can be controlled also by other tools but BPF ones
+cannot, so if a user is only interested in seeing errors, they need to
+bear the performance overhead of other events too.
 
-Applied, thanks!
+Add the -E/--errors-only flag. If it's passed with -t, only enable error
+tracepoints. On BPF monitors, if -E is passed but -t isn't, still load
+the monitor with error tracing enabled, so the user can enable the error
+events in other tools.
 
-[2/2] mfd: cs42l43: Move to core detach helper
-      commit: 54b3632c8ec08735d3f6235d80005aa0b648c7dd
+Signed-off-by: Gabriele Monaco <gmonaco@redhat.com>
+---
+ Documentation/tools/rv/common_ikm.rst   |  6 ++++++
+ tools/verification/rv/include/utils.h   |  1 +
+ tools/verification/rv/src/bpf_monitor.c |  4 +++-
+ tools/verification/rv/src/trace.c       | 11 +++++++----
+ tools/verification/rv/src/utils.c       |  9 +++++++--
+ 5 files changed, 24 insertions(+), 7 deletions(-)
 
---
-Lee Jones [李琼斯]
+diff --git a/Documentation/tools/rv/common_ikm.rst b/Documentation/tools/rv/common_ikm.rst
+index e50a5f8a7142..b2594f9c35e8 100644
+--- a/Documentation/tools/rv/common_ikm.rst
++++ b/Documentation/tools/rv/common_ikm.rst
+@@ -19,3 +19,9 @@
+ **-v**, **--verbose**
+ 
+         Print debug messages.
++
++**-E**, **--errors-only**
++
++        When tracing (**-t**), trace only error events, skipping the monitor's
++	state transitions. Specifying this without tracing is meaningful only
++	for BPF monitors.
+diff --git a/tools/verification/rv/include/utils.h b/tools/verification/rv/include/utils.h
+index 397a37981932..2fec9ef7c0b3 100644
+--- a/tools/verification/rv/include/utils.h
++++ b/tools/verification/rv/include/utils.h
+@@ -16,6 +16,7 @@ struct config {
+ 	bool debug;
+ 	bool is_container;
+ 	bool trace;
++	bool trace_errors_only;
+ 	bool is_bpf;
+ 	int my_pid;
+ 	char *initial_reactor;
+diff --git a/tools/verification/rv/src/bpf_monitor.c b/tools/verification/rv/src/bpf_monitor.c
+index 1ff76a4ffb68..12cb407c55bc 100644
+--- a/tools/verification/rv/src/bpf_monitor.c
++++ b/tools/verification/rv/src/bpf_monitor.c
+@@ -411,7 +411,9 @@ static int bpf_enable_tracing(struct bpf_object *obj, struct bpf_monitor_ctx *ct
+ 	if (!trace_level || data_size != sizeof(*trace_level))
+ 		return -1;
+ 
+-	*trace_level = ctx->trace_types[TRACE_TYPE_EVENT];
++	*trace_level = config.trace_errors_only ?
++			       ctx->trace_types[TRACE_TYPE_ERROR] :
++			       ctx->trace_types[TRACE_TYPE_EVENT];
+ 	return 0;
+ }
+ 
+diff --git a/tools/verification/rv/src/trace.c b/tools/verification/rv/src/trace.c
+index 6fdbff2c28d4..629b4f63e147 100644
+--- a/tools/verification/rv/src/trace.c
++++ b/tools/verification/rv/src/trace.c
+@@ -213,7 +213,7 @@ static int enable_generic_event(struct trace_instance *inst, const char *event_n
+  */
+ static int enable_bpf_events(struct trace_instance *inst, char *name)
+ {
+-	if (enable_generic_event(inst, "event_monitor", name))
++	if (!config.trace_errors_only && enable_generic_event(inst, "event_monitor", name))
+ 		return -1;
+ 
+ 	if (enable_generic_event(inst, "error_monitor", name))
+@@ -228,6 +228,7 @@ static int enable_bpf_events(struct trace_instance *inst, char *name)
+  * Enable the rv:event_"monitor" and rv:error_"monitor" events in the
+  * given trace instance, and register the filters for these events.
+  * If enabled, the filter for self pid (-s) is applied here.
++ * Skip the "event" events if errors only (-E) is specified.
+  *
+  * Returns 0 on success, -1 otherwise.
+  */
+@@ -238,9 +239,11 @@ static int trace_enable_monitor_events(struct trace_instance *inst, char *name)
+ 	if (config.is_bpf)
+ 		return enable_bpf_events(inst, name);
+ 
+-	snprintf(event, sizeof(event), "event_%s", name);
+-	if (enable_specific_event(inst, event))
+-		return -1;
++	if (!config.trace_errors_only) {
++		snprintf(event, sizeof(event), "event_%s", name);
++		if (enable_specific_event(inst, event))
++			return -1;
++	}
+ 
+ 	snprintf(event, sizeof(event), "error_%s", name);
+ 	if (enable_specific_event(inst, event))
+diff --git a/tools/verification/rv/src/utils.c b/tools/verification/rv/src/utils.c
+index 1b1ad7a3ca32..854028324325 100644
+--- a/tools/verification/rv/src/utils.c
++++ b/tools/verification/rv/src/utils.c
+@@ -65,6 +65,7 @@ void mon_usage(int exit_val, char *monitor_name, const char *fmt, ...)
+ 		"	-r/--reactor 'reactor': enables the 'reactor'",
+ 		"	-s/--self: when tracing (-t), also trace rv command",
+ 		"	-t/--trace: trace monitor's event",
++		"	-E/--errors-only: when tracing (-t), trace only errors",
+ 		"	-v/--verbose: print debug messages",
+ 		"",
+ 		NULL,
+@@ -76,7 +77,7 @@ void mon_usage(int exit_val, char *monitor_name, const char *fmt, ...)
+ 
+ 	fprintf(stderr, "  %s\n", message);
+ 
+-	fprintf(stderr, "\n  usage: rv mon %s [-h] [-q] [-r reactor] [-s] [-v]", monitor_name);
++	fprintf(stderr, "\n  usage: rv mon %s [-E] [-h] [-r reactor] [-s] [-t] [-v]", monitor_name);
+ 
+ 	for (i = 0; usage[i]; i++)
+ 		fprintf(stderr, "%s\n", usage[i]);
+@@ -103,6 +104,7 @@ int parse_arguments(char *monitor_name, int argc, char **argv)
+ 			{"reactor",		required_argument,	0, 'r'},
+ 			{"self",		no_argument,		0, 's'},
+ 			{"trace",		no_argument,		0, 't'},
++			{"errors-only",		no_argument,		0, 'E'},
+ 			{"verbose",		no_argument,		0, 'v'},
+ 			{0, 0, 0, 0}
+ 		};
+@@ -110,7 +112,7 @@ int parse_arguments(char *monitor_name, int argc, char **argv)
+ 		/* getopt_long stores the option index here. */
+ 		int option_index = 0;
+ 
+-		c = getopt_long(argc, argv, "hr:stv", long_options, &option_index);
++		c = getopt_long(argc, argv, "hr:stvE", long_options, &option_index);
+ 
+ 		/* detect the end of the options. */
+ 		if (c == -1)
+@@ -132,6 +134,9 @@ int parse_arguments(char *monitor_name, int argc, char **argv)
+ 		case 'v':
+ 			config.debug = 1;
+ 			break;
++		case 'E':
++			config.trace_errors_only = 1;
++			break;
+ 		}
+ 	}
+ 
+-- 
+2.56.1
 
