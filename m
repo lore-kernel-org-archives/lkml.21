@@ -1,115 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=173.37.86.80
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795669941;
-	b=SVmTL4Wm6NmfxrPzn775+E3ViDEovYDNewWj+aR06gYLhT48OMDZ9cnnIW/8/0ftEHkD
-	 X4b74YTvbfApIqjar8W8El9h8Zz4Xm7s0CuTZ6jVS6wCBfn4zXMRtNViieBPIH9pVcsAW
-	 TAYiGlYFt+O3ay8/0juiLnr0/RqSuZ1VsrRfTBcMxRgiekdS4A/7/D8MlF05SQ6Z8iAhw
-	 PwyV4/6y9p0Au2O42PZon3DNL1ru8vbmw+n5BJMvkJD+g6ZMDHwFG8y8MXMwTBivXh1yf
-	 paJBUZR0Me3F9aoEcwGeJyYPw2XjdE9Sr8emv1H+c1Pf9XJ8QRMs2sa1x5TVU7BWSPg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795669941;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IPAS-Result:IronPort-Data:IronPort-HdrOrdr:X-Talos-CUID:
-	 X-Talos-MUID:X-IronPort-Anti-Spam-Filtered:X-IronPort-AV:Received:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:
-	 X-Outbound-Client-TLS:X-Outbound-SMTP-Client:X-Outbound-Node;
-	bh=Q/3U3z91VSWyDu/vf5BKlcNzmHeVvr9/M4blrzhYU3s=;
-	b=10yrlrFDEN/DIvRmUL65/K++3DX5giQzZP7tjELG+IoLY6LUQizsmd+oOiqSshbkDZU7
-	 gwOOGIWtqGTAOZ1fGKCn4wK0TfqocZTEYv0rbz7vH67Mjx0luus+1ijq2bUf9lBcHgYlR
-	 N65Dt79360ZkuHveyWRVFGLpE++XduaFgfJh4xyirhPVkXE0S0/Ifh6Yh7iCQmOLVgHy6
-	 r9APwe+UhSumYv1I2VgQ+PbF3xa3HxJ78iaKRhfkA3k1S+YZWA4xWQA+cIhnAVDmFldIG
-	 DgrWcM01vEMxtLwG/x/bINgLcNzrbuRWZO9+Gs7DC2/MHnhMSLR/k3bMhdiYarnC79w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cisco.com;
-	spf=pass smtp.mailfrom=cisco.com;
-	dkim=pass header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b="XHnbQ/a5";
-	arc=none smtp.remote-ip=173.37.86.80
-Received: from rcdn-iport-9.cisco.com (rcdn-iport-9.cisco.com [173.37.86.80])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.179
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795669952;
+	b=yLftUGqelElIkr1YXAuQ7r+p/40XIlDeVXN9nARgQfkddN60Jy2ZUmR2NiR6lbBXLyXe
+	 tSzWNeAJBRjHSKSBSh+/IHoIehIABXoXJ5DmOx86RWfCUojPD3/ZCvsEWvEmnTVVcQZIk
+	 XZAPGvRX6me8om4CGxyRsKaWhKJ5d/heKp2FYPao5I9Fn18Ih3zyG09llGglCpM+p/iC3
+	 gZuvVgxigETaOSZj4EjIxx7IjJmHsY8VXWdhiUB+Nqc7vEqZ6RkZWQf9Do8wWvkMDzrS6
+	 ttZNH4TruD/z2cHP4BcPsrR0v1E67iTtZJxFhBokyqQxBMg76d9zjjHFwX+VbVsasxg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795669952;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=7THm2pFNLKmeMdeigx24KlsxpB9NcHHzxJozSi1ZjvE=;
+	b=iVbdGMegfmeEIUg0ZZARrzma/TpfnUw4wJwtLB4FtXo2rw1aBYzEb5HPgfXD31jJvExE
+	 dbmAtZFtkzn0eD9xbsREWQM7zOaH1P3KtYuLz3ZddAlFffrCy3cfM9nj0efxxhPSlVjyf
+	 p4I0pJXmmhL+cqnOfz4UxI6MSV+0PNx308+yUj2/YTks/vagE8DH5gx53vZDlabtph1eR
+	 jNXDZIwkTVW6PnQ4w5s2ZgWQg4mOxqKKNmfM3kEuLZxp/jy13rOxRs+yt6VvC6pFdVGdt
+	 L3lpFt8QoguIy5NfNbF5uq3CSUWmbrZBDN6dGkXq1hZdj8/N0Hj4WvlUPSX0/m7BXXA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WYFFmg8Z;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.179
+Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com [209.85.128.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E091606A334;
-	Thu, 26 Nov 2026 05:12:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E091606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cisco.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cisco.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E167606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:12:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E167606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b=XHnbQ/a5
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WYFFmg8Z
+Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-8b4cc793704so51860137b3.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:12:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795669951; cv=none;
+        d=google.com; s=arc-20260327;
+        b=W8H5mfAw0pGcAp19WwcUrzka1p9KMHMUuzG7rKA6jhyu6t7GGKzs8+J4wDdJCKSjG0
+         /CPwPU/o+i9Fbwzox5SEbQMoQj5all7yLRSLL+jd0HKkuWzMrCXCAd5/KwNYsIHirT+M
+         P1eCnPMDUjZaNwe8xLXORhUvhAQMcOH/WSEghWI2iRjVe3+801CveBBWDz+iwc9FaT+0
+         ljwKIS2PGb0grAXSndud9ahmawstk126mdPfe3lbTOPhr3xkZc4kBwXlHPGaenPMJnu6
+         QRi8OpjMtwa8aiweTDCl9qgx8dZqdN1GMy2W3UO0lQNLHKhzaKzWxCRrY1xyu1oZnvEY
+         1V7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=7THm2pFNLKmeMdeigx24KlsxpB9NcHHzxJozSi1ZjvE=;
+        fh=hu9lgT1xKmhFeJh/q3kHDEmZa3edOJozGIR68CSFJ18=;
+        b=dGenHIrkrcxO3+8ppw5Z2UtQfKxbvT5FMPVVRnQziKj5ocsCGLD1cNPN/8MapvLita
+         fSIJOala/JzHaiXr2Y3z2xux+qhM7pI3x0I9wSsv60+L65Bou58beTeu8wfrFpjcPMuz
+         8Xr0cPWaeLV6f/iLL2crsgVc8AjHNbFJ8UkKmFxIT/57eg4k3p5Y/t+wqtE6hotxVqrk
+         GrAP3/OceRKy9lVD52fHF4ay6NfLrThNcGBJ8khnv+HXhzrvtQzZCEm6K+gyLDu0l5HR
+         WA2Cb/eK/uXkGO/o3D9K20+hhQzlvYZp2s8kV+RYTz8rDyPRW+jv+u+ZVpwDB1MWu9mX
+         Bbag==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=cisco.com; i=@cisco.com; l=1946; q=dns/txt;
-  s=iport01; t=1795669940; x=1796879540;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=Q/3U3z91VSWyDu/vf5BKlcNzmHeVvr9/M4blrzhYU3s=;
-  b=XHnbQ/a51Bflv/gFFkoYoIjgDAhLDbMbOoSqKqx7UYODXJq+XN7BIckj
-   A0JFICHhrlVWmdBlKMLjgUFyKf9yGJKzOGyIf3vf5obxNlzXef8tdwPqL
-   Az0ZUUPpf/FZu/bWFdL0nRs+A5TwozsPHKi2anGhw6fKACESnxsQ60XY/
-   ejnBxv1U3CcyhssjDGU3f8zWCYMWKbP7JpLhSgxrjfOm0HSu0dt0VxtcA
-   xvpxH9l+ejo1SUCWesuIF6CtyJnuoURdNEXZCmyXqvyuCdYCAhI3fXy8B
-   o2TB9CYwPr188TaqOHOlheScSzR8NhbvxocpuKtMZKlaQtdbfKiu1qSqq
-   A==;
-X-CSE-ConnectionGUID: L+s8vb81R2WQskFBtppCPw==
-X-CSE-MsgGUID: 41MsPthWRUeavuXjpIJd4A==
-X-IPAS-Result: =?us-ascii?q?A0AlBQC6vgdr/43/Ja1aHgEBCxIMggULhCgEQ5cUA6AnD?=
- =?us-ascii?q?wEBAQ9RBAEBhQUCjiMCJjcGDgECBAMCAwEBAQEBAQEBAQEBAQoBAQUBAQECA?=
- =?us-ascii?q?QcFgQ4ThlyQEwEBAQIBMgE9CQULC0ZWBgGDFIJOJwO4PIIsgQHeSYF0FYE4h?=
- =?us-ascii?q?XSHc3YbhGMnG4FJRIQJBzE+hB+GagSCIoEMglaWOEgKgRQDWSwBVRMNCgsHB?=
- =?us-ascii?q?YElEDMDIAoLEhIYFQIUDRASDwQWBS0dcAwnEikXEXYbBgUSICpAQzArgRKBA?=
- =?us-ascii?q?12BKyhdAQIfRi0VgXUCglGBI10CAUlBDgdFUwklQxJHJCIIEgkBExosCoEaN?=
- =?us-ascii?q?TwJJj8VDFsMCAMaBRomAh8IAgsCDHQoERATHRwkLwUZJjwbCoEMJx0eGQ4CK?=
- =?us-ascii?q?QYWIQtDGA1IESw3Bg8ZBD5uB5ZHcw0vR4FkOis7kwAUkj+BNZ9chCuBaJ92G?=
- =?us-ascii?q?jOqc5kII6NpAU+EaoF+JoFZMxoIGxU7gmhSGQ+hYQG/HSZvAQEHAgcOAwuBa?=
- =?us-ascii?q?JACDxcHgU8BAQ?=
-IronPort-Data: A9a23:KZ87PKk7lgSQ6tbpzXKrg6/o5gxTJ0RdPkR7XQ2eYbSJt1+Wr1Gzt
- xJJW2GDOvzYMTb0L9F/Poiw/UgA6MKHzoI1TAFkpC1mQ1tH+JHPbTi7wugcHM8zwunrFh8PA
- xA2M4GYRCwMZiaC4Errav6x9yQUOZigHtLUEPTDNj16WThqQSIgjQMLs+Mii+aEu/Dha++2k
- Y20+ZK31GONgWYubDtNsfzb8XuDgdyr0N8mlg1mDRx0lAe2e0k9VPo3Oay3Jn3kdYhYdsbSb
- /rD1ryw4lTC9B4rDN6/+p6jGqHdauePVeQmoiM+t5mK2nCulARrukoIHKZ0hXNsttm8t4sZJ
- OOhGnCHYVxB0qXkwIzxWvTDes10FfUuFLTveRBTvSEPpqHLWyOE/hlgMK05Falb4bZpCzEXz
- 6YnESsOQDqfn/qd+K3uH4GAhux7RCXqFJkUtnclyXTSCuwrBMifBa7L/tRfmjw3g6iiH96HO
- JFfMmUpNkmdJUQTYz/7C7pm9AusrmL2bzxDqFGVjaE2+GPUigd21dABNfKIJo3bHJgPzhfwS
- mTuoz3cGSkGNOOl9DeM7G+chPfuvy+ncddHfFG/3rsw6LGJ/UQfAQMbUHO3qOe0j0q5Vc4ZL
- UEIkgIjobU3/V6mUvH+Uge+rXrCuQQTM/JQFPc/8ymOx7DS7gLfAXILJhZCddYvnMw7Xzon0
- hmOhdyBLTVpvKeYVjGb+6uYoC2aPTUTKykJZUcsVQIP7t/iiJs+ghLGUpBoF6vdptn0Hyzgh
- jOHti4zg50NgsMRkaa251bKh3SrvJehZgg4+gnaQEq74Q5jIo2ofYql7R7c9/koEWqCZkOKs
- H5Bn42V6/oDSMnR0ieMW+4KWrqu4p5pLQHhvLKmJLF5nxzFxpJpVdo4DO1WTKuxDvs5RA==
-IronPort-HdrOrdr: A9a23:ocBdYq1S1JtwK0QEh4LbEwqjBJIkLtp133Aq2lEZdPWaSKClfq
- eV7ZAmPHDP5gr5NEtLpTnEAtjifZq+z+8R3WByB9aftWDd0QPCEGgh1/qB/9SKIULDH4BmuJ
- uIC5IfNPTASX5nkM39/A60V/wkwNWB7eSUoN229QYLcemvAJsQljuQzW2gYytLeDU=
-X-Talos-CUID: =?us-ascii?q?9a23=3Aas7tc2k2Wj1wFYAy3lFjanRM2vXXOVme1yfOKR/?=
- =?us-ascii?q?hMzxWcaaWZ3WM4LtPq9U7zg=3D=3D?=
-X-Talos-MUID: 9a23:YdZNxwYMc8x36OBT62bJnwl+NPhS3qmnFl09k40nmcXYHHkl
-X-IronPort-Anti-Spam-Filtered: true
-X-IronPort-AV: E=Sophos;i="6.27,234,1787011200"; 
-   d="scan'208";a="549915289"
-Received: from rcdn-l-core-04.cisco.com ([173.37.255.141])
-  by rcdn-iport-9.cisco.com with ESMTP/TLS/TLS_AES_256_GCM_SHA384; 26 Nov 2026 05:12:14 +0000
-Received: from satishkh-l-mj0bbv6x.cisco.com (unknown [10.25.129.52])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by rcdn-l-core-04.cisco.com (Postfix) with ESMTPS id 90DE6180005FD;
-	Thu, 26 Nov 2026 05:12:13 +0000 (GMT)
-From: Satish Kharat <satishkh@cisco.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>
-Cc: Satish Kharat <satishkh@cisco.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Sesidhar Baddela <sebaddel@cisco.com>,
-	Aravind Dhanasekaran <aradhana@cisco.com>,
-	Reese Faucette <rfaucett@cisco.com>
-Subject: Re: [PATCH net-next v3 6/6] enic: configure V2 VF receive mode over mailbox
-Date: Wed, 25 Nov 2026 21:12:09 -0800
-Message-ID: <20261126051209.3558558-3-satishkh@cisco.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179539393186.3135.6117001594095681852@kernel.org>
-References: <20261118-b4-enic-sriov-v2-vf-receive-control-v3-0-2cb25677aa8c@cisco.com> <20261118-b4-enic-sriov-v2-vf-receive-control-v3-6-2cb25677aa8c@cisco.com> <179539393186.3135.6117001594095681852@kernel.org>
+        d=gmail.com; s=20260707; t=1795669951; x=1796274751; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7THm2pFNLKmeMdeigx24KlsxpB9NcHHzxJozSi1ZjvE=;
+        b=WYFFmg8ZlPKwh9PoCjEwmnqFmtfe9er9CSLFhbY4GJGreiTN8/N3BhYZHc0MyRr3KH
+         E5CHeBm/mBFy7BuaPfaKQBoMcWs+d3Sv/rH/nxcu01ghMhyZOC6G9FzROsKoWAhZ7hSK
+         OwWhTrzbY3fz0dfHOGe3uAQQ5WPOsVEbCJcxSrT69vOZ5PGImtNFE5aqvbcv7EnxMINX
+         A2bwWSJvdYDwyaDjzsCY7SzYZNKdV8eUwkUJZbHsGbKPxNFAfY5iBIN0HkdzPKhshds7
+         +rS7BlDmYj9jZANwCBKKWhkGqTmFaWRk1N94UOBbKfpZs5r4VOcekvNx1UUNPESsRDwv
+         +WAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795669951; x=1796274751;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7THm2pFNLKmeMdeigx24KlsxpB9NcHHzxJozSi1ZjvE=;
+        b=KCwXs7NtQQi8b9F1jIUHvGTGfVeepzMt3MIIGEt0SgldyZJ25dwC6sW0iu61XThix5
+         jCEI4kDFr5xy0wqpHIuOARE/eBNqmNZipGt3y9KVQ6awtoirQmogMV5imbJd728e3Uh2
+         Chj/A5K7x+cQx4nTfsxt5xJTp3y15UYBkeuPMuE57+v6kvTo6wolD4KnSYAshFOmuozB
+         o/bQXMeGoGVmr8p7yAjDH8pbe+7V5EBuVC11MjbNyhHPMIKYpDEQLc+9t90CW8HqDWwU
+         /VnPVhBGR6/lkayGHeaw37t+wc4Ltx+UNGXaQWcq3cHZV8n+EWVGFFhtnCz+trjdzBgS
+         rZsQ==
+X-Forwarded-Encrypted: i=1; AL+hErEAwnD5g+ImMzb7BLrxeYouTMJ10qy2YxdDyngdc4qeO5aMgaVOWbCOcVWviAodcSiT9xSLgKL8HqMvhls=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+fVrwcqBJlo2w0hDbR9uDo++3zwDCzIyBABqimDZdUUGvV7UV0
+	MARrNLc4szejC+Q9RWLgKS87IW8fEmyuLe8xZHJUXtT3DXNmpScs4to2Hx3TN4WjNfKTgcugJD/
+	jxfhp7Ji6pBvBIvpEkZ47H8mkXkWDpAA=
+X-Gm-Gg: AZFdTZfteVtNgOGWrZhLdFlTRLslTTbkxutfyhEMMx4/tEh5qS97wR4gJedfBIJ2vWt
+	WAXbsUuceuEXtpk0z9r9LYFCRZ7ii3DYCQSu15G0s/VJxNiZhIECBxcAuYPjqkpLFP2S9uEakJM
+	8igh8Ps932Fov3DrlxfSzYjzFXP9zKGYur1yvjrgxD6n6gC9HTMXTojF6zJlo0LS3pDyMYWV37P
+	kl9AnQZGfav72T0rIaemtgirnNrVDPvhOOcH33e5V7cOCXagn0iVqB1Irlfg+4g8rUzi9Ciq29u
+	1f0RSHHjwPvmNlhqFf6XnBiKHNuSyMsASadljai4Ag8NeDoEj9niH90TlN7CJWpZTdgK18MZlDH
+	snoAjR/o1gCDMHeaGD8Hcdi4LMSbKVR8PI9h93z/2PyrBFabosxARfls6FDAEODRWlU33siM=
+X-Received: by 2002:a05:690e:1686:b0:67b:bf6b:d9d7 with SMTP id
+ 956f58d0204a3-67df452af7fmr7339938d50.153.1795669951183; Wed, 25 Nov 2026
+ 21:12:31 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,43 +104,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Outbound-Client-TLS: ANONYMOUS;unknown [10.25.129.52];TLSv1.3;TLS_AES_256_GCM_SHA384;256
-X-Outbound-SMTP-Client: 10.25.129.52, [10.25.129.52]
-X-Outbound-Node: rcdn-l-core-04.cisco.com
+References: <20261101194814.188536-1-asiyee994@gmail.com> <CAK77STANn3cS4-=mw59_G31_kFLyVp51N==K9RcikqrYzd4ELA@mail.gmail.com>
+ <CAK77STD6wa_ovKONEm1DJy==q5ivEi+1wn8q4ELgyHRufgHSOw@mail.gmail.com>
+In-Reply-To: <CAK77STD6wa_ovKONEm1DJy==q5ivEi+1wn8q4ELgyHRufgHSOw@mail.gmail.com>
+From: =?UTF-8?B?QXNpeWUgU2FyxLF5xLFsZMSxeg==?= <asiyee994@gmail.com>
+Date: Thu, 26 Nov 2026 08:12:18 +0300
+X-Gm-Features: Aa3M54pSUAOzKZf6wbB3JHZS9mE1129F6tSVA1J00l6mLMutM_myMCE1DD8SuzU
+Message-ID: <CAK77STDz24cPvWxePG6sZehu7ib7R9VEOLsLcVgX3JY7n_tOrw@mail.gmail.com>
+Subject: Re: [PATCH] selftests/ipc: Use IPC_STAT to get queue information
+To: shuah@kernel.org
+Cc: linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thanks for the review. Responses to the three medium items below.
+Hi Shuah,
 
-> permanently-denied exact-filter ADDs consume slots
-
-The behavior here is by design. When spoof-check is enabled, the PF applies its
-MAC policy to the VF's secondary unicast addresses as a single all-or-nothing
-decision for that VF - it does not admit some secondary addresses while denying
-others. Because there is no subset admission, the exact-filter budget is only ever
-consumed by addresses the PF actually accepts, so the scenario where denied
-entries occupy slots and crowd out otherwise-valid addresses does not arise. The
-driver re-presents the full requested list on each sync - the normal address-list
-synchronization behavior - and a policy-denied address simply gets the same
-stable-denial result each time, with no effect on the datapath or on the accepted
-filters.
-
-> ADD-only ADD_DEL_MAC request failing as a whole with -EIO
-
-The current handling is safe: an ADD-only batch reported as a whole failure is
-treated conservatively and does not leave stale accepted filters behind.
-Exercising a whole-batch -EIO specifically would need PF-side fault injection,
-which this single-host lab cannot produce (in practice the PF returns per-entry
-results). I'll look at any further refinement of the whole-batch -EIO path as a
-future enhancement once there is a fault-injection path to validate it.
-
-> SKIPPED DELETE handled as fail-closed
-
-A SKIPPED DELETE only arises when the PF skips the remaining operations after an
-earlier failure in a mixed batch. The current handling is intentionally
-conservative - it reconnects so hardware never keeps accepting an address that is
-no longer in the requested list, which is the safe outcome. This condition isn't
-reproducible on this lab without PF-side fault injection; I'll revisit whether the
-reconnect can be narrowed as a future enhancement with fault-injection coverage.
+Just a gentle ping on this patch.
 
 Thanks,
-Satish
+Muhammed
+
+Asiye Sar=C4=B1y=C4=B1ld=C4=B1z <asiyee994@gmail.com>, 26 Kas 2026 Per, 08:=
+03
+tarihinde =C5=9Funu yazd=C4=B1:
+>
+> Hi Shuah,
+>
+> Just a gentle ping on this patch.
+>
+> Thanks,
+> Muhammed
+>
+> 15 Kas 2026 Paz 09:05 tarihinde Asiye Sar=C4=B1y=C4=B1ld=C4=B1z <asiyee99=
+4@gmail.com> =C5=9Funu yazd=C4=B1:
+>>
+>> Hi Shuah,
+>>
+>> Just a gentle ping on this patch.
+>>
+>> Thanks,
+>> Muhammed
+>>
+>> Muhammed Sariyildiz <asiyee994@gmail.com>, 1 Kas 2026 Paz, 22:48
+>> tarihinde =C5=9Funu yazd=C4=B1:
+>> >
+>> > dump_queue() finds the message queue's stats by brute-forcing kernel
+>> > indexes 0..255 with MSG_STAT and comparing the returned identifier wit=
+h
+>> > msgque->msq_id. This misses queues whose index is 256 or larger, and i=
+f
+>> > no match is found the loop ends and the code goes on using a stale
+>> > or uninitialized struct msqid_ds.
+>> >
+>> > The identifier is already known, so query it directly with IPC_STAT.
+>> > This removes the loop and reports a failure if the queue cannot be
+>> > queried.
+>> >
+>> > Signed-off-by: Muhammed Sariyildiz <asiyee994@gmail.com>
+>> > ---
+>> >  tools/testing/selftests/ipc/msgque.c | 18 +++++-------------
+>> >  1 file changed, 5 insertions(+), 13 deletions(-)
+>> >
+>> > diff --git a/tools/testing/selftests/ipc/msgque.c b/tools/testing/self=
+tests/ipc/msgque.c
+>> > index 4b4c1ab..f4168c7 100644
+>> > --- a/tools/testing/selftests/ipc/msgque.c
+>> > +++ b/tools/testing/selftests/ipc/msgque.c
+>> > @@ -130,21 +130,13 @@ err:
+>> >  int dump_queue(struct msgque_data *msgque)
+>> >  {
+>> >         struct msqid_ds ds;
+>> > -       int kern_id;
+>> >         int i, ret;
+>> >
+>> > -       for (kern_id =3D 0; kern_id < 256; kern_id++) {
+>> > -               ret =3D msgctl(kern_id, MSG_STAT, &ds);
+>> > -               if (ret < 0) {
+>> > -                       if (errno =3D=3D EINVAL)
+>> > -                               continue;
+>> > -                       ksft_test_result_fail("Failed to get stats for=
+ IPC queue with id %d\n",
+>> > -                                       kern_id);
+>> > -                       return -errno;
+>> > -               }
+>> > -
+>> > -               if (ret =3D=3D msgque->msq_id)
+>> > -                       break;
+>> > +       ret =3D msgctl(msgque->msq_id, IPC_STAT, &ds);
+>> > +       if (ret < 0) {
+>> > +               ksft_test_result_fail("Failed to get stats for IPC que=
+ue with id %d\n",
+>> > +                                     msgque->msq_id);
+>> > +               return -errno;
+>> >         }
+>> >
+>> >         msgque->messages =3D malloc(sizeof(struct msg1) * ds.msg_qnum)=
+;
+>> > --
+>> > 2.47.3
+>> >
