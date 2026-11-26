@@ -1,69 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703431;
-	b=O5Q9dvVNZ/8hJYmqQAEIqscx5DisdOBlVVzz0s/aD8ONrF5cXYN/MptypWEnfVEPMWsy
-	 6mXqVSRq/2pKFP1znYNcSGencg7NKzP78cdvCUthxPtcc/Kk7b8xJcCzB5IQ1XOj/z9Zw
-	 yaH+poAQyNM4mpHFYE5dW1nHcAkxNjNfeOvFQioE+B/x4QeWanCkePDPQKLOGKPW3sezj
-	 mgXm4LeBAaafhKBeIYwQsWzWYKYf/xakbMlk+F6GHEG5waneKWDNJtZBd+Mekcmye/6mo
-	 Rr9tMgBzM7IsoeXZ2P2AKC5b89sxrRQFeIFSa9kzZuKLy4L16TSfKcIkvVtP5ck6UYw==
+	t=1795703449;
+	b=hrpX1VbValr6uJET4KtKOxdcu8r6UPWxUb4iLQwcYEBWn+DPsWkzK2aIHJVxF7klaWCc
+	 oXd5jS0Nw1skSvc2/w9CZWwKEE7QK6Z4ZA9+aMbUnJQgFqsnrpm0pNWW4VlNm9WfTRUBP
+	 lGx7voQvjscQfCveqJPcPx5lYdCChTcgqAwBWvsT5Tym2+PYmyciz6286WdWCI0X+oACj
+	 x/AkKk16YGXt4qWotE32lZMWABuFEcFzXB6Cn/QuxYzOiXbW+j0dILz6PUOA47hPMp4dQ
+	 YVy9OwPo4L+utxrvNT99ZlWzv4Z44SNDEv1sX6i7Ct/Oj5U+w1U77tgCa/e7l03aH1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703431;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=AkPbh8+KOu2hEsqFeAAkm+a8IjfaUYYB3rND+Zn5rag=;
-	b=yXmU3W+msKRbIYRDzVDY5LFA+UpSU7vnBOWElY+xAlT4Av1vmfugElc032104xfjCJiJ
-	 ywrp+rT8C0DphjNLeXCB16baKVrWkxb6L+DT52J1H/nmXMgfH7WXU2Hy0wh+EBPWGSfZk
-	 ze3nl6FtN9n+QerLARs6/sXadaXP8Lt/oa8zUZmsReAxqZZSlJv5ea+GB+4+yRbvgriy/
-	 VZ+V7C3h+kCO0DqfIqLGJVBqO11qxK400qas2MQhOvxldFMqfR6r8Ptj0KCkdugSLbFKZ
-	 viT6L5zT3RRVShWQQDpWhfLNyl0AGPYdAETW8w570GT1ifHgWZf4jowNrbruJTBvldA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703449;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:Date:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ABzoEq0m6vsFJk565MhCiGTGEviQ8pU/lDbym6z/Ado=;
+	b=Qbty6oJF/e/p3u/pylUE9fces9YxLcY9nkEYAUz1nbKvkLxSjNOvIKjx2docnFHl9pkF
+	 30scAAyIz5vRBQVqnVOwD9923WULzQMwUnd1yGu7vnUBiK6JeklMK544vq8wvSPE6sLxa
+	 QY+kTWSBmq50ygog82l0UOek9EH01UIga+0Y0sFopAlHu3yVqD7bt99fc3HmcR7rjpcKr
+	 vSRH5vOVWe56Y9li49QJ9yXQozvDlGHuglSA4rSHKdXHbHJ+YPtrkyu5oJ41EdKbHqmx7
+	 hLVtvqTmwpbtM0kIEzXFm/AMOPnQTehmtjFOXE+Aaselgs5GFQ9Br6YsmeVegmEAbOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kMkJV8Q7;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=FTLZu6P+;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32327606A6AD
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:30:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32327606A6AD
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FF98606A69D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:30:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FF98606A69D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kMkJV8Q7
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A3C691A17AF;
-	Thu, 26 Nov 2026 14:30:20 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 78C89604ED;
-	Thu, 26 Nov 2026 14:30:20 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BC64011E683DB;
-	Thu, 26 Nov 2026 15:30:16 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795703419; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=AkPbh8+KOu2hEsqFeAAkm+a8IjfaUYYB3rND+Zn5rag=;
-	b=kMkJV8Q725j5hErRfJ74sJbGvw2UwniaL6L1vivoWIaLyYgeNO1mlS3dy8CTXOb7NL2TB8
-	RN1JnrOV7taZniMV1jsLCARK+7i4El09wGlm4sqFgtGf/DtNp7ybq4YNGZZbrTG7PHbhrm
-	Ls9FpXE69PG5JcRuLGgJaBHYw1Z7AQZo6CEvAIXqPAZ6Bg0hsGgT/tF11blYnEIg2/1hUe
-	Dwt+8e6wvPZRrwccCGQSkprEYZVHjmM8+hQd0bY2veDW8ztaOyiILJ5giUSnX3ryAoLan8
-	+k4x66Z9JYzcwArbyFjqdwuXHxIF5YOWoDLjzTMGks03zRzxnS5WKaxdz9Z2WA==
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: "Kory Maincent (Dent Project)" <kory.maincent@bootlin.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>
-Subject: [PATCH net-next] net: pse-pd: fix bogus budget evaluation strategy check in IRQ handler
-Date: Thu, 26 Nov 2026 15:30:02 +0100
-Message-ID: <20261126143012.1595919-1-kory.maincent@bootlin.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=FTLZu6P+
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bba60271d7so17040355e9.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:30:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795703437; x=1796308237; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ABzoEq0m6vsFJk565MhCiGTGEviQ8pU/lDbym6z/Ado=;
+        b=FTLZu6P+3j1KJHT73x9+c1vsPjYURn8Nckh7vU0GQHWO1jaJhr6TFSl0c50PMuyBpg
+         DDoM3P0wJtT2QwoXHut4wdwKVyYR7ihk5CGcFhlVrI4iSzxtkk4UzyLTMMly6Vo1mfGg
+         0C8751Wmes4UioGJd7HlcYxtRdf/QizDwoM1ogvczZDOtrGu0D0iZNxYzNtkNsu/z/M6
+         zmWMCuZc9QtluNZdkUUWybelri/Ch0FTtXNiVeYzPt0nkUWrIEIz5ZrzyVhivmV7OY50
+         LgqYpjQkVwp66gQQcqpVB9s67aG+8rfvozx91WlNLCPhji09Ufx9Q3jd+/RSsrKJrHIL
+         VCUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795703437; x=1796308237;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ABzoEq0m6vsFJk565MhCiGTGEviQ8pU/lDbym6z/Ado=;
+        b=YKx7FXO7Kv7BE4h21qrhq1SMA6GaJK/nEHkfe6nqR40Q5H7jgVY8qLTyZu0yCPkvAU
+         4rxew6naBE+7KxJGC/b1JOB6/HXGy7uAEH4xofSWbIMtHCFSWTlKT1psTu9v1Cq4Amq/
+         Yb8k/ECd1VnCDp9VgWiikStyGKP4RZc99nv8ahbeNAG45iWcuhTJABO+u6U6LSBUE/ai
+         tfdzHG4TpzWy9SXpjpmkQ6+Upul/EhVDwm23mLDGn7qHM4gzUWZGwQLbugxsNDsexO1Y
+         W066j7FYAHsUGwmPq3kobL/sbkG59QxewMC30Bahu6OC60BC+4mcUrrQalczmrfdN+7S
+         Wx9g==
+X-Forwarded-Encrypted: i=1; AL+hErGxk8cEMCmvzAXYJdMGH2gKgxTMpGTuPOwt/O1ljd75Yc/fKs+BNV+EfjfSh1bWBFf8wko4a1XQO9ajj9o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Uo4VklA8i3z1PtVufU0MbH7vtZP8nklxcpUKvuc70Fh1dgbTn
+	Flp5iRIOFpvymQuRZLdgu/NnFpSuyifAQYtDTIqhOjQfpPmxtAdpIpGRZARWkfIinFM=
+X-Gm-Gg: AZFdTZcknnnlW2EDc48cjuAltEWKZFvvn2iCNk/iIY1OTZcWXbp7QAW48MCzBmjw61d
+	7UzX8RQP9sWKzjctdC7p17QtOeCP5zJnrhQLLYNvojAZ3EiC2I6xuTTPke7/mvsW6AJmAmLMfXp
+	HoEVpoGFIgxsmbOFk9cITH8R+20B5Lc1HX3Sd9VI40z45x9rkYk8hnSEl2xnZza6BYEIQ4DC2ab
+	ZBDFUd5NYlax8vb2tRLTo0IJLnHs6m4fTWm/xQ7pBTT0wwv68spts0nEZGs2jjby371zOqWeO8u
+	s24jzCB3w5cKkia9rD6gVfDsQUhGzQEn3tu5JiTcGRiZO/J77H9oYVewJyoSL9JYn1fmq0kam8J
+	5jrexFrS5nLeIPgRea0So7u6mwZqr1QV0gDojj+8VGwr6tHjGNV27zQbq5HjRhTx8Qj9XcioE86
+	rSUpHOYU+9FfCy2bT5ZmOBxw1l4ZFpFSkjKJ2mSAm5i2PpQ0vjddh63Q2RQtUOM20JT73wza3p2
+	YtbPblCmlL5EIhG+QiFwwIocmPcGbZGaL/JnnFq4bVQ+EphVbBP+uCQO1MfKPt3EA+dk5GrIBXz
+	lu0J2BtfTKBqKITBAmOyAfAjimNR
+X-Received: by 2002:a05:600c:64c7:b0:4bb:68c4:2044 with SMTP id 5b1f17b1804b1-4bb887fe725mr403770795e9.11.1795703436933;
+        Thu, 26 Nov 2026 06:30:36 -0800 (PST)
+Received: from localhost ([195.94.148.180])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906640a2sm340532965e9.0.2026.11.26.06.30.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 06:30:36 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 26 Nov 2026 15:34:36 +0100
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	dmaengine@vger.kernel.org, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Saenz Julienne <nsaenz@kernel.org>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Dom Cobley <popcornmix@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 04/28] dmaengine: bcm2835: Support dma flags for
+ multi-beat burst
+Message-ID: <awhDfF1HNkPPgRbR@apocalypse>
+References: <20261123145728.29082-1-andrea.porta@suse.com>
+ <20261123145728.29082-5-andrea.porta@suse.com>
+ <awXluqyLWzdl_Ade@lizhi-Precision-Tower-5810>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,52 +115,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awXluqyLWzdl_Ade@lizhi-Precision-Tower-5810>
 
-pse_set_config_isr() wrongly tested the PSE event notification bitmask
-against PSE_BUDGET_EVAL_STRAT_DYNAMIC, a budget evaluation strategy
-constant that has nothing to do with event notifications.
+Hi Frank,
 
-The mistake went unnoticed because ETHTOOL_C33_PSE_EVENT_DETECTION and
-PSE_BUDGET_EVAL_STRAT_DYNAMIC are both BIT(2) and, when only the
-detection event is reported, the function performs no action anyway.
-The check does not prevent the TPS23881 from working properly, but when
-a controller reports the detection event together with other events,
-the whole notification handling is skipped instead of processed.
+On 14:30 Tue 24 Nov     , Frank Li wrote:
+> On Mon, Nov 23, 2026 at 03:56:42PM +0100, Andrea della Porta wrote:
+> > From: Dom Cobley <popcornmix@gmail.com>
+> >
+> > Add a control bit to enable a multi-beat burst on a DMA.
+> > This improves DMA performance and is required for HDMI audio.
+> >
+> > Signed-off-by: Dom Cobley <popcornmix@gmail.com>
+> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > ---
+> >  drivers/dma/bcm2835-dma.c | 16 ++++++++++++----
+> >  1 file changed, 12 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/drivers/dma/bcm2835-dma.c b/drivers/dma/bcm2835-dma.c
+> > index 118ba2f71dc8..063e1b2aabe3 100644
+> > --- a/drivers/dma/bcm2835-dma.c
+> > +++ b/drivers/dma/bcm2835-dma.c
+> > @@ -137,6 +137,7 @@ struct bcm2835_desc {
+> >  #define BCM2835_DMA_S_DREQ	BIT(10) /* enable SREQ for source */
+> >  #define BCM2835_DMA_S_IGNORE	BIT(11) /* ignore source reads - read 0 */
+> >  #define BCM2835_DMA_BURST_LENGTH(x) (((x) & 15) << 12)
+> > +#define BCM2835_DMA_GET_BURST_LENGTH(x) (((x) >> 12) & 15)
+> 
+> Use FIELD_GET()
 
-Remove this bogus check.
+Ack.
 
-Fixes: ffef61d6d2737 ("net: pse-pd: Add support for budget evaluation strategies")
-Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
----
-Found this issue while developing the support for the TPS23861 version of
-the controller.
+Thanks,
+Andrea
 
-As the TPS23881 driver (the only user of this path) works fine with this
-bogus check, I am sending the fix to net-next.
-
-If any developer of the SUIE or Sashiko passes by, I would like to point
-out that all my PSE patches and fixes are registered under the DENT
-company, which is wrong as I am not working for them anymore.
----
- drivers/net/pse-pd/pse_core.c | 3 ---
- 1 file changed, 3 deletions(-)
-
-diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
-index a3d4a3d7e5257..59cc0dcfa2a4b 100644
---- a/drivers/net/pse-pd/pse_core.c
-+++ b/drivers/net/pse-pd/pse_core.c
-@@ -1205,9 +1205,6 @@ static int pse_set_config_isr(struct pse_controller_dev *pcdev, int id,
- {
- 	int ret = 0;
- 
--	if (notifs & PSE_BUDGET_EVAL_STRAT_DYNAMIC)
--		return 0;
--
- 	if ((notifs & ETHTOOL_C33_PSE_EVENT_DISCONNECTION) &&
- 	    ((notifs & ETHTOOL_C33_PSE_EVENT_DETECTION) ||
- 	     (notifs & ETHTOOL_C33_PSE_EVENT_CLASSIFICATION))) {
--- 
-2.43.0
-
+> 
+> Frank
+> 
