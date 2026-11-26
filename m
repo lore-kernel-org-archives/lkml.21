@@ -1,60 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795659492;
-	b=Whqdq4c5NerbcOvyR/acw4b4c8cJH/RkBkRZLThj7cIsxvYBgDd6CHFmiK3VrLP0ZjAh
-	 xyWZM0Q/qEUB0f54jH5tQid1qR1M0XIyjvK0UZ1bQ/mb0YZaeBNEgEulyxATPNIl4KVB7
-	 dp0Xj3+1wa/j0rMo27suZb9YeE4XfWZMdBzUlDWEYfOodc1KkZNqTFzrgK0avqWzNOEC3
-	 0x19NdjNUh2FkYwXyJapvVL2q0CO7scmBIImawMg35skF+SziKtqpzqFq9FalFu41IR1H
-	 Jy0/R6lD/ChbBM81PqyLFLS1gu1fO/0PYF2Q0fJtcIJg9ave77t2nM+a9qz/+5H4dgw==
+	t=1795659606;
+	b=M5pItTEvNxsq5BV7BgNmXz3F7LxRbs0ZDgbZ0F/UNGuaqwqGFx0I/CJcmlH3KJJb68mw
+	 DWuSlgO4OscWr4nAB58zeLqWH8gkpsqNjhqjWtnUrZcgUKvIWIOcHhD2MYIfa4bT/xVks
+	 p+vGD4w7On0/AE/Ci4sYg1pGgiz+2cjORFWP+8uWP7w4giIGluusde+CRzupe47ze2QM5
+	 9d7X6IvvAS761zTdNAPUFc8s+p1u4vc43PAQHgeJoUPofa5+JY+wXOl3DcxPJCfAAiGKI
+	 ax+AlgogIZUi640qIz/G5VSlDK0ZyXm4oDnbaPk719RXdHQ9MML/kpH4V8g7geHc/jA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795659492;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=LQUBvpsucYn0MXvaNFNdOGS2lcFbmHtWdBHiuR+bvsI=;
-	b=AE9KtuDjCiY3qEZ+xFgrr1sJM43u4KqdSp3WtaagquR4/FI7M4a0vtV1Nf0gvZjPNwy2
-	 mJxGSCQwNJW1Bx8BRPNdh4wgEy0TGijfjdndeMdCaKUkCrO8+hoNOBOlJ+m0W7YDbNBuN
-	 nF8B+ZjylMk/dvHFEWQGQ+NgdIWs2lphhcgo6BR1JGQhZamf5pj1ib2INbZcKPLJ7HYGm
-	 LNtrzHKuqDAGgxdnMAzeWggfEvpg3FnHNHPiMqD08YMicmXcSwj5fRfMud6vWd3sCV8bU
-	 zmjet8SSxT8LeNdlshMDVx/kYOaNxaV0ZbxjOiPK1W07lalKY9dErPKstlv2T3WZL3A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795659606;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=Ns0mVYDKGOCO6KeAYhf7GdoRYBOj0mb68wm8huiKxeI=;
+	b=VVbTrf1qp3rJaYfJq3qeyiZfY9EJ0wq+U27hv8NHhK62P2iFBRhk+9YW13pW7xgE6sFK
+	 v8G1k3O6U5HE0QIq1y6BQzZG15EXNzv3EyIwSe01uaL/4RMcFxFVdhqp/AE9qaXK+fMsT
+	 +G8tnB2KTr6wSNPUmg6fT+oa2zaa/q5JZrI2875k9rlaQDLjCvtetQ+opNVJ9EuP6ETLL
+	 gQyKLjIO5cF3EfvbZdfmny4cItE6zkXci7kABe5YKOzWPJRPLPWqsGzPHCtx47M++Mj8O
+	 hByCYAW85vkZStI3vcln7zTWNni7u5nCCCbWZZVOtV6cJSKjUvmGZ9unTdIOm6PPjMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l5+n1eRT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VMrzkUjO;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2C58606A31E;
-	Thu, 26 Nov 2026 02:18:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 281BF606A31E;
+	Thu, 26 Nov 2026 02:20:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l5+n1eRT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4234F1F000C0;
-	Thu, 26 Nov 2026 02:18:09 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VMrzkUjO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEB191F000C4;
+	Thu, 26 Nov 2026 02:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795659491;
-	bh=LQUBvpsucYn0MXvaNFNdOGS2lcFbmHtWdBHiuR+bvsI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=l5+n1eRTGE9j6AIAyRzjQe/w4VI7wW1qmM4hiEidqSJ8JqcusW2kfRIo19XqMlDH8
-	 63SXriiJ/JYbvTNiCCrbh3kIqtfHg8Jwyc2XZzgwFfgU3DrE1bAwoYGMn2SZWgwwci
-	 QRih/z5S5dKUtZK7QiE3mbgk4wkL1VKvUATHXPO1izzJcbskA2Ns8NfQJ1q95kSAzz
-	 AdJkZphZVj/TRM1bWazvO+oGcM4LFcRnCWM2fW12mTZDRdUXGY1AgqTo04Q11fOE/9
-	 wvuEtHiiyihwZff+HSE7c50387aZ7iie881iZz8eJ5Ak9+FrB8WGNoVcX1GSVlyIzq
-	 7UkfrBcD+Upuw==
-Date: Thu, 26 Nov 2026 02:18:05 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: phil.williams@advisoft.co.nz, David Lechner <dlechner@baylibre.com>,
- Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, Mario Tesi <martepisa@gmail.com>,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH v2] iio: imu: st_lsm6dsx: set ts_sensitivity on parts
- without freq_fine
-Message-ID: <20261126021805.3060ed3e@jic23-hlaptop>
-In-Reply-To: <awaYTa63V-LnP-T-@lore-desk>
-References: <20261125-st-lsm6dsx-ts-fallback-v2-1-ea0ea2512070@advisoft.co.nz>
-	<awaYTa63V-LnP-T-@lore-desk>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1795659605;
+	bh=Ns0mVYDKGOCO6KeAYhf7GdoRYBOj0mb68wm8huiKxeI=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=VMrzkUjOUByXB5XrW2X98KtUxyU1KkT5/aYGbDSG183Om+xTTUcp3tUXaqyXnit50
+	 gFFFv/dQShB7UqMikrHL5jmtAj9JblhoToNqOlS+cI5epXky+/LLCAjz5pY5GHG+f1
+	 gczAXOhfJUkQWkovARH4ZIvrmVcl4TYVoo8kUNyMVZgXSbcUT1Fgm94Bp6apfCJXAq
+	 J+1APH2u2tkTOoUmjkzKBxKTCB+1EQfrHQVCVPdWaLGNWukjB6A/K7SC+tVq/Jgtet
+	 JGko/weV/+An6s7M3cDnemqLby9XbY7Arz6igQucfXwX9CFk4fP1QjutNTjYJDXDDx
+	 wPNqTkd2JxpcQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B44CD3809A24;
+	Thu, 26 Nov 2026 02:20:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,95 +53,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v3] tcp: fix negative sk_forward_alloc after
+ MSG_ZEROCOPY
+ append
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179565960453.1453810.14078959645080448938.git-patchwork-notify@kernel.org>
+Date: Thu, 26 Nov 2026 02:20:04 +0000
+References: <20261123122432.297135-1-jiayuan.chen@linux.dev>
+In-Reply-To: <20261123122432.297135-1-jiayuan.chen@linux.dev>
+To: Jiayuan Chen <jiayuan.chen@linux.dev>
+Cc: netdev@vger.kernel.org, edumazet@kernel.org, ncardwell@google.com,
+ kuniyu@google.com, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, weiwan@google.com, shakeel.butt@linux.dev,
+ soheil@google.com, linux-kernel@vger.kernel.org
 
-On Wed, 25 Nov 2026 09:11:57 +0100
-Lorenzo Bianconi <lorenzo@kernel.org> wrote:
+Hello:
 
-> > From: Phil Williams <phil.williams@advisoft.co.nz>
-> > 
-> > Commit 8abbf45fcda0 ("iio: st_lsm6dsx: Fixed calibrated timestamp
-> > calculation") takes the FIFO timestamp scale from ts_sensitivity.
-> > That field is only filled in for parts that have freq_fine. The
-> > untagged-FIFO parts are left at zero:
-> > 
-> >   LSM6DS3
-> >   LSM6DS3H
-> >   LSM6DSL, LSM6DSM, ISM330DLC and LSM6DS3TR-C
-> > 
-> > st_lsm6dsx_read_fifo() multiplies the raw counter by hw->ts_gain, so
-> > every sample is published with the timestamp taken when the buffer
-> > was enabled. The accelerometer and gyroscope values still update.
-> > Userspace that integrates attitude from the timestamp delta treats a
-> > stuck timestamp as dt = 0.
-> > 
-> > Set ts_sensitivity to the previous fixed scale of 25000 ns/tick on
-> > those entries. They have no freq_fine register, so ts_trim_coeff is
-> > left unset and no trim is applied.
-> > 
-> > Fixes: 8abbf45fcda0 ("iio: st_lsm6dsx: Fixed calibrated timestamp calculation")
-> > Cc: stable@vger.kernel.org  
+This patch was applied to netdev/net.git (main)
+by Willem de Bruijn <willemb@google.com>:
+
+On Mon, 23 Nov 2026 20:24:31 +0800 you wrote:
+> Our local syzbot reported the following warning:
 > 
-> Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+>   WARNING: ./include/linux/ucopysize.h:57 at tcp_sendmsg_locked+0x1e13/0x1f20
+>   Modules linked in:
+>   CPU: 3 UID: 0 PID: 377 Comm: syz.2.2248 Not tainted 7.4.0-rc2+ #398 PREEMPT
+>   RIP: 0010:tcp_sendmsg_locked+0x1e13/0x1f20
+>   Call Trace:
+>    <TASK>
+>    tcp_sendmsg+0x2c/0x50
+>    inet_sendmsg+0x62/0xb0
+>    __sys_sendto+0x2fe/0x350
+>    __x64_sys_sendto+0x7f/0xb0
+>    x64_sys_call+0x1375/0x27e0
+>    do_syscall_64+0xe4/0x470
+>    entry_SYSCALL_64_after_hwframe+0x76/0x7e
+>    </TASK>
 > 
-> > Suggested-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > Suggested-by: Jonathan Cameron <jic23@kernel.org>
-> > Signed-off-by: Phil Williams <phil.williams@advisoft.co.nz>
-Applied to the fixes-togreg branch of iio.git.
+> [...]
 
+Here is the summary with links:
+  - [net,v3] tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
+    https://git.kernel.org/netdev/net/c/e50436deae92
 
-> > ---
-> > Resending inline. The first copy went out as an attachment.
-> > No code changes.
-> > ---
-> > Changes in v2:
-> > - Drop the ts_gain fallback in st_lsm6dsx_init_hw_timer() and set
-> >   .ts_sensitivity = 25000 in the LSM6DS3, LSM6DS3H and LSM6DSL settings
-> >   entries instead (Lorenzo, Jonathan).
-> > - Leave .ts_trim_coeff unset on those entries since they have no
-> >   freq_fine register (Francesco).
-> > - Link to v1: https://lore.kernel.org/r/20261116-st-lsm6dsx-ts-fallback-v1-1-8ace30afbfb5@advisoft.co.nz
-> > ---
-> >  drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c | 3 +++
-> >  1 file changed, 3 insertions(+)
-> > 
-> > diff --git a/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c b/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c
-> > index 823f8ac66..dffaf76b5 100644
-> > --- a/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c
-> > +++ b/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_core.c
-> > @@ -434,6 +434,7 @@ static const struct st_lsm6dsx_settings st_lsm6dsx_sensor_settings[] = {
-> >  				.addr = 0x09,
-> >  				.mask = GENMASK(5, 3),
-> >  			},
-> > +			.ts_sensitivity = 25000,
-> >  		},
-> >  		.event_settings = {
-> >  			.sources = {
-> > @@ -601,6 +602,7 @@ static const struct st_lsm6dsx_settings st_lsm6dsx_sensor_settings[] = {
-> >  				.addr = 0x09,
-> >  				.mask = GENMASK(5, 3),
-> >  			},
-> > +			.ts_sensitivity = 25000,
-> >  		},
-> >  		.event_settings = {
-> >  			.sources = {
-> > @@ -802,6 +804,7 @@ static const struct st_lsm6dsx_settings st_lsm6dsx_sensor_settings[] = {
-> >  				.addr = 0x09,
-> >  				.mask = GENMASK(5, 3),
-> >  			},
-> > +			.ts_sensitivity = 25000,
-> >  		},
-> >  		.shub_settings = {
-> >  			.page_mux = {
-> > 
-> > ---
-> > base-commit: fa2933aac170dd19c6a7f0d7b81a8f537e40915c
-> > change-id: 20261116-st-lsm6dsx-ts-fallback-cd21f1d1e30e
-> > 
-> > Best regards,
-> > --  
-> > Phil Williams <phil.williams@advisoft.co.nz>
-> > 
-> >   
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
