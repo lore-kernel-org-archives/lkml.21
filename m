@@ -1,78 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795701858;
-	b=5CPZjvun0blxH+jL9IO7eTqLsHBF4HuuqJIOWRHaFEp7Syqr/SgDZe5LZKOqIrP3jJ5h
-	 zCBQSeuHnYXyaE+8ihlkXq33h/6Quh0mn7ljR7T/h5t16pfqX2kMfuILUVifMjeBPVf5d
-	 ep6TazwZVM2UaDS9ZDBaN6EuH31RpgdNymQvZf1M48bJsfjhDK92rPuUKdI2Y+kpt8NNk
-	 KgdMj5uJ6xIkDW7fTtb+LHGmk2LcFVSHyYnw33xVvCaAUDEzVo2gu/T8lI+HiFLwAUDU4
-	 LQ40PdyDGaHt9SsiMq7T6UFmue3sWtdODfTaxWxu1EJmx5nhR+S0SlKUIelx4VZVPKg==
+	t=1795701885;
+	b=p9jYVg7X/Be7RUYQQv2l242FsVSnGNYUacsQPmIjeFO2TQ06Mlz+Pwk8LKxp4iohPpmg
+	 dCMil4/U6kalVQ0KEj12pAX/qamc6Tv/gk7hjRUB2+FoJKwHOWzCjc4xoHZI7WUfa6jo3
+	 jaBt5aDZCd/OEHo9BOQ1Brg/tzYMM4Tl3SPKQmx1CqykU5jxEVuozHHp4JZAZax6IctZW
+	 Hd4bZSVJgW7ep8aTQeqrAPpI0Lz3u9YWpfTGdjUgSrl7a3ty/avjMUlOMMrpHptV1en70
+	 m4Z87vAtz++GjFwAy+elzU6fVBDK1UdO6tUDM1vfsmvxv7sZMNfcEV5mqSgBjW/4nhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795701858;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=kVnDN2YB/Rq2MZvuzYs7u9jJ/Ii0K42RtQhfqcB/k+k=;
-	b=EqZkW8uYHwvxucpywXaH+q3YPRJ/YjCCXmqczTdzMByMPtiK0JLffECGKbIMizJmbVzz
-	 H6JRQHT7WJO1F0IVdVn7+PN/eiSAz90lNF6pGAxgpUAIKolq02cDZZAhZpGVe/kjrwVI7
-	 yKX6vQ3k3521VygQOxk+269r6qXzV/9gQaBxlryiUGqYOdxQamdVEDK2AEjZ2vFO4wynG
-	 ESDPH/Cz+l7bGbDATgFWgLIkcGdeD7cIMGmcDTKkERuJSgOkmM1+82qWDJGVBx1UVP3YV
-	 JdH5ICYTLp9Um3wFrIG5X6oUwKVKoI9vUi5PbYyt8SLWakD9ADESiw0OYK9qVRwgQug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795701885;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=pNMdGCArlzbSAdigoh9SFuXrBkD6+wA1jwUtEGp3Jfk=;
+	b=w+/yUuVNbAGKyBrclqy3M4NY5izGbOe+z4Aff56CWST+jmPGiD0Ei3UlI4mnn7WKwzGQ
+	 +5izdNpMLaFRxrTJcn0SNWs+Q11SPua8XJaWYQuxNhBmAWYlI+oFJ+/1B5JF45C+T5Hi+
+	 2KX47xWSv63g/4Vo5pxK5HYUOI4fkV93AKn9KCUx/p3/mYHJdOSHqYaKxtj2oPzpctbVP
+	 ukfPVdCuoW1f8H4wGh1qH/HG7n6CZw1jgmTjA3M8tq4wRtPF5v86qitAbWQhRwYG0//qi
+	 cScMP3GO6UIxEktZE0jijq+YbleBSkc/ZJtq7jLPRErQqytj+bww+s9dS0QiraXu8iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XZXgpzKi;
-	arc=none smtp.remote-ip=192.198.163.14
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="ZPhY/d2f";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EED86606A31C;
-	Thu, 26 Nov 2026 14:04:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EED86606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 255E0606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:04:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=XZXgpzKi
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795701857; x=1827237857;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jShNgctqUDhIWWUL9t1y3IvHLsqM3SccaTZXZU0e1EY=;
-  b=XZXgpzKiLsZdQ0jQfELROyttVM2hpJcS3u09B/win6OPMgkHHdBFS4UM
-   AD+sLakWce6tG6/CupM7Ug+dMvARcw/4086riYz/Ln0q+c8AfYyFfyf+3
-   HcGSWqkylrM33Nlg3/zpEy6IrUrBbK0gUqozhhi0fD061sjh2rxzsLtTf
-   j6dVdU9XdPhjzDdj8r7XcQOzSa3kwIE+Q/q0ASPldkaP50BoESjk4cw53
-   oJbhTCmDW3H4OShgBNyyhXhJqgIAhoqjuVX5qYX6Lm1tvurY4qTGL2RkO
-   58W/H37Auiceq0irHnl/pAhmM93io2pnLFDsRgUGdlMwoL7HmpMlFun9E
-   g==;
-X-CSE-ConnectionGUID: UmRr5k8fQUqpftHL+VTU1Q==
-X-CSE-MsgGUID: iNhjB46oRBqwA2qMLiaQtA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4569165"
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="4569165"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:03:58 -0800
-X-CSE-ConnectionGUID: HGnPPOSxRnusO++2XnpBxQ==
-X-CSE-MsgGUID: dirvXu3SRB+32S9QfcV4ZQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="12337320"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:03:55 -0800
-Date: Thu, 26 Nov 2026 16:03:53 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: iasnezhkov@gmail.com
-Cc: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
-	andy@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, linux-iio@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] iio: adc: mt6359: divide scale by ADC resolution
-Message-ID: <awg8SQRRCia77Guc@ashevche-desk.local>
-References: <20261126005326.71926-1-iasnezhkov@gmail.com>
- <20261126005326.71926-2-iasnezhkov@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZPhY/d2f
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 919831F000C6;
+	Thu, 26 Nov 2026 14:04:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795701884;
+	bh=pNMdGCArlzbSAdigoh9SFuXrBkD6+wA1jwUtEGp3Jfk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=ZPhY/d2f0Z0spfxLYiJQZAJ2Ae/g0/yUciIgcKYMpjN6X8VOLaeyjAGEnlJLIr6qW
+	 v2qCp2VTfzE88g4PX2CHAmVIujS14JCS8YbnibHXrdRdqWfmTCI5LdAxX6wj8i+o79
+	 ZK1Kr9L0gzQofpMoXIlS0MVSeMRPHcby9f+uJ7/xbi6fRocGEhsGuTK55x2wAdjzWM
+	 +FLyZCiGy+u/WRD4flfGtNGqqxuYq1bF/G873bBzMZsFr9ZjNdBhwX1xdyaZ9fIZPl
+	 Q2XvB7905yX4pG4JRqIprg3/GK8a0JGI2H0Xidp91J2YV0B906luegrwHlURBsezB8
+	 pEbCfRw5EI+AQ==
+Message-ID: <cfe8bf71-7b94-4cef-8b27-9e50c3229a4a@kernel.org>
+Date: Thu, 26 Nov 2026 15:04:38 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,48 +51,218 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126005326.71926-2-iasnezhkov@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/9] mm/gup: convert follow_page_mask() to return a long
+To: Rik van Riel <riel@surriel.com>, linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>,
+ Suren Baghdasaryan <surenb@google.com>, Lorenzo Stoakes <ljs@kernel.org>,
+ Christoph Hellwig <hch@infradead.org>, Yuan-Hao Hsu
+ <aa9736195201@gmail.com>, John Hubbard <jhubbard@nvidia.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Peter Xu <peterx@redhat.com>
+References: <20261123195609.4115244-1-riel@surriel.com>
+ <20261123195609.4115244-4-riel@surriel.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20261123195609.4115244-4-riel@surriel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 26, 2026 at 12:53:27AM +0000, Ilia Snezhkov via B4 Relay wrote:
+On 11/23/26 20:56, Rik van Riel wrote:
+> follow_page_mask() and its helpers return a struct page pointer: NULL,
+> ERR_PTR(), or the page found. Change the return type to long instead:
+> 0, a negative errno, or 1 with the page stored in a new pages[0] slot.
 > 
-> mt6359_auxadc_read_raw() returns raw ADC counts for IIO_CHAN_INFO_RAW
-> (12-bit or 15-bit depending on the channel), and returns only
-> (r_ratio.numerator * vref_mV) / r_ratio.denominator for
-> IIO_CHAN_INFO_SCALE without dividing by the ADC full-scale range
-> (1 << chan->scan_type.realbits).
+> This lets the return type carry a page count rather than a single
+> struct page pointer.
+
+You can say here that we now make the interface match gup-fast.
+
 > 
-> As a result, iio_read_channel_processed() and userspace consumers
-> multiplying raw * scale obtain millivolt values that are 4096x (12-bit)
-> or 32768x (15-bit) too large.
+> follow_huge_pud(), follow_huge_pmd() and follow_page_pte() now store
+> the found page in a pages[0] slot. __get_user_pages() reads that page
+> back from pages[i], fills the rest of a large folio's run itself, and
+> flushes the whole run's caches with gup_flush_pages(). 
+
+You can say here that we will rework that next, to collect all folio pages from
+inside these functions directly.
+
+> The follow path
+> itself never flushes: the caches are always flushed from
+> __get_user_pages(), without any page table lock held.
 > 
-> Include the 1 << chan->scan_type.realbits divisor in
-> IIO_CHAN_INFO_SCALE: shift r_ratio.denominator left by realbits for
-> IIO_VAL_FRACTIONAL when denominator > 1 (r_ratio.denominator is u8 and
-> realbits is at most 15, so the result fits comfortably in int), and
-> return IIO_VAL_FRACTIONAL_LOG2 with realbits otherwise so channels with
-> denominator == 1 use an exact shift and unpopulated descriptors (such
-> as MT6357 VDCXO where denominator == 0) cannot trigger division by zero.
+> The vsyscall gate area bypasses follow_page_mask() and fills and flushes
+> its own slot the same way. The gate handles a single page, so it
+> initializes the count to 1.
+> 
+> *page_mask and __get_user_pages()'s handling of a large folio's
+> remaining subpages are untouched, and mm/gup_test.c
 
-> Found and drafted with an AI coding assistant.
+As willy keeps saying, there is no such thing as subpages.
 
-Move this to be below the '---' line.
+"a large folio's remainin pages"
 
-> Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
-> Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
+> (PIN_LONGTERM_BENCHMARK) shows no measurable difference for 4 kB,
+> 64 kB mTHP, or 2 MB THP.
+> 
+> No functional changes intended.
+> 
+> Suggested-by: David Hildenbrand <david@kernel.org>
+> Signed-off-by: Rik van Riel <riel@surriel.com>
 > ---
 
-...
 
-> +			*val2 = (int)desc->r_ratio.denominator << chan->scan_type.realbits;
+[...]>
+>  		/* first iteration or cross vma bound */
+>  		if (!vma || start >= vma->vm_end) {
+> @@ -1523,8 +1536,11 @@ static long __get_user_pages(struct mm_struct *mm,
+>  						pages ? &page : NULL);
+>  				if (ret)
+>  					goto out;
+> -				page_mask = 0;
+> -				goto next_page;
+> +				if (pages)
+> +					pages[i] = page;
+> +				nr = 1;
 
-Make the struct to be s8_fract instead?
+Why not use gup_fill_pages() here?
+
+But why do we goto fill_flush where we do another gup_fill_pages?
+
+> +				page_increm = 1;
+> +				goto fill_flush;
+>  			}
+>  
+>  			if (!vma) {
+> @@ -1546,10 +1562,11 @@ static long __get_user_pages(struct mm_struct *mm,
+>  		}
+>  		cond_resched();
+>  
+> -		page = follow_page_mask(vma, start, gup_flags, &page_mask);
+> -		if (!page || PTR_ERR(page) == -EMLINK) {
+> +		nr = follow_page_mask(vma, start, gup_flags, &page_mask,
+> +				      pages ? &pages[i] : NULL);
+> +		if (!nr || nr == -EMLINK) {
+>  			ret = faultin_page(vma, start, gup_flags,
+> -					   PTR_ERR(page) == -EMLINK, locked);
+> +					   nr == -EMLINK, locked);
+>  			switch (ret) {
+>  			case 0:
+>  				goto retry;
+> @@ -1563,7 +1580,7 @@ static long __get_user_pages(struct mm_struct *mm,
+>  				goto out;
+>  			}
+>  			BUG();
+> -		} else if (PTR_ERR(page) == -EEXIST) {
+> +		} else if (nr == -EEXIST) {
+>  			/*
+>  			 * Proper page table entry exists, but no corresponding
+>  			 * struct page. If the caller expects **pages to be
+> @@ -1571,49 +1588,56 @@ static long __get_user_pages(struct mm_struct *mm,
+>  			 * for this page.
+>  			 */
+>  			if (pages) {
+> -				ret = PTR_ERR(page);
+> +				ret = nr;
+>  				goto out;
+>  			}
+> -		} else if (IS_ERR(page)) {
+> -			ret = PTR_ERR(page);
+> +		} else if (nr < 0) {
+> +			ret = nr;
+>  			goto out;
+>  		}
+> -next_page:
+> +
+>  		page_increm = 1 + (~(start >> PAGE_SHIFT) & page_mask);
+>  		if (page_increm > nr_pages)
+>  			page_increm = nr_pages;
+>  
+> -		if (pages) {
+> +		/*
+> +		 * This must be a large folio (and doesn't need to
+> +		 * be the whole folio; it can be part of it), do
+> +		 * the refcount work for the remaining pages.
+> +		 *
+> +		 * NOTE: here the page may not be the head page
+> +		 * e.g. when start addr is not thp-size aligned.
+> +		 * try_grab_folio() should have taken care of tail
+> +		 * pages.
+> +		 */
+> +		if (pages && page_increm > 1) {
+> +			struct folio *folio = page_folio(pages[i]);
+> +
+>  			/*
+> -			 * This must be a large folio (and doesn't need to
+> -			 * be the whole folio; it can be part of it), do
+> -			 * the refcount work for all the subpages too.
+> -			 *
+> -			 * NOTE: here the page may not be the head page
+> -			 * e.g. when start addr is not thp-size aligned.
+> -			 * try_grab_folio() should have taken care of tail
+> -			 * pages.
+> +			 * Since we already hold refcount on the
+> +			 * large folio, this should never fail.
+
+This code recently changed slightly:
+
+commit 2d9bcd380585abc436f055fbb618b34f98882004
+Author: David Hildenbrand (Arm) <david@kernel.org>
+Date:   Thu Nov 12 23:53:24 2026 +0100
+
+    mm/gup: limit pagecache folio refcount when grabbing references
+
+So once you rebase on top of mm-core/for-next, there will be some smaller
+conflcits but nothign earth shattering.
+
+
+There is a lot happening in this patch. I wonder if there would be some way to
+convert some of the functions before converting follow_page_mask().
 
 -- 
-With Best Regards,
-Andy Shevchenko
+Cheers,
 
-
+David
