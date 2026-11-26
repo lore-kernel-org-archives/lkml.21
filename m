@@ -1,112 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795676723;
-	b=WJDenh1jzxwd8SAkX6BnP6vU6HRgXk4EtH7F45TdfYY6mVK4TR1rD9qVLJyzD4Dp967i
-	 na82nyj2VBC9a7CbShRI9dO47PhYFDNM8hT0t7zjQpZLkdk/8POcJyuCR+tqaMWDntV3Q
-	 QfKQ+wqWEhA0uFxEEM4SUkPx9xBgWuTQb8waFFIh1Cf4iW5MDrgezKZvYfxKnsyLPuTba
-	 t0kf2ojUQIThYH6wnquW/DZd+wSaulRKsSasbcpKuVl9hw1tO/BhkLXBT9OU+7vzSDVyM
-	 AjbRXaV7ywCykAYDHHklZZrRw9QDWcST+Nkn9mAbPnwOqQUkwm7C33YUWhpSTGR/QtA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795676723;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=Bdx7UpabDWwudSHqUP7nL1DuePy6rsFlxcZipCI63Tw=;
-	b=AdWXj9yFhgalyREPDK5po5rDNm8uEgkYqK2ZVbcABYVNclrowpoxEHJ4nm7VMV5sX9iR
-	 ix1T3IZ/dd8bQ6pHw8QnDIqe36QLkDfSOczvyEqAk9+BchlvBk6/dg2x1QIvpchlWhur+
-	 BX4zAVpK5/FukTk5GiLriJ8VWTSnDQQWlN07/xJbMJUYzEQZPqnPSX8TQLvDhKvcMi1LT
-	 dxQewmXhLjLPgRMTtrxIZFEjGOFH0vqeqVzmBPYuvfZpIVZuA57FMOe3zG2NBjlQP3UNq
-	 UcJgBgFv8Kr8iIhAKrpss3yhhzF86SZSdecaG4FsbTD5lEKVYzdLY03ROV/2wmCIvbw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=SfxZnJwX;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=RxwxjM82;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.171
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795676779;
+	b=opyZdoZQhYNPHyb3d6cbY3DHT4RBiIXKoOY8t4ZlT4qvbqS2/gDSfEUTBAIBJMlkEO53
+	 8dLgAhKwoIi3DauuW9BOLi8NR0uycjKCpLvJg6ovbG9OxEdRmy3ftZ7DFNWbpSVosWd56
+	 YJMFkrf5s9MwQMSZucM5UI+fp1bNrGzQwd0nOAQbMz65qv76xH+tcsHLcJ28DnT9w3Bkz
+	 6RUSgsJzsFwxgK8tq2sjRkyO8ouO2JcC5yTgG7Li6Cx3SaXzaDxojF1Zsm5UwF+OiP0E2
+	 CwImXMOebjHlwYopxuzxrjb78zAydhlFNE7AKBZNtRFuQjtuWC4OVeqIFubCGtPHs6A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795676779;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=JGkzya9dAjnn+jPv3SgcvQ46bNDRabbKXhUISQinlYA=;
+	b=C/mIvjoKVybbkqNVTnqV96pUww3GU/QFWKW4nx0uuoPjbvbf47U3ZTBMeNp3fr1vPe29
+	 s+oNtaOps91OWw6WV2Ln6cOrn9mpSYRiueG2RzzGtxvd7lurDigCpzoB1TkV2TWaQMlF+
+	 ueUgiQpKyVRtXvg3LdKx8cF//fURtBlqZeF4VAab/8Use5WOpL3so9IYdEAW8txPCboih
+	 HP8Yscvyn2c7smFKKsHch/XmYug6jAJLcJSE8psDSWX5+/hPW3w8uS/D6Bp3vridC8lbE
+	 /Tqs36XPRTGSihTx9i0h7Oab/Po+kiykn74umNGzSH9BzBYNJ1HDB++gsS0/oDhDOyg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UH5HQHFq;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.171
+Received: from mail-oi1-f171.google.com (mail-oi1-f171.google.com [209.85.167.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22EBA606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:05:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22EBA606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75050606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:06:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75050606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=SfxZnJwX;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=RxwxjM82
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ43BVk2294535
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:05:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Bdx7UpabDWwudSHqUP7nL1DuePy6rsFlxcZipCI63Tw=; b=SfxZnJwXGrwhNTWt
-	6E1PcOPbFWlJN5+VhVOtIC+U8qq3OtacG67E5sVGrFA0PCObYHOkoklBl0gIm5uk
-	kp7vWHCGRb5pXcQktvNG3g7oCugN4STy0GPSeRmz6z+Z9zR1pq47zrIXnVGuFWsa
-	/tumpI+/NfDlbmNQAT5JBYLTFpy0R3/xd4WEXkC7Eh9BJBR3386FvNi35DbAfjK6
-	E19PnmCndJEykOakP7c9rqtny7SkJa7vlYQIpsRzodrsFpQn3nNYm0wkIszzDmiN
-	f1T4JGUPkvEqdWD19Y299iIsaYCKaOtFuQdjZAzAzvaCXg/WWEzRAdvttVAemez9
-	qZVulg==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5vuhveed-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:05:21 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cde9044a96aso3449265a12.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:05:21 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UH5HQHFq
+Received: by mail-oi1-f171.google.com with SMTP id 5614622812f47-57e4bd7fb1eso1063738b6e.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:06:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795676778; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nymKBVuGXkmuEjMp4xZONh1Ql8hui4R+6JCrBxLQA+sERnDpciKHDY0Js7GXIPWHxP
+         TWpXnTsm6t6wW34/XgvTmjYI5gfcCqhJA1FkjWR1ja273xIxPdhQw2A5DDOwe+qJQ8um
+         ri1hvXq7Ts+Xuho2KbUwne/1kMGGyiSzk2iaunH4JL3pnmhTRtN40b008JshE8f5tD54
+         E1qmOsh61LK5kioWcrHhOxS7CSvEUbxlE48fbvEPS5fcIytCs5QBMF+51yiJG/a90zb1
+         t3g207mJ2P1nLrX/EEc5HxShyIeVhRkcG8/cBGNo3Yg23Y3OIM1Ykcpvwz1Cu+zIvB4w
+         qaRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=JGkzya9dAjnn+jPv3SgcvQ46bNDRabbKXhUISQinlYA=;
+        fh=qInzIYZgyHyZzw8GvDd37zX2TPQ8GjkYkm/SC3E6pQ8=;
+        b=UGBxVB7kSz2EMaToLeWG7hXkg4Ke39B4A35bQvscdXi1ccgUTy9BgN51l3yWVtVETt
+         toLMJnKLnT9WuA+FFpN3zlwKFOvqXrQKHKDRV/3sWf0yOuaPEEzYxEQiN7/DVUQi8J0d
+         Eg5GlwP3NUzDPV4xQkSKIDY8SYpuAIgKkKYHsFQhJAzyrGm0mI5jJZGBfz9yVQksPDq2
+         bKowxZ+Op/pHG//6YrW8kCiPErpFAexo2mRurtsef5t1prGilg21ooVGxKRar0wFWJDL
+         lX11Gjrr2p9Q1+2o5ctMJwcm8orDPbefXvXbXpG/HdlRSxwV/O0jNydgDn8T7l5ZQ8qz
+         9Lsw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795676721; x=1796281521; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Bdx7UpabDWwudSHqUP7nL1DuePy6rsFlxcZipCI63Tw=;
-        b=RxwxjM82pYWqNPepd4n1TPnbOOabNzW9iJSq9hX5pJn7Q4ydojLGaRLl5MaYsLRovw
-         D8HrorbyVwna1GQusix9X8Ij/8nZXZKe7SqIVsyCdqBZsSOdNPNYqB7gyVOiStomVRXJ
-         WPfKX9FbhtvzxG5XIIEq+wEVzDLBSxSMxicmkpe6PEowcMNl5k0/VzUmEi74hbnXxWgl
-         mPPuT+dk7zrMudZwccBuN2UaZxaGYbERDWa/bpHzGZOM1fcl6rQ7fzCjk5w6vZHg/5pM
-         RlDQlHlqcYLOOKvQzxtB0JKO3Xe6w1rIDHiOSWZP884UITjHHBszx7RNJUkB6uMtoR1W
-         WcRA==
+        d=gmail.com; s=20260707; t=1795676778; x=1796281578; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JGkzya9dAjnn+jPv3SgcvQ46bNDRabbKXhUISQinlYA=;
+        b=UH5HQHFqTxWVAe4pNETG3TgSSnfdvawd8ZQqFQpTnXL8pklkBd3jqxrX4e1K60dzCN
+         mCk/ExxbGY7CHX9BaicRT/mUMnD59Wl7VG2ao0I/MrUgavg8Dk4k1G6IFokyh5mZ0oDm
+         AjSe3P7IfgcbvQxru2NKz9hbmP8nCLfrcNQSyS28j/dZUrchIitIru9PMmoFrvN9okV1
+         7uMLKIV+zxO1B36TBVevbRi0bE9Huy4j3dCL5Ht6IN2bT5Jmslw8xPBv7Wn1/997vVCr
+         F+iCkk8pUWDQq9JJqWyWFuq4UR1ZEf8IbZhe6Y6FfyXuRqPr5atBZEKVDCLveet/ZI/6
+         K7IA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795676721; x=1796281521;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Bdx7UpabDWwudSHqUP7nL1DuePy6rsFlxcZipCI63Tw=;
-        b=Z7p80V6eocBpRzsMef6rStTrtq2i9WjvsjKm9Rfqv6RQLpjKGUBdADkkgNnlHn4XVu
-         YDAEZXkrTh3aWQku3Uwya+CNeN8cd2FM7Ft3wvURBY6Z7M0/rfIaZAOpqUpYEBLX05Kf
-         AF68I+oANrdZSOe1nYKd/2F1PlAexUUHxahHK21QxB888amFKTFWxrLMhfw6HY/1C5/q
-         hg4OSdsDYoX8YqqNYvZPBMV1tk0fGZPV9WUhH3SK9gtf1KzZUaYdOEzSk+EsZjEWI07V
-         Moq+yVQWQ1syGHb58Iu0DEvwcylRn14ziA0Ak3/Rotvu9a31in3Z9diU6dn4HobFVhgK
-         gGoA==
-X-Forwarded-Encrypted: i=1; AL+hErEZ+z4nbzOx70qd5kbHO6LdaG3IGPPN+3CntCl2biuVqDQ3rzYEkgdI5knRiX6ujX00bxKApZj0nPhTzbk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/7yry2Z3St5ZqFe3lmp2kEBZl4Xte/K8PANNCJcxGRxVN/Clkj
-	ROnXP/zQpxbCeYW6FtZ/uC19K1D9U6XNtudqc319zNhOfJizW7sKL24xkl22gGHJKWZ5qJ0FqIF
-	DuuEc32kwDbgZ8xCOSAgqbCee6TFoQur0s9Yxpww6tnuHWS8KbBerTlhQVtmOLO1GVlE=
-X-Gm-Gg: AZFdTZd9ZS8lmOxvZ/3lTIYJPhkWuRCHEy6JxR64QfXPRrYy7TXITNY/3p28MZi3zhl
-	JhgtClgpBlsoEIEZZ2CNBHn/SdmaT06Tp2oW1ajRupIWyu+H18LUewvB7nHTLtZJ2Xk0qsp9QnE
-	HBE9CufoU04RzLuGiF2maM1xLhYTM0dRD4OD749l/dTA5NnlED5rQMp4n7lFqzEoSYoZSNoNdt1
-	Lltf94G+WEJ+2KXUltA6vd6reADXevCnaLP7VnChrtcBmRZ0rKB5a6YlNtZjkjrNtAr45gj62tf
-	Nt6K4jVbMjNI1i2VjOA+GLmSPI20UxI8rEqXAkRnUfjKHMTygfe/T0CZm9Y20mJGtBE/DTo40JY
-	ow4rorqBY7FewkY/RYZceGvC1JcJWP2I/BTHED1YPhy39fGTKgHgyPk2Rm7nYEGIiIkIrndZ6jn
-	+9xoPr7/38QfS6sSwTkUkDnwVr5qSEY3/8mTehC1Qbvg==
-X-Received: by 2002:a17:903:2282:b0:2f0:82df:b8a6 with SMTP id d9443c01a7336-2f082dfbfa2mr135854125ad.59.1795676720750;
-        Wed, 25 Nov 2026 23:05:20 -0800 (PST)
-X-Received: by 2002:a17:903:2282:b0:2f0:82df:b8a6 with SMTP id d9443c01a7336-2f082dfbfa2mr135853805ad.59.1795676720167;
-        Wed, 25 Nov 2026 23:05:20 -0800 (PST)
-Received: from [10.133.33.167] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f0bc695f31sm41415355ad.49.2026.11.25.23.05.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 23:05:19 -0800 (PST)
-Message-ID: <7e396e37-d70b-4091-8764-f416b1ddc7aa@oss.qualcomm.com>
-Date: Thu, 26 Nov 2026 15:05:16 +0800
+        d=1e100.net; s=20260707; t=1795676778; x=1796281578;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=JGkzya9dAjnn+jPv3SgcvQ46bNDRabbKXhUISQinlYA=;
+        b=WeH+onaklSVXsn4lgpO//xRk32/E6mbP+iCMToRodSCmr4GH51zRyEdEWIkRiXa7z3
+         vFFnr6kPiEusA/+2d5mJoAcys4bQFtlM3ruv3Qwx2cxKCxVqvccWkK2uG8/LkiWn2O6j
+         2dNswroIpfPInYgd9wb/UFdWJ5WtvpIxWgm2I1JPQZUJVNoUqVC60gKiY7cgilcGbP8f
+         8v8B6VvCl9m9fc3ZGX/bDUvaevCS2pmJ3q9OY+Uef47njW9+1mLRDulhpubcZr1ImMfp
+         nKE76BD17IuZrzWf+C+q/9YhwIhcYQHs6fQTgy06euHDqp9wjqxgwDvedtyXwi6iIgtg
+         OV2w==
+X-Forwarded-Encrypted: i=1; AL+hErG3OVZ0dOIIL2ngYu7y1j9ldpjUNtnWM+PlrgAX2XB9Nmujg/2lxSe5S4yg1wkFs9Xe4OddRXtnTJfRsBM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/4+7vK3zDZIAB1GWi4zId4u16R9BIVRV3VVUeaVJ13i32ZQxZZ
+	wsxcBA8X+aTcNF7ADncGNYvlRb9DuIgqXaicIKZYjNFQVIjPITK4kUhh9l8cS+bH2XW88flu1Ee
+	bNM8V2uvXFJE3y0OxijBOjLUlZ4/XgoA=
+X-Gm-Gg: AZFdTZegQHoWkxgFHUUmU0Y7geLd4W7G0B0TlCQDUobwUEUvVCxLIzSZACeMRytpaQt
+	/+tNRW9lpOvchr0uWxJrlwMN7Jye5csgNk1TPUZZopwLAOlL4GmAt5bw3UeN3R/oCTj/LMcsYG/
+	Vm3juok9sfGWYl3pi+CqSDvKM8/LuWKq6w+gVauqeswblPwuCEOLRPdwBqM/XfAu26vJ4GbbLxo
+	X5qQaN5BfIvIQ2VxjK1c80Q1S+/BHd8sVC0al8ZXVon6ZomUdqIlSHiB1yxXNiV5MoGMYIYx2fY
+	5UKv2YpPoVMu5B2XpjT2fm4PUy0QMcgESSPl6nJkeafU1gvMHwgcdWk5yRYlyB8PnaPjIiout9O
+	bS1orS5MQoYol1gRYFThDHsgo1VkwDk9JxfPweXY+Qjq4RmPwlqf5tKv1rZ7oINqdY2TpF9XxVo
+	uCkMU7YWC5JRg=
+X-Received: by 2002:a05:6808:6413:b0:574:9463:5511 with SMTP id
+ 5614622812f47-57a0b64e63emr19810454b6e.48.1795676778214; Wed, 25 Nov 2026
+ 23:06:18 -0800 (PST)
+Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
+ Thu, 26 Nov 2026 02:06:16 -0500
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,196 +104,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH ath-next v4 03/10] wifi: ath10k: wake blocked waiters when
- entering WEDGED state
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Cc: Jeff Johnson <jjohnson@kernel.org>,
-        Baochen Qiang <baochen.qiang@oss.qualcomm.com>,
-        Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
-        linux-wireless@vger.kernel.org, ath10k@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-References: <20261120-recovery-v4-v4-0-53d6a04490e0@oss.qualcomm.com>
- <20261120-recovery-v4-v4-3-53d6a04490e0@oss.qualcomm.com>
- <CAFEp6-2pecH+PxiDv+VpCfUyQabGSDWitHPbxpAv57fWTiP=mA@mail.gmail.com>
-Content-Language: en-US
-From: Kang Yang <kang.yang@oss.qualcomm.com>
-In-Reply-To: <CAFEp6-2pecH+PxiDv+VpCfUyQabGSDWitHPbxpAv57fWTiP=mA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=FPmOVOos c=1 sm=1 tr=0 ts=6b07da31 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=4gwAILDwourXv-2xtFAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=3WC7DwWrALyhR5TkjVHa:22
-X-Proofpoint-GUID: W7AR7KT_WGqw2SkdlBSI0AnD3mS8DvXe
-X-Proofpoint-ORIG-GUID: W7AR7KT_WGqw2SkdlBSI0AnD3mS8DvXe
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAyNiBTYWx0ZWRfX+CjgPClPX0sE
- 4BqQ7J2pkORJOxx/mvFMlWu4KEtTerUzUMN0cd/ABVsybVSaBAJRxpyL72xivLAN9JNoOdiBzMo
- b7IdFyS9Ybx7ThoCh1ZpPLAgIxgiNLM=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAyNiBTYWx0ZWRfX8rg7fiEBakM2
- G0L219ZveLPSEjFgUTuSfcpsLPwwA5tYrohsfz7uIR4c6VP9zKBywY+7lq5DJ3NH9MwKPp6PV0Y
- GNbSa+HBRNtiYuxiPLB3kasA8DeOHuBbwhCxsN+1J7Xkzz4sTp34Dv9aJwddyNSpIIR1jX8/fMv
- fM1MOz5vKdvACgEEyiGVGcwiuDT/QZIb8oLeoI3fnXys1pWbVTSOHXek6AKiQBCiYBUmJwb8cSm
- yucZNrleVUqEjFoVs+L1sjDEFlKo82cXV60luLmKXMbpMM/deDDbQvuhyJzVeNAaYn1tJCuVrBf
- ShekMUTvP48BMZMUecuBPt0b/j22pNKnchfIn6vRfM0CiZ06/JS0wRXJdxoKA1G1aOTYuna5CKn
- CU0ssslhM+CFcfRGvaWE4VrG6vdP9Hd9snEU9ZvxlsvzgwFcM5VcYUGa1DPHZ8bZ+A5KXrsd91Q
- ixT2kgObNYGfS+A+Y+w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_01,2026-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 bulkscore=0 malwarescore=0 suspectscore=0 impostorscore=0
- priorityscore=1501 adultscore=0 phishscore=0 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260026
+From: Lee Youngjoon <getfeus@gmail.com>
+Date: Thu, 26 Nov 2026 02:06:16 -0500
+X-Gm-Features: Aa3M54omcjTpSdcnmVtJqEgoipl0t9iwMSKeuCL-vk9fRXRWXqfRUnArp4WiGRM
+Message-ID: <CA+m4KrC5=QzYthdWOyeJy68OrgTCrKdYFRovD3vRC+V26NkqGw@mail.gmail.com>
+Subject: [PATCH v1 0/2] platform: arm64: huawei-gaokun-ec: Fix short transfers
+ and PAN ACK masks
+To: Pengyu Luo <mitltlatltl@gmail.com>, Hans de Goede <hansg@kernel.org>, 
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>, platform-driver-x86@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+
+Hi,
+
+These two independent fixes address the host side of the Huawei MateBook
+E Go EC protocol. A short I2C transfer can be reported as success, and
+the normal no-port-update case evaluates a negative shift before sending
+its acknowledgement. Both issues are present in the pdx86 fixes tree.
+
+For patch 1, a host-side test fed the actual request helper adapter
+returns of 0, 1, -EREMOTEIO and 2. The first two now return -EIO.
+A complete transfer still returns the EC status byte, including a
+nonzero status. For patch 2, UBSan reproduced the negative shift on
+the base commit. With the fix, -1 sends a zero mask; ports 0 through 7
+set their respective bits, and out-of-range indices return -EINVAL
+without a transfer. Both patches were built individually and together
+as an arm64 Image and EC module.
+
+For reviewers interested in firmware inputs, the PAN write can also be
+checked with a fixed cable configuration on a Gaokun. In an earlier
+instrumented run, the left charger was online and the right port empty.
+After a normal left ACK, D3 still reported update mask 01 and port
+records 05/00 and 02/00. A test-only driver hook rechecked D3 and pending
+work, then issued one empty PAN ACK while both ports were left untouched.
+The I2C trace captured the following exchange:
+
+    host -> EC    03 d2 01 00
+    EC -> host    00 44
+    D3 payload    02 01 05 00 02 00 40  (before, after, +2 s, +5 s)
+
+This observation documents the existing empty ACK encoding. The EC
+accepted the command and the update mask stayed set. The series preserves
+that input and makes no change to firmware recovery or hotplug policy.
+The host-side cases above can be exercised without a board by stubbing
+i2c_transfer() and recording the request bytes and return code.
+
+OpenAI Codex assisted with source inspection, the fixes, regression
+tests and drafting this series.
+
+Thanks,
+Lee Youngjoon
+
+Lee Youngjoon (2):
+  platform: arm64: huawei-gaokun-ec: Reject short I2C transfers
+  platform: arm64: huawei-gaokun-ec: Validate the PAN ACK bit index
+
+ drivers/platform/arm64/huawei-gaokun-ec.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
 
-
-On 11/25/2026 6:29 PM, Loic Poulain wrote:
-> On Fri, Nov 20, 2026 at 9:42 AM Kang Yang <kang.yang@oss.qualcomm.com> wrote:
->>
->> Commit c256a94d1b1b ("wifi: ath10k: shutdown driver when
->> hardware is unreliable") added a fail-count based transition
->> to ATH10K_STATE_WEDGED after repeated recovery failures.
->>
->> When recovery starts, ath10k_core_restart() sets
->> ATH10K_FLAG_CRASH_FLUSH and wakes waiters already blocked at
->> the time the failure is detected. However, additional waits
->> may be created later while the recovery attempt is still in
->> progress.
->>
->> If recovery ultimately fails and the device transitions to
->> ATH10K_STATE_WEDGED, those later waiters continue sleeping
->> until their individual timeouts expire even though no further
->> progress is possible.
->>
->> On suspend/resume, these extra wait timeouts consume watchdog
->> budget. Crash logs show cases where one or two such timeouts
->> are enough to cause the suspend watchdog to fire before the
->> driver finishes shutting down.
->>
->> Apply the same CRASH_FLUSH, queue-stop and waiter wakeup
->> handling when entering ATH10K_STATE_WEDGED so blocked callers
->> fail immediately once the driver gives up.
->>
->> Tested-on: QCA6174 hw3.2 PCI WLAN.RM.4.4.1-00288-QCARMSWPZ-1
->> Tested-on: QCA6174 hw3.2 SDIO WLAN.RMH.4.4.1-00189
->>
->> Fixes: c256a94d1b1b ("wifi: ath10k: shutdown driver when hardware is unreliable")
->> Signed-off-by: Kang Yang <kang.yang@oss.qualcomm.com>
->> ---
->>   drivers/net/wireless/ath/ath10k/core.c | 43 +++++++++++++++++++++++-----------
->>   1 file changed, 29 insertions(+), 14 deletions(-)
->>
->> diff --git a/drivers/net/wireless/ath/ath10k/core.c b/drivers/net/wireless/ath/ath10k/core.c
->> index b536c21630b1..3bb4d2742c30 100644
->> --- a/drivers/net/wireless/ath/ath10k/core.c
->> +++ b/drivers/net/wireless/ath/ath10k/core.c
->> @@ -2533,6 +2533,32 @@ static int ath10k_init_hw_params(struct ath10k *ar)
->>          return 0;
->>   }
->>
->> +static void ath10k_core_wake_all_waiters(struct ath10k *ar)
->> +{
->> +       complete(&ar->scan.started);
->> +       complete(&ar->scan.completed);
->> +       complete(&ar->scan.on_channel);
->> +       complete(&ar->offchan_tx_completed);
->> +       complete(&ar->install_key_done);
->> +       complete(&ar->vdev_setup_done);
->> +       complete(&ar->vdev_delete_done);
->> +       complete(&ar->thermal.wmi_sync);
->> +       complete(&ar->bss_survey_done);
->> +       wake_up(&ar->htt.empty_tx_wq);
->> +       wake_up(&ar->wmi.tx_credits_wq);
->> +       wake_up(&ar->peer_mapping_wq);
->> +}
->> +
->> +static void ath10k_core_enter_wedged(struct ath10k *ar)
->> +{
->> +       ar->state = ATH10K_STATE_WEDGED;
->> +
->> +       set_bit(ATH10K_FLAG_CRASH_FLUSH, &ar->dev_flags);
->> +
->> +       ieee80211_stop_queues(ar->hw);
->> +       ath10k_core_wake_all_waiters(ar);
->> +}
->> +
->>   static void ath10k_core_recovery_check_work(struct work_struct *work)
->>   {
->>          struct ath10k *ar = container_of(work, struct ath10k,
->> @@ -2551,7 +2577,7 @@ static void ath10k_core_recovery_check_work(struct work_struct *work)
->>
->>          ath10k_err(ar, "recovery did not complete in %u ms, will shutdown driver!\n",
->>                     jiffies_to_msecs(ATH10K_RECOVERY_TIMEOUT_HZ));
->> -       ar->state = ATH10K_STATE_WEDGED;
->> +       ath10k_core_enter_wedged(ar);
->>   }
->>
->>   void ath10k_core_start_recovery(struct ath10k *ar)
->> @@ -2618,18 +2644,7 @@ static void ath10k_core_restart(struct work_struct *work)
->>
->>          ieee80211_stop_queues(ar->hw);
->>          ath10k_drain_tx(ar);
->> -       complete(&ar->scan.started);
->> -       complete(&ar->scan.completed);
->> -       complete(&ar->scan.on_channel);
->> -       complete(&ar->offchan_tx_completed);
->> -       complete(&ar->install_key_done);
->> -       complete(&ar->vdev_setup_done);
->> -       complete(&ar->vdev_delete_done);
->> -       complete(&ar->thermal.wmi_sync);
->> -       complete(&ar->bss_survey_done);
->> -       wake_up(&ar->htt.empty_tx_wq);
->> -       wake_up(&ar->wmi.tx_credits_wq);
->> -       wake_up(&ar->peer_mapping_wq);
->> +       ath10k_core_wake_all_waiters(ar);
->>
->>          /* TODO: We can have one instance of cancelling coverage_class_work by
->>           * moving it to ath10k_halt(), so that both stop() and restart() would
->> @@ -2664,7 +2679,7 @@ static void ath10k_core_restart(struct work_struct *work)
->>                  /* hw restart might be requested from multiple places */
->>                  break;
->>          case ATH10K_STATE_RESTARTED:
->> -               ar->state = ATH10K_STATE_WEDGED;
->> +               ath10k_core_enter_wedged(ar);
-> 
-> ath10k_core_enter_wedged call ieee80211_stop_queues(), which is also
-> called earlier in this function, is it expected and harmless?
-
-
-mac80211 will make this harmless:
-static void __ieee80211_stop_queue(struct ieee80211_hw *hw, int queue,
-				   enum queue_stop_reason reason,
-				   bool refcounted)
-{
-	struct ieee80211_local *local = hw_to_local(hw);
-
-	if (WARN_ON(queue >= hw->queues))
-		return;
-
-	if (!refcounted)   // refcounted=false
-		local->q_stop_reasons[queue][reason] = 1;
-	else
-		local->q_stop_reasons[queue][reason]++;
-
-	trace_stop_queue(local, queue, reason,
-			 local->q_stop_reasons[queue][reason]);
-
-	set_bit(reason, &local->queue_stop_reasons[queue]);
-}
-
-
-
-
-> 
->>                  fallthrough;
->>          case ATH10K_STATE_WEDGED:
->>                  ath10k_warn(ar, "device is wedged, will not restart\n");
->>
->> --
->> 2.34.1
->>
-
+base-commit: d4000e7b99e06e92f21a3c92098a0476d316e9d6
