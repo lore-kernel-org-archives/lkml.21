@@ -1,109 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795688017;
-	b=GI2U2+9D8EYBTsxAefCorXiEmycSQNtUeDqkz+iLYNfeS8HFxP/GwIdrF1l1vkOxZQx1
-	 JXwshphEBSQneX/T/Mv7v2JEOJqWLfwD1VQtTdikv5rsfA2aRnHEBYwwUR8AqLIIoljLC
-	 S15/Xb9fYakbsYG5maCA3jrGPvY+9FuZfRKLCDN6OthcqhiZAPs280ifR95cTlKiZAIm3
-	 kEKoOxcg5vGX+9dlx0rTOGH/MZCVIvfWF+B1AjFJTP7vza4JpT9OaWwiRuEINCP8AdT3W
-	 WG2JhoAEfwC+xtANKD5lq4IIo99Gs2ivnjP244oxfRE6dZ5leajbSfAMx2KAS3i6h1g==
+	t=1795688019;
+	b=eNyJg0irIGik6+E/PfrjCVzIIgzpSMP5sO+h+vmVYUkmxpvy/8ZoXsgFkQk5nfFA5Nlu
+	 ZJ42oCyQ1qS9N4ftu3jgWmhDSBlnW4egCxb8SneBuzCPWjinajZWGVtdXpM+cQh9MuOcx
+	 BQxRuPv4VBz6pHChtGhuiHsf7ilgMfOKeX/9BKuI3yavT+Dp6+w2WBLpJtun1QlJjKWYd
+	 WChODzrYLZ/N73PtI7dwro7+5C+NmCY7lMgAKPyHJn5N4LoiJeKOtJnZaWyF3QDle/pkp
+	 gLNSA4NmSwE1H4ofvImk+8DidmVffUMC8OpZwb5U8sCv+9Bu2Ss9tVtQoB9hdkNzPng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795688017;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=QjmQWDOhXjPduQCPFEYnWWElx9QajV47LMWbsl16/a0=;
-	b=EX+zm1Djjn3AzOErvFNmsETBa8Q9rDZFn/yAZM3vUoPnmBL+VZtaXEcd5dG92/bzpGVP
-	 wf6d9VPnLdxG9GXZk204vMyOq1J1M/4jDLabE7RJlchLQ3V103QmmTzWeH0gxuQfnMxqi
-	 mqVFgZUp6GOc5vykyRRajPCwhUmQbkQgfkFfft5ttVZVyV2Ue/nPuc7GRMyTLS0dled1+
-	 0tyWOs011euKRzCawmZsMG87LxvWjXrCeY0EmEBwjWjitUAx0FG+PNDWuxSAajEEq3hQb
-	 8EUZFHZh/9pryzs6QNiDl5vdE/pV89dPWnfIfDb43JUvwBrbIGGcFGh1MLpJ5vl5ucg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795688019;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=eDOw2KMS/cQxr+9kxLatH3BnA+Od/vODQKnNV4wT5DY=;
+	b=qUX9qfw3RkgdznU2WVZBnHvMfjBS5Rf7G6Ev+dzMuQIvBmt6dxkHZi0ekNg3cKH1HkDH
+	 IcOM170CTsQgS0hJ+ZWsg0nG6GoGid786bO5XYCYqq1WG4aUptDWD2RFVAeTY7xfEoGBC
+	 zyDfJWvt5jqZDUz+e9iP9M2qjMUYWhYq7tzRre6h/BMMGVpG2ldTqoPl38oYPc8eTAXMt
+	 5vsQU/r2SIpLPfdXpi3pRc3CAcYgD0W5KaHPerS6ykJ1cSGOoDIQfThLrh5JbIPpYqOi0
+	 OC8VWvQQYex2f5Czdg9Hz8kKO6nH5yiZihagxi0cNws/CJQkSOGxwtkURAlkvclhAng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=o5ytL25S;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=NtxCwrv7;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=IiP1dU5h;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=L3wKBgHc;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.199
+Received: from mail-oi1-f199.google.com (mail-oi1-f199.google.com [209.85.167.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18121606A330;
-	Thu, 26 Nov 2026 10:13:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18121606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=o5ytL25S;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=NtxCwrv7;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=IiP1dU5h;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=L3wKBgHc
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id CAF112205E;
-	Thu, 26 Nov 2026 10:13:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795688015; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QjmQWDOhXjPduQCPFEYnWWElx9QajV47LMWbsl16/a0=;
-	b=o5ytL25S74zKhzoZ+L/MmCeIxYsfUDPsFQP8U264cGDR1xf0onaNgdHG+2VLIlR+ZAwtiA
-	bJoqzQ98O8ROY31N3bBORfnSToqhC6V2bp5kETYPtq8UbeWeN/V21Ucplr23W4vTDJTCkh
-	JdYg8siazbSwqolJwmEbhaI1wh4gP00=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795688015;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QjmQWDOhXjPduQCPFEYnWWElx9QajV47LMWbsl16/a0=;
-	b=NtxCwrv7S/7ynap1/6hIKZcPkRolv5tpyFexw5xFuZ7Rz9DIQh+qfhxRxdDXaJ235ZlwtD
-	5wVhn/FC2gu7fBAg==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795688013; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QjmQWDOhXjPduQCPFEYnWWElx9QajV47LMWbsl16/a0=;
-	b=IiP1dU5hX4g8bwJC6G4XdxRX3Ye4+mP2b2tVxWSeRG7gEegmbobQBdYwmnufQYAltmQnbM
-	ByWBF1kisbSYJZmqpzyvuaQ7tWm5jtVnYKhMBeEU8Nt+p1oHPsjqDBCGjbb3DT83Neh35c
-	cV2gcZKIYkhf8s4mr141KWy7H7vf0yc=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795688013;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QjmQWDOhXjPduQCPFEYnWWElx9QajV47LMWbsl16/a0=;
-	b=L3wKBgHcTaNAimRxwcOFSX+v3MGgugkzImqkeNlY9rvttELYhq2/13uEOWDjph+1xfE46W
-	YYOFwFka7y5eULAQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 7AF8D13432;
-	Thu, 26 Nov 2026 10:13:33 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 0a8XFU0GCGtcFQAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Thu, 26 Nov 2026 10:13:33 +0000
-Date: Thu, 26 Nov 2026 11:13:33 +0100
-Message-ID: <87ik1j6gtu.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Hengyu Liang <hengyul@cs.unc.edu>
-Cc: Takashi Iwai <tiwai@suse.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Pavel Hofman <pavel.hofman@ivitera.com>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] ALSA: pcm: oss: Refine slave hw_params after setting format
-In-Reply-To: <20261125181005.3683575-1-hengyul@cs.unc.edu>
-References: <20261125181005.3683575-1-hengyul@cs.unc.edu>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23409606A689
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:13:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23409606A689
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f199.google.com with SMTP id 5614622812f47-4dab94dc3e7so13858034b6e.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:13:38 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795688018; x=1796292818;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=eDOw2KMS/cQxr+9kxLatH3BnA+Od/vODQKnNV4wT5DY=;
+        b=SYn26EzAsv+NVPsWmzL7iA9g1TbxsKJgSEfPOU9qgU08PO59Dr9w1+oixWeAUDL5j4
+         8bC4e7avKhZCN8beHjdn63w3h4UTQZ5DSas+yBLTPbsxLYWT6gJaFwfd5rSj5aUzlJ+C
+         5cpAZpyAp+Mw6h5XAYTKKNMxTiTSSCdWfCik+LbytXdJzhAQ5bnNwSKaYvYaH13pgvPN
+         UEPnHL4tWdC/3CmVWtTPkLj9aXAmiTT8Igrq8q5ckigJsiXkLb24ArnB44YS952sN7Eb
+         x/Y/Q2/sBht4s9OpzniOWqQ12yoWLcHBNnHZlE/4neNuF6wx9gmvbGQtBNmza/ixfnFc
+         wTfw==
+X-Forwarded-Encrypted: i=1; AL+hErElIUA6mZo/kWQUwC1mB/fSlGMuLqTGjicvQIykizPvxqp/taGTO1rvv0Xp6d45EyIXKf2YuYEDi3rk5/E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/9V1XzT/CaC5xtnLkvJ+eWTY/yKexjWpR9ycMU8sM3H3FC3XOE
+	MB/t6It1CgsU2xXyKYex4DwSdVNEr93zNy+ByVHp6OIM4AybxVlh0YZsD7BFP9ol69qWUhyNwdf
+	LnGKeC8JciByFJPy+WJNAVsg4IqMPDt+EpfS4QVPpSIJPsZbRKX9xT+dyKeg=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,85 +57,150 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-12.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[7];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[unc.edu:email,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -12.30
-X-Spam-Level: 
-X-Spam-Flag: NO
+MIME-Version: 1.0
+X-Received: by 2002:a05:6808:3189:b0:573:8745:a99c with SMTP id
+ 5614622812f47-57a0d0ee78amr22521450b6e.62.1795688018231; Thu, 26 Nov 2026
+ 02:13:38 -0800 (PST)
+Date: Thu, 26 Nov 2026 02:13:38 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b080652.1fb41460.314c8.006f.GAE@google.com>
+Subject: [syzbot] [ntfs3?] WARNING: proc registration bug in ntfs_put_super
+From: syzbot <syzbot+d7aeb9ab7b1cc022914e@syzkaller.appspotmail.com>
+To: almaz.alexandrovich@paragon-software.com, linux-kernel@vger.kernel.org, 
+	ntfs3@lists.linux.dev, syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-On Wed, 25 Nov 2026 19:10:05 +0100,
-Hengyu Liang wrote:
-> 
-> Commit 93d7d38fa61d ("ALSA: aloop: add DSD formats") added DSD_U8 to
-> the formats of snd-aloop. Before that, its narrowest format had 16 bits.
-> 
-> However, snd_pcm_oss_change_params_locked() sets the slave format with
-> _snd_pcm_hw_param_set(), which does not refine the parameters, while
-> the access, rate and channels before it are set with refining helpers.
-> snd_pcm_oss_period_size() then reads a buffer size maximum that is
-> still computed for the narrowest format, now DSD_U8, so the OSS period
-> doubles. With the default U8 client format, the doubled period no
-> longer fits in the format plugin, and snd_pcm_plugin_alloc() returns
-> -ENOMEM. As of now, an OSS program that asks snd-aloop for 8 channels
-> at 192 kHz gets ENOMEM from SNDCTL_DSP_SPEED and from every later
-> ioctl on the same file.
-> 
-> The issue can be reproduced with this program, where card 1 is
-> snd-aloop:
-> 
->     #include <fcntl.h>
->     #include <stdio.h>
->     #include <sys/ioctl.h>
->     #include <sys/soundcard.h>
-> 
->     int main(void)
->     {
->             int fd = open("/dev/dsp1", O_WRONLY | O_NONBLOCK);
->             int ch = 8, rate = 192000, blk = 0;
-> 
->             ioctl(fd, SNDCTL_DSP_CHANNELS, &ch);
->             if (ioctl(fd, SNDCTL_DSP_SPEED, &rate) < 0)
->                     perror("SNDCTL_DSP_SPEED");
->             if (ioctl(fd, SNDCTL_DSP_GETBLKSIZE, &blk) < 0)
->                     perror("SNDCTL_DSP_GETBLKSIZE");
->             printf("block size %d\n", blk);
->             return 0;
->     }
-> 
-> Before that commit, it prints "block size 65536". After that commit,
-> the result is:
-> 
->     SNDCTL_DSP_SPEED: Cannot allocate memory
->     SNDCTL_DSP_GETBLKSIZE: Cannot allocate memory
->     block size 0
-> 
-> This patch will set the format with snd_pcm_hw_param_set(), which
-> refines the parameters, as is done for the channels just before.
-> 
-> Fixes: 93d7d38fa61d ("ALSA: aloop: add DSD formats")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Hengyu Liang <hengyul@cs.unc.edu>
+Hello,
 
-Applied now.  Thanks.
+syzbot found the following issue on:
+
+HEAD commit:    ebb7a8dc1e74 Merge tag 'soc-fixes-7.4' of git://git.kernel..
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+console output: https://syzkaller.appspot.com/x/log.txt?x=13725b09580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=fbd0fc734eea62ed
+dashboard link: https://syzkaller.appspot.com/bug?extid=d7aeb9ab7b1cc022914e
+compiler:       Debian clang version 22.1.8 (1~deb13u5), Debian LLD 22.1.8
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=10946465580000
+
+The issue was bisected by AI to:
+
+commit 7832e123490ac39f85ab5befc2ceee7b25b03acb
+Author: Konstantin Komarov <almaz.alexandrovich@paragon-software.com>
+Date:   Mon May 8 09:39:45 2023 +0000
+
+    fs/ntfs3: Add support /proc/fs/ntfs3/<dev>/volinfo and /proc/fs/ntfs3/<dev>/label
+
+reasoning:      https://syzkaller.appspot.com/ai_job?id=2815bb40-6080-44ed-9e96-97f475975445
+
+AI-generated root cause summary:
+In fs/ntfs3/super.c, ntfs_create_procdir() calls proc_mkdir() to create
+sbi->procdir and then calls proc_create_data() for "volinfo" and "label" without
+checking whether those calls return NULL (such as on allocation failure in
+__proc_create()). Because sbi->procdir is still assigned unconditionally, later
+superblock teardown in ntfs_put_super() -> ntfs_remove_procdir() unconditionally
+calls remove_proc_entry() for both "label" and "volinfo". When a missing entry
+is passed to remove_proc_entry(), pde_subdir_find() returns NULL and triggers
+WARN(1, "name '%s'\n", name) at fs/proc/generic.c:742.
+
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=d7aeb9ab7b1cc022914e
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+d7aeb9ab7b1cc022914e@syzkaller.appspotmail.com
+
+The bisection result may be wrong.
+If you agree with it, please also add:
+Fixes: 7832e123490a ("fs/ntfs3: Add support /proc/fs/ntfs3/<dev>/volinfo and /proc/fs/ntfs3/<dev>/label")
+
+R10: 0000000000000001 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000003 R14: 00007fffc71496c0 R15: 00007fffc7149660
+ </TASK>
+------------[ cut here ]------------
+name 'label'
+WARNING: fs/proc/generic.c:742 at remove_proc_entry+0x35a/0x690 fs/proc/generic.c:742, CPU#0: syz-executor148/5678
+Modules linked in:
+CPU: 0 UID: 0 PID: 5678 Comm: syz-executor148 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+RIP: 0010:remove_proc_entry+0x35f/0x690 fs/proc/generic.c:742
+Code: ff e9 14 ff ff ff e8 60 2a 46 ff eb 05 e8 59 2a 46 ff 48 c7 c7 a0 70 33 90 e8 6d f1 8b 09 48 8d 3d 06 a8 41 0f 48 8b 74 24 08 <67> 48 0f b9 3a 48 83 c4 20 5b 41 5c 41 5d 41 5e 41 5f 5d c3 cc cc
+RSP: 0018:ffffc90002d4fc68 EFLAGS: 00010286
+RAX: 8000000000000000 RBX: ffff888013bd6000 RCX: ffffffff9becba01
+RDX: 0000000000000001 RSI: ffffffff8c687660 RDI: ffffffff91c4d1d0
+RBP: 0000000000000005 R08: 0000000000000003 R09: 0000000000000004
+R10: dffffc0000000000 R11: fffff520005a9f7c R12: 0000000000000000
+R13: ffff888013bb9e9b R14: 0000000000000007 R15: dffffc0000000000
+FS:  00005555807b4400(0000) GS:ffff88808a9e9000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00007fbebe2a8460 CR3: 0000000042059000 CR4: 0000000000352ef0
+Call Trace:
+ <TASK>
+ ntfs_remove_procdir fs/ntfs3/super.c:650 [inline]
+ ntfs_put_super+0x7a/0xf0 fs/ntfs3/super.c:771
+ generic_shutdown_super+0x140/0x2d0 fs/super.c:723
+ kill_block_super+0x44/0xa0 fs/super.c:1852
+ ntfs3_kill_sb+0x41/0x60 fs/ntfs3/super.c:1997
+ deactivate_locked_super+0xbe/0x110 fs/super.c:558
+ cleanup_mnt+0x204/0x2a0 fs/namespace.c:1396
+ task_work_run+0x1d9/0x260 kernel/task_work.c:233
+ resume_user_mode_work include/linux/resume_user_mode.h:50 [inline]
+ __exit_to_user_mode_loop kernel/entry/common.c:70 [inline]
+ exit_to_user_mode_loop+0x204/0x770 kernel/entry/common.c:101
+ __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
+ syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
+ syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
+ do_syscall_64+0x336/0x540 arch/x86/entry/syscall_64.c:107
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fd4fdc78817
+Code: bf 41 4d 56 53 b8 9d 00 00 00 0f 05 83 f8 ea 75 a2 c7 05 54 88 08 00 00 00 00 00 eb 96 e8 61 08 00 00 90 b8 a6 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 01 c3 48 c7 c2 d8 ff ff ff f7 d8 64 89 02 b8
+RSP: 002b:00007fffc7149628 EFLAGS: 00000246 ORIG_RAX: 00000000000000a6
+RAX: 0000000000000000 RBX: 0000000000000087 RCX: 00007fd4fdc78817
+RDX: 0000000000000002 RSI: 0000000000000001 RDI: 00007fd4fdcd40ad
+RBP: 0000000000000000 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 0000000000000003 R14: 00007fffc71496c0 R15: 00007fffc7149660
+ </TASK>
+----------------
+Code disassembly (best guess):
+   0:	ff                   	ljmp   (bad)
+   1:	e9 14 ff ff ff       	jmp    0xffffff1a
+   6:	e8 60 2a 46 ff       	call   0xff462a6b
+   b:	eb 05                	jmp    0x12
+   d:	e8 59 2a 46 ff       	call   0xff462a6b
+  12:	48 c7 c7 a0 70 33 90 	mov    $0xffffffff903370a0,%rdi
+  19:	e8 6d f1 8b 09       	call   0x98bf18b
+  1e:	48 8d 3d 06 a8 41 0f 	lea    0xf41a806(%rip),%rdi        # 0xf41a82b
+  25:	48 8b 74 24 08       	mov    0x8(%rsp),%rsi
+* 2a:	67 48 0f b9 3a       	ud1    (%edx),%rdi <-- trapping instruction
+  2f:	48 83 c4 20          	add    $0x20,%rsp
+  33:	5b                   	pop    %rbx
+  34:	41 5c                	pop    %r12
+  36:	41 5d                	pop    %r13
+  38:	41 5e                	pop    %r14
+  3a:	41 5f                	pop    %r15
+  3c:	5d                   	pop    %rbp
+  3d:	c3                   	ret
+  3e:	cc                   	int3
+  3f:	cc                   	int3
 
 
-Takashi
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+For information about bisection process see: https://goo.gl/tpsmEJ#ai-bisection
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
