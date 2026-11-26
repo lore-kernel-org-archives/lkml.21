@@ -1,87 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795708052;
-	b=COTN4NqrL8Qkq30HDBSCMyw/sRxu8BQCkCYOyTBatKN22ON1y1E878Y3bGQaGcjDAoWr
-	 oU1m3GgQvKG+h8kzQlZCkmRsHTOcC5hZWf4EMJYO9miZE+MBw23feQKnWD3Q5k1mD+xY5
-	 lCxH69j2K1s/mhTp/junGA/jpstQ2Mx18WioZaM/gz7n8cM1rkg/Q1OUcbtfUi4SekTlF
-	 QXK5I2Fc+qGuJLZAb+X1/FaIZoOhjeslRS6IXUDMmSy9xUDWHkh5Ir6TBeabfr0q+6Lb8
-	 HQA86X/+wCeVBf7Wwol27N0fR49WZkHxDoKJWVHXITlasNtoF9+pTsg5hNeEZoOz4NA==
+	t=1795708059;
+	b=u3hBeeYqjjofBhFs/HPVj6epAosaXjMCSvIZn+63Y6Xg0idDfy2Fl4Ky2hN5GDuMRE7v
+	 Rh1Nw0YK7mkV+0w3JLsPS++8uS5aZ7K6rt+C11WggGOJZwbYMv5FAiITNDp/SbvBO/sl9
+	 8Xh2NFvK+aDsVQoVLiukgBSkPP6Srh9acd5IW5Bgisojy7Sh6ltw7B4Nj07lbxmf2RlJ7
+	 v+rAxgr6LsL9eB9ccXqxj5RB7Gxh2N8B0uRYcGjcRqaep5OgNuXAyXX8PJ+m2aZxJLugV
+	 IWs3d4pDNbyCn4iQT+8wMgwpwn0hypGGd6QFscmoH9qTHQf97KDXc0Xpe/TZj0v/S3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795708052;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795708059;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=b8av+eY3oOx9LPXN2r0kBM2LQdWTcF/2mS6LBsVDb0A=;
-	b=aOY4KBw+4F59H3fe42cD61ZYTxTZrRTmzMWT/IqxW+9Jr5p+umRZPl71GG36liX9Zl9C
-	 tP/KzYd51hHIVtgKHO/98IpH/gms76CNfhEth2ncviFwdp1G0pqQgUUmvRLCIobPrn4Td
-	 hWqMCDUwIFPU1+lnOm5zV8OnaFEzQxw7AO+gVjRnjXXTTnWiS390glIE2wR5ObM3I49LZ
-	 ajMPfaBNFHtsBRKRBeqUjtyhE8JpyeW6DNMbLti/iurkjiEXE8BOrxf7zOdDq15OgPYP+
-	 trbCe9jGMOUxVTdUWUieHSKs9G2xsK/2xJkcYXZ1rV4HPuUVxAv9W0VfpXoxBEkMzog==
+	bh=2xIF5XxIhl5l+zw+CgH0/aeYSsf28TpfhXRIiUCDpt4=;
+	b=tW+IBfM/xy/S+IQXHf9quwM1ApOPjOlC736rH5czSOlninQI+YNJV/meHAT6nEYGDbR2
+	 iJQkTsnLLyyc5Jf0Yr0tLL6ZCiF11IExCmFmphuIkIGGO7Aa6jMHv1X9YRraQJLshVd8O
+	 HmtrLhaHEepD2d1nxYw0lcFMEz5VSd7dnFRNihwnwMfMwB6Rp6Zh44oMM3VtMMF2oT0xq
+	 L1E1DuJZFdFiuwXF4NpzofTvqQuJ1nwkXyxTaqabAMgHEq1SX1CDhrgNOUjJ3KWvuv0fC
+	 yCE5+s2CEnpIbiIoS0+U9fLLsEJuJWWFeIy14fii1u+n1z6yC1UOhVfLjc2vdKv9vlg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MsW709AE;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p+mHPDha;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59B23606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:47:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59B23606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7F0D606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:47:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7F0D606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MsW709AE
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bba60271d7so17825475e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:47:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p+mHPDha
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so92506785e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:47:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795708051; x=1796312851; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795708057; x=1796312857; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=b8av+eY3oOx9LPXN2r0kBM2LQdWTcF/2mS6LBsVDb0A=;
-        b=MsW709AE7DCFt6ZCPdwuiR9NXzG0ktRhRxTSaEAAjniAAP1vLPOEKl8std6LbyIMoJ
-         2NgV7pZo3o/LqfODJ2a8oDGgzleXafQsqbCTh33NoE2DBW7tC8FnzqNmcThuWedXTAqc
-         0BK55TV++FN8jBawVuPKh7mjz30n7o9I2sSTB16gA5LoR6Sj/UmHc9EQRNYF3WbqrZmO
-         IRAX1RRhA8Oy2S9Adofb8r351ynx3APPNqJBdh/6ee4/Ql1iDs2CkAPlndcAKnzWqzVO
-         4V/I1OWYXKUkuMtehZRS7Usseu9JmTT/KS5OA797LDzzCFEo092H2nJBND+0NqZ+u52x
-         H5fA==
+        bh=2xIF5XxIhl5l+zw+CgH0/aeYSsf28TpfhXRIiUCDpt4=;
+        b=p+mHPDhaIoGEcPzaL5EAcJWQZDuUCZ3Jc2V+Mpr2erGg/K3yoQKAiJ89fR6Dkp7r+/
+         5NhXXi0/x1K2M6j9TWGidkVZnWAbuVf6DO6g5vTzbbV25kGPrkrUhaPtVjgDmjnIrGR5
+         6OW6cDC/7cww0DYtbXW4KpBFSduNNm41BHcYS+SeLwf9gqMOFkaC7nPH5/3iqtQDAjh8
+         8Ip3B8Oem37/D052Y4rpsAndKUTZszimgScdNEYUTOOH8cUO2MEaSsd94DzX9Bi+rNvZ
+         1RTomtnfra4ILAB0b44SiMoeM1KuXIenDFnYucDXzTqJXzV148BphI0o+w1QwWFV2TLG
+         rONw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795708051; x=1796312851;
+        d=1e100.net; s=20260707; t=1795708057; x=1796312857;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=b8av+eY3oOx9LPXN2r0kBM2LQdWTcF/2mS6LBsVDb0A=;
-        b=tJ604WiMYwpmjrjVUzmBw4rFsx/OMH4JXwNQxJrkgK7tJ29rIUBm0hS+8cC9AK7JOe
-         LP0G2MdaP2DuFfhXrQMekAHOzkQ9WmS1HLbIs5AIEmcPLWBg30K6RnO4N9hazkuLQZ0P
-         gORikqBbpwoiTStsv7jicFvgvOZeYhxwGT+JyPRKEgURmhYD1RuTvM4O5emUfn5ec7Zu
-         vo79rKzcN6DC2V5ZMcBxMApnxydDNyMTbrhJLTl8FIElyIKKnpSVbbDVGgZz09EE8mW+
-         3QtFDtg9EbPFv2IqpFOzy62HKuTDaXxyxBP0VL7sQFiCdao2gD5DEUyZqpxe3UGyLjVo
-         hdtg==
-X-Forwarded-Encrypted: i=1; AL+hErHmSjjFpSQju/Sl+EpoNMKcFY3GX6Q9zKZDtxeX89utYqxZmmr7u7N6ErNSZ5o8jXRYlyMf9bzCOXwvd1w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9uElzYGgHpBHFXqcbNLqidzPd40v1c2jBZptSAoXsC5+n/YCtT
-	R3r6ZBre+dqWW5kXgcTdUcKxk6pG8MNV0vtxc8oRx/O2S+0X4wE7/5zP
-X-Gm-Gg: AZFdTZcFM24KsvUP2j7eU8sYyg8DDTEz+N9aBzWEwxS2O+pcMq9NMdpgjvOcMqqRjWv
-	H45eaApzOji9LhBOuFK2tJvli2nGsrEL9gV5DiGRgK0SjMRn4t966k9BLZfAVyCbV5lqzVdn5K4
-	rVGSnWrEZ0Hifok+DKwwJ1G6zd0HUlMpkzf3d16oYGcBeTY4Ifkn2HTN/TpnsVqSZeksmkPonNF
-	5JOQR18zEsonNtiWNIvuXJdKgQqLn2b8ZUIwa1G4aIYm/HNZ1N8fr9m1bF6WGXScV9VHt44FbnW
-	CAw3Su8EORw5uLbdCbbXpBiYEyGS5CcMaYSyRKgBo40zUW4Mx5SqGkxkfJ7hMW0lKhwwFKu/CyR
-	yQg/8gXRp6mJJHdtYJCezWY8ltOWXz4ieEkxFwRTFYHH7FJqY7jaS6Ir182JvH278yJBWbwPFRf
-	/Tta/ntGLT4NLDpApDBeObPe0KnnfqdemUHOV6ekeWwCkQgbGxps61MDzIiXXJvs15jcA5pD4ac
-	ljF0A+VtSBeAaIpOmV/TpBA4bFtVuS16jSWsF4V3seqX6c146MePMYzatkzpb+ngiH2ShTXhSQJ
-	C6/TXmNrIgWp+T69CPIibOhwfq1vtX3ujdbIrw==
-X-Received: by 2002:a05:600c:4584:b0:4bb:5de1:e90f with SMTP id 5b1f17b1804b1-4bb88819bcdmr430968735e9.31.1795708050657;
-        Thu, 26 Nov 2026 07:47:30 -0800 (PST)
+        bh=2xIF5XxIhl5l+zw+CgH0/aeYSsf28TpfhXRIiUCDpt4=;
+        b=12vdcFQLRP/VGwJODbWBfUSUcCeZJqrqMJhidhP8owPZ5Qc6SddzC5vYPOToCut2mp
+         8Q4lgTkvA8mE1aAn7K2Qj8i9LqJLJaCzRhXQm3orrZpwjqDc4gvcgjmuEiKpbwztbF1o
+         n3mMaZH0tKEPoF0t62YQSWa3JJWKVTA8o7XWbbS0O7fXtKNNjScc90DXPM4UPp8rpyZa
+         4HPrH7DTMfQ7oYOeSV4OGDocbKfLHNhvyp/Lug1J//VgIgUFzOth19JTz+tzR5BfxL3J
+         n7N/Nky/b7XvWg0U7UASqmY7M51n/PdC/bahGUcUPBRihi6x4Zuq+0DSkGXfMimg3UZj
+         bt1w==
+X-Forwarded-Encrypted: i=1; AL+hErHVPl88WsiFkkrlmHD9EzliPIcw3azIBN6ws2fp2/3uCgOXpsImjjWpRj6CWZMgMWA4NWoBtL3ZFtYAebU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+TIjiepCn3F4c7cPnPMqnTHVLuEW0warFdsTp94ZKaD6izIMbY
+	59MI5M3SzfOCYEUNfQCun+EwA6kMPqkN9lPuYhpUW0ttOfu/2IyFVD8Q
+X-Gm-Gg: AZFdTZe8TXOqcU1rWVKD5InfAMRh32UFgHhWdvuXTsVKyZYNdEkYjPzB3lTIkzsEx8O
+	g8TH1cF4n9ySYPCX7/hXSWpu4XGNlLrSM5YCKvhMwS8SvlONUH31bdAhbZ8XKI5oHWjQbXlwsBB
+	ouJ92+NofMNAO80PxzvEe+gD3stV8GKs3aHVFhmVepAlgdOLFdixBiwC/0cY4dOWY2Sh6CZYr4r
+	wNLvxAcf6xfALpynrUGNEpvXpJYSgI36LuRAHFJFcrHCHb/YuUiiegBOt3oHm8fBZoorXbtgGgJ
+	wro3ZwQq5n6dvQIo2IVmh3dpk5k1KWmNwsHKN8D9vC1NUh4tZ8sPVvqWbw2MGPqGkUzmpJSxdz0
+	8M/FafabfNM+t7Z9cknbSKa/tI6GCkubbnmy1qf5KWM4QFBH6fDuMfjn832RidsYaw70NXyr6nL
+	Td4NuqnAJmW9wJrcpIR1b8XcqClg0TSlF/QJ6jLiYsYWLgj85RWZWSIdy1FfJYCo2KI7dxJXJ/6
+	S0Xmg65aejzKuPIyLkQnb4Dp6S2hTVNuvzkJOYABSneNtRmSTQswszoC++BOJxMp+f0MJR4yiuv
+	tXLJnY6gsaiBM2iVWN3fJ91aM05PeB8xpMrKog==
+X-Received: by 2002:a05:600c:37c6:b0:4a1:88df:8a2a with SMTP id 5b1f17b1804b1-4bb88812a84mr432463315e9.13.1795708057162;
+        Thu, 26 Nov 2026 07:47:37 -0800 (PST)
 Received: from [10.56.169.198] ([95.179.249.152])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b3a7sm683201895e9.3.2026.11.26.07.47.23
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b3a7sm683201895e9.3.2026.11.26.07.47.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 07:47:30 -0800 (PST)
+        Thu, 26 Nov 2026 07:47:36 -0800 (PST)
 From: Oarora Etimis <oaroraetimis@gmail.com>
-Date: Thu, 26 Nov 2026 16:47:07 +0100
-Subject: [PATCH 1/2] drm/vkms: skip a blend that cannot change the frame
+Date: Thu, 26 Nov 2026 16:47:08 +0100
+Subject: [PATCH 2/2] drm/vkms: copy a full-screen frame straight to
+ writeback
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-composer-fastpath-v1-1-aa7458d84a7b@gmail.com>
+Message-Id: <20261126-composer-fastpath-v1-2-aa7458d84a7b@gmail.com>
 References: <20261126-composer-fastpath-v1-0-aa7458d84a7b@gmail.com>
 In-Reply-To: <20261126-composer-fastpath-v1-0-aa7458d84a7b@gmail.com>
 To: Louis Chauvet <louis.chauvet@bootlin.com>, 
@@ -105,104 +106,206 @@ To: Louis Chauvet <louis.chauvet@bootlin.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
 
-A single full-screen plane no longer goes through fill_background() and the
-line blend: read it straight into the output line.
+When no CRC is armed and both sides use the same 32-bit format, copy the
+frame straight into the writeback buffer.
 
 Signed-off-by: Oarora Etimis <oaroraetimis@gmail.com>
 ---
- drivers/gpu/drm/vkms/vkms_composer.c | 44 ++++++++++++++++++++++++++++++++----
- 1 file changed, 40 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/vkms/vkms_composer.c | 63 ++++++++++++++++++++++++++++++++++--
+ drivers/gpu/drm/vkms/vkms_drv.h      |  5 +++
+ drivers/gpu/drm/vkms/vkms_formats.c  | 26 +++++++++++++++
+ 3 files changed, 91 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
-index 7a6a7875520c..4e2dd568bc3e 100644
+index 4e2dd568bc3e..7ecd8b459ed2 100644
 --- a/drivers/gpu/drm/vkms/vkms_composer.c
 +++ b/drivers/gpu/drm/vkms/vkms_composer.c
-@@ -452,13 +452,15 @@ static void clamp_line_coordinates(enum pixel_read_direction direction,
-  * @crtc_x_limit: width of the output buffer
-  * @stage_buffer: temporary buffer to convert the pixel line from the source buffer
-  * @output_buffer: buffer to blend the read line into.
-+ * @blend_direct: false to read the line straight into @output_buffer
-  */
- static void blend_line(struct vkms_plane_state *current_plane, int y,
- 		       int crtc_x_limit, struct line_buffer *stage_buffer,
--		       struct line_buffer *output_buffer)
-+		       struct line_buffer *output_buffer, bool blend_direct)
- {
- 	int src_x_start, src_y_start, dst_x_start, pixel_count;
- 	struct drm_rect dst_line, tmp_src, src_line;
-+	struct line_buffer *read_buffer = blend_direct ? stage_buffer : output_buffer;
- 
- 	/* Avoid rendering useless lines */
- 	if (y < current_plane->frame_info.dst.y1 ||
-@@ -542,12 +544,43 @@ static void blend_line(struct vkms_plane_state *current_plane, int y,
- 	 * buffer [1].
- 	 */
- 	current_plane->pixel_read_line(current_plane, src_x_start, src_y_start, direction,
--				       pixel_count, &stage_buffer->pixels[dst_x_start]);
-+				       pixel_count, &read_buffer->pixels[dst_x_start]);
-+
-+	if (!blend_direct)
-+		return;
-+
- 	pre_blend_color_transform(current_plane, stage_buffer);
- 	pre_mul_alpha_blend(stage_buffer, output_buffer,
- 			    dst_x_start, pixel_count);
+@@ -581,6 +581,49 @@ static bool compose_direct(const struct vkms_crtc_state *crtc_state)
+ 	return true;
  }
  
-+static bool compose_direct(const struct vkms_crtc_state *crtc_state)
++/**
++ * writeback_direct() - Can the frame skip the line buffer?
++ * @crtc_state: the state to compose
++ * @wb: the writeback job, or NULL
++ *
++ * True when nothing needs 16-bit pixels: no CRC, no LUT, no colour pipeline,
++ * same 32-bit format on both sides.
++ *
++ * Returns: true if the frame can be copied straight into the writeback buffer.
++ */
++static bool writeback_direct(const struct vkms_crtc_state *crtc_state,
++			     const struct vkms_writeback_job *wb,
++			     const struct vkms_plane_state *plane)
 +{
-+	const struct vkms_plane_state *plane;
-+	const struct drm_rect *dst;
++	const struct vkms_output *output;
++	const struct drm_format_info *format;
 +
-+	if (crtc_state->num_active_planes != 1)
++	if (!wb)
 +		return false;
 +
-+	plane = crtc_state->active_planes[0];
-+	if (!plane)
++	/* The CRC is computed over the 16-bit line buffer. */
++	output = drm_crtc_to_vkms_output(crtc_state->base.crtc);
++	if (READ_ONCE(output->crc_enabled))
 +		return false;
 +
-+	dst = &plane->frame_info.dst;
-+	if (dst->x1 != 0 || dst->y1 != 0 ||
-+	    dst->x2 != crtc_state->base.mode.hdisplay ||
-+	    dst->y2 != crtc_state->base.mode.vdisplay)
++	/* The gamma LUT is applied to the 16-bit line buffer. */
++	if (crtc_state->gamma_lut.y)
 +		return false;
 +
-+	if (plane->frame_info.fb->format->has_alpha)
++	/* The copy walks source rows, so the plane cannot be rotated. */
++	if (plane->frame_info.rotation != DRM_MODE_ROTATE_0)
 +		return false;
 +
-+	if (plane->base.base.color_pipeline)
++	if (plane->frame_info.src.x1 || plane->frame_info.src.y1)
 +		return false;
 +
-+	return true;
++	format = plane->frame_info.fb->format;
++	if (format != wb->wb_frame_info.fb->format)
++		return false;
++
++	return format->cpp[0] == 4;
 +}
 +
  /**
   * blend - blend the pixels from all planes and compute crc
   * @wb: The writeback frame buffer metadata
-@@ -579,6 +612,7 @@ static void blend(struct vkms_writeback_job *wb,
+@@ -597,7 +640,8 @@ static bool compose_direct(const struct vkms_crtc_state *crtc_state)
+ static void blend(struct vkms_writeback_job *wb,
+ 		  struct vkms_crtc_state *crtc_state,
+ 		  u32 *crc32, struct line_buffer *stage_buffer,
+-		  struct line_buffer *output_buffer, size_t row_size)
++		  struct line_buffer *output_buffer, size_t row_size,
++		  bool direct)
+ {
+ 	struct vkms_plane_state **plane = crtc_state->active_planes;
+ 	u32 n_active_planes = crtc_state->num_active_planes;
+@@ -612,7 +656,6 @@ static void blend(struct vkms_writeback_job *wb,
  
  	int crtc_y_limit = crtc_state->base.mode.vdisplay;
  	int crtc_x_limit = crtc_state->base.mode.hdisplay;
-+	bool direct = compose_direct(crtc_state);
+-	bool direct = compose_direct(crtc_state);
  
  	/*
  	 * The planes are composed line-by-line to avoid heavy memory usage. It is a necessary
-@@ -588,11 +622,13 @@ static void blend(struct vkms_writeback_job *wb,
- 	 * algorithm for a specific format, into the staging buffer.
- 	 */
- 	for (int y = 0; y < crtc_y_limit; y++) {
--		fill_background(&background_color, output_buffer);
-+		if (!direct)
-+			fill_background(&background_color, output_buffer);
+@@ -674,6 +717,7 @@ static int compose_active_planes(struct vkms_writeback_job *active_wb,
+ {
+ 	size_t line_width, pixel_size = sizeof(struct pixel_argb_u16);
+ 	struct line_buffer output_buffer, stage_buffer;
++	bool direct;
+ 	int ret = 0;
  
- 		/* The active planes are composed associatively in z-order. */
- 		for (size_t i = 0; i < n_active_planes; i++) {
--			blend_line(plane[i], y, crtc_x_limit, stage_buffer, output_buffer);
-+			blend_line(plane[i], y, crtc_x_limit, stage_buffer,
-+				   output_buffer, !direct);
- 		}
+ 	/*
+@@ -690,6 +734,15 @@ static int compose_active_planes(struct vkms_writeback_job *active_wb,
+ 	if (WARN_ON(check_format_funcs(crtc_state, active_wb)))
+ 		return -EINVAL;
  
- 		apply_lut(crtc_state, output_buffer);
++	direct = compose_direct(crtc_state);
++
++	if (direct && writeback_direct(crtc_state, active_wb, crtc_state->active_planes[0])) {
++		for (int y = 0; y < crtc_state->base.mode.vdisplay; y++)
++			vkms_writeback_row_direct(active_wb, crtc_state->active_planes[0], y);
++
++		return 0;
++	}
++
+ 	line_width = crtc_state->base.mode.hdisplay;
+ 	stage_buffer.n_pixels = line_width;
+ 	output_buffer.n_pixels = line_width;
+@@ -708,7 +761,7 @@ static int compose_active_planes(struct vkms_writeback_job *active_wb,
+ 	}
+ 
+ 	blend(active_wb, crtc_state, crc32, &stage_buffer,
+-	      &output_buffer, line_width * pixel_size);
++	      &output_buffer, line_width * pixel_size, direct);
+ 
+ 	kvfree(output_buffer.pixels);
+ free_stage_buffer:
+@@ -858,6 +911,10 @@ int vkms_set_crc_source(struct drm_crtc *crtc, const char *src_name)
+ 
+ 	ret = vkms_crc_parse_source(src_name, &enabled);
+ 
++	spin_lock_irq(&out->lock);
++	WRITE_ONCE(out->crc_enabled, enabled);
++	spin_unlock_irq(&out->lock);
++
+ 	vkms_set_composer(out, enabled);
+ 
+ 	return ret;
+diff --git a/drivers/gpu/drm/vkms/vkms_drv.h b/drivers/gpu/drm/vkms/vkms_drv.h
+index b7eb7033fb4b..69f12cecd2f9 100644
+--- a/drivers/gpu/drm/vkms/vkms_drv.h
++++ b/drivers/gpu/drm/vkms/vkms_drv.h
+@@ -220,6 +220,8 @@ struct vkms_crtc_state {
+  * @lock: Lock used to protect concurrent access to the composer
+  * @composer_enabled: Protected by @lock, true when the VKMS composer is active (crc needed or
+  *		      writeback)
++ * @crc_enabled: true while the CRC source is enabled. Written under @lock, read with
++ *		 READ_ONCE() from the composer worker
+  * @composer_state: Protected by @lock, current state of this VKMS output
+  * @composer_lock: Lock used internally to protect @composer_state members
+  */
+@@ -231,6 +233,7 @@ struct vkms_output {
+ 	spinlock_t lock;
+ 
+ 	bool composer_enabled;
++	bool crc_enabled;
+ 	struct vkms_crtc_state *composer_state;
+ 
+ 	spinlock_t composer_lock;
+@@ -325,6 +328,8 @@ int vkms_verify_crc_source(struct drm_crtc *crtc, const char *source_name,
+ void vkms_composer_worker(struct work_struct *work);
+ void vkms_set_composer(struct vkms_output *out, bool enabled);
+ void vkms_writeback_row(struct vkms_writeback_job *wb, const struct line_buffer *src_buffer, int y);
++void vkms_writeback_row_direct(struct vkms_writeback_job *wb,
++			       const struct vkms_plane_state *plane, int y);
+ 
+ /* Writeback */
+ int vkms_enable_writeback_connector(struct vkms_device *vkmsdev, struct vkms_output *vkms_out);
+diff --git a/drivers/gpu/drm/vkms/vkms_formats.c b/drivers/gpu/drm/vkms/vkms_formats.c
+index 7f1f29b589e8..8bbd517092a5 100644
+--- a/drivers/gpu/drm/vkms/vkms_formats.c
++++ b/drivers/gpu/drm/vkms/vkms_formats.c
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0+
+ 
+ #include <linux/kernel.h>
++#include <linux/unaligned.h>
+ #include <linux/minmax.h>
+ 
+ #include <drm/drm_blend.h>
+@@ -681,6 +682,31 @@ void vkms_writeback_row(struct vkms_writeback_job *wb,
+ 		wb->pixel_write(dst_pixels, &in_pixels[x]);
+ }
+ 
++/**
++ * vkms_writeback_row_direct() - Copy a composed line into the writeback buffer
++ * @wb: the writeback job
++ * @plane: the plane the line comes from
++ * @y: line to write
++ *
++ * Only used when writeback_direct() returned true.
++ */
++void vkms_writeback_row_direct(struct vkms_writeback_job *wb,
++			       const struct vkms_plane_state *plane, int y)
++{
++	const struct vkms_frame_info *src_info = &plane->frame_info;
++	struct vkms_frame_info *dst_info = &wb->wb_frame_info;
++	u8 *src_pixels, *dst_pixels;
++	int rem_x, rem_y;
++	int x_limit = drm_rect_width(&dst_info->dst);
++
++	packed_pixels_addr(src_info, src_info->dst.x1, y, 0, &src_pixels, &rem_x, &rem_y);
++	packed_pixels_addr(dst_info, dst_info->dst.x1, y, 0, &dst_pixels, &rem_x, &rem_y);
++
++	/* compose_direct() guarantees no alpha, so byte 3 is padding. */
++	for (int x = 0; x < x_limit; x++, src_pixels += 4, dst_pixels += 4)
++		put_unaligned_le32(get_unaligned_le32(src_pixels) | 0xff000000, dst_pixels);
++}
++
+ /**
+  * get_pixel_read_line_function() - Retrieve the correct read_line function for a specific
+  * format. The returned pointer is NULL for unsupported pixel formats. The caller must ensure that
 
 -- 
 2.56.1
