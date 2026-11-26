@@ -1,92 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795672617;
-	b=fIpLm5IMeoGqHRVG0Oc3iRRscxr1iqHXuOsZ4SHhtQaLme1FYWOv+UQZqMbByoX1WEgj
-	 KmU94hqc8N1J+8h1ZvICl8hkvGToNKSuObyzSgXEl+zBBlDv2hPrJa8DjZLiPK0ELn0Gn
-	 OQwcE1VaorGWfKIo2BScz2d63l0zL+LhdJHegJaqSXVdXjrSQlLKRblJW/iJKrSzQpWUl
-	 oU5j1IyZwMeBUPsKRAdYTt2O8Lok6eEWYj+2NZaotPE4f0IzfEGE/npfdz5vTwnriLD+W
-	 CRI8n9ybvFlgF5foLdLmd/E1Ef80aAqj9BgULZJxdKN+W6w4A7KmKkLVKol4WYykaYg==
+	t=1795672723;
+	b=o/ZtNKY4gxgELILbnKuyUxvaKl1u5B+rxHVBKbtvQ0fYI+z6SA3A6N5dloIWixUkSqml
+	 GcEhzAq0k1CSO3NeNZoL54dCXPKJk57XCMyLCsQRXwEVK62839QDFMFLww8n1zdMazBlP
+	 ZUdESz4q6tPnDwHWNeDZCHStB1mVVR2LyyvZK7+MK+BynEXgyOpoLqaXCrWtUiCUBaSBI
+	 rWIR/x8ZyGgdPkRusvJ2MCXZzZKgDqKKbUSW/rceEKOzHkwrmfQs0ER+BwMGYii/47Jc9
+	 ZbtL3/+k2Wp1By8sEE2Xab+3PY8vGLakinIzxvgNlO8E2Fwg9aUww+VHVpkM7ZqYhMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795672617;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795672723;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=GaDF/oabtnPz5CC+z3Y48KsX5H9ec5sap3k/VVqc69M=;
-	b=raGq7iFrCcuO2DIMU/C2DIGD2gONazDncO4sAHv4JccWb9V8Fe3UGlW2fVACB2uzHFvM
-	 Ecp7pAqyj7VLoW7aibvj/bBjdmT72XIWxgUeVp3we+nWg/q2rZncxVMUoHe9IsMIRfGr2
-	 fS7DgUz/7dlIEoTEWckQNWZeRjD7Sjii6y5PZWYz0FwH1SBneswRQP3CdFgrk6M820njd
-	 YMV4tlUnqGsY0iSVjt5aV0Er6vkEm0K1EQodu5i90jfdRJmDL8WKQU7PKHM4L2R9rVXqT
-	 D9VWKJdS2y08ZtZcOxKZI+qAl+9CzDlN69xnGCzYiYsHffRfj8i/pGDyr4nxq+C2+pw==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=z9mqzTj0TE8Dvmu37VtnOOjrtJgwrbw+0ALBo5nrPOQ=;
+	b=e7+h3TLzUU0bAhGjDqMoaDvzqNrSUGMOY/5u67j+BBPvnElQfWNfGa+WMUcHVR32gvGh
+	 wyItCxmxTAuycyxCjmOPe/DWnaPf3cc3+mu0U8DyaWcxskeKQET3o5S99uPYh/oOjvxIV
+	 s1uJiVfm1uasvWxzDfV34PjGkFAH6m5OVdqQh0/LCpgh8UhEAItmY+wzaDhTUxZkZ/6ON
+	 ai6D97fZnnkDpLGD5DGlSHzgAA+NQug3zyYHq2PK5VICJGZ/0FErtPtjsiMEcDT92x/lj
+	 JGPa5jIJyfKtfxO86tSTPd/5QS69tqF1OnNk5BDg7VWqG0ZT+JCeL/eLrX+fTLGGETg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ggdGyTHK;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=fgwd7q4x;
+	arc=none smtp.remote-ip=209.85.167.44
+Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com [209.85.167.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70325606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:56:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70325606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA922606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:58:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA922606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ggdGyTHK
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-386ab9ab619so8598698eec.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:56:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=fgwd7q4x
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c00b0866b0so381936e87.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:58:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795672617; x=1796277417; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GaDF/oabtnPz5CC+z3Y48KsX5H9ec5sap3k/VVqc69M=;
-        b=ggdGyTHKICLNcWcMun1QBSRIj+w58Q8fDLAGuRoUVpqWwEYcJl+IxC0paMlWlrjzj8
-         LkGy2S/7LOjq3cxbx+Gx8CPb9F24aCXiSNacF5N/VuvMLIc1qGO7kNqUEymVtJSVrYrJ
-         btK0pCq7u4HBVGSiYT9T3NV7J1umh28GUfrkEpmjYVo8itfIZXcSOcfu5jRvnrPrCy3M
-         7lsAwtRQ5AoUCgB5yL6MD+Jf0lmHeydBFXU5tefO9XjUv6B9bArbtDfpndnB0S5UwVHY
-         T4ppcVXwvo82LuNSccQTzYmIEw9SH3NGX0WteqaLndZ3Rlka/hL03DlUiqyvgC8n3w1e
-         Hqaw==
+        d=linaro.org; s=google; t=1795672721; x=1796277521; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=z9mqzTj0TE8Dvmu37VtnOOjrtJgwrbw+0ALBo5nrPOQ=;
+        b=fgwd7q4x2oo3KRStS1qxJPIf7HEppN3pEKniLX3DvaQ0dz0mnDLUa2B/J80XkRGLOi
+         uSj/dv4qEmD1ay9SwXIH7KcaJQuiL7PMmX7c5wHN6RuL6Iy17q8zb/Rj+q95xJ7Z6TcF
+         1BADaB3ltf+Lb76igC3VlFAjUcm8+/WK2J8qvBZE+bakF4FOrIofJyCkCxciMA0qDFZ/
+         mt1MEueLyRgt341f+wZm0DcDAVFuLDV44Fycw7rkElZgzXIvE6XeK/gJPEY3IS5cYIQN
+         gtNxHQEJvjcIdA4k2GIpzChqsayFFFu9FnSGq1EgXCABDVOyZxlbRyV20ZoBYkdGY6zy
+         w9Ew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795672617; x=1796277417;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=GaDF/oabtnPz5CC+z3Y48KsX5H9ec5sap3k/VVqc69M=;
-        b=NELMipYJadWB4a3zSrrpPdb/FzlDnZMC7J4Z1+JyoIR9XavYXsP/fOzDtvYKg5+4B3
-         0sBBsyrE7DaAfHU9YhQ/yeY8yQG5Tnep8g9s4Er0jRY/Jt1kou8FY4xhIAzHL3m+N/i/
-         QpZUiat8DQBzGQaMYQ/iQNp025/BDrA9+4GPBIeMp96NhDn7dGJAwT0cLUwGL5Wb8bee
-         Q8cISH1PUBwGyu93sMJT3YZZanN4Iluupt64Ddg5efrdhENuvwDn9zhbdukroYilYV2u
-         4aK4S2og6VI53mhGhswGaR7U2mXlu2sGuzwaW6c+UUQmU4A13FGTXHod6NX+St3b+vY9
-         ACnw==
-X-Forwarded-Encrypted: i=1; AL+hErHFmSwf+vSAhB7sluPYad5R9fEHkMg5xufoPrflbJqBtS3KZm0UeT0CO0eyQ8U7Ov7X/Np/U3tAfH3SxeA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9C8TSzy6oLSnBDktD/kV7pPN5hamz8sqHwNUMO2vvmRU3E9eNn
-	eyrsbmsgvJnzgFbcfX7WdkR5AANpeoMSbnKhx2jDUjCGeITg/1qS8pM=
-X-Gm-Gg: AZFdTZd20deAUR1bUvc7YVtsWt3VNO4MJDbcLFFNM/Yl4ZSlm0IR72Mi1okG8KsquNF
-	sQXTZ5+aozZOWWXJsRG6a21kFmhKdlDP6eQDKY82pbO5bq+ACh5BR3I5hs+TKH0o2nrEV1/xcM3
-	GoPEO0w+EFFPtics49Q3QrjNf9rOXss/A3LbHq4iCf4S3UrWMAe10U+VaKqIlmc1a+qEOmbfwv8
-	oYxsNlHd6tzhvq/C82V7mwYkM2WB2jRvoPmUzQK7q32GuOjEzXPn87PriNm3Y3VK1t7T70gG1qN
-	uolTvg2pM6eWAgUo8lP/ZjRQsuYO+0UBV0e/8oQFH0CGgraL9usKS4aYyY+0eCbziZ1ABut4kPA
-	muxwdmQEO4sOOY4ldaZW0JTE7s2GgHsB/OQipaw5oe04/rDAX6mk61a683Q9C2w9JztCis3z7w9
-	rY+Taa79EF1ln+6fZBxIkY8JcZnPLtZLrcf/YJ9NHTnPbp+mbYA5P5cecvBqDqwgEqa9Qg1NqXm
-	CB0O0oGybefmhXEv5t4+XjJ153gYw8o2mBK0zo1PV92dKog+/PxSWuxDemkf5Lj2mYC2xPcrFKD
-	2eVXQ9wEnxJqTPgraC4ecYRG5Uz+fFqKkbFbOs9ey4dKPSpmS2hDj0oFSfc34VqKPi4=
-X-Received: by 2002:a05:7301:4201:b0:385:b8f4:755d with SMTP id 5a478bee46e88-385b8f47ad3mr20537639eec.20.1795672616579;
-        Wed, 25 Nov 2026 21:56:56 -0800 (PST)
-Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm57523404eec.15.2026.11.25.21.56.54
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 21:56:56 -0800 (PST)
-From: Yige Jiang <yigejiang86@gmail.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Yige Jiang <yigejiang86@gmail.com>,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] media: tvp5150: Free connectors on probe failure
-Date: Thu, 26 Nov 2026 13:56:51 +0800
-Message-ID: <rc-b1-20261110-vc-28-73976feaa334@gmail.com>
-X-Mailer: git-send-email 2.50.1
+        d=1e100.net; s=20260707; t=1795672721; x=1796277521;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=z9mqzTj0TE8Dvmu37VtnOOjrtJgwrbw+0ALBo5nrPOQ=;
+        b=AG2YlAJMa62zXE+JGUwixuS6/MVpOcpAdPhPWpCxZU5CX6L3vaIXQa923+A2hloTyo
+         iv2zQ2AZmVj/YQwnLMifGYch+IhrVaG4C48Km4IRB98VLC3cOsHiQqf8cLRPSv/NQazO
+         TixMfRdIft+YFeyUq8/xUeEgvwqd7j8QX7t0f7Wf4CdtmpfETpVG48PZ22vY5grOIEce
+         lfT2edFg0p+Zjq4Zc9r90cTMrDDicwNW7cApeB39OablkSVdidyww5fpBnsAgvjTI8fW
+         UsW9t/n7ygst2CV7vsAB7aaGGSIPY26zrjyotRQdr3OmWo9h0gcV94V104NNvCmmABV7
+         /zbQ==
+X-Forwarded-Encrypted: i=1; AL+hErHNHCGeuwwdxKrWkEfiqxdU1U5DF3RDOpCwvEypvl5LzWPJNaai8INIht+C5U9qktx+lSMDSrlXAw1E6dI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8YJ1EJDHDaFJxb6z8hpnZiJH2WiFsD6uzYA3LCglLEQ3Bavid8
+	MAhHoP83BJ2eHZg94jNBF3vkYsgtQxa3twvo+Et8mFIOWT9l7Iw+So5Ucgu89H+EYvg=
+X-Gm-Gg: AZFdTZdxqLF3mT/Z/X+rZURyLPUzbOde/JMvS65l3Wb/HIBe/97ImKEjmlGh7V9Gvh9
+	Cv56TLv0o0mr7PvpfUrgNm9t/y9NVWbckhz35iBvE8M5n99++oKsEUUm1xs+hV+DxdH7/hgZHVB
+	6I/Rl3uCYWi0kDpnv9/4YRwfGK8SzrIGPl1xlZPP6ZI7BTKt5Tvc3Gd3NAyd1QYtXeL0nFVzTuY
+	K2Gixg+JV0BW6zMRYtNgv2HWDpnRtQp1yVdfc7n9korxiwDwbRbFdwVO50O8q7UVvHJy0gX3A9Y
+	XhPwCuD25h5zKH7rSpEbfnsHHK+0VNZb21xSIgpAHU0+fezfAEpqKWTslQnXegBqlA0uxXNdonA
+	iXmElIubQkeXyytFMRptdUHmzyaYfo3SnGFHrYG+G/Gl8GPDwjj+cozapfEjI76qmP8Uv0Tq2LF
+	2cUAG1wii1z+2pbNk8d11T+Du/lCGTVqlt3sXbxdTI1YMu0X1zF6G839l8HVvnaujI1m6KgcrU/
+	2NXY3B+M54MfcjSZWrRVe4Mjqu6S+hfkYNlx+GGPyBIy1yEgdrkzyqFHRk1R9+gXOqISjHMGc86
+	BdMBhsc+yL5B/7TY8v4G/lBJZXPoLmRsFaURWSK7YM8wjXEyBxqmpJ9UAdmPmr1e/vjT3fSUAuR
+	GI9tKlAs=
+X-Received: by 2002:a05:6512:85c5:20b0:5c3:2506:4c1 with SMTP id 2adb3069b0e04-5c32506083fmr1030505e87.4.1795672721080;
+        Wed, 25 Nov 2026 21:58:41 -0800 (PST)
+Received: from [192.168.1.101] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd043420sm4925147e87.57.2026.11.25.21.58.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 21:58:40 -0800 (PST)
+Message-ID: <69b8d22e-f688-4458-ae2c-0e75f7b23234@linaro.org>
+Date: Thu, 26 Nov 2026 07:58:40 +0200
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,64 +91,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/2] dt-bindings: media: qcom,glymur-camss: Use linear
+ CSI ports
+To: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>,
+ Bryan O'Donoghue <bod@kernel.org>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Suresh Vankadara <svankada@qti.qualcomm.com>,
+ Vikram Sharma <vikram.sharma@oss.qualcomm.com>
+References: <20261123-glymur_camss-v4-0-d7db74f59e22@oss.qualcomm.com>
+ <20261123-glymur_camss-v4-1-d7db74f59e22@oss.qualcomm.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <20261123-glymur_camss-v4-1-d7db74f59e22@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-tvp5150_parse_dt() fills core->connectors[] using
-v4l2_fwnode_connector_parse() and v4l2_fwnode_connector_add_link().
-Each connector then owns a label string and a list of allocated
-links, and each link holds a reference on its local and remote
-fwnode. Only tvp5150_remove() releases them with
-v4l2_fwnode_connector_free().
+On 11/23/26 13:35, Nihal Kumar Gupta wrote:
+> Glymur has three CSI2 PHY connections: CSIPHY0, CSIPHY1 and CSIPHY4.
+> The binding documented CSIPHY4 as port@3 because the initial driver data
+> reused the X1E80100 CSIPHY table, where entry 3 maps to hardware PHY id 4.
+> 
+> Fix the current v7.4-rc ABI to use linear graph ports 0-2 by replacing
+> port@3 with port@2 for the third CSI2 PHY connection. The matching
+> Glymur driver data maps port@2 to hardware PHY id 4.
+> 
+> Fixes: 1e0c8f82d710 ("dt-bindings: media: qcom,glymur-camss: Add Glymur CAMSS")
+> Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
+> ---
+>   Documentation/devicetree/bindings/media/qcom,glymur-camss.yaml | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/qcom,glymur-camss.yaml b/Documentation/devicetree/bindings/media/qcom,glymur-camss.yaml
+> index a0b77edc212319fad69113f3d55ca24f184d4b23..18a38fc4f9025f6b927780f55ed4fab194091c02 100644
+> --- a/Documentation/devicetree/bindings/media/qcom,glymur-camss.yaml
+> +++ b/Documentation/devicetree/bindings/media/qcom,glymur-camss.yaml
+> @@ -109,7 +109,7 @@ properties:
+>         CSI input ports.
+>   
+>       patternProperties:
+> -      "^port@[0-3]$":
+> +      "^port@[0-2]$":
+>           $ref: /schemas/graph.yaml#/$defs/port-base
+>           unevaluatedProperties: false
+>   
+> @@ -288,8 +288,8 @@ examples:
+>                       };
+>                   };
+>   
+> -                port@3 {
+> -                    reg = <3>;
+> +                port@2 {
+> +                    reg = <2>;
+>                       camss_csiphy4_ep: endpoint {
+>                           data-lanes = <1 2 3 4>;
+>                           remote-endpoint = <&csiphy4_out>;
+> 
 
-Every tvp5150_probe() failure after a successful tvp5150_parse_dt()
-skips that release. tvp5150_mc_init() and tvp5150_detect_version()
-failures return directly, and the control handler, IRQ and
-v4l2_async_register_subdev() failures go to the err label, which only
-frees the control handler. Each such failed probe, for example when
-the decoder does not respond on I2C, leaks the links, the label and
-the fwnode references held by the links.
+Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
 
-Free the connectors on these error paths, as tvp5150_remove() does.
-
-Fixes: 0556f1d580d4 ("media: tvp5150: add input source selection of_graph support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
----
-Based on linux-next next-20261109 (630059a5a632).
-Compile-tested: arm64, GCC 14.2, W=1, CONFIG_VIDEO_TVP5150=y, CONFIG_MEDIA_CONTROLLER=y, CONFIG_OF_DYNAMIC=y, CONFIG_COMPILE_TEST=y; no new warnings versus the base object.
-No hardware or runtime test was performed.
-The path is taken when tvp5150_probe() fails after DT parsing, e.g. a DT-described decoder that does not answer on I2C.
-
- drivers/media/i2c/tvp5150.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/media/i2c/tvp5150.c b/drivers/media/i2c/tvp5150.c
-index c889624..efbb588 100644
---- a/drivers/media/i2c/tvp5150.c
-+++ b/drivers/media/i2c/tvp5150.c
-@@ -2158,11 +2158,11 @@ static int tvp5150_probe(struct i2c_client *c)
- 
- 	res = tvp5150_mc_init(core);
- 	if (res)
--		return res;
-+		goto err_free_connectors;
- 
- 	res = tvp5150_detect_version(core);
- 	if (res < 0)
--		return res;
-+		goto err_free_connectors;
- 
- 	/*
- 	 * Iterate over all available connectors in case they are supported and
-@@ -2232,6 +2232,9 @@ static int tvp5150_probe(struct i2c_client *c)
- 
- err:
- 	v4l2_ctrl_handler_free(&core->hdl);
-+err_free_connectors:
-+	for (i = 0; i < core->connectors_num; i++)
-+		v4l2_fwnode_connector_free(&core->connectors[i].base);
- 	return res;
- }
- 
-
-base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
+-- 
+Best wishes,
+Vladimir
