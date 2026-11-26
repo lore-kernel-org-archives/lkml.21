@@ -1,97 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705261;
-	b=evFjlqtmDhrGzOFuSHj1L2m91nRpYUuEVUS9FFjiFIM1irONcY71Hs8OLn27ben7szI7
-	 NFtaJt7DaIC1BjbLwL25yczIETkzGmOXKsov2LtXS6NFVqxZ1mRj/sSaK+5Eje8ZYTB8f
-	 ONZFXIIK5Spa+qTHpiX7f58hILOfPY4T2YH7/eO0vzDx2dXC4LZmcPfSR2zoEXkxyOXu3
-	 ngyrphpzYvKg2L8XVFm1rHqvJesd0i0xGfcGMwYfq4rZIGJC2wadcpp2qd8JBXFG63vV+
-	 xYIfK1bx7k3M5uxitSyfoeZBepEUgNNRroLLyFFED0GoUgqIjJgCJWpNLQscHPebJjg==
+	t=1795705302;
+	b=dDzPv2qLD5lHEoymeOePiob34hxZOVh8vmiLKAVisigNK3+K5I0oUOUZy7gaONrDKDnj
+	 p8HHz2w3PXMAiG21GwogRzhesT+obT1FLI9CN2OQdbzsFgko1fSJ1QfSxCEKXTTzZ/6T+
+	 jebaPKevJpGpiU+2CEkwMM4vLnIypLIHimGC8WxKdWve50Nd9zES/lXXt3pMmel3j/sBU
+	 4CzaiF11xpWrIOqsg7JMgB8zBFT6cnRYVg+jcoJ6ZufVJwLMy+3phPLjm6H7PMCdbNSON
+	 RgQm9qRpMojEDbKyp/AD+a/9EiaUd9hq1Ui4zKRyOq0TaPNzN1WCUJns1qORGuc6vww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705261;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=9KeWf6go4A5Nn7MqAkyc2ajXlZEzS7uSzF0B6BvUuPg=;
-	b=GW46yUGv5RnIQIBn0xiQQTqzuEpLmTNxFO8izkhvzKuQihr0AayQHLU6CBGUqoUg9W2Z
-	 gYiCWv8RWN0HE+oBduMV6Q51OUY6Y41CCxsljRUKO/HJPpmdmRPI+PIEYIEc6P1S+E2d/
-	 jaLlFVKP5n1dtRqD33DBr6U23JMg2Mzs9AZQGWKtJXgG/uYg1jm3as1fmMVj7YEUcgHNJ
-	 XE07Ukt8rS+0Y8U1rpc7K9islUZsH8V7Nx7eb91DjqV2SJQNosaeFfaNH7Z6Awq8OaSuR
-	 i/PWW2ASKFLs8SyjLZwgr4Lp2hEEM/rdgOQbhCf6o96V2LIo06z5+YFxBP7D5IIVrEw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705302;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=+4nWIKPEPbVU+/d8v2r18grz0OisG3omtzIuS+nUgBo=;
+	b=0tPHnbZiqr8DHOgK8D/QI7jdR0Y/UK8R5cTUSlLuXIodsD09HrAtzxZMWSvr1JAQcE1d
+	 XW4luZuRUlL4e11uEnMXTE/v8I8Rg3psj8jKoTPe4NMDUisEDF4fxICjQbpgapY5PhrGe
+	 q2pXi77VxE3FJ+L929n5wG6EM2iV81QPCcGOH0VGasTabu9cmdCOM2I3kNCO58R8IFmV8
+	 dkR+sgbETjreEP7IThTVZEjC1z1VZRIn3njjfAbj8qdOrL45WCQ1i+5lT1Q4XI4jn1aLZ
+	 rvSyKTarZ6/YI7sqgPGzA8+e/X6DIE10tmKK+ALxfbzEVwXI9llbB6ZhZPQM0gYgUfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=CNop9L7X;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q5bpqt6J;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5252606A331
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:01:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5252606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EE3B606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:01:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=CNop9L7X
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a214c5c4c0so68122625e9.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:01:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795705259; x=1796310059; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9KeWf6go4A5Nn7MqAkyc2ajXlZEzS7uSzF0B6BvUuPg=;
-        b=CNop9L7XM39/VsHEvl8RDGzGBl45OJoHsrvNZZ5btiHAyeJkp9djnBiXrbpzVX2/Qn
-         mF2Tk+w112peuM7UKUIa9U0O/cAJgah75TK9Nx/2yaralg4tXYGANuIBQXHTbey/tHCK
-         4aaXcPR2ZHlgppi0FooEArvUs54Hw/+RZ5si2JH7eNfiQBs4nkQ6PTTlHYMw0WjG9vUp
-         dEGLMyF+9guc8WFBu0VNcrlC+hm8dYzrpkOlkpeyygKVCaBCOVLO4ROO+sk3hn1W/Gdd
-         TLTfUTfdsGEdZVNuEYPkUbu/LHLV82mgJYCwIr9n4r4/lH3dxRtcaJvN+zCqmgx288TI
-         5FsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795705259; x=1796310059;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9KeWf6go4A5Nn7MqAkyc2ajXlZEzS7uSzF0B6BvUuPg=;
-        b=nRer7aFQTZ5IehapovnEy9a4tUM6vuykvV9X6poIInsYl7qzpKztUSHSx142xTaM7N
-         3GWeZ7dkkwHgg/cxNJZHuzmf4pXWNT/Rsujcs7PHxt3J9ZTFMmcjs4HuVlcSlduLmapd
-         bhTxU9iLCAejCc7B99YKspshAKaitbQ03u8dM1YaAzgiE2yAGtSeIGHoQ6gI4JGo/ZQz
-         bUap+6w3ord4hyiUH3q4rGqmni03CZscEPjK1f57WDEw4URjIUmHMddmdRlEZV0GqmJM
-         f8gheXgqKCi1udO9x38eWdFNMmxurjqwuSWXjhD2bddXxptuOOEkwlS8bxI4cFXLTaxr
-         wrKg==
-X-Forwarded-Encrypted: i=1; AL+hErFLRhzkfxo6xmoSGRbdUncF5zxXuJKwMQX0HrVrktGqamHMtcEWLKDaIPi/lEjsgQvasJXDZ/7cCRXek9o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8nfRVs6cpiVlwBd768sUVaASNbnrrxT0igODHYziu8ZKNnN1UW
-	AFd3fJatAFt/juSBFq81op2AaE7aD7zWpbgCsu2KQqo5Dyx3iojaGQVLBZBLafCmi8Q=
-X-Gm-Gg: AZFdTZcbncV6Rb89VTWQidY1MrPOlQlctLE/o+KYs2ijVKu4azG/xMvBnEHWpFYUEYZ
-	5FWbBErXjArpgjEzPJOBhSgKQOC4Y5duIOueWzZXS+qkB6W3iKa/6hzerC3l9dhFJ7jN+DoJJ5R
-	GrUu22jhtZIrAzstu86/CFNFanvpZ2LRwj4u2snQnlJRZWeUztRaMJRanEQDdLY7LjbLtOSLDGP
-	NQMeiK6pFhtCEI65fwgHBIpKwdz9M53I0jV3oeu5Ag6tiCC2QaEBNMByqBuuUcWKdAGgzz2KS/S
-	h+bIIa6TGfvSBiMVJi4Wqyz79bySx0XIi+lMVfl35/4k1hy7MMaphjXQSrC2a3XOneigYezNtv9
-	VZV/499+pbdackGDo2dFSuJ3mw6PtU9RI0g9weqRuO1QKU8SxQD8BFQ367ELf5Ju8soLAVwKNL9
-	DkfttCeCWLHeBtlksTa129U2k9yHfw+mSc58I7P8BaXM5ecxBKDWZv8Fg97r68WUTqdA7kiCKd7
-	gamY/oM+94WFOy11l9TliRnDokpNIPw8KYB7Fk2TzE+0xgyzAwrtGaY1ovupD1DInsBrB+kK1gA
-	mQROdDp4SeeIQ48veMp8+Utx3bjHjdk=
-X-Received: by 2002:a05:600c:5246:b0:4bb:60ba:49e0 with SMTP id 5b1f17b1804b1-4bb88930707mr458102315e9.26.1795705258195;
-        Thu, 26 Nov 2026 07:00:58 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865a2sm631523885e9.3.2026.11.26.07.00.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 07:00:57 -0800 (PST)
-Date: Thu, 26 Nov 2026 16:00:50 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: jim.cromie@gmail.com
-Cc: John Ogness <john.ogness@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Jason Baron <jbaron@akamai.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>, printk@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Philipp Hahn <phahn-oss@avm.de>
-Subject: Re: [PATCH] printk.h: fix overzealous pr_fmt in pr_debug_ratelimited
-Message-ID: <awhJooa6HkPoKqSH@pathway.suse.cz>
-References: <20261125-pr-fmt-v1-1-3ff6832f5a50@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q5bpqt6J
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC2261F000C4
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:01:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795705301;
+	bh=+4nWIKPEPbVU+/d8v2r18grz0OisG3omtzIuS+nUgBo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Q5bpqt6JrbN7V/hyYHRABYZ0hr2lTw2p4JIRvllEXeG1YWrtYWHTh22afjysq5tcB
+	 SFR7FLbBEWxIhQ3n4+X3z9VnePwpPJrIUMvn0DgO+WbMQCUKDYUNBaUYZXDns+CnqN
+	 XF2jPuJf/Pro/qZ1FiyhEHElx79epjw5yTvRq64MvxJNLLEJcVYZ6c6O2Hoe+j2/Qc
+	 oymTkZT6zRdR6N4hFnGdr/aV+VB4Yr1prRYDAP4r6nYmW+3ssyJtocnBQXi6G8UX8y
+	 gK7RY50KrWIO8NjwqOpDhtuDO1co1miAZ19MNoqP/FJXc6vM3tq+CGefrz2EYbznTn
+	 kPaTK9E/mRjCA==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5be4b61fd3dso6350643e87.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:01:41 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEHRK+tZ5Je/dvtDq+xh7Bcs3HsU9+TMx0BynjDZ8M6JFWFatVpNKmNptwcaBi3wjvVBUDgdqKQwB/G5Dc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/HF1hyaKL0eX+KpA1mGYViMZoeQl9oUHxRjEbdX9oHZcskEafO
+	RXIfGoci1FmqUfJu6o+FZyJTcnS0yO43RvO5DLudKBBklImih2G8bTe8BQAsgvLzWt+bjDgKZWQ
+	OPG48Y46gLLJKp6isgRXkheqozu6Lnq0=
+X-Received: by 2002:a05:6512:6ce:b0:5c1:4f8a:8f5 with SMTP id
+ 2adb3069b0e04-5c1bc817e5cmr5687419e87.25.1795705300282; Thu, 26 Nov 2026
+ 07:01:40 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,62 +59,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125-pr-fmt-v1-1-3ff6832f5a50@gmail.com>
+References: <20261124-ssd-fix-v1-1-ee8ef43190b1@beagleboard.org>
+ <CAJZ5v0hVX0vQ3oy_jiSAqERc4tmTZECFbsGfRi3=3Gz1Q2+H1w@mail.gmail.com> <8733sniquk.fsf@beagleboard.org>
+In-Reply-To: <8733sniquk.fsf@beagleboard.org>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Thu, 26 Nov 2026 16:01:27 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0iXaM6+_unQ5U7y5j2z_woPpQjQ13tOTb-RZHep7hJf-A@mail.gmail.com>
+X-Gm-Features: Aa3M54ovbQoVx0vdv95m6-nR230cjM7J8TmAxyLzsAQ0eFRknmhCdYXN5IBOflU
+Message-ID: <CAJZ5v0iXaM6+_unQ5U7y5j2z_woPpQjQ13tOTb-RZHep7hJf-A@mail.gmail.com>
+Subject: Re: [PATCH] ACPI: power: Add serialize_power_on_quirk
+To: Ayush Singh <ayush@beagleboard.org>
+Cc: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed 2026-11-25 11:12:53, Jim Cromie via B4 Relay wrote:
-> From: Jim Cromie <jim.cromie@gmail.com>
-> 
-> Historically, the CONFIG_DYNAMIC_DEBUG implementation of
-> pr_debug_ratelimited() passed raw fmt to both metadata and runtime:
-> 
->   DEFINE_DYNAMIC_DEBUG_METADATA(descriptor, fmt);
->   if (unlikely(...) && __ratelimit(&_rs))
->      __dynamic_pr_debug(&descriptor, fmt, ##__VA_ARGS__);
-> 
-> While descriptor metadata was clean, emitted dmesg records lacked the
-> pr_fmt prefix present in the !CONFIG_DYNAMIC_DEBUG fallbacks.
-> 
-> In 2015, commit 515a9adce0f0 ("include/linux/printk.h: include pr_fmt
-> in pr_debug_ratelimited") fixed the missing prefix by wrapping fmt in
-> __dynamic_pr_debug() with pr_fmt().  However, it also wrapped fmt in
-> the metadata macro:
-> 
->   DEFINE_DYNAMIC_DEBUG_METADATA(descriptor, pr_fmt(fmt));
-> 
-> This causes two problems:
-> 
->   1. Build failure when pr_fmt() expands to multiple arguments, e.g.:
->        #define pr_fmt(fmt) KBUILD_MODNAME ".%s " fmt, __func__
->      Passing pr_fmt(fmt) into DEFINE_DYNAMIC_DEBUG_METADATA() expands
->      across the comma in DEFINE_DYNAMIC_DEBUG_METADATA_CLS(), supplying
->      4 arguments where it takes 3.
-> 
->   2. Metadata pollution even for single-argument pr_fmt(): baking the
->      prefix into .format breaks anchored queries such as:
->        echo format "^foo" > /proc/dynamic_debug/control
-> 
-> Drop the pr_fmt() wrapper from DEFINE_DYNAMIC_DEBUG_METADATA() in
-> pr_debug_ratelimited(), restoring consistency with dynamic_pr_debug,
-> dev_dbg_ratelimited, and net_dbg_ratelimited.  Update
-> lib/test_dynamic_debug.c to exercise pr_fmt() with __func__ in
-> pr_debug_ratelimited().
-> 
-> Reported-by: Philipp Hahn <phahn-oss@avm.de>
-> Link: https://lore.kernel.org/lkml/a5e3c89fe5f4126873d58dd3472e66c56550ff91.1773779753.git.phahn-oss@avm.de/
-> Fixes: 515a9adce0f0 ("include/linux/printk.h: include pr_fmt in pr_debug_ratelimited")
-> Cc: Jason A. Donenfeld <Jason@zx2c4.com>
-> Cc: Petr Mladek <pmladek@suse.com>
-> Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
+On Thu, Nov 26, 2026 at 3:56=E2=80=AFPM Ayush Singh <ayush@beagleboard.org>=
+ wrote:
+>
+> "Rafael J. Wysocki (Intel)" <rafael@kernel.org> writes:
+>
+> > On Tue, Nov 24, 2026 at 1:16=E2=80=AFPM Ayush Singh <ayush@beagleboard.=
+org> wrote:
+> >>
+> >> On the Lenovo Yoga Pro 7 14AKP10 (83KG, AMD Krackan), the NVMe drive i=
+n
+> >> the second M.2 slot is frequently lost after resuming from s2idle:
+> >>
+> >>   pcieport 0000:00:02.1: broken device, retraining non-functional down=
+stream link at 2.5GT/s
+> >>   pcieport 0000:00:02.1: retraining failed
+> >>   pcieport 0000:00:02.1: Data Link Layer Link Active not set in 100 ms=
+ec
+> >>   nvme nvme1: Disabling device after reset failure: -19
+> >>
+> >> The _ON methods of the two M.2 slots' power resources update a clock
+> >> control register shared by both slots without any locking, and sleep i=
+n
+> >> the middle of the update. Since the root ports are resumed
+> >> asynchronously, the two methods can run concurrently, and one of them
+> >> can undo the other's change, leaving that slot's reference clock
+> >> disabled. Its link then never trains.
+> >>
+> >> Evaluate power resource _ON methods one at a time on this machine.
+> >> With this, 20/20 s2idle cycles succeeded, versus failure within 1-2
+> >> cycles before. Also tested in normal laptop usage for a few days.
+> >>
+> >> The same symptom has been reported on the closely related IdeaPad Pro =
+5
+> >> 14AKP10 (83JL) [0], which may need this quirk as well, but it is not
+> >> included here as it could not be tested.
+> >>
+> >> [0]: https://ratatoskr.run/linux-pci/2026/04/6586201/t
+> >>
+> >> Assisted-by: claude-opus-5-5
+> >> Signed-off-by: Ayush Singh <ayush@beagleboard.org>
+> >> ---
+> >> On the Lenovo Yoga Pro 7 14AKP10 (83KG, AMD Krackan, BIOS QFCN29WW),
+> >> the NVMe drive behind root port 00:02.1 (ACPI GPP3) is lost on nearly
+> >> every s2idle resume, while the drive in the other M.2 slot (GP10) alwa=
+ys
+> >> comes back. Updating to the latest BIOS did not help, and neither did
+> >> disabling SSD power management via kernel parameters or recovering the
+> >> device from userspace.
+> >>
+> >> The "broken device, retraining non-functional downstream link at
+> >> 2.5GT/s" / "retraining failed" messages come from the Target Speed qui=
+rk
+> >> reacting to a link that cannot train at all. The actual cause is a rac=
+e
+> >> between the two slots' power resource _ON methods in firmware, which
+> >> can leave one slot's reference clock disabled, as described in the
+> >> patch. I can share the relevant AML and debug logs if useful.
+> >>
+> >> Testing: 20/20 s2idle cycles with real S0i3 residency, versus failure
+> >> within 1-2 cycles without the patch. I have also done normal daily use
+> >> testing outside of synthetic suspend.
+> >>
+> >> The IdeaPad Pro 5 14AKP10 (83JL) appears to have the same problem on
+> >> the same root port [0]. I don't have one to test, so it is not in the
+> >> DMI table.
+> >>
+> >> I went with a DMI quirk that serializes power resource _ON methods
+> >> on this machine only. If serializing them unconditionally, or some
+> >> other approach, is preferred, I'm happy to rework it.
+> >>
+> >> [0]: https://ratatoskr.run/linux-pci/2026/04/6586201/t
+> >
+> > So there is acpi_evaluate_object_exclusive() now and you can use it
+> > for _ON evaluation.
+> >
+> > It will serialize the method with other things too, but that's not a bi=
+g deal.
+> >
+> >> ---
+> >>  drivers/acpi/power.c | 41 ++++++++++++++++++++++++++++++++++++++++-
+> >>  1 file changed, 40 insertions(+), 1 deletion(-)
+> >>
+> >> diff --git a/drivers/acpi/power.c b/drivers/acpi/power.c
+> >> index 23a4e207a01e..b997d98f38c4 100644
+> >> --- a/drivers/acpi/power.c
+> >> +++ b/drivers/acpi/power.c
+> >> @@ -64,6 +64,10 @@ struct acpi_power_resource_entry {
+> >>
+> >>  static bool hp_eb_gp12pxp_quirk;
+> >>  static bool unused_power_resources_quirk;
+> >> +static bool serialize_power_on_quirk;
+> >> +
+> >> +/* Serializes _ON evaluation when serialize_power_on_quirk is set */
+> >> +static DEFINE_MUTEX(power_on_lock);
+> >>
+> >>  static LIST_HEAD(acpi_power_resource_list);
+> >>  static DEFINE_MUTEX(power_resource_list_lock);
+> >> @@ -362,13 +366,27 @@ void acpi_device_power_remove_dependent(struct a=
+cpi_device *adev,
+> >>                 acpi_power_resource_remove_dependent(entry->resource, =
+dev);
+> >>  }
+> >>
+> >> +static acpi_status acpi_power_evaluate_on(acpi_handle handle)
+> >> +{
+> >> +       acpi_status status;
+> >> +
+> >> +       if (!serialize_power_on_quirk)
+> >> +               return acpi_evaluate_object(handle, "_ON", NULL, NULL)=
+;
+> >> +
+> >> +       mutex_lock(&power_on_lock);
+> >> +       status =3D acpi_evaluate_object(handle, "_ON", NULL, NULL);
+> >> +       mutex_unlock(&power_on_lock);
+> >> +
+> >> +       return status;
+> >> +}
+> >> +
+> >>  static int __acpi_power_on(struct acpi_power_resource *resource)
+> >>  {
+> >>         acpi_handle handle =3D resource->device.handle;
+> >>         struct acpi_power_dependent_device *dep;
+> >>         acpi_status status =3D AE_OK;
+> >>
+> >> -       status =3D acpi_evaluate_object(handle, "_ON", NULL, NULL);
+> >> +       status =3D acpi_power_evaluate_on(handle);
+> >
+> > So I'd replace acpi_evaluate_object() above with
+> > acpi_evaluate_object_exclusive().
+>
+> Sure, that sounds good. Just to confirm though, I should do that only for
+> devices with the quirk though, right? i.e. behind a conditional. Or do yo=
+u
+> mean that it should use acpi_evaluate_object_exclusive unconditionally?
 
-Looks reasonable to me:
+I would just use it unconditionally.
 
-Reviewed-by: Petr Mladek <pmladek@suse.com>
-
-Jim, should I take it via printk tree? Or would it be better to take
-it via another three to avoid conflicts, please?
-
-Best Regards,
-Petr
-
+The extra locking overhead is small here and there are other locks
+acquired by the AML interpreter anyway.
