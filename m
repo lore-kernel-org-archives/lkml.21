@@ -1,80 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703364;
-	b=4VLYPudb5q1EwFKiTkogtfXs8KnJEQy86cUn6RrqXgwPEoekCGOR9xsjhB7ShKC4ukIU
-	 bpwRB6DkCpGHLGMmMPeAWqKe890uCPS0uPIQB4ojtzrjLN+C/wE8Pwme4xBxga4CQEtnn
-	 lcOuB9fOGjJo7kDKZ68f5P3zkNJRjuuF5STNn6BL3Pk0E7iHQGC7HIZmictGW+dbdjpiY
-	 65MfP4FmcGaCUUw+2MeTTyY7nQCq4ymB+9FVGdojKpuXt2PLP7WQug94pdbQ3djc02hf9
-	 kU/G3v8Ygf+ZRX1gF4CmoOnHzVmlJMfOn9lxLdCAqsofXUFZPfJ3YoJrp/dD0jfLQsQ==
+	t=1795703367;
+	b=KGbiGL+6sH1JwsOq/YSyIkIn91X0zzR7ktDA96vh24T94u+nQpZmcoVX46Wbb95wxwR6
+	 o0dQMa+pYYdeC84/h720lxK2bumZub2yLvF3Xt1ryuhkwbrKYpqpm35H71xnBA01Lf2Lq
+	 4QBGoYbjmYPWWI9+913V9C5A4mq2MrCBUsb2B56WzUCKfYBuLO2px4HMGd1JTK8zuk99+
+	 pAqUrnlHFkt/F/hX/+ZoiJeO3RnsNVC4Akzgz0nAO3UngYIhwR37627KtRkmypZ3J1VUK
+	 Lzykh6D3T75MG4CYqyVOkFCCMtDMxBWW+P151+ZXREVMnPlQRlm+2SSO4pDdKUyE0vQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703364;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703367;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
 	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=c8ypPy4IKCS5Exc1KP4Dj8WUmKLSL1iaZVC0m9BJn1o=;
-	b=k5FJgtFa7qUByoKeshuME1fc73rNWgFYHjJx0XMhZQCL39903z1ISUrSoE2vHz+n4Wq+
-	 1BR/60TJRSVIr1ZyWqXvU/zqVQPpEkEMCFIZV0MNSYaJJGaaq/PwEwj+ZHUYz0QesEF+A
-	 LhWWkn4G/Jq4jm/HR5Mlz4DLdZUFXXdmfwjDi5yDsFZCi77Z4yrM7rhvG+FG44nlDqcaG
-	 0w8wE9CrqMEvY09LGBBZNxrEFzgg/cV4+T2zSR2CXaz+thQvnYDyOlubhGcS1zSw5fUqX
-	 wbRPvhTWaCZC+noYjfoVcjb7X0wxckU5DL2PHlYzNw44K3OQjIkCvM1Y8gNufwwkdCw==
+	 Content-Disposition:In-Reply-To;
+	bh=X/hkMTLizOgiJJFWSRYAIdxVXL58/kl9lpN57LuWZzk=;
+	b=4QkTJ7ly4f7bMxXCy92DuRSXx9EIacNrSxTEMobcfVwkxjw4feJivvLYtb5+pkK9pu58
+	 1PkIwEVlSSBQAqG8vlGdzutUR+QZgGV1RUyrmrrtH3suEOIUxc3xkdp7gWcZsKUSpGva6
+	 v7s1KcBJ7uKdQFDw67yLowY8fcQ4YtUZ3P+JMHECA1s5K9FPwBBvvLHyB2hq60gE4Ylhm
+	 X3ffeWda4C2sn51SHsbPl9XYPpQoGEYLK9NWFIboIWJ8pVOZHuWpOsvCJYR4VaBImJS3o
+	 rE291q6WcFD/C4OOXo2yeaeiK6IwwHUL2LVNndUa5JBJlqZ1rMUUCOYhcIShUnfBk6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IHRvKyhP;
-	arc=none smtp.remote-ip=198.175.65.13
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=DEbUvSqi;
+	arc=none smtp.remote-ip=90.155.50.34
+Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFFCF606A31C;
-	Thu, 26 Nov 2026 14:29:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFFCF606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47E0B606A32A;
+	Thu, 26 Nov 2026 14:29:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47E0B606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IHRvKyhP
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795703364; x=1827239364;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=LgFh9SZr6VHq9k/9mUzAWZHJXqYsP3jfd0eBkAxbe7o=;
-  b=IHRvKyhPVyHKU0tnC2PylrE2wBvurvgmdUmX+1uedcsMvhEXi006d8tI
-   eTAm0wGjx3DDI7TDWIwyT7VA2uRV0CWaYo65kpdIy6i4+2ogRKXavEj/c
-   IzGT13Fnq7X+pIOB6ipBmWXuyisPJ1IBfpYdaZR4njMqL3sjDiCU7o1/6
-   Og2hU7SutXUiFM50Z5tp5OWyW7tb7gluBkrbR01OxhREK5/zozY0tNL5A
-   uX3mbDq5/aF5lDzwgWMsdezoHw/XGqqUUf/DTc+lmWLxZAcMcOF5vZNJD
-   T1pZpRH2SjDjbcpWvUrxG3t8sOr0vFa3X9NxwewRdg1ZZhVG65frAKATc
-   A==;
-X-CSE-ConnectionGUID: F6waalXXQu6Ncidtkhgwog==
-X-CSE-MsgGUID: Y+Jio3oLS7SJ+6xyf6DzKA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11978"; a="4523916"
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="4523916"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:29:23 -0800
-X-CSE-ConnectionGUID: eJp3by4pQ5CXiEffueeoJA==
-X-CSE-MsgGUID: i/E7VtbaRlSJdaCrjbuv/A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
-   d="scan'208";a="12512708"
-Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.244.208])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 06:29:21 -0800
-Date: Thu, 26 Nov 2026 16:29:19 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Arnav Kapoor <kapoorarnav43@gmail.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Wang Shuaijie <wangshuaijie@awinic.com>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] iio: proximity: aw96103: report negative proximity
- diff values
-Message-ID: <awhCP9c9O2QtZwIw@ashevche-desk.local>
-References: <20261126053033.603086-1-kapoorarnav43@gmail.com>
- <20261126053033.603086-2-kapoorarnav43@gmail.com>
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=DEbUvSqi
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=X/hkMTLizOgiJJFWSRYAIdxVXL58/kl9lpN57LuWZzk=; b=DEbUvSqiqK3+fRUioPFsTd6DGU
+	7Bue1eKVXG16DQ/lJ6hdbVlpddRVxEoV6YC3ejTd6kYzzNd0RixU341WKtCOTVxmqcRsNAaUN8M/i
+	LITTwVlxykWSLpSPLAjIZM4xsjSwf08Am+2a6xPWDcAxV4w8iIY6QFIhM0ViACRWHkGkRvMST1IIe
+	3emxZ8CNTuFf3FkP2JT8pvSeTNDGL7ycstOoysB22zH6bBeTh+3wvFe20duXyk96zuBtY84zuaZRS
+	XPBcxQ25F1t1L1H/9zJ/0GrFwm/f5Ymi6VHLfwKJOe6FPoM+/mq9StLKGHw8pPoGEWsD2f8jEJ6uG
+	l/pFHKVA==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xWaTP-00000005HKN-2qkX;
+	Thu, 26 Nov 2026 14:29:20 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 355A5302186; Thu, 26 Nov 2026 15:29:19 +0100 (CET)
+Date: Thu, 26 Nov 2026 15:29:19 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Dylan Hatch <dylanbhatch@google.com>
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>, Miroslav Benes <mbenes@suse.cz>,
+	Petr Mladek <pmladek@suse.com>,
+	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Thomas Gleixner <tglx@kernel.org>, live-patching@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] sched, livepatch: Fix transition stall for
+ CPU-bound tasks
+Message-ID: <20261126142919.GG49833@noisy.programming.kicks-ass.net>
+References: <20261125041900.3243569-1-dylanbhatch@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,32 +81,43 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261126053033.603086-2-kapoorarnav43@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20261125041900.3243569-1-dylanbhatch@google.com>
 
-On Thu, Nov 26, 2026 at 11:00:25AM +0530, Arnav Kapoor wrote:
-> The DIFF registers hold a signed S21.10 fixed-point value (Awinic's own
-> aw_sar driver documents the diff data format as S21.10), which goes
-> negative when the measured capacitance drops below the baseline.
-> aw96103_get_diff_raw() divides it as a u32, so a diff of -1 (0xfffffc00)
-> is reported as 4194303 instead of -1.
+On Wed, Nov 25, 2026 at 04:18:58AM +0000, Dylan Hatch wrote:
+> Commit 676e8cf70cb0 ("sched,livepatch: Untangle cond_resched() and
+> live-patching") moved klp_sched_try_switch() from _cond_resched() into
+> __schedule() and gated it on READ_ONCE(curr->__state) & TASK_FREEZABLE.
+> This causes livepatch transitions to stall when CPU-bound kthreads,
+> PF_USER_WORKER threads (such as vhost-<pid>), or user tasks in long
+> kernel loops spin with cond_resched():
 > 
-> Do the division on the value as an s32.
+> 1. Even when __schedule() is entered via preemption or an unfreezable
+>    sleep (such as PF_NOFREEZE kthreads or PF_USER_WORKER threads
+>    sleeping in TASK_INTERRUPTIBLE), curr->__state does not have
+>    TASK_FREEZABLE set, so klp_sched_try_switch() skips the task.
+> 2. A sole runnable task spinning in the kernel never gets
+>    TIF_NEED_RESCHED set during sched_tick(). In klp_send_signals(),
+>    wake_up_state(task, TASK_INTERRUPTIBLE) is a no-op for a
+>    TASK_RUNNING task, and set_notify_signal() sets TIF_NOTIFY_SIGNAL
+>    without TIF_NEED_RESCHED, so the resulting reschedule IPI returns to
+>    kernel mode without entering __schedule().
+> 
+> Patch 1 fixes both issues by dropping the TASK_FREEZABLE check from
+> klp_sched_try_switch() (relying on stack_trace_save_tsk_reliable() in
+> klp_check_stack()) and kicking still-running unmigrated tasks via
+> resched_cpu() in klp_send_signals() (as well as waking interruptibly
+> sleeping PF_USER_WORKER tasks).
 
-...
+So I didn't get a reply on my v1 comment, and I still have the same
+quesiton; how isn't any of this a problem for the freezer?
 
->  	if (ret)
->  		return ret;
-> -	*buf = (int)(data / AW_DATA_PROCESS_FACTOR);
-> +	*buf = (s32)data / AW_DATA_PROCESS_FACTOR;
+The intent was to make sure that a patch problem is a freezer problem
+and we fix both together.
 
-The type of data is u32, however regmap expects unsigned int.
-I would change the type and leave (int) casting (yes, the change
-is required still, I noticed it).
+Both cases above would also delay freezing, no?
 
--- 
-With Best Regards,
-Andy Shevchenko
-
+It seems I have overlooked try_to_freezer() /
+kthread_freezable_should_stop(). Those should also do the patching
+thing. And then its a matter of adding either of those to whatever loops
+you think are lacking.
 
