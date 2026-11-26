@@ -1,63 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.6
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.212
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685710;
-	b=NuI+C3juj6itFTpHr8deM+F/yg0MQZDTtaoANT9A3NA025z1ywnaLvWYXsbmvMsEd69C
-	 SsNhVQlL24dP1ICDX4kO34cqyGnTGakzvrI2lATv0jQRZt4u2f57Gmcwx7olvV6PWyhnW
-	 kfsFpIDYNqEIikJJJ8cK6tvAGwzSDqxJNZdvXfs6AViC9gEtAtGf0f0kD6y7uhRhXmdYd
-	 8wBAvrVQXjCbuj2InACdcZntbyRxrL+Utr1H8uXPavliO7oOAxJ7o3+WS/eR1SX+u1Bt6
-	 CB243eHmnppQjNrLMnbGU+KRkSJiqqTrmiKqda3BHLSlj1piPgXCwue5zIrvhq4N16w==
+	t=1795685720;
+	b=K10XNvKuDfgiRWfQ2eZlGHVJ7SN+aU2qTV1TEzloNlDNevqKY773OrO38fHFK8DBpWLc
+	 lxx0VIHEKhyfGSquzqzU5ETTH15rNcHg4HLztt6mr6YchvpMJXG43LUqt7ZH0Aa7lMrjx
+	 x7wKXh187O3lmgOc5Z1GRQsCkxDNIEDuDrP4GGY0uAAw8JiC/nvH5e/hTWr+RVkXGEZm4
+	 cuJsvc6ll7sPKEJNNEL187zSvbxT8U+Tjnw/SCcdLUUb5uba+Vt1JKhvf4GpsqvFF8rZ3
+	 5MF6Kj8jeVxUgARkgI+KNgIf7+jN7aFSJFZWKqre3zQmOtFFgfaqpYkY/UxjxMcGRww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685710;
-	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:X-Priority:
-	 X-Mailer:In-Reply-To:References:X-NTES-SC:Content-Transfer-Encoding:
-	 Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-Coremail-Antispam;
-	bh=4rXhKT8TtFGgK7PSIy2cEeLBQd2+yyLrWU2UR0XS9OY=;
-	b=EGEwabnWApEqZIOVBE/Yhka+uLy5IHInn+J2Jp80XiOv2XzqsmytbHPhgomzSwgT7zd+
-	 M/xEYynhyFS6TMrTSLs6OzyMWY/bXU6bFVrIyHGVpHc+jhP45yzbsH0fv7A63HW4BvUXS
-	 DpSRq2UsGve4fwJkdcxmjS4WEtmI8jkU/psOKKQpr8bzMgIqOu8pyhEuLbLpJ5AVSczUH
-	 8+3Hgpk82tmtym2Ieq4vyrPiDFzwYwC2TRNEcqYBSs1SLkBB0Fxuf7yKzCKu0hRcPa3F3
-	 +owzLrbxeDtPUb0/RfXy33PF/O2w3IZegNCkQARWqwYw16/BXHO0D/hWv4lDNuA6gQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685720;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=i93aHJcJ8x1HdwHppTrh/5V2kFRBPdGPq1RZ2aGENl8=;
+	b=i6SEYosmzLz1cTYrNqp44vd4bYuxETkrNFKsXja2uVfOJFOMt+55pFN4xF50d6BtdtsW
+	 4sIj20fPLgUEmeJzl4C24lWfObbFuJ9Y3FFCUFkzBrUldjZwF+2eIuxSzvvVIpuVBdVGB
+	 7hMZZyHD4NWejYPJGGWijqqI8LUXPo4NcVesvJSoNWsvNNJw7rDaNlPd9WRPgPKjhZojc
+	 IgmwONS+KbFbfwaFm6BIXtEI71qwjqGtEYtKqwpacFnNnD/xXShVo5wtA4mSubslBFjKY
+	 Z6gDabA2KYQ7LuSpLn+wRr4qTUNSJW55DFGlUxYVnjsLRKJwtplt8J0W7wdmye4a0zQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=ZgNMhUAU;
-	arc=none smtp.remote-ip=117.135.210.6
-Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.6])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JBKg3WeZ;
+	arc=none smtp.remote-ip=95.215.58.212
+Received: from mta1.migadu.com (out-212.mta1.migadu.com [95.215.58.212])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03B0F606A31E;
-	Thu, 26 Nov 2026 09:35:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03B0F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 043D7606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:35:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 043D7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=ZgNMhUAU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=4rXhKT8TtFGgK7PSIy2cEeLBQd2+yyLrWU2UR0XS9OY=; b=Z
-	gNMhUAUcklFYXKfTMNIUBm/CKZkSZH5q9wsyebphEl2D9jelp51BXM0o6o4gSL4x
-	Yoo/uCmuGpOD/1Sea0YOa6elkMtsD71c0Ipifs+upIGloo+qkXjTgRgXgVfCTr/y
-	WbxEVDtWKaUGrDaLmsBzN8zI17eqpIkcDn6k9LWGZM=
-Date: Thu, 26 Nov 2026 17:34:45 +0800 (CST)
-From: dd  <zhongling0719@126.com>
-To: "Hyunchul Lee" <hyc.lee@gmail.com>
-Cc: "Hongling Zeng" <zenghongling@kylinos.cn>, linkinjeon@kernel.org,
-	liubaolin12138@163.com, ntfs@lists.linux.dev,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re:Re: [PATCH 3/6] ntfs: read initialized_size under size_lock in
- the iomap paths
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 126com
-In-Reply-To: <awfxvg7w_i49JxBv@hyunchul-PC02>
-References: <20261125073547.154150-1-zenghongling@kylinos.cn>
- <20261125073547.154150-4-zenghongling@kylinos.cn>
- <awfxvg7w_i49JxBv@hyunchul-PC02>
-X-NTES-SC: AL_Qu2SB/qTuk4j4ymdZOkfmUoQhu82WMW3uvog3I9UP514jAvj+BsGdFRZMlTSwMGzKieyiCCWSRNg7vxLXq1cXaYxtvSDZLZ5RZjEh28sWQpEjg==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JBKg3WeZ
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=i93aHJcJ8x1HdwHppTrh/5V2kFRBPdGPq1RZ2aGENl8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795685718; v=1; x=1796290518;
+ b=JBKg3WeZwbSPwDZYP+lf0oQ0roDE0JaZ6RFeWbMTzsffE9/pcRFlU8Q0BHV0BUXwYa//PsID
+ Dgr7xzPl02TdtAUCpG1ekbZ/n9zf+mMkFF7nN7c9Cx+F77/acwJz4WgfjLoitcjPQYDSWwTpESU
+ ob0iL1gJ5ipbDiLgqZn32zBw=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 6ce626ae0182f3ab;
+	Thu, 26 Nov 2026 09:35:16 +0000
+X-Mizu-Trace-ID: 6ce626ae0182f3ab
+X-Migadu-Flow: FLOW_OUT
+Date: Thu, 26 Nov 2026 10:35:10 +0100
+From: Luka Gejak <luka.gejak@linux.dev>
+To: linux-wireless@vger.kernel.org, Ahmet Zeren <niko3x@proton.me>
+CC: Ahmet Zeren via B4 Relay <devnull+niko3x.proton.me@kernel.org>,
+ Ping-Ke Shih <pkshih@realtek.com>,
+ Bitterblue Smith <rtl8821cerfe2@gmail.com>, linux-kernel@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_RFT_rtw-next_1/2=5D_wifi=3A_rtw88=3A_use?=
+ =?US-ASCII?Q?_the_rate=2C_bandwidth_and_GI_of_injected_frames?=
+In-Reply-To: <28ED0B12-9712-45BA-BF90-8D7392C5D504@linux.dev>
+References: <20261124-b4-rtw88-inject-v1-0-f7457e496924@proton.me> <20261124-b4-rtw88-inject-v1-1-f7457e496924@proton.me> <8E47D781-B1FF-4B2F-B0EA-AABA130E2778@linux.dev> <ecNmU3PXiWoHo5Kp9n39tXmMq1iJCEzT2J_TrZH2xipIKP9jtEdDBIYUKdyBWvKCRLekdJgXgo50awp_oEjhE1KlfT6e1ELZT9abegQ85L0=@proton.me> <28ED0B12-9712-45BA-BF90-8D7392C5D504@linux.dev>
+Message-ID: <D4FA00A3-DC56-4D4E-A03E-4DD4FCF11C94@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,30 +67,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <63810a45.6fa0.1a217351ac6.Coremail.zhongling0719@126.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID:cikvCgD31wY1_Qdrf5VoAA--.45874W
-X-CM-SenderInfo: x2kr0wpolqwiqxrzqiyswou0bp/xtbBoBUp+WsH-TV-bwAA3R
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-CgoKCkF0IDIwMjYtMTEtMjYgMTY6NDU6NTAsICJIeXVuY2h1bCBMZWUiIDxoeWMubGVlQGdtYWls
-LmNvbT4gd3JvdGU6Cj4+ICAJaWYgKCEoZmxhZ3MgJiBJT01BUF9aRVJPKSAmJgo+PiAtCQkJaW9t
-YXAtPnR5cGUgPT0gSU9NQVBfTUFQUEVEICYmCj4+IC0JCQlpb21hcC0+b2Zmc2V0IDwgbmktPmlu
-aXRpYWxpemVkX3NpemUgJiYKPj4gLQkJCWlvbWFwLT5vZmZzZXQgKyBpb21hcC0+bGVuZ3RoID4g
-bmktPmluaXRpYWxpemVkX3NpemUpIHsKPj4gLQkJaW9tYXAtPmxlbmd0aCA9IHJvdW5kX3VwKG5p
-LT5pbml0aWFsaXplZF9zaXplLCAxIDw8IGlub2RlLT5pX2Jsa2JpdHMpIC0KPj4gLQkJCWlvbWFw
-LT5vZmZzZXQ7Cj4+ICsJCQlpb21hcC0+dHlwZSA9PSBJT01BUF9NQVBQRUQpIHsKPj4gKwkJbG9m
-Zl90IGluaXRpYWxpemVkX3NpemU7Cj4+ICsKPj4gKwkJcmVhZF9sb2NrX2lycXNhdmUoJm5pLT5z
-aXplX2xvY2ssIGlycWZsYWdzKTsKPj4gKwkJaW5pdGlhbGl6ZWRfc2l6ZSA9IG5pLT5pbml0aWFs
-aXplZF9zaXplOwo+PiArCQlyZWFkX3VubG9ja19pcnFyZXN0b3JlKCZuaS0+c2l6ZV9sb2NrLCBp
-cnFmbGFncyk7Cj4KPklzIGl0IHNhZmUgdG8gcmVhZCB0aGUgc2l6ZSBhZ2FpbiBpbnN0ZWFkIG9m
-IHJldXNpbmcgdGhlIGZpcnN0IG9uZT8KCk5vLiAgVGhlIHR5cGUgb2YgdGhlIG1hcHBpbmcgd2Fz
-IGRlY2lkZWQgYWdhaW5zdCB0aGUgZmlyc3Qgc25hcHNob3QsCmFuZCBhIGNvbmN1cnJlbnQgZXh0
-ZW5zaW9uIGluIGJldHdlZW4gY291bGQgY2xhbXAgYSBNQVBQRUQgZXh0ZW50IHRvIGEKYm91bmRh
-cnkgdGhlIHR5cGUgZGVjaXNpb24gbmV2ZXIgc2F3LiAgdjIgcmV1c2VzIHRoZSBmaXJzdCBzbmFw
-c2hvdApmb3IgdGhlIGxlbmd0aCBhZGp1c3RtZW50LgoKPkFuZCB0aGUgc2l6ZV9sb2NrIGlzIG1p
-c3NpbmcgaW4gbnRmc19pb21hcF9yZWFkX2VuZF9pby4KWW91IGFyZSByaWdodCwgdGhhdCBpcyBh
-IG1pc3M6IGl0IHJ1bnMgaW4gdGhlIGJpbyBjb21wbGV0aW9uIHBhdGggYW5kIGhvbGRzIG5vCm90
-aGVyIGxvY2ssIGFuZCBvbiAzMi1iaXQgdGhlIHVubG9ja2VkIHJlYWQgY2FuIHRlYXIuICB2MiB0
-YWtlcyB0aGUKc2l6ZV9sb2NrIHRoZXJlIGFzIHdlbGwsIGluIHRoZSBzYW1lIHBhdGNoLgpUaGFu
-a3MgZm9yIHRoZSByZXZpZXcuCgo+Cj4tLSAKPlRoYW5rcywKPkh5dW5jaHVsCg==
+Hi Ahmet,
+
+On November 25, 2026 11:55:20 PM GMT+01:00, Luka Gejak
+<luka.gejak@linux.dev> wrote:
+>On November 25, 2026 11:34:49 PM GMT+01:00, Ahmet Zeren <niko3x@proton.me>
+>wrote:
+>>
+>>Hi Luka,
+>>
+>>Thanks for looking at it.
+>>
+>>> Do we also need DATA_SC when the requested width is narrower than the
+>>> channel?
+>>
+>>You may be right, I'm not sure. rtw_set_channel_mac() writes
+>>REG_DATA_SC on every channel change, with the 20 MHz primary and on an
+>>80 MHz channel, the 40 MHz half that contains the primary; and the
+>>normal rtw88 TX paths leave DATA_SC at zero. My guess is that the MAC
+>>uses that register then, but I can't tell whether that still holds
+>>with USE_RATE set without hardware.
+>>
+>>If you can run that test (a 40 MHz frame on an 80 MHz channel, with the
+>>primary channel in each half), that would settle it. If it goes out on
+>>the wrong half I'll add DATA_SC to the descriptor.
+>>
+>
+>I will test it in the morning and let you know the results. I would hold
+>off v2 until then.
+>
+
+I ran a test and the result supports your reading of REG_DATA_SC. Please
+keep DATA SC at zero for v2.
+
+Best regards,
+Luka Gejak
