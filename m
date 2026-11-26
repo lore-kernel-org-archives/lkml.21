@@ -1,72 +1,132 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.87.62
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795686964;
-	b=B+XZ/TYzBxZltVy4rIVIy2IUYhATWabqAycnmHVAezpZs4T8M18gW1Lc0Luf+QuoGzvW
-	 kEGDAE/ap5OcC1iQDe9ZSMdxipgcKNFpjQSRco23ton40Hg/Ub/eTortq/3mjwfF3pcoo
-	 g7KmhXIhNcLGmwwiaYzXhbl5hjjBJqz0bDiZbSxhl5LSM3VAblGBqp7k+NYZ7azbzF4Uf
-	 CWegtUpN6kGdVeFPS5lCEPahHYleuUmdodmi4EvHHTrgagZwz0TAPDrQYOLlqpT5agN0V
-	 uhakdjV7URSXblRkrtXsQNNI3xoaSm+3dLtBz7vKtctC1q4OqUI2M2ukC0SyhWTCdsQ==
+	t=1795686968;
+	b=lUOEpxuVWQ2c4WTbNBQA79JVqaRm329owzEe4GgFebdr91GyrKOYf8VlLwjStZ+F2l7q
+	 NL/Z/oRJZDKr91fQU5nZkkRKlJu0sudFCOTX8EZMO0qtwZgaws0ZJp728xlQazTZAN9VN
+	 eAg5OfRsHMOUt7pYwfbMFuM2zhGIC2WKyQnkdTWD19ISpWXvOVJ0dWkzTSo9gK4JAYOaR
+	 ZnZdKZONya8gqyA9kb0q/0i2WiLWtkRQxwjY2O21mqLqMQrruJsOfkCmoBB8vP9vB4z6k
+	 gBi2NjNEF1Qjn3LbpsmhL+urXpRDFybqadE1Id9XRIn82OgPsBXcG3lKDAXH3b4yzcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686964;
-	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
-	 mail-alias-created-date:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Authority-Info-Out:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-JNJ;
-	bh=rP/jTD2/f1MP5JxdM/crFR5Z+zyVxyrdqDuSKQpH9Go=;
-	b=w0kZ4ZGVCZf/r2OT1AnFSE6KbUYZWVnul1WoMeoKGcXsjHjN+8pjGViBN0jq7MzYUmF3
-	 MfTdZqwMt+wkQN8Wlci/UFibdlaz9Mnv1lGeD0leeU1/j/lY+t9GXdmxRx5Q1Z9JZ5bYs
-	 jGbopaN2yblzJneAx99lpPYyyqK3PNCB/GjPK8A6qoAzeFRtTvGTFSqSdLGSmUnhDdjAK
-	 UgbbXHbVi0gYUhwZSiDzPz2n56/PR6qyqOkdBO7NMl1Omo8zRh19d8QvxTlflvWQId3Z5
-	 fR+aqxYkU+K91rHXNE91kRsj9Ex92F77um3H2xjbH5j6O5G2fqDBwtLWzJOrZqyHEzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686968;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=8XxsVc+GOQvzjVbH+p+BI5Iwe40BXy5jVCydFd15eKE=;
+	b=i1j/4BIW1ls1fxWHKJ8ig51Yjgds4Js7qPzA53fzqehslgRXhfsrfi2taZ1+AgWMqSs5
+	 ww36EeHpj9KgTUGFTSbo6+FWhvVJHjjK4dzQHMSJULlMhznB/2q20CALRSxSlVmzlqm1c
+	 QGrmOZrV/PzdEt3BiJgBg7R2nrcnEc9VbY1gyFi11AlfkesVwHCAz8BUiSeZqcrSo/KPk
+	 lJ57KVu6nomvdvtfVavMkSMEMAIfdN0KFUCycPYMgqF/O6UgM2l4rEagZvH/87V9CF+3L
+	 Q7NOCUK1tFFCzHChnFmTUTiTE4X7UzlZnAe69Qgjhesj7beHaj4RRNJh5rWgfo0kPTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=icloud.com;
-	spf=pass smtp.mailfrom=icloud.com;
-	dkim=pass header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=lUcN61jd;
-	arc=none smtp.remote-ip=57.103.87.62
-Received: from outbound.qs.icloud.com (qs-2001f-snip4-10.eps.apple.com [57.103.87.62])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=D+DarMAr;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=V7F0sF6g;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51A44606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:56:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51A44606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=icloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=icloud.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10408606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:56:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10408606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=icloud.com header.i=@icloud.com header.a=rsa-sha256 header.s=1a1hai header.b=lUcN61jd
-Received: from outbound.qs.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-east-2d-60-percent-2 (Postfix) with ESMTPS id 8C526180DB29;
-	Thu, 26 Nov 2026 09:55:57 +0000 (UTC)
-X-ICL-RepId: 01a21748-818b-7989-9c68-a19eb0b3ff9c
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1795686962; x=1827222962; bh=rP/jTD2/f1MP5JxdM/crFR5Z+zyVxyrdqDuSKQpH9Go=; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type:x-icloud-hme; b=lUcN61jdofNfL0SjfDGGScuPq7Bt330IQqswppasvD1oSPOeJ/L//CRMqGflyFqsqZ9nBLmB9XbtstGdvGUr2fMqvlageMbC6XegyEEaFyYiG/DOvV1tQBK0Elv7d/5+rYv/8ajHMpT2/xQ8qqu5A6Uf7l50X8e/wAgdgfvFjmYHL8Gt+E7iYhtd1jGBEIH8Q/zQOTUKGbyv0G1YWuXJgv41rjUEp3xjfscnwn/NLJkbHoM0iD5opCX1J7d//hHdE/q/9M4Tm4b9LMeohcnCKqkYSe58gW2biK0ZrsoaJfzoLcBo2PeuNj+RBivz4pVOSLkJUY++uRUQJWNRjMxMQA==
-mail-alias-created-date: 1772519804199
-Received: from lima-default (unknown [17.57.155.37])
-	by p00-icloudmta-asmtp-us-east-2d-60-percent-2 (Postfix) with ESMTPSA id 54CA4180DB17;
-	Thu, 26 Nov 2026 09:55:51 +0000 (UTC)
-Date: Thu, 26 Nov 2026 17:55:46 +0800
-From: Bingfang Guo <bfguo@icloud.com>
-To: Barry Song <baohua@kernel.org>
-Cc: bingfangguo@tencent.com, Andrew Morton <akpm@linux-foundation.org>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	David Hildenbrand <david@kernel.org>,
-	Michal Hocko <mhocko@kernel.org>, Qi Zheng <qi.zheng@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Lorenzo Stoakes <ljs@kernel.org>, Kairui Song <kasong@tencent.com>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Yu Zhao <yuzhao@google.com>, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2] mm/mglru: skip oom killing for order != 0 allocs in
- kswapd
-Message-ID: <awgCInIqygIBMRGt@lima-default>
-References: <20261125-fix-mglru-kswapd-age-v2-1-4cc37437af9b@tencent.com>
- <CAGsJ_4z-UdXQg0LYqymEZdoHALPmAZC7eGcXbGad6f0sdjmkcw@mail.gmail.com>
- <awarDrT/DT7tQu+U@lima-default>
- <CAGsJ_4zf5NabZJanr2_Czr3oVQe6tTTdXmddx+PxowbKBN9M8Q@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=D+DarMAr;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=V7F0sF6g
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ7B98u919560
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:56:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=8XxsVc+GOQv
+	zjVbH+p+BI5Iwe40BXy5jVCydFd15eKE=; b=D+DarMArmQcyB+qAMpgH8R3/4OB
+	WYlEqY8GxYoKc/cJKkV7jID8ziKTAW5ae7BEMNdV9VG2+BfUa9u5F4uOhVICUKaf
+	G59rC76KQGG2foWZvnfoMZZwjXVtkVWkSj5RdEtH+UziIR/aKvcRTGzuX7ISzlWz
+	etYGA1yECL5b76bLnoW4B+L2V1mpgKgIpGiqCZ+UWYJG6pKHPH3yK7lsox8pv2bg
+	HEwAgBHUEdocsB1G3OMvSmy6e+jXNsZ/DGAsQGKnji+9ENZA3+KhCSmVpMb+bFpb
+	lhKx8YeV3Jh1e0NZiWZT0MYzB0Did67QLcsZM40KULTIY1k38H+uBJ8zfsw==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j662y2hf1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:56:06 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3ae19907a31so6556744a91.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:56:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795686966; x=1796291766; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8XxsVc+GOQvzjVbH+p+BI5Iwe40BXy5jVCydFd15eKE=;
+        b=V7F0sF6gKoyjz1LoP1gz/UZ9XM4+U56068Lj+s8b6gZ4rWvuvHAgCiQpb+tYEmAGol
+         e4/jKJ8UBJzV9FJy4NqOh0c9ZP8fVR3xpTZjsFlgixU0RlmGuY5lrNu23jbDEUvfqOET
+         0yNlpxUThFO9EuJ90FwfQnFgFGVIcjgmnoDysEsmRC5GtDIBMtN9REc3yuznNsgzPN4E
+         jmukULUg3pA134WUqm9mbtaLzF5PTdSvYPkZWkkWjHF8v4Bd3anGFe396Py7VNkjzBjC
+         ju6ClqvP+l+nIwu2k0N8gDYTJLasrLOyjNFDvBrjexmZ5JRP10giJuLWKoTP5496Yw5s
+         tOTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795686966; x=1796291766;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8XxsVc+GOQvzjVbH+p+BI5Iwe40BXy5jVCydFd15eKE=;
+        b=HzvEL3RzUQ8GD4MtUSSZOpsGa3B0l/x+uw9zUb96QUsVCpNzlenN43pABmxL86SMVt
+         eQqYbkWPKMc+J/DtWdE3qN1Iskl0Rcif0eZ56ebOj6ETKmeYmdQkvByHotK6q+oE7xvk
+         MgzpsYUTnfUJynjI9yVBHpjW8rgcr1q2051LnXJ4NsN9H/Z56bPb8XdQzNFkr7Y1G1kC
+         iGBPGdBi4rjbF3PfrU1WcLAdmXyjk81D1JpLLX7IkKWD/78heAGKyWBGxVoIn0TOEE6A
+         MmitcrS7fzM4Awhz9rFMYF+T+YygxdzTVs55+SQL+WxLnG/aPyhQ/YMIhuH/dnTqCgLu
+         0kEg==
+X-Forwarded-Encrypted: i=1; AL+hErG/yxi7VMQ3nCYp0DSvlxKG1+foY27qqM3hkGGvVlKRUD3Z1xjah960cCcmirfF9OhvYfjg5s41lJ/6QAI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ZQK17uXObT/476feCpe7Z3aub/J9oIDfTQI/wqfWG89RLuolK
+	j2RaY+S+q8BGxJ8XuSlpzq1J2Vy7e9BBv184DfWj9hYfnmBgNChx86xJJ0/+7V/j9tI8p5mcKjT
+	qSoeR0BThVSNm8ltHJtP9wvA72fNQtRhxyAjmxDcUbFsxNVaEIxYDd4WGSixYNvsEI6w=
+X-Gm-Gg: AZFdTZe1H3mMBGftw8hzmBjGuc7/5dhhPYrfkidhirxaWRwfpxNkuO/4C01Uo/TNMk5
+	d7PKHp6Wyf+Vi34tOy/W4ji0ZuAAZzUyE43/SZ6m+JO4O9C4X+3mJ9r35fAVROlZt8SmlBv5BB1
+	HukdCL3iM5yFQ730FObcDHq8eyWp29jH34JOYz/GajH4tK947R9Um9o59MgzsHUSz4bB4RQ5JgQ
+	ZM+QA8+JqGvzGiGWSGez0BaD82WY+/BHP3BNgw/EihQozZcCLKuuKss0rMffj5OoIl/g5Jl4C+L
+	kSybKfdby2BGg87zBAmB37wuti/KJfAOglfXSZ3WCwRCm6p0jnFa7HwDktdncREUrchqsh6dS54
+	+lS5uNwyYwCpwIgr/pNKbBNGkjejnkNPVSz5BPMWNzXbLdHHecv93Syam+BqsgtaHDaaAczO8Em
+	M76FTCytfeXOkvFCyqBDIYHNbrsM7bUu7YI8MgWbdWMNXz2vuflmWRtlP9bXPjXq8tOkHgC3ng+
+	A==
+X-Received: by 2002:a17:90b:4490:b0:3b0:a7b5:c044 with SMTP id 98e67ed59e1d1-3b41c7bbef0mr12900399a91.1.1795686965473;
+        Thu, 26 Nov 2026 01:56:05 -0800 (PST)
+X-Received: by 2002:a17:90b:4490:b0:3b0:a7b5:c044 with SMTP id 98e67ed59e1d1-3b41c7bbef0mr12900364a91.1.1795686964966;
+        Thu, 26 Nov 2026 01:56:04 -0800 (PST)
+Received: from hu-mchitale-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3b41abb2076sm32459030a91.2.2026.11.26.01.55.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 01:56:04 -0800 (PST)
+From: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+        Greg KH <gregkh@linuxfoundation.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Ian Rogers <irogers@google.com>
+Cc: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>,
+        Anup Patel <anup.patel@oss.qualcomm.com>,
+        Alexandre Ghiti <alex@ghiti.fr>, Peter Zijlstra <peterz@infradead.org>,
+        Ingo Molnar <mingo@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+        Adrian Hunter <adrian.hunter@intel.com>,
+        Mayuresh Chitale <mchitale@gmail.com>,
+        Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>,
+        Andrew Jones <andrew.jones@oss.qualcomm.com>,
+        Sunil V L <sunilvl@oss.qualcomm.com>, linux-riscv@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Zane Leung <liangzhen@linux.spacemit.com>
+Subject: [PATCH v7 01/14] dt-bindings: Add RISC-V trace component bindings
+Date: Thu, 26 Nov 2026 15:25:22 +0530
+Message-ID: <5454076167a828931e198bd167dea1e2a64cdd0b.1795512532.git.mayuresh.chitale@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1795512532.git.mayuresh.chitale@oss.qualcomm.com>
+References: <cover.1795512532.git.mayuresh.chitale@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,148 +136,178 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4zf5NabZJanr2_Czr3oVQe6tTTdXmddx+PxowbKBN9M8Q@mail.gmail.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzOCBTYWx0ZWRfX6LHtraZbWcF+
- abn6R4qKk7vzmQHsHkTOYZOrQIg2mVYmLwmo0rxqdcuCvtrsbSBHbybvZW/77ra2c2ELCnxc2H8
- uhnYvSwwOHxyNe+KMkA22Ebdv9+r19I=
-X-Proofpoint-GUID: FCzsWs0gG87hjATcI8PVbH98kaihmpkP
-X-Authority-Info-Out: v=2.4 cv=D+TSufRj c=1 sm=1 tr=0 ts=6b080230
- cx=c_apl:c_pps:t_out a=bsP7O+dXZ5uKcj+dsLqiMw==:117
- a=bsP7O+dXZ5uKcj+dsLqiMw==:17 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=x7bEGLp0ZPQA:10 a=vu5NlEYW-o8A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=AZoGnDOZhPiq548KR6q9:22 a=RKZYdrCfCo-aMvuV6FxS:22 a=VwQbUJbxAAAA:8
- a=ufHFDILaAAAA:8 a=v3ZZPjhaAAAA:8 a=w7ccbh9undGZvG0ET7sA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=ZmIg1sZ3JBWsdXgziEIF:22
-X-Proofpoint-ORIG-GUID: FCzsWs0gG87hjATcI8PVbH98kaihmpkP
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzOCBTYWx0ZWRfX+cOY7UhJBpCE
- sKb4rs+5mUa80+2LNJjNh91BnjHbbh7LyPA09bhK+mYmp5KLfy/JB81lWBI5heS7gqJsGZ5qOP2
- sgzE3JegSrQHHU+Vg/Sy5Q6ybcfxnFbtqBAGxOciLEvIgNj0ZjW1nPPsNECjcwPUcjhzaQ6dZEz
- JR2Gm1IWHhMV+6Gl2ixdRD17D5UsRkGrrGiBZH555g/1LUKAU+xO2oidzY8RoXe7yzjBJfnB5vK
- asPhS3ORlgX69w5jC5CtmE2fL+KNRmyJdaS7vRGhZqA6DcKWlVicHphETBn9qiiyb0CMKwkY6GF
- tDu4yFD1rHlSz6+0nbsjK/2QgC8gVi/cvyFbgdzNOjUcU+rvAdu0NwtDsSBst8=
-X-JNJ: AAAAAAABKVOmNomG6Kor0xWo0CtsIZI8TyO4KtprHZqjLDJDWggiv3ds/sn07vJ0MfVakO
- dc3tMU/5xln2Glbv2fs8Bp+RfzDbH3LvlWSDn0DiOFgOF13zhn7AAzL6399OWDW7F5DbzM
- YqAPcv7pXk021SrJ7rumcMcPe8xdjvylCGY//yVJBBWQVedgfaHD/ACQ3EBhXHIIQ/x6VX
- UCctkJm5gmlCF4UAaBsOYP9feEvtI+3htbvzcQ+NyGDi63UAjjsiN7gDaNZK6xyneBZiWH
- V1tBrZG8UgWT6iBrNTjJ7xrvnTR+kL6aDIbtRhWzzySm9d9Mv8ZIjjTiV3EBnI8vJ0ynFo
- feasMl17vKbVN8yLJgMY+Ygqd5iAX5rFCd0ppys2bZmx8fGvar/9eULTXwwAVs5W9cwNY0
- /nS0hFhrOcSqE2qBoQJ745JOgoZkc5IZC/ipr28be/v/Bop5tMcZWAh5Y66JKewWSYMRLY
- +Arh7Grlp6zyZB7Zhd1O0S+U7UNQTJ/zAlqhzM1dK5JxfOwAGTmUPZNMumav3v9FEx8Ihg
- Vnrg01vSTXC2uem3mCcktN36WCfsJO/zN0dFz5k+kuSfO9xu9v4mLT8Y4w8AwQnEs6xSVO
- h66MS6MA8OiXaidkRzBf0v2PNofkVtUPY6B2PlDRuf4SjIyyefoed1nS9g7n2MxNvPCAKv
- mxJXYAjxLjOJq8mKvP3vzBMuqhcD2W4/58pxw5Pdl5Md9GE+e7epmdCYTUVR/sWGAs68Js
- f6bbi8J7m+O6iQcjCBt7R1yhtDqEplzAPl+fonXXlRavKSgsoT5hk+5InEbTOrx4m3WBXq
- bCZKlLyL5FlB74msvz2VoxIMrcuTxPcJ5blIsOGEIJ113O7QdoFqIWGKIfJwY5wnDM3HXv
- +bDxOyzgzYbrSu7A6TVhUxds/Lx89avrqO6ZNGmVuxgJNzxA+bRAVo4uoC7JqgsDcjJEz0
- pzAnrMKwhiwgO749tdXstmxrb7M05R0qASgCUBGJykrSdu7yfIbG627xu7DszXLtzlJczc
- IiVhM6RPFH89REsnTcetJQVofOYvAHibzr80n7a5HJJqhMpzeGRBrOjCnM38iRdC+IAb8C
- BhWL8vcIMqYTf4b35NH4/aj7fmmIkhV36xM5SNbBlj7yirVmsRA2uxs/X1DKBqAPBBwx4h
- SWe60qnpsKusLtZDPRcuwxHl5qJGWPlP1tSrtyiBvhL2jTwB2VyhaUUSxmjMj6GZ6soUgh
- JP21K2bgxEEj/+qo0hiVK7wJ9qRWkkGXfwAK1nv1pAQqnFH6568aWQQuubmtwHC/pxwgII
- cR5KTwwnnuaImwEu704nTusv8Ln4YUb4bB9mN446QtH/h3o93Pwk1x1RHaY0lQSCEPXB8b
- VYAyRQ0XiRSKxU+XjJ7Epw9DX5HodW45JAZbm+IzVuXnf4lBy1tAoaWOKWDEGd2lXzHIkG
- 3DqzI16LIq3kN2O66hmTFMJbBtNyW1KMQh5ys3wXYg9tqdPI+fjo7VmdEQ5wm0MVGA
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzOCBTYWx0ZWRfX7F3UBZ1H9N3e
+ W2lk5iFHd5/qGtmtdUheXxv+dRrELZgzyF/oIy7mGAyMsmxdOEKkZW23qzN9BvIrJggIwcMc0+T
+ w1exLsk32k7EOzwzXcEFcWsO6Qnc+9vknzW3KJDEnSuoEV56/l/Iztb3sa7z3esde0SYg2Y1BQH
+ oQSniTX3Xym6nmKqW9LJkPe7axiOpK0hIoWpMbRKzV+2mWmYAlXDnLUHeWI3LWxndF9y263RFDP
+ FyWztNyJiXvAsIvI22B24Mxjje78H4mARMOSKT5bNcTCC2gDMpoki8jsEzJtDlaOCSpijt8o6xh
+ MsEkfX63HlxjUc2NLLLjJNW2IGO0yVNFbfK/Yyd8xrfDm28wtGCCCOugvwbHklhUy6NHs9StZQK
+ +/Xgn+X6iGZwpVarusY0LVCjl9wspMGMGNarcznymd0vq8k0refvCEvjZzD666h/W3mj25amcL0
+ znLCgU7fyAKe+A4SU6w==
+X-Proofpoint-GUID: SRBHD45XVdD1IeB783OA6IgeVjZ-WGJN
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzOCBTYWx0ZWRfXyINeGOpnXTwo
+ E3Y/kr/SR0Y8i0xe/vdWhiSOhmtDRwRQg7fvRusRtQwHY2mWBSVWWvLzXQ59VpbNDeg38f4r3UG
+ nTEWoHTHrG2C7yLFh9cyq7eJqL0+jKo=
+X-Proofpoint-ORIG-GUID: SRBHD45XVdD1IeB783OA6IgeVjZ-WGJN
+X-Authority-Analysis: v=2.4 cv=W/KtxhWk c=1 sm=1 tr=0 ts=6b080236 cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=gEfo2CItAAAA:8
+ a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=W-_n0kkjAAAA:8 a=f9mqD-BOXdQ1R_-L-AkA:9
+ a=uKXjsCUrEbL0IQVhDsJ9:22 a=sptkURWiP4Gy88Gu7hUp:22 a=qeNa2pbTr82C0GpJEZFS:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_02,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 phishscore=0 malwarescore=0 adultscore=0
+ suspectscore=0 spamscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260038
 
-Hi, Barry!
+From: Anup Patel <anup.patel@oss.qualcomm.com>
 
-On Thu, Nov 26, 2026 at 08:40:44AM +0800, Barry Song wrote:
-> On Wed, Nov 25, 2026 at 5:32 PM Bingfang Guo <bfguo@icloud.com> wrote:
-> [...]
-> > You are right. Maybe we can start from skipping aging in reclaim path if the
-> > youngest gen is still too young? And maybe for this path, min_ttl can have a
-> > default value? Is that a good idea?
-> >
-> > diff --git a/mm/vmscan.c b/mm/vmscan.c
-> > index d891ae46baf49..7f9b14b772d14 100644
-> > --- a/mm/vmscan.c
-> > +++ b/mm/vmscan.c
-> > @@ -5136,8 +5136,11 @@ static bool should_run_aging(struct lruvec *lruvec, unsigned long max_seq,
-> >                 return false;
-> >
-> > +       /* avoid excessive aging for huge allocations */
-> > +        if (unlikely(sc->order)) {
-> > +               int gen = lru_gen_from_seq(max_seq);
-> > +               unsigned long birth = READ_ONCE(lruvec->lrugen.timestamps[gen]);
-> > +               return !time_is_before_jiffies(birth + min_ttl);
-> > +        }
-> 
-> I'm not convinced that we need to couple the aging decision with
-> min_ttl protection.
-> 
-> This has been a long-standing problem: high-order allocations can
-> trigger excessive reclaim and still fail to obtain contiguous
-> memory.
-> 
-> I've tried to address this twice, but haven't found a satisfactory
-> solution yet:
-> 
-> https://lore.kernel.org/linux-mm/20260422021842.78495-1-baohua@kernel.org/
-> 
-> Johannes shared some thoughts on this here:
-> 
-> https://lore.kernel.org/linux-mm/aejtfpBUu7gNV6Tk@cmpxchg.org/
-> 
-> Do you have any traces showing how many pages kswapd scans and
-> reclaims while kcompactd makes little progress toward satisfying
-> order-9 allocations?
+Add device tree bindings for the memory mapped RISC-V trace components
+which support both the RISC-V efficient trace (E-trace) protocol and
+the RISC-V Nexus-based trace (N-trace) protocol.
 
-We encountered this problem when running a stability test on a 6G
-VM with 2 nodes. It populates the system with hwpoisoned pages
-per 511 pages so order-9 migrations should mostly fail. Then it
-tries to allocate order-9 pages. So the results might not quite
-reflect real scenarios, but I think that applies to unmigratable
-pages such as slab as well.
+The RISC-V trace components are defined by the RISC-V trace control
+interface specification.
 
-When the system OOMs and kills all the processes, we have about
-4.8 GiB memory free and:
+Signed-off-by: Anup Patel <anup.patel@oss.qualcomm.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Mayuresh Chitale <mayuresh.chitale@oss.qualcomm.com>
+---
+ .../bindings/riscv/riscv,trace-component.yaml | 120 ++++++++++++++++++
+ 1 file changed, 120 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
 
-PGSCAN_KSWAPD                 : 162,406,932
-PGSTEAL_KSWAPD                : 91,233,588
-COMPACTMIGRATE_SCANNED        : 6,542,604,811  (kcompactd: 4,041,105,566, 61.8%)
-COMPACTFREE_SCANNED           : 541,265,798    (kcompactd: 348,448,520, 64.4%)
-COMPACTISOLATED               : 174,688,832    (2.67% of migrated)
-PGMIGRATE_SUCCESS             : 100,824,439
-PGMIGRATE_FAIL                : 2,022,069
+diff --git a/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml b/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
+new file mode 100644
+index 000000000000..bb519bc4a163
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/riscv,trace-component.yaml
+@@ -0,0 +1,120 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/riscv/riscv,trace-component.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V Trace Component
++
++maintainers:
++  - Anup Patel <anup@brainfault.org>
++
++description:
++  The RISC-V trace control interface specification standard memory mapped
++  components (or devices) which support both the RISC-V efficient trace
++  (E-trace) protocol and the RISC-V Nexus-based trace (N-trace) protocol.
++  The RISC-V trace components have implementation specific directed acyclic
++  graph style interdependency where output of one component serves as input
++  to another component and certain components (such as funnel) can take inputs
++  from multiple components. The type and version of a RISC-V trace component
++  can be discovered from it's IMPL memory mapped register hence component
++  specific compatible strings are not needed.
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - qemu,trace-component
++      - const: riscv,trace-component
++
++  reg:
++    maxItems: 1
++
++  cpus:
++    maxItems: 1
++    description:
++      phandle to the cpu to which the RISC-V trace component is bound.
++
++  in-ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++    patternProperties:
++      '^port(@[0-7])?$':
++        description: Input connections from RISC-V trace component
++        $ref: /schemas/graph.yaml#/properties/port
++
++  out-ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++    patternProperties:
++      '^port(@[0-7])?$':
++        description: Output connections from RISC-V trace component
++        $ref: /schemas/graph.yaml#/properties/port
++
++required:
++  - compatible
++  - reg
++
++anyOf:
++  - required: [ in-ports ]
++  - required: [ out-ports ]
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    // Example 1 (Per-hart encoder and ramsink components):
++
++    trace@c000000 {
++      compatible = "qemu,trace-component", "riscv,trace-component";
++      reg = <0xc000000 0x1000>;
++      cpus = <&CPU0>;
++
++      out-ports {
++        port {
++          CPU0_ENCODER_OUTPUT: endpoint {
++            remote-endpoint = <&CPU0_RAMSINK_INPUT>;
++          };
++        };
++      };
++    };
++
++    trace@c001000 {
++      compatible = "qemu,trace-component", "riscv,trace-component";
++      reg = <0xc001000 0x1000>;
++      cpus = <&CPU0>;
++
++      in-ports {
++        port {
++          CPU0_RAMSINK_INPUT: endpoint {
++          };
++        };
++      };
++    };
++
++    trace@c002000 {
++      compatible = "qemu,trace-component", "riscv,trace-component";
++      reg = <0xc002000 0x1000>;
++      cpus = <&CPU1>;
++
++      out-ports {
++        port {
++          CPU1_ENCODER_OUTPUT: endpoint {
++            remote-endpoint = <&CPU1_RAMSINK_INPUT>;
++          };
++        };
++      };
++    };
++
++    trace@c003000 {
++      compatible = "qemu,trace-component", "riscv,trace-component";
++      reg = <0xc003000 0x1000>;
++      cpus = <&CPU1>;
++
++      in-ports {
++        port {
++          CPU1_RAMSINK_INPUT: endpoint {
++          };
++        };
++      };
++    };
++
++...
+-- 
+2.43.0
 
-So seems in this case, compaction fail rate is quite high and we
-have really many scanned pages compared to the actually used size
-(about 1G).
-
-> 
-> Basically, I think we need some form of throttling to prevent
-> kswapd from freeing more and more memory when there is already
-> plenty of free memory, yet compaction is making little progress
-> toward satisfying order-9 allocations.
-> 
-
-Yes! And I've read your and Johannes's previous discussions. It
-also seems weird to me to keep reclaiming even if there are
-plenty of pages available there. And it's quite tricky to balance
-between that and concurrency...
-
-Looking into shrink path in kswapd,
-
-	sc->nr_to_reclaim += max(high_wmark_pages(z: zone), SWAP_CLUSTER_MAX);
-
-I think this is too much, for this case. So I think maybe we can
-still reclaim for scalability, but reduce its target. At least we
-should take reclaimable memory size and free memory size into
-consideration, and rescale nr_to_reclaim.
-
-The check to restore sc->order below can be relaxed as well, if
-free pages are sufficient.
-
-Thanks,
-Bingfang
-
-> >
-> >         /* better to run aging even though eviction is still possible */
-> >         return evictable_min_seq(min_seq, swappiness) + MIN_NR_GENS == max_seq;
-> >
-> > I will give this a test later and share more findings.
-> 
-> Thanks,
-> Barry
