@@ -1,58 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795724295;
-	b=Qydum41Wxkd25oXaJ+bjBKodTku8ppgZN/JczAwjNgwlTiJHLqZTvjHqLD/i6MnRUL3R
-	 qk6qitihtEQ1K9M0LhaYwema168oDe2+KbJOzEFbBr+901bHp6750PMpR27aLHGn5M1O2
-	 ItO3Cf74FqkhiqeLHdT5JVxoza0jexcSB7bEWyDppi+LHBmXA1iDWNA8AdBdoZm5ztIqC
-	 WHhMundXT7PL7bkp35Nooc+hKJmd+PDqnplLT7JTqwON8oMc4kWddqQoxVyxtz5WXZOaa
-	 /Iul4IYjEaBLCOEu/cBPmjGa6j7R/9KkMKoO9LMT+k6/su/IefCzKbJoadKVD/IXGjg==
+	t=1795724342;
+	b=f7F++1C5iCXn7dT6JaPPD97os3NeB21kRLoVTM3inl8t4O+0egv6z+P/FoFsgxhmg4uN
+	 FDnNovD7pfbQKD9dGuhq3UiIcmz60PIj/OCRcGJsZN0WlkTDYexuETkLDi29zd8PBnUWf
+	 8jR04OrockI1TRk4XX65RX4PQtIYXAkKQrCZvIKQGq2t0YCmKTKc5oW+9KIAXKWqbO1Aw
+	 Xte2vHhJQSzNbshf5hKVpF6KYaKPG7r5x3LTQFOHjCrTJGZ+8CL+qTPTxZ8rZlovMAEhY
+	 MHeiy5mdxvqSlQzuOQ7Td/UA5azJE+vGN/2ihqc/8M0bi5sR/cOqslD25xqurhx8vpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795724295;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=1FnAhgk25xC5O2y7bub24VBFft3zUQeuPp/u1EKgXxw=;
-	b=D0aJIYqGeeNPfOcNp2oFexfUdWq+MN+SFiOcMPpIAOL0YrVuOHmrBRewZ4FWU63h35eG
-	 j/qLKMBCsL2G3bMUPj9zKTAjP/deYjvKIoGL6CTHZhVlteaUc4tqUveBDNb7iPACNdKCN
-	 YvvwW7rtUVuY25aD0jOA9JVOSSfZZipanoBm0/m81mFXq8Xy2GrwuKiDrSPfp3U94ULpb
-	 pT5Jc/DYlbsQv5GK1/XB/Uob7fIrqZ3WRPf1d7blJMBKBmhEwUoJVbV5pAqTrt2X1oGpb
-	 h2xx+LiKvhR7iDB0xTUp5Eyr4ZSaAVwWRgbcyFPFQIRfjBxxmZtIE2GbVdfWXCu5cNg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795724342;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=MAR7LJCS0SUT3RCdSFs4KBM4b+uQalvzyuF8N4kUcD0=;
+	b=JUXZQU2Hr3N92k1gF4UGPM2BintWgHAq4UXYX8GAacl0PsV2rrmrcwWCpJ+qoAsS00/P
+	 SExtNESqfFDusZFKXCcMaD/lHNucmfNmLxznnjil547sl1ccErl5HUJ+GAygPuaOxUDYD
+	 g5csCR1/RtFoCA4jynIO/TL8Wahe9Qc6zRXu7iBec4j9pPPjMaIDHjmhPyhtPXzi4QgWt
+	 kiB8J8roS/vGgw0TU4tmoRqDAsXffSDcd9BgLtP0lApy+gOOHJpN+5qnoz1ikyu6Uza3I
+	 yRy0RJbIWWqIGrebZskLZta5NkFVNWSUDsTSilz79SrOaN7pWnmkNn/J2WjAdON1VXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=PYEqj8d1;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SwLq9jEK;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7537F606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:18:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7537F606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27A7B606A31C;
+	Thu, 26 Nov 2026 20:19:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=PYEqj8d1
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 24D33C2B9EF;
-	Thu, 26 Nov 2026 20:18:20 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A688B60558;
-	Thu, 26 Nov 2026 20:18:11 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 51DBE11E691C1;
-	Thu, 26 Nov 2026 21:18:09 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795724290; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=1FnAhgk25xC5O2y7bub24VBFft3zUQeuPp/u1EKgXxw=;
-	b=PYEqj8d1Z4cjlTJyqbx6x6NReRTDGkqobrnpgMgNXsj/PxnD23ArEKGvVu4GvLEs10R3Dd
-	sdNgVKJ1BxwRNJdFuflLTv8LN4k+U4Ws/ku9Tyeug89YC4jJkrQn15686F8/1Y38MvazTY
-	+eymYI/8QWu6miCpxsMeumUpC9qWw1UjTBgsJ6C7TGsNbwbAUzNsa3T8+t9fN1SY4b1pmo
-	CYgLjKGjL7igA2uTrPbXqep6iZ6ly9sAbSE4MN57BV6e4jEz0aBo8DIWM8/sxVQSm7nIdp
-	Mq1+1bz5+47Df4uEUxYD9v/lkqpnZN5KUy3OiA6lr4zCGU1FFHUrDyy5uQS0nQ==
-Message-ID: <b0d32861-c123-4f4f-8bac-aa0e7e48c719@bootlin.com>
-Date: Thu, 26 Nov 2026 21:18:07 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SwLq9jEK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 293931F000C1;
+	Thu, 26 Nov 2026 20:18:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795724341;
+	bh=MAR7LJCS0SUT3RCdSFs4KBM4b+uQalvzyuF8N4kUcD0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SwLq9jEKlMz6KkGaBndPft5926iaBOJImHZXqwRvTGrypAE1k29/40E3mKG58yguf
+	 08+2iQ6ZiePqjKUNKRVXz6H0q27FcZ++fyWOBARYt1UwenDQfkMGbFU1nWNcHOleKT
+	 wsoYaMZHXprJgNae+1tkEmjvVDJ+ypODumNtb1Z+WNcHWRLVjMW5kDH6btlx45G2ly
+	 GhiHyDsI8jGQYKc696Dvew6v3E0wIVlGZcimFf3aw8acY8a8nE/IYzUVu6n7LJHepp
+	 xNiwdjKpbXiVuSu3ibkLCd+CaY9I9hOba5hxeGmf/8aw652OA+O1yRjYQBOpFP2HUx
+	 ED6IymlgFISgA==
+Date: Thu, 26 Nov 2026 22:18:55 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Chen Pei <cp0613@linux.alibaba.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>
+Subject: Re: linux-next: manual merge of the liveupdate tree with the kexec
+ tree
+Message-ID: <awiULyDeMTGLqKot@kernel.org>
+References: <awhNUUXe4ywAjq8b@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,53 +61,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] i2c: cgbc: Fetch the status of a write transfer
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, mfd@lists.linux.dev,
- linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org,
- Markus Haberlander <markus.haberlander@rosenberger.com>
-References: <20261123-cgbc-i2c-write-status-v1-1-5b0fa0322b57@rosenberger.com>
- <179568834099.302193.16315749597111506309.b4-review@b4>
- <awgwO98qx3zX4MaY@zenone.zhora.eu>
-Content-Language: en-US
-From: Thomas Richard <thomas.richard@bootlin.com>
-In-Reply-To: <awgwO98qx3zX4MaY@zenone.zhora.eu>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <awhNUUXe4ywAjq8b@sirena.org.uk>
 
-On 11/26/26 2:14 PM, Andi Shyti wrote:
-> Hi Thomas and Markus,
+On Thu, Nov 26, 2026 at 03:16:33PM +0000, Mark Brown wrote:
+> Hi all,
 > 
->>> diff --git a/drivers/i2c/busses/i2c-cgbc.c b/drivers/i2c/busses/i2c-cgbc.c
->>> index dfdb9ffc6447..2361591a1e31 100644
->>> --- a/drivers/i2c/busses/i2c-cgbc.c
->>> +++ b/drivers/i2c/busses/i2c-cgbc.c
->>> @@ -254,6 +254,22 @@ static int cgbc_i2c_xfer_msg(struct i2c_adapter *adap)
->>>  		ret = cgbc_command(cgbc, &cmd, cmd_len, NULL, 0, NULL);
->>>  		if (ret)
->>>  			goto err;
->>> +
->>> +		ret = read_poll_timeout(cgbc_i2c_get_status, status,
->>> +					status != CGBC_I2C_STAT_BUSY, 0,
->>> +					2 * algo_data->read_maxtime_us, false, adap);
+> Today's linux-next merge of the liveupdate tree got a conflict in:
 > 
-> would it make sense use USEC_PER_SEC here to preserve the
-> existing one-second timeout between write chunks?
-read_maxtime_us was computed based on the bus frequency and the maximum
-amount of data that can be read by one transfer.
-CGBC_I2C_WRITE_MAX_LEN is 32 whereas CGBC_I2C_READ_MAX_LEN is 31, but
-multiplied by 2 we should be safe.
+>   arch/riscv/Kconfig
+> 
+> between commit:
+> 
+>   e583fcbe5b585 ("arch, kexec: declare kexec and crash capabilities in Kconfig.kexec")
+> 
+> from the kexec tree and commit:
+> 
+>   48ea610913a6d ("riscv: Add support for KHO")
+> 
+> from the liveupdate tree.
+> 
+> I fixed it up (see below) and can carry the fix as necessary. This
+> is now fixed as far as linux-next is concerned, but any non trivial
+> conflicts should be mentioned to your upstream maintainer when your tree
+> is submitted for merging.  You may also want to consider cooperating
+> with the maintainer of the conflicting tree to minimise any particularly
+> complex conflicts.
+> 
+> I imagine this isn't an ideal resolution and the new hunk should also
+> move over to Kconfig.kexec but git rerere won't remember that.
+>
+> diff --cc arch/riscv/Kconfig
+> index ed02c6ad0cca2,a5c56252ff44a..0000000000000
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@@ -1120,9 -1116,30 +1120,12 @@@ config ARCH_SELECTS_KEXE
 
-If I'm not mistaken, USEC_PER_SEC is only used if master_xfer returns
--EGAIN (arbitration loss), else __i2c_transfer() directly returns so no
-1s timeout. And we never return -EAGAIN.
+...
+ 
+>  -config ARCH_SUPPORTS_KEXEC_PURGATORY
+>  -	def_bool ARCH_SUPPORTS_KEXEC_FILE
+>  -
+> + config ARCH_SUPPORTS_KEXEC_HANDOVER
+> + 	def_bool 64BIT && MMU
+> + 
 
-So why should we wait 1s?
+I'll fix it up in liveupdate/kexec tree.
 
-Maybe I did not get your point.
+>  -config ARCH_SUPPORTS_CRASH_DUMP
+>  -	def_bool y
+>  -
+>  -config ARCH_DEFAULT_CRASH_DUMP
+>  -	def_bool y
+>  -
+>  -config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
+>  -	def_bool CRASH_RESERVE
+>  -
+>  -config ARCH_SUPPORTS_CRASH_HOTPLUG
+>  -	def_bool y
+>  -
+>   config COMPAT
+>   	bool "Kernel support for 32-bit U-mode"
+>   	default 64BIT
 
-Best Regards,
-Thomas
+
+
+-- 
+Sincerely yours,
+Mike.
