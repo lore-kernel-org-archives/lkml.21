@@ -1,55 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.28
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795699524;
-	b=vMp/LbmClZNOO8bk9zs/WwmqCLjlSU1mqushSMqFNeAwP7Si3ies6IsM/P8XlP9ZD7PD
-	 g52/UvcuzBMsbVqdLeRU/41X13OAzKGERm3DwvtQ6JXmq7r6mZnJ2gIrc0L/E+b8ChpBf
-	 f7ls48LTeLTiGBOK3g0kyEBR28X7htYmEKkXbKQx//z/qBNXCr28/4gc171WJrhCU8V96
-	 s0FxMHSgdIXP2RA6GXgH1d/Vlxm7a04VLAqF+DLc7D2Gj7KDJ37ruiYD04HfqTw0c3WT9
-	 c59lLRR/neF2R4adEzXlyFEOrhIlcaY/qMfrkcdiaBxw2NgdX1loAW01gzbZ1IC1Ftg==
+	t=1795699560;
+	b=yaMPBuUuPqV/lEl+OyMoyHMBdPh2plQbqj+CX+ZrUSIOrKmqlrFljws7ftvRqI64by1u
+	 EHj1ql6Nhv6fNOGytKvGH5E3y60uKqkhKIOyhAq/DVI/E3AgTnp6MYo8XRenZeIuprLna
+	 KkqP+Tc5zX8Cj9KBCBHY+1MRdc29UNIZNtrRMPbQ9BmnxDmNOALM94YcjwD29B5ctt9Wi
+	 2yJv6rLpSHxq+qPTmrYmBSzZZ0JvvQ/C9ebrG+U7GfsGwEOq1p8XavypbG5NPfzvPFrj7
+	 JLM5ZwPk1KYC00B6os14ZJfmY4utyL6ryTNJtfcjQS+tDD25h6DY6cUx6xDc90YFmFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795699524;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=iECrdmtxVCEOEDzVZ7vxIbL2vsIcsAtR5y2etdhZVu0=;
-	b=JPlbQYhcnYSbB+HWnhcVwWv/5HvQdZhqR83OUDErluqw3FG9ApGlB+MUc4MnGk3U+OMa
-	 S8sJfBaeHwQOMVFng54MGOfgoKeiD+E4WU9CQxEDUZu8lkKOKdk2g0/hGPy/qnIE3m6ZH
-	 n8uaVZvWE1JIPLU8vpiuz4b1mZy6h84MjwmDFNj+KB8Lb/6wH6haT/VeihQz4Vwnlt0T0
-	 xdyk6wzepe+W0fCZLnmZUNZfPf8TyjyXG5p5+XhPfP1Qo9dUcuI2SXAPtwuTFjzzzNieo
-	 /2ydZ6U3g7zt7HdmVFZdO+aiZuLeWYjKEYDxLW6dhd/8/H+iP3wKTCFzTvytGdJ5EFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795699560;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=VoBEgiO3LGgFu0I+CoPOV18doel8Lm5xFkwPKKF3UjA=;
+	b=BRvCzmwzWzk7hcOEMyvkSZ5zYVvoyOJGf/iBnXp33PePsTyFtJ3/lpHwXXEbawR+AF8F
+	 S96/qzXiJyL0+f9YrDfenl53IlueWhFwNBMJyXoVFOtPRvMsfm0wCfRXUaUTmud+xY7JX
+	 hoSFNnYDDtNqs44F81jGHNrsOoJKAPHeiISc5Mv+ydxfc7Ue4TKQR9lsEXWzM2JZWtSIg
+	 YN8BKc7K2NhbNNIdP5E5X0o8a0hn4P/HShE7kp2ct755IGigLo23FbFti/p7zmbpY25jE
+	 f2+KY/zFVAyXMAkuG8YGkpXXU4Z+pwHU51Vq9/7D0SlF2LG9dzsRRTSQqN5DQqru1FA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bDh+Ut2O;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y9rvqaFD;
+	arc=none smtp.remote-ip=91.218.175.28
+Received: from mta0.migadu.com (out-28.mta0.migadu.com [91.218.175.28])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C47E7606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:25:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A23E1606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:25:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A23E1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bDh+Ut2O
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CD991F000D1
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:25:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795699524;
-	bh=iECrdmtxVCEOEDzVZ7vxIbL2vsIcsAtR5y2etdhZVu0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=bDh+Ut2OMge4agv91hnty9kRPSuKqqYCaeh/TrFOco6KlcvoTwHRAOtOyg3S01nQC
-	 skD11sOkFjrFkxIiCz42k24+uO9ZojSzigH2BDYVvezZQ2M66eY7jfJ4Y/Uwdn3zPn
-	 tRl2o8vw1Ilc/M0cvh2TlBoTbnfcNCI+yMsN73C0z2/Rzb3rtuPSvK4QysuFlcnzSH
-	 hyEtxcV3udmvFwvNEx4kpj7FLlF3SuaBT9PrnFTrlfyX1nm50JfyDM//nVjrvDtx46
-	 IeBfiaVMeMMvh5MrSj1UpYSqoc3jWzI9O97wWFXMSj/go6kmid7q3feuvfPtzIdU0F
-	 t1dqQdyUsCcmg==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c31369ae36so2343657e87.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:25:24 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGmPMBrEqVWljQ7q0ILXaUOpaaamP/RlDCPUPIqQENCwpHyQpzh08m2dB5GGZCw/5oBdGIFqnRnzrfHtng=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/UegPhqR9K/1mEBhBQfqx9HD2bh5WA4mcn7+4zyc3QsGRkRHvJ
-	n+dtlsS/k8wNTPWSGs3MDwJopL1XUnjWdXjq8Ds8U0oK9nW48FEYBCSVKmznWmHtNCo9+Su2SSY
-	Lga2fUYEOVTsnX+HTcoThE9kxyKgO1EI=
-X-Received: by 2002:a05:6512:669b:10b0:5c3:2330:d723 with SMTP id
- 2adb3069b0e04-5c32330d761mr1376713e87.15.1795699523098; Thu, 26 Nov 2026
- 05:25:23 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Y9rvqaFD
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Mx9tj3Sgy8Z6jSByFbEw5wqlOsU+YsRRPEnrf0b0edI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795699557; v=1; x=1796304357;
+ b=Y9rvqaFDtdwZB4rAi2kkOLlEU0MKeOql1Z9irBp20AYr6hqYlB2NX6WdwHy10k67cqUFEv83
+ SfpgumNF3vuPq91qDvKKK/OypyAg1PP5OLVZRJ+XqfFo3R3HoQAsYMZfGaAuPuu1VCUw1fR/hf2
+ 9v3BdGFVhsKonyTYKKDpWTVI=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id a8713e5558b39bcf;
+	Thu, 26 Nov 2026 13:25:57 +0000
+X-Mizu-Trace-ID: a8713e5558b39bcf
+X-Migadu-Flow: FLOW_OUT
+From: xiongwei.song@linux.dev
+To: alexs@kernel.org,
+	si.yanteng@linux.dev,
+	dzm91@hust.edu.cn,
+	wy@wyuan.org
+Cc: corbet@lwn.net,
+	skhan@linuxfoundation.org,
+	rdunlap@infradead.org,
+	paulmck@kernel.org,
+	linux-doc@vger.kernel.org,
+	rcu@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Xiongwei Song <xiongwei.song@linux.dev>
+Subject: [PATCH v3 0/2] Add RCU docs Chinese translation 
+Date: Thu, 26 Nov 2026 21:25:20 +0800
+Message-ID: <20261126132523.6329-1-xiongwei.song@linux.dev>
+X-Mailer: git-send-email 2.52.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,77 +72,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116075510.5722-1-Chloe_Chen@asmedia.com.tw>
-In-Reply-To: <20261116075510.5722-1-Chloe_Chen@asmedia.com.tw>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 26 Nov 2026 14:25:10 +0100
-X-Gmail-Original-Message-ID: <CAD++jLniqoXQUGb+rS0aff0h6evF4cwGYoF0XgPU8D0g_e0guQ@mail.gmail.com>
-X-Gm-Features: Aa3M54q_CQm2u_mi7VkGLDQQbPkytJcsCPgPa1sEYHQLrYg0uS_KzxlCxCYnaI8
-Message-ID: <CAD++jLniqoXQUGb+rS0aff0h6evF4cwGYoF0XgPU8D0g_e0guQ@mail.gmail.com>
-Subject: Re: [PATCH v4] gpio: amdptpci: add support for AMD PT PCI controller
-To: Szuying Chen <Chloe_Chen@asmedia.com.tw>
-Cc: Markus.Elfring@web.de, linux-gpio@vger.kernel.org, brgl@kernel.org, 
-	linux-kernel@vger.kernel.org, Yd_Tseng@asmedia.com.tw, 
-	Jesse1_Chang@asmedia.com.tw, Richard_Hsu@asmedia.com.tw
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hio Szuying,
+From: Xiongwei Song <xiongwei.song@linux.dev>
 
-thanks for your patch!
+Changes in v3:
+	- Some translation improvements.
+	- Deleted unused label.
+	- Fixed indentation warnings.
 
-On Mon, Nov 16, 2026 at 8:55=E2=80=AFAM Szuying Chen <Chloe_Chen@asmedia.co=
-m.tw> wrote:
+Changes in v2:
+	- Fixed build warnings and errors for both RCU/index.rst and RCU/whatisRCU.rst.
+	https://lore.kernel.org/all/20261118131636.5131-1-xiongwei.song@linux.dev/
 
-> The GPIO controller on AMD PT PCI platforms currently has no in-tree
-> driver, so its pins cannot be used from Linux.
->
-> The existing gpio-amdpt driver cannot be reused. Setting aside ACPI
-> vs. PCI probing, the hardware differs significantly:
->
->  - Register semantics conflict: offset 0x0C controls the clock rate
->    in gpio-amdpt but enables interrupts in this controller.
->  - Interrupt controller: gpio-amdpt has no interrupt support, while
->    this controller has its own INT_LVL, INT_STAT and INT_MASK
->    registers that require a full irq_chip implementation.
->  - Wakeup: this controller can wake the system from GPIO interrupts,
->    which gpio-amdpt does not support.
->
-> Only the basic data registers are common, and they are handled
-> through gpio-generic, so little code is left to share.
->
-> Add the gpio-amdptpci driver to support the GPIO functionality on
-> AMD PT PCI platforms.
->
-> Co-developed-by: YD Tseng <Yd_Tseng@asmedia.com.tw>
-> Signed-off-by: YD Tseng <Yd_Tseng@asmedia.com.tw>
-> Signed-off-by: Szuying Chen <Chloe_Chen@asmedia.com.tw>
+v1: 
+	https://lore.kernel.org/linux-doc/20261113013054.5662-1-xiongwei.song@linux.dev/
 
-(...)
-> +config GPIO_AMDPTPCI
-> +       tristate "AMD Promontory PCI GPIO support"
-> +       depends on X86
-> +       select GPIO_GENERIC
+The following 2 patches are adding RCU docs Chinese translation for the first
+time. 
 
-Neat!
+Currently, RCU is not listed in TODOList in subsystem-apis.rst. I propose
+adding it.
 
-> +#include <linux/bits.h>
-> +#include <linux/gpio/driver.h>
-> +#include <linux/gpio/generic.h>
+Thank you
 
-> +static void pt27_irq_ack(struct irq_data *d)
-> +{
-> +       struct gpio_chip *gc   =3D irq_data_get_irq_chip_data(d);
-> +       struct pt27_gpio *chip =3D gpiochip_get_data(gc);
-> +
-> +       iowrite32(BIT(irqd_to_hwirq(d)), chip->base + PT27_REG_INT_STAT);
-> +}
+Xiongwei Song (2):
+  docs/zh_CN: Add RCU/index.rst translation
+  docs/zh_CN: Add RCU/whatisRCU.rst Chinese translation
 
-No need to use the lock here? I think this should probably take a lock
-and use read-modify-write, think about what happens if two interrupts
-arrive at the same time.
+ .../translations/zh_CN/RCU/index.rst          |   50 +
+ .../translations/zh_CN/RCU/whatisRCU.rst      | 1218 +++++++++++++++++
+ .../translations/zh_CN/subsystem-apis.rst     |    1 +
+ 3 files changed, 1269 insertions(+)
+ create mode 100644 Documentation/translations/zh_CN/RCU/index.rst
+ create mode 100644 Documentation/translations/zh_CN/RCU/whatisRCU.rst
 
-Other than that it looks good, but look into Sashiko's comments too.
+-- 
+2.52.0
 
-Yours,
-Linus Walleij
