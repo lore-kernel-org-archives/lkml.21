@@ -1,49 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691893;
-	b=5VlZkWCvvbO2drWDRaGumlmzl4hOwIKqou5r1OPjFJeRb9SzVh9S7+xWTnwpcUzzEe0x
-	 X9J4akcFef1D9r5R8QTn+mEk8oE2Xx2Xo5+OBbGDhP5Xzn0ppzsAvnEpoFyhO9qetF3aJ
-	 axBv0PvWHMxtd4QvgDHc1/p5qLa8OyFYuAGhD/HWceufW9s6rHeqHOxBX9hoAJBFEuezk
-	 GJ2lHUkXCSy7VNl5UuvSGh8kEv99yKtTn+cM8x2CdF6Ubzje1nc0NQcKAFUywywuVOKK3
-	 j32+VAwJDHeJqw0Jhmd3EmOLpsFfZXoXIyP5Kh2rU97IJ5CzZfQ7OFBjOW6gpQXNL5w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691893;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer;
-	bh=nfYyn85pUjMYKHSpG7Nmwds+Fo4pM3ejdYfJznX5ccQ=;
-	b=Laijra5QCgG3J4XDp6+hcBpDhxq2dAPTiedsJ6i7Nor7v6x4ngzEadg4pVoCM3kfaAQz
-	 tI2Eu5ozJ1BNXL5zEKco+gd7w1llR31XiFfyGitssP1YoS+rKa2VPg1yLmPxxEjGPJFdb
-	 +PglOolJRMnAIeKPcGu/Q5XZjRa2yLjvYnmeP82J5AMtbH8NNwLWYjLsvy2+Woo6sgVMo
-	 46NRqCbhfSKaxvShB6ynrRFKgq8ZOTtM+6F+JVqMAiX2e1JedC7ljEIBI0hOBdspcVnvq
-	 bwts6rsNa9TqR3K+Y9B9gcNrA+Ba3Oltfa9yEMOm2rmRD1sX47jFsVDWza8tVg+nsaA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QJo5w1j0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795691899;
+	b=nSL41ubTKfQXb4bBwzTv5W1+2a/VyAWN/5nWdeyv85Jz4JWL7GNh0g5XfK+d8o/eJ+4r
+	 8sAzxyoBWHxyMnQ3VKvbj7V60UQq2UelHBbemZNojq48uOrkCVSSf5Y5JDAyVIK7dW15H
+	 BQdjbjll9BQyERvIwpaDW1v7p+KcqzNPaJErfRTw8Ka7QZ712uiIc1ybThygZvR06kkiS
+	 J3swiQ9r5/Uz/XaaOVxj6P7yLgy990BxBU8x+QIsQf820wvYABwDnerTy0u51jLR8TFtQ
+	 4lPV+Ry6ZA5gtyeXYHdZOvD5GMoqe/QYEWG82lnyt/BFitEXnEOB0Fyd8N99NC3xGfQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691899;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=X8WwWz6JnS6y65umA17S2axWzHpMAWvbUXb5Ah2q0Qs=;
+	b=1HB3vK6UVndH8eMc7qRs1IisuSn+K1YAz2yH5Qs64kpLqevDS4r6m5VwAO1a3GVRi6Xn
+	 CUBh2VbGLxriwTw7AiWK5lU9iKmNN+Sh5eAv6tL1rC/EHIQY7ukLXcmJnB/xTsgQ+P7Wz
+	 TV9lmcQe83vwds2nA+tAU21ko27V/DnokrAYk/MOmulH13TtgbNO5jvhNJ5yoZIXKqjmA
+	 yIkPtEx3oTpQp6KaLnwrrOWVUVPKLbHZdXC4RL0d55x2BSGgs7VrzK4Z9EtupU8x2pxse
+	 sF2DUSX8llq/V4DW0nC3Wk/wMOz+N9KjND2Bq2uZZPoKBbAJoXDPTUzfkOz6f+ig+rg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TQa1M6mK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.49
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36BE1606A31C;
-	Thu, 26 Nov 2026 11:18:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DDC2606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:18:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DDC2606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QJo5w1j0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42AE21F000EB;
-	Thu, 26 Nov 2026 11:18:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795691892;
-	bh=nfYyn85pUjMYKHSpG7Nmwds+Fo4pM3ejdYfJznX5ccQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=QJo5w1j0YNGG/MVA+7N155ZqRi61HNhq+idbAR7dzgepcTaSSSN+xAPQr/B4U+LMp
-	 BLLyXQGrlkuNmkAqtR7dz8Vof5IMsXtBsjhDvz09x6vkSHb44KisyiT2zc91b6fKiF
-	 epVtUi6raw9GLDuK3tUSzLuNl8A3gKsBJnlMXAnCd5iSLbGjpGFwIfl2Mdc53Fho3V
-	 0IC1AcfgPDA4Pw6cojyD+hOhrBG/fRcdxuqntusHbWpnhLYrajjU5tuNGDAfZv1Wgl
-	 TYwLJc1rd7vxclPEfcAiKd46fTu/XAJzcoKbGilWnJ5MpVt4qvcl71XSrrSDsRt/Rs
-	 5JDZxjrcdb/1g==
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:14:36 +0200
-Subject: [PATCH RFC v2 23/54] x86/mm/pat: allocate the page tables for a
- split by level
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TQa1M6mK
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c5133831027so967521566b.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:18:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795691897; cv=none;
+        d=google.com; s=arc-20260327;
+        b=JwTYyVktfKYHewvD4CBhV4EOOcKcA0Oc6+uB/ahjd9YD+p9mBmcfaoLhbcV8gXgABL
+         5PjJRLVd54E1YMd1vfpdkSzF20/7iDXmwNG59+yCTmPVWs4Ca+E0EMqL0n3vqw2zNc8w
+         d5tjKT5dmIN7XRh7an3yb8p9E1nRUSPn0P501g8zVMZjfTW9E8jbZZ2w6B0QNoal0R8H
+         yMs062Gx4K28CGY4q8kzo/ulA5Xmj/ysbRZUc7vCepnieNOoFwyAxxb8sguXHHdRd/RM
+         7dq63ghBXL6zjlbW6nDRCPLcdL98hUVLzznG0jm9eRAa5w3x0MUqSNOjdhpQB9bku3n1
+         4EHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=X8WwWz6JnS6y65umA17S2axWzHpMAWvbUXb5Ah2q0Qs=;
+        fh=MX19EjQLzwnESUdIl591La5Yd7EPs9oK9STMGJhABy4=;
+        b=J/fNMjTgCSkZy+nVrXvRcC4o2Tzpb0u8FGqzaE2J7prS23PEZvwUlGJ/83dVBSz8uL
+         WVJzCfrHwM682C9F/4ZQDJ/JKWFbKGmIO1bBxmeDJWafY6AqjwtJt45StkPcDwUFPXvJ
+         FQyCg3gj01w6413+G0GsxvA5qSBkv6Jlb9iYwUE1gbrirGzWBLXT3ofCJNEiM+1SYcf7
+         oVFBUtAknDzSaT7DjO/GP8D6xFyyvE84RPoVUwhvvhPm9jhWjT3kt+u8pSpQHUObNvhA
+         JVzDg64zT+D2Elkz3JZcRhOb0tSTHqGtnBYllQXHoORPSDCg1rTw98+vr8hZeFNqSZdH
+         e8Rw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795691897; x=1796296697; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=X8WwWz6JnS6y65umA17S2axWzHpMAWvbUXb5Ah2q0Qs=;
+        b=TQa1M6mKPCJFjBUSMOQU0t3e7hUnaXCb9Uj9gtpyXJKSLALQ3+MPJncfJh/ct231pB
+         uGCFDx/Ml3ajuFfausEbI+Uc1sLgJxzbWHT4ln0d1tCQuq1iapilG0D29JPVjKKnHwBg
+         zjYaHfR0uROA3tOBZpo1ArWIFY3kyVEgDLRfCPP+tG2Cw/ZrtnpQc1kIK/DzXGUuBO31
+         usA6Nc4yhic443m+UygHAlqBQ2x3JdnAOPlLlMCy2MnVCY4J6x2+mLrmzI+JksRxh/e4
+         kAkH8aRnl/UBTnrrDZkrFmt485Ux/eLIFuRwqT25Uxkk+PwrSI9rxL825UoURyxYHhQy
+         RQiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795691897; x=1796296697;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=X8WwWz6JnS6y65umA17S2axWzHpMAWvbUXb5Ah2q0Qs=;
+        b=Tt3D+g8QZPKzvOEoYThZfQ6LxOdUOUR8c1X2BUSKZIy1zua5KWbSf3VyOOczg85Nps
+         zpWWOaxwIQQvsxF3YJGe70PoiWmdmigK0UrloX638OIsUQ/hirIsIgRAuEvefbeixPYt
+         KDjDPIhrQyr2WygS9NEae4WxSAncNG5dK4qoNQNBEAdr2v+X3GOsB3rpxjMKKXmvi939
+         SM+uhv3QRwija7QijuYlR4UluqZrN5gNxjI1NAcLlO5hgn4USBUBwJQ3jqGn5kHMyfAv
+         IGnwGT4CgovAzDAN9+T7960c41ovoVMQaE1DIgoIJQHoI7NaEbrEE16qMlpZVFYi7fri
+         H7EQ==
+X-Forwarded-Encrypted: i=1; AL+hErFBY6/f5JZ0Ar6LQaqtatxkmklSG78q2rjVf/uOsdA7mAOG8UlrfMyQ+V41WAtWZBXlXGW1hq8H66PODuo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9GwDBPinarLqwxnaMwjqmwEklFvJ4cMIP74ONociv7UZjTyTxp
+	0ttpJCjnfH3ZxRWYoo0FMfknZYafoiDen+hSE9bqjS1rgGE240P2F5TpdfGF4AvJkrsLCnnFlMH
+	UDwE+vKITW54N2p7UW4jnglxhW+UG2Y6DSQ==
+X-Gm-Gg: AZFdTZemXIelQ5ibQNs4A/4lFAtWPmspsvcxlv5aJnwjNYpSWsMZTqQ98vflFv7UM9N
+	Ajulvy8QIL9dhboBz+nfFAXpV82ER1200yS53eLGUEZ43sWFW87HlxviuADq+Ac8K12TtOvJ4l9
+	lCc3jMLmZOv9erYvXtLU2EsVJIFzRZVr5gcaNrcdyepk0kG/1JuJwvb+BHtpvw3WFME/qR3GNRt
+	OdlcGbbdR93dnuQ0fZWAdJlFYm8+d8/v9upgOCB+NaTiswqxONJ+V5WOcfOf5n93weJeun6sTjV
+	l4vdKAL9DKplZkQqdtSrU5d5VU51ye3sddUrP/jJoCMNdYjz0H06CijR/Jt6gJXVNEI496HFGDW
+	ZvpeHCqPkJIU6oi7KK+Y5tsrvsJhBA5Z5hM4=
+X-Received: by 2002:a17:906:3e1b:b0:c50:93b6:52ed with SMTP id
+ a640c23a62f3a-c513aab27ccmr1230543066b.40.1795691897317; Thu, 26 Nov 2026
+ 03:18:17 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,129 +104,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-generic-set-memory-v0-1-v2-23-723f1e33c3d8@kernel.org>
-References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-To: linux-mm@kvack.org
-Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Borislav Petkov <bp@alien8.de>, Brendan Jackman <brendan.jackman@linux.dev>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- David Hildenbrand <david@kernel.org>, 
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- Ingo Molnar <mingo@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, Michal Hocko <mhocko@suse.com>, 
- Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
- Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>, 
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, x86@kernel.org
-X-Mailer: b4 0.16.1-dev
+References: <20261028-b4-btrfs-fitrim-interruption-v1-0-bf5c53738b3a@gmail.com>
+ <20261028-b4-btrfs-fitrim-interruption-v1-2-bf5c53738b3a@gmail.com>
+ <b00f8fc5-89f1-4483-8986-947392837a6b@gmx.com> <CAO0HQ0VfHczGkTb0OOxXf38Cnu3sOufi24652UR0AJ5a7wzoSw@mail.gmail.com>
+In-Reply-To: <CAO0HQ0VfHczGkTb0OOxXf38Cnu3sOufi24652UR0AJ5a7wzoSw@mail.gmail.com>
+From: Luca Stefani <luca.stefani.ge1@gmail.com>
+Date: Thu, 26 Nov 2026 12:18:05 +0100
+X-Gm-Features: Aa3M54ojdEGLiceptP1aQHnxZ7c12hdMS3RYK5bPYgGle6EicdE7SBNpHTVl4kE
+Message-ID: <CAO0HQ0WMy0zAgSTJMVMLexv00YqJQp1K4e3tu47cSb=et4WkUw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] btrfs: don't report failure when trim is interrupted
+To: Qu Wenruo <quwenruo.btrfs@gmx.com>
+Cc: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, 
+	Robbie Ko <robbieko@synology.com>, Filipe Manana <fdmanana@suse.com>, linux-btrfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Zhiwei Liang <zhiwei.liang@zliang.me>, 
+	Qu Wenruo <wqu@suse.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-split_large_page() allocates the page table for a split with
-pte_alloc_one_kernel() regardless of the level it splits. A PMD table that
-replaces a PUD is allocated and announced to paravirt as a PTE table.
+Sorry to ping, is this getting tracked somewhere?
+It's not an important fix, but one nonetheless :)
 
-While in practice this only matters for the accounting of page table pages,
-having proper allocation helpers not only makes that accounting right but
-will allow architectures to override page table allocation methods when
-core CPA logic moves to the generic code.
-
-Add helpers to allocate and free page tables with the appropriate function:
-pte_alloc_one_kernel() for a table that replaces PMD and pmd_alloc_one()
-for a table that replaces PUD.
-
-Use paravirt_alloc_pmd() to notify PV guests about the new page table that
-replaces a PUD.
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
----
- arch/x86/mm/pat/set_memory.c | 31 +++++++++++++++++++++++++------
- 1 file changed, 25 insertions(+), 6 deletions(-)
-
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index cb503e41340b..0a2d19064f23 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -1215,7 +1215,10 @@ __split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf, pte_t *pbase)
- 	if (level != PGTABLE_LEVEL_PMD && level != PGTABLE_LEVEL_PUD)
- 		return -EINVAL;
- 
--	paravirt_alloc_pte(&init_mm, page_to_pfn(base));
-+	if (level == PGTABLE_LEVEL_PMD)
-+		paravirt_alloc_pte(&init_mm, page_to_pfn(base));
-+	else
-+		paravirt_alloc_pmd(&init_mm, page_to_pfn(base));
- 
- 	pfninc = pgtable_level_size(level - 1) >> PAGE_SHIFT;
- 	for (i = 0; i < PTRS_PER_PTE; i++, pfn += pfninc)
-@@ -1257,18 +1260,34 @@ __split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf, pte_t *pbase)
- 	return 0;
- }
- 
-+static void *cpa_alloc_pgtable(struct cpa_leaf *leaf)
-+{
-+	if (leaf->level == PGTABLE_LEVEL_PMD)
-+		return pte_alloc_one_kernel(&init_mm);
-+
-+	return pmd_alloc_one(&init_mm, leaf->addr);
-+}
-+
-+static void cpa_free_pgtable(struct cpa_leaf *leaf, void *table)
-+{
-+	if (leaf->level == PGTABLE_LEVEL_PMD)
-+		pte_free_kernel(&init_mm, table);
-+	else
-+		pmd_free(&init_mm, table);
-+}
-+
- static int split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf)
- {
- 	unsigned long address = __cpa_addr(cpa, cpa->curpage);
- 	pte_t *kpte = leaf->kpte;
- 	struct cpa_leaf tmp;
--	pte_t *pte;
-+	void *table;
- 	int ret = 0;
- 
- 	spin_unlock(&cpa_lock);
--	pte = pte_alloc_one_kernel(&init_mm);
-+	table = cpa_alloc_pgtable(leaf);
- 	spin_lock(&cpa_lock);
--	if (!pte)
-+	if (!table)
- 		return -ENOMEM;
- 
- 	/*
-@@ -1279,14 +1298,14 @@ static int split_large_page(struct cpa_data *cpa, struct cpa_leaf *leaf)
- 		goto out;
- 	*leaf = tmp;
- 
--	ret = __split_large_page(cpa, leaf, pte);
-+	ret = __split_large_page(cpa, leaf, table);
- 	if (ret)
- 		goto out;
- 
- 	return 0;
- 
- out:
--	pte_free_kernel(&init_mm, pte);
-+	cpa_free_pgtable(leaf, table);
- 	return ret;
- }
- 
-
--- 
-2.53.0
-
+On Thu, 29 Oct 2026 at 09:56, Luca Stefani <luca.stefani.ge1@gmail.com> wro=
+te:
+>
+> On Wed, 28 Oct 2026 at 22:07, Qu Wenruo <quwenruo.btrfs@gmx.com> wrote:
+> >
+> >
+> >
+> > =E5=9C=A8 2026/10/29 04:25, Luca Stefani via B4 Relay =E5=86=99=E9=81=
+=93:
+> > > From: Luca Stefani <luca.stefani.ge1@gmail.com>
+> > >
+> > > Treat cancellation as a successful partial trim as ext4 and XFS do.
+> > >
+> > > Reported-by: Zhiwei Liang <zhiwei.liang@zliang.me>
+> > > Closes: https://lore.kernel.org/20261028-btrfs-fitrim-freezer-v1-1-0a=
+d1d58aa94d@zliang.me/
+> >
+> > In fact you should use Link tag here, for the original patch as a
+> > report. Not Closes tag.
+> I think that was my original intention, but I mixed up the patches.
+> >
+> > Otherwise looks good to me.
+> >
+> > I can change the tags at merge time, so you don't need to resend the
+> > series, unless there are other reviews that requires code changes.
+> Thanks! Will fix them up in case.
+> >
+> > Thanks,
+> > Qu
+> >
+> > > Suggested-by: Qu Wenruo <wqu@suse.com>
+> > > Signed-off-by: Luca Stefani <luca.stefani.ge1@gmail.com>
+> > > ---
+> > >   fs/btrfs/extent-tree.c | 5 ++---
+> > >   1 file changed, 2 insertions(+), 3 deletions(-)
+> > >
+> > > diff --git a/fs/btrfs/extent-tree.c b/fs/btrfs/extent-tree.c
+> > > index 242db255cf1c..90e581c29609 100644
+> > > --- a/fs/btrfs/extent-tree.c
+> > > +++ b/fs/btrfs/extent-tree.c
+> > > @@ -6926,7 +6926,7 @@ int btrfs_trim_fs(struct btrfs_fs_info *fs_info=
+, struct fstrim_range *range)
+> > >                       bg_failed, ERR_PTR(bg_ret));
+> > >
+> > >       if (ret =3D=3D -ERESTARTSYS || ret =3D=3D -EINTR)
+> > > -             return ret;
+> > > +             goto out;
+> > >
+> > >       ret =3D btrfs_trim_free_extents(fs_info, &group_trimmed, &dev_f=
+ailed, &dev_ret);
+> > >       trimmed +=3D group_trimmed;
+> > > @@ -6935,9 +6935,8 @@ int btrfs_trim_fs(struct btrfs_fs_info *fs_info=
+, struct fstrim_range *range)
+> > >               btrfs_warn(fs_info,
+> > >                       "failed to trim %llu device(s), first error %pe=
+",
+> > >                       dev_failed, ERR_PTR(dev_ret));
+> > > +out:
+> > >       range->len =3D trimmed;
+> > > -     if (ret =3D=3D -ERESTARTSYS || ret =3D=3D -EINTR)
+> > > -             return ret;
+> > >       if (bg_ret)
+> > >               return bg_ret;
+> > >       return dev_ret;
+> > >
+> >
