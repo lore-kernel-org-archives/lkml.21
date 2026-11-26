@@ -1,54 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795656291;
-	b=FrIo6Fd/cBr8Qk4bJn0BN4WWI+8u9Ml/KOJAiENyrAwmBRNO1aGGcIPJThdFVSRqxX4x
-	 czznV+TPa7mN/NZX54Iemh6R/oXaClShdZB4sxawWsTs0KtXF0Y4hwhgWZ1UkkX4O8AZb
-	 PT3NxJlZ0x8CX1OHr0crEXUQKqZI3HNN70BG+BfVYGf1Oh4BAWFpUKciaeLb4eFuTcHk3
-	 7K+svBEm42YQ6wNTN28giUwwVAwTMpZfNqxFtMQBAUe77aKHcLhT55HR6IK1TawoMcRyk
-	 92nG+7IPa+EHtpBiq4DLcJCD8F4TMoIbwjPyEozE7xSMrBGh4kGBCCsHU+dWM2ENZPw==
+	t=1795656342;
+	b=3pyyA3yiuQjFGF43jNPrAHhDaMl68gYgwIClQSBlGViVQMKU8/ex784IJnIh/CZMFiJK
+	 xY2n1fCNECHjVkwQhhdP30dBQd8VtULCL4YjcaLzo2dv0GRU0iTXY5D0yQEHISTjau0TH
+	 HfwmloDYUI5nucnHIIKS1pKmEtGlFAV2LCmsEKjQ+N4r+n1Va+rlhTtyXs5s4vgPF7Goz
+	 ijD247k+NBDxnP1bRRonhO9ojkvUhPYJeT3p95PdDkjZm3RUQ+5wMIo840kN4kVeU/e3M
+	 t55eWdA3NDHeI/mYQJCj/OPN5z2snJYRG9GeAuuASfA6IRvz0apdYHrjImzZcFUWo6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795656291;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Content-Type:Mime-Version:Subject:From:
-	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:
-	 To:X-Mailer;
-	bh=OVEs5j0WnAhtqtypC5jMyPc3dpvQm1bZBi4ego186fY=;
-	b=j04Yu9lRGw2gZIB6sQNJmGNm2Q2IO0ZBogvYTqlRI5BIFr7TqRGQmBULa66Tw16XdFwa
-	 7n+4s7Bv/5b0FjGsYg8DF6gAE80oGL8y+TpoozC/K0Lp85PGIFpTVToTmuTkCrHUdbigU
-	 87FPsuoIVgVvKNvW/q/RZsrrMGsgNPNQ1AT+S4CCmBx8p6CBZYxAO4jS5dblpy0l37ew+
-	 jKM6BP9Qf9Cv7BojQl9OVQ2ByKpdX+VViA8Gh642TUDffWm1qTOvlT244k9eXfsDRU8Ji
-	 Zr9K0bnYo/rLIas629TUFY7c8lL9sPcsOlFYpwkVoc8cA4BBsfgKx86aPF+0S0vD6dA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795656342;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=zqpy/ujIKdE+RaX5YsmhBcXwpTFeGTsTy4qeAJjN6aA=;
+	b=UzkxyMUZtw8XDc7d6bNXbEeUJAGYUrhzrBRAGAjfZQA/j4QmKSQBjxQHHLikdC9oGRLY
+	 Qy61oHITA+fyF7T6r465ePMv1BKyr2PTLW8PeOa+WUuW958L7322se57H6IUhZvLqYZGR
+	 kiFdH5Oo/bF5SG2CD4bdXeoIW9po4cryHVaJCKF73aq/411hsWsP0jkmXiyFEgvcWbevH
+	 9wVDRAokQPnCD+PIO7zBNYv68VI8gujQE2HsZWiOZ7FGlDB62GROCGzv1Iw7Y+2TrN555
+	 GLNinKFC4ot05G05q9X60peautIOXLSisiQSQPdHn5/XJ/M/hdY/rImUfkUG0K2fNWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WztpB0Iu;
-	arc=none smtp.remote-ip=91.218.175.69
-Received: from mta0.migadu.com (out-69.mta0.migadu.com [91.218.175.69])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--willemb.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bS87q7Nl;
+	arc=none smtp.remote-ip=209.85.160.200
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85DCB606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:24:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85DCB606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3F5E606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:25:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3F5E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--willemb.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WztpB0Iu
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=vCClgcsEL7T6pGx+lymbKbCXTq1W2Hi1mvFjZlOAmio=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795656287; v=1; x=1796261087;
- b=WztpB0IuupqOObnfkZ+GKvUfs7+Y8nOQaM0142geqt1rzs2I+scx/KRL51PYdPeFm1suL+kI
- hKsWQFvpbs1i98aq243MvEo1OODM9DVvH0JdyB2BrW87X9ia5Wh9qAa6N0FP6zqotn/RhL0a1dy
- Aq0vV8Ccvh74Nt2aze+6e91o=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b68fbc2c4b6597bf;
-	Thu, 26 Nov 2026 01:24:46 +0000
-X-Mizu-Trace-ID: b68fbc2c4b6597bf
-X-Migadu-Flow: FLOW_OUT
-Content-Type: text/plain;
-	charset=utf-8
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bS87q7Nl
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-55ca6405c20so126074981cf.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:25:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795656341; x=1796261141; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=zqpy/ujIKdE+RaX5YsmhBcXwpTFeGTsTy4qeAJjN6aA=;
+        b=bS87q7NlioVjMDi1zqjELaj84CMXptojrbD9tyZB/JB5UYzWRF5ot7CQgqe+xEXhog
+         LchjVg0YeuE4iAXcDojAC04xSj6NjIRPfk0fvK99TBkqkydbVP0dWuys/aBd+QgMFrSD
+         ijrC947W3mm/zh6WzWJOs1TfyJGrFq281A8IbTDl48GdE5s/pzqypvdUl/5Lp4q83KDT
+         GSahY9K+JdyWwLWW6Qyt+j9py0OqYtJo0OVK1cB0h8Ue2wYgV+FfDL6lcj8NH7S3I5oZ
+         F/i5Wn2+ccksRYQF4PdcMq92zBq8A8Og+R3cVeaG4kErzeDHoQLEKvuzCBU/Xw104cH+
+         EsQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795656341; x=1796261141;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zqpy/ujIKdE+RaX5YsmhBcXwpTFeGTsTy4qeAJjN6aA=;
+        b=fQnhr98dC0HtrdjGRGhqXRbxNwCakeUDWVfop+0TVA54+4DBRM655+mgVeAlHEcMiB
+         vxc1d1bMDNYfCuc64YxKJTbmwdSF0EBboozZpZmOkwKM3k0X6P3ENlC/o5vHMncUVANc
+         pCG8x1E/qfX5/klmstvW3Z5xGXUVA+kJ57V7vu+5kIzhoazrVUNeQD+/OoEmiFbwYErh
+         UQzHrl4c/8vInoBtJIR8WAzWiLY1Aq1FTtb331o2ECn3zsggfaoXP9b2y4568Q4ZGr6C
+         OdVcwjVf2K1yFULwMKwDEHXUY7w9r6TLs5x1p6pKcL8S87RXQDhh72wFNJSOFoO2bMcF
+         VpVA==
+X-Forwarded-Encrypted: i=1; AL+hErH/ZhwOIoA1ABrY++IhdjJO+tkflscjwtzkF6nLMogTT7gVr+IgTnuNO/ZnsQ2f8FGDkTeqVE1oLymzM2A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+bJxHJGoSRa9bcC6hIyUFmtcnhBS4QPVlboh6le2g15QFQ2xZp
+	4iagh7FfUPho+2X8Bc0jDsnQ/oqelNZzMa1UkpxM1zAb+xrRojPGZX2ycnFx7xqBj/u3bGWwURr
+	FXMcogLbGMA==
+X-Received: from qtpp16-n2.prod.google.com ([2002:a05:622a:9d0:20b0:536:18bc:b19c])
+ (user=willemb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:622a:248a:b0:536:48e4:680f
+ with SMTP id d75a77b69052e-55d76a5b31emr326840661cf.30.1795656340388; Wed, 25
+ Nov 2026 17:25:40 -0800 (PST)
+Date: Wed, 25 Nov 2026 20:25:39 -0500
+In-Reply-To: <179532244301.3135.14806986987888080886@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,245 +79,88 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH v3 08/19] hugetlb_vmemmap: Expose whether HVO is enabled
- to architecture code
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <CADrL8HXM6Or4_7LM+D0XP9++4eENFt0J4ssShuXQxcmX8mAkoA@mail.gmail.com>
-Date: Thu, 26 Nov 2026 09:24:29 +0800
-Cc: Muchun Song <muchun.song@linux.dev>,
- Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Oscar Salvador <osalvador@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Nikos Nikoleris <nikos.nikoleris@arm.com>,
- Linu Cherian <linu.cherian@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- David Hildenbrand <david@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>,
- Nanyong Sun <sunnanyong@huawei.com>,
- Yu Zhao <yuzhao@google.com>,
- Frank van der Linden <fvdl@google.com>,
- David Rientjes <rientjes@google.com>,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <84A17A08-7A1B-4057-9BBB-BE9959A3B74D@linux.dev>
-References: <20261122184453.2668189-1-jthoughton@google.com>
- <20261122184453.2668189-9-jthoughton@google.com>
- <9487E341-5F59-4245-BE0E-EFDD413E45D2@linux.dev>
- <CADrL8HXPKfUhRaVhVyV6CPoQ2apZx1FCpyqyPMr=p=Q_kF3HBA@mail.gmail.com>
- <0EFB24F3-D3F2-4B28-9684-68CCCC1E80B8@linux.dev>
- <CADrL8HXM6Or4_7LM+D0XP9++4eENFt0J4ssShuXQxcmX8mAkoA@mail.gmail.com>
-To: James Houghton <jthoughton@google.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
+Mime-Version: 1.0
+References: <20261118042614.878448-1-vmukunda@marvell.com> <179532244301.3135.14806986987888080886@kernel.org>
+Message-ID: <willemb.25fe67ed9e671@google.com>
+Subject: Re: [PATCH net v2] octeontx2-af: widen TX scheduler queue index to 11 bits
+From: willemb@google.com
+To: netdev-bot+sashiko@kernel.org, vmukunda@marvell.com
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, sgoutham@marvell.com, 
+	rkannoth@marvell.com, gakula@marvell.com, sbhatta@marvell.com, 
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com, skoteshwar@marvell.com
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
 
-
-
-> On Nov 26, 2026, at 00:26, James Houghton <jthoughton@google.com> =
-wrote:
->=20
-> On Wed, Nov 25, 2026 at 6:24=E2=80=AFAM Muchun Song =
-<muchun.song@linux.dev> wrote:
->>=20
->>=20
->>=20
->>> On Nov 25, 2026, at 01:13, James Houghton <jthoughton@google.com> =
-wrote:
->>>=20
->>> On Mon, Nov 23, 2026 at 3:50=E2=80=AFAM Muchun Song =
-<muchun.song@linux.dev> wrote:
->>>>=20
->>>>> On Nov 23, 2026, at 02:44, James Houghton <jthoughton@google.com> =
-wrote:
->>>>> +/**
->>>>> + * hugetlb_vmemmap_optimize_enabled - whether HVO is enabled
->>>>> + *
->>>>> + * This only reflects the hugetlb_free_vmemmap=3D kernel command =
-line parameter
->>>>> + * and the vm.hugetlb_optimize_vmemmap sysctl, not whether the =
-architecture
->>>>> + * supports HVO (see arch_support_vmemmap_remap()).
->>>>> + *
->>>>> + * The value is final once early parameters have been parsed only =
-if the
->>>>> + * architecture selects =
-CONFIG_ARCH_HUGETLB_VMEMMAP_OPTIMIZATION_SYSCTL_RO;
->>>>> + * otherwise it may change at any time through the sysctl.
->>>>> + *
->>>>> + * Return: true if HVO is enabled.
->>>>> + */
->>>>=20
->>>> I don't think hugetlb_vmemmap_optimize_enabled() has clear =
-semantics.
->>>>=20
->>>> Its name suggests that it reports whether HVO is actually enabled =
-and
->>>> usable, but it only returns the policy bit set by Kconfig, the =
-command
->>>> line, or the sysctl. It may return true even when
->>>> arch_support_vmemmap_remap() is false. This is particularly =
-confusing
->>>> because arm64 calls it while determining the capability on which
->>>> arch_support_vmemmap_remap() itself depends. Therefore, the helper
->>>> really reports whether HVO was requested, rather than whether it is
->>>> enabled.
->>>=20
->>> I agree, the name is misleading.
->>>=20
->>>> Could we keep vmemmap_optimize_enabled private and let arm64 retain
->>>> the boot-time setting locally instead? For example, arm64 can use a
->>>> private hvo_enabled_at_boot variable with a
->>>> core_param(hugetlb_free_vmemmap, ...) registration. The system
->>>> capability is evaluated after core parameters have been parsed, and
->>>> arm64 makes the HVO sysctl read-only, so the value remains stable =
-for
->>>> system capability and late CPU verification.
->>>>=20
->>>> What do you think?
->>>>=20
->>>> +static bool hvo_enabled_at_boot __ro_after_init =3D
->>>> +       =
-IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON);
->>>> +core_param(hugetlb_free_vmemmap, hvo_enabled_at_boot, bool, 0);
->>>> +
->>>> static bool has_bbm_through_af(const struct arm64_cpu_capabilities =
-*caps, int scope)
->>>> {
->>>>       /* The kernel only enables HW AF updates with =
-CONFIG_ARM64_HW_AFDBM. */
->>>> @@ -2055,7 +2059,8 @@ static bool has_bbm_through_af(const struct =
-arm64_cpu_capabilities *caps, int sc
->>>>        * BBM-through-AF is only needed for HVO. If HVO is not in =
-use, don't
->>>>        * penalize systems with mismatched support.
->>>>        */
->>>> -       if (!hugetlb_vmemmap_optimize_enabled()) {
->>>> +       if (!IS_ENABLED(CONFIG_HUGETLB_PAGE_OPTIMIZE_VMEMMAP) ||
->>>> +           !hvo_enabled_at_boot) {
->>>>               /* Only valid if HVO cannot be enabled later via the =
-sysctl. */
->>>>               =
-BUILD_BUG_ON(!IS_ENABLED(CONFIG_ARCH_HUGETLB_VMEMMAP_OPTIMIZATION_SYSCTL_R=
-O));
->>>>               return false;
->>>>=20
->>>=20
->>> This is a good suggestion, but let me explain why I don't think we
->>> should do this:
->>>=20
->>> First of all, I'm changing the bbm_through_af capability from a
->>> SYSTEM_FEATURE to an EARLY_LOCAL_CPU_FEATURE, which means that
->>> has_bbm_through_af() will be evaluated before core_param()s are
->>> parsed. I could change it back to a SYSTEM_FEATURE, but I would =
-rather
->>> not do that. (See [1]).
->>=20
->> Actually you can use early_param.
->=20
-> You're right that they won't conflict (today I learned).
->=20
->>>=20
->>> I also don't like duplicate parsing of the same command line =
-argument.
->>> I'm not sure if there is precedent for this, but I feel like it will
->>> lead to confusion. (It is news to me that duplicate parsing like =
-this
->>> is valid, as long as they are not both core_param()? or
->>> early_param()s, I think?)
->>=20
->> I checked the command-line parsing paths, and having more than one
->> handler observe the same command-line option is supported. In
->> particular, it is not restricted to handlers of different types.
->>=20
->> do_early_param() walks the entire .init.setup table and invokes every
->> matching early_param() entry; it does not stop after the first match.
->> There are several existing examples:
->>=20
->> - "kfence.sample_interval=3D" is parsed early by the arm64 and =
-powerpc
->>  MM code and is parsed again by the generic KFENCE module_param_cb().
->>=20
->> - "pci=3D" is registered with early_param() in both
->>  arch/x86/kernel/acpi/boot.c and drivers/pci/pci.c.
->>=20
->> - "console=3D" is handled by an early_param() in
->>  drivers/tty/serial/earlycon.c and by __setup() in
->>  kernel/printk/printk.c.
->>=20
->> I agree that duplicate parsing should be used carefully, but these
->> handlers would not be competing to own the same state. The generic =
-HVO
->> code does not need to expose its internal policy state solely for =
-arm64
->> capability detection. Arm64 only needs a local snapshot of whether =
-HVO
->> was requested at boot in order to decide whether the BBM-through-AF =
-CPU
->> capability is needed.
->=20
-> How HVO is requested could change in the future, right? Like if a new
-> command line option is added, for example. I (strongly) feel like it's
-
-I don't think so. The command line is part of the user interface, and it
-doesn't change over time. Ever since HVO was introduced five years ago,
-it has remained unchanged.
-
-> better to provide arm64 a way to properly determine if HVO has been
-> requested, rather than parsing the "hugetlb_free_vmemmap" option
-> itself and trying to keep mm and arm64's parsing logic in sync. Even
-
-Sync? They don't need to sync with each other. For ARM64, it only needs
-to know one thing: whether HVO was enabled by the user at system =
-startup.
-And the only way for the user to enable it is via the command line, =
-which
-cannot change along with the code. Command line is the only source of =
-truth.
-
-> today, although the parsing logic is simple, duplicating is really not
-> ideal.
->=20
-> I feel like Will and Catalin will be opposed to having
-> `early_param(hugetlb_free_vmemmap)` in arm64 code, too.
-
-If that's really the case, how do they view "kfence.sample_interval"?
-
->=20
-> Also, doing it this way, if an invalid value is set, we would see
-> "Malformed early option" twice instead of just once.
-
-Yeah, but it is not a common situation, nor is it a major issue.
-
->=20
-> So let's just add that helper to expose whether or not HVO was
-> requested; I don't see anything wrong with that. Do you agree with
-> that?
-
-I'm not convinced we need a separate helper for this. A helper typically
-reflects runtime state, whereas arm64 only cares about the initial
-boot-time configuration. That is literally what the command line is =
-for=E2=80=94it
-already acts as that source of truth, just requiring a simple parse.
-
-Thanks,
-Muchun
-
->=20
->=20
->>=20
->>=20
->>>=20
->>> It would be much easier just to rename
->>> hugetlb_vmemmap_optimize_enabled() to
->>> hugetlb_vmemmap_optimize_requested() and properly document what it
->>> returns. Does that sound good to you?
->>>=20
->>> [1] =
-https://lore.kernel.org/linux-mm/CADrL8HUgo0zAHe7_eF1+hfTR6jBbZ=3DUKB1qPpM=
-WpksvqbNHsyw@mail.gmail.com/
->>=20
->>=20
-
+bmV0ZGV2LWJvdCtzYXNoaWtvQCB3cm90ZToNCj4gVGhhbmsgeW91IGZvciB5b3VyIGNvbnRyaWJ1
+dGlvbiEgU2FzaGlrbyBBSSByZXZpZXcgZm91bmQgMSBwb3RlbnRpYWwNCj4gaXNzdWUocykgdG8g
+Y29uc2lkZXIuDQoNCj4gQ3JpdGljYWw6IDAgwrcgSGlnaDogMSDCtyBNZWRpdW06IDAgwrcgTG93
+OiAwDQoNCj4gSWYgeW91IGJlbGlldmUgbm9uZSBvZiB0aGUgaXNzdWVzIGFyZSBsZWdpdGltYXRl
+LCBwbGVhc2UgcmVwbHkgdG8gZWFjaA0KPiBpc3N1ZSBvZiBNZWRpdW0gc2V2ZXJpdHkgb3IgaGln
+aGVyIGFuZCBleHBsYWluIHdoeSB0aGUgQUkgaXMgd3JvbmcuDQo+IElmIGFueSBvZiB0aGVtIGFy
+ZSBsZWdpdGltYXRlIGFuZCB5b3UgcGxhbiB0byByZXNwaW4sIHBsZWFzZSBsZXQgcGF0Y2h3b3Jr
+DQo+IGtub3cgYnkgaW5jbHVkaW5nICJwdy1ib3Q6IGNyIiBhcyBhIHNlcGFyYXRlIGxpbmUgYXQg
+dGhlIGVuZCBvZiB5b3VyIHJlcGx5DQo+IChvbmUgc3VjaCByZXBseSBwZXIgc2VyaWVzIGlzIGVu
+b3VnaCkuDQoNCj4gLSBbSGlnaF0gVGhpcyBwYXRjaCBmaXhlcyAxMS1iaXQgU01RIGluZGljZXMg
+b25seSBvbiB0aGUgTklYX1RYU0NIUV9DRkcNCj4gICAgcmVnaXN0ZXIgcGF0aCwgYnkgd2lkZW5p
+bmcgVFhTQ0hRX0lEWF9NQVNLIGFuZCBOSVhfVFhfU0NIUV9NQVNLLg0KDQo+IC0tDQoNCj4gb2N0
+ZW9udHgyLWFmOiB3aWRlbiBUWCBzY2hlZHVsZXIgcXVldWUgaW5kZXggdG8gMTEgYml0cw0KDQo+
+IFRoaXMgY29tbWl0IHdpZGVucyBUWFNDSFFfSURYX01BU0sgZnJvbSAxMCB0byAxMSBiaXRzIGFu
+ZCBleHRlbmRzDQo+IE5JWF9UWF9TQ0hRX01BU0sgdGhyb3VnaCBiaXQgMjYuIFdpdGggdGhhdCwg
+c2NoZWR1bGVyIHF1ZXVlIGluZGljZXMgb2YNCj4gMTAyNCBhbmQgYWJvdmUgYXJlIG5vIGxvbmdl
+ciB0cnVuY2F0ZWQgb24gdGhlIE5JWF9UWFNDSFFfQ0ZHIHJlZ2lzdGVyDQo+IHBhdGguIFRoZSB0
+YXJnZXQgaXMgQ04yMEssIHdoZXJlIHRoZSBTTVEgZmllbGQgb2YgdGhlIFNRIGNvbnRleHQgaXMg
+MTENCj4gYml0cyB3aWRlLg0KDQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbmV0L2V0aGVybmV0
+L21hcnZlbGwvb2N0ZW9udHgyL2FmL21ib3guaCAgDQo+IGIvZHJpdmVycy9uZXQvZXRoZXJuZXQv
+bWFydmVsbC9vY3Rlb250eDIvYWYvbWJveC5oDQo+ID4gaW5kZXggY2VjZTE5N2QxMDc0Yi4uMWI2
+MmY5ZDdmMDBhMCAxMDA2NDQNCj4gPiAtLS0gYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9tYXJ2ZWxs
+L29jdGVvbnR4Mi9hZi9tYm94LmgNCj4gPiArKysgYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9tYXJ2
+ZWxsL29jdGVvbnR4Mi9hZi9tYm94LmgNCj4gPiBAQCAtMTE2NCw3ICsxMTY0LDcgQEAgc3RydWN0
+IG5peF90eHNjaHFfY29uZmlnIHsNCj4gPiAgCXU4IGx2bDsJLyogU01RL01EUS9UTDQvVEwzL1RM
+Mi9UTDEgKi8NCj4gPiAgCXU4IHJlYWQ7DQo+ID4gICNkZWZpbmUgVFhTQ0hRX0lEWF9TSElGVAkx
+Ng0KPiA+IC0jZGVmaW5lIFRYU0NIUV9JRFhfTUFTSwkJKEJJVF9VTEwoMTApIC0gMSkNCj4gPiAr
+I2RlZmluZSBUWFNDSFFfSURYX01BU0sJCShCSVRfVUxMKDExKSAtIDEpDQoNCj4gW1NldmVyaXR5
+OiBIaWdoXQ0KPiBUaGlzIGZpeGVzIHRoZSB0eHNjaHEgcmVnaXN0ZXIgcGF0aC4gSXMgdGhlcmUg
+c3RpbGwgYW5vdGhlciBwbGFjZSBvbg0KPiBDTjIwSyB3aGVyZSBhbiBTTVEgaW5kZXggb2YgMTAy
+NCBvciBhYm92ZSBpcyBjdXQgZG93biB0byAxMCBiaXRzPw0KDQo+IG90eDJfc2V0dXBfZGV2X2h3
+X3NldHRpbmdzKCkgc2V0cyBDTjEwS19MTVRTVCBvbiBldmVyeSAhaXNfZGV2X290eDIoKQ0KPiBk
+ZXZpY2UsIGFuZCB0aGF0IGluY2x1ZGVzIENOMjBLLiBBcyBhIHJlc3VsdCwNCj4gb3R4Ml9wZmNf
+dXBkYXRlX3NxX3NtcV9tYXBwaW5nKCkgaW4gbmljL290eDJfZGNibmwuYyB0YWtlcyB0aGUgY24x
+MGsNCj4gcmVxdWVzdCBicmFuY2g6DQoNCj4gZHJpdmVycy9uZXQvZXRoZXJuZXQvbWFydmVsbC9v
+Y3Rlb250eDIvbmljL290eDJfZGNibmwuYzpvdHgyX3BmY191cGRhdGVfc3Ffc21xX21hcHBpbmco
+KSAgDQo+IHsNCj4gICAgICAuLi4NCj4gCWlmICh0ZXN0X2JpdChDTjEwS19MTVRTVCwgJnBmdmYt
+Pmh3LmNhcF9mbGFnKSkgew0KPiAJCWNuMTBrX3NxX2FxID0gb3R4Ml9tYm94X2FsbG9jX21zZ19u
+aXhfY24xMGtfYXFfZW5xKCZwZnZmLT5tYm94KTsNCj4gICAgICAuLi4NCj4gCQljbjEwa19zcV9h
+cS0+c3FfbWFzay5zbXEgPSBHRU5NQVNLKDksIDApOw0KPiAJCWNuMTBrX3NxX2FxLT5zcS5zbXEg
+PSBvdHgyX2dldF9zbXFfaWR4KHBmdmYsIHByaW8pOw0KPiAgICAgIC4uLg0KPiB9DQoNCj4gbml4
+X2NuMTBrX3NxX2N0eF9zLnNtcSBpcyBhIDEwLWJpdCBmaWVsZCwgc28gYml0IDEwIG9mIHRoZSBT
+TVEgaW5kZXggaXMNCj4gZHJvcHBlZC4gVGhlIG1hc2sgYWxzbyBjb3ZlcnMgb25seSBiaXRzIDk6
+MC4NCg0KPiBPbiB0aGUgQUYgc2lkZSwgd2hlbiBpc19jbjIwaygpIGlzIHRydWUsIG5peF9nZXRf
+YXFfcmVxX3NtcSgpIHJlYWRzDQo+IGV2ZXJ5IHJlcXVlc3Qgd2l0aCB0aGUgMTEtYml0IGNuMjBr
+IGxheW91dDoNCg0KPiBkcml2ZXJzL25ldC9ldGhlcm5ldC9tYXJ2ZWxsL29jdGVvbnR4Mi9hZi9y
+dnVfbml4LmM6bml4X2dldF9hcV9yZXFfc21xKCkgew0KPiAJaWYgKGlzX2NuMjBrKHJ2dS0+cGRl
+dikpIHsNCj4gCQkqc21xID0gKChzdHJ1Y3Qgbml4X2NuMjBrX2FxX2VucV9yZXEgKilyZXEpLT5z
+cS5zbXE7DQo+IAkJKnNtcV9tYXNrID0gKChzdHJ1Y3Qgbml4X2NuMjBrX2FxX2VucV9yZXEgKily
+ZXEpLT5zcV9tYXNrLnNtcTsNCj4gCQlyZXR1cm47DQo+IAl9DQo+ICAgICAgLi4uDQo+IH0NCg0K
+PiBJbiB0aGUgY24yMGsgbGF5b3V0LCBiaXQgMTAgc2l0cyB3aGVyZSB0aGUgY24xMGsgbGF5b3V0
+IGhhcyBjcV9lbmEsIGFuZA0KPiB0aGF0IGJpdCBpcyAwIGluIGJvdGggdGhlIHZhbHVlIGFuZCB0
+aGUgbWFzay4gU28NCj4gcnZ1X25peF9ibGtfYXFfZW5xX2luc3QoKSBjYWxscyBpc192YWxpZF90
+eHNjaHEoKSB3aXRoIChzbXEgJiAweDNmZikuDQo+IFRoZSBtYXNrZWQgQVEgd3JpdGUgdGhlbiBs
+ZWF2ZXMgYml0IDEwIG9mIHRoZSBleGlzdGluZyBoYXJkd2FyZSBTUQ0KPiBjb250ZXh0IHVuY2hh
+bmdlZC4NCg0KPiBEZXBlbmRpbmcgb24gdGhlIG9sZCBhbmQgbmV3IFNNUSwgd291bGQgdGhpcyBn
+aXZlIHRoZSBmb2xsb3dpbmc/DQoNCj4gICAgb2xkIDwgMTAyNCwgbmV3ID49IDEwMjQ6IHRoZSBT
+USBpcyBwcm9ncmFtbWVkIHRvIG5ldyAmIDB4M2ZmLCB3aGljaCBpcw0KPiAgICB0aGUgd3Jvbmcg
+U01RLCBvciB0aGUgb3duZXJzaGlwIGNoZWNrIHJlamVjdHMgdGhlIHJlcXVlc3QuDQoNCj4gICAg
+b2xkID49IDEwMjQsIG5ldyA+PSAxMDI0OiB0aGUgb3duZXJzaGlwIGNoZWNrIHJ1bnMgb24gYW4g
+U01RIHRoZQ0KPiAgICBmdW5jdGlvbiBwcm9iYWJseSBkb2Vzbid0IG93biwgc28gUEZDIGNvbmZp
+Z3VyYXRpb24gZmFpbHMuDQoNCj4gICAgb2xkID49IDEwMjQsIG5ldyA8IDEwMjQ6IHRoZSBBRiBh
+cHByb3ZlcyBTTVEgWCwgYnV0IHRoZSBoYXJkd2FyZSBpcw0KPiAgICBzZXQgdG8gWCB8IDB4NDAw
+LCB3aGljaCBtYXkgYmVsb25nIHRvIGFub3RoZXIgUEYgb3IgVkYuDQoNCj4gVGhlIENOMjBLIFNR
+IGluaXQgcGF0aCBpbiBjbjIway5jIHVzZXMgbml4X2NuMjBrX2FxX2VucV9yZXEgYW5kDQo+IHBy
+b2dyYW1zIGFsbCAxMSBiaXRzLiBUaGUgUEZDIHBhdGggZG9lcyBub3QsIGFuZCBpdCBpcyByZWFj
+aGFibGUgdGhyb3VnaA0KPiBkY2JubCBpZWVlX3NldHBmYyAtPiBvdHgyX3BmY190eHNjaHFfdXBk
+YXRlKCkgLT4NCj4gb3R4Ml9wZmNfdXBkYXRlX3NxX3NtcV9tYXBwaW5nKCkuDQoNCj4gVGhlIEZp
+eGVzOiB0YWcgcG9pbnRzIGF0IGI1ZGNkZGUwNzRkNSwgd2hpY2ggYWxzbyBhZGRlZCB0aGUgY24y
+MGsNCj4gZGVjb2RpbmcgaW4gbml4X2dldF9hcV9yZXFfc21xKCkuIFNob3VsZCB0aGUgUEZDIHJl
+bWFwIGJlIHVwZGF0ZWQgYXMNCj4gcGFydCBvZiB0aGlzIGZpeCB0b28/DQoNClBUQUwgYXQgdGhp
+cyBmaW5kaW5nLCBsb29rcyBsZWdpdA0KDQotLQ0KDQpwdy1ib3Q6IGNyDQoNCg==
