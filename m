@@ -1,87 +1,87 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795654425;
-	b=CKCbbe8woyCI0KQMXQIUyEV+jd9wMKn60jpuLXaGawEU6UPGBYOp6IVDRTreehIz3/b8
-	 huH/J/ob/Fn1RyY0gkhMlsZqYs69A5Mds+DmDHls7lHVhMajgKkLBaotdc/AtqnqqK74O
-	 C3NZQyCs0aXkdVXWNj+BosN1kfG7WA+YEl4x8BQsoaXIdGW8LiGp9Sg8i4RQyjuxx7ocG
-	 LWv6dicL8p28hZfvnkg2BEpAIQGqiMhnuzdR9w6DtA9hIBZL4d56abEXilJpMk9u6P6ek
-	 wlihzryOCLJLuLOKJocAWX1BBAy6hgqveIjDg1uWWWN/Dy3zsM/CpG4YUKClfzPV+kA==
+	t=1795654426;
+	b=0TuoobneNeW6PFzVXiOeHzBUmBspU19Xjalheh0CBztvCmSIfjAs8hENKb72dRInzNJW
+	 jPbwoEe5N1l3n9LQDKjGuRXMlzV1Qkozff/qRzLzLbaVrvd/33m4vEXFuVMF7cjPzBdly
+	 zS0iDaymn2y6cov4M43orE5cz7KSl9gytPsEOWTcVPSc4Bcvuf78uIC0zM1fYrUmqFVmP
+	 owX1pBTqcQcD5BiRaRYVQ+b2EThpHVFdTyjr314adrQeqCk7/Mc/ZOi07c41xaIK6GAxc
+	 mDBU6Majw/Xe4cL+deDhTdFvlZxNv+WpbV2tMKrnRrK4x79y5JjiDoOns8W2SyZwdwA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795654425;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795654426;
 	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
 	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=C7fC3wgsum3SPXPZYAvK25HkQx81CPAOUehXA+0wjt0=;
-	b=jKyifCvoEYTHCbJRHY3u6fPKtWb8/FipeLd9RJpU8pHR08wqS3BcoA7kTwizDtkMSGQC
-	 T9xRG3QDRD7gLHMFhV0bK4DO2VaIGY+dZnRSl0/Z0opaP/0lGI43qibHp9/3IAWa1W41e
-	 7AwovxBlFbBxvHDgOCPKINijRPNKjP2iD8csYvzoqoB5aEUIdXJ4F1FEciW8RlIi0M6MY
-	 WBH/i1E7W8e1ng72ubA7nbGr3LNCExt30T7CbuHr/webwrFPjTKu7NVFu1vTO+WLGM0ZQ
-	 okm8uu72GxGnyMNcqcs8Lt0kduFbFYcSF+bkqV2UJh6OaAsDPFhgAcjwtYvE4QpOgKg==
+	bh=ca4bK6MZ2HQnGLOhzDCaK8anxl2LjXQadd/L2dUOpiU=;
+	b=Jy5kkEaJ4gyDPGXaERvBI3cb8ydh5oYRtJP8CmniKTgj1ECib+432pxJgl77Xp5MhECs
+	 ZyTkfHmHuM2zzptCNs3M7Pxd/R+pxIv8W+gbgx8m57tV5shjLHJgh+9kAU2SDGF0wxt4I
+	 JK5ZDpQmodZEGlZWp7+dtQcHVAnfrfK3INV2gd8mKEMK8pz/L5iwMSuC3vfWBpm+OMWjt
+	 Tu6fo2ax2fYyHiosb4U31vpHejkr+q0yPyY/skBKRR8IyTktbAH8AH3X4biOtipYzJD9g
+	 dgoagl/EJ4TXRxDxr/+NFZb6JfoVhQm1tOyGmKxZrO9dqofiRU4GbwarLp8iQW3nPPg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hVulpL0t;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e3KgSD7o;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6601C606A331;
-	Thu, 26 Nov 2026 00:53:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41DF5606A68C;
+	Thu, 26 Nov 2026 00:53:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hVulpL0t
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e3KgSD7o
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
 	t=1795654425;
-	b=xqOPALzez/kgA7WE7kUsvRcziWj7i6KL/LwywPbFSugjJqKdwsIeJWDi80yTBUtvk7go
-	 2w5A2VRyFIjgLhjUM5AXbxcxbQ1xf57ned80oCp4btOQZjCoWAsu12XuIFBQ5k8MUxU0p
-	 6/kpPYqgCciyeQO25DtOduEn2f5lwqaBRnYKYvYxvz6NJq8dVN5qhMz/6b8tHHVEpeUYh
-	 9ZN/xt9gwS4WiDp/LuJqVo5ECuSE8YZhZrJvUrfy744WvMV1oHAZ0DBemvu/hYDWBU8d5
-	 JE5+/HI+VA153s5de4cZ4dlMdoL0gohi+Y3yu1wpRMhtmzFmJ1gMjV9jW18RPKmp+8w==
+	b=vb7GDZR6zpxxgCq4MVnamjKGTz0UcVzJyzYSHFwRLsTTFiZBsIitLt5ZV1nikAZMLy6s
+	 WTk4OuaPBmiS1VoV2/mib7oM+Iw6wJKnI1PG8pwBjOjwYxT83Kpe2SznJBhLEKcllOKkq
+	 S5DkKfKKnXQQsnz8Ts9FNOhVbskeeko/ssixRU7MC/G12Qso/tE6HFBQRx5D86Q1WmXqK
+	 PPXbGIrsiGgPh5/FDPmYiSfuwku4zXOloL4Vn6KyNhYv62VtWLffWWjoCw42I+893Nxh2
+	 7uWZYVfYJ+rwNfSzlkGZdy+71eRQ2Z8HQlNDh0po5pW39uYYCQdFi82T/cGHYsJI6Fg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
 	c=relaxed/relaxed; t=1795654425;
 	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
 	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=C7fC3wgsum3SPXPZYAvK25HkQx81CPAOUehXA+0wjt0=;
-	b=bB81w99L8xb7QQViu7tMdU8OApmep5OSpqbia/+pD9ysp3hVaU/3MGPBZ10hK9NwIpou
-	 3RGWd6nSrZV1np1sG9gBQBr9Boe12LswShFGXfPQhPpI3LHvLYEHz3Li82xZZu3PXKSKF
-	 kdtwJ/SxpHg+LmbgjmFZh+DC8NCGGZlnA52SxrnkNsEWDWl5uWFhnZ4cuYmK8lpUwrWtT
-	 bb4SCjtZZ8JWNI+NVX3SDN0T9mHk9KA4BLjGPeKYzd7smL+et7nv9VRWxCU3eCiKEMLNk
-	 7Zc8OIUhd0sCBc/qO3Og4qt6B+Q3zbXhGK8SVBjJbZUk2NIFTHPnWiriBzpEH6v2ADg==
+	bh=ca4bK6MZ2HQnGLOhzDCaK8anxl2LjXQadd/L2dUOpiU=;
+	b=Michyu24KSC/fBwnGAlzrF9cBA/DbFyK+j8zCUm0536d0ahOJon75ncLqtIRrvZ42qjS
+	 R5ekjBgka1wrK4REDGAZN96nXh7L7nJrwJT3IPR8KJIVojdnGAoVDBf3LSLDsIeLhzjjE
+	 TNfz+M1kQZb4xdXqGn5MkrUpLfZ8CsLWr2WMGTDQNXBSrjgEX4tAP6nh0rX8TAzbHa48V
+	 b8u8Tubn31hkOEJQKDzJlVqcCps1Br79mxhQOak2SbvNEt4um/Y+aVOA4nTkYGLToW5GS
+	 k7BPgJ8lhDzFI5uAQwbew82MY7eRDyJZrjzUesJ0FKOXMlFFX0u7i05IHDVPouq0dWg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 651B41F000C4;
-	Thu, 26 Nov 2026 00:53:35 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id AA9C61F01576;
+	Thu, 26 Nov 2026 00:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795654425;
-	bh=C7fC3wgsum3SPXPZYAvK25HkQx81CPAOUehXA+0wjt0=;
+	bh=ca4bK6MZ2HQnGLOhzDCaK8anxl2LjXQadd/L2dUOpiU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:Reply-To;
-	b=hVulpL0tjmoagAex2Z8QVjTDAZTMiJ7mT2llQFP/yIQtwXPSML9z2n10Dxxs1Buj1
-	 WMkoi41xrwyjBww1KvrHPNQxPl/ZuEjsUb5As1CT3aN+eoixkgykYDWz7YXj8nqVN3
-	 3/C/nyivp4zODRyukHL+1v+qQyhx6S5iUtVeoR2YgWBQ3MQpdNuIHY7ky2JqAC9FHX
-	 qH7t5WrRnUZYlavKZTbIhjxrxTxIPw7d5UsuI/dIez1n2l9G0SMN/5j3/ejZC7NwFp
-	 h2NyFVR+gJgXt3MJ+/t34WgaAxnQbW4K0H2sCJQYPx6o0qnpwTAPVymlOHDz8Wbc0S
-	 Drie9mEAgXgTA==
+	b=e3KgSD7okFRiZT8uzV3CGQca6L2kxap0VuRAdcjrj9BiolwDhGoCpKPeABQSdQAYw
+	 j0OEMudKbkDWXhNdvzapNWKujOzgS86HN/A/HgnuxNvXE73rRdWztsqA2wTItpWXCX
+	 lulRdzt/aLRYmaZticu9/9L7Pt+22BOE5Tc+lloJheoLx73X3HKWsImpaMVWw+g/29
+	 PfR4E4sYB/c6DJh1HsUotXE2RFpuzUnnSe8hEVu6xQY3GVYfC5bzPwB/cydpMgRDoX
+	 8dJU4h5FQiVTONpRuAl+bD6t24H1rOGGf8Qy+Oz9EvTOHPVLXT20Q+S/XJ6xbF9SCl
+	 l1S/YMdVMksfA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id C84B04D15F;
-	Thu, 26 Nov 2026 00:53:30 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 56CFD4D14B;
+	Thu, 26 Nov 2026 00:53:27 +0000 (UTC)
 From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
-To: peter.wang@mediatek.com, stanley.chu@mediatek.com, 
- martin.petersen@oracle.com, James.Bottomley@HansenPartnership.com
+To: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com, 
+ andy@kernel.org
 Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
- louisalexis.eyraud@collabora.com, linux-scsi@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 3/3] scsi: ufs: mediatek: round scalable clock bounds to
- clk_round_rate()
-Date: Thu, 26 Nov 2026 00:53:32 +0000
-Message-Id: <20261126005329.72010-4-iasnezhkov@gmail.com>
-In-Reply-To: <20261126005329.72010-1-iasnezhkov@gmail.com>
-References: <20261126005329.72010-1-iasnezhkov@gmail.com>
+ linux-iio@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH 2/3] iio: adc: mt6359: fix MT6357 ISENSE/VCDT and MT6358
+ VCDT request bits
+Date: Thu, 26 Nov 2026 00:53:28 +0000
+Message-Id: <20261126005326.71926-3-iasnezhkov@gmail.com>
+In-Reply-To: <20261126005326.71926-1-iasnezhkov@gmail.com>
+References: <20261126005326.71926-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,11 +93,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795654409; l=2887;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795654406; l=2491;
  i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
- bh=mD8c7Hrg16FM5GVQm6mflwliUTbJKeKdxA7+pMxBwPY=;
- b=icOI0pOOqC02NuGMr9RZfkRCctWnCrr3ty5yflwBN3AYW/idYojMNH1DD9jivfRBx8aAHsB5b
- H99BG076G07ClhinycvRB7CVNxN3BZd/utNVmZvoVj+X10rvIiRZB2Z
+ bh=3B3jZ9nN9K6Y8R/8aGmx1a/UI9Cb3COok/CghniWCxw=;
+ b=dd6O0BoT7zVbr3/ijU3id9VYkO/zWrPmeZ4o1U/ZKJtBKoanl8ztd1L2bFM7hUQdxC8DPorN2
+ D9D8CUsLq5ZArCzhvouqV67TwOjskPBiT4wXzj6OM0cAEmofd59UUit
 X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
  pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
 X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
@@ -108,81 +108,48 @@ Content-Transfer-Encoding: 7bit
 
 From: Ilia Snezhkov <iasnezhkov@gmail.com>
 
-ufshcd_devfreq_target() determines scale_up via an exact equality check
-against clki->max_freq after rounding the target frequency. When a DT
-freq-table-hz lists a nominal value that a PLL-derived clock cannot hit
-exactly (for example, msdcpll_d2 on MT6789 delivers 191999939 Hz for a
-192000000 Hz DT maximum), clk_round_rate() produces a rate that never
-equals clki->max_freq, so devfreq scales down once and can never scale
-back up.
+mt6357_auxadc_ch_desc[] sets req_bit to 0 for both ISENSE and VCDT, and
+mt6358_auxadc_ch_desc[] sets req_bit to 0 for VCDT. Bit 0 of
+PMIC_AUXADC_RQST0 triggers BATADC (ADC0) rather than ISENSE (ADC1) or
+VCDT (ADC2), so polling the ready bit of ADC1/ADC2 times out unless the
+channel was triggered externally.
 
-Round clki->max_freq and clki->min_freq with clk_round_rate() in
-ufs_mtk_init_clocks() for ufs_sel (and ufs_fde when present) before
-ufshcd_devfreq_init() builds the OPP table from those bounds, keeping
-clki->curr_freq synchronized with the rounded bound and skipping the
-adjustment if rounding fails, overflows u32, or collapses min >= max.
+Use the actual hardware request bits in PMIC_AUXADC_RQST0: bit 1 for
+MT6357 ISENSE and bit 2 for MT6357/MT6358 VCDT (matching MT6363 VCDT
+and the MediaTek PMIC AUXADC hardware registers).
 
-Found on hardware and drafted with an AI coding assistant.
+Found and drafted with an AI coding assistant.
 
-Fixes: b7dbc686f60b ("scsi: ufs: ufs-mediatek: Support clk-scaling to optimize power consumption")
+Fixes: 3587914bf61d ("iio: adc: Add support for MediaTek MT6357/8/9 Auxiliary ADC")
 Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 35 +++++++++++++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
+ drivers/iio/adc/mt6359-auxadc.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 09b7993..b4fa2b9 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -967,6 +967,37 @@ static u32 ufs_mtk_get_ufs_hci_version(struct ufs_hba *hba)
- 	return hba->ufs_version;
- }
+diff --git a/drivers/iio/adc/mt6359-auxadc.c b/drivers/iio/adc/mt6359-auxadc.c
+index 54c9048..4a66253 100644
+--- a/drivers/iio/adc/mt6359-auxadc.c
++++ b/drivers/iio/adc/mt6359-auxadc.c
+@@ -224,8 +224,8 @@ static const struct iio_chan_spec mt6357_auxadc_channels[] = {
  
-+static void ufs_mtk_round_clk_freq(struct ufs_hba *hba,
-+				   struct ufs_clk_info *clki)
-+{
-+	long max_rounded, min_rounded;
-+
-+	if (!clki->clk || !clki->max_freq || !clki->min_freq)
-+		return;
-+
-+	max_rounded = clk_round_rate(clki->clk, clki->max_freq);
-+	min_rounded = clk_round_rate(clki->clk, clki->min_freq);
-+	if (max_rounded <= 0 || min_rounded <= 0 ||
-+	    min_rounded >= max_rounded || max_rounded > U32_MAX)
-+		return;
-+
-+	if (max_rounded != clki->max_freq) {
-+		dev_dbg(hba->dev, "%s: max_freq %u rounds to %ld\n",
-+			clki->name, clki->max_freq, max_rounded);
-+		if (clki->curr_freq == clki->max_freq)
-+			clki->curr_freq = max_rounded;
-+		clki->max_freq = max_rounded;
-+	}
-+
-+	if (min_rounded != clki->min_freq) {
-+		dev_dbg(hba->dev, "%s: min_freq %u rounds to %ld\n",
-+			clki->name, clki->min_freq, min_rounded);
-+		if (clki->curr_freq == clki->min_freq)
-+			clki->curr_freq = min_rounded;
-+		clki->min_freq = min_rounded;
-+	}
-+}
-+
- /**
-  * ufs_mtk_init_clocks - Init mtk driver private clocks
-  *
-@@ -1022,6 +1053,10 @@ static void ufs_mtk_init_clocks(struct ufs_hba *hba)
- 		return;
- 	}
+ static const struct mtk_pmic_auxadc_chan mt6357_auxadc_ch_desc[] = {
+ 	MTK_PMIC_ADC_CHAN(BATADC, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
+-	MTK_PMIC_ADC_CHAN(ISENSE, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
+-	MTK_PMIC_ADC_CHAN(VCDT, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
++	MTK_PMIC_ADC_CHAN(ISENSE, PMIC_AUXADC_RQST0, 1, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
++	MTK_PMIC_ADC_CHAN(VCDT, PMIC_AUXADC_RQST0, 2, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+ 	MTK_PMIC_ADC_CHAN(BAT_TEMP, PMIC_AUXADC_RQST0, 3, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+ 	MTK_PMIC_ADC_CHAN(CHIP_TEMP, PMIC_AUXADC_RQST0, 4, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+ 	MTK_PMIC_ADC_CHAN(ACCDET, PMIC_AUXADC_RQST0, 5, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+@@ -271,7 +271,7 @@ static const struct iio_chan_spec mt6358_auxadc_channels[] = {
  
-+	ufs_mtk_round_clk_freq(hba, host->mclk.ufs_sel_clki);
-+	if (host->mclk.ufs_fde_clki)
-+		ufs_mtk_round_clk_freq(hba, host->mclk.ufs_fde_clki);
-+
- 	/*
- 	 * Default get vcore if dts have these settings.
- 	 * No matter clock scaling support or not. (may disable by customer)
+ static const struct mtk_pmic_auxadc_chan mt6358_auxadc_ch_desc[] = {
+ 	MTK_PMIC_ADC_CHAN(BATADC, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 128, 3, 1),
+-	MTK_PMIC_ADC_CHAN(VCDT, PMIC_AUXADC_RQST0, 0, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
++	MTK_PMIC_ADC_CHAN(VCDT, PMIC_AUXADC_RQST0, 2, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+ 	MTK_PMIC_ADC_CHAN(BAT_TEMP, PMIC_AUXADC_RQST0, 3, PMIC_AUXADC_IMP0, 8, 8, 2, 1),
+ 	MTK_PMIC_ADC_CHAN(CHIP_TEMP, PMIC_AUXADC_RQST0, 4, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
+ 	MTK_PMIC_ADC_CHAN(ACCDET, PMIC_AUXADC_RQST0, 5, PMIC_AUXADC_IMP0, 8, 8, 1, 1),
 -- 
 2.54.0 (Apple Git-157)
 
