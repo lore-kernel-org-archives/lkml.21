@@ -1,44 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.236.53.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795659346;
-	b=a+KiNznNSNtx0Ln8XctrIjRHQ8BfGXdAJ+kKg5rFh5FwuSGG4QlBC1htqcdCXYaDnX7R
-	 G8kV5r4u893+k/yVpWDW3/XZzd8IQyMjO3xGRXnKQ4yj8drnTNRceZBe5nuMPgXDuB68W
-	 FQ0eafxOGVbiTGSqiFtnuU8fBV7Ekmqs2XdYEILAIqUMb3DUyE9hy6ViZqyTlU78WjyYy
-	 XqytgbrIbABhDkuV6vyewuK5y+4kvJiFuoSq4gi76ymlpRWPK7c82JfO9k2AGFXxmTKfY
-	 0PnW3RbGerEwwwb7X8Ww4IdPll+PW2n99TfVsNXjyBOcQ4e1f8bNBCRB/QH3XILibgg==
+	t=1795659361;
+	b=xsmsYCmsG9cMWrkI3t3XsoNnLu+BWUw9tmLJEn9yQ1GG5MEsGsB2FnUk7uD/ih8hEveK
+	 scT94tLLx2W2XbT9QRblprmmtmcGK+NB/xe95aeY6CzVXPRk6/NxKSU7G4fQHHwPcwVnM
+	 PhCj5DRJc0QvGBSiFKHS+a6Pzxhra8vdVrsyicVtrIlYNFC3B71JMiLL+ju2hP5AkzSbE
+	 b3gwTwg/C5qM7bA1aeNCBxuXTs8+mW6mMJy93W1tFB2IMTmQjxrtlKJ7AEOtPt3sQ/Qfc
+	 DZi2HLkonEFZXCcyxIvU+tNONcBY/km/JuUmQYhZ5DHcDDvlNklAryrry0sjEULBCpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795659346;
-	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=e+L8DXa2pMmItKQ77PKVtwOFGhGZJEc9cY2y3OfdnN8=;
-	b=x7OZ/OPX6LAgoGfPVtKmsyPeAYYs9GNcHb0oH1w9JYWoa5dhy5UoJa5gX0nx2I7Y/Zh2
-	 jmMBmvHM1KWOnfFmYRSra7Il9SwP8JKPP5+Uc0Gon0jOfwilYseQimnI7lRdU1jvjdag7
-	 q7nx1rHIghTM2mxgbAMgUuDvYX88/84CvbdDljvDi9fMh/VX6Je7khGcvgatPvOqNa0bY
-	 HzOtChZG/+y1FWcNEqMMl01DTukRNyz9+7rRuAVe9doQOXkmmEDzdPpBc2UhF8EN3FnLf
-	 EafIwfPgKEkQbOqHg8ycIHOSuubYAgWzxVjd0CZX/702PuRywxujZ8yGNJC8XpK3YGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795659361;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=uXljqLOV8atwMe66h5CYd6U8JQxJsBjKYHxdSUZJCzc=;
+	b=Zv4M0LCHGkhQUVmjDffwjMm3MqJao9HirICyWRwjMQRfH5s/vDnpQ29ZiXmGyUh+8bYo
+	 kwFBXxXBYx+cv62Sf7aHo+jwfSo9TKD0d3jJ3qI94MCihKJa3QQ38qhvQ/E1fUPvu5Gyv
+	 ZP/pjvFP9vd2XZ/lUJpO0Z0y3dn4gj7+gJEV6lohTlO7qrqwnR1ScyJALt580nZxWpGHT
+	 oFLmC+zteLqooUX0PfopiuCpk7M2Cq/HSxg3JPdJE3zjyTWP7My/E3583U3EomgP01HYw
+	 YvZAIenvu2hm4GcrMsi1rtJ5f0H7jCw0WWGmb2wfm5+52S8KZJ2nwHq6OY2RWGZvWXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rock-chips.com;
-	spf=pass smtp.mailfrom=rock-chips.com;
-	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b="S/HsVM5Y";
-	arc=none smtp.remote-ip=160.236.53.170
-Received: from mail-m16023653170.xmail.ntesmail.com (mail-m16023653170.xmail.ntesmail.com [160.236.53.170])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WxSUjLuy;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2044606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:15:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2044606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A010606A31E;
+	Thu, 26 Nov 2026 02:16:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=S/HsVM5Y
-Received: from [127.0.0.1] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5609a9a43;
-	Thu, 26 Nov 2026 10:15:32 +0800 (GMT+08:00)
-Message-ID: <4476d230-aad2-4514-88cc-77535b2e04b2@rock-chips.com>
-Date: Thu, 26 Nov 2026 10:15:25 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WxSUjLuy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD6571F000C6;
+	Thu, 26 Nov 2026 02:15:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795659360;
+	bh=uXljqLOV8atwMe66h5CYd6U8JQxJsBjKYHxdSUZJCzc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=WxSUjLuyPTLWYzWPEcrW35/WUBlKF1is/wlBA+GYIirQ3HKW+kpMKiFY6nT14xgb+
+	 k5WnTEK08111uaNt1Ajh9HwyzW1wlEZI6Ew+PPR8z1W/32m3vL0hH8775crFrg6U0O
+	 72lMFoufauvZ8/21XMTSXmvqyVknmZbtXkBYWnkMl9zLTGzoMERWk4Neq5G+ZgLgd+
+	 kVkOxdkfr3Q1CCSdtUPu9lgP/7fkA8YlA9C75L3n5fv4NIbOcuDlik+90lU9VhkZAD
+	 +QwT3xqnqfIJPci7fWhKjRuSHpBu2LoZirhU/Oqzpva9KHzfMS+6UfkVRUAp3xUZN/
+	 X4RD+3oDSUI+A==
+Date: Thu, 26 Nov 2026 02:15:52 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Shehryar Ahmad <shehryar.amd@gmail.com>
+Cc: Antoniu.Miclaus@analog.com, Dragos.Bogdan@analog.com,
+ Michael.Hennerich@analog.com, Nuno.Sa@analog.com, Robert.Budai@analog.com,
+ andy@kernel.org, dlechner@baylibre.com, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux@analog.com, radu.sabau@analog.com
+Subject: Re: [PATCH] iio: imu: adis_buffer: fix buffer ordering for IIO core
+ demultiplexing
+Message-ID: <20261126021552.2f0bc71e@jic23-hlaptop>
+In-Reply-To: <543edf51-d9d0-4f18-a977-e557309914f5@gmail.com>
+References: <20261124213118.63979-1-shehryar.amd@gmail.com>
+	<543edf51-d9d0-4f18-a977-e557309914f5@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,116 +63,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/rockchip: vop2: Reset the AXI master in vop2_enable()
-To: Tim Surber <me@timsurber.de>
-Cc: Heiko Stuebner <heiko@sntech.de>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Sandy Huang <hjc@rock-chips.com>, Andy Yan <andyshrk@163.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Daniel Stone <daniel@fooishbar.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261125204511.2867433-1-me@timsurber.de>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <20261125204511.2867433-1-me@timsurber.de>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa215a2fa2103a7kunmf50d3293eda2db
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTh1NVhhJHRlMGEJPShhDGFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=S/HsVM5YLJ6VgxeQtTKKUrnj3ObtubRSAM/G+sEkeIUaLPNApiI8CrdE7spd+UWDEmRDOvu2yOwCofOyhxTRTVwZhsgtlQN7sf0X1QOV61OpGIowEEF/H8ABvmuvPFPfpnmURH3RhoKo5F8jGiGmLwPuL+/0+DBYwUYZnE7wkxM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=e+L8DXa2pMmItKQ77PKVtwOFGhGZJEc9cY2y3OfdnN8=;
-	h=date:mime-version:subject:message-id:from;
 
-Hi Tim,
+On Wed, 25 Nov 2026 05:08:33 +0500
+Shehryar Ahmad <shehryar.amd@gmail.com> wrote:
 
-On 11/26/2026 4:45 AM, Tim Surber wrote:
-> Asserting the AXI reset in vop2_disable(), while the IOMMU is still
-> attached, can hang RK3588 hard when buffers are mapped into or unmapped
-> from the VOP's IOMMU domain at the same time, e.g. when a KMS client
-> exits and fbcon takes the display back.
+> sorry, this missed adding export symbol for find_channel_from_si()
+> and fixes tag, will send in v2 shortly :)
 > 
-> Do the reset in vop2_enable() instead, before the IOMMU is attached,
-> where the AXI master is idle.
-> 
-> Fixes: 67a391e50271 ("drm/rockchip: vop2: Reset AXI and DCLK to improve robustness")
-> Signed-off-by: Tim Surber <me@timsurber.de>
-> ---
-> 
-> On my RK3588 board (FriendlyElec CM3588) the AXI reset in vop2_disable()
-> sometimes hangs the SoC hard when the last CRTC is switched off. Without
-> the reset there, it does not happen.
-> 
-> Here is a minimal reproducer. Run it as root, with a display on HDMI and
-> fbcon on it:
-> 
->   python3 - <<'EOF' &
->   import fcntl, os, struct
->   fd = os.open("/dev/dri/by-path/platform-display-subsystem-card", os.O_RDWR)
->   try:
->       fcntl.ioctl(fd, 0x641F)        # DRM_IOCTL_DROP_MASTER: leave KMS to fbcon
->   except OSError:
->       pass
->   while True:
->       b = bytearray(struct.pack("6IQ", 2160, 3840, 32, 0, 0, 0, 0))
->       fcntl.ioctl(fd, 0xC02064B2, b)                         # DRM_IOCTL_MODE_CREATE_DUMB
->       handle = struct.unpack("6IQ", b)[4]
->       fcntl.ioctl(fd, 0xC00464B4, struct.pack("I", handle))  # DRM_IOCTL_MODE_DESTROY_DUMB
->   EOF
->   while :; do
->   	echo 4 > /sys/class/graphics/fb0/blank; sleep 0.3
->   	echo 0 > /sys/class/graphics/fb0/blank; sleep 0.7
->   done
-> 
-> Without this patch the board hangs within a few blank cycles. With it,
-> 300 cycles ran without a hang.
-> 
-> 
->  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> index 76d151b8bc52..a86ac9173aac 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> @@ -913,6 +913,9 @@ static int vop2_enable(struct vop2 *vop2)
->  	if (ret)
->  		goto err_put_pm;
->  
-> +	/* Reset while idle; doing it in vop2_disable() can hang the SoC */
-> +	vop2_reset_assert_deassert(vop2, vop2->axi_rst);
-> +
->  	ret = rockchip_drm_dma_attach_device(vop2->drm, vop2->dev);
->  	if (ret) {
->  		drm_err(vop2->drm, "failed to attach dma mapping: %d\n", ret);
-> @@ -973,8 +976,6 @@ static int vop2_enable(struct vop2 *vop2)
->  
->  static void vop2_disable(struct vop2 *vop2)
->  {
-> -	vop2_reset_assert_deassert(vop2, vop2->axi_rst);
-> -
->  	rockchip_drm_dma_detach_device(vop2->drm, vop2->dev);
-> 
+You can add markings to say that your series is on top of a particular
+patch on this list.  That function is already exported on my tree
+but I'm guessing sashiko tripped up because I haven't pushed that out
+so that next picks it up yet.  Hence provide the message ID so
+sashiko knows what to look for.  The b4 tool has settings to do this
+automatically for you.
 
-This looks great. But what happens if you place 
-vop2_reset_assert_deassert() after rockchip_drm_dma_detach_device()?
+Thanks
 
->  	regcache_drop_region(vop2->map, 0, vop2_regmap_config.max_register);
-> 
-> base-commit: 479e381e77dcde0dfcc9d51e89ff3273da199804
+Jonathan
 
--- 
-Best, 
-Chaoyi
+
+
