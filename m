@@ -1,58 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.108.3.25
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795688673;
-	b=Ru877SUGLpCOfsje5ysIIs2xQbnYwgt3TGmuT5aHc7H4JkUvDTXBbv8AHGG7wHprH8nZ
-	 hhLzuIqmZonXUFAPIZF+LoplIG/uOqn0onWJKfTY0EFcQmBdAx5LAmc5Pd4BjtRbsSIaE
-	 tKe9lik/SsFXYptay7QwX9jFJn9VYhBeI+LJYvmAi57fV3WoSdQOK8gSXct83a4oO8bYu
-	 GTyLNYZDqy7gShNfem2ntNj8dOWjVPR1nv6i680m30L8aM7Zb5a4OCj3x3cgOfgbMnpju
-	 9BdGCYOPhsxeZEhQ/Tr4knchimJ3TJI80BWkX0ykLN1lqSs3cBKx5vIyMvtoWm2RwPQ==
+	t=1795688745;
+	b=OlYJwPIkogft2jTdY2j2wCCE+/4l5nlAdFw6hNdQw1tXRinjHCLFtxyQb/BR4/GkY7QX
+	 NY5R1B0WxMDSV3Uf0K5y6f1EFGrmD6Di6B4aw8gM0nzdyDvPpOp0C/6J0QQ7i+JLMx2AU
+	 ME9k47uI9rwJ8v7EpFbltc0htZnz6tiEsOL48N7yZZkUJYjWFZ2CF8AqmC+ugqcyzB2l5
+	 UwYrmMTrCChZ+F+x01iB1/fCst5en6iMtMQI/LL5pMSbMVa4bEYqpW6fYZIm61sD2ZIDJ
+	 Gb8dl+l5GK3Nu+uVfTOR5mAU7HzYsq1l8p4juTfRoKhXlrwwgi9TV3PBc1G4fpvaDtw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795688673;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=HWXhD2T0YqRDo710NdzVWCmw80S5rSuIE5qAwGglR9Q=;
-	b=pL1LmhWvIz1MgQaMw5HLL9G64Hro1V09PFVk2V1CZ067X7XjdJSOJfN+akPM7OKBt+hh
-	 Lq4wYg2cNl+EmMdxnbEOUC+QHn2oDm9Ul6CmgA9A7dltVX9BWwF0THFnW/ITbpAqi9gwj
-	 MIfWmT6S1b4TL7mx7mw6eyw7sa7tn1o7F7WDFAOBsR5UGNqfB5FGzorzD5hbqKx+dKfLi
-	 7EDxtjIWhbIaOrG1OJ9l7XLz0GVVuFm0Y8/iIIOQWlqJ/iI3NULn+GrFXv+COHNX1R5do
-	 E2FWRbdJ28OkYP9Yw4ayXlAUv1tyvIfi/sHy0n6i3JVux/UY4pJp0QAd6P2G7wNlKnA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795688745;
+	h=DMARC-Filter:DKIM-Signature:X-SMAIL-HELO:Received:X-Sender:X-Auth-ID:
+	 X-SMAIL-MID:X-SMAIL-UIID:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=jthhRIKqLsrI5bidwrGNOrDnDu8pY167/Ro8kEMZrKg=;
+	b=1ts9I1a4e0twv237xf2GENysXbMU1c8j2lnL2l/FdMwm9dQJwSKICXpKkX9/BMad4tNr
+	 F4028oLyjyE++hVEsaZT1sn8dUiJ9627xYkQdQG/XG1llEEYpXiqAXMc3B4WCH36a/tLG
+	 PyMJxoNKXY7zN4LfnYZdaRrvyaDRKoU4f9nun77gVoOke++dcpe55BrNT8OLGEfT57ZFV
+	 +QxdpGShXIhtJGl5Dr54Fo+ohrgyGQPl10vLpliTVmp6hlH3IXz+hge1MbNePGIE5PwIT
+	 iN0od1wZkWAXC3LXKwRxPQXNQD8kYPC3wYSYtwQspIZT9jlAW/HHKYPDNJv//teVIpw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=hT2tNv90;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=sina.com;
+	spf=pass smtp.mailfrom=sina.com;
+	dkim=pass header.d=sina.com header.i=@sina.com header.a=rsa-sha256 header.s=201208 header.b=0BOaysNu;
+	arc=none smtp.remote-ip=202.108.3.25
+Received: from r3-25.sinamail.sina.com.cn (r3-25.sinamail.sina.com.cn [202.108.3.25])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F734606A31E;
-	Thu, 26 Nov 2026 10:24:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F734606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85C8C606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:25:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85C8C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=sina.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sina.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=hT2tNv90
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id B0704C2B9C6;
-	Thu, 26 Nov 2026 10:24:39 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6E7F660237;
-	Thu, 26 Nov 2026 10:24:31 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CA70211E6A5EC;
-	Thu, 26 Nov 2026 11:24:28 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795688670; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=HWXhD2T0YqRDo710NdzVWCmw80S5rSuIE5qAwGglR9Q=;
-	b=hT2tNv90ahKjUQOa2PA9w+ig6qobgxqJGnnsNUsMe71Jj8uMN8jI0+7woKeG0XQaba8s0o
-	0rAl+v6dGXw4zWstY2by8epYPzTD5qX1FVC1uOwpzCXMj/WMNc3WlmvZm4NSX/XIvKuUtW
-	hauygcBny7aVlM+8z562vmsGNdssOq23cbAQyamxzOAtiIyXLuk+9+I7R6nF3vyIXQa8I1
-	ERBxzOI9xKVeJFR7U/5t3dHbdxa1y4cgcpbO2kj+tkIjnA5xEzjXeIDBLyZDweWd1yb5K2
-	HW8RIJYF3jsf2v2aGJ1gp/H/bR9/4AKnOtOKsGIv1UbbIAaM9Qz2PXhe93g5Tw==
-Message-ID: <0e983410-bc97-46cf-9ee0-c4cd11dcfa64@bootlin.com>
-Date: Thu, 26 Nov 2026 11:24:28 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=sina.com header.i=@sina.com header.a=rsa-sha256 header.s=201208 header.b=0BOaysNu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sina.com; s=201208; t=1795688743;
+	bh=jthhRIKqLsrI5bidwrGNOrDnDu8pY167/Ro8kEMZrKg=;
+	h=From:Subject:Date:Message-ID;
+	b=0BOaysNuf75afR82rE9i2FZAgFXukdslFRxkSUwmulBjBU8f3UzA6dxyskXhcmHxn
+	 azt/chOSHHPybR8tRccyd+hwySXH4wnQQImv8OGWk/zI+9GHtkj9SEfd5G4UclA/XC
+	 7Ou7z57udGTcd9kwlSiwSKUC/x2HZgIBZFMC8WVY=
+X-SMAIL-HELO: lxu-pcd
+Received: from unknown (HELO lxu-pcd)([111.198.225.163])
+	by sina.com (10.54.253.31) with ESMTP
+	id 6B08091A0000565B; Thu, 26 Nov 2026 18:25:34 +0800 (CST)
+X-Sender: eadavis@sina.com
+X-Auth-ID: eadavis@sina.com
+Authentication-Results: sina.com;
+	 spf=none smtp.mailfrom=eadavis@sina.com;
+	 dkim=none header.i=none;
+	 dmarc=none action=none header.from=eadavis@sina.com
+X-SMAIL-MID: 3359536815936
+X-SMAIL-UIID: A9910DC47D25456C85CF816111D3448D-20261126-182534-1
+From: Edward Adam Davis <eadavis@sina.com>
+To: syzbot+97fde463a8ffb9e839d2@syzkaller.appspotmail.com
+Cc: tj@kernel.org,
+	jiangshanlai@gmail.com,
+	linux-kernel@vger.kernel.org,
+	syzkaller-bugs@googlegroups.com
+Subject: [PATCH] workqueue: Avoid noise generated by real-time tasks
+Date: Thu, 26 Nov 2026 18:25:30 +0800
+Message-ID: <20261126102530.37205-1-eadavis@sina.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <6b0576ba.a481e175.27cf24.0027.GAE@google.com>
+References: <6b0576ba.a481e175.27cf24.0027.GAE@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,41 +71,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/10] Congatec Board Controller: Add storage devices
- support
-To: Lee Jones <lee@kernel.org>, Andi Shyti <andi.shyti@kernel.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Werner Gartner <Werner.Gartner@congatec.com>, mfd@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- stable@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
-References: <20261117-cgbc-i2c-storage-devices-support-v6-0-bb070ad3e9aa@bootlin.com>
- <20261119190350.GB70182@joneslee-macbookpro.roam.internal>
-Content-Language: en-US
-From: Thomas Richard <thomas.richard@bootlin.com>
-In-Reply-To: <20261119190350.GB70182@joneslee-macbookpro.roam.internal>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
-On 11/19/26 8:03 PM, Lee Jones wrote:
-> On Tue, 17 Nov 2026, Thomas Richard (congatec GmbH) wrote:
-> 
->> This is the 6th iteration. As discussed with Lee [1] I just picked his I2C
->> patch [2] (to handle the conflict) and rebased the series on top of
->> next-20261116.
->>
->> [1] https://lore.kernel.org/all/c9d26395-93f8-4e63-9cd0-586ce913931b@bootlin.com/
->> [2] https://lore.kernel.org/all/20261027093306.2812695-27-lee@kernel.org/
-> 
-> I assume this all needs to go in at once?
-> 
-> So we just need the I2C Acks, then I can take the set and send out a PR.
+A user creates a SCHED_FIFO real-time thread and pins it to CPU0, and arm
+watchdog timer on CPU1 with 3s threshold. The real-time thread runs for an
+extended period without voluntarily yielding the CPU, preventing standard
+kworker threads on CPU0 from gaining access to the processor.
 
-Hi Andi,
+As a result, certain kernel works cannot be executed in a timely manner,
+which may even trigger a watchdog report:
 
-Could you have a look to the I2C patches, Lee is waiting your ack to
-apply the series in his tree.
+BUG: workqueue lockup - pool cpus=0 node=0 flags=0x0 nice=0 stuck for 5s!
+Showing busy workqueues and worker pools:
+workqueue mm_percpu_wq: flags=0x108
+  pwq 2: cpus=0 node=0 flags=0x0 nice=0 active=1 refcnt=2
+    pending: vmstat_update
 
-Best Regards,
-Thomas
+To address this, a check for CPU-bound tasks has been added to the work
+pool; this helps prevent false-positive reports caused by prolonged CPU
+occupancy by real-time tasks.
+
+Fixes: 82607adcf9cd ("workqueue: implement lockup detector")
+Reported-by: syzbot+97fde463a8ffb9e839d2@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=97fde463a8ffb9e839d2
+Signed-off-by: Edward Adam Davis <eadavis@sina.com>
+---
+ kernel/workqueue.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/kernel/workqueue.c b/kernel/workqueue.c
+index af845214e78b..daf7aad79062 100644
+--- a/kernel/workqueue.c
++++ b/kernel/workqueue.c
+@@ -52,6 +52,7 @@
+ #include <linux/uaccess.h>
+ #include <linux/sched/isolation.h>
+ #include <linux/sched/debug.h>
++#include <sched/sched.h>
+ #include <linux/nmi.h>
+ #include <linux/kvm_para.h>
+ #include <linux/delay.h>
+@@ -8202,6 +8203,8 @@ static void wq_watchdog_timer_fn(struct timer_list *unused)
+ 		 * is a hotter path.
+ 		 */
+ 		if (time_after(now, ts + thresh)) {
++			struct task_struct *p;
++
+ 			scoped_guard(raw_spinlock_irqsave, &pool->lock) {
+ 				pool_ts = pool->last_progress_ts;
+ 				if (time_after(pool_ts, touched))
+@@ -8212,6 +8215,11 @@ static void wq_watchdog_timer_fn(struct timer_list *unused)
+ 			if (!time_after(now, ts + thresh))
+ 				continue;
+ 
++			p = pool->cpu >= 0 ? cpu_curr(pool->cpu) : NULL;
++			if (p && (p->policy == SCHED_FIFO ||
++				  p->policy == SCHED_RR))
++				continue;
++
+ 			lockup_detected = true;
+ 			stall_time = jiffies_to_msecs(now - pool_ts) / 1000;
+ 			max_stall_time = max(max_stall_time, stall_time);
+-- 
+2.43.0
+
