@@ -1,106 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683552;
-	b=aZ5g1A2oFtnZ3MBT0vUyyzJO00Y38Z0NTWc5W0t78jxSM7pjUv851d8lXgGIihfyQP8d
-	 ctZAjicBLqmz9CFZB7vSUC4IhC8FTrjZPQcCXeebIVrWxUNCI26Rqn4XHj8yJlVbNop6R
-	 4KlnsWgkDSr3TvN4V5LhpwQkMETubIlKTzLgg0/V1Qm/FSwaqfUw/DdlATfYFIeinRp0E
-	 i9OLCubcIrDlPmjENvVd4IXZtYWkXJRgpMPpoIIe8Td/9dPMFEwBDdvmjRlhYdPYiBPgz
-	 lOo3jihehgwDy57CIy4gpGbxN3kFkfoFON2AUbTug2+8QvmwLenGwjSQCbnjdx1RQGw==
+	t=1795683557;
+	b=DFiHFSiq32+cGqLvqeruCYtPEk2F3579gLaNCyRH01HCrB1Xuxfkm2D27xQLb5EwIk6e
+	 YVdn4D4WkN9i+vqLqNaAR6j1yoy8d4RPtxEsSvr7La0njMZoX2k05ztBpe2gsGFQBfjl/
+	 hzw4xZjcKvp/cSs/lP3yF6y9j3RvsfWm7aPOx1TiiqQMfSPMflA7rxoHc09Kek/qRLR71
+	 fL1SoFURMZ73XCO7GOGbRLJNQCRxcsluf/oPQNKd3b6itsaK59cn0y39GVNfLZDQOo8Ou
+	 m9nWIbqYetF6Sd+xHT9+yVwj7xf3WgiSqQHYaX802+cuXB7dcDAa9XtM7pfYkyeU16w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683552;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683557;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=zk1U6OrL5ve/ZLld4Y9bZjNucrlJcjMr3XUErdzixqc=;
-	b=UOH+LLoywV5dWXjjTgQwCpcIXYEEWHwTlP1gxVAf537ShqNBMCswhzhfbw3W8LUYRYv1
-	 s/ZfpCTpKiaDjcUz2/EydJJ1WzLknZhNJQS7l5fgvYBs8nvZkkFnN2k9G1bJuYGoikcFI
-	 kT7MW43SABGlI3/ifRjpiMsRNMSHAqKfqXgA038+eZaT02chqOyTBgjH2n87ayeV27He2
-	 DJ1CBWJj9L2OGFb8MncEmDTPwMp54uNayXj85G4uHB6Z0Rb/zl+d4UbsB2aLuOR3CuSYw
-	 zM/yqwmuk9WFRaHqUVKDFUQ1wdUDEfWpzkI1kewVXEV/AvtRPUOhBIHnYCqXIX2soPA==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=GPy4SQygtFEl73+yPefIfenUgwMOUWGTN4uUgLHCsrY=;
+	b=Q/fR3mvqaxIHsmHGpnO5D0oNINrXQ5Xxm0vjQPkAjUbSs54KiVk9zmhChPJOmrFBbdd2
+	 Ly6nTUMVuaHGYbLuB+PRjqAAg7zzGKHat1bArnoDqsLVcaFryOFjXMW6PkpkxxwGD3Inh
+	 +h/v7QuuqP7L/Ig9qEWn1xGZRa42OeVcgyc4a+OK2iNb5LWUs2frj3t/fZ+d4WjoJ16nG
+	 4L5U6xTlfv+dvHu1lzdSUTTL6GP1LsQgrgl38IcEkQXQm8tXuK71jaHfSFgMHqbZcluLS
+	 At9vKhyYQw1qluJnK7aekXr7QFQNt32dwT8fo2Ldr5ORci7U01nzUvo6+MRjqLIiK0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KELR6A1E;
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n37bb49i;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7079E606A329
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:59:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7079E606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9C50606A337
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:59:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9C50606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KELR6A1E
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-492f0a1b685so4719591f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:59:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n37bb49i
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-491846221ffso5824819f8f.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:59:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795683550; x=1796288350; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zk1U6OrL5ve/ZLld4Y9bZjNucrlJcjMr3XUErdzixqc=;
-        b=KELR6A1ERHJ5dyS1Xl9ZW83pgdM9j8mqX0ssemh3XbXSN9ByW7uitgvbd6tEf79eTA
-         2spdOQ79mT3ctHZNxMwLuNrIetDY6LgtDoc5voCo5YyA99GLKCVdcnuHZl0+fQUJaboo
-         r4XHFv/oea2MX2dfQsnF51sLQdVfmNUdnxY39fSYuQLUbNulECNc5M3aerMBPzmdBWWq
-         tSaiih3HaM3HP2EK3E5N6KlQ5Chd1gm9bH8s4ob+9eR7YDTTOBmafJfsUebN7NLdZCCK
-         B+4cI2v/1+CfidfP52ihW6tEppDa8OSexe3y/T2Jn6tveWlmlf53yFndakJ7xHwUT6zJ
-         tFVQ==
+        d=gmail.com; s=20260707; t=1795683555; x=1796288355; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=GPy4SQygtFEl73+yPefIfenUgwMOUWGTN4uUgLHCsrY=;
+        b=n37bb49iWbRzAmdIYS9lkTT2DFK9Qa9igez1eT882eCCZ3W/aQKhksetUkjqPQ3HP8
+         VBAkqNaifZJFqjZm8JrMmERn3kDkbvFEjKCGct7TIHoXs7y3D96CxGZZAay3z7qamd0d
+         DDih/ssSPD/sHhLirMPtv/Ez98oep3hrHwy8ktgEZt6N9eSqx4OBxvjVvCtT3sdxzCUG
+         GztAMX9EkA6Fu7YlJZoi/AGC3qXcishhihrKq3MYHXBKUNt7rUS5j27XQGbMtoXuJDg7
+         F/dCpQRarF6j2Akr/iQoCJ7fYGttASpeM9Fx8FFCsBeZZG+ysHjLrBzls7cqq/Y9TzPf
+         zqFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795683550; x=1796288350;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zk1U6OrL5ve/ZLld4Y9bZjNucrlJcjMr3XUErdzixqc=;
-        b=ew1q8MmNlbvPjA7sXxKVevFl4Pdz7POX6all8oDmgvzL+wLXJOJ7QSA+O5ZHaqoEQ5
-         wYJBYz7Nnq737KkNdCXTy+Btv11i1qu2o+/mSPUcZ5L+SQcdEmoQ2Gnl0QnhgLjr3vgR
-         5TeH/t8ryPAFbBHxJj+u7fmgEHbCv55w+kFc2a3wlAr38/qvTVOviiZfMn4jx7/yDKRs
-         /KNrDJuiA/QfHMlHnNLesYkgirwU42ZAdfI1HPRelB4psc3EqpX2SVtRwdRll5lmiz+Y
-         rQy2OMhIPPoX8ATWCNnPknxvT/Ajtp6+vOxxEI34fMsRU6Ow7fDClbgLTQuqLJyVeBx8
-         KdZA==
-X-Forwarded-Encrypted: i=1; AL+hErHfEBcmICTB7ywfmrdMr0U9onmhG2QaTvW4DdJybRqOnsEecL2T/u+s8BAT8OD1o+edy/89t3siPEfK3yA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9lkX/+7A3h3Gh1X7yWR3nnHmtrgbL85UJA+DPThkdiySqCEBXw
-	ZFqFmx0YKFy6L0sIQSqR+Bhha9QW90UrgOBEaH8wE62WittFGX3jA78j
-X-Gm-Gg: AZFdTZdxdxvqeLTKg7Gus8QuWUgXqcUtR6BbpIyBV0bRBTe5+dJfzxZNiRqoOjoqG9G
-	CjDiPFnyCQKPqjN8SmlOywk+PL7F5m7cpY0rgrx9GLdLL4saorXxSwcxNr/uYwBq8fF3AY1AlIc
-	Dgb9xjQ5RtmR44nq+5jBcMWuUzhEYmhh+NRyJ1+X6+VnDZaRXF1msUKiPbP9ISS7UUb5tlmgIXI
-	wyBSajJu86bT9SrSJAzrFRcLD/EOx1agBi2ParzbpZVgN6trmqAyhb4imtBWnOR/TOdWithbFvF
-	CW4Wra4sTdwsws2R27u/URnpLjwGRwyutdxrFrBfEXVux4Jojumpqf+LeEsEz8I2KCHi2VVVq5N
-	A58EwnQKZEHCzSXd0cufWAraEmD/MeJc81AEIlYsoY7/nSExsorZhKfU5bfPK7vVQ+Knz9hsk7E
-	MsLrzZcmfFyBfLeOv2b7ikEAty0aocUa+bwCn9g17a6BwjNjOr884F0YdqA2kFY325Olzl+TgpH
-	tiyQN6+Vo0wb2VrNmzHZ73iQD5CFOOdHloyU0NoR29D+gz0pi1NMpW8+J4meo/t9kkLoAnR0LzI
-	GbVQv0/ZZGJk+rk+IcKvncxSrKzFOnZBklSyBwMidNGHbJQtWIULOw==
-X-Received: by 2002:a05:6000:4812:b0:4a9:1b17:4f34 with SMTP id ffacd0b85a97d-4abb57f7036mr36892313f8f.50.1795683549791;
-        Thu, 26 Nov 2026 00:59:09 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795683555; x=1796288355;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GPy4SQygtFEl73+yPefIfenUgwMOUWGTN4uUgLHCsrY=;
+        b=foKAQ+9hndc2G4ilPyVayZxKVqCgaZ7xqEZT98qh4L21NcDpXGfFuSnWPb1UKWGJP+
+         L1Q4XXMIt5CrBEG0b5ootAr53L5/ptSnOde0Z6hFQUjg29ke9ZZU4t/Op4zc/suQlGDT
+         KcVwwjUU+wutUWBh3W3u77tRtU4+9RInELL267Q3fV0I/Km7R+sK5bKuLlXAmkR664Eb
+         OHtOs5fapsLzS9n5oVYcKjo40QM4HFAg36v46HEFZoMUtSLUwqjic9neczhxoq8jhgRv
+         xXFeYDfoNM9HWN69dKWgKf7MtQM5auWgjmWiI6zqe1l1xX/29igoemoHRQPiKoqPgH3D
+         uvyQ==
+X-Forwarded-Encrypted: i=1; AL+hErEytZubVbL2wM7q7zrpY9n0HitIQB45FNqGgT3Kl8vrWRu42gbas2QMqstOdrl0aocUCSPw55f3m813Oio=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/MM2ZOVPJ8KA7ID41WnAsDhv/6ZDZubS/Klx1zJOM8fC4cln/Z
+	AtUG1A4K4FZa4HZY2FlMxuB1/Tb6EzvNJxBVhxYiupzF3stlm9rI0pgT
+X-Gm-Gg: AZFdTZe1ODwAbd67hu/FdoDKNcTwqnBVzTVq3v4mOLTJ6YXhSJsHWXpb62eG/oTh5E4
+	q8yaJMrzV2E/pbyrG2B6E7Yktx5CpPtsqKy7nRvZb+YEr0NTzvs8rvHmIzTkUExwY86eOXcnbCl
+	ykqFnERJrQfOZTsjzh6p9eZoYe12xEwwLYwz56uk1TIUjyics+1XIwZCPz+PESrrEu83Oab3sV6
+	qIBDoa16S6m7TCNeAFYBToXKQXfnVWxVs7KWcQax8ZI0/YKNtDsjVLk7vI1G1vtbxj3/PLaGs9i
+	7m/3X2XBIqwIuoKKi3CsmtdUFnpJQCVjHTQesOu/yo4glUQwqZoj/M4zEz/NMreQXyzYA5yqU/K
+	bQAj9lu3ExwFgkLR+r2ZkDi7d28sy2UCd78WOstimhavZ5fpWc2LihA8pj8p5HpsbghibEAk4EC
+	YVzHk1h456twJqAauORv3BFiA3MiJdswwth+w2/WHA5bjojXRuZAzj48AnOmqquZoqOaALtdc3y
+	XVXkWnvfDmxur1DkBlKKSWdgE9P8UIt03vosexshMzpVTRYc2QX/xqvb2ayR1vbt5faaSCOCsBO
+	OYPoJi5/TYnvdUrMR7kIsiwQmjsr5IiM7dKWS8LvH8GIXBn6Zc7n9g==
+X-Received: by 2002:a05:6000:3106:b0:4ac:2194:755a with SMTP id ffacd0b85a97d-4ac219475a1mr46280827f8f.41.1795683554934;
+        Thu, 26 Nov 2026 00:59:14 -0800 (PST)
 Received: from center.. ([131.189.143.225])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61f558sm40313744f8f.58.2026.11.26.00.59.08
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ad6403fdbbsm30455997f8f.15.2026.11.26.00.59.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 00:59:09 -0800 (PST)
+        Thu, 26 Nov 2026 00:59:14 -0800 (PST)
 From: Orgad Shaneh <orgads@gmail.com>
-To: miquel.raynal@bootlin.com,
-	richard@nod.at,
-	vigneshr@ti.com,
-	tsbogend@alpha.franken.de
-Cc: linux-mtd@lists.infradead.org,
-	linux-mips@vger.kernel.org,
+To: tsbogend@alpha.franken.de
+Cc: linux-mips@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linusw@kernel.org,
-	kaloz@kernel.org,
-	ulli.kroll@googlemail.com,
-	john@phrozen.org,
-	nico@fluxnic.net,
-	dwmw2@infradead.org,
-	corbet@lwn.net,
-	linux-doc@vger.kernel.org,
 	Orgad Shaneh <orgads@gmail.com>
-Subject: [PATCH v5 1/4] mtd: maps: only point() maps read through the simple accessors
-Date: Thu, 26 Nov 2026 08:59:03 +0000
-Message-ID: <20261126085906.814373-2-orgads@gmail.com>
+Subject: [PATCH RESEND] MIPS: OCTEON: use the free memory below the kernel
+Date: Thu, 26 Nov 2026 08:59:13 +0000
+Message-ID: <20261126085913.814434-1-orgads@gmail.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261126085906.814373-1-orgads@gmail.com>
-References: <20261126085906.814373-1-orgads@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,158 +97,69 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-map_is_linear() only checks that a map has a physical address. Map
-drivers that install their own accessors keep one, and a pointer
-bypasses whatever those accessors do:
+plat_mem_setup() asks bootmem only for memory above _end. The kernel
+is loaded at 0x1100000, so whatever bootmem has free below _text is
+never added to memblock. On a CN6335 board with the Cavium bootloader
+that is 14MB, 0x200000-0xffffff:
 
-- physmap's IXP4xx support: the expansion bus only takes 16-bit
-  accesses (the reason it cannot use memcpy_fromio()), and on
-  little-endian kernels every access also flips address bit 1 and
-  swaps bytes;
-- physmap's Gemini support enables the flash pins only inside its
-  accessors;
-- lantiq-flash serializes the external bus against PCI and copies byte
-  by byte because the EBU cannot take a prefetching memcpy;
-- the cobalt PCI driver's flash map (drivers/media/pci/cobalt/
-  cobalt-flash.c) reads at an offset inside a PCI BAR while leaving
-  phys 0;
-- the Octeon bootbus flash map takes octeon_bootbus_sem in its
-  accessors, which a pointed read on an Intel NOR skips.
+  before: node 0: [mem 0x0000000001100000-0x0000000001cc6fff]
+  after:  node 0: [mem 0x0000000000200000-0x0000000000ffffff]
+          node 0: [mem 0x0000000001100000-0x0000000001cc6fff]
 
-cfi_cmdset_0001 hands such pointers to jffs2 today, and the IXP4xx
-boards carry Intel StrataFlash. lpddr, map_ram and map_rom enable
-point() on the same terms (map_rom unconditionally). Add
-map_is_simple(), true when the map reads through the simple accessors
-(always true without CONFIG_MTD_COMPLEX_MAPPINGS, where the accessors
-are inline), and require it in all four before enabling point(). Maps
-with custom accessors fall back to copying through them; on big-endian
-IXP4xx, where pointed reads happened to work, jffs2 mounts get slower.
+Claim it before the main loop, in 1MB pieces since the holes there are
+small and unaligned. It counts towards max_memory like the rest, and a
+piece inside the crash kernel range, which is added on its own, is
+skipped as the main loop does. bootmem never hands out what the
+bootloader reserved (the exception vectors, its named blocks, the
+kernel image itself), so only free memory is claimed.
 
-Fixes: 9d3b5086f6d4 ("mtd: physmap_of_gemini: Handle pin control")
-Fixes: 2aba2f2a704d ("mtd: physmap_of: add a hook for Intel IXP4xx flash probing")
 Signed-off-by: Orgad Shaneh <orgads@gmail.com>
-Cc: Linus Walleij <linusw@kernel.org>
-Cc: Imre Kaloz <kaloz@kernel.org>
-Cc: Hans Ulli Kroll <ulli.kroll@googlemail.com>
-Cc: John Crispin <john@phrozen.org>
 ---
-v5: no change.
-v4: also gate lpddr, map_ram and map_rom, which point() on the same
-    terms; those three are compile-tested only. Rebased onto
-    v7.4-rc1; the Assisted-by tag is dropped (an LLM helped write
-    this series).
-v3: Assisted-by in the documented form.
-v2: no change.
+RESEND: no reply since the posting of 2026-10-27,
+https://lore.kernel.org/all/20261027060227.2687979-1-orgads@gmail.com/
+Unchanged and still applies to mips-next (dfe3ece66313); only the
+Assisted-by tag is dropped (an LLM helped write this patch).
 
+Tested on mips-next with cavium_octeon_defconfig (KEXEC=y, CRASH_DUMP=n)
+on a CN6335 board, 4GB, Cavium U-Boot 1.1.1: "Memory:" goes from
+4023588K/4169492K to 4037924K/4183828K available. Built with KEXEC=n
+and CRASH_DUMP=y as well.
 
- drivers/mtd/chips/cfi_cmdset_0001.c |  2 +-
- drivers/mtd/chips/map_ram.c         |  4 ++--
- drivers/mtd/chips/map_rom.c         |  6 ++++--
- drivers/mtd/lpddr/lpddr_cmds.c      |  2 +-
- drivers/mtd/maps/map_funcs.c        | 12 ++++++++++++
- include/linux/mtd/map.h             |  2 ++
- 6 files changed, 22 insertions(+), 6 deletions(-)
+ arch/mips/cavium-octeon/setup.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-diff --git a/drivers/mtd/chips/cfi_cmdset_0001.c b/drivers/mtd/chips/cfi_cmdset_0001.c
-index e5805eebe..42fb0427a 100644
---- a/drivers/mtd/chips/cfi_cmdset_0001.c
-+++ b/drivers/mtd/chips/cfi_cmdset_0001.c
-@@ -299,7 +299,7 @@ static void fixup_LH28F640BF(struct mtd_info *mtd)
- static void fixup_use_point(struct mtd_info *mtd)
- {
- 	struct map_info *map = mtd->priv;
--	if (!mtd->_point && map_is_linear(map)) {
-+	if (!mtd->_point && map_is_linear(map) && map_is_simple(map)) {
- 		mtd->_point   = cfi_intelext_point;
- 		mtd->_unpoint = cfi_intelext_unpoint;
- 	}
-diff --git a/drivers/mtd/chips/map_ram.c b/drivers/mtd/chips/map_ram.c
-index 2dde70e74..77c912f1c 100644
---- a/drivers/mtd/chips/map_ram.c
-+++ b/drivers/mtd/chips/map_ram.c
-@@ -74,8 +74,8 @@ static struct mtd_info *map_ram_probe(struct map_info *map)
- 	mtd->flags = MTD_CAP_RAM;
- 	mtd->writesize = 1;
- 
--	/* Disable direct access when NO_XIP is set */
--	if (map->phys != NO_XIP) {
-+	/* Disable direct access when NO_XIP is set or the map has its own accessors */
-+	if (map->phys != NO_XIP && map_is_simple(map)) {
- 		mtd->_point = mapram_point;
- 		mtd->_unpoint = mapram_unpoint;
- 	}
-diff --git a/drivers/mtd/chips/map_rom.c b/drivers/mtd/chips/map_rom.c
-index dbc34e886..65daa1454 100644
---- a/drivers/mtd/chips/map_rom.c
-+++ b/drivers/mtd/chips/map_rom.c
-@@ -54,8 +54,10 @@ static struct mtd_info *map_rom_probe(struct map_info *map)
- 	mtd->name = map->name;
- 	mtd->type = MTD_ROM;
- 	mtd->size = map->size;
--	mtd->_point = maprom_point;
--	mtd->_unpoint = maprom_unpoint;
-+	if (map_is_simple(map)) {
-+		mtd->_point = maprom_point;
-+		mtd->_unpoint = maprom_unpoint;
+diff --git a/arch/mips/cavium-octeon/setup.c b/arch/mips/cavium-octeon/setup.c
+index 7497be7b9431..2b1bc8fafac5 100644
+--- a/arch/mips/cavium-octeon/setup.c
++++ b/arch/mips/cavium-octeon/setup.c
+@@ -1022,6 +1022,27 @@ void __init plat_mem_setup(void)
+ 	 * which is handled by memblock
+ 	 */
+ 	cvmx_bootmem_lock();
++	/*
++	 * The loop below only takes memory above the kernel. Claim what
++	 * bootmem has free below it as well, 1MB at a time: the holes the
++	 * bootloader leaves there are small and not aligned to
++	 * mem_alloc_size.
++	 */
++	while (total < max_memory) {
++		memory = cvmx_bootmem_phy_alloc(0x100000, 0,
++						__pa_symbol(&_text),
++						0x100000,
++						CVMX_BOOTMEM_FLAG_NO_LOCKING);
++		if (memory < 0)
++			break;
++#ifdef CONFIG_KEXEC
++		/* The crash kernel range is already added */
++		if (memory < crashk_end && memory + 0x100000 > crashk_base)
++			continue;
++#endif
++		memblock_add(memory, 0x100000);
++		total += 0x100000;
 +	}
- 	mtd->_read = maprom_read;
- 	mtd->_write = maprom_write;
- 	mtd->_sync = maprom_nop;
-diff --git a/drivers/mtd/lpddr/lpddr_cmds.c b/drivers/mtd/lpddr/lpddr_cmds.c
-index a4167ee5e..23f05500e 100644
---- a/drivers/mtd/lpddr/lpddr_cmds.c
-+++ b/drivers/mtd/lpddr/lpddr_cmds.c
-@@ -57,7 +57,7 @@ struct mtd_info *lpddr_cmdset(struct map_info *map)
- 	mtd->_writev = lpddr_writev;
- 	mtd->_lock = lpddr_lock;
- 	mtd->_unlock = lpddr_unlock;
--	if (map_is_linear(map)) {
-+	if (map_is_linear(map) && map_is_simple(map)) {
- 		mtd->_point = lpddr_point;
- 		mtd->_unpoint = lpddr_unpoint;
- 	}
-diff --git a/drivers/mtd/maps/map_funcs.c b/drivers/mtd/maps/map_funcs.c
-index b0054933c..59917949b 100644
---- a/drivers/mtd/maps/map_funcs.c
-+++ b/drivers/mtd/maps/map_funcs.c
-@@ -41,5 +41,17 @@ void simple_map_init(struct map_info *map)
- }
- 
- EXPORT_SYMBOL(simple_map_init);
-+
-+/*
-+ * True when every access goes through the simple accessors, so a reader
-+ * may use map->virt directly; a map with its own accessors (byte swaps,
-+ * bus locking, address fixups) must not be pointed at.
-+ */
-+bool map_is_simple(struct map_info *map)
-+{
-+	return map->read == simple_map_read &&
-+	       map->copy_from == simple_map_copy_from;
-+}
-+EXPORT_SYMBOL(map_is_simple);
- MODULE_DESCRIPTION("Out-of-line map I/O");
- MODULE_LICENSE("GPL");
-diff --git a/include/linux/mtd/map.h b/include/linux/mtd/map.h
-index 75b0b2abc..ebee3fe1d 100644
---- a/include/linux/mtd/map.h
-+++ b/include/linux/mtd/map.h
-@@ -449,6 +449,7 @@ static inline void inline_map_copy_to(struct map_info *map, unsigned long to, co
- #define map_copy_to(map, to, from, len) (map)->copy_to(map, to, from, len)
- 
- extern void simple_map_init(struct map_info *);
-+bool map_is_simple(struct map_info *map);
- #define map_is_linear(map) (map->phys != NO_XIP)
- 
- #else
-@@ -460,6 +461,7 @@ extern void simple_map_init(struct map_info *);
- 
- #define simple_map_init(map) BUG_ON(!map_bankwidth_supported((map)->bankwidth))
- #define map_is_linear(map) ({ (void)(map); 1; })
-+#define map_is_simple(map) ({ (void)(map); 1; })
- 
- #endif /* !CONFIG_MTD_COMPLEX_MAPPINGS */
- 
+ 	while (total < max_memory) {
+ 		memory = cvmx_bootmem_phy_alloc(mem_alloc_size,
+ 						__pa_symbol(&_end), -1,
 -- 
 2.53.0
 
