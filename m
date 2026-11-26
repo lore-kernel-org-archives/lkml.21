@@ -1,48 +1,140 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692150;
-	b=LRRVBi/xjsgxDF7H8QTaVAFdsi7ahhgOBfDeEr1MELOJ71nJrBrtPP/CafV6apkBXOh9
-	 civ1cbCXk01EkiyGUYuxg32S3wBr3QZpKRXvntKZ9PIUcTpXPwrLWX8eP6AEIYuCDTdWX
-	 0GCkIyM00NZ/qNlj9AP08yHOpHa8QCYc0TG0U9pL19US+8t7LketjYEKI+vOqoakTrJJJ
-	 YUAcZ8wK3MKy/Gbm2CxJl4cwnFk4o3ns/9xwXP4Q4KmiR4O9/Z+rwDFVWkWgry9Z99hYb
-	 LZEXY5MBqPESYyO3M4C+UYhcDD0aVRcasGUFTnCFFjFk9JFVGV2mZGOOB9CrkGwzgzA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692150;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer;
-	bh=vTUzC6jse1/uWBZS2E4r76zLClqKhduPa+hgi40lrUo=;
-	b=gNL8/5CON5HXWYaKg4ARD8IBfMdhM78I0zci0i7/my8/FlYPJh+RRccrFWGN+6YCYidF
-	 ulOUY5ODcQ8VFUuKiwrmF6xFI7i+bkQP2Zjixy6BcbSIYJOHp5kfodf43k1wLd7nwh6pi
-	 EIUC2QUOo3OnfOWgb7aRZiiESB9q3MVOtBPEU+Fshzbmj3ktunHFm4x2w3xdA/dFulseZ
-	 f0a0giYyfLBkoljRl+d/zd93vtfewxIycL8u3ilRbO09RY4rYabKHRbOFByIt3ael6SeI
-	 OLSfzCHNDVJfaJLWeWkUJsXmDnpmHMHvFLSi9DSpybANXAJOzAPPxF6qtY7VbDkdp3Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XzEl8tFs;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.154.28
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795692157;
+	b=gjqSsmuj41xusaXKoEF2lGcs2qVeKwPYCbxvwQjmvKiMVPb+aO1gTVcrlNRPXZa8c2cs
+	 5FNnVFggh4if6O97AXzPT1eiOlqfBZqUfu6vADTtu7F2jTWRG73Q0boqTYMLQr4RrZifi
+	 /UhX4JsmluTpB1+cX0+Xv2HT3wlg5J+Q+7fxSYDoqHoZg/yUgTQV9vWuJqek7Ayfbqs6x
+	 tnc+qICwUujI63jX7W1GvvgajMCb9PGTBSQMnGfQtSxSpPCziP3dPTFcekHdKJWGo0lXt
+	 shW1VN4hTn34b96H8VUW1cBIvFZPryVTHx7rG0GwgTkxFWFMttvs6edoVw1VYBh1/eA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692157;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
+	 Received:Received:X-MS-Exchange-Authentication-Results:Received-SPF:
+	 Received:Received:Received:Received:Received:From:To:CC:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=TGJLGUZL5TdAYp0ot7buukDeqmlNr9nL/LEllHfAOaU=;
+	b=qlAqQvmjeSfrdZU1UiZEU4fUrvPZe8sqyyPX3BNro+x5evh84972RRVeJPPYjwNY2HAL
+	 Oc7R4+JChlgz0WnLJ7UigA4M1E5Q70WIDc9dcHnq9xS2D6iYvfIDCc81ifjOwrinNFpQq
+	 tSHIMmIxHrgnrBJVOghtAOyj1kTQbpvCDuUGSh+tYxMFFCOekqM8LuDhL026WclIoBCLv
+	 d+HToQmWYS7hJ+EmmOCuvb0R60ZnF6xBPeyhbj1HDLO+JRV9wt+AJczNFXCkZUGyzivmZ
+	 cpXc3UQOMwRHHLzPuNDhCIwJ31PRNV+7iDbYQRkQrm8FQPZNaBzceDMM5tWtKUF9IqQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ti.com;
+	spf=pass smtp.mailfrom=ti.com;
+	dkim=pass header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=X8NsmiHZ;
+	dkim=pass header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=IYTw205s;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.154.28
+Received: from mx0b-0002e601.pphosted.com (mx0b-0002e601.pphosted.com [148.163.154.28])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B1D9606A323;
-	Thu, 26 Nov 2026 11:22:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36F5C606A323;
+	Thu, 26 Nov 2026 11:22:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36F5C606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ti.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ti.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XzEl8tFs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D262B1F0093E;
-	Thu, 26 Nov 2026 11:22:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795692149;
-	bh=vTUzC6jse1/uWBZS2E4r76zLClqKhduPa+hgi40lrUo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=XzEl8tFsXVj9BAAaIUtUGRinOitdJkT0iWw23K1beI9eLYMWSr5Ym3ud2iOjYrznO
-	 aLhLxjvRPw3yiT6bbIslM+V6XpUHc+RqVkx5Cb/ipMIL9dFeLMTRot29bRlxe687Pq
-	 E9TVxowbXa6Yf1UZn4VTf+dFXfJzV9TqlAnUiouHRmSeOFmgsOj3GJYF3p5/MA0TP1
-	 AiOiruVIht3ba+gCJKbn3bPelvZZFU3VjdvIQBZi8hhh9caJRyIRtAR+KgLFgtBUSx
-	 fWWEefDszLbQ5S4h6JmVi1EUHxSe+9zWJrd8gDyuj83zYka5hcI0Aq2zcbJjASfmK1
-	 sGbbZv0lKcSSQ==
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Thu, 26 Nov 2026 13:15:03 +0200
-Subject: [PATCH RFC v2 50/54] arm64: use the generic CPA core
+	dkim=pass (2048-bit key) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=X8NsmiHZ;
+	dkim=pass (1024-bit key) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=IYTw205s
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQAZbt33001768;
+	Thu, 26 Nov 2026 05:22:08 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=TGJLGUZL5TdAYp0ot7buukDeqmlNr9nL/LEllHfAO
+	aU=; b=X8NsmiHZz/1k01HehHqIH9LBlKNUJ4iGP8lYtmTunmWT3dFvcpYD2RLxD
+	GkdbnxWFmTth6Xzp148eABsAH/yp4wZHM6w9Shb2eeoJYMXnB4m5z17F4W+/vTCV
+	TyrD05YYMUuOvN7EmQCaRjnzHTJReFsCCCACxtVsRZcQou4O4UqaEkl18BOjhch+
+	b/W4fhLgGWZpCk7wqwGDWRdSHllCroTglGvs69K4uD6eLUWcfH3DXYIzonHX3sfG
+	qKl5kpB7LkdttP1hblrWo5EzW0Ij7JHL76aSOMa74pH30h5hOx38P9eP4GEaozuc
+	jinKMaiMXQaxVY/Dv6JdYZg5ZDDzQ==
+Received: from ph8pr06cu001.outbound.protection.outlook.com (mail-westus3azon11012052.outbound.protection.outlook.com [40.107.209.52])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4j6eq9sp4a-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 05:22:06 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K4x+6O0QjkUmM9lvuD9uW2QQgx0Cp0WkSYNzyH0O6mhzCgAbqxUEO2T5MJKTIZejFyr/ByCnylHFDLtR1eHvOmrGJA2YCtYtiQbgN7/Odw09gdN6OxzR+yKWGvesZReg1lLUSGh0L5wbci8hYZWmK82h+mr73hoTo7kmBIJKcgYQYyJQLzgFjX/TBLR1mEsmUKEeUbiUMj08ReXRwbIRKd44k0kpkRTT3hY543pvQ/kOxnDL4Lxz7s2kOmHilfUpZQPERjYvMgqqFSTLU8942jZeZsJ5IfziSyA3xDXNERvYl81yl/a4+Um8U5k4Ms4+mUNL0MmN2x+MKrFKUt3uvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TGJLGUZL5TdAYp0ot7buukDeqmlNr9nL/LEllHfAOaU=;
+ b=WdI2l+0XK21yeeVyzFMl4Xkk8P7cQ3vV4CqcBzqJlCDuJcSJzV9AKPmDliVvQ1zicIL8NGPUNurq5KzX0+j3zUusb7yaDn/zOkP/4pZh5SOwvVKZ6g+H3S97MeWRDU7hi2puaPYILK8v6cPaLNGP0rzqpgpABPIOksswcJOYcbjZKwnINEMd1FcSkxJqxbN4STEkZ9hZtV4SJAl8+xUaccSyE8e24nALLiE7DNRv0qsLqk1lfpDfmQq/ULBhzxssE8PBAuIB3C3ojQKaRtz4SZFs7Hiog4JVOvpQywCK8EUQQWvppkGiAXq1sbQUG7ma8FudrIiB17wR6YllbWAjBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=linux.dev smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TGJLGUZL5TdAYp0ot7buukDeqmlNr9nL/LEllHfAOaU=;
+ b=IYTw205sq71seaEz0n1/EHULgQELOOfNPlzVBz7kAU0xNWl2CtInxeRpcY3fPoUr5OHxekE/w9q9WtMI4flWZDmg8DFG9Io6rk0Shs+QOg1o4KZ1X2cLBfryriZYF89pLIDwFyX2PMqc3hEW5F2KMYZ3uQlGyzHrNDg5eppCcf8=
+Received: from DS1P220CA0023.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:44c::16) by
+ DM4PR10MB6085.namprd10.prod.outlook.com (2603:10b6:8:bd::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.7; Thu, 26 Nov 2026 11:22:03 +0000
+Received: from DM3PEPF000265BC.namprd04.prod.outlook.com
+ (2603:10b6:8:44c:cafe::1a) by DS1P220CA0023.outlook.office365.com
+ (2603:10b6:8:44c::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
+ Nov 2026 11:22:03 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 198.47.21.194) smtp.mailfrom=ti.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ DM3PEPF000265BC.mail.protection.outlook.com (10.167.23.249) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.688.5 via Frontend Transport; Thu, 26 Nov 2026 11:22:02 +0000
+Received: from DFLE209.ent.ti.com (10.64.6.67) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 26 Nov
+ 2026 05:21:22 -0600
+Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE209.ent.ti.com
+ (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 26 Nov
+ 2026 05:21:21 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Thu, 26 Nov 2026 05:21:21 -0600
+Received: from LTPW0EX92E.dhcp.ti.com ([10.250.64.62])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6AQBKwHX1596498;
+	Thu, 26 Nov 2026 05:21:18 -0600
+From: Niranjan H Y <niranjan.hy@ti.com>
+To: <linux-sound@vger.kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <broonie@kernel.org>,
+        <ckeepax@opensource.cirrus.com>, <lgirdwood@gmail.com>,
+        <perex@perex.cz>, <tiwai@suse.com>, <cezary.rojewski@intel.com>,
+        <peter.ujfalusi@linux.intel.com>, <yung-chuan.liao@linux.intel.com>,
+        <kai.vehmanen@linux.intel.com>, <pierre-louis.bossart@linux.dev>,
+        <baojun.xu@ti.com>, <shenghao-ding@ti.com>, <sandeepk@ti.com>,
+        <v-hampiholi@ti.com>, Niranjan H Y <niranjan.hy@ti.com>
+Subject: [PATCH v2 5/5] ASoC: tac5xx2-sdw: drop DSP algo re-enable from port post-prepare
+Date: Thu, 26 Nov 2026 20:20:23 +0900
+Message-ID: <20261126112023.29054-5-niranjan.hy@ti.com>
+X-Mailer: git-send-email 2.33.0.windows.2
+In-Reply-To: <20261126112023.29054-1-niranjan.hy@ti.com>
+References: <20261126112023.29054-1-niranjan.hy@ti.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,646 +144,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-generic-set-memory-v0-1-v2-50-723f1e33c3d8@kernel.org>
-References: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-In-Reply-To: <20261126-generic-set-memory-v0-1-v2-0-723f1e33c3d8@kernel.org>
-To: linux-mm@kvack.org
-Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Borislav Petkov <bp@alien8.de>, Brendan Jackman <brendan.jackman@linux.dev>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- David Hildenbrand <david@kernel.org>, 
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
- Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
- Ingo Molnar <mingo@kernel.org>, Kevin Brodsky <kevin.brodsky@arm.com>, 
- "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, Michal Hocko <mhocko@suse.com>, 
- Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Paul Walmsley <pjw@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner <tglx@kernel.org>, 
- Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@kernel.org>, 
- Will Deacon <will@kernel.org>, linux-arch@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, x86@kernel.org
-X-Mailer: b4 0.16.1-dev
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM3PEPF000265BC:EE_|DM4PR10MB6085:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0155151d-4ca2-4a47-ab15-08df4baf7e6e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|7416014|376014|1800799024|82310400026|23010399003|10067099003|56012099006|261026140227099003|261022105027099003|261028144727099003|261021123027099003|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	T7reEPsZFivYkWbsyf+Rkwi1cXy57a4kvmh0n1ZQ9uWS1oEqJBrXfCiWa3grZyXH6DdcEyL3YEqI8PVAxddmRz/H1ftQkdko4VUEr+2oXsyyh5QNxBRQo2q6aGcaVo5BWogk7jogn2TX18SeG78bubGFcLp7MdehiSVB4DaGUuf0AAsh3QncgZG7ZWhDsw6TcAj71rdZQkDdsjeNReEVMjXwUjNVyO5ghFN8zcMWTxtnbw/WmTBp5202brtWAqztKQyyT2yFDpGEMYCrcHw52J0X6/1PXpXZquLxNwRHk/S8jEvVVc2fXXuAOuWTYJib9MeNqTDsPvdyA7dUqaVDNx1t+W0ZNCgCtX9aTXzu3CFDeyLjR0CpJTZQCteHFjUMkZ/jIyUhgwy+n3Gak6LaK632FFVNQ750d8T11VyqjwCeK2wJwxSF2Svx1pWp0h5RO6Ln4ord8jPMXDLNQIO00ZEquTJ+HahuPEKx2o1q3zzHPA09erjuclcmhRpwy7itfk8U1aKUwWda1CxKujsLXiiJFVD2FGcWpcX+jfwyOH7482cKbCu7aMfDbOOdKo4C0ryVAEEncSCrRyiQX23m5Qwu8vlXT7/DnEsENEjkmO5GEdUylz9Ziq3yTHthW2ccnCy/87QtAB0lU0g1SgCsVFd3iiBUXn8ZN+alywoPcI8Z1zVKAHFo/tPxxajSCUAWECTVXAtD8KyHOz1y7RZ1iA==
+X-Forefront-Antispam-Report:
+	CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(1800799024)(82310400026)(23010399003)(10067099003)(56012099006)(261026140227099003)(261022105027099003)(261028144727099003)(261021123027099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	ilbvbjYEFm8rIZcN7dktDdA97DFDwMR+P2fSyDrkV+FlwTAqnHYyGpya+Bcn5rLc2w//ufBPGrEDZ0wKovHcQakzP92LxEwHid61T0Mg4cHZSXAcEsV7LX7BlRk0w4cx/zMjGdYkKzUH3YT8et8zwZHbBA3NkMcfgX/ZDh/FumMhX1ZFDXG3FqgJ51znklCMWMZyw4vrd609BG/32iDngOFLSRd6JtXv+IXVLkGSVkEjoU/w0nMFMTtvDCPSJxgypYdj60/nR3vJLkj5BSVXoOaK11+cfDzI28MDEcsDwvyG5OqFeboyg0iPckh3fw3pNWF5v/7+MIo4Rf+PaoWlQkoacKQaDf2GSFEF+mcNRoRStRhXx/8fczXT23ag5t7An2WBprxrpL/dAGwcLnctsBM2oCBKloelgFDZuGPDqOYrvlZjZP2CPso4Qi0x0m5i
+X-Exchange-RoutingPolicyChecked:
+	nVXnKKD1sThykN46Gm/Fm8CL7rbIUkGhIWIwnBnGqFD1Tv455QHGgRTlugHJW5YShG2E5e+Xc8T1tr3mk8LDFSU7ri0XY22rHUiZZRrPsfaXPC8OQUsnjIJCwVCjQTTJGT9JbDcp/HDpElzaKFCGFqPVoi2QjcJzBCzYLxEVwQSBkYPU5pZPtfq6uFQdyxvRwr4BMgJy8wdvsjDZrpisjNbHDI9Pbm5g0mNs4hFULWTO6lkqA85P+MLZ3lqxbAeJ+/0wZnmMEM6Gi+yuUm9Y4lDWZOCOny4lDYsmDo2JbjrqVSZGkqQQJLc88vmtcYIRRk5oKxMOfaAuFNn1BIdA0Q==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 11:22:02.1453
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0155151d-4ca2-4a47-ab15-08df4baf7e6e
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DM3PEPF000265BC.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6085
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA0NCBTYWx0ZWRfX1l/005gZXpLC
+ 9RvxCJkaC8o8g31ESKdl7GRh8/ZmCukmQD9k+FCHPaFWtHZowFMlyCHFW8YtWu7uBTwtTbQAWgj
+ D3BsMVrwtNL2+pFyCq1LRqiv/BfzG0k=
+X-Proofpoint-GUID: I2cg9iivkXSlrX_IRzfCFUGi7frPSmlW
+X-Proofpoint-ORIG-GUID: I2cg9iivkXSlrX_IRzfCFUGi7frPSmlW
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA0NCBTYWx0ZWRfXwolnPgPFA02R
+ onKvv76I+/77S2V87eG9/58OnlWBga1HuX1Smqb1mjIeR0YxbAa1f/h30nBoQiuKzovLTZ/Cfhz
+ Kl6YVBVfkrn26S16wnC6p8pH/5yzhpeWwPd1WprDHxJ4137saa9maYeXcpgwLxNJEDoEs+iNI6A
+ RStWaOZTgp6rI/MrkiEDi5FbiGXYhMdYswRf4JrT/HQzTBHY9HfpMn5ZvDPptZHXOOoKzFYG5kU
+ bhrXN6dUOLsUKwXLRR3ZDFKUAnUeCvh4iocSmOnqHnzBoxoMdn+pWNbAmHnBhO2evnibRA2gMIM
+ N0kqt+biE5JJWsyPjYLCCzLlMYpjJJEsSMhcvqDoQpvR2x4rAM0xrYuQLKaYpHvwn49UF/FRF/3
+ L+0nBy5qqbXUxrYUjukxxSrnJvCEXSlW7Mp+/leX2YzB1MmsW8ZCWAwOihkvk6aUeQUM+DaxQA1
+ Xy3SCp0bf6O06KiACfw==
+X-Authority-Analysis: v=2.4 cv=d7JgWhjE c=1 sm=1 tr=0 ts=6b08165e cx=c_pps
+ a=GeWWyO5P+zJVL7v3m8oIig==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=zJRp6_cAMcgA:10 a=AlMIdn_sM9wA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22
+ a=sozttTNsAAAA:8 a=QyXUC8HyAAAA:8 a=zoeuGXUjLV_baAm5KpgA:9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_02,2026-11-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 spamscore=0 malwarescore=0 adultscore=0
+ impostorscore=0 bulkscore=0 phishscore=0 clxscore=1015 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260044
 
-arm64 implementation of set_memory_*() APIs has a few shortcomings:
+The post port prepare callback was re-enabling the DSP algorithm by
+writing TAC_DSP_ALGO_STATUS_RUNNING if the algo was found not running.
+This is not needed as the algorithm state is managed independently of
+the stream prepare sequence.
 
-* the page table walk that changes kernel page protections is preceded by
-  another walk that splits the mappings at both ends of a request down to
-  base pages, whether the request needs that or not
-* the linear alias of a vmalloc area is changed and flushed page by page
-* set_memory_*() refuse anything but a single VM_ALLOC area, a check that
-  dates from when a live mapping could not be split at all and makes arm64
-  the odd one out among the architectures
+Remove tac_port_prep() and clear the .port_prep ops entry.
 
-The availability of the generic CPA core makes arm64's implementation of
-set_memory_*() APIs unnecessary and it can be replaced with several hooks
-required by CPA core.
-
-This way the core can manage the policy decisions and the architecture only
-has to take care of the page table manipulation.
-
-Switch to the generic CPA core and its set_memory() entry points.
-For arm64 this means that:
-
-* set_memory_*() accept any kernel mapping; a request that needs a split
-  arm64 cannot do fails with a warning and -EINVAL
-* a contiguous block of entries is kept or changed like a large page; its
-  entries are rewritten one by one, so the block has mixed permissions for
-  a few stores, the same window every change has before its TLB flush
-* the linear alias follows read-only and read-write changes when
-  rodata_full is set, as before, for any mapping of RAM
-* a request and its aliases run in one lazy MMU section
-* requests are serialized by the core; the old walk ran without a lock
-* KFENCE and debug_pagealloc change the linear map with interrupts disabled
-  and keep a lockless set_memory_valid()
-* the linear alias of data and bss, which may use block mappings, is mapped
-  and unmapped for hibernation by a request of its own
-
-The mappings at both ends of a request are still split to base pages before
-the walk, so the core does not split yet.
-
-Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Signed-off-by: Niranjan H Y <niranjan.hy@ti.com>
+Reviewed-by: Bard Liao <yung-chuan.liao@linux.intel.com>
 ---
- arch/arm64/Kconfig                  |   1 +
- arch/arm64/include/asm/pageattr.h   |  18 ++
- arch/arm64/include/asm/set_memory.h |   2 -
- arch/arm64/mm/mmu.c                 |  21 +-
- arch/arm64/mm/pageattr.c            | 387 +++++++++++++++++++-----------------
- 5 files changed, 246 insertions(+), 183 deletions(-)
+changes since v1:
+* newly added patch
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 9b08b2457a55..846fae788b3c 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -138,6 +138,7 @@ config ARM64
- 	select GENERIC_IRQ_SHOW
- 	select GENERIC_IRQ_SHOW_LEVEL
- 	select GENERIC_LIB_DEVMEM_IS_ALLOWED
-+	select GENERIC_PAGEATTR
- 	select GENERIC_PCI_IOMAP
- 	select GENERIC_SCHED_CLOCK
- 	select GENERIC_SMP_IDLE_THREAD
-diff --git a/arch/arm64/include/asm/pageattr.h b/arch/arm64/include/asm/pageattr.h
-new file mode 100644
-index 000000000000..9634cb523298
---- /dev/null
-+++ b/arch/arm64/include/asm/pageattr.h
-@@ -0,0 +1,18 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_PAGEATTR_H
-+#define __ASM_PAGEATTR_H
-+
-+#define cpa_is_direct_map(addr)	__is_lm_address(__tag_reset(addr))
-+
-+int arch_cpa_process_alias(struct cpa_data *cpa);
-+#define arch_cpa_process_alias arch_cpa_process_alias
-+
-+void arch_cpa_enter(void);
-+#define arch_cpa_enter arch_cpa_enter
-+
-+void arch_cpa_leave(void);
-+#define arch_cpa_leave arch_cpa_leave
-+
-+int arm64_change_page_attr(struct cpa_data *cpa);
-+
-+#endif /* __ASM_PAGEATTR_H */
-diff --git a/arch/arm64/include/asm/set_memory.h b/arch/arm64/include/asm/set_memory.h
-index 0091ba12200e..4c4ca9cd50c8 100644
---- a/arch/arm64/include/asm/set_memory.h
-+++ b/arch/arm64/include/asm/set_memory.h
-@@ -11,8 +11,6 @@ bool can_set_direct_map(void);
- 
- int set_memory_valid(unsigned long addr, int numpages, int enable);
- 
--int set_direct_map_invalid_noflush(struct page *page, unsigned int numpages);
--int set_direct_map_default_noflush(struct page *page, unsigned int numpages);
- bool kernel_page_present(struct page *page);
- 
- int set_memory_encrypted(unsigned long addr, int numpages);
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 0f96efea9057..c8f3961b4555 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -13,6 +13,7 @@
- #include <linux/init.h>
- #include <linux/ioport.h>
- #include <linux/kexec.h>
-+#include <linux/pageattr.h>
- #include <linux/libfdt.h>
- #include <linux/mman.h>
- #include <linux/nodemask.h>
-@@ -1078,9 +1079,23 @@ static void __init __map_memblock(phys_addr_t start, phys_addr_t end,
- 
- static void mark_linear_data_alias_valid(bool valid)
- {
--	set_memory_valid((unsigned long)lm_alias(__init_end),
--			 (unsigned long)(__bss_stop - __init_end) / PAGE_SIZE,
--			 valid);
-+	pgprot_t valid_prot = __pgprot(PTE_PRESENT_VALID_KERNEL);
-+	pgprot_t invalid_prot = __pgprot(PTE_PRESENT_INVALID);
-+	struct cpa_data cpa = {
-+		.addr = (unsigned long)lm_alias(__init_end),
-+		.numpages = (__bss_stop - __init_end) / PAGE_SIZE,
-+		.mask_set = valid ? valid_prot : invalid_prot,
-+		.mask_clr = valid ? invalid_prot : valid_prot,
-+		.flags = CPA_REQ_NO_CHECK_ALIAS,
-+	};
-+	int ret;
-+
-+	ret = split_kernel_leaf_mapping(cpa.addr,
-+					cpa.addr + cpa.numpages * PAGE_SIZE);
-+	if (WARN_ON_ONCE(ret))
-+		return;
-+
-+	arm64_change_page_attr(&cpa);
+ sound/soc/codecs/tac5xx2-sdw.c | 34 ----------------------------------
+ 1 file changed, 34 deletions(-)
+
+diff --git a/sound/soc/codecs/tac5xx2-sdw.c b/sound/soc/codecs/tac5xx2-sdw.c
+index d679a4194..7140cc111 100644
+--- a/sound/soc/codecs/tac5xx2-sdw.c
++++ b/sound/soc/codecs/tac5xx2-sdw.c
+@@ -1984,44 +1984,10 @@ static int tac5xx2_sdw_read_prop(struct sdw_slave *peripheral)
+ 	return 0;
  }
  
- static int arm64_hibernate_pm_notify(struct notifier_block *nb,
-diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-index de7bf95003ea..14a791b8e645 100644
---- a/arch/arm64/mm/pageattr.c
-+++ b/arch/arm64/mm/pageattr.c
-@@ -8,7 +8,7 @@
- #include <linux/mem_encrypt.h>
- #include <linux/sched.h>
- #include <linux/vmalloc.h>
--#include <linux/pagewalk.h>
-+#include <linux/pageattr.h>
- 
- #include <asm/cacheflush.h>
- #include <asm/pgtable-prot.h>
-@@ -16,75 +16,94 @@
- #include <asm/tlbflush.h>
- #include <asm/kfence.h>
- 
--struct page_change_data {
--	pgprot_t set_mask;
--	pgprot_t clear_mask;
--};
--
--static ptval_t set_pageattr_masks(ptval_t val, struct mm_walk *walk)
-+void arch_cpa_decode_leaf(struct cpa_leaf *leaf)
- {
--	struct page_change_data *masks = walk->private;
-+	enum pgtable_level level = leaf->level;
-+	pte_t pte = __ptep_get(leaf->kpte);
-+	pteval_t prot, ns_shared;
-+	unsigned int nr;
-+
-+	if (pte_cont(pte)) {
-+		nr = level == PGTABLE_LEVEL_PTE ? CONT_PTES : CONT_PMDS;
-+		leaf->kpte = PTR_ALIGN_DOWN(leaf->kpte, nr * sizeof(pte_t));
-+		leaf->size *= nr;
-+		leaf->addr &= ~(leaf->size - 1);
-+		pte = __ptep_get(leaf->kpte);
-+	}
- 
- 	/*
--	 * Some users clear and set bits which alias each other (e.g. PTE_NG and
--	 * PTE_PRESENT_INVALID). It is therefore important that we always clear
--	 * first then set.
-+	 * The NS shared bit of a Realm is an address bit that selects the
-+	 * unprotected alias of the same memory.
- 	 */
--	val &= ~(pgprot_val(masks->clear_mask));
--	val |= (pgprot_val(masks->set_mask));
-+	ns_shared = pte_val(pte) & PROT_NS_SHARED;
-+	pte = __pte(pte_val(pte) & ~ns_shared);
-+
-+	switch (level) {
-+	case PGTABLE_LEVEL_PTE:
-+		leaf->pfn = pte_pfn(pte);
-+		break;
-+	case PGTABLE_LEVEL_PMD:
-+		leaf->pfn = pmd_pfn(pte_pmd(pte));
-+		break;
-+	default:
-+		leaf->pfn = pud_pfn(pte_pud(pte));
-+		break;
-+	}
- 
--	return val;
-+	prot = pgprot_val(pte_pgprot(pte)) | ns_shared;
-+	leaf->prot = __pgprot((prot & ~PTE_TYPE_MASK) | (prot & PTE_VALID));
- }
- 
--static int pageattr_pud_entry(pud_t *pud, unsigned long addr,
--			      unsigned long next, struct mm_walk *walk)
-+void arch_cpa_modify_leaf(struct cpa_leaf *leaf, pgprot_t prot)
- {
--	pud_t val = pudp_get(pud);
--
--	if (pud_leaf(val)) {
--		if (WARN_ON_ONCE((next - addr) != PUD_SIZE))
--			return -EINVAL;
--		val = __pud(set_pageattr_masks(pud_val(val), walk));
--		set_pud(pud, val);
--		walk->action = ACTION_CONTINUE;
--	}
-+	unsigned int nr = leaf->size / pgtable_level_size(leaf->level);
-+	enum pgtable_level level = leaf->level;
-+	pteval_t val = pgprot_val(prot);
-+	unsigned long pfn = leaf->pfn;
-+	pte_t *kpte = leaf->kpte;
-+	unsigned long pfninc;
-+	unsigned int i;
- 
--	return 0;
--}
-+	pfninc = pgtable_level_size(level) >> PAGE_SHIFT;
- 
--static int pageattr_pmd_entry(pmd_t *pmd, unsigned long addr,
--			      unsigned long next, struct mm_walk *walk)
+-static int tac_port_prep(struct sdw_slave *slave, struct sdw_prepare_ch *prep_ch,
+-			 enum sdw_port_prep_ops pre_ops)
 -{
--	pmd_t val = pmdp_get(pmd);
--
--	if (pmd_leaf(val)) {
--		if (WARN_ON_ONCE((next - addr) != PMD_SIZE))
--			return -EINVAL;
--		val = __pmd(set_pageattr_masks(pmd_val(val), walk));
--		set_pmd(pmd, val);
--		walk->action = ACTION_CONTINUE;
--	}
-+	if (level == PGTABLE_LEVEL_PTE)
-+		val |= PTE_TYPE_PAGE & ~PTE_VALID;
-+	prot = __pgprot(val);
- 
--	return 0;
-+	/*
-+	 * The entries of a contiguous block are rewritten one by one, so the
-+	 * block has mixed permissions until the last store, as any mapping has
-+	 * until the TLB flush of the request.
-+	 */
-+	for (i = 0; i < nr; i++, pfn += pfninc) {
-+		switch (level) {
-+		case PGTABLE_LEVEL_PTE:
-+			__set_pte(kpte + i, pfn_pte(pfn, prot));
-+			break;
-+		case PGTABLE_LEVEL_PMD:
-+			set_pmd((pmd_t *)kpte + i, pfn_pmd(pfn, prot));
-+			break;
-+		default:
-+			set_pud((pud_t *)kpte + i, pfn_pud(pfn, prot));
-+			break;
-+		}
-+	}
- }
- 
--static int pageattr_pte_entry(pte_t *pte, unsigned long addr,
--			      unsigned long next, struct mm_walk *walk)
-+void arch_cpa_flush(struct cpa_data *cpa)
- {
--	pte_t val = __ptep_get(pte);
--
--	val = __pte(set_pageattr_masks(pte_val(val), walk));
--	__set_pte(pte, val);
-+	/*
-+	 * If the memory is being switched from present-invalid to valid without
-+	 * changing any other bits then a TLBI isn't required as a non-valid
-+	 * entry cannot be cached in the TLB.
-+	 */
-+	if (pgprot_val(cpa->mask_set) == PTE_PRESENT_VALID_KERNEL &&
-+	    pgprot_val(cpa->mask_clr) == PTE_PRESENT_INVALID)
-+		return;
- 
--	return 0;
-+	cpa_flush_tlb_kernel_range(cpa);
- }
- 
--static const struct mm_walk_ops pageattr_ops = {
--	.pud_entry	= pageattr_pud_entry,
--	.pmd_entry	= pageattr_pmd_entry,
--	.pte_entry	= pageattr_pte_entry,
--};
--
- bool rodata_full __ro_after_init = true;
- 
- bool can_set_direct_map(void)
-@@ -102,177 +121,189 @@ bool can_set_direct_map(void)
- 		arm64_kfence_can_set_direct_map() || is_realm_world();
- }
- 
--static int update_range_prot(unsigned long start, unsigned long size,
--			     pgprot_t set_mask, pgprot_t clear_mask)
-+/*
-+ * If we are manipulating read-only permissions, apply the same
-+ * change to the linear mapping of the pages that back this VM area.
-+ */
-+int arch_cpa_process_alias(struct cpa_data *cpa)
- {
--	struct page_change_data data;
-+	pteval_t prot = pgprot_val(cpa->mask_set) | pgprot_val(cpa->mask_clr);
-+	unsigned long vaddr = cpa_addr(cpa, cpa->curpage);
-+	struct cpa_data alias_cpa;
-+	unsigned long alias;
- 	int ret;
- 
--	data.set_mask = set_mask;
--	data.clear_mask = clear_mask;
-+	if (!rodata_full || !(prot & PTE_RDONLY))
-+		return 0;
- 
--	ret = split_kernel_leaf_mapping(start, start + size);
-+	/* Memory that is not RAM, like ioremap(), has no linear map alias. */
-+	if (cpa_is_direct_map(vaddr) || !pfn_valid(cpa->pfn))
-+		return 0;
-+
-+	alias = (unsigned long)page_address(pfn_to_page(cpa->pfn));
-+	ret = split_kernel_leaf_mapping(alias,
-+					alias + cpa->numpages * PAGE_SIZE);
- 	if (WARN_ON_ONCE(ret))
- 		return ret;
- 
--	lazy_mmu_mode_enable();
-+	alias_cpa = *cpa;
-+	alias_cpa.addr = alias;
-+	pgprot_val(alias_cpa.mask_set) &= PTE_RDONLY | PTE_WRITE;
-+	pgprot_val(alias_cpa.mask_clr) &= PTE_RDONLY | PTE_WRITE;
- 
--	/*
--	 * The caller must ensure that the range we are operating on does not
--	 * partially overlap a block mapping, or a cont mapping. Any such case
--	 * must be eliminated by splitting the mapping.
--	 */
--	ret = walk_kernel_page_table_range_lockless(start, start + size,
--						    &pageattr_ops, NULL, &data);
--	lazy_mmu_mode_disable();
-+	ret = cpa_change_alias(cpa, &alias_cpa);
-+	if (alias_cpa.state & CPA_ST_FLUSHTLB)
-+		arch_cpa_flush(&alias_cpa);
- 
- 	return ret;
- }
- 
--static int __change_memory_common(unsigned long start, unsigned long size,
--				  pgprot_t set_mask, pgprot_t clear_mask)
--{
+-	struct device *dev = &slave->dev;
+-	struct tac5xx2_prv *tac_dev = dev_get_drvdata(dev);
+-	unsigned int val;
 -	int ret;
 -
--	ret = update_range_prot(start, size, set_mask, clear_mask);
+-	if (pre_ops != SDW_OPS_PORT_POST_PREP)
+-		return 0;
 -
--	/*
--	 * If the memory is being switched from present-invalid to valid without
--	 * changing any other bits then a TLBI isn't required as a non-valid
--	 * entry cannot be cached in the TLB.
--	 */
--	if (pgprot_val(set_mask) != PTE_PRESENT_VALID_KERNEL ||
--	    pgprot_val(clear_mask) != PTE_PRESENT_INVALID)
--		flush_tlb_kernel_range(start, start + size);
--	return ret;
--}
-+static const struct cpa_op_prot cpa_ops[CPA_OP_NR] = {
-+	[CPA_OP_RO]	= { .set = __pgprot(PTE_RDONLY),
-+			    .clr = __pgprot(PTE_WRITE) },
-+	[CPA_OP_RW]	= { .set = __pgprot(PTE_WRITE),
-+			    .clr = __pgprot(PTE_RDONLY) },
-+	[CPA_OP_X]	= { .set = __pgprot(PTE_GP),
-+			    .clr = __pgprot(PTE_PXN) },
-+	[CPA_OP_NX]	= { .set = __pgprot(PTE_PXN),
-+			    .clr = __pgprot(PTE_GP) },
-+	[CPA_OP_ROX]	= { .set = __pgprot(PTE_RDONLY | PTE_GP),
-+			    .clr = __pgprot(PTE_WRITE | PTE_PXN) },
-+	[CPA_OP_DIRECT_MAP_INVALID] = {
-+		.set = __pgprot(PTE_PRESENT_INVALID),
-+		.clr = __pgprot(PTE_VALID | PTE_NG),
-+	},
-+	[CPA_OP_DIRECT_MAP_DEFAULT] = {
-+		.set = __pgprot(PTE_VALID | PTE_NG | PTE_WRITE),
-+		.clr = __pgprot(PTE_PRESENT_INVALID | PTE_RDONLY),
-+	},
-+};
- 
--static int change_memory_common(unsigned long addr, int numpages,
--				pgprot_t set_mask, pgprot_t clear_mask)
-+int arch_cpa_prepare(struct cpa_data *cpa, enum cpa_op op)
- {
--	unsigned long start = addr;
--	unsigned long size = PAGE_SIZE * numpages;
--	unsigned long end = start + size;
--	struct vm_struct *area;
-+	unsigned long start = PAGE_ALIGN_DOWN(cpa->addr);
-+	unsigned long end = start + cpa->numpages * PAGE_SIZE;
- 	int ret;
- 
--	if (!PAGE_ALIGNED(addr)) {
--		start &= PAGE_MASK;
--		end = start + size;
--		WARN_ON_ONCE(1);
+-	if (!tac_dev->fw_dl_success)
+-		return 0;
+-
+-	ret = regmap_read(tac_dev->regmap, TAC_DSP_ALGO_STATUS, &val);
+-	if (ret) {
+-		dev_err(dev, "Failed to read algo status: %d\n", ret);
+-		return ret;
 -	}
 -
--	/*
--	 * Kernel VA mappings are always live, and splitting live section
--	 * mappings into page mappings may cause TLB conflicts. This means
--	 * we have to ensure that changing the permission bits of the range
--	 * we are operating on does not result in such splitting.
--	 *
--	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
--	 * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
--	 * mappings are updated and splitting is never needed.
--	 *
--	 * So check whether the [addr, addr + size) interval is entirely
--	 * covered by precisely one VM area that has the VM_ALLOC flag set.
--	 */
--	area = find_vm_area((void *)addr);
--	if (!area ||
--	    ((unsigned long)kasan_reset_tag((void *)end) >
--	     (unsigned long)kasan_reset_tag(area->addr) + area->size) ||
--	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
--		return -EINVAL;
--
--	if (!numpages)
-+	/* Nothing in the linear map is invalid without can_set_direct_map() */
-+	if ((op == CPA_OP_DIRECT_MAP_INVALID ||
-+	     op == CPA_OP_DIRECT_MAP_DEFAULT) && !can_set_direct_map())
- 		return 0;
- 
--	/*
--	 * If we are manipulating read-only permissions, apply the same
--	 * change to the linear mapping of the pages that back this VM area.
--	 */
--	if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
--			    pgprot_val(clear_mask) == PTE_RDONLY)) {
--		unsigned long idx = ((unsigned long)kasan_reset_tag((void *)start) -
--				     (unsigned long)kasan_reset_tag(area->addr))
--				    >> PAGE_SHIFT;
--		for (; numpages; idx++, numpages--) {
--			ret = __change_memory_common((u64)page_address(area->pages[idx]),
--						     PAGE_SIZE, set_mask, clear_mask);
--			if (ret)
--				return ret;
+-	if (val != TAC_DSP_ALGO_STATUS_RUNNING) {
+-		dev_dbg(dev, "Algo not running (0x%02x), re-enabling\n", val);
+-		ret = regmap_write(tac_dev->regmap, TAC_DSP_ALGO_STATUS,
+-				   TAC_DSP_ALGO_STATUS_RUNNING);
+-		if (ret) {
+-			dev_err(dev, "Failed to re-enable algo: %d\n", ret);
+-			return ret;
 -		}
 -	}
-+	ret = split_kernel_leaf_mapping(start, end);
-+	if (WARN_ON_ONCE(ret))
-+		return ret;
-+
-+	cpa_init_op(cpa, &cpa_ops[op]);
- 
- 	/*
--	 * Get rid of potentially aliasing lazily unmapped vm areas that may
--	 * have permissions set that deviate from the ones we are setting here.
-+	 * A valid kernel entry has nG only with nG mappings and GP only with
-+	 * BTI, see PTE_MAYBE_NG and PTE_MAYBE_GP.
- 	 */
--	vm_unmap_aliases();
-+	if (!arm64_use_ng_mappings &&
-+	    (pgprot_val(cpa->mask_set) & PTE_VALID))
-+		pgprot_val(cpa->mask_set) &= ~PTE_NG;
-+	if (!system_supports_bti_kernel())
-+		pgprot_val(cpa->mask_set) &= ~PTE_GP;
- 
--	return __change_memory_common(start, size, set_mask, clear_mask);
-+	return 0;
- }
- 
--int set_memory_ro(unsigned long addr, int numpages)
-+void arch_cpa_enter(void)
- {
--	return change_memory_common(addr, numpages,
--					__pgprot(PTE_RDONLY),
--					__pgprot(PTE_WRITE));
-+	lazy_mmu_mode_enable();
- }
- 
--int set_memory_rw(unsigned long addr, int numpages)
-+void arch_cpa_leave(void)
- {
--	return change_memory_common(addr, numpages,
--					__pgprot(PTE_WRITE),
--					__pgprot(PTE_RDONLY));
-+	lazy_mmu_mode_disable();
- }
- 
--int set_memory_nx(unsigned long addr, int numpages)
-+static int set_valid_pte(pte_t *ptep, unsigned long addr, void *data)
- {
--	return change_memory_common(addr, numpages,
--					__pgprot(PTE_PXN),
--					__pgprot(PTE_MAYBE_GP));
+-
+-	return 0;
 -}
-+	struct cpa_op_prot *prot = data;
-+	pte_t pte = __ptep_get(ptep);
+-
+ static const struct sdw_slave_ops tac_sdw_ops = {
+ 	.read_prop = tac5xx2_sdw_read_prop,
+ 	.update_status = tac_update_status,
+ 	.interrupt_callback = tac_interrupt_callback,
+-	.port_prep = tac_port_prep,
+ };
  
--int set_memory_x(unsigned long addr, int numpages)
--{
--	return change_memory_common(addr, numpages,
--					__pgprot(PTE_MAYBE_GP),
--					__pgprot(PTE_PXN));
-+	/*
-+	 * Some users clear and set bits which alias each other (e.g. PTE_NG and
-+	 * PTE_PRESENT_INVALID). It is therefore important that we always clear
-+	 * first then set.
-+	 */
-+	pte = clear_pte_bit(pte, prot->clr);
-+	pte = set_pte_bit(pte, prot->set);
-+	__set_pte(ptep, pte);
-+
-+	return 0;
- }
- 
-+/*
-+ * KFENCE and debug_pagealloc change the linear map with interrupts
-+ * disabled. Their pages are mapped with PTEs that nothing splits or
-+ * collapses.
-+ */
- int set_memory_valid(unsigned long addr, int numpages, int enable)
- {
--	if (enable)
--		return __change_memory_common(addr, PAGE_SIZE * numpages,
--					__pgprot(PTE_PRESENT_VALID_KERNEL),
--					__pgprot(PTE_PRESENT_INVALID));
--	else
--		return __change_memory_common(addr, PAGE_SIZE * numpages,
--					__pgprot(PTE_PRESENT_INVALID),
--					__pgprot(PTE_PRESENT_VALID_KERNEL));
-+	unsigned long size = PAGE_SIZE * numpages;
-+	struct cpa_op_prot prot;
-+	int ret;
-+
-+	if (enable) {
-+		prot.set = __pgprot(PTE_PRESENT_VALID_KERNEL);
-+		prot.clr = __pgprot(PTE_PRESENT_INVALID);
-+	} else {
-+		prot.set = __pgprot(PTE_PRESENT_INVALID);
-+		prot.clr = __pgprot(PTE_PRESENT_VALID_KERNEL);
-+	}
-+
-+	ret = apply_to_existing_page_range(&init_mm, addr, size, set_valid_pte,
-+					   &prot);
-+
-+	/*
-+	 * If the memory is being switched from present-invalid to valid without
-+	 * changing any other bits then a TLBI isn't required as a non-valid
-+	 * entry cannot be cached in the TLB.
-+	 */
-+	if (!enable)
-+		flush_tlb_kernel_range(addr, addr + size);
-+
-+	return ret;
- }
- 
--int set_direct_map_invalid_noflush(struct page *page, unsigned int numpages)
-+/*
-+ * Unlike set_memory_*(), the arm64 users of the core don't purge the
-+ * lazily freed vmap aliases first.
-+ */
-+int arm64_change_page_attr(struct cpa_data *cpa)
- {
--	pgprot_t clear_mask = __pgprot(PTE_PRESENT_VALID_KERNEL);
--	pgprot_t set_mask = __pgprot(PTE_PRESENT_INVALID);
-+	int ret;
- 
--	if (!can_set_direct_map())
--		return 0;
-+	arch_cpa_enter();
-+	ret = change_page_attr_noflush(cpa);
-+	arch_cpa_leave();
-+
-+	if (cpa->state & CPA_ST_FLUSHTLB)
-+		arch_cpa_flush(cpa);
- 
--	return update_range_prot((unsigned long)page_address(page),
--				 PAGE_SIZE * numpages, set_mask, clear_mask);
-+	return ret;
- }
- 
--int set_direct_map_default_noflush(struct page *page, unsigned int numpages)
-+static int __change_memory_common(unsigned long start, unsigned long size,
-+				  pgprot_t set_mask, pgprot_t clear_mask)
- {
--	pgprot_t set_mask = __pgprot(PTE_PRESENT_VALID_KERNEL | PTE_WRITE);
--	pgprot_t clear_mask = __pgprot(PTE_PRESENT_INVALID | PTE_RDONLY);
-+	struct cpa_data cpa = {
-+		.addr = start,
-+		.numpages = size >> PAGE_SHIFT,
-+		.mask_set = set_mask,
-+		.mask_clr = clear_mask,
-+		.flags = CPA_REQ_NO_CHECK_ALIAS,
-+	};
-+	int ret;
- 
--	if (!can_set_direct_map())
--		return 0;
-+	ret = split_kernel_leaf_mapping(start, start + size);
-+	if (WARN_ON_ONCE(ret))
-+		return ret;
- 
--	return update_range_prot((unsigned long)page_address(page),
--				 PAGE_SIZE * numpages, set_mask, clear_mask);
-+	return arm64_change_page_attr(&cpa);
- }
- 
- int __set_memory_enc_dec(unsigned long addr, int numpages, bool encrypt)
-
+ static s32 tac_sdw_probe(struct sdw_slave *peripheral,
 -- 
-2.53.0
+2.34.1
 
