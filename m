@@ -1,72 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795704163;
-	b=W1DK3QIL4AnzWcquxf88AlLXosOOahxathcorrbPSwd1gVQ+/NNP7vWuEELZO/RbdpCv
-	 FIE5u8M7W+N0H293INjuQ+TKzgLeZoe0HNnzhmbtp5j616FNR35xm0PFZZm2Dg5QpbG39
-	 DA7Ya1uq5VCxn06mcb4619bLUySKalI7gqx2yJG3Lu4guxerUVBoC13prCUkSWYT8GiCm
-	 5MTtOuaKn+ODNlUIvUPb1FNE+b/WCt6cPpg1nCclLGcWUFxXOvKhC4cptYxwMeynLr/Q5
-	 +z9P43s91E8KjKj66cSZso7xFdvn4bMd5pRacjkENpfRrkgWghRWSdoVTfZ+tvePyAA==
+	t=1795704171;
+	b=y9pMRXF8UV8Cv3LKuPNO4IcDgYmToZnXU3UhJ83HqRaqPXc6Cy6uIy0Ci3I+vRMpqGEJ
+	 HBme5rHY9AEmjPP069DWj8J+bTEYPCLTbGLKfjjkJ5ZxooaqFwCR85/7kPtUav9zpwLm2
+	 rJ9uFuOiGIAOFZ3yE8DMYg7MzNce9aAafW8W827B/wa+beIxLD3THLeFNVG15GZYjNSll
+	 GA6pyrKDfOKtMiW0dzmzVRI0iQpTlP9TIRRCLmOdyf7463JYrTbJOLwfKwYmUnyNHiA/F
+	 lqCh4atP+4QhR1JzKzjzWZUfe6LTmQIUWn4mU9g+W/8/FgdRp1Zu/xGLDCRge3Tszkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704163;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=s9SXJJ3n4l71fdNJUMFik/3jjqPXo5ZSg4MfSGRKAYU=;
-	b=mT72EYeJKkvIu8qW3wN9Ujo9tqx55f4x7ybFBa8wc7oT+50hIVhyajzY82vjrR+ZAZje
-	 6uBMVBx9utYCfa9H/570QESEfVLEy+2ZRXqWkoEyswBUZlPkJn8qd9AUchT836CbT++YZ
-	 4eiB9TxJSSMHk44Qvp/10A3/Z1FnCoexHoZfORq+fsSWYg6beExGxJVqp/vAblbPOplS1
-	 RI/gLXA7Y3mBmVmFUcntubRp043tKCX4/x54X5h3uyRxUfTfCSbZKHQ9/JrV5q1wrbwVi
-	 aqmwnkMfRr9hptkoj4FgVf27GBY0uBSwJl1mu+KIrFhmfR/qjCChTrG/IRYoKlThQ8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795704171;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=JYPsmB66dwbC3XOJ6pYUPwzn1LyFJbhM3EW4JIXLKjw=;
+	b=QuS4xiJo29L4wRmnAjcvLel60JzLBJWNbAGouSjp9s+5zbGMWXlI+T7vPqTHZhU42eyM
+	 hf6DSqSf0qLa+RambQTPXmF1zWW5qGNlcEyQjVahFp7wBz+Q00iJtm6j/63SvoJ+s/jtq
+	 HYr6umByZSExxSNdJr3S3SaZHlyZA0TRZOXVQxiWIHCdoR8uXyrdn7QbUxuFmVd/ST5/r
+	 uHYWnmBNBq+9Vz4YtmT+IqPoufRNh3iDYrbeWd6z20kiVyKT9Rp8ydr9w8Jnsj25TEBd1
+	 xLw+YIhjXBoWmNJMhUQyXbwWqcKTPfzQge2hEXcNv3x87gM+ms3DK4xBx1pUR71txjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ismlXzL2;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UaG113oe;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 152F1606A31E;
-	Thu, 26 Nov 2026 14:42:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70D9C606A321;
+	Thu, 26 Nov 2026 14:42:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ismlXzL2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B0FC1F000CF;
-	Thu, 26 Nov 2026 14:42:34 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UaG113oe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59DB41F000CA;
+	Thu, 26 Nov 2026 14:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795704162;
-	bh=s9SXJJ3n4l71fdNJUMFik/3jjqPXo5ZSg4MfSGRKAYU=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=ismlXzL2MQN40zx4eCBcrBBXt+d/BQHC+95H+VLAMxQ5pP+VeoftVgpV4UVKvsFrT
-	 0Ut6jvmTISqzBtaWpHOddSFEXKhEtvDixoXMVrLc4nPn0w9eenG8DD5tfNwUiPz/aa
-	 vquvt+2GGJ4o1Ht63bNze74e+sEB+zxkIfarGeeomocSg4+JJeXVSFfZ3zXr3KzTHH
-	 eLNJUkJXDTRrkKhs1c2eT79PpVOj7o0p7So4rV47Q64nEaiH+Aa+dwWeXqQiyIOwO1
-	 uN6RiSwnQ/cexnBHcXTuI4CdouWB6J7bhfE1bAvGkgtSW4KLfzb21hKSCCIbJay22f
-	 NHSmjRBdr0KlQ==
-From: David Hildenbrand <david@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>, 
- David Hildenbrand <david@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
- Michal Hocko <mhocko@suse.com>, Alex Williamson <alex@shazbot.org>, 
- Peter Xu <peterx@redhat.com>, Zi Yan <ziy@nvidia.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
- Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
- Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
- Kiryl Shutsemau <kas@kernel.org>, Wei Liu <wei.liu@kernel.org>, 
- Roman Kisel <romank@linux.microsoft.com>, 
- Saurabh Sengar <ssengar@linux.microsoft.com>, 
- Naman Jain <namjain@linux.microsoft.com>, 
- Michael Kelley <mhklinux@outlook.com>, 
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, "Jose A. Perez de Azpillaga" <azpijr@gmail.com>, 
- "T.J. Mercier" <tjmercier@google.com>, Eliav Farber <farbere@amazon.com>, 
- "Gregory Price (Meta)" <gourry@gourry.net>
-In-Reply-To: <20261126-huge-pfnmap-fault-races-v4-0-feecd58bb14f@kernel.org>
-References: <20261126-huge-pfnmap-fault-races-v4-0-feecd58bb14f@kernel.org>
-Subject: Re: [PATCH v4 0/4] mm: fix races between huge and non-huge faults
- in PFN mappings
-Message-Id: <179570415481.24306.17551371198022216043.b4-ty@b4>
-Date: Thu, 26 Nov 2026 15:42:34 +0100
+	s=k20260515; t=1795704170;
+	bh=JYPsmB66dwbC3XOJ6pYUPwzn1LyFJbhM3EW4JIXLKjw=;
+	h=Date:From:To:Cc:Subject;
+	b=UaG113oe3Tv0QDg78iAwAXOfxu68pCws8/JTTJy9zAmKAA3bYShyDeupRZkrQKMUM
+	 4YXS25Qa7/0YOmFFgsiSWMFOVUUJuDOfpee7QB/jJyaayIbOZN7IHWiyOpMkDh4Yhf
+	 ysR1EeWrB3YHB4fe/j+TDaiQ5aBgx6vmXKA3TKJo43P+VqQJLDtxMMEP7CWPFxSuBt
+	 wuHYm2Aw2s5jaG0h2ZgbNXTzGzs3YVvx6Jk9GYpdIVrjqOYC+L5NO5H4jSHLY6y5oU
+	 CNFtj9MhkcmW5wX5DQ0e6q7EDvbGfAy5qXfCwH8oIVVN7EAUG9ajUa48y+GRZxsN4m
+	 PDOyQWQVwwlfg==
+Date: Thu, 26 Nov 2026 14:42:45 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>, bpf <bpf@vger.kernel.org>,
+	Networking <netdev@vger.kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Mark Severson <gr3yf0x87@skyn3tlab.com>,
+	Yonghong Song <yonghong.song@linux.dev>
+Subject: linux-next: manual merge of the bpf-next tree with the jc_docs tree
+Message-ID: <awhFZdaQIUEMbV9W@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,49 +63,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iBYBX0PRmQeTR7gE"
+Content-Disposition: inline
 
-On Thu, 26 Nov 2026 14:36:18 +0000, Lorenzo Stoakes (ARM) wrote:
-> A driver that implements both ->fault and ->huge_fault must anticipate
-> concurrent use of both.
-> 
-> This can happen, for example, if a user calls prctl(PR_SET_THP_DISABLE)
-> concurrent with faulting, as that only holds the mmap write lock and thus
-> does not exclude faulting threads stabilised by VMA lock.
-> 
-> [...]
 
-Applied, thanks!
+--iBYBX0PRmQeTR7gE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-tree: mm/core.git
-branch: core-7.5.misc
+Hi all,
 
-Applied patches will appear soon in mm-next, followed by linux-next.
+Today's linux-next merge of the bpf-next tree got a conflict in:
 
-Please report any outstanding bugs that were missed during review, so we
-can either drop the patch series or decide how to fix it up.
+  Documentation/process/changes.rst
 
-It is encouraged to provide Acked-bys, Reviewed-bys, and Tested-bys even
-though the patches have already been applied. If possible, patch trailers
-will be updated.
+between commit:
 
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. Further, this is not a guarantee that the
-patches will go upstream. If in doubt, please check the listed branch.
+  138ede2edc502 ("lib/Kconfig.debug: Set the minimum required pahole versio=
+n to v1.24")
 
-[1/4] mm: update walk_to_pmd() to explicitly return an error
-      https://git.kernel.org/mm/core/c/0ad3f82c
-[2/4] mm/memory: remove racy huge PMD assertion from walk_to_pmd()
-      https://git.kernel.org/mm/core/c/71a45211
-[3/4] mm/memory: do not report OOM if insert_pfn() races a huge fault
-      https://git.kernel.org/mm/core/c/125a4415
-[4/4] mm/huge_memory: only compare PFNs of huge entries on huge fault insert
-      https://git.kernel.org/mm/core/c/36363864
+=66rom the bpf-next tree and commit:
 
--- 
-Cheers,
+  edb9f53371e4a ("docs: changes.rst: set the pahole minimum back to 1.22")
 
-David
+=66rom the jc_docs tree.
 
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+diff --combined Documentation/process/changes.rst
+index 13093c5c26747,a292f31f18911..0000000000000
+--- a/Documentation/process/changes.rst
++++ b/Documentation/process/changes.rst
+@@@ -53,7 -53,7 +53,7 @@@ mcelog                 0.
+  mkimage (optional)     2017.01          mkimage --version
+  nfs-utils              1.0.5            showmount --version
+  openssl & libcrypto    1.0.0            openssl version
+- pahole                 1.22             pahole --version
++ pahole                 1.24             pahole --version
+  pcmciautils            004              pccardctl -V
+  pigz (optional)        2.4              pigz --version
+  PPP                    2.4.0            pppd --version
+@@@ -146,7 -146,7 +146,7 @@@ pahol
+ =20
+  Since Linux 5.2, if CONFIG_DEBUG_INFO_BTF is selected, the build system
+  generates BTF (BPF Type Format) from DWARF in vmlinux, a bit later from k=
+ernel
+- modules as well.  This requires pahole v1.22 or later.
++ modules as well.  This requires pahole v1.24 or later.
+ =20
+  It is found in the 'dwarves' or 'pahole' distro packages or from
+  https://fedorapeople.org/~acme/dwarves/.
+
+--iBYBX0PRmQeTR7gE
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsIRWQACgkQJNaLcl1U
+h9A9Hwf/YTjcCBZlSBWpe9gW7pwLNDrpvypzjbgJGd5P0u/Xc1i4zJGZ9JtDEBlF
+nRsEz4s/Ixg9tEI4Yc9YO/llAOQ6iazlC9SROY7GFWLfcKP92Ss/ww5itIkqhE89
+RktYePv8YW7pI5p5Q287Cfdki/hCRbUckJMdK237YFEGfxexSD6p1fp9daU+ppnD
+ex3kjPsXVo8BXX0qrDzaXKEE1UvOU/Qrihw6SQt4O1npCQy8+LblMBiLVdZt8cW0
+0I6y/eyrNWILQdSjL/PF9Y9ovc0pjaelO4pepce77u08Z5g6KbrbfleMzbhS+Rk1
+kemae6/fVPqRvyLbbjqlzErjrIFh0Q==
+=Uzy2
+-----END PGP SIGNATURE-----
+
+--iBYBX0PRmQeTR7gE--
