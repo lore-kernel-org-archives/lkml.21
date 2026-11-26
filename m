@@ -1,118 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.188.122
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795660017;
-	b=3eMY5nt4EAKaQy0KyPDOYRmazW0MA2TBNyKPxlIY0tfHPkmHdoy4Zc2jap34XQmDE/25
-	 14dPwtJrBCSI0O0RFFdGzmDW2s1MSzieeayAuK46qNVUeOwQIx11tEE3bxnt3RP8HG8WP
-	 /P9Nlw67fr6nKH3qv7ZkMifHKTN5Y9eBQOfXKz8JxYgpY4AYNqpnPgbhUblHdbppaPjsB
-	 3qi+Ia/tWERJC5/E3+XkbKNCOAPFgy8o+w0gnDKfrswkKtsySq0W8bjtzLhlp328WRXy0
-	 2PEi4lI0YVUTg8N2yJfM+/BnJBOqLrPNCyVwfAL6gZPs5h45lbp6EZti7K2nOYdI7jw==
+	t=1795660132;
+	b=PUP1hA1/6+0QJPBY6SmA/4Hckz3VPnXamdUY3tzaMnGGCrJwgwYQeKI8lNtr19LSNdN+
+	 vkL8PgAsEES5c5yi2u3S7S7z+IGWqQV6gyE66u1edmHUepBuo38Z+D+aDOSGyCUrqDYUt
+	 uYU1EYKJ7yDIdPTbMGAnkDWMOpFCoYMKwMxZf0ymG4WH9kN4/cibg2/B65EsYSfb0jHRk
+	 dBIwr37JjmaBYX79qJ8Mb2MutD2BFWHWmBoQ8XMLj2ZlEdhuxT36iIWlngj9BD6zzb6da
+	 JRhXtjUhDRzXBjgOaBK9XjsNRLMfJzrRZ4pyxaw+vZywpcREY2V9mz6XakbsfqGubtg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795660017;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:
-	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:X-Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:Mail-Followup-To:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=VZ0LpREsSiaCZ1xvrAarlAYj3hq6yIUoz1ZqZEl4im8=;
-	b=CUPoLCyDeXlff4qViodJ+0npgP8HnNz6lR3bVyfLYhIP9z949NmKCJO87w1qpLQ7MtI3
-	 AiA6G+hzMVso0JbZD/f28wK2Xii3fcL7Je9WTFdvmfez+WtYhQPdSuM+2kBjXihPGQh6o
-	 k/dQFKXf9pYroXbyIWeTQXZdMoocwPdAUnnlWCU7r+9nOFIi/4+VcWfDbul/JSOzIeiXf
-	 pHFMKSZ1ZwbTMQDxCubwynUk43hGsN1bJ3scASC97vGrIZcxR7c+vbwL1Dobb2hcT89Sq
-	 gn+QpYVUPaUWE7pFpbZIbDszCaP2NAiKUzoTKbWqNpM3PZwUOx4pRDYCfxQbALxhEUg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795660132;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=zQlWzuu7QJmhsVW0s8/560AxfqBLNdrcweWywjJiqHE=;
+	b=mYTnXw2GeYXfSKuLngR9FZ1foLqM8LvO+KIo5ZnWvfrj2So31z/jKW9tZeYpBJwh+XrX
+	 SIaFPTVUGLCI2IwdbaX/qObLFnUfheHxLYv1SeGTMYoGTpB96noDLv/e1LqTxWXtJGgxl
+	 VeVWkHgRFlsLp+YiWe+dga5CDiVdmTIh0RpvsR/PhN3T6PLeCJZqWkWdF2uYFoKW1qZhA
+	 rggGFGQC9zhz8+/85VlOq0LX0jv9zv2UGHC7lpfm7vEPPFW9IAaK/eVzZPfCONshireDa
+	 bjuI03qhklCqDXhN8qhml/8HFWta9zfA2U7OdWwFv3eNP7PHm2axrSi4Qv3nYM32sTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=canonical.com;
-	spf=pass smtp.mailfrom=canonical.com;
-	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=f00LtqH3;
-	arc=none smtp.remote-ip=185.125.188.122
-Received: from smtp-relay-internal-0.canonical.com (smtp-relay-internal-0.canonical.com [185.125.188.122])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=b5ZUNpCw;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WTwInxDe;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39B26606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:26:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39B26606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 031BC606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:28:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 031BC606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key, unprotected) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=f00LtqH3
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 45B553F788
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:26:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1795660014;
-	bh=VZ0LpREsSiaCZ1xvrAarlAYj3hq6yIUoz1ZqZEl4im8=;
-	h=Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:In-Reply-To;
-	b=f00LtqH3q59SIz4jEhz/G7Xi2UaqG7ATPnX6nbQmtMBMQLmnwL1P6WmbfJcCxk3FR
-	 H0NB4UsHCC4JI/rWDkLcZEba1tJbhPDY/wDsJt9cX12eb7OiRWCkQBnnL8G+alWmbt
-	 YWnV1/nxW5EM8VBnyyGbGsdiT5QGiz3/do/I+teJp4vdkvK79wNYeAnI3Hh/FVwddz
-	 TxtHcZEZO2Qcc1Cl6nCBNmhgy8vT0RkF76I1pY01naU0vffOM9D018CJerW6NAZGiY
-	 gfQynXCKKeHovl13RlT10BtqCEl6PVZ7CwFHUG6q440tOgxhgoyLlFHezHYHepT0Kd
-	 q6eLt90gs2yJ9u+VrjD5DXp3roQegOVX8cmk8uquw1zr8CTvCkBDHT8iLqWWY5wYTj
-	 HS3emDEqp3fPDAR5WVQXGsoMy4IPoQX0lWrOH5MNeXk2GsliibsHaZKyTcSbEvAQ5S
-	 lFp2RMr2boM3pxiFIY/RRFFGWQUfh/DoDjX8zoDSK0VnKCgp8sjfNk4L/VsF2PqXke
-	 dsnKitFTCzN5cGMWuc+Jmrfns7Jerpq5Q1YIdgbCHiSSHySFpzFvU3r80nM26O9Odu
-	 1FsO1sixDnxgjW9wK71h3ZZhac0lo+3YMKrEim/8K2Y41/KsLlsHnKxpvu/TiWat05
-	 ZWMCH0X5f5giQB76eagC+PMg=
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cd652c0385bso4410564a12.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:26:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=b5ZUNpCw;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WTwInxDe
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ0jHE01387989
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:28:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	zQlWzuu7QJmhsVW0s8/560AxfqBLNdrcweWywjJiqHE=; b=b5ZUNpCwLRcvGhSI
+	I+F+bLu1ujFA6F+MY/9pql9vwLcI/LkMozfcJMEIfavqEEvJr9qsXYOYyLiLie2/
+	UF9pcboThdc9aF4g3+pJdm4fTLu9KZJ0pyzOJ573LiyQIDUvh5BhU2GpnOWU8Mdk
+	6I72mSQvYqbR8uLyosOvwLrAN9glMlKBKZbgdZhqLk1/Du7Au+887FjXs+coiLnA
+	yTBNMlGjV5Nat9RCWoLfl97k+B0nlhfUDkgDMDrcBmay3jhuoMg52mkeC7bQ3JRz
+	Y0Xg1Amq+n9s4kDJ19tQJuaNNoDnqAL1wS/PhsNQ1esSpnujQkBNuepI2AsOJhUX
+	qRjr0A==
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j66qf8wa7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:28:49 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-9212335e257so27131346d6.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:28:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795660129; x=1796264929; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=zQlWzuu7QJmhsVW0s8/560AxfqBLNdrcweWywjJiqHE=;
+        b=WTwInxDev7mnOdveGbw3O4fyvarPol8bov3t9bv/CV7Yxn6f09jmV0Cu6D5FsN4iRk
+         S/J5EC9u4QmQm4GOOOpn0LIs86KGsHWdZ2MCeKP2zIfJKe18EdL+p+1OUZlHx7dBkb7K
+         wbUrWkuRv38j5HfQ2Y9At6xoqyklmWz95hSYTUjxtifTP7rBqzVxhKMMcFFMrYSNg9QO
+         f3xhXoFyE+FbDQZe3sOTckHqnZXKDHVdNW+ihbA6IcPabtDHfWWwVpg9T5SWG5W5o9a9
+         90RYbrBwqPmC4kMFnOZHKrJAZFEuBxtcyszIUkcy9whc3cKC7W6LzhMldhjpaZa/yf26
+         chtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795660012; x=1796264812;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=VZ0LpREsSiaCZ1xvrAarlAYj3hq6yIUoz1ZqZEl4im8=;
-        b=WQoVY8j+wAZnjJHMMkGq4YMIUReoCFnRCHyBs1qkTNAKnbZoqohsQc4ZqsTu58TMcO
-         Ap2Oi5LR46qWGyeBUmmLvzenvyQ2DXZCtdrPXU6wAmXllsmReO+RCj2+fQ3E7tTutcnr
-         UCMtM3KLelLbkg5dMCLcQxuaDu1xsnd8LdVH7+iN2lb6j9yyoGFTgGW7ZSGjs5wlFHBD
-         aNbwpzRFrxoJsVLqIxfqygqjK5A05tvcB+9Vj6LzGcSmmP+aSMx6JJlVfIxRwWHnfdxp
-         tb7fqmTtlLD8jdFcThuDyN26RF8iK9/YSdcFhewC/iPBmC/sKpDoT5Siz32ZagOjp4/n
-         0Gpg==
-X-Forwarded-Encrypted: i=1; AL+hErFmK/FGx3UGlFVSP9UV59XoQqcPB1gybAeNkX1K2Fux/AMsKkV1GUMAjLoh2R7wuM0z7jfitGhLF8ABchY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9GtTsYsgFhgUhs+m87CXcgpAnc3JuEgyb5ZYd6WQn/C4NEHazw
-	vMjseH76g+ZGOn1l2NC8/fM9sfNO9t6sLwV3BR4+CzjwZUXryh7Uyh+1m6OtopkQ3a8z1FNh0SP
-	BhYe4xXFxelc1wUq0g5jWI3wGoK0wrSpBxOoLGTJ0/ChO8NFKRVOLV/5IYzeZuam3tG5VKltnwS
-	pG1KIBtw==
-X-Gm-Gg: AZFdTZc7uB7bzGDgg5v0SyMk/RV17Hf8J1fiLUQj/PMvlIMf8k08Y0nrA3TeudMXus/
-	GmU/GJwJg519qwX/5WsehqUiKHGNnVcMTmc3TSYPga1gYnJWG/TDsDEIYPlanRvq/Hm2cMPIpUI
-	0uN7m92n4PuOspbA8UQ5ZtnL24+ftyDmxEwQGqQHKYm60Lb62mNlDWDju2GlOjmSbvHf/EXv62q
-	HR4KffHyzTh5xMWNMAfckGJesRkuQsoVBuisrfXw8O96FrAjk/imNipg1T04KeH+P8llFd9koqm
-	Wp/G6u66iRG743zqoeUT/Cmq9ytVi190bML7gsFg2ai52BP0yuX6TqED6nc6QjVXBGqGW4x/b0C
-	8N6hZCNYlAa7FGRDew3VMyuLLQNW36DFPUpB4NqqqDuy2286i6h6NeCdtLDa85l+8wpS3c0r+wL
-	VIt/QOE4hCKZHxI4beO61RTlx7AoRj
-X-Received: by 2002:a17:903:298d:b0:2e9:740c:36c with SMTP id d9443c01a7336-2f03f1ba67amr192049525ad.41.1795660012470;
-        Wed, 25 Nov 2026 18:26:52 -0800 (PST)
-X-Received: by 2002:a17:903:298d:b0:2e9:740c:36c with SMTP id d9443c01a7336-2f03f1ba67amr192049315ad.41.1795660012059;
-        Wed, 25 Nov 2026 18:26:52 -0800 (PST)
-Received: from acelan-Precision-5480 (118-163-61-247.hinet-ip.hinet.net. [118.163.61.247])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84027sm95486895ad.7.2026.11.25.18.26.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 18:26:51 -0800 (PST)
-Date: Thu, 26 Nov 2026 10:26:44 +0800
-From: "Chia-Lin Kao (AceLan)" <acelan.kao@canonical.com>
-To: "Ruinskiy, Dima" <dima.ruinskiy@intel.com>
-Cc: intel-wired-lan@lists.osuosl.org, 
-	Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
-	Ye Shu <hello@shuye.dev>, Vitaly Lifshits <vitaly.lifshits@intel.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] e1000e: disable K1 by default on more MTL+ systems
-Message-ID: <aweXIb8RzSVHmTwT@acelan-Precision-5480>
-Mail-Followup-To: "Chia-Lin Kao (AceLan)" <acelan.kao@canonical.com>, 
-	"Ruinskiy, Dima" <dima.ruinskiy@intel.com>, intel-wired-lan@lists.osuosl.org, 
-	Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
-	Ye Shu <hello@shuye.dev>, Vitaly Lifshits <vitaly.lifshits@intel.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261119001818.513503-1-acelan.kao@canonical.com>
- <20261124022233.1234651-1-acelan.kao@canonical.com>
- <087a9cf2-bd0a-4f57-8dcf-9b0962186fe1@intel.com>
+        d=1e100.net; s=20260707; t=1795660129; x=1796264929;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zQlWzuu7QJmhsVW0s8/560AxfqBLNdrcweWywjJiqHE=;
+        b=Ray9BiyAtPNdl3YMqoP4lBxsLhYyWBj5eTrLuWMk+Bq4OFixd0RIzsLWWOhD/q4DLT
+         hK3kiJxCU2/Ce+MmvQct3CDINpLdSHmOIwMciGqz/TxoT0JPOelWJUYOo3DrNHBHUp42
+         ihWHt2eu/KLNj3u52Y60HBEWJcURtFdf48wtbWQ/g2FgVjzQa8OICm4nP0MrHkIbPYcE
+         KQV5Ct6I80xx+1RUtm264Fotaoj7r3EMwhJG/UL3/MecOfomhZAvh14Ypmz/yP1/HY17
+         hVE+3z2M2LO+Z4WG5RvNgsuKiCc+8x3WoMIzY80D1un1zscfMtXoCYFBBJjCS9i/usML
+         EJcQ==
+X-Forwarded-Encrypted: i=1; AL+hErHhyMpM1p7JWrfYfadOC+ImyHukgfPcUs6p+0jn0E47dyBnkMzHMfzkZJXcx5wZC1cRelYCSKTmbK3ytCw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+lQJdGCf1GO5n/jGmiA8YGe1TjAKlkZ+NjP4BW3qMt/BoYTWqC
+	5cZCqUvbTEEIGgiOPFyoN1+Vt8TvNHDuKAW29z0HvecqKwr50yqytZ96wdn7HiYtji8DZl7ecFm
+	5qJKe6Re6ZMeJu//HvO1uNE+8v5ndCBJrDLM5TdAA80tq7FjD6mbJ5i2cbUUsp4ZAUVU=
+X-Gm-Gg: AZFdTZcqNCQzMOdaqtNxrsfjsnNxZmP90JWxTwbXJhZRla4YfPlvIkDtXkX3YPXvyUL
+	2TUItFwkfxLexHrDN/7XL8XeAZVRtaULY8MDKZDIDEd19tJhT0aEkfHLncf0/0kyABRcIffAuNy
+	LtWf4gSbRDWHv7RCgBR8gtX0iUmBeF1bui7JoPav0zDdTFLrYRcYrVisCZshdPbK6O7v8pp68Jc
+	5bE6ABHQThXK/Qrl/uU27eutjAxXoUBm+fsLySMyfUC5JIuKOI2EAU4ijGujQDpo5kl3ktfKJTN
+	I9Afzblgdrwiz9i+aAu1tjSMKBO2gpX8DmJAgFuxX/cGs5LcrR8+o7Ou3k1nbTOQYr2hc3UZcI4
+	WDizdv+D+Uj6TVT5vKDu9j+Hg1VJFlBYGZPsc9SZiRocovL+ZE25OEHvf7r/66bTo7Py7Fn0XA9
+	pkv3SAsDJz1A7S6R3TjOnMFr0/0nBYUGrRSYY=
+X-Received: by 2002:a05:6214:3ca0:b0:921:7875:29ac with SMTP id 6a1803df08f44-921787529c5mr86599916d6.12.1795660129164;
+        Wed, 25 Nov 2026 18:28:49 -0800 (PST)
+X-Received: by 2002:a05:6214:3ca0:b0:921:7875:29ac with SMTP id 6a1803df08f44-921787529c5mr86599566d6.12.1795660128716;
+        Wed, 25 Nov 2026 18:28:48 -0800 (PST)
+Received: from [10.38.247.193] (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349d383asm177102666d6.22.2026.11.25.18.28.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 18:28:48 -0800 (PST)
+Message-ID: <ff007bf8-09ea-4b70-8475-7a97ebdca755@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 10:28:39 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,181 +114,189 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <087a9cf2-bd0a-4f57-8dcf-9b0962186fe1@intel.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 17/23] arm64: dts: qcom: sm8750-qrd: Enable S5KJN1
+ camera sensor
+To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Bryan O'Donoghue <bod@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Hangxiang Ma <hangxiang.ma@oss.qualcomm.com>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Robert Foss
+ <rfoss@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Frank Li <Frank.Li@nxp.com>
+Cc: linux-phy@lists.infradead.org, linux-media@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org
+References: <20261114-add-support-for-camss-on-sm8750-v7-0-8ff2a11835f6@oss.qualcomm.com>
+ <20261114-add-support-for-camss-on-sm8750-v7-17-8ff2a11835f6@oss.qualcomm.com>
+ <c4c72389-2a8e-4278-8667-cdd4d8f72225@linaro.org>
+From: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+In-Reply-To: <c4c72389-2a8e-4278-8667-cdd4d8f72225@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: N7nf5UjlLlLaeme6Y5MhA0XyPwmxZnhA
+X-Proofpoint-GUID: N7nf5UjlLlLaeme6Y5MhA0XyPwmxZnhA
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAwOCBTYWx0ZWRfX+ai/PP0G6o1+
+ s7OCkXzzBCr58ocRy95bwcpIFicnkYEjiDbYUcTH/WwxLAmyyr2IbuELpWyiBqoDSRt89cmKfQ+
+ eZiycLKLD2sKR7HeXR0H6jeiOJzZcRA=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAwOCBTYWx0ZWRfX3VlzoaT6MF3p
+ Cjl+mg1oyVS7nNgnO7rTu5zPWjYbMEF+SjEJo4ZUbs+tewv0xi4pyMLJzuUjWue3GfHBC8GahQH
+ GPnikQuXKD9oaAHXbFBybIlHrf3ZRIMqvtcRzgHU1GkkikXpJpI7CWNRIFmRay5THqQzMSqlwDp
+ nHDiwmNrTyRFRc0XQPSgWuCr8AY6IqXnqvyfI9m3KXznKRbsswEffCfIrB7uSolVg6fRs5f77te
+ NuhN3if40hM/Gvekt3NRdfbXieueM/HsHvOQqyJbnUKaXEABPShGqZpEjUwyxpFPVJqbRXY5iOm
+ RwhYD3gKY66uq3w2Spj6gRsLT1dRALA7rBDmT9OIQJMskNI2MKkIiwRtsltFA6jr2LlQnArrd4h
+ 92anrWfNkFrY2ZdeKCkpwXqQafKlmvuER5lTZ6A4ULJjPnBMA2YxadK4pSEJt+VsB6awi5Uae6I
+ 0KLMa6LBFqZ/rdPGzMw==
+X-Authority-Analysis: v=2.4 cv=Q5VHcI2a c=1 sm=1 tr=0 ts=6b079961 cx=c_pps
+ a=wEM5vcRIz55oU/E2lInRtA==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8 a=j4L9U9e7tDSPgzuknP8A:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=OIgjcC2v60KrkQgK7BGD:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_05,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 lowpriorityscore=0 spamscore=0 adultscore=0 bulkscore=0
+ priorityscore=1501 suspectscore=0 malwarescore=0 clxscore=1015 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260008
 
-On Wed, Nov 25, 2026 at 09:42:20AM +0200, Ruinskiy, Dima wrote:
-> On 24/11/2026 4:22, Chia-Lin Kao (AceLan) wrote:
-> > Like the Dell Pro 5 Micro P5M1260 added by the previous patch, other
-> > systems with an I219 on MTL or later no longer enter S0ix during
-> > s2idle since commit 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake").
-> > Every suspend ends with:
-> >
-> >    intel_pmc_core INT33A1:00: CPU did not enter SLP_S0!!! (S0ix cnt=0)
-> >
-> > Each unit ran 3 s2idle cycles on kernel 7.0 with the default K1
-> > setting and, if all of them failed to reach SLP_S0, 3 more with
-> > disable-k1 on. On the following systems the default cycles never
-> > reached SLP_S0 and the disable-k1 cycles all did:
-> >
-> >    Dell Pro 14 PC14250                       [8086:550a, 57a0]
-> >    Dell Pro 3 14 P314260                     [8086:57b3]
-> >    Dell Pro 3 16 P316260                     [8086:57b3]
-> >    Dell Pro 5 14 P514260                     [8086:57b3]
-> >    Dell Pro 5 16 P516260                     [8086:57b3]
-> >    Dell Pro Max 14 MC14250                   [8086:57a0]
-> >    Dell Pro Max 16 MC16250                   [8086:550a]
-> >    Dell Pro Precision 5 14 PW514261          [8086:57b3]
-> >    Dell Pro Precision 5 14S PW514260         [8086:57b3]
-> >    Dell Pro Precision 5 16S PW516260         [8086:57b3]
-> >    Dell Pro Rugged 10 Tablet RA00260         [8086:550e]
-> >    HP ZBook 8 G1i (14/16 inch)               [8086:57a0, 57a1]
-> >    HP EliteBook 6 G1i (13.3/14 inch)         [8086:57a0]
-> >    HP EliteDesk 8 Mini G2i                   [8086:57b3]
-> >
-> > Add these systems, matched by DMI vendor and product name, to
-> > disable_k1_list so K1 is disabled by default. The HP entries match
-> > the product family, which covers the screen size variants.
-> >
-> > Cc: stable@vger.kernel.org
-> > Fixes: 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake")
-> > Signed-off-by: Chia-Lin Kao (AceLan) <acelan.kao@canonical.com>
-> > ---
-> >   drivers/net/ethernet/intel/e1000e/netdev.c | 98 ++++++++++++++++++++++
-> >   1 file changed, 98 insertions(+)
-> >
-> > diff --git a/drivers/net/ethernet/intel/e1000e/netdev.c b/drivers/net/ethernet/intel/e1000e/netdev.c
-> > index a8f0d3c0fd750..319c7a44f5a53 100644
-> > --- a/drivers/net/ethernet/intel/e1000e/netdev.c
-> > +++ b/drivers/net/ethernet/intel/e1000e/netdev.c
-> > @@ -80,6 +80,104 @@ static const struct dmi_system_id disable_k1_list[] = {
-> >   			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 5 Micro P5M1260"),
-> >   		},
-> >   	},
-> > +	{
-> > +		.ident = "Dell Pro 14 PC14250",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 14 PC14250"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "Dell Pro 3 14 P314260",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 3 14 P314260"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "Dell Pro 3 16 P316260",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 3 16 P316260"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "Dell Pro 5 14 P514260",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 5 14 P514260"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "Dell Pro 5 16 P516260",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 5 16 P516260"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "Dell Pro Max 14 MC14250",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Max 14 MC14250"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "Dell Pro Max 16 MC16250",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Max 16 MC16250"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "Dell Pro Precision 5 14 PW514261",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Precision 5 14 PW514261"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "Dell Pro Precision 5 14S PW514260",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Precision 5 14S PW514260"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "Dell Pro Precision 5 16S PW516260",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Precision 5 16S PW516260"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "Dell Pro Rugged 10 Tablet RA00260",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Rugged 10 Tablet RA00260"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "HP ZBook 8 G1i",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "HP ZBook 8 G1i"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "HP EliteBook 6 G1i",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "HP EliteBook 6 G1i"),
-> > +		},
-> > +	},
-> > +	{
-> > +		.ident = "HP EliteDesk 8 Mini G2i",
-> > +		.matches = {
-> > +			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
-> > +			DMI_MATCH(DMI_PRODUCT_NAME, "HP EliteDesk 8 Mini G2i"),
-> > +		},
-> > +	},
-> >   	{}
-> >   };
-> Hi AceLan,
-> Thank you for this investigation.
->
-> With a list of systems this long, covering multiple generations, this
-> suggests a fundamental problem somewhere, probably not what this quirk is
-> intended to solve.
->
-> Furthemore, as I said, I am not aware of the mechanism by which enabling K1
-> can prevent SLP_S0, and the GBE_D3_STS as a blocker seems particularly
-> strange.
->
-> I have asked our internal validation team to investigate this, at priority.
-> First I want to understand if this is limited to Dell/HP systems, and if so
-> - why.
-We have Dell and HP machines in the lab, so only systems from these
-two brands have been verified.
+Hi Vladimir,
 
-We also have few Lenovo workstation/server here, but it looks like
-they are not affected.
->
-> I would rather hold this off for a bit, while we investigate. Though, if the
-> investigation turns out complex, we may apply this patch, at least
-> temporarily, until a better solution is found.
->
-> --Dima
->
+On 11/25/2026 9:19 PM, Vladimir Zapolskiy wrote:
+> Hi Wenmeng.
+> 
+> On 11/14/26 13:29, Wenmeng Liu wrote:
+>> Enable CAMSS, CCI1 and CSIPHY3 on the SM8750 QRD board. The S5KJN1
+>> camera sensor is connected to CCI1 I2C bus 0, uses MCLK3 at 24 MHz and
+>> connects to CSIPHY3 over a 4-lane D-PHY link.
+>>
+>> Signed-off-by: Wenmeng Liu <wenmeng.liu@oss.qualcomm.com>
+>> ---
+>>   arch/arm64/boot/dts/qcom/sm8750-qrd.dts | 72 +++++++++++++++++++++++ 
+>> ++++++++++
+>>   1 file changed, 72 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/qcom/sm8750-qrd.dts b/arch/arm64/ 
+>> boot/dts/qcom/sm8750-qrd.dts
+>> index 
+>> 75927e1f7b9ab0316781c64dbcc82d3394c414f6..c92a1f3c47bd5cbae26854614682c3bc7daa0398 100644
+>> --- a/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
+>> +++ b/arch/arm64/boot/dts/qcom/sm8750-qrd.dts
+>> @@ -7,6 +7,7 @@
+>>   #include <dt-bindings/gpio/gpio.h>
+>>   #include <dt-bindings/leds/common.h>
+>> +#include <dt-bindings/media/video-interfaces.h>
+>>   #include <dt-bindings/regulator/qcom,rpmh-regulator.h>
+>>   #include "sm8750.dtsi"
+>>   #include "pm8010.dtsi"
+>> @@ -858,6 +859,70 @@ vreg_l7n_3p3: ldo7 {
+>>       };
+>>   };
+>> +&camss {
+>> +    status = "okay";
+>> +};
+>> +
+>> +&camss_csiphy3_in_port {
+>> +    camss_csiphy3_inep: endpoint {
+>> +        data-lanes = <1 2 3 4>;
+>> +        remote-endpoint = <&csiphy3_out_ep>;
+>> +    };
+>> +};
+>> +
+>> +&cci1 {
+>> +    status = "okay";
+>> +};
+>> +
+>> +&cci1_i2c0 {
+>> +    camera@56 {
+>> +        compatible = "samsung,s5kjn1";
+>> +        reg = <0x56>;
+>> +
+>> +        reset-gpios = <&tlmm 109 GPIO_ACTIVE_LOW>;
+>> +        pinctrl-0 = <&cam_mclk3_default &cam3_reset_default>;
+>> +        pinctrl-names = "default";
+>> +
+>> +        clocks = <&cambistmclkcc CAM_BIST_MCLK_CC_MCLK3_CLK>;
+>> +        assigned-clocks = <&cambistmclkcc CAM_BIST_MCLK_CC_MCLK3_CLK>;
+>> +        assigned-clock-rates = <24000000>;
+>> +
+>> +        vdda-supply = <&vreg_l4m_2p8>;
+>> +        vddd-supply = <&vreg_l2m_1p056>;
+>> +        vddio-supply = <&vreg_l5m_1p8>;
+>> +
+>> +        port {
+>> +            s5kjn1_out_ep: endpoint {
+>> +                data-lanes = <1 2 3 4>;
+> 
+> 'data-lanes' property can be removed from here.
+> 
+
+I'd prefer to keep data-lanes here, as it describes the actual 4-lane 
+D-PHY wiring rather than relying on the driver default. It's also 
+consistent with qcm6490-fairphone-fp5.dts and keeps the DT unambiguous 
+if other lane configurations are supported in the future.
+
+Thanks,
+Wenmeng
+
+>> +                link-frequencies = /bits/ 64 <700000000>;
+>> +                remote-endpoint = <&csiphy3_in_ep>;
+>> +            };
+>> +        };
+>> +    };
+>> +};
+>> +
+>> +&csiphy3 {
+>> +    vdda-0p9-supply = <&vreg_l1f_0p88>;
+>> +    vdda-1p2-supply = <&vreg_l3g_1p2>;
+>> +
+>> +    status = "okay";
+>> +};
+>> +
+>> +&csiphy3_in_port {
+>> +    csiphy3_in_ep: endpoint {
+>> +        bus-type = <MEDIA_BUS_TYPE_CSI2_DPHY>;
+>> +        clock-lanes = <0>;
+>> +        data-lanes = <1 2 3 4>;
+>> +        remote-endpoint = <&s5kjn1_out_ep>;
+>> +    };
+>> +};
+>> +
+>> +&csiphy3_out_port {
+>> +    csiphy3_out_ep: endpoint {
+>> +        remote-endpoint = <&camss_csiphy3_inep>;
+>> +    };
+>> +};
+>> +
+>>   &gpu {
+>>       status = "okay";
+>>   };
+>> @@ -1081,6 +1146,13 @@ &tlmm {
+>>       /* reserved for secure world */
+>>       gpio-reserved-ranges = <36 4>, <74 1>;
+>> +    cam3_reset_default: cam3-reset-default-state {
+>> +        pins = "gpio109";
+>> +        function = "gpio";
+>> +        drive-strength = <2>;
+>> +        bias-disable;
+>> +    };
+>> +
+>>       sdc2_card_det_n: sd-card-det-n-state {
+>>           pins = "gpio55";
+>>           function = "gpio";
+>>
+> 
+> Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+> 
+
