@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795685867;
-	b=f51TVA5nGNQMJejnJcHQkq1BtQgDr9Xd/wqhx25Sk7ij+QLwOwnxrvrfTYcudJyZqaVk
-	 JNQ5xveIcbiaeElr2H2ULfI28ccuYKGq+Kdir8+3ZtlsrtMD7/2cpGQYICg2oi1226mQd
-	 iqAdYm6yBTKQHH+/MPwMAVN49Xe0F7RkQVg7eob+o8R1fxdTsfKN+x9kIwTRxS/GGYx2O
-	 X6NOVPx69YSPnSwfdTYjx9QpC18tqwqz1e7gOp/jJAtCbv/s42HVm7NMZBTPYf4YfnnNS
-	 yFYtRtEAR2DKdlid7wtrvnlgx5eJ+2/B6Rw6K8G88s+xB3TMy0DqBIiCkV2NFy7M2Yg==
+	b=AcEAHmuCKc1C8oNJup3FqA1qFRI9LrAVPubAuEsG/hXi26cS90/+L2orIJv4XQ3D5qRD
+	 eqmerTCERtfjBR2biLL7N9aFG96Efrn/60g4GRYsMbbP53rT7tx1//ZgnC2EaQR8uLvkN
+	 LT/D+7Dej51lIuV7cYyAGwOgOf8HgZsx6BRHi8gPX0CGuciGur1abobFY7IqbEFzgQZqF
+	 YCuHEuarrZCsil8kFP8MfH3QH09uvJYsRSZrqcRIaHFserA24jEqFEIG2R9c61tm8vUqV
+	 Svavtpc0fPKbY5GP5QOmjyt5avtqmEJmziANJYstPN+gyYVLv8u8L+sRiwqJTZHRziw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795685867;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=b1Vnpjw6TkLbgzGL1wuTpBp+Omi7UldDv2w4ZaQiTe4=;
-	b=OHD2uyUijhRLFxV+jiDa2WDqBDyhfqwjUtsCMIbf85tHGrtHbJ9PA0+CtdkKvekpszTQ
-	 VNGnx/2bfKjeEq7+yaZ+BLksWSFcywOAQwP9mKbYo2dD82Eulp7XvEm9l+KIyGDDsrW09
-	 JceUrXGS3bmZfaB4G6YOyEz2oGSE2/U0XGJ27JWii8pHWjK9l+lWdOJI+gGGyLYUuEF0d
-	 JKN/OSbed+wYeh1JpMLA1MgN28vbGTlUCxJevC+U8mRSvd4NmLgb3n1929PIXuFtYFYVk
-	 Ilnc+KX/UKuJfihzUhW2WILx+Qexgziz5ta3Ep7b7vIHft2GAl5aiOf8of05TtXFteg==
+	bh=Vi65jhZmEorWcTmRFY2Go1/Dp9ZgmGzi6iEBf5pJZM4=;
+	b=L6KFIUtddFYpVgPxyXN/RUGqccFh8O+UMJYxI7RVS6+y+FTovbbEihpqwGKoZDSgrlUh
+	 +KbFfZFnx1B1a0osqm7x8d8ruVcFFPe0yzqITpWvNWlInB/gpizKXUnpic1W2kdodmAzy
+	 /KRJsTeKv9KQBr2hnpo4J6pJgEZBf2wUi13AAg1XRgWkrWdqna1+Hbm3V4ERnEllj6UOU
+	 FB50RM3REOeRKAGw4Z84krLgAXKTPD0LMOoiHiYDy3Z2/u9gngfJWx2LsNzBeGwn7SqLW
+	 FZMlG7UWkmb3Gf88hPm/3Q5vMKikwA1l6FodSzSBIBUDIueGeGcCMhb/HfpISYnxPvQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NoREpRje;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oQcAKvCJ;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3706D60A2618
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A745D60A2620
 	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:37:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NoREpRje
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oQcAKvCJ
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795685866;
-	b=pTHRKZhKxdxn3z3iObP6pnSs7LuyN0WMjoKdqp9JuehNiZsmMi2OCu6JdmXIlOeYO54Y
-	 NaJ/8Sb8++xCnJG5XvRBWFc2epV3kooxpFkHQN0lmSwb/K17Wbp3yUrAk71gArowrtlvG
-	 M5cjtRhFJsKDvqZ5BEUOUyxqvWmmHqFF+j9h6Kf3ch5NORde76ogDJtlsfqEbLEEpXJlf
-	 rKv1jb19khVkj4p1kwDvXnJBdQilnCue8Djl/9oY9Cth39HZPZ+gBQWIerE7ZdZMq37zc
-	 ZqLiiZ4El8NXrIKJfFvacpQLp5lgJLRmpNqB054jpOG4Bsyg3S22bhvggXB+eSg8qpA==
+	t=1795685867;
+	b=knNkWwO5+li+jqXqRz/dXM7HuQ6oM8LqzBJ50SzT++qc7ABb/oervhA0PrqUqTBSzlXn
+	 gGyvMso9eDBJ66HtSBN+Ha2roAK78qGCeGoAE/ua1bSQDGxu+6TaoVm8d+G2RDhBhc9iq
+	 EKzsbAEYNGzshTD/qD3p34QZ5/rB87ZBW8MmmHfnAUy02+7v8ASNwF8lHWI1M03VVlVUH
+	 6poiHqGMD+uESbwgc6h2t/VE6hpNwKIWJWJY02/PvehlH3JDOMW5PKIeSX18zbCjWlCO/
+	 2k5vCDQMw5VF738Fvn97nF9kuSIeIT2wwUb/qJvQw4Iy33P2M44ERxiqEKf/meYPOkw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795685866;
+	c=relaxed/relaxed; t=1795685867;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=b1Vnpjw6TkLbgzGL1wuTpBp+Omi7UldDv2w4ZaQiTe4=;
-	b=aoJBjdq++z/g0Y0HQdC4Zm0oQZot7dmy5aQne7F6ziEHD3T49sTN+N7U4Wwh67W9++8+
-	 GIrI26c4iB6yrDuMUVYW2s5UlmbGU9mOX17z1F3BBKpLAKSohbgR/uAWf8ndS2+lgBguu
-	 dla5H1XYFU7ExV9P/xc7c83Gyv+t2abxZsOUawU4pNC//on6sLr8pOzH0AtSOr1WGGoYc
-	 gR8eJD4O+ZnGLPsUf7WUnRjlMDgh9SykR4zej2XlTKz0W2QgNdCa1u9uJoekWg05ZFGsQ
-	 rEzGlUfpSY5TjPFaRR/Csh5HJ38VIygx9c+TRJKUusFAy0/xWLYfY47Yc2nJtUyczCQ==
+	bh=Vi65jhZmEorWcTmRFY2Go1/Dp9ZgmGzi6iEBf5pJZM4=;
+	b=ZQDJ7esu2iansQbYyvLOGtJ/ikJsSGksPncCoydbmkgvjrEO9cXzWGDFATyLjPdGsjkO
+	 L+CLRV6r/L13l2tzSnD42OzRZJz07W/EcoNijmn63EFKFvNGOTDPquZLc8zqSb2pto2V2
+	 5ED7e8xnW0nkH87dm3MM90e96z0xaNsvSVox8nWeLyuIET2wdpV4biv77XylQ2F6/6WoX
+	 HhW9gMf3ho+IyGdOJYSPF9pNu5obxouf6ZNKb+Gc0TgM3xInxUBiZUrsSpHsyf95UIdOC
+	 Z0iIpaNPG3j9nKYuUfhGRvEmdI7RzsXnaBaxbG0bvZPA4iU/ngZf/aAc5GgqQ0wxwcg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 275711F000F2;
-	Thu, 26 Nov 2026 09:37:28 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id A4B6F1F008B2;
+	Thu, 26 Nov 2026 09:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795685866;
-	bh=b1Vnpjw6TkLbgzGL1wuTpBp+Omi7UldDv2w4ZaQiTe4=;
+	s=k20260515; t=1795685867;
+	bh=Vi65jhZmEorWcTmRFY2Go1/Dp9ZgmGzi6iEBf5pJZM4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=NoREpRjeOEYrnwCwwD5OjKdEtsEBVajT6fEm5eByPbDD65Gn3OfNtfpAms3lKEtWs
-	 Jtt31sMO98LD+znzgznUqJw8URmWOoKBkJGa3RuUBkk4f/q/zZNPfdSCKcfy0PvX3f
-	 09nVafC0iKD5IYJJBscuZYuwO0H0VfAosYz3GZklREVS1yRBNxuPA/zihn1Tz3tmyL
-	 p7Qniv+26u0qmyw4exMfj7ENbg0EvxBEvg3/j3Leg1WQHVYYZTHugL3EjRh7AUafh3
-	 9+zEJ1o2z88GU4ku6Fqv+81Jh2INskGgJuy9Ieaz+BI9rOfPn+psza1jNHHSM31LAp
-	 mZzrANcYwi1yA==
+	b=oQcAKvCJrMwYoswPn09ZBBJbK/qp8x5WUN54xaK7+eoVVeT/hSemcTXVZRe1TaqTG
+	 CrnFHvKVMxTbBejPe4MZCylRfzz4zdYGZFCZGFQajNEzPK+mWTdSyXMIp27Emh3hkk
+	 7Zczm0qREBUwWiczisTTsEeJnFQmdjN7d3DrcvG6HWVFfIprHKD3zCpRFveOIrtkgp
+	 5y8qx08LQofOJpEHq1nMMoO73yrvC+AWDZH1JPyt1QoyEbRQZZwfbzKtYHb+9A66jn
+	 Zw9BkQM6c7pykoumg6y6fl5UCsH4pZV2R/UvQyLXBhhl+htyRtfmACB/BU75gag1o8
+	 gu5mxei7Snxjg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D84BC4D3A0;
+	by lkml.kernel.org (Postfix) with ESMTP id B94524D39C;
 	Thu, 26 Nov 2026 09:36:48 +0000 (UTC)
 From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 09:36:56 +0000
-Subject: [PATCH v4 13/17] drm/panfrost: Wait for the soft-stopped slots
- with the live slot status
+Date: Thu, 26 Nov 2026 09:36:55 +0000
+Subject: [PATCH v4 12/17] drm/panfrost: Don't take a job that was never
+ started for done
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-panfrost-long-jobs-v4-13-23579629ceca@gmail.com>
+Message-Id: <20261126-panfrost-long-jobs-v4-12-23579629ceca@gmail.com>
 References: <20261126-panfrost-long-jobs-v4-0-23579629ceca@gmail.com>
 In-Reply-To: <20261126-panfrost-long-jobs-v4-0-23579629ceca@gmail.com>
 To: Boris Brezillon <boris.brezillon@collabora.com>, 
@@ -96,11 +96,11 @@ To: Boris Brezillon <boris.brezillon@collabora.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  Arun Iyengar <aiyengar1990@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795685806; l=3109;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795685806; l=3202;
  i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=vru6jIS0f9TqDaLwqRrhySvhQChWFPA8qS25wfCvx6I=;
- b=PFVHGe7e5dXmP1KFAVuR0aZlfVK8fAMeh49R3CJT2QKHeM8y99C2jjYOrzBFr+Bcn6w6Xd229
- /s9bEL9JR/ZCOWRznNfIkE1qV5HlTErJc0iwxDqphL1i9S/Vs9ivMyw
+ bh=KmxdBC9lkjEmZW2MQMtPWghJrhcIC8sdhTBhHqMQcUM=;
+ b=ujTeMVHXVypiS3oxRaO4nmO/FfGxATVCgW4PBOGDmnObLTb+F/TbaMaVsfSX8vX4ihhG3c0hS
+ BpQYFyaMyCKCodOENp72McIKMrG/mKdGp4TOh25fTb1GYRKkDPDt/a/
 X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
  pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
 X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
@@ -111,96 +111,76 @@ Content-Transfer-Encoding: 7bit
 
 From: Arun Iyengar <aiyengar1990@gmail.com>
 
-panfrost_reset() waits for the soft-stopped slots by polling
-JOB_INT_JS_STATE, a snapshot taken at the last JOB_INT_CLEAR write. A
-job started into an idle slot shows as idle, and the wait ends at once.
-The GPU reset hides this. With the job resumed instead (patch 16), its
-resubmission ran while the first run was still stopping (Mali-G31,
-OpenCL CTS Integer Ops):
+reset.pending is set before panfrost_reset() masks the job interrupt.
+A job queued but not started in that window, behind a running job that
+completes, is taken for done: its fence is signalled and it never runs.
 
-  Unable to handle kernel NULL pointer dereference at virtual address 00000000000000f8
-  pc : panfrost_dequeue_job+0x2c/0xd8 [panfrost]
-
-Wait until no JS_STATUS reads ACTIVE, and make panfrost_dequeue_job()
-return NULL for an empty slot (a WARN, not an Oops).
+Mark a job started when JS_COMMAND_START is written, and leave the
+others to the reset. Found by Sashiko. Not reproduced.
 
 Fixes: 030761e097b4 ("drm/panfrost: Queue jobs on the hardware")
+Cc: stable@vger.kernel.org
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/sashiko-outbox-210891@kernel.org/
 Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
- drivers/gpu/drm/panfrost/panfrost_job.c | 34 +++++++++++++--------------------
- 1 file changed, 13 insertions(+), 21 deletions(-)
+ drivers/gpu/drm/panfrost/panfrost_job.c | 8 ++++++--
+ drivers/gpu/drm/panfrost/panfrost_job.h | 2 ++
+ 2 files changed, 8 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/panfrost/panfrost_job.c b/drivers/gpu/drm/panfrost/panfrost_job.c
-index 0946da3af..722f87ebe 100644
+index fcddc13bf..0946da3af 100644
 --- a/drivers/gpu/drm/panfrost/panfrost_job.c
 +++ b/drivers/gpu/drm/panfrost/panfrost_job.c
-@@ -173,7 +173,8 @@ panfrost_dequeue_job(struct panfrost_device *pfdev, int slot)
- {
- 	struct panfrost_job *job = pfdev->jobs[slot][0];
+@@ -261,6 +261,7 @@ static int panfrost_job_hw_submit(struct panfrost_job *job, int js)
  
--	WARN_ON(!job);
-+	if (WARN_ON(!job))
-+		return NULL;
+ 	spin_lock(&pfdev->js->job_lock);
+ 	subslot = panfrost_enqueue_job(pfdev, js, job);
++	job->started = false;
+ 	/* Don't queue the job if a reset is in progress */
+ 	if (!atomic_read(&pfdev->reset.pending)) {
+ 		job->is_profiled = pfdev->profile_mode;
+@@ -276,6 +277,7 @@ static int panfrost_job_hw_submit(struct panfrost_job *job, int js)
+ 			job->start_cycles = panfrost_cycle_counter_read(pfdev);
+ 		}
  
- 	if (job->is_profiled && job->engine_usage) {
- 		job->engine_usage->elapsed_ns[slot] +=
-@@ -645,25 +646,18 @@ static void panfrost_jm_handle_irqs(struct panfrost_device *pfdev)
- 	}
- }
++		job->started = true;
+ 		job_write(pfdev, JS_COMMAND_NEXT(js), JS_COMMAND_START);
+ 		dev_dbg(pfdev->base.dev,
+ 			"JS: Submitting atom %p to js[%d][%d] with head=0x%llx AS %d",
+@@ -584,7 +586,8 @@ static void panfrost_jm_handle_irq(struct panfrost_device *pfdev, u32 status)
  
--static u32 panfrost_active_slots(struct panfrost_device *pfdev,
--				 u32 *js_state_mask, u32 js_state)
-+/* JOB_INT_JS_STATE is a snapshot: it can show a busy slot as idle. */
-+static bool panfrost_slots_idle(struct panfrost_device *pfdev)
- {
--	u32 rawstat;
--
--	if (!(js_state & *js_state_mask))
--		return 0;
--
--	rawstat = job_read(pfdev, JOB_INT_RAWSTAT);
--	if (rawstat) {
--		unsigned int i;
-+	unsigned int i;
- 
--		for (i = 0; i < NUM_JOB_SLOTS; i++) {
--			if (rawstat & MK_JS_MASK(i))
--				*js_state_mask &= ~MK_JS_MASK(i);
--		}
-+	for (i = 0; i < NUM_JOB_SLOTS; i++) {
-+		if (job_read(pfdev, JS_STATUS(i)) ==
-+		    DRM_PANFROST_EXCEPTION_ACTIVE)
-+			return false;
- 	}
- 
--	return js_state & *js_state_mask;
-+	return true;
- }
- 
- static void
-@@ -671,9 +665,8 @@ panfrost_reset(struct panfrost_device *pfdev,
- 	       struct drm_sched_job *bad)
- {
- 	struct panfrost_job *evicted[NUM_JOB_SLOTS] = {};
--	u32 js_state, js_state_mask = 0xffffffff;
- 	unsigned int i, j;
--	bool cookie;
-+	bool cookie, idle;
- 	int ret;
- 
- 	if (!atomic_read(&pfdev->reset.pending))
-@@ -724,9 +717,8 @@ panfrost_reset(struct panfrost_device *pfdev,
- 	spin_unlock(&pfdev->js->job_lock);
- 
- 	/* Wait at most 10ms for soft-stops to complete */
--	ret = readl_poll_timeout(pfdev->iomem + JOB_INT_JS_STATE, js_state,
--				 !panfrost_active_slots(pfdev, &js_state_mask, js_state),
--				 10, 10000);
-+	ret = read_poll_timeout(panfrost_slots_idle, idle, idle, 10, 10000,
-+				false, pfdev);
- 
- 	if (ret)
- 		dev_err(pfdev->base.dev, "Soft-stop failed\n");
+ 		if (failed[j]) {
+ 			panfrost_job_handle_err(pfdev, failed[j], j);
+-		} else if (pfdev->jobs[j][0] && !(js_state & MK_JS_MASK(j))) {
++		} else if (pfdev->jobs[j][0] && pfdev->jobs[j][0]->started &&
++			   !(js_state & MK_JS_MASK(j))) {
+ 			/* When the current job doesn't fail, the JM dequeues
+ 			 * the next job without waiting for an ACK, this means
+ 			 * we can have 2 jobs dequeued and only catch the
+@@ -592,7 +595,8 @@ static void panfrost_jm_handle_irq(struct panfrost_device *pfdev, u32 status)
+ 			 * are inactive, but one job remains in pfdev->jobs[j],
+ 			 * consider it done. Of course that doesn't apply if a
+ 			 * failure happened since we cancelled execution of the
+-			 * job in _NEXT (see above).
++			 * job in _NEXT (see above), or if the job was queued
++			 * while a reset was pending and never started.
+ 			 */
+ 			if (WARN_ON(!done[j][0]))
+ 				done[j][0] = panfrost_dequeue_job(pfdev, j);
+diff --git a/drivers/gpu/drm/panfrost/panfrost_job.h b/drivers/gpu/drm/panfrost/panfrost_job.h
+index 7f71e4c38..0ed45e28b 100644
+--- a/drivers/gpu/drm/panfrost/panfrost_job.h
++++ b/drivers/gpu/drm/panfrost/panfrost_job.h
+@@ -37,6 +37,8 @@ struct panfrost_job {
+ 	struct panfrost_engine_usage *engine_usage;
+ 	bool is_profiled;
+ 	bool cycle_counter_ref;
++	/* JS_COMMAND_START written */
++	bool started;
+ 	ktime_t start_time;
+ 	u64 start_cycles;
+ };
 
 -- 
 2.55.0
