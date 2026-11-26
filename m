@@ -1,49 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795671500;
-	b=02RZEUZY7luGH6DdNHiWTnEpHnlaQLXrv879lsZNH6lg3KbutReF15zh98bUOZihrjXs
-	 J9p6SKTHIWq+5z9nY7HBJE8QFwnYR+9UmB6ehZ2BpVjiNR/aDUCq5j3C9bHhypks+iXMZ
-	 z1opKbBeced20uTEyQTKbmPIpoDcxOig0wpv3BhZrk8m29YDXzaEOYSfVD6A49xBHCtvV
-	 uw3aydE3JucOaZiCCCly5JgJ8nTlc3qhU2glsRAW7xzrnyE1ffwyDNjx4aogKePi+JfJ/
-	 4N/lExWkgHIKH5YOiNXPzxMpE97eFbmo0beG39k0HjsJwK8+1ID5hLBaMuD+SI3A3Pw==
+	t=1795671518;
+	b=5KK+cNFD5+WJ4eALMA3h7KDqRl/ln4XZjvQnePwqZPh15c6cXwGa5JN0ziyiHDWMXsaY
+	 cXsK75x2I/3lBNhT9tfOtnFjYG/PUUhFxO15/2Vi8qgnRge44Nsx7Rl26jMa8KCBu+k6Q
+	 ZTApofPiDGNZPVjkjAuJZWT2K185dG4yofFCm9rEgyZoruZ/f2iJbd6CLFP2AfJ+kKecN
+	 0qSqV+3So+pJQMLVzZQgH1SC3cOvUfFCpb3kAt5Tjy9K6mM8x/9je9x/Nff+Tjcw9I5Tp
+	 wI1F3pannYYdW41730pl2MPK6Wc7NfvztU19AYQw2XifN2Csv9u0kIj/jxunKdaJFCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795671500;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=3QUZQKBgoaQNaINr5d2OxlEp6T/zS6u/bJipBb0+Pes=;
-	b=JXMvafUzjXMRgJujd6o3pmQW3OUjNsQ9zm4o3U4k6o64WUNg7AxrvhITU9g10iIpD368
-	 h8wpCHVLNJV5KbbJqJkd9KytT9r54rehdR7AiXKs6UQ7ozy23LpIVF8HAIDiIVhJ92YBl
-	 Tb9d2pw9DjoLWU4EljQ9VLPT0rwC4DLjU7cxybjtF+jonnmRUyprcCcmkjLYepcC4D6rX
-	 sPNZs65cqoD2vrs3Y5U26aFAbEMaZIHpxCc+jHqGHlMEGIjfl5nGu/zIeXrJS3a525xoU
-	 BruwjirSAa+mk79xl+UXf5SkLAzIgZ52uXec07w/B+QPIce81LIC8yFD45WzHGDds+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795671518;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=fF6iLg7K5hOrnySQEXPXyu/mTZlnOMFRavzCIW+zF9A=;
+	b=nKHMNY1FU4rTJWm8CVyAgznLZ3m4rkBDNgsY6fjOSvNqTSPQ7nRw8XQ9aOS9e1loBwj6
+	 aTaVYaK5cTqMktJGvlxUGvqwJ+051sPerW4K4G2gftxG0c1qRPwAlglFSJocHhd+dGmE1
+	 b+kjxhBEhs/xl6EAxahd2dUuXrYXs+Ok3YFOUscxavBfj9xOSyDmnqGcIwIrapQH2XVnp
+	 VP4iIFMGY2Fc894H7oTNWdzIZNkREDHNTSDbgk95P5oAc18ZMY3/+mZZzD8y5kvqMJdHt
+	 tJKXtXKxHrwp/aVV+Djo9uuaA1lv3UPP7Eu5ODpxXCsqKg4/OFeqh7urp+PC16fs1aA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RA5KRNiL;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 85E33606A31C;
-	Thu, 26 Nov 2026 05:38:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85E33606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Axn59QpV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3874606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:38:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=RA5KRNiL
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 890482F;
-	Wed, 25 Nov 2026 21:38:14 -0800 (PST)
-Received: from [10.164.19.73] (unknown [10.164.19.73])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6BE23F632;
-	Wed, 25 Nov 2026 21:38:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795671497; bh=B+wOo28D0A/2UkcbroHsz0Ov/Dn4UYLTq2dAXaoDx5A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RA5KRNiL71Xu/W8CVhP0nzCcEuU8Ue0aIzY7hGbgrUB82KL0tcHljL/9dZQ7fbvBM
-	 qjPcdmuM+olFcRh5Zhy83fJhKcRQrDyfaRoCJkEbAokuUwAjQtl6Fmk1v7O/0OPU+t
-	 +B+MYY6v5IuVYPvfTxlLJbmWOisVEVopsJwSTLQI=
-Message-ID: <57d719b3-c701-455b-b467-1f50dd07850e@arm.com>
-Date: Thu, 26 Nov 2026 11:08:10 +0530
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Axn59QpV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC02D1F000C6;
+	Thu, 26 Nov 2026 05:38:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795671518;
+	bh=fF6iLg7K5hOrnySQEXPXyu/mTZlnOMFRavzCIW+zF9A=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=Axn59QpVakGgNyL3YGUW2y+MNysVDkwBJwXt2bwGyGWwJ6ppuSsBM4Zxfg4d3RUgm
+	 ZmzaFNR1jJs0kRTyIaq+asqXVGWJbqAFIUuAvgvdi+CxOJPSI+99urH075WOGpWR5n
+	 btoW38OJ90yh1Pq22faxdO2hg9i5LN5e9GVqN5mqfXCqTVsvWV9Y2E1MU/0UcE0zKK
+	 W47NgC+oNZtYAFJxl1K/BoKbNNjeV2gDoAXGLv0c/aR6HUSjKGzzf17uJA+85EgoSa
+	 OhdqMBwHBthbwBLQ809oKm3F5SETXI9ear00rgGHcxJyAEdOuSbwEwyyCpMIm3fBcX
+	 Hvj7PSW9DfsdA==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id BC164F40066;
+	Thu, 26 Nov 2026 00:38:36 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-01.internal (MEProxy); Thu, 26 Nov 2026 00:38:36 -0500
+X-ME-Sender: <xms:3MUHa7CbtHZzfdflziH6xls68Rrs3Ac3bam82QjuBPNiGD14dMPm_Q>
+    <xme:3MUHa8U9ldCHfoskHzX4Aypah4SgmbGNhcmzs6etnkA_98WpiiRWAM6kTwd8aW5o0
+    TmM0ysbx786avnAnM542Q_kGQw4KFoPVviyz27LXlgZSV-K7Nthfnsf>
+X-ME-Proxy-Cause: dmFkZTEusPZhsxb8yJH6h7uBLIaqXnUP8bHmTmhMylIFaKiuE+AYYytkULIsfUoy6qXeN8
+    b5i0khJN7OXjg9Y+Vdo6TGyEjxYxp3vthssDQSyfalzXvwM5CG810DESHYIdDhLfQX+nAp
+    ruBI6+93JhwIWUIR29iGTKRP1dnHJKBJUA8B4pPJ4AxAQKUtNwHtvIKhqnXmyZ0jKqMyaA
+    lomV5mfFKhNe0pGHdRKtq7fZJv72Z+/AP7zsXEdeWZ5JaiINZRy66AyzTAJYrD9vN0OIdO
+    jHxeqP7JNDRJ6EQtsfoKnnAkCrHl/ALsOpMS5TsQFoCMG3UDHkGIsMcBpEW/PReBlc7BhZ
+    1WZnufz006UaAyz07e8soRVwBaFQBd+Dx0Wz1CzjECXa/2SbG5k4dsw64OQiq407WfILXy
+    SHflvqaniiyRYV0ro7jYAGbfL6BGr1hBfEbLHELnIQ9IfsHNJLrCV+9oyIV2HMOm4cO6LR
+    z4KNn+mQDHhCesYPHISJCVXBo/BJQ3o7Dvum/KhxYs7lSGEccyIxW+4P80udGtkeu7rgFa
+    L1+kSA4jIJvq5faIO9MITpcIAaIChF8ykGcya5tDZUxioigMae5YmTFi0J5atqApDbkpkH
+    HByhlxFFUeEfuYDuXXDtEKaSec/O9mtwo6uUsLlfpvn5nIeFjP9OWuRdg/NA
+X-ME-Proxy: <xmx:3MUHa5kmJpfNEXhXclAicIQDtXsCiCEhXkOR_NpfsHytb_d8GDUMkQ>
+    <xmx:3MUHa6UEly84sxWDGeXBwqWF-eqxBK6T3r2vrNQXz6iRxlLT8pZFRg>
+    <xmx:3MUHa3_Pr7FJmQXGsh9-nIfZkqiyzcAcqPG7cyrnpJu4F6cwgk448g>
+    <xmx:3MUHa3oyEqPra-P40x4dkETp2mAwcfPXwiFzlnjIg4vqPpPnq2yKFw>
+    <xmx:3MUHa5nQhyAnrF4N44sdgnPk4dnAPvREV4ebdjQpXE91AfgHgDX-0ASW>
+Feedback-ID: ieff94742:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 979FA700065; Thu, 26 Nov 2026 00:38:36 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,165 +77,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] perf/aux: Avoid reclaim for optional higher-order
- allocations
-To: Leo Yan <leo.yan@arm.com>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
- Yabin Cui <yabinc@google.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, James Clark
- <james.clark@linaro.org>, Tamas Petz <tamas.petz@arm.com>,
- Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Michiel van Tol <michiel.vantol@arm.com>
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261125-perf_aux_alloc_optimize_psi-v2-1-b2ac7ed12849@arm.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20261125-perf_aux_alloc_optimize_psi-v2-1-b2ac7ed12849@arm.com>
-Content-Type: text/plain; charset=UTF-8
+X-ThreadId: AisSLPdYCdlo
+Date: Wed, 25 Nov 2026 21:38:16 -0800
+From: "Andy Lutomirski" <luto@kernel.org>
+To: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>,
+ "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, bpf@vger.kernel.org
+Cc: "Puranjay Mohan" <puranjay@kernel.org>,
+ "Andrii Nakryiko" <andrii@kernel.org>,
+ "Daniel Borkmann" <daniel@iogearbox.net>,
+ "Eduard Zingerman" <eddyz87@gmail.com>,
+ "Emil Tsalapatis" <emil@etsalapatis.com>,
+ "Ihor Solodrai" <ihor.solodrai@linux.dev>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+ "Thomas Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>,
+ "Borislav Petkov" <bp@alien8.de>, kkd@meta.com, kernel-team@meta.com,
+ "the arch/x86 maintainers" <x86@kernel.org>,
+ "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>
+Message-Id: <5f46d1c1-fdce-4f3b-9d56-675a822b2d65@app.fastmail.com>
+In-Reply-To: <DN437OYZ5FGP.20VLV7ZEXQ5YY@gmail.com>
+References: <20261009024925.3169077-1-memxor@gmail.com>
+ <20261009024925.3169077-2-memxor@gmail.com>
+ <df69ab5d-bc97-4651-8668-a2b3e4bb272a@app.fastmail.com>
+ <DN437OYZ5FGP.20VLV7ZEXQ5YY@gmail.com>
+Subject: Re: [PATCH bpf-next v1 1/3] x86/mm: Resolve BPF exception fixups for user
+ address faults under SMAP
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 
 
+On Tue, Nov 24, 2026, at 10:45 PM, Alexei Starovoitov wrote:
 
-On 25/11/26 5:24 pm, Leo Yan wrote:
-> PERF_AUX_GFP includes GFP_KERNEL, which contains __GFP_RECLAIM. On
-> fragmented systems, costly AUX allocations can wake kswapd. When perf
-> falls back to lower orders, the allocating task can stall in direct
-> reclaim or compaction. Yabin Cui reported that the resulting memory
+>
+> The range check is not a heuristic for "safe to read". It's the user
+> address part of get_kernel_nofault(), inlined. You asked for that in 2021.
+> Its job is to keep user addresses away from the load. SMAP does the same
+> job. With patch 2 PROBE_MEM reads the same addresses as
+> copy_from_kernel_nofault().
 
-When perf falls back to lower orders, how can the allocating task stall
-in direct reclaim? It stalls when it is performing the high order allocation.
+With copy_from_kernel_nofault(), I can grep the kernel sources and attempt to determine whether it's being used in problematic ways.  With eBPF, this is not really possible.
 
-So let us write this as:
+>
+> In both threads you wanted probe_kernel_read() / get_kernel_nofault() to
+> tell MMIO from RAM. arch/x86/mm/maccess.c has no such check.
 
-"On fragmented systems, costly AUX allocations can wake kswapd/kcompactd,
- or worse, they can stall in direct reclaim/compaction."
+Okay.  I randomly sampled a few use cases.  I found some that are only run on paths where we're already crashing and lots that would require an entire separate major screwup to point to MMIO.  (The most common pattern appears to be reading regs->ip in a path where *usually* regs->ip points to kernel text and, if we have gotten so corrupt that it doesn't, then at least we want to crash cleanly instead of recursively.)
 
-Reviewed-by: Dev Jain <dev.jain@arm.com>
+x86 does not have a special syscall to do copy_from_user_nofault().  If we did, it would be a pretty obviously terrible idea.  But eBPF has an actual API here.  I think it should make sense.
 
-> pressure can trigger Android's lmkd to kill applications.
-> 
-> For PMUs that support scatter-gather, higher-order AUX allocations are
-> optional. Clear __GFP_RECLAIM and set __GFP_NOMEMALLOC for these
-> attempts. Perf can then use contiguous pages when available and fall
-> back to smaller orders without reclaiming memory or drawing on emergency
-> reserves for the larger allocation.
-> 
-> The comparison is based on Yabin's result from an Android Pixel, a
-> production phone with 4 KiB pages, 12 GiB of RAM and 6 GiB of zram.
-> 
->   v7.4-rc3-sim
->     Android baseline kernel with the v7.4-rc3 perf AUX and page
->     allocator paths, including commit 526d945ad9c0 ("Revert "perf/aux:
->     Allocate non-contiguous AUX pages by default"") and
->     commit 0e05a469c294 ("mm/page_alloc: avoid direct reclaim and
->     compaction for costly __GFP_NORETRY allocations").
-> 
->   rc3 + [1]-noretry
->     The same baseline with this patch's GFP flag changes applied only
->     to optional higher-order AUX allocations.
-> 
-> The test allocated 4 MiB AUX buffer per CPU while running Dev Jain's
-> compact-bench [1] at 90%, 95% and 99% memory pressure. Both kernels
-> completed ten runs at each level without an AUX buffer allocation
-> failure. Across the 30 runs per kernel, system-wide memory stall time
-> (PSI some) fell by 97.7%.
-> 
->   Totals over 30 runs        v7.4-rc3-sim  rc3 + [1]-noretry
->   Memory PSI some (ms)           1,840.29              41.78
->   compact_stall                       522                  0
->   allocstall                          161                  0
->   compact_daemon_wake                  14                  0
->   sp_kswapd_wk                         21                  1
-> 
-> In a separate test with realistic Android memory fragmentation, lmkd
-> killed an application during TRBE testing on the baseline kernel, and
-> SPE allocations stalled in direct compaction and reclaim. Neither issue
-> was observed with this patch applied. When memory was unfragmented,
-> the patched kernel allocated AUX buffer chunks at order 9 (2 MiB).
-> 
-> [1] https://lore.kernel.org/all/d2b8edf0-39ab-4a44-bd0d-58230dee2fad@arm.com/
-> 
-> Reported-by: Yabin Cui <yabinc@google.com>
-> Link: https://lore.kernel.org/lkml/CALJ9ZPO9XxF-kz5K67Jg8RtpiEmK7XFU3e+xDak6LyV_We7yBQ@mail.gmail.com/
-> Suggested-by: Yabin Cui <yabinc@google.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
-> Changes in v2:
-> - Dropped __GFP_RETRY_MAYFAIL and kept __GFP_NORETRY, as no allocation
->   failures were observed in Android testing. (Dev/Yabin)
-> - Updated the commit log based on Yabin's test results to reflect the
->   benefits on Android. (Yabin)
-> - Link to v1: https://lore.kernel.org/r/20261109-perf_aux_alloc_optimize_psi-v1-1-d56ac4bf3ef5@arm.com
-> ---
->  kernel/events/ring_buffer.c | 19 ++++++++++++++-----
->  1 file changed, 14 insertions(+), 5 deletions(-)
-> 
-> diff --git a/kernel/events/ring_buffer.c b/kernel/events/ring_buffer.c
-> index 95f4fbdfd2764de5b72d901d778c46302f525fad..317a0454be8b26d60a14a5790a15625868836257 100644
-> --- a/kernel/events/ring_buffer.c
-> +++ b/kernel/events/ring_buffer.c
-> @@ -619,7 +619,7 @@ long perf_output_copy_aux(struct perf_output_handle *aux_handle,
->  
->  #define PERF_AUX_GFP	(GFP_KERNEL | __GFP_ZERO | __GFP_NOWARN | __GFP_NORETRY)
->  
-> -static struct page *rb_alloc_aux_page(int node, int order)
-> +static struct page *rb_alloc_aux_page(int node, int order, bool no_sg)
->  {
->  	struct page *page;
->  
-> @@ -627,7 +627,16 @@ static struct page *rb_alloc_aux_page(int node, int order)
->  		order = MAX_PAGE_ORDER;
->  
->  	do {
-> -		page = alloc_pages_node(node, PERF_AUX_GFP, order);
-> +		gfp_t gfp = PERF_AUX_GFP;
-> +
-> +		/*
-> +		 * Don't reclaim or use emergency reserves for optional
-> +		 * higher-order allocations.
-> +		 */
-> +		if (order && !no_sg)
-> +			gfp = (gfp | __GFP_NOMEMALLOC) & ~__GFP_RECLAIM;
-> +
-> +		page = alloc_pages_node(node, gfp, order);
->  	} while (!page && order--);
->  
->  	if (page && order) {
-> @@ -683,6 +692,7 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
->  		 pgoff_t pgoff, int nr_pages, long watermark, int flags)
->  {
->  	bool overwrite = !(flags & RING_BUFFER_WRITABLE);
-> +	bool no_sg = event->pmu->capabilities & PERF_PMU_CAP_AUX_NO_SG;
->  	int node = (event->cpu == -1) ? -1 : cpu_to_node(event->cpu);
->  	int ret = -ENOMEM, max_order;
->  
-> @@ -733,7 +743,7 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
->  		int last, order;
->  
->  		order = min(max_order, ilog2(nr_pages - rb->aux_nr_pages));
-> -		page = rb_alloc_aux_page(node, order);
-> +		page = rb_alloc_aux_page(node, order, no_sg);
->  		if (!page)
->  			goto out;
->  
-> @@ -748,8 +758,7 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
->  	 * buffering. In this case, the entire buffer has to be one contiguous
->  	 * chunk.
->  	 */
-> -	if ((event->pmu->capabilities & PERF_PMU_CAP_AUX_NO_SG) &&
-> -	    overwrite) {
-> +	if (no_sg && overwrite) {
->  		struct page *page = virt_to_page(rb->aux_pages[0]);
->  
->  		if (page_private(page) != max_order)
-> 
-> ---
-> base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
-> change-id: 20261109-perf_aux_alloc_optimize_psi-c2f8ce2e9a0c
-> 
-> Best regards,
+Off the top of my head, I see two possibly severe problems:
 
+1. MMIO and, more generally, addresses where reads may have side effects.
+
+2. Really nasty information leaks.
+
+Let me elaborate on #2.  I'm informed by reliable sources (a chatbot) that a common use of PROBE_MEM is to read from pointers where the verifier can't verify the lifetime.  I bet it's not terribly uncommon to find progrrams in the while where it is genuinely possible for the program to follow a pointer in a data structure that has been freed.
+
+This gives something to the effect of:
+
+u64 value = read_nofault(foo->p);
+
+where foo points to freed memory and value is either the actual bytes at whatever address is currently in foo->p or zero (or a MMIO screwup that will take down the whole system in creative ways).
+
+And the author of the program thinks "well, *usually* it's the right value and I'm just collecting statistics".
+
+These days it's easier than ever for a malicious user to write a cute little tool to put a value they control into foo->p.  And they can point it at *someone else's* memory.  And they can get that memory leaked into the statistics.  And probably find a clever way to extract the value.
+
+*If* it were somehow deemed that #1 was the *only* major problem with PROBE_MEM and the feature otherwise made sense and it could have well-defined semantics, I think that x86 could offer a reasonably performant way to do a read that's guaranteed to be side-effect-free.  I can think of at least two ways to do it, both nontrivial.  But there are a lot of ifs here.
+
+--Andy
