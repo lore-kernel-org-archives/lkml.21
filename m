@@ -1,49 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705208;
-	b=dafajG6lXHZSUgNJn5at7lfM5PkI7Y9vdNEfwO2zivJxg6APwJuZCAB1Sp//q2OJ754n
-	 FqWOJggsDiEYWiQBz7FhQ6AbUwhcd+snlWJ+8j69k6IczkqdMbaFO+RAooQ9M42A7SG/c
-	 eXcsrHEcWvWWsyrvMP8JOWNMu11bi2VipNW9UWQGavGNdLUEI6gBvxyGqrpgYpBtYkH3e
-	 P9w/bi27xYiVjgZEVwhMNwoIbBRy777N7k+X/nIKyC2f7VbAyLFKkqjn5s5Tq3QlnxwRB
-	 bXl+zbUnOMWIWJVq3UoDx0Rj9+9GhyZJDYH19MV6LpOTwgH+8RbaYL3LQ9wmEilNE8w==
+	t=1795705213;
+	b=PWS06uFe35lkKwIFFEhIEmt3g19q6H6vJjFKyR6mXXTGLC9YQM4F+qiFYj3Mmfy/CckV
+	 VA/Ab3drna959znT28PrkPtqPxomJWKjgD5HEBavTyXN89BO710WIiz3xUQB90Je4sTzQ
+	 l/DscHWAFRsPOkN+WY5zAcXHnWrsh2jzgQOpRLloo8iLDBTecM1I/i4xxBGaM1s8IBND1
+	 Dt7g0IA7PFO0buQjrpyuME7mUNntA2nW0T4Mj6KfBQr3QSGEE8v1dfFIODU3j3TbMX3E6
+	 NoNhihMQeDn1JgMoWALGYhBD0HOBxQaoVi/d0l9jmkNrcAF7hklVfdRifqiC2zfxzDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705208;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=G4b3dFHg0tvdbnb4TXJttoG2afJS8WFlVLY+6CDMkE0=;
-	b=HepWSD7en65lUmGSJ4HmmLavNWyLWqN9wIrWYgEYL0yMuKks6soww6w1rk9MMQGOkYVk
-	 a6yADrBvJNY49QHW07UzyE3pm5ME+Uj2N+vS3iFFcSzWFp8I3qOTnVLxSnu3My89axCQy
-	 SfRNZeTTd0xU0F2ZCoqlOopaHt6H4d6e4UYNQPr2DNY4yE8WW15tR+Rqug7YXGFIiAJti
-	 7Qkj239FcKXyA8U/SadTNUWzjcoSLGvhLwqpSXHBCH9qrT7jOiblXBaMmg29oQO8i1lQ4
-	 jiNzwIhElIvrvPt9eNPop0l084jrAZ/X6qRtYW5ArMokK9kIWMjkbFKlrNyWcp8jMoA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705213;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:User-Agent:X-stable:X-Patchwork-Hint:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=gjU68egAeTHKVwxVwSdWf0iLse4r+UV3vsCQg/Y9xGI=;
+	b=lZ61KsIUXnAcoq8x8954dlE1Lx3ssxpn0xZFWK8ycXE2qeN2ZGzsfDXgVQT/s0EJiXj1
+	 RDzScbGo+e0YUQKpKM6IIMuegoW9Lx0iz31kNsjVabV25ZmI5iURKNSOHFMDIuHlEQ2Ss
+	 gQ83niN37F+GKTQCfL/6owU4WenhhzeEMYFKmeK4DqYDI/WzPnDLpViGAn6YHFZJJq0JT
+	 De0Zr3zjgA3+nHaSMvJaqJZrGeEMo1b3ilhcUCRWnB3OynsLaxBI5AgjLG8hNvj+O1Mih
+	 zht9NmQjYtrziBNlRXHZQnJcpkT6dhZn0QhZ1Bo1fpKNmCgNwUNqL/cyJ3qWgxQFO/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OyAaZiii;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7EB35606A333;
-	Thu, 26 Nov 2026 15:00:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EB35606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Gw4qkeyY;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34627606A327;
+	Thu, 26 Nov 2026 15:00:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OyAaZiii
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE5401BA8;
-	Thu, 26 Nov 2026 07:00:04 -0800 (PST)
-Received: from [10.33.48.93] (GM14V85S.arm.com [10.33.48.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D29A3F86F;
-	Thu, 26 Nov 2026 07:00:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795705207; bh=1fcrH9jumeQ+fD04PGZH05Eq8TBEmii97al5gS/oIO4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OyAaZiiipunAESQC3EfdqhVnoJcyqbpgBTVTR82YqLGsohLs0r6+TtEzsvhtOg/1V
-	 klVLI/kLfeHWDRT8p6tdVY4tnpQp6khQR/B/lQZgzebSw44DDYegyseYf6k9/dZscx
-	 sVnxnGqmix/ZMd27GaXlRDnlVtW5LQYVFoNrMxB4=
-Message-ID: <91794c90-a797-417d-88c9-8839529660e9@arm.com>
-Date: Thu, 26 Nov 2026 15:00:02 +0000
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Gw4qkeyY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 773BE1F000C6;
+	Thu, 26 Nov 2026 15:00:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795705212;
+	bh=gjU68egAeTHKVwxVwSdWf0iLse4r+UV3vsCQg/Y9xGI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Gw4qkeyYo0v1P46PGvz6AzRM5yTn5psj8sW5xQO/aSTaUZN40JVfYhjRuEEXzdaNA
+	 QZP561Lc7PNxM05VXlMux54o9VY0fsv8svTlxl7m8cGB6RtqMm+e1nWe0KOUzxj3Bp
+	 xhjRjofYEkiGR68kdSKJ87Gr7nrUmYBo/+O8j1bA=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	David Laight <david.laight.linux@gmail.com>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Waiman Long <longman@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 5.15 120/319] locking/osq: Switch osq_wait_next()/atomic_cmpxchg() ordering
+Date: Thu, 26 Nov 2026 15:38:08 +0100
+Message-ID: <20261126144009.455111686@linuxfoundation.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126144006.732901931@linuxfoundation.org>
+References: <20261126144006.732901931@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,56 +66,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/24] media: mali-c720: Add hardware identification
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Nayden Kanchev <nayden.kanchev@arm.com>,
- Konstantin Babin <konstantin.babin@arm.com>,
- Linus Walleij <linusw@kernel.org>, jacopo.mondi@ideasonboard.com,
- kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com,
- dan.scally@ideasonboard.com, Sakari Ailus <sakari.ailus@linux.intel.com>,
- Rob Herring <robh@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Hans Verkuil <hverkuil@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-References: <20261124-b4-initial-upstream-candidate-v1-0-0cb9bde1bd30@arm.com>
- <20261124-b4-initial-upstream-candidate-v1-5-0cb9bde1bd30@arm.com>
- <179559677600.14607.6594089332845207687.b4-reply@b4>
-Content-Language: en-GB
-From: Anthony McGivern <anthony.mcgivern@arm.com>
-In-Reply-To: <179559677600.14607.6594089332845207687.b4-reply@b4>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-Hi,
+5.15-stable review patch.  If anyone has any objections, please let me know.
 
-On 25/11/2026 08:52, Krzysztof Kozlowski wrote:
-> On 2026-11-24 17:07 +0000, Anthony McGivern wrote:
->>  struct mali_c720_top_regs;
->>  struct mali_c720_ctx_mgr_regs;
->>  struct mali_c720_modules_regs;
->> @@ -56,7 +58,8 @@ struct mali_c720_registers {
->>  };
->>  
->>  const struct mali_c720_id_regs *mali_c720_get_id_regs(void);
->> -int mali_c720_get_registers(struct mali_c720_registers *regs);
->> +int mali_c720_get_registers(enum mali_c720_version_id version,
->> +			    struct mali_c720_registers *regs);
-> 
-> You just added this code. Add complete pieces of code, not half-baked
-> which you immediately need to fix/change.
-> 
+------------------
 
-That's valid, initially I separated these changes from register access,
-though they are somewhat dependent on one another. For V2 I will squash
-this and the register access patch together.
+From: Peter Zijlstra <peterz@infradead.org>
 
-> Best regards,
-> Krzysztof
-> 
+[ Upstream commit 1b9e01fcc47aff00d2fd64693c5dcd620eff5865 ]
 
-Thanks,
-Anthony
+The atomic_cmpxchg() in osq_wait_next() removes the current CPU's node
+from the tail of the queue and puts @old_cpu back.
+
+This is very much like an 'unlock', which is RELEASE, rather than
+ACQUIRE.
+
+Additionally, on success (the only case where the ordering is
+effective), this returns NULL which means both callsites will do nothing
+more, there are no subsequent operations to order against.
+
+Furthermore, the osq_lock() caller will then return false, indicating
+failure to acquire -- the mutex must go block. Again, not making a case
+for ACQUIRE.  Neither atomics nor locks provide ordering on failure.
+
+Since ACQUIRE makes no sense, while RELEASE makes it more symmetric with
+osq_unlock(), switch the ordering. This then makes osq_unlock()
+consistently RELEASE.
+
+Fixes: c55a6ffa6285 ("locking/osq: Relax atomic semantics")
+Suggested-by: David Laight <david.laight.linux@gmail.com>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Signed-off-by: Ingo Molnar <mingo@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Waiman Long <longman@redhat.com>
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ kernel/locking/osq_lock.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kernel/locking/osq_lock.c b/kernel/locking/osq_lock.c
+index ebb1493915ce9..b3748ed287ebb 100644
+--- a/kernel/locking/osq_lock.c
++++ b/kernel/locking/osq_lock.c
+@@ -53,7 +53,7 @@ osq_wait_next(struct optimistic_spin_queue *lock,
+ 
+ 	for (;;) {
+ 		if (atomic_read(&lock->tail) == curr &&
+-		    atomic_cmpxchg_acquire(&lock->tail, curr, old_cpu) == curr) {
++		    atomic_cmpxchg_release(&lock->tail, curr, old_cpu) == curr) {
+ 			/*
+ 			 * We were the last queued, we moved @lock back. @prev
+ 			 * will now observe @lock and will complete its
+-- 
+2.53.0
+
+
 
