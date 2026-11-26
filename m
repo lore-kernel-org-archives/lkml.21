@@ -1,60 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.40
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692753;
-	b=tlRGzLfb/9idjN4TzFZGOHIgEq1N+ylKgs1bZgYNAtN4rJ0z88t5eqzhTUEd/ALbkVIF
-	 BiAkjGGoWxEowYn50Wg2567iwvpTR3MYH6aQh+dG0uSOReStlcCLT2kZ+4POMNKGqe/4j
-	 5hy97ldI+tDmEg8tMIkbOdnf/ntw2UOh61LBuZMhD3voAXYSaJoW5h8M+C30AJnQdhdNt
-	 YjIUlqVoRWGWR51sX2qoL1TsHVUOjOBYGsM5VBVhHfEAr6m5LOyYUi+Q49cSZjI0dCmet
-	 zFYdj0lm418CyD1nyvUA0XHJxgaPj8XBEtgkmrT5wMucAAbF+9gEaJm4PeeCC68UomQ==
+	t=1795692755;
+	b=Djz9o+g20qqr0PewJxhd5kE5ewDio+NEH7okQXn5aObdOLKl8hyFYNtUWx+K5ORk5Kyo
+	 4NOVcCot7RGZ0B4OcZtDMnKjvS/+MFxFZR6oTchIks0mhdvRvFCgUJ3ysmgnt+JE2jppd
+	 obTKx6fH+xNBg5kz3dJ6anWS3InXTECay6NKuSoPtuYWDzfdPB8qsPZiNBwGVavSzrPXc
+	 81+ggibnllZ9IUSad+06tmrzox4TSHUc2NAXgfcXexnw1VIub/wK9Grr4QEJpTp9nCNAH
+	 qM7Oo+V5RZYZccjaY912Jvb+HWUFYFQX4nsXVnoXSl4PAzqaWzFJi/a38gfwspzFTYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692753;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=r6PmkT2drsEHeTcdot9VJ/q/cvAh6/vrEBBPEQe5UG8=;
-	b=kJ/pm4f8UF4QGd9FbDJSaiM2OTnYF24ZsKMSRSoZFlaTpgwVLdloJEjvIZTGYjmPOB/+
-	 YlRrZBhYXujqoJGOkt303CKSU8eskgg8HifgrB96VnW+c3PXtKueVPiZgW1XEesrunpbE
-	 TNQ0xfag5cKaI9UEkIkbBj/hidNMVuPTIOQ/+pnmL0qmRxbvRES40J1f66Kb3lCdLYvA/
-	 SvXDBQ88xdsUNOd2RM6LoOC98WP5yBEOo0M42fMRvYEW8NbPOV3DQC2Ba2Z0WVLuZciHt
-	 h+ooarNopRtzdi/G+EzWQeEoQtbB8UWawxy2WNXLnTwy28tJMM4ppksIdJRaFitxrOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692755;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=a8k6Fx0FJCpMnoYcnuhUjDi5goy0swCnhGb9i73dsQM=;
+	b=0CZ7FtQujnGW+UqRv3T7qjiNyX3tklFtrsjTyGkBB2+PTQ1mSvUN3EY3FUQ03y5H4/ib
+	 UoZUAO0o59DFfN03/9NSFF7/xLIW8P/wpO38UuyS4yzfdU+d3/sNy+gZYi8mh8MMgjeXk
+	 jWDmqpvN5i9dmJuBTT3WdmNT4KwRTnxNxlibeOvbAli9wKKELX1dkVqjQ1SrGqfKyTLpz
+	 FY/6qWpRPIbFc9Kkc0r8DKih7mvFCW2qZfXk+ndV9Jfe2hlsoS+he0x8+v+XT0QwaN+XT
+	 /bF2ujwxa6i4ViaDfd3Tw1GycLS2r9vRJIIYFkhWjJsPRsUOM6BUR9vezIdXpFqJl2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2Z+KPYAJ;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=EKvsTepF;
+	arc=none smtp.remote-ip=195.10.208.40
+Received: from mout-b-210.mailbox.org (mout-b-210.mailbox.org [195.10.208.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63C39606A6A2
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:32:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63C39606A6A2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA925606A6A9;
+	Thu, 26 Nov 2026 11:32:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA925606A6A9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2Z+KPYAJ
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 74899C2B9CC;
-	Thu, 26 Nov 2026 11:32:39 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2F33960237;
-	Thu, 26 Nov 2026 11:32:31 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CA9AF11E6B302;
-	Thu, 26 Nov 2026 12:32:25 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795692749; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=r6PmkT2drsEHeTcdot9VJ/q/cvAh6/vrEBBPEQe5UG8=;
-	b=2Z+KPYAJaphVGMntdv9T/Hx2ug+VFuxEZXnL5nBpg4P4gDSaAyxcnqdHP/vcNHE3HT2XG7
-	5j+rWpO2VVrDN3NLrCr9JpNlD83JHOqXp3fPC1qwDxVlIX7/J9Xcuq5Eq4X3udEPyctMmo
-	RHDNcsGVCdYIhiGP9GNbdn3Mp+gFjrTWTVzeBEBFDcllJtU0vB3Oy/doXkNbtDqvv6o7A9
-	lagTPmvHMdyw64F8GMoY679CRgdXq3OdFt6anBi2rDLrdCsxS3CLi6C31W5M7fMi59Nho5
-	/f/2SWPU6EJrD2HD4uHpUaBECQMqgGVESC0nWa/3BIwUU3B7SvLTY/z6myvffQ==
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Date: Thu, 26 Nov 2026 12:29:16 +0100
-Subject: [PATCH v7 33/43] drm/vkms: Rename vkms_connector_init to
- vkms_connector_init_static
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=EKvsTepF
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-210.mailbox.org (Postfix) with ESMTPS id 4jZvXp1XdBzFptY;
+	Thu, 26 Nov 2026 12:32:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795692746;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=a8k6Fx0FJCpMnoYcnuhUjDi5goy0swCnhGb9i73dsQM=;
+	b=EKvsTepFHvhC9EwfUOnQ/KkycLGgS0+wJKKiKWwlH92/FZxcYQKJJSHj1QwTU56y0nhK4/
+	qe3CLcACBYdhF+/RH07mVqTBhzimePdP7zPi7fZYIscz2BxaeSZ1JWAmhaj44P4yYzE5su
+	Qmf8sGeh793Um1/A+Fvxx35jzsdBkI+TR0JtJEmsYXURyAPKfp6BPDmLKieM7YaI63QFQ7
+	uPMy5GNuYc5Td5bM23Xoc4tEtaDx24Em23jJAdI1i5PxREu7fOX4Wjj8FpjNwl2UCcPQ+G
+	ucPAoyUmNc8Ql2zK6Lm7bdhyoo+ovfFk5sp4F9SOUJbg/eZvhQYL2H2FxpVm7A==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: netdev-bot+sinfo@kernel.org
+Cc: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Willem de Bruijn <willemb@google.com>,
+	Nicolas Dichtel <nicolas.dichtel@6wind.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH ipsec] xfrm: advance the route generation when policies are removed
+Date: Thu, 26 Nov 2026 12:32:16 +0100
+Message-ID: <20261126113216.337964-1-ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <179569192472.3294.16207945676550617931@kernel.org>
+References: <20261126111516.317545-1-ralf@mandelbit.com> <179569192472.3294.16207945676550617931@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,101 +82,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-vkms-all-config-v7-33-21194cda2468@bootlin.com>
-References: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
-In-Reply-To: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
-To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
- Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
- Harry Wentland <harry.wentland@amd.com>, 
- Lucas De Marchi <demarchi@kernel.org>, 
- =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
- victoria@system76.com, thomas.petazzoni@bootlin.com, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, llvm@lists.linux.dev
-X-Mailer: b4 0.17-dev
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jZvXp1XdBzFptY
 
-With the introduction of dynamic connectors we will have two way of
-initializing a VKMS connector. Rename the current function to clarify
-the case.
+On Thu, 26 Nov 2026 11:18:44 +0000, netdev-bot+sinfo@kernel.org wrote:
+> Hi!
+>
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by LLM and not proven at runtime). If it was triggered
+>    please include the symptoms, like the stack trace or kernel messages.
+>
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
-Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
----
- drivers/gpu/drm/vkms/vkms_connector.c | 5 ++---
- drivers/gpu/drm/vkms/vkms_connector.h | 6 +++---
- drivers/gpu/drm/vkms/vkms_output.c    | 2 +-
- 3 files changed, 6 insertions(+), 7 deletions(-)
+Yes, the policy removal cases were triggered at runtime, in a VM test
+setup (not observed in production AFAIK).
 
-diff --git a/drivers/gpu/drm/vkms/vkms_connector.c b/drivers/gpu/drm/vkms/vkms_connector.c
-index 84c49915ed44..7264ca84f910 100644
---- a/drivers/gpu/drm/vkms/vkms_connector.c
-+++ b/drivers/gpu/drm/vkms/vkms_connector.c
-@@ -76,9 +76,8 @@ static void vkms_connector_static_cfg_release(struct drm_device *dev, void *res)
- 	vkms_config_connector_put(connector->cfg);
- }
- 
--
--struct vkms_connector *vkms_connector_init(struct vkms_device *vkmsdev,
--					   struct vkms_config_connector *connector_cfg)
-+struct vkms_connector *vkms_connector_init_static(struct vkms_device *vkmsdev,
-+						  struct vkms_config_connector *connector_cfg)
- {
- 	struct drm_device *dev = &vkmsdev->drm;
- 	struct vkms_connector *connector;
-diff --git a/drivers/gpu/drm/vkms/vkms_connector.h b/drivers/gpu/drm/vkms/vkms_connector.h
-index 89d7f3a15d6e..61a8dd55d7f7 100644
---- a/drivers/gpu/drm/vkms/vkms_connector.h
-+++ b/drivers/gpu/drm/vkms/vkms_connector.h
-@@ -23,15 +23,15 @@ struct vkms_connector {
- };
- 
- /**
-- * vkms_connector_init() - Initialize a connector
-+ * vkms_connector_init_static() - Initialize a connector
-  * @vkmsdev: VKMS device containing the connector
-  * @connector_cfg: Connector's configuration
-  *
-  * Returns:
-  * The connector or an error on failure.
-  */
--struct vkms_connector *vkms_connector_init(struct vkms_device *vkmsdev,
--					   struct vkms_config_connector *connector_cfg);
-+struct vkms_connector *vkms_connector_init_static(struct vkms_device *vkmsdev,
-+						  struct vkms_config_connector *connector_cfg);
- 
- /**
-  * vkms_trigger_connector_hotplug() - Update the device's connectors status
-diff --git a/drivers/gpu/drm/vkms/vkms_output.c b/drivers/gpu/drm/vkms/vkms_output.c
-index 7783a2f6d343..2b0f7a8a80b5 100644
---- a/drivers/gpu/drm/vkms/vkms_output.c
-+++ b/drivers/gpu/drm/vkms/vkms_output.c
-@@ -97,7 +97,7 @@ int vkms_output_init(struct vkms_device *vkmsdev)
- 		struct vkms_config_encoder *possible_encoder;
- 		unsigned long idx = 0;
- 
--		connector_cfg->connector = vkms_connector_init(vkmsdev, connector_cfg);
-+		connector_cfg->connector = vkms_connector_init_static(vkmsdev, connector_cfg);
- 		if (IS_ERR(connector_cfg->connector)) {
- 			DRM_ERROR("Failed to init connector\n");
- 			return PTR_ERR(connector_cfg->connector);
+There is no kernel message, the symptom is plaintext on the wire. A
+connected UDP socket keeps sending unencrypted datagrams after the allow
+policy that exempted its flow is removed, although the ESP policy below
+it now matches.
+
+This is roughly the setup, in a netns with a veth pair (IPv4 is the
+same):
+
+  ip xfrm state add src fd00::1 dst fd01::2 proto esp spi 0x1001 \
+  	reqid 1 mode transport aead 'rfc4106(gcm(aes))' <key> 128
+  ip xfrm policy add src fd00::1 dst fd01::2 dir out priority 100 \
+	tmpl src fd00::1 dst fd01::2 proto esp reqid 1 mode transport
+  ip xfrm policy add src fd00::1 dst fd01::2 proto udp dport 5002 \
+	dir out priority 10 action allow
+
+A UDP socket connected to [fd01::2]:5002 sends one datagram, the allow
+policy is removed, then the socket sends 10 more, captured on the veth:
+
+  removal               net-next             ipsec + this patch
+  delete by selector    10 plain, 0 ESP      0 plain, 10 ESP
+  delete by index       10 plain, 0 ESP      0 plain, 10 ESP
+  hard time expiry      10 plain, 0 ESP      0 plain, 10 ESP
+  flush                 10 plain             nothing sent
+
+The flush case replaces the ESP policy with "ip xfrm policy setdefault
+out block", so that nothing may be sent once the policies are flushed.
+
+The xfrm_policy_insert ordering is a race between the insert and a
+concurrent lookup, found by code reading. That I did not reproduce at
+runtime.
+
+I can share the reproducer script if useful.
+
+Thanks,
 
 -- 
-2.56.0
-
+Ralf Lici
+Mandelbit Srl
