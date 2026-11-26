@@ -1,93 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795704509;
-	b=u2XGFRR8h5sRm/+Cghx/e/oy1lBWOycBEN2sWyGv1VJpRJiJWxc+cinPYNmQWu3XAY9P
-	 /kw6Akmq+xKnHrg1JdAhfE3ILPmQPSyxF+bWgxeK405yjOOr8HHv0YRhAAv7k8JS2CSb/
-	 WEPlM+EN9+A0NYvNxCQuBwuBmz7PdiFva2//B+ZUG6ZjgxoO3xmY3ndR44uSx2Kl12qQV
-	 Fpf9rmKt10eAQxEOC22O1s3oYMnEEDCFMKfzl/Z/Arcv4/BhieDDfRi5yJwugPU8kHkRq
-	 E07ECpUkCWCrxAbqb7zRc4I0VHTpLFHGSmGqZeY7GJjxr8PnG2SVFWcCBfiz9YGCNXw==
+	t=1795704510;
+	b=NwiPFEgNwTRxa78Ff3lFYskksf12e2EGAlXWEWYaD3HDprM2BqY+hpzNokKqicfX1tsO
+	 3jgxpNVrqy7wnknqZTvBn1LAawTDt/aUR9X65cOEco9JxbNqaTOvSe5wXbrEiaSd0yjXc
+	 CmhVtwFfsmE6Cco4Bm5SwVImW1lqvDlC9eE6qjOyoVv8/ADidYJ/emgvJYnpJyPe+6QxX
+	 YsEXGzBdlzOEZwVR/8T0Hfdnvd1bsCP+a/j4q13bS7GTqI0Tyn9jvqHIFa1NXPZeF2sAE
+	 VE7QIKTTB0iJ9iuOHJnRoO2Ix6sQxcLhd53x1pVcYD2I5ZjDtmVrHvV3jR1g2TXCmTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704509;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795704510;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Type:X-Developer-Signature:X-Developer-Key:
 	 Content-Transfer-Encoding;
-	bh=jhy28nJqOwkTlWwqv2ePwS51JDGbzTi5b1SrJscsPNk=;
-	b=swYRTMXe9ZOUJ7HxzMmqgavIZEcUMW3vQq+L4dVRbwYPWsRzxDCKt7UXEeNRLsCwT42W
-	 0QAfaCn6xB043xsQXTQQy0Mk0tx98ZlRerqVcsCn8nikFOY7p29WzT5JSEzjmzkXhP3Pe
-	 DVrpCd5KJXJVjkF3E+IW+xA60BCoiDOAyi2tHRhDNVBmigMbavLFTv+J7O32iymLmqNzs
-	 9Er/t/6FYBlJWCcyuMmV9kWzxDbg8SDxT5f06jESBQLbM7BOhwzrrNMXKxPbZ3qSUWn6a
-	 ezcBSjwUb2vMG3YCs05g5URrnGbMckas8xhkeMtBInBElyvZvnguRSkfgyPdS4QibtQ==
+	bh=gBUmB6k+/zMjiupz2fSB05AdcI9Yft2uVfQwRfm54S4=;
+	b=SV9Xx+3AjHoyqcrm7JhXuE33zvGadKHuis4vj6Ar3paJslveWUP9jyRPN/J8YzszEtBT
+	 yEZn8kblcf07diRd+dI1PtAxa04vVlEcci5xqDINHecAC+XhN51puVW/1dBpVPOtavPH4
+	 9RL8f5pjREuguOzf7A+9reIAmKp6BLiIEj8a9SCtGbQTsuWzrBa/LEb9xsCT+9Hiit29H
+	 m6pfkHwWYOQcsDwDdAnmO2EuzROzUwCSMQRqp18LsfCMwUCHdvwgw3InqkFuntInXqPJS
+	 kUPuONg/9Y2WnJYQuvj+w0smzmngFRdOEWASumAQJ8rB4xI+ZuUbJwpBD6uOZVr2obQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=baylibre.com;
 	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=T1Zlyxcg;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=nJ5nJvVM;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A59AC606A332
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:48:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A59AC606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D3C5606A33E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:48:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D3C5606A33E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=T1Zlyxcg
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-49465892f7bso5186570f8f.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:48:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=nJ5nJvVM
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so75882975e9.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:48:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795704507; x=1796309307; darn=vger.kernel.org;
+        d=baylibre.com; s=google; t=1795704508; x=1796309308; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=jhy28nJqOwkTlWwqv2ePwS51JDGbzTi5b1SrJscsPNk=;
-        b=T1Zlyxcgh3fG88qC53UBR0M26m6a8F2ftH2fIb5Mpzvm+pvKAuqysuPdAvJaEcNJS3
-         V+KxVzISm3RUOatNxDPlG6B6ikKcRjGXE8eui1O+jEcTkg+p9trP5NQJFCGks0hhMtYp
-         ovwy99SJ2XPMbizkluKwf/h5JmGzZw2zOKk9x2HlCba1OVAcrHsdKuTNBbyDwDjLP2Xu
-         uOXWCst70PyKsJGUT+Rxv9x1eQ8KtsjBDow1AYpyRreZ/b2EB+H4Ud5LTWdjjYMJaFvZ
-         RyEe4ZCYSkHBqpwKGK6AFyB1iVXdQtKuevjSLw5S89O4V8kTiK+aZfLCidqb9+S4v1mB
-         enlQ==
+        bh=gBUmB6k+/zMjiupz2fSB05AdcI9Yft2uVfQwRfm54S4=;
+        b=nJ5nJvVMQH3wwi5zifiF/xQexKqWquJVPhGMStzyZ3dOXMLI4QQLbTERfjUthHfH8o
+         8EOrzltcm+IRTFqRmnYDSuTeupT0Sqd1/h7FhqRNEjR79s1FLhCUeTJPSZ+CzCNdSc7R
+         XWn+tiUMpVUcz8hfRrNKGplEwRSTvgVVz6JAIuj9DS/Do9LcLqOBcpQVhClsZtaE/eCF
+         CDOJ17bY1Hny+u8hLfxBBS6kC+UtgPpG7I1h/G57E2MscwJodIptzVVsQNFLSKQL44UF
+         qrG5T3FDG1yhe88bfhoWXeT6rAGtqUJJqlNPXBkUrR5cxjCmzai7v/5sZEaMVKo3ZIGC
+         9Pbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795704507; x=1796309307;
+        d=1e100.net; s=20260707; t=1795704508; x=1796309308;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jhy28nJqOwkTlWwqv2ePwS51JDGbzTi5b1SrJscsPNk=;
-        b=pI9QuuNUPmN1YPqmitXbQdPtOeRx64G9FOqw24f2ovm5p0L1lw3NHP8CI6SsFB8RKX
-         S9HL2cKR4Xm2JyZSPCeE4ooCaarw8wMBGU5GWQNaIQ6jgJvVOnUBDc06rLavOa/ALWFR
-         frJkq+jP7LVgzgz9GDqJpwcacEwnF8PG19/wTJXdKoyQKVG1EnluXpG8paYJLXDOW5sY
-         IDAvA53NdzI4RxSUgQu0w1s12ZLjUGMrkSt3XWoTKyjGUNR528tfjvdN7WuW6/Gf+TvG
-         2DKVSeppEi66shdqH6Zr82V2Xl9Deu8q+weysjZB+cmKW13wuLHE46iSCl7mnsouGGmg
-         WJ3A==
-X-Gm-Message-State: APuU4Z/2MMvdVrc6BnUc9uSP1kvKIkhIkpusBN0zjbjIQVpfZXftX5ag
-	0ZUMD0eKTWwvza7qFSUU2foOWh1yyZpBl8OLbCPdSjyVZXfZcvVJKSYM0BqREcrmKos=
-X-Gm-Gg: AZFdTZdcQCqIjtEmxuC0SI9+cPjH4tp7YlwQvGoY88zsxYlguBlxXP2exbgR/bO8xVz
-	//xjW3Smc7mWeryDzlUWKz+vmoKF/u4vm3nbViaSoN0xTm+HoNvs3l01q7sDF7S0UAw1ZnpLEa7
-	GJRGaGxbIOT9ZgQJf2UmTcnsKUaiVBYGOsHyvRZ9eWv5FE902FvRe7zzLxgn//0Yqg2A4gFaaT6
-	Zzmf7KlNHvw3wZlPNCFXO6mtKORaqHFl/iZhYuh5LiQ2txdCflz0qm5j++GAna3UqTnExtTSxmK
-	VkLd8ptB4KmS9j9DFCw0xmF514bxh79wLBlPttIdAyQSCRy7cwQUOlCMEG6DBX/2GaZhupJK4MK
-	I9SUkJ24aIT6tXQi3fJeBbOBL6AZVNVDGw2eM6y5YlfZkKRpZTM1jmAt3ULdyqVIBLpZ1z2xK89
-	1dAFU7p8KqNZtFSVGJmIpp8VzGAH+kXqZY5AZnJHxscIDn/NxFdsubRbgfF3IAiOJeSgSt7RNx1
-	0m41bm50rTdnuU/3Pg5Woim9olGOKGlEqeijjtQT8n/OiLDCvpHLtO5tyD8G4y9U+3ahPdI5Vk9
-	HReHidcxBtSJ5jTlQ9AXSOiZ+hwbFENN7FQTsLTP7i5aSq72l6g9MG+LlepF21kyXa9qO29OXRI
-	KsCXY0VsfmznKWvYEwOVgi1FvHCodoBKGPfLi
-X-Received: by 2002:a05:6000:2b93:b0:490:9fe2:6a39 with SMTP id ffacd0b85a97d-4abb1baac17mr29812496f8f.20.1795704507036;
-        Thu, 26 Nov 2026 06:48:27 -0800 (PST)
+        bh=gBUmB6k+/zMjiupz2fSB05AdcI9Yft2uVfQwRfm54S4=;
+        b=i8kE1Kp2/hglc6chHucgjwFORNoO1LshmJabTGoVnl5+xGOzhkiKGr75J+4iIOT2fJ
+         ZnnhgtPWpfXbBw7tCIrNTzydpdwXxxbln6luH9wrpl01ujaLb5RB/iqcAreHfifQX1SA
+         euQkSzdsqMCZk2139QI8ycM9Dq9jfVWVxHnqwirtL3Vq9+iNhNQZxbdEPijB8bvgrR4c
+         57WMD2zDEAwVGxPsH434q8hxj+bjHhrfftUUKXgOteiUZ919Raj3XvlGSR+mUw+4ooSy
+         CBb+VCCP0lAt3+vmc4nb8HvGIVI8/Ip9b4pJzxLrWQsYJlkx7Ph1mEdN+e35Zcj1CEuS
+         xEwg==
+X-Gm-Message-State: APuU4Z8LScgKKVfIRmmAjs6bnyCGV0SR1bnk+1qSL9vPbZy0WKPPgrKZ
+	nPWB9FXHy9J95YTF00lnXU1Y02JU3hDxx89I+EmFEmIpzQdCrHhpDjieNUQCm87UQgc=
+X-Gm-Gg: AZFdTZe4Wu+Bap+vUZpzo9sdRmEbZbN2McScKgSvAKjWnVRfvizR8iOI10xBSCgyIFP
+	yYq1ScUK+jQ7niYiwZMaV0NAluas4/WH3CH3EzOBgngdDRZRk9tvQHcdJCBjKEX7uXGOOl2vEWk
+	wwWF8YTMl8kFwSYoyEqFPQIfcfUjSdDmClVNwwXVDeaSDEzjp4jlo9rrxKSO8ApLvY+NNR4VThV
+	ZL+0mBSTbSN52dJP3+FZBTzeXSkhCntoTWWXu1fcV+/YR+6K9C9QsjDguLt3evHBmy2Rkzh2ay2
+	t9NVX/bt1AshdlEetGe9yJ9aADy/uT4RgLwlovEh+CF+xbw9XtaMEbvuRqOT16IOBWLBBU1a62N
+	LF/6/JhYz9KcaUXfQ4McPjd0ReuV4W950hI8WsKCfmgbNoKBqkBMWgXJwiG+llpC+NioH8pRXd0
+	IoRfPEWhawdmqpzGuN3rwdQdo6kiHf0wMNj6QjMG2VvHLexNfSIR5G5j+daRxb36rbDiL12D6vP
+	y1nUynmMWvuPBBxsMTUmjOiSdHGEESbYhYLL3BNMR1BiSf3uVFZqsy749TsO6vaL4iZOnTgrJE2
+	VuGZX3eTPGuzbDKOxrfSdnBJ5Hx2hZIUxueaVaWSFMRZzrikiD9re7dejXBHv0xOnI8duO8P8mA
+	g64kThxWl6Yf6Tb4=
+X-Received: by 2002:a05:600c:5395:b0:4a3:5a98:c279 with SMTP id 5b1f17b1804b1-4bb8880e599mr430139155e9.8.1795704508528;
+        Thu, 26 Nov 2026 06:48:28 -0800 (PST)
 Received: from localhost (p200300f65f19a904aae808b8a2e91502.dip0.t-ipconnect.de. [2003:f6:5f19:a904:aae8:8b8:a2e9:1502])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab6a67fe48sm37528780f8f.23.2026.11.26.06.48.26
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb853c9170sm675710655e9.14.2026.11.26.06.48.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 06:48:26 -0800 (PST)
+        Thu, 26 Nov 2026 06:48:28 -0800 (PST)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: Stephen Boyd <sboyd@kernel.org>,
 	Abel Vesa <abelvesa@kernel.org>
 Cc: linux-kernel@vger.kernel.org,
 	Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
-Subject: [PATCH v2 1/3] spmi: Don't limit device name matchin driver name on SPMI_NAME_SIZE chars
-Date: Thu, 26 Nov 2026 15:48:11 +0100
-Message-ID:  <da200883be074587458c102c170d88df5067a155.1795703292.git.u.kleine-koenig@baylibre.com>
+Subject: [PATCH v2 2/3] spmi: Drop struct spmi_device_id
+Date: Thu, 26 Nov 2026 15:48:12 +0100
+Message-ID:  <473f022082e95f68e4feeb49b98bce7544501d86.1795703292.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1795703292.git.u.kleine-koenig@baylibre.com>
 References: <cover.1795703292.git.u.kleine-koenig@baylibre.com>
@@ -101,33 +101,58 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=791; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=rVjAK+NZmtP/hMHBYxbhTV1bAdw47qsCHyxwXOkFa2w=; b=owGbwMvMwMXY3/A7olbonx/jabUkhmwOt7X/yk483J7fWsNsK+3pqXJ1g0mw1NuUz0Hx0wOsL aOmPeztZDRmYWDkYpAVU2Sxb1yTaVUlF9m59t9lmEGsTCBTGLg4BWAi97rZ/xeuOJKdEfq6jtuA 1f3G37kXUlSle5cbrDRWN3wdfbbp8OsG8zSbhpMmlyKLDm469sa26kiznLE8/+0J3bMNZn3NtHl exB3p8I+VcWPYT9500fb0eL8rPGwhUoy/lzEl9K88X8ozt+LhptOmm8/aVF9k2TBHofzTVqGW/y uUGL1L3GZeXRO4/FnWtgaz5Fsd3Ap7FhSoFK2JP8fpKFNnd5nz2pImO+OLCvOOdb9VKNlR/zlNr 8F+itgTJSN5nZ/KnWa2bo3WDyR5OnP5G1YVpTFUaZ2XWSmzxsbuStSGqAeliovese+038wveW7C JzmFyZ3bfGU3P5kfM6N94s165qIr+5n05vhw26bJFp8FAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1655; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=EU28X4vdtBqNKjyzUsAYRaVxwyOnJRB5cWGYlvwtouw=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBrCEavklLfccMJp3d2JFJRpmX6Eln9m+v3hH3sF BXjhcxY63WJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCawhGrwAKCRCPgPtYfRL+ Tv71B/4y28N+ZsaJ53RYgUpvv0IaxVHWKipUnpkOiku3Vi8pNhyn4Q45CjidxPlyrZ/Txla1Kbc vb33+OwZQF02UROzDcm5eFLGcmKY2jnjq2tLBMZ3Il0tJSgBUjLXOMSxVbUg68TIDr/wOJWP9sQ 7kGJS0uJGWBUfwawO78SgQkarBhjww0FEOhd1Foei9REaBU/7uS1iGUpCGB/RY/co6xuqGfh0g/ +5HrFZTFsMi3NFyiqi4F76c8nC6xEjPHic46Mlq6PZqSfCTvrWj4Zzlc2pJ+3YVo4QMvhfQ7Ak1 6NFlGqMeM/7iNPJ5PnQiYl3wlvQzvyYscJFnLbGvCgCdyMBZ
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 
-Both device name and driver name are not limited to SPMI_NAME_SIZE
-chars and both are always properly \0-terminated. So it doesn't make
-sense to use strncmp() here. Use strcmp() instead.
+This was introduced by commit 5a86bf343976 ("spmi: Linux driver
+framework for SPMI") in 2014 for Linux 3.15 and already then was unused
+and no user was added since then. The only exception was a usage of
+SPMI_NAME_SIZE that was dropped in the previous commit.
 
+Reviewed-by: Pawel Zalewski <pzalewski@thegoodpenguin.co.uk>
 Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 ---
- drivers/spmi/spmi.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ include/linux/device-id/spmi.h  | 17 -----------------
+ include/linux/mod_devicetable.h |  1 -
+ 2 files changed, 18 deletions(-)
+ delete mode 100644 include/linux/device-id/spmi.h
 
-diff --git a/drivers/spmi/spmi.c b/drivers/spmi/spmi.c
-index ec97f12046f5..6d6805a5ae69 100644
---- a/drivers/spmi/spmi.c
-+++ b/drivers/spmi/spmi.c
-@@ -64,8 +64,7 @@ static int spmi_device_match(struct device *dev, const struct device_driver *drv
- 		return 1;
- 
- 	if (drv->name)
--		return strncmp(dev_name(dev), drv->name,
--			       SPMI_NAME_SIZE) == 0;
-+		return strcmp(dev_name(dev), drv->name) == 0;
- 
- 	return 0;
- }
+diff --git a/include/linux/device-id/spmi.h b/include/linux/device-id/spmi.h
+deleted file mode 100644
+index a821c42cfc9a..000000000000
+--- a/include/linux/device-id/spmi.h
++++ /dev/null
+@@ -1,17 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#ifndef LINUX_DEVICE_ID_SPMI_H
+-#define LINUX_DEVICE_ID_SPMI_H
+-
+-#ifdef __KERNEL__
+-typedef unsigned long kernel_ulong_t;
+-#endif
+-
+-#define SPMI_NAME_SIZE	32
+-#define SPMI_MODULE_PREFIX "spmi:"
+-
+-struct spmi_device_id {
+-	char name[SPMI_NAME_SIZE];
+-	kernel_ulong_t driver_data;	/* Data private to the driver */
+-};
+-
+-#endif /* ifndef LINUX_DEVICE_ID_SPMI_H */
+diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
+index a69947f2c1dc..fd21238c99f5 100644
+--- a/include/linux/mod_devicetable.h
++++ b/include/linux/mod_devicetable.h
+@@ -51,7 +51,6 @@
+ #include "device-id/serio.h"
+ #include "device-id/slim.h"
+ #include "device-id/spi.h"
+-#include "device-id/spmi.h"
+ #include "device-id/ssam.h"
+ #include "device-id/ssb.h"
+ #include "device-id/tb.h"
 -- 
 2.47.3
 
