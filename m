@@ -1,99 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.217
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795678137;
-	b=e7Qqd8SK+61K4Ok1ImnJkRzc0dFLwgXbAykSfyofH83zJaSvSdPMhNftz+74WH2JRqVr
-	 T4qKCktFzbiWTLADqpz3DE83Rymh3jvsRCfaR5CZnnXcNUvn7pzSyjn++U+/5zO/6jNqW
-	 XQs4TqMCbeAjVf4A5OhXuPe34t6a67zakx9MWwoKxX++EIbabZ5ls/QpoqFVGCS1XjoM2
-	 eO43pkqCX1eFlGYjfcfl/4SEvs7y5aYBkkjms2NE2rRPWVnmJfD6cl6FmXgvItjLdDoJF
-	 XP/1junBOuLjtVAe1Yiu84qyGBIvl+T3xtkrpFJ69BwkoXFrVyGyi7dI9rPnW8khz2w==
+	t=1795678145;
+	b=vPyKSjHgCmXCFMNRmmAnyssWck80BlDAbhjsFP7hBPNl/T4fUlluhHIMFYp2Oo5gpB8G
+	 SRIYRWN3CwFGZC0IzIXqyU7uP8pwL9gSftd/WPZ38YitcbPddySHv5ne8Pozgg6W/IiTg
+	 qa9IFllJQEHdK4TJiHdcRc/OzoMaNWUQnXeXxSzv/NaXmx2lkfYsZZm8BIDv/rNypJlzr
+	 Mb609+BrS4AM+KTElVmKgf5LCH0M/yr14zHjx3bgKPqyWh95Oh8C8kd5/mH6VkpEPsKwd
+	 cXuKIMNpnt4unFWAOplyYPAxwbyFo517LHyKtWdvwcBG6vuLwiC6E/2orgmRWTIa37Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795678137;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=kAalqxfxZCZO4sNiFlK3ouIz24MCsQGbMzL88+QHtpw=;
-	b=5YSsZIVQuQtgaRXhJT2ltvJK+d8bN/KcdbXAa2qsH0baR/ASalxbKZdc+VQKykMr4Oth
-	 IsW4pEp3KqSaFY3zRGvhrzMXb5SfJL3nEFCwI+N8kcMFe0C7iUs4sf53IIlXy2JhwtOfS
-	 1EkgHUPWw6FZPxsTVHyJBk/tmGh9QqLynzEb9V1hN+w/3wcePBgYlceSuErCVzNYr0TYI
-	 nrrp3VzYI06zBqV4f/zCeoh7IvX8SswQHAsa/J1TRkuo5KxzzcP+o+TXutSCc5t9BbENP
-	 xwGUMa7OJ6OBhIornbEarzi8zpAz85g5Pb4ZyZ8vQf7CyiRYb/fMufx1u58AXFSVnzQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795678145;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
+	bh=Slqoilb3q4EZlN+z4xYKdNmmkHqZq4WOd9FM1kAt4Fg=;
+	b=n0E64yrkKh5o2WrD7gEFjkmgnyfA3XurPFP7/LC65fhs9c7CCAw/9d96qifFPncWozjC
+	 QBvjS00QpkyVQcPkzxo5skWl9x5u7Pmg7TtlaiP5oYBUiVyK/wngh95Ib/pC6ouM7muae
+	 GYpIjjaeXSAeQUhOFn/NlbcX3Cp9Oam4nhnoVWVOWktZ/lRxtZbUpgI8dCCVenPB5CLor
+	 reNM3a6TN+Zcd6vJf+uoY3uJa+i8fBPhdqvgKPMWh0mmaSoRdtoW9Zs4xJ5cVUDQasSCl
+	 QpZV0QnHSFnIt4jDwbFNxDqfokW8MlsxO1G2h2jz3e13Ni4+V4SyHSFyNRxLZdCqg+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nUHlouIf;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=WQzCgywY;
+	arc=none smtp.remote-ip=113.46.200.217
+Received: from canpmsgout02.his.huawei.com (canpmsgout02.his.huawei.com [113.46.200.217])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3966606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:28:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3966606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8667E606A32E;
+	Thu, 26 Nov 2026 07:29:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8667E606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nUHlouIf
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b40d23e1adso4532875a91.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:28:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795678136; x=1796282936; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kAalqxfxZCZO4sNiFlK3ouIz24MCsQGbMzL88+QHtpw=;
-        b=nUHlouIfEWRaW5BM8C4xx9IPmfLhYRQfxvdZrYws7+GyVLmwswxZMAIwV9qv+/WqMy
-         gZh7+LdcmmSBeFiny6nudMfGlIknw2BrE2NBONcBeC/lo0Pea7GaCEuCgebaWZeGBdvw
-         JaL9cAfAp1LMQsaMSUqM6pBMcGNLAVCl21ChbSgtEbG+qZ6ooZWzniRhsgLts9fK28nb
-         1DWHPUD07TSACo3IauAv2dZ0WDMdj0jPtfkzLqvNhaAmjlYn7VSPg6mt2zqcjrWoZTEL
-         c6l1dajvcVpvGAsCZHsQn+Ack4xHjA/M6ClGpx+FqkMcvtwShNkAGgD6XfJMAe67aQME
-         cJPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795678136; x=1796282936;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kAalqxfxZCZO4sNiFlK3ouIz24MCsQGbMzL88+QHtpw=;
-        b=vP+RtHiHE8fCX0BXHr0VkMKHPAfJzL0zT++/q4FC9yGG687ASMJXfWENxgz68bhCn0
-         +XcXpXtOtwXVyaZEm/RmdmE+vtENR5L2ut40gXkgKsk2FBFbv/hIbCRYnnvKNJwqYIOt
-         rp6/a5qkFfFUgxTt5Lnlk5kmXFNJyEWb7rL95Cp69MHWj6LldkHoAZvmZ3j4mShFnT+6
-         ZwJGJl18s8AayDaDRCXCybZWB9KSTFV4c7r1Df7vhDKO6L0ZepZ9xt4TxtNBw35KbZy/
-         5c7WpLqK3ATTAe34SU55kYBHwP6obZrQRlnsC97IHCrE1/09C0zbW5NcfP/utqqxFMc3
-         HJ5A==
-X-Forwarded-Encrypted: i=1; AL+hErG32NYINT3Hy/fq6oo52tLnS1LWldaATVJpnMYq+36zRqM/V3oH4BsazegDu/dpyxDHmDRhWBUZi1sqsx4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8HXyB9c2FEBqKlwnu2IhnawGiBM8eKfWG0B9sG1YHV8Wx32owu
-	GQvQDTjyF/cEyMGCDfLzkuZPFMMLBZ7jj9qeItWYGeCMZS9pbwGYg+Uu
-X-Gm-Gg: AZFdTZdHpmqHaHoXl2hub4Fz/sXdD+aZcZdzoQksmkL8mL41tcPkjv3DPcUDpriRjEM
-	0ykXCy0TM5ePJ/5yx+Tu0pKG/3p+yPr8vQe7AR/JDujcY9ql8EWoticcOLOScDMZXgYQoXG2pAA
-	sK8qWAerCnRC/z7w3vxMnDSBjItKVm+WgA4jYeXuUDtf4GdFuUDlH19Q0yTH8kEwynV6mvsVrb+
-	Iz/EiNucQKZ7R/USxVPpjEn6+jcwuu1k8qnGWPfWfpGq5fR/GPc624mgNFXyGQU9f2XzI0oPtUJ
-	AHRbU4BDDo/UDLlaGq1mroJDQVi1oncULjQvB9/+sZVroOcZQ64vY+KXWOHbl1BkoPd9wWO3mTO
-	gE6W8LQy/jJt5OeZLllVxOdvjZfDj+s2aiLyCzqW0tjKcCgT9d43/eEvcKvzIEIwejFk76NcAkA
-	DWK30GkZ+m8QZi2ooP3aWKGIe8uSEHlRS9xk4pbKkRgFKGxF3GA87owBZtFnZ7cAgmmJo9W8OOQ
-	UcbPnKNYH14POiUD13bzB0FgYh2b2GyWeVgUnJtLq3ik13LmADXW1kq2124zD8APR7I8OtCnyTs
-	F80PtbvP2D2BHGfbhxaicK3XufJu/tNL38TH5MnMxXlkEVc3RFpRg7oWhERb60V5tflkC2Tq5w2
-	fm3GZo3axGjIwR0zFB7ppdQ==
-X-Received: by 2002:a17:90b:4a47:b0:3a8:9d0d:ca50 with SMTP id 98e67ed59e1d1-3b41c8fe84amr20623464a91.10.1795678136058;
-        Wed, 25 Nov 2026 23:28:56 -0800 (PST)
-Received: from localhost.localdomain ([240e:46d:2300:827:b108:4552:5e9:4319])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b217a5bsm14772112a91.0.2026.11.25.23.28.52
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 23:28:55 -0800 (PST)
-From: Yafang Shao <laoar.shao@gmail.com>
-To: jpoimboe@kernel.org,
-	mbenes@suse.cz,
-	pmladek@suse.com,
-	joe.lawrence@redhat.com,
-	song@kernel.org
-Cc: live-patching@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Yafang Shao <laoar.shao@gmail.com>
-Subject: [PATCH v3 2/2] livepatch: Avoid blocking tasklist_lock too long
-Date: Thu, 26 Nov 2026 15:28:29 +0800
-Message-ID: <20261126072829.97792-3-laoar.shao@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261126072829.97792-1-laoar.shao@gmail.com>
-References: <20261126072829.97792-1-laoar.shao@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=WQzCgywY
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Slqoilb3q4EZlN+z4xYKdNmmkHqZq4WOd9FM1kAt4Fg=;
+	b=WQzCgywYA/jx6AJHyEgRsMgSaAlyZ/nzSD3+3nwX7MqZFA21JxotVD2GhoHuFlFI6u+ZUA6Ae
+	OgkRwGzlH0WEfMYxUhls2EbFvW0+SdxNkN++ZtZAqSXv13N7p0B6aaFJz7zP1W6O2QenR4eCYSl
+	Xfp0JSNTB+wisVfnPZBYndM=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jZp6X0mvrzcZxr;
+	Thu, 26 Nov 2026 15:27:48 +0800 (CST)
+Received: from whupemp200008.china.huawei.com (unknown [7.152.184.21])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3970540579;
+	Thu, 26 Nov 2026 15:28:55 +0800 (CST)
+Received: from [10.174.176.113] (10.174.176.113) by
+ whupemp200008.china.huawei.com (7.152.184.21) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 26 Nov 2026 15:28:53 +0800
+Message-ID: <6cde295b-4c7b-4878-8fda-3732a2ff7c7d@huawei.com>
+Date: Thu, 26 Nov 2026 15:28:52 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,188 +62,159 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 0/3] bonding: ignore updelay when no active links for
+ broadcast mode
+To: Hangbin Liu <hangbin.liu@linux.dev>, Jay Vosburgh <jv@jvosburgh.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, Tonghao Zhang <tonghao@bamaicloud.com>, Nikolay
+ Aleksandrov <razor@blackwall.org>, Shuah Khan <shuah@kernel.org>
+CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>
+References: <20261126-bond_broadcast_updelay-v1-0-188e5538d6ca@kylinos.cn>
+Content-Language: en-US
+From: "jiangjiehua (A)" <jiangjiehua1@huawei.com>
+In-Reply-To: <20261126-bond_broadcast_updelay-v1-0-188e5538d6ca@kylinos.cn>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ whupemp200008.china.huawei.com (7.152.184.21)
 
-Problem
-=======
+Hi Hangbin,
 
-As more and more patches accumulate in the cumulative livepatch, we see an
-increasing number of latency spikes from latency-sensitive services during
-livepatch upgrades. The most recent case is the redis data_server [0].
+On 11/26/2026 10:30 AM, Hangbin Liu wrote:
+> This patchset fixes updelay handling for bonding broadcast mode (mode 3)
+> to align with bonding documentation section 13.1 paragraph 4: when a
+> bond has no active links, the first link that comes up must be reused
+> immediately even if updelay is configured; when usable links exist,
+> updelay must be honored.
+> 
+> Commit 45fc134bcfad ("bonding: do not set usable_slaves for broadcast
+> mode") tried to fix the second half of that rule by never updating
+> usable_slaves in broadcast mode. That made ignore_updelay permanently
+> false, so updelay was always applied and a broadcast bond with no
+> active links could not recover within the miimon window when one usable
+> slave up.
+> 
+> We revert 45fc134bcfad to restore the enslave/release side of the
+> usable_slaves updates, and add the missing bond_miimon_link_change()
+> case so the snapshot also tracks link-state transitions. Both halves
+> are needed:
+> 
+>    - revert alone: the snapshot is only rebuilt on enslave/release, so
+>      batch enslave with updelay (new slaves start in BOND_LINK_BACK)
+>      leaves count == 0 forever and updelay is never honored, even once
+>      other slaves are usable;
+>    - link_change case alone: with 45fc134bcfad applied,
+>      bond_set_slave_arr() discards the refreshed array for broadcast.
+> 
+> A selftest is added to cover mode 3; the existing mode 1 and mode 2
+> recovery-updelay tests are merged into a single script covering
+> modes 1, 2 and 3.
+> 
+> Before revert 45fc134bcfad:
+>    TEST: mode (3) bond recovery                               [FAIL]
+>            No connectivity
+>    TEST: mode (3) bond recovery                               [FAIL]
+>            No connectivity
+>    TEST: mode (3) bond recovery                               [FAIL]
+>            No connectivity
+> 
+> After revert 45fc134bcfad:
+>    TEST: mode (3) bond recovery                               [ OK ]
+>    TEST: mode (3) bond recovery                               [ OK ]
+>    TEST: mode (3) bond recovery                               [ OK ]
+> 
+> For the second patch, I use test script
+>    ```
+>    ip link add veth0 type veth peer name veth0p
+>    ip link add veth1 type veth peer name veth1p
+>    ip link set veth0p up
+>    ip link set veth1p up
+>    ip link add bond0 type bond mode broadcast miimon 100 updelay 1000
+>    ip link set veth0 down
+>    ip link set veth1 down
+>    ip link set veth0 master bond0 && ip link set veth1 master bond0
+>    ip link set bond0 up
+>    sleep 2
+>    dmesg -C
+> 
+>    # Test A — bullet 1: batch enslave, snapshot stuck at count == 0,
+>    # updelay never honored
+>    ip link set veth0p down
+>    sleep 2
+>    ip link set veth0p up
+>    sleep 1
+>    dmesg | tail -n 5
+> 
+>    # Test B — bullet 2: stale non-empty snapshot, recovery delayed with
+>    # zero usable links
+>    ip link set veth0 nomaster
+>    ip link set veth1 nomaster
+>    ip link set veth0 master bond0
+>    sleep 2 # wait veth0 up
+>    ip link set veth1 master bond0
+>    sleep 2 # veth1 comes up after its own updelay; snapshot stays
+>    # drop both links (bond has zero usable links after this)
+>    ip link set veth0p down
+>    ip link set veth1p down
+>    sleep 2
+>    ip link set veth0p up
+>    sleep 2
+>    dmesg | tail -n 5
+>    ```
+> 
+> With revert only:
+> Test A:
+> [   13.190593] bond0: (slave veth0): link status definitely down, disabling slave
+> [   15.165875] bond0: (slave veth0): link status up, enabling it in 0 ms
+> [   15.165919] bond0: (slave veth0): link status definitely up, 10000 Mbps full duplex
+> Test B:
+> [   20.366724] bond0: (slave veth1): link status definitely down, disabling slave
+> [   20.366957] bond0: now running without any active interface!
+> [   22.341960] bond0: (slave veth0): link status up, enabling it in 1000 ms
+> [   23.382194] bond0: (slave veth0): link status definitely up, 10000 Mbps full duplex
+> [   23.382428] bond0: active interface up!
+> 
+> With the second patch
+> Test A:
+> [    6.208526] bond0: (slave veth0): link status definitely down, disabling slave
+> [    8.184359] bond0: (slave veth0): link status up, enabling it in 1000 ms
+> Test B:
+> [   13.384852] bond0: (slave veth1): link status definitely down, disabling slave
+> [   13.385093] bond0: now running without any active interface!
+> [   15.360849] bond0: (slave veth0): link status up, enabling it in 0 ms
+> 
+> We can see when there is active slave, the second slave follow the
+> updelay rule (Test A). When there is no active slave, the first up
+> slave will be in use immediately (Test B).
+> 
+> Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
+> ---
+> Hangbin Liu (3):
+>        Revert "bonding: do not set usable_slaves for broadcast mode"
+>        bonding: update slave array on link change for broadcast mode
+>        selftests: bonding: add recovery updelay test for broadcast mode
+> 
+>   drivers/net/bonding/bond_main.c                    | 14 +++----
+>   .../testing/selftests/drivers/net/bonding/Makefile |  3 +-
+>   .../drivers/net/bonding/mode-2-recovery-updelay.sh | 45 ----------------------
+>   ...e-1-recovery-updelay.sh => recovery-updelay.sh} | 13 +++----
+>   4 files changed, 12 insertions(+), 63 deletions(-)
+> ---
+> base-commit: 1ab3fb564f20b78615a6d88b8c90da292f29e227
+> change-id: 20261126-bond_broadcast_updelay-cc4cfb6e0e37
+> 
+> Best regards,
+> --
+> Hangbin Liu <liuhangbin@kylinos.cn>
 
-With some tracing added to the userspace redis code and a hard trace in the
-kernel, we finally tracked the root cause down to tasklist_lock contention
-during livepatch transition.
+Tested on v7.4-rc4 in a virtme-ng guest. Ran recovery-updelay.sh (21/21 
+OK) and the cover-letter Test A/B; both match the expected updelay behavior.
 
-When redis flushes data, it clones a new task, which takes the write side
-of tasklist_lock. If a livepatch upgrade is in progress at the same time,
-tasklist_lock is held for the whole transition. Below is the trace we
-captured while reproducing the issue:
+Tested-by: JiangJieHua <jiangjiehua1@huawei.com>
 
-=== [2026-11-15 15:18:06] tid=1635309 comm=data_server  WRITE wait=79372 us
-
-        queued_write_lock_slowpath+276
-        queued_write_lock_slowpath+276
-        _raw_write_lock_irq+69
-        copy_process+3474
-        kernel_clone+157
-        __do_sys_clone+102
-        __x64_sys_clone+37
-        do_syscall_64+56
-        entry_SYSCALL_64_after_hwframe+100
-
-=== [2026-11-15 15:18:06] klp scan held tasklist_lock(read) ~ 96864 us (comm=insmod)
-
-        klp_enable_patch.cold+247
-        init_module+477
-        do_one_initcall+70
-        do_init_module+82
-        load_module+2526
-        __do_sys_finit_module+200
-        __x64_sys_finit_module+24
-        do_syscall_64+56
-        entry_SYSCALL_64_after_hwframe+100
-
-=== [2026-11-15 15:18:08] klp scan held tasklist_lock(read) ~ 3504145 us (comm=kworker/8:2)
-
-        klp_transition_work_fn+36
-        process_one_work+492
-        worker_thread+83
-        kthread+235
-        ret_from_fork+31
-
-  crash> p klp_signals_cnt
-  klp_signals_cnt = $1 = 1
-
-The latency budget of our redis workload is 50 ms, while the clone() call
-observed during the livepatch transition took ~79 ms.
-
-Environment used for the reproduction
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  server: 256C AMD EPYC server
-  tasks: 1000~2000
-  number of patched functions: around 80
-
-Solution
-========
-
-The redis application can work around this issue by removing the clone()
-from its data flush path, but I believe we should improve this in the
-kernel if we can.
-
-In 2025, we discussed completely replacing tasklist_lock with RCU [1], but
-Petr pointed out that it is far more complicated than we expected [2], so
-we ended up abandoning that idea.
-
-We still have a more lightweight way to partially replace this heavy
-tasklist_lock with RCU, as Josh suggested [3]:
-
-  : Maybe klp_try_complete_transition() could iterate the tasks in two
-  : passes?  The first pass would use rcu_read_lock().  Then if all tasks
-  : appear to be patched, try again with tasklist_lock.
-
-This patch implements that suggestion.
-
-Verification
-============
-
-I verified this solution on my test server:
-
-  server: 64C AMD virtual server
-  tasks: ~2000 processes with ~8000 threads, ~30 running
-  number of patched functions: 200
-
-- Before this patch
-  the maximum clone() latency during the livepatch transition exceeded
-  500 ms.
-
-- After this patch
-  the maximum clone() latency during the livepatch transition is below
-  20 ms, which is within the range expected by the redis side.
-
-Link: https://github.com/redis/redis [0]
-Link: https://lore.kernel.org/all/20250227024733.16989-1-laoar.shao@gmail.com/ [1]
-Link: https://lore.kernel.org/all/Z8CRXxfI24E9_IHC@pathway.suse.cz/ [2]
-Link: https://lore.kernel.org/all/20250213013603.i6uxtjvc3qxlsqwc@jpoimboe/ [3]
-Suggested-by: Josh Poimboeuf <jpoimboe@kernel.org>
-Signed-off-by: Yafang Shao <laoar.shao@gmail.com>
----
- kernel/livepatch/transition.c | 44 +++++++++++++++++++++++++++++------
- 1 file changed, 37 insertions(+), 7 deletions(-)
-
-diff --git a/kernel/livepatch/transition.c b/kernel/livepatch/transition.c
-index 4739fc170f48..2f3cffa897a8 100644
---- a/kernel/livepatch/transition.c
-+++ b/kernel/livepatch/transition.c
-@@ -458,12 +458,34 @@ void klp_try_complete_transition(void)
- 	 *
- 	 * Usually this will transition most (or all) of the tasks on a system
- 	 * unless the patch includes changes to a very common function.
-+	 *
-+	 * To avoid holding the tasklist_lock for too long, we iterate over the
-+	 * tasks in two passes. In the first pass, we use the lightweight RCU
-+	 * read lock to iterate through most tasks. This pass will cover the
-+	 * majority of tasks, except for some newly forked tasks which may be
-+	 * added into the tasklist concurrently. In the second pass, we acquire
-+	 * the tasklist_lock to handle the tasks missed in the first pass.
- 	 */
--	read_lock(&tasklist_lock);
--	for_each_process_thread(g, task)
-+
-+	/* First pass: Iterate over tasks using the lightweight RCU read lock. */
-+	rcu_read_lock();
-+	for_each_process_thread(g, task) {
- 		if (!klp_try_switch_task(task))
- 			complete = false;
--	read_unlock(&tasklist_lock);
-+	}
-+	rcu_read_unlock();
-+
-+	/*
-+	 * If the first pass succeeded, grab the more heavyweight tasklist lock
-+	 * to check any newly forked tasks.
-+	 */
-+	if (complete) {
-+		read_lock(&tasklist_lock);
-+		for_each_process_thread(g, task)
-+			if (!klp_try_switch_task(task))
-+				complete = false;
-+		read_unlock(&tasklist_lock);
-+	}
- 
- 	/*
- 	 * Ditto for the idle "swapper" tasks.
-@@ -695,17 +717,25 @@ void klp_copy_process(struct task_struct *child)
- 	 * the thread flag was copied in setup_thread_stack earlier. Bring
- 	 * the task flag up to date with the parent here.
- 	 *
--	 * The operation is serialized against all klp_*_transition()
--	 * operations by the tasklist_lock. The only exceptions are
--	 * klp_update_patch_state(current) and __klp_sched_try_switch(), but we
--	 * cannot race with them because we are current.
-+	 * Disabling preemption explicitly is only needed on CONFIG_PREEMPT_RT:
-+	 * there tasklist_lock is a sleeping lock, so write_lock_irq() doesn't
-+	 * disables preemption. Without it we could be preempted between the two
-+	 * reads below and the RCU pass could switch us, tearing the
-+	 * flag/patch_state pair. On !CONFIG_PREEMPT_RT the spinning
-+	 * tasklist_lock already disables preemption, so this is a no-op.
-+	 *
-+	 * The only other updaters are klp_update_patch_state(current) and
-+	 * __klp_sched_try_switch(), but we cannot race with them because we
-+	 * are current.
- 	 */
-+	preempt_disable();
- 	if (test_tsk_thread_flag(current, TIF_PATCH_PENDING))
- 		set_tsk_thread_flag(child, TIF_PATCH_PENDING);
- 	else
- 		clear_tsk_thread_flag(child, TIF_PATCH_PENDING);
- 
- 	child->patch_state = current->patch_state;
-+	preempt_enable();
- }
- 
- /*
--- 
-2.52.0
+Thanks,
+Jiehua
 
