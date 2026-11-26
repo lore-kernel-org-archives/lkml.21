@@ -1,83 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795708694;
-	b=0T4HQW6cSs+jW0onj8cNGn37MkWUdQ52lMqwHDpN/KS5OKAlRg9FghJU9EJZwOeCjFhL
-	 UFay5FsjmyN/3JQL7N3dW77P9MxVplXj2Qtj+Qky+zk8++2YfE3doHKYK2a5YfGVonzko
-	 9SDIkCl3gzPmeFN6QOydrG3NXWDF9cBqMI1wz0oZK1ia8Uct/0njrkZPN7UB1jIwxD7jh
-	 q+xkiUWK1w7q/uFN4ZVJ1ULBGpFzZwMlpk5G+Zym1WqULd2Q49SsBSubYW3rRarUaoyZZ
-	 c8+rfBlbKBarJYcRU0TqOpJmmY/AKAWD+KTcpqUd6wUJ7I/VT9bw8Iq3jpHCRYRJvQg==
+	t=1795708754;
+	b=KKLgaVP8nO66kP1uaV6zp6WdtH8IVJWMjmab4FehWwY/Lv+DzIXPEu09g7eX6VKTjKB8
+	 kV8iKg+Fdml+oheRKhzDKbfWgqAMLpINfzJV+3gt3OEhMQGYfNxF36HN25/8U/OWGRIfD
+	 ZIukT6Wl+7FuWpvYSwp2XfRPNOU98b47MiiXTNtBCjJUtZe3OE+zbq/FMd0sDFV/XBE80
+	 z30qkDiHMstBoMG7e110N/OC83V6lRi6DXdZB49gv4d4fjUybjmUpWvMyRukPlV0XWaSn
+	 OQyHqVguFkkACnOX0fUAgU8q+i2g5dprOxw5C5ban1CddO1pyDs5HPxkoAk4l/Xo8jw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795708694;
-	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
-	 X-SA-Exim-Scanned;
-	bh=wTk/8x0Maq/XwIFmVoNU0U+Iy9cYA+BinE6p+h+LkZo=;
-	b=yfxmuOXHLnmLPRFoDL31HjvdZDdnWKagAS66Y8eVaBxgzHTXp6xJtjYt7/ytWAiH6YnY
-	 j0PPpHeyzTmFuYXq6WDtvcBUrxReMl7LfhWv6tvNhuVqXm4eMCZH9HcrXL8/bcS7rbL89
-	 PId/wJvgLNp/NBW2IC6CpqWW8h6guHtARJNqMAxsmX/H1WAGvZRFro59a2O3xVBVAvThb
-	 lRkxfMb6zexXgFc/GHTwbe0TznJF4ZZqW2KtwoREZfQj1+ux99bKCILBnbOiMGTvu7q52
-	 qW1Jj/nhxQqm+nNZXaDExLaEW18YsfkU6qClUBxofYArwzknHJ4Ak76geFtqpnaYe6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795708754;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=xdJp+FlW0fAnBajETS7/P+7V0hYHEUFR0KWFN0IaqRA=;
+	b=iRJnemd8Lvt34i+Wf8+QXHszwcNSzOcCB0wobIR5SHlItBKbvcEVhLoqkrVPwGxnAOYd
+	 SVhXLvpDJfQNJMb/a4cA6tEk8wJQEdNr3WrNh3vcGzttTjcfnpk7KzScTWD84Xck78q6i
+	 gp8ZNQlcripOc/ojD6tk5aFgNEoRCeePLTxgxFJv5JJsOjFoXGUGMVcFrEmflKOzS2ked
+	 9b1sFpFZ8MKQ8KDLWn84vKdzKMJhDPZsY1Mli4JwJY2n1O6EUss4dU7Yvmda/L2GZDoXM
+	 skUkcjTNOSGmNHSfEToKU2UPFcDANgCE4dtQ68LyuSyGL7dQ1g0vEPhlJP8REuwNK+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="KTinv6/9";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dr2+JTZn;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C7B4606A31C;
-	Thu, 26 Nov 2026 15:58:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FC06606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:59:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FC06606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KTinv6/9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F1031F000C0;
-	Thu, 26 Nov 2026 15:58:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795708694;
-	bh=wTk/8x0Maq/XwIFmVoNU0U+Iy9cYA+BinE6p+h+LkZo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=KTinv6/9XW8poNeJxb6crvd9x0P3Pt7/JXTjwWUmk7jdJhc+wCc3iSrzc+dTSIMo9
-	 EpxSDtM8kLQz724vqv3ed6peCv30TBNTHjEYAlG8zwwG8bx9i7rPFSYG1BReNVmAIR
-	 t8VCRseKp07XNkeFkm4v8PEZSZiQMpdI8A9g+VOHfwrYA/FwrghxQXROeukrrZMmtD
-	 mwwmhl8jyNgMXPkP1MccTfUtNxU2qZTTSW2iPeOhvAqolFa+KlZhSmpEUCf4RpqCeO
-	 P8Vb7Un+F3kEaKFlffed4haDnxDEwPVz6pOISdJ4lGOvkJiywUfkw5eO6EJV/KyW+X
-	 +ZRa/ZgSO+mQA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xWbrP-00000003iUw-3gu5;
-	Thu, 26 Nov 2026 15:58:12 +0000
-Date: Thu, 26 Nov 2026 15:58:11 +0000
-Message-ID: <86v75jy48c.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: oupton@kernel.org,
-	fuad.tabba@linux.dev,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	riel@surriel.com,
-	shakeel.butt@linux.dev,
-	kernel-team@meta.com,
-	rkeilty@meta.com,
-	atish.patra@linux.dev,
-	dgreid@meta.com,
-	Lorenzo Stoakes <ljs@kernel.org>
-Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
-In-Reply-To: <563d2406-dcfe-43b6-8f21-2a7694f1f266@linux.dev>
-References: <20261124152842.2634495-1-usama.arif@linux.dev>
-	<86wlpzycnn.wl-maz@kernel.org>
-	<563d2406-dcfe-43b6-8f21-2a7694f1f266@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dr2+JTZn
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-385c497bf94so5832970eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:59:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795708753; x=1796313553; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xdJp+FlW0fAnBajETS7/P+7V0hYHEUFR0KWFN0IaqRA=;
+        b=dr2+JTZnoqQ5ydoqHLJw5HDebXiwsQxPv/wpFTjgGIVJyfNDsoFmgLKfkPx3ggrRqA
+         ngEZ6NeCmv1npWvMuch6Cix+6odE7FiPOOXMKNUtBrwr4FunUfR/kbF2VAXk/Pc2cA4J
+         1K0/xySxzaI5GKCIk0hwAHlu7O9ropeohMIjni0cn7/+FYi+GKF8K1f8Tfcu84EyI885
+         +7iEbxii6KCvbiupWUITr1vtEd0xNpHCVTjCsBuJ8wSAqxxcw2/bhOdp80UCcfbljhbr
+         Snqz2ptyQX95xjZw96jPsnibIPvgC5AwqfHyx5luSNEXfxZQeGQZlIy/+08zKXmBctU/
+         rEBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795708753; x=1796313553;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xdJp+FlW0fAnBajETS7/P+7V0hYHEUFR0KWFN0IaqRA=;
+        b=HUeaAGm7eM/U7jDlOt+hMpQlIk7DNLeDbbDDWN2ubV7stHG05MkSboBlF5paIt6jBT
+         BCNu70CX3ooJ8aV5Y0RuTFrEe9oAtvl5rESQMkeMSQIIXGeEooDxz4HczjPR/PlZpPuL
+         RmAiXq7KsjKl5H1R73jl0zbb4OCzufgJO2iZxt5kEBCEK/C7roimZSf3V40X7+6DLEcQ
+         qnTSlR6AZ8KCHqecNI4YifzxaKGS4yBBNP8yRqL2UCkl43Vz/ExQ7SFYtVpp4ZxepXCd
+         h7DS3J7kEecVoywMCbm67Jvu7vJXbb/hulZG/VrS53Mur/rt/KALeEPGlmH8DPBGKAoJ
+         E2oQ==
+X-Forwarded-Encrypted: i=1; AL+hErGQDum1Yop3WFS6QojqzlsLH1CAUMWXTdE4UAJQJr0zIW9Qb9b5x5bO7UF3STlg+u50KeED2G5apE/Psrw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8EpED2iBtK00XbsuexW4l1lUJJERbPoplVKlnElK+7GDv5BY2i
+	GQJqGq7oXSCRl290ecVJe4v90MfXkKS+p6bZPk0F94seeRnJg1JsCFc=
+X-Gm-Gg: AZFdTZefzrzhkDXIcy1Evr2DhsV51DsX/X7WIsnsIIPpQ3hg6uALgw3quvGUm53xbi+
+	eOhQlgfoM9MxkrIa3V7ibk8XhuMUNyXf4uo8oTadMqboyIo7wSGziPPEtQsPS97sbZUfwwqI3iO
+	t3dhMUujj73aMzAZDLkrqI6Gyo0ecYoy1GHwtcu0jYgGLykFw5MpVWKfRKbQ8hGW5J/CyFhl23a
+	xhq+js0P8z33UQ9Yu2UDXmEs86zm8qdu12tu0w6Xwh+DJW9lrq7vpAP4gCFfC3cn1Mr4o+ES9WC
+	0dHJW1vAw3Ac58KS6HLs9QQrL9/7nSfpoSuOJdfYdqv2pq2BoHR4EwL7q7Qdq+PZGC0u7j4oP8E
+	smj/9RK+OaP+pYrp6Pq+QOv387QbR8EEeSXhBjGOy6FH06QUr0A+tmUlQQ6aJM+2zWr77EexBUT
+	QkCu02Zd1Pmasz/J2Zmapgreb/CkDNu5QkDX8zeA6roHPgotZ48gJ418gNcWnuQ8yEPjMRPpW8b
+	b8q7ch6BeLQKaz5HlPgmhRgxeg8A204G9ujcnkvBassXgQyyvyNH6gZ15YZi/sJKqEqTdak0UCZ
+	KO458ajYyCFZp8Zj/cM+xm3Q6vl/noUcvC98EMIdGoNfiNuxD+9JD1UfzeHr5r6+nmpMad4uNGJ
+	iF2INQLNy4FqL
+X-Received: by 2002:a05:7301:6407:b0:386:2300:db04 with SMTP id 5a478bee46e88-38623101ee2mr21471812eec.22.1795708753327;
+        Thu, 26 Nov 2026 07:59:13 -0800 (PST)
+Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aa203267sm35099691eec.0.2026.11.26.07.59.10
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Nov 2026 07:59:13 -0800 (PST)
+From: Yige Jiang <yigejiang86@gmail.com>
+To: JC Kuo <jckuo@nvidia.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>
+Cc: Yige Jiang <yigejiang86@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	linux-phy@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] phy: tegra: xusb: Fix OF node reference leaks in enabled pad setup
+Date: Thu, 26 Nov 2026 23:59:07 +0800
+Message-ID: <rc-b1-20261126-vc-166-f94c6693453a@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,39 +101,77 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: usama.arif@linux.dev, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, riel@surriel.com, shakeel.butt@linux.dev, kernel-team@meta.com, rkeilty@meta.com, atish.patra@linux.dev, dgreid@meta.com, ljs@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Thu, 26 Nov 2026 14:32:04 +0000,
-Usama Arif <usama.arif@linux.dev> wrote:
+tegra_xusb_pad_create() looks up the node for an enabled pad and passes
+it to the SoC probe. The pad device stores that pointer in dev.of_node.
+Neither the probe caller nor the pad release callback drops the lookup
+reference.
 
-[nonsense deleted]
+Give the pad device its own node reference before device_add() and drop
+it in tegra_xusb_pad_release(). The caller can then put its lookup
+reference as soon as the SoC probe returns, including on error.
 
-> > Now, to the patch itself: I see no reason to special-case this. If
-> > kvm_mmu_cache_min_pages() is an indication of what is needed, then
-> > this macro should be driven by it, or the whole allocator take it into
-> > account. And then you adjust it by whatever fudge factor seems
-> > appropriate.
-> > 
-> 
-> Completely agree! [1] does that: no page-size special case, and
-> a capacity of KVM_PGTABLE_LAST_LEVEL - KVM_PGTABLE_FIRST_LEVEL for every
-> page size.  It can't track kvm_mmu_cache_min_pages()
-> at runtime: the vCPU's cache is shared by the canonical and NV shadow
-> MMUs, and its capacity must stay fixed. So it has to cover the largest
-> minimum, which stage-2 caps at 3, and 4 is that plus one page of fudge.
+tegra_xusb_pad_register() also looks up the "lanes" child. The PHY
+provider takes its own reference to that node. Drop the local reference
+after successful registration, as the error paths already do.
 
-Of course it can. That's not exactly rock science to add, rather than
-relying on another set of bad heuristics. And this must cover more
-than a single mapping per top-up, because that has a ripple effect on
-the speed at which we can split large blocks (funnily enough, people
-care about that stuff).
+I used an AI coding assistant to trace the node references and prepare
+the diff and commit message.
 
-	M.
+Fixes: 53d2a715c240 ("phy: Add Tegra XUSB pad controller support")
+Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+---
+Based on linux-next next-20261109 (630059a5a632).
 
--- 
-Without deviation from the norm, progress is not possible.
+Julia Lawall posted a separate fix for disabled pads in 2019:
+https://lore.kernel.org/linux-tegra/1550928043-14889-5-git-send-email-Julia.Lawall@lip6.fr/
+
+An earlier version including the disabled-pad change was compile-tested
+on arm64 (GCC 14.2.0, W=1). This revision has not been compiled or
+tested on Tegra hardware.
+
+ drivers/phy/tegra/xusb.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/phy/tegra/xusb.c b/drivers/phy/tegra/xusb.c
+index cd1cd985f36a..aa6ede9f4a21 100644
+--- a/drivers/phy/tegra/xusb.c
++++ b/drivers/phy/tegra/xusb.c
+@@ -161,6 +161,7 @@ static void tegra_xusb_pad_release(struct device *dev)
+ {
+ 	struct tegra_xusb_pad *pad = to_tegra_xusb_pad(dev);
+ 
++	of_node_put(pad->dev.of_node);
+ 	pad->soc->ops->remove(pad);
+ }
+ 
+@@ -178,7 +179,7 @@ int tegra_xusb_pad_init(struct tegra_xusb_pad *pad,
+ 	INIT_LIST_HEAD(&pad->list);
+ 	pad->dev.parent = padctl->dev;
+ 	pad->dev.type = &tegra_xusb_pad_type;
+-	pad->dev.of_node = np;
++	pad->dev.of_node = of_node_get(np);
+ 	pad->padctl = padctl;
+ 
+ 	err = dev_set_name(&pad->dev, "%s", pad->soc->name);
+@@ -249,6 +250,8 @@ int tegra_xusb_pad_register(struct tegra_xusb_pad *pad,
+ 		goto remove;
+ 	}
+ 
++	of_node_put(children);
++
+ 	return 0;
+ 
+ remove:
+@@ -285,6 +288,7 @@ tegra_xusb_pad_create(struct tegra_xusb_padctl *padctl,
+ 		return NULL;
+ 
+ 	pad = soc->ops->probe(padctl, soc, np);
++	of_node_put(np);
+ 	if (IS_ERR(pad)) {
+ 		err = PTR_ERR(pad);
+ 		dev_err(padctl->dev, "failed to create pad %s: %d\n",
+
+base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
