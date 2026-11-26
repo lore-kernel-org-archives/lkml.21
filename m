@@ -1,86 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.132.180.163
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.254.224.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795707786;
-	b=ra/4f/GkOaVH/S/mlGJpIjU7vnEIhx7QQKH9VcpfW2QKsl0vNCMhs06JR+aPMXbwy4To
-	 p8SScttN5lPehOL2r90Ux9Y0xvk0tctkJxb6BL22VwXPrOJVw3uCaIu1xtKAMgYA2G3CU
-	 O7bZ8koU3EExdHGbHuxJg1qTukwekru+2i7DsMp+LrYMuLdvuN+0HqyEoaDtr1rWjgqmk
-	 JOXLNByHcNWAi9jyFCQofY03dvSO2FexCO+NARFfEQGrP8OWnaawPUuRvwGAnsugBLCYt
-	 XjnOPcnhneAovgH+bzt7zujqZcVoZTSFvqr3UgoW9csMM0OetJY59NrkSz7VbUYj3aw==
+	t=1795707849;
+	b=naqLqWloxr2fkDkz7qeQU6hs91g6jINMWTMJFf0dxPLmOWDKSzI7Eb1uOHScQ48FOR8p
+	 Pl/fofPd5yGxgNYoF3zSmUUpTcTvVnyuRurGowlf+HuhuyllIA0/pQttYfPQXHqOVtP88
+	 7PVQmmW2oxXGfs/oP/hsx3spRuDqf0MxuRrKa247DbwXXGa408kHO/9lOYY2X1o2J9SK4
+	 bcPeEeOAR87X+9NOBPa5JaDrlns229r6O+lwnk8RBy352+DQv7AhsyGD96SSJcl3ZX/LC
+	 LRH9meXA7BtuWDd3Vr2ov11E/y9P28YFsnop3vEVr4hvSFYI51wWXuDF4liaABTe91Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795707786;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Message-ID:
-	 Subject:From:To:CC:Date:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version:X-Originating-IP:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID;
-	bh=ozPNEce7sUqPbIrlPxruhn05mHpz54QnqYsdshoSnsk=;
-	b=5YyU+qr3x49NBXK54DXeJvQf32kJ2b3HOCgArRe3PzBataUn2t4AQHKuNnKAW4ybNR1q
-	 gk55rumao+vgjzjltOHVM1b6pFLAeHZTDxNEh6vfNHg5XlKKTiZ4k4Wyqppjcwfftt0RC
-	 Dlo7s0CmeYeZNS/AamPCBAuiHxXXbcBHG8/EbJtDc1sUetj1B4PZGIl1BhOTZlJDtAfYg
-	 vth5xzqJtZnz+qtDZXY9ZYAyI4p9JcBAeaxkEPONnqgm8jODm/H1NiNu4p9NJDnEX8bpj
-	 ExK8SXSRrqpVJZxtaxcWjV/zkwWYdyOGYSBSBc6cph+1SMZbeEs2eKdDXTAJPgbU5kg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795707849;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Received:Received:From:To:Cc:In-Reply-To:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding:X-Mailer:Thread-Index:
+	 Content-Language:X-CMS-MailID:X-Msg-Generator:Content-Type:CMS-TYPE:
+	 cpgsPolicy:X-CFilter-Loop:X-CMS-RootMailID:References;
+	bh=8/2RIhr8qmshbZKgEJCspHFVA0yAW1nZUYa6uqR0kME=;
+	b=hTawGQ1Bou3cUlNQkXqIcu4A2qE3bjaPt+tosmNwQSv5idR8JWBJ+jXQWx9Q0zOV3H+A
+	 5a3VhzM/7L6rgOlS0HgKex9wqvLCE7HKhNXeo+BIhfPBTENapF3+N3q0eajbtZh4p6A2K
+	 HZq5a5mnKl5ugm9hIAVDGxUR8w61vQEjxM60dnXEUFocSgNfk2sOPIteTL3CeWhaeyPvd
+	 kfvkd0LdhvIS9FFJRRCSL628s7VyLBtQA19bQcy2f7COTIJRG9Pxk7IEm78Dos+lhhqvm
+	 2vT+Dc8KER8DcPKqqRcU+zcJ7+X8niYtOJLf5zVxv+fUjJMw9SgTs7XPBqhqDx303zA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=imgtec.com;
-	spf=pass smtp.mailfrom=imgtec.com;
-	dkim=pass header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=oDF3vE9W;
-	arc=none smtp.remote-ip=185.132.180.163
-Received: from mx07-00376f01.pphosted.com (mx07-00376f01.pphosted.com [185.132.180.163])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=JWQa9tC3;
+	arc=none smtp.remote-ip=203.254.224.34
+Received: from mailout4.samsung.com (mailout4.samsung.com [203.254.224.34])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4ADF0606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:43:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4ADF0606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=imgtec.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=imgtec.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11E70606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:44:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11E70606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=imgtec.com header.i=@imgtec.com header.a=rsa-sha256 header.s=dk201812 header.b=oDF3vE9W
-Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.12/8.18.1.12) with ESMTP id 6AQ7ZPP5382945;
-	Thu, 26 Nov 2026 15:42:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=o
-	zPNEce7sUqPbIrlPxruhn05mHpz54QnqYsdshoSnsk=; b=oDF3vE9W1dlRDkth5
-	c0rPGFTaC1DbK21raMHCluoP+xymHLNpD+iH1VHYMbSdyhUOA79DnjmPISy3cc/q
-	ZzS2x+UETJk4tDqHToUyUgTJK8dXJMaYGF91Nlh9r7lzDcSRGMekTG8Des1bxYSr
-	35J9XIEov3nNTlgPIRIjDWsmn6321MhTDiOHPJpShEoikMTRlNkQkkeKVlz0ASbr
-	WZo6ZFNChY87TGUXNPzXAVF1PFo8P0REeBneOTE8PBOI/N6meGsS4ya+Ta5vrV0z
-	N+T+WAm+ZVe2QQGp4Kxpj6/j8UqeyhNSClLq9J32h/1e88KnlxlrAqxVMaIK4JOk
-	KVirQ==
-Received: from hhmail01.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 4j3491mf1k-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT key_exchange=secp384r1);
-	Thu, 26 Nov 2026 15:42:45 +0000 (GMT)
-Received: from np-a-belle.kl.imgtec.org (172.25.6.177) by
- HHMAIL01.hh.imgtec.org (10.100.10.19) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Thu, 26 Nov 2026 15:42:44 +0000
-Message-ID: <1463fe4976d02b8b6d748dbb560a88bf54525cf1.camel@imgtec.com>
-Subject: Re: [PATCH v2 2/2] drm/imagination: Stop locking reservations
- around map and unmap
-From: Luigi Santivetti <luigi.santivetti@imgtec.com>
-To: Gyeyoung Baek <gye976@gmail.com>,
-        Alessio Belle
-	<alessio.belle@imgtec.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-CC: Alexandru Dadu <alexandru.dadu@imgtec.com>,
-        Brajesh Gupta
-	<brajesh.gupta@imgtec.com>,
-        Frank Binns <frank.binns@imgtec.com>,
-        <imagination@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-        <linux-kernel@vger.kernel.org>
-Date: Thu, 26 Nov 2026 15:42:44 +0000
-In-Reply-To: <20261011-pvr-gpuvm-immediate-v2-2-744ddc6644c3@gmail.com>
-References: <20261011-pvr-gpuvm-immediate-v2-0-744ddc6644c3@gmail.com>
-	 <20261011-pvr-gpuvm-immediate-v2-2-744ddc6644c3@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=JWQa9tC3
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20261126154405epoutp04dda946bba1bea76f7cff90c758f5cb98~rosWPv9sQ2406324063epoutp04W
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:44:05 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20261126154405epoutp04dda946bba1bea76f7cff90c758f5cb98~rosWPv9sQ2406324063epoutp04W
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795707845;
+	bh=8/2RIhr8qmshbZKgEJCspHFVA0yAW1nZUYa6uqR0kME=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=JWQa9tC3hIYmABN1K4WRN6wkGJGddPkodHlJJt86Jp/0UqF003YbiGqUPDTHpLLb0
+	 0wxn5GgH3X4m+hICFb4JQO3Gy5ttEoaz7dNEGHKXlpQ7mfB9XqNKIbOJ+UyftjP742
+	 Zy5JIJ4Jxf+fCveKWWMHwp6Yqmo9MbRVp3N5Nm7k=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20261126154404epcas5p4e452e034245d3db160e74d05e3d3fa25~rosU_XgKJ2602626026epcas5p4z;
+	Thu, 26 Nov 2026 15:44:04 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.86]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4jb17738Qxz2SSKZ; Thu, 26 Nov
+	2026 15:44:03 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20261126154402epcas5p27608ba8f724eda55014b644b1d4e711a~rosTdxN3V1258512585epcas5p2p;
+	Thu, 26 Nov 2026 15:44:02 +0000 (GMT)
+Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20261126154400epsmtip1969fb94ad98af9b6cd6c1014143ba1f8~rosRRzx0r0927909279epsmtip1D;
+	Thu, 26 Nov 2026 15:44:00 +0000 (GMT)
+From: "Alim Akhtar" <alim.akhtar@samsung.com>
+To: "'Peter Griffin'" <peter.griffin@linaro.org>, "'Raghav Sharma'"
+	<raghav.s@samsung.com>
+Cc: <krzk@kernel.org>, <s.nawrocki@samsung.com>, <cw00.choi@samsung.com>,
+	<sboyd@kernel.org>, <bmasney+clk@redhat.com>, <jbrunet+clk@baylibre.com>,
+	<robh@kernel.org>, <conor+dt@kernel.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <is.gandhi@samsung.com>,
+	<ts.amit@samsung.com>, <pokala.reddy@samsung.com>
+In-Reply-To: <CADrjBPoAVMdxgU4P+shh+9O5rGJp+m3sRQMDd2c-7zbJ8qhiBQ@mail.gmail.com>
+Subject: RE: [PATCH v3 07/14 RESEND] clk: samsung: exynos8855: add block top
+ and peric clock support
+Date: Thu, 26 Nov 2026 21:13:58 +0530
+Message-ID: <000001dd7dbc$f5fa2d00$e1ee8700$@samsung.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,136 +84,363 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDA2MSBTYWx0ZWRfXzunwspnQv0I4
- YnnFmhj81qFe/1c6MbBDfgqBvzhtuDPYh6CRaUjTWatTUy4bpsQ2EHup+TeealeHUBiS6IJ8rnC
- Zvn/G8RewaGJBRtvTAaxD++EMgDx7Pt8zg+6qQjuFnRKQWsOdP2O83ACSt7jqjhAW2Q49ap88Gi
- dfF/F8U1hzwojwCQn6HmFKbCyTNtL+33WyPQjh39rScUN4VtTt8eKnZwNxYo7FGmMkibeVX82Pv
- jsOfgnXbbH1BpnQ5tsLoYA2sdnCGg4nLWtCsc+GFZEZK3iBv66rEsgXXieW6m3P0RnM4XAdzGgh
- Ocay6XUyqGULYsvK/JExcEAnk55tQ9YPGfsd5SSc1cuhkSo1sTOigGUixo09nj9vaD2ppQUktJj
- i2u/VYiCipa4tI5JPrDw3Zhws5HtzTuftI+zYvcHun2/gGzso04uoyfwL7wFf6LNpDUnKzR/E7p
- aVgdn3TR1zBIy2cgZEg==
-X-Authority-Analysis: v=2.4 cv=OaENnRTY c=1 sm=1 tr=0 ts=6b085375 cx=c_pps
- a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17
- a=2JH569OHYJkA:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=kQ-hrUj2-E3RCbRHssb7:22 a=7RYWX5rxfSByPNLylY2M:22
- a=pGLkceISAAAA:8 a=r_1tXGB3AAAA:8 a=yx_059eXjXyrX1SpRQ8A:9 a=QEXdDO2ut3YA:10
- a=O8hF6Hzn-FEA:10 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDA2MSBTYWx0ZWRfX4+dSJTb/GfeT
- w62AR1/lSe0ZP9YltNzfzN65lMO2CRTJS1scVt9uw8ynsLq78LeiJqgxlSuGM6BPLVflOpPEdJr
- v6xY9vtky1raJiLe5StBcL4DWdylcro=
-X-Proofpoint-GUID: MuAbyYGpcubLUdFAdJMS0DByehffB0pJ
-X-Proofpoint-ORIG-GUID: MuAbyYGpcubLUdFAdJMS0DByehffB0pJ
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQIXbjCFvuM775FMvx+V85gotW/ScAGxlKqAAw1MM3IBhutM2LaaJbZw
+Content-Language: en-us
+X-CMS-MailID: 20261126154402epcas5p27608ba8f724eda55014b644b1d4e711a
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-543,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20261113104850epcas5p4ef9292af100475b1f12a2601bf5e1a84
+References: <CGME20261113104850epcas5p4ef9292af100475b1f12a2601bf5e1a84@epcas5p4.samsung.com>
+	<20261113110612.3265841-1-raghav.s@samsung.com>
+	<20261113110612.3265841-8-raghav.s@samsung.com>
+	<CADrjBPoAVMdxgU4P+shh+9O5rGJp+m3sRQMDd2c-7zbJ8qhiBQ@mail.gmail.com>
 
-Hi Gyeyoung,
+Hi Peter
 
-this patch (and the previous) was tested with a CTS cycle and results showe=
-d no
-regressions.
-
-On Sun, 2026-10-11 at 18:45 +0900, Gyeyoung Baek wrote:
-> The GPUVA lists are now protected by gpuva.lock instead of the
-> reservations, so map and unmap no longer need to lock the reservations.
-> Nothing else on that path relies on them.
+> -----Original Message-----
+> From: Peter Griffin <peter.griffin=40linaro.org>
+> Sent: Friday, November 13, 2026 5:36 PM
+> To: Raghav Sharma <raghav.s=40samsung.com>
+> Cc: krzk=40kernel.org; s.nawrocki=40samsung.com; cw00.choi=40samsung.com;
+> alim.akhtar=40samsung.com; sboyd=40kernel.org; bmasney+clk=40redhat.com;
+> jbrunet+clk=40baylibre.com; robh=40kernel.org; conor+dt=40kernel.org; lin=
+ux-
+> samsung-soc=40vger.kernel.org; linux-clk=40vger.kernel.org;
+> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
+ux-
+> kernel=40vger.kernel.org; is.gandhi=40samsung.com; ts.amit=40samsung.com;
+> pokala.reddy=40samsung.com
+> Subject: Re: =5BPATCH v3 07/14 RESEND=5D clk: samsung: exynos8855: add bl=
+ock
+> top and peric clock support
 >=20
-> Signed-off-by: Gyeyoung Baek <gye976@gmail.com>
-> ---
-
-Reviewed-by: Luigi Santivetti <luigi.santivetti@imgtec.com>
-
->  drivers/gpu/drm/imagination/pvr_vm.c | 43 ------------------------------=
-------
->  1 file changed, 43 deletions(-)
+> Hi Raghav,
 >=20
-> diff --git a/drivers/gpu/drm/imagination/pvr_vm.c b/drivers/gpu/drm/imagi=
-nation/pvr_vm.c
-> index 807a01aab1d..08ce6542550 100644
-> --- a/drivers/gpu/drm/imagination/pvr_vm.c
-> +++ b/drivers/gpu/drm/imagination/pvr_vm.c
-> @@ -704,16 +704,6 @@ void pvr_destroy_vm_contexts_for_file(struct pvr_fil=
-e *pvr_file)
->  	}
->  }
-> =20
-> -static int
-> -pvr_vm_lock_extra(struct drm_gpuvm_exec *vm_exec)
-> -{
-> -	struct pvr_vm_bind_op *bind_op =3D vm_exec->extra.priv;
-> -	struct pvr_gem_object *pvr_obj =3D bind_op->pvr_obj;
-> -
-> -	/* Acquire lock on the GEM object being mapped/unmapped. */
-> -	return drm_exec_lock_obj(&vm_exec->exec, gem_from_pvr_gem(pvr_obj));
-> -}
-> -
->  /**
->   * pvr_vm_map() - Map a section of physical memory into a section of
->   * device-virtual memory.
-> @@ -741,15 +731,6 @@ pvr_vm_map(struct pvr_vm_context *vm_ctx, struct pvr=
-_gem_object *pvr_obj,
->  	   u64 pvr_obj_offset, u64 device_addr, u64 size)
->  {
->  	struct pvr_vm_bind_op bind_op =3D {0};
-> -	struct drm_gpuvm_exec vm_exec =3D {
-> -		.vm =3D &vm_ctx->gpuvm_mgr,
-> -		.flags =3D DRM_EXEC_INTERRUPTIBLE_WAIT |
-> -			 DRM_EXEC_IGNORE_DUPLICATES,
-> -		.extra =3D {
-> -			.fn =3D pvr_vm_lock_extra,
-> -			.priv =3D &bind_op,
-> -		},
-> -	};
-> =20
->  	int err =3D pvr_vm_bind_op_map_init(&bind_op, vm_ctx, pvr_obj,
->  					  pvr_obj_offset, device_addr,
-> @@ -761,15 +742,7 @@ pvr_vm_map(struct pvr_vm_context *vm_ctx, struct pvr=
-_gem_object *pvr_obj,
->  	pvr_gem_object_get(pvr_obj);
-> =20
->  	mutex_lock(&vm_ctx->lock);
-> -	err =3D drm_gpuvm_exec_lock(&vm_exec);
-> -	if (err)
-> -		goto err_cleanup;
-> -
->  	err =3D pvr_vm_bind_op_exec(&bind_op);
-> -
-> -	drm_gpuvm_exec_unlock(&vm_exec);
-> -
-> -err_cleanup:
->  	mutex_unlock(&vm_ctx->lock);
-> =20
->  	pvr_vm_bind_op_fini(&bind_op);
-> @@ -802,15 +775,6 @@ pvr_vm_unmap_obj_locked(struct pvr_vm_context *vm_ct=
-x,
->  			u64 device_addr, u64 size)
->  {
->  	struct pvr_vm_bind_op bind_op =3D {0};
-> -	struct drm_gpuvm_exec vm_exec =3D {
-> -		.vm =3D &vm_ctx->gpuvm_mgr,
-> -		.flags =3D DRM_EXEC_INTERRUPTIBLE_WAIT |
-> -			 DRM_EXEC_IGNORE_DUPLICATES,
-> -		.extra =3D {
-> -			.fn =3D pvr_vm_lock_extra,
-> -			.priv =3D &bind_op,
-> -		},
-> -	};
-> =20
->  	int err =3D pvr_vm_bind_op_unmap_init(&bind_op, vm_ctx, pvr_obj,
->  					    device_addr, size);
-> @@ -819,15 +783,8 @@ pvr_vm_unmap_obj_locked(struct pvr_vm_context *vm_ct=
-x,
-> =20
->  	pvr_gem_object_get(pvr_obj);
-> =20
-> -	err =3D drm_gpuvm_exec_lock(&vm_exec);
-> -	if (err)
-> -		goto err_cleanup;
-> -
->  	err =3D pvr_vm_bind_op_exec(&bind_op);
-> =20
-> -	drm_gpuvm_exec_unlock(&vm_exec);
-> -
-> -err_cleanup:
->  	pvr_vm_bind_op_fini(&bind_op);
-> =20
->  	return err;
+> Nice to see you got the auto clock mode working on this SoC. Great Work=
+=21
+> See some inline comments below
 >=20
+> On Fri, 13 Nov 2026 at 10:53, Raghav Sharma <raghav.s=40samsung.com>
+> wrote:
+> >
+> > Register compatible and cmu_info data to support clocks.
+> > CMU_TOP & CMU_PERIC, these provide clocks for TOP & PERIC
+> >
+> > Co-developed-by: Alim Akhtar <alim.akhtar=40samsung.com>
+> > Signed-off-by: Alim Akhtar <alim.akhtar=40samsung.com>
+> > Signed-off-by: Raghav Sharma <raghav.s=40samsung.com>
+> > ---
+> >  drivers/clk/samsung/Makefile         =7C    1 +
+> >  drivers/clk/samsung/clk-exynos8855.c =7C 1130
+> > ++++++++++++++++++++++++++
+> >  2 files changed, 1131 insertions(+)
+> >  create mode 100644 drivers/clk/samsung/clk-exynos8855.c
+> >
+> > diff --git a/drivers/clk/samsung/Makefile
+> > b/drivers/clk/samsung/Makefile index b3e994bd525d..99c2c304ff48 100644
+> > --- a/drivers/clk/samsung/Makefile
+> > +++ b/drivers/clk/samsung/Makefile
+> > =40=40 -29,6 +29,7 =40=40 obj-=24(CONFIG_EXYNOS_ARM64_COMMON_CLK) +=3D
+> > clk-exynos8895.o
+> >  obj-=24(CONFIG_EXYNOS_ARM64_COMMON_CLK)  +=3D clk-exynos990.o
+> >  obj-=24(CONFIG_EXYNOS_ARM64_COMMON_CLK)  +=3D clk-exynosautov9.o
+> >  obj-=24(CONFIG_EXYNOS_ARM64_COMMON_CLK)  +=3D clk-
+> exynosautov920.o
+> > +obj-=24(CONFIG_EXYNOS_ARM64_COMMON_CLK)  +=3D clk-exynos8855.o
+> >  obj-=24(CONFIG_EXYNOS_ARM64_COMMON_CLK)  +=3D clk-gs101.o
+> >  obj-=24(CONFIG_EXYNOS_ACPM_CLK)          +=3D clk-acpm.o
+> >  obj-=24(CONFIG_S3C64XX_COMMON_CLK)       +=3D clk-s3c64xx.o
+> > diff --git a/drivers/clk/samsung/clk-exynos8855.c
+> > b/drivers/clk/samsung/clk-exynos8855.c
+> > new file mode 100644
+> > index 000000000000..dcf58f2459b0
+> > --- /dev/null
+> > +++ b/drivers/clk/samsung/clk-exynos8855.c
+> > =40=40 -0,0 +1,1130 =40=40
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Copyright (c) 2026 Samsung Electronics Co., Ltd.
+> > + * Author: Raghav Sharma <raghav.s=40samsung.com>
+> > + *
+> > + * Common Clock Framework support for Exynos 8855 SoC.
+> > + */
+> > +
+> > +=23include <linux/clk-provider.h>
+> > +=23include <linux/of.h>
+> > +=23include <linux/platform_device.h>
+> > +
+> > +=23include <dt-bindings/clock/samsung,exynos8855.h>
+> > +
+> > +=23include =22clk.h=22
+> > +=23include =22clk-exynos-arm64.h=22
+> > +
+> > +/* NOTE: Must be equal to the last clock ID increased by one */
+> > +=23define CLKS_NR_TOP                     (CLKCMU_DOUT_G3D_HTU + 1)
+> > +=23define CLKS_NR_PERIC                   (CLK_GOUT_USI_PERIC + 1)
+> > +
+> > +=23define EXYNOS8855_PERIC_GATE_DBG_OFFSET      0x2024
+> > +=23define EXYNOS8855_TOP_GATE_DBG_OFFSET      0x20A0
+> > +
+> > +=23define EXYNOS8855_DRCG_EN_OFFSET       0x104
+> > +=23define EXYNOS8855_MEMCLK_OFFSET        0x108
+> > +
+> > +/* ---- CMU_TOP
+> > +--------------------------------------------------------- */
+> > +
+> > +/* Register Offset definitions for CMU_TOP (0x13900000) */
+> > +/* PLL */
+>=20
+> IIUC in clk-pll.c you are using PLL_LOCKTIME_PLL_SHARED* - 4 for the
+> PLL_CON8 register offset? I was expecting to see those registers defined
+> here
+>=20
+Sure will update this in v4
+
+> > +=23define PLL_LOCKTIME_PLL_SHARED0                            0x8
+> > +=23define PLL_LOCKTIME_PLL_SHARED1                            0x10
+> > +=23define PLL_LOCKTIME_PLL_SHARED2                            0x18
+> > +=23define PLL_LOCKTIME_PLL_MMC                                 0x20
+> > +=23define PLL_LOCKTIME_PLL_SHARED3                            0x28
+> > +=23define PLL_LOCKTIME_PLL_SHARED4                            0x38
+> > +=23define PLL_LOCKTIME_PLL_MIF_SWITCH                         0x30
+> > +=23define PLL_CON0_PLL_MMC                                    0x1c0
+> > +=23define PLL_CON3_PLL_MMC                                    0x1cc
+> > +=23define PLL_CON0_PLL_SHARED0                                0x100
+> > +=23define PLL_CON3_PLL_SHARED0                                0x10c
+> > +=23define PLL_CON0_PLL_SHARED1                                0x140
+> > +=23define PLL_CON3_PLL_SHARED1                                0x14c
+> > +=23define PLL_CON0_PLL_SHARED2                                0x180
+> > +=23define PLL_CON3_PLL_SHARED2                                0x18c
+> > +=23define PLL_CON0_PLL_SHARED3                                0x200
+> > +=23define PLL_CON3_PLL_SHARED3                                0x20c
+> > +=23define PLL_CON0_PLL_SHARED4                                0x280
+> > +=23define PLL_CON3_PLL_SHARED4                                0x28c
+> > +=23define PLL_CON0_PLL_MIF_SWITCH                             0x240
+> > +=23define PLL_CON3_PLL_MIF_SWITCH                             0x24c
+> > +
+> > +/* MUX & DIV */
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_AUD_CPU                   0x1000
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_AUD_NOC
+> 0x1004
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CPUCL0_SWITCH
+> 0x1008
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CPUCL0_NOCP
+> 0x100c
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_DSU_SWITCH
+> 0x1010
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CPUCL1_SWITCH
+> 0x1014
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CIS_CLK0                  0x1018
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CIS_CLK1                  0x101c
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CIS_CLK2                  0x1020
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CIS_CLK3                  0x1024
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CIS_CLK4                  0x1028
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CMU_BOOST_TOP
+> 0x102c
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CMU_BOOST
+> 0x1030
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CMU_BOOST_CPU
+> 0x1034
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CMU_BOOST_MIF0
+> 0x1038
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CSIS_NOC                  0x103c
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CSTAT_NOC
+> 0x1040
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CSTAT_BYRP
+> 0x1044
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_DPU_NOC                   0x1048
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_G3DCORE_SWITCH
+> 0x104c
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_M2M_NOC
+> 0x1058
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_M2M_JPEG
+> 0x105c
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_M2M_GDC
+> 0x1060
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_MIF1_NOCP
+> 0x1064
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_MFC_NOC
+> 0x1068
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_MIF0_NOCP
+> 0x106c
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_NOCL0_NOC
+> 0x1070
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_NOCL1A_NOC
+> 0x1074
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_PERIC_NOC
+> 0x1078
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_PERIC_MMC_CARD
+> 0x107c
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_PERIC_IP                  0x1080
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_AUD_CPU                   0x1800
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_AUD_NOC                   0x1804
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CPUCL0_SWITCH
+> 0x1808
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CPUCL0_NOCP
+> 0x180c
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_DSU_SWITCH
+> 0x1810
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CPUCL1_SWITCH
+> 0x1814
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CIS_CLK0                  0x1818
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CIS_CLK1                  0x181c
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CIS_CLK2                  0x1820
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CIS_CLK3                  0x1824
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CIS_CLK4                  0x1828
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CMU_BOOST_TOP
+> 0x182c
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CMU_BOOST
+> 0x1830
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CSIS_NOC                  0x1834
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CMU_BOOST_CPU
+> 0x1838
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CMU_BOOST_MIF0
+> 0x183c
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CSTAT_NOC                 0x1840
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CSTAT_BYRP                0x1844
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_DPU_NOC                   0x1848
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_G3DCORE_SWITCH
+> 0x184c
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_M2M_NOC                   0x1858
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_M2M_JPEG                  0x185c
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_M2M_GDC                   0x1860
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_MIF1_NOCP                 0x1864
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_MFC_NOC                   0x1868
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_MIF0_NOCP                 0x186c
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_NOCL0_NOC                 0x1870
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_NOCL1A_NOC
+> 0x1874
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_PERIC_NOC                 0x1878
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_PERIC_MMC_CARD
+> 0x187c
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_PERIC_IP                 0x1880
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_PERIS_GIC                 0x10c4
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_PERIS_NOC                 0x10c8
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_PERIS_GIC                 0x18c0
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_PERIS_NOC                 0x18c4
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_HSI_NOC                   0x1050
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_HSI_UFS_EMBD
+> 0x1054
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_HSI_NOC                   0x1850
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_HSI_UFS_EMBD
+> 0x1854
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_RGBP_NOC
+> 0x1084
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_YUVP_NOC
+> 0x1090
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_ALIVE_NOC
+> 0x1094
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CSIS_DCPHY
+> 0x1098
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CSIS_OIS                  0x109c
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_ICPU_NOCD_0
+> 0x10a0
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_ICPU_NOCD_1
+> 0x10a4
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_GNPU0_NOC
+> 0x10ac
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_GNPU0_XMAA
+> 0x10b0
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_SDMA_NOC
+> 0x10b4
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_DNC_HTU                   0x10b8
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_DNC_NOC                   0x10bc
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_PSP_NOC                   0x10c0
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_G3D_NOCP
+> 0x10cc
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_USI_NOC                   0x10d0
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_USI_IP                    0x10d4
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CPUCL0_DBG_NOC
+> 0x10d8
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_BOOST_RCO
+> 0x10dc
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_MIF0_SWITCH
+> 0x10e0
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_MIF1_SWITCH
+> 0x10e4
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_NOCL1B_NOC
+> 0x10e8
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CPUCL2_SWITCH
+> 0x10ec
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CMU_BOOST_MIF1
+> 0x10f0
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_CSTAT_MCSC
+> 0x10f4
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_G3D_HTU                   0x10f8
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_RGBP_NOC                  0x1884
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_YUVP_NOC                  0x1890
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_ALIVE_NOC                 0x1894
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CSIS_DCPHY                0x1898
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CSIS_OIS                  0x189c
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_ICPU_NOCD_0
+> 0x18a0
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_ICPU_NOCD_1
+> 0x18a4
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_GNPU0_NOC
+> 0x18a8
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_GNPU0_XMAA
+> 0x18ac
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_SDMA_NOC                  0x18b0
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_DNC_HTU                   0x18b4
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_DNC_NOC                   0x18b8
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_PSP_NOC                   0x18bc
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_G3D_NOCP                  0x18c8
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_USI_NOC                   0x18cc
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_USI_IP                    0x18d0
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CPUCL0_DBG_NOC
+> 0x18d4
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_NOCL1B_NOC
+> 0x18d8
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CPUCL2_SWITCH
+> 0x18dc
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CMU_BOOST_MIF1
+> 0x18e0
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_CSTAT_MCSC
+> 0x18e4
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_G3D_HTU                   0x18e8
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_USB_NOC                   0x1088
+> > +=23define CMU_TOP_CLK_CON_MUX_CLKCMU_USB_USB20DRD
+> 0x108c
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_USB_NOC                   0x1888
+> > +=23define CMU_TOP_CLK_CON_DIV_CLKCMU_USB_USB20DRD
+> 0x188c
+> > +=23define CMU_TOP_CONTROLLER_OPTION0_CMU_CTRL                  0x800
+> > +
+> > +static const unsigned long top_clk_regs=5B=5D __initconst =3D =7B
+> > +       PLL_LOCKTIME_PLL_MMC,
+>=20
+> and also here
+>=20
+Sure
+> > +       PLL_LOCKTIME_PLL_SHARED0,
+> > +       PLL_LOCKTIME_PLL_SHARED1,
+> > +       PLL_LOCKTIME_PLL_SHARED2,
+>=20
+> =5B..=5D
+>=20
+=5Bsnip=5D
+> > +
+>=20
+> If you don't define all registers (like QCH, etc.) in the CMUs that can b=
+e
+> powered off, enabling power domains on this SoC might cause you to lose
+> state configured by the bootloader (and quite possibly also suffer weird =
+hard
+> to debug timing/clock issues when enabling power management).
+>=20
+> Since auto clock mode is now used (and QCH registers are used by auto
+> mode), I think it makes sense to define all the CMU registers that need t=
+heir
+> state preserved here.
+>=20
+Sure, will add QCH related register in v4
+
+> Thanks,
+>=20
+> Peter
 
