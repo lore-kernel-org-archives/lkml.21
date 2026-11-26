@@ -1,74 +1,74 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795662610;
-	b=H8dg4S8mirW4D949UcHDSevg7M8a6G5OMZ5DDPmZ7RUG2X6DMQpTxEt1ihCO/InjOoqr
-	 CWkMrhxuVBg66NTdcH/itzB8fanHJRVn7Mihyyp08Nvp3lfcRCZLdNgugx/hr0GztZGqW
-	 NAoF95XqvN8tesnF4z0+55nvir83NZX3+mmERtFZyPbsNfGi65qn97NdfBff2A2FWkRbG
-	 N5q5a2jNYbWJgnVmwq41fM7PS8ucHtJOUe5nqpsVvovx17ITzwzNmWflgtNDnVFxroyZR
-	 y8GSqTWKClNFmp52wVUsI2EkLJvjvx7PuJEn/xs9u2bJ6g/p6wQrbFI69+mQuG+QzMQ==
+	t=1795662619;
+	b=xcBACiz6O3GBUFnLyOhaw+MSGLtc5inPQBf3onAwojjCEvD752CACFDJuxov/CtcOlq+
+	 wdEMQPTvw8ezJYMDbgwdsTe45llBLewTZZX+TBiaKaNHFzxdcpZIfInkmOg2bS2WFnfrD
+	 n07oV/AK71nzzsp9x11ELixRvhbeIstqliN++6m4LjKMV3OIOOn0X3tXVnzI4ngu9Omsm
+	 xXTMo8HZ2dYL7diawY5GQfktAihjEYH0uzgjknG1Pn90wGkOYYiSOcCsnuOjSW8tl/gj1
+	 2nv+6oaFweGqadBhgYjf1CJqABWP2QPhELcLyQpan/WthzH8wEEucGDb31GhVQydSDA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795662610;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795662619;
 	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=7bvCI+57wri+mzNR0HTW5gRIi4+VJmG0S1QXuuUNuew=;
-	b=L3ZY3OmF//m8z2wK9nQV10Jo1Z9G7V6S8ks6NGhMsY6GyPIHorj50TEiLFiaoa84MPxt
-	 XGLZHoRFITAKyzW1hmApztfWPOeaKYQXlWaFTVMdEU8U61bX6/uzFV6eVf39MYS3xeFum
-	 57eVf69jVN/SqNQDc2zd9wUWF1MKPS1gBKCeOOgcCLkWXgFRsmXVuNdckUlDSg/NbaSxn
-	 HlFX5OSvSYzEdlVbqhCz7NSchX0za61TDfYc016w3hQTVCYmbqAG7tRmW16zYzyRPwVKW
-	 Y/IKDjWhMgwSPoM3dyrHtcdiRGAxgRnVl6gVZ/dpbHkDKw0rRdc7rCD229YZ6Ui0Lng==
+	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=AzVBp8V02xdvD1PAYYydGq6b1gRqHEclSPYHpIQmkxc=;
+	b=CIfjYteS9sK3LU30lsQs7kXEQ/G0EYit17vZA8/1zK34kBVhexZlKrZmatDBFN+3oxqS
+	 H6IDi6OcFn1aRQ57DPCT6lERoVp6amdGwkOgZlx1VZnKxUyH3U+LagbdODKEhp64DkfQo
+	 nZbF0l86lxW/uB/tElTVl/tYM9gffFMRyzWOO5bc6bkXZdGpE4Xj4/cLirkCQ6HA6rOLb
+	 1xnCsbPsXq3JGYExuHgE27fL0BkmSmZNMxbM5m1RJYPGf2oufIV5X6ggVryIdbgu2uCY5
+	 jV8P+ypY18XLPEnIfc9Y6xZocKpTG3SQKj/jNs9hyS4JdOSEqa0545pLHPTO+pCropw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eIFdvnsq;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dm6bE+3p;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00832606A321;
-	Thu, 26 Nov 2026 03:10:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16B73606A326;
+	Thu, 26 Nov 2026 03:10:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eIFdvnsq
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dm6bE+3p
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795662609;
-	b=0qbwzi95CvTMPDKyT5JscuLjQ50M4F04q3u7sFn0sE+6r5l0HliAjQCc7HKpGjpRlw0o
-	 Cev/KgUOp0voDDQqTK4uETO+WlJf7zq7PUkQ11ceSzewbla+lcmXf/QBkJoFseBbUPf3Q
-	 gOYozWmrsrg0BotOSz7u5jbwqe0pmD2hvxg/HDavYmO6I2lclmzHybacG80NbK9bgJqxX
-	 TQ6wVkHkYnVxZmpbXBGBiKuqFa8o7qUhRWLg8nTf7ETgk+JJrw//8ImupuhP9rxSSxD1L
-	 fgIb87Zhh+LPVbtv/8aXlpwvJc3oiIhVh+228E5sgKCEuGpsdMOXgpdv7Iu/3cZsKKA==
+	t=1795662618;
+	b=0rFSG9LMIFrfVH/zRJmFflcmF6acKAOHspKqN71YRYGdJj7fiSL1BeoBAYbqCW/VUU+d
+	 kJFT1DChU8SyY9YABqO4vQKCfsYHMygruGxd26lqCD5OiT9daGM9TTlhSFddS+zDdL2gU
+	 9Yge36/hx55rLzKVW/ncwzsGNZbJwgId6bNgV9x91MH4IKKhpQBEwHcK6M1o4ELt45fc6
+	 9tDrcSQ8Kd/AmwpTaual/rhlyFoFH6WVYEzsqMrF9ITL8djQlbF0EUa1ZakeJAo0DtEFO
+	 tQ4zcDUaeC2KTsF8FJUFQAmAIrygHMSVPGkxWdx9ASgjT1psPkcejA0vqhjCYRIZHRA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795662609;
+	c=relaxed/relaxed; t=1795662618;
 	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=7bvCI+57wri+mzNR0HTW5gRIi4+VJmG0S1QXuuUNuew=;
-	b=wuA4VHQTKYoBsmQqz7qN1lqKmISGfMTR5bFXuL6+2IoWMRLOQTHat44os9kOj1oZNM5c
-	 EJLQfzi6SaW7i2utrlhnOamd2Nus15ppXXnWOegBGCnILeYBmgslWz7xiMdQP/BNbT9+p
-	 ykhPQVa80ZEv3pZslXzSrHJoK3+Zi+3xNWLDZ26jCf0rtRazRIYCmTF5dvhI9BbypC+bk
-	 immFHnyP1w+qN6G0BbVZDqBJDrgHkJhxoGuSZxpbQhWTUOi46B8MDjLBffY9pMGk0EIbM
-	 J8Ze+xh+juUglVyWucW7zmq99o2JWJxJ1dzo15W2l6Jkc3wt6aJ0Xzg4lva3/FrXLfA==
+	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=AzVBp8V02xdvD1PAYYydGq6b1gRqHEclSPYHpIQmkxc=;
+	b=gRlf5yBEK9D2t4Pw/b7R4lUytWk1yj72NO3Tx1fP7qZgx5ZDdNYwYtD39FHl8nYtDD+6
+	 ZEFZX2E1vgaQjKknAz5iYrWZUtOPw5V9JgsRCpC8Nk4T8JdopTm8rNA2fEYzu/r3htfQJ
+	 9uJXHzrdqFsBZgevEPvtHDuJPoh6YywN1TwnG7bJt3vcP8/e29DDACOLKFBVyX667HC98
+	 8qG5mZ6F66WmNZ7elUX8rwEvJGaG23NQ6HgvfzkT0b/PpRZ3/pEnRxUYcybjRXdeJJ/KA
+	 aeK2uNt0OZSjIU7GHWfaVxQoYJ2zHoUm1oGpv5o9emyE7lBaPpE+6NNA8B9N7adwKew==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4D8361F000C4;
+	by smtp.kernel.org (Postfix) with ESMTPS id 6C71E1F000CA;
 	Thu, 26 Nov 2026 03:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795662609;
-	bh=7bvCI+57wri+mzNR0HTW5gRIi4+VJmG0S1QXuuUNuew=;
+	s=k20260515; t=1795662618;
+	bh=AzVBp8V02xdvD1PAYYydGq6b1gRqHEclSPYHpIQmkxc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:Reply-To;
-	b=eIFdvnsqGw99Ft6VFpT3/ZVo66mugf32b1A3GYyEy0IJ7Uuyg0nBYpUsfezVQwd7d
-	 qsDoCDFq7k0xsFkzzE10FOBh2wh/CPAxCc2Vy1q2foG16zxw0RiK6abSsRJxqMzSJx
-	 Jg/kah+voTi/U3yqIUIojPK9NnJfB9NgWsdNvVLqIdtXITxgdwARyr7eLY4FpGKoiU
-	 4C3JZV/2pe2i18eic95MUae5LKxrqO6mlUpCrke0aq3Tbu3IRhA2a0Hn0V2x0REDDY
-	 T+VDb03eDXvL5NHB+emFs12QnHlPyIQYJ5rLbyk4BrV8Ch2n+ke6BiVWdPGJP8lJO4
-	 P5V7YPS9jywDA==
+	b=Dm6bE+3poryaAWZxRbfOpTVaQLLtoes/XIohvYqCls2MiLLAb2NqmS7Au93Tma2Zq
+	 Pj+MrkJvZxJbEsF80aY5bkrZosVsjDFEa0MYApZm0GrZqCoyFCRG08ftf+cPQ6on/s
+	 +QTIndf1B2SXQ1e05Mj9fI1fGBcDI5RTRQhupxxGIC7UBD62h6DfLmUKUzuD1/2b0b
+	 a6A81AvQ8Ppay7//0vo7ik737pw4XcBfWGvhMf5ve1NBisa+6c0nNcf+ykVw3WRnow
+	 THjaNjuhZq7Qpl1GPD50lucPg33S+pXsFkSJpoJKXFra1PG0bmP2INGJAOs7yt3Tvw
+	 5FWGCnt+dPgVg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CF5BB4D1C1;
+	by lkml.kernel.org (Postfix) with ESMTP id EE4904D1DD;
 	Thu, 26 Nov 2026 03:10:03 +0000 (UTC)
 From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
 To: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
@@ -78,10 +78,10 @@ Cc: flora.fu@mediatek.com, amergnat@baylibre.com, leilk.liu@mediatek.com,
  me@adomerle.pw, devicetree@vger.kernel.org, linux-spi@vger.kernel.org, 
  linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/4] dt-bindings: soc: mediatek: pwrap: Add compatible
- for MT6789
-Date: Thu, 26 Nov 2026 03:10:02 +0000
-Message-Id: <20261126031001.27288-2-iasnezhkov@gmail.com>
+Subject: [PATCH v3 2/4] soc: mediatek: mtk-pmic-pwrap: Skip WDT source and
+ init on arbiter SoCs
+Date: Thu, 26 Nov 2026 03:10:03 +0000
+Message-Id: <20261126031001.27288-3-iasnezhkov@gmail.com>
 In-Reply-To: <20261126031001.27288-1-iasnezhkov@gmail.com>
 References: <20261126031001.27288-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -94,47 +94,91 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795662602; l=1071;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795662602; l=3028;
  i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
- bh=LfmVvg7Aql2KLn2xC/sbkpfApa1X1JdB+MH4gLa495I=;
- b=d2eSehcrzHtooK0YqCNF5v8FmPES28TCUhN9VCRfVX/jwI8Ky6U7QVg5ZRxh8x9k58jwMrT4Z
- MT0yF/Oy9dcD1DZW5KJJSeSs01nu5Rk5nNbb3GOB6qM3qjxriCLglBx
+ bh=kmTOzYxW78eOCC/oq6zgHXWDuldBs96hmayhgT5xr94=;
+ b=XnE64xGk1/3ejwmRWpsc69rVihvwtSkCvqbIymy+W8gukuwrH4PEuRa+tlxCx+teR7ZuDq07v
+ ErffP9ath3fBM18yREC1EWrds7AWv5VKQgEbvX1DZs1LdFg+145cB/W
 X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
  pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
 X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
  auth_id=1643
 X-Original-From: Ilia Snezhkov <iasnezhkov@gmail.com>
 Reply-To: iasnezhkov@gmail.com
+Content-Transfer-Encoding: 7bit
 
-From: Arseniy Velikanov <me@adomerle.pw>
+From: Ilia Snezhkov <iasnezhkov@gmail.com>
 
-Add a compatible for the PMIC Wrapper found on the MT6789 SoC.
+Commit 9d498d0b4043 ("soc: mediatek: pwrap: add arbiter capability")
+added PWRAP_CAP_ARB for PMIF-SPI arbiter SoCs (MT6873, MT8195, and the
+upcoming MT6789), where the bootloader already initializes the wrapper
+and the watchdog registers (PWRAP_WDT_UNIT, PWRAP_WDT_SRC_EN, and
+PWRAP_WDT_SRC_EN_1) are absent from the per-SoC register tables.
 
-Signed-off-by: Arseniy Velikanov <me@adomerle.pw>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+However, pwrap_probe() only guarded PWRAP_WDT_UNIT with
+!HAS_CAP(wrp->master->caps, PWRAP_CAP_ARB), leaving the writes to
+PWRAP_WDT_SRC_EN and PWRAP_WDT_SRC_EN_1 unconditional. Because omitted
+entries in static const int regs[] default to 0, those writes land at
+offset 0x0 (PWRAP_INIT_DONE2) and overwrite it with wdt_src
+(0xffffffff) on every probe. Similarly, falling into pwrap_init() on
+PWRAP_CAP_ARB SoCs would write legacy non-arbiter registers whose
+offsets also default to 0x0.
+
+Extend the !HAS_CAP(wrp->master->caps, PWRAP_CAP_ARB) guard in
+pwrap_probe() to cover PWRAP_WDT_SRC_EN, PWRAP_WDT_SRC_EN_1, and the
+cold pwrap_init() fallback.
+
+Fixes: 9d498d0b4043 ("soc: mediatek: pwrap: add arbiter capability")
 Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
 ---
-Rebased onto v7.4-rc4 with Rob Herring's Acked-by from v1 preserved.
+New in v3 (caught during v2 review). Drafted with an AI coding assistant.
 
- .../devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml         | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/soc/mediatek/mtk-pmic-wrap.c | 21 ++++++++++++---------
+ 1 file changed, 12 insertions(+), 9 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml b/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
-index 79b7558..0c5ebf6 100644
---- a/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
-+++ b/Documentation/devicetree/bindings/soc/mediatek/mediatek,pwrap.yaml
-@@ -33,6 +33,7 @@ properties:
-               - mediatek,mt2701-pwrap
-               - mediatek,mt6765-pwrap
-               - mediatek,mt6779-pwrap
-+              - mediatek,mt6789-pwrap
-               - mediatek,mt6795-pwrap
-               - mediatek,mt6797-pwrap
-               - mediatek,mt6873-pwrap
+diff --git a/drivers/soc/mediatek/mtk-pmic-wrap.c b/drivers/soc/mediatek/mtk-pmic-wrap.c
+index 9067718..6b0d462 100644
+--- a/drivers/soc/mediatek/mtk-pmic-wrap.c
++++ b/drivers/soc/mediatek/mtk-pmic-wrap.c
+@@ -2533,7 +2533,8 @@ static int pwrap_probe(struct platform_device *pdev)
+ 	 * The PMIC could already be initialized by the bootloader.
+ 	 * Skip initialization here in this case.
+ 	 */
+-	if (!pwrap_readl(wrp, PWRAP_INIT_DONE2)) {
++	if (!HAS_CAP(wrp->master->caps, PWRAP_CAP_ARB) &&
++	    !pwrap_readl(wrp, PWRAP_INIT_DONE2)) {
+ 		ret = pwrap_init(wrp);
+ 		if (ret) {
+ 			dev_dbg(wrp->dev, "init failed with %d\n", ret);
+@@ -2554,16 +2555,18 @@ static int pwrap_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	/* Initialize watchdog, may not be done by the bootloader */
+-	if (!HAS_CAP(wrp->master->caps, PWRAP_CAP_ARB))
++	if (!HAS_CAP(wrp->master->caps, PWRAP_CAP_ARB)) {
+ 		pwrap_writel(wrp, 0xf, PWRAP_WDT_UNIT);
+ 
+-	/*
+-	 * Since STAUPD was not used on mt8173 platform,
+-	 * so STAUPD of WDT_SRC which should be turned off
+-	 */
+-	pwrap_writel(wrp, wrp->master->wdt_src, PWRAP_WDT_SRC_EN);
+-	if (HAS_CAP(wrp->master->caps, PWRAP_CAP_WDT_SRC1))
+-		pwrap_writel(wrp, wrp->master->wdt_src, PWRAP_WDT_SRC_EN_1);
++		/*
++		 * Since STAUPD was not used on mt8173 platform,
++		 * so STAUPD of WDT_SRC which should be turned off
++		 */
++		pwrap_writel(wrp, wrp->master->wdt_src, PWRAP_WDT_SRC_EN);
++		if (HAS_CAP(wrp->master->caps, PWRAP_CAP_WDT_SRC1))
++			pwrap_writel(wrp, wrp->master->wdt_src,
++				     PWRAP_WDT_SRC_EN_1);
++	}
+ 
+ 	if (HAS_CAP(wrp->master->caps, PWRAP_CAP_ARB))
+ 		pwrap_writel(wrp, 0x3, PWRAP_TIMER_EN);
 -- 
 2.54.0 (Apple Git-157)
-
 
 
