@@ -1,98 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795681271;
-	b=eUPcWYUBCCqsCjedhl8arV6xNMC+8qV0jSQSGq9msh6JcONEWvQOMjbm6+Xvd3sMyjEX
-	 6XnoySC9H+uo1FJGWWSPJ0mTpFE8zOovIsrJhIdYihZ4LQo4iPxjkzfKpoxlZsTHC27/n
-	 ogl1TYd1PAfKm9OZamn8CeV8x57a37iCztOJnKQ10B+pVbOrpYouYD3HKopQzNZ7FbM+d
-	 ZCoRVnnojCF9RP0tWWXGpIJG8f5g2lJk4Pmu979Y/96Fo8D53xmxPaD5azRm/pej7eIMg
-	 F8dDIgoCFfQBOn58i9cPZqkJGbXYj94h6kn55HLd7g7IfCOqh67BzU0bA1bE9PNGxXw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795681271;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=2s+uwgFGV2ieXYwfBbVpNNIqWG8p5AFZ8r0e9hR4i2M=;
-	b=aa3uuweNpuMJicx2096tVCigHcmjd2chLuYEnfri2PajPzFVAzr19ICxcEyL+rD3CmKM
-	 c483m9DuTFQPGc2EXGGe6OAEBYSzqPpL7wrMRX9osQzqKWkEKS72tf4ZIrBUCzL85o882
-	 3wLVgnIPuHnpoPJk7C+fj0IFF/aVMiKeKMPJXVg1Y0EYtl9UpOIYZC4ivZUL7SpaWMpLm
-	 xTgtmTUbMVLdUFmnLXPX8bfCl6dTZCSmLUWXYrPob2tMuadAYWEynJ43Wo1mU+JGVaSt+
-	 S0xViqvCCSx4xwgtCGvPa6YqAYgNvX2MRFLODjaBaCm30mJr0Icltzv3YkRM8x7vJUw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=q63tGOFV;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.47
-Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010047.outbound.protection.outlook.com [40.93.198.47])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795681273;
+	b=TTQS2DwrS+PeGNpySBwX0VH85s/4Rqi+4k16IBxtZYtHhf90faNj5nJmLM9cu1mVlLDR
+	 8Z7s8+H1oVgkiPkDoTmu6Sd4Fb9hCScr/k5Y7ewMY47blUfCCwuc/BvnAGXZcKwV4Qeui
+	 3GpJHORHxSDRrMIpg+1d+ROIndcHvhpwu6OxynzFnGQoXTZDeL+t0pDUWmXqvIwIKHMwZ
+	 jByANUKCD5/ZfBqgU/gbLkokNc+iXEtiGWnuper/356MjYZbY0O5DDiJHMPeT7YE+qHmZ
+	 9HQD8nQyy+nr7gGYm13cAeDFTFergGxwhabx2Bl/QOgHgxCJ4VH0Dh61K1XE/84jMvw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795681273;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=5XMVDmbH25df5MhEApmqQitq30RsFa91wwEAJ21DK2s=;
+	b=swZiWBNqubYC/xoNOQZmjYFW/ZJF8BrkKVKjUVPI52CI1YjMZqHJy4+ifu7IBk0uhM7D
+	 w1Xtrgm5518ymmc62hWomhcj0qS4sGWVQVthk+ods+MuG3w1lvcTUGXRt+OQ5BUIIw+Vt
+	 JNa3MaG6XDx4ne5HQ5UM9Y+hMEHshHSu7Z4TI4gV9KUxTs3k6HfL1JAFjwX55W+TlGFl8
+	 hU+4+DUWFySRcsXonr4RM0Ncx/uxHAeMaUVPU7wXOUV8tAzX5nuOc2MqFJDz5I8VDXn6m
+	 0B4UHVIRlyxj4NGt5ptryQsJecLbbnybIY2Lezwp7cfirIrlCuKSsuDSRJeaMRtq4lg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=DJ8t0SLC;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D0A1606A337
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:21:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D0A1606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 738B4606A331
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:21:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 738B4606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=q63tGOFV
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S75xGuWbWliXnz6vUVMUV/ogFy19CWNHgbg6xG/DSVKzCnMNkuAR1tcFCmf2/MoCByYd+tPhlb2nKBWH8rnmJKnMoHxX3rfL4LbqwAurSX6oJ9/AlFwaumnMfmAgc8sReYBmR9NMtfhVDKgAr83gJUR2BewMuplq5TNGtXVzqCIip46ulJp8vnoaMJVT1W2M+tQHyd4H7E/U3GQvZzlxfn81ttdAsyDMTG4krsTPjydImrCgPOXjwCuWhYgIdrdQv1h9x1JCphjq/iSCFEC24oB2855S75xLe2QrFMLT6RPbXY1uWI2tZL+yIraOQ0V09F31hSBKkkmuYOtf6U/mlA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2s+uwgFGV2ieXYwfBbVpNNIqWG8p5AFZ8r0e9hR4i2M=;
- b=QfFXlRO7WkHD3NBtQfXPKBKnEQygfaRcspUIe08+Nlja1fxNkboPZ+eU5x5q1mVkLfrnyYHVf3qr2+gU4hu7Gtpy48scYvbxqa3Bu7r8oHk75RZGjNMSNoj8OPqxAMVMDY1erWCcAMNHyMzpKmCoLoSexCqQHGXI/qewF2zrwzF6DbI4g0/vcTwtExLl3mMRHukeEbHe/UO8LBJavK6J8GnYXKatiJ10DQTSERLfbiv3HLKRAODv3E0XlMu0NdEYve0Ro6uHh862AKVDR+hq9gpkWyA/k6f/SeXP4njJjnSKMYl+8Sz58vSwvxZ2k0icI2m1a/9hBrGuCfL4RizwHA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2s+uwgFGV2ieXYwfBbVpNNIqWG8p5AFZ8r0e9hR4i2M=;
- b=q63tGOFVcwJp1Ww1e6L+OiF2/VQj1q6Bfffw1uXeAyQnHUAIG6wJHJumy8qyKjzjIBlTnqgh9VtDueEg1Z+HAV88pq0Y18fZ4t2CBpZjyeG8JTUVxR1E22rzh8fzbBUC/W6ocxjqcGMg4E+dsJFe/vP4/b5xHJF3AlcAKvtraKbtRoYc5BcDsQA9fx925P9Ei1vwV8g19Cfs7iaQZm9pNQtF4KftZFdeWsDAg/osb0XjgUs+lpSSIaRgHdboOilgQ4+rfURDmfuyTu/8uKiqrd5kW5n1dGdJdcytVbyPdz9SqXZS+ko1l46b9oRD79XlFozjWLiRhcxwHyLPe0h3vA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB6413.namprd12.prod.outlook.com (2603:10b6:8:ce::10) by
- LV0PR12MB248855.namprd12.prod.outlook.com (2603:10b6:408:603::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 26 Nov
- 2026 08:21:03 +0000
-Received: from DS0PR12MB6413.namprd12.prod.outlook.com
- ([fe80::e82a:6673:4142:37fa]) by DS0PR12MB6413.namprd12.prod.outlook.com
- ([fe80::e82a:6673:4142:37fa%5]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 08:21:03 +0000
-From: Eliot Courtney <ecourtney@nvidia.com>
-Date: Thu, 26 Nov 2026 17:20:16 +0900
-Subject: [PATCH 7/7] gpu: nova-core: falcon: load the firmware image in
- Falcon::boot
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-boot-rework2-v1-7-99a1dc6c7cc4@nvidia.com>
-References: <20261126-boot-rework2-v1-0-99a1dc6c7cc4@nvidia.com>
-In-Reply-To: <20261126-boot-rework2-v1-0-99a1dc6c7cc4@nvidia.com>
-To: Danilo Krummrich <dakr@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
- Alexandre Courbot <acourbot@nvidia.com>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>
-Cc: John Hubbard <jhubbard@nvidia.com>, 
- Alistair Popple <apopple@nvidia.com>, Timur Tabi <ttabi@nvidia.com>, 
- nova-gpu@lists.linux.dev, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, Eliot Courtney <ecourtney@nvidia.com>
-X-Mailer: b4 0.15.2
-X-ClientProxiedBy: TYCP286CA0027.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:263::18) To DS0PR12MB6413.namprd12.prod.outlook.com
- (2603:10b6:8:ce::10)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=DJ8t0SLC
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-4a68190a2a7so5577712f8f.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:21:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795681267; x=1796286067; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5XMVDmbH25df5MhEApmqQitq30RsFa91wwEAJ21DK2s=;
+        b=DJ8t0SLCgFImFQXcU96u57Fhr83JOGGv1xHJQ9KgyZgR6t/ApNuWbcR8ZwTfR0Ebo7
+         9tAzX4M8WnOfj+fcuylj36UftFwTzVSJJaBI10A8jn6b1qfZp8XNgh6HFH7vLzv1xatb
+         O/lXzaaGJMHhWEXuOA/VIp+SpNYE4AxcyFTt6Kl6ehzUlyjn4O+CsBTuT3xF+2xq8lhX
+         Qw7t+SEO8Pi9zfNBTmTo/JGVU2YpVi4Nu2X2H713y8H1J/2FOaueDgKVJY6pXY5jofZk
+         J+RPUfKA3zekdcYs8ja5dS4XzOtJFtuNdub6d/WiYYO37qD+x4ZRHqlpO8Nzr8EVsMd+
+         tNrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795681267; x=1796286067;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5XMVDmbH25df5MhEApmqQitq30RsFa91wwEAJ21DK2s=;
+        b=Gz0qPxw+BzKOxVECPvrphG953128xS7kJLg/7pDVxI4pCE6KlgMxTemdqyvgGWlAT4
+         K3yOzayugB3EABELO/8f+1sG0QIoj4FAIl1KDJhjfXgwzyiBV/i+HIJAxhbU+d+tAums
+         Dl5vWjeXFDo1iE4q4+DxOEGwtj2vuqSSZnAxO68+X/exI1xwXEhJ6b4TZVfnIkx04JlZ
+         Xyxr1Mz90csDMZN0Dp1b3Ei83MuFHZ8vDoSO0eW3tMkZTjwVSLFgn0KkfMtBXX/CduDQ
+         vSO5gWu+vVZuu3W+GLEBUqPgGZ+66ng/O3/UvI7TpzdVMM+f2KKGQ/nYrSTC0srQzlN3
+         yeUw==
+X-Forwarded-Encrypted: i=1; AL+hErH8g1ZkHArpHtU8p9+XOK/VjYS7NJWAVmMWTAn1tzZf+3qSrD0zSruhrq/9Ts1MN+Pg1LIZwHTuzGuvmys=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/fSD+fFsfG4QVuqoxI5ynZ1PWCXlvStx+VnNpyh47isW+6wRN+
+	AEww7E9mVjbO6s1c3agcjAqRhPLGJxKJJikWwS0xhMCnyU39pFzVfBESDRh1v3Mcv2U=
+X-Gm-Gg: AZFdTZfjfcFxMqvDTAhANQIDw4x1NQDuhgzkd6x933DovlOlFGOVYNknoYcZY6lgiJc
+	iwcPWgaFNsmw6gwCAMx9zLQJDT98B8aAHZ5cBg+kXboA5Rjn82jyAEaAFNerRXti1oE81uwmSOc
+	XDt9CVwn/3j0MBVNPJSAAX+5bClpkDeutakAdRFk4JHR9Pbo3ORZ9dbJTTkJoUWXuC5eioSs1MX
+	gJEPrvP6Puu9QwQ7P9WnU2dCkrLeiHXiAHownUgYsxufx+iVw6hsDidsBLJjuHJQC73kXMhcFU8
+	vwWiR4SRxnGN9oywLakWXKdnOKgr+NEPiuIZAs0YgK8dVzl09tpZ6hz6lNe3ckF06KxRPMxOgFt
+	zOTlMxHHzy9gMeScJ2790/JKZD9MY6etWCunJhrOFUuPAFziJnrDasNoASel4WkEP4OLq5p+dvV
+	zaq1H+SO3RKQXHPrx8fYjCJ7XfpD/hCzY8rGV8KAsxrLyp8jmjGVUMhnaZZ/2G6Y9KRh2wQEohM
+	Cfycxp3xS6rMHzbKtezq+2KurJ7haI2NFDodk5X0ggxULYj4KF2SAXYfew3Vb2sx3+uPFEuemhw
+	v9obT4E+CVDlEqy5aFgjSGwtr9jlNnrufbVwC6TZEBRCM24/2lo/1Ryfs5bwNQ==
+X-Received: by 2002:a5d:6f08:0:b0:4b7:7b8d:6b20 with SMTP id ffacd0b85a97d-4b77b8d6b73mr12609058f8f.46.1795681266888;
+        Thu, 26 Nov 2026 00:21:06 -0800 (PST)
+Received: from localhost (109-81-21-11.rct.o2.cz. [109.81.21.11])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f1b2sm36108136f8f.25.2026.11.26.00.21.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 00:21:06 -0800 (PST)
+Date: Thu, 26 Nov 2026 09:21:05 +0100
+From: Michal Hocko <mhocko@suse.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Sang-Heon Jeon <ekffu200098@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	Mike Rapoport <rppt@kernel.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	Usama Arif <usama.arif@linux.dev>,
+	Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	Frank van der Linden <fvdl@google.com>,
+	Kiryl Shutsemau <kas@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>, Jiri Bohac <jbohac@suse.cz>,
+	kexec@lists.infradead.org
+Subject: Re: [PATCH] mm/cma: reject long-term pins of HugeTLB folios
+ overlapping crashkernel CMA
+Message-ID: <awfr8bnK7PQa6cyD@tiehlicka>
+References: <20261125155108.24098-1-ekffu200098@gmail.com>
+ <f79014e3-3c81-4b2b-87f6-df0c2d946357@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,174 +111,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB6413:EE_|LV0PR12MB248855:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e1929eb-dff5-41c9-9b03-08df4b963633
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|376014|10070799003|366016|22082099003|18002099003|56012099006|11063799006|261009223027099003|261021123027099003|10067099003|261102123227099003|261022115727099003|261022105027099003|261026140227099003|261022075727099003|261021121427099003|261028144727099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	4bUPDlk2WSpmMqPxg+ZfRvVJg+Igea/xI2M4JRLyNy+P7Oeye+kgo47ahG/T/zCKhAk8Rumccuer50Whx3nclB2kmyHcw/M+tWcp3LxHrH0G0gAsLZxaLheLE4E+hwFRB/tE0P/6M/4gJybbvA7ywEr8LHuXgO377uX3Hr6NzdRDG8HxB5G2zsiw8pw1uVa1JTBVaK/A8fXIfEmYm1OyWo4id2aLsQrLESMmrUlGPk05coH6IEDaMxmhkoNmGWGqTCuvuH9XZur6l1PDycPL59MQjUk0AHpTtROl2YLSf4new+P7nAnBHfFfoTQipTw2JxK/w1pEE9IEzWqog9PwILHTxy3byT4a6At08/U6c6zmjataGMDxSpmtXqPuZpNPEJ4iLfUsnIB3nO2Li+JF51LYETgz2t4SwgNAFLyXUCKLcSIWDZTsMfEZVcoQavMK80zbZ0n8hr+ILY5kuqOBdtLoMKaWLHg6+t18OeQS0Dz7TFaBMWc/lEDS9twpjPk+7HF8Nw7l+/b/N8XJ8udeMF8/kzyoo8Jqn1UHPe58BfDha6cFfu+/Hy3ZaNF3s5Gz18EBf5L1NoWYH5e2N0lY7LBlkTCe0h4qcsU7Z26NI5UoSo8QtSwAW4uGPbuzAGdzFIBuK1KHWPinZyX1AzDxN4AaZdmL3dUTDWNMl2kI6qU=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB6413.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(10070799003)(366016)(22082099003)(18002099003)(56012099006)(11063799006)(261009223027099003)(261021123027099003)(10067099003)(261102123227099003)(261022115727099003)(261022105027099003)(261026140227099003)(261022075727099003)(261021121427099003)(261028144727099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?SXlBNkR1bS9vYXZTcWR1bG55bFg5bFZ2ckx3am81azBlOWFrZC9yQ2YwMHEy?=
- =?utf-8?B?NGgzbmsyL0dkbitVYzVVWHBFZldMRkk5YXJBVFQrVVNmTWJyWVV0dmJhd2Uz?=
- =?utf-8?B?TmkzYzJxUVAyYnlDcUVyY0VVVkd4Y0pmcTVuV3laU1JrWXJGWmV5K2pZc2cx?=
- =?utf-8?B?enNrYkwrdVA2MUVSK2tNK0FpM3JiN09SdHlpY0VpNHBnUTFOSFIrWXJ2VnFW?=
- =?utf-8?B?S3hxZmNMeWN6NzV1bU5EcE5MNG91Qmp4RXNwcDJHNmxKYzdmbW9JeDVKMWNH?=
- =?utf-8?B?eFNJSEt5bEJ5UllKV2RQQ0hqdG1xdUhaa0FXKzEzOEI4UWh2bk8zY1NNQ3pE?=
- =?utf-8?B?UmZWUzlGejdkVlVSQys3SWRUTFdrclRIN3YwaEpTbW9MZE4rQTF4NytGS2FZ?=
- =?utf-8?B?WmtpMkZBMGVTciszWmo2KzdzZTFBY1NiYlUyVWRDa0tKZFh0S1JuMmlkVjNX?=
- =?utf-8?B?cXR4TVNJcTUwNFlNQk5CR01pc3VvWmNHUmM1MThPdU1CZURmVTZaQ0xaM1Nw?=
- =?utf-8?B?Y1cxVm1Nclk0bnNNbE5pL1hpSm54Wk9TazRsbWlYK0RrcXNHaEg0TDMrdG5m?=
- =?utf-8?B?Z01DM3Z3OHRrUmgyL2V2bXFQVkFUVXBTZm0rWEJFTWw5Nm1QSnpzT1hMZjMv?=
- =?utf-8?B?VEZzK1gzL1E0bW5zQkZhY3B3WG00RGR1M0MzY0xNQXdERU45Z2sxdG9CWlhu?=
- =?utf-8?B?QkR5cUxCN0JiSGRTT0NIWDlWSkgxeHYwaFFwUytjSkJxR3VURktBYzJ6enUr?=
- =?utf-8?B?RDN4NkxaSUUvbGh1NG5STHlVL0gwczVQaUREK01hUEJVWnNMZU5jUTVSN2g2?=
- =?utf-8?B?bU0vOVUwTHh5Tk9tcGQvVHVKRGROcUdBRk5EeitiVkNQeTV0Q2Y0MnEwRlVw?=
- =?utf-8?B?QjZuWWs0ZjRvUFVxMzFlYnNOUFNHQU1ZbHo1ZU01NkVFL0pieHVFNkJrQTdL?=
- =?utf-8?B?VW1KdVRNODVWNnhNMVI0cjJ2blMxR0czOGxUL1gxYUJ3YStuZmsyY3dBdm9D?=
- =?utf-8?B?MDY3Zks2VTNlZ1BrZXJOd1U0aU5UVmUvaVRhK3hUemZaeXpvVHdxRHUrUTNl?=
- =?utf-8?B?ZU9sVDlDSmMyeTc4aVN5R1l2N1B2d2hvUCtlMm94T3NCZE8zZ2VicW5hT0dW?=
- =?utf-8?B?Z0dSZGZzbmZpa3FKbUtyUkp2Szl1Nkxhblh0c1Q2aWw4czhlaWEvazhISHhy?=
- =?utf-8?B?dHFOOHI2S3VZdEpvcEhaS0E5Z2xGWHlacXZLK0FuSEpwWTczSkRLR3JId2sv?=
- =?utf-8?B?Ni9STi82RG5JSWx4RTZLSkZkTG01eUo4eTRnMkJ6SllvV0liSkQvKzlySUZR?=
- =?utf-8?B?TVNlUGJGVDlMSXBUY1FzaWxid3dFK2JYV3BVZldyZkJIZVI1VmkvZE1XOXI4?=
- =?utf-8?B?bWhVK3d5NVlveHZkaUZSWU1tNTh3bkozWktRR0c4cFRrQzZWUjdZQlk2R2p1?=
- =?utf-8?B?aTlINXFLVW9vUjVmcjFldmRRUWd1Y1k2WFVhYjF1N1p4eUxLMGE5Mm1KYVlU?=
- =?utf-8?B?VGovdXhiNFQ1YmlpU3BiQUF0Wit4cHhud2NkQmV4NTNuRlRiWWpxODFnNlZy?=
- =?utf-8?B?ZGE1a3NsVXNCNjg1NExIc0dMWXVEZGpSSTZBZExtZ29lR24zZmRYOW1WVWNo?=
- =?utf-8?B?T2w0VjRvWkwyVkcwS1grMVFRdzNCeE1EM01BWkRZY1lQYUprWDZCU255Q3A4?=
- =?utf-8?B?VEdGYVMxcVNTeCtBYXZ1N2Q0V1A0TnZsUDVXMHY1dmljNmlqVFI3azhsK3Jk?=
- =?utf-8?B?UWRyUCtCNGY0NENzU3o0dDBrSlhkWHRXcmx0andjSHd0VGJKVTF5YmREckx1?=
- =?utf-8?B?TUtQWHZNVzNMRDVZUHovKzdXa043YW0xYWFxSXZZczFFZy9lV0s3RjVrUkNx?=
- =?utf-8?B?VVNXaEdWQVh0YWtUK1dDT3BwVlBwMGh4QzZaRTZ3YUhiMEd3Vmw5NGRZNFBj?=
- =?utf-8?B?Y3pOaWx0L2h5NDU5Q1p1MlU3VU5OZFpEVnJEVVNheVBKY3RDR0xaZG52ZDlY?=
- =?utf-8?B?V0t5bnMvOXdkdWZ6aU5yUStMYng4cXJ6RTJKd05WcFI3cmZCamJJSmhlL0pR?=
- =?utf-8?B?UDFaeDNaMDFqNFBvSy8rZloydlQ4dThlbSsraEl1NFZmdndJSm9NUGU1N2lo?=
- =?utf-8?B?WWN6aHlSanFqdlhqL1pZL0Izck84Y1JDYUh6Yk12a3J4blV5NjF3TlVPejhm?=
- =?utf-8?B?dDd5bWUvU0QraXN2bUdLV3NBT0xBTlgzN3p1ZTR4d0ZhMWo5cldKdWl5enhE?=
- =?utf-8?B?dkZ5TTlkNEN6K25ZcnpKL3BZSnlHUWhZK2hxMlpYWm0xWGVnc3J6MVpVckNV?=
- =?utf-8?B?RkJNcVEzazZxSjBFUnhwRTRBb0tDS1k1K21xVXRLR2k2VHloSHBKaW1XZC9S?=
- =?utf-8?Q?G1i/oe8gyhPkSoTC9Oe5fXQUn31QI6sR/KVATFlbpxCYM?=
-X-MS-Exchange-AntiSpam-MessageData-1: Uk4FufunRf4naA==
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e1929eb-dff5-41c9-9b03-08df4b963633
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB6413.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 08:21:03.8195
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wRw8UKUA/+wFtfVE6NrdXQ3a0AzX+DDPB2Dg8Tm0/yCgQZubyqMSuqyjJE+UDVB9fYyhfBSRiLqWBb9oqyw8MA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV0PR12MB248855
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f79014e3-3c81-4b2b-87f6-df0c2d946357@kernel.org>
 
-Remove the separate `load` step for booting falcons. This `load` step
-was always paired with `boot` right after. It is simpler to merge these
-steps and also statically prevents trying to boot a falcon without
-loading the firmware first.
+On Wed 25-11-26 23:43:40, David Hildenbrand wrote:
+> On 11/25/26 16:51, Sang-Heon Jeon wrote:
+> > crashkernel=size,cma uses existing hugetlb_cma memory, so
+> > crashk_cma_ranges[] may contain HugeTLB folios. HugeTLB folios allocated
+> > from hugetlb_cma can be long-term pinned without being migrated.
+> > 
+> > After a crash, the crash kernel uses the memory in crashk_cma_ranges[],
+> > but a device can still write to a long-term pinned folio.
+> > 
+> > So reject long-term pins of HugeTLB folios overlapping
+> > crashk_cma_ranges[].
+> > 
+> > Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
+> > ---
+> > The above scenario is only possible with the two patches below applied.
+> > Currently only linux-next, which is targeting v7.5, has both of them.
+> > 
+> >   "mm/hugetlb: allow crashkernel to reuse hugetlb CMA memory" (kexec-next)
+> 
+> I think that's a real problem with this thing.
+> 
+> The solution is not to disallow long-term pinning. :/
 
-Signed-off-by: Eliot Courtney <ecourtney@nvidia.com>
----
- drivers/gpu/nova-core/falcon.rs                  | 12 ++++++------
- drivers/gpu/nova-core/firmware/booter.rs         |  1 -
- drivers/gpu/nova-core/firmware/fwsec.rs          |  3 ---
- drivers/gpu/nova-core/firmware/gen_bootloader.rs |  1 -
- drivers/gpu/nova-core/gsp/hal/tu102.rs           |  1 -
- 5 files changed, 6 insertions(+), 12 deletions(-)
+Yes, I would tend to agree. While there is a risk of stale writes from
+RDMA on long term pinned pages on the crash kernel I would simply advise
+admins to not use cma backing for crash kernel on those setups unless
+they are willing to live with unreliable dumping.
 
-diff --git a/drivers/gpu/nova-core/falcon.rs b/drivers/gpu/nova-core/falcon.rs
-index b1ba94fd2bcd..9f0550e24ee5 100644
---- a/drivers/gpu/nova-core/falcon.rs
-+++ b/drivers/gpu/nova-core/falcon.rs
-@@ -616,11 +616,8 @@ fn load_dmem(&self, segment: &FalconDmemSegment<'_>) -> Result {
-         }
-     }
- 
--    /// Load a firmware image into Falcon memory, using the preferred method for the current
--    /// chipset.
--    pub(crate) fn load<F: FalconFirmware<Target = E>>(&self, fw: &F) -> Result {
--        let image = fw.image()?;
--
-+    /// Load a firmware image into Falcon memory.
-+    fn load(&self, image: &FalconImage<'_>) -> Result {
-         self.dma_reset();
- 
-         if let Some(segment) = &image.imem_ns {
-@@ -690,7 +687,7 @@ pub(crate) fn read_mailboxes(&self) -> (u32, u32) {
-         (mbox0, mbox1)
-     }
- 
--    /// Start running `fw`, which must already be loaded into the falcon.
-+    /// Load `fw` into the falcon and start running it.
-     ///
-     /// `mbox0` and `mbox1` are optional parameters to write into the `MBOX0` and `MBOX1` registers
-     /// prior to running.
-@@ -703,6 +700,9 @@ pub(crate) fn boot<F: FalconFirmware<Target = E>>(
-         mbox0: Option<u32>,
-         mbox1: Option<u32>,
-     ) -> Result<(u32, u32)> {
-+        fw.image()
-+            .and_then(|image| self.load(&image))
-+            .inspect_err(|e| dev_err!(self.dev, "Failed to load falcon firmware: {:?}\n", e))?;
-         self.hal.program_brom(self, &fw.brom_params());
-         self.pfalcon
-             .write_reg(regs::NV_PFALCON_FALCON_BOOTVEC::zeroed().with_value(fw.boot_addr()));
-diff --git a/drivers/gpu/nova-core/firmware/booter.rs b/drivers/gpu/nova-core/firmware/booter.rs
-index 9c02a7a6a977..976885b0ca13 100644
---- a/drivers/gpu/nova-core/firmware/booter.rs
-+++ b/drivers/gpu/nova-core/firmware/booter.rs
-@@ -191,7 +191,6 @@ pub(crate) fn run<T>(
-         wpr_meta: &Coherent<'_, T>,
-     ) -> Result {
-         sec2_falcon.reset()?;
--        sec2_falcon.load(self)?;
-         let wpr_dma_address = wpr_meta.dma_address();
-         let (mbox0, mbox1) = sec2_falcon.boot(
-             self,
-diff --git a/drivers/gpu/nova-core/firmware/fwsec.rs b/drivers/gpu/nova-core/firmware/fwsec.rs
-index bde546c95a41..a5cc4e2e424c 100644
---- a/drivers/gpu/nova-core/firmware/fwsec.rs
-+++ b/drivers/gpu/nova-core/firmware/fwsec.rs
-@@ -392,9 +392,6 @@ pub(crate) fn run(&self, dev: &Device<device::Bound>, falcon: &Falcon<'_, Gsp>)
-         falcon
-             .reset()
-             .inspect_err(|e| dev_err!(dev, "Failed to reset GSP falcon: {:?}\n", e))?;
--        falcon
--            .load(self)
--            .inspect_err(|e| dev_err!(dev, "Failed to load FWSEC firmware: {:?}\n", e))?;
-         let (mbox0, _) = falcon
-             .boot(self, Some(0), None)
-             .inspect_err(|e| dev_err!(dev, "Failed to boot FWSEC firmware: {:?}\n", e))?;
-diff --git a/drivers/gpu/nova-core/firmware/gen_bootloader.rs b/drivers/gpu/nova-core/firmware/gen_bootloader.rs
-index f2dd88d27098..6cb5292c1c4e 100644
---- a/drivers/gpu/nova-core/firmware/gen_bootloader.rs
-+++ b/drivers/gpu/nova-core/firmware/gen_bootloader.rs
-@@ -219,7 +219,6 @@ pub(crate) fn run(
-                     dmem_desc,
-                 };
- 
--                falcon.load(&fw)?;
-                 falcon.boot(&fw, Some(mbox0), None)
-             },
-         )
-diff --git a/drivers/gpu/nova-core/gsp/hal/tu102.rs b/drivers/gpu/nova-core/gsp/hal/tu102.rs
-index 80936194806a..2c95d178b020 100644
---- a/drivers/gpu/nova-core/gsp/hal/tu102.rs
-+++ b/drivers/gpu/nova-core/gsp/hal/tu102.rs
-@@ -97,7 +97,6 @@ fn run(&self, ctx: &mut GspBootContext<'_, '_>) -> Result {
-             }
- 
-             ctx.sec2_falcon.reset()?;
--            ctx.sec2_falcon.load(&self.booter_unloader)?;
- 
-             // Sentinel value to confirm that Booter Unloader has run.
-             const MAILBOX_SENTINEL: u32 = 0xff;
-
+I can see how reusing hugetlb cmas might be really helpful for
+crashkernel as this can consume a lot of memory and you rarely care
+about the content in the crash kernel - same as any other userspace
+memory.
 -- 
-2.56.1
-
+Michal Hocko
+SUSE Labs
