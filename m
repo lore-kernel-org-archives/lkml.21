@@ -1,99 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795662125;
-	b=rOrgPC1mJy7urLsEF56OKHTkCaYjrRTMdRBVp/II8Ol/yeFqLkpLIJkY/lFueIU0fhKP
-	 qWeHmunIQlwN1kd1x5dME1c0PQYXX3nVphr2Le1S76ZhTU8k7pjtIj0os61Q8gjg5SNNK
-	 t50C0DPFlfeqXvwZe5JnWHRkqWrVV+uhTfPnNXjLlpfCJTx9jMsAUZ4OZ+AFNADA77Dcl
-	 AILEwngmdN+oSArwCK/IeAV3pyK/J72ied9e36wDK4tYDoLRJzojIE5M9IevlXEHUhafP
-	 aGQux6YbPCM0jrjU4lclKtCurZuQhcxMM8FxhkzJ9lfqLcIOJeSfID4X8djfsrGraLw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795662125;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795662180;
+	b=lFjkphHuAjxE5UCmeNf6CePqMTPOSKAGB/Ob2B4ZRxay/T0gPvmBs6kK0W3mecdaGCjn
+	 4/Wj0iUUxyjp+6XDj17a4trcSyu3tmP21a3oAyVhKVEfy/i5tPoTm23n6PtcEKl6CynSm
+	 tg4Qmz6Hp9i33xVgOblhM1aWxWY9rSCywsNBxQy70IknK05YxB0k4qjF+s8mDEF7Bp8vQ
+	 nl1cgM4y2ACdwG6eYCphWfTBG54k7WHffAcoHuHTWAKLY+IIBci+2/T8ncBlTOYESECm8
+	 4cCWwiIoEGsPtird73yp7sSwA/BiFj6rYEVWXLdjkTM8iQpn4HC8cuMgIuqWA3l2T9Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795662180;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=Trs4YD9ebzkR8KxzgQ83eqnmWNUmqxqu7WDLYndosy0=;
-	b=E9gETqO75YvYwsXUdZrBYI5Hl5IYc06UmhDhUdgo6a69AgH3H2l3p6V6gyprTSYDR9Wg
-	 GJba5iCV7EZhtaSy50nazJx4HA4Yd/Ws1+xO5/nAhdhUPRn+3RrbCer0NmdB7/6cPXeiy
-	 E2SOzYmO60VsfHwcNlgWSaUg/xrdz5EUTWs4e1QLzgZHYPT+yA02MJJ8V+8OJ8GEZdZ3M
-	 ef2hG0LjEz2RJGY1P2WhFKUR89j5eox+6eTbDWyIxfd5wpBGzuURp0kO4mWkQWKRTXZ8C
-	 6xqLejnqiZfDGNhZZ1xwErqCgtQaqRmN20+piu0NRh2ISwWAhc63XBsHglClxOZHJqQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=luxonis.com;
-	spf=pass smtp.mailfrom=luxonis.com;
-	dkim=pass header.d=luxonis.com header.i=@luxonis.com header.a=rsa-sha256 header.s=google header.b=jitGV4WQ;
-	arc=fail smtp.remote-ip=209.85.208.45
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=2sIlkZq+ib9YiZ2csv17ueAxplgaiHMSc6dh2/Ka/Lg=;
+	b=x+ed3e6D4syxlMLHliN/N23UenUkwutkkRDV/opyWXow0iCP1mOucFeL8QeawiO5rqYD
+	 adzIFR+9IIJ1MJZ7j2Al3mcs3uDTxmNy82UnYo++yM6yHtfEtx3AqQu5XR6+Rbi0FtQA7
+	 Kjnte1opI+z09PLIAMjGaNXB8T2NEMM0RN3nSKTs15AlWav6LyfJqx9kWt7RKEcx3szpT
+	 yp3Ohvq8+c1ZOS5sa5xCg39S/1Sx7+PhRu7xguP+U+vW85EdTYn9OdvTgbpt8kzFhtD+g
+	 ukGpvm7aGz6YiIQ+ekj3mKmo5PrRU4CI/9yVAcWH1m9Kj6hjRcswITGLCZ+OvwhV9tA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IulWUq+W;
+	arc=none smtp.remote-ip=209.85.210.181
+Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7093B606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:02:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7093B606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=luxonis.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=luxonis.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6EDC606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:02:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6EDC606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=luxonis.com header.i=@luxonis.com header.a=rsa-sha256 header.s=google header.b=jitGV4WQ
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b547d6c07bso8625909a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:02:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795662124; cv=none;
-        d=google.com; s=arc-20260327;
-        b=UAdwwTpZykvwqTxMNIh2DZyuxb2KlpZJ+IOMy9sZi39yeXA9M/FY7OETdlOeL+IVBD
-         /rmU+uvnQRSFA+t1+IjY1xErbURkv98D4ovX4hSeFObFX0fDwwqrUofRa1HmupbAZLL2
-         eOHl79q0DPse7Ci3LaSbR9Gw7vtINhTpiX4mA9JJOu8Tmn6UA3mqJ/+WE5Cl3IO3cLGi
-         aMmy92GPPNYLlzkAVhYFeIXbtFEq8+uE92+G9+FeMy6ZcQAPMaVIg/wfA8mXkvliA3a1
-         mw1EgKR6gcbrpLlXAv1vIv/pzJ5Jr3zETgbWdty2Vti0kJv85A4V1wPyInVAh2JjLK+Q
-         g0zA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Trs4YD9ebzkR8KxzgQ83eqnmWNUmqxqu7WDLYndosy0=;
-        fh=fonMZGGTV8Vgtv3KOzfhnPCfVS/3gzp3Zld+rQtVc3A=;
-        b=CFoiO+UoH0x2nl1kzL3yQDNd/bNyCLNjqViqLRxiw0/tA37+Ko/xbEuNrxK+TN/Flf
-         Gtie9RLkkW2MslSD+NWEUcSK6vDpFBH+0MA6Ihysqf9oNWX3xhc0939/allIIjtymgKL
-         zpWMRWQu/Or0PhDZBdoGwudugf7UoEhbAuOWxbFuzi5nUi/YKwZ9uabWQ2loChVeG0ad
-         FKSaN178ueW89gywCcUe64a/xogrNiYchSUa1jpA9RkMrGvKqRs5TbLsK1vZLMvSabHt
-         wovPM7NG06aU67wYuoFaas2CJSZT+a6MuWqW3+o86wJHI1GcwaKjT2zWUH/XbysQaM82
-         Bw/g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IulWUq+W
+Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8a594d313a3so4339687b3a.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:02:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=luxonis.com; s=google; t=1795662124; x=1796266924; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Trs4YD9ebzkR8KxzgQ83eqnmWNUmqxqu7WDLYndosy0=;
-        b=jitGV4WQr4FT3T9+W4HHzzJyqGPoVKzXEDZsfAX+ERHJSraxnN7DjvwPnhumYhOX8J
-         NNeYVPbzCmSfzGl4hrZy0StzlIVw4AwGjFjooCnnvXzSkn/wjybfcuZVYB11k2cmEu/h
-         m1QfeR51ImQPOnakDntv9BmpjFRCg1M/1O2BALGojrVcqWqy5wyUSovCKZqS31VUERGG
-         BQ7D+FgbLAOkfMoTrd/rDtUFmaFppGXCHRs6kWd0Y6xpZzWZYSxAguBFt2zsGgllBq9X
-         zf2VikZ/yZs3EdK82kprKDsiQuYnIKqZfvmazO9H/jh7Ss9Ibh1WYIn1hxqDS7qGJ2yE
-         L35w==
+        d=gmail.com; s=20260707; t=1795662179; x=1796266979; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2sIlkZq+ib9YiZ2csv17ueAxplgaiHMSc6dh2/Ka/Lg=;
+        b=IulWUq+W9H/Lmy3JEC3vyuIc2PGIlvEO7Qp7X6tR1mlJAGibFHpTf8+IGjaJ9Y2bgG
+         HbIHROHRkNb6DhtlYqleP5lWUaj3XF6Mbe//FeBWHWPwDfiAKCjp3/RdBW3O/mcxRxTZ
+         /AIrTZpjwjFk2K2IZ3rM9Mg/wrqkBx5Zyozyc1pU0xrrsk0+6LHNBA3BdLlOy8O3gcd/
+         eR+6VihVfkTTWs6el7fGvmsZP1JNVcoGul18zBNi2Jeg8G1QhPUGn8J5l6k/Q880jp2D
+         H7hGI0gt4IwIRVZ4tXt5wmCRoTlz5zs00BhSWd/oKDQ9nMHb0FFV/jRQNjj+Z98Q+HVg
+         +o5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795662124; x=1796266924;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Trs4YD9ebzkR8KxzgQ83eqnmWNUmqxqu7WDLYndosy0=;
-        b=FZqdb0BvwC4S1iJTrFlq7ZmOy41IXf1bN37FbQFRsbW/Zzs62B9oJ5KIFa0SOPV42j
-         HZlcSOGurqWki6dRV8gRrwLuqfsHtMLCuOxKV1Z4bQ7bKuFyB+TlhelyBLlFpXsp/XXi
-         NZuscLipZ+eLfBf6mKWnIqlZF51o+BoryzCeOirvbY+R3cIK+ahwFl49rXT2vTsrED0a
-         7wM3U1uJ6O33IX/ie0QtGpYzlX+h/53/hd/R3YwEwH3v18Dfh54p9V5F/K81XdthXYj7
-         l7Km1wa3iyJP/OdxGvmiu6X45xVzC2O+K4myPrFDidRN11LBT54LCJBSRPEoMeLzEBbl
-         NivA==
-X-Forwarded-Encrypted: i=1; AL+hErEFIISSpEuNxhNQsq34ZaWt9pDuaePNk0eeqgkj0mP3GVmL/cHcsZ8MBct4IJqTQcFPyLSR3tLHikvfMzo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+RzfetdMzFSm0cH+hgACtxZbywhPyGLYi9OSKtp+ygwn3ukA3d
-	y4YkohsZLPZnZ0MajrEwQWSgAebYK4JEiH4eGlU2IeRNOvmDqLyfHXWRpD/wQeVv50ivSQXJp1R
-	ydE7NhfkRqJdgOGPxTFPWLM3iweorR0XfI1WPI/Sauw==
-X-Gm-Gg: AZFdTZfgV+THxWkL41OMbeym30q06ukRP/VSCfdaNqGj6Zv7TOBePYLXMdiy0TkUF1m
-	+5oNwHkHgknxpGp+a8DFW+QEmgEaFK0R4e0TIntWCLjQDlXxGUXyN2DOr/rH2ursnfM9kpmh/EF
-	Io5FQpBBfSGFJ1565GtUHfEIBqn7R6WcIuuzCYUo6H++YmNCiiwGJm2KdA92kMDdfQ/t0O9gbPV
-	BRdgzurkyEoqYuZ7nuNMb8z43NJDscZkVyvqp1UdLXNjtW2ehbX+i4ffNCMJH0/bd1YuHiWw8yx
-	MW0P2UbZQzR5uidNYHaxYvi68qZxGdb7KMTFj1p0mGJvuAa4JK9Jq703PbM1tRhY2MNavoqUayu
-	v9uQmOWJ6zo6wVnAX7bg892QGu3rgoZfWNRxsBD9fbM2qQpIVc0ow/HWAnTIcn0iqaCjkKuQ=
-X-Received: by 2002:a05:6402:210e:b0:6ba:9c98:3f4b with SMTP id
- 4fb4d7f45d1cf-6ba9c9840b3mr9977001a12.27.1795662123877; Wed, 25 Nov 2026
- 19:02:03 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795662179; x=1796266979;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2sIlkZq+ib9YiZ2csv17ueAxplgaiHMSc6dh2/Ka/Lg=;
+        b=mXWdg9hxLROJ1/6J8ddOmjlKR4xUF7lJ3QcMhJSV/LWSg12ZM5nUjS8ZycChTFfYSD
+         MHH65hkREtFc7qkZ5jGFfQi8FA9Zu6DdIHGzv1cJdWL6aqEviaUpjxbYWFZXqLKu8vzp
+         heqRwMG0r/tiuSwMCqjt0GSChMIVGcl6SXUX8RXyn5th9NcGNuibFyfZsiHCSes1bnpo
+         yx8odxz13F+RZxN4X5qXiADgjfRwjzx35+RhAfagSmOCQsdssws4ptxP4HZrO7a12Tpx
+         cMNyxiez4Mg5FYw0G4J3EoEcSF1FBKSFkee5nRYmDsdB5C/GAGqou8QLHf9fxdVmbnn2
+         E79g==
+X-Forwarded-Encrypted: i=1; AL+hErGn5fUVN8arVe7A23wsUrx3nIO+tgzvBp3o8eZsb1sm2ozCss6pZiazpclG01lmOXTX13nertgE37RVroQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/UjmCXeOF4OjzEBW99PHM3olu8CXYsozH8lHwGm5I5sU2AGKNo
+	rxrPVY6uCxnYSbkYEdewiCN6Ex+n2GTRGQjMqb5omIs8Q+w5RFfwHSpU
+X-Gm-Gg: AZFdTZcXkmOc0QyS26GfuMGq2aMpKeubkx5eQ6iuUDrvIx2LrEGakC8C5Qy8iVCFjf1
+	/AUju6sjMsCGrPERxokI5axvaPzrfLw99R5mKhLdGzMlQbJNFd50khRd/9UMk0FPWciEBUYAHcb
+	HmVJALXwAX6gFvAmhsQ+yekNtLuF1qbdVD+0KgiYsiDKTUzYNOCqmbDbYc8UzP+HgnCvkOjVw7n
+	F0MR+7lPFPn9kadl1+527YglNi1jG/MNwf1AEzHozt8VYqVdbKFurYLH8OAs6jqr8dLuQmrCzLG
+	70X1B6B8nozLOMNJyGQSfnWErm/r3CW4wJWAiy20bSZWHqkH5anBgoWy+fFTS3C15uQVyN5MmYl
+	85YR6CFPBeBjqDNLedFQduRELKQsJ+DFShFdl346nvzDCSPVkSvsv3Wqa1TXMG/MBAAyOcnZv6m
+	xjFuRtvpgtIffSlAag5jv4zyPpEkBTF3mhBPYZSn+5VZxqHqls5N4522TrZnKyC94lHOnm77c23
+	ZCk4zpV/I37H3e/uiBkfqH90JsP9bUEro0nWXP+bRqkkGYOJ3yIJBkzSauB/u0RGrBLtnBgGZXI
+	BAhqMLNhD1/Tp51g1M/o3r3IcrL/JUCkFA==
+X-Received: by 2002:a05:6a00:2d9f:b0:8a5:97ca:1389 with SMTP id d2e1a72fcca58-8c87bdb42d4mr21120203b3a.15.1795662179123;
+        Wed, 25 Nov 2026 19:02:59 -0800 (PST)
+Received: from server225.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c908a56acfsm9231474b3a.23.2026.11.25.19.02.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 19:02:58 -0800 (PST)
+From: Ping Li <leeonion.muyu@gmail.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org
+Cc: cyan@meta.com,
+	mark.rutland@arm.com,
+	alex@ghiti.fr,
+	emil.renner.berthing@canonical.com,
+	masahiroy@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	u-boot@lists.denx.de,
+	Ping Li <leeonion.muyu@gmail.com>
+Subject: [PATCH v2 0/2] arm64,riscv: boot: emit standard LZ4 frame for Image.lz4
+Date: Thu, 26 Nov 2026 11:02:31 +0800
+Message-Id: <20261126030233.2546274-1-leeonion.muyu@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261124065650.1968930-1-leeonion.muyu@gmail.com>
+References: <20261124065650.1968930-1-leeonion.muyu@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,51 +108,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121073652.410916-1-jure.rebernik@luxonis.com> <179559320769.3135.10021676764558133789@kernel.org>
-In-Reply-To: <179559320769.3135.10021676764558133789@kernel.org>
-From: Jure Rebernik <jure.rebernik@luxonis.com>
-Date: Thu, 26 Nov 2026 04:01:52 +0100
-X-Gm-Features: Aa3M54peN4hAIHnDOSMeix5BdpvlNnY8Qphl_DV5K2Keja8xiPJqidp04Rp5M78
-Message-ID: <CAD9jT+p2nvSpNJ8TA0QCJKW-_8ZV8ceNEXRTA7e6OE42RpDkhg@mail.gmail.com>
-Subject: Re: [PATCH net v2] r8169: clear RxOverflow before unmasking interrupts
-To: Heiner Kallweit <hkallweit1@gmail.com>, nic_swsd@realtek.com, netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Sunil Goutham <sgoutham@marvell.com>, Jacob Keller <jacob.e.keller@intel.com>, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-On Wed, 25 Nov 2026 07:53:27 +0000, Sashiko wrote:
-> [Severity: High]
->
-> Should the RxOverflow ack depend on napi_complete_done() returning true?
-[...]
-> Could the ack be tied to work_done < budget and moved out of the
-> napi_complete_done() condition?
+The shared cmd_lz4 rule in scripts/Makefile.lib passes -l to the lz4
+tool, producing the legacy LZ4 format (magic 0x184C2102).  The only
+in-kernel lz4 decompressor, lib/decompress_unlz4, understands exactly
+this legacy format, and all of its users - the self-extracting images
+of other architectures (which compress their payloads with the
+*_with_size variants) and the lz4-compressed initramfs - keep working
+through the unchanged shared rule.
 
-Yes. I reproduced it on RTL8125B with threaded busy polling on eth0 and
-the NAPI thread starved by a SCHED_FIFO task for 20 ms of every 200 ms.
-With v2 no frame was received for the whole 40 s in 6 of 6 runs on
-three boards, with IntrMask 0 and RxOverflow set, until busy polling
-was turned off. With the clear tied to work_done < budget, about 65700
-frames/s were received in 6 of 6 runs. v3 does that.
+arm64 and riscv build Image.lz4 with the plain cmd_lz4, but a
+compressed boot image on these architectures is handed to the
+bootloader, not decompressed by the kernel itself.  U-Boot, whose
+compressed-kernel path (boot/image.c image_decomp ->
+lib/lz4_wrapper.c ulz4fn) only accepts the standard LZ4 frame (magic
+0x184D2204) and returns -EPROTONOSUPPORT for anything else, cannot
+decompress the Image.lz4 built today.  Bootloaders that decompress
+legacy lz4 frames do exist in the wild (mkbootimg on Android offers a
+separate lz4_legacy option), but U-Boot and its tooling only ever
+supported the standard frame.
 
-> [Severity: Low]
->
-> Is this statement accurate? In this tree, parts of rtl8169_poll() come
-> from the multi-queue rework:
+So both architectures currently produce images that no mainstream
+bootloader can decompress.  Fix both by emitting the standard frame
+through local rules, leaving the shared cmd_lz4 untouched for the
+in-kernel users.
 
-Agreed. v3 says what changed since v7.2, where the patch was tested,
-and that the changed lines behave the same on single-vector chips.
+Changes in v2:
+- Pass -BI so the blocks stay independent regardless of what the lz4
+  CLI defaults to in the future; deployed U-Boot decoders reject
+  linked blocks (suggested by Yann Collet).
+- -BI was introduced in lz4 v1.9.0 - older lz4 versions reject the
+  flag but already default to independent blocks, so the rule probes
+  for -BI support first.
 
-> [Severity: Low]
->
-> This isn't a bug, but the comment presents this as general chip behavior.
+Ping Li (2):
+  arm64: boot: emit standard LZ4 frame for Image.lz4
+  riscv: boot: emit standard LZ4 frame for Image.lz4
 
-Agreed. In v3 the comment says "At least the RTL8125B", and the
-changelog says that the clear runs on all single-vector chips but was
-tested only on RTL8125B.
+ arch/arm64/boot/Makefile | 20 +++++++++++++++++++-
+ arch/riscv/boot/Makefile | 20 +++++++++++++++++++-
+ 2 files changed, 38 insertions(+), 2 deletions(-)
 
-Jure
 
-pw-bot: cr
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-- 
+2.34.1
+
