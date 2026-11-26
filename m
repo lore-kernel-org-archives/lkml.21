@@ -1,75 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692568;
-	b=ceTpDI8XVXfGlB9txf/1ss89FU8doISPmp0WbKETeTCCL+ILnlFMYT+dMc6xxSk15R4e
-	 /kf2tBoaLNwWu2SMi0hrtUu+LzuEoU26K6OSMgt0AbEgZiIk4EDj6Pfe2dv5y5aw78qsX
-	 Ol2ymOEzazKxeLV9wun4tTmd8lbURAocmf5Jo8q5ImVEvkQMEWS1pBBrc6CmNtQCLAC6m
-	 eUAza+mBneoShOd2Ob9txCkbHngY5OUQ030Pr42amM2DNYEfSoWZq/H3FfFwp3RXLgkQ2
-	 ZeTcy7osTcmHDZr+TdPkSTdnt3zE2v3p9ICoFWY3tZqDDPtiMoJxyne2/RkI0DEZKqA==
+	t=1795692573;
+	b=1fLjZsAE1lnxYqSlxnjrHMnxToEuQGMAsdm/FWgJA9GxH9GvJfRD4hfazpAHOykcfBeA
+	 udtDMrI9QrpHOpBncXQ1HVtn+/Aww5D2cCCWjI97c6cZhaDLEdmsqCJ3vdZbszCPRwaNH
+	 ETa1eYg6xvUOMleRRXQZr2D2V8VV1Ypm4UtmZnfXZ+2DoKk//M3dCH1Ml5PNyt3PsgDB8
+	 rijybquIlwaCjtNwb05jazx0gwTPUQcuH7GVoZ6EGNeceDoWdUuu8/vO7AIFSvp6Zmovx
+	 KyNo+Mccxx/s5zeX3eQ6PBePxAsFzF3nTKVkybo+L8wjaMPEwyXAHBnqubuzHpz4LWA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692568;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=KzkXaWiJVAGevwCKGmXrszqK2VboCvPIQ4QmMjaaIPc=;
-	b=iHs0haUhd/Hb3tVz2GYMxwnIUVVJ4zdtg+noGbXNfDNoXE0ySDgtXT/3njvYp9x8kFIF
-	 3QKB2Vl5CWlj+uDHPQIO6H3MBHy1e/pmjuzT10YRe4fPVGx0X1k94Jg0gtsGn7BVhGoxU
-	 wPQD4eAC6hfyko+1GP207imQYiN7Ba97PXgUIQ28xm4ZH4jeuAg1VOyRXl8thv0ELBTPq
-	 fFURTsOOpp/uuyuBjZ54KK3paQ0qZ55Rks75UKJFDaocTgHx0U1mK4xvwGIwTVj1zBbgA
-	 NjMQwegvuyRn/IUQSspDPXmCa/5uBzy64rUdDLw8gO08GYak9wo9XC54To0XQN2/LTQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692573;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Last-TLS-Session-Version;
+	bh=P6rNn4aFEjEcZ1z3GBKAStHU3x0wgmSWhq3PX6FCzYU=;
+	b=ZkPFq8FtfloELjKvdZ5e4dO9muo83XG5kWliYCv00umdvfWs6MrnM+xgsQoO5JRz2Ri/
+	 4oKizKHDgNGyRlm1eQQhBBch8rSTzaunEp3WAPpjKrn2MGJ/KtwOYoy860CIk0rhjFTUl
+	 4P9CjdqInEoeOx2lUOByYp85hTJpcBTmgQsyaHDlPyGDRDUSRUpHCdy41HscQl+rDEDA/
+	 w+PS/Rtc0Q7z9FaSWAiU/1MCB+jKessr/pxhp4H9tuLgf/V9kBTNKPweMfWMfTn1weva6
+	 5/+2NGDPfzXszPblPJBnfg+NQp7bHTeteMhh8SzfjPdiF4klsPaCHDl7DdngM/C1Q4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jGLBP+Jk;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gqqy1TAo;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0486A606A31C;
-	Thu, 26 Nov 2026 11:29:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35CF5606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:29:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35CF5606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jGLBP+Jk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F051C1F000ED;
-	Thu, 26 Nov 2026 11:29:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795692567;
-	bh=KzkXaWiJVAGevwCKGmXrszqK2VboCvPIQ4QmMjaaIPc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jGLBP+JkU2AJkwG9HWQna8c8E2ZvqeVoV5+VRg7CN6hd6tZtRBknL2TpTaNnOZLkp
-	 ++wUEWQMUvtqiKaa0n7aHWor/sUtoYJePQ4+wk8KbuBx+y4dNsrrB1DzOLdxu/fd84
-	 7nJ+qaZaEIdV/ui+bWcw7Y9XXykuYFkNX5usk+qZyoZjTWQ8jTuqdAK+/uvAfhfBYm
-	 vLD1rwU46gYuEBsyZVKz9IY7OLhaa+QXs5xBMV4s82f/hBfe/3SwdDDBmdRgkcmTu1
-	 ImNQEPC/1S4bLzmmUQWpOrLnIUoLzzMnK5BacdDhrKMn8QfcSOGBubn0/jVnTBv2cw
-	 Qqj2bkOrMtc0Q==
-Date: Thu, 26 Nov 2026 11:29:07 +0000
-From: Lee Jones <lee@kernel.org>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: linux-mmc@vger.kernel.org, aaro.koskinen@iki.fi,
-	adrian.hunter@intel.com, aidanmacdonald.0x0@gmail.com,
-	alcooperx@gmail.com, allen.lkml@gmail.com, apelete@seketeli.net,
-	aubin.constans@microchip.com, bcm-kernel-feedback-list@broadcom.com,
-	chenhuacai@kernel.org, christian.loehle@arm.com, djakov@kernel.org,
-	florian.fainelli@broadcom.com, geert+renesas@glider.be,
-	hkallweit1@gmail.com, jan.glauber@gmail.com, jbrunet@baylibre.com,
-	jh80.chung@samsung.com, josua@solid-run.com,
-	kamal.dasu@broadcom.com, khilman@baylibre.com,
-	krzysztof.kozlowski@oss.qualcomm.com, lars@metafoo.de,
-	lgs201920130244@gmail.com, linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	martin.blumenstingl@googlemail.com, mirq-linux@rere.qmqm.pl,
-	neil.armstrong@linaro.org, niklas.soderlund+renesas@ragnatech.se,
-	oakad@yahoo.com, paul@crapouillou.net, pb@handhelds.org,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, pramod.gurav@linaro.org,
-	rric@kernel.org, sameo@openedhand.com, shawn.lin@rock-chips.com,
-	support@cavium.com, tony@atomide.com, u.kleine-koenig@baylibre.com,
-	ulfh@kernel.org, wsa+renesas@sang-engineering.com,
-	yoshihiro.shimoda.uh@renesas.com, zhoubinbin@loongson.cn
-Subject: Re: [00/13] mmc: Assorted bug fixes across MMC host drivers
-Message-ID: <20261126112907.GE38590@joneslee-macbookpro.roam.internal>
-References: <20261123191703.179283-1-lee@kernel.org>
- <bc602723-07fb-4af9-9201-272dd0fe759e@web.de>
- <20261126085340.GC38590@joneslee-macbookpro.roam.internal>
- <9e76edf9-433e-43ab-a748-8a71804e2b26@web.de>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gqqy1TAo
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 206AEC2B9C7;
+	Thu, 26 Nov 2026 11:29:40 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CE5EA60237;
+	Thu, 26 Nov 2026 11:29:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2474811E6B36B;
+	Thu, 26 Nov 2026 12:29:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795692565; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=P6rNn4aFEjEcZ1z3GBKAStHU3x0wgmSWhq3PX6FCzYU=;
+	b=gqqy1TAog2sQ6XPRLl6yS0+Ecpdnbqhh/hNjGnG1E2l0hQLMIdcpCI46OH2KlP+bE/kn3m
+	1oGkKoEzEpm0yWgK/LuQNUmnXXdwl1Sy3IZU17z7HhWrGzUWpcUZ115GTNJj6qLSxuO04J
+	P1UtLPqxBNPAGGuLOazA9JMw6sGpwrJbM7/GHRRXfiQKzljwf7kmwVguWP1SaOcKJLJ8BK
+	jBSe0ZVwCYDUwXq+Ptq+kLidwGtgFjPcxbRizC4oaoByHCd+n3AMR6dsLF38ixgIdVzsBm
+	orwKpJ2Xva4CXiXOdlIQUOv0sBQPw+kMd6JBhpG7KlMFCXdgPHr3H9dwDpl3PA==
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Date: Thu, 26 Nov 2026 12:28:47 +0100
+Subject: [PATCH v7 04/43] drm/tests: Add test cases for DRM rotation name
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,35 +63,140 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9e76edf9-433e-43ab-a748-8a71804e2b26@web.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-vkms-all-config-v7-4-21194cda2468@bootlin.com>
+References: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
+In-Reply-To: <20261126-vkms-all-config-v7-0-21194cda2468@bootlin.com>
+To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
+ Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Lucas De Marchi <demarchi@kernel.org>, 
+ =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
+ victoria@system76.com, thomas.petazzoni@bootlin.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, llvm@lists.linux.dev
+X-Mailer: b4 0.17-dev
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Thu, 26 Nov 2026, Markus Elfring wrote:
+Verify the DRM_ROTATION_FMT()/DRM_ROTATION_FMT_ARGS() helpers.
 
-> >> How do you think about to sort (and group) desired adjustments
-> >> by affected software components?
-> > 
-> > This is new to me.  What guidance says to do that?
-> > 
-> > Making your own rules up and spraying them at contributors wastes people's time.
-> Can the following list variant be more helpful eventually?
-> 
->   mmc: cavium: Prevent slot_pdev[] out-of-bounds write during probe
->   mmc: cavium: Remove MMC slots before destroying slot platform devices
->   mmc: dw_mmc: Disarm central watchdog when ending a request
->   mmc: jz4740: Apply DMA max_seg_size limit to unified tx-rx channel
->   mmc: jz4740: Skip DMA cleanup in PIO mode during post_req
->   mmc: meson-gx: Fail request when descriptor chain DMA mapping fails
->   mmc: omap: Shut down cover timer before disabling cover BH work
->   mmc: renesas_sdhi: Disable internal DMAC BH work items on release
->   mmc: renesas_sdhi: Fix SDIO manual tap correction in SDR104 mode
->   mmc: renesas_sdhi: Guard host->cmd access in internal DMAC issue work
->   mmc: sdhci-brcmstb: Handle absent optional sdio_freq clock in probe
->   mmc: sdhci-msm: Resume runtime PM before accessing registers on remove
->   mmc: tifm_sd: Synchronise timeout handler with request completion
+Tested-by: Oarora Etimis <oaroraetimis@gmail.com>
+Reviewed-by: Oarora Etimis <oaroraetimis@gmail.com>
+Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+---
+ drivers/gpu/drm/tests/Makefile            |  1 +
+ drivers/gpu/drm/tests/drm_rotation_test.c | 76 +++++++++++++++++++++++++++++++
+ 2 files changed, 77 insertions(+)
 
-No.  Stop making up rules!
+diff --git a/drivers/gpu/drm/tests/Makefile b/drivers/gpu/drm/tests/Makefile
+index 42207df1d1c8..c10bd6a97f5b 100644
+--- a/drivers/gpu/drm/tests/Makefile
++++ b/drivers/gpu/drm/tests/Makefile
+@@ -24,6 +24,7 @@ obj-$(CONFIG_DRM_KUNIT_TEST) += \
+ 	drm_plane_helper_test.o \
+ 	drm_probe_helper_test.o \
+ 	drm_rect_test.o \
++	drm_rotation_test.o \
+ 	drm_sysfb_modeset_test.o \
+ 	drm_fixp_test.o \
+ 	drm_kunit_edid.o
+diff --git a/drivers/gpu/drm/tests/drm_rotation_test.c b/drivers/gpu/drm/tests/drm_rotation_test.c
+new file mode 100644
+index 000000000000..c537e7ca35b9
+--- /dev/null
++++ b/drivers/gpu/drm/tests/drm_rotation_test.c
+@@ -0,0 +1,76 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Test cases for DRM rotation functions and macros
++ *
++ * Tests DRM_ROTATION_FMT_ARGS()
++ */
++
++#include <kunit/test.h>
++#include <drm/drm_blend.h>
++
++static void drm_test_rotation_fmt_args(struct kunit *test)
++{
++	char buf[128];
++
++	memset(buf, 0, sizeof(buf));
++	snprintf(buf, sizeof(buf), DRM_ROTATION_FMT, DRM_ROTATION_FMT_ARGS(0));
++	KUNIT_EXPECT_STREQ(test, buf, "(0x00000000)");
++
++	memset(buf, 0, sizeof(buf));
++	snprintf(buf, sizeof(buf), DRM_ROTATION_FMT, DRM_ROTATION_FMT_ARGS(DRM_MODE_ROTATE_0));
++	KUNIT_EXPECT_STREQ(test, buf, "rotate-0 (0x00000001)");
++
++	memset(buf, 0, sizeof(buf));
++	snprintf(buf, sizeof(buf), DRM_ROTATION_FMT, DRM_ROTATION_FMT_ARGS(DRM_MODE_ROTATE_90));
++	KUNIT_EXPECT_STREQ(test, buf, "rotate-90 (0x00000002)");
++
++	memset(buf, 0, sizeof(buf));
++	snprintf(buf, sizeof(buf), DRM_ROTATION_FMT, DRM_ROTATION_FMT_ARGS(DRM_MODE_ROTATE_180));
++	KUNIT_EXPECT_STREQ(test, buf, "rotate-180 (0x00000004)");
++
++	memset(buf, 0, sizeof(buf));
++	snprintf(buf, sizeof(buf), DRM_ROTATION_FMT, DRM_ROTATION_FMT_ARGS(DRM_MODE_ROTATE_270));
++	KUNIT_EXPECT_STREQ(test, buf, "rotate-270 (0x00000008)");
++
++	memset(buf, 0, sizeof(buf));
++	snprintf(buf, sizeof(buf), DRM_ROTATION_FMT, DRM_ROTATION_FMT_ARGS(DRM_MODE_REFLECT_X));
++	KUNIT_EXPECT_STREQ(test, buf, "reflect-x (0x00000010)");
++
++	memset(buf, 0, sizeof(buf));
++	snprintf(buf, sizeof(buf), DRM_ROTATION_FMT, DRM_ROTATION_FMT_ARGS(DRM_MODE_REFLECT_Y));
++	KUNIT_EXPECT_STREQ(test, buf, "reflect-y (0x00000020)");
++
++	memset(buf, 0, sizeof(buf));
++	snprintf(buf, sizeof(buf), DRM_ROTATION_FMT,
++		 DRM_ROTATION_FMT_ARGS(DRM_MODE_ROTATE_0 | DRM_MODE_ROTATE_90 |
++				       DRM_MODE_REFLECT_X));
++	KUNIT_EXPECT_STREQ(test, buf, "rotate-0 rotate-90 reflect-x (0x00000013)");
++
++	unsigned int all = DRM_MODE_ROTATE_0 | DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_180 |
++			   DRM_MODE_ROTATE_270 | DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y;
++
++	memset(buf, 0, sizeof(buf));
++	snprintf(buf, sizeof(buf), DRM_ROTATION_FMT, DRM_ROTATION_FMT_ARGS(all));
++	KUNIT_EXPECT_STREQ(test, buf,
++			   "rotate-0 rotate-90 rotate-180 rotate-270 reflect-x reflect-y (0x0000003f)");
++
++	memset(buf, 0, sizeof(buf));
++	snprintf(buf, sizeof(buf), DRM_ROTATION_FMT,
++		 DRM_ROTATION_FMT_ARGS(DRM_MODE_REFLECT_X | DRM_MODE_REFLECT_Y));
++	KUNIT_EXPECT_STREQ(test, buf, "reflect-x reflect-y (0x00000030)");
++}
++
++static struct kunit_case drm_rotation_tests[] = {
++	KUNIT_CASE(drm_test_rotation_fmt_args),
++	{}
++};
++
++static struct kunit_suite drm_rotation_test_suite = {
++	.name = "drm_rotation",
++	.test_cases = drm_rotation_tests,
++};
++
++kunit_test_suite(drm_rotation_test_suite);
++
++MODULE_DESCRIPTION("Test cases for DRM rotation functions and macros");
++MODULE_LICENSE("GPL");
 
 -- 
-Lee Jones
+2.56.0
+
