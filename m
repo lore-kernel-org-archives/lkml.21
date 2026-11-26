@@ -1,55 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795676069;
-	b=3YycT+ko7FFXeaiiiHcYcCccZWlYYlZ1AdLYtIHEEjaGSz2PgEzixabCNXCt8nIDWVSw
-	 YFxC+9+fKhtpXmS+QQuXf8Rcg+xH3w8NA4WGteyWA5X7B5ArtyxR68EKrw3Cs5S/grfnt
-	 Ala/jYrF6yFpbkwg5FU6qWdfdyQy2i8kNxNGIHGCWmG/pbNKDFnLo7QMlshfXiJQFyOM/
-	 KN1v6/G3dehiXtl88iizCUOpZ939zdfaJvL8HuS+gmx3Eo3GXyvxtdgcKj4xfynd3gcg7
-	 BQlKENdA4ESy+ebDlUoYmDEJAWkYDwp0yE4gTDsHvLzA0uWIksbfBAfoigvSEi7scsQ==
+	t=1795676085;
+	b=aRI3BSFDW32V0uGHK/EUCAZyn7gKTzIxvmWs1CarkgXy0U/bS08/R2hOQ5WJ1Rrpzxft
+	 dC3rTc/vvQ8TfF0sFXEAYzQuWdYz77HHm/IrubDk6bdqG4TQwNEZbIEKs5JgZaS/H2F5Y
+	 sojq/zoJc1k84x30FrAcr5dxrz5C9KUlZpyr14Qns0VLhW4lnhKpj4lJk5IpSgdAtDPZ1
+	 twaycpvvMg7bikcoUMCvWD1fBpIFfd9KWNS1zQnpfzH+U2AB9z/SJ+18pN46GGuaV1Hy8
+	 2hPMOfGVNBCaVUq6plO9qdtAJmnjzsWK2lJKXdefA+4kmpyX5AA8WSDLETmVkgg/r0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795676069;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=VQquwoKjGpWDi9wdZUDJE0dmSqwIItrXiSYkdrFlgck=;
-	b=wBpb4EdfQ4VI1xy/BXPFxIBal628iYYKrqa/50qicVvIVa30ow5pjcG7kwqUd/b8LvcK
-	 u/pzdBx86IH+o1Gsjtz3ISI/DN9ki+JZyRBBRtWwlx2ZdRxqEBZCISW2kCvwHrJeV+MQB
-	 1vcGRLPNRrJmGpjImKxMTv11EYOSi5SRV2AkG4lxqJGa9dODr18zh2vGE/tnJlTSXybQf
-	 s2mTWslWU3QLEKVLANta5auSVnU/E8mFC16Q8IFoj0GK/oEnr+Xo5fsiAhEhpd3RL2uKa
-	 eWkbHOBCQkFlOBp5WYmpldxcWFZ2gr2yapbfW8hoPva5ujl3XdCgPOkLWqPrz1WD78w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795676085;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
+	bh=bYLWEz+2WY6Gb+u9L1ipLACLSnY4gwvF9ZfrVJ4SZ5s=;
+	b=MpfFd/25gpeNBa5WKQaQQ/TT7YoGXl2mkyPYwcM7C8ICOVhPY5o7p1PVXZapAvkQvJvX
+	 ke3p6MmI19nZyhnzZES2ARj/bw0MD0AOsv3jjFS+A2WRqbcFReh3L6pILG6MaqzB81B3Q
+	 n4SOMA8sf7dezHg24FYjqXDrTkn29Cxrq/a7eyWzuY/DsPCw/F5wFrZ2ixaUycml51VyY
+	 ygV2BytVv/OSjBMxpwpX5+UdSJxiFGv6+cKPUZrE/oWMW/vOkd77TJjl/SoGHuHF3jsYP
+	 ESLptboLeBWILH6SHi6guAobYfHHgCRhjhSIbmssgJsodAJxnh2imVmtO9Qxf3fBsJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TXHb7j+E;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="AetPJ/C7";
+	arc=none smtp.remote-ip=117.135.210.3
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7366606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:54:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03782606A31C;
+	Thu, 26 Nov 2026 06:54:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03782606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TXHb7j+E
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6271D1F000F0
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:54:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795676069;
-	bh=VQquwoKjGpWDi9wdZUDJE0dmSqwIItrXiSYkdrFlgck=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=TXHb7j+EtfScm8AX4rs6waC3TxgZ9YpF+f45oI60txaB4ijt/olONPGMxo4m8L4xo
-	 Dx2Ea5gxcxo4VVHjJPDwlMzsTD9UHSlbtCgtXW2ZNdG8Mo2vlbt5dY3B5+VtieekHE
-	 iF+PRbmVGUQGgCrDQegDQdJFNGBY8CKs/8DOSiHyHV5cCNON9O+YK3eUCeqZxK9vTh
-	 7jErl1F+ZoW/xglkPA2l87KAujXlEg7kiSEEuHWb9XxNFw0/LRo6NDaACldVcyTEF8
-	 wyV9K314/Q3yeJUL1t9j/hIIclsAfjieXj1igy9us22pzc4xdxYE0qJ426WGS0KCQQ
-	 kbVWxMf3va/Ig==
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b47c1a3c74so285168a12.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:54:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGM09PsFqEnRlgdCoaqXxfCF8tT0+AI6pYkCynsWAaRsNHFyEdi6lXTGqwhZuDi1pc/QJAyRak/KGmf2Dg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+77bRGAmHgkrbjYpzVlp0awGnLAGHwMuqanturVGSrhvdTexH1
-	03+eZ8TrrBhFmU1Bx7ihhVR+Jn9ZY6VMY/D4RY5rnny3HZVZ0clzIQbV3r6xAxbNWqPu6m55QcT
-	o720LP6vvLEeyasYE76tl7Rq0VZEKduQcRiNUQ1TYpg==
-X-Received: by 2002:a17:907:1c9c:b0:c49:df95:fd0 with SMTP id
- a640c23a62f3a-c519ac70721mr578683166b.48.1795676067959; Wed, 25 Nov 2026
- 22:54:27 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=AetPJ/C7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=bYLWEz+2WY6Gb+u9L1ipLACLSnY4gwvF9ZfrVJ4SZ5s=;
+	b=AetPJ/C73vfvB9YnE3Hb+Z+vxlRxRZJou2PjTBDvr/25SspKlljUeEu+27XCAl
+	a0JAmJpDFZ8tQiluEf79z2lWkL2T415+3XS4H7UKwTwefsZXmzAOVrzPz8F2No4Y
+	aTBC39yv62ZaKmJS8B250MrIjlnZD5kUmLSSJZRge88gY=
+Received: from [IPV6:2409:8900:1fda:c14d:fe4b:463:9ed6:5819] (unknown [])
+	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD3nzuE1wdrnEBSKA--.24986S2;
+	Thu, 26 Nov 2026 14:53:58 +0800 (CST)
+Message-ID: <c841528d-df6c-44ce-a65e-738ac919b0f7@163.com>
+Date: Thu, 26 Nov 2026 14:53:56 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,521 +54,545 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <cover.1795439990.git.lianux.mm@gmail.com> <5a83cfe8b0992c65cf4cca1e8cd612b4de0b78c6.1795439990.git.lianux.mm@gmail.com>
-In-Reply-To: <5a83cfe8b0992c65cf4cca1e8cd612b4de0b78c6.1795439990.git.lianux.mm@gmail.com>
-From: Chris Li <chrisl@kernel.org>
-Date: Wed, 25 Nov 2026 22:54:16 -0800
-X-Gmail-Original-Message-ID: <CACePvbWLkZtdX-kedNHeFDRV+e3Hcyzixsc=9eENTrZVhiSjjQ@mail.gmail.com>
-X-Gm-Features: Aa3M54qlKK0--aC_Z759v7Gd5wm7XNF21qBC83OTOadT1xD_SPdEJARQDOKqOLs
-Message-ID: <CACePvbWLkZtdX-kedNHeFDRV+e3Hcyzixsc=9eENTrZVhiSjjQ@mail.gmail.com>
-Subject: Re: [PATCH v5 03/19] mm/swap: cleanup and document swap device
- availability flag usage
-To: Lian Wang <lianux.mm@gmail.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	Andrew Morton <akpm@linux-foundation.org>, Nhat Pham <nphamcs@gmail.com>, 
-	Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>, 
-	Youngjun Park <youngjun.park@lge.com>, Kemeng Shi <shikemeng@huaweicloud.com>, 
-	Kairui Song <kasong@tencent.com>, Jihan LIN <linjh22s@gmail.com>, 
-	Kunwu Chan <kunwu.chan@linux.dev>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Thomas Gleixner <tglx@kernel.org>, linux-hardening@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11] ntfs: trim the sizes after a short write
+To: Zhan Xusheng <zhanxusheng1024@gmail.com>, linkinjeon@kernel.org,
+ hyc.lee@gmail.com
+Cc: ernest.borowski.git@proton.me, ntfs@lists.linux.dev,
+ linux-kernel@vger.kernel.org, zhanxusheng@xiaomi.com, stable@vger.kernel.org
+References: <20261126015731.3254689-1-zhanxusheng1024@gmail.com>
+Content-Language: en-US
+From: liubaolin <liubaolin12138@163.com>
+In-Reply-To: <20261126015731.3254689-1-zhanxusheng1024@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3nzuE1wdrnEBSKA--.24986S2
+X-Coremail-Antispam: 1Uf129KBjvAXoWfKr1Uury5JF4fGFWUZw4DXFb_yoW8Zw47Ko
+	WfA3yavw4Fy345Ar4j9w4kJr97X39YgrWUJFs8XwsrAFsYgw4UA3y3Jw1rGayxG3WFkr4D
+	W34xta4FkFWYqFyrn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU09N3UUUUU
+X-CM-SenderInfo: xolxutxrol0iasrtmqqrwthudrp/xtbC6gi0f2sH14jKvwAA3v
 
-On Mon, Nov 23, 2026 at 6:16=E2=80=AFAM Lian Wang <lianux.mm@gmail.com> wro=
-te:
->
-> From: Kairui Song <kasong@tencent.com>
->
-> Rework swap device flag and metadata handling to make the writable
-> publication and disable boundaries explicit.
 
-This commit message could use a rewrite to improve clarity.
-"Boundaries explicit" seems to mean extracting the swap device enable
-and disable as two separate functions.
 
-> Introduce swap_device_enable() and swap_device_disable(). Move
-> SWP_WRITEOK updates into these boundaries. Clear the writable flag,
-> set the off-list state and remove the available entry in one
-> swap_avail_lock critical section, before releasing swap_lock.
-
-I wish to see some explanation of the locking change:
-For example
-Before:
-      foo,bar is covered by lock X
-After:
-      foo is covered by lock X,
-      bar is covered by lock Y.
-
-> Preserve the existing swap_lock critical section across mapping lookup,
-> hibernation checks and the disable transition. Drain cluster allocators
-> after dropping swap_lock, retaining the device-identity protection
-> without holding swap_lock over all cluster locks.
-
-This description doesn't fully explain the previous locking method vs
-the new one. Is the idea to avoid using swap_lock for when cluster
-lock is hold? Why is this change safe?
-
->
-> Document the flag lifetime and locking rules.
->
-> Signed-off-by: Kairui Song <kasong@tencent.com>
-> Co-developed-by: Lian Wang <lianux.mm@gmail.com>
-> Signed-off-by: Lian Wang <lianux.mm@gmail.com>
+在 2026/11/26 09:57, Zhan Xusheng 写道:
+> From: Zhan Xusheng <zhanxusheng@xiaomi.com>
+> 
+> ntfs_file_write_iter() moves the data size and, for a non-resident
+> uncompressed file, the initialized size to pos + count before the copy.
+> __ntfs_extend_initialized_size() only zeroes [old initialized size, pos),
+> so the range [pos, pos + count) is initialized only by the copy itself.
+> When iomap_file_buffered_write() copies less than count, it returns a
+> positive short count and the error rollback at out: does not run.  The
+> file keeps the size pos + count, and [pos + ret, pos + count) reads back
+> whatever the freed clusters held before, also after a remount.  A local
+> user can read the old contents of freed clusters this way.
+> 
+> Run the existing rollback for a short write as well, and roll the data
+> size back to the end of what was written, keeping the clusters that were
+> allocated on disk before the write, such as space reserved with
+> FALLOC_FL_KEEP_SIZE.  Keep the initialized size, as a page fault through
+> a shared mapping may rely on it while the write is stalled on its
+> source, and zero what the write did not reach, up to the end of the
+> block holding pos + count.  Only if that fails, take the initialized
+> size back to where the zeroing started, if it is above that.  A writer
+> killed during the copy also leaves a short write, but iomap_zero_range()
+> then fails with -EINTR, so zero from a worker when a fatal signal is
+> pending.
+> 
+> An asynchronous direct write that fails after submitting bios returns
+> -EIOCBQUEUED, and the rollback does not run for it either.  Wait for a
+> direct write that moves the initialized size, and fail a non-blocking
+> one with -EAGAIN so that it is retried blocking, as ext4 does.
+> 
+> Fixes: b041ca562526 ("ntfs: update iomap and address space operations")
+> Cc: stable@vger.kernel.org
+> Co-developed-by: Ernest Borowski <ernest.borowski.git@proton.me>
+> Signed-off-by: Ernest Borowski <ernest.borowski.git@proton.me>
+> Signed-off-by: Zhan Xusheng <zhanxusheng@xiaomi.com>
 > ---
->  include/linux/swap.h |  29 ++++--
->  mm/swapfile.c        | 205 ++++++++++++++++++++-----------------------
->  2 files changed, 118 insertions(+), 116 deletions(-)
->
-> diff --git a/include/linux/swap.h b/include/linux/swap.h
-> index 4f686709d71f..0fa77f5679a2 100644
-> --- a/include/linux/swap.h
-> +++ b/include/linux/swap.h
-> @@ -188,6 +188,24 @@ struct swap_extent {
->         ((offsetof(union swap_header, magic.magic) - \
->           offsetof(union swap_header, info.badpages)) / sizeof(int))
->
+> v11: ntfs_attr_get_search_ctx() returns an ERR_PTR() on failure, so
+> check it with IS_ERR() in ntfs_attr_set_data_size() (Baolin).
+> v10: an asynchronous direct write that fails after submitting bios
+> returns -EIOCBQUEUED, so the rollback did not run and the file kept the
+> size of the whole write.  Wait for a direct write that moves the
+> initialized size, and return -EAGAIN for a non-blocking one (Baolin,
+> Ernest).
+> v9: for a writer killed during the copy, iomap_zero_range() fails with
+> -EINTR, and the fallback then took the initialized size back and lost
+> what was stored meanwhile through a shared mapping.  Zero from a worker
+> when a fatal signal is pending (Ernest).  Baolin's Reviewed-by on v8 is
+> not carried over, as this changes the code he reviewed.  After patch 6
+> of Ernest's delalloc series, ntfs_zero_range() makes the same call as
+> the new helper, so whichever of the two lands second can reuse the
+> other.
+> v8: when taking the data size back without truncating, mark the file
+> name dirty as ntfs_non_resident_attr_shrink() does.  If the inode was
+> written while the write waited on its source, the size in the directory
+> index otherwise stays at the extended value (Baolin).
+> v7: when taking the data size back, keep the clusters allocated on disk
+> before the write instead of truncating, which freed space reserved
+> with FALLOC_FL_KEEP_SIZE; a failed write already did so before this
+> patch (Hyunchul).  Holes and delayed allocations past the data size,
+> such as the preallocation of an earlier extending write, are freed as
+> before.  Baolin's Reviewed-by on v6 is not carried over, as this
+> changes the data size rollback he reviewed.
+> v6: cap that fallback at the current initialized size, which a failed
+> extension before the write can leave below pos (Baolin).
+> v5 (Baolin):
+> - start the zeroing at pos, not at the old initialized size, which
+>    overwrote data stored through a shared mapping below pos
+> - do the same for a direct write, instead of truncating the page cache
+>    and taking the initialized size back
+> - if the zeroing fails, take the initialized size back to where it
+>    started, instead of skipping both rollbacks
+> v4: for a buffered write, zero the unwritten range instead of
+> truncating the page cache and taking the initialized size back, which
+> dropped data stored through a shared mapping during the copy (Baolin).
+> v3: clear the cache up to EOF, not up to the extended initialized
+> size, which left the rest of the block holding pos + count (Baolin).
+> v2: also clear the cached tail of the last block, which v1 left in
+> place when the write stayed inside the old data size (Baolin).
+> 
+> v10: https://lore.kernel.org/all/20261125051247.2880928-1-zhanxusheng1024@gmail.com/
+> v9: https://lore.kernel.org/all/20261124025932.2360848-1-zhanxusheng1024@gmail.com/
+> v8: https://lore.kernel.org/all/20261120023504.4134966-1-zhanxusheng1024@gmail.com/
+> v7: https://lore.kernel.org/all/20261119022715.3636699-1-zhanxusheng1024@gmail.com/
+> v6: https://lore.kernel.org/all/20261117082021.2947603-1-zhanxusheng1024@gmail.com/
+> v5: https://lore.kernel.org/all/20261116091121.2547497-1-zhanxusheng1024@gmail.com/
+> v4: https://lore.kernel.org/all/20261113050148.1466682-1-zhanxusheng1024@gmail.com/
+> v3: https://lore.kernel.org/all/20261112093233.1118469-1-zhanxusheng1024@gmail.com/
+> v2: https://lore.kernel.org/all/20261112030815.982026-1-zhanxusheng1024@gmail.com/
+> v1: https://lore.kernel.org/all/20261111093459.660484-1-zhanxusheng1024@gmail.com/
+> 
+> v8 was tested in a VM on ntfs-next 4862a81576e3, with all free space
+> filled with a known pattern first.  Short buffered writes of 4M, old
+> data readable after drop_caches and after remount, 3 runs each:
+> 
+>                                      unfixed    v8
+>    fallocated, ends block-aligned    3137536    0
+>    fallocated, ends inside a block   3141332    0
+>    fallocated, unaligned start       3137536    0
+>    same, pos + count in that page    -          0
+>    append                            3137536    0
+> 
+> Marker stored through a shared mapping at 64K while pwritev() is
+> stalled on a userfaultfd source page, state after remount, with and
+> without fallocate():
+> 
+>                                            unfixed  v8
+>    buffered 4K at 128K, EFAULT             lost     kept
+>    O_DIRECT 12K at 0, EFAULT               lost     kept
+>    buffered 12K at 0, short 8192           kept     kept
+> 
+> 1M reserved with FALLOC_FL_KEEP_SIZE, then a 12K write at 0, 512-byte
+> blocks after remount:
+> 
+>                                            unfixed  v8
+>    short, 8192 written                     2048     2048
+>    failed, EFAULT                          0        2048
+> 
+> A short write past 8K reserved this way frees what it allocated beyond
+> the 8K and keeps the 8K.  A store into [pos + ret, pos + count) itself
+> during the write is zeroed, as that range belongs to the write.  With
+> iomap_zero_range() failing (injected -ENOMEM), a 32K write to a 16K
+> file that returns 12288 leaves the size at 28K with no old data, also
+> after remount.
+> 
+> In the 8192 case above, with syncfs() while the write waits on its
+> source, the data size in the directory index after remount is 12288
+> with v7 and 8192 with v8.
+> 
+> fsx (buffered, no-mmap, O_DIRECT and mixed), compressed files,
+> fallocate, insert/collapse range and punch hole give the same results
+> with v8 as with v7.
+> 
+> A 32K pwritev() at 0 to a file with 1M fallocated, its copy stalled
+> on a userfaultfd source page after 16K.  A marker is stored at 512K
+> through a shared mapping, then the writer gets SIGKILL.  State after
+> remount:
+> 
+>                                           unfixed  v8     v9
+>    marker, 4K clusters                    kept     lost   kept
+>    marker, 64K clusters                   kept     lost   kept
+>    old data in [16K, 64K), 64K clusters   16384    0      0
+> 
+> The tests above give the same results with v9 as with v8, on
+> ntfs-next f674e4b6c315.  No lockdep or KASAN reports.
+> 
+> A 6M O_DIRECT write at 0 into a file with 6M reserved by
+> FALLOC_FL_KEEP_SIZE, its source unmapped after 4M, on a volume whose
+> free space held a known pattern, 3 files each, after remount:
+> 
+>                                    ntfs-next     v9            v10
+>    io_submit(), 4K clusters        size 6M,      size 6M,      size 0
+>                                    old data in   no old data
+>                                    1 of 3
+>    io_submit(), 64K clusters       size 6M,      size 6M,      size 0
+>                                    2M old data   2M old data
+>    pwritev()                       size 0        size 0        size 0
+>    RWF_NOWAIT 4M, reserved or      written       written       -EAGAIN,
+>    empty file                                                  size 0
+> 
+> The other tests above give the same results with v10 as with v9.  No
+> lockdep or KASAN reports.
+> ---
+> 
+> The short write, killed and stalled writer, KEEP_SIZE and partial
+> O_DIRECT tests above give the same results with v11 as with v10.
+> 
+>   fs/ntfs/attrib.c |  37 +++++++++
+>   fs/ntfs/attrib.h |   1 +
+>   fs/ntfs/file.c   | 197 ++++++++++++++++++++++++++++++++++++++++++++---
+>   3 files changed, 224 insertions(+), 11 deletions(-)
+> 
+> diff --git a/fs/ntfs/attrib.c b/fs/ntfs/attrib.c
+> index 6ee6b6bcac1d..c192333be83c 100644
+> --- a/fs/ntfs/attrib.c
+> +++ b/fs/ntfs/attrib.c
+> @@ -2457,6 +2457,43 @@ int ntfs_attr_set_initialized_size(struct ntfs_inode *ni, loff_t new_size)
+>   	return err;
+>   }
+>   
 > +/*
-> + * Swap device flags, except the ones documented below, all are immutabl=
-e
-> + * after exposed by swap_device_enable, and until the device is freed ag=
-ain
-> + * (SWP_USED unset), except that teardown clears SWP_ACTIVATED after dra=
-ining
-> + * allocators and live references. The other exceptions:
-> + * - SWP_USED: Protected by swap_lock. Indicates the device is inuse. On=
-ce
-> + *   set, won't be cleared unless all reference to this device is freed =
-and
-> + *   swapoff finished.
-> + * - SWP_WRITEOK: Protected by swap_lock, si->lock and swap_avail_lock.
-
-It seems SWP_WRITEOK is protected by any of those locks: swap_lock OR
-si->lock OR swap_avail_lock.
-One interpretation of "and" is that all of those locks must be held
-which contraditing the explaination follows.
-
-> + *   Clearing this flag is followed by waiting for all current cluster l=
-ock
-> + *   users to exit, so
-> + *   checking this flag while holding any of these locks ensures the dev=
-ice
-> + *   is safe to use at the moment. Note: clearing this flag doesn't affe=
-ct
-> + *   pending IO or async requests, it only prevents further entry alloca=
-tion
-> + *   or new async request (e.g. discard) from initiating.
-> + * - SWP_HIBERNATION: Protected by swap_lock. Indicates if the device
-> + *   is pinned for hibernation.
+> + * ntfs_attr_set_data_size - set the data size of a non-resident attribute
+> + * without changing its allocation
+> + *
+> + * The caller holds mrec_lock.  @new_size must not be below the initialized
+> + * size or above the allocated size.
 > + */
->  enum {
->         SWP_USED        =3D (1 << 0),     /* is slot in swap_info[] used?=
- */
->         SWP_WRITEOK     =3D (1 << 1),     /* ok to write to this swap?   =
- */
-> @@ -256,14 +274,9 @@ struct swap_info_struct {
->         struct file *swap_file;         /* seldom referenced */
->         struct completion comp;         /* seldom referenced */
->         spinlock_t lock;                /*
-> -                                        * protect map scan related field=
-s like
-> -                                        * inuse_pages and all cluster li=
-sts.
-> -                                        * Other fields are only changed
-> -                                        * at swapon/swapoff, so are prot=
-ected
-> -                                        * by swap_lock. changing flags n=
-eed
-> -                                        * hold this lock and swap_lock. =
-If
-> -                                        * both locks need hold, hold swa=
-p_lock
-> -                                        * first.
-> +                                        * Protect cluster lists. Other f=
-ields
-> +                                        * are only changed at swapon/swa=
-poff,
-> +                                        * so are protected by swap_lock.
->                                          */
->         struct work_struct discard_work; /* discard worker */
->         struct work_struct reclaim_work; /* reclaim worker */
-> diff --git a/mm/swapfile.c b/mm/swapfile.c
-> index 0ae901296731..f22197a6286c 100644
-> --- a/mm/swapfile.c
-> +++ b/mm/swapfile.c
-> @@ -1268,28 +1268,23 @@ static void del_from_avail_list(struct swap_info_=
-struct *si, bool swapoff)
->
->         spin_lock(&swap_avail_lock);
->
-> -       if (swapoff) {
-> -               /*
-> -                * Forcefully remove it. Clear the SWP_WRITEOK flags for
-> -                * swapoff here so it's synchronized by both si->lock and
-> -                * swap_avail_lock, to ensure the result can be seen by
-> -                * add_to_avail_list.
-> -                */
-> -               lockdep_assert_held(&si->lock);
-> -               si->flags &=3D ~SWP_WRITEOK;
-> -               atomic_long_or(SWAP_USAGE_OFFLIST_BIT, &si->inuse_pages);
-> -       } else {
-> -               /*
-> -                * If not called by swapoff, take it off-list only if it'=
-s
-> -                * full and SWAP_USAGE_OFFLIST_BIT is not set (strictly
-> -                * si->inuse_pages =3D=3D pages), any concurrent slot fre=
-eing,
-> -                * or device already removed from plist by someone else
-> -                * will make this return false.
-> -                */
-> +       /*
-> +        * Force remove it only for swapoff. Else, take it off-list only =
-if
-> +        * it's full and SWAP_USAGE_OFFLIST_BIT is not set (strictly
-> +        * si->inuse_pages =3D=3D pages), so concurrent slot freeing, or
-> +        * concurrent list removal will make the cmpxchg fail and skip
-> +        * the removal.
-> +        */
-> +       if (!swapoff) {
->                 pages =3D si->pages;
->                 if (!atomic_long_try_cmpxchg(&si->inuse_pages, &pages,
->                                              pages | SWAP_USAGE_OFFLIST_B=
-IT))
->                         goto skip;
-> +       } else {
-
-I couldn't help but notice this patch inverts the swapoff test
-conditions. I am wondering if retaining the original if (swapoff) can
-reduce the diff size slightly.
-
-
-> +               lockdep_assert_held(&swap_lock);
-> +               lockdep_assert_held(&si->lock);
-> +               si->flags &=3D ~SWP_WRITEOK;
-> +               atomic_long_or(SWAP_USAGE_OFFLIST_BIT, &si->inuse_pages);
->         }
->
->         plist_del(&si->avail_list, &swap_avail_head);
-> @@ -1299,21 +1294,21 @@ static void del_from_avail_list(struct swap_info_=
-struct *si, bool swapoff)
->  }
->
->  /* SWAP_USAGE_OFFLIST_BIT can only be cleared by this helper. */
-> -static void add_to_avail_list(struct swap_info_struct *si, bool swapon)
-> +static void add_to_avail_list(struct swap_info_struct *si)
->  {
->         long val;
->         unsigned long pages;
->
->         spin_lock(&swap_avail_lock);
->
-> -       /* Corresponding to SWP_WRITEOK clearing in del_from_avail_list *=
-/
-> -       if (swapon) {
-> -               lockdep_assert_held(&si->lock);
-> -               si->flags |=3D SWP_WRITEOK;
-> -       } else {
-> -               if (!(READ_ONCE(si->flags) & SWP_WRITEOK))
-> -                       goto skip;
-> -       }
-> +       /*
-> +        * Add the device to the avail list if SWP_WRITEOK is set and
-> +        * SWAP_USAGE_OFFLIST_BIT is still set. Swapoff clears
-> +        * SWP_WRITEOK first, so the device won't be re-added after
-> +        * swapoff starts unless swap_device_enable resurrects it.
-> +        */
-> +       if (!(READ_ONCE(si->flags) & SWP_WRITEOK))
-> +               goto skip;
->
->         if (!(atomic_long_read(&si->inuse_pages) & SWAP_USAGE_OFFLIST_BIT=
-))
->                 goto skip;
-> @@ -1369,7 +1364,7 @@ static void swap_usage_sub(struct swap_info_struct =
-*si, unsigned int nr_entries)
->          * add it to the plist.
->          */
->         if (unlikely(val & SWAP_USAGE_OFFLIST_BIT))
-> -               add_to_avail_list(si, false);
-> +               add_to_avail_list(si);
->  }
->
->  static void swap_range_alloc(struct swap_info_struct *si,
-> @@ -1421,7 +1416,7 @@ static bool get_swap_device_info(struct swap_info_s=
-truct *si)
->          * up to dated.
->          *
->          * Paired with the spin_unlock() after setup_swap_info() in
-> -        * enable_swap_info(), and smp_wmb() in swapoff.
-> +        * swap_device_enable(), and smp_wmb() in swapoff.
->          */
->         smp_rmb();
->         return true;
-> @@ -3140,58 +3135,88 @@ static int setup_swap_extents(struct swap_info_st=
-ruct *sis,
->         return generic_swapfile_activate(sis, swap_file, span);
->  }
->
-> -static void _enable_swap_info(struct swap_info_struct *si)
-> -{
-> -       atomic_long_add(si->pages, &nr_swap_pages);
-> -       total_swap_pages +=3D si->pages;
-> -
-> -       assert_spin_locked(&swap_lock);
-> -
-> -       plist_add(&si->list, &swap_active_head);
-> -
-> -       /* Add back to available list */
-> -       add_to_avail_list(si, true);
-> -}
-> -
->  /*
-> - * Called after the swap device is ready, resurrect its percpu ref, it's=
- now
-> - * safe to reference it. Add it to the list to expose it to the allocato=
-r.
-> + * Mark a fully initialized swap device writable and expose it to the
-> + * allocator. The caller must have resurrected its percpu ref first.
->   */
-> -static void enable_swap_info(struct swap_info_struct *si)
-> +static void swap_device_enable(struct swap_info_struct *si)
->  {
-> -       percpu_ref_resurrect(&si->users);
->         spin_lock(&swap_lock);
+> +int ntfs_attr_set_data_size(struct ntfs_inode *ni, loff_t new_size)
+> +{
+> +	struct ntfs_attr_search_ctx *ctx;
+> +	struct ntfs_inode *base_ni = ntfs_base_inode(ni);
+> +	int err = 0;
 > +
->         spin_lock(&si->lock);
-> -       _enable_swap_info(si);
-> +       spin_lock(&swap_avail_lock);
-> +       si->flags |=3D SWP_WRITEOK;
-> +       spin_unlock(&swap_avail_lock);
->         spin_unlock(&si->lock);
+> +	if (!NInoNonResident(ni) || new_size < ni->initialized_size ||
+> +	    new_size > ni->allocated_size)
+> +		return -EINVAL;
 > +
-> +       atomic_long_add(si->pages, &nr_swap_pages);
-> +       total_swap_pages +=3D si->pages;
-> +       plist_add(&si->list, &swap_active_head);
->         spin_unlock(&swap_lock);
+> +	ctx = ntfs_attr_get_search_ctx(base_ni, NULL);
+> +	if (IS_ERR(ctx))
+> +		return PTR_ERR(ctx);
 > +
-> +       add_to_avail_list(si);
-
-I notice add_to_avail_list(si) now it is out side of swap_lock, what
-lock protects the avail_list, is that swap_avail_lock?
-
->  }
->
-> -static void reinsert_swap_info(struct swap_info_struct *si)
-> +static int swap_device_disable(struct address_space *mapping,
-> +                              struct swap_info_struct **swap_info)
-
-Hmm, this piece of code is moved from swapoff, and it also changes
-lock behavior.
-
-May I suggest splitting this patch into two? Patch 1 should only move
-code for the disable and enable functions, without functional changes.
-Patch 2 should contain the rest of the changes. That will make the
-behavior change easier to digest for me. Right now I need to carefully
-compare the original swapoff code to find out what has changed.
-
->  {
-> +       struct swap_info_struct *si;
-> +       struct swap_cluster_info *ci;
-> +       unsigned long offset, end;
-> +       int err =3D -EINVAL;
+> +	err = ntfs_attr_lookup(ni->type, ni->name, ni->name_len,
+> +			       CASE_SENSITIVE, 0, NULL, 0, ctx);
+> +	if (err)
+> +		goto out_ctx;
 > +
->         spin_lock(&swap_lock);
-> +       plist_for_each_entry(si, &swap_active_head, list) {
-> +               if ((si->flags & SWP_WRITEOK) &&
-> +                   si->swap_file->f_mapping =3D=3D mapping) {
-> +                       err =3D 0;
-> +                       break;
-> +               }
-> +       }
-> +       if (err)
-> +               goto unlock;
+> +	ctx->attr->data.non_resident.data_size = cpu_to_le64(new_size);
+> +	ni->data_size = new_size;
+> +	/* Update data size in the index. */
+> +	if (ni->type == AT_DATA && ni->name == AT_UNNAMED)
+> +		NInoSetFileNameDirty(ni);
+> +	mark_mft_record_dirty(ctx->ntfs_ino);
+> +out_ctx:
+> +	ntfs_attr_put_search_ctx(ctx);
+> +	return err;
+> +}
 > +
-> +       /*
-> +        * Refuse swapoff while the device is pinned for hibernation.
-> +        */
-> +       if (si->flags & SWP_HIBERNATION) {
-> +               err =3D -EBUSY;
-> +               goto unlock;
-> +       }
+>   /*
+>    * ntfs_make_room_for_attr - make room for an attribute inside an mft record
+>    * @m:		mft record
+> diff --git a/fs/ntfs/attrib.h b/fs/ntfs/attrib.h
+> index 9d6bf0320219..0415f817dcf5 100644
+> --- a/fs/ntfs/attrib.h
+> +++ b/fs/ntfs/attrib.h
+> @@ -102,6 +102,7 @@ int ntfs_attr_make_non_resident(struct ntfs_inode *ni, const u32 data_size);
+>   int ntfs_attr_set(struct ntfs_inode *ni, const s64 ofs, const s64 cnt,
+>   		const u8 val);
+>   int ntfs_attr_set_initialized_size(struct ntfs_inode *ni, loff_t new_size);
+> +int ntfs_attr_set_data_size(struct ntfs_inode *ni, loff_t new_size);
+>   int ntfs_attr_open(struct ntfs_inode *ni, const __le32 type,
+>   		__le16 *name, u32 name_len);
+>   void ntfs_attr_close(struct ntfs_inode *n);
+> diff --git a/fs/ntfs/file.c b/fs/ntfs/file.c
+> index 7d93a520566e..86297a1633d4 100644
+> --- a/fs/ntfs/file.c
+> +++ b/fs/ntfs/file.c
+> @@ -22,6 +22,7 @@
+>   #include <linux/overflow.h>
+>   #include <linux/security.h>
+>   #include <linux/slab.h>
+> +#include <linux/workqueue.h>
+>   #include <uapi/linux/ntfs.h>
+>   
+>   #include "lcnalloc.h"
+> @@ -761,12 +762,13 @@ static const struct iomap_dio_ops ntfs_write_dio_ops = {
+>   	.end_io			= ntfs_file_write_dio_end_io,
+>   };
+>   
+> -static ssize_t ntfs_dio_write_iter(struct kiocb *iocb, struct iov_iter *from)
+> +static ssize_t ntfs_dio_write_iter(struct kiocb *iocb, struct iov_iter *from,
+> +				   unsigned int dio_flags)
+>   {
+>   	ssize_t ret;
+>   
+>   	ret = iomap_dio_rw(iocb, from, ntfs_dio_iomap_next,
+> -			&ntfs_write_dio_ops, 0, NULL, 0);
+> +			&ntfs_write_dio_ops, dio_flags, NULL, 0);
+>   	if (ret == -ENOTBLK)
+>   		ret = 0;
+>   	else if (ret < 0)
+> @@ -843,6 +845,80 @@ static int ntfs_expand_for_write(struct ntfs_inode *ni, loff_t end)
+>   	return err;
+>   }
+>   
+> +/*
+> + * End of the last run of clusters allocated on disk.  Holes and delayed
+> + * allocations past it, such as the preallocation of an extending write,
+> + * do not count.  Falls back to the allocated size if the runlist is not
+> + * fully mapped.
+> + */
+> +static loff_t ntfs_allocated_end_on_disk(struct ntfs_inode *ni)
+> +{
+> +	loff_t end = ni->allocated_size;
+> +	ssize_t i;
 > +
-> +       if (security_vm_enough_memory_mm(current->mm, si->pages)) {
-> +               err =3D -ENOMEM;
-> +               goto unlock;
-> +       }
-> +       vm_unacct_memory(si->pages);
+> +	down_read(&ni->runlist.lock);
+> +	if (NInoFullyMapped(ni) && ni->runlist.rl) {
+> +		end = 0;
+> +		for (i = ni->runlist.count - 1; i >= 0; i--) {
+> +			struct runlist_element *rl = &ni->runlist.rl[i];
 > +
-> +       /* Serialize with the WRITEOK check in isolate_lock_cluster(). */
->         spin_lock(&si->lock);
-> -       _enable_swap_info(si);
-> +       del_from_avail_list(si, true);
->         spin_unlock(&si->lock);
-> -       spin_unlock(&swap_lock);
-> -}
->
-> -/*
-> - * Called after clearing SWP_WRITEOK, ensures cluster_alloc_range
-> - * see the updated flags, so there will be no more allocations.
-> - */
-> -static void wait_for_allocation(struct swap_info_struct *si)
-> -{
-> -       unsigned long offset;
-> -       unsigned long end =3D ALIGN(si->max, SWAPFILE_CLUSTER);
-> -       struct swap_cluster_info *ci;
-> +       plist_del(&si->list, &swap_active_head);
-> +       total_swap_pages -=3D si->pages;
-> +       atomic_long_sub(si->pages, &nr_swap_pages);
->
-> -       BUG_ON(si->flags & SWP_WRITEOK);
-> +       end =3D ALIGN(si->max, SWAPFILE_CLUSTER);
-> +unlock:
-> +       spin_unlock(&swap_lock);
-> +       if (err)
-> +               return err;
->
-> +       /*
-> +        * The swap allocator doesn't take swap_lock. Looping through eve=
-ry
-> +        * cluster lock after clearing SWP_WRITEOK ensures that allocator=
-s see
-> +        * the updated flag and that no allocation remains in flight.
-> +        */
->         for (offset =3D 0; offset < end; offset +=3D SWAPFILE_CLUSTER) {
->                 ci =3D swap_cluster_lock(si, offset);
->                 swap_cluster_unlock(ci);
->         }
+> +			if (rl->length && rl->lcn >= 0) {
+> +				end = ntfs_cluster_to_bytes(ni->vol,
+> +						rl->vcn + rl->length);
+> +				break;
+> +			}
+> +		}
+> +	}
+> +	up_read(&ni->runlist.lock);
+> +	return end;
+> +}
 > +
-> +       *swap_info =3D si;
-> +       return 0;
->  }
->
->  static void free_swap_cluster_info(struct swap_cluster_info *cluster_inf=
-o,
-> @@ -3236,7 +3261,6 @@ static void flush_percpu_swap_cluster(struct swap_i=
-nfo_struct *si)
->         }
->  }
->
-> -
->  SYSCALL_DEFINE1(swapoff, const char __user *, specialfile)
->  {
->         struct swap_info_struct *p =3D NULL;
-> @@ -3245,7 +3269,7 @@ SYSCALL_DEFINE1(swapoff, const char __user *, speci=
-alfile)
->         struct address_space *mapping;
->         struct inode *inode;
->         unsigned int maxpages;
-> -       int err, found =3D 0;
-> +       int err;
->
->         if (!capable(CAP_SYS_ADMIN))
->                 return -EPERM;
-> @@ -3258,44 +3282,11 @@ SYSCALL_DEFINE1(swapoff, const char __user *, spe=
-cialfile)
->                 return PTR_ERR(victim);
->
->         mapping =3D victim->f_mapping;
-> -       spin_lock(&swap_lock);
-> -       plist_for_each_entry(p, &swap_active_head, list) {
-> -               if (p->flags & SWP_WRITEOK) {
-> -                       if (p->swap_file->f_mapping =3D=3D mapping) {
-> -                               found =3D 1;
-> -                               break;
-> -                       }
-> -               }
-> -       }
-> -       if (!found) {
-> -               err =3D -EINVAL;
-> -               spin_unlock(&swap_lock);
-> -               goto out_dput;
-> -       }
-> -
-> -       /* Refuse swapoff while the device is pinned for hibernation */
-> -       if (p->flags & SWP_HIBERNATION) {
-> -               err =3D -EBUSY;
-> -               spin_unlock(&swap_lock);
-> -               goto out_dput;
-> -       }
-> -
-> -       if (!security_vm_enough_memory_mm(current->mm, p->pages))
-> -               vm_unacct_memory(p->pages);
-> -       else {
-> -               err =3D -ENOMEM;
-> -               spin_unlock(&swap_lock);
-> -               goto out_dput;
-> -       }
+> +struct ntfs_zero_work {
+> +	struct work_struct work;
+> +	struct inode *inode;
+> +	loff_t pos;
+> +	loff_t len;
+> +	int err;
+> +};
+> +
+> +static void ntfs_zero_workfn(struct work_struct *work)
+> +{
+> +	struct ntfs_zero_work *zw = container_of(work, struct ntfs_zero_work,
+> +						 work);
+> +
+> +	zw->err = iomap_zero_range(zw->inode, zw->pos, zw->len, NULL,
+> +				   ntfs_seek_iomap_next, &ntfs_iomap_folio_ops,
+> +				   NULL);
+> +}
+> +
+> +/*
+> + * iomap_zero_range() gives up with -EINTR when the caller has a fatal signal
+> + * pending, and a writer killed during its copy is one whose short write must
+> + * still be zeroed: zero from a worker then, which has no signal to see.  The
+> + * caller holds the invalidate lock, which keeps page faults out meanwhile.
+> + */
+> +static int ntfs_zero_range_unkillable(struct inode *inode, loff_t pos,
+> +				      loff_t len)
+> +{
+> +	struct ntfs_zero_work zw = { .inode = inode, .pos = pos, .len = len };
+> +	int err;
+> +
+> +	if (!fatal_signal_pending(current)) {
+> +		err = iomap_zero_range(inode, pos, len, NULL,
+> +				       ntfs_seek_iomap_next,
+> +				       &ntfs_iomap_folio_ops, NULL);
+> +		/* the signal may also come while it zeroes */
+> +		if (err != -EINTR || !fatal_signal_pending(current))
+> +			return err;
+> +	}
+> +
+> +	INIT_WORK_ONSTACK(&zw.work, ntfs_zero_workfn);
+> +	queue_work(system_unbound_wq, &zw.work);
+> +	flush_work(&zw.work);
+> +	destroy_work_on_stack(&zw.work);
+> +	return zw.err;
+> +}
+> +
+>   ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   {
+>   	struct file *file = iocb->ki_filp;
+> @@ -853,7 +929,7 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   	ssize_t count;
+>   	loff_t pos, end;
+>   	int err;
+> -	loff_t old_data_size, old_init_size;
+> +	loff_t old_data_size, old_init_size, old_alloc_size;
+>   
+>   	if (NVolShutdown(vol))
+>   		return -EIO;
+> @@ -880,6 +956,21 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   	if (ret <= 0)
+>   		goto out_lock;
+>   
+> +	/*
+> +	 * A direct write that moves the initialized size waits for its I/O
+> +	 * (see ntfs_dio_write_iter() below), which a non-blocking one must
+> +	 * not do, and a resident attribute is written through the page cache
+> +	 * or made non-resident first.  Have the caller retry such a write
+> +	 * blocking before anything is changed, as ext4 does for extending
+> +	 * direct writes.
+> +	 */
+> +	if (iocb->ki_flags & IOCB_NOWAIT && iocb->ki_flags & IOCB_DIRECT &&
+> +	    (!NInoNonResident(ni) ||
+> +	     iocb->ki_pos + ret > ni->initialized_size)) {
+> +		ret = -EAGAIN;
+> +		goto out_lock;
+> +	}
+> +
+>   	err = ntfs_file_modified(iocb);
+>   	if (err) {
+>   		ret = err;
+> @@ -901,6 +992,10 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   
+>   	old_data_size = ni->data_size;
+>   	old_init_size = ni->initialized_size;
+> +	old_alloc_size = ni->allocated_size;
+> +	if (NInoNonResident(ni) && !NInoCompressed(ni) &&
+> +	    old_alloc_size > round_up(old_data_size, vol->cluster_size))
+> +		old_alloc_size = ntfs_allocated_end_on_disk(ni);
+>   
+>   	if (end > old_data_size) {
+>   		ret = ntfs_expand_for_write(ni, end);
+> @@ -922,16 +1017,36 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   		goto out;
+>   	}
+>   
+> +	/*
+> +	 * The sizes were moved to end before the I/O, and only the rollback
+> +	 * at out: takes them back if the write fails.  An asynchronous write
+> +	 * returns -EIOCBQUEUED once it has submitted bios and reports a later
+> +	 * failure, such as a fault on its source or an I/O error, only on
+> +	 * completion, which would skip the rollback.  Wait for such a write
+> +	 * to complete.
+> +	 */
+>   	if (NInoNonResident(ni) && iocb->ki_flags & IOCB_DIRECT)
+> -		ret = ntfs_dio_write_iter(iocb, from);
+> +		ret = ntfs_dio_write_iter(iocb, from, end > old_init_size ?
+> +					  IOMAP_DIO_FORCE_WAIT : 0);
+>   	else
+>   		ret = iomap_file_buffered_write(iocb, from, ntfs_write_iomap_next,
+>   				&ntfs_iomap_folio_ops, NULL);
+>   out:
+> -	if (ret < 0 && ret != -EIOCBQUEUED) {
+> +	/*
+> +	 * Both sizes were moved to end before the copy, so a short write,
+> +	 * like a failed one, must take back what it did not write.
+> +	 */
+> +	if (ret < count && ret != -EIOCBQUEUED) {
+> +		loff_t new_init_size = old_init_size;
+> +		loff_t new_data_size = old_data_size;
+>   		int init_err = 0;
+>   		int data_err = 0;
+>   
+> +		if (ret > 0) {
+> +			new_init_size = max(old_init_size, pos + ret);
+> +			new_data_size = max(old_data_size, pos + ret);
+> +		}
+> +
+>   		/*
+>   		 * Like ntfs_setattr_size(): __ntfs_attr_truncate_vfs()
+>   		 * expects the invalidate lock held across the size
+> @@ -939,14 +1054,57 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   		 */
+>   		filemap_invalidate_lock(vi->i_mapping);
+>   
+> +		/*
+> +		 * A page fault through a shared mapping may have used the
+> +		 * extended initialized size while the write was stalled on
+> +		 * its source, so keep that size and zero what the write did
+> +		 * not reach instead.  [old_init_size, pos) was zeroed before
+> +		 * the write.  Past end, zero the rest of the block that a
+> +		 * buffered copy may have read from disk, unless such a fault
+> +		 * already moved the initialized size past end and zeroed it.
+> +		 */
+> +		if (NInoNonResident(ni) && !NInoCompressed(ni) &&
+> +		    ni->initialized_size > new_init_size) {
+> +			loff_t zstart = max(pos, new_init_size);
+> +			loff_t zend = ni->initialized_size > end ? end :
+> +				      round_up(end, i_blocksize(vi));
+> +			int err = 0;
+> +
+> +			zend = min(zend, new_data_size);
+> +			if (zend > zstart) {
+> +				err = ntfs_zero_range_unkillable(vi, zstart,
+> +								 zend - zstart);
+> +				/* A direct read must not see the old blocks. */
+> +				if (!err && iocb->ki_flags & IOCB_DIRECT)
+> +					err = filemap_write_and_wait_range(
+> +						vi->i_mapping, zstart, zend - 1);
+> +			}
+> +			if (!err)
+> +				new_init_size = min(ni->initialized_size,
+> +						    new_data_size);
+> +			else
+> +				new_init_size = min3(ni->initialized_size,
+> +						     zstart, new_data_size);
+> +		}
+> +
+>   		/* ntfs_attr_set_initialized_size() rejects a resident one. */
+> -		if (ni->initialized_size != old_init_size &&
+> +		if (ni->initialized_size != new_init_size &&
+>   		    NInoNonResident(ni)) {
+>   			struct ntfs_inode *mrec_ni = ntfs_base_inode(ni);
+>   
+> +			/*
+> +			 * Only reached when the zeroing above failed or did
+> +			 * not apply.  Drop what was cached past the new
+> +			 * initialized size, as __ntfs_extend_initialized_size()
+> +			 * does.
+> +			 */
+> +			if (ni->initialized_size > new_init_size)
+> +				truncate_pagecache_range(vi, new_init_size,
+> +						max_t(loff_t, i_size_read(vi),
+> +						      ni->initialized_size) - 1);
+>   			mutex_lock(&mrec_ni->mrec_lock);
+>   			init_err = ntfs_attr_set_initialized_size(ni,
+> -					old_init_size);
+> +					new_init_size);
+>   			mutex_unlock(&mrec_ni->mrec_lock);
+>   		}
+>   		/*
+> @@ -955,13 +1113,30 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   		 * the uninitialized tail, so skip it unless the rollback
+>   		 * above restored that size.
+>   		 */
+> -		if (ni->data_size != old_data_size && !init_err) {
+> +		if (ni->data_size != new_data_size && !init_err) {
+>   			struct ntfs_inode *mrec_ni = ntfs_base_inode(ni);
+>   
+> -			truncate_setsize(vi, old_data_size);
+> +			truncate_setsize(vi, new_data_size);
+>   			mutex_lock(&mrec_ni->mrec_lock);
+> -			data_err = __ntfs_attr_truncate_vfs(ni, old_data_size,
+> -					old_data_size);
+> +			if (NInoNonResident(ni) && !NInoCompressed(ni)) {
+> +				/*
+> +				 * Only free what the write allocated, not
+> +				 * clusters that were there before, such as
+> +				 * space reserved with FALLOC_FL_KEEP_SIZE.
+> +				 */
+> +				loff_t keep = max(new_data_size,
+> +						  old_alloc_size);
+> +
+> +				if (ni->allocated_size > keep)
+> +					data_err = __ntfs_attr_truncate_vfs(ni,
+> +							keep, keep);
+> +				if (!data_err && ni->data_size != new_data_size)
+> +					data_err = ntfs_attr_set_data_size(ni,
+> +							new_data_size);
+> +			} else {
+> +				data_err = __ntfs_attr_truncate_vfs(ni,
+> +						new_data_size, new_data_size);
+> +			}
+>   			mutex_unlock(&mrec_ni->mrec_lock);
+>   			/* Like ntfs_setattr_size(): stay on the durable size. */
+>   			if (data_err)
 
-This is the source of the code move.
+Looks good to me.
 
-Chris
+Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
 
-> -       spin_lock(&p->lock);
-> -       del_from_avail_list(p, true);
-> -       plist_del(&p->list, &swap_active_head);
-> -       atomic_long_sub(p->pages, &nr_swap_pages);
-> -       total_swap_pages -=3D p->pages;
-> -       spin_unlock(&p->lock);
-> -       spin_unlock(&swap_lock);
-> +       err =3D swap_device_disable(mapping, &p);
-> +       filp_close(victim, NULL);
->
-> -       wait_for_allocation(p);
-> +       if (err)
-> +               return err;
->
->         set_current_oom_origin();
->         err =3D try_to_unuse(p->type);
-> @@ -3303,8 +3294,8 @@ SYSCALL_DEFINE1(swapoff, const char __user *, speci=
-alfile)
->
->         if (err) {
->                 /* re-insert swap space back into swap_list */
-> -               reinsert_swap_info(p);
-> -               goto out_dput;
-> +               swap_device_enable(p);
-> +               return err;
->         }
->
->         /*
-> @@ -3364,13 +3355,10 @@ SYSCALL_DEFINE1(swapoff, const char __user *, spe=
-cialfile)
->         p->flags =3D 0;
->         spin_unlock(&swap_lock);
->
-> -       err =3D 0;
->         atomic_inc(&proc_poll_event);
->         wake_up_interruptible(&proc_poll_wait);
->
-> -out_dput:
-> -       filp_close(victim, NULL);
-> -       return err;
-> +       return 0;
->  }
->
->  #ifdef CONFIG_PROC_FS
-> @@ -3792,7 +3780,7 @@ SYSCALL_DEFINE2(swapon, const char __user *, specia=
-lfile, int, swap_flags)
->         /*
->          * Allocate or reuse existing !SWP_USED swap_info. The returned
->          * si will stay in a dying status, so nothing will access its con=
-tent
-> -        * until enable_swap_info resurrects its percpu ref and expose it=
-.
-> +        * until swap_device_enable resurrects its percpu ref and expose =
-it.
->          */
->         si =3D alloc_swap_info();
->         if (IS_ERR(si))
-> @@ -3960,7 +3948,8 @@ SYSCALL_DEFINE2(swapon, const char __user *, specia=
-lfile, int, swap_flags)
->         si->swap_file =3D swap_file;
->
->         /* Sets SWP_WRITEOK, resurrect the percpu ref, expose the swap de=
-vice */
-> -       enable_swap_info(si);
-> +       percpu_ref_resurrect(&si->users);
-> +       swap_device_enable(si);
->
->         pr_info("Adding %luk swap on %s.  Priority:%d extents:%d across:%=
-lluk %s%s%s%s\n",
->                 K((unsigned long)si->pages), name->name, si->prio, nr_ext=
-ents,
