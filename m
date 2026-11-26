@@ -1,100 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.203
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.52
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795716534;
-	b=IOOFDdC8ryHialLpwaVuLamL8AsvflNqGCnh/5iUKlWv4KqaEw225extsNUBxYemhlAB
-	 EyTevONN5pl/q9NcA/DOp19BsNUarzG2ZElN7P0KW3kqgOt9TDbQwqrwjOJCR3nlFxSIt
-	 oS4NSpS6aZTinwTefCNOScaQsV4hkHTASDNO+5b4jKvEz5nftncIeHZbUmILfADsdlIT5
-	 Itsc94NZbMLOkn+0bsCjO1gy+ZzjUXlJSLNgsc2IRLCTLp77S0e+bjyZ5QsQxmQcOtX1P
-	 gJL5cQzZVP+JWu6V8sGBqycaRtxeRq+y0g9o5v4Rv8HV5mWa+xM8kt/rQeAJyZKaXTA==
+	t=1795716549;
+	b=LI7KeofljY2ofBrneZsn9Ye7H3GA1eBSTxzX4X/CzaPc7iPnio0iRtzDsRdbg2MLPN+r
+	 dxHQ8NAVZpkWfFP0/NfwEEQ2ixjgNg1QDoA7LatzhxFk4qxXjGbPk5C6KTUX5dEEhzfbZ
+	 afSlw9rsfspobhCOraJaVHm6QviUgqwU7goMwCUpXLy9fMfigvlJ4pR/9ir0mn6MpjHSw
+	 YVCd6S2TM1bwDgyS3qyXYYcB+iUioU/F1mOpRFOk6AUNSKEgjkPDezuXuDyBhx7gkFBVC
+	 UhToR8mCZPX3XWeH0Pou6fi2I2EME047Dm5eJLKQ1GZpLWuZn8rfJi0EqtK2DUhOWTg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795716534;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=GPDH5iymDD1XKiojTuDMjg7ZZbxBabRJM2yU5TRq6AU=;
-	b=s2d7P25HzVUcnC5GpvrrSPMu31EtKgq3KPq36rlj3h3cspHQdmfSCCyn76JZgX/KWmjS
-	 Oklv7qVI8D6dzel0rlYzfVCA050Zh5lFHhcSejfcliXp0JnxQ+6LctBfwn9hdmhZu6rUZ
-	 J9xfgYkE7+XxlMOFq4Wb/pTSzzzwiIekcXo8GW0qSRlGKO5NdZd8PzadvZ4nihFWkyOoA
-	 Cd4dri4usONR2xuWXzD2BS3COScaALLSYQkVfJLJpTTXX2gQrGFOCiL8N8PU7FDigROf8
-	 dhGNBnPxlW/tmhZjL68frEz0pOU1H80I/cxwYXfQZyI9AOl5JveRggEkeiRgH36WMtg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795716549;
+	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
+	 Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=D/H2hmBkel5r7PxyanGspqrcmMdjq0Z9XFarNnWPEQ8=;
+	b=Q06JdefsxCqLWGmaajNSOCSIxI4JvyUso29HqJpDY3BPYz++D0uonCSeu64C5KTDWsar
+	 Hi0VRhidQI2ZEv6hM4zjgQH4G5d62T65Fh/dTYFJ0zoWFSxA8Dbadd83AvdSl9o2EfHWO
+	 owaQpghr6UkLUGw/R5308o9PVYdVDBWl4JT1Xd3Sqr2kvPfki0EQNE4R45D0g5oUnlOFA
+	 Fl8lm6FC5XBxIVH9uWY0FdyvhWKH8NwFI83s+CrOdwPlmTS/uiHe/mgbOp4eNdaOQXhcE
+	 m6e1EHylMxjoIou6bKSdkEMxzWYuTU1AUE4OBgebOxzkLQRiRhUtdXuI4+Hfy+fuY+w==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M5y2t0eW;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.203
-Received: from mail-oi2-f11.google.com (mail-oi2-f11.google.com [74.125.231.203])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=iokpp.de;
+	spf=none smtp.mailfrom=iokpp.de;
+	dkim=pass header.d=iokpp.de header.i=@iokpp.de header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=PAaokdy+;
+	dkim=pass header.d=iokpp.de header.i=@iokpp.de header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=onydZ5oR;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.52
+Received: from mo4-p01-ob.smtp.rzone.de (mo4-p01-ob.smtp.rzone.de [85.215.255.52])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79D95606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 18:08:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79D95606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB102606A31E;
+	Thu, 26 Nov 2026 18:09:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB102606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=iokpp.de
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=iokpp.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M5y2t0eW
-Received: by mail-oi2-f11.google.com with SMTP id 5614622812f47-568042aaf90so1040494b6e.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:08:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795716533; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ZMdQR6CVcDtix8SZuPEs0eqthmDhEy50ORT91Tb5LYyfpzbw13tdVb5D7WJHZCoMbw
-         Mz7HpSsFE97NTyj3TBNrITwXTqyBQW2UUXtjMQuXteH1eIZvD6f2lytwVDGANRuhZ/JE
-         gWuOyWspb0+SzXt+e12BfcSHoH3EO6K6VnTwz9KYkQ5NUFxMY1byNvX95qVlB7CTeUcx
-         qlBbQveGhkiK0GAhsgeZgh4W2wHYIuPRVCUrxljyuQyYvPt642WtO8AS1aHZMSgD/2tW
-         iC1H+xfa6fC9Kg6Drz0K1vAa4y2IvU1S1n2jmVnT4mi1+Nb+OPSCMcTlMNeLBWD3ioxX
-         0ROA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=GPDH5iymDD1XKiojTuDMjg7ZZbxBabRJM2yU5TRq6AU=;
-        fh=eFRz7D6cR/a7eod2dvAfU0tVezDUKZJSufcxE6/gSFY=;
-        b=qkzdlciYaGB5qMrthA4P+pZwJldyg0DWa9KZSKtUukWy0LNx//nuJrDiz3KBYW8ZJy
-         JiqHR3nZfOBO492BCaeYwFdXeGfoPyoin+VyiIuzyJQvXoWKzqeQlqybWYavJLfokQl3
-         q29vc9EuAtzeKjZcCOkAq8X9K2QKSvLIVdGyGfQoqJtt2TGqKtRg5qFDCH/Gct+tx7Wr
-         niJQciDzmq45oSj1X5otSg3S4VTjj0Su1yZJTrJmfDvDGSgZiL9K+dZupozJSLo7vd93
-         s+WNZLqPIOfiz1xBUJ9/k4obCroNvbr0L0ik2umWWQMnSNCCulWAUpAIX+oEovx+cwP+
-         UEoQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795716533; x=1796321333; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GPDH5iymDD1XKiojTuDMjg7ZZbxBabRJM2yU5TRq6AU=;
-        b=M5y2t0eW699s8skqtUYN0i50s4bbAZ/h5qrTZoU0S3m81uLm32Ezh8TD3xFGtlERN4
-         Lrx8DZkcjPtPC7qYdoBmulkkS9yTt6kKgp1sx7xxUdEU4BXb+rOYD+u6leFPG2WFIGJ6
-         MFlKpGiFojNKsRS/MXkZs3J7nxs4RbI59qRdJ8yMwCCt7vj3ZE8sYKQxW+CIZMAfgyCJ
-         AwnvyRu5lig0WXf9/QiPpD5sgmOaIia1PTW4UIpsx6hl4beFTdQBiLvaM6aHQ3YIOLQY
-         ZMKlDbNbCJ7E9K2cvPbLYmPHh4l7b7Yvl82BmQAVbuQJZJUn5wVBm1nHK7cwRWdE1NeI
-         Z0rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795716533; x=1796321333;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=GPDH5iymDD1XKiojTuDMjg7ZZbxBabRJM2yU5TRq6AU=;
-        b=D95SQi54m83HrBU6oXRThgrRLwfqjx6wkwN/DgILtRPMIxvToMvWRV+RekovTRjO6v
-         tj+3xJsnhrlefkrGmZtpC5QoNO6zqkRNeu8wzPcSrf22R9fahg7M7qVagwAhjssXnFs5
-         1omsHQOqWqF9E6fhp3AJC0CiY63LZBRq5/uc8L1wzPd7qb/3LKEybxlR4CR0B6OhGm/J
-         T1ncXopMF9UlzJjDrYJav7pBej3GnHibxuMDj+K2Dqu7/273w4xFo5zDrZ5wegQ6oKUK
-         jJkbJlT5fcmxyw0gNps7uOJUR+iyG8wV2EgN1SZoOEgBqqnVKIU8iNYJ2gYbRJtMaGDs
-         ldww==
-X-Forwarded-Encrypted: i=1; AL+hErF+cB5WBGYUYfZBQNTl2keqrv2DAJhljJkCFdvtV7tj1ocTX0cZ3oA60p/UxRd+z978jAFSvBtX9cdaBUo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8CKE8eTetlGpeczPDe/MeORs3quXj+4nN7JEAXQaT4ua3CwEfE
-	kY2objl9DiZzDavAjWJ9BRHX8sozE0tKn8xz9mUUVJaPyFeL/v4Dqtgz8VE3XXkHU51OsKhmssU
-	Ee5lq4pRXVr43an8nRQgkI0wxhXTCJL4=
-X-Gm-Gg: AZFdTZd/PvzcYUK0V73m1QYZ61HTSq6CgO0E9QO6O4y3WgXMsyutlWhV93zCYrPl2kS
-	OzPhjUpZ5L14hvL09j5rh87HZBMMz7dMFds0SOA63M0iqIcA0D8o8aiTM9f5ahfhMTf1SCezPzp
-	xnm6y2kXk9PJfSNPSvNvm5uz9n+0g2K3tocxpXlokc+C2Tqzap17avnEA6ZFgkNU7iQQx1jyJLs
-	n2QZYnqnhmpmabz80s4WF5PQ794X2VohRy+YQW6ZaW9yK1exdurxGSAVZyA4/K5ECjaXVkDwFD1
-	E0joGsg2DCCniiBVTn4tftiPyZ8Y+APBNjbw5sqBR/sfOLBSFQZKubitT3JstgbIQocFFYi7/LX
-	JMj9XfQJt9aht635cDo2ImU9AdfyKoYDSsZjc/n3yohIFRk970y5c5FZkyFEWQkOCxvEnn2b0uN
-	oMkx0JlYW08fDv8ee3B9tFfHb3EMnoAL9biVU9MqpoJwTYnKp9uzHy
-X-Received: by 2002:a05:6808:16a7:b0:567:c40e:c79e with SMTP id
- 5614622812f47-57a0a7199a1mr21127806b6e.24.1795716533448; Thu, 26 Nov 2026
- 10:08:53 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=iokpp.de header.i=@iokpp.de header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=PAaokdy+;
+	dkim=pass header.d=iokpp.de header.i=@iokpp.de header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=onydZ5oR
+ARC-Seal: i=1; a=rsa-sha256; t=1795716544; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=kFS9IWYeFep1pEpF32GdXXPbX8G0oTPXnVWiosT6GMHOzfSqhQKd95H/xs7tzYsIuR
+    0n6I990nQaw+YeiJiA0Ut1IOOotdPN7lS2rnTmZxhp3U5opga+4As9y2xQWhjTyrYW6g
+    3KSfgOidZi+L3EDjGLh6vjt7wF+OHsxISfObmlU0MUyFQRvSHgAi+d6guCFqE/krsLaf
+    ytPbNfVOeczlebUi1kcY8nx+4vP6fAgjX4bj6Vljsl9gqHgvVcaS7Gzf3rR4F/drLy2G
+    FkFuof53bJS9ial8tzKxH99HVuxTJKlAnUggt3UkWIoais+OcCz74PCS6Ltu41GlYmXK
+    zOPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795716544;
+    s=strato-dkim-0002; d=strato.com;
+    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=D/H2hmBkel5r7PxyanGspqrcmMdjq0Z9XFarNnWPEQ8=;
+    b=liHmrGtS8+1FMhprBsClLXuwSNF/t4WKEemoQdZ9SK6c06KHcFkB0CBNuHZ7LtJvq+
+    ropF3QPR9ywUMqMIg53wv5szDxC6Yfsw6BCoSkzDMzIGLFHoZvYMLQnPMJW0l1TzGT93
+    5Ql5UrLVI58YB/nftWxKelxaml12p1SCXqKaX/1XT6d0lzX4o/DYelncrfGVbFtdMybT
+    cvLxaZVZy6BGBQLFlssWjh6V7FLWv6vVTwM6/1PFksae3f8S3QhHcP826C05GgyiAYw8
+    lwaQIccOkEtzbQGS5/c8tqWWQiHj/FXJ02kjhRtfUW8vqNQyBLlLhwWeghKkWKNvl8pH
+    P+SQ==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795716544;
+    s=strato-dkim-0002; d=iokpp.de;
+    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=D/H2hmBkel5r7PxyanGspqrcmMdjq0Z9XFarNnWPEQ8=;
+    b=PAaokdy+dln4icIx5SESUhSfuAidhgx4XCyVTDcCxw97wmdGcqzMfGgsiiDqBGJcTo
+    5oYt1hbOXaaDEWKIoV976tkVLsDXjfojldQtFQ+hRi0CnU1lUS2/2BZrsVdx40s+UFvn
+    CjgwdYKWUbBd5UXo/Iy4903+mV949p80XmQW5WUJJpx6uegJwCyLoa+Xyhvze+f54nOC
+    xKYswvocBBYyEirKLlY77hetVOSib1e+hUX3V6/f/BRFvlF6Qdvuar0qD20l34vLSdtv
+    V2NHvoIr2wKjUqjpquiLnRZ+/BDqFxhHyLYhHSUYftW0lzy8wJunV+GZFXK0cWuGzdF+
+    EB9Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795716544;
+    s=strato-dkim-0003; d=iokpp.de;
+    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=D/H2hmBkel5r7PxyanGspqrcmMdjq0Z9XFarNnWPEQ8=;
+    b=onydZ5oRETOH5Ir4P/Y5nslTmiFk40SYnN4JuwsLyfqCEN+mQDIHJyITzXBxSB8WN5
+    aHEI+pz32/629k1LElCg==
+X-RZG-AUTH: ":LmkFe0i9dN8c2t4QQyGBB/NDXvjDB6pBSe9tgBDSDt0V0zNriHg+YfT0rGaTpIu+/rGHySpF6c+UiLF2EuI+KdD9FHsLX5A="
+Received: from p200300c58723293d726ec4ea6d904a99.dip0.t-ipconnect.de
+    by smtp.strato.de (RZmta 55.6.3 AUTH)
+    with ESMTPSA id z831ad2AQI93eoI
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Thu, 26 Nov 2026 19:09:03 +0100 (CET)
+Message-ID: <3ee1e205429612ff8448bae9a1e1b0af11a44302.camel@iokpp.de>
+Subject: Re: [PATCH] scsi: ufs: core: disable exception work before removing
+ hwmon
+From: Bean Huo <beanhuo@iokpp.de>
+To: Yaohan Li <shunsheng1218@gmail.com>, "Martin K . Petersen"
+ <mkp@kernel.org>,  "James E . J . Bottomley"
+ <James.Bottomley@HansenPartnership.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>, Bart Van Assche
+ <bvanassche@acm.org>,  Bean Huo <beanhuo@micron.com>, Stanley Jhu
+ <stanleyjhu@google.com>, linux-scsi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+Date: Thu, 26 Nov 2026 19:09:03 +0100
+In-Reply-To: <20261126111400.2828356-1-shunsheng1218@gmail.com>
+References: <20261126111400.2828356-1-shunsheng1218@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4-0ubuntu2.1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,35 +109,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261126045222.20770-1-dennylin0707@gmail.com> <awgPDmEbGpJsT_iS@redhat.com>
-In-Reply-To: <awgPDmEbGpJsT_iS@redhat.com>
-From: Hungyu Lin <dennylin0707@gmail.com>
-Date: Thu, 26 Nov 2026 10:08:42 -0800
-X-Gm-Features: Aa3M54o_0peM6H-aXQD7e8ntI65htstUEnHPSULUoro50ukRn0p_g-FggU8niJE
-Message-ID: <CAGEkeHcK2rSWyQOp5a6Ub2SJ4wi8qK_Wz5uKH0WN+pLksL9jLw@mail.gmail.com>
-Subject: Re: [PATCH] proc: also check the opener's capability for
- oom_score_adj and oom_adj
-To: Oleg Nesterov <oleg@redhat.com>
-Cc: akpm@linux-foundation.org, brauner@kernel.org, adobriyan@gmail.com, 
-	jannh@google.com, jack@suse.cz, sforshee@kernel.org, me@black-desk.cn, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 
-On Thu, Nov 26, 2026 at 11:50:54AM +0100, Oleg Nesterov wrote:
-> do we really need to keep the old capable(CAP_SYS_RESOURCE) check?
->
-> If a privileged opener of /proc/<pid>/oom_score_adj passes fd to
-> to unprivileged writer, we probably don't care?
+On Thu, 2026-11-26 at 19:14 +0800, Yaohan Li wrote:
+> ufshcd_remove() unregisters the hwmon device while hba->eeh_work can
+> still be running. A SCSI completion can also queue hba->eeh_work later
+> during scsi_remove_host(). When the worker runs ufs_hwmon_notify_event(),
+> it can access the freed hwmon device and trigger a use-after-free.
+>=20
+> Disable and drain hba->eeh_work in ufshcd_remove() before removing
+> hwmon. This ensures any running handler finishes while hwmon is still
+> present and prevents later SCSI completions during removal from
+> requeuing the work.
+>=20
+> Fixes: 66ec6d59407b ("[SCSI] ufs: Add support for host assisted backgroun=
+d
+> operations")
 
-A write that needs CAP_SYS_RESOURCE still needs it from the writer,
-even if the opener was privileged. For example, a task can open its
-own oom_score_adj with CAP_SYS_RESOURCE and still have the fd after
-dropping that capability and calling execve(). If we only check the
-opener, it could then lower its value down to OOM_SCORE_ADJ_MIN, and
-any children it creates afterward would inherit that.
+please double check this fix tag, should be  e88e2d32200a, where hwmon came=
+ in?
 
-I kept capable() so that a fix for stable doesn't relax anything. Or do
-you think the opener check alone is enough?
-
-Thanks,
-Hungyu
+Kind regards,
+Bean
