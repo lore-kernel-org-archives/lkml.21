@@ -1,83 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691362;
-	b=I20BmDoUdVjkwy66L9dBz8HuWPXjRACKdn7wlGdbXEGX7HRFORHJLOrGp97m4ZL1uSgX
-	 rWDfyVSkzZvDfd2+O90t7VddNRTm/e6JtboPFmWhW5FbnE9Vsbc0M55r7funL02jm4FD5
-	 a8Y7vG2g7e1XCZeYUvam4H5N/GSe6QVGpUIkmLn9PAausF35KYLjyhaRMv0axbsTvwBkg
-	 w/IufuVayCSp9MrtvmlMfu02p+B5NHhsItCa0RreZ2BrjoBT7waKPQM/aIhKIDpUfkbPP
-	 Cifyf/H+ToPMjPVPKG/guRsO2+tFe/bBB+4oP2kf2jt4o1jXeisgxUM3FjPCDA3R7Iw==
+	t=1795691371;
+	b=0cOqxqdsPlXV7E/E/OJ0Nm06qZ7yRiIyK+69nX2PVf9QUkL1OtaRnz8hFVm/28U04Hd5
+	 RMyM+Zy87n3duNBa/gWMRwyhv6/Yw+e+c/naFhT/GFxbMQ0u8xOq5D7srcdZYv/0d8Fr8
+	 mRilPbx+Oj7JgETa+XWfJs9lEAFGvIvXBvQhFiBvhbeM49TlWTzgd7AL0ZOSeTITCrDrZ
+	 TDmGW7x1tYD5K7bK4gjFXXPNmA3iFvzloOT8i6TjYV4mrRwUrh9hj9rkuao4zF5qn4SkN
+	 jflqS/TY2kUxiq5JrXO74G4z8RtNIhEPILq+fM1hYJ4dBoAdnB4YG1H/m2qHUI4X+mA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691362;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=y1/wD7Wi9STowuQTsl3HDTiGkdek0lFr2Qc9ETyKkHc=;
-	b=RJ3Tb6I9uuKtkvwAcsoMUxm6XC+nRLNRbLW8JxxbQvQZQuJO1TUadCpmYjE9mn7kVJ3E
-	 n8bGnEf36Z2i0WzQ/jz9elUfT5+zokdywjgWYJjGx+wqvX2ZqUdUlDFevJeYJRkKCLvrF
-	 umc9yT1CUwt3mWaDjCaotqV+YUOnfdymYytXoFaPaqYF2QEyvTqCQhdPRM4IiwfuQpywV
-	 PLG+s2RKqjnjAbl2ciUF1tSqieWn1nhm3/33AwBOk+dYY03E7NHrlkdlGuHlTEEUeH+ZW
-	 DyXazsw1k9kybXtSJOEBqDjg90kn/XgRhx/XdyQHYSY8Hzd1VBeMt/n77z3wJV/RLDg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691371;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=hfFhpia+LZFuVx/OFbiIekuEuJw2eEfcPbvtcN3sbs8=;
+	b=5QceOC/RfsQsweDhMmccES3gL9DkAE1jR2g2bQODekiuSV3j81M11/nwWWj3j0wSMQmJ
+	 i2JO0aJPOD3QPqPniElR74+Ot/gOQznNJYD2wQcxm1IuzvXh5PRFKq/pb2jF3nPiFMvg1
+	 BInp7AXvbOJETRarBveMRjoBFinyUDx9VlXnRwcQa6A3wUS7zmaOqnp4h6/sIPnafHjcK
+	 KIYU+3YpNkpAL8woySnkoVDVWpVmn2bKY3d1NOyPOS/+1bez2Uuv5DYRr/Mdyx0x3HpUj
+	 ne+ilHsAtRVTBQzBJnny87mnXMC+dYPAy1zXOTRKQB9DH+ew3BBM9wY+PIwSO5sqIVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=CT0q90WV;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=DXCubim9;
+	arc=none smtp.remote-ip=115.124.30.130
+Received: from out30-130.freemail.mail.aliyun.com (out30-130.freemail.mail.aliyun.com [115.124.30.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75E68606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:09:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75E68606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69E58606A31E;
+	Thu, 26 Nov 2026 11:09:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69E58606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=CT0q90WV
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id AEA2C4E4179C;
-	Thu, 26 Nov 2026 11:09:19 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7CAF460237;
-	Thu, 26 Nov 2026 11:09:19 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A61D211E6B368;
-	Thu, 26 Nov 2026 12:09:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795691353; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=y1/wD7Wi9STowuQTsl3HDTiGkdek0lFr2Qc9ETyKkHc=;
-	b=CT0q90WVIJc4zyZoQOxtFRwovUp/lD1tvYC8y28IdlSTZHylCR+SJOmgbdnavDoSIkKJZ7
-	UQHzhfp1dRSy6+1mQ58pLkQKWb6rDLC50feZHn9Pd5znOcWpj7D5Q9l8chtedbMZd2oDLJ
-	ZmLDRvMzlrHQxZPH5Eic6XzwoJQMgIXhdfgkIsLG7EiBT8CbTTjEdoIHRCvVjU+Te4B3r8
-	AQFb4tWn9rZC2cYUS3f3KjYpHTHLUb6guHhBk2tbVLMW1Bfs4Eaee4bo7sjgUwuMgJ4yos
-	1IXLZNk6X6lqfWFueUY4owHyk7QJ2sJAxW6L5yGfOuj+wpDnU0wIA23rihiUPw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Liang Yang <liang.yang@amlogic.com>,  Feng Chen <feng.chen@amlogic.com>,
-  Xianwei Zhao <xianwei.zhao@amlogic.com>,  Han Xu <han.xu@nxp.com>,  Conor
- Dooley <conor.dooley@microchip.com>,  Valentina Fernandez
- <valentina.fernandezalanis@microchip.com>,  Daire McNamara
- <daire.mcnamara@microchip.com>,  Haibo Chen <haibo.chen@nxp.com>,  Jyan
- Chou <jyanchou@realtek.com>,  Yu-Chun Lin <eleanor.lin@realtek.com>,
-  Maxime Coquelin <mcoquelin.stm32@gmail.com>,  Alexandre Torgue
- <alexandre.torgue@foss.st.com>,  Pratyush Yadav <pratyush@kernel.org>,
-  Michael Walle <mwalle@kernel.org>,  Takahiro Kuwano
- <takahiro.kuwano@infineon.com>,  Richard Weinberger <richard@nod.at>,
-  Vignesh Raghavendra <vigneshr@ti.com>,  Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>,  Alvin Zhou <alvinzhou@mxic.com.tw>,
-  Cheng Ming Lin <chengminglin@mxic.com.tw>,  linux-spi@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
-  imx@lists.linux.dev,  linux-riscv@lists.infradead.org,
-  linux-stm32@st-md-mailman.stormreply.com,
-  linux-arm-kernel@lists.infradead.org,  linux-mtd@lists.infradead.org
-Subject: Re: [PATCH RFC 00/16] spi: spi-mem: Express the dummy phase using
- cycles when relevant
-In-Reply-To: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
-	(Miquel Raynal's message of "Wed, 25 Nov 2026 18:51:14 +0100")
-References: <20261125-macronix-upstreaming-spi-mem-cycles-v1-0-fd036402fd37@bootlin.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Thu, 26 Nov 2026 12:09:05 +0100
-Message-ID: <87wlpzx31q.fsf@bootlin.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=DXCubim9
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795691355; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=hfFhpia+LZFuVx/OFbiIekuEuJw2eEfcPbvtcN3sbs8=;
+	b=DXCubim9e5pAZHD92EhTzGaDT6o5v+l+aqDP8kjDxNZpK+s0z7SiL135Y4FzvEE4A5G/7rUkCNJQBCHdL91jKN+FdZgT8Jpo4nAtFhWh46k/KTgwd6nwmp25/htCNo9H1M/ZdoifgOiNHcwq49KWv8Jf8jnMAby05tu+tpo5Bgc=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R911e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=jiangtianfeng@linux.alibaba.com;NM=1;PH=DS;RN=8;SR=0;TI=SMTPD_---0XFUIyJA_1795691345;
+Received: from h68d07384.sqa.eu95.tbsite.net(mailfrom:jiangtianfeng@linux.alibaba.com fp:SMTPD_---0XFUIyJA_1795691345 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 26 Nov 2026 19:09:15 +0800
+From: Jiangtian Feng <jiangtianfeng@linux.alibaba.com>
+To: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>
+Cc: linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Christian Loehle <christian.loehle@arm.com>,
+	Ananthu C V <ananthu.cv@oss.qualcomm.com>,
+	Pierre Gondois <pierre.gondois@arm.com>,
+	Jiangtian Feng <jiangtianfeng@linux.alibaba.com>
+Subject: [RFC PATCH] cpufreq: Keep global boost enabled after partial enable
+Date: Thu, 26 Nov 2026 19:08:52 +0800
+Message-ID: <20261126110903.3747240-1-jiangtianfeng@linux.alibaba.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,27 +64,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
+When global boost is enabled from the disabled state, a failure after
+one or more policies have been updated successfully currently restores
+the global flag to 0 without rolling back those policies. This leaves
+them locally enabled, with their boost-related driver/QoS updates
+retained, while the global flag rejects per-policy sysfs writes.
 
-> Convert spi-mem, all the trivial spi-mem controller drivers and then
-> SPI NOR to use dummy cycles instead of dummy bytes. SPI NAND may come
-> later.
->
-> This is only build tested for the moment and sent as an RFC because this
-> topic has raised a lot of questions, there may be things I have
-> forgotten about, so I would like all parties to agree on the direction
-> before I commit into something cleaner. I bet Sashiko will also have
-> interesting feedback to make...
+Keep the global flag enabled if at least one policy_set_boost() call
+succeeded, while preserving the existing error return path. Global
+boost = 1 grants permission to boost; it does not require every policy
+to have boost enabled. The mixed per-policy state is therefore valid
+and individual policies remain accessible through per-policy sysfs.
 
-I made several trivial issues in the controller's conversions which
-triggered a lot of Sashiko answers expressing the feeling that the
-patchset was not ready. The important part clearly are the spi-mem
-changes, the modifications on top are almost independent follow-ups
-showing why this may be useful. Nevertheless, I'm gonna address all
-those issues and send a v2 with hopefully less obvious issues.
+Retain global-state restoration for enable failures without a
+successful policy update, same-state resynchronization failures, and
+disable failures. Do not roll back earlier policy updates.
 
-Thanks,
-Miqu=C3=A8l
+Qoder, an AI coding assistant, helped analyze the issue, develop the fix
+and state matrix, and draft this description.
+
+Fixes: 218a06a79d9a ("cpufreq: Support per-policy performance boost")
+Signed-off-by: Jiangtian Feng <jiangtianfeng@linux.alibaba.com>
+---
+
+Validation:
+- mainline ARM64 defconfig build of the complete Image
+- checkpatch.pl
+- eight-case old-global/request/success state matrix
+- independent static control-flow and locking review
+
+NOT_RUN:
+- runtime fault injection or reproduction with multiple policies
+- global/local concurrency, hotplug, lockdep or KCSAN testing
+- CPPC, SW frequency-table, ACPI or AMD hardware frequency/QoS testing
+
+ drivers/cpufreq/cpufreq.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
+index 4332cb114070..f23b64c2e620 100644
+--- a/drivers/cpufreq/cpufreq.c
++++ b/drivers/cpufreq/cpufreq.c
+@@ -2887,6 +2887,7 @@ static int cpufreq_boost_trigger_state(int state)
+ 	struct cpufreq_policy *policy;
+ 	unsigned long flags;
+ 	bool boost_enabled;
++	bool policy_success = false;
+ 	int ret = -EOPNOTSUPP;
+ 
+ 	guard(mutex)(&cpufreq_boost_mutex);
+@@ -2911,6 +2912,8 @@ static int cpufreq_boost_trigger_state(int state)
+ 		ret = policy_set_boost(policy, state);
+ 		if (unlikely(ret))
+ 			break;
++
++		policy_success = true;
+ 	}
+ 
+ 	cpus_read_unlock();
+@@ -2918,10 +2921,15 @@ static int cpufreq_boost_trigger_state(int state)
+ 	if (likely(!ret))
+ 		return 0;
+ 
++	/* Keep partial enable usable and repairable through local sysfs. */
++	if (state && !boost_enabled && policy_success)
++		goto out_err;
++
+ 	write_lock_irqsave(&cpufreq_driver_lock, flags);
+ 	cpufreq_driver->boost_enabled = boost_enabled;
+ 	write_unlock_irqrestore(&cpufreq_driver_lock, flags);
+ 
++out_err:
+ 	pr_err("%s: Cannot %s BOOST\n",
+ 	       __func__, str_enable_disable(state));
+ 
+-- 
+2.47.3
+
