@@ -1,56 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795677659;
-	b=MFIJmQNZnGJT2vddgzrm5mdzbbFP5O/9P1I1iy+REn6c22s3jLefGDvbkU1HaFgbCgKc
-	 GnL/KrQ5UgBy5kj7fK/Ryv2eOVVHU63w0TTgdGyzObPBOnR90gfCVJf7cNN6mP+SerVF/
-	 OMrVr21Qb47FHVDl2jg9LpCVuFAznQZQ7KW5AaLROLLj9X20s81PlxziHaYIczrFHTZ8q
-	 SUw55cXdbP0QyGmEWl6UJwYiCvlS6o4kOPJWt8WdIA2EypZqQh9SyNX0SLPQK8PM6/jqf
-	 U80TnqZ+b8xZFmCj2bH8cdXNmmBcodjB1DIls5FZA2mOq4x6lw3deUEdTXJ0MUZAM4A==
+	t=1795677773;
+	b=y+kt0uJch+bvpGxMKJlw8ctUhToEG596lxXAsf3++3xeDvvoQ/q2d+DNCEuHzPqbp/lz
+	 A7qaMQ5b6LDl4487ETPvGjGdDKsotgRKpWJWd5HuNt2/DwvXndIir8ysUkjHqfaCG2cIR
+	 dE6FFdOmP8dKqRPRdSxAaGeuvhkFw205ry0vir9WkP9LMgfs9DVl0HvoFPjPFISN9fTBd
+	 00BVvJzyBj8Fng50QwXoJhmqSMFcYb5EGvExPX8rWRyWdkbhkuQxskLV6l2Vesau0OGuI
+	 QD62pw1GNl+GrdBj6LuCNs8q2J5sUSY+sGXTaqqfYyQoJUIN8NyBTVo5NF7j21kowZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795677659;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=otbopiCr4qtLePEipcetnofmMCVtZqbLSXMljjLeoEQ=;
-	b=uggF6RtofOe4tdZ0x7ambMrMLnzHv63t/RK3gOOoqVnlIxkBq2Z/5OcsifISik0bA9Sm
-	 A+7fU9QKvjyjULZQ6st477ITrGimFMcLkKy05uBUKZv1HJcetVsRyS332n7odB3+79mqN
-	 pvoWBjTUzGpHvV7QF0HtBi4fHQXcnu6fsS7VDFrxLP/hPI4AZc4bag6KIureupsa/wRfv
-	 YIGVytPnIbMAkK6Kkhkba7ovEwwk75FqkK6ChPd3AIHDPV5yrCKeOvJmviB72L4FvA/XF
-	 3s7+WpDY/P8AiNcD2g7D+7w8aKAHRpDzGVrt1ZeoT3iJZzwX98U8GfGIM5L6br4cWog==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795677773;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=tyDcKx9CSg/sf/Q8nvmg2kdcVjW3+Ux75hmWCkkVGgY=;
+	b=vYTTEqxK4lx4d64gcACYOji88moHgcgUxqUQAx2Y82EYrp9OaomkBEWDG/yEbVPfqj6O
+	 M6NDsn2X75kHuWv0bQgPPVcYdjqMhQ0oeBvwnWAc9ywUPTrhDqgMbHs20AHEomLhIZh4v
+	 n3+9zTDVmV6V3pgt/XCDmN13+u+vsl+141Jau/lVPTKvoKd+WFgyHDUFWjqlwtV3LXmpa
+	 fZRWL167TWL+laGNhOrT/tPAbyw4Ss3V/DWjGECijpfIbB5UM0V/pVRFSYgnSwHYLIf03
+	 NjIEJ2aiQqKuyaVQE8PoFEqgsEKVua88rRTdH862JVpj2YFgC1N/O8KLyCanDBM8wMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JW1+LmUQ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zFSxe0tK;
+	arc=none smtp.remote-ip=74.125.82.42
+Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 037B0606A31C;
-	Thu, 26 Nov 2026 07:20:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ABAB606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:22:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6ABAB606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JW1+LmUQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8214A1F000C6;
-	Thu, 26 Nov 2026 07:20:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795677658;
-	bh=otbopiCr4qtLePEipcetnofmMCVtZqbLSXMljjLeoEQ=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=JW1+LmUQK3T9t2d8SScGessnBZIpyrCoGeATnPDOs1ObkEexj2jd5OI5WdQ7D4Eki
-	 MZIaywD2gchjFH52/aFZLM8i1m+6vEDlOu1Cn+CptsiTMR8+S+jCeyR3edlvfvHM1V
-	 XKxo6cJoYLYd2WUxWu6np/8DOqRo6tsblt9y22c5rclf5lcTT6uM/WA8hzT9xNZdt9
-	 Z0KXBefr7AO+cNCWvLfRO4XcT0KH+zkP2IEhsZX4OyY3yn+ibwAR77YhNWnRCHQr6c
-	 nElmHgWFBjDuat8P7uRHDXqezjvb8M3/ZRfv73IIXXlgQyJg45imlT/JhvkuJxL4P/
-	 tWflmsul0DKZw==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: tudor.ambarus@linaro.org, peter.griffin@linaro.org, 
- Suyuan Wang <shyckless@gmail.com>
-Cc: alim.akhtar@samsung.com, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-In-Reply-To: <20261123-exynos-acpm-put-v1-1-447097ce7998@gmail.com>
-References: <20261123-exynos-acpm-put-v1-1-447097ce7998@gmail.com>
-Subject: Re: [PATCH] firmware: samsung: acpm: Don't use pdev after putting
- it in acpm_get_by_node()
-Message-Id: <179567765269.9086.11795383324223700321.b4-ty@b4>
-Date: Thu, 26 Nov 2026 08:20:52 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zFSxe0tK
+Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b3ada81853so7791863c88.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:22:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795677772; x=1796282572; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tyDcKx9CSg/sf/Q8nvmg2kdcVjW3+Ux75hmWCkkVGgY=;
+        b=zFSxe0tKCFqn8MxIMSdTCjZ9UDplsJ4eIz93lwm3oztmDyLdglyn7ek/tGsuMComAb
+         VkCPLPWJ4jJrIZXmRUsfOZQOdVEpevIRHfOGCRIYt8hAxadjdH8caxLLbe/o7Bg9ItXD
+         dR+1txKolmO5CHnbxPohxEEa/EECJPNnJT6qhxz2TSJsNL2ZZmFg00ouoUbeElwAJ5wB
+         QCPe48AYiAf8MnI1K2eN4X2RISOVwuveasiaOURpl4bpABxHGTTYOqtXT37WRyuqFcZa
+         Bv7JCo6M5jSZbbkiR1VS/VobJzzG4tPW+y8IoYgqut8R4uumr4FGFglHhvLmwNZbNYSY
+         I0Iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795677772; x=1796282572;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tyDcKx9CSg/sf/Q8nvmg2kdcVjW3+Ux75hmWCkkVGgY=;
+        b=WAsQLe279sFc0eQpYvsnO862cMDxkrFHtMHgJvsyRwtldQPnpF0OcLTZJtknrgRTjq
+         C5kyICMyXp3CzN3Z9BSoGx7WPfAIXrX4ZpklpTD8pb7puhzgnrCDegJ4SBmCrq+V5r8u
+         eEaHQkryEE+mEdRTX0Nt+1fzOr5ITnOJLsc2xPNuZAfNo5/TJenDJYMCZ0qNawqvUcU8
+         G7XI08qaPrxl4VXitGVSapjc2mevgQcjq815HOBWv5e3LCLJOxNhbnisI3h/QnmJiERk
+         eEjt5JczlDFNhbYSjIJ/5yOfI0MA9o9iEGHa5QEHl4WvU7vtq0NQchpRJ1ctqzhh5WCH
+         zLEQ==
+X-Gm-Message-State: APuU4Z9/khm8tUItXpslTGXOPt4lOd5JP0S/3Sc/+aqphjLBdY32O5B6
+	C53FwmhIC26G2RBVEvrg1anlqeG2mqNwaPpnW1QLUGtLZ82/DPz2hY88
+X-Gm-Gg: AZFdTZfYupll/LkOjLxYj24ot/CdTCp+WhcsgUCNweG6S9TZKbTswv2A6K1C173PQ0N
+	+5HZgqr6gmrrhdILHIE7genP6PVxpP3HND5O+lCvV+6R6niaidWNrPtzOfDvHPt1tIlQsJuAORU
+	M6M0YhTNfqQcCYGYPYPUm9lCVIbaCRtxZ1pYaLeMZlJrj2HR3swFTmUwCADyY+RT3S1W6x0rfMe
+	3pBGuCoXBil6wO454ZV6QilqSH5ifcoKOvM6ZNZ76GQQCM52dckE/ifP8489eIUWcxatlFCtNiK
+	jmc+o2Oo8+EAZteprfE56an+RJ6TcwMAt9kUx4FQgzb6EYAXHWtt0Q1ICp5eB0wAZomQQkIIhR9
+	CRv1WrGpyzqTS/NPu42q4jODLBHbzb/+vvEuIaqvkGtS/koYRWeTvl+xSv1J8QgGoKTBqNCVJGA
+	xMQdQlJWJ456SyYjreUDnXUbfizXo9F3exwMBxV9aj5tyjnAUOqsmUydfKpa4EAaQS1T1t+h2xH
+	NSQySpu2+DmTagDOC35kXYv8p/uhqJq4oh6kau4n6sVH7CG0J0dTq8zkntUcNc9ZWRjsFyxHxQQ
+	4bmxo1KYuuBqkC5euBzRgseT4qYjotAadW8ELF70MkSaQ2eo2XV7uZAH5Ly4Sr9pvGaPoyUM
+X-Received: by 2002:a05:693c:8843:b0:386:b429:fe0 with SMTP id 5a478bee46e88-386b429175cmr10099537eec.16.1795677772417;
+        Wed, 25 Nov 2026 23:22:52 -0800 (PST)
+Received: from localhost.localdomain ([103.179.230.77])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567ea2cc5sm55674215eec.29.2026.11.25.23.22.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 23:22:51 -0800 (PST)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: perex@perex.cz,
+	tiwai@suse.de
+Cc: linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Subject: [PATCH] ALSA: vmaster: Retry follower initialization on failure
+Date: Thu, 26 Nov 2026 07:22:20 +0000
+Message-ID: <20261126072220.4496-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,20 +94,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
+Content-Transfer-Encoding: 8bit
 
+Reset the follower count when the initial follower update
+fails.
 
-On Mon, 23 Nov 2026 00:46:28 +0000, Suyuan Wang wrote:
-> firmware: samsung: acpm: Don't use pdev after putting it in acpm_get_by_node()
+This allows follower initialization to be retried on the
+next access.
 
-Applied, thanks!
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+---
+ sound/core/vmaster.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-[1/1] firmware: samsung: acpm: Don't use pdev after putting it in acpm_get_by_node()
-      https://git.kernel.org/krzk/linux/c/45c8e9469b692b45920d2a238003a5f8362b05ac
-
-Best regards,
+diff --git a/sound/core/vmaster.c b/sound/core/vmaster.c
+index f43144ba2797..d97d7bb33e16 100644
+--- a/sound/core/vmaster.c
++++ b/sound/core/vmaster.c
+@@ -102,7 +102,14 @@ static int follower_init(struct link_follower *follower)
+ 	follower->info.min_val = uinfo->value.integer.min;
+ 	follower->info.max_val = uinfo->value.integer.max;
+ 
+-	return follower_update(follower);
++	err = follower_update(follower);
++	if (err < 0) {
++		/* allow initialization to be retried */
++		follower->info.count = 0;
++		return err;
++	}
++
++	return 0;
+ }
+ 
+ /* initialize master volume */
 -- 
-Krzysztof Kozlowski <krzk@kernel.org>
+2.55.0
 
