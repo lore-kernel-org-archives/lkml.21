@@ -1,78 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683177;
-	b=guSO+Pg+ewcd1gesYxihXja/UOrspEVjc4KV3Ikw9MYD4D1sAnmxUnW4q0paHC/amBe5
-	 BCe/Oe+WHQRhWLt61164vs5kHbu7grQ7YjrYDPU/IE/bKrlqM/Vep4WxQm2mTHedmOZZ7
-	 WY3eeLesfUzHYAO0YS7ckuN+i3v37MAijdOdRSKSU74ybbETMpgqGwyCbwE9zv0XGc3x4
-	 0L34bYNlvdrK2ym7apgFOryYAYUlwaUezBgJdgadxouqevsqXo3KUAD2kszCIYVsfF+Qh
-	 xAa/DEbfQQvDVXLX+pS8ruvCS6fOnyI4Rhk4qDQx/LYMs95twI1FnTyVOjbLoOp42ew==
+	t=1795683232;
+	b=WTNe/x+OBbKh+KeNtthE9owJZ+cu8LIS2dkbodqZM0SuN75sp7zkMPNnourbYXLV8EYV
+	 8Y4jK3vo16sbBgCm33ohpkiJY0OTYacswe71Wdot/+mPtMGgzGM89FxN1EL/LhMMtGonB
+	 a3Nbx0FEAEY0S4g19krApsmboPdv+KFJOmNnlHGYh/eqpWM0VbN+FDxX2A/MQtx6Y/9tp
+	 tP3x3p+FkWhAYNIOwmO6D54aagThxN8L6+BR2K3hDJUA2WiW9qRT/CoR7Te30ExDUMsmo
+	 bPIUkqs48oXT3NxETGLmAXLqDPn56oomtCO7/P5bBqF9X9BkkCSnc9/+3uA9o27xtmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683177;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=LQC7n5UB+twTmoKbhuhV7McngclJ8wPtfQsYLymxWtQ=;
-	b=tZyr4DUt5n/7WzDUVYq1ePbH02OiDFELdnkwf5MIOAek6+YF+7SppeCfi9hioI5iDMEP
-	 lS3SfB9/p0WnOAGLFbwam53Yu0IhUtdUeve/GteNDd73QZZhrf4PNWVSRg8QLif88lXYU
-	 27jikuln4lPH7DC+vp0dWu//sYaEBP2/rOCsvgI7wTI3qSa9EqjskP4BenA/oL+plBP1I
-	 pMoo/gBP7e6Nu8zKliq7GRY/K58OtDHuqvfR8ZaWyYeefQ8gs4WxJ/53R+jtnONVW0iTm
-	 +ESBR8ad2vdRPHKJ1MJueSsCFj9DyT4y5sBzmvIZHHw2sjIx3hv+7fzvyXSOy3ijPmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683232;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=nzEKGWM8XJphHX6pI/ArHGtfH8d9j0dSK2RH8XdKPD8=;
+	b=3iy+iSi/PUTgyE59mV/p5KBtulFVDTrYvGh4ofxuzkXHzynaLVZbjVFG02LU+xYMcH2v
+	 CptE/dwzyKS1xQe913cGxyJlyS67HXM/2bQWdStsTUL9mwNQ+xtuUXYuYXyPN4Ix3yQ2s
+	 8TjEqIR5QeMTi9EXF+cRlTfbNoRqjGB26elOwuIKIh8QLiY2cqxaBlibWuJeKAU5aPz80
+	 nK7oHl6UmsFH/XGPrIbAzAGzi6HRzdSX3yAg0tliRgdBm9qItyfmfNjkGYYrub7z6oxXs
+	 SpqANxxjG2/vwLOqLMj6D1b9dyvHOhj/MQSJZWgDvUxdN+g0OHZkqS2fKmF1m6XpG+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.217.45
-Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com [209.85.217.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HGbB2D8d;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F7AE606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:52:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F7AE606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-7d2c8141dc6so3601903137.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:52:56 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795683176; x=1796287976;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LQC7n5UB+twTmoKbhuhV7McngclJ8wPtfQsYLymxWtQ=;
-        b=D7bgOxEsLvAn6kadn3ckGFeWgwJel0zgpWsdg4/NDWPld9Pi/6k1f6vviV2XFDDzxj
-         HhdAtFfpu0gZK80N8s2rOme4wqYhZtn7k6xgk+30hqOXkib68hLFW/8Z47bBTwL9wPTm
-         C5Wc6ZSEmIdnQvuRuY1ShKK9u5cG+LSSjlukL69VibaqRNTSqEJQly8dA/9j+WcjRVvR
-         ZRq3tpQfjOXweY38Qu4T4wqEuzH4dcbd8XapBdm9w2aM1a6kOZrANKYW7NI2Bk0I9NPg
-         nC4y7uUQ5iBvAaBYrRcI28oWC+de44AmDPNlWdyv9kHu4y7jfC6dGNasoZFMN5lyaP6G
-         N7+A==
-X-Forwarded-Encrypted: i=1; AL+hErFBOj+2aOx1npYshn8/tmJ0ubfKXrg0pzgbiXb/Zwiguq+bSYZi6JZLsbQyVgvW7bMPltLmf1gGyi4C9FQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9zH0kL+Vnf3pOeLIDckVMf9JR7s05FN6xDI1VUx0JuK3bR2B/e
-	75WhOM/tFUDF2PKJLJkIK/zebtF6aNvazjt+oHcCrSLrADraYZlJBYeORzFW7ft/
-X-Gm-Gg: AZFdTZeuVyylzh4R+50moaBq3jGRGj+R/Zxl/R/ByDPDvmb9BavTXl+shJ0w3KoMA8Q
-	cjrzcsNH2erE24E1yAUJeEWOu0rcq7fSphsQbrCXdimSqdGcgKG4GW1tVh7R0a0JPMD46fa2B0f
-	T9n9ovfuOhUrK6xxMPqcWE6Z8fRexGt0ZAI0M30KPbbUvnkhjqrtullApVlwMFpVmrwMAQcmfYx
-	H1ASd/qCmCbtU995HwIJoUcUyQFVJcW082ywQJniViBX0wOGctaYhbnA56F/BltDNl/iP5KGbQN
-	Wq2SmUYEhcpON9Fc8czYAvhaRsN6VBeoa8P2PGu2sVJmrkw8IkFnZrgND7QcQ3lKS7CwbqJCw/l
-	DYLBEiaBHRDEr7XT2sVnxls8PJqrDuoc6xq1JL6IvXDtBhf173CFAVsqjEd30lSJV5GdPVUguSA
-	NSl86IsUF2ZFyb2eo8uk3sKG0YuOkXrr06dxoIufiUMfEv1ti95MhK4l8r0y0odPiM6uHb3HvH+
-	+mkS2iO62qcx3JjT+W1RbuKmeYneIGvDfIyg5xOmSKZmHbNv9wXjONCfWPkaLufDCVfWHPJDndT
-	hEycAQHOVdqJp8fAmJCCYe8Rw2yTBDTChCWVH4u/ZsTyXiXfcwJYuXBjmJUH2iQW0mXpXYc+WDu
-	QFB4Zoqg6sWPxjrKubg==
-X-Received: by 2002:a05:6102:448b:b0:7d2:b199:6721 with SMTP id ada2fe7eead31-7d73957a1f4mr12199535137.19.1795683175841;
-        Thu, 26 Nov 2026 00:52:55 -0800 (PST)
-Received: from mail-vk1-f182.google.com (mail-vk1-f182.google.com. [209.85.221.182])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e80cb440sm21273497137.7.2026.11.26.00.52.55
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 00:52:55 -0800 (PST)
-Received: by mail-vk1-f182.google.com with SMTP id 71dfb90a1353d-5ee3a3d281fso4320005e0c.3
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:52:55 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHBaTmY7+Ds0/znBG3tADVZbF8M4Sww95yDdUSufnBHWteQ8g3IT1YfiovPOJhXdbUqPl2R0GwLZfv8s6s=@vger.kernel.org
-X-Received: by 2002:a05:6122:e16c:b0:5ea:bfe3:6035 with SMTP id
- 71dfb90a1353d-5ee8aecb450mr12178985e0c.8.1795683175291; Thu, 26 Nov 2026
- 00:52:55 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F00D606A31C;
+	Thu, 26 Nov 2026 08:53:52 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HGbB2D8d
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6D431F000CA;
+	Thu, 26 Nov 2026 08:53:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795683231;
+	bh=nzEKGWM8XJphHX6pI/ArHGtfH8d9j0dSK2RH8XdKPD8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HGbB2D8dDi8WEhaIq3D5hivqa4ok6pf476MsWCWGtQf5SRgtyxnAWKscKqkY40j+o
+	 84oHtK2D94U0vboMk/gXQV6IHfJ37g1xEV0SSahxoUFBzBreEJSVlWbslpzGLbC6kS
+	 3x7cGKmzYUvdPnuxOW+Wz51xGtSZ5uYpWT00NJVv/7S1wEZKGhaooAWvTO7PFdqm79
+	 +JZrNFvQcI6N1lgA8QVMHfukPEmtY9TfArBzQmHKU6ayesucR0KBNoXDrxIiTOrZ5y
+	 /6nNJwhLQ4yJnyZhvOOEZ5Y4TuIAy9SxYtBtlYKXGGlMgczNEUe+HVQsKgvZudyiUX
+	 2T0CTuapbNqMA==
+Date: Thu, 26 Nov 2026 08:53:40 +0000
+From: Lee Jones <lee@kernel.org>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: linux-mmc@vger.kernel.org, Hiroshi.DOYU@nokia.com, aaro.koskinen@iki.fi,
+	adrian.hunter@intel.com, aidanmacdonald.0x0@gmail.com,
+	alcooperx@gmail.com, allen.lkml@gmail.com, apelete@seketeli.net,
+	aubin.constans@microchip.com, bcm-kernel-feedback-list@broadcom.com,
+	chenhuacai@kernel.org, christian.loehle@arm.com, djakov@kernel.org,
+	drzeus@drzeus.cx, florian.fainelli@broadcom.com,
+	geert+renesas@glider.be, hkallweit1@gmail.com,
+	jan.glauber@gmail.com, jarkko.lavinen@nokia.com,
+	jbrunet@baylibre.com, jh80.chung@samsung.com, josua@solid-run.com,
+	juha.yrjola@nokia.com, kamal.dasu@broadcom.com,
+	khilman@baylibre.com, krzysztof.kozlowski@oss.qualcomm.com,
+	lars@metafoo.de, lgs201920130244@gmail.com,
+	linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	martin.blumenstingl@googlemail.com, mirq-linux@rere.qmqm.pl,
+	neil.armstrong@linaro.org, niklas.soderlund+renesas@ragnatech.se,
+	oakad@yahoo.com, paul@crapouillou.net, pb@handhelds.org,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, pramod.gurav@linaro.org,
+	riteshh@codeaurora.org, rric@kernel.org, sameo@openedhand.com,
+	shawn.lin@rock-chips.com, support@cavium.com, tony@atomide.com,
+	u.kleine-koenig@baylibre.com, ulfh@kernel.org,
+	wsa+renesas@sang-engineering.com, yoshihiro.shimoda.uh@renesas.com,
+	zhoubinbin@loongson.cn
+Subject: Re: [PATCH 00/13] mmc: Assorted bug fixes across MMC host drivers
+Message-ID: <20261126085340.GC38590@joneslee-macbookpro.roam.internal>
+References: <20261123191703.179283-1-lee@kernel.org>
+ <bc602723-07fb-4af9-9201-272dd0fe759e@web.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,110 +80,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <cover.1795639368.git.alx@kernel.org> <396395e1d02ca080da67cfd91a1c49058b2676b6.1795639368.git.alx@kernel.org>
- <awdaYz9NNVv5fHv9@ashevche-desk.local> <awddHt_xvc-lIygA@devuan>
-In-Reply-To: <awddHt_xvc-lIygA@devuan>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 26 Nov 2026 09:52:44 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX9gnV0beBEoh65FzPCwrQy=WpGtK5qKsOF3Tsv9iUj0w@mail.gmail.com>
-X-Gm-Features: Aa3M54rOnub7bCh_NzEEm3acSwF_6HJABwfoziM7rtzTMFRTInpGyKc2wQ19vKo
-Message-ID: <CAMuHMdX9gnV0beBEoh65FzPCwrQy=WpGtK5qKsOF3Tsv9iUj0w@mail.gmail.com>
-Subject: Re: [PATCH v7 4/4] device property: Fix fwnode_name_eq() for empty
- node names
-To: Alejandro Colomar <alx+linux-hardening@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, Alejandro Colomar <alx@kernel.org>, 
-	linux-hardening@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
-	"Maciej W. Rozycki" <macro@orcam.me.uk>, Andreas Schwab <schwab@linux-m68k.org>, 
-	Andy Shevchenko <andy@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Daniel Scally <djrscally@gmail.com>, 
-	Danilo Krummrich <dakr@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Hans Verkuil <hverkuil-cisco@xs4all.nl>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Joe Perches <joe@perches.com>, 
-	Johan Hovold <johan@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Len Brown <lenb@kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Linus Walleij <linusw@kernel.org>, 
-	Namhyung Kim <namhyung@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Saravana Kannan <saravanak@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Tom Zanussi <zanussi@kernel.org>, linux-acpi@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+In-Reply-To: <bc602723-07fb-4af9-9201-272dd0fe759e@web.de>
 
-Hi Alejandro,
+On Wed, 25 Nov 2026, Markus Elfring wrote:
 
-On Wed, 25 Nov 2026 at 23:18, Alejandro Colomar
-<alx+linux-hardening@kernel.org> wrote:
+> ...
+> > Lee Jones (13):
+> >   mmc: cavium: Remove MMC slots before destroying slot platform devices
+> >   mmc: cavium: Prevent slot_pdev[] out-of-bounds write during probe
+> >   mmc: sdhci-msm: Resume runtime PM before accessing registers on remove
+> >   mmc: meson-gx: Fail request when descriptor chain DMA mapping fails
+> >   mmc: jz4740: Skip DMA cleanup in PIO mode during post_req
+> >   mmc: renesas_sdhi: Guard host->cmd access in internal DMAC issue work
+> >   mmc: tifm_sd: Synchronise timeout handler with request completion
+> >   mmc: omap: Shut down cover timer before disabling cover BH work
+> >   mmc: renesas_sdhi: Disable internal DMAC BH work items on release
+> >   mmc: jz4740: Apply DMA max_seg_size limit to unified tx-rx channel
+> >   mmc: dw_mmc: Disarm central watchdog when ending a request
+> >   mmc: renesas_sdhi: Fix SDIO manual tap correction in SDR104 mode
+> >   mmc: sdhci-brcmstb: Handle absent optional sdio_freq clock in probe
+> ...
+> 
+> How do you think about to sort (and group) desired adjustments
+> by affected software components?
 
-> > Date: 2026-11-26 00:00:03+0200
-> > From: Andy Shevchenko <andriy.shevchenko@intel.com>
-> >
-> > On Wed, Nov 25, 2026 at 10:03:55PM +0100, Alejandro Colomar wrote:
-> > > str_has_prefix() returns the prefix length on match and 0 on mismatch=
-,
-> > > so the mistmatch case can't be told from "empty prefix matched an emp=
-ty
-> > > string".
-> > >
-> > > For instance: the OF root node's name as returned by
-> > > fwnode_get_name() is "" and will return 0 for any name matched agains=
-t
-> > > it and since len is 0 too, fwnode_name_eq() will return true.
-> > >
-> > > Let's use strprefix() instead, which also makes this function simpler=
-.
-> >
-> > ...
-> >
-> > > Message-ID: <avrSUUM3HMgxTNpl@kekkonen.localdomain>
-> > > Message-ID: <nat4ilqmzzpuyrjbuahl367ip22tfnmjorydlppuwqiscxaujo@kf63j=
-4lb3flk>
-> > > Message-ID: <nat4ilqmzzpuyrjbuahl367ip22tfnmjorydlppuwqiscxaujo@kf63j=
-4lb3flk>
-> >
-> > What is this?
->
-> git-am(1) has --message-id and the corresponding am.messageId, which
-> stores the Message-ID from the email header field from which the patch
-> is taken, to document where the patch was taken from.  It is stored by
-> git-am(1) right below the last trailer tag from the patch (which should
-> be the 'Signed-off-by' of the author), and before the 'Signed-off-by'
-> appended by git-am(1) itself.
->
->         $ MANWIDTH=3D64 man git-am | grep -A5 messageId
->              am.messageId
->                  Add a Message-ID trailer based on the email header to
->                  the commit when using git=E2=80=90am(1) (see git=E2=80=
-=90interpret=E2=80=90
->                  trailers(1)). See also the --message-id and
->                  --no-message-id options.
->
-> It's useful to document where those tags come from, in case it's
-> historically useful.
->
-> I've extended its use to other tags I take from emails.
->
-> > Is it documented tag nowadays?
->
-> It is not documented in the kernel, AFAIK.  It is documented in
-> git-am(1).  I included it, because I find it useful.  Feel free to drop
-> it if it's not wanted (I can remove in in v8 if it's not wanted).
+This is new to me.  What guidance says to do that?
 
-Please drop them, the tooling (b4) can find the origin regardless.
+Making your own rules up and spraying them at contributors wastes people's time.
 
-BTW, the kernel way to link to emails in commits is using Link:-tags, e.g.
-Link: https://lore.kernel.org/avrSUUM3HMgxTNpl@kekkonen.localdomain
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+-- 
+Lee Jones
