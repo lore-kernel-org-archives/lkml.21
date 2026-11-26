@@ -1,101 +1,164 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.42
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.47
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795676809;
-	b=LzW3Y+B9sRJ2UAq4zXXENZyKjIEnfGp/NhogHtcbrgb3uKkTKl77vAtmYfRqUyyULI66
-	 3n5Fxe/xZkfyFQ5nKtuXJyjSIgHjS9Jqk0vbUhijS51E9Ac+zmiHR7ZRL4PVkCiGcb2XZ
-	 V/9ZjL4lv2+y2fdlls5DAKoCBGIvha6DJRTzXosTOdEP55kgjAtPikc/S7kWnWpNdf9tL
-	 nykimsiXFzOfIcggrAEj9hpp/Ydc2WTJEPRs0tOdqfmvMfPQTlvvWauR/bgI7QvBeCoI5
-	 TcVC9zxkG+axXWuBFy8GGtp+4ZO612q2VaB/aLVQq7be3OxneGDZNRcbETj07RxKzGQ==
+	t=1795676838;
+	b=v3eZ46Ak6fGzFtnvgpPbG8sso2BTV4MiRV3F+ab93YMNb7JTKA19bBe4nYLim3qJOFPB
+	 uWq/wgh/SwfdtnCbyHtXgmpYdNa8sEBr4kWKej7/n+UGqVX3kiHn/gcQPpp1xUMzuozvW
+	 AWo00h44ZbjHjxHadc0KQyydw31ZWVh+pSF4vLX+zpcfYhX1WjNbaX0yTWg/O+mXeZrJW
+	 KeORHfBhVnGMBu4udwtOK4jMSA5M4wZchIYy6L0roKCEr29rvfpLa/ZI52xP2vgV2+IZc
+	 GLxz8CFFbhofo5aZIMQ7seMT3zFQcW9Hab+S8CRFfcTzKt8JHra0unAhtkFc6znUbKg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795676809;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:From:In-Reply-To:References:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=hp2LcS4H72LvNZsciYrnTzMlHczMzIpxcsomt0P0dEQ=;
-	b=Mbf4u+TUREgz95lqVFGJM35oZ8uVp3xW/xHdqiVufnEF+Ce6P0BQZH3aQoTzv4bHVrSE
-	 Dg0rdWm88VweNoCWqkCBq0RFCyv3mWCtfGoGGQeTMrCEkCvBrTsB6JtaI4I5eWfHMqH4z
-	 YTf9rp+GjgtmpQdiSTKQe6nePX16HXR7/pOwdnZWtUVfo/RL9c6DPH9g0FLmOfqGLNCer
-	 9rDYDDIqhM9vJQH1+tmRXUsEMlOK6fTezbizl0NptLIpuU3mWmt8YO+dGQsXKkXejmh7r
-	 i82bHu303xPms3nvy7wSYYNKDdI6AegjCYEYURQ47j/vHs33cCbN4ylDB8fSJ5RGWpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795676838;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:
+	 X-Exchange-RoutingPolicyChecked:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=qxz6R+j9XrfaGHKg3vX9N96N8OcdlHnI/XLnlnWqmDw=;
+	b=QFTtRpwlo5sP8l/waqC6JjpRONpGEq1qd0eXV80HTdoB+I8RYt8QSDUBHF22+uoOSFgl
+	 UGsL8UoAHMM8gf6W+n7fo1660eMriwhY10lfvOdZMrIF2yarsELVTx/UHlkOKwgvsiOGL
+	 0WVpVk31kGP853X37YQrkyamuwlaTBu5dZkZigrZ6mw873CCehGKrNB1GOxshYnX1or9+
+	 uPDpC4/aCzC6PXaJPz/VSJWH5pIgebNSGFXALG/ISvC1jHUn2kY2m8anzHDuP0PUYj23E
+	 IDRYFiCFmGNSE4R3775aFrxv6f947XeB0Fzj0UQ1gFqk4KWxpWBe9GJLG1uYE7mQLVA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xB7RViL0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.42
-Received: from mail-oo1-f42.google.com (mail-oo1-f42.google.com [209.85.161.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=fujitsu.com;
+	spf=pass smtp.mailfrom=fujitsu.com;
+	dkim=pass header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=selector1 header.b=f2hTdWVd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.125.47
+Received: from TYVP286CU001.outbound.protection.outlook.com (mail-japaneastazon11011047.outbound.protection.outlook.com [52.101.125.47])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF5B7606A321
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:06:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF5B7606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09326606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:07:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09326606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=fujitsu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fujitsu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xB7RViL0
-Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-71b30ed75a1so3851921eaf.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:06:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795676808; cv=none;
-        d=google.com; s=arc-20260327;
-        b=G9zNsP9sOA2xNCaNuvO7GjXd5VGL2MDfl7JQtMvrJFDcif+ZLNqsi/rMrpy54x28iF
-         cmZAH0j2R9vui94+YlqjMg6fWNG0Cj5SUUGv8AbxMax6RoCD9Vn2o31TFtV3z31Jihxm
-         Tp8vg9sSMDCJrGsmaNiS7lx9pzvMAlj3xzORztjb15h4qLB07RGNi0FD8/fn6QOZ5fxX
-         BerUNKt+q3nedr0ciUfccWEzDzqd/0v83XatzE8Hffbx9Pysz2qMLrF9QOiBHEEtfnYv
-         Jx5UOentgtEWBf9vVxRfyT6nFWX6vt186+TyvtmgzC/qF1ZAkfB07EKEz2NycnxSnW54
-         P6RA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:references:in-reply-to:from
-         :mime-version:dkim-signature;
-        bh=hp2LcS4H72LvNZsciYrnTzMlHczMzIpxcsomt0P0dEQ=;
-        fh=va5L+0PMMd/XGKkTyST7RFcPdwkuPuvlIKDQ0UIC2iU=;
-        b=a6PsvoIA5x3VhrK4cyx4TcQSkvjxWgk885N5imhql4wSQhhE7DT0/I/La1mALhAoxZ
-         f1HiKJCQEzc7BpR/MMDhA4jndGCjxXDlIMaC7WOUYWj0jCEFTV9KmIcfp4dyOZLvb8uD
-         pmekgZIoPkDhqnasqpN45DMKePGIKyTZq3kft9DOSBXS18NPohnsywoOIKH6Gr8+CH+J
-         d6VABnplXJMHgS0/c6lIANgW0KIhJUkBBvpnpWysl21Z1pVoR3B2rPbTz5F1tzxSdJUB
-         sx5wbCPbtXBPyEjEJH/OZ8kuylA1Ss5BZ7hOuhiB80Eu67Rl7jg26Saqmz9qSBQyK7L9
-         c7Yw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795676808; x=1796281608; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:references:in-reply-to
-         :from:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hp2LcS4H72LvNZsciYrnTzMlHczMzIpxcsomt0P0dEQ=;
-        b=xB7RViL0Qm2HDqntJgtv31vB6wqSzk0mWQxvI9vjk9mas4YmcxlZMLcgZwpEyqSnSD
-         fUGiVloXiZRw5+dydJomD3aYAReIwO1H6qF4JLGcc4IAnPZ2Pw9h3/c27N0P7uUU1f3g
-         vk7Twjdjs5rm5hWe5at1Ey/NI3i1fqjV2SGFM2dp9zJrVOd7HTG2tm8A1pfXHLJEBBFP
-         XHJtv6WP1fWxn+flyVfZUoKqi5KIBQlUBfweDm1mYzBQEcWaZxiipVfsYTaGk6dKKXFZ
-         Y8YUql9jXKyeAX+jYx4eXHfjuVrBNpvxuz/3s4Tcuf0uO36QCVHwrHTh8ULt8hbMPYFg
-         UZHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795676808; x=1796281608;
-        h=content-type:cc:to:subject:message-id:date:references:in-reply-to
-         :from:mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hp2LcS4H72LvNZsciYrnTzMlHczMzIpxcsomt0P0dEQ=;
-        b=d/CORKSpmF3MxwOdcmNbHi3u65OSUQt6wdSuBEfB9d5YMGBrux76K+Awm/2WeWnrtM
-         E41CShibcpQ1D+XfhVADVWtd9Ly8m0/sk8zpVgOxVj7WSPS86EjjxcJmx4nJHfMiDcmL
-         8hcS4Iink3V09l4cPhRWEzhXuyvu8AkoXAoY3XzKHVwPxMVFnv1ixD8Omt4MT7XqmcrW
-         gJuF6BII1LypgnKi0QZQixl2oBpRcHOxOVFZFNKpWlZw2Q6gwrYqaBexUeOZJQUYBMeU
-         ZO6pQIX17J8Zdg8YM8HFZszmeVzW2vFVHTKSSW2eNKIfSSXYt6ip1uXmsQc6Id2vmSq0
-         GlkQ==
-X-Forwarded-Encrypted: i=1; AL+hErF/83ZPvKJPJGLEkPKnXv9EOvc+Pmf96+zOQ52GLl73D/62ZuvWGlVgo29MDf4sbkYBLpS3gFFhqMiGP7g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8XqrEkHeFWMjhVJj+GUWtZyaNAeVa+Tapkd/7MqJHYt2bCTD7T
-	FIN00JPOo7aRHmLU2NQsXhh7ynDNbUHfV6AvyP1EqEXwoReA5k0d0P45pvxh/NPdimjjWi/LJVF
-	i3nRCjN/wGej7h1P788NRESG5pTFdaL0=
-X-Gm-Gg: AZFdTZdVKulzEsItfTUzSN796ZqEhv7w0Tsd6lFSX08ARTLZb3E9VqZ7teriZV5MEZn
-	qlyd/jE540dzsPnpJfUBESy1IGHUCJCmO0VD1qSY3APnyJX/Husc6Ao1piM3VwngMn1j5KDVhxJ
-	VyjsSqywDEwBGA+/DwxsVV2x/fDZ9VwlWqCgXcYtx5nTp/4zC1aMAWqGjxKevb1hoCCTGj0qUY7
-	oGedF/I1/IpucHS9Q/veaBsWFjnaAIVdGOpzYtDDyRkz6Wr8nXLG3UsN800Wu4Fy90b0cGhJvA8
-	RoG6otWIEXn2KN+vFgU7i85dUewnbrJi7t1g8Jn5OGh3pMd79R/lqFaW/fax7O/PhrAJEz/esFs
-	4mC8RNg64A2E/2MKkV3jcxNHVUR0LhR6MloBCgRPOZaJVlJGwkpdqTiGMe1LweVT7uQ==
-X-Received: by 2002:a05:6820:a29c:10b0:6dd:e81a:5906 with SMTP id
- 006d021491bc7-71b394dbcf5mr13813445eaf.50.1795676807667; Wed, 25 Nov 2026
- 23:06:47 -0800 (PST)
-Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
- Thu, 26 Nov 2026 01:06:46 -0600
+	dkim=pass (2048-bit key, unprotected) header.d=fujitsu.com header.i=@fujitsu.com header.a=rsa-sha256 header.s=selector1 header.b=f2hTdWVd
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jp9pXaLCYG4e5w9iasgJGMJa6aLAfhaMpbHcxQdvKw0LJba94wJG7a9uoBduuCi7ApEAbCIHnGykW+cOTgc5ktZRXFjVj0NYUC0ituITwN7P0KWnhw5ScaImelz65YAPQYy8ne7s+Fbds8zZSwFVnzmdiUjICaWKlKh6ib4dpd0IITTL8NfqksSWjSVqOlMSeplO6cqi9axMpXBBRFR8reGkqoe72RNkntA6OxO6HvFqcnskPJeI+ZXV5zc2+DfFT8Ax6N863cRu0dOt8KYagAtQJDc9BP3P5GViitpgFt1ZyuwyKD6Aoo4qZOkY8Wd/BXQXGd8yhhqg1tQF6QKvvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qxz6R+j9XrfaGHKg3vX9N96N8OcdlHnI/XLnlnWqmDw=;
+ b=oAxSbLMA7LWdslkkPcyu3kBfGFonmXKfPbBXnq4ioc6CqwBMKu2RZ2ImNaCa1Q3MLCqu7zs1IGcPRFW74i9iGhDg/FBd20nOEz4v2L1ajs6x1OK/wyJPJUfjsYSj9Cp+NI3gt4miln4M1Ru5z3hLDpklc6ddXk02X7JiJ0W2j5enX3cMREZhvBJNvbCyMc+zanzH0vYzvrBAtA3RJM3mSoGF/1DVPisVlyCnKgLp7dlko9OuOvUHL1nM8ZCj9YMbbGS5mNjvst75vDf/GOCBbnJB380/LSCo2a9rPoNqIWPuXOVmpGuq9JD85a1wChNKxybatfoSvnAxkSsghASFDw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fujitsu.com; dmarc=pass action=none header.from=fujitsu.com;
+ dkim=pass header.d=fujitsu.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fujitsu.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qxz6R+j9XrfaGHKg3vX9N96N8OcdlHnI/XLnlnWqmDw=;
+ b=f2hTdWVdHlyklBr2nUQyZoPCYSNPNbnGTn/AoKcCEjOWcCUpko9FGT/KnDb5AABCjLivA6w/i/idMGkzkvUhCDBMPOiR1potDGb7/bpg/B3hdW9BQZamKWKZJPMqXsZTrszZ83akQe3JizNyZWGenelFvpo1k7X8XOxpJCHzAspsnSei4M3IhMeMolNXiVWq93PTPzzitCyZD+ENe2DMCfNGzcgmgxgYHUkabsgD3fDCht/0gPW6xDq5FcBJm3vhvFqISW40+t0kbILnanH1Ww3mB6YPEQ8fiPvDSyCTbFiSVeZKuRcqHUB4wAbARpqi4knZNcH/+ER5FjDSoBxjMQ==
+Received: from TY4PR01MB16930.jpnprd01.prod.outlook.com
+ (2603:1096:405:338::19) by TYYPR01MB15663.jpnprd01.prod.outlook.com
+ (2603:1096:405:295::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
+ 2026 07:07:12 +0000
+Received: from TY4PR01MB16930.jpnprd01.prod.outlook.com
+ ([fe80::38bc:7870:6f23:a957]) by TY4PR01MB16930.jpnprd01.prod.outlook.com
+ ([fe80::38bc:7870:6f23:a957%4]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 07:07:11 +0000
+From: "Shaopeng Tan (Fujitsu)" <tan.shaopeng@fujitsu.com>
+To: Fenghua Yu <fenghuay@nvidia.com>, Reinette Chatre
+	<reinette.chatre@intel.com>, Tony Luck <tony.luck@intel.com>, Ben Horgan
+	<ben.horgan@arm.com>, James Morse <james.morse@arm.com>, Will Deacon
+	<will@kernel.org>, Dave Martin <Dave.Martin@arm.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Chen Yu <yu.c.chen@intel.com>, Babu Moger
+	<babu.moger@amd.com>, Drew Fustini <fustini@kernel.org>, Vikram Sethi
+	<vsethi@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>, Newton Liu
+	<newtonl@nvidia.com>, Richard Cheng <icheng@nvidia.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH RFC v3 11/15] arm_mpam: resctrl: Add NUMA node notifier
+ for domain online/offline
+Thread-Topic: [PATCH RFC v3 11/15] arm_mpam: resctrl: Add NUMA node notifier
+ for domain online/offline
+Thread-Index: AQHdcJDDQvSdAILQMECK9tMEevzbl7dACA8k
+Date: Thu, 26 Nov 2026 07:07:11 +0000
+Message-ID:
+ <TY4PR01MB169306FFBE80FC073877C39218B422@TY4PR01MB16930.jpnprd01.prod.outlook.com>
+References: <20261109212427.1409204-1-fenghuay@nvidia.com>
+ <20261109212427.1409204-12-fenghuay@nvidia.com>
+In-Reply-To: <20261109212427.1409204-12-fenghuay@nvidia.com>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+ MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Enabled=True;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SiteId=a19f121d-81e1-4858-a9d8-736e267fd4c7;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_SetDate=2026-11-26T07:06:37.117Z;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Name=FUJITSU-RESTRICTED;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_ContentBits=1;MSIP_Label_a7295cc1-d279-42ac-ab4d-3b0f4fece050_Method=Standard;
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=fujitsu.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY4PR01MB16930:EE_|TYYPR01MB15663:EE_
+x-ms-office365-filtering-correlation-id: daff923c-3a98-4fb9-ac5e-08df4b8be443
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|921020|38070700021|261102123227099003|10067099003|56012099006|11063799006|5023799004|261022105027099003|261026140227099003|261022075727099003|261028144727099003|261021121427099003|261021123027099003|261026121527099003|261009223027099003|22082099003|18002099003|4143699003|6133799003|1580799027;
+x-microsoft-antispam-message-info:
+ oY6y/WpcJp5lU6zhXxQlYmfbzOoc8mtFVobG3qSPAM1WLiudNOq8GICwxYdvNg5ks+fdwJI21esK+iD61ySKT/jjWB5UyzmfzvbFAkO5230KLMDHXDeumrR5ZJlN23Wq5BBqKvEJgoPOX1pm5Z7LFLyzOhvLcpyF8OC6xg96VmOwkcCilQlFdC0bixxKwcsXqBhFnlIU75eGPnoSVG0wRVcpqRMEHLqlsaV+Q3Ef/5AWYtUu57Pn0CrkYxN/rvKo9clnk8McmdcZ+PWDy4JsRIqcSZdn+MsRRcieDxrZfiLUmqY1WoUwTTZA4SqZ9PhwjrhcM432B2OT7NtbryhZz7g2FaacLmRuJZtvaJrdQ1mYNnLWrOUyatGUyuQhT33yMB05EOuvwPyodv04pj3xLY372Amjbopqz8y5NFnQxjOQ+/WK9HkAbEnLflcySoFwxvFxfL+vowyf71CXanGZya4BYubN5Ozzwxgn1UWPS8TvobrTB6k7p9NwAqzzFxG4Y1Ztt+5y7suV4zhv4qqrHAbVGIeq0ihCpjRyHFw5ypiCBBAqImZvaaJtcWK+l1Snq8zIgq7X86Bv3XQw2lHh9XADzfeL5Aj0b4eD1W6Ee/t2VPdsRX/KNX4BwEK3XdW6eu9TRr0kbDQpHKnn86Y+y9eXoXNnKTx14ANKOBOy9xU8uyLCmt7XBHzRerB/X1NVwnSDWixy6rF2XGHIm9qUregRP61tw27Tomq/LvEK+Jz2KMgPP0W5OPCxTPP8EyvoPX629XFDrgTamFbNcKZJuA==
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY4PR01MB16930.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(921020)(38070700021)(261102123227099003)(10067099003)(56012099006)(11063799006)(5023799004)(261022105027099003)(261026140227099003)(261022075727099003)(261028144727099003)(261021121427099003)(261021123027099003)(261026121527099003)(261009223027099003)(22082099003)(18002099003)(4143699003)(6133799003)(1580799027);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-2022-jp?B?QzM3d2wzRVhuRFNXYmEvZDNYUmdHOXlMbEIzUEp6QTlOcUJaeVRYNVdU?=
+ =?iso-2022-jp?B?SGx6d29STGZNaGZ3NElTSkhYOW8vSGV6a1FldU9UdDc1WTJjbDBUTjVN?=
+ =?iso-2022-jp?B?R2lqQUpRdmRpditibkxEeXpWRnFidGg5UGsxZVp3eE9MdDg5ZzN5cXhy?=
+ =?iso-2022-jp?B?Yzl0Yk1WekVIakdRV203bUhLcFRjSmgrWFF2UmN2aWFrbTVrRnd4Wkhi?=
+ =?iso-2022-jp?B?aWxpbkxTWkxNRzFGNTh1bjBzQndjb0JNcjZ2TXBwc3MwdDA0VlNHc2Vo?=
+ =?iso-2022-jp?B?TE5NRElVMWtTVUpOcURlRjJGTnlVdWNUaVZKWWQ3dU1rWFQwamRMNmpL?=
+ =?iso-2022-jp?B?c05ZcUx1em5EVkFnTkhFdHZsR3pINm1jYS95alMrd0tKbXhCVldQc3R0?=
+ =?iso-2022-jp?B?cWFqeXo1bHkrZ0lIT0xxQkJvT0lmK0pTVnVwSzMrYVJBV2Y4TENpT21F?=
+ =?iso-2022-jp?B?QW80Snl6YTV6QnV3dXJ3dG45ZHJYbVNPdzd4aDYrT2hTbmlSeGlCUXlX?=
+ =?iso-2022-jp?B?UmF6aTgyM3VuRmRDeDk4Z0dNZ01nMTdIVzg0cDBraW1CeTEyS21aQ3VI?=
+ =?iso-2022-jp?B?a0R2Nkxvbk9DTExzVkdCcFpBRnV0NVZYTEdFNzZTaW1JZHkrbEVHTHBH?=
+ =?iso-2022-jp?B?aWtldStKeUw1UEJCMmNudGd1Nnk0TGlwd1h2RytXdHRKVzVKTVNzY1Ri?=
+ =?iso-2022-jp?B?a1diRTN1d04wc1hHRGlJQ3NXOGtuRDJZWFpPNm5UUGhhZlUxT1RQblll?=
+ =?iso-2022-jp?B?NFZxd1ptZm52aEJOV1VNL3VWc1QyRnZvWGloNTQxL25HajBSanRnM1NK?=
+ =?iso-2022-jp?B?bXVwSWtTVmlwclJUd2FXRHFRalAzWEtuSUM1WjVnc29HbnJnaVhsM1NG?=
+ =?iso-2022-jp?B?M1RIbjFmMjI5SC9OaVgwTnp0ZVAvUDVnNnQzSEI2RW1mVlVGMXZOSGw1?=
+ =?iso-2022-jp?B?NGV0YklnVHlLd2RCZXlCSWhFaXJUcCs4ZHVTdnJFR2luck5sak43TUsz?=
+ =?iso-2022-jp?B?RkVUeU9FODNTWVhzSzZOYysvM3h0cFd2Q3RuVG8waWEvbFF3dXVSRHpz?=
+ =?iso-2022-jp?B?dUp2T2liMzdTYlN2TWJkWlA0YnJJZnlaVlRXTXV3VWJ6eTUvQWw2YkpX?=
+ =?iso-2022-jp?B?MnJzaDRQWCtXRGFoRzNZaWZ0VXphMWg1TnNnejBxOTVJaTFhSExMYnJt?=
+ =?iso-2022-jp?B?eHI1OWtmL2FRYi9Sd0pvWngwdG4rb2pPRjk3endlSWtQaTN1S09QL2JV?=
+ =?iso-2022-jp?B?Q1orMCtEc0lBOXMzSm9rdjlHTmN5OWhhQ3FMNnJhR1RmS1BhMk9ZVE85?=
+ =?iso-2022-jp?B?TFBCVjlhd1VCQWh3T296REJyTzAvUVFCMkIrTm4vU01SU2o1TlFFVDBO?=
+ =?iso-2022-jp?B?YTVVL2NWTklPMk9JVUlUNGd1S1pQVER4QjZnbFJQdEZSaTJTSzlDK3A3?=
+ =?iso-2022-jp?B?ZWhzWVBRUHpHM2paQnRUQktXeWxOakdpSTZjSFkxb1J0TGZkdGVsa1JT?=
+ =?iso-2022-jp?B?NU10ZEV0cUQvTm1rdGxNNUFJSTlaVWp4bDFLQkZzanZjZGlZbDdsRmcr?=
+ =?iso-2022-jp?B?QWR2Zng5eEtXMlRUSzhmU2lEK1lMeERVR3BkU3FzRjFzcWgzdTBDQ3Ex?=
+ =?iso-2022-jp?B?ODRzTzByeGEzc3FSN3ZkczdDV0ltcElkVC9jYkZyS3F5WFFTWEhFc0h3?=
+ =?iso-2022-jp?B?czlVUG1aOU9qYnVyNExxb3R3cS9KYi84WEFSbWRyb21UU0dJTWNZYU9o?=
+ =?iso-2022-jp?B?THJsY3BIaDdMbTNib25qcGwwU0NGcnQwZXZKU2R3MFg3dmxHWWZmT1ZE?=
+ =?iso-2022-jp?B?Q0loVy91azVGU01ZYUgvdFFDaUdNbkMvTzE2cEpLbWJ1d25wR0tYcllv?=
+ =?iso-2022-jp?B?cmlIZHVMUUVQYWdBbnI2L2xIS3ZnWHNIR092cXc0UTMxWWlueWx0RVNT?=
+ =?iso-2022-jp?B?OXkySW8xWGtCTjQyUGlFNlhoQ24waitXSEIwQTJsM0UwZ0dhcndDSXNa?=
+ =?iso-2022-jp?B?SUFHMGduWHZ5RlNueGFEejNrQXJuM3RkeGRXOFpoVW1qalR2eXFNSzRn?=
+ =?iso-2022-jp?B?RmVhcVpTbk5qaFVRNXFMVTBtY0h4V0QzVklrNm0vZExwR2JVTnlNTkNk?=
+ =?iso-2022-jp?B?STFLTXIvVlpMKzJXUXhiY0dkVytHMUphYWRob2ZGSFJ6ZWpsaWdhdVVL?=
+ =?iso-2022-jp?B?QUh0V0hmYXR1aCtybTc5VS90TlBQYXd2Y0JKaC9jUnRLNmYwNUJrbE5q?=
+ =?iso-2022-jp?B?cDREZG9VSFh3Nm9Jc0RhY0FCdDNNU3FPZ3hWaDhtekQ1R0ErQkJuQm82?=
+ =?iso-2022-jp?B?K2Z3VEZOanJESkNORmUyelZYbXlPYWR2NEhNaHZ6em0zTVB3bUkwalFE?=
+ =?iso-2022-jp?B?aEhZMklZd0N1MG43WXdoTGNDVmNnTTdqS2lDZUtmNUl4REZMcGdhWjFX?=
+ =?iso-2022-jp?B?Wk91L3NwTFZpd2xzc2s0cGNZWE14UC85bitMNEpPeFMwQTc1WEppM1JD?=
+ =?iso-2022-jp?B?dXA3T2c4T0dzK1pwVU04elFpak5QMW1ja01uQT09?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,98 +168,486 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Lee Youngjoon <getfeus@gmail.com>
-In-Reply-To: <CA+m4KrC5=QzYthdWOyeJy68OrgTCrKdYFRovD3vRC+V26NkqGw@mail.gmail.com>
-References: <CA+m4KrC5=QzYthdWOyeJy68OrgTCrKdYFRovD3vRC+V26NkqGw@mail.gmail.com>
-Date: Thu, 26 Nov 2026 01:06:46 -0600
-X-Gm-Features: Aa3M54r4sbmQWAvLgNa8a9_OjeQhUqX1RUq0k2cmQkyFbM362EOUw7mP_XR5FuU
-Message-ID: <CA+m4KrDa-5MGYF1c_zAzY-ZKM2oJTdP8p7u1D0AXGi1smKNHPw@mail.gmail.com>
-Subject: [PATCH v1 1/2] platform: arm64: huawei-gaokun-ec: Reject short I2C transfers
-To: Pengyu Luo <mitltlatltl@gmail.com>, Hans de Goede <hansg@kernel.org>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: "Bryan O'Donoghue" <bryan.odonoghue@linaro.org>, platform-driver-x86@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-Exchange-RoutingPolicyChecked:
+	IDhoEcCH3tbjX7SyaAMOt2z/L8l25iL+YN4Gy51u9fKVurv9ouIOGYl/h/6x8XutPtaHooYJ9VLORKxVdX37uSQcx/nRNWD94npE4ZaviqU7gz7o3xNgOZGRotLZgpVEiZqQndg9RGi9cqOia7sjL+tEYPskyTBXc5H5HjvTVZOIKmwfQtFYBFVFPq/Fx7qGFy5a1HAOuP+d9c2GOrM+99Sqnwzb/m5Q94V5BizUxbnCfNePpeq9M50GwO6e0qngEgWlBQFXrF0BmYDXH6bD55tX4yAbk14qJVT44g/F6dE9rxREiVNK5C9hyUjk8OSEP4TOWP0OEbGcBBCPRIZ67g==
+X-OriginatorOrg: fujitsu.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY4PR01MB16930.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: daff923c-3a98-4fb9-ac5e-08df4b8be443
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Nov 2026 07:07:11.1647
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a19f121d-81e1-4858-a9d8-736e267fd4c7
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: GuDOTeKxCy7xcntNKN3dQZrcR9oT3F81NE+MA2ij+ajjHCcg++AP1FB+fDICYtQq30Rf9bdwQDa7E/MgcJKphgFkfRuYLFCk58HC17XJYFM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB15663
 
-gaokun_ec_request() issues a write followed by a read. If
-i2c_transfer() completes zero messages, the helper logs a transfer
-error but returns zero to its caller. If it completes just the write,
-the helper returns one without having received a firmware status byte.
-
-Return -EIO for a non-negative short count. Preserve the adapter's
-negative errno, the EC status on a complete transfer, and the delay
-before releasing the transaction lock.
-
-Fixes: 7636f090d02e ("platform: arm64: add Huawei Matebook E Go EC driver")
-Signed-off-by: Lee Youngjoon <getfeus@gmail.com>
----
- drivers/platform/arm64/huawei-gaokun-ec.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/platform/arm64/huawei-gaokun-ec.c
-b/drivers/platform/arm64/huawei-gaokun-ec.c
-index ac21f732d..abf05e7ec 100644
---- a/drivers/platform/arm64/huawei-gaokun-ec.c
-+++ b/drivers/platform/arm64/huawei-gaokun-ec.c
-@@ -145,6 +145,8 @@ static int gaokun_ec_request(struct gaokun_ec *ec,
-const u8 *req,
- 	ret = i2c_transfer(client->adapter, msgs, ARRAY_SIZE(msgs));
- 	if (ret != ARRAY_SIZE(msgs)) {
- 		dev_err(&client->dev, "I2C transfer error %d\n", ret);
-+		if (ret >= 0)
-+			ret = -EIO;
- 		goto out_after_break;
- 	}
-
-
-
-On Thu, 26 Nov 2026 02:06:16 -0500, Lee Youngjoon <getfeus@gmail.com> wrote:
-> Hi,
->
-> These two independent fixes address the host side of the Huawei MateBook
-> E Go EC protocol. A short I2C transfer can be reported as success, and
-> the normal no-port-update case evaluates a negative shift before sending
-> its acknowledgement. Both issues are present in the pdx86 fixes tree.
->
-> For patch 1, a host-side test fed the actual request helper adapter
-> returns of 0, 1, -EREMOTEIO and 2. The first two now return -EIO.
-> A complete transfer still returns the EC status byte, including a
-> nonzero status. For patch 2, UBSan reproduced the negative shift on
-> the base commit. With the fix, -1 sends a zero mask; ports 0 through 7
-> set their respective bits, and out-of-range indices return -EINVAL
-> without a transfer. Both patches were built individually and together
-> as an arm64 Image and EC module.
->
-> For reviewers interested in firmware inputs, the PAN write can also be
-> checked with a fixed cable configuration on a Gaokun. In an earlier
-> instrumented run, the left charger was online and the right port empty.
-> After a normal left ACK, D3 still reported update mask 01 and port
-> records 05/00 and 02/00. A test-only driver hook rechecked D3 and pending
-> work, then issued one empty PAN ACK while both ports were left untouched.
-> The I2C trace captured the following exchange:
->
->     host -> EC    03 d2 01 00
->     EC -> host    00 44
->     D3 payload    02 01 05 00 02 00 40  (before, after, +2 s, +5 s)
->
-> This observation documents the existing empty ACK encoding. The EC
-> accepted the command and the update mask stayed set. The series preserves
-> that input and makes no change to firmware recovery or hotplug policy.
-> The host-side cases above can be exercised without a board by stubbing
-> i2c_transfer() and recording the request bytes and return code.
->
-> OpenAI Codex assisted with source inspection, the fixes, regression
-> tests and drafting this series.
->
-> Thanks,
-> Lee Youngjoon
->
-> Lee Youngjoon (2):
->   platform: arm64: huawei-gaokun-ec: Reject short I2C transfers
->   platform: arm64: huawei-gaokun-ec: Validate the PAN ACK bit index
->
->  drivers/platform/arm64/huawei-gaokun-ec.c | 11 ++++++++---
->  1 file changed, 8 insertions(+), 3 deletions(-)
->
->
-> base-commit: d4000e7b99e06e92f21a3c92098a0476d316e9d6
+Hello Fenghua=0A=
+=0A=
+=0A=
+> To expose resctrl resources that contain CPU-less NUMA domains, resctrl=
+=0A=
+> needs to be told when a CPU-less NUMA domain comes online. This can't=0A=
+> be done with the cpuhp callbacks.=0A=
+> =0A=
+> Add a memory hotplug notifier, and use this to create and destroy=0A=
+> resctrl domains.=0A=
+> =0A=
+> Signed-off-by: James Morse <james.morse@arm.com>=0A=
+> Signed-off-by: Fenghua Yu <fenghuay@nvidia.com>=0A=
+> ---=0A=
+>  drivers/resctrl/mpam_resctrl.c | 321 ++++++++++++++++++++++++++++++++-=
+=0A=
+>  include/linux/memory.h         |   1 +=0A=
+>  2 files changed, 315 insertions(+), 7 deletions(-)=0A=
+> =0A=
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctr=
+l.c=0A=
+> index ac0c488abe12..8a169676c4ac 100644=0A=
+> --- a/drivers/resctrl/mpam_resctrl.c=0A=
+> +++ b/drivers/resctrl/mpam_resctrl.c=0A=
+> @@ -11,6 +11,8 @@=0A=
+>  #include <linux/limits.h>=0A=
+>  #include <linux/list.h>=0A=
+>  #include <linux/math.h>=0A=
+> +#include <linux/memory.h>=0A=
+> +#include <linux/node.h>=0A=
+>  #include <linux/printk.h>=0A=
+>  #include <linux/rculist.h>=0A=
+>  #include <linux/resctrl.h>=0A=
+> @@ -1681,16 +1683,25 @@ void resctrl_arch_reset_all_ctrls(struct rdt_reso=
+urce *r)=0A=
+>          mpam_reset_class_locked(res->class);=0A=
+>  }=0A=
+>  =0A=
+> +static void mpam_resctrl_domain_hdr_init_mask(const struct cpumask *cpus=
+,=0A=
+> +                                             int id_cpu,=0A=
+> +                                             struct mpam_component *comp=
+,=0A=
+> +                                             enum resctrl_res_level rid,=
+=0A=
+> +                                             struct rdt_domain_hdr *hdr)=
+=0A=
+> +{=0A=
+> +       INIT_LIST_HEAD(&hdr->list);=0A=
+> +       hdr->id =3D mpam_resctrl_pick_domain_id(id_cpu, comp);=0A=
+> +       hdr->rid =3D rid;=0A=
+> +       cpumask_copy(&hdr->cpu_mask, cpus);=0A=
+> +}=0A=
+> +=0A=
+>  static void mpam_resctrl_domain_hdr_init(int cpu, struct mpam_component =
+*comp,=0A=
+>                                           enum resctrl_res_level rid,=0A=
+>                                           struct rdt_domain_hdr *hdr)=0A=
+>  {=0A=
+>          lockdep_assert_cpus_held();=0A=
+>  =0A=
+> -       INIT_LIST_HEAD(&hdr->list);=0A=
+> -       hdr->id =3D mpam_resctrl_pick_domain_id(cpu, comp);=0A=
+> -       hdr->rid =3D rid;=0A=
+> -       cpumask_set_cpu(cpu, &hdr->cpu_mask);=0A=
+> +       mpam_resctrl_domain_hdr_init_mask(cpumask_of(cpu), cpu, comp, rid=
+, hdr);=0A=
+>  }=0A=
+>  =0A=
+>  static void mpam_resctrl_online_domain_hdr(unsigned int cpu,=0A=
+> @@ -1711,12 +1722,12 @@ static void mpam_resctrl_online_domain_hdr(unsign=
+ed int cpu,=0A=
+>   * indicating the parent structure can be freed.=0A=
+>   * If there are other CPUs in the domain, returns false.=0A=
+>   */=0A=
+=0A=
+The comments here are also outdated and need to be updated.=0A=
+=0A=
+> -static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,=0A=
+> -                                           struct rdt_domain_hdr *hdr)=
+=0A=
+> +static bool mpam_resctrl_offline_domain_hdr_mask(const struct cpumask *c=
+pus,=0A=
+> +                                                struct rdt_domain_hdr *h=
+dr)=0A=
+>  {=0A=
+>          lockdep_assert_held(&domain_list_lock);=0A=
+>  =0A=
+> -       cpumask_clear_cpu(cpu, &hdr->cpu_mask);=0A=
+> +       cpumask_andnot(&hdr->cpu_mask, &hdr->cpu_mask, cpus);=0A=
+>          if (cpumask_empty(&hdr->cpu_mask)) {=0A=
+>                  list_del_rcu(&hdr->list);=0A=
+>                  synchronize_rcu();=0A=
+> @@ -1726,6 +1737,12 @@ static bool mpam_resctrl_offline_domain_hdr(unsign=
+ed int cpu,=0A=
+>          return false;=0A=
+>  }=0A=
+>  =0A=
+> +static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,=0A=
+> +                                           struct rdt_domain_hdr *hdr)=
+=0A=
+> +{=0A=
+> +       return mpam_resctrl_offline_domain_hdr_mask(cpumask_of(cpu), hdr)=
+;=0A=
+> +}=0A=
+> +=0A=
+=0A=
+Is this wrapper function necessary? It would be simpler to convert the data=
+ directly in the calling code.=0A=
+=0A=
+=0A=
+Best regards,=0A=
+Shaopeng TAN=0A=
+=0A=
+>  static void mpam_resctrl_domain_insert(struct list_head *list,=0A=
+>                                         struct rdt_domain_hdr *new)=0A=
+>  {=0A=
+> @@ -1741,6 +1758,23 @@ static void mpam_resctrl_domain_insert(struct list=
+_head *list,=0A=
+>          list_add_tail_rcu(&new->list, pos);=0A=
+>  }=0A=
+>  =0A=
+> +static struct mpam_component *find_component_nid(struct mpam_class *clas=
+s, int nid)=0A=
+> +{=0A=
+> +       struct mpam_component *comp;=0A=
+> +=0A=
+> +       if (!class || class->type !=3D MPAM_CLASS_MEMORY)=0A=
+> +               return NULL;=0A=
+> +=0A=
+> +       guard(srcu)(&mpam_srcu);=0A=
+> +       list_for_each_entry_srcu(comp, &class->components, class_list,=0A=
+> +                                srcu_read_lock_held(&mpam_srcu)) {=0A=
+> +               if (comp->comp_id =3D=3D nid)=0A=
+> +                       return comp;=0A=
+> +       }=0A=
+> +=0A=
+> +       return NULL;=0A=
+> +}=0A=
+> +=0A=
+>  static struct mpam_component *find_component(struct mpam_class *class, i=
+nt cpu)=0A=
+>  {=0A=
+>          struct mpam_component *comp;=0A=
+> @@ -1925,6 +1959,275 @@ mpam_resctrl_get_ctrl_domain_from_cpu(int cpu, st=
+ruct mpam_resctrl_res *res,=0A=
+>          return NULL;=0A=
+>  }=0A=
+>  =0A=
+> +static bool mpam_mba_uses_memory_nid(void)=0A=
+> +{=0A=
+> +       struct mpam_resctrl_res *res =3D &mpam_resctrl_controls[RDT_RESOU=
+RCE_MBA];=0A=
+> +=0A=
+> +       return res->class && res->class->type =3D=3D MPAM_CLASS_MEMORY;=
+=0A=
+> +}=0A=
+> +=0A=
+> +static struct mpam_resctrl_dom *=0A=
+> +mpam_get_ctrl_domain_from_nid(int nid, struct mpam_resctrl_res *res,=0A=
+> +                             struct resctrl_ctrl *ctrl)=0A=
+> +{=0A=
+> +       struct mpam_resctrl_dom *dom;=0A=
+> +=0A=
+> +       list_for_each_entry(dom, &ctrl->domains, resctrl_ctrl_dom.hdr.lis=
+t) {=0A=
+> +               if (!dom->ctrl_comp || !dom->ctrl_comp->class)=0A=
+> +                       continue;=0A=
+> +               if (dom->ctrl_comp->class->type !=3D MPAM_CLASS_MEMORY)=
+=0A=
+> +                       continue;=0A=
+> +               if (dom->ctrl_comp->comp_id =3D=3D nid)=0A=
+> +                       return dom;=0A=
+> +       }=0A=
+> +=0A=
+> +       return NULL;=0A=
+> +}=0A=
+> +=0A=
+> +static struct mpam_resctrl_dom *=0A=
+> +mpam_get_mon_domain_from_nid(int nid, struct mpam_resctrl_res *res)=0A=
+> +{=0A=
+> +       struct mpam_resctrl_dom *dom;=0A=
+> +       struct rdt_resource *r =3D &res->resctrl_res;=0A=
+> +=0A=
+> +       if (!r->mon_capable)=0A=
+> +               return NULL;=0A=
+> +=0A=
+> +       list_for_each_entry(dom, &r->mon_domains, resctrl_mon_dom.hdr.lis=
+t) {=0A=
+> +               if (!dom->ctrl_comp || !dom->ctrl_comp->class)=0A=
+> +                       continue;=0A=
+> +               if (dom->ctrl_comp->class->type !=3D MPAM_CLASS_MEMORY)=
+=0A=
+> +                       continue;=0A=
+> +               if (dom->ctrl_comp->comp_id =3D=3D nid)=0A=
+> +                       return dom;=0A=
+> +       }=0A=
+> +=0A=
+> +       return NULL;=0A=
+> +}=0A=
+> +=0A=
+> +static struct mpam_resctrl_dom *=0A=
+> +mpam_resctrl_alloc_ctrl_domain_nid(int nid, struct mpam_resctrl_res *res=
+,=0A=
+> +                                  struct resctrl_ctrl *ctrl,=0A=
+> +                                  struct mpam_component *comp)=0A=
+> +{=0A=
+> +       int err;=0A=
+> +       struct mpam_resctrl_dom *dom;=0A=
+> +       struct rdt_ctrl_domain *ctrl_d;=0A=
+> +       struct rdt_resource *r =3D &res->resctrl_res;=0A=
+> +       int id_cpu =3D cpumask_first(cpu_possible_mask);=0A=
+> +=0A=
+> +       if (id_cpu >=3D nr_cpu_ids)=0A=
+> +               id_cpu =3D 0;=0A=
+> +=0A=
+> +       lockdep_assert_held(&domain_list_lock);=0A=
+> +=0A=
+> +       if (!r->alloc_capable)=0A=
+> +               return ERR_PTR(-EINVAL);=0A=
+> +=0A=
+> +       if (WARN_ON_ONCE(!comp))=0A=
+> +               return ERR_PTR(-EINVAL);=0A=
+> +=0A=
+> +       dom =3D kzalloc_node(sizeof(*dom), GFP_KERNEL, nid);=0A=
+> +       if (!dom)=0A=
+> +               return ERR_PTR(-ENOMEM);=0A=
+> +=0A=
+> +       dom->ctrl_comp =3D comp;=0A=
+> +=0A=
+> +       ctrl_d =3D &dom->resctrl_ctrl_dom;=0A=
+> +       mpam_resctrl_domain_hdr_init_mask(cpu_possible_mask, id_cpu, comp=
+,=0A=
+> +                                         r->rid, &ctrl_d->hdr);=0A=
+> +       ctrl_d->hdr.type =3D RESCTRL_CTRL_DOMAIN;=0A=
+> +       err =3D resctrl_online_ctrl_domain(r, ctrl, ctrl_d);=0A=
+> +       if (err)=0A=
+> +               goto free_domain;=0A=
+> +=0A=
+> +       mpam_resctrl_domain_insert(&ctrl->domains, &ctrl_d->hdr);=0A=
+> +=0A=
+> +       return dom;=0A=
+> +=0A=
+> +free_domain:=0A=
+> +       kfree(dom);=0A=
+> +       return ERR_PTR(err);=0A=
+> +}=0A=
+> +=0A=
+> +static struct mpam_resctrl_dom *=0A=
+> +mpam_resctrl_alloc_mon_domain_nid(int nid, struct mpam_resctrl_res *res,=
+=0A=
+> +                                 struct mpam_component *comp)=0A=
+> +{=0A=
+> +       int err;=0A=
+> +       struct mpam_resctrl_dom *dom;=0A=
+> +       struct rdt_l3_mon_domain *mon_d;=0A=
+> +       struct rdt_resource *r =3D &res->resctrl_res;=0A=
+> +       struct mpam_component *any_mon_comp =3D NULL;=0A=
+> +       struct mpam_resctrl_mon *mon;=0A=
+> +       enum resctrl_event_id eventid;=0A=
+> +       int id_cpu =3D cpumask_first(cpu_possible_mask);=0A=
+> +=0A=
+> +       if (id_cpu >=3D nr_cpu_ids)=0A=
+> +               id_cpu =3D 0;=0A=
+> +=0A=
+> +       lockdep_assert_held(&domain_list_lock);=0A=
+> +=0A=
+> +       if (!r->mon_capable)=0A=
+> +               return ERR_PTR(-EINVAL);=0A=
+> +=0A=
+> +       if (WARN_ON_ONCE(!comp))=0A=
+> +               return ERR_PTR(-EINVAL);=0A=
+> +=0A=
+> +       dom =3D kzalloc_node(sizeof(*dom), GFP_KERNEL, nid);=0A=
+> +       if (!dom)=0A=
+> +               return ERR_PTR(-ENOMEM);=0A=
+> +=0A=
+> +       dom->ctrl_comp =3D comp;=0A=
+> +=0A=
+> +       for_each_mpam_resctrl_mon(mon, eventid) {=0A=
+> +               struct mpam_component *mon_comp;=0A=
+> +=0A=
+> +               if (!mon->class)=0A=
+> +                       continue;=0A=
+> +=0A=
+> +               mon_comp =3D find_component_nid(mon->class, nid);=0A=
+> +               dom->mon_comp[eventid] =3D mon_comp;=0A=
+> +               if (mon_comp)=0A=
+> +                       any_mon_comp =3D mon_comp;=0A=
+> +       }=0A=
+> +       if (!any_mon_comp) {=0A=
+> +               err =3D -EFAULT;=0A=
+> +               goto free_domain;=0A=
+> +       }=0A=
+> +=0A=
+> +       mon_d =3D &dom->resctrl_mon_dom;=0A=
+> +       mpam_resctrl_domain_hdr_init_mask(cpu_possible_mask, id_cpu, any_=
+mon_comp,=0A=
+> +                                         r->rid, &mon_d->hdr);=0A=
+> +       mon_d->hdr.type =3D RESCTRL_MON_DOMAIN;=0A=
+> +       err =3D resctrl_online_mon_domain(r, &mon_d->hdr);=0A=
+> +       if (err)=0A=
+> +               goto free_domain;=0A=
+> +=0A=
+> +       mpam_resctrl_domain_insert(&r->mon_domains, &mon_d->hdr);=0A=
+> +=0A=
+> +       return dom;=0A=
+> +=0A=
+> +free_domain:=0A=
+> +       kfree(dom);=0A=
+> +       return ERR_PTR(err);=0A=
+> +}=0A=
+> +=0A=
+> +static int mpam_resctrl_online_node(unsigned int nid)=0A=
+> +{=0A=
+> +       struct mpam_resctrl_res *res =3D &mpam_resctrl_controls[RDT_RESOU=
+RCE_MBA];=0A=
+> +       struct rdt_resource *r =3D &res->resctrl_res;=0A=
+> +       struct mpam_component *comp;=0A=
+> +       struct resctrl_ctrl *ctrl;=0A=
+> +       struct mpam_resctrl_dom *dom;=0A=
+> +=0A=
+> +       if (!res->class)=0A=
+> +               return 0;=0A=
+> +=0A=
+> +       comp =3D find_component_nid(res->class, nid);=0A=
+> +       if (!comp)=0A=
+> +               return 0;=0A=
+> +=0A=
+> +       guard(mutex)(&domain_list_lock);=0A=
+> +=0A=
+> +       if (r->alloc_capable) {=0A=
+> +               for_each_resource_ctrl(ctrl, r) {=0A=
+> +                       dom =3D mpam_get_ctrl_domain_from_nid(nid, res, c=
+trl);=0A=
+> +                       if (!dom) {=0A=
+> +                               dom =3D mpam_resctrl_alloc_ctrl_domain_ni=
+d(nid, res,=0A=
+> +                                                                        =
+ctrl, comp);=0A=
+> +                               if (IS_ERR(dom))=0A=
+> +                                       return PTR_ERR(dom);=0A=
+> +                       }=0A=
+> +               }=0A=
+> +       }=0A=
+> +=0A=
+> +       if (r->mon_capable) {=0A=
+> +               dom =3D mpam_get_mon_domain_from_nid(nid, res);=0A=
+> +               if (!dom) {=0A=
+> +                       dom =3D mpam_resctrl_alloc_mon_domain_nid(nid, re=
+s, comp);=0A=
+> +                       if (IS_ERR(dom))=0A=
+> +                               return PTR_ERR(dom);=0A=
+> +               }=0A=
+> +       }=0A=
+> +=0A=
+> +       return 0;=0A=
+> +}=0A=
+> +=0A=
+> +static int mpam_resctrl_offline_node(unsigned int nid)=0A=
+> +{=0A=
+> +       struct mpam_resctrl_res *res =3D &mpam_resctrl_controls[RDT_RESOU=
+RCE_MBA];=0A=
+> +       struct rdt_resource *r =3D &res->resctrl_res;=0A=
+> +       struct resctrl_ctrl *ctrl;=0A=
+> +       struct mpam_resctrl_dom *dom;=0A=
+> +       struct rdt_ctrl_domain *ctrl_d;=0A=
+> +       struct rdt_l3_mon_domain *mon_d;=0A=
+> +=0A=
+> +       if (!res->class)=0A=
+> +               return 0;=0A=
+> +=0A=
+> +       if (!find_component_nid(res->class, nid))=0A=
+> +               return 0;=0A=
+> +=0A=
+> +       guard(mutex)(&domain_list_lock);=0A=
+> +=0A=
+> +       if (r->alloc_capable) {=0A=
+> +               for_each_resource_ctrl(ctrl, r) {=0A=
+> +                       dom =3D mpam_get_ctrl_domain_from_nid(nid, res, c=
+trl);=0A=
+> +                       if (WARN_ON_ONCE(!dom))=0A=
+> +                               continue;=0A=
+> +                       ctrl_d =3D &dom->resctrl_ctrl_dom;=0A=
+> +                       if (mpam_resctrl_offline_domain_hdr_mask(cpu_poss=
+ible_mask,=0A=
+> +                                                                &ctrl_d-=
+>hdr)) {=0A=
+> +                               resctrl_offline_ctrl_domain(r, ctrl, ctrl=
+_d);=0A=
+> +                               kfree(dom);=0A=
+> +                       }=0A=
+> +               }=0A=
+> +       }=0A=
+> +=0A=
+> +       if (r->mon_capable) {=0A=
+> +               dom =3D mpam_get_mon_domain_from_nid(nid, res);=0A=
+> +               if (WARN_ON_ONCE(!dom))=0A=
+> +                       return 0;=0A=
+> +               mon_d =3D &dom->resctrl_mon_dom;=0A=
+> +               if (mpam_resctrl_offline_domain_hdr_mask(cpu_possible_mas=
+k, &mon_d->hdr)) {=0A=
+> +                       resctrl_offline_mon_domain(r, &mon_d->hdr);=0A=
+> +                       kfree(dom);=0A=
+> +               }=0A=
+> +       }=0A=
+> +=0A=
+> +       return 0;=0A=
+> +}=0A=
+> +=0A=
+> +static int mpam_resctrl_node_notifier(struct notifier_block *self,=0A=
+> +                                     unsigned long action, void *arg)=0A=
+> +{=0A=
+> +       struct node_notify *nn =3D arg;=0A=
+> +=0A=
+> +       if (nn->nid < 0 || !mpam_mba_uses_memory_nid())=0A=
+> +               return NOTIFY_OK;=0A=
+> +=0A=
+> +       /*=0A=
+> +        * Ignore nids that have CPUs. Resctrl needs to see the cpu offli=
+ne=0A=
+> +        * call for each CPU to update the CPUs in control groups.=0A=
+> +        */=0A=
+> +       if (!cpumask_empty(cpumask_of_node(nn->nid)))=0A=
+> +               return NOTIFY_OK;=0A=
+> +=0A=
+> +       switch (action) {=0A=
+> +       case NODE_ADDED_FIRST_MEMORY:=0A=
+> +               mpam_resctrl_online_node(nn->nid);=0A=
+> +               break;=0A=
+> +       case NODE_REMOVED_LAST_MEMORY:=0A=
+> +               mpam_resctrl_offline_node(nn->nid);=0A=
+> +               break;=0A=
+> +       default:=0A=
+> +               break;=0A=
+> +       }=0A=
+> +=0A=
+> +       return NOTIFY_OK;=0A=
+> +}=0A=
+> +=0A=
+>  int mpam_resctrl_online_cpu(unsigned int cpu)=0A=
+>  {=0A=
+>          struct mpam_resctrl_res *res;=0A=
+> @@ -2088,6 +2391,10 @@ int mpam_resctrl_setup(void)=0A=
+>                  }=0A=
+>          }=0A=
+>  =0A=
+> +       if (mpam_mba_uses_memory_nid())=0A=
+> +               hotplug_node_notifier(mpam_resctrl_node_notifier,=0A=
+> +                                     RESCTRL_CALLBACK_PRI);=0A=
+> +=0A=
+>          cpus_read_unlock();=0A=
+>  =0A=
+>          if (!resctrl_arch_alloc_capable() && !resctrl_arch_mon_capable()=
+) {=0A=
+> diff --git a/include/linux/memory.h b/include/linux/memory.h=0A=
+> index 463dc02f6cff..1497d4be38ee 100644=0A=
+> --- a/include/linux/memory.h=0A=
+> +++ b/include/linux/memory.h=0A=
+> @@ -120,6 +120,7 @@ struct mem_section;=0A=
+>  #define CPUSET_CALLBACK_PRI     10=0A=
+>  #define MEMTIER_HOTPLUG_PRI     100=0A=
+>  #define KSM_CALLBACK_PRI        100=0A=
+> +#define RESCTRL_CALLBACK_PRI   100=0A=
+>  =0A=
+>  #ifndef CONFIG_MEMORY_HOTPLUG=0A=
+>  static inline void memory_dev_init(void)=0A=
+> --=0A=
+> 2.53.0=0A=
