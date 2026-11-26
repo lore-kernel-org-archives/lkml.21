@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685483;
-	b=V67YgOBN8B3UaRNPj+K6PbT8VPMREBmIkwzGoJeNTWZj9dAkveaGkAmVCLefnMh+x/2d
-	 KjaaMs7MAfZ/0qMihQ3n3hini9CxcKi0hSNAZ/SGOWwi6R/MMVlzsPBGSqpWMyEUtAGmQ
-	 NgbPYlJfSGpJiEEg88+AUtYwvM1M+eZoV57SJBqO/XX3e430ZbrNrKU1doe1z5u1Z83Es
-	 8QNWdWmpzGvMtHAUtQnGSq7qCWEkS2Yxfvnvmhp/Ey3z1vFvt+Lzio9ITevwlZvngHSuP
-	 AO219u24CXGm2/kVxYuz9YAiNEPJip4I1YQkN+Dnmvn2NiS1NTBbKfA4TE5rF1lSoHw==
+	t=1795685485;
+	b=Xb0aBHSEduvy53NsrzLeDCcfD+avD7gzud6je93PkdLikuMU9p6gwYSBT8D0s7+i0lPM
+	 Am/ucALmY29zudG1XkeYa3vYVo2aE7q1FuZuHFYCmsHFDNKcs0/lCGlWKNjWqnTkaHvwY
+	 f6Y2okrnQwl4JxI9tfeL4jLWk50tOIxWozXdqGvsmdketK/eRtHu68NIRvos0EMsB1H6N
+	 UdWbgjikOrgAuZOLcqUUVqhU0d7S0DkIZcUlm3xMIB/xdl6TWhVrN55wyVtR1HuTOInms
+	 W12HQWMP7+waSue0c6AUUtPr2Ty+SllkXV2FtYgppL0KveSSGvM1SAFy25dyZOHHgmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685483;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685485;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=E/ftTHBn544yXnq15epikqQ+4mq3bhKo9jH8irlYVGU=;
-	b=Eb1qK2U0tUb4ST/ZBE/FKuz/8LVRG7dNN40UhirHrun0eSgixGJD0D1BcmUsfbaF3f2R
-	 brs1GcvKBprjpTbD77BiKTPB92uZ7pcUweJAex2489TPVWKvkd7hMf3e2yG7pHM1nBpJT
-	 X9VrwJ6f7GUiIWgA25k5fFXPUevRxnITfWTL7UG/DcLs+vGwqZWFQfu7SHyMeIkOMaYcF
-	 RFiVYWk/JzXlU3e0HtusA81cQfX1S8P2IvrMwOLuPakug1bMxo26LGFKL5rs2T3S9mYKH
-	 p8t1H+WvwOvGcHtNV/DogjBdAnXCZQNT5FUkMWtoqGDoX9utbj6RXcUQH/RrSiOR8ag==
+	bh=KxYz0Rx58uvG878VN3POGtPURCrxZ6nQaRpf1JD8omk=;
+	b=sKoo/n562gPMpKGiY2I/lFEUDvN11NbyX2oh0KWQrnAA/8Yq7uIZXxIG93muWQ31MUlT
+	 rO0zuolzrEoQfcKcmwuD3btahc1zwVJfxm55shlomFDUIxHQLWXsCLHyqf+9zuj8tOOqd
+	 NkkqIpPcYyqYyUvgBdxThLRMh33PsqDWBEqTG/w97eHlz2BjHJpAsIIhOhaD6cuvnBrgE
+	 2+xfhQvpJi5I9SUmOQ7vzbZhxiTKuiMeVowQi/WXCVqMLeMMhKLbe9qH74tn8bjBSjFIP
+	 dZPTXtA3yE+LhREymsVfJG0U0gY6nQmncxDkbkkl50HQDY2CBsWOXC5aK5BW6tNMJVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IIwECtid;
-	arc=none smtp.remote-ip=209.85.218.50
-Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zbssfSJ7;
+	arc=none smtp.remote-ip=209.85.218.49
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91AF7606A336
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:31:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91AF7606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4D75606A680
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:31:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4D75606A680
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IIwECtid
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c516a192844so681662166b.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:31:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zbssfSJ7
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so1237901066b.2
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:31:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795685482; x=1796290282; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795685483; x=1796290283; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=E/ftTHBn544yXnq15epikqQ+4mq3bhKo9jH8irlYVGU=;
-        b=IIwECtidaIQK6vrOzQTObRsTceSkyoFgrZwJA8eGaN9/pI/BplL9rjyx9rSxxS95Xn
-         Qc72IRVxBsbsa64bCeB1IU7O4AaGcBYEBjHODI47GXVTJF/EkMzToJfJYmYlylqPdtAo
-         1RCYrX1N95gAeQ1SkC/29ibtj2MfGsEkCbaQrp8bnjDavLIt7ENrfwARo7l7HYITyyqD
-         i6gbTKmSatgMNBgJxlF95WcjBG7335FuQu3nVi7Ywj+o9FMWNq/DIXiPFLWGxGK1uPD9
-         v3WFtyBK+vsAQRcJVQvBKwaTokYmoBHrqwVqD35r2+02TDHFDIlrgdGrWKc18yred/FV
-         SeOQ==
+        bh=KxYz0Rx58uvG878VN3POGtPURCrxZ6nQaRpf1JD8omk=;
+        b=zbssfSJ7kR1tm3zM3tuzkXG/552spqHTV5kKqqofoN+VyodkEEjs2vYFuLekFgrJIb
+         lg+Gr4GD4PH7RlMBBqLVrCWQxnumnh/QK3PNcev68ONjmqLugeN3yFlicfc99TidF/0P
+         Kock3PcxjXPRTfJuFyytLa0sTnMq4Ekzt8LYJj3E4HPRPTskjvysCpDQ4u+7IIMh01sH
+         a0AMbrg+7pcSti83ZiTdQfqxtTqrXSMstgyipvUzXdhlS2Kar3GCujw3VW/asv9Qjo5Q
+         w3e2YRT4yz32aCtj7Vwhs5OUux9t1jLonF30dbTWHpjvbprccujmyaPqcXzYmYKRqRQ5
+         7w3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795685482; x=1796290282;
+        d=1e100.net; s=20260707; t=1795685483; x=1796290283;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=E/ftTHBn544yXnq15epikqQ+4mq3bhKo9jH8irlYVGU=;
-        b=bgllpp+U2cANOEmkX6ptGpVvNXoBAus2pCx5xkfVku091E/isYCA4/CPXLgminp2P0
-         kIs5pWI+R/jQ9i7tCJROJqeQeSWAjUt0ul+dZb8XYpMEhcgDwtVGVzOlopoF76BoVznm
-         ConGCAs0J1+kVuEbIdO8/QhQNEq2p2lZHmorGwGUAMRHGppbK20zL1TwncPRxGe5cbGF
-         YkaWW8yvcVIzuxw/DpqiHvY5LkYRy4RZ5Nlv8Xi5TEnw8UPwyCsQwOJVRzxjVw5ueRkg
-         H1MlAQieuPfrU9I2xSI3QDYBPOGgFaVLoeJPKy4BOSeVIMq5s12O2laP8r/llbsPfTtj
-         x+cw==
-X-Forwarded-Encrypted: i=1; AL+hErFQIFdxk6u+0KcUFuhibXs0mkfupUgEFKKFvmKd1tvi32CqFGx4aIxgQ7HdH7I0lqmjRPb/lDrV7r/NQYM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+lrkDD8BJSNgOHQ4qBktB++3V2XNjQXPkqEY0byxvkb3ICSpzk
-	dA5vxPgLKpSQyuK9sejOMWu/8me8alLNEaFzT/cocG3ixdGnYALzY8Wm
-X-Gm-Gg: AZFdTZfTIRo+bdVstituNodf2bSQxMzX1c8mG3QLJGlOIohuhh/+R6d+SN8PX52VNj4
-	wF+1x1XQSzebQXtC9vQFRdx7lx+6ITPUpVtojoSL4zHCZwHy/EBs/OjGTlvXaWowyGcLHmbCat8
-	OMW+ZwJIlhqMSYcpEr1GnVMEhqjXpdaCkxrt0cinY25GZ3e4X2R2OA+Rr/zopqIFJ4H03HspVgr
-	NEqWGiijo2uuST5luSpJPA//9dEuGw5BzWFUyu7lbcVaN5l9q0eBh40izM60poS3KK5LCFLAR7J
-	VjGZ6BxLShmwxWCKfOe6M7UaBaP96rgYGSsAq2HJAjsQR5D+u/M7h90xQOh1oVgvYthC0XjYTd5
-	+GNXJR6VWZ7dVcF6/HIc4VQR9AQaxnL7btCHnnQQXmYk7O5SqzFE+8hl1P5gWh4VmH9pAsxLAIg
-	xJ73l7Hd1bla+6kd10rfVl3OOc9a83KOlPMzvFJUHNida6g91Pyp4QglHA/PbaOO7/uoiNYDB0B
-	/mh4IUWN3HvSfvpboO8GGkfjGdwj7y7DjpZoxDjWNPBa5DpJ5gQdj/dHvq5lAb7giqmEjUskpNC
-	+AF3bNoJMt04dUXzh1zUffeKbdTf1qAFl8L0uQig+mzszbl4OT3/en3JGeQ7LO5benF2Vn4=
-X-Received: by 2002:a17:906:a11a:b0:c4c:d96e:80de with SMTP id a640c23a62f3a-c513a5dabbdmr1290596466b.8.1795685481732;
-        Thu, 26 Nov 2026 01:31:21 -0800 (PST)
+        bh=KxYz0Rx58uvG878VN3POGtPURCrxZ6nQaRpf1JD8omk=;
+        b=Fnxx3QcAV3baLinwFxt4Dc1Qj6V5QFFT0alM00p5Lc33PgnbRXrAcMXdEwamSyhf43
+         2dKbv3QbLS+F+MXoTyEHKFuCka5G67PAahAOAxtfhDY5/TayU3eMufVKWiWa3bAy8FCk
+         +1h61QZ6dexTwi1sxEtAG8wODya/xJtscUVP98Wp6vsV1df3rPKRnRKu4DLuT538rmue
+         VK8+3owQwU1OCQinJUTwlSNsutrwoi0exdKBfGPwk6CLHxBa+rtdUW34ED6IzTs8P0tV
+         Tyxjf0Xmo6WrUoVMHOqaeQmkCkXltowG7EqbtmTLsWO58xzJ/FqpeZzF5mJil5AKLDWu
+         2vfg==
+X-Forwarded-Encrypted: i=1; AL+hErFMXMTIiSVS0M0xZFrEnwlrVrOzB72j9GuDm+BLjOMVcYTdlwKdB0YjL8Pt8ei8gvozxyq1TftovlXsoZQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z89cxWDi+CH3+MXrOJASAimPRYYRdl+hxDT3hVCoIaF4vW97qeD
+	+GBWFIi7mfatmf8Lfqg+bbx5cSQi6jmANbTR+uZ7FOPzNSAILNgzz89+
+X-Gm-Gg: AZFdTZcJgJ/suOsw9eW416TiwMcrbJuENXyHqSLdAa/bYsZy2fJibN8utGv2H+m3c0/
+	K8pR/aNs8FiCVWkyCATXtXeSkJCXAhSlbWoVd62OHtQsT/FbANgUzk3aX9U+Vn89mpP1seLe44F
+	0ylM99Z5Yr/sE81PGpMs6JfSHscmRKYb8AWWvjgQ8RYhIbp70YfhBE/S2HVzBS8beCT+6Gn2bHG
+	ddNlNdW7KnlxBibntVE4CZy+bff28/r+oJPCR7yt2CjykqMsy7gG+V49VmAotapZzR9m4gzJkjt
+	lMq7f5FPdIP5+L0Kkea85gaTYLacZZpN8qY7lKW0vEb4zW/41hH+eQOmSy/sNqZQkfMIoXRPYx4
+	fygP9knlSPgpSApeckVcL4RPgcPLthYRkBGxa+H62wxQEKFOf9psz+YHFVFllLsL167yMn2Q9Rz
+	t+IwYeWPXEOtKPAdqbb8a8RNvkGIShXkOAuOdH98wAhkBNMLmAh4Ee9uLr2DF+oLTA81IEJXId7
+	70I2wPff/KbzEJlhtB7auolWH5b6WhHpy+XHiqydOsNPZWFDvnuxyyXiiZU08ii42AZgfF6xrcb
+	BccBfINSZYoviNcA0tmohxzdy3/f279lD5MOBfxlHHllEFtoo+vbymj3AeE7p+d56nEaaw0=
+X-Received: by 2002:a17:907:fd15:b0:c50:f1c5:f815 with SMTP id a640c23a62f3a-c513ab49777mr1628525566b.31.1795685482808;
+        Thu, 26 Nov 2026 01:31:22 -0800 (PST)
 Received: from buildhost.darklands.se ([2001:9b1:ff:d701:51eb:176f:63d9:53f8])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdee82sm597090066b.66.2026.11.26.01.31.20
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afdee82sm597090066b.66.2026.11.26.01.31.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:31:21 -0800 (PST)
+        Thu, 26 Nov 2026 01:31:22 -0800 (PST)
 From: Magnus Lindholm <linmag7@gmail.com>
 To: davem@davemloft.net,
 	andreas@gaisler.com
@@ -85,9 +85,9 @@ Cc: sam@ravnborg.org,
 	sparclinux@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linmag7@gmail.com
-Subject: [PATCH 02/18] sparc32,leon: retain SMP TLB shootdowns
-Date: Thu, 26 Nov 2026 10:30:07 +0100
-Message-ID: <20261126093106.1345825-3-linmag7@gmail.com>
+Subject: [PATCH 03/18] sparc32,leon: publish instruction updates across CPUs
+Date: Thu, 26 Nov 2026 10:30:08 +0100
+Message-ID: <20261126093106.1345825-4-linmag7@gmail.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261126093106.1345825-1-linmag7@gmail.com>
 References: <20261126093106.1345825-1-linmag7@gmail.com>
@@ -102,53 +102,61 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-LEON replaces the synchronous SMP TLB wrappers with local operations,
-leaving remote translations stale after a mapping change. Keep the SMP
-wrappers for LEON. On GR-LEON4-ITX, all 512 remapping reads were stale
-without this change and all 512 were fresh with it.
+flush_icache_range() is a no-op on sparc32, so another LEON CPU can
+execute old instructions after code is rewritten at an existing mapping.
+The LEON4 data cache snoops bus writes (GRIP 104.3.8); publishing code
+also requires invalidating the other CPU's instruction cache.
 
-leon_switch_mm() passed NULL to flush_tlb_mm(), which the SMP wrapper
-would dereference. A context switch only needs a local flush, so call
-leon_flush_tlb_all() directly.
+Flush locally and through a synchronous cross-call with preemption
+disabled. Keep empty ranges and non-LEON systems as runtime no-ops;
+generic SPARC32 kernels can detect LEON without CONFIG_SPARC_LEON.
+This covers in-place code updates. The module loader already flushes
+caches when creating mappings for module text.
 
-This is based on "sparc32: retain mm_cpumask across TLB shootdowns" and
-"sparc32: enroll and order CPUs before switching address spaces".
-
-Fixes: 8401707ff645 ("sparc,leon: Sparc-Leon SMP support")
 Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
 ---
- arch/sparc/mm/leon_mm.c | 3 ++-
- arch/sparc/mm/srmmu.c   | 3 ++-
- 2 files changed, 4 insertions(+), 2 deletions(-)
+ arch/sparc/include/asm/cacheflush_32.h |  2 +-
+ arch/sparc/mm/srmmu.c                  | 14 ++++++++++++++
+ 2 files changed, 15 insertions(+), 1 deletion(-)
 
-diff --git a/arch/sparc/mm/leon_mm.c b/arch/sparc/mm/leon_mm.c
-index a43c5ffbbbe5..c19eb23b62e2 100644
---- a/arch/sparc/mm/leon_mm.c
-+++ b/arch/sparc/mm/leon_mm.c
-@@ -264,7 +264,8 @@ int __init leon_flush_needed(void)
+diff --git a/arch/sparc/include/asm/cacheflush_32.h b/arch/sparc/include/asm/cacheflush_32.h
+index 9fee0ccfccb8..4249663efacc 100644
+--- a/arch/sparc/include/asm/cacheflush_32.h
++++ b/arch/sparc/include/asm/cacheflush_32.h
+@@ -15,7 +15,7 @@
+ 	sparc32_cachetlb_ops->cache_range(vma, start, end)
+ #define flush_cache_page(vma,addr,pfn) \
+ 	sparc32_cachetlb_ops->cache_page(vma, addr)
+-#define flush_icache_range(start, end)		do { } while (0)
++void flush_icache_range(unsigned long start, unsigned long end);
  
- void leon_switch_mm(void)
- {
--	flush_tlb_mm((void *)0);
-+	/* Context switches are local; mapping changes use the SMP wrappers. */
-+	leon_flush_tlb_all();
- 	if (leon_flush_during_switch)
- 		leon_flush_cache_all();
- }
+ #define copy_to_user_page(vma, page, vaddr, dst, src, len) \
+ 	do {							\
 diff --git a/arch/sparc/mm/srmmu.c b/arch/sparc/mm/srmmu.c
-index 145a63a5fda9..fb95865d7ddd 100644
+index fb95865d7ddd..d2963fab829c 100644
 --- a/arch/sparc/mm/srmmu.c
 +++ b/arch/sparc/mm/srmmu.c
-@@ -1746,7 +1746,8 @@ void __init load_mmu(void)
- 	/* El switcheroo... */
- 	local_ops = sparc32_cachetlb_ops;
+@@ -1736,6 +1736,20 @@ static struct sparc32_cachetlb_ops smp_cachetlb_ops __ro_after_init = {
+ };
+ #endif
  
--	if (sparc_cpu_model == sun4d || sparc_cpu_model == sparc_leon) {
-+	/* sun4d supplies its own SMP TLB operations. */
-+	if (sparc_cpu_model == sun4d) {
- 		smp_cachetlb_ops.tlb_all = local_ops->tlb_all;
- 		smp_cachetlb_ops.tlb_mm = local_ops->tlb_mm;
- 		smp_cachetlb_ops.tlb_range = local_ops->tlb_range;
++void flush_icache_range(unsigned long start, unsigned long end)
++{
++	if (start >= end || sparc_cpu_model != sparc_leon)
++		return;
++
++	preempt_disable();
++	leon_flush_cache_all();
++#ifdef CONFIG_SMP
++	xc0(leon_flush_cache_all);
++#endif
++	preempt_enable();
++}
++EXPORT_SYMBOL(flush_icache_range);
++
+ /* Load up routines and constants for sun4m and sun4d mmu */
+ void __init load_mmu(void)
+ {
 -- 
 2.43.0
 
