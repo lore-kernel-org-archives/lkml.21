@@ -1,54 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.191
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795664346;
-	b=dnUzI6QgMzs5IZdiMsLZ80xiQZGAnmMdZoaTv7uFqL8gAkO5Qz3fqL+v1hWbf1ZbQHZe
-	 1FPt49QXaVkZB5rg7psD8NOHJspqqP15qPFe4cXRWooqEsF6LWM/Krl4yMYBbknajmayZ
-	 RsjctJPixtiHNQAiGtCvQmCdIt2gRitCPQ75PKwZ4vqYL7N9nujAlahvXh5u5b/N2vFzX
-	 0dZ8vn9FZOD110enx9qTJ0zXd26i86OHHN10YaP+nqavLusdKdxQOjAsfajCJbri60VKe
-	 GH06NSUvmLrDOsbbkmsi4j1Ln+5Q4rw3FqoeoPpppxUVc3oHFxkRV+JUr4g2lZMU4VA==
+	t=1795664350;
+	b=C/lWMCGNg8OQS8JY/9nYAA9xQP8PAe5Z7ka1SGgGozpuSN8v2Kj8uxZSmtC5oQpkolfc
+	 1leiQLr6OXisfNYPwuHQTVUAlsaxgk/YWNGgsm+JYApM7hSHNjnKB7Nw0DXilh4SnCphT
+	 gMgn+RgcsmadIumjB15ilM6+MBXbuPk9yMqQmLy2kzDdtkH6YVjbEt0u2qbPczhXiJpXV
+	 bNBCcOYDrS8Jx6x+8b76wVsbwRXtxI4ZV+W3KXLosfdCBqSkWhAg50XnpU2rbsTrj2V8h
+	 t3vmeHkOysraZFFj3TcS5o3GXA/k8C6pl6/STweFnbTVHT2v6wG6I7PpLQ/5O1TBBtg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795664346;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=WZXhqqMJtGtQSFqs9mp5EiyQrG4t9fKkEiiJJfk1V94=;
-	b=o+TqoJUZ8uI1T0Gupe6NIVidlyJI0a0xFVB9wfhIFhdwpf07W3qN9JybfARf2i54vzA2
-	 jFmt5tixaAS4OxZ0OJhm2/0WRnliYfnFRBj4L0JuIUvxG5G+KB3Qzqt+qNbEFUHpha0gO
-	 KSJZawHzqbBz/pyyd6uhPCwDwXuR2WnhhGtMILYCzI8GM8qRGIojiefuX3rAlw41YS/k4
-	 1ntud8yRFImd2mokcWrrB1XB3Tf5ZVLmrkzGPcc3KgtG4Q1WHvt+7P5cc/Xb4gwYA1gmO
-	 coEYPFhtY6bW/8xRyNwXRfMAT+P0v74jJbLwkJ263rhOuGHaAit2btj1gx3qjd+/FNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795664350;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=ig1Q3yBjVbivSP+2rdgIubsjNnhUPE3NszY437oJ1oU=;
+	b=PbH6MbrTkj5GImTuQV2x+2GIZnqc1E4pBo0zFxUNZ6LNv3R+aqAEREu9CXorIEPRmvQx
+	 6ytU9M3Tz967se3C1cCcuNTze7kcOXbD+wpmQOJ8EbYaKQpWOVaDajRUCB+PCrcIacAw7
+	 jRdQvl/Z0el06Mmnii4BTXxRsaw/y4JCvqXA8nmpFRlOGjKzlurhUlHADGS43L6MPwxE4
+	 CP92AOxVpms/1EOUpU+tCSLk1lcVVQRb39UD8w8XUKjqJWT/qwhzUdAmJonDFVVlkogpb
+	 ew3PKa4MNnSIpSWWTxqMBQ3EuuoU4jEtlzeuVbFIYOVvwRAUnZ89Yynzfgn0VtM2TPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LSdyAs8J;
-	arc=none smtp.remote-ip=95.215.58.191
-Received: from mta1.migadu.com (out-191.mta1.migadu.com [95.215.58.191])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fTqPv4mg;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=d0RVmqgt;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90C0A606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:39:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90C0A606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13340606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:39:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13340606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LSdyAs8J
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=3UV2O3vp01qJF08PlpVk7+NJu2+NXqvyVZ3Kr2qDcy8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795664342; v=1; x=1796269142;
- b=LSdyAs8J7bC0cwji/tGdQecq8Tb/rUDxBvCZ8eA2i2W2wcoPx32DxmBSqPsZUXpyVC/jASZp
- W5Q5gHCmigHcxUkWUsIUEaW4tZX8X/02c4qBdNrJInCsJGoAobC5G7g7oXcnSlYNUKq0omgJe+s
- 93KKvNA1mcwtd7Dgk23bKn94=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 5700fc680564a234;
-	Thu, 26 Nov 2026 03:39:02 +0000
-X-Mizu-Trace-ID: 5700fc680564a234
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <8685acd8-4546-4414-9b92-217048766321@linux.dev>
-Date: Thu, 26 Nov 2026 11:38:48 +0800
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fTqPv4mg;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=d0RVmqgt
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ36Xw31647654
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:39:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ig1Q3yBjVbivSP+2rdgIubsjNnhUPE3NszY437oJ1oU=; b=fTqPv4mge0M+6zzG
+	qngl6WCXjIHyaudlNy2Naa6s4hHhbVkmTkgbAJ33kmEX0Arwc6gdNHTwJX0+J5wJ
+	3vHLloD///qDRtTUquvRDXJvMs1FDEKz049ZYd20cFl0CpJIBauKgXbTW3Ey1On2
+	207yFO0QCmcKyPKAm1lMmYhVIUqIc9j0VQxQvjeM/Hd67s5doGkgULtgtTger/mA
+	CAGaQ4OyyaQ5sipNwBQhXYt9OPypgrmH+LrURECwE4qoNNqd/sZXIoPb2ZBOzfqd
+	6v+pNDjgpqUivD4Y9X7W87ALaoF+GDpru3rLpW2tlrzgOj5iZGknDJZLEQr7ysHs
+	sfEnuA==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j61ahtj2f-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:39:09 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-386b8624cf7so3243876eec.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:39:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795664348; x=1796269148; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ig1Q3yBjVbivSP+2rdgIubsjNnhUPE3NszY437oJ1oU=;
+        b=d0RVmqgtW228rkJLM9w64xdqLWC0qvcx3B6y25h952J0PWkOQTxsLkIjTnLvA8JcV3
+         3/mV9WPyWaBfMpEKXTPD2fDQjp2TyxMbUkvgPcxqz790LnqAIef5WPKI9dQ6xuJVwyYC
+         D60Yj17y+DBtSqF0HKWa0yZ39kqXsBxx9XtXOXdjbg5U/rfLZjtxV6tbpUlEmB8VFFyW
+         n8itFQDcCim3sSx4x2av1xOaey3pOb37vx4yy8UU2+lof3irh0FmJDvIoTy5bjza3Bk6
+         AdWb2NMV6D7CnkMGPJB4gojEkwpJ0MbE4+9+RefrvRhcRS8xYlCwZaNeKkEwlFqbMZ4m
+         18Pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795664348; x=1796269148;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ig1Q3yBjVbivSP+2rdgIubsjNnhUPE3NszY437oJ1oU=;
+        b=PtPhhFln6lc4HMmpbjWLJiweZZahl4AJKIGbvKNZ+KRFz/1355pZ+CL9Sk4abP/AZI
+         iVoTNEFpPkr5/UnVhf8iRhEiaJ2smTqggJdc/vfQIcCEd1qIPoWuAAqNB+o74UFxroBx
+         jzKi5ltXlxBn1lxXPYM85Em0sXdy/9ucQdy7vO9ebQyogZG7+7lCOk/LhJwpVwUVR/SZ
+         uj8ogHlg+mn9caxig/Nv+Wf17PAcwyeSLVmFDrBZc+D8t/tmg6gaNVbhJiJlhd6kNGPj
+         qZROhPuNBUHNDqu+UhAD7CS6/Fy8VOiGvrf0uHXDkP5n3jWXyJS9b3dRAPYGVXFraAIW
+         pecg==
+X-Forwarded-Encrypted: i=1; AL+hErE5UjzeXIkExlvEgvc7Lhv7YidS1SM7mLPRymKQmKSzzLgSiqT5JvFUsgkcDaUkd5Kypq+ZKKoB2+Q0rsg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9hiO1LunWTPRKBEd+DmhcnpuzMynlLaEt9sInoA/Lqm1Ko/zLh
+	vcmeCBXJPm1VruI3DKBRwfTC/fz2oBj0RO9UV6dgaEDslH8P0PKO1XbwHQyV5Pa7lUlTKFVlx5V
+	0so0K/0hIVCbA74UhlijZfMVNtxI6O2QBO+ngjbVjw9uJ8Q7jNiU6qonQ9cC+hpXd2I4=
+X-Gm-Gg: AZFdTZdH7+iHoYv6Dxn/TsDyxmGicmM5mFlD4wYLHQWHw8qkvn4vVPGZvZtT6DPRZUY
+	8Kjgbae6UrUQS3lTKLa8UsL7qrBl5U5JKaqbL3iQarAgm9nrIOff8gv/2/fI7cI4HLpMsjf2pcP
+	VC/GKacIqlAKGzqgWEEgMnAFel9hGaMBoj04CJFVEF6TfbuxaYQJioo9tJ8DpIPK3YRe9TIFV+G
+	pSKFhNSPhVxbTpSOi8uKONGNk72MM1ovXHd0mU1P/9y5NyJSWhO5mdCDvGjIt6wq9m3CxSO6nJb
+	/QiVTR2UNWkmFJ+zKKmbXMbBsylswjICeSsZMfSVhFFsUT+tiy4ov9uPc6x5yzmB0pJGyCUgh97
+	2c6NfTSfGlQY/l4aX9TVrAEtJwQCIpkqS5aVl4Pqbzb5fe8nZz87O11BLFe6818gN+/HMAXw1Sp
+	wmecrJ
+X-Received: by 2002:a05:7301:1a84:b0:386:abfb:4a2 with SMTP id 5a478bee46e88-386abfb1a83mr12744952eec.11.1795664348408;
+        Wed, 25 Nov 2026 19:39:08 -0800 (PST)
+X-Received: by 2002:a05:7301:1a84:b0:386:abfb:4a2 with SMTP id 5a478bee46e88-386abfb1a83mr12744935eec.11.1795664347990;
+        Wed, 25 Nov 2026 19:39:07 -0800 (PST)
+Received: from [10.204.100.41] ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3866f299d0bsm49729022eec.19.2026.11.25.19.39.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 19:39:06 -0800 (PST)
+Message-ID: <3c7382f6-8665-1632-acf0-b380aa8c5aeb@oss.qualcomm.com>
+Date: Thu, 26 Nov 2026 09:09:01 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,140 +116,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 03/18] mm/memcontrol: avoid potential counter leak when
- reparenting local stats
-To: kasong@tencent.com, linux-mm@kvack.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>,
- Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>,
- Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>,
- Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>,
- Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- Barry Song <baohua@kernel.org>, Axel Rasmussen <axelrasmussen@google.com>,
- Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
- Vlastimil Babka <vbabka@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Nhat Pham <nphamcs@gmail.com>, Youngjun Park <youngjun.park@lge.com>,
- Zi Yan <ziy@nvidia.com>, Gregory Price <gourry@gourry.net>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>,
- SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>,
- Yu Zhao <yuzhao@google.com>, Vernon Yang <vernon2gm@gmail.com>,
- Zicheng Wang <wangzicheng@honor.com>, Tal Zussman <tz2294@columbia.edu>,
- Kairui Song <ryncsn@gmail.com>, Xiang Liu <liuxiang.277@bytedance.com>,
- Ehab Ababneh <ehab.ababneh@intel.com>,
- Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang
- <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>,
- Kunwu Chan <kunwu.chan@gmail.com>, Hui Zhu <hui.zhu@linux.dev>,
- Maxim Muzafarov <maxmuzaf@gmail.com>, linux-kernel@vger.kernel.org,
- cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org,
- Tianyi Chen <hi@tychen.cc>
-References: <20261124-mglru-fg-v6-0-8ffea39934a6@tencent.com>
- <20261124-mglru-fg-v6-3-8ffea39934a6@tencent.com>
-From: Ridong Chen <ridong.chen@linux.dev>
-In-Reply-To: <20261124-mglru-fg-v6-3-8ffea39934a6@tencent.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.8.0
+Subject: Re: [PATCH] media: qcom: iris: fix PAS ID passed to set_remote_state
+To: Jorge Ramirez-Ortiz <jorge.ramirez@oss.qualcomm.com>,
+        vikash.garodia@oss.qualcomm.com, dikshita.agarwal@oss.qualcomm.com,
+        abhinav.kumar@linux.dev, bod@kernel.org, mchehab@kernel.org,
+        hverkuil@kernel.org, stefan.schmidt@linaro.org
+Cc: linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+References: <20261020204630.1175058-1-jorge.ramirez@oss.qualcomm.com>
+Content-Language: en-US
+From: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
+In-Reply-To: <20261020204630.1175058-1-jorge.ramirez@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: htt3il1CLshVfgiHizUtLcl9N6TH-pxI
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAxMyBTYWx0ZWRfX0v1/sEs1rHuL
+ kvqcaaMnp/ARHQ1mUiCZ3a/HoXpX6tJtMGpkKT/RnEWfCsxFnx07rDIZFRw3dvKk7Tv2r4+O3+F
+ Mbv0i0iZ3zg3vgeq+PAZaptkxf+xuaQ=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAxMyBTYWx0ZWRfX50b1gYQxOlmX
+ 2RLoQMGbxMQnzS1DMyWBZEbkYrccpwdalmr2xb0h0UV+b0esOOvQCxiLbOYynzsfY5qIJl4end7
+ /IBDzy7YwdCVOL/wWFpx99uZzvxyrgB92aMolpdNob7JZJIHDVHsv+ZY5jVgmmwVSRvqC9sNXdH
+ DG6Eu/9HzJYy/g+/u3Z1qBFRwYDHLH/qnFWrIADQQmFQculoZSKZXKfGyV29uZZEHSOEA4WnJXS
+ I/xdbwbHcxkDMvlCx+hAgZCXe6LAtHQIVvHcE06/IsA4zoFmbgwBNavxli+5cxn6PnqXeb1mRJ6
+ nvh9Ws4xfnAzSsvCGp/CydlwLUdJm231oQ8sTAYLAL6yvDRjvdYOdsCsfJqEaHIkc6TR/l4qGyT
+ 8Oew4kxNqlVCt/4mWqRWPn1oBomW4018f2r+Gr8mzov5qXEaRQFEO52JrRoz/9wOZgApdkNKbkG
+ oEMBg2gIARR7wr876yA==
+X-Proofpoint-ORIG-GUID: htt3il1CLshVfgiHizUtLcl9N6TH-pxI
+X-Authority-Analysis: v=2.4 cv=BbxNQbt2 c=1 sm=1 tr=0 ts=6b07a9dd cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=RiDGyf5vU9R3Kc8e4UgA:9 a=QEXdDO2ut3YA:10
+ a=scEy_gLbYbu1JhEsrz4S:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_01,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 bulkscore=0 adultscore=0 suspectscore=0 impostorscore=0
+ priorityscore=1501 malwarescore=0 spamscore=0 phishscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260013
 
 
-
-On 11/24/2026 2:52 AM, Kairui Song via B4 Relay wrote:
-> From: Kairui Song <kasong@tencent.com>
-> 
-> lruvec_page_state_local() clamps negative values to zero on SMP.  That
-> is right for readers reporting page counts, but can be wrong for
-> reparenting once MGLRU updates the counters without the lruvec lock.
-> 
-> Reparenting runs after the forced stats flush, so a negative is a real
-> balance that has to move to the parent, not be discarded. We will
-> introduce lockless MGLRU promotion which may cause following problem:
-> 
->   1. A refs CAS on a folio on the child's lruvec moves it from
->      inactive to active, and its active/inactive counter update follows
->      as a separate step.
-> 
->   2. A concurrent isolation of the folio reads the folio as active,
->      debits the child's NR_ACTIVE_* by delta before CSS_DYING is visible
->      to it.
-> 
->   3. The child is killed, and the two __update_lru_size() calls from
->      step 1 land on the parent: NR_INACTIVE_* -delta, then NR_ACTIVE_*
->      +delta.
-> 
-> The child is left with NR_ACTIVE_* -delta while the parent holds the
-> matching +delta, and reparenting the child's raw value is what cancels
-> the parent's credit.  However, if the child happens to hold few enough
-> folios for that counter to be negative, lruvec_page_state_local() clamps
-> the child's negative to zero, which drops the debit instead, so the
-> parent keeps NR_ACTIVE_* overcounted by delta, and its active + inactive
-> total overcounted as well, permanently: the child's local counters are
-> gone once reparenting is done.
-> 
-> So use a raw signed helper and reparent with that.  Ordinary readers
-> still keep the clamp.
-> 
-> Reported-by: Kunwu Chan <kunwu.chan@gmail.com>
-> Closes: https://lore.kernel.org/linux-mm/CAN_Opa-+nb0vxQ+HsENCG2fEEMZoxG9Sy_DBC4CLkWjNLzDWKw@mail.gmail.com/
-> Signed-off-by: Kairui Song <kasong@tencent.com>
+On 10/21/2026 2:15 AM, Jorge Ramirez-Ortiz wrote:
+> A PAS ID of 0 does not identify the iris peripheral, so the
+> remote-state update never reached it. Pass IRIS_PAS_ID, as every
+> other PAS call in this file does.
+>
+> Fixes: bb8a95aa038e ("media: iris: implement power management")
+> Signed-off-by: Jorge Ramirez-Ortiz <jorge.ramirez@oss.qualcomm.com>
 > ---
->   mm/memcontrol.c | 15 +++++++++++----
->   1 file changed, 11 insertions(+), 4 deletions(-)
-> 
-> diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-> index 091401cecf39..3f551e2e3206 100644
-> --- a/mm/memcontrol.c
-> +++ b/mm/memcontrol.c
-> @@ -562,11 +562,10 @@ unsigned long lruvec_page_state_monotonic(const struct lruvec *lruvec,
->   	return (unsigned long)READ_ONCE(pn->lruvec_stats->state[i]);
->   }
->   
-> -unsigned long lruvec_page_state_local(const struct lruvec *lruvec,
-> +static long __lruvec_page_state_local(const struct lruvec *lruvec,
->   				      enum node_stat_item idx)
->   {
->   	const struct mem_cgroup_per_node *pn;
-> -	long x;
->   	int i;
->   
->   	if (mem_cgroup_disabled())
-> @@ -577,7 +576,14 @@ unsigned long lruvec_page_state_local(const struct lruvec *lruvec,
->   		return 0;
->   
->   	pn = container_of_const(lruvec, struct mem_cgroup_per_node, lruvec);
-> -	x = READ_ONCE(pn->lruvec_stats->state_local[i]);
-> +	return READ_ONCE(pn->lruvec_stats->state_local[i]);
-> +}
-> +
-> +unsigned long lruvec_page_state_local(const struct lruvec *lruvec,
-> +				      enum node_stat_item idx)
-> +{
-> +	long x = __lruvec_page_state_local(lruvec, idx);
-> +
->   #ifdef CONFIG_SMP
->   	if (x < 0)
->   		x = 0;
-> @@ -595,7 +601,8 @@ void reparent_memcg_lruvec_state_local(struct mem_cgroup *memcg,
->   
->   	for_each_node(nid) {
->   		struct lruvec *lruvec = mem_cgroup_lruvec(memcg, NODE_DATA(nid));
-> -		unsigned long value = lruvec_page_state_local(lruvec, idx);
-> +		/* Reparent the raw value: the clamp drops the child's debit. */
-> +		long value = __lruvec_page_state_local(lruvec, idx);
->   
->   		__mod_memcg_lruvec_state(memcg, nid, idx, -value);
->   		__mod_memcg_lruvec_state(parent, nid, idx, value);
-> 
+>  drivers/media/platform/qcom/iris/iris_firmware.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/media/platform/qcom/iris/iris_firmware.c b/drivers/media/platform/qcom/iris/iris_firmware.c
+> index 21cdf1c39835..6ff5eefff391 100644
+> --- a/drivers/media/platform/qcom/iris/iris_firmware.c
+> +++ b/drivers/media/platform/qcom/iris/iris_firmware.c
+> @@ -195,5 +195,5 @@ int iris_fw_unload(struct iris_core *core)
+>  
+>  int iris_set_hw_state(struct iris_core *core, bool resume)
+>  {
+> -	return qcom_pas_set_remote_state(resume, 0);
+> +	return qcom_pas_set_remote_state(resume, IRIS_PAS_ID);
+>  }
 
-LGTM.
-
-Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
-Thanks.
-
--- 
-Best regards
-Ridong
+Reviewed-by: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
 
