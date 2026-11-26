@@ -1,109 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795696236;
-	b=lgLJyQ5hmWwcPOMvnMxrKG1MCYMjP3IPBaqOEEmRqrcX3Ptw++0Pw8umvWCxmrxKyVwS
-	 cZM8+6oZra0Oz+uR2BvCs+V0+A5D3v6MjM2Ws5GDXwCgyZnV/cO92EEHOKkMG3SdIhHkl
-	 LZqGUa61Y/d63O+C/8T3kGhgjE5f2I9/IuV++MZBk/WFTEQpeawDff046FfnBxeXHYAYo
-	 gBQ9jiXmdAb+R1NMUWn799hcMQ/IsMJpWY/6HwbT9Fwye1u+g2SN9YNAAjYAgiQQWZkER
-	 XDwmX5EbXrpu6WNSPzshSzTsx67MXQJASQXdkfUWQy/RwVWky33282GK3GQ+I8x7ZSg==
+	t=1795696259;
+	b=H60HfY1XXt9+1fEOsRpuGPeIxhruRet6geUuwKOM1MxGj9mBK+NFizIKykBZcT28stNp
+	 5hh0CbwWCXRPv2Ynp5tSOLSWOxZQtEV6W5YWwu5+J5HEsCbQU1QOosbTqidLifibHmTt9
+	 02NaJTbJ1MnFftBj/2MRW8bQQFPE1Vf1nd/1zsFDaVxEUDMsLFJzQBubacz8C5GxDH1JS
+	 lwHf8VyJi6zq5tbMGsZt4ztQedqvmm6w4uh2M+MivIvObkQU7htUQI1QhPOmZpV3pVUMy
+	 cPy840HKNTPy1GM6EVZAEFd5C/ffvo94uJUZJK0nfZGLHPAozOfVQj1I0URM5Q0FbNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795696236;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Type:MIME-Version:Content-Transfer-Encoding;
-	bh=63ma5jEPd/DP2X+W+npb2v4pGvrjKq1tRkWvj8G+bR4=;
-	b=oCRVNr/IMCuxKF2VVp5LfjUIlUEARoaj6QETXbGR+2XLBeF9N6HZ43OVUVvoyZjpT8au
-	 LrVPwZjCnM7pqIB+qdGagDoU5+9Cxq50HVLJB4oxIBDBGKrLB9Jnq27Mke6nH1RqMMUOS
-	 wty5kugtoNWU2tuBs5LT80iSiBRJSPRLA5S2mNYKB8DAukrmfUDXqtjJwmNdPA4oHMMfC
-	 b2nQDOg7xjwi4dqN20vBi+MWM+jzXqlgLr9nEJedO5XUxBVA+8LKV4cUKvFejlMJayXTf
-	 KrxSlRPMpUD9P0Omcnchu57KKTNycNzT8SuuxkHsNil9QJNlDSq9A5e5mMqpjMEvMzQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795696259;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=NHNwpqGkapkLTywPi1kj5mcBBpsQAg5W37jUFryGrao=;
+	b=EScOOqqhYiklt5eOFbOO26jKMFs4w3/XoODpw6J97UVhAiuvfY6Zq+15ya/QniTTGFxG
+	 iLWkzFAN4I8D8wXhRwLZOzjUxFCOGCyge3sSwuGhzwsS9Q5LYO0o3CbbNC5KADh63mYVk
+	 ZFEM3CnZrxXBXg3yVE1bjv0Kv8qpAteiLInzny8EFJhWp7dTsbCwG3hA2S6DfE7YVPZ1X
+	 FubDMxVyBD8MsxNdeNVZBjtAM9NL2oXmejABSHHH1gUp+JXnyqBa+nEW/qHF2uRmnCMIn
+	 kpfHC02iHqwmhykaQzrphaR4VpKnWGNxp6tx5SjwaLsgI/f0ZLkerrXmhLgXn6wPllA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TBHDqqei;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S5jDCdzM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D38FE606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:30:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D38FE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2952606A31E;
+	Thu, 26 Nov 2026 12:30:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TBHDqqei
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-385d8a00598so10236576eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:30:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795696235; x=1796301035; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=63ma5jEPd/DP2X+W+npb2v4pGvrjKq1tRkWvj8G+bR4=;
-        b=TBHDqqei6c/mcTxI0hM5xqfOy0W0zplRonrs92qC3Qz9nrN8+nD4YNqrz+tTinKg2q
-         IdWXnuWslppB3Ju1qm6vUzWdWZ1adfJiVKUcSet/oYT9xU7tTTIORL20cgvncoYA88LI
-         8K0nr/s+ys8LnvAoykaKpQwRM2zYlyx/vL3MBijL6Qah6jGddyqVZrLEijEV70u4ASIR
-         Qyz3A3/fAG5yiVkPd363Bhd3XJWWzognmWxUBI8fhp0ZuEBtxN+gvxcFkj1TRpQDwryU
-         SPfMa/DiKvtm7V7tvyosW4aaZ6toYP9YYCWRApDMgfQGMA+LLt6WS3onVmsQlo4JUvyn
-         womg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795696235; x=1796301035;
-        h=content-transfer-encoding:mime-version:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=63ma5jEPd/DP2X+W+npb2v4pGvrjKq1tRkWvj8G+bR4=;
-        b=gnzf4HKCvRNUZRkRnnSPbGwqCytUk1HL6qHWqBJqZ5vixINSPxDEfGAHmrRUFffGwJ
-         74Q1XUSKrNrFTH24aNrj6qVUOixNnGQfFogbw0DW6rViCaMc3cXIQJH+ZrlgJ1mhBPt7
-         T9pAEFBlQ4z05Uzl4lPolPqMoO5Yw85U+fZoDNxni+UAMQC/qcuPataCudRzr16jj36W
-         lKqUcrOwLCJY0AsxZTC5ySk2ZvvVapSCJS/LanP667L4iAXhW7MYB6IAlHdn0V0CN+z7
-         3VcpDfG+cpocsndxbY4qh/c0rJgCAYIi3lpIaDfVcN0y1F4TUOj+3hLn8+qfykbKlHq6
-         KUgQ==
-X-Forwarded-Encrypted: i=1; AL+hErGUiRK2wMhJJDeNwtie5rAS2+TdU5iK3FScStMKrXATl9nPER2P120SffwBkettrnI/589M+2ubv9YGuRc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9AnVKgCSpjN0xJL5Q8uBPWZSvE1ya+QT8uUZiLNHC9qQl6ksLT
-	vXVl4X2u+Og/8irSc4efd8gg1RKwlZvklhaAVdK6cM6qKOxHNeAWyUwK
-X-Gm-Gg: AZFdTZeZyg3QHG+8H6bq98W2a17IppaJ43xh3aOBT5vJ2xeRBsNd+/uFhzNURKWbvDd
-	fOQOY8gYD1WcN6EJfXgDFkM9AKvndOukHrZTlW+ULn8qm0kZsObg7VGwuX2xZ1fWoOuw8cIvasn
-	wFzOaUgcGSwjkjcCiM85OfKdZ6Ku7YT2hhbuTqtS4qXzjX/YWA1REGIbc6Vgq+H90naZll43SOh
-	fQGJ0Q3n7+u4ovOCbRQs3cDNROOwRQuI1OWsUTciiZEr3iwy6o6G+30EiFruCLSkLKDNgSmcZ5K
-	OWsRlclPHuv80jP8rixYdZcJ0wpiar7mhXNIWgMUJTlxiVbsd7Yit/nRZDH//9AZ+Q5tp25FU5v
-	5SLWpcfk4SWAm5hGkGZKDqiUkxl5WryMkWkHcY1zq5MF75BptjxXoQ+a/LPUx7VGjJs+ir+5jg2
-	60y/ARyW75Q41/3wVRw9x4NB5n/L2waloOR7mgtb5cMoJXS7nsl38ygEAd3QAzgJYE6cxMZEGOP
-	DSDnIZMKQSQLl7YDK4IBF3nmqNzatv5HQ0pTTxhtj+dmExmv88LomUXGXY+0O1zGtQi6j3JnsKJ
-	kPRaxb1Le2HIO1hugU2NqaAt/Dgalm9d3BlmPab+VGJlxeiIR8raudAoVkyfujR/ySvhfRFpn3C
-	7Kn3DjQ==
-X-Received: by 2002:a05:7301:6191:20b0:375:e4de:96d3 with SMTP id 5a478bee46e88-3869e61da0fmr17122398eec.31.1795696234586;
-        Thu, 26 Nov 2026 04:30:34 -0800 (PST)
-Received: from HFGF46V04Q.bytedance.net ([203.208.189.9])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm61373340eec.15.2026.11.26.04.30.28
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 04:30:34 -0800 (PST)
-From: Lian Wang <lianux.mm@gmail.com>
-To: Chris Li <chrisl@kernel.org>
-Cc: linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Nhat Pham <nphamcs@gmail.com>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	Youngjun Park <youngjun.park@lge.com>,
-	Kemeng Shi <shikemeng@huaweicloud.com>,
-	Kairui Song <kasong@tencent.com>,
-	Jihan LIN <linjh22s@gmail.com>,
-	Kunwu Chan <kunwu.chan@linux.dev>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v5 03/19] mm/swap: cleanup and document swap device availability flag usage
-Date: Thu, 26 Nov 2026 20:30:07 +0800
-Message-ID: <179569618256.54252.3159687265879392207@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <CACePvbWLkZtdX-kedNHeFDRV+e3Hcyzixsc=9eENTrZVhiSjjQ@mail.gmail.com>
-References: <cover.1795439990.git.lianux.mm@gmail.com> <5a83cfe8b0992c65cf4cca1e8cd612b4de0b78c6.1795439990.git.lianux.mm@gmail.com> <CACePvbWLkZtdX-kedNHeFDRV+e3Hcyzixsc=9eENTrZVhiSjjQ@mail.gmail.com>
-Content-Type: text/plain; charset="us-ascii"
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S5jDCdzM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0500F1F000C6;
+	Thu, 26 Nov 2026 12:30:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795696258;
+	bh=NHNwpqGkapkLTywPi1kj5mcBBpsQAg5W37jUFryGrao=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=S5jDCdzMr+Df7NGBx/YoxU2MVB/X1L6evO6Ep1vgPlkKjoAq1DGOi9QTcXNrXMIgx
+	 +YZRUsQprpMW0dLNfjJbbXfiTXQ/C8KqGZWIA9N6wUqLqN3/H8cj+eRwF/urhPjRFI
+	 aLw8HnVMLymI76m4bT719Il8UdhRUryAPRX7+rccktLzEr90rbMvFwn6ZZMtqzeujs
+	 96wD6Dw1oDwE3w2TjuTG4X11PVLCq0FBh8rzbr4rP1iavYu5V5rAXb7aX5v1lf4lWT
+	 k7fhyxJo89o81de1EtlgcpnNY8mtlOc3mPofXUloC7E0DVoSbD5iTXdjnC4k+Iy1Wv
+	 gjPFIy61rOnuQ==
+Date: Thu, 26 Nov 2026 13:30:53 +0100
+From: Joel Granados <joel.granados@kernel.org>
+To: Wen Yang <wen.yang@linux.dev>
+Cc: David Laight <david.laight.linux@gmail.com>, 
+	Kees Cook <kees@kernel.org>, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 0/6] sysctl: replace overloaded extra pointers
+ with typed bounds and core stride
+Message-ID: <awgj9tL-yAMS14zy@hobbes>
+References: <cover.1794844686.git.wen.yang@linux.dev>
+ <awV04op6IxD2NWQA@hobbes>
+ <0e4be7f5-8704-4d2c-8e63-d578fad13774@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,42 +59,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="33mcerusmc4aosgd"
+Content-Disposition: inline
+In-Reply-To: <0e4be7f5-8704-4d2c-8e63-d578fad13774@linux.dev>
 
-Hi Chris,
 
-Thanks for the careful review. I kept the enable/disable helpers and
-the call to add_to_avail_list() outside swap_lock from Kairui's
-original patch, and later revised the locking around device lookup
-and SWP_WRITEOK updates.
+--33mcerusmc4aosgd
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [RFC PATCH v2 0/6] sysctl: replace overloaded extra pointers
+ with typed bounds and core stride
+MIME-Version: 1.0
 
-> Why is this change safe?
+On Thu, Nov 26, 2026 at 01:37:12AM +0800, Wen Yang wrote:
+>=20
+>=20
+> On 11/24/26 21:26, Joel Granados wrote:
+> > On Tue, Nov 17, 2026 at 12:07:32AM +0800, wen.yang@linux.dev wrote:
+> > > From: Wen Yang <wen.yang@linux.dev>
+> > Thx for taking the time to put this out. This gives perspective and adds
+> > to the discussion of how best to move forward with "struct ctl_table".
+> >=20
+> > >=20
+<... snip ...>
+> > > 1. Abandoned per-entry 'void *priv' (David Laight):
+> > Though not adding yet another entry in ctl_table is commendable, I
+> > prefer adding a priv entry over the stride mechanism in this series.
+> > Here are my thoughts:
+> >=20
+> > 1. The type should set the stride in sysctl core. The situation where
+> >     the stride of a type might be different from its size should be avo=
+ided.
+> >     In these cases I would prefer a whole new type.
+> >=20
+> > 2. Having ctl_table as the grounding entry inside another struct and, at
+> >     the same time, it be a regular (non-grounding) entry is asking for
+> >     trouble.
+> >     - A proc_handler assumes there is a containing entry around only to
+> >       realize that it was passed just a pointer.
+> >     - The core might start overlaying clt_table entries to deal with
+> >       namespaces [1], [2], [3]
+> >=20
+> > >     - v1 added 'priv' to struct ctl_table, incurring 8 bytes on 64-bi=
+t and
+> > >       4 bytes on 32-bit for all ~1,000 entries across thousands of dy=
+namic
+> > >       instances, even though <7% of entries need context.
+> > Just a quick comment here: If you want to get rid of 8/4 bytes with the
+> > ctl_table struct, you might want to look at struct ctl_table_poll, which
+> > (to my knowledge) is only used in one ctl_table array. Finding a way to
+> > service utsname while at the same time removing that entry is much more
+> > of a low hanging fruit IMO.
+> >=20
+>=20
+> Hi Joel,
+>=20
+> Thanks for the detailed feedback and the namespace overlay pointers.
+FYI, I just sent out a new RFC [1] which has very little overlap (and we
+should try to keep it that way) with your work here.
 
-Both before and after this patch, setting or clearing SWP_WRITEOK
-takes all three locks in order: swap_lock, si->lock, then
-swap_avail_lock. A reader holding any one of them is serialized with
-those updates. I'll make that distinction clear in the comment.
+>=20
+> Our main motivation for prototyping the stride approach (and the v3 we
+> have been testing) was to avoid growing struct ctl_table while still
+> eliminating the per-entry wrapper functions. However, the upcoming
+> namespace table overlay work is a compelling reason to keep ctl_table
+> arrays homogeneous and  self-contained.
+>=20
+> Following your advice, we will set the stride series aside and split the
+> work into focused steps:
+>=20
+> 1, first, prepare a small, standalone series (based on the lastest -rc)
+>    focused on migrating the non-bound context callers of extra1/extar2
+>    to a dedicated void *priv, field in struct ctl_table, without
+>    touching any min/max bounds yet.
+Yes. That will take us to a place where we will have priv and extra{1,2}
+at the same time. But will allow us to move the callers one by one.
 
-On the swapoff side, what changes is that we release si->lock earlier.
-We still hold swap_lock while removing the device from the active list
-and updating the global counters. The old code already dropped
-swap_lock before wait_for_allocation() walked the cluster locks.
+Once all the callers are updated, we can eliminate/replace the
+extra{1,2} as there is not other dependencies (that I know of)
 
-> what lock protects the avail_list, is that swap_avail_lock?
+>=20
+> 2, Once the context pointer migration is settled, follow up with the
+>    typed min/max bound conversion as a separate series.
+ACK
 
-Yes. Previously, we set SWP_WRITEOK and added the device to the
-available list under the same swap_avail_lock critical section. With
-this patch, add_to_avail_list() takes that lock again and rechecks
-SWP_WRITEOK and the off-list bit. If swapoff has already cleared
-SWP_WRITEOK, the add is skipped. If the add happens first, swapoff
-removes the entry.
+>=20
+> Regarding struct ctl_table_poll in utsname: is someone already working
+> on removing it from struct ctl_table, or would you like us to look into
+> that as a separate cleanup as well?
+No one is working on it to my knowledge. If you can come up with a way
+to keep the poll without having it in ctl_table, that would be a win.
 
-> May I suggest splitting this patch into two?
+>=20
+> We expect to have the context-pointer series ready in about 1 week.
+> Please let me know if you have any preferences or suggestions on this pla=
+n.
+That sounds good to me.
 
-Agreed. I'll keep the first patch to extracting the helpers with the
-existing locking and operation order. In the second patch, I'll spell
-out which operations move outside each lock and why that's safe.
-I'll also keep the original if (swapoff) branch order.
 
-Thanks,
-Lian
+>=20
+> Thanks,
+> Wen
+>=20
+
+[1] https://lore.kernel.org/20261126-lklm-sysctl-ctx-flatarray-v1-0-d7fc9cc=
+9b03e@kernel.org
+
+--33mcerusmc4aosgd
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAABCgAdFiEErkcJVyXmMSXOyyeQupfNUreWQU8FAmsIJnwACgkQupfNUreW
+QU/q5wwAk6zCIZ1Bq0/sglUTswTCfRfPk3rOCWArYdgO4kXJXDAOTIaUzNA6pdYj
+4DhrxA0QR9+hyWvmpG5Z+M2GlqceCECXskH6ArmOtd73W3mkSMBwfNt3R8luWkPB
+beTpJshIy0K3AkEtQT82NuoBp1Z6qE7EHhrgupBmDzAKFxYWHrQZ8BdZ1wK5lenS
+OX+l2vhtNmRVDr7lx/mIIem3nSf9m7adQLD9a6WQLvd2l2/pyJEHg9SsXX8U8BOx
+tpB4pmekPc5k+lnCh1S+VPt/LnmoLrvz2jYlwEaK0uN58NZInfKdFriodzKjP7fH
+3iuPT2SKVb83N051kL+lsrMuvNNguFDKW1clj4bGrwBD/7QgBUgaPErtxFDE/gng
+rqYmEaY06tFa5umSSCer3Ge8GNx3fjy9RC8y+14hSyzyoZPD0JNVkISeDz+2eP10
+6pMLe9SrtXJ++BfMAx5itPaZ3msN1vZpmUzDrQI5xw13h8ApDcmRr+qVnSN5BNjV
+MAVNOhbf
+=wprq
+-----END PGP SIGNATURE-----
+
+--33mcerusmc4aosgd--
