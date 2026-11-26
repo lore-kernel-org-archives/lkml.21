@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.125
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795708117;
-	b=Jn6RC8+aLpjD+dQZszh+GxkXsT/i1JbU2jXn1d7Crato/hoT9//hRcV/1MpW23Ud0YBN
-	 okwkLQIq6VRQY2+fopWsR9NalNPaZK0gtpzJIoyivGrU6AHeI+RywhSOZ4IxHMzaiMiUG
-	 HNsa4XtZLbznm80L2nUHpKJ0FuKCwLWqis1H3XqWwfasYEa8NWxMFPWkLw9WORnIicS0O
-	 7rYeDfnK/2ziTYM9N14pECtYaLKcQDJTFdkmdeJeL/6GaDLXPcK9QjLF296uev5Qnekps
-	 FzgUKP2RKM77GiTiKpRAEHPzFrdwc6UFzRzmC+zFW8wEBISjjLwk9spL6647YczMW8w==
+	t=1795708122;
+	b=mMX1Fzc0zQqVg2Yk8fCfadmSpU3sqJwnhxLP9/UL2umlobKTX9F6Sqr/puwDA7DM0RPd
+	 GUIfXHJ545p/SNN66lEiW/DOzRupRUQlP+xjrifOgMQ1UQP1xhWMpobHD++IeGXKvthdU
+	 xx5M/7QYrSuHqr4z86zE1i9j7Dzroi1DRkVwbIxu8LJzQrGfeCJHWhae0lqgblg6kVtYz
+	 AGkM05nxZM89RJfGYD5v4gu2iTw/Ss9AKja6HuGs1bcb8oUbtaaPEQiS5XSAchh7NC4xz
+	 Mho85Pgc5B4mUIc/7/v0cfsuEn+lB4T54J1psvBay4crIS+1bkY+dZlN8XXxenKPSDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795708117;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795708122;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=C1dEdWeDxpgKQfDGosMbcKuIvKQ/TjH2X7ZuB6oiK2Y=;
-	b=ZsGST9Z35kyAHqVLBLtgOcX2P9YJoRDEO4c0kI2E6ZHIOj+QV2J87A3pKBPzrKzkupEP
-	 CeUcbIZVHwZWy5Q//vunRd+Fb0Ku4PiDMK6WgapikGzsd8WFIqTLVysZ94vf0+jZLvvLc
-	 3x78kefvK6aVvjgj0mZ9YxgaJ01x7/TH4VTvI6SE7Nxe6iKKrrNWlBAiTDB8v0twX24gR
-	 XiUOz+Z+ihJpNKDQPVnKnjP2G9t8NCNGPgBb2ImoWJ4u5We8UzzfFiHC+NblBBgr0Y6ML
-	 LBpqPMRR6iGpF6MXmhDgiQjuvQ9gftLZWNlyha0iZwsn/84ZVphjmg0mD4PHH6Hm1vQ==
+	bh=Az0jRdxGz47BjnODeEnvbQw0VUqHNe+289mTFIQtnuI=;
+	b=a6RMR8lWTXWU1iE8BlEp7Mb1MCRVv9a3cb/Xyo12PEWe3JLe+ENMolM1LaR4ge/4WudP
+	 A8WzIW4XSHFy9C/nQimKK4oKieUdvKYqg34+2aD5ljF8A7XZgXp0E28N2Wfj2eSF0yowt
+	 pKKLQObS2ruxk4W9/vQJemeHDeGQyuUyGqyhX8ELq9DEUvzUlLW1pxyCkzoU4gimw022m
+	 R8ZcKiLsZssN8qGet4SypXMnHjakpmFCFz/R8ViSvbvUm+bzvQpiSB3ld7BlA4lz578bB
+	 99YteL87BVjri8fTHdWr31KGrk2TfWF3aoEBUCNWsJLWsK/8/m33OvpsbPVCpj6SSUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=RQTFnD56;
-	arc=none smtp.remote-ip=95.215.58.125
-Received: from mta1.migadu.com (out-125.mta1.migadu.com [95.215.58.125])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ULK2gffl;
+	arc=none smtp.remote-ip=91.218.175.55
+Received: from mta0.migadu.com (out-55.mta0.migadu.com [91.218.175.55])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11F8D606A326
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:48:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11F8D606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D768606A323
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:48:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D768606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=RQTFnD56
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ULK2gffl
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=+ugi0ffknDsDv/WElNjAOvTzE4ppDV9pVvzwvWa3Ih0=;
+DKIM-Signature: a=rsa-sha256; bh=81K8WfCO8nBk12qXo8VaeOOQz2j4c2B//fXEZS73Xuk=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795708115; v=1; x=1796312915;
- b=RQTFnD56vgKXG1lsOHneagPm+AI7VtL2fuA8SPXgSMXCsatoh9vX8hgD3qjVxqJLdOvEAweQ
- xmUqCIaQj5q1FOujOhumDKghvGBcHvMCUnLdtyI6JucCNiImLXjmWQVflkpGbGi0KEcu3MQC9r8
- xMS8a/VX9LsoGLV1x4fMQYTA=
+ t=1795708119; v=1; x=1796312919;
+ b=ULK2gfflzlP3r23liZ8MPyd+t2AH2aJwLZifOfqXFToamgSvKseujjaNbQQN3oO4tNEgg5yT
+ TNCT7qBGzArcpjaDTDJiYsN50lPEdHrk68PDC6HGXw3d/YJDEsL0PUY3CGvhlhKeK27M4QGHcaA
+ jBRI8bo5EVUuWMXodb8F50T8=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id c0b53319757a8e46;
-	Thu, 26 Nov 2026 15:48:35 +0000
-X-Mizu-Trace-ID: c0b53319757a8e46
+Received: by smtp.migadu.com with ESMTPS id 6afe1e7c39021c6c;
+	Thu, 26 Nov 2026 15:48:39 +0000
+X-Mizu-Trace-ID: 6afe1e7c39021c6c
 X-Migadu-Flow: FLOW_OUT
 From: Leon Hwang <leon.hwang@linux.dev>
 To: stable@vger.kernel.org,
@@ -59,9 +59,9 @@ Cc: Guillaume Laporte <glapt.pro@outlook.com>,
 	linux-kernel@vger.kernel.org,
 	Leon Hwang <leon.hwang@linux.dev>,
 	Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Subject: [PATCH 6.18.y 3/4] bpf: Disallow interpreter fallback for arena-related insns
-Date: Thu, 26 Nov 2026 15:47:12 +0000
-Message-ID: <20261126154714.169698-4-leon.hwang@linux.dev>
+Subject: [PATCH 6.18.y 4/4] bpf: Disallow interpreter fallback for BPF_ADDR_PERCPU insn
+Date: Thu, 26 Nov 2026 15:47:13 +0000
+Message-ID: <20261126154714.169698-5-leon.hwang@linux.dev>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261126154714.169698-1-leon.hwang@linux.dev>
 References: <20261126154714.169698-1-leon.hwang@linux.dev>
@@ -76,44 +76,93 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-[ Upstream commit 34746b5a84ec37c0ea2bf6808c65c5ed8790eb51 ]
+[ Upstream commit 7a0855e73757ee9cf25ba635a1c735018ecba742 ]
 
-Since the interpreter does not support the arena-related insns,
-interpreter fallback should not be allowed for these insns in
-core.c::__bpf_prog_select_runtime().
+The BPF_MOV64_PERCPU_REG insn requires JIT to emit native code to for
+'dst_reg = src_reg + <percpu_base_off>'.
 
-Currently, when the interpreter executes the arena ST/LDX/STX insns,
-it would hit the BUG_ON() in ___bpf_prog_run() at run time.
+However, the interpreter ignores the 'off' at its ALU64_MOV_X label.
+The 'off' indicates the insn is BPF_MOV64_PERCPU_REG insn. Then, when
+the interpreter loads memory from the register, it will hit a page
+fault.
 
-[    2.579196] BPF interpreter: unknown opcode a2 (imm: 0x0)
-[    2.579998] ------------[ cut here ]------------
-[    2.580652] kernel BUG at kernel/bpf/core.c:2349!
-[    2.581314] Oops: invalid opcode: 0000 [#1] SMP PTI
+[    2.545572] BUG: unable to handle page fault for address: ffffffffacaaf034
+[    2.546485] #PF: supervisor read access in kernel mode
+[    2.547167] #PF: error_code(0x0000) - not-present page
+[    2.547850] PGD 134e63067 P4D 134e63067 PUD 134e64063 PMD 10021c063 PTE 800ffffeca550062
+[    2.548912] Oops: Oops: 0000 [#1] SMP PTI
 
-Set jit_required as true when arena map is used in the prog to disallow
-interpreter fallback for arena-related insns.
+Set jit_required as true in order to disallow interpreter fallback in
+core.c::__bpf_prog_select_runtime(), if any BPF_ADDR_PERCPU insn is
+patched to the prog.
 
-Fixes: 6082b6c328b5 ("bpf: Recognize addr_space_cast instruction in the verifier.")
+BTW, rename the helper bpf_map_supports_cpu_flags() to
+bpf_map_is_percpu_map().
+
+Fixes: 7bdbf7446305 ("bpf: add special internal-only MOV instruction to resolve per-CPU addrs")
 Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
-Link: https://lore.kernel.org/bpf/20260715141122.15783-2-leon.hwang@linux.dev
+Link: https://lore.kernel.org/bpf/20260715141122.15783-4-leon.hwang@linux.dev
 Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+[edit]
+  Add bpf_map_is_percpu_map() directly because 6.18.y lacks
+  bpf_map_supports_cpu_flags().
+
+  Apply the map lookup and bpf_get_smp_processor_id() changes to
+  do_misc_fixups() in kernel/bpf/verifier.c.
+
+  Omit the current-task helper hunk because 6.18.y lacks the verifier
+  inlining introduced by commit
+  eaedea154eb9 ("bpf, x86: inline bpf_get_current_task() for x86_64").
 Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
 ---
- kernel/bpf/verifier.c | 1 +
- 1 file changed, 1 insertion(+)
+ include/linux/bpf.h   | 13 +++++++++++++
+ kernel/bpf/verifier.c |  4 ++++
+ 2 files changed, 17 insertions(+)
 
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index bb78a97085f6..eab8a4953621 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -3765,4 +3765,17 @@ int bpf_prog_get_file_line(struct bpf_prog *prog, unsigned long ip, const char *
+ 			   const char **linep, int *nump);
+ struct bpf_prog *bpf_prog_find_from_stack(void);
+ 
++static inline bool bpf_map_is_percpu_map(enum bpf_map_type map_type)
++{
++	switch (map_type) {
++	case BPF_MAP_TYPE_PERCPU_ARRAY:
++	case BPF_MAP_TYPE_PERCPU_HASH:
++	case BPF_MAP_TYPE_LRU_PERCPU_HASH:
++	case BPF_MAP_TYPE_PERCPU_CGROUP_STORAGE:
++		return true;
++	default:
++		return false;
++	}
++}
++
+ #endif /* _LINUX_BPF_H */
 diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index 2749dee1643d..0ed5d9e0db39 100644
+index 0ed5d9e0db39..865d474407f0 100644
 --- a/kernel/bpf/verifier.c
 +++ b/kernel/bpf/verifier.c
-@@ -21106,6 +21106,7 @@ static int check_map_prog_compatibility(struct bpf_verifier_env *env,
- 			return -EOPNOTSUPP;
- 		}
- 		env->prog->aux->arena = (void *)map;
-+		env->prog->jit_required = true;
- 		if (!bpf_arena_get_user_vm_start(env->prog->aux->arena)) {
- 			verbose(env, "arena's user address must be set via map_extra or mmap()\n");
- 			return -EINVAL;
+@@ -23209,6 +23209,9 @@ static int do_misc_fixups(struct bpf_verifier_env *env)
+ 					return -EFAULT;
+ 				}
+ 
++				if (bpf_map_is_percpu_map(map_ptr->map_type))
++					prog->jit_required = true;
++
+ 				new_prog = bpf_patch_insn_data(env, i + delta,
+ 							       insn_buf, cnt);
+ 				if (!new_prog)
+@@ -23313,6 +23316,7 @@ static int do_misc_fixups(struct bpf_verifier_env *env)
+ 			 * way, it's fine to back out this inlining logic
+ 			 */
+ #ifdef CONFIG_SMP
++			prog->jit_required = true;
+ 			insn_buf[0] = BPF_MOV64_IMM(BPF_REG_0, (u32)(unsigned long)&cpu_number);
+ 			insn_buf[1] = BPF_MOV64_PERCPU_REG(BPF_REG_0, BPF_REG_0);
+ 			insn_buf[2] = BPF_LDX_MEM(BPF_W, BPF_REG_0, BPF_REG_0, 0);
 -- 
 2.55.0
 
