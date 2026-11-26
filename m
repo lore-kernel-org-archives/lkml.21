@@ -1,97 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.176
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795682888;
-	b=NcHeAFTnzT2q/OuEUcg6ljd7ABzSNrWyyiMg2xXN0YTRvMvIqUyb1WpVB7x0E7uWHVqV
-	 lxCajsIj14ZDTbnC1zDKBHZVqRVh9eqSMfmEG2O4Axd+hpdYysqfwzBfW9KoOoVara5oL
-	 TTz5JBwfIT4/g3nAuX/zor+O1gcRRE3GU+NkhfnNp69aNFKfaOk4/YT5anSeuyvSX548F
-	 sikFqzhAsfSlARcZNsTqbbbSyfsaWbH8ZwPcifYXKKtJhXja9qeCw3aSQP4h0hLPOI1Bb
-	 G/trg+HSoyIfh+gqNRkwYJL08k1IP33hlWpZJjHUJbaxMURRaiIVDupIy4nXl7nhKfA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795682888;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=/AZpVI7KIqymZwkfQLbTYKoY9euwaZTWbbcMfI47B/k=;
-	b=xFM7D1tGyq9SCYQ7srnciH15LtL25NpbV0fND57td2XEnxzAu1cx5pJ1WUuQewkPVaLc
-	 mjCsZUTy7Mjo/wIudhDwAA9FaHGfmIGskuO1q/+mf2FCp+EqlgYEbh5kvaCXzX9wCRFKi
-	 jRCF/Au1AyaSTsFUhTy5huLAuUwUKPn6pSOjoEaSH1ED4ri/ccfLvLqUnW1uvG/0c4CLp
-	 iZWecEqOdg/5Ht6KZeFGsex1Tp1926MV9QMiTFs/TIJA/kfl/u/eV1ce2SCm5rmgZfwhE
-	 YBU344fulT4Sv+/ExsC2tDo2MXjHXBcEkcLQMiRisuEvHprqskmJPz3EAXg0F6Fpa8Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=PEmv24t1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.176
-Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com [209.85.128.176])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.73
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795682890;
+	b=YsVy7hWE494LtqnUJl9bJOkteRNR6tctja2t986u/KhThfpxEJtpez3NHMbiwoI2Grv1
+	 Tdv+qSfydX9LfKlBxWiw3YbsOwgikR7mPUcvnN+oO5KTq2JcTIaRAHBNueFmTzpjd1JYM
+	 cSGEoafnElac4z852mYlJ0P1Q2zPPrmgDwFrvYrmQOn169N1FobCJvrnF4qsQeZlNq4/C
+	 GEytK3qCRuWVGbrawFg+aVmHJGx1m1z34H9ebpNNuCgbL9LCaj5TSR65HseohEZhJSf+j
+	 GPxuXt43zksJzzyFXS2t6c77xMI4Y9RbABI/JOOYTdbJvp9xKA5hJvMOnVUSdLdVSwA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795682890;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
+	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
+	 In-Reply-To:References;
+	bh=eEqrglkqWiQv9ByDl8q6YHM+PPnMMtPyGy7NziGSOCE=;
+	b=H2Y/ekfSs7nkRtKw/YUPMf4rsGAVBk/T7900YiB12oPOhoDgZkVKS5v5aUp+8smRel6i
+	 8Z34otsKU3sgoWAvm5ytYUvC72tcpvlovmsexJSECoqTBvdu3O3GbunJMxla76bVo26oa
+	 lT4d1zvmtlgJO/CZGASXUD4orcYcNRKvgdSKkoQnGhNJHYOJl7pDJas8dHE7t2hnEU5n2
+	 P6EfxFIq4YihB/aMk8jCFKa9oPl7DOd44LaDW0Axb4O2/NKqHCAyM05Ab/3VDn5VTCBbV
+	 LjqS8Xh1zXcz94rYdey7tyydYUEvGOWAj5GaRhBGEPoX6QaF+95bnwTTylQJruVOGnA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NoJtdc7e;
+	arc=none smtp.remote-ip=91.218.175.73
+Received: from mta0.migadu.com (out-73.mta0.migadu.com [91.218.175.73])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 651D3606A327
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:48:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 651D3606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2952606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:48:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2952606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=PEmv24t1
-Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-8b4fb5d96b3so104453107b3.1
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:48:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795682887; cv=none;
-        d=google.com; s=arc-20260327;
-        b=HiQmOIBSPF2xO/oXnsG+sOHTq01dfifkN0bGaEPLRS6Hrzaash4RHVTZo7L+POPcSg
-         eN8FMQZ0TBRWPVMBFGgzE27gBlXr674D1Z9AJZctnSuJDlmKsLo/4yhfFvygL4dy3Dd8
-         EbJcZejHGIjx2kIKkY4P2QtWqkohYv7Mlf8eTVxEuYNu2IRcxkdk3fH68LKxm/NXCwGe
-         +ZtJtnNeWDfsTlEbgmYi465Elmyf4/9/9zuXaLLbITju0GoHqyYfU4Jl8WKqzW5yUmUV
-         TmgrvdUmhtyaAyZlRqY87toinjh1ZEjA/ZVhvpQIzLGnezLDW5RSRIR/AI8/VJQnPyh7
-         A4Lg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=/AZpVI7KIqymZwkfQLbTYKoY9euwaZTWbbcMfI47B/k=;
-        fh=lC7JVJdQp2MWbrVVAcaxiefDT86MBkZnm3TftADH8dE=;
-        b=EXUg4D2HD250ETGzKxtp5aTpDmEWfFOhIpC0Dbg5mz62VZY7stNIVT8E4Nm7OkDPHe
-         MsjTLKNn7YOv/B61F2e1lmlc/fykgF+PGPTBKqaYqyqGq4oPPqnG+CwZhOMWLy5YGsTf
-         TtQe3nLgsyDX2CGj9pwk69+VSGgakh9uJZ0+3aOTUXZ9GdGFQq7gus/G9gos4GaYaDiw
-         gB5Ss9ON5oxSdTjEeqT7xol2xyOERnRx/AR/J+1s1BggG/oawCu14pJc53/9UJoEIXXs
-         v5AfXzqONVB1SHINIZCe1mruKVmrL8NXCCfxu3ukBE/oKsrj+Og3IGpVe/yB1qLwEWyz
-         mBFg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795682887; x=1796287687; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/AZpVI7KIqymZwkfQLbTYKoY9euwaZTWbbcMfI47B/k=;
-        b=PEmv24t1/PGnLTT/viQApZ2CbEXaAVnpzVTUBxuWfIrWmQFdudGmMKdqe2qnoFfsth
-         sjy5pGGEXrLTcC5m3phYBbhlmip14yGNAaVXMGtqaBx6bF2LYx6FUtrQoTsDaibQCvbS
-         YR4vVxMEHOU3JwWF5L8JTepVG2wrhGTafo7iM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795682887; x=1796287687;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/AZpVI7KIqymZwkfQLbTYKoY9euwaZTWbbcMfI47B/k=;
-        b=t7BORf8mrXqZYp2FALkV6MrqpmTiqH/nQYD7dE8HrQU0n63HbIpZnDmBEHw8GgQQrL
-         u/FI9E7NctMJWhU1AaBKff9MHMTp5fpxiICDr+PvtfNKFhbTzSR2GBAPgZLck2/pIk3X
-         sVd3gZH5YIJdoBLOL5UekAcZDBNdO60bc277N6OeY3Lx7cSgLQRtACwQKOZ0A0wdnsdJ
-         FJ1ZQrPmJcJF9ypETx6VOmZiuxBIYLiOz/cVYD5YaWH+EfRNqiYTU4R9Apf9QPLc3HrN
-         5LVq4j3gnfYrS4aHferan/xkd7JoAK/e7rtOV/PRfBNV/8Xrpzu4koCAVQpnyHePVVpC
-         bxyg==
-X-Forwarded-Encrypted: i=1; AL+hErGoxkcxpFpTE22LnJtjezxN5SdL/sulVDyyrPNHhPjm7ZfcXTeZuiATCeV3GNTnQqmknlKyCwLjUgBqCo0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+y6FMnuYoTDupiS4ZfCMdHy3Zi8BtYlxpd/R7ceJ+21UNoPCgd
-	KAsQnke11jw1PgQz2t+wn8+Boo8DNqtZ8mi7vq68tXO9XQKwRF1PDySBgQDDhfSEInQ56OTXGBY
-	n8uEZE3xJYiKd9/0CzUbHxkhT65bXSLDqRN/FhHEM
-X-Gm-Gg: AZFdTZdRZrNNwAahQ9EEwX1w8UxbebmToLe1Nx8/i23MB/5FUazrpW/xaGB0LjhMTpT
-	KtwQWkq296+w1vCtyGNTkpSP2Af+ts+lKqxuAUSRQ/2rJ06onVvqOZwTT+B9oU1boZ435W3naam
-	IXpdL9mg+sn1AkS5Ql2nYbC6mTsB1Ur4bWQCRUh9debinAcTUp2nzkGm/O2uS02QKxiQHeawAyn
-	KoGbQ2iEpHYZRlJCc2FVgr9LEDlOPalL8AuibU7w2h45+/ITJ2MKwZq/hZUcbWppMiuXT5J6+n4
-	mzPiIaL7uhs2X5Pt95qyBvRShUGa7gtmjgtPcKdQP2IBnIbry2laCoHNF2Km91sEuJIC+JRh+56
-	z/+8EhZ7goKTzM5UVuKxuredIn5xKKp9X/BVNAiOp3L7290ca00brw/u+vUBtuIOesS0=
-X-Received: by 2002:a05:690c:3181:b0:8b0:e13c:2852 with SMTP id
- 00721157ae682-8b518e8aa28mr76705587b3.7.1795682887386; Thu, 26 Nov 2026
- 00:48:07 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NoJtdc7e
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=WzPAXzKv5qNfueG+8GIA/dCl0/+muC6HE/6UOijGqYY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795682888; v=1; x=1796287688;
+ b=NoJtdc7eHcyjs0Gk2e+oksFBOH6DdHwmMxLokBqwbEPNc6bCNY6l4Hi8Z/XBHHbpCSwakxn5
+ Rl5EVvNk/AKV9yLLBGN0gtsePes7OiB/95gsXHQCJ1O5KM+9/kVx1AnWaCL8y1gfXw0lG7NG2do
+ qMUHkLES9nTAO0Zd5Dn7Q9U8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 5446df3b68f9b5ae;
+	Thu, 26 Nov 2026 08:48:07 +0000
+X-Mizu-Trace-ID: 5446df3b68f9b5ae
+X-Migadu-Flow: FLOW_OUT
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,53 +56,120 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125-timer-mediatek-gpt-irq-order-v2-1-e9e793bd87d4@gmail.com>
-In-Reply-To: <20261125-timer-mediatek-gpt-irq-order-v2-1-e9e793bd87d4@gmail.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 26 Nov 2026 16:47:56 +0800
-X-Gm-Features: Aa3M54qf4cs2aSjQ1h2bRvoduY7bxQ8dKJy1_2bbcHeKnvBYrvNW4fHBBOgXtRY
-Message-ID: <CAGXv+5FEYqMrpL_Kze=Q30CEozpUQND-qX-hVi-gLZMpkd6r2A@mail.gmail.com>
-Subject: Re: [PATCH v2] clocksource/drivers/timer-mediatek: Enable the GPT irq
- before registering
-To: Ryan Brue <ryanbrue.dev@gmail.com>
-Cc: Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Luca Leonardo Scorcia <l.scorcia@gmail.com>, Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Date: Thu, 26 Nov 2026 08:48:07 +0000
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
+From: gang.yan@linux.dev
+Message-ID: <133c1ca98af6beb48c0db1e6bb539a2a76ccda49@linux.dev>
+TLS-Required: No
+Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
+ fast paths
+To: "Xuanqiang Luo" <xuanqiang.luo@linux.dev>, netdev@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>, "Eric Dumazet"
+ <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni"
+ <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>, "Alexei
+ Starovoitov" <ast@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>,
+ "John Fastabend" <john.fastabend@gmail.com>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar
+ Kartikeya Dwivedi" <memxor@gmail.com>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>, "Yonghong Song"
+ <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Emil
+ Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
+ <ihor.solodrai@linux.dev>, "Matthieu Baerts" <matttbe@kernel.org>, "Mat
+ Martineau" <martineau@kernel.org>, "Geliang Tang" <geliang@kernel.org>,
+ "David Ahern" <dsahern@kernel.org>, "Ido Schimmel" <idosch@nvidia.com>,
+ "Stanislav Fomichev" <sdf@fomichev.me>, "Neal Cardwell"
+ <ncardwell@google.com>, "Kuniyuki Iwashima" <kuniyu@google.com>, "Pablo
+ Neira Ayuso" <pablo@netfilter.org>, "Florian Westphal" <fw@strlen.de>,
+ "Phil Sutter" <phil@nwl.cc>, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org, "Xuanqiang Luo"
+ <luoxuanqiang@kylinos.cn>
+In-Reply-To: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
 
-On Thu, Nov 26, 2026 at 1:14=E2=80=AFPM Ryan Brue <ryanbrue.dev@gmail.com> =
-wrote:
->
-> Since the driver probes as a platform device, the GPT clock event is
-> registered late in boot, when PSCI CPU idle may already have put CPUs
-> into a state that stops their local timer. Those CPUs wait in the
-> oneshot broadcast mask on the hrtimer broadcast, and
-> tick_install_broadcast_device() arms the new broadcast device to expire
-> at once so that it wakes them.
->
-> mtk_gpt_init() sets the timer's bit in GPT_IRQ_EN only after
-> clockevents_config_and_register(). The forced event fires while the bit
-> is clear, the status register stays clear, and the waiting CPUs are
-> never woken. On an MT8173 tablet with the CPU_SLEEP_0 idle state in
-> use, this hung the boot in 20 of 40 boots; with this change it booted
-> 16 of 16.
->
-> Enable the interrupt before registering the clock event. The IRQ line
-> stays disabled until enable_irq(), so the handler still can't run before
-> the clock event is set up. With the bit set, the timer that
-> mtk_gpt_setup() leaves running could latch an interrupt that
-> registration doesn't acknowledge, the kind of pending interrupt that
-> commit fc686d0037d7 ("clockevents/drivers/mtk: Fix spurious interrupt
-> leading to crash") acknowledges in mtk_gpt_enable_irq(). So stop the
-> timer before enabling the interrupt, until the core programs an event.
->
-> Fixes: 7a097aba7255 ("clocksource/drivers/timer-mediatek: Convert to OF p=
-robing")
-> Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
+November 24, 2026 at 9:06 PM, "Xuanqiang Luo" <xuanqiang.luo@linux.dev ma=
+ilto:xuanqiang.luo@linux.dev?to=3D%22Xuanqiang%20Luo%22%20%3Cxuanqiang.lu=
+o%40linux.dev%3E > wrote:
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
-Tested-by: Chen-Yu Tsai <wenst@chromium.org> # MT8173 Hana (Telesu)
+
+>=20
+>=20From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+>=20
+>=20With CONFIG_STACKPROTECTOR_STRONG=3Dy, a function that has a local ar=
+ray or
+> passes the address of one of its locals to another function needs a sta=
+ck
+> canary. The canary is set up and checked on every call, also when the
+> local is only used on a path that almost never runs.
+>=20
+>=20This series removes the canary from functions of the TCP/IPv4 fast pa=
+ths,
+> by returning results by value, by using storage that is not on the stac=
+k,
+> or by not calling a function that has nothing to do.
+>=20
+>=20Patch 1 returns the two mptcp_space() values in a structure, so that
+> __tcp_select_window() no longer needs a canary.
+>=20
+>=20Patch 2 changes ip_neigh_gw4() to take a pointer to the address, like
+> ip_neigh_gw6(), so that ip_finish_output2() no longer needs a canary.
+>=20
+>=20Patch 3 uses pskb_may_pull() in icmp_filter(), so that
+> raw_local_deliver() no longer needs a canary.
+>=20
+>=20Patch 4 turns skb_try_coalesce() into an inline wrapper over a functi=
+on
+> returning its results by value, so that its callers no longer need a
+> canary because of it.
+>=20
+>=20Patch 5 returns the result of the TCP receive coalescing by value, so
+> that tcp_rcv_established() and tcp_data_queue() no longer need a canary=
+.
+>=20
+>=20Patch 6 calls bpf_skops_write_hdr_opt(), which needs a canary, only i=
+f a
+> BPF program reserved room for TCP options.
+>=20
+>=20The bloat-o-meter numbers are from gcc 16.2 on x86_64. The functions
+> named in patches 1 to 5 also lose their canary with clang 23.1.6 on
+> x86_64, with and without ThinLTO, and on arm64.
+>=20
+
+Hi=20Xuanqiang,
+
+Thanks for this series. Besides the code size, do you have any runtime pe=
+rf
+numbers (TCP_RR, cycles per packet...)? I think it may help the maintaine=
+rs
+judge the real gain.
+
+Thanks
+Gang
+
+> Xuanqiang Luo (6):
+>  tcp: avoid a stack canary in __tcp_select_window()
+>  ipv4: avoid a stack canary in ip_finish_output2()
+>  ipv4: raw: do not use skb_header_pointer() in icmp_filter()
+>  net: avoid stack canaries in skb_try_coalesce() callers
+>  tcp: avoid a stack canary in tcp_rcv_established()
+>  tcp: do not call bpf_skops_write_hdr_opt() unless needed
+>=20
+>=20 include/linux/filter.h | 2 +-
+>  include/linux/skbuff.h | 35 ++++++++++-
+>  include/net/mptcp.h | 13 ++++-
+>  include/net/route.h | 16 +++---
+>  net/core/filter.c | 2 +-
+>  net/core/skbuff.c | 50 ++++++++--------
+>  net/ipv4/raw.c | 25 ++++----
+>  net/ipv4/route.c | 15 +++--
+>  net/ipv4/tcp_input.c | 99 +++++++++++++++++---------------
+>  net/ipv4/tcp_output.c | 25 ++++----
+>  net/mptcp/subflow.c | 9 ++-
+>  net/netfilter/nf_flow_table_ip.c | 4 +-
+>  12 files changed, 178 insertions(+), 117 deletions(-)
+>=20
+>=20base-commit: a4c450594f5d1dc0fc4daacfb95d40554d99dead
+> --=20
+>=202.43.0
+>
