@@ -1,65 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795669754;
-	b=MXLld8zyLMz5gQXLk8ROuJMtqPPSHmS725SdG9AmG27DhoOxwhwfgbmB+iZKmfkQmUYW
-	 dssw5nKIJnYmeU8P31h5YBzKqwjIhoIPIGrtatbUViHmMlv4TYPaq4AjHD0j5WuT/BE/o
-	 lVHmbtFdvQHx60C04943Vkc7acV+RzQ4Myy0CZf3Wa8iPi2bXAv9dl/7ym+vO8JemFNM1
-	 Xcu5GOb+HYne6DrwWjnHnuOKztY3MhK5iNIcp8bisbkXk4REEZAs5GDyVWcXXJNrbCqji
-	 FWJtxo/B8IFKU80sCPn/ujFMA1XkRed0NJvteW1P89HYhkYESM34fDEdbyTJ/V6ygbg==
+	t=1795669760;
+	b=4Z4ohDyG6YZ0yp6Svak+cTR21aNIs3p9IK6dN8NdcF70MQROZgR0UBhgxM8peciQQ4+e
+	 om3bYPH3WQF3CSoUlCXYpSFccvYEDyJGgqvguH8FhTXegP4cXqwMNdpnd5vNWX9NnoqF8
+	 63KuNrEAbQVtijaaWkeqCUoZW41zeufUmEtSeVZ9c0K5fJeCC1sFBMab4NQzNDl+DhetW
+	 gxv8GjuAfgjneV43hsfe9L3RLNns9O7NWAGx4mniAawGFyFepXvq6me4i6jtgCT8Qf7Bb
+	 xDxKXIv6OzauVQnNwCE+Q9dnESuJH3tnlq4gYTHWx9bmAp1ntuhzrW+0iqVRppoGzQA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795669754;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=579e3IflvQCT6fIkLvaebX4/kKjzYNb7EbQCJO29WxQ=;
-	b=w2qi71ch3ubnLhZqavrSR39LldXsD3BA3MBiD4y7oI8w/KiT/KJvY6tMJiEerT9/4YQI
-	 StFaxZAg598SodnaKK2RWiaD8HLRkgGhSDJKxiS8PmYQxaR9luG60fh2rm4Sz+mGdwot+
-	 IMrtEaFSigOPBatLaTBBfdm3uz7ysqC22UdxSjCxdU9SxZHboBIxn0bf30OoU0H09Af2t
-	 Rf+Bp9t7ItiPxr4YYUh+XZ2reX4FNNngHdoy4duhIelnJjJN67pOjVev+PL5f8w2oBmfi
-	 jbKc2pS3wCF0JNjwwgZolGTUodsZiPoCo4OCte6cOuw2/obF/7WuCBV+SajFdph/TgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795669760;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=S1HSSshjmPkqz79dXnEgGWEjXTt5qVtgnEZaDetyRsA=;
+	b=z2KGnxRY7jYlRVF0/uy8zFMCppc2buglWvO7n8s48+kQEgGffcFvMf099nC/L8Nn0Z/c
+	 mq55mJX0PfIbhNJQVaga7/7CygaeC4eGWxd5f4QBh23N8lh6u5PjGtU5l15HvrCGRxCoW
+	 JNoDdTSjDjWxSoU8f0SUvaxE0eHLyL2TyGxZZVJaUd43q1U/DzXrroKZ48oi5sEqcARz3
+	 BfH7uB8G/miEIvtVqIjLUR3PyYLY4dmlbNUQvAf5e1xksbjT1nBwfvhVsMzcMhJwdQ29n
+	 4VsMa8XOdfELGDEDnHSgS+o62NEtnHJ2Fxwp9Rohwd/+hgnJ0+RUx61EB3d+aBnEUqw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=IBtYNT50;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id EA874606A31C;
-	Thu, 26 Nov 2026 05:09:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA874606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Bb+z+LpN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 604C6606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:09:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=IBtYNT50
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=IBtYNT50i5w6iJTwe6z69lElC4m4Rktd9RARiu4Vi1O6o0eotDV0F8zvkYLxQOC9d4X5v4L/l7gMI
-	 iWBTjutrc4pRGUe3nbF/LZfLYIs3meI94YmL5hF6DnDjA7jqZmFmcjoHI5N4Ce1nRXgxVNqzAHbKfd
-	 IJPfczDmX8DVJylc=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66b07bef2456-24a4d;
-	Thu, 26 Nov 2026 13:09:07 +0800 (CST)
-X-RM-TRANSID:2ee66b07bef2456-24a4d
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from FHD-W7400297 (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr10-12010 (RichMail) with SMTP id 2eea6b07bef1572-5ddf7;
-	Thu, 26 Nov 2026 13:09:06 +0800 (CST)
-X-RM-TRANSID:2eea6b07bef1572-5ddf7
-From: Aibing Chen <chenaibing@cmss.chinamobile.com>
-To: Borislav Petkov <bp@alien8.de>,
-	Tony Luck <tony.luck@intel.com>
-Cc: Qiuxu Zhuo <qzhuo@nvidia.com>,
-	linux-edac@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] EDAC: enlarge the DIMM label buffer to cover the worst case
-Date: Thu, 26 Nov 2026 13:09:04 +0800
-Message-ID: <20261126050905.1745-1-chenaibing@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Bb+z+LpN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BC8A1F000D8
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 05:09:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795669760;
+	bh=S1HSSshjmPkqz79dXnEgGWEjXTt5qVtgnEZaDetyRsA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Bb+z+LpN1m27T8MR72joD+HGa4Q+jBUOTHmH8z0FiHZ2plcdtAvq4oDaYD48fyriM
+	 W0XttaR9sDljd8yEXHQZzL8apNhfitdq0KBIwa8pjDHxRDKAZ3RKKvdFJwCyGHaXl+
+	 q+6YgtTP97rG+8sNHZC+LxJmvOoRIO17kTl6jCntTS4ONfAAYkWmbMrXQO/Mn7HUVu
+	 YbHCW8mtPleTNktXBiM+sNmyiPEOM863HMrO3QMZQFNgP/Yo/XyXorFk5oqd3I4cIJ
+	 tCmB07tTJV/SSfVA5MxWD1QrrwGyGp4fZmu9HFTpeH3jAhd7MAOz6gD8O3dkQtKNcs
+	 UX+eL2XJzd7zg==
+Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c5126505cb3so849332466b.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 21:09:20 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEwvxnIxx1r4GWUmC9joK1VOJSbd4aZEGJQuU3kRMV3dyykEV1lU6UXYQKlqay1FCJwzgps64eNCdy5hp0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8w0dbk1A2rmx+YaO4HKi13D98KMwWu5T9jp+/HhpWeaziXrdu+
+	wcVmKn5PAxQ6hz98jK7nI+5Jpc01vA4mCQsPOvHV9ihY2VFbH2ujrTy0gCwlOXzel6REb8UdF5S
+	78cOIBydJKyNEsf0nuZI5OWdf5wpQeAo=
+X-Received: by 2002:a17:907:96a0:b0:c51:3cf8:7d07 with SMTP id
+ a640c23a62f3a-c513cf87f18mr1544835066b.29.1795669758768; Wed, 25 Nov 2026
+ 21:09:18 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,54 +59,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <179558384099.146091.12975349907127521352@163.com> <20261125085004.1816027-1-shawnq1@163.com>
+In-Reply-To: <20261125085004.1816027-1-shawnq1@163.com>
+From: Namjae Jeon <linkinjeon@kernel.org>
+Date: Thu, 26 Nov 2026 14:09:06 +0900
+X-Gmail-Original-Message-ID: <CAKYAXd_6+H28_KNgw3c1P3GL+OnsGuKhSidLQkcrsqFA17cxxA@mail.gmail.com>
+X-Gm-Features: Aa3M54q9iicmQhqC8G7jUu05Bg8W7c8Nzhmo24E5ctERleic9K339gXMJgXzZTw
+Message-ID: <CAKYAXd_6+H28_KNgw3c1P3GL+OnsGuKhSidLQkcrsqFA17cxxA@mail.gmail.com>
+Subject: Re: [PATCH v2] ntfs: guard the final LZNT1 sub-block header read
+To: shaos <shawnq1@163.com>
+Cc: hyc.lee@gmail.com, ntfs@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The DIMM labels are assembled with snprintf() into label[EDAC_MC_LABEL_LEN
-+ 1], a 32 byte array, with formats such as
-"CPU_SrcID#%u_MC#%u_Chan#%u_DIMM#%u" in skx_common.c and
-"CPU_SrcID#%u_Ha#%u_Chan#%u_DIMM#%u" in sb_edac.c.
-
-The worst case gcc computes for these formats is 34 characters plus the
-terminator, i.e. 35 bytes, while the array only holds 32.  The labels fit
-in practice, but -Wformat-truncation is enabled for W=1 builds and
-COMPILE_TEST configurations turn it into an error through CONFIG_WERROR,
-so these two files do not build today:
-
-  drivers/edac/skx_common.c:790:87: error: '_DIMM#' directive output may
-    be truncated writing 6 bytes into a region of size between 0 and 9
-    [-Werror=format-truncation=]
-  drivers/edac/skx_common.c:839:79: error: '_DIMM#' directive output may
-    be truncated writing 6 bytes into a region of size between 0 and 9
-    [-Werror=format-truncation=]
-  drivers/edac/sb_edac.c:1670:85: error: 'snprintf' output may be
-    truncated before the last format character
-    [-Werror=format-truncation=]
-
-Raise EDAC_MC_LABEL_LEN to 34 so that label[] is 35 bytes and covers the
-worst case: struct dimm_info and struct edac_raw_error_desc grow by three
-bytes per label, 24 bytes for the eight labels of the latter, and the
-stack buffers that the drivers size with this constant grow by the same
-three bytes.
-
-No functional change.
-
-Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
----
- include/linux/edac.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/include/linux/edac.h b/include/linux/edac.h
-index f7a8218f9..f4c0a9613 100644
---- a/include/linux/edac.h
-+++ b/include/linux/edac.h
-@@ -45,7 +45,7 @@ static inline void opstate_init(void)
- }
- 
- /* Max length of a DIMM label*/
--#define EDAC_MC_LABEL_LEN	31
-+#define EDAC_MC_LABEL_LEN	34
- 
- /* Maximum size of the location string */
- #define LOCATION_SIZE 256
-
-
+On Wed, Nov 25, 2026 at 5:50=E2=80=AFPM shaos <shawnq1@163.com> wrote:
+>
+> The legacy NTFS LZNT1 decompressor reads a 16-bit sub-block header
+> before checking that the full header remains in the compression
+> buffer. If only one byte remains, the read crosses the end of the
+> 64 KiB buffer.
+>
+> Return -EOVERFLOW for an incomplete header while preserving successful
+> termination when the buffer is exactly exhausted. Validate phrase-token
+> length against the sub-block boundary before reading it.
+>
+> Tested on x86-64 with QEMU. The original header-boundary reproducer
+> and a phrase-token boundary reproducer no longer fault; both malformed
+> streams are rejected with -EOVERFLOW. The one-byte control still
+> returns byte 'A'.
+>
+> Fixes: 1e9ea7e04472 ("Revert "fs: Remove NTFS classic"")
+> Signed-off-by: shaos <shawnq1@163.com>
+Please tell me your real name so I can use it in the Signed-off-by line.
+Thanks.
