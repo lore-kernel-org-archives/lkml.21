@@ -1,80 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795664557;
-	b=rrQEbKzrdhY2OFRoZWTLXmZZHbKu0C4gsyLrknYG1a5fMUaQFNn6XeIpG/RAdN4+otyJ
-	 qF7AV7YEjw5zfGtIqIopNLYsonZLhRMp2aCCSTZsGkEtat+6yasU4ANVsmxCWSlf8MmTf
-	 ZJ/jRPfMfd0l+WKegrdkXKzUeEN8psbNy2WdVTTnQ+5JE8Y80hgEWJXrEFxCE1GoRhy48
-	 glG90zcvdjZYzSRYpV01DZUZnxMiNeR6yyhxvH1poweY+boKWokoyzUNAyFYTQ29thGjz
-	 VeY1cImwNwSbdfSM4JwCkpVTXy7/eLR53Zp727F/tRj/aN7LdXT+Pe4/IxhKmD1ZFGw==
+	t=1795664663;
+	b=JGEIHsLp8qVg4YfiZoAFNTNUVix0fgy5A0zNWZ9sz+UCDha9bZuaOKuQbMF1MaU+fNNF
+	 zXjNnThDPLdNWOAIOIg78DFDRVS4rIGNabvSYWm6mnUgtWcye4UWyaPBINjuem+qSQ2oA
+	 iaeBBLuDD3H7WnZc8nTUib+Xa95l+5AidzOmysB+q4tOiqQcpbSfBPVEL0GeqQgMe6F9g
+	 aIe18dZBkoV/bVS94BzvCW8cZmd9CQF3N1Au90KmsZAY7q+NsVWdfjX+i+sivKjhF/ndF
+	 Mu2YVhPQQahdmuzJr7ust5ylHeqWUUmZcD9t1M80pKvMEQ6wDoTfnK/ezIzb1tjn/4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795664557;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:User-Agent;
-	bh=iU6IgNdA70v9+Grxkol5MbwHNrHD53mrGFgUAtLCd6I=;
-	b=g0WeMywsuM65ooEp6jYwrr1v3c+i/qSISkgKbLKeAa2AE/44Zrc4nQpmK7wjeKXsASRQ
-	 lcfWtZtfx7MO8wfU0hifTZ7D0InnoEoZKhclGXwtVRFh/NaTbTrxCRm1LTW1gLEiqumEU
-	 b/uYNc2ZLjWt6AcItUl4xjn0fRXypvMftW6SyXxnY0s5KkAu/op4Gz0gPTI/e0oN2MgLW
-	 T3ELQeRz7OD/nFqJsWKDQPf5/NGs/GgwP1NAbQI8KLjQG0pt5SAxhTbLBT6O3xtH68Tr/
-	 3K1oRYX7cUU+RKCxRhQ3OR/DGDNSlfARo4PNAXZZEHkiDa5R9q+6R8tXFMuG5f7S0uQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795664663;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=tIBO2BUTqLnTN0WSYteEPUPQWOKHzyHrEAfQKEoCCvQ=;
+	b=ao7sCh6GRJL9my3VgMqpxvMpx8rM0VFKAL38IP+0hkYPc9Qsjb3bSHiCgiXdZCe7y4Ke
+	 CdHDu2ihbs3wi9ILd1ikp2hdzvxyyiYfCc09v2lBcMVUHzqnw/3g4YM0RidNaxhpD0rxP
+	 mLLZZ+kvEZD+EzOI3Ym+tTdJprNj8fAjPvAwqyR7tzlkXVBa5DgIsmjK7yJveXwPkdoA5
+	 lesj7+b2FmVqumgZ+Gm5dYylL09Xsz4SYYCWL2oUnyJ0e47UKx2kR9ZwbVEsG3d+1XMUh
+	 IX2JHrLfj27JfAx6x2XFhT/q4q7tlzFvLnH+vrlmQJp1HJSarytadvLhrEZm0k3f6OA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hQiIfHYA;
-	arc=none smtp.remote-ip=198.175.65.10
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rDvPnH5Q;
+	arc=none smtp.remote-ip=209.85.210.170
+Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBE55606A323
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:42:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBE55606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A446606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 03:44:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A446606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hQiIfHYA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795664556; x=1827200556;
-  h=date:from:to:cc:subject:message-id;
-  bh=We0PQE42gK/MyHlLNApmjlpzKRbioUzWmKY5uMLMZXY=;
-  b=hQiIfHYAwHa3LguNwK+9wUynJzixp/wYTQJC8wcOTofbqkZdM4/GqqJa
-   dcmEoWumNhEgRH3wLGBdSjMNYvvk3YCpAvwvfeAE8ApE8kkOuaKOiJEeV
-   EKM+WGEIRz7JgUtvDXIutQ9qwkxzhwWPnP+2XBS8RqbZFTpNvoSI5mShQ
-   zBXYyCEta2xfAl3MrAPC6Vzo3Z4/3TgUWrL/q4O8NERCXA3XD1J341oAO
-   D8YK0Mr9awnMPkE7NqnPqMFK+JrIzgMSpAds/D0b7cLYgS+bcSz7Fdo2z
-   PUpTqv/1G/33qPWzrzn5b4fJZtbvqA1E7jEsKInOOuNNQ8EIFJpKuzgLo
-   w==;
-X-CSE-ConnectionGUID: iwZ4nDynSoKwJ26fVQTRKg==
-X-CSE-MsgGUID: DQ2VhqS6SUCdeyZ6ar+Wbw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4487015"
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="4487015"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 19:42:35 -0800
-X-CSE-ConnectionGUID: jTxc5wSwTMm+U8s2dFEm6g==
-X-CSE-MsgGUID: HGCKOAlAR3ei5ILPo8dk/w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="12303846"
-Received: from igk-lkp-server01.igk.intel.com (HELO a03d4d989450) ([10.211.93.152])
-  by fmviesa002.fm.intel.com with ESMTP; 25 Nov 2026 19:42:33 -0800
-Received: from kbuild by a03d4d989450 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWQNT-000000000Dr-0uD3;
-	Thu, 26 Nov 2026 03:42:31 +0000
-Date: Thu, 26 Nov 2026 04:42:10 +0100
-From: kernel test robot <lkp@intel.com>
-To: Harsh Kumar Bijlani <quic_hbijlani@quicinc.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
- Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
- Ripan Deuri <quic_rdeuri@quicinc.com>,
- Vasanthakumar Thiagarajan <vasanthakumar.thiagarajan@oss.qualcomm.com>,
- Baochen Qiang <baochen.qiang@oss.qualcomm.com>
-Subject: drivers/net/wireless/ath/ath12k/wifi7/hw.c:127:21-23:
- WARNING !A || A && B is equivalent to !A || B
-Message-ID: <20261126043442.ZtOXN9et-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rDvPnH5Q
+Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-89d6bd67045so3081968b3a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 19:44:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795664663; x=1796269463; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tIBO2BUTqLnTN0WSYteEPUPQWOKHzyHrEAfQKEoCCvQ=;
+        b=rDvPnH5QZMdTGsxXLFq6yBa7Rae/o6kaBkovnkvKsXmGe+R1gObeMRg9eJ7DZextSf
+         v0pu4vnn4mRlgoU6jghwZTDX/RLN9uOmFdfbzO7uliWdv7xYcGwvN5etlimmXZZirZB8
+         VSK+kvmQqw9Fs3zaKw2sBgpALl3gkmhzcStG7rxn4TIqeQzGSsPQyVAij4fuVfiSsrRq
+         uHsA8uzDtnWEAmTB7EY28Uw2aVHQdQxmY1yEh+11WwiXJgufemNN2GGobDz3O3QvFRYm
+         4juINxCbiQueqb7MEW/H+wfN8zw+K5AgwAwYHdZi/tQ61cBAGTFCRMwdVtyU9vG1Tos8
+         eIQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795664663; x=1796269463;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tIBO2BUTqLnTN0WSYteEPUPQWOKHzyHrEAfQKEoCCvQ=;
+        b=Dd4eG6nLYqS20nMOyHnSLdPHosIsDNu9XI7EmjW0ucuVds3xJhHfl7XApnA5Z9G6gw
+         X6S2q6uCXh6pHnsQwj0F+RgQX1JTfvKtVAHve7a2IgNoINqz+Edm2tPhSdvhtvuEO/UI
+         rULhsXrVcJOy2ykl/1GHGoKA24ZcnMQUWCGUd1uOM7jgblCm/HbPT8dyV9p0hkrigzjq
+         hrNtTmTF6POLWQdUHYWFZG6zH/XXRcnUaHdDze6q1THnChqkjOQe6w5MHeKS+WiGwQKm
+         VY1vnw1WOfQdthzABMIl61M+NR7leGUPfJZZn2p/STlFlZwixKJybWO3/E0lcvV9SkWn
+         BBdg==
+X-Forwarded-Encrypted: i=1; AL+hErEuDznsdIL0kFcuaMIMrgBmrmmZy06M83DjzGgmjGnZJNW/VT6DduGacXCiEj7Z/JH7rTZvhyroEyH1Jm8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+hlso0VF1U1DP5clj/BiU/BtbnMzAg6rS3dnnCIvf+tHf0+Kh9
+	2ptoPbm+Qb/efJf6Jg7Z8lSRsv6mdcY0wvj2Bpa1EkJdV2pFgAGFMgAa
+X-Gm-Gg: AZFdTZd4iZAJXfU5Vi+kOJM5iURAEaAJfE7vQAZOOWMxiHqqdqEnFtlgCr2gXOjfWgR
+	Im4Mse7pynoFsh0FHZk+9IXhUYYLV///mZuhbi54rC9R6/7sybIvcs1z2zEN5LIwF/S6fhJhsQ9
+	uPM41D3ykgNPnTqPFWwz0ZOY+IFmAFyziJTUxEXy++SZ/AiLSW9gET8vKg2LjLztNAtYS65njLj
+	bI/UMusc+ohofoG3cm1JNikhKX6qcsBKmUbvgX1MchL/X2wrh4X3MZKMr0itIHOsOdOE8lykdjc
+	aGykMm78m5FcRpvKIuV0rmHJQkxYtnEGBviDqj6xq2zHS1Xe5TEpxp9wZXsNWdUeD7wedx17Nma
+	CZBW0vKBRAI7RfJqDEoyotaI1RTLXLoCwzsGuLiFKQ14LuDCFN+WWrxDm/9r1/OBvW8jOvGE2Ui
+	XnMi4XEcAi2VaVQRIAWQXi1xoE114gcAq5nH6IwDlapRcnDR0RPp1ks6mmEKRZg7EX/1wr7IFXW
+	hInNvRGKf8/zGlpYv3WuW9SZkfWkQBKvxK0ZG3MLa2aY1EfHFz49aBKOoKSk9SeCXcKoJOFeA9Q
+	cHGioCOkqn1xHnnl
+X-Received: by 2002:a05:6a00:27aa:b0:89e:37b1:b820 with SMTP id d2e1a72fcca58-8c8792bebbcmr12357321b3a.2.1795664662746;
+        Wed, 25 Nov 2026 19:44:22 -0800 (PST)
+Received: from dell ([58.246.183.50])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f83dsm10018512b3a.39.2026.11.25.19.44.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 19:44:22 -0800 (PST)
+From: Yuansheng Yang <0xbeac@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH net] vxlan: fix out-of-bounds read in DF inherit path
+Date: Thu, 26 Nov 2026 11:44:12 +0800
+Message-ID: <20261126034412.2799912-1-0xbeac@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,67 +98,73 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
-head:   ebb7a8dc1e74c705daffe11c2faf38ec2628f838
-commit: ee16dcf573d5e3283fda601dd4bca6bc52251017 wifi: ath12k: Define ath12k_dp_peer structure & APIs for create & delete
-date:   1 year, 1 month ago
-config: x86_64-randconfig-2103-20261124 (https://download.01.org/0day-ci/archive/20261126/20261126043442.ZtOXN9et-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+vxlan_xmit_one() calls skb_vlan_inet_prepare() to pull the inner network
+header into linear memory before assigning old_iph = ip_hdr(skb).  That
+helper checks skb->protocol (skipping VLAN tags) and only pulls an IPv4 or
+IPv6 header when the inner protocol is ETH_P_IP or ETH_P_IPV6.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Fixes: ee16dcf573d5 ("wifi: ath12k: Define ath12k_dp_peer structure & APIs for create & delete")
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261126043442.ZtOXN9et-lkp@intel.com/
+However, the VXLAN_DF_INHERIT branch inspects eth_hdr(skb)->h_proto
+before reading old_iph->frag_off.  With AF_PACKET/SOCK_RAW, eth->h_proto
+and skb->protocol are independent: a 14-byte Ethernet frame with
+h_proto set to ETH_P_IP and sll_protocol set to ETH_P_ARP passes
+skb_vlan_inet_prepare() with only ETH_HLEN bytes pulled, leaving old_iph
+pointing at skb->tail.  Reading old_iph->frag_off then accesses 6 bytes
+past skb->tail in uninitialized tailroom and copies one bit into the
+outer IPv4 DF bit.
 
-cocci warnings: (new ones prefixed by >>)
->> drivers/net/wireless/ath/ath12k/wifi7/hw.c:127:21-23: WARNING !A || A && B is equivalent to !A || B
+Using eth_hdr(skb)->h_proto also fails to inherit DF for VLAN-tagged
+packets and reads past the nonexistent Ethernet header on VXLAN-GPE
+packets without Ethernet encapsulation.
 
-vim +127 drivers/net/wireless/ath/ath12k/wifi7/hw.c
+Use skb_protocol(skb, true) to match skb_vlan_inet_prepare(), as the
+TTL, DSCP and flowlabel inheritance helpers already do.
 
-   111	
-   112	static bool
-   113	ath12k_wifi7_is_frame_link_agnostic_wcn7850(struct ath12k_link_vif *arvif,
-   114						    struct ieee80211_mgmt *mgmt)
-   115	{
-   116		struct ieee80211_vif *vif = ath12k_ahvif_to_vif(arvif->ahvif);
-   117		struct ath12k_hw *ah = ath12k_ar_to_ah(arvif->ar);
-   118		struct ath12k_base *ab = arvif->ar->ab;
-   119		struct ath12k_dp *dp = ath12k_ab_to_dp(ab);
-   120		struct ath12k_dp_peer *peer;
-   121		__le16 fc = mgmt->frame_control;
-   122	
-   123		spin_lock_bh(&dp->dp_lock);
-   124		if (!ath12k_dp_link_peer_find_by_addr(dp, mgmt->da)) {
-   125			spin_lock_bh(&ah->dp_hw.peer_lock);
-   126			peer = ath12k_dp_peer_find_by_addr(&ah->dp_hw, mgmt->da);
- > 127			if (!peer || (peer && !peer->is_mlo)) {
-   128				spin_unlock_bh(&ah->dp_hw.peer_lock);
-   129				spin_unlock_bh(&dp->dp_lock);
-   130				return false;
-   131			}
-   132			spin_unlock_bh(&ah->dp_hw.peer_lock);
-   133		}
-   134		spin_unlock_bh(&dp->dp_lock);
-   135	
-   136		if (vif->type == NL80211_IFTYPE_STATION)
-   137			return arvif->is_up &&
-   138			       (vif->valid_links == vif->active_links) &&
-   139			       !ieee80211_is_probe_req(fc) &&
-   140			       !ieee80211_is_auth(fc) &&
-   141			       !ieee80211_is_deauth(fc) &&
-   142			       !ath12k_is_addba_resp_action_code(mgmt);
-   143	
-   144		if (vif->type == NL80211_IFTYPE_AP)
-   145			return !(ieee80211_is_probe_resp(fc) || ieee80211_is_auth(fc) ||
-   146				 ieee80211_is_assoc_resp(fc) || ieee80211_is_reassoc_resp(fc) ||
-   147				 ath12k_is_addba_resp_action_code(mgmt));
-   148	
-   149		return false;
-   150	}
-   151	
+Discovered by manual code inspection following the sibling geneve
+DF-inherit fix, with Gemini assisting in path verification and preparing
+this patch and changelog.  Verified by static analysis and compile
+testing only; the out-of-bounds read was not triggered or tested at
+runtime.
 
+Fixes: b4d3069783bc ("vxlan: Allow configuration of DF behaviour")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yuansheng Yang <0xbeac@gmail.com>
+---
+Sibling geneve fix on netdev/lkml:
+  https://lore.kernel.org/lkml/20261125235524.4139551-1-xmei5@asu.edu/
+
+Testing: drivers/net/vxlan/vxlan_core.o compiled with W=1 on x86_64
+(GCC 15.2.0, CONFIG_VXLAN=y, CONFIG_KASAN=y) with no warnings or errors;
+git apply --check passes.  Not dynamically tested; no runtime reproducer
+was executed.
+
+Checked against net.git HEAD ef3e21c61baa (whose vxlan_core.c matches
+the base-commit blob below).
+
+ drivers/net/vxlan/vxlan_core.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/vxlan/vxlan_core.c b/drivers/net/vxlan/vxlan_core.c
+index d11028b37472..76a1828111ea 100644
+--- a/drivers/net/vxlan/vxlan_core.c
++++ b/drivers/net/vxlan/vxlan_core.c
+@@ -2551,10 +2551,10 @@ void vxlan_xmit_one(struct sk_buff *skb, struct net_device *dev,
+ 			if (cfg->df == VXLAN_DF_SET) {
+ 				df = htons(IP_DF);
+ 			} else if (cfg->df == VXLAN_DF_INHERIT) {
+-				struct ethhdr *eth = eth_hdr(skb);
++				__be16 inner_proto = skb_protocol(skb, true);
+ 
+-				if (ntohs(eth->h_proto) == ETH_P_IPV6 ||
+-				    (ntohs(eth->h_proto) == ETH_P_IP &&
++				if (inner_proto == htons(ETH_P_IPV6) ||
++				    (inner_proto == htons(ETH_P_IP) &&
+ 				     old_iph->frag_off & htons(IP_DF)))
+ 					df = htons(IP_DF);
+ 			}
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
+base-commit: c710c654b8a3c92b34e38740dc17c29daf5b222e
