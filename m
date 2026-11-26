@@ -1,113 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795660271;
-	b=H+Lgyj1+wXOp58nSZe1uljdHPbJTaq73ZU78C/y0+Qpm28QyhvyYQDORpAZm4up1sJRL
-	 +8oek4qVLWJEGPAwKtQtHHkdAtp8XJLXFQczwQOEOunjDbRNcDRfeGIEuLTULbPwnQoz9
-	 mm2S5Z9wWFjVtETg0GyYtJEHXttFgOlZLK4HlIhBZlOmxBkGclVheX6kj3bHMFEU9IJ3I
-	 FWRSPPt++iKmSr+Jtt37hV4Z7aTjsWZ18vMU4UUTXhjbxVk1HBhlZVe8KXJfQkagUCgWj
-	 cH9zUY3CuTb+BJbBRGL8cGRfoz/yI9Yux50F5SUP+67XRuatHbIsrvWGM0goYDjgJgA==
+	b=JeUvrUaHfz7fxorEabFx3Kqhu4kYL1+Ll42U3y4wV7EAqdNaFrQai4Bwfs7w4BlWT6wv
+	 3x1GBrJzoiaOlue8RpWz8bVFpGGPUXeECUxDXUnEUn25EO14xblDi0b0BIyX/X8Qy8JH0
+	 nmpp2ATa5g4o9b5zDQVxguWgowA0ueODx9gQT+Q0SW1wTcJtTHqWey7E5rQYMxwcdAxDv
+	 XrkaFt4xBmrhvx8JUMVGpxBB8396F1gMpVz33eaeOcP98rwwUvS9Cb8t/yj4pWvOIS5a/
+	 5nnFHMGwRm2oaPWpikZpQKKmTyJxRRSWurBcEYzg6DnonZNGUJDOOPcOMbI6OqF4d/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795660271;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=yN5H3rKOI/8+8/yT1waYVkwONxbU+zHepwtMaoJjEe4=;
-	b=AulWure8Y4nIG26zCpVELxpHQGYfWtXljIwzt2k/b5idgH57w9d3dcmDA3TsdbGtGLvf
-	 b7OMtb7M2BkDjmfWfVRUPBaSbu1Qz3gN4svvkrZLWxkax5S08ULWRwVUNy15lvKvgQTmr
-	 MZkB7CU4dsdaYfeccU6T3WF1+Re+OYJbbDfJTq0bcZvDMfzloaplF53TjQfuX5u3J5L7D
-	 +qL8mre+1BJmy4QqIjxO1VRU3qmGLvykfLTIGV//CFKn55d6m6djfA+G5jY92pIly3aN2
-	 ffuysg/iF6C8HFgndgtRuhUD67zGEa6GuqgZdobKNWVnuH+7PS1ZEk/WP8RZsfixBLw==
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer;
+	bh=kMxeDlOyVy246zFNkjFb6a+Vb4c4RNhRRen/Z5ufh8I=;
+	b=f7R6VYgsWlgn2ZxEbZycDNu8OKusTtWD8mXiUXZ76a3pyW7XhjyM9hvcY/cihqH3ZkaD
+	 UAUj9Xc+AgiCG48NkwI5kDe+fbUHXnk5Vn/6h4tc1/0U565InkY8kdI5fFWGqW3BdN1/5
+	 IxP3RaLDLslzMpTYioq/606YO8gQqkRU5Jzrqsl0eFVEvp9Qvo/sLSjK+aF4DR/vvVJ+z
+	 gUwvSQDU4ntu77LlB3gAJlcYBP6611JBmu189MSm+KZsUqHQ0ALM/0q5ig1Q5v3jutUJJ
+	 QvDsuhfceCIh11PsKQk92cCtnOR82kDCrusUwRYI/4xpzjXFkQ8BMpTeb9r2ujBYWCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sp3vYyEe;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="ZF/+CfW0";
+	arc=none smtp.remote-ip=95.215.58.41
+Received: from mta1.migadu.com (out-41.mta1.migadu.com [95.215.58.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB316606A69D
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:31:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB316606A69D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56F59606A699
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 02:31:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56F59606A699
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sp3vYyEe
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso79983745e9.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 18:31:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795660269; x=1796265069; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yN5H3rKOI/8+8/yT1waYVkwONxbU+zHepwtMaoJjEe4=;
-        b=sp3vYyEeIzdhmt/2NwQA8bgBqIVHI+phLfbI6wKT3iWAoTwwuGZz1IyO9rmEYDKgXw
-         I4QCJbHNji4RjTk7q06rodTVNRoqedu9oQrRkq5daFrrrw7a7PQlDqWs00HiZQYNMS4Y
-         fs78czPKWoQMClgGKDBbFbAkuGR0j+9RKAlD3QSLHs4+BQfdNZ6mJ2fVQsIsCPg6wvw6
-         EnaKCnfz9c+hOozBpB4XIeN/K9Kyy7hmD2Zq81JRc17dVxuzR0A17Sn6HBg+r1kRpPI4
-         ePd758R9egnFXEGuqqzpBAVgUJyQXRCbSW21psTFLMoXDtSq+CWlDISk1Mjvxq5YnxnQ
-         ra2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795660269; x=1796265069;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yN5H3rKOI/8+8/yT1waYVkwONxbU+zHepwtMaoJjEe4=;
-        b=m2P/9CfaGEWNYL3roY3G9CP8lNAKwCZPa2C4N+Ia1R3zHgMrG3MMhfD+RrH5tYPGnr
-         TZTYxvg0U/0ae9BE/zUNUldgopJrajd7WjbkSuq3jOsv77cFFMxJoyLhDTIitTnF6RIQ
-         O7aAQfbXPp8Kw3w/J7lXb3WrzG9QFNmgCCU+W0qyf4CblsAmDqKHv+sHTL/hLDU6+PyY
-         P3alyam2mSaq2GEpq64wSYCB0b25Jri/SQOtH4Sx6/AirlQlYAkjWI601S3AtQ7O3dT4
-         DwsqRXOYFEPJg0W1Q+4tVTfzxoJalduR+dgLKDWN2eiYHFZ3xYrUclIEYQ1YUXYso8xp
-         Racw==
-X-Forwarded-Encrypted: i=1; AL+hErHZ+AQNDEJM1y7guTeuNLr6zDtDZM3/WbFw/mF9u7gRvqTOP1zkPRao1n+wt0VzX+i2WVk7A3a86/B9Kpk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+m56j0rIWzLv23zczXPMCm76ejZ9QAxnsDaDJcfKp0LYJSI2Ru
-	7oVOZaGmoa1/ipUos6wxR9+yLTBisYhscYeTHnS2gPAsexNeWQaHlpp0
-X-Gm-Gg: AZFdTZdsjwdCCNnC4YdlWwO/nz13ORFvZ48AhSvd1RZhb9JwqPMOS0TeeQ8gZRJDbe1
-	V7OAKsYH5QjJPOQCUvOwKySJmuP6YhDvrvYBBzspbA0KL1dkShKQaKAKzzUWI57O3GmcqM4gJvp
-	NHfztqZQctXf1CTL+AAdRuNMaxePl6vTmIL67AjvJWOvBswn2gmfop5vD+7vbjx4aw4d68kQ5fw
-	4A71qPMu+lfR/gUW4M+Nv8TW+R0m6PrroQMucy9Y2CwTiraOU63JokWQvm8eCyeoXlLuNODqmRz
-	E6QCzdbKxUonCuQ8WM/o5HtYFVIMxyAZIp5uOxdcXCA38U1X/SvlA+/2otTdNYymAGoCktF/EQW
-	qOgNn+utwW1Fm44+M5hmjB/Qn49P376I5UQZqkOX3TWJosneHtMNq9ltSqHd3gP95LmwvUJdSxZ
-	icVXn9u2zwH1oFZEm9dG5PsetrwCKf0nYv++TplGwEjy4jDvMwLaE0TEI7lLQ2zi9iESpNe5WT1
-	L79djFxbcW1utGl2seXJgKJxp1YHWZcyKDJAmnsskZ6BQ2qfVbsJ7kmp+Iy3O3RqoIWoLmzzYZv
-	A6dy6r7RUba8JF6x2iypbpkIW/127/uNkzHfUti0KPiE53byC3aLLFrOmXnAbDpBmAqb3kJDGL2
-	NNHLTLCzGIMadx4g5vli9QBHvXfQNPGNCMmYXpAzA1lHWZqtRqlCJDCQk2xGggFqrjQ35TjKnXk
-	g0GSQDLqEEuFbUo43enS5wILO8WjIltmTifc/L6g==
-X-Received: by 2002:a05:600c:3ba3:b0:4bb:6118:4c9a with SMTP id 5b1f17b1804b1-4bb88819940mr456668815e9.30.1795660269096;
-        Wed, 25 Nov 2026 18:31:09 -0800 (PST)
-Received: from localhost.localdomain (dynamic-2a02-3100-b10e-d501-d0c4-b021-8d77-e472.310.pool.telefonica.de. [2a02:3100:b10e:d501:d0c4:b021:8d77:e472])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf685asm37722445f8f.20.2026.11.25.18.31.06
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 18:31:08 -0800 (PST)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Hongyan Xia <hongyan.xia@transsion.com>,
-	Song Liu <song@kernel.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/3] arm64: Always inline preempt count and reschedule checks
-Date: Thu, 26 Nov 2026 03:30:53 +0100
-Message-Id: <9546998cffeaf365f8f67901a48ef103945dc342.1795631277.git.kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <cover.1795631277.git.kmehltretter@gmail.com>
-References: <cover.1795631277.git.kmehltretter@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ZF/+CfW0
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=en3ED6HDdCtLFu2umCErAM1rLJXWL3SVuTu7Aq5hR8I=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795660267; v=1; x=1796265067;
+ b=ZF/+CfW0MnkWDkW4aJN6aua2MRWg9NjekML8nxdJThMkGhP5mIN3nox1MTyQPd5fMLdz7cKv
+ yqzm+ZG6zpRkNxZWRChMbeIqS0j/bwqbHwlnt4X9bxBuWfv+PG5EnWyLzVeRpzLJ4KbIZpHxKo2
+ yQMo93RAjnkRTXiSi0VFPnqs=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id 1df46ec555e3532f;
+	Thu, 26 Nov 2026 02:31:05 +0000
+X-Mizu-Trace-ID: 1df46ec555e3532f
+X-Migadu-Flow: FLOW_OUT
+From: Hangbin Liu <hangbin.liu@linux.dev>
+Subject: [PATCH net 0/3] bonding: ignore updelay when no active links for
+ broadcast mode
+Date: Thu, 26 Nov 2026 10:30:54 +0800
+Message-Id: <20261126-bond_broadcast_updelay-v1-0-188e5538d6ca@kylinos.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,52 +61,146 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMUQrCMBAFr1L220ATSwSvIlKSzatGJCnZVJTSu
+ zfq5wzMrCQoEULnbqWCV5SYUwN96IjvLt2gYmhMpjdWa2OVzymMvmQX2Ekdlzng6T6KeeDJW/Q
+ 4nqjFc8EU37/xhRIqXf9SFv8A1++Stm0HCSsO6H8AAAA=
+X-Change-ID: 20261126-bond_broadcast_updelay-cc4cfb6e0e37
+To: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Tonghao Zhang <tonghao@bamaicloud.com>, 
+ Nikolay Aleksandrov <razor@blackwall.org>, Shuah Khan <shuah@kernel.org>
+Cc: "jiangjiehua (A)" <jiangjiehua1@huawei.com>, 
+ Hangbin Liu <hangbin.liu@linux.dev>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Hangbin Liu <hangbin.liu@linux.dev>
+X-Mailer: b4 0.16.0
 
-The preempt count and reschedule checks are plain inline functions,
-which permits out-of-line copies in instrumentable text. The checked
-notrace helpers added by the following patch use preempt_count(), while
-preempt_enable_notrace() uses should_resched() with
-CONFIG_DEBUG_PREEMPT and __preempt_count_dec_and_test() without it.
+This patchset fixes updelay handling for bonding broadcast mode (mode 3)
+to align with bonding documentation section 13.1 paragraph 4: when a
+bond has no active links, the first link that comes up must be reused
+immediately even if updelay is configured; when usable links exist,
+updelay must be honored.
 
-Force all three operations inline so noinstr callers keep them in their
-own section.
+Commit 45fc134bcfad ("bonding: do not set usable_slaves for broadcast
+mode") tried to fix the second half of that rule by never updating
+usable_slaves in broadcast mode. That made ignore_updelay permanently
+false, so updelay was always applied and a broadcast bond with no
+active links could not recover within the miimon window when one usable
+slave up.
 
-Reviewed-by: Hongyan Xia <hongyan.xia@transsion.com>
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+We revert 45fc134bcfad to restore the enslave/release side of the
+usable_slaves updates, and add the missing bond_miimon_link_change()
+case so the snapshot also tracks link-state transitions. Both halves
+are needed:
+
+  - revert alone: the snapshot is only rebuilt on enslave/release, so
+    batch enslave with updelay (new slaves start in BOND_LINK_BACK)
+    leaves count == 0 forever and updelay is never honored, even once
+    other slaves are usable;
+  - link_change case alone: with 45fc134bcfad applied,
+    bond_set_slave_arr() discards the refreshed array for broadcast.
+
+A selftest is added to cover mode 3; the existing mode 1 and mode 2
+recovery-updelay tests are merged into a single script covering
+modes 1, 2 and 3.
+
+Before revert 45fc134bcfad:
+  TEST: mode (3) bond recovery                               [FAIL]
+          No connectivity
+  TEST: mode (3) bond recovery                               [FAIL]
+          No connectivity
+  TEST: mode (3) bond recovery                               [FAIL]
+          No connectivity
+
+After revert 45fc134bcfad:
+  TEST: mode (3) bond recovery                               [ OK ]
+  TEST: mode (3) bond recovery                               [ OK ]
+  TEST: mode (3) bond recovery                               [ OK ]
+
+For the second patch, I use test script
+  ```
+  ip link add veth0 type veth peer name veth0p
+  ip link add veth1 type veth peer name veth1p
+  ip link set veth0p up
+  ip link set veth1p up
+  ip link add bond0 type bond mode broadcast miimon 100 updelay 1000
+  ip link set veth0 down
+  ip link set veth1 down
+  ip link set veth0 master bond0 && ip link set veth1 master bond0
+  ip link set bond0 up
+  sleep 2
+  dmesg -C
+
+  # Test A — bullet 1: batch enslave, snapshot stuck at count == 0,
+  # updelay never honored
+  ip link set veth0p down
+  sleep 2
+  ip link set veth0p up
+  sleep 1
+  dmesg | tail -n 5
+
+  # Test B — bullet 2: stale non-empty snapshot, recovery delayed with
+  # zero usable links
+  ip link set veth0 nomaster
+  ip link set veth1 nomaster
+  ip link set veth0 master bond0
+  sleep 2 # wait veth0 up
+  ip link set veth1 master bond0
+  sleep 2 # veth1 comes up after its own updelay; snapshot stays
+  # drop both links (bond has zero usable links after this)
+  ip link set veth0p down
+  ip link set veth1p down
+  sleep 2
+  ip link set veth0p up
+  sleep 2
+  dmesg | tail -n 5
+  ```
+
+With revert only:
+Test A:
+[   13.190593] bond0: (slave veth0): link status definitely down, disabling slave
+[   15.165875] bond0: (slave veth0): link status up, enabling it in 0 ms
+[   15.165919] bond0: (slave veth0): link status definitely up, 10000 Mbps full duplex
+Test B:
+[   20.366724] bond0: (slave veth1): link status definitely down, disabling slave
+[   20.366957] bond0: now running without any active interface!
+[   22.341960] bond0: (slave veth0): link status up, enabling it in 1000 ms
+[   23.382194] bond0: (slave veth0): link status definitely up, 10000 Mbps full duplex
+[   23.382428] bond0: active interface up!
+
+With the second patch
+Test A:
+[    6.208526] bond0: (slave veth0): link status definitely down, disabling slave
+[    8.184359] bond0: (slave veth0): link status up, enabling it in 1000 ms
+Test B:
+[   13.384852] bond0: (slave veth1): link status definitely down, disabling slave
+[   13.385093] bond0: now running without any active interface!
+[   15.360849] bond0: (slave veth0): link status up, enabling it in 0 ms
+
+We can see when there is active slave, the second slave follow the
+updelay rule (Test A). When there is no active slave, the first up
+slave will be in use immediately (Test B).
+
+Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
 ---
- arch/arm64/include/asm/preempt.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Hangbin Liu (3):
+      Revert "bonding: do not set usable_slaves for broadcast mode"
+      bonding: update slave array on link change for broadcast mode
+      selftests: bonding: add recovery updelay test for broadcast mode
 
-diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
-index f3a5c2cd193..805f7b33baf 100644
---- a/arch/arm64/include/asm/preempt.h
-+++ b/arch/arm64/include/asm/preempt.h
-@@ -7,7 +7,7 @@
- #define PREEMPT_NEED_RESCHED	BIT(32)
- #define PREEMPT_ENABLED	(PREEMPT_NEED_RESCHED)
- 
--static inline int preempt_count(void)
-+static __always_inline int preempt_count(void)
- {
- 	return READ_ONCE(current_thread_info()->preempt.count);
- }
-@@ -75,13 +75,13 @@ static inline int __preempt_count_sub_return(int val)
- 	return pc;
- }
- 
--static inline bool should_resched(int preempt_offset)
-+static __always_inline bool should_resched(int preempt_offset)
- {
- 	u64 pc = READ_ONCE(current_thread_info()->preempt_count);
- 	return unlikely(pc == preempt_offset);
- }
- 
--static inline bool __preempt_count_dec_and_test(void)
-+static __always_inline bool __preempt_count_dec_and_test(void)
- {
- 	/*
- 	 * We must load the combined 'preempt_count' after decrementing
--- 
-2.39.5 (Apple Git-154)
+ drivers/net/bonding/bond_main.c                    | 14 +++----
+ .../testing/selftests/drivers/net/bonding/Makefile |  3 +-
+ .../drivers/net/bonding/mode-2-recovery-updelay.sh | 45 ----------------------
+ ...e-1-recovery-updelay.sh => recovery-updelay.sh} | 13 +++----
+ 4 files changed, 12 insertions(+), 63 deletions(-)
+---
+base-commit: 1ab3fb564f20b78615a6d88b8c90da292f29e227
+change-id: 20261126-bond_broadcast_updelay-cc4cfb6e0e37
+
+Best regards,
+--  
+Hangbin Liu <liuhangbin@kylinos.cn>
 
