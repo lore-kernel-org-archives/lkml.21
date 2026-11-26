@@ -1,57 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657313;
-	b=noZA/VvYy9GHchtENv+9d9ovYUgTddpgpAP1bOrPCy52qoCGuPNJJ2IyBfpJljSkhlAv
-	 4YsbixUfKAgQt1ty6iq7yvl2u8YPurBIKaMDBNDd9iO+tkzWtmMYcAfiUvqB7FirQWvxp
-	 JH+kbPzhpqKnPpqNOxbRacGz9jiLE8T/YT//N6qQ9AhEEJcScuUGxJTW/F30GJBPM+40R
-	 3Y3L6JtmzQ/ZQgmRH7WgYnuVkoS0Hv+18FcTvBCm6ya2LpNWyZpydKSkzn7NHFKA/5h7j
-	 iDiQUp/Y/i3JfIJrNq5X5w95qbDrMvOKM6dxP63ilyzo7hmyMIJKOX4sXyuZtxIt0QA==
+	t=1795657420;
+	b=vanwTsUjd7WmpaqwRvRb8FBSCBIq5pVVLLP9QbUcz6gAr1YrVG/APIeG1i04QpOAdqvc
+	 ni2lRwdBmWuVjVYmfvr1VZTYYH83VFpiBUD9mb1TKuC6ksOJY8gNpAU1QxxCeEfIQOftg
+	 SpWHmQtlR7uvz/Leh3pXkqwcHx2wOZQ1O45DJi1DyIH9VbJc51pbKFLUhyRYzuAu8gKYp
+	 JUhf92CJo1zqc13M8Rkn/6K3B5ZlcuxKCHvWHVpYWogvyHjTFMhx/QWDGI+mWqW6PFjcR
+	 iFrYkrqL0p4AO9oNbbzue/ofCRtMkbittBs5HqnKOoEZupLt1kgvYYqKSAFij2r1eZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657313;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=tPyPOhu9AaWWXOBWE2nSNiLeRaBmDPFB2m7ibTx7FFk=;
-	b=QApUTcH3dzAZ/eshzn5lpaE/0e7uM9tcTVc/moW9ZsPH3s2wc68WodtGfBlmrpVcI1YF
-	 E2yjtiCAdJXclapMRUsRq6+HXzzgxPQkUvbADpe76taeXOOIwx2YvvDLPT4mrRTPLYA3Z
-	 c5ehbuyKKZ+L44S6qNd5ZwrHdbBiMHRzVuBXgFgCoIiuwydZK46ThYhc0o4FrjFr7E+Ou
-	 VVPIiUdbsq9VodiU0w0ooLfbBG98w6BDsOHK0lJVkrosHNBR9XIyyRN7JSJmv4VF6/Gjj
-	 vdz8KG2feGWHW5LZaD49ZPorKJcQWGPgoPjcP/wgYLZF1AN25+Sfgq5QNkd4tOTM3jw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657420;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=nrXuPUM5yfpDgDX0n3J5QvzILiwiCgqvsXlEhc2+DWI=;
+	b=WnACHOVTCjJOonf6UVQLvzazGIVJIsZOAh3b8cW0J0yr0HDD5BrIuKfIf6sSkTQ8Ed7b
+	 /eh407BWoCZ1G+gnsR38RtveBVvsoBUIJFP40ZupMaBsE2/m2hLAy5qeaLIWwUrU1ivVm
+	 KmLzoNqAOjlPz5SKUDxbwXZGnJ0jruwkPHr2kvdRjLtObBJDVxlBW54X3u2T7+Zw/WA30
+	 GkVoSJtNA/7nqw4SUimuTFnJEyEeawNtqicOZsaB7Ov2f3ohsFdg8uzYjQNtuoEKFrVN4
+	 6xHSwy5dTY2JPdRXp0fNpZME3NXz7yYpoKj7YYxcWssOCdXW18PPoY9gpcurwxSyLPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WyIKi5Rm;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--willemb.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nPJ4BkLy;
+	arc=none smtp.remote-ip=209.85.160.197
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16906606A31E;
-	Thu, 26 Nov 2026 01:41:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6577D606A68B
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:43:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6577D606A68B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--willemb.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WyIKi5Rm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75AA21F000C6;
-	Thu, 26 Nov 2026 01:41:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795657312;
-	bh=tPyPOhu9AaWWXOBWE2nSNiLeRaBmDPFB2m7ibTx7FFk=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=WyIKi5RmMUXxP0WgzQSuMMNol1+HyFDXTs3dB4iiIKrxi6EV52JNIdrOW/1Vdw03G
-	 kt4s/g/USw+ovg4+PCQiyr5yEr3BuJaCKsWhg74Ly8xQdXmxerUQW7GoDJ9qR4AG+4
-	 t3u2dv0s0vsNU5lhKaXxmNnIu/rl2cKz0Tujg7kjS3DXZ+9XSaddPaO5dpHkWVViOY
-	 RqoC8bS8mBOdF6YSz3HHGOetq/xSWc8UkmzfU1TJBOrNt3oLsMlNvffuwXqkpNIZdz
-	 mo/FjMlSW/cHJiM+3fU8XjX5p62U53Rn3gDtuC8mWDGqJNldsO4wPv3xHLv6mWFBjz
-	 n1SOfv5JGNFzQ==
-Message-ID: <sashiko-outbox-234578@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v11 17/43] cgroup/cpuset: Refuse to take a deadline task
- out of its root domain
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <2a3cf1f221564450a14f75f0f4eeebc3379a992e.1795646914.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
- <2a3cf1f221564450a14f75f0f4eeebc3379a992e.1795646914.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Thu, 26 Nov 2026 01:41:52 +0000
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nPJ4BkLy
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-55d33f412b1so120167211cf.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:43:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795657418; x=1796262218; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=nrXuPUM5yfpDgDX0n3J5QvzILiwiCgqvsXlEhc2+DWI=;
+        b=nPJ4BkLyyEzyHU+bvZrBWvxRPpX0bgoecvClAWGVv7l4C610ZTnamBOFIOLNcnUxJj
+         N0O4APgoOzibfpuYbvwP1fwNWb/4nAeXHlod97kxJx+7OUFbVJCFrc4eSaREXNAkixa+
+         2HQWKHbhDB2ED4K1mn0q3e5RN24Kr6FtMSMN3BzkgHf6Vcnp8J0KdiKzG7JZ0za9h7XG
+         3ELjhZNZKD8bEU14MZv4B89lO5041uLiK59dQHzhVwPGYmQmdTZD2SnGn6MC8sZ3K0Sd
+         mfu4yyMaGKMvfv61rxPlL703uB3XrlHzU0ejdf5Jc6jxMunvoFKR5P2Fh8419ydAdGd3
+         wKTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795657418; x=1796262218;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nrXuPUM5yfpDgDX0n3J5QvzILiwiCgqvsXlEhc2+DWI=;
+        b=eI1HmcxVdmbGOPQP0YrzsxaMFNw5OdU+W6ofNAfrKDkJEVCwVfjm6z8/BKyIkl5ZZ8
+         wEXR3Xi94vzFBIoIlmrX8K68oMf+qGW5kWIm5U6snbiHMDQGs1ogwqA8wjnWKblj0hIH
+         VMod02UYE0a8x6eGeBgUEYDE4xgbjP3h/GWFGq9atjPuI3xmZHlYvrpE/Iw0icR/+8G5
+         93ilPy9S+7JsYvZ92eQfIVPITMPko5q8G8IBNu11m/Flp8mmjxYQBQPLPthIk4G9Huh5
+         9vv/jq1Alcr23//Xh4vWEZ0Suho7Kb+G3roh3IwF31a/KMRgpFSuddP/bqsJq25swdvN
+         qqww==
+X-Forwarded-Encrypted: i=1; AL+hErHwwlxJ37/uDlXGzuKOm1CSzlYlFdnO8wuaP3kCFyuEjM5TC73uYOu7fGALshIHa1d8d6XY1szCb/Y3gJ0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+7vh8rF8Mq0WL9BLVwpH6sY6mHgHg50dU8EGpjdI3l65v8gvbS
+	DSZfZl9mwj6SQNwPLlrJZzFVC/VzvIfbtb3wPthia6J5xo2Op3r3fpSI8/8HR3sXDM1nzjM9eTo
+	0XoCMpUHgOA==
+X-Received: from qtja6.prod.google.com ([2002:ac8:1086:0:b0:536:7688:b0ad])
+ (user=willemb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:622a:1646:b0:536:5bb2:545d
+ with SMTP id d75a77b69052e-55d76a5c656mr354322081cf.56.1795657418015; Wed, 25
+ Nov 2026 17:43:38 -0800 (PST)
+Date: Wed, 25 Nov 2026 20:43:37 -0500
+In-Reply-To: <CADvbK_fM=xmwthLnz=j7YqRghc6ncDo8ESVYgWYeR0t_Byubhg@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,135 +79,192 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+Mime-Version: 1.0
+References: <20261119170342.1508789-1-irogers@google.com> <CADvbK_fM=xmwthLnz=j7YqRghc6ncDo8ESVYgWYeR0t_Byubhg@mail.gmail.com>
+Message-ID: <willemb.10dbd5ae83053@google.com>
+Subject: Re: [PATCH net] sctp: initialize new_value in custom proc_dointvec
+ sysctl handlers
+From: willemb@google.com
+To: Xin Long <lucien.xin@gmail.com>, Ian Rogers <irogers@google.com>
+Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, linux-sctp@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	Elkin Cruz <elkin@google.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issues to consider:
-- [Medium] cgroup/cpuset: unnecessary hierarchy and task walks in
-  dl_tasks_keep_*()
-- [Medium] cgroup/cpuset: dl_tasks_keep_without() omits pending CPUs for
-  PRS_ISOLATED
---
-
-commit 0cb8536a44f47c8f95c649627afa6a220c61e952
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-
-cgroup/cpuset: Refuse to take a deadline task out of its root domain
-
-This commit refuses cpuset CPU mask updates and invalidates partitions that
-would move a deadline task out of the root domain accounting its bandwidth.
-
-> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> index 37d04b08996ec..67b2429c0e22f 100644
-> --- a/kernel/cgroup/cpuset.c
-> +++ b/kernel/cgroup/cpuset.c
-[ ... ]
-> @@ -1148,6 +1181,91 @@ static void effective_cpus_below(struct cpuset *cp=
-, struct cpuset *from,
->  	}
->  }
-> =20
-> +/*
-> + * A scratch mask for dl_tasks_keep_without(). Its callers still need ea=
-ch
-> + * mask of their struct tmpmasks after the call. Protected by
-> + * cpuset_mutex.
-> + */
-> +static cpumask_var_t dl_keep_cpus, dl_pending_cpus;
-> +
-> +/*
-> + * Return false if a partition that takes the CPUs of @xcpus makes a
-> + * deadline task leave the root domain that counts its bandwidth. A cpus=
-et
-> + * can hold CPUs of two root domains: with isolcpus=3D"domain", or on cg=
-roup
-> + * v1 with sched_load_balance off. Such a task would run in a root domain
-> + * that did not admit it.
-> + *
-> + * @root is the partition root that gives the CPUs. @part is the cpuset
-> + * that takes them. In the same change, @part can give the CPUs of @gives
-> + * back to @root. @gives is NULL if it gives none back.
-> + *
-> + * Work out the new CPUs of each cpuset of @root from the top down, as
-> + * update_cpumasks_hier() does, down to the next partition roots. If
-> + * @enable, @part becomes a partition root. Then do the same for its own
-> + * cpusets, starting from the active CPUs of @xcpus.
-> + */
-> +static bool dl_tasks_keep_without(struct cpuset *root, struct cpuset *pa=
-rt,
-> +				  const struct cpumask *xcpus,
-> +				  const struct cpumask *gives, bool enable)
-> +{
-> +	struct cpumask *new_cpus =3D dl_keep_cpus, *pending =3D NULL;
-> +	struct cgroup_subsys_state *pos_css;
-> +	struct cpuset *cp;
-> +	bool keep =3D true;
-> +
-> +	lockdep_assert_cpuset_lock_held();
-> +	/*
-> +	 * The CPUs of @root can have changed before the rebuild of the
-> +	 * sched domains, which ends the change. Then the root domain of a
-> +	 * task of @root does not span them yet. The rebuild gives the CPUs
-> +	 * of a root partition to one root domain.
-> +	 */
-> +	if (root->partition_root_state =3D=3D PRS_ROOT) {
-> +		pending =3D dl_pending_cpus;
-> +		cpumask_copy(pending, root->effective_cpus);
-> +		if (root =3D=3D &top_cpuset)
-> +			cpumask_and(pending, pending,
-> +				    housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
-> +	}
-
-[Severity: Medium]
-Should pending also be populated when root->partition_root_state is
-PRS_ISOLATED (or via is_partition_valid(root))?
-
-An isolated partition root can have an invalid child isolated partition and
-hold deadline tasks counted in def_root_domain.  When that isolated parent
-grows to include a new CPU before rebuild_sched_domains_locked() runs at
-the end of the change, def_root_domain.span does not include the new CPU
-yet.  Because pending is left NULL here, re-evaluating the child during
-update_cpumasks_hier() -> update_parent_effective_cpumask() rejects the
-child with PERR_DLTASK even though the rebuild will attach the parent's new
-CPU to def_root_domain.
-
-> +	rcu_read_lock();
-> +	cpuset_for_each_descendant_pre(cp, pos_css, root) {
-> +		if (cp =3D=3D part || (cp !=3D root && is_partition_valid(cp))) {
-> +			pos_css =3D css_rightmost_descendant(pos_css);
-> +			continue;
-> +		}
-> +		/* The CPUs that @root has after the change. */
-> +		cpumask_copy(new_cpus, root->effective_cpus);
-> +		if (gives) {
-> +			cpumask_or(new_cpus, new_cpus, gives);
-> +			cpumask_and(new_cpus, new_cpus, cpu_active_mask);
-> +		}
-> +		cpumask_andnot(new_cpus, new_cpus, xcpus);
-> +		effective_cpus_below(cp, root, new_cpus);
-> +		if (cpumask_equal(cp->effective_cpus, new_cpus))
-> +			continue;
-> +		keep =3D dl_tasks_keep_cpus(cp, new_cpus, pending);
-> +		if (!keep)
-> +			break;
-> +	}
-
-[Severity: Medium]
-Does dl_tasks_keep_without() (and dl_tasks_keep_root_domain() below) walk
-the cpuset hierarchy and iterate every task in affected cpusets even when
-no deadline tasks hold bandwidth or admission control is disabled?
-
-Commit "sched/deadline: Keep the last CPU a task has in its root domain"
-earlier in this series guards dl_cpu_last_of_task() with
-!dl_bandwidth_enabled() || !atomic_read(&dl_nr_bw_tasks), whereas here
-dl_bandwidth_enabled() is only checked per task inside
-dl_task_keeps_root_domain() after css_task_iter has already locked
-css_set_lock and pinned each task, and dl_nr_bw_tasks is not checked.
-
-In addition, when cpumask_equal(cp->effective_cpus, new_cpus) is true in
-either function, continuing without advancing pos_css =3D
-css_rightmost_descendant(pos_css) visits all descendants of an unchanged
-subtree even though their effective_cpus cannot change either.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795646914.gi=
-t.mathieu.desnoyers@efficios.com?part=3D17
+WGluIExvbmcgd3JvdGU6DQo+IE9uIFRodSwgTm92IDE5LCAyMDI2IGF0IDEyOjAz4oCvUE0gSWFu
+IFJvZ2VycyA8aXJvZ2Vyc0Bnb29nbGUuY29tPiB3cm90ZToNCj4gPg0KPiA+IHByb2Nfc2N0cF9k
+b19ydG9fbWluKCksIHByb2Nfc2N0cF9kb19ydG9fbWF4KCksIHByb2Nfc2N0cF9kb19hdXRoKCks
+DQo+ID4gcHJvY19zY3RwX2RvX3VkcF9wb3J0KCksIGFuZCBwcm9jX3NjdHBfZG9fcHJvYmVfaW50
+ZXJ2YWwoKSBwb2ludA0KPiA+IHRibC5kYXRhIGF0IGFuIHVuaW5pdGlhbGl6ZWQgc3RhY2sgdmFy
+aWFibGUgbmV3X3ZhbHVlIG9uIHdyaXRlcyBiZWZvcmUNCj4gPiBjYWxsaW5nIHByb2NfZG9pbnR2
+ZWMoKS4NCj4gPg0KPiA+IHByb2NfZG9pbnR2ZWMoKSBjYW4gcmV0dXJuIDAgd2l0aG91dCB3cml0
+aW5nIHRvIHRibC5kYXRhLCBmb3IgZXhhbXBsZSBvbg0KPiA+IGEgemVyby1sZW5ndGggd3JpdGUg
+KCpsZW5wID09IDApIG9yIG9uIGEgd3JpdGUgYXQgYSBub24temVybyBmaWxlIG9mZnNldA0KPiA+
+IGlnbm9yZWQgYnkgcHJvY19maXJzdF9wb3Nfbm9uX3plcm9faWdub3JlKCkgKHN1Y2ggYXMgcHdy
+aXRlKGZkLCAiMVxuIiwNCj4gPiAyLCAxKSBvciBhIHNwbGl0IHdyaXRlIHdoZXJlIHRoZSB0cmFp
+bGluZyBuZXdsaW5lIGlzIHdyaXR0ZW4gIA0KPiBzZXBhcmF0ZWx5KS4NCj4gPg0KPiA+IFdoZW4g
+dGhhdCBoYXBwZW5zOg0KPiA+IC0gcHJvY19zY3RwX2RvX2F1dGgoKSB1bmNvbmRpdGlvbmFsbHkg
+c3RvcmVzIHRoZSB1bmluaXRpYWxpemVkIHN0YWNrIGludA0KPiA+ICAgaW50byBuZXQtPnNjdHAu
+YXV0aF9lbmFibGUgYW5kIHNjdHBfc2soc2spLT5lcC0+YXV0aF9lbmFibGUsIGJvdGgNCj4gPiAg
+IGNvcnJ1cHRpbmcgU0NUUCBhdXRoZW50aWNhdGlvbiBzdGF0ZSBhbmQgbGVha2luZyA0IGJ5dGVz
+IG9mIGtlcm5lbA0KPiA+ICAgc3RhY2sgbWVtb3J5IGJhY2sgb24gc3Vic2VxdWVudCBzeXNjdGwg
+cmVhZHMuDQo+ID4gLSBwcm9jX3NjdHBfZG9fcnRvX21pbigpLCBwcm9jX3NjdHBfZG9fcnRvX21h
+eCgpLA0KPiA+ICAgcHJvY19zY3RwX2RvX3VkcF9wb3J0KCksIGFuZCBwcm9jX3NjdHBfZG9fcHJv
+YmVfaW50ZXJ2YWwoKSB2YWxpZGF0ZQ0KPiA+ICAgdGhlIHVuaW5pdGlhbGl6ZWQgdmFsdWUgYW5k
+IG92ZXJ3cml0ZSB0aGUgbmV0bnMgc2V0dGluZyB3aGVuZXZlciBzdGFjaw0KPiA+ICAgYnl0ZXMg
+aGFwcGVuIHRvIGZhbGwgd2l0aGluIHJhbmdlLg0KPiA+IC0gcHJvY19zY3RwX2RvX3VkcF9wb3J0
+KCkgYWxzbyBzdG9wcyBhbmQgcmVzdGFydHMgdGhlIFVEUCBlbmNhcHN1bGF0aW9uDQo+ID4gICBz
+b2NrZXQgZXZlbiB3aGVuIHRoZSBwb3J0IG51bWJlciBkaWQgbm90IGNoYW5nZS4NCj4gPg0KPiA+
+IEluaXRpYWxpemUgbmV3X3ZhbHVlIHRvIHRoZSBjdXJyZW50IG5ldG5zIHNldHRpbmcgYmVmb3Jl
+IGNhbGxpbmcNCj4gPiBwcm9jX2RvaW50dmVjKCkgKG1hdGNoaW5nIHByb2NfZG9ib29sKCkpLCBh
+bmQgc2tpcCB0ZWFyaW5nIGRvd24gYW5kDQo+ID4gcmVzdGFydGluZyB0aGUgVURQIGVuY2Fwc3Vs
+YXRpb24gc29ja2V0IGluIHByb2Nfc2N0cF9kb191ZHBfcG9ydCgpIHdoZW4NCj4gPiBuZXdfdmFs
+dWUgZXF1YWxzIG5ldC0+c2N0cC51ZHBfcG9ydC4NCj4gPg0KPiA+IEZvdW5kIGJ5IGVuYWJsaW5n
+IENsYW5nJ3MgLVdjb25kaXRpb25hbC11bmluaXRpYWxpemVkIG9uIGFuIHg4Nl82NA0KPiA+IGFs
+bHllc2NvbmZpZyBidWlsZCwgd2l0aCBBSSBjb2RpbmcgYXNzaXN0YW50IGhlbHAgdG8gYXVkaXQg
+dGhlIHdhcm5pbmcNCj4gPiBhbmQgcHJlcGFyZSB0aGUgZml4LiBCdWlsZC10ZXN0ZWQgd2l0aCBD
+bGFuZzsgbm90IHJ1bnRpbWUtdGVzdGVkLg0KPiA+DQo+ID4gRml4ZXM6IDRmM2ZkZjNiYzU5YyAo
+InNjdHA6IGFkZCBjaGVjayBydG9fbWluIGFuZCBydG9fbWF4IGluIHN5c2N0bCIpDQo+ID4gRml4
+ZXM6IGIxNDg3OGNjYjdmYSAoIm5ldDogc2N0cDogY2FjaGUgYXV0aF9lbmFibGUgcGVyIGVuZHBv
+aW50IikNCj4gPiBGaXhlczogMDQ2YzA1MmI0NzVlICgic2N0cDogZW5hYmxlIHVkcCB0dW5uZWxp
+bmcgc29ja3MiKQ0KPiA+IEZpeGVzOiBkMWU0NjJhN2E1ZjMgKCJzY3RwOiBhZGQgcHJvYmVfaW50
+ZXJ2YWwgaW4gc3lzY3RsIGFuZCAgDQo+IHNvY2svYXNvYy90cmFuc3BvcnQiKQ0KPiA+IFNpZ25l
+ZC1vZmYtYnk6IElhbiBSb2dlcnMgPGlyb2dlcnNAZ29vZ2xlLmNvbT4NCj4gPiAtLS0NCj4gPiAg
+bmV0L3NjdHAvc3lzY3RsLmMgfCAzOSArKysrKysrKysrKysrKysrKysrKysrKy0tLS0tLS0tLS0t
+LS0tLS0NCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDIzIGluc2VydGlvbnMoKyksIDE2IGRlbGV0aW9u
+cygtKQ0KPiA+DQo+ID4gZGlmZiAtLWdpdCBhL25ldC9zY3RwL3N5c2N0bC5jIGIvbmV0L3NjdHAv
+c3lzY3RsLmMNCj4gPiBpbmRleCAyYjk0YzIxMTQyN2QuLjBjMzNmMDVmYTUzMiAxMDA2NDQNCj4g
+PiAtLS0gYS9uZXQvc2N0cC9zeXNjdGwuYw0KPiA+ICsrKyBiL25ldC9zY3RwL3N5c2N0bC5jDQo+
+ID4gQEAgLTQyNSw4ICs0MjUsOSBAQCBzdGF0aWMgaW50IHByb2Nfc2N0cF9kb19ydG9fbWluKGNv
+bnN0IHN0cnVjdCAgDQo+IGN0bF90YWJsZSAqY3RsLCBpbnQgd3JpdGUsDQo+ID4gICAgICAgICBz
+dHJ1Y3QgbmV0ICpuZXQgPSBjb250YWluZXJfb2YoY3RsLT5kYXRhLCBzdHJ1Y3QgbmV0LCAgDQo+
+IHNjdHAucnRvX21pbik7DQo+ID4gICAgICAgICB1bnNpZ25lZCBpbnQgbWluID0gKih1bnNpZ25l
+ZCBpbnQgKikgY3RsLT5leHRyYTE7DQo+ID4gICAgICAgICB1bnNpZ25lZCBpbnQgbWF4ID0gKih1
+bnNpZ25lZCBpbnQgKikgY3RsLT5leHRyYTI7DQo+ID4gKyAgICAgICBpbnQgbmV3X3ZhbHVlID0g
+bmV0LT5zY3RwLnJ0b19taW47DQo+ID4gICAgICAgICBzdHJ1Y3QgY3RsX3RhYmxlIHRibDsNCj4g
+PiAtICAgICAgIGludCByZXQsIG5ld192YWx1ZTsNCj4gPiArICAgICAgIGludCByZXQ7DQoNCiAg
+ICAgSW5pdGlhbGl6aW5nIG5ld192YWx1ZSB3aXRoIGEgcGxhaW4gdW5sb2NrZWQgbG9hZCBoZXJl
+IChhbmQgaW4NCiAgICAgcHJvY19zY3RwX2RvX3J0b19tYXgoKSwgcHJvY19zY3RwX2RvX2F1dGgo
+KSwgYW5kICANCnByb2Nfc2N0cF9kb19wcm9iZV9pbnRlcnZhbCgpKQ0KICAgICBkb2VzIG5vdCBh
+Y3R1YWxseSBtYXRjaCBwcm9jX2RvYm9vbCgpLCB3aGljaCB1c2VzIFJFQURfT05DRSgpIC8gIA0K
+V1JJVEVfT05DRSgpLA0KICAgICBhbmQgaW50cm9kdWNlcyBhIG5ldyB1bm1hcmtlZC1yZWFkIHZz
+LiB1bm1hcmtlZC13cml0ZSBkYXRhIHJhY2UgYWdhaW5zdA0KICAgICBjb25jdXJyZW50IHdyaXRl
+cnMgKGV2ZW4gb24gcmVhZC1vbmx5ICF3cml0ZSBjYWxscyB3aGVyZSBuZXdfdmFsdWUgaXMgIA0K
+dW51c2VkKS4NCg0KICAgICBJbiBhZGRpdGlvbiwgb24gYW4gaWdub3JlZCB3cml0ZSAoKmxlbnAg
+PT0gMCBvciAqcHBvcyA+IDApLCB0aGVzZSBmb3VyDQogICAgIGhhbmRsZXJzIHN0aWxsIGV4ZWN1
+dGUgdGhlIHBvc3QtcHJvY19kb2ludHZlYygpIGNvbW1pdCBibG9jayAgDQp1bmNvbmRpdGlvbmFs
+bHk6DQogICAgIGlmIGFub3RoZXIgd3JpdGVyIHVwZGF0ZXMgdGhlIHNldHRpbmcgYmV0d2VlbiB0
+aGUgaW5pdGlhbCBsb2FkIGFuZCB0aGUgIA0Kc3RvcmUsDQogICAgIHRoZSBuby1vcCB3cml0ZSBv
+dmVyd3JpdGVzIGl0IHdpdGggdGhlIHN0YWxlIHByZS1jYWxsIHZhbHVlIChhbmQgaW4NCiAgICAg
+cHJvY19zY3RwX2RvX2F1dGgoKSwgbmVlZGxlc3NseSBhY3F1aXJlcyBsb2NrX3NvY2sobmV0LT5z
+Y3RwLmN0bF9zb2NrKSAgDQphbmQNCiAgICAgcmV2ZXJ0cyBlcC0+YXV0aF9lbmFibGUgYXMgd2Vs
+bCkuDQoNCiAgICAgUmV0dXJuaW5nIGVhcmx5IG9uIHJlYWRzIChgaWYgKCF3cml0ZSkgcmV0dXJu
+IHByb2NfZG9pbnR2ZWMoY3RsLCB3cml0ZSwNCiAgICAgYnVmZmVyLCBsZW5wLCBwcG9zKTtgKSwg
+aW5pdGlhbGl6aW5nIGBvbGRfdmFsdWUgPSBSRUFEX09OQ0UoLi4uKWAgLw0KICAgICBgbmV3X3Zh
+bHVlID0gb2xkX3ZhbHVlYCB1bmNvbmRpdGlvbmFsbHkgb24gdGhlIHdyaXRlIHBhdGggKGtlZXBp
+bmcgIA0KQ2xhbmcncw0KICAgICAtV2NvbmRpdGlvbmFsLXVuaW5pdGlhbGl6ZWQgaGFwcHkpLCBh
+bmQgZ2F0aW5nIHRoZSBjb21taXQgYmxvY2sgb24NCiAgICAgYG5ld192YWx1ZSAhPSBvbGRfdmFs
+dWVgIHdpdGggV1JJVEVfT05DRSgpIGF2b2lkcyBib3RoIHRoZSBkYXRhIHJhY2UgYW5kDQogICAg
+IHN0YWxlIHdyaXRlYmFja3Mgb24gaWdub3JlZCB3cml0ZXMuDQo+ID4NCj4gPiAgICAgICAgIG1l
+bXNldCgmdGJsLCAwLCBzaXplb2Yoc3RydWN0IGN0bF90YWJsZSkpOw0KPiA+ICAgICAgICAgdGJs
+Lm1heGxlbiA9IHNpemVvZih1bnNpZ25lZCBpbnQpOw0KPiA+IEBAIC00NTMsOCArNDU0LDkgQEAg
+c3RhdGljIGludCBwcm9jX3NjdHBfZG9fcnRvX21heChjb25zdCBzdHJ1Y3QgIA0KPiBjdGxfdGFi
+bGUgKmN0bCwgaW50IHdyaXRlLA0KPiA+ICAgICAgICAgc3RydWN0IG5ldCAqbmV0ID0gY29udGFp
+bmVyX29mKGN0bC0+ZGF0YSwgc3RydWN0IG5ldCwgIA0KPiBzY3RwLnJ0b19tYXgpOw0KPiA+ICAg
+ICAgICAgdW5zaWduZWQgaW50IG1pbiA9ICoodW5zaWduZWQgaW50ICopIGN0bC0+ZXh0cmExOw0K
+PiA+ICAgICAgICAgdW5zaWduZWQgaW50IG1heCA9ICoodW5zaWduZWQgaW50ICopIGN0bC0+ZXh0
+cmEyOw0KPiA+ICsgICAgICAgaW50IG5ld192YWx1ZSA9IG5ldC0+c2N0cC5ydG9fbWF4Ow0KPiA+
+ICAgICAgICAgc3RydWN0IGN0bF90YWJsZSB0Ymw7DQo+ID4gLSAgICAgICBpbnQgcmV0LCBuZXdf
+dmFsdWU7DQo+ID4gKyAgICAgICBpbnQgcmV0Ow0KPiA+DQo+ID4gICAgICAgICBtZW1zZXQoJnRi
+bCwgMCwgc2l6ZW9mKHN0cnVjdCBjdGxfdGFibGUpKTsNCj4gPiAgICAgICAgIHRibC5tYXhsZW4g
+PSBzaXplb2YodW5zaWduZWQgaW50KTsNCj4gPiBAQCAtNDg5LDggKzQ5MSw5IEBAIHN0YXRpYyBp
+bnQgcHJvY19zY3RwX2RvX2F1dGgoY29uc3Qgc3RydWN0IGN0bF90YWJsZSAgDQo+ICpjdGwsIGlu
+dCB3cml0ZSwNCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZvaWQgKmJ1ZmZlciwg
+c2l6ZV90ICpsZW5wLCBsb2ZmX3QgKnBwb3MpDQo+ID4gIHsNCj4gPiAgICAgICAgIHN0cnVjdCBu
+ZXQgKm5ldCA9IGNvbnRhaW5lcl9vZihjdGwtPmRhdGEsIHN0cnVjdCBuZXQsICANCj4gc2N0cC5h
+dXRoX2VuYWJsZSk7DQo+ID4gKyAgICAgICBpbnQgbmV3X3ZhbHVlID0gbmV0LT5zY3RwLmF1dGhf
+ZW5hYmxlOw0KPiA+ICAgICAgICAgc3RydWN0IGN0bF90YWJsZSB0Ymw7DQo+ID4gLSAgICAgICBp
+bnQgbmV3X3ZhbHVlLCByZXQ7DQo+ID4gKyAgICAgICBpbnQgcmV0Ow0KPiA+DQo+ID4gICAgICAg
+ICBtZW1zZXQoJnRibCwgMCwgc2l6ZW9mKHN0cnVjdCBjdGxfdGFibGUpKTsNCj4gPiAgICAgICAg
+IHRibC5tYXhsZW4gPSBzaXplb2YodW5zaWduZWQgaW50KTsNCj4gPiBAQCAtNTIyLDggKzUyNSw5
+IEBAIHN0YXRpYyBpbnQgcHJvY19zY3RwX2RvX3VkcF9wb3J0KGNvbnN0IHN0cnVjdCAgDQo+IGN0
+bF90YWJsZSAqY3RsLCBpbnQgd3JpdGUsDQo+ID4gICAgICAgICBzdHJ1Y3QgbmV0ICpuZXQgPSBj
+b250YWluZXJfb2YoY3RsLT5kYXRhLCBzdHJ1Y3QgbmV0LCAgDQo+IHNjdHAudWRwX3BvcnQpOw0K
+PiA+ICAgICAgICAgdW5zaWduZWQgaW50IG1pbiA9ICoodW5zaWduZWQgaW50ICopY3RsLT5leHRy
+YTE7DQo+ID4gICAgICAgICB1bnNpZ25lZCBpbnQgbWF4ID0gKih1bnNpZ25lZCBpbnQgKiljdGwt
+PmV4dHJhMjsNCj4gPiArICAgICAgIGludCBuZXdfdmFsdWUgPSBuZXQtPnNjdHAudWRwX3BvcnQ7
+DQo+ID4gICAgICAgICBzdHJ1Y3QgY3RsX3RhYmxlIHRibDsNCj4gPiAtICAgICAgIGludCByZXQs
+IG5ld192YWx1ZTsNCj4gPiArICAgICAgIGludCByZXQ7DQo+ID4NCj4gPiAgICAgICAgIG1lbXNl
+dCgmdGJsLCAwLCBzaXplb2Yoc3RydWN0IGN0bF90YWJsZSkpOw0KPiA+ICAgICAgICAgdGJsLm1h
+eGxlbiA9IHNpemVvZih1bnNpZ25lZCBpbnQpOw0KPiA+IEBAIC01NDEsMTggKzU0NSwyMCBAQCBz
+dGF0aWMgaW50IHByb2Nfc2N0cF9kb191ZHBfcG9ydChjb25zdCBzdHJ1Y3QgIA0KPiBjdGxfdGFi
+bGUgKmN0bCwgaW50IHdyaXRlLA0KPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAt
+RUlOVkFMOw0KPiA+DQo+ID4gICAgICAgICAgICAgICAgIG11dGV4X2xvY2soJnNjdHBfc3lzY3Rs
+X211dGV4KTsNCj4gPiAtICAgICAgICAgICAgICAgbmV0LT5zY3RwLnVkcF9wb3J0ID0gbmV3X3Zh
+bHVlOw0KPiA+IC0gICAgICAgICAgICAgICBzY3RwX3VkcF9zb2NrX3N0b3AobmV0KTsNCj4gPiAt
+ICAgICAgICAgICAgICAgaWYgKG5ld192YWx1ZSkgew0KPiA+IC0gICAgICAgICAgICAgICAgICAg
+ICAgIHJldCA9IHNjdHBfdWRwX3NvY2tfc3RhcnQobmV0KTsNCj4gPiAtICAgICAgICAgICAgICAg
+ICAgICAgICBpZiAocmV0KQ0KPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbmV0
+LT5zY3RwLnVkcF9wb3J0ID0gMDsNCj4gPiArICAgICAgICAgICAgICAgaWYgKG5ld192YWx1ZSAh
+PSBuZXQtPnNjdHAudWRwX3BvcnQpIHsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICBuZXQt
+PnNjdHAudWRwX3BvcnQgPSBuZXdfdmFsdWU7DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
+c2N0cF91ZHBfc29ja19zdG9wKG5ldCk7DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgaWYg
+KG5ld192YWx1ZSkgew0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0ID0g
+c2N0cF91ZHBfc29ja19zdGFydChuZXQpOw0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgaWYgKHJldCkNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgbmV0LT5zY3RwLnVkcF9wb3J0ID0gMDsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICB9
+DQoNCiAgICAgbmV0LT5zY3RwLnVkcF9wb3J0IGlzIG11dGF0ZWQgdW5kZXIgc2N0cF9zeXNjdGxf
+bXV0ZXgsIGluY2x1ZGluZyBhICANCnRyYW5zaWVudA0KICAgICBzdG9yZSBvZiBuZXdfdmFsdWUg
+YmVmb3JlIHNjdHBfdWRwX3NvY2tfc3RhcnQoKSBjYW4gZmFpbCBhbmQgcmVzZXQgaXQgIA0KdG8g
+MC4NCiAgICAgUmVhZGluZyBuZXQtPnNjdHAudWRwX3BvcnQgb3V0c2lkZSBzY3RwX3N5c2N0bF9t
+dXRleCAoYW5kIHdpdGhvdXQgIA0KUkVBRF9PTkNFKCkpDQogICAgIGJvdGggaW50cm9kdWNlcyBh
+IG5ldyBLQ1NBTiBkYXRhIHJhY2Ugb24gZXZlcnkgcmVhZC93cml0ZSBvZiB1ZHBfcG9ydCAgDQph
+bmQNCiAgICAgY3JlYXRlcyBhIFRPQ1RPVSByYWNlIGZvciB0aGUgaWdub3JlZC13cml0ZSBjYXNl
+Og0KDQogICAgICAgMS4gSW5pdGlhbCBuZXQtPnNjdHAudWRwX3BvcnQgPT0gMC4NCiAgICAgICAy
+LiBUaHJlYWQgQSBzdGFydHMgYSBuby1vcCB3cml0ZSAoZS5nLiAqbGVucCA9PSAwIG9yIHRyYWls
+aW5nICJcbiIgYXQNCiAgICAgICAgICAqcHBvcyA+IDApIGFuZCByZWFkcyBuZXdfdmFsdWUgPSAw
+IGJlZm9yZSBsb2NraW5nICANCnNjdHBfc3lzY3RsX211dGV4Lg0KICAgICAgIDMuIFRocmVhZCBC
+IHdyaXRlcyAiOTg5OSIgYXQgKnBwb3MgPT0gMCwgdGFrZXMgc2N0cF9zeXNjdGxfbXV0ZXgsIHNl
+dHMNCiAgICAgICAgICBuZXQtPnNjdHAudWRwX3BvcnQgPSA5ODk5LCBzdGFydHMgdGhlIFVEUCB0
+dW5uZWwgc29ja2V0cywgYW5kICANCnVubG9ja3MuDQogICAgICAgNC4gVGhyZWFkIEEncyBwcm9j
+X2RvaW50dmVjKCkgaWdub3JlcyB0aGUgd3JpdGUgYW5kIHJldHVybnMgMCB3aXRoDQogICAgICAg
+ICAgbmV3X3ZhbHVlIHN0aWxsIDAuIFRocmVhZCBBIHRha2VzIHNjdHBfc3lzY3RsX211dGV4LCBz
+ZWVzDQogICAgICAgICAgbmV3X3ZhbHVlICgwKSAhPSBuZXQtPnNjdHAudWRwX3BvcnQgKDk4OTkp
+LCB0ZWFycyBkb3duIFRocmVhZCBCJ3MgIA0KVURQDQogICAgICAgICAgc29ja2V0cywgYW5kIHJl
+c2V0cyBuZXQtPnNjdHAudWRwX3BvcnQgPSAwLg0KDQogICAgIENvbnZlcnNlbHksIGlmIFRocmVh
+ZCBBIHJlYWRzIG5ldC0+c2N0cC51ZHBfcG9ydCB3aGlsZSBUaHJlYWQgQiBpcyAgDQppbnNpZGUg
+YQ0KICAgICBmYWlsaW5nIHNjdHBfdWRwX3NvY2tfc3RhcnQoKSwgVGhyZWFkIEEncyBpZ25vcmVk
+IHdyaXRlIGNhcHR1cmVzIHRoZSAgDQp0cmFuc2llbnQNCiAgICAgcG9ydCBhbmQgY2FuIGF0dGVt
+cHQgdG8gYmluZCBpdCBhZnRlciBUaHJlYWQgQiByb2xscyBuZXQtPnNjdHAudWRwX3BvcnQgIA0K
+YmFjaw0KICAgICB0byAwLg0KDQogICAgIFNpbmNlIHByb2Nfc3lzX2NhbGxfaGFuZGxlcigpIGFs
+cmVhZHkgY29waWVzIHRoZSB3cml0ZSBidWZmZXIgaW50byAgDQprZXJuZWwNCiAgICAgbWVtb3J5
+IGJlZm9yZSBpbnZva2luZyAtPnByb2NfaGFuZGxlcigpLCBoYW5kbGUgIXdyaXRlIHdpdGggYW4g
+ZWFybHkNCiAgICAgYHJldHVybiBwcm9jX2RvaW50dmVjKGN0bCwgd3JpdGUsIGJ1ZmZlciwgbGVu
+cCwgcHBvcyk7YCBhbmQgYWNxdWlyZQ0KICAgICBzY3RwX3N5c2N0bF9tdXRleCBiZWZvcmUgaW5p
+dGlhbGl6aW5nIGBuZXdfdmFsdWUgPSBuZXQtPnNjdHAudWRwX3BvcnRgICANCmFuZA0KICAgICBj
+YWxsaW5nIHByb2NfZG9pbnR2ZWMoKSBvbiB3cml0ZXMgKHVzaW5nIFdSSVRFX09OQ0UoKSBmb3Ig
+dGhlIHN0b3JlcyAgDQp1bmRlcg0KICAgICB0aGUgbXV0ZXggc28gbG9ja2xlc3MgcmVhZGVycyBz
+dGF5IEtDU0FOLWNsZWFuKS4NCj4gPiArDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgLyog
+VXBkYXRlIHRoZSB2YWx1ZSBpbiB0aGUgY29udHJvbCBzb2NrZXQgKi8NCj4gPiArICAgICAgICAg
+ICAgICAgICAgICAgICBsb2NrX3NvY2soc2spOw0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAg
+IHNjdHBfc2soc2spLT51ZHBfcG9ydCA9ICANCj4gaHRvbnMobmV0LT5zY3RwLnVkcF9wb3J0KTsN
+Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICByZWxlYXNlX3NvY2soc2spOw0KPiA+ICAgICAg
+ICAgICAgICAgICB9DQo+ID4gLQ0KPiA+IC0gICAgICAgICAgICAgICAvKiBVcGRhdGUgdGhlIHZh
+bHVlIGluIHRoZSBjb250cm9sIHNvY2tldCAqLw0KPiA+IC0gICAgICAgICAgICAgICBsb2NrX3Nv
+Y2soc2spOw0KPiA+IC0gICAgICAgICAgICAgICBzY3RwX3NrKHNrKS0+dWRwX3BvcnQgPSBodG9u
+cyhuZXQtPnNjdHAudWRwX3BvcnQpOw0KPiA+IC0gICAgICAgICAgICAgICByZWxlYXNlX3NvY2so
+c2spOw0KPiA+ICAgICAgICAgICAgICAgICBtdXRleF91bmxvY2soJnNjdHBfc3lzY3RsX211dGV4
+KTsNCj4gPiAgICAgICAgIH0NCj4gPg0KPiA+IEBAIC01NjQsOCArNTcwLDkgQEAgc3RhdGljIGlu
+dCBwcm9jX3NjdHBfZG9fcHJvYmVfaW50ZXJ2YWwoY29uc3Qgc3RydWN0ICANCj4gY3RsX3RhYmxl
+ICpjdGwsIGludCB3cml0ZSwNCj4gPiAgew0KPiA+ICAgICAgICAgc3RydWN0IG5ldCAqbmV0ID0g
+Y29udGFpbmVyX29mKGN0bC0+ZGF0YSwgc3RydWN0IG5ldCwNCj4gPiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICBzY3RwLnByb2JlX2ludGVydmFsKTsNCj4gPiArICAgICAg
+IGludCBuZXdfdmFsdWUgPSBuZXQtPnNjdHAucHJvYmVfaW50ZXJ2YWw7DQo+ID4gICAgICAgICBz
+dHJ1Y3QgY3RsX3RhYmxlIHRibDsNCj4gPiAtICAgICAgIGludCByZXQsIG5ld192YWx1ZTsNCj4g
+PiArICAgICAgIGludCByZXQ7DQo+ID4NCj4gPiAgICAgICAgIG1lbXNldCgmdGJsLCAwLCBzaXpl
+b2Yoc3RydWN0IGN0bF90YWJsZSkpOw0KPiA+ICAgICAgICAgdGJsLm1heGxlbiA9IHNpemVvZih1
+bnNpZ25lZCBpbnQpOw0KPiA+IC0tDQo+ID4gMi41Ni4xLjcwOC5nNzc1NzBhNmExZC1nb29nDQo+
+ID4NCg0KPiBBY2tlZC1ieTogWGluIExvbmcgPGx1Y2llbi54aW5AZ21haWwuY29tPg0KDQoNCg==
