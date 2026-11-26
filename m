@@ -1,112 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795676847;
-	b=SodJEE3zFPxzSBFFJWlO+STmQSJRemri9WTc08X0/5kheJFI9h0GYtOIbdA1binswryQ
-	 8k/sDf0jpiP0P8nY9H7EV/gljDEcr/V0TblonUJzxmqEpZubl+FULAGX5uV3yFDIGcn25
-	 wqLzJ87a2OhiWZDlkklbOLMzjkfGC5fNooHc3gnApNsb2LQdaSBjWKltNy8Mm3KB99Je/
-	 V/Z9hFa1UZtdc0H+LXoQF/ZTOf7Br5fwOoGb5TLpY7NqoUT7n69byLRGW8TeN713wm2pd
-	 ckx2bRgzxQ+pyb1qNoK7c+2dItA3vGZimcH0R7+QAsDreHCx8QUozqkoK8SeFTrhotg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795676847;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=TWtJ7O/weMJzv9paex9qV3Mx7PBaOy4zcuYq1hMdYAs=;
-	b=oYFlQYglDrVys3xTp2fvFwB9n61Uo2aSW7Gko9Qd/1l9UGTn5j4+asWkYOF23mc8o+kC
-	 icsUCISARAO7xz7t7DozBe46a6M8IVp8P8JyyjS2sf71M/IQAPH9IQGugJscdp7eezt27
-	 CB84nEonxUZ0S/zDQTfNpj2ohu42s40bqto89bFNWIKhi2fl7SOWtFWWxx7jTl2azg4YY
-	 VGU8xOP1TxHk/ZL45eT1TVv9uuMm7WBsPrh4DAwrUX+cm90cgTOzaDcy/PR0aLpYTvcxt
-	 1uWOcCtYJreZFfWNpR7oJIuJf5RzqhV/0rTikjwYVOR/IT0591FD3oEUAEekCTxb0bg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Jrfsm567;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HvF7LmQm;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795676858;
+	b=4t1ifYftHFIOSZMOm/F8IVblQhmKY/Ncg0QCyJcoOU8L//02YuZd16+ldu+vAqhQwk/d
+	 vTVghCsJ8clNqzLNDTneIjwdcxXA/xx6SucnQbsWUPjGrlzZnmc9hErqEsdrYjrj4b1hR
+	 pWJcfUdMFK1M6KFF+eLqbatCpxmlKlOsfoTB9raNCDjYGaHznI6I4ql04MhWjGyXx9qVJ
+	 3+Pilgrt2VSo50ZbjAycBonPbxCkQ+5rN0mUP/FcqBNHiYqRZHrLUZ+my4uQMZ7/mgLpS
+	 978n95uA6H7s2v3vYmPjeUwFetN7fMrztMgyxtO+FGI54wLdyPPPYQpz5qWX4PGJqSA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795676858;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=vhA0eLnCIevNQ8XZQAJ5drG3uVP2Uo7mZJ7ZmJtYK1A=;
+	b=VjgPZwpzXwxQK1dawKAOUKn8MVXl89g6yrwnY4qgxss4ch9bSHGrkxoNjp/meb4Dz4XV
+	 YScYW/KA1GINPmdnbMqWSd9olvppmpIpp8C1oiBn4scvQkcWHA4YSZdLmVTeZhDe11p2Q
+	 VkP8TfDDIVlkPw5HI9O9TPZ2ezxysQsPnGH8Qz5xpmV/jyWQ0kEHJDKoEiluaNVS7EJ2T
+	 bMnNbYksqzC3xgkn5mH/SLqCYlqzErnDIE/pc+ykgw67FVKBLM6NJaEhG2YLtyE/6hgSb
+	 RGqPeagaXrAzmj/RrWtrOyQTF+qE61A9QJZ3goQhhFCD8cSUXypsDWZU2cbRzuGBYsQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RTwcTpJG;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.50
+Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF55B606A31C
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:07:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF55B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6445606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:07:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6445606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Jrfsm567;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HvF7LmQm
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ6ram8657857
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:07:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	TWtJ7O/weMJzv9paex9qV3Mx7PBaOy4zcuYq1hMdYAs=; b=Jrfsm567H+fdNQx/
-	lUrkwcVjzdUrijpNhqPBmsVygEcSaJbtAM8e17cIJ/6hbA5vxUDhBMOJicf71FKy
-	rx/ordM1e4mpsCuEKID5GZfvz2yxTLeC5FdQC2TtqHRbRhzSiKBasS3OtKBLgPUa
-	TC4wFCV32pawJDR4aUVKhhqZ9VvSbNY7glW4uUM3VL/ixMVVTFm9J3Hue+oyPcyL
-	tzFkxd1yULQnEp8klV/v0ldTDhSlSOzkLSoEB9kZjR9YLXPjZ7wweSyA1G4vpeAI
-	eODYU1JjGEhWpnHNYneeWogKZ3HPatKY0mpgm73BXznZw/z/0U8MLzoF/5vb+MQS
-	oyVMDA==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6fw7r1js-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:07:25 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8b97460a133so5129136b3a.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:07:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RTwcTpJG
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6b88bc47e23so8594145a12.2
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 23:07:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795676856; cv=none;
+        d=google.com; s=arc-20260327;
+        b=pctUprr8aGFSb6lYpCljYOI8maoB5/bRwTPNDljAPK6QDVPIeHfpiJblsyUGBKyT+q
+         3ggXGqlcrWgObb2bgF36L368tAeYeyDZCr3W79vk/Ius/guJZGuepL5HTtXiUwHrWPVz
+         h5H5M0a350t0uD6cCzT2Nx7eUpNTLbAdD1H3ZVfexVHToq6Y2Ctq818zv7L1IvOYM7qA
+         yoTRtMDjefmGV2oFvcWBYDPqDKKSX4YlkOHtWmleid4zgalh9JuPFHpSSu3RhZrfH0A2
+         TZM+pfyRI1pAqKwxSlWanZLxoiDTZHyD9k6p2ro6Uj+SmkHkzW5krVnDesgZEpLeUWw+
+         JxGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=vhA0eLnCIevNQ8XZQAJ5drG3uVP2Uo7mZJ7ZmJtYK1A=;
+        fh=X2fQGXwSB9EzMB2pp2CQQdDg7fZ/E8gWvC3epOwaM8o=;
+        b=PDHdRA8AsBZxpXwhdUMIx6QmF2SitKx6RKr1BkDdkrmnf7qHf2PL4Z/81SoO5Oiwx+
+         qLI1rFwEtTXsqfzVl/6/Jz1/3NTf71J638b40nEfVFBiztFIa3UHNTQm8YBVP+eBUOiE
+         JYaHm4WgG/l9e1z92i4nWEqk/LtdC1odhnX2rEd0BbsqXs0vJaQMBXVed4oaFMdeS5rn
+         rVGrBCbbLtG+JXjmH9UAuO45S/KblH5q2QXJncii03kBae9J9fhNKIXltmD4gWaFWlHk
+         i8EHrTQS7vROoA1h/fwzUyNNsiLagAF6UqUX+As5rz/3tAbNe5PxYmCZria6qNkVmiaR
+         toQg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795676845; x=1796281645; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TWtJ7O/weMJzv9paex9qV3Mx7PBaOy4zcuYq1hMdYAs=;
-        b=HvF7LmQmiFbM21vF6ldNAGPedf43Gjp/K0lv03VxeWYq8UN6VglxtvFzVPgWHPscS7
-         IFIG7cQpq6yfFydmAWaAfx5Oo7xuXFgMLeyuWNiuBAmiqrs9SZEDy4zNFgOmlOp3QAEk
-         sQS6pY5Y+wVUyla4E2/ICXDFzimyRNR5pW/KAo6A89IVpNUGHcL/UhuGz+W8JvcI9dvS
-         VhsT/EunCGFo95hayLcBa96HA9Fag/8SX8KtbWnPxYGVwK8oh4aoAmR2luv80WbpuWRf
-         SZ23AUkMc/615FqmXbFt68nYs6IhySxzOLX0gS/l2AaNPUPyJASnRzyhc2SlbcOwIhS6
-         kgxw==
+        d=gmail.com; s=20260707; t=1795676856; x=1796281656; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vhA0eLnCIevNQ8XZQAJ5drG3uVP2Uo7mZJ7ZmJtYK1A=;
+        b=RTwcTpJG4bcVbq/Rg5B+ch6/7an5ITR4XEEG+AkvCZaO5S5MK9+7zMbjeu6Tz+z5ga
+         CWEO9+8UQSsKxEuAJjVHyYzclJm4+8BzXSBPfAS+XvTldZHcJVfkmJc8wN/rjZ3nOpxg
+         Miq4NoFV+gj02QAUl7fITtqlKeaYvoc9VlPZmPPr5AIwSHd/ol2Awrt82R8ritdDQxU+
+         vtBQ6qkScxqKeemWLHaVKDSiKHkhUNrNBgbM8bj6CXpmdtW9wuPao4renzSpDZF+J0SW
+         7kBNeiclG90SOT+BT+dwAye1ZaJAxc49SpAattBiNnNNGhpE+c629x8oShdkkEm6f1/v
+         PL+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795676845; x=1796281645;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TWtJ7O/weMJzv9paex9qV3Mx7PBaOy4zcuYq1hMdYAs=;
-        b=GIhbMgqPu6Il1EPhemQXW0nV346Nr0dVHA4Sh2UPA2rS3BoAp6RmtWSYjJPr2Ko+8e
-         FYeB9mebY1Yy46id018iwC4kKf7sH/1rJ+UnbhNFhBvXf4Vk5rxADJEZvPjommNr5XTi
-         oZ+jbbem78gOPTu5mPaFsYrWISIjkBOWX4yU2OMAp9AY1fa/Qc9GEJzxXXrcdgwdjOtY
-         qH/PM2YBpMnYzsZodaBnUZjalTH3Cs8IgNMnUO1+d162aL6uFsj32qeHcAxiRsmhxHon
-         dqBibcO3ggvIjGhSFbcnuIwR1QZc2ExX2SHl5TSbRLVqwvktm74so2OeNvRaojBYjtJr
-         gdMQ==
-X-Forwarded-Encrypted: i=1; AL+hErHP58FjoraEw1jjawsRvyNurwlz6o43ZUufmquWOkg0KLMDCfvrRf+ONW57wkH9CtQsS3bSdd79KdCHFxU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+3kEyVv++VFGgt6asWkez1CTc06bvMVvMTUthvKfdPT/F0+iDL
-	I8m5ChbDUQh0yaOqDmaZ2wGCoE+izBKSm3XGjLGQ2cTiXdB3xxA7DJ836nL/TY3xpYKYJdCox8B
-	kzBrxdPOXEwyCAsDz2qNSgLcD22icgzcPZDi1CfBb+/LTrIliTOpmpme73E56M1gVC6U=
-X-Gm-Gg: AZFdTZe08AGS5GiWmSpL3eVVrHCUs+FU/xZfXtopxUfctHx64eKY4Kr4q8P94ZHvp3j
-	W6NOLSic8dS3wwp44nSxFzQ3B0ZVYRtf4mQcZAzGWGjQMqlcQhjxhldCQzVhW/ssfqokirvYAUJ
-	1g54RmsJD4FMzLwygQz+FHtEPA2HnRXTc0rkL7tjrBwkDOnHNKtXf+IsgDDHnYnZdrVFelg/9yl
-	JHwLDMVUr8Mjv75YqdRkZ+YH4K7XWh0HPY0msAY5c96hRrkOMPUHkWhF2Vn0ZcI2PqoSlobQPp4
-	sm6y5P3iofOO5JXTQi/ngaveZkBgzIwO9x4g7zKhQxlF3oux63kh1lCnwiJWeKzXPD6GFRODjiR
-	UuDcdNkRPM1JMfj/7nnCqqvciTUnp0FdvLAXVC0shRgKjVR/tRXMUpXGt4+zjTd9C8/REKXDVap
-	M11KDd+/ZWCdRLwTERNqPYCuT7hKWPPkEDAX+OHvaE
-X-Received: by 2002:a05:6a00:2d14:b0:8b6:400d:7cc9 with SMTP id d2e1a72fcca58-8c87c671eabmr19440914b3a.29.1795676844679;
-        Wed, 25 Nov 2026 23:07:24 -0800 (PST)
-X-Received: by 2002:a05:6a00:2d14:b0:8b6:400d:7cc9 with SMTP id d2e1a72fcca58-8c87c671eabmr19440878b3a.29.1795676844204;
-        Wed, 25 Nov 2026 23:07:24 -0800 (PST)
-Received: from [10.133.33.167] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c05fsm10329081b3a.17.2026.11.25.23.07.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 23:07:23 -0800 (PST)
-Message-ID: <0bf83f69-f069-444b-a45f-b4582b544405@oss.qualcomm.com>
-Date: Thu, 26 Nov 2026 15:07:20 +0800
+        d=1e100.net; s=20260707; t=1795676856; x=1796281656;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vhA0eLnCIevNQ8XZQAJ5drG3uVP2Uo7mZJ7ZmJtYK1A=;
+        b=QYpXtnreZlVZq0kdzenZm+Y0466K8CODiJ10DvXQFnza6sNQovFdVmVML9hgZnt+h/
+         gvyzXssDb5uEE9Mov9Mxmv9Q6/cbEjX7KP9dOfqqg7pkawNPHv5aGDwFiidYcsWsh/zE
+         wJ5o4BlsTV58AH1ssoLwcKSQnR6SLupuAeXlvrfeR7lr9Y1/gERdnBiOk0Hy5n+v0uxb
+         2gJwO7S7nbbZbCxQCOWVWuxMe+PHR4PVpMrp1X87E68BaZKW256O6h8DtUJ8dYBW9P6D
+         lRMA8AU4XxtbjWXX78/LWnljJrFVsSau+NwISgchwI94OLuvtyAFgJ3Ru6dikXgq683N
+         uQSw==
+X-Forwarded-Encrypted: i=1; AL+hErGMfEVWVcvL9z71ODgmNRk858NcAFGHS5AM4jfgtoBGCc0ZL/7GYJVexS+/u6PcqaZX0w7HhRihJ37ZFCM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8eDQwkwTpZIGnGUFeVCTKDeKTuc4bLo+rm9aLIawGVUmEgouPm
+	NAuTMbG8vjxvF1kL8paqeaJLVVLDzBthhglBwJGn2CGNa/Wpbm3c31avrLTwShjptYv+I7U4gJl
+	9HGN5gS78st7qk5VWYFXB3DlslpPZ5mc=
+X-Gm-Gg: AZFdTZd5eVWwJDEah/Jk15TSfbDQlB+JpakOSGbZjXVJcrc+3EtktVxxFokjYkxUMQK
+	d7D67E+v/lQUFXoarxCsTQxCZ6lKIK/O1m4ufkjGZYvkzUYa0lbYRCJoDJszOMtnsJVtUBVB9eU
+	dc+T0cIdAq82CNxJl8cbOjVYHhvvyQFJNsDbnYFJBOMzcszntsQ9E3z06DdeIr7dr7wWR9TgYPy
+	Em/YH2t5y9SvVBhm+WiofqA/xiY3WrxZg11vs3h7O61dsCK0/M9qDMSW/NDrXIWpoOWIZ9cOa45
+	wIzR2rYd2lF3n423Z6MxVVauCaFeiehZ/8En4yXf6c1EYKVlakvjq2gptEONAil0c6ZrNCoO8y3
+	fVCV3pMW9AHhBBKdTYhfritEpW/fnZY6Jff+OlKq6Fsp+zRaLexY4GxUblnahW7XoovjSLUk=
+X-Received: by 2002:a05:6402:42c8:b0:6ba:90b8:6584 with SMTP id
+ 4fb4d7f45d1cf-6ba90b86c26mr10129365a12.27.1795676855879; Wed, 25 Nov 2026
+ 23:07:35 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,141 +104,161 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH ath-next v4 04/10] wifi: ath10k: also wake remaining
- blocked waiters
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Cc: Jeff Johnson <jjohnson@kernel.org>,
-        Baochen Qiang <baochen.qiang@oss.qualcomm.com>,
-        Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
-        linux-wireless@vger.kernel.org, ath10k@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-References: <20261120-recovery-v4-v4-0-53d6a04490e0@oss.qualcomm.com>
- <20261120-recovery-v4-v4-4-53d6a04490e0@oss.qualcomm.com>
- <CAFEp6-3zK1=Fsrkmtmuq7Q3xnNMuCE1R0J8Pe-rAJun9igCcJg@mail.gmail.com>
-Content-Language: en-US
-From: Kang Yang <kang.yang@oss.qualcomm.com>
-In-Reply-To: <CAFEp6-3zK1=Fsrkmtmuq7Q3xnNMuCE1R0J8Pe-rAJun9igCcJg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAyNyBTYWx0ZWRfX7/ooLEgS54UU
- paFFdxkhh38XDsvTJp7OF3GTO95pm9V6b51j+tw+LAEeixXy85bGFlSedgPmFthXcy5ZhFzpB3H
- Jf3NZBeRRVB1c4DW46Cdisf0Q8y9Sc4=
-X-Proofpoint-GUID: 5FYfkhaJc3E6l0FNOlANb8W_c86k4qjX
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAyNyBTYWx0ZWRfX2UEUiezpzSgU
- Kko2Z6OspEaicRIxJSUx3i5JjkXCnh+QoHpjOmLtsBVlGy4UvuhiET1vRC1CkUS2c95XjS6mGB9
- N9pv4fzfko8d2eIxYbKIVAEF4wkWA1qZrbj4JVzd5laAoXsl97WoNnPkPdkXaAObLPiENJvmYwL
- IH/UgmQ4+PnKxnU5jn4ZadebGWXc/J/FrPX2zr269W7ggrREeg9nW+NHi1ZmNwBqgcXi37KkGij
- dCGqOHKhlVQDTePP60nPTcffcA9AuBFnsBS2ipMq7UG0s3Kx9QZufUfabgIPxG54e74GylhE1eu
- r8nGDRnkJfvseUPTnPHsgfxYnmBj2ypQc2bL7dm/E3eyaY35ms47dsY3Lyyg6aMCRxlsMSxjviT
- gY64Ldw5wJOsJQ3cK2u9j2CiHy1usux+Q+DdcsHsQZgy1AsxX422llRLPqDlv1yCQ3c6h/vm+1Z
- ljCULlQiiVedtpy3lZg==
-X-Proofpoint-ORIG-GUID: 5FYfkhaJc3E6l0FNOlANb8W_c86k4qjX
-X-Authority-Analysis: v=2.4 cv=ePeGH3p1 c=1 sm=1 tr=0 ts=6b07daad cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=EUspDBNiAAAA:8 a=468j3veBC24j7YoULXoA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=IoOABgeZipijB_acs4fv:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_01,2026-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 suspectscore=0 clxscore=1015 adultscore=0
- lowpriorityscore=0 bulkscore=0 phishscore=0 malwarescore=0 spamscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611260027
+References: <20261122000856.536902-1-koray.fra@gmail.com> <20261122000856.536902-3-koray.fra@gmail.com>
+ <CAOQ4uxhegn1z=41_MHL1Zu2hXuPtzNhC=x4gd371oaeJE4-weQ@mail.gmail.com>
+ <DN2N6A68PBO1.2QT8ZOARF4I6L@gmail.com> <CAOQ4uxhDQqEQ3T9NveBFpUmSU032BxrNV5D+_zHj8u9LOQY+qg@mail.gmail.com>
+ <DN4DRUYPHYMP.20U4DYV5VBN7P@gmail.com> <CAOQ4uxg0g+XkPb3-kQS5ez1-rp7Q=BkYDHW0CGOFhpbcf70yMg@mail.gmail.com>
+ <DN4KLSM2OO0K.2C8Q5CPFBVNL6@gmail.com>
+In-Reply-To: <DN4KLSM2OO0K.2C8Q5CPFBVNL6@gmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Thu, 26 Nov 2026 08:07:23 +0100
+X-Gm-Features: Aa3M54p-xXrArmKFQVXQGyMmIHEH7IQOans_pobuFbiou8Pi118hgiXnigLCYjk
+Message-ID: <CAOQ4uxhpJygZH-arLFSUYEEfqFG96Sr3_6CWakfSkdWxEsOxMg@mail.gmail.com>
+Subject: Re: [PATCH 2/3] vfs: add xflags mask to fileattr API
+To: koraynilay <koray.fra@gmail.com>
+Cc: Namjae Jeon <linkinjeon@kernel.org>, Hyunchul Lee <hyc.lee@gmail.com>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
+	Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, Jan Kara <jack@suse.cz>, 
+	"Darrick J . Wong" <djwong@kernel.org>, Andrey Albershteyn <aalbersh@kernel.org>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+	Lauri Gates <lauri.gates@gmail.com>, Christoph Hellwig <hch@infradead.org>, Dave Chinner <dgc@kernel.org>, 
+	linux-btrfs@vger.kernel.org, linux-xfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	ntfs@lists.linux.dev, linux-nfs@vger.kernel.org, linux-api@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+On Wed, Nov 25, 2026 at 9:22=E2=80=AFPM koraynilay <koray.fra@gmail.com> wr=
+ote:
+>
+> On Wed Nov 25, 2026 at 5:51 PM CET, Amir Goldstein wrote:
+...
+> >>
+> >> My robot proposed 2 fixes: either don't introduce FS_XFLAG_PROJID
+> >> (which, eh, not the best imo)
+> >
+> > Me neither. It's inconsistent IMO.
+> >
+> > But it is inconsistent in that we want to have a way for chattr -p to s=
+ay with
+> > the new API "set only projid", so we must have the flag, but we
+> > mostly need it for the mask, we don't really care about its value in
+> > fsx_flags.
+> >
+> >> or add a new flag to be used in at_flags,
+> >> like AT_FILEATTR_MASKS, which would resolve all our legacy vs non-lega=
+cy
+> >> problems, but it would be in *at*_flags, so doesn't really make sense
+> >> semantically (but it would work well since file_getattr already reject=
+s
+> >> unknown at_flags, so it wouldn't cause problems for old programs).
+> >
+> > I think this is an overkill as well.
+>
+> Semantics issue aside, I think this shuold be the way to go, because
+> it's explicit and doesn't rely on guessing based on struct size or mask
+> values.
+>
 
+Yes this is a good argument.
 
-On 11/25/2026 6:35 PM, Loic Poulain wrote:
-> On Fri, Nov 20, 2026 at 9:42 AM Kang Yang <kang.yang@oss.qualcomm.com> wrote:
->>
->> ath10k_core_wake_all_waiters() still misses several completions,
->> leaving their callers blocked after the driver has given up on the
->> device.
->>
->> In particular, callers waiting on peer_delete_done, target_suspend,
->> wow.wakeup_completed, peer_stats_info_complete or wmi.radar_confirm
->> continue sleeping until their individual timeouts expire even though
->> no further progress is possible. The WoW and suspend waits are on the
->> suspend and resume paths, where these delays consume watchdog budget.
->>
->> Add the missing completions to ath10k_core_wake_all_waiters() so the
->> callers are released immediately.
->>
->> peer_delete_done is not otherwise reinitialized before every wait.
->> A completion left signaled by recovery would therefore make a later
->> peer-delete wait return immediately. Reinitialize it before sending
->> each peer-delete command.
->>
->> Tested-on: QCA6174 hw3.2 PCI WLAN.RM.4.4.1-00288-QCARMSWPZ-1
->> Tested-on: QCA6174 hw3.2 SDIO WLAN.RMH.4.4.1-00189
->>
->> Signed-off-by: Kang Yang <kang.yang@oss.qualcomm.com>
->> ---
->>   drivers/net/wireless/ath/ath10k/core.c | 5 +++++
->>   drivers/net/wireless/ath/ath10k/mac.c  | 3 +++
->>   2 files changed, 8 insertions(+)
->>
->> diff --git a/drivers/net/wireless/ath/ath10k/core.c b/drivers/net/wireless/ath/ath10k/core.c
->> index 3bb4d2742c30..99960f12dc66 100644
->> --- a/drivers/net/wireless/ath/ath10k/core.c
->> +++ b/drivers/net/wireless/ath/ath10k/core.c
->> @@ -2542,7 +2542,12 @@ static void ath10k_core_wake_all_waiters(struct ath10k *ar)
->>          complete(&ar->install_key_done);
->>          complete(&ar->vdev_setup_done);
->>          complete(&ar->vdev_delete_done);
->> +       complete(&ar->peer_delete_done);
->> +       complete(&ar->target_suspend);
->> +       complete(&ar->wow.wakeup_completed);
->> +       complete(&ar->peer_stats_info_complete);
->>          complete(&ar->thermal.wmi_sync);
->> +       complete(&ar->wmi.radar_confirm);
->>          complete(&ar->bss_survey_done);
->>          wake_up(&ar->htt.empty_tx_wq);
->>          wake_up(&ar->wmi.tx_credits_wq);
->> diff --git a/drivers/net/wireless/ath/ath10k/mac.c b/drivers/net/wireless/ath/ath10k/mac.c
->> index 74aca0af11c8..695df1821e5c 100644
->> --- a/drivers/net/wireless/ath/ath10k/mac.c
->> +++ b/drivers/net/wireless/ath/ath10k/mac.c
->> @@ -843,6 +843,7 @@ static int ath10k_peer_delete(struct ath10k *ar, u32 vdev_id, const u8 *addr)
->>
->>          lockdep_assert_held(&ar->conf_mutex);
->>
->> +       reinit_completion(&ar->peer_delete_done);
->>          ret = ath10k_wmi_peer_delete(ar, vdev_id, addr);
->>          if (ret)
->>                  return ret;
->> @@ -5897,6 +5898,7 @@ static int ath10k_add_interface(struct ieee80211_hw *hw,
->>   err_peer_delete:
->>          if (arvif->vdev_type == WMI_VDEV_TYPE_AP ||
->>              arvif->vdev_type == WMI_VDEV_TYPE_IBSS) {
->> +               reinit_completion(&ar->peer_delete_done);
->>                  ath10k_wmi_peer_delete(ar, arvif->vdev_id, vif->addr);
->>                  ath10k_wait_for_peer_delete_done(ar, arvif->vdev_id,
->>                                                   vif->addr);
->> @@ -5959,6 +5961,7 @@ static void ath10k_remove_interface(struct ieee80211_hw *hw,
->>
->>          if (arvif->vdev_type == WMI_VDEV_TYPE_AP ||
->>              arvif->vdev_type == WMI_VDEV_TYPE_IBSS) {
->> +               reinit_completion(&ar->peer_delete_done);
->>                  ret = ath10k_wmi_peer_delete(arvif->ar, arvif->vdev_id,
->>                                               vif->addr);
-> 
-> So it would probably be cleaner to have a helper such as
-> __ath10k_peer_delete() that performs both the reinit_completion() and
-> the ath10k_wmi_peer_delete() call. Avoiding duplication.
+> > We discussed this before.
+> >
+> > Attributes that have X_value like fsx_projid have few types:
+> > 1. 0 means disabled (all existing values incl. projid)
+> > 2. 0 is a valid value but cannot be unset (btime)
+> > 3. 0 is a valid value and NULL/unset is also a valid value
+> >
+> > Only for type 3 does can the interpretation of
+> > (!XFLAG_X && !fsx_X) be considered as an "unset"
+> > and anyway, this will require support in individual fs.
+>
+> IMO !(xflags & XFLAG) && (rw_mask & XFLAG) should clear/unset the value
+> in all cases, ignoring what's in fsx_X.
+>
+> And all existing values would be of type 1 for VER0, but of type 1 + 3
+> for VER1.
+>
 
+I agree that this will be more consistent.
 
-Will change in next serion
+With explicit opt-in to FILEATTR_MASKS API
+vfs can determine that
+(!XFLAG_X && !!fsx_X) is alway -EINVAL
 
+When fsx_X =3D=3D 0, the value of XFLAG_X does not really matter
+so filesystems can decide themselves if they want to act on
+an "unset" flag or not.
 
-> 
->>                  if (ret)
->>
->> --
->> 2.34.1
->>
+> > fileattr_set_prepare() already treats the existing values as:
+> > fsx_X =3D=3D 0 =3D> clear XFLAG_X
+> >
+> > And xfs returns EINVAL for !!(fsx_X) !=3D !!(XFLAGX)
+> >
+> > A simple solution is to fix the flag according to val in fileattr_set_p=
+repare()
+> (This should be in file_attr_to_fileattr() I think, but yeah)
+> > if rw_mask contains this flag:
+> >
+> > if (fa->fsx_xflags_rw_mask & FS_XFLAG_PROJID) {
+> >     /* Possibly legacy chattr -p compiled with new headers unaware of P=
+ROJID */
+> >     if (fa->fsx_projid =3D=3D 0)
+> >           fa->fsx_xflags &=3D ~FS_XFLAG_PROJID;
+> >     else
+> >           fa->fsx_xflags |=3D FS_XFLAG_PROJID;
+> > }
+>
+> I think this would be a bit too overcomplicated to understand, and
 
+True
+
+> robot says (with the current v2 code at least) it would make e.g. ntfs
+> return 0 instead of -EOPNOTSUPP for e.g. chattr +S.
+>
+
+I suspected that existing filesystems may have different legacy behaviors..
+
+> It also told me that statx already has AT_STATX_* flags that don't match
+> the at_flags semantics (and indeed, AT_STATX_FORCE_SYNC/DONT_SYNC don't
+> really make sense for "at"_flags semantics), so my only blocker for that
+> solution is gone and I would really prefer that approach since it's way
+> simpler and way cleaner.
+
+Git history claims that I suggested making this an official UAPI policy:
+
+b4fef22c2fb97 uapi: explain how per-syscall AT_* flags should be allocated
+
+So definitely no objection to AT_FILEATTR_ semantics.
+
+>
+> One more thing gemini told me is that if we don't want to use AT_*, we
+> have to choose between (copy-pasted, "ntfs" meaning any mask-aware fs):
+> 1. Keep clamping fattr->fa_xflags & rw_user_mask (VER1 masked semantics
+>    are clean, but recompiled VER0 RMW tools setting unsupported
+>    flags/projid on ntfs silently return 0)
+> 2. Reject unexpected non-zero bits/fields outside rw_user_mask | ro_mask
+>    (protects recompiled VER0 RMW error reporting on ntfs, at the cost tha=
+t
+>    VER1 callers must zero or mask fa_xflags / fa_projid / fa_extsize
+>    themselves rather than expecting bits outside rw_mask to be ignored).
+>
+> So I would *really* prefer adding AT_FILEATTR_MASKS and setting
+> has_masks based only on that.
+> This way we can keep the whole legacy path frozen and not have to worry
+> about weird edge cases (well, converters code aside of course).
+>
+> And personally in this way I can reason about the changes a lot more
+> clearly and I can finally take a better look at the whole code and maybe
+> simplify it in some cases (probably not, but I'll have to see).
+>
+
+All very good reasons IMO.
+
+> (Unless there is something equivalent to AT_FILEATTR_MASKS to filter on,
+> like maybe a FS_XFLAG_MASKS (?), but that would be even worse
+> semantically I think)
+
+It's an option, but I think AT_FILEATTR_MASKS is cleaner.
+
+Thanks,
+Amir.
