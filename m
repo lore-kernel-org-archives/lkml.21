@@ -1,79 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795720904;
-	b=zMA0T3rJv4hYcCMlw1jFVmvyVqR5g2aDlPEkQ/S8lwNGWxB6t1o+ywUmDJNsfB/Vo0zp
-	 zdpZiNdQNzcgpvIb7leG4HneaZ6t13r0JXocAEUtmbwTrOPwzYQGx/CV2j9Y1o2Yy+esO
-	 MP/yCaTzYaLXCMtk8NCY6925vZ14HBurV98sERSP+M061v2c+QYDziVWWze5GIZJVkDLm
-	 yVkcGbd4WFag+kdjOpqa2N7VkEAeT2bvDy4AjwcwdO737yXn/CroG/Eeg9jz+GxL6a2yd
-	 dkI67Tr75mU9X4OGDztMZ7Kma9gXNqq8hijnJmySoG2G5UXNVzxawZlPuUZdsMeQ4kA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795720904;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=SYfZ5V1jsDjj7FUYkj2tvXm8nsCskzM5brqwOrMETT0=;
-	b=H7LrrC2aCHQFqSMPoYpS5sU+FQJ7gQI7d/N/dveeKcZsUh/a0vNf7fGbksufx300x1oN
-	 e5MAohs/YNMTaOOYui9RMlMZ3vKMUcNBucMeyqrutL25jEinBvnSLX3akWTGmhTdCocGH
-	 IfZE43PYM+Wdx6NONs4bbK609aIzgnARNlf2kyPEveehHLjtc6dZXlYny3GlZn/wAI8bg
-	 IEjZMdy9x4ON8ZBn/hhygFBGi8O3O25vHY4097PuS8iG83FJw4yujOtVzB0B87fHxg85f
-	 7wOLUU2/EaOR3JA951lxx/SLwpDPh549hIJypKb41LQZzh0H7TcMTu3QujqGpLAdkCQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I4A28ja1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12533606A31C;
-	Thu, 26 Nov 2026 19:21:43 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I4A28ja1
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795720903;
-	b=EhmQkME9C3BYZrdc8kU6tv5b0+f5/ETkyLOULVQ4Qe62zXHkbAgO3eUO6VWVQbwlC69Z
-	 t0fFu7FUnU13tJZIXGYtzENzPLrus+aCcVI4C6S7gB9+ayaR9jIGrllhCBXyXJxkFCcau
-	 cEJoKAHNyW6xZQJUrx2AYp8BvydC/N55DtovyUSem2yvxKqTeGzhVj4ZvP4NpVSvZbrbE
-	 vd5b4bGlXz0JwMPBH38scKxDALV3fCDzPsKQQTG8dmnK6uGOxF/2C6eEQmjUAH38c6lE/
-	 wmuNQ5eT4r8yArTq1HozOIFp7zNDIj+PJfORE1OPw7a2dVzQ8fuuPnzMGoAJhsU5OVw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795720903;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=SYfZ5V1jsDjj7FUYkj2tvXm8nsCskzM5brqwOrMETT0=;
-	b=iVgbU9UOgo/0+GQ3fGFPYXtPx0Zf+jwBlW2tUxKSorvI+12lmiF2ZgRmeV3ZysR0Pqqg
-	 CXj9rerj/okrVF7ToX3rRmF7igRUvNBz0sOsKt4COMybHCX4/bZPaeP5LeX5dDs4BgKWP
-	 IsUKxJStt3Y/M4Hstdr5T1rd+b79e+Fgcq7Tayrveve/6c9GR5SkTUSR2xqVjc14yr3zq
-	 9Z2fw7xJS0p8EXHwRT3Q9ec5W3h4vSl83xJts3KCd655hSjV7tTlYT5F9T/fq5hopS7d/
-	 ZTSy0K7TNMxC6U7/q3lufgsX0XA+YdwC5MMRZYlHQxv+Yj3xtTA3y68v92iCGZ5v6fw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795720982;
+	b=FOhGNZiVqNsEImaSMiEN1NxqMstW6VeWG8MyzCeCkRYerlzd8MRafkIK0/rrwU4Pyp17
+	 AUyraRgOyvVEsl9BVfTivu4LY50VKIAZc8oqKq2CDWp3fx3vQSNYobir0rV1/9KU3h5ZD
+	 xQur1NXrPA3ncNNbtxk4ewMgqz9oQphcSsJpo+XbvCNpOZTlngBLHJn08PM5/QTFqYcET
+	 +228kWaEMaU4H3yN4SPR/LNfCuCwrKumGLyNO7g79kYcbjnZUJ0hWupBExrvSD79+b4XY
+	 tBwNp6ZufWKmhNDy01A9SqgE0Z4OAKDz8FoKPny9Y0w9HMLhhAa06Vq0DJGE5wP+8jQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795720982;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:CC:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=Ekt6tnrn/MHafXwRue82TAoQjyGGfHrJVwDqnP/rOOA=;
+	b=MMahW1V8lcDMEJfwEO/4Drrxd9JhHJ7t1n0Pbx5m9TLDkqPeh6TPyND4N4o/2V29Y34p
+	 +vA0D5rdbRtcqGZGzTNE04MzyUurNH75O79mA6S0wtJMbRPjcWQ+Zo5F+i1xQZVCF4gf5
+	 8zdgU+8qiqi6acxlvbJN/It1bRw9lADqCc0uTU+WkyKjlTy+fL6zjYr4xdSpGx7A+ti2a
+	 2guqegsuYC6Mbv0WAu32oMrZQ4UHXYztO88hrF1st+M5RCpfVVNz6a5zwxrLmPysGN3Fd
+	 rl/jbO/DW8CLVsRylLa0qe6+havM6doi7Mp7EJ2vLXExkH/6uJDMjgxDFlbS941NRNg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=YBG5lFvW;
+	arc=none smtp.remote-ip=68.232.153.233
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4E9F11F000C6;
-	Thu, 26 Nov 2026 19:21:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795720903;
-	bh=SYfZ5V1jsDjj7FUYkj2tvXm8nsCskzM5brqwOrMETT0=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=I4A28ja11s1PnttsNwmPy0CNcG1y8TXZsx2YlBWEG/eEodf+FBN3Pp0toJGSTcCr6
-	 8X1br7KuT8Nv8leKU8O/ZZpUEOofWLmmf4k8zA+4i3bf6QsGJUDIHVMmzJNIUytGM/
-	 ueBkLDUcJCUozwUlchl1p7XnxdflpwM3hoa8MohgOXh6tPuyOfF0H8Oh4PwfdDAIIE
-	 TyjJZEKO5aigIq1jrXPWX2KWVGYVDSEIemgb4T4p+uzf8+kCLaVfsSu3ZPD+RROmOd
-	 DeAVyT3z8m7KiyC07w3iXqpOtRU1fLc3ae3jAFyVL6jC6wqkTFprEN9b0tMCgbwaXv
-	 SYCT3wY6+tKNA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A0B8B4D7B2;
-	Thu, 26 Nov 2026 19:21:31 +0000 (UTC)
-From: Joseph Telaak via B4 Relay <devnull+joseph.telaak.dev@kernel.org>
-Subject: [PATCH v3 0/5] MIPS: Add support for the Siflower SF19A2890
-Date: Thu, 26 Nov 2026 14:21:28 -0500
-Message-Id: <20261126-sf19a2890-mips-v3-0-1f808d38ab37@telaak.dev>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76F7C606A321;
+	Thu, 26 Nov 2026 19:23:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76F7C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=YBG5lFvW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795720981; x=1827256981;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=a63giE3GAEyRJi+/cgl4pN/fgQ5g8XlafoOBN2jenWk=;
+  b=YBG5lFvWjMnoN7zm3H1cA1Ebf0Tcs2Sf+EsCg7NtRTV5kYDP/v+IJJSm
+   Vz6kfpCj8aNoxAnDBgwAq3x5AU8kkubPS1q/7aCXjla3lb9iWIIwM9EC8
+   ALiUTUxWtBdjLUQbFgdEp8dxK774Kj7dtgaRBhm+P8ZxBO5lWjPSLO6js
+   YBqUqR+qxd6e1aGo6XdKSvNyHKjubayoQzvArEDZXk6QnwzSifVf920N9
+   9jC31whnUKw9Cwqiw8+EuJ6wvdw75pE/X440gStO6LU/DS+Yj1YiQ/Fix
+   v303TCu/J9GCNNt1he3pIGvetABdlWpLRc7FH8ApdPdUqR/+r1tMHOMM4
+   g==;
+X-CSE-ConnectionGUID: cJrWm9LpRQuGanb6V7fX1A==
+X-CSE-MsgGUID: Goy6/coFQxW6BjWfnMMW3Q==
+X-IronPort-AV: E=Sophos;i="6.27,235,1787036400"; 
+   d="scan'208";a="67110987"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 26 Nov 2026 12:23:00 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Thu, 26 Nov 2026 12:23:00 -0700
+Received: from [10.171.248.17] (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Thu, 26 Nov 2026 12:22:57 -0700
+Message-ID: <78626de7-84b4-4a96-9f50-0e2fbb8bf20c@microchip.com>
+Date: Thu, 26 Nov 2026 20:22:56 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,137 +72,195 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIALiGCGsC/2WNyQ6CMBRFf4V0bU1bsIMr/8O4eMCr1AEIxUZD+
- HdbjInD8iT3nDsRj4NDT7bZRAYMzruujZCvMlI10B6RujoyEUxIzpmg3nIDQhtGr673FEolamP
- AKqNIlPoBrbsvwf3hxf5WnrAaUyUtGufHbngsj4Gn3Tte/MYDp4wioGZaMLBS70a8AJzXNQaS6
- kF8+Jz/+SL6uVQ5s1DYDcgvf57nJ/yEp5r/AAAA
-X-Change-ID: 20261102-sf19a2890-mips-ab72d99af797
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Paul Burton <paulburton@kernel.org>
-Cc: Jiaxun Yang <jiaxun.yang@flygoat.com>, 
- Chuanhong Guo <gch981213@gmail.com>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, linux-mips@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Joseph Telaak <joseph@telaak.dev>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795720890; l=4992;
- i=joseph@telaak.dev; s=20261104; h=from:subject:message-id;
- bh=NDJVn2qtq0h1fvaOlluk96FKNRDn4kyq5YVOFaXbS3c=;
- b=o0Zf7feQVx3tXxRn1Y2vJsbcROW++R3mqWxSj4+EuovdLJ7csFjZkCjC4JMoKh8wZlMEmRoT2
- Nm1IsIqfOMZDCESlTFtkW9QaK5/XZZoLA+QV89Uu3R60EOgwLVakHuf
-X-Developer-Key: i=joseph@telaak.dev; a=ed25519;
- pk=oQI+UfddlZ0wK2ac4WKOGNjUl1ZEN8j9ZVFSqEDoNP0=
-X-Endpoint-Received: by B4 Relay for joseph@telaak.dev/20261104 with
- auth_id=1404
-X-Original-From: Joseph Telaak <joseph@telaak.dev>
-Reply-To: joseph@telaak.dev
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] mmc: sdhci-of-at91: disable selectively clocks on pm
+ runtime
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+CC: Ulf Hansson <ulfh@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+	Eugen Hristev <ehristev@kernel.org>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, Romain Sioen <romain.sioen@microchip.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Ludovic Desroches
+	<ludovic.desroches@microchip.com>, Robert Marko <robert.marko@sartura.hr>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Ryan Wanner
+	<ryan.wanner@microchip.com>, <linux-mmc@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20261014202619.715573-1-aubin.constans@microchip.com>
+ <CAPx+jO-fyYy9ZX_O9UQ-tSnOG7LCd0rZ8SNn307hFWLbUAqBRw@mail.gmail.com>
+Content-Language: en-US, fr
+From: Aubin Constans <aubin.constans@microchip.com>
+In-Reply-To: <CAPx+jO-fyYy9ZX_O9UQ-tSnOG7LCd0rZ8SNn307hFWLbUAqBRw@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
 
-This series adds basic support for the Siflower SF19A2890, a MIPS
-interAptiv SoC (two cores, two VPEs each) for home routers, and for the
-GL.iNet GL-SFT1200 ("Opal") travel router built on it. It boots to a
-shell on the PL011 console with all four CPUs up.
+On 29/10/2026 12:31, Ulf Hansson wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> On Wed, Oct 14, 2026 at 10:28 PM Aubin Constans
+> <aubin.constans@microchip.com> wrote:
+>>
+>> From: Claudiu Beznea <claudiu.beznea@microchip.com>
+>>
+>> SDMMC run-time clock disabling is not supported in newer SoCs, including
+>> SAMA7G54, SAMA7D65 and LAN969x.
+> 
+> That sounds a bit vague to me. Exactly why can't the clocks be
+> disabled? It seems like the clocks are still being used on these newer
+> SoCs.
 
-Patches 1 and 3 are Chuanhong Guo's patch from January 2025 [1], rebased
-and split in two: patch 1 adds MACH_SIFLOWER_MIPS, patch 3 the kmalloc.h
-override. Jiaxun asked then why it does not use MIPS_GENERIC. It does:
-MACH_SIFLOWER_MIPS selects MIPS_GENERIC and MACH_GENERIC_CORE and boots
-through arch/mips/generic, the way MACH_REALTEK_RTL and MACH_INGENIC_SOC
-do. What it avoids is MIPS_GENERIC_KERNEL, which selects
-MIPS_L1_CACHE_SHIFT_7 and takes ARCH_DMA_MINALIGN 128 from
-mach-generic/kmalloc.h, so that with DMA_NONCOHERENT no kmalloc cache
-below 128 bytes exists. The interAptiv's L1 and L2 lines are 32 bytes
-(the boot log reports both).
+Disabling the SDMMC input clocks in sdhci_at91_runtime_suspend() starts by
+disabling "multclk", also referred to as gck, and that may trigger the
+"GCLK cannot be stopped" silicon erratum [1].
 
-On a GL-SFT1200 (128 MB) booted to an idle initramfs, 62 s after boot:
+On theory, doing a SDHCI_RESET_ALL register reset before stopping gck is a
+workaround to the erratum.
+However, as of writing, it has not been confirmed whether the above erratum
+is the only one issue to consider if the input clocks get paused.
 
-                                       MemFree   Slab   kmalloc-128 objs
-  this series (MACH_SIFLOWER_MIPS)     107444    4832   1497
-  MIPS_GENERIC_KERNEL                  106442    5252   5538
-  MIPS_GENERIC_KERNEL, DMA_MINALIGN 32 107660    4732   1497
+Would that explanation make the change acceptable as a step to support the
+newer SoCs?
 
-(kB, means of two boots.) So the whole difference, about 1 MB, comes
-from the 128-byte kmalloc alignment; the larger L1_CACHE_SHIFT costs
-nothing measurable. If the generic kernel sized its kmalloc alignment
-from the probed cache lines at run time, as arm64 does, this board could
-use MIPS_GENERIC_KERNEL, and I can send that change in place of a
-platform of its own if you prefer.
+[1] [DS80001016] https://onlinedocs.microchip.com/oxy/GUID-CFE060D6-6076-46C0-B8FD-60B6DA382A42-en-US-11/GUID-3205B886-CA92-4E43-9495-A4B882B5DBE0.html
 
-The SoC's clock controller has a driver of its own, sent to the clk
-tree [2]. Its drivers depend on MACH_SIFLOWER_MIPS, so the clk series
-carries patch 1 of this series as its own patch 1, unchanged, and
-whichever of the MIPS and clk trees takes it first can put it on an
-immutable branch for the other. Thomas, would you ack it there, or
-take it and provide the branch?
-
-Until that driver is merged, the dtsi describes the clock rates the
-bootloader programs with fixed clocks; a later patch replaces them. The
-pin controller, GPIO, USB PHY, DWC2 and GMAC drivers go to their own
-trees.
-
-Patch 2 adds a MAINTAINERS entry for the SoC. Its "N: sf19a2890" also
-matches the SoC's drivers in other trees, which add entries of their
-own.
-
-Tested on a GL-SFT1200, booted from U-Boot over TFTP: the initramfs
-shell on ttyAMA0; four CPUs, with CPUs 1-3 taken offline and back
-online; the GIC timer within 0.06 s of a reference clock over 298 s; and
-the UART divisors U-Boot programs (IBRD 0x43, FBRD 0x34), which confirm
-the 125 MHz UART clock in the device tree.
-
-[1] https://lore.kernel.org/r/20250120015254.124447-1-gch981213@gmail.com
-[2] https://lore.kernel.org/r/20261125-sf19a2890-sysm-v6-0-181875c10682@telaak.dev
-
----
-Changes in v3:
-- Split Chuanhong's patch: MACH_SIFLOWER_MIPS first, as the clk series
-  carries it, and the kmalloc.h override in patch 3 (Brian, on the clk
-  series).
-- Lengthen the MACH_SIFLOWER_MIPS help.
-- Put the platform patch first and the bindings and MAINTAINERS entry
-  second; the kmalloc.h patch adds its F: line.
-- Collect Conor's Acked-by on the bindings.
-- Link to v2: https://patch.msgid.link/20261111-sf19a2890-mips-v2-0-36730fa4f5a6@telaak.dev
-
-Changes in v2:
-- Write my note on Chuanhong's patch as a list.
-- Drop drivers/gpio/gpio-siflower.c from the MAINTAINERS entry; the GPIO
-  series now adds an entry of its own (Conor).
-- Use the current SPDX identifiers in the new files.
-- Order the dtsi's nodes and properties as dt-check-style --mode=strict
-  expects, with a blank line before status.
-- Link to v1: https://patch.msgid.link/20261104-sf19a2890-mips-v1-0-eae80820af68@telaak.dev
-
----
-Chuanhong Guo (2):
-      MIPS: Add support for Siflower MIPS SoCs
-      MIPS: siflower: Override the kmalloc alignment
-
-Joseph Telaak (3):
-      dt-bindings: mips: Add Siflower SF19A2890 based boards
-      MIPS: dts: Add Siflower SF19A2890 and GL.iNet GL-SFT1200
-      MIPS: configs: Add sf19a2890_defconfig
-
- .../devicetree/bindings/mips/siflower.yaml         | 26 ++++++
- MAINTAINERS                                        | 10 +++
- arch/mips/Kconfig                                  | 33 ++++++++
- arch/mips/boot/dts/Makefile                        |  1 +
- arch/mips/boot/dts/siflower/Makefile               |  2 +
- .../dts/siflower/sf19a2890-glinet-gl-sft1200.dts   | 27 ++++++
- arch/mips/boot/dts/siflower/sf19a2890.dtsi         | 97 ++++++++++++++++++++++
- arch/mips/configs/sf19a2890_defconfig              | 15 ++++
- arch/mips/generic/Platform                         |  1 +
- arch/mips/include/asm/mach-siflower/kmalloc.h      |  9 ++
- 10 files changed, 221 insertions(+)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261102-sf19a2890-mips-ab72d99af797
-
-Best regards,
---  
-Joseph Telaak <joseph@telaak.dev>
-
+> 
+>>
+>> Make the clock disabling scenario conditional:
+>> - still enabled for the sama5d2 and sam9x60 compatibles (which are all
+>>    those implemented at present),
+>> - otherwise avoided by default, for subsequent SoC families.
+>>
+>> Signed-off-by: Claudiu Beznea <claudiu.beznea@microchip.com>
+>> [Romain: Fix unbalanced clock activation/deactivation]
+>> Co-developed-by: Romain Sioen <romain.sioen@microchip.com>
+>> Signed-off-by: Romain Sioen <romain.sioen@microchip.com>
+>> [Aubin: Rebase before sama7g5 support and edit the commit msg]
+>> Signed-off-by: Aubin Constans <aubin.constans@microchip.com>
+>> Tested-by: Robert Marko <robert.marko@sartura.hr>
+> 
+> Kind regards
+> Uffe
+> 
+>> ---
+>> Changes in v2:
+>> - Edit the commit msg to say the patch prepares SAMA7G54/SAMA7D65/LAN969x
+>>    SoC support w/o immediate change.
+>>    Also, move and summarize Romain's own commit msg close to its sign-off.
+>> - Restore Claudiu's author and sign-off email to the microchip.com address
+>>    he had upon writing the patch.
+>> - Link to v1: https://lore.kernel.org/r/20260918153414.909333-1-aubin.constans@microchip.com
+>>
+>>   drivers/mmc/host/sdhci-of-at91.c | 36 ++++++++++++++++++++++++--------
+>>   1 file changed, 27 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/drivers/mmc/host/sdhci-of-at91.c b/drivers/mmc/host/sdhci-of-at91.c
+>> index 7c4ac65f247d..399856643e57 100644
+>> --- a/drivers/mmc/host/sdhci-of-at91.c
+>> +++ b/drivers/mmc/host/sdhci-of-at91.c
+>> @@ -39,6 +39,7 @@ struct sdhci_at91_soc_data {
+>>          const struct sdhci_pltfm_data *pdata;
+>>          bool baseclk_is_generated_internally;
+>>          unsigned int divider_for_baseclk;
+>> +       bool pm_runtime_disable_clks;
+>>   };
+>>
+>>   struct sdhci_at91_priv {
+>> @@ -149,12 +150,14 @@ static const struct sdhci_pltfm_data sdhci_sama5d2_pdata = {
+>>   static const struct sdhci_at91_soc_data soc_data_sama5d2 = {
+>>          .pdata = &sdhci_sama5d2_pdata,
+>>          .baseclk_is_generated_internally = false,
+>> +       .pm_runtime_disable_clks = true,
+>>   };
+>>
+>>   static const struct sdhci_at91_soc_data soc_data_sam9x60 = {
+>>          .pdata = &sdhci_sama5d2_pdata,
+>>          .baseclk_is_generated_internally = true,
+>>          .divider_for_baseclk = 2,
+>> +       .pm_runtime_disable_clks = true,
+>>   };
+>>
+>>   static const struct of_device_id sdhci_at91_dt_match[] = {
+>> @@ -164,7 +167,7 @@ static const struct of_device_id sdhci_at91_dt_match[] = {
+>>   };
+>>   MODULE_DEVICE_TABLE(of, sdhci_at91_dt_match);
+>>
+>> -static int sdhci_at91_set_clks_presets(struct device *dev)
+>> +static int sdhci_at91_set_clks_presets(struct device *dev, bool start_clks)
+>>   {
+>>          struct sdhci_host *host = dev_get_drvdata(dev);
+>>          struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+>> @@ -174,7 +177,14 @@ static int sdhci_at91_set_clks_presets(struct device *dev)
+>>          unsigned int                    gck_rate, clk_base_rate;
+>>          unsigned int                    preset_div;
+>>
+>> -       clk_prepare_enable(priv->hclock);
+>> +       /*
+>> +        * Manage clock prepare/enable procedure depending on if the board
+>> +        * support runtime clock disabling and if we come from the probing
+>> +        * or restoring procedure (for backup+self refresh).
+>> +        */
+>> +       if (start_clks)
+>> +               clk_prepare_enable(priv->hclock);
+>> +
+>>          caps0 = readl(host->ioaddr + SDHCI_CAPABILITIES);
+>>          caps1 = readl(host->ioaddr + SDHCI_CAPABILITIES_1);
+>>
+>> @@ -223,8 +233,11 @@ static int sdhci_at91_set_clks_presets(struct device *dev)
+>>          writew(SDHCI_AT91_PRESET_COMMON_CONF | preset_div,
+>>                 host->ioaddr + SDHCI_PRESET_FOR_DDR50);
+>>
+>> -       clk_prepare_enable(priv->mainck);
+>> -       clk_prepare_enable(priv->gck);
+>> +       /* Same clock management as for hclock */
+>> +       if (start_clks) {
+>> +               clk_prepare_enable(priv->mainck);
+>> +               clk_prepare_enable(priv->gck);
+>> +       }
+>>
+>>          return 0;
+>>   }
+>> @@ -254,9 +267,11 @@ static int sdhci_at91_runtime_suspend(struct device *dev)
+>>          if (host->tuning_mode != SDHCI_TUNING_MODE_3)
+>>                  mmc_retune_needed(host->mmc);
+>>
+>> -       clk_disable_unprepare(priv->gck);
+>> -       clk_disable_unprepare(priv->hclock);
+>> -       clk_disable_unprepare(priv->mainck);
+>> +       if (priv->soc_data->pm_runtime_disable_clks) {
+>> +               clk_disable_unprepare(priv->gck);
+>> +               clk_disable_unprepare(priv->hclock);
+>> +               clk_disable_unprepare(priv->mainck);
+>> +       }
+>>
+>>          return 0;
+>>   }
+>> @@ -269,7 +284,7 @@ static int sdhci_at91_runtime_resume(struct device *dev)
+>>          int ret;
+>>
+>>          if (priv->restore_needed) {
+>> -               ret = sdhci_at91_set_clks_presets(dev);
+>> +               ret = sdhci_at91_set_clks_presets(dev, priv->soc_data->pm_runtime_disable_clks);
+>>                  if (ret)
+>>                          return ret;
+>>
+>> @@ -277,6 +292,9 @@ static int sdhci_at91_runtime_resume(struct device *dev)
+>>                  goto out;
+>>          }
+>>
+>> +       if (!priv->soc_data->pm_runtime_disable_clks)
+>> +               goto out;
+>> +
+>>          ret = clk_prepare_enable(priv->mainck);
+>>          if (ret) {
+>>                  dev_err(dev, "can't enable mainck\n");
+>> @@ -344,7 +362,7 @@ static int sdhci_at91_probe(struct platform_device *pdev)
+>>                  return dev_err_probe(&pdev->dev, PTR_ERR(priv->gck),
+>>                                       "failed to get multclk\n");
+>>
+>> -       ret = sdhci_at91_set_clks_presets(&pdev->dev);
+>> +       ret = sdhci_at91_set_clks_presets(&pdev->dev, true);
+>>          if (ret)
+>>                  return ret;
+>>
+>> --
+>> 2.43.0
+>>
 
