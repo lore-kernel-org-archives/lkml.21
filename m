@@ -1,103 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795693510;
-	b=ZVGqs9FKKtoFPP3Yla2ceRcUYRpQlHylayFG2+QvmE2UKYPfvRiBuVW9mLct86iVjN32
-	 Ie1JXDBnHEtYx+djuTfLoGUki+nH3WkU9ZuMzrI1GHKJOKk0tK+Y7+2UtykNmdycNP7/U
-	 PGK/CAUguHja6esx3s8JvAxU0QuPW+LkP6FhlENS7KBaQHe00U3h/wAQ8sePp8GlegN6X
-	 ej02JparTjcyAU86RZBxqhMVS7/8QZIPWrpXnz4axpo5DDe87fh9cl/tIkwA8z7EiqQp8
-	 bUEtVEIoi2Z3c6meDEI0zJiB793fGAYak8GPJKhjpkYqDA9nONzvM1ywSVkYhtwbXsg==
+	t=1795693538;
+	b=DLJLEcVKxZfOOFJqCmF/cQ401f4ChXyMIHx6F9KZAfhENu29Rku1ESywM1mveWxs4PGj
+	 IG+ZHx1KLS+hK686nS5cDyQ4aex7tkXrqKMx1jtkGKR3O8dwL1JKKhl9h1Ru8cqoewYmp
+	 Jl4hp/9+9RlwrSkkEqr6HzJRd7KPg1qAI+PbU1gFvalxZbHIMSYwWuGlhPh0zTb2eD4N4
+	 gL/T/c2cKLoB2Ka1Jyrddekg6pMcg4vj3qeIz5mVI6UfTEktlwKLxveUkd4i4LVmzhR8Z
+	 Hei9P7PFXDNKwyxxlpoE+5Am9G66I0OWlcV02i3X+3wBp9zqTelMletS5lESqVd0Ehw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795693510;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=5BVeDoXywdonN8l0fahN7PgNc5xFYXRHYBZPC3PlIr4=;
-	b=FQIXqD2h6S30DF2KnYZMWzg6JGgz1rG3UEJhXS2fkTLTKl7589u4NGLe8cqPMmkWelT2
-	 0tB/a73jYDBZ2GjtSdhwbJ8yMnn5y7NJ4trotY4SEUO53wXyvTU+WnDuQEtAXb1AAr7qt
-	 4QiliWqN6tdUSLUfPJMs402deps049ABrytb71AnQQ9/yTLu83+sdRxC1YltZtYMc/Duu
-	 ZJvN681D5XQiXHPyEZaCnX0UVDcpi+X5WGvc5magQW8zhoOBafoB16alRu1C/eKZC+tZz
-	 m9UWcu/FrFB5ExmejmObyCsYdc0Tb7aRc2U9hGmEwPFOEKrRKRzIZmLD7IbkFk060bg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795693538;
+	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
+	 Content-Type:Date:Message-Id:Subject:Cc:To:From:References:
+	 In-Reply-To;
+	bh=bhvFwtF3U6kOOLH4HNUlH3bobwyUeQvz0yMfUYKwy/0=;
+	b=ULRZxVhvEUv1I2afOcCs92vEAXTO0nVFF0NPruLYd+LnpjPRsW2Xl0GG7wezHFxv6k7W
+	 DnE3nDByCLOttXyvNohGgb0bnuSpKCW+NqxF/yw0dTIQUJf/tWdo7Z6WwXWcCtTB0lLFf
+	 kZjD57e7ooCLazuAwps9rNfntODWxfLCa5G4e837X+NvKfikwzRM6q8dvkxZk3Lqz7N+6
+	 afLhFl7WQksAydBmUEvow+G4X7Y3OM2W3c4VNWPLHzDBK90Odv9O//xXeB8/+PIW+6K/M
+	 ksZl97JWBM9Qnt4qpYtlj6jUMT021jGXAPJauFUHyimy1zKSIvLx4s218PjoQbq+Lsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S2hH+FUi;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xo+kh0V2;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A787F606A334;
-	Thu, 26 Nov 2026 11:45:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C037606A31E;
+	Thu, 26 Nov 2026 11:45:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S2hH+FUi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D8741F000C4;
-	Thu, 26 Nov 2026 11:44:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xo+kh0V2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 601801F000F0;
+	Thu, 26 Nov 2026 11:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795693510;
-	bh=5BVeDoXywdonN8l0fahN7PgNc5xFYXRHYBZPC3PlIr4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=S2hH+FUi1whGz3Tc5erJ4wvaQIsa7/tWSP/c6X9vu53OBUKo1B0WiNAclJt6yAFgm
-	 pGz1Ex70shjn/h1DHItCYjmiSeUn89UCHCA4G1w1wWeCAdswE3zJrMKPMwFzKMZlDd
-	 nC0SY1V0v4hU5bqu5wSTOQsO02ln/4LBS8/pU19gTTq8a94zu1u2oRzquyVVWvfoyJ
-	 A9Q9F5dRlSSngm44CD8uAUW6WllAHTLL/ZABWNrv2paiBktHMVqFSwsqVP75fnKoBF
-	 d/7+x6dvllgHhWRvd2tJbeHoIPzncqy0ud8b0/7wXvqdGK8WsxcZSCgR/1wb4XGsOs
-	 rx6swYcSlIfow==
-From: Mike Rapoport <rppt@kernel.org>
-To: Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Paul Walmsley <pjw@kernel.org>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Rich Felker <dalias@libc.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	x86@kernel.org,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Cong Wang <cwang@multikernel.io>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	WANG Xuerui <kernel@xen0n.name>,
-	kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev
-Subject: Re: [PATCH 0/2] arch, kexec: declare kexec and crash capabilities in Kconfig.kexec
-Date: Thu, 26 Nov 2026 13:44:53 +0200
-Message-ID: <179569348034.4110350.10768570671103859123.b4-ty@b4>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
-References: <20261119-arch-kconfig-v1-0-37c276fe4d26@kernel.org>
+	s=k20260515; t=1795693538;
+	bh=bhvFwtF3U6kOOLH4HNUlH3bobwyUeQvz0yMfUYKwy/0=;
+	h=Date:Subject:Cc:To:From:References:In-Reply-To;
+	b=Xo+kh0V284JacJ6eZoC4IYjN+CakyB8Z5Klvt2Vni7FbVu1WTGPD5SBshDMR1j0Kc
+	 fiQVRZxlshn6MDqSO7bhcYJ+EXmfMnBdNYJ6a4ROkGrKJ0RH03LLbdGVpzYjlQYss1
+	 Y2XQD9JUhk3Y4B/y/2fiiugCt+nh6pSeDGVv7wzkiqZhwWMkE7ry5ECI8E4ghO8Fxf
+	 9g/fqymyOM/EyPLdYPI3U4M859AoO2J7haFUYHF7kyW/qqAeGn3HtDkJCz7GDWoRS9
+	 s3wgwD045CXRwFDLs4xDX8YxmPd08GANuWJO5IkBQNmcgY0rDXrQmqECgpUO/uApmJ
+	 pVyzFu+NUe9Kw==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,26 +48,51 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 26 Nov 2026 12:45:33 +0100
+Message-Id: <DN548CRVXMGK.BOPO5J56Y1OH@kernel.org>
+Subject: Re: [PATCH v7 3/3] drm/tyr: add Job IRQ handling
+Cc: "Daniel Almeida" <daniel.almeida@collabora.com>, "Alice Ryhl"
+ <aliceryhl@google.com>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
+ <simona@ffwll.ch>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun Feng"
+ <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Trevor
+ Gross" <tmgross@umich.edu>, "Tamir Duberstein" <tamird@kernel.org>,
+ "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
+ <work@onurozkan.dev>, <linux-kernel@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <rust-for-linux@vger.kernel.org>,
+ <kernel@collabora.com>, "Deborah Brouwer" <deborah.brouwer@collabora.com>
+To: "Laura Nao" <laura.nao@collabora.com>
+From: "Danilo Krummrich" <dakr@kernel.org>
+References: <20260728-tyr-irq-v2-v7-0-4e172e58e28c@collabora.com>
+ <20260728-tyr-irq-v2-v7-3-4e172e58e28c@collabora.com>
+In-Reply-To: <20260728-tyr-irq-v2-v7-3-4e172e58e28c@collabora.com>
 
-From: Mike Rapoport (Microsoft) <rppt@kernel.org>
+On Mon Nov 23, 2026 at 3:58 PM CET, Laura Nao wrote:
+> +/// Requests a threaded IRQ registration for the Job IRQ.
+> +///
+> +/// # Safety
+> +///
+> +/// Callers must not `mem::forget()` the resulting registration or other=
+wise prevent its
+> +/// [`Drop`] implementation from running.
+> +pub(crate) unsafe fn job_irq_init<'a>(
+> +    pdev: &'a platform::Device<Bound>,
+> +    hw: Arc<HwGate<'a>>,
+> +    events: Arc<JobIrqEvents>,
+> +) -> Result<Pin<KBox<TyrIrqRegistration<'a, JobIrq>>>> {
+> +    let job_irq =3D JobIrq { events };
+> +    // Ensure interrupt sources are disabled until the handler is regist=
+ered.
+> +    job_irq.clear_mask(hw.access().iomem());
+> +
+> +    // SAFETY: The caller guarantees the resulting registration will not=
+ be leaked.
+> +    unsafe { TyrIrqRegistration::request(pdev, c"job", job_irq, hw) }
+> +}
 
-On Thu, 19 Nov 2026 08:16:56 +0200, Mike Rapoport (Microsoft) wrote:
-> The intention is to take it via kexec tree.
-
-Applied to kexec-7.5 branch of liveupdate/linux.git tree, thanks!
-
-[1/2] MAINTAINERS: add kernel/Kconfig.kexec to KEXEC
-      commit: 09ade745fcd10af7fa62c73a918cae6814c5b0d8
-[2/2] arch, kexec: declare kexec and crash capabilities in Kconfig.kexec
-      commit: e583fcbe5b58597fdd81bcf150115fb801d6507f
-
-tree: https://git.kernel.org/pub/scm/linux/kernel/git/liveupdate/linux
-branch: kexec-7.5
-
---
-Sincerely yours,
-Mike.
-
+You could implement a constructor in an impl TyrIrqRegistration<'a, JobIrq>
+block instead, which is think is cleaner than a free standing function.
