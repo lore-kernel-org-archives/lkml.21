@@ -1,116 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.100
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795709703;
-	b=Xqug00RCzGABbg5/ZDHm6K8kDSwHEBtMwn9nIESa5wnbaxjzkRCZrLtGo7ORkppu2Qld
-	 3plTBOLzFeSfK1M2qfD4w2LJoB7OS5PpMxb2KyzocHdlEadEIfscUMe0qCDOdjGYZZ02w
-	 WFZHY9FbacYxASS1hYXpOXRp1cIz8vqgYrrHkfXrRVpLYfJYLdgJgtdrO0DlFkaxNo1SJ
-	 zCnmPN+EcdUxs4vx5aP7PgpUzcdtMJfG5QMLOi4Ibhh4eITehWz37FZxs+QLvkZ5qzH5P
-	 TQs8hJe5bxhkLLJUr8BljBzMu2RtwwFsEIPICqLRFA6GUbRgs5G7mDsj5r7UbB52IFA==
+	t=1795709705;
+	b=aw/hljEwXV5/afRmThxzBTzWxCh4TT3OoZzQf+LhMqkHiSgW/tovkgkLYqTGImPX2t/T
+	 rLjikQBkjFvxWv8LbideHVYyy7pW70a3E/TR90DXQ8YG3kV+4OGqQIunGndTyhrfh9KfV
+	 k8WWOGZqvn/6kaKhaB8V/9AOHTLE50YHEeKM1xaZ+majW+VnQdLmuhw6mvjNOwEtqBE8i
+	 SThj2K5qag8Kk5OU2ymiJNi5zoxj/eEXMjDLDQC0nlcl8UEYs/LKYnmXmyj2nloOS1tuB
+	 kZYLglZzlerpJ3TmQg4S+YkCo9k1ii/4Jn3cxBFI9dZRbfxVnqw28RrPqxqBNuOtKEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795709703;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=N7eaA+pAnwf/IqHnAWMBkaURdmeG2S8bgeOrBt9N6m4=;
-	b=2cbVEW5s6PXvBXqsG31F+j/gAOtREMu+LgTilT5XdhVFy0BJvTzix1Uj6OE2E5h1dLQy
-	 F7FEAVYLMsm1zFqoIzWXjpn4VM43PAID8rqmJNcrzhFdb1Iz/ND4D3RdCxYIB788eVbLW
-	 BhUwa5YEyVQBCM/AU79LxrQdnywPlFfrQ0Pc75O5aV4m0d0/CM1iXPNSmEW5LSeqMloJD
-	 6EVU2squrzYIqB5SAgP6Pws/JbP5oqCDQAwuNroeFdIGIh+LhCkVkX3O/5mkw+NZDNO3R
-	 J8CoRx5mLXgPRt2cusGil1i0rcibrZTOrNH7z/35PpIlIhkfmONqXvnWqJY/OFF+pRQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795709705;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=3lKSc+Bc+1wSufdoeF5bFWTjYJCqmuJF4q+Yk/oXdGQ=;
+	b=fHTENPEUOjR6W4hGKX6xHnIdPVoQ9SOcOPelstS8LAZDnO8011Ks517+l7VTFPcdAUBw
+	 NUm0Hlgmqpb4v4lakCFiUbWCOmtrM1E0/YIpiCbC1ovpBW37x1kL7yOKHauPKSTi9SE2D
+	 Ep95AILBAlitxxBznhQj4DYTDwEKR+zyjXOvpNAil6MgIdrdZqMJv7Ks40Sh6s4i62GiK
+	 PWltu+GtuH6LIKcD5AT0fzLdqE8qRTFVOpbEh0sBQJaeGFz2JDsSh1ghCtyiQfe7kw0jQ
+	 MpIA6DrUMfuNwx0yY3FaXDWmPsrMc1xGRTUP6tK7H1sXwP1KCthSD2wOGE39GKQoJ7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=GbtOW6Sa;
-	arc=none smtp.remote-ip=209.85.217.100
-Received: from mail-vs1-f100.google.com (mail-vs1-f100.google.com [209.85.217.100])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2D7B606A690
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:15:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2D7B606A690
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=MdINvNsj;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id CCCE660A2639
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 16:15:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCCE660A2639
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=GbtOW6Sa
-Received: by mail-vs1-f100.google.com with SMTP id ada2fe7eead31-7d2dc1ac787so2286042137.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:15:01 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795709701; x=1796314501;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=N7eaA+pAnwf/IqHnAWMBkaURdmeG2S8bgeOrBt9N6m4=;
-        b=TvJ4lBwUcF0o5GzRdAbU3Z3hoqVzJwU9pPqpX6BwORnd1bAXxeHF4/QeMsiJCQh6gu
-         56495wJZSghv9MvqVuo1N0ncqrCoXZjhZH3v8scBVfvr/9Fs8F51iRz1y05rRMEb/Wr6
-         dIvrryXeX/t/idSKXoJFap6Yfu9AGp10B9xkPXJ38NB8u5dvjVPUeB06dNDO/ulvZJJK
-         hrhBl2hCIU6hkhqh+u9gXa8q0AX50S1uszzFMcuc4NXi81AEj4YhbrBOcbumCjOjD0YM
-         ojt7inSg4mft5zwWhNf/xCejX+zlKecvCtHwKijTXZxngaPKi6iiMYtZ+d5W+iQVgFgg
-         PL0w==
-X-Forwarded-Encrypted: i=1; AL+hErEbMVy0CqiP2nCrF3nd+BCG2wZHKXT6qa0bt68ojO4deOcbVdc9MvTpWdVOABnTJxjPh33AKGTfT+BXjFc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8n5sfTjm0caxFLVp0X6zHhq60XSQ739KSziPoJbrcpch4f1D1l
-	+NmIsf955YTtZD5IPvx3y1OnjP+qOPF+VPZfNk1cyRo2/2P0QcXjRbm38FUV7toSLpRnwu8KuR1
-	7xlwJO65P3CqiIgo9ULWScQPsRHEZJG7Upwut9/H7KiF9Vf6kQvah5EPTZ5A6XAEhDrZNohpQx5
-	UYRKPY556Ilj1iqtb/9cLPm6PN4soP6PTto6UbQJ2tR8INx8RqQNaPD5ZHCpnfiubjfY/D228+3
-	Xvqyni43DpghbNDtxKbFXB99A==
-X-Gm-Gg: AZFdTZeph2FaqwOn8FCsIvEoESfqPT3UUNl1DMJbhz0wuFVyk8PQZV2+JYqvuRtV+Oj
-	JaisBgiEKLDNdPxNwX2ceeql08WkzEQ6swyVqYF9SzDVdxPBVG4kgw5IPEt9ZeglF9KIMPdQGtS
-	3SN1tVF8GsjmAXFGAOiHOqusQyQzrC15mn4KvTUCfTw1AfuhN5kgbKK86QxHMOp8HN5MmdijqWu
-	N/nG5d7/nUkHGqQApbkwpZxDuZWaYxfvI7KLmY6Ni1LYJUeLa39BHvxGFZgeXdBH98NKfXpcJWj
-	2xCLtwa12U8Uou2zlroR0NRzlFsCNlQN2Y2Dj8UrqZGoCSdRI25zv0Dhme48RQI4KHHFDniJIM1
-	aAYzPXi1W7aLWzTfEjaLjOgWLK0zCP97ozXCY+5JMvwyVj8rmd5CUsbpi5ar/sDkdTRoc7vUAk4
-	u46j5uN5IgrUM2TbTjrUj+I4qeN89/LsJtu8cRJcse4w==
-X-Received: by 2002:a05:6102:6e88:b0:7cc:2152:4f72 with SMTP id ada2fe7eead31-7d72b361a7fmr9735537137.1.1795709700535;
-        Thu, 26 Nov 2026 08:15:00 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
-        by smtp-relay.gmail.com with ESMTPS id a1e0cc1a2514c-99e6e1b3904sm2140103241.19.2026.11.26.08.15.00
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 26 Nov 2026 08:15:00 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-949b0d322fcso1196194285a.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:15:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795709700; x=1796314500; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=N7eaA+pAnwf/IqHnAWMBkaURdmeG2S8bgeOrBt9N6m4=;
-        b=GbtOW6Savwp3cwwmUI9xT4ybqKHdw0xxHBTN13THom7GUVdjaMyDcAIai7bKyWYO8M
-         PI985WronS0+aAx5/6hCFPOtsl+EhP4cF7uzUjQsHQm0m4YyiRWSj+heZPP3WEZKkrAB
-         1zaVNb8YdTrUbD6j8dG1DCyk0aa+ey9WcYXO4=
-X-Forwarded-Encrypted: i=1; AL+hErENzD54e2niShv7JwAQPrFnySfAJzsYW9WaZ01AcQ5KvqEIOuTrZ9G5OnRKWiTw3xmOLoiz8RY/UohrfnA=@vger.kernel.org
-X-Received: by 2002:a05:620a:28c8:b0:949:7acc:1695 with SMTP id af79cd13be357-949ba6c5900mr3583054285a.0.1795709699853;
-        Thu, 26 Nov 2026 08:14:59 -0800 (PST)
-X-Received: by 2002:a05:620a:28c8:b0:949:7acc:1695 with SMTP id af79cd13be357-949ba6c5900mr3583049185a.0.1795709699285;
-        Thu, 26 Nov 2026 08:14:59 -0800 (PST)
-Received: from bld-bun-02.bun.broadcom.net ([192.19.176.227])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949ca6a0693sm1377617285a.20.2026.11.26.08.14.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 08:14:58 -0800 (PST)
-From: Arend van Spriel <arend.vanspriel@broadcom.com>
-To: Andre Eikmeyer <dev@deq.rocks>
-Cc: arend.vanspriel@broadcom.com,
-	linux-wireless@vger.kernel.org,
-	brcm80211@lists.linux.dev,
-	brcm80211-dev-list.pdl@broadcom.com,
-	linux-kernel@vger.kernel.org,
-	Sasha Finkelstein <k@chaosmail.tech>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Aditya Garg <aditya.garg@linux.dev>,
-	Yossef Osman <Yossef.Osman@proton.me>
-Subject: Re: [PATCH wireless-next v2 5/6] wifi: brcmfmac: add vendor commands for AWDL
-Date: Thu, 26 Nov 2026 17:14:44 +0100
-Message-ID: <20261126161444.2484980-6-arend.vanspriel@broadcom.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261125190254.176055-6-dev@deq.rocks>
-References: <20261125190254.176055-6-dev@deq.rocks>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=MdINvNsj
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3DB481BA8;
+	Thu, 26 Nov 2026 08:15:00 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 58DE03F86F;
+	Thu, 26 Nov 2026 08:15:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795709703; bh=YbnSTX7ECabj5Kpk98lfgm3U879E7bHUwxxQyn3DVZo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MdINvNsjaxy3RRyoti23H/RAjpnn5we+doDDB2J4iLXsEWNA4PciuUHkY4S9rmvW9
+	 KGBKC3hmabiW3RgyXHJ+kF0KVxTZx1HIbM/Kf+mDXlGBJrUJDZQIc5HQ1GjxrkSQen
+	 aYhBSkVOVHuPL0zuXw6RauaOcWG9cJ9jyDD7qSb0=
+Date: Thu, 26 Nov 2026 16:14:59 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Thorsten Blum <blum@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: cacheinfo: Simplify init_cache_level()
+Message-ID: <awhbA7pxop_WyMTK@arm.com>
+References: <20261104083632.65715-2-blum@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,101 +59,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261104083632.65715-2-blum@kernel.org>
 
-On Wed, 25 Nov 2026 20:02:53 +0100, Andre Eikmeyer <dev@deq.rocks> wrote:
-> AWDL election, peer discovery and services run in user space, the
-> firmware carries the AWDL frames and data. Add vendor commands of the
-> Broadcom OUI on the primary interface, described in vendor.h:
-
-[...]
-
-> Tested-by: Yossef Osman <Yossef.Osman@proton.me>
-> Tested-by: Aditya Garg <aditya.garg@linux.dev>
-> Signed-off-by: Andre Eikmeyer <dev@deq.rocks>
+On Wed, Nov 04, 2026 at 09:36:31AM +0100, Thorsten Blum wrote:
+> acpi_get_cache_info() already sets fw_level to 0 on failure, so drop the
+> redundant check and the manual assignment.
+> 
+> Use unsigned int for fw_level to match the expected type, and remove the
+> now-unused local ret variable.
+> 
+> Signed-off-by: Thorsten Blum <blum@kernel.org>
 > ---
->  .../broadcom/brcm80211/brcmfmac/awdl.c        | 644 +++++++++++++++++-
->  .../broadcom/brcm80211/brcmfmac/awdl.h        |  53 ++
->  .../broadcom/brcm80211/brcmfmac/cfg80211.c    |   5 +-
->  .../broadcom/brcm80211/brcmfmac/feature.c     |   6 +
->  .../broadcom/brcm80211/brcmfmac/feature.h     |   5 +-
->  .../broadcom/brcm80211/brcmfmac/vendor.c      |  82 +++
->  .../broadcom/brcm80211/brcmfmac/vendor.h      |  92 +++
->  7 files changed, 881 insertions(+), 6 deletions(-)
+>  arch/arm64/kernel/cacheinfo.c | 12 ++++--------
+>  1 file changed, 4 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/cacheinfo.c b/arch/arm64/kernel/cacheinfo.c
+> index 309942b06c5b..881131fb4934 100644
+> --- a/arch/arm64/kernel/cacheinfo.c
+> +++ b/arch/arm64/kernel/cacheinfo.c
+> @@ -67,19 +67,15 @@ int early_cache_level(unsigned int cpu)
+>  
+>  int init_cache_level(unsigned int cpu)
+>  {
+> -	unsigned int level, leaves;
+> -	int fw_level, ret;
+> +	unsigned int level, leaves, fw_level;
+>  	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+>  
+>  	detect_cache_level(&level, &leaves);
+>  
+> -	if (acpi_disabled) {
+> +	if (acpi_disabled)
+>  		fw_level = of_find_last_cache_level(cpu);
+> -	} else {
+> -		ret = acpi_get_cache_info(cpu, &fw_level, NULL);
+> -		if (ret < 0)
+> -			fw_level = 0;
+> -	}
+> +	else
+> +		acpi_get_cache_info(cpu, &fw_level, NULL);
 
-[...]
+I wouldn't assume the caller always sets *levels to 0. It may do this
+now but the kernel-doc is not entirely clear. It claims that it sets it
+only on success with some muddled text about returning 0 on failure,
+which I guess may have been intended as setting *levels to 0.
 
-> @@ -116,9 +238,12 @@ bool brcmf_awdl_if_removed(struct brcmf_pub *drvr, struct brcmf_if *ifp)
->  			awdl->ifp = NULL;
->  	}
->  	spin_unlock(&awdl->lock);
-> -	if (!requested)
-> +	if (!requested) {
->  		brcmf_proto_configure_addr_mode(drvr, ifp->ifidx,
->  						ADDR_INDIRECT);
-> +		brcmf_awdl_send_result(drvr, BRCMF_VNDR_EVTS_AWDL_STOPPED,
-> +				       -ENOLINK, NULL);
-> +	}
->  	return requested;
->  }
+This also relies on ACPI_PPTT being selected which is true for arm64 but
+we can't simplify the checks here just because of Kconfig options. It
+doesn't cost us anything to check the return value, the patch doesn't
+make the code easier to read. So, NAK.
 
-brcmf_awdl_if_removed() clears awdl->ifp in the firmware event worker
-without the wiphy mutex, and brcmf_fweh_handle_if_event() then
-unregisters the net_device and frees the ifp from there too. awdl.h
-says changes of @ifp hold RTNL and the wiphy mutex. The vendor commands
-(wiphy mutex only) and aftx_work/settle_work check awdl->ifp and then
-use it several times, so a firmware initiated removal in between gives a
-NULL pointer or a freed ifp in brcmf_fil_iovar_data_set().
-
-AWDL_STOPPED is also sent before the interface is gone on the host, so
-a START sent in reaction to it can still fail with -EBUSY from
-brcmf_awdl_ifidx_used().
-
-Handing the unsolicited removal over to a work item that runs with RTNL
-and the wiphy mutex, and sends AWDL_STOPPED when it is done, would fix
-both. The event worker itself cannot take the locks because
-brcmf_awdl_add() and brcmf_awdl_del() wait for its events with them held.
-
-[...]
-
-> +/*
-> + * Removes the AWDL interface before system sleep, with RTNL and the wiphy
-> + * mutex held, while the firmware still takes commands. A queued operation is
-> + * dropped.
-> + */
-> +void brcmf_awdl_suspend(struct brcmf_pub *drvr)
-> +{
-> +	struct brcmf_awdl *awdl = &drvr->awdl;
-> +	int err;
-> +
-> +	spin_lock(&awdl->lock);
-> +	awdl->op = BRCMF_AWDL_OP_NONE;
-> +	spin_unlock(&awdl->lock);
-> +	if (!awdl->ifp)
-> +		return;
-> +	err = brcmf_awdl_del(drvr);
-> +	brcmf_awdl_send_result(drvr, BRCMF_VNDR_EVTS_AWDL_STOPPED, err, NULL);
-> +}
-
-A queued AWDL_START is dropped here without an AWDL_STARTED event, user
-space waits for an answer that never comes. Answer a dropped START with
-AWDL_STARTED and an error (e.g. -ECANCELED).
-
-[...]
-
-> + * @BRCMF_VNDR_CMDS_AWDL_SET_SYNC: synchronize to the master of
-> + *	%BRCMF_AWDL_ATTR_MASTER, %BRCMF_AWDL_ATTR_MASTER_METRIC and
-> + *	%BRCMF_AWDL_ATTR_MASTER_DISTANCE. Without %BRCMF_AWDL_ATTR_MASTER the
-> + *	device is its own master.
-
-The commit message says awdl_opmode fails while the firmware does not
-know a new master yet, and SET_SYNC returns the first error of the
-refresh. So user space gets an error on a normal master change and only
-the next SET_FRAMES or SET_SYNC sends awdl_opmode again. As this is ABI
-it better be documented here, or do not return that error.
-
-[...]
-
-Regards,
-Arend
+-- 
+Catalin
