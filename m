@@ -1,115 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795730016;
-	b=Wj8f1NtcgSLfi8A3m08phKTbBIGGFvNKgpttRPY8DnBhtObriRxDi98oFoxKSWpvUU9U
-	 4lYC1imaXh4btuC+50a4OiH7agidfQUAIQDPb4LYHZcQSrxytOv2wcxce2PuP3q1OGYG8
-	 jJypBXvn50dsgUBMH9jTyg+vtVuVa3PlFEx+BE7CKKYT0sDMdOWVIcpw5lt20HwkmsMuy
-	 fyYLZZvFs6yshudptSa0CLova7d3ezZhZ1BmyC3x2szA8HV/vPo0eoyzUwPG26gtU8Gvk
-	 22DpWSbi+XuPh69luuQCZjS7dbuzV6zK+H0+V3aR08o4969d4qSp+W06WKLpP58/LAg==
+	t=1795730062;
+	b=n6p8MhSMq3rkZXOWLV2Sj68ep6KdWWOm5mm/Zy563fbWjCrMM8kyRutGm4fTNEpUf9A8
+	 KXp1k/e20Nw0EfxtSOmck+FKVlk0pLw6kdZLdsrpyQj4kBeAfaNIyH+4kBxDCI3ApUycN
+	 CtzOkLFWgBxZLHtZFH83S9wRD+NvbS1p4tlh3lQK9NfHx8wt5WosaF/kXauGBrHFz90jY
+	 M4Kv7G+mH2EBLMd+to5FHNnNql8/02lpiEXh64GjfTmxHZf8FTjV8iSs5+mpB6GQnghJt
+	 NlUFHcYBnWuVBaYo9awgtTSATcccNdPIds+XnwyY2kgE1YLZhteunybVR7R8LUNSyTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795730016;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795730062;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
-	 Content-Type:User-Agent:MIME-Version;
-	bh=env9OD6WJ5uGqN3vphpmLPvAyZWACc9jYsEiViZZwfI=;
-	b=uZ2xawL8vmKf9101urhph7LYCVZ/tzDxBAqu3KHTAL6rbUrN/FWr9HGzl/gjDL5BlndA
-	 60s5dBSG6SBltyUhLSMQuniTQF4j1BlddWymEJhQr4PvlTp/z1bvgY6Okvs8QsR588jdX
-	 OmfQFIg9WmWFcalzXGO5ijAhWiHI1VVsU3QAdJSEeN2SHLMVCPqCmbh620Sg6vwIOGTrF
-	 IYJvy3U3aOvZbhvMfsv05WEcEsfkvLuKVSgL25cytV4ZWEg8uqW1boesRqXq8PdLnvZXW
-	 EtjiS/UZiGEjph7MgXr0EVE2evvho/carnLA3DLpHWQgHY7hBYCpqLwKxgfHpyf9n6A==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=C9eoWPo0266fGZF/sCeB0L6HWQh4fMh4NsSwHePxn+Q=;
+	b=IBkBzoBCwPuOE6k4yRyCSBl1zcQVuhJn9Hfa2hYGIwk8FBQiFTDC0GPsN/uaCmJFPpfZ
+	 l5bzoiZtFoDBUy6Vbe4RmbyqvOzlpB7Z864fzhNCtbKC1AU9KysD3UkqMCpxBHnQeYEG/
+	 dXayQv3wMiDSPgYVV38I65Yio7FYaPfUOw/QJ3C6zBoZ0mq021Bpg7MfhqRrBOs/a7oZ3
+	 VErqjmGasYWG3q0EUNuShdL3gbhn9ifOMfBF8cnjZ9kf1iMVlCw5cBHB45GwsZDXeqpr0
+	 AUbFgTauUcVCHuROLeMsPfPKy78ClIlRl6lnrnjgqb7z7L2Vg8kGw5feK0Nj+UhlpwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ndufresne.ca;
-	spf=pass smtp.mailfrom=ndufresne.ca;
-	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="HuAe/wTW";
-	arc=none smtp.remote-ip=209.85.222.181
-Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com [209.85.222.181])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Fj6TBBA7;
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8668F606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:53:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8668F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6E5D606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 21:54:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6E5D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=HuAe/wTW
-Received: by mail-qk1-f181.google.com with SMTP id af79cd13be357-94999a08973so683363385a.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:53:35 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Fj6TBBA7
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-386ab9ab619so9960858eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 13:54:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795730014; x=1796334814; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=env9OD6WJ5uGqN3vphpmLPvAyZWACc9jYsEiViZZwfI=;
-        b=HuAe/wTWSVBcTgkxqCs3FJVZTgk/EcI6TOIk/kQi88nOHPAz0IshwbNbEr9Us7ruS9
-         oUhp8H+XFRHy66KiBCKv5x7c1t25JuGVrf/6gTpXoX/Q4yi8td24zb+qNt4vl+x8JF9j
-         3TePrqRHUwd96jczTkAsWm2Sc2zluXhSr7i95q5wn4+m6CJ1OaMe3tfBOPWVU/GMp1/f
-         yaqEplLMmytsHbZf9bChl1Te1JVAbwU1f6gs44bw89kfVDemUCWTSnBRBWgBxq4Dh9Vl
-         vvCtLyecMfxLcxBGfFCNqqVrcDk7aLV2HDYFOUllwxc2aWPqsfEgKcRyr2ZFRNHT5WmC
-         I5WA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795730014; x=1796334814;
-        h=mime-version:user-agent:content-type:autocrypt:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795730061; x=1796334861; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=env9OD6WJ5uGqN3vphpmLPvAyZWACc9jYsEiViZZwfI=;
-        b=ZQeO7IjHfcNrvyOF5DhOtrk1zWE/91AoB3ly+rqbQ48GyKLM17TfcglKJUlBziF95d
-         Hq1VtVfN/x0u4eKL/Vft5QlZx9WCLtqwyPJpDD7MTJDAuM8Re8na+kt1KPnemuChN7E6
-         RJlGs7yNTkyv7H1W04G1PJZYo+kHlZFiSnI4lERJTFQ2PnXCJqG8TLlpAqXSHdmwgA3+
-         xPZe4AXO7s7AWN97W/t0Le/xsd6htYQI4YiUWzvyPHm4xpY1hFrrifF84UETe6RHW0tq
-         2KNowSApAW0AVLv1buHkhAYGgK4bSuyiWoRDCoco3ioVQDFwhBR/CC2IL2K7Mppa6NYZ
-         eB2A==
-X-Forwarded-Encrypted: i=1; AL+hErFOMDGEhpz2Q/sCF5jKlbraKV8uFq7w0TsgAaviJro9kbV/w7OXinRuZtKV2vZw+ECkIxQcUV+7iGZqCpc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+irbzt/dMIg2lXAhxFp6C8vIghnivuGovg4gylX4LEuuZY+jjG
-	utP94dnGikQVBYtBxRdr8ZEdDLHLEF57ApqEzM7M47jKU7TLFwPfEv27kcnzdWm0Us0=
-X-Gm-Gg: AZFdTZcc394PP3wJR63XbMuqnHGeRxBevIqvFYPE3fx81mPXvxRA0FXtvPW4HTzT9a8
-	386RgHLeT/c1d0SULgKQjoD5yMPs7+FTFT5nxl/lHX1J+Sb4VcdmgH7wdfaoqS7bzqsGb4YY8kJ
-	9oQBCIxaGeZoG8W0FO3A1tgXVUBSjNgChfzHi28QR7scih5UWJM1DFuy98tuUkbTCCJt9blrxaV
-	p5/BEPnWODV+xxG22Ofou16maZG9rhytYHMEAaSAy0x6Z2Gfv7onYKK1E5uEw7XVPhmesxLbhe3
-	1HIruHmr+sV5fLwkzH721yr3ExaDDuE4CQxIZIjmmSJP572ZSyYCpb2qKl24FfkJ0+aSpYIc4WQ
-	xSNNgWSD6TxmYK9BOgM9sXh3dBkiCj0nj73lvMEqJKGN1TMJqB0p9t7LS7cb1whutoUIJY40Nn9
-	rdiKR7o6xEstS77121n7rJxesT0RYCxBAIiN/0X0mh861vjqzMrKqZxfJptswotDmtNLNtTkx9+
-	X/sxNOl3T9ZwgGOKwpbDW95BDx25TsLJSzJnbB436YKmieXzU0Zr6/bXVU8HTwnDsoHY4m9zS/J
-	SxrADaOVWfTvRoVp1rHzu20nYmUsFtVMyp6JS56if/uatD0+1omN7UU=
-X-Received: by 2002:a05:620a:6011:b0:93c:c1e8:6504 with SMTP id af79cd13be357-949ba9555e2mr3721601785a.23.1795730014488;
-        Thu, 26 Nov 2026 13:53:34 -0800 (PST)
-Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb349db3sm1654907285a.7.2026.11.26.13.53.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 13:53:33 -0800 (PST)
-Message-ID: <a7e72cdb67e7ab8578b9ce44a4817ba35d1f822b.camel@ndufresne.ca>
-Subject: Re: [PATCH] media: mediatek: vcodec: NUL-terminate debugfs input
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Jiale Yao <yaojiale02@163.com>, Tiffany Lin <tiffany.lin@mediatek.com>, 
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>, Yunfei Dong
- <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab	 <mchehab@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Hans Verkuil
- <hverkuil@kernel.org>, linux-media@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Cc: stable@vger.kernel.org
-Date: Thu, 26 Nov 2026 16:53:32 -0500
-In-Reply-To: <20261029053024.2526059-1-yaojiale02@163.com>
-References: <20261029053024.2526059-1-yaojiale02@163.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-DlJB1J9haeeqeVzf+bdm"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+        bh=C9eoWPo0266fGZF/sCeB0L6HWQh4fMh4NsSwHePxn+Q=;
+        b=Fj6TBBA7ILCX2x4gIIIEa8y179XZLUb4veMZLsESp2/Gk2/PfAnG2ytKFhECpm/S6b
+         M1wBDPnHA+zm7/w35BbzRY6+RahedeiClhPUhCT0+txgLmXu+j9D1pTg4cNyICjJsU90
+         KRoivPcTASO/H24guAjw6LEKNPXVkiOsDaRG5TYqNpKggVgS0sraL8ETnApSmYYmGTHT
+         XPPl0+5Y9SSb70JleqbOQsto8QPTB9GgSRNDYZH52sYlNGJrq3O0sfDnU0LavEH2w81r
+         81VbGyYtKEYwwu18V8ZYg3bWwsuxK4W28wETASXtl9oSwzpq04RgBNKH4FZwsBQAn2Ze
+         ar5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795730061; x=1796334861;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=C9eoWPo0266fGZF/sCeB0L6HWQh4fMh4NsSwHePxn+Q=;
+        b=Hdc8HeneQFYD/jR5mpLot7UDrQTeKysC7qWg/oE1fMAX+mLx8tcRxAHQH+UM48Y1I8
+         ztBhnHse544AAP3BHTqs2H7lTNv88Zo68FERE11sxbV097rVj/oKIV+EVJo57VEXETvb
+         zot/kzU7wFYLdOkom8gOPBGNtwbchOnsfNZujgUTTLf630cja0F6J3gk7dVlq2Gl7GSp
+         1T8LIzW+mji5MmaDWpE4hgqO/476Uu5Xkd1Cwi8ZfKaTGAm1MNnG45nj0fXb+MYEY/Cj
+         da5vj+bNxI35Skr6LnK5CUUt45LUwiijdSTFXXaXW2e87mX/Xa//eQrI/78x/alk6Pia
+         jJAQ==
+X-Forwarded-Encrypted: i=1; AL+hErH/aiskNYmmDfX+tayvd2d7i2XIgbIdd4NGSfPP3qPzN4ak1W7M6vNz5EvesUoyAwYGNs9/0afy+Kw8zJs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/zsGDKBbWDpF2zR9o+xxOo9Vc3EO4KYo6Bn/ZGDE2gIe1ZHLVl
+	aKex+C6dNCWU9us1gUpM3jk+XoVC3X6t6QfrwwrXm3v+wvdFqQtUzUa8
+X-Gm-Gg: AZFdTZeTjpH1QY5c6w4jmKqIPBv1nYBceg4vm996gcyEiRDszzf/FpKKCVNCXvIlrC5
+	MDHSjh79sdofI0YHN5XvN1BvUyCYmBJDnAwNpAF4ROPehnNaeOMM/0ndnFhb0V4UkXsb5FuKSal
+	BxVGJM0OQ+B5BK1qONW10Fnn/IWJapz1f3pMY1DAifsgdXJfWpzEw68gctBRKR7ZSOUgmcg/eG0
+	zKXs5CcxuPNQDjgYYO1SRQDgi/VMqx3glOYFFl8si6aoVJ5NGp87FncUb8gnKWs1ozTQjQHC6kG
+	GU2Q5VAj2k4nn6SfqHzXi/Qts1TVs26NVMeJm8EjHPN5qmdG0vbfAzgq3s8hhMHwMB0r0ELIrRj
+	HLn68yu2POijRwSpCsaj+n0lKsOMQqedK0jG1AsDL9DUESv7IFt79y5I9jOsgRktFcO0v23jjWu
+	YicbeGvi/aVbWr1yOpFch7oTcFdq769EO1yvo1h/yzIkJufs6Bm3JVKqcsA2a40egBpMQhUxCms
+	VRd4fOfI+qZVx//4yVdY+Blb89mRLfruqCmar5d5d6WEJ+sWk9hvlRIXnq81q64i5oN5Y0m9t+H
+	bIGKTmY/Xmh3w5NT0KrXKSq3+rRoZbCyvhlkqCDdN9LK2fqIlhycC/0rpPDuHwqLonI=
+X-Received: by 2002:a05:693c:60d4:b0:369:fe81:a575 with SMTP id 5a478bee46e88-3857111f203mr27254329eec.35.1795730060741;
+        Thu, 26 Nov 2026 13:54:20 -0800 (PST)
+Received: from ?IPV6:2620:10d:c085:21d6::110c? ([2620:10d:c090:400::5:a169])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3866f299d0bsm57369732eec.19.2026.11.26.13.54.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 13:54:20 -0800 (PST)
+Message-ID: <cf0cf72a-493b-4945-a887-7305ae086028@gmail.com>
+Date: Thu, 26 Nov 2026 13:54:19 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,62 +92,228 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3] net: mlx5: Allow police as the last action of
+ a TC rule
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, saeedm@nvidia.com, leon@kernel.org,
+ tariqt@nvidia.com, mbloch@nvidia.com, cjubran@nvidia.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, linux-rdma@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261124220251.776944-1-mohsin.bashr@gmail.com>
+ <179570909592.3135.1382351175870070773@kernel.org>
+Content-Language: en-US
+From: Mohsin Bashir <mohsin.bashr@gmail.com>
+In-Reply-To: <179570909592.3135.1382351175870070773@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
---=-DlJB1J9haeeqeVzf+bdm
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Le jeudi 29 octobre 2026 =C3=A0 13:30 +0800, Jiale Yao a =C3=A9crit=C2=A0:
-> mtk_vdec_dbgfs_write() allows userspace to overwrite every byte in the
-> persistent debugfs buffer. The read handler later searches that buffer wi=
-th
-> strstr(), which can read past its end when no NUL remains.
->=20
-> Reserve one byte and terminate the copied input at the updated file
-> position before releasing the debugfs lock.
->=20
-> Fixes: 5e488a4fd859 ("media: mediatek: vcodec: Add a debugfs file to get =
-different useful information")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Jiale Yao <yaojiale02@163.com>
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+On 11/26/26 8:04 AM, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] In police_act_can_offload_jump()
+>    (drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c), every…
+> - [Low] Besides adding police-as-last-action support, the patch fixes two
+>    hardware/software mismatches in existing offloaded rules, both present…
+> 
+> --
+> 
+> net: mlx5: Allow police as the last action of a TC rule
+> 
+> This patch lets mlx5 offload TC rules in switchdev mode where police is
+> the last action. It also changes how police results are offloaded: ok is
+> now accept, pipe as the last action is accept, and a jump is only
+> offloaded when police is the first action and the skipped actions are all
+> drop or all ok. The forward to the post meter table is now set for rate
+> police as well as mtu police.
+> 
+>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>> index 1bd1c94fb9776..f03a992cbc270 100644
+>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>> @@ -37,6 +37,52 @@ static int police_act_validate(const struct flow_action_entry *act,
+>>   	return 0;
+>>   }
+>>   
+>> +static bool
+>> +police_act_can_offload_jump(struct mlx5e_tc_act_parse_state *parse_state,
+>> +			    const struct flow_action_entry *act,
+>> +			    int act_index, u32 target)
+>> +{
+> 
+> [ ... ]
+> 
+>> +	prev = act;
+>> +	for (i = 1; i <= target; i++) {
+>> +		entry = &flow_action->entries[i];
+>> +
+>> +		if (i < target &&
+>> +		    ((entry->id != FLOW_ACTION_DROP &&
+>> +		      entry->id != FLOW_ACTION_ACCEPT) ||
+>> +		     entry->id != flow_action->entries[1].id)) {
+>> +			NL_SET_ERR_MSG_MOD(extack,
+>> +					   "Jump can only skip actions that are all drop or all ok");
+>> +			return false;
+>> +		}
+> 
+> [Severity: Medium]
+> 
+> Does this check stop offloading police-first jump rules that were offloaded
+> correctly before this patch?
+> 
+> tc_act_can_offload_police() calls police_act_can_offload_jump() for each
+> jump result of both rate and mtu police. With police at index 0, any
+> skipped action other than drop or ok is now rejected. For example:
+> 
+>    action police mtu 1500 conform-exceed pipe/jump 2 \
+>    action mirred egress redirect dev A \
+>    action mirred egress redirect dev B
+> 
+> Before this patch, dec_jump_count() already handled this case when police
+> is at index 0. jump_count is set to extval and decremented once per
+> distinct TC action, so the jump lands on the same entry where
+> tcf_action_exec() restarts.
+> 
+> The last skipped action is either marked terminating or forwarded to the
+> post action table (as for mirror):
+> 
+> dec_jump_count() {
+>      ...
+> 		if (tc_act->is_terminating_action) { /* the branch ends here */
+> 			attr->flags |= MLX5_ATTR_FLAG_TERMINATING;
+> 			...
+> 		} else { /* the branch continues executing the rest of the actions */
+> 			attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+> 			...
+> }
+> 
+> With this patch these rules fail can_offload with "Jump can only skip
+> actions that are all drop or all ok". With skip_sw the filter add fails.
+> Without skip_sw (for example with OVS) the traffic goes to the software
+> datapath.
+> 
+> The only flaw the commit message names in the old jump handling is that
+> the jump is counted from police instead of from the start of the action
+> list. That cannot happen when police is at index 0, and the act_index
+> check above already rejects the other case.
+> 
+> Is the extra all drop or all ok restriction needed? If it is intentional,
+> could the commit message say that rules which offload today will stop
+> offloading, instead of only "Reject the rest"?
+> 
 
-> ---
->  .../media/platform/mediatek/vcodec/common/mtk_vcodec_dbgfs.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_dbg=
-fs.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_dbgfs.c
-> index 2da11521fc7b..8528534e41ef 100644
-> --- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_dbgfs.c
-> +++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_dbgfs.c
-> @@ -77,8 +77,11 @@ static ssize_t mtk_vdec_dbgfs_write(struct file *filp,=
- const char __user *ubuf,
->  =09struct mtk_vcodec_dbgfs *dbgfs =3D &vcodec_dev->dbgfs;
-> =20
->  =09mutex_lock(&dbgfs->dbgfs_lock);
-> -=09dbgfs->buf_size =3D simple_write_to_buffer(dbgfs->dbgfs_buf, sizeof(d=
-bgfs->dbgfs_buf),
-> +=09dbgfs->buf_size =3D simple_write_to_buffer(dbgfs->dbgfs_buf,
-> +=09=09=09=09=09=09 sizeof(dbgfs->dbgfs_buf) - 1,
->  =09=09=09=09=09=09 ppos, ubuf, count);
-> +=09if (dbgfs->buf_size > 0)
-> +=09=09dbgfs->dbgfs_buf[*ppos] =3D '\0';
->  =09mutex_unlock(&dbgfs->dbgfs_lock);
->  =09if (dbgfs->buf_size > 0)
->  =09=09return count;
+Thanks for the review. Yes, this is intentional. Please see the 
+discussion on v1 and v2
+https://lore.kernel.org/netdev/20261117031337.4126403-1-mohsin.bashr@gmail.com
+https://lore.kernel.org/netdev/20261119040010.1405900-1-mohsin.bashr@gmail.com
 
---=-DlJB1J9haeeqeVzf+bdm
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+In summary, we discussed that a jump either executes the correct target 
+or the offload is rejected.
 
------BEGIN PGP SIGNATURE-----
+Police first alone does not meet this expectation. My understanding is 
+that the driver counts a jump in flow action entries, while TC counts it 
+in TC actions, and the two do not always match. This can be an issue 
+when one TC action gives entries of different types, for example a pedit 
+with a set and an add key. I have not tested this on HW though. Maybe 
+Mark or someone else from NVIDIA can correct me here.
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawiqXAAKCRDZQZRRKWBy
-9HvlAQC+KcPKwSaD7Ix8GCPtMRz0njYszGlIhj94VYNm0BjnnQEA8O7IpD79HTUk
-JcUCeKPKDEyp+qT34NJFPS+wfxGcZwY=
-=kTt2
------END PGP SIGNATURE-----
+>> +
+>> +		if (entry->id == prev->id && entry->hw_index == prev->hw_index) {
+> 
+> [ ... ]
+> 
+>> @@ -49,6 +95,16 @@ tc_act_can_offload_police(struct mlx5e_tc_act_parse_state *parse_state,
+>>   	if (err)
+>>   		return false;
+>>   
+>> +	if (act->police.exceed.act_id == FLOW_ACTION_JUMP &&
+>> +	    !police_act_can_offload_jump(parse_state, act, act_index,
+>> +					 act->police.exceed.extval))
+>> +		return false;
+>> +
+>> +	if (act->police.notexceed.act_id == FLOW_ACTION_JUMP &&
+>> +	    !police_act_can_offload_jump(parse_state, act, act_index,
+>> +					 act->police.notexceed.extval))
+>> +		return false;
+>> +
+>>   	return !!mlx5e_get_flow_meters(parse_state->flow->priv->mdev);
+>>   }
+> 
+> [ ... ]
+> 
+>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>> index 1d35c97aea0bc..7e7111e6d058b 100644
+>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+> 
+> [ ... ]
+> 
+>> @@ -3891,11 +3891,17 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
+>>   	case FLOW_ACTION_DROP:
+>>   		attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
+>>   		break;
+>> -	case FLOW_ACTION_ACCEPT:
+>>   	case FLOW_ACTION_PIPE:
+>> -		err = set_branch_dest_ft(flow->priv, attr);
+>> -		if (err)
+>> -			goto out_err;
+>> +		if (!last) {
+>> +			err = set_branch_dest_ft(flow->priv, attr);
+>> +			if (err)
+>> +				goto out_err;
+>> +			break;
+>> +		}
+>> +		fallthrough;
+>> +	case FLOW_ACTION_ACCEPT:
+>> +		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+>> +		attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
+>>   		break;
+> 
+> [Severity: Low]
+> 
+> This isn't a runtime bug in the patch. However, this hunk and the
+> act_index check in police_act_can_offload_jump() also fix two
+> hardware/software mismatches in rules that are already offloaded.
+> 
+> First, alloc_branch_attr() handled an ok police result like pipe. For
+> "police ... conform-exceed drop/ok action mirred ...", the hardware ran
+> the following actions for conforming packets, while tcf_action_exec()
+> stops at TC_ACT_OK.
+> 
+> Second, dec_jump_count() counts a police jump from the police action,
+> while TC counts from the start of the list. With police at a non-zero
+> index, the hardware ran different actions than software did.
+> 
+> Both seem to date back to the branching support in commit f86488cb4685
+> ("net/mlx5e: TC, initialize branch flow attributes") and its follow-up
+> c84fa1ab94a77c ("net/mlx5e: TC, initialize branching action with target
+> attr").
+> 
+> The commit message describes the behavior change, but there is no Fixes:
+> tag, and the fixes are mixed with the new police-as-last-action support.
+> Could these fixes be split out and sent to net with Fixes: tags, so that
+> stable trees pick them up?
+> 
 
---=-DlJB1J9haeeqeVzf+bdm--
+I kept them in net-next on purpose, since both change the behavior of 
+rules that are offloaded today. That said, if the maintainers prefer, I 
+can split them out to net with appropriate fixes tags.
+
+>>   	case FLOW_ACTION_JUMP:
+>>   		if (*jump_count) {
+> 
+> [ ... ]
+> 
+
