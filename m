@@ -1,60 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795705251;
-	b=io67mMI8RPz9acmL2CSg7l/AUP+XQVesNofQA2FnrISCSfCXHtGJGYrAH9zJQOZCCrga
-	 pzDrFOplwgrVbNy1RuaH1TPlVVkDlWfVuagzVSTNrpIUBHRlIS/9xShUB1WiY3vAXxAHt
-	 A6TTZ7ZKsVoiJdqcEZknUtUAOHhz4Di9fZM7gL5CG7pSJimCC+N71vnUkAn18uy7ohq3m
-	 kYXEzcJ9ftgC7/YhkjpfjD+gDZ0g3Gu6/WfyLMZ0KrEGYpx7pkQ/yBGt+S16zwDJipblj
-	 o8GNwH4XhfEsUsJmp9nSVBDhD80a3DOyPHuPodMBJwTr60slmSjVSTjKeJFy+J1WiLQ==
+	b=Q7mIpJ4RHuPjB5qm/CYQV80JvQt7BuKwkBfftRQ9OjeFd94Xboi46nNhpPH+IaS6BOLU
+	 T5I/1PH+QMJg3ObJPIZURcZSzLjbuRgO8RVnLMdefGp19ioLIKN1n6sEe1pNBV2lgH6cm
+	 ZJ0ARRV8EBC9hB3Z/afWdP2CmTxWiU7JsndsP7+XIYQ9cWeVjjRHzpZoj5nVxzrZwX7a5
+	 RIw1zecJebScKZLlZyHbKv/TF4nt3/AHLldDx/LhOnfBRrv3/Y2evsPFFo1UmFqvzrdh1
+	 51WIGkOKNVIpY2qLIIzzG3qZc2Q1rRhX1o/ETcnUBbtJDMxdTgOPaydZTOSHcQ4Bteg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795705251;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=RB78X0IcOyrqNjXNG6N3DX4I1/jgYJG4ZEhjhOhkzQs=;
-	b=IDFmfF2T5tR5/ODOrWHJwrtjJg2njuuynjb8XdAHn2lMEKfivU6wIWFkrNXA0j10Mh0i
-	 J9gqOUDow/tvzx5a2NltGn2H9F0UIqjTAZHTJDqvKkSBB6ZT77HzuJBQqiUq+2cKBn+so
-	 uXPM9yKDL8ITC0YSNgr7y9Zcezw9IDy2DWOMv7SnZJzeJEGFs8M6td5bedyPWwVbk/7Yl
-	 7Akf058mM46JQRDKq15e+uRp5c6YEKe1ZgCweDieRZq2KO0j3zVE4414ZNvT2z9ClRax/
-	 XBVctCTaj62gmRgIM/WB8cD0V+xYpXKOY64kzAwBZOLTPRVVX8e/pNLhKKT2rMR804A==
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=7vlfz2YIOMsDpcgqil+TjE1DMAtwKpgtIEmyD66S1fo=;
+	b=XgWKA+9P+Q9jPK4PzzPcvWAII8bs+7GV9yhZsXuYaLQa3HSOhnNnnIuQTaErwprJPxSh
+	 qYTil5hCsSi8fiWHMWsSf/Yhxqakhs7Lixau2VSxsHSIb7Xc5pgFZAlGJ6Ix8PSAnb7rG
+	 z4N97P9swh3rwzrF6p0hMIRu6nW5PDKBFnUkLuep+nIcEPqTQhe6XKcyZSNuFzVSWM4AQ
+	 +WrbPBnc42TS0Q209uHcZ2xzkCk3Qo+4R/XS7tbE/uvCf3nvJVYg9ZmhaPBcm5PCRwdkm
+	 8Ks4cAJ5S05VcACrzDOv9gCDMa4amQvIQtqLBro5IAijABVZNoxr1CYBVo2+vwoanwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gz68Hsaa;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A23DE606A329;
-	Thu, 26 Nov 2026 15:00:51 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OrG3TV0B;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id CD60E606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:00:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD60E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Gz68Hsaa
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EFD61F000C4;
-	Thu, 26 Nov 2026 15:00:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795705251;
-	bh=RB78X0IcOyrqNjXNG6N3DX4I1/jgYJG4ZEhjhOhkzQs=;
-	h=From:To:Cc:Subject:Date;
-	b=Gz68HsaaIeYn+XU6mxagfJkVh7xsjb8Is2cqwsEkAP/7JxmR38b1EO0S/lqe6S9ju
-	 h1mgNRqcQgBF4z01M8/fzrmItYD7XfRmd1ErZNS2opE5xnL2Kl10u3Ro/dO68BOh4Y
-	 s75dQBQoFMwju6oz8D11MDSEOkb19Xhc3x74bAyMfSBulchWXGBJ4xjjI/wuyADs8n
-	 vsPNgYr7uhLZLs80azXwtdZUDwSD5B2xZpwD8e0L7g1lP3RUFg3UBQh6Je9SlYCxPw
-	 kO+7ugALNp4XOecfjUxE0W8n6Olz+7BziokFpO1yVqjHb1AdLWWTNTnfrFCAONWI2y
-	 aYcRkUMDFOOqA==
-From: Sasha Levin <sashal@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>
-Cc: Komal Bajaj <komal.bajaj@oss.qualcomm.com>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	kernelci@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: qcom: sm8750: Mark the watchdog as reserved
-Date: Thu, 26 Nov 2026 10:00:48 -0500
-Message-ID: <20261126150048.2221469-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OrG3TV0B
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35C811BA8;
+	Thu, 26 Nov 2026 07:00:47 -0800 (PST)
+Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6BC1A3F86F;
+	Thu, 26 Nov 2026 07:00:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795705250; bh=0v9eO+W3RIJoIsk5MXrKv8kB1hjR+PMVi3bSCo2sPMs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OrG3TV0BjDDQtO89hf9CzY5NHvPY5KIPoBbiZ1loHZloMGV1TxRlJyliVPydymdET
+	 LS/WOwxi6aluc8ieVauOJeFcpwy48N/Ryx/GVcP2ayfjH/uiELcazNkhIQSWDLOqck
+	 mtMfnyJ7AAwgRPsbjO+0n4Ap1HcH9Du9+BuR6oZ8=
+Message-ID: <4dfed719-5f62-4ea3-8685-5dc4426ad3c9@arm.com>
+Date: Thu, 26 Nov 2026 15:00:46 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,49 +53,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 16/23] coresight: trbe: Always classify TRBSR when
+ updating buffer
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@arm.com>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Suyash Mahar <smahar@meta.com>, Amir Ayupov <aaupov@fb.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ coresight@lists.linaro.org
+References: <20261016-trbe_enable_disable_irq_handle_refactor-v2-0-3f57cf3199b1@arm.com>
+ <20261016-trbe_enable_disable_irq_handle_refactor-v2-16-3f57cf3199b1@arm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20261016-trbe_enable_disable_irq_handle_refactor-v2-16-3f57cf3199b1@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Since next-20261110 the SM8750 MTP in KernelCI panics during boot when
-qcom_wdt probes:
+On 16/10/2026 17:55, Leo Yan wrote:
+> arm_trbe_update_buffer() must account trace when perf stops a session,
+> even if no maintenance interrupt has been handled. Prepare it for
+> trigger and wrap modes by making the trace-size decision from the
+> drained TRBSR status rather than gating classification on IRQ.
+> Acknowledge IRQ only when it is set.
+> 
+> In FILL mode, reaching LIMIT sets WRAP and IRQ and returns TRBPTR to
+> BASE. Interrupt delivery can be delayed, so update_buffer() may run
+> before the IRQ handler. The existing IRQ-gated path uses WRAP to size
+> through LIMIT in that case; preserve this while also classifying
+> updates without a pending IRQ.
+> 
+> With classification on the no-IRQ path, a normal software stop can
+> have TRBSR.S clear and an ignored detected trigger can set TRBSR.TRG.
+> Neither should warn or discard valid trace. Mark fatal status as
+> truncated and return zero. 
 
-  Internal error: synchronous external abort: 0000000096000010 [#1] SMP
-  pc : qcom_wdt_probe+0x374/0x460 [qcom_wdt]
-  Kernel panic - not syncing: synchronous external abort: Fatal exception
 
-The node has no "sram" property, so qcom_wdt_get_bootstatus() reads
-WDT_STS, and that first watchdog MMIO read takes the external abort.
-The MTP runs the Gunyah hypervisor, which owns the APSS watchdog, as on
-SM8650.
+Use LIMIT for a filled WRAP and TRBPTR
+> otherwise.
 
-Mark the node reserved, as commit 4f8202061737 ("arm64: dts: qcom:
-sm8650: Add watchdog node") does for SM8650. This also lets qcom_scm
-register the Gunyah watchdog, which it skips while a "qcom,kpss-wdt"
-node is available.
+This is already the case, right. Please could we remove this bit ?
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-trbe.c | 24 +++++++++---------------
+>   1 file changed, 9 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+> index ac49098aa08412a23a20d32f84c2e1977ee4a223..661f4a78e67c30652de8c834e4773819fa67b5ac 100644
+> --- a/drivers/hwtracing/coresight/coresight-trbe.c
+> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
+> @@ -662,8 +662,6 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
+>   	int ec = get_trbe_ec(trbsr);
+>   	int bsc = get_trbe_bsc(trbsr);
+>   
+> -	WARN_ON(is_trbe_running(trbsr));
+> -
 
-Fixes: 6554c11efd6d ("arm64: dts: qcom: sm8750: Add watchdog node")
-Link: https://files.kernelci.org/qualcomm/baseline-arm64-qualcomm-6b071ff5286e1965ecb6e758/log.txt.gz
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
-Built sm8750-mtp.dtb and sm8750-qrd.dtb on top of arm64-for-7.5 (W=1),
-not tested on hardware.
+Why are we removing this ?  Do we expect to be called with TRBE running 
+? Both trbe_update_buffer and the irq_handler stops the trbe. So this
+must be held valid ?
 
- arch/arm64/boot/dts/qcom/sm8750.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+Suzuki
 
-diff --git a/arch/arm64/boot/dts/qcom/sm8750.dtsi b/arch/arm64/boot/dts/qcom/sm8750.dtsi
-index f46a5e8a953c7..3f76dfe0bd565 100644
---- a/arch/arm64/boot/dts/qcom/sm8750.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sm8750.dtsi
-@@ -6007,6 +6007,7 @@ watchdog@16410000 {
- 			reg = <0x0 0x16410000 0x0 0x1000>;
- 			clocks = <&sleep_clk>;
- 			interrupts = <GIC_SPI 0 IRQ_TYPE_EDGE_RISING>;
-+			status = "reserved"; /* Owned by hypervisor */
- 		};
- 
- 		cpucp_mbox: mailbox@16430000 {
 
-base-commit: dde0308a2f8867806a444df1fdd7e685b1c56d5b
--- 
-2.53.0
+
+>   	if (is_trbe_abort(trbsr)) {
+>   		err_str = "External abort";
+>   		goto out_fatal;
+> @@ -844,7 +842,6 @@ static unsigned long arm_trbe_update_buffer(struct coresight_device *csdev,
+>   	enum trbe_fault_action act;
+>   	unsigned long size, status;
+>   	unsigned long flags;
+> -	bool wrap = false;
+>   
+>   	WARN_ON(buf->cpudata != cpudata);
+>   	WARN_ON(cpudata->cpu != smp_processor_id());
+> @@ -896,23 +893,20 @@ static unsigned long arm_trbe_update_buffer(struct coresight_device *csdev,
+>   		 */
+>   		clr_trbe_irq();
+>   		isb();
+> +	}
+>   
+> -		act = trbe_get_fault_act(handle, status);
+> -		/*
+> -		 * If this was not due to a WRAP event, we have some
+> -		 * errors and as such buffer is empty.
+> -		 */
+> -		if (act != TRBE_FAULT_ACT_WRAP) {
+> -			perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
+> -			size = 0;
+> -			goto done;
+> -		}
+> +	act = trbe_get_fault_act(handle, status);
+>   
+> +	/* If an error occurred, the buffer may be empty */
+> +	if (act == TRBE_FAULT_ACT_FATAL) {
+> +		perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
+> +		size = 0;
+> +		goto done;
+> +	} else if (act == TRBE_FAULT_ACT_WRAP) {
+>   		trbe_report_wrap_event(handle);
+> -		wrap = true;
+>   	}
+>   
+> -	size = trbe_get_trace_size(handle, buf, wrap);
+> +	size = trbe_get_trace_size(handle, buf, act == TRBE_FAULT_ACT_WRAP);
+
+>   
+>   done:
+>   	local_irq_restore(flags);
+> 
 
