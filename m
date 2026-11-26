@@ -1,97 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.126
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795705508;
-	b=rmytztBcl/amNiLBwD7/YWPiwhqwjQ7hp8KjkLyv1IJCWpzfdOHF89x3bY5V54wNhsn3
-	 sjzBky8lvdJFfzYVV0xVY7Plm9NmRdWi4DOS9yrh/a2gorkIdv1jn9SFhp5hGT0TXphhP
-	 QzJUAHFOXmjypaOr/nHgRnxNYiDPWRE+4/aqdKBpPqmwPYJqKpRN3ufEqRzxa389Znh20
-	 keNMZL4Sdpm3459FCU8i4XIP0juQodWxYZNUhfUWmrVo0nhFD9T6mCx6e+CC16dGu74KC
-	 /HENButkdnRAXjQX87l3qWjb9lIVvj1dedOdRNxfPZeEDyyaSWLm4sr7jseK5Yjrwbw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705508;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=cRQ/lEJZmpQB34jCt9MglWXycU37EKjiM2mCmv8RwJ8=;
-	b=NlP3tkUyS21tdBUAMSYMBsghWLFdF1ieb9HiYfDbfPYZZPA/WYAzQf/hc4cqvJq6BK8Y
-	 bGzwb8HizwE6+uCoBaDhU/kcOtXP2awcAD+dNtHvSCVF4TigWSx1d6dc3br6KLKECk+N7
-	 PwsEECCrfGfhZ0h9pdwhPo+dHzhATGaVH/dHUhit5Eq+XeFd7uX7/fVanMqlNWTPxdfWv
-	 tCjDOy+6wgXO6enHhybPiQ/r6en6U9MZji6rVBmpgy402IxxQzViUTROXd0hlHRcrgsnr
-	 XMoJjwZu1bPJZSTs+2j6Z087Lk72HgJhD04DfDKe9GEJqfw2l1crtbp2XM6mxBrMgsA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=phytec.de;
-	spf=pass smtp.mailfrom=phytec.de;
-	dkim=pass header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=ggQcpuqO;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.126
-Received: from DUZPR83CU001.outbound.protection.outlook.com (mail-northeuropeazon11022126.outbound.protection.outlook.com [52.101.66.126])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795705513;
+	b=T/xk/flqqAyRZZepMNOe3ABVxHDdkl5D00M/oe6mgHiwlwB0c29MAhSAY4Rnkw7zs0/a
+	 z+Yg83aZZPzN9pyQW0mCsbmX0AA4x5nFe92prwg/xKO4XTLRmA+8WSPaeIP+IzRQnhX/A
+	 8WVub8r/wLz3bPv4XpOmibQYx/LNjtE4BW56pikTMtk8TLKni0mrxayhzTUFT4eoBXRSv
+	 sf7HV1pzw6dHN+scevFByjvE+aCiDc0VXlrhavnaPAbpqqQosFW7YV9tLRoP0PcJDjjb+
+	 /JaPMMY7x7pg08eITeKnsrtb/+dLL9RL0Rv3ASo7xD15bFQz9AtNiB1U7fvidFCTUiw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705513;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=xgw9Cs2alF68ttVVZEfnYrUIUiuSk8K9/fzAeapHAI0=;
+	b=k/VS513WVp0ZyW1NeUpHZrthUpYgtrXDoiwKJ4qXarBAyCq8n4YVbJ3bMDbJ8kiGS8z2
+	 q07EgBzuzHg9dGMsgqeMzFH7NLyHTCS4GBAQnWI90Y1Qkke2QVi+qGRUywGizmFybuKWd
+	 0vXlp04ZVKxm36PWeMKKPsjInCf2R4ygGRuwLf2uBNpcAouaWA4OCbhAAIetgRQobVy83
+	 3Ky24nMn4gI5pU+dv0C6R9FMM7GiQhCKJf2lljSKngn0Pr5+Uxy+VdN04+uMIY9J6IZvH
+	 pR4M82kJT6OpaYQPJDwrqMYXF5hH/fTHqW+t9j7df9mhvloejl14leV9d96fMTBySbQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Q9LTg0t5;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81B4C606A6A8;
-	Thu, 26 Nov 2026 15:05:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81B4C606A6A8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=phytec.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=phytec.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98DEB606A686;
+	Thu, 26 Nov 2026 15:05:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98DEB606A686
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=phytec.de header.i=@phytec.de header.a=rsa-sha256 header.s=selector2 header.b=ggQcpuqO
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=psoNb8MVORTy8cHxeKetrYKby4yTeY0fh2GVagXWKJgTyWpCYjYYbKlOyOq1mozuilWNEqywkdi6+qnYqV/llNNHWHRpHcgNdbwslhxMAiBKdX+fyOCVZLnLRX31TOsMSaApc8vzrM84wixtuP06TBwX8nPJMOPA++yU8N9zzERMKUBSCxrP2rq+FD3iSyUxnOiWJEJB54uYxQefDsd5pyOIdMRYCQfh4TlvcIERDKYKPZNJQJ6MAI0qdSCAWoe6tY+nmDXZkv/0Xo/UyzWccHPXWqC/48P3Gv9URVRwEfcWbMCykdPLBRGuohpR6awu8DleiPQ/fOE+1WnlcDFW7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cRQ/lEJZmpQB34jCt9MglWXycU37EKjiM2mCmv8RwJ8=;
- b=IqYcGTVIe6HnV7G1/pALnuzQrYPHl4AmKU4NQYEWyQ51xbaYGGG+oF8vRzJHhyqJj6Bp4QPdvhUvX0StXlMUntKlURXrpJYMAAceQRQUH7cdLJ2YGquNwtCuEu7cnUAA07xD05GCrfH+CUoUNnRC6rMkAlmAAji9GOxLc8E6+3opIfBW/JkIMotx3vJrfvdBmP83W3D5rEa6/FQ9ChWasQ2p78snBx23fjDtUMcUkCqPPj4GOetdDO6RJlCRF2EjDmWBi0FkkSPc131MQwsQsOMFQbuel5kD2TiYmFeNhsraQnJieRx19E95nv421K6R3UHlTto2SMIbL+WhsAyNLQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 91.26.50.189) smtp.rcpttodomain=nxp.com smtp.mailfrom=phytec.de; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cRQ/lEJZmpQB34jCt9MglWXycU37EKjiM2mCmv8RwJ8=;
- b=ggQcpuqOdi3J2bHE8hX2O2qwsKjxQnGbxxpQ6fSjM/yiICq59EI0Ip+gKFa/1SVbFnXwsSZGYVi2SwxVoBdEwaoH8/mBwLnm3H75wthEo7+kSd+1TirSpZkUHCVoW+SVJfYVKHsSZ5pe/oQs+NsEOuMWmOUIF/S3Od6P7DbWc51UxJn8dI1eN2vrKZ1GDEKsi1Y3tMX8SRXbrlmmOJpvkVJz5AC9PJ08+usd2w3ZT2lAUdKcGXKsDcUdF/6OeBXGhh9WpoNd3/pxPZV6Hn8rcXozM9mzsGjohfd/itixEtmWJBPkPbyQ3zPxW/49UWgofDx8tQ9wOgKO04eywzjiIg==
-Received: from DU2P250CA0002.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:231::7) by
- DB9P195MB1195.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:269::18) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.13; Thu, 26 Nov 2026 15:05:01 +0000
-Received: from MAD0EPF000008AE.eurprd04.prod.outlook.com
- (2603:10a6:10:231:cafe::8c) by DU2P250CA0002.outlook.office365.com
- (2603:10a6:10:231::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
- Nov 2026 15:05:01 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 91.26.50.189) smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: Fail (protection.outlook.com: domain of phytec.de does not
- designate 91.26.50.189 as permitted sender) receiver=protection.outlook.com;
- client-ip=91.26.50.189; helo=Postix.phytec.de;
-Received: from Postix.phytec.de (91.26.50.189) by
- MAD0EPF000008AE.mail.protection.outlook.com (10.167.241.187) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Thu, 26 Nov 2026 15:05:01 +0000
-Received: from [172.25.51.48] (172.25.51.48) by Postix.phytec.de (172.25.0.11)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
- 2026 16:04:56 +0100
-From: Benjamin Hahn <B.Hahn@phytec.de>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Q9LTg0t5
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=xgw9Cs2alF68ttVVZEfnYrUIUiuSk8K9/fzAeapHAI0=; b=Q9LTg0t5iwzwxgjRUfXVDnEo0J
+	MUIpnGoWGKz4SAnB8COXr7XcVrFzr/3nAygrnbM5+/7izsjYvd5Nwh4Z6HHnPOzNZ/FuAJcFS+b8s
+	uoXOYVuGcF6WjEULHnr+J4Owqm+yQJObnSLJwI4D0U9BcQKTkQZQ7hZa8LDnA6gtywhA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xWb1t-001b7K-5c; Thu, 26 Nov 2026 16:04:57 +0100
 Date: Thu, 26 Nov 2026 16:04:57 +0100
-Subject: [PATCH v3 6/6] dt-bindings: arm: fsl: remove outdated PHYTEC
- i.MX95 FPSC
+From: Andrew Lunn <andrew@lunn.ch>
+To: Paul Louvel <paul.louvel@bootlin.com>
+Cc: Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Jerry Ray <jerry.ray@microchip.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Bo Mellberg <bo.mellberg@se.com>,
+	Pascal Eberhard <pascal.eberhard@se.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: Re: [PATCH net-next 3/3] net: dsa: lan9303: add LED mode
+ configuration
+Message-ID: <4d2a5db3-2829-4383-8f8d-05cf7c94fddc@lunn.ch>
+References: <20261126-lan9303-leds-v1-0-a96731317859@bootlin.com>
+ <20261126-lan9303-leds-v1-3-a96731317859@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,94 +74,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261126-wip-bhahn-imx95_upstreaming-v3-6-a2bda009bac8@phytec.de>
-References: <20261126-wip-bhahn-imx95_upstreaming-v3-0-a2bda009bac8@phytec.de>
-In-Reply-To: <20261126-wip-bhahn-imx95_upstreaming-v3-0-a2bda009bac8@phytec.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Frank Li
-	<Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, "Pengutronix
- Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	Yannic Moog <y.moog@phytec.de>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<upstream@lists.phytec.de>, Benjamin Hahn <B.Hahn@phytec.de>, Conor Dooley
-	<conor.dooley@microchip.com>
-X-Mailer: b4 0.16.1-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795705493; l=1627;
- i=B.Hahn@phytec.de; s=20240126; h=from:subject:message-id;
- bh=8TWNyiXfrxwS1pB/BK3dA5FEbHisFPtNI9fn6Rhufxs=;
- b=Zq3ehCXdsS4SLpsTCqwrKOHvPl4xd71YUTDYqFVAOvSuNusy7qjlS6FrzFCY4kKB4Gmx0OjEn
- Cc4Uo9/sWkdAw3HAP2HNG/b6pd9536e/wkQvHzPe+OkGhOuwQIhF1CW
-X-Developer-Key: i=B.Hahn@phytec.de; a=ed25519;
- pk=r04clMulHz6S6js6elPBA+U+zVdDAqJyEyoNd8I3pSw=
-X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
- (172.25.0.11)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MAD0EPF000008AE:EE_|DB9P195MB1195:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0634cba0-9b95-45c9-4e5d-08df4bcea515
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|7416014|1800799024|376014|36860700016|82310400026|10067099003|261026121527099003|11063799006|56012099006|261021123027099003|261102123227099003|261021121427099003|261009223027099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	M41NHLI8hewt9vGZSFX4mpu89OnJIyQLswI16gIOnRS36ATo+icm1ahlkgiel7fvXJ3Imlv6rcN6BCFFttPOcViF1TEk1xsWswnaOrdAGoDonUyb0M6qlwRolYb+aUBZdr2ZcHvV+Jg1eS2H5mDnhnTlICquKj/ldOXgYKL7HzU6mzNFCeTqQZYq96L1LfkpNSxqs3mDeRyCokf0b5YFL40pDaIskmccjmqWkEENGN86kPv1ngNGsMDIXYqRYbuU8Xzt9szhke06FSDwJKUIWHvCm2B+q8iaeljX9UJ+Go8B/k3CzEZy1rSKYTVUgaiVw7tw8Dh5MhETv0LCyAq4ov6ieojsBaoMFsKsugiczVgyFixtTijE6Zr8XfAelxhpwiRDsP9B6bXFHXtd5ZUvDOPR/ml5GQ+smQKl5L6ykPxwMjgLHYsb2AUC+6cgbdsjdC8lROAH8ez1/Sjv5BhdzEjYFDqu0o071FdVYS7JOF10bboE4TS5pJSQDJV7D5oeMMxVg8BN55lz21rjTRm4+im2oGFFzL1dcGKX2LLsOAzNGPFqbziQZgEcTKcNp7PXdAZfc94PUjZEBm+AzfsBMf74wl2eBZVMvenZMyU5tzqVHuiJ8qTeHhLzDHMuR1MPE4K0IWhXZCefzC0r9II0/yYfp+qqARStMPsujENWv+ZNhXOWdGLyNR/1tcSKCmDwFqEAUEKele8cOVmGrQU7QA==
-X-Forefront-Antispam-Report:
-	CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(1800799024)(376014)(36860700016)(82310400026)(10067099003)(261026121527099003)(11063799006)(56012099006)(261021123027099003)(261102123227099003)(261021121427099003)(261009223027099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	ziaA7bNlnJr/0T5GXFD8KDhiV9yVVTZ0DL99BB45ilT8v+Nox+aK0mB+3nN0iv0ClSZIPIwPwiRcK2pECPOofq6KU9z75Yf7neyTYdAilYSTMjjhMUAKebrq3z0d4wudkh5vO0/TuGBJwqRe/35yI+yFLbzPLI2lP87OOCQOjNZeCKSwlOF1NsV4qsS5DgtGkstXBdP9wBfeZumd64UU8STCgbSGIjWmfM8Eco2UAYl/mdfNsxCfhGuhVlv2TcNhmKbVUe+xptJF/sud7U2bslb99S3Pn2NCLNTRZDGpsdpbmstBDsPX+Dy8bZccJ7+jdOEWM7atRRO1UMXQbnleZPtd5B539z+p2+BSKrODHRYlejxAtnm3ABu+pUYH56XwDYSDDJDLPnAoTD51hqpviildP4dOV1RS05XnYjv+AKHFyK/VgrQnP8XbsBELUFIz
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 15:05:01.2252
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0634cba0-9b95-45c9-4e5d-08df4bcea515
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MAD0EPF000008AE.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9P195MB1195
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126-lan9303-leds-v1-3-a96731317859@bootlin.com>
 
-Remove the "phytec,imx95-libra-rdk-fpsc" and "phytec,imx95-phycore-fpsc"
-compatibles from the fsl.yaml schema. They were used only by the Alpha
-hardware version of the Libra RDK (1618.0) and phyCORE-i.MX 95 FPSC SoM
-(1620.1) built on i.MX95 silicon revision A1. That hardware is EOL and
-it is superseded by the phyFLEX-i.MX 95 Libra RDK (1618.2) and the
-phyFLEX-i.MX 95 FPSC-Gamma SoM (1620.3), which use the
-"phytec,imx95-phyflex-libra-rdk" and "phytec,imx95-phyflex-fpsc-g"
-compatibles.
+On Thu, Nov 26, 2026 at 03:13:45PM +0100, Paul Louvel wrote:
+> The LED function of the LAN9303 and LAN9354 is selected by a single
+> LED_FUN field that applies to all six LED pins of the two external
+> ports.
+> 
+> On some boards the LED straps double as configuration straps for other
+> functions, such as the PHY address or the EEPROM size, so the desired
+> LED mode cannot be strapped and has to be programmed by the driver.
+> 
+> The LED subsystem is not used here: it models each LED independently,
+> while this hardware has one function field for all LEDs.
 
-The corresponding devicetree sources are removed in the preceding
-"dts: imx95-libra-rdk-fpsc: remove devicetree for old Libra" commit.
+Ah. This should of been in the cover letter...
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Benjamin Hahn <B.Hahn@phytec.de>
----
- Documentation/devicetree/bindings/arm/fsl.yaml | 7 -------
- 1 file changed, 7 deletions(-)
+[Goes and looks at the data sheet]
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 43b1ff8d25cb..f387cf42b906 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1544,13 +1544,6 @@ properties:
-               - fsl,imx952-evk            # i.MX952 EVK Board
-           - const: fsl,imx952
- 
--      - description: PHYTEC i.MX 95 FPSC based Boards
--        items:
--          - enum:
--              - phytec,imx95-libra-rdk-fpsc   # Libra-i.MX 95 FPSC
--          - const: phytec,imx95-phycore-fpsc  # phyCORE-i.MX 95 FPSC
--          - const: fsl,imx95
--
-       - description: PHYTEC phyFLEX-i.MX95 FPSC-Gamma SoM based boards
-         items:
-           - enum:
+https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/00002308A.pdf
 
--- 
-2.53.0
+So you have the choice of using the pin as a GPIO. So you can
+implement pure on/off. That gives you the minimum you need for
+/sys/class/leds.
 
+TABLE 12-1: LED OPERATION AS A FUNCTION OF LED_FUN[1:0]
+
+The functions are rather scattered all over the place, but i don't see
+a blocker to supporting hardware offload. It will be messy, yes, but
+possible.
+
+We have been pushing back on vendor properties for LEDs for a number
+of years, so i don't really want to add one now.
+
+   Andrew
