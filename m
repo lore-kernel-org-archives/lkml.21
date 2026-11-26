@@ -1,58 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795702924;
-	b=KVzxCr8l3cMWBwvZ1TaVRMvIDKnimHtIwiVQtdowrXNa56cxhmg3yoX0xNyqsOugCXzt
-	 0E6zY/evFhm03Htfcsra8KvNSxOangqr77akJlyfl/fYesBrXoxMzzsetGBarPUmBDJAL
-	 V2ECXJEe4Up7zJ0NP+cW78sZq3iWYrQuN8YwgijBnWiT9QGe9aojkTEP2CmNvO/mYqaxE
-	 XzgO+DhwqILEyG2NUCt7gQ3/yiyqJrAC33sbp9rTzKPNCXDewhDAcWmV2mOF5eb+XJ2jY
-	 /mDrN2A8oz7bSRSWn9ujR0iHrndpIUeHkY6+aTuZ5wdGhRE2ubwxltMpKdQYhyIU8Nw==
+	t=1795702932;
+	b=dXUIJqZgmBE5DRxh3K7iXxJMIk+NshDxdklu7ITXs3qLG+xh80MLUrSphOTsPx9+guuH
+	 CDTcbdFN7Lbu0GMlRbF9CX0jrB8Zb+etCALdwEFMdW8Y4mMogsxRmOICZhyg9wFiqzniv
+	 //V9JPHkDTtr/QzV6UC2s6VuXewwyeDaBJUvQ4/nypmVMZe6J2mRWWj28hbTCl9BZHhEo
+	 t+fJg54UliEysyrEe3uDL6sbAGJFzhoIcS9eXON8Hc0dUtm8yk20hDLf9X8c2lsng6DNp
+	 OC5YitTXTLXC2PygPw+/XYKznw1SqHYDf2TqHVEBy4mr6NIfAmMKNbJD6ok8TRlKU1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795702924;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=OvVAZTz69zThPSa7hVXEpLXSovgpYtvS4X1sc02ssSE=;
-	b=y0X3At7yMBlgfQGLwizWccL1LH452jCVHXq7hnQT4Oj+zqE2m2Hv+uzLJZ8ElST9oxEc
-	 riktKGnmPHlLBGKGcx+0pKkXyigqAYgJTId11qqlW0JgYvny1KknsWS8RSyX8Ga1Bnwcv
-	 mGPH+5XW/Y6C86mqvyIxOTp3tguTyUQL6p0U54skGWdsYQmVH+pA1ACVt8zLnrpTWYI4c
-	 hlUxJdcWAHsgGwL4hbBeAWbRjPbqxmgCnsoUbZVTtOdRoeDz4Q+kWWLu8/TzihrPlXUS0
-	 2XtgC2zkdht0TUZ6LgS1LyTNp9O1PhzzO22gqd+zrFHo85kpiv8odHxrOcYzWw83Cwg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795702932;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=KTNZD+C+JP9EsvqOZ/gFA821fXkXQWgJjDmWwsH0f1M=;
+	b=SzsYmH7tUeetwhX8pmJq0ajrj/OoRnLbuZP+CkqIIPN3MggL3ne08fkEbeV9RaL8xB2B
+	 ETFtxi9JP3tWOjZ3ujc7VceuuZa+p8j77gQgqPoEq+SjBswPB3AFV+ZlswO0o6t3zHjEp
+	 ii5x+yQIj+rO3Vw4cs3zH8c7+mfrAN87S34PBSSRdMKmhWgyiKYwZmxq5nwnPvlIzz/EF
+	 E3hJ5LPuW6ipqXIk3UjPqD9bTkTawiHgnF7H6iGlCtdIGjcDwT4KNyUvj//NDbKMoPcNV
+	 /L0+rujGJisLcp0Pd7KTs5zbWBtT/qSQkEvQkhCd/fg9XqYOvfeyQ+IXbjScd6SbxCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=aoiNvRcF;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Qc/c94To";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7B90606A331
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:22:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7B90606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD108606A321
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 14:22:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=aoiNvRcF
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 464DE1A1819;
-	Thu, 26 Nov 2026 14:22:02 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 12490604ED;
-	Thu, 26 Nov 2026 14:22:02 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E40EE11E68014;
-	Thu, 26 Nov 2026 15:21:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795702917; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=OvVAZTz69zThPSa7hVXEpLXSovgpYtvS4X1sc02ssSE=;
-	b=aoiNvRcF7GPO1yOrbbUy+hL+m8rUvoytuvmFiBT5vnJYRMObC6UfTH103FpcKeZR1yVX7k
-	95I57pM030VNwcOYTIv0fXoLgoMK8CzmqBQyOrFDhqfBkDCMQxy5w9H0oGM23ITRIZ4y0e
-	K9cckRyHdEX4xPC4iVInYC01liObmgSJALbXyN+HgM59fDbakqFs/NRcfKEZbmaMkYqLho
-	hYz4dPbVQTsHFmMUCRGaZn5u8hFDNy6+f9PeZY5UGIBW/clPHiQ1HcZ2wnenJeTIPzMbi4
-	dLSTpFpP29mZclQ0zhx6YLTpMIWMhlvpi9fWSFFO6u9ZCg/JZ2NwuF69ekBw/Q==
-Message-ID: <79b852d7-13b6-4535-915f-21c992e2ae67@bootlin.com>
-Date: Thu, 26 Nov 2026 15:21:50 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qc/c94To
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D780E1F000C0;
+	Thu, 26 Nov 2026 14:22:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795702932;
+	bh=KTNZD+C+JP9EsvqOZ/gFA821fXkXQWgJjDmWwsH0f1M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Qc/c94TovmFQ5bTftQRsaRCNS2h5YrVVa4k4mgUnRsYuhxlkxha7yCFnO58CjPiRh
+	 FrXtjcd9N15R285sJqrpDxBXL0XtPu7HUF8+1HCzwAJOas5okHWT2gY+C00KqrN7As
+	 imcMlTuwq1UK8v+I3hothENHuEDx31a9Q2eVuS+6kTrcvldPojIpYeXMmRTw54vAyB
+	 pgpvdWvbxpkh86D8/Rcfal3iI5k1pnFOQCZ6tf5fFKxOIV+e0bO07IBtNq3VeYBnYT
+	 fcde8WCtC6qqB1FupFXqG18wzejg3gk/THHw/RIZ8/q/6/M5bcYBVqZ1JyAfY3AgCS
+	 +zLRRjl7m+rJg==
+Date: Thu, 26 Nov 2026 14:22:10 +0000
+From: Harry Yoo <harry@kernel.org>
+To: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
+Cc: Chris Down <chris@chrisdown.name>, Kees Cook <kees@kernel.org>, 
+	Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>, 
+	David Rientjes <rientjes@google.com>, Roman Gushchin <roman.gushchin@linux.dev>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Marco Elver <elver@google.com>
+Subject: Re: [PATCH 2/3] mm/slab: add own entry points for
+ kmem_buckets_alloc() family
+Message-ID: <awg-2hrOmY5U3vzS@thinkstation>
+References: <20261124-kmalloc-entry-rework-v1-0-37b1631a67b5@kernel.org>
+ <20261124-kmalloc-entry-rework-v1-2-37b1631a67b5@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,41 +60,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 03/10] i2c: cgbc: Use real I2C bus names
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Lee Jones <lee@kernel.org>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Werner Gartner <Werner.Gartner@congatec.com>, mfd@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261117-cgbc-i2c-storage-devices-support-v6-0-bb070ad3e9aa@bootlin.com>
- <20261117-cgbc-i2c-storage-devices-support-v6-3-bb070ad3e9aa@bootlin.com>
- <awg2_PLCeNgio_bp@zenone.zhora.eu>
-Content-Language: en-US
-From: Thomas Richard <thomas.richard@bootlin.com>
-In-Reply-To: <awg2_PLCeNgio_bp@zenone.zhora.eu>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124-kmalloc-entry-rework-v1-2-37b1631a67b5@kernel.org>
 
-On 11/26/26 2:41 PM, Andi Shyti wrote:
-> Hi Thomas,
+On Tue, Nov 24, 2026 at 05:30:03PM +0100, Vlastimil Babka (SUSE) wrote:
+> The way buckets have been implemented was to extend
+> __kmalloc_node_noprof() and two more functions with the kmem_buckets
+> pointer parameter, which means all kmalloc_node() callers now have to
+> pass NULL. To avoid this extra parameter with CONFIG_SLAB_BUCKETS=n,
+> we added macros for parameter declaring and passing.
 > 
-> On Tue, Nov 17, 2026 at 10:47:43AM +0100, Thomas Richard (congatec GmbH) wrote:
->> The adapter names described the expected purpose of the buses ("General
->> Purpose I2C adapter", "Power Management I2C adapter") on conga-sa7 board
->> rather than their actual names on the Board Controller.
->>
->> Rename them to the real bus names "cgbc-i2c0" and "cgbc-ddc0", matching
->> the naming used by Congatec.
->>
->> Cc: stable@vger.kernel.org
->> Fixes: 6894f640b8f3 ("i2c: Congatec Board Controller i2c bus driver")
->> Signed-off-by: Thomas Richard (congatec GmbH) <thomas.richard@bootlin.com>
+> This can be avoided by creating own entry points for kmem_buckets
+> allocations and not using the kmalloc ones. They all end up performing
+> __do_kmalloc_node() internally.
 > 
-> BTW, do we really need the Fixes tag here and the Cc stable?
-Not really, I can remove them.
+> Since it's just 3 functions with few callers, do not try to do anything
+> special to eliminate code with CONFIG_SLAB_BUCKETS=n. Only make sure the
+> bucket parameter is changed to NULL in that case because it would be
+> ZERO_SIZE_PTR otherwise.
+> 
+> The removal of the now-unnecessary parameter macros is done separately
+> next.
+> 
+> Signed-off-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+> ---
+>  include/linux/slab.h |  16 +++++++--
+>  mm/slub.c            | 100 +++++++++++++++++++++++++++++++++++++++++----------
+>  2 files changed, 94 insertions(+), 22 deletions(-)
+> 
+> diff --git a/mm/slub.c b/mm/slub.c
+> index 70df0a2e3876..6674caabbb6e 100644
+> --- a/mm/slub.c
+> +++ b/mm/slub.c
+> @@ -5732,6 +5732,34 @@ void *__kmalloc_flags_noprof(DECL_TOKEN_PARAMS(size, token), gfp_t flags,
+>  	}
+>  }
+>  
+> +void *__kmem_buckets_alloc_noprof(kmem_buckets *b, size_t size, gfp_t flags)
+> +{
+> +	const struct slab_alloc_context ac = {
+> +		.caller_addr = _RET_IP_,
+> +		.orig_size = size,
+> +		.alloc_flags = SLAB_ALLOC_DEFAULT,
+> +	};
+> +
+> +	if (!IS_ENABLED(CONFIG_SLAB_BUCKETS))
+> +		b = NULL;
+> +
+> +	return __do_kmalloc_node(b, flags, NUMA_NO_NODE, (kmalloc_token_t){}, &ac);
 
-Best Regards,
-Thomas
+No type-based or random kmalloc partitioning w/o SLAB_BUCKETS?
+
+-- 
+Cheers,
+Harry / Hyeonggon
