@@ -1,53 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705168;
-	b=EH4Hkl35b241SEqFxykvjMXsHWeX1yCeB1KJ7cWDQk8qeojVI4lpZpBvTDV2VTBjaBXU
-	 eW28VNkIiFGHC9WchpWgSSrWJaTJFhApx/lECgm536Rv8wndPmGL7hRDUzVgYSTeoi8aQ
-	 tapO6A4PjLKvgJZ85/8yBapS+w41eRGsw6oCOC3ivkLcZau1cCmILyZ/i4802W3spZw19
-	 DyE8O5bJm2IUGeUrkZViZdy5PYUIHVi6RDULhOmb0bv+rHGGL3UaQOxWC1aI59vnaAucD
-	 IfCVRqJW4W9/nY/VS4N86ekpf3oZTXwS3KphslK1nr6mRl+CIrX4k2+TjL0ptTcsVkw==
+	t=1795705208;
+	b=dafajG6lXHZSUgNJn5at7lfM5PkI7Y9vdNEfwO2zivJxg6APwJuZCAB1Sp//q2OJ754n
+	 FqWOJggsDiEYWiQBz7FhQ6AbUwhcd+snlWJ+8j69k6IczkqdMbaFO+RAooQ9M42A7SG/c
+	 eXcsrHEcWvWWsyrvMP8JOWNMu11bi2VipNW9UWQGavGNdLUEI6gBvxyGqrpgYpBtYkH3e
+	 P9w/bi27xYiVjgZEVwhMNwoIbBRy777N7k+X/nIKyC2f7VbAyLFKkqjn5s5Tq3QlnxwRB
+	 bXl+zbUnOMWIWJVq3UoDx0Rj9+9GhyZJDYH19MV6LpOTwgH+8RbaYL3LQ9wmEilNE8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705168;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=dbft8haI/Mye7BgK+H8nW1NXfgOE0ftSkpSJ8dBb/4s=;
-	b=SUqGf8k+m97/XjBdsIUJxyEP3StsqJ8LMZBU2e9n1M0g+XD0irbF1n0ahTLkOEQH1zAz
-	 xq3xJALobR08ixJDPpnwh4O0dH33tH8/Ld+jboVvFEhyNAMMbeDzmGZBqX4vhvPRjFuEx
-	 +Qh0qQXQQVp3aMxU4WcL/Ktl641er4U5kBNLDgGntaDfytQU8+eKHmVOG4F+QRmNKAUjo
-	 MigMAUCfBjAdLxIRXQAAYCZn2hgMkwD0287dAZ18OhgN4hqamvQotlueEjzA5EBMqaci7
-	 ET2C6djBBZW3RGllv50mXGdYH/qWS+g8B3+DCIbOL8Q51H7mUeUMgGULeYlmdEALH8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705208;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=G4b3dFHg0tvdbnb4TXJttoG2afJS8WFlVLY+6CDMkE0=;
+	b=HepWSD7en65lUmGSJ4HmmLavNWyLWqN9wIrWYgEYL0yMuKks6soww6w1rk9MMQGOkYVk
+	 a6yADrBvJNY49QHW07UzyE3pm5ME+Uj2N+vS3iFFcSzWFp8I3qOTnVLxSnu3My89axCQy
+	 SfRNZeTTd0xU0F2ZCoqlOopaHt6H4d6e4UYNQPr2DNY4yE8WW15tR+Rqug7YXGFIiAJti
+	 7Qkj239FcKXyA8U/SadTNUWzjcoSLGvhLwqpSXHBCH9qrT7jOiblXBaMmg29oQO8i1lQ4
+	 jiNzwIhElIvrvPt9eNPop0l084jrAZ/X6qRtYW5ArMokK9kIWMjkbFKlrNyWcp8jMoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VDEaQYzA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 67FA1606A31C;
-	Thu, 26 Nov 2026 14:59:28 +0000 (UTC)
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OyAaZiii;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7EB35606A333;
+	Thu, 26 Nov 2026 15:00:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EB35606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VDEaQYzA
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 7CA5B1F000C6;
-	Thu, 26 Nov 2026 14:59:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795705168;
-	bh=dbft8haI/Mye7BgK+H8nW1NXfgOE0ftSkpSJ8dBb/4s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VDEaQYzAspNrHwCT+VDEhtgtlsGpzS5B20SeKDFBDsUtaUyYG3FEKOpubCoVP9k+w
-	 3IBpqS3JmNmAEYBwaPbcKNwH7hRHLQmMEzxdBpkm8O6as6GTgj2Jz/tZY8/t2m8DlY
-	 /q91c6Vp0Vi15uyQ+1Q55pF64eItyk16f/7dAigbGY/No73pe5a6aRfeq30ovf86+Z
-	 oFVf4OsWQsr+UEr1vreMi3j2DGk6Ubx0L9jpHLr1sHVFME3k6EjoWw3+ownATxzeoN
-	 /XKUrYTTfan/15cgtSlwJ2R9wS8QZsGJcZVWnXKPwu2POWF2DXoJN92VL8l4UokngN
-	 tE00EiJjYvb+w==
-Date: Thu, 26 Nov 2026 15:59:24 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: Zqiang <qiang.zhang@linux.dev>
-Cc: linusw@kernel.org, paulmck@kernel.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] gpiolib: Use srcu_dereference() in gpiod_get_label()
-Message-ID: <ybhhwqv2xgg4g3ormfcc7lncbo75irefvdk7yn2vsctjydefyz@n65bjszpepbm>
-References: <20261126084233.17381-1-qiang.zhang@linux.dev>
- <20261126084233.17381-2-qiang.zhang@linux.dev>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=OyAaZiii
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE5401BA8;
+	Thu, 26 Nov 2026 07:00:04 -0800 (PST)
+Received: from [10.33.48.93] (GM14V85S.arm.com [10.33.48.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D29A3F86F;
+	Thu, 26 Nov 2026 07:00:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795705207; bh=1fcrH9jumeQ+fD04PGZH05Eq8TBEmii97al5gS/oIO4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OyAaZiiipunAESQC3EfdqhVnoJcyqbpgBTVTR82YqLGsohLs0r6+TtEzsvhtOg/1V
+	 klVLI/kLfeHWDRT8p6tdVY4tnpQp6khQR/B/lQZgzebSw44DDYegyseYf6k9/dZscx
+	 sVnxnGqmix/ZMd27GaXlRDnlVtW5LQYVFoNrMxB4=
+Message-ID: <91794c90-a797-417d-88c9-8839529660e9@arm.com>
+Date: Thu, 26 Nov 2026 15:00:02 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,45 +53,56 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126084233.17381-2-qiang.zhang@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/24] media: mali-c720: Add hardware identification
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Nayden Kanchev <nayden.kanchev@arm.com>,
+ Konstantin Babin <konstantin.babin@arm.com>,
+ Linus Walleij <linusw@kernel.org>, jacopo.mondi@ideasonboard.com,
+ kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com,
+ dan.scally@ideasonboard.com, Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Rob Herring <robh@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Hans Verkuil <hverkuil@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+References: <20261124-b4-initial-upstream-candidate-v1-0-0cb9bde1bd30@arm.com>
+ <20261124-b4-initial-upstream-candidate-v1-5-0cb9bde1bd30@arm.com>
+ <179559677600.14607.6594089332845207687.b4-reply@b4>
+Content-Language: en-GB
+From: Anthony McGivern <anthony.mcgivern@arm.com>
+In-Reply-To: <179559677600.14607.6594089332845207687.b4-reply@b4>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 26, 2026 at 04:42:33PM +0800, Zqiang wrote:
-> The srcu_dereference_check() already evaluates 'srcu_read_lock_held(ssp)'
-> internally, so passing srcu_read_lock_held() as the extra condition is
-> redundant. all callers of gpiod_get_label() hold the desc_srcu read lock,
-> so replace it with srcu_dereference(), which provides identical lockdep
-> coverage.
+Hi,
+
+On 25/11/2026 08:52, Krzysztof Kozlowski wrote:
+> On 2026-11-24 17:07 +0000, Anthony McGivern wrote:
+>>  struct mali_c720_top_regs;
+>>  struct mali_c720_ctx_mgr_regs;
+>>  struct mali_c720_modules_regs;
+>> @@ -56,7 +58,8 @@ struct mali_c720_registers {
+>>  };
+>>  
+>>  const struct mali_c720_id_regs *mali_c720_get_id_regs(void);
+>> -int mali_c720_get_registers(struct mali_c720_registers *regs);
+>> +int mali_c720_get_registers(enum mali_c720_version_id version,
+>> +			    struct mali_c720_registers *regs);
 > 
-> No functional changes.
+> You just added this code. Add complete pieces of code, not half-baked
+> which you immediately need to fix/change.
 > 
-> Signed-off-by: Zqiang <qiang.zhang@linux.dev>
-> ---
->  drivers/gpio/gpiolib.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
+
+That's valid, initially I separated these changes from register access,
+though they are somewhat dependent on one another. For V2 I will squash
+this and the register access patch together.
+
+> Best regards,
+> Krzysztof
 > 
-> diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
-> index 5dd4d142cf52..47ce89bfb578 100644
-> --- a/drivers/gpio/gpiolib.c
-> +++ b/drivers/gpio/gpiolib.c
-> @@ -124,8 +124,7 @@ const char *gpiod_get_label(struct gpio_desc *desc)
->  
->  	flags = READ_ONCE(desc->flags);
->  
-> -	label = srcu_dereference_check(desc->label, &desc->gdev->desc_srcu,
-> -				srcu_read_lock_held(&desc->gdev->desc_srcu));
-> +	label = srcu_dereference(desc->label, &desc->gdev->desc_srcu);
->  
->  	if (test_bit(GPIOD_FLAG_USED_AS_IRQ, &flags))
->  		return label ? label->str : "interrupt";
-> -- 
-> 2.17.1
->
 
-What is this patch? A v2 to the one it's replying to? A separate change
-(in which case it should be a new thread, not a reply)?
+Thanks,
+Anthony
 
-I'm confused by this thread.
-
-Bart
