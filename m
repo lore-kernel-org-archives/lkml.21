@@ -1,100 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.170
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795726287;
-	b=szQzoT0uZShwn8nbC3cMgGO9ktjOPKnLudgiucLbJKFaMhXUdnUv3FOqoPnpKwA1a9po
-	 FLQl6YRwYvP9NiE+gpKgl2r6EX9Szdm7BbmlPLiKe8TMSZqPRVe1BQAjy+BhSdXSf2BEc
-	 i4oV0PREAuE2clTdv6rz3GozxIvta7hrb6BGx17s1pCyhIz0ZNaraFxIbEaOz7xK8HzVu
-	 gpWiHCVG6kGpB33L43UrFBU68qjRgXTimM2WuAKKQLxRIf/vu3oI2enS9cUrwIBAT/giK
-	 ZP+CfMh1G3NFnU7HQRbGv9J4MGnkf4Sspd5hnoyfHSvjV0HotMi+qt3phFEdvzL+gyg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795726287;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=KjPQo4q/k3/IK7cR8RIRgyLDoYYjcusaTmDtFIYgl8E=;
-	b=Buu3LX/9W6TRurz1GFtg2/Nh0fZ9Sq5kzQPsV3IuN628w3HL/q83rcuDD8AS1HU0wzOR
-	 T7OEgpv8qF7k17eWU2If1HfwGQU4uW8gwyEMNx0S6RP/yhxwd1ydWBUNJ9I2JX1cVW1In
-	 R9hP2fpXilyjDOybLMAln+gK6QwFnVEfL6ujPIdx1caE4a7pjDF2LAV0mv7X2D4HyMdWk
-	 KH3jhrXkI5t8G3Rc98QnsaZ+JZrKRbLv4/f/RW2ZEkVABAPUfb41+Cky+ZR7pUY1T28jH
-	 SvRsbcevH6BG/CaPHBmdyVDTy9GxHeb2czplwrqYi4d5h176N4ln+f7aWhOLl4Z4XTQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="pWUFz3/M";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.170
-Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795726283;
+	b=B4/tdAs5UgJ0vdKOpntpX82yhGuCERbkBK1+b5AXurApfWd0gElBnRNsmTUpJlw3KTW2
+	 Fo5wIvZMl2gHuV1xIsR/Rhz1kj7vJgqC+spT7HT/tBtcGGfD2wkD6rL/IWRbFz3dzamoJ
+	 wxh+l6sC6KE0uusJso8ZOY64w29KmZKqTzFECpetBebEEvrY2CjEGsdARyqs7LFeBOUtQ
+	 P8oirBiXT5tlXkq//1fLtX/19Sj3xYa49xXg/qYKg9TeN/u3KTWYiHA3DycQ5GuEuEatm
+	 ReiqZkKokJU8tfuoHqNdBU+3Gouxxs/EmfgBAipQStXHAXfSuzTcM3pYpzvrfL9BjuQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795726283;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=ovE10ecPuuG4Q9OyRtgv4d61+DAHAD6pr+MnShX2Rv0=;
+	b=JnyAA2KB8cJK2hXdpEse2l4z39xKTy7XJx7OEj6RzHJOPi+UpLyU+yv2l6fRquz6ZnvI
+	 +7j5IJIGBzVsuDwFmrQ0b/dvp5QucFHM8ujGeDslw3oW4/vPrOyPZiwTv+ycVsIbzlIBX
+	 v+nb3DZLnkystl3dSKD5sXh+4FwKHf/Bls6a6K0PmNF24WJKNabOk7TzwE+9degtCmbzA
+	 IZE5Y/9GJH/kFU1x6yLVxQ+BkoSzPtji5W0hUji4te+783D6lezKQsmDJS+p2XII2CcPM
+	 WscLFED51GpONVia45LFEErnln0xc/yuA9K1sZoP1Dmi3klruR7FZq6g/FQ7U9XSlVQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Uk+x+z9P;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0855606A688
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 20:51:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0855606A688
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 2D3C6606A321;
+	Thu, 26 Nov 2026 20:51:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pWUFz3/M
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2f03920c477so62071285ad.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:51:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795726286; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TGhBSUM4tUP5O24kwZvA/cPkPJbLD7JWvFSN6KsbfmtG8a6ZTEWbXHcNDlOuria4QP
-         5xLgRXB3fldWi38KjGYI6nfJ0byNCqF11KMLQdrKKz7WYANG1hSVCUgv29mLr+wav0Du
-         i6lVmA6PFyl5X7/G0uoeRJJa6tOada+gc9pnCMyJfTE6HcZJqRgTYuDO03g7GpxMbDju
-         +7qxgj/w4yHh8qnZw5VrUChTAFU+GJrc9f11crlBPz+8bROJ9T4Ofmc6lwMey2wimp0I
-         z+cn2RYM3OPsqnziNkTaAgeSyt9EA1+LQ3eo0oTE9mHZY7+VunQNpdrVAFM9He2LaLYQ
-         SVJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=KjPQo4q/k3/IK7cR8RIRgyLDoYYjcusaTmDtFIYgl8E=;
-        fh=qXVLNty2weEhklchGD4YZFYvKPDsqiDP0hOXpXujTBo=;
-        b=B9e/3QyinVKAo6zIQ2auGjQQjhoG0lIpUeKfzcacXMQL8tSq4FhLgE33ADgmoL3ff4
-         VDqMFpnWjTBLUXBD08M93UrUD4xrmBCdtW2HBmx738JAWfNvzV2QlJaeQqwIQ26TkpcM
-         u6xPaZP8ZH9sACl2Jge7kpfOvoykC8HJxyHA4F8U9d2pZpyOORYLzRBk1WK6Ns5My1pp
-         fFY1dvdSNoEma5Ch1Lz8WTUE+RR9KOsiu4WeVC3x9TVD2i/fFD4BeU2duVPWja7e2xM8
-         2cVcJNwdZdN1VH4tdvSiVdxODia0PmeDCfVtBu813zVk+a/8yDjmOWfTCHUVXzKd2e5n
-         IJ1w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795726286; x=1796331086; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KjPQo4q/k3/IK7cR8RIRgyLDoYYjcusaTmDtFIYgl8E=;
-        b=pWUFz3/M7EmWEuXYofT9Wlt8PQb5LVGmCJejjLrN282r1F9m9LUgcFTgW/6gC1bDG6
-         BSCD40lsLsshlKT/UGRAuVdbcwHEcnx01DVyOl5rkFGOLZnG9lAGhCZ5D9E4pJg7YB/a
-         tfrK2fkOEt8VYi2X8jUMBiNAa3Z88xXWfdb3dnq7HGORnxK3znS4NyvDKjYnHuV3CXjD
-         FidYpBONQH9MdrhOraRPikIVcNlRJbqjsQtZUzZAt7Wn1KlnCozlO2qVkUHfQJJtWDBs
-         7MoCa8znYJOSQSgsyMWNN/DTuhfZ/DYQS1BFWEV4nd8vLIeXEbZ/dZ18aQwnfV3XROtt
-         NVnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795726286; x=1796331086;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KjPQo4q/k3/IK7cR8RIRgyLDoYYjcusaTmDtFIYgl8E=;
-        b=O5oR3KB22OK4Nd7XGvmYpycZGF+fUePvnYah/4ZYdHq8WNzOvAdpu1Mli3/uFhBT3o
-         mknaZ9y0gPaOPwxsbto+9yFTwlNhWuCq4A8FoRNY7j0GrhRBc+OLT+EhTbayGA3o581P
-         weyYNFJWKShAgVu14fiu+LSvEmvmSpTDGoBfse0oFkKFoc/+AyF5r85ivlsHMW6rVeT8
-         7zqYvns9dndj7JUSn8FQpCAXMdS7gKtD/QuoYKRpURFc4WHeENtHyDQjrkSGfRe0UH3e
-         BX0MVqRiFCzEucRL89KLH5PQo3ccc1yJbyZHFr5t79nz3a3vsbAHJ3A9H0o91lVIzGl0
-         73FQ==
-X-Forwarded-Encrypted: i=1; AL+hErGKxiScOwrr7DEt+n8CRxlym9rnsOdz1cK6J677daPnpRFXzSRw0/i6ey+EO3MSo4MKqO17zssnSRFPfzQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+lGZkCX93SHiNviafsdOI8ZV1DwtfS9VS8kD6XUOOXmMdCAiTt
-	Vn9Uc7lajGqlz570mfgOAl9Oz047Q3RUS1jFA53s6CqbkTG9H8tRL9fc4H/RgHUkh1xuhjF6Wu7
-	ATRu6U4IgRCAzsdCuo5ETM9xt1oQoSYo=
-X-Gm-Gg: AZFdTZdAp5xTSHOoociDhktoilgKSWBKxI2F+Bg4HOtAfZ5nX9sgfQ5OgrfqURJLpQz
-	NmgjY2rcj4NFb9jcUYRot8cIXMm94qiKvaLbm8hvuYu2h0u6F3N4P9KEcunWxG5qtDT6cTW3vwR
-	VkYEkN05Zae+M/VU5ZpH0uCd9nWQ349WWuKa9vyN5uRX5ln/1DuHKlJrh9t/XamztfgUr1nIsDU
-	TKQN5MtiFsNFobbXcRCYKXKSHwJ1+V7JUkWhfMqx26R9Bl797vvM1gI/Ho9Mtm6nC5P6UAhxni2
-	6OEqbc6MZY8t7L2qXkmGXLR/w54qfONes5Ji7PUdrdLaEzYpwwmSIsA48C1gap2U3dK2PLN3Gnj
-	bZts3Dk1OvyV1p0ysC9fBmNNWx0f1kUEpbZ6q
-X-Received: by 2002:a17:903:4b0c:b0:2ed:352d:c619 with SMTP id
- d9443c01a7336-2f03f16ca83mr215219965ad.46.1795726286102; Thu, 26 Nov 2026
- 12:51:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Uk+x+z9P
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 15F461F000C1;
+	Thu, 26 Nov 2026 20:51:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795726282;
+	bh=ovE10ecPuuG4Q9OyRtgv4d61+DAHAD6pr+MnShX2Rv0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Uk+x+z9PvG6Yd5h8MXLve74FONlG7+wrxZlv2yNVg3o7vBNuu1A/SK3B8OrHxebYW
+	 bbQzabvRlKz0WM+gSbq28UkLY62+TfbVONQN/09t2ivONhkeKgynDAKoqdC+wChTJN
+	 JNVlr9lK5YFUjUm6URoKHEyNOsukz59t9G5ekwSeCfTX6ccDiLk1czkgo4J5lRtOLJ
+	 edQGarym0kG2792WvZzA9QswiVTEhTlvADHgn2WZ5R0sy6z17wkoc30BrT4CPMW+e/
+	 ANraVjr/9pLu5fAtrdT47D5CzylLB4Zwr98bVquNCLd65wRGq25lrF927x16Hnl3FJ
+	 7inhk/E+YWzCw==
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: keyrings@vger.kernel.org
+Cc: Jarkko Sakkinen <jarkko@kernel.org>,
+	dm-devel@lists.linux.dev,
+	linux-crypto@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	Alasdair Kergon <agk@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Benjamin Marzinski <bmarzins@redhat.com>,
+	David Gstir <david@sigma-star.at>,
+	David Howells <dhowells@redhat.com>,
+	David Laight <david.laight.linux@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Ignat Korchagin <ignat@linux.win>,
+	James Bottomley <James.Bottomley@HansenPartnership.com>,
+	James Morris <jmorris@namei.org>,
+	James Prestwood <prestwoj@gmail.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Lukas Wunner <lukas@wunner.de>,
+	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
+	Mike Snitzer <snitzer@kernel.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	Mimi Zohar <zohar@linux.ibm.com>,
+	Paul Moore <paul@paul-moore.com>,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Sumit Garg <sumit.garg@kernel.org>
+Subject: [PATCH v4 10/11] KEYS: trusted: Factor out TPM2 blob loading
+Date: Thu, 26 Nov 2026 22:50:20 +0200
+Message-ID: <20261126205021.2200819-11-jarkko@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261126205021.2200819-1-jarkko@kernel.org>
+References: <20261126205021.2200819-1-jarkko@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,95 +91,326 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125-spacemit-soc-timer-v3-0-e6390f3ae4a6@linux.spacemit.com>
-In-Reply-To: <20261125-spacemit-soc-timer-v3-0-e6390f3ae4a6@linux.spacemit.com>
-From: Iker Pedrosa <ikerpedrosam@gmail.com>
-Date: Thu, 26 Nov 2026 21:50:00 +0100
-X-Gm-Features: Aa3M54oEPweJV68Vjz8cVs_U2wRf_Iqv5S5UWB4zm__2yBgEw8WUCZAIeYKD9Xg
-Message-ID: <CABdCQ=OHaicMvAC=S+To2pQgFXupoUEY72TF+NUNF7ywM1kj0Q@mail.gmail.com>
-Subject: Re: [PATCH v3 0/5] Add SpacemiT K1/K3 SoC timer support
-To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-Cc: Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Yixun Lan <dlan@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Series looks good. All previous concerns addressed.
+Prepare for asymmetric TPM2 key operations, which reload the TPM key blob
+and append key authorization on each pkey call, by factoring out common
+helpers:
 
-Reviewed-by: Iker Pedrosa <ikerpedrosam@gmail.com>
+1. Decouple tpm2_key_decode() from struct trusted_key_options.
+2. Factor out tpm2_load_blob() and tpm2_buf_append_key_auth() from
+   tpm2_load_cmd() and tpm2_unseal_cmd().
 
-El mi=C3=A9, 25 nov 2026 a las 2:39, Troy Mitchell
-(<troy.mitchell@linux.spacemit.com>) escribi=C3=B3:
->
-> The SpacemiT K1 and K3 SoCs have APB timers that run independently of
-> the CPU cores. Each timer block has three 32-bit up counters, and each
-> counter has three match comparators and its own interrupt. A counter
-> can be clocked from the functional clock or from the 32.768 kHz clock,
-> and can run in free-running or periodic mode.
->
-> This series uses counter 0 as a oneshot clockevent. It is registered
-> for tick broadcast, so it can wake up CPUs whose local RISC-V timer
-> stops in idle.
->
-> K3 uses the same register interface as K1 and falls back to the K1
-> compatible. Both SoCs run the timer from a 1 MHz functional clock.
->
-> ---
-> Changes in v3:
-> - Drop the unnecessary RESET_CONTROLLER dependency (Philipp)
-> - Link to v2: https://patch.msgid.link/20261117-spacemit-soc-timer-v2-0-9=
-264d0ea7755@linux.spacemit.com
->
-> Changes in v2:
-> - Use named constants with comments for the counter sync latency and
->   the minimum clock rate (Iker)
-> - Link to v1: https://patch.msgid.link/20261103-spacemit-soc-timer-v1-0-3=
-6722421db6e@linux.spacemit.com
->
-> To: Troy Mitchell <troy.mitchell@linux.spacemit.com>
-> To: Daniel Lezcano <daniel.lezcano@kernel.org>
-> To: Thomas Gleixner <tglx@kernel.org>
-> To: Rob Herring <robh@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Yixun Lan <dlan@kernel.org>
-> To: Philipp Zabel <p.zabel@pengutronix.de>
-> To: Paul Walmsley <pjw@kernel.org>
-> To: Palmer Dabbelt <palmer@dabbelt.com>
-> To: Albert Ou <aou@eecs.berkeley.edu>
-> To: Alexandre Ghiti <alex@ghiti.fr>
-> Cc: linux-kernel@vger.kernel.org
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: spacemit@lists.linux.dev
->
-> ---
-> Troy Mitchell (5):
->       dt-bindings: timer: Add SpacemiT K1 timer
->       clocksource/drivers/spacemit: Add K1 timer support
->       riscv: dts: spacemit: Add the K1 APB timer
->       riscv: dts: spacemit: Add the K3 APB timer
->       MAINTAINERS: Add entry for SpacemiT timer
->
->  .../bindings/timer/spacemit,k1-timer.yaml          |  71 +++++
->  MAINTAINERS                                        |   6 +
->  arch/riscv/boot/dts/spacemit/k1.dtsi               |  12 +
->  arch/riscv/boot/dts/spacemit/k3.dtsi               |  12 +
->  drivers/clocksource/Kconfig                        |  11 +
->  drivers/clocksource/Makefile                       |   1 +
->  drivers/clocksource/timer-spacemit.c               | 317 +++++++++++++++=
-++++++
->  7 files changed, 430 insertions(+)
-> ---
-> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-> change-id: 20261019-spacemit-soc-timer-cadf3088d286
->
-> Best regards,
-> --
-> Troy Mitchell <troy.mitchell@linux.spacemit.com>
->
->
+Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+---
+ security/keys/trusted-keys/trusted_tpm2.c | 207 ++++++++++++----------
+ 1 file changed, 114 insertions(+), 93 deletions(-)
+
+diff --git a/security/keys/trusted-keys/trusted_tpm2.c b/security/keys/trusted-keys/trusted_tpm2.c
+index 921d6fd9a024..231062fd17b6 100644
+--- a/security/keys/trusted-keys/trusted_tpm2.c
++++ b/security/keys/trusted-keys/trusted_tpm2.c
+@@ -97,6 +97,7 @@ static int tpm2_key_encode(struct trusted_key_payload *payload,
+ 
+ struct tpm2_key_context {
+ 	u32 parent;
++	enum OID oid;
+ 	const u8 *pub;
+ 	u32 pub_len;
+ 	const u8 *priv;
+@@ -104,11 +105,11 @@ struct tpm2_key_context {
+ 	bool has_policy;
+ };
+ 
+-static int tpm2_key_decode(struct trusted_key_payload *payload,
+-			   struct trusted_key_options *options,
+-			   u8 **buf, unsigned int *blob_len)
++static int tpm2_key_decode(const struct trusted_key_payload *payload,
++			   const struct trusted_key_tpm *private,
++			   u32 *parent, u8 **buf, unsigned int *blob_len,
++			   enum OID *oid)
+ {
+-	struct trusted_key_tpm *private = options->private;
+ 	int ret;
+ 	struct tpm2_key_context ctx;
+ 	u8 *blob;
+@@ -132,8 +133,10 @@ static int tpm2_key_decode(struct trusted_key_payload *payload,
+ 
+ 	*buf = blob;
+ 	*blob_len = ctx.priv_len + ctx.pub_len;
+-	if (!private->keyhandle)
+-		private->keyhandle = ctx.parent;
++	if (oid)
++		*oid = ctx.oid;
++	if (parent)
++		*parent = ctx.parent;
+ 
+ 	memcpy(blob, ctx.priv, ctx.priv_len);
+ 	blob += ctx.priv_len;
+@@ -209,18 +212,22 @@ int tpm2_key_type(void *context, size_t hdrlen,
+ 		unsigned char tag,
+ 		const void *value, size_t vlen)
+ {
++	struct tpm2_key_context *ctx = context;
+ 	enum OID oid = look_up_OID(value, vlen);
+ 
+-	if (oid != OID_TPMSealedData) {
++	if (oid == OID_TPMSealedData) {
++		ctx->oid = oid;
++		return 0;
++	}
++
++	if (IS_ENABLED(CONFIG_DEBUG_KERNEL)) {
+ 		char buffer[50];
+ 
+ 		sprint_oid(value, vlen, buffer, sizeof(buffer));
+-		pr_debug("OID is \"%s\" which is not TPMSealedData\n",
+-			 buffer);
+-		return -EINVAL;
++		pr_debug("OID \"%s\" is not supported\n", buffer);
+ 	}
+ 
+-	return 0;
++	return -EINVAL;
+ }
+ int tpm2_key_pub(void *context, size_t hdrlen,
+ 	       unsigned char tag,
+@@ -462,6 +469,68 @@ int tpm2_seal_trusted(struct tpm_chip *chip,
+ 	return tpm_ret_to_err(rc);
+ }
+ 
++static int tpm2_load_blob(struct tpm_chip *chip,
++			  struct trusted_key_tpm *private,
++			  const u8 *blob, unsigned int blob_len,
++			  u32 *blob_handle)
++{
++	struct tpm_buf *buf __free(kfree) = NULL;
++	u8 parent_name[TPM2_NAME_SIZE];
++	bool created_parent = false;
++	u32 parent_handle;
++	int rc;
++
++	rc = tpm2_load_parent(chip, private->keyhandle, &parent_handle,
++			      parent_name, &created_parent);
++	if (rc)
++		return rc;
++
++	rc = tpm2_start_auth_session(chip);
++	if (rc)
++		goto out;
++
++	buf = kzalloc(TPM_BUFSIZE, GFP_KERNEL);
++	if (!buf) {
++		tpm2_end_auth_session(chip);
++		rc = -ENOMEM;
++		goto out;
++	}
++
++	tpm_buf_init(buf, TPM_BUFSIZE);
++	tpm_buf_reset(buf, TPM2_ST_SESSIONS, TPM2_CC_LOAD);
++
++	rc = tpm_buf_append_name(chip, buf, parent_handle,
++				 created_parent ? parent_name : NULL);
++	if (rc)
++		goto out;
++
++	tpm_buf_append_hmac_session(chip, buf, 0, private->keyauth,
++				    TPM_DIGEST_SIZE);
++
++	tpm_buf_append(buf, blob, blob_len);
++
++	if (buf->flags & TPM_BUF_INVALID) {
++		tpm2_end_auth_session(chip);
++		rc = -E2BIG;
++		goto out;
++	}
++
++	rc = tpm_buf_fill_hmac_session(chip, buf);
++	if (rc)
++		goto out;
++
++	rc = tpm_transmit_cmd(chip, buf, 4, "loading blob");
++	rc = tpm_buf_check_hmac_response(chip, buf, rc);
++	if (!rc)
++		*blob_handle = get_unaligned_be32(&buf->data[TPM_HEADER_SIZE]);
++
++out:
++	if (created_parent)
++		tpm2_flush_context(chip, parent_handle);
++
++	return tpm_ret_to_err(rc);
++}
++
+ /**
+  * tpm2_load_cmd() - execute a TPM2_Load command
+  *
+@@ -482,18 +551,15 @@ static int tpm2_load_cmd(struct tpm_chip *chip,
+ {
+ 	u8 *blob_ref __free(kfree) = NULL;
+ 	struct trusted_key_tpm *private = options->private;
+-	struct tpm_buf *buf __free(kfree) = NULL;
+-	u8 parent_name[TPM2_NAME_SIZE];
+-	bool created_parent = false;
+ 	unsigned int private_len;
+ 	unsigned int public_len;
+ 	unsigned int blob_len;
+-	u32 parent_handle;
++	u32 parent = 0;
+ 	u8 *blob, *pub;
+ 	int rc;
+ 	u32 attrs;
+ 
+-	rc = tpm2_key_decode(payload, options, &blob, &blob_len);
++	rc = tpm2_key_decode(payload, private, &parent, &blob, &blob_len, NULL);
+ 	if (rc) {
+ 		if (rc != -EBADMSG ||
+ 		    (payload->blob_len &&
+@@ -507,6 +573,8 @@ static int tpm2_load_cmd(struct tpm_chip *chip,
+ 	} else {
+ 		/* Bind for cleanup: */
+ 		blob_ref = blob;
++		if (!private->keyhandle)
++			private->keyhandle = parent;
+ 	}
+ 
+ 	/* new format carries keyhandle but old format doesn't */
+@@ -544,56 +612,40 @@ static int tpm2_load_cmd(struct tpm_chip *chip,
+ 	if (blob_len > payload->blob_len)
+ 		return -E2BIG;
+ 
+-	rc = tpm2_load_parent(chip, private->keyhandle, &parent_handle,
+-			      parent_name, &created_parent);
+-	if (rc)
+-		return rc;
++	return tpm2_load_blob(chip, private, blob, blob_len, blob_handle);
++}
+ 
+-	rc = tpm2_start_auth_session(chip);
+-	if (rc)
+-		goto out;
++static void tpm2_buf_append_key_auth(struct tpm_chip *chip,
++				     struct tpm_buf *buf,
++				     struct trusted_key_tpm *private,
++				     u8 hmac_attrs)
++{
++	struct tpm_header *head;
++	int offset;
+ 
+-	buf = kzalloc(TPM_BUFSIZE, GFP_KERNEL);
+-	if (!buf) {
+-		tpm2_end_auth_session(chip);
+-		rc = -ENOMEM;
+-		goto out;
++	if (!private->policyhandle) {
++		tpm_buf_append_hmac_session(chip, buf, hmac_attrs,
++					    private->blobauth,
++					    private->blobauth_len);
++		return;
+ 	}
+ 
+-	tpm_buf_init(buf, TPM_BUFSIZE);
+-	tpm_buf_reset(buf, TPM2_ST_SESSIONS, TPM2_CC_LOAD);
+-
+-	rc = tpm_buf_append_name(chip, buf, parent_handle,
+-				 created_parent ? parent_name : NULL);
+-	if (rc)
+-		goto out;
+-
+-	tpm_buf_append_hmac_session(chip, buf, 0, private->keyauth,
+-				    TPM_DIGEST_SIZE);
+-
+-	tpm_buf_append(buf, blob, blob_len);
+-
+-	if (buf->flags & TPM_BUF_INVALID) {
+-		tpm2_end_auth_session(chip);
+-		rc = -E2BIG;
+-		goto out;
++	/*
++	 * FIXME: The policy session was generated outside the kernel so we
++	 * don't know the nonce and thus can't calculate a HMAC on it.
++	 * Therefore, the user can only really use TPM2_PolicyPassword and we
++	 * must send down the plain text password, which could be intercepted.
++	 */
++	tpm2_buf_append_auth(buf, private->policyhandle, NULL, 0, 0,
++			     private->blobauth, private->blobauth_len);
++	if (tpm2_chip_auth(chip)) {
++		tpm_buf_append_hmac_session(chip, buf, hmac_attrs, NULL, 0);
++	} else {
++		offset = buf->handles * 4 + TPM_HEADER_SIZE;
++		head = (struct tpm_header *)buf->data;
++		if (tpm_buf_length(buf) == offset)
++			head->tag = cpu_to_be16(TPM2_ST_NO_SESSIONS);
+ 	}
+-
+-	rc = tpm_buf_fill_hmac_session(chip, buf);
+-	if (rc)
+-		goto out;
+-
+-	rc = tpm_transmit_cmd(chip, buf, 4, "loading blob");
+-	rc = tpm_buf_check_hmac_response(chip, buf, rc);
+-	if (!rc)
+-		*blob_handle = be32_to_cpup(
+-			(__be32 *)&buf->data[TPM_HEADER_SIZE]);
+-
+-out:
+-	if (created_parent)
+-		tpm2_flush_context(chip, parent_handle);
+-
+-	return tpm_ret_to_err(rc);
+ }
+ 
+ /**
+@@ -614,13 +666,10 @@ static int tpm2_unseal_cmd(struct tpm_chip *chip,
+ 			   u32 blob_handle)
+ {
+ 	struct trusted_key_tpm *private = options->private;
+-	struct tpm_header *head;
+ 	struct tpm_buf *buf __free(kfree) = NULL;
+ 	unsigned int data_len;
+-	int offset;
+ 	u8 *data;
+ 	int rc;
+-
+ 	rc = tpm2_start_auth_session(chip);
+ 	if (rc)
+ 		return rc;
+@@ -638,35 +687,7 @@ static int tpm2_unseal_cmd(struct tpm_chip *chip,
+ 	if (rc)
+ 		return rc;
+ 
+-	if (!private->policyhandle) {
+-		tpm_buf_append_hmac_session(chip, buf, TPM2_SA_ENCRYPT,
+-					    private->blobauth,
+-					    private->blobauth_len);
+-	} else {
+-		/*
+-		 * FIXME: The policy session was generated outside the
+-		 * kernel so we don't known the nonce and thus can't
+-		 * calculate a HMAC on it.  Therefore, the user can
+-		 * only really use TPM2_PolicyPassword and we must
+-		 * send down the plain text password, which could be
+-		 * intercepted.  We can still encrypt the returned
+-		 * key, but that's small comfort since the interposer
+-		 * could repeat our actions with the exfiltrated
+-		 * password.
+-		 */
+-		tpm2_buf_append_auth(buf, private->policyhandle,
+-				     NULL /* nonce */, 0, 0,
+-				     private->blobauth, private->blobauth_len);
+-		if (tpm2_chip_auth(chip)) {
+-			tpm_buf_append_hmac_session(chip, buf, TPM2_SA_ENCRYPT,
+-						    NULL, 0);
+-		} else  {
+-			offset = buf->handles * 4 + TPM_HEADER_SIZE;
+-			head = (struct tpm_header *)buf->data;
+-			if (tpm_buf_length(buf) == offset)
+-				head->tag = cpu_to_be16(TPM2_ST_NO_SESSIONS);
+-		}
+-	}
++	tpm2_buf_append_key_auth(chip, buf, private, TPM2_SA_ENCRYPT);
+ 
+ 	rc = tpm_buf_fill_hmac_session(chip, buf);
+ 	if (rc)
+-- 
+2.47.3
+
