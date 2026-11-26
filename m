@@ -1,84 +1,85 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795653194;
-	b=3kihgmbwSLGKCv4Mq/Oa7mppHdM1fzhowGh9eh6n6KhNJlkWyBHhWPOiUXlIrUQ6b1Em
-	 oXS6/phFBzOHaZVWwtavrm/rJfHmU88rjsfe8K5H6dWjQR4twEaZMlDJIGddYhN7Dkoxf
-	 3WrGy47gxjH7L8zx1RvM+HXO2cD9LxSe/DP0Ud9ZY8HIqTE5B1Si30nXg6qJihT1eHgAg
-	 c0EAbfTFi0zkP0Obl5sV3W5KwJhR9mGLrkX6IKWeV9I3CV8L7pahyinbkSZRU+ppAxnJW
-	 4bEkV451QaIdLYM/kxzK9Jhre3bJfJGroKSeyFUsRusrkMZtJAaxo95mmWpEMLSINOw==
+	t=1795653199;
+	b=lyvX52Azx+fL/2/hYGesS8qSmwwWSIyLkXqg0oHp4lwfzBB6CvUoZH3uYslTsIrYpJOz
+	 GJ9CG/un1AgvcxysDLw6w+62RFdP8N2sHvsWJwHdOItmlZMXhTN20/ZCQd55iIxTZTIH5
+	 leBFtEX9xemHgI+6rBxNwbjgb/eheaD7YQsZi1MvIlRP3USeT/uDncQB1gqpWwDIvc0jU
+	 b4YMC5UAA+3M+SYQMlQWu/yIaWPwCDkJciOzO9wv9NBDbkA2rhL8nSwKK/P4zT/DHOmi2
+	 dR8fW/lRMK96GDkldQ9v7sXrEqYp09Vjjg9mgRAUWhlHpe6PfY2i2yieaF5L9PcBaLA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795653194;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795653199;
 	h=Received:DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
 	 MIME-Version:Content-Type:X-Mailer:X-Developer-Signature:
 	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
 	 Content-Transfer-Encoding;
-	bh=3iyCpXEEW5g2CDdAlA3IaZaxz8XVV8pODtHbPL4GK2M=;
-	b=LEYdbQe4qjZnnhBSuX8o+uZCfLa16Yq88O7lD9etNlPCg842SFyEJgIk/1smjbRSOBXv
-	 5W1g6fONddbpBPsOOq7vzDdOl4n+N0R7+PomvKloUZKfxPbs3DLUHh0hNVcgI54RKjqhk
-	 EY7wvThYOd5TrdcZSvFuslK+9Xbhyperkp3Qg05eV3MgPVLjsM6mR+ALCBqhVCvQqWFLw
-	 FBUq2zfTHDLXs7ZN+Xdfu/jt7kjmMY27iL/DHziWwkuqgR+OKFiO9HZ56EdbYxly6f57S
-	 JMT775hsypLl5N/28Uf57/GDonQ2v5Zo9LPX2KGL2nQzjpCHDHNlW0PBla8kxdztp0Q==
+	bh=XKO1A7l/UzAx1PvR/i1+cXwRXwIwmnNN/v1HN2cfFf0=;
+	b=EAxWWiJ9AaOGIRj6SeGWIhFdDRn+rIEs0OP5TjM0BzFkt+WsVKlZNcZU3pnFy+uxk8yf
+	 R30+mHSsrD4DeyIWQPTTXYjenpH5E6vw4uVYU894sg+g7qFzivfWPASP1jwnTq6BSSy2s
+	 pRdIbNQxsCyA3IdMu88hGbidYybGLSfOFuUHt/JV8+BL8EsYk5ZMOsL8L236OwSXmg1Mn
+	 lc7sJcYQahMIRJiNI8/wzxVojhdB2MLwt4oAlWAgRzwx3Hl2yx6fibanglQX7g5btPM/+
+	 rWRMGAhF/kYnntKA8BKgE/mzFbazo6NMRIuiXhYkEKgFGg+ezYRn0+RVFIZg8nREXrA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NUkGVEUu;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C+vq4J0G;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3934606A321;
-	Thu, 26 Nov 2026 00:33:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACB39606A337
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:33:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NUkGVEUu
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C+vq4J0G
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795653193;
-	b=uf3WJ3s0OA9mBAa4wPcmnjyT8x8i0ALCiLRDmBbEYkhFrG1vOVf3dKbPtfxdRLT2gXFJ
-	 VIOEp6z42pAuntULp4DlqDWeD2irphGaATcfLqIKodPYfL0G4hLQZgeRJ3gYCVXCfZmzY
-	 357t20FsphHq0JWbPVT6vNV+9SAgzIF39F10zdDeLFfOiR9KGfVg7Cwf9EO2LNFrFdHwZ
-	 gUPuiHIoEWhPMiTHy8g75j2nblXnf1wemN9Kr9FbjuH/iorWlKb626Vf3rxO9OFUbzfZR
-	 pRDmcrC9toWHz1tcYAJMaG79y2jhZ1kDSW7GYuy4E2PIsxiLNdkKCCUejR7v/N/RENA==
+	t=1795653199;
+	b=rrjDfoaYGP3LtecrsEX6l2RmtpUguk8xxCpCs5+Qk1IF45g685D9Fa1/fUs8cguoYsav
+	 drv8uDv4Rr1pdUZBf8kski7RhYAPJsiMRoR/GaDIkD+an7ax183R0C3+VqmURzPwFL8lo
+	 KfGOvmbovi04S55AO1hKIFb1eX4pA5Hou4E/uuQNRcqgoemLV7R+QvTsEg2xHQe/HNEoO
+	 WH7mblpa/YmiqTYLYAxntJJwSb8t+5VN9HzFE5aeD+CI4msZRZOGZT37YlMrRKLTm5gPZ
+	 AF5gjgTzYj5D9L6p55ZrA/939pHVhmtxVqch3az6nD0E/mmOtAMwVs0zOFOE5+akMUw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795653193;
+	c=relaxed/relaxed; t=1795653199;
 	h=DKIM-Signature:Received:From:To:Cc:Subject:Date:Message-Id:
 	 MIME-Version:Content-Type:X-Mailer:X-Developer-Signature:
 	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
 	 Content-Transfer-Encoding;
-	bh=3iyCpXEEW5g2CDdAlA3IaZaxz8XVV8pODtHbPL4GK2M=;
-	b=GejwTrol2/jmBPPROSu3Lg1qCD4j4o4Tpzp7y628fCAcxmB3JFPAAlwL1TBVBLbYClda
-	 Pc68PCBZhZgxND/xWqjox5V3SeBx7QmWbDvbwfzwSqzHG4J8TnhbegZGoY9IYdX8y43IA
-	 mWi3LyOmgQk/F1Fz6GGkJPfXDDHXdFMfcQ/m7gsvf/lss3GCOu1mfX2CFLphmQZUMH1XK
-	 ceTfun9H5Mindkg2771QHW5u2GtwKCqB3QoN9tmVE2RkYdSujaSN69v9BOv5fHBQPPJH7
-	 M2gihcn/Wtr3NV+ma5WuyFKKwdbBfvyyaKsWBfHWKV98sWh/KxoanwV8hFx/5vPYBYg==
+	bh=XKO1A7l/UzAx1PvR/i1+cXwRXwIwmnNN/v1HN2cfFf0=;
+	b=2MiPQdssy+RwseH8oCuHDQUjHBOM4xdTH90E7JykhsaiGvDDfQOJpmyyO7kR0wetH35t
+	 Z4jepM0QkKkY3DxJgE3ZSyhsLlxJRT32VR/byuT7yu1aXu5afL/kjOH2aJgwXzPxASBf0
+	 NGjnF9oIJ6bDLOU5EJpXwICI2+uAnwCXuhRbGsMebH9f3ywN5FifpJFyLf98u57dQJt2a
+	 l0UIfsnWT6IRoX150LI3CtDYJUfgs37HVEE+SjRxvAYNHOFDNFJPJ6gqct2Lgi3mjT8ZR
+	 JIGH+liK0fqGeo09rAhcxdR6/6oa2Jm59EXT5/s9OB+aBv2r2NwslpV3+4nASZLPoLw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 7B37C1F000C4;
-	Thu, 26 Nov 2026 00:33:09 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 534E11F000CA;
+	Thu, 26 Nov 2026 00:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795653193;
-	bh=3iyCpXEEW5g2CDdAlA3IaZaxz8XVV8pODtHbPL4GK2M=;
+	s=k20260515; t=1795653199;
+	bh=XKO1A7l/UzAx1PvR/i1+cXwRXwIwmnNN/v1HN2cfFf0=;
 	h=From:To:Cc:Subject:Date:Reply-To;
-	b=NUkGVEUuyoVMyVlWFLxbu8YZDojba+ahyIPKKCziPLZaqrYvNJVyq4wsYTuwMT/y/
-	 9osymx/hyUZxK+tPxUG2OR/pDd5S0029nz4lszGBXQrTvyylA8NwzlThcRLum0pwi3
-	 Y4BJSBs0maWk1pE9ItDLYGblwFyhPFmS6Vh7qRcOjZ3udxDK2XcB1sAbzeEibjqVd/
-	 3ADyYtUJDyK+/c0c1wYGNqXoO+am7DwHRcqRu54vE4TtExVozC0gmNZ/NjDCycUV0Q
-	 SY7CuLqOJy+PvntGztTOrIeke32OraOegLIRXM/EeCXx/4w6TIf9zi+a+XL1N6R9VK
-	 u6uw5750jzSDg==
+	b=C+vq4J0GO3OKlvCUWfjrfJ4ujgbNNop9lC2jvTUeHeU3t2G4esLCz/E27c/n6DLW6
+	 HVbFAGkY3aaCG77bomZRISXMOsVyvdn+GvL0co1hoVi3IUtWoWOrq9jlUXVhNEaaFX
+	 NqtsqA9cidgeHx33yWbb4inQF6GJM6ueoe5H8gMM8mAfcRFlzBiIxHmidOFRsPuvRH
+	 L4YkGmCO8KmRyY6sODY4h4zmWo9Hs8zku2oIXOfEIYxXNmo238I7eU0CuvDz9KMQDa
+	 bdf9f1090Yc6Dy4Bg2uOkaxWaLqAbKbLXSfI+s73JjItjKQ78tx5XXv82J1IkIkO+g
+	 ji6epheMPNEsw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D3E554D108;
-	Thu, 26 Nov 2026 00:33:08 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id DA40C4D107;
+	Thu, 26 Nov 2026 00:33:11 +0000 (UTC)
 From: Ilia Snezhkov via B4 Relay <devnull+iasnezhkov.gmail.com@kernel.org>
-To: heikki.krogerus@linux.intel.com, gregkh@linuxfoundation.org, 
- linux@roeck-us.net
-Cc: badhri@google.com, shufan_lee@richtek.com, linux-usb@vger.kernel.org, 
+To: chunkuang.hu@kernel.org, p.zabel@pengutronix.de
+Cc: airlied@gmail.com, simona@ffwll.ch, matthias.bgg@gmail.com, 
+ angelogioacchino.delregno@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org
-Subject: [PATCH] usb: typec: tcpci_rt1711h: restart DRP toggling on Ra/Open
- in TOGGLING
-Date: Thu, 26 Nov 2026 00:33:08 +0000
-Message-Id: <20261126003308.48940-1-iasnezhkov@gmail.com>
+Subject: [PATCH] drm/mediatek: dsi: return tx_len for write transfers in
+ mtk_dsi_host_transfer()
+Date: Thu, 26 Nov 2026 00:33:11 +0000
+Message-Id: <20261126003311.49008-1-iasnezhkov@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,11 +91,11 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795653188; l=4594;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795653191; l=1225;
  i=iasnezhkov@gmail.com; s=mindone2026; h=from:subject:message-id;
- bh=48DbZvenyoxSQC7pGCnI1KXfaG2DTeuuUgLBgoGs71c=;
- b=bcWv86hvlPh2cPfbmwLklE4wWfQw8FOHZukHKNnU9UmWJEOatPVmFd8r0xg4QVYGO8RgFJ+Xb
- f5OGUCXC3mCB3WGro977IpNVHl/xZv5E900SX0pQeIysIS0c/SgbgYs
+ bh=d9GTUwGLxs30Q2Foqvf23WnszilxicEoDpegYZ+sWi4=;
+ b=/fZZBXK5jnT5BP/TtqUfZI5IQwPDnaE4fgeIwJ9Z81lnWz9ZALqBGiVUqXmoMC5TSkjDvWuQq
+ N7m4jW48yBhAzS3lOhi2PIxBquPw7E7OhOKlcgfZqaWuypo5wDlZ/VF
 X-Developer-Key: i=iasnezhkov@gmail.com; a=ed25519;
  pk=hQgXfiWi4ukk2jh4BHu1vRVhg9BUivo//AFp50AKMag=
 X-Endpoint-Received: by B4 Relay for iasnezhkov@gmail.com/mindone2026 with
@@ -105,112 +106,38 @@ Content-Transfer-Encoding: 7bit
 
 From: Ilia Snezhkov <iasnezhkov@gmail.com>
 
-When a DRP port using RT1711H/RT1715 or its ETEK ET7303/ET7304
-compatible silicon is connected via an e-marked USB-C cable (for example
-to a USB-C PD charger whose own port is temporarily open), the hardware
-can stop DRP toggling during its Rp phase upon detecting a single Ra
-pull-down, reporting CC_STATUS with LOOKING4CONNECTION=0,
-CONNECTRESULT=0 (Rp), and (CC1=Ra, CC2=Open).
+Per struct mipi_dsi_host_ops .transfer() documentation in
+include/drm/drm_mipi_dsi.h, on success .transfer() must return the
+number of bytes transmitted for write packets or the number of bytes
+received for read packets.
 
-In tcpm_cc_change(), case TOGGLING only transitions out of TOGGLING for
-source (Rd), sink (Rp), audio accessory (Ra+Ra), and debug accessory
-states. (Ra, Open), (Open, Ra), and (Open, Open) fall through with no
-state change and no call to tcpm_start_toggling(). Because the TCPC has
-already exited hardware toggling, the port remains permanently wedged
-presenting Rp: PD chargers never see Rd and never source VBUS, and
-subsequent USB host connections fail to enumerate until another
-TCPC_CMD_LOOK4CONNECTION command is issued. (fusb302 handles the same
-condition by restarting toggling on unexpected CC states.)
+mtk_dsi_host_transfer() currently sets recv_cnt = 0 for non-read
+messages, returning 0 instead of msg->tx_len. Callers checking for short
+writes against msg->tx_len observe a spurious 0-byte transfer.
 
-In rt1711h_irq(), when TCPC_ALERT_CC_STATUS fires with
-TCPC_CC_STATUS_TOGGLING clear while tcpm_port_is_toggling() is true and
-TCPC_ROLE_CTRL_DRP is set, decode (cc1, cc2) identically to
-tcpci_get_cc(). If the state is (Open, Open), (Ra, Open), or (Open, Ra),
-clear TCPC_ALERT_CC_STATUS, preserve RP_VAL while resetting CC1/CC2 to
-Rd with the RT1711H DRP=0 settle delay matching
-rt1711h_start_drp_toggling(), re-enable DRP, and issue
-TCPC_CMD_LOOK4CONNECTION. Return IRQ_HANDLED so any co-occurring alert
-bits remain pending on the level-low IRQ line and re-enter cleanly.
+Return msg->tx_len on successful write transfers.
 
-Observed and verified on hardware (MT6789 phone with ETEK ET7303
-VID 0x6DCF PID 0x1711 DID 0x2173 and Anker/Apple USB-C PD chargers with
-e-marked C-to-C cables) as well as a 1542-case host state-machine test
-covering all 64 CC states, RP_VAL preservation, co-occurring alerts, and
-I2C error fallbacks.
+Found and drafted with an AI coding assistant.
 
-Drafted with an AI coding assistant.
-
-Fixes: ce08eaeb6388 ("staging: typec: rt1711h typec chip driver")
+Fixes: 21898816831f ("drm/mediatek: add dsi transfer function")
 Signed-off-by: Ilia Snezhkov <iasnezhkov@gmail.com>
 ---
- drivers/usb/typec/tcpm/tcpci_rt1711h.c | 47 ++++++++++++++++++++++++++
- 1 file changed, 47 insertions(+)
+ drivers/gpu/drm/mediatek/mtk_dsi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/usb/typec/tcpm/tcpci_rt1711h.c b/drivers/usb/typec/tcpm/tcpci_rt1711h.c
-index 0581659..e03eca7 100644
---- a/drivers/usb/typec/tcpm/tcpci_rt1711h.c
-+++ b/drivers/usb/typec/tcpm/tcpci_rt1711h.c
-@@ -253,6 +253,51 @@ static int rt1711h_start_drp_toggling(struct tcpci *tcpci,
- 	return 0;
- }
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index f82506e..e2179b4 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -1156,7 +1156,7 @@ static ssize_t mtk_dsi_host_transfer(struct mipi_dsi_host *host,
+ 		goto restore_dsi_mode;
  
-+static bool rt1711h_cc_needs_retoggle(enum typec_cc_status cc1,
-+				      enum typec_cc_status cc2)
-+{
-+	return (cc1 == TYPEC_CC_OPEN && cc2 == TYPEC_CC_OPEN) ||
-+	       (cc1 == TYPEC_CC_RA && cc2 == TYPEC_CC_OPEN) ||
-+	       (cc1 == TYPEC_CC_OPEN && cc2 == TYPEC_CC_RA);
-+}
-+
-+static bool rt1711h_restart_toggling(struct rt1711h_chip *chip, u8 status)
-+{
-+	struct tcpm_port *port = tcpci_get_tcpm_port(chip->tcpci);
-+	enum typec_cc_status cc1, cc2;
-+	unsigned int base;
-+	u8 role = 0;
-+	int ret;
-+
-+	if (!tcpm_port_is_toggling(port))
-+		return false;
-+	ret = rt1711h_read8(chip, TCPC_ROLE_CTRL, &role);
-+	if (ret < 0 || !(role & TCPC_ROLE_CTRL_DRP))
-+		return false;
-+	cc1 = tcpci_to_typec_cc(FIELD_GET(TCPC_CC_STATUS_CC1, status),
-+				status & TCPC_CC_STATUS_TERM ||
-+				tcpc_presenting_rd(role, CC1));
-+	cc2 = tcpci_to_typec_cc(FIELD_GET(TCPC_CC_STATUS_CC2, status),
-+				status & TCPC_CC_STATUS_TERM ||
-+				tcpc_presenting_rd(role, CC2));
-+	if (!rt1711h_cc_needs_retoggle(cc1, cc2))
-+		return false;
-+	base = (role & TCPC_ROLE_CTRL_RP_VAL) |
-+	       FIELD_PREP(TCPC_ROLE_CTRL_CC1, TCPC_ROLE_CTRL_CC_RD) |
-+	       FIELD_PREP(TCPC_ROLE_CTRL_CC2, TCPC_ROLE_CTRL_CC_RD);
-+	ret = rt1711h_write8(chip, TCPC_ALERT, TCPC_ALERT_CC_STATUS);
-+	if (ret < 0)
-+		return false;
-+	ret = rt1711h_write8(chip, TCPC_ROLE_CTRL, base);
-+	if (ret < 0)
-+		return false;
-+	usleep_range(500, 1000);
-+	ret = rt1711h_write8(chip, TCPC_ROLE_CTRL, base | TCPC_ROLE_CTRL_DRP);
-+	if (ret < 0)
-+		return false;
-+	return rt1711h_write8(chip, TCPC_COMMAND, TCPC_CMD_LOOK4CONNECTION) == 0;
-+}
-+
- static irqreturn_t rt1711h_irq(int irq, void *dev_id)
- {
- 	int ret;
-@@ -274,6 +319,8 @@ static irqreturn_t rt1711h_irq(int irq, void *dev_id)
- 		/* Clear cc change event triggered by starting toggling */
- 		if (status & TCPC_CC_STATUS_TOGGLING)
- 			rt1711h_write8(chip, TCPC_ALERT, TCPC_ALERT_CC_STATUS);
-+		else if (rt1711h_restart_toggling(chip, status))
-+			return IRQ_HANDLED;
- 		else
- 			rt1711h_init_cc_params(chip, status);
+ 	if (!MTK_DSI_HOST_IS_READ(msg->type)) {
+-		recv_cnt = 0;
++		recv_cnt = msg->tx_len;
+ 		goto restore_dsi_mode;
  	}
+ 
 -- 
 2.54.0 (Apple Git-157)
 
