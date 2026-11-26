@@ -1,101 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795695229;
-	b=z1mUujpmUnYf/t3M4ggZe55w1YQkBNK/92qlxZcI+WNF6JmMpwONC6s93SYu3cpLXL/8
-	 jCB3viWdqc6d+XV/KCcEKmj9ZikmkPe9MWnFal6EsayOf8dNjU0NPf/7F6qXY7RIvLUDV
-	 YXyXmfs+J5pT20+ghGttcd3w/QezSj+sJoVMH0pHOMOHsSqZmWju0UHPfVOByhBnRjjRA
-	 jYiuXA/1hiBztJ39fq8K/KMmqTNZALIR06GPObRqbTJs0qHBs5S8Oi+VBMM5hlj0D7xE1
-	 48EOxVB60n9thVPj78krb4yyLKa2F8BewRwnE9JPjUTCIGm0Q0C/mZ5mdNWDWFSP1kQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795695229;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.171
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795695227;
+	b=XSz7BM2LiZF0V3AwV11UmQhdLXfFmEZYBb2jyynzoSdeHraVHG7cxNhhvv/6QYejRZKW
+	 pAz0wxfi5siixUx3kdMCfmPGFMTQrJwzgB6eeCcQsfOkG3KR0+E1UStgZhI9Z80ECZwiz
+	 bzhIcq+xcIVEWPovwCVX3yLuh4qwKXcIS4H0C2KStcN5dK61npgXqQg8u2r/3fHej8Dgy
+	 izMdBGZGr3nCZ/+AJ1dwlZJqPG/Rzk7u3WYkHn12RDanNfh0UxlFriJtTGQk/5C2vfMmt
+	 YFlc+nmtaS7Wc9nuZg8C9nFWZIQ4P5ygDBmWBs/9vX7eFkvV0HgKzQlB16tHmmBmwVA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795695227;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=8oQPuCvkPSk5AvgWx1uVWwUGY4FHBPq4s1ADy1aw6U4=;
-	b=iiQgmtNlN0IXQnch/Twz4QAMbFqlrFzO20Puo9VKRoGRs1Ukhje1ZR3Hf3XUHEvMPFYA
-	 pcNB7b2QJbl4eT166+M7PaYsRZIgM1gwk+WOxROqpxiNYa6+AVTmSzJM45Rqi3omVfQsx
-	 5QeCFQNgwXQ9QtmNdxb/EBYOJQp5Fb+ehdX9zOZra1j8iCcZJkgUrvP8l/4vSSvGD0dNv
-	 GPArtai1V0TF4ZOuSkVQ/PUWFWrAWXL2xPE3fc38ULHD56qUj+AOwIXqzv4r2ksJaxnL8
-	 pYIwByehkb3n4ZWalRFSj1pr1OKTB0kQi3B+RK/G07cbfrFS/5wlOODgIneErjeGIag==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=D8Hl+ZArBMHl5ZMBuXt18rLKsISWNonXQJoD4xB5WWk=;
+	b=ZcIjDYBCA44/+fufDY4tXzyAjlvDSJ4cM2dNon6kKO04jRpYU5YzcG1YbjIycgG5YO+9
+	 7wBtoGRxaFKD3i3FxeO/47fTjZmMeZLmvoDtjkVQc2L39GmZQCOzaNM58vpRHTdKmgVbD
+	 fjZvarIhr0ZYELuZCs05TFPY09dY9LQo1e67HFY0+SwVI/QYKrlvqq0pDMrXrTRW0Pl/T
+	 tKLBLB/KgAWD0KK5eaYQEYtl83gjtrJ1seqTNgIDEH3T/Jf46Nw9z0YEeNnbnLbdRUWXW
+	 8OkWMm+qJaBuq6HS/VYN9suI5a9DUhvrCz47XSWfFk31aPVlhD2S9gddu6pOxfpxBOg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OnTrh62B;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0dbZRonn;
+	arc=none smtp.remote-ip=209.85.208.171
+Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com [209.85.208.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF5A5606A6A1
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:13:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF5A5606A6A1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55B66606A33C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:13:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55B66606A33C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OnTrh62B
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-48e09aa5264so4044324f8f.2
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:13:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795695227; cv=none;
-        d=google.com; s=arc-20260327;
-        b=G0XxYsXdWyuJ2470OLc1csB2TN0P4xGfmBanvTD/TrkAOkP7enUYj9oLoklX11BbuC
-         FXK3XGy4hFgDnnKdGyViZBd1hOvIOqk1mPXlVlOxqgYp4N1+jg58sZoy+Ce9by11H1UL
-         GKZs5NVrudN+B0gSCnA2iTIsaq1A0vi1D7untfeKrb89DTCFILIewx1T3rixsF5At0ok
-         KdnIrLhoVWdKddj+7P9vrVQ+IAPh3T6AMRjnnjqXzTtKJTJ8aA1lru1gBMrTLyTuZLr5
-         fYYTrnCyngTt6jXF90jhtHyx60au74Njy0vI/wIbVks/4tm8a6fYwhoQ7jl0ZXZpVTWJ
-         Ko1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=8oQPuCvkPSk5AvgWx1uVWwUGY4FHBPq4s1ADy1aw6U4=;
-        fh=mI+g1q+puGB5UtKdKT1X5j893nurd9HIm9hh49RtcfU=;
-        b=lo9batf0lj/GD2i1rFzctKolexujF4hep1sF1hfL6i8qSbjRntc9auwqxxCpzJHjY/
-         6MQPLnbO0pqeSXBOALdy91RkU11N8BAZHvtEtoEU54u5QdJpG9PL1Z0xE6RLoWj8qU0D
-         d4qpYcnLx4E6DPNSQaZboJoMgkJWF2QTTeEQ7x/Z8HOI54KAzLJ8ZPyJZsGNuvBIXPy0
-         GJdIxKGOvKUFGPJen8QaC83pbmLpE1HF8EpLVqUAs8MRQKiCEM2Pon0Qii4MgDmLKdE/
-         aH8OxFkr1Qoae/YD/7gwFeJQDlD11SrJs8dZlbV6eTO484xe0GhcPdfJEmVGlm0Nwq+k
-         t12w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0dbZRonn
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3adfed9a887so63090811fa.3
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 04:13:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795695227; x=1796300027; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8oQPuCvkPSk5AvgWx1uVWwUGY4FHBPq4s1ADy1aw6U4=;
-        b=OnTrh62BErmlljhlpukUz7dfRdVPWlz9elGN1Cpqbny/F6/cIHqS6TRRPLJU36UtI0
-         2lAneuhQjEImukoH/gIvi5std14Hg8LcaMmAIEQ2BaVDynDM93tIkxaRxRrBHZ/qVWXD
-         GWuRs0rik2RSvxn0XidRhyLV/Tv1g7CT/XZEMiDvt1QfssEYdjd9mw9HEiNzQz6urGx9
-         ItTNFxmqQwDux8YDHHcj4nD8qO3pGUU3ifos8fFtPn580DyTaVVxoJngQO8sBD+472+J
-         YlShpSQZvDoTlUcDK4sy06iW9YigluSeMQFBpFH5FFASXTAKQIgBjZT60G3rPyK1d8KD
-         oEbg==
+        d=gmail.com; s=20260707; t=1795695225; x=1796300025; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=D8Hl+ZArBMHl5ZMBuXt18rLKsISWNonXQJoD4xB5WWk=;
+        b=0dbZRonn2vtZEp8dpn687vWKKWl/p9+l/gLUQQ6AI8/C/06FwxEo+x2JxOOWDLeCSD
+         eKq0mVr5bYdSdjVRjx2PRzn0k9/PuTOLspjr9m0cLO86Q+/0FY8IKy6b4EQ2JzkCTvSV
+         wLhGpuqsIVrAlgQVsXZwM0z407UfyeaAeOlNIs6oqIJ4GGIWlEXsI+qX2IpM33bs8Syf
+         j1pJcebOrGuuFsblz/84xrzI473CobGuD8tXsw6w485ASJ3mzl1fLz9pnKnDXnmbvr8+
+         o8CnUth/KemgSZkRrXzLcFlv+d20jdpO3H5Nuwtj4+IHRVFkDf1i2OdqrvvvQyGZpWWL
+         RO/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795695227; x=1796300027;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8oQPuCvkPSk5AvgWx1uVWwUGY4FHBPq4s1ADy1aw6U4=;
-        b=U8Vw0NNXNgxZBvL2UiD2CmugPXzOMHLnUkdIqgMC7GwiO3Zvd1L1G2VsDWBU6XZATl
-         zWWavNU6be7eI5r/c697wvxWUSj0ZLxmlzQpzEFaS5G/ykQ0w5BUD2EBf8PUn9/5XhYn
-         7qVev6OpNJuJ/ibOLbmOcWFM1nzgP5C3GGSFz/FbC9HPCi3lAXgjRh159X5nzNWUSRGh
-         1WPNaCF2ikYdBQut2C8XMW72JKHOp+6PMnTqrSpSZ7zOtkVnt+oeu8U2tH+eLmyzpllH
-         SG1S6g7h2PcGXQcuKoKXK3kFL9i3jDub6ltjqwfP6wu4BqhcLnlwADgt7VR2UWmkKo2l
-         Vi7A==
-X-Forwarded-Encrypted: i=1; AL+hErG8b5w+lPqErwaIsRPIp2ZetbZnxKTpNu7FsA8Nj3Etd9z2iOjg16nyIkkqTietmKOMjpuHGL/k5nulLJM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8vzGyRTqehOOLUWsByR5e1KSV66CfS68RVf3BjRxvyLSYGnROT
-	2eeVrxrZb58OSpG9If5cSftU53SUrY5gc6vqrQ8oTG9jAcO8mKVFbeYbFpYkWCGt/YfevCZAUyM
-	TQrKcStF2JVXGiSzrHlo7j+r+ATTfEaU=
-X-Gm-Gg: AZFdTZco3h/QXZaLEc3iGpQ/SAXvceyGce96bo9kwAy2hdbfKlPAdBW40TSpQlB7HYL
-	AS7w2u5jVZvW3zijzBxst7kW1OR7w3+W8o1X1PLxSSfRNynMHCwdE2AxoVpmPB+JVS3BBAPPBWO
-	gvgn8zrILIKuiazuPa3jMXEp+sFCFheKNzX2PVQ0K7UbiqpRDAvyaCku2EnMjkfb/5v2SgVtdb4
-	D+Hq4v0XLidaW2clydZQYNmlikyFTnmStrHLNzsUzLbP3c1ud4eyKasdhO3d3IVvBTR780ZgR3C
-	a5EHmWeMy5Zwur1S36gQ4hMBgoo1NVrL8dsIKfpISkExmgxQG8cUid25pl6aU5BVdzUFanUt03d
-	vvX0vaFI7hwRO5R0VhgzhFW34mW1PgbZKju1Hp85R6FliC4aZrr3zbdpltwv/rnIqteICYi9eum
-	uIniIzoKAGfNt0gBvIVS/i9tZ2k0aC1djZLYq2RNIj6TW7qAoFj2Yiu2fuBg==
-X-Received: by 2002:a05:600c:6219:b0:4bb:60b1:4409 with SMTP id
- 5b1f17b1804b1-4bb88816525mr406462305e9.19.1795695226899; Thu, 26 Nov 2026
- 04:13:46 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795695225; x=1796300025;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=D8Hl+ZArBMHl5ZMBuXt18rLKsISWNonXQJoD4xB5WWk=;
+        b=wyJCJmHCRjm6rag0XDB1/IEAGEdL5lzaw3MDgLZcITR7Z/I1MUwRlx6OLCNuYV1wry
+         ndIDAPUTTt7G0mL7GsXBsD63b6S0PpQ65IEAkKRjy/qao6NVwDGLLCIeyNtBmndDRMVH
+         O61JRvRNaPszrYYQzYFSx3MQmkamLcrmFo9kkFQm4gEhbN7IVjlaqoFd9tUWEUUWtHer
+         Bb716I6ZRObTrizWBMrVLoas96IE0bwwQDq1oN0MLbQn2DBkbOk5S3boKcWfML4k7Sav
+         ReIn1apH/U3aj97K8YVTQF7dVSI/aOre57E/jMVDUwgv9S54z7OKFuPOkcFps6Xfo59S
+         GeoQ==
+X-Forwarded-Encrypted: i=1; AL+hErGhkmv0VH5TO3IqNukE3GlIPUd8JhNHuohkiOiEf6/0wc6bD+fHXdTwnLJSwlYMjKmWV9qfI40hUX4WIGs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9bkOR/JpKUJWYi0AXhHh6Fm0iHuq78lwcwiy8TWGUNuJUk/b6W
+	QQ5KvTI96gxLdSnmudlcWmgI5LvzfeFP24lQlUcio6Ytz/+jm3E0g5+nNpAahHRn
+X-Gm-Gg: AZFdTZcxd1VO16Ollkdb5A8AnDhnGWO5kgh3PzSjB7r3CWeeE0C77RPr//YdYRoRJuB
+	MUVd5IC4VsPwJZOY8d/iuP16/32qsJBYMjwaQiXZjzPZsJDrOssnlgbYl3oTVetHV1sIHpn87L6
+	SKo0PafPhcgKl9W4ALJVxvosU/AvF9It4nppovbuQalAOgVTYutOTKeSGw9+lVQGcJfl6vXUCE0
+	NZHM/iWpN2gqCHdnY+zRdXqyjcf7Y6LMvqDbWZyx1ffrwBqy2R+e13ogi8aR0HkFg/OgIRJluYy
+	SJl6zEVLICeaSUWxoQdyAxyS57aOA440fo+Snc4Fvz3rH4hq6TOONGCXmTx32dqHImuZlSRQKIP
+	L7zrpMxLc9xUcOK66I6SMIIurwNJkBlBeOj2z7H9HcsK39xmhpVYt1RG8yDZ2uQFhKd3PzpIHP1
+	EQXiYUz+TabFbh3B10JkQ9RfhAF3FhY9H5kQoPlF8+D+XJKdd5JkvzSEsiRFjHCZbnYRq6+l4Ge
+	M5r1n7bSzKWRnN/7VeZv4um0x3aZvHWKMOlomZfXAdGVcGyS5uvv3dmxlrgiWXOP5Bc3DC+aCbW
+	tztJC/4hOXcC0zHjHsvzxoeEpbuY67h8q481Lhn9gyLTIXCXupeDNp7KtBdf3HSFtePj+m5JZaC
+	EB5WrgRucvgkmrE0kEU/eJ+e9zxfqiDmgoYmc
+X-Received: by 2002:a2e:8a94:0:b0:3a9:d9db:61b0 with SMTP id 38308e7fff4ca-3ae7fa718c7mr56022941fa.24.1795695225369;
+        Thu, 26 Nov 2026 04:13:45 -0800 (PST)
+Received: from yantra.. (nekmmqtmzjx8yvukhae-1.v6.elisa-laajakaista.fi. [2001:99a:d7d:c300:68b4:f70:61d8:6e86])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae8044e8e0sm56541791fa.5.2026.11.26.04.13.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 04:13:45 -0800 (PST)
+From: Rupesh Majhi <zoone.rupert@gmail.com>
+To: Andy Shevchenko <andy@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Eddie James <eajames@linux.ibm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>
+Cc: linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Rupesh Majhi <zoone.rupert@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@intel.com>
+Subject: [PATCH v2 4/7] iio: pressure: dps310: use KILO for the Pa to kPa conversion
+Date: Thu, 26 Nov 2026 14:13:27 +0200
+Message-ID: <20261126121331.10438-5-zoone.rupert@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261126121331.10438-1-zoone.rupert@gmail.com>
+References: <20261126121331.10438-1-zoone.rupert@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,185 +104,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261102104907.16007-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20261102104907.16007-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Thu, 26 Nov 2026 12:13:20 +0000
-X-Gm-Features: Aa3M54o554CBQDS46Q5cL_QVod_O_1ZDWVlLVSBjQ9SBzaVxWUHV8HeeuRLzrP0
-Message-ID: <CA+V-a8s-GdrW_d1OY42awLqBapVY1LpKbpq_u8ZvGmij_Mnzug@mail.gmail.com>
-Subject: Re: [PATCH v3] phy: renesas: rcar-gen3-usb2: Keep OTG VBUS disabled
- until role is known
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	linux-renesas-soc@vger.kernel.org, linux-phy@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Prabhakar <prabhakar.csengg+renesas@gmail.com>, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 2, 2026 at 10:49=E2=80=AFAM Prabhakar <prabhakar.csengg@gmail.c=
-om> wrote:
->
-> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->
-> On OTG channels of SoCs without ADP control, the VBUS regulator is
-> acquired with devm_regulator_get_exclusive() and its output is switched
-> by rcar_gen3_enable_vbus_ctrl() using regulator_hardware_enable() once
-> the port role is known.
->
-> The helper acquiring the regulator has the following problems:
->
-> - The internal regulator is unconditionally enabled at probe, so VBUS
->   is driven before the port role is known. If the port is connected to
->   an external host this can back-power it.
->
-> - regulator_get_exclusive() hands the consumer an enable reference if
->   the regulator is already enabled, for example by the bootloader. The
->   unconditional regulator_enable() then takes a second reference while
->   only one is released on unbind, leaving the regulator enabled and
->   triggering the WARN_ON() in _regulator_put().
->
-> Fix this by making sure the driver always holds exactly one reference
-> to the regulator: reuse the reference handed over by the exclusive get
-> if the regulator is already enabled, and call regulator_enable()
-> otherwise. Register the disable action in both cases, then turn off the
-> physical VBUS output with regulator_hardware_enable() until the port
-> role is established. Enabling a disabled regulator to take the
-> reference may briefly drive VBUS during probe; this cannot be avoided
-> with the regulator API.
->
-> Rename the regulator helper to reflect that it acquires the regulator
-> without directly enabling its physical VBUS output.
->
-> Fixes: b6d7dd157763 ("phy: renesas: rcar-gen3-usb2: Add regulator for OTG=
- VBUS control")
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> Tested-by: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
-> Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.co=
-m>
-> ---
-> v2->v3:
-> - Added Fixes tag
-> - Added Reviewed-by and Tested-by tags
->
-> v1->v2:
-> - regulator_enable() is only called if the regulator is not already enabl=
-ed,
->   ensuring exactly one reference is held.
-> - Dropped enable parameter from the function
-> - Renamed function rcar_gen3_phy_usb2_vbus_regulator_get_exclusive_enable=
-()
->   to rcar_gen3_phy_usb2_vbus_regulator_get_exclusive()
-> - Updated commit message
-> ---
->  drivers/phy/renesas/phy-rcar-gen3-usb2.c | 35 +++++++++++++++++-------
->  1 file changed, 25 insertions(+), 10 deletions(-)
->
-Gentle ping.
+Spell the Pa to kPa divisor as KILO from units.h, in both places.
 
-Cheers,
-Prabhakar
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+Signed-off-by: Rupesh Majhi <zoone.rupert@gmail.com>
+---
+ drivers/iio/pressure/dps310.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-> diff --git a/drivers/phy/renesas/phy-rcar-gen3-usb2.c b/drivers/phy/renes=
-as/phy-rcar-gen3-usb2.c
-> index b5ba751805aa..3481505dea2e 100644
-> --- a/drivers/phy/renesas/phy-rcar-gen3-usb2.c
-> +++ b/drivers/phy/renesas/phy-rcar-gen3-usb2.c
-> @@ -1114,8 +1114,7 @@ static void rcar_gen3_phy_usb2_vbus_disable_action(=
-void *data)
->         regulator_disable(vbus);
->  }
->
-> -static int rcar_gen3_phy_usb2_vbus_regulator_get_exclusive_enable(struct=
- rcar_gen3_chan *channel,
-> -                                                                 bool en=
-able)
-> +static int rcar_gen3_phy_usb2_vbus_regulator_get_exclusive(struct rcar_g=
-en3_chan *channel)
->  {
->         struct device *dev =3D channel->dev;
->         int ret;
-> @@ -1133,17 +1132,35 @@ static int rcar_gen3_phy_usb2_vbus_regulator_get_=
-exclusive_enable(struct rcar_ge
->                 return 0;
->         }
->
-> -       if (enable) {
-> +       ret =3D regulator_is_enabled(channel->vbus);
-> +       if (ret < 0)
-> +               return ret;
-> +
-> +       if (!ret) {
->                 ret =3D regulator_enable(channel->vbus);
->                 if (ret)
->                         return ret;
->         }
->
-> -       if (regulator_is_enabled(channel->vbus))
-> -               return devm_add_action_or_reset(dev, rcar_gen3_phy_usb2_v=
-bus_disable_action,
-> -                                               channel->vbus);
-> +       /*
-> +        * An exclusive get of an enabled regulator already holds a refer=
-ence, so
-> +        * add a cleanup action to disable it when the device is released=
-.
-> +        */
-> +       ret =3D devm_add_action_or_reset(dev, rcar_gen3_phy_usb2_vbus_dis=
-able_action,
-> +                                      channel->vbus);
-> +       if (ret)
-> +               return ret;
->
-> -       return 0;
-> +       /*
-> +        * The regulator is enabled only so that the regulator core holds=
- a
-> +        * reference to it. Do not drive VBUS until the port's role is kn=
-own;
-> +        * rcar_gen3_enable_vbus_ctrl() switches it from then on.
-> +        *
-> +        * The VBUS regulator used on these SoCs implement the .enable/.d=
-isable
-> +        * ops, so regulator_hardware_enable() cannot fail with -EOPNOTSU=
-PP here
-> +        * and no special handling for it is needed.
-> +        */
-> +       return regulator_hardware_enable(channel->vbus, false);
->  }
->
->  static int rcar_gen3_phy_usb2_vbus_regulator_register(struct rcar_gen3_c=
-han *channel)
-> @@ -1151,7 +1168,6 @@ static int rcar_gen3_phy_usb2_vbus_regulator_regist=
-er(struct rcar_gen3_chan *cha
->         struct device *dev =3D channel->dev;
->         struct regulator_config rcfg =3D { .dev =3D dev, };
->         struct regulator_dev *rdev;
-> -       bool enable =3D false;
->
->         rcfg.of_node =3D of_get_available_child_by_name(dev->of_node,
->                                                       "vbus-regulator");
-> @@ -1165,10 +1181,9 @@ static int rcar_gen3_phy_usb2_vbus_regulator_regis=
-ter(struct rcar_gen3_chan *cha
->                                              "Failed to create vbus-regul=
-ator\n");
->
->                 channel->otg_internal_reg =3D true;
-> -               enable =3D true;
->         }
->
-> -       return rcar_gen3_phy_usb2_vbus_regulator_get_exclusive_enable(cha=
-nnel, enable);
-> +       return rcar_gen3_phy_usb2_vbus_regulator_get_exclusive(channel);
->  }
->
->  static int rcar_gen3_phy_usb2_probe(struct platform_device *pdev)
-> --
-> 2.56.0
->
+diff --git a/drivers/iio/pressure/dps310.c b/drivers/iio/pressure/dps310.c
+index 493eb56bde98..f802c2c59072 100644
+--- a/drivers/iio/pressure/dps310.c
++++ b/drivers/iio/pressure/dps310.c
+@@ -33,6 +33,7 @@
+ #include <linux/slab.h>
+ #include <linux/time.h>
+ #include <linux/unaligned.h>
++#include <linux/units.h>
+ #include <linux/workqueue.h>
+ 
+ #include <linux/iio/buffer.h>
+@@ -895,13 +896,13 @@ static int dps310_read_pressure(struct dps310_data *data, int *val, int *val2,
+ 		if (rc)
+ 			return rc;
+ 
+-		*val2 = 1000; /* Convert Pa to KPa per IIO ABI */
++		*val2 = KILO; /* Convert Pa to KPa per IIO ABI */
+ 		return IIO_VAL_FRACTIONAL;
+ 
+ 	case IIO_CHAN_INFO_SCALE:
+ 		/* The raw value is in Pa, the ABI wants kPa */
+ 		*val = 1;
+-		*val2 = 1000;
++		*val2 = KILO;
+ 		return IIO_VAL_FRACTIONAL;
+ 
+ 	case IIO_CHAN_INFO_OVERSAMPLING_RATIO:
+-- 
+2.43.0
+
