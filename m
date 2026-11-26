@@ -1,49 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684207;
-	b=ayaHXQsIT90ZLhuw9XxS0vkCfPNDupml+NXK58ZkJBjxWIhHY4ng6FT7YQnE2MJyIa3N
-	 VpgXBJv37Fk5EFuBRt3cMYiX880NKoId9o8mZnzWsvrn9j9cs0uGaXo8QQm5bYoAxd9as
-	 hLmewChDiIZny2SN3UBWzYoKJzoI/nhtRWTemfaAH0KkJfMkeJZW7Nu5CMfbkUeGFq5CB
-	 8yIx4tBl+0R090HqmWi0KBwrO34AJwmDHxBbtWHJCrLTGR+09Sev7aD6Uf+fyauTteYMg
-	 +HTsuW2t1gVjQlkaamsrFZYdMULJnaRQ3Riim0kx2jAi+FOCvvAB1iXxE+JYsuCdt6Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684207;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=SgxZyf1epHH9cP9STALqD56F5wkEmjfhtSbnMxWIYeU=;
-	b=E015X8oLuJthqvL8kdXBpp2t4r6F6aSme8Tvdz2QnITmBI3v4zTbpQfQhzTqse98hQpU
-	 leUgSK4uc2lpIWZK+1Cwl3TJKECOy3hRsaj51D2d3v4wFzm6uxdnK8wFK5Y3NfVrmioFr
-	 zZGPHtovzsYh7EhIz7sW0qqubJlYmal2jijC3doXu0wGu2IcPMkJNlsTuNayGRfTy4mjh
-	 OmRSWa1rKCztIjyADFw7BWy12icri5eKUgpgDEFmFCp6zljALfV9nCgW0EbtRxyT+v69l
-	 T+uSoH4889m9T5G4DE7C3qs97khGvF3pM39883l4sM9Unc+X/fVec86TgjeBY/WbqZw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OXP33sn5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795684265;
+	b=D+G00HBIYa9rjiaANFq1TrWdZ7/tV41DgbZDp3voZN1hASibuHxR/Zrp2sblyKFGMCdH
+	 NDa97GCa+ePCQ/mXXNns15Qf1FtIhl1Pi9YmjAL1vrpRbLmgmQ4qr6h8YSIGhb00CrQLT
+	 slWNc9FjV86NyCqOlOX0KnzsXeBQpXZUNKuxGEnbaXsXaPG7eDPvVRp2+zsdx+ezdOigx
+	 QQVAs5uwHFrPIZRrOXBXpmyY2QrL/EnV9mtG6vjeS48AaCIQOl0dYUG9A+Wv+QxhyW7o4
+	 /S70ZmER6kFGay+dmwxCHUd+Lgn6UcLYAFSuwU4l8Y6scgNm9IMF+Vk/JYhP58exAKg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795684265;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-ZohoMailClient;
+	bh=NM9Rh55hrWQUtWuRlmVaGOtV+80IjPctfhxDVtwHRfU=;
+	b=YRNuSVa5TXSVb3Lr77xtIwtM/9GnhVMd2CJ3x6FcPsClkkRg6T8lhKCspR4p9e7DwwSJ
+	 /MXHWY/dZiBVYmG2IPlVCEKPmSp0eFfBNR5t1OL9jE9ujL4mGin8rDsXSIhT5gNetCEjQ
+	 Eq1oIHKCGoi32CYy+nomKD3qEO5h18EcerMLAqOxqIepSX/bATrxNWTi5BqbOaojVVP1c
+	 AqF9hDoHaEWRP1TJH1ylOzE+e3HL55vnGnWB0idyfrYiuOwvvV0g3qBUGA0zXdGhY+4Mo
+	 tMEWvZyjC99IIYlI0yAMBN3R4+jizO5ZDtUML1F9uYSJxJVfnEB4qZMSMgs7pSs0a4w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ph4ntom-rev.uz;
+	spf=pass smtp.mailfrom=ph4ntom-rev.uz;
+	dkim=pass header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=15JYOAKv;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
+Received: from sender5-of-o54.zoho.com (sender5-of-o54.zoho.com [165.173.182.54])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77CE3606A31C;
-	Thu, 26 Nov 2026 09:10:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A8E5606A31C;
+	Thu, 26 Nov 2026 09:11:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A8E5606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ph4ntom-rev.uz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ph4ntom-rev.uz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OXP33sn5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 085831F000D0;
-	Thu, 26 Nov 2026 09:10:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795684207;
-	bh=SgxZyf1epHH9cP9STALqD56F5wkEmjfhtSbnMxWIYeU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=OXP33sn5GBPjB5k3YXDRTb7NZqr0hJWWx2XeuPz6szlbUrIuGPw+XMuaPsQsaQosl
-	 msIx2T9aKd7HgUreb/F4Srikej9vF8ghNdGfuskx1HpsRNpcUa0PUhHtRI8fuMbxnP
-	 sIRoJ7hnPs11Rv1S4PM7XhPYWNFrRgsZ43uXJ9H6/6bqzw6IjtqPgFX56ontLx7zEx
-	 9/g0gXVvRwTLL6voY3tfOQf/tGnJ5a/UkNwt34AHeoUCqEUcmJzkaUHVfVPYeGA5Bq
-	 XUueMWz4L1o0AvL0dZo4R07fGFk4bHoM6/tH0ijBadKxvp+xTfG12gR4edziwIt21h
-	 AGqynvfDghRBg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F147F3809A8F;
-	Thu, 26 Nov 2026 09:10:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key, unprotected) header.d=ph4ntom-rev.uz header.i=@ph4ntom-rev.uz header.a=rsa-sha256 header.s=zoho header.b=15JYOAKv
+ARC-Seal: i=1; a=rsa-sha256; t=1795684249; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=PYNN8BckMTGjnBIi+IS21nKkhfWPJdBSHOBmxSdX+SVhaKHAWG2wXbTlwUjOTniJ+vKq7r4PIgfYvkbpp9J7sUgjX9uaRymnHwB+DYTX6FwcKzuSfyC+KmlxPvA/310X2ynlPMH2SaXZtRruWoNbvmvypqETDSTfPb6HwgVUeG0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795684249; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=NM9Rh55hrWQUtWuRlmVaGOtV+80IjPctfhxDVtwHRfU=; 
+	b=cOKUuBLjsI4MDdJmcjPELfVxCXQaauDUGWbY4OvP2aQRY4kwNE37k2tOtJ8jXvgSW3z56PyPgf3xXYZwAsdqoDNd0ik0ydytg6TxcDcVJmLLKPFnXh2N9tqO8zQiZdrm32/3j5CouaHFBRCNyLN9M5Zs8a3AyGIY/XjeutYEAnE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ph4ntom-rev.uz;
+	spf=pass  smtp.mailfrom=owner@ph4ntom-rev.uz;
+	dmarc=pass header.from=<owner@ph4ntom-rev.uz>
+DKIM-Signature: a=rsa-sha256; b=15JYOAKvw5IsnRIdJhDI9OrVNVw906/EvezrjrJ8rUCdg9A5yiJXhJGlJzK7OUY+qQhF7bsYAvzYBsmB7NAFv8O59DJaXop4blydkQRcXN+hStdgKxu4/W16pirNI5VrhJ4oVB+PZqmVQaj+UvhLVdW7Gz4EtrwGx9qod1YX9fEkRXpPE6eydDqzKAz1Sy81pnESr9YhaCYoFXUE9bzmwYzsGRgpST8eII7GhOubA7qMnIhHWiURpZN8qvlr6Pb7ZHRs/Rv1N7V/cUxXM/QnU2o2C7AXY642JMAJ6bi3IFwOqQZb8voQX41KQO/J8nV8EMiMn3IWxL/3Yxp0i74SPw==; c=relaxed/relaxed; s=zoho; d=ph4ntom-rev.uz; v=1; bh=NM9Rh55hrWQUtWuRlmVaGOtV+80IjPctfhxDVtwHRfU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795684248390969.028798136312;
+	Thu, 26 Nov 2026 01:10:48 -0800 (PST)
+From: Enver Ikromov <owner@ph4ntom-rev.uz>
+To: Johannes Berg <johannes@sipsolutions.net>
+Cc: linux-wireless@vger.kernel.org,
+	Ahmet Zeren <niko3x@proton.me>,
+	linux-kernel@vger.kernel.org,
+	Enver Ikromov <owner@ph4ntom-rev.uz>
+Subject: [PATCH wireless] wifi: mac80211: avoid u8 overflow in ieee80211_parse_tx_radiotap()
+Date: Thu, 26 Nov 2026 14:10:44 +0500
+Message-ID: <20261126091044.1383-1-owner@ph4ntom-rev.uz>
+X-Mailer: git-send-email 2.56.0.windows.4
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,49 +67,47 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v5 0/4] net: hns3: fix multiple bugs in reset/error
- paths
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179568420577.1689524.4604379702805648536.git-patchwork-notify@kernel.org>
-Date: Thu, 26 Nov 2026 09:10:05 +0000
-References: <20261118130330.3026625-1-shaojijie@huawei.com>
-In-Reply-To: <20261118130330.3026625-1-shaojijie@huawei.com>
-To: Jijie Shao <shaojijie@huawei.com>
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, andrew+netdev@lunn.ch, shenjian15@huawei.com,
- liuyonglong@huawei.com, chenhao418@huawei.com, yangshuaisong@h-partners.com,
- ningwei15@huawei.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+X-ZohoMailClient: External
 
-Hello:
+In ieee80211_parse_tx_radiotap(), rate_retries is a u8 parsed from
+IEEE80211_RADIOTAP_DATA_RETRIES (0..255). Computing the attempt count
+via min_t(u8, rate_retries + 1, local->hw.max_rate_tries) truncates
+rate_retries + 1 to u8 before the comparison, so a radiotap header
+with DATA_RETRIES = 255 wraps 255 + 1 to 0 and sets
+info->control.rates[0].count = 0 instead of clamping to
+local->hw.max_rate_tries.
 
-This series was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+For injected frames with a valid rate (IEEE80211_TX_CTRL_RATE_INJECT),
+ieee80211_tx_h_rate_ctrl() returns early and passes rates[0].count = 0
+directly to the driver. Drivers that check rates[0].count silently
+ignore the requested retry limit, while drivers that compute
+rates[0].count - 1 (such as rt2x00, rtl8180, and rtl8187) underflow.
 
-On Wed, 18 Nov 2026 21:03:26 +0800 you wrote:
-> This series contains four bug fixes for the HNS3 driver, all related
-> to resource lifecycle management on reset, driver unload, or error
-> paths.
-> 
-> Patch 1 fixes a vector resource leak in the error path of
-> hns3_nic_alloc_vector_data, where a devm_kcalloc failure after
-> successful get_vector() leaves allocated vectors unreleased.
-> 
-> [...]
+Use min_t(u16, ...) so rate_retries + 1 is compared without 8-bit
+truncation and properly clamped to local->hw.max_rate_tries.
 
-Here is the summary with links:
-  - [v5,net,1/4] net: hns3: fix vector resource leak in hns3_nic_alloc_vector_data
-    https://git.kernel.org/netdev/net-next/c/23d8fa6b29eb
-  - [v5,net,2/4] net: hns3: fix page_pool leak in hns3_alloc_ring_memory error path
-    https://git.kernel.org/netdev/net-next/c/6f22fbbb9c55
-  - [v5,net,3/4] net: hns3: fix interface stuck after OOM with full hardware rx queue
-    https://git.kernel.org/netdev/net-next/c/72c054a2d6c5
-  - [v5,net,4/4] net: hns3: fix use-after-free in debugfs read during reset/unload
-    https://git.kernel.org/netdev/net-next/c/c699cd194801
+Fixes: dfdfc2beb0dd ("mac80211: Parse legacy and HT rate in injected frames")
+Cc: stable@vger.kernel.org
+Signed-off-by: Enver Ikromov <owner@ph4ntom-rev.uz>
+---
+ net/mac80211/tx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-You are awesome, thank you!
+diff --git a/net/mac80211/tx.c b/net/mac80211/tx.c
+index 77d03251f6..230b9d13e2 100644
+--- a/net/mac80211/tx.c
++++ b/net/mac80211/tx.c
+@@ -2426,7 +2426,7 @@ bool ieee80211_parse_tx_radiotap(struct sk_buff *skb,
+ 			info->control.flags &= ~IEEE80211_TX_CTRL_RATE_INJECT;
+ 
+ 		info->control.rates[0].flags = rate_flags;
+-		info->control.rates[0].count = min_t(u8, rate_retries + 1,
++		info->control.rates[0].count = min_t(u16, rate_retries + 1,
+ 						     local->hw.max_rate_tries);
+ 	}
+ 
+
+base-commit: 35c42b20ac87165c054c582380aa0ff0de8aeb4a
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.53.0
 
