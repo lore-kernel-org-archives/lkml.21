@@ -1,49 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795651807;
-	b=PdrPkEWqxROy8eg9unY09/9nxXEUtyflPklhRmP446xjFT3qPEr2d+bq6xPhaWFgNj/g
-	 RU5bwemUC7wlKb93UCaxyRmC6nf7PiOByR7BXIaT4GMgxUJjDrx02ysT2kj9+xyo6hreL
-	 oYr17noYSN4DKv/LIuVHZtV0AxVpgY9Ff1CY3txHmfNtl2z1nQqFVZWXWTZ3byzemOWkF
-	 2w7ykNSDCM2HSnVKV29DK6MabXCL0zDIsaQbI3j53vQzVGWjlyfr/1BNgui+Xf4Ti4QHV
-	 gHiO9fTfEZpTEL0iOwmHXDZQSw6DxhhCOKvxPUJMKu1pDjpUPB6G8iwsg7DFDWNAEhg==
+	t=1795651871;
+	b=3EQDgXxRLfwZW6Qei0glOBvpglT3qH+0HvwMSddORmXGHJgHDpsNRSidDowb+w/zgp8b
+	 EPj0UoOI3Cv+9cHhpYFYC5lLBhIK771D1jMtFfO6kBWAf8WaKN2M6MGaz2BkZtKPpE+Yq
+	 2WqmTtsYxN/iAM/h3YI+xMRA0YuONXh3Ahr0NBW8pNBFwG3S0PyhWQLA4llHRUFZ6rzle
+	 1e9jlzNb3TrZJhFwWrL7PxaIrWgqfVrLIcbHgQt6tX4qV7nJYuQAyQCKY7nwK6xr2xjg7
+	 5HjSWsMN38GeauoQ7+ngvvtLDebdBxsnlrIamOrvIabUNGPlXO40QSlxwQBepE7nZaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795651807;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=m7Qp3o5cxtTvhapUci3aHk3uRXH3r7Me18ppH65z4bE=;
-	b=ExZxd/v6S66uXhI65GTh/d1MdOHq7etNpimesl+JUFbUkLjIQgrGh2pNuPpKRu0zvdGf
-	 NewV1l4WHj8F+Uc7tr5kgVwyjwPyeQfZaxxyBQu35gUYWpvAIEQL/r9G/wcCrXjLJxVoN
-	 ODeM0jb5G1QwixeMINC+r4OETyPOW1NaPJQriez62f5R1X9GUb78hj57hSl1srUclf2UD
-	 h4nHbQ/cv39Abm/hXPiF+OpGJF9uS+LLAvrkkM24Sm0n98E+4WStHY3HF+iiJkYGQYfAZ
-	 l1t7Pm2D+XKq4MiEEefFXvwD8vQS2FrjeqWdcc4clA7lJ+W3OtbkHtbaBcShs2okGiw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795651871;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=RDINDvHKD6MZseAlC2/IPYtXWUlAArkqAjR7GnUg3Lk=;
+	b=0cZAh8okJdQTzlavlS115vgcmGpQTvHjrXZ/v9M2I57/hq0S2cCF0mFCVOcWqsoLLdy7
+	 EjvK/DBlqb9bvH5PWVs6aDkoNIhVSX9i8PJGAlmNdQE+dJAFh9g9PtoM8oID33jaMhcoi
+	 hh9rIRM30+i1uT9icMhunBX5K2ogFaUl4Xin9kn6ElyunmUh2JCjdnt2FUNH5dfaIDtS9
+	 6z5Wop9MyNpLnZiqI4kLVF9sOx7BZhA+HQ07GSOlNA5gmhP8GOCXgVdz32thRnwZhNNDl
+	 lKG++5P2GYQHj9lNlvPrXIWS0K2INxIET6EFzzHNUz9CMthjhDU5kvKd+aoLiF7F8gw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OYFCwNXe;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bxchyc4J;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21C71606A326;
-	Thu, 26 Nov 2026 00:10:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71252606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:11:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OYFCwNXe
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE66A1F000C0;
-	Thu, 26 Nov 2026 00:10:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bxchyc4J
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F03BC1F000D0
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795651806;
-	bh=m7Qp3o5cxtTvhapUci3aHk3uRXH3r7Me18ppH65z4bE=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=OYFCwNXevkU6Wb/w4ZbKiYZoOFrYWCW4F8738/lLdFM09ZGbyEBEl6LLDN2dSP8+d
-	 05mhSlZVtRp/TEHqpB33KXUJx2QKrd6sGDljnlZcRZT0Jnw8FdlJV/hzTFUiSFWd0A
-	 GVmd7KaGlM0KFz5O5AoYjxzUJr95rWIPnUyHfAGY0E8zQydsJTE6/DlcOqdjcQT4Tr
-	 3ByBMeMayE28ZbEO2rhjEdCMUWLzEdTr3o752O8n/w+Vt1FzKvuvwhh77deMituU3Y
-	 OF/Af/Q6y2+vA83yfsOLMtL6IsBDcLkZoy4tTZCHWqpBhSSIQF7My8LclNpS9pp2Zo
-	 3lIjqpMEgadRA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B45E73809A24;
-	Thu, 26 Nov 2026 00:10:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1795651871;
+	bh=RDINDvHKD6MZseAlC2/IPYtXWUlAArkqAjR7GnUg3Lk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=bxchyc4JfjA37MYjy8kPfsVM9Ol2cupkuK0ohVXmFUTPfH6j3gHcSouV7rL/Gl5Bg
+	 vE6fKxChav6JXnCWMZENtTaYOaEMteR6ijkUrVK5ed7GMnRtFXlJVjVnU8LmCLxEn1
+	 6QXl6H69cWtNLEq3YGCm3XYWJCmqwJkVwVVPgVtySQeIrtyJVaFOmgqim+/r2CstDF
+	 1V7UyX0tIhzFziHodoinKQ9JrFI2noNHZQs7gbIAeqaFA2PX2ZqVBR1mDI49AI4uAZ
+	 6dpUWhqsfJjQ4PkBBAP/ItbaYuH6DxmchleB2vCB1B2PbvrUn7qprtIAU8cbGMYX0h
+	 g3rzZYUMstphA==
+Received: by mail-qk1-f180.google.com with SMTP id af79cd13be357-9496577d4c4so707664885a.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:11:10 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEKxxroErnqg/ycN8fLplwzizCXi9EAmmaKVzVlGH+GJe4aXtLEjqMe1sY1SAFklAkPJjqU6BXQmAgDbdg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8fEiuapb2oXhPXCBCABVL8U0nxNdivnZU2q6KyqSpdyURRxD99
+	cH7guoMN/uabz670/MuoCuNViWZSOenE3mTd/xy++GvQ9VUOgpjFk9Sbmm+H0166rqsRQjpenx+
+	ztBf56De58mykwF9KCuLRAG/FOUl4eaU=
+X-Received: by 2002:a05:620a:2585:b0:949:7058:dbcb with SMTP id
+ af79cd13be357-949b35723b2mr3687848785a.14.1795651870358; Wed, 25 Nov 2026
+ 16:11:10 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,45 +59,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] tipc: restore write readiness when a socket's group
- goes away
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179565180527.1406798.1348417398640533183.git-patchwork-notify@kernel.org>
-Date: Thu, 26 Nov 2026 00:10:05 +0000
-References: <20261119-tipc-group-open-v1-1-cb725145da51@gmail.com>
-In-Reply-To: <20261119-tipc-group-open-v1-1-cb725145da51@gmail.com>
-To: Wong Steve <shyckless@gmail.com>
-Cc: davem@davemloft.net, kuba@kernel.org, edumazet@kernel.org,
- jmaloy@redhat.com, pabeni@redhat.com, horms@kernel.org,
- tipc-discussion@lists.sourceforge.net, tung.quang.nguyen@est.tech,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+References: <20261114200803.23129-1-baohua@kernel.org> <20261114200803.23129-10-baohua@kernel.org>
+ <e2595c80-c223-472a-a756-d352161a3330@linux.dev>
+In-Reply-To: <e2595c80-c223-472a-a756-d352161a3330@linux.dev>
+From: Barry Song <baohua@kernel.org>
+Date: Thu, 26 Nov 2026 08:10:57 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4wTMF3qj5tzT1FtFDgJJAL7hw=Gb2w3uq99ZNrCK0vcYA@mail.gmail.com>
+X-Gm-Features: Aa3M54qEbqb2UlKYb-QEOhd5-I-lklbxngV8mRirioZSLDDnWN8UWOGBIbJttK0
+Message-ID: <CAGsJ_4wTMF3qj5tzT1FtFDgJJAL7hw=Gb2w3uq99ZNrCK0vcYA@mail.gmail.com>
+Subject: Re: [PATCH v9 09/16] mm/mglru: Avoid placing rejected folios below
+ populated gen
+To: Ridong Chen <ridong.chen@linux.dev>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, axelrasmussen@google.com, 
+	baolin.wang@linux.alibaba.com, baoquan.he@linux.dev, hannes@cmpxchg.org, 
+	hui.zhu@linux.dev, kasong@tencent.com, kunwu.chan@gmail.com, 
+	liam@infradead.org, lianux.mm@gmail.com, linux-kernel@vger.kernel.org, 
+	liuxiang.277@bytedance.com, lyugaofei@xiaomi.com, mhocko@kernel.org, 
+	mhocko@suse.com, qi.zheng@linux.dev, rppt@kernel.org, ryncsn@gmail.com, 
+	shakeel.butt@linux.dev, surenb@google.com, wangzicheng@honor.com, 
+	weixugc@google.com, yuanchu@google.com, zhangbo56@xiaomi.com, 
+	zhuhui@kylinos.cn, sidchintamaneni@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hello:
+On Wed, Nov 25, 2026 at 7:47=E2=80=AFPM Ridong Chen <ridong.chen@linux.dev>=
+ wrote:
+>
+>
+>
+> On 11/15/2026 4:07 AM, Barry Song (Xiaomi) wrote:
+> > We used to scan only the oldest generation in scan_folios(). In
+> > evict_folios(), we checked whether
+> > lru_gen_folio_seq(lruvec, folio, false) =3D=3D min_seq[type]. If so, th=
+e
+> > folio was marked active and moved to younger generations.
+> >
+> > This was itself buggy, as folios in generation min_seq[type] - 1
+>
+> Should this be min_seq[type] + 1?
 
-This patch was applied to netdev/net.git (main)
-by Willem de Bruijn <willemb@google.com>:
+Oops, a fat-finger typo. Andrew, could you please help fix this
+in the changelog?
 
-On Thu, 19 Nov 2026 21:39:02 +0000 you wrote:
-> From: Suyuan Wang <stevewong@hust.edu.cn>
-> 
-> tipc_group_create() sets tsk->group_is_open to false, and tipc_poll()
-> only reports EPOLLOUT for a socket in TIPC_OPEN state when that flag is
-> true. Commit 1b22bcad7e39 ("tipc: correct initial value for group
-> congestion flag") made sure the flag is true for sockets that never
-> join a group, since otherwise "SOCK_RDM/DGRAM sockets sending datagrams
-> never receive POLLOUT".
-> 
-> [...]
+[...]
 
-Here is the summary with links:
-  - [net] tipc: restore write readiness when a socket's group goes away
-    https://git.kernel.org/netdev/net/c/39738c813c71
+> Reviewed-by: Ridong Chen <ridong.chen@linux.dev>
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Thanks!
+Barry
