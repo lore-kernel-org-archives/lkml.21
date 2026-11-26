@@ -1,80 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795697776;
-	b=A0zbZsy9NYaSNRxEpGSAXIdy94fHUROgsO+QU7SyzrMSSpfqbob1kSRDmjKo3iXzkJHJ
-	 wXrkRxdluiNQ3vlqlBz7Vg91ZQef1hbK+x43caYmqmSfI3Ym1GcfBV+mNIyVyuxuxVjRm
-	 xYL3D6cJvO1kq1xYnHDo9+K8F2/cWC1M/0HLaXMDSOl1U2bCpEXRAMgGjxRDRPqvL//fb
-	 qdm42fBD/PVXmcJQx84k5/0FQPLPBzCIB73sKCIPpLFr/gi0/qv6zj75N+t3PvT1O9Z2Y
-	 qUFSWVH9ke3xWuZ3BDRl7i8N5zK4QKg5u2v1/LfgKMpyYuWwhzbqrQUxBprcK9F4wfQ==
+	t=1795697783;
+	b=WTecXcEWmji3dkxeIeGZGihA9E3/RyqB0B/m1jLHIwbBYDV0G0rNHEuY3X9/bwW7a3+I
+	 HKER88+EaEE/XqpG0FeuYIZ/bXt68cqRInULxIXvrfeeoce4iUzayaCTsdVtaJ2RswKK0
+	 Tq1GL9MJy+noG/Ku2gDsDeG1XRBPqUkwFzKvLJXrAtji7KTppqSx8vL5+y6Eag0Ayi/kh
+	 mnfnkSSgafADQIBQLyQuRTOZNJDZR6ZZ4RYqBhzUd0tUrjKKNq3eRLPWtNl2V0fVwJ0Eb
+	 GnxdQYj9CROxJEjvk0mB3TiJXlfVA58mwWtcr48j8OFK2dkufqvYKR55kxHEfxgcUVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697776;
-	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
-	 X-SA-Exim-Scanned;
-	bh=qVr7AACT3RL5bvofLShn/Pbzkp0suXLu1heNlRCcBQQ=;
-	b=0CwV4fduOMZdhTKza1mPJAtvRE3RURUTc2UBKDA9eGsveE1EuFS7ooAHjRqFk6A2j9FW
-	 QBjYuanAQTSF5m2KnHy/CJR1EPpzqyLNT6fUNES5LErr+glcL9Co8LQuKrF6vbYAkewGo
-	 K3UxDm6fZFYjFREFR18qOJZ40hwcdUZDDiTrgeJKEzJ3e4gXFo9mX+kPDCQZabnkYRyvg
-	 zvhBcQyL3f6GvyX8mDLSPyJRfWtU9KhBVR7RgCPy8eob6/Ke754HiQlUKsBg+0CMrgHhl
-	 gTZWEwshWyksd2MKfBd8FHDLYup9JjhJRBTtQmt8sB6eQrxAuazvZKcO9ZTW6Q8/vIw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697783;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=7pvAmy/BcxPcQse9SuPhTO4DpUmDvykB1SW+ZJiDCqk=;
+	b=jYvt0yyjrGkZQXoBcM9E1ilmz78zRuPBFqMVgDeKVmJ4DNBFzywbcUSWUkAiK84vQloV
+	 Xyec1PV39SkjYOvSfqph9A+rAoL1BolAC5kAtfdgOiM3eNP47NvekL+M7JK4c3gu/ilii
+	 pl3Ke3p0bDKrLoeMYYbqhF6whw7pBBbHEDeS6JUKDCZbeoLd+2azt8KwzwBuZ+1xsrcwL
+	 yNbOkMLDwkwFKCoeJk4YgQKWxB5CquubQVWkqz/SSkUldzWN/vEY2SipJr7IwDJS+xKH7
+	 jJFRFuSZF5XsNzhMjaWRHPsoJ6TcedjcaR3SVj91ZUr8mygUnZh3ml3NHwBwMzvrWIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="nz9j/5BI";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=XJAiO7Zh;
+	arc=none smtp.remote-ip=113.46.200.216
+Received: from canpmsgout01.his.huawei.com (canpmsgout01.his.huawei.com [113.46.200.216])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05606606A31E;
-	Thu, 26 Nov 2026 12:56:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F1DF606A33B
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 12:56:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F1DF606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nz9j/5BI
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B71201F000C4;
-	Thu, 26 Nov 2026 12:56:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795697775;
-	bh=qVr7AACT3RL5bvofLShn/Pbzkp0suXLu1heNlRCcBQQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=nz9j/5BIJS+5IJjZpKS6g28I3cmR6tYenAFesSBnC2t3iBXpcdA1Ia4gFQtuoT/c4
-	 ANVpSkZU+4Dm1/OAzZbVwqPuiKaGYfnyt4Bsk6lQi/qf/32jhRYt/b6DidINhvl1Y3
-	 iRO117gQ/Lo9fVf1/bMtEkyfIcj7R11hRoP6n7hnC3eHNUy+x5Fz+6H6Xf91h9Gu3h
-	 wooAg9fWxShV8WotHHfDjmISm8nv9WFdnNKppJS43bukCbjhCJfzSErynT3uJ4fkp8
-	 F4LAN85MDgMhwl2dOxN1JNIrbQz2NakP+ZI9riYogIHxGsMyMnTABuADFD8YPGrU2Y
-	 r8cgGgAvAlgFA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xWZ1J-00000003dor-15Cs;
-	Thu, 26 Nov 2026 12:56:13 +0000
-Date: Thu, 26 Nov 2026 12:56:12 +0000
-Message-ID: <86wlpzycnn.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: oupton@kernel.org,
-	fuad.tabba@linux.dev,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	riel@surriel.com,
-	shakeel.butt@linux.dev,
-	kernel-team@meta.com,
-	rkeilty@meta.com,
-	atish.patra@linux.dev,
-	dgreid@meta.com
-Subject: Re: [PATCH] KVM: arm64: Reduce the stage-2 page cache on 64 KiB hosts
-In-Reply-To: <20261124152842.2634495-1-usama.arif@linux.dev>
-References: <20261124152842.2634495-1-usama.arif@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=XJAiO7Zh
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=7pvAmy/BcxPcQse9SuPhTO4DpUmDvykB1SW+ZJiDCqk=;
+	b=XJAiO7ZhqDL5u0nVrnOC0EjSIBWcHm6I9HoSiki9g3lk7dtnZxAPG2+jNHX/aXDxv5QwiJCaL
+	RRUQYFFjXrJkKV6Mz1ARPZ1lOPR3WGxPSku1EGi0fWFPT3Vfvfag5FOBPz0VqFWbdEaKsSQk5w+
+	GUyf28AzZimDRsVwOoeuPEs=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4jZxNW61mBz1T4Fv;
+	Thu, 26 Nov 2026 20:55:23 +0800 (CST)
+Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id 35D9940575;
+	Thu, 26 Nov 2026 20:56:15 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
+ (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 26 Nov
+ 2026 20:56:14 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <james.morse@arm.com>, <ben.horgan@arm.com>, <reinette.chatre@intel.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <jic23@kernel.org>,
+	<catalin.marinas@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [RFC PATCH v2 1/2] arm_mpam: Factor out the MSC power on and off helpers
+Date: Thu, 26 Nov 2026 20:56:06 +0800
+Message-ID: <20261126125607.2304487-2-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261126125607.2304487-1-ruanjinjie@huawei.com>
+References: <20261126125607.2304487-1-ruanjinjie@huawei.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,89 +71,112 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: usama.arif@linux.dev, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, riel@surriel.com, shakeel.butt@linux.dev, kernel-team@meta.com, rkeilty@meta.com, atish.patra@linux.dev, dgreid@meta.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200008.china.huawei.com (7.202.194.74)
 
-On Tue, 24 Nov 2026 15:28:42 +0000,
-Usama Arif <usama.arif@linux.dev> wrote:
-> 
-> When a stage-2 fault may need new page tables, KVM first tops up the
-> vCPU's page cache: if it holds fewer pages than the fault might need, it
-> is refilled to KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE, which arm64 sets to
-> 40. Unused pages stay in the cache until the vCPU is destroyed.
-> 
-> With 64 KiB pages, that is 2.5 MiB per vCPU, and most of it is never
-> used. Stage-2 has at most three levels and the root is preallocated, so
-> a fault needs at most two new table pages (kvm_mmu_cache_min_pages()).
-> As every last-level table covers 512 MiB, an 8 GiB guest needs just 17
-> table pages to map all of its memory, while its four vCPU caches get
-> filled with 160.
-> 
-> On a production host with 64 KiB pages running 101 VMs with four vCPUs
-> each, the caches were still 86% full. The memory used:
-> 
->                         before      after
->   per-vCPU capacity     2.5 MB     512 KB
->   all 404 vCPUs         869 MB     <= 202 MB
-> 
-> Let's lower the capacity to 8 with 64 KiB pages, In the production
-> usecase above, it frees at least 667 MB. That still covers the two-page
-> minimum and leaves room for several table allocations per refill. 4 KB
-> and 16 KB pages keep 40.
+The CPU hotplug callbacks save an MSC's state when its last CPU goes
+offline, and restore it when the first CPU comes online. System sleep
+needs the same two actions.
 
-I'll glance over the use of 64kB pages, because that's definitely a
-niche configuration that hardly anyone uses. But the scale of the
-numbers strike me a bit: 808GB worth of guest memory, and you're
-complaining about 869MB? That's roughly 0.1% of the total, and the
-savings you're gaining are even less... I know memory is expensive,
-but you'd save a lot more than that by using a realistic page size.
-Just saying...
+Move them into mpam_msc_power_off() and mpam_msc_power_on().
 
-I also question the assumption you are making that the guest is
-strictly using IPA contiguous memory, and that therefore a very small
-set of pages are all you need to map a guest. Guests with multiple,
-disjoint memslots are (sadly) extremely common, specially in these
-days of tiered memory and other random horrors.
+No functional change intended.
 
-> 
-> The temporary cache in kvm_phys_addr_ioremap() uses the same capacity,
-> but it is topped up before every page it maps, so 8 is sufficient there
-> as well. The pKVM hypervisor memcache and the eager split cache don't
-> use this capacity.
-> 
-> Signed-off-by: Usama Arif <usama.arif@linux.dev>
-> ---
->  arch/arm64/include/asm/kvm_types.h | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_types.h b/arch/arm64/include/asm/kvm_types.h
-> index 9a126b9e2d7c99..28568da9ea4a7b 100644
-> --- a/arch/arm64/include/asm/kvm_types.h
-> +++ b/arch/arm64/include/asm/kvm_types.h
-> @@ -2,7 +2,12 @@
->  #ifndef _ASM_ARM64_KVM_TYPES_H
->  #define _ASM_ARM64_KVM_TYPES_H
->  
-> +/* Must cover kvm_mmu_cache_min_pages(), at most 2 with 64 KiB pages. */
-> +#ifdef CONFIG_ARM64_64K_PAGES
-> +#define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 8
-> +#else
->  #define KVM_ARCH_NR_OBJS_PER_MEMORY_CACHE 40
-> +#endif
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ drivers/resctrl/mpam_devices.c | 62 +++++++++++++++++++---------------
+ 1 file changed, 35 insertions(+), 27 deletions(-)
 
-Now, to the patch itself: I see no reason to special-case this. If
-kvm_mmu_cache_min_pages() is an indication of what is needed, then
-this macro should be driven by it, or the whole allocator take it into
-account. And then you adjust it by whatever fudge factor seems
-appropriate.
-
-Thanks,
-
-	M.
-
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index c067b6d57d71..562f21a8869c 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -2223,6 +2223,37 @@ static void _enable_percpu_irq(void *_irq)
+ 	enable_percpu_irq(*irq, IRQ_TYPE_NONE);
+ }
+ 
++static void mpam_msc_power_on(struct mpam_msc *msc)
++{
++	mutex_lock(&msc->error_irq_lock);
++	if (msc->error_irq_hw_enabled)
++		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
++	mutex_unlock(&msc->error_irq_lock);
++
++	mpam_reprogram_msc(msc);
++}
++
++static void mpam_msc_power_off(struct mpam_msc *msc)
++{
++	struct mpam_msc_ris *ris;
++
++	mutex_lock(&msc->cfg_lock);
++	list_for_each_entry_srcu(ris, &msc->ris, msc_list,
++				 srcu_read_lock_held(&mpam_srcu)) {
++		mpam_touch_msc(msc, &mpam_reset_ris, ris);
++
++		/*
++		 * The reset state for non-zero partid may be
++		 * lost while the CPUs are offline.
++		 */
++		ris->in_reset_state = false;
++
++		if (mpam_is_enabled())
++			mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
++	}
++	mutex_unlock(&msc->cfg_lock);
++}
++
+ static int mpam_cpu_online(unsigned int cpu)
+ {
+ 	struct mpam_msc *msc;
+@@ -2236,14 +2267,8 @@ static int mpam_cpu_online(unsigned int cpu)
+ 		if (msc->reenable_error_ppi)
+ 			_enable_percpu_irq(&msc->reenable_error_ppi);
+ 
+-		if (atomic_fetch_inc(&msc->online_refs) == 0) {
+-			mutex_lock(&msc->error_irq_lock);
+-			if (msc->error_irq_hw_enabled)
+-				mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
+-			mutex_unlock(&msc->error_irq_lock);
+-
+-			mpam_reprogram_msc(msc);
+-		}
++		if (atomic_fetch_inc(&msc->online_refs) == 0)
++			mpam_msc_power_on(msc);
+ 	}
+ 
+ 	if (mpam_resctrl_enabled)
+@@ -2304,25 +2329,8 @@ static int mpam_cpu_offline(unsigned int cpu)
+ 		if (msc->reenable_error_ppi)
+ 			disable_percpu_irq(msc->reenable_error_ppi);
+ 
+-		if (atomic_dec_and_test(&msc->online_refs)) {
+-			struct mpam_msc_ris *ris;
+-
+-			mutex_lock(&msc->cfg_lock);
+-			list_for_each_entry_srcu(ris, &msc->ris, msc_list,
+-						 srcu_read_lock_held(&mpam_srcu)) {
+-				mpam_touch_msc(msc, &mpam_reset_ris, ris);
+-
+-				/*
+-				 * The reset state for non-zero partid may be
+-				 * lost while the CPUs are offline.
+-				 */
+-				ris->in_reset_state = false;
+-
+-				if (mpam_is_enabled())
+-					mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
+-			}
+-			mutex_unlock(&msc->cfg_lock);
+-		}
++		if (atomic_dec_and_test(&msc->online_refs))
++			mpam_msc_power_off(msc);
+ 	}
+ 
+ 	return 0;
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
