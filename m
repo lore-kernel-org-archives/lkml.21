@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795685867;
-	b=V+QmTCklbBbbkZOvZepwvw0ATOM/oBE+EVTgHiMeVeZFg/GX2r6Y7URSAC0rFdxhpDw0
-	 SruRRHxw0kvYCS0N0oiOuAIhyepvTf7k8TtfUs1rEt4DSPZoQCwhRSSSFiVamBdclMWl0
-	 GEc5WTsyP6GVYoas9h8l5FjQFSDavvvxp5Y795kdr8OwXabmYSYdKz6MFqdgLwtdSAKw+
-	 LbTGQciQOqCG1T7i5E+30EDr53a+oVrBP49Y2LrlxUicX+T5PIQNHmWYkO93MD9iVtKsm
-	 1QqeS/xt53gbZnsEGVw5v6wedSzSWvLoKfEVydi6InZKBFLEhZv/vTDtZRVxvfChatA==
+	t=1795685868;
+	b=IAv/6UoaDeHB2mACF4qAa8F9uNUxivNHVNf/1bihR21VfJ9R3ZLMs2Y6pHkwjQhfjGer
+	 l6W/gNKEvNzn81UPUpPllHRFdEODRRS5P0ajfdgbnVVeUM/vyMdKmRGOPOmeHdc+V9ALk
+	 kYCRB5wR6MxIcS/k3u7hVDYsnUSf7dwOyGWiLBZKLxQFmFwaS33oIfhXAIKaRkxkgTsJ6
+	 eGOMAl7J0y5YMuh6a9odkpJhs9D4pYfqMidRr7vxjHxfsdWqG0Y7hmEfez3dTL2oTJyoe
+	 7CvgffdqUysMmroPgr89cIumuIERcvi2m8ng8KkhYp3sFdKehaimjVbVqJFXBjEG+oA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685867;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685868;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=rA/YujkDkr5JpC5Y6LmlZVMzul8FIE7rq/8T+Qv5b8E=;
-	b=W2ILymz3wN7FjOhJXatwO5vcdOmHPEiivzx/xyYCI6dvKvzevMkLKWHKgSMVpph+/1+F
-	 30U6yiU3hgo2heqYOC0uROddpsWQoe3Ey0D0jagHjVSxXD7Pb4hFfU0YYQmRNo8vuelQI
-	 iKyfPHsA5cXfnnQtNRZuJAVQtsVbkh3pg0m/M6lKzuugV3bHV4N4H2T9iIm3s2g1C8p3a
-	 HVOX7EwdmejWj69uB0745mwPAFFqu2qg5tDS3Hr8watS/CKZuL1Sc5nDCBPpaugnWY+ux
-	 BsPXsZOCSDOhfX91ZXIT6a2BA9x8cN1vy681QW9J//GNoPolVN/8jLMJ5drAxJKwzjA==
+	bh=Gr5aK9yqnSUCDhMZqRxgxPaRQLfJPIgbPMqGNTgPuOc=;
+	b=d946ZbR3fPLRh3piFcAOgTrLo7qTIY5K+8G4TOo3N6bKJ7YWKN8K34uYGTqxxZKjUPvo
+	 UgWSQOqDhhLD8rwk52KM8F7q5iGsfSeFTqpzJG5oWYbA3jlfDJfdcnS2eqyIPHjP+0/Ku
+	 HipKueKP3yHF4e7rx3jdPYgaVDk9X2UzaxgI+e8GyO7/J0ZHxLZNKfesdFWG9DFvujYqx
+	 ycaQukBcZb5lKirL0kW4gLE9r/Qf48rJEb14csZlx+khMv8g+bpDErJhQkUY4f6N6CkeB
+	 ZQJ5Ct/FkJONh9WQb/nYW00o+u7pGQ1zbGqYlts9HsgDBG4nRHqdTljh7fMw2wbgP0w==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i+UbM0Uv;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Odm6BhGd;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFF2A606A6A8
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:37:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3083260A2625
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 09:37:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i+UbM0Uv
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Odm6BhGd
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795685867;
-	b=crJssWZvlZv28U/viqW3xzfKpkKH4BxTJloj8E0Mb0DDhVLJpr70Dipb0bZq5i45F3SD
-	 HkWhKCjCiZJXyO7aE1//dutqtHbMTpmnZIja6+gQTpeivJF9lhnmhwBcmaWyiOrOSN7hh
-	 KDnDb0zcL0SzokvJQYL7IWfJCBRZXyZYVEwC+RqNUlIqfWHcl9kyi74nmFIwOO54kMtEt
-	 1HSuOAGUXlwXGb8CzEk1Y+718dCQVJUMj0E8PkE1h3R/QPYsgorakZQSWL0nYNVTEYu4f
-	 I/9ifLw1xp9S+Az8kXNvMNvP9erqVM5xxWjn/2uXxyizRQfPHJ4nwwoGY66Tl6kxVyQ==
+	t=1795685868;
+	b=zKVk2I5TygFRaidZShOBIRItKbCdAyBeHMOfIZL2AOfUL0QGwFS+OMPjE9iSR9lJTKS/
+	 6h1HJGgAY9reGimx0s616fQCmT6BzNrCdZ6lHHRMxtK4Pow/PQY82RKvzmJ9ep2Z+LXZ0
+	 rjt4Nkrfyh7PflMx5ehjV1VjtaVSG2OgXvfE0AyFlT2xmrUWgOkoKTl6uNv4teM3eH9zO
+	 2kGcrOTKtkiYzccWyE92nXmWmEMpkCf6UGAH+kWd0fsE/qL0JQKBP7dwcIyDNd0taltFV
+	 /lfUkZPdCPgvPxdgUEKM5qGHxyHk2l2dWUI6Ox9pskFHT9LxNdOcQLn7FDsvSOwivlg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795685867;
+	c=relaxed/relaxed; t=1795685868;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=rA/YujkDkr5JpC5Y6LmlZVMzul8FIE7rq/8T+Qv5b8E=;
-	b=KBMz/mLXuws/c0rOt/Ir3CGAE7Hj8bGrAEi5G6LOFL2E0yEUrNoWFgu/mp+ceysDpCfO
-	 me3xQeoRr0VtwOWeDGsAYQ1PXaYNOCKlmYCkz5TZ+hodqU1bP/N2mXNlqzQiSMdbL8ULY
-	 XAk7IWScu6a72ny47hk1P5Ec37tUeC1J/4bgX8WNQud2sYVi814xYwY45o/C7KKitLBDL
-	 xSEQPvdudjkIfsnG6Thr8i6VfHAdEpw+tfREl62NiRpuwuJNueUP7At2G5V64gTt3tRjK
-	 TdezLrJeWSmXiqTNSzgv7VU0yIIYW6AE4eNw/fcw2G83/LWFc3iQUk1p/xXt78ZU/1A==
+	bh=Gr5aK9yqnSUCDhMZqRxgxPaRQLfJPIgbPMqGNTgPuOc=;
+	b=IusNAx3DWN2ugwAKEvoR0RRgDf4uAkCUo98msVtYQv2Y1oRfPpv0JE8DQqWUkwe0vtFl
+	 xKxXjKREcx2u9i+4vTTdfcJrX4vHmWGniDbMJ1EvAjG5fqZ0qP4a+v1a8wPDyInhnnIJN
+	 BCOe9iPsgGKZ1EgEt89/u5wcM+j2+JjU74I8sH7YhQJOqyDtMQ8xa+u3PwbqaafAmY6wv
+	 CBofYFNaIALnc54KNMxjpDpoe/uX1+f/ZCD0h9Weqk87cZazdUulkh+Hi2VqjGrfozuYK
+	 UyNWJVp7Ocr8Xw2YIabkiTVMr4pLRz5qS67VFA/+Yrgu+bvN11TrIFWpfUPRGRw7yCg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A0FDD1F00A01;
-	Thu, 26 Nov 2026 09:37:27 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 2BA841F00A00;
+	Thu, 26 Nov 2026 09:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795685867;
-	bh=rA/YujkDkr5JpC5Y6LmlZVMzul8FIE7rq/8T+Qv5b8E=;
+	bh=Gr5aK9yqnSUCDhMZqRxgxPaRQLfJPIgbPMqGNTgPuOc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=i+UbM0UvTIDJ6PWIrL6XAQZPYwOEjMVOczPFur+vl1XdjNdDhpASE85hHvyS6FbcH
-	 y/trfMMloSKQ+bTq0bDOjC2hcrOZM0giunnKdreBxsXcJeKrSBIqu/WA3kTaZjSw9M
-	 CjCT4uMDwewhh3t1dQ2WuX6JyceP0h1K89GOtVj+Y++rD+VNGcw5KBS8w4XilRWjqZ
-	 RKiGR6kd1tZULVS1laQWQqpxKAT5wGn/VG9k5H34oD0SVJnt5gbrn0ShLO29hSPZXv
-	 L22JPMBsVOIXmn0vwxoR5EtrIAjRJKDzyzfIHGVUoABOwgRw10GfTAexsT9gCrCvaG
-	 d8fCQOfmiwPqQ==
+	b=Odm6BhGdlTZSthoOOckje9C4UurkmABTvT0ZBQ+SdArS/J0wGEj1ja3eE6SLnBTPI
+	 lsm4DmJpoO3gxzBEtKAmJpFfWyRjkrNwpjAcZD1Vvg0wdq2gbvL2QodcyyC/7f4p/g
+	 2i7sz9IA0Eo4U9W3rgNRKm7phDQ7VzjNFaRYRzCpSJ5E9g3b985DjjQnthMx3RQL2x
+	 wjriqkDl3q7+fKRfPq0iR0OcwzEZdELYfp5+GBrHypsfrQz9+yFBoI92ydfyBBYyud
+	 iFWZLU2Dltl695sxjlquCeU8a3m6h2AC2ed+9eyTJRZQXlCFLxxMY4Ho+iOEQqf/Es
+	 mMEu5Coc2JFkw==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 9A7E14D398;
-	Thu, 26 Nov 2026 09:36:48 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 02A2B4D3A4;
+	Thu, 26 Nov 2026 09:36:49 +0000 (UTC)
 From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Thu, 26 Nov 2026 09:36:54 +0000
-Subject: [PATCH v4 11/17] drm/panfrost: Drop the cycle counter only for a
- job that holds it
+Date: Thu, 26 Nov 2026 09:36:57 +0000
+Subject: [PATCH v4 14/17] drm/panfrost: Keep the GPU powered in the job
+ timeout handler
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261126-panfrost-long-jobs-v4-11-23579629ceca@gmail.com>
+Message-Id: <20261126-panfrost-long-jobs-v4-14-23579629ceca@gmail.com>
 References: <20261126-panfrost-long-jobs-v4-0-23579629ceca@gmail.com>
 In-Reply-To: <20261126-panfrost-long-jobs-v4-0-23579629ceca@gmail.com>
 To: Boris Brezillon <boris.brezillon@collabora.com>, 
@@ -96,11 +96,11 @@ To: Boris Brezillon <boris.brezillon@collabora.com>,
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  Arun Iyengar <aiyengar1990@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795685806; l=3305;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795685806; l=2141;
  i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=vMKaKZ5mQLiJl35MCdiCDsift3wdtfGyvhrgb9GdKPA=;
- b=nZjuZ0+3BvavacpAhhQiujQ//p+VPTIK2YVpjvm8DMdLrrXJB8Zw6qodRMqqYPi0GPUePEKxE
- zudQBYruocVA7cdiGCx17Gh7ANeJBdtAvHynz/uKJjjfTXzZyJobu/f
+ bh=N3/r0MPqmTfHMSYcrVUI3Gc8NQD6K3bi1B+vyvlqWHM=;
+ b=OL4/UsTLn3B1yEJUUuAOAmbJzZUU5twXgF43YsktMQhY/iyWo88vh+aTgTTaqwK72+QTg/Z9y
+ pouMrLM+5sxB1qo0EFwJBgkpSDZ0ADNQwj53ioFeOr2r2ZkQBKIxxYZ
 X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
  pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
 X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
@@ -111,89 +111,61 @@ Content-Transfer-Encoding: 7bit
 
 From: Arun Iyengar <aiyengar1990@gmail.com>
 
-While a reset is pending, panfrost_job_hw_submit() queues a job without
-starting it or taking a cycle counter reference, and a stopped job is
-resubmitted with is_profiled still set. panfrost_reset() drops a
-reference for each, so use_count goes negative. The reset hides this
-today; without one (patch 16) the counter is no longer started.
+panfrost_job_timedout() accesses the GPU without a runtime PM reference
+of its own. If the job completes after the fence check, the GPU can
+autosuspend first (clocks off on GPU_PM_RT). Take a reference with
+pm_runtime_get_noresume(): if the fence is still unsignalled after
+that, the job's own reference was held.
 
-Record whether a job holds a reference. Found by Sashiko. Not
-reproduced.
+Tested on an H616 with a test-only wait after the fence check: before,
+the GPU suspended 50 ms after the fence; after, it stayed active.
 
-Fixes: f11b0417eec2 ("drm/panfrost: Add fdinfo support GPU load metrics")
+Fixes: f3ba91228e8e ("drm/panfrost: Add initial panfrost driver")
 Cc: stable@vger.kernel.org
 Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/sashiko-outbox-210891@kernel.org/
+Closes: https://lore.kernel.org/all/sashiko-outbox-212575@kernel.org/
 Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
- drivers/gpu/drm/panfrost/panfrost_job.c | 19 +++++++++++++------
- drivers/gpu/drm/panfrost/panfrost_job.h |  1 +
- 2 files changed, 14 insertions(+), 6 deletions(-)
+v4: new.
+---
+ drivers/gpu/drm/panfrost/panfrost_job.c | 17 +++++++++++++++--
+ 1 file changed, 15 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/panfrost/panfrost_job.c b/drivers/gpu/drm/panfrost/panfrost_job.c
-index a64c33047..fcddc13bf 100644
+index 722f87ebe..74cc3dd02 100644
 --- a/drivers/gpu/drm/panfrost/panfrost_job.c
 +++ b/drivers/gpu/drm/panfrost/panfrost_job.c
-@@ -160,6 +160,14 @@ panfrost_get_job_chain_flag(const struct panfrost_job *job)
- 	return (f->seqno & 1) ? JS_CONFIG_JOB_CHAIN_FLAG : 0;
+@@ -775,8 +775,8 @@ panfrost_reset(struct panfrost_device *pfdev,
+ 	dma_fence_end_signalling(cookie);
  }
  
-+static void panfrost_job_put_cycle_counter(struct panfrost_job *job)
+-static enum drm_gpu_sched_stat panfrost_job_timedout(struct drm_sched_job
+-						     *sched_job)
++static enum drm_gpu_sched_stat
++panfrost_job_handle_timeout(struct drm_sched_job *sched_job)
+ {
+ 	struct panfrost_job *job = to_panfrost_job(sched_job);
+ 	struct panfrost_device *pfdev = job->pfdev;
+@@ -821,6 +821,19 @@ static enum drm_gpu_sched_stat panfrost_job_timedout(struct drm_sched_job
+ 	return DRM_GPU_SCHED_STAT_RESET;
+ }
+ 
++static enum drm_gpu_sched_stat panfrost_job_timedout(struct drm_sched_job
++						     *sched_job)
 +{
-+	if (job->cycle_counter_ref) {
-+		panfrost_cycle_counter_put(job->pfdev);
-+		job->cycle_counter_ref = false;
-+	}
++	struct panfrost_device *pfdev = to_panfrost_job(sched_job)->pfdev;
++	enum drm_gpu_sched_stat stat;
++
++	pm_runtime_get_noresume(pfdev->base.dev);
++	stat = panfrost_job_handle_timeout(sched_job);
++	pm_runtime_put_autosuspend(pfdev->base.dev);
++
++	return stat;
 +}
 +
- static struct panfrost_job *
- panfrost_dequeue_job(struct panfrost_device *pfdev, int slot)
+ static void panfrost_reset_work(struct work_struct *work)
  {
-@@ -174,8 +182,7 @@ panfrost_dequeue_job(struct panfrost_device *pfdev, int slot)
- 			panfrost_cycle_counter_read(pfdev) - job->start_cycles;
- 	}
- 
--	if (job->requirements & PANFROST_JD_REQ_CYCLE_COUNT || job->is_profiled)
--		panfrost_cycle_counter_put(pfdev);
-+	panfrost_job_put_cycle_counter(job);
- 
- 	pfdev->jobs[slot][0] = pfdev->jobs[slot][1];
- 	pfdev->jobs[slot][1] = NULL;
-@@ -259,8 +266,10 @@ static int panfrost_job_hw_submit(struct panfrost_job *job, int js)
- 		job->is_profiled = pfdev->profile_mode;
- 
- 		if (job->requirements & PANFROST_JD_REQ_CYCLE_COUNT ||
--		    job->is_profiled)
-+		    job->is_profiled) {
- 			panfrost_cycle_counter_get(pfdev);
-+			job->cycle_counter_ref = true;
-+		}
- 
- 		if (job->is_profiled) {
- 			job->start_time = ktime_get();
-@@ -734,9 +743,7 @@ panfrost_reset(struct panfrost_device *pfdev,
- 			pfdev->jobs[i][pfdev->jobs[i][0] ? 1 : 0] = evicted[i];
- 
- 		for (j = 0; j < ARRAY_SIZE(pfdev->jobs[0]) && pfdev->jobs[i][j]; j++) {
--			if (pfdev->jobs[i][j]->requirements & PANFROST_JD_REQ_CYCLE_COUNT ||
--			    pfdev->jobs[i][j]->is_profiled)
--				panfrost_cycle_counter_put(pfdev->jobs[i][j]->pfdev);
-+			panfrost_job_put_cycle_counter(pfdev->jobs[i][j]);
- 			pm_runtime_put_noidle(pfdev->base.dev);
- 			panfrost_devfreq_record_idle(&pfdev->pfdevfreq);
- 		}
-diff --git a/drivers/gpu/drm/panfrost/panfrost_job.h b/drivers/gpu/drm/panfrost/panfrost_job.h
-index 3e3b97178..7f71e4c38 100644
---- a/drivers/gpu/drm/panfrost/panfrost_job.h
-+++ b/drivers/gpu/drm/panfrost/panfrost_job.h
-@@ -36,6 +36,7 @@ struct panfrost_job {
- 
- 	struct panfrost_engine_usage *engine_usage;
- 	bool is_profiled;
-+	bool cycle_counter_ref;
- 	ktime_t start_time;
- 	u64 start_cycles;
- };
+ 	struct panfrost_device *pfdev;
 
 -- 
 2.55.0
