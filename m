@@ -1,60 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795720626;
-	b=N/9ChCbi3w34zWQDzK8xCUhLPzca2lwwZnZufLJy/OXfujNoBz478pJODX0Cco0G9PuO
-	 8siaKgtImufMZs1cyUOXtYRJ2RXoC+IKrAO+3a8n434Le4wyDAykLi1bE2QTHjUK50XFj
-	 nT2Iwcw08EcPUg5kZ3ow8i/A63aEys0l9+n74rLKdX1URweR0wQIZPM1/0syeURmD/15x
-	 kz350LCY++MSJOLAfK7muvaFaDFq01MSLznxaPQdRUTCspoGWPmveJryrOL/IS5SFBHb8
-	 HDNnefSx1hSpqbCc8dl1gxayUcgjF0edz5lUfgKSWfBkJ0feLZ1H3vqTV/CJ24mVLeQ==
+	t=1795720677;
+	b=Bb3T4nMFA+TWZYwGeYNYh5CGGrX7prUmK/ocbDefCARifNQYDW+pz4CUUTtgSpJI4UQA
+	 uekfE4dURLiku+QPXKUh2+sh4TGJI5rNRTE3TsUgxYbeWUCCt4eu3nAGLBes6t8mBMjLX
+	 xZWZ58/g6DUbfR/g71TO4dnQeP+dGCPPS+g2bG0iqD7DoMHTeXeUgiiemGZZNp1VoX1DE
+	 zR8bEQoBDRc0MR9cDcBdEmSgmArJ/Fd2cuG9/K73HpdPNt0Sd1Usa89H2roFvV7b/G/AE
+	 FNDVM6rAY8vKYipFChrUUaWUN3joj/yGeEiDUyTJgXe7jS7HVFx6i53A2RI9RfWELig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795720626;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=WDme1QdEj+83k+T3SXxy9P/XoCYbV5jh4bto230OVDk=;
-	b=HKjjgi2JIh0Z4xByiJ3B7vrc77oqwpvegseV+bYnKb4EHwxFqtBfj4LkUVNkQ5ha48Qj
-	 daQSG/l/Q+Yig6Y24vk+u13ClG09LU0SBjMcFVZ8QvG0YNp4fcKMes2R+WjE1mGixBjIk
-	 vZ7kX4inPUsXtnAaBhemQZRz+v+1wMy8iNFH1vnmVZvDkA68b7f+UDNgj2E+5g89YR46s
-	 v4wOdEe5mk/igXez2JaxrKRtL7Hp20f0qiQ531w9lJT+xTwj0AEQ30Y6L0lZHrTIc+tLE
-	 Qv2YosykOjn/VwJdrpck2w0KzeBpFCzKQ1RwNJmNh6M7uY6kZNWgInqJkmXkZ9qLeVg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795720677;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:Autocrypt:
+	 Content-Type:User-Agent:MIME-Version;
+	bh=YrMfIn90Y5AtDBViFQR1HDcogfclmJ9VfnUnL8uwi1o=;
+	b=FO8m8+Uu5lccS/fzY3cm/HQ7ISNqSz3qjwX8AKpSQnKeSM4m0dFvQboaS3j/ktc7xSIf
+	 w0vKcdvQT0CWnxbOQEqa3jFmOo6rp1bqH9EA5k8Ew3TWdCzpj1syeYlTlQ6raNiT6kKow
+	 ubsZdXCcZIjh/RaKFqZem+3stcHXQxrAa1kH8DLcnG32rJ0A2mcbsg6QmWQgbG4dpuAus
+	 Mnx0RLYlSghcN7OQ0kQPaeXFaEaOGDnh1yvNuvBkZo0p2WAMwb2kTlmkbHE/RKTl+di/n
+	 gJXTvmJtPtTRioYNm79WhCsG+khCNJeEV+gkotY3Yvvimue8pfq0NCgXRIAUGZ/jrpw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WlHqVF2y;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=ndufresne.ca;
+	spf=pass smtp.mailfrom=ndufresne.ca;
+	dkim=pass header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=pe2daaaG;
+	arc=none smtp.remote-ip=209.85.219.51
+Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com [209.85.219.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00DBB606A329;
-	Thu, 26 Nov 2026 19:17:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86A69606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 19:17:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86A69606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ndufresne.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ndufresne.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WlHqVF2y
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAD1E1F00A01;
-	Thu, 26 Nov 2026 19:17:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795720625;
-	bh=WDme1QdEj+83k+T3SXxy9P/XoCYbV5jh4bto230OVDk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WlHqVF2yhvtPTr9dSYS6xrAT0F9d/ys7MCvMpQyPvouv++yGgiierKoKer1xnKITR
-	 AjiIzsw5UeP5GQ4D70OOSC8atxpU5fKECOQgLkBIfiIF3SWHOie6I//tAWhR3QjG5w
-	 Bp+diahQZe/ujbGEshiCFuBEmdER5bvvalRym1UNSxktHKumRmdvazN6v4XulOH5/I
-	 rkIIEAcjPesiG0CvzogCDTS28kPbKkxNyG4bpvxdQin7CFXXS1lm1r9N4F7UHIGC6e
-	 1v7KdMVM7jy+am4JUCMVPadYOebZKWzzJNMi0/fwhw219Pj8lRh9lubFaO6hx+vKDl
-	 6758WpYqnELjw==
-Subject: Re: [PATCH net-next v2 11/12] selftests: net: add amt_v6.sh for an
- IPv6 outer transport
-From: netdev-bot+sashiko@kernel.org
-To: omar@blockcast.net
-Cc: ap420073@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, shuah@kernel.org,
- horms@kernel.org, netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Thu, 26 Nov 2026 19:17:04 +0000
-Message-ID: <179572062428.3135.4041633001964825666@kernel.org>
-In-Reply-To: <20261125191450.2497936-12-omar@blockcast.net>
-References: <20261125191450.2497936-12-omar@blockcast.net>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=ndufresne-ca.20260707.gappssmtp.com header.i=@ndufresne-ca.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=pe2daaaG
+Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-91f0274f88cso95814866d6.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:17:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20260707.gappssmtp.com; s=20260707; t=1795720675; x=1796325475; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YrMfIn90Y5AtDBViFQR1HDcogfclmJ9VfnUnL8uwi1o=;
+        b=pe2daaaGJp7uEf7xh9RtFYzylRRVXtqhAWVOceByYbXtwrCG+WTSsM8eAur5wzwDFj
+         IEsbo/OB10N5fx5dmNSu6UDaQUUBUSVUUeyVr1MV1KUgXOTdkmzxCQbeEVW5Z0CHENAE
+         Bapj8N9oqKThBCsT7HVHYi1FYptoJrIQtzkuWGl9wKc+YbvCbuKJIoBrKrvi+fo9TNKI
+         HpZmzIPtlhQEm6zEKAuvdOOc0c9SzfKXv1wZAXXPYJLQbaBpJYH6NG2yrBJbv8IuwN19
+         /W45G69JE/q9qWjT2qXQPRT5PLlJ7BTd3Xj0mJeQIezHTvSTyiLuXfU/UnvSEJKn0yHo
+         e5Eg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795720675; x=1796325475;
+        h=mime-version:user-agent:content-type:autocrypt:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YrMfIn90Y5AtDBViFQR1HDcogfclmJ9VfnUnL8uwi1o=;
+        b=lcsJbP0nfQzwCYDCqG5P7Qvy4X/BDsCxGK1MrmE+DjkUdhi1OA8uAo2r6kaO0gJ3VY
+         zBQ0Yp9TodCGprIRQzcjo14JvaGMpyK88RnCcAYYIeoX1THShAZAQu5aDlGUJGjQ39cy
+         581/T4Zwshx7TAFtlSsNUhHA8aAQqwSDoOkig/P1BuAlU5e6nhxENIBYvNmmzI1wnwlu
+         bwknmrNbCfaXQ4e1iMrcgAJxoCjLV1h8EDjkK+jEbK+j1uo6F6ji6AUSMbIAhG7Eh3Qm
+         u0y2jNrZRn8cNQWDUXYmSmWsz1SCbhDlK189OnUnvPkaMMez4mxiDXxRb3PA6E4O8zse
+         Iauw==
+X-Forwarded-Encrypted: i=1; AL+hErEVAXB7pg6XPwWBs2dUAzJvZ8Pf4gJUSOSyyYV4qoO62J/yGnVpVfqK/xn8wblHOIqQek97bznxQjBeLK8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ZTwfEqx/nWhEg4oY5jIzin9ZgXpwn9GKWUC+OfHP86U+wPECN
+	cJtlljNa0JiJplJJSw24O/d+FRjOhKwzlevBTB5UcucFOq6t2UCFEhpP+uke2rlFomE=
+X-Gm-Gg: AZFdTZeLTK2ZoS3knGfgpSc4Xz0sSatvpRVTakMRnzSFbZFRvrwXiL3wGv6Lc0tm9JP
+	535BevO7Wag22IrRRAgR9fOSpdt9doAj2IBj7sRnKsQCKxa0SbPQyZYZj+eYa+NiowwW+yFcjNk
+	fHDK0sVT5rxeoDCkxFElF3Vh9xgyTz68GGF0Ua2Q32Nfm38ye6Gwsq6XTQRS1zyjK7YRAq9boDC
+	zIlpf5nWX9DRABtoeG/UJf8Aj1F9Ccx2XrINuxAt8Z49mOaXuh6OIWowB3M6rWVNJA5NzZNvWAt
+	C/D0adQSJud1HdX65BWLZA1vUe6ZNyPPapuKRpKBBpsS6wWk0WL1d6DOIw+Z94JUXbYAq2Qsaj7
+	dWl+pfjwdS7ddOKC742MXQZ/NkZHzYxTx6lWfUUVpsR+M3AwaEo2DR3bfE9G15rADeI42Vgp7xH
+	bnHnqoAh9B5za2BNYoDwuDwMkAZTkjIeM0PsjGAlBSf1E13LmFaD0vpBVmmhX7P7BEv2cr/ftvU
+	lBYwqi0jnxShcjxpTMh8zQA9BNXBfprcjtTgBK+x5Oj9f7zC42ZwV/KNmkYQgFhdB3+oCjnUZzD
+	hiraggb17gpn8SjS1GeuX3StmMiDb1KXpYWCI1oTPxBBtFhNNgKRmM3aPt+EN6dVlSzdBEI0mHx
+	l
+X-Received: by 2002:ac8:5f06:0:b0:535:1f03:32aa with SMTP id d75a77b69052e-55d76a78d2emr425610731cf.45.1795720675469;
+        Thu, 26 Nov 2026 11:17:55 -0800 (PST)
+Received: from ?IPv6:2606:6d00:11:8ec9::c41? ([2606:6d00:11:8ec9::c41])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55dc8895beesm11592841cf.11.2026.11.26.11.17.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 11:17:54 -0800 (PST)
+Message-ID: <21a907f61fe983203120d44dbc4fa84269feee69.camel@ndufresne.ca>
+Subject: Re: [PATCH v2 1/2] media: mediatek: vcodec: Return source buffer on
+ NULL va in stateful decoder
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Fei Shao <fshao@chromium.org>, Yunfei Dong <yunfei.dong@mediatek.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil	
+ <hverkuil+cisco@kernel.org>
+Cc: Hans Verkuil <hverkuil@kernel.org>, Matthias Brugger
+	 <matthias.bgg@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org
+Date: Thu, 26 Nov 2026 14:17:52 -0500
+In-Reply-To: <20261023075642.3671805-2-fshao@chromium.org>
+References: <20261023075642.3671805-1-fshao@chromium.org>
+	 <20261023075642.3671805-2-fshao@chromium.org>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-Cs4W2QVf/4yjYY3PWWkw"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,141 +122,86 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+--=-Cs4W2QVf/4yjYY3PWWkw
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+Hi Fei,
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+sorry for the delay, so many patches...
 
-- [Medium] probe_v6_relay() in tools/testing/selftests/net/amt_v6.sh is
-  meant to skip in one case it cannot recognise.
-- [Medium] selftests: net: probe_v6_relay() fails instead of skipping
-  without CONFIG_AMT
-- [Low] The commit message overstates how closely amt_v6.sh mirrors
-  amt.sh.
+Le vendredi 23 octobre 2026 =C3=A0 15:55 +0800, Fei Shao a =C3=A9crit=C2=A0=
+:
+> mtk_vdec_worker() peeks the source buffer with v4l2_m2m_next_src_buf().
+> If vb2_plane_vaddr() returns NULL because the buffer has no kernel
+> mapping, the worker finishes the m2m job with the buffer still at the
+> head of the ready list. v4l2_m2m_job_finish() then schedules the same
+> job again, which fails the same way, so the decoder never makes
+> progress.
+>=20
+> Remove the buffer from the ready list so that the job is not scheduled
+> again, and return it with VB2_BUF_STATE_ERROR so that userspace gets it
+> back. Print the error before that, as the buffer must not be touched
+> once it is returned.
+>=20
+> Fixes: 590577a4e525 ("[media] vcodec: mediatek: Add Mediatek V4L2 Video D=
+ecoder Driver")
+> Signed-off-by: Fei Shao <fshao@chromium.org>
+>=20
+> ---
+>=20
+> (no changes since v1)
+>=20
+>  .../mediatek/vcodec/decoder/mtk_vcodec_dec_stateful.c         | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c_stateful.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c_stateful.c
+> index aa9bdee7a96c..a4cbb7c76998 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_state=
+ful.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_state=
+ful.c
+> @@ -348,9 +348,11 @@ static void mtk_vdec_worker(struct work_struct *work=
+)
+>  =09buf.dma_addr =3D vb2_dma_contig_plane_dma_addr(&src_buf->vb2_buf, 0);
+>  =09buf.size =3D (size_t)src_buf->vb2_buf.planes[0].bytesused;
+>  =09if (!buf.va) {
+> -=09=09v4l2_m2m_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx);
+>  =09=09mtk_v4l2_vdec_err(ctx, "[%d] id=3D%d src_addr is NULL!!", ctx->id,
+>  =09=09=09=09  src_buf->vb2_buf.index);
+> +=09=09v4l2_m2m_src_buf_remove(ctx->m2m_ctx);
+> +=09=09v4l2_m2m_buf_done(src_buf, VB2_BUF_STATE_ERROR);
+> +=09=09v4l2_m2m_job_finish(dev->m2m_dev_dec, ctx->m2m_ctx);
 
---
+I did some research as all this felt very late and defensive. My conclusion=
+ is
+that you should validate this in vb2ops_vdec_buf_prepare() (mtk_vcodec_dec.=
+c).
+This will let you remove this defensive check. Buffers that failed to map (=
+or
+unmappable/protected memory?) will simply not endup in the queue. It will a=
+lso
+give an immediate feedback to userspace.
 
-selftests: net: add amt_v6.sh for an IPv6 outer transport
+Nicolas
 
-This adds amt_v6.sh, a variant of amt.sh in which the AMT gateway and
-relay use an IPv6 outer link, with a second gateway on the same link.
-It checks discovery through a secondary relay address, IPv4 and IPv6
-multicast forwarding, tunnel MTU handling, that a Discovery sent to
-ff02::1 gets no answer, and rediscovery after down/up. A probe skips the
-test when the kernel or iproute2 lacks IPv6 AMT support.
+>  =09=09return;
+>  =09}
+>  =09mtk_v4l2_vdec_dbg(3, ctx, "[%d] Bitstream VA=3D%p DMA=3D%pad Size=3D%=
+zx vb=3D%p",
 
-> amt_v6.sh is amt.sh with the gateway<->relay link moved to IPv6, and a
-> second gateway on that link:
+--=-Cs4W2QVf/4yjYY3PWWkw
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
-[ ... ]
+-----BEGIN PGP SIGNATURE-----
 
-> The namespaces, inner addresses and smcroute (S,G) routes are those of
-> amt.sh, and the scripts use the same tools, plus jq.
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawiF4AAKCRDZQZRRKWBy
+9BhnAP9oifXvKzRb69nGyfhqcckUcFDLX9lh723xc36dI1jn7gD+LWpi2JJDuPSx
+muyGT9ledNYAcMj5WUk5fyPOM9A0uQQ=
+=GEUe
+-----END PGP SIGNATURE-----
 
-[Severity: Low]
-Is "plus jq" accurate? amt.sh already uses jq in test_remote_ip() and
-test_query_egress().
-
-Also, amt_v6.sh does not carry over test_query_egress() from amt.sh.
-That test installs clsact and flower egress counters on amtr for IGMP
-(ip_proto 2) and MLD query (ICMPv6 type 130) packets, and it fails if a
-relay General Query leaves through the amt device. The
-send_mcast_torture4 and send_mcast_torture6 runs are not carried over
-either.
-
-This series adds the IPv6-outer General Query path:
-
-  amt_send_igmp_gq() / amt_send_mld_gq()
-    -> amt_send_membership_query()
-
-Should the egress check be added here as well? If not, could the commit
-message say that these checks were dropped, instead of describing the
-script as amt.sh with the link moved to IPv6?
-
-> diff --git a/tools/testing/selftests/net/amt_v6.sh b/tools/testing/selftests/net/amt_v6.sh
-> new file mode 100755
-> index 0000000000000..9d3e4a20676c3
-> --- /dev/null
-> +++ b/tools/testing/selftests/net/amt_v6.sh
-> @@ -0,0 +1,355 @@
-
-[ ... ]
-
-> +# An iproute2 without IPv6 AMT support either rejects the address or packs
-> +# it into the 4-byte IFLA_AMT_LOCAL_IP, which this kernel refuses and an
-> +# older one takes as an IPv4 address. A kernel without IPv6 AMT support
-> +# ignores IFLA_AMT_LOCAL_IP6 and asks for a local address. Skip in those
-> +# cases only.
-> +probe_v6_relay()
-> +{
-> +	local err got
-> +
-> +	if ! err=$(ip -n "$RELAY" link add amtprobe type amt mode relay \
-> +		   local "$RELAY6" dev br_gw 2>&1); then
-> +		case "$err" in
-> +		*"Local attribute is required"*|*"expected rather than"*|\
-> +		*"IPv6 address in an IPv4 attribute"*)
-> +			echo "SKIP: no IPv6 AMT support: $err"
-> +			exit "$ksft_skip"
-> +			;;
-> +		esac
-> +		echo "FAIL: cannot create an IPv6 relay: $err"
-> +		exit "$ksft_fail"
-> +	fi
-
-[Severity: Medium]
-Does this also skip when the amt link type is not available at all?
-
-On a kernel built without CONFIG_AMT, or where the amt module cannot
-be loaded, rtnl_link_ops_get() finds no "amt" ops and __rtnl_newlink()
-returns -EOPNOTSUPP with the extack "Unknown device type". An iproute2
-that does not know the amt link type at all rejects the command line
-before anything reaches the kernel.
-
-Neither error text matches any of the three case patterns. In both
-cases probe_v6_relay() prints "FAIL: cannot create an IPv6 relay" and
-exits with ksft_fail. A kselftest run on a config without AMT would
-then report a failure rather than a skip.
-
-amt.sh avoids the iproute2 half of this with its ip link help check
-before setup. Should amt_v6.sh do the same? Should it also treat a
-missing amt device type as a skip, for example by matching "Unknown
-device type" or by checking that the amt module can be loaded first?
-
-[Severity: Medium]
-Does this skip in the packed-attribute case described in the comment
-above and in the commit message?
-
-If iproute2 packs the 16-byte IPv6 literal into IFLA_AMT_LOCAL_IP, the
-kernel refuses it during generic netlink policy validation, before
-amt_validate() runs:
-
-drivers/net/amt.c:amt_policy[] {
-    ...
-	[IFLA_AMT_LOCAL_IP]	= NLA_POLICY_EXACT_LEN(sizeof(__be32)),
-    ...
-}
-
-NLA_POLICY_EXACT_LEN() is an NLA_BINARY range of 4..4. A 16-byte
-attribute therefore fails in nla_validate_range_unsigned(), which
-returns -ERANGE with the extack "binary attribute size out of range".
-
-That string matches none of the three patterns. As far as I can tell,
-nothing in the tree emits "IPv6 address in an IPv4 attribute"; it only
-appears in amt_v6.sh and amt_gw_v6.sh.
-
-In that case, wouldn't the probe print "FAIL: cannot create an IPv6
-relay" and exit with ksft_fail instead of ksft_skip?
-
-probe_v6_gateway() in the later patch "selftests: net: add amt_gw_v6.sh
-for the IPv6 netlink attributes" repeats the same pattern, so this is
-still there at the end of the series.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125191450.2497936-1-omar%40blockcast.net
+--=-Cs4W2QVf/4yjYY3PWWkw--
