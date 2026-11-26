@@ -1,58 +1,130 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680425;
-	b=Oi3C0Zu1pqTZf0MR0oRV+teOj7L6b5s0VlRvTtZXMxQUebBqi1ROP6PEH4+nxF++QCkc
-	 lLsRELqdXlUEn4ffZOreXwRKTfZX/xUJl5vPAtco8o+8VE+PW2jWzN3feXsRqVCkTF8Ig
-	 3eUId7lHUa2YRcfCja80mHyTZLBN1/hvby/eabt5MeeDQhX/Tro0a4q5JquJ3Od8ShQKk
-	 z93c7tQq58kMuHd3KBF9wpKsBMZ5lnM8FDhq7Hs2LZT4BttzpNVtZW2jb9U7qTrODkdXy
-	 d/2/4AcDSuelk9PEnm3x3X2X8OGfqTuELtJjGZcIdlxgaZOllnp6X2x4oNOAqm2bg3A==
+	t=1795680436;
+	b=ZYlpckz2O6zqcoI6eRpO8HY55eHW/wJZBYwPkrJnsuUWap1KJSKR/l3rLYcVsD7DMHoy
+	 +sK7+X1N+7BuUtqwzbmZSECU+KK62/EhTDdpUN46UBsuqgCr0cQrFTUWEBarI5VjkDB0n
+	 rwOw1g0V8n95RBIvWtPebDZpO4DbTosrgI7g0M6g4VduM/LPRDSBu26lPOb7MX8R5+Ssh
+	 G/kOlqiXcWiwnpm1DEKp46Owak3A3S08pJIxNM5lKT04ieuySizlpcpdi1LaWELQutbAS
+	 11xVGKtipAT3hJXMx/Nz8kNjNrcCDDDOoJrhOclaTK9/2Z0RW4hHmXqM8FMr8MTTdTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680425;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=OchicsanssR3AdJ00LY+3McNXqSzaIMckCwuyN0twwQ=;
-	b=nVEILRUzDASvN4lUUIT7IdKMLnbvbNBcBNB5Hv56kJ1tLt4+Yku9ixbtnUnVBeAlaWHY
-	 1tlqRywEr0zerGClr3vSmY3HQiA/1aSAsZtoOx8om/6YuVhfGfMpqT5I9rEA6cxi7+xy7
-	 vscIY41i4RAF20H4dlLtg1PmA6XZMm6zCqERnKh7qxn57dhDKgUsSDJlpFB9MH+ufcMA6
-	 vDEXlXN2cGIYTsUsMrhET9bESdTnzNmHLe87OYUtxEqsEQp52kwVQF6DcsG0XW26lD9zX
-	 RmlUQZNQaP+yF1//bqJCo9gsctS/ENdHCpYczFs7og2IG4ZYbnGONrFtwIR+/vER22A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680436;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=aUkDNLO/u5puP38JXKFEnWyV5La/0VL8jM+AQyNlURk=;
+	b=VL2/qEc03Vd/oq/AlIOMprYZLbNUvkDVnlPTquF5nOa1KXakJ6aQjJTr2FL/8R8KGlPB
+	 IQj2Tt8mPT8gZGNtT6p7PqieBoXm0J6daoxMPmWqGYJ6qxGYRn23AY8bF4u73T46D5ka5
+	 423toq4S4XFK5caWDCydlULnwqrrm98dPMm0/8l+aYXmOy+Nk2W5KAUL8n7RlXw55sK+z
+	 ME0gAjyzFGd8sLqvlG5CKkyUMVf97rKSHs35pjFW7WcdLL0yj8UWY2rdERF9O0yuesSUT
+	 nmPt6AOToXVLpoZTIQZ4Ts5mMXbuqjBXvCFMkWaqDwj9faEQBzq76xEq7N5WIf3xMaA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SrrfR7Zc;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="EGvR/5qI";
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="gIZ17/I/";
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 344F0606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:07:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 344F0606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1C9E606A31C
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:07:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1C9E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SrrfR7Zc
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 139E94E417A2;
-	Thu, 26 Nov 2026 08:07:03 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D193F60237;
-	Thu, 26 Nov 2026 08:07:02 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1694B11E6B27F;
-	Thu, 26 Nov 2026 09:06:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795680421; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=OchicsanssR3AdJ00LY+3McNXqSzaIMckCwuyN0twwQ=;
-	b=SrrfR7ZcuX6e8a0vz/8yqbuzwyHlo8IAOY99nK7EZ4yitmDBz+ys/kSQlnNBI08XaLGEp0
-	hyr5DkipP6U1pY5olD/YICFVF55Qy96f/N/JEm4q7an5IsYpgVSJsgvejTnW8WL77sqEjc
-	ohmJhf8qGOjYK3FqBPqqr7OopELWOLzrrhWpEo2WwcmoLXkAVq4vzUUi3EP+gpmehfqBRR
-	Lg+RlnQizk4xVkEhtKOi5RGFMZ8r/hPo4SlZH1LymmR0E2VqwgYUT7LIi3dmShVy14ZVM8
-	5M8t2vxicrCABrEDvXJlof+0fT8DoENlVmgMT1iuvs/SncHM2gHPKlnc+J6A6A==
-Message-ID: <544205c7-7590-4a6a-8abb-0199768ed283@bootlin.com>
-Date: Thu, 26 Nov 2026 09:06:54 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=EGvR/5qI;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=gIZ17/I/
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ7B7cR919499
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:07:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=aUkDNLO/u5p
+	uP38JXKFEnWyV5La/0VL8jM+AQyNlURk=; b=EGvR/5qIBwyKON95vHR6DpuzpeF
+	xd5QarYKpskzlMDr+0eMJBOsRZOS896GGOK4Lmhj2uvT9Ehf6oId50BbrNpVm1AO
+	6b9+MNjxxOrwd3CPzAZ6XavItJhF8qgVe5kDK4Gb4Sxrk5zbFy8R1QZX115WeFKc
+	AvYCUfkVNR1OH0MTnclIU/bag114evZTQQBTU6LTRFYeqIzOFFXGfUYNneJSzmfH
+	8qM8fisQ9BTHrfW/xWU/W177FkDp9315CGPmBmTDOSdGq9Ug+5jaYM45kB00ZYUd
+	MRADJHcZPQXK8MSGL2tJLo5LXpUvfi4O2WzDnR6GD5fc9kUtr8sLrhlftdA==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j662y22v4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:07:15 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3869ab689c6so564415eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:07:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795680435; x=1796285235; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aUkDNLO/u5puP38JXKFEnWyV5La/0VL8jM+AQyNlURk=;
+        b=gIZ17/I/FCIJBA0Ie3erBFrgk3QUC+7L8ZzZhXLnyrA5XGB4AAqazK1C+2qSPCRGWg
+         FV1m3fxgkBh8HeOpOeaaC64huA4SCJABp+HgglMmznwgNY4x4nDECGxKN7ajd1njgA+o
+         F3pLwD4R9azURxef35RraeDb5iusbefmz6/8CwrqUbpflPzkA2dTq+qkjpRitApe1iGN
+         /gZpnvE9QSTLeeFrb/nKcG6cjjCv1p5Rc0jp2Z+3HdnFwkLuMlZWPyCdIh7s36vm34mu
+         BtyWUxZhpe7Qp5cZyby1pEyg1EUVKPnR1TeQWIlnO7SZXQjUESc1k4VRSQiWO9yojvKY
+         txIA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795680435; x=1796285235;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=aUkDNLO/u5puP38JXKFEnWyV5La/0VL8jM+AQyNlURk=;
+        b=rD7w/DMIhjR4enhniu4KEpzlp640M8ox6RFM05SmF000Mr2HwoiGzeGqL88002LROG
+         JWal0lgD0v7MZpmAIkl00Uz7B14Tyzi0bKISue1XU9gf7D882MZjWLj0ohjsHu6BxEYp
+         ibgxbiSEB6JnBIWx49KO59XoJPyQ9LqAmye/CkU6i5CRZZ0ou+lMLDkmuZZVTX/Vmr/0
+         S2LIFNq2e9tJx2JzCYltV0dkxa3zzDBSmXnK14+nYHlzrTd2KyHRy9u0HyfafVvh4+6G
+         AU7DlX1BNJMNaQMAKX6LdjU8hf1G0HRrij4BycNYGpkl3M+1z1t48jWfeATjyD/V3gfj
+         tCrw==
+X-Forwarded-Encrypted: i=1; AL+hErF1NvTOGw2CHl2EKlhlEXOKmfJfnj3Mbxya3r7HvTDwFL2AlLQGoztTmiiV60hZBPirp7Nqw6qNklPr2ps=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8+KUJLPzIrmLjJp4cJSdbrQOs0mA5ARsCwXF0hUJXgKc+qpxgw
+	OLG3V+0Cpu5yfEt+mswwoy0Jq3qUELkZ5vcgfo+Oq46bxBxZQE4iX9pLC7eqUPT13ph4yyjpoVO
+	wNZ4GvpMcHoDnIcisekaktuxO3MynYR2iLVinYrcBHZvCqq4LjSTcvb7HWBuTPJLnjx4=
+X-Gm-Gg: AZFdTZev6xUnOzjF11syVZcyWq4KnTsPtbTCOl+LS40X2zenArFN1NXDaIIDbxAaKvV
+	BBoMxn7ZPOOh72xjejv9ZXXqghgyUh4rSm4N/MMM0zWFxzdeQjxbGpEq1UsvIOc4+M/YvyaUsVR
+	i2BZa2erNj/PihN0KdgI+KJGtfkAz3pqGwgMYyEqra747r+niQDbiGZ96ftfsKb6lyCUmXtZ9dW
+	2Ic+4eMBw5spPGhmDnffEvN2fbZYaEXD0otPiqy+3I8dK4FhSzfP0zqkeMkJ6j/x5+dyGIEyQud
+	7/hc6eNA8vj3qgvEOcC6GonvUfvDPDFO3IEAe4Ivi7xolje1BoVo0C/H6KeDa3suJd6nuGSMXqV
+	wm023j03SbV9t+8hsi7Flo2DZdrYPvElTXD2q3VTwsY4Oq4I0KCJkEbFp5ntplszrmOKY7v04
+X-Received: by 2002:a05:7300:16a3:b0:36d:5fbc:8c8d with SMTP id 5a478bee46e88-3856ef457b6mr29495505eec.2.1795680434498;
+        Thu, 26 Nov 2026 00:07:14 -0800 (PST)
+X-Received: by 2002:a05:7300:16a3:b0:36d:5fbc:8c8d with SMTP id 5a478bee46e88-3856ef457b6mr29495462eec.2.1795680433883;
+        Thu, 26 Nov 2026 00:07:13 -0800 (PST)
+Received: from hu-weiden-sha.qualcomm.com ([114.94.8.21])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm59870872eec.23.2026.11.26.00.07.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 00:07:13 -0800 (PST)
+From: Wei Deng <wei.deng@oss.qualcomm.com>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
+        Manivannan Sadhasivam <mani@kernel.org>
+Cc: Marcel Holtmann <marcel@holtmann.org>,
+        Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Amitkumar Karwar <amitkumar.karwar@nxp.com>,
+        Neeraj Kale <neeraj.sanjaykale@nxp.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Sherry Sun <sherry.sun@oss.nxp.com>,
+        Loic Poulain <loic.poulain@oss.qualcomm.com>,
+        Rahul Samana <rahul.samana@oss.qualcomm.com>,
+        Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+        Wei Deng <wei.deng@oss.qualcomm.com>, linux-bluetooth@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-pci@vger.kernel.org, linux-pm@vger.kernel.org,
+        quic_chezhou@quicinc.com, cheng.jiang@oss.qualcomm.com,
+        shuai.zhang@oss.qualcomm.com, jinwang.li@oss.qualcomm.com,
+        xiuzhuo.shang@oss.qualcomm.com, mengshi.wu@oss.qualcomm.com
+Subject: Re: [PATCH 0/5] Rework M.2 Bluetooth instantiation using the auxiliary bus
+Date: Thu, 26 Nov 2026 13:37:05 +0530
+Message-Id: <20261126080705.1966830-1-wei.deng@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260915-pci-m2-bt-rework-v1-0-3c7d9cf9c010@oss.qualcomm.com>
+References: <20260915-pci-m2-bt-rework-v1-0-3c7d9cf9c010@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,83 +134,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v5] net: stmmac: program the FSM timeout timer
-To: Zxyan Zhu <zxyan0222@gmail.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com
-Cc: netdev@vger.kernel.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- rmk+kernel@armlinux.org.uk
-References: <20261125111929.3395740-1-zxyan0222@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261125111929.3395740-1-zxyan0222@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAzMSBTYWx0ZWRfX4RMKwJMbt4yq
+ dn1WLhNq+dpDqxDX3T/F9iL7hlnmI9ZqkzZnq2WdoVswCbVRrag16DDohtwlaNPckiOnXQsU6wJ
+ B9Rs9Om9Zv5OOI1QCUztm/bWEeS7IFdvJ3cGpDyKon8IF7pWoGGzMutzT+p+cQpw1QLgefTZdoL
+ fw0X3WqdKTVJDwazcLzJLAlvjP9VbgeohKIjWEGMz138qpLe4P+/gylSTfskc1U7HNWTpPAK3Lg
+ ij1wKNXDQ8OF3vr8EbmE65Nsy98UsJk6ZkJbyuF1WzX8+4Y9ky1+y96NcSj2ycaEORExO/afkTj
+ uPRPlo9XHeXibuy82CS1zLxqcCDHsTNckXI6irhwrhblqfJQ5VBBWNU1qWcg2eG2uNwH8y9rPKo
+ qoeCI1Z7vkqANO4pBgLUQ+slRFFxPtZY6D51FnXHKATjJ1lIcpjmyNN36YdnWm+C0RRJXboKr8P
+ 7k7jaFoLQMFffgmjstg==
+X-Proofpoint-GUID: TZkbRLED0gbVoIsnwuS6Fxv_5rbWfR7X
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAzMSBTYWx0ZWRfXylXu0J2WzGFP
+ RWxnpT6H8NFpbTTw+qkS2fzABY9+CNZVnsQhuAV6y5a/+RkBA6393y/kCjhzFt1u5NyVNApHlkM
+ VOD62RsAW9ATtY4aP83G6YBS7nQ4S1A=
+X-Proofpoint-ORIG-GUID: TZkbRLED0gbVoIsnwuS6Fxv_5rbWfR7X
+X-Authority-Analysis: v=2.4 cv=W/KtxhWk c=1 sm=1 tr=0 ts=6b07e8b3 cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=Uz3yg00KUFJ2y2WijEJ4bw==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=Unh1toCOKya3YOY-X0AA:9 a=scEy_gLbYbu1JhEsrz4S:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_02,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 phishscore=0 malwarescore=0 adultscore=0
+ suspectscore=0 spamscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260031
 
-Hi,
+Hi Mani,
 
-On 11/25/26 12:19, Zxyan Zhu wrote:
-> stmmac enables the FSM timeout checker (TMOUTEN) but never programs the
-> MAC_FSM_ACT_Timer register.  Per the databook the checker only fires once
-> NTMRMD is programmed with a non-zero duration; NTMRMD == 0 disables the
-> timer, so with TMOUTEN set but the timer left at reset a stuck FSM is
-> never reported and the advertised timeout protection is ineffective.
-> 
-> Program MAC_FSM_ACT_Timer right after TMOUTEN is enabled, deriving the
-> TMR field (CSR clocks per 1us tic) from the CSR clock rate and using a
-> 4s timeout.  4s is chosen because a PAUSE frame with the maximum 0xffff
-> quanta stalls the transmitter for about 3.36s at 10 Mb/s, and a shorter
-> timeout could wrongly report a flow-control stall as a stuck FSM.
-> 
-> The NTMRMD field holds a power-of-two microsecond timeout per the
-> databook: 0x0 disables it, and 0x1..0xa encode 1us, 1.024ms (~1ms),
-> 16.384ms (~16ms), 65.536ms (~64ms), 262.144ms (~256ms), 1.048s (~1s),
-> 4.194s (~4s), 16.777s (~16s), 33.554s (~32s), 67.108s (~64s).
-> 
-> The issue was hit in testing on dwmac4 and dwxgmac, where a stuck FSM was
-> not reported through the safety interrupt despite TMOUTEN being set.
-> 
-> Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
+On Tue, 15 Sep 2026 16:24:01 +0200, Manivannan Sadhasivam wrote:
+> Hi,
+>
+> This series reworks the PCIe M.2 Bluetooth instantiation using the auxiliary
+> bus.
+>
+> The Bluetooth interface of the QCA2066, WCN6855, WCN7850 and NXP 88W8987
+> M.2 modules is accessed over UART, but the modules show up at runtime over
+> PCIe and are not described in firmware like devicetree. To make the serdev
+> bus match the Bluetooth driver, the power sequencing driver was creating a
+> devicetree node at runtime using an of_changeset. But, creating a node just for
+> driver matching is not recommended as per Krzysztof [1].
+>
+> So this series reworks the instantiation to use the auxiliary bus instead. The
+> power sequencing driver still allocates the UART serdev, but now hands it over
+> through an auxiliary device along with the power sequencing target. So this
+> series adds auxiliary driver support to hci_qca and btnxpuart drivers binding to
+> this device and brings up the controller over the existing UART transport.
+> Finally, it drops the serdev based M.2 code from both BT drivers.
+>
+> Dependency
+> ==========
+>
+> This series depends on Monza series from Loic [2] and reuses its
+> pwrseq_is_controllable() API.
+>
+> [1] https://lore.kernel.org/linux-pci/768142f0-2638-41f3-a34f-dc80bb99eb7f@kernel.org
+> [2] https://lore.kernel.org/all/20260904-monza-wireless-v6-0-d8c5042b3efd@oss.qualcomm.com
+>
+> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+> ---
+> Manivannan Sadhasivam (5):
+>       Bluetooth: hci_qca: Add auxiliary driver for PCIe M.2 modules
+>       Bluetooth: btnxpuart: Add auxiliary driver for PCIe M.2 modules
+>       power: sequencing: pcie-m2: Create auxiliary device for the M.2 BT interface
+>       Bluetooth: hci_qca: Drop serdev based M.2 power sequencing code
+>       Bluetooth: btnxpuart: Drop serdev based M.2 power sequencing code
+>
+>  MAINTAINERS                               |   1 +
+>  drivers/bluetooth/Kconfig                 |   2 +
+>  drivers/bluetooth/btnxpuart.c             | 193 +++++++++++++++++++-----------
+>  drivers/bluetooth/hci_qca.c               | 138 +++++++++++++++------
+>  drivers/power/sequencing/Kconfig          |   2 +-
+>  drivers/power/sequencing/pwrseq-pcie-m2.c | 137 +++++++++++----------
+>  include/linux/pwrseq/pcie-m2-bt.h         |  38 ++++++
+>  7 files changed, 343 insertions(+), 168 deletions(-)
+> ---
+> base-commit: e5e04726cdd043e309677071ab1b65a4b18f422b
+> change-id: 20260806-pci-m2-bt-rework-78dc2c926f00
+> prerequisite-message-id: 20260904-monza-wireless-v6-0-d8c5042b3efd@oss.qualcomm.com
+> prerequisite-patch-id: c4e777757ca9358cc4dd35e23738cd7dc1ead1a0
+> prerequisite-patch-id: 09600595c2e80b12eda3aae39af192847d0f03d0
+> prerequisite-patch-id: afe88432c4d459e9094c0e6dd31ebeab6c9f2f08
+> prerequisite-patch-id: 60fd7b13447ccad7546fa8e5b5609d8f133f788f
+> prerequisite-patch-id: 61dcbe55fdb6f33a3229c197f16a678785aa16d8
+> prerequisite-patch-id: 14099e5c573d7c41b899c3f9bb9126aa23f1553e
+> prerequisite-patch-id: 647ee15b77671054b4bb012afa9ba8694b6c86c5
+> prerequisite-patch-id: c3a774cae81a6fad287731a38f1b76c7e8babc4c
+> prerequisite-patch-id: 18b0fa62060a1a2c96e76051944d692699035572
+> prerequisite-patch-id: df02ab167976ac1f0d5a38c78e559a7372b16c1f
+> prerequisite-patch-id: 3f2dddd108677252a539cdb1eb661912836289ca
+>
+> Best regards,
 
-[...]
+I tested this series with Bluetooth over UART, based on your patches with
+two local additions: the QCC2072 PCI ID and its auxiliary device ID, and a
+check of the pwrseq_enable() return value in the always-on path of
+qca_bt_aux_probe(). The patches were only adjusted for context differences
+with the tree used for testing.
 
-> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-> index 00be2df63d22..659f5db528d3 100644
-> --- a/include/linux/stmmac.h
-> +++ b/include/linux/stmmac.h
-> @@ -170,6 +170,18 @@ struct stmmac_safety_feature_cfg {
->  	u32 tmouten;
->  };
->  
-> +/* MAC_FSM_ACT_Timer.NTMRMD timeout durations */
-> +#define STMMAC_NTMRMD_1US		0x1
-> +#define STMMAC_NTMRMD_1MS		0x2
-> +#define STMMAC_NTMRMD_16MS		0x3
-> +#define STMMAC_NTMRMD_64MS		0x4
-> +#define STMMAC_NTMRMD_256MS		0x5
-> +#define STMMAC_NTMRMD_1SEC		0x6
-> +#define STMMAC_NTMRMD_4SEC		0x7
-> +#define STMMAC_NTMRMD_16SEC		0x8
-> +#define STMMAC_NTMRMD_32SEC		0x9
-> +#define STMMAC_NTMRMD_64SEC		0xa
+Both cases were tested with a QCC2072 M.2 Key E module: pwrseq_is_controllable()
+returning true (W_DISABLE2# wired) and returning false (W_DISABLE2# not
+wired). Bluetooth works in both cases, including powering hci0 off and on.
 
-This whole patch starts to look good, one last comment, sorry I
-didn't spot this before. Can you put all these definitions
-in the "common.h" file in the driver folder ? These are some
-register values (same on dwmac5 and xgmac, but still), so they
-should go there.
+Tested-by: Wei Deng <wei.deng@oss.qualcomm.com> # QCC2072 over UART, pwrseq_is_controllable() true and false, patches 1/5, 3/5 and 4/5
 
-With that changed, you can send a new iteration with
+I did not test the NXP side (patches 2/5 and 5/5).
 
-  Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+I plan to send the QCC2072 enablement on top of this series. It needs no
+devicetree binding since the module is instantiated as an auxiliary device.
 
-Thanks,
-
-Maxime
-
-pw-bot: cr
-
-
+-- 
+Best Regards,
+Wei Deng
