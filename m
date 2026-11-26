@@ -1,108 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795653676;
-	b=A72T88bI1lP2ARKhGIR+ywY96q6bXlbGZu8i7Vwv3mQfj17rbOcdQ8v0BBoH1BpSpv2z
-	 BkAK0yJVeGlufhkTfRMx9UyCY3ELMKx92vl81jpCxWLbjjQzDkVvJbKl16SyEKgFhtWd3
-	 ywtuTCsuvKt3XoUGkkEyGddy1u9oyJBsJTftHQZgMh8I021UqhNmnCEtlSl2IPIWIJUnp
-	 8oof8unkORtIjUvK3/i1Br4Kyb0NiT8hMwj1jyzfzEQupqkoluMD4lVNoMX9V8lNo0VZS
-	 HNWs3KQbCppLeIb5IybmhZEz3TMLo87Xa++2n3YCJmWpPwTrGyGb2DuES9EHr0s1mZg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795653676;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795653751;
+	b=PPXPMDjnpzzv1FljIbHWSZWLhNeATUnKZ5c8CBSq+v/Un6pFSIO4caO9a7ApwsU7SMmB
+	 wE3l5lzW/hCsrrYZa07a2TRK+TjS2bqN5o3GQXvKwuO5f1Zniaz58K+K6KLemG6njp4/p
+	 Fiv0QUpS6IRjWdAlxkG+LUdVRFDQ9WiB7zNDZEZYQ/qvgJQQi5iRHucN/jgLCQUNr4rxY
+	 PWAQQAFOzGzzMDCabOzJ9x6GwH1/E2eXg9aKJ/oW3+TrFO4nlgjCZlCwAt6h0vNKaOPVM
+	 S5yD1WCsf5Ww7uXZ4G03u+iXf5r8u4nUmjw8wtBf95qV92uVUuEA5HBbQMMS0L9mo0g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795653751;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=etNvWZKM5KKoioqypEOUDZ9ml0pWkNpMWbqmez34aEM=;
-	b=LPjORa+yYxxugmb1oqZh9cRM1B/IcwiWTJ6itJ19KGueQDTtYz7K3UZ2SpGFDYSTR37z
-	 pXMhHDWBuq+SZgPKXt4RhtK4tFgQCPRbRVFA2l+5FBWQzVucKpf7XPFuxbKwtib+rkNoU
-	 DPyxe/6hIYjUMbEqRc2edczXgNzjXaSXveKF3bJuiRRMAzdNKPcUksAZCWxTzZdskn1v2
-	 zdejV06JofRZPJ5SgIJOO4S2VTglk6oRHcX0TJ5YMCLyqghywYQEHVXgbCD2YpTO/OcFo
-	 mQ2Wd0KINsUcZf7xP3QLYKEksvJ2+l6II1fS4ujv5evh0w0/eGXR/FQgCusPtH+s0PQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dama.to;
-	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ah+Rqc8E;
-	arc=none smtp.remote-ip=209.85.215.172
-Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=ZhRPRVq+8pg+E1wbTr8QWwirSLbboBqk1ZBZKkJ4bPE=;
+	b=VKEHL4Xu1is6sO3cxeX7lIXdHZrM89t1l7Nih6tQWXbY4ruuWw/HEQQwp+UfzjaEgbMc
+	 9sRCfw5mcucQ3aDUvFi5dT6CUmB5ehBn52yhADmyIW4+zVhk6HorKED4xTZx3KXwLrY39
+	 ZHN4hP9qcZcFKgbJaLZaUe2fCewnfcO3E7v25/E/0MSSCJsEpm6eVjoABlddqJSLzO6jT
+	 USy8oGc6dh8YT4vNlwj0/ReF3xaOtMfErvsFHdZ59/HcYzxVKAafn02y9mUnfmOLK4M6f
+	 QUCORxJyBY8OzlRStAWj+2IA/VZbv2McTjiUnPYnvS62Fj24bAXPEweLit3+SwaTw6A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LpN49+az;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34685606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:41:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34685606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D240F606A326
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:42:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D240F606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ah+Rqc8E
-Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cdb1199bfd8so3026186a12.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:41:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=LpN49+az
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c516a574bffso106059566b.3
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:42:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795653749; cv=none;
+        d=google.com; s=arc-20260327;
+        b=S8A4NuKe3zQRu9+xywPngBD8RIj1WZejD5YOZ8HVhBbn4i+X5Il2ucKuF6CR04x47l
+         0meBds6S2jaRTVwrGOBjK7ySrzJMtZfZotsn/A34ktcHmdjnCNjc95zlDpeij0qDWFwQ
+         B/go+DDNMY3y1ir/3KXJU6R6UX1dFkn8y0WhTWIv5eh9o67iph/SkGbqfCU1weHfEqZd
+         7NKMgqLDecYPOkglM2SxQNgCrHMMprxwXe3VCXrsKZw8ZfrEtqfftFzjPAGOydM/G5Z3
+         Yoz7q6qXSrOV8XSPkFTmlRVM9mrEDamK1FET1AO95mfux8Vfn3zWT2+HTDbBj2klmiGN
+         gUPA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ZhRPRVq+8pg+E1wbTr8QWwirSLbboBqk1ZBZKkJ4bPE=;
+        fh=V60HBQkGmf29MH3ITi7mDpMcEIfqB+CQHcB6bjnFREk=;
+        b=EDzU8l3hW7IpkEuadEDJXh2QgBjlLaIPiTRERxKLieylhyupcFY/aPdGDgFQlPbLah
+         u7itn6rP6VZcu1ZV+vy+mslLfQuIPnNw4em2mtBHMEgngNgvUWMM8gMMVKdxI2U00U4G
+         X68abyjE/rcfbqFMCKc+EF7Y4yAS7NEdJi+le9gx4bi5S1VWT9CajkgC4yFN7qBXKNZm
+         8tzjkLh4EddKZgacOr7AjxM9aEguLzN4EVBbDK1joWGH7RLM0KgVv7i8BdYI4ybgdLjm
+         w8J/ie43//ZEaisAMvfYjvXoxogeoaWY+q+i6c0tSWrfP1PR9i78ui0DnHKJxws0b5gJ
+         LIaQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795653675; x=1796258475; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:mail-followup-to:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1795653749; x=1796258549; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=etNvWZKM5KKoioqypEOUDZ9ml0pWkNpMWbqmez34aEM=;
-        b=ah+Rqc8EWu94j3V9pFzbEJY+coJXJrYrXZVJiL8EzUFi1Tl1VdiJWULTrFSywypAh9
-         qzMriDb7rrXY5U5XW6JGfz1j9GkY6itN/tghy96cDMFZAWtkU5N3qbJyJmNKOn62Id2J
-         NrBJqnS9OfJ8jsIefr2cf4iQ04c1bw81tE2G28t0a/5TlYQYxbi8beC4i1WU2Ym91Bkk
-         YGaQVSUgrO3K5Be7OSPwde1m4W8tyC2yKCpJedcg/4mqDs4/XGAZlvoBLp1W7UUxM6yR
-         VIqMZ8V73UuKJcSB2Nd96kr51mZF4bZq5f16ENzZTuXx5LqB1ghywqHsmU3TO9GV1JiQ
-         95Cw==
+        bh=ZhRPRVq+8pg+E1wbTr8QWwirSLbboBqk1ZBZKkJ4bPE=;
+        b=LpN49+azCIrNLot1wWdZkbi4Wt9+5r7MX19ZP740YGH95NjHPkEZ3J8iTn5nZs2aU0
+         YtfDizzXcozDLpMOLK52IGL19BDPPkZBwwaARaxU027w//2VU6VirePpo9PC6B6/Gvyf
+         w2GVoXFxRvXbXsOKb1KJ+C3LWAAUbXNTn5yq/DRtNMB33KVLBN+E7CMg2n3o0WEACasU
+         2Rm6jn9HoFPOXbo7vWifWbukhD/T5j5US9xUFhxajKYt4rvNrF1rO1KNwomR3ZLuXZ6w
+         QUOmuxgTXoYSvlHBVpUm9Y0LfNn1TpJbekKTAn/WwvKBAhjn4jwfG9HFJEBd61cyDiFr
+         AG6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795653675; x=1796258475;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:mail-followup-to:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20260707; t=1795653749; x=1796258549;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=etNvWZKM5KKoioqypEOUDZ9ml0pWkNpMWbqmez34aEM=;
-        b=hSLJcnAt+YBpcvkyNUqwcP4y4Pq+kS876aKLDGS7FNbfWZ2B8myibokMqQ1LMgDfVy
-         C9xO1I86Tkq/rgjTHPDIwX3CaLmpC2omYE3ES3tu3CusbAe9dBJyAEPgBhIzDlveLrA2
-         LpmqRNDv0l17KT/U/2Vsr1OKRS+G7+vOOgCabzaGti77Q0Pci2MnOHsx+mH5dZs+1RAc
-         ON0Hg2ly95nwHUMnc3Iua9nQ4/cj8arSm4creM9Gk3IumVgTlXUzEeGyCfzSNKWkIafM
-         lNVXGPMk9CYBP9ohZAFNpflL57cl9UscmCfQMqTpRogDR5xVnFWS/uUxS4IHZo5PVu/w
-         HdfQ==
-X-Forwarded-Encrypted: i=1; AL+hErHXR2VVqn24Qnn/k26PluGiZrUY5OtCHL2ml4z4K0oJz5/80MIQ92uyWfCom+xoqjjzZwVYYqJTHlHLELs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z98xdY5seYEVStXJl3Zk2cFOfODWC/LBVXdX2CufAIG/JJPnhcu
-	7fmaHTB7r3cbKRl1I2bssXRyApDsyqihlkhwf8PkMmR2IQ4NHyD/26D7i9deOOCPDBw=
-X-Gm-Gg: AZFdTZfajsPVkBYYpHO0AY7aSasuMTuxBgwRRbdspnONB7f6U0rQ4qidQ0z1cc3wIVd
-	KMW8mJJMGdOuKS5/h4FwFY985/dO+rzpq7taAgXEZlI0F38ezQJAo95YK2O1/Zptr2QmXMqaWGb
-	hdU4DRmac4sD6i4YiLGJD4CuGwgQRpIQXtkk6QEwSbocseqv2oWTI4NaBBydaSC/2qT4EeQiQ6r
-	ObZlTWPbkqjzmw1KGkNIICg1LdocpOqs8DCcj4zdROI4L9BaFFW+OuPoyf/2fSI/RcaMpfwn/4Y
-	2rF1BQ7Ts9h/aYJj8c6Ts20z1Ft0Newl2J5xVsipOwwL7VHgyJSQj+V6Kd3N8KIqILSrflg3ESk
-	7pdtrOUmZZaoQa318kmfrawTpp7SlpDANvwWIBsG4aMN6CROreGWVmkIWvkfe3IPHg79Dp3ATO+
-	3DqmUC7lUAI+xgQXRBdyGBNn/EDzSYbEpRkH0zqQd8AfgQUGchPhByq8JPvCcZXfRbZrXYe3DhB
-	fNyxilfweI0VAMTpGiM3yqu9oB8TE4qvDG4GtoalQzwTLR0407I1qczNi2dzpa0ehtdZOtWjP6g
-	WzDHfC68DAZvkbVu1cx5vN0K7pvB9+4QjIwyHaeHgwc=
-X-Received: by 2002:a17:90b:5109:b0:3b4:1621:ba5d with SMTP id 98e67ed59e1d1-3b41c95afa2mr19198117a91.38.1795653675091;
-        Wed, 25 Nov 2026 16:41:15 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:43::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b420e1307csm28823022a91.7.2026.11.25.16.41.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 16:41:14 -0800 (PST)
-Date: Wed, 25 Nov 2026 16:41:13 -0800
-From: Joe Damato <joe@dama.to>
-To: willemb@google.com
-Cc: netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
-	michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, prashant@broadcom.com,
-	edumazet@google.com, horms@kernel.org, selvin.xavier@broadcom.com,
-	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v6 5/5] bnxt_en: stop the ULP around the reset task
-Message-ID: <aweAKQ6cUk6df/L6@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>, willemb@google.com,
-	netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
-	michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, prashant@broadcom.com,
-	edumazet@google.com, horms@kernel.org, selvin.xavier@broadcom.com,
-	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
-References: <20261120152830.699712-6-joe@dama.to>
- <179545866419.3135.14423996277439097165@kernel.org>
- <awTJWtBSMubj4qQ9@devvm20253.cco0.facebook.com>
- <willemb.1401f0f6ad765@google.com>
+        bh=ZhRPRVq+8pg+E1wbTr8QWwirSLbboBqk1ZBZKkJ4bPE=;
+        b=vFbtB/LzFZlvMri3/MV/1gVcZ3u4fnWL8f3w+oVvEocqwhf9SqdNJuojKO/A+kBxOq
+         f5+aIEO9bB3ctbFL5mfHNP9F2YVKT7E9s77L4TrDBpcozvH4QJBIp2Ucsm/I1v+LcPe7
+         IQB0uUkXjhsULViS24FBcWPR5sQG3f/48w27+mm42tA4Yv4DuPqA+wAiRhx4JxLvpaPm
+         epv1hGG5Bydq03Cq3Yv9GkdNHEeYM1trCqStFQrihtkfWafBuppDSPItx3mm8puOfyn1
+         X7RWeiUkVqbd6zyYDada8/2Rwr++ZRrA0F494j6AIW0ulBHr7AijrKPF1Px2DC23M59a
+         Lk1w==
+X-Forwarded-Encrypted: i=1; AL+hErH6uMnGUwbcspf/vJhYIrdgUNmzbxQ6iwiP37lMNHpbPnfaPXWeA9HV5wULlW+VaoXISd0RIdBYL17K/r0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8oJc8VSQh7a6VZr1LdVT1hHYMM8IC2hlFxIE2HM3IqsfcqrYm3
+	UbnlJ8gOOo2YN+mW5B/TieazoN685TKyob0O64PXoF6BjJHXwyrAFPmbt7ngOLUfuQfV8qpylO8
+	e0CrOp1GdIuK+au2hm5jNrD0cplftvVP/lY1lbooe
+X-Gm-Gg: AZFdTZfJIOpNLJo+6zBKbrPys3lhyphXSwydraRp26MbfMfvnW4Ad7TkIEdLgyzbTJD
+	g+BveL8uTXrLfFfZyYXZB69JANDwzBNFdlWcsyDJcHAZFUf8++Ju3rOit74J+8YusfTzsbZNB5Q
+	EpEcTBiuNDXtkviizabFj3DF4+UoCwYD3GsGwjdA9lcuHpi/QZ6ZlIKyEVbAsLjIVpjVCl04qEn
+	3d1Ry4XRA6wMVSXXIowsKF7PmcpMc76b+/TzEmBipnJM9Rog6fU4xtLB4BPsQ7tzfEGjzoTKsgt
+	csX+80KVKRZ7mlyZw6RK0F8lTs0aa5I0OMwgHk8Ulis0urVVOvhdkYpMawNBMOe+H9TCfr/MLpV
+	az+kD2edP2vgxpsLrRT2k/hWQIo3nR3io3q3cyZrkyXHcFlZIqd9Hr6XlenGkWvs4D+K+DDDza3
+	uy5G7Q1En8G/jN
+X-Received: by 2002:a17:907:da1:b0:c50:5275:fb97 with SMTP id
+ a640c23a62f3a-c513acb5e2emr1626085466b.47.1795653748662; Wed, 25 Nov 2026
+ 16:42:28 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,129 +104,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <willemb.1401f0f6ad765@google.com>
+References: <20261113221248.3535369-11-wusamuel@google.com>
+ <20261113221248.3535369-13-wusamuel@google.com> <0c2e606e-e0b8-4466-b9dd-4db14cc35d1d@suse.com>
+In-Reply-To: <0c2e606e-e0b8-4466-b9dd-4db14cc35d1d@suse.com>
+From: Samuel Wu <wusamuel@google.com>
+Date: Wed, 25 Nov 2026 16:42:17 -0800
+X-Gm-Features: Aa3M54rYVczs2SqMo55_UQYl-QiaJqAFTx0CS_STMdfssfUbqw_TSopd5IfB7RE
+Message-ID: <CAG2KctrMMo0j9Mnbg8fdNsSc-eQaaaW51dO4mqwVNn3hfSdx_Q@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 2/9] module: Add module_kallsyms_find_name()
+To: Petr Pavlu <petr.pavlu@suse.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Aaron Tomlin <atomlin@atomlin.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Petr Mladek <pmladek@suse.com>, 
+	David Laight <david.laight.linux@gmail.com>, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-modules@vger.kernel.org, bpf@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 
-On Wed, Nov 25, 2026 at 07:21:31PM -0500, willemb@google.com wrote:
-> Joe Damato wrote:
-> > On Mon, Nov 23, 2026 at 06:31:04PM +0000, netdev-bot+sashiko@kernel.org
-> > wrote:
-> > > Thank you for your contribution! Sashiko AI review found 6 potential
-> > > issue(s) to consider.
-> > >
-> > > Critical: 0 · High: 3 · Medium: 3 · Low: 0
-> > >
-> > > If you believe none of the issues are legitimate, please reply to each
-> > > issue of Medium severity or higher and explain why the AI is wrong.
-> > > If any of them are legitimate and you plan to respin, please let
-> > patchwork
-> > > know by including "pw-bot: cr" as a separate line at the end of your
-> > reply
-> > > (one such reply per series is enough).
-> > >
-> > > - [High] Possible deadlock.
-> > > - [High] bnxt_reset() decides to call bnxt_ulp_start() only from !silent
-> > >   && !BNXT_STATE_DMA_STOPPED, after dropping its locks.
-> > > - [High] Incomplete fix.
-> > > - [Medium] bnxt_reset_task() discards the return value of
-> > >   bnxt_open_nic(), and bnxt_reset() calls bnxt_ulp_start() whenever…
-> > > - [Medium] The new DMA_STOPPED check exists only at the bnxt_reset()
-> > call
-> > >   site.
-> > > - [Medium] Every non-silent reset now unregisters and re-registers the
-> > >   RoCE IB device, including the common case where DMA is never stopped,…
-> > >
-> > > --
-> > >
-> > > bnxt_en: stop the ULP around the reset task
-> > >
-> > > For non-silent resets, bnxt_reset() now calls bnxt_ulp_stop() before it
-> > > takes rtnl and the netdev lock. Afterwards it calls bnxt_ulp_start()
-> > unless
-> > > BNXT_STATE_DMA_STOPPED was set. The goal is to keep the RDMA driver
-> > off the
-> > > device once the reset task has stopped DMA.
-> > >
-> > > > diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > > > index 9daf053293a42..2abb721d87de8 100644
-> > > > --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > > > +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > > > @@ -14710,10 +14710,14 @@ static void bnxt_tph_update(struct bnxt *bp)
-> > > >  /* Only called from bnxt_sp_task() */
-> > > >  static void bnxt_reset(struct bnxt *bp, bool silent)
-> > > >  {
-> > > > +	if (!silent)
-> > > > +		bnxt_ulp_stop(bp);
-> > > >  	bnxt_rtnl_lock_sp(bp);
-> > >
-> > > [Severity: High]
-> > > Can this deadlock against bnxt_close()?
-> > >
-> > > bnxt_sp_task() sets BNXT_STATE_IN_SP_TASK before it calls bnxt_reset().
-> > > bnxt_rtnl_lock_sp() clears that bit only after bnxt_ulp_stop() has
-> > > returned, and bnxt_rtnl_unlock_sp() sets it again before
-> > bnxt_ulp_start()
-> > > runs. So both new ULP calls run with IN_SP_TASK set.
-> > >
-> > > Both ULP callbacks take rtnl_lock():
-> > >
-> > > bnxt_ulp_stop()
-> > >   bnxt_re_suspend()
-> > >     bnxt_re_update_en_info_rdev()
-> > >       rtnl_lock()
-> > >
-> > > bnxt_ulp_start()
-> > >   bnxt_re_resume()
-> > >     bnxt_re_add_device()
-> > >       bnxt_re_update_en_info_rdev()
-> > >         rtnl_lock()
-> > >
-> > bnxt_re_ib_init()->ib_register_device()->...->enum_all_gids_of_dev_cb()
-> > >         rtnl_lock()
-> > >
-> > > ndo_stop, meanwhile, holds rtnl and the netdev instance lock and waits
-> > for
-> > > IN_SP_TASK to clear, with no timeout:
-> > >
-> > > __bnxt_close_nic() {
-> > > 	clear_bit(BNXT_STATE_OPEN, &bp->state);
-> > > 	smp_mb__after_atomic();
-> > > 	while (bnxt_drv_busy(bp))
-> > > 		msleep(20);
-> > > 	...
-> > > }
-> > >
-> > > Suppose "ip link set dev X down" runs just after a TX timeout has
-> > scheduled
-> > > BNXT_RESET_TASK_SP_EVENT. sp_task can block on rtnl inside
-> > bnxt_ulp_stop()
-> > > (or bnxt_ulp_start()), while bnxt_close() spins on bnxt_drv_busy()
-> > holding
-> > > rtnl. The comment above bnxt_lock_sp() warns about this exact case.
-> > >
-> > > Before this patch, only the rare RESTART_ULP and firmware reset events
-> > > called into the ULP with IN_SP_TASK set. The frequent reset path did
-> > not.
-> > >
-> > > Should the ULP calls happen only while IN_SP_TASK is clear?
-> 
-> > Yea, I think this is real.
-> 
-> > Not sure if Michael or the other Broadcom folks have a suggestion here?
-> > Maybe
-> > the minimal fix is to clear IN_SP_TASK before bnxt_ulp_stop() and call
-> > bnxt_ulp_start() only after unlock.
-> 
-> > The RDMA teardown on every TX timeout and restart races below would
-> > still need
-> > answers, though.
-> 
-> Are this and your questions in the main thread a reason for a v7?
+[...]
+> > + */
+> > +int module_kallsyms_find_name(unsigned int *symnum,
+> > +                           const struct kallsyms_name_query *q,
+> > +                           unsigned long *value, char *name,
+> > +                           char *module_name)
+>
+> Nit: kernel/module/kallsyms.c already contains a zoo of lookup functions
+> with similar names. Adding module_kallsyms_find_name() adds more to the
+> confusion, being similar to module_kallsyms_lookup_name() and
+> find_kallsyms_symbol_value().
+>
+> I suggest calling it module_kallsyms_query_name() to match the
+> kallsyms_name_query parameter and to express that this is a structured
+> query, as opposed to a simple by-name lookup. It might be a good idea to
+> similarly stick to "query" instead of "find" in kernel/kallsyms.c.
+>
+> Otherwise, this looks ok to me from the modules perspective. Feel free
+> to add:
+>
+> Reviewed-by: Petr Pavlu <petr.pavlu@suse.com>
+>
+> --
+> Thanks,
+> Petr
 
-I don't understand your question. The above is one of the questions in the
-main thread.
-
-I'm not sending a v7 until I get feedback from Broadcom.
+Sounds good, will apply s/find/query/ in v4. Thanks for the review Petr!
