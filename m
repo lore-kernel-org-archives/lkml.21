@@ -1,97 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795652562;
-	b=IhNslz/1W36G8rUDEJdFtpt/bbb1cE8tJqQz1dOzrrpRA8xAzRRdl21lKDrHN6VZBZTf
-	 pQnOJYy/3+BV3ZKTm9vL0CDkX7Ipz3KpHOm5/w/TLRtzBbpZhxEfChIOSNeZkD3qbm8j9
-	 LFZJhjrV91OMLvp6oNwVG1tuOVaxVITU3O2yH2RJeJZmdj7MXWsDcJ/rwAyJiK8XExEVB
-	 D5zozvb1nTSltHR08KCkk6sB7NYm7MIghJRBUd/Bl+J+7Zvt63JZFUR1pkiwgrMg6neBu
-	 3D83gyZbT2TOPT6OlmwGZ8yb9tqd343alsxfodPU0OfMg+u3MR8G9tJTvoOh83A/oiw==
+	t=1795652837;
+	b=DIZ0XIjHk7a9AUOyiWIyM6ppXxm6ZsXS9n6P2hh5ZPF95TyD2bA9x3XHi5MNZROebChp
+	 5KcaQDJOkhtreWsaSxeTE/XVrdL7Km0oSvRzKJKIDW0gvF6r7gO8nQPW79sJA/LiI/k6m
+	 63WHNXgaU4kJhuGAQe+ChVVwPIN12t0XaHWE2QDd36GXo2QRcOEdO61GFcssUv1aLUt7G
+	 MHSNjqeTGqCjGw8vepIEyGX7QW34pariJBpEIoUR4zdWsiSvlrCqgiHiPPodgwwxNx8Ww
+	 C046gb1Ck08/A/nZ1Cd30qAPUtlX0PeYhKoLkcpRhLwuhg10O56Cxiv0iYjuxObLqAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795652562;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=RvV89/qcgojhFu+RPZnXe+UxBxtm+exO0xuVGHxO5L4=;
-	b=Iv3h8j//eA3U05AIF346jchMG0Bp3e4D2foESioxMYbKscXD2+izXL0b2Ptas9LvHeKL
-	 wRrROF9aNOdL7RZr522kKHdfm00ymTnUCdM5CYlW8/Jc8305Lg9MSisZfG0KCxXG12Uag
-	 K1J3tpk7UdoVLm0+Nm/I5eWiPGIF5PQcbQcQdTqhIbDuZqrSBy6ag5gg2WYktgyoLE6HA
-	 9lG54FyUyYvfGC8FSD0noqNtuWQjUNj/i6AFNfbuhTpDGAExGOHsUq5/tZNUJ+PwAxyQi
-	 mIP4FA0gs59LUUg5IwXiZNxQDCwq/4Fr5m0Gwr6RIsZUz+H+9C9OzXGH7gl5FGoUmuw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795652837;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:User-Agent;
+	bh=4yg+chZWXuIA5k+bDuQb27tz2by8oENbuame6ho1ty0=;
+	b=ruMcJvGj6K65owov3tY+AGTqU/sce+38zeY9UAOMzHHS2qYYNO2kF/++6HGnBwNs4XLs
+	 C+b/E9ow0kmjtjhZ+UPJiUVj524Mz+QnoTztwpU18ooeHIb09YIHO6IQksNRL0+5do2uu
+	 HdhoOtH8FqWoEiKJFXqB9srTIlPbUFa4ijAUJCqk8zXCx7MjsM/0gC0RrY25jhYGJAHo5
+	 8zK+HLlSKiXF3TD4KJPrJMhB+PWGNjBsq8vpRnEnIDQHZi6YOQnzunmrFhuwrnOkHQSkR
+	 ljf8AK74FDOS/vvvESI3yfN0LX9QwI7cVNm0/yJfFYJixKqNwX1dWWWn4SMUyhi0fXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=swOLv2Po;
-	arc=none smtp.remote-ip=74.125.82.44
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KTZPUZEH;
+	arc=none smtp.remote-ip=198.175.65.9
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26FC0606A31E
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:22:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26FC0606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB204606A31E
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:27:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB204606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=swOLv2Po
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-15dd124bbe7so8637298c88.1
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 16:22:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795652561; x=1796257361; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RvV89/qcgojhFu+RPZnXe+UxBxtm+exO0xuVGHxO5L4=;
-        b=swOLv2PoVQfp7z0bWusZ1lYJb1ED6n6l6s0V0iFQrQ+SfblhZBYgl2eVq1PibYWMPq
-         wmG5JQg6LaoHuWNcHgw9I2VpccmTMYHzbjAq7So23lsSk5gAHy5XDfmP5AoHW+o1Im12
-         PFpv2+aPJytV2sA5DJREEuDBp4RwJ0cjqoj9N0j5LBWI2HEu0eSzXFwK5MsjpBwPDLyo
-         U/wugmgwjip8CNjVuGbjfx6oGZaTG3KQnr0Rm5+3SZbVrxgXq5Pd9fqUiiDtYDO/s/rm
-         5pAmaaSqcHMUTSGI9HCqBtOTFbfsFoDTqkOL+IlW92G/V3g8vreFdNqN9REiCRSkC2is
-         BURw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795652561; x=1796257361;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RvV89/qcgojhFu+RPZnXe+UxBxtm+exO0xuVGHxO5L4=;
-        b=qMR04PlxH/0GoGry5IFjDVVeozMQ7Kb6cevigGTvKqcNpcZoodjTN1/HxE7FzloRAX
-         0XY35guf1z9kIGl8NT7wLgxP5IvbzYGKGqiFlcQ9g1ic+o2LZOWB8IRDeuMihFeVKXN2
-         2GxAshE8jsd9K5hFWfU3WFaDt0jB4YbAfaj/aJ/dlUChwpVmJXF3tjoG/vBdi1U18/Li
-         urr9q8a7mefhPWRlucRXWnfu1rjx4YqIIFsDLVvD1gQ5hExlGO3ZVqswWI8r9147XqsO
-         DVdMku/l+SABIeab5dk3I/QOkpsiobVU3w103U2HH3gcoqUd+msffBDr65oqMBcAmrti
-         RpgQ==
-X-Forwarded-Encrypted: i=1; AL+hErHagJF8rwkqg6FnaEV2LCYIN8YsQ0lGoXoy1tAOnFoQF07CwY5tsPzAtuLqln0VgvRd0rLhybDBZV++rUY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+KbN2ULMPVGCC/+9FxiDZWwGwEc0HLhwC5FuAlzbnnhF3dG9ne
-	95bh715+qA/PQrqq/7IBVt52jEHJiWZ879dKucJaPx6lfB2XtuufKzsW
-X-Gm-Gg: AZFdTZcPTXQgKv6cmS1xkoQ57MVTS2UuWDeO1X54dO3/ArkvNOO4kltSl0oYMGUJejl
-	WEvknspyxQiQhZR8I8hWgwFWFZQlaQyMbRBAXhVNz+nQ/PxyIMf6BmjKyqe+eR+0uOwiZCUOM9s
-	QcgpZB+9KS5OKM4HGlApjlP0uMzZZkiJpl6TkHqRL4QLxNZo3PRSvttqmtvl6xdR0jaY7rAwcfP
-	o8m2jYaKFi8bQE3BHNinNLH6H0HMLbrmWpza0YAaD1U/OXAwmcqRFB6UfMerlzvLELb+xUEZcQW
-	ikjPl75oe6WmlBmtWzcfuVPpLom/PDykpKX/wahO1Va7p6dGiQrRAGoriOpWLBR3FO3TKb4PCel
-	omrkFjHQXxwGJ9Lxh8vXFcPNRPe9Yl1EYTxo3YnpDeOVngXZ/QFiDwH2xDwBNaDrwWGpgDksyrP
-	0BeG1+51B+ffOUsECDb5KJ3lthtXlpCDlTivPPelRRnCnQrf0CRxExRz3Kkrm4OXsu2AfwnQ90I
-	75cBCskXyAscK/K6eyYtUT36TP0PTqRAEWqeDu++6iCS043Fufphe2e+tuvnFhSJfOPLA7fskiP
-	uxIWBhJ+Rcxd7/StyF0GAfqdWpBHcuweY4u/S61OeSA6lshtYmgya1JZFPsvtof9EhxZ
-X-Received: by 2002:a05:7300:f0c2:b0:386:688:7f25 with SMTP id 5a478bee46e88-386068880f5mr19561356eec.18.1795652561111;
-        Wed, 25 Nov 2026 16:22:41 -0800 (PST)
-Received: from localhost.localdomain (wood.seclab.cs.ucsb.edu. [128.111.49.37])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm101632315eec.3.2026.11.25.16.22.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 16:22:40 -0800 (PST)
-From: Praneeth Balasubramanian <praneethb2002@gmail.com>
-To: Bart Van Assche <bvanassche@acm.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Leon Romanovsky <leon@kernel.org>
-Cc: linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Praneeth Balasubramanian <praneeth@ucsb.edu>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] RDMA/srp: Reserve send queue and CQ space for ib_drain_qp()
-Date: Wed, 25 Nov 2026 16:22:27 -0800
-Message-Id: <20261126002227.3598226-1-praneethb2002@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <70bd9162-e9f9-4580-bfb5-cc29107a4126@acm.org>
-References: <70bd9162-e9f9-4580-bfb5-cc29107a4126@acm.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KTZPUZEH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795652836; x=1827188836;
+  h=date:from:to:cc:subject:message-id;
+  bh=HT/ChmHRXeW0ORv15IXDwrXWZACOTiHLJUdAwkyQFg4=;
+  b=KTZPUZEHIURbkpsTZKBnCrw7K7ZKDjDCiNf+ikyr/MU5p+ruwYxXPm1N
+   d/Wz7R9wNsUvrDynRpkpdupa1FKrqtSMVcO1E9+/Sss8LexLoJgQ5Cisc
+   UnIdvvA//xRSQWGT9viYcnBjP1wF+QeqQ18DBlDy6gJsuFDbc/N+n6Ee8
+   XHuT9j2cBKvCFUQhZswKr+tcXWXv3FO3O6Jtb/17q7rVDqBMYaBDTZSJ9
+   C+EMp7vQJ80+DFdzOZDE+mzh/UyF+br213UD1rGyoGJuuwtnvnWyIIR4Z
+   xtDZ74dgRkF5OX/CWGVl2ZZ0ezA2whMpBfhwAVY4jBBN4q0rx8IJ8nY+5
+   A==;
+X-CSE-ConnectionGUID: Y3DLJWlQThWRzETCHce3ZQ==
+X-CSE-MsgGUID: S4NMgY6mS0m1QI4HKVsZeQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4451874"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4451874"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 16:27:16 -0800
+X-CSE-ConnectionGUID: HuHJb3yPS5qcSinSw4jwSA==
+X-CSE-MsgGUID: 5GWuN7TRQcaKfSy+/r1pUw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="11882066"
+Received: from igk-lkp-server01.igk.intel.com (HELO a03d4d989450) ([10.211.93.152])
+  by orviesa004.jf.intel.com with ESMTP; 25 Nov 2026 16:27:14 -0800
+Received: from kbuild by a03d4d989450 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xWNKQ-000000000Al-3uPN;
+	Thu, 26 Nov 2026 00:27:10 +0000
+Date: Thu, 26 Nov 2026 01:26:23 +0100
+From: kernel test robot <lkp@intel.com>
+To: Andreas Kemnade <andreas@kemnade.info>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: drivers/gpu/drm/omapdrm/dss/dsi.c:4933:2-9: line 4933 is
+ redundant because platform_get_irq() already prints an error
+Message-ID: <20261126012255.5iEGIm0r-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,84 +80,150 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-From: Praneeth Balasubramanian <praneeth@ucsb.edu>
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master
+head:   ebb7a8dc1e74c705daffe11c2faf38ec2628f838
+commit: af8296450df7678c94ae03054887639e3d4d35de drm/omap: dsi: print errors with device prefix
+date:   9 weeks ago
+config: powerpc-randconfig-r2104-20261125 (https://download.01.org/0day-ci/archive/20261126/20261126012255.5iEGIm0r-lkp@intel.com/config)
+compiler: powerpc-linux-gcc (GCC) 8.5.0
 
-srp_destroy_qp() calls ib_drain_qp(), which also drains the send queue.
-ib_drain_sq() requires the caller to "ensure there is room in the CQ and
-SQ for the drain work request and completion".
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Fixes: af8296450df7 ("drm/omap: dsi: print errors with device prefix")
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/20261126012255.5iEGIm0r-lkp@intel.com/
 
-SRP reserves that room on the receive side, where the queue and CQ have
-queue_size + 1 entries. Commit 9294000d6d89 ("IB/srp: Drain the send
-queue before destroying a QP") switched from ib_drain_rq() to
-ib_drain_qp() but did not grow the send side. The send queue and send
-CQ hold exactly m * queue_size entries, which is the most work requests
-SRP can have outstanding. If the channel is torn down while the send
-queue is full, for example during error handling after a target stops
-responding, posting the drain work request can fail with "failed to
-drain send queue", or its completion can find the CQ full. The QP is
-then destroyed without the guarantee that ib_drain_qp() is meant to
-provide.
+cocci warnings: (new ones prefixed by >>)
+>> drivers/gpu/drm/omapdrm/dss/dsi.c:4933:2-9: line 4933 is redundant because platform_get_irq() already prints an error
 
-Add one entry to the send queue and the send CQ, as nvme-rdma and iser
-already do.
+vim +4933 drivers/gpu/drm/omapdrm/dss/dsi.c
 
-The missing reservation was found with an LLM-based tool that checks
-callers against the rules stated in kernel comments.
+  4917	
+  4918		dsi_mem = platform_get_resource_byname(pdev, IORESOURCE_MEM, "proto");
+  4919		dsi->proto_base = devm_ioremap_resource(dev, dsi_mem);
+  4920		if (IS_ERR(dsi->proto_base))
+  4921			return PTR_ERR(dsi->proto_base);
+  4922	
+  4923		dsi->phy_base = devm_platform_ioremap_resource_byname(pdev, "phy");
+  4924		if (IS_ERR(dsi->phy_base))
+  4925			return PTR_ERR(dsi->phy_base);
+  4926	
+  4927		dsi->pll_base = devm_platform_ioremap_resource_byname(pdev, "pll");
+  4928		if (IS_ERR(dsi->pll_base))
+  4929			return PTR_ERR(dsi->pll_base);
+  4930	
+  4931		dsi->irq = platform_get_irq(pdev, 0);
+  4932		if (dsi->irq < 0) {
+> 4933			dev_err(dsi->dev, "platform_get_irq failed\n");
+  4934			return -ENODEV;
+  4935		}
+  4936	
+  4937		r = devm_request_irq(dev, dsi->irq, omap_dsi_irq_handler,
+  4938				     IRQF_SHARED, dev_name(dev), dsi);
+  4939		if (r < 0) {
+  4940			dev_err(dsi->dev, "request_irq failed\n");
+  4941			return r;
+  4942		}
+  4943	
+  4944		dsi->vdds_dsi_reg = devm_regulator_get(dev, "vdd");
+  4945		if (IS_ERR(dsi->vdds_dsi_reg)) {
+  4946			if (PTR_ERR(dsi->vdds_dsi_reg) != -EPROBE_DEFER)
+  4947				dev_err(dsi->dev, "can't get DSI VDD regulator\n");
+  4948			return PTR_ERR(dsi->vdds_dsi_reg);
+  4949		}
+  4950	
+  4951		soc = soc_device_match(dsi_soc_devices);
+  4952		if (soc)
+  4953			dsi->data = soc->data;
+  4954		else
+  4955			dsi->data = of_match_node(dsi_of_match, dev->of_node)->data;
+  4956	
+  4957		d = dsi->data->modules;
+  4958		while (d->address != 0 && d->address != dsi_mem->start)
+  4959			d++;
+  4960	
+  4961		if (d->address == 0) {
+  4962			dev_err(dsi->dev, "unsupported DSI module\n");
+  4963			return -ENODEV;
+  4964		}
+  4965	
+  4966		dsi->module_id = d->id;
+  4967	
+  4968		if (dsi->data->model == DSI_MODEL_OMAP4 ||
+  4969		    dsi->data->model == DSI_MODEL_OMAP5) {
+  4970			struct device_node *np;
+  4971	
+  4972			/*
+  4973			 * The OMAP4/5 display DT bindings don't reference the padconf
+  4974			 * syscon. Our only option to retrieve it is to find it by name.
+  4975			 */
+  4976			np = of_find_node_by_name(NULL,
+  4977				dsi->data->model == DSI_MODEL_OMAP4 ?
+  4978				"omap4_padconf_global" : "omap5_padconf_global");
+  4979			if (!np)
+  4980				return -ENODEV;
+  4981	
+  4982			dsi->syscon = syscon_node_to_regmap(np);
+  4983			of_node_put(np);
+  4984		}
+  4985	
+  4986		/* DSI VCs initialization */
+  4987		for (i = 0; i < ARRAY_SIZE(dsi->vc); i++)
+  4988			dsi->vc[i].source = DSI_VC_SOURCE_L4;
+  4989	
+  4990		r = dsi_get_clocks(dsi);
+  4991		if (r)
+  4992			return r;
+  4993	
+  4994		pm_runtime_enable(dev);
+  4995	
+  4996		/* DSI on OMAP3 doesn't have register DSI_GNQ, set number
+  4997		 * of data to 3 by default */
+  4998		if (dsi->data->quirks & DSI_QUIRK_GNQ) {
+  4999			dsi_runtime_get(dsi);
+  5000			/* NB_DATA_LANES */
+  5001			dsi->num_lanes_supported = 1 + REG_GET(dsi, DSI_GNQ, 11, 9);
+  5002			dsi_runtime_put(dsi);
+  5003		} else {
+  5004			dsi->num_lanes_supported = 3;
+  5005		}
+  5006	
+  5007		dsi->host.ops = &omap_dsi_host_ops;
+  5008		dsi->host.dev = &pdev->dev;
+  5009	
+  5010		r = dsi_probe_of(dsi);
+  5011		if (r) {
+  5012			dev_err(dsi->dev, "Invalid DSI DT data\n");
+  5013			goto err_pm_disable;
+  5014		}
+  5015	
+  5016		r = mipi_dsi_host_register(&dsi->host);
+  5017		if (r < 0) {
+  5018			dev_err(&pdev->dev, "failed to register DSI host: %d\n", r);
+  5019			goto err_pm_disable;
+  5020		}
+  5021	
+  5022		r = dsi_init_output(dsi);
+  5023		if (r)
+  5024			goto err_dsi_host_unregister;
+  5025	
+  5026		r = component_add(&pdev->dev, &dsi_component_ops);
+  5027		if (r)
+  5028			goto err_uninit_output;
+  5029	
+  5030		return 0;
+  5031	
+  5032	err_uninit_output:
+  5033		dsi_uninit_output(dsi);
+  5034	err_dsi_host_unregister:
+  5035		mipi_dsi_host_unregister(&dsi->host);
+  5036	err_pm_disable:
+  5037		pm_runtime_disable(dev);
+  5038		return r;
+  5039	}
+  5040	
 
-Fixes: 9294000d6d89 ("IB/srp: Drain the send queue before destroying a QP")
-Cc: stable@vger.kernel.org
-Reviewed-by: Bart Van Assche <bvanassche@acm.org>
-Signed-off-by: Praneeth Balasubramanian <praneeth@ucsb.edu>
----
-
-Notes:
-    v2:
-    - No code change.
-    - The author now matches the Signed-off-by. v1 went out with the gmail
-      address as the From: header.
-    - Added Bart's Reviewed-by and Cc: stable.
-    
-    This was found by an LLM-based static analysis (GPT-5.6) that checks
-    kernel code against the rules stated in its comments, as part of research
-    at UCSB SecLab. The patch and changelog were drafted with Claude Opus 5.5.
-    I reviewed the patch and take responsibility for it.
-    
-    Testing: builds without new warnings with W=1 (x86_64). Not
-    runtime-tested. I do not have an SRP target setup, and I have not
-    observed the drain failure myself. The change only follows the
-    ib_drain_sq() contract and matches the receive side and nvme-rdma.
-    
-    The patch applies to mainline 9ba46df34488 and to next-20261116.
-
- drivers/infiniband/ulp/srp/ib_srp.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/infiniband/ulp/srp/ib_srp.c b/drivers/infiniband/ulp/srp/ib_srp.c
-index 955f36efeebd3..2cd0b728424e2 100644
---- a/drivers/infiniband/ulp/srp/ib_srp.c
-+++ b/drivers/infiniband/ulp/srp/ib_srp.c
-@@ -546,7 +546,8 @@ static int srp_create_ch_ib(struct srp_rdma_ch *ch)
- 		goto err;
- 	}
- 
--	send_cq = ib_alloc_cq(dev->dev, ch, m * target->queue_size,
-+	/* m * queue_size + 1 for ib_drain_sq() */
-+	send_cq = ib_alloc_cq(dev->dev, ch, m * target->queue_size + 1,
- 				ch->comp_vector, IB_POLL_DIRECT);
- 	if (IS_ERR(send_cq)) {
- 		ret = PTR_ERR(send_cq);
-@@ -554,7 +555,7 @@ static int srp_create_ch_ib(struct srp_rdma_ch *ch)
- 	}
- 
- 	init_attr->event_handler       = srp_qp_event;
--	init_attr->cap.max_send_wr     = m * target->queue_size;
-+	init_attr->cap.max_send_wr     = m * target->queue_size + 1;
- 	init_attr->cap.max_recv_wr     = target->queue_size + 1;
- 	init_attr->cap.max_recv_sge    = 1;
- 	init_attr->cap.max_send_sge    = min(attr->max_send_sge, SRP_MAX_SGE);
 -- 
-2.25.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
