@@ -1,106 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683554;
-	b=GC37PDfh99wtUzA/rswtAhBFDRsTzWhyTMUIPtSWaX4CUFmifkGx5ljVwwEwkgnuMdPY
-	 TKhq82Cgt/Nfk0H5esIS9js6DoABNvXIeRleeqh9ZKCpinSOxuRjUK0futQz4wnpgBmAO
-	 yVy5sc5WCE9V1l0ZSdMGsN24nD1K2gNKi9UhbC6FCG8FY9vWFZCA+cMEevfLJTE847t55
-	 IocoDNkDIwY5A8NVQMeYnERvgWf5pAQW63h+tOFXnelz99+8/3Xt8C1dcLEPfdjsGD7fv
-	 m6RRxMDZXj/VlqSXTRqfXxuRzRO2dqtNQ/CoHJNELMq/xW24quJ+RLk5smQxjv6OCJA==
+	t=1795683585;
+	b=1y/htCoSPQuMgwiMfY/8Yg6FyIEj/mIEeHxaSLBaKsG+MsozWIo2k7QuQp3c23q0D3GK
+	 nExYk+/iUbjxV/BB0Q9bgBBpYxDgDyyPpMxAyzXPjKoPnKflz9cGy7IVmm1N8waOQk6Pt
+	 AaaS2ReyCO67CN3lNfQYV0uLYDtSD8YaCWtAiQTRIaZxws/hzzsaCBeL1INJpCFzDT5t3
+	 9P7/5EnV/oK0gJ0fEX3JnXg/F4IquGhTNy2xNLGSviTv00tQRwJ8GSqG9y96BNaUZZbr/
+	 Zd4jBrFxWa2+czzF6p6WSNB4WK4u66DsRBXT3hN0kBmNnYiHEfI7mYOHuxAQ61d45hg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683554;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=OZeaCKjXj7rhQtKUY6dpSt9k3JcLhM/MuU5+xZ27Sxw=;
-	b=lIFTnInpZ2FJvrzJx8kvQfklcJBFR4hjYQDmGYVHwIfEOow1dGjnhRU0fcTi+0BrCFqR
-	 WDP7/LyHcYKOzcBKBsqCxBN+4su4wMdKmsuCLuH/+nR1O+BHcU5nLv625Titd/6b6FHYg
-	 QY4EkNFb/L8GqsXNYuSCU4qT5nt4PVdPAf3NdP8LVKTC8wjm15GQ1abhGo1OYVnTQg+jw
-	 2FQCnS8atbuReCqbz9nBaVBImTAYH4/a3EOvgvawDd0eO+1aivl7p/T2mEF6A7RxTX/AN
-	 FD2CHacLV/SJieY4KO3R9JcEUxpJoXactjEJl9S+EKT/w5wiDJXB8gBa4pLdzJ/LNPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683585;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy;
+	bh=EL1asoxpJj3mS6PiWh3IZjA5s9JX+P0EoH0x0jJdp2g=;
+	b=qSJcmIZWkUU0N9ppBNXEuIGokbKdWOe4CstG4XD54grpBSmmbdOQPFlpZGhlyglVT6+F
+	 CtYkjitUw5CoC3klvAvnzGRxK2JsgMTAEKSvT8HOmfR2R7q7zx2ufzSM0p8YZwDO6BZma
+	 wmfsxKOJZ3Gf6WLCCbboL/hiCMRrGwf6ZLHWS1xaUGNf54tiJkHrmbwGeL9jZbI7ikMrb
+	 3PM63c1KivAlLTqqBy+9MXir9bTTX2/FrE68OhNyHcI4LlBl+D3SVctmzR6SxuOpRt1Bz
+	 IYXfWRknMjdzP4/6khRfHIQ8VJVuX1+h3v+sUiH94+os41Ve4pvdfS0ZfXlmWtc2pHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="ESQ/A94D";
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=RvkrkkIe;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7D24606A335
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:59:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7D24606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DCAF606A31C;
+	Thu, 26 Nov 2026 08:59:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DCAF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ESQ/A94D
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so5209810f8f.0
-        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:59:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795683552; x=1796288352; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=OZeaCKjXj7rhQtKUY6dpSt9k3JcLhM/MuU5+xZ27Sxw=;
-        b=ESQ/A94DmB3fiztDdkjl1M6gP/HpFUJntkthUI1KwO6oXvYXzWjkKV/Wp6RaClBmxF
-         fXlcUh5dhHs+Z9z3XLQIwz4DT37O1EA+9a8nq7c4liAo4GQzlnSTu4cEbpgW0Qx+FVIF
-         QQnOca8hez/hdUb04A/MEAeZ/xcF3A5/Y+l2jwx93ZBppfCZWVgMNBINJF43jcG5kuF7
-         woLumOqK0V2itMzOWCCcsNQFWnO6qAHdGJHek8NzO9nNVNbMxJGgxyHovLprbBWe8+Gh
-         ddBODu5c91vpVpB1Q4gR/EzB9/QPvgWx3YTYHznwy+r1CljfNiteC3HatNRYUV4MybuO
-         GZVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795683552; x=1796288352;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OZeaCKjXj7rhQtKUY6dpSt9k3JcLhM/MuU5+xZ27Sxw=;
-        b=yWplLJUH0+B/XceO36gn14rAHcBwqNNmGePDE23J3Yy8U9PpYzuLu2dCQSPAKLM5/l
-         pEuwiQbwT5njQM21LCMlzxU5rWiCiOJq85+04tCGhQSe9KXbWd9l1VF5ywPNRkmso7tt
-         r0/KvJNy/xeesePbwjzPzbrBZpB+UKWSRf9WwjFgnHZL1gp10st/XaPKiDJQOF0KPPeD
-         HE3djqESmc1oYSyy3/7WZ9IYAU91jAGTAzEnjNgqMXaY4CJ/eILcgM+1obASzikOKvBk
-         ZensUPqKSEVyMD7spIa3KoUTDdzOKBXStsMCXf8OMw6dyJPpB1yYgETGCi2eG9jlUSf3
-         23MQ==
-X-Forwarded-Encrypted: i=1; AL+hErHQgJ0YNDluhNpUMObYbqzsqg9x0/F5Y6FHcSeX/DFFf0GS8TcASnIduoQgNf0i4/E4AUZdttfLRssz5Hg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+hqQAJBPS8Ep08mOvKn0mXcrw/w0OyyWSwFAGJtMFO5iZI523B
-	4df28QnoIJtJDTVWVIp6wV9o2q4PbzZXUBkdlkqu8PCbIFOX8giO4U2x
-X-Gm-Gg: AZFdTZeEIoZfsHoNnymHCgYggyonLfbDgocVkvIJLlTLCoELTU/TR2I4cNmu42OMjdo
-	EIj3ZdKKFjWTMy6GEouHUr/1M5gJ0ejEnsqOmln0+pymNrIcT09jP24/LN3Xf9Q2ahuWtMRvyuR
-	PlHwAHSyp6ZTXr0pq/N3KWHU4D9i57dVfjaRp9/FWemVr3+V+fPbl9tOJD9PAstoyWHbcJnRrZT
-	ER+PE0lTnOA9iO6TeNOZ32Ldr0yKMfxbpoKlcP55gLVb3aGLjAGAgxiGYQabL6H7rsR0e+JBQSg
-	a2K4xtt3l5vFAE0zjFuAdYu9JjBq0QTanuqZAEuzGqOrdZhcV95spqq65akK/whgAmulyyMsL38
-	7875ahEOgkq6HzsMZI/wHarO4581A03+fS8Vdf7ayY6BvGTNr5mRhx4gbYRCFxOxAAT6OEFPzxu
-	W0vrFAaFEM16fP4BiA7vZMnluF1lL6OdGWnRqTrlc34kPF67lfmSxnsWtLLaSca+AeK4bw02c82
-	fMxgwIjsPs9eWH8xdrN7mrk9P+uHgZH/+DBdGoliWCk3RrP+dE3fr3toJ5mnJQLRTDfu7TYG7DL
-	XhGr8PWcbaWZGaS4l6DHwIn4uiHKA5ihvqlMuVt7EaTmyIKlFzWLUA==
-X-Received: by 2002:a5d:64c8:0:b0:493:c0a:507d with SMTP id ffacd0b85a97d-4abaab633c7mr44200123f8f.1.1795683552059;
-        Thu, 26 Nov 2026 00:59:12 -0800 (PST)
-Received: from center.. ([131.189.143.225])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61f558sm40313744f8f.58.2026.11.26.00.59.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 00:59:11 -0800 (PST)
-From: Orgad Shaneh <orgads@gmail.com>
-To: miquel.raynal@bootlin.com,
-	richard@nod.at,
-	vigneshr@ti.com,
-	tsbogend@alpha.franken.de
-Cc: linux-mtd@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linusw@kernel.org,
-	kaloz@kernel.org,
-	ulli.kroll@googlemail.com,
-	john@phrozen.org,
-	nico@fluxnic.net,
-	dwmw2@infradead.org,
-	corbet@lwn.net,
-	linux-doc@vger.kernel.org,
-	Orgad Shaneh <orgads@gmail.com>
-Subject: [PATCH v5 3/4] MIPS: Octeon: flash: allocate the map per device
-Date: Thu, 26 Nov 2026 08:59:05 +0000
-Message-ID: <20261126085906.814373-4-orgads@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261126085906.814373-1-orgads@gmail.com>
-References: <20261126085906.814373-1-orgads@gmail.com>
+	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=RvkrkkIe
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id 0235020758;
+	Thu, 26 Nov 2026 09:59:42 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id VGYa7rv3mnB7; Thu, 26 Nov 2026 09:59:41 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id 513D2206B1;
+	Thu, 26 Nov 2026 09:59:41 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 513D2206B1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795683581;
+	bh=EL1asoxpJj3mS6PiWh3IZjA5s9JX+P0EoH0x0jJdp2g=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=RvkrkkIebhzr0A3lbnE+9iLG/GwSN9NTC7XwPIGoECQChEN+etcsdjmc/1bC0doOv
+	 Bte4BMRxYrMAlNtZJ7QLhT98i0jxxb5d/d7Av1UVcmc5VbNt5/w64eMZlwtC6myLNf
+	 cZcira65E68qJMSgNPHqPMm8c19G9yiIEUpsdrY6pZeg6nY+dYDnrWiEe9ZiLlGtp1
+	 rJWgi3OzrJ30/dFufABaUHIR2syV/VpAFpg9kW28H4gkZa68d/mWI9i9oBXaFcB593
+	 VFvUPDIX5bl822WnLO4XX389qO8uzFmYb7u62WK9m/4RVgvV01KJlO9kfJpI9VA3EN
+	 MWmgUtxpwOObg==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 26 Nov
+ 2026 09:59:40 +0100
+Received: (nullmailer pid 2023310 invoked by uid 1000);
+	Thu, 26 Nov 2026 08:59:40 -0000
+Date: Thu, 26 Nov 2026 09:59:40 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn
+	<willemb@google.com>, Simon Horman <horms@kernel.org>, Kuniyuki Iwashima
+	<kuniyu@google.com>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH ipsec v2 1/1] xfrm: free the policies already cloned when
+ a socket clone fails
+Message-ID: <awf0_Ksi65pXTtEo@gauss4>
+References: <179540803323.3139700.5340002553684152759@gmail.com>
+ <179540803323.3139700.15088508372382876389@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,127 +85,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <179540803323.3139700.15088508372382876389@gmail.com>
+X-ClientProxiedBy: EXCH-01.secunet.de (10.32.0.171) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-octeon_flash_probe() fills in one static map_info for every "cfi-flash"
-node it binds to, so a second chip select overwrites the phys, virt,
-size and bank width of the first while that MTD device still uses the
-map. A probe whose do_map_probe() finds no chip also keeps its
-ioremap() mapping and still returns success.
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
 
-Allocate the map with devm_kzalloc(), map it with devm_ioremap() and
-fail the probe when no chip is found or the partitions cannot be
-registered, so the mapping goes away with the device. mymtd was never
-read; drop it.
-
-The driver has no remove(), and the mapping is now device-managed: a
-sysfs unbind would unmap the flash while its MTD device stays
-registered. Set suppress_bind_attrs to rule that out.
-
-Fixes: 7f481716bc90 ("MIPS: OCTEON: Use device tree to probe for flash chips.")
-Signed-off-by: Orgad Shaneh <orgads@gmail.com>
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
 ---
-v5: add the Fixes tag (sashiko); join the split pr_notice() string.
-v4: new. sashiko flagged the shared static flash_map against v2 and
-    v3 of the next patch; v3 left it as it is in mainline, this fixes
-    it first.
+Author: Kyuwon Cho <kyuwoncho18@gmail.com>
 
+xfrm: free the policies already cloned when a socket clone fails
 
- arch/mips/cavium-octeon/flash_setup.c | 51 ++++++++++++++++-----------
- 1 file changed, 31 insertions(+), 20 deletions(-)
+This patch adds a rollback loop to __xfrm_sk_clone_policy(). If cloning
+the second direction fails, the loop deletes the per-socket policy
+already cloned for the first direction. Without it, that clone stays on
+net->xfrm.policy_all until the netns is torn down.
 
-diff --git a/arch/mips/cavium-octeon/flash_setup.c b/arch/mips/cavium-octeon/flash_setup.c
-index 66d173b57..d69249acf 100644
---- a/arch/mips/cavium-octeon/flash_setup.c
-+++ b/arch/mips/cavium-octeon/flash_setup.c
-@@ -18,8 +18,6 @@
- 
- #include <asm/octeon/octeon.h>
- 
--static struct map_info flash_map;
--static struct mtd_info *mymtd;
- static const char *part_probe_types[] = {
- 	"cmdlinepart",
- #if IS_ENABLED(CONFIG_MTD_REDBOOT_PARTS)
-@@ -71,6 +69,8 @@ static void octeon_flash_map_copy_to(struct map_info *map, unsigned long to,
- static int octeon_flash_probe(struct platform_device *pdev)
- {
- 	union cvmx_mio_boot_reg_cfgx region_cfg;
-+	struct map_info *map;
-+	struct mtd_info *mtd;
- 	u32 cs;
- 	int r;
- 	struct device_node *np = pdev->dev.of_node;
-@@ -85,6 +85,9 @@ static int octeon_flash_probe(struct platform_device *pdev)
- 	 */
- 	region_cfg.u64 = cvmx_read_csr(CVMX_MIO_BOOT_REG_CFGX(cs));
- 	if (region_cfg.s.en) {
-+		map = devm_kzalloc(&pdev->dev, sizeof(*map), GFP_KERNEL);
-+		if (!map)
-+			return -ENOMEM;
- 		/*
- 		 * The bootloader always takes the flash and sets its
- 		 * address so the entire flash fits below
-@@ -94,26 +97,32 @@ static int octeon_flash_probe(struct platform_device *pdev)
- 		 * access 4MB.
- 		 */
- 		/* Use this name so old part lines work */
--		flash_map.name = "phys_mapped_flash";
--		flash_map.phys = region_cfg.s.base << 16;
--		flash_map.size = 0x1fc00000 - flash_map.phys;
-+		map->name = "phys_mapped_flash";
-+		map->phys = region_cfg.s.base << 16;
-+		map->size = 0x1fc00000 - map->phys;
- 		/* 8-bit bus (0 + 1) or 16-bit bus (1 + 1) */
--		flash_map.bankwidth = region_cfg.s.width + 1;
--		flash_map.virt = ioremap(flash_map.phys, flash_map.size);
--		pr_notice("Bootbus flash: Setting flash for %luMB flash at "
--			  "0x%08llx\n", flash_map.size >> 20, flash_map.phys);
--		WARN_ON(!map_bankwidth_supported(flash_map.bankwidth));
--		flash_map.read = octeon_flash_map_read;
--		flash_map.write = octeon_flash_map_write;
--		flash_map.copy_from = octeon_flash_map_copy_from;
--		flash_map.copy_to = octeon_flash_map_copy_to;
--		mymtd = do_map_probe("cfi_probe", &flash_map);
--		if (mymtd) {
--			mymtd->owner = THIS_MODULE;
--			mtd_device_parse_register(mymtd, part_probe_types,
--						  NULL, NULL, 0);
--		} else {
-+		map->bankwidth = region_cfg.s.width + 1;
-+		map->virt = devm_ioremap(&pdev->dev, map->phys, map->size);
-+		if (!map->virt)
-+			return -ENOMEM;
-+		pr_notice("Bootbus flash: Setting flash for %luMB flash at 0x%08llx\n",
-+			  map->size >> 20, map->phys);
-+		WARN_ON(!map_bankwidth_supported(map->bankwidth));
-+		map->read = octeon_flash_map_read;
-+		map->write = octeon_flash_map_write;
-+		map->copy_from = octeon_flash_map_copy_from;
-+		map->copy_to = octeon_flash_map_copy_to;
-+		mtd = do_map_probe("cfi_probe", map);
-+		if (!mtd) {
- 			pr_err("Failed to register MTD device for flash\n");
-+			return -ENXIO;
-+		}
-+		mtd->owner = THIS_MODULE;
-+		r = mtd_device_parse_register(mtd, part_probe_types,
-+					      NULL, NULL, 0);
-+		if (r) {
-+			map_destroy(mtd);
-+			return r;
- 		}
- 	}
- 	return 0;
-@@ -131,6 +140,8 @@ static struct platform_driver of_flash_driver = {
- 	.driver = {
- 		.name = "octeon-of-flash",
- 		.of_match_table = of_flash_match,
-+		/* No remove(): the map and the MTD device stay registered */
-+		.suppress_bind_attrs = true,
- 	},
- 	.probe		= octeon_flash_probe,
- };
--- 
-2.53.0
+> diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
+> index d2e938d4db9aa..e5b51f5f64306 100644
+> --- a/net/xfrm/xfrm_policy.c
+> +++ b/net/xfrm/xfrm_policy.c
+> @@ -2460,6 +2460,13 @@ int __xfrm_sk_clone_policy(struct sock *sk, const struct sock *osk)
+>  			rcu_assign_pointer(sk->sk_policy[i], np);
+>  		}
+>  	}
+> +	while (unlikely(ret) && i--) {
+> +		np = rcu_dereference(sk->sk_policy[i]);
+> +		if (np) {
+> +			RCU_INIT_POINTER(sk->sk_policy[i], NULL);
+> +			xfrm_policy_delete(np, XFRM_POLICY_MAX + i);
+> +		}
+> +	}
 
+Discovered by: opus-5-5 · Missed by: sashiko-gemini
+This rollback only covers a failure inside __xfrm_sk_clone_policy().
+What about a failure later in sk_clone(), after xfrm_sk_clone_policy()
+has already succeeded?
+
+In net/core/sock.c:sk_clone():
+
+	if (unlikely(!is_charged || xfrm_sk_clone_policy(newsk, sk))) {
+		...
+		goto free;
+	}
+
+	if (bpf_sk_storage_clone(sk, newsk))
+		goto free;
+	...
+free:
+	newsk->sk_destruct = NULL;
+	if (lock)
+		bh_unlock_sock(newsk);
+	sk_free(newsk);
+
+Once xfrm_sk_clone_policy() succeeds, newsk->sk_policy[0] and
+newsk->sk_policy[1] hold fresh clones. clone_policy() has already linked
+each one on net->xfrm.policy_all and dropped the allocation reference:
+
+	xfrm_sk_policy_link(newp, dir);
+	spin_unlock_bh(&net->xfrm.xfrm_policy_lock);
+	xfrm_pol_put(newp);
+
+bpf_sk_storage_clone() can then return -ENOMEM in three ways: the
+bpf_selem_alloc() optmem charge fails, bpf_selem_link_map() fails, or
+bpf_local_storage_alloc() fails. The free label only calls sk_free().
+__sk_destruct() does not call xfrm_sk_free_policy().
+
+Won't both cloned policies stay linked until netns exit and trigger the
+same xfrm_policy_fini() warning quoted in the commit message?
+
+A TCP listener can reach this path from remote traffic through
+inet_csk_clone_lock()->sk_clone(). The listener needs IP_XFRM_POLICY or
+IPV6_XFRM_POLICY set and a BPF_F_CLONE sk_storage map attached. The
+storage clone can then fail under GFP_ATOMIC pressure, or every time
+once the charge reaches optmem_max.
+
+Would the cleanup fit better in the free path of sk_clone(), so that it
+covers both cases?
+
+That cleanup could not be a plain xfrm_sk_free_policy(newsk) call. On
+the !is_charged short circuit, xfrm_sk_clone_policy() never runs.
+newsk->sk_policy[] still holds the parent's pointers from sock_copy(),
+because sk_policy is outside the __sk_common dontcopy range. Those slots
+would need to be cleared on that path first, or the parent's policies
+would be deleted.
+
+>  	rcu_read_unlock();
+>  	return ret;
+>  }
