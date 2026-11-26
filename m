@@ -1,61 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795658434;
-	b=cHGArUmZUWjvRQbU16d9IPszAFF6/uyMhcoyXeuu70EbWeTTnI8qBMlAwwaDHyN54MUr
-	 Hbn/LZ+/DEMoaLInXWzc5o5qfQwzvJe2/D58FBIlSd8ILCLAZ7SmY+dfba14jddg4u5My
-	 IC+Wgm8ykW1yYP2zoQoYUZ34yGij9xxiz6Vzbwh6fWzBeSyHjtqyxBhjVxQ2/mwGjvuCM
-	 5f+pQiTA+cYLsbxvGRTAAtljfuWxYf5YLD6vtM1UEOFJcENGOip6V1PMe7L3uYM4m4wXk
-	 tcNJryr1bCkPAvFggFRhIHV33wkEMl/CmX/QjaPdfOeGSxFzCxPOY+GJWZXbvVK24sw==
+	t=1795658444;
+	b=yzjYEwXs4HvY/h4HM8FMP5TDIOr63baWsAcFP59ZoKqEbQQFzN1F8w3T9/xoaneBVF5z
+	 izK7ytYM6cDjnXo8ublQXuP1l9ISpjc50MK0aYtz3wAdMPhm/wqAWrtJj8TaE1OW39NNP
+	 3zixsnCMOCPv40AMn58EO5ZxhorXNwaWYUyyEoBd9NE6V+r6WY0VqrRSXsnCjZpg8S9vj
+	 IDdaQlOLfhQ05PxTFDKbKWx6Bz0meFt9NbByjTQVIlD0fcjQUJr3VDSzOppuF3cAGrmh7
+	 bRL28poyGDksjKre6PNmbxulr1Ck6LQLOR6PxAWEYuB1LE0dLkC2bQeAbV6It0Apd8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795658434;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=rclIhKxKVrA3v/EDPy0FH8lxHjo9Lwc467SMjq6lroE=;
-	b=ksOijRv6f0OfqG4u2VOYtw6/1C5pRTrDRZ3yhktXo/uxnFB2Ca10nKT+nwoOUdakjFZc
-	 M+NcYdq/MFrNh1Sa70Q4M+j8ecmoeSnPq8V3MPvM+zwLXOTrl2orFkRoFBPfJXPPg7Ipw
-	 dFL++x2vSNP6etUEfVYNDwv/FolU8UAoSf0ziXNr15rEZvzF93FqywX8jar0Jiof6Nl+z
-	 KuMwloOeIeyqdwZiFjeHzyrQiQAQr2mdPJj+acMDldV3gz5dSmAEK2fwwwqFWZT401Slp
-	 3UY6aqC2Rq88dcK8rvgUkFANhQi6Nk6btuUKxCNoHEkUjXTIob3nQYR0mBDzlIaQd8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795658444;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=LFd5tt1hKDKREj5QcmPaWcxkKoEQYLk6cu801kswLEI=;
+	b=v1T1KUV9/c/mg8LiphDsc92cccLjsQAA5u+KC5pxrymIzw7kLl+/Kdf50ge5Es3s18qf
+	 fsUz+BOFvNOCs5O1WXNOEf/ATWwt/BaL0re+rWVjwO3G8ZG/NhD+3voE32RGdnYM8vrRe
+	 DFzZfgnj5JasBimMNRgPHI0DX/yFY9HDxVp+YTmqbAAhJFtxrtnyrod/8KwihQF33oo2v
+	 wa/sFofzE3fsHKt2tAaueyhjFNicENO/60DF7QDlKVpXdJy1BWlfHpDpjrD79gwBNTDMK
+	 9+1DoAbb9aVeU9MoRseYnj4kX79UyZ71pMJJ4mk1Dx1DYb2CC6eVF8xsw6hBh8WV3ag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OBbfAcrF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linux.alibaba.com;
+	spf=pass smtp.mailfrom=linux.alibaba.com;
+	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=Ye4XHx41;
+	arc=none smtp.remote-ip=115.124.30.130
+Received: from out30-130.freemail.mail.aliyun.com (out30-130.freemail.mail.aliyun.com [115.124.30.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C681C606A31E;
-	Thu, 26 Nov 2026 02:00:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 041E6606A31E;
+	Thu, 26 Nov 2026 02:00:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 041E6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OBbfAcrF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D47DE1F000C0;
-	Thu, 26 Nov 2026 02:00:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795658434;
-	bh=rclIhKxKVrA3v/EDPy0FH8lxHjo9Lwc467SMjq6lroE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=OBbfAcrFN10TQVbAIzfEXXA41ULoT16vWthMwAfD/WtHnQ1DbxbTTjjacX3qDBVwI
-	 ey/YxI82YDQkkgEp9f0+1xNeXyXYexMZZwJBhrbuHE+f5DM4u6lYp3zj31iR6tvZQP
-	 0Kox2Cpk4p9gVyamH66XJl+mYMjv14FjZorgdq5OI3iZNZlWYLNcYZCOf3VfEhVHd0
-	 W20gZRSOPL+h+DjYWY0XK4zbjhkHJ8dG48NESaUZKwjctTYhJ0A2QUbEbLJnEPqoY0
-	 sJryXb2WuxB84YyR+ilpjto9p3b8n5iWMhtLDE357NsG9y5XIn02Kfe9hRKNbXsnkz
-	 kifqr0/31AAYg==
-Date: Thu, 26 Nov 2026 02:00:28 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux@analog.com, Michael Hennerich
- <Michael.Hennerich@analog.com>, David Lechner <dlechner@baylibre.com>, Andy
- Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Arnd
- Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH 6/6] iio: adc: ad7793: add firmware support and drop
- platform data
-Message-ID: <20261126020028.62a67891@jic23-hlaptop>
-In-Reply-To: <20261125-iio-adi-legacy-platdata-v1-6-54e4c8830b57@analog.com>
-References: <20261125-iio-adi-legacy-platdata-v1-0-54e4c8830b57@analog.com>
-	<20261125-iio-adi-legacy-platdata-v1-6-54e4c8830b57@analog.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=Ye4XHx41
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1795658440; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=LFd5tt1hKDKREj5QcmPaWcxkKoEQYLk6cu801kswLEI=;
+	b=Ye4XHx41iaArDjh/hj+rMiLVSJSfQAla2kFqdPJ+S+3+KUIQv1a1oLzU6IzmZAG5bx0qrvP2Akojm9YX5Fs4vLI7g3aLkLaoDNsxYSbx7ldXmczX5ZKX74FwSak/fVzaC06axwu/sEp6I8hWgO1RK50/0e9E+O6cyfraY9c0+Vw=
+X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=qinyuntan@linux.alibaba.com;NM=1;PH=DS;RN=6;SR=0;TI=SMTPD_---0XFSrVWD_1795658439;
+Received: from 30.178.67.187(mailfrom:qinyuntan@linux.alibaba.com fp:SMTPD_---0XFSrVWD_1795658439 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 26 Nov 2026 10:00:40 +0800
+Message-ID: <054a57ae-d5b8-446b-8203-1b342f530920@linux.alibaba.com>
+Date: Thu, 26 Nov 2026 10:00:38 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,58 +53,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] platform/x86/intel/tpmi/plr: Fix CPU selection on
+ partitioned systems
+To: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ Hans de Goede <hansg@kernel.org>
+Cc: platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org,
+ xlpang@linux.alibaba.com
+References: <20261125092244.3641945-1-qinyuntan@linux.alibaba.com>
+ <39da5f7295537024b97eeca6b567720c117ee002.camel@linux.intel.com>
+From: Qinyun Tan <qinyuntan@linux.alibaba.com>
+In-Reply-To: <39da5f7295537024b97eeca6b567720c117ee002.camel@linux.intel.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 
-On Wed, 25 Nov 2026 10:19:22 +0000
-Nuno S=C3=A1 <nuno.sa@analog.com> wrote:
+Hi Srinivas,
 
-> The driver refuses to probe without struct ad7793_platform_data, and
-> there are no in-tree users of it. That means the driver can not be used
-> at all on a modern system.
->=20
-> Get the configuration from firmware properties instead, following the
-> new binding, and drop the platform data header:
->=20
-> - The reference is REFIN (REFIN1) if refin-supply is present, REFIN2 if
->   refin2-supply is present, and the internal 1.17 V reference otherwise.
->   Parts without an internal reference need refin-supply.
-> - An external clock on the CLK pin is used if given. A 128 kHz clock
->   is divided by 2 internally.
-> - The input buffer stays enabled (as it is at power-up) unless
->   adi,buffer-disable is set, and unipolar coding is used unless bipolar
->   is set.
-> - The bias voltage generator, the burnout currents and the excitation
->   current sources get their own properties.
->=20
-> While at it, also enable the AVDD and DVDD supplies, add an OF match
-> table and fold the platform data checks into the property parsing.
->=20
-> Signed-off-by: Nuno S=C3=A1 <nuno.sa@analog.com>
-Looks fine in general but could as Andy suggested be package
-a tiny bit differently to be nicer to reviewers!
+On 11/26/26 1:49 AM, Srinivas Pandruvada wrote:
+> On Wed, 2026-11-25 at 17:22 +0800, Qinyun Tan wrote:
+> 
+> Hi Tan,
+> 
+> Thank you for submitting this change, similar change was in our queue
+> waiting to test.
+> 
+> You have moved definition of MAX_POWER_DOMAINS to header file, but this
+> there is no description of that in the commit description.
+> If you happen to post update, add that.
+
+Thanks for the ack. I moved MAX_POWER_DOMAINS to the shared header so
+that plr_power_domain_id() can use the same limit as tpmi_get_logical_id().
+If I send a v2, I'll make that clear in the commit message.
+
+> 
+> 
+> Acked-by: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+> 
 
 
-> diff --git a/drivers/iio/adc/ad7793.c b/drivers/iio/adc/ad7793.c
-> index b0f44c144f20..f3e3ca724ec2 100644
-> --- a/drivers/iio/adc/ad7793.c
-> +++ b/drivers/iio/adc/ad7793.c
-
-> =20
-> +static int ad7793_parse_excitation(struct device *dev,
-> +				   struct ad7793_config *cfg)
-> +{
-> +	static const char * const iout_pins[] =3D { "iout1", "iout2" };
-> +	u32 pins[] =3D { 1, 2 };
-> +	const char *names[2];
-> +	u32 val;
-> +	int ret;
-> +
-> +	ret =3D device_property_read_u32(dev, "adi,excitation-current-microamp",
-> +				       &val);
-
-Feel free to go a bit long on things like this.
-
-
-
-
+Thanks,
+Qinyun Tan.
