@@ -1,47 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795688045;
-	b=TihwJtm74AxCdtz7vYCbmtMghHslOFHzmASqdfisUJNCb4pkgyKk1l28TtGvp1Owxngm
-	 SpipOLqWMMbAhTFgVhOgCma3vo2FSgTzioXURCLUDzK9Sx5cli8UfYGP9a3653U8pNU9W
-	 WqBcHWrugXos8wBqrqZt95FS02uUvZP8+j02TAKoK0Ae1/ArvvFWkskwdy6janj/xvFtq
-	 y3vEjt0btk4No5q2CVBF9dF+iATgxivkKfhjKDQYYJo8J68yl9Q1fz5t+20ItzSL/vo1T
-	 KhfzCN6Qvj++nPfUodmaNuIhaeLS/xIDhzpaQ4IF4RrnDg9QzI+afRsCK2Zo0q/d30g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795688045;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=vDriNQ3B2hWeCHBvaX/FNBaF3g0HVn2vF0XkVS24jM4=;
-	b=MyS+1bVowFSDMQsYgg7vMrVnPNi+a+A2waLa7INw8aimhzLdwbD8s50UyHVuaOrC3Llv
-	 LqqV6ImfR3CvM6PZzolN3eDQNqZYT6SR+Lj4UAVTbMOr4f1PKKC6bqFeef95tXNxTCnEA
-	 x6mBLV6bbZawWtJsdxsI6+RCNhHXcSit5p8Ltv/fjUYerpOvDQXR7MxW/prVgXOZCrsBs
-	 ml8EjgRM0/ET1A3KdG90m5qAJRJgyN6jjSBeeoQOZqcpkisQ03e97uSONW1aNVTBAfuyR
-	 f5TL4fkvE/lYyWD9jTcn1YR7jXyG3Fbv/Ia615WmmUQaNU4OTbNIVNBWh2gJ2n9zycA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eKqat4bN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795688057;
+	b=HBMB1Jyw7A8JH5KfNsFuiJcVPCWAmpQsQ9sTV46D1tjJqHHm4jCtW5wHcXPreQFgtpBu
+	 F02klc/a0jxpBhVkYxthdrZNDefCUfyvPqtRupK4VMC8UDqaZeVNYqXD3B8eLt1gAxKjX
+	 DpF0ACoOKDL/Ea7Yi4LsbLXX1wtBcKy/89IIkVUb5w99B5mU9BFfPBBpqhM0X0HK4I/AR
+	 aIFs2kX2jPsRqJdo41u/EZac5+jc4DqQCBWgyM4GvEg6nUDzs3Jtp20YWQf2cJHyNm3O+
+	 7bmM/DiHyjNo1ul0Dz5bVGaGRwtdVgq9lLxH0Cnbc/B50EoNBUg/caNum0va84CrPfA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795688057;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:
+	 X-ZohoMailClient;
+	bh=1uwUfdoO2tZn9/T6hpBts/o6K5tW0x82owJfGpBjksM=;
+	b=th/HmyTfYxOBXq4DjXix+cxqut/quq+Qrp2CFeLFjLfmyBtGIVcjBQUcGgIgBzw1pTGe
+	 WHDAb/XdrXQsEMBbUQpHo0vgzXsUs7ETAZpouvWG61Sh335dw25myRYy+WtWcR3FhyqEB
+	 5XOdAE4S88s81nbjV8Gv3AyiOOZpdAyH9nb51pyo2LoaiMzoHakkLP7F2SVL2/HeUkw9f
+	 dWNPxBCr0w9z88DiS4EyvVn3Y+Ws3QYIEmm7Ze0gzccLVbe9HfTSJdOpFs0XqwMd6ZPJJ
+	 ScroHOJjv+qWe65Am7082J4/48IrVJFeDMB6t4LveuBAqZVjLGwS54ZUyr/Oog9LFeQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=M46VGZc8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C620606A31C;
-	Thu, 26 Nov 2026 10:14:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45913606A31E;
+	Thu, 26 Nov 2026 10:14:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45913606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eKqat4bN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 352F81F000D1;
-	Thu, 26 Nov 2026 10:14:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795688044;
-	bh=vDriNQ3B2hWeCHBvaX/FNBaF3g0HVn2vF0XkVS24jM4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=eKqat4bNRTpejCSTRfpkiRlcCOEMRlT8NwZ/pHg6vfu7reJpQHvm1gzUdOLQVH5JN
-	 9lFDX8h7Y0IUCW+1ga/TXRpiYly1T9dkiyMoRkx7F3/+moGRuIq1v4lbndzzmBwLoR
-	 rWfvP3LYofaD5BsCxZY50BtzGpm9yo9cMQdsuzEChF47ku4oR0fiYUGJpCPR2NzVpD
-	 K8tsWciYBubc9AkpRMdQhV/lc0sg3o06lGa/syTxeADyiYztdeTbrhk4W9QVsKmvBl
-	 NQOMjnuRtQ+S/dR5bh09pN/Cq42eG5W2KoGys8uv2hfTzV5iHXYQvRmR9069SN6/JZ
-	 YAKP4LLfgjWoQ==
-Message-ID: <76a1d48f-7425-4cd9-a88b-dbb453c6f95c@kernel.org>
-Date: Thu, 26 Nov 2026 11:13:59 +0100
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=M46VGZc8
+ARC-Seal: i=1; a=rsa-sha256; t=1795688029; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=FEKYPcf0ZahrNVgYr4P69tIWo7QWRD59zHUNVwhLfdnaHUVlX3Lf98cNyzlxx+yxdpl7zIo6uGjx+0MHmKh6Sh4c20pNQq/UGyF0g0qlavYdfZS+3ZdtDa2Ex9+OUYuIAgVwJvDj7ZhfrURIZMRIj1udTUhEwIOqicWhXPsW/Pw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795688029; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=1uwUfdoO2tZn9/T6hpBts/o6K5tW0x82owJfGpBjksM=; 
+	b=YMK24uA7i7q/7bZ39bGaR7Kk3GGIKyqKP8bdZ/7LWVonlwjgwjL8vl1Ltb4iM7O+ZM1/kg6UPGyBlIroi1dLv5+L9kXoXvGKooZoz3HZvaBqbGmVJiUbkfGtDjfexpEMvEoOWLdlm3tIrHpghdqPppQcNB8Xrb64sN0eosh3IZg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=M46VGZc8Vp3HDlDTtJgWb3/jv13b7Ol0fD6XZ8z56pfZPIaWtEfLv+QovrWC/cJHITUpE+9FqRLPh/xojUYxGkmO6i6takle3ik7udQkhuMj5R0vYlbZ5+/qCBHsGoZk8HPHIA0xv3hK12oRPRw/7XyVF+WUzDKpiwqS98fc+B0=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=1uwUfdoO2tZn9/T6hpBts/o6K5tW0x82owJfGpBjksM=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795688026107369.88534777876225;
+	Thu, 26 Nov 2026 02:13:46 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id ED61718040B; Thu, 26 Nov 2026 11:13:40 +0100 (CET)
+Date: Thu, 26 Nov 2026 11:13:40 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: aiyengar1990@gmail.com
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	"Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Niklas Cassel <cassel@kernel.org>, 
+	Pranjal Shrivastava <praan@google.com>, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	Shawn Lin <shawn.lin@rock-chips.com>, Simon Xue <xxm@rock-chips.com>, 
+	Finley Xiao <finley.xiao@rock-chips.com>
+Subject: Re: [PATCH v4 2/3] iommu/arm-smmu-v3: Enable an optional clock
+Message-ID: <awgFSStwki6ytKsQ@venus>
+References: <20261126-smmu-v3-pcie-pd-v4-0-c340c2dbd1d2@gmail.com>
+ <20261126-smmu-v3-pcie-pd-v4-2-c340c2dbd1d2@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,144 +74,107 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCHv3 2/4] powerpc/watchdog: Disable preemption in
- arch_touch_nmi_watchdog()
-To: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Mukesh Kumar Chaurasiya <mkchauras@gmail.com>
-Cc: linuxppc-dev@lists.ozlabs.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Venkat Rao Bagalkote <venkat88@linux.ibm.com>, linux-kernel@vger.kernel.org,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>, stable@vger.kernel.org
-References: <cover.1795441238.git.ritesh.list@gmail.com>
- <8a70fa42449a63a73b8340d3296974cc519b5826.1795441238.git.ritesh.list@gmail.com>
- <awZ2qXSxXPO3XUUb@li-1a3e774c-28e4-11b2-a85c-acc9f2883e29.ibm.com>
- <o6bdjkq1.ritesh.list@gmail.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <o6bdjkq1.ritesh.list@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="trvqlmcklbkkvnwt"
+Content-Disposition: inline
+In-Reply-To: <20261126-smmu-v3-pcie-pd-v4-2-c340c2dbd1d2@gmail.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/295.675.79
+X-ZohoMailClient: External
 
 
+--trvqlmcklbkkvnwt
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 2/3] iommu/arm-smmu-v3: Enable an optional clock
+MIME-Version: 1.0
 
-Le 25/11/2026 à 10:58, Ritesh Harjani a écrit :
-> Mukesh Kumar Chaurasiya <mkchauras@gmail.com> writes:
-> 
->> On Mon, Nov 23, 2026 at 07:21:51PM +0530, Ritesh Harjani (IBM) wrote:
->>> touch_nmi_watchdog() can be called from preemptible context, e.g.
->>> sysrq-w via /proc/sysrq-trigger. The powerpc implementation uses
->>> smp_processor_id(), so with DEBUG_PREEMPT we get:
->>>
->>>    root@buildroot:/# echo w > /proc/sysrq-trigger
->>>    sysrq: Show Blocked State
->>>    BUG: using smp_processor_id() in preemptible [00000000] code: bash/238
->>>    caller is arch_touch_nmi_watchdog+0x3c/0xd4
->>>    CPU: 0 UID: 0 PID: 238 Comm: bash Not tainted 7.4.0-rc2-00029-g7664547149ae-dirty #126 PREEMPT
->>>    Call Trace:
->>>     dump_stack_lvl+0x138/0x150 (unreliable)
->>>     check_preemption_disabled+0x120/0x158
->>>     arch_touch_nmi_watchdog+0x3c/0xd4
->>>     show_state_filter+0xf0/0x338
->>>     sysrq_handle_showstate_blocked+0x24/0x38
->>>     __handle_sysrq+0x134/0x3a8
->>>     write_sysrq_trigger+0x178/0x22c
->>>     proc_reg_write+0xf4/0x150
->>>     vfs_write+0xfc/0x71c
->>>     ksys_write+0x8c/0x150
->>>     system_call_exception+0x310/0x590
->>>     system_call_vectored_common+0x15c/0x2ec
->>>    ---- interrupt: 3000 at 0x7ffd01755b98
->>>
->>> Unlike the generic version, which only sets a flag, we update the CPU's
->>> timebase stamp and its SMP watchdog pending bit, so a migration in
->>> between touches the state of a CPU we are no longer on.
->>>
->>> Disable preemption across the update. While at it, let's also mark the
->>> function as notrace (since we might be within a tracer when this
->>> function gets called).
->> Do we need to also mark wd_smp_clear_cpu_pending as notrace?
->>
-> 
-> aah yes, I didn't see that there is another function which is not
-> inlined. Thanks for spotting that. The reason I added "notrace" was
-> mainly to have consistency with kernel/watchdog.c which is due to this
-> commit:
-> 
-> cb9d7fd51d9f ("watchdog: Mark watchdog touch functions as notrace")
-> 
-> 
-> However, after looking more closely now, I don't think we need notrace
-> here at all. To simply put, on powerpc, we don't use stop_machine() from
-> within arch_ftrace_update_code() like how arch/arm does and besides, I
-> think it is even safe for one cpu to be executing the instruction on
-> powerpc, while another cpu modifying that atomically.
+Hi,
 
-But haven't we identified in another discussion that it might be needed 
-to use stop_machine() ? See 
-https://lore.kernel.org/all/qzh06fxn.ritesh.list@gmail.com/
+On Thu, Nov 26, 2026 at 09:54:14AM +0000, Arun Iyengar via B4 Relay wrote:
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+>=20
+> On the RK3588 the PCIe SMMU's clock is gated as unused when no PCIe
+> controller holds it, and the CR0 write at shutdown then hangs. Enable
+> the clock from the firmware node, if any, while the driver is bound.
+>=20
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+> ---
 
-Christophe
+Once runtime PM support lands [0], this should move to runtime PM
+resume. But at the moment it looks sensible:
 
-> 
-> For e.g. see this -
-> 
-> commit ee456bb346e75a9b6d941224b108250e6ee5f79f
-> Author: Steven Rostedt <srostedt@redhat.com>
-> Date:   Thu Apr 26 08:31:17 2012 +0000
-> 
->      powerpc/ftrace: Have PPC skip updating with stop_machine()
->      
->      PowerPC does not have the synchronization issues that x86 has with
->      modifying code on one CPU while another CPU is executing it.
->      The other CPU will either see the old or new code without any
->      issues, unlike x86 which may issue a GPF.
->      
->      Instead of calling the heavy stop_machine, just update the code.
->   
-> 
-> And as I see it, this problem only exists on ARM with THUMB2
-> instruction, as can be seen from their implementation of
-> arch_ftrace_update_code(), which uses stop_machine().
-> 
-> 
-> So, let me drop the "notrace" as it is not really needed here and
-> re-spin a v4 with it being dropped.
-> 
-> -ritesh
-> 
->>> Fixes: 2104180a5369 ("powerpc/64s: implement arch-specific hardlockup watchdog")
->>> Cc: stable@vger.kernel.org
->>> Reviewed-by: Shrikanth Hegde <sshegde@linux.ibm.com>
->>> Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
->>> ---
->>>   arch/powerpc/kernel/watchdog.c | 8 ++++++--
->>>   1 file changed, 6 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/arch/powerpc/kernel/watchdog.c b/arch/powerpc/kernel/watchdog.c
->>> index 44f178e07531..32d4e716cb0a 100644
->>> --- a/arch/powerpc/kernel/watchdog.c
->>> +++ b/arch/powerpc/kernel/watchdog.c
->>> @@ -456,12 +456,16 @@ static enum hrtimer_restart watchdog_timer_fn(struct hrtimer *hrtimer)
->>>   	return HRTIMER_RESTART;
->>>   }
->>>   
->>> -void arch_touch_nmi_watchdog(void)
->>> +notrace void arch_touch_nmi_watchdog(void)
->>>   {
->>>   	unsigned long ticks = tb_ticks_per_usec * wd_timer_period_ms * 1000;
->>> -	int cpu = smp_processor_id();
->>> +	int cpu;
->>>   	u64 tb;
->>>   
->>> +	/* Callers may be preemptible. Stay on this CPU for the update. */
->>> +	guard(preempt_notrace)();
->>> +	cpu = raw_smp_processor_id();
->>> +
->>>   	if (!cpumask_test_cpu(cpu, &watchdog_cpumask))
->>>   		return;
->>>   
->>> -- 
->>> 2.39.5
->>>
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
+Greetings,
+
+-- Sebastian
+
+[0] https://lore.kernel.org/linux-iommu/20260929034510.2023173-1-praan@goog=
+le.com/
+
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>=20
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/=
+arm/arm-smmu-v3/arm-smmu-v3.c
+> index 100b34f07032..beea222dcf57 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -12,6 +12,7 @@
+>  #include <linux/acpi.h>
+>  #include <linux/acpi_iort.h>
+>  #include <linux/bitops.h>
+> +#include <linux/clk.h>
+>  #include <linux/crash_dump.h>
+>  #include <linux/delay.h>
+>  #include <linux/err.h>
+> @@ -5786,12 +5787,19 @@ static int arm_smmu_device_probe(struct platform_=
+device *pdev)
+>  	resource_size_t ioaddr;
+>  	struct arm_smmu_device *smmu;
+>  	struct device *dev =3D &pdev->dev;
+> +	struct clk *clk;
+> =20
+>  	smmu =3D devm_kzalloc_obj(dev, *smmu);
+>  	if (!smmu)
+>  		return -ENOMEM;
+>  	smmu->dev =3D dev;
+> =20
+> +	/* Before the firmware probe, which may take a CMDQV reference */
+> +	clk =3D devm_clk_get_optional_enabled(dev, NULL);
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk),
+> +				     "failed to enable clock\n");
+> +
+>  	if (dev->of_node) {
+>  		ret =3D arm_smmu_device_dt_probe(pdev, smmu);
+>  	} else {
+>=20
+> --=20
+> 2.55.0
+>=20
+>=20
+
+--trvqlmcklbkkvnwt
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmsIBlQACgkQ2O7X88g7
++prL+w/9GJRhofBue91qCCzLZC9a3SdI+xVa3C+37ewGeBXjRN8WQ3oQJAEIgMDa
+UV1CJIg0QPveTd4D8M+1AIRKYEV5d6W7793UGpPK7zdalFdolIxw5cpxjlO3Lynv
+lZhCccXEEg/93BC9NPlFPWk3QaFWA88/ZrSnwX70q6vlafKhe/tJgVhKgjQh/gkY
+d4jIOfBSg0mWEhFd8HSUHAZvltis39p0XIkjAbMTaOnSA3+zg0jHOpqK0l43263H
+iOqoy/DJutYE0bwBsMmaqtx687Y4o6NUFmTiKQ+Sj58mzklx05z+lTdUJ0iftgfm
+qeQtOSM+Ju9CpoerPrKZL7SatDDca1fy7YS7fFZtWiR9nHjW0Ei15DzDWD4PfdTU
+tPt+WS2eNr0q2m/mCVGD9gSDYreBdbilUhm003BgZt6++u/DVb8NaMa6k3U8/zTV
+RMHBV6yGPp33xV/lIpltlBz62fbonvYCvg8TMfHwoptDL5VJIvrw9D2CAkg2+fze
+zo2mc8inuDpxaMMT/vQIWsSgUIYDMs1JNXRaDgVVZ25jBGXAqDZKgEUsf3buU+ks
+S3VgWHft1IUtmP7mDHwPORFouSMTsuPgUIrNiVi49RZsBnPovbzEwGiBHYFBodr/
+Gfjav4yl0P1OQ/KfJUcQc9DByRARuWfatt4zweqpCiRgUq0D1HI=
+=fBBJ
+-----END PGP SIGNATURE-----
+
+--trvqlmcklbkkvnwt--
