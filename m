@@ -1,55 +1,135 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795706198;
-	b=Pju7C1p9l1MkgHmKWEdE7cEMyaSy1OYsSiYGAZvHjMoGqahin9qeo5roP81MgkoWD58H
-	 72ORzZ0c0Vpz30Q3axTWmJ5o6bInZN0fUwRaHTRn5mM2XNahKlxe/ONfkeeNvrHNUvfQJ
-	 CJFRGnrfmfZHbi/I4CwNrplMN/hfBK/y2nRaeNdgwZW4qZcfK2e1gkrgki0qEn/ehGsVB
-	 RMUy+jWOBxTqiJ2ufeqqL05AVpTdIZXTj1JaZuvlXBadoAsdEp+dXJo6BH3/Z9I4wfJjE
-	 fGKPYEGCBQk2kZYsuD6Q3YtddPuqPCJeQMhlOBoJgIzukkASP1/iKGWXsSq1igCUp3w==
+	t=1795706200;
+	b=gVl1Sg0rIlm/0ZvDvdeCWoTMFYMzrwbk+o74zfaCyCAN69pAyB4EgVuZFy+DZp3X3a58
+	 rhVvMSYjZzp3gYQQlnQcLM6UqV/q+eJwnXFUH1JBjgP/clA1L06I0/G+/4fCuTyGs4EcF
+	 uvvoX+QODCPX9Zo3u4/TB8a2i+cAfkDEa/tkStJGwoo78HCae0cWmnOPy4I59RDl35ha/
+	 XjSSnMy6un2V9pzFPfq/BqhCmNsPIz+yMdNNI/n+FXYWMjHnZzhzuAr8SCxMHrIKsu/iz
+	 KPxbNw4fG4x04xGwJaqSpd+kAy/MAxJGZdftpBoJIrS9Ll9cZkQVT9JKgxBugKCwaCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795706198;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=qudMBcNoO9UBxMWp+ZB34v3HVnJHiuGS8CcvWLCJZW4=;
-	b=REU+MLhlzYaZlvgGf32+91w7MDLdyOxejCI6VJE5Px64qr1NXb2RTrnGKyaXx1PmLeNN
-	 t++9Xq95EpSm0xhOCcK9g8nJZIHZuUroZ8HccduDe6gBtcGVsxoey8OZP1C1SGiwVZuWB
-	 IWz4nlOuucUV/89pslZxDk8+rgHxy41SfyrlCeaD+plCz36jCOg9QW9zd0UZwFguHTYnf
-	 H2OIj+crJxeShLxEQR2HTsIswQUYzxzepU35uWudL1DSDEC+ChAncCQcYxEwvSsIP5O4I
-	 FRbygutioFP4nTvMzXUHTMYjBO2huKoYvCb6Ofh5Y7VWr1mqLy3Gfa6epN2ry5a6Svg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795706200;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=WDWtYTY+sZC5hAzfWj0mR/RLleEqjywV+f/SNH7uucw=;
+	b=i0zqJk6rhut+Up18+e9lw00Tb5GKaH0U+O+wUf9OcRpXOaBtlVxjIl7Blaz9zCjLZx6P
+	 Cywcb/QzOBGFuexMqxpixCRAnHiOFxZJnP5nKpixQH316VU1Qh1tF4wLpkOCnkSiSThKI
+	 /BB76pSVkR5j0pIlrWLgTWaAUKEHeF9ttZtTBB1+j7iuHJ+kSCxCQDo1/MvYW5+BpBzoA
+	 ga6yMeqtKQvmSnlSTb5U1+mcb2m6KmDZ3tizezUbHDFxWmHBTVXAkoAc3AVoyfPMxIl8i
+	 QYF6aRNXYL5MSdjCxIQVXslIYY7LklrNw+wEq1LwaLr/nDes6Uya0Sipk6CuSzenqjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fsJDk4lD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=ragnatech.se;
+	spf=pass smtp.mailfrom=ragnatech.se;
+	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=sPbktIvx;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=r5V3Ldqs;
+	arc=none smtp.remote-ip=202.12.124.151
+Received: from fout-b8-smtp.messagingengine.com (fout-b8-smtp.messagingengine.com [202.12.124.151])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40B74606A32A;
-	Thu, 26 Nov 2026 15:16:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF1DB606A33A
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 15:16:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF1DB606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fsJDk4lD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 514321F000C6;
-	Thu, 26 Nov 2026 15:16:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795706197;
-	bh=qudMBcNoO9UBxMWp+ZB34v3HVnJHiuGS8CcvWLCJZW4=;
-	h=Date:From:To:Cc:Subject;
-	b=fsJDk4lDRYLPVo9rkQNioWcoERjwTjGO4d/4h0KkM6R206t5n39oWiM1LzDu4YKQ3
-	 uV1pC6yBZhoTwbwlbxX+8JQ04xbR725JKSLB7ZgAWzSV3vxmL2M2zyLmcTPxzvMZ8p
-	 Qb9Ogrju3cPbz9okVijfTWssqLGt6CJv3uYocvgaJbxkWT0l86IFCW8Mm9EkqC/O5s
-	 GY2XUPeRdEE738IniWT6ezai0R3EfkYDggFOeu2+cnx2ygBRc0PE8/z1uasLdTe4N4
-	 gAvamdgdLHrvCRLimsA7b0iPdlrsfkqeRafTXDRHSFOZVCvvx/HM1dVhMt8QKq73fc
-	 cx7/DxDZB9Xxg==
-Date: Thu, 26 Nov 2026 15:16:33 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>
-Cc: Chen Pei <cp0613@linux.alibaba.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>
-Subject: linux-next: manual merge of the liveupdate tree with the kexec tree
-Message-ID: <awhNUUXe4ywAjq8b@sirena.org.uk>
+	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=sPbktIvx;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=r5V3Ldqs
+Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
+	by mailfout.stl.internal (Postfix) with ESMTP id 6E1761D00499
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 10:16:39 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-12.internal (MEProxy); Thu, 26 Nov 2026 10:16:39 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795706196;
+	 x=1795792596; bh=WDWtYTY+sZC5hAzfWj0mR/RLleEqjywV+f/SNH7uucw=; b=
+	sPbktIvxDtOqcw7H/tr2TNoZUK5Ijs9pzCwhSY6nDk1JGI0bp6wepk8yVuftErQC
+	w1pW5UZnzegbBlyJjKat7LOqDEp0CnplSCyd+u8DIkRDKb3o6xh1P2c5DCw8wKNa
+	nfZ0t1Z6S3Nvb9R2aS47io63z+sfHY3doNvFf3KIpBztqyj44L7Y/jhjVaKjul+X
+	ev/vu7g4G0MgCNCV4aao+yx04Q0HRcU0XEhrRZU2x57qD0aH4osAXC6diDJYas5B
+	wI0afY1cIV70XS0DzmHGqL1p5bKsME3EzuVHKCvGrXpdG1pP6G1FqvExnqAoSRZS
+	CcH+wA+l+WGEz+eEpE3u0g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795706196; x=
+	1795792596; bh=WDWtYTY+sZC5hAzfWj0mR/RLleEqjywV+f/SNH7uucw=; b=r
+	5V3Ldqsix/gj40w4xEFU1JuOV7yNH3N5p0j2iVB4lW+EjeqgkkNCQ+ssDgkG7qlj
+	MKDvGJwxugvUXEbVT4kU74ebMPvNE7UpuUH1r2BIuk2M970WIlt22p/h2Rf/TSw7
+	VgWt9bU6ykCHeH5yg+67Sd4YWF5sNTTXTPDS18OG3S1HSOAAHhsHCEmvYPFYQV5H
+	Mr6gd7B0VE9Prp/Wzieh391efoOUBVRJaHkUfHS4AjAF12bBD6044akhv08ik7Qh
+	p4yVd18Uwy/oCV0r0sHSL9DlGfju1j0ed8vAzP8XB5DSPEOx9BFo43g1a5uyPABX
+	3fCBq17YA4iCeDXcA6Qbw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ragnatech.se a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795706196; d=ragnatech.se;
+	mf=PG5pa2xhcy5zb2Rlcmx1bmQrcmVuZXNhc0ByYWduYXRlY2guc2U+;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:UXhOcoi850jKjEpqpjxCwEHQfq3aZc9T63K/GE0X2vWVqbn
+	ac494Z6Vy+rfywzKZolmXulTIbLvOc9LrJWn7gjBeNvtPtPJChbtcDB2cyx3TIT+
+	Wueyd67vuh2NTZjsVvBez3gaVmWJC8lDXZPolccSI0Yga1pI8Uzxr9PB/FtcILZH
+	DCWq8COIZNzixcW+2TlAc3hGjP80FQwXhlZB80RJQRxyXJCbisp9Yg0Zz52wWpme
+	vEBgEWRf3f48O4qWYqwvzd9IS9Gtgo4MtpgFAE41jaS185aUYinyaZfZU85cbIaU
+	ix4u8y6jtaJSyTW5dbXnHYoNLMyE9vXrAE4cz5w==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-disposition,content-transfer-encoding,
+	content-type,date,feedback-id,from,in-reply-to,message-id,
+	mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:puB6BJRTkKE6hebjx/Q3Mz4EncRdrPP7ESpTb3Q0sQk=:C2N8E0UtXfgUBIHQ6mWE+kP053kdV3LEr3Z3sqCjAsI=;
+X-ME-Sender: <xms:VE0Ia2sfEfLd7bQrQiLmQhz1HulANV7A2G681fdUsvmv65IQP1pWXw>
+    <xme:VE0Ia0MeUdHzK0T6GqQOAcSyfPjsL_tZ9IJhYfW2lu_CBa2Jt6YqMeX9QbeVPNzDc
+    tFr0rDIOeIjYCmHG6TSaCn3wETm_bOS5oVa4QApCblMYBqotMeu-yAH>
+X-ME-Received: <xmr:VE0Iawc0HUuGSz1_l2UD5FCULb0YUlxLn2ikDHij8tSR4d39BCI7L9bO9FthSYyRleKZfbAzNfkpOMRVmRWGkSjxA5q234Q>
+X-ME-Proxy-Cause: dmFkZTFKLbr2QDBgNKAiPMruT937wjzgJs24dooozejAZvBRUGS7W+wH2deW9gjJy3HaTa
+    H0hvCSm0TiSBFGNCFfIn7NyqC0jbxjNtkRHnfwmtw18pQS/qEX/SNNCbixcihvM+i5nK9I
+    4oXoD4RAZi7KEA5VTdfu6IlcbZXkD/J94/bqVEGy14HGfOU6Cmc81KlBpLAmB9wtT9X30o
+    mcCeaKM8N3aGs7CwM/SAL0DVvxymZFbV1NRx1ekVIkWmrmN7eDPKj+KXjr4EutfCePP42t
+    IZMz6ZyVq1BvWvZPsuI6TNOprCqCoo3ABsHaSIeZA1j1D/IAJ7tujyCyIZbg6IEIb0onDs
+    IeMZiMas37GafKXoZHOjT7wh0P43Ezz71iHx3IszYGqmBWavDNEW/J9l0pxbPrX6W8l9N4
+    GypXwlBxf6WAKoE8PwDr5JNSfbb4J//I4TnpeeV2k9ThuUOWaBRSIhTeVbTZmYylBFRByA
+    sQIZAxw6HVLlxpQrzjdZqPgeV6LPtcXSXiBXu7TEoX2wjjvr2XNh8bMGYhR7ZfpW0bDwEq
+    MctmeEj9PYfeGg5qujsmAB7Qx51isJTsGrnu4o9ybUw1E35xQM94v4n+qk2LAnUlCvOU6b
+    nt0YlUXrbmvdq4eBvmA4ykT+IR0rQbLxP/V1sAYYrdVS8fqEHPoFmD1xPUkw
+X-ME-Proxy: <xmx:VE0IazkIvKLfjOFtqa8p40ufg-gkqzFAYmeWVoTlAkDDwkqoGwXB4w>
+    <xmx:VE0Ia6x1tdcTV3E6HIl83bTgvY5tvXaFgkerwKOqJKVC2g5jcUus7A>
+    <xmx:VE0Ia-NYgoYl2pQTmG-5CmLFMTqZVHysccu5OV4q1_vy8ZylJpctBw>
+    <xmx:VE0IazjURUI6AIsMi3VLVLU7HYd8YEJTCYc6Z0hGo90Nj6WDBJPnrw>
+    <xmx:VE0Iazkr76K452i61iwLw2lNuYF7hABlHa_G8POHYuJk0gJPLY__pYJD>
+Feedback-ID: i80c9496c:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 26 Nov 2026 10:16:35 -0500 (EST)
+Date: Thu, 26 Nov 2026 16:16:33 +0100
+From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"DavidS. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Sergey Shtylyov <sergei.shtylyov@gmail.com>,
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net-next v8 3/3] arm64: dts: renesas: r8a779g0: Add gPTP
+ node
+Message-ID: <20261126151633.GO3898744@ragnatech.se>
+References: <20261110080727.2377040-1-niklas.soderlund+renesas@ragnatech.se>
+ <20261110080727.2377040-4-niklas.soderlund+renesas@ragnatech.se>
+ <CAMuHMdWpZfsaJOcTEBCugyDgKDXNRje68n59OrGFx-0hJXG+4Q@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,90 +139,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="NaCE6olhrV5gsvqL"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMuHMdWpZfsaJOcTEBCugyDgKDXNRje68n59OrGFx-0hJXG+4Q@mail.gmail.com>
 
+Hi Geert,
 
---NaCE6olhrV5gsvqL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thanks for your feedback.
 
-Hi all,
+On 2026-11-26 14:33:17 +0100, Geert Uytterhoeven wrote:
+> Hi Niklas,
+> 
+> On Tue, 10 Nov 2026 at 09:10, Niklas Söderlund
+> <niklas.soderlund+renesas@ragnatech.se> wrote:
+> > The gPTP module is shared between the RAVB and RTSN Ethernet devices on
+> > the SoC.
+> >
+> > Signed-off-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+> 
+> Thanks for your patch!
+> 
+> > --- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
+> > +++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
+> > @@ -606,6 +606,15 @@ mfis: system-controller@e6260000 {
+> >                         status = "disabled";
+> >                 };
+> >
+> > +               gptp: ptp@e6449000 {
+> > +                       compatible = "renesas,r8a779g0-gptp", "renesas,rcar-gen4-gptp";
+> > +                       reg = <0 0xe6449000 0 0x500>;
+> 
+> Can you please remind me again where I can find this base address in
+> the documentation?
 
-Today's linux-next merge of the liveupdate tree got a conflict in:
+It's very well hidden. The gPTP device itself is only described in the 
+attached files to the datasheet, but it does not describe how it is 
+wired into the V4H.
 
-  arch/riscv/Kconfig
+For the longest time I assumed each RAVB (and RTSN/RSWITCH) had its own 
+gPTP device as it where on Gen3. I got feedback from Renesas this is not 
+the case and there is only a single device on Gen4 which is shared 
+between all users. That is RTSN and RAVB on V4H and RWSITCH and RAVB on 
+S4. To make it even more fun the gPTP device uses the same clock and 
+reset as RTSN on V4H and RSWITCH on S4.
 
-between commit:
+I got final confirmation of the address itself from the address map in 
+002_R-CarV4H_Address_Map_D_r1p30.xlsx.
 
-  e583fcbe5b585 ("arch, kexec: declare kexec and crash capabilities in Kcon=
-fig.kexec")
+> The size looks too small to me, though, as there are registers at offsets
+> 0x500 - 0x788.
 
-=66rom the kexec tree and commit:
+You are correct, it should be 0x1000. I will send a new version in a few 
+days in case you have feedback from the question above.
 
-  48ea610913a6d ("riscv: Add support for KHO")
+> 
+> > +                       clocks = <&cpg CPG_MOD 2723>;
+> > +                       power-domains = <&sysc R8A779G0_PD_ALWAYS_ON>;
+> > +                       resets = <&cpg 2723>;
+> > +                       status = "disabled";
+> > +               };
+> > +
+> >                 tsn0: ethernet@e6460000 {
+> >                         compatible = "renesas,r8a779g0-ethertsn", "renesas,rcar-gen4-ethertsn";
+> >                         reg = <0 0xe6460000 0 0x7000>,
+> 
+> The rest LGTM, the bindings don't descripe the two gPTP interrupts,
+> so they cannot be added to the DTS yet.
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
-=66rom the liveupdate tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-I imagine this isn't an ideal resolution and the new hunk should also
-move over to Kconfig.kexec but git rerere won't remember that.
-
-diff --cc arch/riscv/Kconfig
-index ed02c6ad0cca2,a5c56252ff44a..0000000000000
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@@ -1120,9 -1116,30 +1120,12 @@@ config ARCH_SELECTS_KEXE
-  config ARCH_SELECTS_KEXEC_FILE
-  	def_bool y
-  	depends on KEXEC_FILE
- -	select HAVE_IMA_KEXEC if IMA
- +	select HAVE_IMA_KEXEC_OF if IMA
-  	select KEXEC_ELF
- =20
- -config ARCH_SUPPORTS_KEXEC_PURGATORY
- -	def_bool ARCH_SUPPORTS_KEXEC_FILE
- -
-+ config ARCH_SUPPORTS_KEXEC_HANDOVER
-+ 	def_bool 64BIT && MMU
-+=20
- -config ARCH_SUPPORTS_CRASH_DUMP
- -	def_bool y
- -
- -config ARCH_DEFAULT_CRASH_DUMP
- -	def_bool y
- -
- -config ARCH_HAS_GENERIC_CRASHKERNEL_RESERVATION
- -	def_bool CRASH_RESERVE
- -
- -config ARCH_SUPPORTS_CRASH_HOTPLUG
- -	def_bool y
- -
-  config COMPAT
-  	bool "Kernel support for 32-bit U-mode"
-  	default 64BIT
-
---NaCE6olhrV5gsvqL
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsITVEACgkQJNaLcl1U
-h9DbCwf/ShGENleX95A1csOqu8XGQRStMhhpPnNXrfSJRapIjveTtx+Znkp5iVsW
-gDg8x9JU/b3eSUf8D/sYul6rjrUOqfId/piKCTPbDcdg/oWGQ2zbop0E5uHZq7NJ
-x+ThSLTLXPxXoKDbqPAnR5naYdSejhu1VRKU9cuT1sFLHQ6JAYtX4/JU+XqD2w+c
-lxXmWIL3bszQfP45fNoQpvCbDp3mEb42rJc7fj6BHe7tH5M34LmzRnQuF07aOOn5
-uboKzQrkn5e3LFTn1gOCGJrbu3OEu+8279hGV7TODPtqf/BGQueTB9GwjRnO+UwS
-D9ueUUBBwW5NS4PDri9ifaKURYaZKg==
-=R8BK
------END PGP SIGNATURE-----
-
---NaCE6olhrV5gsvqL--
+-- 
+Kind Regards,
+Niklas Söderlund
