@@ -1,63 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.204.27.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=143.255.12.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795695363;
-	b=W0EmjVoW/Lt/NFl17cyxcOi0UJI0nkwJRd5aV2lUOfAb8r80sz+DNxpnXB3OJmQTvm2i
-	 rOmfE4J6KX9EeKSuRwrm+BTuy/6PvI3wvc3nWiOxJ19CDdSEMwU9MPdmCLWuCdadUl64c
-	 sqXRskc9lLdPqSDH19wsG7C5asMs/mbP0jXOfhcGUbA4DssLFwep+g17ONvKfObU98DzH
-	 AXDdMy7r4LqRcGIpM2bEBYjwJVfIblWxQ/75x+JmbmwwvhbHnN2nnLeuvGx5m1zWDHTnG
-	 OWwkbIK0MgjlX8rVSjF+QfU6FlcI4BToDxLGQzDIoejfqQJqxldaKmH63xizD5kWEdw==
+	t=1795695414;
+	b=ap8yhDn7Qd7r5+GaoRPx+80/OMVDtFk+hauQUaNfnFzuZCIfs8xdwZ0wTbX1XJbbFktq
+	 CmtbyK+ylwMxzMFKwDy+J8ZNFizq5kI+FjmtUDldlrvSp1YXqgOG1rvF9s1pVYDQ4ncml
+	 gvUAMhHr4xBCZPK3GVGelhHT+P2eFwKuN3aNmjzNuQNLru7FfRvOrbLHi1jD5SEgmAp52
+	 O8tITPAcxFtMp0QGHThXx1T8UIbroBLPnG8Iu2pALQo17ctwZux02a1J0FOKkjkAtySAU
+	 RcYVkQ9Od+r1zmZe1YwnuMtR938G8N1SOI0Fx5g9V4rUMiA9LABXY9C8N6CmsDOsntw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795695363;
-	h=DMARC-Filter:Received:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
-	 X-Originating-IP:X-ClientProxiedBy;
-	bh=vVi+hjHGX0RzAqKFCQt8csRr2KRMwhIJaCDqR21Qs38=;
-	b=yUcueqCqF4ACdD3yhshY4otKC5033ufgrNeTDwBx2b0SO0LyC/QOM3z0d2dThHKmO6rc
-	 O3cKUvYwpcZCPsHtp7vdXQ7EPABSDDOm+b91Ld/eV5w55BvNcRWho9CxURj9iylV0V2mI
-	 GhgPH+XJ/1efqg8gNu5Dz35hTY1vMRcgf8Ey6A+ddzo+6ZTw9O47Ln0vHhpXv2FSc86dC
-	 TU1/FINOuiJZvYzcDt3EVNbwLtGFH/J+mF3HHw8IgFE3SuqlYeA3iNVJ8tBl75gwV7iQJ
-	 kM2WhoUSs8YVhSN/E7uc77DzQPQiCNboAO0OxajFF6O/jHOGWnHehZTaF1la8bivy8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795695414;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:Date:MIME-Version:Content-Type;
+	bh=nY9kYR/xw/7wOiVhGg3uzbGjOgXyshW0del5pACziv4=;
+	b=Ll0KOzl+3AxtlgmZVXA3QM143F/E3kfjL5IvtDQKHjTSeBf3R/2M1VdpBwzKo8DgmHY6
+	 BwzPizoPsvmwo1rrce9HonFf/Y/DS9uHspznU+HtKnQjPOMbWPkvq26m0+rvNTpzxM0AR
+	 JM/ReCojkTpDZCBOvvhKWACAzlgMZA6ZHoqKtxO7i6PK/DtrKpyQo9hz8PvnfZHUFy/l+
+	 8sXNNBksu4KGHqTwhNNyjqypWj0u2Gjv2ZwfFn4LLY+RJlDDfGDOsxwO4iqlZFsH5yLN9
+	 XwJRgj5xPpMCkVdh5YvXair0etVU4ICky6AD8brz9wSBEDnVm2EWw6Tu29r7hWHTP7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hygon.cn;
-	spf=pass smtp.mailfrom=hygon.cn;
-	arc=none smtp.remote-ip=101.204.27.37
-Received: from spam01.hygon.cn (unknown [101.204.27.37])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 66BB5606A326;
-	Thu, 26 Nov 2026 12:15:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66BB5606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hygon.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hygon.cn
-Received: from maildlp1.hygon.cn (unknown [127.0.0.1])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jZwVl4CwLzVcB6;
-	Thu, 26 Nov 2026 20:15:43 +0800 (CST)
-Received: from maildlp1.hygon.cn (unknown [172.23.18.60])
-	by spam01.hygon.cn (Postfix) with ESMTP id 4jZwVh6m9YzVcB6;
-	Thu, 26 Nov 2026 20:15:40 +0800 (CST)
-Received: from cncheex04.Hygon.cn (unknown [172.23.18.114])
-	by maildlp1.hygon.cn (Postfix) with ESMTPS id 952E9DC23;
-	Thu, 26 Nov 2026 20:15:33 +0800 (CST)
-Received: from hsj-2U-Workstation (172.19.24.226) by cncheex04.Hygon.cn
- (172.23.18.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 26 Nov
- 2026 20:15:39 +0800
-Date: Thu, 26 Nov 2026 20:15:37 +0800
-From: Huang Shijie <huangsj@hygon.cn>
-To: Andreas Gruenbacher <agruenba@redhat.com>
-CC: <viro@zeniv.linux.org.uk>, <brauner@kernel.org>, <jack@suse.cz>,
-	<hch@infradead.org>, <mic@digikod.net>, <axboe@kernel.dk>,
-	<gnoack@google.com>, <paul@paul-moore.com>, <jmorris@namei.org>,
-	<serge@hallyn.com>, <legion@kernel.org>, <aleksa@amutable.com>,
-	<libaokun@linux.alibaba.com>, <ebiggers@kernel.org>, <djwong@kernel.org>,
-	<sandeen@redhat.com>, <zhongyuan@hygon.cn>, <fangbaoshun@hygon.cn>,
-	<yingzhiwei@hygon.cn>, <wujianyong@hygon.cn>, <shijie8@gmail.com>,
-	<linux-fsdevel@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-block@vger.kernel.org>, <gfs2@lists.linux.dev>,
-	<linux-security-module@vger.kernel.org>
-Subject: Re: [PATCH v4 00/11] vfs: add inode iteration methods
-Message-ID: <awgi6a0Hayug7RJH@hsj-2U-Workstation>
-References: <20261125091157.1822521-1-huangsj@hygon.cn>
- <CAHc6FU4h-FRvLkO_0ouTey9MbX=n61t3abt4hPNFOthsRGG9mQ@mail.gmail.com>
+	dmarc=pass header.from=manguebit.org;
+	spf=pass smtp.mailfrom=manguebit.org;
+	dkim=pass header.d=manguebit.org header.i=@manguebit.org header.a=rsa-sha256 header.s=dkim header.b=trs+zPqO;
+	arc=none smtp.remote-ip=143.255.12.172
+Received: from mx1.manguebit.org (mx1.manguebit.org [143.255.12.172])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D364606A31C;
+	Thu, 26 Nov 2026 12:16:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D364606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=manguebit.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=manguebit.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=manguebit.org header.i=@manguebit.org header.a=rsa-sha256 header.s=dkim header.b=trs+zPqO
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=manguebit.org; s=dkim; h=Content-Type:MIME-Version:Date:References:
+	In-Reply-To:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=nY9kYR/xw/7wOiVhGg3uzbGjOgXyshW0del5pACziv4=; b=trs+zPqObBmbFuWzSje6cG8p/Z
+	XxLyFSTnTu6JZ/rtVxBIPyJ+VMpZ6KuyqMl9bTCV2CBiJKow0zqh+N1sd6nTS8eDbX3T1lr1Sb/40
+	0l6QBOGvmLI/5Il/fGqxwVgGTzOC9wtV+igWlmOPkyZXCSP31N7qbwH9WA1S7dsvkeysVhPO/Ih3J
+	0qjaqZLM/9tWwPn8EONQkcvLdJUxDYqH663Ru4Jts3hXlggsGtzx4bbAptqvRtaVhDAnhIR3XW/xr
+	/ICz5CSijAneM1KCKUpk/LHP3MbOfTo5SfGpLpB+qjI15PU2Cae+zgqxB1aaGcsixtfijAKxB/OMj
+	FW9nBgRw==;
+Received: from pc by mx1.manguebit.org with local (Exim 4.100.1)
+	id 1xWYPD-00000000zqR-3EYd;
+	Thu, 26 Nov 2026 09:16:51 -0300
+Message-ID: <c9542b37c8edfdfa255cdfc2d5e3f9d2@manguebit.org>
+From: Paulo Alcantara <pc@manguebit.org>
+To: Elkin Cruz <elkin@google.com>, Namjae Jeon <linkinjeon@kernel.org>
+Cc: Ronnie Sahlberg <ronniesahlberg@gmail.com>, Shyam Prasad N
+ <sprasad@microsoft.com>, Tom Talpey <tom@talpey.com>, Bharath SM
+ <bharathsm@microsoft.com>, linux-cifs@vger.kernel.org,
+ samba-technical@lists.samba.org, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, irogers@google.com, Elkin Cruz <elkin@google.com>,
+ stable@vger.kernel.org
+Subject: Re: [PATCH] smb: client: unlock reconnect_mutex before putting
+ session on terminate
+In-Reply-To: <20261125210025.1277771-1-elkin@google.com>
+References: <20261125210025.1277771-1-elkin@google.com>
+Date: Thu, 26 Nov 2026 09:16:51 -0300
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,153 +68,20 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHc6FU4h-FRvLkO_0ouTey9MbX=n61t3abt4hPNFOthsRGG9mQ@mail.gmail.com>
-X-ClientProxiedBy: cncheex05.Hygon.cn (172.23.18.115) To cncheex04.Hygon.cn
- (172.23.18.114)
+Content-Type: text/plain
 
-在 Wed, Nov 25, 2026 at 11:25:12PM +0100，Andreas Gruenbacher 写道：
-> Huang,
-> 
-> I have some thoughts ...
-> 
-> On Wed, 25 Nov 2026 at 10:18, Huang Shijie <huangsj@hygon.cn> wrote:
-> > This series adds a superblock inode iterator and converts the open-coded
-> > sb->s_inodes walks in the VFS to it.  The design follows the cursor-based
-> > construct proposed by Christian Brauner:
-> >
-> >   https://lore.kernel.org/all/20261120-mitverantwortlich-drehbaren-kantholz-241300d20168@brauner/
-> >
-> > and is the same direction as Dave Chinner's patch set:
-> >
-> >   "vfs: improving inode cache iteration scalability"
-> >   https://lore.kernel.org/all/20241002014017.3801899-1-david@fromorbit.com/
-> >
-> > The caller owns the iterator state and drives the walk itself:
-> >
-> >   CLASS(sb_inode_iter, iter)(sb, eligible, priv, flags);
-> >   while ((inode = sb_inode_iter_next(&iter)))
-> >           /* do stuff */;
-> 
-> The pattern should be:
-> 
->   for (CLASS(...); ...; ...) {
->       /* ... */
->       if (/* end iteration early */)
->           break;
->       /* ... */
->   }
-> 
-> so that the iterator goes out of scope immediately when the loop ends.
-> Hide the details of the loop header in a macro and that this becomes:
-> 
->   for_each_inode(inode, sb) {
+Elkin Cruz <elkin@google.com> writes:
 
-The fs/jffs2/build.c has used this for_each_inode.
-Maybe change to for_each_sb_inode?
+> In smb2_reconnect_server(), when server->terminate is set, the early
+> exit path calls cifs_put_tcp_session(server, true) while still holding
+> pserver->reconnect_mutex and unlocks pserver->reconnect_mutex
+> afterwards. Dropping the last session reference can free server (which
+> equals pserver for primary channels), causing mutex_unlock() to touch
+> freed memory; the normal done: label at the end of the same function
+> explicitly unlocks reconnect_mutex before calling cifs_put_tcp_session().
+>
+> Unlock pserver->reconnect_mutex before calling cifs_put_tcp_session() in
+> the server->terminate branch as well.
+> ...
 
->       /* inode is referenced and unlocked here */
->   }
-> 
-> Use that to convert the simple cases.
-> 
-> And then we've got preconditions that are checked while the inode is
-> locked. Those can probably go in an expression:
-> 
->   for_each_inode(inode, sb, expression) {
-We still need add flags here.
-
-In evict_inodes() and hook_sb_delete(), only the expression is not enough.
-
-How about add a raw code like this:
-
-    for_each_inode_raw(inode, sb, expression, flags) {
-    }
-
-And add a macro for_each_inode:
-  #define for_each_inode(inode, sb, expression)	 for_each_inode_raw(inode, sb, expression, 0)
-
-Most of the cases, we can use the for_each_inode.
-
-But in the evict_inodes() and hook_sb_delete() we can use the for_each_inode_raw. 
-
-
->       /* expression was true */
->       /* inode is referenced and unlocked here */
->   }
-> 
-> This unfortunately cannot be implemented on top of the
-> sb_inode_iter_next() pattern, at least not in a reasonable way, so we
-> actually shouldn't use that pattern.
-> 
-> The locked iterator would look like this:
-> 
->   for_each_inode_locked(inode, sb) {
-	
-I tried this way today.
-
-The macro for_each_inode_locked is complicated.	
-When I tried to add more hooks to super_operations to implement the
-procfs issue, the for_each_inode_locked becomes more complicated.
-
-BTW: the procfs issue see the link:
-  https://lore.kernel.org/all/20260920072811.2064247-1-huangsj@hygon.cn/
-
->       /* inode is locked here */
->   }
-> 
-> This doesn't cover all existing cases, but that's okay. Don't force
-> things into this pattern that are not a match.
-> 
-> We can always extend things further if it makes sense.
-> 
-> > The lock does not span iterations.  sb_inode_iter_next() takes
-> > sb->s_inode_list_lock, takes a reference on the next inode, drops the lock
-> > again and hands the inode out; the reference is what keeps the cursor on
-> > sb->s_inodes so that the next call can resume from it.  As the iterator
-> > is a cleanup class, a caller that breaks out early does not have to call
-> > sb_inode_iter_end() explicitly.
-> >
-> > Two optional channels let a caller keep its own state instead of filling in
-> > a shared context:
-> >
-> >   - iter->eligible is called with inode->i_lock held, so that a caller can
-> >     reject an inode before a reference is paid for.
-> >
-> >   - iter->status carries an error out of the walk.  Setting it to a
-> >     negative value makes sb_inode_iter_next() return NULL.
-> 
-> Nobody needs that. Just break out of the loop.
-> 
-> > Most callers just want a referenced inode and use no flags at all.  Three
-> > flags cover the walks that need something else:
-> >
-> >   - %INO_ITER_F_REFERENCED restricts the walk to inodes that still have a
-> >     reference, preserving the "only handle referenced inodes" rule of
-> >     landlock's sb-delete walk.
-> >
-> >   - %INO_ITER_F_NOREF hands out only inodes whose reference count has
-> >     already reached zero, and %INO_ITER_F_NOIGET suppresses the reference.
-> >     Neither keeps the inode alive, so the caller has to make the inode
-> >     unclaimable itself.
-> 
-> No flags.
-If we do not add flags, we cannot convert the evict_inodes() and hook_sb_delete().
-
-We'd better convert evict_inodes/hook_sb_delete this time, and then
-we can add more hooks to super_operations{}, such as sb_add_inode/sb_del_inode/sb_iter_inode.
-With these hooks in super_operations, we can add more optimization code for different FSs.
-For example:
-  
-  "vfs: improving inode cache iteration scalability"
-  https://lore.kernel.org/all/20241002014017.3801899-1-david@fromorbit.com/
-  
-  and 
-  https://lore.kernel.org/all/20260920072811.2064247-1-huangsj@hygon.cn/
-
-
-Thanks
-Huang Shijie
-
+Applied.
