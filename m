@@ -1,47 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=207.46.229.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692028;
-	b=C2XQKcR74eoHwKULkv2efB48r5tcYLRWmu3wIvXHQuI4M/RvtkTcGy63VxeX/hqVMM0u
-	 yezvQSJ5rsoBlOZc53cJ29BPe2Mzk7fE/m4lAQDNd9Lfjupy3h22cuxnnveJko6y3ZK0w
-	 cV0o1FolTmkkI9MxOuqYOgF4eWQKzVubluE3yML779rusL/5DdGzQ5xzK2+BCjkMO5glR
-	 jkyghPlQ//fhI7sqMa3LIeeg3vhXXwUdsccnd44CTUO0UdXKzGg+FX/pyMpyfKHRBj8AP
-	 WUZ8mPXDcL92dB3GsqAou2o/1fpk12RrkS60/keMWjEfOr/fXBZdfdtXm0wlAlqgQ4Q==
+	t=1795692034;
+	b=Z/58AvFOstWNMO1zGKaR96afX8xgTxlzYbroCIoYdLBh/T4kiXFBFO94lXdkNaO8ks6B
+	 vxtGLrPjZrj/5dc+BmQhj9pT6A7GZ3gL77w5gHbP8X1LxKc9N/HvS9LER6c/ig+/V/bGe
+	 /DuDttdjBk3k9fkYnzfvEJNKiQdlw4X93EM1b5BnUBVVzBxL5SxMcH/+j4nuUSZRLR1L6
+	 RYl1xLWm9BJmvPli26DNoiqh6An4tmD8c+jsJeWxqswnraT29qeBO+7CLAa1/ObmxNNi6
+	 A8vUm4PtTFIWycuXU5ziA+sRpiTB1+xt5vP36bE8A7xzkr+eMA7q01W5aFa6Z7H0Lyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692028;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ecA3ZmQf+hgtDK0BoSFd9aCf4CcQv1VF93CQ72nCLAE=;
-	b=BZP8fdlJ/d6jRpMgnIv+mctYZaeaGN96ppSJRRchcv/LuVKaj7Fmz8MMoclztOAYaanx
-	 66O6sdVgu9v0VIwdEKHQWRZwbiKGMHWOaSd5cvTsZCyByz4MncUaQ6HJLZk69ilROatbO
-	 I0qWzrOITxw/z9qtlSrSuNDxoMM6qU8ay3EQC6pI7o1Qq75rysVhLfqywdJCXGN2GVgX+
-	 HSRBzjW+k4B7xdYqCib98KYredsCTqy2OBIKIl/DSPC7/tVii8KORv9jFNPqs7F6oO17o
-	 140M3jxtyrWowKQ48OzVj/vemo8uTPINgp99qrKlvPdNZjwLlr+GwFUBBpq0BPHIoeA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795692034;
+	h=DMARC-Filter:Received:X-Originating-IP:Date:X-CM-HeaderCharset:From:
+	 To:Cc:Subject:X-Priority:X-Mailer:X-CM-CTRLMSGS:
+	 Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:
+	 X-Coremail-Locale:X-CM-TRANSID:X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=Yq34MxAonp8w7fkcH+HHmtU/LVeO6dwKSjZpLb84G90=;
+	b=tFLCeDix10RtZoSXRnQoFLSIjtby5afXt065ZlE38dRhFyISs2nfrGRvi9ue2BCFn+Ya
+	 S0sF+3mXplUVf9+EbmuRnmZs1EapRZ4Aadrq2DHFnFc1xAXdq2zwdzg7mK6giMcJvVU3m
+	 CPDZVQ7dJJSG1dY3S9TxZ9EZIVJ9vsKoVnOatth/+F7T17J9D8flF3yEWkhhV0BmS1Xdt
+	 xpuOyEvYsm8Fvna0fNBRpGGiablv4LOn5W5PZ+GFp+NZnj5IhNa4q8iue/si40A+AtNhA
+	 kbq0K1RkJLJnMG5p89hPLpdsOFHLZMeVje9GuE/d07PwWNmHg4+lXGwvyuHb4yxkHLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="gXH/RP8U";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 831C4606A337
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 11:20:28 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gXH/RP8U
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B9B51F000D3;
-	Thu, 26 Nov 2026 11:20:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795692028;
-	bh=ecA3ZmQf+hgtDK0BoSFd9aCf4CcQv1VF93CQ72nCLAE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=gXH/RP8UrELFZe6yrXteIGd+phr3Qk99Egj4zsLK1IuvwArJXAK1Fy4KyAbF46mO5
-	 PH0AxCw9BklCUuFyejyZpc6QuUzGGyyTb9CiMuc1bIRzpeKcpaUv7ch9kTp/7kY7Nc
-	 oeRIGOgPjuUfqUtKKkAC4FaPY6+9gOFDn9iTm9BfW8d7oeAXnOy8SMx0NZhmFcXs0O
-	 dW8Hp6rsc+7FpvJr/U2HGBSpJ9+xX+pqAuVsvANh7gjkmFMjIz1FZMZVxm98+7H6rn
-	 lGzkGrqZKMj/LAaWVP0xF7prst/6ghmOafBpGxF+9FGCZzeKJAIeqt9ktEc9aweNja
-	 3dvFXL4LIKVYA==
-Message-ID: <650e5497-1625-4e05-afc4-9db9472262ae@kernel.org>
-Date: Thu, 26 Nov 2026 12:20:23 +0100
+	dmarc=none header.from=hust.edu.cn;
+	spf=pass smtp.mailfrom=hust.edu.cn;
+	arc=none smtp.remote-ip=207.46.229.174
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [207.46.229.174])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7A8DD606A68C;
+	Thu, 26 Nov 2026 11:20:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7A8DD606A68C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=hust.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hust.edu.cn
+Received: from xuhx$hust.edu.cn ( [10.12.190.107] ) by ajax-webmail-app1
+ (Coremail) ; Thu, 26 Nov 2026 19:20:28 +0800 (GMT+08:00)
+Date: Thu, 26 Nov 2026 19:20:28 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5b6Q5pmX57+U?= <xuhx@hust.edu.cn>
+To: "Takashi Iwai" <tiwai@suse.com>, "Jaroslav Kysela" <perex@perex.cz>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] ALSA: ctxfi: Fix UAF when freeing a running system timer
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2025.3-cmXT6 build
+ 20260810(6c94e3b5) Copyright (c) 2002-2026 www.mailtech.cn hust
+X-CM-CTRLMSGS: =?B?ucJHcTiH6nJ5xwDR7hwMki1N8jM=
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,150 +51,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm/hugetlb: stop hashing address_space pointers for fault
- mutexes
-To: Zhengchuan Liang <zcliangcn@gmail.com>,
- Muchun Song <muchun.song@linux.dev>
-Cc: Oscar Salvador <osalvador@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>, Davidlohr Bueso
- <davidlohr@hp.com>, linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <9a97a64f7e7aabc668499c426a2417a77d13a2f4.1795587203.git.zcliangcn@gmail.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <9a97a64f7e7aabc668499c426a2417a77d13a2f4.1795587203.git.zcliangcn@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Message-ID: <2e224b35.12c4.1a21795e092.Coremail.xuhx@hust.edu.cn>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:IAEQrMCGzs_8FQhrKAMRAA--.5210W
+X-CM-SenderInfo: bgsqjkayqyjmo6kx23oohg3hdfq/1tbiAQQDB2sHuvQfwQACs-
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 
-On 11/25/26 07:15, Zhengchuan Liang wrote:
-> hugetlb_fault_mutex_hash() uses the address_space pointer and page index
-> to select an entry in a global mutex table. An unprivileged user can
-> create a no-reserve HugeTLB memfd with an empty huge page pool, build
-> contention on one index, and time SIGBUS faults at chosen indices.
-> Pointer-dependent mutex collisions expose equations that recover the
-> exact address_space address.
-> 
-> Give each hugetlbfs inode a dedicated random hash seed instead, and hash
-> the page index with that value. Operations on the same mapping continue
-> to select the same mutex, while separate mappings retain independent
-> bucket distributions without encoding an address. The seed is not
-> relied upon as a secret and is not reused by another hash table.
-> 
-> Fixes: 8382d914ebf7 ("mm, hugetlb: improve page-fault scalability")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Zhengchuan Liang <zcliangcn@gmail.com>
-> ---
->  fs/hugetlbfs/inode.c    | 2 ++
->  include/linux/hugetlb.h | 1 +
->  mm/hugetlb.c            | 9 ++-------
->  3 files changed, 5 insertions(+), 7 deletions(-)
-> 
-> diff --git a/fs/hugetlbfs/inode.c b/fs/hugetlbfs/inode.c
-> index 558007fa5e88..72a406b97f9e 100644
-> --- a/fs/hugetlbfs/inode.c
-> +++ b/fs/hugetlbfs/inode.c
-> @@ -35,6 +35,7 @@
->  #include <linux/security.h>
->  #include <linux/magic.h>
->  #include <linux/migrate.h>
-> +#include <linux/random.h>
->  #include <linux/uio.h>
->  
->  #include <linux/uaccess.h>
-> @@ -1182,6 +1183,7 @@ static struct inode *hugetlbfs_alloc_inode(struct super_block *sb)
->  		hugetlbfs_inc_free_inodes(sbinfo);
->  		return NULL;
->  	}
-> +	p->fault_mutex_hash_seed = get_random_u32();
->  	return &p->vfs_inode;
->  }
->  
-> diff --git a/include/linux/hugetlb.h b/include/linux/hugetlb.h
-> index 58f755e70e96..61d833b7a76c 100644
-> --- a/include/linux/hugetlb.h
-> +++ b/include/linux/hugetlb.h
-> @@ -504,6 +504,7 @@ static inline struct hugetlbfs_sb_info *HUGETLBFS_SB(struct super_block *sb)
->  struct hugetlbfs_inode_info {
->  	struct inode vfs_inode;
->  	struct resv_map *resv_map;
-> +	u32 fault_mutex_hash_seed;
->  	unsigned int seals;
->  #ifdef CONFIG_HUGETLB_PMD_PAGE_TABLE_SHARING
->  	atomic64_t pmd_sharing_count;
-> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-> index ce9c8e57b8e5..6865ff468343 100644
-> --- a/mm/hugetlb.c
-> +++ b/mm/hugetlb.c
-> @@ -6091,13 +6091,8 @@ static vm_fault_t hugetlb_no_page(struct address_space *mapping,
->  #ifdef CONFIG_SMP
->  u32 hugetlb_fault_mutex_hash(struct address_space *mapping, pgoff_t idx)
->  {
-> -	unsigned long key[2];
-> -	u32 hash;
-> -
-> -	key[0] = (unsigned long) mapping;
-> -	key[1] = idx;
-> -
-> -	hash = jhash2((u32 *)&key, sizeof(key)/(sizeof(u32)), 0);
-> +	u32 seed = HUGETLBFS_I(mapping->host)->fault_mutex_hash_seed;
-> +	u32 hash = jhash2((u32 *)&idx, sizeof(idx) / sizeof(u32), seed);
-
-Both can be const.
-
-As discussed, using the inode number, if possible (and if it provides sufficient
-variance?) would be even better.
-
-The u32 random number works for me as well.
-
-Let's wait what hugetlb maintainers think.
-
-Thanks!
-
--- 
-Cheers,
-
-David
+Q3VycmVudGx5LCBjdF9zeXN0aW1lcl9mcmVlIGlzIGFsaWFzZWQgdG8gY3Rfc3lzdGltZXJfcHJl
+cGFyZSwgd2hpY2gKY2FsbHMgdGltZXJfZGVsZXRlX3N5bmNfdHJ5KCkuIFdoaWxlIGN0X3N5c3Rp
+bWVyX3ByZXBhcmUoKSBtdXN0IHJlbWFpbgpub24tc2xlZXBpbmcgYmVjYXVzZSBpdCBjYW4gcnVu
+IHVuZGVyIHRoZSBQQ00gc3RyZWFtIGxvY2ssIHVzaW5nCnRpbWVyX2RlbGV0ZV9zeW5jX3RyeSgp
+IGluIHRoZSBmcmVlIHBhdGggaXMgdW5zYWZlOiBpZiB0aGUgdGltZXIKY2FsbGJhY2sgaXMgY29u
+Y3VycmVudGx5IHJ1bm5pbmcgb24gYW5vdGhlciBDUFUsIHRpbWVyX2RlbGV0ZV9zeW5jX3RyeSgp
+CnJldHVybnMgLTEgd2l0aG91dCB3YWl0aW5nIGZvciBjb21wbGV0aW9uLiBUaGUgY2FsbGVyIHRo
+ZW4gcHJvY2VlZHMgdG8KZnJlZSB0aGUgY3RfdGltZXJfaW5zdGFuY2Ugb2JqZWN0LCByZXN1bHRp
+bmcgaW4gYSB1c2UtYWZ0ZXItZnJlZSBpbiB0aGUKc3RpbGwtcnVubmluZyB0aW1lciBjYWxsYmFj
+ay4KClJlcGxhY2UgdGhlIGN0X3N5c3RpbWVyX2ZyZWUgbWFjcm8gd2l0aCBhIGRlZGljYXRlZCBm
+dW5jdGlvbiB0aGF0IGNhbGxzCnRpbWVyX3NodXRkb3duX3N5bmMoKSwgd2hpY2ggd2FpdHMgZm9y
+IGFueSBydW5uaW5nIGNhbGxiYWNrIHRvIGZpbmlzaAphbmQgcHJldmVudHMgdGhlIHRpbWVyIGZy
+b20gYmVpbmcgcmVhcm1lZCBiZWZvcmUgdGhlIGluc3RhbmNlIGlzIGZyZWVkLgoKCkNjOiA8c3Rh
+YmxlQHZnZXIua2VybmVsLm9yZz4KU2lnbmVkLW9mZi1ieTogSGFueGlhbmcgWHUgPHh1aHhAaHVz
+dC5lZHUuY24+Ci0tLQpzb3VuZC9wY2kvY3R4ZmkvY3R0aW1lci5jIHwgIDggKysrKysrKy0KMSBm
+aWxlIGNoYW5nZWQsIDcgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdpdCBh
+L3NvdW5kL3BjaS9jdHhmaS9jdHRpbWVyLmMgYi9zb3VuZC9wY2kvY3R4ZmkvY3R0aW1lci5jCi0t
+LSBhL3NvdW5kL3BjaS9jdHhmaS9jdHRpbWVyLmMKKysrIGIvc291bmQvcGNpL2N0eGZpL2N0dGlt
+ZXIuYwpAQCAtMTExLDExICsxMTEsMTcgQEAKCnN0YXRpYyB2b2lkIGN0X3N5c3RpbWVyX3ByZXBh
+cmUoc3RydWN0IGN0X3RpbWVyX2luc3RhbmNlICp0aSkKeworIC8qIG5vbi1zbGVlcGluZzogYWxz
+byBydW5zIHVuZGVyIHRoZSBQQ00gc3RyZWFtIGxvY2sgKi8KY3Rfc3lzdGltZXJfc3RvcCh0aSk7
+CnRpbWVyX2RlbGV0ZV9zeW5jX3RyeSgmdGktPnRpbWVyKTsKfQoKLSNkZWZpbmUgY3Rfc3lzdGlt
+ZXJfZnJlZSBjdF9zeXN0aW1lcl9wcmVwYXJlCitzdGF0aWMgdm9pZCBjdF9zeXN0aW1lcl9mcmVl
+KHN0cnVjdCBjdF90aW1lcl9pbnN0YW5jZSAqdGkpCit7CisgLyogbWF5IHNsZWVwOiB3YWl0IGZv
+ciBhIGNhbGxiYWNrIHJ1bm5pbmcgb24gYW5vdGhlciBDUFUgKi8KKyBjdF9zeXN0aW1lcl9zdG9w
+KHRpKTsKKyB0aW1lcl9zaHV0ZG93bl9zeW5jKCZ0aS0+dGltZXIpOworfQoKc3RhdGljIGNvbnN0
+IHN0cnVjdCBjdF90aW1lcl9vcHMgY3Rfc3lzdGltZXJfb3BzID0gewouaW5pdCA9IGN0X3N5c3Rp
+bWVyX2luaXQs
