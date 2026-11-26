@@ -1,119 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795674960;
-	b=0P8GCLXEb2CvfVchpSnjyHtDgZ8b666qV6WL+y2mBmNCVU29MXYPJV4MeEmgmxUn+kpb
-	 yzwtyEIHUb2pbYPchl4HgPpdqVQYum5Mg0BYs8FVPqMabyXIa/i7xjdcHZAwDQCpVzWY0
-	 c7xgil/luQZGTZ5fGFYVU7VJD+s34as54t4IHTrOxG7ojb92hY5b6A1l3wNaIoxm+I/Cp
-	 XFn0t2LpWTubzmOF5M/IX0IRpnwCR20vFHquNLJ1uVVo0/mfZztWp1Hx1SXJbEGlxG2J+
-	 fRY+LMMXJwCr02vNXgNL7IsYT0YpcGTGHLNBdrGZUgUWOekQov2AGoioSFXfqeNZxVg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795674960;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=useXBxXoVcuQs6pwSMrotzhF5PuSfy1HhcN8BJ1fn/s=;
-	b=n8f4bts8zIYLzpIUZfuXfjQsmLocpJojoEanv+pN5qT3KPguqL8SvTzbOQlootoW0tGa
-	 ESIQkfXhrpg//9laqwiLOAQIer0TjVD3cBm4Xm0U26Dla26hqNL5Aa6Aqs9R/A5ITuZs5
-	 yQeVGwHvcpUMqIVGXuSyCWU9ITR3aglIwJkXy0fetxdpODqsku22Or4bnGNfvLcyl0v00
-	 NPoHUiDatecVgxcK+MtudSWFQ9zXW5UOhFRUVJ7ZmdWZkjWwZT5GgW84zlRcWxfRGN6HT
-	 bXPBJKTVS5WLbHL3NgOME65AqgAAkaLjBXGnjZVn31Ik+EnJLbbGXKd1+veDuMm/2xA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Lw4nVGvO;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=oSiWb0ft;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795674977;
+	b=J9MEHrsakzu/Co5rzeeRqjPRAq1BVIMt6r3Tdv11XXUwhoDduHo7u4+bU+0wZ5wcKdk1
+	 vvrtefa8UlBAFw5R2S4os+hiIOqskFmmNR1Y0ef4kzmJPRAoRc0GFt5ce1dKR/KC4xok4
+	 bTSBalpiofSO07nRQWGcnLwia9fwK22qEQkYzWBu9BbAQGGgmzbBHxZWMvMVU5vs4LYP7
+	 0Svj6+8mfC1cgGUmvvL/jn6pl5PLflzNK0H8sQYr59EYr9t/ISgfqx8YMdQLdGIPCXUqu
+	 nPTwW+/8oUFHwb69p2maV8ThPJikHsGb1M25l2DzDwo4kCvSWAcEtXnazV3Yk3XESsg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795674977;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=Kha7J0B18jTy76jkzk1IUtHEHyVitNdIsz6nXWVhzVo=;
+	b=5PXTLrYUPI/+sNoZeqYGlB8ZLev2VwvkkzdW8LvhNtS0w6cKfH4gmMsdQ3ON8C44T/gJ
+	 NVQJwgcsUsHrcgjwuFHT8UbX83IQe5ig0vgGgOaLsvZHU/C0TcUGWjA12OOoYVYqqjNNF
+	 w/IzVqnD8p3G3Ws9jrrYh2e82OQeiErzTCSIj4fsdfp2A1TK1DGzjP2VPNs/EVAWYSCFW
+	 HekbUJ083Q8MRRN1WSjLG4rHfLKTaQXlhstqXX2QpyRXOSqJ3wW8ywLuxHnJx3osrDgvA
+	 /IJIjfP5OZGKZCFHswVXuMjDwoNZkQdyAhQInNCwHgorjv0aJUb+a6RAs8NeTU4d9tw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HXx8gP8b;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB55E606A332;
+	Thu, 26 Nov 2026 06:36:17 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HXx8gP8b
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795674977;
+	b=PWV5p4/+vX6+RoQpf84VS+IRTnRp/Du2FBQpiuoIFcBEoVitGO/a4O+EkCT0KK+9LhYa
+	 2lemcZRmAX7Q+5TqtmysK7bbwIFGgu1syHKxJKimUiY8sMt8yZIP54bfDIUnMi/DVcynH
+	 iJ7OoZaWnB57eblJwwPnUtBOh0Ruh/S7zhaVBrhUEurAmfPJgHrjwHeOsRxzPvMOeCj1q
+	 jXoIfC7jmed6aRTpwMgaU654bhJ/5US3HvGIu7dFqS1CXLgIoNKAo9w4+dlnHBWJvShtU
+	 2ddem0rPoIO/6wAU3oN5am9LOgr5HuOehXa1ujMykbsZVGUSfA4oJLelTnxOW3+KpeQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795674977;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=Kha7J0B18jTy76jkzk1IUtHEHyVitNdIsz6nXWVhzVo=;
+	b=CEEiD73STgK+x6nR/5BSZl2xfJNMZSSdM9PSmOZmOCdN3lDwP3qp1cN4bn43NAKoDeXA
+	 7Tc04oKlI6wrRL88KbNPDf+tUYc4O1+JW63vO4xIdAj4lSJXy+cUzZOE1/Im+aDl5tYGk
+	 1PUrrH5tE6TH/TuKGOjctvImdaZWhyvTYJEP9Qg4tYvyUP6BxLKm1UbO9vcKsrVfuyLUx
+	 T9wuexp3ZR42GnKNCU3wN/p2l7m2DUOaGkjfpo7NTYTG2tfoRTTVHhqwZ1ynLhGxYzgvY
+	 CxsZ86Vrvhu3UopvjeQRNSNerDx2ZEnxPdkrOf0pArZdnSAcWbOnZTL8AxbhV2E6ZJg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41FCA606A32A
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 06:35:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41FCA606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Lw4nVGvO;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=oSiWb0ft
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795674958;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=useXBxXoVcuQs6pwSMrotzhF5PuSfy1HhcN8BJ1fn/s=;
-	b=Lw4nVGvO9VR1jHbfwXlcO06hvG6laBa96QWIqmQkfx4MinMICSfeg0Z2LW+8tFxXL2rQcA
-	6cA+/SL/989b6t2t7Gl/KrLQto9u/Bul6G5KV+3IXdJeVB79ixoP8Y8NyNpEsXn4yOsxir
-	EtuZeILDOYflkazM0g0NGbAE8bcmJ3k=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-396-L_XnKw_APdS6Dx4xQDkgfQ-1; Thu, 26 Nov 2026 06:35:54 +0000
-X-MC-Unique: L_XnKw_APdS6Dx4xQDkgfQ-1
-X-Mimecast-MFC-AGG-ID: L_XnKw_APdS6Dx4xQDkgfQ_1795674954
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4a359c7f47bso54953115e9.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 22:35:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795674953; x=1796279753; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=useXBxXoVcuQs6pwSMrotzhF5PuSfy1HhcN8BJ1fn/s=;
-        b=oSiWb0ftUDTUEzDPWOvsiFDEK/xg8xptq2mPWCZOmgcVc2DtQRdNcrpq7gFySk0obW
-         60V8ESH3Q3684FoeUDkSx+UAQ5QZqYE3nxNiqLGMgmLxbCdKcS+JtgN6/wjqTPrTKLQQ
-         BuzqlA9qW4KgjI17ukc6isRwIgc5w7GHJCwV4KkBEAiKTdZz3c6IVSKe3Ft1q/L8cvqh
-         qyiPYbj7JXC9LbRu+J1eGWqILcb06T9fm44d3zQ1400RAM9Ow6ToEAX/ZxjDZXBHQ9G7
-         55CJqeX+TrSucfV6KTFYyRpT6O2pHPDS9ei65mynO9zFYmUqHe3wLBk2vgIVf8AKdLCI
-         HsGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795674953; x=1796279753;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=useXBxXoVcuQs6pwSMrotzhF5PuSfy1HhcN8BJ1fn/s=;
-        b=fEy1aQln5Pl6TnEbOv/Ma4OMkZhD4aZnZ8qc0LyFHg9InJwQ3+AXsnnimtWhzwWDjB
-         4II0yi25hNNVWjbJqyMm/N46IwgaDu2e+orRRlx4WtCYB/x79Ik4R/ShK8VOqAfqjqbk
-         Zl82w1JpvD5RORXcWZdhwjkGxYkVE8V6qJs62sFhKa+LEZqnQmYf4rECq+3Vuq3Npnoo
-         Ek6PF6UtYmOxViw124kJT6tpcCYKSl/eFc7+6tAwXFEKahZYOyNCSUyiiQV1mgtXBrv3
-         dxgEMh4UIEIYD2VysV5Ao8ndWpsXNtpaAEhu3xNK9saZDxu0L4r/B4em/l4galLsE6Mc
-         MvVg==
-X-Forwarded-Encrypted: i=1; AL+hErHoGqTW8Hokcs0sv6icqb/fwby5cWf/+q+CUOyI3f1WwhwX9fcxd4pMBu3Y5O3D3TdfHeSR4zkGq9Wk3vQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/DnWNKhOuJHjidjrw44DqtdhCTC70JV1cUEew6O2pPmNQVugoq
-	PtZ2Mfdb40ILZAu9mx+4E0rQ0cxOjwCyxgs+/YFxbXiKQpAbVlnApdFIRxFQMIffqtHth3CCcaC
-	bf6NpYoZNCoNeAivfAxb5KjCqHlH6WSS1jW1/pXiUPEN77IShhMWC6bzv9/zBrXfSAw==
-X-Gm-Gg: AZFdTZdgnJQpO/D8tvIfOATlGeePiBymwcpk222Z9CDZOKq5DnxGJRMrIH328eW+jQF
-	HymscOMSiD7DkWKGUCaKIDz43sQt5SAE+gtMVlrIkY2jM3tc+Fct/+uCtlgtdRltjFmK581c+6J
-	kn6MYu/HtqMYX7ReuWFq7v9SYOGQ4DigK7YQ0tJvED5vPvf2PI27VQpBTgBrzu705aPrq8hFJUN
-	qBwC82Zzjnv2Its8L+ScbSq7IWyDfWOxWCY5Gpy5GgoABg8btcR9lszFmFGQprKbn6+/Ukq5jRX
-	f5kK5vkZ95ibiRWG2zaSs1ZjmO6p/uBmVMqtqbTd+nPo+qS7AR9utgemnWCEEuyruuwRqoUZj1y
-	VGQ807RSt/r28usHd3JayUTzDtmR+b24ue8o6FB4wbWI=
-X-Received: by 2002:a05:600c:4f10:b0:4bb:60bd:5398 with SMTP id 5b1f17b1804b1-4bb88804d35mr450071785e9.10.1795674953319;
-        Wed, 25 Nov 2026 22:35:53 -0800 (PST)
-X-Received: by 2002:a05:600c:4f10:b0:4bb:60bd:5398 with SMTP id 5b1f17b1804b1-4bb88804d35mr450071265e9.10.1795674952702;
-        Wed, 25 Nov 2026 22:35:52 -0800 (PST)
-Received: from redhat.com ([2a0d:6fc0:1529:2e00:86ec:bef7:c309:ba1f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8533579csm499716465e9.2.2026.11.25.22.35.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 22:35:51 -0800 (PST)
-Date: Thu, 26 Nov 2026 01:35:48 -0500
-From: "Michael S. Tsirkin" <mst@redhat.com>
-To: Jayant Shekhar <jayant.shekhar@oss.qualcomm.com>
-Cc: Jason Wang <jasowangio@gmail.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Flemin Jose <flemin.jose@oss.qualcomm.com>,
-	linux-arm-msm@vger.kernel.org, virtualization@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] virtio: Add Qualcomm VirtIO transport wrapper
-Message-ID: <20261126012921-mutt-send-email-mst@kernel.org>
-References: <20261126-jshekhar-qcom-virtio-dcp-v1-0-7b49bda74916@oss.qualcomm.com>
- <20261126-jshekhar-qcom-virtio-dcp-v1-3-7b49bda74916@oss.qualcomm.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 0833C1F000E1;
+	Thu, 26 Nov 2026 06:35:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795674977;
+	bh=Kha7J0B18jTy76jkzk1IUtHEHyVitNdIsz6nXWVhzVo=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=HXx8gP8b2jC8kb0AC8dls4aBrse+DsUyJCl2Fhoy8mNmIxF8xA8o12P4hpaTTcTUc
+	 B47vnnnXeu8OpcaViL6oTHf6K09r+Uh+n0dcIncO/1ddM/IdnzA0TguZIYGdzN/Qhp
+	 Ym1RV5ZwtE7Bph69UcSgXG8WLms48F6MKW+BZSd7lc8Ug65rqwy5+duimbod3o5054
+	 oTK9WncCat5cdjXmS68j/Q6G401dVrVimkw6p1jqVcORTW1GhzQO1gaGT6idm24etB
+	 IHwpHWFuN4t0K6ztRDv9doJqnP/b3aT8jzRPdBv5KCCWQygmtSj54+xSmL+XUUpT8i
+	 Pv+4gTPDSiHhA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 87F614D274;
+	Thu, 26 Nov 2026 06:35:56 +0000 (UTC)
+From: Dickson Wu via B4 Relay <devnull+dickson.wu.certik.com@kernel.org>
+Date: Thu, 26 Nov 2026 06:04:45 +0000
+Subject: [PATCH v2 5.15.y] pid_namespace: prevent TIF_NOTIFY_SIGNAL from
+ interrupting the reaper
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -123,681 +83,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126-jshekhar-qcom-virtio-dcp-v1-3-7b49bda74916@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-pid-515-v2-1-7f7ca8955797@certik.com>
+X-B4-Tracking: v=1; b=H4sIAPzLB2sC/y2MywrCMBAAf6Xs2VSzklj8FfGQx2pXJCnZKkrpv
+ 5uoxxmGWUCoMAkcuwUKPVk4pwq46SCMLl1JcawMuEOrNVo1cVRGGzVEGwfch4NGglpPhS78+p5
+ OYHpt+jecf14e/kZhbptWeiekfHEpjE0JpTjnfFfNb/97WNcPL2yHLpsAAAA=
+X-Change-ID: 20261126-pid-515-8d6d823c712e
+To: stable@vger.kernel.org
+Cc: Christian Brauner <brauner@kernel.org>, Oleg Nesterov <oleg@redhat.com>, 
+ linux-kernel@vger.kernel.org, Sasha Levin <sashal@kernel.org>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795673084; l=3176;
+ i=dickson.wu@certik.com; s=dickson-b4; h=from:subject:message-id;
+ bh=NTwKCRqRaZQa2oaPT2BuiJfwuLkiWEctDvxTR2Fk/QA=;
+ b=BbhStkw6O3dU/hOHy+LJPaSq5sxQnnTIzQjt7+9FMSA4mRbiciBEecb5ZpRWIHc2l+uAach0/
+ Gpx6ptmrUOdBQZeRVI3sEQbS46r/IC7exAdv4TClaLDbM0bYUACmULr
+X-Developer-Key: i=dickson.wu@certik.com; a=ed25519;
+ pk=fxH7FS4FdojeJSGLJzgKdfO51Rvr4EW30yinj2mc1vg=
+X-Endpoint-Received: by B4 Relay for dickson.wu@certik.com/dickson-b4 with
+ auth_id=1647
+X-Original-From: Dickson Wu <dickson.wu@certik.com>
+Reply-To: dickson.wu@certik.com
 
-On Thu, Nov 26, 2026 at 11:54:01AM +0530, Jayant Shekhar wrote:
-> Add the Qualcomm-specific VirtIO transport required by DCP firmware.
-> 
-> The transport sends an IPCC power notification before accessing the
-> VirtIO MMIO registers, then registers a VirtIO device directly.
-> 
-> Implement MMIO configuration access, feature negotiation, virtqueue
-> setup, interrupt handling, reset, DMA setup, and suspend/resume
-> sequencing in the transport. Keep power-management ordering in the
-> transport so VirtIO queues are quiesced before DCP power changes.
-> 
-> Assisted-by: LLM
-> Signed-off-by: Jayant Shekhar <jayant.shekhar@oss.qualcomm.com>
+From: Christian Brauner <brauner@kernel.org>
 
-So VIRTIO_ID_VENDOR you defined in patch 2 is completely unused?
-Why did you bother?
+commit 5c0985dd3c32fc2bbd0e8beaf13cf52cd97376a2 upstream.
 
-> ---
->  drivers/virtio/Kconfig                |  11 ++
->  drivers/virtio/Makefile               |   2 +
->  drivers/virtio/virtio_mmio.c          |  17 +--
->  drivers/virtio/virtio_mmio.h          |  21 +++
->  drivers/virtio/virtio_qcom_dcp.c      | 273 ++++++++++++++++++++++++++++++++++
->  drivers/virtio/virtio_qcom_dcp_ipcc.c | 193 ++++++++++++++++++++++++
->  drivers/virtio/virtio_qcom_dcp_ipcc.h |  41 +++++
->  7 files changed, 544 insertions(+), 14 deletions(-)
+Since commit 7fea700e04bd ("zap_pid_ns_processes: clear
+TIF_NOTIFY_SIGNAL along with TIF_SIGPENDING") zap_pid_ns_processes()
+clears TIF_NOTIFY_SIGNAL before every kernel_wait4() call. Otherwise
+kernel_wait4() doesn't sleep and returns -ERESTARTSYS if
+signal_pending() is true and the reaper busy-waits.
 
-Oh great a pile of vendor specific code in virtio, with the vendor
-explicitly saying on the virtio ML that no specs will be published,
-ever.  And it seems to be your assumption that I'll be signing up to
-maintain this?
+But clearing TIF_NOTIFY_SIGNAL doesn't fix it. It can get raised again.
+For example, klp_send_signals() sets it raw against any task that hasn't
+transitioned yet. And it keeps sending it until the livepatch finishes.
 
+The sleep loop waiting for pid_allocated to drop has the same problem
+and it doesn't even clear anything. So a schedule() in
+TASK_INTERRUPTIBLE returns immediately.
 
-> 
-> diff --git a/drivers/virtio/Kconfig b/drivers/virtio/Kconfig
-> index ce5bc0d9ea28..838ae5671c28 100644
-> --- a/drivers/virtio/Kconfig
-> +++ b/drivers/virtio/Kconfig
-> @@ -160,6 +160,17 @@ config VIRTIO_MMIO
->  
->   	 If unsure, say N.
->  
-> +config VIRTIO_QCOM_DCP
-> +	tristate "Qualcomm DCP VirtIO transport"
-> +	depends on VIRTIO_MMIO
-> +	depends on QCOM_IPCC
-> +	depends on OF
-> +	help
-> +	  This driver provides the Qualcomm DCP-specific platform transport for
-> +	  QPSFI VirtIO devices. It reuses the standard VirtIO-MMIO configuration
-> +	  and virtqueue support, and handles the IPCC power-notification channel
-> +	  used to wake DCP and forward response notifications.
-> +
->  config VIRTIO_MMIO_CMDLINE_DEVICES
->  	bool "Memory mapped virtio devices parameter parsing"
->  	depends on VIRTIO_MMIO
-> diff --git a/drivers/virtio/Makefile b/drivers/virtio/Makefile
-> index eefcfe90d6b8..c922fb5bff16 100644
-> --- a/drivers/virtio/Makefile
-> +++ b/drivers/virtio/Makefile
-> @@ -3,6 +3,8 @@ obj-$(CONFIG_VIRTIO) += virtio.o virtio_ring.o
->  obj-$(CONFIG_VIRTIO_ANCHOR) += virtio_anchor.o
->  obj-$(CONFIG_VIRTIO_PCI_LIB) += virtio_pci_modern_dev.o
->  obj-$(CONFIG_VIRTIO_PCI_LIB_LEGACY) += virtio_pci_legacy_dev.o
-> +obj-$(CONFIG_VIRTIO_QCOM_DCP) += qcom_dcp_virtio.o
-> +qcom_dcp_virtio-y := virtio_qcom_dcp.o virtio_qcom_dcp_ipcc.o
->  obj-$(CONFIG_VIRTIO_MMIO) += virtio_mmio.o
->  obj-$(CONFIG_VIRTIO_PCI) += virtio_pci.o
->  virtio_pci-y := virtio_pci_modern.o virtio_pci_common.o
-> diff --git a/drivers/virtio/virtio_mmio.c b/drivers/virtio/virtio_mmio.c
-> index c403a025006e..348809b9ebfe 100644
-> --- a/drivers/virtio/virtio_mmio.c
-> +++ b/drivers/virtio/virtio_mmio.c
-> @@ -71,7 +71,7 @@
->  #include <uapi/linux/virtio_mmio.h>
->  #include <linux/virtio_ring.h>
->  
-> -
-> +#include "virtio_mmio.h"
->  
->  /* The alignment to use between consumer and producer parts of vring.
->   * Currently hardcoded to the page size. */
-> @@ -81,18 +81,6 @@
->  
->  #define to_virtio_mmio_device(_plat_dev) \
->  	container_of(_plat_dev, struct virtio_mmio_device, vdev)
-> -
-> -struct virtio_mmio_device {
-> -	struct virtio_device vdev;
-> -	struct platform_device *pdev;
-> -
-> -	void __iomem *base;
-> -	unsigned long version;
-> -
-> -	/* True if enable_irq_wake() succeeded for the shared IRQ. */
-> -	bool wake_irq_enabled;
-> -};
-> -
->  /* Configuration interface */
->  
->  static u64 vm_get_features(struct virtio_device *vdev)
-> @@ -536,7 +524,7 @@ static bool vm_get_shm_region(struct virtio_device *vdev,
->  	return true;
->  }
->  
-> -static const struct virtio_config_ops virtio_mmio_config_ops = {
-> +const struct virtio_config_ops virtio_mmio_config_ops = {
->  	.get		= vm_get,
->  	.set		= vm_set,
->  	.generation	= vm_generation,
-> @@ -551,6 +539,7 @@ static const struct virtio_config_ops virtio_mmio_config_ops = {
->  	.get_shm_region = vm_get_shm_region,
->  	.synchronize_cbs = vm_synchronize_cbs,
->  };
-> +EXPORT_SYMBOL_GPL(virtio_mmio_config_ops);
->  
->  #ifdef CONFIG_PM_SLEEP
->  static int virtio_mmio_freeze(struct device *dev)
-> diff --git a/drivers/virtio/virtio_mmio.h b/drivers/virtio/virtio_mmio.h
-> new file mode 100644
-> index 000000000000..a80904ed73e2
-> --- /dev/null
-> +++ b/drivers/virtio/virtio_mmio.h
-> @@ -0,0 +1,21 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +#ifndef _DRIVERS_VIRTIO_VIRTIO_MMIO_H
-> +#define _DRIVERS_VIRTIO_VIRTIO_MMIO_H
-> +
-> +#include <linux/io.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/virtio.h>
-> +#include <linux/virtio_config.h>
-> +
-> +struct virtio_mmio_device {
-> +	struct virtio_device vdev;
-> +	struct platform_device *pdev;
-> +	void __iomem *base;
-> +	unsigned long version;
-> +	/* True if enable_irq_wake() succeeded for the shared IRQ. */
-> +	bool wake_irq_enabled;
-> +};
-> +
-> +extern const struct virtio_config_ops virtio_mmio_config_ops;
-> +
-> +#endif /* _DRIVERS_VIRTIO_VIRTIO_MMIO_H */
-> diff --git a/drivers/virtio/virtio_qcom_dcp.c b/drivers/virtio/virtio_qcom_dcp.c
-> new file mode 100644
-> index 000000000000..a5443f2dbc4b
-> --- /dev/null
-> +++ b/drivers/virtio/virtio_qcom_dcp.c
-> @@ -0,0 +1,273 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + *
-> + * Qualcomm DCP VirtIO transport.
-> + */
-> +
-> +#include <linux/dma-mapping.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm.h>
-> +#include <linux/slab.h>
-> +#include <linux/string.h>
-> +#include <linux/virtio.h>
-> +#include <linux/virtio_config.h>
-> +#include <uapi/linux/virtio_mmio.h>
-> +
-> +#include "virtio_mmio.h"
-> +#include "virtio_qcom_dcp_ipcc.h"
-> +
-> +struct dcp_virtio_transport {
-> +	struct virtio_mmio_device mmio;
-> +	struct virtio_config_ops config_ops;
-> +	struct dcp_ipcc ipcc;
-> +};
-> +
-> +static struct dcp_virtio_transport *
-> +to_dcp_virtio_transport(struct virtio_mmio_device *mmio)
-> +{
-> +	return container_of(mmio, struct dcp_virtio_transport, mmio);
-> +}
-> +
-> +static void dcp_virtio_synchronize_cbs(struct virtio_device *vdev)
-> +{
-> +	struct virtio_mmio_device *mmio =
-> +		container_of(vdev, struct virtio_mmio_device, vdev);
-> +	struct dcp_virtio_transport *transport = to_dcp_virtio_transport(mmio);
-> +
-> +	virtio_mmio_config_ops.synchronize_cbs(vdev);
-> +	dcp_ipcc_synchronize(&transport->ipcc);
-> +}
-> +
-> +static int dcp_virtio_find_vqs(struct virtio_device *vdev, unsigned int nvqs,
-> +			       struct virtqueue *vqs[],
-> +			       struct virtqueue_info vqs_info[],
-> +			       struct irq_affinity *desc)
-> +{
-> +	struct virtio_mmio_device *mmio =
-> +		container_of(vdev, struct virtio_mmio_device, vdev);
-> +	struct dcp_virtio_transport *transport = to_dcp_virtio_transport(mmio);
-> +	unsigned int i;
-> +	int ret;
-> +
-> +	ret = virtio_mmio_config_ops.find_vqs(vdev, nvqs, vqs, vqs_info, desc);
-> +	if (ret)
-> +		return ret;
-> +
-> +	for (i = 0; i < nvqs; i++) {
-> +		if (vqs[i] && vqs_info[i].name && !strcmp(vqs_info[i].name, "resp")) {
-> +			dcp_ipcc_set_resp_vq(&transport->ipcc, vqs[i]);
-> +			break;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void dcp_virtio_del_vqs(struct virtio_device *vdev)
-> +{
-> +	struct virtio_mmio_device *mmio =
-> +		container_of(vdev, struct virtio_mmio_device, vdev);
-> +	struct dcp_virtio_transport *transport = to_dcp_virtio_transport(mmio);
-> +
-> +	dcp_ipcc_set_resp_vq(&transport->ipcc, NULL);
-> +	virtio_mmio_config_ops.del_vqs(vdev);
-> +}
-> +
-> +static void dcp_virtio_release_dev(struct device *dev)
-> +{
-> +	struct virtio_device *vdev = container_of(dev, struct virtio_device, dev);
-> +	struct virtio_mmio_device *mmio =
-> +		container_of(vdev, struct virtio_mmio_device, vdev);
-> +	struct dcp_virtio_transport *transport = to_dcp_virtio_transport(mmio);
-> +
-> +	kfree(transport);
-> +}
-> +
-> +static int dcp_virtio_init_device(struct dcp_virtio_transport *transport,
-> +				  struct platform_device *pdev)
-> +{
-> +	struct virtio_mmio_device *mmio = &transport->mmio;
-> +	unsigned long magic;
-> +	int ret;
-> +
-> +	mmio->vdev.dev.parent = &pdev->dev;
-> +	mmio->vdev.config = &transport->config_ops;
-> +	mmio->pdev = pdev;
-> +
-> +	mmio->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(mmio->base))
-> +		return PTR_ERR(mmio->base);
-> +
-> +	magic = readl(mmio->base + VIRTIO_MMIO_MAGIC_VALUE);
-> +	if (magic != ('v' | 'i' << 8 | 'r' << 16 | 't' << 24)) {
-> +		dev_warn(&pdev->dev, "Wrong magic value 0x%08lx!\n", magic);
-> +		return -ENODEV;
-> +	}
-> +
-> +	mmio->version = readl(mmio->base + VIRTIO_MMIO_VERSION);
-> +	if (mmio->version < 1 || mmio->version > 3) {
-> +		dev_err(&pdev->dev, "Version %ld not supported!\n", mmio->version);
-> +		return -ENXIO;
-> +	}
-> +
-> +	mmio->vdev.id.device = readl(mmio->base + VIRTIO_MMIO_DEVICE_ID);
-> +	if (!mmio->vdev.id.device)
-> +		return -ENODEV;
-> +
-> +	mmio->vdev.id.vendor = readl(mmio->base + VIRTIO_MMIO_VENDOR_ID);
-> +
-> +	if (mmio->version == 1) {
-> +		writel(PAGE_SIZE, mmio->base + VIRTIO_MMIO_GUEST_PAGE_SIZE);
-> +		ret = dma_set_mask(&pdev->dev, DMA_BIT_MASK(64));
-> +		if (!ret)
-> +			dma_set_coherent_mask(&pdev->dev,
-> +					      DMA_BIT_MASK(32 + PAGE_SHIFT));
-> +	} else {
-> +		ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(64));
-> +	}
-> +	if (ret)
-> +		ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
-> +	if (ret)
-> +		dev_warn(&pdev->dev,
-> +			 "Failed to enable 64-bit or 32-bit DMA. Trying to continue, but this might not work.\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static int dcp_virtio_transport_probe(struct platform_device *pdev)
-> +{
-> +	struct dcp_virtio_transport *transport;
-> +	struct virtio_mmio_device *mmio;
-> +	int ret;
-> +
-> +	transport = kzalloc_obj(*transport);
-> +	if (!transport)
-> +		return -ENOMEM;
-> +
-> +	mmio = &transport->mmio;
-> +	mmio->vdev.dev.release = dcp_virtio_release_dev;
-> +	transport->config_ops = virtio_mmio_config_ops;
-> +	transport->config_ops.find_vqs = dcp_virtio_find_vqs;
-> +	transport->config_ops.del_vqs = dcp_virtio_del_vqs;
-> +	transport->config_ops.synchronize_cbs = dcp_virtio_synchronize_cbs;
-> +
-> +	ret = dcp_ipcc_init(&transport->ipcc, &pdev->dev, 1);
-> +	if (ret) {
-> +		kfree(transport);
-> +		return ret;
-> +	}
-> +
-> +	/* Wake DCP before the first access to the VirtIO MMIO registers. */
-> +	ret = dcp_ipcc_send_power_notify(&transport->ipcc);
-> +	if (ret)
-> +		goto err_ipcc;
-> +
-> +	ret = dcp_virtio_init_device(transport, pdev);
-> +	if (ret)
-> +		goto err_ipcc;
-> +
-> +	platform_set_drvdata(pdev, transport);
-> +
-> +	ret = register_virtio_device(&mmio->vdev);
-> +	if (ret) {
-> +		platform_set_drvdata(pdev, NULL);
-> +		dcp_ipcc_deinit(&transport->ipcc);
-> +		put_device(&mmio->vdev.dev);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +
-> +err_ipcc:
-> +	dcp_ipcc_deinit(&transport->ipcc);
-> +	kfree(transport);
-> +	return ret;
-> +}
-> +
-> +static void dcp_virtio_transport_remove(struct platform_device *pdev)
-> +{
-> +	struct dcp_virtio_transport *transport = platform_get_drvdata(pdev);
-> +
-> +	/* Keep the embedded virtio_device alive until IPCC teardown is complete. */
-> +	get_device(&transport->mmio.vdev.dev);
-> +	unregister_virtio_device(&transport->mmio.vdev);
-> +	platform_set_drvdata(pdev, NULL);
-> +	dcp_ipcc_deinit(&transport->ipcc);
-> +	put_device(&transport->mmio.vdev.dev);
-> +}
-> +
-> +#ifdef CONFIG_PM_SLEEP
-> +static int dcp_virtio_transport_suspend(struct device *dev)
-> +{
-> +	struct dcp_virtio_transport *transport = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = virtio_device_freeze(&transport->mmio.vdev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = dcp_ipcc_enable_irq_wake(&transport->ipcc);
-> +	if (ret)
-> +		goto err_restore;
-> +
-> +	ret = dcp_ipcc_send_power_notify(&transport->ipcc);
-> +	if (ret) {
-> +		dcp_ipcc_disable_irq_wake(&transport->ipcc);
-> +		goto err_restore;
-> +	}
-> +
-> +	return 0;
-> +
-> +err_restore:
-> +	virtio_device_restore(&transport->mmio.vdev);
-> +	return ret;
-> +}
-> +
-> +static int dcp_virtio_transport_resume(struct device *dev)
-> +{
-> +	struct dcp_virtio_transport *transport = dev_get_drvdata(dev);
-> +	struct virtio_mmio_device *mmio = &transport->mmio;
-> +	int ret;
-> +
-> +	ret = dcp_ipcc_send_power_notify(&transport->ipcc);
-> +	if (ret) {
-> +		dcp_ipcc_disable_irq_wake(&transport->ipcc);
-> +		return ret;
-> +	}
-> +
-> +	dcp_ipcc_disable_irq_wake(&transport->ipcc);
-> +	if (mmio->version == 1)
-> +		writel(PAGE_SIZE, mmio->base + VIRTIO_MMIO_GUEST_PAGE_SIZE);
-> +
-> +	return virtio_device_restore(&mmio->vdev);
-> +}
-> +
-> +#endif
-> +static const struct dev_pm_ops dcp_virtio_transport_pm_ops = {
-> +	SET_SYSTEM_SLEEP_PM_OPS(dcp_virtio_transport_suspend,
-> +				dcp_virtio_transport_resume)
-> +};
-> +
-> +static const struct of_device_id dcp_virtio_transport_of_match[] = {
-> +	{ .compatible = "qcom,dcp-virtio" },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, dcp_virtio_transport_of_match);
-> +
-> +static struct platform_driver dcp_virtio_transport_driver = {
-> +	.probe = dcp_virtio_transport_probe,
-> +	.remove = dcp_virtio_transport_remove,
-> +	.driver = {
-> +		.name = "qcom-dcp-virtio",
-> +		.of_match_table = dcp_virtio_transport_of_match,
-> +		.pm = pm_sleep_ptr(&dcp_virtio_transport_pm_ops),
-> +	},
-> +};
-> +module_platform_driver(dcp_virtio_transport_driver);
-> +
-> +MODULE_DESCRIPTION("Qualcomm DCP VirtIO transport");
-> +MODULE_LICENSE("GPL");
-> diff --git a/drivers/virtio/virtio_qcom_dcp_ipcc.c b/drivers/virtio/virtio_qcom_dcp_ipcc.c
-> new file mode 100644
-> index 000000000000..1d83bcc69d5c
-> --- /dev/null
-> +++ b/drivers/virtio/virtio_qcom_dcp_ipcc.c
-> @@ -0,0 +1,193 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + *
-> + * DCP IPCC power-notify mailbox client. It wakes DCP during power
-> + * transitions and routes firmware notifications to the VirtIO response
-> + * queue.
-> + */
-> +
-> +#include <linux/device.h>
-> +#include <linux/err.h>
-> +#include <linux/jiffies.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/mailbox_client.h>
-> +#include <linux/mutex.h>
-> +#include <linux/of_irq.h>
-> +#include <linux/string.h>
-> +#include <linux/virtio.h>
-> +#include <linux/virtio_ring.h>
-> +
-> +#include "virtio_qcom_dcp_ipcc.h"
-> +
-> +#define DCP_IPCC_POWER_NOTIFY_TIMEOUT_MS	10000
-> +
-> +static void dcp_ipcc_handle_rx(struct dcp_ipcc *ipcc)
-> +{
-> +	unsigned long flags;
-> +
-> +	spin_lock_irqsave(&ipcc->state_lock, flags);
-> +	if (ipcc->shutting_down) {
-> +		spin_unlock_irqrestore(&ipcc->state_lock, flags);
-> +		return;
-> +	}
-> +
-> +	complete(&ipcc->power_notify_done);
-> +	if (ipcc->resp_vq)
-> +		vring_interrupt(0, ipcc->resp_vq);
-> +
-> +	spin_unlock_irqrestore(&ipcc->state_lock, flags);
-> +}
-> +
-> +static irqreturn_t dcp_ipcc_power_notify_irq(int irq, void *data)
-> +{
-> +	struct dcp_ipcc *ipcc = data;
-> +
-> +	dcp_ipcc_handle_rx(ipcc);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static void dcp_ipcc_rx_callback(struct mbox_client *cl, void *data)
-> +{
-> +	struct dcp_ipcc *ipcc = container_of(cl, struct dcp_ipcc, client);
-> +
-> +	dcp_ipcc_handle_rx(ipcc);
-> +}
-> +
-> +static void dcp_ipcc_free_channel(void *data)
-> +{
-> +	mbox_free_channel(data);
-> +}
-> +
-> +int dcp_ipcc_init(struct dcp_ipcc *ipcc, struct device *dev, unsigned int irq_index)
-> +{
-> +	int irq, ret;
-> +
-> +	memset(ipcc, 0, sizeof(*ipcc));
-> +	init_completion(&ipcc->power_notify_done);
-> +	mutex_init(&ipcc->power_notify_lock);
-> +	spin_lock_init(&ipcc->state_lock);
-> +
-> +	ipcc->client.dev          = dev;
-> +	ipcc->client.tx_block     = false;
-> +	ipcc->client.tx_tout      = 0;
-> +	ipcc->client.knows_txdone = true;
-> +	ipcc->client.rx_callback  = dcp_ipcc_rx_callback;
-> +
-> +	ipcc->power_chan = mbox_request_channel(&ipcc->client, 0);
-> +	if (IS_ERR(ipcc->power_chan)) {
-> +		ret = PTR_ERR(ipcc->power_chan);
-> +		if (ret != -EPROBE_DEFER)
-> +			dev_err(dev, "IPCC: failed to get DCP power channel: %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	ret = devm_add_action_or_reset(dev, dcp_ipcc_free_channel,
-> +				       ipcc->power_chan);
-> +	if (ret) {
-> +		ipcc->power_chan = NULL;
-> +		return ret;
-> +	}
-> +
-> +	irq = of_irq_get(dev->of_node, irq_index);
-> +	if (irq <= 0) {
-> +		ret = dev_err_probe(dev, irq ? irq : -EINVAL,
-> +				    "failed to get required power notify IRQ\n");
-> +		goto err_free_channel;
-> +	}
-> +
-> +	ret = devm_request_irq(dev, irq, dcp_ipcc_power_notify_irq, 0,
-> +			       "dcp-power-notify", ipcc);
-> +	if (ret) {
-> +		ret = dev_err_probe(dev, ret,
-> +				    "failed to request power notify IRQ %d\n", irq);
-> +		goto err_free_channel;
-> +	}
-> +
-> +	ipcc->power_notify_irq = irq;
-> +
-> +	return 0;
-> +
-> +err_free_channel:
-> +	devm_release_action(dev, dcp_ipcc_free_channel, ipcc->power_chan);
-> +	ipcc->power_chan = NULL;
-> +	return ret;
-> +}
-> +
-> +void dcp_ipcc_set_resp_vq(struct dcp_ipcc *ipcc, struct virtqueue *resp_vq)
-> +{
-> +	unsigned long flags;
-> +
-> +	spin_lock_irqsave(&ipcc->state_lock, flags);
-> +	if (!ipcc->shutting_down)
-> +		ipcc->resp_vq = resp_vq;
-> +	spin_unlock_irqrestore(&ipcc->state_lock, flags);
-> +}
-> +
-> +void dcp_ipcc_synchronize(struct dcp_ipcc *ipcc)
-> +{
-> +	unsigned long flags;
-> +
-> +	spin_lock_irqsave(&ipcc->state_lock, flags);
-> +	spin_unlock_irqrestore(&ipcc->state_lock, flags);
-> +}
-> +
-> +void dcp_ipcc_deinit(struct dcp_ipcc *ipcc)
-> +{
-> +	struct device *dev = ipcc->client.dev;
-> +	unsigned long flags;
-> +
-> +	mutex_lock(&ipcc->power_notify_lock);
-> +
-> +	spin_lock_irqsave(&ipcc->state_lock, flags);
-> +	ipcc->shutting_down = true;
-> +	ipcc->resp_vq = NULL;
-> +	spin_unlock_irqrestore(&ipcc->state_lock, flags);
-> +
-> +	devm_free_irq(dev, ipcc->power_notify_irq, ipcc);
-> +	devm_release_action(dev, dcp_ipcc_free_channel, ipcc->power_chan);
-> +	mutex_unlock(&ipcc->power_notify_lock);
-> +}
-> +
-> +int dcp_ipcc_enable_irq_wake(struct dcp_ipcc *ipcc)
-> +{
-> +	return enable_irq_wake(ipcc->power_notify_irq);
-> +}
-> +
-> +void dcp_ipcc_disable_irq_wake(struct dcp_ipcc *ipcc)
-> +{
-> +	disable_irq_wake(ipcc->power_notify_irq);
-> +}
-> +
-> +int dcp_ipcc_send_power_notify(struct dcp_ipcc *ipcc)
-> +{
-> +	unsigned long timeout;
-> +	int ret;
-> +
-> +	mutex_lock(&ipcc->power_notify_lock);
-> +
-> +	reinit_completion(&ipcc->power_notify_done);
-> +
-> +	ret = mbox_send_message(ipcc->power_chan, NULL);
-> +	mbox_client_txdone(ipcc->power_chan, ret);
-> +	if (ret < 0) {
-> +		dev_err(ipcc->client.dev,
-> +			"IPCC TX: power notify failed: %d\n", ret);
-> +		goto out_unlock;
-> +	}
-> +
-> +	timeout = wait_for_completion_timeout(&ipcc->power_notify_done,
-> +					      msecs_to_jiffies(DCP_IPCC_POWER_NOTIFY_TIMEOUT_MS));
-> +	if (!timeout) {
-> +		dev_err(ipcc->client.dev,
-> +			"IPCC power notify acknowledgment timed out\n");
-> +		ret = -ETIMEDOUT;
-> +	} else {
-> +		ret = 0;
-> +	}
-> +
-> +out_unlock:
-> +	mutex_unlock(&ipcc->power_notify_lock);
-> +	return ret;
-> +}
-> diff --git a/drivers/virtio/virtio_qcom_dcp_ipcc.h b/drivers/virtio/virtio_qcom_dcp_ipcc.h
-> new file mode 100644
-> index 000000000000..f855fe8adec1
-> --- /dev/null
-> +++ b/drivers/virtio/virtio_qcom_dcp_ipcc.h
-> @@ -0,0 +1,41 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + *
-> + * IPCC power-notify mailbox interface for DCP firmware.
-> + *
-> + */
-> +
-> +#ifndef __VIRTIO_QCOM_DCP_IPCC_H__
-> +#define __VIRTIO_QCOM_DCP_IPCC_H__
-> +
-> +#include <linux/completion.h>
-> +#include <linux/mailbox_client.h>
-> +#include <linux/mutex.h>
-> +#include <linux/spinlock.h>
-> +
-> +struct device;
-> +struct virtqueue;
-> +
-> +struct dcp_ipcc {
-> +	struct mbox_client client;
-> +	struct mbox_chan *power_chan;
-> +	struct virtqueue *resp_vq;
-> +	struct completion power_notify_done;
-> +	/* Serializes concurrent power-notify transactions. */
-> +	struct mutex power_notify_lock;
-> +	/* Protects callback state and response queue access. */
-> +	spinlock_t state_lock;
-> +	bool shutting_down;
-> +	int power_notify_irq;
-> +};
-> +
-> +int dcp_ipcc_init(struct dcp_ipcc *ipcc, struct device *dev, unsigned int irq_index);
-> +void dcp_ipcc_set_resp_vq(struct dcp_ipcc *ipcc, struct virtqueue *resp_vq);
-> +void dcp_ipcc_synchronize(struct dcp_ipcc *ipcc);
-> +void dcp_ipcc_deinit(struct dcp_ipcc *ipcc);
-> +int dcp_ipcc_send_power_notify(struct dcp_ipcc *ipcc);
-> +int dcp_ipcc_enable_irq_wake(struct dcp_ipcc *ipcc);
-> +void dcp_ipcc_disable_irq_wake(struct dcp_ipcc *ipcc);
-> +
-> +#endif /* __VIRTIO_QCOM_DCP_IPCC_H__ */
-> 
-> -- 
-> 2.43.0
+Use a no_notify_signal guard. signal_pending() will ignore
+TIF_NOTIFY_SIGNAL and the pid namespace reaper sleeps until a child
+exits or free_pid() wakes it.
+
+Link: https://patch.msgid.link/20260824-work-tif_notify_signal-v2-5-6609e42b3157@kernel.org
+Fixes: 7fea700e04bd ("zap_pid_ns_processes: clear TIF_NOTIFY_SIGNAL along with TIF_SIGPENDING")
+Reviewed-by: Oleg Nesterov <oleg@redhat.com>
+Cc: stable@vger.kernel.org
+Suggested-by: Oleg Nesterov <oleg@redhat.com>
+Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+[ adapted to 5.15: explicit save/restore instead of guard() to avoid a declaration-after-statement warning ]
+Signed-off-by: Dickson Wu <dickson.wu@certik.com>
+---
+ kernel/pid_namespace.c |    5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+Changes in v2
+v2: resent through a whitespace-safe path; v1 <CAFaZ9epucF3AKE=B3mB9JD1sAcorBQDsgre_Wnv8Sati=tomPg@mail.gmail.com> was damaged by my mail client and does not apply.
+v2: dropped the signal helper patch, Sasha already posted it as <20261028212317.2257095-1-sashal@kernel.org>; this patch depends on it.
+
+The backport and the test runs were prepared with AI coding tools
+(OpenAI Codex agents, with review by Claude). I went over the result
+before signing off.
+
+diff --git a/kernel/pid_namespace.c b/kernel/pid_namespace.c
+index 40b011f88067..d3e860d3678a 100644
+--- a/kernel/pid_namespace.c
++++ b/kernel/pid_namespace.c
+@@ -167,6 +167,7 @@ void zap_pid_ns_processes(struct pid_namespace *pid_ns)
+ {
+ 	int nr;
+ 	int rc;
++	unsigned int no_notify_flags;
+ 	struct task_struct *task, *me = current;
+ 	int init_pids = thread_group_leader(me) ? 1 : 2;
+ 	struct pid *pid;
+@@ -212,9 +213,10 @@ void zap_pid_ns_processes(struct pid_namespace *pid_ns)
+ 	 * kernel_wait4() will also block until our children traced from the
+ 	 * parent namespace are detached and become EXIT_DEAD.
+ 	 */
++	/* Task work must not busy-loop the reaper, see signal_pending(). */
++	no_notify_flags = no_notify_signal_save();
+ 	do {
+ 		clear_thread_flag(TIF_SIGPENDING);
+-		clear_thread_flag(TIF_NOTIFY_SIGNAL);
+ 		rc = kernel_wait4(-1, NULL, __WALL, NULL);
+ 	} while (rc != -ECHILD);
+ 
+@@ -270,6 +272,7 @@ void zap_pid_ns_processes(struct pid_namespace *pid_ns)
+ 		current->signal->group_exit_code = pid_ns->reboot;
+ 
+ 	acct_exit_ns(pid_ns);
++	no_notify_signal_restore(no_notify_flags);
+ 	return;
+ }
+ 
+
 
