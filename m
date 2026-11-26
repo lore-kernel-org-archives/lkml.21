@@ -1,53 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.69.126.157
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795679385;
-	b=JGpAeg4NGtJiqvF/RIKeaYMocc52BsJcQnl8/VVn0qeq6ArtQ+sU/ByDOsbMtDgJimiC
-	 3FZ6/GuwtHH3EYeblQ25L7lnmEDy4WsrDEWRJoqbxQNJN6z9gQheW6NtmiJCuREPv8SY+
-	 Oajno2nT7EdIcy6l6UsImXt4js1m9x7FPbRXJqGL2P0Cn+QNMCpYiLeG/tF2NjfKO5Gm6
-	 AZm5V47JueMHles3V9rxTbmSs+PUph+vXshXe9NBspCouv7ij39fo6EycdkgsRl1bafpM
-	 +XfhjZ7xMsKPGHvPZYx3c9pa36QetbBi5QGQLPkHn3CSvZ9+0nxetmkHeasJjfDD1Tg==
+	t=1795679448;
+	b=OqV7ZZ6T0sIBnVqoqJgRrrHerV8hucnLVM2Hk4SS/aLz0fd29x7WBCBnxtWL/2J0IHQQ
+	 fwqulnzkTQ21nI7tuKwLOeqDhcx8iZQSLLkkmodwINgnuxnRkvAbxpvW7uow99vQDdya+
+	 1eD4/bm4JJmH2vtGofm/Kjfn/wizOg6LATb0TJ99j+8ArNa3jS5PDnYkF4l8C8BR73iYg
+	 sPo3LxQRT+Eq/stnIR81ipb9E1jKNdrY+2BFOGdajaQRF9JnrHDXZpwKpFIYydWUhSVLK
+	 Y2YAFdWc8vbD9X5Dhis6dMA6HIlddfWxWYI8/zAcZ/GztBc2upWlewNIrQLaePObpOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795679385;
-	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795679448;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=igwBwpxEPpOo7JhISAe3xDcfUw7dJh4domzsW8aHYuQ=;
-	b=efw9I7/IZVSqB10hbk6Aw5LlfY+DH9+470lEKojz9wS3TwuQS6LukjTN6mlKi7967eSB
-	 EcHkbz/4+NQjLlrXdiwnOWr7j9RsUg0wulO6U00LARcfZfz7HqEmGAcVYaGMbBHI1WyJJ
-	 smeZYiI21MRwgixLbPXEKk4gbfDTnMyGYgQi8J1crCNyrObxAJBNlHYHGkMVbq7h0l/ks
-	 tFXNN8mgmJNpSWGSXEFtpeoT+2Qr6DgWFBpbW8ZfT/k5fAR8vy7MLkPrHowXL1xjanEAh
-	 D2Y+Bsq7Gu9Ydbb6xSySIngtaq1qsASuEiD4A9LBb2393tVCsODbgpaW9kJL0mn8hCQ==
+	bh=tLLvx4aW8j12AYFgqqecOInlyvHBX6zbpR45zco6qGw=;
+	b=de/i9v9cDBKdlmb1OfqMpUv9KJc+hfqCy1s5wAV8YjXadjPwHAeZu2O9siyqvl14m42g
+	 yyYh6J2b80DeKWy/3WkepTxC3PSzmLj6ucUakaX4NtlcybcLYapkUNk3C22rcWnyv0Y8Q
+	 KM7c23vEwU/fQCVKZJsYDCrqmqdg6O4c3+fbt+MDTfSEeWiM7nUbEtbDaZnTyGtL2Sroj
+	 tii6SYmohXrbbiLR9g4z7xlbL0Rv3wPpCLzb8FzafIgcZVGCEAT49Utae0mTvdqm7Rrfk
+	 LnmbOKFE14fxGTRTZRNiCtxB0nJ3pePl0J9XNwaOQiiKRz1itUNG0UP68Nt0WfCIn1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=weissschuh.net;
-	spf=pass smtp.mailfrom=weissschuh.net;
-	dkim=pass header.d=weissschuh.net header.i=@weissschuh.net header.a=rsa-sha256 header.s=mail header.b=WpWhTqsr;
-	arc=none smtp.remote-ip=159.69.126.157
-Received: from todd.t-8ch.de (todd.t-8ch.de [159.69.126.157])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n3IWt4R3;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E830606A31C;
-	Thu, 26 Nov 2026 07:49:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E830606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=weissschuh.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=weissschuh.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE5D0606A327
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 07:50:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=weissschuh.net header.i=@weissschuh.net header.a=rsa-sha256 header.s=mail header.b=WpWhTqsr
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=weissschuh.net;
-	s=mail; t=1795679382;
-	bh=q/odsP5fELbdmTHt5GCHwLUhJQlCm6xMBYihsTNca3c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WpWhTqsrHGL2yfJ/R/oTw0ol/ZOQxj5yJk5iRzIe/e12d8/GODjbSxtnzKiUs2ebs
-	 j2UDKA0SLlYaBVIs5JE6J79IYIY07136qDldEA2F+PNDoIs7+adGWZjRTsqdLyORbC
-	 rrz/yb4T9ty2sxNUK0Fq1KMvU/ZqsYMEEciUGy84=
-Date: Thu, 26 Nov 2026 08:49:40 +0100
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>
-To: Arav Verma <svav2021@gmail.com>
-Cc: w@1wt.eu, shuah@kernel.org, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 0/3] tools/nolibc: fix standard conformance of a few
- string functions
-Message-ID: <ad43e400-f5b7-4291-bc01-cd8deee73c1b@t-8ch.de>
-References: <20261125181453.814976-1-svav2021@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n3IWt4R3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE6111F000CA;
+	Thu, 26 Nov 2026 07:50:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795679448;
+	bh=tLLvx4aW8j12AYFgqqecOInlyvHBX6zbpR45zco6qGw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=n3IWt4R3bgOtHxksgGuaH7zSEpIkOwiS3LhmWsrRFvdwKoeKd0Dpbqii+GHtPzll9
+	 rfbrVCvr06xSaevPtZluXQXb77v6KPF51IHyaA4WLNthrwWY1qfzQTYjZDpSe5TMao
+	 snqf518gIe0u1m/7q06/geHFhZaLapPifnxn+YFYueg9lJrdXluBLPwECSke7nDjn+
+	 Pg61gKcVsl7MuvTcj4EDLQXSrgJ3F5hGY4Wefag1YR2FSA5vIm3Yeet0yVpwr49bbt
+	 myTrXaFFYtasLBsy11Oc97cf30O5ZUc+NLOatZwCfRUdU2dOO4QPjmDRuoJx/7ubZn
+	 X3YrcL70JuO8w==
+Date: Thu, 26 Nov 2026 09:50:41 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "luto@kernel.org" <luto@kernel.org>, "x86@kernel.org" <x86@kernel.org>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+	"peterz@infradead.org" <peterz@infradead.org>,
+	"hpa@zytor.com" <hpa@zytor.com>,
+	"mingo@redhat.com" <mingo@redhat.com>,
+	"thomas.lendacky@amd.com" <thomas.lendacky@amd.com>,
+	"bp@alien8.de" <bp@alien8.de>, "tglx@kernel.org" <tglx@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 4/9] x86/mm/pat: don't BUG() on inconsistent page count
+Message-ID: <awfk0TYrGze4vWoa@kernel.org>
+References: <20261112-fixes-x86-v1-0-791adb8d6670@kernel.org>
+ <20261112-fixes-x86-v1-4-791adb8d6670@kernel.org>
+ <4edee4db91a92b3231644688afbc950bb880ff8c.camel@intel.com>
+ <awamPtNjztFml17Z@kernel.org>
+ <be835cb27636fab892e60c50f7231bb6ba1de0c0.camel@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,27 +68,46 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125181453.814976-1-svav2021@gmail.com>
+In-Reply-To: <be835cb27636fab892e60c50f7231bb6ba1de0c0.camel@intel.com>
 
-On 2026-11-25 12:14:50-0600, Arav Verma wrote:
-> A few nolibc functions deviate from the C standard in corner cases:
-> strchr()/strrchr() do not find the terminating NUL, strstr() returns
-> NULL for an empty needle, and atoi()/atol() do not skip leading
-> whitespace or accept a '+' sign.
+On Wed, Nov 25, 2026 at 08:46:14PM +0000, Edgecombe, Rick P wrote:
+> On Wed, 2026-11-25 at 11:11 +0200, Mike Rapoport wrote:
+> > On Tue, Nov 24, 2026 at 10:57:39PM +0000, Edgecombe, Rick P wrote:
+> > > On Thu, 2026-11-12 at 18:31 +0200, Mike Rapoport (Microsoft) wrote:
+> > > > If a step of __change_page_attr_set_clr() covers more pages than remain
+> > > > in the range, or no pages at all, that's a bug in CPA, but it does not
+> > > > justify crashing the kernel.
+> > > 
+> > > Agreed, but does it also justify special handling to try to return an error to
+> > > the caller about the bug in CPA? Why not just change the BUG_ON() to WARN?
+> > 
+> > If we only replace BUG_ON() with WARN_ON(), either rempages wraps around
+> > and we keep changing pages past the end, or we loop forever.
 > 
-> Fix them and add test cases. The new tests fail without the fixes. The
-> results were also compared against glibc.
+> I think the preference for WARN_ON() is not to make a large effort to survive
+> bugs, but allow for the possibility of keeping the kernel running in the case of
+> one.
 > 
-> Arav Verma (3):
->   tools/nolibc: fix strchr() and strrchr() for the NUL terminator
->   tools/nolibc: fix strstr() with an empty needle
->   tools/nolibc: make atoi() and atol() skip whitespace and accept '+'
+> If we try to handle every warning condition we will be doing defensive
+> programming against the kernels bugs. So if sometimes we loop forever
+> (essentially a BUG_ON()) things are no worse then the BUG_ON(). If we run past
+> the end, then maybe the kernel stays running long enough for the user to take
+> some protective action. We are just not jumping in the middle with a BUG_ON() to
+> say, "no you don't even get a chance".
 
-Thanks! Applied.
+set_memory_*() as they are today are not recoverable. From the caller
+perspective a error return because of a bug in CPA or because CPA failed to
+allocate a page table is "oh, shit, what am I going to do now?"  situation
+anyway.
+ 
+> AI probably will try to get us to handle all possible bugs if we let it. It
+> would be a big change to try to do this.
 
-I also verified the new tests against musl.
+Even checkpatch wants it :) 
 
->  tools/include/nolibc/stdlib.h                |  5 +++++
->  tools/include/nolibc/string.h                | 12 +++++-------
->  tools/testing/selftests/nolibc/nolibc-test.c |  9 +++++++++
->  3 files changed, 19 insertions(+), 7 deletions(-)
+> > In any case we must break the loop and returning -EINVAL seems the most
+> > appropriate action there.
+
+-- 
+Sincerely yours,
+Mike.
