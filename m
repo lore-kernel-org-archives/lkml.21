@@ -1,89 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657802;
-	b=DGY33ipX1LJ0UkFh4DF4VNrIGo5GhOqXeRBKPQlAvHbK/3IhgnXMGp+yLQWxze53XpGf
-	 OBzQMnpqZ1k6wezs1q95N/ey4zfOk4TCEst0V4PDr6MxWQ40xuvo+rMv8jxezTtanx0Ke
-	 1sF6VvICpBPJNc3JHj6gFTE5equf+pyUFCfl9tHsxj3vs42nU5Qyyuwn6KkzBqZdMryFb
-	 oINCATMU05MFPZoHcnBo1v87BtZrqWeNUVD6F/NCgCiy2kZ6zujSeR/QTzNE8eWUIV9EB
-	 bpogOzq4seB/gCoZphfyfGVAAxRIkRfJO6wUqV6IunXHExgZw1dumMdzvRPyPNa9N/w==
+	t=1795657841;
+	b=ug6peVOaTwKSwDSiT9VOwr4NaYEGYIaoSlkdZCwWsP5dQSyK8dVfo3tFwsO5BVNfWUgh
+	 Ufn4+kgjs8sy+QyNAA6VfH25699xrt3s41IEaOK0hVbB+dmv5/QjuCwRZZamcH94EGn+j
+	 U7bmJKtrfqgphigadlIhqTeC8QwnUAQ/EMJZD03pdH2xcf1I0cS/cAVHS0x+wmaR7LKh/
+	 d6llZ7fub7dp4SL6DsSW2ieNtHuBM0mXWCOOPMBdzleRdiMa/7T8/7CjNy7cuP1HtVrdL
+	 hFIDHsld+UvPElCLkqVkUR0K9ACYGjFGj7HEpVWlltwC1yw1J0+AtHEYdT7FZwwah6A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657802;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=/tpzHtlkGwh77klAgQ3+7vDN5VnMY54g4sCcJN12BCU=;
-	b=VVkJPiIlT2TMtzLeQONJb42nq46f3XX0lW/0xra5wfdsf3TE5DK+kyxv1MHtBd1A1R/7
-	 pLPD+PyzQR34qyDVBliQV+DBKt+VYl3JqiHBo1NdJhpcaDKniuR75nDoO+L6qH9EE6do/
-	 Vku3QhESrsyg7FqlUzWuMu81hh/I2OL9AoREHX6Yc8xZq0jx5WlRemBc1FFBL5C5WNa87
-	 lFGpZNjb7P/7q/TTy9DUyO7w5Mgk8COX4E49UrwSa0FVHop331F9vu8W+rhDDnhUKuVOB
-	 Qx3vlXd3xj1O1926XH5uk0iaK6iJ/ZI/Z9xVbI8gnOK8qg1uiRgMPUAMAxyPQPYOXKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657841;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=OXdgxUflMp6zTYG2SsrUJzYi2m2tiXKTrQijZHJ3m9E=;
+	b=b4OdWDx/745msOtNlzyrwzZjmagdYCjm/zDOxemfbFCiYjHWFFr0zyEfvnLbHhx6vUJK
+	 PRpOQbqlsVN5DUxeEtjTZgfYH2/amKtycOEpj9MwQ6FlX9IRLA7n+CKdWWr7lrF74X/AU
+	 pN/aJK/3FsgXUPqkD7NeDu3MOvptTwlRNLIGI31ezU0MM4sDtfFs6Abe2IA7+ckAM6kIP
+	 0/nv5e7JJNGIqABZb6YUTnDegriIHS41P/OTovrjfjw1VRakG6tkS3ATqGRHBmMEaMgSZ
+	 /gE1NkfFhyvT57vMngExEowSBml+Tz5I+ywOsr0qNRubQeHO/+HL+robgqIsPuJZILw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kernel.dk;
-	spf=pass smtp.mailfrom=kernel.dk;
-	dkim=pass header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=HTnZrZZA;
-	arc=none smtp.remote-ip=74.125.82.177
-Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N3xvA0SR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABEF1606A32D
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:50:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABEF1606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kernel.dk
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernel.dk
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F25AC606A31E;
+	Thu, 26 Nov 2026 01:50:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.dk header.i=@kernel.dk header.a=rsa-sha256 header.s=google header.b=HTnZrZZA
-Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso4011487eec.0
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:50:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernel.dk; s=google; t=1795657801; x=1796262601; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/tpzHtlkGwh77klAgQ3+7vDN5VnMY54g4sCcJN12BCU=;
-        b=HTnZrZZAk1fimzpf7glBUawWrfz/uu9E4sN4bkzRxUwK+9JNC+YgbwMC26RHCqMaVV
-         g1fAWikYyKwGlWsTuWlSm2tdpfSKYlMaqe4J+NBvOWJ1jzJWjfQHmb3QSnoQYXG8Pd99
-         X2PnM1cNcu1HnNj+AlEXCYovWFuJCKZwJX7DtAQF3HyEZDGF/aM56unH5RHMBqVP3dac
-         jQxzA4XpDOCLQq6+kw7Diak3FdD46upCx2ml4v0Tx91BRDlr/leBM44VeK33SH6Y5FnW
-         oe6KSxmzGH9/CltxMd6DCGpdsFAFwLxUn8cFI61gpgbeyf0ySiKbkzXmcWDHv+nqIJGr
-         pdxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795657801; x=1796262601;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/tpzHtlkGwh77klAgQ3+7vDN5VnMY54g4sCcJN12BCU=;
-        b=Ab53rb3nFPWLAAKiFyVqCWx16dWN7d3yd66v6YzKJ0caQGLPrgCFwExWcDEXcJOpPa
-         A9iq7wd+EqHe0u4bzMwdPy+dW6/BM3sWL1jL5B1dVVA+n8wS4xIKykPWiWLKJYEyv9M8
-         r3HSVoB6DGR66HAhzD49/Kn8qPzUfKCE21nIiLAeg66c2jf96+mb+buqSEHsp3S15K7X
-         fLa9dUKsNHY3Hi9IabsQ6GL8o7nEV6At+WxULI/nLCsjPWdrIjDQNcjarLqs/UNJiHSb
-         JsR3op1fF98KcUFaxFJWVSnx6dLWlaPtXKYLPuIf4mMqLegbwrWz9tWaM+L3ALrGTCHS
-         JbsQ==
-X-Forwarded-Encrypted: i=1; AL+hErHviIWO1Ank+MfgHJgep+TPUV5v5ZZWsPzAp2Nd5x9HkSW1cWoIhEOCqjhQCgbr0pg/u0vVFEESmPFpVV4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Nc4xLTY9U6jaA4scYfGXtftrdeTy3KrM52iz8PFXi9g/9QQzV
-	+7UEkyIRbUdtsVajSR+muOM79znxDptWfuFumtuJSnjlpMnXPD5Pmr8ar9TnoKkNGFY=
-X-Gm-Gg: AZFdTZcAlezcwRYcQo7Qm2UreH0+9gsI9hU2xKWVd/kCZd0lULVvRjbOCDd9FjIDxEw
-	vmYgK3LnBKE0TsII3H/gZcPduBMyP2kGONTmMzQuxky84SNmENqdRvKYQcFVQ7xtbD4Rt+BqNDy
-	uALjNmicS2dILcMXE8ovMu78fZPgSX+BClIcyBsabpdIu+iqyIy6W/zc7HZLMIQek2fpM2JDMM9
-	sUa0R2+N1N1bzLBxpkeUWdCh7PpfgIAGJhNHNkQoOtjTOkoJLHlfeBFBw8Nq+A8V3Grxp4tau7j
-	8ASqDC1PAHb+mCi1KMdidQoVweymHs+jGgl5kXJ22fj1pTPYZW34y7DyysewF2eUznjtHcnCaZg
-	xuwthjHkztpKp68uuxJ41VFb/iyKRTd//oFX545qwPJJVF36v9CZU1RbJMDu/t7WdjQkCZdeBo9
-	+ZQOpCuUlsOu1uSbsyAa6F0orV+pG0l52fqILEDJNQqu5PZmeld/A6/myty0d0XnWfpVhVv1ulW
-	iMRPxwBzJ2sKryf9sKiXRORmZYBkgP/WQWbM32XQNQ2LSyx3FFdwm8b2O49knl3KoRHRzc9RD9k
-	aDu2JlaerAGFDaIu68GOv5E25eKpZWA/EytHaJFr8GuBfvfterpW/65ota/sjdF2jlWYIZyn57j
-	10t80yQaaFu525PqXTjvWULjzVz4RjaVYq+5b9YEA6tzZo/Dd6GiPEeja0CM0FNHzURZ+hg==
-X-Received: by 2002:a05:693c:8042:b0:379:8df3:d2c9 with SMTP id 5a478bee46e88-3856f14ca78mr21362842eec.13.1795657800466;
-        Wed, 25 Nov 2026 17:50:00 -0800 (PST)
-Received: from [192.168.1.142] ([198.8.77.135])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672ce402sm54208971eec.16.2026.11.25.17.49.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 17:49:59 -0800 (PST)
-Message-ID: <1cf30693-44c6-4761-9900-e36259082e4e@kernel.dk>
-Date: Wed, 25 Nov 2026 18:49:59 -0700
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N3xvA0SR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37B6A1F000C4;
+	Thu, 26 Nov 2026 01:50:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795657840;
+	bh=OXdgxUflMp6zTYG2SsrUJzYi2m2tiXKTrQijZHJ3m9E=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=N3xvA0SRcnLA+EhKtB4y6NsLFc6zfupfP2QW0mn5fLCES+WmPmr2RdbDBMSVeuVd0
+	 KHIhB/jYiAaM1bODycP0yiM5kIBht6TDjzo2NP2Hpww+TFe0igAnRjdpfhOJ/VkTyz
+	 dzTMYtDCv+3J8uZ5XUKLbhAHP+Rp1AdQLdzXm9EZC86jaGxuLhmEvZ4XwvLBLVd3wx
+	 EXEFgI8+shQzJE9REtVWUBWllEAdpuwjxD16C0Y8fYNSCthhdPeihdAHsdSDzd9abM
+	 ZlhZlyXi/cx/4lnDAcgFR3p3jh95nU1eBV9Vo7T9L+HZZL6hY3ZQc5CwJHLhXads3V
+	 ms0akFVdAylIg==
+Message-ID: <sashiko-outbox-234588@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v11 31/43] sched/deadline: Restore the owner's period at
+ a deboost out of the class
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <c53e032decdc0ae447feecd391faa770e683dd89.1795646914.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795646914.git.mathieu.desnoyers@efficios.com>
+ <c53e032decdc0ae447feecd391faa770e683dd89.1795646914.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Thu, 26 Nov 2026 01:50:39 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,54 +60,62 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v4 0/3] block: delay support for error injection
-To: Haris Iqbal <haris.iqbal@linux.dev>, Christoph Hellwig <hch@lst.de>
-Cc: linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
- Keith Busch <kbusch@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- linux-doc@vger.kernel.org
-References: <20261111215838.103356-1-haris.iqbal@linux.dev>
- <179501806989.17649.3138860274842922761.b4-ty@b4>
- <20261120164416.GA32719@lst.de>
- <edb8249a-7bc3-430e-bbb7-243e1881a0b8@linux.dev>
-Content-Language: en-US
-From: Jens Axboe <axboe@kernel.dk>
-In-Reply-To: <edb8249a-7bc3-430e-bbb7-243e1881a0b8@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-On 11/21/26 4:27 AM, Haris Iqbal wrote:
-> 
-> 
-> On 11/20/26 17:44, Christoph Hellwig wrote:
->> On Wed, Nov 18, 2026 at 09:07:49AM -0700, Jens Axboe wrote:
->>>
->>> On Wed, 11 Nov 2026 22:58:35 +0100, Md Haris Iqbal wrote:
->>>> Error injection can only fail a bio today.  This adds a delay_us option so
->>>> that a rule can hold a bio back first, to model a slow device.  The delay
->>>> happens above the driver, so it tests the code waiting above the block
->>>> layer, not the blk-mq timeout handler.
->>>>
->>>> A delayed bio is marked with a new BIO_ERROR_INJECTED flag so the rules
->>>> are not applied to it again, even after a split.  Christoph asked on v2
->>>> to avoid the flag by allowing a delay only together with an error.  I kept
->>>> delay-only rules, as a slow device that succeeds is the more useful case,
->>>> so the flag question is still open.
->>>>
->>>> [...]
->>>
->>> Applied, thanks!
->>>
->>
->> Hmm.  This still has rela issues as pointed out by Sashiko.  I'd very
->> much expect a resend to address them.
-> 
-> I can resend with the fix, or send just the fix to be patched above
-> this, since these are already picked. Let me know whats preferable.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue to consider:
+- [Medium] sched/deadline: missing throttle after held boost ends in
+  switched_from_dl()
+--
 
-Send a fix please, that should always be the default as otherwise
-I have to rebase the tree.
+commit 7695498ee5152a5e36e39a21aef4b92a39936d61
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
--- 
-Jens Axboe
+sched/deadline: Restore the owner's period at a deboost out of the class
+
+This commit restores the lock owner's own deadline and runtime parameters
+in switched_from_dl() when a priority-inheritance boost ends as the task
+leaves SCHED_DEADLINE, and recalculates the 0-lag inactive timer from the
+restored parameters.
+
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index 4d46d1c9c6981..5d1d4ea288788 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
+> @@ -4802,6 +4802,22 @@ void dl_clear_root_domains(void)
+> =20
+>  static void switched_from_dl(struct rq *rq, struct task_struct *p)
+>  {
+> +	bool held =3D dl_end_held_boost(&p->dl);
+> +	bool own_period =3D held || (p->dl.dl_runtime && p->dl.dl_donor_refill);
+> +
+> +	/*
+> +	 * After a refill from the donor, the runtime and deadline are the
+> +	 * donor's. task_non_contending() would mix them with the task's own
+> +	 * dl_runtime and dl_period. So give the task values of its own first,
+> +	 * as dl_deboost() does. After a held boost, dl_end_held_boost() above
+> +	 * has put back the saved ones. A task with nothing saved starts a
+> +	 * period of its own. Its 0-lag time is then now. A constrained task
+> +	 * still keeps its bandwidth until its next period: see
+> +	 * task_non_contending().
+> +	 */
+> +	if (own_period && !held)
+> +		dl_start_own_period(&p->dl);
+
+[Severity: Medium]
+Should switched_from_dl() also throttle p->dl and arm p->dl.dl_timer when
+held is true and p->dl.runtime <=3D 0, the way dl_deboost() does?
+
+When a task exhausts its own runtime while boosted, replenish_dl_entity()
+clears dl_throttled and dl_hold_refilled_boost() saves own_runtime =3D 0.
+If the task leaves SCHED_DEADLINE at the deboost before own_deadline,
+dl_end_held_boost() restores p->dl.deadline =3D own_deadline and
+p->dl.runtime =3D 0, leaving p->dl.dl_throttled =3D=3D 0.
+
+If the task switches back to SCHED_DEADLINE before p->dl.deadline,
+enqueue_dl_entity() sees dl_throttled =3D=3D 0 and a deadline still in the
+future, so it enqueues the task onto dl_rq with runtime =3D=3D 0 and lets it
+run past its reserved budget in the current period.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795646914.gi=
+t.mathieu.desnoyers@efficios.com?part=3D31
