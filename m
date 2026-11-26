@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795656525;
-	b=VkmmS07b4zMYkl1ohQqq+h84c/R1SHX1zMRovF0nSH24RrY0h1H8+e3LUil/W6qzd4Cb
-	 Jg7py4recmUTZnvuCO5v6vn8lUNJSp4EUAHoW9/jX4s1zGfUubJ/crnKNvYIxz3Ur+v8h
-	 xWalgJf7dgyLRX+FS7paxgrxmVpqhvdVRHNY5L5xriaZDsLkE9hnAob4RY6JONxbbOneh
-	 dhbxcv7ySKpxeFvhJzakpD/4PIn8vjiurDURx5WO3w2FLQMS7Nq1YPKP1ev1RXCpDV5I9
-	 hd9cFcEPzwgHcMAejaLIJJ51+91Cgt20vjP3sckSMipCrPzG9/CQlDE2s3Y5kY1V+tw==
+	t=1795656529;
+	b=InjPnVQ8fgu5nDRFyTHLFIv9Tp6vQUKx0v2BzdhIz8O1I5MUaXoWrS8FluLvxVN2WDC8
+	 EW/+YphtaiokJUOBBXicvr0V4oYBJLqEQa8dtzkp8hxlCNPqcQdRVk2rIPUPuy7AbKnmj
+	 kNY+efDsngnGvYpQDsw9rryJS1MdgM3/VQ1DnYLZTAh9WOXwXezq/xmFqmvKLylo5uh1Y
+	 q+TSVae+HGfDHwRFzEFNFpDfL2nFumptx3K/jzHYnHdZIGDf34VTCy3NncdSyGPTA8LqP
+	 kfZNr8TLJGqU99dSvCGcWRR05hKjB1qd1/9k4ObDMeQPJ6sw1T1k8CLULp3v6kILHvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795656525;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795656529;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=d+faODTeetJ5zgYytlsVTjoyrqNS8XmyX+KccLiASwM=;
-	b=F7zYMq5rSfBoC1iRD0D0+ph7718M8Lx89GBqDlS21RoueKhf42lk/QBKCH1sIe81bDJX
-	 QQ4rpXk9/JqxBZQmwAEmrMaLwXA9u8iRnnThJQjIe39UJRsKa1pqxxpkyPCiLHNUuAnB/
-	 S3hDz1zQpIz0r2vS8TfFpSJ/5/nDgSzxf36CwU91Mq+aqm/G7CrVyRNC4JQSEIKlpcY7s
-	 hfMoRSVXyPycsImnUStP56NHJ8PI1fIMtWJjgQVo3gAgs7TvDzzRjC1jPQxWAyud6c07z
-	 KLngTy3X8SJxPLihVXqwROQg+/LT1quxz4c5TTZMBSOJ0lAsjeaYKH6jAt1ZvdMRHkg==
+	bh=7S05gQFwDGSilhZNn3UVXq/+P8b7K7pLFrrNV31ejLI=;
+	b=TM7qbvGtWGc4ldL8PunlOgU+rJaQKMsRs5wJGt1KK8Lcu0nHowaFoEtabGPi95u0YLUk
+	 wc3J5GbNfJ+J4HGawbG4f3aNwRm7AIYvMzDIEoi2xQlMhWm+R8aQlyyxdllrBm6+VYial
+	 GJfFyO7R0w7cCQYJJlNFgn/6mtAiWuVJ1vC2Jt5SrdrrgGZlS+q4UPPk4QdhFEN7thDgG
+	 D2mmGHb74XVG/9XX5XCuTZRyOZyLNeU77Apt39BhxcdTr5iWPT/iFcsuQzhBxBXN/LXco
+	 A0J0tnyIutoOUT1ev9/gkmkEZ7G30FykRqDxKwDVcSsK7sdXNdIT87pfzbLD871jb1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=layalina.io;
 	spf=pass smtp.mailfrom=layalina.io;
-	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=GcNxpOlM;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	dkim=pass header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="Agm5wPq/";
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98A80606A330
-	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:28:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 98A80606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F3FA606A332
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 01:28:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F3FA606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=layalina.io
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=layalina.io
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=GcNxpOlM
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-48e20ed3b9dso5646455f8f.2
-        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:28:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=layalina-io.20260707.gappssmtp.com header.i=@layalina-io.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Agm5wPq/
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-48e47347279so3889257f8f.1
+        for <linux-kernel@vger.kernel.org>; Wed, 25 Nov 2026 17:28:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795656523; x=1796261323; darn=vger.kernel.org;
+        d=layalina-io.20260707.gappssmtp.com; s=20260707; t=1795656528; x=1796261328; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=d+faODTeetJ5zgYytlsVTjoyrqNS8XmyX+KccLiASwM=;
-        b=GcNxpOlMW0/TTwXfGrseD04PrD28f/VkTaOQ+5qlcfVHYarjLF9yb/LFkKFhwOkdWW
-         BJZN5kTsTdRMhXrcx0aHnDxe8wV9kmob0gEDFCr+JK3yZr/l48KWBSdu9oFNNFusjtol
-         byYxA3ItpL5Zfr8V/hS2YhLBthb+Ra2PSPwUdgnimJ168em5Svb0+h6oIDHvl6AxdthP
-         /z2qwCOXCrh+dVeu7Qg0dD4u6QO9dQPegJyDicrsI8HRq/WwZGQaiRKPruJdzImyAZfd
-         dEAA6UtGNQdzban+f6aA4nGBKdTY8uX7d+9f/ifWDQkD7duuEHwXgCzyXwUFy0uo5gC8
-         qlTw==
+        bh=7S05gQFwDGSilhZNn3UVXq/+P8b7K7pLFrrNV31ejLI=;
+        b=Agm5wPq/JT1PbzbNO+1qk5mFCN/UE2unMBGXL9bSOo6E9JL2hS5JAhZRInW4yIiqep
+         VshNACHmHcnJjdO2GgcJEU0SY+7a2JdRawTnRuNlc/niyFwf36nMKHHNeu3vHlvxnr/A
+         2MK2JjACmfZSjgW0xmryGp0jFsS9IEl5MS2IW6C11SvTGhJHXvDNkjif+gQSbDXluaEJ
+         PHa19v8I3N1HcNVWkFxW0TitSE9p2oRDOxNxdpJKmKQIEFqP9hioE83OQbabU3DvPBZ5
+         mFHVMP0NpVcJ56++uOUB3tuvq8TBYedcgY8uMoRbHHctMctzJAWmYmhXIhTgFCriuX8l
+         0E0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795656523; x=1796261323;
+        d=1e100.net; s=20260707; t=1795656528; x=1796261328;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=d+faODTeetJ5zgYytlsVTjoyrqNS8XmyX+KccLiASwM=;
-        b=xdTZ9onlNpb/hb7lqIsMGt/EyQ4qWvx7yrejlVhRqemwh9HsXOCaeLRcIsJQy8CGEz
-         Cfyyk1VSycsrq2/Ztx/T881/BUXRLjL6T9EcuBmlhkjrn1WE0J4oiCdhpM7kiB3wrRcR
-         1JnhN6p2pLinJFfRDiBHvuBiZobpo8S/CSImUJhkbl3iWWdTYQu6qmzoW+enrK8s3Lbq
-         KckWGGrbjbQVAaLwTLNyWhcsHRGA2AQqtcBbOjGb4B6dQYpQWwb0NyKLn/e0XjUrDzyC
-         8z9CgF+5DLaYPp85r7iXcemkckphw8yyfN9eX0JoUZuheyagCVl14S7bptTwY/+oNLG8
-         fB2g==
-X-Forwarded-Encrypted: i=1; AL+hErHTB0dY3l83JW7/T/v2fvvwj1TWnKKiYFZq9cB66i5n3vx4ZccCFia2sK6S5/sEokYPW9VdScqoKDEzpTE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ZLH1Ec+llN0cPgHl1JPb+Y0oVR9WWIt+WsqAgUOOLp/QX/kru
-	1XEeGcwqxlJlmuWk4quEpMYD2Ef79nOxEhoA4t+spqBDhp6SI7/YZZ5UGCMHVVrT9KM=
-X-Gm-Gg: AZFdTZd0IZvZP6J2Ngovsqk7z70GI2wMC9sjnhKntvvXJ6apyZyEYUYpZKoychAaGFN
-	IPhs9cOBVrx/F2F754ObJ6x/NGBFMH8+EeIkWiyTwIl1WBQSCm2iFKcsW6qzni4c7GXieNoUvpb
-	GS5OkVnQsR1Or7Iu7Jcb+63a0SCOjtNuyfSG7tj0b7TA49xhLKLkxlzY9QaeVTM/fo/aNyZ53IQ
-	AYs/pmOMKffI7drUTOzvxFbDYxlz2z9b4AkVUB/zQSJ8J+189jSAa6zZwNI2BcW429Oo+1gnSNf
-	LUiFY5oFNe28ML6tNI9maecB3lwoSYWbRG/GwgUUfE/isQkiCYUP3b3bBF4eBgtshFqO9JolixH
-	DHPp+oqlu0t4g/bf8Gh0xgXgaRtk9/Lqz8rLuRMe2B+u2h81LRQkGpUt3B0iC0rUWJ+p2oymPOT
-	K8lN8d4dcYUfRxHMKEwFv0Wl2WlTh0qWQnDtTgTItP77zMY2Iqg4lY55efYbQYNh0ylZgDwJWFT
-	gp7Zwuas9xxMCYRN4XwB+AdXrMEAh6PnM2Zm8WQC00QtYdyIj5W+M7X70Ffkj4wrJxOgG0nkL/m
-	J1ygj112sOOOYCOvvonuGE6Fu5nIUwEW1+4KtTJpu3iRePu0LTFI8ldVAVGLuCDKrXx50r7MwW+
-	gU8v5ZGqdAfH+y97YhXEekrUSBzfxEA==
-X-Received: by 2002:a05:6000:2601:b0:491:68e2:bf2f with SMTP id ffacd0b85a97d-4abb9642f3fmr43709049f8f.52.1795656522934;
-        Wed, 25 Nov 2026 17:28:42 -0800 (PST)
+        bh=7S05gQFwDGSilhZNn3UVXq/+P8b7K7pLFrrNV31ejLI=;
+        b=FimiMBQIMiTij8MsTShdQYWvBR+sbfjnird/l2URRtYVFtabINZRX0WiRu1zeu3gGc
+         9tjD0B0hUtIgW0hODm10+cCVLVIrPQdqkApshCCKowHcKIdfhvU3rosjFMQpo5qD4AIh
+         EOZnbISH/+gvYFb3AlWvs6VVXy5XIWpuZHlRjZW7lTXqo/00w/KP5dBSEVqnfIZT0NP8
+         W+ZAXf6erJhDSNhX2sNocmEfdVIcWsK/rr/axRnr63SLTzpbieaDKfUFiKF4FHyIHj21
+         xdz92sJ4GmE3zwfV75xGAaogRO5qQp2y0GwPJpg9ic61JJlhrH8XtRqCV8TUYhuw8PP/
+         o6Yg==
+X-Forwarded-Encrypted: i=1; AL+hErEs6vWgzAGD4Kdakat4JoNuIsa+22iJLg3qu0gVN7Tu4Zfh+vJOlD+OkfSOeBfEJrsVl/xMK73OSL62o5I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+5Nw4xfH4SByWt4iyAC/l7rHAeDU8MnKfXd+D+nWnstNsRnO05
+	se+k9FfnEnVJ+MFHwVebXjfL2hNyWHTFHiYdPw68AvYiCkimGDsxjrt1+AJz46r2h/o=
+X-Gm-Gg: AZFdTZfeffI4Hzz2TPoGBzdk8+zn2zQOfTFuzLsTIb2hbkllNEiEt5G1wYYE5tp7vJH
+	WABg5D+fOv/c6BmDdcM7XniKe3HsPNhPayYXasTIVf9y+8wyjJyqY7QAi1B05s/XfKdp18aVK7N
+	g1tZS1nrDlrIlKDqL507xb60GCllpcuvBgYQyAuTouFZ9cFSYePFOFdXCbuJIwBmJ5n1vD3ZZHD
+	tq20ONUL5MUjpfxGm+x0kW9bY7qKOOQ8aZQdPMnA0btcVCR9NJ2nlgscZL6aVFb5QMSk+M0FNuE
+	y9vfczN+vYe2vkjypInrhLz7lAy0HGm5olx1fwGeBO+EhvQu7l74KW1rdx5YAh/f88X0Zvi2ma6
+	k4fYTtrWNJDrmowX/Z7S92gTEXA+uOymTDCOmUuLulh/rh1L9WZOZqS46ODR6Nz6zryK6zwPQnB
+	Z7EQV6lvyzrCvan3GNXMJyXFdsSDRmPGMI+ewWqlnxaJjA3bHdbW90wj92BZucLw6QObUbDo33A
+	uYpl8Nb1K5sy7H0eOHdSMq38MtiDREoZIRXmaC7lRvHkwSxNlmSO9xenn4qal8bYsJ0dQqNf2Li
+	nBbBjp0q10w8GojBuPQq8uQIT2n+nxyGV84ruVazC+NM3NXI3cpsyhIXiE4dXe0IRF8ecaoN+/C
+	WpHf6CLsH
+X-Received: by 2002:a05:6000:26c1:b0:4b3:b495:d5ad with SMTP id ffacd0b85a97d-4b3b495d6efmr21107972f8f.23.1795656527657;
+        Wed, 25 Nov 2026 17:28:47 -0800 (PST)
 Received: from aerith (host109-153-232-219.range109-153.btcentralplus.com. [109.153.232.219])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110ba3sm30520335f8f.35.2026.11.25.17.28.40
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110ba3sm30520335f8f.35.2026.11.25.17.28.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 17:28:41 -0800 (PST)
+        Wed, 25 Nov 2026 17:28:46 -0800 (PST)
 From: Qais Yousef <qyousef@layalina.io>
 To: Ingo Molnar <mingo@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
@@ -89,11 +89,10 @@ Cc: Christian Loehle <christian.loehle@arm.com>,
 	John Stultz <jstultz@google.com>,
 	linux-kernel@vger.kernel.org,
 	Kayra Cizmeci <kayracizmeci@gmail.com>,
-	Qais Yousef <qyousef@layalina.io>,
-	Wei Wang <wvw@google.com>
-Subject: [PATCH v7 1/3] sched/uclamp: Fix race condition leading to imbalanced uclamp_rq
-Date: Thu, 26 Nov 2026 01:28:34 +0000
-Message-ID: <20261126012836.15205-2-qyousef@layalina.io>
+	Qais Yousef <qyousef@layalina.io>
+Subject: [PATCH v7 3/3] sched/uclamp: Move uclamp_rq_{inc, dec}() from core.c
+Date: Thu, 26 Nov 2026 01:28:36 +0000
+Message-ID: <20261126012836.15205-4-qyousef@layalina.io>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261126012836.15205-1-qyousef@layalina.io>
 References: <20261126012836.15205-1-qyousef@layalina.io>
@@ -108,108 +107,250 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Static keys are not guaranteed to be enabled atomically across CPUs.  Or
-across callsites on the same CPUs. Which means when sched_uclamp_used is
-enabled, some CPUs/callsites will return true for uclamp_is_used() while
-others won't, leading to asymmetric uclamp_rq_{inc, dec}_id. If we
-decrement without increment this is safe as documented in the code. But
-an increment without a decrement is a problem and will leave the
-uclamp_rq in a corrupt state.
+Fair and RT throttling can dequeue tasks without going through core
+leading to partial dequeue and corrupt rq uclamp state. Fix the problem
+by pairing uclamp_rq_{inc, dec}() with {add, sub}_nr_running() so that
+each class that cares about uclamp updates the rq state along with the
+nr_running. For RT use {inc, dec}_tasks() when a task is added/removed
+since managing nr_running is more complicated.
 
-The reported case seems to happen due to callsites on the same CPU not
-seeing the flipped state.
+Since RT group throttling doesn't actually dequeue the task but only the
+group but lies about nr_running, it is a more complicated fix and there
+are proposals to mark it as broken, so this is not handled and left
+alone.
 
-Update init_uclamp_rq() so that we do uclamp_rq_set() to ensure
-WRITE_ONCE() is used to update the value field and keep KCSAN happy.
+Remove the sched_delayed guards from uclamp_rq_{inc, dec}() since we now
+react at the appropriate time to do the operations and no longer need to
+care about this detail. With this gone, the flags parameter can be
+dropped too.
 
-Plugging the race is hard as discussed in [1]. Take it for granted and
-do correction actions on going to idle to guarantee this state is
-transient for a short period after uclamp_sched_used is enabled.
-
-[1] https://lore.kernel.org/lkml/CANDhNCqyXsZ6G77z+9s=rTO6BZifRG9+hVxMTah+tAv6pB6h3w@mail.gmail.com/
-
-Reported-by: Wei Wang <wvw@google.com>
 Signed-off-by: Qais Yousef <qyousef@layalina.io>
 ---
- kernel/sched/core.c  |  7 +++----
- kernel/sched/idle.c  | 19 +++++++++++++++++++
- kernel/sched/sched.h |  3 +++
- 3 files changed, 25 insertions(+), 4 deletions(-)
+ kernel/sched/core.c    | 33 +++++++++------------------------
+ kernel/sched/ext/ext.c |  6 ++----
+ kernel/sched/fair.c    |  6 ++----
+ kernel/sched/rt.c      | 10 ++++++----
+ kernel/sched/sched.h   |  8 ++++----
+ 5 files changed, 23 insertions(+), 40 deletions(-)
 
 diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index ea89471d4743c..23009278cc9a4 100644
+index 04c396435413a..8994e27f8582d 100644
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -2139,15 +2139,14 @@ static void uclamp_post_fork(struct task_struct *p)
- 	uclamp_update_util_min_rt_default(p);
+@@ -1894,7 +1894,7 @@ static inline void uclamp_rq_dec_id(struct rq *rq, struct task_struct *p,
+ 	}
  }
  
--static void __init init_uclamp_rq(struct rq *rq)
-+void init_uclamp_rq(struct rq *rq)
+-static inline void uclamp_rq_inc(struct rq *rq, struct task_struct *p, int flags)
++void uclamp_rq_inc(struct rq *rq, struct task_struct *p)
  {
  	enum uclamp_id clamp_id;
- 	struct uclamp_rq *uc_rq = rq->uclamp;
  
- 	for_each_clamp_id(clamp_id) {
--		uc_rq[clamp_id] = (struct uclamp_rq) {
--			.value = uclamp_none(clamp_id)
--		};
-+		 memset(uc_rq[clamp_id].bucket, 0, sizeof(uc_rq[clamp_id].bucket));
-+		uclamp_rq_set(rq, clamp_id, uclamp_none(clamp_id));
- 	}
+@@ -1907,13 +1907,6 @@ static inline void uclamp_rq_inc(struct rq *rq, struct task_struct *p, int flags
+ 	if (!uclamp_is_used())
+ 		return;
  
- 	rq->uclamp_flags = UCLAMP_FLAG_IDLE;
-diff --git a/kernel/sched/idle.c b/kernel/sched/idle.c
-index 451b4846219d5..c3882e3fbdf78 100644
---- a/kernel/sched/idle.c
-+++ b/kernel/sched/idle.c
-@@ -506,6 +506,25 @@ static void set_next_task_idle(struct rq *rq, struct task_struct *next, enum snt
- 	 * lost_idle_time of clock_pelt
- 	 */
- 	update_idle_rq_clock_pelt(rq);
-+
-+	/*
-+	 * Due to a race condition when enabling sched_uclamp_used static key,
-+	 * we can end up with imbalance where uclamp_rq_inc_id() has happened
-+	 * on a CPU without uclamp_rq_dec_id() on another CPU that hasn't seen
-+	 * the static key flipped. The race condition is unlikely, but ensure
-+	 * the uclamp_rq() state is set properly on each entry to idle.
-+	 *
-+	 * The reset will cause the uclamp_max from uclamp_idle_value() to be
-+	 * lost. Since we are imbalanced, hard to know what is right. So just
-+	 * cleanup. This should be a transient error state once we recover
-+	 * everything should work as expected.
-+	 *
-+	 * We need to be careful of some paths that can force idle with tasks
-+	 * are still queued.
-+	 */
-+	if (uclamp_is_used() &&
-+	    !rq->nr_running && unlikely(!uclamp_rq_is_idle(rq)))
-+		init_uclamp_rq(rq);
+-	if (unlikely(!p->sched_class->uclamp_enabled))
+-		return;
+-
+-	/* Only inc the delayed task which being woken up. */
+-	if (p->se.sched_delayed && !(flags & ENQUEUE_DELAYED))
+-		return;
+-
+ 	for_each_clamp_id(clamp_id)
+ 		uclamp_rq_inc_id(rq, p, clamp_id);
+ 
+@@ -1922,7 +1915,7 @@ static inline void uclamp_rq_inc(struct rq *rq, struct task_struct *p, int flags
+ 		uclamp_rq_clear_idle(rq);
  }
  
- struct task_struct *pick_task_idle(struct rq *rq, struct rq_flags *rf)
+-static inline void uclamp_rq_dec(struct rq *rq, struct task_struct *p)
++void uclamp_rq_dec(struct rq *rq, struct task_struct *p)
+ {
+ 	enum uclamp_id clamp_id;
+ 
+@@ -1935,12 +1928,6 @@ static inline void uclamp_rq_dec(struct rq *rq, struct task_struct *p)
+ 	if (!uclamp_is_used())
+ 		return;
+ 
+-	if (unlikely(!p->sched_class->uclamp_enabled))
+-		return;
+-
+-	if (p->se.sched_delayed)
+-		return;
+-
+ 	for_each_clamp_id(clamp_id)
+ 		uclamp_rq_dec_id(rq, p, clamp_id);
+ }
+@@ -2178,8 +2165,6 @@ static void __init init_uclamp(void)
+ }
+ 
+ #else /* !CONFIG_UCLAMP_TASK: */
+-static inline void uclamp_rq_inc(struct rq *rq, struct task_struct *p, int flags) { }
+-static inline void uclamp_rq_dec(struct rq *rq, struct task_struct *p) { }
+ static inline void uclamp_fork(struct task_struct *p) { }
+ static inline void uclamp_post_fork(struct task_struct *p) { }
+ static inline void init_uclamp(void) { }
+@@ -2215,11 +2200,10 @@ void enqueue_task(struct rq *rq, struct task_struct *p, int flags)
+ 		update_rq_clock(rq);
+ 
+ 	/*
+-	 * Can be before ->enqueue_task() because uclamp considers the
+-	 * ENQUEUE_DELAYED task before its ->sched_delayed gets cleared
+-	 * in ->enqueue_task().
++	 * Need to be careful what operations are done here, some classes like
++	 * fair and RT can enqueue tasks without going through core due to some
++	 * features like throttling.
+ 	 */
+-	uclamp_rq_inc(rq, p, flags);
+ 
+ 	p->sched_class->enqueue_task(rq, p, flags);
+ 
+@@ -2249,10 +2233,11 @@ inline bool dequeue_task(struct rq *rq, struct task_struct *p, int flags)
+ 	psi_dequeue(p, flags);
+ 
+ 	/*
+-	 * Must be before ->dequeue_task() because ->dequeue_task() can 'fail'
+-	 * and mark the task ->sched_delayed.
++	 * Need to be careful what operations are done here, some classes like
++	 * fair and RT can dequeue tasks without going through core due to some
++	 * features like throttling.
+ 	 */
+-	uclamp_rq_dec(rq, p);
++
+ 	return p->sched_class->dequeue_task(rq, p, flags);
+ }
+ 
+diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
+index a9e36b5bb0386..1dc35dbd42df1 100644
+--- a/kernel/sched/ext/ext.c
++++ b/kernel/sched/ext/ext.c
+@@ -2496,6 +2496,7 @@ static void enqueue_task_scx(struct rq *rq, struct task_struct *p, int core_enq_
+ 	p->scx.flags |= SCX_TASK_QUEUED;
+ 	rq->scx.nr_running++;
+ 	add_nr_running(rq, 1);
++	uclamp_rq_inc(rq, p);
+ 
+ 	if (SCX_HAS_OP(sch, runnable) && !task_on_rq_migrating(p))
+ 		SCX_CALL_OP_TASK(sch, runnable, rq, p, enq_flags);
+@@ -2647,6 +2648,7 @@ static bool dequeue_task_scx(struct rq *rq, struct task_struct *p, int core_deq_
+ 	p->scx.flags &= ~SCX_TASK_QUEUED;
+ 	rq->scx.nr_running--;
+ 	sub_nr_running(rq, 1);
++	uclamp_rq_dec(rq, p);
+ 
+ 	scx_dispatch_dequeue(rq, p);
+ 	p->scx.flags &= ~SCX_TASK_REENQ_REASON_MASK;
+@@ -5922,10 +5924,6 @@ DEFINE_SCHED_CLASS(ext) = {
+ 	.prio_changed		= prio_changed_scx,
+ 
+ 	.update_curr		= update_curr_scx,
+-
+-#ifdef CONFIG_UCLAMP_TASK
+-	.uclamp_enabled		= 1,
+-#endif
+ };
+ 
+ s32 scx_init_dsq(struct scx_dispatch_q *dsq, u64 dsq_id, struct scx_sched *sch)
+diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
+index 731d78155e654..dde12d9e1af4d 100644
+--- a/kernel/sched/fair.c
++++ b/kernel/sched/fair.c
+@@ -8266,6 +8266,7 @@ enqueue_task_fair(struct rq *rq, struct task_struct *p, int flags)
+ 
+ 	/* At this point se is NULL and we are at root level*/
+ 	add_nr_running(rq, 1);
++	uclamp_rq_inc(rq, p);
+ 
+ 	/*
+ 	 * Since new tasks are assigned an initial util_avg equal to
+@@ -8385,6 +8386,7 @@ static bool __dequeue_task(struct rq *rq, struct task_struct *p, int flags)
+ 		__dequeue_entity(cfs_rq, se);
+ 
+ 	sub_nr_running(rq, 1);
++	uclamp_rq_dec(rq, p);
+ 
+ 	/* balance early to pull high priority tasks */
+ 	if (unlikely(!was_sched_idle && sched_idle_rq(rq)))
+@@ -15962,10 +15964,6 @@ DEFINE_SCHED_CLASS(fair) = {
+ #ifdef CONFIG_SCHED_CORE
+ 	.task_is_throttled	= task_is_throttled_fair,
+ #endif
+-
+-#ifdef CONFIG_UCLAMP_TASK
+-	.uclamp_enabled		= 1,
+-#endif
+ };
+ 
+ #define SCHED_DEBUG_MAX_ITER 4096
+diff --git a/kernel/sched/rt.c b/kernel/sched/rt.c
+index 81a71aa5f094a..f353add1cc854 100644
+--- a/kernel/sched/rt.c
++++ b/kernel/sched/rt.c
+@@ -1189,6 +1189,9 @@ void inc_rt_tasks(struct sched_rt_entity *rt_se, struct rt_rq *rt_rq)
+ 
+ 	inc_rt_prio(rt_rq, prio);
+ 	inc_rt_group(rt_se, rt_rq);
++
++	if (rt_entity_is_task(rt_se))
++		uclamp_rq_inc(rq_of_rt_rq(rt_rq), rt_task_of(rt_se));
+ }
+ 
+ static inline
+@@ -1201,6 +1204,9 @@ void dec_rt_tasks(struct sched_rt_entity *rt_se, struct rt_rq *rt_rq)
+ 
+ 	dec_rt_prio(rt_rq, rt_se_prio(rt_se));
+ 	dec_rt_group(rt_se, rt_rq);
++
++	if (rt_entity_is_task(rt_se))
++		uclamp_rq_dec(rq_of_rt_rq(rt_rq), rt_task_of(rt_se));
+ }
+ 
+ /*
+@@ -2644,10 +2650,6 @@ DEFINE_SCHED_CLASS(rt) = {
+ #ifdef CONFIG_SCHED_CORE
+ 	.task_is_throttled	= task_is_throttled_rt,
+ #endif
+-
+-#ifdef CONFIG_UCLAMP_TASK
+-	.uclamp_enabled		= 1,
+-#endif
+ };
+ 
+ #ifdef CONFIG_RT_GROUP_SCHED
 diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 32f76551a0c5e..3cbaea9e29406 100644
+index 8fcac9b6be9cd..f6ff4e78fce0e 100644
 --- a/kernel/sched/sched.h
 +++ b/kernel/sched/sched.h
-@@ -3815,6 +3815,7 @@ static inline unsigned long cpu_util_rt(struct rq *rq)
- #ifdef CONFIG_UCLAMP_TASK
+@@ -2729,10 +2729,6 @@ enum snt_e {
+ 
+ struct sched_class {
+ 
+-#ifdef CONFIG_UCLAMP_TASK
+-	int uclamp_enabled;
+-#endif
+-
+ 	/*
+ 	 * move_queued_task/activate_task/enqueue_task: rq->lock
+ 	 * ttwu_do_activate/activate_task/enqueue_task: rq->lock
+@@ -3816,6 +3812,8 @@ static inline unsigned long cpu_util_rt(struct rq *rq)
  
  unsigned long uclamp_eff_value(struct task_struct *p, enum uclamp_id clamp_id);
-+void init_uclamp_rq(struct rq *rq);
+ void init_uclamp_rq(struct rq *rq);
++void uclamp_rq_inc(struct rq *rq, struct task_struct *p);
++void uclamp_rq_dec(struct rq *rq, struct task_struct *p);
  
  /*
   * When uclamp is compiled in, the aggregation at rq level is 'turned off'
-@@ -3913,6 +3914,8 @@ uclamp_eff_value(struct task_struct *p, enum uclamp_id clamp_id)
- 	return SCHED_CAPACITY_SCALE;
+@@ -3925,6 +3923,8 @@ uclamp_eff_value(struct task_struct *p, enum uclamp_id clamp_id)
  }
  
-+static inline void init_uclamp_rq(struct rq *rq) {}
-+
+ static inline void init_uclamp_rq(struct rq *rq) {}
++static inline void uclamp_rq_inc(struct rq *rq, struct task_struct *p) {}
++static inline void uclamp_rq_dec(struct rq *rq, struct task_struct *p) {}
+ 
  static inline bool uclamp_rq_is_capped(struct rq *rq) { return false; }
  
- static inline bool uclamp_is_used(void)
 -- 
 2.53.0
 
