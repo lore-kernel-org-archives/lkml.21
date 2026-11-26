@@ -1,47 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705939;
-	b=xD+12CSbtGrkoxsFKqewB02CjXfDwu8cNA8u8J67XSAfxTtYNqoGQbKDw3H/DwGFoHNz
-	 qqOCgTNZTdxnJ70nYKZpwFJSkm16IKmjbigbFlfAiu5RqtXYrKPBLOt96i+RqQHQpDTfm
-	 +ft7ASn6KUrHkjJVXoHvmHPI53pDnXtmfpRuKZGfRgXCMVG1YySSvh3qt3Y3XXLw1VhNR
-	 pAy8urOgmY9j0/WSSeLQ8xMkKkLlyLNqoL2d7s0vYaf5SqSb16jxeWRVFevPvc5DUDVVB
-	 6etDCRRomYUqx3mDl2HAJv2YjEe1xeVSJRH+Ly7ImKwtLyvdYbOmZxRI+yi6gXB67mg==
+	t=1795706049;
+	b=reWeWInrJGFFrzQYHWAhWAnGKHD1duZyGyI+MdlkmFX9Nh/QZ7z5q+Stq+eOhLkWDsyk
+	 Cgd8gV9KM0JZT5BpXXaPdwYdOGiiNuhSr1hy3GyIlOqyOf2EIfdfDSOEnHNEaNhlDkokh
+	 29NRzKy2fEBPFE9gXro7G0gwt2dmwnwQkuoxUDZ7jmNhxFSSyTaaY4KVqcxnySONYyMWC
+	 gZpdGgZDTPYIRx+KeLkB1tM60Zp352THSIS1MJdHFxm8WMLM/sV+6K+B+AVbPRo6bjeIV
+	 GUvhX0VGNnIHnfQiS23Exnfgva5ckmlMv9vL5KcKF+dsgSHj0qbO3V4FqHWK+1UKSEA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705939;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=KEGjOtknLvr4k7LQrzqb3PlTunE9oDuJZUqg2Ssbby0=;
-	b=nXAsVwyGc0hBH6A5OJc1wHfhm1boR7u1IB4K7X234E1DpeK/L8xg+QSRW7XCldputbeP
-	 6xW52B2jk53neJpBoKixAvm5UPxmQTb3XIfFI6H9EMliwSxbJwZaCJuV9Ud82P2Dmfc+m
-	 dsPBYpkbM4uaUO3g+CK4C4wFQatpp2cQ3vonXyV6fNAopZquJOKz/WQsN3vD7LXEDRe+5
-	 qzAxRY4CvO34+FJgn2YcvAqaJ30fBgsIgF+wQTC7SUf99H6XLOOmMtXdTP8gTZtRag+au
-	 uFAgD4WTfDbF9mLHOBPJWN+F0RvG9fDO4RM2mPGzVQP2ztNCVxY0tUmnAhWZWzIgbpg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795706049;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=5qrK3dPHIDLDJCAK7pwOhgo0XUjp026/y7N6Gkx7MIE=;
+	b=fCvVSVEQ9qof2sF12Kql2xwDby3t9J6bMRlt+52qPFiN3ruW/quuodiL2uLGDVYTLPv5
+	 CMkvW3pqErVuF+YiQhEiyZF7AE1IqM0+md6Bn9DZY+wZ+1tt9wCAOMoKFkEyhRDIopBEh
+	 HT+mcu3pZvIfuaHq2/7rHPwTfJjO8bo1kFaIGzq5p59b1spcpg2opzjgs3TTAXoaWnjPY
+	 bI7uBHWbtObOfSrFe5g3boYttqcoDB+K5VnAw1AZsnDwHc2T79YmuSjDI7EY25tS0d8Qq
+	 y30C2tizDGi8nPr/yGdfgdnWni0IVCG2bOZOPt1oc+kUFPpNgdIM/p7MAZw7HxIvAdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IbQcr1CG;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IAXbYM0L;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12B7E606A31C;
-	Thu, 26 Nov 2026 15:12:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C84EC606A321;
+	Thu, 26 Nov 2026 15:14:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IbQcr1CG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 287441F000C0;
-	Thu, 26 Nov 2026 15:12:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IAXbYM0L
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DE021F000D2;
+	Thu, 26 Nov 2026 15:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795705938;
-	bh=KEGjOtknLvr4k7LQrzqb3PlTunE9oDuJZUqg2Ssbby0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=IbQcr1CG03bPkafsQCoNmBce2p/eN36m0+9VzzR6jzEzsA+KXE1RnciHdnadnIE1g
-	 ARLamARF5AubiF4m4A0P7KfHA4vE15ynmYI2OOzK94xuCUVoZjcxbzckZ1/z6ETZ4u
-	 7G/oCS+Z2O2ooLjEyNExrLTvqVGHQNwl+l3p4Xh0QIf45RPOaSH9aiN0sOWH9sBiwK
-	 pSnz710kFEDoIK+dmbbyDe0N3uUIoPEKKz+l4Z432rnQpWWJ4i5L2wkTEed1haV9Lj
-	 jVbsLDgDgDZhKLCOPIOyJGc4kgAFEL2R0BYLfgFetdv6xmbJuOEnCZq+qajvtPrhR7
-	 Z/60U7TRkYUEw==
-Message-ID: <4e8ecbe0-35bd-41d0-8546-4d99832e662b@kernel.org>
-Date: Thu, 26 Nov 2026 16:12:09 +0100
+	s=k20260515; t=1795706049;
+	bh=5qrK3dPHIDLDJCAK7pwOhgo0XUjp026/y7N6Gkx7MIE=;
+	h=Date:From:To:Cc:Subject;
+	b=IAXbYM0LViE4DbsqLtsI5fM6bOaOQcik3jL5Wx8fGhA2+UndCSyRh4Xi2n3ufECmj
+	 neInWeuwKCmXk770VYXhFqEKRjy10h1PMy/GBwwO17jqm8/zwzSqLZAPgNtwgpwtSS
+	 2j7GDS3/NoUeyWv+ZGzFToxGuTRqu9rThbA4klkeEZXnSYQlGSAoHyZO0JMH7sGkez
+	 5XGbYIX4i4D7ufo9Gy1Iw6ne2nxgngJ6Z51gNYs/IwwFqYT518F4LbXBzFFoqWxtLl
+	 FhbRwQTiXdM+yfgqB5m1MZZGta58VvlPR8bqztIk6XVU88RJEP7owiuaOUmurDi7Vu
+	 tkiqxvbwk2+vA==
+Date: Thu, 26 Nov 2026 15:14:04 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Mike Rapoport <rppt@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>
+Cc: Dmitry Kasatkin <dmitry.kasatkin@gmail.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Mimi Zohar <zohar@linux.ibm.com>,
+	Mimi Zohar <zohar@linux.vnet.ibm.com>,
+	Roberto Sassu <roberto.sassu@huawei.com>
+Subject: linux-next: manual merge of the kexec tree with the integrity tree
+Message-ID: <awhMvDnzcpc5mv7G@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,107 +62,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/24] dt-bindings: media: Add bindings for Arm Mali-C720
-To: Anthony McGivern <anthony.mcgivern@arm.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Nayden Kanchev <nayden.kanchev@arm.com>,
- Konstantin Babin <konstantin.babin@arm.com>,
- Linus Walleij <linusw@kernel.org>, jacopo.mondi@ideasonboard.com,
- kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com,
- dan.scally@ideasonboard.com, Sakari Ailus <sakari.ailus@linux.intel.com>,
- Rob Herring <robh@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Hans Verkuil <hverkuil@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-References: <20261124-b4-initial-upstream-candidate-v1-0-0cb9bde1bd30@arm.com>
- <20261124-b4-initial-upstream-candidate-v1-2-0cb9bde1bd30@arm.com>
- <179559671799.14607.10622707622371448283.b4-reply@b4>
- <0543d134-04d3-4e51-acd1-4fc39a0e522b@arm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <0543d134-04d3-4e51-acd1-4fc39a0e522b@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-
-On 26/11/2026 15:55, Anthony McGivern wrote:
->>> +
->>> +  interrupts:
->>> +    minItems: 1
->>
->> Why is this flexible?
-> 
-> The ISP has two interrupts - Main and fault. Currently the driver only
-
-If only writing bindings covered exactly such example. :/
-
-Hardware has two, so you need here to.
-
-> uses the main interrupt, though we may wish to enable the fault
-> interrupt in the future to detect errors on HW side. I will update
-> this in V2 to use descriptions for each interrupt.
-> 
->>
->>> +    items:
->>> +      - description: ISP main interrupt
->>> +      - description: ISP fault interrupt
->>> +
->>> +  interrupt-names:
->>> +    minItems: 1
-
-And please drop minItems here as well
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="mwi5A3M40icvYNF4"
+Content-Disposition: inline
 
 
->>> +    items:
->>> +      - const: isp
->>> +      - const: fault
->>> +
+--mwi5A3M40icvYNF4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+Hi all,
 
+Today's linux-next merge of the kexec tree got a conflict in:
 
-Best regards,
-Krzysztof
+  kernel/Kconfig.kexec
+
+between commit:
+
+  4e15e8ed59e07 ("kexec: Select ima_get/free_kexec_buffer() with CONFIG_HAV=
+E_IMA_KEXEC(_OF)")
+
+=66rom the integrity tree and commit:
+
+  e583fcbe5b585 ("arch, kexec: declare kexec and crash capabilities in Kcon=
+fig.kexec")
+
+=66rom the kexec tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+diff --cc kernel/Kconfig.kexec
+index 86a230505931a,af03cc773145b..0000000000000
+--- a/kernel/Kconfig.kexec
++++ b/kernel/Kconfig.kexec
+@@@ -17,10 -20,9 +20,13 @@@ config KEXEC_EL
+  config HAVE_IMA_KEXEC
+  	bool
+ =20
+ +config HAVE_IMA_KEXEC_OF
+ +	bool
+ +	select HAVE_IMA_KEXEC
+ +
++ config ARCH_SUPPORTS_KEXEC
++ 	bool
++=20
+  config KEXEC
+  	bool "Enable kexec system call"
+  	depends on ARCH_SUPPORTS_KEXEC
+
+--mwi5A3M40icvYNF4
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsITLsACgkQJNaLcl1U
+h9B9zgf/UGCo8KEeQ4L21Z4sU7flB0MvRCs0XrS3logxJ3av4K79nucY6H9ycBCR
+AfoPdhXHNvyytaOSObWbPEvrbY8W1Ggoqs1V5sG4a0vwfb6a74jYWhnHv/hMKAVl
+MNFBInanYQI93Z/bW9HRqlmw1waCAfu23iIwNolAxgLP51JVJydkjQscCgclr+EI
+HPR1N1L5+ipOC+55BChp27l7zlzLnJQT/eo6QLbFNO6L+jJcoDC+nshQjk67Rg8Q
+WUlgF3xnTyvgpYWK7gTtOPiWRiJbUuJv91VYrDPvBR2enLInO3SFt/7SAdM13x9P
+IeFZR8aoPwxHa6kW0THKHMHLpYXlig==
+=9q5+
+-----END PGP SIGNATURE-----
+
+--mwi5A3M40icvYNF4--
