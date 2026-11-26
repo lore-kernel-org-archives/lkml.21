@@ -1,81 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683585;
-	b=1y/htCoSPQuMgwiMfY/8Yg6FyIEj/mIEeHxaSLBaKsG+MsozWIo2k7QuQp3c23q0D3GK
-	 nExYk+/iUbjxV/BB0Q9bgBBpYxDgDyyPpMxAyzXPjKoPnKflz9cGy7IVmm1N8waOQk6Pt
-	 AaaS2ReyCO67CN3lNfQYV0uLYDtSD8YaCWtAiQTRIaZxws/hzzsaCBeL1INJpCFzDT5t3
-	 9P7/5EnV/oK0gJ0fEX3JnXg/F4IquGhTNy2xNLGSviTv00tQRwJ8GSqG9y96BNaUZZbr/
-	 Zd4jBrFxWa2+czzF6p6WSNB4WK4u66DsRBXT3hN0kBmNnYiHEfI7mYOHuxAQ61d45hg==
+	t=1795683600;
+	b=epLpfHVjZiIZjSEgXDoEJO3q9F3Okxr7udH5XWiQewDKzuOz4erckhmGsFZWX8jR+aYj
+	 a9w+r8yWr5aSV0bod8hdzlJJNkW3pdwJSyImDPP6pz6XpyOQVsarb+Eo6Q1m7ytJ+KHAy
+	 Vn2Ri6wjCShDJrasFWPEJpnpd6vwdpClSkolu57spj+ej2uIXrGSA0HRa1+jKbVjrnFMj
+	 AxwIyprZ0rBZRXPmekAe54PdxeIqdjTS5T4w3XGCPs3pyBC8MnrbNwyrZyZMHfsjeGv9I
+	 ZSamIziboOhy58AY7LoNhJPYDgedvv53SYtEY4JeAP9cmDmqEzlkMMrM3lGGbeHg7LQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683585;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy;
-	bh=EL1asoxpJj3mS6PiWh3IZjA5s9JX+P0EoH0x0jJdp2g=;
-	b=qSJcmIZWkUU0N9ppBNXEuIGokbKdWOe4CstG4XD54grpBSmmbdOQPFlpZGhlyglVT6+F
-	 CtYkjitUw5CoC3klvAvnzGRxK2JsgMTAEKSvT8HOmfR2R7q7zx2ufzSM0p8YZwDO6BZma
-	 wmfsxKOJZ3Gf6WLCCbboL/hiCMRrGwf6ZLHWS1xaUGNf54tiJkHrmbwGeL9jZbI7ikMrb
-	 3PM63c1KivAlLTqqBy+9MXir9bTTX2/FrE68OhNyHcI4LlBl+D3SVctmzR6SxuOpRt1Bz
-	 IYXfWRknMjdzP4/6khRfHIQ8VJVuX1+h3v+sUiH94+os41Ve4pvdfS0ZfXlmWtc2pHg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683600;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:Subject:From:To:Cc:X-Mailer:
+	 References:In-Reply-To;
+	bh=pdGJ7QlIha01VNcg3cIU0qWH1SN2Mep0wOZrqFLArYQ=;
+	b=v6NHOfq5nP8NQ3c5lDlitr7ZaPIMuKeyHCrmFYoFyixvOJqgaxAstEbu3hhrvoGV/j0E
+	 394c56Ct2iBy7xf7wy67GgY0DRAgNVNIs0tQ5ytKtjEFx+4pDlDE83F5iV3A7yQpFg3C2
+	 kGS1Rw/1sbTap/iBbGNDBDSPHu/+nt8GuK/QHLx5843HrQWyvBv7bDMK63/RdzXMIcWPg
+	 ktdt56lTtuM0xCzlLJcarOzgbR1RsSNz/FK05xbzk8m8Z02FwzCGddDVKmOBxMAFy9EeW
+	 h4/9dTEmEW1o3eMr6IqNeK+CKB8ycuSR0Lpe+pBeM0yWDFg5EWRfdXHMg19vca2QEhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=RvkrkkIe;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dZ0KjGB7;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DCAF606A31C;
-	Thu, 26 Nov 2026 08:59:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DCAF606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9B36606A329
+	for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 08:59:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9B36606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=RvkrkkIe
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id 0235020758;
-	Thu, 26 Nov 2026 09:59:42 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id VGYa7rv3mnB7; Thu, 26 Nov 2026 09:59:41 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id 513D2206B1;
-	Thu, 26 Nov 2026 09:59:41 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 513D2206B1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795683581;
-	bh=EL1asoxpJj3mS6PiWh3IZjA5s9JX+P0EoH0x0jJdp2g=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=RvkrkkIebhzr0A3lbnE+9iLG/GwSN9NTC7XwPIGoECQChEN+etcsdjmc/1bC0doOv
-	 Bte4BMRxYrMAlNtZJ7QLhT98i0jxxb5d/d7Av1UVcmc5VbNt5/w64eMZlwtC6myLNf
-	 cZcira65E68qJMSgNPHqPMm8c19G9yiIEUpsdrY6pZeg6nY+dYDnrWiEe9ZiLlGtp1
-	 rJWgi3OzrJ30/dFufABaUHIR2syV/VpAFpg9kW28H4gkZa68d/mWI9i9oBXaFcB593
-	 VFvUPDIX5bl822WnLO4XX389qO8uzFmYb7u62WK9m/4RVgvV01KJlO9kfJpI9VA3EN
-	 MWmgUtxpwOObg==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 26 Nov
- 2026 09:59:40 +0100
-Received: (nullmailer pid 2023310 invoked by uid 1000);
-	Thu, 26 Nov 2026 08:59:40 -0000
-Date: Thu, 26 Nov 2026 09:59:40 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn
-	<willemb@google.com>, Simon Horman <horms@kernel.org>, Kuniyuki Iwashima
-	<kuniyu@google.com>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH ipsec v2 1/1] xfrm: free the policies already cloned when
- a socket clone fails
-Message-ID: <awf0_Ksi65pXTtEo@gauss4>
-References: <179540803323.3139700.5340002553684152759@gmail.com>
- <179540803323.3139700.15088508372382876389@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dZ0KjGB7
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso52684475e9.0
+        for <linux-kernel@vger.kernel.org>; Thu, 26 Nov 2026 00:59:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795683598; x=1796288398; darn=vger.kernel.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=pdGJ7QlIha01VNcg3cIU0qWH1SN2Mep0wOZrqFLArYQ=;
+        b=dZ0KjGB7m+OC1UmDFSULTRyhEh/lwe5llDQbTSjiXuQIrRbnZA5GQZIFeNoMyxZZTH
+         z9wSBADwSEaOaOPEe9dp+GusOM8SLT2Ekgm+kOXWdL9czn7bw6aAmC7+P5oOBGesL+Kv
+         Qv9RdiHh330ww6BQsURewUOPINjtLJprH6CZhG0zxJoPNiedKjS2G5XLjUuDuVZcQWHZ
+         Fw2IG+HrZjpp/SvOEkLONf9jSPdiM8tQZNZK8bDcs4ua8f62ihOMZfXoeGzSk1bpY54I
+         2w/okcZYxOXErza9bdcinAFE91q2/OeUPOAoJEbanR47RmrJ/YZpE4u+gnX9Xibflhck
+         PBAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795683598; x=1796288398;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=pdGJ7QlIha01VNcg3cIU0qWH1SN2Mep0wOZrqFLArYQ=;
+        b=ZbA/R9ZGhJDwkux/evIMPlKKocJ8BLfx3ssqCT6KQPd+zUSrKp/gFNXkfQop1bqx3f
+         AaiwyadNyAaaLi4dqn0Lymhnfe490ReuZYHe6r5sY3Tx0HQMMsHPi+X5jkstcKuSu2MY
+         CqNBgeO/aAIm0DL7mUJNcXF0whNRwQ9M4lUYeqfjTNcR/VPENFcEngQWIsCYOioZweBZ
+         bpAyf+sd9iotYxXNK03pHZzdmnm5rJv14inzrZFLgvNv7WCO8nMSN9uoF4URoyfWro3m
+         B9wl/i0hjgePABNHHnyn4EqY8LHW3P1+r4+tZIVrTFzbrfFBrPvu8VFqteoaDDvfJb9Z
+         3CAA==
+X-Forwarded-Encrypted: i=1; AL+hErEaDSm3wri5T6eI4qGNCI5SAXPoYqj+uHocXY6dmlkNHgmMxMekP9yadMpkq1dOde3D6h47XEeTCE5ekqM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/4ikxNvMlgwc582s8/WhsMLji0SSgVOsHaHIXlQKneo7fkIIdX
+	dxAGXJH9uSCCUY2ojsQexOCQP6iV6fNmvKC4vl6lE+EDmQutG+a5exQC
+X-Gm-Gg: AZFdTZf0lQ9RDXf1nUZoadHzK/xiTtsqTCFSssY/Lu0CsX58T+XKN6Gp+YeR76da1w7
+	B4+s03lLA+H14O6pAa8uZL9zqflW8cGMMM1hBByeIRuB14R55isn8ZYcXI2GmBhuLoeu+28AISS
+	bM1IW//07GF7n/OaNXkqDLN2udwaEfvYGiD1aIS98y4O5HxEYsV+y9jHBtLEb3d2pgjXqdhYv+Z
+	vclkM0Le3+QsKxkxYBUl5x+5BjITCun6aVG/fDCA/HR4gxrNsjf6rYc98naQHP+wi+nV49KgI1M
+	tG0h68F4okspqbOuaQ4QaBRffUyXcY0A5g1RRUILElihiitQWt6hlfsejiaj8h/lNO2lHWV4jX+
+	/z7w0NgD/sceugRXFsds4sIVITtmmaze4WD6ZdsujNfnbzTlZHpur4LUoMl5jE0hSYobl0uE1tI
+	8m1E3wG1D/16QHyQsjhLkyon93vFjsTwEhaP4WpSEPd21ww0r98g6aemOiZ5eoW/oRTtAKGt7HZ
+	qVET3Yp8Az0CKvx7zjLfDxTYRHPEMQUJ+dZQvUP/BNr4kLlZPWqlSIzKKWc/HFdAw5ZIJHlWFft
+	m82Wdz6szMxa58d1+Aw0JqUWgPmE4hQ8h+0w997Yf/Zz6ou3X3JeE3VbYA/4UI5mpQSSoDLFzwv
+	Xc45OvmAPvZA=
+X-Received: by 2002:a05:600c:4f4c:b0:4bb:8503:69f4 with SMTP id 5b1f17b1804b1-4bb888097a2mr507049805e9.5.1795683597630;
+        Thu, 26 Nov 2026 00:59:57 -0800 (PST)
+Received: from localhost (mob-176-246-236-25.net.vodafone.it. [176.246.236.25])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm554122785e9.4.2026.11.26.00.59.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 00:59:56 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,98 +87,245 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179540803323.3139700.15088508372382876389@gmail.com>
-X-ClientProxiedBy: EXCH-01.secunet.de (10.32.0.171) To EXCH-01.secunet.de
- (10.32.0.171)
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=1bb107e9a21cc29b328dfa80e731d1d8e11a68359f8065fcb2e36792f75f;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Thu, 26 Nov 2026 09:59:50 +0100
+Message-Id: <DN50PH7HHSWZ.3H4T25JFPQECY@gmail.com>
+Subject: Re: [PATCH 2/3] vfs: add xflags mask to fileattr API
+From: "koraynilay" <koray.fra@gmail.com>
+To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
+ <koray.fra@gmail.com>
+Cc: "Namjae Jeon" <linkinjeon@kernel.org>, "Hyunchul Lee"
+ <hyc.lee@gmail.com>, "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian
+ Brauner" <brauner@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff
+ Layton" <jlayton@kernel.org>, "Jan Kara" <jack@suse.cz>, "Darrick J . Wong"
+ <djwong@kernel.org>, "Andrey Albershteyn" <aalbersh@kernel.org>,
+ =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, "Lauri Gates"
+ <lauri.gates@gmail.com>, "Christoph Hellwig" <hch@infradead.org>, "Dave
+ Chinner" <dgc@kernel.org>, <linux-btrfs@vger.kernel.org>,
+ <linux-xfs@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-fsdevel@vger.kernel.org>, <ntfs@lists.linux.dev>,
+ <linux-nfs@vger.kernel.org>, <linux-api@vger.kernel.org>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261122000856.536902-1-koray.fra@gmail.com>
+ <20261122000856.536902-3-koray.fra@gmail.com>
+ <CAOQ4uxhegn1z=41_MHL1Zu2hXuPtzNhC=x4gd371oaeJE4-weQ@mail.gmail.com>
+ <DN2N6A68PBO1.2QT8ZOARF4I6L@gmail.com>
+ <CAOQ4uxhDQqEQ3T9NveBFpUmSU032BxrNV5D+_zHj8u9LOQY+qg@mail.gmail.com>
+ <DN4DRUYPHYMP.20U4DYV5VBN7P@gmail.com>
+ <CAOQ4uxg0g+XkPb3-kQS5ez1-rp7Q=BkYDHW0CGOFhpbcf70yMg@mail.gmail.com>
+ <DN4KLSM2OO0K.2C8Q5CPFBVNL6@gmail.com>
+ <CAOQ4uxhpJygZH-arLFSUYEEfqFG96Sr3_6CWakfSkdWxEsOxMg@mail.gmail.com>
+In-Reply-To: <CAOQ4uxhpJygZH-arLFSUYEEfqFG96Sr3_6CWakfSkdWxEsOxMg@mail.gmail.com>
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+--1bb107e9a21cc29b328dfa80e731d1d8e11a68359f8065fcb2e36792f75f
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
----
-Author: Kyuwon Cho <kyuwoncho18@gmail.com>
+On Thu Nov 26, 2026 at 8:07 AM CET, Amir Goldstein wrote:
+> On Wed, Nov 25, 2026 at 9:22=E2=80=AFPM koraynilay <koray.fra@gmail.com> =
+wrote:
+>>
+>> On Wed Nov 25, 2026 at 5:51 PM CET, Amir Goldstein wrote:
+> ...
+>> >>
+>> >> My robot proposed 2 fixes: either don't introduce FS_XFLAG_PROJID
+>> >> (which, eh, not the best imo)
+>> >
+>> > Me neither. It's inconsistent IMO.
+>> >
+>> > But it is inconsistent in that we want to have a way for chattr -p to =
+say with
+>> > the new API "set only projid", so we must have the flag, but we
+>> > mostly need it for the mask, we don't really care about its value in
+>> > fsx_flags.
+>> >
+>> >> or add a new flag to be used in at_flags,
+>> >> like AT_FILEATTR_MASKS, which would resolve all our legacy vs non-leg=
+acy
+>> >> problems, but it would be in *at*_flags, so doesn't really make sense
+>> >> semantically (but it would work well since file_getattr already rejec=
+ts
+>> >> unknown at_flags, so it wouldn't cause problems for old programs).
+>> >
+>> > I think this is an overkill as well.
+>>
+>> Semantics issue aside, I think this shuold be the way to go, because
+>> it's explicit and doesn't rely on guessing based on struct size or mask
+>> values.
+>>
+>
+> Yes this is a good argument.
+>
+>> > We discussed this before.
+>> >
+>> > Attributes that have X_value like fsx_projid have few types:
+>> > 1. 0 means disabled (all existing values incl. projid)
+>> > 2. 0 is a valid value but cannot be unset (btime)
+>> > 3. 0 is a valid value and NULL/unset is also a valid value
+>> >
+>> > Only for type 3 does can the interpretation of
+>> > (!XFLAG_X && !fsx_X) be considered as an "unset"
+>> > and anyway, this will require support in individual fs.
+>>
+>> IMO !(xflags & XFLAG) && (rw_mask & XFLAG) should clear/unset the value
+>> in all cases, ignoring what's in fsx_X.
+>>
+>> And all existing values would be of type 1 for VER0, but of type 1 + 3
+>> for VER1.
+>>
+>
+> I agree that this will be more consistent.
+>
+> With explicit opt-in to FILEATTR_MASKS API
+> vfs can determine that
+> (!XFLAG_X && !!fsx_X) is alway -EINVAL
+>
+> When fsx_X =3D=3D 0, the value of XFLAG_X does not really matter
+> so filesystems can decide themselves if they want to act on
+> an "unset" flag or not.
 
-xfrm: free the policies already cloned when a socket clone fails
+Hmm, I think fsx_xflags should have priority over the value in this
+_masks API.
 
-This patch adds a rollback loop to __xfrm_sk_clone_policy(). If cloning
-the second direction fails, the loop deletes the per-socket policy
-already cloned for the first direction. Without it, that clone stays on
-net->xfrm.policy_all until the netns is torn down.
+In my mind, to clear PROJID a userspace program would only need to do:
 
-> diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
-> index d2e938d4db9aa..e5b51f5f64306 100644
-> --- a/net/xfrm/xfrm_policy.c
-> +++ b/net/xfrm/xfrm_policy.c
-> @@ -2460,6 +2460,13 @@ int __xfrm_sk_clone_policy(struct sock *sk, const struct sock *osk)
->  			rcu_assign_pointer(sk->sk_policy[i], np);
->  		}
->  	}
-> +	while (unlikely(ret) && i--) {
-> +		np = rcu_dereference(sk->sk_policy[i]);
-> +		if (np) {
-> +			RCU_INIT_POINTER(sk->sk_policy[i], NULL);
-> +			xfrm_policy_delete(np, XFRM_POLICY_MAX + i);
-> +		}
-> +	}
+  struct file_attr fa =3D {
+  	.fsx_xflags =3D 0,
+  	.fsx_xflags_rw_mask =3D FS_XFLAG_PROJID
+  };
+  file_setattr(&fa, AT_FILE_ATTR_MASKS);
 
-Discovered by: opus-5-5 · Missed by: sashiko-gemini
-This rollback only covers a failure inside __xfrm_sk_clone_policy().
-What about a failure later in sk_clone(), after xfrm_sk_clone_policy()
-has already succeeded?
+and have projid cleared (same for EXTSIZE/EXTSZINHERIT/COWEXTESIZE),
+while to set/change it:
 
-In net/core/sock.c:sk_clone():
+  struct file_attr fa =3D {
+  	.fsx_xflags =3D FS_XFLAG_PROJID,
+  	.fsx_xflags_rw_mask =3D FS_XFLAG_PROJID,
+  	.fsx_projid =3D 67,
+  };
+  file_setattr(&fa, AT_FILE_ATTR_MASKS);
 
-	if (unlikely(!is_charged || xfrm_sk_clone_policy(newsk, sk))) {
-		...
-		goto free;
-	}
+and this:
 
-	if (bpf_sk_storage_clone(sk, newsk))
-		goto free;
-	...
-free:
-	newsk->sk_destruct = NULL;
-	if (lock)
-		bh_unlock_sock(newsk);
-	sk_free(newsk);
+  struct file_attr fa =3D {
+  	.fsx_xflags =3D FS_XFLAG_PROJID,
+  	.fsx_xflags_rw_mask =3D FS_XFLAG_PROJID,
+  	.fsx_projid =3D 0,
+  };
+  file_setattr(&fa, AT_FILE_ATTR_MASKS);
 
-Once xfrm_sk_clone_policy() succeeds, newsk->sk_policy[0] and
-newsk->sk_policy[1] hold fresh clones. clone_policy() has already linked
-each one on net->xfrm.policy_all and dropped the allocation reference:
+would have the same result as the first snippet, but not the same
+meaning, since this would mean "set projid to 0" while the first snippet
+means "clear/unset projid" (but in this case, for projid and all the
+other already existing fsx_* it would have the same result).
 
-	xfrm_sk_policy_link(newp, dir);
-	spin_unlock_bh(&net->xfrm.xfrm_policy_lock);
-	xfrm_pol_put(newp);
+>> > fileattr_set_prepare() already treats the existing values as:
+>> > fsx_X =3D=3D 0 =3D> clear XFLAG_X
+>> >
+>> > And xfs returns EINVAL for !!(fsx_X) !=3D !!(XFLAGX)
+>> >
+>> > A simple solution is to fix the flag according to val in fileattr_set_=
+prepare()
+>> (This should be in file_attr_to_fileattr() I think, but yeah)
+>> > if rw_mask contains this flag:
+>> >
+>> > if (fa->fsx_xflags_rw_mask & FS_XFLAG_PROJID) {
+>> >     /* Possibly legacy chattr -p compiled with new headers unaware of =
+PROJID */
+>> >     if (fa->fsx_projid =3D=3D 0)
+>> >           fa->fsx_xflags &=3D ~FS_XFLAG_PROJID;
+>> >     else
+>> >           fa->fsx_xflags |=3D FS_XFLAG_PROJID;
+>> > }
+>>
+>> I think this would be a bit too overcomplicated to understand, and
+>
+> True
+>
+>> robot says (with the current v2 code at least) it would make e.g. ntfs
+>> return 0 instead of -EOPNOTSUPP for e.g. chattr +S.
+>>
+>
+> I suspected that existing filesystems may have different legacy behaviors=
+..
 
-bpf_sk_storage_clone() can then return -ENOMEM in three ways: the
-bpf_selem_alloc() optmem charge fails, bpf_selem_link_map() fails, or
-bpf_local_storage_alloc() fails. The free label only calls sk_free().
-__sk_destruct() does not call xfrm_sk_free_policy().
+(By the way I meant ntfs as in "mask aware filesystems" (I said ntfs
+because that was the robot's example since it's the only one currently
+implementing masks), but yeah)
 
-Won't both cloned policies stay linked until netns exit and trigger the
-same xfrm_policy_fini() warning quoted in the commit message?
+>> It also told me that statx already has AT_STATX_* flags that don't match
+>> the at_flags semantics (and indeed, AT_STATX_FORCE_SYNC/DONT_SYNC don't
+>> really make sense for "at"_flags semantics), so my only blocker for that
+>> solution is gone and I would really prefer that approach since it's way
+>> simpler and way cleaner.
+>
+> Git history claims that I suggested making this an official UAPI policy:
+>
+> b4fef22c2fb97 uapi: explain how per-syscall AT_* flags should be allocate=
+d
+>
+> So definitely no objection to AT_FILEATTR_ semantics.
 
-A TCP listener can reach this path from remote traffic through
-inet_csk_clone_lock()->sk_clone(). The listener needs IP_XFRM_POLICY or
-IPV6_XFRM_POLICY set and a BPF_F_CLONE sk_storage map attached. The
-storage clone can then fail under GFP_ATOMIC pressure, or every time
-once the charge reaches optmem_max.
+Oh, yes that's the comments I used as docs to add AT_FILE_ATTR_MASKS to
+fcntl.h ahah.
 
-Would the cleanup fit better in the free path of sk_clone(), so that it
-covers both cases?
+>>
+>> One more thing gemini told me is that if we don't want to use AT_*, we
+>> have to choose between (copy-pasted, "ntfs" meaning any mask-aware fs):
+>> 1. Keep clamping fattr->fa_xflags & rw_user_mask (VER1 masked semantics
+>>    are clean, but recompiled VER0 RMW tools setting unsupported
+>>    flags/projid on ntfs silently return 0)
+>> 2. Reject unexpected non-zero bits/fields outside rw_user_mask | ro_mask
+>>    (protects recompiled VER0 RMW error reporting on ntfs, at the cost th=
+at
+>>    VER1 callers must zero or mask fa_xflags / fa_projid / fa_extsize
+>>    themselves rather than expecting bits outside rw_mask to be ignored).
+>>
+>> So I would *really* prefer adding AT_FILEATTR_MASKS and setting
+>> has_masks based only on that.
+>> This way we can keep the whole legacy path frozen and not have to worry
+>> about weird edge cases (well, converters code aside of course).
+>>
+>> And personally in this way I can reason about the changes a lot more
+>> clearly and I can finally take a better look at the whole code and maybe
+>> simplify it in some cases (probably not, but I'll have to see).
+>>
+>
+> All very good reasons IMO.
+>
+>> (Unless there is something equivalent to AT_FILEATTR_MASKS to filter on,
+>> like maybe a FS_XFLAG_MASKS (?), but that would be even worse
+>> semantically I think)
+>
+> It's an option, but I think AT_FILEATTR_MASKS is cleaner.
 
-That cleanup could not be a plain xfrm_sk_free_policy(newsk) call. On
-the !is_charged short circuit, xfrm_sk_clone_policy() never runs.
-newsk->sk_policy[] still holds the parent's pointers from sock_copy(),
-because sk_policy is outside the __sk_common dontcopy range. Those slots
-would need to be cleared on that path first, or the parent's policies
-would be deleted.
+Yes I agree, I also thought a bit about other options, e.g. even having
+FS_XFLAGS_HASMASKS (like HASATTR), and stripping it right away in the
+syscall (or even using it instead of fa->has_masks) but they would all
+be worse options than AT_FILE_ATTR_MASKS.
 
->  	rcu_read_unlock();
->  	return ret;
->  }
+Today or tomorrow I'll send out v2.
+
+Thanks,
+koraynilay
+
+> Thanks,
+> Amir.
+
+
+
+--1bb107e9a21cc29b328dfa80e731d1d8e11a68359f8065fcb2e36792f75f
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRJ2XvJtXGwULYEerQ0bnTtJTDoOAUCawf1BgAKCRA0bnTtJTDo
+OLpjAQDKR/dd73mxIOj/+UMsWX5hqzYCO7wVrdU87VsXoryD2gD7BIDEGqEGAI9o
+nVWwXnlKfovOetcDViuUktTHmdBWygw=
+=GJse
+-----END PGP SIGNATURE-----
+
+--1bb107e9a21cc29b328dfa80e731d1d8e11a68359f8065fcb2e36792f75f--
